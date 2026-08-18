@@ -133,6 +133,7 @@ function crearFantasma(g: Gesto): Fantasma {
 export function useArrastre<D>(
   destinoDe: (e: React.PointerEvent, enMano: string) => D | null,
   alSoltar: (clave: string, destino: D) => void,
+  alLevantar?: (clave: string) => void,
 ): { props: (clave: string) => PropsArrastre; enMano: string | null; destino: D | null } {
   const [enMano, setEnMano] = useState<string | null>(null)
   const [destino, setDestino] = useState<D | null>(null)
@@ -181,6 +182,7 @@ export function useArrastre<D>(
     ultimo.current = null
     setEnMano(g.clave)
     setDestino(null)
+    alLevantar?.(g.clave)
   }
 
   const props = (clave: string): PropsArrastre => ({
@@ -239,10 +241,10 @@ export function useArrastre<D>(
   return { props, enMano, destino }
 }
 
-/** Dónde cae la fila que va en la mano: encima o debajo de la que se señala. */
+/** Dónde cae la fila que va en la mano: antes o después de la que se señala. */
 interface Destino {
   clave: string
-  debajo: boolean
+  despues: boolean
 }
 
 export interface Arrastre<T> {
@@ -254,12 +256,18 @@ export interface Arrastre<T> {
  * @param clave    identidad estable de cada fila
  * @param lista    contenedor al que pertenece (la carpeta, la sección…)
  * @param alSoltar recibe la lista ya reordenada
+ * @param eje      'y' = una fila debajo de otra (lo normal); 'x' = rejilla, donde
+ *                 el puesto lo decide de qué lado del centro entra el dedo
+ * @param alLevantar aviso de que el gesto se confirmó y la fila ya está en la mano
+ *                 (la pantalla de inicio lo usa para entrar en modo edición)
  */
 export function useArrastreFilas<T>(
   items: T[],
   clave: (x: T) => string,
   lista: (x: T) => string,
   alSoltar: (nuevas: T[]) => void,
+  eje: 'y' | 'x' = 'y',
+  alLevantar?: () => void,
 ): Arrastre<T> {
   const { props, enMano, destino } = useArrastre<Destino>(
     (e, mano) => {
@@ -270,7 +278,9 @@ export function useArrastreFilas<T>(
       // Fuera de su lista no hay destino posible: la fila se queda donde estaba.
       if (bajoElDedo.getAttribute('data-lista') !== lista(suya)) return null
       const caja = bajoElDedo.getBoundingClientRect()
-      return { clave: suClave, debajo: e.clientY > caja.top + caja.height / 2 }
+      const despues =
+        eje === 'x' ? e.clientX > caja.left + caja.width / 2 : e.clientY > caja.top + caja.height / 2
+      return { clave: suClave, despues }
     },
     (mano, caida) => {
       const orden = [...items]
@@ -281,24 +291,33 @@ export function useArrastreFilas<T>(
       // venía de más arriba, todo lo de abajo se corrió un puesto.
       const hasta = orden.findIndex((x) => clave(x) === caida.clave)
       if (hasta < 0) return
-      orden.splice(caida.debajo ? hasta + 1 : hasta, 0, fila)
+      orden.splice(caida.despues ? hasta + 1 : hasta, 0, fila)
       alSoltar(orden)
     },
+    alLevantar,
   )
 
   return {
     fila: (item: T) => {
       const k = clave(item)
       const cae = destino?.clave === k ? destino : null
+      // En rejilla la marca va al costado (bordes lógicos, para el árabe).
+      const marca = cae
+        ? eje === 'x'
+          ? cae.despues
+            ? 'border-e-2 border-accent'
+            : 'border-s-2 border-accent'
+          : cae.despues
+            ? 'border-b-2 border-accent'
+            : 'border-t-2 border-accent'
+        : ''
       return {
         ...props(k),
         'data-fila': k,
         'data-lista': lista(item),
         // El hueco se atenúa y el destino se marca con el acento del tema (en
         // los cuartos es el color de la app que baja RoomOverlay).
-        className: `cursor-grab rounded-xl ${enMano === k ? 'opacity-40' : ''} ${
-          cae ? (cae.debajo ? 'border-b-2 border-accent' : 'border-t-2 border-accent') : ''
-        }`,
+        className: `cursor-grab rounded-xl ${enMano === k ? 'opacity-40' : ''} ${marca}`,
       }
     },
   }

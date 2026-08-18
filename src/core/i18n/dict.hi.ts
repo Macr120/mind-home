@@ -1,9 +1,10 @@
 /**
- * Diccionario HI de la interfaz. Se carga con import() perezoso
- * desde dict.ts: quien no use este idioma no lo descarga.
+ * Diccionario HINDI de la interfaz. Se carga con import() perezoso
+ * desde dict.ts, igual que el inglés: quien no use este idioma no lo descarga.
  *
- * Lo monta `traducir-a-mano.mjs meter-dict` a partir de `dict.en.ts` y de los
- * fallbacks españoles del código. Lo que falte cae al inglés (ver `useT`).
+ * GENERADO por `npm run traducir:i18n` a partir de `dict.en.ts` y de los
+ * fallbacks españoles del código. No lo edites a mano: se sobrescribe entero.
+ * Lo que falte cae al inglés (ver `useT`); al español solo en último término.
  */
 import type { Dict } from './dict'
 
@@ -15,6 +16,8 @@ export const HI: Dict = {
   'nav.ariaMenu': 'कमरों का मेनू',
   'nav.retraer': 'मेनू छोटा करें',
   'nav.abrir': 'मेनू खोलें',
+  'nav.rapido': 'कमरों तक त्वरित पहुंच',
+  'nav.rapido.ayuda': 'ऐप खोलने के लिए कमरे पर टैप करें।',
   'nav.editarCuarto': 'इस कमरे को संपादित करें',
   'nav.entrar': 'अंदर ›',
   'nav.ayuda.tarjetaTexto':
@@ -364,18 +367,20 @@ export const HI: Dict = {
   'meta.marcar': 'पूरा हुआ चिह्नित करें',
   'meta.desmarcar': 'अधूरा चिह्नित करें',
   'meta.agendar': 'कैलेंडर में जोड़ें',
-  'hoy.titulo': 'आज',
+  'hoy.titulo': 'मिशन',
   'hoy.alDia': 'आज का सब कुछ हो गया',
   'hoy.hechos': 'हो गया ({n})',
   'hoy.registrar': 'दर्ज करें',
   'hoy.objetivo': 'आपका रोज़ का लक्ष्य (0 करने पर बंद)',
   'hoy.checklist': 'रोज़ की चेकलिस्ट',
-  'hoy.grupoApp': 'आज के लक्ष्य',
+  'hoy.grupoApp': 'आज के मिशन',
   'hoy.nueva': 'नई चेकलिस्ट',
   'hoy.cerrar': 'बंद करें',
   'hoy.ocultarHechos': 'पूरे हुए छिपाएँ',
+  'hoy.casa.vacio': 'आज किसी भी ऐप में कुछ बाकी नहीं है।',
+  'hoy.casa.abrirApp': 'यह ऐप खोलें',
   'cal.meta.mientrasDure': 'जब तक यह चले, मुझसे पूछें',
-  'cal.meta.unObjetivo': 'दिन का एक लक्ष्य',
+  'cal.meta.unObjetivo': 'दिन का एक मिशन',
   'cal.meta.unaActividad': 'हफ़्ते में एक गतिविधि',
   'cal.meta.diasRitmo': '{hechos}/{pedidos} दिन',
   'rutinas.sinApp': 'बिना ऐप (घर की घटना)',
@@ -481,6 +486,18 @@ export const HI: Dict = {
   'progreso.nivel': 'स्तर',
   'progreso.racha': 'सिलसिला',
   'progreso.dias': 'दिन',
+  'progreso.rachaTitulo': 'गतिविधि वाले दिनों का सिलसिला',
+  'progreso.listasTitulo': 'पूरी की गई मिशन सूचियाँ',
+  'progreso.listasCumplidas': 'पूरी की गई सूचियाँ',
+  'celebra.racha.titulo': '{n} दिन का सिलसिला!',
+  'celebra.racha.titulo1': '1 दिन का सिलसिला!',
+  'celebra.racha.cuerpo': '{app} में ऐसे ही जारी रखें 🔥',
+  'celebra.lista.titulo': 'आज के मिशन पूरे!',
+  'celebra.lista.cuerpo': 'आपने {app} की सूची पूरी कर ली',
+  'celebra.lista.xp': '+{xp} XP',
+  'celebra.nivel.titulo': 'स्तर बढ़ गया!',
+  'celebra.nivel.cuerpo': '{app} अब स्तर {n} पर है 🎉',
+  'celebra.seguir': 'आगे बढ़ें!',
   'progreso.hoy': 'आज',
   'progreso.semana': '7 दिन',
   'plantillas.ayuda':
@@ -673,7 +690,7 @@ export const HI: Dict = {
   'chat.config.ponerMapa': 'नक्शे पर रखें',
   'chat.config.voz': 'आवाज़:',
   'chat.config.vozAuto': 'स्वचालित (भाषा के अनुसार)',
-  'chat.config.vozIA': 'AI आवाज़ (OpenAI, ज़्यादा नैचुरल)',
+  'chat.config.vozIA': 'AI आवाज़ (ज़्यादा नैचुरल)',
   'chat.config.vozLeer': 'जो कहा जाए उसे ज़ोर से पढ़ें',
   'chat.config.vozProbar': 'आवाज़ आज़माएं',
   'chat.config.vozTono': 'टोन',
@@ -754,6 +771,8 @@ export const HI: Dict = {
   'veh.bajarte': 'उतरें',
   'accion.sentarte': 'बैठें',
   'accion.acostarte': 'लेटें',
+  'accion.sentarse': 'बैठें',
+  'accion.acostarse': 'लेटें',
   'accion.sentado': 'बैठे हुए',
   'accion.acostado': 'लेटे हुए',
   'accion.levantarte': 'उठें',
@@ -826,6 +845,7 @@ export const HI: Dict = {
   'room.ideas.nombre': 'विचार',
   'room.computo.nombre': 'कंप्यूटिंग कक्ष',
   'room.agenda.nombre': 'एजेंडा',
+  'room.metas.nombre': 'लक्ष्य',
   'room.cocina.sub': 'पोषण',
   'room.ejercicio.sub': 'ताकत और फिटनेस दिनचर्या',
   'room.recamara.sub': 'नींद और यादें',
@@ -843,6 +863,7 @@ export const HI: Dict = {
   'room.ideas.sub': 'खुले कैनवास पर अवधारणा मानचित्र',
   'room.computo.sub': 'कैलकुलेटर और स्प्रेडशीट',
   'room.agenda.sub': 'काम, स्वास्थ्य और लोग',
+  'room.metas.sub': 'योजनाएं और समय-सारणी',
   'hud.plegar': 'नियंत्रण समेटें',
   'hud.desplegar': 'नियंत्रण दिखाएं',
   'nav3d.aria': 'दृश्य नियंत्रण',
@@ -1200,6 +1221,10 @@ export const HI: Dict = {
   'despacho.patr.enlazarMeta': 'पहले से मौजूद किसी लक्ष्य से जोड़ें…',
   'despacho.patr.objetivoTitulo': 'कितनी राशि तक पहुंचना है?',
   'despacho.patr.objetivoMsg': 'यहां पहले से {n} मौजूद है।',
+  'despacho.patr.metaLiquidar': '{n} चुकाएँ',
+  'despacho.patr.notaCronograma': 'हर महीने {p} · ब्याज {i}',
+  'despacho.patr.yaEnCronograma': 'यह पहले से आपकी समय-सारणी में है',
+  'despacho.patr.alCronograma': 'समय-सारणी में डालें · {f} में चुकता',
   'despacho.meta.verEnPasivos': '«पूंजी › देनदारियां» में देखें',
   'despacho.meta.verEnActivos': '«पूंजी › संपत्ति» में देखें',
   'despacho.meta.anadirAPasivos': 'इसे «देनदारियां» में जोड़ें (दर और अवधि सहित)',
@@ -3452,6 +3477,8 @@ export const HI: Dict = {
   'room.granja.desc': 'मुर्गियां, सूअर, बकरियां, भेड़ें, गायें और घोड़े पालें, और उसी एडिटर में उनका चारा उगाएं।',
   'room.ideas.desc':
     'आपकी आइडिया डायरी और ब्रेनस्टॉर्मिंग, फ़्री कैनवस पर दस कॉन्सेप्ट-मैप फ़ॉर्मैट (माइंड मैप, ट्री, टाइमलाइन, साइकल, पिरामिड, वेन…) और फ़ैसला लेने के लिए आठ डायग्राम (पक्ष-विपक्ष, फ़ोर्स फ़ील्ड, SWOT, आइज़नहावर, डिसीज़न ट्री, टियर लिस्ट, वेटेड डिसीज़न मैट्रिक्स और इशिकावा), हाथ से या AI के साथ।',
+  'room.metas.desc':
+    'पूरे घर से आपने जो ठाना है, वह सब: लक्ष्यों की सूची उनके उप-लक्ष्यों और चरणों के साथ, हर एक के लिए AI जो योजनाएं सुझाता है (तारीख वाले चरण जो असली उप-लक्ष्य बन जाते हैं), और वह समय-सारणी जहां हर चीज़ समय की धुरी पर अपनी अवधि घेरती है।',
   'room.computo.desc':
     'कंप्यूटिंग कक्ष: फ़ॉर्मूला बुक के साथ साइंटिफ़िक कैलकुलेटर (गणित, भौतिकी और रसायन शामिल और संपादन-योग्य) और आठ मोड — चार तरह का प्लॉटर (2D, ध्रुवीय, पैरामेट्रिक और 3D सतह), बाइनरी और हेक्साडेसिमल, मैट्रिक्स, समीकरण-तंत्र, इकाई बदलाव, टिप और त्रैराशिक; और Excel व PDF में एक्सपोर्ट होने वाली स्प्रेडशीट।',
   'computo.tab.calculadora': 'कैलकुलेटर',
@@ -4050,6 +4077,7 @@ export const HI: Dict = {
   'cal.cron.avance': '{n}% पूरा',
   'cal.cron.buscar': 'खोजें…',
   'cal.cron.desplegarTodo': 'सभी को खोलें',
+  'cal.cron.editar': 'लक्ष्य बदलें',
   'cal.cron.hechas': 'पूरी',
   'cal.cron.ocultarHechas': 'पूरी हो चुकी छिपाएं',
   'cal.cron.plegarTodo': 'सभी को समेटें',
@@ -4058,6 +4086,7 @@ export const HI: Dict = {
   'cal.cron.trazar': 'तारीख़ें देने के लिए यहां खींचें',
   'cal.cron.vacio': 'अभी तक कोई लक्ष्य नहीं है।',
   'cal.cron.vencida': 'समय निकल गया, पूरा नहीं हुआ',
+  'cal.cron.volver': 'लक्ष्य पर वापस जाएं',
   'cal.cronograma': 'समय-सारणी',
   'cal.dia': 'दिन',
   'cal.editarEvento': 'इवेंट बदलें',
@@ -4081,6 +4110,7 @@ export const HI: Dict = {
   'cal.mes': 'महीना',
   'cal.meta.agregarHija': 'एक उप-लक्ष्य जोड़ें',
   'cal.meta.alcance': 'पूरे हुए चरण और उप-लक्ष्य',
+  'cal.meta.armar': 'कैलेंडर पर बनाएं',
   'cal.meta.armarORenombrar': 'क्लिक: कैलेंडर पर बनाएं · डबल क्लिक: नाम बदलें',
   'cal.meta.colorDe': 'इस लक्ष्य का रंग',
   'cal.meta.borrar': 'यह लक्ष्य हटाएं?',
@@ -4109,9 +4139,6 @@ export const HI: Dict = {
   'cal.meta.pasoNuevo': 'एक चरण जोड़ें…',
   'cal.meta.pasoRenombrar': 'चरण का नाम बदलने के लिए डबल क्लिक करें',
   'cal.meta.pasos': 'इस लक्ष्य के चरण',
-  'cal.meta.plan': 'योजना',
-  'cal.meta.planEnCronograma': 'इसकी योजना समय-सारणी में देखें',
-  'cal.meta.planHoja': 'इसकी योजना की शीट खोलें',
   'cal.meta.plegar': 'समेटें',
   'cal.meta.ponerHora': 'समय सेट करें',
   'cal.meta.prefijoSub': 'उप-',
@@ -4410,7 +4437,8 @@ export const HI: Dict = {
   'chat.modelo.titulo': 'सहायकों का एआई मॉडल',
   'chat.olvidar': 'भूल जाएं',
   'chat.pdfGrande': 'यह PDF {mb} MB से बड़ी है, कोई हल्की फ़ाइल इस्तेमाल करें।',
-  'chat.pdfSinTexto': 'उस PDF में टेक्स्ट नहीं मिला (क्या यह स्कैन की हुई है?). Claude के साथ इसे पूरा देखा जा सकता है।',
+  'chat.pdfSinTexto':
+    'उस PDF में टेक्स्ट नहीं मिला (क्या यह स्कैन की हुई है?). Claude के साथ इसे पूरा देखा जा सकता है।',
   'chat.plegar': 'चैट छोटा करें',
   'chat.quitarAdjunto': 'अटैचमेंट हटाएँ',
   'chat.quitarFoto': 'फ़ोटो निकालें',
@@ -4927,7 +4955,40 @@ export const HI: Dict = {
   'nav.asignar': '+ असाइन करें',
   'nav.asignarApp': 'इस कमरे को एक ऐप असाइन करें',
   'nav.crearCuarto': 'कमरा बनाएं',
+  'nav.vista3D': 'कमरों को 3D में देखें',
+  'nav.vistaIconos': 'कमरों को उनके आइकन के साथ देखें',
   'nav.sinCuartos': 'अभी तक कोई कमरा नहीं है। नीचे पहला बनाएं।',
+  'nav.rapido.editando': 'क्रम बदलने के लिए खींचें, या संपादित करने के लिए पेंसिल पर टैप करें।',
+  'nav.rapido.listo': 'हो गया',
+  'nav.rapido.metas': 'इस ऐप में पूरे किए गए लक्ष्य',
+  'nav.rapido.pendientes': '{n} मिशन बाकी हैं',
+  'nav.fondo.borrar': 'हटाएँ',
+  'nav.sinApps': 'ऐप वाले कमरे यहाँ दिखते हैं। कमरों के मेन्यू से कोई ऐप सौंपें।',
+  'nav.editar.titulo': 'कमरा संपादित करें',
+  'nav.editar.nombre': 'नाम',
+  'nav.editar.icono': 'आइकन',
+  'nav.editar.tab.emoji': 'इमोजी',
+  'nav.editar.tab.imagen': 'छवि',
+  'nav.editar.emojiLibre': 'कोई और इमोजी',
+  'nav.editar.imagenPuesta': 'यह छवि मेन्यू में इमोजी की जगह लेती है।',
+  'nav.editar.quitarImagen': 'हटाएँ',
+  'nav.editar.subirImagen': 'छवि अपलोड करें',
+  'nav.editar.color': 'रंग',
+  'nav.editar.murosTitulo': 'दीवारें भी दोबारा रंगें?',
+  'nav.editar.murosMensaje': 'इस कमरे में ऐसी दीवारें हैं जिन्हें आपने मानचित्र संपादक में खुद रंगा था। दोबारा रंगने पर उनका रंग चला जाएगा।',
+  'nav.editar.murosOk': 'दोबारा रंगें',
+  'nav.fondo.titulo': 'वॉलपेपर',
+  'nav.fondo.desc': 'छवियाँ घर के आकाश पृष्ठभूमि के साथ साझा होती हैं।',
+  'nav.fondo.sin': 'कोई वॉलपेपर नहीं',
+  'nav.fondo.subir': 'छवि अपलोड करें',
+  'nav.fondo.nombreIA': 'एआई वॉलपेपर',
+  'nav.fondo.atenuacion': 'वॉलपेपर मद्धिम करें',
+  'editor.texturaIA.placeholderIcono': 'आइकन का वर्णन करें…',
+  'editor.texturaIA.generarIcono': 'आइकन बनाएँ',
+  'editor.texturaIA.sug.iconoMinimal': 'एक ही रेखा का मिनिमल',
+  'editor.texturaIA.sug.iconoPastel': 'पेस्टल रंगों में गोल',
+  'editor.texturaIA.sug.iconoPixel': 'पिक्सेल आर्ट शैली',
+  'editor.texturaIA.sug.iconoDegradado': 'चटख ग्रेडिएंट के साथ',
   'nav3d.ayuda1P': 'राइट-क्लिक या जॉयस्टिक; ज़ूम के लिए व्हील',
   'nav3d.ayuda3P': 'राइट-क्लिक या जॉयस्टिक; ज़ूम के लिए व्हील',
   'nav3d.cambiarVista': 'व्यू बदलें (V कुंजी)',
@@ -5527,6 +5588,9 @@ export const HI: Dict = {
   'ajustes.musica.sfxDesc': 'ब्लास्टर, पोर्टल, आतिशबाज़ी, गेम्स और वाहन। संगीत की आवाज़ से अलग।',
   'musica.control': 'संगीत',
   'musica.cerrar': 'बंद करें',
+  'visor.ampliar': 'चित्र को पूरी स्क्रीन पर देखें',
+  'visor.cerrar': 'बंद करें',
+  'visor.descargar': 'डाउनलोड करें',
   'voz.escuchar': 'सुनें',
   'voz.callar': 'पढ़ना बंद करें',
   'voz.autoOn': 'जवाब ज़ोर से पढ़ता है',
@@ -5563,6 +5627,17 @@ export const HI: Dict = {
   'cuenta.sinBackend': 'इस इंस्टॉल में बैकएंड सेट नहीं है: सब कुछ सिर्फ़ इसी डिवाइस पर सेव होता है।',
   'cuenta.cargando': 'लोड हो रहा है…',
   'cuenta.intro': 'खाते के साथ, आपका प्लान और आपका घर किसी भी डिवाइस पर आपके साथ रहते हैं।',
+  'cuenta.nivel.titulo': 'आपका स्तर',
+  'cuenta.nivel.n': 'स्तर ×{n} — हर महीने {c} क्रेडिट',
+  'cuenta.nivel.actual': 'मौजूदा',
+  'cuenta.nivel.nota': 'आप जब चाहें स्तर बढ़ा या घटा सकते हैं; बदलाव का शुल्क आनुपातिक रूप से लगता है।',
+  'cuenta.nivel.subir': '×{n} पर जाएँ — {p} में हर महीने {c} क्रेडिट',
+  'cuenta.cuota.cuerpoNivel': 'आपके क्रेडिट {f} को नए हो जाएंगे। अगर हर महीने कम पड़ते हैं, तो स्तर बढ़ाएँ।',
+  'cuenta.cuota.cuerpoVencida': 'आपका डेटा इसी डिवाइस पर है। महीने के क्रेडिट और सिंक वापस पाने के लिए नवीनीकरण करें।',
+  'cuenta.cuota.cuerpoTrial': 'ऐप और आपका डेटा हमेशा आपका है। हर महीने के क्रेडिट और सिंक जारी रखने के लिए Pro लें।',
+  'cuenta.cuota.cuerpoLocal':
+    'ऐप और आपका डेटा बिना कुछ चुकाए आपका है। पैसे सिर्फ़ AI के लगते हैं: सदस्यता लें और हर महीने क्रेडिट पाएँ।',
+  'cuenta.cuota.web': 'मेरी सदस्यता देखें',
   'cuenta.conGoogle': 'Google से जारी रखें',
   'cuenta.conApple': 'Apple से जारी रखें',
   'cuenta.oCorreo': 'या अपने ईमेल से',
@@ -5583,8 +5658,6 @@ export const HI: Dict = {
   'cuenta.techo.cuerpo':
     'इस महीने आपके अनुरोधों ने सामान्य से कहीं ज़्यादा संदर्भ इस्तेमाल किया और उचित उपयोग सीमा पूरी हो गई। यह {f} को रीसेट होगी।',
   'cuenta.cuota.tituloTrial': 'आपका शामिल महीना खत्म हो गया',
-  'cuenta.cuota.cuerpoTrial':
-    'ऐप और आपका डेटा हमेशा के लिए आपका है। मासिक क्रेडिट और सिंक जारी रखने के लिए Pro सब्सक्राइब करें, या ज़रूरत पड़ने पर अलग क्रेडिट रीचार्ज करें।',
   'puerta.trato':
     'एक ही भुगतान आपका घर हमेशा के लिए खोल देता है और इसमें AI और सिंक का पहला महीना शामिल है — न कार्ड, न सब्सक्रिप्शन।',
   'puerta.procesando': 'प्रोसेस हो रहा है…',
@@ -5625,6 +5698,19 @@ export const HI: Dict = {
   'ia.activar.sinActivar':
     'एआई बंद है। क्रेडिट इस्तेमाल करने के लिए साइन इन करें, या नीचे किसी प्रोवाइडर की कुंजी पेस्ट करें।',
   'ia.activar.priv': 'यह सिर्फ़ इसी डिवाइस पर सेव रहता है और {prov} के अलावा कहीं नहीं जाता।',
+  'ia.media.sinClave': 'चित्र बनाने और AI आवाज़ इस्तेमाल करने के लिए OpenAI या Gemini की कुंजी जोड़ें।',
+  'ia.panel.cerebro': 'दिमाग़',
+  'ia.panel.claveOllama': 'Ollama कुंजी (सिर्फ़ उसके क्लाउड या कुंजी माँगने वाले सर्वर के लिए)',
+  'ia.panel.localImagen': 'यह मॉडल चित्र बनाता है।',
+  'ia.panel.imagen': 'चित्र',
+  'ia.panel.proveedor': 'प्रदाता',
+  'ia.panel.voz': 'आवाज़',
+  'ia.panel.vozAyuda': 'इस प्रदाता के साथ सहायकों की AI आवाज़ चालू करता है',
+  'ia.transporte.byok': 'मेरी कुंजियाँ (BYOK)',
+  'ia.transporte.creditos': 'क्रेडिट',
+  'ia.transporte.creditosDesc':
+    'आपके खाते से जाता है: कुंजियाँ सर्वर लगाता है और हर अनुरोध में प्लान के क्रेडिट खर्च होते हैं।',
+  'ia.transporte.sinCuenta': 'क्रेडिट इस्तेमाल करने के लिए साइन इन करें।',
   'ia.calidad.titulo': 'इमेज की क्वालिटी',
   'ia.calidad.rapida': 'तेज़',
   'ia.calidad.rapida.desc': 'अच्छी और सस्ती। जब तक आप कुछ और न कहें, यही इस्तेमाल होती है।',
@@ -5742,16 +5828,11 @@ export const HI: Dict = {
   'cuenta.cuota.titulo': 'इस महीने के आपके क्रेडिट खत्म हो गए',
   'cuenta.cuota.tituloSin': 'एआई इस्तेमाल करने के लिए क्रेडिट चाहिए',
   'cuenta.cuota.cuerpo': 'आपके क्रेडिट {f} को रिन्यू होंगे।',
-  'cuenta.cuota.cuerpoLocal':
-    'ऐप और आपका डेटा बिना किसी भुगतान के आपका है। सिर्फ़ एआई के पैसे लगते हैं: जब ज़रूरत हो क्रेडिट टॉप-अप करें, या सब्सक्राइब करके हर महीने पाएं।',
-  'cuenta.cuota.cuerpoVencida':
-    'आपका डेटा इसी डिवाइस पर रहता है। महीने के क्रेडिट और सिंक वापस पाने के लिए रिन्यू करें, या अलग से क्रेडिट टॉप-अप करें।',
   'cuenta.cuota.recarga': '+600 क्रेडिट — {p}',
   'cuenta.cuota.recargaN': '+{n} क्रेडिट — {p}',
   'cuenta.cuota.recargaLista': 'टॉप-अप हो गया: आपके अतिरिक्त क्रेडिट आपके खाते में आ गए हैं।',
   'cuenta.cuota.suscribirse': 'सब्सक्रिप्शन देखें',
   'cuenta.cuota.nativo': 'क्रेडिट आपके खाते से मैनेज होते हैं।',
-  'cuenta.cuota.web': 'मेरे खाते में क्रेडिट खरीदें',
   'cuenta.creditos.faltan': 'आपके एआई क्रेडिट खत्म हो गए।',
   'comun.entendido': 'ठीक है',
   'demo.aviso.titulo': 'आप डेमो हाउस में हैं',
@@ -5812,12 +5893,12 @@ export const HI: Dict = {
   'tut.calendario.titulo': 'कैलेंडर',
   'tut.calendario.resumen':
     'घर की घड़ी कैलेंडर खोलती है: सब कुछ जो शेड्यूल किया गया है —शिफ़्ट, क्लास, आदतें और बाक़ी ऐप जो जोड़ते हैं— दिन, सप्ताह, महीना, साल और लक्ष्य व्यू में। नीचे का पैनल बताता है कि आपने शेड्यूल किया हुआ कितना पूरा किया।',
-  'tut.calendario.3b.titulo': 'और लक्ष्य, अलग से',
+  'tut.calendario.3b.titulo': 'और आज के लक्ष्य, अलग से',
   'tut.calendario.3b.texto':
-    'लाल रंग में, ताकि ऊपर वाले चार से मिल न जाए: लक्ष्य आपके लक्ष्य, उनकी योजनाएं और समय-सारणी खोलता है।',
+    'लाल रंग में, ताकि ऊपर वाले चार से मिल न जाए: «आज के लक्ष्य» आपके सभी ऐप्स की आज की चेकलिस्ट एक जगह जोड़ देता है। आपके लक्ष्य और उनकी योजनाएं अपने ही कमरे में रहती हैं।',
   'tut.metas.titulo': 'लक्ष्य',
   'tut.metas.resumen':
-    'लक्ष्य की तीन स्क्रीन: वह लिस्ट जहां यह जन्म लेता है, वह योजना जो इसे आगे बढ़ाती है (एआई सुझाव देता है, आप टिक करते हैं), और वह समय-सारणी जहां इसके फ़ेज़ असली उप-लक्ष्यों की तरह अपना समय लेते हैं।',
+    'लक्ष्यों की लिस्ट और, हर एक के अंदर, उसकी शीट: वह योजना जो इसे आगे बढ़ाती है (एआई सुझाव देता है, आप टिक करते हैं) और उसकी समय-सारणी, जहां इसके फ़ेज़ अब असली उप-लक्ष्य बनकर अपनी अवधि घेरते हैं।',
   'tut.app-biblioteca--enciclopedia.titulo': 'अपना विश्वकोश',
   'tut.app-biblioteca--enciclopedia.resumen':
     'जो कुछ भी आप सीखते हैं वह ज्ञान के क्षेत्र के हिसाब से एक वृक्ष में दर्ज होता है: सारांश और मुख्य बिंदुओं वाले कार्ड, जिन्हें आप चित्रित कर सकते हैं।',
@@ -5872,6 +5953,9 @@ export const HI: Dict = {
   'tut.app-ejercicio--fuerza.titulo': 'वह ताकत जो घुटना नहीं छीन सका',
   'tut.app-ejercicio--fuerza.resumen':
     '«ताकत» में आप सेट, रैप्स और वज़न दर्ज करते हैं; इससे ऐप आपका वॉल्यूम निकालता है, हर एक्सरसाइज़ की प्रगति दिखाता है और आपके पर्सनल रिकॉर्ड सहेजता है।',
+  'tut.app-ejercicio--flexibilidad.titulo': 'तीसरी विधा',
+  'tut.app-ejercicio--flexibilidad.resumen':
+    'लचीलापन भी ताकत और सहनशक्ति की तरह ही चलता है —कैटलॉग, दिनचर्या, प्रगति— बस सेट वज़न की जगह समय से गिने जाते हैं, और टाइमर वाला गाइडेड प्लेयर साथ है।',
   'tut.app-cocina--alimentacion.titulo': 'लक्ष्य के साथ खाना',
   'tut.app-cocina--alimentacion.resumen':
     'खानपान पर नियंत्रण चार चरणों में है: आप अपने लक्ष्य तय करते हैं, जो खाते-पीते हैं उसे दर्ज करते हैं, अपना हफ़्ता प्लान करते हैं, और प्रगति बताती है कि आप सही दिशा में जा रहे हैं या नहीं।',
@@ -5896,6 +5980,9 @@ export const HI: Dict = {
   'tut.app-despacho--metas.titulo': 'जापान, आपातकालीन फंड और क़र्ज़',
   'tut.app-despacho--metas.resumen':
     '«लक्ष्य» आपके बचत और निवेश के लक्ष्यों को उनके प्रोग्रेस बार के साथ एक लिस्ट में रखता है, और क़र्ज़ को अलग, अपने सिमुलेशन के साथ रखता है। हर एक की अपनी समय-सारणी होती है जहां तारीख़ें तय की जा सकती हैं।',
+  'tut.app-despacho--patrimonio.titulo': 'आपके पास क्या है, कितना क़र्ज़ है और सब किधर जा रहा है',
+  'tut.app-despacho--patrimonio.resumen':
+    'पूंजी कोई एक फ़ोटो नहीं है: आपकी हर चीज़ का दाम चढ़ता-उतरता है और हर क़र्ज़ पर ब्याज लगता है। हर पंक्ति को उसकी दर दीजिए, और तीसरा टैब पिछले साल से लेकर अंत तक की पूरी फ़िल्म दिखा देगा।',
   'tut.app-despacho--calculadoras.titulo': 'एक आंकड़ा तय करने के चार नियम',
   'tut.app-despacho--calculadoras.resumen':
     'पर्सनल फ़ाइनेंस के चार कैलकुलेटर आपके असली बैलेंस के आधार पर एक लक्ष्य राशि सुझाते हैं, और एक टैप में उसे लक्ष्य बना देते हैं। हर नियम के पैरामीटर बदले जा सकते हैं: किसी को भी 50/30/20 को जस का तस मानने की ज़रूरत नहीं।',
@@ -5939,6 +6026,7 @@ export const HI: Dict = {
   'cuenta.sync.activo': 'सिंक हो रहा है…',
   'cuenta.sync.ultima': 'सिंक हुआ: {f}',
   'cuenta.sync.nunca': 'अभी तक सिंक नहीं हुआ',
+  'cuenta.sync.soloPro': 'डिवाइसों के बीच सिंक Pro का हिस्सा है।',
   'cuenta.sync.ahora': 'सिंक करें',
   'cuenta.sync.otraCuenta':
     'यह घर किसी और खाते से जुड़ा हुआ था। लोकल डेटा रखकर उसे नए खाते में मिला दें? (रद्द करें = इस घर को खाली करें और सिर्फ़ खाते का डेटा डाउनलोड करें)',
@@ -5997,6 +6085,7 @@ export const HI: Dict = {
   'agenda.prioridad.baja': 'निम्न',
   'agenda.trabajo.pendientes': 'पेंडिंग',
   'agenda.trabajo.tablero': 'बोर्ड',
+  'agenda.trabajo.apuntar': 'काम नोट करें',
   'ejemplo.vacio': 'समझ नहीं आ रहा कहां से शुरू करें? देखें कि अंदर उदाहरण के साथ यह कैसा दिखता है।',
   'ejemplo.puesto': 'यह एक उदाहरण है: जब चाहें छिपा दें, आपका डेटा जस का तस रहेगा।',
   'ejemplo.mostrar': 'उदाहरण देखें',
@@ -6029,6 +6118,7 @@ export const HI: Dict = {
   'agenda.projimo.aMiCuidado': 'मेरी देखरेख में',
   'agenda.cuidadop.nuevo': 'नई देखभाल',
   'agenda.cuidado.archivado': 'हो गया, बिना दोहराव',
+  'agenda.cuidado.yaLoHice': 'कर लिया',
   'agenda.cuidado.reactivar': 'फिर से शेड्यूल करें',
   'agenda.form.especialidad': 'विशेषज्ञता',
   'agenda.esp.general': 'जनरल फिज़िशियन',
@@ -6194,10 +6284,6 @@ export const HI: Dict = {
   'widgets.efemerideTitulo': 'आज के दिन',
   'widgets.vacio': 'आज के लिए कुछ भी शेड्यूल नहीं है',
   'widgets.desactualizado': 'अपडेट करने के लिए टैप करें',
-
-  // Catálogo de recursos 3D: el nombre con el que se siembra cada objeto del
-  // inventario. Solo se muestra traducido si el objeto aún se llama como su
-  // recurso de origen; un nombre puesto por el usuario se respeta tal cual.
   'objetos.nombreGenerico': 'वस्तु',
   'objetos.nombrePiezas': 'हिस्सों से बनी वस्तु',
   'recurso.1': 'किचन कैबिनेट (ऊपर-नीचे)',
@@ -6353,23 +6439,6 @@ export const HI: Dict = {
   'recursoExtra.sillon-lectura': 'पढ़ने की कुर्सी',
   'recursoExtra.calendario-pared': 'दीवार कैलेंडर',
   'recursoExtra.estacion-computo': 'कंप्यूटर स्टेशन',
-  'accion.sentarse': 'बैठें',
-  'accion.acostarse': 'लेटें',
-  'cuenta.sync.soloPro': 'डिवाइसों के बीच सिंक Pro का हिस्सा है।',
-  'agenda.cuidado.yaLoHice': 'कर लिया',
-  'despacho.patr.metaLiquidar': '{n} चुकाएँ',
-  'despacho.patr.notaCronograma': 'हर महीने {p} · ब्याज {i}',
-  'despacho.patr.yaEnCronograma': 'यह पहले से आपकी समय-सारणी में है',
-  'despacho.patr.alCronograma': 'समय-सारणी में डालें · {f} में चुकता',
-  'tut.app-despacho--patrimonio.titulo': 'आपके पास क्या है, कितना क़र्ज़ है और सब किधर जा रहा है',
-  'tut.app-despacho--patrimonio.resumen':
-    'पूंजी कोई एक फ़ोटो नहीं है: आपकी हर चीज़ का दाम चढ़ता-उतरता है और हर क़र्ज़ पर ब्याज लगता है। हर पंक्ति को उसकी दर दीजिए, और तीसरा टैब पिछले साल से लेकर अंत तक की पूरी फ़िल्म दिखा देगा।',
-  'tut.app-ejercicio--flexibilidad.titulo': 'तीसरी विधा',
-  'tut.app-ejercicio--flexibilidad.resumen':
-    'लचीलापन भी ताकत और सहनशक्ति की तरह ही चलता है —कैटलॉग, दिनचर्या, प्रगति— बस सेट वज़न की जगह समय से गिने जाते हैं, और टाइमर वाला गाइडेड प्लेयर साथ है।',
-  'agenda.trabajo.apuntar': 'काम नोट करें',
-
-  // Tres palabras por app (tarjetas del paso de intereses en la bienvenida)
   'room.cocina.corta': 'भोजन, मैक्रोज़ और व्यंजन',
   'room.ejercicio.corta': 'रूटीन, ताकत और लक्ष्य',
   'room.descanso.corta': 'समय, अलार्म और रातें',
@@ -6386,4 +6455,5 @@ export const HI: Dict = {
   'room.ideas.corta': 'विचार, नक्शे और निर्णय',
   'room.computo.corta': 'कैलकुलेटर, ग्राफ़ और शीट',
   'room.agenda.corta': 'कार्य, स्वास्थ्य और लोग',
+  'room.metas.corta': 'लक्ष्य, योजनाएं और समय-सारणी',
 }

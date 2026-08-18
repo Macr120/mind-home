@@ -47,6 +47,7 @@ export const TABLAS_SYNC: string[] = [
   'rutinas',
   'ejecucionesRutina',
   'fondosImagen',
+  'fondosPanel',
   'temasPropios',
   'pisosImagenCuarto',
   'techosImagenCuarto',
@@ -103,6 +104,7 @@ export const TABLAS_SYNC: string[] = [
   'metasDiariasManual',
   'objetivosDiarios',
   'cumplimientosDiarios',
+  'listasCumplidas',
   'caminos',
   'cultivos',
   'animales',
@@ -361,6 +363,9 @@ export const CLAVES_UNICAS: Record<string, string[]> = {
   // El sello de un día es único por app, objetivo y fecha: sin esto cada
   // dispositivo sellaría su copia del mismo día.
   cumplimientosDiarios: ['plantillaId', 'clave', 'fecha'],
+  // La lista cumplida es única por app y fecha: sin esto cada dispositivo
+  // otorgaría su copia del mismo día al fusionar.
+  listasCumplidas: ['plantillaId', 'fecha'],
   caminos: ['col', 'row'],
   cultivos: ['col', 'row'],
   cesta: ['especie'],

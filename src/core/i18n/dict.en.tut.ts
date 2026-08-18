@@ -252,7 +252,7 @@ export const EN_TUT: Dict = {
   'tut.ejemplos.1.texto': 'This bar shows up in almost every app while it still has none of your own data: a button to see it full of example content instead of starting on an empty screen.',
   'tut.ejemplos.2.texto': 'Viewing an example doesn\'t delete or mix in anything of yours: it\'s its own rows, marked as example, hidden (not deleted) when you turn it off. Turning it back on brings them back exactly as they were.',
   'tut.ejemplos.3.texto': 'Inside the demo home this bar doesn\'t appear: Pep@\'s whole year already plays that role, so there\'s no need for a separate example.',
-  'tut.hoy.1.texto': 'In every app\'s header, next to the music button, lives its daily checklist chip: it only carries the day\'s count and it\'s born closed, so it doesn\'t eat up the screen.',
+  'tut.hoy.1.texto': 'In every app\'s header lives its Missions button: the checklist of what that app asks of you TODAY. The house clock has that same button with all the apps together.',
   'tut.hoy.2.titulo': 'Three sources, one list',
   'tut.hoy.2.texto': 'The app\'s own targets (water, calories), what you scheduled for today in the calendar, and the steps from your active goals: all together, grouped under the plan or the goal each step comes from.',
   'tut.hoy.3.titulo': 'It crosses off because the data exists',
@@ -263,7 +263,7 @@ export const EN_TUT: Dict = {
   'tut.hoy.5.texto': 'The calendar schedules that same target with a fixed time: it opens the same editor as the clock\'s routines, so it ends up logged in both places at once.',
   'tut.hoy.6.titulo': 'Done doesn\'t disappear',
   'tut.hoy.6.texto': 'It drops down to "Done", collapsed: seeing the log take effect is part of the reward, and you can undo it from there if one slipped in by mistake.',
-  'tut.hoy.7.texto': 'And if something\'s missing, «New checklist» creates your own: a list of this app\'s that repeats every day. At the foot of the panel you hide what\'s finished or turn the whole checklist off in the apps where you don\'t want it.',
+  'tut.hoy.7.texto': 'And if something\'s missing, «New checklist» creates your own: a list of this app\'s that repeats every day. The goals these steps come from are planned in the Goals room.',
   'tut.progreso.1.texto': 'Your character\'s card: Pep@ has a whole year of real activity behind them, so every number here has a real story explaining it.',
   'tut.progreso.2.titulo': 'The character',
   'tut.progreso.2.texto': 'Tapping it opens the character editor. Its mood —happy, content, sad or asleep— rises with every new log and only drops if days pass with none; it never resets all at once.',
@@ -459,7 +459,7 @@ export const EN_TUT: Dict = {
   'tut.app-hobbies--gestion.3.texto':
     'Quick minutes with one tap, or the exact number; the project is optional and the note is for whatever you want to remember about that session.',
   'tut.app-hobbies--gestion.4.texto':
-    'The goals of your hobbies and projects live in the Goals button of the header: the same Goals · Plans · Timeline planner from the calendar, scoped to this app. Ask the AI for a plan with phases and dates.',
+    'The goals of your hobbies and projects live in the Goals room, each one with its plan and its timeline. Ask the AI for a plan with phases and dates.',
   'tut.app-ideas--diario.1.titulo': 'The inbox',
   'tut.app-ideas--diario.1.texto':
     "Write the thought and done. Pep@ dropped ~90 ideas here over the year: physics, the coffee shop, training. The star marks favorites.",
@@ -519,7 +519,7 @@ export const EN_TUT: Dict = {
     'Both holes are real: the knee injury in month 7 and the three weeks in Japan. Missing days does not erase progress — the panel shows the year as it was, not as it should have been. And a routine only counts from the day you created it.',
   'tut.metas.1.titulo': 'Goals come first',
   'tut.metas.1.texto':
-    'The view opens on Goals, grouped by the app that owns them: running under Exercise, the physics degree under Library. “Home” is no app — Pep@ made that category up for the kitchen build.',
+    'The room opens on Goals, grouped by the app that owns them: running under Exercise, the physics degree under Library. “Home” is no app — Pep@ made that category up for the kitchen build.',
   'tut.metas.2.titulo': 'From the goal to its plan',
   'tut.metas.2.texto':
     'Every row reads like a board: its number in the folder, the deadline, the progress and the state — to do, in progress or done, depending on how much is ticked off. One click opens the goal: its plan if it has one (the ✨ says so) and, if not, its sheet with the sub-goals, the dates and the steps.',
@@ -528,7 +528,7 @@ export const EN_TUT: Dict = {
     'The kitchen and the next marathon are still proposals; the grad application is already on the timeline. The marathon one was asked for with no deadline: the AI worked out it needs 24 weeks, and says so in its summary.',
   'tut.metas.4.titulo': 'The plan sheet',
   'tut.metas.4.texto':
-    'Six phases and their sub-goals, each with its own window. While it is a proposal the whole thing is editable: rename, move dates, add or drop nodes without throwing the rest off.',
+    'The ✨ on a row announces that the goal already has a plan, and clicking it opens this sheet: the phases and their sub-goals, each with its own window. While it is a proposal the whole thing is editable: rename, move dates, add or drop nodes without throwing the rest off.',
   'tut.metas.5.titulo': 'Tick without committing',
   'tut.metas.5.texto':
     "A proposal's ticks live in the sheet, not in your goals: you can mark what's done without touching your timeline. The bars fill upwards on their own — the kitchen planning is already closed.",
@@ -540,7 +540,10 @@ export const EN_TUT: Dict = {
     "The grad plan has already moved. Its ticks are now the real sub-goals' ticks and the bar is your timeline's: the sheet stops keeping a separate count.",
   'tut.metas.8.titulo': 'And there they are, on the axis',
   'tut.metas.8.texto':
-    'The sub-goals born from the plan take up their window on the timeline, with the plan ghosted in violet on top: the proposal and the real thing on the same axis.',
+    "The timeline is THIS goal's: its sub-goals take up their window on the time axis, with the plan ghosted in violet on top — the proposal and the real thing, together.",
+  'tut.metas.9.titulo': 'Each goal, its own axis',
+  'tut.metas.9.texto':
+    'This axis belongs to a SINGLE goal: here you give dates to whatever has none, hang new sub-goals, and “Back” returns you to its sheet. The Timeline menu up top shows them all together.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'A year of studies, as a tree',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep@ studies Physics: mechanics early in the year, thermodynamics towards the month 6 midterm, relativity and astrophysics at the end. Each branch opens to show its cards.',
@@ -560,7 +563,7 @@ export const EN_TUT: Dict = {
     'The + on each row writes an entry right there, with its field and topic already set. And the pencil button grows the tree: that same + adds branches, the one on the Seed creates new fields, and you can rename, reorder and delete. The number with the little branch tells you how many sub-indexes hang below.',
   'tut.app-biblioteca--estudio.2.titulo': 'The study plan',
   'tut.app-biblioteca--estudio.2.texto':
-    "Goals live in the Goals button of the header, the calendar's own timeline: «finish thermodynamics before the midterm» is already done; preparing for grad school is still going.",
+    "The Missions button in the header brings up what's due today. Study goals live in the Goals room, grouped by app: «finish thermodynamics before the midterm» is already done; preparing for grad school is still going.",
   'tut.app-biblioteca--estudio.3.texto':
     'You can ask any goal for a plan: the AI asks for your target date and your available hours, and schedules the study slots in your calendar.',
   'tut.app-biblioteca--resumen.1.texto':
@@ -629,7 +632,7 @@ export const EN_TUT: Dict = {
     'The bars measure what you have done against your targets: strength sessions, running minutes and mobility minutes. The goal adjusts to the period you pick above.',
   'tut.app-ejercicio--anio.3.titulo': 'The goals of the year',
   'tut.app-ejercicio--anio.3.texto':
-    'The Goals button in the header keeps the four goals Pep@ ticked off — the 5K, the 10K, the half marathon and the marathon — plus the one still open. Goals with a date also show up in the house calendar.',
+    'The Goals room keeps the four goals Pep@ ticked off — the 5K, the 10K, the half marathon and the marathon — plus the one still open. Goals with a date also show up in the house calendar.',
   'tut.app-ejercicio--carrera.1.titulo': 'Catalogue, routines and progress',
   'tut.app-ejercicio--carrera.1.texto':
     'Every discipline works the same way: the exercise catalogue, your routines with their history, and progress. Let us start with what Pep@ already ran.',
@@ -686,9 +689,9 @@ export const EN_TUT: Dict = {
   'tut.app-cocina--recetario.5.titulo': 'The saved lists',
   'tut.app-cocina--recetario.5.texto':
     'Each list keeps what is still missing and what is already in the cupboard. Add prices and the total can be sent to your expenses in Study.',
-  'tut.app-cocina--cronograma.1.titulo': 'The weight goal, in phases',
+  'tut.app-cocina--cronograma.1.titulo': 'What Kitchen asks of you today',
   'tut.app-cocina--cronograma.1.texto':
-    'The Goals button in the header opens the same timeline the home calendar uses, scoped to Kitchen\'s goals: create a goal (e.g. "Lose 3 kilos") and ask the AI for the plan — it asks your target date and schedules sub-goals with their own date.',
+    'The Missions button in the header opens the checklist of the day: the water, the meals and any steps coming from your goals. The goals themselves —with the plan the AI suggests for them— live in the Goals room, grouped by the app that owns them.',
   'tut.app-cocina--cronograma.2.texto':
     'This is done by AI: turn it on in Editor › Settings › Account. Without it, goals are still created and edited the same way, just by hand.',
   'tut.app-descanso--noche.1.titulo': 'A hundred points, three parts',
@@ -746,7 +749,7 @@ export const EN_TUT: Dict = {
     'The trip to Japan, at 100%: eleven months of saving, the private lessons, the Christmas bonus and their birthday money. Below, the emergency fund started on their return and a small investment.',
   'tut.app-despacho--metas.2.titulo': 'The goal over time',
   'tut.app-despacho--metas.2.texto':
-    'The Goals button in the header keeps these goals on the timeline: give one dates and it shows up among your calendar days. With ✨ the AI suggests the payment plan.',
+    'These goals are kept on the axis of time in the Goals room: give one dates and it shows up among your calendar days. With ✨ the AI suggests the payment plan.',
   'tut.app-despacho--metas.3.titulo': 'What they owed',
   'tut.app-despacho--metas.3.texto':
     'The car breakdown went on the credit card and took months to clear. Debts sit apart because you read them backwards: here, going down is winning.',

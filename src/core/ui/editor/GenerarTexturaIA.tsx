@@ -45,6 +45,12 @@ const SUGERENCIAS: Record<SuperficieTextura, { clave: string; es: string }[]> = 
     { clave: 'puertaPintada', es: 'pintada de color' },
     { clave: 'puertaRustica', es: 'rústica de tablones' },
   ],
+  icono: [
+    { clave: 'iconoMinimal', es: 'minimalista de una sola línea' },
+    { clave: 'iconoPastel', es: 'redondeado en tonos pastel' },
+    { clave: 'iconoPixel', es: 'estilo pixel art' },
+    { clave: 'iconoDegradado', es: 'con degradado vivo' },
+  ],
 }
 
 /**
@@ -71,6 +77,8 @@ export function GenerarTexturaIA({
   // La clave vive en el chat: se relee en cada render por si se configuró mientras tanto.
   const hayIa = imagenIaActiva()
   const puedeGenerar = hayIa && !generando && (descripcion.trim().length > 0 || !!referencia)
+  // El icono de un cuarto no es una «textura»: mismo bloque, rótulos propios.
+  const esIcono = superficie === 'icono'
 
   const generar = async () => {
     if (!puedeGenerar) return
@@ -107,7 +115,11 @@ export function GenerarTexturaIA({
             type="text"
             value={descripcion}
             onChange={(e) => setDescripcion(e.target.value)}
-            placeholder={t('editor.texturaIA.placeholder', 'Describe la textura…')}
+            placeholder={
+              esIcono
+                ? t('editor.texturaIA.placeholderIcono', 'Describe el icono…')
+                : t('editor.texturaIA.placeholder', 'Describe la textura…')
+            }
             className="w-full rounded-md border border-white/10 bg-black/30 px-2 py-1.5 text-[11px] text-white/85 outline-none placeholder:text-white/25 focus:border-violet-400/50"
           />
 
@@ -165,7 +177,9 @@ export function GenerarTexturaIA({
             ) : (
               <>
                 <Icono nombre="brillo" />
-                {t('editor.texturaIA.generar', 'Generar textura')}
+                {esIcono
+                  ? t('editor.texturaIA.generarIcono', 'Generar icono')
+                  : t('editor.texturaIA.generar', 'Generar textura')}
               </>
             )}
           </button>

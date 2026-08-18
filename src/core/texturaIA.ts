@@ -9,7 +9,7 @@ import { generarImagen } from './imagenIA'
  *  - descripción + foto → el modelo convierte la foto del usuario en textura.
  */
 
-export type SuperficieTextura = 'piso' | 'muro' | 'techo' | 'fondo' | 'mapa' | 'puerta'
+export type SuperficieTextura = 'piso' | 'muro' | 'techo' | 'fondo' | 'mapa' | 'puerta' | 'icono'
 
 /** Cómo se nombra cada superficie dentro del prompt. */
 const NOMBRE: Record<SuperficieTextura, string> = {
@@ -19,6 +19,7 @@ const NOMBRE: Record<SuperficieTextura, string> = {
   fondo: 'fondo de cielo',
   mapa: 'terreno del mapa',
   puerta: 'puerta',
+  icono: 'icono de aplicación',
 }
 
 /** Encuadre que necesita cada superficie para verse bien mapeada en la escena 3D. */
@@ -32,6 +33,8 @@ const ENCUADRE: Record<SuperficieTextura, string> = {
     'Vista aérea cenital perfectamente perpendicular del terreno, como un mapa visto desde arriba, sin edificios ni personas y sin marco.',
   puerta:
     'Vista frontal perfectamente perpendicular de una hoja de puerta completa, que llena todo el encuadre de borde a borde, sin marco alrededor, sin muro y sin fondo.',
+  icono:
+    'Icono de aplicación móvil cuadrado y centrado, con un único símbolo simple y legible a tamaño pequeño, estilo plano de colores vivos, fondo liso de un solo color y sin sombras.',
 }
 
 /** Superficies que se repiten en mosaico (el fondo, el mapa y la puerta se mapean enteros). */
@@ -82,8 +85,9 @@ export async function generarTextura(
   referencia?: Blob,
 ): Promise<Blob> {
   // El fondo se pinta a pantalla completa (y nace panorámico, sin recorte); el mapa
-  // cubre todo el plano de una pieza; la puerta viste una hoja vertical; las demás se
-  // repiten en mosaico —cuadradas—. Todas viven como Blob en IndexedDB.
+  // cubre todo el plano de una pieza; la puerta viste una hoja vertical; el icono es
+  // cuadrado de una pieza; las demás se repiten en mosaico —cuadradas—. Todas viven
+  // como Blob en IndexedDB.
   const grande = superficie === 'fondo' || superficie === 'mapa'
   const aspecto = superficie === 'fondo' ? '16:9' : superficie === 'puerta' ? '3:4' : '1:1'
   return generarImagen(

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useShallow } from 'zustand/react/shallow'
 import type { Cuarto } from '../data/db'
 import { useHouse } from '../state/houseStore'
@@ -19,12 +19,19 @@ import { CATS_ESPECIALES } from './inventarioGrupos'
 import { useProgreso } from '../gamificacion/actividad'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
+import { vivo } from './estilos'
 import type { NombreIcono } from './iconos/catalogo'
 import { BotonTutoriales } from '../tutorial/SelectorTutorial'
 import { useHud } from '../state/hudStore'
 import { useConstruyendo } from '../state/construyendo'
 import { BotonPlegarHud, TiradorHud } from './HudPlegable'
 import { useAjustes } from '../state/ajustesStore'
+import { PanelCuartosRapido } from './PanelCuartosRapido'
+import { IconoCuarto } from './IconoCuarto'
+import { BadgeMisiones } from './BadgeMisiones'
+import { rutinasRepo } from '../data/repository'
+import { usePendientesPorApp } from '../hoy'
+import { esMeta, metasCumplidasDe } from '../metas'
 
 /** Orden en que se listan los cuartos; el rótulo de cada categoría ya no se pinta. */
 const CATEGORIAS: { key: Cuarto['categoria'] }[] = [
@@ -68,6 +75,11 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
   const [plantSub, setPlantSub] = useState<'cuartos' | 'infra'>('cuartos')
   const setInventarioObjetosActivo = useEditorUi((s) => s.setInventarioObjetosActivo)
   const progreso = useProgreso()
+  // Una sola consulta para las dos cifras que faltaban en la lista de cuartos:
+  // lo que queda por hacer hoy y las metas cumplidas de cada app.
+  const pendientes = usePendientesPorApp()
+  const rutinas = rutinasRepo.useAll()
+  const metas = useMemo(() => (rutinas ?? []).filter(esMeta), [rutinas])
 
   /**
    * Borra un cuarto desde el menú. Con una app asignada la confirmación la lleva
@@ -373,15 +385,25 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
                             ? t('nav.entrarCuarto', 'Entrar a {nombre}', { nombre: titulo })
                             : t('nav.asignarApp', 'Asignar una app a este cuarto')
                         }
-                        className="block w-full rounded-lg px-2 py-1.5 text-start transition hover:bg-white/[0.07]"
+                        className="ui-brillo block w-full rounded-lg px-2 py-1.5 text-start"
+                        style={vivo(color)}
                       >
                         {/* `pe-9`: el hueco que ocupa el engrane sobre esta fila. */}
                         <div className="flex items-start gap-2 pe-9">
-                          <span
-                            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md text-lg"
-                            style={{ background: `${color}33` }}
-                          >
-                            <Icono emoji={cuarto.icon} />
+                          <span className="relative shrink-0">
+                            <span
+                              className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-md text-lg"
+                              style={{ background: `${color}33` }}
+                            >
+                              <IconoCuarto cuarto={cuarto} />
+                            </span>
+                            {/* Lo que queda por hacer hoy en esta app, sobre su icono. */}
+                            {appId && pendientes.get(appId) && (
+                              <BadgeMisiones
+                                pendientes={pendientes.get(appId)!}
+                                className="absolute -top-1.5 -end-1.5"
+                              />
+                            )}
                           </span>
                           <span className="min-w-0 flex-1 leading-tight">
                             <span className="block text-sm font-semibold text-white/90">{titulo}</span>
@@ -397,7 +419,13 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
                           </span>
                         </div>
                         {/* Progreso de la app del cuarto, dentro de su card. */}
-                        {enfoque && <ProgresoApp enfoque={enfoque} color={color} />}
+                        {enfoque && (
+                          <ProgresoApp
+                            enfoque={enfoque}
+                            color={color}
+                            metas={appId ? metasCumplidasDe(metas, appId) : null}
+                          />
+                        )}
                       </button>
 
                       <button
@@ -508,6 +536,9 @@ function BotonAjusteCuarto({
 /** Menú retraído: botón flotante (3 líneas + MPH) y toggle de techo. */
 export function FloatingMenuButton({ onToggle }: { onToggle: () => void }) {
   const t = useT()
+  // La pastilla son DOS botones: las rayas abren el menú lateral (administrar los
+  // cuartos) y la casa con el nombre, la rejilla de acceso rápido (entrar de un toque).
+  const [rapido, setRapido] = useState(false)
   // Con una app abierta, su overlay tapa la casa: los controles de la vista 3D y el
   // selector de tutoriales estorban sobre su encabezado (la app tiene su propio "?").
   const appAbierta = useHouse((s) => !!s.activeRoom)
@@ -534,25 +565,39 @@ export function FloatingMenuButton({ onToggle }: { onToggle: () => void }) {
 
   return (
     <div className="absolute start-3 top-3 z-30 flex items-start gap-2">
-      <button
-        type="button"
-        data-tut="menu.abrir"
+      <div
         data-tut-zona="menu-cuartos"
-        onClick={onToggle}
-        title={t('nav.abrir', 'Abrir menú')}
-        className="ui-hud flex items-center gap-2 rounded-lg border border-white/10 px-3 py-2 transition hover:bg-white/15"
+        className="ui-hud flex items-center overflow-hidden rounded-lg border border-white/10"
       >
-        <span className="flex flex-col items-center justify-center gap-[3px]">
-          <span className="h-0.5 w-4 rounded bg-white/80" />
-          <span className="h-0.5 w-4 rounded bg-white/80" />
-          <span className="h-0.5 w-4 rounded bg-white/80" />
-        </span>
-        <span className="max-w-[7rem] truncate text-sm font-black text-white/90">
-          {/* Botón flotante: del nombre de fábrica cabe solo la sigla; el que
-              haya puesto el usuario ya es corto (o se recorta). */}
-          <Icono nombre="casa" /> {nombreApp || t('app.brandCorto', 'MPH')}
-        </span>
-      </button>
+        <button
+          type="button"
+          data-tut="menu.abrir"
+          onClick={onToggle}
+          title={t('nav.abrir', 'Abrir menú')}
+          className="flex items-center px-3 py-2 transition hover:bg-white/15"
+        >
+          <span className="flex flex-col items-center justify-center gap-[3px]">
+            <span className="h-0.5 w-4 rounded bg-white/80" />
+            <span className="h-0.5 w-4 rounded bg-white/80" />
+            <span className="h-0.5 w-4 rounded bg-white/80" />
+          </span>
+        </button>
+        <span aria-hidden className="h-5 w-px bg-white/15" />
+        <button
+          type="button"
+          data-tut="menu.rapido"
+          onClick={() => setRapido(true)}
+          title={t('nav.rapido', 'Acceso rápido a los cuartos')}
+          className="flex items-center px-3 py-2 transition hover:bg-white/15"
+        >
+          <span className="max-w-[7rem] truncate text-sm font-black text-white/90">
+            {/* Botón flotante: del nombre de fábrica cabe solo la sigla; el que
+                haya puesto el usuario ya es corto (o se recorta). */}
+            <Icono nombre="casa" /> {nombreApp || t('app.brandCorto', 'MPH')}
+          </span>
+        </button>
+      </div>
+      {rapido && <PanelCuartosRapido onCerrar={() => setRapido(false)} />}
       {!appAbierta && (
         <>
           <ExplotarToggleButton />

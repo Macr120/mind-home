@@ -1,9 +1,10 @@
 /**
- * Diccionario PL de la interfaz. Se carga con import() perezoso
- * desde dict.ts: quien no use este idioma no lo descarga.
+ * Diccionario POLACO de la interfaz. Se carga con import() perezoso
+ * desde dict.ts, igual que el inglés: quien no use este idioma no lo descarga.
  *
- * Lo monta `traducir-a-mano.mjs meter-dict` a partir de `dict.en.ts` y de los
- * fallbacks españoles del código. Lo que falte cae al inglés (ver `useT`).
+ * GENERADO por `npm run traducir:i18n` a partir de `dict.en.ts` y de los
+ * fallbacks españoles del código. No lo edites a mano: se sobrescribe entero.
+ * Lo que falte cae al inglés (ver `useT`); al español solo en último término.
  */
 import type { Dict } from './dict'
 
@@ -15,6 +16,8 @@ export const PL: Dict = {
   'nav.ariaMenu': 'Menu pokoi',
   'nav.retraer': 'Zwiń menu',
   'nav.abrir': 'Otwórz menu',
+  'nav.rapido': 'Szybki dostęp do pokoi',
+  'nav.rapido.ayuda': 'Dotknij pokoju, aby otworzyć jego aplikację.',
   'nav.editarCuarto': 'Edytuj ten pokój',
   'nav.entrar': 'Wejdź ›',
   'nav.ayuda.tarjetaTexto':
@@ -362,18 +365,20 @@ export const PL: Dict = {
   'meta.marcar': 'Oznacz jako zrealizowany',
   'meta.desmarcar': 'Oznacz jako niezrealizowany',
   'meta.agendar': 'Zaplanuj w kalendarzu',
-  'hoy.titulo': 'Dziś',
+  'hoy.titulo': 'Misje',
   'hoy.alDia': 'Wszystko zrobione na dziś',
   'hoy.hechos': 'Zrobione ({n})',
   'hoy.registrar': 'Zapisz',
   'hoy.objetivo': 'Twój codzienny cel (0 wyłącza)',
   'hoy.checklist': 'Lista na dziś',
-  'hoy.grupoApp': 'Cele dnia',
+  'hoy.grupoApp': 'Misje dnia',
   'hoy.nueva': 'Nowa lista',
   'hoy.cerrar': 'Zamknij',
   'hoy.ocultarHechos': 'Ukryj ukończone',
+  'hoy.casa.vacio': 'Dziś nie ma nic do zrobienia w żadnej aplikacji.',
+  'hoy.casa.abrirApp': 'Otwórz tę aplikację',
   'cal.meta.mientrasDure': 'Dopóki trwa, poproś mnie o',
-  'cal.meta.unObjetivo': 'cel dzienny',
+  'cal.meta.unObjetivo': 'misja dnia',
   'cal.meta.unaActividad': 'aktywność co tydzień',
   'cal.meta.diasRitmo': '{hechos}/{pedidos} dni',
   'rutinas.sinApp': 'Bez aplikacji (wydarzenie domu)',
@@ -479,6 +484,18 @@ export const PL: Dict = {
   'progreso.nivel': 'Poziom',
   'progreso.racha': 'Seria',
   'progreso.dias': 'dni',
+  'progreso.rachaTitulo': 'Seria dni z aktywnością',
+  'progreso.listasTitulo': 'Ukończone listy misji',
+  'progreso.listasCumplidas': 'Ukończone listy',
+  'celebra.racha.titulo': 'Seria {n} dni!',
+  'celebra.racha.titulo1': 'Seria: 1 dzień!',
+  'celebra.racha.cuerpo': 'Tak trzymaj w {app} 🔥',
+  'celebra.lista.titulo': 'Misje dnia wykonane!',
+  'celebra.lista.cuerpo': 'Lista {app} ukończona',
+  'celebra.lista.xp': '+{xp} XP',
+  'celebra.nivel.titulo': 'Nowy poziom!',
+  'celebra.nivel.cuerpo': '{app}: poziom {n} 🎉',
+  'celebra.seguir': 'Dalej!',
   'progreso.hoy': 'Dziś',
   'progreso.semana': '7 dni',
   'plantillas.ayuda':
@@ -669,7 +686,7 @@ export const PL: Dict = {
   'chat.config.ponerMapa': 'Dodaj do mapy',
   'chat.config.voz': 'Głos:',
   'chat.config.vozAuto': 'Automatyczny (wg języka)',
-  'chat.config.vozIA': 'Głos AI (OpenAI, bardziej naturalny)',
+  'chat.config.vozIA': 'Głos AI (bardziej naturalny)',
   'chat.config.vozLeer': 'Czytaj na głos to, co mówi',
   'chat.config.vozProbar': 'Wypróbuj głos',
   'chat.config.vozTono': 'Ton',
@@ -750,6 +767,8 @@ export const PL: Dict = {
   'veh.bajarte': 'Wysiądź',
   'accion.sentarte': 'Usiądź',
   'accion.acostarte': 'Połóż się',
+  'accion.sentarse': 'Usiądź',
+  'accion.acostarse': 'Połóż się',
   'accion.sentado': 'Siedzi',
   'accion.acostado': 'Leży',
   'accion.levantarte': 'Wstań',
@@ -822,6 +841,7 @@ export const PL: Dict = {
   'room.ideas.nombre': 'Pomysły',
   'room.computo.nombre': 'Obliczenia',
   'room.agenda.nombre': 'Terminarz',
+  'room.metas.nombre': 'Cele',
   'room.cocina.sub': 'Odżywianie',
   'room.ejercicio.sub': 'Rutyny siłowe i fitness',
   'room.recamara.sub': 'Sen i wspomnienia',
@@ -839,6 +859,7 @@ export const PL: Dict = {
   'room.ideas.sub': 'Mapy pojęć na swobodnym płótnie',
   'room.computo.sub': 'Kalkulator i arkusze kalkulacyjne',
   'room.agenda.sub': 'Praca, zdrowie i ludzie',
+  'room.metas.sub': 'Plany i harmonogram',
   'hud.plegar': 'Zwiń kontrolki',
   'hud.desplegar': 'Pokaż kontrolki',
   'nav3d.aria': 'Kontrolki widoku',
@@ -1196,6 +1217,10 @@ export const PL: Dict = {
   'despacho.patr.enlazarMeta': 'Połącz z celem, który już mam…',
   'despacho.patr.objetivoTitulo': 'Do jakiej kwoty chcesz dojść?',
   'despacho.patr.objetivoMsg': 'Masz tu już {n}.',
+  'despacho.patr.metaLiquidar': 'Spłać {n}',
+  'despacho.patr.notaCronograma': '{p} miesięcznie · {i} odsetek',
+  'despacho.patr.yaEnCronograma': 'Jest już w twoim harmonogramie',
+  'despacho.patr.alCronograma': 'Dodaj do harmonogramu · spłata do {f}',
   'despacho.meta.verEnPasivos': 'Zobacz w Majątek netto › Pasywa',
   'despacho.meta.verEnActivos': 'Zobacz w Majątek netto › Aktywa',
   'despacho.meta.anadirAPasivos': 'Dodaj do Pasywów (ze stopą i okresem)',
@@ -3459,6 +3484,8 @@ export const PL: Dict = {
   'room.granja.desc': 'Hoduj kury, świnie, kozy, owce, krowy i konie oraz uprawiaj ich paszę w tym samym edytorze.',
   'room.ideas.desc':
     'Twój dziennik pomysłów i burz mózgów, dziesięć formatów map myśli na dowolnym płótnie (mapa myśli, drzewo, oś czasu, cykl, piramida, diagram Venna…) i osiem diagramów decyzyjnych (za i przeciw, pole sił, SWOT, macierz Eisenhowera, drzewo decyzyjne, tier list, ważona macierz decyzyjna i Ishikawa), ręcznie lub z AI.',
+  'room.metas.desc':
+    'Twoje postanowienia z całego domu: lista celów z ich podcelami i krokami, plany, które AI proponuje dla każdego z nich (etapy z datą, które stają się prawdziwymi podcelami), oraz harmonogram, gdzie wszystko zajmuje swój okres na osi czasu.',
   'room.computo.desc':
     'Sala komputerowa: kalkulator naukowy z Twoim zbiorem wzorów (Matematyka, Fizyka i Chemia gotowe do edycji) i ośmioma trybami — wykreślacz z czterema typami (2D, biegunowy, parametryczny i powierzchnia 3D), dwójkowy i szesnastkowy, macierze, układy równań, przeliczanie jednostek, napiwek i reguła trzech; oraz arkusze, które eksportują się do Excela i PDF.',
   'computo.tab.calculadora': 'Kalkulator',
@@ -4059,6 +4086,7 @@ export const PL: Dict = {
   'cal.cron.avance': '{n}% zrobione',
   'cal.cron.buscar': 'Szukaj…',
   'cal.cron.desplegarTodo': 'Rozwiń wszystko',
+  'cal.cron.editar': 'Edytuj cele',
   'cal.cron.hechas': 'Zrobione',
   'cal.cron.ocultarHechas': 'Ukryj ukończone',
   'cal.cron.plegarTodo': 'Zwiń wszystko',
@@ -4067,6 +4095,7 @@ export const PL: Dict = {
   'cal.cron.trazar': 'Przeciągnij tutaj, aby nadać mu daty',
   'cal.cron.vacio': 'Nie ma jeszcze żadnych celów.',
   'cal.cron.vencida': 'Termin minął bez ukończenia',
+  'cal.cron.volver': 'Wróć do celu',
   'cal.cronograma': 'Harmonogram',
   'cal.dia': 'Dzień',
   'cal.editarEvento': 'Edytuj wydarzenie',
@@ -4090,6 +4119,7 @@ export const PL: Dict = {
   'cal.mes': 'Miesiąc',
   'cal.meta.agregarHija': 'Dodaj podcel',
   'cal.meta.alcance': 'Ukończone kroki i podcele',
+  'cal.meta.armar': 'Narysuj w kalendarzu',
   'cal.meta.armarORenombrar': 'Klik: narysuj w kalendarzu · Podwójny klik: zmień nazwę',
   'cal.meta.colorDe': 'Kolor tego celu',
   'cal.meta.borrar': 'Usunąć ten cel?',
@@ -4118,9 +4148,6 @@ export const PL: Dict = {
   'cal.meta.pasoNuevo': 'Dodaj krok…',
   'cal.meta.pasoRenombrar': 'Podwójny klik, aby zmienić nazwę kroku',
   'cal.meta.pasos': 'Kroki tego celu',
-  'cal.meta.plan': 'Plan',
-  'cal.meta.planEnCronograma': 'Zobacz jego plan w harmonogramie',
-  'cal.meta.planHoja': 'Otwórz arkusz jego planu',
   'cal.meta.plegar': 'Zwiń',
   'cal.meta.ponerHora': 'Ustaw godzinę',
   'cal.meta.prefijoSub': 'pod',
@@ -4937,7 +4964,40 @@ export const PL: Dict = {
   'nav.asignar': '+ Przypisz',
   'nav.asignarApp': 'Przypisz aplikację do tego pokoju',
   'nav.crearCuarto': 'Utwórz pokój',
+  'nav.vista3D': 'Pokaż pokoje w 3D',
+  'nav.vistaIconos': 'Pokaż pokoje z ich ikoną',
   'nav.sinCuartos': 'Nie masz jeszcze pokoi. Utwórz pierwszy poniżej.',
+  'nav.rapido.editando': 'Przeciągnij, aby zmienić kolejność, lub dotknij ołówka, aby edytować.',
+  'nav.rapido.listo': 'Gotowe',
+  'nav.rapido.metas': 'Cele ukończone w tej aplikacji',
+  'nav.rapido.pendientes': 'Pozostało misji: {n}',
+  'nav.fondo.borrar': 'Usuń',
+  'nav.sinApps': 'Tutaj pojawiają się pokoje z aplikacją. Przypisz ją w menu pokoi.',
+  'nav.editar.titulo': 'Edytuj pokój',
+  'nav.editar.nombre': 'Nazwa',
+  'nav.editar.icono': 'Ikona',
+  'nav.editar.tab.emoji': 'Emoji',
+  'nav.editar.tab.imagen': 'Obraz',
+  'nav.editar.emojiLibre': 'Inne emoji',
+  'nav.editar.imagenPuesta': 'Ten obraz zastępuje emoji w menu.',
+  'nav.editar.quitarImagen': 'Usuń',
+  'nav.editar.subirImagen': 'Prześlij obraz',
+  'nav.editar.color': 'Kolor',
+  'nav.editar.murosTitulo': 'Przemalować także ściany?',
+  'nav.editar.murosMensaje': 'W tym pokoju są ściany pomalowane ręcznie w edytorze mapy. Przemalowanie usunie ich kolor.',
+  'nav.editar.murosOk': 'Przemaluj',
+  'nav.fondo.titulo': 'Tapeta',
+  'nav.fondo.desc': 'Obrazy są wspólne z tłem nieba domu.',
+  'nav.fondo.sin': 'Bez tapety',
+  'nav.fondo.subir': 'Prześlij obraz',
+  'nav.fondo.nombreIA': 'Tapeta z AI',
+  'nav.fondo.atenuacion': 'Przyciemnij tapetę',
+  'editor.texturaIA.placeholderIcono': 'Opisz ikonę…',
+  'editor.texturaIA.generarIcono': 'Wygeneruj ikonę',
+  'editor.texturaIA.sug.iconoMinimal': 'minimalistyczna z jednej linii',
+  'editor.texturaIA.sug.iconoPastel': 'zaokrąglona w pastelowych barwach',
+  'editor.texturaIA.sug.iconoPixel': 'w stylu pixel art',
+  'editor.texturaIA.sug.iconoDegradado': 'z żywym gradientem',
   'nav3d.ayuda1P': 'Prawy przycisk myszy lub joystick; kółko, aby przybliżyć',
   'nav3d.ayuda3P': 'Prawy przycisk myszy lub joystick; kółko, aby przybliżyć',
   'nav3d.cambiarVista': 'Przełącz widok (klawisz V)',
@@ -5543,6 +5603,9 @@ export const PL: Dict = {
   'ajustes.musica.sfxDesc': 'Blaster, portale, fajerwerki, gry i pojazdy. Niezależnie od głośności muzyki.',
   'musica.control': 'Muzyka',
   'musica.cerrar': 'Zamknij',
+  'visor.ampliar': 'Zobacz obraz na pełnym ekranie',
+  'visor.cerrar': 'Zamknij',
+  'visor.descargar': 'Pobierz',
   'voz.escuchar': 'Odsłuchaj',
   'voz.callar': 'Przestań czytać',
   'voz.autoOn': 'Czyta swoje odpowiedzi na głos',
@@ -5579,6 +5642,19 @@ export const PL: Dict = {
   'cuenta.sinBackend': 'Ta instalacja nie ma skonfigurowanego backendu: wszystko zapisuje się tylko na tym urządzeniu.',
   'cuenta.cargando': 'Wczytywanie…',
   'cuenta.intro': 'Dzięki kontu twój plan i twój dom podążają za tobą na każde urządzenie.',
+  'cuenta.nivel.titulo': 'Twój poziom',
+  'cuenta.nivel.n': 'Poziom ×{n} — {c} kredytów miesięcznie',
+  'cuenta.nivel.actual': 'Obecny',
+  'cuenta.nivel.nota': 'Poziom możesz podnieść lub obniżyć kiedy chcesz; różnica liczona jest proporcjonalnie.',
+  'cuenta.nivel.subir': 'Podnieś do ×{n} — {c} kredytów miesięcznie za {p}',
+  'cuenta.cuota.cuerpoNivel': 'Twoje kredyty odnowią się {f}. Jeśli co miesiąc brakuje, podnieś poziom.',
+  'cuenta.cuota.cuerpoVencida':
+    'Twoje dane wciąż są na tym urządzeniu. Odnów, aby odzyskać miesięczne kredyty i synchronizację.',
+  'cuenta.cuota.cuerpoTrial':
+    'Aplikacja i twoje dane są twoje na zawsze. Wykup Pro, aby zachować miesięczne kredyty i synchronizację.',
+  'cuenta.cuota.cuerpoLocal':
+    'Aplikacja i twoje dane są twoje za darmo. Płatna jest tylko SI: wykup subskrypcję i dostawaj kredyty co miesiąc.',
+  'cuenta.cuota.web': 'Zobacz moją subskrypcję',
   'cuenta.conGoogle': 'Kontynuuj przez Google',
   'cuenta.conApple': 'Kontynuuj przez Apple',
   'cuenta.oCorreo': 'albo przez e-mail',
@@ -5599,8 +5675,6 @@ export const PL: Dict = {
   'cuenta.techo.cuerpo':
     'W tym miesiącu Twoje zapytania zużyły znacznie więcej kontekstu niż zwykle i osiągnięto limit uczciwego użycia. Zresetuje się {f}.',
   'cuenta.cuota.tituloTrial': 'Twój miesiąc w cenie się skończył',
-  'cuenta.cuota.cuerpoTrial':
-    'Aplikacja i Twoje dane są Twoje na zawsze. Subskrybuj Pro, aby zachować miesięczne kredyty i synchronizację, albo doładuj pojedyncze kredyty, gdy ich potrzebujesz.',
   'puerta.trato':
     'Jedna płatność odblokowuje Twój dom na zawsze i zawiera pierwszy miesiąc AI i synchronizacji — bez karty i bez subskrypcji.',
   'puerta.procesando': 'Przetwarzanie…',
@@ -5641,6 +5715,18 @@ export const PL: Dict = {
   'ia.activar.sinActivar':
     'AI jest wyłączona. Zaloguj się, aby korzystać z kredytów, albo wklej poniżej klucz dostawcy.',
   'ia.activar.priv': 'Zapisywany tylko na tym urządzeniu i nigdy go nie opuszcza poza wysyłką do {prov}.',
+  'ia.media.sinClave': 'Aby generować obrazy i używać głosu AI, dodaj klucz OpenAI lub Gemini.',
+  'ia.panel.cerebro': 'Mózg',
+  'ia.panel.claveOllama': 'Klucz Ollama (tylko do jego chmury lub serwera z kluczem)',
+  'ia.panel.localImagen': 'Ten model generuje obrazy.',
+  'ia.panel.imagen': 'Obraz',
+  'ia.panel.proveedor': 'Dostawca',
+  'ia.panel.voz': 'Głos',
+  'ia.panel.vozAyuda': 'Włącza głos AI asystentów z tym dostawcą',
+  'ia.transporte.byok': 'Moje klucze (BYOK)',
+  'ia.transporte.creditos': 'Kredyty',
+  'ia.transporte.creditosDesc': 'Idzie przez twoje konto: serwer daje klucze, a każde żądanie zużywa kredyty planu.',
+  'ia.transporte.sinCuenta': 'Zaloguj się, aby używać kredytów.',
   'ia.calidad.titulo': 'Jakość obrazów',
   'ia.calidad.rapida': 'Szybka',
   'ia.calidad.rapida.desc': 'Dobra i tania. Używam jej, chyba że powiesz inaczej.',
@@ -5760,16 +5846,11 @@ export const PL: Dict = {
   'cuenta.cuota.titulo': 'Skończyły się twoje kredyty na ten miesiąc',
   'cuenta.cuota.tituloSin': 'Potrzebujesz kredytów, aby korzystać z AI',
   'cuenta.cuota.cuerpo': 'Twoje kredyty odnowią się {f}.',
-  'cuenta.cuota.cuerpoLocal':
-    'Aplikacja i twoje dane są twoje bez żadnej opłaty. Płatna jest tylko AI: doładuj kredyty, kiedy ich potrzebujesz, albo zasubskrybuj i otrzymuj je co miesiąc.',
-  'cuenta.cuota.cuerpoVencida':
-    'Twoje dane pozostają na tym urządzeniu. Odnów, aby odzyskać kredyty na ten miesiąc i synchronizację, albo doładuj pojedyncze kredyty.',
   'cuenta.cuota.recarga': '+600 kredytów — {p}',
   'cuenta.cuota.recargaN': '+{n} kredytów — {p}',
   'cuenta.cuota.recargaLista': 'Doładowanie wykonane: dodatkowe kredyty są już na twoim koncie.',
   'cuenta.cuota.suscribirse': 'Zobacz subskrypcję',
   'cuenta.cuota.nativo': 'Kredytami zarządzasz ze swojego konta.',
-  'cuenta.cuota.web': 'Kup kredyty na moim koncie',
   'cuenta.creditos.faltan': 'Skończyły się twoje kredyty AI.',
   'comun.entendido': 'Zrozumiano',
   'demo.aviso.titulo': 'Jesteś w domu demo',
@@ -5830,12 +5911,12 @@ export const PL: Dict = {
   'tut.calendario.titulo': 'Kalendarz',
   'tut.calendario.resumen':
     'Zegar domu otwiera kalendarz: wszystko, co zaplanowane — zmiany, zajęcia, nawyki i to, co dodają inne aplikacje — w widokach Dzień, Tydzień, Miesiąc, Rok i Cele. Panel poniżej pokazuje, ile z zaplanowanych rzeczy faktycznie się realizuje.',
-  'tut.calendario.3b.titulo': 'A Cele osobno',
+  'tut.calendario.3b.titulo': 'A Cele dnia, osobno',
   'tut.calendario.3b.texto':
-    'Na czerwono, żeby nie mylić z czterema powyższymi: Cele otwierają twoje cele, ich plany i harmonogram.',
+    'Na czerwono, żeby nie mylić z czterema powyższymi: Cele dnia zbierają dzisiejszą listę zadań ze wszystkich twoich aplikacji. Twoje cele i ich plany mieszkają we własnym pokoju.',
   'tut.metas.titulo': 'Cele',
   'tut.metas.resumen':
-    'Trzy ekrany celu: lista, gdzie się rodzi, plan, który go rozwija (AI go proponuje, a ty go odhaczasz) i harmonogram, gdzie jego etapy zajmują swój okres, już jako prawdziwe pod-cele.',
+    'Lista celów i, wewnątrz każdego z nich, jego arkusz: plan, który go rozwija (AI go proponuje, a ty go odhaczasz) i jego harmonogram, gdzie jego etapy zajmują swój okres, już jako prawdziwe pod-cele.',
   'tut.app-biblioteca--enciclopedia.titulo': 'Twoja osobista encyklopedia',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Wszystko, czego się uczysz, trafia do drzewa według dziedziny wiedzy: wpisy z podsumowaniem i kluczowymi punktami, które możesz zilustrować.',
@@ -5890,6 +5971,9 @@ export const PL: Dict = {
   'tut.app-ejercicio--fuerza.titulo': 'Siła, której kolano nie odebrało',
   'tut.app-ejercicio--fuerza.resumen':
     'W Sile rejestrujesz serie, powtórzenia i ciężar; na tej podstawie aplikacja liczy twoją objętość, rysuje postęp każdego ćwiczenia i zapisuje twoje rekordy osobiste.',
+  'tut.app-ejercicio--flexibilidad.titulo': 'Trzecia dyscyplina',
+  'tut.app-ejercicio--flexibilidad.resumen':
+    'Elastyczność działa jak Siła i Wytrzymałość —katalog, rutyny, postęp— tylko serie liczy się czasem zamiast ciężarem, a do tego jest prowadzony odtwarzacz z minutnikiem.',
   'tut.app-cocina--alimentacion.titulo': 'Jedzenie z celem',
   'tut.app-cocina--alimentacion.resumen':
     'Kontrola odżywiania to cztery kroki: ustawiasz swoje cele, rejestrujesz, co jesz i pijesz, planujesz swój tydzień, a Postęp pokazuje, czy zmierzasz we właściwą stronę.',
@@ -5914,6 +5998,9 @@ export const PL: Dict = {
   'tut.app-despacho--metas.titulo': 'Japonia, fundusz awaryjny i dług',
   'tut.app-despacho--metas.resumen':
     'Cele łączą twoje cele oszczędnościowe i inwestycyjne na jednej liście z paskiem postępu, a długi zostawiają osobno, z własnym symulatorem. Każdy ma harmonogram, w którym można ustawić daty.',
+  'tut.app-despacho--patrimonio.titulo': 'Co masz, jakie masz długi i dokąd to zmierza',
+  'tut.app-despacho--patrimonio.resumen':
+    'Majątek netto to nie zdjęcie: każda rzecz, którą masz, drożeje albo tanieje, a każdy dług nalicza odsetki. Nadaj każdej pozycji jej stopę, a trzecia karta pokaże cały film — od zeszłego roku aż tam, dokąd dojdziesz.',
   'tut.app-despacho--calculadoras.titulo': 'Cztery reguły, żeby ustalić kwotę',
   'tut.app-despacho--calculadoras.resumen':
     'Cztery kalkulatory finansów osobistych proponują docelową kwotę na podstawie twojego realnego bilansu i zamieniają ją w cel jednym dotknięciem. Parametry każdej reguły można dostosować: nikt nie musi akceptować 50/30/20 w niezmienionej formie.',
@@ -5957,6 +6044,7 @@ export const PL: Dict = {
   'cuenta.sync.activo': 'Synchronizowanie…',
   'cuenta.sync.ultima': 'Zsynchronizowano: {f}',
   'cuenta.sync.nunca': 'Jeszcze nie zsynchronizowano',
+  'cuenta.sync.soloPro': 'Synchronizacja między urządzeniami to część Pro.',
   'cuenta.sync.ahora': 'Synchronizuj',
   'cuenta.sync.otraCuenta':
     'Ten dom był powiązany z innym kontem. Zachować dane lokalne i połączyć je z nowym kontem? (Anuluj = wyczyść ten dom i pobierz tylko dane z konta)',
@@ -6016,6 +6104,7 @@ export const PL: Dict = {
   'agenda.prioridad.baja': 'Niski',
   'agenda.trabajo.pendientes': 'Do zrobienia',
   'agenda.trabajo.tablero': 'Tablica',
+  'agenda.trabajo.apuntar': 'Dodaj zadanie',
   'ejemplo.vacio': 'Nie wiesz, od czego zacząć? Zobacz, jak to wygląda z gotowym przykładem w środku.',
   'ejemplo.puesto': 'To jest przykład: schowaj go, kiedy chcesz, a twoje dane pozostaną nietknięte.',
   'ejemplo.mostrar': 'Zobacz przykład',
@@ -6047,6 +6136,7 @@ export const PL: Dict = {
   'agenda.projimo.aMiCuidado': 'Pod moją opieką',
   'agenda.cuidadop.nuevo': 'Nowa opieka',
   'agenda.cuidado.archivado': 'Zrobione, bez powtórki',
+  'agenda.cuidado.yaLoHice': 'Już zrobione',
   'agenda.cuidado.reactivar': 'Zaplanuj ponownie',
   'agenda.form.especialidad': 'Specjalizacja',
   'agenda.esp.general': 'Medycyna ogólna',
@@ -6213,10 +6303,6 @@ export const PL: Dict = {
   'widgets.efemerideTitulo': 'Tego dnia w historii',
   'widgets.vacio': 'Nic zaplanowanego na dziś',
   'widgets.desactualizado': 'Dotknij, aby odświeżyć',
-
-  // Catálogo de recursos 3D: el nombre con el que se siembra cada objeto del
-  // inventario. Solo se muestra traducido si el objeto aún se llama como su
-  // recurso de origen; un nombre puesto por el usuario se respeta tal cual.
   'objetos.nombreGenerico': 'Obiekt',
   'objetos.nombrePiezas': 'Obiekt z części',
   'recurso.1': 'Szafki kuchenne (górne i dolne)',
@@ -6372,23 +6458,6 @@ export const PL: Dict = {
   'recursoExtra.sillon-lectura': 'Fotel do czytania',
   'recursoExtra.calendario-pared': 'Kalendarz ścienny',
   'recursoExtra.estacion-computo': 'Stanowisko komputerowe',
-  'accion.sentarse': 'Usiądź',
-  'accion.acostarse': 'Połóż się',
-  'cuenta.sync.soloPro': 'Synchronizacja między urządzeniami to część Pro.',
-  'agenda.cuidado.yaLoHice': 'Już zrobione',
-  'despacho.patr.metaLiquidar': 'Spłać {n}',
-  'despacho.patr.notaCronograma': '{p} miesięcznie · {i} odsetek',
-  'despacho.patr.yaEnCronograma': 'Jest już w twoim harmonogramie',
-  'despacho.patr.alCronograma': 'Dodaj do harmonogramu · spłata do {f}',
-  'tut.app-despacho--patrimonio.titulo': 'Co masz, jakie masz długi i dokąd to zmierza',
-  'tut.app-despacho--patrimonio.resumen':
-    'Majątek netto to nie zdjęcie: każda rzecz, którą masz, drożeje albo tanieje, a każdy dług nalicza odsetki. Nadaj każdej pozycji jej stopę, a trzecia karta pokaże cały film — od zeszłego roku aż tam, dokąd dojdziesz.',
-  'tut.app-ejercicio--flexibilidad.titulo': 'Trzecia dyscyplina',
-  'tut.app-ejercicio--flexibilidad.resumen':
-    'Elastyczność działa jak Siła i Wytrzymałość —katalog, rutyny, postęp— tylko serie liczy się czasem zamiast ciężarem, a do tego jest prowadzony odtwarzacz z minutnikiem.',
-  'agenda.trabajo.apuntar': 'Dodaj zadanie',
-
-  // Tres palabras por app (tarjetas del paso de intereses en la bienvenida)
   'room.cocina.corta': 'Posiłki, makro i przepisy',
   'room.ejercicio.corta': 'Treningi, siła i cele',
   'room.descanso.corta': 'Harmonogram, budzik i noce',
@@ -6405,4 +6474,5 @@ export const PL: Dict = {
   'room.ideas.corta': 'Pomysły, mapy i decyzje',
   'room.computo.corta': 'Kalkulator, wykresy i arkusze',
   'room.agenda.corta': 'Zadania, zdrowie i osoby',
+  'room.metas.corta': 'Cele, plany i harmonogram',
 }

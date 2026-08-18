@@ -356,7 +356,7 @@ export const TR_TUT: Dict = {
   'tut.ejemplos.3.texto':
     'Demo evinin içinde bu çubuk görünmez: Pep’in bir yıllık geçmişi zaten bu işi görüyor, ayrıca bir örneğe gerek yok.',
   'tut.hoy.1.texto':
-    'Her uygulamanın başlığında Hedefler düğmesi var, takvimdekiyle aynı ama sadece bu uygulamaya özel. Açtığında iki katlı bir panel çıkar: üstte bugünün kontrol listesi, altta hedefleri ve planları.',
+    'Her uygulamanın başlığında kendi Görevler düğmesi var: o uygulamanın BUGÜN senden istediklerinin kontrol listesi. Evin saatinde de aynı düğme var, tüm uygulamalar bir arada.',
   'tut.hoy.2.titulo': 'Üç kaynak, tek liste',
   'tut.hoy.2.texto':
     'Uygulamanın kendi hedefleri (su, kalori), bugün için takvime eklediklerin ve devam eden hedeflerinin adımları — hepsi bir arada, her adımın geldiği plan veya hedefe göre gruplanmış.',
@@ -373,7 +373,7 @@ export const TR_TUT: Dict = {
   'tut.hoy.6.texto':
     '«Tamamlanan» bölümüne kapalı olarak iner: kaydın etkisini görmek ödülün bir parçasıdır ve fazladan bir tanesi karıştıysa oradan geri alınabilir.',
   'tut.hoy.7.texto':
-    'Bir şey eksikse, «Yeni kontrol listesi» kendininkini oluşturur: her gün tekrarlanan, bu uygulamaya özel bir liste. Bugün bölümünün altında Hedefler, Planlar ve Zaman Çizelgesi\'ni bir arada tutan tam planlayıcı var, uygulamanın tüm hedefleriyle birlikte.',
+    'Bir şey eksikse, «Yeni kontrol listesi» kendininkini oluşturur: her gün tekrarlanan, bu uygulamaya özel bir liste. Bu adımların çıktığı hedefler ise Hedefler odasında planlanır.',
   'tut.progreso.1.texto':
     'Karakterinin kartı: Pep’in arkasında bir yıllık gerçek etkinlik var, yani buradaki her sayının onu açıklayan gerçek bir hikâyesi var.',
   'tut.progreso.2.titulo': 'Karakter',
@@ -581,7 +581,7 @@ export const TR_TUT: Dict = {
   'tut.app-hobbies--gestion.3.texto':
     'Tek dokunuşla hızlı dakikalar ya da tam sayı; proje isteğe bağlı, not ise o seanstan hatırlamak istediğin ne varsa onun için.',
   'tut.app-hobbies--gestion.4.texto':
-    'Hobilerinin ve projelerinin hedefleri başlıktaki Hedefler düğmesinde yaşar: takvimdeki aynı Hedefler · Planlar · Zaman Çizelgesi planlayıcısı, sadece bu uygulamaya özel. Yapay zekadan aşamalı ve tarihli bir plan iste.',
+    'Hobilerinin ve projelerinin hedefleri Hedefler odasında yaşar, her biri kendi planı ve kendi zaman çizelgesiyle. Yapay zekadan aşamalı ve tarihli bir plan iste.',
   'tut.app-ideas--diario.1.titulo': 'Gelen kutusu',
   'tut.app-ideas--diario.1.texto':
     'Aklına geleni yaz, o kadar. Pep bir yılda buraya ~90 fikir bıraktı: fizikten, kafeden, antrenmandan. Yıldız, en sevdiklerini işaretler.',
@@ -640,7 +640,7 @@ export const TR_TUT: Dict = {
     'İki çukur da gerçek: 7. aydaki diz sakatlığı ve Japonya’daki üç hafta. Aksatmak ilerlemeyi silmez — panel yılı olması gerektiği gibi değil, olduğu gibi gösterir. Ve bir rutin ancak onu oluşturduğun günden itibaren sayılır.',
   'tut.metas.1.titulo': 'Önce hedefler',
   'tut.metas.1.texto':
-    'Görünüm Hedefler ile açılır ve hedefler onları taşıyan uygulamaya göre gruplanır: koşu Spor Salonu’nda, fizik bölümü Kütüphane’de. «Ev» hiçbir uygulama değil — o kategoriyi Pep mutfak tadilatı için kendi uydurdu.',
+    'Oda Hedefler ile açılır ve hedefler onları taşıyan uygulamaya göre gruplanır: koşu Spor Salonu’nda, fizik bölümü Kütüphane’de. «Ev» hiçbir uygulama değil — o kategoriyi Pep mutfak tadilatı için kendi uydurdu.',
   'tut.metas.2.titulo': 'Hedeften planına',
   'tut.metas.2.texto':
     'Her satır bir pano gibi okunur: klasördeki numarası, süresi, ilerlemesi ve durumu — tamamladığı kadarına göre Yapılacak, Devam ediyor ya da Tamamlandı. Bir tık hedefi açar: varsa planını (✨ bunu haber verir), yoksa alt hedefleri, tarihleri ve adımlarıyla kendi sayfasını.',
@@ -649,7 +649,7 @@ export const TR_TUT: Dict = {
     'Mutfak ve bir sonraki maraton hâlâ birer öneri; yüksek lisans başvurusu ise çoktan Zaman Çizelgesi’nde. Maraton planı son tarih verilmeden istendi: Yapay Zeka bunun 24 hafta gerektirdiğini hesapladı ve özetinde bunu söylüyor.',
   'tut.metas.4.titulo': 'Planın sayfası',
   'tut.metas.4.texto':
-    'Altı aşama ve alt hedefleri, her biri kendi dönemiyle. Öneri olduğu sürece tamamı düzenlenir: yeniden adlandır, tarihleri kaydır, diğerlerini bozmadan düğüm ekle ya da çıkar.',
+    'Satırdaki ✨, hedefin zaten bir planı olduğunu haber verir ve tıklanınca bu sayfa açılır: aşamalar ve alt hedefleri, her biri kendi dönemiyle. Öneri olduğu sürece tamamı düzenlenir: yeniden adlandır, tarihleri kaydır, diğerlerini bozmadan düğüm ekle ya da çıkar.',
   'tut.metas.5.titulo': 'Söz vermeden işaretle',
   'tut.metas.5.texto':
     'Bir önerinin işaretleri sayfasında durur, hedeflerinde değil: zaman çizelgene dokunmadan yaptıklarını işaretleyebilirsin. Çubuklar yukarı doğru kendiliğinden dolar — mutfağın planlaması çoktan kapandı.',
@@ -661,7 +661,10 @@ export const TR_TUT: Dict = {
     'Yüksek lisans planı çoktan taşındı. Artık işaretleri gerçek alt hedeflerin işaretleri, çubuğu da zaman çizelgenin çubuğu: sayfa ayrı bir hesap tutmayı bırakır.',
   'tut.metas.8.titulo': 'İşte oradalar, eksende',
   'tut.metas.8.texto':
-    'Plandan doğan alt hedefler Zaman Çizelgesi’nde kendi dönemlerini kaplar, planın moru da üstlerine bindirilmiş halde durur: önerilen ile gerçek olan, aynı eksende.',
+    'Zaman çizelgesi BU hedefin çizelgesidir: alt hedefleri zaman ekseninde kendi dönemlerini kaplar, planın moru da üstlerine bindirilmiş halde durur — önerilen ile gerçek olan, bir arada.',
+  'tut.metas.9.titulo': 'Her hedefin kendi ekseni',
+  'tut.metas.9.texto':
+    'Bu eksen tek bir hedefin eksenidir: tarihi olmayana burada tarih verilir, yeni alt hedefler bağlanır ve «Dön» seni onun sayfasına geri götürür. Yukarıdaki Zaman Çizelgesi menüsü ise hepsini bir arada gösterir.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Bir yıllık öğrenim, tek bir ağaçta',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep Fizik okuyor: yılın başında mekanik, 6. aydaki vizeye doğru termodinamik, sonunda görelilik ve astrofizik. Her dal, girdilerini görmek için açılır.',
@@ -681,7 +684,7 @@ export const TR_TUT: Dict = {
     'Her satırdaki + tam orada bir girdi yazar, alanı ve konusu çoktan konmuş halde. Kalem düğmesiyle de ağacı büyütürsün: aynı + dallar ekler, Tohum’daki + yeni alanlar oluşturur, ayrıca yeniden adlandırabilir, sıralayabilir ve silebilirsin. Dallı sayı, oranın altında kaç alt dizin asılı olduğunu söyler.',
   'tut.app-biblioteca--estudio.2.titulo': 'Çalışma planı',
   'tut.app-biblioteca--estudio.2.texto':
-    'Hedefler başlıktaki Hedefler düğmesinde yaşar, takvimin kendi zaman çizelgesinde: «sınavdan önce termodinamiği bitirmek» zaten tamamlandı; yüksek lisansa hazırlık hâlâ devam ediyor.',
+    'Başlıktaki Görevler düğmesi bugün sırada ne varsa getirir. Çalışma hedefleri ise Hedefler odasında, uygulamaya göre gruplanmış olarak yaşar: «sınavdan önce termodinamiği bitirmek» zaten tamamlandı; yüksek lisansa hazırlık hâlâ devam ediyor.',
   'tut.app-biblioteca--estudio.3.texto':
     'Her hedef için bir plan isteyebilirsin: Yapay Zeka hedef tarihini ve uygun saatlerini sorar, sonra çalışma zamanlarını takvimine yerleştirir.',
   'tut.app-biblioteca--resumen.1.texto':
@@ -750,7 +753,7 @@ export const TR_TUT: Dict = {
     'Çubuklar biriktirdiklerini hedeflerinle kıyaslar: kuvvet seansları, dayanıklılık dakikaları ve esneklik dakikaları. Hedef, yukarıdan seçtiğin döneme göre ayarlanır.',
   'tut.app-ejercicio--anio.3.titulo': 'Yılın hedefleri',
   'tut.app-ejercicio--anio.3.texto':
-    'Başlıktaki Hedefler düğmesi tamamladığı dört hedefi — 5K, 10K, yarı maraton ve maraton — ve hâlâ açık olanı saklar. Tarihli hedefler ev takviminde de görünür.',
+    'Hedefler odası tamamladığı dört hedefi — 5K, 10K, yarı maraton ve maraton — ve hâlâ açık olanı saklar. Tarihli hedefler ev takviminde de görünür.',
   'tut.app-ejercicio--carrera.1.titulo': 'Katalog, Rutinler ve İlerleme',
   'tut.app-ejercicio--carrera.1.texto':
     'Her disiplin aynı şekilde düzenlenir: egzersiz kataloğu, geçmişiyle birlikte rutinlerin ve ilerleme. Pep’in şimdiye kadar koştuklarıyla başlayalım.',
@@ -807,9 +810,9 @@ export const TR_TUT: Dict = {
   'tut.app-cocina--recetario.5.titulo': 'Kaydedilmiş listeler',
   'tut.app-cocina--recetario.5.texto':
     'Her liste, alınacaklarla kilerde olanları birlikte saklar. Fiyat girersen market hesabı Çalışma Odası’ndaki giderlere gönderilebilir.',
-  'tut.app-cocina--cronograma.1.titulo': 'Kilo hedefi, aşamalarıyla',
+  'tut.app-cocina--cronograma.1.titulo': 'Mutfağın bugün senden istedikleri',
   'tut.app-cocina--cronograma.1.texto':
-    'Başlıktaki Hedefler düğmesi, ev takviminin kullandığı aynı zaman çizelgesini Mutfağın hedefleriyle sınırlı olarak açar: bir hedef oluştur (örneğin «3 kilo vermek») ve yapay zekadan plan iste — hedef tarihini sorar ve her alt hedefi kendi tarihiyle takvime ekler.',
+    'Başlıktaki Görevler düğmesi günün kontrol listesini açar: su, öğünler ve hedeflerinden gelen adımlar. Hedeflerin kendisi —yapay zekanın onlara önerdiği planla birlikte— Hedefler odasında, onları taşıyan uygulamaya göre gruplanmış olarak yaşar.',
   'tut.app-cocina--cronograma.2.texto':
     'Bunu Yapay Zeka yapar: Düzenleyici › Ayarlar › Hesap’tan açılır. O olmadan da hedefler aynı şekilde oluşturulur ve düzenlenir, sadece elle.',
   'tut.app-descanso--noche.1.titulo': 'Yüz puan, üç parça',
@@ -867,7 +870,7 @@ export const TR_TUT: Dict = {
     'Japonya gezisi, %100: on bir ay biriktirme, özel dersler, yıl sonu ikramiyesi ve doğum gününde aldığı para. Altında, dönüşte başlattığı acil durum fonu ve küçük bir yatırım.',
   'tut.app-despacho--metas.2.titulo': 'Hedef zaman içinde',
   'tut.app-despacho--metas.2.texto':
-    'Başlıktaki Hedefler düğmesi bu hedefleri zaman ekseninde tutar: birine tarih ver, takvimindeki günler arasında görünsün. ✨ ile yapay zeka birikim planı önerir.',
+    'Bu hedefler Hedefler odasında zaman ekseni üzerinde saklanır: birine tarih ver, takvimindeki günler arasında görünsün. ✨ ile yapay zeka birikim planı önerir.',
   'tut.app-despacho--metas.3.titulo': 'O zamanki borcu',
   'tut.app-despacho--metas.3.texto':
     'Arabanın arızası kredi kartıyla ödendi ve kapanması aylar aldı. Borçlar ayrı duruyor çünkü tersten okunuyor: burada düşmek kazanmak demek.',

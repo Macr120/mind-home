@@ -218,6 +218,23 @@ html[data-modo-ui] :is(.ui-app, .ui-panel, .ui-panel-glass) .ui-panel-glass {
 .texto-cta {
   color: #fff;
 }
+/* Tarjeta que se ENCIENDE con su color de marca (--c, el mismo de `vivo()`):
+   teñido sutil en reposo y más vivo al pasar el cursor. Se usa en las listas de
+   cuartos y de apps para que cada fila se ilumine con SU color y no con un gris
+   común. `background-color` (no el atajo `background`) para no pisar gradientes. */
+.ui-brillo {
+  background-color: color-mix(in srgb, var(--c) 6%, transparent);
+  transition: background-color 0.18s var(--ease-fluida);
+}
+.ui-brillo:hover {
+  background-color: color-mix(in srgb, var(--c) 20%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ui-brillo {
+    transition: none;
+  }
+}
+
 /* Color de marca del cuarto como texto: vivo en oscuro, entintado en claro. */
 .texto-vivo {
   color: var(--c);
@@ -238,6 +255,27 @@ html[data-base-ui='claro'] .texto-vivo:where(:not(.ui-noche *)) {
 }
 @media (prefers-reduced-motion: reduce) {
   .ui-pop {
+    animation: none;
+  }
+}
+
+/* Modo edición de la pantalla de inicio: las tarjetas tiemblan como los iconos de
+   un teléfono. El desfase por tarjeta lo pone el consumidor en `animation-delay`,
+   para que no vibren todas al unísono. */
+@keyframes ui-tiembla {
+  0%,
+  100% {
+    transform: rotate(-0.9deg);
+  }
+  50% {
+    transform: rotate(0.9deg);
+  }
+}
+.ui-tiembla {
+  animation: ui-tiembla 0.24s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ui-tiembla {
     animation: none;
   }
 }
@@ -320,6 +358,47 @@ html[data-base-ui='claro'] .texto-vivo:where(:not(.ui-noche *)) {
 @media (prefers-reduced-motion: reduce) {
   .ui-notif {
     animation: none;
+  }
+}
+
+/* Pulso de brillo de una barra de progreso cuando su valor CRECE (ui/Barra.tsx):
+   la ganancia de XP se nota sin mirar el número. */
+@keyframes xp-brillo {
+  35% {
+    filter: brightness(1.9);
+  }
+}
+.xp-brillo {
+  animation: xp-brillo 0.8s var(--ease-fluida) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .xp-brillo {
+    animation: none;
+  }
+}
+
+/* Destellos de la celebración de subida de nivel: cada ✦ crece, gira y se
+   apaga en bucle (CelebracionesOverlay). */
+@keyframes celebra-destello {
+  from {
+    opacity: 0;
+    transform: scale(0.2) rotate(0deg);
+  }
+  35% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.2) rotate(45deg);
+  }
+}
+.celebra-destello {
+  animation: celebra-destello 1.6s var(--ease-fluida) infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .celebra-destello {
+    animation: none;
+    opacity: 0.5;
   }
 }
 

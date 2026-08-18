@@ -27,6 +27,16 @@ export function esMeta(r: Rutina): boolean {
   return r.esMeta === true
 }
 
+/**
+ * Metas cumplidas de una app, para el contador de su tarjeta (junto a la racha y
+ * las listas). `null` = la app no lleva ninguna meta, y entonces no se pinta nada:
+ * un «0» ahí parecería un pendiente en vez de «esto no va conmigo».
+ */
+export function metasCumplidasDe(metas: Rutina[], plantillaId: string): number | null {
+  const suyas = metas.filter((m) => m.plantillaId === plantillaId)
+  return suyas.length > 0 ? suyas.filter((m) => m.completada).length : null
+}
+
 /** ¿Ocupa un sitio en el calendario? La fecha lo decide; no hay bandera aparte. */
 export function agendada(r: Rutina): boolean {
   return !!r.fechaInicio

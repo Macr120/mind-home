@@ -1,9 +1,10 @@
 /**
- * Diccionario NL de la interfaz. Se carga con import() perezoso
- * desde dict.ts: quien no use este idioma no lo descarga.
+ * Diccionario NEERLANDÉS de la interfaz. Se carga con import() perezoso
+ * desde dict.ts, igual que el inglés: quien no use este idioma no lo descarga.
  *
- * Lo monta `traducir-a-mano.mjs meter-dict` a partir de `dict.en.ts` y de los
- * fallbacks españoles del código. Lo que falte cae al inglés (ver `useT`).
+ * GENERADO por `npm run traducir:i18n` a partir de `dict.en.ts` y de los
+ * fallbacks españoles del código. No lo edites a mano: se sobrescribe entero.
+ * Lo que falte cae al inglés (ver `useT`); al español solo en último término.
  */
 import type { Dict } from './dict'
 
@@ -15,6 +16,8 @@ export const NL: Dict = {
   'nav.ariaMenu': 'Kamermenu',
   'nav.retraer': 'Menu inklappen',
   'nav.abrir': 'Menu openen',
+  'nav.rapido': 'Snelle toegang tot je kamers',
+  'nav.rapido.ayuda': 'Tik op een kamer om de app te openen.',
   'nav.editarCuarto': 'Deze kamer bewerken',
   'nav.entrar': 'Naar binnen ›',
   'nav.ayuda.tarjetaTexto':
@@ -365,18 +368,20 @@ export const NL: Dict = {
   'meta.marcar': 'Markeren als klaar',
   'meta.desmarcar': 'Markeren als niet klaar',
   'meta.agendar': 'Inplannen in de kalender',
-  'hoy.titulo': 'Vandaag',
+  'hoy.titulo': 'Missies',
   'hoy.alDia': 'Alles gedaan voor vandaag',
   'hoy.hechos': 'Gedaan ({n})',
   'hoy.registrar': 'Registreren',
   'hoy.objetivo': 'Je dagelijkse doel (0 zet het uit)',
   'hoy.checklist': 'Dagelijkse checklist',
-  'hoy.grupoApp': 'Doelen van vandaag',
+  'hoy.grupoApp': 'Missies van vandaag',
   'hoy.nueva': 'Nieuwe checklist',
   'hoy.cerrar': 'Sluiten',
   'hoy.ocultarHechos': 'Afgeronde verbergen',
+  'hoy.casa.vacio': 'Vandaag staat er in geen enkele app iets open.',
+  'hoy.casa.abrirApp': 'Deze app openen',
   'cal.meta.mientrasDure': 'Zolang het duurt, vraag me om',
-  'cal.meta.unObjetivo': 'een dagelijks doel',
+  'cal.meta.unObjetivo': 'een dagelijkse missie',
   'cal.meta.unaActividad': 'een wekelijkse activiteit',
   'cal.meta.diasRitmo': '{hechos}/{pedidos} dagen',
   'rutinas.sinApp': 'Geen app (huisgebeurtenis)',
@@ -482,6 +487,18 @@ export const NL: Dict = {
   'progreso.nivel': 'Niveau',
   'progreso.racha': 'Reeks',
   'progreso.dias': 'dagen',
+  'progreso.rachaTitulo': 'Reeks actieve dagen',
+  'progreso.listasTitulo': 'Voltooide missielijsten',
+  'progreso.listasCumplidas': 'Voltooide lijsten',
+  'celebra.racha.titulo': 'Reeks van {n} dagen!',
+  'celebra.racha.titulo1': 'Reeks van 1 dag!',
+  'celebra.racha.cuerpo': 'Ga zo door in {app} 🔥',
+  'celebra.lista.titulo': 'Missies van vandaag gehaald!',
+  'celebra.lista.cuerpo': 'Je hebt de lijst van {app} voltooid',
+  'celebra.lista.xp': '+{xp} XP',
+  'celebra.nivel.titulo': 'Niveau omhoog!',
+  'celebra.nivel.cuerpo': '{app} bereikte niveau {n} 🎉',
+  'celebra.seguir': 'Ga door!',
   'progreso.hoy': 'Vandaag',
   'progreso.semana': '7 dagen',
   'plantillas.ayuda':
@@ -675,7 +692,7 @@ export const NL: Dict = {
   'chat.config.ponerMapa': 'Op de kaart zetten',
   'chat.config.voz': 'Stem:',
   'chat.config.vozAuto': 'Automatisch (op basis van taal)',
-  'chat.config.vozIA': 'AI-stem (OpenAI, natuurlijker)',
+  'chat.config.vozIA': 'AI-stem (natuurlijker)',
   'chat.config.vozLeer': 'Lees hardop voor wat ze zeggen',
   'chat.config.vozProbar': 'Stem uitproberen',
   'chat.config.vozTono': 'Toon',
@@ -756,6 +773,8 @@ export const NL: Dict = {
   'veh.bajarte': 'Uitstappen',
   'accion.sentarte': 'Gaan zitten',
   'accion.acostarte': 'Gaan liggen',
+  'accion.sentarse': 'Gaan zitten',
+  'accion.acostarse': 'Gaan liggen',
   'accion.sentado': 'Zittend',
   'accion.acostado': 'Liggend',
   'accion.levantarte': 'Opstaan',
@@ -828,6 +847,7 @@ export const NL: Dict = {
   'room.ideas.nombre': 'Ideeën',
   'room.computo.nombre': 'Computerkamer',
   'room.agenda.nombre': 'Agenda',
+  'room.metas.nombre': 'Doelen',
   'room.cocina.sub': 'Voeding',
   'room.ejercicio.sub': 'Kracht- en fitnessroutines',
   'room.recamara.sub': 'Slaap & anekdotes',
@@ -845,6 +865,7 @@ export const NL: Dict = {
   'room.ideas.sub': 'Conceptkaarten op een vrij canvas',
   'room.computo.sub': 'Rekenmachine & spreadsheets',
   'room.agenda.sub': 'Werk, gezondheid & mensen',
+  'room.metas.sub': 'Plannen & planning',
   'hud.plegar': 'Bediening inklappen',
   'hud.desplegar': 'Bediening tonen',
   'nav3d.aria': 'Weergavebediening',
@@ -1207,6 +1228,10 @@ export const NL: Dict = {
   'despacho.patr.enlazarMeta': 'Koppelen aan een doel dat ik al heb…',
   'despacho.patr.objetivoTitulo': 'Hoever wil je komen?',
   'despacho.patr.objetivoMsg': 'Je hebt hier al {n}.',
+  'despacho.patr.metaLiquidar': '{n} aflossen',
+  'despacho.patr.notaCronograma': '{p} per maand · {i} aan rente',
+  'despacho.patr.yaEnCronograma': 'Staat al in je planning',
+  'despacho.patr.alCronograma': 'Zet in de planning · afgelost tegen {f}',
   'despacho.meta.verEnPasivos': 'Bekijken in Vermogen › Schulden',
   'despacho.meta.verEnActivos': 'Bekijken in Vermogen › Bezittingen',
   'despacho.meta.anadirAPasivos': 'Toevoegen aan Schulden (met rente en looptijd)',
@@ -3478,6 +3503,8 @@ export const NL: Dict = {
     'Fok kippen, varkens, geiten, schapen, koeien en paarden, en verbouw hun voedsel in dezelfde editor.',
   'room.ideas.desc':
     'Jouw ideeëndagboek en brainstorms, tien conceptkaart-formaten op een vrij canvas (mindmap, boom, tijdlijn, cyclus, piramide, venn…) en acht beslissingsdiagrammen (voor-en-tegen, krachtenveld, SWOT, Eisenhower, beslisboom, tier list, gewogen beslismatrix en Ishikawa), met de hand of met AI.',
+  'room.metas.desc':
+    'Wat je je hebt voorgenomen, uit het hele huis: de lijst met doelen met hun subdoelen en stappen, de plannen die de AI voor elk doel voorstelt (fasen met een datum die echte subdoelen worden) en de planning waarin alles zijn periode inneemt op de tijdlijn.',
   'room.computo.desc':
     'Computerkamer: een wetenschappelijke rekenmachine met je formuleboek eraan gekoppeld (wiskunde, natuurkunde en scheikunde inbegrepen en bewerkbaar) en acht modi — een grafische plotter met vier types (2D, polair, parametrisch en 3D-oppervlak), binair en hexadecimaal, matrices, stelsels van vergelijkingen, eenheden omrekenen, fooi en regel van drie; en spreadsheets die naar Excel en PDF exporteren.',
   'computo.tab.calculadora': 'Rekenmachine',
@@ -4078,6 +4105,7 @@ export const NL: Dict = {
   'cal.cron.avance': '{n}% klaar',
   'cal.cron.buscar': 'Zoeken…',
   'cal.cron.desplegarTodo': 'Alles uitklappen',
+  'cal.cron.editar': 'De doelen bewerken',
   'cal.cron.hechas': 'Klaar',
   'cal.cron.ocultarHechas': 'Voltooide verbergen',
   'cal.cron.plegarTodo': 'Alles inklappen',
@@ -4086,6 +4114,7 @@ export const NL: Dict = {
   'cal.cron.trazar': 'Sleep hierheen om er data aan te geven',
   'cal.cron.vacio': 'Nog geen doelen.',
   'cal.cron.vencida': 'Verlopen zonder afgerond te zijn',
+  'cal.cron.volver': 'Terug naar het doel',
   'cal.cronograma': 'Planning',
   'cal.dia': 'Dag',
   'cal.editarEvento': 'Gebeurtenis bewerken',
@@ -4109,6 +4138,7 @@ export const NL: Dict = {
   'cal.mes': 'Maand',
   'cal.meta.agregarHija': 'Subdoel toevoegen',
   'cal.meta.alcance': 'Voltooide stappen en subdoelen',
+  'cal.meta.armar': 'Op de kalender tekenen',
   'cal.meta.armarORenombrar': 'Klik: op de kalender tekenen · Dubbelklik: hernoemen',
   'cal.meta.colorDe': 'Kleur van dit doel',
   'cal.meta.borrar': 'Dit doel verwijderen?',
@@ -4137,9 +4167,6 @@ export const NL: Dict = {
   'cal.meta.pasoNuevo': 'Voeg een stap toe…',
   'cal.meta.pasoRenombrar': 'Dubbelklik om de stap te hernoemen',
   'cal.meta.pasos': 'Stappen van dit doel',
-  'cal.meta.plan': 'Plan',
-  'cal.meta.planEnCronograma': 'Bekijk zijn plan in de planning',
-  'cal.meta.planHoja': 'Open het blad van zijn plan',
   'cal.meta.plegar': 'Inklappen',
   'cal.meta.ponerHora': 'Tijd instellen',
   'cal.meta.prefijoSub': 'sub',
@@ -4965,7 +4992,40 @@ export const NL: Dict = {
   'nav.asignar': '+ Toewijzen',
   'nav.asignarApp': 'Wijs een app toe aan deze kamer',
   'nav.crearCuarto': 'Kamer maken',
+  'nav.vista3D': 'Kamers in 3D bekijken',
+  'nav.vistaIconos': 'Kamers met hun pictogram bekijken',
   'nav.sinCuartos': 'Nog geen kamers. Maak de eerste hieronder aan.',
+  'nav.rapido.editando': 'Sleep om te herschikken, of tik op het potlood om te bewerken.',
+  'nav.rapido.listo': 'Klaar',
+  'nav.rapido.metas': 'Doelen die je in deze app hebt gehaald',
+  'nav.rapido.pendientes': 'Nog {n} missies',
+  'nav.fondo.borrar': 'Verwijderen',
+  'nav.sinApps': 'Kamers met een app verschijnen hier. Wijs er een toe via het kamermenu.',
+  'nav.editar.titulo': 'Kamer bewerken',
+  'nav.editar.nombre': 'Naam',
+  'nav.editar.icono': 'Pictogram',
+  'nav.editar.tab.emoji': 'Emoji',
+  'nav.editar.tab.imagen': 'Afbeelding',
+  'nav.editar.emojiLibre': 'Andere emoji',
+  'nav.editar.imagenPuesta': 'Deze afbeelding vervangt de emoji in de menu’s.',
+  'nav.editar.quitarImagen': 'Verwijderen',
+  'nav.editar.subirImagen': 'Afbeelding uploaden',
+  'nav.editar.color': 'Kleur',
+  'nav.editar.murosTitulo': 'Ook de muren overschilderen?',
+  'nav.editar.murosMensaje': 'Deze kamer heeft muren die je met de hand hebt geverfd in de kaarteditor. Bij overschilderen verliezen ze hun kleur.',
+  'nav.editar.murosOk': 'Overschilderen',
+  'nav.fondo.titulo': 'Achtergrond',
+  'nav.fondo.desc': 'De afbeeldingen worden gedeeld met de luchtachtergrond van het huis.',
+  'nav.fondo.sin': 'Geen achtergrond',
+  'nav.fondo.subir': 'Afbeelding uploaden',
+  'nav.fondo.nombreIA': 'Achtergrond met AI',
+  'nav.fondo.atenuacion': 'Achtergrond dimmen',
+  'editor.texturaIA.placeholderIcono': 'Beschrijf het pictogram…',
+  'editor.texturaIA.generarIcono': 'Pictogram genereren',
+  'editor.texturaIA.sug.iconoMinimal': 'minimalistisch met één lijn',
+  'editor.texturaIA.sug.iconoPastel': 'afgerond in pasteltinten',
+  'editor.texturaIA.sug.iconoPixel': 'pixelartstijl',
+  'editor.texturaIA.sug.iconoDegradado': 'met een levendig verloop',
   'nav3d.ayuda1P': 'Rechtermuisknop of joystick; scrollwiel voor zoom',
   'nav3d.ayuda3P': 'Rechtermuisknop of joystick; scrollwiel voor zoom',
   'nav3d.cambiarVista': 'Weergave wisselen (toets V)',
@@ -5576,6 +5636,9 @@ export const NL: Dict = {
   'ajustes.musica.sfxDesc': 'Blaster, portalen, vuurwerk, spellen en voertuigen. Onafhankelijk van het muziekvolume.',
   'musica.control': 'Muziek',
   'musica.cerrar': 'Sluiten',
+  'visor.ampliar': 'Bekijk de afbeelding schermvullend',
+  'visor.cerrar': 'Sluiten',
+  'visor.descargar': 'Downloaden',
   'voz.escuchar': 'Luisteren',
   'voz.callar': 'Stoppen met voorlezen',
   'voz.autoOn': 'Leest de antwoorden hardop voor',
@@ -5613,6 +5676,19 @@ export const NL: Dict = {
     'Deze installatie heeft geen backend geconfigureerd: alles wordt alleen op dit apparaat opgeslagen.',
   'cuenta.cargando': 'Laden…',
   'cuenta.intro': 'Met een account gaan je plan en je huis mee naar elk apparaat.',
+  'cuenta.nivel.titulo': 'Je niveau',
+  'cuenta.nivel.n': 'Niveau ×{n} — {c} credits per maand',
+  'cuenta.nivel.actual': 'Huidig',
+  'cuenta.nivel.nota': 'Je kunt altijd een niveau omhoog of omlaag; het verschil wordt naar rato berekend.',
+  'cuenta.nivel.subir': 'Naar ×{n} — {c} credits per maand voor {p}',
+  'cuenta.cuota.cuerpoNivel': 'Je credits worden op {f} vernieuwd. Als ze elke maand opraken, ga een niveau omhoog.',
+  'cuenta.cuota.cuerpoVencida':
+    'Je gegevens staan nog op dit apparaat. Verleng om je maandcredits en synchronisatie terug te krijgen.',
+  'cuenta.cuota.cuerpoTrial':
+    'De app en je gegevens zijn voorgoed van jou. Neem Pro om je maandcredits en synchronisatie te houden.',
+  'cuenta.cuota.cuerpoLocal':
+    'De app en je gegevens zijn van jou zonder te betalen. Alleen AI kost geld: neem een abonnement en krijg elke maand credits.',
+  'cuenta.cuota.web': 'Mijn abonnement bekijken',
   'cuenta.conGoogle': 'Doorgaan met Google',
   'cuenta.conApple': 'Doorgaan met Apple',
   'cuenta.oCorreo': 'of met je e-mail',
@@ -5633,8 +5709,6 @@ export const NL: Dict = {
   'cuenta.techo.cuerpo':
     'Je verzoeken gebruikten deze maand veel meer context dan normaal en de fair-uselimiet is bereikt. Deze wordt op {f} gereset.',
   'cuenta.cuota.tituloTrial': 'Je inbegrepen maand is voorbij',
-  'cuenta.cuota.cuerpoTrial':
-    'De app en je gegevens zijn voor altijd van jou. Neem een Pro-abonnement om de maandelijkse credits en synchronisatie te houden, of laad losse credits op wanneer je ze nodig hebt.',
   'puerta.trato':
     'Eén eenmalige betaling ontgrendelt je huis voor altijd en bevat je eerste maand AI en synchronisatie — zonder kaart en zonder abonnement.',
   'puerta.procesando': 'Verwerken…',
@@ -5675,6 +5749,20 @@ export const NL: Dict = {
   'ia.activar.sinActivar':
     'De AI staat uit. Log in om credits te gebruiken, of plak hieronder de sleutel van een aanbieder.',
   'ia.activar.priv': 'Wordt alleen op dit apparaat bewaard en verlaat het nooit, behalve richting {prov}.',
+  'ia.media.sinClave':
+    'Voeg een OpenAI- of Gemini-sleutel toe om afbeeldingen te genereren en de AI-stem te gebruiken.',
+  'ia.panel.cerebro': 'Brein',
+  'ia.panel.claveOllama': 'Ollama-sleutel (alleen voor zijn cloud of een server met sleutel)',
+  'ia.panel.localImagen': 'Dit model genereert afbeeldingen.',
+  'ia.panel.imagen': 'Afbeelding',
+  'ia.panel.proveedor': 'Provider',
+  'ia.panel.voz': 'Stem',
+  'ia.panel.vozAyuda': 'Zet de AI-stem van de assistenten aan met deze provider',
+  'ia.transporte.byok': 'Mijn sleutels (BYOK)',
+  'ia.transporte.creditos': 'Credits',
+  'ia.transporte.creditosDesc':
+    'Loopt via je account: de server levert de sleutels en elk verzoek kost credits van het plan.',
+  'ia.transporte.sinCuenta': 'Log in om credits te gebruiken.',
   'ia.calidad.titulo': 'Kwaliteit van de afbeeldingen',
   'ia.calidad.rapida': 'Snel',
   'ia.calidad.rapida.desc': 'Goed en goedkoop. Dit gebruik ik, tenzij je iets anders zegt.',
@@ -5795,16 +5883,11 @@ export const NL: Dict = {
   'cuenta.cuota.titulo': 'Je credits voor deze maand zijn op',
   'cuenta.cuota.tituloSin': 'Je hebt credits nodig om AI te gebruiken',
   'cuenta.cuota.cuerpo': 'Je credits worden op {f} vernieuwd.',
-  'cuenta.cuota.cuerpoLocal':
-    'De app en je gegevens zijn helemaal gratis van jou. Alleen AI wordt in rekening gebracht: waardeer credits op wanneer je ze nodig hebt, of neem een abonnement en krijg ze elke maand.',
-  'cuenta.cuota.cuerpoVencida':
-    'Je gegevens blijven op dit apparaat. Vernieuw je abonnement om je maandelijkse credits en synchronisatie terug te krijgen, of koop een losse opwaardering.',
   'cuenta.cuota.recarga': '+600 credits — {p}',
   'cuenta.cuota.recargaN': '+{n} credits — {p}',
   'cuenta.cuota.recargaLista': 'Opwaardering toegepast: je extra credits staan al op je account.',
   'cuenta.cuota.suscribirse': 'Abonnement bekijken',
   'cuenta.cuota.nativo': 'Credits worden beheerd via je account.',
-  'cuenta.cuota.web': 'Credits kopen in mijn account',
   'cuenta.creditos.faltan': 'Je AI-credits zijn op.',
   'comun.entendido': 'Begrepen',
   'demo.aviso.titulo': 'Je bent in het demohuis',
@@ -5866,12 +5949,12 @@ export const NL: Dict = {
   'tut.calendario.titulo': 'Kalender',
   'tut.calendario.resumen':
     'De klok van het huis opent de kalender: alles wat je hebt gepland —diensten, lessen, gewoontes en wat de andere apps toevoegen— in de weergaven Dag, Week, Maand, Jaar en Doelen. Het paneel eronder meet hoeveel van wat je hebt gepland je ook echt doet.',
-  'tut.calendario.3b.titulo': 'En Doelen, apart',
+  'tut.calendario.3b.titulo': 'En Dagdoelen, apart',
   'tut.calendario.3b.texto':
-    'In rood, zodat het niet wordt verward met de vier hierboven: Doelen opent je doelen, hun plannen en de planning.',
+    'In rood, zodat het niet wordt verward met de vier hierboven: Dagdoelen bundelt de checklist van vandaag van al je apps. Je doelen en hun plannen wonen in hun eigen kamer.',
   'tut.metas.titulo': 'Doelen',
   'tut.metas.resumen':
-    'De drie schermen van een doel: de lijst waar het ontstaat, het plan dat het uitwerkt (de AI stelt het voor en jij vinkt het af) en de planning waar de fases hun eigen periode krijgen, als echte sub-doelen.',
+    'De lijst met doelen en, binnen elk ervan, zijn blad: het plan dat het uitwerkt (de AI stelt het voor en jij vinkt het af) en zijn planning, waar zijn fases hun eigen periode krijgen, als echte sub-doelen.',
   'tut.app-biblioteca--enciclopedia.titulo': 'Je eigen encyclopedie',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Alles wat je leert, wordt gearchiveerd in een boom per kennisgebied: items met een samenvatting en kernpunten die je kunt illustreren.',
@@ -5926,6 +6009,9 @@ export const NL: Dict = {
   'tut.app-ejercicio--fuerza.titulo': 'De kracht die de knie niet kon afpakken',
   'tut.app-ejercicio--fuerza.resumen':
     'Bij Kracht leg je sets, herhalingen en gewicht vast; daarmee berekent de app je volume, tekent de progressie van elke oefening en bewaart je persoonlijke records.',
+  'tut.app-ejercicio--flexibilidad.titulo': 'De derde discipline',
+  'tut.app-ejercicio--flexibilidad.resumen':
+    'Flexibiliteit is opgezet als Kracht en Conditie —catalogus, routines, voortgang— maar met sets op tijd in plaats van gewicht, en een begeleide speler met timer.',
   'tut.app-cocina--alimentacion.titulo': 'Eten met een doel',
   'tut.app-cocina--alimentacion.resumen':
     'Voedingscontrole bestaat uit vier stappen: je stelt je doelen in, je legt vast wat je eet en drinkt, je plant je week, en de voortgang vertelt je of je op koers ligt.',
@@ -5950,6 +6036,9 @@ export const NL: Dict = {
   'tut.app-despacho--metas.titulo': 'Japan, het noodfonds en de schuld',
   'tut.app-despacho--metas.resumen':
     'Doelen bundelt je spaar- en beleggingsdoelen in één lijst met voortgangsbalk, en houdt schulden apart met hun eigen simulator. Elk doel heeft een planning waarin je er datums aan geeft.',
+  'tut.app-despacho--patrimonio.titulo': 'Wat je hebt, wat je schuldig bent en waar het heengaat',
+  'tut.app-despacho--patrimonio.resumen':
+    'Vermogen is geen foto: alles wat je hebt wordt duurder of goedkoper, en elke schuld rekent rente. Geef elke regel zijn tarief en het derde tabblad laat de hele film zien, van vorig jaar tot waar je uitkomt.',
   'tut.app-despacho--calculadoras.titulo': 'Vier regels om tot een bedrag te komen',
   'tut.app-despacho--calculadoras.resumen':
     'Vier rekenhulpen voor persoonlijke financiën stellen een streefbedrag voor op basis van je werkelijke saldo, en zetten dat met één tik om in een doel. De parameters van elke regel zijn aan te passen: niemand hoeft de 50/30/20-regel klakkeloos over te nemen.',
@@ -5993,6 +6082,7 @@ export const NL: Dict = {
   'cuenta.sync.activo': 'Synchroniseren…',
   'cuenta.sync.ultima': 'Gesynchroniseerd: {f}',
   'cuenta.sync.nunca': 'Nog niet gesynchroniseerd',
+  'cuenta.sync.soloPro': 'Synchronisatie tussen apparaten hoort bij Pro.',
   'cuenta.sync.ahora': 'Synchroniseren',
   'cuenta.sync.otraCuenta':
     'Dit huis was gekoppeld aan een ander account. Lokale gegevens bewaren en samenvoegen met het nieuwe account? (Annuleren = dit huis leegmaken en alleen de accountgegevens downloaden)',
@@ -6052,6 +6142,7 @@ export const NL: Dict = {
   'agenda.prioridad.baja': 'Laag',
   'agenda.trabajo.pendientes': 'Taken',
   'agenda.trabajo.tablero': 'Bord',
+  'agenda.trabajo.apuntar': 'Taak noteren',
   'ejemplo.vacio': 'Weet je niet waar je moet beginnen? Bekijk hoe het eruitziet met een voorbeeld erin.',
   'ejemplo.puesto': 'Dit is een voorbeeld: verberg het wanneer je wilt, je eigen gegevens blijven ongewijzigd.',
   'ejemplo.mostrar': 'Voorbeeld bekijken',
@@ -6084,6 +6175,7 @@ export const NL: Dict = {
   'agenda.projimo.aMiCuidado': 'In mijn zorg',
   'agenda.cuidadop.nuevo': 'Nieuw zorgmoment',
   'agenda.cuidado.archivado': 'Gedaan, geen herhaling',
+  'agenda.cuidado.yaLoHice': 'Al gedaan',
   'agenda.cuidado.reactivar': 'Opnieuw inplannen',
   'agenda.form.especialidad': 'Specialisme',
   'agenda.esp.general': 'Huisarts',
@@ -6249,10 +6341,6 @@ export const NL: Dict = {
   'widgets.efemerideTitulo': 'Op deze dag',
   'widgets.vacio': 'Niets gepland voor vandaag',
   'widgets.desactualizado': 'Tik om te vernieuwen',
-
-  // Catálogo de recursos 3D: el nombre con el que se siembra cada objeto del
-  // inventario. Solo se muestra traducido si el objeto aún se llama como su
-  // recurso de origen; un nombre puesto por el usuario se respeta tal cual.
   'objetos.nombreGenerico': 'Object',
   'objetos.nombrePiezas': 'Object van onderdelen',
   'recurso.1': 'Keukenkastjes (boven en onder)',
@@ -6408,23 +6496,6 @@ export const NL: Dict = {
   'recursoExtra.sillon-lectura': 'Leesfauteuil',
   'recursoExtra.calendario-pared': 'Wandkalender',
   'recursoExtra.estacion-computo': 'Computerstation',
-  'accion.sentarse': 'Gaan zitten',
-  'accion.acostarse': 'Gaan liggen',
-  'cuenta.sync.soloPro': 'Synchronisatie tussen apparaten hoort bij Pro.',
-  'agenda.cuidado.yaLoHice': 'Al gedaan',
-  'despacho.patr.metaLiquidar': '{n} aflossen',
-  'despacho.patr.notaCronograma': '{p} per maand · {i} aan rente',
-  'despacho.patr.yaEnCronograma': 'Staat al in je planning',
-  'despacho.patr.alCronograma': 'Zet in de planning · afgelost tegen {f}',
-  'tut.app-despacho--patrimonio.titulo': 'Wat je hebt, wat je schuldig bent en waar het heengaat',
-  'tut.app-despacho--patrimonio.resumen':
-    'Vermogen is geen foto: alles wat je hebt wordt duurder of goedkoper, en elke schuld rekent rente. Geef elke regel zijn tarief en het derde tabblad laat de hele film zien, van vorig jaar tot waar je uitkomt.',
-  'tut.app-ejercicio--flexibilidad.titulo': 'De derde discipline',
-  'tut.app-ejercicio--flexibilidad.resumen':
-    'Flexibiliteit is opgezet als Kracht en Conditie —catalogus, routines, voortgang— maar met sets op tijd in plaats van gewicht, en een begeleide speler met timer.',
-  'agenda.trabajo.apuntar': 'Taak noteren',
-
-  // Tres palabras por app (tarjetas del paso de intereses en la bienvenida)
   'room.cocina.corta': 'Maaltijden, macros en recepten',
   'room.ejercicio.corta': 'Routines, kracht en doelen',
   'room.descanso.corta': 'Schema, wekker en nachten',
@@ -6441,4 +6512,5 @@ export const NL: Dict = {
   'room.ideas.corta': 'Ideeën, kaarten en beslissingen',
   'room.computo.corta': 'Rekenmachine, grafieken en bladen',
   'room.agenda.corta': 'Taken, gezondheid en mensen',
+  'room.metas.corta': 'Doelen, plannen en planning',
 }

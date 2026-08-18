@@ -362,7 +362,7 @@ export const PL_TUT: Dict = {
   'tut.ejemplos.3.texto':
     'W domu demo tego paska nie ma: cały rok Pepa już pełni tę rolę, więc osobny przykład jest zbędny.',
   'tut.hoy.1.texto':
-    'W nagłówku każdej aplikacji jest przycisk Cele, taki sam jak w kalendarzu, ale ograniczony do tej aplikacji. Otwiera panel z dwoma piętrami: na górze dzisiejsza checklista, na dole cele i plany aplikacji.',
+    'W nagłówku każdej aplikacji jest jej przycisk Misje: checklista tego, o co ta aplikacja prosi cię DZIŚ. Zegar domu ma ten sam przycisk, ze wszystkimi aplikacjami razem.',
   'tut.hoy.2.titulo': 'Trzy źródła, jedna lista',
   'tut.hoy.2.texto':
     'Własne cele aplikacji (woda, kalorie), to, co zaplanowałeś na dziś w kalendarzu, i kroki twoich aktualnych celów — wszystko razem, pogrupowane według planu lub celu, z którego pochodzi każdy krok.',
@@ -379,7 +379,7 @@ export const PL_TUT: Dict = {
   'tut.hoy.6.texto':
     'Ląduje w zwiniętej sekcji „Zrobione”: widok wpisu, który zadziałał, to część nagrody, a stamtąd można go cofnąć, jeśli wkradł się jeden za dużo.',
   'tut.hoy.7.texto':
-    'A jeśli czegoś brakuje, «Nowa lista» tworzy twoją własną: listę tej aplikacji, która powtarza się codziennie. Pod sekcją Dziś jest pełny planer — Cele, Plany i Harmonogram — ze wszystkimi celami aplikacji.',
+    'A jeśli czegoś brakuje, «Nowa lista» tworzy twoją własną: listę tej aplikacji, która powtarza się codziennie. Cele, z których biorą się te kroki, planuje się w pokoju Cele.',
   'tut.progreso.1.texto':
     'Karta twojej postaci: za Pepem stoi cały rok prawdziwej aktywności, więc każda liczba ma tu prawdziwą historię, która ją tłumaczy.',
   'tut.progreso.2.titulo': 'Postać',
@@ -586,7 +586,7 @@ export const PL_TUT: Dict = {
   'tut.app-hobbies--gestion.3.texto':
     'Szybkie minuty jednym dotknięciem albo dokładna liczba; projekt jest opcjonalny, a notatka służy do tego, co chcesz zapamiętać z tej sesji.',
   'tut.app-hobbies--gestion.4.texto':
-    'Cele twoich hobby i projektów żyją w przycisku Cele w nagłówku: ten sam planer Cele · Plany · Harmonogram z kalendarza, ograniczony do tej aplikacji. Poproś AI o plan z etapami i datami.',
+    'Cele twoich hobby i projektów żyją w pokoju Cele, każdy ze swoim planem i harmonogramem. Poproś AI o plan z etapami i datami.',
   'tut.app-ideas--diario.1.titulo': 'Skrzynka pomysłów',
   'tut.app-ideas--diario.1.texto':
     'Zapisz to, co ci przyszło do głowy, i tyle. Przez rok wylądowało tu ~90 pomysłów Pepa: z fizyki, z kawiarni, z treningów. Gwiazdka oznacza ulubione.',
@@ -645,7 +645,7 @@ export const PL_TUT: Dict = {
     'Obie dziury są prawdziwe: kontuzja kolana w siódmym miesiącu i trzy tygodnie w Japonii. Potknięcie nie kasuje postępu — panel pokazuje rok takim, jaki był, a nie takim, jaki miał być. A rutyna liczy się dopiero od dnia, w którym powstała.',
   'tut.metas.1.titulo': 'Najpierw cele',
   'tut.metas.1.texto':
-    'Widok otwiera się na Celach, pogrupowanych według aplikacji, która je prowadzi: bieganie w Siłowni, studia z fizyki w Bibliotece. „Dom” nie jest żadną aplikacją — to kategoria wymyślona przez Pepa na remont kuchni.',
+    'Pokój otwiera się na Celach, pogrupowanych według aplikacji, która je prowadzi: bieganie w Siłowni, studia z fizyki w Bibliotece. „Dom” nie jest żadną aplikacją — to kategoria wymyślona przez Pepa na remont kuchni.',
   'tut.metas.2.titulo': 'Od celu do jego planu',
   'tut.metas.2.texto':
     'Każdy wiersz czyta się jak tablicę: numer w folderze, termin, postęp i stan — Do zrobienia, W trakcie albo Zrobione, zależnie od tego, ile jest już odhaczone. Kliknięcie otwiera cel: jego plan, jeśli go ma (zapowiada to ✨), a jeśli nie — jego arkusz z podcelami, datami i krokami.',
@@ -654,7 +654,7 @@ export const PL_TUT: Dict = {
     'Kuchnia i kolejny maraton to wciąż propozycje; wniosek na studia podyplomowe jest już w Harmonogramie. Plan maratonu powstał bez terminu: AI wyliczyła, że potrzeba na niego 24 tygodni, i mówi o tym w swoim podsumowaniu.',
   'tut.metas.4.titulo': 'Arkusz planu',
   'tut.metas.4.texto':
-    'Sześć etapów i ich podcele, każdy ze swoim okresem. Dopóki to propozycja, można go edytować w całości: zmieniać nazwy, przesuwać daty, dodawać i usuwać węzły, nie rozsypując reszty.',
+    '✨ w wierszu zapowiada, że cel ma już plan, a kliknięcie otwiera ten arkusz: etapy i ich podcele, każdy ze swoim okresem. Dopóki to propozycja, można go edytować w całości: zmieniać nazwy, przesuwać daty, dodawać i usuwać węzły, nie rozsypując reszty.',
   'tut.metas.5.titulo': 'Odhaczaj bez zobowiązań',
   'tut.metas.5.texto':
     'Odhaczenia propozycji żyją w arkuszu, nie w twoich celach: możesz zaznaczać, co zrobione, nie ruszając swojego Harmonogramu. Paski wypełniają się same od dołu do góry — planowanie kuchni jest już zamknięte.',
@@ -666,7 +666,10 @@ export const PL_TUT: Dict = {
     'Plan studiów podyplomowych już się przeniósł. Teraz jego odhaczenia to odhaczenia prawdziwych podcelów, a pasek jest paskiem twojego Harmonogramu: arkusz przestaje liczyć osobno.',
   'tut.metas.8.titulo': 'I są, na osi',
   'tut.metas.8.texto':
-    'Podcele zrodzone z planu zajmują swój okres w Harmonogramie, a plan kładzie się na nich na fioletowo: propozycja i rzeczywistość na tej samej osi.',
+    'Harmonogram jest harmonogramem TEGO celu: jego podcele zajmują swój okres na osi czasu, a plan kładzie się na nich na fioletowo — propozycja i rzeczywistość, razem.',
+  'tut.metas.9.titulo': 'Każdy cel ma swoją oś',
+  'tut.metas.9.texto':
+    'Oś zawsze należy do jednego celu: tutaj nadaje się daty temu, co ich nie ma, podpina nowe podcele, a „Wróć” zabiera cię z powrotem do jego arkusza. Menu Harmonogram na górze pokazuje oś wszystkich celów razem.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Rok studiów w jednym drzewie',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep studiuje fizykę: mechanika na początku roku, termodynamika w okolicach kolokwium w szóstym miesiącu, względność i astrofizyka na koniec. Każda gałąź otwiera się, żeby pokazać swoje wpisy.',
@@ -686,7 +689,7 @@ export const PL_TUT: Dict = {
     'Znak + przy każdym wierszu pisze wpis od razu tutaj, z gotową dziedziną i tematem. A przyciskiem ołówka rozbudowujesz drzewo: ten sam + dodaje gałęzie, ten przy Ziarnie tworzy nowe dziedziny, a poza tym zmieniasz nazwy, kolejność i usuwasz. Liczba z gałązką mówi, ile podindeksów wisi poniżej.',
   'tut.app-biblioteca--estudio.2.titulo': 'Plan nauki',
   'tut.app-biblioteca--estudio.2.texto':
-    'Cele żyją w przycisku Cele w nagłówku, w tym samym harmonogramie kalendarza: «skończyć termodynamikę przed kolokwium» jest już zrealizowany; przygotowanie do studiów magisterskich wciąż trwa.',
+    'Przycisk Misje w nagłówku pokazuje to, co wypada dziś. Cele nauki żyją w pokoju Cele, pogrupowane według aplikacji: «skończyć termodynamikę przed kolokwium» jest już zrealizowany; przygotowanie do studiów magisterskich wciąż trwa.',
   'tut.app-biblioteca--estudio.3.texto':
     'Do każdego celu możesz poprosić o plan: AI pyta o datę docelową i o twoje wolne godziny, a potem wpisuje chwile nauki do twojego kalendarza.',
   'tut.app-biblioteca--resumen.1.texto':
@@ -755,7 +758,7 @@ export const PL_TUT: Dict = {
     'Paski mierzą twój dorobek na tle celów: sesje siłowe, minuty wytrzymałości i minuty elastyczności. Cel dostosowuje się do okresu wybranego u góry.',
   'tut.app-ejercicio--anio.3.titulo': 'Cele roku',
   'tut.app-ejercicio--anio.3.texto':
-    'Przycisk Cele w nagłówku przechowuje cztery zrealizowane cele — 5 km, 10 km, półmaraton i maraton — oraz ten, który wciąż trwa. Cele z datą pojawiają się też w kalendarzu domu.',
+    'Pokój Cele przechowuje cztery zrealizowane cele — 5 km, 10 km, półmaraton i maraton — oraz ten, który wciąż trwa. Cele z datą pojawiają się też w kalendarzu domu.',
   'tut.app-ejercicio--carrera.1.titulo': 'Katalog, rutyny i postęp',
   'tut.app-ejercicio--carrera.1.texto':
     'Każda dyscyplina jest ułożona tak samo: katalog ćwiczeń, twoje rutyny z ich historią i postęp. Zacznijmy od tego, co Pep ma już za sobą w bieganiu.',
@@ -812,9 +815,9 @@ export const PL_TUT: Dict = {
   'tut.app-cocina--recetario.5.titulo': 'Zapisane listy',
   'tut.app-cocina--recetario.5.texto':
     'Każda lista zapisuje to, co zostało do kupienia, i to, co już kupione. Jeśli dopiszesz ceny, rachunek można zarejestrować jako wydatek w Gabinecie.',
-  'tut.app-cocina--cronograma.1.titulo': 'Cel wagowy w etapach',
+  'tut.app-cocina--cronograma.1.titulo': 'O co Kuchnia prosi cię dziś',
   'tut.app-cocina--cronograma.1.texto':
-    'Przycisk Cele w nagłówku otwiera ten sam harmonogram, którego używa kalendarz domu, ograniczony do celów Kuchni: utwórz cel (np. «Schudnąć 3 kilogramy») i poproś AI o plan — zapyta o twoją docelową datę i zaplanuje podcele z własnymi datami.',
+    'Przycisk Misje w nagłówku otwiera checklistę dnia: woda, posiłki i kroki, które biorą się z twoich celów. Same cele — wraz z planem, który proponuje im AI — żyją w pokoju Cele, pogrupowane według aplikacji, która je prowadzi.',
   'tut.app-cocina--cronograma.2.texto':
     'Robi to AI: włącza się w Edytor › Ustawienia › Konto. Bez niej cele tworzy się i edytuje tak samo, tylko ręcznie.',
   'tut.app-descanso--noche.1.titulo': 'Sto punktów, trzy części',
@@ -872,7 +875,7 @@ export const PL_TUT: Dict = {
     'Podróż do Japonii, w 100%: jedenaście miesięcy oszczędzania, korepetycje, trzynasta pensja i prezenty urodzinowe. Niżej fundusz awaryjny, który ruszył po powrocie, i mała inwestycja.',
   'tut.app-despacho--metas.2.titulo': 'Cel w czasie',
   'tut.app-despacho--metas.2.texto':
-    'Przycisk Cele w nagłówku przechowuje te cele na osi czasu: ustaw datę dla jednego z nich, a pojawi się wśród dni w twoim kalendarzu. Dzięki ✨ AI proponuje plan wpłat.',
+    'Te cele są przechowywane na osi czasu w pokoju Cele: ustaw datę dla jednego z nich, a pojawi się wśród dni w twoim kalendarzu. Dzięki ✨ AI proponuje plan wpłat.',
   'tut.app-despacho--metas.3.titulo': 'To, co zostało do spłaty',
   'tut.app-despacho--metas.3.texto':
     'Awaria samochodu poszła na kartę i spłacała się miesiącami. Długi są osobno, bo czyta się je na odwrót: tu spadek to wygrana.',

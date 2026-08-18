@@ -1264,11 +1264,23 @@ export interface Cuarto {
   nombre: string
   /** Emoji que flota sobre el cuarto y se muestra en el menú. */
   icon: string
+  /**
+   * Icono como imagen (subida o generada con IA), al estilo del icono de una app.
+   * Manda sobre `icon` en las vistas 2D; el marcador 3D sigue usando el emoji, que
+   * nunca se borra y hace de respaldo.
+   */
+  iconoImagen?: Blob
   color: string  // hex
   categoria: 'cuerpo' | 'mente' | 'complemento' | 'config'
   creado: string // ISO timestamp
   /** Orden de aparición en el menú lateral. */
   orden: number
+  /**
+   * Puesto en la pantalla de inicio (`PanelCuartosRapido`), que el usuario ordena
+   * arrastrando. Es APARTE de `orden`: el menú lateral conserva el suyo. Ausente =
+   * nunca se arrastró, y se queda detrás en el sitio que le tocara por categoría.
+   */
+  ordenPanel?: number
   /** Ambiente musical fijado por el usuario ('silencio' = cuarto callado); ausente = auto por su app. */
   temaMusical?: import('../state/ajustesStore').MoodMusica | 'silencio'
 }
@@ -1636,9 +1648,9 @@ export interface AsistenteGuardado {
   vozRate?: number
   /** Voz TTS: volumen 0–1. */
   vozVolumen?: number
-  /** Voz con IA (OpenAI tts-1) en vez de la del sistema. */
+  /** Voz con IA (OpenAI o Gemini, según proveedorVoz) en vez de la del sistema. */
   vozIA?: boolean
-  /** Voz TTS IA: una de VOCES_IA (vacío = 'alloy'). */
+  /** Voz TTS IA: una de VOCES_IA del proveedor (vacío = la primera). */
   vozIaVoz?: string
   /** Lee en voz alta lo que dice, sin pedírselo. */
   vozLeer?: boolean
@@ -1922,6 +1934,21 @@ export interface CumplimientoDiario {
 }
 
 /**
+ * Un día en que la lista «Objetivos» de una app se completó entera. La fila ES el
+ * hecho (existe = cumplida) y guarda el XP que valió ESE día, para poder cambiar
+ * la tarifa sin reescribir la historia. Una vez ganada no se revoca: despalomear
+ * después no la borra.
+ */
+export interface ListaCumplida {
+  id?: number
+  plantillaId: string
+  /** yyyy-mm-dd local. */
+  fecha: string
+  /** XP otorgado ese día (hoy, `XP_POR_LISTA`). */
+  xp: number
+}
+
+/**
  * Traduce el plan viejo de ejercicio a bloques del calendario (ver la v82). Va
  * aparte y sin tocar IndexedDB porque es donde están las dos trampas del cambio y
  * conviene poder mirarlas sin montar una migración: **agrupar** («Pierna» los L, X
@@ -1980,6 +2007,54 @@ export function planAEjercicioBloques(
   }
   return bloques
 }
+
+/**
+ * A qué app pertenece cada objetivo ya guardado (ver la v125). Va aparte y sin
+ * tocar IndexedDB, como `planAEjercicioBloques`, porque lo delicado aquí no es
+ * escribir sino DECIDIR, y conviene poder mirar esa decisión sin montar una
+ * migración.
+ *
+ * La regla es una sola: **solo lo que se deduce, nunca lo que se adivina.** Un
+ * objetivo que se llame «Meditar» puede ser del jardín o puede ser la clase de
+ * yoga de los jueves; emparejarlo por el nombre metería filas en apps que no son
+ * suyas y el usuario no tendría cómo saber por qué. Los tres casos de abajo no
+ * dependen del texto: salen de datos que la propia fila ya lleva.
+ */
+export function appDeObjetivo(rutinas: Rutina[]): { id: number; cambios: Partial<Rutina> }[] {
+  const porId = new Map(rutinas.filter((r) => r.id != null).map((r) => [r.id!, r]))
+  const salida: { id: number; cambios: Partial<Rutina> }[] = []
+
+  for (const r of rutinas) {
+    if (r.id == null || esMetaFila(r)) continue
+
+    // 1. El espejo del sueño: `rutinaSueno.ts` lo escribe sin app, pero `origen`
+    //    no deja lugar a dudas de quién es.
+    if (r.origen === 'sueno' && !r.plantillaId) {
+      salida.push({ id: r.id, cambios: { plantillaId: 'descanso', seccion: 'sueno' } })
+      continue
+    }
+
+    if (r.plantillaId) continue
+
+    // 2. Los pasos saben en qué cuarto se registran. Con todos apuntando al
+    //    mismo, ese cuarto ES la app; con dos distintos la fila cruza apps a
+    //    propósito (una checklist de mañana) y meterla en una sola sería mentir.
+    const cuartos = new Set(r.pasos.map((p) => p.roomId).filter(Boolean))
+    if (cuartos.size === 1) {
+      salida.push({ id: r.id, cambios: { plantillaId: [...cuartos][0] } })
+      continue
+    }
+
+    // 3. Un bloque que nació de una meta es de la app de esa meta.
+    const madre = r.deMetaId != null ? porId.get(r.deMetaId) : undefined
+    if (madre?.plantillaId) salida.push({ id: r.id, cambios: { plantillaId: madre.plantillaId } })
+  }
+
+  return salida
+}
+
+/** `esMeta` sin importar `core/metas.ts`: `db.ts` es hoja y no sube al núcleo. */
+const esMetaFila = (r: Rutina) => r.esMeta === true
 
 export type NivelPartida = 'cero' | 'algo' | 'medio' | 'avanzado'
 
@@ -3425,9 +3500,12 @@ class MindHomeDB extends Dexie {
   metasDiariasManual!: Table<MetaDiariaManual, number>
   objetivosDiarios!: Table<ObjetivoDiario, number>
   cumplimientosDiarios!: Table<CumplimientoDiario, number>
+  listasCumplidas!: Table<ListaCumplida, number>
   mensajesChat!: Table<MensajeChat, number>
   asistentes!: Table<AsistenteGuardado, number>
   fondosImagen!: Table<FondoImagen, number>
+  /** Misma forma que `fondosImagen`, pero de la pantalla de inicio: galería aparte. */
+  fondosPanel!: Table<FondoImagen, number>
   temasPropios!: Table<TemaPropio, number>
   pisosImagenCuarto!: Table<PisoImagenCuarto, number>
   techosImagenCuarto!: Table<TechoImagenCuarto, number>
@@ -4850,6 +4928,60 @@ class MindHomeDB extends Dexie {
           await tabla.update(ev.id, { proyectoId: undefined, updatedAt: Date.now() })
         }
       })
+
+    // v125: los objetivos que ya estaban guardados se quedaron fuera de la
+    // dinámica nueva (`objetivosSugeridos.ts`) — son filas sueltas que no saben
+    // de qué app son, así que su fila no lleva a ningún sitio y no cuentan como
+    // objetivo de nadie. Aquí se les pone la app SOLO donde se deduce; el resto
+    // se queda como está (ver `appDeObjetivo`).
+    //
+    // Sin `updatedAt`, como la v116: rellenar un campo que estaba vacío no es un
+    // cambio que deba ganarle a nada en el LWW del sync.
+    //
+    // OJO: esto NO arregla la casa demo ni una instalación nueva —los upgrades
+    // no corren ahí—; los hábitos de Pep@ nacen ya atados desde
+    // `demo/anioCalendario.ts`.
+    this.version(125).upgrade(async (tx) => {
+      const tabla = tx.table('rutinas')
+      const filas = (await tabla.toArray()) as Rutina[]
+      for (const { id, cambios } of appDeObjetivo(filas)) await tabla.update(id, cambios)
+    })
+
+    // v126: el XP pasa a ganarse completando la lista «Objetivos» del día (una
+    // fila por app y día, ver `ListaCumplida`). El compuesto es ÚNICO: es el
+    // candado contra el doble otorgamiento (dos paneles o dos pestañas a la vez).
+    // Sin `.upgrade()`: el histórico se siembra en runtime
+    // (`sembrarListasHistoricas`), porque los upgrades no corren en una BD creada
+    // de cero ni en la demo (ver la v125).
+    this.version(126).stores({
+      listasCumplidas: '++id, &[plantillaId+fecha], plantillaId, fecha, &uid',
+    })
+
+    // v127: la tarifa bajó de 50 a 20 XP por lista. La fila guarda su XP para no
+    // tener que reescribir la historia al cambiarla, pero aquí sí se reescribe a
+    // propósito: con las dos tarifas mezcladas, el nivel de una app dependería de
+    // CUÁNDO ganó sus listas y no de cuántas lleva. Se normaliza todo a la
+    // vigente para que el nivel signifique una sola cosa.
+    //
+    // Sin `updatedAt` (como la v116/v125): es un recálculo local de la misma
+    // historia, no un cambio del usuario que deba ganar el LWW del sync.
+    this.version(127).upgrade(async (tx) => {
+      await tx
+        .table('listasCumplidas')
+        .toCollection()
+        .modify((f: ListaCumplida) => {
+          f.xp = 20
+        })
+    })
+
+    // v128: el fondo de la pantalla de inicio deja de compartir galería con el
+    // fondo de cielo. Son dos cosas distintas —una viste un panel, la otra el
+    // horizonte de la casa— y con una sola galería un mismo encuadre tenía que
+    // servir para las dos. Misma forma que `fondosImagen`; sin `.upgrade()`:
+    // nace vacía y quien tuviera un fondo de panel elegido lo vuelve a poner.
+    this.version(128).stores({
+      fondosPanel: '++id, creado, &uid',
+    })
   }
 }
 

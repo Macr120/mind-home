@@ -1,9 +1,10 @@
 /**
- * Diccionario TR de la interfaz. Se carga con import() perezoso
- * desde dict.ts: quien no use este idioma no lo descarga.
+ * Diccionario TURCO de la interfaz. Se carga con import() perezoso
+ * desde dict.ts, igual que el inglés: quien no use este idioma no lo descarga.
  *
- * Lo monta `traducir-a-mano.mjs meter-dict` a partir de `dict.en.ts` y de los
- * fallbacks españoles del código. Lo que falte cae al inglés (ver `useT`).
+ * GENERADO por `npm run traducir:i18n` a partir de `dict.en.ts` y de los
+ * fallbacks españoles del código. No lo edites a mano: se sobrescribe entero.
+ * Lo que falte cae al inglés (ver `useT`); al español solo en último término.
  */
 import type { Dict } from './dict'
 
@@ -15,6 +16,8 @@ export const TR: Dict = {
   'nav.ariaMenu': 'Odalar menüsü',
   'nav.retraer': 'Menüyü daralt',
   'nav.abrir': 'Menüyü aç',
+  'nav.rapido': 'Odalara hızlı erişim',
+  'nav.rapido.ayuda': 'Uygulamasını açmak için bir odaya dokun.',
   'nav.editarCuarto': 'Bu odayı düzenle',
   'nav.entrar': 'Gir ›',
   'nav.ayuda.tarjetaTexto':
@@ -363,18 +366,20 @@ export const TR: Dict = {
   'meta.marcar': 'Tamamlandı olarak işaretle',
   'meta.desmarcar': 'Tamamlanmadı olarak işaretle',
   'meta.agendar': 'Takvime ekle',
-  'hoy.titulo': 'Bugün',
+  'hoy.titulo': 'Görevler',
   'hoy.alDia': 'Bugünlük her şey tamam',
   'hoy.hechos': 'Tamamlanan ({n})',
   'hoy.registrar': 'Kaydet',
   'hoy.objetivo': 'Günlük hedefin (0 kapatır)',
   'hoy.checklist': 'Günlük kontrol listesi',
-  'hoy.grupoApp': 'Günün hedefleri',
+  'hoy.grupoApp': 'Günün görevleri',
   'hoy.nueva': 'Yeni kontrol listesi',
   'hoy.cerrar': 'Kapat',
   'hoy.ocultarHechos': 'Bitenleri gizle',
+  'hoy.casa.vacio': 'Bugün hiçbir uygulamada bekleyen bir şey yok.',
+  'hoy.casa.abrirApp': 'Bu uygulamayı aç',
   'cal.meta.mientrasDure': 'Sürdüğü sürece, benden iste:',
-  'cal.meta.unObjetivo': 'günlük bir hedef',
+  'cal.meta.unObjetivo': 'günlük bir görev',
   'cal.meta.unaActividad': 'haftalık bir aktivite',
   'cal.meta.diasRitmo': '{hechos}/{pedidos} gün',
   'rutinas.sinApp': 'Uygulama yok (ev etkinliği)',
@@ -480,6 +485,18 @@ export const TR: Dict = {
   'progreso.nivel': 'Seviye',
   'progreso.racha': 'Seri',
   'progreso.dias': 'gün',
+  'progreso.rachaTitulo': 'Aktif gün serisi',
+  'progreso.listasTitulo': 'Tamamlanan görev listeleri',
+  'progreso.listasCumplidas': 'Tamamlanan listeler',
+  'celebra.racha.titulo': '{n} günlük seri!',
+  'celebra.racha.titulo1': '1 günlük seri!',
+  'celebra.racha.cuerpo': '{app} içinde böyle devam et 🔥',
+  'celebra.lista.titulo': 'Günün görevleri tamam!',
+  'celebra.lista.cuerpo': '{app} listesini tamamladın',
+  'celebra.lista.xp': '+{xp} XP',
+  'celebra.nivel.titulo': 'Seviye atladın!',
+  'celebra.nivel.cuerpo': '{app} {n}. seviyeye ulaştı 🎉',
+  'celebra.seguir': 'Devam!',
   'progreso.hoy': 'Bugün',
   'progreso.semana': '7 gün',
   'plantillas.ayuda':
@@ -672,7 +689,7 @@ export const TR: Dict = {
   'chat.config.ponerMapa': 'Haritaya ekle',
   'chat.config.voz': 'Ses:',
   'chat.config.vozAuto': 'Otomatik (dile göre)',
-  'chat.config.vozIA': 'Yapay zeka sesi (OpenAI, daha doğal)',
+  'chat.config.vozIA': 'Yapay zeka sesi (daha doğal)',
   'chat.config.vozLeer': 'Söylediklerini yüksek sesle oku',
   'chat.config.vozProbar': 'Sesi dene',
   'chat.config.vozTono': 'Ton',
@@ -753,6 +770,8 @@ export const TR: Dict = {
   'veh.bajarte': 'İn',
   'accion.sentarte': 'Otur',
   'accion.acostarte': 'Uzan',
+  'accion.sentarse': 'Otur',
+  'accion.acostarse': 'Uzan',
   'accion.sentado': 'Oturuyor',
   'accion.acostado': 'Uzanıyor',
   'accion.levantarte': 'Kalk',
@@ -825,6 +844,7 @@ export const TR: Dict = {
   'room.ideas.nombre': 'Fikirler',
   'room.computo.nombre': 'Bilgi İşlem',
   'room.agenda.nombre': 'Ajanda',
+  'room.metas.nombre': 'Hedefler',
   'room.cocina.sub': 'Beslenme',
   'room.ejercicio.sub': 'Güç ve fitness rutinleri',
   'room.recamara.sub': 'Uyku ve anılar',
@@ -842,6 +862,7 @@ export const TR: Dict = {
   'room.ideas.sub': 'Serbest tuval üzerinde kavram haritaları',
   'room.computo.sub': 'Hesap makinesi ve elektronik tablolar',
   'room.agenda.sub': 'İş, sağlık ve kişiler',
+  'room.metas.sub': 'Planlar ve zaman çizelgesi',
   'hud.plegar': 'Kontrolleri daralt',
   'hud.desplegar': 'Kontrolleri göster',
   'nav3d.aria': 'Görünüm kontrolleri',
@@ -1200,6 +1221,10 @@ export const TR: Dict = {
   'despacho.patr.enlazarMeta': 'Zaten sahip olduğum bir hedefle bağla…',
   'despacho.patr.objetivoTitulo': 'Ne kadara ulaşmak istiyorsun?',
   'despacho.patr.objetivoMsg': 'Burada zaten {n} var.',
+  'despacho.patr.metaLiquidar': '{n} borcunu kapat',
+  'despacho.patr.notaCronograma': 'Ayda {p} · {i} faiz',
+  'despacho.patr.yaEnCronograma': 'Zaten zaman çizelgende',
+  'despacho.patr.alCronograma': 'Zaman çizelgesine koy · bitiş {f}',
   'despacho.meta.verEnPasivos': 'Net Değer › Borçlar’da gör',
   'despacho.meta.verEnActivos': 'Net Değer › Varlıklar’da gör',
   'despacho.meta.anadirAPasivos': 'Borçlar’a ekle (faiz ve vadeyle)',
@@ -3459,6 +3484,8 @@ export const TR: Dict = {
   'room.granja.desc': 'Tavuk, domuz, keçi, koyun, inek ve at yetiştir; yemlerini aynı düzenleyicide üret.',
   'room.ideas.desc':
     'Fikir günlüğün ve beyin fırtınaların, serbest tuvalde on kavram haritası biçimi (zihin haritası, ağaç, zaman çizelgesi, döngü, piramit, Venn…) ve karar vermene yardımcı sekiz diyagram (artı-eksi, güç alanı, SWOT, Eisenhower, karar ağacı, sıralama listesi, ağırlıklı karar matrisi ve Ishikawa), elle veya yapay zekâ ile.',
+  'room.metas.desc':
+    'Tüm evde kendine koyduklarının tamamı: alt hedefleri ve adımlarıyla hedef listesi, yapay zekânın her biri için önerdiği planlar (gerçek alt hedeflere dönüşen tarihli aşamalar) ve her şeyin zaman ekseni üzerinde kendi dönemini kapladığı zaman çizelgesi.',
   'room.computo.desc':
     'Bilgisayar odası: yanında asılı formül defteriyle (Matematik, Fizik ve Kimya hazır ve düzenlenebilir) bilimsel bir hesap makinesi ve sekiz mod — dört türlü çizici (2D, polar, parametrik ve 3D yüzey), ikilik ve on altılık taban, matrisler, denklem sistemleri, birim dönüştürme, bahşiş ve üçlü kural; ayrıca Excel ve PDF’e aktarılabilen hesap tabloları.',
   'computo.tab.calculadora': 'Hesap Makinesi',
@@ -4057,6 +4084,7 @@ export const TR: Dict = {
   'cal.cron.avance': '%{n} tamamlandı',
   'cal.cron.buscar': 'Ara…',
   'cal.cron.desplegarTodo': 'Tümünü genişlet',
+  'cal.cron.editar': 'Hedefleri düzenle',
   'cal.cron.hechas': 'Tamamlananlar',
   'cal.cron.ocultarHechas': 'Tamamlananları gizle',
   'cal.cron.plegarTodo': 'Tümünü daralt',
@@ -4065,6 +4093,7 @@ export const TR: Dict = {
   'cal.cron.trazar': 'Tarih vermek için buraya sürükle',
   'cal.cron.vacio': 'Henüz hedef yok.',
   'cal.cron.vencida': 'Tamamlanmadan süresi doldu',
+  'cal.cron.volver': 'Hedefe dön',
   'cal.cronograma': 'Zaman Çizelgesi',
   'cal.dia': 'Gün',
   'cal.editarEvento': 'Etkinliği düzenle',
@@ -4088,6 +4117,7 @@ export const TR: Dict = {
   'cal.mes': 'Ay',
   'cal.meta.agregarHija': 'Alt hedef ekle',
   'cal.meta.alcance': 'Tamamlanan adımlar ve alt hedefler',
+  'cal.meta.armar': 'Takvime çiz',
   'cal.meta.armarORenombrar': 'Tıkla: takvime çiz · Çift tıkla: yeniden adlandır',
   'cal.meta.colorDe': 'Bu hedefin rengi',
   'cal.meta.borrar': 'Bu hedef silinsin mi?',
@@ -4116,9 +4146,6 @@ export const TR: Dict = {
   'cal.meta.pasoNuevo': 'Bir adım ekle…',
   'cal.meta.pasoRenombrar': 'Adımı yeniden adlandırmak için çift tıkla',
   'cal.meta.pasos': 'Bu hedefin adımları',
-  'cal.meta.plan': 'Plan',
-  'cal.meta.planEnCronograma': 'Planını zaman çizelgesinde gör',
-  'cal.meta.planHoja': 'Plan sayfasını aç',
   'cal.meta.plegar': 'Daralt',
   'cal.meta.ponerHora': 'Saat belirle',
   'cal.meta.prefijoSub': 'alt',
@@ -4939,7 +4966,40 @@ export const TR: Dict = {
   'nav.asignar': '+ Ata',
   'nav.asignarApp': 'Bu odaya bir uygulama ata',
   'nav.crearCuarto': 'Oda oluştur',
+  'nav.vista3D': 'Odaları 3B olarak gör',
+  'nav.vistaIconos': 'Odaları simgesiyle gör',
   'nav.sinCuartos': 'Henüz oda yok. İlkini aşağıdan oluştur.',
+  'nav.rapido.editando': 'Sıralamak için sürükle, düzenlemek için kaleme dokun.',
+  'nav.rapido.listo': 'Bitti',
+  'nav.rapido.metas': 'Bu uygulamada tamamlanan hedefler',
+  'nav.rapido.pendientes': '{n} görev bekliyor',
+  'nav.fondo.borrar': 'Sil',
+  'nav.sinApps': 'Uygulaması olan odalar burada görünür. Odalar menüsünden bir uygulama ata.',
+  'nav.editar.titulo': 'Odayı düzenle',
+  'nav.editar.nombre': 'Ad',
+  'nav.editar.icono': 'Simge',
+  'nav.editar.tab.emoji': 'Emoji',
+  'nav.editar.tab.imagen': 'Görsel',
+  'nav.editar.emojiLibre': 'Başka emoji',
+  'nav.editar.imagenPuesta': 'Bu görsel menülerde emojinin yerini alır.',
+  'nav.editar.quitarImagen': 'Kaldır',
+  'nav.editar.subirImagen': 'Görsel yükle',
+  'nav.editar.color': 'Renk',
+  'nav.editar.murosTitulo': 'Duvarlar da yeniden boyansın mı?',
+  'nav.editar.murosMensaje': 'Bu odada harita düzenleyicide elle boyadığın duvarlar var. Yeniden boyarsan renklerini kaybederler.',
+  'nav.editar.murosOk': 'Yeniden boya',
+  'nav.fondo.titulo': 'Duvar kâğıdı',
+  'nav.fondo.desc': 'Görseller evin gökyüzü arka planıyla ortaktır.',
+  'nav.fondo.sin': 'Duvar kâğıdı yok',
+  'nav.fondo.subir': 'Görsel yükle',
+  'nav.fondo.nombreIA': 'Yapay zekâ duvar kâğıdı',
+  'nav.fondo.atenuacion': 'Duvar kâğıdını soluklaştır',
+  'editor.texturaIA.placeholderIcono': 'Simgeyi anlat…',
+  'editor.texturaIA.generarIcono': 'Simge oluştur',
+  'editor.texturaIA.sug.iconoMinimal': 'tek çizgili minimal',
+  'editor.texturaIA.sug.iconoPastel': 'pastel tonlarda yuvarlak',
+  'editor.texturaIA.sug.iconoPixel': 'piksel sanat tarzı',
+  'editor.texturaIA.sug.iconoDegradado': 'canlı degradeyle',
   'nav3d.ayuda1P': 'Sağ tık veya joystick; yakınlaştırmak için tekerlek',
   'nav3d.ayuda3P': 'Sağ tık veya joystick; yakınlaştırmak için tekerlek',
   'nav3d.cambiarVista': 'Görünümü değiştir (V tuşu)',
@@ -5541,6 +5601,9 @@ export const TR: Dict = {
   'ajustes.musica.sfxDesc': 'Blaster, portallar, havai fişekler, oyunlar ve araçlar. Müzik sesinden bağımsızdır.',
   'musica.control': 'Müzik',
   'musica.cerrar': 'Kapat',
+  'visor.ampliar': 'Görseli tam ekran gör',
+  'visor.cerrar': 'Kapat',
+  'visor.descargar': 'İndir',
   'voz.escuchar': 'Dinle',
   'voz.callar': 'Okumayı durdur',
   'voz.autoOn': 'Yanıtlarını sesli okur',
@@ -5577,6 +5640,18 @@ export const TR: Dict = {
   'cuenta.sinBackend': 'Bu kurulumda yapılandırılmış bir sunucu yok: her şey yalnızca bu cihazda saklanır.',
   'cuenta.cargando': 'Yükleniyor…',
   'cuenta.intro': 'Bir hesapla planın ve evin, hangi cihaza geçersen geç seni takip eder.',
+  'cuenta.nivel.titulo': 'Seviyen',
+  'cuenta.nivel.n': 'Seviye ×{n} — ayda {c} kredi',
+  'cuenta.nivel.actual': 'Mevcut',
+  'cuenta.nivel.nota': 'İstediğin zaman seviye yükseltip düşürebilirsin; fark orantılı hesaplanır.',
+  'cuenta.nivel.subir': '×{n} seviyesine çık — {p} karşılığında ayda {c} kredi',
+  'cuenta.cuota.cuerpoNivel': 'Kredilerin {f} tarihinde yenilenir. Her ay yetmiyorsa seviyeni yükselt.',
+  'cuenta.cuota.cuerpoVencida': 'Verilerin bu cihazda duruyor. Aylık kredileri ve eşitlemeyi geri almak için yenile.',
+  'cuenta.cuota.cuerpoTrial':
+    'Uygulama ve verilerin sonsuza dek senin. Aylık kredilerle eşitlemeyi sürdürmek için Pro’ya abone ol.',
+  'cuenta.cuota.cuerpoLocal':
+    'Uygulama ve verilerin hiçbir ücret ödemeden senin. Sadece yapay zekâ ücretli: abone ol, her ay kredi al.',
+  'cuenta.cuota.web': 'Aboneliğimi gör',
   'cuenta.conGoogle': 'Google ile devam et',
   'cuenta.conApple': 'Apple ile devam et',
   'cuenta.oCorreo': 'veya e-postanla',
@@ -5597,8 +5672,6 @@ export const TR: Dict = {
   'cuenta.techo.cuerpo':
     'Bu ay isteklerin normalden çok daha fazla bağlam kullandı ve adil kullanım sınırına ulaşıldı. {f} tarihinde sıfırlanır.',
   'cuenta.cuota.tituloTrial': 'Dahil olan ayın sona erdi',
-  'cuenta.cuota.cuerpoTrial':
-    'Uygulama ve verilerin sonsuza dek senin. Aylık kredilere ve senkronizasyona devam etmek için Pro’ya abone ol veya ihtiyacın olduğunda tekil kredi yükle.',
   'puerta.trato':
     'Tek bir ödeme evini sonsuza dek açar ve ilk ay yapay zeka ile senkronizasyon dahildir — kart yok, abonelik yok.',
   'puerta.procesando': 'İşleniyor…',
@@ -5639,6 +5712,18 @@ export const TR: Dict = {
   'ia.activar.sinActivar':
     'Yapay Zeka kapalı. Kredi kullanmak için giriş yap ya da aşağıya bir sağlayıcı anahtarı yapıştır.',
   'ia.activar.priv': 'Yalnızca bu cihazda saklanır ve {prov} dışında hiçbir yere gönderilmez.',
+  'ia.media.sinClave': 'Görsel üretmek ve yapay zeka sesini kullanmak için bir OpenAI veya Gemini anahtarı ekle.',
+  'ia.panel.cerebro': 'Beyin',
+  'ia.panel.claveOllama': 'Ollama anahtarı (yalnızca bulutu veya anahtar isteyen bir sunucu için)',
+  'ia.panel.localImagen': 'Bu model görsel üretiyor.',
+  'ia.panel.imagen': 'Görsel',
+  'ia.panel.proveedor': 'Sağlayıcı',
+  'ia.panel.voz': 'Ses',
+  'ia.panel.vozAyuda': 'Asistanların yapay zeka sesini bu sağlayıcıyla açar',
+  'ia.transporte.byok': 'Kendi anahtarlarım (BYOK)',
+  'ia.transporte.creditos': 'Krediler',
+  'ia.transporte.creditosDesc': 'Hesabın üzerinden gider: anahtarları sunucu koyar ve her istek plan kredisi harcar.',
+  'ia.transporte.sinCuenta': 'Kredileri kullanmak için giriş yap.',
   'ia.calidad.titulo': 'Görsel kalitesi',
   'ia.calidad.rapida': 'Hızlı',
   'ia.calidad.rapida.desc': 'İyi ve ucuz. Sen aksini söylemedikçe kullandığım seçenek.',
@@ -5758,16 +5843,11 @@ export const TR: Dict = {
   'cuenta.cuota.titulo': 'Bu ayki kredilerin bitti',
   'cuenta.cuota.tituloSin': 'Yapay Zeka kullanmak için kredin gerekiyor',
   'cuenta.cuota.cuerpo': 'Kredilerin {f} tarihinde yenilenir.',
-  'cuenta.cuota.cuerpoLocal':
-    'Uygulama ve verilerin hiçbir ücret ödemeden senindir. Sadece Yapay Zeka ücretlidir: ihtiyacın olduğunda kredi yükle ya da abone olup her ay al.',
-  'cuenta.cuota.cuerpoVencida':
-    'Verilerin bu cihazda kalmaya devam eder. Aylık kredilerini ve senkronizasyonu geri almak için yenile, ya da tek seferlik kredi satın al.',
   'cuenta.cuota.recarga': '+600 kredi — {p}',
   'cuenta.cuota.recargaN': '+{n} kredi — {p}',
   'cuenta.cuota.recargaLista': 'Yükleme uygulandı: ekstra kredilerin hesabında.',
   'cuenta.cuota.suscribirse': 'Aboneliği görüntüle',
   'cuenta.cuota.nativo': 'Krediler hesabından yönetilir.',
-  'cuenta.cuota.web': 'Hesabımdan kredi satın al',
   'cuenta.creditos.faltan': 'Yapay Zeka kredilerin bitti.',
   'comun.entendido': 'Anladım',
   'demo.aviso.titulo': 'Demo evdesin',
@@ -5829,12 +5909,12 @@ export const TR: Dict = {
   'tut.calendario.titulo': 'Takvim',
   'tut.calendario.resumen':
     'Evin saati takvimi açar: vardiyalar, dersler, alışkanlıklar ve diğer uygulamaların eklediği her şey —Gün, Hafta, Ay, Yıl ve Hedefler görünümlerinde. Alttaki panel, planladıklarını ne kadar gerçekleştirdiğini ölçer.',
-  'tut.calendario.3b.titulo': 'Ve Hedefler, ayrı',
+  'tut.calendario.3b.titulo': 'Ve Günlük hedefler, ayrı',
   'tut.calendario.3b.texto':
-    'Kırmızıyla, yukarıdaki dördüyle karıştırılmasın diye: Hedefler, hedeflerini, planlarını ve zaman çizelgesini açar.',
+    'Kırmızıyla, yukarıdaki dördüyle karıştırılmasın diye: Günlük hedefler, tüm uygulamalarının bugünkü kontrol listesini bir araya getirir. Hedeflerin ve planları kendi odalarında yaşar.',
   'tut.metas.titulo': 'Hedefler',
   'tut.metas.resumen':
-    'Bir hedefin üç ekranı: doğduğu liste, onu geliştiren plan (Yapay Zeka önerir, sen işaretlersin) ve aşamalarının gerçek alt hedefler olarak kendi dönemlerini kapladığı zaman çizelgesi.',
+    'Hedef listesi ve her birinin içinde kendi sayfası: onu geliştiren plan (Yapay Zeka önerir, sen işaretlersin) ve aşamalarının gerçek alt hedefler olarak kendi dönemlerini kapladığı zaman çizelgesi.',
   'tut.app-biblioteca--enciclopedia.titulo': 'Kendi ansiklopedin',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Öğrendiğin her şey, bilgi alanına göre bir ağaçta arşivlenir: özet ve resimleyebileceğin ana noktalarla kartlar.',
@@ -5889,6 +5969,9 @@ export const TR: Dict = {
   'tut.app-ejercicio--fuerza.titulo': 'Dizin alıp götüremediği güç',
   'tut.app-ejercicio--fuerza.resumen':
     'Kuvvet sekmesinde set, tekrar ve ağırlık kaydedersin; bunlarla uygulama hacmini hesaplar, her egzersizin ilerlemesini çizer ve kişisel rekorlarını saklar.',
+  'tut.app-ejercicio--flexibilidad.titulo': 'Üçüncü tür',
+  'tut.app-ejercicio--flexibilidad.resumen':
+    'Esneklik de Kuvvet ve Dayanıklılık gibi düzenlenir —katalog, rutinler, ilerleme— ama setler ağırlık yerine süreyle sayılır ve zamanlayıcılı rehberli bir oynatıcı vardır.',
   'tut.app-cocina--alimentacion.titulo': 'Bir hedefle yemek',
   'tut.app-cocina--alimentacion.resumen':
     'Beslenme takibi dört adımdır: hedeflerini belirlersin, ne yiyip içtiğini kaydedersin, haftanı planlarsın ve ilerleme, istediğin yönde gidip gitmediğini söyler.',
@@ -5913,6 +5996,9 @@ export const TR: Dict = {
   'tut.app-despacho--metas.titulo': 'Japonya, acil durum fonu ve borç',
   'tut.app-despacho--metas.resumen':
     'Hedefler, tasarruf ve yatırım hedeflerini ilerleme çubuklarıyla tek bir listede toplar, borçları ise kendi simülatörüyle ayrı tutar. Her birinin tarih verebileceğin bir zaman çizelgesi vardır.',
+  'tut.app-despacho--patrimonio.titulo': 'Neyin var, ne borcun var, nereye gidiyor',
+  'tut.app-despacho--patrimonio.resumen':
+    'Net değer bir fotoğraf değil: sahip olduğun her şeyin fiyatı iner çıkar, her borç faiz işletir. Her satıra oranını ver, üçüncü sekme sana filmin tamamını göstersin — geçen yıldan varacağın yere kadar.',
   'tut.app-despacho--calculadoras.titulo': 'Bir rakama ulaşmak için dört kural',
   'tut.app-despacho--calculadoras.resumen':
     'Dört kişisel finans hesaplayıcısı, gerçek bakiyenden yola çıkarak bir hedef tutar önerir ve tek dokunuşla onu hedefe dönüştürür. Her kuralın parametreleri ayarlanabilir: kimse %50/30/20’yi olduğu gibi kabul etmek zorunda değil.',
@@ -5956,6 +6042,7 @@ export const TR: Dict = {
   'cuenta.sync.activo': 'Senkronize ediliyor…',
   'cuenta.sync.ultima': 'Senkronize edildi: {f}',
   'cuenta.sync.nunca': 'Henüz senkronize edilmedi',
+  'cuenta.sync.soloPro': 'Cihazlar arası eşitleme Pro ile gelir.',
   'cuenta.sync.ahora': 'Şimdi senkronize et',
   'cuenta.sync.otraCuenta':
     'Bu ev başka bir hesaba bağlıydı. Yerel verileri koruyup yeni hesapla birleştirelim mi? (İptal = bu evi boşalt ve sadece hesaptakileri indir)',
@@ -6015,6 +6102,7 @@ export const TR: Dict = {
   'agenda.prioridad.baja': 'Düşük',
   'agenda.trabajo.pendientes': 'Yapılacaklar',
   'agenda.trabajo.tablero': 'Pano',
+  'agenda.trabajo.apuntar': 'Yapılacak ekle',
   'ejemplo.vacio': 'Nereden başlayacağını bilmiyor musun? İçinde bir örnekle nasıl göründüğüne bak.',
   'ejemplo.puesto': 'Bu bir örnek: istediğinde gizle, kendi verilerin olduğu gibi kalır.',
   'ejemplo.mostrar': 'Bir örnek gör',
@@ -6047,6 +6135,7 @@ export const TR: Dict = {
   'agenda.projimo.aMiCuidado': 'Bakımımda',
   'agenda.cuidadop.nuevo': 'Yeni bakım',
   'agenda.cuidado.archivado': 'Tamamlandı, tekrar yok',
+  'agenda.cuidado.yaLoHice': 'Zaten yaptım',
   'agenda.cuidado.reactivar': 'Tekrar programla',
   'agenda.form.especialidad': 'Uzmanlık',
   'agenda.esp.general': 'Pratisyen hekim',
@@ -6211,10 +6300,6 @@ export const TR: Dict = {
   'widgets.efemerideTitulo': 'Tarihte bugün',
   'widgets.vacio': 'Bugün için planlanmış bir şey yok',
   'widgets.desactualizado': 'Güncellemek için dokun',
-
-  // Catálogo de recursos 3D: el nombre con el que se siembra cada objeto del
-  // inventario. Solo se muestra traducido si el objeto aún se llama como su
-  // recurso de origen; un nombre puesto por el usuario se respeta tal cual.
   'objetos.nombreGenerico': 'Nesne',
   'objetos.nombrePiezas': '3D parçalardan nesne',
   'recurso.1': 'Mutfak dolapları (üst ve alt)',
@@ -6370,23 +6455,6 @@ export const TR: Dict = {
   'recursoExtra.sillon-lectura': 'Okuma koltuğu',
   'recursoExtra.calendario-pared': 'Duvar takvimi',
   'recursoExtra.estacion-computo': 'Bilgisayar istasyonu',
-  'accion.sentarse': 'Otur',
-  'accion.acostarse': 'Uzan',
-  'cuenta.sync.soloPro': 'Cihazlar arası eşitleme Pro ile gelir.',
-  'agenda.cuidado.yaLoHice': 'Zaten yaptım',
-  'despacho.patr.metaLiquidar': '{n} borcunu kapat',
-  'despacho.patr.notaCronograma': 'Ayda {p} · {i} faiz',
-  'despacho.patr.yaEnCronograma': 'Zaten zaman çizelgende',
-  'despacho.patr.alCronograma': 'Zaman çizelgesine koy · bitiş {f}',
-  'tut.app-despacho--patrimonio.titulo': 'Neyin var, ne borcun var, nereye gidiyor',
-  'tut.app-despacho--patrimonio.resumen':
-    'Net değer bir fotoğraf değil: sahip olduğun her şeyin fiyatı iner çıkar, her borç faiz işletir. Her satıra oranını ver, üçüncü sekme sana filmin tamamını göstersin — geçen yıldan varacağın yere kadar.',
-  'tut.app-ejercicio--flexibilidad.titulo': 'Üçüncü tür',
-  'tut.app-ejercicio--flexibilidad.resumen':
-    'Esneklik de Kuvvet ve Dayanıklılık gibi düzenlenir —katalog, rutinler, ilerleme— ama setler ağırlık yerine süreyle sayılır ve zamanlayıcılı rehberli bir oynatıcı vardır.',
-  'agenda.trabajo.apuntar': 'Yapılacak ekle',
-
-  // Tres palabras por app (tarjetas del paso de intereses en la bienvenida)
   'room.cocina.corta': 'Öğünler, makrolar ve tarifler',
   'room.ejercicio.corta': 'Rutinler, güç ve hedefler',
   'room.descanso.corta': 'Program, alarm ve geceler',
@@ -6403,4 +6471,5 @@ export const TR: Dict = {
   'room.ideas.corta': 'Fikirler, haritalar ve kararlar',
   'room.computo.corta': 'Hesap makinesi, grafikler ve tablolar',
   'room.agenda.corta': 'Görevler, sağlık ve kişiler',
+  'room.metas.corta': 'Hedefler, planlar ve zaman çizelgesi',
 }

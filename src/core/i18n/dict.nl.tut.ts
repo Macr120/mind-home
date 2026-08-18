@@ -363,7 +363,7 @@ export const NL_TUT: Dict = {
   'tut.ejemplos.3.texto':
     'In het demohuis zie je deze balk niet: het hele jaar van Pep vervult die rol al, dus een apart voorbeeld is overbodig.',
   'tut.hoy.1.texto':
-    'In de header van elke app zit de knop Doelen, net als die in de kalender maar dan beperkt tot deze app. Hij opent een paneel met twee lagen: bovenaan de checklist van vandaag, eronder de doelen en plannen van de app.',
+    'In de header van elke app zit zijn knop Missies: de checklist van wat die app VANDAAG van je vraagt. De klok van het huis heeft dezelfde knop met alle apps samen.',
   'tut.hoy.2.titulo': 'Drie bronnen, één lijst',
   'tut.hoy.2.texto':
     'De eigen doelen van de app (water, calorieën), wat je vandaag in de kalender hebt ingepland, en de stappen van je lopende doelen: alles samen, gegroepeerd onder het plan of doel waar elke stap vandaan komt.',
@@ -380,7 +380,7 @@ export const NL_TUT: Dict = {
   'tut.hoy.6.texto':
     'Het zakt naar «Gedaan», ingeklapt: zien dat je registratie effect heeft is deel van de beloning, en van daaruit maak je het ongedaan als er eentje te veel doorglipte.',
   'tut.hoy.7.texto':
-    'En als je iets mist, maakt «Nieuwe checklist» je eigen lijst: een lijst van deze app die elke dag terugkomt. Onder de sectie Vandaag staat de volledige planner — Doelen, Plannen en Planning — met alle doelen van de app.',
+    'En als je iets mist, maakt «Nieuwe checklist» je eigen lijst: een lijst van deze app die elke dag terugkomt. De doelen waar deze stappen uit komen, plan je in de kamer Doelen.',
   'tut.progreso.1.texto':
     'De kaart van je personage: Pep heeft een heel jaar echte activiteit achter zich, dus elk getal hier heeft een echt verhaal dat het verklaart.',
   'tut.progreso.2.titulo': 'Het personage',
@@ -588,7 +588,7 @@ export const NL_TUT: Dict = {
   'tut.app-hobbies--gestion.3.texto':
     'Snelle minuten met één tik, of het exacte aantal; het project is optioneel en de notitie is voor wat je van die sessie wilt onthouden.',
   'tut.app-hobbies--gestion.4.texto':
-    'De doelen van je hobby\'s en projecten leven in de knop Doelen in de header: dezelfde planner Doelen · Plannen · Planning uit de kalender, beperkt tot deze app. Vraag de AI om een plan met fases en data.',
+    'De doelen van je hobby\'s en projecten leven in de kamer Doelen, elk met zijn plan en zijn planning. Vraag de AI om een plan met fases en data.',
   'tut.app-ideas--diario.1.titulo': 'De inbox',
   'tut.app-ideas--diario.1.texto':
     'Schrijf de inval op en klaar. Pep dumpte hier ~90 ideeën in een jaar: over natuurkunde, over de koffiebar, over de training. De ster markeert de favorieten.',
@@ -648,7 +648,7 @@ export const NL_TUT: Dict = {
     'Die twee gaten zijn echt: de knieblessure in maand 7 en de drie weken in Japan. Missen wist je voortgang niet uit — het paneel toont het jaar zoals het was, niet zoals het had moeten zijn. En een routine telt pas mee vanaf de dag dat je hem aanmaakte.',
   'tut.metas.1.titulo': 'Eerst de doelen',
   'tut.metas.1.texto':
-    'De weergave opent op Doelen, gegroepeerd per app die ze bijhoudt: hardlopen onder Gym, de studie natuurkunde onder Bibliotheek. “Huis” is geen app — die categorie bedacht Pep zelf voor de verbouwing van de keuken.',
+    'De kamer opent op Doelen, gegroepeerd per app die ze bijhoudt: hardlopen onder Gym, de studie natuurkunde onder Bibliotheek. “Huis” is geen app — die categorie bedacht Pep zelf voor de verbouwing van de keuken.',
   'tut.metas.2.titulo': 'Van doel naar plan',
   'tut.metas.2.texto':
     'Elke rij leest als een bord: zijn nummer in de map, de deadline, de voortgang en de status — Te doen, Bezig of Klaar, naargelang wat er is afgevinkt. Eén klik opent het doel: zijn plan als het er een heeft (het ✨ verklapt het) en anders zijn blad met de subdoelen, de data en de stappen.',
@@ -657,7 +657,7 @@ export const NL_TUT: Dict = {
     'De keuken en de volgende marathon zijn nog Voorstel; de aanvraag voor de master staat al in de planning. Die van de marathon werd zonder einddatum gevraagd: de AI rekende uit dat er 24 weken nodig zijn en zegt dat in zijn samenvatting.',
   'tut.metas.4.titulo': 'Het blad van het plan',
   'tut.metas.4.texto':
-    'Zes fases met hun subdoelen, elk met zijn eigen periode. Zolang het een voorstel is, bewerk je alles: hernoemen, data verschuiven, knooppunten toevoegen of weghalen zonder de rest scheef te trekken.',
+    'Het ✨ van een rij verklapt dat het doel al een plan heeft, en een klik erop opent dit blad: de fases en hun subdoelen, elk met zijn eigen periode. Zolang het een voorstel is, bewerk je alles: hernoemen, data verschuiven, knooppunten toevoegen of weghalen zonder de rest scheef te trekken.',
   'tut.metas.5.titulo': 'Afvinken zonder je vast te leggen',
   'tut.metas.5.texto':
     'De vinkjes van een voorstel leven in het blad, niet in je doelen: je markeert wat klaar is zonder je planning aan te raken. De balken vullen zichzelf van onder naar boven — de planfase van de keuken is al afgerond.',
@@ -669,7 +669,10 @@ export const NL_TUT: Dict = {
     'Het plan voor de master is al verplaatst. Zijn vinkjes zijn nu die van de echte subdoelen en de balk is die van je planning: het blad houdt geen aparte telling meer bij.',
   'tut.metas.8.titulo': 'En daar staan ze, op de as',
   'tut.metas.8.texto':
-    'De subdoelen die uit het plan zijn ontstaan, nemen hun periode in op de planning, met het plan er in paars overheen: het voorstel en het echte werk op dezelfde as.',
+    'De planning is die van DIT doel: zijn subdoelen nemen hun periode in op de tijdas, met het plan er in paars overheen — het voorstel en het echte werk, samen.',
+  'tut.metas.9.titulo': 'Elk doel zijn eigen as',
+  'tut.metas.9.texto':
+    'Deze as is die van één doel: hier geef je data aan wat er nog geen heeft, hang je er nieuwe subdoelen aan en brengt «Terug» je terug naar zijn blad. Het menu Planning bovenaan toont die van allemaal samen.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Een jaar studie, in één boom',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep studeert natuurkunde: mechanica aan het begin van het jaar, thermodynamica richting het tentamen in maand 6, relativiteit en astrofysica aan het eind. Elke tak klapt open en toont zijn items.',
@@ -689,7 +692,7 @@ export const NL_TUT: Dict = {
     'De + op elke regel schrijft daar meteen een item, met zijn gebied en zijn onderwerp al ingevuld. En met de potloodknop laat je de boom groeien: diezelfde + voegt takken toe, die bij de Kiem maakt nieuwe gebieden, en je kunt hernoemen, herordenen en verwijderen. Het getal met het takje zegt hoeveel subindexen er onder hangen.',
   'tut.app-biblioteca--estudio.2.titulo': 'Het studieplan',
   'tut.app-biblioteca--estudio.2.texto':
-    'Doelen leven in de knop Doelen in de header, de planning van de kalender zelf: «thermodynamica afronden vóór het tentamen» is al gehaald; de voorbereiding op de master loopt nog.',
+    'De knop Missies in de header haalt op wat vandaag aan de beurt is. Studiedoelen leven in de kamer Doelen, gegroepeerd per app: «thermodynamica afronden vóór het tentamen» is al gehaald; de voorbereiding op de master loopt nog.',
   'tut.app-biblioteca--estudio.3.texto':
     'Voor elk doel kun je een plan vragen: de AI vraagt je streefdatum en je beschikbare uren, en zet de studiemomenten in je kalender.',
   'tut.app-biblioteca--resumen.1.texto':
@@ -758,7 +761,7 @@ export const NL_TUT: Dict = {
     'De balken zetten wat je gedaan hebt naast je doelen: krachtsessies, hardloopminuten en mobiliteitsminuten. Het doel past zich aan de periode aan die je bovenaan kiest.',
   'tut.app-ejercicio--anio.3.titulo': 'De doelen van het jaar',
   'tut.app-ejercicio--anio.3.texto':
-    'De knop Doelen in de header bewaart de vier behaalde doelen — de 5K, de 10K, de halve marathon en de marathon — en het doel dat nog open staat. Doelen met een datum verschijnen ook in de huiskalender.',
+    'De kamer Doelen bewaart de vier behaalde doelen — de 5K, de 10K, de halve marathon en de marathon — en het doel dat nog open staat. Doelen met een datum verschijnen ook in de huiskalender.',
   'tut.app-ejercicio--carrera.1.titulo': 'Catalogus, routines en voortgang',
   'tut.app-ejercicio--carrera.1.texto':
     'Elke pijler is hetzelfde opgebouwd: de catalogus met oefeningen, je routines met hun geschiedenis, en de voortgang. Laten we beginnen met wat Pep al gelopen heeft.',
@@ -815,9 +818,9 @@ export const NL_TUT: Dict = {
   'tut.app-cocina--recetario.5.titulo': 'De opgeslagen lijsten',
   'tut.app-cocina--recetario.5.texto':
     'Elke lijst bewaart wat er nog gekocht moet worden en wat al in huis is. Zet je er prijzen bij, dan kun je de rekening doorsturen naar de uitgaven in de Werkkamer.',
-  'tut.app-cocina--cronograma.1.titulo': 'Het gewichtsdoel, in fases',
+  'tut.app-cocina--cronograma.1.titulo': 'Wat de Keuken vandaag van je vraagt',
   'tut.app-cocina--cronograma.1.texto':
-    'De knop Doelen in de header opent dezelfde planning die de huiskalender gebruikt, beperkt tot de doelen van de Keuken: maak een doel aan (bijv. «3 kilo afvallen») en vraag de AI om het plan — die vraagt je streefdatum en plant subdoelen met hun eigen datum.',
+    'De knop Missies in de header opent de checklist van de dag: het water, de maaltijden en de stappen die uit je doelen komen. De doelen zelf — met het plan dat de AI ervoor voorstelt — leven in de kamer Doelen, gegroepeerd per app die ze bijhoudt.',
   'tut.app-cocina--cronograma.2.texto':
     'Dit doet de AI: aanzetten kan bij Editor › Instellingen › Account. Zonder AI maak en bewerk je je doelen precies zo, alleen met de hand.',
   'tut.app-descanso--noche.1.titulo': 'Honderd punten, drie delen',
@@ -875,7 +878,7 @@ export const NL_TUT: Dict = {
     'De reis naar Japan, op 100 %: elf maanden sparen, de bijlessen, de eindejaarsuitkering en het verjaardagsgeld. Daaronder het noodfonds dat na terugkomst begon en een kleine belegging.',
   'tut.app-despacho--metas.2.titulo': 'Het doel in de tijd',
   'tut.app-despacho--metas.2.texto':
-    'De knop Doelen in de header bewaart deze doelen op de tijdlijn: geef er eentje een datum en het verschijnt tussen je kalenderdagen. Met ✨ stelt de AI een spaarplan voor.',
+    'Deze doelen worden bewaard op de tijdlijn in de kamer Doelen: geef er eentje een datum en het verschijnt tussen je kalenderdagen. Met ✨ stelt de AI een spaarplan voor.',
   'tut.app-despacho--metas.3.titulo': 'Wat er nog openstond',
   'tut.app-despacho--metas.3.texto':
     'De autopech ging op de creditcard en het duurde maanden voor die was afbetaald. Schulden staan apart, want je leest ze omgekeerd: hier is dalen winnen.',

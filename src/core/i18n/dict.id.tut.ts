@@ -363,7 +363,7 @@ export const ID_TUT: Dict = {
   'tut.ejemplos.3.texto':
     'Di dalam rumah demo bilah ini tidak muncul: satu tahun penuh milik Pep sudah mengisi peran itu, jadi tidak perlu contoh terpisah.',
   'tut.hoy.1.texto':
-    'Di header setiap aplikasi ada tombol Target, sama seperti yang di kalender tapi hanya untuk aplikasi ini. Tombol ini membuka panel dua lantai: di atas checklist hari ini, di bawah target dan rencana.',
+    'Di header setiap aplikasi ada tombol Misi: checklist berisi apa yang diminta aplikasi itu darimu HARI INI. Jam rumah punya tombol yang sama, dengan semua aplikasi sekaligus.',
   'tut.hoy.2.titulo': 'Tiga sumber, satu daftar',
   'tut.hoy.2.texto':
     'Target milik aplikasi sendiri (air, kalori), apa yang kamu jadwalkan hari ini di kalender, dan langkah-langkah dari target yang sedang berjalan — semuanya jadi satu, dikelompokkan berdasarkan rencana atau target asal setiap langkah.',
@@ -380,7 +380,7 @@ export const ID_TUT: Dict = {
   'tut.hoy.6.texto':
     'Ia turun ke “Selesai”, dalam keadaan terlipat: melihat catatanmu berdampak adalah bagian dari hadiahnya, dan dari sana kamu bisa membatalkannya kalau ada satu yang terlanjur masuk.',
   'tut.hoy.7.texto':
-    'Kalau ada yang kurang, «Checklist baru» bikin punyamu sendiri: daftar khusus aplikasi ini yang berulang tiap hari. Di bawah bagian Hari Ini ada perencana lengkap — Target, Rencana, dan Linimasa — dengan semua target aplikasi ini.',
+    'Kalau ada yang kurang, «Checklist baru» bikin punyamu sendiri: daftar khusus aplikasi ini yang berulang tiap hari. Target yang melahirkan langkah-langkah ini direncanakan di ruangan Target.',
   'tut.progreso.1.texto':
     'Kartu karaktermu: Pep punya satu tahun penuh aktivitas nyata di belakangnya, jadi setiap angka di sini punya cerita nyata yang menjelaskannya.',
   'tut.progreso.2.titulo': 'Karakternya',
@@ -588,7 +588,7 @@ export const ID_TUT: Dict = {
   'tut.app-hobbies--gestion.3.texto':
     'Menit cepat dengan sekali sentuh, atau angka persisnya; proyeknya opsional dan catatannya untuk apa pun yang mau kamu ingat dari sesi itu.',
   'tut.app-hobbies--gestion.4.texto':
-    'Target hobi dan proyekmu ada di tombol Target di header: perencana Target · Rencana · Linimasa yang sama dengan kalender, tapi hanya untuk aplikasi ini. Minta AI buatkan rencana dengan tahap dan tanggal.',
+    'Target hobi dan proyekmu ada di ruangan Target, masing-masing dengan rencananya dan linimasanya. Minta AI buatkan rencana dengan tahap dan tanggal.',
   'tut.app-ideas--diario.1.titulo': 'Kotak masuk',
   'tut.app-ideas--diario.1.texto':
     'Tulis apa yang terlintas, selesai. Pep melepas ~90 ide di sini sepanjang tahun: soal fisika, soal kafe, soal latihan. Bintangnya menandai yang paling kamu suka.',
@@ -648,7 +648,7 @@ export const ID_TUT: Dict = {
     'Kedua lubang itu nyata: cedera lutut di bulan ke-7 dan tiga minggu di Jepang. Bolong tidak menghapus kemajuanmu — panel ini menampilkan tahun itu apa adanya, bukan seharusnya. Dan satu rutinitas baru dihitung sejak hari kamu membuatnya.',
   'tut.metas.1.titulo': 'Target lebih dulu',
   'tut.metas.1.texto':
-    'Tampilannya terbuka di Target, dikelompokkan menurut aplikasi yang memegangnya: lari di Gym, kuliah fisika di Perpustakaan. “Rumah” bukan aplikasi mana pun — kategori itu dibuat sendiri oleh Pep untuk renovasi dapurnya.',
+    'Ruangan ini terbuka di Target, dikelompokkan menurut aplikasi yang memegangnya: lari di Gym, kuliah fisika di Perpustakaan. “Rumah” bukan aplikasi mana pun — kategori itu dibuat sendiri oleh Pep untuk renovasi dapurnya.',
   'tut.metas.2.titulo': 'Dari target ke rencananya',
   'tut.metas.2.texto':
     'Setiap baris terbaca seperti papan: nomornya di dalam folder, tenggatnya, kemajuannya, dan statusnya — Belum dikerjakan, Sedang berjalan, atau Selesai, tergantung seberapa banyak yang sudah tercentang. Satu klik membuka targetnya: rencananya kalau ada (tanda ✨ yang memberitahu) dan, kalau tidak, lembarnya berisi sub-target, tanggal, dan langkah-langkahnya.',
@@ -657,7 +657,7 @@ export const ID_TUT: Dict = {
     'Dapur dan maraton berikutnya masih berupa usulan; pendaftaran pascasarjana sudah masuk Linimasa. Rencana maraton diminta tanpa tenggat: AI menghitung bahwa itu butuh 24 minggu, dan mengatakannya di ringkasannya.',
   'tut.metas.4.titulo': 'Lembar rencananya',
   'tut.metas.4.texto':
-    'Enam tahap beserta sub-targetnya, masing-masing dengan periodenya sendiri. Selama masih usulan, semuanya bisa diedit: ganti nama, geser tanggal, tambah atau buang simpul tanpa mengacaukan yang lain.',
+    'Tanda ✨ di sebuah baris menandakan target itu sudah punya rencana, dan mengekliknya membuka lembar ini: tahap-tahap beserta sub-targetnya, masing-masing dengan periodenya sendiri. Selama masih usulan, semuanya bisa diedit: ganti nama, geser tanggal, tambah atau buang simpul tanpa mengacaukan yang lain.',
   'tut.metas.5.titulo': 'Mencentang tanpa terikat',
   'tut.metas.5.texto':
     'Centang sebuah usulan tinggal di lembarnya, bukan di targetmu: kamu bisa menandai yang sudah selesai tanpa menyentuh linimasamu. Batangnya terisi sendiri ke atas — perencanaan dapur sudah ditutup.',
@@ -669,7 +669,10 @@ export const ID_TUT: Dict = {
     'Rencana pascasarjana sudah dipindahkan. Sekarang centangnya adalah centang sub-target nyata dan batangnya adalah batang linimasamu: lembarnya berhenti menghitung sendiri.',
   'tut.metas.8.titulo': 'Dan itu dia, di sumbunya',
   'tut.metas.8.texto':
-    'Sub-target yang lahir dari rencana menempati periodenya di Linimasa, dengan rencananya tertumpuk berwarna ungu di atasnya: yang diusulkan dan yang nyata, di sumbu yang sama.',
+    'Linimasanya milik target INI: sub-targetnya menempati periodenya di sumbu waktu, dengan rencananya tertumpuk berwarna ungu di atasnya — yang diusulkan dan yang nyata, bersama-sama.',
+  'tut.metas.9.titulo': 'Setiap target, sumbunya sendiri',
+  'tut.metas.9.texto':
+    'Sumbunya selalu milik satu target: di sini yang belum punya tanggal diberi tanggal, sub-target baru digantungkan, dan «Kembali» membawamu balik ke lembarnya. Menu Linimasa di atas menampilkan linimasa semua target sekaligus.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Setahun kuliah, dalam satu pohon',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep kuliah Fisika: mekanika di awal tahun, termodinamika menjelang ujian tengah semester di bulan ke-6, relativitas dan astrofisika di akhir. Setiap cabang terbuka untuk memperlihatkan entri-entrinya.',
@@ -689,7 +692,7 @@ export const ID_TUT: Dict = {
     'Tanda + di tiap baris menulis entri persis di situ, dengan bidang dan topiknya sudah terpasang. Dan lewat tombol pensil kamu menumbuhkan pohonnya: tanda + yang sama menambahkan cabang, yang ada di Benih membuat bidang baru, dan kamu bisa mengganti nama, mengurutkan ulang, dan menghapus. Angka bercabang itu memberitahu berapa sub-indeks yang menggantung di bawahnya.',
   'tut.app-biblioteca--estudio.2.titulo': 'Rencana belajar',
   'tut.app-biblioteca--estudio.2.texto':
-    'Target ada di tombol Target di header, linimasa yang sama dengan kalender: «selesaikan termodinamika sebelum ujian» sudah tercapai; persiapan pascasarjana masih berjalan.',
+    'Tombol Misi di header memunculkan apa yang harus dikerjakan hari ini. Target belajar ada di ruangan Target, dikelompokkan menurut aplikasi: «selesaikan termodinamika sebelum ujian» sudah tercapai; persiapan pascasarjana masih berjalan.',
   'tut.app-biblioteca--estudio.3.texto':
     'Setiap target bisa kamu mintakan rencana: AI menanyakan tanggal targetmu dan jam luangmu, lalu menjadwalkan waktu belajarnya di kalendermu.',
   'tut.app-biblioteca--resumen.1.texto':
@@ -758,7 +761,7 @@ export const ID_TUT: Dict = {
     'Batang-batangnya mengukur capaianmu terhadap targetmu: sesi kekuatan, menit daya tahan, dan menit fleksibilitas. Targetnya menyesuaikan periode yang kamu pilih di atas.',
   'tut.app-ejercicio--anio.3.titulo': 'Target tahun ini',
   'tut.app-ejercicio--anio.3.texto':
-    'Tombol Target di header menyimpan empat targetnya yang sudah tercapai — 5K, 10K, half marathon, dan marathon — dan satu yang masih berjalan. Target dengan tanggal juga muncul di kalender rumah.',
+    'Ruangan Target menyimpan empat targetnya yang sudah tercapai — 5K, 10K, half marathon, dan marathon — dan satu yang masih berjalan. Target dengan tanggal juga muncul di kalender rumah.',
   'tut.app-ejercicio--carrera.1.titulo': 'Katalog, Rutinitas, dan Progres',
   'tut.app-ejercicio--carrera.1.texto':
     'Tiap jenis latihan tersusun sama: katalog gerakan, rutinitasmu beserta riwayatnya, dan progres. Mari mulai dari lari-lari yang sudah dijalani Pep.',
@@ -815,9 +818,9 @@ export const ID_TUT: Dict = {
   'tut.app-cocina--recetario.5.titulo': 'Daftar tersimpan',
   'tut.app-cocina--recetario.5.texto':
     'Tiap daftar tersimpan lengkap dengan yang belum dibeli dan yang sudah ada di dapur. Kalau kamu mengisi harganya, totalnya bisa dikirim ke pengeluaran di Ruang Kerja.',
-  'tut.app-cocina--cronograma.1.titulo': 'Target berat, dengan fase-fasenya',
+  'tut.app-cocina--cronograma.1.titulo': 'Yang diminta Dapur darimu hari ini',
   'tut.app-cocina--cronograma.1.texto':
-    'Tombol Target di header membuka linimasa yang sama dengan kalender rumah, khusus target Dapur: buat target (misalnya «Turun 3 kilo») dan minta rencana ke AI — AI akan tanya tanggal targetmu dan menjadwalkan sub-target dengan tanggal masing-masing.',
+    'Tombol Misi di header membuka checklist hari itu: air minum, makanan, dan langkah-langkah yang datang dari targetmu. Targetnya sendiri —dengan rencana yang diusulkan AI— ada di ruangan Target, dikelompokkan menurut aplikasi yang memegangnya.',
   'tut.app-cocina--cronograma.2.texto':
     'Ini dikerjakan AI: aktifkan di Editor › Pengaturan › Akun. Tanpa itu, target tetap bisa dibuat dan diedit dengan cara yang sama, hanya saja manual.',
   'tut.app-descanso--noche.1.titulo': 'Seratus poin, tiga bagian',
@@ -875,7 +878,7 @@ export const ID_TUT: Dict = {
     'Liburan ke Jepang, 100%: sebelas bulan menabung, les privat, bonus akhir tahun, dan uang hadiah ulang tahunnya. Di bawahnya, dana darurat yang dimulai sepulang perjalanan dan satu investasi kecil.',
   'tut.app-despacho--metas.2.titulo': 'Target sepanjang waktu',
   'tut.app-despacho--metas.2.texto':
-    'Tombol Target di header menyimpan target-target ini di garis waktu: beri tanggal pada salah satunya dan langsung muncul di antara hari-hari kalendermu. Dengan ✨ AI mengusulkan rencana setoran.',
+    'Target-target ini tersimpan di sumbu waktu di ruangan Target: beri tanggal pada salah satunya dan langsung muncul di antara hari-hari kalendermu. Dengan ✨ AI mengusulkan rencana setoran.',
   'tut.app-despacho--metas.3.titulo': 'Utangnya waktu itu',
   'tut.app-despacho--metas.3.texto':
     'Kerusakan mobil itu dibayar pakai kartu kredit dan butuh berbulan-bulan sampai lunas. Utang ditaruh terpisah karena dibacanya terbalik: di sini turun berarti menang.',

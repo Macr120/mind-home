@@ -81,6 +81,17 @@ const temaOvRow = (id: TemaId) => `${TEMA_OV_PREFIX}${id}__`
 const FONDO_ROW = '__fondo__'
 /** Intensidad inicial de las microanimaciones (≈ la densidad que había antes del slider). */
 export const ANIM_INTENSIDAD_DEFAULT = 0.6
+/**
+ * roomId sentinela del fondo de la pantalla de inicio (`PanelCuartosRapido`).
+ * `muebleColor` = id de la imagen en `fondosImagen` (la MISMA galería que el cielo),
+ * `color` = atenuación del velo con dos decimales.
+ */
+const PANTALLA_ROW = '__pantalla__'
+/**
+ * El fondo del panel se ve tal cual: quien lo tapa son las tarjetas, que llevan
+ * fondo sólido. El velo queda de rescate para fotos que compliquen la lectura.
+ */
+export const PANTALLA_ATENUACION_DEFAULT = 0
 /** roomId sentinela donde se persiste el tipo de piso de la casa. */
 const PISO_TIPO_ROW = '__piso_tipo__'
 const TECHO_TIPO_ROW = '__techo_tipo__'
@@ -245,6 +256,12 @@ interface DisenoState {
   fondoImagenActivo: number | null
   /** Galería de fondos con imagen guardados localmente. */
   fondosImagen: FondoImagen[]
+  /** Galería propia de la pantalla de inicio (aparte de la del fondo de cielo). */
+  fondosPanel: FondoImagen[]
+  /** Fondo de la pantalla de inicio: id dentro de `fondosPanel` (null = sin fondo). */
+  panelFondoId: number | null
+  /** Velo sobre ese fondo (0–1); arranca en 0, la foto se ve tal cual. */
+  panelFondoAtenuacion: number
   /** Temas propios del usuario (tema base + personalización + fondo, con nombre). */
   temasPropios: TemaPropio[]
   /** microanimaciones de fondo (cometas, dragones, nieve, etc.) */
@@ -280,6 +297,11 @@ interface DisenoState {
     patch: Partial<Pick<FondoImagen, 'nombre' | 'ajusteX' | 'ajusteY' | 'escala'>>,
   ) => Promise<void>
   eliminarFondoImagen: (id: number) => Promise<void>
+  /** Sube una imagen a la galería de la pantalla de inicio y la estrena. */
+  agregarFondoPanel: (blob: Blob, nombre: string) => Promise<number>
+  eliminarFondoPanel: (id: number) => Promise<void>
+  /** Fija el fondo de la pantalla de inicio (null = sin fondo). */
+  setPanelFondo: (id: number | null, atenuacion: number) => Promise<void>
   /** Congela el tema actual (con su personalización y su fondo) con un nombre. */
   guardarTemaPropio: (nombre: string) => Promise<void>
   /** Vuelve a poner un tema propio: tema base, personalización y fondo. */
@@ -650,6 +672,18 @@ async function guardarFondoRow(
   else await db.disenoRooms.add({ roomId: FONDO_ROW, ...row })
 }
 
+/** Persiste la fila única del fondo de la pantalla de inicio. */
+async function guardarPantallaRow(imagenId: number | null, atenuacion: number) {
+  const existing = await db.disenoRooms.where('roomId').equals(PANTALLA_ROW).first()
+  const row = {
+    nombre: '',
+    color: atenuacion.toFixed(2),
+    muebleColor: imagenId != null ? String(imagenId) : '',
+  }
+  if (existing?.id) await db.disenoRooms.update(existing.id, row)
+  else await db.disenoRooms.add({ roomId: PANTALLA_ROW, ...row })
+}
+
 /** Persiste la fila única del avatar (colores + forma 3D personalizada). */
 async function guardarAvatar(av: DisenoState['avatar']) {
   const row = {
@@ -792,6 +826,9 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   fondoColorFijo: '#87ceeb',
   fondoImagenActivo: null,
   fondosImagen: [],
+  fondosPanel: [],
+  panelFondoId: null,
+  panelFondoAtenuacion: PANTALLA_ATENUACION_DEFAULT,
   temasPropios: [],
   animacionesFondo: true,
   animacionesIntensidad: ANIM_INTENSIDAD_DEFAULT,
@@ -800,11 +837,12 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   cargado: false,
 
   cargar: async () => {
-    const [disenoRooms, disenoAvatars, objetos, fondosImagen, temasPropios, pisosImagen, techosImagen, murosImagen] = await Promise.all([
+    const [disenoRooms, disenoAvatars, objetos, fondosImagen, fondosPanel, temasPropios, pisosImagen, techosImagen, murosImagen] = await Promise.all([
       db.disenoRooms.toArray(),
       db.disenoAvatar.toArray(),
       db.objetosCuarto.toArray(),
       db.fondosImagen.orderBy('creado').reverse().toArray(),
+      db.fondosPanel.orderBy('creado').reverse().toArray(),
       db.temasPropios.orderBy('creado').reverse().toArray(),
       db.pisosImagenCuarto.toArray(),
       db.techosImagenCuarto.toArray(),
@@ -1052,6 +1090,8 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     let animacionesIds: FamiliaAnimId[] | null = null
     let fondoColorFijo = '#87ceeb'
     let fondoImagenActivo: number | null = null
+    let panelFondoId: number | null = null
+    let panelFondoAtenuacion = PANTALLA_ATENUACION_DEFAULT
     let mapaSuperficie: MapaSuperficieAjustes = { ...MAPA_SUPERFICIE_DEFAULT }
     for (const d of disenoRooms) {
       if (d.roomId === MAPA_SUPERFICIE_ID) {
@@ -1101,6 +1141,14 @@ export const useDiseño = create<DisenoState>((set, get) => ({
         if (!Number.isNaN(imgId) && fondosImagen.some((f) => f.id === imgId)) {
           fondoImagenActivo = imgId
         }
+        continue
+      }
+      if (d.roomId === PANTALLA_ROW) {
+        const n = parseFloat(d.color ?? '')
+        if (Number.isFinite(n)) panelFondoAtenuacion = Math.min(1, Math.max(0, n))
+        // La imagen pudo borrarse de la galería desde que se eligió aquí.
+        const imgId = parseInt(d.muebleColor ?? '', 10)
+        if (!Number.isNaN(imgId) && fondosPanel.some((f) => f.id === imgId)) panelFondoId = imgId
         continue
       }
       if (d.roomId === PISO_TIPO_ROW) continue
@@ -1249,6 +1297,9 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       fondoColorFijo,
       fondoImagenActivo,
       fondosImagen,
+      fondosPanel,
+      panelFondoId,
+      panelFondoAtenuacion,
       temasPropios,
       animacionesFondo,
       animacionesIntensidad,
@@ -1450,10 +1501,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     }
     const id = await db.fondosImagen.add(item)
     const nuevo = { id, ...item }
-    set((s) => ({
-      fondosImagen: [nuevo, ...s.fondosImagen],
-      fondoImagenActivo: id,
-    }))
+    set((s) => ({ fondosImagen: [nuevo, ...s.fondosImagen], fondoImagenActivo: id }))
     await guardarFondoRow(
       get().fondoId,
       get().animacionesFondo,
@@ -1489,6 +1537,39 @@ export const useDiseño = create<DisenoState>((set, get) => ({
         get().fondoColorFijo,
       )
     }
+  },
+
+  agregarFondoPanel: async (blob, nombre) => {
+    const { ancho, alto } = await medirImagen(blob)
+    const item: Omit<FondoImagen, 'id'> = {
+      nombre: nombre.trim() || 'Mi fondo',
+      imagen: blob,
+      ancho,
+      alto,
+      ...ajusteADb(AJUSTE_FONDO_DEFAULT),
+      creado: new Date().toISOString(),
+    }
+    const id = await db.fondosPanel.add(item)
+    set((s) => ({ fondosPanel: [{ id, ...item }, ...s.fondosPanel] }))
+    await get().setPanelFondo(id, get().panelFondoAtenuacion)
+    return id
+  },
+
+  eliminarFondoPanel: async (id) => {
+    await db.fondosPanel.delete(id)
+    const eraActivo = get().panelFondoId === id
+    set((s) => ({
+      fondosPanel: s.fondosPanel.filter((f) => f.id !== id),
+      panelFondoId: eraActivo ? null : s.panelFondoId,
+    }))
+    if (eraActivo) await guardarPantallaRow(null, get().panelFondoAtenuacion)
+  },
+
+  setPanelFondo: async (id, atenuacion) => {
+    if (id != null && !get().fondosPanel.some((f) => f.id === id)) return
+    const velo = Math.min(1, Math.max(0, atenuacion))
+    set({ panelFondoId: id, panelFondoAtenuacion: velo })
+    await guardarPantallaRow(id, velo)
   },
 
   guardarTemaPropio: async (nombre) => {

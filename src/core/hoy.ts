@@ -1,12 +1,14 @@
+import { useMemo } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { db, type Rutina } from './data/db'
 import { visibles } from './data/ejemplos'
 import { rutinasRepo } from './data/repository'
+import { appsParaEnlace } from './enlaceApp'
 import { fechaLocalISO } from './fechaLocal'
 import { tGlobal } from './i18n/useT'
 import { estadoObjetivoDia, objetivosDiaDe } from './metaDiaria'
 import { esMeta, rangoDe, vigenteEn } from './metas'
-import type { AvanceDiario, ObjetivoDia, RegistroObjetivo } from './registry'
+import type { AvanceDiario, ObjetivoDia, Plantilla, RegistroObjetivo } from './registry'
 import { pasosHechosHoy, tocaFecha } from './rutinas'
 
 /**
@@ -54,6 +56,13 @@ export interface PasoHoy {
   origen: OrigenPaso
   /** Etiqueta ya traducida. */
   titulo: string
+  /**
+   * Emoji del bloque, APARTE del título. Iba pegado dentro del texto y por eso
+   * el mismo objetivo se leía distinto aquí («😴 Apagar todo y dormir») que en la
+   * matriz del calendario («Apagar todo y dormir»), además de saltarse el ajuste
+   * de estilo de iconos: un emoji dentro de un string se pinta crudo siempre.
+   */
+  emoji?: string
   /** Línea corta de avance («2.7 / 2.8 L»); sin valor, basta con el título. */
   detalle?: string
   /** 0..1 para la barra. */
@@ -95,13 +104,18 @@ function minutosDesde(hora: string, ahora: Date): number {
  * usarlo fuera de React; solo lee Dexie, así que dentro de `useLiveQuery` sigue
  * siendo reactivo.
  */
-export async function armarPasosHoy(plantillaId: string, fecha: string): Promise<PasoHoy[]> {
+export async function armarPasosHoy(
+  /** Sin valor: los objetivos PERSONALES, los que no son de ninguna app. */
+  plantillaId: string | undefined,
+  fecha: string,
+): Promise<PasoHoy[]> {
   const pasos: PasoHoy[] = []
   const esHoy = fecha === fechaLocalISO()
   const ahora = new Date()
 
   // ── 1. Los objetivos del día de la app ────────────────────────────────────
   for (const o of objetivosDiaDe(plantillaId)) {
+    if (!plantillaId) break
     const estado = await estadoObjetivoDia(plantillaId, o.clave, fecha)
     if (!estado) continue
     const { avance, cumplida } = estado
@@ -154,7 +168,8 @@ export async function armarPasosHoy(plantillaId: string, fecha: string): Promise
       pasos.push({
         id: `rut:${r.id}`,
         origen: 'rutina',
-        titulo: `${r.emoji} ${r.nombre}`,
+        titulo: r.nombre,
+        emoji: r.emoji,
         deQuien: deMeta(r),
         frac: hecho ? 1 : 0,
         hecho,
@@ -172,8 +187,11 @@ export async function armarPasosHoy(plantillaId: string, fecha: string): Promise
         origen: 'rutina',
         titulo: p.titulo,
         // El paso solo dice qué se hace («Registrar 45 min»): lo que le da sentido
-        // es de dónde viene, y una meta manda sobre el nombre del bloque.
-        deQuien: deMeta(r) ?? `${r.emoji} ${r.nombre}`,
+        // es de dónde viene, y una meta manda sobre el nombre del bloque. Salvo que
+        // el paso YA se llame como su bloque —lo que pasa con un objetivo del
+        // catálogo, que es un bloque de un solo paso—: ahí repetirlo no dice nada.
+        emoji: r.emoji,
+        deQuien: deMeta(r) ?? (p.titulo === r.nombre ? undefined : `${r.emoji} ${r.nombre}`),
         frac: hecho ? 1 : 0,
         hecho,
         hora: r.hora,
@@ -197,7 +215,8 @@ export async function armarPasosHoy(plantillaId: string, fecha: string): Promise
       pasos.push({
         id: `meta:${m.id}`,
         origen: 'meta',
-        titulo: `${m.emoji} ${m.nombre}`,
+        titulo: m.nombre,
+        emoji: m.emoji,
         frac: m.completada ? 1 : 0,
         hecho: !!m.completada,
         hora: m.hora,
@@ -228,8 +247,92 @@ export async function armarPasosHoy(plantillaId: string, fecha: string): Promise
   })
 }
 
+/**
+ * Reparte los pasos como los pintan las listas: los apagados no cuentan en ningún
+ * lado, y «lista completa» = hay pasos que cuentan y ninguno pendiente. Única
+ * definición — de aquí sale también el XP por lista cumplida.
+ */
+export function repartirPasos(pasos: PasoHoy[]) {
+  const cuentan = pasos.filter((p) => !p.apagado)
+  const pendientes = cuentan.filter((p) => !p.hecho)
+  return {
+    cuentan,
+    pendientes,
+    hechos: cuentan.filter((p) => p.hecho),
+    apagados: pasos.filter((p) => p.apagado),
+    completa: cuentan.length > 0 && pendientes.length === 0,
+  }
+}
+
 /** Los pasos de hoy de una app (reactivo): se repintan solos al registrar. */
 export function usePasosHoy(plantillaId: string, fecha?: string): PasoHoy[] | undefined {
   const dia = fecha ?? fechaLocalISO()
   return useLiveQuery(() => armarPasosHoy(plantillaId, dia), [plantillaId, dia])
+}
+
+/** Lo que una app pide hoy, para la lista global del reloj. */
+export interface PasosDeApp {
+  /** Sin valor: el grupo de los objetivos PERSONALES, que no son de ninguna app. */
+  app?: Plantilla
+  pasos: PasoHoy[]
+}
+
+/**
+ * La checklist del día de TODAS las apps que el usuario tiene en su casa: lo que
+ * pinta el botón «Objetivos» del reloj. Es el mismo contenido que el panel de
+ * cada cuarto, pero junto y en un solo sitio, para poder ver el día entero sin
+ * entrar cuarto por cuarto.
+ *
+ * **Más el grupo sin app**: un objetivo personal («turno en la cafetería») no es
+ * de ningún cuarto, así que recorrer solo las apps lo dejaba fuera de la única
+ * vista que dice enseñarlo todo — salía en la rejilla del calendario y no aquí.
+ *
+ * Las apps que hoy no piden nada se tiran: con quince cuartos, la lista sería
+ * media pantalla de títulos vacíos.
+ */
+export async function armarPasosDeTodas(fecha: string): Promise<PasosDeApp[]> {
+  const apps = appsParaEnlace()
+  const listas = await Promise.all([
+    ...apps.map((p) => armarPasosHoy(p.id, fecha)),
+    armarPasosHoy(undefined, fecha),
+  ])
+  const grupos: PasosDeApp[] = apps.map((app, i) => ({ app, pasos: listas[i] }))
+  grupos.push({ pasos: listas[apps.length] })
+  return grupos.filter((x) => x.pasos.length > 0)
+}
+
+/**
+ * La lista global (reactiva). Solo depende de la fecha: las apps salen del diseño
+ * de la casa, que no cambia mientras el calendario está abierto.
+ */
+export function usePasosDeTodas(fecha?: string): PasosDeApp[] | undefined {
+  const dia = fecha ?? fechaLocalISO()
+  return useLiveQuery(() => armarPasosDeTodas(dia), [dia])
+}
+
+/** Lo que le queda a una app por hacer hoy: el globo de notificación de su tarjeta. */
+export interface PendientesApp {
+  cuantos: number
+  /** Algún bloque agendado se pasó de su hora hace poco: el globo va en ámbar. */
+  urgente: boolean
+}
+
+/**
+ * Las misiones que quedan hoy, por app, para las tarjetas de la pantalla de inicio
+ * y del menú lateral. Una sola suscripción: pedirlas con `usePasosHoy` en cada
+ * tarjeta serían quince consultas rehaciéndose con cada registro que se guarda.
+ */
+export function usePendientesPorApp(fecha?: string): Map<string, PendientesApp> {
+  const porApp = usePasosDeTodas(fecha)
+  return useMemo(() => {
+    const m = new Map<string, PendientesApp>()
+    for (const g of porApp ?? []) {
+      if (!g.app) continue
+      const { pendientes } = repartirPasos(g.pasos)
+      if (pendientes.length > 0) {
+        m.set(g.app.id, { cuantos: pendientes.length, urgente: pendientes.some((p) => p.urgente) })
+      }
+    }
+    return m
+  }, [porApp])
 }

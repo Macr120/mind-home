@@ -365,7 +365,7 @@ export const DE_TUT: Dict = {
   'tut.ejemplos.3.texto':
     'Im Demo-Haus erscheint diese Leiste nicht: Peps ganzes Jahr übernimmt schon diese Rolle, ein eigenes Beispiel braucht es also nicht.',
   'tut.hoy.1.texto':
-    'Im Kopfbereich jeder App lebt ihr Ziele-Button, wie der im Kalender, nur auf diese App beschränkt. Er öffnet ein Panel mit zwei Ebenen: oben die Checkliste für heute, darunter ihre Ziele und Pläne.',
+    'Im Kopfbereich jeder App lebt ihr Missionen-Button: die Checkliste dessen, was diese App HEUTE von dir verlangt. Die Uhr des Hauses hat denselben Button mit allen Apps zusammen.',
   'tut.hoy.2.titulo': 'Drei Quellen, eine Liste',
   'tut.hoy.2.texto':
     'Die eigenen Ziele der App (Wasser, Kalorien), was du für heute im Kalender geplant hast, und die Schritte deiner aktuellen Ziele: alles zusammen, gruppiert unter dem Plan oder Ziel, aus dem jeder Schritt stammt.',
@@ -382,7 +382,7 @@ export const DE_TUT: Dict = {
   'tut.hoy.6.texto':
     'Es wandert nach unten zu „Erledigt“, eingeklappt: zu sehen, wie der Eintrag wirkt, gehört zur Belohnung – und von dort lässt es sich rückgängig machen, falls einer zu viel hineingerutscht ist.',
   'tut.hoy.7.texto':
-    'Und wenn dir etwas fehlt: „Neue Checkliste“ legt deine eigene an — eine Liste dieser App, die sich jeden Tag wiederholt. Unter dem Bereich Heute liegt der komplette Planer — Ziele, Pläne und Zeitplan — mit allen Zielen der App.',
+    'Und wenn dir etwas fehlt: „Neue Checkliste“ legt deine eigene an — eine Liste dieser App, die sich jeden Tag wiederholt. Die Ziele, aus denen diese Schritte kommen, werden im Ziele-Raum geplant.',
   'tut.progreso.1.texto':
     'Der Steckbrief deiner Figur: Pep hat ein ganzes Jahr echter Aktivität hinter sich, also steckt hinter jeder Zahl hier eine echte Geschichte.',
   'tut.progreso.2.titulo': 'Die Figur',
@@ -590,7 +590,7 @@ export const DE_TUT: Dict = {
   'tut.app-hobbies--gestion.3.texto':
     'Schnelle Minuten mit einem Tipp oder die genaue Zahl; das Projekt ist optional, und die Notiz ist für das, was du von dieser Sitzung behalten willst.',
   'tut.app-hobbies--gestion.4.texto':
-    'Die Ziele deiner Hobbys und Projekte leben im Ziele-Button im Kopfbereich: derselbe Planer Ziele · Pläne · Zeitplan wie im Kalender, nur auf diese App beschränkt. Bitte die KI um einen Plan mit Phasen und Terminen.',
+    'Die Ziele deiner Hobbys und Projekte leben im Ziele-Raum, jedes mit seinem Plan und seinem Zeitplan. Bitte die KI um einen Plan mit Phasen und Terminen.',
   'tut.app-ideas--diario.1.titulo': 'Das Ideentagebuch',
   'tut.app-ideas--diario.1.texto':
     'Schreib den Einfall hin, fertig. Pep hat hier im Lauf des Jahres rund 90 Ideen abgeladen: aus der Physik, aus dem Café, vom Training. Der Stern markiert die Favoriten.',
@@ -650,7 +650,7 @@ export const DE_TUT: Dict = {
     'Beide Löcher sind echt: die Knieverletzung in Monat 7 und die drei Wochen in Japan. Aussetzen löscht den Fortschritt nicht – das Panel zeigt das Jahr, wie es war, nicht wie es hätte sein sollen. Und eine Routine zählt erst ab dem Tag, an dem du sie angelegt hast.',
   'tut.metas.1.titulo': 'Zuerst die Ziele',
   'tut.metas.1.texto':
-    'Die Ansicht öffnet bei Ziele, gruppiert nach der App, die sie führt: Laufen unter Fitness, das Physikstudium unter Bibliothek. „Haus“ ist keine App – diese Kategorie hat sich Pep für den Küchenumbau ausgedacht.',
+    'Der Raum öffnet bei Ziele, gruppiert nach der App, die sie führt: Laufen unter Fitness, das Physikstudium unter Bibliothek. „Haus“ ist keine App – diese Kategorie hat sich Pep für den Küchenumbau ausgedacht.',
   'tut.metas.2.titulo': 'Vom Ziel zu seinem Plan',
   'tut.metas.2.texto':
     'Jede Zeile liest sich wie eine Anzeigetafel: ihre Nummer im Ordner, die Frist, der Fortschritt und der Status – Offen, Läuft oder Fertig, je nachdem, wie viel schon abgehakt ist. Ein Klick öffnet das Ziel: seinen Plan, wenn es einen hat (das ✨ verrät es), und sonst seine Tabelle mit den Teilzielen, den Terminen und den Schritten.',
@@ -659,7 +659,7 @@ export const DE_TUT: Dict = {
     'Die Küche und der nächste Marathon sind noch Vorschläge; die Bewerbung fürs Masterstudium steht schon im Zeitplan. Der Marathon-Plan wurde ohne Frist angefragt: Die KI hat ausgerechnet, dass er 24 Wochen braucht, und sagt es in ihrer Zusammenfassung.',
   'tut.metas.4.titulo': 'Die Tabelle des Plans',
   'tut.metas.4.texto':
-    'Sechs Phasen und ihre Teilziele, jede mit ihrem eigenen Zeitraum. Solange es ein Vorschlag ist, lässt sich alles bearbeiten: umbenennen, Termine verschieben, Knoten hinzufügen oder entfernen, ohne den Rest durcheinanderzubringen.',
+    'Das ✨ einer Zeile verrät, dass das Ziel schon einen Plan hat, und ein Klick darauf öffnet diese Tabelle: die Phasen und ihre Teilziele, jede mit ihrem eigenen Zeitraum. Solange es ein Vorschlag ist, lässt sich alles bearbeiten: umbenennen, Termine verschieben, Knoten hinzufügen oder entfernen, ohne den Rest durcheinanderzubringen.',
   'tut.metas.5.titulo': 'Abhaken, ohne sich zu binden',
   'tut.metas.5.texto':
     'Die Häkchen eines Vorschlags leben in seiner Tabelle, nicht in deinen Zielen: Du kannst abhaken, was erledigt ist, ohne deinen Zeitplan anzurühren. Die Balken füllen sich von selbst nach oben – die Küchenplanung ist schon abgeschlossen.',
@@ -671,7 +671,10 @@ export const DE_TUT: Dict = {
     'Der Plan fürs Masterstudium ist schon verschoben. Jetzt sind seine Häkchen die der echten Teilziele und der Balken ist der deines Zeitplans: Die Tabelle führt keine eigene Rechnung mehr.',
   'tut.metas.8.titulo': 'Und da stehen sie, auf der Achse',
   'tut.metas.8.texto':
-    'Die Teilziele, die aus dem Plan entstanden sind, nehmen ihren Zeitraum im Zeitplan ein, mit dem Plan violett darübergelegt: der Vorschlag und das Echte auf derselben Achse.',
+    'Der Zeitplan gehört zu DIESEM Ziel: Seine Teilziele nehmen ihren Zeitraum auf der Zeitachse ein, mit dem Plan violett darübergelegt – der Vorschlag und das Echte, zusammen.',
+  'tut.metas.9.titulo': 'Jedes Ziel, seine Achse',
+  'tut.metas.9.texto':
+    'Die Achse ist immer die eines einzigen Ziels: Hier bekommt Termine, was noch keine hat, neue Teilziele werden angehängt, und „Zurück“ führt dich zu seiner Tabelle. Das Menü Zeitplan oben zeigt die Achse aller Ziele zusammen.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Ein Studienjahr als Baum',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep studiert Physik: Mechanik am Anfang des Jahres, Thermodynamik gegen die Klausur in Monat 6, Relativität und Astrophysik zum Schluss. Jeder Zweig klappt auf und zeigt seine Einträge.',
@@ -691,7 +694,7 @@ export const DE_TUT: Dict = {
     'Das + in jeder Zeile schreibt genau dort einen Eintrag, mit Gebiet und Thema schon gesetzt. Und mit dem Stift-Button lässt du den Baum wachsen: Dasselbe + fügt Zweige hinzu, das beim Samen legt neue Gebiete an, und du kannst umbenennen, umsortieren und löschen. Die Zahl mit dem Zweiglein sagt dir, wie viele Unterthemen darunter hängen.',
   'tut.app-biblioteca--estudio.2.titulo': 'Der Lernplan',
   'tut.app-biblioteca--estudio.2.texto':
-    'Ziele leben im Ziele-Button im Kopfbereich, demselben Zeitplan wie im Kalender: „Thermodynamik vor der Prüfung abschließen“ ist bereits erledigt; die Vorbereitung auf den Master läuft noch.',
+    'Der Missionen-Button im Kopfbereich holt, was heute ansteht. Die Lernziele leben im Ziele-Raum, gruppiert nach App: „Thermodynamik vor der Prüfung abschließen“ ist bereits erledigt; die Vorbereitung auf den Master läuft noch.',
   'tut.app-biblioteca--estudio.3.texto':
     'Für jedes Ziel kannst du einen Plan anfordern: Die KI fragt nach deinem Zieldatum und deinen freien Stunden und trägt die Lernzeiten in deinen Kalender ein.',
   'tut.app-biblioteca--resumen.1.texto':
@@ -760,7 +763,7 @@ export const DE_TUT: Dict = {
     'Die Balken messen, was du geschafft hast, gegen deine Ziele: Kraft-Einheiten, Laufminuten und Minuten für Beweglichkeit. Das Ziel passt sich dem Zeitraum an, den du oben wählst.',
   'tut.app-ejercicio--anio.3.titulo': 'Die Ziele des Jahres',
   'tut.app-ejercicio--anio.3.texto':
-    'Der Ziele-Button im Kopfbereich bewahrt ihre vier erreichten Ziele — den 5-km-Lauf, den 10-km-Lauf, den Halbmarathon und den Marathon — sowie das noch offene. Ziele mit Termin erscheinen auch im Hauskalender.',
+    'Der Ziele-Raum bewahrt ihre vier erreichten Ziele — den 5-km-Lauf, den 10-km-Lauf, den Halbmarathon und den Marathon — sowie das noch offene. Ziele mit Termin erscheinen auch im Hauskalender.',
   'tut.app-ejercicio--carrera.1.titulo': 'Katalog, Routinen und Fortschritt',
   'tut.app-ejercicio--carrera.1.texto':
     'Jede Disziplin ist gleich aufgebaut: der Katalog der Übungen, deine Routinen mit ihrem Verlauf und der Fortschritt. Fangen wir mit dem an, was Pep schon gelaufen ist.',
@@ -817,9 +820,9 @@ export const DE_TUT: Dict = {
   'tut.app-cocina--recetario.5.titulo': 'Die gespeicherten Listen',
   'tut.app-cocina--recetario.5.texto':
     'Jede Liste hält fest, was noch zu kaufen ist und was schon im Vorrat steht. Trägst du Preise ein, lässt sich die Rechnung an die Ausgaben im Arbeitszimmer schicken.',
-  'tut.app-cocina--cronograma.1.titulo': 'Das Gewichtsziel, in Phasen',
+  'tut.app-cocina--cronograma.1.titulo': 'Was die Küche heute von dir will',
   'tut.app-cocina--cronograma.1.texto':
-    'Der Ziele-Button im Kopfbereich öffnet denselben Zeitplan, den auch der Hauskalender nutzt, beschränkt auf die Ziele der Küche: leg ein Ziel an (z. B. „3 Kilo abnehmen“) und bitte die KI um den Plan — sie fragt nach deinem Zieltermin und plant Teilziele mit eigenem Termin.',
+    'Der Missionen-Button im Kopfbereich öffnet die Checkliste des Tages: das Wasser, die Mahlzeiten und die Schritte, die aus deinen Zielen kommen. Die Ziele selbst – mit dem Plan, den die KI ihnen vorschlägt – leben im Ziele-Raum, gruppiert nach der App, die sie führt.',
   'tut.app-cocina--cronograma.2.texto':
     'Das macht die KI: Du schaltest sie in Editor › Einstellungen › Konto ein. Ohne sie legst du die Ziele genauso an und bearbeitest sie, nur eben von Hand.',
   'tut.app-descanso--noche.1.titulo': 'Hundert Punkte, drei Teile',
@@ -877,7 +880,7 @@ export const DE_TUT: Dict = {
     'Die Japanreise, bei 100 %: elf Monate Sparen, die Nachhilfestunden, das Weihnachtsgeld und das Geburtstagsgeld. Darunter der Notgroschen, der nach der Rückkehr anfing, und eine kleine Anlage.',
   'tut.app-despacho--metas.2.titulo': 'Das Ziel in der Zeit',
   'tut.app-despacho--metas.2.texto':
-    'Der Ziele-Button im Kopfbereich bewahrt diese Ziele auf der Zeitachse: gibst du einem einen Termin, erscheint es zwischen deinen Kalendertagen. Mit ✨ schlägt die KI den Sparplan vor.',
+    'Diese Ziele werden im Ziele-Raum auf der Zeitachse bewahrt: gibst du einem einen Termin, erscheint es zwischen deinen Kalendertagen. Mit ✨ schlägt die KI den Sparplan vor.',
   'tut.app-despacho--metas.3.titulo': 'Was Pep schuldete',
   'tut.app-despacho--metas.3.texto':
     'Die Autopanne ging auf die Kreditkarte und war erst nach Monaten abbezahlt. Schulden stehen getrennt, weil man sie andersherum liest: Hier heißt runter gewinnen.',

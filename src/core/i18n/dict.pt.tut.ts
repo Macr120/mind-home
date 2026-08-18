@@ -359,7 +359,7 @@ export const PT_TUT: Dict = {
   'tut.ejemplos.3.texto':
     'Dentro da casa demo esta barra não aparece: o ano inteiro de Pep@ já cumpre esse papel, então não precisa de um exemplo à parte.',
   'tut.hoy.1.texto':
-    'No cabeçalho de cada app fica o botão Metas, igual ao do calendário mas restrito a este app. Ele abre um painel com dois andares: em cima o checklist de hoje, embaixo suas metas e planos.',
+    'No cabeçalho de cada app fica o seu botão Missões: o checklist do que esse app pede de você HOJE. O relógio da casa tem o mesmo botão com todos os apps juntos.',
   'tut.hoy.2.titulo': 'Três fontes, uma lista',
   'tut.hoy.2.texto':
     'Os objetivos próprios do app (a água, as calorias), o que você agendou para hoje no calendário e os passos das suas metas em curso: tudo junto, agrupado sob o plano ou a meta de onde vem cada passo.',
@@ -376,7 +376,7 @@ export const PT_TUT: Dict = {
   'tut.hoy.6.texto':
     'Desce para «Feitos», recolhido: ver o registro surtir efeito é parte da recompensa, e de lá dá para desfazer se entrou um a mais.',
   'tut.hoy.7.texto':
-    'E se faltar algo, «Novo checklist» cria o seu: uma lista própria deste app que se repete todo dia. Embaixo da seção Hoje está o planejador completo — Metas, Planos e Cronograma — com todas as metas do app.',
+    'E se faltar algo, «Novo checklist» cria o seu: uma lista própria deste app que se repete todo dia. As metas de onde saem esses passos são planejadas no cômodo Metas.',
   'tut.progreso.1.texto':
     'A carta do seu personagem: Pep@ tem um ano inteiro de atividade real por trás, então cada número aqui tem uma história real que o explica.',
   'tut.progreso.2.titulo': 'O personagem',
@@ -583,7 +583,7 @@ export const PT_TUT: Dict = {
   'tut.app-hobbies--gestion.3.texto':
     'Minutos rápidos com um toque, ou o número exato; o projeto é opcional e a nota é para o que você quiser lembrar dessa sessão.',
   'tut.app-hobbies--gestion.4.texto':
-    'As metas dos seus hobbies e projetos ficam no botão Metas do cabeçalho: o mesmo planejador Metas · Planos · Cronograma do calendário, restrito a este app. Peça à IA um plano com fases e datas.',
+    'As metas dos seus hobbies e projetos ficam no cômodo Metas, cada uma com seu plano e seu cronograma. Peça à IA um plano com fases e datas.',
   'tut.app-ideas--diario.1.titulo': 'A caixa de entrada',
   'tut.app-ideas--diario.1.texto':
     'Escreva a ideia e pronto. Pep@ soltou aqui uns 90 lampejos no ano: de física, da cafeteria, do treino. A estrela marca as favoritas.',
@@ -642,7 +642,7 @@ export const PT_TUT: Dict = {
     'Os dois buracos são reais: a lesão no joelho do mês 7 e as três semanas no Japão. Falhar não apaga o progresso — o painel mostra o ano como ele foi, não como devia ter sido. E uma rotina só conta a partir do dia em que você a criou.',
   'tut.metas.1.titulo': 'Primeiro, as metas',
   'tut.metas.1.texto':
-    'A vista abre em Metas, agrupadas pelo app que cuida delas: correr em Exercício, o curso de física em Biblioteca. «Casa» não é nenhum app — essa categoria Pep@ inventou para a reforma da cozinha.',
+    'O cômodo abre em Metas, agrupadas pelo app que cuida delas: correr em Exercício, o curso de física em Biblioteca. «Casa» não é nenhum app — essa categoria Pep@ inventou para a reforma da cozinha.',
   'tut.metas.2.titulo': 'Da meta ao seu plano',
   'tut.metas.2.texto':
     'Cada linha se lê como um painel: seu número na pasta, o prazo, o avanço e o estado — a fazer, em andamento ou feito, conforme o que já foi cumprido. Um clique abre a meta: seu plano, se tiver (o ✨ anuncia) e, se não, sua ficha com as submetas, as datas e os passos.',
@@ -651,7 +651,7 @@ export const PT_TUT: Dict = {
     'A cozinha e a próxima maratona ainda são propostas; a inscrição na pós-graduação já está no cronograma. O da maratona foi pedido sem prazo: a IA calculou que ele exige 24 semanas e diz isso no resumo.',
   'tut.metas.4.titulo': 'A ficha do plano',
   'tut.metas.4.texto':
-    'Seis fases e suas submetas, cada uma com seu período. Enquanto é proposta, dá para editar tudo: renomear, mover datas, adicionar ou tirar nós sem desalinhar os demais.',
+    'O ✨ de uma linha anuncia que a meta já tem plano, e seu clique abre esta ficha: as fases e suas submetas, cada uma com seu período. Enquanto é proposta, dá para editar tudo: renomear, mover datas, adicionar ou tirar nós sem desalinhar os demais.',
   'tut.metas.5.titulo': 'Marcar sem se comprometer',
   'tut.metas.5.texto':
     'Os checks de uma proposta ficam na folha, não nas suas metas: você pode ir marcando o que fez sem tocar no seu cronograma. As barras se enchem sozinhas para cima — o planejamento da cozinha já está fechado.',
@@ -663,7 +663,10 @@ export const PT_TUT: Dict = {
     'O plano da pós já foi movido. Agora seus checks são os das submetas reais e a barra é a do seu cronograma: a folha para de fazer uma contagem à parte.',
   'tut.metas.8.titulo': 'E lá estão, no eixo',
   'tut.metas.8.texto':
-    'As submetas que nasceram do plano ocupam seu período no cronograma, com o plano sobreposto em violeta em cima: o proposto e o real, no mesmo eixo.',
+    'O cronograma é o DESTA meta: suas submetas ocupam seu período sobre o eixo do tempo, com o plano sobreposto em violeta em cima — o proposto e o real, juntos.',
+  'tut.metas.9.titulo': 'Cada meta, seu eixo',
+  'tut.metas.9.texto':
+    'Este eixo é o de UMA meta: aqui você dá datas ao que não as tem, pendura submetas novas e «Voltar» devolve você à folha dela. O menu Cronograma de cima mostra o de todas juntas.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Um ano de curso, em uma árvore',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep@ estuda Física: mecânica no começo do ano, termodinâmica perto da prova do mês 6, relatividade e astrofísica no fim. Cada ramo se abre para ver suas fichas.',
@@ -683,7 +686,7 @@ export const PT_TUT: Dict = {
     'O + de cada linha escreve uma entrada ali mesmo, com o campo e o tema já definidos. E o botão do lápis faz a árvore crescer: esse mesmo + adiciona ramos, o da Semente cria campos novos, e você pode renomear, reordenar e apagar. O número com o raminho diz quantos subíndices estão pendurados ali.',
   'tut.app-biblioteca--estudio.2.titulo': 'O plano de estudo',
   'tut.app-biblioteca--estudio.2.texto':
-    'As metas ficam no botão Metas do cabeçalho, o mesmo cronograma do calendário: «terminar termodinâmica antes da prova» já está cumprida; se preparar para a pós-graduação segue em andamento.',
+    'O botão Missões do cabeçalho traz o que toca hoje. As metas de estudo ficam no cômodo Metas, agrupadas por app: «terminar termodinâmica antes da prova» já está cumprida; se preparar para a pós-graduação segue em andamento.',
   'tut.app-biblioteca--estudio.3.texto':
     'Você pode pedir um plano para cada meta: a IA pergunta sua data-alvo e suas horas disponíveis, e agenda os momentos de estudo no seu calendário.',
   'tut.app-biblioteca--resumen.1.texto':
@@ -752,7 +755,7 @@ export const PT_TUT: Dict = {
     'As barras medem o que você já fez em relação às suas metas: sessões de força, minutos de corrida e minutos de mobilidade. O objetivo se ajusta ao período que você escolher acima.',
   'tut.app-ejercicio--anio.3.titulo': 'As metas do ano',
   'tut.app-ejercicio--anio.3.texto':
-    'O botão Metas do cabeçalho guarda suas quatro metas cumpridas —os 5K, os 10K, a meia maratona e a maratona— e a que ainda está ativa. Metas com data também aparecem no calendário da casa.',
+    'O cômodo Metas guarda suas quatro metas cumpridas —os 5K, os 10K, a meia maratona e a maratona— e a que ainda está ativa. Metas com data também aparecem no calendário da casa.',
   'tut.app-ejercicio--carrera.1.titulo': 'Catálogo, rotinas e progresso',
   'tut.app-ejercicio--carrera.1.texto':
     'Cada modalidade se organiza igual: o catálogo de exercícios, suas rotinas com o histórico e o progresso. Vamos começar pelo que Pep@ já correu.',
@@ -809,9 +812,9 @@ export const PT_TUT: Dict = {
   'tut.app-cocina--recetario.5.titulo': 'As listas salvas',
   'tut.app-cocina--recetario.5.texto':
     'Cada lista guarda o que ainda falta comprar e o que já está na despensa. Se você colocar preços, o total pode ir para os gastos do Escritório.',
-  'tut.app-cocina--cronograma.1.titulo': 'A meta de peso, em fases',
+  'tut.app-cocina--cronograma.1.titulo': 'O que a Cozinha pede de você hoje',
   'tut.app-cocina--cronograma.1.texto':
-    'O botão Metas do cabeçalho abre o mesmo cronograma que o calendário da casa usa, restrito às metas da Cozinha: crie uma meta (por exemplo, «Perder 3 quilos») e peça o plano à IA — ela pergunta sua data-alvo e agenda submetas com data própria.',
+    'O botão Missões do cabeçalho abre o checklist do dia: a água, as refeições e os passos que vierem das suas metas. As metas em si —com o plano que a IA propõe para elas— ficam no cômodo Metas, agrupadas pelo app que cuida delas.',
   'tut.app-cocina--cronograma.2.texto':
     'Isso é feito pela IA: ative em Editor › Configurações › Conta. Sem ela, as metas são criadas e editadas do mesmo jeito, só na mão.',
   'tut.app-descanso--noche.1.titulo': 'Cem pontos, três partes',
@@ -869,7 +872,7 @@ export const PT_TUT: Dict = {
     'A viagem ao Japão, a 100%: onze meses de poupança, as aulas particulares, o décimo terceiro e o que ganhou de aniversário. Abaixo, a reserva de emergência que começou na volta e um pequeno investimento.',
   'tut.app-despacho--metas.2.titulo': 'A meta no tempo',
   'tut.app-despacho--metas.2.texto':
-    'O botão Metas do cabeçalho guarda essas metas na linha do tempo: você coloca datas em uma e ela aparece entre os seus dias do calendário. Com ✨ a IA propõe o plano de aportes.',
+    'Essas metas ficam guardadas sobre o eixo do tempo no cômodo Metas: você coloca datas em uma e ela aparece entre os seus dias do calendário. Com ✨ a IA propõe o plano de aportes.',
   'tut.app-despacho--metas.3.titulo': 'O que devia',
   'tut.app-despacho--metas.3.texto':
     'O consertodo carro foi pago no cartão e levou meses para ser quitado. As dívidas ficam à parte porque se leem ao contrário: aqui, descer é ganhar.',

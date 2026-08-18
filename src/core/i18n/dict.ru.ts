@@ -1,9 +1,10 @@
 /**
- * Diccionario RU de la interfaz. Se carga con import() perezoso
- * desde dict.ts: quien no use este idioma no lo descarga.
+ * Diccionario RUSO de la interfaz. Se carga con import() perezoso
+ * desde dict.ts, igual que el inglés: quien no use este idioma no lo descarga.
  *
- * Lo monta `traducir-a-mano.mjs meter-dict` a partir de `dict.en.ts` y de los
- * fallbacks españoles del código. Lo que falte cae al inglés (ver `useT`).
+ * GENERADO por `npm run traducir:i18n` a partir de `dict.en.ts` y de los
+ * fallbacks españoles del código. No lo edites a mano: se sobrescribe entero.
+ * Lo que falte cae al inglés (ver `useT`); al español solo en último término.
  */
 import type { Dict } from './dict'
 
@@ -15,6 +16,8 @@ export const RU: Dict = {
   'nav.ariaMenu': 'Меню комнат',
   'nav.retraer': 'Свернуть меню',
   'nav.abrir': 'Открыть меню',
+  'nav.rapido': 'Быстрый доступ к комнатам',
+  'nav.rapido.ayuda': 'Нажмите на комнату, чтобы открыть её приложение.',
   'nav.editarCuarto': 'Редактировать эту комнату',
   'nav.entrar': 'Войти ›',
   'nav.ayuda.tarjetaTexto':
@@ -362,18 +365,20 @@ export const RU: Dict = {
   'meta.marcar': 'Отметить как выполненное',
   'meta.desmarcar': 'Отметить как невыполненное',
   'meta.agendar': 'Добавить в календарь',
-  'hoy.titulo': 'Сегодня',
+  'hoy.titulo': 'Миссии',
   'hoy.alDia': 'На сегодня всё готово',
   'hoy.hechos': 'Готово ({n})',
   'hoy.registrar': 'Отметить',
   'hoy.objetivo': 'Твоя цель на каждый день (0 — выключить)',
   'hoy.checklist': 'Список на день',
-  'hoy.grupoApp': 'Цели дня',
+  'hoy.grupoApp': 'Миссии дня',
   'hoy.nueva': 'Новый список',
   'hoy.cerrar': 'Закрыть',
   'hoy.ocultarHechos': 'Скрыть выполненные',
+  'hoy.casa.vacio': 'Сегодня ни в одном приложении ничего не осталось.',
+  'hoy.casa.abrirApp': 'Открыть это приложение',
   'cal.meta.mientrasDure': 'Пока длится, спрашивай у меня',
-  'cal.meta.unObjetivo': 'цель на день',
+  'cal.meta.unObjetivo': 'миссия дня',
   'cal.meta.unaActividad': 'занятие каждую неделю',
   'cal.meta.diasRitmo': '{hechos}/{pedidos} дней',
   'rutinas.sinApp': 'Без приложения (событие дома)',
@@ -480,6 +485,18 @@ export const RU: Dict = {
   'progreso.nivel': 'Уровень',
   'progreso.racha': 'Серия',
   'progreso.dias': 'дней',
+  'progreso.rachaTitulo': 'Серия дней с активностью',
+  'progreso.listasTitulo': 'Выполненные списки миссий',
+  'progreso.listasCumplidas': 'Выполнено списков',
+  'celebra.racha.titulo': '{n} дней подряд!',
+  'celebra.racha.titulo1': '1 день подряд!',
+  'celebra.racha.cuerpo': 'Так держать в {app} 🔥',
+  'celebra.lista.titulo': 'Миссии дня выполнены!',
+  'celebra.lista.cuerpo': 'Список {app} выполнен',
+  'celebra.lista.xp': '+{xp} XP',
+  'celebra.nivel.titulo': 'Новый уровень!',
+  'celebra.nivel.cuerpo': '{app}: уровень {n} 🎉',
+  'celebra.seguir': 'Дальше!',
   'progreso.hoy': 'Сегодня',
   'progreso.semana': '7 дней',
   'plantillas.ayuda':
@@ -670,7 +687,7 @@ export const RU: Dict = {
   'chat.config.ponerMapa': 'Поместить на карту',
   'chat.config.voz': 'Голос:',
   'chat.config.vozAuto': 'Автоматически (по языку)',
-  'chat.config.vozIA': 'Голос с ИИ (OpenAI, более естественный)',
+  'chat.config.vozIA': 'Голос с ИИ (более естественный)',
   'chat.config.vozLeer': 'Читать вслух то, что говорит',
   'chat.config.vozProbar': 'Проверить голос',
   'chat.config.vozTono': 'Тон',
@@ -751,6 +768,8 @@ export const RU: Dict = {
   'veh.bajarte': 'Слезть',
   'accion.sentarte': 'Сесть',
   'accion.acostarte': 'Лечь',
+  'accion.sentarse': 'Сесть',
+  'accion.acostarse': 'Лечь',
   'accion.sentado': 'Сидит',
   'accion.acostado': 'Лежит',
   'accion.levantarte': 'Встать',
@@ -823,6 +842,7 @@ export const RU: Dict = {
   'room.ideas.nombre': 'Идеи',
   'room.computo.nombre': 'Компьютерная',
   'room.agenda.nombre': 'Ежедневник',
+  'room.metas.nombre': 'Цели',
   'room.cocina.sub': 'Питание',
   'room.ejercicio.sub': 'Силовые тренировки и фитнес',
   'room.recamara.sub': 'Сон и воспоминания',
@@ -840,6 +860,7 @@ export const RU: Dict = {
   'room.ideas.sub': 'Карты понятий на свободном холсте',
   'room.computo.sub': 'Калькулятор и таблицы',
   'room.agenda.sub': 'Работа, здоровье и люди',
+  'room.metas.sub': 'Планы и расписание',
   'hud.plegar': 'Свернуть управление',
   'hud.desplegar': 'Показать управление',
   'nav3d.aria': 'Управление видом',
@@ -1197,6 +1218,10 @@ export const RU: Dict = {
   'despacho.patr.enlazarMeta': 'Связать с уже существующей целью…',
   'despacho.patr.objetivoTitulo': 'До какой суммы хочешь дойти?',
   'despacho.patr.objetivoMsg': 'У тебя здесь уже есть {n}.',
+  'despacho.patr.metaLiquidar': 'Погасить {n}',
+  'despacho.patr.notaCronograma': '{p} в месяц · {i} на проценты',
+  'despacho.patr.yaEnCronograma': 'Уже в твоём расписании',
+  'despacho.patr.alCronograma': 'В расписание · погасишь к {f}',
   'despacho.meta.verEnPasivos': 'Смотреть в «Капитал › Пассивы»',
   'despacho.meta.verEnActivos': 'Смотреть в «Капитал › Активы»',
   'despacho.meta.anadirAPasivos': 'Добавить в «Пассивы» (со ставкой и сроком)',
@@ -3458,6 +3483,8 @@ export const RU: Dict = {
   'room.granja.desc': 'Разводи кур, свиней, коз, овец, коров и лошадей и выращивай для них корм в том же редакторе.',
   'room.ideas.desc':
     'Твой дневник идей и мозговых штурмов, десять форматов карт-схем на свободном холсте (интеллект-карта, дерево, таймлайн, цикл, пирамида, диаграмма Венна…) и восемь диаграмм для принятия решений (плюсы и минусы, силовое поле, SWOT, матрица Эйзенхауэра, дерево решений, тир-лист, взвешенная матрица решений и диаграмма Исикавы) — вручную или с ИИ.',
+  'room.metas.desc':
+    'Всё, что ты себе наметил, со всего дома: список целей с их подцелями и шагами, планы, которые ИИ предлагает для каждой (этапы с датой, становящиеся настоящими подцелями), и расписание, где всё занимает свой период на оси времени.',
   'room.computo.desc':
     'Компьютерная комната: научный калькулятор со своим справочником формул под рукой (математика, физика и химия — готовые и редактируемые) и восемью режимами — построитель графиков четырёх типов (2D, полярный, параметрический и 3D-поверхность), двоичная и шестнадцатеричная системы, матрицы, системы уравнений, перевод единиц, чаевые и правило трёх; а также таблицы с экспортом в Excel и PDF.',
   'computo.tab.calculadora': 'Калькулятор',
@@ -4056,6 +4083,7 @@ export const RU: Dict = {
   'cal.cron.avance': '{n}% готово',
   'cal.cron.buscar': 'Поиск…',
   'cal.cron.desplegarTodo': 'Развернуть всё',
+  'cal.cron.editar': 'Редактировать цели',
   'cal.cron.hechas': 'Готово',
   'cal.cron.ocultarHechas': 'Скрыть выполненные',
   'cal.cron.plegarTodo': 'Свернуть всё',
@@ -4064,6 +4092,7 @@ export const RU: Dict = {
   'cal.cron.trazar': 'Перетащи сюда, чтобы задать даты',
   'cal.cron.vacio': 'Пока нет целей.',
   'cal.cron.vencida': 'Срок прошёл, не выполнено',
+  'cal.cron.volver': 'Вернуться к цели',
   'cal.cronograma': 'Расписание',
   'cal.dia': 'День',
   'cal.editarEvento': 'Изменить событие',
@@ -4087,6 +4116,7 @@ export const RU: Dict = {
   'cal.mes': 'Месяц',
   'cal.meta.agregarHija': 'Добавить подцель',
   'cal.meta.alcance': 'Выполненные шаги и подцели',
+  'cal.meta.armar': 'Разместить в календаре',
   'cal.meta.armarORenombrar': 'Клик: разместить в календаре · Двойной клик: переименовать',
   'cal.meta.colorDe': 'Цвет этой цели',
   'cal.meta.borrar': 'Удалить эту цель?',
@@ -4115,9 +4145,6 @@ export const RU: Dict = {
   'cal.meta.pasoNuevo': 'Добавить шаг…',
   'cal.meta.pasoRenombrar': 'Двойной клик, чтобы переименовать шаг',
   'cal.meta.pasos': 'Шаги этой цели',
-  'cal.meta.plan': 'План',
-  'cal.meta.planEnCronograma': 'Посмотреть план в расписании',
-  'cal.meta.planHoja': 'Открыть лист плана',
   'cal.meta.plegar': 'Свернуть',
   'cal.meta.ponerHora': 'Указать время',
   'cal.meta.prefijoSub': 'под',
@@ -4936,7 +4963,40 @@ export const RU: Dict = {
   'nav.asignar': '+ Назначить',
   'nav.asignarApp': 'Назначить приложение этой комнате',
   'nav.crearCuarto': 'Создать комнату',
+  'nav.vista3D': 'Показать комнаты в 3D',
+  'nav.vistaIconos': 'Показать комнаты с их значком',
   'nav.sinCuartos': 'Пока нет комнат. Создай первую внизу.',
+  'nav.rapido.editando': 'Перетаскивай, чтобы менять порядок, или нажми карандаш, чтобы изменить.',
+  'nav.rapido.listo': 'Готово',
+  'nav.rapido.metas': 'Цели, выполненные в этом приложении',
+  'nav.rapido.pendientes': 'Осталось миссий: {n}',
+  'nav.fondo.borrar': 'Удалить',
+  'nav.sinApps': 'Здесь появляются комнаты с приложением. Назначь его в меню комнат.',
+  'nav.editar.titulo': 'Изменить комнату',
+  'nav.editar.nombre': 'Название',
+  'nav.editar.icono': 'Значок',
+  'nav.editar.tab.emoji': 'Эмодзи',
+  'nav.editar.tab.imagen': 'Картинка',
+  'nav.editar.emojiLibre': 'Другое эмодзи',
+  'nav.editar.imagenPuesta': 'Эта картинка заменяет эмодзи в меню.',
+  'nav.editar.quitarImagen': 'Убрать',
+  'nav.editar.subirImagen': 'Загрузить картинку',
+  'nav.editar.color': 'Цвет',
+  'nav.editar.murosTitulo': 'Перекрасить и стены?',
+  'nav.editar.murosMensaje': 'В этой комнате есть стены, которые ты покрасил вручную в редакторе карты. Если перекрасить, их цвет потеряется.',
+  'nav.editar.murosOk': 'Перекрасить',
+  'nav.fondo.titulo': 'Обои',
+  'nav.fondo.desc': 'Картинки общие с фоном неба дома.',
+  'nav.fondo.sin': 'Без обоев',
+  'nav.fondo.subir': 'Загрузить картинку',
+  'nav.fondo.nombreIA': 'Обои от ИИ',
+  'nav.fondo.atenuacion': 'Приглушить обои',
+  'editor.texturaIA.placeholderIcono': 'Опиши значок…',
+  'editor.texturaIA.generarIcono': 'Создать значок',
+  'editor.texturaIA.sug.iconoMinimal': 'минимализм в одну линию',
+  'editor.texturaIA.sug.iconoPastel': 'округлый в пастельных тонах',
+  'editor.texturaIA.sug.iconoPixel': 'в стиле пиксель-арт',
+  'editor.texturaIA.sug.iconoDegradado': 'с ярким градиентом',
   'nav3d.ayuda1P': 'ПКМ или джойстик; колесо — зум',
   'nav3d.ayuda3P': 'ПКМ или джойстик; колесо — зум',
   'nav3d.cambiarVista': 'Сменить вид (клавиша V)',
@@ -5541,6 +5601,9 @@ export const RU: Dict = {
   'ajustes.musica.sfxDesc': 'Бластер, порталы, салюты, игры и транспорт. Не зависит от громкости музыки.',
   'musica.control': 'Музыка',
   'musica.cerrar': 'Закрыть',
+  'visor.ampliar': 'Посмотреть изображение во весь экран',
+  'visor.cerrar': 'Закрыть',
+  'visor.descargar': 'Скачать',
   'voz.escuchar': 'Слушать',
   'voz.callar': 'Перестать читать',
   'voz.autoOn': 'Читает ответы вслух',
@@ -5577,6 +5640,19 @@ export const RU: Dict = {
   'cuenta.sinBackend': 'На этой установке не настроен бэкенд: всё сохраняется только на этом устройстве.',
   'cuenta.cargando': 'Загрузка…',
   'cuenta.intro': 'С аккаунтом твой тариф и твой дом следуют за тобой на любом устройстве.',
+  'cuenta.nivel.titulo': 'Твой уровень',
+  'cuenta.nivel.n': 'Уровень ×{n} — {c} кредитов в месяц',
+  'cuenta.nivel.actual': 'Текущий',
+  'cuenta.nivel.nota': 'Уровень можно поднять или понизить когда угодно — разница считается пропорционально.',
+  'cuenta.nivel.subir': 'Поднять до ×{n} — {c} кредитов в месяц за {p}',
+  'cuenta.cuota.cuerpoNivel': 'Кредиты обновятся {f}. Если их не хватает каждый месяц, подними уровень.',
+  'cuenta.cuota.cuerpoVencida':
+    'Твои данные остались на этом устройстве. Продли, чтобы вернуть кредиты месяца и синхронизацию.',
+  'cuenta.cuota.cuerpoTrial':
+    'Приложение и твои данные твои навсегда. Оформи Pro, чтобы сохранить кредиты и синхронизацию.',
+  'cuenta.cuota.cuerpoLocal':
+    'Приложение и твои данные твои бесплатно. Платный только ИИ: оформи подписку и получай кредиты каждый месяц.',
+  'cuenta.cuota.web': 'Посмотреть подписку',
   'cuenta.conGoogle': 'Продолжить через Google',
   'cuenta.conApple': 'Продолжить через Apple',
   'cuenta.oCorreo': 'или по почте',
@@ -5597,8 +5673,6 @@ export const RU: Dict = {
   'cuenta.techo.cuerpo':
     'В этом месяце запросы использовали намного больше контекста, чем обычно, и лимит честного использования исчерпан. Он обнулится {f}.',
   'cuenta.cuota.tituloTrial': 'Включённый месяц закончился',
-  'cuenta.cuota.cuerpoTrial':
-    'Приложение и данные — твои навсегда. Оформи подписку Pro, чтобы сохранить ежемесячные кредиты и синхронизацию, или пополняй кредиты по мере необходимости.',
   'puerta.trato':
     'Один платёж открывает твой дом навсегда и включает первый месяц ИИ и синхронизации — без карты и без подписки.',
   'puerta.procesando': 'Обработка…',
@@ -5638,6 +5712,18 @@ export const RU: Dict = {
   'ia.activar.porClave': 'Включён через твой ключ {prov}. Кредиты не списываются: {prov} выставляет счёт напрямую.',
   'ia.activar.sinActivar': 'ИИ выключен. Войди в аккаунт, чтобы использовать кредиты, или вставь ниже ключ провайдера.',
   'ia.activar.priv': 'Хранится только на этом устройстве и никуда не уходит, кроме как к {prov}.',
+  'ia.media.sinClave': 'Чтобы генерировать изображения и использовать голос ИИ, добавь ключ OpenAI или Gemini.',
+  'ia.panel.cerebro': 'Мозг',
+  'ia.panel.claveOllama': 'Ключ Ollama (только для его облака или сервера с ключом)',
+  'ia.panel.localImagen': 'Эта модель генерирует изображения.',
+  'ia.panel.imagen': 'Изображение',
+  'ia.panel.proveedor': 'Провайдер',
+  'ia.panel.voz': 'Голос',
+  'ia.panel.vozAyuda': 'Включает голос ИИ у ассистентов с этим провайдером',
+  'ia.transporte.byok': 'Мои ключи (BYOK)',
+  'ia.transporte.creditos': 'Кредиты',
+  'ia.transporte.creditosDesc': 'Идёт через твой аккаунт: ключи ставит сервер, и каждый запрос тратит кредиты плана.',
+  'ia.transporte.sinCuenta': 'Войди в аккаунт, чтобы использовать кредиты.',
   'ia.calidad.titulo': 'Качество изображений',
   'ia.calidad.rapida': 'Быстрое',
   'ia.calidad.rapida.desc': 'Хорошее и недорогое. Я использую его, если не попросишь другое.',
@@ -5756,16 +5842,11 @@ export const RU: Dict = {
   'cuenta.cuota.titulo': 'Кредиты за этот месяц закончились',
   'cuenta.cuota.tituloSin': 'Для использования ИИ нужны кредиты',
   'cuenta.cuota.cuerpo': 'Твои кредиты обновятся {f}.',
-  'cuenta.cuota.cuerpoLocal':
-    'Приложение и твои данные — твои и бесплатно. Платится только ИИ: пополняй кредиты, когда они понадобятся, или оформи подписку и получай их каждый месяц.',
-  'cuenta.cuota.cuerpoVencida':
-    'Твои данные остаются на этом устройстве. Продли подписку, чтобы вернуть кредиты за месяц и синхронизацию, или пополни кредиты отдельно.',
   'cuenta.cuota.recarga': '+600 кредитов — {p}',
   'cuenta.cuota.recargaN': '+{n} кредитов — {p}',
   'cuenta.cuota.recargaLista': 'Пополнение выполнено: дополнительные кредиты уже на твоём аккаунте.',
   'cuenta.cuota.suscribirse': 'Посмотреть подписку',
   'cuenta.cuota.nativo': 'Кредитами можно управлять из твоего аккаунта.',
-  'cuenta.cuota.web': 'Купить кредиты в моём аккаунте',
   'cuenta.creditos.faltan': 'Кредиты ИИ закончились.',
   'comun.entendido': 'Понятно',
   'demo.aviso.titulo': 'Ты в демо-доме',
@@ -5825,12 +5906,12 @@ export const RU: Dict = {
   'tut.calendario.titulo': 'Календарь',
   'tut.calendario.resumen':
     'Часы дома открывают календарь: всё запланированное —смены, занятия, привычки и то, что добавляют другие приложения— в видах День, Неделя, Месяц, Год и Цели. Панель внизу показывает, насколько ты выполняешь запланированное.',
-  'tut.calendario.3b.titulo': 'А цели — отдельно',
+  'tut.calendario.3b.titulo': 'А «Цели дня» — отдельно',
   'tut.calendario.3b.texto':
-    'Красным цветом, чтобы не путать с четырьмя пунктами выше: Цели открывают твои цели, их планы и расписание.',
+    'Красным цветом, чтобы не путать с четырьмя пунктами выше: «Цели дня» собирают чек-лист на сегодня из всех твоих приложений. Твои цели и их планы живут в своей собственной комнате.',
   'tut.metas.titulo': 'Цели',
   'tut.metas.resumen':
-    'Три экрана цели: список, где она рождается, план, который её развивает (ИИ предлагает, а ты отмечаешь галочкой), и расписание, где её фазы занимают свой период уже как настоящие подцели.',
+    'Список целей и, внутри каждой, её лист: план, который её развивает (ИИ предлагает, а ты отмечаешь галочкой), и её расписание, где её фазы занимают свой период уже как настоящие подцели.',
   'tut.app-biblioteca--enciclopedia.titulo': 'Своя энциклопедия',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Всё, что ты изучаешь, архивируется в дереве по разделам знаний: карточки с кратким описанием и ключевыми пунктами, которые можно проиллюстрировать.',
@@ -5885,6 +5966,9 @@ export const RU: Dict = {
   'tut.app-ejercicio--fuerza.titulo': 'Сила, которую колено не забрало',
   'tut.app-ejercicio--fuerza.resumen':
     'Во вкладке «Силовые» ты записываешь подходы, повторения и вес; на основе этого приложение считает твой объём, строит прогресс по каждому упражнению и хранит твои личные рекорды.',
+  'tut.app-ejercicio--flexibilidad.titulo': 'Третья дисциплина',
+  'tut.app-ejercicio--flexibilidad.resumen':
+    'Гибкость устроена как Силовые и Выносливость — каталог, рутины, прогресс, — но подходы считаются временем, а не весом, и есть плеер-гид с таймером.',
   'tut.app-cocina--alimentacion.titulo': 'Есть с целью',
   'tut.app-cocina--alimentacion.resumen':
     'Контроль питания — это четыре шага: ты ставишь цели, записываешь, что ешь и пьёшь, планируешь неделю, а Прогресс показывает, туда ли ты движешься.',
@@ -5909,6 +5993,9 @@ export const RU: Dict = {
   'tut.app-despacho--metas.titulo': 'Япония, резервный фонд и долг',
   'tut.app-despacho--metas.resumen':
     '«Цели» собирают твои цели по накоплениям и инвестициям в один список с индикатором прогресса, а долги — отдельно, со своим симулятором. У каждой цели есть расписание, где можно проставить даты.',
+  'tut.app-despacho--patrimonio.titulo': 'Что у тебя есть, что в долгах и куда всё идёт',
+  'tut.app-despacho--patrimonio.resumen':
+    'Капитал — не фотография: всё, что у тебя есть, дорожает или дешевеет, а каждый долг набегает процентами. Задай каждой строке ставку — и третья вкладка покажет весь фильм, от прошлого года до того, к чему придёшь.',
   'tut.app-despacho--calculadoras.titulo': 'Четыре правила, чтобы определить цифру',
   'tut.app-despacho--calculadoras.resumen':
     'Четыре калькулятора личных финансов предлагают целевую сумму на основе твоего реального баланса и превращают её в цель одним касанием. Параметры каждого правила можно настроить: никто не обязан принимать правило 50/30/20 как есть.',
@@ -5952,6 +6039,7 @@ export const RU: Dict = {
   'cuenta.sync.activo': 'Синхронизация…',
   'cuenta.sync.ultima': 'Синхронизировано: {f}',
   'cuenta.sync.nunca': 'Ещё не синхронизировано',
+  'cuenta.sync.soloPro': 'Синхронизация между устройствами входит в Pro.',
   'cuenta.sync.ahora': 'Синхронизировать',
   'cuenta.sync.otraCuenta':
     'Этот дом был привязан к другому аккаунту. Оставить локальные данные и объединить их с новым аккаунтом? (Отмена = очистить этот дом и загрузить только данные аккаунта)',
@@ -6011,6 +6099,7 @@ export const RU: Dict = {
   'agenda.prioridad.baja': 'Низкий',
   'agenda.trabajo.pendientes': 'Дела',
   'agenda.trabajo.tablero': 'Доска',
+  'agenda.trabajo.apuntar': 'Записать дело',
   'ejemplo.vacio': 'Не знаешь, с чего начать? Посмотри, как это выглядит на примере.',
   'ejemplo.puesto': 'Это пример: скрой его, когда захочешь, — твои данные останутся нетронутыми.',
   'ejemplo.mostrar': 'Посмотреть пример',
@@ -6043,6 +6132,7 @@ export const RU: Dict = {
   'agenda.projimo.aMiCuidado': 'Под опекой',
   'agenda.cuidadop.nuevo': 'Новый уход',
   'agenda.cuidado.archivado': 'Выполнено, без повтора',
+  'agenda.cuidado.yaLoHice': 'Уже сделано',
   'agenda.cuidado.reactivar': 'Запланировать снова',
   'agenda.form.especialidad': 'Специальность',
   'agenda.esp.general': 'Общая практика',
@@ -6208,10 +6298,6 @@ export const RU: Dict = {
   'widgets.efemerideTitulo': 'В этот день',
   'widgets.vacio': 'На сегодня ничего не запланировано',
   'widgets.desactualizado': 'Нажми, чтобы обновить',
-
-  // Catálogo de recursos 3D: el nombre con el que se siembra cada objeto del
-  // inventario. Solo se muestra traducido si el objeto aún se llama como su
-  // recurso de origen; un nombre puesto por el usuario se respeta tal cual.
   'objetos.nombreGenerico': 'Объект',
   'objetos.nombrePiezas': 'Объект из деталей',
   'recurso.1': 'Кухонные шкафы (верх и низ)',
@@ -6367,23 +6453,6 @@ export const RU: Dict = {
   'recursoExtra.sillon-lectura': 'Кресло для чтения',
   'recursoExtra.calendario-pared': 'Настенный календарь',
   'recursoExtra.estacion-computo': 'Компьютерная станция',
-  'accion.sentarse': 'Сесть',
-  'accion.acostarse': 'Лечь',
-  'cuenta.sync.soloPro': 'Синхронизация между устройствами входит в Pro.',
-  'agenda.cuidado.yaLoHice': 'Уже сделано',
-  'despacho.patr.metaLiquidar': 'Погасить {n}',
-  'despacho.patr.notaCronograma': '{p} в месяц · {i} на проценты',
-  'despacho.patr.yaEnCronograma': 'Уже в твоём расписании',
-  'despacho.patr.alCronograma': 'В расписание · погасишь к {f}',
-  'tut.app-despacho--patrimonio.titulo': 'Что у тебя есть, что в долгах и куда всё идёт',
-  'tut.app-despacho--patrimonio.resumen':
-    'Капитал — не фотография: всё, что у тебя есть, дорожает или дешевеет, а каждый долг набегает процентами. Задай каждой строке ставку — и третья вкладка покажет весь фильм, от прошлого года до того, к чему придёшь.',
-  'tut.app-ejercicio--flexibilidad.titulo': 'Третья дисциплина',
-  'tut.app-ejercicio--flexibilidad.resumen':
-    'Гибкость устроена как Силовые и Выносливость — каталог, рутины, прогресс, — но подходы считаются временем, а не весом, и есть плеер-гид с таймером.',
-  'agenda.trabajo.apuntar': 'Записать дело',
-
-  // Tres palabras por app (tarjetas del paso de intereses en la bienvenida)
   'room.cocina.corta': 'Еда, макросы и рецепты',
   'room.ejercicio.corta': 'Тренировки, сила и цели',
   'room.descanso.corta': 'График, будильник и ночи',
@@ -6400,4 +6469,5 @@ export const RU: Dict = {
   'room.ideas.corta': 'Идеи, карты и решения',
   'room.computo.corta': 'Калькулятор, графики и таблицы',
   'room.agenda.corta': 'Задачи, здоровье и люди',
+  'room.metas.corta': 'Цели, планы и расписание',
 }

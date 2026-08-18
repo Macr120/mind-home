@@ -50,6 +50,8 @@ interface CuartosState {
   renombrar: (id: string, nombre: string) => Promise<void>
   setColor: (id: string, color: string) => Promise<void>
   setIcon: (id: string, icon: string) => Promise<void>
+  /** Icono como imagen (undefined = volver al emoji). */
+  setIconoImagen: (id: string, imagen: Blob | undefined) => Promise<void>
   setCategoria: (id: string, categoria: Cuarto['categoria']) => Promise<void>
   /** Fija el ambiente musical del cuarto (undefined = volver al automático). */
   setTemaMusical: (id: string, tema: Cuarto['temaMusical']) => Promise<void>
@@ -59,6 +61,12 @@ interface CuartosState {
    * agrupa por categoría y manda al final los cuartos sin app.
    */
   intercambiarOrden: (idA: string, idB: string) => Promise<void>
+  /**
+   * Fija el puesto de TODAS las tarjetas de la pantalla de inicio, en el orden en
+   * que se ven tras soltar la que se arrastró. Escribe `ordenPanel`, no `orden`:
+   * el menú lateral no se entera.
+   */
+  reordenarPanel: (ids: string[]) => Promise<void>
   /**
    * Elimina el cuarto y su rastro (layout/diseño/objetos los limpia el layoutStore).
    * Si tiene una app asignada, en vez de borrar de inmediato deja el borrado pendiente
@@ -142,6 +150,12 @@ export const useCuartos = create<CuartosState>((set, get) => ({
     await db.cuartos.update(id, { icon })
   },
 
+  setIconoImagen: async (id, imagen) => {
+    set((s) => ({ cuartos: s.cuartos.map((c) => (c.id === id ? { ...c, iconoImagen: imagen } : c)) }))
+    // `undefined` borra la propiedad en Dexie (vuelve al emoji).
+    await db.cuartos.update(id, { iconoImagen: imagen })
+  },
+
   setCategoria: async (id, categoria) => {
     set((s) => ({ cuartos: s.cuartos.map((c) => (c.id === id ? { ...c, categoria } : c)) }))
     await db.cuartos.update(id, { categoria })
@@ -165,6 +179,22 @@ export const useCuartos = create<CuartosState>((set, get) => ({
     })
     await db.cuartos.update(idA, { orden: b.orden })
     await db.cuartos.update(idB, { orden: a.orden })
+  },
+
+  reordenarPanel: async (ids) => {
+    const puesto = new Map(ids.map((id, i) => [id, i]))
+    const cambiados = get().cuartos.filter((c) => {
+      const p = puesto.get(c.id)
+      return p != null && c.ordenPanel !== p
+    })
+    if (cambiados.length === 0) return
+    set((s) => ({
+      cuartos: s.cuartos.map((c) => {
+        const p = puesto.get(c.id)
+        return p != null ? { ...c, ordenPanel: p } : c
+      }),
+    }))
+    for (const c of cambiados) await db.cuartos.update(c.id, { ordenPanel: puesto.get(c.id) })
   },
 
   eliminar: async (id) => {

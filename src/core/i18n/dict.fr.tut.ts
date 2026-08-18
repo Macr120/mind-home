@@ -365,7 +365,7 @@ export const FR_TUT: Dict = {
   'tut.ejemplos.3.texto':
     'Dans la maison de démo, cette barre n’apparaît pas : l’année entière de Pep joue déjà ce rôle, pas besoin d’un exemple à part.',
   'tut.hoy.1.texto':
-    'Dans l\'en-tête de chaque appli vit son bouton Objectifs, comme celui du calendrier mais limité à cette appli. Il ouvre un panneau à deux étages : en haut la checklist du jour, en dessous ses objectifs et ses plans.',
+    'Dans l\'en-tête de chaque appli vit son bouton Missions : la checklist de ce que cette appli te demande AUJOURD\'HUI. L\'horloge de la maison a le même bouton avec toutes les applis réunies.',
   'tut.hoy.2.titulo': 'Trois sources, une liste',
   'tut.hoy.2.texto':
     'Les objectifs propres à l\'appli (l\'eau, les calories), ce que tu as programmé pour aujourd\'hui dans le calendrier et les étapes de tes objectifs en cours : tout ensemble, regroupé sous le plan ou l\'objectif dont vient chaque étape.',
@@ -382,7 +382,7 @@ export const FR_TUT: Dict = {
   'tut.hoy.6.texto':
     'Ça descend dans « Faits », replié : voir l’enregistrement faire son effet fait partie de la récompense, et de là tu peux annuler s’il s’en est glissé un de trop.',
   'tut.hoy.7.texto':
-    'Et s\'il te manque quelque chose, « Nouvelle checklist » crée la tienne : une liste propre à cette appli qui se répète chaque jour. Sous la section Aujourd\'hui se trouve le planificateur complet — Objectifs, Plans et Planning — avec tous les objectifs de l\'appli.',
+    'Et s\'il te manque quelque chose, « Nouvelle checklist » crée la tienne : une liste propre à cette appli qui se répète chaque jour. Les objectifs d\'où viennent ces étapes se planifient dans la pièce Objectifs.',
   'tut.progreso.1.texto':
     'La fiche de ton personnage : derrière Pep, il y a une année entière d’activité réelle, donc chaque chiffre ici a une vraie histoire qui l’explique.',
   'tut.progreso.2.titulo': 'Le personnage',
@@ -590,7 +590,7 @@ export const FR_TUT: Dict = {
   'tut.app-hobbies--gestion.3.texto':
     'Des minutes rapides d’un seul toucher, ou le nombre exact ; le projet est facultatif et la note sert à tout ce que tu veux retenir de cette séance.',
   'tut.app-hobbies--gestion.4.texto':
-    'Les objectifs de tes loisirs et de tes projets vivent dans le bouton Objectifs de l\'en-tête : le même planificateur Objectifs · Plans · Planning du calendrier, limité à cette appli. Demande à l\'IA un plan avec des phases et des dates.',
+    'Les objectifs de tes loisirs et de tes projets vivent dans la pièce Objectifs, chacun avec son plan et son planning. Demande à l\'IA un plan avec des phases et des dates.',
   'tut.app-ideas--diario.1.titulo': 'La boîte à idées',
   'tut.app-ideas--diario.1.texto':
     'Écris ce qui te passe par la tête et voilà. Pep a lâché ici ~90 idées dans l’année : de la physique, du café, de l’entraînement. L’étoile marque les favoris.',
@@ -650,7 +650,7 @@ export const FR_TUT: Dict = {
     'Les deux trous sont réels : la blessure au genou du mois 7 et les trois semaines au Japon. Rater des jours n’efface pas les progrès — le panneau montre l’année telle qu’elle a été, pas telle qu’elle aurait dû être. Et une routine ne compte qu’à partir du jour où tu l’as créée.',
   'tut.metas.1.titulo': 'D’abord, les objectifs',
   'tut.metas.1.texto':
-    'La vue s’ouvre sur Objectifs, groupés par l’app qui les porte : la course dans Gym, la licence de physique dans Bibliothèque. « Maison » n’est aucune app — cette catégorie, Pep l’a inventée pour les travaux de la cuisine.',
+    'La pièce s’ouvre sur Objectifs, groupés par l’app qui les porte : la course dans Gym, la licence de physique dans Bibliothèque. « Maison » n’est aucune app — cette catégorie, Pep l’a inventée pour les travaux de la cuisine.',
   'tut.metas.2.titulo': 'De l’objectif à son plan',
   'tut.metas.2.texto':
     'Chaque ligne se lit comme un tableau de bord : son numéro dans le dossier, l’échéance, l’avancement et l’état — à faire, en cours ou fait, selon ce qui est coché. Un clic ouvre l’objectif : son plan s’il en a un (le ✨ l’annonce) et, sinon, sa feuille avec les sous-objectifs, les dates et les étapes.',
@@ -659,7 +659,7 @@ export const FR_TUT: Dict = {
     'La cuisine et le prochain marathon sont encore des propositions ; la candidature en master est déjà dans le planning. Celui du marathon a été demandé sans échéance : l’IA a calculé qu’il exige 24 semaines, et elle le dit dans son résumé.',
   'tut.metas.4.titulo': 'La feuille du plan',
   'tut.metas.4.texto':
-    'Six phases et leurs sous-objectifs, chacun avec sa période. Tant que c’est une proposition, tout se modifie : renommer, déplacer des dates, ajouter ou retirer des nœuds sans dérégler les autres.',
+    'Le ✨ d’une ligne annonce que l’objectif a déjà un plan, et un clic ouvre cette feuille : les phases et leurs sous-objectifs, chacun avec sa période. Tant que c’est une proposition, tout se modifie : renommer, déplacer des dates, ajouter ou retirer des nœuds sans dérégler les autres.',
   'tut.metas.5.titulo': 'Cocher sans t’engager',
   'tut.metas.5.texto':
     'Les coches d’une proposition vivent dans la feuille, pas dans tes objectifs : tu peux marquer ce qui est fait sans toucher à ton planning. Les barres se remplissent toutes seules vers le haut — la planification de la cuisine est déjà bouclée.',
@@ -671,7 +671,10 @@ export const FR_TUT: Dict = {
     'Le plan du master est déjà déplacé. Ses coches sont maintenant celles des vrais sous-objectifs et la barre est celle de ton planning : la feuille arrête de tenir un compte à part.',
   'tut.metas.8.titulo': 'Et les voilà, sur l’axe',
   'tut.metas.8.texto':
-    'Les sous-objectifs nés du plan occupent leur période dans le planning, avec le plan superposé en violet par-dessus : la proposition et le réel, sur le même axe.',
+    'Le planning est celui de CET objectif : ses sous-objectifs occupent leur période sur l’axe du temps, avec le plan superposé en violet par-dessus — la proposition et le réel, ensemble.',
+  'tut.metas.9.titulo': 'Chaque objectif, son axe',
+  'tut.metas.9.texto':
+    'L’axe est toujours celui d’un objectif : ici on donne des dates à ce qui n’en a pas, on accroche de nouveaux sous-objectifs et « Retour » te ramène à sa feuille. Le menu Planning en haut montre celui de tous les objectifs réunis.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Une année d’études, en un arbre',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep étudie la physique : la mécanique en début d’année, la thermodynamique vers le partiel du mois 6, la relativité et l’astrophysique à la fin. Chaque branche s’ouvre pour voir ses fiches.',
@@ -691,7 +694,7 @@ export const FR_TUT: Dict = {
     'Le + de chaque ligne écrit une entrée sur place, avec son domaine et son sujet déjà posés. Et le bouton crayon fait grandir l’arbre : ce même + ajoute des branches, celui de la Graine crée de nouveaux domaines, et tu peux renommer, réordonner et supprimer. Le nombre avec la petite branche dit combien de sous-index pendent de là.',
   'tut.app-biblioteca--estudio.2.titulo': 'Le plan d’étude',
   'tut.app-biblioteca--estudio.2.texto':
-    'Les objectifs vivent dans le bouton Objectifs de l\'en-tête, le planning du calendrier lui-même : « finir la thermodynamique avant le partiel » est déjà atteint ; préparer le master est encore en cours.',
+    'Le bouton Missions de l\'en-tête ramène ce qui est au programme aujourd\'hui. Les objectifs d\'étude vivent dans la pièce Objectifs, groupés par app : « finir la thermodynamique avant le partiel » est déjà atteint ; préparer le master est encore en cours.',
   'tut.app-biblioteca--estudio.3.texto':
     'À chaque objectif tu peux demander un plan : l’IA te demande ta date cible et tes heures disponibles, puis programme les moments d’étude dans ton calendrier.',
   'tut.app-biblioteca--resumen.1.texto':
@@ -760,7 +763,7 @@ export const FR_TUT: Dict = {
     'Les barres mesurent ce que tu as fait face à tes objectifs : séances de force, minutes d’endurance et minutes de souplesse. L’objectif s’ajuste à la période que tu choisis en haut.',
   'tut.app-ejercicio--anio.3.titulo': 'Les objectifs de l’année',
   'tut.app-ejercicio--anio.3.texto':
-    'Le bouton Objectifs de l\'en-tête garde ses quatre objectifs cochés — le 5 km, le 10 km, le semi-marathon et le marathon — et celui qui reste en cours. Les objectifs avec une date apparaissent aussi dans le calendrier de la maison.',
+    'La pièce Objectifs garde ses quatre objectifs cochés — le 5 km, le 10 km, le semi-marathon et le marathon — et celui qui reste en cours. Les objectifs avec une date apparaissent aussi dans le calendrier de la maison.',
   'tut.app-ejercicio--carrera.1.titulo': 'Catalogue, routines et progression',
   'tut.app-ejercicio--carrera.1.texto':
     'Chaque discipline s’organise pareil : le catalogue d’exercices, tes routines avec leur historique, et la progression. Commençons par ce que Pep a déjà couru.',
@@ -817,9 +820,9 @@ export const FR_TUT: Dict = {
   'tut.app-cocina--recetario.5.titulo': 'Les listes enregistrées',
   'tut.app-cocina--recetario.5.texto':
     'Chaque liste garde ce qu’il reste à acheter et ce qui est déjà dans les placards. Si tu mets les prix, le total peut partir dans les dépenses du Bureau.',
-  'tut.app-cocina--cronograma.1.titulo': 'L’objectif de poids, par phases',
+  'tut.app-cocina--cronograma.1.titulo': 'Ce que la Cuisine te demande aujourd’hui',
   'tut.app-cocina--cronograma.1.texto':
-    'Le bouton Objectifs de l\'en-tête ouvre le même planning que celui du calendrier de la maison, limité aux objectifs de la Cuisine : crée un objectif (par ex. « Perdre 3 kilos ») et demande le plan à l\'IA — elle demande ta date cible et programme des sous-objectifs avec leur propre date.',
+    'Le bouton Missions de l\'en-tête ouvre la checklist du jour : l\'eau, les repas et les étapes qui viennent de tes objectifs. Les objectifs eux-mêmes — avec le plan que l\'IA leur propose — vivent dans la pièce Objectifs, groupés par l\'app qui les porte.',
   'tut.app-cocina--cronograma.2.texto':
     'C’est l’IA qui s’en charge : tu l’actives dans Éditeur › Paramètres › Compte. Sans elle, les objectifs se créent et se modifient pareil, simplement à la main.',
   'tut.app-descanso--noche.1.titulo': 'Cent points, trois parties',
@@ -877,7 +880,7 @@ export const FR_TUT: Dict = {
     'Le voyage au Japon, à 100 % : onze mois d’épargne, les cours particuliers, la prime de fin d’année et l’argent reçu pour l’anniversaire. En dessous, le fonds d’urgence lancé au retour et un petit investissement.',
   'tut.app-despacho--metas.2.titulo': 'L’objectif dans le temps',
   'tut.app-despacho--metas.2.texto':
-    'Le bouton Objectifs de l\'en-tête garde ces objectifs sur l\'axe du temps : tu mets des dates sur l\'un d\'eux et il apparaît parmi tes jours du calendrier. Avec ✨ l\'IA propose le plan de versements.',
+    'Ces objectifs sont gardés sur l\'axe du temps dans la pièce Objectifs : tu mets des dates sur l\'un d\'eux et il apparaît parmi tes jours du calendrier. Avec ✨ l\'IA propose le plan de versements.',
   'tut.app-despacho--metas.3.titulo': 'Ce que Pep devait',
   'tut.app-despacho--metas.3.texto':
     'La panne de voiture est passée sur la carte et a mis des mois à se solder. Les dettes vivent à part parce qu’elles se lisent à l’envers : ici, descendre, c’est gagner.',

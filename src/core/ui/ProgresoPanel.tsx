@@ -20,18 +20,7 @@ import { useT } from '../i18n/useT'
 import { useNombreCuarto } from './roomDisplay'
 import { Icono } from './iconos/Icono'
 import type { NombreIcono } from './iconos/catalogo'
-
-/** Barra de progreso compacta con color propio. */
-function Barra({ valor, color }: { valor: number; color: string }) {
-  return (
-    <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-white/10">
-      <div
-        className="h-full rounded-full transition-all"
-        style={{ width: `${Math.round(Math.min(1, Math.max(0, valor)) * 100)}%`, background: color }}
-      />
-    </div>
-  )
-}
+import { Barra } from './Barra'
 
 /**
  * Radar de XP por cuarto: cada cuarto de la casa es un vértice y su valor es la
@@ -162,13 +151,14 @@ function CabeceraPlegable({
  * botón compacto que abre la Montaña de Sísifo. Flanquea la cabeza del avatar
  * (rango a la izquierda, insignias a la derecha).
  */
-function AroSisifo({
+export function AroSisifo({
   valor,
   color,
   icono,
   title,
   onClick,
   ping,
+  pequeno,
 }: {
   valor: number
   color: string
@@ -176,6 +166,8 @@ function AroSisifo({
   title: string
   onClick: () => void
   ping?: boolean
+  /** Talla compacta (cabecera de la pantalla de inicio): mismo aro, menos sitio. */
+  pequeno?: boolean
 }) {
   const r = 17
   const c = 2 * Math.PI * r
@@ -185,7 +177,9 @@ function AroSisifo({
       onClick={onClick}
       title={title}
       aria-label={title}
-      className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition hover:opacity-90"
+      className={`relative flex shrink-0 items-center justify-center rounded-full transition hover:opacity-90 ${
+        pequeno ? 'h-7 w-7' : 'h-10 w-10'
+      }`}
     >
       <svg viewBox="0 0 40 40" className="absolute inset-0 -rotate-90">
         <circle cx="20" cy="20" r={r} fill="none" stroke="color-mix(in srgb, var(--ui-ink) 12%, transparent)" strokeWidth="3" />
@@ -202,7 +196,9 @@ function AroSisifo({
         />
       </svg>
       <span
-        className="relative flex h-6 w-6 items-center justify-center rounded-full text-[11px] text-white"
+        className={`relative flex items-center justify-center rounded-full text-white ${
+          pequeno ? 'h-4 w-4 text-[8px]' : 'h-6 w-6 text-[11px]'
+        }`}
         style={{ background: color }}
       >
         <Icono nombre={icono} />
@@ -345,6 +341,10 @@ export function ResumenJugador({ progreso }: { progreso: ProgresoJugador | undef
                   {progreso.racha} {t('progreso.dias', progreso.racha === 1 ? 'día' : 'días')}
                 </b>
               </p>
+              <p className="text-[11px] text-white/60">
+                <Icono nombre="trofeo" /> {t('progreso.listasCumplidas', 'Listas cumplidas')}:{' '}
+                <b className="text-white/85">{progreso.listas}</b>
+              </p>
             </div>
           </div>
         )}
@@ -354,7 +354,16 @@ export function ResumenJugador({ progreso }: { progreso: ProgresoJugador | undef
 }
 
 /** Progreso compacto de la app de un cuarto, incrustado en su card del menú. */
-export function ProgresoApp({ enfoque, color }: { enfoque: ProgresoPlantilla; color: string }) {
+export function ProgresoApp({
+  enfoque,
+  color,
+  metas,
+}: {
+  enfoque: ProgresoPlantilla
+  color: string
+  /** Metas cumplidas de la app; sin valor, la app no lleva metas y el chip no sale. */
+  metas?: number | null
+}) {
   const t = useT()
   return (
     <div className="mt-1.5 border-t border-white/[0.06] pt-1.5">
@@ -364,13 +373,17 @@ export function ProgresoApp({ enfoque, color }: { enfoque: ProgresoPlantilla; co
         <span className="shrink-0 text-[10px] text-white/40">{enfoque.xp} XP</span>
       </div>
       <div className="mt-1 flex gap-3 text-[10px] text-white/45">
-        <span><Icono nombre="racha" /> {enfoque.racha}</span>
-        <span>
-          {t('progreso.hoy', 'Hoy')}: {enfoque.hoy > 0 ? `✓ ${enfoque.hoy}` : '—'}
+        <span title={t('progreso.rachaTitulo', 'Racha de días con actividad')}>
+          <Icono nombre="racha" /> {enfoque.racha}
         </span>
-        <span>
-          {t('progreso.semana', '7 días')}: {enfoque.dias7}/7
+        <span title={t('progreso.listasTitulo', 'Listas de misiones cumplidas')}>
+          <Icono nombre="trofeo" /> {enfoque.listas}
         </span>
+        {metas != null && (
+          <span title={t('nav.rapido.metas', 'Metas cumplidas en esta app')}>
+            <Icono nombre="objetivo" /> {metas}
+          </span>
+        )}
       </div>
     </div>
   )

@@ -1,9 +1,10 @@
 /**
- * Diccionario ID de la interfaz. Se carga con import() perezoso
- * desde dict.ts: quien no use este idioma no lo descarga.
+ * Diccionario INDONESIO de la interfaz. Se carga con import() perezoso
+ * desde dict.ts, igual que el inglés: quien no use este idioma no lo descarga.
  *
- * Lo monta `traducir-a-mano.mjs meter-dict` a partir de `dict.en.ts` y de los
- * fallbacks españoles del código. Lo que falte cae al inglés (ver `useT`).
+ * GENERADO por `npm run traducir:i18n` a partir de `dict.en.ts` y de los
+ * fallbacks españoles del código. No lo edites a mano: se sobrescribe entero.
+ * Lo que falte cae al inglés (ver `useT`); al español solo en último término.
  */
 import type { Dict } from './dict'
 
@@ -15,6 +16,8 @@ export const ID: Dict = {
   'nav.ariaMenu': 'Menu ruangan',
   'nav.retraer': 'Ciutkan menu',
   'nav.abrir': 'Buka menu',
+  'nav.rapido': 'Akses cepat ke ruangan',
+  'nav.rapido.ayuda': 'Ketuk ruangan untuk membuka aplikasinya.',
   'nav.editarCuarto': 'Edit ruangan ini',
   'nav.entrar': 'Masuk ›',
   'nav.ayuda.tarjetaTexto':
@@ -365,18 +368,20 @@ export const ID: Dict = {
   'meta.marcar': 'Tandai selesai',
   'meta.desmarcar': 'Tandai belum selesai',
   'meta.agendar': 'Jadwalkan di kalender',
-  'hoy.titulo': 'Hari ini',
+  'hoy.titulo': 'Misi',
   'hoy.alDia': 'Semua sudah selesai untuk hari ini',
   'hoy.hechos': 'Selesai ({n})',
   'hoy.registrar': 'Catat',
   'hoy.objetivo': 'Targetmu setiap hari (0 mematikannya)',
   'hoy.checklist': 'Checklist harian',
-  'hoy.grupoApp': 'Target hari ini',
+  'hoy.grupoApp': 'Misi hari ini',
   'hoy.nueva': 'Checklist baru',
   'hoy.cerrar': 'Tutup',
   'hoy.ocultarHechos': 'Sembunyikan yang selesai',
+  'hoy.casa.vacio': 'Hari ini tidak ada yang tertunda di aplikasi mana pun.',
+  'hoy.casa.abrirApp': 'Buka aplikasi ini',
   'cal.meta.mientrasDure': 'Selama berlangsung, minta padaku:',
-  'cal.meta.unObjetivo': 'target harian',
+  'cal.meta.unObjetivo': 'misi harian',
   'cal.meta.unaActividad': 'aktivitas mingguan',
   'cal.meta.diasRitmo': '{hechos}/{pedidos} hari',
   'rutinas.sinApp': 'Tanpa aplikasi (acara rumah)',
@@ -482,6 +487,18 @@ export const ID: Dict = {
   'progreso.nivel': 'Level',
   'progreso.racha': 'Runtunan',
   'progreso.dias': 'hari',
+  'progreso.rachaTitulo': 'Runtunan hari aktif',
+  'progreso.listasTitulo': 'Daftar misi yang tuntas',
+  'progreso.listasCumplidas': 'Daftar tuntas',
+  'celebra.racha.titulo': 'Runtunan {n} hari!',
+  'celebra.racha.titulo1': 'Runtunan 1 hari!',
+  'celebra.racha.cuerpo': 'Teruskan di {app} 🔥',
+  'celebra.lista.titulo': 'Misi hari ini tuntas!',
+  'celebra.lista.cuerpo': 'Kamu menuntaskan daftar {app}',
+  'celebra.lista.xp': '+{xp} XP',
+  'celebra.nivel.titulo': 'Naik level!',
+  'celebra.nivel.cuerpo': '{app} mencapai level {n} 🎉',
+  'celebra.seguir': 'Lanjut!',
   'progreso.hoy': 'Hari ini',
   'progreso.semana': '7 hari',
   'plantillas.ayuda':
@@ -675,7 +692,7 @@ export const ID: Dict = {
   'chat.config.ponerMapa': 'Tambahkan ke peta',
   'chat.config.voz': 'Suara:',
   'chat.config.vozAuto': 'Otomatis (berdasarkan bahasa)',
-  'chat.config.vozIA': 'Suara AI (OpenAI, lebih alami)',
+  'chat.config.vozIA': 'Suara AI (lebih alami)',
   'chat.config.vozLeer': 'Bacakan dengan suara apa yang dikatakannya',
   'chat.config.vozProbar': 'Coba suaranya',
   'chat.config.vozTono': 'Nada',
@@ -756,6 +773,8 @@ export const ID: Dict = {
   'veh.bajarte': 'Turun',
   'accion.sentarte': 'Duduk',
   'accion.acostarte': 'Berbaring',
+  'accion.sentarse': 'Duduk',
+  'accion.acostarse': 'Berbaring',
   'accion.sentado': 'Duduk',
   'accion.acostado': 'Berbaring',
   'accion.levantarte': 'Berdiri',
@@ -828,6 +847,7 @@ export const ID: Dict = {
   'room.ideas.nombre': 'Ide',
   'room.computo.nombre': 'Komputasi',
   'room.agenda.nombre': 'Agenda',
+  'room.metas.nombre': 'Target',
   'room.cocina.sub': 'Nutrisi',
   'room.ejercicio.sub': 'Rutinitas kekuatan & kebugaran',
   'room.recamara.sub': 'Tidur & kenangan',
@@ -845,6 +865,7 @@ export const ID: Dict = {
   'room.ideas.sub': 'Peta konsep di kanvas bebas',
   'room.computo.sub': 'Kalkulator & lembar kerja',
   'room.agenda.sub': 'Kerja, kesehatan & orang',
+  'room.metas.sub': 'Rencana & linimasa',
   'hud.plegar': 'Ciutkan kontrol',
   'hud.desplegar': 'Tampilkan kontrol',
   'nav3d.aria': 'Kontrol tampilan',
@@ -1204,6 +1225,10 @@ export const ID: Dict = {
   'despacho.patr.enlazarMeta': 'Tautkan ke target yang sudah kupunya…',
   'despacho.patr.objetivoTitulo': 'Sampai berapa kamu ingin mencapainya?',
   'despacho.patr.objetivoMsg': 'Di sini kamu sudah punya {n}.',
+  'despacho.patr.metaLiquidar': 'Lunasi {n}',
+  'despacho.patr.notaCronograma': '{p} per bulan · bunga {i}',
+  'despacho.patr.yaEnCronograma': 'Sudah ada di linimasamu',
+  'despacho.patr.alCronograma': 'Masukkan ke linimasa · lunas pada {f}',
   'despacho.meta.verEnPasivos': 'Lihat di Kekayaan Bersih › Utang',
   'despacho.meta.verEnActivos': 'Lihat di Kekayaan Bersih › Aset',
   'despacho.meta.anadirAPasivos': 'Tambahkan ke Utang (dengan suku bunga dan tenor)',
@@ -3469,6 +3494,8 @@ export const ID: Dict = {
   'room.granja.desc': 'Pelihara ayam, babi, kambing, domba, sapi, dan kuda, serta tanam pakannya di editor yang sama.',
   'room.ideas.desc':
     'Jurnal ide dan curah gagasanmu, sepuluh format peta konsep di kanvas bebas (peta pikiran, pohon, linimasa, siklus, piramida, Venn…) dan delapan diagram untuk mengambil keputusan (kelebihan dan kekurangan, force field, SWOT, Eisenhower, pohon keputusan, tier list, matriks keputusan berbobot, dan Ishikawa), dengan tangan atau dengan AI.',
+  'room.metas.desc':
+    'Apa yang kamu tetapkan untuk dirimu, dari seluruh rumah: daftar target beserta sub-target dan langkah-langkahnya, rencana yang diusulkan AI untuk masing-masing (fase bertanggal yang berubah menjadi sub-target sungguhan), dan linimasa tempat semuanya menempati periodenya di sumbu waktu.',
   'room.computo.desc':
     'Ruang komputer: kalkulator ilmiah dengan buku rumus yang menggantung di sampingnya (Matematika, Fisika, dan Kimia sudah ada dan bisa diedit) serta delapan mode — plotter dengan empat jenis (2D, polar, parametrik, dan permukaan 3D), biner dan heksadesimal, matriks, sistem persamaan, konversi satuan, tip, dan aturan tiga; juga spreadsheet yang bisa diekspor ke Excel dan PDF.',
   'computo.tab.calculadora': 'Kalkulator',
@@ -4070,6 +4097,7 @@ export const ID: Dict = {
   'cal.cron.avance': '{n}% selesai',
   'cal.cron.buscar': 'Cari…',
   'cal.cron.desplegarTodo': 'Buka semua',
+  'cal.cron.editar': 'Edit target',
   'cal.cron.hechas': 'Selesai',
   'cal.cron.ocultarHechas': 'Sembunyikan yang selesai',
   'cal.cron.plegarTodo': 'Ciutkan semua',
@@ -4078,6 +4106,7 @@ export const ID: Dict = {
   'cal.cron.trazar': 'Seret ke sini untuk memberinya tanggal',
   'cal.cron.vacio': 'Belum ada target.',
   'cal.cron.vencida': 'Sudah lewat waktu tanpa selesai',
+  'cal.cron.volver': 'Kembali ke target',
   'cal.cronograma': 'Linimasa',
   'cal.dia': 'Hari',
   'cal.editarEvento': 'Edit acara',
@@ -4101,6 +4130,7 @@ export const ID: Dict = {
   'cal.mes': 'Bulan',
   'cal.meta.agregarHija': 'Tambahkan sub-target',
   'cal.meta.alcance': 'Langkah dan sub-target yang selesai',
+  'cal.meta.armar': 'Gambar di kalender',
   'cal.meta.armarORenombrar': 'Klik: gambar di kalender · Klik dua kali: ganti nama',
   'cal.meta.colorDe': 'Warna target ini',
   'cal.meta.borrar': 'Hapus target ini?',
@@ -4129,9 +4159,6 @@ export const ID: Dict = {
   'cal.meta.pasoNuevo': 'Tambahkan langkah…',
   'cal.meta.pasoRenombrar': 'Klik dua kali untuk mengganti nama langkah',
   'cal.meta.pasos': 'Langkah dari target ini',
-  'cal.meta.plan': 'Rencana',
-  'cal.meta.planEnCronograma': 'Lihat rencananya di linimasa',
-  'cal.meta.planHoja': 'Buka lembar rencananya',
   'cal.meta.plegar': 'Ciutkan',
   'cal.meta.ponerHora': 'Atur jam',
   'cal.meta.prefijoSub': 'sub',
@@ -4432,7 +4459,8 @@ export const ID: Dict = {
   'chat.modelo.titulo': 'Model AI asisten',
   'chat.olvidar': 'Lupakan',
   'chat.pdfGrande': 'PDF ini lebih dari {mb} MB, gunakan yang lebih ringan.',
-  'chat.pdfSinTexto': 'Aku tidak bisa membaca teks di PDF itu (hasil pindaian?). Dengan Claude aku bisa melihatnya secara utuh.',
+  'chat.pdfSinTexto':
+    'Aku tidak bisa membaca teks di PDF itu (hasil pindaian?). Dengan Claude aku bisa melihatnya secara utuh.',
   'chat.plegar': 'Ciutkan obrolan',
   'chat.quitarAdjunto': 'Hapus lampiran',
   'chat.quitarFoto': 'Hapus foto',
@@ -4953,7 +4981,40 @@ export const ID: Dict = {
   'nav.asignar': '+ Tetapkan',
   'nav.asignarApp': 'Tetapkan aplikasi ke ruangan ini',
   'nav.crearCuarto': 'Buat ruangan',
+  'nav.vista3D': 'Lihat ruangan dalam 3D',
+  'nav.vistaIconos': 'Lihat ruangan dengan ikonnya',
   'nav.sinCuartos': 'Belum ada ruangan. Buat yang pertama di bawah.',
+  'nav.rapido.editando': 'Seret untuk mengurutkan, atau ketuk pensil untuk mengedit.',
+  'nav.rapido.listo': 'Selesai',
+  'nav.rapido.metas': 'Target yang selesai di aplikasi ini',
+  'nav.rapido.pendientes': '{n} misi tersisa',
+  'nav.fondo.borrar': 'Hapus',
+  'nav.sinApps': 'Ruangan yang punya aplikasi muncul di sini. Tetapkan satu dari menu ruangan.',
+  'nav.editar.titulo': 'Edit ruangan',
+  'nav.editar.nombre': 'Nama',
+  'nav.editar.icono': 'Ikon',
+  'nav.editar.tab.emoji': 'Emoji',
+  'nav.editar.tab.imagen': 'Gambar',
+  'nav.editar.emojiLibre': 'Emoji lain',
+  'nav.editar.imagenPuesta': 'Gambar ini menggantikan emoji di menu.',
+  'nav.editar.quitarImagen': 'Hapus',
+  'nav.editar.subirImagen': 'Unggah gambar',
+  'nav.editar.color': 'Warna',
+  'nav.editar.murosTitulo': 'Cat ulang dindingnya juga?',
+  'nav.editar.murosMensaje': 'Ruangan ini punya dinding yang kamu cat sendiri di editor peta. Kalau dicat ulang, warnanya hilang.',
+  'nav.editar.murosOk': 'Cat ulang',
+  'nav.fondo.titulo': 'Wallpaper',
+  'nav.fondo.desc': 'Gambar dipakai bersama latar langit rumah.',
+  'nav.fondo.sin': 'Tanpa wallpaper',
+  'nav.fondo.subir': 'Unggah gambar',
+  'nav.fondo.nombreIA': 'Wallpaper AI',
+  'nav.fondo.atenuacion': 'Redupkan wallpaper',
+  'editor.texturaIA.placeholderIcono': 'Jelaskan ikonnya…',
+  'editor.texturaIA.generarIcono': 'Buat ikon',
+  'editor.texturaIA.sug.iconoMinimal': 'minimalis satu garis',
+  'editor.texturaIA.sug.iconoPastel': 'membulat dengan warna pastel',
+  'editor.texturaIA.sug.iconoPixel': 'gaya pixel art',
+  'editor.texturaIA.sug.iconoDegradado': 'dengan gradasi cerah',
   'nav3d.ayuda1P': 'Klik kanan atau joystick; roda untuk zoom',
   'nav3d.ayuda3P': 'Klik kanan atau joystick; roda untuk zoom',
   'nav3d.cambiarVista': 'Ganti tampilan (tombol V)',
@@ -5560,6 +5621,9 @@ export const ID: Dict = {
   'ajustes.musica.sfxDesc': 'Blaster, portal, kembang api, permainan, dan kendaraan. Terpisah dari volume musik.',
   'musica.control': 'Musik',
   'musica.cerrar': 'Tutup',
+  'visor.ampliar': 'Lihat gambar layar penuh',
+  'visor.cerrar': 'Tutup',
+  'visor.descargar': 'Unduh',
   'voz.escuchar': 'Dengarkan',
   'voz.callar': 'Berhenti membaca',
   'voz.autoOn': 'Membacakan balasannya dengan suara keras',
@@ -5597,6 +5661,19 @@ export const ID: Dict = {
     'Instalasi ini belum memiliki backend yang dikonfigurasi: semuanya disimpan hanya di perangkat ini.',
   'cuenta.cargando': 'Memuat…',
   'cuenta.intro': 'Dengan akun, rencana dan rumahmu mengikutimu ke perangkat mana pun.',
+  'cuenta.nivel.titulo': 'Levelmu',
+  'cuenta.nivel.n': 'Level ×{n} — {c} kredit per bulan',
+  'cuenta.nivel.actual': 'Saat ini',
+  'cuenta.nivel.nota': 'Kamu bisa naik atau turun level kapan saja; selisihnya dihitung proporsional.',
+  'cuenta.nivel.subir': 'Naik ke ×{n} — {c} kredit per bulan seharga {p}',
+  'cuenta.cuota.cuerpoNivel': 'Kreditmu diperbarui pada {f}. Kalau tiap bulan kurang, naikkan levelmu.',
+  'cuenta.cuota.cuerpoVencida':
+    'Datamu tetap ada di perangkat ini. Perbarui untuk mendapatkan kembali kredit bulanan dan sinkronisasi.',
+  'cuenta.cuota.cuerpoTrial':
+    'Aplikasi dan datamu jadi milikmu selamanya. Langganan Pro untuk melanjutkan kredit bulanan dan sinkronisasi.',
+  'cuenta.cuota.cuerpoLocal':
+    'Aplikasi dan datamu jadi milikmu tanpa bayar. Hanya AI yang berbayar: berlangganan dan dapat kredit tiap bulan.',
+  'cuenta.cuota.web': 'Lihat langgananku',
   'cuenta.conGoogle': 'Lanjutkan dengan Google',
   'cuenta.conApple': 'Lanjutkan dengan Apple',
   'cuenta.oCorreo': 'atau dengan email',
@@ -5617,8 +5694,6 @@ export const ID: Dict = {
   'cuenta.techo.cuerpo':
     'Bulan ini permintaanmu memakai konteks jauh lebih banyak dari biasanya dan batas penggunaan wajar tercapai. Akan direset pada {f}.',
   'cuenta.cuota.tituloTrial': 'Bulan pertamamu sudah berakhir',
-  'cuenta.cuota.cuerpoTrial':
-    'Aplikasi dan datamu milikmu selamanya. Berlangganan Pro untuk terus mendapat kredit bulanan dan sinkronisasi, atau isi ulang kredit satuan saat kamu membutuhkannya.',
   'puerta.trato':
     'Satu kali bayar membuka rumahmu selamanya dan sudah termasuk bulan pertama AI dan sinkronisasi — tanpa kartu, tanpa langganan.',
   'puerta.procesando': 'Memproses…',
@@ -5659,6 +5734,19 @@ export const ID: Dict = {
     'Aktif, menggunakan kunci {prov} milikmu. Tidak menghabiskan kredit: {prov} menagihmu langsung.',
   'ia.activar.sinActivar': 'AI sedang mati. Masuk untuk menggunakan kredit, atau tempel kunci penyedia di bawah.',
   'ia.activar.priv': 'Hanya disimpan di perangkat ini dan tidak pernah keluar darinya kecuali ke {prov}.',
+  'ia.media.sinClave': 'Untuk membuat gambar dan memakai suara AI, tambahkan kunci OpenAI atau Gemini.',
+  'ia.panel.cerebro': 'Otak',
+  'ia.panel.claveOllama': 'Kunci Ollama (hanya untuk cloud-nya atau server yang minta kunci)',
+  'ia.panel.localImagen': 'Model ini membuat gambar.',
+  'ia.panel.imagen': 'Gambar',
+  'ia.panel.proveedor': 'Penyedia',
+  'ia.panel.voz': 'Suara',
+  'ia.panel.vozAyuda': 'Menyalakan suara AI asisten dengan penyedia ini',
+  'ia.transporte.byok': 'Kunci saya (BYOK)',
+  'ia.transporte.creditos': 'Kredit',
+  'ia.transporte.creditosDesc':
+    'Lewat akunmu: server yang menyediakan kunci dan setiap permintaan menghabiskan kredit paket.',
+  'ia.transporte.sinCuenta': 'Masuk untuk memakai kredit.',
   'ia.calidad.titulo': 'Kualitas gambar',
   'ia.calidad.rapida': 'Cepat',
   'ia.calidad.rapida.desc': 'Bagus dan murah. Ini yang saya pakai kecuali kamu bilang lain.',
@@ -5781,16 +5869,11 @@ export const ID: Dict = {
   'cuenta.cuota.titulo': 'Kreditmu bulan ini sudah habis',
   'cuenta.cuota.tituloSin': 'Kamu butuh kredit untuk menggunakan AI',
   'cuenta.cuota.cuerpo': 'Kreditmu diperbarui pada {f}.',
-  'cuenta.cuota.cuerpoLocal':
-    'Aplikasi dan datamu adalah milikmu tanpa membayar apa pun. Hanya AI yang berbayar: isi ulang kredit saat kamu membutuhkannya, atau berlangganan dan dapatkan setiap bulan.',
-  'cuenta.cuota.cuerpoVencida':
-    'Datamu tetap ada di perangkat ini. Perbarui untuk mendapatkan kembali kredit bulanan dan sinkronisasi, atau beli isi ulang satu kali.',
   'cuenta.cuota.recarga': '+600 kredit — {p}',
   'cuenta.cuota.recargaN': '+{n} kredit — {p}',
   'cuenta.cuota.recargaLista': 'Isi ulang berhasil: kredit ekstramu sudah ada di akunmu.',
   'cuenta.cuota.suscribirse': 'Lihat langganan',
   'cuenta.cuota.nativo': 'Kredit dikelola dari akunmu.',
-  'cuenta.cuota.web': 'Beli kredit di akunku',
   'cuenta.creditos.faltan': 'Kredit AI-mu habis.',
   'comun.entendido': 'Mengerti',
   'demo.aviso.titulo': 'Kamu berada di rumah demo',
@@ -5852,12 +5935,12 @@ export const ID: Dict = {
   'tut.calendario.titulo': 'Kalender',
   'tut.calendario.resumen':
     'Jam rumah membuka kalender: semua yang terjadwal —shift, kelas, kebiasaan, dan apa pun yang ditambahkan aplikasi lain— dalam tampilan Hari, Minggu, Bulan, Tahun, dan Target. Panel di bawah mengukur seberapa banyak yang kamu jadwalkan benar-benar kamu lakukan.',
-  'tut.calendario.3b.titulo': 'Dan Target, terpisah',
+  'tut.calendario.3b.titulo': 'Dan Tujuan harian, terpisah',
   'tut.calendario.3b.texto':
-    'Berwarna merah, agar tidak tertukar dengan empat tampilan di atas: Target membuka target-targetmu, rencananya, dan linimasa.',
+    'Berwarna merah, agar tidak tertukar dengan empat tampilan di atas: Tujuan harian mengumpulkan checklist hari ini dari semua aplikasimu. Target dan rencananya tinggal di ruangannya sendiri.',
   'tut.metas.titulo': 'Target',
   'tut.metas.resumen':
-    'Tiga layar sebuah target: daftar tempat ia lahir, rencana yang mengembangkannya (AI mengusulkan, kamu mencentangnya), dan linimasa tempat fase-fasenya menempati periodenya sebagai sub-target nyata.',
+    'Daftar target dan, di dalam masing-masing, lembarnya: rencana yang mengembangkannya (AI mengusulkan, kamu mencentangnya) dan linimasanya, tempat fase-fasenya kini menempati periodenya sebagai sub-target nyata.',
   'tut.app-biblioteca--enciclopedia.titulo': 'Ensiklopedia milikmu sendiri',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Semua yang kamu pelajari diarsipkan dalam pohon berdasarkan bidang pengetahuan: kartu dengan ringkasan dan poin utama yang bisa kamu beri ilustrasi.',
@@ -5912,6 +5995,9 @@ export const ID: Dict = {
   'tut.app-ejercicio--fuerza.titulo': 'Kekuatan yang tak bisa direnggut lutut',
   'tut.app-ejercicio--fuerza.resumen':
     'Di Kekuatan kamu mencatat set, repetisi, dan beban; dari situ aplikasi menghitung volumemu, menggambar progres tiap latihan, dan menyimpan rekor pribadimu.',
+  'tut.app-ejercicio--flexibilidad.titulo': 'Modalitas ketiga',
+  'tut.app-ejercicio--flexibilidad.resumen':
+    'Fleksibilitas diatur seperti Kekuatan dan Daya tahan —katalog, rutinitas, progres— tapi set dihitung dengan waktu, bukan beban, plus pemutar terpandu dengan timer.',
   'tut.app-cocina--alimentacion.titulo': 'Makan dengan target',
   'tut.app-cocina--alimentacion.resumen':
     'Pelacakan makanan ada empat langkah: kamu menetapkan targetmu, mencatat apa yang kamu makan dan minum, merencanakan minggumu, dan progres memberitahumu apakah kamu berjalan ke arah yang kamu inginkan.',
@@ -5936,6 +6022,9 @@ export const ID: Dict = {
   'tut.app-despacho--metas.titulo': 'Jepang, dana darurat, dan utang',
   'tut.app-despacho--metas.resumen':
     'Target mengumpulkan target tabungan dan investasimu dalam satu daftar dengan bar kemajuannya, dan utang secara terpisah dengan simulatornya sendiri. Masing-masing punya linimasa tempat kamu bisa memberi tanggal.',
+  'tut.app-despacho--patrimonio.titulo': 'Yang kamu punya, yang kamu utang, dan ke mana arahnya',
+  'tut.app-despacho--patrimonio.resumen':
+    'Kekayaan bersih bukan sebuah foto: harga tiap barangmu naik turun, dan tiap utang berbunga. Beri tiap baris tarifnya, dan tab ketiga menayangkan filmnya utuh — dari tahun lalu sampai ke mana kamu berakhir.',
   'tut.app-despacho--calculadoras.titulo': 'Empat aturan untuk menentukan angka',
   'tut.app-despacho--calculadoras.resumen':
     'Empat kalkulator keuangan pribadi mengusulkan jumlah target dari saldo nyatamu, dan mengubahnya menjadi target dengan satu ketukan. Parameter setiap aturan bisa disesuaikan: tidak ada yang harus menerima 50/30/20% apa adanya.',
@@ -5979,6 +6068,7 @@ export const ID: Dict = {
   'cuenta.sync.activo': 'Menyinkronkan…',
   'cuenta.sync.ultima': 'Disinkronkan: {f}',
   'cuenta.sync.nunca': 'Belum disinkronkan',
+  'cuenta.sync.soloPro': 'Sinkronisasi antarperangkat termasuk bagian Pro.',
   'cuenta.sync.ahora': 'Sinkronkan sekarang',
   'cuenta.sync.otraCuenta':
     'Rumah ini terhubung ke akun lain. Simpan data lokal dan gabungkan dengan akun baru? (Batal = kosongkan rumah ini dan unduh hanya data akun)',
@@ -6038,6 +6128,7 @@ export const ID: Dict = {
   'agenda.prioridad.baja': 'Rendah',
   'agenda.trabajo.pendientes': 'Tugas',
   'agenda.trabajo.tablero': 'Papan',
+  'agenda.trabajo.apuntar': 'Catat tugas',
   'ejemplo.vacio': 'Bingung mulai dari mana? Lihat tampilannya dengan contoh di dalamnya.',
   'ejemplo.puesto': 'Ini contoh: sembunyikan kapan pun kamu mau, datamu sendiri tetap utuh.',
   'ejemplo.mostrar': 'Lihat contoh',
@@ -6069,6 +6160,7 @@ export const ID: Dict = {
   'agenda.projimo.aMiCuidado': 'Dalam perawatanku',
   'agenda.cuidadop.nuevo': 'Perawatan baru',
   'agenda.cuidado.archivado': 'Selesai, tidak berulang',
+  'agenda.cuidado.yaLoHice': 'Sudah kulakukan',
   'agenda.cuidado.reactivar': 'Jadwalkan lagi',
   'agenda.form.especialidad': 'Spesialisasi',
   'agenda.esp.general': 'Dokter umum',
@@ -6234,10 +6326,6 @@ export const ID: Dict = {
   'widgets.efemerideTitulo': 'Hari ini dalam sejarah',
   'widgets.vacio': 'Tidak ada jadwal untuk hari ini',
   'widgets.desactualizado': 'Ketuk untuk memperbarui',
-
-  // Catálogo de recursos 3D: el nombre con el que se siembra cada objeto del
-  // inventario. Solo se muestra traducido si el objeto aún se llama como su
-  // recurso de origen; un nombre puesto por el usuario se respeta tal cual.
   'objetos.nombreGenerico': 'Objek',
   'objetos.nombrePiezas': 'Objek dari potongan',
   'recurso.1': 'Kabinet dapur (atas dan bawah)',
@@ -6393,23 +6481,6 @@ export const ID: Dict = {
   'recursoExtra.sillon-lectura': 'Kursi baca',
   'recursoExtra.calendario-pared': 'Kalender dinding',
   'recursoExtra.estacion-computo': 'Stasiun komputer',
-  'accion.sentarse': 'Duduk',
-  'accion.acostarse': 'Berbaring',
-  'cuenta.sync.soloPro': 'Sinkronisasi antarperangkat termasuk bagian Pro.',
-  'agenda.cuidado.yaLoHice': 'Sudah kulakukan',
-  'despacho.patr.metaLiquidar': 'Lunasi {n}',
-  'despacho.patr.notaCronograma': '{p} per bulan · bunga {i}',
-  'despacho.patr.yaEnCronograma': 'Sudah ada di linimasamu',
-  'despacho.patr.alCronograma': 'Masukkan ke linimasa · lunas pada {f}',
-  'tut.app-despacho--patrimonio.titulo': 'Yang kamu punya, yang kamu utang, dan ke mana arahnya',
-  'tut.app-despacho--patrimonio.resumen':
-    'Kekayaan bersih bukan sebuah foto: harga tiap barangmu naik turun, dan tiap utang berbunga. Beri tiap baris tarifnya, dan tab ketiga menayangkan filmnya utuh — dari tahun lalu sampai ke mana kamu berakhir.',
-  'tut.app-ejercicio--flexibilidad.titulo': 'Modalitas ketiga',
-  'tut.app-ejercicio--flexibilidad.resumen':
-    'Fleksibilitas diatur seperti Kekuatan dan Daya tahan —katalog, rutinitas, progres— tapi set dihitung dengan waktu, bukan beban, plus pemutar terpandu dengan timer.',
-  'agenda.trabajo.apuntar': 'Catat tugas',
-
-  // Tres palabras por app (tarjetas del paso de intereses en la bienvenida)
   'room.cocina.corta': 'Makanan, makro, dan resep',
   'room.ejercicio.corta': 'Rutinitas, kekuatan, dan target',
   'room.descanso.corta': 'Jadwal, alarm, dan malam',
@@ -6426,4 +6497,5 @@ export const ID: Dict = {
   'room.ideas.corta': 'Ide, peta, dan keputusan',
   'room.computo.corta': 'Kalkulator, grafik, dan lembar',
   'room.agenda.corta': 'Tugas, kesehatan, dan orang',
+  'room.metas.corta': 'Target, rencana, dan linimasa',
 }
