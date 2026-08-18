@@ -806,12 +806,17 @@ export const useLayout = create<LayoutState>((set, get) => ({
   },
 
   setEditMode: (v, opts) => {
-    // Editor 3D (perspectiva): se edita desde 3ª/1ª persona, sin tocar la cámara.
-    const persp = useEditorUi.getState().editor3d
+    // Abrir el editor ya no te saca de donde estabas: en primera y en tercera
+    // persona se edita desde ahí. Desde cualquier otra vista sí se pasa a iso,
+    // que es la cámara ortográfica que la edición del mapa da por hecha.
+    const vista = useCam.getState().vista
+    const persp = vista === 'tercera' || vista === 'primera'
     if (v) {
       useInteractUi.getState().clear()
-      // Forzar iso antes de activar el modo edición (la edición iso asume cámara ortográfica).
       if (!persp) useCam.getState().setVista('iso')
+      // El editor recuerda en qué cámara se abrió: de ello dependen dónde van sus
+      // controles y que tocar el mundo en 3D seleccione en vez de mover el mapa.
+      useEditorUi.getState().setEditor3d(persp)
     } else {
       usePlanos.getState().setActivo(false)
       usePlanos.getState().setCuadranteVista(null)

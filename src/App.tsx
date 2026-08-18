@@ -43,7 +43,6 @@ import { useLayout } from './core/state/layoutStore'
 import { useGrafitis } from './core/state/grafitiStore'
 import { useConstruyendo } from './core/state/construyendo'
 import { useEditorUi } from './core/state/editorUiStore'
-import { useCam } from './core/state/cameraStore'
 import { useCarrera } from './core/state/carreraStore'
 import { usePaintball } from './core/state/paintballStore'
 import { useDialogo } from './core/state/dialogoStore'
@@ -178,11 +177,6 @@ export default function App() {
       useLayout.getState().setEditMode(true)
     }
   }, [sidebarOpen])
-
-  /** El editor de mapa (iso) usa siempre la cámara isométrica; el editor 3D NO. */
-  useEffect(() => {
-    if (editMode && !editor3d) useCam.getState().setVista('iso')
-  }, [editMode, editor3d])
 
   // El fondo lo pinta `#root`: esta raíz no lleva `ui-app` para que el vidrio del
   // modo transparente afecte solo a las apps, no al contenedor de todo.

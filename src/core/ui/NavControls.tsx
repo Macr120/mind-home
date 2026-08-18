@@ -35,7 +35,6 @@ import { useTopeHud } from './hudMedida'
 export function NavControls() {
   const t = useT()
   const editMode = useLayout((s) => s.editMode)
-  const setEditMode = useLayout((s) => s.setEditMode)
   const moverObjetosRoomId = useLayout((s) => s.moverObjetosRoomId)
   const planosActivo = usePlanos((s) => s.activo)
   const vista = useCam((s) => s.vista)
@@ -44,7 +43,6 @@ export function NavControls() {
   const rotar = useCam((s) => s.rotar)
   const editor3d = useEditorUi((s) => s.editor3d)
   const setEditor3d = useEditorUi((s) => s.setEditor3d)
-  const setTab = useEditorUi((s) => s.setTab)
   const objetoSel = useEditorUi((s) => s.objetoSel)
   const equipadas = useHerramienta((s) => s.equipadas)
   const montado = useMontura((s) => s.instanciaId != null)
@@ -85,10 +83,12 @@ export function NavControls() {
   const [verCuboMoviendo, setVerCuboMoviendo] = useState(false)
   const refTope = useTopeHud('navegacion')
 
-  // El editor 3D solo vive en perspectiva: al volver a la vista iso se cierra.
+  // Editar en perspectiva es ahora un estado de la cámara, no un modo aparte: el
+  // editor sigue abierto al cambiar de vista y solo se marca dónde está.
   useEffect(() => {
-    if (vista === 'iso' && useEditorUi.getState().editor3d) setEditMode(false)
-  }, [vista, setEditMode])
+    if (!useLayout.getState().editMode) return
+    setEditor3d(vista === 'tercera' || vista === 'primera')
+  }, [vista, setEditor3d])
 
   // Al soltar el objeto (o salir del modo) vuelve a arrancar mostrando las flechas.
   useEffect(() => {
@@ -97,15 +97,6 @@ export function NavControls() {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     if (objetoSel == null) setVerCuboMoviendo(false)
   }, [objetoSel])
-
-  /** Abre el editor de MAPA en perspectiva (sin cambiar a la cámara iso). */
-  const abrirEditor3d = () => {
-    setEditor3d(true)
-    setTab('mapa')
-    setEditMode(true)
-  }
-  /** Cierra el editor y vuelve al juego en perspectiva. */
-  const cerrarEditor3d = () => setEditMode(false)
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -171,6 +162,43 @@ export function NavControls() {
 
   const ancho = { width: VIEW_CUBE_PX }
 
+  /*
+   * Girar un cuarto de vuelta. En perspectiva mueve la mirada del personaje (yaw)
+   * y en isométrica el azimut del mapa; el tercer botón, «centrar», solo tiene
+   * sentido con el mapa delante, así que no baja a primera ni a tercera.
+   * dir=ltr: par direccional — el orden visual no se espeja en RTL.
+   */
+  const rotacion = (
+    <div dir="ltr" data-tut="nav.rotar" className="ui-hud flex w-full overflow-hidden rounded-lg border border-white/10">
+      <button
+        type="button"
+        onClick={() => rotar(-1)}
+        title={t('nav3d.rotarIzq', 'Rotar vista a la izquierda')}
+        className="h-8 flex-1 text-base font-semibold text-white/60 transition hover:bg-white/10 hover:text-white/90 active:scale-95"
+      >
+        <Icono nombre="rotar-izq" />
+      </button>
+      <button
+        type="button"
+        onClick={() => rotar(1)}
+        title={t('nav3d.rotarDer', 'Rotar vista a la derecha')}
+        className="h-8 flex-1 text-base font-semibold text-white/60 transition hover:bg-white/10 hover:text-white/90 active:scale-95"
+      >
+        <Icono nombre="rotar-der" />
+      </button>
+      {mostrarCubo && (
+        <button
+          type="button"
+          onClick={reiniciarVista}
+          title={t('nav3d.centrarMapa', 'Centrar en el mapa')}
+          className="h-8 flex-1 text-base font-semibold text-white/60 transition hover:bg-white/10 hover:text-white/90 active:scale-95"
+        >
+          <Icono nombre="centrar" />
+        </button>
+      )}
+    </div>
+  )
+
   // En el editor 3D los controles van a la izquierda del panel (que ocupa la derecha).
   const posControles = editor3d
     ? 'end-[21rem]'
@@ -214,23 +242,6 @@ export function NavControls() {
 
       {/* Modo "mover objetos": botón fijo para terminar, fuera del cuarto. */}
       {moverObjetosRoomId && <BotonListoMoverObjetos />}
-
-      {/* Editor 3D: solo en 3ª/1ª persona, encima del selector de vistas. */}
-      {mostrarVistas && (vista === 'tercera' || vista === 'primera') && (
-        <button
-          type="button"
-          onClick={editor3d ? cerrarEditor3d : abrirEditor3d}
-          title={t('nav3d.editor3dHint', 'Editar el mundo en perspectiva: toca un objeto, piso, muro o personaje para editarlo')}
-          className={`flex h-8 w-full items-center justify-center gap-1.5 rounded-lg border text-xs font-semibold transition active:scale-95 ${
-            editor3d
-              ? 'border-emerald-400/60 bg-emerald-600 texto-cta'
-              : 'ui-hud border-white/10 text-white/80 hover:bg-white/10'
-          }`}
-        >
-          <Icono nombre="herramienta" className="text-sm leading-none" />
-          {editor3d ? t('nav3d.editor3dOn', 'Cerrar editor') : t('nav3d.editor3d', 'Editor 3D')}
-        </button>
-      )}
 
       {mostrarVistas && (
         <div
@@ -310,69 +321,34 @@ export function NavControls() {
               <ViewCube />
             )}
           </div>
-          {/* dir=ltr: par direccional (rotar izq/der) — el orden visual no se espeja en RTL */}
-          <div dir="ltr" data-tut="nav.rotar" className="ui-hud flex w-full overflow-hidden rounded-lg border border-white/10">
-            <button
-              type="button"
-              onClick={() => rotar(-1)}
-              title={t('nav3d.rotarIzq', 'Rotar vista a la izquierda')}
-              className="h-8 flex-1 text-base font-semibold text-white/60 transition hover:bg-white/10 hover:text-white/90 active:scale-95"
-            >
-              <Icono nombre="rotar-izq" />
-            </button>
-            <button
-              type="button"
-              onClick={() => rotar(1)}
-              title={t('nav3d.rotarDer', 'Rotar vista a la derecha')}
-              className="h-8 flex-1 text-base font-semibold text-white/60 transition hover:bg-white/10 hover:text-white/90 active:scale-95"
-            >
-              <Icono nombre="rotar-der" />
-            </button>
-            <button
-              type="button"
-              onClick={reiniciarVista}
-              title={t('nav3d.centrarMapa', 'Centrar en el mapa')}
-              className="h-8 flex-1 text-base font-semibold text-white/60 transition hover:bg-white/10 hover:text-white/90 active:scale-95"
-            >
-              <Icono nombre="centrar" />
-            </button>
-          </div>
+          {rotacion}
         </>
       )}
 
-      {/* En 3ª/1ª persona el LookPad hace de cubo: es el ocupante por defecto de la
-          esquina y comparte hueco con los mismos paneles que en iso. A diferencia
-          del cubo NO se retira al aparecer un panel — es el único control de
-          cámara que queda en móvil (antes desaparecía con una herramienta en la
-          mano, salvo con arma). */}
+      {/* En 3ª/1ª persona el LookPad hace de cubo, y ahora también en esto: el hueco
+          es de UNO a la vez y el panel lo SUSTITUYE, en vez de crecer hacia arriba
+          apilándose encima. Girar la cámara sin el pad sigue estando a mano: el par
+          de rotación de abajo mueve la mirada de a 90°, y el arrastre y el clic
+          derecho siguen igual. */}
       {!vistaIso && (
         <>
-          {!conHerramienta && !conContextual && (
-            <p className="text-center text-[10px] leading-tight text-white/45">
-              {vista === 'tercera'
-                ? t('nav3d.ayuda3P', 'Clic derecho o joystick; rueda para zoom')
-                : t('nav3d.ayuda1P', 'Clic derecho o joystick; rueda para zoom')}
-            </p>
-          )}
           <div className="flex w-full flex-col items-center gap-2">
             {jugandoCancha ? (
               <BotonAccionCancha />
+            ) : conHerramienta || conContextual ? (
+              <div className="relative w-full">
+                {/* Conduciendo: el derrape (u ↑/↓ del OVNI) a la izquierda, fuera
+                    del flujo, igual que en la vista isométrica. */}
+                <div className="absolute end-full top-0 me-1">
+                  <ControlesConduccion />
+                </div>
+                <ControlHerramienta />
+              </div>
             ) : (
-              <>
-                {(conHerramienta || conContextual) && !mostrarCubo && (
-                  <div className="relative w-full">
-                    {/* Conduciendo: el derrape (u ↑/↓ del OVNI) a la izquierda, fuera
-                        del flujo, igual que en la vista isométrica. */}
-                    <div className="absolute end-full top-0 me-1">
-                      <ControlesConduccion />
-                    </div>
-                    <ControlHerramienta />
-                  </div>
-                )}
-                <LookPad />
-              </>
+              <LookPad />
             )}
           </div>
+          {rotacion}
         </>
       )}
     </div>

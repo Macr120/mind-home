@@ -332,8 +332,10 @@ export const useCam = create<CamState>((set, get) => ({
   enfocarDialogo: (datos) => set({ vista: 'dialogo', dialogoCam: datos }),
   rotar: (dir) =>
     set((s) =>
-      // En interior, rota la mirada a la pared contigua (90°); en iso gira el azimut.
-      s.vista === 'interior'
+      // Un cuarto de vuelta, sobre el ángulo que manda en cada vista: en primera y
+      // tercera persona (y en interior) la cámara se orienta por `yaw`, así que
+      // girar el azimut ahí no movía nada; en isométrica manda el azimut.
+      s.vista === 'interior' || s.vista === 'tercera' || s.vista === 'primera'
         ? { yaw: s.yaw + dir * (Math.PI / 2) }
         : { az: s.az + dir * (Math.PI / 2) },
     ),
