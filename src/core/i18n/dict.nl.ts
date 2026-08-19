@@ -370,6 +370,8 @@ export const NL: Dict = {
   'meta.desmarcar': 'Markeren als niet klaar',
   'meta.agendar': 'Inplannen in de kalender',
   'hoy.titulo': 'Missies',
+  'hoy.primera': 'Geef deze app haar missies',
+  'hoy.primera.como': 'Ze is vanzelf klaar zodra je de eerste missie aanmaakt',
   'hoy.alDia': 'Alles gedaan voor vandaag',
   'hoy.hechos': 'Gedaan ({n})',
   'hoy.registrar': 'Registreren',
@@ -5393,7 +5395,7 @@ export const NL: Dict = {
     'Bijna elke app heeft een balk om een kant-en-klaar voorbeeld met al ingevulde gegevens te bekijken, en die later weer te verbergen zonder iets van jezelf te verliezen. In het demohuis zie je hem niet: daar IS het hele jaar al het voorbeeld.',
   'tut.hoy.titulo': 'Vandaag',
   'tut.hoy.resumen':
-    'De lijst Vandaag van elke app brengt drie dingen samen op één plek: de dagelijkse doelen van die app, wat je voor vandaag hebt gepland en de stappen van je actieve doelen. Een stap is voltooid omdat de registratie al in de app staat, niet omdat iemand hem met de hand heeft aangevinkt.',
+    'Missies wonen in elke app: de knop Missies bundelt de dag in één paneel — bovenaan de doelen van die app, daaronder de checklist van vandaag met haar streefcijfers, wat er gepland staat en de stappen van je lopende doelen. Een stap wordt doorgestreept omdat de registratie al in de app bestaat, niet omdat iemand hem heeft afgevinkt. Het rode bolletje van een kamer is wat daar vandaag nog openstaat, en de knop Missies bij de klok laat die van alle apps tegelijk zien.',
   'tut.progreso.titulo': 'Jouw voortgang',
   'tut.progreso.resumen':
     'Jouw personage leeft van je echte activiteit: zijn stemming, zijn niveau, de Sisyphusberg (rang en badges) en de XP-radar per kamer. Alles wordt berekend uit wat je al hebt geregistreerd, niets wordt met de hand ingesteld.',
@@ -6006,7 +6008,7 @@ export const NL: Dict = {
     'In rood, zodat het niet wordt verward met de vier hierboven: Doelen opent je doelen, hun plannen en de planning.',
   'tut.metas.titulo': 'Doelen',
   'tut.metas.resumen':
-    'De drie schermen van een doel: de lijst waar het ontstaat, het plan dat het uitwerkt (de AI stelt het voor en jij vinkt het af) en de planning waar de fases hun eigen periode krijgen, als echte sub-doelen.',
+    'Hoe de kamer Doelen aan de rest vastzit: doelen ontstaan in de andere apps en komen hier samen, gegroepeerd per eigen app; het blad van een doel bevat het plan dat het uitwerkt (de AI stelt voor, jij vinkt af) en zijn planning, met de fasen al als echte subdoelen. Met datums verschijnen ze in de agenda, en hun stappen van vandaag in de Missies van die app.',
   'tut.app-biblioteca--enciclopedia.titulo': 'Je eigen encyclopedie',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Alles wat je leert, wordt gearchiveerd in een boom per kennisgebied: items met een samenvatting en kernpunten die je kunt illustreren.',

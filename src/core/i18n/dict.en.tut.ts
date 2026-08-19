@@ -264,7 +264,8 @@ export const EN_TUT: Dict = {
   'tut.ejemplos.1.texto': 'This bar shows up in almost every app while it still has none of your own data: a button to see it full of example content instead of starting on an empty screen.',
   'tut.ejemplos.2.texto': 'Viewing an example doesn\'t delete or mix in anything of yours: it\'s its own rows, marked as example, hidden (not deleted) when you turn it off. Turning it back on brings them back exactly as they were.',
   'tut.ejemplos.3.texto': 'Inside the demo home this bar doesn\'t appear: Pep@\'s whole year already plays that role, so there\'s no need for a separate example.',
-  'tut.hoy.1.texto': 'In every app\'s header lives its Missions button: the checklist of what that app asks of you TODAY. The house clock has that same button with all the apps together.',
+  'tut.hoy.1.texto':
+    'Missions don\'t live somewhere apart: they live INSIDE each app. In every room\'s header sits its Missions button, with the checklist of what that app asks of you TODAY.',
   'tut.hoy.2.titulo': 'Three sources, one list',
   'tut.hoy.2.texto': 'The app\'s own targets (water, calories), what you scheduled for today in the calendar, and the steps from your active goals: all together, grouped under the plan or the goal each step comes from.',
   'tut.hoy.2b.titulo': 'What you set out to do, on top',
@@ -280,6 +281,12 @@ export const EN_TUT: Dict = {
   'tut.hoy.6b.titulo': 'The whole list is what scores',
   'tut.hoy.6b.texto': 'Completing all of the day\'s missions sets off the celebration and adds the app\'s XP: the level grows by finished lists, not by loose logs.',
   'tut.hoy.7.texto': 'And if something\'s missing, «New checklist» creates your own: a list of this app\'s that repeats every day. The goals these steps come from are planned in the Goals room.',
+  'tut.hoy.8.titulo': 'The red orbs',
+  'tut.hoy.8.texto':
+    'That red badge on a room is its count of missions still pending TODAY: what you have left to do in there. The same number shows up on the home screen, on the enter bubble and on the orb floating above the room\'s furniture — and it turns amber when something is already past its time. No badge means that room is up to date.',
+  'tut.hoy.9.titulo': 'And all of them together, in the calendar',
+  'tut.hoy.9.texto':
+    'The clock\'s Missions button gathers what has to be done today across the WHOLE house, one card per app: on the left what\'s left, on the right what\'s already done. Nothing is logged here — each row takes you to its app, which is where the data gets written.',
   'tut.progreso.1.texto': 'Your character\'s card: Pep@ has a whole year of real activity behind them, so every number here has a real story explaining it.',
   'tut.progreso.2.titulo': 'The character',
   'tut.progreso.2.texto': 'Tapping it opens the character editor. Its mood —happy, content, sad or asleep— rises with every new log and only drops if days pass with none; it never resets all at once.',
@@ -533,6 +540,9 @@ export const EN_TUT: Dict = {
   'tut.calendario.8.titulo': 'The dips count too',
   'tut.calendario.8.texto':
     'Both holes are real: the knee injury in month 7 and the three weeks in Japan. Missing days does not erase progress — the panel shows the year as it was, not as it should have been. And a routine only counts from the day you created it.',
+  'tut.metas.0.titulo': 'A room for setting things out',
+  'tut.metas.0.texto':
+    'Goals keeps nothing of its own: it\'s where you set things out and where everything you set out to do can be seen, whatever room it came from. Goals are born in the other apps — running in the Gym, the degree in the Library, saving in the Office — and here they come together, grouped by the app that owns each one.',
   'tut.metas.1.titulo': 'Goals come first',
   'tut.metas.1.texto':
     'The room opens on Goals, grouped by the app that owns them: running under Exercise, the physics degree under Library. “Home” is no app — Pep@ made that category up for the kitchen build.',
@@ -560,6 +570,9 @@ export const EN_TUT: Dict = {
   'tut.metas.9.titulo': 'Each goal, its own axis',
   'tut.metas.9.texto':
     'This axis belongs to a SINGLE goal: here you give dates to whatever has none, hang new sub-goals, and “Back” returns you to its sheet. The Timeline menu up top shows them all together.',
+  'tut.metas.10.titulo': 'And from here it reaches the whole house',
+  'tut.metas.10.texto':
+    'None of this stays locked in: a goal with dates shows up in the clock\'s calendar like anything else scheduled, and its steps for today appear in the Missions of the app that owns it — and in that room\'s red badge. You plan here; you get it done in the app, by logging for real.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'A year of studies, as a tree',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep@ studies Physics: mechanics early in the year, thermodynamics towards the month 6 midterm, relativity and astrophysics at the end. Each branch opens to show its cards.',

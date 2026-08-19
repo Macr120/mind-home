@@ -2548,7 +2548,7 @@ export interface GrupoPlantilla {
 export const GRUPOS_PLANTILLA_BASE: { nombre: string; emoji: string; miembros: string[] }[] = [
   { nombre: 'Cuerpo', emoji: '💪', miembros: ['ejercicio', 'cocina', 'descanso'] },
   { nombre: 'Estudio', emoji: '📚', miembros: ['biblioteca', 'idiomas', 'ideas', 'computo'] },
-  { nombre: 'Administración', emoji: '🗂️', miembros: ['despacho', 'garage', 'agenda'] },
+  { nombre: 'Administración', emoji: '🗂️', miembros: ['despacho', 'garage', 'agenda', 'metas'] },
   { nombre: 'Pasatiempos', emoji: '🎉', miembros: ['entretenimiento', 'diario', 'hobbies'] },
   { nombre: 'Memorias y salud mental', emoji: '🧠', miembros: ['anecdotario', 'sala', 'jardin'] },
 ]
@@ -4981,6 +4981,32 @@ class MindHomeDB extends Dexie {
     // nace vacía y quien tuviera un fondo de panel elegido lo vuelve a poner.
     this.version(128).stores({
       fondosPanel: '++id, creado, &uid',
+    })
+
+    // v129: el cuarto Metas entra a la carpeta ADMINISTRACIÓN del catálogo de
+    // plantillas, junto a despacho, garage y agenda, en vez de caer en la primera
+    // carpeta por la reconciliación de plantillas huérfanas
+    // (`gruposPlantillaStore.asegurarMiembros`) — nunca tuvo carpeta propia.
+    // Misma forma que la v117 (`computo` → Estudio): la carpeta se identifica por
+    // POSICIÓN (la tercera carpeta base, `orden` 2) y no por `nombre`, que el
+    // usuario pudo haber cambiado.
+    //
+    // Instalaciones nuevas (tabla vacía) no lo necesitan: `GRUPOS_PLANTILLA_BASE`
+    // ya trae a `metas` en su semilla.
+    this.version(129).upgrade(async (tx) => {
+      const tabla = tx.table('gruposPlantilla')
+      const filas = (await tabla.toArray()) as GrupoPlantilla[]
+      if (filas.length === 0) return
+      const base = filas.filter((g) => g.esBase).sort((a, b) => a.orden - b.orden)
+      const admin = base[2]
+      if (admin?.id == null) return
+      for (const g of filas) {
+        if (g.id == null || g.id === admin.id || !g.miembros.includes('metas')) continue
+        await tabla.update(g.id, { miembros: g.miembros.filter((m) => m !== 'metas') })
+      }
+      if (!admin.miembros.includes('metas')) {
+        await tabla.update(admin.id, { miembros: [...admin.miembros, 'metas'] })
+      }
     })
   }
 }

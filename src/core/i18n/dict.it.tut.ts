@@ -375,7 +375,7 @@ export const IT_TUT: Dict = {
   'tut.ejemplos.3.texto':
     'Nella casa demo questa barra non compare: l\'anno intero di Pep svolge già quel ruolo, quindi non serve un esempio a parte.',
   'tut.hoy.1.texto':
-    'Nell\'intestazione di ogni app vive il suo pulsante Missioni: la checklist di ciò che quell\'app ti chiede OGGI. L\'orologio della casa ha lo stesso pulsante con tutte le app insieme.',
+    'Le missioni non vivono in un posto a parte: vivono DENTRO ogni app. Nell’intestazione di ogni stanza c’è il suo pulsante Missioni, con l’elenco di ciò che quell’app ti chiede OGGI.',
   'tut.hoy.2.titulo': 'Tre fonti, una lista',
   'tut.hoy.2.texto':
     'Gli obiettivi propri dell\'app (l\'acqua, le calorie), quello che hai programmato per oggi nel calendario e i passi dei tuoi obiettivi in corso: tutto insieme, raggruppato sotto il piano o l\'obiettivo da cui viene ogni passo.',
@@ -399,6 +399,12 @@ export const IT_TUT: Dict = {
     'Completare tutte le missioni del giorno accende la celebrazione e somma gli XP dell\'app: il livello cresce per liste completate, non per registrazioni sparse.',
   'tut.hoy.7.texto':
     'E se ti manca qualcosa, «Nuova checklist» crea la tua: una lista propria di quest\'app che si ripete ogni giorno. Gli obiettivi da cui nascono questi passi si pianificano nella stanza Obiettivi.',
+  'tut.hoy.8.titulo': 'Le sfere rosse',
+  'tut.hoy.8.texto':
+    'Quel pallino rosso su una stanza è il conto delle missioni ancora in sospeso OGGI: quello che ti resta da fare lì. Lo stesso numero compare nella schermata iniziale, nella bolla per entrare e nella sfera che fluttua sopra il mobile della stanza — e diventa ambra quando qualcosa ha già superato la sua ora. Senza pallino, quella stanza è in pari.',
+  'tut.hoy.9.titulo': 'E tutte insieme, nel calendario',
+  'tut.hoy.9.texto':
+    'Il pulsante Missioni dell’orologio raccoglie quello che c’è da fare oggi in TUTTA la casa, una scheda per app: a sinistra ciò che manca, a destra ciò che è già fatto. Qui non si registra nulla — ogni riga ti porta nella sua app, che è dove il dato si annota.',
   'tut.progreso.1.texto':
     'La scheda del tuo personaggio: Pep ha alle spalle un anno intero di attività reale, quindi ogni numero qui ha una storia vera che lo spiega.',
   'tut.progreso.2.titulo': 'Il personaggio',
@@ -663,6 +669,9 @@ export const IT_TUT: Dict = {
   'tut.calendario.8.titulo': 'Anche le cadute contano',
   'tut.calendario.8.texto':
     'I due buchi sono veri: l\'infortunio al ginocchio del mese 7 e le tre settimane in Giappone. Saltare dei giorni non cancella i progressi — il pannello mostra l\'anno com\'è stato, non come sarebbe dovuto essere. E una routine conta solo dal giorno in cui l\'hai creata.',
+  'tut.metas.0.titulo': 'Una stanza per proporti delle cose',
+  'tut.metas.0.texto':
+    'Obiettivi non conserva nulla di suo: è dove ti proponi delle cose e dove si vede tutto quello che ti sei proposto, da qualunque stanza arrivi. Gli obiettivi nascono nelle altre app — correre in Palestra, la laurea in Biblioteca, risparmiare nello Studio — e qui si riuniscono, raggruppati per l’app che porta ciascuno.',
   'tut.metas.1.titulo': 'Prima di tutto, gli obiettivi',
   'tut.metas.1.texto':
     'La vista si apre su Obiettivi, raggruppati per l\'app che li segue: la corsa in Palestra, la laurea in fisica in Biblioteca. «Casa» non è un\'app — quella categoria se l\'è inventata Pep per i lavori della cucina.',
@@ -690,6 +699,9 @@ export const IT_TUT: Dict = {
   'tut.metas.9.titulo': 'Ogni obiettivo, il suo asse',
   'tut.metas.9.texto':
     'Quest\'asse è quello di UN obiettivo: qui si danno date a ciò che non le ha, si appendono sotto-obiettivi nuovi e «Torna» ti riporta al suo foglio. Il menu Programma in alto mostra quello di tutti insieme.',
+  'tut.metas.10.titulo': 'E da qui parte verso tutta la casa',
+  'tut.metas.10.texto':
+    'Niente di tutto questo resta chiuso qui: un obiettivo con delle date compare nel calendario dell’orologio come qualsiasi altra cosa in programma, e i suoi passi di oggi escono nelle Missioni dell’app che lo porta — e nel pallino rosso di quella stanza. Qui si pianifica; si compie nell’app, registrando davvero.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Un anno di studi, in un albero',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep studia Fisica: meccanica all\'inizio dell\'anno, termodinamica verso il parziale del mese 6, relatività e astrofisica alla fine. Ogni ramo si apre per vedere le sue voci.',

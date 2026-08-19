@@ -377,7 +377,7 @@ export const DE_TUT: Dict = {
   'tut.ejemplos.3.texto':
     'Im Demo-Haus erscheint diese Leiste nicht: Peps ganzes Jahr übernimmt schon diese Rolle, ein eigenes Beispiel braucht es also nicht.',
   'tut.hoy.1.texto':
-    'Im Kopfbereich jeder App lebt ihr Missionen-Button: die Checkliste dessen, was diese App HEUTE von dir verlangt. Die Uhr des Hauses hat denselben Button mit allen Apps zusammen.',
+    'Missionen wohnen nicht an einem eigenen Ort: sie wohnen IN jeder App. In der Kopfzeile jedes Raums sitzt sein Missionen-Knopf mit der Liste dessen, was diese App HEUTE von dir will.',
   'tut.hoy.2.titulo': 'Drei Quellen, eine Liste',
   'tut.hoy.2.texto':
     'Die eigenen Ziele der App (Wasser, Kalorien), was du für heute im Kalender geplant hast, und die Schritte deiner aktuellen Ziele: alles zusammen, gruppiert unter dem Plan oder Ziel, aus dem jeder Schritt stammt.',
@@ -401,6 +401,12 @@ export const DE_TUT: Dict = {
     'Alle Missionen des Tages abzuschließen zündet die Feier und bringt die XP der App: Das Level wächst durch erfüllte Listen, nicht durch einzelne Einträge.',
   'tut.hoy.7.texto':
     'Und wenn dir etwas fehlt: „Neue Checkliste“ legt deine eigene an — eine Liste dieser App, die sich jeden Tag wiederholt. Die Ziele, aus denen diese Schritte kommen, werden im Ziele-Raum geplant.',
+  'tut.hoy.8.titulo': 'Die roten Kugeln',
+  'tut.hoy.8.texto':
+    'Diese rote Blase auf einem Raum ist seine Zahl offener Missionen von HEUTE: was dir dort noch bleibt. Dieselbe Zahl steht auf dem Startbildschirm, auf der Eintreten-Blase und auf der Kugel, die über dem Möbelstück des Raums schwebt — und sie wird bernsteinfarben, sobald etwas seine Uhrzeit überschritten hat. Ohne Blase ist dieser Raum auf dem Stand.',
+  'tut.hoy.9.titulo': 'Und alle zusammen, im Kalender',
+  'tut.hoy.9.texto':
+    'Der Missionen-Knopf der Uhr sammelt, was heute im GANZEN Haus zu tun ist, eine Karte pro App: links was fehlt, rechts was schon steht. Hier wird nichts eingetragen — jede Zeile bringt dich in ihre App, und dort entsteht der Eintrag.',
   'tut.progreso.1.texto':
     'Der Steckbrief deiner Figur: Pep hat ein ganzes Jahr echter Aktivität hinter sich, also steckt hinter jeder Zahl hier eine echte Geschichte.',
   'tut.progreso.2.titulo': 'Die Figur',
@@ -666,6 +672,9 @@ export const DE_TUT: Dict = {
   'tut.calendario.8.titulo': 'Die Einbrüche zählen auch',
   'tut.calendario.8.texto':
     'Beide Löcher sind echt: die Knieverletzung in Monat 7 und die drei Wochen in Japan. Aussetzen löscht den Fortschritt nicht – das Panel zeigt das Jahr, wie es war, nicht wie es hätte sein sollen. Und eine Routine zählt erst ab dem Tag, an dem du sie angelegt hast.',
+  'tut.metas.0.titulo': 'Ein Raum, um dir Dinge vorzunehmen',
+  'tut.metas.0.texto':
+    'Ziele speichert nichts Eigenes: hier nimmst du dir Dinge vor und hier siehst du alles, was du dir vorgenommen hast, aus welchem Raum es auch kommt. Ziele entstehen in den anderen Apps — Laufen im Fitness, das Studium in der Bibliothek, Sparen im Arbeitszimmer — und hier kommen sie zusammen, gruppiert nach der App, die jedes trägt.',
   'tut.metas.1.titulo': 'Zuerst die Ziele',
   'tut.metas.1.texto':
     'Die Ansicht öffnet bei Ziele, gruppiert nach der App, die sie führt: Laufen unter Fitness, das Physikstudium unter Bibliothek. „Haus“ ist keine App – diese Kategorie hat sich Pep für den Küchenumbau ausgedacht.',
@@ -693,6 +702,9 @@ export const DE_TUT: Dict = {
   'tut.metas.9.titulo': 'Jedes Ziel, seine Achse',
   'tut.metas.9.texto':
     'Die Achse ist immer die eines einzigen Ziels: Hier bekommt Termine, was noch keine hat, neue Teilziele werden angehängt, und „Zurück“ führt dich zu seiner Tabelle. Das Menü Zeitplan oben zeigt die Achse aller Ziele zusammen.',
+  'tut.metas.10.titulo': 'Und von hier geht es ins ganze Haus',
+  'tut.metas.10.texto':
+    'Nichts davon bleibt eingesperrt: ein Ziel mit Daten erscheint im Kalender der Uhr wie alles andere Geplante, und seine heutigen Schritte tauchen in den Missionen der App auf, die es trägt — und in der roten Blase jenes Raums. Hier wird geplant; erfüllt wird es in der App, mit echten Einträgen.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Ein Studienjahr als Baum',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep studiert Physik: Mechanik am Anfang des Jahres, Thermodynamik gegen die Klausur in Monat 6, Relativität und Astrophysik zum Schluss. Jeder Zweig klappt auf und zeigt seine Einträge.',

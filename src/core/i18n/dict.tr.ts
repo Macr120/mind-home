@@ -368,6 +368,8 @@ export const TR: Dict = {
   'meta.desmarcar': 'Tamamlanmadı olarak işaretle',
   'meta.agendar': 'Takvime ekle',
   'hoy.titulo': 'Görevler',
+  'hoy.primera': 'Bu uygulamaya görevlerini ver',
+  'hoy.primera.como': 'İlk görevini oluşturduğun anda kendiliğinden tamamlanır',
   'hoy.alDia': 'Bugünlük her şey tamam',
   'hoy.hechos': 'Tamamlanan ({n})',
   'hoy.registrar': 'Kaydet',
@@ -5361,7 +5363,7 @@ export const TR: Dict = {
     'Neredeyse her uygulamada, içi dolu bir hazır örneği görmek ve sonradan kendine ait hiçbir şeyi kaybetmeden gizlemek için bir çubuk vardır. Demo evin içinde görünmez: orada bütün yıl zaten örnektir.',
   'tut.hoy.titulo': 'Bugünün listesi',
   'tut.hoy.resumen':
-    'Her uygulamanın Bugün listesi üç şeyi tek yerde birleştirir: o uygulamanın günlük hedefleri, bugün için ajandana eklediklerin ve geçerli hedeflerinin adımları. Bir adım, kaydı uygulamada zaten var olduğu için tamamlanır, kimse onu elle işaretlediği için değil.',
+    'Görevler her uygulamanın içinde yaşar: Görevler düğmesi günü tek bir panelde toplar — üstte o uygulamanın hedefleri, altta bugünün listesi: kendi ölçüleri, planlananlar ve yürüyen hedeflerinin adımları. Bir adım, biri elle işaretlediği için değil, kayıt uygulamada zaten var olduğu için üstü çizilir. Bir odanın kırmızı balonu bugün orada kalanı gösterir; saatteki Görevler düğmesi ise tüm uygulamalarınkini bir arada.',
   'tut.progreso.titulo': 'İlerlemen',
   'tut.progreso.resumen':
     'Karakterin gerçek etkinliğinden beslenir: ruh hali, seviyesi, Sisifos Dağı (rütbe ve rozetler) ve odaya göre XP radarı. Her şey zaten kaydettiklerinden hesaplanır, hiçbir şey elle girilmez.',
@@ -5967,7 +5969,7 @@ export const TR: Dict = {
     'Kırmızıyla, yukarıdaki dördüyle karıştırılmasın diye: Hedefler, hedeflerini, planlarını ve zaman çizelgesini açar.',
   'tut.metas.titulo': 'Hedefler',
   'tut.metas.resumen':
-    'Bir hedefin üç ekranı: doğduğu liste, onu geliştiren plan (Yapay Zeka önerir, sen işaretlersin) ve aşamalarının gerçek alt hedefler olarak kendi dönemlerini kapladığı zaman çizelgesi.',
+    'Hedefler odası geri kalanla nasıl bağlanıyor: hedefler diğer uygulamalarda doğar ve burada kendi uygulamalarına göre gruplanıp toplanır; her hedefin sayfasında onu geliştiren plan (yapay zekâ önerir, sen onaylarsın) ve aşamaları çoktan gerçek alt hedeflere dönüşmüş zaman çizelgesi bulunur. Tarih verilince takvimde, bugünkü adımları da o uygulamanın Görevler’inde çıkar.',
   'tut.app-biblioteca--enciclopedia.titulo': 'Kendi ansiklopedin',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Öğrendiğin her şey, bilgi alanına göre bir ağaçta arşivlenir: özet ve resimleyebileceğin ana noktalarla kartlar.',

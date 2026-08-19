@@ -371,6 +371,8 @@ export const DE: Dict = {
   'meta.desmarcar': 'Als nicht erledigt markieren',
   'meta.agendar': 'Im Kalender eintragen',
   'hoy.titulo': 'Missionen',
+  'hoy.primera': 'Gib dieser App ihre Missionen',
+  'hoy.primera.como': 'Sie erfüllt sich von selbst, sobald du die erste Mission anlegst',
   'hoy.alDia': 'Für heute alles erledigt',
   'hoy.hechos': 'Erledigt ({n})',
   'hoy.registrar': 'Eintragen',
@@ -5411,7 +5413,7 @@ export const DE: Dict = {
     'Fast jede App hat eine Leiste, um ein fertiges Beispiel mit schon eingetragenen Daten zu sehen und es danach wieder auszublenden, ohne etwas Eigenes zu verlieren. Im Demo-Haus erscheint sie nicht: Dort ist das ganze Jahr BEREITS das Beispiel.',
   'tut.hoy.titulo': 'Heute',
   'tut.hoy.resumen':
-    'Die Liste „Heute“ jeder App bringt drei Dinge an einem Ort zusammen: die Tagesziele dieser App, was du für heute geplant hast, und die Schritte deiner laufenden Ziele. Ein Schritt gilt als erledigt, weil der Eintrag schon in der App existiert, nicht weil ihn jemand von Hand abgehakt hat.',
+    'Missionen wohnen in jeder App: ihr Missionen-Knopf sammelt den Tag in einem Panel — oben die Ziele dieser App, unten die heutige Liste mit ihren Vorgaben, dem Geplanten und den Schritten deiner laufenden Ziele. Ein Schritt gilt als erledigt, weil der Eintrag in der App schon existiert, nicht weil ihn jemand abgehakt hat. Die rote Blase eines Raums ist das, was dort heute offen bleibt, und der Missionen-Knopf der Uhr zeigt die aller Apps auf einmal.',
   'tut.progreso.titulo': 'Dein Fortschritt',
   'tut.progreso.resumen':
     'Deine Figur lebt von deiner echten Aktivität: ihre Laune, ihr Level, der Sisyphos-Berg (Rang und Abzeichen) und das XP-Radar pro Raum. Alles wird aus dem berechnet, was du schon eingetragen hast, nichts wird von Hand festgelegt.',
@@ -6029,7 +6031,7 @@ export const DE: Dict = {
     'In Rot, damit es nicht mit den vier oberen verwechselt wird: Ziele öffnet deine Ziele, ihre Pläne und den Zeitplan.',
   'tut.metas.titulo': 'Ziele',
   'tut.metas.resumen':
-    'Die drei Bildschirme eines Ziels: die Liste, in der es entsteht, der Plan, der es entwickelt (die KI schlägt vor, du hakst ab), und der Zeitplan, in dem seine Phasen als echte Teilziele ihren Platz einnehmen.',
+    'Wie der Raum Ziele mit dem Rest zusammenhängt: Ziele entstehen in den anderen Apps und sammeln sich hier, gruppiert nach ihrer eigenen; das Blatt eines Ziels trägt den Plan, der es entwickelt (die KI schlägt vor, du hakst ab), und seinen Zeitplan, mit den Phasen schon als echte Unterziele. Mit Daten versehen erscheinen sie im Kalender und ihre heutigen Schritte in den Missionen jener App.',
   'tut.app-biblioteca--enciclopedia.titulo': 'Die eigene Enzyklopädie',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Alles, was du lernst, wird in einem Baum nach Wissensgebiet abgelegt: Karten mit Zusammenfassung und Kernpunkten, die du illustrieren kannst.',

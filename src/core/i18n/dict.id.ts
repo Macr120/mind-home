@@ -370,6 +370,8 @@ export const ID: Dict = {
   'meta.desmarcar': 'Tandai belum selesai',
   'meta.agendar': 'Jadwalkan di kalender',
   'hoy.titulo': 'Misi',
+  'hoy.primera': 'Beri aplikasi ini misinya',
+  'hoy.primera.como': 'Selesai dengan sendirinya begitu kamu membuat misi pertamanya',
   'hoy.alDia': 'Semua sudah selesai untuk hari ini',
   'hoy.hechos': 'Selesai ({n})',
   'hoy.registrar': 'Catat',
@@ -5379,7 +5381,7 @@ export const ID: Dict = {
     'Hampir setiap aplikasi punya bilah untuk melihat contoh siap pakai yang datanya sudah terisi, dan menyembunyikannya lagi nanti tanpa kehilangan apa pun milikmu. Ini tidak muncul di dalam rumah demo: di sana, seluruh tahun SUDAH menjadi contohnya.',
   'tut.hoy.titulo': 'Daftar hari ini',
   'tut.hoy.resumen':
-    'Daftar Hari ini di setiap aplikasi menyatukan tiga hal dalam satu tempat: target harian aplikasi itu, apa yang kamu jadwalkan untuk hari ini, dan langkah-langkah dari target aktifmu. Sebuah langkah selesai karena catatannya sudah ada di aplikasi, bukan karena seseorang mencentangnya secara manual.',
+    'Misi tinggal di dalam tiap aplikasi: tombol Misi mengumpulkan hari ini dalam satu panel — di atas target aplikasi itu, di bawah daftar hari ini dengan sasarannya, yang terjadwal, dan langkah dari target yang sedang berjalan. Sebuah langkah dicoret karena catatannya memang sudah ada di aplikasi, bukan karena ada yang mencentangnya. Gelembung merah sebuah ruangan adalah sisa hari ini di sana, dan tombol Misi di jam menampilkan milik semua aplikasi sekaligus.',
   'tut.progreso.titulo': 'Kemajuanmu',
   'tut.progreso.resumen':
     'Karaktermu hidup dari aktivitas nyatamu: suasana hatinya, levelnya, Gunung Sisifus (pangkat dan lencana), dan radar XP per ruangan. Semuanya dihitung dari apa yang sudah kamu catat, tidak ada yang diisi manual.',
@@ -5992,7 +5994,7 @@ export const ID: Dict = {
     'Berwarna merah, agar tidak tertukar dengan empat tampilan di atas: Target membuka target-targetmu, rencananya, dan linimasa.',
   'tut.metas.titulo': 'Target',
   'tut.metas.resumen':
-    'Tiga layar sebuah target: daftar tempat ia lahir, rencana yang mengembangkannya (AI mengusulkan, kamu mencentangnya), dan linimasa tempat fase-fasenya menempati periodenya sebagai sub-target nyata.',
+    'Bagaimana ruangan Target terhubung dengan yang lain: target lahir di aplikasi lain dan berkumpul di sini dikelompokkan menurut aplikasinya; lembar tiap target memuat rencana yang mengembangkannya (AI mengusulkan, kamu mencentang) dan lini masanya, dengan fase-fase yang sudah menjadi subtarget sungguhan. Begitu bertanggal, semuanya muncul di kalender, dan langkah hari ini di Misi aplikasi tersebut.',
   'tut.app-biblioteca--enciclopedia.titulo': 'Ensiklopedia milikmu sendiri',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Semua yang kamu pelajari diarsipkan dalam pohon berdasarkan bidang pengetahuan: kartu dengan ringkasan dan poin utama yang bisa kamu beri ilustrasi.',

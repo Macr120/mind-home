@@ -8,6 +8,9 @@ import { fechaLocalISO } from './fechaLocal'
 import { tGlobal } from './i18n/useT'
 import { estadoObjetivoDia, objetivosDiaDe } from './metaDiaria'
 import { esMeta, rangoDe, vigenteEn } from './metas'
+// Del contrato HOJA, no de `registry` (que importa los 22 cuartos): esto lo
+// consumen las apps y cerrar el ciclo rompe el hot-reload en desarrollo.
+import { esInfraestructura, getPlantilla } from './appContrato'
 import { useDiseño } from './state/disenoStore'
 import type { AvanceDiario, ObjetivoDia, Plantilla, RegistroObjetivo } from './registry'
 import { pasosHechosHoy, tocaFecha } from './rutinas'
@@ -25,6 +28,9 @@ import { pasosHechosHoy, tocaFecha } from './rutinas'
  * 2. Sus bloques del calendario que tocan hoy — con sus pasos, que registran solos.
  * 3. Los pasos de las metas de esa app que están vigentes hoy (y con ellas los de
  *    las fases de un plan aceptado, que ya son metas reales).
+ *
+ * Y una cuarta que solo existe mientras las otras tres están vacías: la misión de
+ * ARRANQUE, que pide ponerle sus misiones a la app.
  */
 
 /** Cuánto after de su hora sigue teniendo sentido empujar un bloque (minutos). */
@@ -50,6 +56,12 @@ export type AccionPaso =
     }
   | { tipo: 'rutina'; rutina: Rutina; idx?: number }
   | { tipo: 'meta'; meta: Rutina; idx?: number }
+  /**
+   * La misión de ARRANQUE de una app que todavía no tiene ninguna. No se palomea:
+   * se cumple creando la primera, y entonces desaparece sola. Tocarla abre el
+   * catálogo de sugerencias de esa app.
+   */
+  | { tipo: 'sinMisiones'; plantillaId: string }
 
 export interface PasoHoy {
   /** Estable entre repintados: `obj:cocina|clave`, `rut:12|0`, `meta:34|2`. */
@@ -253,6 +265,39 @@ export async function armarPasosHoy(
         seccion: m.seccion,
         accion: { tipo: 'meta', meta: m, idx: i },
       })
+    })
+  }
+
+  // ── 4. La misión de ARRANQUE, solo si la app está vacía ───────────────────
+  //
+  // Un cuarto recién asignado no pedía nada: el panel decía «Aún no te has
+  // propuesto nada aquí» y ahí se acababa. Su primera misión es justamente
+  // ponerle las suyas, y en cuanto existe una (`filas`) esa misión ya está
+  // cumplida y desaparece — nunca convive con las de verdad, así que ni engorda
+  // la cuenta del día ni puede completar una lista por sí sola.
+  //
+  // «Vacía» es sin objetivos declarados por la plantilla Y sin ninguna fila suya
+  // en `rutinas`, no «hoy no toca nada»: una misión de los lunes no debe hacerla
+  // reaparecer el martes. La infraestructura queda fuera: no tiene panel donde
+  // ofrecer el catálogo.
+  const plantilla = plantillaId ? getPlantilla(plantillaId) : undefined
+  if (
+    plantillaId &&
+    plantilla &&
+    !esInfraestructura(plantilla) &&
+    filas.length === 0 &&
+    objetivosDiaDe(plantillaId).length === 0
+  ) {
+    pasos.push({
+      id: `sinMisiones:${plantillaId}`,
+      // 'objetivo' y no 'rutina' a propósito: `avisarObjetivos` (core/avisos.ts)
+      // solo notifica las de origen 'rutina', y esto no es para dar la lata por
+      // notificación, sino para que el cuarto no se vea mudo al entrar.
+      origen: 'objetivo',
+      titulo: tGlobal('hoy.primera', 'Ponle sus misiones a esta app'),
+      frac: 0,
+      hecho: false,
+      accion: { tipo: 'sinMisiones', plantillaId },
     })
   }
 

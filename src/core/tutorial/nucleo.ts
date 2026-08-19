@@ -11,26 +11,38 @@ import type { CuerpoTutorial, TextoTut } from './tipos'
 import { clickTut, elTut, esperarTut } from './dom'
 import { abrirApp } from '../abrirApp'
 import { irAPestanaMenu } from './dom'
+import { useRutinasUI } from '../state/rutinasUiStore'
 import { useSisifoUi } from '../state/sisifoUiStore'
 import { useWrappedUi } from '../state/wrappedUiStore'
+import { construirAppDemo } from '../../demo/construir'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
 export const cuerpoHoy: CuerpoTutorial = {
-  preparar: () => {
-    abrirApp('cocina')
-  },
+  // Sin `preparar` a propósito: este tour también se lanza desde el «?» del reloj
+  // y del cuarto Metas (`FLUJOS_CALENDARIO` / `FLUJOS_METAS`), y al aterrizar en
+  // el demo desde una APP `lanzarFlujoEnDemo` pasa `sinPreparar` — la preparación
+  // se quedaría sin correr. El `alEntrar` del paso 1 corre siempre y es idempotente.
   pasos: [
     {
       // Solo muestra el botón: abrir aquí el modal (como antes) lo tapaba en el
       // mismo paso que lo señala. Cerrarlo es para volver con «Atrás».
       sel: 'hoy.cabecera',
-      alEntrar: () => {
+      alEntrar: async () => {
+        // Los años que este tour enseña: la cocina (sus misiones del día) y el
+        // calendario (lo agendado del último paso). Idempotentes y sin efecto
+        // fuera del demo; venga por el intent que venga, aquí ya están.
+        await construirAppDemo('cocina')
+        void construirAppDemo('calendario')
+        useRutinasUI.getState().cerrarCalendario()
+        abrirApp('cocina')
         if (elTut('hoy.lista')) clickTut('hoy.cerrar')
+        await esperarTut('hoy.cabecera', 4000)
       },
+      esperar: 'hoy.cabecera',
       texto: T(
         'tut.hoy.1.texto',
-        'En el encabezado de cada app vive su botón Misiones: la checklist de lo que esa app te pide HOY. El reloj de la casa tiene el mismo botón con todas las apps juntas.',
+        'Las misiones no viven en un sitio aparte: viven DENTRO de cada app. En el encabezado de cada cuarto está su botón Misiones, con la checklist de lo que esa app te pide HOY.',
       ),
     },
     {
@@ -106,6 +118,35 @@ export const cuerpoHoy: CuerpoTutorial = {
       texto: T(
         'tut.hoy.7.texto',
         'Y si te falta algo, «Nueva checklist» crea la tuya: una lista propia de esta app que se repite cada día. Las metas de las que salen estos pasos se planean en el cuarto de Metas.',
+      ),
+    },
+    {
+      // Los globos cuelgan de las tarjetas de cuarto: se señala la lista entera,
+      // que es donde se ven varios a la vez y se entiende que son por app.
+      sel: 'menu.cuartos.lista',
+      alEntrar: async () => {
+        if (elTut('hoy.lista')) clickTut('hoy.cerrar')
+        clickTut('menu.abrir')
+        await irAPestanaMenu('menu.tab.cuartos')
+      },
+      titulo: T('tut.hoy.8.titulo', 'Los orbes rojos'),
+      texto: T(
+        'tut.hoy.8.texto',
+        'Ese globo rojo sobre un cuarto es su cuenta de misiones pendientes de HOY: lo que te queda por hacer ahí. El mismo número sale en la pantalla de inicio, en la burbuja de entrar y en el orbe que flota sobre el mueble del cuarto — y se pone ámbar cuando algo ya pasó de su hora. Sin globo, ese cuarto está al día.',
+      ),
+    },
+    {
+      sel: 'cal.objetivos',
+      alEntrar: async () => {
+        clickTut('menu.retraer')
+        useRutinasUI.getState().abrirCalendario('objetivos')
+        await esperarTut('cal.objetivos', 3000)
+      },
+      esperar: 'cal.objetivos',
+      titulo: T('tut.hoy.9.titulo', 'Y todas juntas, en el calendario'),
+      texto: T(
+        'tut.hoy.9.texto',
+        'El botón Misiones del reloj junta lo que hay que hacer hoy en TODA la casa, una tarjeta por app: a la izquierda lo que falta, a la derecha lo que ya está. Aquí no se registra nada — cada fila te lleva a su app, que es donde se apunta el dato.',
       ),
     },
   ],

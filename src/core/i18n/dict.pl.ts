@@ -367,6 +367,8 @@ export const PL: Dict = {
   'meta.desmarcar': 'Oznacz jako niezrealizowany',
   'meta.agendar': 'Zaplanuj w kalendarzu',
   'hoy.titulo': 'Misje',
+  'hoy.primera': 'Nadaj tej aplikacji jej misje',
+  'hoy.primera.como': 'Wykona się sama, gdy tylko utworzysz pierwszą misję',
   'hoy.alDia': 'Wszystko zrobione na dziś',
   'hoy.hechos': 'Zrobione ({n})',
   'hoy.registrar': 'Zapisz',
@@ -5361,7 +5363,7 @@ export const PL: Dict = {
     'Prawie każda aplikacja ma pasek, który pokazuje gotowy przykład z gotowymi danymi, a potem można go ukryć bez utraty własnych danych. Nie pojawia się w domu demo: tam cały rok JUŻ jest przykładem.',
   'tut.hoy.titulo': 'Lista na dziś',
   'tut.hoy.resumen':
-    'Lista Dziś w każdej aplikacji łączy w jednym miejscu trzy rzeczy: dzienne cele tej aplikacji, to, co zaplanowano na dziś, oraz kroki twoich aktywnych celów. Krok liczy się jako wykonany, bo wpis już istnieje w aplikacji, a nie dlatego, że ktoś odhaczył go ręcznie.',
+    'Misje mieszkają wewnątrz każdej aplikacji: jej przycisk Misje zbiera dzień w jednym panelu — u góry cele tej aplikacji, niżej dzisiejsza lista z jej normami, tym, co zaplanowane, i krokami twoich bieżących celów. Krok jest odhaczony, bo wpis już istnieje w aplikacji, a nie dlatego, że ktoś go zaznaczył. Czerwony znacznik pokoju to jego dzisiejsze zaległości, a przycisk Misje przy zegarze pokazuje je ze wszystkich aplikacji naraz.',
   'tut.progreso.titulo': 'Twój postęp',
   'tut.progreso.resumen':
     'Twoja postać żyje twoją prawdziwą aktywnością: jej nastrój, poziom, Góra Syzyfa (ranga i odznaki) oraz radar XP dla każdego pokoju. Wszystko liczy się z tego, co już zarejestrowano — nic nie wpisuje się ręcznie.',
@@ -5968,7 +5970,7 @@ export const PL: Dict = {
     'Na czerwono, żeby nie mylić z czterema powyższymi: Cele otwierają twoje cele, ich plany i harmonogram.',
   'tut.metas.titulo': 'Cele',
   'tut.metas.resumen':
-    'Trzy ekrany celu: lista, gdzie się rodzi, plan, który go rozwija (AI go proponuje, a ty go odhaczasz) i harmonogram, gdzie jego etapy zajmują swój okres, już jako prawdziwe pod-cele.',
+    'Jak pokój Cele łączy się z resztą: cele rodzą się w innych aplikacjach i zbierają się tutaj, pogrupowane według swojej; karta celu zawiera plan, który go rozwija (SI proponuje, ty odhaczasz), i jego harmonogram, w którym fazy są już prawdziwymi podcelami. Z datami trafiają do kalendarza, a ich dzisiejsze kroki do Misji tej aplikacji.',
   'tut.app-biblioteca--enciclopedia.titulo': 'Twoja osobista encyklopedia',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Wszystko, czego się uczysz, trafia do drzewa według dziedziny wiedzy: wpisy z podsumowaniem i kluczowymi punktami, które możesz zilustrować.',

@@ -375,7 +375,7 @@ export const ID_TUT: Dict = {
   'tut.ejemplos.3.texto':
     'Di dalam rumah demo bilah ini tidak muncul: satu tahun penuh milik Pep sudah mengisi peran itu, jadi tidak perlu contoh terpisah.',
   'tut.hoy.1.texto':
-    'Di header setiap aplikasi ada tombol Misi: checklist berisi apa yang diminta aplikasi itu darimu HARI INI. Jam rumah punya tombol yang sama, dengan semua aplikasi sekaligus.',
+    'Misi tidak tinggal di tempat terpisah: misi tinggal DI DALAM setiap aplikasi. Di bagian atas tiap ruangan ada tombol Misi, berisi daftar yang diminta aplikasi itu HARI INI.',
   'tut.hoy.2.titulo': 'Tiga sumber, satu daftar',
   'tut.hoy.2.texto':
     'Target milik aplikasi sendiri (air, kalori), apa yang kamu jadwalkan hari ini di kalender, dan langkah-langkah dari target yang sedang berjalan — semuanya jadi satu, dikelompokkan berdasarkan rencana atau target asal setiap langkah.',
@@ -399,6 +399,12 @@ export const ID_TUT: Dict = {
     'Menuntaskan semua misi hari itu menyalakan perayaan dan menambah XP aplikasinya: level naik lewat daftar yang dituntaskan, bukan lewat catatan yang tercecer.',
   'tut.hoy.7.texto':
     'Kalau ada yang kurang, «Checklist baru» bikin punyamu sendiri: daftar khusus aplikasi ini yang berulang tiap hari. Target yang melahirkan langkah-langkah ini direncanakan di ruangan Target.',
+  'tut.hoy.8.titulo': 'Bola merah',
+  'tut.hoy.8.texto':
+    'Gelembung merah di sebuah ruangan adalah jumlah misi yang masih tertunda HARI INI: yang tersisa buat kamu di sana. Angka yang sama muncul di layar awal, di gelembung masuk, dan di bola yang melayang di atas perabot ruangan itu — dan berubah kuning kecokelatan kalau ada yang sudah lewat jamnya. Tanpa gelembung, ruangan itu sudah beres hari ini.',
+  'tut.hoy.9.titulo': 'Dan semuanya sekaligus, di kalender',
+  'tut.hoy.9.texto':
+    'Tombol Misi di jam mengumpulkan apa saja yang harus dikerjakan hari ini di SELURUH rumah, satu kartu per aplikasi: di kiri yang belum, di kanan yang sudah. Di sini tidak ada pencatatan — tiap baris membawamu ke aplikasinya, dan di sanalah datanya ditulis.',
   'tut.progreso.1.texto':
     'Kartu karaktermu: Pep punya satu tahun penuh aktivitas nyata di belakangnya, jadi setiap angka di sini punya cerita nyata yang menjelaskannya.',
   'tut.progreso.2.titulo': 'Karakternya',
@@ -664,6 +670,9 @@ export const ID_TUT: Dict = {
   'tut.calendario.8.titulo': 'Masa turun juga dihitung',
   'tut.calendario.8.texto':
     'Kedua lubang itu nyata: cedera lutut di bulan ke-7 dan tiga minggu di Jepang. Bolong tidak menghapus kemajuanmu — panel ini menampilkan tahun itu apa adanya, bukan seharusnya. Dan satu rutinitas baru dihitung sejak hari kamu membuatnya.',
+  'tut.metas.0.titulo': 'Ruangan untuk menetapkan target',
+  'tut.metas.0.texto':
+    'Target tidak menyimpan datanya sendiri: di sinilah kamu menetapkan target dan melihat semua yang sudah kamu tetapkan, dari ruangan mana pun asalnya. Target lahir di aplikasi lain — lari di Gym, kuliah di Perpustakaan, menabung di Ruang Kerja — dan di sini semuanya berkumpul, dikelompokkan menurut aplikasi yang memegangnya.',
   'tut.metas.1.titulo': 'Target lebih dulu',
   'tut.metas.1.texto':
     'Ruangan ini terbuka di Target, dikelompokkan menurut aplikasi yang memegangnya: lari di Gym, kuliah fisika di Perpustakaan. “Rumah” bukan aplikasi mana pun — kategori itu dibuat sendiri oleh Pep untuk renovasi dapurnya.',
@@ -691,6 +700,9 @@ export const ID_TUT: Dict = {
   'tut.metas.9.titulo': 'Setiap target, sumbunya sendiri',
   'tut.metas.9.texto':
     'Sumbunya selalu milik satu target: di sini yang belum punya tanggal diberi tanggal, sub-target baru digantungkan, dan «Kembali» membawamu balik ke lembarnya. Menu Linimasa di atas menampilkan linimasa semua target sekaligus.',
+  'tut.metas.10.titulo': 'Dan dari sini menyebar ke seluruh rumah',
+  'tut.metas.10.texto':
+    'Tidak ada yang terkunci di sini: target yang punya tanggal muncul di kalender jam seperti hal terjadwal lainnya, dan langkah-langkah hari ini muncul di Misi aplikasi yang memegangnya — juga di gelembung merah ruangan itu. Di sini merencanakan; menuntaskannya di aplikasi, dengan mencatat sungguhan.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Setahun kuliah, dalam satu pohon',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep kuliah Fisika: mekanika di awal tahun, termodinamika menjelang ujian tengah semester di bulan ke-6, relativitas dan astrofisika di akhir. Setiap cabang terbuka untuk memperlihatkan entri-entrinya.',

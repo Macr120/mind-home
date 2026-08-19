@@ -375,6 +375,8 @@ export const EN: Dict = {
   'meta.desmarcar': 'Mark as not done',
   'meta.agendar': 'Schedule in the calendar',
   'hoy.titulo': 'Missions',
+  'hoy.primera': 'Give this app its missions',
+  'hoy.primera.como': 'It completes itself as soon as you add its first mission',
   'hoy.alDia': 'All done for today',
   'hoy.hechos': 'Done ({n})',
   'hoy.registrar': 'Log it',
@@ -5535,7 +5537,8 @@ export const EN: Dict = {
 
   // Tutoriales — lista Hoy
   'tut.hoy.titulo': 'Missions',
-  'tut.hoy.resumen': 'Each app\'s Missions button gathers the day in one panel: on top that app\'s goals, and below today\'s checklist — its targets, what\'s scheduled and the steps of your active goals. A step is done because the log already exists in the app, not because someone checked it by hand.',
+  'tut.hoy.resumen':
+    'Missions live inside each app: its Missions button gathers the day in one panel — on top that app\'s goals, below today\'s checklist with its targets, what\'s scheduled and the steps of your active goals. A step is done because the log already exists in the app, not because someone checked it. A room\'s red badge is what it still has pending today, and the clock\'s Missions button shows every app\'s at once.',
 
   // Tutoriales — tu progreso (Sísifo)
   'tut.progreso.titulo': 'Your progress',
@@ -6157,7 +6160,7 @@ export const EN: Dict = {
     'In red, so it never gets mistaken for the four above: Objectives gathers the checklist of today from all your apps. Your goals and their plans live in their own room.',
   'tut.metas.titulo': 'Goals',
   'tut.metas.resumen':
-    "The list of goals and, inside each one, its sheet: the plan that develops it (the AI proposes, you tick it off) and its timeline, where its phases take up their window as real sub-goals.",
+    'How the Goals room links up with the rest: goals are born in the other apps and gather here grouped by their own; a goal\'s sheet carries the plan that develops it (the AI proposes, you tick) and its timeline, with the phases already real sub-goals. Once dated they show up in the calendar, and their steps for today in that app\'s Missions.',
   'tut.app-biblioteca--enciclopedia.titulo': 'Your own encyclopedia',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Everything you learn is filed in a tree by field of knowledge: cards with a summary and key points that you can illustrate.',

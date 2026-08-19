@@ -25,6 +25,7 @@ export function FilaHoy({
   onAgendar,
   onDescartar,
   onIr,
+  onAnadir,
 }: {
   paso: PasoHoy
   plantillaId: string
@@ -39,11 +40,20 @@ export function FilaHoy({
    * delante. Con esto puesto, la fila se convierte en un enlace a su sección.
    */
   onIr?: (paso: PasoHoy) => void
+  /**
+   * Abrir el catálogo de sugerencias de la app. Solo lo usa la misión de ARRANQUE
+   * (`sinMisiones`), que se cumple creando una misión y no palomeándola.
+   */
+  onAnadir?: () => void
 }) {
   const t = useT()
   const { accion } = paso
+  const arranque = accion.tipo === 'sinMisiones'
 
   const alternar = async () => {
+    // La misión de arranque no se palomea: su palomita va deshabilitada y solo
+    // desaparece cuando la app ya tiene misiones de verdad.
+    if (accion.tipo === 'sinMisiones') return
     // Sonido de logro SOLO al completar (despalomar es corregir, no celebrar);
     // lo gobierna el volumen de SFX (a 0, silencio).
     if (!paso.hecho) {
@@ -84,8 +94,17 @@ export function FilaHoy({
     }
   }
 
-  const irARegistrar = () =>
-    onIr ? onIr(paso) : lanzarIntencionApp({ appId: plantillaId, seccion: paso.seccion })
+  const irARegistrar = () => {
+    // La misión de arranque no lleva a ninguna sección: abre el catálogo de
+    // sugerencias aquí mismo. En la lista de toda la casa manda `onIr`, que sí
+    // tiene a dónde ir (el cuarto), y allí el catálogo no está montado.
+    if (arranque && !onIr && onAnadir) {
+      onAnadir()
+      return
+    }
+    if (onIr) onIr(paso)
+    else lanzarIntencionApp({ appId: plantillaId, seccion: paso.seccion })
+  }
 
   return (
     <div
@@ -113,9 +132,13 @@ export function FilaHoy({
       <button
         type="button"
         onClick={() => void alternar()}
-        disabled={paso.apagado}
+        disabled={paso.apagado || arranque}
         title={
-          paso.hecho ? t('meta.desmarcar', 'Marcar como no cumplida') : t('meta.marcar', 'Marcar como cumplida')
+          arranque
+            ? t('hoy.primera.como', 'Se cumple sola en cuanto le pongas su primera misión')
+            : paso.hecho
+              ? t('meta.desmarcar', 'Marcar como no cumplida')
+              : t('meta.marcar', 'Marcar como cumplida')
         }
         className={`grid size-5 shrink-0 place-items-center rounded-full border text-[10px] transition ${
           paso.hecho
@@ -132,8 +155,9 @@ export function FilaHoy({
         type="button"
         onClick={irARegistrar}
         // Con `onIr` siempre se puede ir: sin sección se abre la portada de la
-        // app, que ya es más de lo que hacía antes (nada).
-        disabled={!onIr && !paso.seccion}
+        // app, que ya es más de lo que hacía antes (nada). La de arranque abre el
+        // catálogo, así que tampoco necesita sección.
+        disabled={!onIr && !paso.seccion && !(arranque && onAnadir)}
         className="min-w-0 flex-1 text-start disabled:cursor-default"
       >
         <p className={`truncate text-xs font-semibold ${paso.hecho ? 'text-white/40 line-through' : 'text-white/85'}`}>

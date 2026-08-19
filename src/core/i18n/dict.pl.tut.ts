@@ -375,7 +375,7 @@ export const PL_TUT: Dict = {
   'tut.ejemplos.3.texto':
     'W domu demo tego paska nie ma: cały rok Pepa już pełni tę rolę, więc osobny przykład jest zbędny.',
   'tut.hoy.1.texto':
-    'W nagłówku każdej aplikacji jest jej przycisk Misje: checklista tego, o co ta aplikacja prosi cię DZIŚ. Zegar domu ma ten sam przycisk, ze wszystkimi aplikacjami razem.',
+    'Misje nie mieszkają w osobnym miejscu: mieszkają WEWNĄTRZ każdej aplikacji. W nagłówku każdego pokoju jest jej przycisk Misje z listą tego, o co ta aplikacja prosi DZIŚ.',
   'tut.hoy.2.titulo': 'Trzy źródła, jedna lista',
   'tut.hoy.2.texto':
     'Własne cele aplikacji (woda, kalorie), to, co zaplanowałeś na dziś w kalendarzu, i kroki twoich aktualnych celów — wszystko razem, pogrupowane według planu lub celu, z którego pochodzi każdy krok.',
@@ -399,6 +399,12 @@ export const PL_TUT: Dict = {
     'Wykonanie wszystkich misji dnia odpala świętowanie i dolicza XP aplikacji: poziom rośnie za zaliczone listy, nie za pojedyncze wpisy.',
   'tut.hoy.7.texto':
     'A jeśli czegoś brakuje, «Nowa lista» tworzy twoją własną: listę tej aplikacji, która powtarza się codziennie. Cele, z których biorą się te kroki, planuje się w pokoju Cele.',
+  'tut.hoy.8.titulo': 'Czerwone kule',
+  'tut.hoy.8.texto':
+    'Ten czerwony znacznik na pokoju to liczba misji, które zostały na DZIŚ: co ci tam jeszcze zostało. Ta sama liczba pojawia się na ekranie startowym, na dymku wejścia i na kuli unoszącej się nad meblem pokoju — a robi się bursztynowa, gdy coś minęło już swoją godzinę. Brak znacznika oznacza, że ten pokój jest na bieżąco.',
+  'tut.hoy.9.titulo': 'A wszystkie razem — w kalendarzu',
+  'tut.hoy.9.texto':
+    'Przycisk Misje przy zegarze zbiera to, co trzeba dziś zrobić w CAŁYM domu, po jednej karcie na aplikację: po lewej to, czego brakuje, po prawej to, co już jest. Tutaj nic się nie zapisuje — każdy wiersz prowadzi do swojej aplikacji, bo to tam trafia dana.',
   'tut.progreso.1.texto':
     'Karta twojej postaci: za Pepem stoi cały rok prawdziwej aktywności, więc każda liczba ma tu prawdziwą historię, która ją tłumaczy.',
   'tut.progreso.2.titulo': 'Postać',
@@ -662,6 +668,9 @@ export const PL_TUT: Dict = {
   'tut.calendario.8.titulo': 'Spadki też się liczą',
   'tut.calendario.8.texto':
     'Obie dziury są prawdziwe: kontuzja kolana w siódmym miesiącu i trzy tygodnie w Japonii. Potknięcie nie kasuje postępu — panel pokazuje rok takim, jaki był, a nie takim, jaki miał być. A rutyna liczy się dopiero od dnia, w którym powstała.',
+  'tut.metas.0.titulo': 'Pokój, w którym stawiasz sobie cele',
+  'tut.metas.0.texto':
+    'Cele nie trzymają nic własnego: to miejsce, gdzie stawiasz sobie cele i gdzie widać wszystko, co sobie postawiłeś, z dowolnego pokoju. Cele rodzą się w innych aplikacjach — bieganie na Siłowni, studia w Bibliotece, oszczędzanie w Gabinecie — a tutaj zbierają się razem, pogrupowane według aplikacji, która prowadzi każdy z nich.',
   'tut.metas.1.titulo': 'Najpierw cele',
   'tut.metas.1.texto':
     'Widok otwiera się na Celach, pogrupowanych według aplikacji, która je prowadzi: bieganie w Siłowni, studia z fizyki w Bibliotece. „Dom” nie jest żadną aplikacją — to kategoria wymyślona przez Pepa na remont kuchni.',
@@ -689,6 +698,9 @@ export const PL_TUT: Dict = {
   'tut.metas.9.titulo': 'Każdy cel ma swoją oś',
   'tut.metas.9.texto':
     'Oś zawsze należy do jednego celu: tutaj nadaje się daty temu, co ich nie ma, podpina nowe podcele, a „Wróć” zabiera cię z powrotem do jego arkusza. Menu Harmonogram na górze pokazuje oś wszystkich celów razem.',
+  'tut.metas.10.titulo': 'A stąd rozchodzi się po całym domu',
+  'tut.metas.10.texto':
+    'Nic z tego nie zostaje zamknięte: cel z datami pojawia się w kalendarzu zegara jak każda inna zaplanowana rzecz, a jego dzisiejsze kroki wychodzą w Misjach aplikacji, która go prowadzi — i na czerwonym znaczniku tego pokoju. Tutaj się planuje; realizuje się w aplikacji, zapisując naprawdę.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Rok studiów w jednym drzewie',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep studiuje fizykę: mechanika na początku roku, termodynamika w okolicach kolokwium w szóstym miesiącu, względność i astrofizyka na koniec. Każda gałąź otwiera się, żeby pokazać swoje wpisy.',

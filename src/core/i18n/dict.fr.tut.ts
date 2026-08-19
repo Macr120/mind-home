@@ -377,7 +377,7 @@ export const FR_TUT: Dict = {
   'tut.ejemplos.3.texto':
     'Dans la maison de démo, cette barre n’apparaît pas : l’année entière de Pep joue déjà ce rôle, pas besoin d’un exemple à part.',
   'tut.hoy.1.texto':
-    'Dans l\'en-tête de chaque appli vit son bouton Missions : la checklist de ce que cette appli te demande AUJOURD\'HUI. L\'horloge de la maison a le même bouton avec toutes les applis réunies.',
+    'Les missions ne vivent pas dans un coin à part : elles vivent DANS chaque app. En haut de chaque pièce se trouve son bouton Missions, avec la liste de ce que cette app te demande AUJOURD’HUI.',
   'tut.hoy.2.titulo': 'Trois sources, une liste',
   'tut.hoy.2.texto':
     'Les objectifs propres à l\'appli (l\'eau, les calories), ce que tu as programmé pour aujourd\'hui dans le calendrier et les étapes de tes objectifs en cours : tout ensemble, regroupé sous le plan ou l\'objectif dont vient chaque étape.',
@@ -401,6 +401,12 @@ export const FR_TUT: Dict = {
     'Terminer toutes les missions du jour déclenche la célébration et ajoute les XP de l’app : le niveau grandit par listes accomplies, pas par enregistrements isolés.',
   'tut.hoy.7.texto':
     'Et s\'il te manque quelque chose, « Nouvelle checklist » crée la tienne : une liste propre à cette appli qui se répète chaque jour. Les objectifs d\'où viennent ces étapes se planifient dans la pièce Objectifs.',
+  'tut.hoy.8.titulo': 'Les orbes rouges',
+  'tut.hoy.8.texto':
+    'Cette pastille rouge sur une pièce, c’est son compte de missions encore en attente AUJOURD’HUI : ce qu’il te reste à y faire. Le même chiffre apparaît sur l’écran d’accueil, sur la bulle d’entrée et sur l’orbe qui flotte au-dessus du meuble de la pièce — et il passe à l’ambre quand quelque chose a déjà dépassé son heure. Sans pastille, cette pièce est à jour.',
+  'tut.hoy.9.titulo': 'Et toutes ensemble, dans le calendrier',
+  'tut.hoy.9.texto':
+    'Le bouton Missions de l’horloge réunit ce qu’il y a à faire aujourd’hui dans TOUTE la maison, une carte par app : à gauche ce qui manque, à droite ce qui est fait. Ici on n’enregistre rien — chaque ligne t’emmène dans son app, là où la donnée s’inscrit.',
   'tut.progreso.1.texto':
     'La fiche de ton personnage : derrière Pep, il y a une année entière d’activité réelle, donc chaque chiffre ici a une vraie histoire qui l’explique.',
   'tut.progreso.2.titulo': 'Le personnage',
@@ -666,6 +672,9 @@ export const FR_TUT: Dict = {
   'tut.calendario.8.titulo': 'Les creux comptent aussi',
   'tut.calendario.8.texto':
     'Les deux trous sont réels : la blessure au genou du mois 7 et les trois semaines au Japon. Rater des jours n’efface pas les progrès — le panneau montre l’année telle qu’elle a été, pas telle qu’elle aurait dû être. Et une routine ne compte qu’à partir du jour où tu l’as créée.',
+  'tut.metas.0.titulo': 'Une pièce pour se fixer des choses',
+  'tut.metas.0.texto':
+    'Objectifs ne garde rien en propre : c’est là que tu te fixes des choses et que tu vois tout ce que tu t’es fixé, quelle que soit la pièce d’origine. Les objectifs naissent dans les autres apps — courir dans Gym, les études dans Bibliothèque, épargner dans Bureau — et ici ils se réunissent, regroupés par l’app qui porte chacun.',
   'tut.metas.1.titulo': 'D’abord, les objectifs',
   'tut.metas.1.texto':
     'La vue s’ouvre sur Objectifs, groupés par l’app qui les porte : la course dans Gym, la licence de physique dans Bibliothèque. « Maison » n’est aucune app — cette catégorie, Pep l’a inventée pour les travaux de la cuisine.',
@@ -693,6 +702,9 @@ export const FR_TUT: Dict = {
   'tut.metas.9.titulo': 'Chaque objectif, son axe',
   'tut.metas.9.texto':
     'L’axe est toujours celui d’un objectif : ici on donne des dates à ce qui n’en a pas, on accroche de nouveaux sous-objectifs et « Retour » te ramène à sa feuille. Le menu Planning en haut montre celui de tous les objectifs réunis.',
+  'tut.metas.10.titulo': 'Et d’ici ça part vers toute la maison',
+  'tut.metas.10.texto':
+    'Rien de tout ça ne reste enfermé : un objectif daté apparaît dans le calendrier de l’horloge comme n’importe quoi d’autre de planifié, et ses étapes du jour sortent dans les Missions de l’app qui le porte — et dans la pastille rouge de cette pièce. Ici on planifie ; on accomplit dans l’app, en enregistrant pour de vrai.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Une année d’études, en un arbre',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep étudie la physique : la mécanique en début d’année, la thermodynamique vers le partiel du mois 6, la relativité et l’astrophysique à la fin. Chaque branche s’ouvre pour voir ses fiches.',

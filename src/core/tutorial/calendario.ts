@@ -149,6 +149,16 @@ export const cuerpoMetas: CuerpoTutorial = {
   },
   pasos: [
     {
+      // Sin `sel`: la tarjeta acompaña al mago mientras el cuarto termina de
+      // montar. Es el encuadre del tour — de qué va este cuarto y con qué habla —,
+      // porque el recorrido de sus tres menús es el esencial de la app.
+      titulo: T('tut.metas.0.titulo', 'Un cuarto para proponerte cosas'),
+      texto: T(
+        'tut.metas.0.texto',
+        'Metas no guarda nada suyo: es donde te propones cosas y donde se ve todo lo que te propusiste, venga del cuarto que venga. Las metas nacen en las demás apps —correr en Ejercicio, la carrera en Biblioteca, ahorrar en el Despacho— y aquí se juntan agrupadas por la app que lleva cada una.',
+      ),
+    },
+    {
       sel: 'cal.metas.grupo',
       titulo: T('tut.metas.1.titulo', 'Primero, las metas'),
       texto: T(
@@ -240,6 +250,15 @@ export const cuerpoMetas: CuerpoTutorial = {
       texto: T(
         'tut.metas.9.texto',
         'Este eje es el de UNA meta: aquí se le dan fechas a lo que no las tiene, se cuelgan sub-metas nuevas y «Volver» te regresa a su hoja. El menú Cronograma de arriba enseña el de todas juntas.',
+      ),
+    },
+    {
+      // Cierre del tour: el camino de vuelta. Sin `sel` porque lo que cuenta pasa
+      // en OTRAS pantallas (el reloj y el panel de cada cuarto), no en esta.
+      titulo: T('tut.metas.10.titulo', 'Y de aquí sale hacia toda la casa'),
+      texto: T(
+        'tut.metas.10.texto',
+        'Nada de esto se queda encerrado: una meta con fechas aparece en el calendario del reloj como cualquier otra cosa agendada, y sus pasos de hoy salen en las Misiones de la app que la lleva —y en el globo rojo de ese cuarto—. Aquí se planea; se cumple en la app, registrando de verdad.',
       ),
     },
   ],

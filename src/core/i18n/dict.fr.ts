@@ -370,6 +370,8 @@ export const FR: Dict = {
   'meta.desmarcar': 'Marquer comme non fait',
   'meta.agendar': 'Planifier dans l’agenda',
   'hoy.titulo': 'Missions',
+  'hoy.primera': 'Donne ses missions à cette app',
+  'hoy.primera.como': 'Elle se remplit toute seule dès que tu crées ta première mission',
   'hoy.alDia': 'Tout est fait pour aujourd’hui',
   'hoy.hechos': 'Faits ({n})',
   'hoy.registrar': 'Enregistrer',
@@ -5407,7 +5409,7 @@ export const FR: Dict = {
     'Presque chaque app a une barre pour voir un exemple prêt à l’emploi déjà rempli, et le masquer ensuite sans rien perdre de ce qui t’appartient. Il n’apparaît pas dans la maison de démo : là-bas, l’année entière EST déjà l’exemple.',
   'tut.hoy.titulo': 'À faire aujourd’hui',
   'tut.hoy.resumen':
-    'La liste Aujourd’hui de chaque app réunit trois choses en un seul endroit : les objectifs du jour de cette app, ce que tu as programmé pour aujourd’hui et les étapes de tes objectifs en cours. Une étape est faite parce que l’enregistrement existe déjà dans l’app, pas parce que quelqu’un l’a cochée à la main.',
+    'Les missions vivent dans chaque app : son bouton Missions réunit la journée dans un panneau — en haut les objectifs de cette app, en bas la liste du jour avec ses cibles, ce qui est planifié et les étapes de tes objectifs en cours. Une étape est faite parce que l’enregistrement existe déjà dans l’app, pas parce que quelqu’un l’a cochée. La pastille rouge d’une pièce, c’est ce qu’il lui reste aujourd’hui, et le bouton Missions de l’horloge montre celle de toutes les apps à la fois.',
   'tut.progreso.titulo': 'Ta progression',
   'tut.progreso.resumen':
     'Ton personnage vit de ton activité réelle : son humeur, son niveau, la Montagne de Sisyphe (rang et badges) et le radar d’XP par pièce. Tout est calculé à partir de ce que tu as déjà enregistré, rien n’est déclaré à la main.',
@@ -6023,7 +6025,7 @@ export const FR: Dict = {
     'En rouge, pour ne pas la confondre avec les quatre du dessus : Objectifs ouvre tes objectifs, leurs plans et le planning.',
   'tut.metas.titulo': 'Objectifs',
   'tut.metas.resumen':
-    'Les trois écrans d’un objectif : la liste où il naît, le plan qui le développe (l’IA le propose et tu le coches) et le planning où ses phases occupent leur période, déjà comme de vrais sous-objectifs.',
+    'Comment la pièce Objectifs se relie au reste : les objectifs naissent dans les autres apps et se réunissent ici, regroupés par la leur ; leur fiche porte le plan qui les développe (l’IA propose, tu coches) et leur planning, avec les phases déjà en sous-objectifs réels. Une fois datés, ils apparaissent dans le calendrier, et leurs étapes du jour dans les Missions de cette app.',
   'tut.app-biblioteca--enciclopedia.titulo': 'Ta propre encyclopédie',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Tout ce que tu apprends s’archive dans un arbre par domaine de connaissance : des fiches avec un résumé et des points clés que tu peux illustrer.',

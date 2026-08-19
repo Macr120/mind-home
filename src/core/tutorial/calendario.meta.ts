@@ -1,8 +1,15 @@
 import type { CuerpoTutorial, TextoTut, TutorialDef } from './tipos'
+import { tutorialHoy } from './nucleo.meta'
 
 /**
  * Fichas de los tres tours del reloj (calendario, metas y los chips de
  * enlace). Los pasos viven en `calendario.ts`, que solo baja al lanzarlos.
+ *
+ * Con ellos viaja «Misiones» (`tutorialHoy`, que vive en `nucleo.meta.ts`): es
+ * suyo por tema —el botón rojo del calendario y el de cada cuarto son la misma
+ * lista— y estaba enterrado en la página 2 del selector, donde no lo encontraba
+ * nadie. Se REUTILIZA en vez de duplicarlo: dos tours llamados «Misiones» en la
+ * misma lista no distinguirían nada.
  */
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
@@ -34,7 +41,7 @@ export const tutorialMetas = tour(
   T('tut.metas.titulo', 'Metas'),
   T(
     'tut.metas.resumen',
-    'La lista de metas y, dentro de cada una, su hoja: el plan que la desarrolla (la IA lo propone y tú lo palomeas) y su cronograma, donde sus fases ocupan su periodo ya como sub-metas reales.',
+    'Cómo el cuarto de Metas se enlaza con el resto: las metas nacen en las demás apps y aquí se juntan agrupadas por la suya; su hoja lleva el plan que la desarrolla (la IA lo propone y tú lo palomeas) y su cronograma, con las fases ya como sub-metas reales. Con fechas puestas salen en el calendario, y sus pasos de hoy en las Misiones de esa app.',
   ),
   'cuerpoMetas',
 )
@@ -67,9 +74,10 @@ export const esencialCalendario = tour(
 
 export const FLUJOS_CALENDARIO: TutorialDef[] = [
   tutorialCalendario,
+  tutorialHoy,
   tutorialMetas,
   tutorialEnlaces,
 ]
 
-/** Los flujos del CUARTO Metas (su «?»): los dos tours que abren esa app. */
-export const FLUJOS_METAS: TutorialDef[] = [tutorialMetas, tutorialEnlaces]
+/** Los flujos del CUARTO Metas (su «?»): los tours que abren esa app. */
+export const FLUJOS_METAS: TutorialDef[] = [tutorialMetas, tutorialHoy, tutorialEnlaces]

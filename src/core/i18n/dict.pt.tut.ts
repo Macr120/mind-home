@@ -373,7 +373,7 @@ export const PT_TUT: Dict = {
   'tut.ejemplos.3.texto':
     'Dentro da casa demo esta barra não aparece: o ano inteiro de Pep@ já cumpre esse papel, então não precisa de um exemplo à parte.',
   'tut.hoy.1.texto':
-    'No cabeçalho de cada app fica o seu botão Missões: o checklist do que esse app pede de você HOJE. O relógio da casa tem o mesmo botão com todos os apps juntos.',
+    'As missões não moram em um lugar à parte: moram DENTRO de cada app. No cabeçalho de cada cômodo está o botão Missões, com a lista do que esse app pede de você HOJE.',
   'tut.hoy.2.titulo': 'Três fontes, uma lista',
   'tut.hoy.2.texto':
     'Os objetivos próprios do app (a água, as calorias), o que você agendou para hoje no calendário e os passos das suas metas em curso: tudo junto, agrupado sob o plano ou a meta de onde vem cada passo.',
@@ -397,6 +397,12 @@ export const PT_TUT: Dict = {
     'Completar todas as missões do dia acende a celebração e soma o XP do app: o nível cresce por listas cumpridas, não por registros soltos.',
   'tut.hoy.7.texto':
     'E se faltar algo, «Novo checklist» cria o seu: uma lista própria deste app que se repete todo dia. As metas de onde saem esses passos são planejadas no cômodo Metas.',
+  'tut.hoy.8.titulo': 'Os orbes vermelhos',
+  'tut.hoy.8.texto':
+    'Aquele balão vermelho sobre um cômodo é a conta de missões pendentes de HOJE: o que falta fazer ali. O mesmo número aparece na tela inicial, no balão de entrar e no orbe que flutua sobre o móvel do cômodo — e fica âmbar quando algo já passou da hora. Sem balão, esse cômodo está em dia.',
+  'tut.hoy.9.titulo': 'E todas juntas, no calendário',
+  'tut.hoy.9.texto':
+    'O botão Missões do relógio junta o que há para fazer hoje na casa INTEIRA, um cartão por app: à esquerda o que falta, à direita o que já está feito. Aqui não se registra nada — cada linha leva você ao app, que é onde o dado é anotado.',
   'tut.progreso.1.texto':
     'A carta do seu personagem: Pep@ tem um ano inteiro de atividade real por trás, então cada número aqui tem uma história real que o explica.',
   'tut.progreso.2.titulo': 'O personagem',
@@ -660,6 +666,9 @@ export const PT_TUT: Dict = {
   'tut.calendario.8.titulo': 'As quedas também contam',
   'tut.calendario.8.texto':
     'Os dois buracos são reais: a lesão no joelho do mês 7 e as três semanas no Japão. Falhar não apaga o progresso — o painel mostra o ano como ele foi, não como devia ter sido. E uma rotina só conta a partir do dia em que você a criou.',
+  'tut.metas.0.titulo': 'Um cômodo para se propor coisas',
+  'tut.metas.0.texto':
+    'Metas não guarda nada próprio: é onde você se propõe coisas e onde se vê tudo o que você se propôs, venha do cômodo que vier. As metas nascem nos outros apps — correr na Academia, a faculdade na Biblioteca, poupar no Escritório — e aqui se juntam agrupadas pelo app que cuida de cada uma.',
   'tut.metas.1.titulo': 'Primeiro, as metas',
   'tut.metas.1.texto':
     'O cômodo abre em Metas, agrupadas pelo app que cuida delas: correr em Exercício, o curso de física em Biblioteca. «Casa» não é nenhum app — essa categoria Pep@ inventou para a reforma da cozinha.',
@@ -687,6 +696,9 @@ export const PT_TUT: Dict = {
   'tut.metas.9.titulo': 'Cada meta, seu eixo',
   'tut.metas.9.texto':
     'Este eixo é o de UMA meta: aqui você dá datas ao que não as tem, pendura submetas novas e «Voltar» devolve você à folha dela. O menu Cronograma de cima mostra o de todas juntas.',
+  'tut.metas.10.titulo': 'E daqui sai para a casa inteira',
+  'tut.metas.10.texto':
+    'Nada disso fica trancado: uma meta com datas aparece no calendário do relógio como qualquer outra coisa agendada, e os passos de hoje saem nas Missões do app que cuida dela — e no balão vermelho daquele cômodo. Aqui se planeja; cumpre-se no app, registrando de verdade.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Um ano de curso, em uma árvore',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep@ estuda Física: mecânica no começo do ano, termodinâmica perto da prova do mês 6, relatividade e astrofísica no fim. Cada ramo se abre para ver suas fichas.',

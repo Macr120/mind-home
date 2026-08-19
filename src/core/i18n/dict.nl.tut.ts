@@ -376,7 +376,7 @@ export const NL_TUT: Dict = {
   'tut.ejemplos.3.texto':
     'In het demohuis zie je deze balk niet: het hele jaar van Pep vervult die rol al, dus een apart voorbeeld is overbodig.',
   'tut.hoy.1.texto':
-    'In de header van elke app zit zijn knop Missies: de checklist van wat die app VANDAAG van je vraagt. De klok van het huis heeft dezelfde knop met alle apps samen.',
+    'Missies wonen niet op een aparte plek: ze wonen IN elke app. Boven aan elke kamer staat de knop Missies, met de checklist van wat die app VANDAAG van je vraagt.',
   'tut.hoy.2.titulo': 'Drie bronnen, één lijst',
   'tut.hoy.2.texto':
     'De eigen doelen van de app (water, calorieën), wat je vandaag in de kalender hebt ingepland, en de stappen van je lopende doelen: alles samen, gegroepeerd onder het plan of doel waar elke stap vandaan komt.',
@@ -400,6 +400,12 @@ export const NL_TUT: Dict = {
     'Alle missies van de dag afronden ontsteekt het feestje en telt de XP van de app erbij op: het niveau groeit door afgemaakte lijsten, niet door losse registraties.',
   'tut.hoy.7.texto':
     'En als je iets mist, maakt «Nieuwe checklist» je eigen lijst: een lijst van deze app die elke dag terugkomt. De doelen waar deze stappen uit komen, plan je in de kamer Doelen.',
+  'tut.hoy.8.titulo': 'De rode bollen',
+  'tut.hoy.8.texto':
+    'Dat rode bolletje op een kamer is het aantal missies dat VANDAAG nog openstaat: wat je daar nog te doen hebt. Hetzelfde getal verschijnt op het startscherm, op de instapbel en op de bol die boven het meubel van de kamer zweeft — en het wordt amber zodra iets al over zijn tijd is. Geen bolletje betekent dat die kamer bij is.',
+  'tut.hoy.9.titulo': 'En allemaal samen, in de agenda',
+  'tut.hoy.9.texto':
+    'De knop Missies bij de klok bundelt wat er vandaag in het HELE huis te doen is, één kaart per app: links wat er nog is, rechts wat al klaar is. Hier leg je niets vast — elke regel brengt je naar de app, want daar wordt het gegeven genoteerd.',
   'tut.progreso.1.texto':
     'De kaart van je personage: Pep heeft een heel jaar echte activiteit achter zich, dus elk getal hier heeft een echt verhaal dat het verklaart.',
   'tut.progreso.2.titulo': 'Het personage',
@@ -665,6 +671,9 @@ export const NL_TUT: Dict = {
   'tut.calendario.8.titulo': 'De dalen tellen ook mee',
   'tut.calendario.8.texto':
     'Die twee gaten zijn echt: de knieblessure in maand 7 en de drie weken in Japan. Missen wist je voortgang niet uit — het paneel toont het jaar zoals het was, niet zoals het had moeten zijn. En een routine telt pas mee vanaf de dag dat je hem aanmaakte.',
+  'tut.metas.0.titulo': 'Een kamer om jezelf iets voor te nemen',
+  'tut.metas.0.texto':
+    'Doelen bewaart niets van zichzelf: het is waar je jezelf iets voorneemt en waar je alles ziet wat je je hebt voorgenomen, uit welke kamer het ook komt. Doelen ontstaan in de andere apps — hardlopen in de Gym, de studie in de Bibliotheek, sparen in de Werkkamer — en hier komen ze samen, gegroepeerd per app die elk doel draagt.',
   'tut.metas.1.titulo': 'Eerst de doelen',
   'tut.metas.1.texto':
     'De weergave opent op Doelen, gegroepeerd per app die ze bijhoudt: hardlopen onder Gym, de studie natuurkunde onder Bibliotheek. “Huis” is geen app — die categorie bedacht Pep zelf voor de verbouwing van de keuken.',
@@ -692,6 +701,9 @@ export const NL_TUT: Dict = {
   'tut.metas.9.titulo': 'Elk doel zijn eigen as',
   'tut.metas.9.texto':
     'Deze as is die van één doel: hier geef je data aan wat er nog geen heeft, hang je er nieuwe subdoelen aan en brengt «Terug» je terug naar zijn blad. Het menu Planning bovenaan toont die van allemaal samen.',
+  'tut.metas.10.titulo': 'En van hieruit gaat het het hele huis door',
+  'tut.metas.10.texto':
+    'Niets hiervan blijft opgesloten: een doel met datums verschijnt in de agenda van de klok als al het andere geplande, en zijn stappen van vandaag komen terug in de Missies van de app die het draagt — en in het rode bolletje van die kamer. Hier plan je; je maakt het waar in de app, door echt vast te leggen.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Een jaar studie, in één boom',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep studeert natuurkunde: mechanica aan het begin van het jaar, thermodynamica richting het tentamen in maand 6, relativiteit en astrofysica aan het eind. Elke tak klapt open en toont zijn items.',

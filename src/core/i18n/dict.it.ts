@@ -369,6 +369,8 @@ export const IT: Dict = {
   'meta.desmarcar': 'Segna come non fatto',
   'meta.agendar': 'Aggiungi al calendario',
   'hoy.titulo': 'Missioni',
+  'hoy.primera': 'Dai le sue missioni a quest’app',
+  'hoy.primera.como': 'Si compie da sola appena crei la prima missione',
   'hoy.alDia': 'Tutto fatto per oggi',
   'hoy.hechos': 'Fatti ({n})',
   'hoy.registrar': 'Registra',
@@ -5384,7 +5386,7 @@ export const IT: Dict = {
     'Quasi ogni app ha una barra per vedere un esempio pronto con i dati già inseriti, e nasconderlo dopo senza perdere nulla di tuo. Non compare nella casa demo: lì l\'anno intero È GIÀ l\'esempio.',
   'tut.hoy.titulo': 'Oggi',
   'tut.hoy.resumen':
-    'La lista Oggi di ogni app riunisce tre cose in un unico posto: i traguardi del giorno di quell\'app, quello che hai programmato per oggi e i passi dei tuoi obiettivi attivi. Un passo si completa perché la registrazione esiste già nell\'app, non perché qualcuno l\'ha spuntato a mano.',
+    'Le missioni vivono dentro ogni app: il suo pulsante Missioni raccoglie la giornata in un pannello — sopra gli obiettivi di quell’app, sotto l’elenco di oggi con i suoi traguardi, ciò che è in programma e i passi dei tuoi obiettivi in corso. Un passo è fatto perché la registrazione esiste già nell’app, non perché qualcuno l’ha spuntato. Il pallino rosso di una stanza è ciò che le resta oggi, e il pulsante Missioni dell’orologio mostra quello di tutte le app insieme.',
   'tut.progreso.titulo': 'I tuoi progressi',
   'tut.progreso.resumen':
     'Il tuo personaggio vive della tua attività reale: il suo umore, il suo livello, la Montagna di Sisifo (grado e distintivi) e il radar XP per stanza. Tutto si calcola da quello che hai già registrato, niente si imposta a mano.',
@@ -5996,7 +5998,7 @@ export const IT: Dict = {
     'In rosso, per non confonderlo con i quattro sopra: Obiettivi apre i tuoi obiettivi, i loro piani e il programma.',
   'tut.metas.titulo': 'Obiettivi',
   'tut.metas.resumen':
-    'Le tre schermate di un obiettivo: la lista dove nasce, il piano che lo sviluppa (l\'IA lo propone e tu lo spunti) e il programma dove le sue fasi occupano il loro periodo, ormai come veri sotto-obiettivi.',
+    'Come la stanza Obiettivi si lega al resto: gli obiettivi nascono nelle altre app e qui si riuniscono raggruppati per la propria; la loro scheda porta il piano che li sviluppa (l’IA propone, tu spunti) e il loro cronoprogramma, con le fasi già come sotto-obiettivi reali. Con le date compaiono nel calendario, e i loro passi di oggi nelle Missioni di quell’app.',
   'tut.app-biblioteca--enciclopedia.titulo': 'La tua enciclopedia personale',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Tutto ciò che impari viene archiviato in un albero per campo di conoscenza: schede con riepilogo e punti chiave che puoi illustrare.',

@@ -10,10 +10,16 @@ import { appsAsignadas } from '../bienvenida/bienvenidaStore'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
-/** App del cuarto de demostración: la Agenda o, si ya está asignada, la primera libre. */
+/**
+ * App del cuarto de demostración: **Metas**, para que ese cuarto exista desde el
+ * primer día — es el planificador de toda la casa y donde caen las metas que
+ * nacen en las demás apps. Si el usuario ya lo eligió en el paso «intereses» del
+ * asistente, se cae a la primera app libre (crear un segundo cuarto de Metas no
+ * enseñaría nada).
+ */
 function plantillaDemo(): string | null {
   const ya = appsAsignadas()
-  if (getPlantilla('agenda') && !ya.has('agenda')) return 'agenda'
+  if (getPlantilla('metas') && !ya.has('metas')) return 'metas'
   return plantillasCuarto().find((p) => !ya.has(p.id))?.id ?? null
 }
 

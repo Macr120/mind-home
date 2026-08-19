@@ -162,6 +162,9 @@ export function ListaHoy({
                 fecha={fecha}
                 color={color}
                 onAgendar={agendar}
+                // La misión de arranque de una app vacía: tocarla abre el mismo
+                // catálogo de sugerencias que «Añadir misión».
+                onAnadir={() => setAnadiendo(true)}
               />
             ))}
           </div>

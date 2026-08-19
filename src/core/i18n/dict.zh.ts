@@ -362,6 +362,8 @@ export const ZH: Dict = {
   'meta.desmarcar': '标记为未完成',
   'meta.agendar': '添加到日历',
   'hoy.titulo': '任务',
+  'hoy.primera': '给这个应用设置它的任务',
+  'hoy.primera.como': '只要建好第一个任务，它就自动完成了',
   'hoy.alDia': '今天的都完成了',
   'hoy.hechos': '已完成（{n}）',
   'hoy.registrar': '记录',
@@ -5171,7 +5173,8 @@ export const ZH: Dict = {
   'tut.ejemplos.titulo': '从示例开始',
   'tut.ejemplos.resumen': '几乎每个应用都有一个栏，能看到已经填好数据的示例，之后再隐藏也不会丢失你自己的内容。演示的家里不会出现它——那里整整一年本身就是示例。',
   'tut.hoy.titulo': '今日清单',
-  'tut.hoy.resumen': '每个应用的“今日”清单把三件事汇总在一处：这个应用当天的目标、你今天安排的日程，以及正在进行的目标的步骤。一个步骤完成，是因为应用里已经有记录，而不是有人手动勾选。',
+  'tut.hoy.resumen':
+    '任务住在每个应用里面：它的任务按钮把这一天收进一个面板——上面是这个应用的目标，下面是今天的清单，包含它的指标、已安排的事和你正在进行的目标的步骤。一个步骤被划掉，是因为应用里已经有了记录，而不是因为谁手动打了勾。房间上的红点是它今天还剩下的事，而时钟上的任务按钮会把所有应用的一起显示出来。',
   'tut.progreso.titulo': '你的进度',
   'tut.progreso.resumen': '你的角色靠真实活动生活：心情、等级、西西弗斯之山（段位和徽章）以及按房间划分的经验值雷达图。一切都从你已经记录的内容计算出来，没有一项是手动设置的。',
   'tut.wrapped.titulo': 'Wrapped：你的回顾',
@@ -5724,7 +5727,8 @@ export const ZH: Dict = {
   'tut.calendario.3b.titulo': '目标单独一栏',
   'tut.calendario.3b.texto': '用红色标出,避免和上面四个混淆:“目标”能打开你的目标、计划和日程。',
   'tut.metas.titulo': '目标',
-  'tut.metas.resumen': '目标有三个界面:目标诞生的列表、把它具体化的计划(由AI提出,你来打钩确认)、以及它的各阶段作为真正的子目标占据日程的时间表。',
+  'tut.metas.resumen':
+    '目标房间是怎么和其他部分连起来的：目标诞生在别的应用里，到这里按各自的应用分组聚在一起；每个目标的卡片里有展开它的计划（AI 提议，你来确认）和它的时间轴，各阶段已经是真正的子目标。定了日期就会出现在日历里，今天的步骤则出现在那个应用的任务里。',
   'tut.app-biblioteca--enciclopedia.titulo': '专属百科全书',
   'tut.app-biblioteca--enciclopedia.resumen': '你学到的一切都会归档在按知识领域分类的树状结构里:带摘要和要点的卡片,还能配上插图。',
   'tut.app-biblioteca--charlas.titulo': '聊天与提炼',

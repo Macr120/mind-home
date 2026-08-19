@@ -370,7 +370,7 @@ export const TR_TUT: Dict = {
   'tut.ejemplos.3.texto':
     'Demo evinin içinde bu çubuk görünmez: Pep’in bir yıllık geçmişi zaten bu işi görüyor, ayrıca bir örneğe gerek yok.',
   'tut.hoy.1.texto':
-    'Her uygulamanın başlığında kendi Görevler düğmesi var: o uygulamanın BUGÜN senden istediklerinin kontrol listesi. Evin saatinde de aynı düğme var, tüm uygulamalar bir arada.',
+    'Görevler ayrı bir yerde durmaz: her uygulamanın İÇİNDE yaşar. Her odanın başlığında Görevler düğmesi vardır; içinde o uygulamanın BUGÜN senden istediklerinin listesi bulunur.',
   'tut.hoy.2.titulo': 'Üç kaynak, tek liste',
   'tut.hoy.2.texto':
     'Uygulamanın kendi hedefleri (su, kalori), bugün için takvime eklediklerin ve devam eden hedeflerinin adımları — hepsi bir arada, her adımın geldiği plan veya hedefe göre gruplanmış.',
@@ -394,6 +394,12 @@ export const TR_TUT: Dict = {
     'Günün bütün görevlerini tamamlamak kutlamayı başlatır ve uygulamanın XP’sini ekler: seviye, tamamlanan listelerle büyür, tek tük kayıtlarla değil.',
   'tut.hoy.7.texto':
     'Bir şey eksikse, «Yeni kontrol listesi» kendininkini oluşturur: her gün tekrarlanan, bu uygulamaya özel bir liste. Bu adımların çıktığı hedefler ise Hedefler odasında planlanır.',
+  'tut.hoy.8.titulo': 'Kırmızı küreler',
+  'tut.hoy.8.texto':
+    'Bir odanın üstündeki o kırmızı balon, BUGÜN orada bekleyen görev sayısıdır: sana orada kalanlar. Aynı sayı ana ekranda, giriş balonunda ve odanın mobilyasının üstünde süzülen kürede de çıkar — ve bir şeyin saati geçtiyse kehribar rengine döner. Balon yoksa o oda bugünlük tamamdır.',
+  'tut.hoy.9.titulo': 'Ve hepsi bir arada, takvimde',
+  'tut.hoy.9.texto':
+    'Saatteki Görevler düğmesi, bugün EVİN tamamında yapılacakları uygulama başına birer kartta toplar: solda eksik olanlar, sağda bitenler. Burada hiçbir şey kaydedilmez — her satır seni uygulamasına götürür, veri orada yazılır.',
   'tut.progreso.1.texto':
     'Karakterinin kartı: Pep’in arkasında bir yıllık gerçek etkinlik var, yani buradaki her sayının onu açıklayan gerçek bir hikâyesi var.',
   'tut.progreso.2.titulo': 'Karakter',
@@ -658,6 +664,9 @@ export const TR_TUT: Dict = {
   'tut.calendario.8.titulo': 'Düşüşler de sayılır',
   'tut.calendario.8.texto':
     'İki çukur da gerçek: 7. aydaki diz sakatlığı ve Japonya’daki üç hafta. Aksatmak ilerlemeyi silmez — panel yılı olması gerektiği gibi değil, olduğu gibi gösterir. Ve bir rutin ancak onu oluşturduğun günden itibaren sayılır.',
+  'tut.metas.0.titulo': 'Kendine bir şeyler koymak için bir oda',
+  'tut.metas.0.texto':
+    'Hedefler kendine ait bir şey tutmaz: kendine hedef koyduğun ve koyduğun her şeyi gördüğün yerdir, hangi odadan gelirse gelsin. Hedefler diğer uygulamalarda doğar — Spor Salonu’nda koşu, Kütüphane’de bölüm, Çalışma Odası’nda birikim — ve burada, her birini taşıyan uygulamaya göre gruplanıp bir araya gelir.',
   'tut.metas.1.titulo': 'Önce hedefler',
   'tut.metas.1.texto':
     'Oda Hedefler ile açılır ve hedefler onları taşıyan uygulamaya göre gruplanır: koşu Spor Salonu’nda, fizik bölümü Kütüphane’de. «Ev» hiçbir uygulama değil — o kategoriyi Pep mutfak tadilatı için kendi uydurdu.',
@@ -685,6 +694,9 @@ export const TR_TUT: Dict = {
   'tut.metas.9.titulo': 'Her hedefin kendi ekseni',
   'tut.metas.9.texto':
     'Bu eksen tek bir hedefin eksenidir: tarihi olmayana burada tarih verilir, yeni alt hedefler bağlanır ve «Dön» seni onun sayfasına geri götürür. Yukarıdaki Zaman Çizelgesi menüsü ise hepsini bir arada gösterir.',
+  'tut.metas.10.titulo': 'Ve buradan evin tamamına yayılır',
+  'tut.metas.10.texto':
+    'Bunların hiçbiri burada kapalı kalmaz: tarihi olan bir hedef, planlanmış her şey gibi saatin takviminde görünür ve bugünkü adımları onu taşıyan uygulamanın Görevler’inde — ve o odanın kırmızı balonunda — çıkar. Burada planlanır; uygulamada, gerçekten kaydederek tamamlanır.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Bir yıllık öğrenim, tek bir ağaçta',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep Fizik okuyor: yılın başında mekanik, 6. aydaki vizeye doğru termodinamik, sonunda görelilik ve astrofizik. Her dal, girdilerini görmek için açılır.',

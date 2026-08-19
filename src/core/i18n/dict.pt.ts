@@ -366,6 +366,8 @@ export const PT: Dict = {
   'meta.desmarcar': 'Marcar como não cumprida',
   'meta.agendar': 'Agendar no calendário',
   'hoy.titulo': 'Missões',
+  'hoy.primera': 'Dê suas missões a este app',
+  'hoy.primera.como': 'Ela se cumpre sozinha assim que você criar a primeira missão',
   'hoy.alDia': 'Tudo feito por hoje',
   'hoy.hechos': 'Feitos ({n})',
   'hoy.registrar': 'Registrar',
@@ -5354,7 +5356,7 @@ export const PT: Dict = {
     'Quase todo app traz uma barra para ver um exemplo pronto com dados já preenchidos, e ocultá-lo depois sem perder nada seu. Não aparece dentro da casa demo: ali o ano inteiro JÁ é o exemplo.',
   'tut.hoy.titulo': 'Missões',
   'tut.hoy.resumen':
-    'O botão Missões de cada app junta o do dia num painel: em cima as metas desse app e embaixo o checklist de hoje — seus objetivos, o que está agendado e os passos das suas metas vigentes. Um passo é cumprido porque o registro já existe no app, não porque alguém marcou na mão.',
+    'As missões moram dentro de cada app: o botão Missões junta o dia em um painel — em cima as metas desse app, embaixo a lista de hoje com seus objetivos, o que foi agendado e os passos das suas metas vigentes. Um passo é cumprido porque o registro já existe no app, não porque alguém marcou. O balão vermelho de um cômodo é o que falta ali hoje, e o botão Missões do relógio mostra o de todos os apps juntos.',
   'tut.progreso.titulo': 'Seu progresso',
   'tut.progreso.resumen':
     'Seu personagem vive da sua atividade real: o humor, o nível, a Montanha de Sísifo (patente e emblemas) e o radar de XP por cômodo. Tudo é calculado do que você já registrou, nada é declarado na mão.',
@@ -5957,7 +5959,7 @@ export const PT: Dict = {
     'Em vermelho, para não confundir com as quatro de cima: Objetivos reúne o checklist de hoje de todos os seus apps. Suas metas e seus planos ficam em um cômodo próprio.',
   'tut.metas.titulo': 'Metas',
   'tut.metas.resumen':
-    'A lista de metas e, dentro de cada uma, sua folha: o plano que a desenvolve (a IA propõe e você confirma) e seu cronograma, onde suas fases ocupam seu período, já como submetas reais.',
+    'Como o cômodo Metas se liga ao resto: as metas nascem nos outros apps e aqui se juntam agrupadas pelo seu; a folha de cada uma traz o plano que a desenvolve (a IA propõe e você marca) e o cronograma, com as fases já como submetas reais. Com datas, aparecem no calendário, e os passos de hoje nas Missões daquele app.',
   'tut.app-biblioteca--enciclopedia.titulo': 'A enciclopédia própria',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Tudo o que você aprende é arquivado numa árvore por campo do conhecimento: fichas com resumo e pontos-chave que você pode ilustrar.',
