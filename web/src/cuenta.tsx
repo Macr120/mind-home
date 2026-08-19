@@ -53,7 +53,7 @@ function Marco({ children }: { children: React.ReactNode }) {
   return (
     <div className="mx-auto flex min-h-screen w-full max-w-md flex-col gap-3 px-4 py-8">
       <a href="/" className="flex items-center justify-center gap-2 text-white/90">
-        <img src="/icon.svg" alt="" className="h-9 w-9 rounded-lg" />
+        <img src="/favicon.svg?v=2" alt="" className="h-9 w-9 rounded-lg" />
         <span className="text-lg font-extrabold">Mind Planner Home</span>
       </a>
       {children}
