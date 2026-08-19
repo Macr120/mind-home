@@ -8,7 +8,7 @@ import { aplicarSpawnDemo } from './demo/spawn'
 import { bindKeyboard } from './core/house/movement'
 import { bindAtajosPersonaje } from './core/house/atajosTeclado'
 import { iniciarSesion } from './core/cuenta/sesionStore'
-import { esDemo } from './core/edicion'
+import { esDemo, sellarDerechos } from './core/edicion'
 import { conectarMotorSync } from './core/data/sync/motor'
 import { abrirApp } from './core/abrirApp'
 import { registrarActividad } from './core/rutinas'
@@ -26,6 +26,11 @@ const esTipoWrapped = (v: string | null): v is TipoPeriodo =>
 bindKeyboard()
 // Atajos del personaje: Espacio (saltar), Mayús (correr), 1/2 (manos).
 bindAtajosPersonaje()
+
+// Derechos adquiridos: las instalaciones anteriores a la cuenta obligatoria
+// entran sin registrarse. Antes de `iniciarSesion()` y del render, porque la
+// puerta lo pregunta en su primer pintado.
+sellarDerechos()
 
 // Cuenta (Supabase): hidrata la sesión y el espejo del plan; sin backend no hace nada.
 iniciarSesion()
@@ -101,10 +106,11 @@ if (import.meta.env.DEV) void import('./demo/exportarCasa')
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    {/* La puerta del pago único: la casa PROPIA exige el unlock ($6.99 con el
-        primer mes de IA y sync incluido); la demo sigue gratis y los builds sin
-        backend ni instalaciones previas no ven puerta (edicion.ts::tieneUnlock).
-        Lo cobrable (créditos, sync) lo revalida además el servidor. */}
+    {/* La puerta de la casa PROPIA, en dos pasos: cuenta (siempre) y compra
+        (solo en el navegador; en las tiendas la app ya se pagó al instalarla).
+        La demo sigue gratis y los builds sin backend ni las instalaciones
+        previas no ven puerta. Lo cobrable (créditos, sync) lo revalida además
+        el servidor. */}
     <DemoGate>
       <PuertaUnlock>
         <App />

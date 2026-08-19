@@ -85,16 +85,12 @@ const CREDITOS_PRODUCTOS: Record<string, number> = {
 }
 
 /**
- * Pago único que desbloquea la app e incluye el primer mes (plan trial de 30
- * días con pool + sync, sin tarjeta). One-time SIN entitlement; el alta real la
- * hace el webhook al ver el `product_id`.
- *
- * Es una LISTA porque en RevenueCat el precio de un producto es INMUTABLE: cada
- * cambio de precio obliga a crear otro producto. El vigente va PRIMERO (es el
- * que se ofrece); los viejos se conservan para que el webhook siga honrando una
- * compra en vuelo. Espejo de `UNLOCK_PRODUCTOS` en revenuecat-webhook.
+ * El pago único de la app (`unlock_casa*`) YA NO SE VENDE aquí: desde ago 2026
+ * la app se compra en Google Play y el App Store, y esta web solo cobra la
+ * suscripción y las recargas (ver `edicion.ts`). El webhook conserva la lista
+ * `UNLOCK_PRODUCTOS` para seguir honrando las compras hechas cuando sí se
+ * vendía; en el cliente no queda nada que ofrecer.
  */
-export const UNLOCK_PRODUCTOS = ['unlock_casa_v3', 'unlock_casa_v2', 'unlock_casa']
 
 function empaquetar(paquete: Package): OfertaPro {
   const producto = paquete.webBillingProduct
@@ -203,15 +199,6 @@ export async function cambiarNivel(paquete: Package, nivel: number): Promise<boo
 }
 
 /**
- * Paquete del unlock (pago único), esté en el offering que esté. Se recorre por
- * el orden de UNLOCK_PRODUCTOS, no por el de los offerings: si alguna vez
- * conviven dos versiones, gana el precio vigente.
- */
-export async function obtenerUnlock(): Promise<OfertaPro | null> {
-  return buscarPaquete(UNLOCK_PRODUCTOS)
-}
-
-/**
  * Compra una recarga de créditos (one-time). El abono a `creditos_extra` lo
  * hace el webhook: se reintenta el refresco hasta ver subir el saldo.
  */
@@ -227,23 +214,6 @@ export async function comprarCreditos(paquete: Package): Promise<boolean> {
   }
   void useSesion.getState().refrescarUso()
   return useSesion.getState().creditosExtra > antes
-}
-
-/**
- * Compra el unlock (one-time). El alta (unlock + trial de 30 días) llega por
- * webhook: se reintenta el refresco hasta ver `perfiles.unlock`.
- */
-export async function comprarUnlock(paquete: Package): Promise<boolean> {
-  const usuario = useSesion.getState().usuario
-  if (!usuario) return false
-  await rc(usuario.id).purchase({ rcPackage: paquete })
-  for (let i = 0; i < 5; i++) {
-    await useSesion.getState().refrescarPerfil()
-    if (useSesion.getState().unlock) break
-    await new Promise((r) => setTimeout(r, 3000))
-  }
-  void useSesion.getState().refrescarUso()
-  return useSesion.getState().unlock
 }
 
 /** URL del portal de gestión de la suscripción (cancelar, cambiar pago). */

@@ -235,8 +235,6 @@ export const NL: Dict = {
   'huerto.especie.tomate': 'Tomaat',
   'huerto.especie.maiz': 'Mais',
   'huerto.especie.calabaza': 'Pompoen',
-  'huerto.ayuda':
-    'Gewassen groeien in real time en hebben water nodig: de blauwe druppel waarschuwt je; zonder water verwelken ze en na een tijdje maakt het perceel zichzelf schoon. Een sproeier geeft automatisch water aan zijn eigen vakje en de 8 buren. Oogsten gaan naar de mand (ook door over rijpe gewassen te lopen): ze voeden de dieren.',
   'huerto.stat.parcelas': 'Percelen',
   'huerto.stat.creciendo': 'Groeiend',
   'huerto.stat.listos': 'Klaar',
@@ -288,8 +286,6 @@ export const NL: Dict = {
   'granja.aviso.enfermo.cuerpo': 'Genees het op de boerderij: je hebt {dias} dagen.',
   'granja.aviso.muerte.titulo': '💔 {nombre} is overleden',
   'granja.aviso.muerte.cuerpo': 'Het was te lang ziek zonder genezen te worden.',
-  'granja.ayuda':
-    'Hok maakt hokken en maakt ze groter door op een aangrenzend vakje te tikken. Voeg meerdere dieren toe, voer ze met je oogst, aai ze en geef ze speelgoed. Een dier dat te lang niet eet, wordt ziek: genees het binnen een week. Maak elk hok één keer per week schoon, anders daalt het humeur twee keer zo snel.',
   'granja.stat.hambrientos': 'Hongerig',
   'granja.stat.aburridos': 'Verveeld',
   'granja.stat.enfermos': 'Ziek',
@@ -4993,6 +4989,13 @@ export const NL: Dict = {
   'ejercicio.r.porSemana': '· wk',
   'ejercicio.vivo.ppm': 'Hartslag (bpm)',
   'mapa.listo': 'Klaar',
+  'infra.agrandar': 'Aan deze kant groter maken',
+  'infra.encoger': 'Aan deze kant kleiner maken',
+  'granja.noCabeGanado': 'De dieren passen er niet in: haal er een paar uit voordat je hem verkleint.',
+  'infra.mover.elegir': 'Tik aan wat je wilt verplaatsen.',
+  'infra.mover.destino': 'Tik nu de nieuwe plek aan (of een andere om te wisselen).',
+  'mapa.objeto.forma': 'Vorm bewerken',
+  'mapa.objeto.borrarTitulo': 'Dit object van de kaart verwijderen?',
   'editor.salirCuarto': 'Kamer verlaten (terug naar de kaart)',
   'editor.salirCuartoBoton': 'Kamer verlaten',
   'editor.moverObjetos.listo': 'Klaar met objecten verplaatsen',
@@ -5673,7 +5676,7 @@ export const NL: Dict = {
   'cuenta.sinBackend':
     'Deze installatie heeft geen backend geconfigureerd: alles wordt alleen op dit apparaat opgeslagen.',
   'cuenta.cargando': 'Laden…',
-  'cuenta.intro': 'Met een account gaan je plan en je huis mee naar elk apparaat.',
+  'cuenta.intro': 'Met een account begint je eerste maand: 700 AI-credits en synchronisatie, zonder kaart.',
   'cuenta.nivel.titulo': 'Je niveau',
   'cuenta.nivel.n': 'Niveau ×{n} — {c} credits per maand',
   'cuenta.nivel.actual': 'Huidig',
@@ -5711,18 +5714,19 @@ export const NL: Dict = {
   'cuenta.techo.cuerpo':
     'Je verzoeken gebruikten deze maand veel meer context dan normaal en de fair-uselimiet is bereikt. Deze wordt op {f} gereset.',
   'cuenta.cuota.tituloTrial': 'Je inbegrepen maand is voorbij',
-  'puerta.trato':
-    'Eén eenmalige betaling ontgrendelt je huis voor altijd en bevat je eerste maand AI en synchronisatie — zonder kaart en zonder abonnement.',
-  'puerta.procesando': 'Verwerken…',
-  'puerta.comprar': 'Mijn huis ontgrendelen — {p}',
-  'puerta.comprarWeb': 'Kopen op het web',
+  'puerta.correo':
+    'Registreer je e-mailadres om te beginnen: dat bewaart je huis, synchroniseert het en geeft het je terug op elk apparaat.',
+  'puerta.tienda':
+    'De app koop je in Google Play of de App Store. Log daarna hier in met datzelfde account en je huis wacht in de browser.',
+  'puerta.verDescargas': 'Bekijk waar je hem downloadt',
+  'puerta.yaCompre': 'Al gekocht: opnieuw controleren',
+  'puerta.ahoraNo': 'Nu niet: doorgaan zonder account',
+  'puerta.ahoraNoNota':
+    'Je huis werkt precies hetzelfde, maar de AI-credits en de synchronisatie komen zodra je je e-mailadres registreert.',
   'puerta.demo': 'Probeer de gratis demo',
   'puerta.demoNota': 'Het huis van Pep@ met een jaar leven erin: probeer alles, niets wordt bewaard.',
-  'puerta.tarda': 'De betaling is onderweg: wacht een paar seconden en druk op “Al betaald”.',
   'puerta.sinCompra': 'Dit account ({correo}) heeft de aankoop nog niet.',
-  'puerta.yaPague': 'Al betaald: opnieuw controleren',
   'puerta.salir': 'Uitloggen',
-  'puerta.cuenta': 'Al gekocht of heb je een coupon? Log in en wissel hem binnen in.',
   'puerta.cupon.tengo': 'Heb je een coupon?',
   'puerta.cupon.codigo': 'Couponcode',
   'puerta.cupon.canjear': 'Inwisselen',
@@ -5887,6 +5891,9 @@ export const NL: Dict = {
   'cuenta.renovar.cta': 'Abonnement vernieuwen',
   'cuenta.renovar.corto': 'Je abonnement is verlopen.',
   'cuenta.cuota.titulo': 'Je credits voor deze maand zijn op',
+  'cuenta.cuota.tituloSinCuenta': 'Log in om je credits te krijgen',
+  'cuenta.cuota.cuerpoSinCuenta':
+    'De credits van de eerste maand horen bij je aankoop, maar ze gaan naar een account: zonder geregistreerd e-mailadres is er geen plek voor.',
   'cuenta.cuota.tituloSin': 'Je hebt credits nodig om AI te gebruiken',
   'cuenta.cuota.cuerpo': 'Je credits worden op {f} vernieuwd.',
   'cuenta.cuota.recarga': '+600 credits — {p}',
@@ -5895,6 +5902,7 @@ export const NL: Dict = {
   'cuenta.cuota.suscribirse': 'Abonnement bekijken',
   'cuenta.cuota.nativo': 'Credits worden beheerd via je account.',
   'cuenta.creditos.faltan': 'Je AI-credits zijn op.',
+  'comun.masTarde': 'Later',
   'comun.entendido': 'Begrepen',
   'demo.aviso.titulo': 'Je bent in het demohuis',
   'demo.aviso.cuerpo':

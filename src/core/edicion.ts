@@ -1,15 +1,26 @@
 /**
- * Modelo de negocio (ago 2026): app de PAGO ÚNICO con primer mes incluido.
+ * Modelo de negocio (ago 2026): la APP se compra en las tiendas, la IA se paga
+ * en la web. Dos cajas distintas, cada una donde le toca.
+ *
+ * El flujo canónico es: comprar la app (Google Play / App Store) → registrar el
+ * correo → bienvenida. La compra la cobra y la garantiza la tienda: instalada
+ * = pagada, así que la app nativa nunca pide precio, solo cuenta.
  *
  * - **Demo** (gratis, sin cuenta): la casa de Pep@, no persistente. Es la única
  *   vía gratuita; la puerta (`PuertaUnlock`) ofrece entrar aquí.
- * - **Unlock** (`tieneUnlock()`, $6.99 pago único): persiste TU casa para
- *   siempre e incluye el primer mes (plan `trial`: 30 días con el pool de 700
- *   créditos + sync, sin tarjeta). Las instalaciones previas a esta versión
- *   quedan desbloqueadas por derechos adquiridos (`mh.unlockLocal`), y un build
- *   sin backend (.env ausente) no tiene puerta: 100% local, como siempre.
- * - **Trial** (`esTrial()`): el mes incluido del unlock. Al vencer, conserva la
- *   app y sus datos; pierde pool y sync hasta suscribirse.
+ * - **Cuenta** (obligatoria): sin correo registrado no se abre la casa propia.
+ *   Es lo que ata la compra de la tienda a la persona y lo que deja seguir en
+ *   otro dispositivo (incluido el navegador).
+ * - **Unlock** (`tieneUnlock()`): la cuenta tiene la app. Lo concede el alta de
+ *   tienda al registrarse desde la app nativa (`alta-tienda`) o un cupón, e
+ *   incluye el primer mes (plan `trial`: 30 días con el pool de 700 créditos +
+ *   sync, sin tarjeta). En el NAVEGADOR el unlock es lo que abre la casa: se
+ *   entra con la cuenta que compró en la tienda. Las instalaciones previas a
+ *   esta versión quedan dentro por derechos adquiridos (`mh.unlockLocal`, ver
+ *   `sellarDerechos`), y un build sin backend (.env ausente) no tiene puerta:
+ *   100% local, como siempre.
+ * - **Trial** (`esTrial()`): el mes incluido de la compra. Al vencer, conserva
+ *   la app y sus datos; pierde pool y sync hasta suscribirse.
  * - **Pro** (`esPro()`, 6 USD/mes en el nivel ×1): créditos mensuales + sync. Se compra solo
  *   en la web (la app nativa nunca muestra pagos, ver `plataforma.ts`).
  * - **Local / vencido**: la IA se paga con recargas de créditos que no caducan;
@@ -54,9 +65,13 @@ export const LS_FUE_PRO = 'mh.fuePro'
 export const LS_UNLOCK = 'mh.unlock'
 /**
  * Derechos adquiridos: la instalación ya tenía casa cuando llegó la versión de
- * pago único. Se escribe UNA vez (ver `tieneUnlock`) y no se revierte.
+ * pago único. Se escribe UNA vez (ver `sellarDerechos`) y no se revierte.
  */
 export const LS_UNLOCK_LOCAL = 'mh.unlockLocal'
+/** Esta instalación ya arrancó con la cuenta obligatoria (ver `sellarDerechos`). */
+const LS_ERA_CUENTA = 'mh.eraCuenta'
+/** El usuario dejó el registro para después (ver `pospusoCuenta`). */
+const LS_SIN_CUENTA = 'mh.sinCuenta'
 
 export type Plan = 'local' | 'pro' | 'trial'
 
@@ -121,25 +136,54 @@ export function tieneAcceso(): boolean {
 }
 
 /**
- * ¿La app está desbloqueada? (compra única, derechos adquiridos, o build sin
- * backend). Lo consulta `PuertaUnlock`; la demo no pasa por aquí.
+ * Sella los derechos adquiridos en el PRIMER arranque de esta versión: si la
+ * bienvenida ya se vio (`mh.bienvenida`, la escribe la casa real cuando se
+ * completó o cuando ya estaba armada — literal repetido a propósito: importar
+ * `bienvenidaStore` desde aquí crearía un ciclo), esta instalación es anterior
+ * a la cuenta obligatoria y entra sin registrarse ni comprar.
  *
- * El grandfather es perezoso e idempotente: `mh.bienvenida` la escribe la casa
- * real cuando la bienvenida se vio o la casa ya estaba armada
- * (`bienvenida/bienvenidaStore.ts` — literal repetido a propósito: importar el
- * store desde aquí crearía un ciclo). Si existe, esta instalación es anterior a
- * la puerta y no se le cobra lo que ya tenía.
+ * Tiene que ser un sello de UNA vez y no una comprobación perezosa: la
+ * bienvenida ahora corre DESPUÉS del registro, así que un usuario nuevo se
+ * concedería derechos adquiridos a sí mismo al terminarla. `mh.eraCuenta`
+ * cierra esa puerta. Idempotente; lo llama `main.tsx` antes de pintar nada.
+ */
+export function sellarDerechos(): void {
+  if (localStorage.getItem(LS_ERA_CUENTA) === '1') return
+  if (localStorage.getItem('mh.bienvenida') === '1') localStorage.setItem(LS_UNLOCK_LOCAL, '1')
+  localStorage.setItem(LS_ERA_CUENTA, '1')
+}
+
+/** ¿Instalación anterior a la cuenta obligatoria? Entra sin cuenta ni compra. */
+export function derechosAdquiridos(): boolean {
+  return localStorage.getItem(LS_UNLOCK_LOCAL) === '1'
+}
+
+/**
+ * ¿Dejó el registro para después? Es el «ahora no» de la puerta, y SOLO existe
+ * en la app de tienda: allí la compra ya está hecha, así que exigir cuenta al
+ * arrancar dejaría fuera a quien abre la app sin cobertura. La casa funciona
+ * entera en modo local; lo que espera a la cuenta es lo que vive en el
+ * servidor — los créditos del primer mes y la sincronización —, y por eso el
+ * modal de créditos ofrece registrarse en el momento en que hacen falta.
+ */
+export function pospusoCuenta(): boolean {
+  return localStorage.getItem(LS_SIN_CUENTA) === '1'
+}
+
+export function posponerCuenta(): void {
+  localStorage.setItem(LS_SIN_CUENTA, '1')
+}
+
+/**
+ * ¿La cuenta tiene la app? (alta de tienda, cupón, derechos adquiridos, o build
+ * sin backend). Lo consulta `PuertaUnlock` para el NAVEGADOR; en la app nativa
+ * la compra la garantiza la tienda y ni se pregunta. La demo no pasa por aquí.
  */
 export function tieneUnlock(): boolean {
   // Sin backend no hay compras posibles: la app queda 100% local e idéntica.
   if (!import.meta.env.VITE_SUPABASE_URL || !import.meta.env.VITE_SUPABASE_ANON_KEY) return true
   if (localStorage.getItem(LS_UNLOCK) === '1') return true
-  if (localStorage.getItem(LS_UNLOCK_LOCAL) === '1') return true
-  if (localStorage.getItem('mh.bienvenida') === '1') {
-    localStorage.setItem(LS_UNLOCK_LOCAL, '1')
-    return true
-  }
-  return false
+  return derechosAdquiridos()
 }
 
 /**

@@ -2,6 +2,10 @@
  * Portal de cuenta de la web pública (dominio.com/cuenta): registro, login,
  * suscripción (RevenueCat Web Billing), recargas, gestión y borrado de cuenta.
  *
+ * La APP no se vende aquí: se compra en Google Play o el App Store (ver
+ * `src/core/edicion.ts`). En esta página solo se pagan la suscripción de IA y
+ * las recargas de créditos, que valen para todos los dispositivos.
+ *
  * REUTILIZA los módulos de cuenta de la app (`src/core/cuenta/*`) por import
  * relativo — misma sesión de Supabase, mismo paywall, mismo espejo del plan.
  * Ojo: NO importar nada que arrastre dexie/three (ni useT/ajustesStore): esta
@@ -15,12 +19,10 @@ import { iniciarSesion, useSesion } from '../../src/core/cuenta/sesionStore'
 import {
   hayPagos,
   obtenerNiveles,
-  obtenerUnlock,
   obtenerCreditos,
   obtenerAnual,
   comprar,
   cambiarNivel,
-  comprarUnlock,
   comprarCreditos,
   urlGestion,
   type OfertaPro,
@@ -132,7 +134,9 @@ function Acceso() {
   const entrar = useSesion((s) => s.entrar)
   const registrar = useSesion((s) => s.registrar)
   const restablecer = useSesion((s) => s.restablecer)
-  const [modo, setModo] = useState<'entrar' | 'registrar'>('registrar')
+  // Quien llega aquí ya suele tener cuenta: la creó en la app al comprarla, y
+  // viene a suscribirse o a gestionar lo suyo.
+  const [modo, setModo] = useState<'entrar' | 'registrar'>('entrar')
   const [email, setEmail] = useState('')
   const [contrasena, setContrasena] = useState('')
   const [error, setError] = useState<string | null>(null)
@@ -275,59 +279,33 @@ function NuevaContrasena({ alTerminar }: { alTerminar: () => void }) {
   )
 }
 
-// ─── Unlock (pago único de la app) ───────────────────────────────────────────
+// ─── Conseguir la app (se compra en las tiendas, no aquí) ────────────────────
 
-function Unlock() {
-  const [oferta, setOferta] = useState<OfertaPro | null>(null)
-  const [error, setError] = useState<string | null>(null)
-  const [ocupado, setOcupado] = useState(false)
-
-  useEffect(() => {
-    let vivo = true
-    obtenerUnlock()
-      .then((o) => {
-        if (vivo) setOferta(o)
-      })
-      .catch(() => {})
-    return () => {
-      vivo = false
-    }
-  }, [])
-
-  if (!hayPagos() || !oferta) return null
-
-  const alComprar = async () => {
-    if (ocupado) return
-    setOcupado(true)
-    setError(null)
-    try {
-      const ok = await comprarUnlock(oferta.paquete)
-      if (!ok) setError('El pago está en camino: recarga la página en unos segundos.')
-    } catch (e) {
-      setError(e instanceof Error ? e.message : String(e))
-    } finally {
-      setOcupado(false)
-    }
-  }
-
+/**
+ * La cuenta todavía no tiene la app. Aquí no se vende: se compra en Google Play
+ * o el App Store y, al registrar el correo desde la app, esta misma cuenta abre
+ * la casa en cualquier dispositivo (`alta-tienda`).
+ */
+function ConseguirApp() {
   return (
     <Panel>
-      <h2 className="text-sm font-bold text-white/90">Desbloquear la app</h2>
+      <h2 className="text-sm font-bold text-white/90">Consigue la app</h2>
       <div className="space-y-2 rounded-xl border border-accent/50 bg-white/5 p-3">
         <p className="text-2xl font-extrabold text-white/95">
-          {oferta.precio}
-          <span className="text-sm font-semibold text-white/50"> pago único</span>
+          6.99 USD<span className="text-sm font-semibold text-white/50"> pago único</span>
         </p>
         <ul className="list-none space-y-1 text-xs text-white/60">
           <li>✓ Tu casa para siempre, con todas las apps</li>
           <li>✓ Primer mes incluido: 700 créditos de IA + sincronización</li>
-          <li>✓ Sin tarjeta y sin suscripción</li>
+          <li>✓ Se compra en Google Play o el App Store</li>
         </ul>
-        <button type="button" onClick={() => void alComprar()} disabled={ocupado} className={botonPrincipal}>
-          {ocupado ? 'Procesando…' : 'Desbloquear mi casa'}
-        </button>
+        <a href="/#descargas" className={botonPrincipal + ' block text-center'}>
+          Ver dónde descargarla
+        </a>
       </div>
-      {error && <p className="text-xs leading-snug text-red-400/90">{error}</p>}
+      <p className="text-[11px] leading-snug text-white/45">
+        Al abrirla, entra con este mismo correo y tu casa te sigue a todos tus dispositivos.
+      </p>
     </Panel>
   )
 }
@@ -603,8 +581,8 @@ function MiCuenta() {
               <p className="text-[11px] text-white/45">Créditos disponibles: {creditosExtra}</p>
             )}
           </Panel>
-          {/* Sin la compra única, lo primero es desbloquear la app. */}
-          {!unlock && <Unlock />}
+          {/* Sin la compra, lo primero es conseguir la app en la tienda. */}
+          {!unlock && <ConseguirApp />}
           <Tarifas titulo={fuePro ? 'Renovar suscripción' : 'Suscribirme'} />
           {/* Solo con la app desbloqueada: sin unlock, la IA todavía no tiene
               dónde usarse. */}

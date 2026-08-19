@@ -74,6 +74,11 @@ interface SesionState {
   eliminarCuenta: () => Promise<string | null>
   /** Canjea un cupón de acceso (unlock + trial); devuelve el error o null. */
   canjearCupon: (codigo: string) => Promise<string | null>
+  /**
+   * Registra la compra hecha en la tienda (app de pago): unlock + primer mes.
+   * `token` es el recibo/licencia que el servidor verifica (`reciboTienda.ts`).
+   */
+  altaTienda: (tienda: string, token: string | null) => Promise<void>
   refrescarPerfil: () => Promise<void>
   refrescarUso: () => Promise<void>
 }
@@ -204,6 +209,18 @@ export const useSesion = create<SesionState>((set, get) => ({
     await get().refrescarPerfil()
     void get().refrescarUso()
     return null
+  },
+
+  altaTienda: async (tienda, token) => {
+    const sb = get().usuario ? await obtenerSupabase() : null
+    if (!sb) return
+    // Silenciosa a propósito: el usuario ya compró en la tienda y está DENTRO
+    // de la app; si el alta falla (sin red, recibo que no llegó), se reintenta
+    // al volver a abrirla —la puerta la dispara mientras no haya unlock—.
+    const { error } = await sb.functions.invoke('alta-tienda', { body: { tienda, token } })
+    if (error) return
+    await get().refrescarPerfil()
+    void get().refrescarUso()
   },
 
   refrescarPerfil: async () => {

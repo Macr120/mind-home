@@ -234,8 +234,6 @@ export const IT: Dict = {
   'huerto.especie.tomate': 'Pomodoro',
   'huerto.especie.maiz': 'Mais',
   'huerto.especie.calabaza': 'Zucca',
-  'huerto.ayuda':
-    'Le colture crescono in tempo reale e chiedono acqua: la goccia blu avvisa; se non annaffi, appassiscono e dopo un po\' l\'aiuola si pulisce da sola. Un irrigatore annaffia da solo la sua cella e le 8 vicine. I raccolti vanno nel cestino (anche camminando sopra il pronto): nutrono gli animali.',
   'huerto.stat.parcelas': 'Aiuole',
   'huerto.stat.creciendo': 'In crescita',
   'huerto.stat.listos': 'Pronti',
@@ -287,8 +285,6 @@ export const IT: Dict = {
   'granja.aviso.enfermo.cuerpo': 'Curalo nella fattoria: hai {dias} giorni.',
   'granja.aviso.muerte.titulo': '💔 {nombre} è morto',
   'granja.aviso.muerte.cuerpo': 'Era malato da troppo tempo senza essere curato.',
-  'granja.ayuda':
-    'Recinto crea recinti e li ingrandisce toccando una cella adiacente. Aggiungi vari animali, nutrili con i tuoi raccolti, coccolali e dai loro dei giocattoli. Chi resta troppo senza mangiare si ammala: curalo entro una settimana. Pulisci ogni recinto una volta a settimana o l\'umore scenderà il doppio.',
   'granja.stat.hambrientos': 'Affamati',
   'granja.stat.aburridos': 'Annoiati',
   'granja.stat.enfermos': 'Malati',
@@ -4989,6 +4985,13 @@ export const IT: Dict = {
   'ejercicio.r.porSemana': '· sett',
   'ejercicio.vivo.ppm': 'Frequenza cardiaca (bpm)',
   'mapa.listo': 'Fatto',
+  'infra.agrandar': 'Ingrandisci da questo lato',
+  'infra.encoger': 'Restringi da questo lato',
+  'granja.noCabeGanado': 'Gli animali non ci starebbero: togline qualcuno prima di restringerlo.',
+  'infra.mover.elegir': 'Tocca ciò che vuoi spostare.',
+  'infra.mover.destino': 'Ora tocca il nuovo posto (o un altro per cambiare).',
+  'mapa.objeto.forma': 'Modifica forma',
+  'mapa.objeto.borrarTitulo': 'Eliminare questo oggetto dalla mappa?',
   'editor.salirCuarto': 'Esci dalla stanza (torna alla mappa)',
   'editor.salirCuartoBoton': 'Esci dalla stanza',
   'editor.moverObjetos.listo': 'Finisci di spostare gli oggetti',
@@ -5664,7 +5667,7 @@ export const IT: Dict = {
   'cuenta.sinBackend':
     'Questa installazione non ha un backend configurato: tutto viene salvato solo su questo dispositivo.',
   'cuenta.cargando': 'Caricamento…',
-  'cuenta.intro': 'Con un account, il tuo piano e la tua casa ti seguono su qualsiasi dispositivo.',
+  'cuenta.intro': 'Con un account inizi il tuo primo mese: 700 crediti di IA e sincronizzazione, senza carta.',
   'cuenta.nivel.titulo': 'Il tuo livello',
   'cuenta.nivel.n': 'Livello ×{n} — {c} crediti al mese',
   'cuenta.nivel.actual': 'Attuale',
@@ -5702,18 +5705,19 @@ export const IT: Dict = {
   'cuenta.techo.cuerpo':
     'Questo mese le tue richieste hanno usato molto più contesto del normale e si è raggiunto il limite di uso equo. Si azzera il {f}.',
   'cuenta.cuota.tituloTrial': 'Il tuo mese incluso è finito',
-  'puerta.trato':
-    'Un unico pagamento sblocca la tua casa per sempre e include il primo mese di IA e sincronizzazione — senza carta e senza abbonamento.',
-  'puerta.procesando': 'Elaborazione…',
-  'puerta.comprar': 'Sblocca la mia casa — {p}',
-  'puerta.comprarWeb': 'Acquista sul web',
+  'puerta.correo':
+    'Registra la tua email per iniziare: è ciò che conserva la tua casa, la sincronizza e te la restituisce su qualsiasi dispositivo.',
+  'puerta.tienda':
+    'L’app si compra su Google Play o sull’App Store. Dopo l’acquisto, entra qui con questo stesso account e la tua casa ti aspetta nel browser.',
+  'puerta.verDescargas': 'Vedi dove scaricarla',
+  'puerta.yaCompre': 'L’ho già comprata: ricontrolla',
+  'puerta.ahoraNo': 'Non ora: entra senza account',
+  'puerta.ahoraNoNota':
+    'La tua casa funziona uguale, ma i crediti di IA e la sincronizzazione arrivano quando registri la tua email.',
   'puerta.demo': 'Prova la demo gratuita',
   'puerta.demoNota': 'La casa di Pep@ con un anno di vita dentro: prova tutto, niente viene salvato.',
-  'puerta.tarda': 'Il pagamento è in arrivo: aspetta qualche secondo e premi «Ho già pagato».',
   'puerta.sinCompra': 'Questo account ({correo}) non ha ancora l’acquisto.',
-  'puerta.yaPague': 'Ho già pagato: ricontrolla',
   'puerta.salir': 'Esci dall’account',
-  'puerta.cuenta': 'L’hai già comprata o hai un coupon? Entra e lo riscatti dentro.',
   'puerta.cupon.tengo': 'Hai un coupon?',
   'puerta.cupon.codigo': 'Codice del coupon',
   'puerta.cupon.canjear': 'Riscatta',
@@ -5877,6 +5881,9 @@ export const IT: Dict = {
   'cuenta.renovar.cta': 'Rinnova abbonamento',
   'cuenta.renovar.corto': 'Il tuo abbonamento è terminato.',
   'cuenta.cuota.titulo': 'Hai esaurito i crediti di questo mese',
+  'cuenta.cuota.tituloSinCuenta': 'Accedi per ricevere i tuoi crediti',
+  'cuenta.cuota.cuerpoSinCuenta':
+    'I crediti del primo mese arrivano con il tuo acquisto, ma vanno su un account: senza email registrata non c’è dove metterli.',
   'cuenta.cuota.tituloSin': 'Ti servono crediti per usare l\'IA',
   'cuenta.cuota.cuerpo': 'I tuoi crediti si rinnovano il {f}.',
   'cuenta.cuota.recarga': '+600 crediti — {p}',
@@ -5885,6 +5892,7 @@ export const IT: Dict = {
   'cuenta.cuota.suscribirse': 'Vedi l\'abbonamento',
   'cuenta.cuota.nativo': 'I crediti si gestiscono dal tuo account.',
   'cuenta.creditos.faltan': 'Hai esaurito i crediti IA.',
+  'comun.masTarde': 'Più tardi',
   'comun.entendido': 'Capito',
   'demo.aviso.titulo': 'Sei nella casa demo',
   'demo.aviso.cuerpo':

@@ -32,7 +32,7 @@
         </a>
         <nav>
           <a class="boton ui-boton" href="/cuenta">Entrar</a>
-          <a class="boton principal ui-boton ui-accent-bg" href="/cuenta">Desbloquear</a>
+          <a class="boton principal ui-boton ui-accent-bg" href="#descargas">Descargar</a>
         </nav>
       </div>
     </header>
@@ -46,14 +46,14 @@
           sincronizado en todos tus dispositivos.
         </p>
         <div class="acciones">
-          <a class="boton principal grande ui-boton ui-accent-bg" href="%VITE_URL_APP%">
-            Probar la demo gratis
+          <a class="boton principal grande ui-boton ui-accent-bg" href="#descargas">
+            Descargar la app
           </a>
-          <a class="boton grande ui-boton" href="#precio">Ver los planes</a>
+          <a class="boton grande ui-boton" href="%VITE_URL_APP%">Probar la demo gratis</a>
         </div>
         <p class="nota">
-          Tu casa es tuya con un pago único y funciona sin conexión. La IA y la sincronización
-          son opcionales — y si las dejas, no pierdes nada.
+          La app se compra una vez en la tienda de tu dispositivo y funciona sin conexión. La
+          IA y la sincronización son opcionales — y si las dejas, no pierdes nada.
         </p>
         <!-- TODO(usuario): sustituir por el video o capturas reales (web/public/). -->
         <div class="demo">Aquí va tu video o capturas de la casa</div>
@@ -110,7 +110,7 @@
       </section>
 
       <section id="precio">
-        <h2>Un solo pago, tu casa para siempre</h2>
+        <h2>Un solo pago en la tienda, tu casa para siempre</h2>
         <div class="piezas"></div>
         <div class="planes">
           <div class="precio-caja">
@@ -132,10 +132,13 @@
               <li>Primer mes incluido: 700 créditos de IA + sincronización, sin tarjeta y sin suscripción</li>
               <li>Al terminar el mes conservas la app entera y tus datos; los créditos de IA son opcionales</li>
             </ul>
-            <a class="boton principal grande ui-boton ui-accent-bg" href="/cuenta">
-              Desbloquear mi casa
+            <a class="boton principal grande ui-boton ui-accent-bg" href="#descargas">
+              Ver dónde descargarla
             </a>
-            <p class="letra-chica">Un pago, sin renovaciones. La IA del primer mes va por nuestra cuenta.</p>
+            <p class="letra-chica">
+              Se compra en Google Play o el App Store, y con tu cuenta la abres también en el
+              navegador. Un pago, sin renovaciones.
+            </p>
           </div>
         </div>
         <!-- La IA es opcional: va aquí abajo, en voz baja, no como un tercer plan. -->
@@ -148,8 +151,8 @@
             </p>
             <p>
               Solo si quieres seguir con la IA y la sincronización cuando termine tu primer
-              mes. Sin permanencia: si lo dejas, conservas la app y todos tus datos en modo
-              local.
+              mes. Esto sí se contrata aquí, en la web, y vale para todos tus dispositivos.
+              Sin permanencia: si lo dejas, conservas la app y todos tus datos en modo local.
             </p>
           </div>
           <a class="enlace" href="/cuenta">Ver los planes →</a>
@@ -157,12 +160,29 @@
       </section>
 
       <section id="descargas">
-        <h2>Descargas</h2>
+        <h2>Descargar la app</h2>
+        <p class="sub">
+          La app se compra en la tienda de tu dispositivo. Al abrirla registras tu correo, y
+          esa misma cuenta te devuelve tu casa en cualquier otro sitio — incluido el navegador.
+        </p>
         <div class="piezas"></div>
         <div class="tarjetas">
           <div class="tarjeta">
+            <h3>🤖 Android</h3>
+            <p>En Google Play, 6.99 USD.</p>
+            <span class="pronto">Próximamente</span>
+          </div>
+          <div class="tarjeta">
+            <h3>📱 iPhone y iPad</h3>
+            <p>En el App Store, 6.99 USD.</p>
+            <span class="pronto">Próximamente</span>
+          </div>
+          <div class="tarjeta">
             <h3>🌐 En tu navegador</h3>
-            <p>Sin instalar nada y sin cuenta: abre la app y tu casa te espera.</p>
+            <p>
+              Sin instalar nada: entra con la cuenta con la que compraste la app y tu casa te
+              espera. Sin cuenta puedes probar la demo.
+            </p>
             <!-- El valor viene de VITE_URL_APP (.env / Cloudflare Pages). -->
             <a class="boton ui-boton" style="margin-top: 10px" href="%VITE_URL_APP%">
               Abrir la app
@@ -178,16 +198,6 @@
             <p>Imagen .dmg para Mac.</p>
             <span class="pronto">Próximamente</span>
           </div>
-          <div class="tarjeta">
-            <h3>🤖 Android</h3>
-            <p>En Google Play.</p>
-            <span class="pronto">Próximamente</span>
-          </div>
-          <div class="tarjeta">
-            <h3>📱 iPhone y iPad</h3>
-            <p>En el App Store.</p>
-            <span class="pronto">Próximamente</span>
-          </div>
         </div>
       </section>
 
@@ -196,12 +206,22 @@
         <div class="piezas"></div>
         <div class="faq">
           <details>
+            <summary>¿Dónde se compra la app?</summary>
+            <p>
+              En la tienda de tu dispositivo: Google Play o el App Store. Aquí en la web no se
+              vende — lo único que se paga en esta página son la suscripción de IA y las
+              recargas de créditos. Al abrir la app registras tu correo, y con esa cuenta tu
+              casa aparece en cualquier otro dispositivo, también en el
+              <a href="#descargas">navegador</a>.
+            </p>
+          </details>
+          <details>
             <summary>¿Qué incluye el pago único?</summary>
             <p>
               La casa entera: todos los cuartos, todas las apps y tus datos en tu dispositivo,
               para siempre y sin renovaciones. Además, el primer mes trae 700 créditos de IA y
-              la sincronización incluidos, sin tarjeta. Antes de pagar puedes probar la demo
-              completa, que no pide cuenta.
+              la sincronización incluidos, sin tarjeta. Antes de comprarla puedes probar la
+              demo completa, que no pide cuenta.
             </p>
           </details>
           <details>
@@ -211,8 +231,8 @@
               sincronización), o 60 USD al año — dos meses de regalo. Si se te queda corta, los
               niveles ×2 y ×3 dan 1400 o 2100 créditos por 12 o 18 USD al mes. Y si prefieres
               no suscribirte, hay recargas sueltas: 6 USD por 700 créditos que no caducan y se
-              usan solo cuando los pides. Todo se gestiona en
-              <a href="/cuenta">tu cuenta</a>.
+              usan solo cuando los pides. Esto sí se paga aquí, en
+              <a href="/cuenta">tu cuenta</a>, y vale para todos tus dispositivos.
             </p>
           </details>
           <details>
@@ -237,18 +257,19 @@
             <p>
               Primero en tu dispositivo (la app es local-first) y, con la sincronización
               activa, también en la nube para pasar de un dispositivo a otro. En modo local no
-              sale nada de tu dispositivo. Los pagos los procesan RevenueCat y Stripe: nunca
-              vemos tu tarjeta. Más detalles en la
+              sale nada de tu dispositivo. La compra de la app la cobra la tienda (Google Play
+              o App Store) y la suscripción la procesan RevenueCat y Stripe: nunca vemos tu
+              tarjeta. Más detalles en la
               <a href="/privacidad">política de privacidad</a>.
             </p>
           </details>
           <details>
             <summary>¿En qué dispositivos funciona?</summary>
             <p>
-              Hoy: en cualquier navegador moderno. Muy pronto: Windows, macOS, Android (Google
-              Play) y iPhone/iPad (App Store). Tu cuenta vale para todos — la compra y la
-              suscripción se contratan aquí en la web y funcionan en cualquier dispositivo
-              donde entres con ella.
+              Hoy: en cualquier navegador moderno. Muy pronto: Android (Google Play),
+              iPhone/iPad (App Store), Windows y macOS. Tu cuenta vale para todos — compras la
+              app una vez en la tienda y la suscripción de IA se contrata aquí en la web; las
+              dos funcionan en cualquier dispositivo donde entres con tu correo.
             </p>
           </details>
           <details>

@@ -235,8 +235,6 @@ export const ID: Dict = {
   'huerto.especie.tomate': 'Tomat',
   'huerto.especie.maiz': 'Jagung',
   'huerto.especie.calabaza': 'Labu',
-  'huerto.ayuda':
-    'Tanaman tumbuh secara real-time dan butuh disiram: tetesan biru memperingatkanmu; tanaman yang tidak disiram akan layu dan petaknya bersih sendiri setelah beberapa saat. Sebuah sprinkler menyiram selnya sendiri dan 8 sel tetangganya. Hasil panen masuk ke keranjang (juga dengan berjalan di atas tanaman yang siap): untuk memberi makan hewan.',
   'huerto.stat.parcelas': 'Petak',
   'huerto.stat.creciendo': 'Tumbuh',
   'huerto.stat.listos': 'Siap',
@@ -288,8 +286,6 @@ export const ID: Dict = {
   'granja.aviso.enfermo.cuerpo': 'Sembuhkan di peternakan: kamu punya {dias} hari.',
   'granja.aviso.muerte.titulo': '💔 {nombre} meninggal',
   'granja.aviso.muerte.cuerpo': 'Sudah terlalu lama sakit tanpa disembuhkan.',
-  'granja.ayuda':
-    'Kandang membuat kandang dan memperbesarnya dengan menyentuh sel yang bersebelahan. Tambahkan beberapa hewan, beri makan dengan hasil panenmu, elus, dan beri mainan. Hewan yang terlalu lama tidak makan akan sakit: sembuhkan dalam waktu seminggu. Bersihkan setiap kandang seminggu sekali atau suasana hatinya akan turun dua kali lebih cepat.',
   'granja.stat.hambrientos': 'Lapar',
   'granja.stat.aburridos': 'Bosan',
   'granja.stat.enfermos': 'Sakit',
@@ -4982,6 +4978,13 @@ export const ID: Dict = {
   'ejercicio.r.porSemana': '· mgg',
   'ejercicio.vivo.ppm': 'Detak jantung (bpm)',
   'mapa.listo': 'Selesai',
+  'infra.agrandar': 'Perbesar dari sisi ini',
+  'infra.encoger': 'Perkecil dari sisi ini',
+  'granja.noCabeGanado': 'Hewannya tidak akan muat: keluarkan beberapa sebelum memperkecil.',
+  'infra.mover.elegir': 'Ketuk yang ingin kamu pindahkan.',
+  'infra.mover.destino': 'Sekarang ketuk tempat barunya (atau yang lain untuk ganti).',
+  'mapa.objeto.forma': 'Edit bentuk',
+  'mapa.objeto.borrarTitulo': 'Hapus objek ini dari peta?',
   'editor.salirCuarto': 'Keluar dari ruangan (kembali ke peta)',
   'editor.salirCuartoBoton': 'Keluar ruangan',
   'editor.moverObjetos.listo': 'Selesai memindahkan objek',
@@ -5658,7 +5661,7 @@ export const ID: Dict = {
   'cuenta.sinBackend':
     'Instalasi ini belum memiliki backend yang dikonfigurasi: semuanya disimpan hanya di perangkat ini.',
   'cuenta.cargando': 'Memuat…',
-  'cuenta.intro': 'Dengan akun, rencana dan rumahmu mengikutimu ke perangkat mana pun.',
+  'cuenta.intro': 'Dengan akun, bulan pertamamu dimulai: 700 kredit AI dan sinkronisasi, tanpa kartu.',
   'cuenta.nivel.titulo': 'Levelmu',
   'cuenta.nivel.n': 'Level ×{n} — {c} kredit per bulan',
   'cuenta.nivel.actual': 'Saat ini',
@@ -5696,18 +5699,19 @@ export const ID: Dict = {
   'cuenta.techo.cuerpo':
     'Bulan ini permintaanmu memakai konteks jauh lebih banyak dari biasanya dan batas penggunaan wajar tercapai. Akan direset pada {f}.',
   'cuenta.cuota.tituloTrial': 'Bulan pertamamu sudah berakhir',
-  'puerta.trato':
-    'Satu kali bayar membuka rumahmu selamanya dan sudah termasuk bulan pertama AI dan sinkronisasi — tanpa kartu, tanpa langganan.',
-  'puerta.procesando': 'Memproses…',
-  'puerta.comprar': 'Buka rumahku — {p}',
-  'puerta.comprarWeb': 'Beli di web',
+  'puerta.correo':
+    'Daftarkan emailmu untuk memulai: itulah yang menyimpan rumahmu, menyinkronkannya, dan mengembalikannya di perangkat mana pun.',
+  'puerta.tienda':
+    'Aplikasinya dibeli di Google Play atau App Store. Setelah membelinya, masuk di sini dengan akun yang sama dan rumahmu menunggu di peramban.',
+  'puerta.verDescargas': 'Lihat tempat mengunduhnya',
+  'puerta.yaCompre': 'Sudah kubeli: periksa lagi',
+  'puerta.ahoraNo': 'Nanti saja: masuk tanpa akun',
+  'puerta.ahoraNoNota':
+    'Rumahmu tetap berjalan sama, tetapi kredit AI dan sinkronisasi datang saat kamu mendaftarkan emailmu.',
   'puerta.demo': 'Coba demo gratis',
   'puerta.demoNota': 'Rumah Pep@ dengan setahun kehidupan di dalamnya: coba semuanya, tidak ada yang disimpan.',
-  'puerta.tarda': 'Pembayaran sedang diproses: tunggu beberapa detik lalu tekan “Sudah bayar”.',
   'puerta.sinCompra': 'Akun ini ({correo}) belum memiliki pembelian.',
-  'puerta.yaPague': 'Sudah bayar: periksa lagi',
   'puerta.salir': 'Keluar dari akun',
-  'puerta.cuenta': 'Sudah membelinya atau punya kupon? Masuk dan tukarkan di dalam.',
   'puerta.cupon.tengo': 'Punya kupon?',
   'puerta.cupon.codigo': 'Kode kupon',
   'puerta.cupon.canjear': 'Tukarkan',
@@ -5873,6 +5877,9 @@ export const ID: Dict = {
   'cuenta.renovar.cta': 'Perbarui langganan',
   'cuenta.renovar.corto': 'Langgananmu telah berakhir.',
   'cuenta.cuota.titulo': 'Kreditmu bulan ini sudah habis',
+  'cuenta.cuota.tituloSinCuenta': 'Masuk untuk menerima kreditmu',
+  'cuenta.cuota.cuerpoSinCuenta':
+    'Kredit bulan pertama sudah termasuk dalam pembelianmu, tetapi masuk ke sebuah akun: tanpa email terdaftar tidak ada tempat menaruhnya.',
   'cuenta.cuota.tituloSin': 'Kamu butuh kredit untuk menggunakan AI',
   'cuenta.cuota.cuerpo': 'Kreditmu diperbarui pada {f}.',
   'cuenta.cuota.recarga': '+600 kredit — {p}',
@@ -5881,6 +5888,7 @@ export const ID: Dict = {
   'cuenta.cuota.suscribirse': 'Lihat langganan',
   'cuenta.cuota.nativo': 'Kredit dikelola dari akunmu.',
   'cuenta.creditos.faltan': 'Kredit AI-mu habis.',
+  'comun.masTarde': 'Nanti',
   'comun.entendido': 'Mengerti',
   'demo.aviso.titulo': 'Kamu berada di rumah demo',
   'demo.aviso.cuerpo':

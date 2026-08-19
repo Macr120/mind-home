@@ -60,13 +60,17 @@ export function EditorCuentaSection({
   )
 }
 
-/** Login/registro (export: se reutiliza fuera de esta sección). */
-export function FormularioAcceso() {
+/**
+ * Login/registro (export: se reutiliza fuera de esta sección). `inicial` decide
+ * con qué pestaña abre: la puerta de la app recién comprada pide crear cuenta,
+ * el resto de sitios asume que ya la tienes.
+ */
+export function FormularioAcceso({ inicial = 'entrar' }: { inicial?: 'entrar' | 'registrar' }) {
   const t = useT()
   const entrar = useSesion((s) => s.entrar)
   const registrar = useSesion((s) => s.registrar)
   const restablecer = useSesion((s) => s.restablecer)
-  const [modo, setModo] = useState<'entrar' | 'registrar'>('entrar')
+  const [modo, setModo] = useState<'entrar' | 'registrar'>(inicial)
   const [email, setEmail] = useState('')
   const [contrasena, setContrasena] = useState('')
   const [error, setError] = useState<string | null>(null)
@@ -119,7 +123,10 @@ export function FormularioAcceso() {
   return (
     <div className="space-y-1.5">
       <p className="text-[11px] leading-snug text-white/45">
-        {t('cuenta.intro', 'Con una cuenta, tu plan y tu casa te siguen a cualquier dispositivo.')}
+        {t(
+          'cuenta.intro',
+          'Con una cuenta estrenas tu primer mes: 700 créditos de IA y sincronización, sin tarjeta.',
+        )}
       </p>
       {/* En la app nativa (WebView) Google bloquea OAuth (disallowed_useragent):
           ese flujo llegará con @capacitor/browser + deep link. Solo web por ahora. */}

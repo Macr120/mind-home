@@ -11,9 +11,11 @@ import {
   type OfertaPro,
 } from '../cuenta/paywall'
 import { URL_WEB as urlWeb } from '../cuenta/urlWeb'
-import { useSesion } from '../cuenta/sesionStore'
+import { haySesionProbable, useSesion } from '../cuenta/sesionStore'
+import { hayBackend } from '../cuenta/supabase'
 import { esPro, esTrial, fuePro } from '../edicion'
 import { salirDemo } from '../../demo/modo'
+import { FormularioAcceso } from './editor/EditorCuentaSection'
 
 /**
  * Modales globales del plan:
@@ -170,6 +172,36 @@ function CuotaAgotada() {
   // La cuota mensual se renueva el día 1 del mes siguiente (periodo UTC).
   const ahora = new Date()
   const renueva = new Date(Date.UTC(ahora.getUTCFullYear(), ahora.getUTCMonth() + 1, 1))
+
+  // Sin cuenta (el «ahora no» de la puerta, o una instalación con derechos
+  // adquiridos): lo que falta no es pagar, es registrarse. El primer mes viene
+  // con la compra y espera a que haya un correo al que abonárselo, así que el
+  // formulario va aquí mismo — mandar al usuario a buscarlo por los menús es
+  // perder la única vez que le importan los créditos. `haySesionProbable()`
+  // evita acusar de «no tienes cuenta» a quien la tiene y aún está hidratando.
+  if (hayBackend() && !usuario && !haySesionProbable()) {
+    return (
+      <Marco>
+        <h2 className="text-sm font-bold text-white/90">
+          {t('cuenta.cuota.tituloSinCuenta', 'Inicia sesión para recibir tus créditos')}
+        </h2>
+        <p className="text-xs leading-snug text-white/60">
+          {t(
+            'cuenta.cuota.cuerpoSinCuenta',
+            'Los créditos del primer mes vienen con tu compra, pero se abonan a una cuenta: sin correo registrado no hay dónde ponerlos.',
+          )}
+        </p>
+        <FormularioAcceso inicial="registrar" />
+        <button
+          type="button"
+          onClick={cerrar}
+          className="w-full px-2 py-0.5 text-[11px] text-white/40 transition hover:text-white/60"
+        >
+          {t('comun.masTarde', 'Más tarde')}
+        </button>
+      </Marco>
+    )
+  }
 
   // El techo es el bucket de uso REAL del mes: recargar no lo quita, así que
   // tiene su propia cara y no ofrece compras.
