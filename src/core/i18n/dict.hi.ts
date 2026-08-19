@@ -5250,7 +5250,7 @@ export const HI: Dict = {
   'tut.selector.cancelar': 'रद्द करें',
   'tut.selector.apps': 'या किसी ऐप का ट्यूटोरियल:',
   'tut.selector.infra': 'या नक़्शे पर अतिरिक्त चीज़ें बनाना:',
-  'tut.selector.nucleo': 'या कैलेंडर और लक्ष्य:',
+  'tut.selector.nucleo': 'या कैलेंडर, लक्ष्य और मिशन:',
   'tut.selector.hudNota': 'बंद है, ट्यूटोरियल एडिटर › सेटिंग्स › ट्यूटोरियल में शुरू होते हैं।',
   'tut.selector.pag1': 'ज़रूरी',
   'tut.selector.pag2': 'बाकी सब कुछ',

@@ -29,8 +29,16 @@ import type { TutorialDef } from './tipos'
  * para ver su tour, o elige el tutorial general de la casa.
  */
 
-/** Los dos tours del reloj que se quedan en la página 1; el resto baja al grupo del progreso. */
-const TOURS_CALENDARIO = ['calendario', 'metas']
+/**
+ * Los tours del reloj que se quedan en la página 1; el resto baja al grupo del
+ * progreso. «Misiones» va con ellos —y no escondido en la página 2— porque es la
+ * tercera pata de lo mismo: el calendario dice CUÁNDO, Metas QUÉ te propusiste y
+ * Misiones QUÉ TOCA HOY.
+ */
+const TOURS_CALENDARIO = ['calendario', 'metas', 'hoy']
+
+/** Sin esencial y con un solo ejemplo: desplegar una lista de UNO no dice nada. */
+const unSoloTour = (id: string) => !esencialDeApp(id) && flujosDeApp(id).length === 1
 
 /**
  * Los grupos plegables de la página 2, uno por menú de la casa. Se listan por id
@@ -392,7 +400,7 @@ export function SelectorTutorialOverlay() {
                   se despliegan tocando el reloj en la escena. Sus demás tours (rutinas,
                   chips, hoy, progreso) están en la página 2, con los de menús. */}
               <p className="mt-3 border-t border-white/10 pt-2 text-[11px] font-semibold text-white/45">
-                {t('tut.selector.nucleo', 'O el calendario y las metas:')}
+                {t('tut.selector.nucleo', 'O el calendario, las metas y las misiones:')}
               </p>
               <div className="mt-1.5 flex flex-wrap justify-center gap-1">
                 {TOURS_CALENDARIO.map((id) => ({ id, def: tutorialMenuPorId(id) })).map(
@@ -403,8 +411,9 @@ export function SelectorTutorialOverlay() {
                         type="button"
                         data-tut={`tut.nucleo.${def.id}`}
                         // «Metas» es una app (su plantilla); «Calendario» es del
-                        // núcleo. Ambos despliegan su lista de dos tipos.
-                        onClick={() => setAppFlujos(id)}
+                        // núcleo. Ambos despliegan su lista de dos tipos. «Misiones»
+                        // tiene un solo tour y ninguna lista que enseñar: arranca ya.
+                        onClick={() => (unSoloTour(id) ? lanzarTour(def) : setAppFlujos(id))}
                         className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-white/75 transition hover:border-amber-400/60 hover:bg-amber-400/15"
                       >
                         {t(def.titulo.clave, def.titulo.es)}

@@ -393,20 +393,11 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
                       >
                         {/* `pe-9`: el hueco que ocupa el engrane sobre esta fila. */}
                         <div className="flex items-start gap-2 pe-9">
-                          <span className="relative shrink-0">
-                            <span
-                              className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-md text-lg"
-                              style={{ background: `${color}33` }}
-                            >
-                              <IconoCuarto cuarto={cuarto} />
-                            </span>
-                            {/* Lo que queda por hacer hoy en esta app, sobre su icono. */}
-                            {appId && pendientes.get(appId) && (
-                              <BadgeMisiones
-                                pendientes={pendientes.get(appId)!}
-                                className="absolute -top-1.5 -end-1.5"
-                              />
-                            )}
+                          <span
+                            className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-md text-lg"
+                            style={{ background: `${color}33` }}
+                          >
+                            <IconoCuarto cuarto={cuarto} />
                           </span>
                           <span className="min-w-0 flex-1 leading-tight">
                             <span className="block text-sm font-semibold text-white/90">{titulo}</span>
@@ -446,6 +437,16 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
                       >
                         <Icono nombre="ajustes" />
                       </button>
+
+                      {/* Lo que queda por hacer hoy, en la esquina superior derecha de la
+                          tarjeta (como en la pantalla de inicio); va DESPUÉS del engrane
+                          para quedar encima de él. */}
+                      {appId && pendientes.get(appId) && (
+                        <BadgeMisiones
+                          pendientes={pendientes.get(appId)!}
+                          className="absolute -top-1.5 -end-1.5"
+                        />
+                      )}
 
                       {ajustesCuarto === cuarto.id && (
                         <div className="flex gap-1 px-2 pb-1.5">

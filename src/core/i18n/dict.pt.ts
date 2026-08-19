@@ -5254,7 +5254,7 @@ export const PT: Dict = {
   'tut.selector.cancelar': 'Cancelar',
   'tut.selector.apps': 'Ou o tutorial de um app:',
   'tut.selector.infra': 'Ou construir complementos no mapa:',
-  'tut.selector.nucleo': 'Ou o calendário e as metas:',
+  'tut.selector.nucleo': 'Ou o calendário, as metas e as missões:',
   'tut.selector.hudNota': 'Desligado, os tutoriais são iniciados em Editor › Configurações › Tutoriais.',
   'tut.selector.pag1': 'O essencial',
   'tut.selector.pag2': 'Todo o resto',

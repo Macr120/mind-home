@@ -5279,7 +5279,7 @@ export const ID: Dict = {
   'tut.selector.cancelar': 'Batal',
   'tut.selector.apps': 'Atau tutorial sebuah aplikasi:',
   'tut.selector.infra': 'Atau bangun ekstra di peta:',
-  'tut.selector.nucleo': 'Atau kalender dan target:',
+  'tut.selector.nucleo': 'Atau kalender, target dan misi:',
   'tut.selector.hudNota': 'Saat dimatikan, tutorial dimulai di Editor › Pengaturan › Tutorial.',
   'tut.selector.pag1': 'Dasar-dasar',
   'tut.selector.pag2': 'Semua yang lain',

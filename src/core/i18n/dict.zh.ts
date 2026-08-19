@@ -5093,7 +5093,7 @@ export const ZH: Dict = {
   'tut.selector.cancelar': '取消',
   'tut.selector.apps': '或者选择某个应用的教程：',
   'tut.selector.infra': '或者在地图上建造附加设施：',
-  'tut.selector.nucleo': '或者日历和目标相关内容：',
+  'tut.selector.nucleo': '或者日历、目标和任务相关内容：',
   'tut.selector.hudNota': '关闭后，可在“编辑器›设置›教程”中启动教程。',
   'tut.selector.pag1': '基础内容',
   'tut.selector.pag2': '其他全部内容',

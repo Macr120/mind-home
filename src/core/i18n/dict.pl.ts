@@ -5261,7 +5261,7 @@ export const PL: Dict = {
   'tut.selector.cancelar': 'Anuluj',
   'tut.selector.apps': 'Albo samouczek aplikacji:',
   'tut.selector.infra': 'Albo budowa dodatków na mapie:',
-  'tut.selector.nucleo': 'Albo kalendarz i cele:',
+  'tut.selector.nucleo': 'Albo kalendarz, cele i misje:',
   'tut.selector.hudNota': 'Wyłączone, samouczki uruchamia się w Edytor › Ustawienia › Samouczki.',
   'tut.selector.pag1': 'Podstawy',
   'tut.selector.pag2': 'Wszystko inne',

@@ -5109,7 +5109,7 @@ export const KO: Dict = {
   'tut.selector.cancelar': '취소',
   'tut.selector.apps': '또는 특정 앱의 튜토리얼:',
   'tut.selector.infra': '또는 지도에 부가 시설 만들기:',
-  'tut.selector.nucleo': '또는 캘린더와 목표:',
+  'tut.selector.nucleo': '또는 캘린더, 목표, 미션:',
   'tut.selector.hudNota': '꺼져 있으면 \'편집기 › 설정 › 튜토리얼\'에서 튜토리얼을 시작할 수 있어요.',
   'tut.selector.pag1': '필수 항목',
   'tut.selector.pag2': '나머지 전부',

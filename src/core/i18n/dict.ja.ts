@@ -5100,7 +5100,7 @@ export const JA: Dict = {
   'tut.selector.cancelar': 'キャンセル',
   'tut.selector.apps': 'またはアプリのチュートリアル：',
   'tut.selector.infra': 'またはマップに施設を作る：',
-  'tut.selector.nucleo': 'またはカレンダーと目標について：',
+  'tut.selector.nucleo': 'またはカレンダー・目標・ミッションについて：',
   'tut.selector.hudNota': 'オフの場合、チュートリアルは「エディター›設定›チュートリアル」から起動できます。',
   'tut.selector.pag1': '基本',
   'tut.selector.pag2': 'その他すべて',

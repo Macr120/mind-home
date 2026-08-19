@@ -5284,7 +5284,7 @@ export const IT: Dict = {
   'tut.selector.cancelar': 'Annulla',
   'tut.selector.apps': 'O il tutorial di un\'app:',
   'tut.selector.infra': 'O costruire aggiunte sulla mappa:',
-  'tut.selector.nucleo': 'O il calendario e gli obiettivi:',
+  'tut.selector.nucleo': 'O il calendario, gli obiettivi e le missioni:',
   'tut.selector.hudNota': 'Se disattivati, i tutorial si avviano da Editor › Impostazioni › Tutorial.',
   'tut.selector.pag1': 'L\'essenziale',
   'tut.selector.pag2': 'Tutto il resto',

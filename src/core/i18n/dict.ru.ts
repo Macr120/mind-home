@@ -5259,7 +5259,7 @@ export const RU: Dict = {
   'tut.selector.cancelar': 'Отмена',
   'tut.selector.apps': 'Или обучение по приложению:',
   'tut.selector.infra': 'Или строительство дополнений на карте:',
-  'tut.selector.nucleo': 'Или календарь и цели:',
+  'tut.selector.nucleo': 'Или календарь, цели и миссии:',
   'tut.selector.hudNota': 'Выключено — обучение запускается в Редактор › Настройки › Обучение.',
   'tut.selector.pag1': 'Главное',
   'tut.selector.pag2': 'Всё остальное',

@@ -5307,7 +5307,7 @@ export const FR: Dict = {
   'tut.selector.cancelar': 'Annuler',
   'tut.selector.apps': 'Ou le tutoriel d’une app :',
   'tut.selector.infra': 'Ou construire des compléments sur le plan :',
-  'tut.selector.nucleo': 'Ou le calendrier et les objectifs :',
+  'tut.selector.nucleo': 'Ou le calendrier, les objectifs et les missions :',
   'tut.selector.hudNota': 'Désactivés, les tutoriels se lancent dans Éditeur › Paramètres › Tutoriels.',
   'tut.selector.pag1': 'L’essentiel',
   'tut.selector.pag2': 'Tout le reste',

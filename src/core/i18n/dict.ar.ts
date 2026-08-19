@@ -5202,7 +5202,7 @@ export const AR: Dict = {
   'tut.selector.cancelar': 'إلغاء',
   'tut.selector.apps': 'أو جولة أحد التطبيقات:',
   'tut.selector.infra': 'أو بناء الإضافات على الخريطة:',
-  'tut.selector.nucleo': 'أو التقويم والأهداف:',
+  'tut.selector.nucleo': 'أو التقويم والأهداف والمهام:',
   'tut.selector.hudNota': 'عند الإيقاف، تُشغَّل الجولات من المحرر ‹ الإعدادات ‹ الشروح.',
   'tut.selector.pag1': 'الأساسيات',
   'tut.selector.pag2': 'كل ما تبقى',

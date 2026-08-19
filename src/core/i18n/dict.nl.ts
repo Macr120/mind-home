@@ -5292,7 +5292,7 @@ export const NL: Dict = {
   'tut.selector.cancelar': 'Annuleren',
   'tut.selector.apps': 'Of de tutorial van een app:',
   'tut.selector.infra': 'Of extra\'s bouwen op de kaart:',
-  'tut.selector.nucleo': 'Of de kalender en de doelen:',
+  'tut.selector.nucleo': 'Of de kalender, de doelen en de missies:',
   'tut.selector.hudNota': 'Uitgeschakeld start je tutorials via Editor › Instellingen › Tutorials.',
   'tut.selector.pag1': 'Het belangrijkste',
   'tut.selector.pag2': 'De rest',

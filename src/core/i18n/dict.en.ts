@@ -5415,7 +5415,7 @@ export const EN: Dict = {
   'tut.selector.cancelar': 'Cancel',
   'tut.selector.apps': 'Or an app\'s tutorial:',
   'tut.selector.infra': 'Or build extras on the map:',
-  'tut.selector.nucleo': 'Or the calendar and goals:',
+  'tut.selector.nucleo': 'Or the calendar, goals and missions:',
   'tut.selector.hudNota': 'Turned off, tutorials start in Editor › Settings › Tutorials.',
   'tut.selector.pag1': 'Essentials',
   'tut.selector.pag2': 'Everything else',

@@ -5261,7 +5261,7 @@ export const TR: Dict = {
   'tut.selector.cancelar': 'İptal',
   'tut.selector.apps': 'Ya da bir uygulamanın öğreticisi:',
   'tut.selector.infra': 'Ya da haritada eklenti inşa et:',
-  'tut.selector.nucleo': 'Ya da takvim ve hedefler:',
+  'tut.selector.nucleo': 'Ya da takvim, hedefler ve görevler:',
   'tut.selector.hudNota': 'Kapatıldığında öğreticiler Editör › Ayarlar › Öğreticiler’den başlatılır.',
   'tut.selector.pag1': 'Temeller',
   'tut.selector.pag2': 'Geri kalan her şey',
