@@ -1,4 +1,5 @@
 import type { CuerpoTutorial, TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import { fichaEsencial } from '../../core/tutorial/esencial'
 
 /**
  * Fichas de los tutoriales de esta app: id, título y resumen. Es lo único que
@@ -37,9 +38,19 @@ const flujoTramites = tour(
   T('tut.app-garage--tramites.titulo', 'Trámites que se agendan solos'),
   T(
     'tut.app-garage--tramites.resumen',
-    'Programa la verificación, la tenencia, el seguro o el servicio periódico y el garaje pone su bloque en el calendario, más un aviso con la anticipación que le pidas.',
+    'La ficha de cada vehículo tiene tres cuadernos: Trámites (verificación, servicio periódico), Documentos (tenencia, seguro, circulación) y Contactos. Todo lo que vence pone su bloque en el calendario, con el aviso previo que le pidas.',
   ),
   'cuerpoTramites',
 )
 
 export const flujosGarage: TutorialDef[] = [flujoVehiculos, flujoTramites]
+
+/** Esencial: recorre las dos pestañas raíz en la casa real, sin necesitar datos. */
+export const esencialGarage: TutorialDef = fichaEsencial(
+  'garage',
+  T(
+    'tut.app-garage--esencial.resumen',
+    'El garaje lleva el mantenimiento de tus vehículos: un semáforo resume qué urge, la lista de vehículos guarda su historial de servicios, y cada ficha reúne sus trámites, documentos y contactos. Todo lo que tiene fecha se agenda solo en el calendario de la casa.',
+  ),
+  () => import('./tutorial').then((m) => m.cuerpoEsencial as CuerpoTutorial),
+)

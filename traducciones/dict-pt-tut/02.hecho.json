@@ -1,0 +1,82 @@
+[
+  {
+    "clave": "tut.app-biblioteca--esencial.4.texto",
+    "texto": "O relógio para estudar: você escolhe o campo e a duração, corrido ou por pomodoros, e cada trecho se registra sozinho. Continua contando mesmo que você saia do cômodo."
+  },
+  { "clave": "tut.app-biblioteca--esencial.5.titulo", "texto": "Resumo" },
+  {
+    "clave": "tut.app-biblioteca--esencial.5.texto",
+    "texto": "O panorama de tudo isso: quantas fichas tem sua enciclopédia e que parte do índice você cobriu, os minutos de estudo, sua sequência e os dias em que estudou."
+  },
+  { "clave": "tut.app-cocina--esencial.1.titulo", "texto": "A cozinha" },
+  {
+    "clave": "tut.app-cocina--esencial.1.texto",
+    "texto": "Este app cuida de duas coisas: o que você vai cozinhar e o que acaba comendo. Cada uma tem seu menu lá em cima, e cada menu abre suas próprias abas."
+  },
+  { "clave": "tut.app-cocina--esencial.2.titulo", "texto": "Receitário" },
+  {
+    "clave": "tut.app-cocina--esencial.2.texto",
+    "texto": "O lado de cozinhar: aqui vivem suas receitas, as dietas que as agrupam e a lista do mercado. São três abas, nessa ordem."
+  },
+  { "clave": "tut.app-cocina--esencial.3.titulo", "texto": "Dieta" },
+  {
+    "clave": "tut.app-cocina--esencial.3.texto",
+    "texto": "Uma dieta é um plano alimentar com suas receitas dentro e, se quiser, suas próprias metas de calorias e macros. Você guarda as suas junto com as que o app já traz."
+  },
+  { "clave": "tut.app-cocina--esencial.4.titulo", "texto": "Receitas" },
+  {
+    "clave": "tut.app-cocina--esencial.4.texto",
+    "texto": "O receitário: cada receita guarda ingredientes, passos e seus macros por porção, e se organiza em pastas. A partir de uma receita você pode registrar a refeição ou mandar os ingredientes para a lista do mercado."
+  },
+  { "clave": "tut.app-cocina--esencial.5.titulo", "texto": "Compras" },
+  {
+    "clave": "tut.app-cocina--esencial.5.texto",
+    "texto": "A lista do mercado, com cada item no corredor que lhe cabe. Você pode montar uma lista juntando o que falta de várias receitas e marcar o que já tem na despensa."
+  },
+  { "clave": "tut.app-cocina--esencial.6.titulo", "texto": "Controle de alimentação" },
+  {
+    "clave": "tut.app-cocina--esencial.6.texto",
+    "texto": "O outro menu mantém a conta do que você come, em quatro abas numeradas. A primeira é Metas: com seu peso, sua altura e sua atividade, calcula quanto você precisa por dia e divide os macros."
+  },
+  { "clave": "tut.app-cocina--esencial.7.titulo", "texto": "Registro" },
+  {
+    "clave": "tut.app-cocina--esencial.7.texto",
+    "texto": "O que já passou: as refeições do dia com suas calorias, a água que você já tomou e seu peso quando você se pesa. A aba ao lado, Plano de refeições, é o contrário: a grade do que você pretende comer nos próximos dias."
+  },
+  { "clave": "tut.app-cocina--esencial.8.titulo", "texto": "Progresso" },
+  {
+    "clave": "tut.app-cocina--esencial.8.texto",
+    "texto": "As estatísticas de tudo isso no período que você escolher: calorias e macros, água e a curva do seu peso. Embaixo, um calendário colorido mostra num relance em quais dias você ficou dentro da meta."
+  },
+  { "clave": "tut.app-computo--esencial.1.titulo", "texto": "A sala de computação" },
+  {
+    "clave": "tut.app-computo--esencial.1.texto",
+    "texto": "Aqui você resolve o que precisa ser calculado, em dois menus: a Calculadora, com seus modos e seu formulário de fórmulas, e as Planilhas para tudo que vai em tabelas."
+  },
+  { "clave": "tut.app-computo--esencial.2.titulo", "texto": "Calculadora" },
+  {
+    "clave": "tut.app-computo--esencial.2.texto",
+    "texto": "Uma calculadora científica que dá o resultado enquanto você digita e guarda o que calculou no histórico. O teclado de baixo evita o do telefone, e as notações escrevem o conteúdo científico onde estiver o cursor."
+  },
+  { "clave": "tut.app-computo--esencial.3.titulo", "texto": "Os modos" },
+  {
+    "clave": "tut.app-computo--esencial.3.texto",
+    "texto": "Este menu muda a vista inteira da calculadora: gráfico, bases numéricas, matrizes, sistemas de equações, conversão de unidades, gorjeta e regra de três. O histórico fica embaixo em todos eles."
+  },
+  { "clave": "tut.app-computo--esencial.4.titulo", "texto": "O formulário" },
+  {
+    "clave": "tut.app-computo--esencial.4.texto",
+    "texto": "Seu livro de fórmulas, dobrado sobre a calculadora. Já vêm prontas as de Matemática, Física e Química, em pastas que você pode aninhar. Qualquer uma se abre para preencher suas variáveis, se edita ou se apaga."
+  },
+  { "clave": "tut.app-computo--esencial.5.titulo", "texto": "Planilhas" },
+  {
+    "clave": "tut.app-computo--esencial.5.texto",
+    "texto": "Planilhas com referências de célula e fórmulas em português, e gráficos sobre o intervalo que você marcar. Exportam para Excel mantendo as fórmulas, ou para PDF."
+  },
+  { "clave": "tut.app-descanso--esencial.1.titulo", "texto": "Descanso" },
+  {
+    "clave": "tut.app-descanso--esencial.1.texto",
+    "texto": "Este app acompanha seu sono numa única tela: a pontuação da última noite, seu horário com seus avisos, o registro diário e o histórico completo."
+  },
+  { "clave": "tut.app-descanso--esencial.2.titulo", "texto": "A pontuação" }
+]

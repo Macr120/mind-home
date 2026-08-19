@@ -4,6 +4,7 @@ import type { Table } from 'dexie'
 import { db, type ListaCumplida } from '../data/db'
 import { sinEjemplos } from '../data/ejemplos'
 import { esSeedIntacta } from '../data/sync/syncables'
+import { esMeta } from '../metas'
 import { useDiseño } from '../state/disenoStore'
 import { fechaLocalISO } from '../fechaLocal'
 
@@ -117,6 +118,31 @@ export const FUENTES: Record<string, () => Promise<string[]>> = {
     ...(await filas(db.mascotas)).map((m) => m.creadoEn.slice(0, 10)),
     // Del cuidado cuenta el día que lo diste por hecho (`ultima`), no su próxima vez.
     ...(await filas(db.cuidadosMascota)).flatMap((c) => (c.ultima ? [c.ultima] : [])),
+  ],
+  // El planificador de la casa. No registra nada suyo, así que lo que cuenta son
+  // los actos de PLANEAR: el día que te propusiste una meta y el que pediste o
+  // aceptaste un plan.
+  //
+  // El CIERRE de una meta no puede contar: `completada` es un booleano SIN fecha
+  // y `pasosHechos` son índices. Lo único fechado de su avance son las
+  // `ejecucionesRutina` de sus bloques, y esas ya las cuenta la app dueña del
+  // bloque — sumarlas aquí sería contar el mismo día dos veces.
+  //
+  // Por DÍA, como la cocina: aceptar un plan escribe de golpe una docena de
+  // sub-metas, y una a una el planificador pesaría en el Wrapped más que un año
+  // entero de cualquier cuarto.
+  //
+  // Con `fechaLocalISO` y no con el `.slice(0, 10)` de las fuentes de arriba: ese
+  // corte da la fecha UTC, y una meta creada de noche se apuntaría a MAÑANA — el
+  // vigía de racha del cuarto vería 0 registros justo después de crearla.
+  metas: async () => [
+    ...new Set([
+      ...(await filas(db.rutinas)).filter(esMeta).map((r) => fechaLocalISO(new Date(r.creadoEn))),
+      ...(await filas(db.planesMeta)).flatMap((p) => [
+        fechaLocalISO(new Date(p.creadoEn)),
+        ...(p.aceptadoEn ? [fechaLocalISO(new Date(p.aceptadoEn))] : []),
+      ]),
+    ]),
   ],
 }
 

@@ -1,146 +1,34 @@
 [
-  {
-    "clave": "tut.respaldo.3.texto",
-    "texto": "Memulihkan akan MENGGANTI semua data saat ini dengan isi file — sebelumnya ia minta konfirmasi dan menampilkan berapa catatan yang dibawa, jadi tidak ada kejutan."
-  },
-  {
-    "clave": "tut.respaldo.4.texto",
-    "texto": "Sebaiknya buat cadangan sebelum ganti perangkat, ganti browser, atau sesekali saja: tanpa akun, ini satu-satunya salinan yang kamu punya."
-  },
-  {
-    "clave": "tut.editor-cuarto.1.texto",
-    "texto": "Kamu sedang mengedit satu ruangan tertentu: denah dan kameranya fokus ke situ, bukan ke seluruh rumah."
-  },
-  {
-    "clave": "tut.editor-cuarto.2.titulo",
-    "texto": "Apa yang bisa diedit"
-  },
-  {
-    "clave": "tut.editor-cuarto.2.texto",
-    "texto": "Bentuk, lantai, dinding, pintu, warna dan nama ruangan, plus objek-objeknya. Aplikasi yang ditetapkan juga diganti dari sini: itulah yang paling sering membawa orang ke panel ini."
-  },
-  {
-    "clave": "tut.editor-cuarto.3.titulo",
-    "texto": "Kembali ke peta"
-  },
-  {
-    "clave": "tut.editor-cuarto.3.texto",
-    "texto": "Panah ini kembali ke seluruh peta tanpa menutup editor, supaya kamu bisa lanjut menggarap ruangan lain."
-  },
-  {
-    "clave": "tut.editor-cuarto.4.texto",
-    "texto": "Ada juga tombol mengambang “Keluar ruangan” di atas ruangannya sendiri dalam 3D, kalau kamu lebih suka menyentuhnya di sana."
-  },
-  {
-    "clave": "tut.herramientas.1.texto",
-    "texto": "Tombol ini membuka roda alat karaktermu."
-  },
-  {
-    "clave": "tut.herramientas.2.titulo",
-    "texto": "Dua level"
-  },
-  {
-    "clave": "tut.herramientas.2.texto",
-    "texto": "Pilih kategorinya dulu, lalu alat spesifik di dalamnya. Kamu bisa memasang hingga 3 alat sekaligus, dari kategori berbeda atau dari kategori yang sama."
-  },
-  {
-    "clave": "tut.herramientas.3.titulo",
-    "texto": "Kategori keempat"
-  },
-  {
-    "clave": "tut.herramientas.3.texto",
-    "texto": "Bangunan tidak memasang mainan: ia menyalakan mode menggambar peta (Ruangan, Dinding, Pintu, Jendela, lantai, Atap) tanpa lewat editor lengkap. Denahnya sama, cuma jalan masuknya lebih cepat."
-  },
-  {
-    "clave": "tut.herramientas.4.titulo",
-    "texto": "Bagian tengah"
-  },
-  {
-    "clave": "tut.herramientas.4.texto",
-    "texto": "Bagian tengah melepas semua yang terpasang dan mengembalikan sudut itu ke keadaan normal (kubus tampilan atau kontrol kontekstual lain, tergantung apa yang ada di dekatmu)."
-  },
-  {
-    "clave": "tut.herramientas.5.texto",
-    "texto": "Rodanya tertutup begitu kamu menyentuh di luarnya. Coba kapan saja: tidak ada yang disimpan permanen, semuanya cuma berlaku selama alatnya masih kamu bawa."
-  },
-  {
-    "clave": "tut.navegacion.1.texto",
-    "texto": "Tiga kamera: Iso (tampilan rumah boneka), orang ketiga dan orang pertama. Ganti di sini atau dengan tombol V."
-  },
-  {
-    "clave": "tut.navegacion.2.titulo",
-    "texto": "Menentukan arah"
-  },
-  {
-    "clave": "tut.navegacion.2.texto",
-    "texto": "Di Iso, kubusnya memutar kamera sisi demi sisi; di orang ketiga/pertama, geser pad untuk melihat sekeliling."
-  },
-  {
-    "clave": "tut.navegacion.3.titulo",
-    "texto": "Saat ada sesuatu di dekatmu"
-  },
-  {
-    "clave": "tut.navegacion.3.texto",
-    "texto": "Sudut yang sama berhenti jadi kamera begitu kamu mendekati sesuatu yang bisa dipakai: lapangan menawarkan tombol mainnya, kendaraan tombol naiknya, kursi tombol duduknya. Cuma satu hal dalam satu waktu, dan selalu karena kedekatan — tidak pernah otomatis."
-  },
-  {
-    "clave": "tut.navegacion.4.titulo",
-    "texto": "Putar dan pusatkan"
-  },
-  {
-    "clave": "tut.navegacion.4.texto",
-    "texto": "Putar tampilan ke samping atau pusatkan lagi ke peta kalau kamu tersesat waktu menjelajah."
-  },
-  {
-    "clave": "tut.navegacion.5.titulo",
-    "texto": "Bergerak"
-  },
-  {
-    "clave": "tut.navegacion.5.texto",
-    "texto": "Berjalan dengan joystick, WASD atau tanda panah. Di air kamu berenang; kalau sedang menaiki kendaraan, kamu mengemudi dengan kontrol yang sama."
-  },
-  {
-    "clave": "tut.navegacion.6.texto",
-    "texto": "Di orang ketiga/pertama muncul tombol Editor 3D: sentuh objek, dinding atau karakter untuk mengeditnya persis di tempatnya, tanpa balik ke tampilan isometrik."
-  },
-  {
-    "clave": "tut.chat.1.texto",
-    "texto": "Chat Sang Arsitek: mencatat harimu, mengedit rumah dan menjawab pertanyaanmu, semuanya dari kotak yang sama."
-  },
-  {
-    "clave": "tut.chat.2.titulo",
-    "texto": "Menulis"
-  },
-  {
-    "clave": "tut.chat.2.texto",
-    "texto": "Tulis bebas: “lari 20 menit”, “belanja 250 di supermarket”… Chip di sebelahnya menunjukkan ke aplikasi mana ini akan masuk. Pakai @ruangan untuk menentukan tujuannya sendiri kalau tebakannya meleset."
-  },
-  {
-    "clave": "tut.chat.3.titulo",
-    "texto": "Mendikte lewat suara"
-  },
-  {
-    "clave": "tut.chat.3.texto",
-    "texto": "Mikrofon menyalin apa yang kamu ucapkan ke kotak teks — praktis untuk mencatat tanpa melepas barang yang sedang kamu pegang."
-  },
-  {
-    "clave": "tut.chat.4.titulo",
-    "texto": "Mengirim foto"
-  },
-  {
-    "clave": "tut.chat.4.texto",
-    "texto": "Dengan AI aktif, foto struk, piring makan atau timbangan dibaca dengan sendirinya. Tanpa AI, tombol ini nonaktif."
-  },
-  {
-    "clave": "tut.chat.5.titulo",
-    "texto": "Asisten"
-  },
-  {
-    "clave": "tut.chat.5.texto",
-    "texto": "Asistenmu memberi wajah dan suara pada jawabannya. Sentuh dia untuk melihat percakapannya, ganti asisten atau membuat yang baru."
-  },
-  {
-    "clave": "tut.chat.6.titulo",
-    "texto": "Manualnya"
-  }
+  { "clave": "tut.app-hobbies--esencial.4.texto", "texto": "Di situ kamu mencatat sesi dengan menit dan catatan, melihat peta aktivitas tahunanmu, dan menjalankan proyek dengan progresnya sendiri. Target dan linimasanya hidup di ruangan Target." },
+  { "clave": "tut.app-ideas--esencial.1.titulo", "texto": "Ide" },
+  { "clave": "tut.app-ideas--esencial.1.texto", "texto": "Ide menyimpan apa pun yang terlintas di kepalamu dan membantunya matang: mula-mula dicatat, lalu disusun dalam peta dan, kalau perlu, dibandingkan untuk memutuskan. Ada tiga menu." },
+  { "clave": "tut.app-ideas--esencial.2.titulo", "texto": "Jurnal ide" },
+  { "clave": "tut.app-ideas--esencial.2.texto", "texto": "Kotak masuk tempat pemikiran apa pun jatuh, sendiri atau dikelompokkan dalam curah gagasan menurut topik. Bisa diarsipkan ke folder, ditandai bintang, dan saat sudah matang, diubah jadi peta." },
+  { "clave": "tut.app-ideas--esencial.3.titulo", "texto": "Peta konsep" },
+  { "clave": "tut.app-ideas--esencial.3.texto", "texto": "Kanvas bebas untuk menyusun sebuah topik dalam format yang paling sesuai: peta pikiran, pohon, alur, linimasa, siklus, piramida, Venn, dan lainnya." },
+  { "clave": "tut.app-ideas--esencial.4.titulo", "texto": "Diagram keputusan" },
+  { "clave": "tut.app-ideas--esencial.4.texto", "texto": "Kanvas yang sama, tapi dengan format yang dirancang untuk memutuskan: kelebihan dan kekurangan berbobot, SWOT, Eisenhower, atau matriks berbobot yang mengurutkan opsi dengan sendirinya." },
+  { "clave": "tut.app-idiomas--esencial.1.titulo", "texto": "Sekolah bahasamu" },
+  { "clave": "tut.app-idiomas--esencial.1.texto", "texto": "Di sini kamu pilih bahasa, mengobrol dengan tutor AI, menyimpan kosakata yang kamu pelajari, dan meninjaunya dengan sistem berjarak. Ada empat menu: Obrolan, Silabus, Tinjauan, dan Progres." },
+  { "clave": "tut.app-idiomas--esencial.2.titulo", "texto": "Obrolan" },
+  { "clave": "tut.app-idiomas--esencial.2.texto", "texto": "Kamu mengobrol dengan tutormu dalam bahasa yang sedang kamu pelajari: dia merespons sesuai levelmu dan mengoreksi dengan lembut. Setiap obrolan tersimpan dan mengelompokkan dirinya sendiri, dan saat kamu keluar, dia menawarkan untuk mengambil kosakata baru sebagai kartu." },
+  { "clave": "tut.app-idiomas--esencial.3.titulo", "texto": "Silabus" },
+  { "clave": "tut.app-idiomas--esencial.3.texto", "texto": "Menyusun bahasa dalam topik, pelafalan, dan tata bahasa, dari level A1 sampai C2. Kosakata hidup di dalam setiap topik: setiap kartu tersimpan di situ, dengan terjemahan dan contohnya." },
+  { "clave": "tut.app-idiomas--esencial.4.titulo", "texto": "Tinjauan" },
+  { "clave": "tut.app-idiomas--esencial.4.texto", "texto": "Tinjauan berjarak: setiap kartu hidup dalam sebuah kotak dan hanya yang hampir kamu lupakan yang muncul, dengan latihan — pilihan ganda, terbalik, atau melengkapi kalimat — bukan sekadar melihat kartu." },
+  { "clave": "tut.app-idiomas--esencial.5.titulo", "texto": "Progres" },
+  { "clave": "tut.app-idiomas--esencial.5.texto", "texto": "Ringkasan kemajuanmu: berapa banyak kartu yang sudah kamu kuasai, berapa banyak yang kamu tinjau, dan levelmu sekarang, lengkap dengan riwayat tinjauanmu hari demi hari." },
+  { "clave": "tut.app-jardin--esencial.1.titulo", "texto": "Ruang tenangmu" },
+  { "clave": "tut.app-jardin--esencial.1.texto", "texto": "Taman menggabungkan tiga praktik: meditasi, pernapasan terpandu, dan rasa syukur. Sengaja tidak ada poin atau runtunan: di sini tidak ada hukuman kalau kamu lewatkan satu hari, ini hanya menemani apa pun yang kamu praktikkan." },
+  { "clave": "tut.app-jardin--esencial.2.titulo", "texto": "Meditasi" },
+  { "clave": "tut.app-jardin--esencial.2.texto", "texto": "Pilih trek suara dan durasi, atau bermeditasi dalam diam dengan lonceng di awal dan akhir. Setiap sesi tersimpan di riwayatmu." },
+  { "clave": "tut.app-jardin--esencial.3.titulo", "texto": "Pernapasan" },
+  { "clave": "tut.app-jardin--esencial.3.texto", "texto": "Dua pola pernapasan terpandu, satu untuk memusatkanmu dan satu lagi untuk melepaskan harimu: layarnya bernapas bersamamu selagi berjalan." },
+  { "clave": "tut.app-jardin--esencial.4.titulo", "texto": "Syukur" },
+  { "clave": "tut.app-jardin--esencial.4.texto", "texto": "Catat apa yang kamu syukuri hari ini, meski cuma satu hal, dan lihat kembali entri sebelumnya kapan pun kamu mau. Tanpa runtunan: melewatkan satu hari tidak menghapus apa pun." },
+  { "clave": "tut.app-metas--esencial.1.titulo", "texto": "Perencana rumah" },
+  { "clave": "tut.app-metas--esencial.1.texto", "texto": "Ruangan ini tidak menyimpan catatannya sendiri: dia mengumpulkan di satu tempat target dan rencana yang lahir di aplikasi lain. Ada tiga menu, dan dibaca dalam urutan ini: apa yang kamu tetapkan untuk dirimu, bagaimana kamu berencana membaginya, dan kapan itu jatuh." },
+  { "clave": "tut.app-metas--esencial.2.titulo", "texto": "Target" },
+  { "clave": "tut.app-metas--esencial.2.texto", "texto": "Daftar semua yang kamu tetapkan untuk dirimu, dikelompokkan menurut aplikasi yang mengelola tiap target. Satu target bisa tergantung pada yang lain, dan menyentuhnya membuka kartunya: di situ ada batas waktunya, langkah-langkahnya, dan jalan masuk ke linimasanya sendiri." },
+  { "clave": "tut.app-metas--esencial.3.titulo", "texto": "Rencana" }
 ]

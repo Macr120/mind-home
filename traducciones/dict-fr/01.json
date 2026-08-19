@@ -1,299 +1,57 @@
 [
   {
-    "clave": "corazon.gato.noche.1",
-    "en": "Quiet night. Don’t ruin it 🐾"
+    "clave": "tut.esencial.titulo",
+    "es": "Lo esencial",
+    "en": "The essentials"
   },
   {
-    "clave": "corazon.gato.rutina.0",
-    "en": "Hey, “{r}” is at {h}. I’m not moving 🐾"
+    "clave": "tut.tipo.ejemplos",
+    "es": "Ejemplos · casa demo",
+    "en": "Examples · demo house"
   },
   {
-    "clave": "corazon.gato.rutina.1",
-    "en": "“{r}” is coming up ({h}). You got this; I’ll supervise 🐱"
+    "clave": "tut.app-agenda--esencial.resumen",
+    "es": "La agenda lleva lo que no es un hábito, en tres menús: Trabajo (pendientes y tablero), Salud (citas, medicamentos y cuidados: tuyos, de tus prójimos y de tus mascotas) y Personas (contactos y cumpleaños). Todo lo que lleva fecha se agenda solo en el calendario.",
+    "en": "The agenda holds what isn't a habit, in three menus: Work (to-dos and board), Health (appointments, medication and care: yours, your loved ones' and your pets') and People (contacts and birthdays). Everything with a date lands in the calendar by itself."
   },
   {
-    "clave": "corazon.gato.generica.0",
-    "en": "All under control. I checked while napping 🐾"
+    "clave": "tut.calendario--esencial.resumen",
+    "es": "El calendario no es un cuarto: vive en el reloj de la casa y reúne todo lo que tiene fecha y hora, lo que creas a mano y lo que agendan solas las demás apps. Se mira de cuatro maneras: Día y Semana sobre la rejilla de horas, Mes y Año para el panorama. Aparte va Misiones, el botón rojo con la checklist de hoy de todas las apps juntas.",
+    "en": "The calendar isn't a room: it lives in the house clock and gathers everything with a date and time, what you create by hand and what the other apps schedule on their own. There are four ways to look at it: Day and Week on the hourly grid, Month and Year for the big picture. Missions sits apart, the red button with today's checklist from every app at once."
   },
   {
-    "clave": "corazon.gato.generica.1",
-    "en": "Hmm. The house still stands. You’re welcome 🐱"
+    "clave": "tut.app-anecdotario--esencial.resumen",
+    "es": "El anecdotario es tu diario personal: entradas con ánimo, texto y fotos que se guardan solas por fecha. Un calendario pinta cada día según tu ánimo, y el historial las archiva en carpetas por año, mes y semana.",
+    "en": "Anecdotario is your personal diary: entries with a mood, text and photos that save themselves by date. A calendar colors each day by your mood, and the history archives them in folders by year, month and week."
   },
   {
-    "clave": "corazon.perro.manana.0",
-    "en": "Good morning! Today smells like a great day! 🐶"
+    "clave": "tut.app-biblioteca--esencial.resumen",
+    "es": "La biblioteca es tu enciclopedia personal, en cuatro menús: Charlas (preguntas al Sabio y cada conversación se archiva y se destila en ficha), Enciclopedia (el árbol donde vive lo aprendido, por campo del conocimiento), Estudio (el temporizador simple o pomodoro, que registra cada sesión) y Resumen (cuánto has escrito y cuánto has estudiado).",
+    "en": "The library is your personal encyclopedia, in four menus: Chats (you ask the Sage and every conversation is filed away and distilled into an entry), Encyclopedia (the tree where what you learn lives, by field of knowledge), Study (the simple or pomodoro timer, which logs every session) and Overview (how much you've written and how much you've studied)."
   },
   {
-    "clave": "corazon.perro.manana.1",
-    "en": "It’s morning! Let’s go go go! 🦴"
+    "clave": "tut.app-cocina--esencial.resumen",
+    "es": "La cocina tiene dos menús. Recetario guarda lo que vas a cocinar: las recetas con sus macros, las dietas que las agrupan y la lista del súper. Control de alimentación lleva la cuenta de lo que comes, en cuatro pasos: las metas de calorías y peso, el registro del día, el plan de comidas de los días que vienen y el progreso.",
+    "en": "The kitchen has two menus. Recipe book keeps what you are going to cook: your recipes with their macros, the diets that group them and the grocery list. Nutrition control tracks what you eat, in four steps: your calorie and weight goals, the daily log, the meal plan for the days ahead and your progress."
   },
   {
-    "clave": "corazon.perro.tarde.0",
-    "en": "The perfect afternoon to get things done! Woof! 🐶"
+    "clave": "tut.app-computo--esencial.resumen",
+    "es": "La sala de cómputo tiene dos menús. La Calculadora hace las cuentas de siempre y cambia de modo para graficar, trabajar con bases numéricas, matrices, sistemas de ecuaciones, unidades, propina y regla de tres; de ella cuelga el formulario, tu libro de fórmulas con Matemáticas, Física y Química ya puestas. Las Hojas de cálculo llevan lo tabular, con fórmulas en español y exportación a Excel o PDF.",
+    "en": "The computer room has two menus. The Calculator does the everyday math and switches modes to plot graphs, work with number bases, matrices, systems of equations, units, tips and rule of three; hanging off it is the formulary, your formula book with Maths, Physics and Chemistry already loaded. Spreadsheets handle anything tabular, with formulas in plain language and export to Excel or PDF."
   },
   {
-    "clave": "corazon.perro.tarde.1",
-    "en": "Still here, watching everything! 🎉"
+    "clave": "tut.app-descanso--esencial.resumen",
+    "es": "Descanso registra cómo duermes en una sola pantalla: la puntuación de la última noche, tu horario con sus avisos, el registro diario y el historial completo por año, mes y semana.",
+    "en": "Descanso tracks your sleep on a single screen: last night's score, your schedule with its reminders, the daily log, and the full history."
   },
   {
-    "clave": "corazon.perro.noche.0",
-    "en": "What a great day we had! Right? Right? 🐶"
+    "clave": "tut.app-despacho--esencial.resumen",
+    "es": "El despacho ordena tu dinero en cuatro menús. Patrimonio guarda lo que tienes y lo que debes, con su proyección; Flujo lleva gastos, ingresos y el balance del periodo, con presupuesto y categorías; Metas junta ahorro, inversión y deuda, más las calculadoras que proponen un monto. Mercados es un tablero de cotizaciones en vivo, solo de consulta.",
+    "en": "The study organizes your money in four menus. Net worth holds what you own and what you owe, with its projection; Flow tracks expenses, income and the period's balance, with its budget and categories; Goals brings together saving, investing and debt, plus the calculators that suggest an amount. Markets is a live quote board, for reference only."
   },
   {
-    "clave": "corazon.perro.noche.1",
-    "en": "Quiet night… I’ll keep watch! 🦴"
-  },
-  {
-    "clave": "corazon.perro.rutina.0",
-    "en": "“{r}” at {h}! You can do it! 🎉"
-  },
-  {
-    "clave": "corazon.perro.rutina.1",
-    "en": "Don’t forget “{r}” at {h}! Woof! 🐶"
-  },
-  {
-    "clave": "corazon.perro.generica.0",
-    "en": "I love this house! 🐶"
-  },
-  {
-    "clave": "corazon.perro.generica.1",
-    "en": "Call me if you need anything! Anything! 🦴"
-  },
-  {
-    "clave": "corazon.buho.manana.0",
-    "en": "Dawn. Ideal for planning the day calmly. 🦉"
-  },
-  {
-    "clave": "corazon.buho.manana.1",
-    "en": "A tidy morning yields double."
-  },
-  {
-    "clave": "corazon.buho.tarde.0",
-    "en": "Midday: a good moment to review progress. 🦉"
-  },
-  {
-    "clave": "corazon.buho.tarde.1",
-    "en": "The afternoon proceeds as planned."
-  },
-  {
-    "clave": "corazon.buho.noche.0",
-    "en": "Night falls. I suggest closing the day with a note. 🦉"
-  },
-  {
-    "clave": "corazon.buho.noche.1",
-    "en": "Night invites reflection."
-  },
-  {
-    "clave": "corazon.buho.rutina.0",
-    "en": "Timely notice: “{r}” at {h}. 🦉"
-  },
-  {
-    "clave": "corazon.buho.rutina.1",
-    "en": "Your schedule lists “{r}” at {h}."
-  },
-  {
-    "clave": "corazon.buho.generica.0",
-    "en": "I observe and take note. All in order. 🦉"
-  },
-  {
-    "clave": "corazon.buho.generica.1",
-    "en": "Knowledge builds up day by day."
-  },
-  {
-    "clave": "corazon.robot.manana.0",
-    "en": "☀ DAY CYCLE STARTED. SYSTEMS AT 100%. 🤖"
-  },
-  {
-    "clave": "corazon.robot.manana.1",
-    "en": "GOOD MORNING. BATTERY FULL. ✓"
-  },
-  {
-    "clave": "corazon.robot.tarde.0",
-    "en": "AFTERNOON SCAN COMPLETE. NO ANOMALIES. ✓"
-  },
-  {
-    "clave": "corazon.robot.tarde.1",
-    "en": "PRODUCTIVITY WITHIN PARAMETERS. 🤖"
-  },
-  {
-    "clave": "corazon.robot.noche.0",
-    "en": "NIGHT MODE ACTIVE. WATCH IN PROGRESS. 🤖"
-  },
-  {
-    "clave": "corazon.robot.noche.1",
-    "en": "RECOMMENDATION: RECHARGE HUMAN UNIT (SLEEP). ✓"
-  },
-  {
-    "clave": "corazon.robot.rutina.0",
-    "en": "REMINDER: “{r}” SCHEDULED AT {h}. ✓"
-  },
-  {
-    "clave": "corazon.robot.rutina.1",
-    "en": "ALERT: “{r}” AT {h}. 🤖"
-  },
-  {
-    "clave": "corazon.robot.generica.0",
-    "en": "ALL SYSTEMS NOMINAL. 🤖"
-  },
-  {
-    "clave": "corazon.robot.generica.1",
-    "en": "AWAITING INSTRUCTIONS. NOT URGENT. ✓"
-  },
-  {
-    "clave": "chat.config.activoMapa",
-    "es": "El asistente activo siempre está en el mapa",
-    "en": "The active assistant is always on the map"
-  },
-  {
-    "clave": "chat.config.editar",
-    "es": "Personalizar",
-    "en": "Customize"
-  },
-  {
-    "clave": "chat.config.eliminar",
-    "es": "Eliminar asistente",
-    "en": "Remove assistant"
-  },
-  {
-    "clave": "chat.config.eliminarConfirma",
-    "es": "¿Eliminar a {n}? Sus conversaciones se quedan.",
-    "en": "Remove {n}? Their conversations stay."
-  },
-  {
-    "clave": "chat.config.eliminarOk",
-    "es": "Eliminar",
-    "en": "Remove"
-  },
-  {
-    "clave": "chat.config.eliminarUltimo",
-    "es": "Debe quedar al menos un asistente",
-    "en": "At least one assistant must remain"
-  },
-  {
-    "clave": "chat.config.restaurar",
-    "es": "Restaurar:",
-    "en": "Restore:"
-  },
-  {
-    "clave": "chat.config.restaurarUno",
-    "es": "Restaurar a",
-    "en": "Restore"
-  },
-  {
-    "clave": "acceso.subir",
-    "en": "Go up to level {n}"
-  },
-  {
-    "clave": "acceso.bajarPlanta",
-    "en": "Go down to ground floor"
-  },
-  {
-    "clave": "acceso.bajar",
-    "en": "Go down to level {n}"
-  },
-  {
-    "clave": "veh.ayuda",
-    "en": "Place a vehicle on the map and walk up to it to ride it."
-  },
-  {
-    "clave": "veh.colocar",
-    "en": "Place on the map"
-  },
-  {
-    "clave": "veh.color",
-    "en": "Vehicle color"
-  },
-  {
-    "clave": "veh.subirte",
-    "es": "Subirte",
-    "en": "Ride"
-  },
-  {
-    "clave": "veh.bajarte",
-    "es": "Bajarte",
-    "en": "Get off"
-  },
-  {
-    "clave": "accion.sentarte",
-    "es": "Sentarte",
-    "en": "Sit down"
-  },
-  {
-    "clave": "accion.acostarte",
-    "es": "Acostarte",
-    "en": "Lie down"
-  },
-  {
-    "clave": "accion.sentado",
-    "en": "Sitting"
-  },
-  {
-    "clave": "accion.acostado",
-    "en": "Lying down"
-  },
-  {
-    "clave": "accion.levantarte",
-    "es": "Levantarte",
-    "en": "Get up"
-  },
-  {
-    "clave": "veh.subir",
-    "es": "Ascender (Espacio)",
-    "en": "Ascend (Space)"
-  },
-  {
-    "clave": "veh.bajar",
-    "es": "Descender (Shift)",
-    "en": "Descend (Shift)"
-  },
-  {
-    "clave": "veh.derrape",
-    "es": "Derrape (Espacio)",
-    "en": "Drift (Space)"
-  },
-  {
-    "clave": "hud.ayuda",
-    "en": "Move with WASD/arrows or the pad (bottom left). Rotate and zoom with the buttons (bottom right). Walk through the doors between rooms."
-  },
-  {
-    "clave": "cat.cuerpo",
-    "en": "Body"
-  },
-  {
-    "clave": "cat.mente",
-    "en": "Mind"
-  },
-  {
-    "clave": "cat.complemento",
-    "en": "Extras"
-  },
-  {
-    "clave": "cat.config",
-    "en": "Settings"
-  },
-  {
-    "clave": "ajustes.titulo",
-    "es": "Ajustes",
-    "en": "Settings"
-  },
-  {
-    "clave": "ajustes.idioma.ja",
-    "en": "Japanese"
-  },
-  {
-    "clave": "ajustes.idioma.zh",
-    "en": "Chinese"
-  },
-  {
-    "clave": "ajustes.idioma.ko",
-    "en": "Korean"
-  },
-  {
-    "clave": "ajustes.idioma.ru",
-    "en": "Russian"
-  },
-  {
-    "clave": "ajustes.idioma.hi",
-    "en": "Hindi"
+    "clave": "tut.app-diario--esencial.resumen",
+    "es": "El diario es un periódico efímero: titulares de prensa real por categoría y efemérides del día, que se renueva solo a medianoche. Desde el reparto programas que un asistente te lo entregue en su propio chat.",
+    "en": "The diary is an ephemeral newspaper: real-press headlines by category and today's on-this-day facts, which renews itself on its own at midnight. From delivery you schedule an assistant to bring it to you in their own chat."
   }
 ]

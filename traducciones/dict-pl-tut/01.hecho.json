@@ -1,38 +1,93 @@
 [
+  { "clave": "tut.app-agenda--esencial.1.titulo", "texto": "Twój terminarz" },
   {
-    "clave": "tut.hoy.1.texto",
-    "texto": "W nagłówku każdej aplikacji jest przycisk Cele, taki sam jak w kalendarzu, ale ograniczony do tej aplikacji. Otwiera panel z dwoma piętrami: na górze dzisiejsza checklista, na dole cele i plany aplikacji."
+    "clave": "tut.app-agenda--esencial.1.texto",
+    "texto": "Terminarz prowadzi to, co nie jest nawykiem: zadania, wizyty, kontakty. Ma trzy podmenu, a wszystko, co ma datę, planuje się samo w kalendarzu domu."
   },
+  { "clave": "tut.app-agenda--esencial.2.titulo", "texto": "Praca" },
   {
-    "clave": "tut.hoy.2.texto",
-    "texto": "Własne cele aplikacji (woda, kalorie), to, co zaplanowałeś na dziś w kalendarzu, i kroki twoich aktualnych celów — wszystko razem, pogrupowane według planu lub celu, z którego pochodzi każdy krok."
+    "clave": "tut.app-agenda--esencial.2.texto",
+    "texto": "Skrzynka zbiera zadania bez daty, żeby się nie zgubiły, a tablica przesuwa twoje zadania po kolumnach: do zrobienia, w trakcie i zrobione."
   },
+  { "clave": "tut.app-agenda--esencial.3.titulo", "texto": "Zdrowie" },
   {
-    "clave": "tut.hoy.7.texto",
-    "texto": "A jeśli czegoś brakuje, «Nowa lista» tworzy twoją własną: listę tej aplikacji, która powtarza się codziennie. Pod sekcją Dziś jest pełny planer — Cele, Plany i Harmonogram — ze wszystkimi celami aplikacji."
+    "clave": "tut.app-agenda--esencial.3.texto",
+    "texto": "Wizyty lekarskie, leki i opieka, w trzech podmenu: Ty, Bliscy (ci, którymi się opiekujesz) i Zwierzęta."
   },
+  { "clave": "tut.app-agenda--esencial.4.titulo", "texto": "Ludzie" },
   {
-    "clave": "tut.app-hobbies--gestion.4.texto",
-    "texto": "Cele twoich hobby i projektów żyją w przycisku Cele w nagłówku: ten sam planer Cele · Plany · Harmonogram z kalendarza, ograniczony do tej aplikacji. Poproś AI o plan z etapami i datami."
+    "clave": "tut.app-agenda--esencial.4.texto",
+    "texto": "Twoja książka kontaktów według relacji. Zapisane urodziny powtarzają się same co roku w kalendarzu."
   },
+  { "clave": "tut.calendario--esencial.1.titulo", "texto": "Zegar domu" },
   {
-    "clave": "tut.app-biblioteca--estudio.2.texto",
-    "texto": "Cele żyją w przycisku Cele w nagłówku, w tym samym harmonogramie kalendarza: «skończyć termodynamikę przed kolokwium» jest już zrealizowany; przygotowanie do studiów magisterskich wciąż trwa."
+    "clave": "tut.calendario--esencial.1.texto",
+    "texto": "Kalendarz to nie pokój: mieszka w zegarze HUD-u, więc otwiera się z dowolnego miejsca, bez wchodzenia gdziekolwiek."
   },
+  { "clave": "tut.calendario--esencial.2.titulo", "texto": "Wszystko zaplanowane, razem" },
   {
-    "clave": "tut.app-ejercicio--anio.3.texto",
-    "texto": "Przycisk Cele w nagłówku przechowuje cztery zrealizowane cele — 5 km, 10 km, półmaraton i maraton — oraz ten, który wciąż trwa. Cele z datą pojawiają się też w kalendarzu domu."
+    "clave": "tut.calendario--esencial.2.texto",
+    "texto": "Tutaj trafia wszystko, co ma datę i godzinę: to, co tworzysz przyciskiem «+ Nowe» albo rysując na siatce, i to, co same planują pozostałe aplikacje. Filtr u góry pokazuje jedną aplikację, gdy robi się zbyt tłoczno."
   },
+  { "clave": "tut.calendario--esencial.3.titulo", "texto": "Dzień" },
   {
-    "clave": "tut.app-cocina--cronograma.1.texto",
-    "texto": "Przycisk Cele w nagłówku otwiera ten sam harmonogram, którego używa kalendarz domu, ograniczony do celów Kuchni: utwórz cel (np. «Schudnąć 3 kilogramy») i poproś AI o plan — zapyta o twoją docelową datę i zaplanuje podcele z własnymi datami."
+    "clave": "tut.calendario--esencial.3.texto",
+    "texto": "Siatka jednej doby, 24 godziny: pokazuje, o której godzinie jest każda rzecz i czy coś się nakłada. Ten przycisk pełni podwójną funkcję: mówi «Dziś» i przenosi cię do teraźniejszości, albo «Dzień», jeśli oglądasz już inną datę."
   },
+  { "clave": "tut.calendario--esencial.4.titulo", "texto": "Tydzień" },
   {
-    "clave": "tut.app-despacho--metas.2.texto",
-    "texto": "Przycisk Cele w nagłówku przechowuje te cele na osi czasu: ustaw datę dla jednego z nich, a pojawi się wśród dni w twoim kalendarzu. Dzięki ✨ AI proponuje plan wpłat."
+    "clave": "tut.calendario--esencial.4.texto",
+    "texto": "Ta sama siatka godzin, ale z siedmioma dniami obok siebie. Tu widać, jak rozkłada się tydzień, i tu przeciąga się bloki z jednego dnia na drugi albo rozciąga, żeby trwały dłużej."
   },
+  { "clave": "tut.calendario--esencial.5.titulo", "texto": "Miesiąc" },
   {
-    "clave": "tut.app-entretenimiento--programas.2.texto",
-    "texto": "Zapisany program żyje w przycisku Cele w nagłówku: każdy tytuł zachowuje notatkę o tym, dlaczego jest na liście, a po ustawieniu daty trafia do kalendarza jak każdy inny cel."
-  }
+    "clave": "tut.calendario--esencial.5.texto",
+    "texto": "Porzuca oś godzin i maluje dni jako pola z tym, co na każdy przypada. To widok panoramiczny: które tygodnie są napięte, a które dni zostają wolne."
+  },
+  { "clave": "tut.calendario--esencial.6.titulo", "texto": "Rok" },
+  {
+    "clave": "tut.calendario--esencial.6.texto",
+    "texto": "Dwanaście miesięcy naraz. Z tej odległości nie czyta się już godzin: widać konsekwencję, ile z tego, co sobie postanowiłeś, udało ci się utrzymać przez cały rok."
+  },
+  { "clave": "tut.calendario--esencial.7.titulo", "texto": "A misje osobno" },
+  {
+    "clave": "tut.calendario--esencial.7.texto",
+    "texto": "Na czerwono, żeby nie wyglądało to jak piąty widok: Misje zbierają na jednym ekranie dzisiejszą listę zadań wszystkich aplikacji. Celów i ich planów tu nie ma — mieszkają we własnym pokoju."
+  },
+  { "clave": "tut.app-anecdotario--esencial.1.titulo", "texto": "Twój osobisty dziennik" },
+  {
+    "clave": "tut.app-anecdotario--esencial.1.texto",
+    "texto": "Dziennik przechowuje to, co chcesz opowiedzieć, z jego nastrojem i zdjęciami. Organizuje się sam według daty, bez konieczności czegokolwiek klasyfikować."
+  },
+  { "clave": "tut.app-anecdotario--esencial.2.titulo", "texto": "Tak się pisze" },
+  {
+    "clave": "tut.app-anecdotario--esencial.2.texto",
+    "texto": "Wybierz nastrój dnia, napisz, co chcesz opowiedzieć, i dołącz zdjęcia, jeśli masz. Wystarczy samo zdjęcie, bez tekstu."
+  },
+  { "clave": "tut.app-anecdotario--esencial.3.titulo", "texto": "Kalendarz nastroju" },
+  {
+    "clave": "tut.app-anecdotario--esencial.3.texto",
+    "texto": "Każdy dzień jest pomalowany nastrojem swojego wpisu, więc cały miesiąc czyta się jednym rzutem oka. Dotknij dnia, żeby zobaczyć jego wpisy poniżej."
+  },
+  { "clave": "tut.app-anecdotario--esencial.4.titulo", "texto": "Historia" },
+  {
+    "clave": "tut.app-anecdotario--esencial.4.texto",
+    "texto": "Wszystkie wpisy trafiają tutaj, same posegregowane w folderach według roku, miesiąca i tygodnia."
+  },
+  { "clave": "tut.app-biblioteca--esencial.1.titulo", "texto": "Twoja biblioteka" },
+  {
+    "clave": "tut.app-biblioteca--esencial.1.texto",
+    "texto": "Biblioteka to twoja osobista encyklopedia: pytasz o to, czego nie wiesz, zapisujesz to, czego się uczysz, i prowadzisz rachunek tego, co studiujesz. Są cztery podmenu."
+  },
+  { "clave": "tut.app-biblioteca--esencial.2.titulo", "texto": "Rozmowy" },
+  {
+    "clave": "tut.app-biblioteca--esencial.2.texto",
+    "texto": "Tutaj pytasz Mędrca o dowolny temat, a rozmowa zostaje zapisana. Każda rozmowa sama klasyfikuje się w swojej dziedzinie wiedzy i wychodzi zdestylowana jako wpis encyklopedii."
+  },
+  { "clave": "tut.app-biblioteca--esencial.3.titulo", "texto": "Encyklopedia" },
+  {
+    "clave": "tut.app-biblioteca--esencial.3.texto",
+    "texto": "Drzewo, w którym żyje to, czego się nauczyłeś, uporządkowane według dziedziny wiedzy. Każdy wpis ma swoje podsumowanie i kluczowe punkty, a ty też możesz je napisać ręcznie; ołówkiem rozwijasz indeks na swoją miarę."
+  },
+  { "clave": "tut.app-biblioteca--esencial.4.titulo", "texto": "Nauka" }
 ]

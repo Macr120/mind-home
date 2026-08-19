@@ -137,7 +137,7 @@ export function FilaMeta({
           onClick={() => onPlegar(!abierta)}
           disabled={hijas.length === 0}
           title={abierta ? t('cal.meta.plegar', 'Plegar') : t('cal.meta.desplegar', 'Desplegar')}
-          className="w-2.5 shrink-0 text-[9px] text-white/30 transition hover:text-white/70 disabled:opacity-0"
+          className="ui-presion w-2.5 shrink-0 text-[9px] text-white/30 transition hover:text-white/70 disabled:opacity-0"
         >
           {abierta ? '▾' : '▸'}
         </button>
@@ -147,7 +147,7 @@ export function FilaMeta({
             type="button"
             onClick={() => void toggleMeta(meta)}
             title={t('cal.marcarHecho', 'Marcar como hecho')}
-            className={`grid h-4 w-4 shrink-0 place-items-center rounded border text-[10px] transition ${
+            className={`ui-presion grid h-4 w-4 shrink-0 place-items-center rounded-lg border text-[10px] transition ${
               meta.completada
                 ? 'border-emerald-400 bg-emerald-500/30 text-emerald-400'
                 : 'border-white/25 hover:border-white/50'
@@ -167,7 +167,7 @@ export function FilaMeta({
               if (e.key === 'Enter') confirmarRenombre()
               else if (e.key === 'Escape') setRenombrando(false)
             }}
-            className="min-w-0 flex-1 rounded border border-white/15 bg-black/30 px-1.5 py-0.5 text-xs text-white/90 focus:outline-none"
+            className="min-w-0 flex-1 rounded-lg border border-white/15 bg-black/30 px-1.5 py-0.5 text-xs text-white/90 focus:border-accent/60 focus:outline-none"
           />
         ) : (
           <button
@@ -188,7 +188,7 @@ export function FilaMeta({
                 ? t('cal.meta.armarORenombrar', 'Clic: trazarla en el calendario · Doble clic: renombrar')
                 : t('cal.meta.armar', 'Trazarla en el calendario')
             }
-            className="flex min-w-0 flex-1 items-center gap-1.5 text-start text-xs text-white/85"
+            className="ui-presion flex min-w-0 flex-1 items-center gap-1.5 text-start text-xs text-white/85"
           >
             <span
               className="h-2 w-2 shrink-0 rounded-full"
@@ -224,8 +224,8 @@ export function FilaMeta({
               type="button"
               onClick={() => setAgregando((v) => !v)}
               title={t('cal.meta.agregarHija', 'Agregar una sub-meta')}
-              className={`shrink-0 px-1 text-[10px] font-medium transition ${
-                agregando ? 'text-emerald-400' : 'text-white/30 hover:text-white/70'
+              className={`ui-presion shrink-0 px-1 text-[10px] font-medium transition ${
+                agregando ? 'text-accent' : 'text-white/30 hover:text-white/70'
               }`}
             >
               + {etiquetaHija}
@@ -234,7 +234,7 @@ export function FilaMeta({
               type="button"
               onClick={() => setDetalle((v) => !v)}
               title={t('cal.meta.detalle', 'Fechas, pasos y nota')}
-              className={`shrink-0 px-0.5 text-[10px] transition ${
+              className={`ui-presion shrink-0 px-0.5 text-[10px] transition ${
                 detalle || meta.nota || pasos.total > 0 ? 'text-sky-400' : 'text-white/30 hover:text-white/70'
               }`}
             >
@@ -244,7 +244,7 @@ export function FilaMeta({
               type="button"
               onClick={() => void borrar()}
               title={t('rutinas.borrar', 'Borrar')}
-              className="shrink-0 px-0.5 text-white/30 transition hover:text-red-400"
+              className="ui-presion shrink-0 px-0.5 text-white/30 transition hover:text-red-400"
             >
               <Icono nombre="basura" />
             </button>
@@ -274,7 +274,7 @@ export function FilaMeta({
               else if (e.key === 'Escape') setAgregando(false)
             }}
             placeholder={t('cal.meta.nuevaHija', 'Sub-meta…')}
-            className="w-full rounded border border-white/15 bg-black/30 px-1.5 py-0.5 text-xs text-white/90 placeholder:text-white/25 focus:outline-none"
+            className="w-full rounded-lg border border-white/15 bg-black/30 px-1.5 py-0.5 text-xs text-white/90 placeholder:text-white/25 focus:border-accent/60 focus:outline-none"
           />
         </div>
       )}

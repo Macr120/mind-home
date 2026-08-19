@@ -1,0 +1,38 @@
+[
+  {
+    "clave": "tut.app-ejercicio--esencial.resumen",
+    "texto": "O exercício reúne as três modalidades do corpo num mesmo lugar: Força (séries, repetições e peso), Resistência (corrida, bicicleta ou natação, com treino ao vivo por GPS e frequencímetro) e Flexibilidade (mobilidade por tempo, com reprodutor guiado). As três se organizam do mesmo jeito — catálogo, rotinas e progresso — e o menu Metas define quanto treinar cada semana e resume sua sequência e seu avanço."
+  },
+  {
+    "clave": "tut.app-entretenimiento--esencial.resumen",
+    "texto": "Entretenimento tem dois menus: Jogos de tabuleiro, com um catálogo digital agrupado por famílias e filtrado pelo número de jogadores, e Arquivo, onde você guarda os filmes, séries, livros e videogames que vai terminando, com seu status e sua resenha."
+  },
+  {
+    "clave": "tut.app-garage--esencial.resumen",
+    "texto": "A garagem cuida da manutenção dos seus veículos: um semáforo resume o que é urgente, a lista de veículos guarda o histórico de serviços de cada um, e cada ficha reúne seus trâmites, documentos e contatos. Tudo o que tem data se agenda sozinho no calendário da casa."
+  },
+  {
+    "clave": "tut.app-hobbies--esencial.resumen",
+    "texto": "Hobbies acompanha seus passatempos: a lista com a sequência e o avanço semanal de cada um, e o cadastro de um novo. Dentro de cada hobby vive o registro de sessões, o mapa de calor do ano e seus projetos."
+  },
+  {
+    "clave": "tut.app-ideas--esencial.resumen",
+    "texto": "Ideias guarda o que passa pela sua cabeça em três menus: Diário (ocorrências soltas ou tempestades por tema), Mapas conceituais (uma tela livre em vários formatos) e Diagramas de decisão (os mesmos formatos, pensados para comparar e decidir). Tudo pode ser arquivado em pastas e convertido de um menu para outro."
+  },
+  {
+    "clave": "tut.app-idiomas--esencial.resumen",
+    "texto": "Idiomas é sua escola de idiomas, em quatro menus. Conversas abre uma conversa com um tutor de inteligência artificial que responde ao seu nível; Programa ordena o idioma em temas, pronúncia e gramática do nível A1 ao C2, e é ali que vive o vocabulário em cartões; Revisão o repassa com um sistema espaçado e exercícios; Progresso resume seu avanço."
+  },
+  {
+    "clave": "tut.app-jardin--esencial.resumen",
+    "texto": "O jardim reúne meditação (com trilhas sonoras), respiração guiada e agradecimentos diários, em três menus. Não tem pontos nem sequências de propósito: aqui faltar não é punido, só se pratica."
+  },
+  {
+    "clave": "tut.app-metas--esencial.resumen",
+    "texto": "O planejador de toda a casa, em três menus: Metas (a lista do que você se propôs, agrupada pelo app que leva cada uma), Planos (os rascunhos de cronograma que dividem uma meta em fases) e Cronograma (o eixo do tempo onde todas caem). Não guarda registros próprios: reúne as metas e os planos que nascem nos demais apps. A partir de uma meta você abre sua folha e, dali, o eixo restrito a ela."
+  },
+  {
+    "clave": "tut.app-sala--esencial.resumen",
+    "texto": "A sala é seu mundo viajante, em quatro menus: Mapa (alfinetes de lugares no mapa-múndi, com vista de globo), Itinerário (lugares por conhecer com seu plano dia a dia), Rotas (percursos que encadeiam lugares) e Diário de bordo (lembranças com fotos e histórias por país)."
+  }
+]

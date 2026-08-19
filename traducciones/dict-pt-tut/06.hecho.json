@@ -1,0 +1,36 @@
+[
+  {
+    "clave": "tut.app-metas--esencial.3.texto",
+    "texto": "Um plano é o rascunho de um cronograma: divide uma meta em fases com suas datas. Enquanto é proposta, você ajusta à vontade; quando convence, é aceito e suas fases viram sub-metas de verdade."
+  },
+  { "clave": "tut.app-metas--esencial.4.titulo", "texto": "Cronograma" },
+  {
+    "clave": "tut.app-metas--esencial.4.texto",
+    "texto": "O eixo do tempo com todas as metas de uma vez: cada uma é uma barra sobre as datas. Você aproxima e afasta por dias, semanas, meses ou anos, e um plano pode se sobrepor a ele para comparar com o que já está traçado."
+  },
+  { "clave": "tut.app-sala--esencial.1.titulo", "texto": "Sua sala de viagens" },
+  {
+    "clave": "tut.app-sala--esencial.1.texto",
+    "texto": "Aqui vive seu mundo viajante: um mapa-múndi com alfinetes, itinerários de lugares por conhecer, rotas que encadeiam lugares e um diário de bordo de lembranças. São quatro menus."
+  },
+  { "clave": "tut.app-sala--esencial.2.titulo", "texto": "Mapa" },
+  {
+    "clave": "tut.app-sala--esencial.2.texto",
+    "texto": "Cada lugar que você visitou ou sonha em visitar é um alfinete no mapa-múndi. O interruptor lá em cima troca o mapa plano por um globo que você gira arrastando."
+  },
+  { "clave": "tut.app-sala--esencial.3.titulo", "texto": "Itinerário" },
+  {
+    "clave": "tut.app-sala--esencial.3.texto",
+    "texto": "Os lugares que você sonha em conhecer, cada um com seu plano dia a dia. Os que têm data se agendam sozinhos no calendário."
+  },
+  { "clave": "tut.app-sala--esencial.4.titulo", "texto": "Rotas" },
+  {
+    "clave": "tut.app-sala--esencial.4.texto",
+    "texto": "Uma rota encadeia lugares num percurso e o desenha no mapa."
+  },
+  { "clave": "tut.app-sala--esencial.5.titulo", "texto": "Diário de bordo" },
+  {
+    "clave": "tut.app-sala--esencial.5.texto",
+    "texto": "As lembranças dos lugares que você visitou, em álbuns por país: fotos e histórias de cada lugar."
+  }
+]

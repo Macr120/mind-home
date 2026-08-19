@@ -4,7 +4,7 @@
  */
 import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { abrirApp } from '../../core/abrirApp'
-import { clickTut, elTut } from '../../core/tutorial/dom'
+import { clickTut, elTut, esperarTut } from '../../core/tutorial/dom'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
@@ -104,8 +104,52 @@ export const cuerpoCalculadora: CuerpoTutorial = {
       titulo: T('tut.app-computo--calculadora.3.titulo', 'Modos especiales'),
       texto: T(
         'tut.app-computo--calculadora.3.texto',
-        'La calculadora cambia de vista entera: la gráfica, binario y hexadecimal, matrices, sistemas de ecuaciones, conversión de unidades, la cuenta con propina y la regla de tres. El historial se queda abajo en todos.',
+        'La calculadora cambia de vista entera: la gráfica, las bases del 2 al 16, matrices, sistemas de ecuaciones, conversión de unidades, la cuenta con propina y la regla de tres. El historial se queda abajo en todos.',
       ),
+    },
+    {
+      sel: 'computo.calc.bases',
+      titulo: T('tut.app-computo--calculadora.3b.titulo', 'Bases'),
+      texto: T(
+        'tut.app-computo--calculadora.3b.texto',
+        'Lo que escribas se lee en la base elegida y se muestra en las quince a la vez, del 2 al 16, en vivo. Trae operaciones bit a bit, y con los prefijos 0b, 0o y 0x se mezclan bases en una misma cuenta.',
+      ),
+      alEntrar: () => {
+        clickTut('computo.modo.bases')
+      },
+    },
+    {
+      sel: 'computo.calc.matrices',
+      titulo: T('tut.app-computo--calculadora.3c.titulo', 'Matrices y sistemas'),
+      texto: T(
+        'tut.app-computo--calculadora.3c.texto',
+        'Matrices opera con A y B hasta 6×6: suma, producto, determinante, inversa, transpuesta y traza. Su vecino Sistemas resuelve ecuaciones lineales leyendo las incógnitas de lo que escribas, hasta seis ecuaciones.',
+      ),
+      alEntrar: () => {
+        clickTut('computo.modo.matrices')
+      },
+    },
+    {
+      sel: 'computo.calc.unidades',
+      titulo: T('tut.app-computo--calculadora.3d.titulo', 'Unidades'),
+      texto: T(
+        'tut.app-computo--calculadora.3d.texto',
+        'Ocho categorías —de longitud a datos— que convierten mientras escribes; cada una recuerda su último par y «Al revés» invierte la conversión. La temperatura sale bien: 100 °C son 212 °F.',
+      ),
+      alEntrar: () => {
+        clickTut('computo.modo.unidades')
+      },
+    },
+    {
+      sel: 'computo.calc.propina',
+      titulo: T('tut.app-computo--calculadora.3e.titulo', 'Propina y regla de tres'),
+      texto: T(
+        'tut.app-computo--calculadora.3e.texto',
+        'Las dos de cabeza rápida: Propina calcula sobre la cuenta —no sobre el total— y divide entre cuantos sean; Regla de 3, directa o inversa, llena la x sola.',
+      ),
+      alEntrar: () => {
+        clickTut('computo.modo.propina')
+      },
     },
     {
       sel: 'computo.menu.formulario',
@@ -203,6 +247,75 @@ export const cuerpoHojas: CuerpoTutorial = {
         'tut.app-computo--hojas.5.texto',
         'A Excel sale un .xlsx de verdad, con las fórmulas vivas y las gráficas como gráficas de Excel. A PDF sale por la impresora del navegador.',
       ),
+    },
+  ],
+}
+
+/**
+ * ESENCIAL: corre en la casa real y recorre los menús principales uno por uno.
+ * Sin datos de por medio: sus anclas son las dos pestañas, el menú de modos y la
+ * cabecera del formulario, que existen con la BD vacía.
+ *
+ * `alEntrar` solo pulsa pestañas: `clickTut` sobre la pestaña ACTIVA no la
+ * pliega (`PestanasCarpeta` solo pliega con clicks reales), así que re-entrar
+ * con «Atrás» no cambia nada.
+ */
+export const cuerpoEsencial: CuerpoTutorial = {
+  preparar: () => {
+    abrirApp('computo')
+  },
+  pasos: [
+    {
+      titulo: T('tut.app-computo--esencial.1.titulo', 'La sala de cómputo'),
+      texto: T(
+        'tut.app-computo--esencial.1.texto',
+        'Aquí se resuelve lo que hay que calcular, en dos menús: la Calculadora, con sus modos y tu formulario de fórmulas, y las Hojas de cálculo para todo lo que va en tablas.',
+      ),
+    },
+    {
+      sel: 'computo.tab.calculadora',
+      titulo: T('tut.app-computo--esencial.2.titulo', 'Calculadora'),
+      texto: T(
+        'tut.app-computo--esencial.2.texto',
+        'Una calculadora científica que da el resultado mientras escribes y guarda lo calculado en el historial. El teclado de abajo evita el del teléfono, y las notaciones escriben lo científico donde tengas el cursor.',
+      ),
+      alEntrar: async () => {
+        await esperarTut('computo.tab.calculadora', 4000)
+        clickTut('computo.tab.calculadora')
+      },
+    },
+    {
+      sel: 'computo.calc.modos',
+      titulo: T('tut.app-computo--esencial.3.titulo', 'Los modos'),
+      texto: T(
+        'tut.app-computo--esencial.3.texto',
+        'Este menú cambia la vista entera de la calculadora: gráfica, bases numéricas, matrices, sistemas de ecuaciones, conversión de unidades, propina y regla de tres. El historial se queda abajo en todos.',
+      ),
+      alEntrar: () => {
+        clickTut('computo.tab.calculadora')
+      },
+    },
+    {
+      sel: 'computo.menu.formulario',
+      titulo: T('tut.app-computo--esencial.4.titulo', 'El formulario'),
+      texto: T(
+        'tut.app-computo--esencial.4.texto',
+        'Tu libro de fórmulas, plegado sobre la calculadora. Vienen puestas las de Matemáticas, Física y Química, en carpetas que puedes anidar. Cualquiera se abre para llenar sus variables, se edita o se borra.',
+      ),
+      alEntrar: () => {
+        clickTut('computo.tab.calculadora')
+      },
+    },
+    {
+      sel: 'computo.tab.hojas',
+      titulo: T('tut.app-computo--esencial.5.titulo', 'Hojas de cálculo'),
+      texto: T(
+        'tut.app-computo--esencial.5.texto',
+        'Hojas con referencias de celda y fórmulas en español, y gráficas sobre el rango que marques. Se exportan a Excel conservando las fórmulas, o a PDF.',
+      ),
+      alEntrar: () => {
+        clickTut('computo.tab.hojas')
+      },
     },
   ],
 }

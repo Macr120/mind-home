@@ -163,3 +163,57 @@ export const cuerpoDecidir: CuerpoTutorial = {
   ],
 }
 
+/**
+ * ESENCIAL: corre en la casa real y recorre los tres menús de Ideas uno por
+ * uno. Sin datos de por medio: sus anclas son las pestañas raíz, que existen
+ * con la BD vacía.
+ */
+export const cuerpoEsencial: CuerpoTutorial = {
+  preparar: () => {
+    abrirApp('ideas')
+  },
+  pasos: [
+    {
+      titulo: T('tut.app-ideas--esencial.1.titulo', 'Ideas'),
+      texto: T(
+        'tut.app-ideas--esencial.1.texto',
+        'Ideas guarda lo que se te ocurre y lo ayuda a madurar: primero se anota, después se ordena en un mapa y, si hace falta, se compara para decidir. Son tres menús.',
+      ),
+    },
+    {
+      sel: 'ideas.tab.diario',
+      titulo: T('tut.app-ideas--esencial.2.titulo', 'Diario de ideas'),
+      texto: T(
+        'tut.app-ideas--esencial.2.texto',
+        'La bandeja donde cae cualquier ocurrencia, suelta o agrupada en una lluvia por tema. Se puede archivar en carpetas, destacar con estrella y, cuando madura, convertir en un mapa.',
+      ),
+      alEntrar: async () => {
+        await esperarTut('ideas.tab.diario', 4000)
+        clickTut('ideas.tab.diario')
+      },
+    },
+    {
+      sel: 'ideas.tab.mapas',
+      titulo: T('tut.app-ideas--esencial.3.titulo', 'Mapas conceptuales'),
+      texto: T(
+        'tut.app-ideas--esencial.3.texto',
+        'Un lienzo libre para ordenar un tema en el formato que le quede mejor: mental, árbol, flujo, línea del tiempo, ciclo, pirámide, Venn y más.',
+      ),
+      alEntrar: () => {
+        clickTut('ideas.tab.mapas')
+      },
+    },
+    {
+      sel: 'ideas.tab.diagramas',
+      titulo: T('tut.app-ideas--esencial.4.titulo', 'Diagramas de decisiones'),
+      texto: T(
+        'tut.app-ideas--esencial.4.texto',
+        'El mismo lienzo, con formatos pensados para decidir: ventajas y desventajas con peso, FODA, Eisenhower o una matriz ponderada que ordena las opciones sola.',
+      ),
+      alEntrar: () => {
+        clickTut('ideas.tab.diagramas')
+      },
+    },
+  ],
+}
+

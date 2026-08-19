@@ -13,7 +13,7 @@
  */
 import { fuePro, tieneAcceso } from '../edicion'
 import { obtenerSupabase, hayBackend } from './supabase'
-import { haySesion, useSesion } from './sesionStore'
+import { haySesionProbable, useSesion } from './sesionStore'
 import { useAvisoRenovar, useCuotaAgotada } from '../state/avisosPlanStore'
 import type { OpIA } from './costos'
 import type { CalidadImagen } from './calidadImagen'
@@ -50,15 +50,39 @@ export function setTransporte(t: TransporteIA) {
 }
 
 /**
+ * ¿El BYOK elegido puede de verdad llamar (clave puesta u Ollama)? Lo sabe
+ * `chat/ia.ts`, que es quien guarda proveedor y claves; se registra desde allí
+ * para no importar ese módulo aquí (arrastraría prompts y tools a la web
+ * pública, y crearía un ciclo con este archivo).
+ */
+let byokUtilizable: () => boolean = () => false
+
+export function registrarByokUtilizable(fn: () => boolean) {
+  byokUtilizable = fn
+}
+
+/**
  * ¿La IA debe salir por el proxy de la cuenta? Basta con tener sesión y algo que
  * gastar (Pro, el mes trial del unlock, o recargas). `fuePro()` sigue contando
  * para que un ex-suscriptor con el pool en 0 llegue al servidor y reciba el
- * aviso de renovación en vez de caer a BYOK. Elegir «BYOK» en el panel apaga la
- * vía cuenta por completo (estricto: sin clave puesta NO se cae a créditos).
+ * aviso de renovación en vez de caer a BYOK.
+ *
+ * Dos reglas que costaron un bug real (ago 2026):
+ *
+ * 1. **La sesión que aún no ha hidratado NO es «no hay cuenta»**. El SDK de
+ *    Supabase se carga bajo demanda y `getSession()` puede ir a la red, así que
+ *    durante el arranque `haySesion()` es false aunque el usuario lleve meses
+ *    con la sesión abierta. Sin esto, una petición hecha en esos segundos caía
+ *    a BYOK y el usuario veía «te quedaste sin créditos» con el pool intacto.
+ *    Por eso vale el espejo síncrono (`haySesionProbable`).
+ * 2. **BYOK sin clave NO bloquea**: elegir «Mis claves» y no poner ninguna solo
+ *    apaga la vía cuenta si esas claves sirven de algo. Si no las hay, se gasta
+ *    lo que el usuario ya pagó en vez de pedirle que pague otra vez. Con clave
+ *    puesta, BYOK manda y los créditos no se tocan.
  */
 export function usarViaCuenta(): boolean {
-  if (!hayBackend() || !haySesion()) return false
-  if (getTransporte() === 'byok') return false
+  if (!hayBackend() || !haySesionProbable()) return false
+  if (getTransporte() === 'byok' && byokUtilizable()) return false
   return tieneAcceso() || fuePro() || useSesion.getState().creditosExtra > 0
 }
 

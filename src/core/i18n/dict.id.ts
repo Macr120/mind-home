@@ -1,10 +1,9 @@
 /**
- * Diccionario INDONESIO de la interfaz. Se carga con import() perezoso
- * desde dict.ts, igual que el inglés: quien no use este idioma no lo descarga.
+ * Diccionario ID de la interfaz. Se carga con import() perezoso
+ * desde dict.ts: quien no use este idioma no lo descarga.
  *
- * GENERADO por `npm run traducir:i18n` a partir de `dict.en.ts` y de los
- * fallbacks españoles del código. No lo edites a mano: se sobrescribe entero.
- * Lo que falte cae al inglés (ver `useT`); al español solo en último término.
+ * Lo monta `traducir-a-mano.mjs meter-dict` a partir de `dict.en.ts` y de los
+ * fallbacks españoles del código. Lo que falte cae al inglés (ver `useT`).
  */
 import type { Dict } from './dict'
 
@@ -299,6 +298,12 @@ export const ID: Dict = {
   'tren.bajarte': 'Turun',
   'tren.montarTren': 'Naik kereta',
   'tren.montarCarrito': 'Naik gerbong',
+  'tren.menu': 'Bagaimana keretanya?',
+  'tren.menu.coaster': 'Bagaimana gerbongnya?',
+  'tren.menu.solo': 'Biarkan terus jalan sendiri',
+  'tren.menu.asistente': 'Biar asisten yang mengemudi',
+  'tren.menu.detener': 'Hentikan di sini',
+  'tren.menu.cancelar': 'Batal',
   'juego.tu': 'Kamu',
   'juego.rival': 'Rival',
   'juego.gol': 'GOOOL! 🎉',
@@ -375,6 +380,7 @@ export const ID: Dict = {
   'hoy.objetivo': 'Targetmu setiap hari (0 mematikannya)',
   'hoy.checklist': 'Checklist harian',
   'hoy.grupoApp': 'Misi hari ini',
+  'hoy.grupoMetas': 'Langkah menuju targetmu',
   'hoy.nueva': 'Checklist baru',
   'hoy.cerrar': 'Tutup',
   'hoy.ocultarHechos': 'Sembunyikan yang selesai',
@@ -487,8 +493,11 @@ export const ID: Dict = {
   'progreso.nivel': 'Level',
   'progreso.racha': 'Runtunan',
   'progreso.dias': 'hari',
+  'progreso.hoy': 'Hari ini',
+  'progreso.semana': '7 hari',
   'progreso.rachaTitulo': 'Runtunan hari aktif',
   'progreso.listasTitulo': 'Daftar misi yang tuntas',
+  'progreso.planesTitulo': 'Rencana yang diterima',
   'progreso.listasCumplidas': 'Daftar tuntas',
   'celebra.racha.titulo': 'Runtunan {n} hari!',
   'celebra.racha.titulo1': 'Runtunan 1 hari!',
@@ -499,8 +508,6 @@ export const ID: Dict = {
   'celebra.nivel.titulo': 'Naik level!',
   'celebra.nivel.cuerpo': '{app} mencapai level {n} 🎉',
   'celebra.seguir': 'Lanjut!',
-  'progreso.hoy': 'Hari ini',
-  'progreso.semana': '7 hari',
   'plantillas.ayuda':
     'Seret templat ke folder lain; ketuk ikonnya untuk mencoba aplikasi dan nama foldernya untuk mengganti namanya.',
   'plantillas.entrar': 'Buka aplikasi',
@@ -692,7 +699,7 @@ export const ID: Dict = {
   'chat.config.ponerMapa': 'Tambahkan ke peta',
   'chat.config.voz': 'Suara:',
   'chat.config.vozAuto': 'Otomatis (berdasarkan bahasa)',
-  'chat.config.vozIA': 'Suara AI (lebih alami)',
+  'chat.config.vozIA': 'Suara AI (OpenAI, lebih alami)',
   'chat.config.vozLeer': 'Bacakan dengan suara apa yang dikatakannya',
   'chat.config.vozProbar': 'Coba suaranya',
   'chat.config.vozTono': 'Nada',
@@ -5001,7 +5008,8 @@ export const ID: Dict = {
   'nav.editar.subirImagen': 'Unggah gambar',
   'nav.editar.color': 'Warna',
   'nav.editar.murosTitulo': 'Cat ulang dindingnya juga?',
-  'nav.editar.murosMensaje': 'Ruangan ini punya dinding yang kamu cat sendiri di editor peta. Kalau dicat ulang, warnanya hilang.',
+  'nav.editar.murosMensaje':
+    'Ruangan ini punya dinding yang kamu cat sendiri di editor peta. Kalau dicat ulang, warnanya hilang.',
   'nav.editar.murosOk': 'Cat ulang',
   'nav.fondo.titulo': 'Wallpaper',
   'nav.fondo.desc': 'Gambar dipakai bersama latar langit rumah.',
@@ -5143,20 +5151,15 @@ export const ID: Dict = {
   'rot.izq': 'Putar 90° ke kiri',
   'rutinas.activar': 'Aktifkan',
   'rutinas.agregarPaso': 'Tambah langkah',
-  'rutinas.autoRegistro': 'Mencatat otomatis di ruangan',
   'rutinas.borrar': 'Hapus',
   'rutinas.confirmarBorrar': 'Hapus acara ini?',
   'rutinas.cancelar': 'Batal',
   'rutinas.cerrar': 'Tutup',
-  'rutinas.completada': 'Rutinitas selesai!',
   'rutinas.editar': 'Edit',
-  'rutinas.eventoSimple': 'Acara kalender.',
   'rutinas.guardar': 'Simpan',
-  'rutinas.hoy': 'Hari ini',
   'rutinas.nombre': 'Nama rutinitas/acara',
   'rutinas.nueva': 'Baru',
   'rutinas.pasoPh': 'Apa yang harus dilakukan…',
-  'rutinas.pasos': 'langkah',
   'rutinas.pasosOpcional': 'opsional',
   'rutinas.pasosTitulo': 'Langkah',
   'rutinas.pausar': 'Jeda',
@@ -5166,11 +5169,6 @@ export const ID: Dict = {
   'rutinas.rep.soloTrazo': 'dijadwalkan dengan menggambarnya di kalender; gambar lagi untuk mengubah tanggalnya',
   'rutinas.rep.termina': 'Berakhir pada',
   'rutinas.rep.titulo': 'Pengulangan',
-  'rutinas.sinHora': 'tanpa waktu',
-  'rutinas.titulo': 'Rutinitas',
-  'rutinas.todas': 'Semua rutinitas',
-  'rutinas.vacio':
-    'Belum ada rutinitas. Buat satu dengan “+ Baru” atau minta asistenmu: “buatkan aku rutinitas pagi dengan air, peregangan, dan rasa syukur”.',
   'ui.sinApp': 'Ruangan ini belum memiliki aplikasi yang ditetapkan.',
   'ui.sinAppAyuda': 'Edit ruangan dan tetapkan aplikasi ke sebuah objek.',
   'ui.volverApps': '‹ Aplikasi ruangan',
@@ -5346,6 +5344,9 @@ export const ID: Dict = {
   'tut.editor-cuarto.titulo': 'Mengedit ruangan',
   'tut.editor-cuarto.resumen':
     'Saat mengedit ruangan tertentu, denah berfokus padanya: bentuk, lantai, dinding, warna, nama, dan —yang paling sering dipakai di sini— aplikasi apa yang ditetapkan atau apakah sebaiknya diganti. Panah panel kembali ke seluruh peta, dan tombol mengambang di atas ruangan keluar darinya.',
+  'tut.inicio.titulo': 'Layar beranda',
+  'tut.inicio.resumen':
+    'Kisi berisi ruanganmu yang punya aplikasi, dengan mekanika sebuah ponsel: satu ketukan masuk, tekanan lama menyusun ulang, dan setiap kartu membawa level, runtunan, dan misi hari ini yang masih menunggu. Dengan wallpaper sendiri dan tampilan ikon atau 3D.',
   'tut.herramientas.titulo': 'Roda alat',
   'tut.herramientas.resumen':
     'Roda ini melengkapi karaktermu dalam empat kategori: gerakan (lari, menari, lompat…), mainan (laser, portal, grafiti…), kendaraan yang bisa dinaiki, dan konstruksi (jalan pintas ke mode editor peta). Dua level —kategori → alat— dan hingga 3 alat terpasang sekaligus.',
@@ -5361,9 +5362,6 @@ export const ID: Dict = {
   'tut.app-generica.titulo': 'Aplikasi ini',
   'tut.app-generica.resumen':
     'Setiap aplikasi tinggal di sebuah ruangan: header menampilkan ruangan dan aplikasinya, daftar hari ini memuat apa yang perlu dilakukan di sini, dan “Kembali ke rumah” menutupnya. Templat buatanmu sendiri disusun dari blok: catatan, daftar, penghitung, kebiasaan…',
-  'tut.rutinas.titulo': 'Rutinitas',
-  'tut.rutinas.resumen':
-    'Panel rutinitas membawa checklist harianmu di atas dan katalog lengkap di bawah: setiap rutinitas punya waktu, pengulangan, dan langkah, dan setiap langkah bisa mencatat sendiri ke aplikasinya. Pada waktunya asisten akan mengingatkan, dan semua yang terjadwal juga terlihat di kalender.',
   'tut.enlaces.titulo': 'Chip di setiap langkah',
   'tut.enlaces.resumen':
     'Chip aplikasi di samping target atau langkah rencana menunjukkan di mana itu dicatat, dan satu ketukan membawamu ke sana. Ini hanya navigasi: pencatatan selalu dilakukan oleh aplikasi, bukan oleh chip.',
@@ -5666,14 +5664,18 @@ export const ID: Dict = {
   'cuenta.nivel.actual': 'Saat ini',
   'cuenta.nivel.nota': 'Kamu bisa naik atau turun level kapan saja; selisihnya dihitung proporsional.',
   'cuenta.nivel.subir': 'Naik ke ×{n} — {c} kredit per bulan seharga {p}',
+  'cuenta.nivel.anual': 'Satu tahun level ×1 — {c} kredit per bulan',
+  'cuenta.creditos.comprar': 'Isi ulang {c} kredit — {p}',
+  'cuenta.creditos.nota': 'Bayar sekali: tidak kedaluwarsa dan tetap berfungsi tanpa langganan.',
+  'cuenta.creditos.enCamino': 'Pembayaranmu sedang diproses: buka lagi bagian ini beberapa detik lagi.',
   'cuenta.cuota.cuerpoNivel': 'Kreditmu diperbarui pada {f}. Kalau tiap bulan kurang, naikkan levelmu.',
   'cuenta.cuota.cuerpoVencida':
-    'Datamu tetap ada di perangkat ini. Perbarui untuk mendapatkan kembali kredit bulanan dan sinkronisasi.',
+    'Datamu tetap ada di perangkat ini. Perbarui untuk mendapatkan kembali kredit bulanan dan sinkronisasi, atau beli isi ulang satu kali.',
   'cuenta.cuota.cuerpoTrial':
     'Aplikasi dan datamu jadi milikmu selamanya. Langganan Pro untuk melanjutkan kredit bulanan dan sinkronisasi.',
   'cuenta.cuota.cuerpoLocal':
-    'Aplikasi dan datamu jadi milikmu tanpa bayar. Hanya AI yang berbayar: berlangganan dan dapat kredit tiap bulan.',
-  'cuenta.cuota.web': 'Lihat langgananku',
+    'Aplikasi dan datamu adalah milikmu tanpa membayar apa pun. Hanya AI yang berbayar: isi ulang kredit saat kamu membutuhkannya, atau berlangganan dan dapatkan setiap bulan.',
+  'cuenta.cuota.web': 'Beli kredit di akunku',
   'cuenta.conGoogle': 'Lanjutkan dengan Google',
   'cuenta.conApple': 'Lanjutkan dengan Apple',
   'cuenta.oCorreo': 'atau dengan email',
@@ -5705,7 +5707,11 @@ export const ID: Dict = {
   'puerta.sinCompra': 'Akun ini ({correo}) belum memiliki pembelian.',
   'puerta.yaPague': 'Sudah bayar: periksa lagi',
   'puerta.salir': 'Keluar dari akun',
-  'puerta.cuenta': 'Sudah membelinya? Masuk dengan akunmu:',
+  'puerta.cuenta': 'Sudah membelinya atau punya kupon? Masuk dan tukarkan di dalam.',
+  'puerta.cupon.tengo': 'Punya kupon?',
+  'puerta.cupon.codigo': 'Kode kupon',
+  'puerta.cupon.canjear': 'Tukarkan',
+  'chat.creditos': 'Kredit: {n}',
   'cuenta.uso.titulo': 'Penggunaan AI bulan ini',
   'cuenta.uso.tituloLocal': 'Kredit AI kamu',
   'cuenta.uso.creditos': 'Kredit',
@@ -5902,6 +5908,44 @@ export const ID: Dict = {
   'demo.error': 'Demo tidak dapat dibuat.',
   'demo.reintentar': 'Coba lagi',
   'tut.flujos.titulo': 'Tutorial aplikasi ini',
+  'tut.esencial.titulo': 'Yang Penting',
+  'tut.tipo.ejemplos': 'Contoh · rumah demo',
+  'tut.app-agenda--esencial.resumen':
+    'Agenda menyimpan semua yang bukan kebiasaan, dalam tiga menu: Kerja (tugas dan papan), Kesehatan (janji dokter, obat, dan perawatan — kamu, orang tersayangmu, dan hewan peliharaanmu) dan Orang (daftar kontak dan ulang tahun). Semua yang punya tanggal langsung masuk sendiri ke kalender.',
+  'tut.calendario--esencial.resumen':
+    'Kalender bukan ruangan: dia hidup di jam rumah dan mengumpulkan semua yang punya tanggal dan waktu — yang kamu buat sendiri dan yang dijadwalkan otomatis oleh aplikasi lain. Ada empat cara melihatnya: Hari dan Minggu di kisi jam, Bulan dan Tahun untuk gambaran besar. Misi berdiri sendiri — tombol merah dengan daftar tugas hari ini dari semua aplikasi sekaligus.',
+  'tut.app-anecdotario--esencial.resumen':
+    'Buku kenangan adalah diarimu sendiri: entri dengan suasana hati, teks, dan foto yang tersimpan sendiri berdasarkan tanggal. Kalender mewarnai setiap hari sesuai suasana hatimu, dan riwayat mengarsipkannya dalam folder per tahun, bulan, dan minggu.',
+  'tut.app-biblioteca--esencial.resumen':
+    'Perpustakaan adalah ensiklopedia pribadimu, dalam empat menu: Obrolan (tanya Sang Bijak dan setiap percakapan otomatis diarsipkan dan disarikan jadi entri), Ensiklopedia (pohon tempat semua yang kamu pelajari hidup, menurut bidang ilmu), Belajar (timer biasa atau pomodoro, yang mencatat setiap sesi) dan Ringkasan (berapa banyak yang sudah kamu tulis dan pelajari).',
+  'tut.app-cocina--esencial.resumen':
+    'Dapur punya dua menu. Buku resep menyimpan yang akan kamu masak: resep dengan makronya, diet yang mengelompokkannya, dan daftar belanja. Nutrisi mencatat apa yang kamu makan, dalam empat langkah: target kalori dan berat badan, catatan harian, rencana makan untuk hari-hari mendatang, dan progres.',
+  'tut.app-computo--esencial.resumen':
+    'Komputasi punya dua menu. Kalkulator melakukan hitungan sehari-hari dan berganti mode untuk membuat grafik, bekerja dengan basis angka, matriks, sistem persamaan, satuan, tip, dan aturan tiga; tergantung padanya ada Buku Rumus, buku rumusmu dengan Matematika, Fisika, dan Kimia yang sudah dimuat. Spreadsheet menangani semua yang berbentuk tabel, dengan rumus yang mudah dipahami dan ekspor ke Excel atau PDF.',
+  'tut.app-descanso--esencial.resumen':
+    'Istirahat mencatat cara tidurmu dalam satu layar: skor malam terakhir, jadwalmu dengan pengingatnya, catatan harian, dan riwayat lengkap per tahun, bulan, dan minggu.',
+  'tut.app-despacho--esencial.resumen':
+    'Ruang Kerja mengatur uangmu dalam empat menu. Kekayaan bersih menyimpan yang kamu punya dan yang kamu utang, dengan proyeksinya; Arus kas mencatat pengeluaran, pemasukan, dan saldo periode, dengan anggaran dan kategorinya; Target menggabungkan tabungan, investasi, dan utang, plus kalkulator yang mengusulkan jumlah tertentu. Pasar adalah papan kutipan langsung, hanya untuk referensi.',
+  'tut.app-diario--esencial.resumen':
+    'Berita Harian adalah koran yang sementara: berita utama pers asli menurut kategori dan «Hari ini dalam sejarah», yang memperbarui diri sendiri tengah malam. Dari Pengiriman kamu bisa atur asisten membawakannya untukmu di obrolannya sendiri.',
+  'tut.app-ejercicio--esencial.resumen':
+    'Gym menggabungkan tiga mode tubuh di satu tempat: Kekuatan (set, repetisi, dan beban), Daya tahan (lari, sepeda, atau renang, dengan latihan langsung pakai GPS dan sensor detak jantung), dan Fleksibilitas (mobilitas berdasarkan waktu, dengan pemutar terpandu). Ketiganya disusun sama — katalog, rutinitas, dan progres — dan menu Target menentukan berapa banyak latihan tiap minggu serta merangkum runtunan dan kemajuanmu.',
+  'tut.app-entretenimiento--esencial.resumen':
+    'Hiburan punya dua menu: Permainan Papan, dengan katalog digital yang dikelompokkan menurut keluarga dan difilter menurut jumlah pemain, dan Arsip, tempat kamu menyimpan film, serial, buku, dan video game yang kamu selesaikan lengkap dengan status dan ulasanmu.',
+  'tut.app-garage--esencial.resumen':
+    'Garasi melacak perawatan kendaraanmu: lampu lalu lintas merangkum apa yang mendesak, daftar kendaraan menyimpan riwayat servis masing-masing, dan setiap berkas mengumpulkan administrasi, dokumen, dan kontaknya. Semua yang punya tanggal langsung masuk sendiri ke kalender rumah.',
+  'tut.app-hobbies--esencial.resumen':
+    'Hobi melacak kegemaranmu: daftar dengan runtunan dan progres mingguan masing-masing, dan formulir untuk menambah yang baru. Di dalam setiap hobi ada catatan sesi, peta aktivitas tahunan, dan proyeknya.',
+  'tut.app-ideas--esencial.resumen':
+    'Ide menyimpan apa pun yang terlintas di kepalamu dalam tiga menu: Jurnal ide (pikiran lepas atau curah gagasan menurut topik), Peta konsep (kanvas bebas dalam berbagai format) dan Diagram keputusan (format yang sama, dibuat untuk membandingkan dan memutuskan). Semuanya bisa diarsipkan ke folder dan diubah dari satu menu ke menu lain.',
+  'tut.app-idiomas--esencial.resumen':
+    'Bahasa adalah sekolah bahasamu, dalam empat menu. Obrolan membuka percakapan dengan tutor AI yang merespons sesuai levelmu; Silabus menyusun bahasa dalam topik, pelafalan, dan tata bahasa dari level A1 sampai C2, dan di situlah kosakata hidup dalam kartu; Tinjauan mengulangnya dengan sistem berjarak dan latihan; Progres merangkum kemajuanmu.',
+  'tut.app-jardin--esencial.resumen':
+    'Taman menggabungkan meditasi (dengan trek suara), pernapasan terpandu, dan rasa syukur harian, dalam tiga menu. Sengaja tidak ada poin atau runtunan: di sini tidak ada hukuman kalau kamu lewatkan satu hari, ini cuma untuk berlatih.',
+  'tut.app-metas--esencial.resumen':
+    'Perencana seluruh rumah, dalam tiga menu: Target (daftar yang kamu tetapkan untuk dirimu, dikelompokkan menurut aplikasi yang mengelola masing-masing), Rencana (draf linimasa yang membagi target jadi beberapa fase) dan Linimasa (sumbu waktu tempat semuanya jatuh). Tidak menyimpan catatannya sendiri: mengumpulkan target dan rencana yang lahir di aplikasi lain. Dari sebuah target, kartunya terbuka, dan dari situ, sumbu yang dipersempit ke target itu.',
+  'tut.app-sala--esencial.resumen':
+    'Ruang Tamu adalah dunia jalan-jalanmu, dalam empat menu: Peta (pin tempat di peta dunia, dengan tampilan globe), Rencana perjalanan (tempat yang ingin dikunjungi dengan rencana harian), Rute (perjalanan yang menghubungkan tempat) dan Jurnal perjalanan (kenangan dengan foto dan cerita per negara).',
   'tut.app-anecdotario--diario.titulo': 'Buku kenangan Pep',
   'tut.app-anecdotario--diario.resumen':
     'Buku kenangan adalah jurnal pribadi: entri dengan suasana hati, teks dan foto, kalender yang mewarnai tahun sesuai perasaanmu, dan riwayat dalam folder per tahun, bulan, dan minggu.',
@@ -5935,12 +5979,12 @@ export const ID: Dict = {
   'tut.calendario.titulo': 'Kalender',
   'tut.calendario.resumen':
     'Jam rumah membuka kalender: semua yang terjadwal —shift, kelas, kebiasaan, dan apa pun yang ditambahkan aplikasi lain— dalam tampilan Hari, Minggu, Bulan, Tahun, dan Target. Panel di bawah mengukur seberapa banyak yang kamu jadwalkan benar-benar kamu lakukan.',
-  'tut.calendario.3b.titulo': 'Dan Tujuan harian, terpisah',
+  'tut.calendario.3b.titulo': 'Dan Target, terpisah',
   'tut.calendario.3b.texto':
-    'Berwarna merah, agar tidak tertukar dengan empat tampilan di atas: Tujuan harian mengumpulkan checklist hari ini dari semua aplikasimu. Target dan rencananya tinggal di ruangannya sendiri.',
+    'Berwarna merah, agar tidak tertukar dengan empat tampilan di atas: Target membuka target-targetmu, rencananya, dan linimasa.',
   'tut.metas.titulo': 'Target',
   'tut.metas.resumen':
-    'Daftar target dan, di dalam masing-masing, lembarnya: rencana yang mengembangkannya (AI mengusulkan, kamu mencentangnya) dan linimasanya, tempat fase-fasenya kini menempati periodenya sebagai sub-target nyata.',
+    'Tiga layar sebuah target: daftar tempat ia lahir, rencana yang mengembangkannya (AI mengusulkan, kamu mencentangnya), dan linimasa tempat fase-fasenya menempati periodenya sebagai sub-target nyata.',
   'tut.app-biblioteca--enciclopedia.titulo': 'Ensiklopedia milikmu sendiri',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Semua yang kamu pelajari diarsipkan dalam pohon berdasarkan bidang pengetahuan: kartu dengan ringkasan dan poin utama yang bisa kamu beri ilustrasi.',
@@ -5958,6 +6002,9 @@ export const ID: Dict = {
   'tut.app-biblioteca--resumen.titulo': 'Gambaran tahun ini',
   'tut.app-biblioteca--resumen.resumen':
     'Ringkasan mengumpulkan dalam satu layar apa yang disebar tiga tab lainnya: berapa banyak entri yang kamu miliki per bidang, berapa lama kamu sudah belajar, dan pada hari apa saja.',
+  'tut.app-idiomas--charlas.titulo': 'Obrolan dengan tutormu',
+  'tut.app-idiomas--charlas.resumen':
+    'Tab Obrolan membuka percakapan dengan tutor AI-mu: dia menjawab sesuai level CEFR profilmu, mengoreksi dengan halus, dan saat keluar menawarkan mengekstrak kosakata baru sebagai kartu. Setiap obrolan tersimpan, dengan judul dan topiknya terisi sendiri.',
   'tut.app-idiomas--repaso.titulo': 'Ulasan harian',
   'tut.app-idiomas--repaso.resumen':
     'Kartu diulas berdasarkan kotak: setiap jawaban benar menjauhkan tanggal berikutnya, setiap jawaban salah mendekatkannya. Aplikasi hanya menanyakan yang jatuh tempo hari ini.',
@@ -6498,4 +6545,53 @@ export const ID: Dict = {
   'room.computo.corta': 'Kalkulator, grafik, dan lembar',
   'room.agenda.corta': 'Tugas, kesehatan, dan orang',
   'room.metas.corta': 'Target, rencana, dan linimasa',
+  'chat.menu.chatAr': 'Obrolan AR',
+  'chatAr.salir': 'Keluar',
+  'chatAr.voltear': 'Ganti kamera',
+  'chatAr.encuadre': 'Ganti bingkai',
+  'chatAr.callar': 'Bisukan suara',
+  'chatAr.asistente': 'Ganti asisten',
+  'chatAr.permiso': 'Browser memblokir kamera. Aktifkan lewat ikon gembok di sebelah alamat.',
+  'chatAr.sinCamara': 'Tidak ada kamera di perangkat ini.',
+  'chatAr.reintentar': 'Coba lagi',
+  'chatAr.placeholder': 'Bicara atau ketik…',
+  'chatAr.enviar': 'Kirim',
+  'chatAr.sinIa': 'Untuk mengobrol di sini, pilih dulu model AI di chat rumah.',
+  'ia.donde.chatAr': 'Obrolan AR',
+  'ia.op.chat.ar': 'Percakapan di Obrolan AR',
+  'ia.op.chat.ar.nota': 'Kalau asisten memakai suara AI, pembacaannya dihitung terpisah sebagai suara asisten.',
+  'editor.pers.expresion.triste': 'Sedih',
+  'editor.pers.expresion.enojado': 'Marah',
+  'mascara.ocultar': 'Sembunyikan',
+  'mascara.mostrar': 'Tampilkan antarmuka',
+  'mascara.menos': 'Tutup',
+  'mascara.ajustes': 'Pengaturan',
+  'mascara.cara': 'Wajah',
+  'mascara.cara.fija': 'Tetap',
+  'mascara.cara.imita': 'Meniru',
+  'mascara.cara.viva': 'Hidup',
+  'mascara.camara': 'Kamera',
+  'mascara.camara.frontal': 'Depan',
+  'mascara.camara.trasera': 'Belakang',
+  'mascara.linterna': 'Senter',
+  'mascara.lenteAuto': 'Lensa otomatis ({camara})',
+  'mascara.camaraN': 'Kamera {n}',
+  'mascara.zoom': 'Zoom',
+  'mascara.encuadre': 'Bingkai',
+  'mascara.encuadre.vertical': 'Vertikal',
+  'mascara.encuadre.amplio': 'Lebar (bilah)',
+  'mascara.piel': 'Kulit',
+  'mascara.pelo': 'Rambut',
+  'mascara.tamano': 'Ukuran',
+  'mascara.altura': 'Tinggi',
+  'mascara.profundidad': 'Kedalaman',
+  'mascara.grabar': 'Rekam',
+  'mascara.detener': 'Hentikan rekaman',
+  'mascara.estado.errorModelo': 'Gagal memuat MediaPipe',
+  'mascara.estado.sinCamara': 'Tanpa kamera',
+  'mascara.estado.cargando': 'Memuat model…',
+  'mascara.estado.cara': 'Wajah terdeteksi',
+  'mascara.estado.buscando': 'Mencari wajah…',
+  'mascara.errorCamara': 'Kamera tidak tersedia ({detalle}). Di iPhone, buka URL terowongan HTTPS.',
+  'mascara.errorGrabar': 'Tidak bisa merekam: {detalle}',
 }

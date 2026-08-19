@@ -1,7 +1,7 @@
 import type { Rutina } from '../../data/db'
 import { rutinasRepo } from '../../data/repository'
 import type { TFunc } from '../../i18n/useT'
-import { moverMetaACarpeta } from '../../metas'
+import { moverMetaACarpeta, type EstadoMeta } from '../../metas'
 import { getPlantilla } from '../../registry'
 import { CASA } from '../calendario/apps'
 
@@ -22,6 +22,31 @@ export interface CarpetaMeta {
   color: string
   /** La inventó el usuario: se puede borrar y acepta metas nuevas suyas. */
   propia: boolean
+}
+
+/**
+ * Cómo se pinta cada estado de una meta. Vive aquí, con lo demás que comparten las
+ * tres vistas, porque estaba copiado en la fila-tarjeta, en el tablero y en la hoja
+ * y los tres tonos ya habían empezado a separarse. El texto lo pone quien renderiza
+ * (necesita `t`).
+ */
+export const TONO_ESTADO: Record<EstadoMeta, string> = {
+  porHacer: 'border-white/15 bg-white/5 text-white/45',
+  enCurso: 'border-amber-400/40 bg-amber-500/15 text-amber-200',
+  hecho: 'border-emerald-400/40 bg-emerald-500/15 text-emerald-300',
+}
+
+/** El borde de cada columna del tablero y el punto de su cabecera. */
+export const BORDE_ESTADO: Record<EstadoMeta, string> = {
+  porHacer: 'border-white/10',
+  enCurso: 'border-amber-400/30',
+  hecho: 'border-emerald-400/30',
+}
+
+export const PUNTO_ESTADO: Record<EstadoMeta, string> = {
+  porHacer: 'bg-white/25',
+  enCurso: 'bg-amber-400',
+  hecho: 'bg-emerald-400',
 }
 
 /** Prefijo de la clave de un grupo que es categoría propia, no app. */

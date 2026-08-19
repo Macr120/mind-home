@@ -110,7 +110,6 @@ export function PanelCuartoEditar({ cuarto, onCerrar }: { cuarto: Cuarto; onCerr
           onCambio={setPestana}
           prefijoClave="nav.editar.tab"
           variante="sub"
-          nivel={3}
           flecha={false}
           color={colorActual}
         />

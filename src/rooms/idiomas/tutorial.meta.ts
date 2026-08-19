@@ -1,4 +1,5 @@
 import type { CuerpoTutorial, TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import { fichaEsencial } from '../../core/tutorial/esencial'
 
 /**
  * Fichas de los tutoriales de esta app: id, título y resumen. Es lo único que
@@ -52,4 +53,24 @@ const flujoTemario = tour(
   'cuerpoTemario',
 )
 
-export const flujosIdiomas: TutorialDef[] = [flujoRepaso, flujoVocabulario, flujoTemario]
+const flujoCharlas = tour(
+  'app-idiomas--charlas',
+  T('tut.app-idiomas--charlas.titulo', 'Charlas con tu tutor'),
+  T(
+    'tut.app-idiomas--charlas.resumen',
+    'La pestaña Charlas abre conversación con tu tutor de IA: responde al nivel MCER de tu perfil, corrige con suavidad y al salir te ofrece extraer el vocabulario nuevo como tarjetas. Cada charla queda guardada, con su título y su tema puestos solos.',
+  ),
+  'cuerpoCharlas',
+)
+
+export const flujosIdiomas: TutorialDef[] = [flujoRepaso, flujoVocabulario, flujoTemario, flujoCharlas]
+
+/** Esencial: recorre los cuatro menús en la casa real, sin necesitar datos. */
+export const esencialIdiomas: TutorialDef = fichaEsencial(
+  'idiomas',
+  T(
+    'tut.app-idiomas--esencial.resumen',
+    'Idiomas es tu escuela de idiomas, en cuatro menús. Charlas abre conversación con un tutor de inteligencia artificial que responde a tu nivel; Temario ordena el idioma en temas, pronunciación y gramática del nivel A1 al C2, y ahí vive el vocabulario en tarjetas; Repaso lo repasa con un sistema espaciado y ejercicios; Progreso resume tu avance.',
+  ),
+  () => import('./tutorial').then((m) => m.cuerpoEsencial as CuerpoTutorial),
+)

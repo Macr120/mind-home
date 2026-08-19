@@ -1,192 +1,162 @@
 [
   {
-    "clave": "tut.casa.1.texto",
-    "es": "Esta es tu casa: cada cuarto guarda una app. Te muestro los controles básicos.",
-    "en": "This is your home: each room holds an app. Let me show you the basic controls."
+    "clave": "tut.app-biblioteca--esencial.4.texto",
+    "es": "El reloj para estudiar: eliges campo y duración, de corrido o por pomodoros, y cada tramo se registra solo. Sigue corriendo aunque salgas del cuarto.",
+    "en": "The clock for studying: pick a field and a length, straight through or in pomodoros, and every stretch is logged on its own. It keeps running even if you leave the room."
   },
   {
-    "clave": "tut.casa.2.titulo",
-    "es": "El menú principal",
-    "en": "The main menu"
+    "clave": "tut.app-biblioteca--esencial.5.titulo",
+    "es": "Resumen",
+    "en": "Overview"
   },
   {
-    "clave": "tut.casa.2.texto",
-    "es": "Este botón abre el menú: tus cuartos, el catálogo de plantillas (apps) y el inventario de objetos.",
-    "en": "This button opens the menu: your rooms, the template catalog (apps) and the object inventory."
+    "clave": "tut.app-biblioteca--esencial.5.texto",
+    "es": "El panorama de todo lo anterior: cuántas entradas tiene tu enciclopedia y qué parte del índice cubriste, los minutos de estudio, tu racha y los días en que estudiaste.",
+    "en": "The big picture of all of the above: how many entries your encyclopedia has and how much of the index you've covered, your study minutes, your streak and the days you studied."
   },
   {
-    "clave": "tut.casa.3.titulo",
-    "es": "Moverse",
-    "en": "Moving around"
+    "clave": "tut.app-cocina--esencial.1.titulo",
+    "es": "La cocina",
+    "en": "The kitchen"
   },
   {
-    "clave": "tut.casa.3.texto",
-    "es": "Camina con el joystick, con WASD o con las flechas del teclado. Al cruzar la puerta de un cuarto, entras y su app se abre sola.",
-    "en": "Walk with the joystick, WASD or the arrow keys. Cross a room's door to enter it and its app opens on its own."
+    "clave": "tut.app-cocina--esencial.1.texto",
+    "es": "Esta app lleva dos cosas: lo que vas a cocinar y lo que acabas comiendo. Cada una tiene su menú arriba, y cada menú abre sus propias pestañas.",
+    "en": "This app handles two things: what you are going to cook and what you end up eating. Each one has its own menu on top, and each menu opens its own tabs."
   },
   {
-    "clave": "tut.casa.4.titulo",
-    "es": "Tres formas de mirar",
-    "en": "Three ways to look"
+    "clave": "tut.app-cocina--esencial.2.titulo",
+    "es": "Recetario",
+    "en": "Recipe book"
   },
   {
-    "clave": "tut.casa.4.texto",
-    "es": "Isométrica, tercera y primera persona (o la tecla V). En 3ª/1ª persona aparece además un botón para editar el mundo caminando por él.",
-    "en": "Isometric, third and first person (or the V key). In 3rd/1st person a button also appears to edit the world while walking through it."
+    "clave": "tut.app-cocina--esencial.2.texto",
+    "es": "El lado de cocinar: aquí viven tus recetas, las dietas que las agrupan y la lista del súper. Son tres pestañas, en ese orden.",
+    "en": "The cooking side: this is where your recipes live, along with the diets that group them and the grocery list. Three tabs, in that order."
   },
   {
-    "clave": "tut.casa.5.titulo",
-    "es": "Un hueco, varios dueños",
-    "en": "One corner, several owners"
+    "clave": "tut.app-cocina--esencial.3.titulo",
+    "es": "Dieta",
+    "en": "Diet"
   },
   {
-    "clave": "tut.casa.5.texto",
-    "es": "Esa esquina no es solo el cubo de vistas: al acercarte a algo con lo que se puede interactuar —una silla, un vehículo, una cancha— cambia sola por lo que tienes cerca. Nada se activa sin que te acerques.",
-    "en": "That corner isn't just the view cube: get close to something interactive — a chair, a vehicle, a court — and it switches on its own to match what's nearby. Nothing activates without you approaching."
+    "clave": "tut.app-cocina--esencial.3.texto",
+    "es": "Una dieta es un plan de alimentación con sus recetas dentro y, si quieres, sus propias metas de calorías y macros. Guardas las tuyas junto a las que ya trae la app.",
+    "en": "A diet is a meal plan with its recipes inside and, if you want, its own calorie and macro targets. You save your own next to the ones the app already brings."
   },
   {
-    "clave": "tut.casa.6.titulo",
-    "es": "La rueda de herramientas",
-    "en": "The tool wheel"
+    "clave": "tut.app-cocina--esencial.4.titulo",
+    "es": "Recetas",
+    "en": "Recipes"
   },
   {
-    "clave": "tut.casa.6.texto",
-    "es": "Movimientos, juguetes, vehículos y construcción, hasta 3 equipados a la vez. Se abre aquí o desde el mismo hueco de la esquina cuando vas con las manos libres.",
-    "en": "Moves, toys, vehicles and construction, up to 3 equipped at once. Open it here or from that same corner when you're empty-handed."
+    "clave": "tut.app-cocina--esencial.4.texto",
+    "es": "El recetario: cada receta guarda ingredientes, pasos y sus macros por porción, y se ordena en carpetas. Desde una receta puedes registrar la comida o mandar sus ingredientes a la lista del súper.",
+    "en": "The recipe book: each recipe keeps ingredients, steps and macros per serving, sorted into folders. From a recipe you can log the meal or send its ingredients to the grocery list."
   },
   {
-    "clave": "tut.casa.7.titulo",
-    "es": "El reloj",
-    "en": "The clock"
+    "clave": "tut.app-cocina--esencial.5.titulo",
+    "es": "Compras",
+    "en": "Groceries"
   },
   {
-    "clave": "tut.casa.7.texto",
-    "es": "La hora de la casa. Desde aquí se abren el calendario completo y el panel de rutinas con lo que te falta hoy.",
-    "en": "The home's time. From here you open the full calendar and the routines panel with what you still owe today."
+    "clave": "tut.app-cocina--esencial.5.texto",
+    "es": "La lista del súper, con cada artículo en el pasillo que le toca. Puedes armar una lista juntando lo que falta de varias recetas e ir marcando lo que ya está en la despensa.",
+    "en": "The shopping list, with every item in the aisle it belongs to. You can build a list by pulling what is missing from several recipes and tick off whatever is already in the pantry."
   },
   {
-    "clave": "tut.casa.8.titulo",
-    "es": "La música de la casa",
-    "en": "The home's music"
+    "clave": "tut.app-cocina--esencial.6.titulo",
+    "es": "Control de alimentación",
+    "en": "Nutrition control"
   },
   {
-    "clave": "tut.casa.8.texto",
-    "es": "Cada cuarto puede tener su propio tema, o dejar que suene el ambiente general de la casa. Se apaga del todo si prefieres silencio.",
-    "en": "Each room can have its own theme, or let the home's general ambience play. You can turn it off entirely for silence."
+    "clave": "tut.app-cocina--esencial.6.texto",
+    "es": "El otro menú lleva la cuenta de lo que comes, en cuatro pestañas numeradas. La primera es Metas: con tu peso, tu altura y tu actividad calcula cuánto necesitas al día y reparte los macros.",
+    "en": "The other menu tracks what you eat, across four numbered tabs. The first one is Goals: from your weight, height and activity it works out what you need each day and splits the macros."
   },
   {
-    "clave": "tut.casa.9.titulo",
-    "es": "El chat",
-    "en": "The chat"
+    "clave": "tut.app-cocina--esencial.7.titulo",
+    "es": "Registro",
+    "en": "Log"
   },
   {
-    "clave": "tut.casa.9.texto",
-    "es": "El chat del arquitecto: cuéntale qué hiciste y lo registra en la app correcta, o pídele cambios en la casa.",
-    "en": "The architect's chat: tell it what you did and it logs it in the right app, or ask for changes to the home."
+    "clave": "tut.app-cocina--esencial.7.texto",
+    "es": "Lo que ya pasó: las comidas del día con sus calorías, el agua que llevas y tu peso cuando te pesas. La pestaña de al lado, Plan de comidas, es lo contrario: la rejilla de lo que piensas comer los días que vienen.",
+    "en": "What already happened: the meals of the day with their calories, the water so far and your weight whenever you weigh in. The tab next to it, Meal plan, is the opposite: the grid of what you intend to eat in the days ahead."
   },
   {
-    "clave": "tut.casa.10.texto",
-    "es": "Eso es lo básico. El botón Editor de arriba abre la personalización completa, y cada menú y cada app tienen su propio botón ? con su tutorial.",
-    "en": "That's the basics. The Editor button up top opens full customization, and every menu and every app has its own ? button with its tutorial."
+    "clave": "tut.app-cocina--esencial.8.titulo",
+    "es": "Progreso",
+    "en": "Progress"
   },
   {
-    "clave": "tut.primeros.1.texto",
-    "es": "Lo primero: cómo se arma la casa. Todo empieza en la pestaña Cuartos.",
-    "en": "First things first: how the house gets built. Everything starts in the Rooms tab."
+    "clave": "tut.app-cocina--esencial.8.texto",
+    "es": "Las estadísticas de todo lo anterior en el periodo que elijas: calorías y macros, agua y la curva de tu peso. Abajo, un calendario coloreado dice de un vistazo qué días te quedaste dentro del objetivo.",
+    "en": "The statistics for all of the above over the period you pick: calories and macros, water and your weight curve. Below, a colored calendar shows at a glance which days stayed within the target."
   },
   {
-    "clave": "tut.primeros.2.titulo",
-    "es": "Crear cuarto",
-    "en": "Create room"
+    "clave": "tut.app-computo--esencial.1.titulo",
+    "es": "La sala de cómputo",
+    "en": "The computer room"
   },
   {
-    "clave": "tut.primeros.2.texto",
-    "es": "Con este botón dibujas cuartos nuevos en el mapa. Para enseñarte el resto del camino, ahora te creo uno…",
-    "en": "This button lets you draw new rooms on the map. To show you the rest of the way, I'll create one for you now…"
+    "clave": "tut.app-computo--esencial.1.texto",
+    "es": "Aquí se resuelve lo que hay que calcular, en dos menús: la Calculadora, con sus modos y tu formulario de fórmulas, y las Hojas de cálculo para todo lo que va en tablas.",
+    "en": "This is where you work out whatever needs calculating, in two menus: the Calculator, with its modes and your formula book, and Spreadsheets for anything that goes in a table."
   },
   {
-    "clave": "tut.primeros.3.titulo",
-    "es": "Tu cuarto nuevo",
-    "en": "Your new room"
+    "clave": "tut.app-computo--esencial.2.titulo",
+    "es": "Calculadora",
+    "en": "Calculator"
   },
   {
-    "clave": "tut.primeros.3.texto",
-    "es": "¡Aquí está! Un cuarto recién creado, todavía sin app: por eso su botón dice + Asignar.",
-    "en": "Here it is! A brand-new room, still without an app: that's why its button says + Assign."
+    "clave": "tut.app-computo--esencial.2.texto",
+    "es": "Una calculadora científica que da el resultado mientras escribes y guarda lo calculado en el historial. El teclado de abajo evita el del teléfono, y las notaciones escriben lo científico donde tengas el cursor.",
+    "en": "A scientific calculator that shows the result as you type and keeps everything you work out in the history. The keypad below saves you from the phone keyboard, and the notations write the scientific stuff wherever your cursor is."
   },
   {
-    "clave": "tut.primeros.4.titulo",
-    "es": "Asignar una app",
-    "en": "Assign an app"
+    "clave": "tut.app-computo--esencial.3.titulo",
+    "es": "Los modos",
+    "en": "The modes"
   },
   {
-    "clave": "tut.primeros.4.texto",
-    "es": "Con + Asignar le di su app: mira cómo el cuarto tomó su nombre, su icono y sus muebles, y su botón ahora dice Entrar.",
-    "en": "With + Assign I gave it its app: see how the room took its name, its icon and its furniture, and its button now says Enter."
+    "clave": "tut.app-computo--esencial.3.texto",
+    "es": "Este menú cambia la vista entera de la calculadora: gráfica, bases numéricas, matrices, sistemas de ecuaciones, conversión de unidades, propina y regla de tres. El historial se queda abajo en todos.",
+    "en": "This menu swaps the whole calculator view: graphing, number bases, matrices, systems of equations, unit conversion, tips and rule of three. The history stays at the bottom in every one of them."
   },
   {
-    "clave": "tut.primeros.5.titulo",
-    "es": "Entrar",
-    "en": "Enter"
+    "clave": "tut.app-computo--esencial.4.titulo",
+    "es": "El formulario",
+    "en": "The formulary"
   },
   {
-    "clave": "tut.primeros.5.texto",
-    "es": "Entramos: esta es la app del cuarto. Al pasear también entras cruzando su puerta, y sales con ‹ Volver a la casa.",
-    "en": "We're in: this is the room's app. While walking around you also enter by crossing its door, and you leave with ‹ Back to the house."
+    "clave": "tut.app-computo--esencial.4.texto",
+    "es": "Tu libro de fórmulas, plegado sobre la calculadora. Vienen puestas las de Matemáticas, Física y Química, en carpetas que puedes anidar. Cualquiera se abre para llenar sus variables, se edita o se borra.",
+    "en": "Your formula book, folded above the calculator. Maths, Physics and Chemistry come loaded, in folders you can nest. Any formula opens up to fill in its variables, and can be edited or deleted."
   },
   {
-    "clave": "tut.primeros.6.texto",
-    "es": "El cuarto se queda en tu casa, con su app lista. Así se arma el resto: un cuarto por cada cosa que quieras llevar.",
-    "en": "The room stays in your house, app and all. That is how you build the rest: one room per thing you want to keep here."
+    "clave": "tut.app-computo--esencial.5.titulo",
+    "es": "Hojas de cálculo",
+    "en": "Spreadsheets"
   },
   {
-    "clave": "tut.menu-cuartos.1.texto",
-    "es": "La pestaña Cuartos lista todos los cuartos de tu casa, agrupados por categoría.",
-    "en": "The Rooms tab lists every room in your home, grouped by category."
+    "clave": "tut.app-computo--esencial.5.texto",
+    "es": "Hojas con referencias de celda y fórmulas en español, y gráficas sobre el rango que marques. Se exportan a Excel conservando las fórmulas, o a PDF.",
+    "en": "Sheets with cell references and formulas in plain language, plus charts over whatever range you select. They export to Excel keeping the formulas live, or to PDF."
   },
   {
-    "clave": "tut.menu-cuartos.2.titulo",
-    "es": "Tu resumen",
-    "en": "Your summary"
+    "clave": "tut.app-descanso--esencial.1.titulo",
+    "es": "Descanso",
+    "en": "Sleep"
   },
   {
-    "clave": "tut.menu-cuartos.2.texto",
-    "es": "Tu personaje vive de tu actividad real: aquí ves su humor, su nivel y su racha. Registra algo en cualquier app y lo notarás contento; unos días sin nada y se pone triste — nunca se castiga ni se reinicia.",
-    "en": "Your character lives off your real activity: here you see its mood, its level and its streak. Log something in any app and it perks up; a few days with nothing and it turns sad — it never resets or punishes you."
+    "clave": "tut.app-descanso--esencial.1.texto",
+    "es": "Esta app lleva el seguimiento de tu sueño en una sola pantalla: la puntuación de la última noche, tu horario con sus avisos, el registro diario y el historial completo.",
+    "en": "This app tracks your sleep on a single screen: the score for your last night, your schedule with its reminders, the daily log, and the full history."
   },
   {
-    "clave": "tut.menu-cuartos.3.titulo",
-    "es": "Las tarjetas",
-    "en": "The cards"
-  },
-  {
-    "clave": "tut.menu-cuartos.3.texto",
-    "es": "Cada tarjeta es un cuarto: su icono, su nombre y el progreso de su app, agrupados en Cuerpo, Mente, Complemento y Configuración. Los cuartos sin app asignada quedan al final del todo.",
-    "en": "Each card is a room: its icon, name and app progress, grouped into Body, Mind, Complement and Settings. Rooms with no app assigned sit at the very end."
-  },
-  {
-    "clave": "tut.menu-cuartos.4.titulo",
-    "es": "Editar",
-    "en": "Edit"
-  },
-  {
-    "clave": "tut.menu-cuartos.4.texto",
-    "es": "Editar abre el editor del cuarto: forma, colores, muros y objetos. (No lo pulses ahora: cerraría este menú.)",
-    "en": "Edit opens the room's editor: shape, colors, walls and objects. (Don't press it now: it would close this menu.)"
-  },
-  {
-    "clave": "tut.menu-cuartos.5.titulo",
-    "es": "Entrar y Asignar",
-    "en": "Enter and Assign"
-  },
-  {
-    "clave": "tut.menu-cuartos.5.texto",
-    "es": "Entrar abre la app del cuarto. Si un cuarto no tiene app todavía, verás + Asignar en su lugar para elegirle una del catálogo.",
-    "en": "Enter opens the room's app. If a room has no app yet, you'll see + Assign there instead, to pick one from the catalog."
-  },
-  {
-    "clave": "tut.menu-cuartos.6.titulo",
-    "es": "Crear cuarto",
-    "en": "Create room"
+    "clave": "tut.app-descanso--esencial.2.titulo",
+    "es": "La puntuación",
+    "en": "The score"
   }
 ]

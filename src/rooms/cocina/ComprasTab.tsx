@@ -37,7 +37,6 @@ export function ComprasTab({ items, listas }: { items: ItemCompra[]; listas: Lis
         prefijoTut="cocina.compras.sub"
         color={COLOR}
         variante="sub"
-        nivel={3}
       />
 
       {sub === 'crear' ? (

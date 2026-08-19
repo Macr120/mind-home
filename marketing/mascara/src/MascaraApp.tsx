@@ -205,8 +205,90 @@ function Escena({
   )
 }
 
-/** Standalone no pasa props; la app principal pasa `onSalir` (y el texto traducido). */
-export function MascaraApp({ onSalir, textoSalir = 'Salir' }: { onSalir?: () => void; textoSalir?: string } = {}) {
+/**
+ * Textos de la interfaz. El standalone usa estos (en español); la app los pasa
+ * ya traducidos desde `MascaraOverlay`, así las claves `t()` viven en `src/` y
+ * el verificador de i18n las ve. Es `Partial`: lo que no llegue cae al español.
+ */
+export interface TextosMascara {
+  salir: string
+  ocultar: string
+  mostrar: string
+  menos: string
+  ajustes: string
+  cara: string
+  caraFija: string
+  caraImita: string
+  caraViva: string
+  camara: string
+  frontal: string
+  trasera: string
+  linterna: string
+  lenteAuto: (camara: string) => string
+  camaraN: (n: number) => string
+  zoom: string
+  encuadre: string
+  vertical: string
+  amplio: string
+  piel: string
+  pelo: string
+  tamano: string
+  altura: string
+  profundidad: string
+  grabar: string
+  detener: string
+  errorModelo: string
+  sinCamara: string
+  cargando: string
+  caraDetectada: string
+  buscandoCara: string
+  errorCamara: (detalle: string) => string
+  errorGrabar: (detalle: string) => string
+  expresion: (id: ExpresionId, nombre: string) => string
+  peinado: (id: PeinadoId, nombre: string) => string
+}
+
+export const TEXTOS_ES: TextosMascara = {
+  salir: 'Salir',
+  ocultar: 'Ocultar',
+  mostrar: 'Mostrar interfaz',
+  menos: 'Menos',
+  ajustes: 'Ajustes',
+  cara: 'Cara',
+  caraFija: 'Fija',
+  caraImita: 'Imita',
+  caraViva: 'Viva',
+  camara: 'Cámara',
+  frontal: 'Frontal',
+  trasera: 'Trasera',
+  linterna: 'Linterna',
+  lenteAuto: (camara) => `Lente automático (${camara})`,
+  camaraN: (n) => `Cámara ${n}`,
+  zoom: 'Zoom',
+  encuadre: 'Encuadre',
+  vertical: 'Vertical',
+  amplio: 'Amplio (bandas)',
+  piel: 'Piel',
+  pelo: 'Pelo',
+  tamano: 'Tamaño',
+  altura: 'Altura',
+  profundidad: 'Profundidad',
+  grabar: 'Grabar',
+  detener: 'Detener grabación',
+  errorModelo: 'Error al cargar MediaPipe',
+  sinCamara: 'Sin cámara',
+  cargando: 'Cargando modelo…',
+  caraDetectada: 'Cara detectada',
+  buscandoCara: 'Buscando cara…',
+  errorCamara: (detalle) => `Cámara no disponible (${detalle}). En iPhone abre la URL del túnel HTTPS.`,
+  errorGrabar: (detalle) => `No se pudo grabar: ${detalle}`,
+  expresion: (_id, nombre) => nombre,
+  peinado: (_id, nombre) => nombre,
+}
+
+/** Standalone no pasa props; la app principal pasa `onSalir` (y sus textos traducidos). */
+export function MascaraApp({ onSalir, textos }: { onSalir?: () => void; textos?: Partial<TextosMascara> } = {}) {
+  const tx = { ...TEXTOS_ES, ...textos }
   const videoRef = useRef<HTMLVideoElement>(null)
   const fondoRef = useRef<HTMLVideoElement>(null)
   const contRef = useRef<HTMLDivElement>(null)
@@ -362,7 +444,7 @@ export function MascaraApp({ onSalir, textoSalir = 'Salir' }: { onSalir?: () => 
       setSegundos(0)
       setGrabando(true)
     } catch (e) {
-      alert(`No se pudo grabar: ${e instanceof Error ? e.message : e}`)
+      alert(tx.errorGrabar(e instanceof Error ? e.message : String(e)))
     }
   }
 
@@ -384,7 +466,7 @@ export function MascaraApp({ onSalir, textoSalir = 'Salir' }: { onSalir?: () => 
 
   const avisoError = (errorCamara || errorModelo) && (
     <p className="rounded bg-red-900/70 px-2 py-1 text-xs">
-      {errorModelo ?? `Cámara no disponible (${errorCamara}). En iPhone abre la URL del túnel HTTPS.`}
+      {errorModelo ?? tx.errorCamara(errorCamara ?? '')}
     </p>
   )
 
@@ -393,7 +475,7 @@ export function MascaraApp({ onSalir, textoSalir = 'Salir' }: { onSalir?: () => 
       <button
         onClick={alternarGrabacion}
         className={`flex h-16 w-16 items-center justify-center rounded-full border-4 border-white ${grabando ? 'bg-red-600' : 'bg-red-500'}`}
-        aria-label={grabando ? 'Detener grabación' : 'Grabar'}
+        aria-label={grabando ? tx.detener : tx.grabar}
       >
         {grabando ? <span className="h-6 w-6 rounded bg-white" /> : <span className="h-10 w-10 rounded-full bg-red-700" />}
       </button>
@@ -405,12 +487,12 @@ export function MascaraApp({ onSalir, textoSalir = 'Salir' }: { onSalir?: () => 
   const controles = (
     <>
       <div className="flex items-center gap-1">
-        <span className="mr-1">Cara</span>
+        <span className="mr-1">{tx.cara}</span>
         {(
           [
-            ['estatico', 'Fija'],
-            ['expresiones', 'Imita'],
-            ['vivo', 'Viva'],
+            ['estatico', tx.caraFija],
+            ['expresiones', tx.caraImita],
+            ['vivo', tx.caraViva],
           ] as const
         ).map(([id, nombre]) => (
           <button
@@ -423,11 +505,11 @@ export function MascaraApp({ onSalir, textoSalir = 'Salir' }: { onSalir?: () => 
         ))}
       </div>
       <div className="flex items-center gap-1">
-        <span className="mr-1">Cámara</span>
+        <span className="mr-1">{tx.camara}</span>
         {(
           [
-            ['frontal', 'Frontal'],
-            ['trasera', 'Trasera'],
+            ['frontal', tx.frontal],
+            ['trasera', tx.trasera],
           ] as const
         ).map(([id, nombre]) => (
           <button
@@ -443,7 +525,7 @@ export function MascaraApp({ onSalir, textoSalir = 'Salir' }: { onSalir?: () => 
             onClick={alternarLinterna}
             className={`ml-auto rounded-full px-2 py-1 ${linterna ? 'bg-amber-500 text-black' : 'bg-white/10'}`}
           >
-            Linterna
+            {tx.linterna}
           </button>
         )}
       </div>
@@ -453,10 +535,10 @@ export function MascaraApp({ onSalir, textoSalir = 'Salir' }: { onSalir?: () => 
           onChange={(e) => cambiar('lenteId', e.target.value)}
           className="w-full rounded bg-white/10 px-2 py-2"
         >
-          <option value="">Lente automático ({config.camara})</option>
+          <option value="">{tx.lenteAuto(config.camara === 'frontal' ? tx.frontal : tx.trasera)}</option>
           {lentes.map((d, i) => (
             <option key={d.deviceId} value={d.deviceId}>
-              {d.label || `Cámara ${i + 1}`}
+              {d.label || tx.camaraN(i + 1)}
             </option>
           ))}
         </select>
@@ -464,7 +546,7 @@ export function MascaraApp({ onSalir, textoSalir = 'Salir' }: { onSalir?: () => 
       {zoom !== null && capCamara.zoom && (
         <label className="block">
           <span className="flex justify-between text-base">
-            <span>Zoom</span>
+            <span>{tx.zoom}</span>
             <span className="font-mono">{zoom.toFixed(1)}×</span>
           </span>
           <input
@@ -478,11 +560,11 @@ export function MascaraApp({ onSalir, textoSalir = 'Salir' }: { onSalir?: () => 
         </label>
       )}
       <div className="flex items-center gap-1">
-        <span className="mr-1">Encuadre</span>
+        <span className="mr-1">{tx.encuadre}</span>
         {(
           [
-            ['lleno', 'Vertical'],
-            ['amplio', 'Amplio (bandas)'],
+            ['lleno', tx.vertical],
+            ['amplio', tx.amplio],
           ] as const
         ).map(([id, nombre]) => (
           <button
@@ -503,7 +585,7 @@ export function MascaraApp({ onSalir, textoSalir = 'Salir' }: { onSalir?: () => 
               config.modoCara !== 'estatico' && expresionDetectada === e.id ? 'ring-2 ring-sky-400' : ''
             }`}
           >
-            {e.emoji} {e.nombre}
+            {e.emoji} {tx.expresion(e.id, e.nombre)}
           </button>
         ))}
       </div>
@@ -514,25 +596,25 @@ export function MascaraApp({ onSalir, textoSalir = 'Salir' }: { onSalir?: () => 
             onClick={() => cambiar('peinado', p.id)}
             className={`shrink-0 rounded-full px-2 py-1 ${config.peinado === p.id ? 'bg-emerald-600' : 'bg-white/10'}`}
           >
-            {p.emoji} {p.nombre}
+            {p.emoji} {tx.peinado(p.id, p.nombre)}
           </button>
         ))}
       </div>
       <div className="flex items-center gap-4">
         <label className="flex items-center gap-2">
-          Piel
+          {tx.piel}
           <input type="color" value={config.piel} onChange={(e) => cambiar('piel', e.target.value)} className="h-9 w-12" />
         </label>
         <label className="flex items-center gap-2">
-          Pelo
+          {tx.pelo}
           <input type="color" value={config.pelo} onChange={(e) => cambiar('pelo', e.target.value)} className="h-9 w-12" />
         </label>
       </div>
       {(
         [
-          { clave: 'escala', nombre: 'Tamaño', min: 30, max: 80 },
-          { clave: 'altura', nombre: 'Altura', min: -10, max: 10 },
-          { clave: 'profundidad', nombre: 'Profundidad', min: -20, max: 5 },
+          { clave: 'escala', nombre: tx.tamano, min: 30, max: 80 },
+          { clave: 'altura', nombre: tx.altura, min: -10, max: 10 },
+          { clave: 'profundidad', nombre: tx.profundidad, min: -20, max: 5 },
         ] as const
       ).map((s) => (
         <label key={s.clave} className="block">
@@ -600,31 +682,31 @@ export function MascaraApp({ onSalir, textoSalir = 'Salir' }: { onSalir?: () => 
           <button
             className="absolute left-3 top-3 h-8 w-8 rounded-full bg-white/10"
             onClick={() => setLimpio(false)}
-            aria-label="Mostrar interfaz"
+            aria-label={tx.mostrar}
           />
         ) : (
           <>
             <div className="absolute inset-x-0 top-0 flex items-center justify-between p-3 text-sm">
               {onSalir ? (
                 <button className="rounded bg-black/40 px-2 py-1 font-semibold" onClick={onSalir}>
-                  ✕ {textoSalir}
+                  ✕ {tx.salir}
                 </button>
               ) : (
                 <span className="rounded bg-black/40 px-2 py-1 font-semibold">Máscara MPH</span>
               )}
               <span className="rounded bg-black/40 px-2 py-1">
                 {errorModelo
-                  ? 'Error al cargar MediaPipe'
+                  ? tx.errorModelo
                   : errorCamara
-                    ? 'Sin cámara'
+                    ? tx.sinCamara
                     : !landmarker
-                      ? 'Cargando modelo…'
+                      ? tx.cargando
                       : conCara
-                        ? 'Cara detectada'
-                        : 'Buscando cara…'}
+                        ? tx.caraDetectada
+                        : tx.buscandoCara}
               </span>
               <button className="rounded bg-black/40 px-2 py-1" onClick={() => setLimpio(true)}>
-                Ocultar
+                {tx.ocultar}
               </button>
             </div>
 
@@ -634,7 +716,7 @@ export function MascaraApp({ onSalir, textoSalir = 'Salir' }: { onSalir?: () => 
                 {panel && controles}
                 <div className="flex items-center justify-center gap-4 pb-2">
                   <button className="rounded bg-white/10 px-3 py-2" onClick={() => setPanel((v) => !v)}>
-                    {panel ? 'Menos' : 'Ajustes'}
+                    {panel ? tx.menos : tx.ajustes}
                   </button>
                   {botonGrabar}
                 </div>

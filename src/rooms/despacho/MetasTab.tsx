@@ -131,7 +131,6 @@ function VistaAhorroInversion({ foco, onFocoUsado, onIrAFila }: PropsFocoMetas) 
           prefijoClave="despacho.tab"
           color={AZUL}
           variante="sub"
-          nivel={3}
           flecha={false}
         />
         <p className="text-sm font-semibold">{t(...copy.nueva)}</p>
@@ -306,7 +305,6 @@ function SimInversion() {
         prefijoClave="despacho.s"
         color={AZUL}
         variante="sub"
-        nivel={3}
       />
       {sim === 'compuesto' ? <SimCompuesto /> : <SimSimple />}
     </div>

@@ -1,154 +1,130 @@
 [
   {
-    "clave": "tut.casa.1.texto",
-    "texto": "Das ist dein Haus: Jeder Raum enthält eine App. Ich zeig dir die wichtigsten Bedienelemente."
+    "clave": "tut.app-biblioteca--esencial.4.texto",
+    "texto": "Der Timer zum Lernen: Du wählst Gebiet und Dauer, am Stück oder in Pomodoros, und jeder Abschnitt wird von selbst erfasst. Er läuft weiter, auch wenn du den Raum verlässt."
   },
   {
-    "clave": "tut.casa.2.titulo",
-    "texto": "Das Hauptmenü"
+    "clave": "tut.app-biblioteca--esencial.5.titulo",
+    "texto": "Übersicht"
   },
   {
-    "clave": "tut.casa.2.texto",
-    "texto": "Dieser Button öffnet das Menü: deine Räume, den Katalog der Vorlagen (Apps) und das Inventar der Objekte."
+    "clave": "tut.app-biblioteca--esencial.5.texto",
+    "texto": "Der Überblick über alles Vorherige: wie viele Einträge deine Enzyklopädie hat und welchen Teil des Index du abgedeckt hast, deine Lernminuten, deine Serie und die Tage, an denen du gelernt hast."
   },
   {
-    "clave": "tut.casa.3.titulo",
-    "texto": "Sich bewegen"
+    "clave": "tut.app-cocina--esencial.1.titulo",
+    "texto": "Die Küche"
   },
   {
-    "clave": "tut.casa.3.texto",
-    "texto": "Lauf mit dem Joystick, mit WASD oder mit den Pfeiltasten. Gehst du durch die Tür eines Raums, betrittst du ihn und seine App öffnet sich von selbst."
+    "clave": "tut.app-cocina--esencial.1.texto",
+    "texto": "Diese App kümmert sich um zwei Dinge: was du kochen wirst und was du am Ende isst. Jedes hat oben sein eigenes Menü, und jedes Menü öffnet seine eigenen Tabs."
   },
   {
-    "clave": "tut.casa.4.titulo",
-    "texto": "Drei Arten zu schauen"
+    "clave": "tut.app-cocina--esencial.2.titulo",
+    "texto": "Rezeptbuch"
   },
   {
-    "clave": "tut.casa.4.texto",
-    "texto": "Isometrisch, dritte und erste Person (oder die Taste V). In der 3./1. Person erscheint außerdem ein Button, um die Welt zu bearbeiten, während du durch sie läufst."
+    "clave": "tut.app-cocina--esencial.2.texto",
+    "texto": "Die Seite des Kochens: Hier leben deine Rezepte, die Diäten, die sie gruppieren, und die Einkaufsliste. Drei Tabs, in dieser Reihenfolge."
   },
   {
-    "clave": "tut.casa.5.titulo",
-    "texto": "Ein Feld, mehrere Besitzer"
+    "clave": "tut.app-cocina--esencial.3.titulo",
+    "texto": "Diät"
   },
   {
-    "clave": "tut.casa.5.texto",
-    "texto": "Diese Ecke ist nicht nur der Navigationswürfel: Kommst du etwas nahe, mit dem sich etwas anfangen lässt – einem Stuhl, einem Fahrzeug, einem Platz –, wechselt sie von selbst zu dem, was gerade in der Nähe ist. Nichts wird aktiv, ohne dass du hingehst."
+    "clave": "tut.app-cocina--esencial.3.texto",
+    "texto": "Eine Diät ist ein Ernährungsplan mit ihren Rezepten darin und, wenn du willst, eigenen Kalorien- und Makrozielen. Du speicherst deine eigenen neben denen, die die App schon mitbringt."
   },
   {
-    "clave": "tut.casa.6.titulo",
-    "texto": "Das Werkzeugrad"
+    "clave": "tut.app-cocina--esencial.4.titulo",
+    "texto": "Rezepte"
   },
   {
-    "clave": "tut.casa.6.texto",
-    "texto": "Bewegungen, Spielzeug, Fahrzeuge und Bauen, bis zu 3 gleichzeitig ausgerüstet. Es öffnet sich hier oder über dasselbe Eckfeld, wenn du die Hände frei hast."
+    "clave": "tut.app-cocina--esencial.4.texto",
+    "texto": "Das Rezeptbuch: Jedes Rezept bewahrt Zutaten, Schritte und seine Makros pro Portion und wird in Ordnern sortiert. Von einem Rezept aus kannst du die Mahlzeit erfassen oder seine Zutaten an die Einkaufsliste schicken."
   },
   {
-    "clave": "tut.casa.7.titulo",
-    "texto": "Die Uhr"
+    "clave": "tut.app-cocina--esencial.5.titulo",
+    "texto": "Einkauf"
   },
   {
-    "clave": "tut.casa.7.texto",
-    "texto": "Die Uhrzeit des Hauses. Von hier aus öffnen sich der vollständige Kalender und das Routinen-Panel mit dem, was dir heute noch fehlt."
+    "clave": "tut.app-cocina--esencial.5.texto",
+    "texto": "Die Einkaufsliste, mit jedem Artikel im passenden Gang. Du kannst eine Liste erstellen, indem du zusammenträgst, was für mehrere Rezepte fehlt, und abhaken, was schon in der Vorratskammer ist."
   },
   {
-    "clave": "tut.casa.8.titulo",
-    "texto": "Die Musik des Hauses"
+    "clave": "tut.app-cocina--esencial.6.titulo",
+    "texto": "Ernährungskontrolle"
   },
   {
-    "clave": "tut.casa.8.texto",
-    "texto": "Jeder Raum kann sein eigenes Thema haben oder einfach die allgemeine Umgebungsmusik des Hauses laufen lassen. Sie lässt sich ganz abschalten, wenn du lieber Stille hast."
+    "clave": "tut.app-cocina--esencial.6.texto",
+    "texto": "Das andere Menü führt Buch über das, was du isst, in vier nummerierten Tabs. Der erste ist Ziele: Aus deinem Gewicht, deiner Größe und deiner Aktivität berechnet er deinen Tagesbedarf und verteilt die Makros."
   },
   {
-    "clave": "tut.casa.9.titulo",
-    "texto": "Der Chat"
+    "clave": "tut.app-cocina--esencial.7.titulo",
+    "texto": "Log"
   },
   {
-    "clave": "tut.casa.9.texto",
-    "texto": "Der Chat des Architekten: Erzähl ihm, was du getan hast, und er trägt es in der richtigen App ein – oder bitte ihn um Änderungen am Haus."
+    "clave": "tut.app-cocina--esencial.7.texto",
+    "texto": "Was schon passiert ist: die Mahlzeiten des Tages mit ihren Kalorien, das Wasser, das du bisher getrunken hast, und dein Gewicht, wenn du dich wiegst. Der Tab daneben, Essensplan, ist das Gegenteil: das Raster dessen, was du in den kommenden Tagen essen willst."
   },
   {
-    "clave": "tut.casa.10.texto",
-    "texto": "Das war das Wichtigste. Der Button Editor oben öffnet die vollständige Anpassung, und jedes Menü und jede App haben ihren eigenen ?-Button mit ihrem Tutorial."
+    "clave": "tut.app-cocina--esencial.8.titulo",
+    "texto": "Fortschritt"
   },
   {
-    "clave": "tut.primeros.1.texto",
-    "texto": "Zuerst das Wichtigste: wie das Haus entsteht. Alles beginnt im Tab Räume."
+    "clave": "tut.app-cocina--esencial.8.texto",
+    "texto": "Die Statistiken von allem Vorherigen im Zeitraum deiner Wahl: Kalorien und Makros, Wasser und deine Gewichtskurve. Unten zeigt ein farbiger Kalender auf einen Blick, an welchen Tagen du im Ziel geblieben bist."
   },
   {
-    "clave": "tut.primeros.2.titulo",
-    "texto": "Raum erstellen"
+    "clave": "tut.app-computo--esencial.1.titulo",
+    "texto": "Der Rechenraum"
   },
   {
-    "clave": "tut.primeros.2.texto",
-    "texto": "Mit diesem Button zeichnest du neue Räume auf der Karte. Um dir den Rest des Wegs zu zeigen, erstelle ich jetzt einen für dich…"
+    "clave": "tut.app-computo--esencial.1.texto",
+    "texto": "Hier wird gelöst, was berechnet werden muss, in zwei Tabs: der Rechner, mit seinen Modi und deinem Formelbuch, und die Tabellen für alles, was in Tabellenform gehört."
   },
   {
-    "clave": "tut.primeros.3.titulo",
-    "texto": "Dein neuer Raum"
+    "clave": "tut.app-computo--esencial.2.titulo",
+    "texto": "Rechner"
   },
   {
-    "clave": "tut.primeros.3.texto",
-    "texto": "Da ist er! Ein frisch erstellter Raum, noch ohne App: Deshalb steht auf seinem Button + Zuweisen."
+    "clave": "tut.app-computo--esencial.2.texto",
+    "texto": "Ein wissenschaftlicher Rechner, der das Ergebnis zeigt, während du tippst, und jede Berechnung im Verlauf speichert. Die Tastatur unten erspart dir die des Telefons, und die Notationen schreiben das Wissenschaftliche genau dort, wo dein Cursor steht."
   },
   {
-    "clave": "tut.primeros.4.titulo",
-    "texto": "Eine App zuweisen"
+    "clave": "tut.app-computo--esencial.3.titulo",
+    "texto": "Die Modi"
   },
   {
-    "clave": "tut.primeros.4.texto",
-    "texto": "Mit + Zuweisen habe ich ihm seine App gegeben: Sieh, wie der Raum ihren Namen, ihr Symbol und ihre Möbel übernommen hat – und auf seinem Button steht jetzt Betreten."
+    "clave": "tut.app-computo--esencial.3.texto",
+    "texto": "Dieses Menü ändert die gesamte Ansicht des Rechners: Grafik, Zahlensysteme, Matrizen, Gleichungssysteme, Einheitenumrechnung, Trinkgeld und Dreisatz. Der Verlauf bleibt in allen Modi unten stehen."
   },
   {
-    "clave": "tut.primeros.5.titulo",
-    "texto": "Betreten"
+    "clave": "tut.app-computo--esencial.4.titulo",
+    "texto": "Das Formelbuch"
   },
   {
-    "clave": "tut.primeros.5.texto",
-    "texto": "Wir sind drin: Das ist die App des Raums. Beim Herumlaufen betrittst du ihn auch einfach durch seine Tür, und mit ‹ Zurück zum Haus gehst du wieder hinaus."
+    "clave": "tut.app-computo--esencial.4.texto",
+    "texto": "Dein Formelbuch, eingeklappt über dem Rechner. Mathematik, Physik und Chemie sind schon eingetragen, in Ordnern, die du verschachteln kannst. Jede Formel öffnet sich, um ihre Variablen auszufüllen, und lässt sich bearbeiten oder löschen."
   },
   {
-    "clave": "tut.primeros.6.texto",
-    "texto": "Der Raum bleibt in deinem Haus, mit seiner App bereit. So entsteht der Rest: ein Raum für jede Sache, die du hier festhalten willst."
+    "clave": "tut.app-computo--esencial.5.titulo",
+    "texto": "Tabellen"
   },
   {
-    "clave": "tut.menu-cuartos.1.texto",
-    "texto": "Der Tab Räume listet alle Räume deines Hauses auf, nach Kategorie gruppiert."
+    "clave": "tut.app-computo--esencial.5.texto",
+    "texto": "Tabellen mit Zellbezügen und Formeln in Klartext (etwa =SUMA), dazu Diagramme über den Bereich, den du markierst. Sie werden als Excel-Datei mit erhaltenen Formeln oder als PDF exportiert."
   },
   {
-    "clave": "tut.menu-cuartos.2.titulo",
-    "texto": "Deine Übersicht"
+    "clave": "tut.app-descanso--esencial.1.titulo",
+    "texto": "Schlaf"
   },
   {
-    "clave": "tut.menu-cuartos.2.texto",
-    "texto": "Deine Figur lebt von deiner echten Aktivität: Hier siehst du ihre Laune, ihr Level und ihre Serie. Trag etwas in irgendeiner App ein, und sie freut sich; ein paar Tage ohne alles, und sie wird traurig – bestraft oder zurückgesetzt wird nie etwas."
+    "clave": "tut.app-descanso--esencial.1.texto",
+    "texto": "Diese App behält deinen Schlaf auf einem einzigen Bildschirm im Blick: die Bewertung der letzten Nacht, deinen Zeitplan mit seinen Erinnerungen, das Tagesprotokoll und den vollständigen Verlauf."
   },
   {
-    "clave": "tut.menu-cuartos.3.titulo",
-    "texto": "Die Karten"
-  },
-  {
-    "clave": "tut.menu-cuartos.3.texto",
-    "texto": "Jede Karte ist ein Raum: ihr Symbol, ihr Name und der Fortschritt ihrer App, gruppiert in Körper, Geist, Extras und Einstellungen. Räume ohne zugewiesene App stehen ganz am Ende."
-  },
-  {
-    "clave": "tut.menu-cuartos.4.titulo",
-    "texto": "Bearbeiten"
-  },
-  {
-    "clave": "tut.menu-cuartos.4.texto",
-    "texto": "Bearbeiten öffnet den Editor des Raums: Form, Farben, Wände und Objekte. (Drück jetzt nicht drauf: Das würde dieses Menü schließen.)"
-  },
-  {
-    "clave": "tut.menu-cuartos.5.titulo",
-    "texto": "Betreten und Zuweisen"
-  },
-  {
-    "clave": "tut.menu-cuartos.5.texto",
-    "texto": "Betreten öffnet die App des Raums. Hat ein Raum noch keine App, siehst du dort stattdessen + Zuweisen, um ihm eine aus dem Katalog auszusuchen."
-  },
-  {
-    "clave": "tut.menu-cuartos.6.titulo",
-    "texto": "Raum erstellen"
+    "clave": "tut.app-descanso--esencial.2.titulo",
+    "texto": "Die Bewertung"
   }
 ]

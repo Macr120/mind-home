@@ -23,6 +23,7 @@ import {
   type BotPaintball,
 } from '../state/paintballStore'
 import { miraFrame } from '../state/miraFrame'
+import { SUPERFICIE_SUELO } from '../state/carreraStore'
 import { chocado, chocadoObjeto, objColliders, puntoLibreCerca, type ObjCol } from './Character'
 import type { AABB } from './walls'
 import { SPACING } from './walls'
@@ -225,7 +226,9 @@ function dispararJugador(camera: THREE.Camera, color: string, equipo: number, su
 // el mapa con el color del jugador. El equipo −1 no coincide con ninguno, así
 // que la bola libre no golpea a nadie.
 registrarDisparoPintura((camera, nivel) => {
-  dispararJugador(camera, COLOR_JUGADOR, -1, playerPos.y + (nivel > 0 ? 0.03 : 0.215))
+  // playerPos.y ya trae la superficie pisable (+0.2); se resta para conservar
+  // el plano de mancha original (0.215 al ras en planta baja).
+  dispararJugador(camera, COLOR_JUGADOR, -1, playerPos.y - SUPERFICIE_SUELO + (nivel > 0 ? 0.03 : 0.215))
 })
 
 /** ¿Hay línea de visión (sin muros ni objetos) entre dos puntos del plano? */

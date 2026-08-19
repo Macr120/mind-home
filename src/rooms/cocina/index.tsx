@@ -24,7 +24,7 @@ import { fotoIA } from './fotoIA'
 import { imagenIaActiva } from '../../core/imagenIA'
 import { registrarPeso } from './peso'
 import { planMetasCocina } from './plan'
-import { flujosCocina } from './tutorial.meta'
+import { esencialCocina, flujosCocina } from './tutorial.meta'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { OPERACIONES_IA } from './costosIA'
 
@@ -321,6 +321,7 @@ const cocina: Plantilla = {
   categoria: 'cuerpo',
   color: '#f59e0b',
   App: CocinaApp,
+  esencial: esencialCocina,
   flujos: flujosCocina,
   capturar,
   esquemas,

@@ -23,10 +23,12 @@ import { vivo } from '../estilos'
 import { Icono } from '../iconos/Icono'
 import { useArrastre, type PropsArrastre } from '../comun/arrastre'
 import {
+  BORDE_ESTADO,
   carpetaDeClave,
   claveDeMeta,
   nombreCorto,
   PREFIJO_CAT,
+  PUNTO_ESTADO,
   soltarMeta,
   type CarpetaMeta,
 } from './carpetas'
@@ -34,18 +36,6 @@ import { PildoraCuenta } from './CuentaRegresiva'
 
 /** Las tres columnas, en el orden en que avanza una meta. */
 const COLUMNAS: EstadoMeta[] = ['porHacer', 'enCurso', 'hecho']
-
-const TONO_COLUMNA: Record<EstadoMeta, string> = {
-  porHacer: 'border-white/10',
-  enCurso: 'border-amber-400/30',
-  hecho: 'border-emerald-400/30',
-}
-
-const PUNTO_COLUMNA: Record<EstadoMeta, string> = {
-  porHacer: 'bg-white/25',
-  enCurso: 'bg-amber-400',
-  hecho: 'bg-emerald-400',
-}
 
 /** Una carpeta dentro de una columna, con las metas suyas que caen ahí. */
 interface GrupoCol {
@@ -336,158 +326,158 @@ export function TableroMetas({
   }
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col">
-      <div data-tut="cal.metas.tablero" className="min-h-0 flex-1 overflow-y-auto p-3">
-        <div className="mx-auto mb-2 flex max-w-5xl justify-end">
-          <div className="flex items-center rounded-lg border border-white/10 p-0.5">
-            {MODOS_TABLERO.map((m) => (
-              <button
-                key={m}
-                type="button"
-                onClick={() => cambiarModo(m)}
-                className={`rounded-md px-2 py-0.5 text-[10px] font-semibold transition ${
-                  modo === m ? 'bg-white/15 text-white' : 'text-white/45 hover:text-white/80'
-                }`}
-              >
-                {m === 'importancia'
-                  ? t('cal.metas.tablero.importancia', 'Importancia')
-                  : t('cal.metas.tablero.agrupadas', 'Agrupadas')}
-              </button>
-            ))}
-          </div>
+    // El ancla vivía en el scroller que este panel tenía cuando se pintaba dentro
+    // de su propio viewport; ahora el scroll es el del cuarto y va en la raíz.
+    <div data-tut="cal.metas.tablero" className="space-y-3">
+      <div className="flex justify-end">
+        <div className="flex items-center rounded-lg border border-white/10 p-0.5">
+          {MODOS_TABLERO.map((m) => (
+            <button
+              key={m}
+              type="button"
+              onClick={() => cambiarModo(m)}
+              className={`ui-presion rounded-md px-2 py-0.5 text-2xs font-semibold transition ${
+                modo === m ? 'bg-white/15 text-white' : 'text-white/45 hover:text-white/80'
+              }`}
+            >
+              {m === 'importancia'
+                ? t('cal.metas.tablero.importancia', 'Importancia')
+                : t('cal.metas.tablero.agrupadas', 'Agrupadas')}
+            </button>
+          ))}
         </div>
+      </div>
 
-        <div className="mx-auto grid max-w-5xl items-start gap-3 md:grid-cols-3">
-          {COLUMNAS.map((col) => {
-            const grupos = porColumna.get(col) ?? []
-            const sueltas = listaPorColumna.get(col) ?? []
-            const cuantas = sueltas.length
-            // Solo en «Por hacer» se crean metas: es donde nace todo lo que no se
-            // ha empezado, y en las otras dos columnas una meta recién creada
-            // aparecería en otro sitio del que se pulsó.
-            const conAlta = col === 'porHacer'
-            return (
-              <div key={col} className={`rounded-xl border bg-white/[0.02] ${TONO_COLUMNA[col]}`}>
-                <div className="flex items-center gap-2 border-b border-white/5 px-2.5 py-1.5">
-                  <span className={`h-2 w-2 shrink-0 rounded-full ${PUNTO_COLUMNA[col]}`} />
-                  <span className="min-w-0 flex-1 truncate text-xs font-bold text-white/80">
-                    {ETIQUETA[col]}
-                  </span>
-                  <span className="shrink-0 rounded-full bg-black/25 px-2 py-0.5 text-[10px] font-bold tabular-nums text-white/60">
-                    {cuantas}
-                  </span>
-                </div>
+      <div className="grid items-start gap-3 md:grid-cols-3">
+        {COLUMNAS.map((col) => {
+          const grupos = porColumna.get(col) ?? []
+          const sueltas = listaPorColumna.get(col) ?? []
+          const cuantas = sueltas.length
+          // Solo en «Por hacer» se crean metas: es donde nace todo lo que no se
+          // ha empezado, y en las otras dos columnas una meta recién creada
+          // aparecería en otro sitio del que se pulsó.
+          const conAlta = col === 'porHacer'
+          return (
+            <div key={col} className={`rounded-xl border bg-white/[0.02] ${BORDE_ESTADO[col]}`}>
+              <div className="flex items-center gap-2 border-b border-white/5 px-2.5 py-1.5">
+                <span className={`h-2 w-2 shrink-0 rounded-full ${PUNTO_ESTADO[col]}`} />
+                <span className="min-w-0 flex-1 truncate text-xs font-bold text-white/80">
+                  {ETIQUETA[col]}
+                </span>
+                <span className="shrink-0 rounded-full bg-black/25 px-2 py-0.5 text-2xs font-bold tabular-nums text-white/60">
+                  {cuantas}
+                </span>
+              </div>
 
-                <div className="space-y-2 p-1.5">
-                  {cuantas === 0 && !conAlta && (
-                    <p className="px-1 py-2 text-center text-[11px] text-white/20">
-                      {t('cal.metas.columnaVacia', 'Nada aquí.')}
-                    </p>
-                  )}
+              <div className="space-y-2 p-1.5">
+                {cuantas === 0 && !conAlta && (
+                  <p className="px-1 py-2 text-center text-2xs text-white/20">
+                    {t('cal.metas.columnaVacia', 'Nada aquí.')}
+                  </p>
+                )}
 
-                  {modo === 'importancia' &&
-                    sueltas.map((m) => {
-                      const carpeta = carpetaDeClave(claveDeMeta(m), t)
-                      return (
+                {modo === 'importancia' &&
+                  sueltas.map((m) => {
+                    const carpeta = carpetaDeClave(claveDeMeta(m), t)
+                    return (
+                      <Tarjeta
+                        key={m.id}
+                        metas={metas}
+                        meta={m}
+                        columna={col}
+                        color={carpeta.color}
+                        // Sin cabeceras, la carpeta va DENTRO de la tarjeta: si
+                        // no, no se sabría de qué cuarto es cada una.
+                        carpeta={carpeta}
+                        carpetaClave={claveDeMeta(m)}
+                        conPlan={m.id != null && planPorMeta?.has(m.id)}
+                        onAbrir={onAbrirMeta}
+                        // Cualquier tarjeta de la columna vale como destino: la
+                        // lista es una sola y lo que se decide aquí es el orden
+                        // de importancia, no a qué carpeta pertenece.
+                        gesto={arrTarjetas.props(String(m.id))}
+                        enMano={arrTarjetas.enMano === String(m.id)}
+                        encima={arrTarjetas.destino?.antesDe?.id === m.id}
+                      />
+                    )
+                  })}
+
+                {modo === 'agrupadas' &&
+                  grupos.map((g) => (
+                    <div
+                      key={g.carpeta.clave}
+                      // Soltar en el hueco de la carpeta: la meta cae al final de
+                      // ella, siempre que sea la suya y venga de esta columna
+                      // (lo valida `destinoDe` del gesto).
+                      data-zona-carpeta={g.carpeta.clave}
+                      data-col={col}
+                      className={`space-y-1 rounded-lg ${
+                        arrTarjetas.destino?.carpeta === g.carpeta.clave &&
+                        arrTarjetas.destino.col === col
+                          ? 'ring-1 ring-accent/50'
+                          : ''
+                      }`}
+                    >
+                      <CabeceraCarpeta
+                        carpeta={g.carpeta}
+                        cuantas={g.metas.length}
+                        gesto={arrCarpetas.props(g.carpeta.clave)}
+                        enMano={arrCarpetas.enMano === g.carpeta.clave}
+                        encima={arrCarpetas.destino === g.carpeta.clave}
+                      />
+                      {g.metas.map((m) => (
                         <Tarjeta
                           key={m.id}
                           metas={metas}
                           meta={m}
                           columna={col}
-                          color={carpeta.color}
-                          // Sin cabeceras, la carpeta va DENTRO de la tarjeta: si
-                          // no, no se sabría de qué cuarto es cada una.
-                          carpeta={carpeta}
-                          carpetaClave={claveDeMeta(m)}
+                          color={g.carpeta.color}
+                          carpetaClave={g.carpeta.clave}
                           conPlan={m.id != null && planPorMeta?.has(m.id)}
                           onAbrir={onAbrirMeta}
-                          // Cualquier tarjeta de la columna vale como destino: la
-                          // lista es una sola y lo que se decide aquí es el orden
-                          // de importancia, no a qué carpeta pertenece.
                           gesto={arrTarjetas.props(String(m.id))}
                           enMano={arrTarjetas.enMano === String(m.id)}
                           encima={arrTarjetas.destino?.antesDe?.id === m.id}
                         />
-                      )
-                    })}
-
-                  {modo === 'agrupadas' &&
-                    grupos.map((g) => (
-                      <div
-                        key={g.carpeta.clave}
-                        // Soltar en el hueco de la carpeta: la meta cae al final de
-                        // ella, siempre que sea la suya y venga de esta columna
-                        // (lo valida `destinoDe` del gesto).
-                        data-zona-carpeta={g.carpeta.clave}
-                        data-col={col}
-                        className={`space-y-1 rounded-lg ${
-                          arrTarjetas.destino?.carpeta === g.carpeta.clave &&
-                          arrTarjetas.destino.col === col
-                            ? 'ring-1 ring-accent/50'
-                            : ''
-                        }`}
-                      >
-                        <CabeceraCarpeta
+                      ))}
+                      {conAlta && (
+                        <Alta
                           carpeta={g.carpeta}
-                          cuantas={g.metas.length}
-                          gesto={arrCarpetas.props(g.carpeta.clave)}
-                          enMano={arrCarpetas.enMano === g.carpeta.clave}
-                          encima={arrCarpetas.destino === g.carpeta.clave}
+                          abierta={altaEn === g.carpeta.clave}
+                          nombre={nombre}
+                          onNombre={setNombre}
+                          onAbrir={() => setAltaEn(g.carpeta.clave)}
+                          onCerrar={() => setAltaEn(null)}
+                          onConfirmar={() => void confirmarAlta(g.carpeta)}
                         />
-                        {g.metas.map((m) => (
-                          <Tarjeta
-                            key={m.id}
-                            metas={metas}
-                            meta={m}
-                            columna={col}
-                            color={g.carpeta.color}
-                            carpetaClave={g.carpeta.clave}
-                            conPlan={m.id != null && planPorMeta?.has(m.id)}
-                            onAbrir={onAbrirMeta}
-                            gesto={arrTarjetas.props(String(m.id))}
-                            enMano={arrTarjetas.enMano === String(m.id)}
-                            encima={arrTarjetas.destino?.antesDe?.id === m.id}
-                          />
-                        ))}
-                        {conAlta && (
-                          <Alta
-                            carpeta={g.carpeta}
-                            abierta={altaEn === g.carpeta.clave}
-                            nombre={nombre}
-                            onNombre={setNombre}
-                            onAbrir={() => setAltaEn(g.carpeta.clave)}
-                            onCerrar={() => setAltaEn(null)}
-                            onConfirmar={() => void confirmarAlta(g.carpeta)}
-                          />
-                        )}
-                      </div>
-                    ))}
+                      )}
+                    </div>
+                  ))}
 
-                  {/* Agrupadas: las carpetas que hoy no tienen nada por hacer se
-                      pliegan aquí, para no dejar quince cabeceras vacías en la
-                      columna. En importancia no hay cabeceras, así que este es el
-                      único alta y ofrece todas. */}
-                  {conAlta && (
-                    <OtrasCarpetas
-                      soloAlta={modo === 'importancia'}
-                      carpetas={
-                        modo === 'importancia'
-                          ? carpetasAlta
-                          : carpetasAlta.filter((c) => !grupos.some((g) => g.carpeta.clave === c.clave))
-                      }
-                      altaEn={altaEn}
-                      nombre={nombre}
-                      onNombre={setNombre}
-                      onAbrir={setAltaEn}
-                      onCerrar={() => setAltaEn(null)}
-                      onConfirmar={(c) => void confirmarAlta(c)}
-                    />
-                  )}
-                </div>
+                {/* Agrupadas: las carpetas que hoy no tienen nada por hacer se
+                    pliegan aquí, para no dejar quince cabeceras vacías en la
+                    columna. En importancia no hay cabeceras, así que este es el
+                    único alta y ofrece todas. */}
+                {conAlta && (
+                  <OtrasCarpetas
+                    soloAlta={modo === 'importancia'}
+                    carpetas={
+                      modo === 'importancia'
+                        ? carpetasAlta
+                        : carpetasAlta.filter((c) => !grupos.some((g) => g.carpeta.clave === c.clave))
+                    }
+                    altaEn={altaEn}
+                    nombre={nombre}
+                    onNombre={setNombre}
+                    onAbrir={setAltaEn}
+                    onCerrar={() => setAltaEn(null)}
+                    onConfirmar={(c) => void confirmarAlta(c)}
+                  />
+                )}
               </div>
-            )
-          })}
-        </div>
+            </div>
+          )
+        })}
       </div>
     </div>
   )
@@ -511,7 +501,7 @@ function CabeceraCarpeta({
     <p
       {...gesto}
       data-cabecera={carpeta.clave}
-      className={`flex cursor-grab items-center gap-1 px-1 text-[10px] font-bold uppercase tracking-wide texto-vivo ${
+      className={`flex cursor-grab items-center gap-1 px-1 text-2xs font-bold uppercase tracking-wide texto-vivo ${
         encima ? 'border-t border-accent' : ''
       } ${enMano ? 'opacity-40' : ''}`}
       style={{ ...gesto.style, ...vivo(carpeta.color) }}
@@ -547,7 +537,7 @@ function Alta({
       <button
         type="button"
         onClick={onAbrir}
-        className="rounded px-1.5 py-0.5 text-[11px] font-bold leading-none text-emerald-300/80 transition hover:bg-emerald-500/15 hover:text-emerald-200"
+        className="rounded-lg px-1.5 py-0.5 ui-presion text-2xs font-bold leading-none text-accent hover:bg-white/10"
       >
         + {t('cal.meta.etiquetaMeta', 'meta')}
       </button>
@@ -567,7 +557,7 @@ function Alta({
         else if (e.key === 'Escape') onCerrar()
       }}
       placeholder={t('cal.metaEnCarpeta', 'Meta nueva en {carpeta}…', { carpeta: nombreCorto(carpeta) })}
-      className="w-full rounded border border-white/15 bg-black/30 px-1.5 py-0.5 text-xs text-white/90 placeholder:text-white/25 focus:outline-none"
+      className="w-full rounded-lg border border-white/15 bg-black/30 px-1.5 py-0.5 text-xs text-white/90 placeholder:text-white/25 focus:border-accent/60 focus:outline-none"
     />
   )
 }
@@ -620,7 +610,7 @@ function OtrasCarpetas({
       <button
         type="button"
         onClick={() => setAbierto((v) => !v)}
-        className="rounded px-1.5 py-0.5 text-[11px] font-bold leading-none text-emerald-300/80 transition hover:bg-emerald-500/15 hover:text-emerald-200"
+        className="rounded-lg px-1.5 py-0.5 ui-presion text-2xs font-bold leading-none text-accent hover:bg-white/10"
       >
         + {soloAlta ? t('cal.meta.etiquetaMeta', 'meta') : t('cal.metas.enOtraCarpeta', 'meta en otra carpeta')}
       </button>
@@ -631,7 +621,7 @@ function OtrasCarpetas({
               key={c.clave}
               type="button"
               onClick={() => onAbrir(c.clave)}
-              className="flex w-full items-center gap-1.5 rounded px-1.5 py-0.5 text-start text-[11px] text-white/70 transition hover:bg-white/10 hover:text-white/95"
+              className="ui-presion flex w-full items-center gap-1.5 rounded-lg px-1.5 py-0.5 text-start text-2xs text-white/70 transition hover:bg-white/10 hover:text-white/95"
             >
               <span className="texto-vivo" style={vivo(c.color)}>
                 <Icono emoji={c.icon} />
@@ -688,14 +678,18 @@ function Tarjeta({
       data-tarjeta={String(meta.id)}
       data-col={columna}
       data-carpeta={carpetaClave}
-      className={`block w-full cursor-grab rounded-lg border px-2 py-1.5 text-start transition hover:brightness-125 ${
+      className={`ui-presion block w-full cursor-grab rounded-lg border px-2 py-1.5 text-start transition hover:brightness-125 ${
         encima ? 'border-t-2 border-t-accent' : ''
       } ${enMano ? 'opacity-40' : ''}`}
-      style={{ ...gesto.style, borderColor: `${color}44`, backgroundColor: `${color}12` }}
+      style={{
+        ...gesto.style,
+        borderColor: `color-mix(in srgb, ${color} 27%, transparent)`,
+        backgroundColor: `color-mix(in srgb, ${color} 7%, transparent)`,
+      }}
     >
       {carpeta && (
         <p
-          className="flex items-center gap-1 truncate text-[10px] font-bold uppercase tracking-wide texto-vivo"
+          className="flex items-center gap-1 truncate text-2xs font-bold uppercase tracking-wide texto-vivo"
           style={vivo(carpeta.color)}
         >
           <Icono emoji={carpeta.icon} /> {nombreCorto(carpeta)}
@@ -704,18 +698,18 @@ function Tarjeta({
       <p className={`flex items-center gap-1 text-xs text-white/85 ${hecho ? 'opacity-60' : ''}`}>
         <span className={`min-w-0 flex-1 truncate ${hecho ? 'line-through' : ''}`}>{meta.nombre}</span>
         {conPlan && (
-          <span className="shrink-0 text-violet-300/80" title={t('cal.meta.tienePlan', 'Tiene un plan')}>
+          <span className="shrink-0 text-plan/80" title={t('cal.meta.tienePlan', 'Tiene un plan')}>
             <Icono nombre="brillo" />
           </span>
         )}
       </p>
-      {meta.nota && <p className="truncate text-[10px] text-white/35">{meta.nota}</p>}
+      {meta.nota && <p className="truncate text-2xs text-white/35">{meta.nota}</p>}
 
       {/* Cumplida: cuándo se cerró. Es lo único que se le pregunta a una meta
           hecha, y su barra estaría siempre llena. */}
       {hecho ? (
         fin && (
-          <p className="mt-0.5 text-[10px] tabular-nums text-white/35">
+          <p className="mt-0.5 text-2xs tabular-nums text-white/35">
             {new Date(fin + 'T12:00').toLocaleDateString(localeActual(), {
               day: 'numeric',
               month: 'short',
@@ -731,7 +725,7 @@ function Tarjeta({
               style={{ width: `${Math.round(avance * 100)}%`, background: color }}
             />
           </span>
-          <span className="shrink-0 text-[10px] tabular-nums text-white/40">
+          <span className="shrink-0 text-2xs tabular-nums text-white/40">
             {resumen.hechos}/{resumen.total}
           </span>
           {agendada(meta) && <PildoraCuenta meta={meta} />}

@@ -1,126 +1,34 @@
 [
-  {
-    "clave": "tut.menu-cuartos.6.texto",
-    "texto": "Oda oluştur, fırçası yeni odayı çizmeye hazır halde harita düzenleyicisini açar: biçim, boyut ve konum senin elinde. Telefonda araç çarkı › İnşaat › Odalar kısayolu daha rahat: paneli açmadan doğrudan haritanın üstüne çizer."
-  },
-  {
-    "clave": "tut.menu-cuartos.7.texto",
-    "texto": "Kısacası: kişiselleştirmek için Düzenle, uygulamayı kullanmak için Gir. Bu menünün diğer sekmelerinin kendi öğreticileri var."
-  },
-  {
-    "clave": "tut.menu-plantillas.1.texto",
-    "texto": "Şablon bir uygulamadır (Mutfak, Spor Salonu, Finans…). Bir odadaki nesneye atanır ve içeri girdiğinde açılır."
-  },
-  {
-    "clave": "tut.menu-plantillas.2.titulo",
-    "texto": "İki görünüm"
-  },
-  {
-    "clave": "tut.menu-plantillas.2.texto",
-    "texto": "Odalar, bildiğin uygulamalar; her biri kendi nesnesinde. Ekler ise başka bir şey: parkurlar, sahalar, sebze bahçesi, çiftlik ya da paintball bir oda kaplamadan doğrudan arazinin üstüne kurulur."
-  },
-  {
-    "clave": "tut.menu-plantillas.3.titulo",
-    "texto": "Katalog"
-  },
-  {
-    "clave": "tut.menu-plantillas.3.texto",
-    "texto": "Hazır uygulamalar ve kendi uygulamaların, gruplara ayrılmış. Bir odaya atamak için birine dokun; Ekler’deysen haritaya kurmak için."
-  },
-  {
-    "clave": "tut.menu-plantillas.4.titulo",
-    "texto": "Kendi şablonların"
-  },
-  {
-    "clave": "tut.menu-plantillas.4.texto",
-    "texto": "Kendi şablonlarını bloklarla kurarak oluştur: notlar, kontrol listeleri, sayaçlar, alışkanlıklar, galeriler… Bu düğme, kendi öğreticisi olan ayrı bir düzenleyici açar."
-  },
-  {
-    "clave": "tut.menu-plantillas.5.texto",
-    "texto": "Aynı odada birden fazla uygulama olabilir: girdiğinde hangisini açacağını seçmen için bir başlatıcı çıkar."
-  },
-  {
-    "clave": "tut.plantillas-custom.1.texto",
-    "texto": "Bu düzenleyici sıfırdan sana ait bir uygulama kurar: ad, emoji ve bloklarla ona şekil verirsin, sonra hazır uygulamaların yanında katalogda yerini alır."
-  },
-  {
-    "clave": "tut.plantillas-custom.2.titulo",
-    "texto": "Ad, emoji ve renk"
-  },
-  {
-    "clave": "tut.plantillas-custom.2.texto",
-    "texto": "Adının ne olacağı ve ona ait bir şey planlarsan menüde, katalogda ve takvimde hangi renkle görüneceği."
-  },
-  {
-    "clave": "tut.plantillas-custom.3.titulo",
-    "texto": "Araçlar"
-  },
-  {
-    "clave": "tut.plantillas-custom.3.texto",
-    "texto": "On iki blok türü: notlar, kontrol listesi, sayaç, alışkanlık, oturumlar, geri sayım, galeri, günlük, değerlendirme, ilerleme, liste ve bağlantılar. Eklediğin her biri uygulamanın bir bölümü olur."
-  },
-  {
-    "clave": "tut.plantillas-custom.4.titulo",
-    "texto": "Sıra önemli"
-  },
-  {
-    "clave": "tut.plantillas-custom.4.texto",
-    "texto": "Eklediğin bloklar oklarla sıralanır, ✕ ile kaldırılır — birini kaldırmak kaydettiğinde verilerini de siler, o yüzden onaylamadan önce bir kontrol et. «Menü» açılır listesiyle hiçbir şey kaybetmeden bir sekmeden diğerine geçerler."
-  },
-  {
-    "clave": "tut.plantillas-custom.5.titulo",
-    "texto": "Kaydet"
-  },
-  {
-    "clave": "tut.plantillas-custom.5.texto",
-    "texto": "Bir ad ve en az bir blok varsa Kaydet, şablonu katalogda kullanıma hazır bırakır. Oradan da her hazır şablon gibi bir nesneye atanır."
-  },
-  {
-    "clave": "tut.plantillas-custom.6.texto",
-    "texto": "İstediğin zaman yeniden düzenleyebilirsin: blokları ve verileri yerinde kalır, sadece değiştirdiğin şey değişir."
-  },
-  {
-    "clave": "tut.menu-inventario.1.texto",
-    "texto": "Envanter: evine yerleştirebileceğin bütün nesneler, sürüklenmeye hazır."
-  },
-  {
-    "clave": "tut.menu-inventario.2.titulo",
-    "texto": "Nesneler"
-  },
-  {
-    "clave": "tut.menu-inventario.2.texto",
-    "texto": "Kategorilere ve klasörlere ayrılmış nesne kitaplığın. Bir dahakine hızlı bulmak için adlarını değiştirebilir ve düzenleyebilirsin."
-  },
-  {
-    "clave": "tut.menu-inventario.3.titulo",
-    "texto": "Özel nesneler"
-  },
-  {
-    "clave": "tut.menu-inventario.3.texto",
-    "texto": "Sadece süslemekle kalmayıp bir şey yapanlar: binilebilir araçlar, oyuncak tabancalar, fıskiyeler, park oyuncakları ve ışıklar."
-  },
-  {
-    "clave": "tut.menu-inventario.4.titulo",
-    "texto": "Yerleştirme"
-  },
-  {
-    "clave": "tut.menu-inventario.4.texto",
-    "texto": "Bu menü açıkken küçük görsellerden birini doğrudan 3D sahneye sürükle ve istediğin yere bırak."
-  },
-  {
-    "clave": "tut.menu-inventario.5.texto",
-    "texto": "Yerleştirdiklerini taşımak, boyamak ya da silmek için Düzenleyici’yi kullan (Nesneler sekmesi) — bu menü yalnızca sahneye yeni şeyler getirmek içindir."
-  },
-  {
-    "clave": "tut.editor-mapa.1.texto",
-    "texto": "Ev düzenleyicisinin 4 sekmesi var: Harita, Karakterler, Nesneler ve Ayarlar. Bu tur Harita’nınki; diğer üçünün de kendi turu var."
-  },
-  {
-    "clave": "tut.editor-mapa.2.titulo",
-    "texto": "Kroki"
-  },
-  {
-    "clave": "tut.editor-mapa.2.texto",
-    "texto": "Yukarıdan görünen bir ızgaranın üstüne çizersin: odalar, duvarlar, kapılar, pencereler ve zeminler; üst çubuktaki modlar ve fırçalarla. Çizdiğin şey hiçbir şey yeniden yüklenmeden anında 3D’de belirir."
-  }
+  { "clave": "tut.app-descanso--esencial.2.texto", "texto": "Kaydedilen her gece, ne kadar uyuduğunu, saat kaçta yattığını ve kaç kez uyandığını birleştiren bir puan alır. Henüz kayıt yokken, burada ilk geceni kaydetmeye davet edilirsin." },
+  { "clave": "tut.app-descanso--esencial.3.titulo", "texto": "Program ve hatırlatıcılar" },
+  { "clave": "tut.app-descanso--esencial.3.texto", "texto": "Günün şeridinin uçlarını sürükleyerek yatma ve kalkma saatini ayarlarsın; aynı program evin takviminde bir blok olarak da görünür. Burada ayrıca tonuyla alarmı ve yatmadan önce yavaşlamak için hatırlatıcıları da açarsın." },
+  { "clave": "tut.app-descanso--esencial.4.titulo", "texto": "Geceyi kaydet" },
+  { "clave": "tut.app-descanso--esencial.4.texto", "texto": "Nasıl uyuduğunu not etmek için form: tarih, yatma ve kalkma saati, uyanmalar ve bir kalite puanı, not için yer ile birlikte." },
+  { "clave": "tut.app-descanso--esencial.5.titulo", "texto": "Geçmiş" },
+  { "clave": "tut.app-descanso--esencial.5.texto", "texto": "Kaydettiğin tüm geceler burada kalır, yıl, ay ve haftaya göre düzenlenmiş — böylece uykunu zaman içinde gözden geçirebilirsin." },
+  { "clave": "tut.app-despacho--esencial.1.titulo", "texto": "Finansların" },
+  { "clave": "tut.app-despacho--esencial.1.texto", "texto": "Çalışma Odası, paranı dört bölümde düzenler: sahip olduğun, giren ve çıkan, hedeflerin ve piyasalar. Her birinin altında kendi bölümleri açılır." },
+  { "clave": "tut.app-despacho--esencial.2.titulo", "texto": "Net değer" },
+  { "clave": "tut.app-despacho--esencial.2.texto", "texto": "Sahip olduğun ve borçlu olduğun şeyler, iki listede: varlıklar ve borçlar. Üçüncü bölüm, her satıra koyduğun oranla bu görüntüyü ileriye doğru projekte eder." },
+  { "clave": "tut.app-despacho--esencial.3.titulo", "texto": "Nakit akışı" },
+  { "clave": "tut.app-despacho--esencial.3.texto", "texto": "Giren ve çıkan para, gider, gelir ve bakiye olarak ayrılmış. Bakiye, seçtiğin dönemi — gün, hafta, ay ya da yıl — bütçesi, kategorileri ve eğilimiyle özetler." },
+  { "clave": "tut.app-despacho--esencial.4.titulo", "texto": "Hedefler" },
+  { "clave": "tut.app-despacho--esencial.4.texto", "texto": "Üç bölümde para hedeflerin: tasarruf ve yatırım, borç, ve kendi bakiyenden yola çıkarak bir tutar öneren hesaplayıcılar. Herhangi bir hedef zaman çizelgesine inebilir ve bir tarih alabilir." },
+  { "clave": "tut.app-despacho--esencial.5.titulo", "texto": "Piyasalar" },
+  { "clave": "tut.app-despacho--esencial.5.texto", "texto": "Döviz, kripto, hisse senedi ve emtiaların canlı fiyatları; bağlantı gerektirir. Bu sadece görüntüleme panosudur: uygulama ne alıp ne satacağını önermez." },
+  { "clave": "tut.app-diario--esencial.1.titulo", "texto": "Bugünün gazetesi" },
+  { "clave": "tut.app-diario--esencial.1.texto", "texto": "Günlük Haberler, günün özetini iki görünümde getirir: manşetler ve «Bugün tarihte». Kendine ait veri tutmaz: her gün yeni içerik getirir ve gece yarısı tamamen değişir." },
+  { "clave": "tut.app-diario--esencial.2.titulo", "texto": "Manşetler" },
+  { "clave": "tut.app-diario--esencial.2.texto", "texto": "Kategoriye göre günün manşetleri — dünya, ekonomi, teknoloji, sağlık, spor ve eğlence —, üstteki çiplerle filtrelenebilir. Dilindeki gerçek basından gelirler, ve kaynaklar her gün değişir." },
+  { "clave": "tut.app-diario--esencial.3.titulo", "texto": "Bugün tarihte" },
+  { "clave": "tut.app-diario--esencial.3.texto", "texto": "Gazetenin diğer yarısı: bugüne benzer bir günde ne olmuş — bir eser, bir kitap, bir tür, bir kelime. O gün haberler ilgini çekmese bile onu açmak için bir bahane." },
+  { "clave": "tut.app-diario--esencial.4.titulo", "texto": "Kendiliğinden yenilenir" },
+  { "clave": "tut.app-diario--esencial.4.texto", "texto": "Uygulamayı açtığında baskı kendiliğinden indirilir ve gece yarısı tamamen değişir: hiçbir şey birikmez. Bu buton o saatten önce bir güncelleme zorlar." },
+  { "clave": "tut.app-diario--esencial.5.titulo", "texto": "Teslimat" },
+  { "clave": "tut.app-diario--esencial.5.texto", "texto": "Her asistanın hangi bölümleri kendi sohbetinde sana getireceğini ayarla, sabit bir saatte ya da günün sürpriz bir anında." },
+  { "clave": "tut.app-ejercicio--esencial.1.titulo", "texto": "Antrenmanın" },
+  { "clave": "tut.app-ejercicio--esencial.1.texto", "texto": "Spor Salonu, bedenin üç modunu — kuvvet, dayanıklılık ve esneklik — bir araya getirir, artı her hafta ne kadar antrenman yapmak istediğine karar verdiğin bir hedefler bölümü." },
+  { "clave": "tut.app-ejercicio--esencial.2.titulo", "texto": "Hedefler" },
+  { "clave": "tut.app-ejercicio--esencial.2.texto", "texto": "Odanın özeti: serin, bir şey kaydedilen günler ve burada belirlediğin haftalık hedefe karşı her mod için bir çubuk. Burada ayrıca ölçü sistemini de seçersin, kilo ya da libre olarak." },
+  { "clave": "tut.app-ejercicio--esencial.3.titulo", "texto": "Kuvvet" }
 ]

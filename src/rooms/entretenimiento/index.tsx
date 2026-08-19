@@ -6,7 +6,7 @@ import { normalizar } from '../../core/chat/dispatcher'
 import type { TipoMedia, EstadoMedia } from '../../core/data/db'
 import { tGlobal } from '../../core/i18n/useT'
 import { CLAUSULA_RECHAZO } from '../../core/planIA'
-import { flujosEntretenimiento } from './tutorial.meta'
+import { esencialEntretenimiento, flujosEntretenimiento } from './tutorial.meta'
 import { JUEGOS_REALES, type IdJuegoReal } from './juegos/catalogo'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { OPERACIONES_IA } from './costosIA'
@@ -131,6 +131,7 @@ const entretenimiento: Plantilla = {
   categoria: 'complemento',
   color: '#34d399',
   App: EntretenimientoApp,
+  esencial: esencialEntretenimiento,
   flujos: flujosEntretenimiento,
   capturar,
   esquemas,

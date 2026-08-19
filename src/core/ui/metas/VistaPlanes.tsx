@@ -8,8 +8,9 @@ import { colorDe } from '../coloresRutina'
 import { vivo } from '../estilos'
 import { Icono } from '../iconos/Icono'
 import { etiquetasDePlanes, textoEtiquetaPlan, type EtiquetaPlan } from './carpetas'
-
-const COLOR_PLAN = '#a78bfa'
+import { COLOR_PLAN } from '../../../rooms/metas/constantes'
+import { VERDE } from '../../../rooms/_shared/acento'
+import { BotonPrimario } from '../../../rooms/_shared/ui'
 
 /**
  * El menú Planes: la lista de los cronogramas que la IA ha propuesto para estas
@@ -58,10 +59,13 @@ export function VistaPlanes({
   const nuevoPlan = () => (metas.length === 1 ? onGenerar(metas[0]) : setEligiendo(true))
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col">
-      <div className="flex items-center gap-2 border-b border-white/10 px-3 py-2">
+    // Sin scroll ni ancho propios: los pone el riel de `Cronograma`, y el scroll
+    // es el del cuarto. La cabecera deja el `border-b` de cuando esto era un panel
+    // con viewport propio.
+    <div className="space-y-3">
+      <div className="flex items-center gap-2">
         <p className="min-w-0 flex-1 truncate text-xs font-bold uppercase tracking-wider text-white/70">
-          <span className="text-violet-300/80">
+          <span style={{ color: COLOR_PLAN }}>
             <Icono nombre="brillo" />
           </span>{' '}
           {t('cal.plan.menu', 'Planes')}
@@ -69,90 +73,84 @@ export function VistaPlanes({
         {/* Sin condicionar a la IA: el generador ofrece las dos vías y la de a mano
             funciona igual con la IA apagada. */}
         {metas.length > 0 && (
-          <button
-            type="button"
-            onClick={nuevoPlan}
-            className="shrink-0 rounded-lg border border-violet-400/50 bg-violet-500/20 px-2.5 py-1 text-[11px] font-semibold text-violet-200 transition hover:bg-violet-500/35 hover:text-violet-100"
-          >
+          <BotonPrimario onClick={nuevoPlan} color={COLOR_PLAN} pequeno className="shrink-0">
             + {t('cal.plan.nuevo', 'Nuevo plan')}
-          </button>
+          </BotonPrimario>
         )}
       </div>
 
-      <div className="min-h-0 flex-1 overflow-y-auto p-3">
-        <div data-tut="cal.plan.lista" className="mx-auto max-w-2xl space-y-2">
-          <p className="text-[11px] leading-relaxed text-white/35">
-            {t(
-              'cal.plan.menuDesc',
-              'Un plan es el borrador de un cronograma: se palomea aquí y, cuando convence, sus fases pasan a ser sub-metas reales.',
-            )}
-          </p>
-
-          {/* Paso previo cuando la vista tiene varias metas: ¿para cuál? */}
-          {eligiendo && (
-            <div className="space-y-1 rounded-xl border border-violet-400/30 bg-violet-500/10 p-2.5">
-              <p className="text-[11px] font-semibold text-violet-200/90">
-                {t('cal.plan.paraMeta', '¿Para qué meta?')}
-              </p>
-              {metas.map((m) => (
-                <button
-                  key={m.id}
-                  type="button"
-                  onClick={() => {
-                    setEligiendo(false)
-                    onGenerar(m)
-                  }}
-                  className={`flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-start text-xs transition hover:bg-white/10 ${
-                    metaArmada?.id === m.id ? 'bg-white/10' : ''
-                  }`}
-                >
-                  <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: colorDe(m) }} />
-                  <span className="min-w-0 flex-1 truncate text-white/85">
-                    <Icono emoji={m.emoji} /> {m.nombre}
-                  </span>
-                </button>
-              ))}
-              <button
-                type="button"
-                onClick={() => setEligiendo(false)}
-                className="w-full rounded-lg py-1 text-[11px] text-white/40 transition hover:text-white/75"
-              >
-                {t('ui.cancelar', 'Cancelar')}
-              </button>
-            </div>
+      <div data-tut="cal.plan.lista" className="space-y-2">
+        <p className="text-2xs leading-relaxed text-white/35">
+          {t(
+            'cal.plan.menuDesc',
+            'Un plan es el borrador de un cronograma: se palomea aquí y, cuando convence, sus fases pasan a ser sub-metas reales.',
           )}
+        </p>
 
-          {metas.length === 0 && (
-            <div className="space-y-2 py-6 text-center">
-              <p className="text-xs text-white/35">
-                {t('cal.plan.sinMetas', 'Crea una meta en el Cronograma para poder planearla.')}
-              </p>
-              <button
-                type="button"
-                onClick={onIrACronograma}
-                className="rounded-lg border border-white/15 px-3 py-1 text-[11px] font-semibold text-white/70 transition hover:bg-white/10"
-              >
-                {t('cal.cronograma', 'Cronograma')}
-              </button>
-            </div>
-          )}
-
-          {metas.length > 0 && mios.length === 0 && (
-            <p className="py-6 text-center text-xs text-white/30">
-              {t('cal.plan.vacio', 'Todavía no hay planes guardados.')}
+        {/* Paso previo cuando la vista tiene varias metas: ¿para cuál? */}
+        {eligiendo && (
+          <div className="space-y-1 rounded-xl border border-plan/30 bg-plan/10 p-2.5">
+            <p className="text-2xs font-semibold text-plan/90">
+              {t('cal.plan.paraMeta', '¿Para qué meta?')}
             </p>
-          )}
+            {metas.map((m) => (
+              <button
+                key={m.id}
+                type="button"
+                onClick={() => {
+                  setEligiendo(false)
+                  onGenerar(m)
+                }}
+                className={`ui-presion flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-start text-xs transition hover:bg-white/10 ${
+                  metaArmada?.id === m.id ? 'bg-white/10' : ''
+                }`}
+              >
+                <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: colorDe(m) }} />
+                <span className="min-w-0 flex-1 truncate text-white/85">
+                  <Icono emoji={m.emoji} /> {m.nombre}
+                </span>
+              </button>
+            ))}
+            <button
+              type="button"
+              onClick={() => setEligiendo(false)}
+              className="ui-presion w-full rounded-lg py-1 text-2xs text-white/40 transition hover:text-white/75"
+            >
+              {t('ui.cancelar', 'Cancelar')}
+            </button>
+          </div>
+        )}
 
-          {mios.map((p) => (
-            <TarjetaPlan
-              key={p.id}
-              plan={p}
-              metas={metas}
-              carpeta={carpetas.get(p.id ?? -1)}
-              onAbrir={() => p.id != null && onAbrirPlan(p.id)}
-            />
-          ))}
-        </div>
+        {metas.length === 0 && (
+          <div className="space-y-2 py-6 text-center">
+            <p className="text-xs text-white/35">
+              {t('cal.plan.sinMetas', 'Crea una meta en el Cronograma para poder planearla.')}
+            </p>
+            <button
+              type="button"
+              onClick={onIrACronograma}
+              className="ui-presion rounded-lg border border-white/15 px-3 py-1 text-2xs font-semibold text-white/70 transition hover:bg-white/10"
+            >
+              {t('cal.cronograma', 'Cronograma')}
+            </button>
+          </div>
+        )}
+
+        {metas.length > 0 && mios.length === 0 && (
+          <p className="py-6 text-center text-xs text-white/30">
+            {t('cal.plan.vacio', 'Todavía no hay planes guardados.')}
+          </p>
+        )}
+
+        {mios.map((p) => (
+          <TarjetaPlan
+            key={p.id}
+            plan={p}
+            metas={metas}
+            carpeta={carpetas.get(p.id ?? -1)}
+            onAbrir={() => p.id != null && onAbrirPlan(p.id)}
+          />
+        ))}
       </div>
     </div>
   )
@@ -206,12 +204,12 @@ function TarjetaPlan({
           type="button"
           data-tut={`cal.plan.tarjeta.${aceptado ? 'aceptado' : 'propuesta'}`}
           onClick={onAbrir}
-          className="min-w-0 flex-1 text-start"
+          className="ui-presion min-w-0 flex-1 text-start"
         >
           {/* De quién es el plan, con el color de su cuarto. El título grande es la
               META: es lo que se busca al recorrer la lista, no «Plan A». */}
           <p
-            className="truncate text-[10px] font-bold uppercase tracking-wider texto-vivo"
+            className="truncate text-2xs font-bold uppercase tracking-wider texto-vivo"
             style={vivo(carpeta?.color ?? COLOR_PLAN)}
           >
             <Icono nombre="brillo" /> {textoEtiquetaPlan(carpeta, plan.nombre, t)}
@@ -221,9 +219,9 @@ function TarjetaPlan({
           </p>
           {/* La nota de la meta, y si no tiene, el resumen con que la IA lo justificó. */}
           {(origen?.nota || plan.resumen) && (
-            <p className="mt-0.5 truncate text-[11px] text-white/35">{origen?.nota || plan.resumen}</p>
+            <p className="mt-0.5 truncate text-2xs text-white/35">{origen?.nota || plan.resumen}</p>
           )}
-          <p className="mt-0.5 truncate text-[10px] tabular-nums text-white/35">
+          <p className="mt-0.5 truncate text-2xs tabular-nums text-white/35">
             {t('cal.plan.fases', '{n} fases', { n: fases })} ·{' '}
             {dias === 0
               ? t('cal.plan.sinPlazo', 'Sin plazo')
@@ -231,8 +229,8 @@ function TarjetaPlan({
           </p>
         </button>
         <span
-          className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold ${
-            aceptado ? 'bg-emerald-500/15 text-emerald-300' : 'bg-violet-500/15 text-violet-200'
+          className={`shrink-0 rounded-full px-2 py-0.5 text-2xs font-semibold ${
+            aceptado ? 'bg-emerald-500/15 text-emerald-300' : 'bg-plan/15 text-plan'
           }`}
         >
           {aceptado
@@ -243,20 +241,20 @@ function TarjetaPlan({
           type="button"
           onClick={() => void borrar()}
           title={t('rutinas.borrar', 'Borrar')}
-          className="shrink-0 px-0.5 text-white/30 transition hover:text-red-400"
+          className="ui-presion shrink-0 px-0.5 text-white/30 transition hover:text-red-400"
         >
           <Icono nombre="basura" />
         </button>
       </div>
 
-      <button type="button" onClick={onAbrir} className="mt-2 flex w-full items-center gap-2">
-        <div className="h-1.5 min-w-0 flex-1 overflow-hidden rounded-full bg-white/10">
+      <button type="button" onClick={onAbrir} className="ui-presion mt-2 flex w-full items-center gap-2">
+        <div className="ui-presion h-1.5 min-w-0 flex-1 overflow-hidden rounded-full bg-white/10">
           <div
-            className="h-full rounded-full"
-            style={{ width: `${Math.round(avance * 100)}%`, background: aceptado ? '#10b981' : COLOR_PLAN }}
+            className="ui-presion h-full rounded-full"
+            style={{ width: `${Math.round(avance * 100)}%`, background: aceptado ? VERDE : COLOR_PLAN }}
           />
         </div>
-        <span className="shrink-0 text-[10px] tabular-nums text-white/40">
+        <span className="shrink-0 text-2xs tabular-nums text-white/40">
           {resumen.hechos}/{resumen.total}
         </span>
       </button>

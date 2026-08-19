@@ -56,7 +56,9 @@ function EtiquetasActivas() {
   }, [creciendo])
 
   return (
-    <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden">
+    // z-[5]: por encima del canvas pero por debajo de TODOS los controles (el
+    // joystick y la hotbar van en z-10, el chat en z-20, el HUD en z-30).
+    <div className="pointer-events-none absolute inset-0 z-[5] overflow-hidden">
       {filas
         .filter((f) => f.especie && f.col < gridCols && f.row < gridRows)
         .map((f) => (

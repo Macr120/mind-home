@@ -1,38 +1,150 @@
 [
   {
-    "clave": "tut.hoy.1.texto",
-    "texto": "每个应用的顶部都有一个“目标”按钮，和日历里的一样，只是只显示这个应用的内容。点开是一个分两层的面板：上面是今天的清单，下面是这个应用的目标和计划。"
+    "clave": "tut.app-agenda--esencial.1.titulo",
+    "texto": "你的日程"
   },
   {
-    "clave": "tut.hoy.2.texto",
-    "texto": "应用自己的目标（喝水、卡路里）、你今天在日历里安排的事，还有正在进行的目标的步骤，全都汇总在一起，按每个步骤所属的计划或目标分组显示。"
+    "clave": "tut.app-agenda--esencial.1.texto",
+    "texto": "日程保存的是习惯以外的事：待办、预约、联系人。一共三个菜单，凡是带日期的都会自动排进家里的日历。"
   },
   {
-    "clave": "tut.hoy.7.texto",
-    "texto": "如果还缺点什么，“新建清单”可以创建属于你自己的清单：这个应用专属、每天重复的清单。“今天”这一部分下面就是完整的规划器——目标、计划和日程——列出这个应用的所有目标。"
+    "clave": "tut.app-agenda--esencial.2.titulo",
+    "texto": "工作"
   },
   {
-    "clave": "tut.app-hobbies--gestion.4.texto",
-    "texto": "你的爱好和项目的目标都在顶部的“目标”按钮里：和日历一样的目标·计划·日程规划器，只是限定在这个应用范围内。让AI帮你安排一个带阶段和日期的计划吧。"
+    "clave": "tut.app-agenda--esencial.2.texto",
+    "texto": "待办把没有日期的事集中起来，免得漏掉；看板则让任务在待处理、进行中和已完成之间移动。"
   },
   {
-    "clave": "tut.app-biblioteca--estudio.2.texto",
-    "texto": "目标就在顶部的“目标”按钮里，和日历用的是同一个日程：“考试前学完热力学”已经完成了，读研的准备还在进行中。"
+    "clave": "tut.app-agenda--esencial.3.titulo",
+    "texto": "健康"
   },
   {
-    "clave": "tut.app-ejercicio--anio.3.texto",
-    "texto": "顶部的“目标”按钮保存着他已完成的四个目标——5公里、10公里、半程马拉松和全程马拉松——还有一个仍在进行中的目标。带日期的目标也会出现在家庭日历里。"
+    "clave": "tut.app-agenda--esencial.3.texto",
+    "texto": "就诊预约、用药和日常护理，分三个子菜单：我、亲友（由你照顾的人）和宠物。"
   },
   {
-    "clave": "tut.app-cocina--cronograma.1.texto",
-    "texto": "顶部的“目标”按钮打开的日程和家庭日历用的是同一个，只是限定在厨房的目标范围内：创建一个目标（比如“减掉3公斤”），让AI帮你安排计划——它会问你的目标日期，再安排各自带日期的子目标。"
+    "clave": "tut.app-agenda--esencial.4.titulo",
+    "texto": "联系人"
   },
   {
-    "clave": "tut.app-despacho--metas.2.texto",
-    "texto": "顶部的“目标”按钮把这些目标放在时间轴上：给某个目标定好日期，它就会出现在你的日历天数中。点击✨，AI会提出存款计划。"
+    "clave": "tut.app-agenda--esencial.4.texto",
+    "texto": "按关系整理的通讯录。你保存的生日每年都会在日历上自动重复。"
   },
   {
-    "clave": "tut.app-entretenimiento--programas.2.texto",
-    "texto": "保存的片单就在顶部的“目标”按钮里：每个标题都保留着列入清单的理由备注，一旦定好日期，就会像其他目标一样进入日历。"
+    "clave": "tut.calendario--esencial.1.titulo",
+    "texto": "家里的时钟"
+  },
+  {
+    "clave": "tut.calendario--esencial.1.texto",
+    "texto": "日历不是一个房间：它住在控制面板的时钟里，所以在哪儿都能直接打开，不用先进到某个地方。"
+  },
+  {
+    "clave": "tut.calendario--esencial.2.titulo",
+    "texto": "所有安排都在这里"
+  },
+  {
+    "clave": "tut.calendario--esencial.2.texto",
+    "texto": "凡是带日期和时间的都会落在这里：你用“＋新建”创建的，或在网格上划出来的，还有其他应用自己排进来的。事情太挤时，顶部的筛选可以只看一个应用。"
+  },
+  {
+    "clave": "tut.calendario--esencial.3.titulo",
+    "texto": "日"
+  },
+  {
+    "clave": "tut.calendario--esencial.3.texto",
+    "texto": "一天24小时的网格：用来看每件事在几点，以及有没有撞在一起。这个按钮有两个作用：显示“今天”时把你带回当下，已经在看别的日期时则显示“日”。"
+  },
+  {
+    "clave": "tut.calendario--esencial.4.titulo",
+    "texto": "周"
+  },
+  {
+    "clave": "tut.calendario--esencial.4.texto",
+    "texto": "同样的小时网格，只是七天并排。这里能看出一周是怎么分配的，也可以把色块从一天拖到另一天，或者拉长让它持续更久。"
+  },
+  {
+    "clave": "tut.calendario--esencial.5.titulo",
+    "texto": "月"
+  },
+  {
+    "clave": "tut.calendario--esencial.5.texto",
+    "texto": "去掉小时轴，把每天画成一个格子，里面是当天的安排。这是看全局的视图：哪几周排得满，哪几天还空着。"
+  },
+  {
+    "clave": "tut.calendario--esencial.6.titulo",
+    "texto": "年"
+  },
+  {
+    "clave": "tut.calendario--esencial.6.texto",
+    "texto": "十二个月一次看完。在这个距离上已经读不出时刻，看见的是坚持：你给自己定下的事，这一年撑了多久。"
+  },
+  {
+    "clave": "tut.calendario--esencial.7.titulo",
+    "texto": "任务，另算"
+  },
+  {
+    "clave": "tut.calendario--esencial.7.texto",
+    "texto": "用红色标出来，免得被当成第五种视图：任务把所有应用今天的清单集中在一块屏幕上。目标和它们的计划不在这里——它们住在自己的房间。"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.1.titulo",
+    "texto": "你的私人日记"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.1.texto",
+    "texto": "回忆本保存你想写下的一切，连同心情和照片。它按日期自动整理，你不用分类。"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.2.titulo",
+    "texto": "怎么写一条"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.2.texto",
+    "texto": "选好当天的心情，写下想说的话，有照片就一起放上。只有一张照片、没有文字也可以。"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.3.titulo",
+    "texto": "心情日历"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.3.texto",
+    "texto": "每一天都按当天记录的心情上色，整个月一眼就读得出来。点一天，就能在下面看到它的记录。"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.4.titulo",
+    "texto": "历史记录"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.4.texto",
+    "texto": "所有记录都会留在这里，自动归入按年、月、周分的文件夹。"
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.1.titulo",
+    "texto": "你的图书馆"
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.1.texto",
+    "texto": "图书馆是你的私人百科全书：不懂的就问，学到的就存，学了多少也记得清清楚楚。一共四个菜单。"
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.2.titulo",
+    "texto": "聊天"
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.2.texto",
+    "texto": "在这里向智者请教任何话题，对话会被保存下来。每段聊天都会自动归入它的知识领域，并提炼成一条百科全书条目。"
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.3.titulo",
+    "texto": "百科全书"
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.3.texto",
+    "texto": "学到的东西都住在这棵树上，按知识领域排列。每条条目都带摘要和要点，你也可以自己动手写；用铅笔按钮，把索引养成适合自己的样子。"
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.4.titulo",
+    "texto": "学习"
   }
 ]

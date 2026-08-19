@@ -1,146 +1,34 @@
 [
-  {
-    "clave": "tut.respaldo.3.texto",
-    "texto": "Geri yükleme, mevcut bütün verilerin yerine dosyadakileri KOYAR — önce onay ister ve kaç kayıt getirdiğini gösterir, yani sürpriz olmaz."
-  },
-  {
-    "clave": "tut.respaldo.4.texto",
-    "texto": "Cihaz ya da tarayıcı değiştirmeden önce, hatta arada bir öylesine yedek almakta fayda var: hesabın yokken elindeki tek kopya bu."
-  },
-  {
-    "clave": "tut.editor-cuarto.1.texto",
-    "texto": "Belirli bir odayı düzenliyorsun: plan da kamera da bütün eve değil, ona odaklanır."
-  },
-  {
-    "clave": "tut.editor-cuarto.2.titulo",
-    "texto": "Neler düzenlenir"
-  },
-  {
-    "clave": "tut.editor-cuarto.2.texto",
-    "texto": "Odanın şekli, zemini, duvarları, kapıları, rengi ve adı, bir de nesneleri. Atanan uygulama da buradan değişir: bu panele en çok onun için gelinir."
-  },
-  {
-    "clave": "tut.editor-cuarto.3.titulo",
-    "texto": "Haritaya dön"
-  },
-  {
-    "clave": "tut.editor-cuarto.3.texto",
-    "texto": "Bu ok, düzenleyiciyi kapatmadan bütün haritaya döner; başka bir odada çalışmayı sürdürebilirsin."
-  },
-  {
-    "clave": "tut.editor-cuarto.4.texto",
-    "texto": "3D görünümde odanın üzerinde yüzen bir «Odadan çık» düğmesi de var; oradan dokunmayı tercih edersen diye."
-  },
-  {
-    "clave": "tut.herramientas.1.texto",
-    "texto": "Bu düğme karakterinin araç çarkını açar."
-  },
-  {
-    "clave": "tut.herramientas.2.titulo",
-    "texto": "İki seviye"
-  },
-  {
-    "clave": "tut.herramientas.2.texto",
-    "texto": "Önce kategoriyi, sonra içindeki aracı seçersin. Aynı anda en fazla 3 araç kuşanabilirsin; kategorileri farklı da olabilir, aynı da."
-  },
-  {
-    "clave": "tut.herramientas.3.titulo",
-    "texto": "Dördüncü kategori"
-  },
-  {
-    "clave": "tut.herramientas.3.texto",
-    "texto": "İnşaat bir oyuncak kuşandırmaz: haritanın çizim modunu açar (Odalar, Duvarlar, Kapılar, Pencereler, zeminler, Çatılar) ve tam düzenleyiciye uğramana gerek kalmaz. Plan aynı plan, sadece daha kısa yoldan geliniyor."
-  },
-  {
-    "clave": "tut.herramientas.4.titulo",
-    "texto": "Merkez"
-  },
-  {
-    "clave": "tut.herramientas.4.texto",
-    "texto": "Merkez, kuşandığın her şeyi bırakır ve köşedeki yuvayı normale döndürür (yakınında ne varsa ona göre: görünüm küpü ya da başka bir bağlamsal düğme)."
-  },
-  {
-    "clave": "tut.herramientas.5.texto",
-    "texto": "Çarkın dışına dokununca kapanır. Canın istediğinde dene: bunların hiçbiri kalıcı olarak kaydedilmez, yalnızca üzerinde taşıdığın sürece geçerli."
-  },
-  {
-    "clave": "tut.navegacion.1.texto",
-    "texto": "Üç kamera: İzo (oyuncak ev görünümü), 3. ve 1. şahıs. Buradan ya da V tuşuyla değiştir."
-  },
-  {
-    "clave": "tut.navegacion.2.titulo",
-    "texto": "Yönünü bulmak"
-  },
-  {
-    "clave": "tut.navegacion.2.texto",
-    "texto": "İzo’da küp kamerayı yüzden yüze çevirir; 3. ve 1. şahısta etrafa bakmak için pad’i sürükle."
-  },
-  {
-    "clave": "tut.navegacion.3.titulo",
-    "texto": "Yakında bir şey olduğunda"
-  },
-  {
-    "clave": "tut.navegacion.3.texto",
-    "texto": "Etkileşimli bir şeye yaklaştığında aynı yuva kamera olmaktan çıkar: saha oyna düğmesini, araç bin düğmesini, sandalye otur düğmesini sunar. Aynı anda tek bir şey, hep de yakınlıkla — asla kendiliğinden değil."
-  },
-  {
-    "clave": "tut.navegacion.4.titulo",
-    "texto": "Döndür ve ortala"
-  },
-  {
-    "clave": "tut.navegacion.4.texto",
-    "texto": "Görünümü yanlara döndür ya da keşfe dalıp kaybolduysan haritada yeniden ortala."
-  },
-  {
-    "clave": "tut.navegacion.5.titulo",
-    "texto": "Hareket etmek"
-  },
-  {
-    "clave": "tut.navegacion.5.texto",
-    "texto": "Joystick, WASD ya da oklarla yürü. Suda yüzersin; bir araca bindiğinde aynı kontrollerle sürersin."
-  },
-  {
-    "clave": "tut.navegacion.6.texto",
-    "texto": "3. ve 1. şahısta 3D Düzenleyici düğmesi belirir: nesnelere, duvarlara ya da karakterlere dokun ve onları tam durdukları yerde, İzometrik görünüme dönmeden düzenle."
-  },
-  {
-    "clave": "tut.chat.1.texto",
-    "texto": "Mimarın sohbeti: gününü kaydeder, evi düzenler ve aklına takılanları yanıtlar; hepsi aynı kutudan."
-  },
-  {
-    "clave": "tut.chat.2.titulo",
-    "texto": "Yazmak"
-  },
-  {
-    "clave": "tut.chat.2.texto",
-    "texto": "Serbestçe yaz: «20 dk koştum», «markette 250 harcadım»… Yanındaki chip hangi uygulamaya gideceğini gösterir. Yanlış tahmin ederse hedefi @oda ile sen belirle."
-  },
-  {
-    "clave": "tut.chat.3.titulo",
-    "texto": "Sesle yazdırmak"
-  },
-  {
-    "clave": "tut.chat.3.texto",
-    "texto": "Mikrofon söylediklerini metin kutusuna yazar — elin doluyken kayıt tutmak için birebir."
-  },
-  {
-    "clave": "tut.chat.4.titulo",
-    "texto": "Fotoğraf göndermek"
-  },
-  {
-    "clave": "tut.chat.4.texto",
-    "texto": "Yapay Zeka açıkken fişin, tabağın ya da tartının fotoğrafı kendi kendine okunur. Yapay Zeka yoksa bu düğme devre dışı kalır."
-  },
-  {
-    "clave": "tut.chat.5.titulo",
-    "texto": "Asistanlar"
-  },
-  {
-    "clave": "tut.chat.5.texto",
-    "texto": "Asistanın yanıtlara bir yüz ve bir ses verir. Konuşmayı görmek, asistan değiştirmek ya da yenilerini oluşturmak için ona dokun."
-  },
-  {
-    "clave": "tut.chat.6.titulo",
-    "texto": "Kılavuz"
-  }
+  { "clave": "tut.app-hobbies--esencial.4.texto", "texto": "Orada dakika ve notla oturumlar kaydedersin, yıllık etkinlik haritanı görürsün ve kendi ilerlemesi olan projeler yürütürsün. Hedefler ve zaman çizelgeleri Hedefler odasında yaşar." },
+  { "clave": "tut.app-ideas--esencial.1.titulo", "texto": "Fikirler" },
+  { "clave": "tut.app-ideas--esencial.1.texto", "texto": "Fikirler, aklına geleni tutar ve olgunlaşmasına yardımcı olur: önce not edilir, sonra bir haritada düzenlenir ve gerekirse karar vermek için karşılaştırılır. Üç bölümü vardır." },
+  { "clave": "tut.app-ideas--esencial.2.titulo", "texto": "Fikir günlüğü" },
+  { "clave": "tut.app-ideas--esencial.2.texto", "texto": "Herhangi bir düşüncenin, tek başına ya da konuya göre bir beyin fırtınasında gruplanmış olarak düştüğü kutu. Klasörlere kaldırılabilir, yıldızla işaretlenebilir ve olgunlaştığında bir haritaya dönüştürülebilir." },
+  { "clave": "tut.app-ideas--esencial.3.titulo", "texto": "Kavram haritaları" },
+  { "clave": "tut.app-ideas--esencial.3.texto", "texto": "Bir konuyu en uygun biçimde düzenlemek için serbest bir tuval: zihin haritası, ağaç, akış, zaman çizelgesi, döngü, piramit, Venn ve daha fazlası." },
+  { "clave": "tut.app-ideas--esencial.4.titulo", "texto": "Karar şemaları" },
+  { "clave": "tut.app-ideas--esencial.4.texto", "texto": "Aynı tuval, ama karar vermek için tasarlanmış biçimlerle: ağırlıklı artı-eksi, SWOT, Eisenhower ya da seçenekleri kendiliğinden sıralayan ağırlıklı bir matris." },
+  { "clave": "tut.app-idiomas--esencial.1.titulo", "texto": "Dil okulun" },
+  { "clave": "tut.app-idiomas--esencial.1.texto", "texto": "Burada bir dil seçersin, yapay zekâ bir öğretmenle sohbet edersin, öğrendiğin kelimeleri kaydedersin ve aralıklı bir sistemle tekrar edersin. Dört bölümü vardır: Sohbetler, Müfredat, Tekrar ve İlerleme." },
+  { "clave": "tut.app-idiomas--esencial.2.titulo", "texto": "Sohbetler" },
+  { "clave": "tut.app-idiomas--esencial.2.texto", "texto": "Öğrendiğin dilde öğretmeninle konuşursun: seviyene göre yanıt verir ve nazikçe düzeltir. Her sohbet kaydedilir ve kendiliğinden sınıflandırılır, ve çıkarken yeni kelimeleri kart olarak çıkarmayı önerir." },
+  { "clave": "tut.app-idiomas--esencial.3.titulo", "texto": "Müfredat" },
+  { "clave": "tut.app-idiomas--esencial.3.texto", "texto": "Dili konulara, telaffuza ve dil bilgisine, A1'den C2'ye kadar düzenler. Kelime hazinesi her konunun içinde yaşar: her kart çevirisi ve örneğiyle orada saklanır." },
+  { "clave": "tut.app-idiomas--esencial.4.titulo", "texto": "Tekrar" },
+  { "clave": "tut.app-idiomas--esencial.4.texto", "texto": "Aralıklı tekrar: her kart bir kutuda yaşar ve sadece unutmak üzere olduğun kartlar sorulur, sadece bakmak yerine alıştırmalarla — çoktan seçmeli, ters ya da cümleyi tamamlama." },
+  { "clave": "tut.app-idiomas--esencial.5.titulo", "texto": "İlerleme" },
+  { "clave": "tut.app-idiomas--esencial.5.texto", "texto": "İlerlemenin özeti: kaç kartta ustalaştığın, ne kadar tekrar ettiğin ve mevcut seviyen, tekrarlarının gün gün geçmişiyle." },
+  { "clave": "tut.app-jardin--esencial.1.titulo", "texto": "Huzur alanın" },
+  { "clave": "tut.app-jardin--esencial.1.texto", "texto": "Bahçe üç pratiği bir araya getirir: meditasyon, rehberli nefes ve şükran. Bilerek puan ya da seri tutmaz: burada gelmemek cezalandırılmaz, sadece pratiğine eşlik eder." },
+  { "clave": "tut.app-jardin--esencial.2.titulo", "texto": "Meditasyon" },
+  { "clave": "tut.app-jardin--esencial.2.texto", "texto": "Bir ses parçası ve süre seç, ya da başta ve sonda bir çanla sessizce meditasyon yap. Her oturum geçmişine kaydedilir." },
+  { "clave": "tut.app-jardin--esencial.3.titulo", "texto": "Nefes" },
+  { "clave": "tut.app-jardin--esencial.3.texto", "texto": "İki rehberli nefes deseni, biri seni merkezlemek için, diğeri günü bırakmak için: ekran ilerledikçe seninle birlikte nefes alır." },
+  { "clave": "tut.app-jardin--esencial.4.titulo", "texto": "Şükran" },
+  { "clave": "tut.app-jardin--esencial.4.texto", "texto": "Bugün minnettar olduğun şeyi yaz, tek bir şey bile olsa, ve istediğinde geçmiş kayıtlarına bak. Seri yok: bir günü kaçırmak hiçbir şeyi silmez." },
+  { "clave": "tut.app-metas--esencial.1.titulo", "texto": "Evin planlayıcısı" },
+  { "clave": "tut.app-metas--esencial.1.texto", "texto": "Bu oda kendine ait kayıt tutmaz: diğer uygulamalarda doğan hedefleri ve planları tek bir yerde toplar. Üç bölümü vardır, ve bu sırayla okunur: kendine ne koyduğun, nasıl bölmeyi düşündüğün ve ne zaman düştüğü." },
+  { "clave": "tut.app-metas--esencial.2.titulo", "texto": "Hedefler" },
+  { "clave": "tut.app-metas--esencial.2.texto", "texto": "Kendine koyduğun her şeyin listesi, her hedefi yürüten uygulamaya göre gruplanmış. Bir hedef başka birine bağlı olabilir, ve ona dokunmak kartını açar: orada süresi, adımları ve kendi zaman çizelgesine giriş bulunur." },
+  { "clave": "tut.app-metas--esencial.3.titulo", "texto": "Planlar" }
 ]

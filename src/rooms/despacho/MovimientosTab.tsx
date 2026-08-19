@@ -110,7 +110,6 @@ export function MovimientosTab({ tipo, movimientos }: { tipo: 'gasto' | 'ingreso
               prefijoClave="despacho.m"
               color={AZUL}
               variante="sub"
-              nivel={3}
               flecha={false}
             />
           </div>
@@ -141,7 +140,6 @@ export function MovimientosTab({ tipo, movimientos }: { tipo: 'gasto' | 'ingreso
                 prefijoClave="despacho.plazo"
                 color={AZUL}
                 variante="sub"
-                nivel={3}
                 flecha={false}
               />
             </div>

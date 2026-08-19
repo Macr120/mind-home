@@ -49,6 +49,7 @@ const TODOS: number[] = []
 const LMV = [1, 3, 5]
 const MJ = [2, 4]
 const ENTRE_SEMANA = [1, 2, 3, 4, 5]
+const LUNES = [1]
 const DOMINGO = [0]
 const SABADO = [6]
 const FIN_DE_SEMANA = [5, 6]
@@ -501,12 +502,30 @@ const CATALOGO: Record<string, ObjetivoSugerido[]> = {
       seccion: 'personas',
     },
   ],
+  // El planificador también es un hábito: lo que se abandona no son las metas,
+  // es el rato de mirarlas. Van sin `registro` (no hay nada que apuntar de un
+  // toque: revisar es leer) y sin `seccion` (MetasApp no declara `comandos`).
+  metas: [
+    {
+      id: 'revisar',
+      clave: 'objetivos.sug.metas.revisar',
+      etiquetaEs: 'Revisar mis metas',
+      emoji: '🎯',
+      dias: DOMINGO,
+    },
+    {
+      id: 'planear',
+      clave: 'objetivos.sug.metas.planear',
+      etiquetaEs: 'Planear la semana',
+      emoji: '🗓️',
+      dias: LUNES,
+    },
+  ],
 }
 
 /**
- * Lo que esta app sugiere proponerse. Vacío en el cuarto Metas (es el
- * planificador: no registra nada suyo) y en las plantillas personalizadas, que
- * arman sus objetivos con el bloque «Hábito» de la propia app.
+ * Lo que esta app sugiere proponerse. Vacío en las plantillas personalizadas,
+ * que arman sus objetivos con el bloque «Hábito» de la propia app.
  */
 export function sugerenciasDe(plantillaId: string): ObjetivoSugerido[] {
   return CATALOGO[plantillaId] ?? []

@@ -30,7 +30,7 @@ export function aplicarSpawnDemo(): void {
   try {
     const { x, z } = JSON.parse(crudo) as { x: number; z: number }
     if (typeof x !== 'number' || typeof z !== 'number') return
-    playerPos.set(x, 0, z)
+    playerPos.set(x, 0.2, z) // y = SUPERFICIE_SUELO (tope de la losa)
     useHouse.getState().target.set(x, 0, z)
   } catch {
     /* json corrupto: se queda el punto por defecto */

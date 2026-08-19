@@ -1,4 +1,5 @@
 import type { CuerpoTutorial, TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import { fichaEsencial } from '../../core/tutorial/esencial'
 
 /**
  * Fichas de los tutoriales de esta app: id, título y resumen. Es lo único que
@@ -79,3 +80,13 @@ export const flujosDespacho: TutorialDef[] = [
   flujoMetas,
   flujoCalculadoras,
 ]
+
+/** Esencial: recorre los cuatro menús en la casa real, sin necesitar datos. */
+export const esencialDespacho: TutorialDef = fichaEsencial(
+  'despacho',
+  T(
+    'tut.app-despacho--esencial.resumen',
+    'El despacho ordena tu dinero en cuatro menús. Patrimonio guarda lo que tienes y lo que debes, con su proyección; Flujo lleva gastos, ingresos y el balance del periodo, con presupuesto y categorías; Metas junta ahorro, inversión y deuda, más las calculadoras que proponen un monto. Mercados es un tablero de cotizaciones en vivo, solo de consulta.',
+  ),
+  () => import('./tutorial').then((m) => m.cuerpoEsencial as CuerpoTutorial),
+)

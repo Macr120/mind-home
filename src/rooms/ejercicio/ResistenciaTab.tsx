@@ -291,7 +291,6 @@ export function ResistenciaTab({
           prefijoClave="ejercicio.sub"
           color={COLOR_RESISTENCIA}
           variante="sub"
-          nivel={2}
         />
       </div>
 

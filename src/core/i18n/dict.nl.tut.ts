@@ -27,7 +27,19 @@ export const NL_TUT: Dict = {
     'Hier staat alles wat wetenschappelijk is, en heel wat meer: je kiest de groep —Basis, Calculus, Matrices, Trigonometrie, Symbolen— en de knoppen veranderen mee. Ze worden geschreven waar je cursor staat, en de lege plek staat klaar om in te typen.',
   'tut.app-computo--calculadora.3.titulo': 'Speciale modi',
   'tut.app-computo--calculadora.3.texto':
-    'De rekenmachine wisselt van hele weergave: de grafiek, binair en hexadecimaal, matrices, stelsels vergelijkingen, eenheden omrekenen, de rekening met fooi en de regel van drieën. De geschiedenis blijft overal onderaan staan.',
+    'De rekenmachine wisselt van hele weergave: de grafiek, de talstelsels van 2 tot 16, matrices, stelsels vergelijkingen, eenheden omrekenen, de rekening met fooi en de regel van drieën. De geschiedenis blijft overal onderaan staan.',
+  'tut.app-computo--calculadora.3b.titulo': 'Talstelsels',
+  'tut.app-computo--calculadora.3b.texto':
+    'Wat je typt wordt gelezen in het gekozen talstelsel en in alle vijftien tegelijk getoond, van 2 tot 16, live. Er zitten bitsgewijze bewerkingen in, en met de voorvoegsels 0b, 0o en 0x meng je talstelsels in één berekening.',
+  'tut.app-computo--calculadora.3c.titulo': 'Matrices en stelsels',
+  'tut.app-computo--calculadora.3c.texto':
+    'Matrices rekent met A en B tot 6×6: som, product, determinant, inverse, getransponeerde en spoor. Zijn buurman Stelsels lost lineaire vergelijkingen op en leest de onbekenden uit wat je typt — tot zes vergelijkingen.',
+  'tut.app-computo--calculadora.3d.titulo': 'Eenheden',
+  'tut.app-computo--calculadora.3d.texto':
+    'Acht categorieën —van lengte tot data— die omrekenen terwijl je typt; elke onthoudt zijn laatste paar en «Omdraaien» keert de omrekening om. De temperatuur klopt gewoon: 100 °C is 212 °F.',
+  'tut.app-computo--calculadora.3e.titulo': 'Fooi en regel van drieën',
+  'tut.app-computo--calculadora.3e.texto':
+    'De twee voor snel hoofdrekenen: Fooi rekent over de rekening —niet over het totaal— en deelt door met hoevelen je bent; Regel van drieën, recht of omgekeerd, vult de x vanzelf in.',
   'tut.app-computo--calculadora.4.titulo': 'Het formuleboek, binnen handbereik',
   'tut.app-computo--calculadora.4.texto':
     'Je formules hangen aan dit menu, met hun variabelen klaar om in te vullen: dát maakt het opslaan de moeite waard.',
@@ -64,7 +76,7 @@ export const NL_TUT: Dict = {
     'Loop met de joystick, met WASD of met de pijltjestoetsen. Stap je door de deur van een kamer, dan ga je naar binnen en opent zijn app vanzelf.',
   'tut.casa.4.titulo': 'Drie manieren om te kijken',
   'tut.casa.4.texto':
-    'Isometrisch, derde en eerste persoon (of de toets V). In 3e/1e persoon verschijnt er bovendien een knop om de wereld te bewerken terwijl je erdoorheen loopt.',
+    'Isometrisch, derde en eerste persoon (of de toets V). Op Iso tikken centreert de camera ook weer op je personage: de snelle uitweg als je ver weg was tijdens het verkennen.',
   'tut.casa.5.titulo': 'Eén hoekje, meerdere eigenaars',
   'tut.casa.5.texto':
     'Die hoek is niet alleen de weergavekubus: kom je dicht bij iets waarmee je iets kunt doen —een stoel, een voertuig, een veld— dan verandert hij vanzelf mee met wat er in de buurt is. Er gaat niets aan zonder dat je ernaartoe loopt.',
@@ -73,7 +85,7 @@ export const NL_TUT: Dict = {
     'Bewegingen, speelgoed, voertuigen en bouwen, tot 3 tegelijk uitgerust. Je opent het hier, of vanuit datzelfde hoekje wanneer je handen vrij zijn.',
   'tut.casa.7.titulo': 'De klok',
   'tut.casa.7.texto':
-    'De tijd van het huis. Vanaf hier open je de volledige kalender en het routinepaneel met wat je vandaag nog moet doen.',
+    'De tijd van het huis: tik erop en de volledige kalender opent, met zijn Missies van de dag. De zon of de maan ernaast bestuurt het verstrijken van de tijd en het licht van de scène.',
   'tut.casa.8.titulo': 'De muziek van het huis',
   'tut.casa.8.texto':
     'Elke kamer kan zijn eigen thema hebben, of gewoon de sfeer van het huis laten spelen. Zet je het helemaal uit, dan blijft het stil.',
@@ -88,10 +100,10 @@ export const NL_TUT: Dict = {
     'Met deze knop teken je nieuwe kamers op de kaart. Om je de rest van de weg te tonen, maak ik er nu eentje voor je…',
   'tut.primeros.3.titulo': 'Jouw nieuwe kamer',
   'tut.primeros.3.texto':
-    'Daar is-ie! Een gloednieuwe kamer, nog zonder app: daarom staat er + Toewijzen op zijn knop.',
+    'Daar is-ie! Een gloednieuwe kamer, nog zonder app: daarom staat er + Toewijzen op zijn kaart.',
   'tut.primeros.4.titulo': 'Een app toewijzen',
   'tut.primeros.4.texto':
-    'Met + Toewijzen heb ik hem zijn app gegeven: kijk hoe de kamer haar naam, haar icoon en haar meubels heeft overgenomen — en op zijn knop staat nu Openen.',
+    'Met + Toewijzen heb ik hem zijn app gegeven: kijk hoe de kamer haar naam, haar icoon en haar meubels heeft overgenomen. Vanaf nu is zijn hele kaart de knop om naar binnen te gaan.',
   'tut.primeros.5.titulo': 'Openen',
   'tut.primeros.5.texto':
     'We zijn binnen: dit is de app van de kamer. Tijdens het rondlopen ga je ook naar binnen door zijn deur, en je gaat weer weg met ‹ Terug naar huis.',
@@ -104,12 +116,12 @@ export const NL_TUT: Dict = {
   'tut.menu-cuartos.3.titulo': 'De kaarten',
   'tut.menu-cuartos.3.texto':
     'Elke kaart is een kamer: zijn icoon, zijn naam en de voortgang van zijn app, gegroepeerd in Lichaam, Geest, Extra\'s en Instellingen. Kamers zonder toegewezen app staan helemaal onderaan.',
-  'tut.menu-cuartos.4.titulo': 'Bewerken',
+  'tut.menu-cuartos.4.titulo': 'Opties van de kamer',
   'tut.menu-cuartos.4.texto':
-    'Bewerken opent de editor van de kamer: vorm, kleuren, muren en objecten. (Druk er nu niet op: dit menu zou dan sluiten.)',
-  'tut.menu-cuartos.5.titulo': 'Openen en Toewijzen',
+    'Het tandwiel klapt de opties van de kamer uit op een rij: hem omhoog of omlaag zetten in de lijst, hem verwijderen, en Bewerken, dat zijn editor opent voor vorm, kleuren, muren en objecten.',
+  'tut.menu-cuartos.5.titulo': 'De hele kaart gaat naar binnen',
   'tut.menu-cuartos.5.texto':
-    'Openen opent de app van de kamer. Heeft een kamer nog geen app, dan zie je daar + Toewijzen staan om er een uit de catalogus te kiezen.',
+    'De volledige kaart is de knop: tik hem waar dan ook aan en je stapt de app van de kamer binnen. Heeft hij nog geen app, dan staat er op diezelfde kaart + Toewijzen en opent hij de catalogus om er een te kiezen.',
   'tut.menu-cuartos.6.titulo': 'Kamer maken',
   'tut.menu-cuartos.6.texto':
     'Kamer maken opent de kaarteditor met het penseel klaar om de nieuwe kamer te tekenen: vorm, grootte en plek liggen bij jou. Op de telefoon is de snelkoppeling via het gereedschapswiel › Bouwen › Kamers handiger: die tekent rechtstreeks op de kaart, zonder het paneel te openen.',
@@ -227,6 +239,22 @@ export const NL_TUT: Dict = {
     'Deze pijl brengt je terug naar de hele kaart zonder de editor te sluiten, zodat je verder kunt in een andere kamer.',
   'tut.editor-cuarto.4.texto':
     'Er zweeft ook een knop «Kamer verlaten» boven de kamer zelf in 3D, als je liever daar tikt.',
+  'tut.inicio.1.texto':
+    'De knop met de naam van je huis opent het startscherm: je apps in een raster, met de mechaniek van een telefoon.',
+  'tut.inicio.2.titulo': 'Eén tik, één app',
+  'tut.inicio.2.texto':
+    'Hier verschijnen alleen de kamers die al een app hebben, met hun niveau, hun reeks en hun afgemaakte lijsten. De rode teller in de hoek zijn hun missies die vandaag nog openstaan, en op de kaart tikken gaat er meteen in.',
+  'tut.inicio.3.titulo': 'Houd een kaart ingedrukt',
+  'tut.inicio.3.texto':
+    'Lang indrukken tilt hem op en ze trillen allemaal, net als op een telefoon: sleep hem om te herordenen, of tik op het potlood in zijn hoek om zijn kaartje te bewerken.',
+  'tut.inicio.4.titulo': 'Je uitdaging, in het zicht',
+  'tut.inicio.4.texto':
+    'De twee ringen zijn de Sisyphusberg: de rang van het jaar en de verdiende badges. Erop tikken opent de volledige berg, dezelfde als in het zijmenu.',
+  'tut.inicio.5.titulo': 'Achtergrond en 3D-weergave',
+  'tut.inicio.5.texto':
+    'Deze knop geeft het raster een achtergrond, gedimd zodat de kaarten leesbaar blijven. Die ernaast wisselt tussen het icoon van elke kamer en zijn gemeubileerde 3D-miniatuur.',
+  'tut.inicio.6.texto':
+    'Kamers maken, verwijderen of apps toewijzen blijft het werk van het zijmenu: dit scherm is om snel binnen te komen. Het sluit door ernaast te tikken.',
   'tut.herramientas.1.texto': 'Deze knop opent het gereedschapswiel van je personage.',
   'tut.herramientas.2.titulo': 'Twee niveaus',
   'tut.herramientas.2.texto':
@@ -242,18 +270,19 @@ export const NL_TUT: Dict = {
   'tut.navegacion.1.texto':
     'Drie camera\'s: Iso (poppenhuisaanzicht), 3e en 1e persoon. Wissel hier of met de toets V.',
   'tut.navegacion.2.titulo': 'Je oriënteren',
-  'tut.navegacion.2.texto': 'In iso draait de kubus de camera per zijde; in 3e/1e sleep je het pad om rond te kijken.',
+  'tut.navegacion.2.texto':
+    'In iso stuur je de camera met de kubus: zijn hoeken geven de isometrische hoeken en zijn vlakken de platte aanzichten. In 3e/1e wordt zijn plek ingenomen door een pad dat je sleept om rond te kijken.',
   'tut.navegacion.3.titulo': 'Als er iets in de buurt is',
   'tut.navegacion.3.texto':
     'Diezelfde hoek is geen camera meer zodra je bij iets interactiefs komt: een veld biedt zijn speelknop, een voertuig zijn instapknop, een stoel zijn zitknop. Eén ding tegelijk, en altijd door nabijheid — nooit vanzelf.',
   'tut.navegacion.4.titulo': 'Draaien en centreren',
   'tut.navegacion.4.texto':
-    'Draai de weergave opzij of centreer hem weer op de kaart als je bent verdwaald tijdens het verkennen.',
+    'Elke pijl draait een kwartslag: de kaart in iso, je blik in 3e/1e. De derde knop verschijnt alleen met de kaart in beeld, en centreert hem weer als je bent verdwaald tijdens het verkennen.',
   'tut.navegacion.5.titulo': 'Bewegen',
   'tut.navegacion.5.texto':
     'Loop met de joystick, WASD of de pijltjestoetsen. In het water zwem je; op een voertuig rijd je met dezelfde bediening.',
   'tut.navegacion.6.texto':
-    'In 3e/1e persoon verschijnt de knop 3D-editor: tik op objecten, muren of personages om ze te bewerken waar ze staan, zonder terug te gaan naar het isometrische aanzicht.',
+    'De knop Editor bovenaan werkt in elke weergave: open hem in 3e/1e persoon en je bewerkt al lopend, door objecten, muren of personages aan te tikken precies waar ze staan.',
   'tut.chat.1.texto':
     'De chat van de architect: leg je dag vast, bewerk het huis en krijg antwoord op je vragen, allemaal vanuit hetzelfde vak.',
   'tut.chat.2.titulo': 'Typen',
@@ -262,9 +291,15 @@ export const NL_TUT: Dict = {
   'tut.chat.3.titulo': 'Spraakinvoer',
   'tut.chat.3.texto':
     'De microfoon zet wat je zegt om in tekst in het invoervak — handig om iets vast te leggen zonder los te laten wat je in je handen hebt.',
-  'tut.chat.4.titulo': 'Een foto sturen',
+  'tut.chat.4.titulo': 'Bijvoegen',
   'tut.chat.4.texto':
-    'Met AI aan wordt een foto van het bonnetje, het gerecht of de weegschaal vanzelf gelezen. Zonder AI blijft deze knop uitgeschakeld.',
+    'De + klapt vijf opties uit: een afbeelding of een PDF uploaden en een foto maken —met AI aan worden een bonnetje of de weegschaal vanzelf gelezen— plus twee die geen AI vragen: het AR-masker en de AR-chat.',
+  'tut.chat.4b.titulo': 'Het AR-masker',
+  'tut.chat.4b.texto':
+    'Het zet de camera aan en zet het masker op je gezicht, dat je live volgt — hetzelfde als in de presentatievideo van het huis. Werkt zonder AI en zonder account.',
+  'tut.chat.4c.titulo': 'De AR-chat',
+  'tut.chat.4c.texto':
+    'Hetzelfde gesprek als altijd, maar met je camera als achtergrond en de assistent in 3D ervoor, met emoties die meebewegen met wat hij antwoordt.',
   'tut.chat.5.titulo': 'Assistenten',
   'tut.chat.5.texto':
     'Je assistent geeft de antwoorden een gezicht en een stem. Tik erop om het gesprek te bekijken, van assistent te wisselen of er meer te maken.',
@@ -285,37 +320,15 @@ export const NL_TUT: Dict = {
     'Wat je in je apps vastlegt (maaltijden, uitgaven, sessies) leeft in elke app zelf, niet hier: dit tabblad is alleen het geheugen van het gesprek.',
   'tut.app-generica.1.texto':
     'De kop toont de kamer en de geopende app. Heeft de kamer meerdere apps, dan brengt de pijl ‹ je terug naar Apps van de kamer.',
-  'tut.app-generica.2.titulo': 'Vandaag',
+  'tut.app-generica.2.titulo': 'Missies',
   'tut.app-generica.2.texto':
-    'Je stappen van vandaag in deze app: je eigen dagdoelen, wat je hebt ingepland en wat je doelen vragen. Tik erop om de lijst uit te klappen; elke stap streept zichzelf door zodra je iets vastlegt.',
+    'De knop Missies opent wat er vandaag speelt in deze app: je dagdoelen, wat je hebt ingepland en wat je doelen vragen. Elke stap streept zichzelf door zodra je iets vastlegt, en de hele lijst afmaken is wat de XP van de dag oplevert.',
   'tut.app-generica.3.titulo': 'De blokken',
   'tut.app-generica.3.texto':
     'Dit sjabloon is opgebouwd uit blokken (notities, lijsten, tellers, gewoontes…). Je wijzigt ze via Menu › Sjablonen › bewerken.',
   'tut.app-generica.4.titulo': 'Weggaan',
   'tut.app-generica.4.texto':
     '«Terug naar huis» sluit de app en zet je weer in 3D. Wat je hier hebt vastgelegd, is al opgeslagen.',
-  'tut.rutinas.1.texto':
-    'Het routinepaneel van Pep: bovenaan wat er vandaag speelt, daaronder de hele catalogus om te pauzeren, bewerken of verwijderen.',
-  'tut.rutinas.2.titulo': 'Wat vandaag aan de beurt is',
-  'tut.rutinas.2.texto':
-    'De dienst in de koffiebar, de natuurkundeles, hardlopen bij zonsopgang, piano \'s avonds: elke kaart is een routine met haar stappen. Die er amberkleurig uitspringt, had allang moeten lopen en staat nog open.',
-  'tut.rutinas.3.titulo': 'Afvinken hoeft niet altijd',
-  'tut.rutinas.3.texto':
-    'De stap met de bliksem ⚡ legt zichzelf vast: hardlopen bij zonsopgang wordt doorgestreept omdat die ronde al in Gym staat, niet omdat iemand hem met de hand aanvinkte. De andere stappen vink je wel af door erop te tikken.',
-  'tut.rutinas.4.titulo': 'De hele catalogus',
-  'tut.rutinas.4.texto':
-    'Hier staan ze allemaal, of ze vandaag aan de beurt zijn of niet. ON/OFF pauzeert een routine zonder haar geschiedenis te wissen: wat tot vandaag gedaan is blijft staan, en vanaf morgen wordt er niet meer om gevraagd. Bewerken en ✕ wijzigen of verwijderen de hele routine.',
-  'tut.rutinas.5.titulo': 'Een routine maken',
-  'tut.rutinas.5.texto':
-    'Naam, de app waar ze bij hoort (of geen, als het een losse huisgebeurtenis is), tijd en kleur. Stappen zijn optioneel: zonder stappen is het gewoon een gebeurtenis in de kalender.',
-  'tut.rutinas.6.titulo': 'Eén keer, elke week of altijd',
-  'tut.rutinas.6.texto':
-    'Piano loopt onbepaald door zonder aangevinkte dagen (dus elke dag); hardlopen herhaalt alleen op de dagen die Pep aanvinkte. Maandelijks, jaarlijks of over een periode kies je hier niet: dat ontstaat door het doel rechtstreeks op het raster van de kalender te tekenen.',
-  'tut.rutinas.7.titulo': 'De herinnering op zijn tijd',
-  'tut.rutinas.7.texto':
-    'Met toestemming komt hij binnen als systeemmelding; zo niet, dan zegt de assistent het in de app zodra je die weer opent.',
-  'tut.rutinas.8.texto':
-    'Alles wat je hier inplant verschijnt ook op het raster van de kalender en, in de app van elke stap, in haar Vandaag-lijst.',
   'tut.enlaces.1.titulo': 'Van het doel naar zijn app',
   'tut.enlaces.1.texto':
     'Elk doel of elke planstap kan een chipje met het icoon van een app dragen: dat is het antwoord op «en waar leg ik dit vast?».',
@@ -367,6 +380,9 @@ export const NL_TUT: Dict = {
   'tut.hoy.2.titulo': 'Drie bronnen, één lijst',
   'tut.hoy.2.texto':
     'De eigen doelen van de app (water, calorieën), wat je vandaag in de kalender hebt ingepland, en de stappen van je lopende doelen: alles samen, gegroepeerd onder het plan of doel waar elke stap vandaan komt.',
+  'tut.hoy.2b.titulo': 'Wat je je voornam, bovenaan',
+  'tut.hoy.2b.texto':
+    'Boven de checklist wonen de doelen van deze app, met hun voortgang en hun deadline. Op één tikken opent zijn plan meteen hier, zonder het paneel te verlaten, en met «+ doel» neem je je het volgende voor.',
   'tut.hoy.3.titulo': 'Doorgestreept omdat het gegeven er is',
   'tut.hoy.3.texto':
     'De knop op de regel legt het ECHTE gegeven vast in de app — een glas water, een maaltijd — en de stap streept zichzelf door simpelweg omdat die registratie er nu staat, niet omdat iemand hem aanvinkte. Nog eens tikken op een stap die al af is dupliceert niets: de knop verdwijnt.',
@@ -379,6 +395,9 @@ export const NL_TUT: Dict = {
   'tut.hoy.6.titulo': 'Wat af is verdwijnt niet',
   'tut.hoy.6.texto':
     'Het zakt naar «Gedaan», ingeklapt: zien dat je registratie effect heeft is deel van de beloning, en van daaruit maak je het ongedaan als er eentje te veel doorglipte.',
+  'tut.hoy.6b.titulo': 'De hele lijst is wat telt',
+  'tut.hoy.6b.texto':
+    'Alle missies van de dag afronden ontsteekt het feestje en telt de XP van de app erbij op: het niveau groeit door afgemaakte lijsten, niet door losse registraties.',
   'tut.hoy.7.texto':
     'En als je iets mist, maakt «Nieuwe checklist» je eigen lijst: een lijst van deze app die elke dag terugkomt. De doelen waar deze stappen uit komen, plan je in de kamer Doelen.',
   'tut.progreso.1.texto':
@@ -648,7 +667,7 @@ export const NL_TUT: Dict = {
     'Die twee gaten zijn echt: de knieblessure in maand 7 en de drie weken in Japan. Missen wist je voortgang niet uit — het paneel toont het jaar zoals het was, niet zoals het had moeten zijn. En een routine telt pas mee vanaf de dag dat je hem aanmaakte.',
   'tut.metas.1.titulo': 'Eerst de doelen',
   'tut.metas.1.texto':
-    'De kamer opent op Doelen, gegroepeerd per app die ze bijhoudt: hardlopen onder Gym, de studie natuurkunde onder Bibliotheek. “Huis” is geen app — die categorie bedacht Pep zelf voor de verbouwing van de keuken.',
+    'De weergave opent op Doelen, gegroepeerd per app die ze bijhoudt: hardlopen onder Gym, de studie natuurkunde onder Bibliotheek. “Huis” is geen app — die categorie bedacht Pep zelf voor de verbouwing van de keuken.',
   'tut.metas.2.titulo': 'Van doel naar plan',
   'tut.metas.2.texto':
     'Elke rij leest als een bord: zijn nummer in de map, de deadline, de voortgang en de status — Te doen, Bezig of Klaar, naargelang wat er is afgevinkt. Eén klik opent het doel: zijn plan als het er een heeft (het ✨ verklapt het) en anders zijn blad met de subdoelen, de data en de stappen.',
@@ -657,7 +676,7 @@ export const NL_TUT: Dict = {
     'De keuken en de volgende marathon zijn nog Voorstel; de aanvraag voor de master staat al in de planning. Die van de marathon werd zonder einddatum gevraagd: de AI rekende uit dat er 24 weken nodig zijn en zegt dat in zijn samenvatting.',
   'tut.metas.4.titulo': 'Het blad van het plan',
   'tut.metas.4.texto':
-    'Het ✨ van een rij verklapt dat het doel al een plan heeft, en een klik erop opent dit blad: de fases en hun subdoelen, elk met zijn eigen periode. Zolang het een voorstel is, bewerk je alles: hernoemen, data verschuiven, knooppunten toevoegen of weghalen zonder de rest scheef te trekken.',
+    'Zes fases met hun subdoelen, elk met zijn eigen periode. Zolang het een voorstel is, bewerk je alles: hernoemen, data verschuiven, knooppunten toevoegen of weghalen zonder de rest scheef te trekken.',
   'tut.metas.5.titulo': 'Afvinken zonder je vast te leggen',
   'tut.metas.5.texto':
     'De vinkjes van een voorstel leven in het blad, niet in je doelen: je markeert wat klaar is zonder je planning aan te raken. De balken vullen zichzelf van onder naar boven — de planfase van de keuken is al afgerond.',
@@ -669,7 +688,7 @@ export const NL_TUT: Dict = {
     'Het plan voor de master is al verplaatst. Zijn vinkjes zijn nu die van de echte subdoelen en de balk is die van je planning: het blad houdt geen aparte telling meer bij.',
   'tut.metas.8.titulo': 'En daar staan ze, op de as',
   'tut.metas.8.texto':
-    'De planning is die van DIT doel: zijn subdoelen nemen hun periode in op de tijdas, met het plan er in paars overheen — het voorstel en het echte werk, samen.',
+    'De subdoelen die uit het plan zijn ontstaan, nemen hun periode in op de planning, met het plan er in paars overheen: het voorstel en het echte werk op dezelfde as.',
   'tut.metas.9.titulo': 'Elk doel zijn eigen as',
   'tut.metas.9.texto':
     'Deze as is die van één doel: hier geef je data aan wat er nog geen heeft, hang je er nieuwe subdoelen aan en brengt «Terug» je terug naar zijn blad. Het menu Planning bovenaan toont die van allemaal samen.',
@@ -712,6 +731,14 @@ export const NL_TUT: Dict = {
   'tut.app-biblioteca--resumen.6.titulo': 'Een jaar aan sessies',
   'tut.app-biblioteca--resumen.6.texto':
     'En wil je de details, dan bewaart de geschiedenis elke sessie met zijn minuten en zijn gebied, gearchiveerd per jaar, maand en week.',
+  'tut.app-idiomas--charlas.1.titulo': 'Een tutor op jouw niveau',
+  'tut.app-idiomas--charlas.1.texto':
+    'Je tutor is de assistent van de kamer: je praat met hem in de taal die je leert en hij antwoordt op het MCER-niveau van je profiel — korte zinnen met vertaling op A1, idioom op C1. Schrijf je hem in je eigen taal, dan moedigt hij je aan het te proberen in de taal die je leert.',
+  'tut.app-idiomas--charlas.2.titulo': 'Ze bewaren en ordenen zichzelf',
+  'tut.app-idiomas--charlas.2.texto':
+    'Elke chat komt in deze lijst met zijn titel, zijn onderwerp uit het lesprogramma en zijn niveau, ingevuld zonder dat je iets doet. Hij kan ook ontstaan vanuit een onderwerp —met de chatknop op zijn regel— om precies dat te oefenen.',
+  'tut.app-idiomas--charlas.3.texto':
+    'Corrigeert de tutor, dan komt de juiste vorm op een eigen regel met een vinkje, en het gesprek gaat verder zonder preken. Bij het weggaan biedt hij aan de woordenschat die voorbijkwam eruit te halen: jij kiest welke kaarten je bewaart en ze erven het onderwerp van de chat.',
   'tut.app-idiomas--repaso.1.titulo': 'Wat vandaag aan de beurt is',
   'tut.app-idiomas--repaso.1.texto':
     'Pep is hier al een jaar mee bezig en heeft nog steeds herhalingen openstaan: het systeem vraagt je niet de hele woordenschat, alleen wat je bijna vergeet.',
@@ -727,6 +754,272 @@ export const NL_TUT: Dict = {
   'tut.app-idiomas--temario.2.titulo': 'Hoe ver je bent',
   'tut.app-idiomas--temario.2.texto':
     'Beheerste kaarten, herhalingen van deze maand en je huidige niveau. Pep begon het jaar op A2 en zit nu rond B1.',
+  'tut.app-agenda--esencial.1.titulo': 'Jouw agenda',
+  'tut.app-agenda--esencial.1.texto':
+    'De agenda houdt bij wat geen gewoonte is: taken, afspraken, contacten. Er zijn drie menu\'s, en alles met een datum komt vanzelf in de huiskalender terecht.',
+  'tut.app-agenda--esencial.2.titulo': 'Werk',
+  'tut.app-agenda--esencial.2.texto':
+    'Het bakje verzamelt taken zonder datum zodat ze niet zoekraken, en het bord verplaatst je taken langs kolommen: te doen, bezig en klaar.',
+  'tut.app-agenda--esencial.3.titulo': 'Gezondheid',
+  'tut.app-agenda--esencial.3.texto':
+    'Medische afspraken, medicatie en zorg, in drie submenu\'s: Jij, Naasten (wie er onder jouw zorg valt) en Huisdieren.',
+  'tut.app-agenda--esencial.4.titulo': 'Personen',
+  'tut.app-agenda--esencial.4.texto':
+    'Je adresboek per relatie. Elke verjaardag die je bewaart, herhaalt zichzelf elk jaar in de kalender.',
+  'tut.calendario--esencial.1.titulo': 'De klok van het huis',
+  'tut.calendario--esencial.1.texto':
+    'De kalender is geen kamer: hij leeft in de klok van de HUD, dus je opent hem vanaf elke plek zonder ergens naartoe te gaan.',
+  'tut.calendario--esencial.2.titulo': 'Alles ingepland, samen',
+  'tut.calendario--esencial.2.texto':
+    'Hier komt alles terecht met een datum en tijd: wat je aanmaakt met «+ Nieuw» of door te tekenen op het rooster, en wat de andere apps zelf inplannen. Het filter bovenaan laat één app zien als het te druk wordt.',
+  'tut.calendario--esencial.3.titulo': 'Dag',
+  'tut.calendario--esencial.3.texto':
+    'Het rooster van een dag van 24 uur: het laat zien hoe laat elk ding is en of iets overlapt. Deze knop doet dubbel dienst: hij zegt «Vandaag» en brengt je terug naar het heden, of «Dag» als je al naar een andere datum kijkt.',
+  'tut.calendario--esencial.4.titulo': 'Week',
+  'tut.calendario--esencial.4.texto':
+    'Hetzelfde uurrooster, maar met de zeven dagen naast elkaar. Hier zie je hoe de week verdeeld is, en hier sleep je blokken van de ene dag naar de andere of rek je ze langer uit.',
+  'tut.calendario--esencial.5.titulo': 'Maand',
+  'tut.calendario--esencial.5.texto':
+    'Laat de urenas los en kleurt de dagen als vakjes met wat er op elke dag valt. Dit is het overzicht: welke weken vol zitten en welke dagen vrij blijven.',
+  'tut.calendario--esencial.6.titulo': 'Jaar',
+  'tut.calendario--esencial.6.texto':
+    'Alle twaalf maanden in één keer. Op deze afstand lees je de uren niet meer: je ziet de consistentie, hoezeer je volhield wat je jezelf het hele jaar had voorgenomen.',
+  'tut.calendario--esencial.7.titulo': 'En missies, apart',
+  'tut.calendario--esencial.7.texto':
+    'In het rood, zodat het niet als een vijfde weergave overkomt: Missies verzamelt op één scherm de checklist van vandaag van alle apps. Doelen en hun plannen staan hier niet — die leven in hun eigen kamer.',
+  'tut.app-anecdotario--esencial.1.titulo': 'Jouw persoonlijke dagboek',
+  'tut.app-anecdotario--esencial.1.texto':
+    'Het dagboek bewaart wat je maar wilt vertellen, met zijn stemming en zijn foto\'s. Het organiseert zichzelf op datum, zonder dat jij iets hoeft te sorteren.',
+  'tut.app-anecdotario--esencial.2.titulo': 'Zo schrijf je een item',
+  'tut.app-anecdotario--esencial.2.texto':
+    'Kies de stemming van de dag, schrijf wat je wilt vertellen en voeg foto\'s toe als je die hebt. Eén foto zonder tekst is ook genoeg.',
+  'tut.app-anecdotario--esencial.3.titulo': 'De stemmingskalender',
+  'tut.app-anecdotario--esencial.3.texto':
+    'Elke dag wordt gekleurd met de stemming van dat item, zodat je de hele maand in één oogopslag leest. Tik op een dag om de items eronder te zien.',
+  'tut.app-anecdotario--esencial.4.titulo': 'De geschiedenis',
+  'tut.app-anecdotario--esencial.4.texto':
+    'Alle items komen hier terecht, vanzelf gesorteerd in mappen per jaar, maand en week.',
+  'tut.app-biblioteca--esencial.1.titulo': 'Jouw bibliotheek',
+  'tut.app-biblioteca--esencial.1.texto':
+    'De bibliotheek is je persoonlijke encyclopedie: je vraagt wat je niet weet, je bewaart wat je leert en je houdt bij wat je studeert. Er zijn vier menu\'s.',
+  'tut.app-biblioteca--esencial.2.titulo': 'Chats',
+  'tut.app-biblioteca--esencial.2.texto':
+    'Hier stel je de Wijze een vraag over elk onderwerp en het gesprek wordt bewaard. Elke chat classificeert zichzelf in zijn kennisgebied en komt gedestilleerd tevoorschijn als encyclopedie-item.',
+  'tut.app-biblioteca--esencial.3.titulo': 'Encyclopedie',
+  'tut.app-biblioteca--esencial.3.texto':
+    'De boom waar alles wat je leert leeft, gesorteerd per kennisgebied. Elk item heeft zijn samenvatting en kernpunten, en je kunt ze ook zelf schrijven; met het potlood laat je de index op jouw manier groeien.',
+  'tut.app-biblioteca--esencial.4.titulo': 'Studie',
+  'tut.app-biblioteca--esencial.4.texto':
+    'De klok om te studeren: je kiest een gebied en een duur, aan één stuk of in pomodoro\'s, en elk blok registreert zichzelf. Hij blijft lopen ook als je de kamer verlaat.',
+  'tut.app-biblioteca--esencial.5.titulo': 'Overzicht',
+  'tut.app-biblioteca--esencial.5.texto':
+    'Het totaalbeeld van dat alles: hoeveel items je encyclopedie heeft en welk deel van de index je hebt gedekt, je studieminuten, je reeks en de dagen waarop je studeerde.',
+  'tut.app-cocina--esencial.1.titulo': 'De keuken',
+  'tut.app-cocina--esencial.1.texto':
+    'Deze app regelt twee dingen: wat je gaat koken en wat je uiteindelijk eet. Elk heeft zijn eigen menu bovenaan, en elk menu opent zijn eigen tabbladen.',
+  'tut.app-cocina--esencial.2.titulo': 'Receptenboek',
+  'tut.app-cocina--esencial.2.texto':
+    'De kookkant: hier leven je recepten, de diëten die ze groeperen en het boodschappenlijstje. Drie tabbladen, in die volgorde.',
+  'tut.app-cocina--esencial.3.titulo': 'Dieet',
+  'tut.app-cocina--esencial.3.texto':
+    'Een dieet is een maaltijdplan met de recepten erin en, als je wilt, zijn eigen calorie- en macrodoelen. Je bewaart je eigen diëten naast die de app al meebrengt.',
+  'tut.app-cocina--esencial.4.titulo': 'Recepten',
+  'tut.app-cocina--esencial.4.texto':
+    'Het receptenboek: elk recept bewaart ingrediënten, stappen en de macro\'s per portie, en wordt in mappen gesorteerd. Vanuit een recept kun je de maaltijd registreren of de ingrediënten naar het boodschappenlijstje sturen.',
+  'tut.app-cocina--esencial.5.titulo': 'Boodschappen',
+  'tut.app-cocina--esencial.5.texto':
+    'Het boodschappenlijstje, met elk item in het schap waar het hoort. Je kunt een lijst samenstellen door te bundelen wat je mist van verschillende recepten, en aanvinken wat je al in de kast hebt.',
+  'tut.app-cocina--esencial.6.titulo': 'Voedingscontrole',
+  'tut.app-cocina--esencial.6.texto':
+    'Het andere menu houdt bij wat je eet, over vier genummerde tabbladen. Het eerste is Doelen: op basis van je gewicht, lengte en activiteit berekent het wat je dagelijks nodig hebt en verdeelt het de macro\'s.',
+  'tut.app-cocina--esencial.7.titulo': 'Dagboek',
+  'tut.app-cocina--esencial.7.texto':
+    'Wat al gebeurd is: de maaltijden van de dag met hun calorieën, het water dat je tot nu toe dronk en je gewicht als je jezelf weegt. Het tabblad ernaast, Maaltijdplan, is het tegenovergestelde: het rooster van wat je van plan bent te eten de komende dagen.',
+  'tut.app-cocina--esencial.8.titulo': 'Voortgang',
+  'tut.app-cocina--esencial.8.texto':
+    'De statistieken van dat alles over de periode die je kiest: calorieën en macro\'s, water en je gewichtscurve. Onderaan laat een gekleurde kalender in één oogopslag zien op welke dagen je binnen je doel bleef.',
+  'tut.app-computo--esencial.1.titulo': 'De computerkamer',
+  'tut.app-computo--esencial.1.texto':
+    'Hier los je op wat er berekend moet worden, in twee menu\'s: de Rekenmachine, met zijn modi en jouw formuleboek, en Spreadsheets voor alles wat in tabellen gaat.',
+  'tut.app-computo--esencial.2.titulo': 'Rekenmachine',
+  'tut.app-computo--esencial.2.texto':
+    'Een wetenschappelijke rekenmachine die het resultaat toont terwijl je typt en alles wat je berekent bewaart in de geschiedenis. Het toetsenbord onderaan bespaart je dat van de telefoon, en de notaties schrijven het wetenschappelijke gedeelte waar je cursor ook staat.',
+  'tut.app-computo--esencial.3.titulo': 'De modi',
+  'tut.app-computo--esencial.3.texto':
+    'Dit menu wisselt de hele weergave van de rekenmachine: grafiek, talstelsels, matrices, stelsels van vergelijkingen, eenheden omrekenen, fooi en de regel van drie. De geschiedenis blijft onderaan bij elke modus.',
+  'tut.app-computo--esencial.4.titulo': 'Het formuleboek',
+  'tut.app-computo--esencial.4.texto':
+    'Jouw formuleboek, ingeklapt boven de rekenmachine. Wiskunde, Natuurkunde en Scheikunde zijn al ingeladen, in mappen die je kunt nesten. Elke formule open je om de variabelen in te vullen, en je kunt hem bewerken of verwijderen.',
+  'tut.app-computo--esencial.5.titulo': 'Spreadsheets',
+  'tut.app-computo--esencial.5.texto':
+    'Werkbladen met celverwijzingen en formules in gewone taal, plus grafieken over het bereik dat je markeert. Ze worden geëxporteerd naar Excel met behoud van de formules, of naar PDF.',
+  'tut.app-descanso--esencial.1.titulo': 'Rust',
+  'tut.app-descanso--esencial.1.texto':
+    'Deze app volgt je slaap op één scherm: de score van de afgelopen nacht, je schema met zijn herinneringen, het dagregister en de volledige geschiedenis.',
+  'tut.app-descanso--esencial.2.titulo': 'De score',
+  'tut.app-descanso--esencial.2.texto':
+    'Elke geregistreerde nacht krijgt een score die combineert hoelang je sliep, hoe laat je naar bed ging en hoe vaak je wakker werd. Zonder registraties nodigt dit gedeelte je uit om je eerste nacht vast te leggen.',
+  'tut.app-descanso--esencial.3.titulo': 'Schema en herinneringen',
+  'tut.app-descanso--esencial.3.texto':
+    'Je stelt je bedtijd en wektijd in door de uiteinden van de dagbalk te slepen; hetzelfde schema verschijnt ook als blok in de huiskalender. Hier zet je ook de wekker aan met zijn toon en de herinneringen om voor het slapengaan rustig aan te doen.',
+  'tut.app-descanso--esencial.4.titulo': 'De nacht registreren',
+  'tut.app-descanso--esencial.4.texto':
+    'Het formulier om te noteren hoe je sliep: de datum, hoe laat je naar bed ging en wakker werd, onderbrekingen en een kwaliteitsbeoordeling, met ruimte voor een notitie.',
+  'tut.app-descanso--esencial.5.titulo': 'De geschiedenis',
+  'tut.app-descanso--esencial.5.texto':
+    'Elke nacht die je registreert, blijft hier bewaard, gesorteerd per jaar, maand en week, zodat je je rust in de loop van de tijd kunt bekijken.',
+  'tut.app-despacho--esencial.1.titulo': 'Jouw financiën',
+  'tut.app-despacho--esencial.1.texto':
+    'De werkkamer ordent je geld in vier menu\'s: wat je hebt, wat er binnenkomt en uitgaat, je doelen en de markten. Elk opent zijn eigen secties eronder.',
+  'tut.app-despacho--esencial.2.titulo': 'Vermogen',
+  'tut.app-despacho--esencial.2.texto':
+    'Wat je hebt en wat je schuldig bent, in twee lijsten: bezittingen en schulden. De derde sectie projecteert die momentopname vooruit met het rentepercentage dat je op elke regel instelt.',
+  'tut.app-despacho--esencial.3.titulo': 'Kasstroom',
+  'tut.app-despacho--esencial.3.texto':
+    'Het geld dat binnenkomt en uitgaat, opgesplitst in uitgaven, inkomsten en saldo. Het saldo vat de periode samen die je kiest — dag, week, maand of jaar — met zijn budget, zijn categorieën en zijn trend.',
+  'tut.app-despacho--esencial.4.titulo': 'Doelen',
+  'tut.app-despacho--esencial.4.texto':
+    'Je geldelijke doelen in drie secties: sparen en beleggen, schulden, en rekenmachines die een bedrag voorstellen op basis van je eigen saldo. Elk doel kan naar de planning zakken en een datum krijgen.',
+  'tut.app-despacho--esencial.5.titulo': 'Markten',
+  'tut.app-despacho--esencial.5.texto':
+    'Live koersen van valuta, crypto, aandelen en grondstoffen; hiervoor is een verbinding nodig. Het is een informatiebord: de app raadt niet aan wat je moet kopen of verkopen.',
+  'tut.app-diario--esencial.1.titulo': 'De krant van vandaag',
+  'tut.app-diario--esencial.1.texto':
+    'Het dagelijkse nieuws brengt de briefing van de dag in twee weergaven: koppen en de rubriek \'op deze dag\'. Het bewaart zelf geen gegevens: elke dag brengt nieuwe inhoud, en om middernacht wordt alles vervangen.',
+  'tut.app-diario--esencial.2.titulo': 'Koppen',
+  'tut.app-diario--esencial.2.texto':
+    'De koppen van de dag per categorie — wereld, economie, technologie, gezondheid, sport en vermaak —, filterbaar met de chips bovenaan. Ze komen van echte pers in jouw taal, met media die elke dag rouleren.',
+  'tut.app-diario--esencial.3.titulo': 'Op deze dag',
+  'tut.app-diario--esencial.3.texto':
+    'De andere helft van het nieuws: wat er op een dag als vandaag gebeurde — een werk, een boek, een soort, een woord. Een reden om het te openen ook als het nieuws die dag niet boeit.',
+  'tut.app-diario--esencial.4.titulo': 'Vernieuwt zichzelf',
+  'tut.app-diario--esencial.4.texto':
+    'De editie wordt vanzelf gedownload als je de app opent en wordt om middernacht volledig vervangen: er stapelt niets op. Deze knop dwingt een update af vóór dat tijdstip.',
+  'tut.app-diario--esencial.5.titulo': 'Bezorging',
+  'tut.app-diario--esencial.5.texto':
+    'Stel in welke secties elke assistent je aflevert in zijn eigen chat, op een vaste tijd of op een verrassingsmoment van de dag.',
+  'tut.app-ejercicio--esencial.1.titulo': 'Jouw training',
+  'tut.app-ejercicio--esencial.1.texto':
+    'Sport brengt de drie vormen van lichaamsbeweging samen — kracht, conditie en flexibiliteit — plus een doelenmenu waar je bepaalt hoeveel je elke week wilt trainen.',
+  'tut.app-ejercicio--esencial.2.titulo': 'Doelen',
+  'tut.app-ejercicio--esencial.2.texto':
+    'De samenvatting van de kamer: je reeks, de dagen met iets geregistreerd en een balk per vorm tegenover het weekdoel dat je hier instelt. Hier kies je ook het maatsysteem, in kilo\'s of in ponden.',
+  'tut.app-ejercicio--esencial.3.titulo': 'Kracht',
+  'tut.app-ejercicio--esencial.3.texto':
+    'Training met gewicht: elke sessie bewaart de oefeningen met sets, herhalingen en belasting. Daarmee berekent de app het volume van de dag, tekent het de progressie van elke oefening en bewaart het je records.',
+  'tut.app-ejercicio--esencial.4.titulo': 'Catalogus, routines en voortgang',
+  'tut.app-ejercicio--esencial.4.texto':
+    'De drie vormen zijn hetzelfde opgebouwd. De Catalogus groepeert de beschikbare oefeningen en stelt er routines mee samen, Routines registreert de training van de dag die je hierboven kiest, en Voortgang vat de periode samen met zijn heatmap.',
+  'tut.app-ejercicio--esencial.5.titulo': 'Conditie',
+  'tut.app-ejercicio--esencial.5.texto':
+    'Hardlopen, fietsen, zwemmen of wandelen, in etappes met hun minuten en afstand. Vanaf hier open je de livetraining, die de route via gps en de hartslag van een bluetoothsensor vastlegt en de sessie bewaart als je klaar bent.',
+  'tut.app-ejercicio--esencial.6.titulo': 'Flexibiliteit',
+  'tut.app-ejercicio--esencial.6.texto':
+    'Rekoefeningen en mobiliteit, met sets op tijd in plaats van op gewicht: elke houding heeft zijn seconden en herhalingen. De begeleide speler doorloopt de routine houding voor houding met een timer die aangeeft wanneer je moet wisselen.',
+  'tut.app-entretenimiento--esencial.1.titulo': 'Vermaak',
+  'tut.app-entretenimiento--esencial.1.texto':
+    'Bewaart de films, series, boeken en games die je uitspeelt, en brengt een digitale speeltafel om te spelen zonder het huis te verlaten. Er zijn twee menu\'s: Bordspellen en Archief.',
+  'tut.app-entretenimiento--esencial.2.titulo': 'Bordspellen',
+  'tut.app-entretenimiento--esencial.2.texto':
+    'De tafel verzamelt digitale spellen die je rechtstreeks op het scherm speelt. Een filter scheidt wat bedoeld is voor één of twee spelers van wat geschikt is voor een grotere groep.',
+  'tut.app-entretenimiento--esencial.3.titulo': 'Per familie',
+  'tut.app-entretenimiento--esencial.3.texto':
+    'De catalogus is gegroepeerd in families — bord, denkwerk, arcade, kaarten en casino, en voor de groep — elk met zijn eigen kleur. Tik op een kaart om het spel op volledig scherm te openen.',
+  'tut.app-entretenimiento--esencial.4.titulo': 'Archief',
+  'tut.app-entretenimiento--esencial.4.texto':
+    'Het archief verzamelt wat je bekijkt, leest en speelt: elke titel met zijn status, zijn beoordeling en jouw recensie. Je kunt sorteren op genre, categorie, auteur of datum.',
+  'tut.app-garage--esencial.1.titulo': 'De garage',
+  'tut.app-garage--esencial.1.texto':
+    'De garage houdt je voertuigen bij: fietsen, auto\'s, motoren en alles waarmee je je verplaatst. Elk voertuig heeft zijn servicegeschiedenis en zijn formaliteiten, en alles met een datum plant zichzelf in de huiskalender.',
+  'tut.app-garage--esencial.2.titulo': 'Overzicht',
+  'tut.app-garage--esencial.2.texto':
+    'Het openingstabblad: een stoplicht laat in één oogopslag zien of iets verlopen is, iets eraan komt, of de garage rustig is.',
+  'tut.app-garage--esencial.3.titulo': 'In één oogopslag',
+  'tut.app-garage--esencial.3.texto':
+    'Hoeveel voertuigen je hebt, hoeveel formaliteiten nog lopen en wat je dit jaar hebt uitgegeven.',
+  'tut.app-garage--esencial.4.titulo': 'Voertuigen',
+  'tut.app-garage--esencial.4.texto':
+    'De volledige lijst, met kenteken, kilometerstand en het aantal services op elke kaart. Als je er een aantikt, opent zijn dossier, met de servicegeschiedenis en zijn formaliteiten.',
+  'tut.app-garage--esencial.5.titulo': 'Een nieuw voertuig toevoegen',
+  'tut.app-garage--esencial.5.texto':
+    'Naam, type, merk, model, jaar, kenteken en de huidige kilometerstand. Met het kenteken ingevuld, ontgrendelt het dossier ook de formaliteiten die alleen gelden voor een voertuig met kenteken, zoals de keuring of de belasting.',
+  'tut.app-hobbies--esencial.1.titulo': 'Jouw bezigheden',
+  'tut.app-hobbies--esencial.1.texto':
+    'Hobby\'s houdt bij wat je voor je plezier doet: elke hobby verzamelt zijn sessies, zijn reeks en, als je wilt, zijn projecten.',
+  'tut.app-hobbies--esencial.2.titulo': 'Jouw hobby\'s',
+  'tut.app-hobbies--esencial.2.texto':
+    'Elke hobby die je registreert, verschijnt hier als kaart, met de voortgang van de week en de actieve reeks. Als je er een opent, zie je zijn statistieken, zijn heatmap van het jaar, het sessieregister en zijn projecten.',
+  'tut.app-hobbies--esencial.3.titulo': 'Een hobby toevoegen',
+  'tut.app-hobbies--esencial.3.texto':
+    'Deze knop opent het formulier om een nieuwe hobby toe te voegen: naam, emoji, kleur en, als je wilt, een wekelijks doel in oefendagen.',
+  'tut.app-hobbies--esencial.4.titulo': 'Binnen elke hobby',
+  'tut.app-hobbies--esencial.4.texto':
+    'Daar registreer je sessies met minuten en een notitie, zie je je heatmap van het jaar en beheer je projecten met hun eigen voortgang. Doelen en hun tijdlijn leven in de kamer Doelen.',
+  'tut.app-ideas--esencial.1.titulo': 'Ideeën',
+  'tut.app-ideas--esencial.1.texto':
+    'Ideeën bewaart wat er bij je opkomt en helpt het rijpen: eerst schrijf je het op, dan orden je het in een kaart en, als het nodig is, vergelijk je het om te beslissen. Er zijn drie menu\'s.',
+  'tut.app-ideas--esencial.2.titulo': 'Ideeëndagboek',
+  'tut.app-ideas--esencial.2.texto':
+    'Het bakje waar elke inval terechtkomt, los of gebundeld in een brainstorm per onderwerp. Je kunt het archiveren in mappen, markeren met een ster en, als het rijpt, omzetten in een kaart.',
+  'tut.app-ideas--esencial.3.titulo': 'Conceptkaarten',
+  'tut.app-ideas--esencial.3.texto':
+    'Een vrij canvas om een onderwerp te ordenen in de vorm die het beste past: mindmap, boom, stroom, tijdlijn, cyclus, piramide, venn en meer.',
+  'tut.app-ideas--esencial.4.titulo': 'Beslisdiagrammen',
+  'tut.app-ideas--esencial.4.texto':
+    'Hetzelfde canvas, met vormen gemaakt om te beslissen: gewogen voor- en nadelen, SWOT, Eisenhower of een gewogen matrix die de opties zelf rangschikt.',
+  'tut.app-idiomas--esencial.1.titulo': 'Jouw talenschool',
+  'tut.app-idiomas--esencial.1.texto':
+    'Hier kies je een taal, chat je met een AI-tutor, bewaar je de woordenschat die je leert en herhaal je die met een gespreid systeem. Er zijn vier menu\'s: Chats, Leerplan, Herhaling en Voortgang.',
+  'tut.app-idiomas--esencial.2.titulo': 'Chats',
+  'tut.app-idiomas--esencial.2.texto':
+    'Je praat met je tutor in de taal die je studeert: hij reageert op jouw niveau en corrigeert je zachtjes. Elke chat wordt bewaard en classificeert zichzelf, en bij het verlaten biedt hij aan om de nieuwe woordenschat als kaarten uit te halen.',
+  'tut.app-idiomas--esencial.3.titulo': 'Leerplan',
+  'tut.app-idiomas--esencial.3.texto':
+    'Ordent de taal in onderwerpen, uitspraak en grammatica, van niveau A1 tot C2. De woordenschat leeft binnen elk onderwerp: elke kaart wordt daar bewaard, met zijn vertaling en zijn voorbeeld.',
+  'tut.app-idiomas--esencial.4.titulo': 'Herhaling',
+  'tut.app-idiomas--esencial.4.texto':
+    'De gespreide herhaling: elke kaart leeft in een doos en alleen de kaarten die je bijna vergeet, komen langs, met oefeningen — meerkeuze, omgekeerd of de zin aanvullen — in plaats van de kaarten alleen te bekijken.',
+  'tut.app-idiomas--esencial.5.titulo': 'Voortgang',
+  'tut.app-idiomas--esencial.5.texto':
+    'De samenvatting van je vooruitgang: hoeveel kaarten je beheerst, hoeveel je herhaald hebt en je huidige niveau, met de geschiedenis van je herhalingen dag voor dag.',
+  'tut.app-jardin--esencial.1.titulo': 'Jouw plek voor rust',
+  'tut.app-jardin--esencial.1.texto':
+    'De tuin brengt drie oefeningen samen: meditatie, begeleide ademhaling en dankbaarheid. Bewust zonder punten of reeksen: hier wordt een gemiste dag niet afgestraft, het volgt gewoon wat je oefent.',
+  'tut.app-jardin--esencial.2.titulo': 'Meditatie',
+  'tut.app-jardin--esencial.2.texto':
+    'Kies een geluidsspoor en een duur, of mediteer in stilte met een bel aan het begin en het einde. Elke sessie wordt bewaard in je geschiedenis.',
+  'tut.app-jardin--esencial.3.titulo': 'Ademhaling',
+  'tut.app-jardin--esencial.3.texto':
+    'Twee begeleide ademhalingspatronen, een om je te centreren en een om de dag los te laten: het scherm ademt met je mee terwijl het verloopt.',
+  'tut.app-jardin--esencial.4.titulo': 'Dankbaarheid',
+  'tut.app-jardin--esencial.4.texto':
+    'Noteer waar je vandaag dankbaar voor bent, al is het maar één ding, en bekijk je eerdere items wanneer je wilt. Zonder reeksen: een dag missen wist niets.',
+  'tut.app-metas--esencial.1.titulo': 'De planner van het huis',
+  'tut.app-metas--esencial.1.texto':
+    'Deze kamer houdt zelf geen gegevens bij: hij verzamelt op één plek de doelen en plannen die in de andere apps ontstaan. Er zijn drie menu\'s, in deze volgorde te lezen: wat je jezelf hebt voorgenomen, hoe je het wilt verdelen en wanneer het valt.',
+  'tut.app-metas--esencial.2.titulo': 'Doelen',
+  'tut.app-metas--esencial.2.texto':
+    'De lijst van alles wat je jezelf hebt voorgenomen, gegroepeerd per app die elk doel bijhoudt. Een doel kan aan een ander hangen, en als je erop tikt, opent zijn blad: daar staan zijn deadline, zijn stappen en de toegang tot zijn eigen tijdlijn.',
+  'tut.app-metas--esencial.3.titulo': 'Plannen',
+  'tut.app-metas--esencial.3.texto':
+    'Een plan is het ontwerp van een planning: het verdeelt een doel in fasen met hun data. Zolang het een voorstel is, pas je het naar believen aan; als het overtuigt, accepteer je het en worden de fasen echte subdoelen.',
+  'tut.app-metas--esencial.4.titulo': 'Tijdlijn',
+  'tut.app-metas--esencial.4.texto':
+    'De tijdas met alle doelen tegelijk: elk doel is een balk over de data heen. Je zoomt in en uit per dag, week, maand of jaar, en een plan kan eroverheen gelegd worden om het te vergelijken met wat al is uitgestippeld.',
+  'tut.app-sala--esencial.1.titulo': 'Jouw reiswoonkamer',
+  'tut.app-sala--esencial.1.texto':
+    'Hier leeft jouw reiswereld: een wereldkaart met spelden, reisplannen van plekken om te ontdekken, routes die plekken aan elkaar rijgen en een logboek met herinneringen. Er zijn vier menu\'s.',
+  'tut.app-sala--esencial.2.titulo': 'Kaart',
+  'tut.app-sala--esencial.2.texto':
+    'Elke plek die je bezocht hebt of droomt te bezoeken, is een speld op de wereldkaart. De schakelaar bovenaan verwisselt de platte kaart voor een globe die je draait door te slepen.',
+  'tut.app-sala--esencial.3.titulo': 'Reisplan',
+  'tut.app-sala--esencial.3.texto':
+    'De plekken die je droomt te ontdekken, elk met zijn eigen dag-tot-dagplan. Die met een datum plannen zichzelf in de kalender.',
+  'tut.app-sala--esencial.4.titulo': 'Routes',
+  'tut.app-sala--esencial.4.texto': 'Een route rijgt plekken aan elkaar tot een tocht en tekent hem op de kaart.',
+  'tut.app-sala--esencial.5.titulo': 'Logboek',
+  'tut.app-sala--esencial.5.texto':
+    'De herinneringen aan de plekken die je bezocht hebt, in albums per land: foto\'s en verhalen van elke plek.',
   'tut.app-agenda--trabajo.1.titulo': 'De inbox',
   'tut.app-agenda--trabajo.1.texto':
     'Wat gedaan moet worden maar nog geen dag heeft, staat hier, met zijn prioriteit. Niets dwingt je een datum te kiezen om het op te schrijven.',
@@ -745,6 +1038,12 @@ export const NL_TUT: Dict = {
   'tut.app-agenda--salud.4.titulo': 'Wat zich herhaalt',
   'tut.app-agenda--salud.4.texto':
     'De jaarlijkse check-up, de gebitsreiniging, het bloedonderzoek: zorg met een eigen ritme. Vink je ze af, dan springt de volgende datum vanzelf verder — de kalender wijst nooit naar iets wat je al hebt gedaan.',
+  'tut.app-agenda--salud.ciclo.titulo': 'De cyclus',
+  'tut.app-agenda--salud.ciclo.texto':
+    'Aan het einde van «Jij» woont de cyclus, met een eigen schakelaar: bloedverlies, symptomen en stemming per dag, en uit je laatste menstruaties schat hij de volgende en de vruchtbare dagen. Uitzetten bewaart alles wat je vastlegde.',
+  'tut.app-agenda--salud.projimos.titulo': 'Naasten',
+  'tut.app-agenda--salud.projimos.texto':
+    'Wie aan jouw zorg is toevertrouwd: contacten uit Personen, gemarkeerd met «In mijn zorg», elk met afspraken per specialisme, verzorging en medicijnen. De moeder van Pep staat hier.',
   'tut.app-agenda--personas.1.titulo': 'De kring van Pep',
   'tut.app-agenda--personas.1.texto':
     'Familie, vrienden, mensen van het werk en van de universiteit, ieder in zijn eigen map. Met telefoon, adres en alles wat je niet wilt vergeten.',
@@ -818,7 +1117,7 @@ export const NL_TUT: Dict = {
   'tut.app-cocina--recetario.5.titulo': 'De opgeslagen lijsten',
   'tut.app-cocina--recetario.5.texto':
     'Elke lijst bewaart wat er nog gekocht moet worden en wat al in huis is. Zet je er prijzen bij, dan kun je de rekening doorsturen naar de uitgaven in de Werkkamer.',
-  'tut.app-cocina--cronograma.1.titulo': 'Wat de Keuken vandaag van je vraagt',
+  'tut.app-cocina--cronograma.1.titulo': 'Het gewichtsdoel, in fases',
   'tut.app-cocina--cronograma.1.texto':
     'De knop Missies in de header opent de checklist van de dag: het water, de maaltijden en de stappen die uit je doelen komen. De doelen zelf — met het plan dat de AI ervoor voorstelt — leven in de kamer Doelen, gegroepeerd per app die ze bijhoudt.',
   'tut.app-cocina--cronograma.2.texto':
@@ -914,6 +1213,9 @@ export const NL_TUT: Dict = {
   'tut.app-garage--vehiculos.2.titulo': 'Wat je tot nu toe uitgaf',
   'tut.app-garage--vehiculos.2.texto':
     'Hoeveel voertuigen, hoeveel administratie er openstaat en wat je dit jaar hebt uitgegeven. Pep kwam de auto duur te staan.',
+  'tut.app-garage--vehiculos.2b.titulo': 'Een nieuwe toevoegen',
+  'tut.app-garage--vehiculos.2b.texto':
+    'Naam, type, merk, model, bouwjaar, kenteken en de tellerstand van vandaag. Met het kenteken erbij weet de garage welke administratie hij je later kan aanbieden.',
   'tut.app-garage--vehiculos.3.titulo': 'De fiets van elke dag',
   'tut.app-garage--vehiculos.3.texto':
     'Peps echte vervoer: ketting, binnenbanden, remmen, elk op een eigen regel — hetzelfde archief met mappen per jaar en maand als in de andere apps. Kijk hoe de beurten zich in de laatste maanden opstapelen: dat is de marathontraining die zijn tol eist.',
@@ -923,12 +1225,18 @@ export const NL_TUT: Dict = {
   'tut.app-garage--vehiculos.5.titulo': 'De kaart',
   'tut.app-garage--vehiculos.5.texto':
     'Merk, model, bouwjaar, kenteken en de tellerstand van vandaag. Met het kenteken erbij zet de garage de administratie aan die alleen voor een auto geldt.',
+  'tut.app-garage--tramites.tabs.titulo': 'Drie schriften',
+  'tut.app-garage--tramites.tabs.texto':
+    'De kaart van elk voertuig verdeelt zijn papieren over drie schriften: Administratie, Documenten en Contacten. De onderhoudsgeschiedenis blijft altijd onderaan staan, welk schrift je ook bekijkt.',
   'tut.app-garage--tramites.1.titulo': 'Wat eraan komt',
   'tut.app-garage--tramites.1.texto':
     'Elke taak bewaart de volgende vervaldatum, om de hoeveel maanden hij terugkomt en wat hij kost. Zet je hem op Gedaan, dan springt de datum vanzelf naar de volgende.',
   'tut.app-garage--tramites.2.titulo': 'De fiets betaalt geen wegenbelasting',
   'tut.app-garage--tramites.2.texto':
     'Zonder kenteken verbergt de garage de administratie die niet van toepassing is: de fiets krijgt alleen het periodieke onderhoud aangeboden.',
+  'tut.app-garage--tramites.2b.titulo': 'De papieren, apart',
+  'tut.app-garage--tramites.2b.texto':
+    'Het kentekenbewijs, de polis en de wegenbelasting worden niet vermengd met wat er in de werkplaats gebeurt: ze hebben hun eigen schrift, met referentienummer, vervaldatum en waarschuwing vooraf.',
   'tut.app-garage--tramites.3.titulo': 'Het adresboekje',
   'tut.app-garage--tramites.3.texto':
     'De vertrouwde werkplaats, de verzekeraar, het keuringsstation, de fietsenmaker om de hoek en de sleepdienst van die nacht — met telefoon en adres op één tik.',
@@ -940,6 +1248,9 @@ export const NL_TUT: Dict = {
   'tut.app-sala--mapa.2.titulo': 'De pins',
   'tut.app-sala--mapa.2.texto':
     'De zeven pins die in Japan bij elkaar staan zijn de drie weken van de reis. De ambergele —Seoel, Patagonië, IJsland— zijn wat nog moet komen. Tik op de kaart en er komt een nieuwe pin waar je maar wilt.',
+  'tut.app-sala--mapa.3.titulo': 'De globe',
+  'tut.app-sala--mapa.3.texto':
+    'De schakelaar bovenaan wisselt de platte kaart voor een globe die je draait door te slepen, met dezelfde aantikbare pins. De globe kijkt alleen: nieuwe pins zet je in de platte weergave.',
   'tut.app-sala--japon.1.titulo': 'De albums',
   'tut.app-sala--japon.1.texto':
     'Eén map per land, met een omslagfoto. Daarin staat elke plek op een eigen kaartje en, daarbinnen, wat Pep die dag schreef.',

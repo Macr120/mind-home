@@ -88,7 +88,7 @@ export function ModoMatrices({ motor, selector }: { motor: Motor | null; selecto
   }
 
   return (
-    <div className="space-y-3 rounded-2xl border border-white/10 bg-white/5 p-3">
+    <div data-tut="computo.calc.matrices" className="space-y-3 rounded-2xl border border-white/10 bg-white/5 p-3">
       <div className="flex flex-wrap items-center gap-2 text-[11px] text-white/45">
         <span className="shrink-0">{t('computo.matriz.medidas', 'Medidas')}</span>
         <SelectorDim valor={filas} onCambiar={(f) => medir(f, cols)} etiqueta={t('computo.matriz.filas', 'Filas')} />

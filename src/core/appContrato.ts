@@ -217,9 +217,14 @@ export interface Plantilla {
    * catálogo de precios (`core/cuenta/catalogoIA.ts`). Se declaran en
    * `rooms/<id>/costosIA.ts`: así el núcleo arma la tabla sin importar cuartos. */
   operacionesIA?: OperacionIA[]
-  /** Flujos de tutorial (menú del "?": varios tours profundos por app). Corren
-   * sobre el año de datos de la CASA DEMO — ids 'app-<plantillaId>--<flujo>',
-   * sin crear datos de ejemplo. Sin esto, la app cae en el tutorial genérico. */
+  /** Tutorial ESENCIAL: corre en la CASA REAL y recorre los menús principales
+   * de la app uno por uno, sin crear ni necesitar datos (sus anclas son
+   * pestañas/cabeceras que existen con la BD vacía). Id 'app-<plantillaId>--esencial'.
+   * Sin esto, la app cae en el tutorial genérico. */
+  esencial?: TutorialDef
+  /** Tutoriales de EJEMPLO (menú del "?": varios tours profundos por app).
+   * Corren sobre el año de datos de la CASA DEMO — ids 'app-<plantillaId>--<flujo>',
+   * sin crear datos de ejemplo. */
   flujos?: TutorialDef[]
   /** Tipo: de cuarto (default, asignable a objetos) o de infraestructura (se construye en el mapa). */
   tipo?: 'cuarto' | 'infraestructura'

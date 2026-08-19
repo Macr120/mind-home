@@ -71,7 +71,6 @@ function SelectorDificultad({ valor, alCambiar }: { valor: Dificultad; alCambiar
       prefijoClave="entre.j.dif"
       color={COLOR}
       variante="sub"
-      nivel={3}
       flecha={false}
     />
   )
@@ -139,7 +138,6 @@ export function JuegosMesaTab({ juegoInicial }: { juegoInicial?: IdJuegoReal }) 
           prefijoClave="entre.j.seccion"
           color={COLOR}
           variante="sub"
-          nivel={2}
         />
       </div>
 

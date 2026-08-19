@@ -36,7 +36,8 @@ export function navegarDestino(d: DestinoChat): void {
       if (d.grupo) useEditorUi.getState().abrirConfigGrupo(d.grupo)
       return
     case 'rutinas':
-      useRutinasUI.getState().abrirPanel()
+      // La rutina nueva se ve entre las Misiones de la casa (el panel ⏰ se retiró).
+      useRutinasUI.getState().abrirCalendario('objetivos')
       return
   }
 }

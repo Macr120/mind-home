@@ -2,7 +2,7 @@ import { Suspense, useMemo, useEffect } from 'react'
 import { useTexture } from '@react-three/drei'
 import { useLoader } from '@react-three/fiber'
 import { type ThreeEvent } from '@react-three/fiber'
-import { CanvasTexture, RepeatWrapping, Texture, TextureLoader } from 'three'
+import { CanvasTexture, DoubleSide, RepeatWrapping, Texture, TextureLoader } from 'three'
 import { SIZE } from './walls'
 import type { PisoTipo } from './pisos'
 import type { CeldaFormaLoseta, HuecoLosa } from './formasLoseta'
@@ -325,6 +325,50 @@ function PisoCeldaImagen({
         map={texture}
         roughness={0.75}
         metalness={0}
+        transparent={atenuado}
+        opacity={atenuado ? 0.16 : 1}
+      />
+    </mesh>
+  )
+}
+
+/**
+ * Piso falso de un cuarto elevado: la losa que lo cierra por DEBAJO y, de paso,
+ * rellena la junta con los cuartos vecinos. Va a la celda COMPLETA (`SIZE`, no
+ * `SIZE - 0.1` como la loseta real) porque en los pisos altos no hay capa
+ * continua de suelo bajo los cuartos: entre dos pegados quedaba una rendija de
+ * 10 cm por la que se veía el vacío, visible justo en el umbral de las puertas,
+ * que es donde no hay muro que la tape. A doble cara y un pelo bajo el piso real.
+ * Conserva la silueta del cuarto (forma y recortes finos) y los huecos de los
+ * ascensos, que siguen abiertos para que pase la escalera.
+ */
+export function PisoFalsoCelda({
+  lx,
+  lz,
+  color,
+  atenuado,
+  formaLoseta,
+  subformas,
+  huecos,
+}: {
+  lx: number
+  lz: number
+  color: string
+  atenuado: boolean
+  formaLoseta?: CeldaFormaLoseta
+  subformas?: Subformas
+  huecos?: HuecoLosa[] | null
+}) {
+  return (
+    // y=0.195: bajo la loseta real (0.21) y bajo el relleno exterior del cuarto
+    // (0.2), que si no quedaría coplanar con esta tapa.
+    <mesh position={[lx, 0.195, lz]} rotation={[-Math.PI / 2, 0, 0]}>
+      <GeometriaLoseta formaLoseta={formaLoseta} subformas={subformas} modo="plano" tile={SIZE} huecos={huecos} />
+      <meshStandardMaterial
+        color={color}
+        roughness={0.9}
+        metalness={0}
+        side={DoubleSide}
         transparent={atenuado}
         opacity={atenuado ? 0.16 : 1}
       />

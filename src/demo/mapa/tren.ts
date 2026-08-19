@@ -40,17 +40,19 @@ const LADO_ANDEN: Record<string, { lado: 'N' | 'S' | 'E' | 'O'; offset: number }
   'zona-casa': { lado: 'N', offset: 4 },
   'zona-canchas': { lado: 'N', offset: 2 },
   'zona-santuario': { lado: 'E', offset: 2 },
-  'zona-pista': { lado: 'O', offset: 2 },
-  'zona-mindfulness': { lado: 'S', offset: 3 },
+  'zona-pista': { lado: 'O', offset: 0 },
+  'zona-mindfulness': { lado: 'S', offset: 0 },
   'zona-feria': { lado: 'E', offset: 1 },
 }
 
 /**
  * Andén de cada zona: la celda de vía donde uno se sube y su vecina interior,
  * ambas de adoquín — DERIVADAS del cuadrante (malla proporcional), nunca
- * coordenadas fijas. Solo la parada de la casa lleva farol — es la única celda
- * libre garantizada; un farol tiene colisión y en las demás zonas podría caer
- * dentro del rectángulo de una cancha o de un corral.
+ * coordenadas fijas. El `offset` sí importa: la vecina interior tiene que caer
+ * en terreno pisable, no sobre el circuito ni dentro del pozo de la alberca.
+ * Solo la parada de la casa lleva farol — es la única celda libre garantizada;
+ * un farol tiene colisión y en las demás zonas podría caer dentro del
+ * rectángulo de una cancha o de un corral.
  */
 function andenes(cols: number, rows: number): { via: Cell; junto: Cell }[] {
   return CUADRANTES.map((q) => {

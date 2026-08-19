@@ -60,7 +60,7 @@ import { PistaLibre3D, TrazoLibreController } from './pistaLibre'
 import { Huerto3D, HuertoController } from './huerto'
 import { CanchasController } from './canchas'
 import { Granja3D, GranjaController, GranjaProximity } from './granja'
-import { TrenProximity } from './tren'
+import { TrenProximity, TrenesAutonomos } from './tren'
 import { MinijuegosCanchas } from './minijuegos'
 import { useCanchas, esCancha, escalaCancha } from '../state/canchasStore'
 import { NavControls } from '../ui/NavControls'
@@ -482,6 +482,7 @@ export function House() {
       {!aislarCuarto && <ItemsCarreraRuntime />}
       {!aislarCuarto && <ItemsCarrera3D />}
       {!aislarCuarto && <TrenProximity />}
+      {!aislarCuarto && <TrenesAutonomos />}
       {!aislarCuarto && <MinijuegosCanchas />}
       {!aislarCuarto && <GranjaProximity />}
       {!aislarCuarto && <AsistenteProximity />}

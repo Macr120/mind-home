@@ -1,7 +1,7 @@
 import { lazy } from 'react'
 import type { Plantilla } from '../../core/appContrato'
 import { lecturasDiarioRepo } from '../../core/data/repository'
-import { flujosDiario } from './tutorial.meta'
+import { esencialDiario, flujosDiario } from './tutorial.meta'
 import { COLOR_FABRICA } from './constantes'
 import { OPERACIONES_IA } from './costosIA'
 import { planMetasDiario } from './plan'
@@ -19,6 +19,7 @@ const diario: Plantilla = {
   color: COLOR_FABRICA,
   App: DiarioApp,
   operacionesIA: OPERACIONES_IA,
+  esencial: esencialDiario,
   flujos: flujosDiario,
   // Acotamiento del planificador ✨: en Noticias el plan es de lectura.
   planMetas: planMetasDiario,

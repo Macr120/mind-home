@@ -31,9 +31,10 @@ import { confirmar } from '../../state/confirmarStore'
 import { colorDe, colorPorProfundidad } from '../coloresRutina'
 import { Icono } from '../iconos/Icono'
 import { ChipApp, SelectorApp } from './ChipApp'
+import { COLOR_PLAN } from '../../../rooms/metas/constantes'
+import { VERDE } from '../../../rooms/_shared/acento'
+import { BotonPeligro, BotonPrimario, BotonSecundario } from '../../../rooms/_shared/ui'
 
-/** Color de lo propuesto, el mismo que usa el plan superpuesto en el eje. */
-const COLOR_PLAN = '#a78bfa'
 const SANGRIA = 18
 
 /**
@@ -192,22 +193,22 @@ export function HojaPlan({
   }
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col">
+    <div className="space-y-3">
       {/* Cabecera: qué plan es, cuándo arranca y cómo va — en dos renglones, que en
           una caja embebida de 384 px cada uno se paga en fases que no se ven. */}
-      <div className="space-y-1 border-b border-white/10 px-3 py-1.5">
+      <div className="space-y-1">
         <div className="flex items-center gap-2">
           <button
             type="button"
             data-tut="cal.plan.volver"
             onClick={onVolver}
-            className="shrink-0 rounded-lg px-1.5 py-0.5 text-[11px] font-semibold text-white/45 transition hover:bg-white/10 hover:text-white/85"
+            className="ui-presion shrink-0 rounded-lg px-1.5 py-0.5 text-2xs font-semibold text-white/45 transition hover:bg-white/10 hover:text-white/85"
           >
             ‹ {volverA ?? t('cal.meta.volverMetas', 'Volver a las metas')}
           </button>
           {/* La meta manda en el título; de qué plan es, en pequeño encima. */}
           <div className="min-w-0 flex-1">
-            <p className="truncate text-[10px] font-bold uppercase tracking-wider text-violet-300/80">
+            <p className="truncate text-2xs font-bold uppercase tracking-wider text-plan/80">
               <Icono nombre="brillo" /> {etiqueta ?? plan.nombre}
             </p>
             <p className="truncate text-sm font-semibold text-white/90">{origen?.nombre ?? plan.nombre}</p>
@@ -219,16 +220,16 @@ export function HojaPlan({
               type="button"
               data-tut="cal.plan.verMeta"
               onClick={() => onVerMeta(origen)}
-              className="shrink-0 rounded-lg px-1.5 py-0.5 text-[11px] font-semibold text-white/45 transition hover:bg-white/10 hover:text-white/85"
+              className="ui-presion shrink-0 rounded-lg px-1.5 py-0.5 text-2xs font-semibold text-white/45 transition hover:bg-white/10 hover:text-white/85"
             >
               {t('cal.meta.verMeta', 'Ver la meta')}
             </button>
           )}
           <span
-            className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold ${
+            className={`shrink-0 rounded-full px-2 py-0.5 text-2xs font-semibold ${
               aceptado
                 ? 'bg-emerald-500/15 text-emerald-300'
-                : 'bg-violet-500/15 text-violet-200'
+                : 'bg-plan/15 text-plan'
             }`}
           >
             {aceptado
@@ -240,10 +241,10 @@ export function HojaPlan({
         <div className="flex flex-wrap items-center gap-2">
           {dias === 0 ? (
             <>
-              <span className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-semibold text-white/60">
+              <span className="rounded-full bg-white/10 px-2 py-0.5 text-2xs font-semibold text-white/60">
                 {t('cal.plan.sinPlazo', 'Sin plazo')}
               </span>
-              <span className="text-[10px] text-white/30">
+              <span className="text-2xs text-white/30">
                 {t('cal.plan.fases', '{n} fases', { n: fases.length })}
               </span>
             </>
@@ -251,15 +252,15 @@ export function HojaPlan({
             <>
               {/* Los días del plan son relativos: cambiar el arranque lo corre entero sin
                   volver a llamar a la IA. */}
-              <span className="text-[10px] text-white/35">{t('cal.plan.arranque', 'Arranca')}</span>
+              <span className="text-2xs text-white/35">{t('cal.plan.arranque', 'Arranca')}</span>
               <input
                 type="date"
                 value={plan.inicioISO}
                 onChange={(e) => void reanclarPlan(plan, e.target.value)}
                 title={t('cal.plan.reanclar', 'Cambia el arranque: el plan entero se corre, sin volver a llamar a la IA')}
-                className="w-[120px] shrink-0 rounded border border-white/10 bg-black/30 px-1.5 py-0.5 text-[11px] tabular-nums text-white/70 focus:outline-none"
+                className="w-[120px] shrink-0 rounded-lg border border-white/10 bg-black/30 px-1.5 py-0.5 text-2xs tabular-nums text-white/70 focus:border-accent/60 focus:outline-none"
               />
-              <span className="text-[10px] text-white/30">
+              <span className="text-2xs text-white/30">
                 {t('cal.plan.duracion', '{n} días', { n: dias })} ·{' '}
                 {t('cal.plan.fases', '{n} fases', { n: fases.length })}
               </span>
@@ -280,13 +281,13 @@ export function HojaPlan({
             >
               <div
                 className="h-full rounded-full transition-[width]"
-                style={{ width: `${Math.round(avance * 100)}%`, background: aceptado ? '#10b981' : COLOR_PLAN }}
+                style={{ width: `${Math.round(avance * 100)}%`, background: aceptado ? VERDE : COLOR_PLAN }}
               />
             </div>
-            <span className="shrink-0 text-[11px] font-semibold tabular-nums text-white/60">
+            <span className="shrink-0 text-2xs font-semibold tabular-nums text-white/60">
               {Math.round(avance * 100)}%
             </span>
-            <span className="shrink-0 text-[11px] tabular-nums text-white/35">
+            <span className="shrink-0 text-2xs tabular-nums text-white/35">
               {resumen.hechos}/{resumen.total}
             </span>
           </div>
@@ -294,151 +295,143 @@ export function HojaPlan({
       </div>
 
       {/* Cuerpo: la hoja en sí */}
-      <div className="min-h-0 flex-1 overflow-y-auto p-3">
-        <div data-tut="cal.plan.hoja.fases" className="mx-auto max-w-2xl space-y-2">
-          {plan.resumen && (
-            <div className="rounded-xl bg-black/20 px-3 py-2">
-              <p className="mb-1 text-[10px] uppercase tracking-wide text-white/35">
-                {t('cal.plan.resumenIA', 'Lo que propone la IA')}
-              </p>
-              <p className="text-xs leading-relaxed text-white/60">{plan.resumen}</p>
-            </div>
-          )}
+      <div data-tut="cal.plan.hoja.fases" className="space-y-2">
+        {plan.resumen && (
+          <div className="rounded-xl bg-black/20 px-3 py-2">
+            <p className="mb-1 text-2xs uppercase tracking-wide text-white/35">
+              {t('cal.plan.resumenIA', 'Lo que propone la IA')}
+            </p>
+            <p className="text-xs leading-relaxed text-white/60">{plan.resumen}</p>
+          </div>
+        )}
 
-          {fases.map((f) => (
-            <FilaHoja
-              key={f.id}
-              plan={plan}
-              nodo={f}
-              profundidad={0}
-              metas={metas}
-              espejo={espejo}
-              fechaCorta={fechaCorta}
-              arrastrado={arrastrado}
-              destino={destino}
-              onArrastrar={iniciarArrastre}
-              onMoverArrastre={moverArrastre}
-              onSoltarArrastre={soltarArrastre}
+        {fases.map((f) => (
+          <FilaHoja
+            key={f.id}
+            plan={plan}
+            nodo={f}
+            profundidad={0}
+            metas={metas}
+            espejo={espejo}
+            fechaCorta={fechaCorta}
+            arrastrado={arrastrado}
+            destino={destino}
+            onArrastrar={iniciarArrastre}
+            onMoverArrastre={moverArrastre}
+            onSoltarArrastre={soltarArrastre}
+          />
+        ))}
+
+        {plan.nodos.length === 0 && (
+          <p className="py-6 text-center text-xs text-white/30">
+            {aceptado
+              ? t('cal.plan.sinNodos', 'Este plan se quedó sin fases.')
+              : t('cal.plan.sinNodosEditable', 'Todavía no tiene fases: escribe la primera y cuélgale sus sub-metas.')}
+          </p>
+        )}
+
+        {/* El alta de fases: sin esto un plan hecho a mano nacía vacío y se quedaba
+            así — el botón de la fila solo cuelga sub-metas DE una fase. */}
+        {!aceptado &&
+          (agregandoFase ? (
+            <input
+              autoFocus
+              value={nombreFase}
+              onChange={(e) => setNombreFase(e.target.value)}
+              onBlur={() => {
+                crearFase()
+                setAgregandoFase(false)
+              }}
+              // Enter deja la caja abierta: así se encadenan varias fases de un tirón.
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') crearFase()
+                else if (e.key === 'Escape') setAgregandoFase(false)
+              }}
+              placeholder={t('cal.plan.nuevaFase', 'Nombre de la fase…')}
+              className="w-full rounded-lg border border-white/20 bg-black/30 px-2.5 py-1.5 text-xs text-white/90 placeholder:text-white/25 focus:border-accent/60 focus:outline-none"
             />
+          ) : (
+            <button
+              type="button"
+              onClick={() => setAgregandoFase(true)}
+              className="ui-presion w-full rounded-lg border border-dashed border-white/15 py-1.5 text-2xs font-semibold text-white/45 transition hover:border-white/30 hover:text-white/80"
+            >
+              <Icono nombre="agregar" /> {t('cal.plan.agregarFase', 'Agregar fase')}
+            </button>
           ))}
 
-          {plan.nodos.length === 0 && (
-            <p className="py-6 text-center text-xs text-white/30">
-              {aceptado
-                ? t('cal.plan.sinNodos', 'Este plan se quedó sin fases.')
-                : t('cal.plan.sinNodosEditable', 'Todavía no tiene fases: escribe la primera y cuélgale sus sub-metas.')}
-            </p>
-          )}
-
-          {/* El alta de fases: sin esto un plan hecho a mano nacía vacío y se quedaba
-              así — el botón de la fila solo cuelga sub-metas DE una fase. */}
-          {!aceptado &&
-            (agregandoFase ? (
-              <input
-                autoFocus
-                value={nombreFase}
-                onChange={(e) => setNombreFase(e.target.value)}
-                onBlur={() => {
-                  crearFase()
-                  setAgregandoFase(false)
-                }}
-                // Enter deja la caja abierta: así se encadenan varias fases de un tirón.
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') crearFase()
-                  else if (e.key === 'Escape') setAgregandoFase(false)
-                }}
-                placeholder={t('cal.plan.nuevaFase', 'Nombre de la fase…')}
-                className="w-full rounded-lg border border-white/20 bg-black/30 px-2.5 py-1.5 text-xs text-white/90 placeholder:text-white/25 focus:outline-none"
-              />
-            ) : (
-              <button
-                type="button"
-                onClick={() => setAgregandoFase(true)}
-                className="w-full rounded-lg border border-dashed border-white/15 py-1.5 text-[11px] font-semibold text-white/45 transition hover:border-white/30 hover:text-white/80"
-              >
-                <Icono nombre="agregar" /> {t('cal.plan.agregarFase', 'Agregar fase')}
-              </button>
-            ))}
-
-          {/* El material del plan sigue consultable incluso después de aceptarlo: el
-              plan no se borra, se marca. */}
-          {material.length > 0 && (
-            <div className="space-y-1 pt-2">
-              <button
-                type="button"
-                onClick={() => setVerMaterial((v) => !v)}
-                className="text-[11px] font-semibold text-white/45 transition hover:text-white/80"
-              >
-                {verMaterial ? '▾' : '▸'} {t('cal.plan.material.n', 'Material del plan ({n})', { n: material.length })}
-              </button>
-              {verMaterial &&
-                material.map((m) => (
-                  <div key={m.nombre} className="rounded-lg bg-black/20 px-3 py-2">
-                    <div className="flex items-baseline gap-2">
-                      <span className="min-w-0 flex-1 text-xs font-semibold text-white/85">{m.nombre}</span>
-                      {m.rutina && <span className="shrink-0 text-[10px] text-white/35">{m.rutina}</span>}
-                    </div>
-                    {m.motivo && <p className="mt-0.5 text-[11px] leading-relaxed text-white/45">{m.motivo}</p>}
+        {/* El material del plan sigue consultable incluso después de aceptarlo: el
+            plan no se borra, se marca. */}
+        {material.length > 0 && (
+          <div className="space-y-1 pt-2">
+            <button
+              type="button"
+              onClick={() => setVerMaterial((v) => !v)}
+              className="ui-presion text-2xs font-semibold text-white/45 transition hover:text-white/80"
+            >
+              {verMaterial ? '▾' : '▸'} {t('cal.plan.material.n', 'Material del plan ({n})', { n: material.length })}
+            </button>
+            {verMaterial &&
+              material.map((m) => (
+                <div key={m.nombre} className="rounded-lg bg-black/20 px-3 py-2">
+                  <div className="flex items-baseline gap-2">
+                    <span className="min-w-0 flex-1 text-xs font-semibold text-white/85">{m.nombre}</span>
+                    {m.rutina && <span className="shrink-0 text-2xs text-white/35">{m.rutina}</span>}
                   </div>
-                ))}
-            </div>
-          )}
+                  {m.motivo && <p className="mt-0.5 text-2xs leading-relaxed text-white/45">{m.motivo}</p>}
+                </div>
+              ))}
+          </div>
+        )}
 
-          {/* La acción del plan cierra la hoja, dentro del scroll y del ancho de las
-              fases: es el último paso de leerla, no una barra que ocupe sitio todo el
-              rato. */}
-          <div className="flex flex-wrap items-center justify-end gap-2 pt-2">
-            {aviso && <p className="min-w-0 flex-1 text-[11px] text-emerald-300/90">{aviso}</p>}
-            {aceptado ? (
-              <button
-                type="button"
-                // Solo existe en la hoja de un plan ACEPTADO: el tour lo usa para
-                // saber que ya montó la hoja correcta (`cal.plan.hoja.avance` está en
-                // las dos y resolvería sobre la que todavía sigue en pantalla).
-                data-tut="cal.plan.hoja.verCronograma"
+        {/* La acción del plan cierra la hoja, dentro del scroll y del ancho de las
+            fases: es el último paso de leerla, no una barra que ocupe sitio todo el
+            rato. */}
+        <div className="flex flex-wrap items-center justify-end gap-2 pt-2">
+          {aviso && <p className="min-w-0 flex-1 text-2xs text-emerald-300/90">{aviso}</p>}
+          {aceptado ? (
+            <BotonSecundario
+              // Solo existe en la hoja de un plan ACEPTADO: el tour lo usa para
+              // saber que ya montó la hoja correcta (`cal.plan.hoja.avance` está en
+              // las dos y resolvería sobre la que todavía sigue en pantalla).
+              data-tut="cal.plan.hoja.verCronograma"
+              onClick={onVerEnCronograma}
+              pequeno
+            >
+              <Icono nombre="calendario" /> {t('cal.plan.verCronograma', 'Ver en el cronograma')}
+            </BotonSecundario>
+          ) : !origen ? (
+            <>
+              <p className="min-w-0 flex-1 text-2xs text-amber-200/80">
+                {t('cal.plan.origenPerdido', 'La meta de este plan ya no existe.')}
+              </p>
+              <BotonPeligro onClick={() => void borrarPlan()} pequeno>
+                {t('cal.plan.borrarEste', 'Borrar el plan')}
+              </BotonPeligro>
+            </>
+          ) : (
+            <>
+              <BotonSecundario
+                // Ancla propia (NO `verCronograma`): esa solo existe en la hoja de
+                // un plan ACEPTADO y los tours la usan como discriminador.
+                data-tut="cal.plan.hoja.verEje"
                 onClick={onVerEnCronograma}
-                className="flex items-center gap-1.5 rounded-lg border border-emerald-400/30 bg-emerald-400/10 px-3 py-1.5 text-xs font-semibold text-emerald-300 transition hover:bg-emerald-400/20"
+                pequeno
               >
                 <Icono nombre="calendario" /> {t('cal.plan.verCronograma', 'Ver en el cronograma')}
-              </button>
-            ) : !origen ? (
-              <>
-                <p className="min-w-0 flex-1 text-[11px] text-amber-200/80">
-                  {t('cal.plan.origenPerdido', 'La meta de este plan ya no existe.')}
-                </p>
-                <button
-                  type="button"
-                  onClick={() => void borrarPlan()}
-                  className="rounded-lg border border-red-400/30 bg-red-400/10 px-3 py-1.5 text-xs font-semibold text-red-400 transition hover:bg-red-400/20"
-                >
-                  {t('cal.plan.borrarEste', 'Borrar el plan')}
-                </button>
-              </>
-            ) : (
-              <>
-                <button
-                  type="button"
-                  // Ancla propia (NO `verCronograma`): esa solo existe en la hoja de
-                  // un plan ACEPTADO y los tours la usan como discriminador.
-                  data-tut="cal.plan.hoja.verEje"
-                  onClick={onVerEnCronograma}
-                  className="flex items-center gap-1.5 rounded-lg border border-violet-400/30 bg-violet-400/10 px-3 py-1.5 text-xs font-semibold text-violet-200 transition hover:bg-violet-400/20"
-                >
-                  <Icono nombre="calendario" /> {t('cal.plan.verCronograma', 'Ver en el cronograma')}
-                </button>
-                <button
-                  type="button"
-                  // Espejo de `verCronograma`: solo existe mientras el plan es propuesta.
-                  data-tut="cal.plan.hoja.aceptar"
-                  onClick={() => void aceptar()}
-                  disabled={ocupado}
-                  className="flex items-center gap-1.5 rounded-lg bg-emerald-500/90 px-3 py-1.5 text-xs font-bold text-black transition hover:bg-emerald-400 disabled:opacity-40"
-                >
-                  <Icono nombre="hecho" /> {t('cal.plan.aceptar', 'Mover a cronograma real')}
-                </button>
-              </>
-            )}
-          </div>
+              </BotonSecundario>
+              <BotonPrimario
+                // Espejo de `verCronograma`: solo existe mientras el plan es propuesta.
+                data-tut="cal.plan.hoja.aceptar"
+                onClick={() => void aceptar()}
+                disabled={ocupado}
+                color={VERDE}
+                pequeno
+              >
+                <Icono nombre="hecho" /> {t('cal.plan.aceptar', 'Mover a cronograma real')}
+              </BotonPrimario>
+            </>
+          )}
         </div>
       </div>
     </div>
@@ -537,7 +530,7 @@ function FilaHoja({
           profundidad === 0 ? 'bg-white/[0.06]' : 'bg-black/20'
         } ${enMano ? 'opacity-40' : ''} ${
           // Dónde va a caer lo que se arrastra: encima de esta fila, o dentro de ella.
-          cae?.dentro ? 'ring-2 ring-violet-400/70' : cae ? 'border-t-2 border-violet-400' : ''
+          cae?.dentro ? 'ring-2 ring-plan/70' : cae ? 'border-t-2 border-plan' : ''
         }`}
       >
         <div className="flex items-center gap-2">
@@ -548,7 +541,7 @@ function FilaHoja({
               onPointerUp={onSoltarArrastre}
               onPointerCancel={onSoltarArrastre}
               title={t('cal.plan.arrastrar', 'Arrastra para reordenar o colgar de otra fase')}
-              className="shrink-0 cursor-grab touch-none text-[10px] text-white/20 transition hover:text-white/60 active:cursor-grabbing"
+              className="shrink-0 cursor-grab touch-none text-2xs text-white/20 transition hover:text-white/60 active:cursor-grabbing"
             >
               <Icono nombre="mover" />
             </span>
@@ -558,7 +551,7 @@ function FilaHoja({
             data-tut="cal.plan.hoja.check"
             onClick={() => void toggleNodoPlan(plan, nodo, espejo)}
             title={t('cal.marcarHecho', 'Marcar como hecho')}
-            className={`grid h-4 w-4 shrink-0 place-items-center rounded border text-[10px] transition ${
+            className={`ui-presion grid h-4 w-4 shrink-0 place-items-center rounded-lg border text-2xs transition ${
               hecho
                 ? 'border-emerald-400 bg-emerald-500/30 text-emerald-400'
                 : 'border-white/25 hover:border-white/50'
@@ -574,7 +567,7 @@ function FilaHoja({
               onChange={(e) => setNombre(e.target.value)}
               onBlur={guardarNombre}
               onKeyDown={(e) => e.key === 'Enter' && guardarNombre()}
-              className="min-w-0 flex-1 rounded border border-white/20 bg-black/40 px-1.5 py-0.5 text-xs text-white/90 outline-none"
+              className="min-w-0 flex-1 rounded-lg border border-white/20 bg-black/40 px-1.5 py-0.5 text-xs text-white/90 outline-none"
             />
           ) : (
             <span
@@ -593,21 +586,21 @@ function FilaHoja({
           {incoherente && (
             <span
               title={t('cal.plan.incoherente', 'Se sale del periodo de su fase')}
-              className="shrink-0 text-[10px] text-amber-400"
+              className="shrink-0 text-2xs text-amber-400"
             >
               <Icono nombre="alerta" />
             </span>
           )}
           {rango ? (
-            <span className="shrink-0 text-[10px] tabular-nums text-white/30">
+            <span className="shrink-0 text-2xs tabular-nums text-white/30">
               {fechaCorta(rango.ini)} – {fechaCorta(rango.fin)}
             </span>
           ) : (
-            <span className="shrink-0 text-[10px] text-white/20">{t('cal.plan.sinFecha', 'Sin fecha')}</span>
+            <span className="shrink-0 text-2xs text-white/20">{t('cal.plan.sinFecha', 'Sin fecha')}</span>
           )}
           {resumen.total > 0 && (
             <span
-              className="shrink-0 text-[10px] tabular-nums text-white/35"
+              className="shrink-0 text-2xs tabular-nums text-white/35"
               title={t('cal.meta.alcance', 'Pasos y sub-metas completados')}
             >
               {resumen.hechos}/{resumen.total}
@@ -621,8 +614,8 @@ function FilaHoja({
               type="button"
               onClick={() => setEnlazando((v) => !v)}
               title={t('cal.enlace.poner', 'Enlazar con la app donde se registra')}
-              className={`hidden shrink-0 px-0.5 text-[10px] transition hover:text-white/80 group-hover:block ${
-                enlazando ? 'text-emerald-400' : 'text-white/30'
+              className={`ui-presion hidden shrink-0 px-0.5 text-2xs transition hover:text-white/80 group-hover:block ${
+                enlazando ? 'text-accent' : 'text-white/30'
               }`}
             >
               <Icono nombre="vincular" />
@@ -638,7 +631,7 @@ function FilaHoja({
                   setEditando(true)
                 }}
                 title={t('cal.plan.renombrar', 'Renombrar')}
-                className="px-0.5 text-[10px] text-white/30 transition hover:text-white/80"
+                className="ui-presion px-0.5 text-2xs text-white/30 transition hover:text-white/80"
               >
                 <Icono nombre="editar" />
               </button>
@@ -646,8 +639,8 @@ function FilaHoja({
                 type="button"
                 onClick={() => setFechas((v) => !v)}
                 title={t('cal.plan.fechasNodo', 'Poner o cambiar fechas')}
-                className={`px-0.5 text-[10px] transition hover:text-white/80 ${
-                  rango ? 'text-white/30' : 'text-violet-300/60'
+                className={`ui-presion px-0.5 text-2xs transition hover:text-white/80 ${
+                  rango ? 'text-white/30' : 'text-plan/60'
                 }`}
               >
                 <Icono nombre="calendario" />
@@ -657,8 +650,8 @@ function FilaHoja({
                   type="button"
                   onClick={() => setAgregando((v) => !v)}
                   title={t('cal.plan.agregarNodo', 'Agregar sub-meta a la fase')}
-                  className={`px-0.5 text-[10px] transition hover:text-white/80 ${
-                    agregando ? 'text-emerald-400' : 'text-white/30'
+                  className={`ui-presion px-0.5 text-2xs transition hover:text-white/80 ${
+                    agregando ? 'text-accent' : 'text-white/30'
                   }`}
                 >
                   <Icono nombre="agregar" />
@@ -668,7 +661,7 @@ function FilaHoja({
                 type="button"
                 onClick={() => void borrar()}
                 title={t('rutinas.borrar', 'Borrar')}
-                className="px-0.5 text-[10px] text-white/30 transition hover:text-red-400"
+                className="ui-presion px-0.5 text-2xs text-white/30 transition hover:text-red-400"
               >
                 <Icono nombre="basura" />
               </button>
@@ -683,7 +676,7 @@ function FilaHoja({
               className="h-full rounded-full transition-[width]"
               style={{
                 width: `${Math.round(avance * 100)}%`,
-                background: plan.aceptadoEn ? '#10b981' : COLOR_PLAN,
+                background: plan.aceptadoEn ? VERDE : COLOR_PLAN,
               }}
             />
           </div>
@@ -710,9 +703,9 @@ function FilaHoja({
                 void fecharNodoPlan(plan, nodo.id, e.target.value, isoMasDias(e.target.value, dias))
               }}
               title={t('cal.plan.nodoIni', 'Empieza')}
-              className="w-[110px] shrink-0 rounded border border-white/10 bg-black/30 px-1.5 py-0.5 text-[10px] tabular-nums text-white/60 focus:outline-none"
+              className="w-[110px] shrink-0 rounded-lg border border-white/10 bg-black/30 px-1.5 py-0.5 text-2xs tabular-nums text-white/60 focus:border-accent/60 focus:outline-none"
             />
-            <span className="text-[10px] text-white/30">→</span>
+            <span className="text-2xs text-white/30">→</span>
             <input
               type="date"
               value={rango?.fin ?? ''}
@@ -722,14 +715,14 @@ function FilaHoja({
                 if (e.target.value && rango) void fecharNodoPlan(plan, nodo.id, rango.ini, e.target.value)
               }}
               title={t('cal.plan.nodoFin', 'Termina')}
-              className="w-[110px] shrink-0 rounded border border-white/10 bg-black/30 px-1.5 py-0.5 text-[10px] tabular-nums text-white/60 focus:outline-none disabled:opacity-40"
+              className="w-[110px] shrink-0 rounded-lg border border-white/10 bg-black/30 px-1.5 py-0.5 text-2xs tabular-nums text-white/60 focus:border-accent/60 focus:outline-none disabled:opacity-40"
             />
             {rango && (
               <button
                 type="button"
                 onClick={() => void quitarFechasNodoPlan(plan, nodo.id)}
                 title={t('cal.plan.quitarFechas', 'Quitarle las fechas')}
-                className="px-0.5 text-[10px] text-white/30 transition hover:text-white/80"
+                className="ui-presion px-0.5 text-2xs text-white/30 transition hover:text-white/80"
               >
                 <Icono nombre="quitar" />
               </button>
@@ -754,7 +747,7 @@ function FilaHoja({
               else if (e.key === 'Escape') setAgregando(false)
             }}
             placeholder={t('cal.plan.nuevoNodo', 'Sub-meta…')}
-            className="w-full rounded border border-white/15 bg-black/30 px-1.5 py-0.5 text-xs text-white/90 placeholder:text-white/25 focus:outline-none"
+            className="w-full rounded-lg border border-white/15 bg-black/30 px-1.5 py-0.5 text-xs text-white/90 placeholder:text-white/25 focus:border-accent/60 focus:outline-none"
           />
         </div>
       )}

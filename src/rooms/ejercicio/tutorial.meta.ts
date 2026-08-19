@@ -1,4 +1,5 @@
 import type { CuerpoTutorial, TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import { fichaEsencial } from '../../core/tutorial/esencial'
 
 /**
  * Fichas de los tutoriales de esta app: id, título y resumen. Es lo único que
@@ -63,3 +64,13 @@ const flujoFlexibilidad = tour(
 )
 
 export const flujosEjercicio: TutorialDef[] = [flujoAnio, flujoCarrera, flujoFuerza, flujoFlexibilidad]
+
+/** Esencial: recorre los cuatro menús en la casa real, sin necesitar datos. */
+export const esencialEjercicio: TutorialDef = fichaEsencial(
+  'ejercicio',
+  T(
+    'tut.app-ejercicio--esencial.resumen',
+    'Ejercicio lleva las tres modalidades del cuerpo en un mismo sitio: Fuerza (series, repeticiones y peso), Resistencia (carrera, bici o nado, con entrenamiento en vivo por GPS y pulsómetro) y Flexibilidad (movilidad por tiempo, con reproductor guiado). Las tres se organizan igual —catálogo, rutinas y progreso— y el menú Metas fija cuánto entrenar cada semana y resume la racha y el avance.',
+  ),
+  () => import('./tutorial').then((m) => m.cuerpoEsencial as CuerpoTutorial),
+)

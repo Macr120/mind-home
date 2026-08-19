@@ -22,7 +22,7 @@ import { proveedorImagen, setProvImagen, type ProveedorImagenId } from '../image
 import { useAsistentes } from '../state/asistentesStore'
 import { getTransporte, setTransporte } from '../cuenta/api'
 import { hayBackend } from '../cuenta/supabase'
-import { haySesion } from '../cuenta/sesionStore'
+import { haySesionProbable } from '../cuenta/sesionStore'
 import { GastoByok } from './GastoByok'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
@@ -53,7 +53,10 @@ export function PanelIA({ variante, onCambio }: { variante: 'chat' | 'editor'; o
   }
 
   const proveedor = getProveedor()
-  const hayCuenta = hayBackend() && haySesion()
+  // `haySesionProbable` y no `haySesion`: mientras la sesión hidrata, la
+  // segunda dice que no hay cuenta y el panel pintaba «Mis claves (BYOK)» como
+  // activo sin que el usuario tocara nada (parecía que se cambiaba solo).
+  const hayCuenta = hayBackend() && haySesionProbable()
   // Sin cuenta el toggle no aplica: lo efectivo siempre es BYOK.
   const enCreditos = hayCuenta && getTransporte() === 'creditos'
   const provVoz = proveedorVoz()

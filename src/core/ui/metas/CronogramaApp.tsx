@@ -18,9 +18,12 @@ import { Cronograma } from './Cronograma'
 export function CronogramaApp({
   plantillaId,
   ambitoId,
+  metaInicial,
 }: {
   plantillaId: string
   ambitoId?: string
+  /** Abre de entrada la hoja de esta meta (así llega desde las Misiones). */
+  metaInicial?: number
 }) {
   const todas = rutinasRepo.useAll()
   const [armada, setArmada] = useState<Rutina | null>(null)
@@ -60,6 +63,7 @@ export function CronogramaApp({
       ambito={plantillaId}
       ambitoId={ambitoId}
       ejemplo={ejemplo}
+      metaInicial={metaInicial}
     />
   )
 }

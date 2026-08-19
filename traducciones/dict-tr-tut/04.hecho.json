@@ -1,130 +1,34 @@
 [
-  {
-    "clave": "tut.editor-mapa.3.texto",
-    "texto": "Çatılar hücre hücre çalışır: her hücrenin kendi biçimi ya da malzemesi olabilir, yani aynı oda tek bir düz çatı yerine farklı eğimleri bir araya getirebilir."
-  },
-  {
-    "clave": "tut.editor-mapa.4.texto",
-    "texto": "Evin seviyeleri de var: yukarı doğru üst üste eklenen katlar ve aşağıda bir bodrum. Her yeni seviye kendi çıkış yoluyla doğar —bir merdiven ya da döşemede bir boşluk— ve üstteki katı deler."
-  },
-  {
-    "clave": "tut.editor-mapa.5.titulo",
-    "texto": "Bitti"
-  },
-  {
-    "clave": "tut.editor-mapa.5.texto",
-    "texto": "Sen düzenlerken her şey kendiliğinden kaydedilir. Bitti, düzenleyiciyi kapatır ve seni evi bıraktığın haliyle oyuna geri döndürür."
-  },
-  {
-    "clave": "tut.editor-personajes.1.texto",
-    "texto": "Ana karakterin ve asistanların aynı düzenleyicide yaşar: yukarıdan kimi düzenleyeceğini seçersin, araçlar da her biri için anlamlı olana göre değişir."
-  },
-  {
-    "clave": "tut.editor-personajes.2.titulo",
-    "texto": "Yüz ve fotoğraf"
-  },
-  {
-    "clave": "tut.editor-personajes.2.texto",
-    "texto": "İfade, saç modeli ve saç rengi ya da doğrudan kendi fotoğrafın, karakter sana benzesin diye. Her vücut kendi yüzünü kabul etmez."
-  },
-  {
-    "clave": "tut.editor-personajes.3.titulo",
-    "texto": "Kategoriye göre kıyafet"
-  },
-  {
-    "clave": "tut.editor-personajes.3.texto",
-    "texto": "Her parça ayrı ayrı giyilir, çıkarılır ve rengi değişir: gömlek, pantolon, ayakkabı, aksesuar. Dilediğin gibi birleşirler."
-  },
-  {
-    "clave": "tut.editor-personajes.4.titulo",
-    "texto": "Kayıtlı kombinler"
-  },
-  {
-    "clave": "tut.editor-personajes.4.texto",
-    "texto": "Bütün bir kıyafet birleşimini kombin olarak kaydet ve her seferinde parça parça yeniden kurmadan, tek dokunuşla baştan aşağı değiş."
-  },
-  {
-    "clave": "tut.editor-personajes.5.titulo",
-    "texto": "Odaya göre gardırop"
-  },
-  {
-    "clave": "tut.editor-personajes.5.texto",
-    "texto": "Her odaya farklı bir kombin ata: avatarın Spor Salonu’na koşuya hazır girer, Mutfak’a geçince kendiliğinden değişir."
-  },
-  {
-    "clave": "tut.editor-personajes.6.texto",
-    "texto": "Vücut, renk ve boyut her zamanki gibi düzenlenir; Yapay Zeka açıksa hazır modellerden birini seçmek yerine kendi 3D modelini de üretebilirsin."
-  },
-  {
-    "clave": "tut.editor-objetos.1.texto",
-    "texto": "Düzenlemek için sahnedeki (ya da listedeki) bir nesneye dokun: renk, boyut ve döndürme, hepsinin ortak üç ayarıdır."
-  },
-  {
-    "clave": "tut.editor-objetos.2.texto",
-    "texto": "Uygulama atanmış nesneler, odaya girdiğinde şablonunu açar; atanmamışlar yalnızca dekordur — ikisi de aynı şekilde düzenlenir."
-  },
-  {
-    "clave": "tut.editor-objetos.3.texto",
-    "texto": "Bir nesnenin ⚙️ dişlisi onu parça parça düzenlenebilir hale getirir: temel şekilleri birleştirerek kendi modellerini kur ya da tarif ederek Yapay Zeka’dan bir tane iste."
-  },
-  {
-    "clave": "tut.editor-config.1.texto",
-    "texto": "Uzun bir liste değil, katlanabilir sekiz bölüm: yalnızca ilgilendiğini açmak için başlığa dokun."
-  },
-  {
-    "clave": "tut.editor-config.2.titulo",
-    "texto": "Hesap ve Yapay Zeka"
-  },
-  {
-    "clave": "tut.editor-config.2.texto",
-    "texto": "Giriş yapmak, planın ve bu ay Yapay Zeka’ya ne kadar harcadığın; hemen yanında her işlemin fiyat tablosu. İkisinin de kendi ayrıntılı öğreticisi var."
-  },
-  {
-    "clave": "tut.editor-config.3.titulo",
-    "texto": "Görsel stil"
-  },
-  {
-    "clave": "tut.editor-config.3.texto",
-    "texto": "Haritanın teması (ışık, sis, aydınlatma) ve son işlem stilleri; fazladan yük olmasın diye hepsi ihtiyaç anında yüklenir."
-  },
-  {
-    "clave": "tut.editor-config.4.titulo",
-    "texto": "Arayüz ve dil"
-  },
-  {
-    "clave": "tut.editor-config.4.texto",
-    "texto": "Dil, arayüz teması (açık/koyu/otomatik), simge stili ve yoğunluk — evin NASIL göründüğünü değiştiren her şey; ne içerdiğini değil."
-  },
-  {
-    "clave": "tut.editor-config.5.titulo",
-    "texto": "Bildirimler"
-  },
-  {
-    "clave": "tut.editor-config.5.texto",
-    "texto": "Hangi bildirimler gelsin, hangileri sussun: rutinler, plan uyarıları ve hatırlatmalar ayrı ayrı kapatılabilir."
-  },
-  {
-    "clave": "tut.editor-config.6.texto",
-    "texto": "Müzik ve Öğreticiler’in kendi turu var; Veri yedekleme’nin de var ve cihaz değiştirmeden önce en çok göz atmaya değen o."
-  },
-  {
-    "clave": "tut.respaldo.1.titulo",
-    "texto": "Evin nerede yaşıyor"
-  },
-  {
-    "clave": "tut.respaldo.1.texto",
-    "texto": "Hesap ve senkronizasyon yoksa verilerin yalnızca bu cihazda durur. Yukarıdaki uyarı, tarayıcının onları otomatik bir temizlikten koruma izni olup olmadığını söyler."
-  },
-  {
-    "clave": "tut.respaldo.2.titulo",
-    "texto": "Dışa aktar"
-  },
-  {
-    "clave": "tut.respaldo.2.texto",
-    "texto": "Bütün tablolarını tek bir JSON dosyası olarak indirir: odalar, hedefler, kayıtlar, her şey. Elle aldığın yedeğin."
-  },
-  {
-    "clave": "tut.respaldo.3.titulo",
-    "texto": "Geri yükle"
-  }
+  { "clave": "tut.app-ejercicio--esencial.3.texto", "texto": "Ağırlıkla antrenman: her oturum egzersizlerini setleri, tekrarları ve yüküyle tutar. Bununla uygulama günün hacmini hesaplar, her egzersizin ilerlemesini çizer ve rekorlarını tutar." },
+  { "clave": "tut.app-ejercicio--esencial.4.titulo", "texto": "Katalog, rutinler ve ilerleme" },
+  { "clave": "tut.app-ejercicio--esencial.4.texto", "texto": "Üç mod da aynı şekilde düzenlenir. Katalog mevcut egzersizleri gruplar ve onlardan rutinler oluşturur, Rutinler yukarıda seçtiğin günün antrenmanını kaydeder, ve İlerleme dönemi etkinlik haritasıyla özetler." },
+  { "clave": "tut.app-ejercicio--esencial.5.titulo", "texto": "Dayanıklılık" },
+  { "clave": "tut.app-ejercicio--esencial.5.texto", "texto": "Koşu, bisiklet, yüzme ya da yürüyüş, dakikaları ve mesafesiyle parçalara bölünmüş. Buradan canlı antrenman açılır: rotayı GPS'ten ve nabzı bir Bluetooth sensöründen alır ve bitirdiğinde oturumu kaydeder." },
+  { "clave": "tut.app-ejercicio--esencial.6.titulo", "texto": "Esneklik" },
+  { "clave": "tut.app-ejercicio--esencial.6.texto", "texto": "Gerinme ve hareketlilik, ağırlık yerine zamana dayalı setlerle: her pozun kendi saniyeleri ve tekrarları vardır. Rehberli oynatıcı, ne zaman değiştireceğini söyleyen bir zamanlayıcıyla rutini poz poz yürütür." },
+  { "clave": "tut.app-entretenimiento--esencial.1.titulo", "texto": "Eğlence" },
+  { "clave": "tut.app-entretenimiento--esencial.1.texto", "texto": "Bitirmekte olduğun filmleri, dizileri, kitapları ve video oyunlarını tutar, ve evden çıkmadan oynayabileceğin dijital bir oyun masası getirir. İki bölümü var: Masa Oyunları ve Arşiv." },
+  { "clave": "tut.app-entretenimiento--esencial.2.titulo", "texto": "Masa Oyunları" },
+  { "clave": "tut.app-entretenimiento--esencial.2.texto", "texto": "Masa, ekranda doğrudan oynanan dijital oyunları toplar. Bir filtre, bir ya da iki oyuncu için olanları daha büyük bir grup için uygun olanlardan ayırır." },
+  { "clave": "tut.app-entretenimiento--esencial.3.titulo", "texto": "Ailelere göre" },
+  { "clave": "tut.app-entretenimiento--esencial.3.texto", "texto": "Katalog ailelere göre gruplanmıştır — masa, zekâ, arcade, kart ve kumarhane, ve grup için — her birinin kendi rengiyle. Oyunu tam ekran açmak için herhangi bir karta dokun." },
+  { "clave": "tut.app-entretenimiento--esencial.4.titulo", "texto": "Arşiv" },
+  { "clave": "tut.app-entretenimiento--esencial.4.texto", "texto": "Arşiv izlediğin, okuduğun ve oynadığın şeyleri bir araya getirir: her yapımın durumu, puanı ve senin değerlendirmenle. Türe, kategoriye, yazara ya da tarihe göre sıralanabilir." },
+  { "clave": "tut.app-garage--esencial.1.titulo", "texto": "Garaj" },
+  { "clave": "tut.app-garage--esencial.1.texto", "texto": "Garaj araçlarını takip eder: bisikletler, arabalar, motosikletler ve ulaşım için kullandığın her şey. Her birinin kendi servis geçmişi ve işlemleri vardır, ve tarihi olan her şey kendiliğinden evin takvimine düşer." },
+  { "clave": "tut.app-garage--esencial.2.titulo", "texto": "Özet" },
+  { "clave": "tut.app-garage--esencial.2.texto", "texto": "Giriş sekmesi: bir trafik ışığı bir şeyin süresinin dolduğunu, yaklaştığını ya da garajın huzurlu olduğunu tek bakışta gösterir." },
+  { "clave": "tut.app-garage--esencial.3.titulo", "texto": "Bir bakışta" },
+  { "clave": "tut.app-garage--esencial.3.texto", "texto": "Kaç aracın olduğu, kaç işlemin hâlâ aktif olduğu ve bu yıl ne kadar harcadığın." },
+  { "clave": "tut.app-garage--esencial.4.titulo", "texto": "Araçlar" },
+  { "clave": "tut.app-garage--esencial.4.texto", "texto": "Her kartta plaka, kilometre ve servis sayısıyla tam liste. Birine dokunmak, servis geçmişi ve işlemleriyle kartını açar." },
+  { "clave": "tut.app-garage--esencial.5.titulo", "texto": "Yeni bir tane ekle" },
+  { "clave": "tut.app-garage--esencial.5.texto", "texto": "Ad, tür, marka, model, yıl, plaka ve bugünün kilometre sayacı. Plaka girildiğinde, kart yalnızca plakalı bir araca uygulanan işlemleri de açar, egzoz muayenesi ya da taşıt vergisi gibi." },
+  { "clave": "tut.app-hobbies--esencial.1.titulo", "texto": "Uğraşların" },
+  { "clave": "tut.app-hobbies--esencial.1.texto", "texto": "Hobiler, keyif için yaptığın şeyleri takip eder: her hobi kendi oturumlarını, serisini ve istersen projelerini toplar." },
+  { "clave": "tut.app-hobbies--esencial.2.titulo", "texto": "Hobilerin" },
+  { "clave": "tut.app-hobbies--esencial.2.texto", "texto": "Kaydettiğin her hobi burada bir kart olarak görünür, haftanın ilerlemesi ve aktif serisiyle. Birini açtığında istatistiklerini, yıllık etkinlik haritasını, oturum kaydını ve projelerini görürsün." },
+  { "clave": "tut.app-hobbies--esencial.3.titulo", "texto": "Bir hobi ekle" },
+  { "clave": "tut.app-hobbies--esencial.3.texto", "texto": "Bu buton yeni bir hobi eklemek için formu açar: ad, emoji, renk ve istersen pratik günlerinde haftalık bir hedef." },
+  { "clave": "tut.app-hobbies--esencial.4.titulo", "texto": "Her hobinin içinde" }
 ]

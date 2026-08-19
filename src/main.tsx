@@ -101,7 +101,7 @@ if (import.meta.env.DEV) void import('./demo/exportarCasa')
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    {/* La puerta del pago único: la casa PROPIA exige el unlock ($10.99 con el
+    {/* La puerta del pago único: la casa PROPIA exige el unlock ($6.99 con el
         primer mes de IA y sync incluido); la demo sigue gratis y los builds sin
         backend ni instalaciones previas no ven puerta (edicion.ts::tieneUnlock).
         Lo cobrable (créditos, sync) lo revalida además el servidor. */}

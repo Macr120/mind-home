@@ -30,7 +30,7 @@ export const tutorialCasa = tour(
   T('tut.casa.titulo', 'Tu casa'),
   T(
     'tut.casa.resumen',
-    'La casa es el mapa de tus apps: cada cuarto guarda una. Te mueves con el joystick o WASD, cambias de vista con V y abres el menú con el botón de arriba a la izquierda. El hueco de la esquina cambia solo según lo que tengas cerca; el reloj lleva el calendario, las rutinas y la música.',
+    'La casa es el mapa de tus apps: cada cuarto guarda una. Te mueves con el joystick o WASD, cambias de vista con V y abres el menú con el botón de arriba a la izquierda. El hueco de la esquina cambia solo según lo que tengas cerca; el reloj lleva el calendario y el paso del tiempo, y la música tiene su propio botón.',
   ),
   'cuerpoCasa',
 )
@@ -40,7 +40,7 @@ export const tutorialMenuCuartos = tour(
   T('tut.menu-cuartos.titulo', 'Menú · Cuartos'),
   T(
     'tut.menu-cuartos.resumen',
-    'La pestaña Cuartos lista los cuartos de tu casa por categoría, con su progreso. Cada tarjeta tiene Editar (personalizar el cuarto) y Entrar (abrir su app) o + Asignar si aún no tiene app. Arriba vive tu resumen: humor, rango y racha; abajo puedes crear cuartos nuevos.',
+    'La pestaña Cuartos lista los cuartos de tu casa por categoría, con su progreso. La tarjeta entera entra a la app —o dice + Asignar si aún no tiene—, y su engrane despliega las opciones: moverla en la lista, borrar el cuarto o editarlo. Arriba vive tu resumen: humor, rango y racha; abajo puedes crear cuartos nuevos.',
   ),
   'cuerpoMenuCuartos',
 )
@@ -135,6 +135,16 @@ export const tutorialEditorCuarto = tour(
   'cuerpoEditorCuarto',
 )
 
+export const tutorialInicio = tour(
+  'inicio',
+  T('tut.inicio.titulo', 'Pantalla de inicio'),
+  T(
+    'tut.inicio.resumen',
+    'La rejilla de tus cuartos con app, con la mecánica de un teléfono: un toque entra, la pulsación larga reordena, y cada tarjeta lleva su nivel, su racha y las misiones pendientes de hoy. Con fondo de pantalla propio y vista de iconos o en 3D.',
+  ),
+  'cuerpoInicio',
+)
+
 export const tutorialHerramientas = tour(
   'herramientas',
   T('tut.herramientas.titulo', 'Rueda de herramientas'),
@@ -150,7 +160,7 @@ export const tutorialNavegacion = tour(
   T('tut.navegacion.titulo', 'Cámara y movimiento'),
   T(
     'tut.navegacion.resumen',
-    'Hay tres vistas: isométrica, tercera y primera persona (tecla V). Te mueves con el joystick, WASD o flechas; el hueco de la esquina orienta la cámara salvo que tengas algo cerca, en cuyo caso ofrece esa acción en su lugar. En 3ª/1ª persona existe además el Editor 3D para tocar el mundo directamente.',
+    'Hay tres vistas: isométrica, tercera y primera persona (tecla V). Te mueves con el joystick, WASD o flechas; el hueco de la esquina orienta la cámara salvo que tengas algo cerca, en cuyo caso ofrece esa acción en su lugar. El botón Editor funciona en cualquier vista: en 3ª/1ª persona editas el mundo caminando por él.',
   ),
   'cuerpoNavegacion',
 )
@@ -160,7 +170,7 @@ export const tutorialChat = tour(
   T('tut.chat.titulo', 'El chat del arquitecto'),
   T(
     'tut.chat.resumen',
-    'El chat registra lo que le cuentes en la app correcta («corrí 20 min» va a Ejercicio), edita la casa por texto, dicta por voz y lee una foto. Cada asistente tiene su cara y su voz; el manual lista todo lo que puedes pedir, y lo que ya quedó registrado vive en su pestaña Registros.',
+    'El chat registra lo que le cuentes en la app correcta («corrí 20 min» va a Ejercicio), edita la casa por texto y dicta por voz; su + adjunta imágenes, PDF o fotos y abre la máscara y el chat AR. Cada asistente tiene su cara y su voz; el manual lista todo lo que puedes pedir, y lo registrado vive en su pestaña Registros.',
   ),
   'cuerpoChat',
 )
@@ -218,6 +228,7 @@ export const TUTORIALES_MENU: TutorialDef[] = [
   tutorialEditorConfig,
   tutorialRespaldo,
   tutorialEditorCuarto,
+  tutorialInicio,
   tutorialHerramientas,
   tutorialNavegacion,
   tutorialChat,

@@ -8,6 +8,7 @@ import { nombreAsistente, saludoAsistente } from '../chat/mascotas'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
 import { BotonVoz, ToggleVozAuto } from './BotonVoz'
+import { anclajeChat } from './hudMedida'
 
 /**
  * Overlay del modo diálogo cara a cara (estilo RPG): franja cinematográfica,
@@ -30,12 +31,12 @@ function DialogoActivo({ id }: { id: string }) {
   const pensando = useMascota((s) => s.pensando)
   const abrirConversacion = useMascota((s) => s.abrirConversacion)
   const conversacion = useMascota((s) => s.conversacion)
-  // El chat de abajo puede crecer (texto largo, botones que envuelven en
-  // móvil): la caja se ancla a su alto REAL, no a un hueco fijo que él mismo
-  // podría rebasar (mismo cálculo que `PilaPrompts`, sin depender del orden
-  // de montaje de los otros bloques del HUD).
-  const topes = useHud((s) => s.topes)
-  const bottomCaja = Math.max(96, ...Object.values(topes).map((p) => p + 12))
+  // La caja se apoya JUSTO encima del chat, con su mismo ancho: se ancla al alto
+  // real que él publica (`useTopeHud('chat')`), así sube sola cuando el chat crece
+  // (texto largo, hilo abierto, botones que envuelven en móvil). El 80 de reserva
+  // es para el instante previo a la primera medida.
+  const topeChat = useHud((s) => s.topes.chat) || 80
+  const menuAbierto = useHud((s) => s.menuAbierto)
 
   const a = lista.find((x) => x.id === id) ?? lista[0]
 
@@ -103,7 +104,7 @@ function DialogoActivo({ id }: { id: string }) {
 
   const visible = texto.slice(0, reveladas)
   return (
-    <div className="ui-noche pointer-events-none absolute inset-0 z-40">
+    <div className="pointer-events-none absolute inset-0 z-40">
       {/* Franja cinematográfica superior */}
       <div className="absolute inset-x-0 top-0 h-[6vh] bg-black/80" aria-hidden />
 
@@ -116,7 +117,7 @@ function DialogoActivo({ id }: { id: string }) {
           onClick={salir}
           aria-label={t('dialogo.salir', 'Terminar la conversación (Esc)')}
           className="pointer-events-auto absolute inset-x-0 top-0 cursor-default"
-          style={{ bottom: bottomCaja - 16 }}
+          style={{ bottom: topeChat }}
         />
       )}
 
@@ -147,8 +148,8 @@ function DialogoActivo({ id }: { id: string }) {
       </div>
 
       {/* Caja de diálogo RPG; responder se hace en el chat de abajo */}
-      <div className="absolute inset-x-0 z-10 flex justify-center px-4" style={{ bottom: bottomCaja }}>
-        <div className="relative w-full max-w-2xl">
+      <div className={`absolute z-10 ${anclajeChat(menuAbierto)}`} style={{ bottom: topeChat + 8 }}>
+        <div className="relative w-full">
           {/* Escuchar esta réplica + lectura automática, junto al texto que leen. */}
           <div className="pointer-events-auto absolute end-3 top-3 z-10 flex items-center gap-0.5 text-sm">
             <BotonVoz texto={texto} asistenteId={id} />

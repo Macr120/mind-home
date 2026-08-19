@@ -16,7 +16,7 @@ Complementa a [`BACKEND.md`](BACKEND.md) (arquitectura del proxy y la cuota).
 3. **El modelo 3D estaba mal calibrado**: cobraba 5 créditos y cuesta ~10. Con
    600 créditos gastados solo en 3D el COGS real superaba el precio del plan.
    Esa era la fuga principal y queda cerrada.
-4. **Precio: 4.99 USD/mes** (antes 67 MXN ≈ $3.60), con precio local por región.
+4. **Precio: 6 USD/mes** en el nivel ×1 (histórico: 67 MXN ≈ $3.60 → $4.99 → $6), con precio local por región. Ver «Precio vigente».
 
 ## Precios de proveedor (agosto 2026)
 
@@ -344,7 +344,7 @@ costaban ~$5.90.
 Con la imagen a 3 créditos, quien gaste todo en imágenes cuesta $1.17, así que el
 techo real lo marca `modelo3d` (70 × $0.049 = $3.43). `texto_largo` era el único
 que se pasaba (233 planes × $0.0225 = $5.24); con la tarifa a 4 quedó contenido.
-**Decisión ago 2026: `creditos_mes = 700`** (contrapartida del precio a $4.99).
+**Decisión ago 2026: `creditos_mes = 700`** (por nivel; el precio del nivel ×1 es hoy $6).
 
 > ### ⚠️ Corrección (auditoría ago 2026): el techo nunca estuvo sellado
 >
@@ -386,7 +386,7 @@ que se pasaba (233 planes × $0.0225 = $5.24); con la tarifa a 4 quedó contenid
 > precio introductorio de Sonnet 5 **acaba el 31-ago-2026**: a partir de ahí
 > `modelo3d` sube ~50 %.
 >
-> Estrategia acordada: mantener 700 créditos y $4.99, documentar el riesgo y
+> Estrategia acordada: mantener 700 créditos por nivel, documentar el riesgo y
 > bajar el COSTE (topes y límites de entrada) en vez de subir la tarifa.
 
 Infraestructura: Supabase Pro $25/mes fijos (+$0.09/GB egress); repartido desde
@@ -394,36 +394,66 @@ Infraestructura: Supabase Pro $25/mes fijos (+$0.09/GB egress); repartido desde
 $2,500 MTR. **Ojo con el modo local gratis**: trae usuarios con ingreso cero que
 igual consumen auth y egress. Medirlo antes de promocionar fuerte.
 
-## Precio vigente (decisión de negocio, 15-ago-2026)
+## Precio vigente (decisión de negocio, 18-ago-2026)
 
-**Unlock: 10.99 USD, pago único** (`unlock_casa`): desbloquea la casa para
-siempre e incluye el **primer mes** — plan `trial` de 30 días con el pool de
-700 créditos + sync, sin tarjeta ni suscripción (migración `20260815000001`,
-webhook). La demo gratis (no persistente) es el free tier. La aritmética del
-precio: $6 por la app (el unlock viejo) + $5 por el mes de IA incluido; $10.99
-por umbral psicológico.
-**Pro: 4.99 USD/mes**, precio local por región, solo mensual, vendido únicamente
-en la web. **Recargas: 150 / 600 / 1500 créditos** ($1.99 / $4.99 / $9.99), con
-o sin suscripción, sin caducidad — siguen siendo la vía de IA sin plan.
+La regla que ordena toda la tabla: **6 USD = 700 créditos**, venga de donde
+venga, y de esos 6 USD la ganancia mínima tiene que ser **2 USD**. Como la
+pasarela se lleva ~$0.47 (Stripe 2.9% + $0.30), el gasto real de IA no puede
+pasar de $3.53 — y 700 créditos × $0.005 (el ancla de COGS) son **$3.50
+exactos**. Por eso el bucket pasa a `techo_factor = 1.00` (migración
+`20260818000003`): el tope ES el valor ancla de los créditos consumidos, sin el
+10% de colchón que antes dejaba la ganancia en $1.68.
 
-| Concepto (canal web, Stripe 2.9% + $0.30, RC 1%) | Neto | COGS | Margen |
+- **Unlock: 6.99 USD, pago único** (`unlock_casa_v3`): desbloquea la casa para
+  siempre e incluye el **primer mes** — plan `trial` de 30 días con el pool de
+  700 créditos + sync, sin tarjeta ni suscripción (migración `20260815000001`,
+  webhook). La demo gratis (no persistente) es el free tier. Es el precio de
+  ADQUISICIÓN: $6.99 por la app entera con el mes de IA dentro, la barrera más
+  baja que deja la regla de los $2.
+- **Pro: 6 / 12 / 18 USD al mes** (`pro_x1_v2` / `pro_x2_v2` / `pro_x3_v2`) por
+  700 / 1400 / 2100 créditos + sync, precio local por región, vendido únicamente
+  en la web.
+- **Anualidad: 60 USD/año** (`pro_x1_anual`): el nivel ×1 pagado de una vez, con
+  los mismos 700 créditos CADA MES. Equivale a $5/mes = dos meses de regalo, y
+  por tanto **rompe a propósito la regla de los $2**: con el techo mensual de
+  $3.50 el peor caso deja $15.96 al año (~$1.33/mes) en vez de $24. Es una
+  decisión de negocio (retención y cobro único) asumida con los ojos abiertos;
+  el ponderado real (~$0.0033/cr → ~$2.31/mes de COGS) deja ~$30/año.
+- **Créditos: 6 USD por 700** (`creditos_x1`), consumible sin suscripción, no
+  caducan y se gastan cuando el pool mensual ya no alcanza. Mismo precio por
+  crédito que la suscripción a propósito: la sub se elige por el sync y por no
+  tener que volver a comprar, no por descuento.
+
+| Concepto (canal web, Stripe 2.9% + $0.30, RC 1%) | Neto | COGS máx | Ganancia mínima |
 |---|---|---|---|
-| Unlock $10.99, comprador típico (trial ~$1.80) | ~$10.26 | ~$1.80 | **~77%** |
-| Unlock $10.99, peor caso con bucket (K=1.1 → $3.85) | ~$10.26 | ~$3.85 | **~58%** |
-| Unlock $10.99 en tienda al 30%, peor caso | ~$7.69 | ~$3.85 | **~35%** |
-| Suscriptor ponderado | ~$4.50 | ~$1.80 | **~60%** |
-| Peor caso: 700 créditos completos (con bucket) | ~$4.50 | ~$3.85 | **~14%** |
-| Recarga 600 ($4.99), tope bucket $3.30 | ~$4.50 | hasta $3.30 | **~27%** |
-| Recarga 150 ($1.99) | ~$1.63 | hasta $0.83 | **~49%** |
+| Unlock $6.99, comprador típico (trial ~$1.80) | ~$6.42 | ~$1.80 | **~$4.62** |
+| Unlock $6.99, peor caso con bucket ($3.50) | ~$6.42 | $3.50 | **~$2.92** |
+| Pro ×1 $6 | ~$5.53 | $3.50 | **~$2.03** |
+| Pro ×2 $12 | ~$11.30 | $7.00 | **~$4.30** |
+| Pro ×3 $18 | ~$17.08 | $10.50 | **~$6.58** |
+| Créditos $6 (700 cr) | ~$5.53 | $3.50 | **~$2.03** |
+| Anual $60 (700 cr/mes × 12) | ~$57.96 | $42.00 | **~$15.96/año** |
+| Suscriptor ×1 ponderado (real ~$0.0033/cr) | ~$5.53 | ~$2.31 | **~$3.22** |
+
+El «COGS máx» de la tabla es un tope DURO, no una estimación: el bucket deniega
+la llamada en cuanto el gasto real del mes alcanza `créditos_consumidos ×
+$0.005`. El único desbordamiento posible es la llamada que cruza el umbral
+(≤ $0.05), muy por debajo del límite de $4 por cada $6 que fija la regla.
 
 **El bucket es prerequisito del precio**: sin él, el peor caso real de 700
 créditos era ~$14 (ver «Corrección de auditoría») y el unlock vendía el mes
 incluido a pérdida. Con el bucket, el COGS por usuario queda matemáticamente
 acotado (ver la sección siguiente).
 
+En tienda (comisión 30%) los números NO cierran para la suscripción: $6 − 30% =
+$4.20 contra $3.50 de COGS máximo. Por eso Pro y los créditos se siguen
+vendiendo solo en la web; si algún día hay IAP nativo, el precio de tienda tiene
+que ser otro.
+
 Costos fijos (fuera del COGS por usuario): Supabase Pro $25/mes + dominio y
 hosting estático ~$2 + Apple Developer $99/año cuando haya iOS ≈ **$26–35/mes**.
-Con el unlock a $10.99, 4–6 ventas al mes cubren toda la infraestructura.
+Con el unlock a $6.99 (margen típico ~$4.62), 6–8 ventas al mes cubren toda la
+infraestructura.
 Mejora estructural: la demo no toca el backend, así que todo el que consume
 auth/egress pagó al menos el unlock (adiós al riesgo del «modo local gratis» de
 la nota de arriba).
@@ -439,12 +469,17 @@ tarifa, o fijo en imagen/voz/tts) y lo acumula en `uso_ia.usd` vía
 usd_mes >= greatest(techo_piso_usd, (créditos consumidos + costo_op) × $0.005 × techo_factor)
 ```
 
-- `techo_factor` = **1.1** y `techo_piso_usd` = **$0.50**, por plan en
-  `limites_plan` (ajustables sin migración).
-- Con K=1.1: 700 cr → tope $3.85 (< $4.50 netos de Pro web); 600 cr de recarga
-  → $3.30 (< $3.50 netos de tienda al 30%). K=1.0 castigaría usos legítimos
-  pesados (chat de editor con tools cacheadas ronda $0.0153/cr en ráfagas);
-  K=1.25 rompería el margen de recargas en tienda.
+- `techo_factor` = **1.00** (desde `20260818000003`; antes 1.1) y
+  `techo_piso_usd` = **$0.50**, por plan en `limites_plan` (ajustables sin
+  migración).
+- Con K=1.0 el tope ES el valor ancla de lo consumido: 700 cr → **$3.50**,
+  1400 → $7.00, 2100 → $10.50. Lo fija la regla de negocio de ago-2026: de cada
+  $6 cobrados, $2 de ganancia mínima, y la pasarela ya se lleva ~$0.47. K=1.1
+  dejaba la ganancia del nivel ×1 en $1.68; K=1.25 la dejaba en $1.30.
+- Contrapartida asumida: un uso legítimo pesado (chat de editor con tools sin
+  caché ronda $0.0153/cr en ráfagas) puede tocar el techo antes de agotar los
+  créditos. Es el precio de que el margen no dependa del comportamiento; si se
+  ve en la telemetría, la palanca es el caché de prompts, no el factor.
 - El techo ESCALA con los créditos consumidos: quien recarga más tiene más
   margen. El ponderado real es $0.0033/cr, así que >97% de usuarios no lo tocan
   nunca — es anti-abuso, no una tarifa.

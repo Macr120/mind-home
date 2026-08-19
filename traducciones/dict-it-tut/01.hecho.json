@@ -1,38 +1,39 @@
 [
-  {
-    "clave": "tut.hoy.1.texto",
-    "texto": "Nell'intestazione di ogni app vive il suo pulsante Obiettivi, come quello del calendario ma limitato a quest'app. Apre un pannello a due piani: sopra la checklist di oggi, sotto i suoi obiettivi e piani."
-  },
-  {
-    "clave": "tut.hoy.2.texto",
-    "texto": "Gli obiettivi propri dell'app (l'acqua, le calorie), quello che hai programmato per oggi nel calendario e i passi dei tuoi obiettivi in corso: tutto insieme, raggruppato sotto il piano o l'obiettivo da cui viene ogni passo."
-  },
-  {
-    "clave": "tut.hoy.7.texto",
-    "texto": "E se ti manca qualcosa, «Nuova checklist» crea la tua: una lista propria di quest'app che si ripete ogni giorno. Sotto la sezione Oggi c'è il pianificatore completo — Obiettivi, Piani e Programma — con tutti gli obiettivi dell'app."
-  },
-  {
-    "clave": "tut.app-hobbies--gestion.4.texto",
-    "texto": "Gli obiettivi dei tuoi hobby e progetti vivono nel pulsante Obiettivi dell'intestazione: lo stesso pianificatore Obiettivi · Piani · Programma del calendario, limitato a quest'app. Chiedi all'IA un piano con fasi e date."
-  },
-  {
-    "clave": "tut.app-biblioteca--estudio.2.texto",
-    "texto": "Gli obiettivi vivono nel pulsante Obiettivi dell'intestazione, lo stesso programma del calendario: «finire termodinamica prima del compito» è già raggiunto; prepararsi per la magistrale è ancora in corso."
-  },
-  {
-    "clave": "tut.app-ejercicio--anio.3.texto",
-    "texto": "Il pulsante Obiettivi dell'intestazione conserva i suoi quattro obiettivi raggiunti — i 5K, i 10K, la mezza maratona e la maratona — e quello ancora aperto. Gli obiettivi con data compaiono anche nel calendario di casa."
-  },
-  {
-    "clave": "tut.app-cocina--cronograma.1.texto",
-    "texto": "Il pulsante Obiettivi dell'intestazione apre lo stesso programma che usa il calendario di casa, limitato agli obiettivi della Cucina: crea un obiettivo (ad es. «Perdere 3 chili») e chiedi il piano all'IA — ti chiede la data obiettivo e pianifica sotto-obiettivi con la loro data."
-  },
-  {
-    "clave": "tut.app-despacho--metas.2.texto",
-    "texto": "Il pulsante Obiettivi dell'intestazione conserva questi obiettivi sull'asse del tempo: dai una data a uno di essi e compare tra i tuoi giorni del calendario. Con ✨ l'IA propone il piano di versamenti."
-  },
-  {
-    "clave": "tut.app-entretenimiento--programas.2.texto",
-    "texto": "Il programma salvato vive nel pulsante Obiettivi dell'intestazione: ogni titolo conserva la sua nota sul perché è nella lista, e se gli dai una data scende nel calendario come qualsiasi altro obiettivo."
-  }
+  { "clave": "tut.app-agenda--esencial.1.titulo", "texto": "La tua agenda" },
+  { "clave": "tut.app-agenda--esencial.1.texto", "texto": "L’agenda custodisce quello che non è un’abitudine: cose da fare, appuntamenti, contatti. Sono tre schede, e tutto ciò che ha una data si programma da solo nel calendario della casa." },
+  { "clave": "tut.app-agenda--esencial.2.titulo", "texto": "Lavoro" },
+  { "clave": "tut.app-agenda--esencial.2.texto", "texto": "L’elenco raccoglie le cose da fare senza data perché non si perdano, e la bacheca sposta i tuoi compiti per colonne: da fare, in corso e fatto." },
+  { "clave": "tut.app-agenda--esencial.3.titulo", "texto": "Salute" },
+  { "clave": "tut.app-agenda--esencial.3.texto", "texto": "Appuntamenti medici, farmaci e cure, in tre sottoschede: Tu, Persone care (chi è affidato alle tue cure) e Animali." },
+  { "clave": "tut.app-agenda--esencial.4.titulo", "texto": "Persone" },
+  { "clave": "tut.app-agenda--esencial.4.texto", "texto": "La tua rubrica di contatti per relazione. I compleanni che salvi si ripetono da soli ogni anno nel calendario." },
+  { "clave": "tut.calendario--esencial.1.titulo", "texto": "L’orologio della casa" },
+  { "clave": "tut.calendario--esencial.1.texto", "texto": "Il calendario non è una stanza: vive nell’orologio dell’HUD, quindi si apre da dove sei senza entrare da nessuna parte." },
+  { "clave": "tut.calendario--esencial.2.titulo", "texto": "Tutto ciò che è programmato, insieme" },
+  { "clave": "tut.calendario--esencial.2.texto", "texto": "Qui cade tutto ciò che ha data e ora: quello che crei con «+ Nuovo» o tracciando sulla griglia, e quello che le altre app programmano da sole. Il filtro in alto lascia vedere una sola app quando si accumula troppo." },
+  { "clave": "tut.calendario--esencial.3.titulo", "texto": "Giorno" },
+  { "clave": "tut.calendario--esencial.3.texto", "texto": "La griglia di una giornata di 24 ore: serve per vedere a che ora si trova ogni cosa e se qualcosa si sovrappone. Questo pulsante ha una doppia funzione: dice «Oggi» e ti riporta al presente, oppure «Giorno» se stai già guardando un’altra data." },
+  { "clave": "tut.calendario--esencial.4.titulo", "texto": "Settimana" },
+  { "clave": "tut.calendario--esencial.4.texto", "texto": "La stessa griglia oraria, ma con i sette giorni fianco a fianco. È qui che si vede come si distribuisce la settimana, e dove i blocchi si trascinano da un giorno all’altro o si allungano per durare di più." },
+  { "clave": "tut.calendario--esencial.5.titulo", "texto": "Mese" },
+  { "clave": "tut.calendario--esencial.5.texto", "texto": "Abbandona l’asse delle ore e dipinge i giorni come caselle con quello che capita in ognuno. È la vista d’insieme: quali settimane si preannunciano cariche e quali giorni restano liberi." },
+  { "clave": "tut.calendario--esencial.6.titulo", "texto": "Anno" },
+  { "clave": "tut.calendario--esencial.6.texto", "texto": "I dodici mesi tutti insieme. A questa distanza le ore non si leggono più: quello che si vede è la costanza, quanto hai mantenuto ciò che ti sei proposto lungo tutto l’anno." },
+  { "clave": "tut.calendario--esencial.7.titulo", "texto": "E le missioni, a parte" },
+  { "clave": "tut.calendario--esencial.7.texto", "texto": "In rosso, perché non si legga come una quinta vista: Missioni riunisce in un’unica schermata la checklist di oggi di tutte le app. Gli obiettivi e i loro piani non sono qui — vivono nella loro stanza." },
+  { "clave": "tut.app-anecdotario--esencial.1.titulo", "texto": "Il tuo diario personale" },
+  { "clave": "tut.app-anecdotario--esencial.1.texto", "texto": "Il diario dei ricordi custodisce quello che vuoi raccontare, con il suo umore e le sue foto. Si organizza da solo per data, senza che tu debba classificare nulla." },
+  { "clave": "tut.app-anecdotario--esencial.2.titulo", "texto": "Così si scrive" },
+  { "clave": "tut.app-anecdotario--esencial.2.texto", "texto": "Scegli l’umore del giorno, scrivi quello che vuoi raccontare e allega foto se ne hai. Anche solo una foto, senza testo, va bene." },
+  { "clave": "tut.app-anecdotario--esencial.3.titulo", "texto": "Il calendario dell’umore" },
+  { "clave": "tut.app-anecdotario--esencial.3.texto", "texto": "Ogni giorno si colora con l’umore della sua voce, così l’intero mese si legge con un’occhiata. Tocca un giorno per vedere le sue voci sotto." },
+  { "clave": "tut.app-anecdotario--esencial.4.titulo", "texto": "La cronologia" },
+  { "clave": "tut.app-anecdotario--esencial.4.texto", "texto": "Tutte le voci restano qui, organizzate da sole in cartelle per anno, mese e settimana." },
+  { "clave": "tut.app-biblioteca--esencial.1.titulo", "texto": "La tua biblioteca" },
+  { "clave": "tut.app-biblioteca--esencial.1.texto", "texto": "La biblioteca è la tua enciclopedia personale: chiedi quello che non sai, salvi quello che impari e tieni il conto di quello che studi. Sono quattro schede." },
+  { "clave": "tut.app-biblioteca--esencial.2.titulo", "texto": "Chat" },
+  { "clave": "tut.app-biblioteca--esencial.2.texto", "texto": "Qui chiedi al Saggio su qualsiasi argomento e la conversazione resta salvata. Ogni chat si classifica da sola nel suo campo di conoscenza ed esce distillata come scheda dell’enciclopedia." },
+  { "clave": "tut.app-biblioteca--esencial.3.titulo", "texto": "Enciclopedia" },
+  { "clave": "tut.app-biblioteca--esencial.3.texto", "texto": "L’albero dove vive quello che impari, ordinato per campo di conoscenza. Ogni scheda porta il suo riassunto e i suoi punti chiave, e puoi anche scriverle a mano; con la matita fai crescere l’indice su misura per te." },
+  { "clave": "tut.app-biblioteca--esencial.4.titulo", "texto": "Studio" }
 ]

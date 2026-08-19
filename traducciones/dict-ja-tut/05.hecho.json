@@ -1,146 +1,130 @@
 [
   {
-    "clave": "tut.respaldo.3.texto",
-    "texto": "「復元」は今あるデータをすべてファイルの中身に置き換えます。先に確認を求め、レコードが何件入っているかも表示するので、不意打ちはありません。"
+    "clave": "tut.app-hobbies--esencial.4.texto",
+    "texto": "そこでは練習を分数とメモで記録し、1年分のヒートマップを見て、それぞれ進み具合のあるプロジェクトを進められます。目標とそのスケジュールは目標の部屋にあります。"
   },
   {
-    "clave": "tut.respaldo.4.texto",
-    "texto": "端末を替えるとき、ブラウザを替えるとき、あるいはときどきでいいのでバックアップしておきましょう。アカウントがなければ、これが唯一の控えです。"
+    "clave": "tut.app-ideas--esencial.1.titulo",
+    "texto": "アイデア"
   },
   {
-    "clave": "tut.editor-cuarto.1.texto",
-    "texto": "いま編集しているのは特定の部屋です。見取り図もカメラも、家全体ではなくその部屋に焦点を合わせます。"
+    "clave": "tut.app-ideas--esencial.1.texto",
+    "texto": "アイデアは、思いついたことを残し、育てるのを助けます。まず書き留め、次にマップで整理し、必要なら比べて決めます。メニューは3つです。"
   },
   {
-    "clave": "tut.editor-cuarto.2.titulo",
-    "texto": "編集できるもの"
+    "clave": "tut.app-ideas--esencial.2.titulo",
+    "texto": "アイデア日記"
   },
   {
-    "clave": "tut.editor-cuarto.2.texto",
-    "texto": "部屋の形、床、壁、ドア、色、名前、そしてオブジェクト。割り当てるアプリもここで変えられます。このパネルを開く理由で一番多いのがこれです。"
+    "clave": "tut.app-ideas--esencial.2.texto",
+    "texto": "思いついたことが落ちてくる場所です。ひとつずつでも、テーマごとのブレインストーミングとしてまとめてもかまいません。フォルダに整理したり、星をつけたり、育ってきたらマップに変えたりできます。"
   },
   {
-    "clave": "tut.editor-cuarto.3.titulo",
-    "texto": "マップに戻る"
+    "clave": "tut.app-ideas--esencial.3.titulo",
+    "texto": "コンセプトマップ"
   },
   {
-    "clave": "tut.editor-cuarto.3.texto",
-    "texto": "この矢印はエディターを閉じずに全体マップへ戻ります。そのまま別の部屋の作業を続けられます。"
+    "clave": "tut.app-ideas--esencial.3.texto",
+    "texto": "テーマにいちばん合う形式で整理できる、自由なキャンバスです。マインドマップ、ツリー、フロー、タイムライン、サイクル、ピラミッド、ベン図などがあります。"
   },
   {
-    "clave": "tut.editor-cuarto.4.texto",
-    "texto": "3Dの部屋の上にも「部屋を出る」というフローティングボタンがあります。そちらをタップしても大丈夫です。"
+    "clave": "tut.app-ideas--esencial.4.titulo",
+    "texto": "決定図"
   },
   {
-    "clave": "tut.herramientas.1.texto",
-    "texto": "このボタンでキャラクターのツールホイールが開きます。"
+    "clave": "tut.app-ideas--esencial.4.texto",
+    "texto": "同じキャンバスに、決めるための形式が揃っています。重みつきのメリット・デメリット、SWOT分析、アイゼンハワーマトリクス、選択肢を自動で並べ替える重み付け意思決定マトリクスです。"
   },
   {
-    "clave": "tut.herramientas.2.titulo",
-    "texto": "2つのレベル"
+    "clave": "tut.app-idiomas--esencial.1.titulo",
+    "texto": "あなたの語学スクール"
   },
   {
-    "clave": "tut.herramientas.2.texto",
-    "texto": "まずカテゴリーを選び、その中から具体的なツールを選びます。同時に最大3つまで装備でき、カテゴリーは同じでも別々でもかまいません。"
+    "clave": "tut.app-idiomas--esencial.1.texto",
+    "texto": "ここでは言語を選び、AIの先生と話し、覚えた語彙を保存して、間隔反復で復習します。メニューは4つ。チャット、シラバス、復習、進捗です。"
   },
   {
-    "clave": "tut.herramientas.3.titulo",
-    "texto": "4つ目のカテゴリー"
+    "clave": "tut.app-idiomas--esencial.2.titulo",
+    "texto": "チャット"
   },
   {
-    "clave": "tut.herramientas.3.texto",
-    "texto": "「建築」はおもちゃを装備しません。エディター全体を開かずに、マップの描画モード（部屋、壁、ドア、窓、床、屋根）を有効にします。同じ見取り図に、より速くたどり着けるだけです。"
+    "clave": "tut.app-idiomas--esencial.2.texto",
+    "texto": "学んでいる言語で先生と会話します。あなたのレベルに合わせて答え、やさしく直してくれます。チャットは保存されて自動で分類され、終わるときには新しい語彙をカードとして取り出すか聞いてくれます。"
   },
   {
-    "clave": "tut.herramientas.4.titulo",
-    "texto": "中央"
+    "clave": "tut.app-idiomas--esencial.3.titulo",
+    "texto": "シラバス"
   },
   {
-    "clave": "tut.herramientas.4.texto",
-    "texto": "中央を押すと装備をすべて外し、隅のボタンを元の状態に戻します（視点キューブか、近くにあるものに応じた別のボタンです）。"
+    "clave": "tut.app-idiomas--esencial.3.texto",
+    "texto": "言語をトピック・発音・文法に分け、初級から最上級まで並べます。語彙はトピックの中にあり、カードは訳と例文つきでそこに保存されます。"
   },
   {
-    "clave": "tut.herramientas.5.texto",
-    "texto": "ホイールの外をタップすれば閉じます。いつでも試してみてください。ここで選んだものは保存されず、装備している間だけのものです。"
+    "clave": "tut.app-idiomas--esencial.4.titulo",
+    "texto": "復習"
   },
   {
-    "clave": "tut.navegacion.1.texto",
-    "texto": "カメラは3つ。アイソ（ドールハウス視点）、3人称、1人称です。ここか、Vキーで切り替えます。"
+    "clave": "tut.app-idiomas--esencial.4.texto",
+    "texto": "間隔反復による復習です。カードはそれぞれの箱に入り、忘れかけているものだけが出てきます。ただ眺めるのではなく、選択問題、逆向き、文の穴埋めといった練習問題で覚え直します。"
   },
   {
-    "clave": "tut.navegacion.2.titulo",
-    "texto": "向きを変える"
+    "clave": "tut.app-idiomas--esencial.5.titulo",
+    "texto": "進捗"
   },
   {
-    "clave": "tut.navegacion.2.texto",
-    "texto": "アイソではキューブが面ごとにカメラを回します。3人称・1人称ではパッドをドラッグして見回します。"
+    "clave": "tut.app-idiomas--esencial.5.texto",
+    "texto": "上達のまとめです。覚えきったカードの数、どれだけ復習したか、今のレベル、そして日ごとの復習の履歴がわかります。"
   },
   {
-    "clave": "tut.navegacion.3.titulo",
-    "texto": "近くに何かあるとき"
+    "clave": "tut.app-jardin--esencial.1.titulo",
+    "texto": "心を落ち着ける場所"
   },
   {
-    "clave": "tut.navegacion.3.texto",
-    "texto": "同じ場所は、操作できるものに近づくとカメラではなくなります。コートなら遊ぶボタン、乗り物なら乗るボタン、椅子なら座るボタンです。出るのは一度に1つだけ、しかも近づいたときだけで、勝手に始まることはありません。"
+    "clave": "tut.app-jardin--esencial.1.texto",
+    "texto": "庭には3つの実践があります。瞑想、ガイド付きの呼吸法、そして感謝です。ポイントも連続記録もあえてありません。ここでは休んでも責められることはなく、実践に静かに寄り添うだけです。"
   },
   {
-    "clave": "tut.navegacion.4.titulo",
-    "texto": "回転と中央表示"
+    "clave": "tut.app-jardin--esencial.2.titulo",
+    "texto": "瞑想"
   },
   {
-    "clave": "tut.navegacion.4.texto",
-    "texto": "視点を左右に回したり、探検して迷ったときはマップの中央に戻したりできます。"
+    "clave": "tut.app-jardin--esencial.2.texto",
+    "texto": "音声トラックと長さを選ぶか、始まりと終わりの鐘だけで静かに瞑想します。セッションはひとつずつ履歴に保存されます。"
   },
   {
-    "clave": "tut.navegacion.5.titulo",
-    "texto": "移動する"
+    "clave": "tut.app-jardin--esencial.3.titulo",
+    "texto": "呼吸法"
   },
   {
-    "clave": "tut.navegacion.5.texto",
-    "texto": "ジョイスティック、WASD、矢印キーで歩けます。水の中では泳ぎ、乗り物に乗っているときは同じ操作で運転できます。"
+    "clave": "tut.app-jardin--esencial.3.texto",
+    "texto": "ガイド付きの呼吸パターンが2つ。ひとつは気持ちを整えるため、もうひとつは一日を手放すためのものです。進むあいだ、画面が一緒に呼吸します。"
   },
   {
-    "clave": "tut.navegacion.6.texto",
-    "texto": "3人称・1人称では「3Dエディター」ボタンが出ます。オブジェクトや壁、キャラクターをタップすると、アイソメトリック視点に戻らずその場で編集できます。"
+    "clave": "tut.app-jardin--esencial.4.titulo",
+    "texto": "感謝"
   },
   {
-    "clave": "tut.chat.1.texto",
-    "texto": "建築家チャットです。一日の記録、家の編集、疑問への回答が、すべて同じ入力欄からできます。"
+    "clave": "tut.app-jardin--esencial.4.texto",
+    "texto": "今日ありがたかったことを、ひとつだけでも書き留めます。前に書いたものは、いつでも読み返せます。連続記録はありません。一日空けても、何も消えません。"
   },
   {
-    "clave": "tut.chat.2.titulo",
-    "texto": "書く"
+    "clave": "tut.app-metas--esencial.1.titulo",
+    "texto": "家じゅうの計画を立てる場所"
   },
   {
-    "clave": "tut.chat.2.texto",
-    "texto": "自由に書いてください。「20分走った」「スーパーで250使った」…。横のチップが、どのアプリに届くかを示します。行き先を外したときは @部屋 で指定できます。"
+    "clave": "tut.app-metas--esencial.1.texto",
+    "texto": "この部屋には独自の記録はありません。ほかのアプリで生まれた目標とプランを一か所に集めるだけです。メニューは3つ。この順に読みます。何をやると決めたか、それをどう分けるつもりか、そしていつになるかです。"
   },
   {
-    "clave": "tut.chat.3.titulo",
-    "texto": "音声で入力"
+    "clave": "tut.app-metas--esencial.2.titulo",
+    "texto": "目標"
   },
   {
-    "clave": "tut.chat.3.texto",
-    "texto": "マイクは話した内容をそのまま入力欄に書き起こします。手がふさがったままでも記録できて便利です。"
+    "clave": "tut.app-metas--esencial.2.texto",
+    "texto": "やると決めたことの一覧を、それを担当するアプリごとにまとめます。目標は別の目標の下にぶら下げられ、タップするとそのシートが開きます。そこに期限、ステップ、そして専用のスケジュールへの入口があります。"
   },
   {
-    "clave": "tut.chat.4.titulo",
-    "texto": "写真を送る"
-  },
-  {
-    "clave": "tut.chat.4.texto",
-    "texto": "AIをオンにしていれば、レシートや料理、体重計の写真をそのまま読み取ります。AIがなければ、このボタンは使えません。"
-  },
-  {
-    "clave": "tut.chat.5.titulo",
-    "texto": "アシスタント"
-  },
-  {
-    "clave": "tut.chat.5.texto",
-    "texto": "アシスタントが返事に顔と声をつけてくれます。タップすると会話を見たり、別のアシスタントに替えたり、新しく作ったりできます。"
-  },
-  {
-    "clave": "tut.chat.6.titulo",
-    "texto": "マニュアル"
+    "clave": "tut.app-metas--esencial.3.titulo",
+    "texto": "プラン"
   }
 ]

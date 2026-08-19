@@ -85,7 +85,6 @@ export function FormHobby({ hobby, onCerrar }: { hobby?: Hobby; onCerrar: () => 
           onCambio={(id) => setMeta(Number(id))}
           color={COLOR}
           variante="sub"
-          nivel={3}
           flecha={false}
           desplazable
         />

@@ -1,22 +1,57 @@
 [
   {
-    "clave": "ajustes.idioma.ja",
-    "en": "Japanese"
+    "clave": "tut.esencial.titulo",
+    "es": "Lo esencial",
+    "en": "The essentials"
   },
   {
-    "clave": "ajustes.idioma.zh",
-    "en": "Chinese"
+    "clave": "tut.tipo.ejemplos",
+    "es": "Ejemplos · casa demo",
+    "en": "Examples · demo house"
   },
   {
-    "clave": "ajustes.idioma.ko",
-    "en": "Korean"
+    "clave": "tut.app-agenda--esencial.resumen",
+    "es": "La agenda lleva lo que no es un hábito, en tres menús: Trabajo (pendientes y tablero), Salud (citas, medicamentos y cuidados: tuyos, de tus prójimos y de tus mascotas) y Personas (contactos y cumpleaños). Todo lo que lleva fecha se agenda solo en el calendario.",
+    "en": "The agenda holds what isn't a habit, in three menus: Work (to-dos and board), Health (appointments, medication and care: yours, your loved ones' and your pets') and People (contacts and birthdays). Everything with a date lands in the calendar by itself."
   },
   {
-    "clave": "ajustes.idioma.ru",
-    "en": "Russian"
+    "clave": "tut.calendario--esencial.resumen",
+    "es": "El calendario no es un cuarto: vive en el reloj de la casa y reúne todo lo que tiene fecha y hora, lo que creas a mano y lo que agendan solas las demás apps. Se mira de cuatro maneras: Día y Semana sobre la rejilla de horas, Mes y Año para el panorama. Aparte va Misiones, el botón rojo con la checklist de hoy de todas las apps juntas.",
+    "en": "The calendar isn't a room: it lives in the house clock and gathers everything with a date and time, what you create by hand and what the other apps schedule on their own. There are four ways to look at it: Day and Week on the hourly grid, Month and Year for the big picture. Missions sits apart, the red button with today's checklist from every app at once."
   },
   {
-    "clave": "ajustes.idioma.hi",
-    "en": "Hindi"
+    "clave": "tut.app-anecdotario--esencial.resumen",
+    "es": "El anecdotario es tu diario personal: entradas con ánimo, texto y fotos que se guardan solas por fecha. Un calendario pinta cada día según tu ánimo, y el historial las archiva en carpetas por año, mes y semana.",
+    "en": "Anecdotario is your personal diary: entries with a mood, text and photos that save themselves by date. A calendar colors each day by your mood, and the history archives them in folders by year, month and week."
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.resumen",
+    "es": "La biblioteca es tu enciclopedia personal, en cuatro menús: Charlas (preguntas al Sabio y cada conversación se archiva y se destila en ficha), Enciclopedia (el árbol donde vive lo aprendido, por campo del conocimiento), Estudio (el temporizador simple o pomodoro, que registra cada sesión) y Resumen (cuánto has escrito y cuánto has estudiado).",
+    "en": "The library is your personal encyclopedia, in four menus: Chats (you ask the Sage and every conversation is filed away and distilled into an entry), Encyclopedia (the tree where what you learn lives, by field of knowledge), Study (the simple or pomodoro timer, which logs every session) and Overview (how much you've written and how much you've studied)."
+  },
+  {
+    "clave": "tut.app-cocina--esencial.resumen",
+    "es": "La cocina tiene dos menús. Recetario guarda lo que vas a cocinar: las recetas con sus macros, las dietas que las agrupan y la lista del súper. Control de alimentación lleva la cuenta de lo que comes, en cuatro pasos: las metas de calorías y peso, el registro del día, el plan de comidas de los días que vienen y el progreso.",
+    "en": "The kitchen has two menus. Recipe book keeps what you are going to cook: your recipes with their macros, the diets that group them and the grocery list. Nutrition control tracks what you eat, in four steps: your calorie and weight goals, the daily log, the meal plan for the days ahead and your progress."
+  },
+  {
+    "clave": "tut.app-computo--esencial.resumen",
+    "es": "La sala de cómputo tiene dos menús. La Calculadora hace las cuentas de siempre y cambia de modo para graficar, trabajar con bases numéricas, matrices, sistemas de ecuaciones, unidades, propina y regla de tres; de ella cuelga el formulario, tu libro de fórmulas con Matemáticas, Física y Química ya puestas. Las Hojas de cálculo llevan lo tabular, con fórmulas en español y exportación a Excel o PDF.",
+    "en": "The computer room has two menus. The Calculator does the everyday math and switches modes to plot graphs, work with number bases, matrices, systems of equations, units, tips and rule of three; hanging off it is the formulary, your formula book with Maths, Physics and Chemistry already loaded. Spreadsheets handle anything tabular, with formulas in plain language and export to Excel or PDF."
+  },
+  {
+    "clave": "tut.app-descanso--esencial.resumen",
+    "es": "Descanso registra cómo duermes en una sola pantalla: la puntuación de la última noche, tu horario con sus avisos, el registro diario y el historial completo por año, mes y semana.",
+    "en": "Descanso tracks your sleep on a single screen: last night's score, your schedule with its reminders, the daily log, and the full history."
+  },
+  {
+    "clave": "tut.app-despacho--esencial.resumen",
+    "es": "El despacho ordena tu dinero en cuatro menús. Patrimonio guarda lo que tienes y lo que debes, con su proyección; Flujo lleva gastos, ingresos y el balance del periodo, con presupuesto y categorías; Metas junta ahorro, inversión y deuda, más las calculadoras que proponen un monto. Mercados es un tablero de cotizaciones en vivo, solo de consulta.",
+    "en": "The study organizes your money in four menus. Net worth holds what you own and what you owe, with its projection; Flow tracks expenses, income and the period's balance, with its budget and categories; Goals brings together saving, investing and debt, plus the calculators that suggest an amount. Markets is a live quote board, for reference only."
+  },
+  {
+    "clave": "tut.app-diario--esencial.resumen",
+    "es": "El diario es un periódico efímero: titulares de prensa real por categoría y efemérides del día, que se renueva solo a medianoche. Desde el reparto programas que un asistente te lo entregue en su propio chat.",
+    "en": "The diary is an ephemeral newspaper: real-press headlines by category and today's on-this-day facts, which renews itself on its own at midnight. From delivery you schedule an assistant to bring it to you in their own chat."
   }
 ]

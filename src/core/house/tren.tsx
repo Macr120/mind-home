@@ -2,11 +2,26 @@ import { useEffect, useRef, type ReactNode } from 'react'
 import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
 import { VACIO, caminosRepo } from '../data/repository'
-import { useTren, trenFrame, setRedRieles, type TipoRiel } from '../state/trenStore'
+import {
+  useTren,
+  trenFrame,
+  setRedRieles,
+  avanzarTren,
+  flota,
+  type TipoRiel,
+  type PoseTren,
+  type TrenAutonomo,
+} from '../state/trenStore'
 import { monturaFrame } from '../state/monturaStore'
 import { useHouse } from '../state/houseStore'
 import { useLayout } from '../state/layoutStore'
+import { usePaintball } from '../state/paintballStore'
+import { useAsistentes, getAsistente } from '../state/asistentesStore'
 import { playerPos } from '../state/playerPosition'
+import { posAsistentes } from '../state/posAsistentes'
+import { ModeloMascota } from './Asistente3D'
+import { Prendas } from './Prendas'
+import { anclasDe } from './apariencia'
 import { cellToWorld } from './walls'
 
 /** Distancia máxima al centro de una celda de riel para ofrecer montar. */
@@ -53,11 +68,11 @@ export function TrenProximity() {
   return null
 }
 
-/** Rueda del vagón (gira con la distancia rodada). */
-function Rueda({ x, z, r }: { x: number; z: number; r: number }) {
+/** Rueda del vagón (gira con la distancia rodada de SU tren). */
+function Rueda({ x, z, r, pose }: { x: number; z: number; r: number; pose?: PoseTren }) {
   const m = useRef<THREE.Mesh>(null)
   useFrame(() => {
-    if (m.current) m.current.rotation.x = trenFrame.faseRueda / r
+    if (m.current) m.current.rotation.x = (pose ?? trenFrame).faseRueda / r
   })
   return (
     <mesh ref={m} position={[x, r, z]} rotation={[0, 0, Math.PI / 2]}>
@@ -70,8 +85,18 @@ function Rueda({ x, z, r }: { x: number; z: number; r: number }) {
 /**
  * Vagón bajo el avatar mientras recorre la vía: locomotora en rieles, carrito
  * abierto en la montaña rusa. El avatar (children) va de pie sobre la plataforma.
+ * Sin `pose` gira sus ruedas con las del jugador; los trenes de la flota pasan
+ * la suya, que es la única forma de que cada uno ruede a su ritmo.
  */
-export function TrenMontado({ tipo, children }: { tipo: TipoRiel; children: ReactNode }) {
+export function TrenMontado({
+  tipo,
+  pose,
+  children,
+}: {
+  tipo: TipoRiel
+  pose?: PoseTren
+  children: ReactNode
+}) {
   if (tipo === 'riel') {
     return (
       <group>
@@ -93,10 +118,10 @@ export function TrenMontado({ tipo, children }: { tipo: TipoRiel; children: Reac
             <boxGeometry args={[1.1, 0.85, 0.7]} />
             <meshStandardMaterial color="#991b1b" roughness={0.6} />
           </mesh>
-          <Rueda x={-0.62} z={0.7} r={0.26} />
-          <Rueda x={0.62} z={0.7} r={0.26} />
-          <Rueda x={-0.62} z={-0.7} r={0.26} />
-          <Rueda x={0.62} z={-0.7} r={0.26} />
+          <Rueda x={-0.62} z={0.7} r={0.26} pose={pose} />
+          <Rueda x={0.62} z={0.7} r={0.26} pose={pose} />
+          <Rueda x={-0.62} z={-0.7} r={0.26} pose={pose} />
+          <Rueda x={0.62} z={-0.7} r={0.26} pose={pose} />
         </group>
         {/* El maquinista va de pie sobre la plataforma. */}
         <group position={[0, 0.4, -0.1]}>{children}</group>
@@ -123,12 +148,88 @@ export function TrenMontado({ tipo, children }: { tipo: TipoRiel; children: Reac
             <meshStandardMaterial color="#dc2626" roughness={0.55} />
           </mesh>
         ))}
-        <Rueda x={-0.45} z={0.5} r={0.14} />
-        <Rueda x={0.45} z={0.5} r={0.14} />
-        <Rueda x={-0.45} z={-0.5} r={0.14} />
-        <Rueda x={0.45} z={-0.5} r={0.14} />
+        <Rueda x={-0.45} z={0.5} r={0.14} pose={pose} />
+        <Rueda x={0.45} z={0.5} r={0.14} pose={pose} />
+        <Rueda x={-0.45} z={-0.5} r={0.14} pose={pose} />
+        <Rueda x={0.45} z={-0.5} r={0.14} pose={pose} />
       </group>
       <group position={[0, 0.12, 0]}>{children}</group>
     </group>
+  )
+}
+
+/** El asistente que va de maquinista (mismo molde que el rival de las carreras). */
+function Conductor({ id }: { id: string }) {
+  const brazo = useRef<THREE.Group>(null)
+  const a = getAsistente(id)
+  return (
+    <group scale={a.escala ?? 1}>
+      <ModeloMascota
+        forma={a.forma}
+        color={a.color}
+        modelo3d={a.modelo3d}
+        modeloGlb={a.modeloGlb}
+        cuerpoPresetId={a.cuerpoPresetId}
+        brazoRef={brazo}
+        anim={a.animacion}
+        estado={{ velocidad: 0, fase: 0 }}
+      />
+      <Prendas ropa={a.ropa} anclas={anclasDe(a)} />
+    </group>
+  )
+}
+
+/** Un vagón de la flota: el grupo lo coloca cada frame `TrenesAutonomos`. */
+function TrenAutonomo3D({ tren }: { tren: TrenAutonomo }) {
+  const g = useRef<THREE.Group>(null)
+  useFrame(() => {
+    const gr = g.current
+    if (!gr) return
+    gr.position.copy(tren.pos)
+    gr.rotation.set(0, tren.pose.heading, 0)
+  })
+  return (
+    <group ref={g}>
+      <TrenMontado tipo={tren.tipo} pose={tren.pose}>
+        {tren.conductorId ? <Conductor id={tren.conductorId} /> : null}
+      </TrenMontado>
+    </group>
+  )
+}
+
+/**
+ * Los trenes que dan vueltas sin nadie a bordo: uno por vía (los arma
+ * `trenStore` al sincronizar la red). Un solo `useFrame` los mueve a todos
+ * — cada hijo solo copia su pose —, como hacen `ContextoProximity` y las
+ * canchas con sus bucles.
+ */
+export function TrenesAutonomos() {
+  // `version` sube al nacer o morir un tren y al cambiar el modo de una vía.
+  useTren((s) => s.version)
+  // Reacciona a que editen o borren al asistente que va conduciendo.
+  useAsistentes((s) => s.lista)
+  const fasePaintball = usePaintball((s) => s.fase)
+
+  useFrame((_st, delta) => {
+    // En el editor los trenes se quedan quietos (pero se siguen viendo: hace
+    // falta saber por dónde va el que estás a punto de partir con una celda).
+    if (useLayout.getState().editMode) return
+    for (const t of flota) {
+      if (t.detenido) continue
+      avanzarTren(t.via, t.tipo, t.pos, t.pose, delta)
+      // Que se pueda hablar con el maquinista cuando pasa por el andén.
+      if (t.conductorId) posAsistentes[t.conductorId] = { x: t.pos.x, z: t.pos.z }
+    }
+  })
+
+  // En una batalla el campo se despeja (mismo criterio que `Asistente3D`).
+  if (fasePaintball === 'cuenta' || fasePaintball === 'jugando' || fasePaintball === 'fin')
+    return null
+  return (
+    <>
+      {flota.map((t) => (
+        <TrenAutonomo3D key={t.viaId} tren={t} />
+      ))}
+    </>
   )
 }

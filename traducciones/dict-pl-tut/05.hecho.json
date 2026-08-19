@@ -1,38 +1,82 @@
 [
-  { "clave": "tut.respaldo.3.texto", "texto": "Przywracanie ZASTĘPUJE wszystkie obecne dane danymi z pliku — najpierw prosi o potwierdzenie i pokazuje, ile rekordów zawiera, więc nie ma niespodzianek." },
-  { "clave": "tut.respaldo.4.texto", "texto": "Warto zrobić kopię przed zmianą urządzenia, przeglądarki albo po prostu co jakiś czas: bez konta to jedyna kopia, jaką masz." },
-  { "clave": "tut.editor-cuarto.1.texto", "texto": "Edytujesz konkretny pokój: szkic i kamera skupiają się na nim, a nie na całym domu." },
-  { "clave": "tut.editor-cuarto.2.titulo", "texto": "Co można edytować" },
-  { "clave": "tut.editor-cuarto.2.texto", "texto": "Kształt, podłoga, ściany, drzwi, kolor i nazwa pokoju oraz jego obiekty. Przypisaną aplikację też zmieniasz tutaj: po nią najczęściej się tu zagląda." },
-  { "clave": "tut.editor-cuarto.3.titulo", "texto": "Powrót do mapy" },
-  { "clave": "tut.editor-cuarto.3.texto", "texto": "Ta strzałka wraca do pełnej mapy bez zamykania edytora, żeby pracować dalej w innym pokoju." },
-  { "clave": "tut.editor-cuarto.4.texto", "texto": "Nad samym pokojem w 3D jest też pływający przycisk „Wyjdź z pokoju”, jeśli wolisz dotknąć go tam." },
-  { "clave": "tut.herramientas.1.texto", "texto": "Ten przycisk otwiera koło narzędzi twojej postaci." },
-  { "clave": "tut.herramientas.2.titulo", "texto": "Dwa poziomy" },
-  { "clave": "tut.herramientas.2.texto", "texto": "Najpierw wybierasz kategorię, a potem konkretne narzędzie w jej środku. Możesz wyposażyć do 3 narzędzi naraz, z różnych kategorii albo z tej samej." },
-  { "clave": "tut.herramientas.3.titulo", "texto": "Czwarta kategoria" },
-  { "clave": "tut.herramientas.3.texto", "texto": "Budowa nie wyposaża w zabawkę: włącza tryb rysowania mapy (pokoje, ściany, drzwi, okna, podłogi, dachy) bez wchodzenia do pełnego edytora. To ten sam szkic, tylko szybciej dostępny." },
-  { "clave": "tut.herramientas.4.titulo", "texto": "Środek" },
-  { "clave": "tut.herramientas.4.texto", "texto": "Środek odkłada wszystko, co masz wyposażone, i przywraca róg do normalnego stanu (kostka widoków albo inny przycisk kontekstowy, zależnie od tego, co masz w pobliżu)." },
-  { "clave": "tut.herramientas.5.texto", "texto": "Zamyka się dotknięciem poza kołem. Wypróbuj je, kiedy chcesz: nic z tego nie zapisuje się na stałe, trwa tylko tak długo, jak masz narzędzie przy sobie." },
-  { "clave": "tut.navegacion.1.texto", "texto": "Trzy kamery: Izo (widok domku dla lalek), 3. i 1. osoba. Przełączaj tutaj albo klawiszem V." },
-  { "clave": "tut.navegacion.2.titulo", "texto": "Orientacja" },
-  { "clave": "tut.navegacion.2.texto", "texto": "W izo kostka obraca kamerę po ściankach; w 3./1. osobie przeciągaj pad, żeby rozglądać się dookoła." },
-  { "clave": "tut.navegacion.3.titulo", "texto": "Gdy coś jest w pobliżu" },
-  { "clave": "tut.navegacion.3.texto", "texto": "Ten sam róg przestaje być kamerą, gdy podejdziesz do czegoś interaktywnego: boisko oferuje swój przycisk gry, pojazd przycisk „Wsiądź”, a krzesło przycisk siadania. Tylko jedna rzecz naraz i zawsze przez zbliżenie się — nigdy automatycznie." },
-  { "clave": "tut.navegacion.4.titulo", "texto": "Obrót i wyśrodkowanie" },
-  { "clave": "tut.navegacion.4.texto", "texto": "Obracaj widok na boki albo wyśrodkuj go z powrotem na mapie, jeśli zgubisz się podczas zwiedzania." },
-  { "clave": "tut.navegacion.5.titulo", "texto": "Poruszanie się" },
-  { "clave": "tut.navegacion.5.texto", "texto": "Chodzisz joystickiem, WASD albo strzałkami. W wodzie pływasz; na dosiadanym pojeździe prowadzisz tymi samymi sterami." },
-  { "clave": "tut.navegacion.6.texto", "texto": "W 3./1. osobie pojawia się przycisk Edytor 3D: dotykaj obiektów, ścian albo postaci, żeby edytować je dokładnie tam, gdzie są, bez wracania do widoku izometrycznego." },
-  { "clave": "tut.chat.1.texto", "texto": "Czat architekta: zapisuje twój dzień, edytuje dom i odpowiada na pytania — wszystko z jednego pola." },
-  { "clave": "tut.chat.2.titulo", "texto": "Pisanie" },
-  { "clave": "tut.chat.2.texto", "texto": "Pisz swobodnie: „biegam 20 min”, „wydaję 250 w markecie”… Chip obok pokazuje, do której aplikacji to trafi. Użyj @pokój, żeby wymusić cel, jeśli zgadnie źle." },
-  { "clave": "tut.chat.3.titulo", "texto": "Dyktowanie głosem" },
-  { "clave": "tut.chat.3.texto", "texto": "Mikrofon przepisuje to, co mówisz, do pola tekstowego — przydaje się, gdy chcesz coś zapisać, nie odkładając tego, co masz w rękach." },
-  { "clave": "tut.chat.4.titulo", "texto": "Wysyłanie zdjęcia" },
-  { "clave": "tut.chat.4.texto", "texto": "Przy włączonym AI zdjęcie paragonu, dania albo wagi odczytuje się samo. Bez AI ten przycisk jest nieaktywny." },
-  { "clave": "tut.chat.5.titulo", "texto": "Asystenci" },
-  { "clave": "tut.chat.5.texto", "texto": "Twój asystent daje odpowiedziom twarz i głos. Dotknij go, żeby zobaczyć rozmowę, zmienić asystenta albo stworzyć kolejnych." },
-  { "clave": "tut.chat.6.titulo", "texto": "Instrukcja" }
+  {
+    "clave": "tut.app-hobbies--esencial.4.texto",
+    "texto": "Tam rejestrujesz sesje z minutami i notatką, widzisz swoją mapę cieplną roku i prowadzisz projekty z ich własnym postępem. Cele i ich harmonogram mieszkają w pokoju Cele."
+  },
+  { "clave": "tut.app-ideas--esencial.1.titulo", "texto": "Pomysły" },
+  {
+    "clave": "tut.app-ideas--esencial.1.texto",
+    "texto": "Pomysły przechowują to, co przyjdzie ci do głowy, i pomagają temu dojrzeć: najpierw się to zapisuje, potem porządkuje w mapie, a jeśli trzeba — porównuje, żeby zdecydować. Są trzy podmenu."
+  },
+  { "clave": "tut.app-ideas--esencial.2.titulo", "texto": "Dziennik pomysłów" },
+  {
+    "clave": "tut.app-ideas--esencial.2.texto",
+    "texto": "Skrzynka, do której trafia każdy pomysł, luźny albo zgrupowany w burzy mózgów według tematu. Można go zarchiwizować w folderach, oznaczyć gwiazdką i, kiedy dojrzeje, zamienić w mapę."
+  },
+  { "clave": "tut.app-ideas--esencial.3.titulo", "texto": "Mapy myśli" },
+  {
+    "clave": "tut.app-ideas--esencial.3.texto",
+    "texto": "Wolne płótno, żeby uporządkować temat w formacie, który pasuje najlepiej: myślowa, drzewo, przepływ, oś czasu, cykl, piramida, Venna i więcej."
+  },
+  { "clave": "tut.app-ideas--esencial.4.titulo", "texto": "Diagramy decyzyjne" },
+  {
+    "clave": "tut.app-ideas--esencial.4.texto",
+    "texto": "To samo płótno, z formatami pomyślanymi do decydowania: ważone za i przeciw, SWOT, Eisenhower albo ważona macierz, która sama porządkuje opcje."
+  },
+  { "clave": "tut.app-idiomas--esencial.1.titulo", "texto": "Twoja szkoła językowa" },
+  {
+    "clave": "tut.app-idiomas--esencial.1.texto",
+    "texto": "Tutaj wybierasz język, rozmawiasz z korepetytorem AI, zapisujesz słownictwo, którego się uczysz, i powtarzasz je systemem powtórek rozłożonych w czasie. Są cztery podmenu: Rozmowy, Program nauki, Powtórka i Postępy."
+  },
+  { "clave": "tut.app-idiomas--esencial.2.titulo", "texto": "Rozmowy" },
+  {
+    "clave": "tut.app-idiomas--esencial.2.texto",
+    "texto": "Rozmawiasz ze swoim korepetytorem w języku, którego się uczysz: odpowiada na twoim poziomie i poprawia cię delikatnie. Każda rozmowa zostaje zapisana i sama się klasyfikuje, a przy wyjściu proponuje wyciągnąć nowe słownictwo jako karty."
+  },
+  { "clave": "tut.app-idiomas--esencial.3.titulo", "texto": "Program nauki" },
+  {
+    "clave": "tut.app-idiomas--esencial.3.texto",
+    "texto": "Porządkuje język w tematy, wymowę i gramatykę, od poziomu A1 do C2. Słownictwo żyje wewnątrz każdego tematu: każda karta jest tam przechowywana, z tłumaczeniem i przykładem."
+  },
+  { "clave": "tut.app-idiomas--esencial.4.titulo", "texto": "Powtórka" },
+  {
+    "clave": "tut.app-idiomas--esencial.4.texto",
+    "texto": "Powtórka rozłożona w czasie: każda karta żyje w pudełku i pyta tylko o te, które zaraz zapomnisz, ćwiczeniami — wielokrotny wybór, odwrócone albo uzupełnianie zdania — zamiast samego patrzenia na karty."
+  },
+  { "clave": "tut.app-idiomas--esencial.5.titulo", "texto": "Postępy" },
+  {
+    "clave": "tut.app-idiomas--esencial.5.texto",
+    "texto": "Podsumowanie twojego postępu: ile kart opanowałeś, ile powtórzyłeś i twój aktualny poziom, z historią twoich powtórek dzień po dniu."
+  },
+  { "clave": "tut.app-jardin--esencial.1.titulo", "texto": "Twoje miejsce spokoju" },
+  {
+    "clave": "tut.app-jardin--esencial.1.texto",
+    "texto": "Ogród łączy trzy praktyki: medytację, prowadzone oddychanie i wdzięczność. Celowo bez punktów i serii: tutaj opuszczenie dnia nie jest karane, po prostu towarzyszy temu, co ćwiczysz."
+  },
+  { "clave": "tut.app-jardin--esencial.2.titulo", "texto": "Medytacja" },
+  {
+    "clave": "tut.app-jardin--esencial.2.texto",
+    "texto": "Wybierz podkład dźwiękowy i czas trwania, albo medytuj w ciszy z dzwonkiem na początku i na końcu. Każda sesja zostaje zapisana w twojej historii."
+  },
+  { "clave": "tut.app-jardin--esencial.3.titulo", "texto": "Oddychanie" },
+  {
+    "clave": "tut.app-jardin--esencial.3.texto",
+    "texto": "Dwa wzorce prowadzonego oddychania, jeden, żeby się skupić, i drugi, żeby odpuścić dzień: ekran oddycha razem z tobą w miarę postępu."
+  },
+  { "clave": "tut.app-jardin--esencial.4.titulo", "texto": "Wdzięczność" },
+  {
+    "clave": "tut.app-jardin--esencial.4.texto",
+    "texto": "Zapisz, za co jesteś dziś wdzięczny, nawet jeśli to tylko jedna rzecz, i przeglądaj wcześniejsze wpisy, kiedy chcesz. Bez serii: ominięcie dnia niczego nie kasuje."
+  },
+  { "clave": "tut.app-metas--esencial.1.titulo", "texto": "Planer domu" },
+  {
+    "clave": "tut.app-metas--esencial.1.texto",
+    "texto": "Ten pokój nie przechowuje własnych danych: zbiera w jednym miejscu cele i plany, które rodzą się w pozostałych aplikacjach. Są trzy podmenu, które czyta się w tej kolejności: to, co sobie postanowiłeś, jak zamierzasz to podzielić i kiedy to nastąpi."
+  },
+  { "clave": "tut.app-metas--esencial.2.titulo", "texto": "Cele" },
+  {
+    "clave": "tut.app-metas--esencial.2.texto",
+    "texto": "Lista wszystkiego, co sobie postanowiłeś, pogrupowana według aplikacji, która prowadzi każdy cel. Cel może zależeć od innego, a po dotknięciu otwiera się jego karta: tam są jego termin, jego kroki i wejście do jego własnego harmonogramu."
+  },
+  { "clave": "tut.app-metas--esencial.3.titulo", "texto": "Plany" }
 ]

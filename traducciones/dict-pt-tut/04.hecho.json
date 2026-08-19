@@ -1,0 +1,82 @@
+[
+  {
+    "clave": "tut.app-ejercicio--esencial.3.texto",
+    "texto": "O treino com peso: cada sessão guarda seus exercícios com séries, repetições e carga. Com isso o app calcula o volume do dia, desenha a progressão de cada exercício e guarda os recordes."
+  },
+  { "clave": "tut.app-ejercicio--esencial.4.titulo", "texto": "Catálogo, rotinas e progresso" },
+  {
+    "clave": "tut.app-ejercicio--esencial.4.texto",
+    "texto": "As três modalidades se organizam do mesmo jeito. O Catálogo agrupa os exercícios disponíveis e monta rotinas com eles, Rotinas registra o treino do dia que você escolher lá em cima, e Progresso resume o período com seu mapa de calor."
+  },
+  { "clave": "tut.app-ejercicio--esencial.5.titulo", "texto": "Resistência" },
+  {
+    "clave": "tut.app-ejercicio--esencial.5.texto",
+    "texto": "Correr, pedalar, nadar ou caminhar, em trechos com seus minutos e sua distância. A partir daqui se abre o treino ao vivo, que capta o percurso por GPS e o pulso de um sensor Bluetooth e guarda a sessão ao terminar."
+  },
+  { "clave": "tut.app-ejercicio--esencial.6.titulo", "texto": "Flexibilidade" },
+  {
+    "clave": "tut.app-ejercicio--esencial.6.texto",
+    "texto": "Alongamentos e mobilidade, com séries por tempo em vez de por peso: cada postura tem seus segundos e suas repetições. O reprodutor guiado passa a rotina postura por postura com um cronômetro que avisa quando trocar."
+  },
+  { "clave": "tut.app-entretenimiento--esencial.1.titulo", "texto": "Entretenimento" },
+  {
+    "clave": "tut.app-entretenimiento--esencial.1.texto",
+    "texto": "Guarda os filmes, séries, livros e videogames que você vai terminando, e traz uma mesa de jogos digital para jogar sem sair de casa. São dois menus: Jogos de tabuleiro e Arquivo."
+  },
+  { "clave": "tut.app-entretenimiento--esencial.2.titulo", "texto": "Jogos de tabuleiro" },
+  {
+    "clave": "tut.app-entretenimiento--esencial.2.texto",
+    "texto": "A mesa reúne jogos digitais que se jogam direto na tela. Um filtro separa o que é pensado para um ou dois jogadores do que serve para um grupo maior."
+  },
+  { "clave": "tut.app-entretenimiento--esencial.3.titulo", "texto": "Por famílias" },
+  {
+    "clave": "tut.app-entretenimiento--esencial.3.texto",
+    "texto": "O catálogo se agrupa em famílias — tabuleiro, raciocínio, arcade, cartas e cassino, e para o grupo — cada uma com sua própria cor. Toque em qualquer cartão para abrir o jogo em tela cheia."
+  },
+  { "clave": "tut.app-entretenimiento--esencial.4.titulo", "texto": "Arquivo" },
+  {
+    "clave": "tut.app-entretenimiento--esencial.4.texto",
+    "texto": "O arquivo junta o que você vê, lê e joga: cada título com seu status, sua nota e sua resenha. Pode ser ordenado por gênero, categoria, autor ou data."
+  },
+  { "clave": "tut.app-garage--esencial.1.titulo", "texto": "A garagem" },
+  {
+    "clave": "tut.app-garage--esencial.1.texto",
+    "texto": "A garagem cuida dos seus veículos: bicicletas, carros, motos e o que você usar para se locomover. Cada um com seu histórico de serviços e seus trâmites, e tudo o que tem data se agenda sozinho no calendário da casa."
+  },
+  { "clave": "tut.app-garage--esencial.2.titulo", "texto": "Resumo" },
+  {
+    "clave": "tut.app-garage--esencial.2.texto",
+    "texto": "A aba de entrada: um semáforo diz num relance se algo venceu, se algo está se aproximando ou se a garagem está em paz."
+  },
+  { "clave": "tut.app-garage--esencial.3.titulo", "texto": "Num relance" },
+  {
+    "clave": "tut.app-garage--esencial.3.texto",
+    "texto": "Quantos veículos você tem, quantos trâmites continuam ativos e quanto você já gastou no ano."
+  },
+  { "clave": "tut.app-garage--esencial.4.titulo", "texto": "Veículos" },
+  {
+    "clave": "tut.app-garage--esencial.4.texto",
+    "texto": "A lista completa, com placa, quilometragem e número de serviços em cada cartão. Ao tocar em um, abre sua ficha, com o histórico de serviços e seus trâmites."
+  },
+  { "clave": "tut.app-garage--esencial.5.titulo", "texto": "Cadastrar um novo" },
+  {
+    "clave": "tut.app-garage--esencial.5.texto",
+    "texto": "Nome, tipo, marca, modelo, ano, placa e o odômetro de hoje. Com a placa preenchida, a ficha também habilita os trâmites que só valem para um veículo emplacado, como a vistoria ou o licenciamento."
+  },
+  { "clave": "tut.app-hobbies--esencial.1.titulo", "texto": "Seus passatempos" },
+  {
+    "clave": "tut.app-hobbies--esencial.1.texto",
+    "texto": "Hobbies acompanha o que você pratica por gosto: cada hobby junta suas sessões, sua sequência e, se você quiser, seus projetos."
+  },
+  { "clave": "tut.app-hobbies--esencial.2.titulo", "texto": "Seus hobbies" },
+  {
+    "clave": "tut.app-hobbies--esencial.2.texto",
+    "texto": "Cada hobby que você registrar aparece aqui como um cartão, com o avanço da semana e a sequência ativa. Ao abrir um, você vê suas estatísticas, seu mapa de calor do ano, o registro de sessões e seus projetos."
+  },
+  { "clave": "tut.app-hobbies--esencial.3.titulo", "texto": "Cadastrar um hobby" },
+  {
+    "clave": "tut.app-hobbies--esencial.3.texto",
+    "texto": "Este botão abre o formulário para adicionar um hobby novo: nome, emoji, cor e, se você quiser, uma meta semanal em dias de prática."
+  },
+  { "clave": "tut.app-hobbies--esencial.4.titulo", "texto": "Dentro de cada hobby" }
+]

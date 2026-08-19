@@ -16,13 +16,46 @@
 @theme {
   --color-accent: var(--ui-accent);
   --color-accent-ink: var(--ui-accent-ink);
+  /* Lo PROPUESTO en el cuarto de Metas (los planes que la IA todavía no ha pasado
+     al cronograma). Genera `text-plan`, `bg-plan/15`, `border-plan/50`… Era un
+     violeta fijo repetido en nueve archivos, o sea la única parte de esa app que
+     no se enteraba si repintabas el cuarto: ahora es el color del cuarto aclarado,
+     el mismo recurso con el que `colorPorProfundidad` separa las sub-metas. */
+  --color-plan: color-mix(in srgb, var(--ui-app, #ef4444) 55%, white);
   /* Curva de movimiento de la casa (la misma de ui-notif): un ease-out
      expresivo que frena suave. Genera la utilidad `ease-fluida`. */
   --ease-fluida: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Vuelta a reposo del press: un resorte que SOBREPASA el tamaño original y se
+     apaga en varias oscilaciones. Genera la utilidad `ease-resorte`. El valor de
+     aquí es el FALLBACK (un solo rebote) para motores sin `linear()`; el
+     `@supports` de más abajo pone la curva amortiguada de verdad. */
+  --ease-resorte: cubic-bezier(0.22, 1.9, 0.36, 1);
+  /* Tiempos y profundidad del press. Sin namespace de Tailwind a propósito: no
+     generan utilidad, se consumen con var() desde `.ui-boton`/`.ui-presion`. */
+  --dur-presion: 110ms;
+  --dur-resorte: 300ms;
+  --escala-presion: 0.96;
   /* Peldaño entre text-xs (12px) y los text-[11px] sueltos: 11px con aire.
      Para código nuevo; los text-[11px] existentes migran al pasar por ellos. */
   --text-2xs: 0.6875rem;
   --text-2xs--line-height: 1.35;
+}
+
+/* La curva de resorte de verdad: 21 muestras de un oscilador amortiguado
+   (ζ ≈ 0.22). Con `--escala-presion: 0.96` la escala real recorre
+   0.96 → 1.020 (84 ms) → 0.990 → 1.005 → reposo (~350 ms). Con un delta de solo
+   0.04, un sobrepaso de curva del 49 % son 2 % de tamaño: por eso hace falta una
+   curva tan agresiva. `linear()` pide Chrome 113 / Safari 17.2; fuera de ahí
+   manda el cubic-bezier del @theme (un pop en vez de tres). Va en `@supports` y
+   no como declaración duplicada porque Lightning CSS se come los duplicados. */
+@supports (transition-timing-function: linear(0, 1)) {
+  :root {
+    --ease-resorte: linear(
+      0, 0.282, 0.86, 1.338, 1.492, 1.337, 1.05, 0.823, 0.759, 0.842, 0.984,
+      1.092, 1.118, 1.074, 1.004, 0.953, 0.942, 0.966, 1, 1.024, 1
+    );
+    --dur-resorte: 420ms;
+  }
 }
 
 /*
@@ -33,8 +66,9 @@
  *    contenedor va un paso por encima de sus hijos (ver PestanasCarpeta).
  *  - Z-index: app de cuarto 20 · paneles del editor 35 · modal de app 50 ·
  *    tope global 70 · ConfirmarDialog 75.
- *  - Movimiento: `var(--ease-fluida)` para entradas de paneles y overlays;
- *    deshabilitado: `disabled:opacity-40`.
+ *  - Movimiento: `var(--ease-fluida)` para entradas de paneles y overlays; el
+ *    press de botones y pestañas lo dan `.ui-boton`/`.ui-presion` (resorte, al
+ *    final de este archivo); deshabilitado: `disabled:opacity-40`.
  */
 
 /* Variables del tema de interfaz (se sobreescriben en <html> desde temasUI.ts). */
@@ -230,13 +264,24 @@ html[data-modo-ui] :is(.ui-app, .ui-panel, .ui-panel-glass) .ui-panel-glass {
 /* Tarjeta que se ENCIENDE con su color de marca (--c, el mismo de `vivo()`):
    teñido sutil en reposo y más vivo al pasar el cursor. Se usa en las listas de
    cuartos y de apps para que cada fila se ilumine con SU color y no con un gris
-   común. `background-color` (no el atajo `background`) para no pisar gradientes. */
+   común. `background-color` (no el atajo `background`) para no pisar gradientes.
+
+   Dos perillas, para que el encendido NUNCA vuelva a salir a un `style` en línea:
+   uno de ellos ganaba a este `:hover` y dejaba la tarjeta muerta.
+   `--brillo-fondo` = sobre qué se mezcla el color. Por defecto `transparent`, así
+   se ve el panel de debajo; la pantalla de inicio pasa el panel SÓLIDO porque ahí
+   abajo puede haber una foto y una tarjeta translúcida deja el nombre y las cifras
+   ilegibles.
+   `--brillo` = cuánto tiñe en reposo (una tarjeta grande pide más que una fila). */
 .ui-brillo {
-  background-color: color-mix(in srgb, var(--c) 6%, transparent);
+  background-color: color-mix(in srgb, var(--c) var(--brillo, 6%), var(--brillo-fondo, transparent));
   transition: background-color 0.18s var(--ease-fluida);
 }
-.ui-brillo:hover {
-  background-color: color-mix(in srgb, var(--c) 20%, transparent);
+/* `:active` además de `:hover`: en táctil no hay cursor, así que el toque ES el
+   único modo de encenderla. */
+.ui-brillo:hover,
+.ui-brillo:active {
+  background-color: color-mix(in srgb, var(--c) 20%, var(--brillo-fondo, transparent));
 }
 @media (prefers-reduced-motion: reduce) {
   .ui-brillo {
@@ -726,6 +771,91 @@ html[data-modo-ui='transparente']
 }
 .sin-deslizador::-webkit-scrollbar {
   display: none;
+}
+
+/*
+ * RESORTE AL PULSAR. `:active` es un ESTADO, no un evento — pero SOLTAR sí es un
+ * cambio de estilo: el elemento vuelve a esta regla base. Y la transición que se
+ * usa es siempre la del estilo de DESTINO. Por eso el hundido (rápido, sin
+ * rebote) se declara dentro de `:active` y el rebote vive aquí. Cero JS.
+ *
+ * Se anima `scale` (la propiedad independiente, que es a lo que compila Tailwind
+ * v4) y no `transform`: así el consumidor puede seguir usando `translate-*` y
+ * `rotate-*` sin que se pisen.
+ *
+ * `.ui-boton` sigue significando «botón del kit, objetivo táctil de 44 px» y
+ * `.ui-presion` es la primitiva de MOVIMIENTO suelta, para controles con su
+ * propia densidad (las pestañas: la variante `sub` mide 28 px y con el
+ * min-height crecería a 44).
+ *
+ * Estas reglas van SIN CAPA a propósito: lo no capado gana a `@layer utilities`,
+ * que es lo que las deja sobrescribir al `transition` de Tailwind. Si alguien las
+ * mete en `@layer components`, el resorte muere en silencio.
+ *
+ * La lista de `transition` sustituye entera a la utilidad `transition`: cubre lo
+ * que el kit y las pestañas usan de verdad (hover:bg-*, hover:text-*,
+ * hover:brightness-* → filter, anillo de foco → box-shadow, disabled:opacity-40).
+ */
+.ui-boton,
+.ui-presion {
+  --presion-dur: var(--dur-resorte);
+  --presion-ease: var(--ease-resorte);
+  transition:
+    color 0.15s var(--ease-fluida),
+    background-color 0.15s var(--ease-fluida),
+    border-color 0.15s var(--ease-fluida),
+    outline-color 0.15s var(--ease-fluida),
+    box-shadow 0.15s var(--ease-fluida),
+    opacity 0.15s var(--ease-fluida),
+    filter 0.15s var(--ease-fluida),
+    scale var(--presion-dur) var(--presion-ease);
+  /* El destello naranja del WebView de Android tapaba el hundido. */
+  -webkit-tap-highlight-color: transparent;
+}
+.ui-boton:active:not(:disabled),
+.ui-presion:active:not(:disabled) {
+  --presion-dur: var(--dur-presion);
+  --presion-ease: var(--ease-fluida);
+  scale: var(--escala-presion);
+}
+
+/*
+ * La píldora de PestanasCarpeta persigue a la activa (left/top/width/height) y
+ * además se HUNDE con ella: son dos cosas con curva y duración distintas, y eso
+ * no cabía en el `transition-[…] duration-300` que llevaba en las clases.
+ *
+ * La píldora ES el fondo de color de la pestaña activa (esa no pinta fondo
+ * propio): si solo se hundiera el botón, el icono y el rótulo encogerían y el
+ * bloque de color se quedaría clavado — se ve como un bug. `:has()` es el único
+ * modo sin JS de que se entere, porque es HERMANA del botón pulsado y su
+ * `pointer-events-none` le impide recibir `:active` por su cuenta. Comparten
+ * centro y `transform-origin`, así que el mismo factor las alinea al píxel.
+ */
+.ui-pildora {
+  --presion-dur: var(--dur-resorte);
+  --presion-ease: var(--ease-resorte);
+  transition:
+    left 0.3s ease-out,
+    top 0.3s ease-out,
+    width 0.3s ease-out,
+    height 0.3s ease-out,
+    scale var(--presion-dur) var(--presion-ease);
+}
+.ui-pestanas:has(> [role='tab'][aria-selected='true']:active) > .ui-pildora {
+  --presion-dur: var(--dur-presion);
+  --presion-ease: var(--ease-fluida);
+  scale: var(--escala-presion);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Se conserva el hundido, pero instantáneo: en táctil es el ÚNICO feedback que
+     hay y quitarlo dejaría el botón mudo. Se van el viaje de la píldora y el
+     rebote, que es lo que la preferencia pide. Mismo criterio que `.ui-brillo`. */
+  .ui-boton,
+  .ui-presion,
+  .ui-pildora {
+    transition: none;
+  }
 }
 
 /* En pantalla táctil los botones del kit (`rooms/_shared/ui.tsx`) crecen al

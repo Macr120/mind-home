@@ -1,4 +1,5 @@
 import type { CuerpoTutorial, TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import { fichaEsencial } from '../../core/tutorial/esencial'
 
 /**
  * Fichas de los tutoriales de esta app: id, título y resumen. Es lo único que
@@ -43,3 +44,13 @@ const flujoReparto = tour(
 )
 
 export const flujosDiario: TutorialDef[] = [flujoHabito, flujoReparto]
+
+/** Esencial: recorre los menús principales en la casa real, sin necesitar datos. */
+export const esencialDiario: TutorialDef = fichaEsencial(
+  'diario',
+  T(
+    'tut.app-diario--esencial.resumen',
+    'El diario es un periódico efímero: titulares de prensa real por categoría y efemérides del día, que se renueva solo a medianoche. Desde el reparto programas que un asistente te lo entregue en su propio chat.',
+  ),
+  () => import('./tutorial').then((m) => m.cuerpoEsencial as CuerpoTutorial),
+)

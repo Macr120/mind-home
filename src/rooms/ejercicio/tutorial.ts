@@ -121,6 +121,83 @@ export const cuerpoFuerza: CuerpoTutorial = {
   ],
 }
 
+/**
+ * ESENCIAL: corre en la casa REAL, así que solo se ancla a pestañas y cabeceras
+ * que existen con la BD vacía. Recorre los cuatro menús de primer nivel y la
+ * estructura que comparten las tres modalidades; no crea ni necesita datos.
+ */
+export const cuerpoEsencial: CuerpoTutorial = {
+  preparar: () => {
+    abrirApp('ejercicio')
+  },
+  pasos: [
+    {
+      titulo: T('tut.app-ejercicio--esencial.1.titulo', 'Tu entrenamiento'),
+      texto: T(
+        'tut.app-ejercicio--esencial.1.texto',
+        'Ejercicio reúne las tres modalidades del cuerpo —fuerza, resistencia y flexibilidad— más un menú de metas donde decides cuánto quieres entrenar cada semana.',
+      ),
+    },
+    {
+      sel: 'ejercicio.tab.metas',
+      titulo: T('tut.app-ejercicio--esencial.2.titulo', 'Metas'),
+      texto: T(
+        'tut.app-ejercicio--esencial.2.texto',
+        'El resumen del cuarto: la racha, los días con algo registrado y una barra por modalidad contra el objetivo semanal que fijes aquí. También se elige el sistema de medidas, en kilos o en libras.',
+      ),
+      alEntrar: async () => {
+        await esperarTut('ejercicio.tab.metas', 4000)
+        clickTut('ejercicio.tab.metas')
+      },
+    },
+    {
+      sel: 'ejercicio.tab.fuerza',
+      titulo: T('tut.app-ejercicio--esencial.3.titulo', 'Fuerza'),
+      texto: T(
+        'tut.app-ejercicio--esencial.3.texto',
+        'El entrenamiento con peso: cada sesión guarda sus ejercicios con series, repeticiones y carga. Con eso la app calcula el volumen del día, dibuja la progresión de cada ejercicio y guarda los récords.',
+      ),
+      alEntrar: () => {
+        clickTut('ejercicio.tab.fuerza')
+      },
+    },
+    {
+      sel: 'ejercicio.fuerza.subs',
+      titulo: T('tut.app-ejercicio--esencial.4.titulo', 'Catálogo, rutinas y progreso'),
+      texto: T(
+        'tut.app-ejercicio--esencial.4.texto',
+        'Las tres modalidades se organizan igual. El Catálogo agrupa los ejercicios disponibles y arma rutinas con ellos, Rutinas registra el entreno del día que elijas arriba, y Progreso resume el periodo con su mapa de calor.',
+      ),
+      alEntrar: async () => {
+        clickTut('ejercicio.tab.fuerza')
+        await esperarTut('ejercicio.fuerza.subs', 4000)
+      },
+    },
+    {
+      sel: 'ejercicio.tab.resistencia',
+      titulo: T('tut.app-ejercicio--esencial.5.titulo', 'Resistencia'),
+      texto: T(
+        'tut.app-ejercicio--esencial.5.texto',
+        'Correr, pedalear, nadar o caminar, por tramos con sus minutos y su distancia. Desde aquí se abre el entrenamiento en vivo, que toma el recorrido por GPS y el pulso de un sensor Bluetooth y guarda la sesión al terminar.',
+      ),
+      alEntrar: () => {
+        clickTut('ejercicio.tab.resistencia')
+      },
+    },
+    {
+      sel: 'ejercicio.tab.flexibilidad',
+      titulo: T('tut.app-ejercicio--esencial.6.titulo', 'Flexibilidad'),
+      texto: T(
+        'tut.app-ejercicio--esencial.6.texto',
+        'Estiramientos y movilidad, con series por tiempo en vez de por peso: cada postura lleva sus segundos y sus repeticiones. El reproductor guiado corre la rutina postura por postura con un temporizador que avisa cuándo cambiar.',
+      ),
+      alEntrar: () => {
+        clickTut('ejercicio.tab.flexibilidad')
+      },
+    },
+  ],
+}
+
 export const cuerpoFlexibilidad: CuerpoTutorial = {
   preparar: () => {
     abrirApp('ejercicio')

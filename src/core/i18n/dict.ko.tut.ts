@@ -26,7 +26,19 @@ export const KO_TUT: Dict = {
     '공학용 기능이 전부 여기 있고, 그보다 더 많아요. 그룹(기본, 미적분, 행렬, 삼각함수, 기호)을 고르면 버튼이 바뀌어요. 커서가 있는 자리에 입력되고, 빈칸은 바로 쓸 수 있게 준비돼요.',
   'tut.app-computo--calculadora.3.titulo': '특별한 모드들',
   'tut.app-computo--calculadora.3.texto':
-    '계산기가 화면째로 바뀌어요. 그래프, 이진수와 16진수, 행렬, 연립방정식, 단위 변환, 팁이 붙은 계산서, 비례식이 있어요. 기록은 어느 모드에서든 아래에 남아요.',
+    '계산기가 화면째로 바뀌어요. 그래프, 2부터 16까지의 진법, 행렬, 연립방정식, 단위 변환, 팁이 붙은 계산서, 비례식이 있어요. 기록은 어느 모드에서든 아래에 남아요.',
+  'tut.app-computo--calculadora.3b.titulo': '진법',
+  'tut.app-computo--calculadora.3b.texto':
+    '입력한 것은 고른 진법으로 읽히고, 2부터 16까지 열다섯 진법 전부에 실시간으로 동시에 나와요. 비트 연산도 있고, 0b·0o·0x 접두어를 쓰면 한 계산에 여러 진법을 섞을 수 있어요.',
+  'tut.app-computo--calculadora.3c.titulo': '행렬과 연립방정식',
+  'tut.app-computo--calculadora.3c.texto':
+    '\'행렬\'은 A와 B를 최대 6×6까지 다뤄요. 합, 곱, 행렬식, 역행렬, 전치, 대각합이 있어요. 옆의 \'연립방정식\'은 쓴 내용에서 미지수를 읽어 일차방정식을 풀어요. 최대 여섯 개까지요.',
+  'tut.app-computo--calculadora.3d.titulo': '단위',
+  'tut.app-computo--calculadora.3d.texto':
+    '길이부터 데이터까지 여덟 카테고리가 쓰는 대로 바로 변환해요. 각자 마지막 짝을 기억하고, \'바꾸기\'는 변환 방향을 뒤집어요. 온도도 제대로 나와요. 100 °C는 212 °F예요.',
+  'tut.app-computo--calculadora.3e.titulo': '팁과 비례식',
+  'tut.app-computo--calculadora.3e.texto':
+    '암산 대신 쓰는 두 가지예요. \'팁\'은 총액이 아니라 계산서 금액으로 계산하고, 몇 명이든 나눠줘요. \'비례식\'은 정비례든 반비례든 x를 알아서 채워요.',
   'tut.app-computo--calculadora.4.titulo': '공식집이 바로 여기에',
   'tut.app-computo--calculadora.4.texto': '공식들이 이 메뉴에 매달려 있고 변수는 채우기만 하면 돼요. 공식을 저장해 둘 이유가 바로 이거예요.',
   'tut.app-computo--calculadora.5.titulo': '그래프 그리기',
@@ -56,14 +68,15 @@ export const KO_TUT: Dict = {
   'tut.casa.3.titulo': '이동하기',
   'tut.casa.3.texto': '조이스틱, WASD, 방향키로 걸어요. 방의 문을 지나면 안으로 들어가고 그 앱이 저절로 열려요.',
   'tut.casa.4.titulo': '보는 방법 세 가지',
-  'tut.casa.4.texto': '아이소메트릭, 3인칭, 1인칭이 있어요(V 키로도 바뀌어요). 3인칭·1인칭에서는 걸어 다니며 세상을 편집하는 버튼도 나와요.',
+  'tut.casa.4.texto':
+    '아이소메트릭, 3인칭, 1인칭이 있어요(V 키로도 바뀌어요). \'아이소\'를 누르면 카메라가 캐릭터 위로 다시 맞춰져서, 멀리 돌아다니다 왔을 때 빠르게 돌아오는 길이 돼요.',
   'tut.casa.5.titulo': '한 구석, 여러 주인',
   'tut.casa.5.texto':
     '그 구석은 시점 큐브만이 아니에요. 의자, 탈것, 코트처럼 만질 수 있는 것에 가까이 가면 근처에 있는 것에 맞춰 저절로 바뀌어요. 다가가지 않으면 아무것도 켜지지 않아요.',
   'tut.casa.6.titulo': '도구 휠',
   'tut.casa.6.texto': '동작, 장난감, 탈것, 건축이 있고 한 번에 3개까지 장착할 수 있어요. 여기서 열 수도 있고, 맨손일 때는 아까 그 구석에서도 열려요.',
   'tut.casa.7.titulo': '시계',
-  'tut.casa.7.texto': '집의 시간이에요. 여기서 전체 캘린더와, 오늘 아직 남은 일이 담긴 루틴 패널을 열 수 있어요.',
+  'tut.casa.7.texto': '집의 시간이에요. 누르면 전체 캘린더가 열리고, 오늘의 \'미션\'도 거기에 있어요. 옆의 해와 달은 시간의 흐름과 장면의 빛을 조절해요.',
   'tut.casa.8.titulo': '집의 음악',
   'tut.casa.8.texto': '방마다 테마를 정할 수도 있고, 집 분위기를 그대로 틀어 둘 수도 있어요. 조용한 게 좋으면 완전히 꺼도 돼요.',
   'tut.casa.9.titulo': '채팅',
@@ -73,9 +86,9 @@ export const KO_TUT: Dict = {
   'tut.primeros.2.titulo': '방 만들기',
   'tut.primeros.2.texto': '이 버튼으로 지도에 새 방을 그릴 수 있어요. 다음 과정을 보여드리려고 지금 하나 만들어 드릴게요…',
   'tut.primeros.3.titulo': '새로 생긴 방',
-  'tut.primeros.3.texto': '여기 있어요! 방금 만든 방이라 아직 앱이 없어요. 그래서 버튼에 \'+ 배정\'이라고 쓰여 있죠.',
+  'tut.primeros.3.texto': '여기 있어요! 방금 만든 방이라 아직 앱이 없어요. 그래서 카드에 \'+ 배정\'이라고 쓰여 있죠.',
   'tut.primeros.4.titulo': '앱 배정하기',
-  'tut.primeros.4.texto': '\'+ 배정\'으로 앱을 넣었어요. 방이 이름과 아이콘, 가구를 갖게 됐고 버튼도 \'입장\'으로 바뀐 게 보이죠.',
+  'tut.primeros.4.texto': '\'+ 배정\'으로 앱을 넣었어요. 방이 이름과 아이콘, 가구를 갖게 된 게 보이죠. 이제부터는 카드 전체가 들어가는 버튼이에요.',
   'tut.primeros.5.titulo': '입장',
   'tut.primeros.5.texto': '들어왔어요. 이게 방의 앱이에요. 돌아다닐 때는 문을 지나서도 들어올 수 있고, \'‹ 집으로 돌아가기\'로 나가요.',
   'tut.primeros.6.texto': '방은 앱과 함께 집에 남아요. 나머지도 이렇게 지으면 돼요. 챙기고 싶은 일마다 방 하나씩요.',
@@ -86,10 +99,12 @@ export const KO_TUT: Dict = {
   'tut.menu-cuartos.3.titulo': '카드',
   'tut.menu-cuartos.3.texto':
     '카드 하나가 방 하나예요. 아이콘, 이름, 앱 진행 상황이 담기고 \'몸\', \'마음\', \'기타\', \'설정\'으로 묶여요. 앱이 배정되지 않은 방은 맨 뒤에 모여요.',
-  'tut.menu-cuartos.4.titulo': '편집',
-  'tut.menu-cuartos.4.texto': '\'편집\'을 누르면 방 편집기가 열려요. 모양, 색, 벽, 오브젝트를 바꿀 수 있어요. (지금은 누르지 마세요. 이 메뉴가 닫혀요.)',
-  'tut.menu-cuartos.5.titulo': '\'입장\'과 \'배정\'',
-  'tut.menu-cuartos.5.texto': '\'입장\'을 누르면 방의 앱이 열려요. 아직 앱이 없는 방에는 대신 \'+ 배정\'이 보이고, 목록에서 하나 고를 수 있어요.',
+  'tut.menu-cuartos.4.titulo': '방 옵션',
+  'tut.menu-cuartos.4.texto':
+    '톱니바퀴를 누르면 방 옵션이 한 줄로 펼쳐져요. 목록에서 위아래로 옮기기, 지우기, 그리고 \'편집\'이에요. \'편집\'은 모양, 색, 벽, 오브젝트를 다루는 편집기를 열어줘요.',
+  'tut.menu-cuartos.5.titulo': '카드 전체가 입구',
+  'tut.menu-cuartos.5.texto':
+    '카드 전체가 버튼이에요. 어디를 눌러도 방의 앱으로 들어가요. 아직 앱이 없는 방은 그 카드에 \'+ 배정\'이라고 나오고, 카탈로그에서 하나 고를 수 있어요.',
   'tut.menu-cuartos.6.titulo': '방 만들기',
   'tut.menu-cuartos.6.texto':
     '\'방 만들기\'를 누르면 브러시가 준비된 지도 에디터가 열려요. 새 방의 모양, 크기, 위치는 모두 마음대로 정할 수 있어요. 휴대폰에서는 도구 휠 › 건축 › 방 단축 경로가 더 편해요. 패널을 열지 않고 지도에 바로 그릴 수 있거든요.',
@@ -168,6 +183,16 @@ export const KO_TUT: Dict = {
   'tut.editor-cuarto.3.titulo': '지도로 돌아가기',
   'tut.editor-cuarto.3.texto': '이 화살표는 에디터를 닫지 않고 전체 지도로 돌아가요. 그대로 다른 방을 계속 작업할 수 있어요.',
   'tut.editor-cuarto.4.texto': '3D에서 방 위에도 \'방 나가기\' 플로팅 버튼이 있어요. 거기서 누르는 게 편하면 그렇게 해도 돼요.',
+  'tut.inicio.1.texto': '집 이름이 적힌 버튼을 누르면 시작 화면이 열려요. 당신의 앱들이 격자로 늘어서고, 휴대폰과 똑같이 움직여요.',
+  'tut.inicio.2.titulo': '한 번 누르면 앱 하나',
+  'tut.inicio.2.texto': '여기에는 이미 앱이 있는 방만 나와요. 레벨, 연속 기록, 끝낸 목록 수와 함께요. 모서리의 빨간 숫자는 오늘 아직 남은 미션이고, 카드를 누르면 바로 들어가요.',
+  'tut.inicio.3.titulo': '카드를 길게 눌러 보세요',
+  'tut.inicio.3.texto': '길게 누르면 카드가 들리고 휴대폰처럼 다 같이 흔들려요. 끌어서 순서를 바꾸거나, 모서리의 연필을 눌러 카드 정보를 편집해요.',
+  'tut.inicio.4.titulo': '도전은 늘 눈앞에',
+  'tut.inicio.4.texto': '고리 두 개는 \'시시포스의 산\'이에요. 올해의 등급과 그동안 얻은 배지죠. 누르면 사이드 메뉴에 있는 것과 같은 산 전체가 열려요.',
+  'tut.inicio.5.titulo': '배경화면과 3D 보기',
+  'tut.inicio.5.texto': '이 버튼은 격자에 배경화면을 깔아줘요. 카드가 잘 읽히도록 살짝 어둡게요. 옆 버튼은 방마다 아이콘과 가구가 놓인 3D 미니어처를 번갈아 보여줘요.',
+  'tut.inicio.6.texto': '방을 만들고, 지우고, 앱을 배정하는 건 여전히 사이드 메뉴의 몫이에요. 이 화면은 빨리 들어가라고 있는 거예요. 바깥을 누르면 닫혀요.',
   'tut.herramientas.1.texto': '이 버튼으로 캐릭터의 도구 휠이 열려요.',
   'tut.herramientas.2.titulo': '두 레벨',
   'tut.herramientas.2.texto': '먼저 카테고리를 고르고, 그 안에서 구체적인 도구를 골라요. 최대 3개까지 동시에 장착할 수 있고, 카테고리는 같아도 달라도 괜찮아요.',
@@ -179,22 +204,28 @@ export const KO_TUT: Dict = {
   'tut.herramientas.5.texto': '휠 바깥을 누르면 닫혀요. 언제든 시험해 보세요. 여기서 고른 건 저장되지 않고, 장착하고 있는 동안만 유지돼요.',
   'tut.navegacion.1.texto': '카메라는 셋이에요. 아이소(인형의 집 시점), 3인칭, 1인칭. 여기서 바꾸거나 V 키로 바꿔요.',
   'tut.navegacion.2.titulo': '방향 잡기',
-  'tut.navegacion.2.texto': '아이소에서는 큐브가 면 단위로 카메라를 돌려요. 3인칭·1인칭에서는 패드를 끌어서 둘러봐요.',
+  'tut.navegacion.2.texto': '아이소에서는 큐브로 카메라를 조종해요. 모서리는 아이소메트릭 각도, 면은 평평한 시점이에요. 3인칭·1인칭에서는 그 자리에 패드가 들어와서, 끌어서 둘러봐요.',
   'tut.navegacion.3.titulo': '근처에 뭔가 있을 때',
   'tut.navegacion.3.texto':
     '상호작용할 수 있는 것에 가까이 가면 그 자리는 더 이상 카메라가 아니에요. 코트는 경기 버튼, 탈것은 타기 버튼, 의자는 앉기 버튼을 내줘요. 한 번에 하나만, 그리고 항상 가까이 갔을 때만 나와요. 저절로 되는 일은 없어요.',
   'tut.navegacion.4.titulo': '회전과 중앙 이동',
-  'tut.navegacion.4.texto': '시점을 좌우로 돌리거나, 돌아다니다 길을 잃었으면 다시 지도 중앙으로 맞출 수 있어요.',
+  'tut.navegacion.4.texto':
+    '화살표 하나가 4분의 1바퀴예요. 아이소에서는 지도가, 3인칭·1인칭에서는 시선이 돌아가요. 세 번째 버튼은 지도가 보일 때만 나오고, 돌아다니다 길을 잃었으면 지도를 중앙으로 되돌려줘요.',
   'tut.navegacion.5.titulo': '이동하기',
   'tut.navegacion.5.texto': '조이스틱, WASD, 방향키로 걸어요. 물에서는 헤엄치고, 탈것에 타면 같은 조작으로 운전해요.',
-  'tut.navegacion.6.texto': '3인칭·1인칭에서는 \'3D 에디터\' 버튼이 나와요. 오브젝트나 벽, 캐릭터를 누르면 아이소메트릭 시점으로 돌아가지 않고 그 자리에서 편집해요.',
+  'tut.navegacion.6.texto': '위의 \'편집기\' 버튼은 어느 시점에서든 통해요. 3인칭·1인칭에서 열면 걸어 다니면서, 오브젝트나 벽, 캐릭터를 있는 자리에서 바로 눌러 편집해요.',
   'tut.chat.1.texto': '건축가 채팅이에요. 하루를 기록하고, 집을 편집하고, 궁금한 걸 물어보는 걸 전부 같은 입력창에서 해요.',
   'tut.chat.2.titulo': '쓰기',
   'tut.chat.2.texto': '자유롭게 써요. \'20분 뛰었어\', \'마트에서 250 썼어\'… 옆의 칩이 어느 앱으로 갈지 보여줘요. 잘못 짚으면 \'@방\'으로 목적지를 정할 수 있어요.',
   'tut.chat.3.titulo': '음성으로 입력하기',
   'tut.chat.3.texto': '마이크가 말한 내용을 입력창에 받아 적어요. 손에 뭔가 들고 있어도 기록할 수 있어서 편해요.',
-  'tut.chat.4.titulo': '사진 보내기',
-  'tut.chat.4.texto': 'AI를 켜 두면 영수증이나 음식, 체중계 사진을 알아서 읽어요. AI가 없으면 이 버튼은 비활성화돼요.',
+  'tut.chat.4.titulo': '첨부',
+  'tut.chat.4.texto':
+    '\'+\'를 누르면 다섯 가지가 펼쳐져요. 이미지나 PDF 업로드와 사진 찍기 — AI를 켜 두면 영수증이나 체중계는 알아서 읽혀요 — 그리고 AI가 필요 없는 \'AR 마스크\'와 \'AR 채팅\'이에요.',
+  'tut.chat.4b.titulo': 'AR 마스크',
+  'tut.chat.4b.texto': '카메라를 켜고 당신 얼굴에 마스크를 씌워서, 움직임을 실시간으로 따라와요. 집 소개 영상에 나오는 바로 그 마스크예요. AI도 계정도 없이 돼요.',
+  'tut.chat.4c.titulo': 'AR 채팅',
+  'tut.chat.4c.texto': '늘 하던 그 대화지만, 배경은 당신의 카메라이고 앞에는 3D 어시스턴트가 있어요. 대답에 맞춰 표정도 따라와요.',
   'tut.chat.5.titulo': '어시스턴트',
   'tut.chat.5.texto': '어시스턴트가 답변에 얼굴과 목소리를 붙여줘요. 누르면 대화를 보거나, 다른 어시스턴트로 바꾸거나, 더 만들 수 있어요.',
   'tut.chat.6.titulo': '매뉴얼',
@@ -209,30 +240,13 @@ export const KO_TUT: Dict = {
     '어시스턴트가 세션 사이에 기억해 둘 만하다고 판단한 정보예요. 알레르기, 목표, 취향 같은 것들이요. 다시 묻지 않으려고요. 잊게 하려면 ✕를 누르면 돼요.',
   'tut.chat-registros.3.texto': '앱에 기록한 것들(식사, 지출, 세션)은 각 앱에 있고 여기엔 없어요. 이 탭은 대화 자체의 기억일 뿐이에요.',
   'tut.app-generica.1.texto': '헤더에 방과 열려 있는 앱이 나와요. 방에 앱이 여러 개면 ‹ 화살표로 방의 앱 목록으로 돌아가요.',
-  'tut.app-generica.2.titulo': '오늘의 단계',
+  'tut.app-generica.2.titulo': '미션',
   'tut.app-generica.2.texto':
-    '이 앱에서 오늘 할 단계들이에요. 매일의 목표, 일정에 넣어 둔 것, 그리고 목표가 요구하는 것. 누르면 펼쳐지고, 기록하는 순간 각 단계가 알아서 지워져요.',
+    '\'미션\' 버튼은 이 앱의 오늘 할 일을 열어줘요. 매일의 목표, 일정에 넣어 둔 것, 그리고 목표가 요구하는 것이에요. 기록하는 순간 각 단계가 알아서 지워지고, 목록을 전부 끝내는 것이 그날의 XP가 돼요.',
   'tut.app-generica.3.titulo': '블록',
   'tut.app-generica.3.texto': '이 템플릿은 블록(메모, 목록, 카운터, 습관…)으로 만들어져 있어요. 메뉴 › 템플릿 › 편집에서 바꿀 수 있어요.',
   'tut.app-generica.4.titulo': '나가기',
   'tut.app-generica.4.texto': '\'집으로 돌아가기\'로 앱을 닫고 3D로 돌아가요. 여기서 기록한 건 이미 저장돼 있어요.',
-  'tut.rutinas.1.texto': 'Pep의 루틴 패널이에요. 위에는 오늘 할 것, 아래에는 일시정지·편집·삭제할 수 있는 전체 카탈로그가 있어요.',
-  'tut.rutinas.2.titulo': '오늘 할 것',
-  'tut.rutinas.2.texto': '카페 근무, 물리 수업, 새벽 달리기, 밤의 피아노. 카드 하나하나가 단계를 가진 루틴이에요. 호박색으로 삐져나온 건 이미 시작했어야 하는데 아직 남아 있는 거예요.',
-  'tut.rutinas.3.titulo': '체크가 늘 필요하진 않아요',
-  'tut.rutinas.3.texto':
-    '⚡ 번개가 붙은 단계는 알아서 기록돼요. 새벽 달리기가 지워지는 건 그 달리기가 이미 \'헬스장\'에 저장됐기 때문이지, 누가 손으로 체크해서가 아니에요. 나머지 단계는 눌러서 체크해요.',
-  'tut.rutinas.4.titulo': '전체 카탈로그',
-  'tut.rutinas.4.texto':
-    '오늘 할 것이든 아니든 전부 여기 있어요. ON/OFF는 기록을 지우지 않고 루틴을 일시정지해요. 오늘까지 해낸 건 남고, 내일부터는 요구하지 않아요. \'편집\'과 ✕는 루틴 전체를 바꾸거나 지워요.',
-  'tut.rutinas.5.titulo': '루틴 만들기',
-  'tut.rutinas.5.texto': '이름, 어느 앱에 속하는지(집의 단발성 이벤트라면 아무 앱도 아니고요), 시간, 색이에요. 단계는 선택이에요. 단계가 없으면 캘린더의 이벤트일 뿐이에요.',
-  'tut.rutinas.6.titulo': '한 번, 매주, 아니면 계속',
-  'tut.rutinas.6.texto':
-    '피아노는 요일을 고르지 않은 무기한(즉 매일)이고, 달리기는 Pep이 고른 요일에만 반복돼요. 매월·매년·기간 반복은 여기서 고르지 않아요. 캘린더 격자에 목표를 바로 그으면 생겨요.',
-  'tut.rutinas.7.titulo': '시간 맞춰 오는 알림',
-  'tut.rutinas.7.texto': '권한을 허용했으면 시스템 알림으로 와요. 아니면 다음에 앱을 열 때 어시스턴트가 알려줘요.',
-  'tut.rutinas.8.texto': '여기서 예정한 건 캘린더 격자에도 나오고, 각 단계가 속한 앱의 \'오늘\' 목록에도 나와요.',
   'tut.enlaces.1.titulo': '목표에서 그 앱으로',
   'tut.enlaces.1.texto': '목표든 계획 단계든 앱 아이콘이 붙은 칩을 달 수 있어요. \'이건 어디에 적지?\'에 대한 답이에요.',
   'tut.enlaces.2.titulo': '달거나 바꾸기',
@@ -263,10 +277,11 @@ export const KO_TUT: Dict = {
   'tut.ejemplos.1.texto': '이 막대는 아직 내 데이터가 없는 거의 모든 앱에 나타나요. 빈 화면부터 시작하지 않도록, 예시로 채워진 모습을 보여주는 버튼이에요.',
   'tut.ejemplos.2.texto': '예시를 봐도 내 데이터가 지워지거나 섞이지 않아요. 예시로 표시된 별도의 항목이라, 끄면 숨겨질 뿐 지워지지 않아요. 다시 켜면 있던 그대로 돌아와요.',
   'tut.ejemplos.3.texto': '데모 집에서는 이 막대가 나오지 않아요. Pep의 1년이 이미 그 역할을 하고 있어서 따로 예시가 필요 없거든요.',
-  'tut.hoy.1.texto':
-    '각 앱의 헤더에는 “미션” 버튼이 있어요. 그 앱이 오늘 시키는 일의 체크리스트예요. 집의 시계에는 모든 앱을 한꺼번에 담은 같은 버튼이 있어요.',
+  'tut.hoy.1.texto': '각 앱의 헤더에는 “미션” 버튼이 있어요. 그 앱이 오늘 시키는 일의 체크리스트예요. 집의 시계에는 모든 앱을 한꺼번에 담은 같은 버튼이 있어요.',
   'tut.hoy.2.titulo': '세 가지 출처, 하나의 목록',
   'tut.hoy.2.texto': '앱 자체의 목표(물, 칼로리), 오늘 캘린더에 예약한 일정, 진행 중인 목표의 단계까지 모두 한자리에, 각 단계가 속한 계획이나 목표별로 묶여서 나와요.',
+  'tut.hoy.2b.titulo': '마음먹은 일은 위에',
+  'tut.hoy.2b.texto': '체크리스트 위에는 이 앱의 목표들이 진행률과 기한과 함께 있어요. 하나를 누르면 패널을 나가지 않고 바로 그 계획이 열리고, \'+ 목표\'로 새 목표를 세워요.',
   'tut.hoy.3.titulo': '기록이 있으니 줄이 그어져요',
   'tut.hoy.3.texto':
     '줄에 있는 버튼은 실제 데이터를 앱에 기록해요. 물 한 잔, 한 끼 식사처럼요. 단계에 줄이 그어지는 건 그 기록이 이미 있기 때문이지, 누가 체크해서가 아니에요. 이미 끝난 단계를 다시 눌러도 중복되지 않아요. 버튼이 사라지거든요.',
@@ -276,8 +291,9 @@ export const KO_TUT: Dict = {
   'tut.hoy.5.texto': '캘린더는 같은 목표를 정해진 시간에 잡아줘요. 시계의 루틴과 같은 편집기가 열려서 두 곳에 한 번에 등록돼요.',
   'tut.hoy.6.titulo': '끝낸 것도 사라지지 않아요',
   'tut.hoy.6.texto': '접혀 있는 \'완료\'로 내려가요. 기록이 반영되는 걸 보는 것도 보상의 일부고, 하나 더 들어갔다면 거기서 되돌릴 수 있어요.',
-  'tut.hoy.7.texto':
-    '뭔가 부족하면 “새 체크리스트”로 직접 만들 수 있어요. 매일 반복되는 이 앱만의 리스트예요. 이런 단계가 나오는 목표는 “목표” 방에서 계획해요.',
+  'tut.hoy.6b.titulo': '점수는 목록 전체가 내요',
+  'tut.hoy.6b.texto': '그날의 미션을 전부 끝내면 축하가 켜지고 앱의 XP가 쌓여요. 레벨을 키우는 건 다 끝낸 목록이지, 흩어진 기록 몇 개가 아니에요.',
+  'tut.hoy.7.texto': '뭔가 부족하면 “새 체크리스트”로 직접 만들 수 있어요. 매일 반복되는 이 앱만의 리스트예요. 이런 단계가 나오는 목표는 “목표” 방에서 계획해요.',
   'tut.progreso.1.texto': '내 캐릭터 카드예요. Pep에게는 1년치 실제 활동이 쌓여 있어서, 여기 있는 숫자마다 진짜 이야기가 있어요.',
   'tut.progreso.2.titulo': '캐릭터',
   'tut.progreso.2.texto':
@@ -421,8 +437,7 @@ export const KO_TUT: Dict = {
   'tut.app-hobbies--gestion.2.texto': '피아노는 주 4일로 정했어요. 연습한 날마다 이번 주 줄이 채워지고, 위에는 목표 대비 며칠을 했는지 나와요.',
   'tut.app-hobbies--gestion.3.titulo': '연습 기록',
   'tut.app-hobbies--gestion.3.texto': '한 번 탭해서 빠르게 분을 넣거나 정확한 숫자를 적어요. 프로젝트는 선택이고, 메모는 그 세션에서 기억하고 싶은 걸 적는 자리예요.',
-  'tut.app-hobbies--gestion.4.texto':
-    '취미와 프로젝트의 목표는 “목표” 방에 있고, 목표마다 자기 계획과 일정이 딸려 있어요. AI에게 단계와 날짜가 있는 계획을 부탁해 보세요.',
+  'tut.app-hobbies--gestion.4.texto': '취미와 프로젝트의 목표는 “목표” 방에 있고, 목표마다 자기 계획과 일정이 딸려 있어요. AI에게 단계와 날짜가 있는 계획을 부탁해 보세요.',
   'tut.app-ideas--diario.1.titulo': '아이디어 수집함',
   'tut.app-ideas--diario.1.texto':
     '떠오른 생각을 적으면 끝이에요. Pep님은 한 해 동안 여기에 90개쯤 던져 놨어요. 물리 이야기, 카페 이야기, 훈련 이야기요. 별표는 즐겨찾기 표시예요.',
@@ -471,7 +486,7 @@ export const KO_TUT: Dict = {
     '움푹 팬 두 곳은 진짜예요. 7개월째의 무릎 부상, 그리고 일본에서 보낸 3주. 며칠 빠졌다고 진행이 지워지지는 않아요. 이 패널은 있어야 했던 한 해가 아니라 실제로 지나온 한 해를 보여줘요. 그리고 루틴은 만든 날부터만 계산돼요.',
   'tut.metas.1.titulo': '먼저, 목표부터',
   'tut.metas.1.texto':
-    '방은 \'목표\'로 열리고, 목표를 맡은 앱별로 묶여 있어요. 달리기는 \'헬스장\', 물리학 학위는 \'도서관\'. \'집\'은 앱이 아니에요. 주방 공사를 위해 Pep이 직접 만든 카테고리예요.',
+    '화면은 \'목표\'로 열리고, 목표를 맡은 앱별로 묶여 있어요. 달리기는 \'헬스장\', 물리학 학위는 \'도서관\'. \'집\'은 앱이 아니에요. 주방 공사를 위해 Pep이 직접 만든 카테고리예요.',
   'tut.metas.2.titulo': '목표에서 계획으로',
   'tut.metas.2.texto':
     '한 줄 한 줄이 보드처럼 읽혀요. 폴더 안의 번호, 기한, 진행률, 그리고 상태 — 얼마나 해냈는지에 따라 \'할 일\', \'진행 중\', \'완료\'로 바뀌어요. 한 번 누르면 목표가 열려요. 계획이 있으면 계획이 (✨가 알려줘요), 없으면 하위 목표와 날짜와 단계가 담긴 시트가 나와요.',
@@ -480,7 +495,7 @@ export const KO_TUT: Dict = {
     '주방과 다음 마라톤은 아직 제안이에요. 대학원 지원은 이미 일정에 들어가 있어요. 마라톤 계획은 마감일 없이 부탁한 거라, AI가 24주가 필요하다고 계산해서 요약에 적어 뒀어요.',
   'tut.metas.4.titulo': '계획 시트',
   'tut.metas.4.texto':
-    '행에 있는 ✨는 그 목표에 이미 계획이 있다는 표시이고, 클릭하면 이 시트가 열려요. 단계와 그 하위 목표들, 각각 자기 기간이 있어요. 제안인 동안에는 전체를 고칠 수 있어요. 이름 바꾸기, 날짜 옮기기, 노드 추가하거나 빼기 — 나머지는 흐트러지지 않아요.',
+    '여섯 단계와 그 하위 목표들, 각각 자기 기간이 있어요. 제안인 동안에는 전체를 고칠 수 있어요. 이름 바꾸기, 날짜 옮기기, 노드 추가하거나 빼기 — 나머지는 흐트러지지 않아요.',
   'tut.metas.5.titulo': '부담 없이 체크하기',
   'tut.metas.5.texto':
     '제안의 체크는 시트 안에만 있고 목표에는 들어가지 않아요. 일정을 건드리지 않고도 해낸 것을 표시할 수 있어요. 막대는 아래에서 위로 저절로 채워져요. 주방 계획 세우기는 이미 끝났어요.',
@@ -489,7 +504,7 @@ export const KO_TUT: Dict = {
   'tut.metas.7.titulo': '수락하면 진실은 하나',
   'tut.metas.7.texto': '대학원 계획은 이미 옮겨졌어요. 이제 체크는 실제 하위 목표의 것이고 막대는 일정의 것이라, 시트가 따로 세는 일은 없어져요.',
   'tut.metas.8.titulo': '그리고 축 위에 나타나요',
-  'tut.metas.8.texto': '이 일정은 바로 이 목표의 것이에요. 하위 목표들이 시간 축 위에서 각자의 기간을 차지하고, 그 위에 보라색으로 계획이 겹쳐져요 — 제안과 실제가 함께 있어요.',
+  'tut.metas.8.texto': '계획에서 나온 하위 목표들이 일정 위에서 각자의 기간을 차지하고, 그 위에 보라색으로 계획이 겹쳐져요. 제안과 실제가 같은 축에 놓여요.',
   'tut.metas.9.titulo': '목표마다 자기 축',
   'tut.metas.9.texto':
     '축은 언제나 한 목표의 것이에요. 여기서 날짜 없는 것에 날짜를 주고, 새 하위 목표를 걸고, “돌아가기”를 누르면 그 시트로 돌아가요. 위쪽 “일정” 메뉴는 모든 목표를 한꺼번에 보여줘요.',
@@ -524,6 +539,14 @@ export const KO_TUT: Dict = {
   'tut.app-biblioteca--resumen.5.texto': '위와 같은 내용을 분 단위로 봐요. 어떤 분야에 항목이 많은 것과, 거기에 진짜 시간을 쓴 것은 다른 얘기예요.',
   'tut.app-biblioteca--resumen.6.titulo': '한 해의 세션',
   'tut.app-biblioteca--resumen.6.texto': '자세히 보고 싶으면, 기록이 세션마다 분 수와 분야까지 담아 연·월·주로 정리해 둬요.',
+  'tut.app-idiomas--charlas.1.titulo': '눈높이에 맞는 선생님',
+  'tut.app-idiomas--charlas.1.texto':
+    '선생님은 이 방의 어시스턴트예요. 배우는 언어로 말을 걸면 프로필의 CEFR 레벨에 맞춰 대답해요. A1이면 번역이 붙은 짧은 문장, C1이면 관용 표현이에요. 모국어로 쓰면 배우는 언어로 해 보라고 격려해줘요.',
+  'tut.app-idiomas--charlas.2.titulo': '알아서 저장되고 분류돼요',
+  'tut.app-idiomas--charlas.2.texto':
+    '대화마다 제목과 커리큘럼 주제, 레벨이 붙어 이 목록에 남아요. 당신이 할 일은 없어요. 주제의 줄에 있는 대화 버튼으로 시작하면, 딱 그 주제만 연습할 수도 있어요.',
+  'tut.app-idiomas--charlas.3.texto':
+    '선생님이 고쳐줄 때는 맞는 표현이 체크 표시와 함께 제 줄에 나오고, 대화는 잔소리 없이 이어져요. 나갈 때는 나온 어휘를 추출하자고 제안해요. 남길 카드를 고르면 대화의 주제를 물려받아요.',
   'tut.app-idiomas--repaso.1.titulo': '오늘 할 몫',
   'tut.app-idiomas--repaso.1.texto': 'Pep은 벌써 1년째인데도 밀린 복습이 있어요. 모든 어휘를 다 물어보는 게 아니라, 잊어버리기 직전의 것만 나와요.',
   'tut.app-idiomas--repaso.3.titulo': '한 해의 꾸준함',
@@ -536,6 +559,244 @@ export const KO_TUT: Dict = {
   'tut.app-idiomas--temario.1.texto': 'A1부터 C2까지, 레벨마다 어휘 주제와 발음 포인트, 문법이 갖춰져 있어요. 밖에서 강의를 찾지 않아도 뭐가 부족한지 알 수 있어요.',
   'tut.app-idiomas--temario.2.titulo': '지금 어디쯤인지',
   'tut.app-idiomas--temario.2.texto': '습득한 카드, 이번 달 복습, 그리고 지금 레벨. Pep은 연초에 A2였고 지금은 B1쯤이에요.',
+  'tut.app-agenda--esencial.1.titulo': '나의 일정',
+  'tut.app-agenda--esencial.1.texto': '일정에는 습관이 아닌 것들이 담겨요. 할 일, 예약, 연락처예요. 메뉴는 세 가지이고, 날짜가 있는 것은 모두 집 캘린더에 알아서 들어가요.',
+  'tut.app-agenda--esencial.2.titulo': '업무',
+  'tut.app-agenda--esencial.2.texto': '할 일에는 날짜가 없는 일들이 모여서 놓치지 않게 해주고, 보드에서는 할 일·진행 중·완료 열로 작업을 옮길 수 있어요.',
+  'tut.app-agenda--esencial.3.titulo': '건강',
+  'tut.app-agenda--esencial.3.texto': '진료 예약, 약, 돌봄을 세 개의 하위 메뉴로 나눠요. 나, 소중한 사람(내가 돌보는 사람), 반려동물이에요.',
+  'tut.app-agenda--esencial.4.titulo': '연락처',
+  'tut.app-agenda--esencial.4.texto': '관계별로 정리된 연락처 수첩이에요. 저장한 생일은 해마다 캘린더에서 알아서 반복돼요.',
+  'tut.calendario--esencial.1.titulo': '집의 시계',
+  'tut.calendario--esencial.1.texto': '캘린더는 방이 아니에요. 조작판의 시계 안에 있어서 어디에 있든 그 자리에서 바로 열려요.',
+  'tut.calendario--esencial.2.titulo': '예정된 것은 모두 여기에',
+  'tut.calendario--esencial.2.texto':
+    '날짜와 시간이 있는 것은 모두 여기로 와요. 「+ 새로 만들기」로 만든 것도, 격자 위에 그어서 만든 것도, 다른 앱이 알아서 잡아 둔 것도요. 너무 빽빽해지면 위쪽 필터로 앱 하나만 볼 수 있어요.',
+  'tut.calendario--esencial.3.titulo': '일',
+  'tut.calendario--esencial.3.texto':
+    '하루 24시간의 격자예요. 무엇이 몇 시에 있는지, 겹치는 것은 없는지 볼 수 있어요. 이 버튼은 두 가지 역할을 해요. 「오늘」이라고 적혀 있을 때는 현재로 데려다주고, 다른 날짜를 보고 있으면 「일」로 바뀌어요.',
+  'tut.calendario--esencial.4.titulo': '주',
+  'tut.calendario--esencial.4.texto':
+    '같은 시간 격자를 7일 나란히 놓은 화면이에요. 한 주가 어떻게 나뉘어 있는지 보이는 곳이고, 블록을 다른 날로 끌어다 놓거나 늘려서 더 길게 만들 수 있어요.',
+  'tut.calendario--esencial.5.titulo': '월',
+  'tut.calendario--esencial.5.texto':
+    '시간 축은 사라지고, 하루하루가 그날의 일정이 담긴 칸으로 그려져요. 전체를 조망하는 화면이라, 어느 주가 빽빽하고 어느 날이 비었는지 알 수 있어요.',
+  'tut.calendario--esencial.6.titulo': '연도',
+  'tut.calendario--esencial.6.texto':
+    '열두 달을 한 번에 봐요. 이 거리에서는 시각까지는 읽히지 않아요. 보이는 것은 꾸준함이에요. 마음먹은 것을 한 해 동안 얼마나 이어 왔는지 드러나요.',
+  'tut.calendario--esencial.7.titulo': '그리고 미션은 따로',
+  'tut.calendario--esencial.7.texto':
+    '다섯 번째 보기처럼 보이지 않도록 빨갛게 두었어요. 미션은 모든 앱의 오늘 체크리스트를 한 화면에 모아 줘요. 목표와 그 계획은 여기 없어요. 자기 방에 따로 있어요.',
+  'tut.app-anecdotario--esencial.1.titulo': '나만의 일기',
+  'tut.app-anecdotario--esencial.1.texto': '추억 노트에는 남기고 싶은 이야기를 기분과 사진과 함께 담을 수 있어요. 날짜별로 알아서 정리되니 따로 분류할 필요가 없어요.',
+  'tut.app-anecdotario--esencial.2.titulo': '이렇게 적어요',
+  'tut.app-anecdotario--esencial.2.texto': '그날의 기분을 고르고, 하고 싶은 이야기를 적고, 사진이 있으면 함께 붙여요. 글 없이 사진 한 장만 있어도 괜찮아요.',
+  'tut.app-anecdotario--esencial.3.titulo': '기분 캘린더',
+  'tut.app-anecdotario--esencial.3.texto': '하루하루가 그날 기록의 기분으로 칠해져서 한 달이 한눈에 읽혀요. 날짜를 누르면 그날의 기록이 아래에 나와요.',
+  'tut.app-anecdotario--esencial.4.titulo': '기록 보관',
+  'tut.app-anecdotario--esencial.4.texto': '적은 기록은 모두 여기에 남고, 연·월·주별 폴더로 알아서 정리돼요.',
+  'tut.app-biblioteca--esencial.1.titulo': '나의 도서관',
+  'tut.app-biblioteca--esencial.1.texto': '도서관은 나만의 백과사전이에요. 모르는 것을 묻고, 배운 것을 남기고, 공부한 만큼을 기록해요. 메뉴는 네 가지예요.',
+  'tut.app-biblioteca--esencial.2.titulo': '채팅',
+  'tut.app-biblioteca--esencial.2.texto':
+    '여기서 현자에게 어떤 주제든 물어볼 수 있고, 대화는 그대로 저장돼요. 채팅은 지식 분야별로 알아서 분류되고, 백과사전 항목으로 추출돼요.',
+  'tut.app-biblioteca--esencial.3.titulo': '백과사전',
+  'tut.app-biblioteca--esencial.3.texto':
+    '배운 것이 지식 분야별로 자라나는 트리예요. 항목마다 요약과 핵심이 담기고, 직접 적을 수도 있어요. 연필 버튼으로 색인을 내게 맞게 키워 갈 수 있어요.',
+  'tut.app-biblioteca--esencial.4.titulo': '학습',
+  'tut.app-biblioteca--esencial.4.texto':
+    '공부용 타이머예요. 분야와 시간을 고르고, 쭉 이어서 하거나 뽀모도로로 나눠서 하면 구간마다 알아서 기록돼요. 방을 나가도 계속 돌아가요.',
+  'tut.app-biblioteca--esencial.5.titulo': '개요',
+  'tut.app-biblioteca--esencial.5.texto':
+    '여기까지의 전체 그림이에요. 백과사전에 항목이 몇 개인지, 색인을 얼마나 채웠는지, 공부한 분 수, 연속 기록, 그리고 공부한 날들이 나와요.',
+  'tut.app-cocina--esencial.1.titulo': '주방',
+  'tut.app-cocina--esencial.1.texto': '이 앱이 챙기는 것은 두 가지예요. 앞으로 만들 것과 실제로 먹은 것이죠. 각각 위쪽에 자기 메뉴가 있고, 메뉴마다 고유한 탭이 열려요.',
+  'tut.app-cocina--esencial.2.titulo': '레시피북',
+  'tut.app-cocina--esencial.2.texto': '요리하는 쪽이에요. 여기에 레시피와, 그것을 묶어 주는 식단, 그리고 장보기 목록이 있어요. 탭은 그 순서로 세 개예요.',
+  'tut.app-cocina--esencial.3.titulo': '식단',
+  'tut.app-cocina--esencial.3.texto':
+    '식단은 레시피가 담긴 식사 계획이고, 원한다면 칼로리와 영양 성분 목표도 따로 정할 수 있어요. 앱에 이미 들어 있는 것들과 나란히 내 식단을 저장할 수 있어요.',
+  'tut.app-cocina--esencial.4.titulo': '레시피',
+  'tut.app-cocina--esencial.4.texto':
+    '레시피북이에요. 레시피마다 재료와 조리 순서, 1인분 영양 성분을 담고 폴더로 정리돼요. 레시피에서 바로 식사를 기록하거나, 재료를 장보기 목록으로 보낼 수 있어요.',
+  'tut.app-cocina--esencial.5.titulo': '장보기',
+  'tut.app-cocina--esencial.5.texto':
+    '장보기 목록이에요. 품목마다 해당하는 매대에 놓여요. 여러 레시피에서 모자란 것을 모아 목록을 만들고, 집에 이미 있는 것은 체크해 나가면 돼요.',
+  'tut.app-cocina--esencial.6.titulo': '영양 관리',
+  'tut.app-cocina--esencial.6.texto':
+    '다른 메뉴에서는 먹은 것을 번호가 붙은 네 개의 탭으로 챙겨요. 첫 번째는 목표예요. 체중과 키, 활동량으로 하루에 얼마나 필요한지 계산하고 영양 성분을 나눠 줘요.',
+  'tut.app-cocina--esencial.7.titulo': '기록',
+  'tut.app-cocina--esencial.7.texto':
+    '이미 지나간 것들이에요. 그날의 식사와 칼로리, 지금까지 마신 물, 그리고 잰 날의 체중이 나와요. 옆의 식단표 탭은 그 반대로, 앞으로 며칠 동안 먹을 계획을 담은 표예요.',
+  'tut.app-cocina--esencial.8.titulo': '진행 상황',
+  'tut.app-cocina--esencial.8.texto':
+    '고른 기간 동안 위의 모든 것에 대한 통계예요. 칼로리와 영양 성분, 수분, 그리고 체중 곡선이 나와요. 아래에는 색이 칠해진 캘린더가 있어서 어느 날 목표 안에 머물렀는지 한눈에 보여요.',
+  'tut.app-computo--esencial.1.titulo': '전산실',
+  'tut.app-computo--esencial.1.texto':
+    '계산할 일은 여기서 해결돼요. 메뉴는 두 가지예요. 여러 모드와 나만의 공식집이 딸린 계산기, 그리고 표로 다룰 것들을 맡는 스프레드시트예요.',
+  'tut.app-computo--esencial.2.titulo': '계산기',
+  'tut.app-computo--esencial.2.texto':
+    '입력하는 동안 결과를 보여주고 계산한 것을 기록에 남기는 공학용 계산기예요. 아래쪽 키패드 덕분에 휴대폰 키보드를 쓰지 않아도 되고, 표기 버튼은 커서가 있는 자리에 과학 기호를 넣어 줘요.',
+  'tut.app-computo--esencial.3.titulo': '모드',
+  'tut.app-computo--esencial.3.texto':
+    '이 메뉴는 계산기 화면을 통째로 바꿔요. 그래프, 진법, 행렬, 연립방정식, 단위 변환, 팁, 비례식이에요. 어느 모드에서든 기록은 아래에 그대로 남아요.',
+  'tut.app-computo--esencial.4.titulo': '공식집',
+  'tut.app-computo--esencial.4.texto':
+    '계산기 위에 접혀 있는 나만의 공식 노트예요. 수학, 물리, 화학이 미리 담겨 있고 폴더는 겹겹이 만들 수 있어요. 어떤 공식이든 열어서 변수를 채울 수 있고, 편집하거나 지울 수도 있어요.',
+  'tut.app-computo--esencial.5.titulo': '스프레드시트',
+  'tut.app-computo--esencial.5.texto':
+    '셀 참조와 수식(=SUMA 형태)을 쓸 수 있는 시트이고, 선택한 범위로 그래프도 그릴 수 있어요. 수식을 그대로 유지한 채 엑셀로 내보내거나 PDF로 저장할 수 있어요.',
+  'tut.app-descanso--esencial.1.titulo': '휴식',
+  'tut.app-descanso--esencial.1.texto': '이 앱은 잠을 한 화면에서 지켜봐요. 지난밤 점수, 알림이 딸린 수면 시간, 매일의 기록, 그리고 전체 기록이에요.',
+  'tut.app-descanso--esencial.2.titulo': '점수',
+  'tut.app-descanso--esencial.2.texto':
+    '기록한 밤마다 점수가 매겨져요. 얼마나 잤는지, 몇 시에 누웠는지, 몇 번 깼는지를 함께 계산해요. 아직 기록이 없으면 첫 번째 밤을 적어 보라고 권해 줘요.',
+  'tut.app-descanso--esencial.3.titulo': '수면 시간과 알림',
+  'tut.app-descanso--esencial.3.texto':
+    '하루 띠의 양 끝을 끌어서 잠드는 시각과 일어나는 시각을 정해요. 같은 시간표는 집 캘린더에도 블록으로 나타나요. 알람과 알람음, 그리고 자기 전에 속도를 늦추라는 알림도 여기서 켜요.',
+  'tut.app-descanso--esencial.4.titulo': '밤을 기록하기',
+  'tut.app-descanso--esencial.4.texto': '어떻게 잤는지 적는 양식이에요. 날짜, 누운 시각과 일어난 시각, 중간에 깬 횟수, 수면의 질 평가, 그리고 메모를 적을 자리가 있어요.',
+  'tut.app-descanso--esencial.5.titulo': '기록 보관',
+  'tut.app-descanso--esencial.5.texto': '기록한 밤은 모두 여기에 남아 연·월·주로 정리되니, 오랜 흐름 속에서 잠을 되돌아볼 수 있어요.',
+  'tut.app-despacho--esencial.1.titulo': '나의 재정',
+  'tut.app-despacho--esencial.1.texto': '서재는 돈을 네 가지 메뉴로 정리해요. 가진 것, 드나드는 돈, 나의 목표, 그리고 시장이에요. 각 메뉴 아래로 고유한 섹션이 열려요.',
+  'tut.app-despacho--esencial.2.titulo': '순자산',
+  'tut.app-despacho--esencial.2.texto': '가진 것과 갚을 것을 자산과 부채, 두 개의 목록으로 담아요. 세 번째 섹션은 항목마다 정한 이율로 그 상태를 앞으로 예측해 줘요.',
+  'tut.app-despacho--esencial.3.titulo': '현금 흐름',
+  'tut.app-despacho--esencial.3.texto':
+    '들어오는 돈과 나가는 돈을 지출, 수입, 수지로 나눠요. 수지는 고른 기간을 일·주·월·연도 단위로 예산과 카테고리, 추세와 함께 정리해 줘요.',
+  'tut.app-despacho--esencial.4.titulo': '목표',
+  'tut.app-despacho--esencial.4.texto':
+    '돈에 대한 목표를 세 개의 섹션으로 다뤄요. 저축과 투자, 부채, 그리고 나의 수지를 바탕으로 금액을 제안해 주는 계산기예요. 어떤 목표든 일정으로 내려보내 날짜를 붙일 수 있어요.',
+  'tut.app-despacho--esencial.5.titulo': '시장',
+  'tut.app-despacho--esencial.5.texto':
+    '환율, 암호화폐, 주식, 원자재의 실시간 시세예요. 인터넷 연결이 필요해요. 확인용 보드일 뿐이라, 앱이 무엇을 사거나 팔라고 권하지는 않아요.',
+  'tut.app-diario--esencial.1.titulo': '오늘의 신문',
+  'tut.app-diario--esencial.1.texto':
+    '일간 뉴스는 그날의 브리핑을 두 가지 화면으로 전해요. 헤드라인과 오늘의 역사예요. 자체 데이터는 남기지 않아요. 매일 새 내용이 오고, 자정에 통째로 바뀌어요.',
+  'tut.app-diario--esencial.2.titulo': '오늘의 헤드라인',
+  'tut.app-diario--esencial.2.texto':
+    '그날의 헤드라인을 카테고리별로 보여줘요. 세계, 경제, 기술, 건강, 스포츠, 엔터테인먼트이고, 위쪽 칩으로 걸러 볼 수 있어요. 내 언어의 실제 언론에서 오고, 매체는 날마다 바뀌어요.',
+  'tut.app-diario--esencial.3.titulo': '오늘의 역사',
+  'tut.app-diario--esencial.3.texto':
+    '신문의 나머지 절반이에요. 오늘 같은 날에 무슨 일이 있었는지 알려줘요. 작품 하나, 책 한 권, 생물 하나, 낱말 하나예요. 그날 뉴스가 당기지 않아도 신문을 열어 볼 구실이 돼요.',
+  'tut.app-diario--esencial.4.titulo': '알아서 새로워져요',
+  'tut.app-diario--esencial.4.texto':
+    '그날 치는 앱을 열면 알아서 내려받고 자정에 통째로 바뀌기 때문에 쌓이는 것이 없어요. 이 버튼을 누르면 그 시각을 기다리지 않고 바로 새로 고칠 수 있어요.',
+  'tut.app-diario--esencial.5.titulo': '전달',
+  'tut.app-diario--esencial.5.texto': '어떤 섹션을 어느 어시스턴트가 자기 채팅으로 전해 줄지 설정해요. 정해진 시각으로 해도 되고, 하루 중 불쑥 찾아오게 해도 돼요.',
+  'tut.app-ejercicio--esencial.1.titulo': '나의 운동',
+  'tut.app-ejercicio--esencial.1.texto': '헬스장은 몸을 쓰는 세 가지 방식인 근력, 지구력, 유연성을 한데 모으고, 매주 얼마나 운동하고 싶은지 정하는 목표 메뉴도 갖췄어요.',
+  'tut.app-ejercicio--esencial.2.titulo': '목표',
+  'tut.app-ejercicio--esencial.2.texto':
+    '이 방의 요약이에요. 연속 기록, 뭔가 기록한 날의 수, 그리고 여기서 정한 주간 목표에 견준 방식별 막대가 나와요. 단위를 킬로그램으로 할지 파운드로 할지도 여기서 골라요.',
+  'tut.app-ejercicio--esencial.3.titulo': '근력',
+  'tut.app-ejercicio--esencial.3.texto':
+    '무게를 쓰는 운동이에요. 세션마다 종목을 세트, 횟수, 중량으로 저장해요. 그걸로 앱이 그날의 볼륨을 계산하고, 종목별 진행 추이를 그리고, 개인 기록을 남겨요.',
+  'tut.app-ejercicio--esencial.4.titulo': '카탈로그, 루틴, 진행 상황',
+  'tut.app-ejercicio--esencial.4.texto':
+    '세 가지 방식의 구성은 모두 같아요. 카탈로그는 쓸 수 있는 종목을 묶어 루틴을 만들고, 루틴은 위에서 고른 날의 운동을 기록하고, 진행 상황은 그 기간을 히트맵과 함께 정리해 줘요.',
+  'tut.app-ejercicio--esencial.5.titulo': '지구력',
+  'tut.app-ejercicio--esencial.5.texto':
+    '달리기, 자전거, 수영, 걷기를 구간별로 시간과 거리와 함께 기록해요. 실시간 운동도 여기서 열려요. GPS로 경로를, 블루투스 센서로 심박수를 받아 오고, 끝나면 세션을 저장해요.',
+  'tut.app-ejercicio--esencial.6.titulo': '유연성',
+  'tut.app-ejercicio--esencial.6.texto':
+    '스트레칭과 가동성 운동이에요. 무게 대신 시간으로 세트를 잡아서, 동작마다 초와 횟수를 정해요. 가이드 플레이어가 동작을 하나씩 진행하며 언제 바꿀지 타이머로 알려줘요.',
+  'tut.app-entretenimiento--esencial.1.titulo': '오락실',
+  'tut.app-entretenimiento--esencial.1.texto':
+    '다 본 영화와 드라마, 읽은 책, 즐긴 게임을 남길 수 있고, 집을 나서지 않고 즐기는 디지털 게임 테이블도 있어요. 메뉴는 보드게임과 아카이브, 두 가지예요.',
+  'tut.app-entretenimiento--esencial.2.titulo': '보드게임',
+  'tut.app-entretenimiento--esencial.2.texto':
+    '테이블에는 화면에서 바로 즐기는 디지털 게임이 모여 있어요. 필터로 한두 명이 하기 좋은 것과 여럿이 함께할 만한 것을 나눠 볼 수 있어요.',
+  'tut.app-entretenimiento--esencial.3.titulo': '계열별로',
+  'tut.app-entretenimiento--esencial.3.texto':
+    '카탈로그는 계열별로 묶여 있어요. 보드, 퍼즐, 아케이드, 카드와 카지노, 그리고 여럿이 함께하는 게임이고, 각각 고유한 색을 갖고 있어요. 아무 카드나 누르면 게임이 전체 화면으로 열려요.',
+  'tut.app-entretenimiento--esencial.4.titulo': '아카이브',
+  'tut.app-entretenimiento--esencial.4.texto':
+    '아카이브는 보고 읽고 즐긴 것을 한데 모아요. 작품마다 상태와 평점, 내 리뷰가 함께 남아요. 장르, 카테고리, 작가, 날짜로 정렬할 수 있어요.',
+  'tut.app-garage--esencial.1.titulo': '차고',
+  'tut.app-garage--esencial.1.texto':
+    '차고는 나의 이동 수단을 챙겨요. 자전거, 자동차, 오토바이 등 타고 다니는 것이면 무엇이든요. 한 대마다 정비 이력과 서류가 남고, 날짜가 있는 것은 모두 집 캘린더에 알아서 들어가요.',
+  'tut.app-garage--esencial.2.titulo': '요약',
+  'tut.app-garage--esencial.2.texto': '처음 열리는 탭이에요. 신호등이 기한이 지난 것이 있는지, 곧 다가오는 것이 있는지, 아니면 차고가 평온한지 한눈에 알려줘요.',
+  'tut.app-garage--esencial.3.titulo': '한눈에 보기',
+  'tut.app-garage--esencial.3.texto': '차량이 몇 대인지, 아직 진행 중인 서류가 몇 건인지, 그리고 올해 들어 얼마를 썼는지 보여줘요.',
+  'tut.app-garage--esencial.4.titulo': '차량',
+  'tut.app-garage--esencial.4.texto':
+    '전체 목록이에요. 카드마다 번호판, 주행 거리, 정비 횟수가 나와요. 하나를 누르면 그 차량의 정보가 열리고, 정비 이력과 서류를 볼 수 있어요.',
+  'tut.app-garage--esencial.5.titulo': '새로 등록하기',
+  'tut.app-garage--esencial.5.texto':
+    '이름, 종류, 제조사, 모델, 연식, 번호판, 그리고 오늘의 주행 거리를 적어요. 번호판을 넣으면 등록 차량에만 해당하는 서류, 예를 들어 배출가스 검사나 자동차세도 함께 쓸 수 있어요.',
+  'tut.app-hobbies--esencial.1.titulo': '나의 취미 생활',
+  'tut.app-hobbies--esencial.1.texto': '취미는 좋아서 하는 일들을 지켜봐요. 취미마다 세션과 연속 기록이 모이고, 원한다면 프로젝트도 둘 수 있어요.',
+  'tut.app-hobbies--esencial.2.titulo': '나의 취미',
+  'tut.app-hobbies--esencial.2.texto':
+    '등록한 취미는 여기에 카드로 나타나고, 이번 주 진행 정도와 이어지고 있는 연속 기록이 함께 보여요. 하나를 열면 통계와 한 해의 히트맵, 세션 기록, 그리고 프로젝트를 볼 수 있어요.',
+  'tut.app-hobbies--esencial.3.titulo': '취미 등록하기',
+  'tut.app-hobbies--esencial.3.texto': '이 버튼을 누르면 새 취미를 추가하는 양식이 열려요. 이름, 이모지, 색, 그리고 원한다면 주에 며칠 연습할지 목표도 정할 수 있어요.',
+  'tut.app-hobbies--esencial.4.titulo': '취미 안에는',
+  'tut.app-hobbies--esencial.4.texto':
+    '거기서 시간과 메모를 담아 세션을 기록하고, 한 해의 히트맵을 보고, 저마다 진행 정도가 있는 프로젝트를 이어 갈 수 있어요. 목표와 그 일정은 목표 방에 있어요.',
+  'tut.app-ideas--esencial.1.titulo': '아이디어',
+  'tut.app-ideas--esencial.1.texto':
+    '아이디어는 떠오른 것을 담아 두고 무르익도록 도와줘요. 먼저 적어 두고, 그다음 지도처럼 정리하고, 필요하면 견주어 보고 결정해요. 메뉴는 세 가지예요.',
+  'tut.app-ideas--esencial.2.titulo': '아이디어 일지',
+  'tut.app-ideas--esencial.2.texto':
+    '어떤 생각이든 떨어지는 보관함이에요. 하나씩 적어도 되고, 주제별 브레인스토밍으로 묶어도 돼요. 폴더에 정리하거나 별을 달 수 있고, 무르익으면 개념도로 바꿀 수 있어요.',
+  'tut.app-ideas--esencial.3.titulo': '개념도',
+  'tut.app-ideas--esencial.3.texto':
+    '주제에 가장 잘 맞는 형식으로 정리할 수 있는 자유 캔버스예요. 마인드맵, 트리, 흐름도, 타임라인, 사이클, 피라미드, 벤 다이어그램 등이 있어요.',
+  'tut.app-ideas--esencial.4.titulo': '결정 다이어그램',
+  'tut.app-ideas--esencial.4.texto':
+    '같은 캔버스에 결정을 위한 형식이 담겨 있어요. 가중치가 붙은 장단점 분석, SWOT 분석, 아이젠하워 매트릭스, 그리고 선택지를 알아서 줄 세워 주는 가중치 의사결정 매트릭스예요.',
+  'tut.app-idiomas--esencial.1.titulo': '나만의 어학원',
+  'tut.app-idiomas--esencial.1.texto':
+    '여기서 언어를 고르고, AI 선생님과 대화하고, 배운 어휘를 저장하고, 간격 반복으로 복습해요. 메뉴는 네 가지예요. 대화, 커리큘럼, 복습, 진행률이에요.',
+  'tut.app-idiomas--esencial.2.titulo': '대화',
+  'tut.app-idiomas--esencial.2.texto':
+    '배우는 언어로 선생님과 이야기해요. 내 수준에 맞춰 대답하고 부드럽게 고쳐 줘요. 모든 대화는 저장되어 알아서 분류되고, 나갈 때는 새 어휘를 카드로 뽑아 줄지 물어봐요.',
+  'tut.app-idiomas--esencial.3.titulo': '커리큘럼',
+  'tut.app-idiomas--esencial.3.texto':
+    '언어를 주제와 발음, 문법으로 나눠 초급부터 최상급까지 정리해요. 어휘는 각 주제 안에 있어요. 카드마다 뜻과 예문이 함께 그 안에 저장돼요.',
+  'tut.app-idiomas--esencial.4.titulo': '복습',
+  'tut.app-idiomas--esencial.4.texto':
+    '간격 반복 복습이에요. 카드는 저마다 상자에 들어가고, 잊어버릴 때가 된 것만 나와요. 그냥 들여다보는 대신 객관식, 거꾸로 맞히기, 문장 채우기 같은 연습 문제로 익혀요.',
+  'tut.app-idiomas--esencial.5.titulo': '진행률',
+  'tut.app-idiomas--esencial.5.texto': '얼마나 늘었는지 정리해서 보여줘요. 익힌 카드 수, 얼마나 복습했는지, 지금 수준, 그리고 날짜별 복습 기록이 나와요.',
+  'tut.app-jardin--esencial.1.titulo': '마음이 쉬어 가는 곳',
+  'tut.app-jardin--esencial.1.texto':
+    '정원에는 세 가지 실천이 있어요. 명상, 가이드 호흡, 그리고 감사예요. 포인트도 연속 기록도 일부러 두지 않았어요. 여기서는 하루 빠져도 탓하지 않고, 실천하는 만큼 조용히 함께해요.',
+  'tut.app-jardin--esencial.2.titulo': '명상',
+  'tut.app-jardin--esencial.2.texto': '사운드 트랙과 시간을 고르거나, 시작과 끝에 종소리만 두고 조용히 명상해요. 세션은 하나하나 기록에 저장돼요.',
+  'tut.app-jardin--esencial.3.titulo': '호흡',
+  'tut.app-jardin--esencial.3.texto':
+    '가이드 호흡 패턴이 두 가지 있어요. 하나는 마음을 가다듬는 것, 다른 하나는 하루를 내려놓는 것이에요. 진행되는 동안 화면이 함께 숨을 쉬어요.',
+  'tut.app-jardin--esencial.4.titulo': '감사',
+  'tut.app-jardin--esencial.4.texto':
+    '오늘 고마웠던 일을, 단 하나라도 적어 두세요. 지난 기록은 언제든 다시 읽어 볼 수 있어요. 연속 기록은 없어요. 하루를 건너뛰어도 사라지는 것은 없어요.',
+  'tut.app-metas--esencial.1.titulo': '집 전체의 계획을 세우는 곳',
+  'tut.app-metas--esencial.1.texto':
+    '이 방은 자체 기록을 남기지 않아요. 다른 앱에서 생겨난 목표와 계획을 한곳에 모아 둘 뿐이에요. 메뉴는 세 가지이고, 이 순서로 읽어요. 무엇을 마음먹었는지, 그것을 어떻게 나눌 생각인지, 그리고 언제 내려앉는지예요.',
+  'tut.app-metas--esencial.2.titulo': '목표',
+  'tut.app-metas--esencial.2.texto':
+    '마음먹은 것들의 목록을, 각각을 맡은 앱별로 묶어서 보여줘요. 목표는 다른 목표 아래에 달 수 있고, 누르면 그 시트가 열려요. 거기에 기한과 단계, 그리고 그 목표만의 일정으로 들어가는 입구가 있어요.',
+  'tut.app-metas--esencial.3.titulo': '계획',
+  'tut.app-metas--esencial.3.texto':
+    '계획은 일정의 초안이에요. 하나의 목표를 날짜가 붙은 단계로 나눠 줘요. 제안인 동안에는 마음대로 손볼 수 있고, 마음에 들면 받아들여서 그 단계들이 진짜 하위 목표가 돼요.',
+  'tut.app-metas--esencial.4.titulo': '일정',
+  'tut.app-metas--esencial.4.texto':
+    '모든 목표가 한꺼번에 놓이는 시간축이에요. 하나하나가 날짜 위의 막대가 돼요. 일·주·월·연도 단위로 확대하거나 축소할 수 있고, 계획을 위에 겹쳐서 이미 그려 둔 것과 견줘 볼 수 있어요.',
+  'tut.app-sala--esencial.1.titulo': '나의 여행 거실',
+  'tut.app-sala--esencial.1.texto':
+    '여기에 나의 여행 세계가 있어요. 핀을 꽂는 세계 지도, 가 보고 싶은 곳의 일정, 여러 장소를 이어 주는 경로, 그리고 추억을 담은 여행 일지예요. 메뉴는 네 가지예요.',
+  'tut.app-sala--esencial.2.titulo': '지도',
+  'tut.app-sala--esencial.2.texto': '다녀온 곳도, 가 보고 싶은 곳도 모두 세계 지도 위의 핀이 돼요. 위쪽 전환 버튼을 누르면 평면 지도가 끌어서 돌리는 지구본으로 바뀌어요.',
+  'tut.app-sala--esencial.3.titulo': '일정',
+  'tut.app-sala--esencial.3.texto': '가 보고 싶은 곳을 하루하루의 계획과 함께 담아요. 날짜가 있는 것은 캘린더에 알아서 들어가요.',
+  'tut.app-sala--esencial.4.titulo': '경로',
+  'tut.app-sala--esencial.4.texto': '경로는 여러 장소를 하나의 여정으로 이어서 지도 위에 그려 줘요.',
+  'tut.app-sala--esencial.5.titulo': '여행 일지',
+  'tut.app-sala--esencial.5.texto': '다녀온 곳의 추억을 나라별 앨범으로 모아요. 장소마다 사진과 이야기가 담겨요.',
   'tut.app-agenda--trabajo.1.titulo': '할 일 보관함',
   'tut.app-agenda--trabajo.1.texto': '해야 하지만 아직 날짜가 없는 일은 여기에 우선순위와 함께 있어요. 적어 두려고 굳이 날짜를 정할 필요는 없어요.',
   'tut.app-agenda--trabajo.3.titulo': '보드',
@@ -551,6 +812,12 @@ export const KO_TUT: Dict = {
   'tut.app-agenda--salud.4.titulo': '반복되는 것들',
   'tut.app-agenda--salud.4.texto':
     '연례 검진, 스케일링, 혈액 검사처럼 주기가 있는 케어예요. 완료로 표시하면 다음 날짜가 알아서 넘어가서, 달력이 이미 한 일을 가리키는 일이 없어요.',
+  'tut.app-agenda--salud.ciclo.titulo': '생리 주기',
+  'tut.app-agenda--salud.ciclo.texto':
+    '\'나\'의 맨 끝에는 생리 주기가 전용 스위치와 함께 있어요. 출혈량, 증상, 기분을 날마다 적을 수 있고, 최근 생리들로 다음 생리와 가임기를 추정해요. 꺼도 기록해 둔 건 전부 남아요.',
+  'tut.app-agenda--salud.projimos.titulo': '소중한 사람',
+  'tut.app-agenda--salud.projimos.texto':
+    '당신이 돌보는 사람들이에요. \'연락처\'에서 \'내가 돌봄\' 표시를 한 사람들이, 각자 진료과별 예약과 돌봄, 약과 함께 여기에 나와요. Pep은 여기서 어머니를 챙기고 있어요.',
   'tut.app-agenda--personas.1.titulo': 'Pep의 사람들',
   'tut.app-agenda--personas.1.texto': '가족, 친구, 직장과 대학에서 만난 사람들이 각자의 폴더에 들어 있어요. 전화번호와 주소, 잊고 싶지 않은 것까지 함께요.',
   'tut.app-agenda--personas.2.titulo': '잊지 않는 생일',
@@ -613,7 +880,7 @@ export const KO_TUT: Dict = {
     '\'목록 만들기\'는 여러 레시피에서 빠진 것을 한 번의 장보기로 모아 줘요. 재료마다 분류(과일 및 채소, 유제품…)를 알아서 짐작하고, 고칠 수도 있어요.',
   'tut.app-cocina--recetario.5.titulo': '저장된 목록',
   'tut.app-cocina--recetario.5.texto': '목록마다 아직 살 것과 이미 집에 있는 것이 함께 저장돼요. 가격을 넣으면 그 금액을 서재의 지출로 보낼 수 있어요.',
-  'tut.app-cocina--cronograma.1.titulo': '주방이 오늘 시키는 일',
+  'tut.app-cocina--cronograma.1.titulo': '단계로 나눈 체중 목표',
   'tut.app-cocina--cronograma.1.texto':
     '헤더의 “미션” 버튼을 누르면 오늘의 체크리스트가 열려요. 물, 식사, 그리고 목표에서 내려온 단계들이요. 목표 자체는—AI가 제안하는 계획과 함께—“목표” 방에 있고, 목표를 맡은 앱별로 묶여 있어요.',
   'tut.app-cocina--cronograma.2.texto': '이건 AI가 하는 일이에요: 편집기 › 설정 › 계정에서 켤 수 있어요. 없어도 목표는 똑같이 만들고 고칠 수 있어요. 손으로 하면 돼요.',
@@ -689,6 +956,9 @@ export const KO_TUT: Dict = {
   'tut.app-garage--vehiculos.1.texto': '신호등 하나면 목록을 두 개나 읽을 필요가 없어요. 기한이 지난 게 있으면 빨간불, 다가오고 있으면 노란불, 차고가 평온하면 초록불이에요.',
   'tut.app-garage--vehiculos.2.titulo': '지금까지 쓴 돈',
   'tut.app-garage--vehiculos.2.texto': '차량이 몇 대인지, 진행 중인 서류가 몇 건인지, 올해 얼마를 썼는지 보여줘요. Pep은 그 차에 돈이 꽤 많이 들었어요.',
+  'tut.app-garage--vehiculos.2b.titulo': '새 차량 등록',
+  'tut.app-garage--vehiculos.2b.texto':
+    '이름, 종류, 제조사, 모델, 연식, 번호판, 오늘 주행거리예요. 번호판을 등록해두면, 차고가 나중에 어떤 서류 업무를 안내할지 알 수 있어요.',
   'tut.app-garage--vehiculos.3.titulo': '매일 타는 자전거',
   'tut.app-garage--vehiculos.3.texto':
     'Pep의 진짜 이동 수단이에요. 체인, 튜브, 브레이크가 하나씩 각자의 줄에 있어요. 다른 앱들이 쓰는 것과 같은, 연도와 월 폴더 보관함이에요. 최근 몇 달에 정비가 몰려 있는 걸 보세요. 마라톤 훈련이 값을 치르게 한 거예요.',
@@ -697,10 +967,15 @@ export const KO_TUT: Dict = {
     '7개월 차의 고장이 여기 있어요. 길에 멈춰 섰고, 견인차를 불렀고, 없던 돈 1만 페소 가까이가 나갔어요. 정비마다 비용과 주행거리, 어느 정비소였는지가 남아요.',
   'tut.app-garage--vehiculos.5.titulo': '정보 카드',
   'tut.app-garage--vehiculos.5.texto': '제조사, 모델, 연식, 번호판, 그리고 최신 주행거리예요. 번호판을 넣어두면 차에만 해당하는 서류 업무를 차고가 열어줘요.',
+  'tut.app-garage--tramites.tabs.titulo': '수첩 세 권',
+  'tut.app-garage--tramites.tabs.texto':
+    '차량마다 정보 카드가 서류 업무를 \'서류\', \'문서\', \'연락처\' 세 수첩에 나눠 담아요. 정비 기록은 어느 수첩을 보고 있든 늘 아래에 있어요.',
   'tut.app-garage--tramites.1.titulo': '다가오는 일',
   'tut.app-garage--tramites.1.texto': '서류마다 다음 만료일, 몇 달마다 반복되는지, 얼마가 드는지가 들어 있어요. 완료로 표시하면 날짜가 알아서 다음으로 넘어가요.',
   'tut.app-garage--tramites.2.titulo': '자전거는 자동차세를 안 내요',
   'tut.app-garage--tramites.2.texto': '번호판이 없으면 차고가 해당 없는 서류를 숨겨요. 자전거에는 정기 점검만 보여줘요.',
+  'tut.app-garage--tramites.2b.titulo': '서류는 따로 관리',
+  'tut.app-garage--tramites.2b.texto': '등록증, 보험 증권, 자동차세는 정비소 업무와 섞이지 않아요. 문서 번호, 만료일, 사전 알림이 있는 전용 기록장에 따로 관리돼요.',
   'tut.app-garage--tramites.3.titulo': '연락처 수첩',
   'tut.app-garage--tramites.3.texto': '단골 정비소, 보험사, 검사소, 동네 자전거 가게, 그리고 그날 밤의 견인 업체까지. 전화번호와 주소가 한 번만 누르면 나와요.',
   'tut.app-garage--tramites.4.texto':
@@ -710,6 +985,9 @@ export const KO_TUT: Dict = {
   'tut.app-sala--mapa.2.titulo': '핀',
   'tut.app-sala--mapa.2.texto':
     '일본에 모여 있는 핀 일곱 개가 3주간의 여행이에요. 호박색인 서울, 파타고니아, 아이슬란드는 아직 가지 못한 곳이에요. 지도를 누르면 원하는 자리에 새 핀을 꽂을 수 있어요.',
+  'tut.app-sala--mapa.3.titulo': '지구본',
+  'tut.app-sala--mapa.3.texto':
+    '위의 전환 버튼은 평면 지도를 끌어서 돌리는 지구본으로 바꿔줘요. 핀은 그대로고 누를 수도 있어요. 다만 지구본은 보라고 있는 거예요. 새 핀은 \'평면\' 보기에서 꽂아요.',
   'tut.app-sala--japon.1.titulo': '앨범',
   'tut.app-sala--japon.1.texto': '나라마다 폴더 하나, 표지 사진과 함께 있어요. 안에는 장소마다 카드가 하나씩, 그 안에는 Pep이 그날 쓴 글이 있어요.',
   'tut.app-sala--japon.2.titulo': '그곳에서 쓴 글',

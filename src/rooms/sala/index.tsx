@@ -6,7 +6,7 @@ import { normalizar } from '../../core/chat/dispatcher'
 import { tGlobal } from '../../core/i18n/useT'
 import { CLAUSULA_RECHAZO } from '../../core/planIA'
 import { buscarLugares } from './geocoder'
-import { flujosSala } from './tutorial.meta'
+import { esencialSala, flujosSala } from './tutorial.meta'
 import { eventosViaje } from './eventos'
 
 const esquemas: EsquemaCaptura[] = [
@@ -76,6 +76,7 @@ const sala: Plantilla = {
   color: '#2dd4bf',
   App: SalaApp,
   flujos: flujosSala,
+  esencial: esencialSala,
   eventos: eventosViaje,
   esquemas,
   // Acotamiento del planificador ✨: en viajes el plan es SIEMPRE un itinerario.

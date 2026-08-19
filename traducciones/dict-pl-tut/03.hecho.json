@@ -1,126 +1,82 @@
 [
   {
-    "clave": "tut.menu-cuartos.6.texto",
-    "texto": "Utwórz pokój otwiera edytor mapy z pędzlem gotowym do narysowania nowego pokoju: kształt, rozmiar i miejsce zależą tylko od ciebie. Na telefonie wygodniejszy jest skrót z koła narzędzi › Budowa › Pokoje, który rysuje wprost na mapie, bez otwierania panelu."
+    "clave": "tut.app-descanso--esencial.2.texto",
+    "texto": "Każda zarejestrowana noc dostaje ocenę, która łączy to, ile spałeś, o której godzinie poszedłeś spać i ile razy się budziłeś. Bez żadnych zapisów ta sekcja zaprasza cię do zarejestrowania pierwszej nocy."
   },
+  { "clave": "tut.app-descanso--esencial.3.titulo", "texto": "Harmonogram i przypomnienia" },
   {
-    "clave": "tut.menu-cuartos.7.texto",
-    "texto": "W skrócie: Edytuj, żeby dostosować, Wejdź, żeby używać aplikacji. Pozostałe zakładki tego menu mają własny samouczek."
+    "clave": "tut.app-descanso--esencial.3.texto",
+    "texto": "Ustawiasz godzinę snu i pobudki, przeciągając końce paska dnia; ten sam harmonogram pojawia się też jako blok w kalendarzu domu. Tutaj włączasz też budzik z jego dźwiękiem i przypomnienia, żeby zwolnić tempo przed snem."
   },
+  { "clave": "tut.app-descanso--esencial.4.titulo", "texto": "Rejestrowanie nocy" },
   {
-    "clave": "tut.menu-plantillas.1.texto",
-    "texto": "Szablon to aplikacja (Kuchnia, Siłownia, Gabinet…). Przypisujesz go do obiektu w pokoju i otwiera się przy wejściu."
+    "clave": "tut.app-descanso--esencial.4.texto",
+    "texto": "Formularz do zapisania, jak spałeś: data, godzina, o której poszedłeś spać i wstałeś, przerwy i ocena jakości, z miejscem na notatkę."
   },
+  { "clave": "tut.app-descanso--esencial.5.titulo", "texto": "Historia" },
   {
-    "clave": "tut.menu-plantillas.2.titulo",
-    "texto": "Dwa widoki"
+    "clave": "tut.app-descanso--esencial.5.texto",
+    "texto": "Każda zarejestrowana noc zostaje tutaj, uporządkowana według roku, miesiąca i tygodnia, żebyś mógł przejrzeć swój odpoczynek w czasie."
   },
+  { "clave": "tut.app-despacho--esencial.1.titulo", "texto": "Twoje finanse" },
   {
-    "clave": "tut.menu-plantillas.2.texto",
-    "texto": "Pokoje to zwykłe aplikacje, każda w swoim obiekcie. Dodatki działają inaczej: Trasy, Boiska, Jedzenie, Farma czy Paintball buduje się wprost na terenie, bez zajmowania pokoju."
+    "clave": "tut.app-despacho--esencial.1.texto",
+    "texto": "Gabinet porządkuje twoje pieniądze w czterech podmenu: to, co masz, to, co wchodzi i wychodzi, twoje cele i rynki. Każde otwiera własne sekcje poniżej."
   },
+  { "clave": "tut.app-despacho--esencial.2.titulo", "texto": "Majątek netto" },
   {
-    "clave": "tut.menu-plantillas.3.titulo",
-    "texto": "Katalog"
+    "clave": "tut.app-despacho--esencial.2.texto",
+    "texto": "To, co masz, i to, co jesteś winien, w dwóch listach: aktywa i pasywa. Trzecia sekcja przekłada ten obraz na przyszłość według stopy, którą ustawisz w każdej linii."
   },
+  { "clave": "tut.app-despacho--esencial.3.titulo", "texto": "Przepływy pieniężne" },
   {
-    "clave": "tut.menu-plantillas.3.texto",
-    "texto": "Aplikacje wbudowane i twoje własne, uporządkowane w grupy. Dotknij jednej, żeby przypisać ją do pokoju albo, w Dodatkach, żeby zbudować ją na mapie."
+    "clave": "tut.app-despacho--esencial.3.texto",
+    "texto": "Pieniądze, które wchodzą i wychodzą, podzielone na wydatki, przychody i bilans. Bilans podsumowuje wybrany okres — dzień, tydzień, miesiąc lub rok — z jego budżetem, kategoriami i trendem."
   },
+  { "clave": "tut.app-despacho--esencial.4.titulo", "texto": "Cele" },
   {
-    "clave": "tut.menu-plantillas.4.titulo",
-    "texto": "Własne szablony"
+    "clave": "tut.app-despacho--esencial.4.texto",
+    "texto": "Twoje cele finansowe w trzech sekcjach: oszczędności i inwestycje, dług oraz kalkulatory, które proponują kwotę na podstawie twojego własnego bilansu. Każdy cel może zejść do harmonogramu i dostać datę."
   },
+  { "clave": "tut.app-despacho--esencial.5.titulo", "texto": "Rynki" },
   {
-    "clave": "tut.menu-plantillas.4.texto",
-    "texto": "Twórz własne szablony, składając je z bloków: notatki, listy kontrolne, liczniki, nawyki, galerie… Ten przycisk otwiera własny edytor z własnym samouczkiem."
+    "clave": "tut.app-despacho--esencial.5.texto",
+    "texto": "Notowania na żywo walut, kryptowalut, akcji i surowców; wymaga połączenia. To tablica do wglądu: aplikacja nie doradza, co kupić ani co sprzedać."
   },
+  { "clave": "tut.app-diario--esencial.1.titulo", "texto": "Dzisiejsza gazeta" },
   {
-    "clave": "tut.menu-plantillas.5.texto",
-    "texto": "Jeden pokój może mieć kilka aplikacji: przy wejściu pojawia się ekran wyboru, którą otworzyć."
+    "clave": "tut.app-diario--esencial.1.texto",
+    "texto": "Wiadomości dnia przynoszą dzienny przegląd w dwóch widokach: nagłówki i rubrykę „w tym dniu”. Nie przechowują własnych danych: każdy dzień przynosi nową treść, a o północy zostaje ona całkowicie zastąpiona."
   },
+  { "clave": "tut.app-diario--esencial.2.titulo", "texto": "Nagłówki" },
   {
-    "clave": "tut.plantillas-custom.1.texto",
-    "texto": "Ten edytor buduje twoją własną aplikację od zera: nadajesz jej nazwę, emoji i bloki, a ona ląduje w katalogu obok wbudowanych."
+    "clave": "tut.app-diario--esencial.2.texto",
+    "texto": "Nagłówki dnia według kategorii — świat, gospodarka, technologia, zdrowie, sport i rozrywka — filtrowane chipami u góry. Pochodzą z prawdziwej prasy w twoim języku, z mediami, które zmieniają się każdego dnia."
   },
+  { "clave": "tut.app-diario--esencial.3.titulo", "texto": "W tym dniu" },
   {
-    "clave": "tut.plantillas-custom.2.titulo",
-    "texto": "Nazwa, emoji i kolor"
+    "clave": "tut.app-diario--esencial.3.texto",
+    "texto": "Druga połowa gazety: co wydarzyło się w dniu takim jak dzisiaj — dzieło, książka, gatunek, słowo. To pretekst, żeby ją otworzyć, nawet gdy wiadomości akurat nie interesują."
   },
+  { "clave": "tut.app-diario--esencial.4.titulo", "texto": "Sama się odnawia" },
   {
-    "clave": "tut.plantillas-custom.2.texto",
-    "texto": "Jak będzie się nazywać i jakim kolorem maluje się w menu, w katalogu i w kalendarzu, jeśli zaplanujesz coś z niej."
+    "clave": "tut.app-diario--esencial.4.texto",
+    "texto": "Wydanie pobiera się samo przy otwarciu aplikacji i zostaje w całości zastąpione o północy: nic się nie kumuluje. Ten przycisk wymusza aktualizację przed tą godziną."
   },
+  { "clave": "tut.app-diario--esencial.5.titulo", "texto": "Dostawa" },
   {
-    "clave": "tut.plantillas-custom.3.titulo",
-    "texto": "Narzędzia"
+    "clave": "tut.app-diario--esencial.5.texto",
+    "texto": "Skonfiguruj, które sekcje dostarcza ci każdy asystent na własnym czacie, o stałej godzinie albo w niespodziewanym momencie dnia."
   },
+  { "clave": "tut.app-ejercicio--esencial.1.titulo", "texto": "Twój trening" },
   {
-    "clave": "tut.plantillas-custom.3.texto",
-    "texto": "Dwanaście rodzajów bloku: notatki, lista kontrolna, licznik, nawyk, sesje, odliczanie, galeria, dziennik, ocena, postęp, lista i linki. Każdy dodany zmienia się w sekcję twojej aplikacji."
+    "clave": "tut.app-ejercicio--esencial.1.texto",
+    "texto": "Ćwiczenia łączą trzy formy aktywności ciała — siłę, wytrzymałość i elastyczność — plus podmenu celów, gdzie decydujesz, ile chcesz trenować co tydzień."
   },
+  { "clave": "tut.app-ejercicio--esencial.2.titulo", "texto": "Cele" },
   {
-    "clave": "tut.plantillas-custom.4.titulo",
-    "texto": "Kolejność ma znaczenie"
+    "clave": "tut.app-ejercicio--esencial.2.texto",
+    "texto": "Podsumowanie pokoju: twoja seria, dni z czymś zarejestrowanym i pasek dla każdej formy względem tygodniowego celu, który tu ustawisz. Tu też wybierasz system miar, w kilogramach albo w funtach."
   },
-  {
-    "clave": "tut.plantillas-custom.4.texto",
-    "texto": "Dodane bloki przestawiasz strzałkami, a usuwasz krzyżykiem ✕ — usunięcie jednego kasuje jego dane przy zapisie, więc sprawdź to przed zatwierdzeniem. Listą rozwijaną „Menu” przenosisz je z jednej zakładki do drugiej, nic nie tracąc."
-  },
-  {
-    "clave": "tut.plantillas-custom.5.titulo",
-    "texto": "Zapisz"
-  },
-  {
-    "clave": "tut.plantillas-custom.5.texto",
-    "texto": "Gdy jest nazwa i przynajmniej jeden blok, Zapisz odkłada ją gotową do katalogu. Stamtąd przypisujesz ją do obiektu tak samo jak każdy wbudowany szablon."
-  },
-  {
-    "clave": "tut.plantillas-custom.6.texto",
-    "texto": "Możesz ją edytować ponownie, kiedy zechcesz: jej bloki i dane zostają nietknięte, zmienia się tylko to, co zmienisz."
-  },
-  {
-    "clave": "tut.menu-inventario.1.texto",
-    "texto": "Ekwipunek: wszystkie obiekty, które możesz postawić w domu, gotowe do przeciągnięcia."
-  },
-  {
-    "clave": "tut.menu-inventario.2.titulo",
-    "texto": "Obiekty"
-  },
-  {
-    "clave": "tut.menu-inventario.2.texto",
-    "texto": "Twoja biblioteka obiektów w kategoriach i folderach. Możesz zmieniać ich nazwy i porządkować je, żeby następnym razem szybko je znaleźć."
-  },
-  {
-    "clave": "tut.menu-inventario.3.titulo",
-    "texto": "Obiekty specjalne"
-  },
-  {
-    "clave": "tut.menu-inventario.3.texto",
-    "texto": "Te, które coś robią, a nie tylko zdobią: pojazdy do jeżdżenia, pistolety-zabawki, fontanny, urządzenia z placu zabaw i światła."
-  },
-  {
-    "clave": "tut.menu-inventario.4.titulo",
-    "texto": "Stawianie"
-  },
-  {
-    "clave": "tut.menu-inventario.4.texto",
-    "texto": "Przy otwartym menu przeciągnij miniaturę wprost na scenę 3D, żeby postawić ją tam, gdzie chcesz."
-  },
-  {
-    "clave": "tut.menu-inventario.5.texto",
-    "texto": "Żeby przesuwać, malować albo usuwać to, co już stoi, użyj Edytora (zakładka Obiekty) — to menu służy tylko do wnoszenia nowych rzeczy na scenę."
-  },
-  {
-    "clave": "tut.editor-mapa.1.texto",
-    "texto": "Edytor domu ma 4 zakładki: Mapa, Postacie, Obiekty i Ustawienia. Ten samouczek dotyczy Mapy; pozostałe trzy mają swoje własne."
-  },
-  {
-    "clave": "tut.editor-mapa.2.titulo",
-    "texto": "Szkic"
-  },
-  {
-    "clave": "tut.editor-mapa.2.texto",
-    "texto": "Rysujesz na siatce widzianej z góry: pokoje, ściany, drzwi, okna i podłogi, trybami i pędzlami z górnego paska. To, co narysujesz, od razu pojawia się w 3D, bez przeładowywania."
-  }
+  { "clave": "tut.app-ejercicio--esencial.3.titulo", "texto": "Siła" }
 ]

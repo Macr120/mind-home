@@ -11,7 +11,7 @@ import { PasosMeta } from './PasosMeta'
 import { categoriasDisponibles } from './VistaMetas'
 
 const CLASE_CAMPO =
-  'rounded border border-white/10 bg-black/30 px-1 py-0.5 text-[10px] tabular-nums text-white/70 focus:outline-none'
+  'rounded-lg border border-white/10 bg-black/30 px-1 py-0.5 text-[10px] tabular-nums text-white/70 focus:border-accent/60 focus:outline-none'
 
 /**
  * Todo lo que se le puede tocar a una meta: fechas, hora, nota, color y pasos.
@@ -72,7 +72,7 @@ export function DetalleMeta({
             type="button"
             onClick={() => void quitarPeriodo(meta)}
             title={t('cal.meta.quitarFechas', 'Quitar las fechas (vuelve a la lista)')}
-            className="px-1 text-[10px] text-white/30 transition hover:text-red-400"
+            className="ui-presion px-1 text-[10px] text-white/30 transition hover:text-red-400"
           >
             <Icono nombre="basura" />
           </button>
@@ -83,7 +83,7 @@ export function DetalleMeta({
             type="button"
             onClick={() => onPlanIA(meta)}
             title={t('cal.plan.ia', 'Planear con IA')}
-            className="ms-auto shrink-0 rounded-full border border-violet-400/50 bg-violet-500/20 px-1.5 py-0.5 text-[10px] text-violet-200 transition hover:bg-violet-500/35 hover:text-violet-100"
+            className="ui-presion ms-auto shrink-0 rounded-full border border-plan/50 bg-plan/20 px-1.5 py-0.5 text-[10px] text-plan transition hover:bg-plan/35 hover:text-plan"
           >
             <Icono nombre="brillo" />
           </button>
@@ -115,7 +115,7 @@ export function DetalleMeta({
               <button
                 type="button"
                 onClick={() => meta.id != null && void quitarHorario(meta.id)}
-                className="px-1 text-[9px] text-white/30 transition hover:text-white/70"
+                className="ui-presion px-1 text-[9px] text-white/30 transition hover:text-white/70"
               >
                 {t('cal.meta.todoElDia', 'Todo el día')}
               </button>
@@ -124,7 +124,7 @@ export function DetalleMeta({
             <button
               type="button"
               onClick={() => meta.id != null && void ponerHorario(meta.id, '08:00', 60)}
-              className="px-1 text-[10px] text-white/35 transition hover:text-white/80"
+              className="ui-presion px-1 text-[10px] text-white/35 transition hover:text-white/80"
             >
               + {t('cal.meta.ponerHora', 'Poner hora')}
             </button>
@@ -148,14 +148,14 @@ export function DetalleMeta({
             else if (e.key === 'Escape') setNotaAbierta(false)
           }}
           placeholder={t('cal.notaPlaceholder', 'Nota (opcional)')}
-          className="w-full rounded border border-white/15 bg-black/30 px-1.5 py-0.5 text-[10px] text-white/80 placeholder:text-white/25 focus:outline-none"
+          className="w-full rounded-lg border border-white/15 bg-black/30 px-1.5 py-0.5 text-[10px] text-white/80 placeholder:text-white/25 focus:border-accent/60 focus:outline-none"
         />
       ) : (
         <div className="flex justify-end">
           <button
             type="button"
             onClick={() => setNotaAbierta(true)}
-            className="px-1 text-[10px] text-white/35 transition hover:text-white/80"
+            className="ui-presion px-1 text-[10px] text-white/35 transition hover:text-white/80"
           >
             + {t('cal.meta.etiquetaNota', 'nota')}
           </button>
@@ -193,7 +193,7 @@ export function DetalleMeta({
             onClick={() => meta.id != null && void rutinasRepo.update(meta.id, { color: c })}
             title={c}
             style={{ backgroundColor: c }}
-            className={`h-4 w-4 shrink-0 rounded-full border-2 transition ${
+            className={`ui-presion h-4 w-4 shrink-0 rounded-full border-2 transition ${
               colorDe(meta) === c ? 'scale-110 border-white' : 'border-transparent hover:scale-105'
             }`}
           />

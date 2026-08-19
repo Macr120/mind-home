@@ -1,4 +1,5 @@
 import type { CuerpoTutorial, TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import { fichaEsencial } from '../../core/tutorial/esencial'
 
 /**
  * Fichas de los tutoriales de esta app: id, título y resumen. Es lo único que
@@ -53,3 +54,13 @@ const flujoCronograma = tour(
 )
 
 export const flujosCocina: TutorialDef[] = [flujoAlimentacion, flujoRecetario, flujoCronograma]
+
+/** Esencial: recorre los menús de los dos enfoques en la casa real, sin necesitar datos. */
+export const esencialCocina: TutorialDef = fichaEsencial(
+  'cocina',
+  T(
+    'tut.app-cocina--esencial.resumen',
+    'La cocina tiene dos menús. Recetario guarda lo que vas a cocinar: las recetas con sus macros, las dietas que las agrupan y la lista del súper. Control de alimentación lleva la cuenta de lo que comes, en cuatro pasos: las metas de calorías y peso, el registro del día, el plan de comidas de los días que vienen y el progreso.',
+  ),
+  () => import('./tutorial').then((m) => m.cuerpoEsencial as CuerpoTutorial),
+)

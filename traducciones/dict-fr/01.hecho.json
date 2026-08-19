@@ -1,72 +1,46 @@
 [
-  { "clave": "corazon.gato.noche.1", "texto": "Nuit calme. Ne la gâche pas 🐾" },
-  { "clave": "corazon.gato.rutina.0", "texto": "Hé, « {r} » c’est à {h}. Je ne bouge pas 🐾" },
-  { "clave": "corazon.gato.rutina.1", "texto": "« {r} » approche ({h}). Tu vas y arriver ; je supervise 🐱" },
-  { "clave": "corazon.gato.generica.0", "texto": "Tout est sous contrôle. J’ai vérifié entre deux siestes 🐾" },
-  { "clave": "corazon.gato.generica.1", "texto": "Hmm. La maison tient toujours debout. De rien 🐱" },
-  { "clave": "corazon.perro.manana.0", "texto": "Bonjour ! Aujourd’hui sent la journée géniale ! 🐶" },
-  { "clave": "corazon.perro.manana.1", "texto": "C’est le matin ! On y va, on y va, on y va ! 🦴" },
-  { "clave": "corazon.perro.tarde.0", "texto": "L’après-midi parfait pour tout accomplir ! Ouaf ! 🐶" },
-  { "clave": "corazon.perro.tarde.1", "texto": "Toujours là, à tout surveiller ! 🎉" },
-  { "clave": "corazon.perro.noche.0", "texto": "Quelle super journée on a passée ! Hein ? Hein ? 🐶" },
-  { "clave": "corazon.perro.noche.1", "texto": "Nuit tranquille… je monte la garde ! 🦴" },
-  { "clave": "corazon.perro.rutina.0", "texto": "« {r} » à {h} ! Tu peux le faire ! 🎉" },
-  { "clave": "corazon.perro.rutina.1", "texto": "N’oublie pas « {r} » à {h} ! Ouaf ! 🐶" },
-  { "clave": "corazon.perro.generica.0", "texto": "J’adore cette maison ! 🐶" },
-  { "clave": "corazon.perro.generica.1", "texto": "Appelle-moi si tu as besoin de quoi que ce soit ! N’importe quoi ! 🦴" },
-  { "clave": "corazon.buho.manana.0", "texto": "Aube. Idéal pour planifier la journée calmement. 🦉" },
-  { "clave": "corazon.buho.manana.1", "texto": "Une matinée bien organisée rapporte double." },
-  { "clave": "corazon.buho.tarde.0", "texto": "Midi : un bon moment pour faire le point. 🦉" },
-  { "clave": "corazon.buho.tarde.1", "texto": "L’après-midi se déroule comme prévu." },
-  { "clave": "corazon.buho.noche.0", "texto": "La nuit tombe. Je te suggère de clore la journée par une note. 🦉" },
-  { "clave": "corazon.buho.noche.1", "texto": "La nuit invite à la réflexion." },
-  { "clave": "corazon.buho.rutina.0", "texto": "Avis opportun : « {r} » à {h}. 🦉" },
-  { "clave": "corazon.buho.rutina.1", "texto": "Ton emploi du temps indique « {r} » à {h}." },
-  { "clave": "corazon.buho.generica.0", "texto": "J’observe et je prends note. Tout est en ordre. 🦉" },
-  { "clave": "corazon.buho.generica.1", "texto": "Le savoir s’accumule jour après jour." },
-  { "clave": "corazon.robot.manana.0", "texto": "☀ CYCLE JOURNALIER DÉMARRÉ. SYSTÈMES À 100 %. 🤖" },
-  { "clave": "corazon.robot.manana.1", "texto": "BONJOUR. BATTERIE PLEINE. ✓" },
-  { "clave": "corazon.robot.tarde.0", "texto": "SCAN DE L’APRÈS-MIDI TERMINÉ. AUCUNE ANOMALIE. ✓" },
-  { "clave": "corazon.robot.tarde.1", "texto": "PRODUCTIVITÉ CONFORME AUX PARAMÈTRES. 🤖" },
-  { "clave": "corazon.robot.noche.0", "texto": "MODE NUIT ACTIF. SURVEILLANCE EN COURS. 🤖" },
-  { "clave": "corazon.robot.noche.1", "texto": "RECOMMANDATION : RECHARGER L’UNITÉ HUMAINE (SOMMEIL). ✓" },
-  { "clave": "corazon.robot.rutina.0", "texto": "RAPPEL : « {r} » PRÉVU À {h}. ✓" },
-  { "clave": "corazon.robot.rutina.1", "texto": "ALERTE : « {r} » À {h}. 🤖" },
-  { "clave": "corazon.robot.generica.0", "texto": "TOUS LES SYSTÈMES SONT NOMINAUX. 🤖" },
-  { "clave": "corazon.robot.generica.1", "texto": "EN ATTENTE D’INSTRUCTIONS. PAS URGENT. ✓" },
-  { "clave": "chat.config.activoMapa", "texto": "L’assistant actif est toujours sur le plan" },
-  { "clave": "chat.config.editar", "texto": "Personnaliser" },
-  { "clave": "chat.config.eliminar", "texto": "Supprimer l’assistant" },
-  { "clave": "chat.config.eliminarConfirma", "texto": "Supprimer {n} ? Ses conversations restent." },
-  { "clave": "chat.config.eliminarOk", "texto": "Supprimer" },
-  { "clave": "chat.config.eliminarUltimo", "texto": "Il doit rester au moins un assistant" },
-  { "clave": "chat.config.restaurar", "texto": "Restaurer :" },
-  { "clave": "chat.config.restaurarUno", "texto": "Restaurer à" },
-  { "clave": "acceso.subir", "texto": "Monter au niveau {n}" },
-  { "clave": "acceso.bajarPlanta", "texto": "Descendre au rez-de-chaussée" },
-  { "clave": "acceso.bajar", "texto": "Descendre au niveau {n}" },
-  { "clave": "veh.ayuda", "texto": "Place un véhicule sur le plan et approche-toi pour monter dessus." },
-  { "clave": "veh.colocar", "texto": "Placer sur le plan" },
-  { "clave": "veh.color", "texto": "Couleur du véhicule" },
-  { "clave": "veh.subirte", "texto": "Monter" },
-  { "clave": "veh.bajarte", "texto": "Descendre" },
-  { "clave": "accion.sentarte", "texto": "S’asseoir" },
-  { "clave": "accion.acostarte", "texto": "S’allonger" },
-  { "clave": "accion.sentado", "texto": "Assis" },
-  { "clave": "accion.acostado", "texto": "Allongé" },
-  { "clave": "accion.levantarte", "texto": "Se lever" },
-  { "clave": "veh.subir", "texto": "Monter (Espace)" },
-  { "clave": "veh.bajar", "texto": "Descendre (Maj)" },
-  { "clave": "veh.derrape", "texto": "Dérapage (Espace)" },
-  { "clave": "hud.ayuda", "texto": "Déplace-toi avec WASD/les flèches ou le pavé (en bas à gauche). Fais pivoter et zoome avec les boutons (en bas à droite). Traverse les portes pour passer d’une pièce à l’autre." },
-  { "clave": "cat.cuerpo", "texto": "Corps" },
-  { "clave": "cat.mente", "texto": "Esprit" },
-  { "clave": "cat.complemento", "texto": "Extras" },
-  { "clave": "cat.config", "texto": "Paramètres" },
-  { "clave": "ajustes.titulo", "texto": "Paramètres" },
-  { "clave": "ajustes.idioma.ja", "texto": "Japonais" },
-  { "clave": "ajustes.idioma.zh", "texto": "Chinois" },
-  { "clave": "ajustes.idioma.ko", "texto": "Coréen" },
-  { "clave": "ajustes.idioma.ru", "texto": "Russe" },
-  { "clave": "ajustes.idioma.hi", "texto": "Hindi" }
+  {
+    "clave": "tut.esencial.titulo",
+    "texto": "L’essentiel"
+  },
+  {
+    "clave": "tut.tipo.ejemplos",
+    "texto": "Exemples · maison de démo"
+  },
+  {
+    "clave": "tut.app-agenda--esencial.resumen",
+    "texto": "L’agenda regroupe ce qui n’est pas une habitude, en trois menus : Travail (tâches à faire et tableau), Santé (rendez-vous, médicaments et soins : les tiens, ceux de tes proches et ceux de tes animaux) et Personnes (contacts et anniversaires). Tout ce qui a une date se programme tout seul dans le calendrier."
+  },
+  {
+    "clave": "tut.calendario--esencial.resumen",
+    "texto": "Le calendrier n’est pas une pièce : il vit dans l’horloge de la maison et rassemble tout ce qui a une date et une heure, ce que tu crées à la main et ce que les autres apps programment toutes seules. Il se regarde de quatre façons : Jour et Semaine sur la grille horaire, Mois et Année pour la vue d’ensemble. À part, il y a Missions, le bouton rouge avec la checklist du jour de toutes les apps réunies."
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.resumen",
+    "texto": "C’est ton journal personnel : des entrées avec une humeur, du texte et des photos qui s’enregistrent seules par date. Un calendrier colore chaque jour selon ton humeur, et l’historique les archive dans des dossiers par année, mois et semaine."
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.resumen",
+    "texto": "La bibliothèque est ton encyclopédie personnelle, en quatre menus : Discussions (tu poses tes questions au Sage et chaque conversation s’archive et se distille en fiche), Encyclopédie (l’arbre où vit ce que tu apprends, par domaine de connaissance), Étude (le minuteur simple ou pomodoro, qui enregistre chaque séance) et Aperçu (combien tu as écrit et combien tu as étudié)."
+  },
+  {
+    "clave": "tut.app-cocina--esencial.resumen",
+    "texto": "La cuisine a deux menus. Recettes garde ce que tu vas cuisiner : tes recettes avec leurs macros, les régimes qui les regroupent et la liste de courses. Suivi alimentaire tient le compte de ce que tu manges, en quatre étapes : tes objectifs de calories et de poids, le journal du jour, le plan de repas des jours à venir et tes progrès."
+  },
+  {
+    "clave": "tut.app-computo--esencial.resumen",
+    "texto": "La salle de calcul a deux menus. La Calculatrice fait les calculs de toujours et change de mode pour tracer des graphiques, travailler avec des bases numériques, des matrices, des systèmes d’équations, des unités, un pourboire et la règle de trois ; le formulaire en dépend, ton livre de formules avec Mathématiques, Physique et Chimie déjà inclus. Les Feuilles de calcul gèrent tout ce qui est tabulaire, avec des formules en langage clair (comme =SUMA) et l’export vers Excel ou PDF."
+  },
+  {
+    "clave": "tut.app-descanso--esencial.resumen",
+    "texto": "Sommeil enregistre comment tu dors sur un seul écran : le score de la dernière nuit, ton horaire avec ses rappels, le journal quotidien et l’historique complet par année, mois et semaine."
+  },
+  {
+    "clave": "tut.app-despacho--esencial.resumen",
+    "texto": "Le bureau organise ton argent en quatre menus. Patrimoine net garde ce que tu as et ce que tu dois, avec sa projection ; Trésorerie suit les dépenses, les revenus et le solde de la période, avec son budget et ses catégories ; Objectifs réunit épargne, investissement et dette, plus les calculatrices qui proposent un montant. Marchés est un tableau de cotations en direct, pour consultation seulement."
+  },
+  {
+    "clave": "tut.app-diario--esencial.resumen",
+    "texto": "Le journal est un quotidien éphémère : des titres de presse réelle par catégorie et les éphémérides du jour, qui se renouvelle tout seul à minuit. Depuis la livraison, programme un assistant pour qu’il te l’apporte dans son propre chat."
+  }
 ]

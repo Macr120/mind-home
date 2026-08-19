@@ -1,47 +1,187 @@
 [
   {
-    "clave": "tut.hoy.1.texto",
-    "es": "En el encabezado de cada app vive su botón Metas, como el del calendario pero acotado a esta app. Abre su panel con dos pisos: arriba la checklist de hoy, debajo sus metas y planes.",
-    "en": "In every app's header, next to the music button, lives its daily checklist chip: it only carries the day's count and it's born closed, so it doesn't eat up the screen."
+    "clave": "tut.app-agenda--esencial.1.titulo",
+    "es": "Tu agenda",
+    "en": "Your agenda"
   },
   {
-    "clave": "tut.hoy.2.texto",
-    "es": "Los objetivos propios de la app (el agua, las calorías), lo que agendaste para hoy en el calendario y los pasos de tus metas vigentes: todo junto, agrupado bajo el plan o la meta del que sale cada paso.",
-    "en": "The app's own targets (water, calories), what you scheduled for today in the calendar, and the steps from your active goals: all together, grouped under the plan or the goal each step comes from."
+    "clave": "tut.app-agenda--esencial.1.texto",
+    "es": "La agenda guarda lo que no es un hábito: pendientes, citas, contactos. Son tres menús, y todo lo que lleva fecha se agenda solo en el calendario de la casa.",
+    "en": "The agenda holds what isn't a habit: to-dos, appointments, contacts. It has three menus, and everything with a date lands in the house calendar by itself."
   },
   {
-    "clave": "tut.hoy.7.texto",
-    "es": "Y si te falta algo, «Nueva checklist» crea la tuya: una lista propia de esta app que se repite cada día. Debajo de la sección Hoy está el planificador completo — Metas, Planes y Cronograma — con todas las metas de la app.",
-    "en": "And if something's missing, «New checklist» creates your own: a list of this app's that repeats every day. At the foot of the panel you hide what's finished or turn the whole checklist off in the apps where you don't want it."
+    "clave": "tut.app-agenda--esencial.2.titulo",
+    "es": "Trabajo",
+    "en": "Work"
   },
   {
-    "clave": "tut.app-hobbies--gestion.4.texto",
-    "es": "Las metas de tus hobbies y proyectos viven en el botón Metas del encabezado: el mismo planificador Metas · Planes · Cronograma del calendario, acotado a esta app. Pídele a la IA un plan con fases y fechas.",
-    "en": "The goals of your hobbies and projects live in the Goals button of the header: the same Goals · Plans · Timeline planner from the calendar, scoped to this app. Ask the AI for a plan with phases and dates."
+    "clave": "tut.app-agenda--esencial.2.texto",
+    "es": "La bandeja junta los pendientes sin fecha para que no se pierdan, y el tablero mueve tus tareas por columnas: por hacer, en curso y hecho.",
+    "en": "The tray gathers undated to-dos so they never get lost, and the board moves your tasks across columns: to do, in progress and done."
   },
   {
-    "clave": "tut.app-biblioteca--estudio.2.texto",
-    "es": "Las metas viven en el botón Metas del encabezado, el mismo cronograma del calendario: «terminar termodinámica antes del parcial» ya está cumplida; preparar el posgrado sigue en curso.",
-    "en": "Goals live in the Goals button of the header, the calendar's own timeline: «finish thermodynamics before the midterm» is already done; preparing for grad school is still going."
+    "clave": "tut.app-agenda--esencial.3.titulo",
+    "es": "Salud",
+    "en": "Health"
   },
   {
-    "clave": "tut.app-ejercicio--anio.3.texto",
-    "es": "El botón Metas del encabezado guarda sus cuatro metas cumplidas —los 5K, los 10K, el medio maratón y el maratón— y la que sigue viva. Las metas con fecha aparecen también en el calendario de la casa.",
-    "en": "The Goals button in the header keeps the four goals Pep@ ticked off — the 5K, the 10K, the half marathon and the marathon — plus the one still open. Goals with a date also show up in the house calendar."
+    "clave": "tut.app-agenda--esencial.3.texto",
+    "es": "Citas médicas, medicamentos y cuidados, en tres submenús: Tú, Prójimos (quienes están a tu cuidado) y Mascotas.",
+    "en": "Medical appointments, medication and care routines, in three submenus: You, Loved ones (the people in your care) and Pets."
   },
   {
-    "clave": "tut.app-cocina--cronograma.1.texto",
-    "es": "El botón Metas del encabezado abre el mismo cronograma que usa el calendario de la casa, acotado a las metas de Cocina: crea una meta (p. ej. «Bajar 3 kilos») y pídele el plan a la IA — pregunta tu fecha objetivo y agenda sub-metas con su fecha.",
-    "en": "The Goals button in the header opens the same timeline the home calendar uses, scoped to Kitchen's goals: create a goal (e.g. \"Lose 3 kilos\") and ask the AI for the plan — it asks your target date and schedules sub-goals with their own date."
+    "clave": "tut.app-agenda--esencial.4.titulo",
+    "es": "Personas",
+    "en": "People"
   },
   {
-    "clave": "tut.app-despacho--metas.2.texto",
-    "es": "El botón Metas del encabezado guarda estas metas sobre el eje del tiempo: le pones fechas a una y aparece entre tus días del calendario. Con ✨ la IA propone el plan de aportaciones.",
-    "en": "The Goals button in the header keeps these goals on the timeline: give one dates and it shows up among your calendar days. With ✨ the AI suggests the payment plan."
+    "clave": "tut.app-agenda--esencial.4.texto",
+    "es": "Tu libreta de contactos por relación. Los cumpleaños que guardes se repiten solos cada año en el calendario.",
+    "en": "Your address book by relationship. Any birthday you save repeats itself every year in the calendar."
   },
   {
-    "clave": "tut.app-entretenimiento--programas.2.texto",
-    "es": "El programa guardado vive en el botón Metas del encabezado: cada título guarda su nota de por qué está en la lista, y si le pones fechas baja al calendario como cualquier otra meta.",
-    "en": "The saved program lives in the Goals button of the header: each title keeps its note about why it is on the list, and if you give it dates it drops into the calendar like any other goal."
+    "clave": "tut.calendario--esencial.1.titulo",
+    "es": "El reloj de la casa",
+    "en": "The house clock"
+  },
+  {
+    "clave": "tut.calendario--esencial.1.texto",
+    "es": "El calendario no es un cuarto: vive en el reloj del HUD, así que se abre desde donde estés sin entrar a ningún sitio.",
+    "en": "The calendar isn't a room: it lives in the HUD clock, so it opens from wherever you are without going into anything."
+  },
+  {
+    "clave": "tut.calendario--esencial.2.titulo",
+    "es": "Todo lo agendado, junto",
+    "en": "Everything scheduled, together"
+  },
+  {
+    "clave": "tut.calendario--esencial.2.texto",
+    "es": "Aquí cae todo lo que tiene fecha y hora: lo que creas con «+ Nueva» o trazando sobre la rejilla, y lo que las demás apps agendan solas. El filtro de arriba deja ver una sola app cuando se junta demasiado.",
+    "en": "Everything with a date and time lands here: what you create with «+ New» or by drawing on the grid, and what the other apps schedule on their own. The filter up top shows a single app when it gets crowded."
+  },
+  {
+    "clave": "tut.calendario--esencial.3.titulo",
+    "es": "Día",
+    "en": "Day"
+  },
+  {
+    "clave": "tut.calendario--esencial.3.texto",
+    "es": "La rejilla de una jornada de 24 horas: sirve para ver a qué hora está cada cosa y si algo se encima. Este botón hace doble función: dice «Hoy» y te trae al presente, o «Día» si ya estás viendo otra fecha.",
+    "en": "The 24-hour grid of a single day: it shows what time each thing is and whether anything overlaps. This button does double duty: it says «Today» and brings you back to the present, or «Day» once you're looking at another date."
+  },
+  {
+    "clave": "tut.calendario--esencial.4.titulo",
+    "es": "Semana",
+    "en": "Week"
+  },
+  {
+    "clave": "tut.calendario--esencial.4.texto",
+    "es": "La misma rejilla por horas, pero con los siete días lado a lado. Es donde se ve cómo queda repartida la semana, y donde los bloques se arrastran de un día a otro o se estiran para durar más.",
+    "en": "The same hourly grid, but with the seven days side by side. This is where you see how the week is spread out, and where blocks are dragged from one day to another or stretched to last longer."
+  },
+  {
+    "clave": "tut.calendario--esencial.5.titulo",
+    "es": "Mes",
+    "en": "Month"
+  },
+  {
+    "clave": "tut.calendario--esencial.5.texto",
+    "es": "Deja el eje de horas y pinta los días como casillas con lo que cae en cada uno. Es la vista del panorama: qué semanas vienen cargadas y qué días quedan libres.",
+    "en": "It drops the hour axis and paints the days as cells with whatever falls on each one. This is the overview: which weeks come loaded and which days are free."
+  },
+  {
+    "clave": "tut.calendario--esencial.6.titulo",
+    "es": "Año",
+    "en": "Year"
+  },
+  {
+    "clave": "tut.calendario--esencial.6.texto",
+    "es": "Los doce meses de un tirón. A esta distancia ya no se leen las horas: lo que se ve es la constancia, qué tanto se sostuvo lo que te propusiste a lo largo del año.",
+    "en": "All twelve months in one go. At this distance the hours no longer read: what shows is consistency, how much of what you set out to do you kept up over the year."
+  },
+  {
+    "clave": "tut.calendario--esencial.7.titulo",
+    "es": "Y las misiones, aparte",
+    "en": "And missions, apart"
+  },
+  {
+    "clave": "tut.calendario--esencial.7.texto",
+    "es": "En rojo, para que no se lea como una quinta vista: Misiones junta en una sola pantalla la checklist de hoy de todas las apps. Las metas y sus planes no están aquí — viven en su propio cuarto.",
+    "en": "In red, so it doesn't read as a fifth view: Missions gathers today's checklist from every app on a single screen. Goals and their plans aren't here — they live in their own room."
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.1.titulo",
+    "es": "Tu diario personal",
+    "en": "Your personal diary"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.1.texto",
+    "es": "El anecdotario guarda lo que quieras contar, con su ánimo y sus fotos. Se organiza solo por fecha, sin que tengas que clasificar nada.",
+    "en": "Anecdotario keeps whatever you want to write down, with its mood and its photos. It organizes itself by date, with nothing for you to sort."
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.2.titulo",
+    "es": "Así se escribe",
+    "en": "How to write an entry"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.2.texto",
+    "es": "Elige el ánimo del día, escribe lo que quieras contar y adjunta fotos si tienes. Con solo una foto, sin texto, también vale.",
+    "en": "Pick the mood of the day, write what you want to tell, and attach photos if you have any. A single photo, with no text, is enough on its own."
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.3.titulo",
+    "es": "El calendario del ánimo",
+    "en": "The mood calendar"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.3.texto",
+    "es": "Cada día se pinta con el ánimo de su entrada, así que el mes entero se lee de un vistazo. Toca un día para ver sus entradas debajo.",
+    "en": "Each day is colored with the mood of its entry, so the whole month reads at a glance. Tap a day to see its entries below."
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.4.titulo",
+    "es": "El historial",
+    "en": "The history"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.4.texto",
+    "es": "Todas las entradas quedan aquí, organizadas solas en carpetas por año, mes y semana.",
+    "en": "Every entry lands here, sorted on its own into folders by year, month and week."
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.1.titulo",
+    "es": "Tu biblioteca",
+    "en": "Your library"
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.1.texto",
+    "es": "La biblioteca es tu enciclopedia personal: preguntas lo que no sabes, guardas lo que aprendes y llevas la cuenta de lo que estudias. Son cuatro menús.",
+    "en": "The library is your personal encyclopedia: you ask what you don't know, you save what you learn, and you keep track of what you study. There are four menus."
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.2.titulo",
+    "es": "Charlas",
+    "en": "Chats"
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.2.texto",
+    "es": "Aquí preguntas al Sabio sobre cualquier tema y la conversación queda guardada. Cada charla se clasifica sola en su campo del conocimiento y sale destilada como ficha de la enciclopedia.",
+    "en": "Here you ask the Sage about any topic and the conversation is saved. Every chat files itself in its field of knowledge and comes out distilled as an encyclopedia entry."
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.3.titulo",
+    "es": "Enciclopedia",
+    "en": "Encyclopedia"
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.3.texto",
+    "es": "El árbol donde vive lo aprendido, ordenado por campo del conocimiento. Cada ficha lleva su resumen y sus puntos clave, y también puedes escribirlas a mano; con el lápiz haces crecer el índice a tu medida.",
+    "en": "The tree where everything you learn lives, sorted by field of knowledge. Every entry carries its summary and key points, and you can also write them by hand; with the pencil you grow the index to fit you."
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.4.titulo",
+    "es": "Estudio",
+    "en": "Study"
   }
 ]

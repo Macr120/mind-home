@@ -129,7 +129,7 @@ const PASOS_APP: PasoTutorial[] = [
     titulo: T('tut.primeros.3.titulo', 'Tu cuarto nuevo'),
     texto: T(
       'tut.primeros.3.texto',
-      '¡Aquí está! Un cuarto recién creado, todavía sin app: por eso su botón dice + Asignar.',
+      '¡Aquí está! Un cuarto recién creado, todavía sin app: por eso su tarjeta dice + Asignar.',
     ),
   },
   {
@@ -144,7 +144,7 @@ const PASOS_APP: PasoTutorial[] = [
     titulo: T('tut.primeros.4.titulo', 'Asignar una app'),
     texto: T(
       'tut.primeros.4.texto',
-      'Con + Asignar le di su app: mira cómo el cuarto tomó su nombre, su icono y sus muebles, y su botón ahora dice Entrar.',
+      'Con + Asignar le di su app: mira cómo el cuarto tomó su nombre, su icono y sus muebles. Desde ahora su tarjeta entera es el botón de entrar.',
     ),
   },
   {

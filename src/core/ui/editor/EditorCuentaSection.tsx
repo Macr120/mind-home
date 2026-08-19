@@ -6,8 +6,11 @@ import {
   hayPagos,
   obtenerOferta,
   obtenerNiveles,
+  obtenerCreditos,
+  obtenerAnual,
   comprar,
   cambiarNivel,
+  comprarCreditos,
   urlGestion,
   type OfertaPro,
 } from '../../cuenta/paywall'
@@ -482,6 +485,7 @@ function BloquePaywall() {
     return (
       <div className="space-y-1.5">
         <Niveles />
+        <Creditos />
         {urlG && (
           <a
             href={urlG}
@@ -524,6 +528,67 @@ function BloquePaywall() {
             : t('cuenta.pago.comprarPrecio', 'Hazte Pro — {p}/mes', { p: oferta.precio })
           : t('cuenta.pago.comprar', 'Hazte Pro')}
       </button>
+      <Creditos />
+      {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
+    </div>
+  )
+}
+
+/**
+ * Recarga de créditos: consumible, sin suscripción. Se ofrece con plan y sin
+ * él —los créditos comprados no caducan y se gastan cuando el pool mensual ya
+ * no alcanza—, así que es la salida de quien no quiere renovación automática.
+ */
+function Creditos() {
+  const t = useT()
+  const [oferta, setOferta] = useState<OfertaPro | null>(null)
+  const [ocupado, setOcupado] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    let vivo = true
+    obtenerCreditos()
+      .then((o) => {
+        if (vivo) setOferta(o)
+      })
+      .catch(() => {})
+    return () => {
+      vivo = false
+    }
+  }, [])
+
+  if (!oferta) return null
+
+  const alComprar = async () => {
+    if (ocupado) return
+    setOcupado(true)
+    setError(null)
+    try {
+      const ok = await comprarCreditos(oferta.paquete)
+      if (!ok) setError(t('cuenta.creditos.enCamino', 'El pago está en camino: vuelve a abrir esta sección en unos segundos.'))
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e))
+    } finally {
+      setOcupado(false)
+    }
+  }
+
+  return (
+    <div className="space-y-1">
+      <button
+        type="button"
+        onClick={() => void alComprar()}
+        disabled={ocupado}
+        className="w-full rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] font-semibold text-white/70 transition hover:bg-white/10 disabled:opacity-50"
+      >
+        {t('cuenta.creditos.comprar', 'Recargar {c} créditos — {p}', {
+          c: oferta.creditos,
+          p: oferta.precio,
+        })}
+      </button>
+      <p className="text-[10px] leading-snug text-white/35">
+        {t('cuenta.creditos.nota', 'Pago único: no caducan y sirven aunque no tengas suscripción.')}
+      </p>
       {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
     </div>
   )
@@ -537,6 +602,7 @@ function Niveles() {
   const t = useT()
   const nivelActual = useSesion((s) => s.nivel)
   const [niveles, setNiveles] = useState<OfertaPro[]>([])
+  const [anual, setAnual] = useState<OfertaPro | null>(null)
   const [ocupado, setOcupado] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -547,6 +613,11 @@ function Niveles() {
         if (vivo) setNiveles(n)
       })
       .catch(() => {})
+    obtenerAnual()
+      .then((a) => {
+        if (vivo) setAnual(a)
+      })
+      .catch(() => {})
     return () => {
       vivo = false
     }
@@ -554,8 +625,11 @@ function Niveles() {
 
   if (!niveles.length) return null
 
+  // Sin comparar con el nivel actual: el botón del nivel vigente ya va
+  // deshabilitado, y la anualidad ES el nivel 1 (comprarla estando en ×1
+  // mensual es justo el cambio que se quiere permitir).
   const alCambiar = async (oferta: OfertaPro) => {
-    if (ocupado || oferta.nivel === nivelActual) return
+    if (ocupado) return
     setOcupado(true)
     setError(null)
     try {
@@ -598,6 +672,23 @@ function Niveles() {
           </button>
         )
       })}
+      {/* La anualidad es el ×1 pagado de una vez, no un nivel más: por eso no
+          se marca nunca como «actual» y su botón no compara niveles. */}
+      {anual && (
+        <button
+          type="button"
+          onClick={() => void alCambiar(anual)}
+          disabled={ocupado}
+          className="flex w-full items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] font-semibold text-white/60 transition hover:bg-white/10 disabled:opacity-50"
+        >
+          <span className="flex-1 text-left">
+            {t('cuenta.nivel.anual', 'Un año del nivel ×1 — {c} créditos al mes', {
+              c: anual.creditos,
+            })}
+          </span>
+          <span className="shrink-0 tabular-nums text-white/45">{anual.precio}</span>
+        </button>
+      )}
       <p className="text-[10px] leading-snug text-white/35">
         {t(
           'cuenta.nivel.nota',

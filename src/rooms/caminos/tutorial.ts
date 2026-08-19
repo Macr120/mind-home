@@ -25,7 +25,7 @@ export const cuerpoCarrera: CuerpoTutorial = {
       ),
     },
     {
-      foco: () => focoZonaOffset('zona-pista', 1, 0, 4, 4, { color: AMBAR_FOCO }),
+      foco: () => focoZonaOffset('zona-pista', 0, 0, 3, 4, { color: AMBAR_FOCO }),
       texto: T(
         'tut.infra-caminos--carrera.3.texto',
         'Pégate al óvalo y derrapa en las curvas para no perder velocidad. También puedes correr contra un asistente, con ítems de por medio: banana, turbo y bomba.',

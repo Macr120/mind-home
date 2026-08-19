@@ -35,6 +35,7 @@ export function PreviewCuarto3D({
   onOcultar,
   techoInicial = false,
   interactivo = false,
+  fijo = true,
 }: {
   roomId: string
   arista?: { off: Cell; side: SideKey }
@@ -44,6 +45,9 @@ export function PreviewCuarto3D({
   techoInicial?: boolean
   /** Modelo 3D editable: tocar piso/muros/puertas/techo selecciona ese elemento en el editor. */
   interactivo?: boolean
+  /** Se queda fijo (sticky) arriba al desplazar el panel. El constructor lo apaga cuando el
+   *  croquis está visible: solo una de las dos vistas se pega, si no se solaparían. */
+  fijo?: boolean
 }) {
   const t = useT()
   const [verTecho, setVerTecho] = useState(techoInicial)
@@ -84,7 +88,7 @@ export function PreviewCuarto3D({
 
   return (
     <div
-      className={`sticky top-0 z-10 overflow-hidden rounded-xl border border-white/10 ${claseFondoPreview(claro)}`}
+      className={`${fijo ? 'sticky top-0 z-10' : 'relative'} overflow-hidden rounded-xl border border-white/10 ${claseFondoPreview(claro)}`}
     >
       <div className="relative h-48 w-full">
         <Canvas

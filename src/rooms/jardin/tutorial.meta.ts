@@ -1,4 +1,5 @@
 import type { CuerpoTutorial, TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import { fichaEsencial } from '../../core/tutorial/esencial'
 
 /**
  * Fichas de los tutoriales de esta app: id, título y resumen. Es lo único que
@@ -43,3 +44,13 @@ const flujoGratitud = tour(
 )
 
 export const flujosJardin: TutorialDef[] = [flujoPracticar, flujoGratitud]
+
+/** Esencial: recorre los tres menús en la casa real, sin necesitar datos. */
+export const esencialJardin: TutorialDef = fichaEsencial(
+  'jardin',
+  T(
+    'tut.app-jardin--esencial.resumen',
+    'El jardín reúne meditación (con pistas de sonido), respiración guiada y agradecimientos diarios, en tres menús. No lleva puntos ni rachas a propósito: aquí no se castiga faltar, solo se practica.',
+  ),
+  () => import('./tutorial').then((m) => m.cuerpoEsencial as CuerpoTutorial),
+)

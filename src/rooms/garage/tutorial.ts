@@ -103,6 +103,15 @@ export const cuerpoTramites: CuerpoTutorial = {
   },
   pasos: [
     {
+      sel: 'garage.detalle.tabs',
+      alEntrar: () => abrirVehiculo('auto'),
+      titulo: T('tut.app-garage--tramites.tabs.titulo', 'Tres cuadernos'),
+      texto: T(
+        'tut.app-garage--tramites.tabs.texto',
+        'La ficha de cada vehículo reparte sus papeles en tres cuadernos: Trámites, Documentos y Contactos. El historial de servicios queda siempre debajo, se mire el cuaderno que se mire.',
+      ),
+    },
+    {
       sel: 'garage.tramites',
       alEntrar: () => abrirVehiculo('auto'),
       titulo: T('tut.app-garage--tramites.1.titulo', 'Lo que viene'),
@@ -117,7 +126,7 @@ export const cuerpoTramites: CuerpoTutorial = {
       titulo: T('tut.app-garage--tramites.2.titulo', 'La bici no paga tenencia'),
       texto: T(
         'tut.app-garage--tramites.2.texto',
-        'Sin placas, el garaje esconde los trámites que no aplican: a la bici solo le ofrece su afinación periódica.',
+        'Sin placas solo se ofrece lo que aplica: a la bici, su mantenimiento periódico. La verificación, la tenencia o el seguro piden placas, así que su cuaderno de Documentos queda vacío.',
       ),
     },
     {
@@ -135,7 +144,7 @@ export const cuerpoTramites: CuerpoTutorial = {
     {
       sel: 'garage.talleres',
       alEntrar: () => irACuaderno('contactos'),
-      titulo: T('tut.app-garage--tramites.3.titulo', 'La libreta'),
+      titulo: T('tut.app-garage--tramites.3.titulo', 'El cuaderno de Contactos'),
       texto: T(
         'tut.app-garage--tramites.3.texto',
         'El taller de confianza, la aseguradora, el verificentro, la ciclería del barrio y la grúa de aquella noche — con teléfono y dirección a un toque.',
@@ -145,6 +154,68 @@ export const cuerpoTramites: CuerpoTutorial = {
       texto: T(
         'tut.app-garage--tramites.4.texto',
         'Todos esos trámites están también en el calendario de la casa, con su aviso previo. Y ojo: los vehículos que se manejan por el mapa son otra cosa, viven en el Inventario.',
+      ),
+    },
+  ],
+}
+
+/**
+ * ESENCIAL: corre en la casa real y recorre las dos pestañas raíz del garaje.
+ * Sin entrar a ningún detalle de vehículo (sus pestañas raíz no están montadas
+ * dentro de una ficha): sus anclas son la fila de pestañas y un par de
+ * elementos fijos que existen con la BD vacía (el semáforo y la lista de
+ * vehículos se siembran solos al montar la app, pero no se señalan filas de
+ * datos, solo cabeceras y botones).
+ */
+export const cuerpoEsencial: CuerpoTutorial = {
+  preparar: () => {
+    abrirApp('garage')
+  },
+  pasos: [
+    {
+      titulo: T('tut.app-garage--esencial.1.titulo', 'El garaje'),
+      texto: T(
+        'tut.app-garage--esencial.1.texto',
+        'El garaje lleva tus vehículos: bicicletas, autos, motos y lo que uses para moverte. Cada uno con su historial de servicios y sus trámites, y todo lo que tenga fecha se agenda solo en el calendario de la casa.',
+      ),
+    },
+    {
+      sel: 'garage.tab.resumen',
+      titulo: T('tut.app-garage--esencial.2.titulo', 'Resumen'),
+      texto: T(
+        'tut.app-garage--esencial.2.texto',
+        'La pestaña de entrada: un semáforo dice de un vistazo si algo venció, si algo se acerca o si el garaje está en paz.',
+      ),
+      alEntrar: async () => {
+        await esperarTut('garage.tab.resumen', 4000)
+        clickTut('garage.tab.resumen')
+      },
+    },
+    {
+      sel: 'garage.resumen.stats',
+      titulo: T('tut.app-garage--esencial.3.titulo', 'De un vistazo'),
+      texto: T(
+        'tut.app-garage--esencial.3.texto',
+        'Cuántos vehículos tienes, cuántos trámites siguen activos y lo que llevas gastado en el año.',
+      ),
+    },
+    {
+      sel: 'garage.tab.vehiculos',
+      titulo: T('tut.app-garage--esencial.4.titulo', 'Vehículos'),
+      texto: T(
+        'tut.app-garage--esencial.4.texto',
+        'La lista completa, con placa, kilometraje y número de servicios en cada tarjeta. Al tocar uno se abre su ficha, con el historial de servicios y sus trámites.',
+      ),
+      alEntrar: () => {
+        clickTut('garage.tab.vehiculos')
+      },
+    },
+    {
+      sel: 'garage.veh.alta',
+      titulo: T('tut.app-garage--esencial.5.titulo', 'Dar de alta uno nuevo'),
+      texto: T(
+        'tut.app-garage--esencial.5.texto',
+        'Nombre, tipo, marca, modelo, año, placas y el odómetro de hoy. Con las placas puestas, la ficha habilita también los trámites que solo aplican a un vehículo con matrícula, como la verificación o la tenencia.',
       ),
     },
   ],

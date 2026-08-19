@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { repartirPasos, usePasosDeTodas, type PasoHoy, type PasosDeApp } from '../../hoy'
+import type { Rutina } from '../../data/db'
+import { esDeMeta, repartirPasos, usePasosDeTodas, type PasoHoy, type PasosDeApp } from '../../hoy'
 import { useOtorgarListasCompletas } from '../../gamificacion/listas'
 import { useT } from '../../i18n/useT'
 import { abrirApp } from '../../abrirApp'
@@ -7,6 +8,7 @@ import { abrirEnlace } from '../../enlaceApp'
 import { useRutinasUI } from '../../state/rutinasUiStore'
 import { Icono } from '../iconos/Icono'
 import { vivo } from '../estilos'
+import { EditorRutina, rutinaNueva } from '../RutinasPanel'
 import { AnadirObjetivo } from './AnadirObjetivo'
 import { FilaHoy } from './FilaHoy'
 
@@ -19,6 +21,10 @@ import { FilaHoy } from './FilaHoy'
  * Dos columnas: lo que falta y lo que ya está. Lo cumplido vivía en un plegable
  * y ahí no lo veía nadie; enfrente de lo pendiente es la mitad de la historia
  * del día, y en una jornada buena es la que da gusto mirar.
+ *
+ * Lo pendiente va además en dos bloques, como en el panel de cada cuarto: las
+ * misiones del día y los pasos que sirven a una meta (`esDeMeta`). Dentro de cada
+ * bloque manda la app, que es la unidad de esta vista.
  *
  * Aquí NO se registra: se va a la app. Estás fuera de todos los cuartos, así que
  * un botón de «registrar» escribiría a ciegas en uno que no tienes delante — la
@@ -42,6 +48,8 @@ export function ObjetivosCasa({ fecha }: { fecha: string }) {
   const t = useT()
   const porApp = usePasosDeTodas(fecha)
   const [anadiendo, setAnadiendo] = useState(false)
+  // El camino largo: la rutina con varios pasos, en el mismo editor del calendario.
+  const [agendando, setAgendando] = useState<Rutina | null>(null)
 
   // Los apagados (objetivo en 0) se quedan fuera: aquí no se configuran cifras,
   // eso se hace en el panel de su propia app.
@@ -55,8 +63,21 @@ export function ObjetivosCasa({ fecha }: { fecha: string }) {
     grupos.filter((g) => g.app && g.completa).map((g) => g.app!.id),
     fecha,
   )
-  const conPendientes = grupos.filter((g) => g.pendientes.length > 0)
   const conHechos = grupos.filter((g) => g.hechos.length > 0)
+  // Lo pendiente se parte en dos bloques —lo de cada día y lo que sirve a una
+  // meta—, cada uno con sus tarjetas por app; una app con las dos clases sale en
+  // los dos. Los rótulos solo se pintan si hay de todo: con una sola clase no hay
+  // nada que separar y la columna ya se llama «Misiones». Lo cumplido no se parte:
+  // es un archivo, y ahí lo que importa es el día entero.
+  const delDia = grupos.map((g) => ({ ...g, pasos: g.pendientes.filter((p) => !esDeMeta(p)) }))
+  const deMetas = grupos.map((g) => ({ ...g, pasos: g.pendientes.filter(esDeMeta) }))
+  const bloques = [
+    { titulo: t('hoy.grupoApp', 'Misiones del día'), icono: 'lista' as const, grupos: delDia },
+    { titulo: t('hoy.grupoMetas', 'Pasos de tus metas'), icono: 'objetivo' as const, grupos: deMetas },
+  ]
+    .map((b) => ({ ...b, grupos: b.grupos.filter((g) => g.pasos.length > 0) }))
+    .filter((b) => b.grupos.length > 0)
+  const conPendientes = grupos.filter((g) => g.pendientes.length > 0)
   const totalPendientes = grupos.reduce((n, g) => n + g.pendientes.length, 0)
   const totalHechos = grupos.reduce((n, g) => n + g.hechos.length, 0)
   const totalCuentan = totalPendientes + totalHechos
@@ -147,7 +168,16 @@ export function ObjetivosCasa({ fecha }: { fecha: string }) {
             </button>
           </div>
 
-          {conPendientes.map((g) => tarjeta(g.app, g.pendientes))}
+          {bloques.map((b) => (
+            <div key={b.titulo} className="space-y-2">
+              {bloques.length > 1 && (
+                <p className="flex items-center gap-1.5 px-1 pt-1 text-[11px] font-bold uppercase tracking-wider text-white/45">
+                  <Icono nombre={b.icono} /> {b.titulo}
+                </p>
+              )}
+              {b.grupos.map((g) => tarjeta(g.app, g.pasos))}
+            </div>
+          ))}
 
           {porApp && conPendientes.length === 0 && (
             <p className="py-6 text-center text-xs text-white/30">
@@ -181,8 +211,27 @@ export function ObjetivosCasa({ fecha }: { fecha: string }) {
         </section>
       </div>
 
-      {/* Sin app dada: la hoja pregunta primero de cuál es el objetivo. */}
-      {anadiendo && <AnadirObjetivo onCerrar={() => setAnadiendo(false)} />}
+      {/* Sin app dada: la hoja pregunta primero de cuál es el objetivo. La
+          checklist tampoco fija app: en el editor se elige (o ninguna, que es
+          una misión personal) y el título lo pone el usuario. */}
+      {anadiendo && (
+        <AnadirObjetivo
+          onCerrar={() => setAnadiendo(false)}
+          onNuevaChecklist={() => {
+            setAnadiendo(false)
+            setAgendando(rutinaNueva())
+          }}
+        />
+      )}
+
+      {/* Mismo editor que el calendario: lo creado aquí es una misión más. */}
+      {agendando && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
+          <div className="ui-panel-glass ui-pop max-h-[85vh] w-[min(92vw,26rem)] overflow-auto rounded-2xl border border-white/10 p-3 shadow-2xl backdrop-blur-md">
+            <EditorRutina rutina={agendando} onCerrar={() => setAgendando(null)} />
+          </div>
+        </div>
+      )}
     </div>
   )
 }

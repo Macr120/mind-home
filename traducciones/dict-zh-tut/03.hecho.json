@@ -1,126 +1,130 @@
 [
- {
-  "clave": "tut.menu-cuartos.6.texto",
-  "texto": "“创建房间”会打开地图编辑器，画笔已经就绪，可以直接画出新房间：形状、大小和位置都由你决定。在手机上，工具轮盘 › 建造 › 房间的快捷方式更顺手，不用打开面板就能直接在地图上画。"
- },
- {
-  "clave": "tut.menu-cuartos.7.texto",
-  "texto": "简单来说：自定义用“编辑”，使用应用用“进入”。这个菜单的其他标签页都有自己的教程。"
- },
- {
-  "clave": "tut.menu-plantillas.1.texto",
-  "texto": "模板就是一个应用（厨房、健身房、财务……）。把它分配给房间里的某个物件，进入时就会打开。"
- },
- {
-  "clave": "tut.menu-plantillas.2.titulo",
-  "texto": "两种视图"
- },
- {
-  "clave": "tut.menu-plantillas.2.texto",
-  "texto": "“房间”是常见的应用，每个都待在自己的物件上。“扩展”不一样：赛道、球场、菜园、农场或Paintball直接建在地面上，不占用房间。"
- },
- {
-  "clave": "tut.menu-plantillas.3.titulo",
-  "texto": "目录"
- },
- {
-  "clave": "tut.menu-plantillas.3.texto",
-  "texto": "自带的应用和你自己的应用，按分组排列。点一个就能分配给房间；在“扩展”里，点一下则是把它建在地图上。"
- },
- {
-  "clave": "tut.menu-plantillas.4.titulo",
-  "texto": "你自己的模板"
- },
- {
-  "clave": "tut.menu-plantillas.4.texto",
-  "texto": "用模块搭出你自己的模板：笔记、清单、计数器、习惯、相册……这个按钮会打开它专属的编辑器，还配有自己的教程。"
- },
- {
-  "clave": "tut.menu-plantillas.5.texto",
-  "texto": "同一个房间可以放多个应用：进入时会出现一个启动器，让你选择打开哪一个。"
- },
- {
-  "clave": "tut.plantillas-custom.1.texto",
-  "texto": "这个编辑器从零搭建你自己的应用：用名称、表情符号和模块把它做出来，它就会和自带的应用一起出现在目录里。"
- },
- {
-  "clave": "tut.plantillas-custom.2.titulo",
-  "texto": "名称、表情符号和颜色"
- },
- {
-  "clave": "tut.plantillas-custom.2.texto",
-  "texto": "它叫什么名字，以及在菜单、目录和日历里显示什么颜色——你给它安排日程时，也是这个颜色。"
- },
- {
-  "clave": "tut.plantillas-custom.3.titulo",
-  "texto": "工具"
- },
- {
-  "clave": "tut.plantillas-custom.3.texto",
-  "texto": "十二种模块：笔记、清单、计数器、习惯、场次、倒计时、相册、日志、评分、进度、列表和链接。每加一个，就变成你应用里的一个板块。"
- },
- {
-  "clave": "tut.plantillas-custom.4.titulo",
-  "texto": "顺序很重要"
- },
- {
-  "clave": "tut.plantillas-custom.4.texto",
-  "texto": "加进来的模块可以用箭头调整顺序，用✕移除——移除后保存时会删掉它的数据，所以确认前先检查一下。用“菜单”下拉框可以把它们从一个标签页移到另一个，什么都不会丢。"
- },
- {
-  "clave": "tut.plantillas-custom.5.titulo",
-  "texto": "保存"
- },
- {
-  "clave": "tut.plantillas-custom.5.texto",
-  "texto": "有了名称和至少一个模块，“保存”就会把它放进目录。之后像其他自带模板一样，分配给某个物件就行。"
- },
- {
-  "clave": "tut.plantillas-custom.6.texto",
-  "texto": "你随时可以再编辑它：模块和数据都不动，只有你改的地方会变。"
- },
- {
-  "clave": "tut.menu-inventario.1.texto",
-  "texto": "物品栏：所有能放进家里的物件都在这里，拖一下就能用。"
- },
- {
-  "clave": "tut.menu-inventario.2.titulo",
-  "texto": "物件"
- },
- {
-  "clave": "tut.menu-inventario.2.texto",
-  "texto": "你的物件素材库，按分类和文件夹整理。可以重命名和整理，下次能更快找到。"
- },
- {
-  "clave": "tut.menu-inventario.3.titulo",
-  "texto": "特殊物件"
- },
- {
-  "clave": "tut.menu-inventario.3.texto",
-  "texto": "这些会做点什么，不只是装饰：可骑乘的载具、玩具枪、喷泉、游乐设施和灯光。"
- },
- {
-  "clave": "tut.menu-inventario.4.titulo",
-  "texto": "摆放"
- },
- {
-  "clave": "tut.menu-inventario.4.texto",
-  "texto": "打开这个菜单，把缩略图直接拖进3D场景，就能放在你想要的位置。"
- },
- {
-  "clave": "tut.menu-inventario.5.texto",
-  "texto": "要移动、上色或删除已经放好的物件，请用编辑器的“物件”标签页——这个菜单只负责把新东西带进场景。"
- },
- {
-  "clave": "tut.editor-mapa.1.texto",
-  "texto": "家的编辑器有4个标签页：地图、角色、物件和设置。这次导览讲的是“地图”，另外三个各有自己的导览。"
- },
- {
-  "clave": "tut.editor-mapa.2.titulo",
-  "texto": "平面图"
- },
- {
-  "clave": "tut.editor-mapa.2.texto",
-  "texto": "你在俯视的网格上作画：房间、墙、门、窗和地板，用顶部工具栏的模式和画笔。画下的内容会立刻在3D里呈现，不用重新加载。"
- }
+  {
+    "clave": "tut.app-descanso--esencial.2.texto",
+    "texto": "每一个记录下来的夜晚都会得到一个评分，把睡了多久、几点上床和醒了几次合在一起算。还没有记录时，这里会请你先写下第一个夜晚。"
+  },
+  {
+    "clave": "tut.app-descanso--esencial.3.titulo",
+    "texto": "作息与提醒"
+  },
+  {
+    "clave": "tut.app-descanso--esencial.3.texto",
+    "texto": "拖动一天时间条的两端，就能设定上床和起床的时刻；同一份作息也会作为色块出现在家里的日历上。闹钟和它的铃声，以及睡前放慢节奏的提醒，也都在这里打开。"
+  },
+  {
+    "clave": "tut.app-descanso--esencial.4.titulo",
+    "texto": "记录一夜"
+  },
+  {
+    "clave": "tut.app-descanso--esencial.4.texto",
+    "texto": "用来写下睡得如何的表单：日期、上床和起床的时刻、中途醒来的次数、睡眠质量的评价，还留了写备注的地方。"
+  },
+  {
+    "clave": "tut.app-descanso--esencial.5.titulo",
+    "texto": "历史记录"
+  },
+  {
+    "clave": "tut.app-descanso--esencial.5.texto",
+    "texto": "你记录下的每一夜都留在这里，按年、月、周整理，方便回头看看这段时间睡得怎么样。"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.1.titulo",
+    "texto": "你的财务"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.1.texto",
+    "texto": "书房把你的钱分成四个菜单来打理：你拥有的、进出的、你的目标，还有市场。每一个下面都会展开各自的板块。"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.2.titulo",
+    "texto": "净资产"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.2.texto",
+    "texto": "你拥有的和你欠下的，分成两张清单：资产和负债。第三个板块会按你给每一行设定的利率，把这张快照往后推演。"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.3.titulo",
+    "texto": "现金流"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.3.texto",
+    "texto": "进来的钱和出去的钱，分成支出、收入和结余。结余会汇总你选的时间段——日、周、月或年——连同它的预算、分类和走势。"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.4.titulo",
+    "texto": "目标"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.4.texto",
+    "texto": "钱上的目标分三个板块：储蓄与投资、负债，还有几个会根据你自己的结余提出金额的计算器。每个目标都能落到日程上，带上日期。"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.5.titulo",
+    "texto": "市场"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.5.texto",
+    "texto": "外汇、加密货币、股票和大宗商品的实时行情，需要联网。这只是一块查看用的看板：应用不会建议你买什么或卖什么。"
+  },
+  {
+    "clave": "tut.app-diario--esencial.1.titulo",
+    "texto": "今天的报纸"
+  },
+  {
+    "clave": "tut.app-diario--esencial.1.texto",
+    "texto": "每日新闻用两个视图送来当天的简报：头条和历史上的今天。它不保存自己的数据：每天带来新的内容，午夜整份换掉。"
+  },
+  {
+    "clave": "tut.app-diario--esencial.2.titulo",
+    "texto": "今日头条"
+  },
+  {
+    "clave": "tut.app-diario--esencial.2.texto",
+    "texto": "当天的头条按类别排列——世界、经济、科技、健康、体育和娱乐——可以用上面的标签筛选。它们来自你所用语言的真实媒体，每天轮换不同的来源。"
+  },
+  {
+    "clave": "tut.app-diario--esencial.3.titulo",
+    "texto": "历史上的今天"
+  },
+  {
+    "clave": "tut.app-diario--esencial.3.texto",
+    "texto": "报纸的另一半：像今天这样的日子发生过什么——一件作品、一本书、一个物种、一个词。就算那天的新闻提不起兴趣，这也是打开它的理由。"
+  },
+  {
+    "clave": "tut.app-diario--esencial.4.titulo",
+    "texto": "自动换新"
+  },
+  {
+    "clave": "tut.app-diario--esencial.4.texto",
+    "texto": "打开应用时这一期会自己下载，到午夜整份替换，什么都不会堆积。这个按钮可以不等那个时刻，立刻刷新。"
+  },
+  {
+    "clave": "tut.app-diario--esencial.5.titulo",
+    "texto": "推送"
+  },
+  {
+    "clave": "tut.app-diario--esencial.5.texto",
+    "texto": "设定每位助手在自己的聊天里给你送来哪些板块，可以定在固定时刻，也可以让它在一天中的某个时候突然出现。"
+  },
+  {
+    "clave": "tut.app-ejercicio--esencial.1.titulo",
+    "texto": "你的训练"
+  },
+  {
+    "clave": "tut.app-ejercicio--esencial.1.texto",
+    "texto": "健身房把身体的三种训练——力量、耐力和柔韧性——放在一起，另外还有一个目标菜单，让你决定每周想练多少。"
+  },
+  {
+    "clave": "tut.app-ejercicio--esencial.2.titulo",
+    "texto": "目标"
+  },
+  {
+    "clave": "tut.app-ejercicio--esencial.2.texto",
+    "texto": "这个房间的概览：连续天数、有记录的天数，以及每种训练对照你在这里设定的每周目标的进度条。计量单位用公斤还是磅，也在这里选。"
+  },
+  {
+    "clave": "tut.app-ejercicio--esencial.3.titulo",
+    "texto": "力量"
+  }
 ]

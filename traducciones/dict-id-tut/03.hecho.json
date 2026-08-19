@@ -1,126 +1,34 @@
 [
-  {
-    "clave": "tut.menu-cuartos.6.texto",
-    "texto": "Buat ruangan membuka editor peta dengan kuas siap menggambar ruangan barunya: bentuk, ukuran, dan letaknya ada di tanganmu. Di ponsel, jalan pintas roda alat › Bangunan › Ruangan lebih enak dipakai: ia menggambar langsung di atas peta tanpa membuka panel."
-  },
-  {
-    "clave": "tut.menu-cuartos.7.texto",
-    "texto": "Singkatnya: Edit untuk menyesuaikan, Masuk untuk memakai aplikasinya. Tab lain di menu ini punya tutorialnya sendiri."
-  },
-  {
-    "clave": "tut.menu-plantillas.1.texto",
-    "texto": "Templat itu sebuah aplikasi (Dapur, Gym, Keuangan…). Templat ditetapkan ke sebuah objek di dalam ruangan dan terbuka saat kamu masuk."
-  },
-  {
-    "clave": "tut.menu-plantillas.2.titulo",
-    "texto": "Dua tampilan"
-  },
-  {
-    "clave": "tut.menu-plantillas.2.texto",
-    "texto": "Ruangan berisi aplikasi seperti biasa, masing-masing di objeknya sendiri. Ekstra beda lagi: sirkuit, lapangan, kebun sayur, peternakan, atau paintball dibangun langsung di atas lahan, tanpa memakai satu ruangan pun."
-  },
-  {
-    "clave": "tut.menu-plantillas.3.titulo",
-    "texto": "Katalog"
-  },
-  {
-    "clave": "tut.menu-plantillas.3.texto",
-    "texto": "Aplikasi bawaan dan aplikasi buatanmu, tersusun dalam grup. Ketuk salah satu untuk menetapkannya ke sebuah ruangan atau, di Ekstra, untuk membangunnya di peta."
-  },
-  {
-    "clave": "tut.menu-plantillas.4.titulo",
-    "texto": "Templat buatanmu"
-  },
-  {
-    "clave": "tut.menu-plantillas.4.texto",
-    "texto": "Buat templatmu sendiri dengan menyusunnya dari blok: catatan, daftar periksa, penghitung, kebiasaan, galeri… Tombol ini membuka editornya sendiri, lengkap dengan tutorialnya sendiri."
-  },
-  {
-    "clave": "tut.menu-plantillas.5.texto",
-    "texto": "Satu ruangan bisa punya beberapa aplikasi: begitu masuk, muncul peluncur untuk memilih mana yang mau dibuka."
-  },
-  {
-    "clave": "tut.plantillas-custom.1.texto",
-    "texto": "Editor ini merakit aplikasi milikmu dari nol: kamu beri bentuk dengan nama, emoji, dan blok, lalu ia masuk ke katalog berdampingan dengan yang bawaan."
-  },
-  {
-    "clave": "tut.plantillas-custom.2.titulo",
-    "texto": "Nama, emoji, dan warna"
-  },
-  {
-    "clave": "tut.plantillas-custom.2.texto",
-    "texto": "Namanya nanti apa dan warnanya apa di menu, katalog, dan kalender kalau kamu menjadwalkan sesuatu miliknya."
-  },
-  {
-    "clave": "tut.plantillas-custom.3.titulo",
-    "texto": "Alat-alatnya"
-  },
-  {
-    "clave": "tut.plantillas-custom.3.texto",
-    "texto": "Dua belas jenis blok: catatan, daftar periksa, penghitung, kebiasaan, sesi, hitung mundur, galeri, log, penilaian, progres, daftar, dan tautan. Tiap blok yang kamu tambahkan jadi satu bagian di aplikasimu."
-  },
-  {
-    "clave": "tut.plantillas-custom.4.titulo",
-    "texto": "Urutan itu penting"
-  },
-  {
-    "clave": "tut.plantillas-custom.4.texto",
-    "texto": "Blok yang sudah ditambahkan diurutkan ulang dengan panah dan dihapus dengan ✕ — menghapus satu blok ikut menghapus datanya saat disimpan, jadi periksa dulu sebelum mengonfirmasi. Lewat dropdown “Menu”, blok pindah dari satu tab ke tab lain tanpa kehilangan apa pun."
-  },
-  {
-    "clave": "tut.plantillas-custom.5.titulo",
-    "texto": "Simpan"
-  },
-  {
-    "clave": "tut.plantillas-custom.5.texto",
-    "texto": "Dengan nama dan minimal satu blok, Simpan menaruhnya di katalog dalam keadaan siap pakai. Dari sana templat ditetapkan ke sebuah objek, sama seperti templat bawaan mana pun."
-  },
-  {
-    "clave": "tut.plantillas-custom.6.texto",
-    "texto": "Kamu bisa mengeditnya lagi kapan saja: blok dan datanya tetap utuh, yang berubah hanya yang kamu ubah."
-  },
-  {
-    "clave": "tut.menu-inventario.1.texto",
-    "texto": "Inventaris: semua objek yang bisa kamu taruh di rumahmu, siap diseret."
-  },
-  {
-    "clave": "tut.menu-inventario.2.titulo",
-    "texto": "Objek"
-  },
-  {
-    "clave": "tut.menu-inventario.2.texto",
-    "texto": "Pustaka objekmu, tersusun dalam kategori dan folder. Kamu bisa mengganti namanya dan merapikannya supaya cepat ketemu lain kali."
-  },
-  {
-    "clave": "tut.menu-inventario.3.titulo",
-    "texto": "Objek spesial"
-  },
-  {
-    "clave": "tut.menu-inventario.3.texto",
-    "texto": "Yang benar-benar melakukan sesuatu, bukan cuma hiasan: kendaraan yang bisa dinaiki, pistol mainan, air mancur, wahana taman, dan lampu."
-  },
-  {
-    "clave": "tut.menu-inventario.4.titulo",
-    "texto": "Menempatkan"
-  },
-  {
-    "clave": "tut.menu-inventario.4.texto",
-    "texto": "Selagi menu ini terbuka, seret sebuah gambar kecil langsung ke adegan 3D untuk menaruhnya di mana pun kamu mau."
-  },
-  {
-    "clave": "tut.menu-inventario.5.texto",
-    "texto": "Untuk memindahkan, mewarnai, atau menghapus yang sudah ditaruh, pakai Editor (tab Objek) — menu ini hanya untuk membawa barang baru ke dalam adegan."
-  },
-  {
-    "clave": "tut.editor-mapa.1.texto",
-    "texto": "Editor rumah punya 4 tab: Peta, Karakter, Objek, dan Pengaturan. Tur ini tur Peta; tiga tab lainnya punya turnya sendiri."
-  },
-  {
-    "clave": "tut.editor-mapa.2.titulo",
-    "texto": "Sketsa"
-  },
-  {
-    "clave": "tut.editor-mapa.2.texto",
-    "texto": "Kamu menggambar di atas kisi-kisi dari pandangan atas: ruangan, dinding, pintu, jendela, dan lantai, dengan mode dan kuas di bilah atas. Yang kamu gambar langsung muncul di 3D, tanpa perlu memuat ulang apa pun."
-  }
+  { "clave": "tut.app-descanso--esencial.2.texto", "texto": "Setiap malam yang tercatat mendapat skor yang menggabungkan berapa lama kamu tidur, jam berapa kamu tidur, dan berapa kali kamu terbangun. Kalau belum ada catatan, di sini kamu diajak mencatat malam pertamamu." },
+  { "clave": "tut.app-descanso--esencial.3.titulo", "texto": "Jadwal dan pengingat" },
+  { "clave": "tut.app-descanso--esencial.3.texto", "texto": "Kamu atur jam tidur dan bangun dengan menyeret ujung-ujung garis harian; jadwal yang sama juga muncul sebagai blok di kalender rumah. Di sini juga kamu nyalakan alarm dengan nadanya dan pengingat untuk memperlambat sebelum tidur." },
+  { "clave": "tut.app-descanso--esencial.4.titulo", "texto": "Catat malam ini" },
+  { "clave": "tut.app-descanso--esencial.4.texto", "texto": "Formulir untuk mencatat cara kamu tidur: tanggal, jam tidur dan bangun, gangguan, dan penilaian kualitas, dengan ruang untuk catatan." },
+  { "clave": "tut.app-descanso--esencial.5.titulo", "texto": "Riwayat" },
+  { "clave": "tut.app-descanso--esencial.5.texto", "texto": "Semua malam yang kamu catat tetap ada di sini, disusun per tahun, bulan, dan minggu — supaya kamu bisa meninjau tidurmu dari waktu ke waktu." },
+  { "clave": "tut.app-despacho--esencial.1.titulo", "texto": "Keuanganmu" },
+  { "clave": "tut.app-despacho--esencial.1.texto", "texto": "Ruang Kerja mengatur uangmu dalam empat menu: yang kamu punya, yang masuk dan keluar, targetmu, dan pasar. Masing-masing membuka bagiannya sendiri di bawah." },
+  { "clave": "tut.app-despacho--esencial.2.titulo", "texto": "Kekayaan bersih" },
+  { "clave": "tut.app-despacho--esencial.2.texto", "texto": "Yang kamu punya dan yang kamu utang, dalam dua daftar: aset dan kewajiban. Bagian ketiga memproyeksikan gambaran ini ke depan dengan tingkat yang kamu tetapkan untuk setiap barisnya." },
+  { "clave": "tut.app-despacho--esencial.3.titulo", "texto": "Arus kas" },
+  { "clave": "tut.app-despacho--esencial.3.texto", "texto": "Uang yang masuk dan keluar, dipisah jadi pengeluaran, pemasukan, dan saldo. Saldo merangkum periode yang kamu pilih — hari, minggu, bulan, atau tahun — lengkap dengan anggaran, kategori, dan trennya." },
+  { "clave": "tut.app-despacho--esencial.4.titulo", "texto": "Target" },
+  { "clave": "tut.app-despacho--esencial.4.texto", "texto": "Target keuanganmu dalam tiga bagian: tabungan dan investasi, utang, dan kalkulator yang mengusulkan jumlah berdasarkan saldomu sendiri. Target apa pun bisa turun ke linimasa dan diberi tanggal." },
+  { "clave": "tut.app-despacho--esencial.5.titulo", "texto": "Pasar" },
+  { "clave": "tut.app-despacho--esencial.5.texto", "texto": "Kutipan langsung untuk mata uang, kripto, saham, dan komoditas; perlu koneksi. Ini papan referensi saja: aplikasi tidak menyarankan apa yang harus dibeli atau dijual." },
+  { "clave": "tut.app-diario--esencial.1.titulo", "texto": "Koran hari ini" },
+  { "clave": "tut.app-diario--esencial.1.texto", "texto": "Berita Harian membawa rangkuman harian dalam dua tampilan: berita utama dan «Hari ini dalam sejarah». Tidak menyimpan datanya sendiri: setiap hari membawa konten baru dan tengah malam menggantinya seluruhnya." },
+  { "clave": "tut.app-diario--esencial.2.titulo", "texto": "Berita utama" },
+  { "clave": "tut.app-diario--esencial.2.texto", "texto": "Berita utama hari itu menurut kategori — dunia, ekonomi, teknologi, kesehatan, olahraga, dan hiburan —, bisa difilter dengan chip di atas. Berasal dari pers asli dalam bahasamu, dengan media yang berganti tiap hari." },
+  { "clave": "tut.app-diario--esencial.3.titulo", "texto": "Hari ini dalam sejarah" },
+  { "clave": "tut.app-diario--esencial.3.texto", "texto": "Separuh lainnya dari koran: apa yang terjadi di hari seperti ini — sebuah karya, sebuah buku, sebuah spesies, sebuah kata. Alasan untuk membukanya meski beritanya tidak menarik hari itu." },
+  { "clave": "tut.app-diario--esencial.4.titulo", "texto": "Memperbarui diri sendiri" },
+  { "clave": "tut.app-diario--esencial.4.texto", "texto": "Edisinya terunduh sendiri saat kamu membuka aplikasi dan diganti seluruhnya tengah malam: tidak ada yang menumpuk. Tombol ini memaksa pembaruan sebelum jam itu." },
+  { "clave": "tut.app-diario--esencial.5.titulo", "texto": "Pengiriman" },
+  { "clave": "tut.app-diario--esencial.5.texto", "texto": "Atur bagian mana yang dikirimkan setiap asisten kepadamu di obrolannya sendiri, pada jam tetap atau di momen kejutan hari itu." },
+  { "clave": "tut.app-ejercicio--esencial.1.titulo", "texto": "Latihanmu" },
+  { "clave": "tut.app-ejercicio--esencial.1.texto", "texto": "Gym menggabungkan tiga mode tubuh — kekuatan, daya tahan, dan fleksibilitas — plus menu target tempat kamu memutuskan berapa banyak latihan yang kamu inginkan tiap minggu." },
+  { "clave": "tut.app-ejercicio--esencial.2.titulo", "texto": "Target" },
+  { "clave": "tut.app-ejercicio--esencial.2.texto", "texto": "Ringkasan ruangan: runtunanmu, hari-hari dengan catatan, dan sebuah bar per mode dibandingkan dengan target mingguan yang kamu tetapkan di sini. Di sini juga kamu pilih sistem satuan, kilogram atau pon." },
+  { "clave": "tut.app-ejercicio--esencial.3.titulo", "texto": "Kekuatan" }
 ]

@@ -968,14 +968,6 @@ export async function rellenarBordePisoExterior(
   }
 }
 
-/** Ejecuciones de rutinas de una fecha (reactivo, para el panel del día). */
-export function useEjecucionesDeFecha(fecha: string) {
-  return useLiveQuery(
-    () => db.ejecucionesRutina.where('fecha').equals(fecha).toArray(),
-    [fecha],
-  )
-}
-
 // Ideas · diario, mapas conceptuales y diagramas
 export const ideasRepo = createRepository(db.ideas, 'creadoEn')
 /** Carpetas del diario; orden cronológico = hermanas estables en el árbol. */

@@ -157,7 +157,6 @@ export function FormularioMedia({
         onCambio={setTipo}
         color={COLOR}
         variante="sub"
-        nivel={3}
         flecha={false}
         desplazable
       />

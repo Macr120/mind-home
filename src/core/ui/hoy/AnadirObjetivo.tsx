@@ -404,10 +404,10 @@ export function AnadirObjetivo({
             más los objetivos personales, que no son de ninguna. */}
         {plantillaId === null ? (
           <div className="space-y-0.5">
-            {/* Fuera las que ni traen catálogo ni son un hábito (el cuarto Metas):
-                entrar ahí solo ofrecería el objetivo libre, que ya está abajo en
-                «Personales». Una app propia del usuario sí entra: no trae catálogo
-                todavía, pero proponerse algo en ella tiene todo el sentido. */}
+            {/* Fuera las que ni traen catálogo ni son un hábito: entrar ahí solo
+                ofrecería el objetivo libre, que ya está abajo en «Personales».
+                Una app propia del usuario sí entra: no trae catálogo todavía,
+                pero proponerse algo en ella tiene todo el sentido. */}
             {appsParaEnlace()
               .filter((p) => sugerenciasDe(p.id).length > 0 || !p.sinMetaDiaria)
               .map((p) => (

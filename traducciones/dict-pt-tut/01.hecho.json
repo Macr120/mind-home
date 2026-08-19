@@ -1,38 +1,93 @@
 [
+  { "clave": "tut.app-agenda--esencial.1.titulo", "texto": "Sua agenda" },
   {
-    "clave": "tut.hoy.1.texto",
-    "texto": "No cabeçalho de cada app fica o botão Metas, igual ao do calendário mas restrito a este app. Ele abre um painel com dois andares: em cima o checklist de hoje, embaixo suas metas e planos."
+    "clave": "tut.app-agenda--esencial.1.texto",
+    "texto": "A agenda guarda o que não é um hábito: pendências, consultas, contatos. São três menus, e tudo o que tem data se agenda sozinho no calendário da casa."
   },
+  { "clave": "tut.app-agenda--esencial.2.titulo", "texto": "Trabalho" },
   {
-    "clave": "tut.hoy.2.texto",
-    "texto": "Os objetivos próprios do app (a água, as calorias), o que você agendou para hoje no calendário e os passos das suas metas em curso: tudo junto, agrupado sob o plano ou a meta de onde vem cada passo."
+    "clave": "tut.app-agenda--esencial.2.texto",
+    "texto": "A bandeja junta as pendências sem data para que não se percam, e o quadro move suas tarefas por colunas: a fazer, em andamento e feito."
   },
+  { "clave": "tut.app-agenda--esencial.3.titulo", "texto": "Saúde" },
   {
-    "clave": "tut.hoy.7.texto",
-    "texto": "E se faltar algo, «Novo checklist» cria o seu: uma lista própria deste app que se repete todo dia. Embaixo da seção Hoje está o planejador completo — Metas, Planos e Cronograma — com todas as metas do app."
+    "clave": "tut.app-agenda--esencial.3.texto",
+    "texto": "Consultas médicas, medicamentos e cuidados, em três submenus: Você, Quem você ama (as pessoas sob seus cuidados) e Mascotes."
   },
+  { "clave": "tut.app-agenda--esencial.4.titulo", "texto": "Pessoas" },
   {
-    "clave": "tut.app-hobbies--gestion.4.texto",
-    "texto": "As metas dos seus hobbies e projetos ficam no botão Metas do cabeçalho: o mesmo planejador Metas · Planos · Cronograma do calendário, restrito a este app. Peça à IA um plano com fases e datas."
+    "clave": "tut.app-agenda--esencial.4.texto",
+    "texto": "Sua agenda de contatos por relação. Os aniversários que você guardar se repetem sozinhos todo ano no calendário."
   },
+  { "clave": "tut.calendario--esencial.1.titulo", "texto": "O relógio da casa" },
   {
-    "clave": "tut.app-biblioteca--estudio.2.texto",
-    "texto": "As metas ficam no botão Metas do cabeçalho, o mesmo cronograma do calendário: «terminar termodinâmica antes da prova» já está cumprida; se preparar para a pós-graduação segue em andamento."
+    "clave": "tut.calendario--esencial.1.texto",
+    "texto": "O calendário não é um cômodo: vive no relógio do HUD, então se abre de onde você estiver sem entrar em lugar nenhum."
   },
+  { "clave": "tut.calendario--esencial.2.titulo", "texto": "Tudo agendado, junto" },
   {
-    "clave": "tut.app-ejercicio--anio.3.texto",
-    "texto": "O botão Metas do cabeçalho guarda suas quatro metas cumpridas —os 5K, os 10K, a meia maratona e a maratona— e a que ainda está ativa. Metas com data também aparecem no calendário da casa."
+    "clave": "tut.calendario--esencial.2.texto",
+    "texto": "Aqui cai tudo o que tem data e hora: o que você cria com «+ Novo» ou traçando na grade, e o que os demais apps agendam sozinhos. O filtro lá em cima deixa ver um só app quando fica muita coisa."
   },
+  { "clave": "tut.calendario--esencial.3.titulo", "texto": "Dia" },
   {
-    "clave": "tut.app-cocina--cronograma.1.texto",
-    "texto": "O botão Metas do cabeçalho abre o mesmo cronograma que o calendário da casa usa, restrito às metas da Cozinha: crie uma meta (por exemplo, «Perder 3 quilos») e peça o plano à IA — ela pergunta sua data-alvo e agenda submetas com data própria."
+    "clave": "tut.calendario--esencial.3.texto",
+    "texto": "A grade de uma jornada de 24 horas: serve para ver a que horas fica cada coisa e se algo se sobrepõe. Este botão faz dupla função: diz «Hoje» e te traz de volta ao presente, ou «Dia» se você já está vendo outra data."
   },
+  { "clave": "tut.calendario--esencial.4.titulo", "texto": "Semana" },
   {
-    "clave": "tut.app-despacho--metas.2.texto",
-    "texto": "O botão Metas do cabeçalho guarda essas metas na linha do tempo: você coloca datas em uma e ela aparece entre os seus dias do calendário. Com ✨ a IA propõe o plano de aportes."
+    "clave": "tut.calendario--esencial.4.texto",
+    "texto": "A mesma grade por horas, mas com os sete dias lado a lado. É onde se vê como fica dividida a semana, e onde os blocos se arrastam de um dia para outro ou se esticam para durar mais."
   },
+  { "clave": "tut.calendario--esencial.5.titulo", "texto": "Mês" },
   {
-    "clave": "tut.app-entretenimiento--programas.2.texto",
-    "texto": "O programa salvo fica no botão Metas do cabeçalho: cada título guarda sua nota sobre por que está na lista, e se você colocar datas ele desce para o calendário como qualquer outra meta."
-  }
+    "clave": "tut.calendario--esencial.5.texto",
+    "texto": "Deixa o eixo de horas e pinta os dias como células com o que cai em cada uma. É a vista do panorama: quais semanas vêm cheias e quais dias ficam livres."
+  },
+  { "clave": "tut.calendario--esencial.6.titulo", "texto": "Ano" },
+  {
+    "clave": "tut.calendario--esencial.6.texto",
+    "texto": "Os doze meses de uma vez. Nessa distância já não dá para ler as horas: o que se vê é a constância, o quanto você manteve o que se propôs ao longo do ano."
+  },
+  { "clave": "tut.calendario--esencial.7.titulo", "texto": "E as missões, à parte" },
+  {
+    "clave": "tut.calendario--esencial.7.texto",
+    "texto": "Em vermelho, para não parecer uma quinta vista: Missões junta numa única tela a checklist de hoje de todos os apps. As metas e seus planos não estão aqui — vivem no seu próprio cômodo."
+  },
+  { "clave": "tut.app-anecdotario--esencial.1.titulo", "texto": "Seu diário pessoal" },
+  {
+    "clave": "tut.app-anecdotario--esencial.1.texto",
+    "texto": "O diário guarda o que você quiser contar, com seu humor e suas fotos. Ele se organiza sozinho por data, sem que você precise classificar nada."
+  },
+  { "clave": "tut.app-anecdotario--esencial.2.titulo", "texto": "Como se escreve" },
+  {
+    "clave": "tut.app-anecdotario--esencial.2.texto",
+    "texto": "Escolha o humor do dia, escreva o que quiser contar e anexe fotos se tiver. Só com uma foto, sem texto, também vale."
+  },
+  { "clave": "tut.app-anecdotario--esencial.3.titulo", "texto": "O calendário do humor" },
+  {
+    "clave": "tut.app-anecdotario--esencial.3.texto",
+    "texto": "Cada dia é pintado com o humor da sua entrada, então o mês inteiro se lê num relance. Toque num dia para ver suas entradas embaixo."
+  },
+  { "clave": "tut.app-anecdotario--esencial.4.titulo", "texto": "O histórico" },
+  {
+    "clave": "tut.app-anecdotario--esencial.4.texto",
+    "texto": "Todas as entradas ficam aqui, organizadas sozinhas em pastas por ano, mês e semana."
+  },
+  { "clave": "tut.app-biblioteca--esencial.1.titulo", "texto": "Sua biblioteca" },
+  {
+    "clave": "tut.app-biblioteca--esencial.1.texto",
+    "texto": "A biblioteca é sua enciclopédia pessoal: você pergunta o que não sabe, guarda o que aprende e mantém a conta do que estuda. São quatro menus."
+  },
+  { "clave": "tut.app-biblioteca--esencial.2.titulo", "texto": "Conversas" },
+  {
+    "clave": "tut.app-biblioteca--esencial.2.texto",
+    "texto": "Aqui você pergunta ao Sábio sobre qualquer tema e a conversa fica guardada. Cada conversa se classifica sozinha no seu campo do conhecimento e sai destilada como ficha da enciclopédia."
+  },
+  { "clave": "tut.app-biblioteca--esencial.3.titulo", "texto": "Enciclopédia" },
+  {
+    "clave": "tut.app-biblioteca--esencial.3.texto",
+    "texto": "A árvore onde vive o que você aprendeu, ordenada por campo do conhecimento. Cada ficha traz seu resumo e seus pontos-chave, e você também pode escrevê-los à mão; com o lápis você faz o índice crescer do seu jeito."
+  },
+  { "clave": "tut.app-biblioteca--esencial.4.titulo", "texto": "Estudo" }
 ]

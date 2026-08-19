@@ -140,7 +140,9 @@ export function asegurarDictTut(idioma: string): Promise<void> {
   // activo debe salir en inglés (misma cascada que la capa base).
   if (idioma !== 'en') {
     const baseEn = enMarcha.get('en') ?? Promise.resolve()
-    void baseEn.then(() => cargarCapa('en:tut', 'en', CARGADORES_TUT.en!))
+    // Al mejor esfuerzo: si el chunk inglés falla no debe tumbar el tour (ni
+    // dejar un unhandled rejection); `cargarCapa` ya des-cachea para reintentar.
+    baseEn.then(() => cargarCapa('en:tut', 'en', CARGADORES_TUT.en!)).catch(() => {})
   }
   const base = enMarcha.get(idioma) ?? Promise.resolve()
   return base.then(() => cargarCapa(`${idioma}:tut`, idioma, cargar))

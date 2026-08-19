@@ -1,182 +1,162 @@
 [
   {
-    "clave": "tut.respaldo.3.texto",
-    "es": "Restaurar REEMPLAZA todos los datos actuales por los del archivo — pide confirmación antes y muestra cuántos registros trae, así que no hay sorpresas.",
-    "en": "Restoring REPLACES all current data with the file's — it asks for confirmation first and shows how many records it carries, so there are no surprises."
+    "clave": "tut.app-hobbies--esencial.4.texto",
+    "es": "Ahí registras sesiones con minutos y nota, ves tu heatmap del año y llevas proyectos con su propio avance. Las metas y su cronograma viven en el cuarto de Metas.",
+    "en": "There you log sessions with minutes and a note, see your yearly heatmap, and run projects with their own progress. Goals and their timeline live in the Goals room."
   },
   {
-    "clave": "tut.respaldo.4.texto",
-    "es": "Conviene respaldar antes de cambiar de dispositivo, de navegador, o simplemente de vez en cuando: es la única copia que tienes sin cuenta.",
-    "en": "Worth backing up before switching devices, changing browsers, or just now and then: it's the only copy you have without an account."
+    "clave": "tut.app-ideas--esencial.1.titulo",
+    "es": "Ideas",
+    "en": "Ideas"
   },
   {
-    "clave": "tut.editor-cuarto.1.texto",
-    "es": "Estás editando un cuarto concreto: el croquis y la cámara se enfocan en él, no en toda la casa.",
-    "en": "You're editing a specific room: the blueprint and the camera focus on it, not the whole home."
+    "clave": "tut.app-ideas--esencial.1.texto",
+    "es": "Ideas guarda lo que se te ocurre y lo ayuda a madurar: primero se anota, después se ordena en un mapa y, si hace falta, se compara para decidir. Son tres menús.",
+    "en": "Ideas keeps whatever crosses your mind and helps it mature: first it gets written down, then ordered into a map and, if needed, compared to decide. Three menus."
   },
   {
-    "clave": "tut.editor-cuarto.2.titulo",
-    "es": "Qué se edita",
-    "en": "What you can edit"
+    "clave": "tut.app-ideas--esencial.2.titulo",
+    "es": "Diario de ideas",
+    "en": "Idea diary"
   },
   {
-    "clave": "tut.editor-cuarto.2.texto",
-    "es": "Forma, piso, muros, puertas, color y nombre del cuarto, y sus objetos. La app asignada también se cambia desde aquí: es lo que más trae a la gente a este panel.",
-    "en": "Shape, floor, walls, doors, color and name of the room, and its objects. The assigned app also changes from here: it's what brings most people to this panel."
+    "clave": "tut.app-ideas--esencial.2.texto",
+    "es": "La bandeja donde cae cualquier ocurrencia, suelta o agrupada en una lluvia por tema. Se puede archivar en carpetas, destacar con estrella y, cuando madura, convertir en un mapa.",
+    "en": "The inbox where any occurrence lands, loose or grouped into a brainstorm by topic. It can be filed into folders, starred, and once it matures, turned into a map."
   },
   {
-    "clave": "tut.editor-cuarto.3.titulo",
-    "es": "Volver al mapa",
-    "en": "Back to the map"
+    "clave": "tut.app-ideas--esencial.3.titulo",
+    "es": "Mapas conceptuales",
+    "en": "Concept maps"
   },
   {
-    "clave": "tut.editor-cuarto.3.texto",
-    "es": "Esta flecha vuelve al mapa completo sin cerrar el editor, para seguir trabajando en otro cuarto.",
-    "en": "This arrow returns to the full map without closing the editor, so you can keep working on another room."
+    "clave": "tut.app-ideas--esencial.3.texto",
+    "es": "Un lienzo libre para ordenar un tema en el formato que le quede mejor: mental, árbol, flujo, línea del tiempo, ciclo, pirámide, Venn y más.",
+    "en": "A free canvas to order a topic in whichever format fits best: mind map, tree, flow, timeline, cycle, pyramid, Venn and more."
   },
   {
-    "clave": "tut.editor-cuarto.4.texto",
-    "es": "También hay un botón flotante «Salir del cuarto» sobre el propio cuarto en el 3D, por si prefieres tocarlo ahí.",
-    "en": "There's also a floating \"Exit room\" button over the room itself in 3D, in case you'd rather tap it there."
+    "clave": "tut.app-ideas--esencial.4.titulo",
+    "es": "Diagramas de decisiones",
+    "en": "Decision diagrams"
   },
   {
-    "clave": "tut.herramientas.1.texto",
-    "es": "Este botón abre la rueda de herramientas de tu personaje.",
-    "en": "This button opens your character's tool wheel."
+    "clave": "tut.app-ideas--esencial.4.texto",
+    "es": "El mismo lienzo, con formatos pensados para decidir: ventajas y desventajas con peso, FODA, Eisenhower o una matriz ponderada que ordena las opciones sola.",
+    "en": "The same canvas, with formats built for deciding: weighted pros and cons, SWOT, Eisenhower, or a weighted matrix that ranks the options on its own."
   },
   {
-    "clave": "tut.herramientas.2.titulo",
-    "es": "Dos niveles",
-    "en": "Two levels"
+    "clave": "tut.app-idiomas--esencial.1.titulo",
+    "es": "Tu escuela de idiomas",
+    "en": "Your language school"
   },
   {
-    "clave": "tut.herramientas.2.texto",
-    "es": "Primero eliges categoría y luego la herramienta concreta dentro de ella. Puedes equipar hasta 3 herramientas a la vez, de categorías distintas o repetidas.",
-    "en": "First pick a category, then the specific tool inside it. You can equip up to 3 tools at once, from the same category or different ones."
+    "clave": "tut.app-idiomas--esencial.1.texto",
+    "es": "Aquí eliges un idioma, charlas con un tutor de inteligencia artificial, guardas el vocabulario que aprendes y lo repasas con un sistema espaciado. Son cuatro menús: Charlas, Temario, Repaso y Progreso.",
+    "en": "Here you pick a language, chat with an AI tutor, save the vocabulary you learn, and review it with a spaced system. There are four menus: Chats, Curriculum, Review, and Progress."
   },
   {
-    "clave": "tut.herramientas.3.titulo",
-    "es": "La cuarta categoría",
-    "en": "The fourth category"
+    "clave": "tut.app-idiomas--esencial.2.titulo",
+    "es": "Charlas",
+    "en": "Chats"
   },
   {
-    "clave": "tut.herramientas.3.texto",
-    "es": "Construcción no equipa un juguete: activa el modo de dibujo del mapa (cuartos, muros, puertas, ventanas, pisos, techos) sin pasar por el editor completo. Es el mismo croquis, solo que se llega más rápido.",
-    "en": "Construction doesn't equip a toy: it turns on the map's drawing mode (rooms, walls, doors, windows, floors, roofs) without going through the full editor. Same blueprint, just a faster way in."
+    "clave": "tut.app-idiomas--esencial.2.texto",
+    "es": "Conversas con tu tutor en el idioma que estudias: responde según tu nivel y corrige con suavidad. Cada charla queda guardada y clasificada sola, y al salir te ofrece extraer el vocabulario nuevo como tarjetas.",
+    "en": "You talk with your tutor in the language you are studying: it responds to your level and corrects you gently. Every chat is saved and classified on its own, and when you leave it offers to extract the new vocabulary as cards."
   },
   {
-    "clave": "tut.herramientas.4.titulo",
-    "es": "El centro",
-    "en": "The center"
+    "clave": "tut.app-idiomas--esencial.3.titulo",
+    "es": "Temario",
+    "en": "Curriculum"
   },
   {
-    "clave": "tut.herramientas.4.texto",
-    "es": "El centro suelta todo lo equipado y devuelve el hueco de la esquina a su estado normal (el cubo de vistas u otro contextual, según lo que tengas cerca).",
-    "en": "The center drops everything equipped and returns the corner control to normal (the view cube or another contextual one, depending on what's nearby)."
+    "clave": "tut.app-idiomas--esencial.3.texto",
+    "es": "Ordena el idioma en temas, pronunciación y gramática, del nivel A1 al C2. El vocabulario vive dentro de cada tema: cada tarjeta se guarda ahí, con su traducción y su ejemplo.",
+    "en": "It organizes the language into topics, pronunciation, and grammar, from level A1 to C2. Vocabulary lives inside each topic: every card is stored there, with its translation and example."
   },
   {
-    "clave": "tut.herramientas.5.texto",
-    "es": "Se cierra tocando fuera de la rueda. Pruébala cuando quieras: nada de esto se guarda como permanente, es solo mientras la llevas puesta.",
-    "en": "It closes by tapping outside the wheel. Try it whenever you like: none of this is saved as permanent, it only lasts while you're wearing it."
+    "clave": "tut.app-idiomas--esencial.4.titulo",
+    "es": "Repaso",
+    "en": "Review"
   },
   {
-    "clave": "tut.navegacion.1.texto",
-    "es": "Tres cámaras: Iso (vista de casa de muñecas), 3ª y 1ª persona. Cambia aquí o con la tecla V.",
-    "en": "Three cameras: Iso (dollhouse view), 3rd and 1st person. Switch here or with the V key."
+    "clave": "tut.app-idiomas--esencial.4.texto",
+    "es": "El repaso espaciado: cada tarjeta vive en una caja y solo te pide las que estás a punto de olvidar, con ejercicios de opción múltiple, al revés o completar la frase en vez de solo mirarlas.",
+    "en": "Spaced review: each card lives in a box and only the ones you are about to forget come up, with exercises — multiple choice, reverse, or filling in the sentence — instead of just looking at cards."
   },
   {
-    "clave": "tut.navegacion.2.titulo",
-    "es": "Orientarse",
-    "en": "Orienting"
+    "clave": "tut.app-idiomas--esencial.5.titulo",
+    "es": "Progreso",
+    "en": "Progress"
   },
   {
-    "clave": "tut.navegacion.2.texto",
-    "es": "En iso, el cubo gira la cámara por caras; en 3ª/1ª, arrastra el pad para mirar alrededor.",
-    "en": "In iso, the cube turns the camera by faces; in 3rd/1st, drag the pad to look around."
+    "clave": "tut.app-idiomas--esencial.5.texto",
+    "es": "El resumen de tu avance: cuántas tarjetas dominas, cuánto repasaste y tu nivel actual, con el historial de tus repasos día a día.",
+    "en": "A summary of your progress: how many cards you have mastered, how much you reviewed, and your current level, with a day-by-day history of your reviews."
   },
   {
-    "clave": "tut.navegacion.3.titulo",
-    "es": "Cuando hay algo cerca",
-    "en": "When something's nearby"
+    "clave": "tut.app-jardin--esencial.1.titulo",
+    "es": "Tu espacio de calma",
+    "en": "Your space for calm"
   },
   {
-    "clave": "tut.navegacion.3.texto",
-    "es": "Ese mismo hueco deja de ser cámara al acercarte a algo interactivo: una cancha ofrece su botón de jugar, un vehículo el de subirte, una silla el de sentarte. Solo una cosa a la vez, y siempre por proximidad — nunca automático.",
-    "en": "That same corner stops being a camera control once you approach something interactive: a court offers its play button, a vehicle its mount button, a chair its sit button. Only one thing at a time, always by proximity — never automatic."
+    "clave": "tut.app-jardin--esencial.1.texto",
+    "es": "El jardín reúne tres prácticas: meditación, respiración guiada y agradecimientos. No lleva puntos ni rachas a propósito: aquí no se castiga faltar, solo se acompaña lo que practiques.",
+    "en": "The garden holds three practices: meditation, guided breathing, and gratitude. It carries no points or streaks on purpose: nothing punishes missing a day here, it just keeps pace with what you practice."
   },
   {
-    "clave": "tut.navegacion.4.titulo",
-    "es": "Rotar y centrar",
-    "en": "Rotate and center"
+    "clave": "tut.app-jardin--esencial.2.titulo",
+    "es": "Meditación",
+    "en": "Meditation"
   },
   {
-    "clave": "tut.navegacion.4.texto",
-    "es": "Rota la vista a los lados o céntrala de nuevo en el mapa si te perdiste explorando.",
-    "en": "Rotate the view sideways or center it back on the map if you wandered off exploring."
+    "clave": "tut.app-jardin--esencial.2.texto",
+    "es": "Elige una pista de sonido y una duración, o medita en silencio con una campana al empezar y al terminar. Cada sesión queda guardada en tu historial.",
+    "en": "Pick a sound track and a duration, or meditate in silence with a bell at the start and the end. Each session is saved to your history."
   },
   {
-    "clave": "tut.navegacion.5.titulo",
-    "es": "Moverse",
-    "en": "Moving"
+    "clave": "tut.app-jardin--esencial.3.titulo",
+    "es": "Respiración",
+    "en": "Breathing"
   },
   {
-    "clave": "tut.navegacion.5.texto",
-    "es": "Camina con el joystick, WASD o las flechas. En el agua nadas; con un vehículo montado, conduces con los mismos controles.",
-    "en": "Walk with the joystick, WASD or the arrows. In water you swim; on a mounted vehicle, you drive with the same controls."
+    "clave": "tut.app-jardin--esencial.3.texto",
+    "es": "Dos patrones de respiración guiada, uno para centrarte y otro para soltar el día: la pantalla respira contigo mientras avanza.",
+    "en": "Two guided breathing patterns, one to center you and one to release the day: the screen breathes along with you as it goes."
   },
   {
-    "clave": "tut.navegacion.6.texto",
-    "es": "En 3ª/1ª persona aparece el botón Editor 3D: toca objetos, muros o personajes para editarlos justo donde están, sin volver a la vista isométrica.",
-    "en": "In 3rd/1st person the 3D Editor button appears: touch objects, walls or characters to edit them right where they are, without switching to isometric view."
+    "clave": "tut.app-jardin--esencial.4.titulo",
+    "es": "Agradecimientos",
+    "en": "Gratitude"
   },
   {
-    "clave": "tut.chat.1.texto",
-    "es": "El chat del arquitecto: registra tu día, edita la casa y responde tus dudas, todo desde el mismo cuadro.",
-    "en": "The architect's chat: log your day, edit the home and get your questions answered, all from the same box."
+    "clave": "tut.app-jardin--esencial.4.texto",
+    "es": "Anota lo que agradeces hoy, aunque sea una sola cosa, y revisa tus entradas anteriores cuando quieras. Sin rachas: perder un día no borra nada.",
+    "en": "Write down what you're grateful for today, even just one thing, and revisit past entries whenever you like. No streaks: missing a day erases nothing."
   },
   {
-    "clave": "tut.chat.2.titulo",
-    "es": "Escribir",
-    "en": "Writing"
+    "clave": "tut.app-metas--esencial.1.titulo",
+    "es": "El planificador de la casa",
+    "en": "The house planner"
   },
   {
-    "clave": "tut.chat.2.texto",
-    "es": "Escribe libre: «corrí 20 min», «gasté 250 en el súper»… El chip de al lado muestra a qué app irá. Usa @cuarto para forzar destino si lo adivina mal.",
-    "en": "Write freely: \"ran 20 min\", \"spent 250 on groceries\"… The chip next to it shows which app it will go to. Use @room to force a destination if it guesses wrong."
+    "clave": "tut.app-metas--esencial.1.texto",
+    "es": "Este cuarto no lleva registros suyos: reúne en un solo sitio las metas y los planes que nacen en las demás apps. Son tres menús, y se leen en este orden: lo que te propusiste, cómo piensas repartirlo y cuándo cae.",
+    "en": "This room keeps no records of its own: it gathers in one place the goals and plans that are born in the other apps. Three menus, read in this order: what you set out to do, how you plan to split it and when it lands."
   },
   {
-    "clave": "tut.chat.3.titulo",
-    "es": "Dictar por voz",
-    "en": "Dictate by voice"
+    "clave": "tut.app-metas--esencial.2.titulo",
+    "es": "Metas",
+    "en": "Goals"
   },
   {
-    "clave": "tut.chat.3.texto",
-    "es": "El micrófono transcribe lo que digas al cuadro de texto — útil para registrar sin soltar lo que traes en las manos.",
-    "en": "The microphone transcribes what you say into the text box — handy for logging without letting go of what's in your hands."
+    "clave": "tut.app-metas--esencial.2.texto",
+    "es": "La lista de todo lo que te propusiste, agrupada por la app que lleva cada meta. Una meta puede colgar de otra, y al tocarla se abre su hoja: ahí están su plazo, sus pasos y la entrada a su propio cronograma.",
+    "en": "The list of everything you set out to do, grouped by the app that carries each goal. A goal can hang from another one, and tapping it opens its sheet: there you find its deadline, its steps and the way into its own timeline."
   },
   {
-    "clave": "tut.chat.4.titulo",
-    "es": "Enviar una foto",
-    "en": "Send a photo"
-  },
-  {
-    "clave": "tut.chat.4.texto",
-    "es": "Con IA activa, una foto del ticket, del platillo o de la báscula se interpreta sola. Sin IA, este botón queda deshabilitado.",
-    "en": "With AI on, a photo of the receipt, the dish or the scale gets read on its own. Without AI, this button stays disabled."
-  },
-  {
-    "clave": "tut.chat.5.titulo",
-    "es": "Asistentes",
-    "en": "Assistants"
-  },
-  {
-    "clave": "tut.chat.5.texto",
-    "es": "Tu asistente pone cara y voz a las respuestas. Tócalo para ver la conversación, cambiar de asistente o crear más.",
-    "en": "Your assistant gives the replies a face and a voice. Tap it to see the conversation, switch assistants or create more."
-  },
-  {
-    "clave": "tut.chat.6.titulo",
-    "es": "El manual",
-    "en": "The manual"
+    "clave": "tut.app-metas--esencial.3.titulo",
+    "es": "Planes",
+    "en": "Plans"
   }
 ]

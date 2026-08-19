@@ -1,38 +1,39 @@
 [
-  {
-    "clave": "tut.hoy.1.texto",
-    "texto": "Im Kopfbereich jeder App lebt ihr Ziele-Button, wie der im Kalender, nur auf diese App beschränkt. Er öffnet ein Panel mit zwei Ebenen: oben die Checkliste für heute, darunter ihre Ziele und Pläne."
-  },
-  {
-    "clave": "tut.hoy.2.texto",
-    "texto": "Die eigenen Ziele der App (Wasser, Kalorien), was du für heute im Kalender geplant hast, und die Schritte deiner aktuellen Ziele: alles zusammen, gruppiert unter dem Plan oder Ziel, aus dem jeder Schritt stammt."
-  },
-  {
-    "clave": "tut.hoy.7.texto",
-    "texto": "Und wenn dir etwas fehlt: „Neue Checkliste“ legt deine eigene an — eine Liste dieser App, die sich jeden Tag wiederholt. Unter dem Bereich Heute liegt der komplette Planer — Ziele, Pläne und Zeitplan — mit allen Zielen der App."
-  },
-  {
-    "clave": "tut.app-hobbies--gestion.4.texto",
-    "texto": "Die Ziele deiner Hobbys und Projekte leben im Ziele-Button im Kopfbereich: derselbe Planer Ziele · Pläne · Zeitplan wie im Kalender, nur auf diese App beschränkt. Bitte die KI um einen Plan mit Phasen und Terminen."
-  },
-  {
-    "clave": "tut.app-biblioteca--estudio.2.texto",
-    "texto": "Ziele leben im Ziele-Button im Kopfbereich, demselben Zeitplan wie im Kalender: „Thermodynamik vor der Prüfung abschließen“ ist bereits erledigt; die Vorbereitung auf den Master läuft noch."
-  },
-  {
-    "clave": "tut.app-ejercicio--anio.3.texto",
-    "texto": "Der Ziele-Button im Kopfbereich bewahrt ihre vier erreichten Ziele — den 5-km-Lauf, den 10-km-Lauf, den Halbmarathon und den Marathon — sowie das noch offene. Ziele mit Termin erscheinen auch im Hauskalender."
-  },
-  {
-    "clave": "tut.app-cocina--cronograma.1.texto",
-    "texto": "Der Ziele-Button im Kopfbereich öffnet denselben Zeitplan, den auch der Hauskalender nutzt, beschränkt auf die Ziele der Küche: leg ein Ziel an (z. B. „3 Kilo abnehmen“) und bitte die KI um den Plan — sie fragt nach deinem Zieltermin und plant Teilziele mit eigenem Termin."
-  },
-  {
-    "clave": "tut.app-despacho--metas.2.texto",
-    "texto": "Der Ziele-Button im Kopfbereich bewahrt diese Ziele auf der Zeitachse: gibst du einem einen Termin, erscheint es zwischen deinen Kalendertagen. Mit ✨ schlägt die KI den Sparplan vor."
-  },
-  {
-    "clave": "tut.app-entretenimiento--programas.2.texto",
-    "texto": "Das gespeicherte Programm lebt im Ziele-Button im Kopfbereich: jeder Titel behält seine Notiz, warum er auf der Liste steht, und mit Terminen versehen landet er im Kalender wie jedes andere Ziel."
-  }
+  { "clave": "tut.app-agenda--esencial.1.titulo", "texto": "Dein Terminplan" },
+  { "clave": "tut.app-agenda--esencial.1.texto", "texto": "Der Terminplan verwaltet, was keine Gewohnheit ist: Aufgaben, Termine, Kontakte. Drei Tabs, und alles mit einem Datum trägt sich von selbst in den Hauskalender ein." },
+  { "clave": "tut.app-agenda--esencial.2.titulo", "texto": "Arbeit" },
+  { "clave": "tut.app-agenda--esencial.2.texto", "texto": "Die Liste sammelt die Aufgaben ohne Datum, damit sie nicht verloren gehen, und das Board bewegt deine Aufgaben durch Spalten: zu erledigen, in Arbeit und erledigt." },
+  { "clave": "tut.app-agenda--esencial.3.titulo", "texto": "Gesundheit" },
+  { "clave": "tut.app-agenda--esencial.3.texto", "texto": "Arzttermine, Medikamente und Pflege, in drei Untertabs: Du, Angehörige (die Menschen, um die du dich kümmerst) und Haustiere." },
+  { "clave": "tut.app-agenda--esencial.4.titulo", "texto": "Personen" },
+  { "clave": "tut.app-agenda--esencial.4.texto", "texto": "Dein Kontaktbuch, nach Beziehung geordnet. Geburtstage, die du speicherst, wiederholen sich jedes Jahr von selbst im Kalender." },
+  { "clave": "tut.calendario--esencial.1.titulo", "texto": "Die Hausuhr" },
+  { "clave": "tut.calendario--esencial.1.texto", "texto": "Der Kalender ist kein Raum: Er wohnt in der HUD-Uhr, also öffnet er sich überall, wo du gerade bist, ohne dass du irgendwo hineingehst." },
+  { "clave": "tut.calendario--esencial.2.titulo", "texto": "Alles Geplante, an einem Ort" },
+  { "clave": "tut.calendario--esencial.2.texto", "texto": "Hier landet alles mit Datum und Uhrzeit: was du mit „+ Neu“ anlegst oder direkt aufs Raster zeichnest, und was die anderen Apps von selbst eintragen. Der Filter oben zeigt nur eine App, wenn es zu voll wird." },
+  { "clave": "tut.calendario--esencial.3.titulo", "texto": "Tag" },
+  { "clave": "tut.calendario--esencial.3.texto", "texto": "Das Raster eines 24-Stunden-Tages: Es zeigt, um welche Uhrzeit jede Sache liegt und ob sich etwas überschneidet. Dieser Button hat zwei Aufgaben: Er heißt „Heute“ und bringt dich in die Gegenwart – oder „Tag“, wenn du schon auf ein anderes Datum schaust." },
+  { "clave": "tut.calendario--esencial.4.titulo", "texto": "Woche" },
+  { "clave": "tut.calendario--esencial.4.texto", "texto": "Dasselbe Stundenraster, aber mit allen sieben Tagen nebeneinander. Hier siehst du, wie sich die Woche verteilt, und hier ziehst du Blöcke von einem Tag zum anderen oder dehnst sie, damit sie länger dauern." },
+  { "clave": "tut.calendario--esencial.5.titulo", "texto": "Monat" },
+  { "clave": "tut.calendario--esencial.5.texto", "texto": "Verzichtet auf die Stundenachse und stellt die Tage als Kästchen mit ihrem Inhalt dar. Das ist der Überblick: welche Wochen voll werden und welche Tage frei bleiben." },
+  { "clave": "tut.calendario--esencial.6.titulo", "texto": "Jahr" },
+  { "clave": "tut.calendario--esencial.6.texto", "texto": "Alle zwölf Monate auf einmal. Aus dieser Entfernung lassen sich die Stunden nicht mehr ablesen: Was man sieht, ist die Beständigkeit, wie sehr du das, was du dir vorgenommen hast, das ganze Jahr über durchgehalten hast." },
+  { "clave": "tut.calendario--esencial.7.titulo", "texto": "Und die Missionen, separat" },
+  { "clave": "tut.calendario--esencial.7.texto", "texto": "In Rot, damit es nicht wie eine fünfte Ansicht wirkt: Missionen bündelt auf einem Bildschirm die Tages-Checkliste aller Apps. Ziele und ihre Pläne sind hier nicht dabei — sie leben in ihrem eigenen Raum." },
+  { "clave": "tut.app-anecdotario--esencial.1.titulo", "texto": "Dein persönliches Tagebuch" },
+  { "clave": "tut.app-anecdotario--esencial.1.texto", "texto": "Das Erinnerungsbuch bewahrt, was du erzählen willst, mit Stimmung und Fotos. Es ordnet sich von selbst nach Datum, ohne dass du etwas einsortieren musst." },
+  { "clave": "tut.app-anecdotario--esencial.2.titulo", "texto": "So schreibst du einen Eintrag" },
+  { "clave": "tut.app-anecdotario--esencial.2.texto", "texto": "Wähle die Stimmung des Tages, schreib, was du erzählen willst, und häng Fotos an, wenn du welche hast. Auch nur ein Foto, ohne Text, zählt." },
+  { "clave": "tut.app-anecdotario--esencial.3.titulo", "texto": "Der Stimmungskalender" },
+  { "clave": "tut.app-anecdotario--esencial.3.texto", "texto": "Jeder Tag färbt sich nach der Stimmung seines Eintrags, sodass sich der ganze Monat auf einen Blick lesen lässt. Tippe auf einen Tag, um seine Einträge darunter zu sehen." },
+  { "clave": "tut.app-anecdotario--esencial.4.titulo", "texto": "Der Verlauf" },
+  { "clave": "tut.app-anecdotario--esencial.4.texto", "texto": "Alle Einträge landen hier, von selbst geordnet in Ordnern nach Jahr, Monat und Woche." },
+  { "clave": "tut.app-biblioteca--esencial.1.titulo", "texto": "Deine Bibliothek" },
+  { "clave": "tut.app-biblioteca--esencial.1.texto", "texto": "Die Bibliothek ist deine persönliche Enzyklopädie: Du fragst, was du nicht weißt, bewahrst, was du lernst, und behältst den Überblick über dein Studium. Vier Tabs." },
+  { "clave": "tut.app-biblioteca--esencial.2.titulo", "texto": "Chats" },
+  { "clave": "tut.app-biblioteca--esencial.2.texto", "texto": "Hier fragst du den Weisen zu jedem Thema, und das Gespräch bleibt gespeichert. Jeder Chat ordnet sich selbst seinem Wissensgebiet zu und kommt destilliert als Enzyklopädie-Eintrag heraus." },
+  { "clave": "tut.app-biblioteca--esencial.3.titulo", "texto": "Enzyklopädie" },
+  { "clave": "tut.app-biblioteca--esencial.3.texto", "texto": "Der Baum, in dem das Gelernte lebt, geordnet nach Wissensgebiet. Jeder Eintrag trägt seine Zusammenfassung und seine Kernpunkte, und du kannst sie auch von Hand schreiben; mit dem Stift lässt du den Index nach deinem Maß wachsen." },
+  { "clave": "tut.app-biblioteca--esencial.4.titulo", "texto": "Lernen" }
 ]

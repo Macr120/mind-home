@@ -1,4 +1,5 @@
 import type { CuerpoTutorial, TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import { fichaEsencial } from '../../core/tutorial/esencial'
 
 /**
  * Fichas de los tutoriales de esta app: id, título y resumen. Es lo único que
@@ -53,3 +54,13 @@ const flujoGestion = tour(
 )
 
 export const flujosHobbies: TutorialDef[] = [flujoPiano, flujoProyectos, flujoGestion]
+
+/** Esencial: recorre la lista y el alta en la casa real, sin necesitar datos. */
+export const esencialHobbies: TutorialDef = fichaEsencial(
+  'hobbies',
+  T(
+    'tut.app-hobbies--esencial.resumen',
+    'Hobbies lleva el seguimiento de tus pasatiempos: la lista con la racha y el avance semanal de cada uno, y el alta de uno nuevo. Dentro de cada hobby vive el registro de sesiones, el heatmap del año y sus proyectos.',
+  ),
+  () => import('./tutorial').then((m) => m.cuerpoEsencial as CuerpoTutorial),
+)

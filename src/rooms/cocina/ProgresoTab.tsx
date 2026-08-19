@@ -77,7 +77,6 @@ export function ProgresoTab({
           prefijoClave="cocina.periodo"
           color={COLOR}
           variante="sub"
-          nivel={3}
         />
       </div>
 

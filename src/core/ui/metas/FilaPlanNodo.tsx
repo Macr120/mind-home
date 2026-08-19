@@ -58,7 +58,7 @@ export function FilaPlanNodo({
   return (
     <div style={{ paddingLeft: profundidad * SANGRIA + 4 }} className="py-0.5 pe-1">
       <div className="group flex items-center gap-1.5">
-        <span className="shrink-0 text-[9px]" style={{ color: `${color}cc` }}>
+        <span className="shrink-0 text-[9px]" style={{ color: `color-mix(in srgb, ${color} 80%, transparent)` }}>
           <Icono nombre="brillo" />
         </span>
         {plan && editando ? (
@@ -68,10 +68,10 @@ export function FilaPlanNodo({
             onChange={(e) => setNombre(e.target.value)}
             onBlur={guardarNombre}
             onKeyDown={(e) => e.key === 'Enter' && guardarNombre()}
-            className="min-w-0 flex-1 rounded border border-white/20 bg-black/40 px-1 py-0 text-[11px] text-white/80 outline-none"
+            className="min-w-0 flex-1 rounded-lg border border-white/20 bg-black/40 px-1 py-0 text-2xs text-white/80 outline-none"
           />
         ) : (
-          <span className="min-w-0 flex-1 truncate text-[11px] italic text-white/55">{nodo.nombre}</span>
+          <span className="min-w-0 flex-1 truncate text-2xs italic text-white/55">{nodo.nombre}</span>
         )}
         {incoherente && (
           <span
@@ -90,7 +90,7 @@ export function FilaPlanNodo({
                 setEditando(true)
               }}
               title={t('cal.plan.renombrar', 'Renombrar')}
-              className="px-0.5 text-[10px] text-white/30 transition hover:text-white/80"
+              className="ui-presion px-0.5 text-[10px] text-white/30 transition hover:text-white/80"
             >
               <Icono nombre="editar" />
             </button>
@@ -98,8 +98,8 @@ export function FilaPlanNodo({
               type="button"
               onClick={() => setFechas((v) => !v)}
               title={t('cal.plan.fechasNodo', 'Poner o cambiar fechas')}
-              className={`px-0.5 text-[10px] transition hover:text-white/80 ${
-                rango ? 'text-white/30' : 'text-violet-300/60'
+              className={`ui-presion px-0.5 text-[10px] transition hover:text-white/80 ${
+                rango ? 'text-white/30' : 'text-plan/60'
               }`}
             >
               <Icono nombre="calendario" />
@@ -109,8 +109,8 @@ export function FilaPlanNodo({
                 type="button"
                 onClick={() => setAgregando((v) => !v)}
                 title={t('cal.plan.agregarNodo', 'Agregar sub-meta a la fase')}
-                className={`px-0.5 text-[10px] transition hover:text-white/80 ${
-                  agregando ? 'text-emerald-400' : 'text-white/30'
+                className={`ui-presion px-0.5 text-[10px] transition hover:text-white/80 ${
+                  agregando ? 'text-accent' : 'text-white/30'
                 }`}
               >
                 <Icono nombre="agregar" />
@@ -120,7 +120,7 @@ export function FilaPlanNodo({
               type="button"
               onClick={() => void borrarNodoPlan(plan, nodo.id)}
               title={t('rutinas.borrar', 'Borrar')}
-              className="px-0.5 text-[10px] text-white/30 transition hover:text-red-400"
+              className="ui-presion px-0.5 text-[10px] text-white/30 transition hover:text-red-400"
             >
               <Icono nombre="basura" />
             </button>
@@ -142,7 +142,7 @@ export function FilaPlanNodo({
               else if (e.key === 'Escape') setAgregando(false)
             }}
             placeholder={t('cal.plan.nuevoNodo', 'Sub-meta…')}
-            className="w-full rounded border border-white/15 bg-black/30 px-1 py-0.5 text-[11px] text-white/90 placeholder:text-white/25 focus:outline-none"
+            className="w-full rounded-lg border border-white/15 bg-black/30 px-1 py-0.5 text-2xs text-white/90 placeholder:text-white/25 focus:border-accent/60 focus:outline-none"
           />
         </div>
       )}
@@ -159,7 +159,7 @@ export function FilaPlanNodo({
               void fecharNodoPlan(plan, nodo.id, e.target.value, isoMasDias(e.target.value, dias))
             }}
             title={t('cal.plan.nodoIni', 'Empieza')}
-            className="w-[86px] shrink-0 rounded border border-white/10 bg-black/30 px-1 py-0.5 text-[9px] tabular-nums text-white/60 focus:outline-none"
+            className="w-[86px] shrink-0 rounded-lg border border-white/10 bg-black/30 px-1 py-0.5 text-[9px] tabular-nums text-white/60 focus:border-accent/60 focus:outline-none"
           />
           <span className="text-[9px] text-white/30">→</span>
           <input
@@ -171,14 +171,14 @@ export function FilaPlanNodo({
               if (e.target.value && rango) void fecharNodoPlan(plan, nodo.id, rango.ini, e.target.value)
             }}
             title={t('cal.plan.nodoFin', 'Termina')}
-            className="w-[86px] shrink-0 rounded border border-white/10 bg-black/30 px-1 py-0.5 text-[9px] tabular-nums text-white/60 focus:outline-none disabled:opacity-40"
+            className="w-[86px] shrink-0 rounded-lg border border-white/10 bg-black/30 px-1 py-0.5 text-[9px] tabular-nums text-white/60 focus:border-accent/60 focus:outline-none disabled:opacity-40"
           />
           {rango && (
             <button
               type="button"
               onClick={() => void quitarFechasNodoPlan(plan, nodo.id)}
               title={t('cal.plan.quitarFechas', 'Quitarle las fechas')}
-              className="px-0.5 text-[9px] text-white/30 transition hover:text-white/80"
+              className="ui-presion px-0.5 text-[9px] text-white/30 transition hover:text-white/80"
             >
               <Icono nombre="quitar" />
             </button>

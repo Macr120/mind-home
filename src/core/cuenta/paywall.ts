@@ -38,39 +38,89 @@ export interface OfertaPro {
 }
 
 /**
- * Niveles de la suscripción: el mismo plan multiplicado. Espejo de `NIVELES` en
- * el webhook, que es quien escribe `perfiles.nivel`; aquí solo se pintan y se
- * compran. Cambiar de nivel es comprar otro paquete —RevenueCat lo resuelve
- * como cambio de suscripción, no como alta nueva—, y bajar o cancelar se hace
- * desde `urlGestion()`.
+ * Niveles de la suscripción: el mismo plan multiplicado. Espejo de
+ * `NIVEL_PRODUCTOS` en el webhook, que es quien escribe `perfiles.nivel`; aquí
+ * solo se pintan y se compran. Cambiar de nivel es comprar otro paquete
+ * —RevenueCat lo resuelve como cambio de suscripción, no como alta nueva—, y
+ * bajar o cancelar se hace desde `urlGestion()`.
+ *
+ * Una LISTA por nivel, con el precio VIGENTE primero, por el mismo motivo que
+ * el unlock: en RevenueCat el precio es inmutable, así que subir de $5/$10/$15
+ * a $6/$12/$18 obligó a crear productos nuevos. Los viejos se conservan para
+ * reconocer al suscriptor que sigue en ellos, pero ya no se ofrecen.
  */
+const NIVEL_PRODUCTOS: string[][] = [
+  ['pro_x1_v2', 'pro_x1'],
+  ['pro_x2_v2', 'pro_x2'],
+  ['pro_x3_v2', 'pro_x3'],
+]
+
+/**
+ * Anualidad: el nivel ×1 pagado de una vez, $60/año (dos meses de regalo
+ * frente a $6 × 12). Da los MISMOS 700 créditos cada mes —el pool es mensual,
+ * lo calcula `pool_mensual()` con `nivel`—, así que cuenta como nivel 1.
+ * Va aparte de `NIVEL_PRODUCTOS` porque no es un escalón más de la escalera:
+ * es otra forma de pagar el mismo escalón.
+ */
+const ANUAL_PRODUCTOS = ['pro_x1_anual']
+
 const NIVELES: Record<string, number> = {
-  pro_x1: 1,
-  pro_x2: 2,
-  pro_x3: 3,
+  ...Object.fromEntries(NIVEL_PRODUCTOS.flatMap((ids, i) => ids.map((id) => [id, i + 1] as const))),
+  ...Object.fromEntries(ANUAL_PRODUCTOS.map((id) => [id, 1] as const)),
 }
 
 /** Créditos mensuales del nivel base; los demás son múltiplos exactos. */
 const CREDITOS_BASE = 700
 
 /**
+ * Recarga de créditos: consumible, NO es suscripción. $6 = 700 créditos que se
+ * abonan a `perfiles.creditos_extra`, no caducan y funcionan sin plan (el pool
+ * mensual se agota antes que ellos). Mismo precio por crédito que un nivel:
+ * $6 → 700, tanto aquí como en la suscripción.
+ *
+ * Lista por el mismo motivo que las demás: el precio en RC es inmutable.
+ */
+const CREDITOS_PRODUCTOS: Record<string, number> = {
+  creditos_x1: 700,
+}
+
+/**
  * Pago único que desbloquea la app e incluye el primer mes (plan trial de 30
  * días con pool + sync, sin tarjeta). One-time SIN entitlement; el alta real la
  * hace el webhook al ver el `product_id`.
+ *
+ * Es una LISTA porque en RevenueCat el precio de un producto es INMUTABLE: cada
+ * cambio de precio obliga a crear otro producto. El vigente va PRIMERO (es el
+ * que se ofrece); los viejos se conservan para que el webhook siga honrando una
+ * compra en vuelo. Espejo de `UNLOCK_PRODUCTOS` en revenuecat-webhook.
  */
-export const UNLOCK_PRODUCTO = 'unlock_casa'
+export const UNLOCK_PRODUCTOS = ['unlock_casa_v3', 'unlock_casa_v2', 'unlock_casa']
 
 function empaquetar(paquete: Package): OfertaPro {
   const producto = paquete.webBillingProduct
   const duracion = producto?.normalPeriodDuration ?? null
-  const nivel = NIVELES[producto?.identifier ?? ''] ?? 0
+  const id = producto?.identifier ?? ''
+  const nivel = NIVELES[id] ?? 0
   return {
     paquete,
     precio: producto?.currentPrice?.formattedPrice ?? '',
     periodo: duracion === 'P1M' ? 'mes' : duracion === 'P1Y' ? 'anio' : null,
     nivel,
-    creditos: nivel * CREDITOS_BASE,
+    creditos: nivel ? nivel * CREDITOS_BASE : (CREDITOS_PRODUCTOS[id] ?? 0),
   }
+}
+
+/** Primer paquete disponible de la lista, por orden de la lista (no del offering). */
+async function buscarPaquete(ids: string[]): Promise<OfertaPro | null> {
+  const usuario = useSesion.getState().usuario
+  if (!usuario || !claveWeb) return null
+  const offerings = await rc(usuario.id).getOfferings()
+  const paquetes = Object.values(offerings.all).flatMap((o) => o.availablePackages)
+  for (const id of ids) {
+    const paquete = paquetes.find((p) => p.webBillingProduct?.identifier === id)
+    if (paquete) return empaquetar(paquete)
+  }
+  return null
 }
 
 /** Nivel base (×1), para el botón único de «hazte Pro». */
@@ -82,20 +132,35 @@ export async function obtenerOferta(): Promise<OfertaPro | null> {
 /**
  * Los tres niveles, de menor a mayor. Se buscan en TODOS los offerings y por
  * identificador: así el orden en que estén configurados en RevenueCat no
- * decide cuál es el ×1.
+ * decide cuál es el ×1. De cada nivel se ofrece el producto VIGENTE; si el
+ * viejo sigue en el offering, no se pinta dos veces el mismo nivel.
  */
 export async function obtenerNiveles(): Promise<OfertaPro[]> {
   const usuario = useSesion.getState().usuario
   if (!usuario || !claveWeb) return []
   const offerings = await rc(usuario.id).getOfferings()
-  const encontrados = new Map<string, OfertaPro>()
-  for (const oferta of Object.values(offerings.all)) {
-    for (const paquete of oferta.availablePackages) {
-      const id = paquete.webBillingProduct?.identifier ?? ''
-      if (id in NIVELES && !encontrados.has(id)) encontrados.set(id, empaquetar(paquete))
+  const paquetes = Object.values(offerings.all).flatMap((o) => o.availablePackages)
+  const ofertas: OfertaPro[] = []
+  for (const ids of NIVEL_PRODUCTOS) {
+    for (const id of ids) {
+      const paquete = paquetes.find((p) => p.webBillingProduct?.identifier === id)
+      if (paquete) {
+        ofertas.push(empaquetar(paquete))
+        break
+      }
     }
   }
-  return [...encontrados.values()].sort((a, b) => a.nivel - b.nivel)
+  return ofertas
+}
+
+/** Paquete de recarga de créditos (consumible, sin suscripción). */
+export async function obtenerCreditos(): Promise<OfertaPro | null> {
+  return buscarPaquete(Object.keys(CREDITOS_PRODUCTOS))
+}
+
+/** Paquete anual del nivel ×1 ($60/año); null si no está en ningún offering. */
+export async function obtenerAnual(): Promise<OfertaPro | null> {
+  return buscarPaquete(ANUAL_PRODUCTOS)
 }
 
 /**
@@ -138,19 +203,30 @@ export async function cambiarNivel(paquete: Package, nivel: number): Promise<boo
 }
 
 /**
- * Paquete del unlock (pago único), esté en el offering que esté — como las
- * recargas, no vive en el `default` de la suscripción.
+ * Paquete del unlock (pago único), esté en el offering que esté. Se recorre por
+ * el orden de UNLOCK_PRODUCTOS, no por el de los offerings: si alguna vez
+ * conviven dos versiones, gana el precio vigente.
  */
 export async function obtenerUnlock(): Promise<OfertaPro | null> {
+  return buscarPaquete(UNLOCK_PRODUCTOS)
+}
+
+/**
+ * Compra una recarga de créditos (one-time). El abono a `creditos_extra` lo
+ * hace el webhook: se reintenta el refresco hasta ver subir el saldo.
+ */
+export async function comprarCreditos(paquete: Package): Promise<boolean> {
   const usuario = useSesion.getState().usuario
-  if (!usuario || !claveWeb) return null
-  const offerings = await rc(usuario.id).getOfferings()
-  for (const oferta of Object.values(offerings.all)) {
-    for (const paquete of oferta.availablePackages) {
-      if (paquete.webBillingProduct?.identifier === UNLOCK_PRODUCTO) return empaquetar(paquete)
-    }
+  if (!usuario) return false
+  const antes = useSesion.getState().creditosExtra
+  await rc(usuario.id).purchase({ rcPackage: paquete })
+  for (let i = 0; i < 5; i++) {
+    await useSesion.getState().refrescarPerfil()
+    if (useSesion.getState().creditosExtra > antes) break
+    await new Promise((r) => setTimeout(r, 3000))
   }
-  return null
+  void useSesion.getState().refrescarUso()
+  return useSesion.getState().creditosExtra > antes
 }
 
 /**

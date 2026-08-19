@@ -1,154 +1,82 @@
 [
   {
-    "clave": "tut.casa.1.texto",
-    "texto": "To twój dom: każdy pokój przechowuje jedną aplikację. Pokażę ci podstawowe sterowanie."
+    "clave": "tut.app-biblioteca--esencial.4.texto",
+    "texto": "Zegar do nauki: wybierasz dziedzinę i czas trwania, ciągiem albo w pomodoro, a każdy odcinek rejestruje się sam. Działa dalej, nawet gdy wyjdziesz z pokoju."
   },
+  { "clave": "tut.app-biblioteca--esencial.5.titulo", "texto": "Podsumowanie" },
   {
-    "clave": "tut.casa.2.titulo",
-    "texto": "Menu główne"
+    "clave": "tut.app-biblioteca--esencial.5.texto",
+    "texto": "Panorama tego wszystkiego: ile wpisów ma twoja encyklopedia i jaką część indeksu pokryłeś, minuty nauki, twoja seria i dni, w które się uczyłeś."
   },
+  { "clave": "tut.app-cocina--esencial.1.titulo", "texto": "Kuchnia" },
   {
-    "clave": "tut.casa.2.texto",
-    "texto": "Ten przycisk otwiera menu: twoje pokoje, katalog szablonów (aplikacji) i ekwipunek obiektów."
+    "clave": "tut.app-cocina--esencial.1.texto",
+    "texto": "Ta aplikacja zajmuje się dwiema rzeczami: tym, co ugotujesz, i tym, co w końcu zjesz. Każda ma swoje podmenu u góry, a każde podmenu otwiera własne zakładki."
   },
+  { "clave": "tut.app-cocina--esencial.2.titulo", "texto": "Książka przepisów" },
   {
-    "clave": "tut.casa.3.titulo",
-    "texto": "Poruszanie się"
+    "clave": "tut.app-cocina--esencial.2.texto",
+    "texto": "Strona gotowania: tu żyją twoje przepisy, diety, które je grupują, i lista zakupów. Trzy zakładki, w tej kolejności."
   },
+  { "clave": "tut.app-cocina--esencial.3.titulo", "texto": "Dieta" },
   {
-    "clave": "tut.casa.3.texto",
-    "texto": "Chodzisz joystickiem, klawiszami WASD albo strzałkami. Kiedy przechodzisz przez drzwi pokoju, wchodzisz do niego, a jego aplikacja otwiera się sama."
+    "clave": "tut.app-cocina--esencial.3.texto",
+    "texto": "Dieta to plan żywieniowy z przepisami w środku i, jeśli chcesz, własnymi celami kalorycznymi i makroskładnikami. Zapisujesz swoje obok tych, które aplikacja już ma."
   },
+  { "clave": "tut.app-cocina--esencial.4.titulo", "texto": "Przepisy" },
   {
-    "clave": "tut.casa.4.titulo",
-    "texto": "Trzy sposoby patrzenia"
+    "clave": "tut.app-cocina--esencial.4.texto",
+    "texto": "Książka przepisów: każdy przepis przechowuje składniki, kroki i makroskładniki na porcję, i jest posegregowany w folderach. Z przepisu możesz zarejestrować posiłek albo wysłać jego składniki na listę zakupów."
   },
+  { "clave": "tut.app-cocina--esencial.5.titulo", "texto": "Zakupy" },
   {
-    "clave": "tut.casa.4.texto",
-    "texto": "Izometryczny, trzecia i pierwsza osoba (albo klawisz V). W 3./1. osobie pojawia się dodatkowo przycisk do edytowania świata w trakcie spaceru po nim."
+    "clave": "tut.app-cocina--esencial.5.texto",
+    "texto": "Lista zakupów, z każdym produktem w odpowiednim dziale. Możesz zbudować listę, zbierając to, czego brakuje z kilku przepisów, i odhaczać to, co masz już w spiżarni."
   },
+  { "clave": "tut.app-cocina--esencial.6.titulo", "texto": "Kontrola żywienia" },
   {
-    "clave": "tut.casa.5.titulo",
-    "texto": "Jedno miejsce, wielu właścicieli"
+    "clave": "tut.app-cocina--esencial.6.texto",
+    "texto": "Drugie podmenu prowadzi rachunek tego, co jesz, w czterech ponumerowanych zakładkach. Pierwsza to Cele: na podstawie twojej wagi, wzrostu i aktywności oblicza, ile potrzebujesz dziennie, i dzieli makroskładniki."
   },
+  { "clave": "tut.app-cocina--esencial.7.titulo", "texto": "Dziennik" },
   {
-    "clave": "tut.casa.5.texto",
-    "texto": "Ten róg to nie tylko kostka widoków: kiedy podchodzisz do czegoś, z czym da się wejść w interakcję — krzesła, pojazdu, boiska — zmienia się sam na to, co masz w pobliżu. Nic nie włącza się, dopóki nie podejdziesz."
+    "clave": "tut.app-cocina--esencial.7.texto",
+    "texto": "To, co już się wydarzyło: posiłki dnia z ich kaloriami, ile wody wypiłeś i twoja waga, gdy się ważysz. Sąsiednia zakładka, Plan posiłków, to odwrotność: siatka tego, co planujesz zjeść w najbliższych dniach."
   },
+  { "clave": "tut.app-cocina--esencial.8.titulo", "texto": "Postępy" },
   {
-    "clave": "tut.casa.6.titulo",
-    "texto": "Koło narzędzi"
+    "clave": "tut.app-cocina--esencial.8.texto",
+    "texto": "Statystyki tego wszystkiego za wybrany okres: kalorie i makroskładniki, wodę i krzywą twojej wagi. Poniżej kolorowy kalendarz pokazuje jednym rzutem oka, w które dni zmieściłeś się w celu."
   },
+  { "clave": "tut.app-computo--esencial.1.titulo", "texto": "Pokój obliczeniowy" },
   {
-    "clave": "tut.casa.6.texto",
-    "texto": "Ruchy, zabawki, pojazdy i budowa, do 3 wyposażonych naraz. Otwiera się tutaj albo z tego samego rogu, kiedy masz wolne ręce."
+    "clave": "tut.app-computo--esencial.1.texto",
+    "texto": "Tutaj rozwiązujesz to, co trzeba policzyć, w dwóch podmenu: Kalkulator, z jego trybami i twoim skoroszytem wzorów, oraz Arkusze kalkulacyjne dla wszystkiego, co tabelaryczne."
   },
+  { "clave": "tut.app-computo--esencial.2.titulo", "texto": "Kalkulator" },
   {
-    "clave": "tut.casa.7.titulo",
-    "texto": "Zegar"
+    "clave": "tut.app-computo--esencial.2.texto",
+    "texto": "Kalkulator naukowy, który podaje wynik w trakcie pisania i zapisuje wszystko, co obliczysz, w historii. Klawiatura poniżej oszczędza ci tej z telefonu, a notacje wpisują treść naukową tam, gdzie masz kursor."
   },
+  { "clave": "tut.app-computo--esencial.3.titulo", "texto": "Tryby" },
   {
-    "clave": "tut.casa.7.texto",
-    "texto": "Godzina w domu. Stąd otwierają się pełny kalendarz i panel rutyn z tym, co zostało ci na dziś."
+    "clave": "tut.app-computo--esencial.3.texto",
+    "texto": "To podmenu zmienia cały widok kalkulatora: wykres, systemy liczbowe, macierze, układy równań, konwersję jednostek, napiwek i regułę trzech. Historia zostaje na dole w każdym z nich."
   },
+  { "clave": "tut.app-computo--esencial.4.titulo", "texto": "Skoroszyt" },
   {
-    "clave": "tut.casa.8.titulo",
-    "texto": "Muzyka domu"
+    "clave": "tut.app-computo--esencial.4.texto",
+    "texto": "Twoja książka wzorów, złożona nad kalkulatorem. Matematyka, Fizyka i Chemia są już gotowe, w folderach, które można zagnieżdżać. Każdy wzór otwiera się, żeby uzupełnić jego zmienne, i można go edytować albo usunąć."
   },
+  { "clave": "tut.app-computo--esencial.5.titulo", "texto": "Arkusze kalkulacyjne" },
   {
-    "clave": "tut.casa.8.texto",
-    "texto": "Każdy pokój może mieć swój własny motyw albo pozwolić grać ogólnemu tłu domu. Da się ją wyłączyć zupełnie, jeśli wolisz ciszę."
+    "clave": "tut.app-computo--esencial.5.texto",
+    "texto": "Arkusze z odniesieniami do komórek i formułami po polsku, plus wykresy nad zakresem, który zaznaczysz. Eksportują się do Excela z zachowaniem formuł albo do PDF."
   },
+  { "clave": "tut.app-descanso--esencial.1.titulo", "texto": "Odpoczynek" },
   {
-    "clave": "tut.casa.9.titulo",
-    "texto": "Czat"
+    "clave": "tut.app-descanso--esencial.1.texto",
+    "texto": "Ta aplikacja śledzi twój sen na jednym ekranie: ocenę ostatniej nocy, twój harmonogram z przypomnieniami, dzienny rejestr i pełną historię."
   },
-  {
-    "clave": "tut.casa.9.texto",
-    "texto": "Czat architekta: opowiedz mu, co udało ci się zrobić, a zapisze to w odpowiedniej aplikacji, albo poproś go o zmiany w domu."
-  },
-  {
-    "clave": "tut.casa.10.texto",
-    "texto": "To podstawy. Przycisk Edytor na górze otwiera pełną personalizację, a każde menu i każda aplikacja mają własny przycisk ? ze swoim samouczkiem."
-  },
-  {
-    "clave": "tut.primeros.1.texto",
-    "texto": "Na początek: jak buduje się dom. Wszystko zaczyna się w zakładce Pokoje."
-  },
-  {
-    "clave": "tut.primeros.2.titulo",
-    "texto": "Utwórz pokój"
-  },
-  {
-    "clave": "tut.primeros.2.texto",
-    "texto": "Tym przyciskiem rysujesz nowe pokoje na mapie. Żeby pokazać ci resztę drogi, teraz stworzę ci jeden…"
-  },
-  {
-    "clave": "tut.primeros.3.titulo",
-    "texto": "Twój nowy pokój"
-  },
-  {
-    "clave": "tut.primeros.3.texto",
-    "texto": "Oto on! Świeżo utworzony pokój, jeszcze bez aplikacji: dlatego na jego przycisku widnieje + Przypisz."
-  },
-  {
-    "clave": "tut.primeros.4.titulo",
-    "texto": "Przypisz aplikację"
-  },
-  {
-    "clave": "tut.primeros.4.texto",
-    "texto": "Przyciskiem + Przypisz pokój dostał swoją aplikację: zobacz, jak przejął jej nazwę, ikonę i meble, a jego przycisk mówi teraz Wejdź."
-  },
-  {
-    "clave": "tut.primeros.5.titulo",
-    "texto": "Wejdź"
-  },
-  {
-    "clave": "tut.primeros.5.texto",
-    "texto": "Wchodzimy: to jest aplikacja pokoju. Podczas spaceru wchodzisz też, przekraczając jego drzwi, a wychodzisz przez ‹ Wróć do domu."
-  },
-  {
-    "clave": "tut.primeros.6.texto",
-    "texto": "Pokój zostaje w twoim domu, z gotową aplikacją. Tak samo powstaje reszta: jeden pokój na każdą rzecz, którą chcesz tu prowadzić."
-  },
-  {
-    "clave": "tut.menu-cuartos.1.texto",
-    "texto": "Zakładka Pokoje wypisuje wszystkie pokoje twojego domu, pogrupowane według kategorii."
-  },
-  {
-    "clave": "tut.menu-cuartos.2.titulo",
-    "texto": "Twoje podsumowanie"
-  },
-  {
-    "clave": "tut.menu-cuartos.2.texto",
-    "texto": "Twoja postać żyje z twojej prawdziwej aktywności: tutaj widzisz jej nastrój, poziom i serię. Zapisz coś w dowolnej aplikacji, a zobaczysz ją zadowoloną; kilka dni bez niczego i robi się smutna — nigdy nie karze i nigdy się nie zeruje."
-  },
-  {
-    "clave": "tut.menu-cuartos.3.titulo",
-    "texto": "Karty"
-  },
-  {
-    "clave": "tut.menu-cuartos.3.texto",
-    "texto": "Każda karta to pokój: jego ikona, nazwa i postęp jego aplikacji, pogrupowane w Ciało, Umysł, Dodatki i Ustawienia. Pokoje bez przypisanej aplikacji trafiają na sam koniec."
-  },
-  {
-    "clave": "tut.menu-cuartos.4.titulo",
-    "texto": "Edytuj"
-  },
-  {
-    "clave": "tut.menu-cuartos.4.texto",
-    "texto": "Edytuj otwiera edytor pokoju: kształt, kolory, ściany i obiekty. (Nie naciskaj go teraz: zamknęłoby to menu.)"
-  },
-  {
-    "clave": "tut.menu-cuartos.5.titulo",
-    "texto": "Wejdź i Przypisz"
-  },
-  {
-    "clave": "tut.menu-cuartos.5.texto",
-    "texto": "Wejdź otwiera aplikację pokoju. Jeśli pokój nie ma jeszcze aplikacji, zobaczysz w tym miejscu + Przypisz, żeby wybrać mu jedną z katalogu."
-  },
-  {
-    "clave": "tut.menu-cuartos.6.titulo",
-    "texto": "Utwórz pokój"
-  }
+  { "clave": "tut.app-descanso--esencial.2.titulo", "texto": "Ocena" }
 ]

@@ -110,7 +110,7 @@ export function MientrasDure({ meta }: { meta: Rutina }) {
         const o = objetivos.find((x) => x.clave === p.clave)
         return (
           <div key={p.clave} className="flex items-center gap-1.5">
-            <span className="min-w-0 flex-1 truncate text-[11px] text-white/70">
+            <span className="min-w-0 flex-1 truncate text-2xs text-white/70">
               {t(p.clave, o?.etiquetaEs ?? p.clave)}
             </span>
             <input
@@ -118,14 +118,14 @@ export function MientrasDure({ meta }: { meta: Rutina }) {
               min={1}
               value={p.valor}
               onChange={(e) => cambiarObjetivo(p.clave, Math.max(1, Number(e.target.value)))}
-              className="w-14 rounded border border-white/10 bg-black/30 px-1 py-0.5 text-[10px] tabular-nums text-white/70 focus:outline-none"
+              className="w-14 rounded-lg border border-white/10 bg-black/30 px-1 py-0.5 text-[10px] tabular-nums text-white/70 focus:border-accent/60 focus:outline-none"
             />
             <span className="w-8 shrink-0 text-[9px] text-white/30">{o?.unidad ?? ''}</span>
             <button
               type="button"
               onClick={() => quitarObjetivo(p.clave)}
               title={t('rutinas.borrar', 'Borrar')}
-              className="px-1 text-[10px] text-white/25 transition hover:text-red-400"
+              className="ui-presion px-1 text-[10px] text-white/25 transition hover:text-red-400"
             >
               <Icono nombre="basura" />
             </button>
@@ -136,7 +136,7 @@ export function MientrasDure({ meta }: { meta: Rutina }) {
       {bloques.map((b) => (
         <div key={b.id} className="space-y-0.5">
           <div className="flex items-center gap-1.5">
-            <span className="min-w-0 flex-1 truncate text-[11px] text-white/70">
+            <span className="min-w-0 flex-1 truncate text-2xs text-white/70">
               {b.emoji} {b.nombre}
             </span>
             {avance && (
@@ -151,7 +151,7 @@ export function MientrasDure({ meta }: { meta: Rutina }) {
               type="button"
               onClick={() => b.id != null && void rutinasRepo.remove(b.id)}
               title={t('rutinas.borrar', 'Borrar')}
-              className="px-1 text-[10px] text-white/25 transition hover:text-red-400"
+              className="ui-presion px-1 text-[10px] text-white/25 transition hover:text-red-400"
             >
               <Icono nombre="basura" />
             </button>
@@ -162,7 +162,7 @@ export function MientrasDure({ meta }: { meta: Rutina }) {
                 key={i}
                 type="button"
                 onClick={() => cambiarDias(b, i)}
-                className={`h-5 flex-1 rounded border text-[9px] font-bold transition ${
+                className={`ui-presion h-5 flex-1 rounded-lg border text-[9px] font-bold transition ${
                   b.dias.includes(i)
                     ? 'border-emerald-400/50 bg-emerald-500/20 text-emerald-400'
                     : 'border-white/10 bg-white/5 text-white/40'
@@ -180,7 +180,7 @@ export function MientrasDure({ meta }: { meta: Rutina }) {
           <select
             value=""
             onChange={(e) => e.target.value && void ponerObjetivo(e.target.value)}
-            className="rounded border border-white/10 bg-black/30 px-1 py-0.5 text-[10px] text-white/60 focus:outline-none"
+            className="rounded-lg border border-white/10 bg-black/30 px-1 py-0.5 text-[10px] text-white/60 focus:border-accent/60 focus:outline-none"
           >
             <option value="">+ {t('cal.meta.unObjetivo', 'una misión del día')}</option>
             {libres.map((o) => (
@@ -194,7 +194,7 @@ export function MientrasDure({ meta }: { meta: Rutina }) {
           <select
             value=""
             onChange={(e) => e.target.value && void ponerRitmo(e.target.value)}
-            className="rounded border border-white/10 bg-black/30 px-1 py-0.5 text-[10px] text-white/60 focus:outline-none"
+            className="rounded-lg border border-white/10 bg-black/30 px-1 py-0.5 text-[10px] text-white/60 focus:border-accent/60 focus:outline-none"
           >
             <option value="">+ {t('cal.meta.unaActividad', 'una actividad cada semana')}</option>
             {sugeribles.map((s) => (

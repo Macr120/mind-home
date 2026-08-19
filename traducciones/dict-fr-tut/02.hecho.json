@@ -1,154 +1,130 @@
 [
   {
-    "clave": "tut.casa.1.texto",
-    "texto": "Voici ta maison : chaque pièce garde une app. Je te montre les commandes de base."
+    "clave": "tut.app-biblioteca--esencial.4.texto",
+    "texto": "Le minuteur pour étudier : tu choisis un domaine et une durée, d’une traite ou par pomodoros, et chaque tranche s’enregistre toute seule. Il continue de tourner même si tu quittes la pièce."
   },
   {
-    "clave": "tut.casa.2.titulo",
-    "texto": "Le menu principal"
+    "clave": "tut.app-biblioteca--esencial.5.titulo",
+    "texto": "Aperçu"
   },
   {
-    "clave": "tut.casa.2.texto",
-    "texto": "Ce bouton ouvre le menu : tes pièces, le catalogue de modèles (les apps) et l’inventaire d’objets."
+    "clave": "tut.app-biblioteca--esencial.5.texto",
+    "texto": "La vue d’ensemble de tout ce qui précède : combien d’entrées compte ton encyclopédie et quelle part de l’index tu as couverte, tes minutes d’étude, ta série et les jours où tu as étudié."
   },
   {
-    "clave": "tut.casa.3.titulo",
-    "texto": "Se déplacer"
+    "clave": "tut.app-cocina--esencial.1.titulo",
+    "texto": "La cuisine"
   },
   {
-    "clave": "tut.casa.3.texto",
-    "texto": "Marche avec le joystick, avec WASD ou avec les flèches du clavier. Franchis la porte d’une pièce et tu y entres : son app s’ouvre toute seule."
+    "clave": "tut.app-cocina--esencial.1.texto",
+    "texto": "Cette app gère deux choses : ce que tu vas cuisiner et ce que tu finis par manger. Chacune a son menu en haut, et chaque menu ouvre ses propres onglets."
   },
   {
-    "clave": "tut.casa.4.titulo",
-    "texto": "Trois façons de regarder"
+    "clave": "tut.app-cocina--esencial.2.titulo",
+    "texto": "Recettes"
   },
   {
-    "clave": "tut.casa.4.texto",
-    "texto": "Isométrique, troisième et première personne (ou la touche V). En 3e/1re personne, un bouton apparaît en plus pour modifier le monde en le parcourant."
+    "clave": "tut.app-cocina--esencial.2.texto",
+    "texto": "Le côté cuisine : c’est là que vivent tes recettes, les régimes qui les regroupent et la liste de courses. Trois onglets, dans cet ordre."
   },
   {
-    "clave": "tut.casa.5.titulo",
-    "texto": "Un coin, plusieurs maîtres"
+    "clave": "tut.app-cocina--esencial.3.titulo",
+    "texto": "Régime"
   },
   {
-    "clave": "tut.casa.5.texto",
-    "texto": "Ce coin n’est pas que le cube de vues : approche-toi de quelque chose avec quoi on peut interagir — une chaise, un véhicule, un terrain — et il se change tout seul en ce que tu as à côté. Rien ne s’active sans que tu t’approches."
+    "clave": "tut.app-cocina--esencial.3.texto",
+    "texto": "Un régime est un plan alimentaire avec ses recettes à l’intérieur et, si tu veux, ses propres objectifs de calories et de macros. Tu enregistres les tiens à côté de ceux que l’app propose déjà."
   },
   {
-    "clave": "tut.casa.6.titulo",
-    "texto": "La roue d’outils"
+    "clave": "tut.app-cocina--esencial.4.titulo",
+    "texto": "Recettes"
   },
   {
-    "clave": "tut.casa.6.texto",
-    "texto": "Mouvements, jouets, véhicules et construction, jusqu’à 3 équipés à la fois. Elle s’ouvre ici, ou depuis ce même coin quand tu as les mains libres."
+    "clave": "tut.app-cocina--esencial.4.texto",
+    "texto": "Le livre de recettes : chaque recette garde ses ingrédients, ses étapes et ses macros par portion, et se range dans des dossiers. Depuis une recette, tu peux enregistrer le repas ou envoyer ses ingrédients vers la liste de courses."
   },
   {
-    "clave": "tut.casa.7.titulo",
-    "texto": "L’horloge"
+    "clave": "tut.app-cocina--esencial.5.titulo",
+    "texto": "Courses"
   },
   {
-    "clave": "tut.casa.7.texto",
-    "texto": "L’heure de la maison. D’ici s’ouvrent le calendrier complet et le panneau des routines avec ce qu’il te reste aujourd’hui."
+    "clave": "tut.app-cocina--esencial.5.texto",
+    "texto": "La liste de courses, avec chaque article dans le rayon qui lui correspond. Tu peux composer une liste en réunissant ce qui manque pour plusieurs recettes, et cocher ce qui est déjà dans le garde-manger."
   },
   {
-    "clave": "tut.casa.8.titulo",
-    "texto": "La musique de la maison"
+    "clave": "tut.app-cocina--esencial.6.titulo",
+    "texto": "Suivi alimentaire"
   },
   {
-    "clave": "tut.casa.8.texto",
-    "texto": "Chaque pièce peut avoir son propre thème, ou laisser jouer l’ambiance générale de la maison. Elle s’éteint complètement si tu préfères le silence."
+    "clave": "tut.app-cocina--esencial.6.texto",
+    "texto": "L’autre menu tient le compte de ce que tu manges, en quatre onglets numérotés. Le premier est Objectifs : à partir de ton poids, ta taille et ton activité, il calcule tes besoins quotidiens et répartit les macros."
   },
   {
-    "clave": "tut.casa.9.titulo",
-    "texto": "Le chat"
+    "clave": "tut.app-cocina--esencial.7.titulo",
+    "texto": "Journal"
   },
   {
-    "clave": "tut.casa.9.texto",
-    "texto": "Le chat de l’architecte : raconte-lui ce que tu as fait et il l’enregistre dans la bonne app, ou demande-lui des changements dans la maison."
+    "clave": "tut.app-cocina--esencial.7.texto",
+    "texto": "Ce qui s’est déjà passé : les repas du jour avec leurs calories, l’eau bue jusque-là et ton poids quand tu te pèses. L’onglet d’à côté, Plan repas, c’est l’inverse : la grille de ce que tu comptes manger les jours à venir."
   },
   {
-    "clave": "tut.casa.10.texto",
-    "texto": "Voilà pour l’essentiel. Le bouton Éditeur en haut ouvre toute la personnalisation, et chaque menu et chaque app ont leur propre bouton ? avec son tutoriel."
+    "clave": "tut.app-cocina--esencial.8.titulo",
+    "texto": "Progrès"
   },
   {
-    "clave": "tut.primeros.1.texto",
-    "texto": "D’abord : comment la maison se monte. Tout commence dans l’onglet Pièces."
+    "clave": "tut.app-cocina--esencial.8.texto",
+    "texto": "Les statistiques de tout ce qui précède sur la période de ton choix : calories et macros, eau et courbe de poids. En bas, un calendrier coloré indique d’un coup d’œil les jours où tu es resté dans l’objectif."
   },
   {
-    "clave": "tut.primeros.2.titulo",
-    "texto": "Créer une pièce"
+    "clave": "tut.app-computo--esencial.1.titulo",
+    "texto": "La salle de calcul"
   },
   {
-    "clave": "tut.primeros.2.texto",
-    "texto": "Avec ce bouton, tu dessines de nouvelles pièces sur le plan. Pour te montrer la suite du chemin, je t’en crée une tout de suite…"
+    "clave": "tut.app-computo--esencial.1.texto",
+    "texto": "C’est ici que se résout tout ce qu’il faut calculer, en deux menus : la Calculatrice, avec ses modes et ton formulaire de formules, et les Feuilles de calcul pour tout ce qui va en tableaux."
   },
   {
-    "clave": "tut.primeros.3.titulo",
-    "texto": "Ta nouvelle pièce"
+    "clave": "tut.app-computo--esencial.2.titulo",
+    "texto": "Calculatrice"
   },
   {
-    "clave": "tut.primeros.3.texto",
-    "texto": "La voilà ! Une pièce toute neuve, encore sans app : c’est pour ça que son bouton dit + Assigner."
+    "clave": "tut.app-computo--esencial.2.texto",
+    "texto": "Une calculatrice scientifique qui donne le résultat pendant que tu écris et garde chaque calcul dans l’historique. Le clavier du bas t’évite celui du téléphone, et les notations écrivent le scientifique là où se trouve ton curseur."
   },
   {
-    "clave": "tut.primeros.4.titulo",
-    "texto": "Assigner une app"
+    "clave": "tut.app-computo--esencial.3.titulo",
+    "texto": "Les modes"
   },
   {
-    "clave": "tut.primeros.4.texto",
-    "texto": "Avec + Assigner, je lui ai donné son app : regarde comme la pièce a pris son nom, son icône et ses meubles, et son bouton dit maintenant Entrer."
+    "clave": "tut.app-computo--esencial.3.texto",
+    "texto": "Ce menu change entièrement la vue de la calculatrice : traceur, bases numériques, matrices, systèmes d’équations, conversion d’unités, pourboire et règle de trois. L’historique reste en bas dans tous les modes."
   },
   {
-    "clave": "tut.primeros.5.titulo",
-    "texto": "Entrer"
+    "clave": "tut.app-computo--esencial.4.titulo",
+    "texto": "Le formulaire"
   },
   {
-    "clave": "tut.primeros.5.texto",
-    "texto": "Nous voilà dedans : c’est l’app de la pièce. En te promenant, tu y entres aussi en franchissant sa porte, et tu en sors avec ‹ Retour à la maison."
+    "clave": "tut.app-computo--esencial.4.texto",
+    "texto": "Ton livre de formules, replié sur la calculatrice. Celles de Mathématiques, Physique et Chimie sont déjà incluses, dans des dossiers que tu peux imbriquer. N’importe laquelle s’ouvre pour remplir ses variables, se modifie ou se supprime."
   },
   {
-    "clave": "tut.primeros.6.texto",
-    "texto": "La pièce reste dans ta maison, son app prête. C’est comme ça que se monte le reste : une pièce pour chaque chose que tu veux suivre."
+    "clave": "tut.app-computo--esencial.5.titulo",
+    "texto": "Feuilles de calcul"
   },
   {
-    "clave": "tut.menu-cuartos.1.texto",
-    "texto": "L’onglet Pièces liste toutes les pièces de ta maison, groupées par catégorie."
+    "clave": "tut.app-computo--esencial.5.texto",
+    "texto": "Des feuilles avec des références de cellule et des formules en langage clair (comme =SUMA), et des graphiques sur la plage que tu sélectionnes. Elles s’exportent vers Excel en conservant les formules, ou en PDF."
   },
   {
-    "clave": "tut.menu-cuartos.2.titulo",
-    "texto": "Ton résumé"
+    "clave": "tut.app-descanso--esencial.1.titulo",
+    "texto": "Sommeil"
   },
   {
-    "clave": "tut.menu-cuartos.2.texto",
-    "texto": "Ton personnage vit de ton activité réelle : ici tu vois son humeur, son niveau et sa série. Enregistre quelque chose dans n’importe quelle app et tu le verras content ; quelques jours sans rien et il devient triste — jamais de punition, jamais de remise à zéro."
+    "clave": "tut.app-descanso--esencial.1.texto",
+    "texto": "Cette app suit ton sommeil sur un seul écran : le score de la dernière nuit, ton horaire avec ses rappels, le journal quotidien et l’historique complet."
   },
   {
-    "clave": "tut.menu-cuartos.3.titulo",
-    "texto": "Les cartes"
-  },
-  {
-    "clave": "tut.menu-cuartos.3.texto",
-    "texto": "Chaque carte est une pièce : son icône, son nom et l’avancement de son app, groupés en Corps, Esprit, Compléments et Paramètres. Les pièces sans app assignée restent tout à la fin."
-  },
-  {
-    "clave": "tut.menu-cuartos.4.titulo",
-    "texto": "Modifier"
-  },
-  {
-    "clave": "tut.menu-cuartos.4.texto",
-    "texto": "Modifier ouvre l’éditeur de la pièce : forme, couleurs, murs et objets. (Ne le touche pas maintenant : ça fermerait ce menu.)"
-  },
-  {
-    "clave": "tut.menu-cuartos.5.titulo",
-    "texto": "Entrer et Assigner"
-  },
-  {
-    "clave": "tut.menu-cuartos.5.texto",
-    "texto": "Entrer ouvre l’app de la pièce. Si une pièce n’a pas encore d’app, tu verras + Assigner à la place, pour lui en choisir une dans le catalogue."
-  },
-  {
-    "clave": "tut.menu-cuartos.6.titulo",
-    "texto": "Créer une pièce"
+    "clave": "tut.app-descanso--esencial.2.titulo",
+    "texto": "Le score"
   }
 ]

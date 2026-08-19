@@ -1,38 +1,39 @@
 [
-  {
-    "clave": "tut.hoy.1.texto",
-    "texto": "Her uygulamanın başlığında Hedefler düğmesi var, takvimdekiyle aynı ama sadece bu uygulamaya özel. Açtığında iki katlı bir panel çıkar: üstte bugünün kontrol listesi, altta hedefleri ve planları."
-  },
-  {
-    "clave": "tut.hoy.2.texto",
-    "texto": "Uygulamanın kendi hedefleri (su, kalori), bugün için takvime eklediklerin ve devam eden hedeflerinin adımları — hepsi bir arada, her adımın geldiği plan veya hedefe göre gruplanmış."
-  },
-  {
-    "clave": "tut.hoy.7.texto",
-    "texto": "Bir şey eksikse, «Yeni kontrol listesi» kendininkini oluşturur: her gün tekrarlanan, bu uygulamaya özel bir liste. Bugün bölümünün altında Hedefler, Planlar ve Zaman Çizelgesi'ni bir arada tutan tam planlayıcı var, uygulamanın tüm hedefleriyle birlikte."
-  },
-  {
-    "clave": "tut.app-hobbies--gestion.4.texto",
-    "texto": "Hobilerinin ve projelerinin hedefleri başlıktaki Hedefler düğmesinde yaşar: takvimdeki aynı Hedefler · Planlar · Zaman Çizelgesi planlayıcısı, sadece bu uygulamaya özel. Yapay zekadan aşamalı ve tarihli bir plan iste."
-  },
-  {
-    "clave": "tut.app-biblioteca--estudio.2.texto",
-    "texto": "Hedefler başlıktaki Hedefler düğmesinde yaşar, takvimin kendi zaman çizelgesinde: «sınavdan önce termodinamiği bitirmek» zaten tamamlandı; yüksek lisansa hazırlık hâlâ devam ediyor."
-  },
-  {
-    "clave": "tut.app-ejercicio--anio.3.texto",
-    "texto": "Başlıktaki Hedefler düğmesi tamamladığı dört hedefi — 5K, 10K, yarı maraton ve maraton — ve hâlâ açık olanı saklar. Tarihli hedefler ev takviminde de görünür."
-  },
-  {
-    "clave": "tut.app-cocina--cronograma.1.texto",
-    "texto": "Başlıktaki Hedefler düğmesi, ev takviminin kullandığı aynı zaman çizelgesini Mutfağın hedefleriyle sınırlı olarak açar: bir hedef oluştur (örneğin «3 kilo vermek») ve yapay zekadan plan iste — hedef tarihini sorar ve her alt hedefi kendi tarihiyle takvime ekler."
-  },
-  {
-    "clave": "tut.app-despacho--metas.2.texto",
-    "texto": "Başlıktaki Hedefler düğmesi bu hedefleri zaman ekseninde tutar: birine tarih ver, takvimindeki günler arasında görünsün. ✨ ile yapay zeka birikim planı önerir."
-  },
-  {
-    "clave": "tut.app-entretenimiento--programas.2.texto",
-    "texto": "Kaydedilen program başlıktaki Hedefler düğmesinde yaşar: her başlık listede olma sebebini not olarak tutar, tarih verirsen diğer hedefler gibi takvime iner."
-  }
+  { "clave": "tut.app-agenda--esencial.1.titulo", "texto": "Ajandan" },
+  { "clave": "tut.app-agenda--esencial.1.texto", "texto": "Ajanda, alışkanlık olmayan şeyleri tutar: yapılacaklar, randevular, kişiler. Üç bölümü vardır, ve tarihi olan her şey kendiliğinden evin takvimine düşer." },
+  { "clave": "tut.app-agenda--esencial.2.titulo", "texto": "İş" },
+  { "clave": "tut.app-agenda--esencial.2.texto", "texto": "Kutu, tarihsiz yapılacakları kaybolmasınlar diye toplar, ve pano görevlerini sütunlar arasında taşır: yapılacak, devam ediyor ve tamamlandı." },
+  { "clave": "tut.app-agenda--esencial.3.titulo", "texto": "Sağlık" },
+  { "clave": "tut.app-agenda--esencial.3.texto", "texto": "Doktor randevuları, ilaçlar ve bakım, üç alt bölümde: Sen, Yakınların (bakımından sorumlu olduğun kişiler) ve Evcil hayvanlar." },
+  { "clave": "tut.app-agenda--esencial.4.titulo", "texto": "Kişiler" },
+  { "clave": "tut.app-agenda--esencial.4.texto", "texto": "İlişkiye göre kişi rehberin. Kaydettiğin doğum günleri her yıl kendiliğinden takvimde tekrarlanır." },
+  { "clave": "tut.calendario--esencial.1.titulo", "texto": "Evin saati" },
+  { "clave": "tut.calendario--esencial.1.texto", "texto": "Takvim bir oda değildir: HUD'un saatinde yaşar, bu yüzden nerede olursan ol, hiçbir yere girmeden açılır." },
+  { "clave": "tut.calendario--esencial.2.titulo", "texto": "Planlanan her şey, bir arada" },
+  { "clave": "tut.calendario--esencial.2.texto", "texto": "Tarihi ve saati olan her şey buraya düşer: «+ Yeni» ile ya da ızgara üzerine çizerek oluşturduğun şeyler, ve diğer uygulamaların kendiliğinden planladıkları. Üstteki filtre, çok kalabalık olduğunda tek bir uygulamayı görmeni sağlar." },
+  { "clave": "tut.calendario--esencial.3.titulo", "texto": "Gün" },
+  { "clave": "tut.calendario--esencial.3.texto", "texto": "Bir günün 24 saatlik ızgarası: her şeyin saat kaçta olduğunu ve bir şeylerin çakışıp çakışmadığını gösterir. Bu buton çifte görev yapar: «Bugün» yazar ve seni şimdiye geri getirir, ya da başka bir tarihe bakıyorsan «Gün» yazar." },
+  { "clave": "tut.calendario--esencial.4.titulo", "texto": "Hafta" },
+  { "clave": "tut.calendario--esencial.4.texto", "texto": "Aynı saatlik ızgara, ama yedi gün yan yana. Haftanın nasıl dağıldığını burada görürsün, ve bloklar burada bir günden diğerine sürüklenir ya da daha uzun sürsün diye gerilir." },
+  { "clave": "tut.calendario--esencial.5.titulo", "texto": "Ay" },
+  { "clave": "tut.calendario--esencial.5.texto", "texto": "Saat eksenini kaldırır ve günleri, her birine düşenle birlikte kutucuklar olarak boyar. Genel görünüm budur: hangi haftalar dolu, hangi günler boş." },
+  { "clave": "tut.calendario--esencial.6.titulo", "texto": "Yıl" },
+  { "clave": "tut.calendario--esencial.6.texto", "texto": "On iki ay bir arada. Bu uzaklıktan saatler artık okunmaz: görünen şey süreklilik — yıl boyunca kendine koyduğun şeyi ne kadar sürdürdüğün." },
+  { "clave": "tut.calendario--esencial.7.titulo", "texto": "Ve görevler, ayrı" },
+  { "clave": "tut.calendario--esencial.7.texto", "texto": "Kırmızıyla, beşinci bir görünüm gibi okunmasın diye: Görevler, tüm uygulamaların bugünkü kontrol listesini tek bir ekranda toplar. Hedefler ve planları burada değildir — onlar kendi odalarında yaşar." },
+  { "clave": "tut.app-anecdotario--esencial.1.titulo", "texto": "Kişisel günlüğün" },
+  { "clave": "tut.app-anecdotario--esencial.1.texto", "texto": "Anı defteri, anlatmak istediğin her şeyi ruh hali ve fotoğraflarıyla tutar. Kendiliğinden tarihe göre düzenlenir, hiçbir şeyi sınıflandırman gerekmez." },
+  { "clave": "tut.app-anecdotario--esencial.2.titulo", "texto": "Nasıl yazılır" },
+  { "clave": "tut.app-anecdotario--esencial.2.texto", "texto": "Günün ruh halini seç, anlatmak istediğini yaz ve varsa fotoğraf ekle. Metinsiz tek bir fotoğraf da yeterlidir." },
+  { "clave": "tut.app-anecdotario--esencial.3.titulo", "texto": "Ruh hali takvimi" },
+  { "clave": "tut.app-anecdotario--esencial.3.texto", "texto": "Her gün, o günün kaydının ruh haline göre renklenir, böylece tüm ay tek bakışta okunur. Alttaki kayıtları görmek için bir güne dokun." },
+  { "clave": "tut.app-anecdotario--esencial.4.titulo", "texto": "Geçmiş" },
+  { "clave": "tut.app-anecdotario--esencial.4.texto", "texto": "Tüm kayıtlar burada kalır, kendiliğinden yıl, ay ve haftaya göre klasörlere ayrılmış olarak." },
+  { "clave": "tut.app-biblioteca--esencial.1.titulo", "texto": "Kütüphanen" },
+  { "clave": "tut.app-biblioteca--esencial.1.texto", "texto": "Kütüphane, kişisel ansiklopedin: bilmediğini sorarsın, öğrendiğini kaydedersin ve çalıştığının hesabını tutarsın. Dört bölümü vardır." },
+  { "clave": "tut.app-biblioteca--esencial.2.titulo", "texto": "Sohbetler" },
+  { "clave": "tut.app-biblioteca--esencial.2.texto", "texto": "Burada Bilge'ye istediğin konuda sorular sorarsın ve konuşma kaydedilir. Her sohbet kendiliğinden bilgi alanına sınıflandırılır ve bir ansiklopedi maddesi olarak özetlenmiş şekilde çıkar." },
+  { "clave": "tut.app-biblioteca--esencial.3.titulo", "texto": "Ansiklopedi" },
+  { "clave": "tut.app-biblioteca--esencial.3.texto", "texto": "Öğrendiklerinin yaşadığı ağaç, bilgi alanına göre sıralanmış. Her madde kendi özetini ve önemli noktalarını taşır, ve bunları elle de yazabilirsin; kalemle dizini kendine göre büyütürsün." },
+  { "clave": "tut.app-biblioteca--esencial.4.titulo", "texto": "Çalışma" }
 ]

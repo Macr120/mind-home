@@ -1,130 +1,82 @@
 [
   {
-    "clave": "tut.editor-mapa.3.texto",
-    "texto": "Dachy liczą się na pole: każde może mieć własny kształt albo materiał, więc jeden pokój może łączyć różne spadki zamiast jednego płaskiego dachu."
+    "clave": "tut.app-ejercicio--esencial.3.texto",
+    "texto": "Trening z ciężarem: każda sesja przechowuje ćwiczenia z seriami, powtórzeniami i obciążeniem. Na tej podstawie aplikacja oblicza objętość dnia, rysuje postęp każdego ćwiczenia i zapisuje twoje rekordy."
   },
+  { "clave": "tut.app-ejercicio--esencial.4.titulo", "texto": "Katalog, rutyny i postępy" },
   {
-    "clave": "tut.editor-mapa.4.texto",
-    "texto": "Dom ma też poziomy: piętra układane w górę i piwnicę w dół. Każdy nowy poziom rodzi się z własnym sposobem wejścia — schodami albo otworem w stropie — który przebija podłogę powyżej."
+    "clave": "tut.app-ejercicio--esencial.4.texto",
+    "texto": "Trzy formy są zorganizowane tak samo. Katalog grupuje dostępne ćwiczenia i buduje z nich rutyny, Rutyny rejestrują trening dnia wybranego powyżej, a Postępy podsumowują okres jego mapą cieplną."
   },
+  { "clave": "tut.app-ejercicio--esencial.5.titulo", "texto": "Wytrzymałość" },
   {
-    "clave": "tut.editor-mapa.5.titulo",
-    "texto": "Gotowe"
+    "clave": "tut.app-ejercicio--esencial.5.texto",
+    "texto": "Bieganie, jazda na rowerze, pływanie albo spacer, podzielone na odcinki z ich minutami i dystansem. Stąd otwiera się trening na żywo, który śledzi trasę przez GPS i puls z czujnika Bluetooth i zapisuje sesję po zakończeniu."
   },
+  { "clave": "tut.app-ejercicio--esencial.6.titulo", "texto": "Elastyczność" },
   {
-    "clave": "tut.editor-mapa.5.texto",
-    "texto": "Wszystko zapisuje się samo w trakcie edycji. Gotowe zamyka edytor i wraca do gry z domem dokładnie takim, jakim go zostawisz."
+    "clave": "tut.app-ejercicio--esencial.6.texto",
+    "texto": "Rozciąganie i mobilność, z seriami na czas zamiast na ciężar: każda pozycja ma swoje sekundy i powtórzenia. Odtwarzacz prowadzący przechodzi rutynę pozycja po pozycji z minutnikiem, który mówi, kiedy zmienić."
   },
+  { "clave": "tut.app-entretenimiento--esencial.1.titulo", "texto": "Rozrywka" },
   {
-    "clave": "tut.editor-personajes.1.texto",
-    "texto": "Twoja główna postać i twoi asystenci mieszkają w tym samym edytorze: wybierz u góry, kogo edytujesz, a narzędzia zmienią się na te, które mają sens dla każdego z nich."
+    "clave": "tut.app-entretenimiento--esencial.1.texto",
+    "texto": "Przechowuje filmy, seriale, książki i gry wideo, które kończysz, i przynosi cyfrowy stół do gier, na którym grasz bez wychodzenia z domu. Są dwa podmenu: Gry planszowe i Archiwum."
   },
+  { "clave": "tut.app-entretenimiento--esencial.2.titulo", "texto": "Gry planszowe" },
   {
-    "clave": "tut.editor-personajes.2.titulo",
-    "texto": "Twarz i zdjęcie"
+    "clave": "tut.app-entretenimiento--esencial.2.texto",
+    "texto": "Stół gromadzi cyfrowe gry, w które gra się prosto na ekranie. Filtr oddziela to, co jest pomyślane dla jednego lub dwóch graczy, od tego, co pasuje do większej grupy."
   },
+  { "clave": "tut.app-entretenimiento--esencial.3.titulo", "texto": "Według rodzin" },
   {
-    "clave": "tut.editor-personajes.2.texto",
-    "texto": "Wyraz twarzy, fryzura i kolor włosów albo od razu twoje zdjęcie, żeby postać była podobna do ciebie. Nie każde ciało przyjmuje własną twarz."
+    "clave": "tut.app-entretenimiento--esencial.3.texto",
+    "texto": "Katalog jest pogrupowany w rodziny — planszowe, logiczne, zręcznościowe, karciane i kasynowe oraz dla grupy — każda ma swój własny kolor. Dotknij dowolnej karty, żeby otworzyć grę na pełnym ekranie."
   },
+  { "clave": "tut.app-entretenimiento--esencial.4.titulo", "texto": "Archiwum" },
   {
-    "clave": "tut.editor-personajes.3.titulo",
-    "texto": "Ubrania według kategorii"
+    "clave": "tut.app-entretenimiento--esencial.4.texto",
+    "texto": "Archiwum gromadzi to, co oglądasz, czytasz i w co grasz: każdy tytuł z jego statusem, oceną i twoją recenzją. Można je sortować według gatunku, kategorii, autora lub daty."
   },
+  { "clave": "tut.app-garage--esencial.1.titulo", "texto": "Garaż" },
   {
-    "clave": "tut.editor-personajes.3.texto",
-    "texto": "Każdą część zakładasz, zdejmujesz i przemalowujesz osobno: koszulę, spodnie, buty, dodatki. Łączą się dowolnie."
+    "clave": "tut.app-garage--esencial.1.texto",
+    "texto": "Garaż prowadzi twoje pojazdy: rowery, samochody, motocykle i wszystko, czym się przemieszczasz. Każdy ma swoją historię przeglądów i formalności, a wszystko, co ma datę, planuje się samo w kalendarzu domu."
   },
+  { "clave": "tut.app-garage--esencial.2.titulo", "texto": "Podsumowanie" },
   {
-    "clave": "tut.editor-personajes.4.titulo",
-    "texto": "Zapisane stroje"
+    "clave": "tut.app-garage--esencial.2.texto",
+    "texto": "Zakładka startowa: sygnalizator pokazuje jednym rzutem oka, czy coś jest przeterminowane, czy coś się zbliża, czy w garażu panuje spokój."
   },
+  { "clave": "tut.app-garage--esencial.3.titulo", "texto": "Jednym rzutem oka" },
   {
-    "clave": "tut.editor-personajes.4.texto",
-    "texto": "Zapisz całe zestawienie ubrań jako strój i przebierz się w całości jednym dotknięciem, bez składania go za każdym razem część po części."
+    "clave": "tut.app-garage--esencial.3.texto",
+    "texto": "Ile masz pojazdów, ile formalności jest wciąż aktywnych i ile wydałeś w tym roku."
   },
+  { "clave": "tut.app-garage--esencial.4.titulo", "texto": "Pojazdy" },
   {
-    "clave": "tut.editor-personajes.5.titulo",
-    "texto": "Strój do każdego pokoju"
+    "clave": "tut.app-garage--esencial.4.texto",
+    "texto": "Pełna lista, z numerem rejestracyjnym, przebiegiem i liczbą przeglądów na każdej karcie. Po dotknięciu jednej otwiera się jej karta, z historią przeglądów i formalnościami."
   },
+  { "clave": "tut.app-garage--esencial.5.titulo", "texto": "Dodawanie nowego" },
   {
-    "clave": "tut.editor-personajes.5.texto",
-    "texto": "Przypisz inny strój do każdego pokoju: twój awatar wchodzi do Siłowni ubrany do biegania i przebiera się sam, kiedy przechodzi do Kuchni."
+    "clave": "tut.app-garage--esencial.5.texto",
+    "texto": "Nazwa, typ, marka, model, rok, tablice rejestracyjne i dzisiejszy przebieg. Po wpisaniu tablic karta odblokowuje też formalności, które dotyczą wyłącznie zarejestrowanego pojazdu, jak przegląd techniczny czy podatek."
   },
+  { "clave": "tut.app-hobbies--esencial.1.titulo", "texto": "Twoje zainteresowania" },
   {
-    "clave": "tut.editor-personajes.6.texto",
-    "texto": "Ciało, kolor i rozmiar edytujesz jak zawsze; z włączonym AI możesz też wygenerować własny model 3D zamiast wybierać jeden z gotowych."
+    "clave": "tut.app-hobbies--esencial.1.texto",
+    "texto": "Hobby śledzi to, co robisz dla przyjemności: każde hobby gromadzi swoje sesje, swoją serię i, jeśli chcesz, swoje projekty."
   },
+  { "clave": "tut.app-hobbies--esencial.2.titulo", "texto": "Twoje hobby" },
   {
-    "clave": "tut.editor-objetos.1.texto",
-    "texto": "Dotknij obiektu na scenie (albo na liście), żeby go edytować: kolor, rozmiar i obrót to trzy ustawienia wspólne dla wszystkich."
+    "clave": "tut.app-hobbies--esencial.2.texto",
+    "texto": "Każde zarejestrowane hobby pojawia się tutaj jako karta, z postępem tygodnia i aktywną serią. Po otwarciu jednego widzisz jego statystyki, mapę cieplną roku, rejestr sesji i jego projekty."
   },
+  { "clave": "tut.app-hobbies--esencial.3.titulo", "texto": "Dodawanie hobby" },
   {
-    "clave": "tut.editor-objetos.2.texto",
-    "texto": "Obiekty z przypisaną aplikacją otwierają swój szablon po wejściu do pokoju; pozostałe są tylko dekoracją — jedne i drugie edytuje się tak samo."
+    "clave": "tut.app-hobbies--esencial.3.texto",
+    "texto": "Ten przycisk otwiera formularz, żeby dodać nowe hobby: nazwę, emoji, kolor i, jeśli chcesz, tygodniowy cel w dniach praktyki."
   },
-  {
-    "clave": "tut.editor-objetos.3.texto",
-    "texto": "Zębatka ⚙️ przy obiekcie zmienia go w model edytowalny po kawałku: składaj własne modele z podstawowych brył albo poproś o jeden AI, opisując go."
-  },
-  {
-    "clave": "tut.editor-config.1.texto",
-    "texto": "Osiem zwijanych sekcji zamiast jednej długiej listy: dotknij tytułu, żeby otworzyć tylko tę, która cię interesuje."
-  },
-  {
-    "clave": "tut.editor-config.2.titulo",
-    "texto": "Konto i AI"
-  },
-  {
-    "clave": "tut.editor-config.2.texto",
-    "texto": "Logowanie, twój plan i ile AI zużyto w tym miesiącu; tuż obok tabela cen każdej operacji. Oba mają własny, szczegółowy samouczek."
-  },
-  {
-    "clave": "tut.editor-config.3.titulo",
-    "texto": "Styl wizualny"
-  },
-  {
-    "clave": "tut.editor-config.3.texto",
-    "texto": "Motyw mapy (światło, mgła, oświetlenie) i style renderowania, wszystko ładowane na żądanie, żeby nic nie ważyło więcej, niż trzeba."
-  },
-  {
-    "clave": "tut.editor-config.4.titulo",
-    "texto": "Interfejs i język"
-  },
-  {
-    "clave": "tut.editor-config.4.texto",
-    "texto": "Język, motyw interfejsu (jasny/ciemny/automatyczny), styl ikon i gęstość — wszystko, co zmienia TO, JAK dom wygląda, a nie to, co zawiera."
-  },
-  {
-    "clave": "tut.editor-config.5.titulo",
-    "texto": "Powiadomienia"
-  },
-  {
-    "clave": "tut.editor-config.5.texto",
-    "texto": "Które powiadomienia przychodzą, a które milczą: rutyny, powiadomienia o planie i przypomnienia można wyłączać osobno."
-  },
-  {
-    "clave": "tut.editor-config.6.texto",
-    "texto": "Muzyka i Samouczki mają własny przewodnik; Kopia zapasowa danych też, a to ją najbardziej warto sprawdzić przed zmianą urządzenia."
-  },
-  {
-    "clave": "tut.respaldo.1.titulo",
-    "texto": "Gdzie mieszka twój dom"
-  },
-  {
-    "clave": "tut.respaldo.1.texto",
-    "texto": "Bez konta i bez synchronizacji twoje dane są tylko na tym urządzeniu. Komunikat u góry mówi, czy przeglądarka ma zgodę, żeby chronić je przed automatycznym czyszczeniem."
-  },
-  {
-    "clave": "tut.respaldo.2.titulo",
-    "texto": "Eksportuj"
-  },
-  {
-    "clave": "tut.respaldo.2.texto",
-    "texto": "Pobiera jeden plik JSON ze wszystkimi twoimi tabelami: pokoje, cele, wpisy, wszystko. To twoja ręczna kopia zapasowa."
-  },
-  {
-    "clave": "tut.respaldo.3.titulo",
-    "texto": "Przywróć"
-  }
+  { "clave": "tut.app-hobbies--esencial.4.titulo", "texto": "Wewnątrz każdego hobby" }
 ]

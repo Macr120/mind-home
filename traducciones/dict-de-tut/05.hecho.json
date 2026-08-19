@@ -1,146 +1,34 @@
 [
-  {
-    "clave": "tut.respaldo.3.texto",
-    "texto": "Wiederherstellen ERSETZT alle aktuellen Daten durch die aus der Datei – vorher wird nachgefragt und angezeigt, wie viele Datensätze sie mitbringt, es gibt also keine Überraschungen."
-  },
-  {
-    "clave": "tut.respaldo.4.texto",
-    "texto": "Sichere am besten, bevor du das Gerät oder den Browser wechselst – oder einfach hin und wieder: Ohne Konto ist das die einzige Kopie, die du hast."
-  },
-  {
-    "clave": "tut.editor-cuarto.1.texto",
-    "texto": "Du bearbeitest einen bestimmten Raum: Grundriss und Kamera richten sich auf ihn aus, nicht auf das ganze Haus."
-  },
-  {
-    "clave": "tut.editor-cuarto.2.titulo",
-    "texto": "Was du bearbeiten kannst"
-  },
-  {
-    "clave": "tut.editor-cuarto.2.texto",
-    "texto": "Form, Boden, Wände, Türen, Farbe und Name des Raums – und seine Objekte. Auch die zugewiesene App änderst du von hier aus: Deswegen kommen die meisten überhaupt in dieses Panel."
-  },
-  {
-    "clave": "tut.editor-cuarto.3.titulo",
-    "texto": "Zurück zur Karte"
-  },
-  {
-    "clave": "tut.editor-cuarto.3.texto",
-    "texto": "Dieser Pfeil führt zurück zur ganzen Karte, ohne den Editor zu schließen – so arbeitest du gleich am nächsten Raum weiter."
-  },
-  {
-    "clave": "tut.editor-cuarto.4.texto",
-    "texto": "Es gibt auch eine schwebende Schaltfläche „Raum verlassen“ über dem Raum selbst in der 3D-Ansicht, falls du sie lieber dort antippst."
-  },
-  {
-    "clave": "tut.herramientas.1.texto",
-    "texto": "Dieser Button öffnet das Werkzeugrad deiner Figur."
-  },
-  {
-    "clave": "tut.herramientas.2.titulo",
-    "texto": "Zwei Ebenen"
-  },
-  {
-    "clave": "tut.herramientas.2.texto",
-    "texto": "Erst wählst du die Kategorie, dann das konkrete Werkzeug darin. Du kannst bis zu 3 Werkzeuge gleichzeitig ausrüsten – aus verschiedenen Kategorien oder mehrmals aus derselben."
-  },
-  {
-    "clave": "tut.herramientas.3.titulo",
-    "texto": "Die vierte Kategorie"
-  },
-  {
-    "clave": "tut.herramientas.3.texto",
-    "texto": "Bauen rüstet kein Spielzeug aus: Es schaltet den Zeichenmodus der Karte ein (Räume, Wände, Türen, Fenster, Böden, Dächer), ohne den Umweg über den ganzen Editor. Derselbe Grundriss, nur schneller erreicht."
-  },
-  {
-    "clave": "tut.herramientas.4.titulo",
-    "texto": "Die Mitte"
-  },
-  {
-    "clave": "tut.herramientas.4.texto",
-    "texto": "Die Mitte legt alles Ausgerüstete ab und gibt dem Feld in der Ecke seinen normalen Zustand zurück (den Ansichtswürfel oder eine andere kontextabhängige Aktion, je nachdem, was in der Nähe ist)."
-  },
-  {
-    "clave": "tut.herramientas.5.texto",
-    "texto": "Ein Tipp außerhalb des Rads schließt es. Probier es aus, wann du willst: Nichts davon wird dauerhaft gespeichert, es gilt nur, solange du es trägst."
-  },
-  {
-    "clave": "tut.navegacion.1.texto",
-    "texto": "Drei Kameras: Iso (Puppenhaus-Ansicht), dritte und erste Person. Wechsle hier oder mit der Taste V."
-  },
-  {
-    "clave": "tut.navegacion.2.titulo",
-    "texto": "Sich orientieren"
-  },
-  {
-    "clave": "tut.navegacion.2.texto",
-    "texto": "In Iso dreht der Würfel die Kamera Seite für Seite; in der 3./1. Person ziehst du am Pad, um dich umzuschauen."
-  },
-  {
-    "clave": "tut.navegacion.3.titulo",
-    "texto": "Wenn etwas in der Nähe ist"
-  },
-  {
-    "clave": "tut.navegacion.3.texto",
-    "texto": "Dasselbe Feld in der Ecke hört auf, Kamera zu sein, sobald du dich etwas Interaktivem näherst: Ein Platz bietet dir sein Spielen an, ein Fahrzeug sein Aufsteigen, ein Stuhl sein Hinsetzen. Immer nur eine Sache und immer über die Nähe – nie von selbst."
-  },
-  {
-    "clave": "tut.navegacion.4.titulo",
-    "texto": "Drehen und zentrieren"
-  },
-  {
-    "clave": "tut.navegacion.4.texto",
-    "texto": "Dreh die Ansicht zur Seite oder zentriere sie wieder auf der Karte, falls du dich beim Erkunden verlaufen hast."
-  },
-  {
-    "clave": "tut.navegacion.5.titulo",
-    "texto": "Bewegen"
-  },
-  {
-    "clave": "tut.navegacion.5.texto",
-    "texto": "Lauf mit dem Joystick, WASD oder den Pfeiltasten. Im Wasser schwimmst du; auf einem Fahrzeug fährst du mit derselben Steuerung."
-  },
-  {
-    "clave": "tut.navegacion.6.texto",
-    "texto": "In der 3./1. Person erscheint der Button 3D-Editor: Tipp Objekte, Wände oder Figuren an, um sie genau dort zu bearbeiten, wo sie stehen – ohne zurück in die isometrische Ansicht zu wechseln."
-  },
-  {
-    "clave": "tut.chat.1.texto",
-    "texto": "Der Chat des Architekten: Er trägt deinen Tag ein, baut am Haus und beantwortet deine Fragen – alles aus ein und demselben Feld."
-  },
-  {
-    "clave": "tut.chat.2.titulo",
-    "texto": "Schreiben"
-  },
-  {
-    "clave": "tut.chat.2.texto",
-    "texto": "Schreib frei heraus: „20 Min gelaufen“, „250 im Supermarkt ausgegeben“… Der Chip daneben zeigt, in welcher App es landet. Mit @Raum gibst du den Zielort selbst vor, wenn er falsch rät."
-  },
-  {
-    "clave": "tut.chat.3.titulo",
-    "texto": "Per Sprache diktieren"
-  },
-  {
-    "clave": "tut.chat.3.texto",
-    "texto": "Das Mikrofon schreibt ins Textfeld, was du sagst – praktisch, um etwas einzutragen, ohne loszulassen, was du gerade in den Händen hast."
-  },
-  {
-    "clave": "tut.chat.4.titulo",
-    "texto": "Ein Foto schicken"
-  },
-  {
-    "clave": "tut.chat.4.texto",
-    "texto": "Mit eingeschalteter KI liest sich ein Foto vom Beleg, vom Gericht oder von der Waage von selbst aus. Ohne KI bleibt dieser Button deaktiviert."
-  },
-  {
-    "clave": "tut.chat.5.titulo",
-    "texto": "Assistenten"
-  },
-  {
-    "clave": "tut.chat.5.texto",
-    "texto": "Dein Assistent gibt den Antworten ein Gesicht und eine Stimme. Tipp ihn an, um das Gespräch zu sehen, den Assistenten zu wechseln oder weitere anzulegen."
-  },
-  {
-    "clave": "tut.chat.6.titulo",
-    "texto": "Das Handbuch"
-  }
+  { "clave": "tut.app-hobbies--esencial.4.texto", "texto": "Dort erfasst du Sitzungen mit Minuten und Notiz, siehst deine Heatmap des Jahres und führst Projekte mit ihrem eigenen Fortschritt. Ziele und ihr Zeitplan leben im Raum Ziele." },
+  { "clave": "tut.app-ideas--esencial.1.titulo", "texto": "Ideen" },
+  { "clave": "tut.app-ideas--esencial.1.texto", "texto": "Ideen bewahrt, was dir einfällt, und hilft dabei, es reifen zu lassen: erst wird es notiert, dann in einer Karte geordnet und, falls nötig, zum Entscheiden verglichen. Drei Tabs." },
+  { "clave": "tut.app-ideas--esencial.2.titulo", "texto": "Ideentagebuch" },
+  { "clave": "tut.app-ideas--esencial.2.texto", "texto": "Die Liste, in der jeder Einfall landet, einzeln oder in einem Brainstorming nach Thema gruppiert. Du kannst ihn in Ordnern ablegen, mit einem Stern hervorheben und, sobald er reif ist, in eine Karte verwandeln." },
+  { "clave": "tut.app-ideas--esencial.3.titulo", "texto": "Konzeptkarten" },
+  { "clave": "tut.app-ideas--esencial.3.texto", "texto": "Eine freie Leinwand, um ein Thema in dem Format zu ordnen, das am besten passt: Mindmap, Baum, Flussdiagramm, Zeitstrahl, Kreislauf, Pyramide, Venn-Diagramm und mehr." },
+  { "clave": "tut.app-ideas--esencial.4.titulo", "texto": "Entscheidungsdiagramme" },
+  { "clave": "tut.app-ideas--esencial.4.texto", "texto": "Dieselbe Leinwand, mit Formaten, die zum Entscheiden gedacht sind: gewichtetes Pro und Kontra, SWOT, Eisenhower oder eine gewichtete Matrix, die die Optionen von selbst ordnet." },
+  { "clave": "tut.app-idiomas--esencial.1.titulo", "texto": "Deine Sprachschule" },
+  { "clave": "tut.app-idiomas--esencial.1.texto", "texto": "Hier wählst du eine Sprache, chattest mit einem KI-Tutor, speicherst den Wortschatz, den du lernst, und wiederholst ihn mit einem verteilten System. Vier Tabs: Chats, Lehrplan, Wiederholung und Fortschritt." },
+  { "clave": "tut.app-idiomas--esencial.2.titulo", "texto": "Chats" },
+  { "clave": "tut.app-idiomas--esencial.2.texto", "texto": "Du unterhältst dich mit deinem Tutor in der Sprache, die du lernst: Er antwortet auf deinem Niveau und korrigiert sanft. Jeder Chat bleibt gespeichert und ordnet sich von selbst zu, und beim Verlassen bietet er dir an, den neuen Wortschatz als Karten zu extrahieren." },
+  { "clave": "tut.app-idiomas--esencial.3.titulo", "texto": "Lehrplan" },
+  { "clave": "tut.app-idiomas--esencial.3.texto", "texto": "Ordnet die Sprache in Themen, Aussprache und Grammatik, vom Niveau A1 bis C2. Der Wortschatz lebt innerhalb jedes Themas: Jede Karte wird dort gespeichert, mit ihrer Übersetzung und ihrem Beispiel." },
+  { "clave": "tut.app-idiomas--esencial.4.titulo", "texto": "Wiederholung" },
+  { "clave": "tut.app-idiomas--esencial.4.texto", "texto": "Die verteilte Wiederholung: Jede Karte lebt in einer Box und fragt dich nur die ab, die du bald vergisst, mit Übungen — Multiple Choice, umgekehrt oder Satz vervollständigen — statt sie nur anzusehen." },
+  { "clave": "tut.app-idiomas--esencial.5.titulo", "texto": "Fortschritt" },
+  { "clave": "tut.app-idiomas--esencial.5.texto", "texto": "Die Zusammenfassung deiner Entwicklung: wie viele Karten du beherrschst, wie viel du wiederholt hast und dein aktuelles Niveau, mit dem Verlauf deiner Wiederholungen Tag für Tag." },
+  { "clave": "tut.app-jardin--esencial.1.titulo", "texto": "Dein Ort der Ruhe" },
+  { "clave": "tut.app-jardin--esencial.1.texto", "texto": "Der Garten vereint drei Praktiken: Meditation, geführte Atmung und Dankbarkeit. Er hat absichtlich weder Punkte noch Serien: Hier wird ein ausgelassener Tag nicht bestraft, hier wird nur begleitet, was du übst." },
+  { "clave": "tut.app-jardin--esencial.2.titulo", "texto": "Meditation" },
+  { "clave": "tut.app-jardin--esencial.2.texto", "texto": "Wähle eine Klangspur und eine Dauer, oder meditiere in Stille mit einer Glocke zu Beginn und am Ende. Jede Sitzung bleibt in deinem Verlauf gespeichert." },
+  { "clave": "tut.app-jardin--esencial.3.titulo", "texto": "Atmung" },
+  { "clave": "tut.app-jardin--esencial.3.texto", "texto": "Zwei geführte Atemmuster, eines, um dich zu zentrieren, und eines, um den Tag loszulassen: Der Bildschirm atmet mit dir, während er läuft." },
+  { "clave": "tut.app-jardin--esencial.4.titulo", "texto": "Dankbarkeit" },
+  { "clave": "tut.app-jardin--esencial.4.texto", "texto": "Notiere, wofür du heute dankbar bist, und sei es nur eine Sache, und schau dir frühere Einträge an, wann du willst. Ohne Serien: Einen Tag auszulassen löscht nichts." },
+  { "clave": "tut.app-metas--esencial.1.titulo", "texto": "Der Planer des Hauses" },
+  { "clave": "tut.app-metas--esencial.1.texto", "texto": "Dieser Raum führt keine eigenen Einträge: Er sammelt an einem Ort die Ziele und Pläne, die in den anderen Apps entstehen. Drei Tabs, zu lesen in dieser Reihenfolge: was du dir vorgenommen hast, wie du es aufteilen willst und wann es fällig wird." },
+  { "clave": "tut.app-metas--esencial.2.titulo", "texto": "Ziele" },
+  { "clave": "tut.app-metas--esencial.2.texto", "texto": "Die Liste von allem, was du dir vorgenommen hast, gruppiert nach der App, die jedes Ziel trägt. Ein Ziel kann von einem anderen abhängen, und tippst du es an, öffnet sich seine Tabelle: dort stehen seine Frist, seine Schritte und der Zugang zu seinem eigenen Zeitplan." },
+  { "clave": "tut.app-metas--esencial.3.titulo", "texto": "Pläne" }
 ]

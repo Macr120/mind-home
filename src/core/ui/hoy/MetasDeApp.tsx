@@ -1,9 +1,8 @@
-import { useState } from 'react'
-import { abrirApp } from '../../abrirApp'
+import { lazy, Suspense, useState } from 'react'
 import type { Rutina } from '../../data/db'
 import { rutinasRepo } from '../../data/repository'
 import { useT } from '../../i18n/useT'
-import { diasParaFin, esMeta, hijasDe, progresoDe, rangoDe, resumenAlcance } from '../../metas'
+import { diasParaFin, esMeta, progresoDe, rangoDe, resumenAlcance } from '../../metas'
 import { colorDe } from '../coloresRutina'
 import { Icono } from '../iconos/Icono'
 import { vivo } from '../estilos'
@@ -13,16 +12,19 @@ import { vivo } from '../estilos'
  * abajo las misiones: la checklist del día deja de ser una lista de tareas
  * sueltas y pasa a leerse como lo que sirve a algo.
  *
- * Es solo lectura, pero se abre: tocar una meta enseña lo que lleva dentro (sus
- * sub-metas y sus pasos) SIN salir del panel. Antes cada meta era un atajo al
- * cuarto Metas, así que elegir una cerraba las Misiones y la lista desaparecía
- * de golpe — parecía que se hubieran borrado. Ir al cuarto Metas ahora tiene su
- * propio botón en la cabecera, que es donde se busca «verlas todas».
- *
- * Planear —crear, fechar, partir en sub-metas— sigue siendo del cuarto Metas.
+ * Tocar una meta abre SU PLAN —el planificador de la app puesto en esa meta—
+ * sin salir de las Misiones: desde ahí se navega al cronograma y se vuelve, se
+ * crean metas, se piden planes y se retocan las fechas. Antes cada meta era un
+ * atajo al cuarto Metas, así que elegir una cerraba las Misiones y la lista
+ * desaparecía de golpe — parecía que se hubieran borrado.
  */
 
-/** Cuántas metas se listan antes de mandar al cuarto Metas. */
+/** El planificador entra al tocar una meta, no en el bundle de la casa. */
+const CronogramaApp = lazy(() =>
+  import('../metas/CronogramaApp').then((m) => ({ default: m.CronogramaApp })),
+)
+
+/** Cuántas metas se listan antes de mandar al planificador. */
 const TOPE = 5
 
 /**
@@ -41,7 +43,9 @@ export function MetasDeApp({ plantillaId, color }: { plantillaId: string; color:
   // Plegado propio, como el de «Hechos» de la lista: quien viene a registrar lo
   // de hoy no siempre quiere el recordatorio de para qué era.
   const [plegado, setPlegado] = useState(false)
-  const [abiertas, setAbiertas] = useState<number[]>([])
+  // El planificador de esta app abierto encima: con `metaId` entra por la hoja de
+  // esa meta, sin él por la lista (que es donde se dan de alta las nuevas).
+  const [planificando, setPlanificando] = useState<{ metaId?: number } | null>(null)
   const metas = (rutinas ?? []).filter(esMeta)
   const suyas = metas.filter((m) => m.plantillaId === plantillaId)
 
@@ -60,43 +64,22 @@ export function MetasDeApp({ plantillaId, color }: { plantillaId: string; color:
   const orden = [...raices].sort((a, b) => Number(!!a.completada) - Number(!!b.completada))
   const visibles = orden.slice(0, TOPE)
 
-  const irAMetas = () => abrirApp('metas')
-  const alternar = (id: number) =>
-    setAbiertas((a) => (a.includes(id) ? a.filter((x) => x !== id) : [...a, id]))
-
   /**
-   * Una meta y, si está abierta, lo que lleva dentro. Las sub-metas se pintan con
-   * la misma fila (recursiva) y los pasos como una lista simple: aquí no se
-   * palomea nada, solo se ve de qué está hecha la meta.
+   * Una meta: su avance y su plazo. Tocarla abre su plan en el planificador de la
+   * app, que es donde está todo lo suyo (fases, sub-metas y el eje del tiempo).
    */
-  const fila = (m: Rutina, profundidad: number) => {
+  const fila = (m: Rutina) => {
     const suma = alcance(metas, m)
     const frac = progresoDe(metas, m)
     const faltan = rangoDe(m) ? diasParaFin(m) : null
-    const hijas = hijasDe(metas, m.id)
-    const hechosPasos = new Set(m.pasosHechos ?? [])
-    const tieneDentro = hijas.length > 0 || m.pasos.length > 0
-    const abierta = m.id != null && abiertas.includes(m.id)
     return (
-      <div key={m.id} style={{ marginInlineStart: profundidad * 10 }}>
+      <div key={m.id}>
         <button
           type="button"
-          disabled={!tieneDentro}
-          onClick={() => m.id != null && alternar(m.id)}
-          className="flex w-full items-center gap-2 rounded-lg px-1 py-1 text-start transition hover:bg-white/5 disabled:cursor-default disabled:hover:bg-transparent"
+          onClick={() => m.id != null && setPlanificando({ metaId: m.id })}
+          className="flex w-full items-center gap-2 rounded-lg px-1 py-1 text-start transition hover:bg-white/5"
         >
-          {/* El punto de color hace de flecha cuando hay algo debajo: dos marcas
-              distintas en la misma columna descuadraban las filas. */}
-          {tieneDentro ? (
-            <span
-              className={`shrink-0 text-[10px] transition-transform ${abierta ? 'rotate-90' : ''}`}
-              style={{ color: colorDe(m) }}
-            >
-              <Icono nombre="siguiente" />
-            </span>
-          ) : (
-            <span className="h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: colorDe(m) }} />
-          )}
+          <span className="h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: colorDe(m) }} />
           <span className="min-w-0 flex-1">
             <span
               className={`block truncate text-[11px] font-semibold ${
@@ -134,36 +117,12 @@ export function MetasDeApp({ plantillaId, color }: { plantillaId: string; color:
             )}
           </span>
         </button>
-
-        {abierta && (
-          <div className="space-y-0.5">
-            {hijas.map((h) => fila(h, profundidad + 1))}
-            {m.pasos.map((p, i) => (
-              <p
-                key={i}
-                style={{ marginInlineStart: (profundidad + 1) * 10 }}
-                className={`flex items-center gap-1.5 px-1 py-0.5 text-[10px] ${
-                  hechosPasos.has(i) ? 'text-white/35 line-through' : 'text-white/55'
-                }`}
-              >
-                <span className="grid size-3 shrink-0 place-items-center text-[9px] text-emerald-400/70">
-                  {hechosPasos.has(i) ? (
-                    <Icono nombre="confirmar" />
-                  ) : (
-                    <span className="h-1 w-1 rounded-full bg-white/30" />
-                  )}
-                </span>
-                <span className="min-w-0 truncate">{p.titulo}</span>
-              </p>
-            ))}
-          </div>
-        )}
       </div>
     )
   }
 
   return (
-    <div className="mb-2 rounded-xl border border-white/10 bg-white/[0.03] p-2">
+    <div data-tut="hoy.metas" className="mb-2 rounded-xl border border-white/10 bg-white/[0.03] p-2">
       <div className="mb-1.5 flex items-center gap-1.5 px-1">
         <button
           type="button"
@@ -181,31 +140,72 @@ export function MetasDeApp({ plantillaId, color }: { plantillaId: string; color:
           </span>
           <span className="text-[10px] font-bold tabular-nums text-white/45">{pct}%</span>
         </button>
-        {/* Salir al cuarto Metas es una decisión aparte, no lo que pasa por tocar
-            una meta: desde aquí se cierra el panel entero. */}
+        {/* Proponerse algo nuevo aquí mismo: el planificador se abre por su lista,
+            que es donde está el alta. */}
         <button
           type="button"
-          onClick={irAMetas}
-          title={t('hoy.metas.abrir', 'Ver todas en Metas')}
-          className="shrink-0 rounded-md px-1 py-0.5 text-[10px] text-white/30 transition hover:bg-white/10 hover:text-white/70"
+          onClick={() => setPlanificando({})}
+          className="shrink-0 rounded-md px-1.5 py-0.5 ui-presion text-[10px] font-bold leading-none text-accent hover:bg-white/10"
         >
-          <Icono nombre="siguiente" />
+          + {t('cal.meta.etiquetaMeta', 'meta')}
         </button>
       </div>
 
       {!plegado && (
         <div className="space-y-0.5">
-          {visibles.map((m) => fila(m, 0))}
+          {visibles.map((m) => fila(m))}
 
           {raices.length > TOPE && (
             <button
               type="button"
-              onClick={irAMetas}
+              onClick={() => setPlanificando({})}
               className="w-full rounded-lg py-0.5 text-[10px] font-semibold text-white/40 transition hover:bg-white/5 hover:text-white/70"
             >
               {t('cal.verMas', '+{n} más', { n: raices.length - TOPE })}
             </button>
           )}
+        </div>
+      )}
+
+      {/* El planificador de ESTA app, encima de las Misiones: sus tres menús
+          (Metas · Planes · Cronograma) con las metas ya acotadas a la app. Se
+          cierra y las Misiones siguen donde estaban. */}
+      {planificando && (
+        <div className="fixed inset-0 z-[60] flex bg-black/70" onClick={() => setPlanificando(null)}>
+          <div
+            className="ui-panel-glass ui-pop flex h-full w-full flex-col overflow-hidden backdrop-blur-md"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* El título va a la derecha por lo mismo que en las Misiones: el
+                header flotante de la casa (☰ + MPH) tapa esta esquina izquierda. */}
+            <div className="flex items-center gap-3 border-b border-white/10 px-4 py-2.5">
+              <h2 className="ms-auto min-w-0 truncate text-sm font-bold">{t('cal.metas', 'Metas')}</h2>
+              <button
+                type="button"
+                onClick={() => setPlanificando(null)}
+                title={t('hoy.cerrar', 'Cerrar')}
+                className="shrink-0 rounded-lg bg-white/10 px-3 py-1.5 text-sm font-semibold transition hover:bg-white/20"
+              >
+                <Icono nombre="cerrar" />
+              </button>
+            </div>
+            {/* El mismo contenedor que el `<main>` de `RoomOverlay`: el planificador
+                ya no lleva scroll propio, así que sin esto el panel (que es
+                `overflow-hidden`) recortaría todo lo que no cupiera. El
+                `--safe-bottom` sí hace falta aquí: esto es `fixed inset-0`, o sea
+                pegado al borde inferior de la pantalla. */}
+            <div className="min-h-0 flex-1 overflow-auto p-4 pb-[calc(1rem+var(--safe-bottom))] md:p-6">
+              <Suspense
+                fallback={
+                  <div className="flex items-center justify-center py-10 text-sm text-white/50">
+                    {t('ui.cargando', 'Cargando…')}
+                  </div>
+                }
+              >
+                <CronogramaApp plantillaId={plantillaId} metaInicial={planificando.metaId} />
+              </Suspense>
+            </div>
+          </div>
         </div>
       )}
     </div>

@@ -7,6 +7,17 @@ import { useHud } from '../state/hudStore'
  * que poner en su contenedor. Lo consume `PilaPrompts` para colocar los prompts
  * contextuales encima de todos ellos, sin taparlos.
  */
+/**
+ * Anclaje horizontal de la barra del chat (offsets laterales, sin el `bottom`).
+ * Lo comparte la caja del diálogo cara a cara, que se apoya justo encima del
+ * chat y debe medir exactamente lo mismo.
+ * start-44: margen al joystick (izq.); end-48: hueco del cubo y las flechas
+ * de rotación (der.). Con el menú lateral abierto arranca tras sus 15rem.
+ */
+export function anclajeChat(menuAbierto: boolean): string {
+  return menuAbierto ? 'start-60 end-4 sm:end-48' : 'start-4 end-4 sm:start-44 sm:end-48'
+}
+
 export function useTopeHud(clave: string) {
   const ref = useRef<HTMLDivElement>(null)
   const medir = useCallback(() => {

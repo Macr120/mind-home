@@ -1,38 +1,150 @@
 [
   {
-    "clave": "tut.hoy.1.texto",
-    "texto": "각 앱의 헤더에는 목표 버튼이 있어요. 캘린더에 있는 것과 같지만 이 앱에만 한정돼요. 누르면 2단으로 된 패널이 열리는데, 위에는 오늘의 체크리스트, 아래에는 목표와 계획이 있어요."
+    "clave": "tut.app-agenda--esencial.1.titulo",
+    "texto": "나의 일정"
   },
   {
-    "clave": "tut.hoy.2.texto",
-    "texto": "앱 자체의 목표(물, 칼로리), 오늘 캘린더에 예약한 일정, 진행 중인 목표의 단계까지 모두 한자리에, 각 단계가 속한 계획이나 목표별로 묶여서 나와요."
+    "clave": "tut.app-agenda--esencial.1.texto",
+    "texto": "일정에는 습관이 아닌 것들이 담겨요. 할 일, 예약, 연락처예요. 메뉴는 세 가지이고, 날짜가 있는 것은 모두 집 캘린더에 알아서 들어가요."
   },
   {
-    "clave": "tut.hoy.7.texto",
-    "texto": "뭔가 부족하면 “새 체크리스트”로 직접 만들 수 있어요. 매일 반복되는 이 앱만의 리스트예요. 오늘 섹션 아래에는 목표·계획·일정을 모두 담은 완전한 플래너가 있고, 이 앱의 모든 목표가 여기 담겨 있어요."
+    "clave": "tut.app-agenda--esencial.2.titulo",
+    "texto": "업무"
   },
   {
-    "clave": "tut.app-hobbies--gestion.4.texto",
-    "texto": "취미와 프로젝트의 목표는 헤더의 목표 버튼에 있어요. 캘린더와 같은 목표·계획·일정 플래너가 이 앱에만 한정돼서 쓰여요. AI에게 단계와 날짜가 있는 계획을 부탁해 보세요."
+    "clave": "tut.app-agenda--esencial.2.texto",
+    "texto": "할 일에는 날짜가 없는 일들이 모여서 놓치지 않게 해주고, 보드에서는 할 일·진행 중·완료 열로 작업을 옮길 수 있어요."
   },
   {
-    "clave": "tut.app-biblioteca--estudio.2.texto",
-    "texto": "목표는 헤더의 목표 버튼, 캘린더와 같은 일정에 있어요. “시험 전에 열역학 끝내기”는 이미 달성했고, 대학원 준비는 아직 진행 중이에요."
+    "clave": "tut.app-agenda--esencial.3.titulo",
+    "texto": "건강"
   },
   {
-    "clave": "tut.app-ejercicio--anio.3.texto",
-    "texto": "헤더의 목표 버튼에는 완료한 네 가지 목표—5K, 10K, 하프 마라톤, 풀 마라톤—와 아직 진행 중인 목표가 담겨 있어요. 날짜가 있는 목표는 집 캘린더에도 나타나요."
+    "clave": "tut.app-agenda--esencial.3.texto",
+    "texto": "진료 예약, 약, 돌봄을 세 개의 하위 메뉴로 나눠요. 나, 소중한 사람(내가 돌보는 사람), 반려동물이에요."
   },
   {
-    "clave": "tut.app-cocina--cronograma.1.texto",
-    "texto": "헤더의 목표 버튼은 집 캘린더가 쓰는 것과 같은 일정을 주방의 목표로 한정해서 열어요. 목표를 만들고(예: “3킬로 빼기”) AI에게 계획을 부탁하면, 목표 날짜를 물어본 뒤 각자 날짜가 있는 세부 목표를 예약해 줘요."
+    "clave": "tut.app-agenda--esencial.4.titulo",
+    "texto": "연락처"
   },
   {
-    "clave": "tut.app-despacho--metas.2.texto",
-    "texto": "헤더의 목표 버튼은 이 목표들을 시간축 위에 담고 있어요. 목표에 날짜를 정하면 캘린더의 날짜들 사이에 나타나요. ✨를 누르면 AI가 적립 계획을 제안해요."
+    "clave": "tut.app-agenda--esencial.4.texto",
+    "texto": "관계별로 정리된 연락처 수첩이에요. 저장한 생일은 해마다 캘린더에서 알아서 반복돼요."
   },
   {
-    "clave": "tut.app-entretenimiento--programas.2.texto",
-    "texto": "저장한 프로그램은 헤더의 목표 버튼에 있어요. 각 제목마다 리스트에 오른 이유를 적은 메모가 남아 있고, 날짜를 정하면 다른 목표와 마찬가지로 캘린더에 들어가요."
+    "clave": "tut.calendario--esencial.1.titulo",
+    "texto": "집의 시계"
+  },
+  {
+    "clave": "tut.calendario--esencial.1.texto",
+    "texto": "캘린더는 방이 아니에요. 조작판의 시계 안에 있어서 어디에 있든 그 자리에서 바로 열려요."
+  },
+  {
+    "clave": "tut.calendario--esencial.2.titulo",
+    "texto": "예정된 것은 모두 여기에"
+  },
+  {
+    "clave": "tut.calendario--esencial.2.texto",
+    "texto": "날짜와 시간이 있는 것은 모두 여기로 와요. 「+ 새로 만들기」로 만든 것도, 격자 위에 그어서 만든 것도, 다른 앱이 알아서 잡아 둔 것도요. 너무 빽빽해지면 위쪽 필터로 앱 하나만 볼 수 있어요."
+  },
+  {
+    "clave": "tut.calendario--esencial.3.titulo",
+    "texto": "일"
+  },
+  {
+    "clave": "tut.calendario--esencial.3.texto",
+    "texto": "하루 24시간의 격자예요. 무엇이 몇 시에 있는지, 겹치는 것은 없는지 볼 수 있어요. 이 버튼은 두 가지 역할을 해요. 「오늘」이라고 적혀 있을 때는 현재로 데려다주고, 다른 날짜를 보고 있으면 「일」로 바뀌어요."
+  },
+  {
+    "clave": "tut.calendario--esencial.4.titulo",
+    "texto": "주"
+  },
+  {
+    "clave": "tut.calendario--esencial.4.texto",
+    "texto": "같은 시간 격자를 7일 나란히 놓은 화면이에요. 한 주가 어떻게 나뉘어 있는지 보이는 곳이고, 블록을 다른 날로 끌어다 놓거나 늘려서 더 길게 만들 수 있어요."
+  },
+  {
+    "clave": "tut.calendario--esencial.5.titulo",
+    "texto": "월"
+  },
+  {
+    "clave": "tut.calendario--esencial.5.texto",
+    "texto": "시간 축은 사라지고, 하루하루가 그날의 일정이 담긴 칸으로 그려져요. 전체를 조망하는 화면이라, 어느 주가 빽빽하고 어느 날이 비었는지 알 수 있어요."
+  },
+  {
+    "clave": "tut.calendario--esencial.6.titulo",
+    "texto": "연도"
+  },
+  {
+    "clave": "tut.calendario--esencial.6.texto",
+    "texto": "열두 달을 한 번에 봐요. 이 거리에서는 시각까지는 읽히지 않아요. 보이는 것은 꾸준함이에요. 마음먹은 것을 한 해 동안 얼마나 이어 왔는지 드러나요."
+  },
+  {
+    "clave": "tut.calendario--esencial.7.titulo",
+    "texto": "그리고 미션은 따로"
+  },
+  {
+    "clave": "tut.calendario--esencial.7.texto",
+    "texto": "다섯 번째 보기처럼 보이지 않도록 빨갛게 두었어요. 미션은 모든 앱의 오늘 체크리스트를 한 화면에 모아 줘요. 목표와 그 계획은 여기 없어요. 자기 방에 따로 있어요."
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.1.titulo",
+    "texto": "나만의 일기"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.1.texto",
+    "texto": "추억 노트에는 남기고 싶은 이야기를 기분과 사진과 함께 담을 수 있어요. 날짜별로 알아서 정리되니 따로 분류할 필요가 없어요."
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.2.titulo",
+    "texto": "이렇게 적어요"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.2.texto",
+    "texto": "그날의 기분을 고르고, 하고 싶은 이야기를 적고, 사진이 있으면 함께 붙여요. 글 없이 사진 한 장만 있어도 괜찮아요."
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.3.titulo",
+    "texto": "기분 캘린더"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.3.texto",
+    "texto": "하루하루가 그날 기록의 기분으로 칠해져서 한 달이 한눈에 읽혀요. 날짜를 누르면 그날의 기록이 아래에 나와요."
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.4.titulo",
+    "texto": "기록 보관"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.4.texto",
+    "texto": "적은 기록은 모두 여기에 남고, 연·월·주별 폴더로 알아서 정리돼요."
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.1.titulo",
+    "texto": "나의 도서관"
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.1.texto",
+    "texto": "도서관은 나만의 백과사전이에요. 모르는 것을 묻고, 배운 것을 남기고, 공부한 만큼을 기록해요. 메뉴는 네 가지예요."
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.2.titulo",
+    "texto": "채팅"
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.2.texto",
+    "texto": "여기서 현자에게 어떤 주제든 물어볼 수 있고, 대화는 그대로 저장돼요. 채팅은 지식 분야별로 알아서 분류되고, 백과사전 항목으로 추출돼요."
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.3.titulo",
+    "texto": "백과사전"
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.3.texto",
+    "texto": "배운 것이 지식 분야별로 자라나는 트리예요. 항목마다 요약과 핵심이 담기고, 직접 적을 수도 있어요. 연필 버튼으로 색인을 내게 맞게 키워 갈 수 있어요."
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.4.titulo",
+    "texto": "학습"
   }
 ]

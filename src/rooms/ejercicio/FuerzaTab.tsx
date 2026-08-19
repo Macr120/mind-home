@@ -290,7 +290,6 @@ export function FuerzaTab({
           prefijoClave="ejercicio.sub"
           color={COLOR_FUERZA}
           variante="sub"
-          nivel={2}
         />
       </div>
 

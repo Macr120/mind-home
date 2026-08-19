@@ -17,14 +17,18 @@ src/core/data/sync/ middleware.ts (DBCore)     · revenuecat-webhook · borrar-c
                   blobs.ts                 RevenueCat Web Billing ── Stripe
 ```
 
-- **Modelo de negocio (15-ago-2026)**: PAGO ÚNICO + suscripción opcional. La
-  **demo** (no persistente) es el free tier. El **unlock** (`unlock_casa`,
-  $10.99 pago único) desbloquea la casa propia para siempre e incluye el
-  **primer mes** (plan `trial`: 30 días con pool de 700 créditos + sync, sin
-  tarjeta). **Pro** a 4.99 USD/mes (créditos mensuales + sync), vendido
-  únicamente en la web pública (`web/`, modelo Spotify: las apps de tienda no
-  muestran compra). La IA sin plan se paga con recargas de créditos que no
-  caducan. La puerta cliente es `PuertaUnlock` (main.tsx): instalaciones
+- **Modelo de negocio (18-ago-2026)**: PAGO ÚNICO + suscripción opcional, con
+  una sola regla detrás: **6 USD = 700 créditos**, y de cada 6 USD la ganancia
+  mínima son 2 USD (por eso el bucket va a `techo_factor 1.00` = $3.50 de gasto
+  real máximo por cada 700 créditos; ver COSTOS.md). La **demo** (no
+  persistente) es el free tier. El **unlock** (`unlock_casa_v3`, $6.99 pago
+  único) desbloquea la casa propia para siempre e incluye el **primer mes**
+  (plan `trial`: 30 días con pool de 700 créditos + sync, sin tarjeta).
+  **Pro** a 6 / 12 / 18 USD al mes según nivel —o **60 USD/año**
+  (`pro_x1_anual`, el ×1 pagado de una vez)— con créditos mensuales + sync, y
+  **créditos sueltos** (`creditos_x1`, $6 por 700 que no caducan), ambos
+  vendidos únicamente en la web pública (`web/`, modelo Spotify: las apps de
+  tienda no muestran compra). La puerta cliente es `PuertaUnlock` (main.tsx): instalaciones
   previas quedan con derechos adquiridos (`mh.unlockLocal`, marcado por
   `mh.bienvenida`) y un build sin backend no tiene puerta; lo cobrable lo
   revalida el servidor.
@@ -39,9 +43,9 @@ src/core/data/sync/ middleware.ts (DBCore)     · revenuecat-webhook · borrar-c
   y en servidor (`tiene_pro()`, que desde `20260815000001` incluye `trial`, en
   `sync_push`, policy de `registros` y policy del bucket): al cancelar o vencer
   el trial, los datos remotos quedan inaccesibles (sin borrarse) hasta renovar.
-- **Niveles de suscripción (15-ago-2026)**: sustituyen a las recargas one-time.
-  Tres productos de la MISMA suscripción — `pro_x1` ($5), `pro_x2` ($10) y
-  `pro_x3` ($15), todos con entitlement `pro` — y el webhook guarda el
+- **Niveles de suscripción (15-ago-2026; precios v2 el 18-ago)**: tres productos
+  de la MISMA suscripción — `pro_x1_v2` ($6), `pro_x2_v2` ($12) y
+  `pro_x3_v2` ($18), todos con entitlement `pro` — y el webhook guarda el
   multiplicador en `perfiles.nivel` (1-3). El pool sale de `pool_mensual()`:
   `creditos_mes × nivel` = 700 / 1400 / 2100. Subir o bajar es un
   PRODUCT_CHANGE (prorrateado por RC), no una compra nueva, y cancelar sigue
@@ -51,8 +55,12 @@ src/core/data/sync/ middleware.ts (DBCore)     · revenuecat-webhook · borrar-c
   si divergían el crédito volvía a la bolsa equivocada.
   El nivel multiplica SOLO con plan `pro`: si no, quien cancela un ×3 y compra
   el unlock estrenaría el trial con 2100 créditos. EXPIRATION lo devuelve a 1.
-- **`creditos_extra` (recargas viejas)**: la columna, su consumo y su reintegro
-  siguen vivos para el saldo ya vendido; simplemente no se vende más.
+- **`creditos_extra` (recargas)**: vuelven al catálogo el 18-ago-2026 con un
+  único producto, `creditos_x1` ($6 = 700 créditos, consumible SIN entitlement).
+  El webhook lo abona con `sumar_creditos_extra` en el evento
+  NON_RENEWING_PURCHASE y **solo si el evento es nuevo** (`esNuevo`): a
+  diferencia de los updates de plan, sumar no es idempotente. No caducan, se
+  gastan cuando el pool mensual ya no alcanza y funcionan sin plan.
 - **IA**: con sesión y créditos, `ia.ts`/`imagenIA.ts` llaman a las Edge Functions
   con la clave del SERVIDOR y cuota en **créditos POR OPERACIÓN** (`costo_op()`:
   chat/texto/vision/voz = 1, imagen/tts = 3, texto_largo/pdf = 4,
@@ -179,17 +187,66 @@ Opcionales, todos con default y sin redeploy al cambiarlos:
 2. Crear los **tres niveles de suscripción mensual** con precio local por región
    (la multimoneda es pura config; el cliente muestra el `formattedPrice` que
    manda RC), los tres con el entitlement `pro` y en el offering `default`:
-   `pro_x1` ($5), `pro_x2` ($10) y `pro_x3` ($15). Deben ir en el MISMO grupo de
-   suscripción para que cambiar de nivel sea un PRODUCT_CHANGE prorrateado y no
-   dos suscripciones a la vez.
-3. Crear el **pago único `unlock_casa` ($10.99), SIN entitlement**, y añadirlo a
+   `pro_x1_v2` ($6), `pro_x2_v2` ($12) y `pro_x3_v2` ($18). Deben ir en el MISMO
+   grupo de suscripción para que cambiar de nivel sea un PRODUCT_CHANGE
+   prorrateado y no dos suscripciones a la vez.
+3. Crear el **pago único del unlock ($6.99), SIN entitlement**, y añadirlo a
    un offering. El webhook lo mapea a `perfiles.unlock` + plan `trial` de 30
    días; el cliente lo busca por id en TODOS los offerings. **Sin trial de RC**
-   en ningún producto (el «primer mes» lo da el webhook, sin tarjeta).
+   en ningún producto (el «primer mes» lo da el webhook, sin tarjeta). Ojo: si
+   se añadiera un trial de RC habría que excluir `period_type === 'TRIAL'` del
+   `fue_pro: true` del webhook, o marcaría como pagador a quien no pagó.
+3b. Crear la **recarga `creditos_x1` ($6), consumible y SIN entitlement**, y
+   añadirla al offering `default`. El webhook la abona a
+   `perfiles.creditos_extra` (700 créditos) solo en el primer evento.
+3c. Crear la **anualidad `pro_x1_anual` ($60, ciclo Yearly)** con el entitlement
+   `pro`: es el nivel ×1 pagado de una vez, así que el webhook le asigna
+   `nivel = 1` y el pool sigue siendo mensual.
 
-   Los ids exactos importan en los cinco productos (`pro_x1`, `pro_x2`,
-   `pro_x3`, `unlock_casa`): tanto el webhook como el cliente los buscan por
-   nombre. Un guion de más y la compra se cobra sin conceder nada.
+   Los ids exactos importan en los seis productos vigentes (`pro_x1_v2`,
+   `pro_x2_v2`, `pro_x3_v2`, `pro_x1_anual`, `unlock_casa_v3`, `creditos_x1`):
+   tanto el webhook como el cliente los buscan por nombre. Un guion de más y la
+   compra se cobra sin conceder nada.
+
+   **Subscription changes** (Web › la app › «Subscription changes»): hay que
+   declarar a mano qué producto puede subir o bajar a cuál, o el portal de
+   gestión no ofrece el cambio de nivel. Configurado el 19-ago-2026: ×1 sube a
+   ×2/×3/anual, ×2 sube a ×3 y baja a ×1, ×3 baja a ×2/×1, y el anual baja a ×1.
+
+### 3d. Cambiar precios — el precio en RC es INMUTABLE
+**En RevenueCat el precio de un producto no se puede editar** («Saved pricing
+can't be edited afterwards»); el menú del producto solo ofrece «Make Inactive».
+Cambiar un precio = **crear otro producto**. Por eso los ids viven como
+**listas** en dos espejos —`UNLOCK_PRODUCTOS` y `NIVEL_PRODUCTOS` en
+`src/core/cuenta/paywall.ts`, `UNLOCK_PRODUCTOS`/`NIVELES` en
+`revenuecat-webhook/index.ts`—, con el **vigente primero**. Los viejos se
+conservan para honrar una compra en vuelo y para no dejar sin pool al suscriptor
+que sigue en ellos.
+
+Receta para el próximo cambio de precio:
+1. Crear el producto nuevo (mismo tipo y, si es suscripción, el MISMO grupo) con
+   el precio nuevo. El *display name* debe ser único en la app; el título y la
+   descripción de cara al cliente sí se pueden repetir (y sí son editables
+   después, a diferencia del precio).
+2. Añadirlo al offering `default` como paquete **Custom** y borrar de ahí el
+   paquete viejo, para que no se pueda comprar al precio anterior.
+3. «Make Inactive» en el producto viejo.
+4. Poner el id nuevo al PRINCIPIO de la lista correspondiente, en los dos
+   espejos.
+5. `functions deploy revenuecat-webhook --no-verify-jwt` + republicar los builds.
+
+Historial: el unlock pasó de $10.99 (`unlock_casa`) a $9.99 (`unlock_casa_v2`,
+18-ago) y a **$6.99 (`unlock_casa_v3`)** el mismo día, con el cambio de plan de
+negocio; los niveles pasaron de $5/$10/$15 (`pro_x1`…) a **$6/$12/$18**
+(`pro_x1_v2`…). Vigentes hoy: `unlock_casa_v3`, `pro_x1_v2`, `pro_x2_v2`,
+`pro_x3_v2` y `creditos_x1`; todo lo anterior, inactivo y fuera del offering.
+Textos de cara al cliente en **inglés** (el checkout es un solo idioma para todo
+el mundo).
+
+**Ojo con las suscripciones**: al desactivar `pro_x1` no se cancela a quien ya
+esté suscrito —sigue cobrándose a $5 hasta que cambie de nivel o cancele—, por
+eso los ids viejos siguen en `NIVELES` del webhook. Un suscriptor viejo que
+pulse «subir de nivel» compra el producto nuevo y RC lo prorratea.
 4. Copiar la public API key `rcb_...` a `.env.local` (`VITE_REVENUECAT_WEB_KEY`).
 5. Elegir un secreto largo y configurarlo en ambos lados:
    - RevenueCat → Integrations → Webhooks → Add: URL
@@ -211,6 +268,64 @@ Opcionales, todos con default y sin redeploy al cambiarlos:
 4. Para probar el plan Pro sin pagar: `update perfiles set plan='pro', fue_pro=true
    where user_id='<uuid>';` (la PuertaSuscripcion y `window.mhPuerta` ya no existen:
    la app entra directo y el gating es solo de IA/sync).
+
+### 3c. Cupones de acceso (testers y dueño) — 18-ago-2026
+Canjear un cupón equivale a comprar el unlock (`perfiles.unlock` + plan `trial`
+según `trial_dias`), sin pasar por RevenueCat ni Stripe. El canje vive en la
+Edge Function `canjear-cupon` (JWT verificado) → RPC `canjear_cupon`
+(solo service_role, migración `20260818000001`). La UI es el enlace
+«¿Tienes un cupón?» de la `PuertaUnlock`, visible con sesión iniciada.
+
+1. `npx supabase db push` (aplica `20260818000001_cupones.sql`).
+2. `npx supabase functions deploy canjear-cupon` (verify_jwt por defecto).
+3. Crear los códigos a mano en el SQL editor del Dashboard — NUNCA commitearlos:
+
+   ```sql
+   -- El dueño: un año de IA incluido, uso personal.
+   insert into cupones (codigo, descripcion, usos_max, trial_dias)
+   values ('CAMBIA-ESTE-CODIGO-1', 'dueño', 1, 365);
+   -- Tanda de testers: un código compartido, 14 días de IA cada uno (el
+   -- periodo de pruebas). 14 es el default, se pone explícito por claridad.
+   insert into cupones (codigo, descripcion, usos_max, trial_dias)
+   values ('CAMBIA-ESTE-CODIGO-2', 'testers ago 2026', 20, 14);
+   ```
+
+   Códigos LARGOS y aleatorios (p. ej. `MPH-` + 12 caracteres al azar), siempre
+   en MAYÚSCULAS (el check de la tabla lo exige; la RPC normaliza lo tecleado).
+   Para retirar uno: `update cupones set activo = false where codigo = '...';`
+   Quién lo canjeó: `select * from cupones_canjes order by canjeado desc;`
+
+#### Los trials se hacen CON CUPONES (no con los trials de RevenueCat)
+Un trial de RC no sirve para probar: no se puede añadir a un producto ya creado
+y le daría el mes gratis a TODOS los clientes. El cupón es el mecanismo, y
+`trial_dias` es la palanca. **El periodo de pruebas son 2 SEMANAS** (default de
+la columna desde `20260818000002`); el mes de 30 días del unlock es otra cosa —
+ese es un beneficio de la compra, no el periodo de pruebas:
+
+| Para qué | `usos_max` | `trial_dias` | Efecto del canje |
+|---|---|---|---|
+| El dueño | 1 | 365 | Casa desbloqueada + un año de IA y sync |
+| Tanda de testers | 20 | 14 | Cada tester: casa + 2 semanas de IA y sync |
+| Renovar a un tester | 20 | 14 | **Suma** 2 semanas más sobre lo que le quede |
+| Regalar solo la app | 50 | 0 | Casa desbloqueada, SIN mes de IA |
+
+**El canje PRORROGA, no fija.** Se cuenta desde el vencimiento actual si aún no
+ha pasado (`greatest(plan_expira, now()) + trial_dias`), así que un cupón nunca
+acorta lo que ya tenías y se puede topar a un tester tantas veces como haga
+falta. Como `cupones_canjes` tiene PK `(codigo, user_id)`, **nadie repite el
+mismo código**: para renovar hay que emitir uno nuevo.
+
+Dos guardas que importan: a un **Pro de pago vigente** el canje solo le pone
+`unlock` y NO le toca el plan (no se le degrada a trial); y como la expiración es
+perezosa, un trial vencido conserva `plan='trial'` — por eso la condición mira si
+hay un Pro con fecha viva, no el valor del plan.
+
+Renovar a toda una tanda a la vez, sin cupón, si prefieres:
+```sql
+update perfiles set plan = 'trial',
+       plan_expira = greatest(coalesce(plan_expira, now()), now()) + interval '14 days'
+ where user_id in (select user_id from cupones_canjes where codigo = 'MPH-…');
+```
 
 ### 4. Storage (sync de blobs)
 La migración crea el bucket privado `sync-blobs` con acceso por carpeta de usuario;

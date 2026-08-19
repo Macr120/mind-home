@@ -44,10 +44,25 @@ export const cuerpoMapa: CuerpoTutorial = {
     },
     {
       sel: 'sala.mapa.mundi',
+      // Vuelve al planisferio si el paso del globo (o el usuario) lo dejó en 3D.
+      alEntrar: () => {
+        clickTut('sala.mapa.vista.plano')
+      },
       titulo: T('tut.app-sala--mapa.2.titulo', 'Los pines'),
       texto: T(
         'tut.app-sala--mapa.2.texto',
-        'Los siete pines juntos de Japón son las tres semanas del viaje. Los ámbar —Seúl, la Patagonia, Islandia— son lo que todavía no. Tocando el mapa se pone un pin nuevo donde quieras.',
+        'Los siete pines juntos de Japón son las tres semanas del viaje; los ámbar —Seúl, la Patagonia, Islandia— son lo que todavía no. Para poner uno nuevo, activa «Pin visitado» o «Pin por conocer» y toca el lugar en el mapa.',
+      ),
+    },
+    {
+      sel: 'sala.mapa.mundi',
+      alEntrar: () => {
+        clickTut('sala.mapa.vista.globo')
+      },
+      titulo: T('tut.app-sala--mapa.3.titulo', 'El globo'),
+      texto: T(
+        'tut.app-sala--mapa.3.texto',
+        'El conmutador de arriba cambia el planisferio por un globo que giras arrastrando, con los mismos pines tocables. El globo solo mira: los pines nuevos se ponen en la vista plana.',
       ),
     },
   ],
@@ -121,6 +136,71 @@ export const cuerpoProximo: CuerpoTutorial = {
         'tut.app-sala--proximo.3.texto',
         'Una ruta encadena lugares en orden y los dibuja en el mapa. La de Japón es el recorrido que ya hizo; la de Corea, el que quiere hacer.',
       ),
+    },
+  ],
+}
+
+/**
+ * ESENCIAL: corre en la casa real y recorre los cuatro menús de la sala uno
+ * por uno. Sin datos de por medio: sus anclas son las pestañas, que existen
+ * con la BD vacía.
+ */
+export const cuerpoEsencial: CuerpoTutorial = {
+  preparar: () => {
+    abrirApp('sala')
+  },
+  pasos: [
+    {
+      titulo: T('tut.app-sala--esencial.1.titulo', 'Tu sala de viajes'),
+      texto: T(
+        'tut.app-sala--esencial.1.texto',
+        'Aquí vive tu mundo viajero: un mapamundi con pines, itinerarios de lugares por conocer, rutas que encadenan lugares y una bitácora de recuerdos. Son cuatro menús.',
+      ),
+    },
+    {
+      sel: 'sala.tab.mapa',
+      titulo: T('tut.app-sala--esencial.2.titulo', 'Mapa'),
+      texto: T(
+        'tut.app-sala--esencial.2.texto',
+        'Cada lugar que visitaste o sueñas visitar es un pin en el mapamundi. El conmutador de arriba cambia el planisferio por un globo que se gira arrastrando.',
+      ),
+      alEntrar: async () => {
+        await esperarTut('sala.tab.mapa', 4000)
+        clickTut('sala.tab.mapa')
+      },
+    },
+    {
+      sel: 'sala.tab.porConocer',
+      titulo: T('tut.app-sala--esencial.3.titulo', 'Itinerario'),
+      texto: T(
+        'tut.app-sala--esencial.3.texto',
+        'Los lugares que sueñas conocer, cada uno con su plan día a día. Los que tienen fecha se agendan solos en el calendario.',
+      ),
+      alEntrar: () => {
+        clickTut('sala.tab.porConocer')
+      },
+    },
+    {
+      sel: 'sala.tab.rutas',
+      titulo: T('tut.app-sala--esencial.4.titulo', 'Rutas'),
+      texto: T(
+        'tut.app-sala--esencial.4.texto',
+        'Una ruta encadena lugares en un recorrido y lo dibuja sobre el mapa.',
+      ),
+      alEntrar: () => {
+        clickTut('sala.tab.rutas')
+      },
+    },
+    {
+      sel: 'sala.tab.bitacora',
+      titulo: T('tut.app-sala--esencial.5.titulo', 'Bitácora'),
+      texto: T(
+        'tut.app-sala--esencial.5.texto',
+        'Los recuerdos de tus lugares visitados, en álbumes por país: fotos y anécdotas de cada sitio.',
+      ),
+      alEntrar: () => {
+        clickTut('sala.tab.bitacora')
+      },
     },
   ],
 }

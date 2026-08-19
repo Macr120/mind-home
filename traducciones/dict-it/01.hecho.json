@@ -1,7 +1,46 @@
 [
-  { "clave": "ajustes.idioma.ja", "texto": "Giapponese" },
-  { "clave": "ajustes.idioma.zh", "texto": "Cinese" },
-  { "clave": "ajustes.idioma.ko", "texto": "Coreano" },
-  { "clave": "ajustes.idioma.ru", "texto": "Russo" },
-  { "clave": "ajustes.idioma.hi", "texto": "Hindi" }
+  {
+    "clave": "tut.esencial.titulo",
+    "texto": "L’essenziale"
+  },
+  {
+    "clave": "tut.tipo.ejemplos",
+    "texto": "Esempi · casa demo"
+  },
+  {
+    "clave": "tut.app-agenda--esencial.resumen",
+    "texto": "L’agenda gestisce ciò che non è un’abitudine, in tre schede: Lavoro (da fare e bacheca), Salute (appuntamenti, farmaci e cure: tue, delle persone care e degli animali) e Persone (contatti e compleanni). Tutto ciò che ha una data si programma da solo nel calendario."
+  },
+  {
+    "clave": "tut.calendario--esencial.resumen",
+    "texto": "Il calendario non è una stanza: vive nell’orologio della casa e riunisce tutto ciò che ha data e ora, quello che crei a mano e quello che le altre app programmano da sole. Si guarda in quattro modi: Giorno e Settimana sulla griglia delle ore, Mese e Anno per la panoramica. A parte c’è Missioni, il pulsante rosso con la checklist di oggi di tutte le app insieme."
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.resumen",
+    "texto": "Il diario dei ricordi è il tuo diario personale: voci con umore, testo e foto che si salvano da sole per data. Un calendario colora ogni giorno in base al tuo umore, e la cronologia le archivia in cartelle per anno, mese e settimana."
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.resumen",
+    "texto": "La biblioteca è la tua enciclopedia personale, in quattro schede: Chat (chiedi al Saggio e ogni conversazione si archivia e si distilla in una scheda), Enciclopedia (l’albero dove vive quello che impari, per campo di conoscenza), Studio (il timer semplice o pomodoro, che registra ogni sessione) e Panoramica (quanto hai scritto e quanto hai studiato)."
+  },
+  {
+    "clave": "tut.app-cocina--esencial.resumen",
+    "texto": "La cucina ha due schede. Ricettario custodisce quello che stai per cucinare: le tue ricette con i loro macro, le diete che le raggruppano e la lista della spesa. Controllo alimentare tiene il conto di quello che mangi, in quattro passi: gli obiettivi di calorie e peso, il diario del giorno, il piano pasti dei giorni a venire e i progressi."
+  },
+  {
+    "clave": "tut.app-computo--esencial.resumen",
+    "texto": "La sala di calcolo ha due schede. La Calcolatrice fa i calcoli di sempre e cambia modalità per tracciare grafici, lavorare con basi numeriche, matrici, sistemi di equazioni, unità, mancia e regola del tre; ad essa è appeso il formulario, il tuo libro di formule con Matematica, Fisica e Chimica già incluse. I Fogli di calcolo gestiscono tutto ciò che è tabellare, con formule in linguaggio chiaro (come =SUMA) ed esportazione in Excel o PDF."
+  },
+  {
+    "clave": "tut.app-descanso--esencial.resumen",
+    "texto": "Riposo registra come dormi in un’unica schermata: il punteggio dell’ultima notte, il tuo orario con i suoi avvisi, il diario quotidiano e la cronologia completa per anno, mese e settimana."
+  },
+  {
+    "clave": "tut.app-despacho--esencial.resumen",
+    "texto": "Lo studio ordina i tuoi soldi in quattro schede. Patrimonio netto custodisce quello che hai e quello che devi, con la sua proiezione; Flusso di cassa tiene spese, entrate e il saldo del periodo, con budget e categorie; Obiettivi riunisce risparmio, investimento e debito, più le calcolatrici che propongono un importo. Mercati è una bacheca di quotazioni in tempo reale, solo di consultazione."
+  },
+  {
+    "clave": "tut.app-diario--esencial.resumen",
+    "texto": "Il giornale è un quotidiano effimero: titoli di stampa reale per categoria e gli avvenimenti di oggi, che si rinnova da solo a mezzanotte. Dalla consegna programmi che un assistente te lo porti nella sua chat."
+  }
 ]

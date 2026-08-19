@@ -1,9 +1,10 @@
-import { useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import type { PlanMeta, Rutina } from '../../data/db'
 import { planesMetaRepo } from '../../data/repository'
 import { claveLS, iaHabilitada } from '../../edicion'
 import { useCategoriasMeta } from '../../state/categoriasMetaStore'
 import { pedirTexto } from '../../state/confirmarStore'
+import { useCalendarioFiltro } from '../../state/calendarioFiltroStore'
 import { fechaLocalISO } from '../../fechaLocal'
 import { localeActual, useT, type TFunc } from '../../i18n/useT'
 import {
@@ -37,11 +38,7 @@ import { PistaPlan } from './PistaPlan'
 import { VistaMetas } from './VistaMetas'
 import { VistaPlanes } from './VistaPlanes'
 import { PestanasCarpeta, type ItemPestana } from '../../../rooms/_shared/PestanasCarpeta'
-import { COLOR } from '../../../rooms/metas/constantes'
-
-/** Color de lo propuesto: fijo y fuera de la paleta de metas, para que "esto todavía
- *  no es tuyo" se lea sin pensar. */
-const COLOR_PLAN = '#a78bfa'
+import { COLOR, COLOR_PLAN } from '../../../rooms/metas/constantes'
 
 /**
  * Una fila del cuerpo: una meta real, o el bloque de un plan superpuesto. Los nodos
@@ -61,6 +58,19 @@ const ANCHO_ARBOL_MAX = 32 * 16
 
 /** Alto de cada fila de la cabecera (contexto y detalle). */
 const ALTO_FILA_EJE = 16
+
+/**
+ * Los botones de la barra de herramientas: UN reposo y UN encendido para toda la
+ * fila. Antes convivían tres tratamientos —gris, acento y esmeralda— pegados unos
+ * a otros, así que «Editar» y «Hechas» encendidos no se leían como el mismo estado.
+ * El encendido es `ui-accent-bg`, o sea el color del cuarto, como manda el kit.
+ *
+ * `ui-presion` y NO `ui-boton`: esta fila es densa y los 44 px táctiles del kit la
+ * partirían en dos. Misma razón por la que el eje no lleva `ui-boton` en ningún sitio.
+ */
+const HERRAMIENTA = 'ui-presion rounded-lg border px-2.5 py-1 text-2xs font-semibold'
+const HERR_APAGADA = 'border-white/10 text-white/45 hover:bg-white/10 hover:text-white/80'
+const HERR_ENCENDIDA = 'ui-accent-bg border-transparent'
 
 /** Los tres menús del cuarto, en el orden en que se recorren. */
 type Modo = 'metas' | 'planes' | 'cronograma'
@@ -130,6 +140,8 @@ export function Cronograma({
   ambito,
   ambitoId,
   ejemplo,
+  metaInicial,
+  filtro,
 }: {
   metas: Rutina[]
   metaArmada: Rutina | null
@@ -149,6 +161,16 @@ export function Cronograma({
   /** Meta de ejemplo del dominio de la app (ya localizada): se ofrece como chip y
    * placeholder del alta para que el usuario la personalice antes de crearla. */
   ejemplo?: string
+  /** Se abre directamente en la hoja de esta meta (su plan si lo tiene). */
+  metaInicial?: number
+  /**
+   * El filtro por apps, en la fila de herramientas. Lo monta quien pasa `metas`,
+   * porque `FiltroApps` necesita la lista SIN filtrar para armar sus chips (con la
+   * filtrada, apagar una app la borraría de su propia lista y no habría manera de
+   * volver a encenderla). El cronograma embebido en una app no lo lleva: ahí la app
+   * ya está fija.
+   */
+  filtro?: ReactNode
 }) {
   const t = useT()
   // Índice en NIVELES_ZOOM, no un px/día suelto: los botones −/+ saltan de nivel en
@@ -159,6 +181,10 @@ export function Cronograma({
   const [plegados, setPlegados] = useState<Set<number>>(new Set())
   const [busca, setBusca] = useState('')
   const [ocultarHechas, setOcultarHechas] = useState(false)
+  // Con el filtro por apps puesto, `metas` llega recortada y una sub-meta cuya madre
+  // quedó fuera se pinta como raíz: soltarla escribiría ese `padreId` de mentira y la
+  // desgajaría del árbol real. Es el mismo motivo por el que `ambito` apaga el arrastre.
+  const filtrandoApps = useCalendarioFiltro((s) => s.apps.size > 0)
   // Mandos del eje a la vista (palomear, colgar sub-metas, detalle, borrar y el
   // arrastre). Apagados, cada fila es solo su nombre y su plazo. Como en el
   // índice de Biblioteca, no se recuerda: se enciende para retocar y se apaga.
@@ -287,6 +313,27 @@ export function Cronograma({
     const plan = planPorMeta.get(r.id)
     if (plan?.id != null) setPantalla({ tipo: 'hojaPlan', planId: plan.id })
     else setPantalla({ tipo: 'hojaMeta', metaId: r.id })
+  }
+
+  /**
+   * Entrada directa a una meta: quien abre el planificador desde las Misiones de
+   * su app ya eligió cuál mirar. Es un ajuste en render (no un efecto) y espera a
+   * que los planes hayan cargado — con el repo en vuelo `planPorMeta` está vacío
+   * y una meta con plan aterrizaría en su hoja pelada. Una sola vez: a partir de
+   * ahí manda la navegación del usuario.
+   */
+  const [entradaVista, setEntradaVista] = useState<number | null>(null)
+  if (
+    metaInicial != null &&
+    metaInicial !== entradaVista &&
+    planesVivos !== undefined &&
+    metas.some((m) => m.id === metaInicial)
+  ) {
+    setEntradaVista(metaInicial)
+    const plan = planPorMeta.get(metaInicial)
+    setPantalla(
+      plan?.id != null ? { tipo: 'hojaPlan', planId: plan.id } : { tipo: 'hojaMeta', metaId: metaInicial },
+    )
   }
 
   /**
@@ -605,10 +652,21 @@ export function Cronograma({
 
   const filtrando = busca.trim() !== '' || ocultarHechas
 
+  /**
+   * Dos anchos y solo dos, como en Ideas: RIEL (`max-w-2xl`) para lo que se lee en
+   * columna —el menú, las herramientas, la lista, los planes y las hojas— y LIENZO
+   * para lo que necesita superficie. El menú no se mueve nunca: su riel es suyo, no
+   * el de este contenedor.
+   *
+   * El eje va sin tope: `ajustar()` encuadra midiendo `clientWidth`, así que
+   * meterlo en el riel dejaría la línea de tiempo a menos de la mitad.
+   */
+  const riel = enEje ? '' : disposicion === 'lista' || !enLista || modo !== 'metas' ? 'max-w-2xl' : 'max-w-5xl'
+
   return (
-    <div className="flex min-h-0 flex-1 flex-col">
+    <div className={`mx-auto w-full space-y-3 ${riel}`}>
       {/* Metas → Planes → Cronograma: el borrador va antes que el eje, no al revés. */}
-      <div className="mx-auto w-full max-w-2xl shrink-0 px-3 pt-1">
+      <div className="mx-auto w-full max-w-2xl">
         <PestanasCarpeta
           items={MENUS}
           activo={modo}
@@ -624,7 +682,7 @@ export function Cronograma({
       {/* Las herramientas de la pantalla activa, en su propia fila: compartiendo la
           de los menús no se distinguía el «dónde estoy» del «qué puedo hacer aquí». */}
       {conHerramientas && (
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 px-3 pt-2">
+        <div className="mx-auto flex w-full max-w-2xl flex-wrap items-center gap-x-2 gap-y-1 rounded-xl border border-white/10 bg-white/5 px-2 py-1.5">
         {/* El eje acotado es de UNA meta: se entra desde su hoja y este es el
             camino de vuelta (el global no lo lleva: su vuelta son las pestañas). */}
         {metaEje && (
@@ -632,7 +690,7 @@ export function Cronograma({
             type="button"
             data-tut="cal.cron.volver"
             onClick={() => abrirMeta(metaEje)}
-            className="rounded-lg px-2 py-1 text-[11px] font-semibold text-white/45 transition hover:bg-white/10 hover:text-white/85"
+            className="ui-presion rounded-lg px-2 py-1 text-2xs font-semibold text-white/45 transition hover:bg-white/10 hover:text-white/85"
           >
             ‹ {t('cal.cron.volver', 'Volver a la meta')}
           </button>
@@ -644,15 +702,18 @@ export function Cronograma({
           value={busca}
           onChange={(e) => setBusca(e.target.value)}
           placeholder={t('cal.cron.buscar', 'Buscar…')}
-          className="w-36 rounded-lg border border-white/10 bg-black/30 px-2.5 py-1 text-[11px] text-white/85 placeholder:text-white/25 focus:outline-none"
+          className="w-36 rounded-lg border border-white/10 bg-black/30 px-2.5 py-1 text-2xs text-white/85 placeholder:text-white/25 focus:border-accent/60 focus:outline-none"
         />
+
+        {/* El filtro por apps, junto al buscador: los dos acotan lo mismo. */}
+        {filtro}
 
         {enLista && modo === 'metas' && !ambito && (
           <>
             <button
               type="button"
               onClick={() => void nuevaCategoria()}
-              className="rounded-lg border border-white/15 px-2.5 py-1 text-[11px] font-semibold text-white/70 transition hover:bg-white/10"
+              className={`ui-presion ${HERRAMIENTA} ${HERR_APAGADA}`}
             >
               + {t('cal.metas.categoria', 'categoría')}
             </button>
@@ -665,8 +726,8 @@ export function Cronograma({
                   type="button"
                   onClick={() => cambiarDisposicion(d)}
                   title={TITULO_DISPOSICION[d](t)}
-                  className={`rounded-md px-2 py-1 text-[11px] transition ${
-                    disposicion === d ? 'bg-white/15 text-white' : 'text-white/40 hover:text-white/80'
+                  className={`ui-presion rounded-md px-2 py-1 text-2xs ${
+                    disposicion === d ? 'ui-accent-bg' : 'text-white/40 hover:bg-white/10 hover:text-white/80'
                   }`}
                 >
                   <Icono nombre={ICONO_DISPOSICION[d]} />
@@ -687,9 +748,7 @@ export function Cronograma({
           title={t('cal.cron.editar', 'Editar las metas')}
           aria-label={t('cal.cron.editar', 'Editar las metas')}
           aria-pressed={edicion}
-          className={`rounded-lg border px-2.5 py-1 text-[11px] font-semibold transition ${
-            edicion ? 'ui-accent-bg border-transparent' : 'border-white/10 text-white/45 hover:text-white/80'
-          }`}
+          className={`ui-presion ${HERRAMIENTA} ${edicion ? HERR_ENCENDIDA : HERR_APAGADA}`}
         >
           <Icono nombre="editar" />
         </button>
@@ -697,9 +756,7 @@ export function Cronograma({
           type="button"
           onClick={() => setOcultarHechas((v) => !v)}
           title={t('cal.cron.ocultarHechas', 'Ocultar las completadas')}
-          className={`rounded-lg border px-2.5 py-1 text-[11px] font-semibold transition ${
-            ocultarHechas ? 'border-emerald-400/50 bg-emerald-500/15 text-emerald-300' : 'border-white/10 text-white/45 hover:text-white/80'
-          }`}
+          className={`ui-presion ${HERRAMIENTA} ${ocultarHechas ? HERR_ENCENDIDA : HERR_APAGADA}`}
         >
           {t('cal.cron.hechas', 'Hechas')}
         </button>
@@ -708,7 +765,7 @@ export function Cronograma({
           onClick={plegarTodo}
           disabled={conHijas.length === 0}
           title={todoPlegado ? t('cal.cron.desplegarTodo', 'Desplegar todo') : t('cal.cron.plegarTodo', 'Plegar todo')}
-          className="rounded-lg border border-white/10 px-2.5 py-1 text-[11px] font-semibold text-white/45 transition hover:text-white/80 disabled:opacity-25"
+          className={`ui-presion ${HERRAMIENTA} ${HERR_APAGADA} disabled:opacity-25`}
         >
           {todoPlegado ? '▸▸' : '▾▾'}
         </button>
@@ -721,8 +778,8 @@ export function Cronograma({
             value={planVisibleId ?? ''}
             onChange={(e) => setPlanVisibleId(e.target.value ? Number(e.target.value) : null)}
             title={t('cal.plan.vista', 'Qué cronograma ves')}
-            className={`rounded-lg border bg-black/30 px-2 py-1 text-[11px] font-semibold outline-none transition ${
-              planVisible ? 'border-violet-400/50 text-violet-200' : 'border-white/10 text-white/45'
+            className={`ui-presion rounded-lg border bg-black/30 px-2 py-1 text-2xs font-semibold outline-none ${
+              planVisible ? 'border-accent/60 text-accent' : 'border-white/10 text-white/45'
             }`}
           >
             <option value="">{t('cal.plan.real', 'Real')}</option>
@@ -741,7 +798,7 @@ export function Cronograma({
           <button
             type="button"
             onClick={irAHoy}
-            className="rounded-lg border border-white/15 px-2.5 py-1 text-[11px] font-semibold text-white/75 transition hover:bg-white/10"
+            className={`ui-presion ${HERRAMIENTA} border-white/15 text-white/75 hover:bg-white/10`}
           >
             {t('cal.hoy', 'Hoy')}
           </button>
@@ -750,7 +807,7 @@ export function Cronograma({
             onClick={ajustar}
             disabled={rangos.length === 0}
             title={t('cal.cron.ajustarAyuda', 'Encuadrar todos los periodos')}
-            className="rounded-lg border border-white/15 px-2.5 py-1 text-[11px] font-semibold text-white/75 transition hover:bg-white/10 disabled:opacity-25"
+            className={`ui-presion ${HERRAMIENTA} border-white/15 text-white/75 hover:bg-white/10 disabled:opacity-25`}
           >
             {t('cal.cron.ajustar', 'Ajustar')}
           </button>
@@ -758,8 +815,8 @@ export function Cronograma({
             type="button"
             onClick={() => setRejilla((v) => !v)}
             title={rejilla ? t('cal.cron.apagarRejilla', 'Apagar la rejilla') : t('cal.cron.encenderRejilla', 'Encender la rejilla')}
-            className={`rounded-lg border p-1.5 text-[11px] transition ${
-              rejilla ? 'border-white/25 bg-white/10 text-white/80' : 'border-white/10 text-white/40 hover:text-white/70'
+            className={`ui-presion rounded-lg border p-1.5 text-2xs ${
+              rejilla ? HERR_ENCENDIDA : HERR_APAGADA
             }`}
           >
             <Icono nombre="rejilla" />
@@ -770,11 +827,11 @@ export function Cronograma({
               onClick={() => irANivel(nivel + 1)}
               disabled={nivel >= NIVELES_ZOOM.length - 1}
               title={t('cal.cron.alejar', 'Alejar')}
-              className="w-7 rounded-md py-1 text-xs font-bold text-white/60 transition hover:bg-white/10 disabled:opacity-25"
+              className="ui-presion w-7 rounded-md py-1 text-xs font-bold text-white/60 transition hover:bg-white/10 disabled:opacity-25"
             >
               −
             </button>
-            <span className="w-16 truncate text-center text-[11px] font-semibold text-white/50">
+            <span className="w-16 truncate text-center text-2xs font-semibold text-white/50">
               {t(`cal.cron.nivel.${NIVELES_ZOOM[nivel].clave}`, NIVELES_ZOOM[nivel].nombre)}
             </span>
             <button
@@ -782,7 +839,7 @@ export function Cronograma({
               onClick={() => irANivel(nivel - 1)}
               disabled={nivel <= 0}
               title={t('cal.cron.acercar', 'Acercar')}
-              className="w-7 rounded-md py-1 text-xs font-bold text-white/60 transition hover:bg-white/10 disabled:opacity-25"
+              className="ui-presion w-7 rounded-md py-1 text-xs font-bold text-white/60 transition hover:bg-white/10 disabled:opacity-25"
             >
               +
             </button>
@@ -868,7 +925,10 @@ export function Cronograma({
         onPointerMove={moverPan}
         onPointerUp={soltarPan}
         onPointerLeave={soltarPan}
-        className="relative mt-2 min-h-0 flex-1 cursor-grab overflow-auto active:cursor-grabbing"
+        // Altura propia y no `flex-1`: el `<main>` del cuarto es un BLOQUE con su
+        // propio scroll, así que aquí `flex-1` no medía nada y los `sticky` de la
+        // cabecera de fechas y de la columna del árbol no tenían a qué pegarse.
+        className="relative h-[62vh] min-h-[24rem] cursor-grab overflow-auto rounded-xl border border-white/10 active:cursor-grabbing"
       >
         <div className="w-max min-w-full">
           {/* Cabecera: dos filas, la pareja que se lee a este zoom (contexto y detalle). */}
@@ -921,7 +981,7 @@ export function Cronograma({
                                 ? t('cal.meta.ejemplo', 'Ej.: {ejemplo}', { ejemplo })
                                 : t('cal.metaPlaceholder', 'Agregar una meta…')
                           }
-                          className="min-w-0 flex-1 rounded border border-white/10 bg-black/30 px-1.5 text-[10px] leading-none text-white/90 placeholder:text-white/25 focus:border-white/25 focus:outline-none"
+                          className="min-w-0 flex-1 rounded-lg border border-white/10 bg-black/30 px-1.5 text-[10px] leading-none text-white/90 placeholder:text-white/25 focus:border-white/25 focus:outline-none"
                         />
                         {conIA && (
                           <button
@@ -932,7 +992,7 @@ export function Cronograma({
                             onClick={() => void abrirPlanIA()}
                             disabled={!nombre.trim()}
                             title={t('cal.plan.ia', 'Planear con IA')}
-                            className="shrink-0 rounded-full border border-violet-400/50 bg-violet-500/20 px-1.5 py-0.5 text-[10px] leading-none text-violet-200 transition hover:bg-violet-500/35 hover:text-violet-100 disabled:opacity-25 disabled:hover:bg-violet-500/20"
+                            className="ui-presion shrink-0 rounded-full border border-plan/50 bg-plan/20 px-1.5 py-0.5 text-[10px] leading-none text-plan transition hover:bg-plan/35 hover:text-plan disabled:opacity-25 disabled:hover:bg-plan/20"
                           >
                             <Icono nombre="brillo" />
                           </button>
@@ -942,7 +1002,7 @@ export function Cronograma({
                       <button
                         type="button"
                         onClick={() => setAgregandoRaiz(true)}
-                        className="shrink-0 rounded px-1.5 py-0.5 text-xs font-bold leading-none text-emerald-300/90 transition hover:bg-emerald-500/15 hover:text-emerald-200"
+                        className="shrink-0 rounded-lg px-1.5 py-0.5 ui-presion text-xs font-bold leading-none text-accent hover:bg-white/10"
                       >
                         +{' '}
                         {metaEje
@@ -996,7 +1056,7 @@ export function Cronograma({
                       // la desgajaría) ni el cronograma embebido en una app, donde
                       // el `padreId` re-enraizado es de mentira.
                       gesto={
-                        !edicion || ambito || f.meta.id == null || f.meta.id === metaEje?.id
+                        !edicion || ambito || filtrandoApps || f.meta.id == null || f.meta.id === metaEje?.id
                           ? undefined
                           : arrFilas.props(String(f.meta.id))
                       }

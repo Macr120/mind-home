@@ -1,10 +1,18 @@
+import { useState } from 'react'
 import { useLayout } from '../../state/layoutStore'
 import { useAjustes } from '../../state/ajustesStore'
 import { useBienvenida } from '../../bienvenida/bienvenidaStore'
 import { useTutorial } from '../../tutorial/tutorialStore'
 import { useSelectorTut } from '../../tutorial/SelectorTutorial'
 import { TUTORIALES_MENU } from '../../tutorial/menus.meta'
-import { FLUJOS_NUCLEO, flujosDeApp, lanzarFlujo } from '../../tutorial/registro'
+import {
+  ESENCIALES_NUCLEO,
+  FLUJOS_NUCLEO,
+  flujosDeApp,
+  lanzarEsencial,
+  lanzarFlujo,
+} from '../../tutorial/registro'
+import { ListaToursApp } from '../../tutorial/ListaToursApp'
 import { hayNarracion } from '../../tutorial/narracion'
 import { plantillasCuarto, plantillasInfraestructura } from '../../registry'
 import { esDemo } from '../../edicion'
@@ -27,6 +35,8 @@ export function EditorTutorialesSection({
   const setHudTutoriales = useAjustes((s) => s.setHudTutoriales)
   const vozTutoriales = useAjustes((s) => s.vozTutoriales)
   const setVozTutoriales = useAjustes((s) => s.setVozTutoriales)
+  // App elegida en la rejilla: despliega debajo su lista de dos tipos.
+  const [appAbierta, setAppAbierta] = useState<string | null>(null)
 
   // Los tours apuntan al HUD y a los menús: el editor tapa media pantalla, así
   // que se cierra antes. El que necesita el editor lo reabre en su `preparar`.
@@ -137,6 +147,22 @@ export function EditorTutorialesSection({
           {t('ajustes.tutoriales.nucleo', 'El calendario y las metas')}
         </p>
         <div className="grid grid-cols-1 gap-1.5">
+          {/* Los esenciales del núcleo corren en la casa real; los demás son
+              ejemplos sobre el año de Pep@. */}
+          {Object.entries(ESENCIALES_NUCLEO).map(([clave, def]) => (
+            <button
+              key={def.id}
+              type="button"
+              onClick={() => {
+                useLayout.getState().setEditMode(false)
+                void lanzarEsencial(clave)
+              }}
+              className="flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-start text-xs font-semibold text-white/75 transition hover:bg-white/10"
+            >
+              <span className="min-w-0 flex-1 truncate">{t(def.titulo.clave, def.titulo.es)}</span>
+              <Icono nombre="play" />
+            </button>
+          ))}
           {Object.entries(FLUJOS_NUCLEO).flatMap(([clave, defs]) =>
             defs.map((def) => (
               <button
@@ -168,20 +194,27 @@ export function EditorTutorialesSection({
               <button
                 key={p.id}
                 type="button"
-                onClick={() => {
-                  // Con flujos, el primero es la introducción de la app.
-                  useLayout.getState().setEditMode(false)
-                  void lanzarFlujo(p.id, flujosDeApp(p.id)[0])
-                }}
+                // El icono despliega debajo la lista de dos tipos (Esencial + Ejemplos).
+                onClick={() => setAppAbierta((prev) => (prev === p.id ? null : p.id))}
                 title={nombre}
                 aria-label={nombre}
-                className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/5 text-lg transition hover:border-amber-400/60 hover:bg-amber-400/15"
+                className={`grid h-9 w-9 place-items-center rounded-lg border text-lg transition ${
+                  appAbierta === p.id
+                    ? 'border-amber-400/70 bg-amber-400/15'
+                    : 'border-white/10 bg-white/5 hover:border-amber-400/60 hover:bg-amber-400/15'
+                }`}
               >
                 <Icono emoji={p.icon} />
               </button>
             )
           })}
         </div>
+        {appAbierta && (
+          <ListaToursApp
+            plantillaId={appAbierta}
+            alLanzar={() => useLayout.getState().setEditMode(false)}
+          />
+        )}
       </div>
 
       {/* Infraestructura: se construye sobre el mapa, no ocupa cuarto */}

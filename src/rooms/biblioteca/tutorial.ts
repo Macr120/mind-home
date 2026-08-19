@@ -4,7 +4,7 @@
  */
 import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { abrirApp } from '../../core/abrirApp'
-import { clickTut } from '../../core/tutorial/dom'
+import { clickTut, esperarTut } from '../../core/tutorial/dom'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
@@ -172,6 +172,71 @@ export const cuerpoResumen: CuerpoTutorial = {
         'tut.app-biblioteca--resumen.6.texto',
         'Y si quieres el detalle, el historial guarda cada sesión con sus minutos y su campo, archivado por año, mes y semana.',
       ),
+    },
+  ],
+}
+
+/**
+ * ESENCIAL: corre en la casa real y recorre los cuatro menús de la biblioteca
+ * uno por uno. Sin datos de por medio: sus anclas son las pestañas, que existen
+ * con la BD vacía (el árbol de la enciclopedia todavía puede estar sin ramas).
+ */
+export const cuerpoEsencial: CuerpoTutorial = {
+  preparar: () => {
+    abrirApp('biblioteca')
+  },
+  pasos: [
+    {
+      titulo: T('tut.app-biblioteca--esencial.1.titulo', 'Tu biblioteca'),
+      texto: T(
+        'tut.app-biblioteca--esencial.1.texto',
+        'La biblioteca es tu enciclopedia personal: preguntas lo que no sabes, guardas lo que aprendes y llevas la cuenta de lo que estudias. Son cuatro menús.',
+      ),
+    },
+    {
+      sel: 'biblioteca.tab.charlas',
+      titulo: T('tut.app-biblioteca--esencial.2.titulo', 'Charlas'),
+      texto: T(
+        'tut.app-biblioteca--esencial.2.texto',
+        'Aquí preguntas al Sabio sobre cualquier tema y la conversación queda guardada. Cada charla se clasifica sola en su campo del conocimiento y sale destilada como ficha de la enciclopedia.',
+      ),
+      alEntrar: async () => {
+        await esperarTut('biblioteca.tab.charlas', 4000)
+        clickTut('biblioteca.tab.charlas')
+      },
+    },
+    {
+      sel: 'biblioteca.tab.enciclopedia',
+      titulo: T('tut.app-biblioteca--esencial.3.titulo', 'Enciclopedia'),
+      texto: T(
+        'tut.app-biblioteca--esencial.3.texto',
+        'El árbol donde vive lo aprendido, ordenado por campo del conocimiento. Cada ficha lleva su resumen y sus puntos clave, y también puedes escribirlas a mano; con el lápiz haces crecer el índice a tu medida.',
+      ),
+      alEntrar: () => {
+        clickTut('biblioteca.tab.enciclopedia')
+      },
+    },
+    {
+      sel: 'biblioteca.tab.estudio',
+      titulo: T('tut.app-biblioteca--esencial.4.titulo', 'Estudio'),
+      texto: T(
+        'tut.app-biblioteca--esencial.4.texto',
+        'El reloj para estudiar: eliges campo y duración, de corrido o por pomodoros, y cada tramo se registra solo. Sigue corriendo aunque salgas del cuarto.',
+      ),
+      alEntrar: () => {
+        clickTut('biblioteca.tab.estudio')
+      },
+    },
+    {
+      sel: 'biblioteca.tab.resumen',
+      titulo: T('tut.app-biblioteca--esencial.5.titulo', 'Resumen'),
+      texto: T(
+        'tut.app-biblioteca--esencial.5.texto',
+        'El panorama de todo lo anterior: cuántas entradas tiene tu enciclopedia y qué parte del índice cubriste, los minutos de estudio, tu racha y los días en que estudiaste.',
+      ),
+      alEntrar: () => {
+        clickTut('biblioteca.tab.resumen')
+      },
     },
   ],
 }

@@ -149,14 +149,14 @@ export function PistaPlan({
             top: TOP,
             width: Math.max(anchoDeRango(rango.ini, rango.fin, pxPerDia), 3),
             height: ALTO,
-            borderColor: incoherente ? '#fbbf24' : `${color}99`,
-            background: `repeating-linear-gradient(45deg, ${color}33 0 4px, transparent 4px 8px)`,
+            borderColor: incoherente ? '#fbbf24' : `color-mix(in srgb, ${color} 60%, transparent)`,
+            background: `repeating-linear-gradient(45deg, color-mix(in srgb, ${color} 20%, transparent) 0 4px, transparent 4px 8px)`,
           }}
           className={`absolute overflow-hidden rounded border border-dashed px-1 ${
             editable ? 'cursor-grab touch-none active:cursor-grabbing' : 'pointer-events-none'
           }`}
         >
-          <span className="truncate text-[9px] leading-4" style={{ color: `${color}dd` }}>
+          <span className="truncate text-[9px] leading-4" style={{ color: `color-mix(in srgb, ${color} 87%, transparent)` }}>
             {nodo.nombre}
           </span>
 
@@ -185,7 +185,7 @@ export function PistaPlan({
             width: Math.max(anchoDeRango(previo.ini, previo.fin, pxPerDia), 3),
             height: ALTO,
           }}
-          className="pointer-events-none absolute rounded border border-violet-400 bg-violet-500/30"
+          className="pointer-events-none absolute rounded border border-plan bg-plan/30"
         />
       )}
     </div>

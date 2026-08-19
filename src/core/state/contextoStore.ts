@@ -36,6 +36,8 @@ export type TipoContextual =
   | 'recoger'
   /** Vía o montaña rusa al alcance: monta el tren/carrito. */
   | 'tren'
+  /** Esa misma vía, con su tren dando vueltas: abre qué hacer con él. */
+  | 'trenMenu'
   /** De pie en una cancha: abre la elección de modo del deporte. */
   | 'cancha'
   /** De pie en la meta de un circuito: abre la previa de la carrera. */

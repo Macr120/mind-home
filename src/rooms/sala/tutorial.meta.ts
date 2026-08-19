@@ -1,4 +1,5 @@
 import type { CuerpoTutorial, TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import { fichaEsencial } from '../../core/tutorial/esencial'
 
 /**
  * Fichas de los tutoriales de esta app: id, título y resumen. Es lo único que
@@ -53,3 +54,13 @@ const flujoProximo = tour(
 )
 
 export const flujosSala: TutorialDef[] = [flujoMapa, flujoJapon, flujoProximo]
+
+/** Esencial: recorre los cuatro menús en la casa real, sin necesitar datos. */
+export const esencialSala: TutorialDef = fichaEsencial(
+  'sala',
+  T(
+    'tut.app-sala--esencial.resumen',
+    'La sala es tu mundo viajero, en cuatro menús: Mapa (pines de lugares en el mapamundi, con vista de globo), Itinerario (lugares por conocer con su plan día a día), Rutas (recorridos que encadenan lugares) y Bitácora (recuerdos con fotos y anécdotas por país).',
+  ),
+  () => import('./tutorial').then((m) => m.cuerpoEsencial as CuerpoTutorial),
+)

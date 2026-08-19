@@ -33,6 +33,7 @@ import {
   carreraFrame,
   multiplicadorSuperficie,
   alturaSueloEn,
+  ySueloJugador,
   SUPERFICIE_SUELO,
   VEL_CARRERA,
   multiplicadorTrompo,
@@ -74,6 +75,8 @@ const _prevMarcha = new THREE.Vector3(-3, 0, 0)
 let _torsoBateo = 0
 // Offset de salto aplicado en el frame anterior y último disparo láser procesado.
 let saltoAplicado = 0
+// Ídem yendo en el tren: su Y la dicta la vía, el brinco se superpone aparte.
+let saltoTren = 0
 let disparoProcesado = 0
 const _dirRayo = new THREE.Vector3()
 const _ladoRayo = new THREE.Vector3()
@@ -420,8 +423,8 @@ function animarTransicion(t: Transicion, cur: THREE.Vector3, group: THREE.Group)
   const elapsed = performance.now() - t.inicio
   const p = Math.min(1, elapsed / DUR_TRANS)
   const { cx, cz, dir, colX, colZ } = posAcceso(t.acceso)
-  const yDesde = nivelBaseY(t.desde, apilado)
-  const yHacia = nivelBaseY(t.hacia, apilado)
+  const yDesde = nivelBaseY(t.desde, apilado) + SUPERFICIE_SUELO
+  const yHacia = nivelBaseY(t.hacia, apilado) + SUPERFICIE_SUELO
   const land = aterrizaje(t)
   const boca = bocaAcceso(colX, colZ, dir)
   const subiendo = t.hacia > t.desde
@@ -560,7 +563,7 @@ function conducir(
         }
       }
     }
-    cur.set(px, targetY, pz)
+    cur.set(px, targetY + alturaSueloEn(px, pz), pz)
     playerPos.copy(cur)
     useHouse.getState().target.set(px, 0, pz)
     group.rotation.set(0, heading, 0)
@@ -787,7 +790,7 @@ function terminarJuego(cur: THREE.Vector3, group: THREE.Group, x: number, z: num
   useParque.getState().salirForzado()
   const { playerLevel, explotado } = useHouse.getState()
   const libre = puntoLibreCerca(x, z, playerLevel, RADIO)
-  cur.set(libre.x, nivelBaseY(playerLevel, !explotado), libre.z)
+  cur.set(libre.x, ySueloJugador(playerLevel, !explotado, libre.x, libre.z), libre.z)
   playerPos.copy(cur)
   useHouse.getState().target.set(libre.x, 0, libre.z)
   group.rotation.order = 'XYZ'
@@ -799,7 +802,7 @@ function acercarse(cur: THREE.Vector3, group: THREE.Group, q: number, meta: THRE
   const x = lin(parqueFrame.startX, meta.x, q)
   const z = lin(parqueFrame.startZ, meta.z, q)
   if (Math.hypot(meta.x - x, meta.z - z) > 0.02) group.rotation.set(0, Math.atan2(meta.x - x, meta.z - z), 0)
-  cur.set(x, lin(cur.y, 0, 0.3), z)
+  cur.set(x, lin(cur.y, SUPERFICIE_SUELO, 0.3), z)
   playerPos.copy(cur)
 }
 
@@ -854,7 +857,7 @@ function usarJuego(cur: THREE.Vector3, group: THREE.Group, delta: number) {
     let lz: number
     if (e < 1600) {
       const q = suave((e - 500) / 1100)
-      ly = (baseY + 0.96 * k) * q
+      ly = lin(SUPERFICIE_SUELO, baseY + 0.96 * k, q)
       lz = lin(-1.45, -0.62, q) * k
     } else if (e < 2100) {
       const q = (e - 1600) / 500
@@ -873,7 +876,7 @@ function usarJuego(cur: THREE.Vector3, group: THREE.Group, delta: number) {
       lz = lin(-0.05, 1.14, q) * k
     } else {
       const q = (e - 3050) / 350
-      ly = lin(baseY + 0.06 * k - yTrasero, 0, q)
+      ly = lin(baseY + 0.06 * k - yTrasero, SUPERFICIE_SUELO, q)
       lz = lin(1.14, 1.8, q) * k
     }
     mundoJuego(0, ly, lz, _pjPos)
@@ -914,7 +917,7 @@ function usarJuego(cur: THREE.Vector3, group: THREE.Group, delta: number) {
       const q = (e - 500) / 350
       parqueFrame.pose = 'colgado'
       lx = lin(dir * 1.1, dir * 0.6, q) * k
-      ly = Math.sin((q * Math.PI) / 2) * yCuelga
+      ly = lin(SUPERFICIE_SUELO, yCuelga, Math.sin((q * Math.PI) / 2))
     } else if (e < 3250) {
       const q = (e - 850) / 2400
       parqueFrame.pose = 'colgado'
@@ -923,7 +926,7 @@ function usarJuego(cur: THREE.Vector3, group: THREE.Group, delta: number) {
     } else {
       const q = (e - 3250) / 350
       lx = lin(-dir * 0.6, -dir * 1.1, q) * k
-      ly = yCuelga * (1 - suave(q))
+      ly = lin(yCuelga, SUPERFICIE_SUELO, suave(q))
     }
     mundoJuego(lx, ly, 0, _pjPos)
     cur.copy(_pjPos)
@@ -960,7 +963,7 @@ function usarJuego(cur: THREE.Vector3, group: THREE.Group, delta: number) {
     if (e < 700) {
       const q = suave(Math.min(1, e / 700))
       parqueFrame.pose = q > 0.6 ? 'sentado' : 'de-pie'
-      cur.set(lin(parqueFrame.startX, _pjPos.x, q), lin(0, ySentado, q), lin(parqueFrame.startZ, _pjPos.z, q))
+      cur.set(lin(parqueFrame.startX, _pjPos.x, q), lin(SUPERFICIE_SUELO, ySentado, q), lin(parqueFrame.startZ, _pjPos.z, q))
     } else {
       parqueFrame.pose = 'sentado'
       cur.copy(_pjPos)
@@ -1000,7 +1003,7 @@ function usarJuego(cur: THREE.Vector3, group: THREE.Group, delta: number) {
     const q = suave((e - 500) / 500)
     parqueFrame.pose = q > 0.4 ? 'sentado' : 'de-pie'
     mundoJuego(xSeat, 0, 0.95 * k, _pjAux)
-    cur.set(lin(_pjAux.x, _pjPos.x, q), lin(0, _pjPos.y, q), lin(_pjAux.z, _pjPos.z, q))
+    cur.set(lin(_pjAux.x, _pjPos.x, q), lin(SUPERFICIE_SUELO, _pjPos.y, q), lin(_pjAux.z, _pjPos.z, q))
     playerPos.copy(cur)
     group.rotation.set(0, heading, 0)
     return
@@ -1040,7 +1043,7 @@ function usarAccion(cur: THREE.Vector3, group: THREE.Group, delta: number) {
     return
   }
   const { playerLevel, explotado } = useHouse.getState()
-  const floorY = nivelBaseY(playerLevel, !explotado)
+  const floorY = nivelBaseY(playerLevel, !explotado) + SUPERFICIE_SUELO
   const avEsc = useDiseño.getState().avatar.escala
   const cfg = CFG_ACCION[tipo]
   const e = performance.now() - accionCuartoFrame.inicio
@@ -1080,10 +1083,9 @@ function usarAccion(cur: THREE.Vector3, group: THREE.Group, delta: number) {
       heading = accionCuartoFrame.rotYRad + Math.PI
     }
     // La superficie MEDIDA ya viene en Y de mundo. El fallback tabulado se mide
-    // desde el plano donde se DIBUJAN los objetos (piso + SUPERFICIE_SUELO), no
-    // desde el piso: ese desfase era el que hundía al avatar en todo lo que se
-    // sentaba. Los offsets de cadera (-0.6/+0.15) sí son correctos.
-    const superficie = accionCuartoFrame.superficieY ?? floorY + SUPERFICIE_SUELO + cfg.asiento
+    // desde el plano donde se DIBUJAN los objetos (floorY, que ya incluye
+    // SUPERFICIE_SUELO). Los offsets de cadera (-0.6/+0.15) sí son correctos.
+    const superficie = accionCuartoFrame.superficieY ?? floorY + cfg.asiento
     yPose = acostado ? superficie + 0.15 * avEsc : superficie - 0.6 * avEsc
   } else {
     // Encara el objeto; parado justo encima (frente 0) mira hacia donde llegó.
@@ -1190,11 +1192,14 @@ export function Character() {
       if (g) {
         g.rotation.order = 'XYZ'
         g.rotation.x = 0
-        g.position.set(libre.x, nivelBaseY(playerLevel, !explotado), libre.z)
+        g.position.set(libre.x, ySueloJugador(playerLevel, !explotado, libre.x, libre.z), libre.z)
         playerPos.copy(g.position)
         useHouse.getState().target.set(libre.x, 0, libre.z)
       }
     }
+    // Montado en el tren: bajarse. Si no, el jugador seguiría recorriendo la vía
+    // bajo la UI del editor y esa vía se quedaría sin su tren para siempre.
+    if (editMode && useTren.getState().montado) useTren.getState().bajar()
     // Sentado en la dona de la alberca: bajarse (la dona se queda donde estaba).
     if (editMode && useFlotador.getState().instanciaId != null) useFlotador.getState().salirForzado()
     // Con una acción de cuarto en uso: soltar y volver al punto de partida.
@@ -1206,7 +1211,7 @@ export function Character() {
       if (g) {
         g.rotation.order = 'XYZ'
         g.rotation.x = 0
-        g.position.set(libre.x, nivelBaseY(playerLevel, !explotado), libre.z)
+        g.position.set(libre.x, ySueloJugador(playerLevel, !explotado, libre.x, libre.z), libre.z)
         playerPos.copy(g.position)
         useHouse.getState().target.set(libre.x, 0, libre.z)
       }
@@ -1240,7 +1245,7 @@ export function Character() {
     // Arrastre en el editor (pestaña Personajes): el avatar sigue al cursor.
     if (dragChar.id === PERSONAJE_AVATAR) {
       const { playerLevel: lvl, explotado: expl } = useHouse.getState()
-      cur.set(dragChar.x, nivelBaseY(lvl, !expl), dragChar.z)
+      cur.set(dragChar.x, ySueloJugador(lvl, !expl, dragChar.x, dragChar.z), dragChar.z)
       playerPos.copy(cur)
       useHouse.getState().target.set(dragChar.x, 0, dragChar.z)
       return
@@ -1296,9 +1301,17 @@ export function Character() {
     // Montado en el tren/carrito: recorre la vía solo (ignora el input).
     if (trenFrame.montado) {
       marchaAvatar.velocidad = 0 // va de pie sobre el vagón, sin marcha
+      // Brinco a bordo (Espacio o el botón «Saltar»): el vagón salta contigo,
+      // como los vehículos. El offset del frame anterior se resta antes de
+      // avanzar para que el salto no entre a la física de la vía (la velocidad
+      // del carrito depende de la pendiente real).
+      cur.y -= saltoTren
       conducirTren(cur, ref.current, delta)
+      saltoTren = offsetSalto(performance.now())
+      cur.y += saltoTren
       return
     }
+    saltoTren = 0
     const { explotado } = useHouse.getState()
     let playerLevel = useHouse.getState().playerLevel
     // Sótanos (nivel -1): suelo CONTINUO con la planta baja. Al pisar la sub-celda de un
@@ -1354,9 +1367,10 @@ export function Character() {
         useHouse.getState().target.set(px, 0, pz)
       }
     }
-    // Altura destino: piso del nivel. En una alberca el personaje FLOTA en la lámina de
-    // agua (con un leve vaivén); en un búnker (sin agua) pisa el fondo, normal.
-    let targetY = nivelBaseY(playerLevel, !explotado)
+    // Altura destino: superficie pisable del nivel (tope de la losa, no su base).
+    // En una alberca el personaje FLOTA en la lámina de agua (con un leve vaivén);
+    // en un búnker (sin agua) pisa el fondo, normal.
+    let targetY = ySueloJugador(playerLevel, !explotado, cur.x, cur.z)
     let flotandoEnAgua = false
     if (playerLevel === -1 && useLayout.getState().subCeldasAgua.has(claveSubActual)) {
       flotandoEnAgua = true

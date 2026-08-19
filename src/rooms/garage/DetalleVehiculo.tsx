@@ -184,7 +184,7 @@ export function DetalleVehiculo({
       </section>
 
       {/* Mismo riel de píldoras que el garaje, ahora dentro de la ficha. */}
-      <div className="flex gap-1 rounded-2xl border border-white/10 bg-white/5 p-1">
+      <div data-tut="garage.detalle.tabs" className="flex gap-1 rounded-2xl border border-white/10 bg-white/5 p-1">
         {TABS_FICHA.map((tabItem) => {
           const activa = tab === tabItem.id
           return (

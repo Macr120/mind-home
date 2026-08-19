@@ -1,0 +1,82 @@
+[
+  {
+    "clave": "tut.app-descanso--esencial.2.texto",
+    "texto": "Cada noite registrada recebe uma pontuação que combina quanto tempo você dormiu, a que horas foi para a cama e quantas vezes acordou. Sem registros ainda, esta seção te convida a anotar a primeira noite."
+  },
+  { "clave": "tut.app-descanso--esencial.3.titulo", "texto": "Horário e avisos" },
+  {
+    "clave": "tut.app-descanso--esencial.3.texto",
+    "texto": "Você ajusta seu horário de dormir e de acordar arrastando as pontas da faixa do dia; o mesmo horário aparece como bloco no calendário da casa. Aqui você também liga o despertador com seu tom e os avisos para desacelerar antes de dormir."
+  },
+  { "clave": "tut.app-descanso--esencial.4.titulo", "texto": "Registrar a noite" },
+  {
+    "clave": "tut.app-descanso--esencial.4.texto",
+    "texto": "O formulário para anotar como você dormiu: a data, a hora em que foi para a cama e acordou, as interrupções e uma nota de qualidade, com espaço para uma observação."
+  },
+  { "clave": "tut.app-descanso--esencial.5.titulo", "texto": "O histórico" },
+  {
+    "clave": "tut.app-descanso--esencial.5.texto",
+    "texto": "Todas as noites que você for registrando ficam aqui, organizadas por ano, mês e semana, para você revisar seu descanso ao longo do tempo."
+  },
+  { "clave": "tut.app-despacho--esencial.1.titulo", "texto": "Suas finanças" },
+  {
+    "clave": "tut.app-despacho--esencial.1.texto",
+    "texto": "O escritório organiza seu dinheiro em quatro menus: o que você tem, o que entra e sai, suas metas e os mercados. Cada um abre suas próprias seções embaixo."
+  },
+  { "clave": "tut.app-despacho--esencial.2.titulo", "texto": "Patrimônio" },
+  {
+    "clave": "tut.app-despacho--esencial.2.texto",
+    "texto": "O que você tem e o que deve, em duas listas: ativos e passivos. A terceira seção projeta essa foto para o futuro com a taxa que você definir em cada linha."
+  },
+  { "clave": "tut.app-despacho--esencial.3.titulo", "texto": "Fluxo" },
+  {
+    "clave": "tut.app-despacho--esencial.3.texto",
+    "texto": "O dinheiro que entra e o que sai, separado em gastos, receitas e balanço. O balanço resume o período que você escolher — dia, semana, mês ou ano — com seu orçamento, suas categorias e sua tendência."
+  },
+  { "clave": "tut.app-despacho--esencial.4.titulo", "texto": "Metas" },
+  {
+    "clave": "tut.app-despacho--esencial.4.texto",
+    "texto": "Seus objetivos de dinheiro em três seções: poupança e investimento, dívida, e umas calculadoras que propõem um valor a partir do seu próprio balanço. Cada meta pode descer para o cronograma e ganhar uma data."
+  },
+  { "clave": "tut.app-despacho--esencial.5.titulo", "texto": "Mercados" },
+  {
+    "clave": "tut.app-despacho--esencial.5.texto",
+    "texto": "Cotações ao vivo de moedas, cripto, ações e commodities; precisa de conexão. É um painel de consulta: o app não recomenda o que comprar nem o que vender."
+  },
+  { "clave": "tut.app-diario--esencial.1.titulo", "texto": "O jornal de hoje" },
+  {
+    "clave": "tut.app-diario--esencial.1.texto",
+    "texto": "O jornal traz o briefing do dia em duas vistas: manchetes e efemérides. Não guarda dados próprios: todo dia traz conteúdo novo e à meia-noite substitui tudo."
+  },
+  { "clave": "tut.app-diario--esencial.2.titulo", "texto": "Manchetes" },
+  {
+    "clave": "tut.app-diario--esencial.2.texto",
+    "texto": "As manchetes do dia por categoria — mundo, economia, tecnologia, saúde, esportes e entretenimento —, filtráveis com os chips lá em cima. Vêm de imprensa real no seu idioma, com veículos que se revezam a cada dia."
+  },
+  { "clave": "tut.app-diario--esencial.3.titulo", "texto": "Efemérides" },
+  {
+    "clave": "tut.app-diario--esencial.3.texto",
+    "texto": "A outra metade do jornal: o que aconteceu num dia como hoje — uma obra, um livro, uma espécie, uma palavra. Serve de desculpa para abri-lo mesmo quando as notícias não interessam naquele dia."
+  },
+  { "clave": "tut.app-diario--esencial.4.titulo", "texto": "Se renova sozinho" },
+  {
+    "clave": "tut.app-diario--esencial.4.texto",
+    "texto": "A edição é baixada sozinha ao abrir o app e é substituída por inteiro à meia-noite: nada se acumula. Este botão força uma atualização antes desse horário."
+  },
+  { "clave": "tut.app-diario--esencial.5.titulo", "texto": "Entrega" },
+  {
+    "clave": "tut.app-diario--esencial.5.texto",
+    "texto": "Configure quais seções cada assistente te entrega no próprio chat dele, num horário fixo ou num momento surpresa do dia."
+  },
+  { "clave": "tut.app-ejercicio--esencial.1.titulo", "texto": "Seu treino" },
+  {
+    "clave": "tut.app-ejercicio--esencial.1.texto",
+    "texto": "O exercício reúne as três modalidades do corpo — força, resistência e flexibilidade — mais um menu de metas onde você decide quanto quer treinar por semana."
+  },
+  { "clave": "tut.app-ejercicio--esencial.2.titulo", "texto": "Metas" },
+  {
+    "clave": "tut.app-ejercicio--esencial.2.texto",
+    "texto": "O resumo do cômodo: sua sequência, os dias com algo registrado e uma barra por modalidade contra o objetivo semanal que você definir aqui. Também é aqui que se escolhe o sistema de medidas, em quilos ou em libras."
+  },
+  { "clave": "tut.app-ejercicio--esencial.3.titulo", "texto": "Força" }
+]

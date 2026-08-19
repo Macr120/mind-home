@@ -72,6 +72,8 @@ interface SesionState {
   restablecer: (email: string) => Promise<string | null>
   cambiarContrasena: (nueva: string) => Promise<string | null>
   eliminarCuenta: () => Promise<string | null>
+  /** Canjea un cupón de acceso (unlock + trial); devuelve el error o null. */
+  canjearCupon: (codigo: string) => Promise<string | null>
   refrescarPerfil: () => Promise<void>
   refrescarUso: () => Promise<void>
 }
@@ -84,6 +86,18 @@ function espejarPlan(plan: Plan, expira: string | null, fuePro: boolean, unlock:
   else localStorage.removeItem(LS_FUE_PRO)
   if (unlock) localStorage.setItem(LS_UNLOCK, '1')
   else localStorage.removeItem(LS_UNLOCK)
+}
+
+/**
+ * Espejo síncrono de «esta instalación tiene sesión». No guarda nada del
+ * usuario: solo el hecho, para que `haySesionProbable()` responda sin esperar a
+ * que el SDK hidrate. Lo escribe el mismo sitio que pone `usuario` en el store.
+ */
+const LS_SESION = 'mh.sesion'
+
+function espejarSesion(hay: boolean): void {
+  if (hay) localStorage.setItem(LS_SESION, '1')
+  else localStorage.removeItem(LS_SESION)
 }
 
 function limpiarEspejo(): void {
@@ -172,6 +186,26 @@ export const useSesion = create<SesionState>((set, get) => ({
     return null
   },
 
+  canjearCupon: async (codigo) => {
+    const sb = await obtenerSupabase()
+    if (!sb) return 'Sin backend'
+    const { data, error } = await sb.functions.invoke<{ ok: boolean; resultado: string }>(
+      'canjear-cupon',
+      { body: { codigo } },
+    )
+    if (error || !data) return 'No se pudo canjear el cupón. Intenta de nuevo.'
+    if (!data.ok) {
+      return data.resultado === 'ya-canjeado'
+        ? 'Este cupón ya se canjeó en esta cuenta.'
+        : 'Ese cupón no existe o ya no está disponible.'
+    }
+    // El unlock (y el trial) ya están en el perfil: al refrescar el espejo, la
+    // PuertaUnlock se abre sola.
+    await get().refrescarPerfil()
+    void get().refrescarUso()
+    return null
+  },
+
   refrescarPerfil: async () => {
     const usuario = get().usuario
     const sb = usuario ? await obtenerSupabase() : null
@@ -206,7 +240,13 @@ export const useSesion = create<SesionState>((set, get) => ({
       // del plan REAL por su nivel, igual que `pool_mensual()` en la BD: el
       // nivel solo multiplica con 'pro' (el trial se queda en el pool base).
       const periodo = new Date().toISOString().slice(0, 7)
-      const planActual = get().plan
+      // Con el plan VENCIDO el pool del servidor es 0 (`pool_mensual()` filtra
+      // por `plan_expira`), así que el medidor tiene que decir 0 y no el tope
+      // del plan caducado: enseñar «48/700» a quien ya no tiene pool es la
+      // forma más rápida de que un corte legítimo parezca un bug.
+      const expira = get().planExpira
+      const vigente = !expira || Date.parse(expira) > Date.now()
+      const planActual = vigente ? get().plan : 'local'
       const multiplicador = planActual === 'pro' ? get().nivel : 1
       const [uso, limites] = await Promise.all([
         sb.from('uso_ia').select('creditos').eq('periodo', periodo).maybeSingle(),
@@ -228,9 +268,42 @@ export const useSesion = create<SesionState>((set, get) => ({
   },
 }))
 
-/** ¿Hay sesión iniciada ahora mismo? (síncrono, para gates tipo `iaActiva`) */
-export function haySesion(): boolean {
-  return useSesion.getState().usuario !== null
+/**
+ * ¿Esta instalación tiene sesión? (síncrono, para gates tipo `iaActiva`).
+ *
+ * Cuenta también la sesión que el store TODAVÍA no ha hidratado: el SDK de
+ * Supabase se carga bajo demanda y `getSession()` puede ir a la red, así que
+ * durante esos segundos `usuario` es null aunque el usuario lleve meses con la
+ * sesión abierta. Sin el espejo `mh.sesion`, todo lo que dependa de esto (la
+ * vía cuenta, el panel de IA) creía que estaba sin cuenta. En cuanto `cargando`
+ * termina manda el estado real, así que un cierre de sesión no queda pegado.
+ */
+export function haySesionProbable(): boolean {
+  const { usuario, cargando } = useSesion.getState()
+  if (usuario) return true
+  return cargando && localStorage.getItem(LS_SESION) === '1'
+}
+
+/**
+ * Resuelve cuando la sesión ya está hidratada. Lo esperan las llamadas de IA
+ * antes de decidir el transporte: sin esto, pedir algo en los primeros segundos
+ * salía por BYOK (y sin claves, con el modal de «sin créditos») aunque la
+ * cuenta tuviera el pool entero. El tope evita colgar la UI si el backend no
+ * responde: al vencer se decide con lo que haya, que es el comportamiento viejo.
+ */
+export function esperarSesion(msTope = 6000): Promise<void> {
+  if (!useSesion.getState().cargando) return Promise.resolve()
+  return new Promise((resolver) => {
+    const fin = () => {
+      clearTimeout(reloj)
+      quitar()
+      resolver()
+    }
+    const reloj = setTimeout(fin, msTope)
+    const quitar = useSesion.subscribe((s) => {
+      if (!s.cargando) fin()
+    })
+  })
 }
 
 let iniciada = false
@@ -247,8 +320,9 @@ export function iniciarSesion(): void {
   }
 
   if (!hayBackend()) {
-    // Sin backend no puede haber Pro fantasma heredado de otro build.
+    // Sin backend no puede haber Pro ni sesión fantasma de otro build.
     limpiarEspejo()
+    espejarSesion(false)
     useSesion.setState({ cargando: false })
     return
   }
@@ -263,6 +337,7 @@ export function iniciarSesion(): void {
 
     void sb.auth.getSession().then(({ data }) => {
       const usuario = data.session?.user ?? null
+      espejarSesion(!!usuario)
       useSesion.setState({ usuario, cargando: false })
       if (usuario) {
         // En orden: el uso lee limites_plan por el plan que acaba de llegar.
@@ -277,6 +352,7 @@ export function iniciarSesion(): void {
 
     sb.auth.onAuthStateChange((evento, sesion) => {
       const usuario = sesion?.user ?? null
+      espejarSesion(!!usuario)
       useSesion.setState({ usuario })
       if (evento === 'SIGNED_OUT') {
         limpiarEspejo()

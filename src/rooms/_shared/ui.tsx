@@ -2,7 +2,7 @@ import { useEffect, type ButtonHTMLAttributes, type ReactNode } from 'react'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
-import { acento, tono } from './acento'
+import { acento } from './acento'
 
 /**
  * Canon visual compartido de las apps de los cuartos: la misma tarjeta, el
@@ -21,12 +21,12 @@ export const TARJETA = 'rounded-xl bg-white/5 p-4 border border-white/10'
 /** Fila de lista que responde al toque: en táctil el `active:` ES el feedback. */
 export const FILA_INTERACTIVA = 'transition hover:bg-white/10 active:bg-white/10'
 
-/** Base de todo botón del kit (`ui-boton` lo engancha la regla táctil de index.css). */
-const BASE = 'ui-boton transition active:scale-[0.98] disabled:opacity-40 disabled:pointer-events-none'
+/** Base de todo botón del kit: `ui-boton` engancha el resorte del press y la regla táctil de index.css. */
+const BASE = 'ui-boton disabled:opacity-40 disabled:pointer-events-none'
 
 /**
- * Botón de acción principal de un formulario: el color de la app (`app`) se
- * entona solo al tono único de formularios y la tinta la decide la luminancia.
+ * Botón de acción principal de un formulario: lleva el color de la app (`app`),
+ * el mismo que llevan sus menús, y la tinta la decide la luminancia.
  * `color` es para semántica real (verde ingreso / rojo gasto) y manda tal cual.
  * Sin `app` ni `color` hereda el acento del cuarto que baja `RoomOverlay`.
  */
@@ -47,7 +47,7 @@ export function BotonPrimario({
   pequeno?: boolean
   className?: string
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className' | 'color'>) {
-  const fondo = color ?? (app ? tono(app, 3) : undefined)
+  const fondo = color ?? app
   return (
     <button
       {...props}

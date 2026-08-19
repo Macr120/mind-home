@@ -66,7 +66,6 @@ export function CalculadorasFinancieras() {
           prefijoTut="despacho.calc"
           color={AZUL}
           variante="sub"
-          nivel={3}
           desplazable
         />
       </div>
@@ -139,7 +138,6 @@ function CalcFondoEmergencia() {
               onCambio={(id) => setMeses(Number(id))}
               color={AZUL}
               variante="sub"
-              nivel={3}
               flecha={false}
             />
           </div>

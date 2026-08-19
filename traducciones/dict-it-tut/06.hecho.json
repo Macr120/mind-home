@@ -1,130 +1,15 @@
 [
-  {
-    "clave": "tut.chat.6.texto",
-    "texto": "Il manuale elenca i comandi: aggiungere o togliere stanze, creare oggetti, ricordare cose…"
-  },
-  {
-    "clave": "tut.chat.7.titulo",
-    "texto": "Il modello di IA"
-  },
-  {
-    "clave": "tut.chat.7.texto",
-    "texto": "Questa icona sceglie quale IA risponde e conserva la tua chiave se usi la tua. Senza nessuna configurata la chat continua a funzionare per parole chiave, senza capire il linguaggio libero."
-  },
-  {
-    "clave": "tut.chat.8.texto",
-    "texto": "Puoi anche chiedere «come funziona la Cucina?» o «tutorial di Palestra» proprio qui, e quello che è rimasto salvato si rivede nel tour Registri e memorie."
-  },
-  {
-    "clave": "tut.chat-registros.1.texto",
-    "texto": "Chat mostra con chi hai parlato; Registrazioni, quello che è rimasto salvato di quelle conversazioni."
-  },
-  {
-    "clave": "tut.chat-registros.2.titulo",
-    "texto": "Cosa ricorda di te"
-  },
-  {
-    "clave": "tut.chat-registros.2.texto",
-    "texto": "Dati che l'assistente ha deciso valesse la pena ricordare tra una sessione e l'altra —un'allergia, un obiettivo, una preferenza— per non doverteli chiedere di nuovo. Si dimenticano toccando la loro ✕."
-  },
-  {
-    "clave": "tut.chat-registros.3.texto",
-    "texto": "Quello che registri nelle tue app (pasti, spese, sessioni) vive in ogni app, non qui: questa scheda è solo la memoria della conversazione stessa."
-  },
-  {
-    "clave": "tut.app-generica.1.texto",
-    "texto": "L'intestazione mostra la stanza e l'app aperta. Se la stanza ha più app, la freccia ‹ torna alla selezione delle app."
-  },
-  {
-    "clave": "tut.app-generica.2.titulo",
-    "texto": "I passi di oggi"
-  },
-  {
-    "clave": "tut.app-generica.2.texto",
-    "texto": "I tuoi passi di oggi in questa app: il tuo obiettivo di ogni giorno, quello che hai in agenda e quello che chiedono i tuoi obiettivi. Toccala per aprirla; ogni passo si cancella da solo appena registri."
-  },
-  {
-    "clave": "tut.app-generica.3.titulo",
-    "texto": "I blocchi"
-  },
-  {
-    "clave": "tut.app-generica.3.texto",
-    "texto": "Questo modello è costruito con blocchi (note, liste, contatori, abitudini…). Puoi cambiarli in Menu › Modelli › modifica."
-  },
-  {
-    "clave": "tut.app-generica.4.titulo",
-    "texto": "Uscire"
-  },
-  {
-    "clave": "tut.app-generica.4.texto",
-    "texto": "«Torna a casa» chiude l'app e ti lascia di nuovo nel 3D. Quello che hai registrato qui è già salvato."
-  },
-  {
-    "clave": "tut.rutinas.1.texto",
-    "texto": "Il pannello delle routine di Pep: sopra quello di oggi, sotto il catalogo completo per mettere in pausa, modificare o eliminare."
-  },
-  {
-    "clave": "tut.rutinas.2.titulo",
-    "texto": "Cosa tocca oggi"
-  },
-  {
-    "clave": "tut.rutinas.2.texto",
-    "texto": "Il turno in caffetteria, la lezione di fisica, la corsa all'alba, il pianoforte la sera: ogni scheda è una routine con i suoi passi. Quella che sborda in ambra è quella che dovrebbe essere già in corso ed è ancora in sospeso."
-  },
-  {
-    "clave": "tut.rutinas.3.titulo",
-    "texto": "Non sempre serve spuntare"
-  },
-  {
-    "clave": "tut.rutinas.3.texto",
-    "texto": "Il passo con il fulmine ⚡ si registra da solo: la corsa all'alba si cancella perché quella corsa è già salvata in Palestra, non perché qualcuno l'ha spuntata a mano. Gli altri passi invece si spuntano toccandoli."
-  },
-  {
-    "clave": "tut.rutinas.4.titulo",
-    "texto": "Il catalogo completo"
-  },
-  {
-    "clave": "tut.rutinas.4.texto",
-    "texto": "Qui ci sono tutte, tocchino oggi o no. ON/OFF mette in pausa una routine senza cancellarne la cronologia: quello che hai fatto finora resta, e da domani smette di essere richiesta. Modifica e ✕ cambiano o eliminano la routine intera."
-  },
-  {
-    "clave": "tut.rutinas.5.titulo",
-    "texto": "Creare una routine"
-  },
-  {
-    "clave": "tut.rutinas.5.texto",
-    "texto": "Nome, l'app a cui appartiene (o nessuna, se è un evento sciolto della casa), orario e colore. I passi sono facoltativi: senza di loro è solo un evento nel calendario."
-  },
-  {
-    "clave": "tut.rutinas.6.titulo",
-    "texto": "Una volta, ogni settimana o per sempre"
-  },
-  {
-    "clave": "tut.rutinas.6.texto",
-    "texto": "Il pianoforte è indefinito e non ha giorni selezionati (quindi tutti); la corsa si ripete solo nei giorni che Pep ha selezionato. Il mensile, l'annuale o l'intervallo non si scelgono qui: nascono dal tracciare l'obiettivo direttamente sulla griglia del calendario."
-  },
-  {
-    "clave": "tut.rutinas.7.titulo",
-    "texto": "L'avviso al suo orario"
-  },
-  {
-    "clave": "tut.rutinas.7.texto",
-    "texto": "Con il permesso concesso arriva come notifica di sistema; altrimenti te lo dice l'assistente dentro l'app la prossima volta che la apri."
-  },
-  {
-    "clave": "tut.rutinas.8.texto",
-    "texto": "Tutto quello che programmi qui compare anche nella griglia del calendario e, nell'app di ogni passo, nella sua lista Oggi."
-  },
-  {
-    "clave": "tut.enlaces.1.titulo",
-    "texto": "Dall'obiettivo alla sua app"
-  },
-  {
-    "clave": "tut.enlaces.1.texto",
-    "texto": "Qualsiasi obiettivo o passo di un piano può portare un chip con l'icona di un'app: è la risposta a «e questo dove si registra?»."
-  },
-  {
-    "clave": "tut.enlaces.2.titulo",
-    "texto": "Metterlo o cambiarlo"
-  }
+  { "clave": "tut.app-metas--esencial.3.texto", "texto": "Un piano è la bozza di un programma: ripartisce un obiettivo in fasi con le loro date. Finché è una proposta si ritocca a piacere; quando convince, si accetta e le sue fasi diventano sotto-obiettivi reali." },
+  { "clave": "tut.app-metas--esencial.4.titulo", "texto": "Programma" },
+  { "clave": "tut.app-metas--esencial.4.texto", "texto": "L’asse del tempo con tutti gli obiettivi insieme: ognuno è una barra sopra le date. Ci si avvicina e ci si allontana per giorni, settimane, mesi o anni, e un piano può sovrapporsi per confrontarlo con quello già tracciato." },
+  { "clave": "tut.app-sala--esencial.1.titulo", "texto": "Il tuo soggiorno di viaggio" },
+  { "clave": "tut.app-sala--esencial.1.texto", "texto": "Qui vive il tuo mondo viaggiatore: una mappa del mondo con spilli, itinerari di luoghi da scoprire, percorsi che collegano luoghi e un diario di bordo di ricordi. Sono quattro schede." },
+  { "clave": "tut.app-sala--esencial.2.titulo", "texto": "Mappa" },
+  { "clave": "tut.app-sala--esencial.2.texto", "texto": "Ogni luogo che hai visitato o sogni di visitare è uno spillo sulla mappa del mondo. L’interruttore in alto sostituisce la mappa piatta con un globo che giri trascinandolo." },
+  { "clave": "tut.app-sala--esencial.3.titulo", "texto": "Itinerario" },
+  { "clave": "tut.app-sala--esencial.3.texto", "texto": "I luoghi che sogni di conoscere, ognuno con il suo piano giorno per giorno. Quelli con una data si programmano da soli nel calendario." },
+  { "clave": "tut.app-sala--esencial.4.titulo", "texto": "Percorsi" },
+  { "clave": "tut.app-sala--esencial.4.texto", "texto": "Un percorso collega luoghi in un tragitto e lo disegna sulla mappa." },
+  { "clave": "tut.app-sala--esencial.5.titulo", "texto": "Diario di bordo" },
+  { "clave": "tut.app-sala--esencial.5.texto", "texto": "I ricordi dei luoghi che hai visitato, in album per paese: foto e aneddoti di ogni posto." }
 ]

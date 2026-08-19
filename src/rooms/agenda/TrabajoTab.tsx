@@ -57,7 +57,6 @@ export function TrabajoTab({
             prefijoClave="agenda.trabajo"
             color={COLOR_AREA.trabajo}
             variante="sub"
-            nivel={2}
           />
         </div>
         <button

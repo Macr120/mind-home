@@ -28,6 +28,9 @@ const AGRUPACIONES: { id: Agrupacion; clave: string; etiqueta: string }[] = [
  */
 const LS_ORDEN_GENEROS = claveLS('mh-entre-orden-generos')
 
+/** Rejilla de tarjetas: tantas columnas como quepan en el ancho disponible. */
+const REJILLA_TARJETAS = 'grid grid-cols-[repeat(auto-fill,minmax(13rem,1fr))] gap-2'
+
 function leerOrdenGeneros(): string[] {
   try {
     const crudo = localStorage.getItem(LS_ORDEN_GENEROS)
@@ -54,11 +57,13 @@ export function ArchivoTab({ items }: { items: MediaArchivo[] }) {
 
   if (editando) {
     return (
-      <FormularioMedia
-        inicial={editando}
-        onGuardado={() => setEditando(null)}
-        onCancelar={() => setEditando(null)}
-      />
+      <div className="mx-auto max-w-2xl">
+        <FormularioMedia
+          inicial={editando}
+          onGuardado={() => setEditando(null)}
+          onCancelar={() => setEditando(null)}
+        />
+      </div>
     )
   }
 
@@ -92,10 +97,12 @@ export function ArchivoTab({ items }: { items: MediaArchivo[] }) {
       </button>
 
       {mostrarForm && (
-        <FormularioMedia
-          onGuardado={() => setMostrarForm(false)}
-          onCancelar={() => setMostrarForm(false)}
-        />
+        <div className="mx-auto max-w-2xl">
+          <FormularioMedia
+            onGuardado={() => setMostrarForm(false)}
+            onCancelar={() => setMostrarForm(false)}
+          />
+        </div>
       )}
 
       <div className="flex flex-wrap items-center justify-between gap-2">
@@ -108,7 +115,6 @@ export function ArchivoTab({ items }: { items: MediaArchivo[] }) {
               onCambio={setAgrupacion}
               color={COLOR}
               variante="sub"
-              nivel={2}
             />
           </div>
         )}
@@ -134,6 +140,7 @@ export function ArchivoTab({ items }: { items: MediaArchivo[] }) {
           sinEtiqueta={t('entre.arch.sinGenero', 'Sin género')}
           orden={ordenGeneros}
           onReordenar={guardarOrden}
+          claseLista={REJILLA_TARJETAS}
         >
           {tarjeta}
         </CarpetasPorEtiqueta>
@@ -143,6 +150,7 @@ export function ArchivoTab({ items }: { items: MediaArchivo[] }) {
           etiqueta={(item) => t(`entre.tipo.${item.tipo}`, getTipoMedia(item.tipo).label)}
           clave={(item) => item.id ?? item.titulo}
           sinEtiqueta={t('entre.arch.sinTipo', 'Sin categoría')}
+          claseLista={REJILLA_TARJETAS}
         >
           {tarjeta}
         </CarpetasPorEtiqueta>
@@ -152,11 +160,17 @@ export function ArchivoTab({ items }: { items: MediaArchivo[] }) {
           etiqueta={(item) => item.autor ?? ''}
           clave={(item) => item.id ?? item.titulo}
           sinEtiqueta={t('entre.arch.sinAutor', 'Sin autor')}
+          claseLista={REJILLA_TARJETAS}
         >
           {tarjeta}
         </CarpetasPorEtiqueta>
       ) : (
-        <Archivador items={lista} fecha={(item) => item.fecha} clave={(item) => item.id ?? item.titulo}>
+        <Archivador
+          items={lista}
+          fecha={(item) => item.fecha}
+          clave={(item) => item.id ?? item.titulo}
+          claseLista={REJILLA_TARJETAS}
+        >
           {tarjeta}
         </Archivador>
       )}

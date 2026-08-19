@@ -1,4 +1,5 @@
 import type { CuerpoTutorial, TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import { fichaEsencial } from '../../core/tutorial/esencial'
 
 /**
  * Fichas de los tutoriales de esta app: id, título y resumen. Es lo único que
@@ -37,7 +38,7 @@ const flujoSalud = tour(
   T('tut.app-agenda--salud.titulo', 'Salud y mascotas'),
   T(
     'tut.app-agenda--salud.resumen',
-    'Citas médicas, medicamentos con sus horarios y las mascotas con sus cuidados: todo se agenda solo en el calendario.',
+    'La salud en tres submenús: Tú (citas por especialidad, cuidados, medicamentos y ciclo), Prójimos (quienes están a tu cuidado) y Mascotas. Todo lo que lleva fecha se agenda solo en el calendario.',
   ),
   'cuerpoSalud',
 )
@@ -53,3 +54,13 @@ const flujoPersonas = tour(
 )
 
 export const flujosAgenda: TutorialDef[] = [flujoTrabajo, flujoSalud, flujoPersonas]
+
+/** Esencial: recorre los tres menús en la casa real, sin necesitar datos. */
+export const esencialAgenda: TutorialDef = fichaEsencial(
+  'agenda',
+  T(
+    'tut.app-agenda--esencial.resumen',
+    'La agenda lleva lo que no es un hábito, en tres menús: Trabajo (pendientes y tablero), Salud (citas, medicamentos y cuidados: tuyos, de tus prójimos y de tus mascotas) y Personas (contactos y cumpleaños). Todo lo que lleva fecha se agenda solo en el calendario.',
+  ),
+  () => import('./tutorial').then((m) => m.cuerpoEsencial as CuerpoTutorial),
+)

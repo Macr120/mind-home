@@ -1,130 +1,54 @@
 [
   {
-    "clave": "tut.chat.6.texto",
-    "texto": "매뉴얼에는 명령이 나열돼 있어요. 방 추가하거나 없애기, 오브젝트 만들기, 뭔가 기억시키기…"
+    "clave": "tut.app-metas--esencial.3.texto",
+    "texto": "계획은 일정의 초안이에요. 하나의 목표를 날짜가 붙은 단계로 나눠 줘요. 제안인 동안에는 마음대로 손볼 수 있고, 마음에 들면 받아들여서 그 단계들이 진짜 하위 목표가 돼요."
   },
   {
-    "clave": "tut.chat.7.titulo",
-    "texto": "AI 모델"
+    "clave": "tut.app-metas--esencial.4.titulo",
+    "texto": "일정"
   },
   {
-    "clave": "tut.chat.7.texto",
-    "texto": "이 아이콘으로 어떤 AI가 답할지 고르고, 직접 만든 키를 쓴다면 여기에 저장해요. 아무것도 설정하지 않아도 채팅은 키워드로 계속 동작해요. 자유로운 문장은 알아듣지 못하지만요."
+    "clave": "tut.app-metas--esencial.4.texto",
+    "texto": "모든 목표가 한꺼번에 놓이는 시간축이에요. 하나하나가 날짜 위의 막대가 돼요. 일·주·월·연도 단위로 확대하거나 축소할 수 있고, 계획을 위에 겹쳐서 이미 그려 둔 것과 견줘 볼 수 있어요."
   },
   {
-    "clave": "tut.chat.8.texto",
-    "texto": "여기서 바로 '주방은 어떻게 쓰나요?'라고 묻거나 '헬스장 튜토리얼'을 부탁할 수도 있어요. 무엇이 저장됐는지는 '채팅 · 기록과 기억' 튜토리얼에서 확인해요."
+    "clave": "tut.app-sala--esencial.1.titulo",
+    "texto": "나의 여행 거실"
   },
   {
-    "clave": "tut.chat-registros.1.texto",
-    "texto": "'채팅'은 누구와 이야기했는지 보여주고, '기록'은 그 대화에서 저장된 내용을 보여줘요."
+    "clave": "tut.app-sala--esencial.1.texto",
+    "texto": "여기에 나의 여행 세계가 있어요. 핀을 꽂는 세계 지도, 가 보고 싶은 곳의 일정, 여러 장소를 이어 주는 경로, 그리고 추억을 담은 여행 일지예요. 메뉴는 네 가지예요."
   },
   {
-    "clave": "tut.chat-registros.2.titulo",
-    "texto": "기억하고 있는 것"
+    "clave": "tut.app-sala--esencial.2.titulo",
+    "texto": "지도"
   },
   {
-    "clave": "tut.chat-registros.2.texto",
-    "texto": "어시스턴트가 세션 사이에 기억해 둘 만하다고 판단한 정보예요. 알레르기, 목표, 취향 같은 것들이요. 다시 묻지 않으려고요. 잊게 하려면 ✕를 누르면 돼요."
+    "clave": "tut.app-sala--esencial.2.texto",
+    "texto": "다녀온 곳도, 가 보고 싶은 곳도 모두 세계 지도 위의 핀이 돼요. 위쪽 전환 버튼을 누르면 평면 지도가 끌어서 돌리는 지구본으로 바뀌어요."
   },
   {
-    "clave": "tut.chat-registros.3.texto",
-    "texto": "앱에 기록한 것들(식사, 지출, 세션)은 각 앱에 있고 여기엔 없어요. 이 탭은 대화 자체의 기억일 뿐이에요."
+    "clave": "tut.app-sala--esencial.3.titulo",
+    "texto": "일정"
   },
   {
-    "clave": "tut.app-generica.1.texto",
-    "texto": "헤더에 방과 열려 있는 앱이 나와요. 방에 앱이 여러 개면 ‹ 화살표로 방의 앱 목록으로 돌아가요."
+    "clave": "tut.app-sala--esencial.3.texto",
+    "texto": "가 보고 싶은 곳을 하루하루의 계획과 함께 담아요. 날짜가 있는 것은 캘린더에 알아서 들어가요."
   },
   {
-    "clave": "tut.app-generica.2.titulo",
-    "texto": "오늘의 단계"
+    "clave": "tut.app-sala--esencial.4.titulo",
+    "texto": "경로"
   },
   {
-    "clave": "tut.app-generica.2.texto",
-    "texto": "이 앱에서 오늘 할 단계들이에요. 매일의 목표, 일정에 넣어 둔 것, 그리고 목표가 요구하는 것. 누르면 펼쳐지고, 기록하는 순간 각 단계가 알아서 지워져요."
+    "clave": "tut.app-sala--esencial.4.texto",
+    "texto": "경로는 여러 장소를 하나의 여정으로 이어서 지도 위에 그려 줘요."
   },
   {
-    "clave": "tut.app-generica.3.titulo",
-    "texto": "블록"
+    "clave": "tut.app-sala--esencial.5.titulo",
+    "texto": "여행 일지"
   },
   {
-    "clave": "tut.app-generica.3.texto",
-    "texto": "이 템플릿은 블록(메모, 목록, 카운터, 습관…)으로 만들어져 있어요. 메뉴 › 템플릿 › 편집에서 바꿀 수 있어요."
-  },
-  {
-    "clave": "tut.app-generica.4.titulo",
-    "texto": "나가기"
-  },
-  {
-    "clave": "tut.app-generica.4.texto",
-    "texto": "'집으로 돌아가기'로 앱을 닫고 3D로 돌아가요. 여기서 기록한 건 이미 저장돼 있어요."
-  },
-  {
-    "clave": "tut.rutinas.1.texto",
-    "texto": "Pep의 루틴 패널이에요. 위에는 오늘 할 것, 아래에는 일시정지·편집·삭제할 수 있는 전체 카탈로그가 있어요."
-  },
-  {
-    "clave": "tut.rutinas.2.titulo",
-    "texto": "오늘 할 것"
-  },
-  {
-    "clave": "tut.rutinas.2.texto",
-    "texto": "카페 근무, 물리 수업, 새벽 달리기, 밤의 피아노. 카드 하나하나가 단계를 가진 루틴이에요. 호박색으로 삐져나온 건 이미 시작했어야 하는데 아직 남아 있는 거예요."
-  },
-  {
-    "clave": "tut.rutinas.3.titulo",
-    "texto": "체크가 늘 필요하진 않아요"
-  },
-  {
-    "clave": "tut.rutinas.3.texto",
-    "texto": "⚡ 번개가 붙은 단계는 알아서 기록돼요. 새벽 달리기가 지워지는 건 그 달리기가 이미 '헬스장'에 저장됐기 때문이지, 누가 손으로 체크해서가 아니에요. 나머지 단계는 눌러서 체크해요."
-  },
-  {
-    "clave": "tut.rutinas.4.titulo",
-    "texto": "전체 카탈로그"
-  },
-  {
-    "clave": "tut.rutinas.4.texto",
-    "texto": "오늘 할 것이든 아니든 전부 여기 있어요. ON/OFF는 기록을 지우지 않고 루틴을 일시정지해요. 오늘까지 해낸 건 남고, 내일부터는 요구하지 않아요. '편집'과 ✕는 루틴 전체를 바꾸거나 지워요."
-  },
-  {
-    "clave": "tut.rutinas.5.titulo",
-    "texto": "루틴 만들기"
-  },
-  {
-    "clave": "tut.rutinas.5.texto",
-    "texto": "이름, 어느 앱에 속하는지(집의 단발성 이벤트라면 아무 앱도 아니고요), 시간, 색이에요. 단계는 선택이에요. 단계가 없으면 캘린더의 이벤트일 뿐이에요."
-  },
-  {
-    "clave": "tut.rutinas.6.titulo",
-    "texto": "한 번, 매주, 아니면 계속"
-  },
-  {
-    "clave": "tut.rutinas.6.texto",
-    "texto": "피아노는 요일을 고르지 않은 무기한(즉 매일)이고, 달리기는 Pep이 고른 요일에만 반복돼요. 매월·매년·기간 반복은 여기서 고르지 않아요. 캘린더 격자에 목표를 바로 그으면 생겨요."
-  },
-  {
-    "clave": "tut.rutinas.7.titulo",
-    "texto": "시간 맞춰 오는 알림"
-  },
-  {
-    "clave": "tut.rutinas.7.texto",
-    "texto": "권한을 허용했으면 시스템 알림으로 와요. 아니면 다음에 앱을 열 때 어시스턴트가 알려줘요."
-  },
-  {
-    "clave": "tut.rutinas.8.texto",
-    "texto": "여기서 예정한 건 캘린더 격자에도 나오고, 각 단계가 속한 앱의 '오늘' 목록에도 나와요."
-  },
-  {
-    "clave": "tut.enlaces.1.titulo",
-    "texto": "목표에서 그 앱으로"
-  },
-  {
-    "clave": "tut.enlaces.1.texto",
-    "texto": "목표든 계획 단계든 앱 아이콘이 붙은 칩을 달 수 있어요. '이건 어디에 적지?'에 대한 답이에요."
-  },
-  {
-    "clave": "tut.enlaces.2.titulo",
-    "texto": "달거나 바꾸기"
+    "clave": "tut.app-sala--esencial.5.texto",
+    "texto": "다녀온 곳의 추억을 나라별 앨범으로 모아요. 장소마다 사진과 이야기가 담겨요."
   }
 ]

@@ -24,7 +24,7 @@ export function ModoPropina({ selector }: { selector: ReactNode }) {
   const total = listo ? nCuenta + propina : NaN
 
   return (
-    <div className="space-y-3 rounded-2xl border border-white/10 bg-white/5 p-3">
+    <div data-tut="computo.calc.propina" className="space-y-3 rounded-2xl border border-white/10 bg-white/5 p-3">
       <CabeceraModo selector={selector} />
 
       <div className="grid grid-cols-2 gap-2">

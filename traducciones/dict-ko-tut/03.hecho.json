@@ -1,126 +1,130 @@
 [
- {
-  "clave": "tut.menu-cuartos.6.texto",
-  "texto": "'방 만들기'를 누르면 브러시가 준비된 지도 에디터가 열려요. 새 방의 모양, 크기, 위치는 모두 마음대로 정할 수 있어요. 휴대폰에서는 도구 휠 › 건축 › 방 단축 경로가 더 편해요. 패널을 열지 않고 지도에 바로 그릴 수 있거든요."
- },
- {
-  "clave": "tut.menu-cuartos.7.texto",
-  "texto": "정리하면, 꾸미기는 '편집', 앱을 쓰는 건 '입장'이에요. 이 메뉴의 다른 탭에는 각자의 튜토리얼이 있어요."
- },
- {
-  "clave": "tut.menu-plantillas.1.texto",
-  "texto": "템플릿은 하나의 앱이에요(주방, 헬스장, 재무…). 방 안의 오브젝트에 배정하면 들어갈 때 열려요."
- },
- {
-  "clave": "tut.menu-plantillas.2.titulo",
-  "texto": "두 가지 보기"
- },
- {
-  "clave": "tut.menu-plantillas.2.texto",
-  "texto": "'방'은 늘 쓰는 앱이고, 각자 자기 오브젝트에 들어가요. '확장'는 달라요. 서킷, 코트, 텃밭, 농장, Paintball은 방을 차지하지 않고 땅 위에 바로 지어요."
- },
- {
-  "clave": "tut.menu-plantillas.3.titulo",
-  "texto": "카탈로그"
- },
- {
-  "clave": "tut.menu-plantillas.3.texto",
-  "texto": "기본 앱과 직접 만든 앱이 그룹별로 정리돼 있어요. 하나를 탭하면 방에 배정되고, '확장'에서는 지도에 짓게 돼요."
- },
- {
-  "clave": "tut.menu-plantillas.4.titulo",
-  "texto": "나만의 템플릿"
- },
- {
-  "clave": "tut.menu-plantillas.4.texto",
-  "texto": "블록을 조립해서 나만의 템플릿을 만들어요: 메모, 체크리스트, 카운터, 습관, 갤러리… 이 버튼을 누르면 전용 에디터가 열리고, 튜토리얼도 따로 있어요."
- },
- {
-  "clave": "tut.menu-plantillas.5.texto",
-  "texto": "한 방에 앱을 여러 개 둘 수 있어요. 들어가면 어떤 걸 열지 고르는 런처가 나와요."
- },
- {
-  "clave": "tut.plantillas-custom.1.texto",
-  "texto": "이 에디터는 나만의 앱을 처음부터 만들어요. 이름과 이모지, 블록으로 모양을 갖추면 기본 앱들과 나란히 카탈로그에 들어가요."
- },
- {
-  "clave": "tut.plantillas-custom.2.titulo",
-  "texto": "이름, 이모지, 색"
- },
- {
-  "clave": "tut.plantillas-custom.2.texto",
-  "texto": "어떤 이름으로 부를지, 메뉴와 카탈로그와 캘린더에서 어떤 색으로 보일지 정해요. 이 앱의 일정을 넣을 때도 이 색이에요."
- },
- {
-  "clave": "tut.plantillas-custom.3.titulo",
-  "texto": "도구"
- },
- {
-  "clave": "tut.plantillas-custom.3.texto",
-  "texto": "블록은 열두 가지예요: 메모, 체크리스트, 카운터, 습관, 세션, 카운트다운, 갤러리, 일지, 평점, 진행 상황, 목록, 링크. 추가한 블록 하나하나가 앱의 섹션이 돼요."
- },
- {
-  "clave": "tut.plantillas-custom.4.titulo",
-  "texto": "순서가 중요해요"
- },
- {
-  "clave": "tut.plantillas-custom.4.texto",
-  "texto": "추가한 블록은 화살표로 순서를 바꾸고 ✕로 뺄 수 있어요. 뺀 블록은 저장할 때 데이터도 지워지니, 확정하기 전에 한 번 확인하세요. '메뉴' 드롭다운을 쓰면 아무것도 잃지 않고 다른 탭으로 옮길 수 있어요."
- },
- {
-  "clave": "tut.plantillas-custom.5.titulo",
-  "texto": "저장"
- },
- {
-  "clave": "tut.plantillas-custom.5.texto",
-  "texto": "이름과 블록이 하나만 있으면 '저장'으로 카탈로그에 바로 올라가요. 거기서 기본 템플릿처럼 오브젝트에 배정하면 돼요."
- },
- {
-  "clave": "tut.plantillas-custom.6.texto",
-  "texto": "언제든 다시 편집할 수 있어요. 블록도 데이터도 그대로고, 바꾼 것만 바뀌어요."
- },
- {
-  "clave": "tut.menu-inventario.1.texto",
-  "texto": "인벤토리예요. 집에 놓을 수 있는 오브젝트가 전부 모여 있고, 바로 끌어다 쓸 수 있어요."
- },
- {
-  "clave": "tut.menu-inventario.2.titulo",
-  "texto": "오브젝트"
- },
- {
-  "clave": "tut.menu-inventario.2.texto",
-  "texto": "카테고리와 폴더로 정리한 오브젝트 라이브러리예요. 이름을 바꾸고 정리해 두면 다음에 빨리 찾을 수 있어요."
- },
- {
-  "clave": "tut.menu-inventario.3.titulo",
-  "texto": "특수 오브젝트"
- },
- {
-  "clave": "tut.menu-inventario.3.texto",
-  "texto": "꾸미기만 하는 게 아니라 뭔가를 하는 것들이에요: 탈것, 장난감 총, 분수, 놀이기구, 조명이요."
- },
- {
-  "clave": "tut.menu-inventario.4.titulo",
-  "texto": "배치"
- },
- {
-  "clave": "tut.menu-inventario.4.texto",
-  "texto": "이 메뉴를 열어 둔 채로 썸네일을 3D 장면에 바로 끌어다 놓으면 원하는 곳에 배치돼요."
- },
- {
-  "clave": "tut.menu-inventario.5.texto",
-  "texto": "이미 놓은 걸 옮기거나 칠하거나 지우려면 에디터의 '오브젝트' 탭을 쓰세요. 이 메뉴는 새 물건을 장면에 꺼내는 용도예요."
- },
- {
-  "clave": "tut.editor-mapa.1.texto",
-  "texto": "집 에디터에는 탭이 4개 있어요: 지도, 캐릭터, 오브젝트, 설정. 이번 투어는 '지도' 편이고, 나머지 셋도 각자의 투어가 있어요."
- },
- {
-  "clave": "tut.editor-mapa.2.titulo",
-  "texto": "도면"
- },
- {
-  "clave": "tut.editor-mapa.2.texto",
-  "texto": "위에서 내려다본 격자 위에 그려요. 방, 벽, 문, 창문, 바닥을 위쪽 바의 모드와 브러시로 그리면 돼요. 그린 건 새로고침 없이 바로 3D에 나타나요."
- }
+  {
+    "clave": "tut.app-descanso--esencial.2.texto",
+    "texto": "기록한 밤마다 점수가 매겨져요. 얼마나 잤는지, 몇 시에 누웠는지, 몇 번 깼는지를 함께 계산해요. 아직 기록이 없으면 첫 번째 밤을 적어 보라고 권해 줘요."
+  },
+  {
+    "clave": "tut.app-descanso--esencial.3.titulo",
+    "texto": "수면 시간과 알림"
+  },
+  {
+    "clave": "tut.app-descanso--esencial.3.texto",
+    "texto": "하루 띠의 양 끝을 끌어서 잠드는 시각과 일어나는 시각을 정해요. 같은 시간표는 집 캘린더에도 블록으로 나타나요. 알람과 알람음, 그리고 자기 전에 속도를 늦추라는 알림도 여기서 켜요."
+  },
+  {
+    "clave": "tut.app-descanso--esencial.4.titulo",
+    "texto": "밤을 기록하기"
+  },
+  {
+    "clave": "tut.app-descanso--esencial.4.texto",
+    "texto": "어떻게 잤는지 적는 양식이에요. 날짜, 누운 시각과 일어난 시각, 중간에 깬 횟수, 수면의 질 평가, 그리고 메모를 적을 자리가 있어요."
+  },
+  {
+    "clave": "tut.app-descanso--esencial.5.titulo",
+    "texto": "기록 보관"
+  },
+  {
+    "clave": "tut.app-descanso--esencial.5.texto",
+    "texto": "기록한 밤은 모두 여기에 남아 연·월·주로 정리되니, 오랜 흐름 속에서 잠을 되돌아볼 수 있어요."
+  },
+  {
+    "clave": "tut.app-despacho--esencial.1.titulo",
+    "texto": "나의 재정"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.1.texto",
+    "texto": "서재는 돈을 네 가지 메뉴로 정리해요. 가진 것, 드나드는 돈, 나의 목표, 그리고 시장이에요. 각 메뉴 아래로 고유한 섹션이 열려요."
+  },
+  {
+    "clave": "tut.app-despacho--esencial.2.titulo",
+    "texto": "순자산"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.2.texto",
+    "texto": "가진 것과 갚을 것을 자산과 부채, 두 개의 목록으로 담아요. 세 번째 섹션은 항목마다 정한 이율로 그 상태를 앞으로 예측해 줘요."
+  },
+  {
+    "clave": "tut.app-despacho--esencial.3.titulo",
+    "texto": "현금 흐름"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.3.texto",
+    "texto": "들어오는 돈과 나가는 돈을 지출, 수입, 수지로 나눠요. 수지는 고른 기간을 일·주·월·연도 단위로 예산과 카테고리, 추세와 함께 정리해 줘요."
+  },
+  {
+    "clave": "tut.app-despacho--esencial.4.titulo",
+    "texto": "목표"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.4.texto",
+    "texto": "돈에 대한 목표를 세 개의 섹션으로 다뤄요. 저축과 투자, 부채, 그리고 나의 수지를 바탕으로 금액을 제안해 주는 계산기예요. 어떤 목표든 일정으로 내려보내 날짜를 붙일 수 있어요."
+  },
+  {
+    "clave": "tut.app-despacho--esencial.5.titulo",
+    "texto": "시장"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.5.texto",
+    "texto": "환율, 암호화폐, 주식, 원자재의 실시간 시세예요. 인터넷 연결이 필요해요. 확인용 보드일 뿐이라, 앱이 무엇을 사거나 팔라고 권하지는 않아요."
+  },
+  {
+    "clave": "tut.app-diario--esencial.1.titulo",
+    "texto": "오늘의 신문"
+  },
+  {
+    "clave": "tut.app-diario--esencial.1.texto",
+    "texto": "일간 뉴스는 그날의 브리핑을 두 가지 화면으로 전해요. 헤드라인과 오늘의 역사예요. 자체 데이터는 남기지 않아요. 매일 새 내용이 오고, 자정에 통째로 바뀌어요."
+  },
+  {
+    "clave": "tut.app-diario--esencial.2.titulo",
+    "texto": "오늘의 헤드라인"
+  },
+  {
+    "clave": "tut.app-diario--esencial.2.texto",
+    "texto": "그날의 헤드라인을 카테고리별로 보여줘요. 세계, 경제, 기술, 건강, 스포츠, 엔터테인먼트이고, 위쪽 칩으로 걸러 볼 수 있어요. 내 언어의 실제 언론에서 오고, 매체는 날마다 바뀌어요."
+  },
+  {
+    "clave": "tut.app-diario--esencial.3.titulo",
+    "texto": "오늘의 역사"
+  },
+  {
+    "clave": "tut.app-diario--esencial.3.texto",
+    "texto": "신문의 나머지 절반이에요. 오늘 같은 날에 무슨 일이 있었는지 알려줘요. 작품 하나, 책 한 권, 생물 하나, 낱말 하나예요. 그날 뉴스가 당기지 않아도 신문을 열어 볼 구실이 돼요."
+  },
+  {
+    "clave": "tut.app-diario--esencial.4.titulo",
+    "texto": "알아서 새로워져요"
+  },
+  {
+    "clave": "tut.app-diario--esencial.4.texto",
+    "texto": "그날 치는 앱을 열면 알아서 내려받고 자정에 통째로 바뀌기 때문에 쌓이는 것이 없어요. 이 버튼을 누르면 그 시각을 기다리지 않고 바로 새로 고칠 수 있어요."
+  },
+  {
+    "clave": "tut.app-diario--esencial.5.titulo",
+    "texto": "전달"
+  },
+  {
+    "clave": "tut.app-diario--esencial.5.texto",
+    "texto": "어떤 섹션을 어느 어시스턴트가 자기 채팅으로 전해 줄지 설정해요. 정해진 시각으로 해도 되고, 하루 중 불쑥 찾아오게 해도 돼요."
+  },
+  {
+    "clave": "tut.app-ejercicio--esencial.1.titulo",
+    "texto": "나의 운동"
+  },
+  {
+    "clave": "tut.app-ejercicio--esencial.1.texto",
+    "texto": "헬스장은 몸을 쓰는 세 가지 방식인 근력, 지구력, 유연성을 한데 모으고, 매주 얼마나 운동하고 싶은지 정하는 목표 메뉴도 갖췄어요."
+  },
+  {
+    "clave": "tut.app-ejercicio--esencial.2.titulo",
+    "texto": "목표"
+  },
+  {
+    "clave": "tut.app-ejercicio--esencial.2.texto",
+    "texto": "이 방의 요약이에요. 연속 기록, 뭔가 기록한 날의 수, 그리고 여기서 정한 주간 목표에 견준 방식별 막대가 나와요. 단위를 킬로그램으로 할지 파운드로 할지도 여기서 골라요."
+  },
+  {
+    "clave": "tut.app-ejercicio--esencial.3.titulo",
+    "texto": "근력"
+  }
 ]

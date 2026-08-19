@@ -1,35 +1,28 @@
 import { create } from 'zustand'
 
 /**
- * UI de rutinas: el botón ⏰ del RelojWidget abre el panel rápido (checklist)
- * y la hora/fecha del widget abre el calendario (día/semana/mes). Vive en un
- * store porque el widget y los paneles están en árboles distintos.
+ * UI del calendario del reloj: la hora/fecha del RelojWidget lo abre a pantalla
+ * completa (día/semana/mes/año y Misiones). Vive en un store porque el widget y
+ * el panel están en árboles distintos. El panel rápido ⏰ que también vivía aquí
+ * se retiró: crear rutinas es parte de Misiones (vista 'objetivos').
  */
 
 /** Las vistas del calendario ('objetivos' es la checklist de hoy de toda la casa). */
 export type VistaCalendario = 'dia' | 'semana' | 'mes' | 'anio' | 'objetivos'
 
 interface RutinasUIState {
-  panel: boolean
   calendario: boolean
   /**
    * Con qué vista abrirlo. La piden el chat («abre el cronograma») y los
    * tutoriales; sin ella el calendario abre donde siempre (Semana).
    */
   vistaCalendario?: VistaCalendario
-  togglePanel: () => void
-  abrirPanel: () => void
   abrirCalendario: (vista?: VistaCalendario) => void
   cerrarCalendario: () => void
-  cerrarPanel: () => void
 }
 
 export const useRutinasUI = create<RutinasUIState>((set) => ({
-  panel: false,
   calendario: false,
-  togglePanel: () => set((s) => ({ panel: !s.panel, calendario: false })),
-  abrirPanel: () => set({ panel: true, calendario: false }),
-  abrirCalendario: (vista) => set({ calendario: true, panel: false, vistaCalendario: vista }),
+  abrirCalendario: (vista) => set({ calendario: true, vistaCalendario: vista }),
   cerrarCalendario: () => set({ calendario: false, vistaCalendario: undefined }),
-  cerrarPanel: () => set({ panel: false }),
 }))

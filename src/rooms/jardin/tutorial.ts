@@ -4,7 +4,7 @@
  */
 import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { abrirApp } from '../../core/abrirApp'
-import { clickTut } from '../../core/tutorial/dom'
+import { clickTut, esperarTut } from '../../core/tutorial/dom'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
@@ -83,6 +83,60 @@ export const cuerpoGratitud: CuerpoTutorial = {
         'tut.app-jardin--gratitud.3.texto',
         'Este cuarto no lleva rachas ni castiga faltar: es a propósito. La calma no se compite.',
       ),
+    },
+  ],
+}
+
+/**
+ * ESENCIAL: corre en la casa real y recorre los tres menús del jardín uno por
+ * uno. Sin datos de por medio: sus anclas son las pestañas, que existen con la
+ * BD vacía.
+ */
+export const cuerpoEsencial: CuerpoTutorial = {
+  preparar: () => {
+    abrirApp('jardin')
+  },
+  pasos: [
+    {
+      titulo: T('tut.app-jardin--esencial.1.titulo', 'Tu espacio de calma'),
+      texto: T(
+        'tut.app-jardin--esencial.1.texto',
+        'El jardín reúne tres prácticas: meditación, respiración guiada y agradecimientos. No lleva puntos ni rachas a propósito: aquí no se castiga faltar, solo se acompaña lo que practiques.',
+      ),
+    },
+    {
+      sel: 'jardin.tab.meditacion',
+      titulo: T('tut.app-jardin--esencial.2.titulo', 'Meditación'),
+      texto: T(
+        'tut.app-jardin--esencial.2.texto',
+        'Elige una pista de sonido y una duración, o medita en silencio con una campana al empezar y al terminar. Cada sesión queda guardada en tu historial.',
+      ),
+      alEntrar: async () => {
+        await esperarTut('jardin.tab.meditacion', 4000)
+        clickTut('jardin.tab.meditacion')
+      },
+    },
+    {
+      sel: 'jardin.tab.respiracion',
+      titulo: T('tut.app-jardin--esencial.3.titulo', 'Respiración'),
+      texto: T(
+        'tut.app-jardin--esencial.3.texto',
+        'Dos patrones de respiración guiada, uno para centrarte y otro para soltar el día: la pantalla respira contigo mientras avanza.',
+      ),
+      alEntrar: () => {
+        clickTut('jardin.tab.respiracion')
+      },
+    },
+    {
+      sel: 'jardin.tab.gratitud',
+      titulo: T('tut.app-jardin--esencial.4.titulo', 'Agradecimientos'),
+      texto: T(
+        'tut.app-jardin--esencial.4.texto',
+        'Anota lo que agradeces hoy, aunque sea una sola cosa, y revisa tus entradas anteriores cuando quieras. Sin rachas: perder un día no borra nada.',
+      ),
+      alEntrar: () => {
+        clickTut('jardin.tab.gratitud')
+      },
     },
   ],
 }

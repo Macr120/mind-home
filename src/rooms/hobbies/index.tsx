@@ -7,7 +7,7 @@ import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
 import { actividadId } from '../../core/rutinas'
 import { tGlobal } from '../../core/i18n/useT'
 import { CLAUSULA_RECHAZO } from '../../core/planIA'
-import { flujosHobbies } from './tutorial.meta'
+import { esencialHobbies, flujosHobbies } from './tutorial.meta'
 
 /** Duración en minutos detectada en el texto ("30 min", "1 hora", "45m"), o 0. */
 function extraerMinutos(norm: string): number {
@@ -87,6 +87,7 @@ const hobbies: Plantilla = {
   color: '#8b5cf6',
   App: HobbiesApp,
   flujos: flujosHobbies,
+  esencial: esencialHobbies,
   capturar,
   esquemas,
   // El cronograma ya no es una pestaña: cada hobby y cada proyecto lleva el suyo,

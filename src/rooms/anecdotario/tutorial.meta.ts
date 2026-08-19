@@ -1,4 +1,5 @@
 import type { CuerpoTutorial, TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import { fichaEsencial } from '../../core/tutorial/esencial'
 
 /**
  * Fichas de los tutoriales de esta app: id, título y resumen. Es lo único que
@@ -43,3 +44,13 @@ const flujoFotos = tour(
 )
 
 export const flujosAnecdotario: TutorialDef[] = [flujoDiario, flujoFotos]
+
+/** Esencial: recorre las secciones de la página en la casa real, sin necesitar datos. */
+export const esencialAnecdotario: TutorialDef = fichaEsencial(
+  'anecdotario',
+  T(
+    'tut.app-anecdotario--esencial.resumen',
+    'El anecdotario es tu diario personal: entradas con ánimo, texto y fotos que se guardan solas por fecha. Un calendario pinta cada día según tu ánimo, y el historial las archiva en carpetas por año, mes y semana.',
+  ),
+  () => import('./tutorial').then((m) => m.cuerpoEsencial as CuerpoTutorial),
+)

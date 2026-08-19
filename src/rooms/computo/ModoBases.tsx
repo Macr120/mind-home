@@ -108,7 +108,7 @@ export function ModoBases({ motor, selector }: { motor: Motor | null; selector: 
   }
 
   return (
-    <div className="space-y-2 rounded-2xl border border-white/10 bg-white/5 p-3">
+    <div data-tut="computo.calc.bases" className="space-y-2 rounded-2xl border border-white/10 bg-white/5 p-3">
       <div className="flex items-center gap-2">
         <span className="min-w-0 flex-1 text-[11px] text-white/45">{t('computo.bases.base', 'Base')}</span>
         {selector}

@@ -3,7 +3,7 @@ import type { PerfilNutricion } from '../../core/data/db'
 import { perfilNutricionRepo } from '../../core/data/repository'
 import { COLOR, OBJETIVOS, PERFIL_DEFECTO } from './constantes'
 import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
-import { ROJO, VERDE, acento, tono } from '../_shared/acento'
+import { ROJO, VERDE, acento } from '../_shared/acento'
 import { PISO_KCAL, derivarObjetivo, objetivosSugeridos, ritmoSugerido } from './balance'
 import { fechaEnSemanas, semanasHasta } from './fecha'
 import { caloriasDesdeMacros } from './macros'
@@ -178,7 +178,6 @@ function Formulario({ p }: { p: PerfilConId }) {
           }}
           color={COLOR}
           variante="sub"
-          nivel={3}
           flecha={false}
         />
         <select
@@ -216,7 +215,7 @@ function Formulario({ p }: { p: PerfilConId }) {
               // Direccional: bajar rojo, subir verde; mantener con el ámbar de la app.
               style={
                 objetivo === o.id
-                  ? acento(o.id === 'deficit' ? ROJO : o.id === 'superavit' ? VERDE : tono(COLOR, 3))
+                  ? acento(o.id === 'deficit' ? ROJO : o.id === 'superavit' ? VERDE : COLOR)
                   : undefined
               }
             >

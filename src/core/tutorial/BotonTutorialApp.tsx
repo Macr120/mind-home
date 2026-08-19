@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useT } from '../i18n/useT'
 import { useTutorial } from './tutorialStore'
-import { flujosDeApp, lanzarFlujo } from './registro'
-import type { TutorialDef } from './tipos'
+import { flujosDeApp, lanzarEsencial } from './registro'
+import { ListaToursApp } from './ListaToursApp'
 import type { Plantilla } from '../registry'
 import { Icono } from '../ui/iconos/Icono'
 import { esDemo } from '../edicion'
@@ -10,9 +10,10 @@ import { entrarDemo } from '../../demo/modo'
 import { BUILDERS_DEMO } from '../../demo/builders'
 
 /**
- * "?" del encabezado de una app. Con UN tutorial lo lanza directo (comportamiento
- * clásico); con varios FLUJOS abre un menú para elegir cuál. Los flujos corren
- * sobre el año de datos de la casa demo (desde la casa real, saltan a ella).
+ * "?" del encabezado de una app. Abre el menú con los dos tipos de tutorial:
+ * «Lo esencial» (corre aquí mismo, recorre los menús) y los «Ejemplos · casa
+ * demo» (los flujos sobre el año de Pep@; desde la casa real saltan a ella).
+ * Sin ejemplos ni año demo (plantillas propias), lanza el esencial directo.
  *
  * El menú suma la entrada «El año de Pep@ en [App]»: abre la app DEMO con su año
  * de datos para explorar libremente, sin tour (`entrarDemo` sin `tour`). Dentro
@@ -37,16 +38,15 @@ export function BotonTutorialApp({
   const flujos = flujosDeApp(plantilla.id)
   const conPep = !esDemo() && !!BUILDERS_DEMO[plantilla.id]
 
-  const elegir = (def: TutorialDef) => {
-    setAbierto(false)
-    void lanzarFlujo(plantilla.id, def, { montada })
-  }
-
   return (
     <div className="relative shrink-0">
       <button
         type="button"
-        onClick={() => (flujos.length > 1 || conPep ? setAbierto((v) => !v) : elegir(flujos[0]))}
+        onClick={() =>
+          flujos.length > 0 || conPep
+            ? setAbierto((v) => !v)
+            : void lanzarEsencial(plantilla.id, { montada })
+        }
         title={t('tut.boton', 'Ver tutorial')}
         aria-label={t('tut.boton', 'Ver tutorial')}
         className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg border text-sm font-bold transition ${
@@ -62,16 +62,11 @@ export function BotonTutorialApp({
           <p className="px-1 text-[10px] font-bold uppercase tracking-wider text-white/35">
             {t('tut.flujos.titulo', 'Tutoriales de esta app')}
           </p>
-          {flujos.map((def) => (
-            <button
-              key={def.id}
-              type="button"
-              onClick={() => elegir(def)}
-              className="block w-full rounded-md px-2 py-1.5 text-start text-xs font-semibold text-white/75 transition hover:bg-white/10"
-            >
-              {t(def.titulo.clave, def.titulo.es)}
-            </button>
-          ))}
+          <ListaToursApp
+            plantillaId={plantilla.id}
+            montada={montada}
+            alLanzar={() => setAbierto(false)}
+          />
           {conPep && (
             <>
               <div className="mx-1 border-t border-white/10" />

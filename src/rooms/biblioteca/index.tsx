@@ -10,7 +10,7 @@ import { actividadId } from '../../core/rutinas'
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
 import { tGlobal } from '../../core/i18n/useT'
 import { CLAUSULA_RECHAZO } from '../../core/planIA'
-import { flujosBiblioteca } from './tutorial.meta'
+import { esencialBiblioteca, flujosBiblioteca } from './tutorial.meta'
 import { PILARES } from './pilares'
 import { PILAR_GENERAL } from './constantes'
 import { OPERACIONES_IA } from './costosIA'
@@ -95,6 +95,7 @@ const biblioteca: Plantilla = {
   categoria: 'mente',
   color: '#818cf8',
   App: BibliotecaApp,
+  esencial: esencialBiblioteca,
   flujos: flujosBiblioteca,
   esquemas,
   operacionesIA: OPERACIONES_IA,

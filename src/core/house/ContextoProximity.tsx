@@ -11,7 +11,7 @@ import { useFlotador, TIPO_FLOTADOR } from '../state/flotadorStore'
 import { useMontura, monturaFrame } from '../state/monturaStore'
 import { useHuerto } from '../state/huertoStore'
 import { useHerramienta } from '../state/herramientaStore'
-import { useTren, trenFrame } from '../state/trenStore'
+import { useTren, trenFrame, hayTrenEn } from '../state/trenStore'
 import { useJuegoCancha } from '../state/juegoCanchaStore'
 import { useCarrera } from '../state/carreraStore'
 import { esCancha } from '../state/canchasStore'
@@ -306,6 +306,8 @@ export function ContextoProximity() {
     const acciones: AccionContextual[] = []
     const tren = useTren.getState().cerca
     if (tren) acciones.push({ tipo: 'tren', id: 0, riel: tren.tipo })
+    // Si esa vía ya tiene tren circulando, se puede decidir qué hace con ella.
+    if (tren && hayTrenEn(tren.viaId)) acciones.push({ tipo: 'trenMenu', id: 0, riel: tren.tipo })
     const cancha = useJuegoCancha.getState()
     if (cancha.cerca && cancha.fase == null) {
       acciones.push({ tipo: 'cancha', id: cancha.cerca.canchaId, clase: cancha.cerca.clase })

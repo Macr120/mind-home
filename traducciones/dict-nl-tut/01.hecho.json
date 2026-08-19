@@ -1,38 +1,93 @@
 [
+  { "clave": "tut.app-agenda--esencial.1.titulo", "texto": "Jouw agenda" },
   {
-    "clave": "tut.hoy.1.texto",
-    "texto": "In de header van elke app zit de knop Doelen, net als die in de kalender maar dan beperkt tot deze app. Hij opent een paneel met twee lagen: bovenaan de checklist van vandaag, eronder de doelen en plannen van de app."
+    "clave": "tut.app-agenda--esencial.1.texto",
+    "texto": "De agenda houdt bij wat geen gewoonte is: taken, afspraken, contacten. Er zijn drie menu's, en alles met een datum komt vanzelf in de huiskalender terecht."
   },
+  { "clave": "tut.app-agenda--esencial.2.titulo", "texto": "Werk" },
   {
-    "clave": "tut.hoy.2.texto",
-    "texto": "De eigen doelen van de app (water, calorieën), wat je vandaag in de kalender hebt ingepland, en de stappen van je lopende doelen: alles samen, gegroepeerd onder het plan of doel waar elke stap vandaan komt."
+    "clave": "tut.app-agenda--esencial.2.texto",
+    "texto": "Het bakje verzamelt taken zonder datum zodat ze niet zoekraken, en het bord verplaatst je taken langs kolommen: te doen, bezig en klaar."
   },
+  { "clave": "tut.app-agenda--esencial.3.titulo", "texto": "Gezondheid" },
   {
-    "clave": "tut.hoy.7.texto",
-    "texto": "En als je iets mist, maakt «Nieuwe checklist» je eigen lijst: een lijst van deze app die elke dag terugkomt. Onder de sectie Vandaag staat de volledige planner — Doelen, Plannen en Planning — met alle doelen van de app."
+    "clave": "tut.app-agenda--esencial.3.texto",
+    "texto": "Medische afspraken, medicatie en zorg, in drie submenu's: Jij, Naasten (wie er onder jouw zorg valt) en Huisdieren."
   },
+  { "clave": "tut.app-agenda--esencial.4.titulo", "texto": "Personen" },
   {
-    "clave": "tut.app-hobbies--gestion.4.texto",
-    "texto": "De doelen van je hobby's en projecten leven in de knop Doelen in de header: dezelfde planner Doelen · Plannen · Planning uit de kalender, beperkt tot deze app. Vraag de AI om een plan met fases en data."
+    "clave": "tut.app-agenda--esencial.4.texto",
+    "texto": "Je adresboek per relatie. Elke verjaardag die je bewaart, herhaalt zichzelf elk jaar in de kalender."
   },
+  { "clave": "tut.calendario--esencial.1.titulo", "texto": "De klok van het huis" },
   {
-    "clave": "tut.app-biblioteca--estudio.2.texto",
-    "texto": "Doelen leven in de knop Doelen in de header, de planning van de kalender zelf: «thermodynamica afronden vóór het tentamen» is al gehaald; de voorbereiding op de master loopt nog."
+    "clave": "tut.calendario--esencial.1.texto",
+    "texto": "De kalender is geen kamer: hij leeft in de klok van de HUD, dus je opent hem vanaf elke plek zonder ergens naartoe te gaan."
   },
+  { "clave": "tut.calendario--esencial.2.titulo", "texto": "Alles ingepland, samen" },
   {
-    "clave": "tut.app-ejercicio--anio.3.texto",
-    "texto": "De knop Doelen in de header bewaart de vier behaalde doelen — de 5K, de 10K, de halve marathon en de marathon — en het doel dat nog open staat. Doelen met een datum verschijnen ook in de huiskalender."
+    "clave": "tut.calendario--esencial.2.texto",
+    "texto": "Hier komt alles terecht met een datum en tijd: wat je aanmaakt met «+ Nieuw» of door te tekenen op het rooster, en wat de andere apps zelf inplannen. Het filter bovenaan laat één app zien als het te druk wordt."
   },
+  { "clave": "tut.calendario--esencial.3.titulo", "texto": "Dag" },
   {
-    "clave": "tut.app-cocina--cronograma.1.texto",
-    "texto": "De knop Doelen in de header opent dezelfde planning die de huiskalender gebruikt, beperkt tot de doelen van de Keuken: maak een doel aan (bijv. «3 kilo afvallen») en vraag de AI om het plan — die vraagt je streefdatum en plant subdoelen met hun eigen datum."
+    "clave": "tut.calendario--esencial.3.texto",
+    "texto": "Het rooster van een dag van 24 uur: het laat zien hoe laat elk ding is en of iets overlapt. Deze knop doet dubbel dienst: hij zegt «Vandaag» en brengt je terug naar het heden, of «Dag» als je al naar een andere datum kijkt."
   },
+  { "clave": "tut.calendario--esencial.4.titulo", "texto": "Week" },
   {
-    "clave": "tut.app-despacho--metas.2.texto",
-    "texto": "De knop Doelen in de header bewaart deze doelen op de tijdlijn: geef er eentje een datum en het verschijnt tussen je kalenderdagen. Met ✨ stelt de AI een spaarplan voor."
+    "clave": "tut.calendario--esencial.4.texto",
+    "texto": "Hetzelfde uurrooster, maar met de zeven dagen naast elkaar. Hier zie je hoe de week verdeeld is, en hier sleep je blokken van de ene dag naar de andere of rek je ze langer uit."
   },
+  { "clave": "tut.calendario--esencial.5.titulo", "texto": "Maand" },
   {
-    "clave": "tut.app-entretenimiento--programas.2.texto",
-    "texto": "Het opgeslagen programma leeft in de knop Doelen in de header: elke titel bewaart zijn notitie over waarom hij op de lijst staat, en als je er een datum aan geeft, komt hij net als elk ander doel in de kalender terecht."
-  }
+    "clave": "tut.calendario--esencial.5.texto",
+    "texto": "Laat de urenas los en kleurt de dagen als vakjes met wat er op elke dag valt. Dit is het overzicht: welke weken vol zitten en welke dagen vrij blijven."
+  },
+  { "clave": "tut.calendario--esencial.6.titulo", "texto": "Jaar" },
+  {
+    "clave": "tut.calendario--esencial.6.texto",
+    "texto": "Alle twaalf maanden in één keer. Op deze afstand lees je de uren niet meer: je ziet de consistentie, hoezeer je volhield wat je jezelf het hele jaar had voorgenomen."
+  },
+  { "clave": "tut.calendario--esencial.7.titulo", "texto": "En missies, apart" },
+  {
+    "clave": "tut.calendario--esencial.7.texto",
+    "texto": "In het rood, zodat het niet als een vijfde weergave overkomt: Missies verzamelt op één scherm de checklist van vandaag van alle apps. Doelen en hun plannen staan hier niet — die leven in hun eigen kamer."
+  },
+  { "clave": "tut.app-anecdotario--esencial.1.titulo", "texto": "Jouw persoonlijke dagboek" },
+  {
+    "clave": "tut.app-anecdotario--esencial.1.texto",
+    "texto": "Het dagboek bewaart wat je maar wilt vertellen, met zijn stemming en zijn foto's. Het organiseert zichzelf op datum, zonder dat jij iets hoeft te sorteren."
+  },
+  { "clave": "tut.app-anecdotario--esencial.2.titulo", "texto": "Zo schrijf je een item" },
+  {
+    "clave": "tut.app-anecdotario--esencial.2.texto",
+    "texto": "Kies de stemming van de dag, schrijf wat je wilt vertellen en voeg foto's toe als je die hebt. Eén foto zonder tekst is ook genoeg."
+  },
+  { "clave": "tut.app-anecdotario--esencial.3.titulo", "texto": "De stemmingskalender" },
+  {
+    "clave": "tut.app-anecdotario--esencial.3.texto",
+    "texto": "Elke dag wordt gekleurd met de stemming van dat item, zodat je de hele maand in één oogopslag leest. Tik op een dag om de items eronder te zien."
+  },
+  { "clave": "tut.app-anecdotario--esencial.4.titulo", "texto": "De geschiedenis" },
+  {
+    "clave": "tut.app-anecdotario--esencial.4.texto",
+    "texto": "Alle items komen hier terecht, vanzelf gesorteerd in mappen per jaar, maand en week."
+  },
+  { "clave": "tut.app-biblioteca--esencial.1.titulo", "texto": "Jouw bibliotheek" },
+  {
+    "clave": "tut.app-biblioteca--esencial.1.texto",
+    "texto": "De bibliotheek is je persoonlijke encyclopedie: je vraagt wat je niet weet, je bewaart wat je leert en je houdt bij wat je studeert. Er zijn vier menu's."
+  },
+  { "clave": "tut.app-biblioteca--esencial.2.titulo", "texto": "Chats" },
+  {
+    "clave": "tut.app-biblioteca--esencial.2.texto",
+    "texto": "Hier stel je de Wijze een vraag over elk onderwerp en het gesprek wordt bewaard. Elke chat classificeert zichzelf in zijn kennisgebied en komt gedestilleerd tevoorschijn als encyclopedie-item."
+  },
+  { "clave": "tut.app-biblioteca--esencial.3.titulo", "texto": "Encyclopedie" },
+  {
+    "clave": "tut.app-biblioteca--esencial.3.texto",
+    "texto": "De boom waar alles wat je leert leeft, gesorteerd per kennisgebied. Elk item heeft zijn samenvatting en kernpunten, en je kunt ze ook zelf schrijven; met het potlood laat je de index op jouw manier groeien."
+  },
+  { "clave": "tut.app-biblioteca--esencial.4.titulo", "texto": "Studie" }
 ]

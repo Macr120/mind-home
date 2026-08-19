@@ -205,7 +205,6 @@ export function RepartoConfig({ onCerrar }: { onCerrar: () => void }) {
                     prefijoClave="diario.reparto.modo"
                     color={COLOR}
                     variante="sub"
-                    nivel={3}
                     flecha={false}
                   />
                 </div>

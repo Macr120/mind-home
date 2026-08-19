@@ -329,7 +329,6 @@ function FormDia({
               onCambio={(id) => setSangrado(Number(id) as SangradoCiclo)}
               color={COLOR_AREA.salud}
               variante="sub"
-              nivel={3}
               flecha={false}
             />
           </div>

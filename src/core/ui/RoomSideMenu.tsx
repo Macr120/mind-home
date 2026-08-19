@@ -29,7 +29,7 @@ import { useAjustes } from '../state/ajustesStore'
 import { PanelCuartosRapido } from './PanelCuartosRapido'
 import { IconoCuarto } from './IconoCuarto'
 import { BadgeMisiones } from './BadgeMisiones'
-import { rutinasRepo } from '../data/repository'
+import { planesMetaRepo, rutinasRepo } from '../data/repository'
 import { usePendientesPorApp } from '../hoy'
 import { esMeta, metasCumplidasDe } from '../metas'
 
@@ -80,6 +80,9 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
   const pendientes = usePendientesPorApp()
   const rutinas = rutinasRepo.useAll()
   const metas = useMemo(() => (rutinas ?? []).filter(esMeta), [rutinas])
+  // Los planes son del planificador, así que solo su tarjeta gana el chip.
+  const planes = planesMetaRepo.useAll()
+  const aceptados = useMemo(() => (planes ?? []).filter((p) => p.aceptadoEn).length, [planes])
 
   /**
    * Borra un cuarto desde el menú. Con una app asignada la confirmación la lleva
@@ -424,6 +427,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
                             enfoque={enfoque}
                             color={color}
                             metas={appId ? metasCumplidasDe(metas, appId) : null}
+                            planes={appId === 'metas' ? aceptados : null}
                           />
                         )}
                       </button>
@@ -565,13 +569,11 @@ export function FloatingMenuButton({ onToggle }: { onToggle: () => void }) {
 
   return (
     <div className="absolute start-3 top-3 z-30 flex items-start gap-2">
-      <div
-        data-tut-zona="menu-cuartos"
-        className="ui-hud flex items-center overflow-hidden rounded-lg border border-white/10"
-      >
+      <div className="ui-hud flex items-center overflow-hidden rounded-lg border border-white/10">
         <button
           type="button"
           data-tut="menu.abrir"
+          data-tut-zona="menu-cuartos"
           onClick={onToggle}
           title={t('nav.abrir', 'Abrir menú')}
           className="flex items-center px-3 py-2 transition hover:bg-white/15"
@@ -586,6 +588,7 @@ export function FloatingMenuButton({ onToggle }: { onToggle: () => void }) {
         <button
           type="button"
           data-tut="menu.rapido"
+          data-tut-zona="inicio"
           onClick={() => setRapido(true)}
           title={t('nav.rapido', 'Acceso rápido a los cuartos')}
           className="flex items-center px-3 py-2 transition hover:bg-white/15"

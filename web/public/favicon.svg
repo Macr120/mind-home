@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 100" width="357" height="100">
+  <!-- Copia de public/favicon.svg: las tres piezas del icono sin fondo. La web
+       las usa como motivo (viñetas y separadores), no como favicon. -->
+  <rect x="0" y="3" width="94" height="94" rx="20" fill="#DA9425"/>
+  <path d="M137 0V100H237Z" fill="#C23A40"/>
+  <path d="M257 0H357V100A100 100 0 0 1 257 0Z" fill="#895AC6"/>
+</svg>

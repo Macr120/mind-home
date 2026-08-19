@@ -1,6 +1,6 @@
 import { lazy } from 'react'
 import type { Plantilla } from '../../core/appContrato'
-import { flujosGarage } from './tutorial.meta'
+import { esencialGarage, flujosGarage } from './tutorial.meta'
 import { planMetasGarage } from './plan'
 
 // La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
@@ -16,6 +16,7 @@ const garage: Plantilla = {
   color: '#fbbf24',
   App: GarageApp,
   flujos: flujosGarage,
+  esencial: esencialGarage,
   // Acotamiento del planificador ✨: mantenimiento, ordenado por urgencia real.
   planMetas: planMetasGarage,
   // Un servicio del coche toca cada varios miles de km, no cada día: el garage

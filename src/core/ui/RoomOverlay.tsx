@@ -3,7 +3,7 @@ import { useShallow } from 'zustand/react/shallow'
 import { useHouse } from '../state/houseStore'
 import { getCuarto } from '../state/cuartosStore'
 import { catalogoPlantillasStore, getPlantilla, type Plantilla } from '../registry'
-import { acento, tinta, tono } from '../../rooms/_shared/acento'
+import { acento, tinta } from '../../rooms/_shared/acento'
 import { intencionAppActiva } from '../state/intencionApp'
 import { useDiseño, useRoomVisual } from '../state/disenoStore'
 import { ErrorBoundary } from './ErrorBoundary'
@@ -75,14 +75,15 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
   const sufijoApp = nombreApp.trim() && nombreApp.trim() !== nombre.trim() ? nombreApp : ''
 
   return (
-    // El color DEL CUARTO (no el de fábrica de la app) baja a todo su 2D:
-    // `--ui-accent*` con el tono de formularios, que heredan los `ui-accent-bg`,
-    // y `--ui-app*` con el color puro, que es al que apunta el `COLOR` de cada
-    // app (`var(--ui-app, <hex de fábrica>)`). Así repintar el cuarto repinta su
-    // app entera sin que ningún archivo importe nada.
+    // El color DEL CUARTO (no el de fábrica de la app) baja a todo su 2D con UN
+    // SOLO tono: `--ui-accent*` lo heredan los `ui-accent-bg` (pestañas, CTA,
+    // formularios) y `--ui-app*` es a lo que apunta el `COLOR` de cada app
+    // (`var(--ui-app, <hex de fábrica>)`). Al ser el mismo color, las dos tintas
+    // valen lo mismo por construcción. Así repintar el cuarto repinta su app
+    // entera sin que ningún archivo importe nada.
     <div
       className="ui-app ui-app-entra absolute inset-0 z-20 flex flex-col"
-      style={{ ...acento(tono(color, 3)), '--ui-app': color, '--ui-app-ink': tinta(color) } as CSSProperties}
+      style={{ ...acento(color), '--ui-app': color, '--ui-app-ink': tinta(color) } as CSSProperties}
     >
       {/* El hueco del menú flotante se reserva a la medida del móvil (su chip
           plegado mide ~114 px) y solo a partir de `sm` al ancho completo: con
@@ -104,7 +105,13 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
             ‹
           </button>
         )}
-        <h1 className="texto-vivo min-w-0 flex-1 truncate text-lg font-bold" style={vivo(color)}>
+        {/* En móvil el nombre del cuarto no sale: entre el hueco del menú flotante
+            y los chips de la derecha (Misiones, música, volver) no le queda ancho,
+            y se leía cortado. */}
+        <h1
+          className="texto-vivo hidden min-w-0 flex-1 truncate text-lg font-bold sm:block"
+          style={vivo(color)}
+        >
           {nombre}
           {sufijoApp && (
             <span className="text-white/40">

@@ -1,157 +1,162 @@
 [
   {
-    "clave": "tut.menu-cuartos.6.texto",
-    "es": "Crear cuarto abre el editor de mapa con el pincel listo para dibujar el cuarto nuevo: forma, tamaño y ubicación quedan en tus manos. En el teléfono es más cómodo el atajo de la rueda de herramientas › Construcción › Cuartos, que dibuja directo sobre el mapa sin abrir el panel.",
-    "en": "Create room opens the map editor with the brush ready to draw the new room: shape, size and placement are all yours. On the phone the handier route is the tool wheel shortcut › Building › Rooms, which draws straight onto the map without opening the panel."
+    "clave": "tut.app-descanso--esencial.2.texto",
+    "es": "Cada noche registrada recibe una puntuación que combina cuánto dormiste, a qué hora te acostaste y cuántas veces te despertaste. Sin registros todavía, aquí te invita a apuntar la primera noche.",
+    "en": "Every logged night gets a score that combines how long you slept, what time you went to bed, and how many times you woke up. With no records yet, this section invites you to log your first night."
   },
   {
-    "clave": "tut.menu-cuartos.7.texto",
-    "es": "En resumen: Editar para personalizar, Entrar para usar la app. Las otras pestañas de este menú tienen su propio tutorial.",
-    "en": "In short: Edit to customize, Enter to use the app. The other tabs in this menu have their own tutorial."
+    "clave": "tut.app-descanso--esencial.3.titulo",
+    "es": "Horario y avisos",
+    "en": "Schedule and reminders"
   },
   {
-    "clave": "tut.menu-plantillas.1.texto",
-    "es": "Una plantilla es una app (Cocina, Ejercicio, Finanzas…). Se asigna a un objeto de un cuarto y se abre al entrar.",
-    "en": "A template is an app (Kitchen, Exercise, Finance…). It's assigned to an object in a room and opens when you enter."
+    "clave": "tut.app-descanso--esencial.3.texto",
+    "es": "Ajustas tu hora de dormir y de despertar arrastrando los extremos de la franja del día; el mismo horario aparece como bloque en el calendario de la casa. Aquí también enciendes el despertador con su tono y los avisos para bajar el ritmo antes de dormir.",
+    "en": "You set your bedtime and wake-up time by dragging the ends of the day's timeline; the same schedule also shows up as a block on the house calendar. Here you also turn on the alarm with its tone and the reminders to wind down before bed."
   },
   {
-    "clave": "tut.menu-plantillas.2.titulo",
-    "es": "Dos vistas",
-    "en": "Two views"
+    "clave": "tut.app-descanso--esencial.4.titulo",
+    "es": "Registrar la noche",
+    "en": "Logging the night"
   },
   {
-    "clave": "tut.menu-plantillas.2.texto",
-    "es": "Cuartos son las apps de siempre, cada una en su objeto. Infraestructura es distinta: pistas, canchas, huerto, granja o paintball se construyen directo sobre el terreno, sin ocupar un cuarto.",
-    "en": "Rooms are the usual apps, each in its own object. Infrastructure is different: tracks, courts, the garden, the farm or paintball get built straight on the terrain, without taking up a room."
+    "clave": "tut.app-descanso--esencial.4.texto",
+    "es": "El formulario para anotar cómo dormiste: la fecha, la hora en que te acostaste y despertaste, las interrupciones y una calificación de calidad, con espacio para una nota.",
+    "en": "The form for noting how you slept: the date, what time you went to bed and woke up, interruptions, and a quality rating, with room for a note."
   },
   {
-    "clave": "tut.menu-plantillas.3.titulo",
-    "es": "El catálogo",
-    "en": "The catalog"
+    "clave": "tut.app-descanso--esencial.5.titulo",
+    "es": "El historial",
+    "en": "The history"
   },
   {
-    "clave": "tut.menu-plantillas.3.texto",
-    "es": "Las apps de serie y las tuyas, organizadas por grupos. Toca una para asignarla a un cuarto o, en Infraestructura, para construirla en el mapa.",
-    "en": "Built-in apps and your own, organized in groups. Tap one to assign it to a room or, under Infrastructure, to build it on the map."
+    "clave": "tut.app-descanso--esencial.5.texto",
+    "es": "Todas las noches que vayas registrando quedan aquí, organizadas por año, mes y semana, para revisar tu descanso a lo largo del tiempo.",
+    "en": "Every night you log stays here, organized by year, month, and week, so you can review your sleep over time."
   },
   {
-    "clave": "tut.menu-plantillas.4.titulo",
-    "es": "Plantillas propias",
-    "en": "Your own templates"
+    "clave": "tut.app-despacho--esencial.1.titulo",
+    "es": "Tus finanzas",
+    "en": "Your finances"
   },
   {
-    "clave": "tut.menu-plantillas.4.texto",
-    "es": "Crea plantillas propias armándolas con bloques: notas, checklists, contadores, hábitos, galerías… Este botón abre su propio editor con su propio tutorial.",
-    "en": "Create your own templates from blocks: notes, checklists, counters, habits, galleries… This button opens its own editor with its own tutorial."
+    "clave": "tut.app-despacho--esencial.1.texto",
+    "es": "El despacho ordena tu dinero en cuatro menús: lo que tienes, lo que entra y sale, tus metas y los mercados. Cada uno abre sus propias secciones debajo.",
+    "en": "The study organizes your money in four menus: what you own, what comes in and goes out, your goals, and the markets. Each one opens its own sections below."
   },
   {
-    "clave": "tut.menu-plantillas.5.texto",
-    "es": "Un mismo cuarto puede tener varias apps: al entrar aparece un lanzador para elegir cuál abrir.",
-    "en": "A single room can hold several apps: entering shows a launcher to pick which one to open."
+    "clave": "tut.app-despacho--esencial.2.titulo",
+    "es": "Patrimonio",
+    "en": "Net worth"
   },
   {
-    "clave": "tut.plantillas-custom.1.texto",
-    "es": "Este editor arma una app tuya de cero: le das forma con nombre, emoji y bloques, y queda en el catálogo junto a las de serie.",
-    "en": "This editor builds an app of your own from scratch: shape it with a name, emoji and blocks, and it lands in the catalog next to the built-in ones."
+    "clave": "tut.app-despacho--esencial.2.texto",
+    "es": "Lo que tienes y lo que debes, en dos listas: activos y pasivos. La tercera sección proyecta esa foto hacia adelante con la tasa que le pongas a cada línea.",
+    "en": "What you own and what you owe, in two lists: assets and liabilities. The third section projects that snapshot forward using the rate you set on each line."
   },
   {
-    "clave": "tut.plantillas-custom.2.titulo",
-    "es": "Nombre, emoji y color",
-    "en": "Name, emoji and color"
+    "clave": "tut.app-despacho--esencial.3.titulo",
+    "es": "Flujo",
+    "en": "Flow"
   },
   {
-    "clave": "tut.plantillas-custom.2.texto",
-    "es": "Cómo se va a llamar y de qué color se pinta en el menú, el catálogo y el calendario si agendas algo suyo.",
-    "en": "What it's called and what color it paints in the menu, the catalog and the calendar if you schedule something of its own."
+    "clave": "tut.app-despacho--esencial.3.texto",
+    "es": "El dinero que entra y el que sale, separado en gastos, ingresos y balance. El balance resume el periodo que elijas —día, semana, mes o año— con su presupuesto, sus categorías y su tendencia.",
+    "en": "The money coming in and going out, split into expenses, income and balance. The balance sums up the period you pick — day, week, month or year — with its budget, its categories and its trend."
   },
   {
-    "clave": "tut.plantillas-custom.3.titulo",
-    "es": "Las herramientas",
-    "en": "The tools"
+    "clave": "tut.app-despacho--esencial.4.titulo",
+    "es": "Metas",
+    "en": "Goals"
   },
   {
-    "clave": "tut.plantillas-custom.3.texto",
-    "es": "Doce tipos de bloque: notas, checklist, contador, hábito, sesiones, cuenta regresiva, galería, bitácora, valoración, progreso, lista y enlaces. Cada uno que agregues se vuelve una sección de tu app.",
-    "en": "Twelve block types: notes, checklist, counter, habit, sessions, countdown, gallery, log, rating, progress, list and links. Every one you add becomes a section of your app."
+    "clave": "tut.app-despacho--esencial.4.texto",
+    "es": "Tus objetivos de dinero en tres secciones: ahorro e inversión, deuda, y unas calculadoras que proponen un monto a partir de tu propio balance. Cada meta puede bajar al cronograma y llevar fecha.",
+    "en": "Your money goals in three sections: saving and investing, debt, and calculators that suggest an amount based on your own balance. Any goal can drop into the schedule and take a date."
   },
   {
-    "clave": "tut.plantillas-custom.4.titulo",
-    "es": "El orden importa",
-    "en": "Order matters"
+    "clave": "tut.app-despacho--esencial.5.titulo",
+    "es": "Mercados",
+    "en": "Markets"
   },
   {
-    "clave": "tut.plantillas-custom.4.texto",
-    "es": "Los bloques agregados se reordenan con las flechas y se quitan con la ✕ — quitar uno borra sus datos al guardar, así que revisa antes de confirmar. Con el desplegable «Menú» pasan de una pestaña a otra sin perder nada.",
-    "en": "Added blocks reorder with the arrows and remove with the ✕ — removing one deletes its data on save, so double-check before confirming. The “Menu” dropdown moves them from one tab to another without losing anything."
+    "clave": "tut.app-despacho--esencial.5.texto",
+    "es": "Cotizaciones en vivo de divisas, cripto, acciones y materias primas; necesita conexión. Es un tablero de consulta: la app no recomienda qué comprar ni qué vender.",
+    "en": "Live quotes for currencies, crypto, stocks and commodities; needs a connection. It is a reference board: the app does not recommend what to buy or sell."
   },
   {
-    "clave": "tut.plantillas-custom.5.titulo",
-    "es": "Guardar",
-    "en": "Save"
+    "clave": "tut.app-diario--esencial.1.titulo",
+    "es": "El periódico de hoy",
+    "en": "Today's paper"
   },
   {
-    "clave": "tut.plantillas-custom.5.texto",
-    "es": "Con nombre y al menos un bloque, Guardar la deja lista en el catálogo. Desde ahí se asigna a un objeto igual que cualquier plantilla de serie.",
-    "en": "With a name and at least one block, Save drops it into the catalog, ready. From there it's assigned to an object just like any built-in template."
+    "clave": "tut.app-diario--esencial.1.texto",
+    "es": "El diario trae el briefing del día en dos vistas: titulares y efemérides. No guarda datos propios: cada día trae contenido nuevo y a medianoche lo reemplaza entero.",
+    "en": "The diary brings the day's briefing in two views: headlines and on-this-day facts. It keeps no data of its own: every day brings new content, and at midnight it's replaced entirely."
   },
   {
-    "clave": "tut.plantillas-custom.6.texto",
-    "es": "Puedes volver a editarla cuando quieras: sus bloques y sus datos no se tocan, solo cambia lo que edites.",
-    "en": "You can edit it again anytime: its blocks and data stay put, only what you change actually changes."
+    "clave": "tut.app-diario--esencial.2.titulo",
+    "es": "Titulares",
+    "en": "Headlines"
   },
   {
-    "clave": "tut.menu-inventario.1.texto",
-    "es": "El inventario: todos los objetos que puedes colocar en tu casa, listos para arrastrar.",
-    "en": "The inventory: every object you can place in your home, ready to drag."
+    "clave": "tut.app-diario--esencial.2.texto",
+    "es": "Los titulares del día por categoría —mundo, economía, tecnología, salud, deportes y entretenimiento—, filtrables con los chips de arriba. Vienen de prensa real de tu idioma, con medios que rotan cada día.",
+    "en": "The day's headlines by category — world, economy, technology, health, sports and entertainment — filterable with the chips above. They come from real press in your language, with outlets that rotate each day."
   },
   {
-    "clave": "tut.menu-inventario.2.titulo",
-    "es": "Objetos",
-    "en": "Objects"
+    "clave": "tut.app-diario--esencial.3.titulo",
+    "es": "Efemérides",
+    "en": "On this day"
   },
   {
-    "clave": "tut.menu-inventario.2.texto",
-    "es": "Tu biblioteca de objetos por categorías y carpetas. Puedes renombrarlos y organizarlos para encontrarlos rápido la próxima vez.",
-    "en": "Your object library, by categories and folders. You can rename and organize them to find them fast next time."
+    "clave": "tut.app-diario--esencial.3.texto",
+    "es": "La otra mitad del diario: qué pasó un día como hoy —una obra, un libro, una especie, una palabra—. Sirve de excusa para abrirlo aunque las noticias no interesen ese día.",
+    "en": "The diary's other half: what happened on a day like today — a work, a book, a species, a word. A reason to open it even when the news doesn't appeal."
   },
   {
-    "clave": "tut.menu-inventario.3.titulo",
-    "es": "Objetos especiales",
-    "en": "Special objects"
+    "clave": "tut.app-diario--esencial.4.titulo",
+    "es": "Se renueva solo",
+    "en": "It renews itself"
   },
   {
-    "clave": "tut.menu-inventario.3.texto",
-    "es": "Los que hacen algo, no solo decoran: vehículos montables, pistolas de juguete, fuentes, juegos de parque y luces.",
-    "en": "The ones that do something, not just decorate: rideable vehicles, toy blasters, fountains, playground rides and lights."
+    "clave": "tut.app-diario--esencial.4.texto",
+    "es": "La edición se descarga sola al abrir la app y se reemplaza entera a medianoche: no se acumula nada. Este botón fuerza una actualización antes de esa hora.",
+    "en": "The edition downloads on its own when you open the app and gets fully replaced at midnight: nothing piles up. This button forces an update before that."
   },
   {
-    "clave": "tut.menu-inventario.4.titulo",
-    "es": "Colocar",
-    "en": "Placing"
+    "clave": "tut.app-diario--esencial.5.titulo",
+    "es": "Reparto",
+    "en": "Delivery"
   },
   {
-    "clave": "tut.menu-inventario.4.texto",
-    "es": "Con este menú abierto, arrastra una miniatura directo a la escena 3D para colocarla donde quieras.",
-    "en": "With this menu open, drag a thumbnail straight into the 3D scene to place it wherever you like."
+    "clave": "tut.app-diario--esencial.5.texto",
+    "es": "Configura qué secciones te entrega cada asistente en su propio chat, a una hora fija o en un momento sorpresa del día.",
+    "en": "Set which sections each assistant delivers to you in their own chat, at a fixed time or a surprise moment of the day."
   },
   {
-    "clave": "tut.menu-inventario.5.texto",
-    "es": "Para mover, pintar o borrar lo ya colocado, usa el Editor (pestaña Objetos) — este menú es solo para traer cosas nuevas a escena.",
-    "en": "To move, paint or delete what's already placed, use the Editor (Objects tab) — this menu is only for bringing new things into the scene."
+    "clave": "tut.app-ejercicio--esencial.1.titulo",
+    "es": "Tu entrenamiento",
+    "en": "Your training"
   },
   {
-    "clave": "tut.editor-mapa.1.texto",
-    "es": "El editor de la casa tiene 4 pestañas: Mapa, Personajes, Objetos y Configuraciones. Este tour es el de Mapa; los otros tres tienen el suyo.",
-    "en": "The home editor has 4 tabs: Map, Characters, Objects and Settings. This tour is the Map one; the other three have their own."
+    "clave": "tut.app-ejercicio--esencial.1.texto",
+    "es": "Ejercicio reúne las tres modalidades del cuerpo —fuerza, resistencia y flexibilidad— más un menú de metas donde decides cuánto quieres entrenar cada semana.",
+    "en": "Exercise brings together the body's three modes — strength, endurance and flexibility — plus a goals menu where you decide how much you want to train each week."
   },
   {
-    "clave": "tut.editor-mapa.2.titulo",
-    "es": "El croquis",
-    "en": "The blueprint"
+    "clave": "tut.app-ejercicio--esencial.2.titulo",
+    "es": "Metas",
+    "en": "Goals"
   },
   {
-    "clave": "tut.editor-mapa.2.texto",
-    "es": "Dibujas sobre una rejilla vista desde arriba: cuartos, muros, puertas, ventanas y pisos, con los modos y pinceles de la barra superior. Lo que trazas aparece al momento en el 3D, sin recargar nada.",
-    "en": "You draw on a top-down grid: rooms, walls, doors, windows and floors, with the modes and brushes in the top bar. What you trace shows up in 3D instantly, no reload needed."
+    "clave": "tut.app-ejercicio--esencial.2.texto",
+    "es": "El resumen del cuarto: la racha, los días con algo registrado y una barra por modalidad contra el objetivo semanal que fijes aquí. También se elige el sistema de medidas, en kilos o en libras.",
+    "en": "The room summary: your streak, the days with something logged, and a bar per mode against the weekly target you set here. This is also where you pick the unit system, kilos or pounds."
+  },
+  {
+    "clave": "tut.app-ejercicio--esencial.3.titulo",
+    "es": "Fuerza",
+    "en": "Strength"
   }
 ]

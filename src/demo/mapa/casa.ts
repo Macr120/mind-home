@@ -105,6 +105,10 @@ export async function construirCasa({
   if (escaleraPisoUno?.id != null) {
     await L().moveAcceso(escaleraPisoUno.id, { col: 2, row: 2 }, { esquina: 'NE' })
   }
+  // La escalera desemboca en la esquina NE de idiomas, justo donde su siembra
+  // planta el archivero (recurso 22): quedaba atravesado en la subida — fuera.
+  const archivero = D().objetos.find((o) => o.roomId === ids.idiomas && o.tipo === 'recurso:22')
+  if (archivero?.id != null) await D().removeObjeto(archivero.id)
 
   // ── Figuras: tres esquinas redondeadas y dos chaflanes rectos ────────────
   await L().pintarSubformaCelda(ids.cocina, 0, 0, 0, 'circular') // NO de la casa

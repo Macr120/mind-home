@@ -144,7 +144,9 @@ async function construir(onProgreso?: ProgresoDemo, apps?: string[]): Promise<vo
       marcarAppConstruida(app)
     }
     // Las listas cumplidas del año (la moneda del XP de las cards del menú).
-    await sembrarListasDemo(conBuilder)
+    // `metas` va siempre: no tiene builder (su año son las metas que sembraron las
+    // demás), pero sí fuente de actividad, y sin esto su tarjeta nace en «Nv 1».
+    await sembrarListasDemo([...conBuilder, 'metas'])
 
     empezar('demo.paso.final')
     // El año de paintball vive solo en localStorage (su único almacén): el
@@ -201,7 +203,9 @@ async function construirApp(app: string): Promise<void> {
     const builder = await BUILDERS_DEMO[app]()
     await builder(crearCtxDemo())
     // Dentro de la colecta: `listasCumplidas` debe entrar en la foto parcial.
-    await sembrarListasDemo([app])
+    // Y `metas` otra vez: cada app que se construye tarde le añade metas nuevas,
+    // así que su año de listas crece con ella (la dedupe evita reinsertar).
+    await sembrarListasDemo([app, 'metas'])
   } catch (e) {
     // Se cierra la colecta pase lo que pase: abierta, dejaría el aviso del demo
     // mudo para siempre. El fallo se relanza tras cerrarla.
@@ -233,11 +237,16 @@ function hashDemo(s: string): number {
  */
 async function sembrarListasDemo(apps: string[]): Promise<void> {
   const hoy = fechaLocalISO()
+  // `listasCumplidas` tiene índice ÚNICO `&[plantillaId+fecha]`, y `metas` se
+  // siembra en CADA construcción perezosa: sin esta lista, la segunda app que se
+  // abra reinsertaría las fechas que ya puso la primera y reventaría con
+  // `ConstraintError`. Mismo patrón que `sembrarListasHistoricas`.
+  const ya = new Set((await db.listasCumplidas.toArray()).map((f) => `${f.plantillaId}|${f.fecha}`))
   for (const app of apps) {
     const fuente = FUENTES[app]
     if (!fuente) continue
     const filas = [...new Set(await fuente())]
-      .filter((f) => f && f < hoy && hashDemo(`${app}|${f}`) % 3 !== 0)
+      .filter((f) => f && f < hoy && !ya.has(`${app}|${f}`) && hashDemo(`${app}|${f}`) % 3 !== 0)
       .map((fecha) => ({ plantillaId: app, fecha, xp: XP_POR_LISTA }))
     if (filas.length) await db.listasCumplidas.bulkAdd(filas)
   }

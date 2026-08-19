@@ -1,4 +1,5 @@
 import type { CuerpoTutorial, TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import { fichaEsencial } from '../../core/tutorial/esencial'
 
 /**
  * Fichas de los tutoriales de esta app: id, título y resumen. Es lo único que
@@ -53,3 +54,13 @@ const flujoDecidir = tour(
 )
 
 export const flujosIdeas: TutorialDef[] = [flujoDiario, flujoMapas, flujoDecidir]
+
+/** Esencial: recorre los tres menús en la casa real, sin necesitar datos. */
+export const esencialIdeas: TutorialDef = fichaEsencial(
+  'ideas',
+  T(
+    'tut.app-ideas--esencial.resumen',
+    'Ideas guarda lo que se te ocurre en tres menús: Diario (ocurrencias sueltas o lluvias por tema), Mapas conceptuales (un lienzo libre en varios formatos) y Diagramas de decisiones (los mismos formatos, pensados para comparar y decidir). Todo se puede archivar en carpetas y convertir de un menú a otro.',
+  ),
+  () => import('./tutorial').then((m) => m.cuerpoEsencial as CuerpoTutorial),
+)

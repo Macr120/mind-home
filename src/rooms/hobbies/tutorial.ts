@@ -144,3 +144,50 @@ export const cuerpoGestion: CuerpoTutorial = {
   ],
 }
 
+/**
+ * ESENCIAL: corre en la casa real y recorre la pantalla principal de hobbies.
+ * Sin datos de por medio: sus anclas son la lista (vacía o no) y el botón de
+ * alta, que existen con la BD vacía. Lo que vive dentro de cada hobby (stats,
+ * heatmap, sesiones, proyectos) solo se describe: sus anclas son por-dato.
+ */
+export const cuerpoEsencial: CuerpoTutorial = {
+  preparar: () => {
+    abrirApp('hobbies')
+  },
+  pasos: [
+    {
+      titulo: T('tut.app-hobbies--esencial.1.titulo', 'Tus pasatiempos'),
+      texto: T(
+        'tut.app-hobbies--esencial.1.texto',
+        'Hobbies lleva el seguimiento de lo que practicas por gusto: cada hobby junta sus sesiones, su racha y, si quieres, sus proyectos.',
+      ),
+    },
+    {
+      sel: 'hobbies.lista',
+      titulo: T('tut.app-hobbies--esencial.2.titulo', 'Tus hobbies'),
+      texto: T(
+        'tut.app-hobbies--esencial.2.texto',
+        'Cada hobby que registres aparece aquí como una tarjeta, con el avance de la semana y la racha activa. Al abrir uno ves sus estadísticas, su heatmap del año, el registro de sesiones y sus proyectos.',
+      ),
+      alEntrar: async () => {
+        await esperarTut('hobbies.lista', 4000)
+      },
+    },
+    {
+      sel: 'hobbies.agregar',
+      titulo: T('tut.app-hobbies--esencial.3.titulo', 'Dar de alta un hobby'),
+      texto: T(
+        'tut.app-hobbies--esencial.3.texto',
+        'Este botón abre el formulario para sumar un hobby nuevo: nombre, emoji, color y, si quieres, una meta semanal en días de práctica.',
+      ),
+    },
+    {
+      titulo: T('tut.app-hobbies--esencial.4.titulo', 'Dentro de cada hobby'),
+      texto: T(
+        'tut.app-hobbies--esencial.4.texto',
+        'Ahí registras sesiones con minutos y nota, ves tu heatmap del año y llevas proyectos con su propio avance. Las metas y su cronograma viven en el cuarto de Metas.',
+      ),
+    },
+  ],
+}
+

@@ -11,7 +11,7 @@ import type { TipoTarjeta } from '../../core/data/db'
 import { actividadId } from '../../core/rutinas'
 import { tGlobal } from '../../core/i18n/useT'
 import { planMetasIdiomas } from './plan'
-import { flujosIdiomas } from './tutorial.meta'
+import { esencialIdiomas, flujosIdiomas } from './tutorial.meta'
 import { COLOR_FABRICA, NIVELES, TIPOS_TARJETA } from './constantes'
 import { tarjetasVencidas } from './srs'
 import { hoyISO } from './stats'
@@ -135,6 +135,7 @@ const idiomas: Plantilla = {
   color: COLOR_FABRICA,
   App: IdiomasApp,
   flujos: flujosIdiomas,
+  esencial: esencialIdiomas,
   capturar,
   esquemas,
   operacionesIA: OPERACIONES_IA,

@@ -45,7 +45,7 @@ import { TemaContext } from './primitivas'
 import { useInteractUi } from '../state/interactUiStore'
 import { MarcadorEntrada } from './marcadorEntrada'
 import { MuroSegment } from './MuroRender'
-import { PisoCelda } from './PisoCelda'
+import { PisoCelda, PisoFalsoCelda } from './PisoCelda'
 import { PisoCuadrantes3D } from './PisoCuadrantes3D'
 import { colorExteriorDefecto } from './PisosExterior3D'
 import { CUADRANTES_OFF, cuadrantesDeCelda, matDeRegistroPiso, type MatPiso } from './pisoSubcelda'
@@ -1255,6 +1255,27 @@ export function Room3D({
           </group>
         )
       })}
+
+      {/* Piso falso de los pisos altos: cierra la losa por debajo (desde abajo se veía el
+          interior por el hueco) y rellena la junta con los cuartos vecinos, que asomaba en
+          el umbral de las puertas. Los huecos de los ascensos siguen abiertos. */}
+      {nivel > 0 && !sinPiso && anchorCell &&
+        fp.map((off, i) => {
+          const clave = claveCeldaOff(off.col, off.row)
+          const [lx, lz] = tileLocalEnCuarto(anchorCell, off, fp)
+          return (
+            <PisoFalsoCelda
+              key={`pf${i}`}
+              lx={lx}
+              lz={lz}
+              color={floorColor}
+              atenuado={atenuado}
+              formaLoseta={formaEnCelda(formasEfectivas, clave)}
+              subformas={subformasPorCelda.get(clave) ?? null}
+              huecos={huecosDeLosa(lx, lz, nivel)}
+            />
+          )
+        })}
 
       {/* Alberca: lámina de agua animada por celda, a un pelo del borde del pozo. La
           silueta (forma entera + recortes finos) mantiene el agua DENTRO del cuarto. */}

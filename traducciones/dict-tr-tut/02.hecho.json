@@ -1,154 +1,34 @@
 [
-  {
-    "clave": "tut.casa.1.texto",
-    "texto": "İşte evin: her oda bir uygulama barındırır. Sana temel kontrolleri göstereyim."
-  },
-  {
-    "clave": "tut.casa.2.titulo",
-    "texto": "Ana menü"
-  },
-  {
-    "clave": "tut.casa.2.texto",
-    "texto": "Bu düğme menüyü açar: odaların, şablon (uygulama) kataloğu ve nesne envanteri."
-  },
-  {
-    "clave": "tut.casa.3.titulo",
-    "texto": "Hareket etmek"
-  },
-  {
-    "clave": "tut.casa.3.texto",
-    "texto": "Joystick’le, WASD ile ya da klavyenin ok tuşlarıyla yürü. Bir odanın kapısından geçtiğinde içeri girersin ve uygulaması kendiliğinden açılır."
-  },
-  {
-    "clave": "tut.casa.4.titulo",
-    "texto": "Üç bakış biçimi"
-  },
-  {
-    "clave": "tut.casa.4.texto",
-    "texto": "İzometrik, üçüncü ve birinci şahıs (ya da V tuşu). 3. / 1. şahısta ayrıca dünyayı içinde yürürken düzenlemeni sağlayan bir düğme çıkar."
-  },
-  {
-    "clave": "tut.casa.5.titulo",
-    "texto": "Tek köşe, birkaç sahip"
-  },
-  {
-    "clave": "tut.casa.5.texto",
-    "texto": "O köşe sadece bakış küpü değil: etkileşime girebileceğin bir şeye yaklaştığında —bir sandalye, bir araç, bir saha— yakınında ne varsa ona göre kendiliğinden değişir. Sen yaklaşmadan hiçbir şey çalışmaz."
-  },
-  {
-    "clave": "tut.casa.6.titulo",
-    "texto": "Araç çarkı"
-  },
-  {
-    "clave": "tut.casa.6.texto",
-    "texto": "Hareketler, Oyuncaklar, Araçlar ve İnşaat; aynı anda en fazla 3 tanesi kuşanılır. Buradan ya da elin boşken aynı köşedeki o yuvadan açılır."
-  },
-  {
-    "clave": "tut.casa.7.titulo",
-    "texto": "Saat"
-  },
-  {
-    "clave": "tut.casa.7.texto",
-    "texto": "Evin saati. Buradan tam takvim ve bugün sana kalanları gösteren Rutinler paneli açılır."
-  },
-  {
-    "clave": "tut.casa.8.titulo",
-    "texto": "Evin müziği"
-  },
-  {
-    "clave": "tut.casa.8.texto",
-    "texto": "Her odanın kendi parçası olabilir ya da evin genel atmosferi çalmaya devam edebilir. Sessizliği tercih edersen tamamen kapatılır."
-  },
-  {
-    "clave": "tut.casa.9.titulo",
-    "texto": "Sohbet"
-  },
-  {
-    "clave": "tut.casa.9.texto",
-    "texto": "Mimarın sohbeti: ne yaptığını anlat, doğru uygulamaya kaydetsin; ya da evde değişiklik iste."
-  },
-  {
-    "clave": "tut.casa.10.texto",
-    "texto": "Temeller bu kadar. Yukarıdaki Düzenleyici düğmesi kişiselleştirmenin tamamını açar; her menünün ve her uygulamanın da kendi ? düğmesi ve kendi eğitimi var."
-  },
-  {
-    "clave": "tut.primeros.1.texto",
-    "texto": "İlk iş: ev nasıl kuruluyor. Her şey Odalar sekmesinde başlar."
-  },
-  {
-    "clave": "tut.primeros.2.titulo",
-    "texto": "Oda oluştur"
-  },
-  {
-    "clave": "tut.primeros.2.texto",
-    "texto": "Bu düğmeyle haritaya yeni odalar çizersin. Yolun geri kalanını göstermek için şimdi sana bir tane oluşturuyorum…"
-  },
-  {
-    "clave": "tut.primeros.3.titulo",
-    "texto": "Yeni odan"
-  },
-  {
-    "clave": "tut.primeros.3.texto",
-    "texto": "İşte burada! Yeni oluşturulmuş bir oda, henüz uygulaması yok: bu yüzden düğmesinde + Ata yazıyor."
-  },
-  {
-    "clave": "tut.primeros.4.titulo",
-    "texto": "Bir uygulama ata"
-  },
-  {
-    "clave": "tut.primeros.4.texto",
-    "texto": "+ Ata ile uygulamasını verdim: bak, oda adını, simgesini ve mobilyalarını nasıl aldı; düğmesinde de artık Gir yazıyor."
-  },
-  {
-    "clave": "tut.primeros.5.titulo",
-    "texto": "Gir"
-  },
-  {
-    "clave": "tut.primeros.5.texto",
-    "texto": "İçerideyiz: bu, odanın uygulaması. Dolaşırken de kapısından geçerek girersin ve ‹ Eve dön ile çıkarsın."
-  },
-  {
-    "clave": "tut.primeros.6.texto",
-    "texto": "Oda, uygulaması hazır halde evinde kalır. Gerisi de böyle kurulur: burada tutmak istediğin her şey için bir oda."
-  },
-  {
-    "clave": "tut.menu-cuartos.1.texto",
-    "texto": "Odalar sekmesi, evindeki bütün odaları kategorilerine göre gruplayarak listeler."
-  },
-  {
-    "clave": "tut.menu-cuartos.2.titulo",
-    "texto": "Senin özetin"
-  },
-  {
-    "clave": "tut.menu-cuartos.2.texto",
-    "texto": "Karakterin senin gerçek etkinliğinden beslenir: burada keyfini, seviyesini ve serisini görürsün. Herhangi bir uygulamaya bir şey kaydet, keyiflendiğini fark edersin; birkaç gün hiçbir şey olmazsa üzülür — ama seni asla cezalandırmaz, hiçbir şey sıfırlanmaz."
-  },
-  {
-    "clave": "tut.menu-cuartos.3.titulo",
-    "texto": "Kartlar"
-  },
-  {
-    "clave": "tut.menu-cuartos.3.texto",
-    "texto": "Her kart bir odadır: simgesi, adı ve uygulamasının ilerlemesi; Beden, Zihin, Ekstralar ve Ayarlar altında gruplanır. Uygulaması atanmamış odalar en sonda kalır."
-  },
-  {
-    "clave": "tut.menu-cuartos.4.titulo",
-    "texto": "Düzenle"
-  },
-  {
-    "clave": "tut.menu-cuartos.4.texto",
-    "texto": "Düzenle, odanın düzenleyicisini açar: biçim, renkler, duvarlar ve nesneler. (Şimdi basma: bu menüyü kapatır.)"
-  },
-  {
-    "clave": "tut.menu-cuartos.5.titulo",
-    "texto": "Gir ve Ata"
-  },
-  {
-    "clave": "tut.menu-cuartos.5.texto",
-    "texto": "Gir, odanın uygulamasını açar. Bir odanın henüz uygulaması yoksa, onun yerinde + Ata görürsün: katalogdan birini seçmen için."
-  },
-  {
-    "clave": "tut.menu-cuartos.6.titulo",
-    "texto": "Oda oluştur"
-  }
+  { "clave": "tut.app-biblioteca--esencial.4.texto", "texto": "Çalışmak için zamanlayıcı: bir alan ve bir süre seçersin, aralıksız ya da pomodorolarla, ve her aralık kendiliğinden kaydedilir. Odadan çıksan bile çalışmaya devam eder." },
+  { "clave": "tut.app-biblioteca--esencial.5.titulo", "texto": "Genel bakış" },
+  { "clave": "tut.app-biblioteca--esencial.5.texto", "texto": "Yukarıdakilerin tamamının genel görünümü: ansiklopedinde kaç madde olduğu ve dizinin ne kadarını kapladığın, çalışma dakikaların, serin ve çalıştığın günler." },
+  { "clave": "tut.app-cocina--esencial.1.titulo", "texto": "Mutfak" },
+  { "clave": "tut.app-cocina--esencial.1.texto", "texto": "Bu uygulama iki şeyi yürütür: pişireceğin şey ve sonunda yediğin şey. Her birinin üstte kendi menüsü var, ve her menü kendi sekmelerini açar." },
+  { "clave": "tut.app-cocina--esencial.2.titulo", "texto": "Tarif defteri" },
+  { "clave": "tut.app-cocina--esencial.2.texto", "texto": "Pişirme tarafı: tariflerin, onları gruplayan diyetler ve market listesi burada yaşar. Üç sekme, bu sırayla." },
+  { "clave": "tut.app-cocina--esencial.3.titulo", "texto": "Diyet" },
+  { "clave": "tut.app-cocina--esencial.3.texto", "texto": "Bir diyet, içinde tarifleri olan ve istersen kendi kalori ve makro hedefleri olan bir öğün planıdır. Kendi diyetlerini uygulamanın zaten getirdiklerinin yanına kaydedersin." },
+  { "clave": "tut.app-cocina--esencial.4.titulo", "texto": "Tarifler" },
+  { "clave": "tut.app-cocina--esencial.4.texto", "texto": "Tarif defteri: her tarif malzemelerini, adımlarını ve porsiyon başına makrolarını tutar, klasörlere ayrılmış olarak. Bir tariften öğünü kaydedebilir ya da malzemelerini market listesine gönderebilirsin." },
+  { "clave": "tut.app-cocina--esencial.5.titulo", "texto": "Market" },
+  { "clave": "tut.app-cocina--esencial.5.texto", "texto": "Her ürünün ait olduğu reyonda yer aldığı market listesi. Birkaç tariften eksik olanları toplayarak bir liste oluşturabilir ve kilerde zaten olanları işaretleyebilirsin." },
+  { "clave": "tut.app-cocina--esencial.6.titulo", "texto": "Beslenme" },
+  { "clave": "tut.app-cocina--esencial.6.texto", "texto": "Diğer menü, dört numaralı sekmede ne yediğinin hesabını tutar. İlki Hedefler: kilon, boyun ve aktivitenden yola çıkarak günde ne kadar ihtiyacın olduğunu hesaplar ve makroları böler." },
+  { "clave": "tut.app-cocina--esencial.7.titulo", "texto": "Günlük" },
+  { "clave": "tut.app-cocina--esencial.7.texto", "texto": "Zaten olan şey: kalorileriyle günün öğünleri, o ana kadar içtiğin su ve tartıldığında kilonun. Yanındaki sekme, Öğün planı, tam tersidir: önümüzdeki günlerde ne yemeyi planladığının ızgarası." },
+  { "clave": "tut.app-cocina--esencial.8.titulo", "texto": "İlerleme" },
+  { "clave": "tut.app-cocina--esencial.8.texto", "texto": "Seçtiğin dönem için yukarıdakilerin tamamının istatistikleri: kalori ve makrolar, su ve kilo eğrin. Aşağıda, renkli bir takvim hangi günlerde hedefin içinde kaldığını tek bakışta gösterir." },
+  { "clave": "tut.app-computo--esencial.1.titulo", "texto": "Bilgi İşlem" },
+  { "clave": "tut.app-computo--esencial.1.texto", "texto": "Hesaplanması gereken her şey burada, iki bölümde çözülür: modları ve formül defterinle Hesap Makinesi, ve tablo halindeki her şey için E-Tablolar." },
+  { "clave": "tut.app-computo--esencial.2.titulo", "texto": "Hesap Makinesi" },
+  { "clave": "tut.app-computo--esencial.2.texto", "texto": "Yazarken sonucu gösteren ve hesapladığın her şeyi geçmişte tutan bilimsel bir hesap makinesi. Alttaki tuş takımı seni telefon klavyesinden kurtarır, ve gösterimler imlecin nerede olursa olsun bilimsel şeyleri yazar." },
+  { "clave": "tut.app-computo--esencial.3.titulo", "texto": "Modlar" },
+  { "clave": "tut.app-computo--esencial.3.texto", "texto": "Bu bölüm hesap makinesinin tüm görünümünü değiştirir: grafik, sayı tabanları, matrisler, denklem sistemleri, birim dönüştürme, bahşiş ve üçlü kural. Geçmiş hepsinde altta kalır." },
+  { "clave": "tut.app-computo--esencial.4.titulo", "texto": "Formül defteri" },
+  { "clave": "tut.app-computo--esencial.4.texto", "texto": "Hesap makinesinin üzerine katlanmış formül kitabın. Matematik, Fizik ve Kimya zaten yüklü gelir, iç içe geçirebileceğin klasörlerde. Herhangi bir formül değişkenlerini doldurmak için açılır, düzenlenebilir ya da silinebilir." },
+  { "clave": "tut.app-computo--esencial.5.titulo", "texto": "E-Tablolar" },
+  { "clave": "tut.app-computo--esencial.5.texto", "texto": "Hücre referansları ve anlaşılır formülleri olan tablolar, artı seçtiğin aralık üzerinde grafikler. Formülleri canlı tutarak Excel'e, ya da PDF'e aktarılır." },
+  { "clave": "tut.app-descanso--esencial.1.titulo", "texto": "Dinlenme" },
+  { "clave": "tut.app-descanso--esencial.1.texto", "texto": "Bu uygulama uykunu tek bir ekranda takip eder: son gecenin puanı, hatırlatıcılarıyla programın, günlük kayıt ve tam geçmiş." },
+  { "clave": "tut.app-descanso--esencial.2.titulo", "texto": "Puan" }
 ]

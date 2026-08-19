@@ -1,130 +1,34 @@
 [
-  {
-    "clave": "tut.editor-mapa.3.texto",
-    "texto": "Les toits se posent case par case : chacune peut avoir sa propre forme ou son propre matériau, si bien qu’une même pièce peut mélanger plusieurs pentes au lieu d’un seul toit plat."
-  },
-  {
-    "clave": "tut.editor-mapa.4.texto",
-    "texto": "La maison a aussi des niveaux : des étages qui s’empilent vers le haut et un sous-sol vers le bas. Chaque nouveau niveau naît avec sa propre façon de monter — un escalier ou une ouverture dans la dalle — qui perce le sol du dessus."
-  },
-  {
-    "clave": "tut.editor-mapa.5.titulo",
-    "texto": "Terminé"
-  },
-  {
-    "clave": "tut.editor-mapa.5.texto",
-    "texto": "Tout s’enregistre tout seul pendant que tu modifies. Terminé ferme l’éditeur et te ramène au jeu, la maison telle que tu l’as laissée."
-  },
-  {
-    "clave": "tut.editor-personajes.1.texto",
-    "texto": "Ton personnage principal et tes assistants vivent dans le même éditeur : choisis en haut qui tu modifies, et les outils s’adaptent à ce qui a du sens pour chacun."
-  },
-  {
-    "clave": "tut.editor-personajes.2.titulo",
-    "texto": "Visage et photo"
-  },
-  {
-    "clave": "tut.editor-personajes.2.texto",
-    "texto": "Expression, coiffure et couleur de cheveux, ou carrément une photo de toi pour que le personnage te ressemble. Tous les corps n’acceptent pas un visage personnalisé."
-  },
-  {
-    "clave": "tut.editor-personajes.3.titulo",
-    "texto": "Vêtements par catégorie"
-  },
-  {
-    "clave": "tut.editor-personajes.3.texto",
-    "texto": "Chaque vêtement se met, s’enlève et change de couleur séparément : chemise, pantalon, chaussures, accessoires. Ils se combinent librement."
-  },
-  {
-    "clave": "tut.editor-personajes.4.titulo",
-    "texto": "Tenues enregistrées"
-  },
-  {
-    "clave": "tut.editor-personajes.4.texto",
-    "texto": "Enregistre une combinaison complète comme une tenue et change de look en un geste, sans tout remonter vêtement par vêtement à chaque fois."
-  },
-  {
-    "clave": "tut.editor-personajes.5.titulo",
-    "texto": "Garde-robe par pièce"
-  },
-  {
-    "clave": "tut.editor-personajes.5.texto",
-    "texto": "Affecte une tenue différente à chaque pièce : ton avatar entre en tenue de course dans Gym et se change tout seul en passant à la Cuisine."
-  },
-  {
-    "clave": "tut.editor-personajes.6.texto",
-    "texto": "Corps, couleur et taille se modifient comme toujours ; avec l’IA activée, tu peux aussi générer ton propre modèle 3D au lieu d’en choisir un tout fait."
-  },
-  {
-    "clave": "tut.editor-objetos.1.texto",
-    "texto": "Touche un objet de la scène (ou de la liste) pour le modifier : couleur, taille et rotation sont les trois réglages que tous partagent."
-  },
-  {
-    "clave": "tut.editor-objetos.2.texto",
-    "texto": "Les objets qui ont une app affectée ouvrent leur modèle quand tu entres dans la pièce ; les autres ne sont que de la décoration — les deux se modifient pareil."
-  },
-  {
-    "clave": "tut.editor-objetos.3.texto",
-    "texto": "L’engrenage ⚙️ d’un objet le rend modifiable en pièces 3D : monte tes propres modèles en combinant des formes de base, ou demandes-en un à l’IA en le décrivant."
-  },
-  {
-    "clave": "tut.editor-config.1.texto",
-    "texto": "Huit sections repliables, pas une longue liste : touche un titre pour n’ouvrir que celle qui t’intéresse."
-  },
-  {
-    "clave": "tut.editor-config.2.titulo",
-    "texto": "Compte et IA"
-  },
-  {
-    "clave": "tut.editor-config.2.texto",
-    "texto": "Te connecter, ton plan et ce que tu as dépensé en IA ce mois-ci ; juste à côté, la grille tarifaire de chaque opération. Les deux ont leur propre tutoriel détaillé."
-  },
-  {
-    "clave": "tut.editor-config.3.titulo",
-    "texto": "Style visuel"
-  },
-  {
-    "clave": "tut.editor-config.3.texto",
-    "texto": "Le thème du plan (lumière, brouillard, éclairage) et les styles de post-traitement, tout chargé à la demande pour ne pas alourdir l’app."
-  },
-  {
-    "clave": "tut.editor-config.4.titulo",
-    "texto": "Interface et langue"
-  },
-  {
-    "clave": "tut.editor-config.4.texto",
-    "texto": "Langue, thème de l’interface (clair/sombre/automatique), style d’icônes et densité — tout ce qui change COMMENT la maison se voit, pas ce qu’elle contient."
-  },
-  {
-    "clave": "tut.editor-config.5.titulo",
-    "texto": "Notifications"
-  },
-  {
-    "clave": "tut.editor-config.5.texto",
-    "texto": "Quelles alertes arrivent et lesquelles se taisent : routines, rappels de plan et avis se coupent séparément."
-  },
-  {
-    "clave": "tut.editor-config.6.texto",
-    "texto": "Musique et Tutoriels ont leur propre parcours ; Sauvegarde des données aussi, et c’est celui qu’il vaut le mieux revoir avant de changer d’appareil."
-  },
-  {
-    "clave": "tut.respaldo.1.titulo",
-    "texto": "Où vit ta maison"
-  },
-  {
-    "clave": "tut.respaldo.1.texto",
-    "texto": "Sans compte ni synchronisation, tes données ne vivent que sur cet appareil. L’avis du haut dit si le navigateur a la permission de les protéger d’un nettoyage automatique."
-  },
-  {
-    "clave": "tut.respaldo.2.titulo",
-    "texto": "Exporter"
-  },
-  {
-    "clave": "tut.respaldo.2.texto",
-    "texto": "Télécharge un seul fichier JSON avec toutes tes tables : pièces, objectifs, enregistrements, tout. C’est ta copie de sauvegarde manuelle."
-  },
-  {
-    "clave": "tut.respaldo.3.titulo",
-    "texto": "Restaurer"
-  }
+  { "clave": "tut.app-ejercicio--esencial.3.texto", "texto": "L’entraînement avec charges : chaque séance garde ses exercices avec séries, répétitions et charge. À partir de ça, l’app calcule le volume du jour, trace la progression de chaque exercice et garde tes records." },
+  { "clave": "tut.app-ejercicio--esencial.4.titulo", "texto": "Catalogue, routines et progression" },
+  { "clave": "tut.app-ejercicio--esencial.4.texto", "texto": "Les trois disciplines s’organisent de la même façon. Le Catalogue regroupe les exercices disponibles et compose des routines avec eux, Routines enregistre l’entraînement du jour choisi en haut, et Progression résume la période avec sa carte de chaleur." },
+  { "clave": "tut.app-ejercicio--esencial.5.titulo", "texto": "Endurance" },
+  { "clave": "tut.app-ejercicio--esencial.5.texto", "texto": "Courir, pédaler, nager ou marcher, par tronçons avec leurs minutes et leur distance. C’est ici que s’ouvre l’entraînement en direct, qui capte le parcours par GPS et le pouls d’un capteur Bluetooth, et enregistre la séance à la fin." },
+  { "clave": "tut.app-ejercicio--esencial.6.titulo", "texto": "Souplesse" },
+  { "clave": "tut.app-ejercicio--esencial.6.texto", "texto": "Étirements et mobilité, avec des séries minutées plutôt qu’en charge : chaque posture a ses secondes et ses répétitions. Le lecteur guidé déroule la routine posture par posture avec un minuteur qui indique quand changer." },
+  { "clave": "tut.app-entretenimiento--esencial.1.titulo", "texto": "Divertissement" },
+  { "clave": "tut.app-entretenimiento--esencial.1.texto", "texto": "Garde les films, séries, livres et jeux vidéo que tu termines, et propose une table de jeux numérique pour jouer sans quitter la maison. Deux menus : Jeux de société et Archives." },
+  { "clave": "tut.app-entretenimiento--esencial.2.titulo", "texto": "Jeux de société" },
+  { "clave": "tut.app-entretenimiento--esencial.2.texto", "texto": "La table réunit des jeux numériques qui se jouent directement à l’écran. Un filtre sépare ce qui est pensé pour un ou deux joueurs de ce qui convient à un groupe plus large." },
+  { "clave": "tut.app-entretenimiento--esencial.3.titulo", "texto": "Par familles" },
+  { "clave": "tut.app-entretenimiento--esencial.3.texto", "texto": "Le catalogue se regroupe en familles — plateau, casse-têtes, arcade, cartes et casino, et en groupe — chacune avec sa propre couleur. Touche n’importe quelle carte pour ouvrir le jeu en plein écran." },
+  { "clave": "tut.app-entretenimiento--esencial.4.titulo", "texto": "Archives" },
+  { "clave": "tut.app-entretenimiento--esencial.4.texto", "texto": "Les archives réunissent ce que tu regardes, lis et joues : chaque titre avec son statut, sa note et ton avis. Tu peux trier par genre, catégorie, auteur ou date." },
+  { "clave": "tut.app-garage--esencial.1.titulo", "texto": "Le garage" },
+  { "clave": "tut.app-garage--esencial.1.texto", "texto": "Le garage suit tes véhicules : vélos, voitures, motos et tout ce que tu utilises pour te déplacer. Chacun avec son historique d’entretien et ses démarches, et tout ce qui a une date se programme tout seul dans le calendrier de la maison." },
+  { "clave": "tut.app-garage--esencial.2.titulo", "texto": "Résumé" },
+  { "clave": "tut.app-garage--esencial.2.texto", "texto": "L’onglet d’entrée : un voyant tricolore indique d’un coup d’œil si quelque chose est en retard, si quelque chose approche, ou si le garage est tranquille." },
+  { "clave": "tut.app-garage--esencial.3.titulo", "texto": "En un coup d’œil" },
+  { "clave": "tut.app-garage--esencial.3.texto", "texto": "Combien de véhicules tu as, combien de démarches sont encore actives et ce que tu as dépensé cette année." },
+  { "clave": "tut.app-garage--esencial.4.titulo", "texto": "Véhicules" },
+  { "clave": "tut.app-garage--esencial.4.texto", "texto": "La liste complète, avec plaque, kilométrage et nombre d’entretiens sur chaque carte. En touchant un véhicule, sa fiche s’ouvre, avec son historique d’entretien et ses démarches." },
+  { "clave": "tut.app-garage--esencial.5.titulo", "texto": "Ajouter un nouveau véhicule" },
+  { "clave": "tut.app-garage--esencial.5.texto", "texto": "Nom, type, marque, modèle, année, plaque et le kilométrage du jour. Une fois la plaque renseignée, la fiche débloque aussi les démarches propres à un véhicule immatriculé, comme le contrôle technique ou la taxe." },
+  { "clave": "tut.app-hobbies--esencial.1.titulo", "texto": "Tes loisirs" },
+  { "clave": "tut.app-hobbies--esencial.1.texto", "texto": "Hobbies suit ce que tu pratiques par plaisir : chaque hobby réunit ses séances, sa série et, si tu veux, ses projets." },
+  { "clave": "tut.app-hobbies--esencial.2.titulo", "texto": "Tes hobbies" },
+  { "clave": "tut.app-hobbies--esencial.2.texto", "texto": "Chaque hobby que tu enregistres apparaît ici sous forme de carte, avec la progression de la semaine et la série en cours. En ouvrant l’un d’eux, tu vois ses statistiques, son heatmap de l’année, le journal des séances et ses projets." },
+  { "clave": "tut.app-hobbies--esencial.3.titulo", "texto": "Ajouter un hobby" },
+  { "clave": "tut.app-hobbies--esencial.3.texto", "texto": "Ce bouton ouvre le formulaire pour ajouter un nouveau hobby : nom, emoji, couleur et, si tu veux, un objectif hebdomadaire en jours de pratique." },
+  { "clave": "tut.app-hobbies--esencial.4.titulo", "texto": "À l’intérieur de chaque hobby" }
 ]

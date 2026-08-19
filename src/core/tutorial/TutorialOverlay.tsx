@@ -116,17 +116,12 @@ export function TutorialOverlay() {
     return () => window.removeEventListener('keydown', onKey, true)
   }, [def])
 
-  // Seguro: si el overlay se desmonta con un tour activo (HMR), la limpieza corre.
-  useEffect(() => () => void useTutorial.getState().salir(), [])
-
   // Narración: lee el paso cuando su tarjeta YA está en pantalla (con `ocupado`
   // hablaría mientras la cámara todavía vuela y la app se abre). Una vez por
   // paso: `ocupado` puede volver a false sin que el paso cambie.
   const vozTutoriales = useAjustes((s) => s.vozTutoriales)
   const narrado = useRef('')
   useEffect(() => {
-    // El overlay no se desmonta al salir (App lo monta siempre): sin `def` es
-    // que el tour terminó, y ahí es donde toca callar.
     if (!def) {
       callarNarracion()
       narrado.current = ''
@@ -140,6 +135,17 @@ export function TutorialOverlay() {
     const cabecera = pas.titulo ?? def.titulo
     narrarPaso(t(cabecera.clave, cabecera.es), t(pas.texto.clave, pas.texto.es))
   }, [def, cuerpo, paso, ocupado, vozTutoriales, t])
+
+  // App desmonta el overlay al terminar el tour: aquí solo se calla la voz.
+  // PROHIBIDO hacer salir() en esta limpieza: StrictMode ejecuta
+  // montaje→limpieza→montaje al arrancar y mataría el tour recién iniciado.
+  useEffect(
+    () => () => {
+      callarNarracion()
+      narrado.current = ''
+    },
+    [],
+  )
 
   // Coloca la tarjeta (junto al objetivo o junto al mago) y decide la esquina del mago.
   useLayoutEffect(() => {

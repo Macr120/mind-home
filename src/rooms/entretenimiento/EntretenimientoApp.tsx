@@ -25,7 +25,8 @@ export function EntretenimientoApp() {
   const media = mediaArchivoRepo.useAll() ?? VACIO
 
   return (
-    <div className="mx-auto max-w-2xl space-y-4">
+    // El Archivo despliega sus tarjetas en rejilla: usa todo el ancho disponible.
+    <div className={`mx-auto space-y-4 ${tab === 'archivo' ? '' : 'max-w-2xl'}`}>
       <p className="text-xs text-white/45 leading-relaxed">
         {t('entre.desc', 'Películas, series, libros, videojuegos y juegos de mesa para jugar — todo en la sala de entretenimiento. Tus datos del archivo anterior se conservan aquí.')}
       </p>

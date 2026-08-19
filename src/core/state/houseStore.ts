@@ -199,11 +199,10 @@ export const useHouse = create<HouseState>((set, get) => ({
   },
   transicion: null,
   terminarTransicion: () => {
-    const { transicion, navTick, explotado } = get()
+    const { transicion, navTick } = get()
     if (!transicion) return
-    const yFinal = nivelBaseY(transicion.hacia, !explotado)
-    playerPos.y = yFinal
-    // El personaje ya quedó en el aterrizaje (lo dejó Character); fija nivel y suéltalo.
+    // El personaje ya quedó en el aterrizaje (lo dejó Character, con la Y sobre
+    // la losa); fija nivel y suéltalo sin pisarle la altura.
     set({
       playerLevel: transicion.hacia,
       transicion: null,
@@ -212,7 +211,7 @@ export const useHouse = create<HouseState>((set, get) => ({
       freeMove: true,
     })
     // La cámara sigue al jugador al nuevo piso (Y) y lo recentra.
-    useCam.setState({ focus: [playerPos.x, yFinal, playerPos.z] })
+    useCam.setState({ focus: [playerPos.x, playerPos.y, playerPos.z] })
   },
 }))
 

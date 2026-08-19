@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { useDiseño, esObjetoMapa } from '../state/disenoStore'
 import { useHouse } from '../state/houseStore'
 import { useMontura } from '../state/monturaStore'
@@ -23,7 +24,8 @@ import { useCargar } from '../state/cargarStore'
 import { useContexto, type AccionContextual } from '../state/contextoStore'
 import { useParque, parqueFrame } from '../state/parqueStore'
 import { useFlotador } from '../state/flotadorStore'
-import { useTren } from '../state/trenStore'
+import { useTren, type ModoVia } from '../state/trenStore'
+import { SelectorAsistente } from './comun/SelectorAsistente'
 import { useJuegoCancha } from '../state/juegoCanchaStore'
 import { useCarrera } from '../state/carreraStore'
 import { type ClaseCancha } from '../state/canchasStore'
@@ -983,6 +985,11 @@ function ejecutar(a: AccionContextual) {
     case 'tren':
       useTren.getState().montar()
       break
+    case 'trenMenu': {
+      const via = useTren.getState().cerca?.viaId
+      if (via) useTren.getState().setMenu({ viaId: via })
+      break
+    }
     case 'cancha':
       // Abre la elección de modo (`MarcadorCancha`); el partido arranca ahí.
       if (a.clase) void useJuegoCancha.getState().activar(a.id, a.clase as ClaseCancha)
@@ -1065,6 +1072,10 @@ function PanelContextual() {
         return a.riel === 'coaster'
           ? { etiqueta: t('tren.montarCarrito', 'Montar el carrito'), icono: 'montana-rusa' }
           : { etiqueta: t('tren.montarTren', 'Montar el tren'), icono: 'riel' }
+      case 'trenMenu':
+        return a.riel === 'coaster'
+          ? { etiqueta: t('tren.menu.coaster', '¿Y el carrito?'), icono: 'editar' }
+          : { etiqueta: t('tren.menu', '¿Y el tren?'), icono: 'editar' }
       case 'cancha':
         // El nombre de `CANCHAS` ya dice "Cancha de tenis": aquí solo el deporte.
         return { etiqueta: t(`ctx.jugar.${a.clase}`, `Jugar ${DEPORTE[a.clase ?? ''] ?? ''}`.trim()), icono: 'apunta' }
@@ -1140,6 +1151,8 @@ function PanelContextual() {
  * Botón para dejar lo que se está usando cuando no hay panel propio que lo haga:
  * los 5 usables de plantilla, los juegos del parque y la dona. Antes solo se
  * salía caminando, que sigue funcionando pero no se ve por ningún lado.
+ * Montado en el tren se suma «Saltar» — lo único que se puede hacer a bordo,
+ * aparte de bajarse: el vagón brinca contigo.
  */
 function PanelSalida() {
   const t = useT()
@@ -1159,11 +1172,25 @@ function PanelSalida() {
     // personaje en un punto libre: forzar el store aquí lo dejaría dentro.
     if (enUsable) useAccionCuarto.getState().pedirSalir()
     else if (enJuego) parqueFrame.salirPendiente = true
+    // Bajarse del tren no pregunta nada: sigue con el modo que tenga su vía
+    // (se configura a pie, en el pop-up junto al botón «Subir»).
     else if (trenMontado) useTren.getState().bajar()
     else useFlotador.getState().salirForzado()
   }
   return (
     <div className="ui-hud ui-pop flex w-full flex-col gap-1 rounded-lg border border-white/10 p-2">
+      {trenMontado && (
+        <button
+          type="button"
+          onClick={() => useHerramienta.getState().saltar()}
+          className={btnCortoClaro}
+        >
+          <span className="text-lg leading-none">
+            <Icono nombre="saltar" />
+          </span>
+          <span className="text-xs font-semibold">{t('herr.saltar', 'Saltar')}</span>
+        </button>
+      )}
       <button type="button" onClick={salir} className={btnCortoVerde}>
         <span className="text-lg leading-none">
           <Icono emoji="🧍" />
@@ -1173,6 +1200,94 @@ function PanelSalida() {
         </span>
       </button>
     </div>
+  )
+}
+
+/**
+ * Pop-up de qué hacer con el tren (o el carrito) de una vía: dejarlo correr
+ * solo, ponerle de maquinista a un asistente o pararlo. Sale SOLO a pie,
+ * junto al botón «Subir», cuando esa vía ya tiene tren — bajarse no
+ * pregunta nada: el tren retoma el modo que tenga su vía. Va en portal:
+ * los paneles del HUD llevan `backdrop-filter` y un `fixed` anidado
+ * quedaría anclado dentro de la columna del cubo en vez de centrado.
+ */
+function MenuTren() {
+  const t = useT()
+  const menu = useTren((s) => s.menu)
+  const modos = useTren((s) => s.modos)
+  // La vía en la que se está eligiendo maquinista: guardar el id en vez de un
+  // booleano hace que al cambiar de menú se vuelva solo a la lista de opciones.
+  const [eligiendoVia, setEligiendoVia] = useState<string | null>(null)
+  if (!menu) return null
+  const eligiendo = eligiendoVia === menu.viaId
+  const st = useTren.getState()
+  const modo: ModoVia = modos[menu.viaId] ?? { conductorId: null, detenido: false }
+  const aplicar = (m: ModoVia) => {
+    st.setModoVia(menu.viaId, m)
+    setEligiendoVia(null)
+    st.setMenu(null)
+  }
+  const cerrar = () => (eligiendo ? setEligiendoVia(null) : st.setMenu(null))
+  // El id de la vía lleva el tipo por delante (`coaster:12,6`): en la montaña
+  // rusa el título pregunta por el carrito.
+  const esCarrito = menu.viaId.startsWith('coaster')
+  return createPortal(
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
+      onClick={cerrar}
+    >
+      <div
+        className="ui-panel ui-pop flex w-full max-w-xs flex-col gap-1.5 rounded-2xl border border-white/10 p-4 shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <p className="text-center text-sm font-black">
+          {esCarrito ? t('tren.menu.coaster', '¿Y el carrito?') : t('tren.menu', '¿Y el tren?')}
+        </p>
+        {eligiendo ? (
+          <SelectorAsistente
+            elegidoId={modo.conductorId}
+            onElegir={(a) => aplicar({ conductorId: a.id, detenido: false })}
+          />
+        ) : (
+          <>
+            <button
+              type="button"
+              onClick={() => aplicar({ conductorId: null, detenido: false })}
+              className={btnCortoVerde}
+            >
+              <span className="text-lg leading-none">
+                <Icono nombre="play" />
+              </span>
+              <span className="text-xs font-semibold">
+                {t('tren.menu.solo', 'Que siga corriendo solo')}
+              </span>
+            </button>
+            <button type="button" onClick={() => setEligiendoVia(menu.viaId)} className={btnCortoClaro}>
+              <span className="text-lg leading-none">
+                <Icono nombre="mascota-robot" />
+              </span>
+              <span className="text-xs font-semibold">
+                {t('tren.menu.asistente', 'Que lo monte un asistente')}
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={() => aplicar({ conductorId: modo.conductorId, detenido: true })}
+              className={btnCortoClaro}
+            >
+              <span className="text-lg leading-none">
+                <Icono nombre="detener" />
+              </span>
+              <span className="text-xs font-semibold">{t('tren.menu.detener', 'Detenerlo aquí')}</span>
+            </button>
+          </>
+        )}
+        <button type="button" onClick={cerrar} className={btnCortoClaro}>
+          <span className="text-xs font-semibold">{t('tren.menu.cancelar', 'Cancelar')}</span>
+        </button>
+      </div>
+    </div>,
+    document.body,
   )
 }
 
@@ -1208,13 +1323,23 @@ export function ControlHerramienta() {
   const parqueId = useParque((s) => s.instanciaId)
   const flotadorId = useFlotador((s) => s.instanciaId)
   const trenMontado = useTren((s) => s.montado)
+  // El pop-up del tren se pinta desde aquí: abierto, el guard no puede cortar.
+  const menuTrenAbierto = useTren((s) => s.menu != null)
   const ocupado =
     montadoId != null || accionId != null || parqueId != null || flotadorId != null || trenMontado
   const hayContextual = useContexto((s) => s.acciones.length > 0)
   const cargando = useCargar((s) => s.sujeto != null)
   const cercaCarga = useCargar((s) => s.cerca != null)
   const moverSuelto = !ocupado && (cercaCarga || cargando) && !equipadas.includes('mover')
-  if (equipadas.length === 0 && !vehSuelto && !accionSuelto && !hayContextual && !moverSuelto && !ocupado)
+  if (
+    equipadas.length === 0 &&
+    !vehSuelto &&
+    !accionSuelto &&
+    !hayContextual &&
+    !moverSuelto &&
+    !ocupado &&
+    !menuTrenAbierto
+  )
     return null
   return (
     // Tope de altura por si se juntan varios: la columna del cubo crece hacia
@@ -1225,12 +1350,15 @@ export function ControlHerramienta() {
     >
       {!ocupado && <PanelContextual />}
       {moverSuelto && <PanelMover suelto />}
+      <MenuTren />
       <PanelSalida />
       {vehSuelto && !vehSueltoEnHotbar && (
         <PanelHerramienta h={vehSuelto} montadoSuelto cercaId={montadoId == null ? (cercaVehId ?? undefined) : undefined} />
       )}
       {accionSuelto && !accionSueltoEnHotbar && <PanelHerramienta h={accionSuelto} montadoSuelto />}
-      {equipadas.map((h) => (h === 'mover' && ocupado ? null : <PanelHerramienta key={h} h={h} />))}
+      {/* Montado en el tren solo quedan «Saltar» y «Bajarte» (PanelSalida). */}
+      {!trenMontado &&
+        equipadas.map((h) => (h === 'mover' && ocupado ? null : <PanelHerramienta key={h} h={h} />))}
     </div>
   )
 }

@@ -149,7 +149,6 @@ export function RespiracionTab({ onSesion }: { onSesion: (activa: boolean) => vo
               onCambio={(id) => setDurSel(Number(id))}
               color={COLOR}
               variante="sub"
-              nivel={3}
               flecha={false}
             />
           </div>

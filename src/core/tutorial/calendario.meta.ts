@@ -1,8 +1,8 @@
 import type { CuerpoTutorial, TextoTut, TutorialDef } from './tipos'
 
 /**
- * Fichas de los cuatro tours del reloj (calendario, metas, rutinas y los chips
- * de enlace). Los pasos viven en `calendario.ts`, que solo baja al lanzarlos.
+ * Fichas de los tres tours del reloj (calendario, metas y los chips de
+ * enlace). Los pasos viven en `calendario.ts`, que solo baja al lanzarlos.
  */
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
@@ -39,16 +39,6 @@ export const tutorialMetas = tour(
   'cuerpoMetas',
 )
 
-export const tutorialRutinas = tour(
-  'rutinas',
-  T('tut.rutinas.titulo', 'Rutinas'),
-  T(
-    'tut.rutinas.resumen',
-    'El panel de rutinas lleva tu checklist del día arriba y el catálogo completo abajo: cada rutina tiene hora, repetición y pasos, y cada paso puede registrar solo en su app. A su hora el asistente avisa, y todo lo agendado se ve también en el calendario.',
-  ),
-  'cuerpoRutinas',
-)
-
 export const tutorialEnlaces = tour(
   'enlaces',
   T('tut.enlaces.titulo', 'Los chips de cada paso'),
@@ -59,9 +49,27 @@ export const tutorialEnlaces = tour(
   'cuerpoEnlaces',
 )
 
+/**
+ * El esencial del calendario. Comparte el título con los esenciales de las apps
+ * («Lo esencial»), pero su id NO lleva el prefijo `app-`: el calendario no es
+ * una plantilla, vive en el reloj. Fuera de `FLUJOS_CALENDARIO` a propósito —
+ * este corre en la casa real y lo registra quien lo lanza.
+ */
+export const esencialCalendario = tour(
+  'calendario--esencial',
+  T('tut.esencial.titulo', 'Lo esencial'),
+  T(
+    'tut.calendario--esencial.resumen',
+    'El calendario no es un cuarto: vive en el reloj de la casa y reúne todo lo que tiene fecha y hora, lo que creas a mano y lo que agendan solas las demás apps. Se mira de cuatro maneras: Día y Semana sobre la rejilla de horas, Mes y Año para el panorama. Aparte va Misiones, el botón rojo con la checklist de hoy de todas las apps juntas.',
+  ),
+  'cuerpoCalendarioEsencial',
+)
+
 export const FLUJOS_CALENDARIO: TutorialDef[] = [
   tutorialCalendario,
   tutorialMetas,
-  tutorialRutinas,
   tutorialEnlaces,
 ]
+
+/** Los flujos del CUARTO Metas (su «?»): los dos tours que abren esa app. */
+export const FLUJOS_METAS: TutorialDef[] = [tutorialMetas, tutorialEnlaces]

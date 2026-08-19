@@ -68,7 +68,7 @@ export const cuerpoCasa: CuerpoTutorial = {
       titulo: T('tut.casa.4.titulo', 'Tres formas de mirar'),
       texto: T(
         'tut.casa.4.texto',
-        'Isométrica, tercera y primera persona (o la tecla V). En 3ª/1ª persona aparece además un botón para editar el mundo caminando por él.',
+        'Isométrica, tercera y primera persona (o la tecla V). Tocar Iso también recentra la cámara sobre tu personaje: la salida rápida si te fuiste lejos explorando.',
       ),
     },
     {
@@ -92,7 +92,7 @@ export const cuerpoCasa: CuerpoTutorial = {
       titulo: T('tut.casa.7.titulo', 'El reloj'),
       texto: T(
         'tut.casa.7.texto',
-        'La hora de la casa. Desde aquí se abren el calendario completo y el panel de rutinas con lo que te falta hoy.',
+        'La hora de la casa: tócala y se abre el calendario completo, con sus Misiones del día. El sol o la luna de al lado controlan el paso del tiempo y la luz de la escena.',
       ),
     },
     {
@@ -159,18 +159,20 @@ export const cuerpoMenuCuartos: CuerpoTutorial = {
     },
     {
       sel: 'menu.cuartos.editar',
-      titulo: T('tut.menu-cuartos.4.titulo', 'Editar'),
+      titulo: T('tut.menu-cuartos.4.titulo', 'Opciones del cuarto'),
       texto: T(
         'tut.menu-cuartos.4.texto',
-        'Editar abre el editor del cuarto: forma, colores, muros y objetos. (No lo pulses ahora: cerraría este menú.)',
+        'El engrane despliega las opciones del cuarto en una fila: subirlo o bajarlo en la lista, borrarlo, y Editar, que abre su editor de forma, colores, muros y objetos.',
       ),
     },
     {
-      sel: 'menu.cuartos.entrar',
-      titulo: T('tut.menu-cuartos.5.titulo', 'Entrar y Asignar'),
+      // En una casa sin ninguna app asignada no hay «Entrar»: el mismo botón
+      // dice «+ Asignar» (RoomSideMenu pinta una u otra ancla según haya app).
+      sel: () => (elTut('menu.cuartos.entrar') ? 'menu.cuartos.entrar' : 'menu.cuartos.asignar'),
+      titulo: T('tut.menu-cuartos.5.titulo', 'La tarjeta entera entra'),
       texto: T(
         'tut.menu-cuartos.5.texto',
-        'Entrar abre la app del cuarto. Si un cuarto no tiene app todavía, verás + Asignar en su lugar para elegirle una del catálogo.',
+        'La tarjeta completa es el botón: tócala en cualquier parte y entras a la app del cuarto. Si aún no tiene app, esa misma tarjeta dice + Asignar y abre el catálogo para elegirle una.',
       ),
     },
     {
@@ -428,6 +430,12 @@ export const cuerpoEditorPersonajes: CuerpoTutorial = {
         'tut.editor-personajes.4.texto',
         'Guarda una combinación completa de ropa como un atuendo y cámbiate entero con un toque, sin rearmar prenda por prenda cada vez.',
       ),
+      // Los atuendos viven DENTRO de la herramienta Ropa (el paso anterior solo
+      // mostró su botón): entrar aquí, y desplegada la sección, que nace plegada.
+      alEntrar: () => {
+        clickTut('editor.pers.tool.ropa')
+        useEditorUi.getState().abrirConfigGrupo('ropa-atuendos')
+      },
     },
     {
       sel: 'editor.pers.guardarropa',
@@ -436,6 +444,11 @@ export const cuerpoEditorPersonajes: CuerpoTutorial = {
         'tut.editor-personajes.5.texto',
         'Asigna un atuendo distinto a cada cuarto: tu avatar entra vestido para correr en Ejercicio y cambia solo al pasar a la cocina.',
       ),
+      // Su ancla cuelga de la sección de la primera categoría, también plegada.
+      alEntrar: () => {
+        clickTut('editor.pers.tool.ropa')
+        useEditorUi.getState().abrirConfigGrupo('ropa-cabeza')
+      },
     },
     {
       texto: T(
@@ -666,7 +679,7 @@ export const cuerpoNavegacion: CuerpoTutorial = {
       titulo: T('tut.navegacion.2.titulo', 'Orientarse'),
       texto: T(
         'tut.navegacion.2.texto',
-        'En iso, el cubo gira la cámara por caras; en 3ª/1ª, arrastra el pad para mirar alrededor.',
+        'En iso mandas la cámara con el cubo: sus esquinas dan los ángulos isométricos y sus caras, las vistas planas. En 3ª/1ª su hueco lo ocupa un pad que arrastras para mirar alrededor.',
       ),
     },
     {
@@ -682,7 +695,7 @@ export const cuerpoNavegacion: CuerpoTutorial = {
       titulo: T('tut.navegacion.4.titulo', 'Rotar y centrar'),
       texto: T(
         'tut.navegacion.4.texto',
-        'Rota la vista a los lados o céntrala de nuevo en el mapa si te perdiste explorando.',
+        'Cada flecha gira un cuarto de vuelta: el mapa en iso, tu mirada en 3ª/1ª. El tercer botón solo aparece con el mapa delante, y lo recentra si te perdiste explorando.',
       ),
     },
     {
@@ -696,7 +709,7 @@ export const cuerpoNavegacion: CuerpoTutorial = {
     {
       texto: T(
         'tut.navegacion.6.texto',
-        'En 3ª/1ª persona aparece el botón Editor 3D: toca objetos, muros o personajes para editarlos justo donde están, sin volver a la vista isométrica.',
+        'El botón Editor de arriba funciona en cualquier vista: ábrelo en 3ª/1ª persona y editas caminando, tocando objetos, muros o personajes justo donde están.',
       ),
     },
   ],
@@ -728,15 +741,48 @@ export const cuerpoChat: CuerpoTutorial = {
       ),
     },
     {
+      // Solo muestra el «+» (patrón botón-primero): si se vuelve con Atrás desde
+      // los pasos AR, el menú desplegado se cierra para no tapar este botón.
       sel: 'chat.foto',
-      titulo: T('tut.chat.4.titulo', 'Enviar una foto'),
+      alEntrar: () => {
+        if (elTut('chat.adjuntar.mascara')) clickTut('chat.foto')
+      },
+      titulo: T('tut.chat.4.titulo', 'Adjuntar'),
       texto: T(
         'tut.chat.4.texto',
-        'Con IA activa, una foto del ticket, del platillo o de la báscula se interpreta sola. Sin IA, este botón queda deshabilitado.',
+        'El + despliega cinco opciones: subir una imagen o un PDF y tomar una foto —con IA activa, un ticket o la báscula se interpretan solos— más dos que no piden IA: la máscara AR y el chat AR.',
+      ),
+    },
+    {
+      sel: 'chat.adjuntar.mascara',
+      alEntrar: async () => {
+        abrirSiFalta('chat.adjuntar.mascara', 'chat.foto')
+        await esperarTut('chat.adjuntar.mascara', 2000)
+      },
+      titulo: T('tut.chat.4b.titulo', 'La máscara AR'),
+      texto: T(
+        'tut.chat.4b.texto',
+        'Enciende la cámara y te pone la máscara sobre la cara, siguiéndote en vivo — la misma del video de presentación de la casa. Funciona sin IA y sin cuenta.',
+      ),
+    },
+    {
+      sel: 'chat.adjuntar.chatAr',
+      alEntrar: async () => {
+        abrirSiFalta('chat.adjuntar.chatAr', 'chat.foto')
+        await esperarTut('chat.adjuntar.chatAr', 2000)
+      },
+      titulo: T('tut.chat.4c.titulo', 'El chat AR'),
+      texto: T(
+        'tut.chat.4c.texto',
+        'La misma conversación de siempre, pero con tu cámara de fondo y el asistente en 3D delante, con emociones que acompañan lo que responde.',
       ),
     },
     {
       sel: 'chat.asistente',
+      // Se retira el menú Adjuntar del paso anterior: aquí el foco es el asistente.
+      alEntrar: () => {
+        if (elTut('chat.adjuntar.mascara')) clickTut('chat.foto')
+      },
       titulo: T('tut.chat.5.titulo', 'Asistentes'),
       texto: T(
         'tut.chat.5.texto',
@@ -916,7 +962,9 @@ export const cuerpoEjemplos: CuerpoTutorial = {
   },
   pasos: [
     {
-      sel: 'ejemplo.anecdotario',
+      // El id del paquete es 'anecdotario.recuerdos' (BarraEjemplo pinta
+      // `ejemplo.<paquete.id>`); con 'ejemplo.anecdotario' a secas nunca casó.
+      sel: 'ejemplo.anecdotario.recuerdos',
       texto: T(
         'tut.ejemplos.1.texto',
         'Esta barra aparece en casi todas las apps cuando aún no tienen datos tuyos: un botón para verla llena de ejemplo, en vez de empezar frente a una pantalla vacía.',
@@ -932,6 +980,70 @@ export const cuerpoEjemplos: CuerpoTutorial = {
       texto: T(
         'tut.ejemplos.3.texto',
         'Dentro de la casa demo esta barra no aparece: el año entero de Pep@ ya cumple ese papel, así que no hace falta un ejemplo aparte.',
+      ),
+    },
+  ],
+}
+
+export const cuerpoInicio: CuerpoTutorial = {
+  preparar: () => {
+    clickTut('menu.retraer')
+  },
+  pasos: [
+    {
+      // Solo muestra el botón (patrón botón-primero): si se vuelve con Atrás
+      // desde los pasos del panel, este lo cierra para destapar el lanzador.
+      sel: 'menu.rapido',
+      alEntrar: () => {
+        if (elTut('inicio.rejilla')) clickTut('inicio.cerrar')
+      },
+      texto: T(
+        'tut.inicio.1.texto',
+        'El botón con el nombre de tu casa abre la pantalla de inicio: tus apps en una rejilla, con la mecánica de un teléfono.',
+      ),
+    },
+    {
+      sel: 'inicio.rejilla',
+      alEntrar: async () => {
+        abrirSiFalta('inicio.rejilla', 'menu.rapido')
+        await esperarTut('inicio.rejilla', 2000)
+      },
+      esperar: 'inicio.rejilla',
+      titulo: T('tut.inicio.2.titulo', 'Un toque, una app'),
+      texto: T(
+        'tut.inicio.2.texto',
+        'Aquí salen solo los cuartos que ya tienen app, con su nivel, su racha y sus listas cumplidas. El contador rojo de la esquina son sus misiones pendientes de hoy, y tocar la tarjeta entra directo.',
+      ),
+    },
+    {
+      sel: 'inicio.rejilla',
+      titulo: T('tut.inicio.3.titulo', 'Mantén pulsada una tarjeta'),
+      texto: T(
+        'tut.inicio.3.texto',
+        'La pulsación larga la levanta y todas tiemblan, como en un teléfono: arrástrala para reordenar, o toca el lápiz de su esquina para editar su ficha.',
+      ),
+    },
+    {
+      // En una casa recién estrenada el reto puede no estar todavía: se cae a la rejilla.
+      sel: () => (elTut('inicio.reto') ? 'inicio.reto' : 'inicio.rejilla'),
+      titulo: T('tut.inicio.4.titulo', 'Tu reto, a la vista'),
+      texto: T(
+        'tut.inicio.4.texto',
+        'Los dos aros son la Montaña de Sísifo: el rango del año y las insignias ganadas. Tocarlos abre la montaña completa, la misma del menú lateral.',
+      ),
+    },
+    {
+      sel: 'inicio.fondo',
+      titulo: T('tut.inicio.5.titulo', 'Fondo y vista 3D'),
+      texto: T(
+        'tut.inicio.5.texto',
+        'Este botón le pone fondo de pantalla a la rejilla, atenuado para que las tarjetas se lean. El de al lado alterna entre el icono de cada cuarto y su miniatura amueblada en 3D.',
+      ),
+    },
+    {
+      texto: T(
+        'tut.inicio.6.texto',
+        'Crear cuartos, borrarlos o asignar apps sigue siendo cosa del menú lateral: esta pantalla es para entrar rápido. Se cierra tocando fuera.',
       ),
     },
   ],

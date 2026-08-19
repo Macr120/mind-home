@@ -1,126 +1,34 @@
 [
-  {
-    "clave": "tut.menu-cuartos.6.texto",
-    "texto": "Raum erstellen öffnet den Karteneditor mit dem Pinsel bereit für den neuen Raum: Form, Größe und Lage liegen bei dir. Am Handy ist die Abkürzung über das Werkzeugrad › Bauen › Räume bequemer – sie zeichnet direkt auf die Karte, ohne das Panel zu öffnen."
-  },
-  {
-    "clave": "tut.menu-cuartos.7.texto",
-    "texto": "Kurz gesagt: Bearbeiten zum Anpassen, Betreten zum Benutzen der App. Die anderen Tabs dieses Menüs haben ihr eigenes Tutorial."
-  },
-  {
-    "clave": "tut.menu-plantillas.1.texto",
-    "texto": "Eine Vorlage ist eine App (Küche, Fitness, Finanzen…). Sie wird einem Objekt in einem Raum zugewiesen und öffnet sich, wenn du hineingehst."
-  },
-  {
-    "clave": "tut.menu-plantillas.2.titulo",
-    "texto": "Zwei Ansichten"
-  },
-  {
-    "clave": "tut.menu-plantillas.2.texto",
-    "texto": "Räume sind die gewohnten Apps, jede in ihrem Objekt. Bei Extras läuft es anders: Strecken, Plätze, Gemüsegarten, Bauernhof oder Paintball baust du direkt aufs Gelände, ohne dass sie einen Raum belegen."
-  },
-  {
-    "clave": "tut.menu-plantillas.3.titulo",
-    "texto": "Der Katalog"
-  },
-  {
-    "clave": "tut.menu-plantillas.3.texto",
-    "texto": "Die mitgelieferten Apps und deine eigenen, nach Gruppen sortiert. Tippe eine an, um sie einem Raum zuzuweisen – oder unter Extras, um sie auf der Karte zu bauen."
-  },
-  {
-    "clave": "tut.menu-plantillas.4.titulo",
-    "texto": "Eigene Vorlagen"
-  },
-  {
-    "clave": "tut.menu-plantillas.4.texto",
-    "texto": "Bau dir eigene Vorlagen aus Bausteinen: Notizen, Checklisten, Zähler, Gewohnheiten, Galerien… Dieser Button öffnet seinen eigenen Editor mit eigenem Tutorial."
-  },
-  {
-    "clave": "tut.menu-plantillas.5.texto",
-    "texto": "Ein und derselbe Raum kann mehrere Apps beherbergen: Beim Betreten erscheint eine Auswahl, welche du öffnen willst."
-  },
-  {
-    "clave": "tut.plantillas-custom.1.texto",
-    "texto": "Dieser Editor baut eine eigene App von Grund auf: Du gibst ihr Namen, Emoji und Bausteine, und sie landet im Katalog neben den mitgelieferten."
-  },
-  {
-    "clave": "tut.plantillas-custom.2.titulo",
-    "texto": "Name, Emoji und Farbe"
-  },
-  {
-    "clave": "tut.plantillas-custom.2.texto",
-    "texto": "Wie sie heißen soll und in welcher Farbe sie im Menü, im Katalog und im Kalender erscheint, wenn du etwas von ihr einplanst."
-  },
-  {
-    "clave": "tut.plantillas-custom.3.titulo",
-    "texto": "Die Werkzeuge"
-  },
-  {
-    "clave": "tut.plantillas-custom.3.texto",
-    "texto": "Zwölf Bausteintypen: Notizen, Checkliste, Zähler, Gewohnheit, Sitzungen, Countdown, Galerie, Journal, Bewertung, Fortschritt, Liste und Links. Jeder, den du hinzufügst, wird zu einem Abschnitt deiner App."
-  },
-  {
-    "clave": "tut.plantillas-custom.4.titulo",
-    "texto": "Die Reihenfolge zählt"
-  },
-  {
-    "clave": "tut.plantillas-custom.4.texto",
-    "texto": "Hinzugefügte Blöcke ordnest du mit den Pfeilen um und entfernst sie mit dem ✕ – einen zu entfernen löscht beim Speichern seine Daten, also schau vorher noch mal hin. Mit dem Ausklappmenü „Menü“ wandern sie von einem Tab zum anderen, ohne dass etwas verloren geht."
-  },
-  {
-    "clave": "tut.plantillas-custom.5.titulo",
-    "texto": "Speichern"
-  },
-  {
-    "clave": "tut.plantillas-custom.5.texto",
-    "texto": "Mit einem Namen und mindestens einem Baustein legt Speichern sie fertig in den Katalog. Von dort weist du sie einem Objekt zu wie jede mitgelieferte Vorlage."
-  },
-  {
-    "clave": "tut.plantillas-custom.6.texto",
-    "texto": "Du kannst sie jederzeit wieder bearbeiten: Ihre Bausteine und ihre Daten bleiben unangetastet, es ändert sich nur, was du änderst."
-  },
-  {
-    "clave": "tut.menu-inventario.1.texto",
-    "texto": "Das Inventar: alle Objekte, die du in deinem Haus platzieren kannst, bereit zum Ziehen."
-  },
-  {
-    "clave": "tut.menu-inventario.2.titulo",
-    "texto": "Objekte"
-  },
-  {
-    "clave": "tut.menu-inventario.2.texto",
-    "texto": "Deine Objektbibliothek nach Kategorien und Ordnern. Du kannst sie umbenennen und ordnen, damit du sie beim nächsten Mal schnell findest."
-  },
-  {
-    "clave": "tut.menu-inventario.3.titulo",
-    "texto": "Spezialobjekte"
-  },
-  {
-    "clave": "tut.menu-inventario.3.texto",
-    "texto": "Die, die etwas tun und nicht nur schmücken: Fahrzeuge zum Aufsteigen, Spielzeugpistolen, Brunnen, Spielplatzgeräte und Lichter."
-  },
-  {
-    "clave": "tut.menu-inventario.4.titulo",
-    "texto": "Platzieren"
-  },
-  {
-    "clave": "tut.menu-inventario.4.texto",
-    "texto": "Bei geöffnetem Menü ziehst du ein Vorschaubild direkt in die 3D-Szene und setzt es ab, wo du willst."
-  },
-  {
-    "clave": "tut.menu-inventario.5.texto",
-    "texto": "Zum Bewegen, Umfärben oder Löschen von schon Platziertem nimmst du den Editor (Tab Objekte) – dieses Menü bringt nur neue Dinge in die Szene."
-  },
-  {
-    "clave": "tut.editor-mapa.1.texto",
-    "texto": "Der Hauseditor hat 4 Tabs: Karte, Figuren, Objekte und Einstellungen. Diese Tour ist die von Karte; die anderen drei haben ihre eigene."
-  },
-  {
-    "clave": "tut.editor-mapa.2.titulo",
-    "texto": "Der Grundriss"
-  },
-  {
-    "clave": "tut.editor-mapa.2.texto",
-    "texto": "Du zeichnest auf einem Raster von oben: Räume, Wände, Türen, Fenster und Böden, mit den Modi und Pinseln aus der oberen Leiste. Was du ziehst, erscheint sofort in 3D, ohne neu zu laden."
-  }
+  { "clave": "tut.app-descanso--esencial.2.texto", "texto": "Jede erfasste Nacht bekommt eine Bewertung, die zusammenfasst, wie lange du geschlafen hast, wann du ins Bett gegangen bist und wie oft du aufgewacht bist. Ohne bisherige Einträge lädt dich dieser Bereich ein, deine erste Nacht einzutragen." },
+  { "clave": "tut.app-descanso--esencial.3.titulo", "texto": "Zeitplan und Erinnerungen" },
+  { "clave": "tut.app-descanso--esencial.3.texto", "texto": "Du stellst deine Schlafenszeit und deine Aufwachzeit ein, indem du die Enden der Tagesleiste ziehst; derselbe Zeitplan erscheint als Block im Hauskalender. Hier schaltest du auch den Wecker mit seinem Ton ein sowie die Erinnerungen, um vor dem Schlafen herunterzufahren." },
+  { "clave": "tut.app-descanso--esencial.4.titulo", "texto": "Die Nacht erfassen" },
+  { "clave": "tut.app-descanso--esencial.4.texto", "texto": "Das Formular, um festzuhalten, wie du geschlafen hast: das Datum, die Uhrzeit, zu der du ins Bett gegangen bist und aufgewacht bist, die Unterbrechungen und eine Qualitätsbewertung, mit Platz für eine Notiz." },
+  { "clave": "tut.app-descanso--esencial.5.titulo", "texto": "Der Verlauf" },
+  { "clave": "tut.app-descanso--esencial.5.texto", "texto": "Alle Nächte, die du erfasst, landen hier, geordnet nach Jahr, Monat und Woche, damit du deinen Schlaf im Lauf der Zeit überprüfen kannst." },
+  { "clave": "tut.app-despacho--esencial.1.titulo", "texto": "Deine Finanzen" },
+  { "clave": "tut.app-despacho--esencial.1.texto", "texto": "Das Arbeitszimmer ordnet dein Geld in vier Tabs: was du hast, was rein- und rausgeht, deine Ziele und die Märkte. Jeder öffnet darunter seine eigenen Bereiche." },
+  { "clave": "tut.app-despacho--esencial.2.titulo", "texto": "Vermögen" },
+  { "clave": "tut.app-despacho--esencial.2.texto", "texto": "Was du besitzt und was du schuldest, in zwei Listen: Aktiva und Passiva. Der dritte Bereich projiziert diese Momentaufnahme in die Zukunft, mit der Rate, die du jeder Zeile gibst." },
+  { "clave": "tut.app-despacho--esencial.3.titulo", "texto": "Cashflow" },
+  { "clave": "tut.app-despacho--esencial.3.texto", "texto": "Das Geld, das rein- und rausgeht, getrennt in Ausgaben, Einnahmen und Saldo. Der Saldo fasst den Zeitraum deiner Wahl zusammen — Tag, Woche, Monat oder Jahr — mit Budget, Kategorien und Trend." },
+  { "clave": "tut.app-despacho--esencial.4.titulo", "texto": "Ziele" },
+  { "clave": "tut.app-despacho--esencial.4.texto", "texto": "Deine Geldziele in drei Bereichen: Sparen und Investieren, Schulden, und Rechner, die anhand deines eigenen Saldos einen Betrag vorschlagen. Jedes Ziel kann in den Zeitplan wandern und ein Datum bekommen." },
+  { "clave": "tut.app-despacho--esencial.5.titulo", "texto": "Märkte" },
+  { "clave": "tut.app-despacho--esencial.5.texto", "texto": "Kurse in Echtzeit für Devisen, Krypto, Aktien und Rohstoffe; braucht eine Verbindung. Es ist ein Kursbrett nur zur Ansicht: Die App empfiehlt weder Kauf noch Verkauf." },
+  { "clave": "tut.app-diario--esencial.1.titulo", "texto": "Die Zeitung von heute" },
+  { "clave": "tut.app-diario--esencial.1.texto", "texto": "Die Tagesnachrichten bringen das Briefing des Tages in zwei Ansichten: Schlagzeilen und An diesem Tag. Sie speichern keine eigenen Daten: Jeder Tag bringt neuen Inhalt, und um Mitternacht wird er komplett ersetzt." },
+  { "clave": "tut.app-diario--esencial.2.titulo", "texto": "Schlagzeilen" },
+  { "clave": "tut.app-diario--esencial.2.texto", "texto": "Die Schlagzeilen des Tages nach Kategorie — Welt, Wirtschaft, Technik, Gesundheit, Sport und Unterhaltung —, filterbar mit den Chips oben. Sie stammen aus echter Presse in deiner Sprache, mit Medien, die jeden Tag wechseln." },
+  { "clave": "tut.app-diario--esencial.3.titulo", "texto": "An diesem Tag" },
+  { "clave": "tut.app-diario--esencial.3.texto", "texto": "Die andere Hälfte der Tagesnachrichten: was an einem Tag wie heute geschah — ein Werk, ein Buch, eine Art, ein Wort. Ein guter Grund, sie zu öffnen, auch wenn die Nachrichten an diesem Tag nicht interessieren." },
+  { "clave": "tut.app-diario--esencial.4.titulo", "texto": "Erneuert sich von selbst" },
+  { "clave": "tut.app-diario--esencial.4.texto", "texto": "Die Ausgabe lädt sich beim Öffnen der App von selbst herunter und wird um Mitternacht komplett ersetzt: Es sammelt sich nichts an. Dieser Button erzwingt eine Aktualisierung vor dieser Uhrzeit." },
+  { "clave": "tut.app-diario--esencial.5.titulo", "texto": "Zustellung" },
+  { "clave": "tut.app-diario--esencial.5.texto", "texto": "Stelle ein, welche Bereiche dir jeder Assistent in seinem eigenen Chat liefert, zu einer festen Uhrzeit oder zu einem Überraschungsmoment des Tages." },
+  { "clave": "tut.app-ejercicio--esencial.1.titulo", "texto": "Dein Training" },
+  { "clave": "tut.app-ejercicio--esencial.1.texto", "texto": "Fitness vereint die drei Trainingsarten für den Körper — Kraft, Ausdauer und Beweglichkeit — plus ein Ziele-Menü, in dem du festlegst, wie viel du jede Woche trainieren willst." },
+  { "clave": "tut.app-ejercicio--esencial.2.titulo", "texto": "Ziele" },
+  { "clave": "tut.app-ejercicio--esencial.2.texto", "texto": "Die Übersicht des Raums: deine Serie, die Tage mit einem Eintrag und ein Balken pro Trainingsart gegen das Wochenziel, das du hier festlegst. Hier wählst du auch das Maßsystem, in Kilo oder in Pfund." },
+  { "clave": "tut.app-ejercicio--esencial.3.titulo", "texto": "Kraft" }
 ]

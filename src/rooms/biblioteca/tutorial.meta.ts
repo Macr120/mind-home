@@ -1,4 +1,5 @@
 import type { CuerpoTutorial, TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import { fichaEsencial } from '../../core/tutorial/esencial'
 
 /**
  * Fichas de los tutoriales de esta app: id, título y resumen. Es lo único que
@@ -63,3 +64,13 @@ const flujoResumen = tour(
 )
 
 export const flujosBiblioteca: TutorialDef[] = [flujoEnciclopedia, flujoCharlas, flujoEstudio, flujoResumen]
+
+/** Esencial: recorre los cuatro menús en la casa real, sin necesitar datos. */
+export const esencialBiblioteca: TutorialDef = fichaEsencial(
+  'biblioteca',
+  T(
+    'tut.app-biblioteca--esencial.resumen',
+    'La biblioteca es tu enciclopedia personal, en cuatro menús: Charlas (preguntas al Sabio y cada conversación se archiva y se destila en ficha), Enciclopedia (el árbol donde vive lo aprendido, por campo del conocimiento), Estudio (el temporizador simple o pomodoro, que registra cada sesión) y Resumen (cuánto has escrito y cuánto has estudiado).',
+  ),
+  () => import('./tutorial').then((m) => m.cuerpoEsencial as CuerpoTutorial),
+)

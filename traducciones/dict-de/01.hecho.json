@@ -1,7 +1,46 @@
 [
-  { "clave": "ajustes.idioma.ja", "texto": "Japanisch" },
-  { "clave": "ajustes.idioma.zh", "texto": "Chinesisch" },
-  { "clave": "ajustes.idioma.ko", "texto": "Koreanisch" },
-  { "clave": "ajustes.idioma.ru", "texto": "Russisch" },
-  { "clave": "ajustes.idioma.hi", "texto": "Hindi" }
+  {
+    "clave": "tut.esencial.titulo",
+    "texto": "Das Wichtigste"
+  },
+  {
+    "clave": "tut.tipo.ejemplos",
+    "texto": "Beispiele · Demo-Haus"
+  },
+  {
+    "clave": "tut.app-agenda--esencial.resumen",
+    "texto": "Der Terminplan verwaltet, was keine Gewohnheit ist, in drei Tabs: Arbeit (Aufgaben und Board), Gesundheit (Arzttermine, Medikamente und Pflege: für dich, deine Angehörigen und deine Haustiere) und Personen (Kontakte und Geburtstage). Alles mit einem Datum trägt sich von selbst in den Kalender ein."
+  },
+  {
+    "clave": "tut.calendario--esencial.resumen",
+    "texto": "Der Kalender ist kein Raum: Er wohnt in der Uhr des Hauses und sammelt alles mit Datum und Uhrzeit, was du von Hand anlegst und was die anderen Apps von selbst eintragen. Du siehst ihn auf vier Arten: Tag und Woche im Stundenraster, Monat und Jahr für den Überblick. Separat gibt es Missionen, den roten Button mit der Tages-Checkliste aller Apps zusammen."
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.resumen",
+    "texto": "Das Erinnerungsbuch ist dein persönliches Tagebuch: Einträge mit Stimmung, Text und Fotos, die sich von selbst nach Datum ordnen. Ein Kalender färbt jeden Tag nach deiner Stimmung, und der Verlauf archiviert sie in Ordnern nach Jahr, Monat und Woche."
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.resumen",
+    "texto": "Die Bibliothek ist deine persönliche Enzyklopädie, in vier Tabs: Chats (du fragst den Weisen, und jedes Gespräch wird archiviert und zu einem Eintrag destilliert), Enzyklopädie (der Baum, in dem das Gelernte lebt, nach Wissensgebiet), Lernen (der einfache Timer oder Pomodoro, der jede Sitzung erfasst) und Übersicht (wie viel du geschrieben und wie viel du gelernt hast)."
+  },
+  {
+    "clave": "tut.app-cocina--esencial.resumen",
+    "texto": "Die Küche hat zwei Tabs. Rezeptbuch bewahrt, was du kochen willst: deine Rezepte mit ihren Makros, die Diäten, die sie gruppieren, und die Einkaufsliste. Ernährungskontrolle führt Buch über das, was du isst, in vier Schritten: die Kalorien- und Gewichtsziele, das Tagesprotokoll, den Essensplan für die kommenden Tage und den Fortschritt."
+  },
+  {
+    "clave": "tut.app-computo--esencial.resumen",
+    "texto": "Der Rechenraum hat zwei Tabs. Der Rechner erledigt die alltäglichen Rechnungen und wechselt den Modus zum Grafiken zeichnen, für Zahlensysteme, Matrizen, Gleichungssysteme, Einheiten, Trinkgeld und die Dreisatzrechnung; daran hängt das Formelbuch, dein Sammelband mit Mathematik, Physik und Chemie schon eingetragen. Die Tabellen übernehmen alles Tabellarische, mit Formeln in Klartext (etwa =SUMA) und Export nach Excel oder PDF."
+  },
+  {
+    "clave": "tut.app-descanso--esencial.resumen",
+    "texto": "Schlaf erfasst, wie du schläfst, auf einem einzigen Bildschirm: die Bewertung der letzten Nacht, deinen Zeitplan mit seinen Erinnerungen, das Tagesprotokoll und den vollständigen Verlauf nach Jahr, Monat und Woche."
+  },
+  {
+    "clave": "tut.app-despacho--esencial.resumen",
+    "texto": "Das Arbeitszimmer ordnet dein Geld in vier Tabs. Vermögen bewahrt, was du hast und was du schuldest, mit seiner Hochrechnung; Cashflow führt Ausgaben, Einnahmen und den Saldo der Periode, mit Budget und Kategorien; Ziele vereint Sparen, Investieren und Schulden, dazu die Rechner, die einen Betrag vorschlagen. Märkte ist ein Kursbrett in Echtzeit, nur zur Ansicht."
+  },
+  {
+    "clave": "tut.app-diario--esencial.resumen",
+    "texto": "Die Tagesnachrichten sind eine flüchtige Zeitung: Schlagzeilen echter Presse nach Kategorie und die Ereignisse dieses Tages, die sich jede Mitternacht von selbst erneuert. Über die Zustellung richtest du ein, dass ein Assistent sie dir in seinem eigenen Chat bringt."
+  }
 ]

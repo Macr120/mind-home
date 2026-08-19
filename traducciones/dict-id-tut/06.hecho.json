@@ -1,130 +1,15 @@
 [
-  {
-    "clave": "tut.chat.6.texto",
-    "texto": "Manualnya mendaftar semua perintah: menambah atau menghapus ruangan, membuat objek, mengingat sesuatu…"
-  },
-  {
-    "clave": "tut.chat.7.titulo",
-    "texto": "Model AI"
-  },
-  {
-    "clave": "tut.chat.7.texto",
-    "texto": "Ikon ini memilih AI mana yang menjawab dan menyimpan kuncimu kalau kamu pakai kunci sendiri. Kalau belum ada yang disetel, chat tetap jalan lewat kata kunci, tanpa memahami bahasa bebas."
-  },
-  {
-    "clave": "tut.chat.8.texto",
-    "texto": "Kamu juga bisa bertanya “bagaimana cara kerja Dapur?” atau minta “tutorial Gym” di sini juga, dan apa yang tersimpan dibahas di tutorial tab Entri."
-  },
-  {
-    "clave": "tut.chat-registros.1.texto",
-    "texto": "Obrolan menampilkan dengan siapa kamu mengobrol; Entri, apa yang tersimpan dari percakapan itu."
-  },
-  {
-    "clave": "tut.chat-registros.2.titulo",
-    "texto": "Yang diingat tentang kamu"
-  },
-  {
-    "clave": "tut.chat-registros.2.texto",
-    "texto": "Hal-hal yang menurut asisten layak diingat antar sesi —sebuah alergi, sebuah target, sebuah preferensi— supaya tidak perlu menanyakannya lagi. Sentuh ✕-nya untuk melupakannya."
-  },
-  {
-    "clave": "tut.chat-registros.3.texto",
-    "texto": "Apa yang kamu catat di aplikasimu (makanan, pengeluaran, sesi) tinggal di masing-masing aplikasi, bukan di sini: tab ini hanya memori dari percakapannya sendiri."
-  },
-  {
-    "clave": "tut.app-generica.1.texto",
-    "texto": "Header menampilkan ruangan dan aplikasi yang terbuka. Kalau ruangannya punya beberapa aplikasi, panah ‹ kembali ke layar pemilihan."
-  },
-  {
-    "clave": "tut.app-generica.2.titulo",
-    "texto": "Langkah hari ini"
-  },
-  {
-    "clave": "tut.app-generica.2.texto",
-    "texto": "Langkah-langkahmu hari ini di aplikasi ini: target harianmu, apa pun yang sudah kamu jadwalkan dan apa pun yang diminta target-targetmu. Sentuh untuk membukanya; setiap langkah tercoret sendiri begitu kamu mencatat."
-  },
-  {
-    "clave": "tut.app-generica.3.titulo",
-    "texto": "Blok-bloknya"
-  },
-  {
-    "clave": "tut.app-generica.3.texto",
-    "texto": "Templat ini disusun dari blok (catatan, daftar, penghitung, kebiasaan…). Kamu bisa menggantinya di Menu › Templat › edit."
-  },
-  {
-    "clave": "tut.app-generica.4.titulo",
-    "texto": "Keluar"
-  },
-  {
-    "clave": "tut.app-generica.4.texto",
-    "texto": "“Kembali ke rumah” menutup aplikasinya dan mengembalikanmu ke 3D. Apa pun yang kamu catat di sini sudah tersimpan."
-  },
-  {
-    "clave": "tut.rutinas.1.texto",
-    "texto": "Panel rutinitas Pep: yang hari ini di atas, katalog lengkap di bawah untuk menjeda, mengedit atau menghapus."
-  },
-  {
-    "clave": "tut.rutinas.2.titulo",
-    "texto": "Yang jatuh tempo hari ini"
-  },
-  {
-    "clave": "tut.rutinas.2.texto",
-    "texto": "Sif di kafetaria, kelas fisika, lari saat subuh, piano malam hari: setiap kartu adalah satu rutinitas dengan langkah-langkahnya. Kartu yang meluber dengan warna kuning tua adalah yang seharusnya sudah berjalan tapi masih tertunda."
-  },
-  {
-    "clave": "tut.rutinas.3.titulo",
-    "texto": "Mencentang tidak selalu perlu"
-  },
-  {
-    "clave": "tut.rutinas.3.texto",
-    "texto": "Langkah dengan petir ⚡ mencatat dirinya sendiri: lari saat subuh tercoret karena lari itu sudah tersimpan di Gym, bukan karena ada yang mencentangnya manual. Langkah lainnya memang perlu kamu sentuh."
-  },
-  {
-    "clave": "tut.rutinas.4.titulo",
-    "texto": "Katalog lengkap"
-  },
-  {
-    "clave": "tut.rutinas.4.texto",
-    "texto": "Semuanya ada di sini, jatuh tempo hari ini atau tidak. ON/OFF menjeda sebuah rutinitas tanpa menghapus riwayatnya: yang sudah selesai sampai hari ini tetap ada, dan mulai besok ia berhenti diminta. Edit dan ✕ mengubah atau menghapus seluruh rutinitasnya."
-  },
-  {
-    "clave": "tut.rutinas.5.titulo",
-    "texto": "Membuat rutinitas"
-  },
-  {
-    "clave": "tut.rutinas.5.texto",
-    "texto": "Nama, aplikasi tempatnya bernaung (atau tanpa aplikasi, kalau ini acara rumah yang berdiri sendiri), jadwal dan warna. Langkahnya opsional: tanpa itu ia cuma jadi acara di kalender."
-  },
-  {
-    "clave": "tut.rutinas.6.titulo",
-    "texto": "Sekali, tiap minggu atau selamanya"
-  },
-  {
-    "clave": "tut.rutinas.6.texto",
-    "texto": "Piano tidak punya batas waktu dan tidak ada hari yang ditandai (berarti setiap hari); lari hanya berulang pada hari yang ditandai Pep. Pengulangan bulanan, tahunan atau dalam rentang tidak dipilih di sini: itu lahir dari menarik targetnya langsung di atas kisi kalender."
-  },
-  {
-    "clave": "tut.rutinas.7.titulo",
-    "texto": "Pengingat pada waktunya"
-  },
-  {
-    "clave": "tut.rutinas.7.texto",
-    "texto": "Kalau izinnya sudah diberikan, ia datang sebagai notifikasi sistem; kalau tidak, asistennya menyampaikannya di dalam aplikasi saat kamu membukanya lagi."
-  },
-  {
-    "clave": "tut.rutinas.8.texto",
-    "texto": "Semua yang dijadwalkan di sini juga muncul di kisi kalender dan, di aplikasi masing-masing langkah, pada daftar Hari ini-nya."
-  },
-  {
-    "clave": "tut.enlaces.1.titulo",
-    "texto": "Dari target ke aplikasinya"
-  },
-  {
-    "clave": "tut.enlaces.1.texto",
-    "texto": "Setiap target atau langkah rencana bisa membawa chip dengan ikon sebuah aplikasi: itulah jawaban untuk “lalu ini dicatat di mana?”."
-  },
-  {
-    "clave": "tut.enlaces.2.titulo",
-    "texto": "Memasang atau menggantinya"
-  }
+  { "clave": "tut.app-metas--esencial.3.texto", "texto": "Rencana adalah draf linimasa: dia membagi sebuah target jadi beberapa fase dengan tanggalnya. Selama masih jadi usulan kamu bisa mengubahnya sesukamu; ketika sudah meyakinkanmu, terima, dan fase-fasenya berubah jadi sub-target sungguhan." },
+  { "clave": "tut.app-metas--esencial.4.titulo", "texto": "Linimasa" },
+  { "clave": "tut.app-metas--esencial.4.texto", "texto": "Sumbu waktu dengan semua target sekaligus: masing-masing adalah bar di atas tanggal. Kamu bisa memperbesar dan memperkecil menurut hari, minggu, bulan, atau tahun, dan sebuah rencana bisa ditumpuk di atasnya untuk dibandingkan dengan yang sudah tergambar." },
+  { "clave": "tut.app-sala--esencial.1.titulo", "texto": "Ruang tamu jalan-jalanmu" },
+  { "clave": "tut.app-sala--esencial.1.texto", "texto": "Di sinilah dunia jalan-jalanmu hidup: peta dunia dengan pin, rencana perjalanan tempat yang ingin dikunjungi, rute yang menghubungkan tempat, dan jurnal perjalanan berisi kenangan. Ada empat menu." },
+  { "clave": "tut.app-sala--esencial.2.titulo", "texto": "Peta" },
+  { "clave": "tut.app-sala--esencial.2.texto", "texto": "Setiap tempat yang sudah kamu kunjungi atau impikan untuk dikunjungi adalah sebuah pin di peta dunia. Sakelar di atas mengganti peta datar dengan globe yang bisa kamu putar dengan menyeretnya." },
+  { "clave": "tut.app-sala--esencial.3.titulo", "texto": "Rencana perjalanan" },
+  { "clave": "tut.app-sala--esencial.3.texto", "texto": "Tempat-tempat yang kamu impikan untuk dikunjungi, masing-masing dengan rencana hariannya sendiri. Yang punya tanggal terjadwal sendiri di kalender." },
+  { "clave": "tut.app-sala--esencial.4.titulo", "texto": "Rute" },
+  { "clave": "tut.app-sala--esencial.4.texto", "texto": "Sebuah rute menghubungkan tempat-tempat jadi satu perjalanan dan menggambarnya di peta." },
+  { "clave": "tut.app-sala--esencial.5.titulo", "texto": "Jurnal perjalanan" },
+  { "clave": "tut.app-sala--esencial.5.texto", "texto": "Kenangan dari tempat-tempat yang sudah kamu kunjungi, dalam album per negara: foto dan cerita dari setiap tempat." }
 ]

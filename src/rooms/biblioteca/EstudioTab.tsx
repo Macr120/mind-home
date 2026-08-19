@@ -243,7 +243,6 @@ export function EstudioTab() {
           onCambio={setModo}
           color={COLOR}
           variante="sub"
-          nivel={3}
           flecha={false}
         />
 
@@ -256,7 +255,6 @@ export function EstudioTab() {
                 onCambio={(id) => setDuracion(Number(id))}
                 color={COLOR}
                 variante="sub"
-                nivel={3}
                 flecha={false}
               />
             </div>

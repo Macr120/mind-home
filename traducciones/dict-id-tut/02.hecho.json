@@ -1,154 +1,34 @@
 [
-  {
-    "clave": "tut.casa.1.texto",
-    "texto": "Ini rumahmu: setiap ruangan menyimpan satu aplikasi. Aku tunjukkan kontrol dasarnya."
-  },
-  {
-    "clave": "tut.casa.2.titulo",
-    "texto": "Menu utama"
-  },
-  {
-    "clave": "tut.casa.2.texto",
-    "texto": "Tombol ini membuka menu: ruanganmu, katalog templat (aplikasi), dan inventaris objek."
-  },
-  {
-    "clave": "tut.casa.3.titulo",
-    "texto": "Bergerak"
-  },
-  {
-    "clave": "tut.casa.3.texto",
-    "texto": "Berjalanlah dengan joystick, dengan WASD, atau dengan tombol panah di keyboard. Begitu melewati pintu sebuah ruangan, kamu masuk dan aplikasinya terbuka sendiri."
-  },
-  {
-    "clave": "tut.casa.4.titulo",
-    "texto": "Tiga cara melihat"
-  },
-  {
-    "clave": "tut.casa.4.texto",
-    "texto": "Isometrik, orang ketiga, dan orang pertama (atau tombol V). Di sudut pandang orang ketiga/pertama muncul juga tombol untuk mengedit dunia sambil berjalan di dalamnya."
-  },
-  {
-    "clave": "tut.casa.5.titulo",
-    "texto": "Satu sudut, beberapa pemilik"
-  },
-  {
-    "clave": "tut.casa.5.texto",
-    "texto": "Sudut itu bukan cuma kubus tampilan: begitu kamu mendekati sesuatu yang bisa diajak berinteraksi —sebuah kursi, kendaraan, lapangan— sudut itu berubah sendiri mengikuti apa yang ada di dekatmu. Tidak ada yang menyala tanpa kamu dekati."
-  },
-  {
-    "clave": "tut.casa.6.titulo",
-    "texto": "Roda alat"
-  },
-  {
-    "clave": "tut.casa.6.texto",
-    "texto": "Gerakan, Mainan, Kendaraan, dan Bangunan, sampai 3 terpasang sekaligus. Dibuka dari sini atau dari sudut yang sama itu saat tanganmu kosong."
-  },
-  {
-    "clave": "tut.casa.7.titulo",
-    "texto": "Jam"
-  },
-  {
-    "clave": "tut.casa.7.texto",
-    "texto": "Waktu di rumah. Dari sini terbuka kalender lengkap dan panel Rutinitas berisi apa yang masih kurang hari ini."
-  },
-  {
-    "clave": "tut.casa.8.titulo",
-    "texto": "Musik rumah"
-  },
-  {
-    "clave": "tut.casa.8.texto",
-    "texto": "Setiap ruangan bisa punya lagunya sendiri, atau membiarkan suasana umum rumah yang berbunyi. Bisa dimatikan sepenuhnya kalau kamu lebih suka sunyi."
-  },
-  {
-    "clave": "tut.casa.9.titulo",
-    "texto": "Obrolan"
-  },
-  {
-    "clave": "tut.casa.9.texto",
-    "texto": "Obrolan sang arsitek: ceritakan apa yang kamu lakukan dan dia mencatatnya di aplikasi yang tepat, atau minta perubahan di rumah."
-  },
-  {
-    "clave": "tut.casa.10.texto",
-    "texto": "Itu dasarnya. Tombol Editor di atas membuka penyesuaian lengkap, dan setiap menu dan setiap aplikasi punya tombol ? sendiri dengan tutorialnya."
-  },
-  {
-    "clave": "tut.primeros.1.texto",
-    "texto": "Pertama-tama: bagaimana rumah ini dibangun. Semua dimulai dari tab Ruangan."
-  },
-  {
-    "clave": "tut.primeros.2.titulo",
-    "texto": "Buat ruangan"
-  },
-  {
-    "clave": "tut.primeros.2.texto",
-    "texto": "Dengan tombol ini kamu menggambar ruangan baru di peta. Untuk menunjukkan sisa jalannya, sekarang aku buatkan satu…"
-  },
-  {
-    "clave": "tut.primeros.3.titulo",
-    "texto": "Ruangan barumu"
-  },
-  {
-    "clave": "tut.primeros.3.texto",
-    "texto": "Ini dia! Ruangan yang baru dibuat, masih tanpa aplikasi: makanya tombolnya bertuliskan + Tetapkan."
-  },
-  {
-    "clave": "tut.primeros.4.titulo",
-    "texto": "Menetapkan aplikasi"
-  },
-  {
-    "clave": "tut.primeros.4.texto",
-    "texto": "Dengan + Tetapkan aku memberinya aplikasi: lihat bagaimana ruangan itu mengambil nama, ikon, dan perabotnya, dan tombolnya kini bertuliskan Masuk."
-  },
-  {
-    "clave": "tut.primeros.5.titulo",
-    "texto": "Masuk"
-  },
-  {
-    "clave": "tut.primeros.5.texto",
-    "texto": "Kita sudah di dalam: ini aplikasi ruangannya. Saat berjalan-jalan kamu juga masuk lewat pintunya, dan keluar dengan ‹ Kembali ke rumah."
-  },
-  {
-    "clave": "tut.primeros.6.texto",
-    "texto": "Ruangan itu tetap ada di rumahmu, lengkap dengan aplikasinya. Begitulah sisanya dibangun: satu ruangan untuk setiap hal yang mau kamu simpan di sini."
-  },
-  {
-    "clave": "tut.menu-cuartos.1.texto",
-    "texto": "Tab Ruangan menampilkan semua ruangan di rumahmu, dikelompokkan per kategori."
-  },
-  {
-    "clave": "tut.menu-cuartos.2.titulo",
-    "texto": "Ringkasanmu"
-  },
-  {
-    "clave": "tut.menu-cuartos.2.texto",
-    "texto": "Karaktermu hidup dari aktivitas nyatamu: di sini kamu lihat suasana hatinya, levelnya, dan runtunannya. Catat sesuatu di aplikasi mana pun dan dia akan ceria; beberapa hari tanpa apa-apa dan dia jadi sedih — dia tidak pernah menghukummu atau mengulang dari nol."
-  },
-  {
-    "clave": "tut.menu-cuartos.3.titulo",
-    "texto": "Kartu-kartunya"
-  },
-  {
-    "clave": "tut.menu-cuartos.3.texto",
-    "texto": "Setiap kartu adalah satu ruangan: ikonnya, namanya, dan progres aplikasinya, dikelompokkan ke Tubuh, Pikiran, Ekstra, dan Pengaturan. Ruangan yang belum punya aplikasi ada di paling bawah."
-  },
-  {
-    "clave": "tut.menu-cuartos.4.titulo",
-    "texto": "Edit"
-  },
-  {
-    "clave": "tut.menu-cuartos.4.texto",
-    "texto": "Edit membuka editor ruangan: bentuk, warna, dinding, dan objek. (Jangan ditekan sekarang: menu ini akan tertutup.)"
-  },
-  {
-    "clave": "tut.menu-cuartos.5.titulo",
-    "texto": "Masuk dan Tetapkan"
-  },
-  {
-    "clave": "tut.menu-cuartos.5.texto",
-    "texto": "Masuk membuka aplikasi ruangan. Kalau sebuah ruangan belum punya aplikasi, di tempatnya kamu akan melihat + Tetapkan untuk memilih satu dari katalog."
-  },
-  {
-    "clave": "tut.menu-cuartos.6.titulo",
-    "texto": "Buat ruangan"
-  }
+  { "clave": "tut.app-biblioteca--esencial.4.texto", "texto": "Timer untuk belajar: kamu pilih bidang dan durasi, langsung atau lewat pomodoro, dan setiap ronde tercatat sendiri. Tetap berjalan meski kamu keluar dari ruangan." },
+  { "clave": "tut.app-biblioteca--esencial.5.titulo", "texto": "Ringkasan" },
+  { "clave": "tut.app-biblioteca--esencial.5.texto", "texto": "Gambaran besar dari semua di atas: berapa banyak entri di ensiklopediamu dan berapa bagian indeks yang sudah kamu isi, menit belajarmu, runtunanmu, dan hari-hari kamu belajar." },
+  { "clave": "tut.app-cocina--esencial.1.titulo", "texto": "Dapur" },
+  { "clave": "tut.app-cocina--esencial.1.texto", "texto": "Aplikasi ini menangani dua hal: apa yang akan kamu masak dan apa yang akhirnya kamu makan. Masing-masing punya menunya sendiri di atas, dan setiap menu membuka tabnya sendiri." },
+  { "clave": "tut.app-cocina--esencial.2.titulo", "texto": "Buku resep" },
+  { "clave": "tut.app-cocina--esencial.2.texto", "texto": "Sisi memasak: di sinilah resepmu, diet yang mengelompokkannya, dan daftar belanja tersimpan. Tiga tab, dalam urutan itu." },
+  { "clave": "tut.app-cocina--esencial.3.titulo", "texto": "Diet" },
+  { "clave": "tut.app-cocina--esencial.3.texto", "texto": "Diet adalah rencana makan dengan resepnya di dalam dan, kalau kamu mau, target kalori dan makronya sendiri. Kamu simpan diet buatanmu sendiri berdampingan dengan yang sudah ada di aplikasi." },
+  { "clave": "tut.app-cocina--esencial.4.titulo", "texto": "Resep" },
+  { "clave": "tut.app-cocina--esencial.4.texto", "texto": "Buku resep: setiap resep menyimpan bahan, langkah, dan makro per porsinya, disusun dalam folder. Dari satu resep kamu bisa mencatat makanan atau mengirim bahannya ke daftar belanja." },
+  { "clave": "tut.app-cocina--esencial.5.titulo", "texto": "Belanja" },
+  { "clave": "tut.app-cocina--esencial.5.texto", "texto": "Daftar belanja, dengan setiap barang di rak yang sesuai. Kamu bisa membuat daftar dengan mengumpulkan yang kurang dari beberapa resep dan mencentang yang sudah ada di lemari makanan." },
+  { "clave": "tut.app-cocina--esencial.6.titulo", "texto": "Nutrisi" },
+  { "clave": "tut.app-cocina--esencial.6.texto", "texto": "Menu lainnya mencatat apa yang kamu makan, dalam empat tab bernomor. Yang pertama adalah Target: dari berat badan, tinggi, dan aktivitasmu, dia menghitung berapa yang kamu butuhkan setiap hari dan membagi makronya." },
+  { "clave": "tut.app-cocina--esencial.7.titulo", "texto": "Catatan" },
+  { "clave": "tut.app-cocina--esencial.7.texto", "texto": "Yang sudah terjadi: makanan hari itu dengan kalorinya, air yang sudah kamu minum, dan berat badanmu saat kamu menimbang. Tab di sebelahnya, Rencana makan, kebalikannya: kisi apa yang kamu rencanakan untuk dimakan di hari-hari mendatang." },
+  { "clave": "tut.app-cocina--esencial.8.titulo", "texto": "Progres" },
+  { "clave": "tut.app-cocina--esencial.8.texto", "texto": "Statistik dari semua di atas untuk periode yang kamu pilih: kalori dan makro, air, dan kurva berat badanmu. Di bawah, kalender berwarna menunjukkan sekali lihat hari mana kamu tetap dalam target." },
+  { "clave": "tut.app-computo--esencial.1.titulo", "texto": "Komputasi" },
+  { "clave": "tut.app-computo--esencial.1.texto", "texto": "Di sinilah apa pun yang perlu dihitung diselesaikan, dalam dua menu: Kalkulator, dengan mode-modenya dan buku rumusmu, dan Spreadsheet untuk semua yang berbentuk tabel." },
+  { "clave": "tut.app-computo--esencial.2.titulo", "texto": "Kalkulator" },
+  { "clave": "tut.app-computo--esencial.2.texto", "texto": "Kalkulator ilmiah yang menampilkan hasil saat kamu mengetik dan menyimpan semua hitunganmu dalam riwayat. Tombol di bawah membebaskanmu dari keyboard ponsel, dan notasi menuliskan hal ilmiah di mana pun kursormu berada." },
+  { "clave": "tut.app-computo--esencial.3.titulo", "texto": "Mode" },
+  { "clave": "tut.app-computo--esencial.3.texto", "texto": "Menu ini mengganti seluruh tampilan kalkulator: grafik, basis angka, matriks, sistem persamaan, konversi satuan, tip, dan aturan tiga. Riwayat tetap ada di bawah di semuanya." },
+  { "clave": "tut.app-computo--esencial.4.titulo", "texto": "Buku Rumus" },
+  { "clave": "tut.app-computo--esencial.4.texto", "texto": "Buku rumusmu, terlipat di atas kalkulator. Matematika, Fisika, dan Kimia sudah dimuat, dalam folder yang bisa kamu susun bertingkat. Rumus apa pun bisa dibuka untuk mengisi variabelnya, diedit, atau dihapus." },
+  { "clave": "tut.app-computo--esencial.5.titulo", "texto": "Spreadsheet" },
+  { "clave": "tut.app-computo--esencial.5.texto", "texto": "Lembar dengan referensi sel dan rumus yang mudah dipahami, plus grafik atas rentang yang kamu tandai. Diekspor ke Excel dengan rumusnya tetap hidup, atau ke PDF." },
+  { "clave": "tut.app-descanso--esencial.1.titulo", "texto": "Istirahat" },
+  { "clave": "tut.app-descanso--esencial.1.texto", "texto": "Aplikasi ini melacak tidurmu dalam satu layar: skor malam terakhir, jadwalmu dengan pengingatnya, catatan harian, dan riwayat lengkap." },
+  { "clave": "tut.app-descanso--esencial.2.titulo", "texto": "Skor" }
 ]

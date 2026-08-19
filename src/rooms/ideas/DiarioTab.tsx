@@ -8,7 +8,7 @@ import { Icono } from '../../core/ui/iconos/Icono'
 import { vivo } from '../../core/ui/estilos'
 import { Archivador } from '../_shared/Archivador'
 import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
-import { acento, tono } from '../_shared/acento'
+import { acento } from '../_shared/acento'
 import { ArbolCarpetas } from './ArbolCarpetas'
 import { COLOR } from './constantes'
 import { crearMapaDesdeIdeas, crearMapaIA } from './crear'
@@ -184,7 +184,6 @@ export function DiarioTab({ onAbrirMapa }: { onAbrirMapa: (mapaId: number) => vo
             onCambio={setVista}
             color={COLOR}
             variante="sub"
-            nivel={2}
           />
         </div>
         {/* Favoritas no es una vista: filtra la que esté puesta. Mismo tono que la fila. */}
@@ -194,7 +193,7 @@ export function DiarioTab({ onAbrirMapa }: { onAbrirMapa: (mapaId: number) => vo
           className={`flex-1 rounded-xl py-1.5 text-xs font-semibold transition ${
             soloFav ? 'ui-accent-bg' : 'bg-white/5 text-white/60 hover:bg-white/10'
           }`}
-          style={soloFav ? acento(tono(COLOR, 2)) : undefined}
+          style={soloFav ? acento(COLOR) : undefined}
           title={t('ideas.diario.soloFav', 'Solo las destacadas')}
         >
           <Icono nombre="estrella" /> {t('ideas.diario.favoritas', 'Favoritas')}

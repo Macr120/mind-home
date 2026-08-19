@@ -1,146 +1,34 @@
 [
-  {
-    "clave": "tut.respaldo.3.texto",
-    "texto": "Restaurer REMPLACE toutes les données actuelles par celles du fichier — il demande confirmation avant et montre combien d’enregistrements il apporte, donc pas de mauvaise surprise."
-  },
-  {
-    "clave": "tut.respaldo.4.texto",
-    "texto": "Mieux vaut sauvegarder avant de changer d’appareil, de navigateur, ou juste de temps en temps : sans compte, c’est la seule copie que tu as."
-  },
-  {
-    "clave": "tut.editor-cuarto.1.texto",
-    "texto": "Tu modifies une pièce précise : le croquis et la caméra se concentrent dessus, pas sur toute la maison."
-  },
-  {
-    "clave": "tut.editor-cuarto.2.titulo",
-    "texto": "Ce que tu peux modifier"
-  },
-  {
-    "clave": "tut.editor-cuarto.2.texto",
-    "texto": "Forme, sol, murs, portes, couleur et nom de la pièce, et ses objets. L’app affectée se change aussi depuis ici : c’est ce qui amène le plus de monde dans ce panneau."
-  },
-  {
-    "clave": "tut.editor-cuarto.3.titulo",
-    "texto": "Revenir au plan"
-  },
-  {
-    "clave": "tut.editor-cuarto.3.texto",
-    "texto": "Cette flèche revient au plan complet sans fermer l’éditeur, pour continuer sur une autre pièce."
-  },
-  {
-    "clave": "tut.editor-cuarto.4.texto",
-    "texto": "Il y a aussi un bouton flottant « Quitter la pièce » au-dessus de la pièce elle-même en 3D, si tu préfères appuyer là."
-  },
-  {
-    "clave": "tut.herramientas.1.texto",
-    "texto": "Ce bouton ouvre la roue d’outils de ton personnage."
-  },
-  {
-    "clave": "tut.herramientas.2.titulo",
-    "texto": "Deux niveaux"
-  },
-  {
-    "clave": "tut.herramientas.2.texto",
-    "texto": "D’abord la catégorie, ensuite l’outil précis à l’intérieur. Tu peux équiper jusqu’à 3 outils à la fois, de catégories différentes ou de la même."
-  },
-  {
-    "clave": "tut.herramientas.3.titulo",
-    "texto": "La quatrième catégorie"
-  },
-  {
-    "clave": "tut.herramientas.3.texto",
-    "texto": "Construction n’équipe pas un jouet : elle active le mode dessin du plan (pièces, murs, portes, fenêtres, sols, toits) sans passer par l’éditeur complet. C’est le même croquis, on y arrive juste plus vite."
-  },
-  {
-    "clave": "tut.herramientas.4.titulo",
-    "texto": "Le centre"
-  },
-  {
-    "clave": "tut.herramientas.4.texto",
-    "texto": "Le centre lâche tout ce que tu as équipé et rend au coin son état normal (le cube de vues ou un autre contrôle contextuel, selon ce que tu as à proximité)."
-  },
-  {
-    "clave": "tut.herramientas.5.texto",
-    "texto": "Elle se ferme en touchant en dehors de la roue. Essaie quand tu veux : rien de tout ça n’est enregistré comme permanent, ça dure le temps que tu le portes."
-  },
-  {
-    "clave": "tut.navegacion.1.texto",
-    "texto": "Trois caméras : Iso (vue maison de poupée), 3e et 1re personne. Change ici ou avec la touche V."
-  },
-  {
-    "clave": "tut.navegacion.2.titulo",
-    "texto": "S’orienter"
-  },
-  {
-    "clave": "tut.navegacion.2.texto",
-    "texto": "En iso, le cube fait tourner la caméra face par face ; en 3e/1re, fais glisser le pad pour regarder autour de toi."
-  },
-  {
-    "clave": "tut.navegacion.3.titulo",
-    "texto": "Quand quelque chose est tout près"
-  },
-  {
-    "clave": "tut.navegacion.3.texto",
-    "texto": "Ce même coin cesse d’être la caméra dès que tu t’approches de quelque chose d’interactif : un terrain propose son bouton pour jouer, un véhicule celui pour monter, une chaise celui pour s’asseoir. Une seule chose à la fois, et toujours par proximité — jamais automatiquement."
-  },
-  {
-    "clave": "tut.navegacion.4.titulo",
-    "texto": "Tourner et centrer"
-  },
-  {
-    "clave": "tut.navegacion.4.texto",
-    "texto": "Fais tourner la vue sur les côtés, ou recentre-la sur le plan si tu ne sais plus où tu es à force d’explorer."
-  },
-  {
-    "clave": "tut.navegacion.5.titulo",
-    "texto": "Se déplacer"
-  },
-  {
-    "clave": "tut.navegacion.5.texto",
-    "texto": "Marche avec le joystick, WASD ou les flèches. Dans l’eau tu nages ; sur un véhicule, tu conduis avec les mêmes commandes."
-  },
-  {
-    "clave": "tut.navegacion.6.texto",
-    "texto": "En 3e/1re personne, le bouton Éditeur 3D apparaît : touche un objet, un mur ou un personnage pour le modifier là où il est, sans repasser en vue isométrique."
-  },
-  {
-    "clave": "tut.chat.1.texto",
-    "texto": "Le chat de l’architecte : il enregistre ta journée, modifie la maison et répond à tes questions, tout depuis le même champ."
-  },
-  {
-    "clave": "tut.chat.2.titulo",
-    "texto": "Écrire"
-  },
-  {
-    "clave": "tut.chat.2.texto",
-    "texto": "Écris librement : « j’ai couru 20 min », « dépensé 250 au supermarché »… La puce à côté montre dans quelle app ça ira. Utilise @pièce pour forcer la destination s’il devine mal."
-  },
-  {
-    "clave": "tut.chat.3.titulo",
-    "texto": "Dicter à la voix"
-  },
-  {
-    "clave": "tut.chat.3.texto",
-    "texto": "Le micro transcrit ce que tu dis dans le champ de texte — pratique pour enregistrer sans lâcher ce que tu as dans les mains."
-  },
-  {
-    "clave": "tut.chat.4.titulo",
-    "texto": "Envoyer une photo"
-  },
-  {
-    "clave": "tut.chat.4.texto",
-    "texto": "Avec l’IA activée, une photo du ticket, du plat ou de la balance se lit toute seule. Sans IA, ce bouton reste désactivé."
-  },
-  {
-    "clave": "tut.chat.5.titulo",
-    "texto": "Assistants"
-  },
-  {
-    "clave": "tut.chat.5.texto",
-    "texto": "Ton assistant donne un visage et une voix aux réponses. Touche-le pour voir la conversation, changer d’assistant ou en créer d’autres."
-  },
-  {
-    "clave": "tut.chat.6.titulo",
-    "texto": "Le manuel"
-  }
+  { "clave": "tut.app-hobbies--esencial.4.texto", "texto": "Là, tu enregistres des séances avec minutes et note, tu vois ton heatmap de l’année et tu suis des projets avec leur propre avancement. Les objectifs et leur planning vivent dans la pièce Objectifs." },
+  { "clave": "tut.app-ideas--esencial.1.titulo", "texto": "Idées" },
+  { "clave": "tut.app-ideas--esencial.1.texto", "texto": "Idées garde ce qui te passe par la tête et l’aide à mûrir : d’abord ça se note, ensuite ça s’ordonne dans une carte et, si besoin, ça se compare pour décider. Trois menus." },
+  { "clave": "tut.app-ideas--esencial.2.titulo", "texto": "Journal d’idées" },
+  { "clave": "tut.app-ideas--esencial.2.texto", "texto": "La liste où atterrit chaque idée qui te passe par la tête, isolée ou regroupée en remue-méninges par thème. Tu peux la classer en dossiers, la marquer d’une étoile et, une fois mûre, la transformer en carte." },
+  { "clave": "tut.app-ideas--esencial.3.titulo", "texto": "Cartes conceptuelles" },
+  { "clave": "tut.app-ideas--esencial.3.texto", "texto": "Une toile libre pour organiser un sujet dans le format qui lui va le mieux : carte mentale, arbre, logigramme, chronologie, cycle, pyramide, Venn et bien plus." },
+  { "clave": "tut.app-ideas--esencial.4.titulo", "texto": "Diagrammes de décision" },
+  { "clave": "tut.app-ideas--esencial.4.texto", "texto": "La même toile, avec des formats pensés pour décider : avantages et inconvénients pondérés, SWOT, Eisenhower ou une matrice pondérée qui classe les options toute seule." },
+  { "clave": "tut.app-idiomas--esencial.1.titulo", "texto": "Ton école de langues" },
+  { "clave": "tut.app-idiomas--esencial.1.texto", "texto": "Ici, tu choisis une langue, tu discutes avec un tuteur d’intelligence artificielle, tu enregistres le vocabulaire que tu apprends et tu le révises avec un système espacé. Quatre menus : Discussions, Programme, Révision et Progrès." },
+  { "clave": "tut.app-idiomas--esencial.2.titulo", "texto": "Discussions" },
+  { "clave": "tut.app-idiomas--esencial.2.texto", "texto": "Tu converses avec ton tuteur dans la langue que tu étudies : il répond selon ton niveau et corrige en douceur. Chaque discussion reste enregistrée et se classe seule, et en sortant, il te propose d’extraire le nouveau vocabulaire sous forme de cartes." },
+  { "clave": "tut.app-idiomas--esencial.3.titulo", "texto": "Programme" },
+  { "clave": "tut.app-idiomas--esencial.3.texto", "texto": "Organise la langue en thèmes, prononciation et grammaire, du niveau A1 au C2. Le vocabulaire vit à l’intérieur de chaque thème : chaque carte s’y enregistre, avec sa traduction et son exemple." },
+  { "clave": "tut.app-idiomas--esencial.4.titulo", "texto": "Révision" },
+  { "clave": "tut.app-idiomas--esencial.4.texto", "texto": "La révision espacée : chaque carte vit dans une boîte et ne te propose que celles que tu es sur le point d’oublier, avec des exercices — choix multiple, à l’envers ou phrase à compléter — plutôt que de simplement les regarder." },
+  { "clave": "tut.app-idiomas--esencial.5.titulo", "texto": "Progrès" },
+  { "clave": "tut.app-idiomas--esencial.5.texto", "texto": "Le résumé de ton avancée : combien de cartes tu maîtrises, combien tu as révisé et ton niveau actuel, avec l’historique de tes révisions jour par jour." },
+  { "clave": "tut.app-jardin--esencial.1.titulo", "texto": "Ton espace de calme" },
+  { "clave": "tut.app-jardin--esencial.1.texto", "texto": "Le jardin réunit trois pratiques : méditation, respiration guidée et gratitude. Il n’a volontairement ni points ni séries : ici, rater un jour n’est pas puni, on accompagne juste ce que tu pratiques." },
+  { "clave": "tut.app-jardin--esencial.2.titulo", "texto": "Méditation" },
+  { "clave": "tut.app-jardin--esencial.2.texto", "texto": "Choisis une piste sonore et une durée, ou médite en silence avec une cloche au début et à la fin. Chaque séance reste enregistrée dans ton historique." },
+  { "clave": "tut.app-jardin--esencial.3.titulo", "texto": "Respiration" },
+  { "clave": "tut.app-jardin--esencial.3.texto", "texto": "Deux rythmes de respiration guidée, l’un pour te recentrer et l’autre pour relâcher la journée : l’écran respire avec toi à mesure qu’il avance." },
+  { "clave": "tut.app-jardin--esencial.4.titulo", "texto": "Gratitude" },
+  { "clave": "tut.app-jardin--esencial.4.texto", "texto": "Note ce pour quoi tu es reconnaissant aujourd’hui, même une seule chose, et relis tes entrées précédentes quand tu veux. Sans séries : rater un jour n’efface rien." },
+  { "clave": "tut.app-metas--esencial.1.titulo", "texto": "Le planificateur de la maison" },
+  { "clave": "tut.app-metas--esencial.1.texto", "texto": "Cette pièce ne garde aucun enregistrement propre : elle réunit en un seul endroit les objectifs et les plans qui naissent dans les autres apps. Trois menus, à lire dans cet ordre : ce que tu t’es fixé, comment tu comptes le répartir et quand ça tombe." },
+  { "clave": "tut.app-metas--esencial.2.titulo", "texto": "Objectifs" },
+  { "clave": "tut.app-metas--esencial.2.texto", "texto": "La liste de tout ce que tu t’es fixé, groupée par l’app qui porte chaque objectif. Un objectif peut dépendre d’un autre, et le toucher ouvre sa feuille : on y trouve son échéance, ses étapes et l’accès à son propre planning." },
+  { "clave": "tut.app-metas--esencial.3.titulo", "texto": "Plans" }
 ]

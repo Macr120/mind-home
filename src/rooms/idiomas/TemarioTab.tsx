@@ -420,7 +420,6 @@ export function TemarioTab({ perfil, onConversar, onPracticar, enfocado, onEnfoc
             }}
             color={COLOR}
             variante="sub"
-            nivel={2}
             desplazable
           />
         </div>

@@ -20,7 +20,7 @@ import { interpretarAyuda, type AyudaDetectada } from './ayuda'
 import { useSugerenciaMapa } from './sugerirMapa'
 import { TIPOS_MAPA } from '../../rooms/ideas/tiposMapa'
 import { useTutorial } from '../tutorial/tutorialStore'
-import { lanzarFlujo } from '../tutorial/registro'
+import { esEsencial, lanzarEsencial, lanzarFlujo } from '../tutorial/registro'
 import { iaActiva, interpretarIA, pdfNativo, getProveedor } from './ia'
 import { responder, nombreAsistente, saludoAsistente, type EventoTipo } from './mascotas'
 import { EMOCION_POR_EVENTO } from './emociones'
@@ -52,10 +52,11 @@ import { useT } from '../i18n/useT'
 import { Icono } from '../ui/iconos/Icono'
 import { useHud } from '../state/hudStore'
 import { BotonPlegarHud } from '../ui/HudPlegable'
-import { useTopeHud } from '../ui/hudMedida'
+import { useTopeHud, anclajeChat } from '../ui/hudMedida'
 import { vivo } from '../ui/estilos'
 import { iaHabilitada } from '../edicion'
 import { ErrorIA, usarViaCuenta } from '../cuenta/api'
+import { useSesion } from '../cuenta/sesionStore'
 import { blobABase64, comprimirImagen } from '../imagenIA'
 import { useMascaraUi } from '../state/mascaraUiStore'
 import { useChatArUi } from '../state/chatArUiStore'
@@ -164,6 +165,12 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
   // Pestaña del panel: chats (con quién platicaste) o registros de la bitácora.
   const [pestana, setPestana] = useState<'chats' | 'registros'>('chats')
   const ultimos = useUltimosMensajes()
+  // Contador de créditos bajo la caja: pool del mes restante + recargas. El
+  // medidor se refresca solo tras cada llamada (api.ts::refrescarMedidor).
+  const usoIA = useSesion((s) => s.usoIA)
+  const creditosExtra = useSesion((s) => s.creditosExtra)
+  const creditosRestantes =
+    Math.max(0, usoIA ? usoIA.limiteCreditos - usoIA.creditos : 0) + creditosExtra
   const addObjeto = useDiseño((s) => s.addObjeto)
   const mascota = asistentes.find((a) => a.id === mascotaId) ?? asistentes[0]
 
@@ -402,10 +409,12 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
     if (ayuda) {
       if (ayuda.modo === 'tour') {
         hablar(t('tut.chat.abriendo', 'Ahí va: el mago te lo enseña en pantalla.'), { asistenteId: destinoId })
-        // Tours de app: por lanzarFlujo — los flujos nuevos corren sobre el año
-        // de la casa demo (desde la casa real saltan a ella con intent).
+        // «tutorial de X» lanza el ESENCIAL de la app (corre aquí mismo); los
+        // ejemplos y los tours del núcleo van por lanzarFlujo (saltan al año
+        // de la casa demo con intent).
         const clave = ayuda.plantillaId ?? ayuda.claveFlujo
-        if (clave) void lanzarFlujo(clave, ayuda.tutorial)
+        if (ayuda.plantillaId && esEsencial(ayuda.tutorial)) void lanzarEsencial(ayuda.plantillaId)
+        else if (clave) void lanzarFlujo(clave, ayuda.tutorial)
         else void useTutorial.getState().iniciar(ayuda.tutorial)
       } else {
         hablar(
@@ -715,17 +724,12 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
   const angostoMovil = chatPlegado && movilVertical
 
   return (
-    // start-44: margen al joystick (izq.); end-48: deja hueco con el cubo/botones de rotación (der.).
-    // Con menú lateral: anclado a la derecha del sidebar (w-60 = 15rem).
     <div
       ref={raizRef}
       className={
         angostoMovil
           ? 'absolute bottom-4 left-1/2 z-20 -translate-x-1/2 select-none'
-          : [
-              'absolute bottom-4 z-20 min-w-0 select-none',
-              menuAbierto ? 'start-60 end-4 sm:end-48' : 'start-4 end-4 sm:start-44 sm:end-48',
-            ].join(' ')
+          : ['absolute bottom-4 z-20 min-w-0 select-none', anclajeChat(menuAbierto)].join(' ')
       }
     >
       {/* Conversación con el asistente (estilo WhatsApp): siempre sobre la barra */}
@@ -1142,6 +1146,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
               ))}
               <button
                 type="button"
+                data-tut="chat.adjuntar.mascara"
                 onClick={() => {
                   cerrarPaneles()
                   useMascaraUi.getState().abrir()
@@ -1153,6 +1158,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
               </button>
               <button
                 type="button"
+                data-tut="chat.adjuntar.chatAr"
                 onClick={() => {
                   cerrarPaneles()
                   useChatArUi.getState().abrir()
@@ -1364,6 +1370,15 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
         </div>
       </div>
       </div>
+      {/* Contador de créditos de IA, bajo la caja y a la derecha. Solo si la IA
+          sale por créditos (no BYOK) y de verdad queda algo que gastar. */}
+      {usarViaCuenta() && creditosRestantes > 0 && (
+        <div className="mt-1 flex justify-end">
+          <span className="ui-panel-glass rounded-lg border border-white/10 px-2 py-0.5 text-[10px] font-semibold text-white/50 shadow-xl backdrop-blur-md">
+            <Icono nombre="brillo" /> {t('chat.creditos', 'Créditos: {n}', { n: creditosRestantes })}
+          </span>
+        </div>
+      )}
         </div>
       )}
     </div>

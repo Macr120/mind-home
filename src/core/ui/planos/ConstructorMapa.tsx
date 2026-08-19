@@ -874,6 +874,11 @@ export function ConstructorMapa() {
     if (previewVisible && !croquisVisible) setCroquisVisible(true)
     setPreviewVisible(!previewVisible)
   }
+  // El croquis se queda fijo arriba al desplazar los menús de abajo, para no perder de
+  // vista el elemento que se está editando (Ascensos queda fuera). Solo se pega UNA de
+  // las dos vistas: si el croquis está visible el sitio es suyo y el preview 3D se
+  // desplaza debajo; con el croquis apagado, el que se pega es el preview.
+  const croquisFijo = modo !== 'ascensos'
 
   return (
     <div className="space-y-3">
@@ -920,11 +925,8 @@ export function ConstructorMapa() {
           Grid → +/- de tamaño; resto → nivel (sup. izq.) y detalle fino/normal (sup. der.). */}
       {(!con3d || croquisVisible) && (
       <div
-        // Modo Grid: el croquis se queda fijo arriba (como los previews 3D del editor)
-        // para no perderlo de vista al usar los controles de abajo. En los demás modos
-        // ese sitio lo ocupa el preview 3D, que ya es `sticky`.
         className={`relative h-64 w-full overflow-hidden rounded-xl border border-white/10 bg-stone-200 ${
-          modo === 'grid' ? 'sticky top-0 z-10' : ''
+          croquisFijo ? 'sticky top-0 z-10' : ''
         }`}
       >
         <PlanosEditor compacto />
@@ -964,12 +966,17 @@ export function ConstructorMapa() {
         previewVisible &&
         !arrastrandoCuarto &&
         (muroLibreSel != null ? (
-          <PreviewMuroLibre3D muroId={muroLibreSel} onOcultar={() => setPreviewVisible(false)} />
+          <PreviewMuroLibre3D
+            muroId={muroLibreSel}
+            fijo={!croquisVisible}
+            onOcultar={() => setPreviewVisible(false)}
+          />
         ) : seleccion?.tipo === 'arista' ? (
           <PreviewCuarto3D
             roomId={seleccion.roomId}
             arista={{ off: seleccion.off, side: seleccion.side }}
             interactivo
+            fijo={!croquisVisible}
             onOcultar={() => setPreviewVisible(false)}
           />
         ) : seleccion?.tipo === 'cuarto' ? (
@@ -977,6 +984,7 @@ export function ConstructorMapa() {
             roomId={seleccion.roomId}
             techoInicial={modo === 'techos'}
             interactivo
+            fijo={!croquisVisible}
             onOcultar={() => setPreviewVisible(false)}
           />
         ) : (

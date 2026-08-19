@@ -1,126 +1,130 @@
 [
- {
-  "clave": "tut.menu-cuartos.6.texto",
-  "texto": "「部屋を作成」を押すと、ブラシを構えたマップエディターが開きます。新しい部屋の形も大きさも置き場所も思いのままです。スマホなら、ツールホイール › 建築 › 部屋 のショートカットが便利です。パネルを開かずにマップへ直接描けます。"
- },
- {
-  "clave": "tut.menu-cuartos.7.texto",
-  "texto": "まとめると、カスタマイズは「編集」、アプリを使うのは「入る」です。このメニューの他のタブには、それぞれ専用のチュートリアルがあります。"
- },
- {
-  "clave": "tut.menu-plantillas.1.texto",
-  "texto": "テンプレートは1つのアプリです（キッチン、ジム、家計など）。部屋のオブジェクトに割り当てると、入ったときに開きます。"
- },
- {
-  "clave": "tut.menu-plantillas.2.titulo",
-  "texto": "2つの表示"
- },
- {
-  "clave": "tut.menu-plantillas.2.texto",
-  "texto": "「部屋」はおなじみのアプリで、それぞれがオブジェクトに入ります。「エクストラ」は別物です。サーキット、コート、菜園、牧場、ペイントボールは、部屋を使わずに地面へ直接建てます。"
- },
- {
-  "clave": "tut.menu-plantillas.3.titulo",
-  "texto": "カタログ"
- },
- {
-  "clave": "tut.menu-plantillas.3.texto",
-  "texto": "標準のアプリと自作のアプリが、グループごとに並びます。タップすると部屋に割り当てられます。「エクストラ」なら、タップしてマップに建てます。"
- },
- {
-  "clave": "tut.menu-plantillas.4.titulo",
-  "texto": "自分だけのテンプレート"
- },
- {
-  "clave": "tut.menu-plantillas.4.texto",
-  "texto": "ブロックを組み合わせて、自分だけのテンプレートを作れます。メモ、チェックリスト、カウンター、習慣、ギャラリーなど。このボタンで専用のエディターが開きます。チュートリアルも別にあります。"
- },
- {
-  "clave": "tut.menu-plantillas.5.texto",
-  "texto": "1つの部屋に複数のアプリを置けます。入るとランチャーが出て、どれを開くか選べます。"
- },
- {
-  "clave": "tut.plantillas-custom.1.texto",
-  "texto": "このエディターでは、自分のアプリをゼロから組み立てます。名前と絵文字とブロックで形にすると、標準のアプリと並んでカタログに入ります。"
- },
- {
-  "clave": "tut.plantillas-custom.2.titulo",
-  "texto": "名前・絵文字・色"
- },
- {
-  "clave": "tut.plantillas-custom.2.texto",
-  "texto": "名前と、メニュー・カタログ・カレンダーで表示される色です。このアプリの予定を入れたときも、この色になります。"
- },
- {
-  "clave": "tut.plantillas-custom.3.titulo",
-  "texto": "ツール"
- },
- {
-  "clave": "tut.plantillas-custom.3.texto",
-  "texto": "ブロックは12種類です。メモ、チェックリスト、カウンター、習慣、セッション、カウントダウン、ギャラリー、記録、評価、進捗、リスト、リンク。追加したものが、そのままアプリのセクションになります。"
- },
- {
-  "clave": "tut.plantillas-custom.4.titulo",
-  "texto": "順番が大事"
- },
- {
-  "clave": "tut.plantillas-custom.4.texto",
-  "texto": "追加したブロックは矢印で並べ替え、✕で外せます。外したブロックのデータは保存時に消えるので、確定する前に確認してください。「メニュー」のドロップダウンを使えば、何も失わずに別のタブへ移せます。"
- },
- {
-  "clave": "tut.plantillas-custom.5.titulo",
-  "texto": "保存"
- },
- {
-  "clave": "tut.plantillas-custom.5.texto",
-  "texto": "名前とブロックが1つあれば、「保存」でカタログに並びます。あとは標準のテンプレートと同じように、オブジェクトへ割り当てるだけです。"
- },
- {
-  "clave": "tut.plantillas-custom.6.texto",
-  "texto": "あとからいつでも編集できます。ブロックもデータもそのままで、変えたところだけが変わります。"
- },
- {
-  "clave": "tut.menu-inventario.1.texto",
-  "texto": "インベントリです。家に置けるオブジェクトがすべて並び、そのままドラッグできます。"
- },
- {
-  "clave": "tut.menu-inventario.2.titulo",
-  "texto": "オブジェクト"
- },
- {
-  "clave": "tut.menu-inventario.2.texto",
-  "texto": "カテゴリーとフォルダで整理したオブジェクトのライブラリです。名前を変えて並べ替えておけば、次からすぐ見つかります。"
- },
- {
-  "clave": "tut.menu-inventario.3.titulo",
-  "texto": "特別なオブジェクト"
- },
- {
-  "clave": "tut.menu-inventario.3.texto",
-  "texto": "飾るだけでなく、何かをするオブジェクトです。乗り物、おもちゃの銃、噴水、遊具、照明があります。"
- },
- {
-  "clave": "tut.menu-inventario.4.titulo",
-  "texto": "配置"
- },
- {
-  "clave": "tut.menu-inventario.4.texto",
-  "texto": "このメニューを開いたまま、サムネイルを3Dシーンへドラッグすると、好きな場所に置けます。"
- },
- {
-  "clave": "tut.menu-inventario.5.texto",
-  "texto": "すでに置いたものを動かす・塗る・消すには、エディターの「オブジェクト」タブを使います。このメニューは、新しいものをシーンに出すためだけのものです。"
- },
- {
-  "clave": "tut.editor-mapa.1.texto",
-  "texto": "家のエディターには4つのタブがあります。マップ、キャラクター、オブジェクト、設定です。このツアーは「マップ」のもので、残りの3つにもそれぞれのツアーがあります。"
- },
- {
-  "clave": "tut.editor-mapa.2.titulo",
-  "texto": "見取り図"
- },
- {
-  "clave": "tut.editor-mapa.2.texto",
-  "texto": "上から見たグリッドに描いていきます。部屋、壁、ドア、窓、床を、上部バーのモードとブラシで描けます。描いたものは読み込み直さなくても、すぐ3Dに現れます。"
- }
+  {
+    "clave": "tut.app-descanso--esencial.2.texto",
+    "texto": "記録した夜には、睡眠時間、就寝時刻、目が覚めた回数を合わせたスコアがつきます。まだ記録がないときは、最初の夜を書き留めるよう促してくれます。"
+  },
+  {
+    "clave": "tut.app-descanso--esencial.3.titulo",
+    "texto": "スケジュールと通知"
+  },
+  {
+    "clave": "tut.app-descanso--esencial.3.texto",
+    "texto": "1日の帯の両端をドラッグして、寝る時刻と起きる時刻を決めます。同じスケジュールは家のカレンダーにもブロックとして表示されます。目覚ましとその音、そして寝る前にペースを落とすための通知も、ここでオンにします。"
+  },
+  {
+    "clave": "tut.app-descanso--esencial.4.titulo",
+    "texto": "夜を記録する"
+  },
+  {
+    "clave": "tut.app-descanso--esencial.4.texto",
+    "texto": "どう眠れたかを書き留めるフォームです。日付、寝た時刻と起きた時刻、途中で目覚めた回数、睡眠の質の評価、そしてメモ欄があります。"
+  },
+  {
+    "clave": "tut.app-descanso--esencial.5.titulo",
+    "texto": "履歴"
+  },
+  {
+    "clave": "tut.app-descanso--esencial.5.texto",
+    "texto": "記録した夜はすべてここに残り、年・月・週で整理されるので、長い目で眠りを振り返れます。"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.1.titulo",
+    "texto": "あなたの家計"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.1.texto",
+    "texto": "書斎はお金を4つのメニューで整理します。持っているもの、出入りするお金、目標、そして相場です。それぞれの下に専用のセクションが開きます。"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.2.titulo",
+    "texto": "純資産"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.2.texto",
+    "texto": "持っているものと借りているものを、資産と負債の2つのリストで管理します。3つ目のセクションでは、1行ごとに設定した利率でその状態を先へ予測します。"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.3.titulo",
+    "texto": "収支"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.3.texto",
+    "texto": "入ってくるお金と出ていくお金を、支出・収入・差し引きに分けます。差し引きでは、選んだ期間——日・週・月・年——を予算、カテゴリー、傾向とともにまとめます。"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.4.titulo",
+    "texto": "目標"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.4.texto",
+    "texto": "お金の目標を3つのセクションで扱います。貯蓄・投資、負債、そして自分の収支から金額を提案してくれる計算ツールです。どの目標もスケジュールに下ろして日付をつけられます。"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.5.titulo",
+    "texto": "マーケット"
+  },
+  {
+    "clave": "tut.app-despacho--esencial.5.texto",
+    "texto": "為替、仮想通貨、株式、商品のリアルタイムの相場です。通信が必要です。あくまで確認用のボードで、アプリが売買を勧めることはありません。"
+  },
+  {
+    "clave": "tut.app-diario--esencial.1.titulo",
+    "texto": "今日の新聞"
+  },
+  {
+    "clave": "tut.app-diario--esencial.1.texto",
+    "texto": "日刊ニュースはその日のブリーフィングを2つの画面で届けます。見出しと、今日は何の日です。独自のデータは残しません。毎日新しい内容が届き、真夜中にまるごと入れ替わります。"
+  },
+  {
+    "clave": "tut.app-diario--esencial.2.titulo",
+    "texto": "今日のニュース"
+  },
+  {
+    "clave": "tut.app-diario--esencial.2.texto",
+    "texto": "その日の見出しをカテゴリー別に——世界、経済、テック、健康、スポーツ、エンタメ——並べ、上のチップで絞り込めます。あなたの言語の実際の報道から届き、媒体は毎日入れ替わります。"
+  },
+  {
+    "clave": "tut.app-diario--esencial.3.titulo",
+    "texto": "今日は何の日"
+  },
+  {
+    "clave": "tut.app-diario--esencial.3.texto",
+    "texto": "新聞のもう半分です。今日と同じ日に何があったか——美術作品、本、生き物、言葉。ニュースに興味がわかない日でも、開く口実になります。"
+  },
+  {
+    "clave": "tut.app-diario--esencial.4.titulo",
+    "texto": "自動で新しくなります"
+  },
+  {
+    "clave": "tut.app-diario--esencial.4.texto",
+    "texto": "その日の号はアプリを開くと自動で読み込まれ、真夜中にまるごと入れ替わるので、何もたまりません。このボタンを押すと、その時刻を待たずに更新できます。"
+  },
+  {
+    "clave": "tut.app-diario--esencial.5.titulo",
+    "texto": "お届け"
+  },
+  {
+    "clave": "tut.app-diario--esencial.5.texto",
+    "texto": "どのセクションを、どのアシスタントが自分のチャットで届けるかを設定します。決まった時刻でも、その日のいつか不意にでもかまいません。"
+  },
+  {
+    "clave": "tut.app-ejercicio--esencial.1.titulo",
+    "texto": "あなたのトレーニング"
+  },
+  {
+    "clave": "tut.app-ejercicio--esencial.1.texto",
+    "texto": "ジムは体を鍛える3つの分野——筋力、持久力、柔軟性——をまとめ、さらに週にどれだけ運動したいかを決める目標メニューがあります。"
+  },
+  {
+    "clave": "tut.app-ejercicio--esencial.2.titulo",
+    "texto": "目標"
+  },
+  {
+    "clave": "tut.app-ejercicio--esencial.2.texto",
+    "texto": "部屋の概要です。連続記録、何か記録した日数、そしてここで決めた週の目標に対する分野ごとのバーが並びます。単位をキロにするかポンドにするかも、ここで選べます。"
+  },
+  {
+    "clave": "tut.app-ejercicio--esencial.3.titulo",
+    "texto": "筋力"
+  }
 ]

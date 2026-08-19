@@ -27,7 +27,19 @@ export const PL_TUT: Dict = {
     'Tu jest wszystko, co naukowe, i sporo więcej: wybierasz grupę — Podstawy, Analiza, Macierze, Trygonometria, Symbole — i przyciski się zmieniają. Wpisują się tam, gdzie masz kursor, a puste miejsce czeka gotowe do wypełnienia.',
   'tut.app-computo--calculadora.3.titulo': 'Tryby specjalne',
   'tut.app-computo--calculadora.3.texto':
-    'Kalkulator zmienia cały widok: wykres, system dwójkowy i szesnastkowy, macierze, układy równań, przeliczanie jednostek, rachunek z napiwkiem i reguła trzech. Historia zostaje na dole w każdym z nich.',
+    'Kalkulator zmienia cały widok: wykres, systemy liczbowe od 2 do 16, macierze, układy równań, przeliczanie jednostek, rachunek z napiwkiem i reguła trzech. Historia zostaje na dole w każdym z nich.',
+  'tut.app-computo--calculadora.3b.titulo': 'Systemy liczbowe',
+  'tut.app-computo--calculadora.3b.texto':
+    'To, co wpiszesz, czyta się w wybranym systemie i pokazuje we wszystkich piętnastu naraz, od 2 do 16, na żywo. Są działania bitowe, a przedrostki 0b, 0o i 0x pozwalają mieszać systemy w jednym rachunku.',
+  'tut.app-computo--calculadora.3c.titulo': 'Macierze i układy',
+  'tut.app-computo--calculadora.3c.texto':
+    'Macierze działają na A i B do 6×6: suma, iloczyn, wyznacznik, odwrotność, transpozycja i ślad. Sąsiednie Układy rozwiązują równania liniowe, odczytując niewiadome z tego, co wpiszesz — do sześciu równań.',
+  'tut.app-computo--calculadora.3d.titulo': 'Jednostki',
+  'tut.app-computo--calculadora.3d.texto':
+    'Osiem kategorii — od długości po dane — które przeliczają w trakcie pisania; każda pamięta swoją ostatnią parę, a „Zamień” odwraca kierunek przeliczania. Temperatura wychodzi dobrze: 100 °C to 212 °F.',
+  'tut.app-computo--calculadora.3e.titulo': 'Napiwek i reguła trzech',
+  'tut.app-computo--calculadora.3e.texto':
+    'Dwa tryby do szybkiego liczenia w głowie: Napiwek liczy od rachunku — nie od sumy — i dzieli na tylu, ilu was jest; Reguła trzech, prosta lub odwrotna, sama wypełnia x.',
   'tut.app-computo--calculadora.4.titulo': 'Zbiór wzorów pod ręką',
   'tut.app-computo--calculadora.4.texto':
     'Twoje wzory wiszą przy tym menu, ze zmiennymi gotowymi do wypełnienia: to właśnie sprawia, że zapisywanie ich ma sens.',
@@ -63,7 +75,7 @@ export const PL_TUT: Dict = {
     'Chodzisz joystickiem, klawiszami WASD albo strzałkami. Kiedy przechodzisz przez drzwi pokoju, wchodzisz do niego, a jego aplikacja otwiera się sama.',
   'tut.casa.4.titulo': 'Trzy sposoby patrzenia',
   'tut.casa.4.texto':
-    'Izometryczny, trzecia i pierwsza osoba (albo klawisz V). W 3./1. osobie pojawia się dodatkowo przycisk do edytowania świata w trakcie spaceru po nim.',
+    'Izometryczny, trzecia i pierwsza osoba (albo klawisz V). Dotknięcie Izo wyśrodkowuje też kamerę z powrotem na twojej postaci: szybki powrót, jeśli podczas zwiedzania zawędrujesz za daleko.',
   'tut.casa.5.titulo': 'Jedno miejsce, wielu właścicieli',
   'tut.casa.5.texto':
     'Ten róg to nie tylko kostka widoków: kiedy podchodzisz do czegoś, z czym da się wejść w interakcję — krzesła, pojazdu, boiska — zmienia się sam na to, co masz w pobliżu. Nic nie włącza się, dopóki nie podejdziesz.',
@@ -71,7 +83,8 @@ export const PL_TUT: Dict = {
   'tut.casa.6.texto':
     'Ruchy, zabawki, pojazdy i budowa, do 3 wyposażonych naraz. Otwiera się tutaj albo z tego samego rogu, kiedy masz wolne ręce.',
   'tut.casa.7.titulo': 'Zegar',
-  'tut.casa.7.texto': 'Godzina w domu. Stąd otwierają się pełny kalendarz i panel rutyn z tym, co zostało ci na dziś.',
+  'tut.casa.7.texto':
+    'Godzina w domu: dotknij jej, a otworzy się pełny kalendarz z Misjami na dziś. Słońce albo księżyc obok sterują upływem czasu i światłem sceny.',
   'tut.casa.8.titulo': 'Muzyka domu',
   'tut.casa.8.texto':
     'Każdy pokój może mieć swój własny motyw albo pozwolić grać ogólnemu tłu domu. Da się ją wyłączyć zupełnie, jeśli wolisz ciszę.',
@@ -86,10 +99,10 @@ export const PL_TUT: Dict = {
     'Tym przyciskiem rysujesz nowe pokoje na mapie. Żeby pokazać ci resztę drogi, teraz stworzę ci jeden…',
   'tut.primeros.3.titulo': 'Twój nowy pokój',
   'tut.primeros.3.texto':
-    'Oto on! Świeżo utworzony pokój, jeszcze bez aplikacji: dlatego na jego przycisku widnieje + Przypisz.',
+    'Oto on! Świeżo utworzony pokój, jeszcze bez aplikacji: dlatego na jego karcie widnieje + Przypisz.',
   'tut.primeros.4.titulo': 'Przypisz aplikację',
   'tut.primeros.4.texto':
-    'Przyciskiem + Przypisz pokój dostał swoją aplikację: zobacz, jak przejął jej nazwę, ikonę i meble, a jego przycisk mówi teraz Wejdź.',
+    'Przyciskiem + Przypisz pokój dostał swoją aplikację: zobacz, jak przejął jej nazwę, ikonę i meble. Od teraz cała jego karta jest przyciskiem wejścia.',
   'tut.primeros.5.titulo': 'Wejdź',
   'tut.primeros.5.texto':
     'Wchodzimy: to jest aplikacja pokoju. Podczas spaceru wchodzisz też, przekraczając jego drzwi, a wychodzisz przez ‹ Wróć do domu.',
@@ -102,12 +115,12 @@ export const PL_TUT: Dict = {
   'tut.menu-cuartos.3.titulo': 'Karty',
   'tut.menu-cuartos.3.texto':
     'Każda karta to pokój: jego ikona, nazwa i postęp jego aplikacji, pogrupowane w Ciało, Umysł, Dodatki i Ustawienia. Pokoje bez przypisanej aplikacji trafiają na sam koniec.',
-  'tut.menu-cuartos.4.titulo': 'Edytuj',
+  'tut.menu-cuartos.4.titulo': 'Opcje pokoju',
   'tut.menu-cuartos.4.texto':
-    'Edytuj otwiera edytor pokoju: kształt, kolory, ściany i obiekty. (Nie naciskaj go teraz: zamknęłoby to menu.)',
-  'tut.menu-cuartos.5.titulo': 'Wejdź i Przypisz',
+    'Zębatka rozwija opcje pokoju w jednym rzędzie: przesunięcie go w górę lub w dół listy, usunięcie oraz Edytuj, które otwiera jego edytor kształtu, kolorów, ścian i obiektów.',
+  'tut.menu-cuartos.5.titulo': 'Wchodzi się całą kartą',
   'tut.menu-cuartos.5.texto':
-    'Wejdź otwiera aplikację pokoju. Jeśli pokój nie ma jeszcze aplikacji, zobaczysz w tym miejscu + Przypisz, żeby wybrać mu jedną z katalogu.',
+    'Cała karta jest przyciskiem: dotknij jej w dowolnym miejscu, a wejdziesz do aplikacji pokoju. Jeśli pokój nie ma jeszcze aplikacji, ta sama karta mówi + Przypisz i otwiera katalog, żeby mu jakąś wybrać.',
   'tut.menu-cuartos.6.titulo': 'Utwórz pokój',
   'tut.menu-cuartos.6.texto':
     'Utwórz pokój otwiera edytor mapy z pędzlem gotowym do narysowania nowego pokoju: kształt, rozmiar i miejsce zależą tylko od ciebie. Na telefonie wygodniejszy jest skrót z koła narzędzi › Budowa › Pokoje, który rysuje wprost na mapie, bez otwierania panelu.',
@@ -225,6 +238,22 @@ export const PL_TUT: Dict = {
     'Ta strzałka wraca do pełnej mapy bez zamykania edytora, żeby pracować dalej w innym pokoju.',
   'tut.editor-cuarto.4.texto':
     'Nad samym pokojem w 3D jest też pływający przycisk „Wyjdź z pokoju”, jeśli wolisz dotknąć go tam.',
+  'tut.inicio.1.texto':
+    'Przycisk z nazwą twojego domu otwiera ekran startowy: twoje aplikacje w siatce, z mechaniką telefonu.',
+  'tut.inicio.2.titulo': 'Jedno dotknięcie, jedna aplikacja',
+  'tut.inicio.2.texto':
+    'Tutaj pojawiają się tylko pokoje, które mają już aplikację, z jej poziomem, serią i zaliczonymi listami. Czerwony licznik w rogu to jej misje zaległe na dziś, a dotknięcie karty wchodzi prosto do środka.',
+  'tut.inicio.3.titulo': 'Przytrzymaj kartę',
+  'tut.inicio.3.texto':
+    'Długie przytrzymanie unosi ją i wszystkie zaczynają drżeć, jak w telefonie: przeciągnij ją, żeby zmienić kolejność, albo dotknij ołówka w jej rogu, żeby edytować jej wizytówkę.',
+  'tut.inicio.4.titulo': 'Twoje wyzwanie na widoku',
+  'tut.inicio.4.texto':
+    'Dwa pierścienie to Góra Syzyfa: ranga roku i zdobyte odznaki. Ich dotknięcie otwiera całą górę, tę samą co w menu bocznym.',
+  'tut.inicio.5.titulo': 'Tapeta i widok 3D',
+  'tut.inicio.5.texto':
+    'Ten przycisk nakłada siatce tapetę, przygaszoną, żeby karty dały się czytać. Ten obok przełącza między ikoną każdego pokoju a jego umeblowaną miniaturą 3D.',
+  'tut.inicio.6.texto':
+    'Tworzenie pokoi, usuwanie ich i przypisywanie aplikacji to nadal sprawa menu bocznego: ten ekran służy do szybkiego wchodzenia. Zamyka się dotknięciem poza nim.',
   'tut.herramientas.1.texto': 'Ten przycisk otwiera koło narzędzi twojej postaci.',
   'tut.herramientas.2.titulo': 'Dwa poziomy',
   'tut.herramientas.2.texto':
@@ -241,18 +270,18 @@ export const PL_TUT: Dict = {
     'Trzy kamery: Izo (widok domku dla lalek), 3. i 1. osoba. Przełączaj tutaj albo klawiszem V.',
   'tut.navegacion.2.titulo': 'Orientacja',
   'tut.navegacion.2.texto':
-    'W izo kostka obraca kamerę po ściankach; w 3./1. osobie przeciągaj pad, żeby rozglądać się dookoła.',
+    'W izo sterujesz kamerą kostką: jej narożniki dają kąty izometryczne, a ścianki — widoki płaskie. W 3./1. osobie jej miejsce zajmuje pad, który przeciągasz, żeby rozglądać się dookoła.',
   'tut.navegacion.3.titulo': 'Gdy coś jest w pobliżu',
   'tut.navegacion.3.texto':
     'Ten sam róg przestaje być kamerą, gdy podejdziesz do czegoś interaktywnego: boisko oferuje swój przycisk gry, pojazd przycisk „Wsiądź”, a krzesło przycisk siadania. Tylko jedna rzecz naraz i zawsze przez zbliżenie się — nigdy automatycznie.',
   'tut.navegacion.4.titulo': 'Obrót i wyśrodkowanie',
   'tut.navegacion.4.texto':
-    'Obracaj widok na boki albo wyśrodkuj go z powrotem na mapie, jeśli zgubisz się podczas zwiedzania.',
+    'Każda strzałka obraca o ćwierć obrotu: mapę w izo, twoje spojrzenie w 3./1. osobie. Trzeci przycisk pojawia się tylko z mapą przed oczami i wyśrodkowuje ją z powrotem, jeśli zgubisz się podczas zwiedzania.',
   'tut.navegacion.5.titulo': 'Poruszanie się',
   'tut.navegacion.5.texto':
     'Chodzisz joystickiem, WASD albo strzałkami. W wodzie pływasz; na dosiadanym pojeździe prowadzisz tymi samymi sterami.',
   'tut.navegacion.6.texto':
-    'W 3./1. osobie pojawia się przycisk Edytor 3D: dotykaj obiektów, ścian albo postaci, żeby edytować je dokładnie tam, gdzie są, bez wracania do widoku izometrycznego.',
+    'Przycisk Edytor na górze działa w każdym widoku: otwórz go w 3./1. osobie, a edytujesz podczas spaceru, dotykając obiektów, ścian albo postaci dokładnie tam, gdzie są.',
   'tut.chat.1.texto':
     'Czat architekta: zapisuje twój dzień, edytuje dom i odpowiada na pytania — wszystko z jednego pola.',
   'tut.chat.2.titulo': 'Pisanie',
@@ -261,9 +290,15 @@ export const PL_TUT: Dict = {
   'tut.chat.3.titulo': 'Dyktowanie głosem',
   'tut.chat.3.texto':
     'Mikrofon przepisuje to, co mówisz, do pola tekstowego — przydaje się, gdy chcesz coś zapisać, nie odkładając tego, co masz w rękach.',
-  'tut.chat.4.titulo': 'Wysyłanie zdjęcia',
+  'tut.chat.4.titulo': 'Załączanie',
   'tut.chat.4.texto':
-    'Przy włączonym AI zdjęcie paragonu, dania albo wagi odczytuje się samo. Bez AI ten przycisk jest nieaktywny.',
+    'Plus rozwija pięć opcji: przesłanie obrazu lub PDF-a i zrobienie zdjęcia — przy włączonym AI paragon albo waga odczytują się same — oraz dwie, które nie potrzebują AI: maskę AR i czat AR.',
+  'tut.chat.4b.titulo': 'Maska AR',
+  'tut.chat.4b.texto':
+    'Włącza kamerę i nakłada ci maskę na twarz, śledząc cię na żywo — tę samą co w filmie przedstawiającym dom. Działa bez AI i bez konta.',
+  'tut.chat.4c.titulo': 'Czat AR',
+  'tut.chat.4c.texto':
+    'Ta sama rozmowa co zawsze, tylko z twoją kamerą w tle i asystentem w 3D z przodu, z emocjami, które towarzyszą temu, co odpowiada.',
   'tut.chat.5.titulo': 'Asystenci',
   'tut.chat.5.texto':
     'Twój asystent daje odpowiedziom twarz i głos. Dotknij go, żeby zobaczyć rozmowę, zmienić asystenta albo stworzyć kolejnych.',
@@ -284,37 +319,15 @@ export const PL_TUT: Dict = {
     'To, co zapisujesz w swoich aplikacjach (posiłki, wydatki, sesje), żyje w każdej z nich, nie tutaj: ta zakładka to tylko pamięć samej rozmowy.',
   'tut.app-generica.1.texto':
     'Nagłówek pokazuje pokój i otwartą aplikację. Jeśli pokój ma kilka aplikacji, strzałka ‹ wraca do ich listy.',
-  'tut.app-generica.2.titulo': 'Kroki na dziś',
+  'tut.app-generica.2.titulo': 'Misje',
   'tut.app-generica.2.texto':
-    'Twoje dzisiejsze kroki w tej aplikacji: twoje dzienne cele, to, co masz zaplanowane, i to, czego wymagają twoje cele. Dotknij jej, żeby ją rozwinąć; każdy krok skreśla się sam, gdy tylko coś zapiszesz.',
+    'Przycisk Misje otwiera dzisiejszą listę tej aplikacji: twoje dzienne cele, to, co zaplanowane, i to, czego wymagają twoje cele. Każdy krok skreśla się sam, gdy tylko coś zapiszesz, a XP za dzień daje dopiero wykonanie całej listy.',
   'tut.app-generica.3.titulo': 'Narzędzia',
   'tut.app-generica.3.texto':
     'Ten szablon jest zbudowany z narzędzi (notatki, listy, liczniki, nawyki…). Możesz je zmienić w Menu › Szablony › Edytuj.',
   'tut.app-generica.4.titulo': 'Wyjście',
   'tut.app-generica.4.texto':
     'Przycisk „‹ Wróć do domu” zamyka aplikację i zostawia cię z powrotem w 3D. To, co tu zapiszesz, jest już zapisane.',
-  'tut.rutinas.1.texto':
-    'Panel rutyn Pepa: na górze to, co na dziś, na dole pełny katalog do wstrzymywania, edycji i usuwania.',
-  'tut.rutinas.2.titulo': 'Co wypada dziś',
-  'tut.rutinas.2.texto':
-    'Zmiana w kawiarni, zajęcia z fizyki, bieganie o świcie, pianino wieczorem: każda karta to rutyna ze swoimi krokami. Ta wyróżniona na bursztynowo już powinna trwać, a wciąż czeka.',
-  'tut.rutinas.3.titulo': 'Nie zawsze trzeba odhaczać',
-  'tut.rutinas.3.texto':
-    'Krok z błyskawicą ⚡ zapisuje się sam: bieganie o świcie zostaje skreślone, bo ten bieg jest już zapisany w Siłowni, a nie dlatego, że ktoś odhaczył go ręcznie. Pozostałe kroki odhaczasz dotknięciem.',
-  'tut.rutinas.4.titulo': 'Pełny katalog',
-  'tut.rutinas.4.texto':
-    'Tu są wszystkie, wypadają dziś czy nie. ON/OFF wstrzymuje rutynę bez kasowania jej historii: to, co zrobione do dziś, zostaje, a od jutra przestaje być wymagana. Edytuj i ✕ zmieniają albo usuwają całą rutynę.',
-  'tut.rutinas.5.titulo': 'Tworzenie rutyny',
-  'tut.rutinas.5.texto':
-    'Nazwa, aplikacja, do której należy (albo żadna, jeśli to luźne wydarzenie domu), godzina i kolor. Kroki są opcjonalne: bez nich to tylko wydarzenie w kalendarzu.',
-  'tut.rutinas.6.titulo': 'Raz, co tydzień albo zawsze',
-  'tut.rutinas.6.texto':
-    'Pianino jest bezterminowe bez zaznaczonych dni (czyli każdego dnia); bieganie powtarza się tylko w dniach zaznaczonych przez Pepa. Powtarzania miesięcznego, rocznego ani w zakresie nie wybiera się tutaj: rodzi się z narysowania celu wprost na siatce kalendarza.',
-  'tut.rutinas.7.titulo': 'Przypomnienie o swojej porze',
-  'tut.rutinas.7.texto':
-    'Przy przyznanym zezwoleniu przychodzi jako powiadomienie systemowe; jeśli nie, asystent powie o tym w aplikacji przy następnym otwarciu.',
-  'tut.rutinas.8.texto':
-    'Wszystko, co tu zaplanowane, pojawia się też na siatce kalendarza, a w aplikacji każdego kroku — na jej liście Dziś.',
   'tut.enlaces.1.titulo': 'Od celu do jego aplikacji',
   'tut.enlaces.1.texto':
     'Każdy cel albo krok planu może mieć chip z ikoną aplikacji: to odpowiedź na pytanie „a gdzie się to zapisuje?”.',
@@ -366,6 +379,9 @@ export const PL_TUT: Dict = {
   'tut.hoy.2.titulo': 'Trzy źródła, jedna lista',
   'tut.hoy.2.texto':
     'Własne cele aplikacji (woda, kalorie), to, co zaplanowałeś na dziś w kalendarzu, i kroki twoich aktualnych celów — wszystko razem, pogrupowane według planu lub celu, z którego pochodzi każdy krok.',
+  'tut.hoy.2b.titulo': 'Twoje postanowienia, u góry',
+  'tut.hoy.2b.texto':
+    'Nad checklistą mieszkają cele tej aplikacji, z postępem i terminem. Dotknięcie któregoś otwiera jego plan od razu tutaj, bez wychodzenia z panelu, a przyciskiem „+ cel” stawiasz sobie kolejny.',
   'tut.hoy.3.titulo': 'Skreśla się, bo wpis istnieje',
   'tut.hoy.3.texto':
     'Przycisk w wierszu zapisuje PRAWDZIWE dane w aplikacji — szklankę wody, posiłek — a krok skreśla się sam, bo ten wpis już tam jest, a nie dlatego, że ktoś go odhaczył. Ponowne naciśnięcie przy wykonanym kroku niczego nie zdubluje: przycisk po prostu znika.',
@@ -378,6 +394,9 @@ export const PL_TUT: Dict = {
   'tut.hoy.6.titulo': 'Zrobione nie znika',
   'tut.hoy.6.texto':
     'Ląduje w zwiniętej sekcji „Zrobione”: widok wpisu, który zadziałał, to część nagrody, a stamtąd można go cofnąć, jeśli wkradł się jeden za dużo.',
+  'tut.hoy.6b.titulo': 'Punktuje dopiero cała lista',
+  'tut.hoy.6b.texto':
+    'Wykonanie wszystkich misji dnia odpala świętowanie i dolicza XP aplikacji: poziom rośnie za zaliczone listy, nie za pojedyncze wpisy.',
   'tut.hoy.7.texto':
     'A jeśli czegoś brakuje, «Nowa lista» tworzy twoją własną: listę tej aplikacji, która powtarza się codziennie. Cele, z których biorą się te kroki, planuje się w pokoju Cele.',
   'tut.progreso.1.texto':
@@ -645,7 +664,7 @@ export const PL_TUT: Dict = {
     'Obie dziury są prawdziwe: kontuzja kolana w siódmym miesiącu i trzy tygodnie w Japonii. Potknięcie nie kasuje postępu — panel pokazuje rok takim, jaki był, a nie takim, jaki miał być. A rutyna liczy się dopiero od dnia, w którym powstała.',
   'tut.metas.1.titulo': 'Najpierw cele',
   'tut.metas.1.texto':
-    'Pokój otwiera się na Celach, pogrupowanych według aplikacji, która je prowadzi: bieganie w Siłowni, studia z fizyki w Bibliotece. „Dom” nie jest żadną aplikacją — to kategoria wymyślona przez Pepa na remont kuchni.',
+    'Widok otwiera się na Celach, pogrupowanych według aplikacji, która je prowadzi: bieganie w Siłowni, studia z fizyki w Bibliotece. „Dom” nie jest żadną aplikacją — to kategoria wymyślona przez Pepa na remont kuchni.',
   'tut.metas.2.titulo': 'Od celu do jego planu',
   'tut.metas.2.texto':
     'Każdy wiersz czyta się jak tablicę: numer w folderze, termin, postęp i stan — Do zrobienia, W trakcie albo Zrobione, zależnie od tego, ile jest już odhaczone. Kliknięcie otwiera cel: jego plan, jeśli go ma (zapowiada to ✨), a jeśli nie — jego arkusz z podcelami, datami i krokami.',
@@ -654,7 +673,7 @@ export const PL_TUT: Dict = {
     'Kuchnia i kolejny maraton to wciąż propozycje; wniosek na studia podyplomowe jest już w Harmonogramie. Plan maratonu powstał bez terminu: AI wyliczyła, że potrzeba na niego 24 tygodni, i mówi o tym w swoim podsumowaniu.',
   'tut.metas.4.titulo': 'Arkusz planu',
   'tut.metas.4.texto':
-    '✨ w wierszu zapowiada, że cel ma już plan, a kliknięcie otwiera ten arkusz: etapy i ich podcele, każdy ze swoim okresem. Dopóki to propozycja, można go edytować w całości: zmieniać nazwy, przesuwać daty, dodawać i usuwać węzły, nie rozsypując reszty.',
+    'Sześć etapów i ich podcele, każdy ze swoim okresem. Dopóki to propozycja, można go edytować w całości: zmieniać nazwy, przesuwać daty, dodawać i usuwać węzły, nie rozsypując reszty.',
   'tut.metas.5.titulo': 'Odhaczaj bez zobowiązań',
   'tut.metas.5.texto':
     'Odhaczenia propozycji żyją w arkuszu, nie w twoich celach: możesz zaznaczać, co zrobione, nie ruszając swojego Harmonogramu. Paski wypełniają się same od dołu do góry — planowanie kuchni jest już zamknięte.',
@@ -666,7 +685,7 @@ export const PL_TUT: Dict = {
     'Plan studiów podyplomowych już się przeniósł. Teraz jego odhaczenia to odhaczenia prawdziwych podcelów, a pasek jest paskiem twojego Harmonogramu: arkusz przestaje liczyć osobno.',
   'tut.metas.8.titulo': 'I są, na osi',
   'tut.metas.8.texto':
-    'Harmonogram jest harmonogramem TEGO celu: jego podcele zajmują swój okres na osi czasu, a plan kładzie się na nich na fioletowo — propozycja i rzeczywistość, razem.',
+    'Podcele zrodzone z planu zajmują swój okres w Harmonogramie, a plan kładzie się na nich na fioletowo: propozycja i rzeczywistość na tej samej osi.',
   'tut.metas.9.titulo': 'Każdy cel ma swoją oś',
   'tut.metas.9.texto':
     'Oś zawsze należy do jednego celu: tutaj nadaje się daty temu, co ich nie ma, podpina nowe podcele, a „Wróć” zabiera cię z powrotem do jego arkusza. Menu Harmonogram na górze pokazuje oś wszystkich celów razem.',
@@ -709,6 +728,14 @@ export const PL_TUT: Dict = {
   'tut.app-biblioteca--resumen.6.titulo': 'Rok sesji',
   'tut.app-biblioteca--resumen.6.texto':
     'A jeśli chcesz szczegółów, historia trzyma każdą sesję z jej minutami i dziedziną, uporządkowaną po latach, miesiącach i tygodniach.',
+  'tut.app-idiomas--charlas.1.titulo': 'Tutor na twoim poziomie',
+  'tut.app-idiomas--charlas.1.texto':
+    'Twoim tutorem jest asystent pokoju: mówisz do niego w języku, którego się uczysz, a on odpowiada na poziomie CEFR z twojego profilu — krótkie zdania z tłumaczeniem na A1, idiomy na C1. Jeśli napiszesz w swoim języku, zachęci cię, żeby spróbować w tym, którego się uczysz.',
+  'tut.app-idiomas--charlas.2.titulo': 'Zapisują się i porządkują same',
+  'tut.app-idiomas--charlas.2.texto':
+    'Każda rozmowa zostaje na tej liście ze swoim tytułem, tematem z programu i poziomem, ustawionymi bez twojego udziału. Może też narodzić się z tematu — przyciskiem rozmowy w jego wierszu — żeby poćwiczyć właśnie to.',
+  'tut.app-idiomas--charlas.3.texto':
+    'Kiedy tutor poprawia, poprawna forma trafia do osobnej linijki z ptaszkiem, a rozmowa toczy się dalej bez wypominania. Przy wyjściu proponuje wyciągnięcie słownictwa, które się pojawiło: wybierasz, które fiszki zachować, a one dziedziczą temat rozmowy.',
   'tut.app-idiomas--repaso.1.titulo': 'Co wypada dziś',
   'tut.app-idiomas--repaso.1.texto':
     'Pep robi to od roku i wciąż ma zaległe powtórki: system nie prosi o całe słownictwo, tylko o to, co zaraz wypadnie z głowy.',
@@ -724,6 +751,272 @@ export const PL_TUT: Dict = {
   'tut.app-idiomas--temario.2.titulo': 'Jak ci idzie',
   'tut.app-idiomas--temario.2.texto':
     'Opanowane fiszki, powtórki z miesiąca i twój aktualny poziom. U Pepa rok zaczął się na A2, a dziś jest B1.',
+  'tut.app-agenda--esencial.1.titulo': 'Twój terminarz',
+  'tut.app-agenda--esencial.1.texto':
+    'Terminarz prowadzi to, co nie jest nawykiem: zadania, wizyty, kontakty. Ma trzy podmenu, a wszystko, co ma datę, planuje się samo w kalendarzu domu.',
+  'tut.app-agenda--esencial.2.titulo': 'Praca',
+  'tut.app-agenda--esencial.2.texto':
+    'Skrzynka zbiera zadania bez daty, żeby się nie zgubiły, a tablica przesuwa twoje zadania po kolumnach: do zrobienia, w trakcie i zrobione.',
+  'tut.app-agenda--esencial.3.titulo': 'Zdrowie',
+  'tut.app-agenda--esencial.3.texto':
+    'Wizyty lekarskie, leki i opieka, w trzech podmenu: Ty, Bliscy (ci, którymi się opiekujesz) i Zwierzęta.',
+  'tut.app-agenda--esencial.4.titulo': 'Ludzie',
+  'tut.app-agenda--esencial.4.texto':
+    'Twoja książka kontaktów według relacji. Zapisane urodziny powtarzają się same co roku w kalendarzu.',
+  'tut.calendario--esencial.1.titulo': 'Zegar domu',
+  'tut.calendario--esencial.1.texto':
+    'Kalendarz to nie pokój: mieszka w zegarze HUD-u, więc otwiera się z dowolnego miejsca, bez wchodzenia gdziekolwiek.',
+  'tut.calendario--esencial.2.titulo': 'Wszystko zaplanowane, razem',
+  'tut.calendario--esencial.2.texto':
+    'Tutaj trafia wszystko, co ma datę i godzinę: to, co tworzysz przyciskiem «+ Nowe» albo rysując na siatce, i to, co same planują pozostałe aplikacje. Filtr u góry pokazuje jedną aplikację, gdy robi się zbyt tłoczno.',
+  'tut.calendario--esencial.3.titulo': 'Dzień',
+  'tut.calendario--esencial.3.texto':
+    'Siatka jednej doby, 24 godziny: pokazuje, o której godzinie jest każda rzecz i czy coś się nakłada. Ten przycisk pełni podwójną funkcję: mówi «Dziś» i przenosi cię do teraźniejszości, albo «Dzień», jeśli oglądasz już inną datę.',
+  'tut.calendario--esencial.4.titulo': 'Tydzień',
+  'tut.calendario--esencial.4.texto':
+    'Ta sama siatka godzin, ale z siedmioma dniami obok siebie. Tu widać, jak rozkłada się tydzień, i tu przeciąga się bloki z jednego dnia na drugi albo rozciąga, żeby trwały dłużej.',
+  'tut.calendario--esencial.5.titulo': 'Miesiąc',
+  'tut.calendario--esencial.5.texto':
+    'Porzuca oś godzin i maluje dni jako pola z tym, co na każdy przypada. To widok panoramiczny: które tygodnie są napięte, a które dni zostają wolne.',
+  'tut.calendario--esencial.6.titulo': 'Rok',
+  'tut.calendario--esencial.6.texto':
+    'Dwanaście miesięcy naraz. Z tej odległości nie czyta się już godzin: widać konsekwencję, ile z tego, co sobie postanowiłeś, udało ci się utrzymać przez cały rok.',
+  'tut.calendario--esencial.7.titulo': 'A misje osobno',
+  'tut.calendario--esencial.7.texto':
+    'Na czerwono, żeby nie wyglądało to jak piąty widok: Misje zbierają na jednym ekranie dzisiejszą listę zadań wszystkich aplikacji. Celów i ich planów tu nie ma — mieszkają we własnym pokoju.',
+  'tut.app-anecdotario--esencial.1.titulo': 'Twój osobisty dziennik',
+  'tut.app-anecdotario--esencial.1.texto':
+    'Dziennik przechowuje to, co chcesz opowiedzieć, z jego nastrojem i zdjęciami. Organizuje się sam według daty, bez konieczności czegokolwiek klasyfikować.',
+  'tut.app-anecdotario--esencial.2.titulo': 'Tak się pisze',
+  'tut.app-anecdotario--esencial.2.texto':
+    'Wybierz nastrój dnia, napisz, co chcesz opowiedzieć, i dołącz zdjęcia, jeśli masz. Wystarczy samo zdjęcie, bez tekstu.',
+  'tut.app-anecdotario--esencial.3.titulo': 'Kalendarz nastroju',
+  'tut.app-anecdotario--esencial.3.texto':
+    'Każdy dzień jest pomalowany nastrojem swojego wpisu, więc cały miesiąc czyta się jednym rzutem oka. Dotknij dnia, żeby zobaczyć jego wpisy poniżej.',
+  'tut.app-anecdotario--esencial.4.titulo': 'Historia',
+  'tut.app-anecdotario--esencial.4.texto':
+    'Wszystkie wpisy trafiają tutaj, same posegregowane w folderach według roku, miesiąca i tygodnia.',
+  'tut.app-biblioteca--esencial.1.titulo': 'Twoja biblioteka',
+  'tut.app-biblioteca--esencial.1.texto':
+    'Biblioteka to twoja osobista encyklopedia: pytasz o to, czego nie wiesz, zapisujesz to, czego się uczysz, i prowadzisz rachunek tego, co studiujesz. Są cztery podmenu.',
+  'tut.app-biblioteca--esencial.2.titulo': 'Rozmowy',
+  'tut.app-biblioteca--esencial.2.texto':
+    'Tutaj pytasz Mędrca o dowolny temat, a rozmowa zostaje zapisana. Każda rozmowa sama klasyfikuje się w swojej dziedzinie wiedzy i wychodzi zdestylowana jako wpis encyklopedii.',
+  'tut.app-biblioteca--esencial.3.titulo': 'Encyklopedia',
+  'tut.app-biblioteca--esencial.3.texto':
+    'Drzewo, w którym żyje to, czego się nauczyłeś, uporządkowane według dziedziny wiedzy. Każdy wpis ma swoje podsumowanie i kluczowe punkty, a ty też możesz je napisać ręcznie; ołówkiem rozwijasz indeks na swoją miarę.',
+  'tut.app-biblioteca--esencial.4.titulo': 'Nauka',
+  'tut.app-biblioteca--esencial.4.texto':
+    'Zegar do nauki: wybierasz dziedzinę i czas trwania, ciągiem albo w pomodoro, a każdy odcinek rejestruje się sam. Działa dalej, nawet gdy wyjdziesz z pokoju.',
+  'tut.app-biblioteca--esencial.5.titulo': 'Podsumowanie',
+  'tut.app-biblioteca--esencial.5.texto':
+    'Panorama tego wszystkiego: ile wpisów ma twoja encyklopedia i jaką część indeksu pokryłeś, minuty nauki, twoja seria i dni, w które się uczyłeś.',
+  'tut.app-cocina--esencial.1.titulo': 'Kuchnia',
+  'tut.app-cocina--esencial.1.texto':
+    'Ta aplikacja zajmuje się dwiema rzeczami: tym, co ugotujesz, i tym, co w końcu zjesz. Każda ma swoje podmenu u góry, a każde podmenu otwiera własne zakładki.',
+  'tut.app-cocina--esencial.2.titulo': 'Książka przepisów',
+  'tut.app-cocina--esencial.2.texto':
+    'Strona gotowania: tu żyją twoje przepisy, diety, które je grupują, i lista zakupów. Trzy zakładki, w tej kolejności.',
+  'tut.app-cocina--esencial.3.titulo': 'Dieta',
+  'tut.app-cocina--esencial.3.texto':
+    'Dieta to plan żywieniowy z przepisami w środku i, jeśli chcesz, własnymi celami kalorycznymi i makroskładnikami. Zapisujesz swoje obok tych, które aplikacja już ma.',
+  'tut.app-cocina--esencial.4.titulo': 'Przepisy',
+  'tut.app-cocina--esencial.4.texto':
+    'Książka przepisów: każdy przepis przechowuje składniki, kroki i makroskładniki na porcję, i jest posegregowany w folderach. Z przepisu możesz zarejestrować posiłek albo wysłać jego składniki na listę zakupów.',
+  'tut.app-cocina--esencial.5.titulo': 'Zakupy',
+  'tut.app-cocina--esencial.5.texto':
+    'Lista zakupów, z każdym produktem w odpowiednim dziale. Możesz zbudować listę, zbierając to, czego brakuje z kilku przepisów, i odhaczać to, co masz już w spiżarni.',
+  'tut.app-cocina--esencial.6.titulo': 'Kontrola żywienia',
+  'tut.app-cocina--esencial.6.texto':
+    'Drugie podmenu prowadzi rachunek tego, co jesz, w czterech ponumerowanych zakładkach. Pierwsza to Cele: na podstawie twojej wagi, wzrostu i aktywności oblicza, ile potrzebujesz dziennie, i dzieli makroskładniki.',
+  'tut.app-cocina--esencial.7.titulo': 'Dziennik',
+  'tut.app-cocina--esencial.7.texto':
+    'To, co już się wydarzyło: posiłki dnia z ich kaloriami, ile wody wypiłeś i twoja waga, gdy się ważysz. Sąsiednia zakładka, Plan posiłków, to odwrotność: siatka tego, co planujesz zjeść w najbliższych dniach.',
+  'tut.app-cocina--esencial.8.titulo': 'Postępy',
+  'tut.app-cocina--esencial.8.texto':
+    'Statystyki tego wszystkiego za wybrany okres: kalorie i makroskładniki, wodę i krzywą twojej wagi. Poniżej kolorowy kalendarz pokazuje jednym rzutem oka, w które dni zmieściłeś się w celu.',
+  'tut.app-computo--esencial.1.titulo': 'Pokój obliczeniowy',
+  'tut.app-computo--esencial.1.texto':
+    'Tutaj rozwiązujesz to, co trzeba policzyć, w dwóch podmenu: Kalkulator, z jego trybami i twoim skoroszytem wzorów, oraz Arkusze kalkulacyjne dla wszystkiego, co tabelaryczne.',
+  'tut.app-computo--esencial.2.titulo': 'Kalkulator',
+  'tut.app-computo--esencial.2.texto':
+    'Kalkulator naukowy, który podaje wynik w trakcie pisania i zapisuje wszystko, co obliczysz, w historii. Klawiatura poniżej oszczędza ci tej z telefonu, a notacje wpisują treść naukową tam, gdzie masz kursor.',
+  'tut.app-computo--esencial.3.titulo': 'Tryby',
+  'tut.app-computo--esencial.3.texto':
+    'To podmenu zmienia cały widok kalkulatora: wykres, systemy liczbowe, macierze, układy równań, konwersję jednostek, napiwek i regułę trzech. Historia zostaje na dole w każdym z nich.',
+  'tut.app-computo--esencial.4.titulo': 'Skoroszyt',
+  'tut.app-computo--esencial.4.texto':
+    'Twoja książka wzorów, złożona nad kalkulatorem. Matematyka, Fizyka i Chemia są już gotowe, w folderach, które można zagnieżdżać. Każdy wzór otwiera się, żeby uzupełnić jego zmienne, i można go edytować albo usunąć.',
+  'tut.app-computo--esencial.5.titulo': 'Arkusze kalkulacyjne',
+  'tut.app-computo--esencial.5.texto':
+    'Arkusze z odniesieniami do komórek i formułami po polsku, plus wykresy nad zakresem, który zaznaczysz. Eksportują się do Excela z zachowaniem formuł albo do PDF.',
+  'tut.app-descanso--esencial.1.titulo': 'Odpoczynek',
+  'tut.app-descanso--esencial.1.texto':
+    'Ta aplikacja śledzi twój sen na jednym ekranie: ocenę ostatniej nocy, twój harmonogram z przypomnieniami, dzienny rejestr i pełną historię.',
+  'tut.app-descanso--esencial.2.titulo': 'Ocena',
+  'tut.app-descanso--esencial.2.texto':
+    'Każda zarejestrowana noc dostaje ocenę, która łączy to, ile spałeś, o której godzinie poszedłeś spać i ile razy się budziłeś. Bez żadnych zapisów ta sekcja zaprasza cię do zarejestrowania pierwszej nocy.',
+  'tut.app-descanso--esencial.3.titulo': 'Harmonogram i przypomnienia',
+  'tut.app-descanso--esencial.3.texto':
+    'Ustawiasz godzinę snu i pobudki, przeciągając końce paska dnia; ten sam harmonogram pojawia się też jako blok w kalendarzu domu. Tutaj włączasz też budzik z jego dźwiękiem i przypomnienia, żeby zwolnić tempo przed snem.',
+  'tut.app-descanso--esencial.4.titulo': 'Rejestrowanie nocy',
+  'tut.app-descanso--esencial.4.texto':
+    'Formularz do zapisania, jak spałeś: data, godzina, o której poszedłeś spać i wstałeś, przerwy i ocena jakości, z miejscem na notatkę.',
+  'tut.app-descanso--esencial.5.titulo': 'Historia',
+  'tut.app-descanso--esencial.5.texto':
+    'Każda zarejestrowana noc zostaje tutaj, uporządkowana według roku, miesiąca i tygodnia, żebyś mógł przejrzeć swój odpoczynek w czasie.',
+  'tut.app-despacho--esencial.1.titulo': 'Twoje finanse',
+  'tut.app-despacho--esencial.1.texto':
+    'Gabinet porządkuje twoje pieniądze w czterech podmenu: to, co masz, to, co wchodzi i wychodzi, twoje cele i rynki. Każde otwiera własne sekcje poniżej.',
+  'tut.app-despacho--esencial.2.titulo': 'Majątek netto',
+  'tut.app-despacho--esencial.2.texto':
+    'To, co masz, i to, co jesteś winien, w dwóch listach: aktywa i pasywa. Trzecia sekcja przekłada ten obraz na przyszłość według stopy, którą ustawisz w każdej linii.',
+  'tut.app-despacho--esencial.3.titulo': 'Przepływy pieniężne',
+  'tut.app-despacho--esencial.3.texto':
+    'Pieniądze, które wchodzą i wychodzą, podzielone na wydatki, przychody i bilans. Bilans podsumowuje wybrany okres — dzień, tydzień, miesiąc lub rok — z jego budżetem, kategoriami i trendem.',
+  'tut.app-despacho--esencial.4.titulo': 'Cele',
+  'tut.app-despacho--esencial.4.texto':
+    'Twoje cele finansowe w trzech sekcjach: oszczędności i inwestycje, dług oraz kalkulatory, które proponują kwotę na podstawie twojego własnego bilansu. Każdy cel może zejść do harmonogramu i dostać datę.',
+  'tut.app-despacho--esencial.5.titulo': 'Rynki',
+  'tut.app-despacho--esencial.5.texto':
+    'Notowania na żywo walut, kryptowalut, akcji i surowców; wymaga połączenia. To tablica do wglądu: aplikacja nie doradza, co kupić ani co sprzedać.',
+  'tut.app-diario--esencial.1.titulo': 'Dzisiejsza gazeta',
+  'tut.app-diario--esencial.1.texto':
+    'Wiadomości dnia przynoszą dzienny przegląd w dwóch widokach: nagłówki i rubrykę „w tym dniu”. Nie przechowują własnych danych: każdy dzień przynosi nową treść, a o północy zostaje ona całkowicie zastąpiona.',
+  'tut.app-diario--esencial.2.titulo': 'Nagłówki',
+  'tut.app-diario--esencial.2.texto':
+    'Nagłówki dnia według kategorii — świat, gospodarka, technologia, zdrowie, sport i rozrywka — filtrowane chipami u góry. Pochodzą z prawdziwej prasy w twoim języku, z mediami, które zmieniają się każdego dnia.',
+  'tut.app-diario--esencial.3.titulo': 'W tym dniu',
+  'tut.app-diario--esencial.3.texto':
+    'Druga połowa gazety: co wydarzyło się w dniu takim jak dzisiaj — dzieło, książka, gatunek, słowo. To pretekst, żeby ją otworzyć, nawet gdy wiadomości akurat nie interesują.',
+  'tut.app-diario--esencial.4.titulo': 'Sama się odnawia',
+  'tut.app-diario--esencial.4.texto':
+    'Wydanie pobiera się samo przy otwarciu aplikacji i zostaje w całości zastąpione o północy: nic się nie kumuluje. Ten przycisk wymusza aktualizację przed tą godziną.',
+  'tut.app-diario--esencial.5.titulo': 'Dostawa',
+  'tut.app-diario--esencial.5.texto':
+    'Skonfiguruj, które sekcje dostarcza ci każdy asystent na własnym czacie, o stałej godzinie albo w niespodziewanym momencie dnia.',
+  'tut.app-ejercicio--esencial.1.titulo': 'Twój trening',
+  'tut.app-ejercicio--esencial.1.texto':
+    'Ćwiczenia łączą trzy formy aktywności ciała — siłę, wytrzymałość i elastyczność — plus podmenu celów, gdzie decydujesz, ile chcesz trenować co tydzień.',
+  'tut.app-ejercicio--esencial.2.titulo': 'Cele',
+  'tut.app-ejercicio--esencial.2.texto':
+    'Podsumowanie pokoju: twoja seria, dni z czymś zarejestrowanym i pasek dla każdej formy względem tygodniowego celu, który tu ustawisz. Tu też wybierasz system miar, w kilogramach albo w funtach.',
+  'tut.app-ejercicio--esencial.3.titulo': 'Siła',
+  'tut.app-ejercicio--esencial.3.texto':
+    'Trening z ciężarem: każda sesja przechowuje ćwiczenia z seriami, powtórzeniami i obciążeniem. Na tej podstawie aplikacja oblicza objętość dnia, rysuje postęp każdego ćwiczenia i zapisuje twoje rekordy.',
+  'tut.app-ejercicio--esencial.4.titulo': 'Katalog, rutyny i postępy',
+  'tut.app-ejercicio--esencial.4.texto':
+    'Trzy formy są zorganizowane tak samo. Katalog grupuje dostępne ćwiczenia i buduje z nich rutyny, Rutyny rejestrują trening dnia wybranego powyżej, a Postępy podsumowują okres jego mapą cieplną.',
+  'tut.app-ejercicio--esencial.5.titulo': 'Wytrzymałość',
+  'tut.app-ejercicio--esencial.5.texto':
+    'Bieganie, jazda na rowerze, pływanie albo spacer, podzielone na odcinki z ich minutami i dystansem. Stąd otwiera się trening na żywo, który śledzi trasę przez GPS i puls z czujnika Bluetooth i zapisuje sesję po zakończeniu.',
+  'tut.app-ejercicio--esencial.6.titulo': 'Elastyczność',
+  'tut.app-ejercicio--esencial.6.texto':
+    'Rozciąganie i mobilność, z seriami na czas zamiast na ciężar: każda pozycja ma swoje sekundy i powtórzenia. Odtwarzacz prowadzący przechodzi rutynę pozycja po pozycji z minutnikiem, który mówi, kiedy zmienić.',
+  'tut.app-entretenimiento--esencial.1.titulo': 'Rozrywka',
+  'tut.app-entretenimiento--esencial.1.texto':
+    'Przechowuje filmy, seriale, książki i gry wideo, które kończysz, i przynosi cyfrowy stół do gier, na którym grasz bez wychodzenia z domu. Są dwa podmenu: Gry planszowe i Archiwum.',
+  'tut.app-entretenimiento--esencial.2.titulo': 'Gry planszowe',
+  'tut.app-entretenimiento--esencial.2.texto':
+    'Stół gromadzi cyfrowe gry, w które gra się prosto na ekranie. Filtr oddziela to, co jest pomyślane dla jednego lub dwóch graczy, od tego, co pasuje do większej grupy.',
+  'tut.app-entretenimiento--esencial.3.titulo': 'Według rodzin',
+  'tut.app-entretenimiento--esencial.3.texto':
+    'Katalog jest pogrupowany w rodziny — planszowe, logiczne, zręcznościowe, karciane i kasynowe oraz dla grupy — każda ma swój własny kolor. Dotknij dowolnej karty, żeby otworzyć grę na pełnym ekranie.',
+  'tut.app-entretenimiento--esencial.4.titulo': 'Archiwum',
+  'tut.app-entretenimiento--esencial.4.texto':
+    'Archiwum gromadzi to, co oglądasz, czytasz i w co grasz: każdy tytuł z jego statusem, oceną i twoją recenzją. Można je sortować według gatunku, kategorii, autora lub daty.',
+  'tut.app-garage--esencial.1.titulo': 'Garaż',
+  'tut.app-garage--esencial.1.texto':
+    'Garaż prowadzi twoje pojazdy: rowery, samochody, motocykle i wszystko, czym się przemieszczasz. Każdy ma swoją historię przeglądów i formalności, a wszystko, co ma datę, planuje się samo w kalendarzu domu.',
+  'tut.app-garage--esencial.2.titulo': 'Podsumowanie',
+  'tut.app-garage--esencial.2.texto':
+    'Zakładka startowa: sygnalizator pokazuje jednym rzutem oka, czy coś jest przeterminowane, czy coś się zbliża, czy w garażu panuje spokój.',
+  'tut.app-garage--esencial.3.titulo': 'Jednym rzutem oka',
+  'tut.app-garage--esencial.3.texto':
+    'Ile masz pojazdów, ile formalności jest wciąż aktywnych i ile wydałeś w tym roku.',
+  'tut.app-garage--esencial.4.titulo': 'Pojazdy',
+  'tut.app-garage--esencial.4.texto':
+    'Pełna lista, z numerem rejestracyjnym, przebiegiem i liczbą przeglądów na każdej karcie. Po dotknięciu jednej otwiera się jej karta, z historią przeglądów i formalnościami.',
+  'tut.app-garage--esencial.5.titulo': 'Dodawanie nowego',
+  'tut.app-garage--esencial.5.texto':
+    'Nazwa, typ, marka, model, rok, tablice rejestracyjne i dzisiejszy przebieg. Po wpisaniu tablic karta odblokowuje też formalności, które dotyczą wyłącznie zarejestrowanego pojazdu, jak przegląd techniczny czy podatek.',
+  'tut.app-hobbies--esencial.1.titulo': 'Twoje zainteresowania',
+  'tut.app-hobbies--esencial.1.texto':
+    'Hobby śledzi to, co robisz dla przyjemności: każde hobby gromadzi swoje sesje, swoją serię i, jeśli chcesz, swoje projekty.',
+  'tut.app-hobbies--esencial.2.titulo': 'Twoje hobby',
+  'tut.app-hobbies--esencial.2.texto':
+    'Każde zarejestrowane hobby pojawia się tutaj jako karta, z postępem tygodnia i aktywną serią. Po otwarciu jednego widzisz jego statystyki, mapę cieplną roku, rejestr sesji i jego projekty.',
+  'tut.app-hobbies--esencial.3.titulo': 'Dodawanie hobby',
+  'tut.app-hobbies--esencial.3.texto':
+    'Ten przycisk otwiera formularz, żeby dodać nowe hobby: nazwę, emoji, kolor i, jeśli chcesz, tygodniowy cel w dniach praktyki.',
+  'tut.app-hobbies--esencial.4.titulo': 'Wewnątrz każdego hobby',
+  'tut.app-hobbies--esencial.4.texto':
+    'Tam rejestrujesz sesje z minutami i notatką, widzisz swoją mapę cieplną roku i prowadzisz projekty z ich własnym postępem. Cele i ich harmonogram mieszkają w pokoju Cele.',
+  'tut.app-ideas--esencial.1.titulo': 'Pomysły',
+  'tut.app-ideas--esencial.1.texto':
+    'Pomysły przechowują to, co przyjdzie ci do głowy, i pomagają temu dojrzeć: najpierw się to zapisuje, potem porządkuje w mapie, a jeśli trzeba — porównuje, żeby zdecydować. Są trzy podmenu.',
+  'tut.app-ideas--esencial.2.titulo': 'Dziennik pomysłów',
+  'tut.app-ideas--esencial.2.texto':
+    'Skrzynka, do której trafia każdy pomysł, luźny albo zgrupowany w burzy mózgów według tematu. Można go zarchiwizować w folderach, oznaczyć gwiazdką i, kiedy dojrzeje, zamienić w mapę.',
+  'tut.app-ideas--esencial.3.titulo': 'Mapy myśli',
+  'tut.app-ideas--esencial.3.texto':
+    'Wolne płótno, żeby uporządkować temat w formacie, który pasuje najlepiej: myślowa, drzewo, przepływ, oś czasu, cykl, piramida, Venna i więcej.',
+  'tut.app-ideas--esencial.4.titulo': 'Diagramy decyzyjne',
+  'tut.app-ideas--esencial.4.texto':
+    'To samo płótno, z formatami pomyślanymi do decydowania: ważone za i przeciw, SWOT, Eisenhower albo ważona macierz, która sama porządkuje opcje.',
+  'tut.app-idiomas--esencial.1.titulo': 'Twoja szkoła językowa',
+  'tut.app-idiomas--esencial.1.texto':
+    'Tutaj wybierasz język, rozmawiasz z korepetytorem AI, zapisujesz słownictwo, którego się uczysz, i powtarzasz je systemem powtórek rozłożonych w czasie. Są cztery podmenu: Rozmowy, Program nauki, Powtórka i Postępy.',
+  'tut.app-idiomas--esencial.2.titulo': 'Rozmowy',
+  'tut.app-idiomas--esencial.2.texto':
+    'Rozmawiasz ze swoim korepetytorem w języku, którego się uczysz: odpowiada na twoim poziomie i poprawia cię delikatnie. Każda rozmowa zostaje zapisana i sama się klasyfikuje, a przy wyjściu proponuje wyciągnąć nowe słownictwo jako karty.',
+  'tut.app-idiomas--esencial.3.titulo': 'Program nauki',
+  'tut.app-idiomas--esencial.3.texto':
+    'Porządkuje język w tematy, wymowę i gramatykę, od poziomu A1 do C2. Słownictwo żyje wewnątrz każdego tematu: każda karta jest tam przechowywana, z tłumaczeniem i przykładem.',
+  'tut.app-idiomas--esencial.4.titulo': 'Powtórka',
+  'tut.app-idiomas--esencial.4.texto':
+    'Powtórka rozłożona w czasie: każda karta żyje w pudełku i pyta tylko o te, które zaraz zapomnisz, ćwiczeniami — wielokrotny wybór, odwrócone albo uzupełnianie zdania — zamiast samego patrzenia na karty.',
+  'tut.app-idiomas--esencial.5.titulo': 'Postępy',
+  'tut.app-idiomas--esencial.5.texto':
+    'Podsumowanie twojego postępu: ile kart opanowałeś, ile powtórzyłeś i twój aktualny poziom, z historią twoich powtórek dzień po dniu.',
+  'tut.app-jardin--esencial.1.titulo': 'Twoje miejsce spokoju',
+  'tut.app-jardin--esencial.1.texto':
+    'Ogród łączy trzy praktyki: medytację, prowadzone oddychanie i wdzięczność. Celowo bez punktów i serii: tutaj opuszczenie dnia nie jest karane, po prostu towarzyszy temu, co ćwiczysz.',
+  'tut.app-jardin--esencial.2.titulo': 'Medytacja',
+  'tut.app-jardin--esencial.2.texto':
+    'Wybierz podkład dźwiękowy i czas trwania, albo medytuj w ciszy z dzwonkiem na początku i na końcu. Każda sesja zostaje zapisana w twojej historii.',
+  'tut.app-jardin--esencial.3.titulo': 'Oddychanie',
+  'tut.app-jardin--esencial.3.texto':
+    'Dwa wzorce prowadzonego oddychania, jeden, żeby się skupić, i drugi, żeby odpuścić dzień: ekran oddycha razem z tobą w miarę postępu.',
+  'tut.app-jardin--esencial.4.titulo': 'Wdzięczność',
+  'tut.app-jardin--esencial.4.texto':
+    'Zapisz, za co jesteś dziś wdzięczny, nawet jeśli to tylko jedna rzecz, i przeglądaj wcześniejsze wpisy, kiedy chcesz. Bez serii: ominięcie dnia niczego nie kasuje.',
+  'tut.app-metas--esencial.1.titulo': 'Planer domu',
+  'tut.app-metas--esencial.1.texto':
+    'Ten pokój nie przechowuje własnych danych: zbiera w jednym miejscu cele i plany, które rodzą się w pozostałych aplikacjach. Są trzy podmenu, które czyta się w tej kolejności: to, co sobie postanowiłeś, jak zamierzasz to podzielić i kiedy to nastąpi.',
+  'tut.app-metas--esencial.2.titulo': 'Cele',
+  'tut.app-metas--esencial.2.texto':
+    'Lista wszystkiego, co sobie postanowiłeś, pogrupowana według aplikacji, która prowadzi każdy cel. Cel może zależeć od innego, a po dotknięciu otwiera się jego karta: tam są jego termin, jego kroki i wejście do jego własnego harmonogramu.',
+  'tut.app-metas--esencial.3.titulo': 'Plany',
+  'tut.app-metas--esencial.3.texto':
+    'Plan to szkic harmonogramu: dzieli cel na fazy z ich datami. Dopóki jest propozycją, poprawiasz go do woli; kiedy przekona, akceptujesz go, a jego fazy stają się prawdziwymi podcelami.',
+  'tut.app-metas--esencial.4.titulo': 'Harmonogram',
+  'tut.app-metas--esencial.4.texto':
+    'Oś czasu ze wszystkimi celami naraz: każdy jest paskiem nad datami. Przybliżasz i oddalasz według dni, tygodni, miesięcy albo lat, a plan można na nią nałożyć, żeby porównać go z tym, co już jest wyznaczone.',
+  'tut.app-sala--esencial.1.titulo': 'Twój salon podróży',
+  'tut.app-sala--esencial.1.texto':
+    'Tutaj mieszka twój świat podróżnika: mapa świata z pinezkami, plany podróży miejsc do poznania, trasy łączące miejsca i dziennik podróży ze wspomnieniami. Są cztery podmenu.',
+  'tut.app-sala--esencial.2.titulo': 'Mapa',
+  'tut.app-sala--esencial.2.texto':
+    'Każde miejsce, które odwiedziłeś albo marzysz odwiedzić, to pinezka na mapie świata. Przełącznik u góry zamienia płaską mapę na globus, którym obracasz, przeciągając.',
+  'tut.app-sala--esencial.3.titulo': 'Plan podróży',
+  'tut.app-sala--esencial.3.texto':
+    'Miejsca, które marzysz poznać, każde z własnym planem dzień po dniu. Te z datą planują się same w kalendarzu.',
+  'tut.app-sala--esencial.4.titulo': 'Trasy',
+  'tut.app-sala--esencial.4.texto': 'Trasa łączy miejsca w podróż i rysuje ją na mapie.',
+  'tut.app-sala--esencial.5.titulo': 'Dziennik podróży',
+  'tut.app-sala--esencial.5.texto':
+    'Wspomnienia z odwiedzonych miejsc, w albumach według kraju: zdjęcia i historie z każdego miejsca.',
   'tut.app-agenda--trabajo.1.titulo': 'Skrzynka zadań',
   'tut.app-agenda--trabajo.1.texto':
     'To, co trzeba zrobić, ale nie ma jeszcze dnia, mieszka tutaj, ze swoim priorytetem. Nic nie zmusza cię do ustawiania daty, żeby to zapisać.',
@@ -742,6 +1035,12 @@ export const PL_TUT: Dict = {
   'tut.app-agenda--salud.4.titulo': 'To, co się powtarza',
   'tut.app-agenda--salud.4.texto':
     'Coroczny przegląd, wizyta u dentysty, badania: opieka z własnym cyklem. Gdy odhaczysz, następna data przeskakuje sama, więc kalendarz nigdy nie wskazuje czegoś, co już zrobione.',
+  'tut.app-agenda--salud.ciclo.titulo': 'Cykl',
+  'tut.app-agenda--salud.ciclo.texto':
+    'Na końcu zakładki Ty mieszka cykl, z własnym przełącznikiem: krwawienie, objawy i nastrój na każdy dzień, a z twoich ostatnich okresów szacuje następny i okno płodności. Wyłączenie go zachowuje wszystko, co zapisane.',
+  'tut.app-agenda--salud.projimos.titulo': 'Bliscy',
+  'tut.app-agenda--salud.projimos.texto':
+    'Ci, którymi się opiekujesz: kontakty z Osób oznaczone „Pod moją opieką”, każdy ze swoimi wizytami według specjalizacji, opieką i lekami. Pep prowadzi tu swoją mamę.',
   'tut.app-agenda--personas.1.titulo': 'Krąg Pepa',
   'tut.app-agenda--personas.1.texto':
     'Rodzina, przyjaciele, ludzie z pracy i ze studiów — każdy w swoim folderze. Z telefonem, adresem i tym, czego nie chcesz zapomnieć.',
@@ -815,7 +1114,7 @@ export const PL_TUT: Dict = {
   'tut.app-cocina--recetario.5.titulo': 'Zapisane listy',
   'tut.app-cocina--recetario.5.texto':
     'Każda lista zapisuje to, co zostało do kupienia, i to, co już kupione. Jeśli dopiszesz ceny, rachunek można zarejestrować jako wydatek w Gabinecie.',
-  'tut.app-cocina--cronograma.1.titulo': 'O co Kuchnia prosi cię dziś',
+  'tut.app-cocina--cronograma.1.titulo': 'Cel wagowy w etapach',
   'tut.app-cocina--cronograma.1.texto':
     'Przycisk Misje w nagłówku otwiera checklistę dnia: woda, posiłki i kroki, które biorą się z twoich celów. Same cele — wraz z planem, który proponuje im AI — żyją w pokoju Cele, pogrupowane według aplikacji, która je prowadzi.',
   'tut.app-cocina--cronograma.2.texto':
@@ -911,6 +1210,9 @@ export const PL_TUT: Dict = {
   'tut.app-garage--vehiculos.2.titulo': 'Ile to już kosztowało',
   'tut.app-garage--vehiculos.2.texto':
     'Ile pojazdów, ile otwartych formalności i ile wydatków w tym roku. Pepa ten samochód sporo kosztował.',
+  'tut.app-garage--vehiculos.2b.titulo': 'Rejestrowanie nowego',
+  'tut.app-garage--vehiculos.2b.texto':
+    'Nazwa, typ, marka, model, rok, tablice i dzisiejszy przebieg. Gdy tablice są wpisane, garaż wie, jakie formalności zaproponować ci później.',
   'tut.app-garage--vehiculos.3.titulo': 'Rower na co dzień',
   'tut.app-garage--vehiculos.3.texto':
     'Prawdziwy środek transportu Pepa: łańcuch, dętki, hamulce — każde w swoim wierszu, w tym samym archiwum folderów roku i miesiąca, którego używają inne aplikacje. Zobacz, jak serwisy zbijają się w ostatnich miesiącach: to treningi do maratonu zbierają swoje żniwo.',
@@ -920,12 +1222,18 @@ export const PL_TUT: Dict = {
   'tut.app-garage--vehiculos.5.titulo': 'Karta pojazdu',
   'tut.app-garage--vehiculos.5.texto':
     'Marka, model, rok, tablice i przebieg na dziś. Gdy tablice są wpisane, garaż odblokowuje formalności, które dotyczą tylko samochodu.',
+  'tut.app-garage--tramites.tabs.titulo': 'Trzy zeszyty',
+  'tut.app-garage--tramites.tabs.texto':
+    'Karta każdego pojazdu rozdziela jego papiery na trzy zeszyty: Formalności, Dokumenty i Kontakty. Historia serwisów zostaje zawsze na dole, niezależnie od tego, w który zeszyt patrzysz.',
   'tut.app-garage--tramites.1.titulo': 'Co nadchodzi',
   'tut.app-garage--tramites.1.texto':
     'Każda formalność zachowuje swój najbliższy termin, co ile miesięcy się powtarza i ile kosztuje. Po odhaczeniu data sama przeskakuje na kolejny.',
   'tut.app-garage--tramites.2.titulo': 'Rower nie płaci podatku od pojazdu',
   'tut.app-garage--tramites.2.texto':
     'Bez tablic garaż chowa formalności, które nie dotyczą pojazdu: rowerowi proponuje tylko przegląd okresowy.',
+  'tut.app-garage--tramites.2b.titulo': 'Papiery osobno',
+  'tut.app-garage--tramites.2b.texto':
+    'Dowód rejestracyjny, polisa i podatek od pojazdu nie mieszają się z tym, co dzieje się w warsztacie: mają swój własny zeszyt, z numerem, terminem ważności i wcześniejszym przypomnieniem.',
   'tut.app-garage--tramites.3.titulo': 'Zeszyt kontaktów',
   'tut.app-garage--tramites.3.texto':
     'Zaufany warsztat, ubezpieczyciel, stacja kontroli pojazdów, osiedlowy serwis rowerowy i pomoc drogowa z tamtej nocy — z telefonem i adresem na jedno dotknięcie.',
@@ -937,6 +1245,9 @@ export const PL_TUT: Dict = {
   'tut.app-sala--mapa.2.titulo': 'Pinezki',
   'tut.app-sala--mapa.2.texto':
     'Siedem pinezek skupionych w Japonii to trzy tygodnie tamtej podróży. Bursztynowe — Seul, Patagonia, Islandia — to jeszcze nie. Dotknięcie mapy stawia nową pinezkę tam, gdzie chcesz.',
+  'tut.app-sala--mapa.3.titulo': 'Globus',
+  'tut.app-sala--mapa.3.texto':
+    'Przełącznik u góry zamienia mapę świata na globus, który obracasz przeciągnięciem, z tymi samymi dotykalnymi pinezkami. Globus tylko patrzy: nowe pinezki stawia się w widoku płaskim.',
   'tut.app-sala--japon.1.titulo': 'Albumy',
   'tut.app-sala--japon.1.texto':
     'Jeden folder na kraj, ze zdjęciem okładki. W środku karta na każde miejsce, a w każdej z nich zapiski Pepa z tamtego dnia.',

@@ -1,9 +1,119 @@
-/* Página /cuenta (React + Tailwind v4). El resto de la web usa estilos.css. */
+/* Página /cuenta (React + Tailwind v4). El resto de la web usa estilos.css.
+   Mismos tokens que la landing y que la app: el portal no debe desentonar. */
 @import 'tailwindcss';
+
+:root {
+  /* Sin esto Chrome aplica su auto-dark y reescribe los colores de la página. */
+  color-scheme: light dark;
+
+  --ui-bg: #0f1115;
+  --ui-panel: #12151c;
+  --ui-ink: #e7e9ee;
+  --ui-accent: #895ac6;
+  --ui-accent-ink: #ffffff;
+  --ease-fluida: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-resorte: cubic-bezier(0.22, 1.9, 0.36, 1);
+  --dur-presion: 110ms;
+  --dur-resorte: 300ms;
+  --escala-presion: 0.96;
+}
+
+@supports (transition-timing-function: linear(0, 1)) {
+  :root {
+    --ease-resorte: linear(
+      0, 0.282, 0.86, 1.338, 1.492, 1.337, 1.05, 0.823, 0.759, 0.842, 0.984,
+      1.092, 1.118, 1.074, 1.004, 0.953, 0.942, 0.966, 1, 1.024, 1
+    );
+    --dur-resorte: 420ms;
+  }
+}
+
+/* Modo claro. Además de los colores base secuestra --color-white con la tinta,
+   el mismo truco de src/core/ui/temasUI.ts: así `bg-white/5`, `text-white/60` y
+   `border-white/10` se invierten solos, sin tocar el JSX. OJO: con esto
+   `bg-white` deja de ser blanco — lo que deba seguir siéndolo va en #ffffff. */
+@media (prefers-color-scheme: light) {
+  :root {
+    --ui-bg: #e9edf5;
+    --ui-panel: #f8fafd;
+    --ui-ink: #1c2333;
+    --ui-accent: #6d34b8;
+    --color-white: #1c2333;
+  }
+}
+
+@theme {
+  --color-accent: var(--ui-accent);
+  --color-accent-ink: var(--ui-accent-ink);
+}
+
+/* La tinta con alfa rinde MENOS sobre fondo claro: el mismo `text-white/45` da
+   4.0:1 en oscuro y 2.6:1 en claro, porque el fondo casi blanco lava la mezcla.
+   Suelo escalonado que devuelve el contraste sin aplanar la jerarquía (mismo
+   recurso que src/index.css para el modo claro de la app). */
+@media (prefers-color-scheme: light) {
+  :is(.text-white\/15, .text-white\/20, .text-white\/25, .text-white\/30) {
+    color: color-mix(in srgb, var(--ui-ink) 67%, transparent);
+  }
+
+  :is(.text-white\/35, .text-white\/40, .text-white\/45, .text-white\/50) {
+    color: color-mix(in srgb, var(--ui-ink) 72%, transparent);
+  }
+
+  :is(.text-white\/55, .text-white\/60, .text-white\/65) {
+    color: color-mix(in srgb, var(--ui-ink) 80%, transparent);
+  }
+}
 
 body {
   margin: 0;
-  background: #0f1115;
-  color: rgba(255, 255, 255, 0.92);
+  background: var(--ui-bg);
+  color: var(--ui-ink);
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--ui-accent) 35%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--ui-accent) 75%, transparent);
+  outline-offset: 2px;
+}
+
+/* Press con resorte del kit. Sin @layer a propósito: dentro de
+   `@layer components` perdería contra el `transition` de Tailwind. */
+.ui-boton {
+  --presion-dur: var(--dur-resorte);
+  --presion-ease: var(--ease-resorte);
+  transition:
+    color 0.15s var(--ease-fluida),
+    background-color 0.15s var(--ease-fluida),
+    border-color 0.15s var(--ease-fluida),
+    box-shadow 0.15s var(--ease-fluida),
+    filter 0.15s var(--ease-fluida),
+    opacity 0.15s var(--ease-fluida),
+    scale var(--presion-dur) var(--presion-ease);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ui-boton:active:not(:disabled) {
+  --presion-dur: var(--dur-presion);
+  --presion-ease: var(--ease-fluida);
+  scale: var(--escala-presion);
+}
+
+.ui-accent-bg {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--ui-accent) 86%, #fff), var(--ui-accent));
+  color: var(--ui-accent-ink);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.18),
+    0 1px 6px color-mix(in srgb, var(--ui-accent) 35%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-boton {
+    transition: none;
+  }
 }

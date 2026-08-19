@@ -506,7 +506,6 @@ export function DetalleReceta({
           onCambio={setMomento}
           color={COLOR}
           variante="sub"
-          nivel={3}
           flecha={false}
         />
         <button

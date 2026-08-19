@@ -1,126 +1,34 @@
 [
-  {
-    "clave": "tut.menu-cuartos.6.texto",
-    "texto": "Crea stanza apre l'editor della mappa con il pennello già pronto a disegnare la nuova stanza: forma, dimensione e posizione le decidi tu. Sul telefono è più comoda la scorciatoia della ruota degli strumenti › Costruzione › Stanze, che disegna direttamente sulla mappa senza aprire il pannello."
-  },
-  {
-    "clave": "tut.menu-cuartos.7.texto",
-    "texto": "In breve: Modifica per personalizzare, Entra per usare l'app. Le altre schede di questo menu hanno il loro tutorial."
-  },
-  {
-    "clave": "tut.menu-plantillas.1.texto",
-    "texto": "Un modello è un'app (Cucina, Palestra, Finanze…). Si assegna a un oggetto di una stanza e si apre quando entri."
-  },
-  {
-    "clave": "tut.menu-plantillas.2.titulo",
-    "texto": "Due viste"
-  },
-  {
-    "clave": "tut.menu-plantillas.2.texto",
-    "texto": "Stanze sono le app di sempre, ognuna nel suo oggetto. Extra è un'altra cosa: circuiti, campi, orto, fattoria o paintball si costruiscono direttamente sul terreno, senza occupare una stanza."
-  },
-  {
-    "clave": "tut.menu-plantillas.3.titulo",
-    "texto": "Il catalogo"
-  },
-  {
-    "clave": "tut.menu-plantillas.3.texto",
-    "texto": "Le app di serie e le tue, organizzate in gruppi. Tocca una per assegnarla a una stanza oppure, in Extra, per costruirla sulla mappa."
-  },
-  {
-    "clave": "tut.menu-plantillas.4.titulo",
-    "texto": "I tuoi modelli"
-  },
-  {
-    "clave": "tut.menu-plantillas.4.texto",
-    "texto": "Crea modelli tuoi assemblandoli con blocchi: note, checklist, contatori, abitudini, gallerie… Questo pulsante apre il suo editor, con il suo tutorial."
-  },
-  {
-    "clave": "tut.menu-plantillas.5.texto",
-    "texto": "Una stessa stanza può avere più app: quando entri compare un selettore per scegliere quale aprire."
-  },
-  {
-    "clave": "tut.plantillas-custom.1.texto",
-    "texto": "Questo editor costruisce un'app tua da zero: le dai forma con nome, emoji e blocchi, e finisce nel catalogo accanto a quelle di serie."
-  },
-  {
-    "clave": "tut.plantillas-custom.2.titulo",
-    "texto": "Nome, emoji e colore"
-  },
-  {
-    "clave": "tut.plantillas-custom.2.texto",
-    "texto": "Come si chiamerà e di che colore si dipinge nel menu, nel catalogo e nel calendario, se programmi qualcosa di suo."
-  },
-  {
-    "clave": "tut.plantillas-custom.3.titulo",
-    "texto": "Gli strumenti"
-  },
-  {
-    "clave": "tut.plantillas-custom.3.texto",
-    "texto": "Dodici tipi di blocco: note, checklist, contatore, abitudine, sessioni, conto alla rovescia, galleria, diario, valutazione, progresso, elenco e link. Ognuno che aggiungi diventa una sezione della tua app."
-  },
-  {
-    "clave": "tut.plantillas-custom.4.titulo",
-    "texto": "L'ordine conta"
-  },
-  {
-    "clave": "tut.plantillas-custom.4.texto",
-    "texto": "I blocchi aggiunti si riordinano con le frecce e si tolgono con la ✕ — toglierne uno cancella i suoi dati quando salvi, quindi controlla prima di confermare. Con il menu a tendina «Menu» passano da una scheda all'altra senza perdere nulla."
-  },
-  {
-    "clave": "tut.plantillas-custom.5.titulo",
-    "texto": "Salva"
-  },
-  {
-    "clave": "tut.plantillas-custom.5.texto",
-    "texto": "Con un nome e almeno un blocco, Salva la lascia pronta nel catalogo. Da lì si assegna a un oggetto come qualsiasi modello di serie."
-  },
-  {
-    "clave": "tut.plantillas-custom.6.texto",
-    "texto": "Puoi rimetterci mano quando vuoi: i suoi blocchi e i suoi dati restano al loro posto, cambia solo quello che modifichi."
-  },
-  {
-    "clave": "tut.menu-inventario.1.texto",
-    "texto": "L'inventario: tutti gli oggetti che puoi mettere in casa, pronti da trascinare."
-  },
-  {
-    "clave": "tut.menu-inventario.2.titulo",
-    "texto": "Oggetti"
-  },
-  {
-    "clave": "tut.menu-inventario.2.texto",
-    "texto": "La tua libreria di oggetti, per categorie e cartelle. Puoi rinominarli e organizzarli per ritrovarli in fretta la prossima volta."
-  },
-  {
-    "clave": "tut.menu-inventario.3.titulo",
-    "texto": "Oggetti speciali"
-  },
-  {
-    "clave": "tut.menu-inventario.3.texto",
-    "texto": "Quelli che fanno qualcosa, non solo decorano: veicoli cavalcabili, pistole giocattolo, fontane, giochi da parco e luci."
-  },
-  {
-    "clave": "tut.menu-inventario.4.titulo",
-    "texto": "Posizionare"
-  },
-  {
-    "clave": "tut.menu-inventario.4.texto",
-    "texto": "Con questo menu aperto, trascina una miniatura direttamente nella scena 3D per posizionarla dove vuoi."
-  },
-  {
-    "clave": "tut.menu-inventario.5.texto",
-    "texto": "Per spostare, dipingere o eliminare quello che hai già messo, usa l'Editor (scheda Oggetti) — questo menu serve solo a portare cose nuove in scena."
-  },
-  {
-    "clave": "tut.editor-mapa.1.texto",
-    "texto": "L'editor della casa ha 4 schede: Mappa, Personaggi, Oggetti e Impostazioni. Questo tour è quello di Mappa; gli altri tre hanno il loro."
-  },
-  {
-    "clave": "tut.editor-mapa.2.titulo",
-    "texto": "Lo schizzo"
-  },
-  {
-    "clave": "tut.editor-mapa.2.texto",
-    "texto": "Disegni su una griglia vista dall'alto: stanze, muri, porte, finestre e pavimenti, con le modalità e i pennelli della barra in alto. Quello che tracci compare subito nel 3D, senza ricaricare nulla."
-  }
+  { "clave": "tut.app-descanso--esencial.2.texto", "texto": "Ogni notte registrata riceve un punteggio che combina quanto hai dormito, a che ora sei andato a letto e quante volte ti sei svegliato. Senza ancora registrazioni, questa sezione ti invita ad annotare la tua prima notte." },
+  { "clave": "tut.app-descanso--esencial.3.titulo", "texto": "Orario e avvisi" },
+  { "clave": "tut.app-descanso--esencial.3.texto", "texto": "Regoli l’ora in cui dormi e ti svegli trascinando gli estremi della fascia del giorno; lo stesso orario appare come blocco nel calendario della casa. Qui accendi anche la sveglia con il suo tono e gli avvisi per rallentare il ritmo prima di dormire." },
+  { "clave": "tut.app-descanso--esencial.4.titulo", "texto": "Registrare la notte" },
+  { "clave": "tut.app-descanso--esencial.4.texto", "texto": "Il modulo per annotare come hai dormito: la data, l’ora in cui sei andato a letto e ti sei svegliato, le interruzioni e una valutazione della qualità, con spazio per una nota." },
+  { "clave": "tut.app-descanso--esencial.5.titulo", "texto": "La cronologia" },
+  { "clave": "tut.app-descanso--esencial.5.texto", "texto": "Tutte le notti che registri restano qui, organizzate per anno, mese e settimana, per rivedere il tuo riposo nel tempo." },
+  { "clave": "tut.app-despacho--esencial.1.titulo", "texto": "Le tue finanze" },
+  { "clave": "tut.app-despacho--esencial.1.texto", "texto": "Lo studio ordina i tuoi soldi in quattro schede: quello che hai, quello che entra ed esce, i tuoi obiettivi e i mercati. Ognuna apre sotto le sue sezioni." },
+  { "clave": "tut.app-despacho--esencial.2.titulo", "texto": "Patrimonio netto" },
+  { "clave": "tut.app-despacho--esencial.2.texto", "texto": "Quello che hai e quello che devi, in due elenchi: attività e passività. La terza sezione proietta quella fotografia in avanti con il tasso che assegni a ogni riga." },
+  { "clave": "tut.app-despacho--esencial.3.titulo", "texto": "Flusso di cassa" },
+  { "clave": "tut.app-despacho--esencial.3.texto", "texto": "I soldi che entrano e quelli che escono, separati in spese, entrate e saldo. Il saldo riassume il periodo che scegli — giorno, settimana, mese o anno — con il suo budget, le sue categorie e la sua tendenza." },
+  { "clave": "tut.app-despacho--esencial.4.titulo", "texto": "Obiettivi" },
+  { "clave": "tut.app-despacho--esencial.4.texto", "texto": "I tuoi obiettivi di denaro in tre sezioni: risparmio e investimento, debito, e alcune calcolatrici che propongono un importo a partire dal tuo stesso saldo. Ogni obiettivo può scendere nel programma e avere una data." },
+  { "clave": "tut.app-despacho--esencial.5.titulo", "texto": "Mercati" },
+  { "clave": "tut.app-despacho--esencial.5.texto", "texto": "Quotazioni dal vivo di valute, cripto, azioni e materie prime; serve una connessione. È una bacheca di consultazione: l’app non consiglia cosa comprare né cosa vendere." },
+  { "clave": "tut.app-diario--esencial.1.titulo", "texto": "Il giornale di oggi" },
+  { "clave": "tut.app-diario--esencial.1.texto", "texto": "Il giornale porta il riepilogo del giorno in due viste: titoli e avvenimenti di oggi. Non conserva dati propri: ogni giorno porta contenuti nuovi e a mezzanotte li sostituisce del tutto." },
+  { "clave": "tut.app-diario--esencial.2.titulo", "texto": "Titoli" },
+  { "clave": "tut.app-diario--esencial.2.texto", "texto": "I titoli del giorno per categoria — mondo, economia, tecnologia, salute, sport e intrattenimento —, filtrabili con i chip in alto. Provengono da stampa reale nella tua lingua, con testate che ruotano ogni giorno." },
+  { "clave": "tut.app-diario--esencial.3.titulo", "texto": "Accadde oggi" },
+  { "clave": "tut.app-diario--esencial.3.texto", "texto": "L’altra metà del giornale: cosa è successo in un giorno come oggi — un’opera, un libro, una specie, una parola. Un buon pretesto per aprirlo anche quando le notizie quel giorno non interessano." },
+  { "clave": "tut.app-diario--esencial.4.titulo", "texto": "Si rinnova da solo" },
+  { "clave": "tut.app-diario--esencial.4.texto", "texto": "L’edizione si scarica da sola all’apertura dell’app e si sostituisce del tutto a mezzanotte: non si accumula nulla. Questo pulsante forza un aggiornamento prima di quell’ora." },
+  { "clave": "tut.app-diario--esencial.5.titulo", "texto": "Consegna" },
+  { "clave": "tut.app-diario--esencial.5.texto", "texto": "Configura quali sezioni ti consegna ogni assistente nella sua chat, a un’ora fissa o in un momento a sorpresa della giornata." },
+  { "clave": "tut.app-ejercicio--esencial.1.titulo", "texto": "Il tuo allenamento" },
+  { "clave": "tut.app-ejercicio--esencial.1.texto", "texto": "Palestra riunisce le tre modalità per il corpo — forza, resistenza e flessibilità — più una scheda obiettivi dove decidi quanto vuoi allenarti ogni settimana." },
+  { "clave": "tut.app-ejercicio--esencial.2.titulo", "texto": "Obiettivi" },
+  { "clave": "tut.app-ejercicio--esencial.2.texto", "texto": "Il riepilogo della stanza: la tua serie, i giorni con qualcosa registrato e una barra per modalità rispetto all’obiettivo settimanale che fissi qui. Qui si sceglie anche il sistema di misura, in chili o in libbre." },
+  { "clave": "tut.app-ejercicio--esencial.3.titulo", "texto": "Forza" }
 ]

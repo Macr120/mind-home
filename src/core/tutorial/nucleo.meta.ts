@@ -22,10 +22,10 @@ const tour = (
 
 export const tutorialHoy = tour(
   'hoy',
-  T('tut.hoy.titulo', 'Lo de hoy'),
+  T('tut.hoy.titulo', 'Misiones'),
   T(
     'tut.hoy.resumen',
-    'La lista Hoy de cada app junta tres cosas en un solo lugar: los objetivos del día de esa app, lo que agendaste para hoy y los pasos de tus metas vigentes. Un paso se cumple porque el registro ya existe en la app, no porque nadie lo palomeó a mano.',
+    'El botón Misiones de cada app junta lo del día en un panel: arriba las metas de esa app y abajo la checklist de hoy — sus objetivos, lo agendado y los pasos de tus metas vigentes. Un paso se cumple porque el registro ya existe en la app, no porque nadie lo palomeó a mano.',
   ),
   'cuerpoHoy',
 )

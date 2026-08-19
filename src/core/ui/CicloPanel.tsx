@@ -349,8 +349,8 @@ function MenuCiclo() {
 }
 
 /**
- * Widget pequeño con hora/fecha, fase del cielo (menú ciclo) y rutinas.
- * La hora/fecha abre el calendario; la luna/sol abre paso del tiempo y dimmers; ⏰ el panel del día.
+ * Widget pequeño con hora/fecha y fase del cielo (menú ciclo).
+ * La hora/fecha abre el calendario; la luna/sol abre paso del tiempo y dimmers.
  */
 export function RelojWidget() {
   const t = useT()

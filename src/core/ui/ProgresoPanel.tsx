@@ -358,11 +358,14 @@ export function ProgresoApp({
   enfoque,
   color,
   metas,
+  planes,
 }: {
   enfoque: ProgresoPlantilla
   color: string
   /** Metas cumplidas de la app; sin valor, la app no lleva metas y el chip no sale. */
   metas?: number | null
+  /** Planes aceptados; solo lo pasa el cuarto Metas, que es de quien son. */
+  planes?: number | null
 }) {
   const t = useT()
   return (
@@ -382,6 +385,11 @@ export function ProgresoApp({
         {metas != null && (
           <span title={t('nav.rapido.metas', 'Metas cumplidas en esta app')}>
             <Icono nombre="objetivo" /> {metas}
+          </span>
+        )}
+        {planes != null && (
+          <span title={t('progreso.planesTitulo', 'Planes aceptados')}>
+            <Icono nombre="lista" /> {planes}
           </span>
         )}
       </div>

@@ -88,3 +88,54 @@ export const cuerpoJuegos: CuerpoTutorial = {
   ],
 }
 
+/**
+ * ESENCIAL: corre en la casa real y recorre los dos menús de Entretenimiento
+ * uno por uno. Sin datos de por medio: sus anclas son pestañas y el catálogo
+ * fijo de juegos, que existen igual con la BD vacía.
+ */
+export const cuerpoEsencial: CuerpoTutorial = {
+  preparar: () => {
+    abrirApp('entretenimiento')
+  },
+  pasos: [
+    {
+      titulo: T('tut.app-entretenimiento--esencial.1.titulo', 'Entretenimiento'),
+      texto: T(
+        'tut.app-entretenimiento--esencial.1.texto',
+        'Guarda las películas, series, libros y videojuegos que vas terminando, y trae una mesa de juegos digital para jugar sin salir de la casa. Son dos menús: Juegos de mesa y Archivo.',
+      ),
+    },
+    {
+      sel: 'entretenimiento.tab.mesa',
+      titulo: T('tut.app-entretenimiento--esencial.2.titulo', 'Juegos de mesa'),
+      texto: T(
+        'tut.app-entretenimiento--esencial.2.texto',
+        'La mesa reúne juegos digitales que se juegan directo en pantalla. Un filtro separa lo pensado para uno o dos jugadores de lo que sirve para un grupo más grande.',
+      ),
+      alEntrar: async () => {
+        await esperarTut('entretenimiento.tab.mesa', 4000)
+        clickTut('entretenimiento.tab.mesa')
+      },
+    },
+    {
+      sel: 'entretenimiento.juegos.familia.tablero',
+      titulo: T('tut.app-entretenimiento--esencial.3.titulo', 'Por familias'),
+      texto: T(
+        'tut.app-entretenimiento--esencial.3.texto',
+        'El catálogo se agrupa en familias —tablero, ingenio, arcade, cartas y casino, y para el grupo— cada una con su propio color. Toca cualquier tarjeta para abrir el juego en pantalla completa.',
+      ),
+    },
+    {
+      sel: 'entretenimiento.tab.archivo',
+      titulo: T('tut.app-entretenimiento--esencial.4.titulo', 'Archivo'),
+      texto: T(
+        'tut.app-entretenimiento--esencial.4.texto',
+        'El archivo junta lo que ves, lees y juegas: cada título con su estado, su calificación y tu reseña. Se puede ordenar por género, categoría, autor o fecha.',
+      ),
+      alEntrar: () => {
+        clickTut('entretenimiento.tab.archivo')
+      },
+    },
+  ],
+}
+

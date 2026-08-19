@@ -24,7 +24,6 @@ export function FiltroPeriodo({
       prefijoClave="ejercicio.periodo"
       color={color}
       variante="sub"
-      nivel={2}
     />
   )
 }

@@ -1,37 +1,159 @@
 /* Estilos de las páginas ESTÁTICAS de la web pública (landing, privacidad,
    términos). CSS plano a propósito: estas páginas no cargan JavaScript.
-   /cuenta usa React + Tailwind (web/src/cuenta.css). Tema oscuro de la app. */
+   /cuenta usa React + Tailwind (web/src/cuenta.css).
+
+   Los tokens, las curvas y el press son copia del canon de la app
+   (src/index.css): la web debe sentirse como entrar a Mind Planner Home.
+   El acento y los toques salen del icono real (public/icon.svg). */
 
 :root {
-  --fondo: #0f1115;
-  --panel: #171a21;
-  --borde: rgba(255, 255, 255, 0.1);
-  --tinta: rgba(255, 255, 255, 0.92);
-  --tinta-2: rgba(255, 255, 255, 0.6);
-  --tinta-3: rgba(255, 255, 255, 0.4);
-  --acento: #863bff;
-  --acento-claro: #a06bff;
+  /* Sin esto Chrome aplica su auto-dark y reescribe los colores de la página. */
+  color-scheme: light dark;
+
+  /* Tema medianoche de la app, con el morado del icono como acento. */
+  --ui-bg: #0f1115;
+  --ui-panel: #12151c;
+  --ui-panel-2: #171b24;
+  --ui-ink: #e7e9ee;
+  --ui-accent: #895ac6;
+  --ui-accent-ink: #ffffff;
+
+  /* Los tres colores de las piezas del icono. */
+  --marca-naranja: #da9425;
+  --marca-rojo: #c23a40;
+  --marca-morado: #895ac6;
+  --marca-oliva: #576748;
+
+  /* Derivados de la tinta: valen igual en claro y en oscuro, así el modo claro
+     solo redefine los colores base de arriba. */
+  --borde: color-mix(in srgb, var(--ui-ink) 12%, transparent);
+  --tarjeta: color-mix(in srgb, var(--ui-ink) 5%, transparent);
+  --tarjeta-fuerte: color-mix(in srgb, var(--ui-ink) 10%, transparent);
+  --tinta-2: color-mix(in srgb, var(--ui-ink) 70%, transparent);
+  --tinta-3: color-mix(in srgb, var(--ui-ink) 55%, transparent);
+  --acento-vivo: color-mix(in srgb, var(--ui-accent) 72%, var(--ui-ink));
+
+  /* Radios concéntricos de la app: botón 8 · tarjeta 12 · panel 16. */
+  --radio-boton: 0.5rem;
+  --radio-tarjeta: 0.75rem;
+  --radio-panel: 1rem;
+  --sombra: 0 20px 25px -5px rgb(0 0 0 / 0.35), 0 8px 10px -6px rgb(0 0 0 / 0.3);
+
+  --ease-fluida: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-resorte: cubic-bezier(0.22, 1.9, 0.36, 1);
+  --dur-presion: 110ms;
+  --dur-resorte: 300ms;
+  --escala-presion: 0.96;
+}
+
+/* El resorte real del press (21 muestras de un oscilador amortiguado). */
+@supports (transition-timing-function: linear(0, 1)) {
+  :root {
+    --ease-resorte: linear(
+      0, 0.282, 0.86, 1.338, 1.492, 1.337, 1.05, 0.823, 0.759, 0.842, 0.984,
+      1.092, 1.118, 1.074, 1.004, 0.953, 0.942, 0.966, 1, 1.024, 1
+    );
+    --dur-resorte: 420ms;
+  }
+}
+
+/* Modo claro de la app: solo cambian los colores base. */
+@media (prefers-color-scheme: light) {
+  :root {
+    --ui-bg: #e9edf5;
+    --ui-panel: #f8fafd;
+    --ui-panel-2: #eef2f8;
+    --ui-ink: #1c2333;
+    --ui-accent: #6d34b8;
+    --sombra: 0 20px 25px -5px rgb(28 35 51 / 0.1), 0 8px 10px -6px rgb(28 35 51 / 0.08);
+    /* Sobre fondo claro la tinta rebajada pierde contraste antes: las dos
+       secundarias suben para no bajar de AA (medido, no a ojo). */
+    --tinta-2: color-mix(in srgb, var(--ui-ink) 82%, transparent);
+    --tinta-3: color-mix(in srgb, var(--ui-ink) 70%, transparent);
+  }
 }
 
 * {
   box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--ui-ink) 16%, transparent) transparent;
 }
 
 body {
   margin: 0;
-  background: var(--fondo);
-  color: var(--tinta);
+  background: var(--ui-bg);
+  color: var(--ui-ink);
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 a {
-  color: var(--acento-claro);
+  color: var(--acento-vivo);
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--ui-accent) 35%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--ui-accent) 75%, transparent);
+  outline-offset: 2px;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--ui-ink) 16%, transparent);
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  border-radius: 999px;
+}
+
+/* ─── Press con resorte (kit de la app) ───────────────────────────────────── */
+/* Sin @layer a propósito, igual que en src/index.css. */
+.ui-boton {
+  --presion-dur: var(--dur-resorte);
+  --presion-ease: var(--ease-resorte);
+  transition:
+    color 0.15s var(--ease-fluida),
+    background-color 0.15s var(--ease-fluida),
+    border-color 0.15s var(--ease-fluida),
+    box-shadow 0.15s var(--ease-fluida),
+    filter 0.15s var(--ease-fluida),
+    scale var(--presion-dur) var(--presion-ease);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ui-boton:active {
+  --presion-dur: var(--dur-presion);
+  --presion-ease: var(--ease-fluida);
+  scale: var(--escala-presion);
+}
+
+/* CTA de acento: gradiente vertical, luz interior y halo del propio acento. */
+.ui-accent-bg {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--ui-accent) 86%, #fff), var(--ui-accent));
+  color: var(--ui-accent-ink);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.18),
+    0 1px 6px color-mix(in srgb, var(--ui-accent) 35%, transparent);
+}
+
+@keyframes ui-pop {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.98);
+  }
 }
 
 .contenedor {
@@ -40,12 +162,21 @@ a:hover {
   padding: 0 20px;
 }
 
-/* ─── Barra superior ─── */
+/* ─── Barra superior (vidrio pegajoso, como el HUD de la app) ─────────────── */
+.barra-marco {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--borde);
+  background: color-mix(in srgb, var(--ui-bg) 82%, transparent);
+  backdrop-filter: blur(12px);
+}
+
 .barra {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 16px 0;
+  padding: 12px 20px;
 }
 
 .barra .logo {
@@ -53,57 +184,75 @@ a:hover {
   align-items: center;
   gap: 10px;
   font-weight: 800;
-  color: var(--tinta);
+  color: var(--ui-ink);
+}
+
+.barra .logo:hover {
+  text-decoration: none;
 }
 
 .barra .logo img {
   width: 34px;
   height: 34px;
-  border-radius: 8px;
+  border-radius: var(--radio-boton);
 }
 
 .barra nav {
   margin-left: auto;
   display: flex;
-  gap: 10px;
+  gap: 8px;
   align-items: center;
 }
 
-/* ─── Botones ─── */
+/* ─── Botones ─────────────────────────────────────────────────────────────── */
+/* Ojo: `background-color`, nunca el atajo `background` — el atajo borraría el
+   gradiente que pone .ui-accent-bg en el botón principal. */
 .boton {
   display: inline-block;
   padding: 10px 18px;
-  border-radius: 10px;
+  border-radius: var(--radio-boton);
   font-weight: 700;
   font-size: 14px;
   border: 1px solid var(--borde);
-  color: var(--tinta);
-  background: rgba(255, 255, 255, 0.05);
+  color: var(--ui-ink);
+  background-color: var(--tarjeta);
 }
 
 .boton:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background-color: var(--tarjeta-fuerte);
   text-decoration: none;
 }
 
 .boton.principal {
-  background: var(--acento);
   border-color: transparent;
-  color: #fff;
+  color: var(--ui-accent-ink);
 }
 
 .boton.principal:hover {
-  background: var(--acento-claro);
+  background-color: transparent;
+  filter: brightness(1.1);
 }
 
 .boton.grande {
-  padding: 14px 26px;
-  font-size: 16px;
+  padding: 13px 24px;
+  font-size: 15px;
 }
 
-/* ─── Hero ─── */
+/* En móvil el nombre no cabe junto a los dos botones y la barra se parte en dos
+   pisos: se queda el icono, que ya identifica la marca. */
+@media (max-width: 520px) {
+  .barra .logo span {
+    display: none;
+  }
+
+  .boton {
+    padding: 9px 14px;
+  }
+}
+
+/* ─── Hero ────────────────────────────────────────────────────────────────── */
 .hero {
-  padding: 56px 0 32px;
+  padding: 52px 0 32px;
   text-align: center;
 }
 
@@ -111,6 +260,7 @@ a:hover {
   font-size: clamp(30px, 5vw, 46px);
   line-height: 1.15;
   margin: 0 0 14px;
+  letter-spacing: -0.015em;
 }
 
 .hero p.sub {
@@ -128,9 +278,28 @@ a:hover {
 }
 
 .hero .nota {
-  margin-top: 10px;
+  margin-top: 12px;
   font-size: 12px;
   color: var(--tinta-3);
+}
+
+/* El fondo del hero recoge los tres colores del icono, muy diluidos. */
+.aura {
+  position: relative;
+  isolation: isolate;
+}
+
+.aura::before {
+  content: '';
+  position: absolute;
+  inset: -80px 0 auto;
+  height: 560px;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(40% 55% at 18% 18%, color-mix(in srgb, var(--marca-naranja) 14%, transparent), transparent 70%),
+    radial-gradient(45% 60% at 82% 8%, color-mix(in srgb, var(--marca-morado) 20%, transparent), transparent 70%),
+    radial-gradient(35% 45% at 55% 50%, color-mix(in srgb, var(--marca-rojo) 9%, transparent), transparent 70%);
 }
 
 /* Marco del video/capturas (asset pendiente del usuario). */
@@ -138,11 +307,10 @@ a:hover {
   margin: 34px auto 0;
   max-width: 760px;
   aspect-ratio: 16 / 9;
-  border-radius: 16px;
+  border-radius: var(--radio-panel);
   border: 1px solid var(--borde);
-  background:
-    radial-gradient(60% 80% at 50% 0%, rgba(134, 59, 255, 0.25), transparent),
-    var(--panel);
+  background: var(--ui-panel);
+  box-shadow: var(--sombra);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -150,15 +318,25 @@ a:hover {
   font-size: 14px;
 }
 
-/* ─── Secciones ─── */
+/* ─── Secciones ───────────────────────────────────────────────────────────── */
 section {
   padding: 40px 0;
 }
 
 section h2 {
   font-size: 26px;
-  margin: 0 0 18px;
+  margin: 0 0 14px;
   text-align: center;
+  letter-spacing: -0.01em;
+}
+
+/* Separador: las tres piezas del icono, en pequeño. */
+.piezas {
+  width: 54px;
+  height: 15px;
+  margin: 0 auto 22px;
+  background: center / contain no-repeat
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 357 100'%3E%3Crect y='3' width='94' height='94' rx='20' fill='%23DA9425'/%3E%3Cpath d='M137 0V100H237Z' fill='%23C23A40'/%3E%3Cpath d='M257 0H357V100A100 100 0 0 1 257 0Z' fill='%23895AC6'/%3E%3C/svg%3E");
 }
 
 .tarjetas {
@@ -168,10 +346,15 @@ section h2 {
 }
 
 .tarjeta {
-  background: var(--panel);
+  background: var(--tarjeta);
   border: 1px solid var(--borde);
-  border-radius: 14px;
+  border-radius: var(--radio-tarjeta);
   padding: 16px;
+  transition: background-color 0.18s var(--ease-fluida);
+}
+
+.tarjeta:hover {
+  background: var(--tarjeta-fuerte);
 }
 
 .tarjeta h3 {
@@ -196,31 +379,29 @@ section h2 {
   padding: 2px 10px;
 }
 
-/* ─── Precio ─── */
-/* Dos planes en paralelo (local gratis / Pro). Con una sola caja el `auto-fit`
-   la deja centrada, así que sirve para ambos casos. */
+/* ─── Precio ──────────────────────────────────────────────────────────────── */
+/* Solo dos planes: la demo y la compra. La IA vive en la franja de abajo. */
 .planes {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px;
-  max-width: 860px;
+  max-width: 720px;
   margin: 0 auto;
   align-items: start;
 }
 
 .precio-caja {
-  max-width: 420px;
-  margin: 0 auto;
-  background: var(--panel);
+  background: var(--ui-panel);
   border: 1px solid var(--borde);
-  border-radius: 18px;
+  border-radius: var(--radio-panel);
   padding: 26px;
   text-align: center;
 }
 
 /* El plan de pago es el que lleva el borde de acento. */
 .precio-caja.destacado {
-  border-color: rgba(134, 59, 255, 0.5);
+  border-color: color-mix(in srgb, var(--ui-accent) 50%, transparent);
+  box-shadow: var(--sombra);
 }
 
 .precio-caja .plan-nombre {
@@ -233,14 +414,16 @@ section h2 {
 }
 
 .precio-caja .cifra {
-  font-size: 42px;
+  font-size: 40px;
   font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 .precio-caja .cifra small {
   font-size: 15px;
   font-weight: 600;
   color: var(--tinta-2);
+  letter-spacing: 0;
 }
 
 .precio-caja ul {
@@ -253,16 +436,28 @@ section h2 {
 }
 
 .precio-caja li {
-  padding: 5px 0 5px 24px;
+  padding: 6px 0 6px 26px;
   position: relative;
 }
 
+/* Viñetas: las tres piezas del icono, rotando. */
 .precio-caja li::before {
-  content: '✓';
+  content: '';
   position: absolute;
-  left: 4px;
-  color: var(--acento-claro);
-  font-weight: 800;
+  left: 2px;
+  top: 0.75em;
+  width: 11px;
+  height: 11px;
+  background: center / contain no-repeat
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23DA9425'/%3E%3C/svg%3E");
+}
+
+.precio-caja li:nth-child(3n + 2)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M0 0V100H100Z' fill='%23C23A40'/%3E%3C/svg%3E");
+}
+
+.precio-caja li:nth-child(3n + 3)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M0 0H100V100A100 100 0 0 1 0 0Z' fill='%23895AC6'/%3E%3C/svg%3E");
 }
 
 .precio-caja .letra-chica {
@@ -271,7 +466,59 @@ section h2 {
   margin-top: 12px;
 }
 
-/* ─── FAQ ─── */
+/* ─── Franja de IA: lo opcional, dicho en voz baja ────────────────────────── */
+.franja-ia {
+  max-width: 720px;
+  margin: 16px auto 0;
+  padding: 16px 20px;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-tarjeta);
+  background: var(--tarjeta);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.franja-ia .texto {
+  flex: 1 1 340px;
+  min-width: 0;
+}
+
+.franja-ia h3 {
+  margin: 0 0 4px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-3);
+}
+
+.franja-ia p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--tinta-2);
+}
+
+.franja-ia .precios-linea {
+  color: var(--ui-ink);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.franja-ia .precios-linea span {
+  color: var(--tinta-3);
+  font-weight: 400;
+  padding: 0 5px;
+}
+
+.franja-ia .enlace {
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ─── FAQ ─────────────────────────────────────────────────────────────────── */
 .faq {
   max-width: 680px;
   margin: 0 auto;
@@ -279,25 +526,62 @@ section h2 {
 
 .faq details {
   border: 1px solid var(--borde);
-  border-radius: 12px;
-  background: var(--panel);
+  border-radius: var(--radio-tarjeta);
+  background: var(--tarjeta);
   padding: 12px 16px;
   margin-bottom: 8px;
+  transition: background-color 0.18s var(--ease-fluida);
+}
+
+.faq details:hover {
+  background: var(--tarjeta-fuerte);
+}
+
+.faq details[open] {
+  background: var(--ui-panel);
 }
 
 .faq summary {
   cursor: pointer;
   font-weight: 700;
   font-size: 14px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+/* El marcador es el triángulo del icono, y gira al abrir. */
+.faq summary::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  flex: none;
+  background: center / contain no-repeat
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M0 0V100H100Z' fill='%23C23A40'/%3E%3C/svg%3E");
+  transform: rotate(-90deg);
+  transition: transform 0.22s var(--ease-fluida);
+}
+
+.faq details[open] summary::before {
+  transform: rotate(0deg);
+}
+
+.faq details[open] p {
+  animation: ui-pop 0.22s var(--ease-fluida) both;
 }
 
 .faq p {
   font-size: 13px;
   color: var(--tinta-2);
-  margin: 10px 0 2px;
+  margin: 10px 0 2px 20px;
 }
 
-/* ─── Pie ─── */
+/* ─── Pie ─────────────────────────────────────────────────────────────────── */
 footer {
   border-top: 1px solid var(--borde);
   margin-top: 30px;
@@ -313,20 +597,45 @@ footer .enlaces {
   margin-bottom: 8px;
 }
 
-/* ─── Páginas legales ─── */
+footer a {
+  color: var(--tinta-2);
+}
+
+footer a:hover {
+  color: var(--ui-ink);
+}
+
+/* ─── Páginas legales ─────────────────────────────────────────────────────── */
 .legal {
   max-width: 720px;
   margin: 0 auto;
-  padding: 30px 20px 60px;
+  padding: 34px 20px 60px;
 }
 
 .legal h1 {
-  font-size: 28px;
+  font-size: 30px;
+  margin: 0 0 4px;
+  letter-spacing: -0.015em;
+}
+
+.legal .fecha {
+  color: var(--tinta-3);
+  font-size: 13px;
+  margin: 0 0 24px;
+}
+
+/* Cada apartado es un panel, como las tarjetas de la app. */
+.legal section {
+  margin-bottom: 12px;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-tarjeta);
+  background: var(--tarjeta);
+  padding: 18px 20px;
 }
 
 .legal h2 {
-  font-size: 18px;
-  margin-top: 28px;
+  font-size: 16px;
+  margin: 0 0 8px;
   text-align: left;
 }
 
@@ -334,4 +643,38 @@ footer .enlaces {
 .legal li {
   font-size: 14px;
   color: var(--tinta-2);
+}
+
+.legal p {
+  margin: 0 0 8px;
+}
+
+.legal p:last-child {
+  margin-bottom: 0;
+}
+
+.legal ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.legal li {
+  padding: 3px 0;
+}
+
+.legal li::marker {
+  color: color-mix(in srgb, var(--ui-accent) 70%, transparent);
+}
+
+.legal strong {
+  color: var(--ui-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }

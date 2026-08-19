@@ -1,154 +1,130 @@
 [
   {
-    "clave": "tut.casa.1.texto",
-    "texto": "这就是你的家：每个房间放着一个应用。我来带你看看基本操作。"
+    "clave": "tut.app-biblioteca--esencial.4.texto",
+    "texto": "学习用的计时器：选好领域和时长，一口气学完或用番茄钟分段都行，每一段都会自动记录。就算离开房间，它也照样在走。"
   },
   {
-    "clave": "tut.casa.2.titulo",
-    "texto": "主菜单"
+    "clave": "tut.app-biblioteca--esencial.5.titulo",
+    "texto": "概览"
   },
   {
-    "clave": "tut.casa.2.texto",
-    "texto": "这个按钮会打开菜单：你的房间、模板（应用）目录，还有物件的物品栏。"
+    "clave": "tut.app-biblioteca--esencial.5.texto",
+    "texto": "以上一切的全景：百科全书有多少条目、索引覆盖了多少、学习了多少分钟、你的连续天数，还有你学习过的日子。"
   },
   {
-    "clave": "tut.casa.3.titulo",
-    "texto": "移动"
+    "clave": "tut.app-cocina--esencial.1.titulo",
+    "texto": "厨房"
   },
   {
-    "clave": "tut.casa.3.texto",
-    "texto": "用摇杆、WASD或方向键走动。穿过房间的门就会进去，它的应用会自动打开。"
+    "clave": "tut.app-cocina--esencial.1.texto",
+    "texto": "这个应用管两件事：你要做的菜，和你最后吃下的东西。每件事在顶部有自己的菜单，每个菜单又会打开各自的标签页。"
   },
   {
-    "clave": "tut.casa.4.titulo",
-    "texto": "三种视角"
+    "clave": "tut.app-cocina--esencial.2.titulo",
+    "texto": "食谱库"
   },
   {
-    "clave": "tut.casa.4.texto",
-    "texto": "等距视角、第三人称和第一人称（也可以按V键）。在第三/第一人称下还会多出一个按钮，可以边走边编辑这个世界。"
+    "clave": "tut.app-cocina--esencial.2.texto",
+    "texto": "做菜这一侧：你的食谱住在这里，还有把它们归到一起的饮食方案和购物清单。三个标签页，就按这个顺序。"
   },
   {
-    "clave": "tut.casa.5.titulo",
-    "texto": "一个角落，多个主人"
+    "clave": "tut.app-cocina--esencial.3.titulo",
+    "texto": "饮食方案"
   },
   {
-    "clave": "tut.casa.5.texto",
-    "texto": "那个角落不只是视角方块：靠近可以互动的东西——椅子、载具、球场——它就会按你附近的东西自动切换。不靠近，就什么都不会启动。"
+    "clave": "tut.app-cocina--esencial.3.texto",
+    "texto": "饮食方案就是一份带食谱的进食计划，愿意的话还能有自己的热量和营养素目标。你可以把自己的方案和应用自带的放在一起保存。"
   },
   {
-    "clave": "tut.casa.6.titulo",
-    "texto": "工具轮盘"
+    "clave": "tut.app-cocina--esencial.4.titulo",
+    "texto": "食谱"
   },
   {
-    "clave": "tut.casa.6.texto",
-    "texto": "动作、玩具、载具和建造，最多同时装备3个。可以从这里打开，两手空着的时候也能从角落的那个位置打开。"
+    "clave": "tut.app-cocina--esencial.4.texto",
+    "texto": "食谱库：每份食谱保存食材、步骤和每份的营养素，并按文件夹整理。从一份食谱可以直接记录这一餐，或者把食材送进购物清单。"
   },
   {
-    "clave": "tut.casa.7.titulo",
-    "texto": "时钟"
+    "clave": "tut.app-cocina--esencial.5.titulo",
+    "texto": "购物"
   },
   {
-    "clave": "tut.casa.7.texto",
-    "texto": "家里的时间。从这里可以打开完整的日历，还有日常安排面板，上面列着你今天还没做完的事。"
+    "clave": "tut.app-cocina--esencial.5.texto",
+    "texto": "购物清单，每样东西都归到它该在的货区。你可以把几份食谱里缺的东西凑成一张清单，家里已经有的就随手划掉。"
   },
   {
-    "clave": "tut.casa.8.titulo",
-    "texto": "家里的音乐"
+    "clave": "tut.app-cocina--esencial.6.titulo",
+    "texto": "饮食管理"
   },
   {
-    "clave": "tut.casa.8.texto",
-    "texto": "每个房间都可以有自己的主题，也可以让家的氛围一直放着。想安静的话，可以完全关掉。"
+    "clave": "tut.app-cocina--esencial.6.texto",
+    "texto": "另一个菜单记录你吃了什么，分四个编号的标签页。第一个是目标：根据你的体重、身高和活动量算出每天需要多少，并分配营养素。"
   },
   {
-    "clave": "tut.casa.9.titulo",
-    "texto": "聊天"
+    "clave": "tut.app-cocina--esencial.7.titulo",
+    "texto": "记录"
   },
   {
-    "clave": "tut.casa.9.texto",
-    "texto": "建筑师的聊天：告诉它你做了什么，它会记到对应的应用里；也可以让它改动房子。"
+    "clave": "tut.app-cocina--esencial.7.texto",
+    "texto": "已经发生的事：当天各餐和它们的热量、喝了多少水，还有你称重时的体重。旁边的膳食计划正相反：那是你打算在接下来几天吃什么的表格。"
   },
   {
-    "clave": "tut.casa.10.texto",
-    "texto": "基础就这些。上面的“编辑器”按钮会打开完整的自定义，每个菜单和每个应用也都有自己的“?”按钮和教程。"
+    "clave": "tut.app-cocina--esencial.8.titulo",
+    "texto": "进度"
   },
   {
-    "clave": "tut.primeros.1.texto",
-    "texto": "先说最要紧的：家是怎么搭起来的。一切都从“房间”标签页开始。"
+    "clave": "tut.app-cocina--esencial.8.texto",
+    "texto": "以上一切在你所选时间段里的统计：热量和营养素、水分，还有体重曲线。下面有一张上了色的日历，一眼就能看出哪几天守住了目标。"
   },
   {
-    "clave": "tut.primeros.2.titulo",
-    "texto": "创建房间"
+    "clave": "tut.app-computo--esencial.1.titulo",
+    "texto": "电脑室"
   },
   {
-    "clave": "tut.primeros.2.texto",
-    "texto": "用这个按钮可以在地图上画新房间。为了带你看看接下来的步骤，现在就给你建一个吧……"
+    "clave": "tut.app-computo--esencial.1.texto",
+    "texto": "要算的东西都在这里解决，分两个菜单：计算器，带它的各种模式和你的公式手册；还有电子表格，负责一切要放进表里的内容。"
   },
   {
-    "clave": "tut.primeros.3.titulo",
-    "texto": "你的新房间"
+    "clave": "tut.app-computo--esencial.2.titulo",
+    "texto": "计算器"
   },
   {
-    "clave": "tut.primeros.3.texto",
-    "texto": "在这儿！刚建好的房间，还没有应用：所以它的按钮写着“+ 分配”。"
+    "clave": "tut.app-computo--esencial.2.texto",
+    "texto": "一台边输入边出结果的科学计算器，算过的都会留在历史记录里。下方的键盘让你不必用手机键盘，记法按钮则把科学符号写在光标所在的位置。"
   },
   {
-    "clave": "tut.primeros.4.titulo",
-    "texto": "分配一个应用"
+    "clave": "tut.app-computo--esencial.3.titulo",
+    "texto": "各种模式"
   },
   {
-    "clave": "tut.primeros.4.texto",
-    "texto": "用“+ 分配”给它装上了应用：看，房间拿到了自己的名字、图标和家具，按钮现在写着“进入”。"
+    "clave": "tut.app-computo--esencial.3.texto",
+    "texto": "这个菜单会把计算器的整个界面换掉：绘图、进制、矩阵、方程组、单位换算、小费和三率法。每一种模式下，历史记录都留在下方。"
   },
   {
-    "clave": "tut.primeros.5.titulo",
-    "texto": "进入"
+    "clave": "tut.app-computo--esencial.4.titulo",
+    "texto": "公式手册"
   },
   {
-    "clave": "tut.primeros.5.texto",
-    "texto": "进来了：这就是房间的应用。走动的时候穿过它的门也能进来，用“‹ 返回家”离开。"
+    "clave": "tut.app-computo--esencial.4.texto",
+    "texto": "你自己的公式本，折叠在计算器上方。数学、物理和化学都已备好，文件夹还能层层嵌套。任何公式都能展开填入变量，也能编辑或删除。"
   },
   {
-    "clave": "tut.primeros.6.texto",
-    "texto": "房间会留在你家里，应用也准备好了。剩下的也这么搭：想放在这儿的每件事，都给它一个房间。"
+    "clave": "tut.app-computo--esencial.5.titulo",
+    "texto": "电子表格"
   },
   {
-    "clave": "tut.menu-cuartos.1.texto",
-    "texto": "“房间”标签页会按分类列出你家里的所有房间。"
+    "clave": "tut.app-computo--esencial.5.texto",
+    "texto": "支持单元格引用和公式（=SUMA 这样的写法）的表格，还能按你选中的区域画图。可导出为保留公式的Excel文件，或导出为PDF。"
   },
   {
-    "clave": "tut.menu-cuartos.2.titulo",
-    "texto": "你的概览"
+    "clave": "tut.app-descanso--esencial.1.titulo",
+    "texto": "休息"
   },
   {
-    "clave": "tut.menu-cuartos.2.texto",
-    "texto": "你的角色靠你真实的活动过日子：在这里能看到它的心情、等级和连续天数。在任何应用里记一笔，它就会开心起来；好几天什么都没有，它就会难过——但从不惩罚你，也不会清零。"
+    "clave": "tut.app-descanso--esencial.1.texto",
+    "texto": "这个应用在一块屏幕上跟踪你的睡眠：昨晚的评分、带提醒的作息时间、每天的记录，还有完整的历史。"
   },
   {
-    "clave": "tut.menu-cuartos.3.titulo",
-    "texto": "卡片"
-  },
-  {
-    "clave": "tut.menu-cuartos.3.texto",
-    "texto": "每张卡片都是一个房间：图标、名字和应用的进度，分成“身体”“心灵”“附加”和“设置”。还没分配应用的房间排在最后面。"
-  },
-  {
-    "clave": "tut.menu-cuartos.4.titulo",
-    "texto": "编辑"
-  },
-  {
-    "clave": "tut.menu-cuartos.4.texto",
-    "texto": "“编辑”会打开房间的编辑器：形状、颜色、墙壁和物件。（现在先别点：会把这个菜单关掉。）"
-  },
-  {
-    "clave": "tut.menu-cuartos.5.titulo",
-    "texto": "“进入”和“分配”"
-  },
-  {
-    "clave": "tut.menu-cuartos.5.texto",
-    "texto": "“进入”会打开房间的应用。如果房间还没有应用，那里会显示“+ 分配”，可以从目录里挑一个。"
-  },
-  {
-    "clave": "tut.menu-cuartos.6.titulo",
-    "texto": "创建房间"
+    "clave": "tut.app-descanso--esencial.2.titulo",
+    "texto": "评分"
   }
 ]

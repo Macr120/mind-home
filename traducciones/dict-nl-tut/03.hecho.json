@@ -1,126 +1,82 @@
 [
   {
-    "clave": "tut.menu-cuartos.6.texto",
-    "texto": "Kamer maken opent de kaarteditor met het penseel klaar om de nieuwe kamer te tekenen: vorm, grootte en plek liggen bij jou. Op de telefoon is de snelkoppeling via het gereedschapswiel › Bouwen › Kamers handiger: die tekent rechtstreeks op de kaart, zonder het paneel te openen."
+    "clave": "tut.app-descanso--esencial.2.texto",
+    "texto": "Elke geregistreerde nacht krijgt een score die combineert hoelang je sliep, hoe laat je naar bed ging en hoe vaak je wakker werd. Zonder registraties nodigt dit gedeelte je uit om je eerste nacht vast te leggen."
   },
+  { "clave": "tut.app-descanso--esencial.3.titulo", "texto": "Schema en herinneringen" },
   {
-    "clave": "tut.menu-cuartos.7.texto",
-    "texto": "Kort samengevat: Bewerken om aan te passen, Openen om de app te gebruiken. De andere tabbladen van dit menu hebben hun eigen tutorial."
+    "clave": "tut.app-descanso--esencial.3.texto",
+    "texto": "Je stelt je bedtijd en wektijd in door de uiteinden van de dagbalk te slepen; hetzelfde schema verschijnt ook als blok in de huiskalender. Hier zet je ook de wekker aan met zijn toon en de herinneringen om voor het slapengaan rustig aan te doen."
   },
+  { "clave": "tut.app-descanso--esencial.4.titulo", "texto": "De nacht registreren" },
   {
-    "clave": "tut.menu-plantillas.1.texto",
-    "texto": "Een sjabloon is een app (Keuken, Gym, Financiën…). Je wijst het toe aan een object in een kamer en het opent zodra je binnenkomt."
+    "clave": "tut.app-descanso--esencial.4.texto",
+    "texto": "Het formulier om te noteren hoe je sliep: de datum, hoe laat je naar bed ging en wakker werd, onderbrekingen en een kwaliteitsbeoordeling, met ruimte voor een notitie."
   },
+  { "clave": "tut.app-descanso--esencial.5.titulo", "texto": "De geschiedenis" },
   {
-    "clave": "tut.menu-plantillas.2.titulo",
-    "texto": "Twee weergaven"
+    "clave": "tut.app-descanso--esencial.5.texto",
+    "texto": "Elke nacht die je registreert, blijft hier bewaard, gesorteerd per jaar, maand en week, zodat je je rust in de loop van de tijd kunt bekijken."
   },
+  { "clave": "tut.app-despacho--esencial.1.titulo", "texto": "Jouw financiën" },
   {
-    "clave": "tut.menu-plantillas.2.texto",
-    "texto": "Kamers zijn de gewone apps, elk in zijn eigen object. Extra's is iets anders: banen, velden, moestuin, boerderij of paintball bouw je rechtstreeks op de grond, zonder dat ze een kamer innemen."
+    "clave": "tut.app-despacho--esencial.1.texto",
+    "texto": "De werkkamer ordent je geld in vier menu's: wat je hebt, wat er binnenkomt en uitgaat, je doelen en de markten. Elk opent zijn eigen secties eronder."
   },
+  { "clave": "tut.app-despacho--esencial.2.titulo", "texto": "Vermogen" },
   {
-    "clave": "tut.menu-plantillas.3.titulo",
-    "texto": "De catalogus"
+    "clave": "tut.app-despacho--esencial.2.texto",
+    "texto": "Wat je hebt en wat je schuldig bent, in twee lijsten: bezittingen en schulden. De derde sectie projecteert die momentopname vooruit met het rentepercentage dat je op elke regel instelt."
   },
+  { "clave": "tut.app-despacho--esencial.3.titulo", "texto": "Kasstroom" },
   {
-    "clave": "tut.menu-plantillas.3.texto",
-    "texto": "De standaard-apps en die van jou, in groepen geordend. Tik er een aan om hem aan een kamer toe te wijzen of, bij Extra's, om hem op de kaart te bouwen."
+    "clave": "tut.app-despacho--esencial.3.texto",
+    "texto": "Het geld dat binnenkomt en uitgaat, opgesplitst in uitgaven, inkomsten en saldo. Het saldo vat de periode samen die je kiest — dag, week, maand of jaar — met zijn budget, zijn categorieën en zijn trend."
   },
+  { "clave": "tut.app-despacho--esencial.4.titulo", "texto": "Doelen" },
   {
-    "clave": "tut.menu-plantillas.4.titulo",
-    "texto": "Je eigen sjablonen"
+    "clave": "tut.app-despacho--esencial.4.texto",
+    "texto": "Je geldelijke doelen in drie secties: sparen en beleggen, schulden, en rekenmachines die een bedrag voorstellen op basis van je eigen saldo. Elk doel kan naar de planning zakken en een datum krijgen."
   },
+  { "clave": "tut.app-despacho--esencial.5.titulo", "texto": "Markten" },
   {
-    "clave": "tut.menu-plantillas.4.texto",
-    "texto": "Maak je eigen sjablonen door ze met blokken op te bouwen: notities, checklists, tellers, gewoontes, galerijen… Deze knop opent hun eigen editor met een eigen tutorial."
+    "clave": "tut.app-despacho--esencial.5.texto",
+    "texto": "Live koersen van valuta, crypto, aandelen en grondstoffen; hiervoor is een verbinding nodig. Het is een informatiebord: de app raadt niet aan wat je moet kopen of verkopen."
   },
+  { "clave": "tut.app-diario--esencial.1.titulo", "texto": "De krant van vandaag" },
   {
-    "clave": "tut.menu-plantillas.5.texto",
-    "texto": "Eén kamer kan meerdere apps hebben: bij binnenkomst verschijnt een keuzescherm om te kiezen welke je opent."
+    "clave": "tut.app-diario--esencial.1.texto",
+    "texto": "Het dagelijkse nieuws brengt de briefing van de dag in twee weergaven: koppen en de rubriek 'op deze dag'. Het bewaart zelf geen gegevens: elke dag brengt nieuwe inhoud, en om middernacht wordt alles vervangen."
   },
+  { "clave": "tut.app-diario--esencial.2.titulo", "texto": "Koppen" },
   {
-    "clave": "tut.plantillas-custom.1.texto",
-    "texto": "Deze editor bouwt vanaf nul een eigen app: je geeft hem vorm met een naam, een emoji en blokken, en hij belandt in de catalogus naast de standaard-apps."
+    "clave": "tut.app-diario--esencial.2.texto",
+    "texto": "De koppen van de dag per categorie — wereld, economie, technologie, gezondheid, sport en vermaak —, filterbaar met de chips bovenaan. Ze komen van echte pers in jouw taal, met media die elke dag rouleren."
   },
+  { "clave": "tut.app-diario--esencial.3.titulo", "texto": "Op deze dag" },
   {
-    "clave": "tut.plantillas-custom.2.titulo",
-    "texto": "Naam, emoji en kleur"
+    "clave": "tut.app-diario--esencial.3.texto",
+    "texto": "De andere helft van het nieuws: wat er op een dag als vandaag gebeurde — een werk, een boek, een soort, een woord. Een reden om het te openen ook als het nieuws die dag niet boeit."
   },
+  { "clave": "tut.app-diario--esencial.4.titulo", "texto": "Vernieuwt zichzelf" },
   {
-    "clave": "tut.plantillas-custom.2.texto",
-    "texto": "Hoe hij gaat heten en in welke kleur hij verschijnt in het menu, de catalogus en de kalender als je er iets van inplant."
+    "clave": "tut.app-diario--esencial.4.texto",
+    "texto": "De editie wordt vanzelf gedownload als je de app opent en wordt om middernacht volledig vervangen: er stapelt niets op. Deze knop dwingt een update af vóór dat tijdstip."
   },
+  { "clave": "tut.app-diario--esencial.5.titulo", "texto": "Bezorging" },
   {
-    "clave": "tut.plantillas-custom.3.titulo",
-    "texto": "De hulpmiddelen"
+    "clave": "tut.app-diario--esencial.5.texto",
+    "texto": "Stel in welke secties elke assistent je aflevert in zijn eigen chat, op een vaste tijd of op een verrassingsmoment van de dag."
   },
+  { "clave": "tut.app-ejercicio--esencial.1.titulo", "texto": "Jouw training" },
   {
-    "clave": "tut.plantillas-custom.3.texto",
-    "texto": "Twaalf soorten blokken: notities, checklist, teller, gewoonte, sessies, aftellen, galerij, logboek, beoordeling, voortgang, lijst en links. Elk blok dat je toevoegt, wordt een onderdeel van je app."
+    "clave": "tut.app-ejercicio--esencial.1.texto",
+    "texto": "Sport brengt de drie vormen van lichaamsbeweging samen — kracht, conditie en flexibiliteit — plus een doelenmenu waar je bepaalt hoeveel je elke week wilt trainen."
   },
+  { "clave": "tut.app-ejercicio--esencial.2.titulo", "texto": "Doelen" },
   {
-    "clave": "tut.plantillas-custom.4.titulo",
-    "texto": "De volgorde telt"
+    "clave": "tut.app-ejercicio--esencial.2.texto",
+    "texto": "De samenvatting van de kamer: je reeks, de dagen met iets geregistreerd en een balk per vorm tegenover het weekdoel dat je hier instelt. Hier kies je ook het maatsysteem, in kilo's of in ponden."
   },
-  {
-    "clave": "tut.plantillas-custom.4.texto",
-    "texto": "Toegevoegde blokken herschik je met de pijltjes en verwijder je met de ✕ — een blok weghalen wist zijn gegevens bij het opslaan, dus kijk het na voordat je bevestigt. Met de keuzelijst “Menu” verhuizen ze van het ene tabblad naar het andere zonder dat er iets verloren gaat."
-  },
-  {
-    "clave": "tut.plantillas-custom.5.titulo",
-    "texto": "Opslaan"
-  },
-  {
-    "clave": "tut.plantillas-custom.5.texto",
-    "texto": "Met een naam en minstens één blok zet Opslaan hem klaar in de catalogus. Vanaf daar wijs je hem aan een object toe, net als elk standaardsjabloon."
-  },
-  {
-    "clave": "tut.plantillas-custom.6.texto",
-    "texto": "Je kunt hem altijd opnieuw bewerken: zijn blokken en zijn gegevens blijven staan, alleen wat je aanpast verandert."
-  },
-  {
-    "clave": "tut.menu-inventario.1.texto",
-    "texto": "De inventaris: alle objecten die je in je huis kunt zetten, klaar om te slepen."
-  },
-  {
-    "clave": "tut.menu-inventario.2.titulo",
-    "texto": "Objecten"
-  },
-  {
-    "clave": "tut.menu-inventario.2.texto",
-    "texto": "Jouw objectenbibliotheek, per categorie en per map. Je kunt ze hernoemen en ordenen zodat je ze de volgende keer snel terugvindt."
-  },
-  {
-    "clave": "tut.menu-inventario.3.titulo",
-    "texto": "Speciale objecten"
-  },
-  {
-    "clave": "tut.menu-inventario.3.texto",
-    "texto": "Die écht iets doen en niet alleen versieren: bestuurbare voertuigen, speelgoedpistolen, fonteinen, speeltoestellen en lampen."
-  },
-  {
-    "clave": "tut.menu-inventario.4.titulo",
-    "texto": "Plaatsen"
-  },
-  {
-    "clave": "tut.menu-inventario.4.texto",
-    "texto": "Met dit menu open sleep je een miniatuur rechtstreeks de 3D-scène in om hem neer te zetten waar je maar wilt."
-  },
-  {
-    "clave": "tut.menu-inventario.5.texto",
-    "texto": "Wil je verplaatsen, verven of verwijderen wat er al staat, gebruik dan de Editor (tabblad Objecten) — dit menu is er alleen om nieuwe dingen de scène in te halen."
-  },
-  {
-    "clave": "tut.editor-mapa.1.texto",
-    "texto": "De editor van het huis heeft 4 tabbladen: Kaart, Personages, Objecten en Instellingen. Deze rondleiding gaat over Kaart; de andere drie hebben hun eigen rondleiding."
-  },
-  {
-    "clave": "tut.editor-mapa.2.titulo",
-    "texto": "De schets"
-  },
-  {
-    "clave": "tut.editor-mapa.2.texto",
-    "texto": "Je tekent op een raster van bovenaf gezien: kamers, muren, deuren, ramen en vloeren, met de modi en penselen uit de bovenste balk. Wat je tekent verschijnt meteen in 3D, zonder iets opnieuw te laden."
-  }
+  { "clave": "tut.app-ejercicio--esencial.3.titulo", "texto": "Kracht" }
 ]

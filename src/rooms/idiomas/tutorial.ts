@@ -4,9 +4,42 @@
  */
 import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { abrirApp } from '../../core/abrirApp'
-import { clickTut } from '../../core/tutorial/dom'
+import { clickTut, esperarTut } from '../../core/tutorial/dom'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
+
+export const cuerpoCharlas: CuerpoTutorial = {
+  preparar: () => {
+    abrirApp('idiomas', 'charlas')
+  },
+  pasos: [
+    {
+      sel: 'idiomas.charlas.nueva',
+      titulo: T('tut.app-idiomas--charlas.1.titulo', 'Un tutor a tu nivel'),
+      texto: T(
+        'tut.app-idiomas--charlas.1.texto',
+        'Tu tutor es el asistente del cuarto: le hablas en el idioma que estudias y responde al nivel MCER de tu perfil — frases cortas con traducción en A1, idiomatismos en C1. Si le escribes en tu idioma, te anima a intentarlo en el que estudias.',
+      ),
+      alEntrar: () => {
+        clickTut('idiomas.tab.charlas')
+      },
+    },
+    {
+      sel: 'idiomas.charlas.lista',
+      titulo: T('tut.app-idiomas--charlas.2.titulo', 'Se guardan y se clasifican solas'),
+      texto: T(
+        'tut.app-idiomas--charlas.2.texto',
+        'Cada charla queda en esta lista con su título, su tema del temario y su nivel, puestos sin que hagas nada. También puede nacer desde un tema —con el botón de charla de su fila— para practicar justo eso.',
+      ),
+    },
+    {
+      texto: T(
+        'tut.app-idiomas--charlas.3.texto',
+        'Cuando el tutor corrige, la forma correcta va en su propia línea con una palomita, y la conversación sigue sin regaños. Al salir te ofrece extraer el vocabulario que apareció: eliges qué tarjetas guardar y heredan el tema de la charla.',
+      ),
+    },
+  ],
+}
 
 export const cuerpoRepaso: CuerpoTutorial = {
   preparar: () => {
@@ -111,6 +144,71 @@ export const cuerpoTemario: CuerpoTutorial = {
         'tut.app-idiomas--temario.3.texto2',
         'También puedes guardar material propio en un tema —apuntes, frases del hotel, una foto de tu libreta—, hacerlo tuyo con el ✏️ (añadir temas, renombrarlos, ordenarlos o borrarlos) y pedir un plan de estudio con fecha objetivo.',
       ),
+    },
+  ],
+}
+
+/**
+ * ESENCIAL: corre en la casa REAL, así que solo se ancla a pestañas que
+ * existen con la BD vacía. Recorre los cuatro menús de primer nivel; no crea
+ * ni necesita datos.
+ */
+export const cuerpoEsencial: CuerpoTutorial = {
+  preparar: () => {
+    abrirApp('idiomas')
+  },
+  pasos: [
+    {
+      titulo: T('tut.app-idiomas--esencial.1.titulo', 'Tu escuela de idiomas'),
+      texto: T(
+        'tut.app-idiomas--esencial.1.texto',
+        'Aquí eliges un idioma, charlas con un tutor de inteligencia artificial, guardas el vocabulario que aprendes y lo repasas con un sistema espaciado. Son cuatro menús: Charlas, Temario, Repaso y Progreso.',
+      ),
+    },
+    {
+      sel: 'idiomas.tab.charlas',
+      titulo: T('tut.app-idiomas--esencial.2.titulo', 'Charlas'),
+      texto: T(
+        'tut.app-idiomas--esencial.2.texto',
+        'Conversas con tu tutor en el idioma que estudias: responde según tu nivel y corrige con suavidad. Cada charla queda guardada y clasificada sola, y al salir te ofrece extraer el vocabulario nuevo como tarjetas.',
+      ),
+      alEntrar: async () => {
+        await esperarTut('idiomas.tab.charlas', 4000)
+        clickTut('idiomas.tab.charlas')
+      },
+    },
+    {
+      sel: 'idiomas.tab.temario',
+      titulo: T('tut.app-idiomas--esencial.3.titulo', 'Temario'),
+      texto: T(
+        'tut.app-idiomas--esencial.3.texto',
+        'Ordena el idioma en temas, pronunciación y gramática, del nivel A1 al C2. El vocabulario vive dentro de cada tema: cada tarjeta se guarda ahí, con su traducción y su ejemplo.',
+      ),
+      alEntrar: () => {
+        clickTut('idiomas.tab.temario')
+      },
+    },
+    {
+      sel: 'idiomas.tab.repaso',
+      titulo: T('tut.app-idiomas--esencial.4.titulo', 'Repaso'),
+      texto: T(
+        'tut.app-idiomas--esencial.4.texto',
+        'El repaso espaciado: cada tarjeta vive en una caja y solo te pide las que estás a punto de olvidar, con ejercicios de opción múltiple, al revés o completar la frase en vez de solo mirarlas.',
+      ),
+      alEntrar: () => {
+        clickTut('idiomas.tab.repaso')
+      },
+    },
+    {
+      sel: 'idiomas.tab.progreso',
+      titulo: T('tut.app-idiomas--esencial.5.titulo', 'Progreso'),
+      texto: T(
+        'tut.app-idiomas--esencial.5.texto',
+        'El resumen de tu avance: cuántas tarjetas dominas, cuánto repasaste y tu nivel actual, con el historial de tus repasos día a día.',
+      ),
+      alEntrar: () => {
+        clickTut('idiomas.tab.progreso')
+      },
     },
   ],
 }

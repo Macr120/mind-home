@@ -1,4 +1,5 @@
 import type { CuerpoTutorial, TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import { fichaEsencial } from '../../core/tutorial/esencial'
 
 /**
  * Fichas de los tutoriales de esta app: id, título y resumen. Es lo único que
@@ -43,3 +44,13 @@ const flujoJuegos = tour(
 )
 
 export const flujosEntretenimiento: TutorialDef[] = [flujoArchivo, flujoJuegos]
+
+/** Esencial: recorre los dos menús en la casa real, sin necesitar datos. */
+export const esencialEntretenimiento: TutorialDef = fichaEsencial(
+  'entretenimiento',
+  T(
+    'tut.app-entretenimiento--esencial.resumen',
+    'Entretenimiento tiene dos menús: Juegos de mesa, con un catálogo digital agrupado por familias y filtrado por número de jugadores, y Archivo, donde guardas las películas, series, libros y videojuegos que vas terminando con su estado y tu reseña.',
+  ),
+  () => import('./tutorial').then((m) => m.cuerpoEsencial as CuerpoTutorial),
+)

@@ -7,7 +7,7 @@ import {
   objetivoDiarioDe,
 } from '../../core/data/repository'
 import { normalizar } from '../../core/chat/dispatcher'
-import { flujosJardin } from './tutorial.meta'
+import { esencialJardin, flujosJardin } from './tutorial.meta'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import type { PaisajeId } from '../../core/audio/paisaje'
 import { PISTAS } from './pistas'
@@ -134,6 +134,7 @@ const jardin: Plantilla = {
   color: '#4ade80',
   App: JardinApp,
   flujos: flujosJardin,
+  esencial: esencialJardin,
   // Acotamiento del planificador ✨: práctica contemplativa, y sin rachas (ver plan.ts).
   planMetas: planMetasJardin,
   capturar,

@@ -48,6 +48,11 @@ export const TABLAS_CASA = [
   'corrales',
   'animales',
   'cesta',
+  // El año jugado de la infraestructura: sin esto, la tabla de tiempos del
+  // circuito y los marcadores de las canchas salen vacíos en el demo
+  // publicado (los siembra `casaPep`, que no corre cuando hay snapshot).
+  'carreras',
+  'marcadores',
 ] as const
 
 export interface SnapshotCasa {

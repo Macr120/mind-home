@@ -12,7 +12,7 @@ import {
   raizDe,
   toggleMeta,
 } from '../../metas'
-import { textoRepeticion } from '../../rutinas'
+import { cambioPausa, textoRepeticion } from '../../rutinas'
 import { colorDe, colorPorProfundidad } from '../coloresRutina'
 import { Icono } from '../iconos/Icono'
 import { DetalleMeta } from '../metas/DetalleMeta'
@@ -107,6 +107,17 @@ export function DespliegueFila({
               className="px-1 text-[10px] text-white/40 transition hover:text-white/80"
             >
               <Icono nombre="editar" />
+            </button>
+            {/* Pausar sin borrar el pasado: cierra la serie hoy (ver cambioPausa). */}
+            <button
+              type="button"
+              onClick={() => rutina.id != null && void rutinasRepo.update(rutina.id, cambioPausa(rutina))}
+              title={rutina.activa ? t('rutinas.pausar', 'Pausar') : t('rutinas.activar', 'Activar')}
+              className={`rounded px-1.5 text-[9px] font-bold transition ${
+                rutina.activa ? 'bg-emerald-500/20 text-emerald-400' : 'bg-white/10 text-white/40'
+              }`}
+            >
+              {rutina.activa ? 'ON' : 'OFF'}
             </button>
           </>
         )}

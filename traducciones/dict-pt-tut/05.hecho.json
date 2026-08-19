@@ -1,0 +1,82 @@
+[
+  {
+    "clave": "tut.app-hobbies--esencial.4.texto",
+    "texto": "Ali você registra sessões com minutos e nota, vê seu mapa de calor do ano e leva projetos com seu próprio avanço. As metas e seu cronograma vivem no cômodo Metas."
+  },
+  { "clave": "tut.app-ideas--esencial.1.titulo", "texto": "Ideias" },
+  {
+    "clave": "tut.app-ideas--esencial.1.texto",
+    "texto": "Ideias guarda o que passa pela sua cabeça e ajuda a amadurecer: primeiro se anota, depois se organiza num mapa e, se precisar, se compara para decidir. São três menus."
+  },
+  { "clave": "tut.app-ideas--esencial.2.titulo", "texto": "Diário de ideias" },
+  {
+    "clave": "tut.app-ideas--esencial.2.texto",
+    "texto": "A bandeja onde cai qualquer ideia, solta ou agrupada numa tempestade por tema. Pode ser arquivada em pastas, destacada com estrela e, quando amadurece, convertida num mapa."
+  },
+  { "clave": "tut.app-ideas--esencial.3.titulo", "texto": "Mapas conceituais" },
+  {
+    "clave": "tut.app-ideas--esencial.3.texto",
+    "texto": "Uma tela livre para organizar um tema no formato que ficar melhor: mental, árvore, fluxo, linha do tempo, ciclo, pirâmide, Venn e mais."
+  },
+  { "clave": "tut.app-ideas--esencial.4.titulo", "texto": "Diagramas de decisão" },
+  {
+    "clave": "tut.app-ideas--esencial.4.texto",
+    "texto": "A mesma tela, com formatos pensados para decidir: prós e contras com peso, SWOT, Eisenhower ou uma matriz ponderada que ordena as opções sozinha."
+  },
+  { "clave": "tut.app-idiomas--esencial.1.titulo", "texto": "Sua escola de idiomas" },
+  {
+    "clave": "tut.app-idiomas--esencial.1.texto",
+    "texto": "Aqui você escolhe um idioma, conversa com um tutor de inteligência artificial, guarda o vocabulário que aprende e o revisa com um sistema espaçado. São quatro menus: Conversas, Programa, Revisão e Progresso."
+  },
+  { "clave": "tut.app-idiomas--esencial.2.titulo", "texto": "Conversas" },
+  {
+    "clave": "tut.app-idiomas--esencial.2.texto",
+    "texto": "Você conversa com seu tutor no idioma que está estudando: ele responde de acordo com seu nível e corrige com delicadeza. Cada conversa fica guardada e classificada sozinha, e ao sair oferece extrair o vocabulário novo como cartões."
+  },
+  { "clave": "tut.app-idiomas--esencial.3.titulo", "texto": "Programa" },
+  {
+    "clave": "tut.app-idiomas--esencial.3.texto",
+    "texto": "Organiza o idioma em temas, pronúncia e gramática, do nível A1 ao C2. O vocabulário vive dentro de cada tema: cada cartão é guardado ali, com sua tradução e seu exemplo."
+  },
+  { "clave": "tut.app-idiomas--esencial.4.titulo", "texto": "Revisão" },
+  {
+    "clave": "tut.app-idiomas--esencial.4.texto",
+    "texto": "A revisão espaçada: cada cartão vive numa caixa e só pede os que você está prestes a esquecer, com exercícios de múltipla escolha, invertidos ou de completar a frase, em vez de só olhar os cartões."
+  },
+  { "clave": "tut.app-idiomas--esencial.5.titulo", "texto": "Progresso" },
+  {
+    "clave": "tut.app-idiomas--esencial.5.texto",
+    "texto": "O resumo do seu avanço: quantos cartões você domina, quanto revisou e seu nível atual, com o histórico das suas revisões dia a dia."
+  },
+  { "clave": "tut.app-jardin--esencial.1.titulo", "texto": "Seu espaço de calma" },
+  {
+    "clave": "tut.app-jardin--esencial.1.texto",
+    "texto": "O jardim reúne três práticas: meditação, respiração guiada e agradecimentos. Não tem pontos nem sequências de propósito: aqui faltar não é punido, só se acompanha o que você pratica."
+  },
+  { "clave": "tut.app-jardin--esencial.2.titulo", "texto": "Meditação" },
+  {
+    "clave": "tut.app-jardin--esencial.2.texto",
+    "texto": "Escolha uma trilha sonora e uma duração, ou medite em silêncio com um sino no início e no fim. Cada sessão fica guardada no seu histórico."
+  },
+  { "clave": "tut.app-jardin--esencial.3.titulo", "texto": "Respiração" },
+  {
+    "clave": "tut.app-jardin--esencial.3.texto",
+    "texto": "Dois padrões de respiração guiada, um para te centrar e outro para soltar o dia: a tela respira com você enquanto avança."
+  },
+  { "clave": "tut.app-jardin--esencial.4.titulo", "texto": "Agradecimentos" },
+  {
+    "clave": "tut.app-jardin--esencial.4.texto",
+    "texto": "Anote o que você agradece hoje, mesmo que seja uma coisa só, e revise suas entradas anteriores quando quiser. Sem sequências: perder um dia não apaga nada."
+  },
+  { "clave": "tut.app-metas--esencial.1.titulo", "texto": "O planejador da casa" },
+  {
+    "clave": "tut.app-metas--esencial.1.texto",
+    "texto": "Este cômodo não guarda registros próprios: reúne num só lugar as metas e os planos que nascem nos demais apps. São três menus, e se leem nesta ordem: o que você se propôs, como pretende dividir e quando cai."
+  },
+  { "clave": "tut.app-metas--esencial.2.titulo", "texto": "Metas" },
+  {
+    "clave": "tut.app-metas--esencial.2.texto",
+    "texto": "A lista de tudo o que você se propôs, agrupada pelo app que leva cada meta. Uma meta pode pender de outra, e ao tocá-la abre sua folha: ali estão seu prazo, seus passos e a entrada para seu próprio cronograma."
+  },
+  { "clave": "tut.app-metas--esencial.3.titulo", "texto": "Planos" }
+]

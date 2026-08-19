@@ -3,13 +3,15 @@ import { create } from 'zustand'
 import { useT } from '../i18n/useT'
 import { useTutorial } from './tutorialStore'
 import {
-  FLUJOS_NUCLEO,
   claveNucleoDe,
+  esencialDeApp,
   flujosDeApp,
+  lanzarEsencial,
   lanzarFlujo,
   tutorialDeApp,
   tutorialMenuPorId,
 } from './registro'
+import { ListaToursApp } from './ListaToursApp'
 import { tutorialCasa } from './menus.meta'
 import { getPlantilla, plantillasCuarto, plantillasInfraestructura } from '../registry'
 import { esDemo } from '../edicion'
@@ -59,7 +61,7 @@ const GRUPOS_MENU: { clave: string; es: string; icono: NombreIcono; ids: string[
     clave: 'tut.selector.gCasa',
     es: 'La casa',
     icono: 'casa',
-    ids: ['herramientas', 'navegacion', 'ejemplos'],
+    ids: ['inicio', 'herramientas', 'navegacion', 'ejemplos'],
   },
   {
     clave: 'tut.selector.gChat',
@@ -248,30 +250,35 @@ export function SelectorTutorialOverlay() {
       {/* Zonas con tutorial, iluminadas en amarillo. */}
       {zonas.map((z) => {
         const etiquetaArriba = z.top > window.innerHeight / 2
+        // Zona pegada a un borde: la etiqueta centrada se saldría de pantalla
+        // (le pasaba a la rueda a la izquierda y a la música a la derecha), así
+        // que ahí se alinea hacia dentro en vez de centrarse.
+        const centro = z.left + z.width / 2
+        const alinear =
+          centro < 110
+            ? 'left-0'
+            : window.innerWidth - centro < 110
+              ? 'right-0'
+              : 'left-1/2 -translate-x-1/2'
         return (
           <button
             key={z.id}
             type="button"
             onClick={(e) => {
               e.stopPropagation()
-              // Zonas de app: por lanzarFlujo — los flujos nuevos corren sobre
-              // los datos de la casa DEMO (desde la casa real, saltan a ella).
+              // Zonas de app: el ESENCIAL corre aquí mismo (la zona solo existe
+              // con la app en pantalla). La infraestructura no tiene esencial:
+              // cae a su primer ejemplo, que salta a la casa demo.
               if (z.id.startsWith('app:')) {
                 useSelectorTut.getState().cerrar()
-                void lanzarFlujo(z.id.slice(4), z.def)
+                const id = z.id.slice(4)
+                if (esencialDeApp(id)) void lanzarEsencial(id, { montada: true })
+                else void lanzarFlujo(id, z.def)
                 return
               }
-              // Zona del núcleo (el reloj): tiene dos tours, así que despliega la
-              // lista en la tarjeta en vez de lanzar el primero. Esa lista vive
-              // en la página 1, así que la tarjeta vuelve sola si andabas en la 2
-              // (y entonces despliega, nunca cierra: si no, no verías nada).
-              if (FLUJOS_NUCLEO[z.id]) {
-                const enPag1 = pagina === 1
-                useSelectorTut.getState().setPagina(1)
-                setAppFlujos((prev) => (enPag1 && prev === z.id ? null : z.id))
-                return
-              }
-              lanzar(z.def)
+              // Tocar la zona lanza SU tour directo (el primero del grupo si
+              // tiene varios); la lista completa sigue en la tarjeta.
+              lanzarTour(z.def)
             }}
             className="absolute rounded-xl border-2 border-amber-400 bg-amber-400/15 transition hover:bg-amber-400/30"
             style={{
@@ -285,7 +292,7 @@ export function SelectorTutorialOverlay() {
             <span
               // Ámbar 500: tono fijo (no se remapea en claro), así la tinta oscura de la
               // etiqueta contrasta igual en los dos modos.
-              className={`absolute left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-amber-500 px-2 py-0.5 text-[11px] font-bold text-amber-950 shadow-lg ${
+              className={`absolute max-w-[calc(100vw-16px)] truncate whitespace-nowrap rounded-full bg-amber-500 px-2 py-0.5 text-[11px] font-bold text-amber-950 shadow-lg ${alinear} ${
                 etiquetaArriba ? 'bottom-full mb-1.5' : 'top-full mt-1.5'
               }`}
             >
@@ -388,14 +395,16 @@ export function SelectorTutorialOverlay() {
                 {t('tut.selector.nucleo', 'O el calendario y las metas:')}
               </p>
               <div className="mt-1.5 flex flex-wrap justify-center gap-1">
-                {TOURS_CALENDARIO.map((id) => tutorialMenuPorId(id)).map(
-                  (def) =>
+                {TOURS_CALENDARIO.map((id) => ({ id, def: tutorialMenuPorId(id) })).map(
+                  ({ id, def }) =>
                     def && (
                       <button
                         key={def.id}
                         type="button"
                         data-tut={`tut.nucleo.${def.id}`}
-                        onClick={() => lanzarTour(def)}
+                        // «Metas» es una app (su plantilla); «Calendario» es del
+                        // núcleo. Ambos despliegan su lista de dos tipos.
+                        onClick={() => setAppFlujos(id)}
                         className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-white/75 transition hover:border-amber-400/60 hover:bg-amber-400/15"
                       >
                         {t(def.titulo.clave, def.titulo.es)}
@@ -428,23 +437,11 @@ export function SelectorTutorialOverlay() {
                         : tourNucleo && t(tourNucleo.titulo.clave, tourNucleo.titulo.es)}
                     </p>
                   </div>
-                  <div className="mt-1.5 space-y-1">
-                    {flujosDeApp(appFlujos).map((def) => (
-                      <button
-                        key={def.id}
-                        type="button"
-                        onClick={() => {
-                          useSelectorTut.getState().cerrar()
-                          void lanzarFlujo(appFlujos, def)
-                        }}
-                        className="flex w-full items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-start text-xs font-semibold text-white/75 transition hover:bg-white/10"
-                      >
-                        <span className="min-w-0 flex-1 truncate">
-                          {t(def.titulo.clave, def.titulo.es)}
-                        </span>
-                        <Icono nombre="play" />
-                      </button>
-                    ))}
+                  <div className="mt-1.5 text-start">
+                    <ListaToursApp
+                      plantillaId={appFlujos}
+                      alLanzar={() => useSelectorTut.getState().cerrar()}
+                    />
                   </div>
                 </div>
               ) : (
@@ -462,13 +459,14 @@ export function SelectorTutorialOverlay() {
                           key={p.id}
                           type="button"
                           onClick={() => {
-                            const flujos = flujosDeApp(p.id)
-                            if (flujos.length > 1) {
+                            // Con ejemplos, la lista de dos tipos; sin ellos
+                            // (plantillas propias) su esencial directo.
+                            if (flujosDeApp(p.id).length > 0) {
                               setAppFlujos(p.id)
                               return
                             }
                             useSelectorTut.getState().cerrar()
-                            void lanzarFlujo(p.id, flujos[0])
+                            void lanzarEsencial(p.id)
                           }}
                           title={nombre}
                           aria-label={nombre}
@@ -492,6 +490,7 @@ export function SelectorTutorialOverlay() {
                           key={p.id}
                           type="button"
                           onClick={() => {
+                            // La infra no tiene esencial: su lista trae solo ejemplos.
                             const flujos = flujosDeApp(p.id)
                             if (flujos.length > 1) {
                               setAppFlujos(p.id)

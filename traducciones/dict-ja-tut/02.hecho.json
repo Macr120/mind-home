@@ -1,154 +1,130 @@
 [
   {
-    "clave": "tut.casa.1.texto",
-    "texto": "ここが家です。部屋ごとにアプリが1つ入っています。基本の操作をご案内しますね。"
+    "clave": "tut.app-biblioteca--esencial.4.texto",
+    "texto": "勉強のためのタイマーです。分野と長さを選び、通しでもポモドーロでも進められて、一区切りごとに自動で記録されます。部屋を出ても動き続けます。"
   },
   {
-    "clave": "tut.casa.2.titulo",
-    "texto": "メインメニュー"
+    "clave": "tut.app-biblioteca--esencial.5.titulo",
+    "texto": "概要"
   },
   {
-    "clave": "tut.casa.2.texto",
-    "texto": "このボタンでメニューが開きます。部屋、テンプレート（アプリ）のカタログ、オブジェクトのインベントリが入っています。"
+    "clave": "tut.app-biblioteca--esencial.5.texto",
+    "texto": "ここまでの全体像です。百科事典の項目数と索引をどれだけ埋めたか、学習した分数、連続記録、そして勉強した日がわかります。"
   },
   {
-    "clave": "tut.casa.3.titulo",
-    "texto": "移動する"
+    "clave": "tut.app-cocina--esencial.1.titulo",
+    "texto": "キッチン"
   },
   {
-    "clave": "tut.casa.3.texto",
-    "texto": "ジョイスティック、WASD、矢印キーで歩けます。部屋のドアをくぐると中に入り、そのアプリが自動で開きます。"
+    "clave": "tut.app-cocina--esencial.1.texto",
+    "texto": "このアプリが扱うのは2つ。これから作るものと、実際に食べたものです。それぞれ上部にメニューがあり、メニューごとに専用のタブが開きます。"
   },
   {
-    "clave": "tut.casa.4.titulo",
-    "texto": "3つの視点"
+    "clave": "tut.app-cocina--esencial.2.titulo",
+    "texto": "レシピ帳"
   },
   {
-    "clave": "tut.casa.4.texto",
-    "texto": "アイソメトリック、三人称、一人称（Vキーでも切り替わります）。三人称・一人称では、歩きながら世界を編集できるボタンも出てきます。"
+    "clave": "tut.app-cocina--esencial.2.texto",
+    "texto": "作る側です。ここにはレシピと、それをまとめる食事プラン、そして買い物リストがあります。タブはその順で3つです。"
   },
   {
-    "clave": "tut.casa.5.titulo",
-    "texto": "隅はひとつ、役割はいくつも"
+    "clave": "tut.app-cocina--esencial.3.titulo",
+    "texto": "食事プラン"
   },
   {
-    "clave": "tut.casa.5.texto",
-    "texto": "あの隅は視点キューブだけではありません。椅子、乗り物、コートなど、操作できるものに近づくと、近くにあるものに合わせて自動で変わります。近づかないかぎり、何も動き出しません。"
+    "clave": "tut.app-cocina--esencial.3.texto",
+    "texto": "食事プランは、レシピをまとめた献立で、必要ならカロリーと栄養素の目標も設定できます。アプリに最初から入っているものと並べて、自分のプランを保存できます。"
   },
   {
-    "clave": "tut.casa.6.titulo",
-    "texto": "ツールホイール"
+    "clave": "tut.app-cocina--esencial.4.titulo",
+    "texto": "レシピ"
   },
   {
-    "clave": "tut.casa.6.texto",
-    "texto": "モーション、おもちゃ、乗り物、建築。同時に3つまで装備できます。ここから開けるほか、手ぶらのときは同じ隅のボタンからも開けます。"
+    "clave": "tut.app-cocina--esencial.4.texto",
+    "texto": "レシピ帳です。1つずつ材料、手順、1人分の栄養素を保存し、フォルダで整理できます。レシピからそのまま食事を記録したり、材料を買い物リストへ送ったりできます。"
   },
   {
-    "clave": "tut.casa.7.titulo",
-    "texto": "時計"
+    "clave": "tut.app-cocina--esencial.5.titulo",
+    "texto": "買い物"
   },
   {
-    "clave": "tut.casa.7.texto",
-    "texto": "家の時間です。ここから、カレンダー全体と、今日やり残していることが並ぶルーティンのパネルが開けます。"
+    "clave": "tut.app-cocina--esencial.5.texto",
+    "texto": "買い物リストです。品目は売り場のカテゴリーごとに並びます。複数のレシピで足りないものを集めてリストを作り、家にあるものはチェックを外していけます。"
   },
   {
-    "clave": "tut.casa.8.titulo",
-    "texto": "家の音楽"
+    "clave": "tut.app-cocina--esencial.6.titulo",
+    "texto": "食事管理"
   },
   {
-    "clave": "tut.casa.8.texto",
-    "texto": "部屋ごとにテーマを決めることも、家の雰囲気をそのまま流すこともできます。静かにしたいときは、完全にオフにもできます。"
+    "clave": "tut.app-cocina--esencial.6.texto",
+    "texto": "もう一方のメニューでは、食べたものを番号つきの4つのタブで記録します。1つ目は目標です。体重・身長・活動量から1日に必要な量を計算し、栄養素の配分を決めます。"
   },
   {
-    "clave": "tut.casa.9.titulo",
-    "texto": "チャット"
+    "clave": "tut.app-cocina--esencial.7.titulo",
+    "texto": "記録"
   },
   {
-    "clave": "tut.casa.9.texto",
-    "texto": "アーキテクトのチャットです。何をしたか話すと正しいアプリに記録してくれますし、家の変更もお願いできます。"
+    "clave": "tut.app-cocina--esencial.7.texto",
+    "texto": "すでに終わったことです。その日の食事とカロリー、飲んだ水の量、量ったときの体重が並びます。隣の献立表タブはその逆で、これから食べるつもりのものを並べた表です。"
   },
   {
-    "clave": "tut.casa.10.texto",
-    "texto": "基本はこれで以上です。上の「エディター」ボタンでカスタマイズがすべて開きます。メニューにもアプリにも、それぞれ「?」ボタンとチュートリアルがあります。"
+    "clave": "tut.app-cocina--esencial.8.titulo",
+    "texto": "進捗"
   },
   {
-    "clave": "tut.primeros.1.texto",
-    "texto": "まずは家の組み立て方から。すべては「部屋」タブから始まります。"
+    "clave": "tut.app-cocina--esencial.8.texto",
+    "texto": "選んだ期間の統計です。カロリーと栄養素、水分、体重の推移がわかります。下には色分けされたカレンダーがあり、どの日が目標の範囲内だったかがひと目で読めます。"
   },
   {
-    "clave": "tut.primeros.2.titulo",
-    "texto": "部屋を作成"
+    "clave": "tut.app-computo--esencial.1.titulo",
+    "texto": "計算室"
   },
   {
-    "clave": "tut.primeros.2.texto",
-    "texto": "このボタンでマップに新しい部屋を描けます。この先を見せるために、今ひとつ作ってみますね…"
+    "clave": "tut.app-computo--esencial.1.texto",
+    "texto": "計算が必要なことはここで片づきます。メニューは2つ。モードと数式帳がついた電卓と、表になるものを扱う表計算です。"
   },
   {
-    "clave": "tut.primeros.3.titulo",
-    "texto": "新しい部屋"
+    "clave": "tut.app-computo--esencial.2.titulo",
+    "texto": "電卓"
   },
   {
-    "clave": "tut.primeros.3.texto",
-    "texto": "できました！作りたての部屋で、まだアプリがありません。だからボタンが「+ 割り当て」になっています。"
+    "clave": "tut.app-computo--esencial.2.texto",
+    "texto": "入力しながら結果が出る関数電卓で、計算したものは履歴に残ります。下のキーパッドを使えばスマホのキーボードは要らず、記法ボタンはカーソルの位置に科学記号を書き込みます。"
   },
   {
-    "clave": "tut.primeros.4.titulo",
-    "texto": "アプリを割り当てる"
+    "clave": "tut.app-computo--esencial.3.titulo",
+    "texto": "モード"
   },
   {
-    "clave": "tut.primeros.4.texto",
-    "texto": "「+ 割り当て」でアプリを入れました。部屋が名前もアイコンも家具も受け取り、ボタンが「入る」に変わったのが見えますか。"
+    "clave": "tut.app-computo--esencial.3.texto",
+    "texto": "このメニューで電卓の画面ごと切り替わります。グラフ、進数、行列、連立方程式、単位変換、チップ、比例式です。履歴はどのモードでも下に残ります。"
   },
   {
-    "clave": "tut.primeros.5.titulo",
-    "texto": "入る"
+    "clave": "tut.app-computo--esencial.4.titulo",
+    "texto": "数式帳"
   },
   {
-    "clave": "tut.primeros.5.texto",
-    "texto": "入りました。これが部屋のアプリです。歩いているときはドアをくぐっても入れますし、「‹ 家に戻る」で出られます。"
+    "clave": "tut.app-computo--esencial.4.texto",
+    "texto": "電卓の上にたたまれた、自分の公式集です。数学・物理・化学が最初から入っていて、フォルダは入れ子にできます。どの公式も開いて変数を入れられ、編集も削除もできます。"
   },
   {
-    "clave": "tut.primeros.6.texto",
-    "texto": "部屋はアプリごと家に残ります。あとも同じ要領です。続けたいことひとつにつき、部屋をひとつ。"
+    "clave": "tut.app-computo--esencial.5.titulo",
+    "texto": "表計算"
   },
   {
-    "clave": "tut.menu-cuartos.1.texto",
-    "texto": "「部屋」タブには、家にあるすべての部屋がカテゴリー別に並びます。"
+    "clave": "tut.app-computo--esencial.5.texto",
+    "texto": "セル参照と数式（=SUMA の形）が使えるシートで、選んだ範囲からグラフも描けます。数式を保持したままExcelに書き出せるほか、PDFにも出力できます。"
   },
   {
-    "clave": "tut.menu-cuartos.2.titulo",
-    "texto": "自分のまとめ"
+    "clave": "tut.app-descanso--esencial.1.titulo",
+    "texto": "休息"
   },
   {
-    "clave": "tut.menu-cuartos.2.texto",
-    "texto": "キャラクターは実際の活動で生きています。ここで機嫌、レベル、連続記録が見られます。どのアプリでも何か記録すれば元気になり、何日も何もないと元気をなくします。罰もリセットもありません。"
+    "clave": "tut.app-descanso--esencial.1.texto",
+    "texto": "このアプリは眠りのようすを1つの画面で見守ります。昨夜のスコア、通知つきのスケジュール、毎日の記録、そして履歴のすべてです。"
   },
   {
-    "clave": "tut.menu-cuartos.3.titulo",
-    "texto": "カード"
-  },
-  {
-    "clave": "tut.menu-cuartos.3.texto",
-    "texto": "カードはひとつひとつが部屋です。アイコン、名前、アプリの進みぐあいが並び、「体」「心」「その他」「設定」に分かれています。アプリが未設定の部屋は、いちばん最後にまとまります。"
-  },
-  {
-    "clave": "tut.menu-cuartos.4.titulo",
-    "texto": "編集"
-  },
-  {
-    "clave": "tut.menu-cuartos.4.texto",
-    "texto": "「編集」を押すと部屋のエディターが開きます。形、色、壁、オブジェクトを変えられます。（今は押さないでください。このメニューが閉じてしまいます。）"
-  },
-  {
-    "clave": "tut.menu-cuartos.5.titulo",
-    "texto": "「入る」と「割り当て」"
-  },
-  {
-    "clave": "tut.menu-cuartos.5.texto",
-    "texto": "「入る」で部屋のアプリが開きます。まだアプリがない部屋には、代わりに「+ 割り当て」が出て、カタログから選べます。"
-  },
-  {
-    "clave": "tut.menu-cuartos.6.titulo",
-    "texto": "部屋を作成"
+    "clave": "tut.app-descanso--esencial.2.titulo",
+    "texto": "スコア"
   }
 ]

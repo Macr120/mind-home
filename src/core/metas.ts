@@ -1,6 +1,7 @@
 import type { Alcance, EnlaceApp, PasoRutina, Rutina } from './data/db'
 import { borrarPlanesDeMetas, rutinasRepo } from './data/repository'
 import { DIA_MS, fechaLocalISO } from './fechaLocal'
+import { CASA } from './ui/calendario/apps'
 
 /**
  * Metas del calendario: UNA lista. Cualquier meta puede contener sub-metas, a la
@@ -31,9 +32,18 @@ export function esMeta(r: Rutina): boolean {
  * Metas cumplidas de una app, para el contador de su tarjeta (junto a la racha y
  * las listas). `null` = la app no lleva ninguna meta, y entonces no se pinta nada:
  * un «0» ahí parecería un pendiente en vez de «esto no va conmigo».
+ *
+ * El cuarto Metas es la excepción: es el planificador de TODA la casa y ninguna
+ * meta lleva su id (las que no son de ninguna app van con `plantillaId` vacío),
+ * así que su contador son las metas de la casa entera. Solo las RAÍCES: las fases
+ * que nacen de un plan aceptado son el desglose de una meta, no metas aparte, y
+ * contarlas dispararía la cifra hasta rozar la de listas cumplidas.
  */
 export function metasCumplidasDe(metas: Rutina[], plantillaId: string): number | null {
-  const suyas = metas.filter((m) => m.plantillaId === plantillaId)
+  const suyas =
+    plantillaId === 'metas'
+      ? metas.filter((m) => m.padreId == null)
+      : metas.filter((m) => m.plantillaId === plantillaId)
   return suyas.length > 0 ? suyas.filter((m) => m.completada).length : null
 }
 
@@ -140,10 +150,20 @@ export interface FiltroMetas {
   ocultarHechas?: boolean
   /** Texto libre contra el nombre y la nota. */
   busca?: string
+  /**
+   * Apps encendidas en el filtro del calendario. Vacío o sin valor = todas, igual
+   * que en el store: no hay que sembrarlo con el catálogo entero. Las metas que no
+   * son de ninguna app caen en el cajón `CASA`, como en el resto del filtro.
+   */
+  apps?: Set<string>
 }
 
 function coincide(r: Rutina, filtro: FiltroMetas): boolean {
   if (filtro.ocultarHechas && r.completada) return false
+  // `CASA` se usa aquí dentro y no en el módulo: aunque el import cerrara un ciclo
+  // (esto baja a `registry`, que monta las 20 plantillas), en tiempo de llamada ya
+  // está resuelto.
+  if (filtro.apps?.size && !filtro.apps.has(r.plantillaId ?? CASA)) return false
   const q = filtro.busca?.trim().toLowerCase()
   if (!q) return true
   return r.nombre.toLowerCase().includes(q) || (r.nota ?? '').toLowerCase().includes(q)

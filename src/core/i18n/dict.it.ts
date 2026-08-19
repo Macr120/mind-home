@@ -1,10 +1,9 @@
 /**
- * Diccionario ITALIANO de la interfaz. Se carga con import() perezoso
- * desde dict.ts, igual que el inglés: quien no use este idioma no lo descarga.
+ * Diccionario IT de la interfaz. Se carga con import() perezoso
+ * desde dict.ts: quien no use este idioma no lo descarga.
  *
- * GENERADO por `npm run traducir:i18n` a partir de `dict.en.ts` y de los
- * fallbacks españoles del código. No lo edites a mano: se sobrescribe entero.
- * Lo que falte cae al inglés (ver `useT`); al español solo en último término.
+ * Lo monta `traducir-a-mano.mjs meter-dict` a partir de `dict.en.ts` y de los
+ * fallbacks españoles del código. Lo que falte cae al inglés (ver `useT`).
  */
 import type { Dict } from './dict'
 
@@ -298,6 +297,12 @@ export const IT: Dict = {
   'tren.bajarte': 'Scendi',
   'tren.montarTren': 'Sali sul treno',
   'tren.montarCarrito': 'Sali sul carrello',
+  'tren.menu': 'E il treno?',
+  'tren.menu.coaster': 'E il carrello?',
+  'tren.menu.solo': 'Che continui da solo',
+  'tren.menu.asistente': 'Che lo guidi un assistente',
+  'tren.menu.detener': 'Fermalo qui',
+  'tren.menu.cancelar': 'Annulla',
   'juego.tu': 'Tu',
   'juego.rival': 'Avversario',
   'juego.gol': 'GOOOL! 🎉',
@@ -374,6 +379,7 @@ export const IT: Dict = {
   'hoy.objetivo': 'Il tuo obiettivo di ogni giorno (0 lo disattiva)',
   'hoy.checklist': 'Checklist del giorno',
   'hoy.grupoApp': 'Missioni del giorno',
+  'hoy.grupoMetas': 'Passi dei tuoi obiettivi',
   'hoy.nueva': 'Nuova checklist',
   'hoy.cerrar': 'Chiudi',
   'hoy.ocultarHechos': 'Nascondi i completati',
@@ -486,8 +492,11 @@ export const IT: Dict = {
   'progreso.nivel': 'Livello',
   'progreso.racha': 'Serie',
   'progreso.dias': 'giorni',
+  'progreso.hoy': 'Oggi',
+  'progreso.semana': '7 giorni',
   'progreso.rachaTitulo': 'Serie di giorni con attività',
   'progreso.listasTitulo': 'Liste di missioni completate',
+  'progreso.planesTitulo': 'Piani accettati',
   'progreso.listasCumplidas': 'Liste completate',
   'celebra.racha.titulo': 'Serie di {n} giorni!',
   'celebra.racha.titulo1': 'Serie di 1 giorno!',
@@ -498,8 +507,6 @@ export const IT: Dict = {
   'celebra.nivel.titulo': 'Sei salito di livello!',
   'celebra.nivel.cuerpo': '{app} ha raggiunto il livello {n} 🎉',
   'celebra.seguir': 'Continua!',
-  'progreso.hoy': 'Oggi',
-  'progreso.semana': '7 giorni',
   'plantillas.ayuda': 'Tocca l\'icona per aprire l\'app, scegli il suo assistente e assegnala a una stanza.',
   'plantillas.entrar': 'Apri l\'app',
   'plantillas.cerrarPrevia': '‹ Chiudi',
@@ -689,7 +696,7 @@ export const IT: Dict = {
   'chat.config.ponerMapa': 'Metti sulla mappa',
   'chat.config.voz': 'Voce:',
   'chat.config.vozAuto': 'Automatica (in base alla lingua)',
-  'chat.config.vozIA': 'Voce con IA (più naturale)',
+  'chat.config.vozIA': 'Voce con IA (OpenAI, più naturale)',
   'chat.config.vozLeer': 'Leggi ad alta voce ciò che dice',
   'chat.config.vozProbar': 'Prova la voce',
   'chat.config.vozTono': 'Tono',
@@ -5008,7 +5015,8 @@ export const IT: Dict = {
   'nav.editar.subirImagen': 'Carica un’immagine',
   'nav.editar.color': 'Colore',
   'nav.editar.murosTitulo': 'Ridipingere anche i muri?',
-  'nav.editar.murosMensaje': 'Questa stanza ha muri che hai dipinto a mano nell’editor della mappa. Ridipingendoli perdono il loro colore.',
+  'nav.editar.murosMensaje':
+    'Questa stanza ha muri che hai dipinto a mano nell’editor della mappa. Ridipingendoli perdono il loro colore.',
   'nav.editar.murosOk': 'Ridipingi',
   'nav.fondo.titulo': 'Sfondo',
   'nav.fondo.desc': 'Le immagini sono condivise con lo sfondo del cielo della casa.',
@@ -5150,20 +5158,15 @@ export const IT: Dict = {
   'rot.izq': 'Ruota 90° a sinistra',
   'rutinas.activar': 'Attiva',
   'rutinas.agregarPaso': 'Aggiungi passo',
-  'rutinas.autoRegistro': 'Registra automaticamente nella stanza',
   'rutinas.borrar': 'Elimina',
   'rutinas.confirmarBorrar': 'Eliminare questo evento?',
   'rutinas.cancelar': 'Annulla',
   'rutinas.cerrar': 'Chiudi',
-  'rutinas.completada': 'Routine completata!',
   'rutinas.editar': 'Modifica',
-  'rutinas.eventoSimple': 'Evento del calendario.',
   'rutinas.guardar': 'Salva',
-  'rutinas.hoy': 'Oggi',
   'rutinas.nombre': 'Nome della routine/evento',
   'rutinas.nueva': 'Nuova',
   'rutinas.pasoPh': 'Cosa fare…',
-  'rutinas.pasos': 'passi',
   'rutinas.pasosOpcional': 'opzionale',
   'rutinas.pasosTitulo': 'Passi',
   'rutinas.pausar': 'Pausa',
@@ -5173,11 +5176,6 @@ export const IT: Dict = {
   'rutinas.rep.soloTrazo': 'è stata programmata tracciandola sul calendario; ritracciala per cambiare le date',
   'rutinas.rep.termina': 'Termina il',
   'rutinas.rep.titulo': 'Ripetizione',
-  'rutinas.sinHora': 'senza orario',
-  'rutinas.titulo': 'Routine',
-  'rutinas.todas': 'Tutte le routine',
-  'rutinas.vacio':
-    'Ancora nessuna routine. Creane una con «+ Nuova» o chiedila al tuo assistente: «creami una routine del mattino con acqua, stretching e gratitudine».',
   'ui.sinApp': 'Questa stanza non ha nessuna app assegnata.',
   'ui.sinAppAyuda': 'Modifica la stanza e assegna un\'app a un oggetto.',
   'ui.volverApps': '‹ App della stanza',
@@ -5192,7 +5190,7 @@ export const IT: Dict = {
   'mascota.perro.saludo': 'Bau! Dimmi cosa hai fatto e lo salvo subito! 🦴',
   'mascota.buho.saludo': 'Saggio e attento. Racconta la tua giornata e la organizzerò.',
   'mascota.robot.saludo': 'Sistema pronto. Inserisci un dato da elaborare.',
-  'mascota.bitacora': 'il registro attività',
+  'mascota.bitacora': 'il diario di bordo',
   'mascota.elObjeto': 'l\'oggetto',
   'mascota.mago.capturado.0': '✨ Fatto. Ho trascritto la voce in {c}.',
   'mascota.mago.capturado.1': 'Così sarà: annotato in {c} nei minimi dettagli ✨',
@@ -5351,6 +5349,9 @@ export const IT: Dict = {
   'tut.editor-cuarto.titulo': 'Modificare una stanza',
   'tut.editor-cuarto.resumen':
     'Quando modifichi una stanza specifica, lo schizzo si concentra su di essa: forma, pavimento, muri, colore, nome e —quello che si usa di più qui— quale app ha assegnata o se conviene cambiarla. La freccia del pannello torna alla mappa completa, e il pulsante flottante sopra la stanza ne esce.',
+  'tut.inicio.titulo': 'Schermata iniziale',
+  'tut.inicio.resumen':
+    'La griglia delle tue stanze con app, con la meccanica di un telefono: un tocco entra, la pressione lunga riordina, e ogni scheda porta il suo livello, la sua serie e le missioni in sospeso di oggi. Con uno sfondo tutto suo e vista a icone o in 3D.',
   'tut.herramientas.titulo': 'Ruota degli strumenti',
   'tut.herramientas.resumen':
     'La ruota equipaggia il tuo personaggio in quattro categorie: movimenti (correre, ballare, saltare…), giocattoli (laser, portali, graffiti…), veicoli cavalcabili e costruzione (una scorciatoia verso le modalità dell\'editor della mappa). Due livelli —categoria → strumento— e fino a 3 equipaggiati insieme.',
@@ -5366,9 +5367,6 @@ export const IT: Dict = {
   'tut.app-generica.titulo': 'Questa app',
   'tut.app-generica.resumen':
     'Ogni app vive in una stanza: l\'intestazione mostra la stanza e l\'app, la lista di oggi porta ciò che c\'è da fare qui e «Torna alla casa» la chiude. I modelli tuoi si costruiscono con blocchi: note, liste, contatori, abitudini…',
-  'tut.rutinas.titulo': 'Routine',
-  'tut.rutinas.resumen':
-    'Il pannello delle routine porta la tua checklist del giorno in alto e il catalogo completo in basso: ogni routine ha un orario, una ripetizione e dei passi, e ogni passo può registrare da solo nella sua app. Al suo orario l\'assistente avvisa, e tutto ciò che è programmato si vede anche nel calendario.',
   'tut.enlaces.titulo': 'I chip di ogni passo',
   'tut.enlaces.resumen':
     'Un chip di app accanto a un obiettivo o a un passo di un piano dice dove si registra quello, e un tocco ti porta lì. È solo navigazione: la registrazione la fa sempre l\'app, mai il chip.',
@@ -5672,14 +5670,18 @@ export const IT: Dict = {
   'cuenta.nivel.actual': 'Attuale',
   'cuenta.nivel.nota': 'Puoi salire o scendere di livello quando vuoi; il cambio è addebitato in proporzione.',
   'cuenta.nivel.subir': 'Passa a ×{n} — {c} crediti al mese per {p}',
+  'cuenta.nivel.anual': 'Un anno di livello ×1 — {c} crediti al mese',
+  'cuenta.creditos.comprar': 'Ricarica {c} crediti — {p}',
+  'cuenta.creditos.nota': 'Pagamento unico: non scadono e funzionano anche senza abbonamento.',
+  'cuenta.creditos.enCamino': 'Il pagamento sta arrivando: riapri questa sezione tra qualche secondo.',
   'cuenta.cuota.cuerpoNivel': 'I tuoi crediti si rinnovano il {f}. Se ogni mese finiscono, sali di livello.',
   'cuenta.cuota.cuerpoVencida':
-    'I tuoi dati restano su questo dispositivo. Rinnova per riavere i crediti del mese e la sincronizzazione.',
+    'I tuoi dati restano su questo dispositivo. Rinnova per recuperare i crediti del mese e la sincronizzazione, oppure acquista una ricarica singola.',
   'cuenta.cuota.cuerpoTrial':
     'L’app e i tuoi dati sono tuoi per sempre. Abbonati a Pro per continuare con i crediti mensili e la sincronizzazione.',
   'cuenta.cuota.cuerpoLocal':
-    'L’app e i tuoi dati sono tuoi senza pagare nulla. Si paga solo l’IA: abbonati e ricevi crediti ogni mese.',
-  'cuenta.cuota.web': 'Vedi il mio abbonamento',
+    'L\'app e i tuoi dati sono tuoi senza pagare nulla. Solo l\'IA si paga: ricarica crediti quando ti servono, oppure abbonati e ricevili ogni mese.',
+  'cuenta.cuota.web': 'Compra crediti nel mio account',
   'cuenta.conGoogle': 'Continua con Google',
   'cuenta.conApple': 'Continua con Apple',
   'cuenta.oCorreo': 'o con la tua email',
@@ -5711,12 +5713,16 @@ export const IT: Dict = {
   'puerta.sinCompra': 'Questo account ({correo}) non ha ancora l’acquisto.',
   'puerta.yaPague': 'Ho già pagato: ricontrolla',
   'puerta.salir': 'Esci dall’account',
-  'puerta.cuenta': 'L’hai già comprata? Entra con il tuo account:',
+  'puerta.cuenta': 'L’hai già comprata o hai un coupon? Entra e lo riscatti dentro.',
+  'puerta.cupon.tengo': 'Hai un coupon?',
+  'puerta.cupon.codigo': 'Codice del coupon',
+  'puerta.cupon.canjear': 'Riscatta',
+  'chat.creditos': 'Crediti: {n}',
   'cuenta.uso.titulo': 'Uso dell\'IA questo mese',
   'cuenta.uso.tituloLocal': 'I tuoi crediti IA',
   'cuenta.uso.creditos': 'Crediti',
   'cuenta.uso.extra': 'Crediti extra (ricariche): {n}',
-  'cuenta.uso.notaImagen': '1 risposta = 1 credito · un piano lungo = 4 · un\'immagine o un modello 3D = 10',
+  'cuenta.uso.notaImagen': '1 risposta = 1 credito · un piano lungo = 3 · un\'immagine o un modello 3D = 10',
   'creditos.n': '{n} crediti',
   'creditos.ayuda': '1 risposta = 1 credito · un piano lungo = 4 · un\'immagine 3 o 10 · un modello 3D = 10',
   'creditos.porCada': '{n} cad.',
@@ -5758,7 +5764,7 @@ export const IT: Dict = {
   'ia.calidad.rapida.desc': 'Buona ed economica. È quella che uso a meno che tu non dica altro.',
   'ia.calidad.buena': 'Buona',
   'ia.calidad.buena.desc': 'Più dettaglio e testo migliore dentro l\'immagine.',
-  'ia.tarifas': 'Una risposta costa 1 credito · un piano lungo 4 · un\'immagine {img} · un modello 3D 10.',
+  'ia.tarifas': 'Una risposta costa 1 credito · un piano lungo 3 · un\'immagine {img} · un modello 3D 10.',
   'ia.precios.pie': 'È il server a fare l\'addebito: questo è quanto costerà prima di richiederlo.',
   'ia.precios.pieSinCuenta':
     'Con la tua chiave IA personale non si spendono crediti: paghi direttamente il tuo fornitore.',
@@ -5906,6 +5912,44 @@ export const IT: Dict = {
   'demo.error': 'Non è stato possibile costruire la demo.',
   'demo.reintentar': 'Riprova',
   'tut.flujos.titulo': 'Tutorial di questa app',
+  'tut.esencial.titulo': 'L’essenziale',
+  'tut.tipo.ejemplos': 'Esempi · casa demo',
+  'tut.app-agenda--esencial.resumen':
+    'L’agenda gestisce ciò che non è un’abitudine, in tre schede: Lavoro (da fare e bacheca), Salute (appuntamenti, farmaci e cure: tue, delle persone care e degli animali) e Persone (contatti e compleanni). Tutto ciò che ha una data si programma da solo nel calendario.',
+  'tut.calendario--esencial.resumen':
+    'Il calendario non è una stanza: vive nell’orologio della casa e riunisce tutto ciò che ha data e ora, quello che crei a mano e quello che le altre app programmano da sole. Si guarda in quattro modi: Giorno e Settimana sulla griglia delle ore, Mese e Anno per la panoramica. A parte c’è Missioni, il pulsante rosso con la checklist di oggi di tutte le app insieme.',
+  'tut.app-anecdotario--esencial.resumen':
+    'Il diario dei ricordi è il tuo diario personale: voci con umore, testo e foto che si salvano da sole per data. Un calendario colora ogni giorno in base al tuo umore, e la cronologia le archivia in cartelle per anno, mese e settimana.',
+  'tut.app-biblioteca--esencial.resumen':
+    'La biblioteca è la tua enciclopedia personale, in quattro schede: Chat (chiedi al Saggio e ogni conversazione si archivia e si distilla in una scheda), Enciclopedia (l’albero dove vive quello che impari, per campo di conoscenza), Studio (il timer semplice o pomodoro, che registra ogni sessione) e Panoramica (quanto hai scritto e quanto hai studiato).',
+  'tut.app-cocina--esencial.resumen':
+    'La cucina ha due schede. Ricettario custodisce quello che stai per cucinare: le tue ricette con i loro macro, le diete che le raggruppano e la lista della spesa. Controllo alimentare tiene il conto di quello che mangi, in quattro passi: gli obiettivi di calorie e peso, il diario del giorno, il piano pasti dei giorni a venire e i progressi.',
+  'tut.app-computo--esencial.resumen':
+    'La sala di calcolo ha due schede. La Calcolatrice fa i calcoli di sempre e cambia modalità per tracciare grafici, lavorare con basi numeriche, matrici, sistemi di equazioni, unità, mancia e regola del tre; ad essa è appeso il formulario, il tuo libro di formule con Matematica, Fisica e Chimica già incluse. I Fogli di calcolo gestiscono tutto ciò che è tabellare, con formule in linguaggio chiaro (come =SUMA) ed esportazione in Excel o PDF.',
+  'tut.app-descanso--esencial.resumen':
+    'Riposo registra come dormi in un’unica schermata: il punteggio dell’ultima notte, il tuo orario con i suoi avvisi, il diario quotidiano e la cronologia completa per anno, mese e settimana.',
+  'tut.app-despacho--esencial.resumen':
+    'Lo studio ordina i tuoi soldi in quattro schede. Patrimonio netto custodisce quello che hai e quello che devi, con la sua proiezione; Flusso di cassa tiene spese, entrate e il saldo del periodo, con budget e categorie; Obiettivi riunisce risparmio, investimento e debito, più le calcolatrici che propongono un importo. Mercati è una bacheca di quotazioni in tempo reale, solo di consultazione.',
+  'tut.app-diario--esencial.resumen':
+    'Il giornale è un quotidiano effimero: titoli di stampa reale per categoria e gli avvenimenti di oggi, che si rinnova da solo a mezzanotte. Dalla consegna programmi che un assistente te lo porti nella sua chat.',
+  'tut.app-ejercicio--esencial.resumen':
+    'Palestra riunisce le tre modalità per il corpo in un unico posto: Forza (serie, ripetizioni e peso), Resistenza (corsa, bici o nuoto, con allenamento dal vivo via GPS e cardiofrequenzimetro) e Flessibilità (mobilità a tempo, con player guidato). Tutte e tre si organizzano allo stesso modo — catalogo, routine e progresso — e la scheda Obiettivi stabilisce quanto allenarti ogni settimana e riassume la tua serie e i tuoi progressi.',
+  'tut.app-entretenimiento--esencial.resumen':
+    'Intrattenimento ha due schede: Giochi da tavolo, con un catalogo digitale raggruppato per famiglie e filtrabile per numero di giocatori, e Archivio, dove conservi i film, le serie, i libri e i videogiochi che finisci, con il loro stato e la tua recensione.',
+  'tut.app-garage--esencial.resumen':
+    'Il garage gestisce la manutenzione dei tuoi veicoli: un semaforo riassume cosa è urgente, l’elenco dei veicoli conserva la cronologia dei loro tagliandi, e ogni scheda riunisce le sue pratiche, i documenti e i contatti. Tutto ciò che ha una data si programma da solo nel calendario della casa.',
+  'tut.app-hobbies--esencial.resumen':
+    'Hobby tiene traccia dei tuoi passatempi: l’elenco con la serie e i progressi settimanali di ciascuno, e l’aggiunta di uno nuovo. Dentro ogni hobby vivono il registro delle sessioni, la heatmap dell’anno e i suoi progetti.',
+  'tut.app-ideas--esencial.resumen':
+    'Idee custodisce quello che ti viene in mente in tre schede: Diario (spunti sparsi o brainstorming per argomento), Mappe concettuali (una tela libera in vari formati) e Diagrammi decisionali (gli stessi formati, pensati per confrontare e decidere). Tutto si può archiviare in cartelle e convertire da una scheda all’altra.',
+  'tut.app-idiomas--esencial.resumen':
+    'Lingue è la tua scuola di lingue, in quattro schede. Chat apre una conversazione con un tutor di intelligenza artificiale che risponde al tuo livello; Programma ordina la lingua in argomenti, pronuncia e grammatica dal livello A1 al C2, e lì vive il vocabolario in carte; Ripasso lo ripassa con la ripetizione dilazionata ed esercizi; Progressi riassume i tuoi avanzamenti.',
+  'tut.app-jardin--esencial.resumen':
+    'Il giardino riunisce meditazione (con tracce sonore), respirazione guidata e gratitudine quotidiana, in tre schede. Non ha punti né serie di proposito: qui saltare un giorno non viene punito, si pratica e basta.',
+  'tut.app-metas--esencial.resumen':
+    'Il pianificatore di tutta la casa, in tre schede: Obiettivi (l’elenco di ciò che ti sei proposto, raggruppato per l’app che porta ognuno), Piani (le bozze di programma che ripartiscono un obiettivo in fasi) e Programma (l’asse del tempo dove cadono tutti). Non conserva registrazioni proprie: riunisce gli obiettivi e i piani che nascono nelle altre app. Da un obiettivo si apre il suo foglio e, da lì, il suo asse delimitato.',
+  'tut.app-sala--esencial.resumen':
+    'Il soggiorno è il tuo mondo viaggiatore, in quattro schede: Mappa (spilli di luoghi sulla mappa del mondo, con vista globo), Itinerario (luoghi da scoprire con il loro piano giorno per giorno), Percorsi (tragitti che collegano luoghi) e Diario di bordo (ricordi con foto e aneddoti per paese).',
   'tut.app-anecdotario--diario.titulo': 'Il diario di Pep',
   'tut.app-anecdotario--diario.resumen':
     'Il diario dei ricordi è il diario personale: voci con umore, testo e foto, un calendario che colora l\'anno in base a come ti sei sentito, e la cronologia in cartelle per anno, mese e settimana.',
@@ -5939,12 +5983,12 @@ export const IT: Dict = {
   'tut.calendario.titulo': 'Calendario',
   'tut.calendario.resumen':
     'L\'orologio della casa apre il calendario: tutto ciò che è programmato —turni, lezioni, abitudini e quello che aggiungono le altre app— nelle viste Giorno, Settimana, Mese, Anno e Obiettivi. Il pannello sotto misura quanto rispetti ciò che hai programmato.',
-  'tut.calendario.3b.titulo': 'E Obiettivi di oggi, a parte',
+  'tut.calendario.3b.titulo': 'E gli obiettivi, a parte',
   'tut.calendario.3b.texto':
-    'In rosso, per non confonderlo con i quattro sopra: Obiettivi di oggi riunisce la checklist del giorno di tutte le tue app. I tuoi obiettivi e i loro piani vivono in una stanza propria.',
+    'In rosso, per non confonderlo con i quattro sopra: Obiettivi apre i tuoi obiettivi, i loro piani e il programma.',
   'tut.metas.titulo': 'Obiettivi',
   'tut.metas.resumen':
-    'La lista degli obiettivi e, dentro ciascuno, il suo foglio: il piano che lo sviluppa (l\'IA lo propone e tu lo spunti) e il suo programma, dove le sue fasi occupano il loro periodo, ormai come veri sotto-obiettivi.',
+    'Le tre schermate di un obiettivo: la lista dove nasce, il piano che lo sviluppa (l\'IA lo propone e tu lo spunti) e il programma dove le sue fasi occupano il loro periodo, ormai come veri sotto-obiettivi.',
   'tut.app-biblioteca--enciclopedia.titulo': 'La tua enciclopedia personale',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Tutto ciò che impari viene archiviato in un albero per campo di conoscenza: schede con riepilogo e punti chiave che puoi illustrare.',
@@ -5962,6 +6006,9 @@ export const IT: Dict = {
   'tut.app-biblioteca--resumen.titulo': 'L\'anno a colpo d\'occhio',
   'tut.app-biblioteca--resumen.resumen':
     'Riepilogo raccoglie in una schermata quello che le altre tre schede distribuiscono: quante voci hai per campo, quanto hai studiato e in quali giorni.',
+  'tut.app-idiomas--charlas.titulo': 'Chat con il tuo tutor',
+  'tut.app-idiomas--charlas.resumen':
+    'La scheda Chat apre la conversazione con il tuo tutor IA: risponde al livello QCER del tuo profilo, corregge con delicatezza e all\'uscita ti propone di estrarre il vocabolario nuovo come carte. Ogni chat resta salvata, con il titolo e l\'argomento messi da soli.',
   'tut.app-idiomas--repaso.titulo': 'Il ripasso quotidiano',
   'tut.app-idiomas--repaso.resumen':
     'Le carte si ripassano per caselle: ogni risposta corretta allontana la prossima scadenza e ogni errore la avvicina. L\'app ti chiede solo quelle in scadenza oggi.',
@@ -6505,4 +6552,53 @@ export const IT: Dict = {
   'room.computo.corta': 'Calcolatrice, grafici e fogli',
   'room.agenda.corta': 'Impegni, salute e persone',
   'room.metas.corta': 'Obiettivi, piani e programma',
+  'chat.menu.chatAr': 'Chat AR',
+  'chatAr.salir': 'Esci',
+  'chatAr.voltear': 'Cambia fotocamera',
+  'chatAr.encuadre': 'Cambia inquadratura',
+  'chatAr.callar': 'Silenzia la voce',
+  'chatAr.asistente': 'Cambia assistente',
+  'chatAr.permiso': 'Il browser ha bloccato la fotocamera. Attivala dal lucchetto accanto all\'indirizzo.',
+  'chatAr.sinCamara': 'Nessuna fotocamera trovata su questo dispositivo.',
+  'chatAr.reintentar': 'Riprova',
+  'chatAr.placeholder': 'Parla o scrivi…',
+  'chatAr.enviar': 'Invia',
+  'chatAr.sinIa': 'Per parlare qui scegli prima un modello di IA nella chat di casa.',
+  'ia.donde.chatAr': 'Chat AR',
+  'ia.op.chat.ar': 'Conversazione nella chat AR',
+  'ia.op.chat.ar.nota': 'Se l\'assistente ha una voce di IA, la lettura si paga a parte come voce dell\'assistente.',
+  'editor.pers.expresion.triste': 'Triste',
+  'editor.pers.expresion.enojado': 'Arrabbiato',
+  'mascara.ocultar': 'Nascondi',
+  'mascara.mostrar': 'Mostra interfaccia',
+  'mascara.menos': 'Meno',
+  'mascara.ajustes': 'Impostazioni',
+  'mascara.cara': 'Volto',
+  'mascara.cara.fija': 'Fissa',
+  'mascara.cara.imita': 'Imita',
+  'mascara.cara.viva': 'Viva',
+  'mascara.camara': 'Fotocamera',
+  'mascara.camara.frontal': 'Frontale',
+  'mascara.camara.trasera': 'Posteriore',
+  'mascara.linterna': 'Torcia',
+  'mascara.lenteAuto': 'Obiettivo automatico ({camara})',
+  'mascara.camaraN': 'Fotocamera {n}',
+  'mascara.zoom': 'Zoom',
+  'mascara.encuadre': 'Inquadratura',
+  'mascara.encuadre.vertical': 'Verticale',
+  'mascara.encuadre.amplio': 'Ampio (bande)',
+  'mascara.piel': 'Pelle',
+  'mascara.pelo': 'Capelli',
+  'mascara.tamano': 'Dimensione',
+  'mascara.altura': 'Altezza',
+  'mascara.profundidad': 'Profondità',
+  'mascara.grabar': 'Registra',
+  'mascara.detener': 'Ferma registrazione',
+  'mascara.estado.errorModelo': 'Errore nel caricare MediaPipe',
+  'mascara.estado.sinCamara': 'Nessuna fotocamera',
+  'mascara.estado.cargando': 'Caricamento del modello…',
+  'mascara.estado.cara': 'Volto rilevato',
+  'mascara.estado.buscando': 'Cerco il volto…',
+  'mascara.errorCamara': 'Fotocamera non disponibile ({detalle}). Su iPhone apri l\'URL del tunnel HTTPS.',
+  'mascara.errorGrabar': 'Registrazione non riuscita: {detalle}',
 }

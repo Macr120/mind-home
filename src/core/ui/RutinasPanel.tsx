@@ -1,15 +1,25 @@
 import { useState } from 'react'
 import type { Rutina, PasoRutina, RepeticionRutina } from '../data/db'
-import { rutinasRepo, useEjecucionesDeFecha } from '../data/repository'
+import { rutinasRepo } from '../data/repository'
 import { getPlantilla, plantillasAgendables } from '../registry'
 import { appsAsignadas } from '../chat/dispatcher'
-import { hoyISO, tocaHoy, togglePaso, pasosHechosHoy, estaPendiente, textoRepeticion, DIAS_SEMANA } from '../rutinas'
-import { useRutinasUI } from '../state/rutinasUiStore'
+import { hoyISO, textoRepeticion, DIAS_SEMANA } from '../rutinas'
 import { pedirPermiso, permisoNotificaciones } from '../notificaciones'
 import { useT } from '../i18n/useT'
 import { COLORES_RUTINA } from './coloresRutina'
 import { FilaAviso } from './FilaAviso'
 import { Icono } from './iconos/Icono'
+
+/**
+ * El editor manual de rutinas/eventos y sus piezas compartidas (`rutinaNueva`,
+ * `MODOS_REPETICION`, `DIAS`). Lo usan el calendario (+ Nueva y editar un
+ * bloque), las Misiones de cada app y de la casa (la «checklist» del camino
+ * largo) y `HorarioActividad`.
+ *
+ * El panel rápido ⏰ que dio nombre al archivo se retiró: crear una rutina vive
+ * en Misiones (`AnadirObjetivo` y este editor) y la gestión —pausar, editar,
+ * borrar— en la fila del calendario (`DespliegueFila`).
+ */
 
 /** Etiquetas cortas de los días (índice = getDay(): 0=domingo). */
 export const DIAS = [...DIAS_SEMANA]
@@ -21,215 +31,6 @@ const aHHMM = (min: number) =>
   `${String(Math.floor(min / 60)).padStart(2, '0')}:${String(min % 60).padStart(2, '0')}`
 /** Redondea al múltiplo de 15 min más cercano. */
 const redondear15 = (hhmm: string) => aHHMM(Math.round(aMin(hhmm) / 15) * 15)
-
-/**
- * Panel rápido de rutinas: checklist del día (cada paso puede auto-registrar
- * en su cuarto) y gestor para crear/editar/borrar rutinas a mano. Se abre
- * desde el botón ⏰ del RelojWidget; el calendario completo es `Calendario`.
- * También dispara los recordatorios (el asistente anuncia a la hora).
- */
-/**
- * Pausar/reanudar un hábito, sin borrarle el pasado.
- *
- * Antes esto solo alternaba `activa`, y `tocaFecha` corta en seco con ella: una
- * rutina apagada dejaba de "tocar" en TODAS las fechas, así que sus días
- * cumplidos desaparecían también del histórico de cumplimiento. Ahora la pausa
- * además cierra la serie con `fechaFin` —campo que ya existía y que el cálculo
- * respeta—, de modo que el pasado se conserva y solo deja de contar de hoy en
- * adelante.
- *
- * No se tocan los finales que puso el usuario: solo se acota una serie abierta
- * (o que aún no ha terminado), y al reanudar solo se limpia el `fechaFin` que
- * ya quedó atrás, que es el que puso la pausa.
- *
- * Limitación asumida: los días en pausa cuentan como fallados si luego se
- * reanuda. Recuperarlos pediría volcarlos en `excepciones`.
- */
-function cambioPausa(r: Rutina): Partial<Rutina> {
-  const hoy = hoyISO()
-  if (r.activa) {
-    return !r.fechaFin || r.fechaFin > hoy
-      ? { activa: false, fechaFin: hoy }
-      : { activa: false }
-  }
-  return r.fechaFin && r.fechaFin <= hoy ? { activa: true, fechaFin: undefined } : { activa: true }
-}
-
-export function RutinasPanel() {
-  const t = useT()
-  const abierto = useRutinasUI((s) => s.panel)
-  const [editando, setEditando] = useState<Rutina | null>(null)
-  const rutinas = rutinasRepo.useAll()
-  const ejecuciones = useEjecucionesDeFecha(hoyISO())
-
-  const deHoy = (rutinas ?? []).filter(tocaHoy)
-
-  return (
-    <>
-      {abierto && (
-        <div data-tut="rutinas.panel" data-tut-zona="calendario" className="ui-panel-glass absolute end-3 top-24 z-20 flex max-h-[70vh] w-80 max-w-[calc(100vw-1.5rem)] flex-col rounded-2xl border border-white/10 shadow-xl backdrop-blur-md">
-          <div className="flex items-center justify-between gap-2 border-b border-white/10 px-3 py-2">
-            <p className="flex-1 text-sm font-semibold"><Icono nombre="alarma" /> {t('rutinas.titulo', 'Rutinas')}</p>
-            <button
-              type="button"
-              data-tut="rutinas.nueva"
-              onClick={() => setEditando(rutinaNueva())}
-              className="rounded-lg bg-emerald-600 px-2 py-1 text-[11px] font-bold texto-cta transition hover:bg-emerald-600"
-            >
-              + {t('rutinas.nueva', 'Nueva')}
-            </button>
-            <button
-              type="button"
-              onClick={() => useRutinasUI.getState().cerrarPanel()}
-              className="px-1 text-sm text-white/40 transition hover:text-white/80"
-              title={t('rutinas.cerrar', 'Cerrar')}
-            >
-              ✕
-            </button>
-          </div>
-
-          <div className="min-h-0 flex-1 space-y-3 overflow-y-auto p-3">
-            {editando ? (
-              <EditorRutina
-                rutina={editando}
-                onCerrar={() => setEditando(null)}
-              />
-            ) : (
-              <>
-                {/* Hoy: checklist */}
-                {deHoy.length > 0 && (
-                  <div data-tut="rutinas.hoy" className="space-y-2">
-                    <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
-                      {t('rutinas.hoy', 'Hoy')}
-                    </p>
-                    {deHoy.map((r) => (
-                      <TarjetaHoy key={r.id} rutina={r} hechos={pasosHechosHoy(r, ejecuciones)} pendiente={estaPendiente(r, ejecuciones)} />
-                    ))}
-                  </div>
-                )}
-
-                {/* Todas: gestionar */}
-                <div data-tut="rutinas.todas" className="space-y-1.5">
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
-                    {t('rutinas.todas', 'Todas las rutinas')}
-                  </p>
-                  {(rutinas ?? []).length === 0 && (
-                    <p className="py-2 text-center text-xs leading-relaxed text-white/35">
-                      {t(
-                        'rutinas.vacio',
-                        'Aún no hay rutinas. Crea una con «+ Nueva» o pídesela a tu asistente: «créame una rutina de mañana con agua, estiramiento y gratitud».',
-                      )}
-                    </p>
-                  )}
-                  {(rutinas ?? []).map((r) => (
-                    <div key={r.id} data-tut={`rutinas.fila.${r.id}`} className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-2 py-1.5">
-                      <span><Icono emoji={r.emoji} /></span>
-                      <div className="min-w-0 flex-1">
-                        <p className={`truncate text-xs font-semibold ${r.activa ? 'text-white/85' : 'text-white/35 line-through'}`}>
-                          {r.nombre}
-                        </p>
-                        <p className="text-[10px] text-white/35">
-                          {r.hora || t('rutinas.sinHora', 'sin hora')} · {textoRepeticion(r)} ·{' '}
-                          {r.pasos.length} {t('rutinas.pasos', 'pasos')}
-                        </p>
-                      </div>
-                      <button
-                        type="button"
-                        onClick={() => r.id != null && rutinasRepo.update(r.id, cambioPausa(r))}
-                        className={`rounded px-1.5 py-0.5 text-[10px] font-bold transition ${
-                          r.activa ? 'bg-emerald-500/20 text-emerald-400' : 'bg-white/10 text-white/40'
-                        }`}
-                        title={r.activa ? t('rutinas.pausar', 'Pausar') : t('rutinas.activar', 'Activar')}
-                      >
-                        {r.activa ? 'ON' : 'OFF'}
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setEditando({ ...r, pasos: r.pasos.map((p) => ({ ...p })) })}
-                        className="px-1 text-[11px] text-white/30 transition hover:text-white/80"
-                        title={t('rutinas.editar', 'Editar')}
-                      >
-                        <Icono nombre="editar" />
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => r.id != null && rutinasRepo.remove(r.id)}
-                        className="px-1 text-[11px] text-white/30 transition hover:text-red-400"
-                        title={t('rutinas.borrar', 'Borrar')}
-                      >
-                        ✕
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              </>
-            )}
-          </div>
-        </div>
-      )}
-    </>
-  )
-}
-
-/** Tarjeta del día: pasos palomeables; el auto-registro muestra ⚡. */
-function TarjetaHoy({ rutina, hechos, pendiente }: { rutina: Rutina; hechos: Set<number>; pendiente: boolean }) {
-  const t = useT()
-  const total = rutina.pasos.length
-  const completada = total > 0 && hechos.size >= total
-
-  return (
-    <div className={`rounded-xl border p-2 ${pendiente ? 'border-amber-400/40 bg-amber-500/10' : 'border-white/10 bg-white/5'}`}>
-      <div className="mb-1.5 flex items-center gap-2">
-        <span><Icono emoji={rutina.emoji} /></span>
-        <p className="flex-1 truncate text-xs font-semibold text-white/85">{rutina.nombre}</p>
-        {rutina.hora && <span className="text-[10px] text-white/40">{rutina.hora}</span>}
-        {total > 0 && (
-          <span className={`text-[10px] font-bold ${completada ? 'text-emerald-400' : 'text-white/40'}`}>
-            {hechos.size}/{total}
-          </span>
-        )}
-      </div>
-      <div className="space-y-1">
-        {total === 0 ? (
-          <p className="px-1.5 py-1 text-xs text-white/45">{t('rutinas.eventoSimple', 'Evento del calendario.')}</p>
-        ) : (
-          rutina.pasos.map((p, i) => {
-          const hecho = hechos.has(i)
-          const room = getPlantilla(p.roomId)
-          return (
-            <button
-              key={i}
-              type="button"
-              onClick={() => togglePaso(rutina, i)}
-              className="flex w-full items-center gap-2 rounded-lg px-1.5 py-1 text-start transition hover:bg-white/10"
-            >
-              <span
-                className={`grid h-4 w-4 shrink-0 place-items-center rounded border text-[10px] ${
-                  hecho ? 'border-emerald-400 bg-emerald-500/30 text-emerald-400' : 'border-white/25'
-                }`}
-              >
-                {hecho ? '✓' : ''}
-              </span>
-              <span className={`flex-1 truncate text-xs ${hecho ? 'text-white/35 line-through' : 'text-white/75'}`}>
-                {p.titulo}
-              </span>
-              {p.esquemaId && (
-                <span className="text-[10px] text-amber-400/80" title={t('rutinas.autoRegistro', 'Registra automáticamente en el cuarto')}>
-                  <Icono nombre="energia" />
-                </span>
-              )}
-              <span className="text-xs opacity-60">{room && <Icono emoji={room.icon} />}</span>
-            </button>
-          )
-        })
-        )}
-      </div>
-      {completada && (
-        <p className="mt-1 text-center text-[10px] text-emerald-400">✓ {t('rutinas.completada', '¡Rutina completada!')}</p>
-      )}
-    </div>
-  )
-}
 
 /** Rutina en blanco para el editor (la usa también el calendario). */
 export function rutinaNueva(base: Partial<Rutina> = {}): Rutina {

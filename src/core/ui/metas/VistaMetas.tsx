@@ -12,8 +12,9 @@ import { confirmar } from '../../state/confirmarStore'
 import { vivo } from '../estilos'
 import { Icono } from '../iconos/Icono'
 import { useArrastre, type PropsArrastre } from '../comun/arrastre'
-import { carpetaDeClave, claveDeMeta, PREFIJO_CAT, soltarMeta, type CarpetaMeta } from './carpetas'
+import { carpetaDeClave, claveDeMeta, COLOR_CATEGORIA, PREFIJO_CAT, soltarMeta, type CarpetaMeta } from './carpetas'
 import { FilaMetaCard } from './FilaMetaCard'
+import { Vacio } from '../../../rooms/_shared/ui'
 
 /** Dónde caería la meta que va en la mano: antes de una fila o al final de un grupo. */
 interface DestinoMeta {
@@ -191,44 +192,38 @@ export function VistaMetas({
   const vacio = !!ambito && grupos.every((g) => g.metas.length === 0)
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col">
-      <div data-tut="cal.metas.lista" className="min-h-0 flex-1 overflow-y-auto p-3">
-        {vacio && (
-          <p className="py-6 text-center text-xs text-white/30">
-            {t('cal.cron.vacio', 'Todavía no hay metas.')}
-          </p>
-        )}
-        {/* `items-start` para que un grupo corto no se estire al alto del de al lado. */}
-        <div
-          className={
-            dosColumnas ? 'grid items-start gap-3 md:grid-cols-2' : 'mx-auto max-w-2xl space-y-3'
-          }
-        >
-          {grupos.map((g) => (
-            <SeccionMetas
-              key={g.clave}
-              grupo={g}
-              anonima={!!ambito}
-              plegada={gruposPlegados.has(g.clave)}
-              onPlegarGrupo={() => plegarGrupo(g.clave)}
-              onBorrarCategoria={() => void borrarCategoria(g)}
-              busca={busca}
-              planPorMeta={planPorMeta}
-              onAbrirMeta={onAbrirMeta}
-              agregando={agregandoEn === g.clave}
-              onAgregar={() => setAgregandoEn(g.clave)}
-              onCerrarAlta={() => setAgregandoEn(null)}
-              nombre={nombre}
-              onNombre={setNombre}
-              onConfirmarAlta={() => void confirmarAlta(g)}
-              ejemplo={ejemplo}
-              // El arrastre solo en el panel general (ver el comentario del gesto).
-              gestoDe={ambito ? undefined : (m) => arr.props(String(m.id))}
-              enManoId={arr.enMano}
-              destino={arr.destino}
-            />
-          ))}
-        </div>
+    // Sin scroll propio: el que manda es el del cuarto. El ancho tampoco se decide
+    // aquí — lo pone el riel de `Cronograma`, así que pasar de una a dos columnas ya
+    // no mueve el menú de arriba.
+    <div data-tut="cal.metas.lista">
+      {/* La tarjeta del kit, con la clave que ya existía: cero i18n nuevo. */}
+      {vacio && <Vacio icono="objetivo" titulo={t('cal.cron.vacio', 'Todavía no hay metas.')} className="mb-3" />}
+      {/* `items-start` para que un grupo corto no se estire al alto del de al lado. */}
+      <div className={dosColumnas ? 'grid items-start gap-3 md:grid-cols-2' : 'space-y-3'}>
+        {grupos.map((g) => (
+          <SeccionMetas
+            key={g.clave}
+            grupo={g}
+            anonima={!!ambito}
+            plegada={gruposPlegados.has(g.clave)}
+            onPlegarGrupo={() => plegarGrupo(g.clave)}
+            onBorrarCategoria={() => void borrarCategoria(g)}
+            busca={busca}
+            planPorMeta={planPorMeta}
+            onAbrirMeta={onAbrirMeta}
+            agregando={agregandoEn === g.clave}
+            onAgregar={() => setAgregandoEn(g.clave)}
+            onCerrarAlta={() => setAgregandoEn(null)}
+            nombre={nombre}
+            onNombre={setNombre}
+            onConfirmarAlta={() => void confirmarAlta(g)}
+            ejemplo={ejemplo}
+            // El arrastre solo en el panel general (ver el comentario del gesto).
+            gestoDe={ambito ? undefined : (m) => arr.props(String(m.id))}
+            enManoId={arr.enMano}
+            destino={arr.destino}
+          />
+        ))}
       </div>
     </div>
   )
@@ -334,13 +329,13 @@ function SeccionMetas({
               ? t('cal.meta.ejemplo', 'Ej.: {ejemplo}', { ejemplo })
               : t('cal.metaPlaceholder', 'Agregar una meta…')
           }
-          className="w-full rounded border border-white/15 bg-black/30 px-1.5 py-0.5 text-xs text-white/90 placeholder:text-white/25 focus:outline-none"
+          className="w-full rounded-lg border border-white/15 bg-black/30 px-1.5 py-0.5 text-xs text-white/90 placeholder:text-white/25 focus:border-accent/60 focus:outline-none"
         />
       ) : (
         <button
           type="button"
           onClick={onAgregar}
-          className="rounded px-1.5 py-0.5 text-[11px] font-bold leading-none text-emerald-300/90 transition hover:bg-emerald-500/15 hover:text-emerald-200"
+          className="rounded-lg px-1.5 py-0.5 ui-presion text-2xs font-bold leading-none text-accent hover:bg-white/10"
         >
           + {t('cal.meta.etiquetaMeta', 'meta')}
         </button>
@@ -355,7 +350,7 @@ function SeccionMetas({
       meta={m}
       // El número es su sitio en la CARPETA, no en el resultado de la búsqueda.
       indice={raices.indexOf(m) + 1}
-      color={grupo.color || '#94a3b8'}
+      color={grupo.color || COLOR_CATEGORIA}
       plan={m.id != null ? planPorMeta?.get(m.id) : undefined}
       onAbrir={onAbrirMeta}
       gesto={gestoDe?.(m)}
@@ -385,13 +380,19 @@ function SeccionMetas({
       // El color de la app tiñe la carpeta entera: es lo que la distingue de un
       // vistazo entre doce. Los textos van en `texto-vivo` para que el modo claro
       // siga siendo legible (ver index.css).
-      style={{ borderColor: `${grupo.color}44`, backgroundColor: `${grupo.color}0d` }}
+      style={{
+        borderColor: `color-mix(in srgb, ${grupo.color} 27%, transparent)`,
+        backgroundColor: `color-mix(in srgb, ${grupo.color} 5%, transparent)`,
+      }}
     >
-      <div className="flex items-center gap-2 px-2.5 py-2" style={{ backgroundColor: `${grupo.color}1f` }}>
+      <div
+        className="flex items-center gap-2 px-2.5 py-2"
+        style={{ backgroundColor: `color-mix(in srgb, ${grupo.color} 12%, transparent)` }}
+      >
         <button
           type="button"
           onClick={onPlegarGrupo}
-          className="flex min-w-0 flex-1 items-center gap-2 text-start"
+          className="ui-presion flex min-w-0 flex-1 items-center gap-2 text-start"
         >
           <span className="w-2 shrink-0 text-[9px] text-white/40">{plegada ? '▸' : '▾'}</span>
           <span
@@ -410,7 +411,7 @@ function SeccionMetas({
               />
             </div>
             <span
-              className="shrink-0 rounded-full bg-black/25 px-2 py-0.5 text-[10px] font-bold tabular-nums text-white/70"
+              className="shrink-0 rounded-full bg-black/25 px-2 py-0.5 text-2xs font-bold tabular-nums text-white/70"
               title={t('cal.metas.grupoAvance', 'Metas completas de este grupo')}
             >
               {hechas}/{raices.length}
@@ -422,7 +423,7 @@ function SeccionMetas({
             type="button"
             onClick={onBorrarCategoria}
             title={t('cal.metas.categoria.borrar', '¿Quitar esta categoría?')}
-            className="shrink-0 px-0.5 text-[10px] text-white/30 transition hover:text-red-400"
+            className="ui-presion shrink-0 px-0.5 text-2xs text-white/30 transition hover:text-red-400"
           >
             <Icono nombre="basura" />
           </button>
@@ -433,7 +434,7 @@ function SeccionMetas({
         <div className="space-y-1 border-t border-white/5 px-1.5 pb-2 pt-1.5">
           {lista}
           {filas.length === 0 && (
-            <p className="px-1 py-1 text-[11px] text-white/25">
+            <p className="px-1 py-1 text-2xs text-white/25">
               {t('cal.metas.grupoVacio', 'Sin metas todavía.')}
             </p>
           )}

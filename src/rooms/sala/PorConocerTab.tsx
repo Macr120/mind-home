@@ -126,7 +126,6 @@ export function PorConocerTab({ lugares }: Props) {
         onCambio={setVista}
         color={COLOR}
         variante="sub"
-        nivel={2}
       />
 
       {vista === 'guardados' ? (

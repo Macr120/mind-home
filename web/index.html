@@ -6,30 +6,39 @@
     <title>Mind Planner Home — Tu vida, en una casa 3D</title>
     <meta
       name="description"
-      content="Organiza tus hábitos, metas, finanzas, comidas y más en una casa isométrica 3D donde cada cuarto es una app. Un solo pago de 10.99 USD con el primer mes de IA y sincronización incluido; demo gratis."
+      content="Organiza tus hábitos, metas, finanzas, comidas y más en una casa isométrica 3D donde cada cuarto es una app. Un solo pago de 6.99 USD con el primer mes de IA y sincronización incluido; demo gratis."
     />
+    <meta name="theme-color" content="#0f1115" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="%VITE_URL_WEB%/" />
     <meta property="og:title" content="Mind Planner Home" />
     <meta
       property="og:description"
-      content="Tu vida, en una casa 3D: hábitos, metas, finanzas, comidas y más. Un pago de 10.99 USD con el primer mes de IA incluido; demo gratis."
+      content="Tu vida, en una casa 3D: hábitos, metas, finanzas, comidas y más. Un pago de 6.99 USD con el primer mes de IA incluido; demo gratis."
     />
+    <meta property="og:image" content="%VITE_URL_WEB%/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="%VITE_URL_WEB%/og.png" />
     <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="stylesheet" href="/estilos.css" />
   </head>
   <body>
-    <div class="contenedor">
-      <header class="barra">
+    <header class="barra-marco">
+      <div class="contenedor barra">
         <a class="logo" href="/">
           <img src="/icon.svg" alt="" />
           <span>Mind Planner Home</span>
         </a>
         <nav>
-          <a class="boton" href="/cuenta">Entrar</a>
-          <a class="boton principal" href="/cuenta">Suscríbete</a>
+          <a class="boton ui-boton" href="/cuenta">Entrar</a>
+          <a class="boton principal ui-boton ui-accent-bg" href="/cuenta">Desbloquear</a>
         </nav>
-      </header>
+      </div>
+    </header>
 
-      <section class="hero">
+    <div class="contenedor">
+      <section class="hero aura">
         <h1>Tu vida entera,<br />en una casa 3D</h1>
         <p class="sub">
           Cada cuarto de tu casa es una app: ejercicio, comidas, finanzas, descanso, idiomas,
@@ -37,12 +46,14 @@
           sincronizado en todos tus dispositivos.
         </p>
         <div class="acciones">
-          <a class="boton principal grande" href="%VITE_URL_APP%">Probar la demo gratis</a>
-          <a class="boton grande" href="#precio">Ver los planes</a>
+          <a class="boton principal grande ui-boton ui-accent-bg" href="%VITE_URL_APP%">
+            Probar la demo gratis
+          </a>
+          <a class="boton grande ui-boton" href="#precio">Ver los planes</a>
         </div>
         <p class="nota">
-          La casa es gratis y funciona sin conexión. La IA y la sincronización son el plan de
-          pago — y puedes cancelarlo cuando quieras sin perder nada.
+          Tu casa es tuya con un pago único y funciona sin conexión. La IA y la sincronización
+          son opcionales — y si las dejas, no pierdes nada.
         </p>
         <!-- TODO(usuario): sustituir por el video o capturas reales (web/public/). -->
         <div class="demo">Aquí va tu video o capturas de la casa</div>
@@ -50,6 +61,7 @@
 
       <section id="caracteristicas">
         <h2>Una casa, muchas apps</h2>
+        <div class="piezas"></div>
         <div class="tarjetas">
           <div class="tarjeta">
             <h3>🏠 Cuartos que son apps</h3>
@@ -62,8 +74,8 @@
             <h3>✨ Asistente con IA</h3>
             <p>
               Chatea con tu asistente: captura comidas, crea rutinas, planea metas, genera
-              imágenes y modelos 3D. 700 créditos cada mes con el plan, o compra los que
-              necesites sin suscribirte.
+              imágenes y modelos 3D. Tu primer mes trae 700 créditos incluidos; después la
+              IA es opcional.
             </p>
           </div>
           <div class="tarjeta">
@@ -99,6 +111,7 @@
 
       <section id="precio">
         <h2>Un solo pago, tu casa para siempre</h2>
+        <div class="piezas"></div>
         <div class="planes">
           <div class="precio-caja">
             <h3 class="plan-nombre">Demo</h3>
@@ -108,45 +121,52 @@
               <li>Sin cuenta, sin tarjeta y sin conexión</li>
               <li>Nada se guarda: al recargar, la casa vuelve a empezar</li>
             </ul>
-            <a class="boton grande" href="%VITE_URL_APP%">Probar la demo</a>
+            <a class="boton grande ui-boton" href="%VITE_URL_APP%">Probar la demo</a>
             <p class="letra-chica">La app completa, para conocerla sin compromiso.</p>
           </div>
           <div class="precio-caja destacado">
             <h3 class="plan-nombre">La app</h3>
-            <div class="cifra">10.99 USD<small> pago único</small></div>
+            <div class="cifra">6.99 USD<small> pago único</small></div>
             <ul>
               <li>Tu propia casa, para siempre: todas las apps, tus datos en tu dispositivo</li>
               <li>Primer mes incluido: 700 créditos de IA + sincronización, sin tarjeta y sin suscripción</li>
-              <li>Al terminar el mes conservas la app y tus datos; la IA sigue con recargas de créditos que no caducan</li>
+              <li>Al terminar el mes conservas la app entera y tus datos; los créditos de IA son opcionales</li>
             </ul>
-            <a class="boton principal grande" href="/cuenta">Desbloquear mi casa</a>
+            <a class="boton principal grande ui-boton ui-accent-bg" href="/cuenta">
+              Desbloquear mi casa
+            </a>
             <p class="letra-chica">Un pago, sin renovaciones. La IA del primer mes va por nuestra cuenta.</p>
           </div>
-          <div class="precio-caja">
-            <h3 class="plan-nombre">Pro</h3>
-            <div class="cifra">4.99 USD<small> /mes</small></div>
-            <ul>
-              <li>700 créditos de IA cada mes (chat, planes, imágenes, modelos 3D)</li>
-              <li>Sincronización y respaldo entre todos tus dispositivos</li>
-              <li>¿Te quedaste corto? Recarga créditos cuando tú quieras</li>
-            </ul>
-            <a class="boton grande" href="/cuenta">Suscribirme</a>
-            <p class="letra-chica">
-              Precio en tu moneda local. Sin permanencia: si cancelas, la app sigue
-              funcionando con todos tus datos en modo local.
+        </div>
+        <!-- La IA es opcional: va aquí abajo, en voz baja, no como un tercer plan. -->
+        <div class="franja-ia">
+          <div class="texto">
+            <h3>IA y sincronización · opcional</h3>
+            <p class="precios-linea">
+              6 USD al mes<span>·</span>60 USD al año<span>·</span>o 6 USD por 700 créditos
+              sueltos
+            </p>
+            <p>
+              Solo si quieres seguir con la IA y la sincronización cuando termine tu primer
+              mes. Sin permanencia: si lo dejas, conservas la app y todos tus datos en modo
+              local.
             </p>
           </div>
+          <a class="enlace" href="/cuenta">Ver los planes →</a>
         </div>
       </section>
 
       <section id="descargas">
         <h2>Descargas</h2>
+        <div class="piezas"></div>
         <div class="tarjetas">
           <div class="tarjeta">
             <h3>🌐 En tu navegador</h3>
             <p>Sin instalar nada y sin cuenta: abre la app y tu casa te espera.</p>
             <!-- El valor viene de VITE_URL_APP (.env / Cloudflare Pages). -->
-            <a class="boton" style="margin-top: 10px" href="%VITE_URL_APP%">Abrir la app</a>
+            <a class="boton ui-boton" style="margin-top: 10px" href="%VITE_URL_APP%">
+              Abrir la app
+            </a>
           </div>
           <div class="tarjeta">
             <h3>🪟 Windows</h3>
@@ -173,49 +193,62 @@
 
       <section id="faq">
         <h2>Preguntas frecuentes</h2>
+        <div class="piezas"></div>
         <div class="faq">
           <details>
-            <summary>¿La app es gratis de verdad?</summary>
+            <summary>¿Qué incluye el pago único?</summary>
             <p>
-              Sí. La casa completa, sus apps y tus datos funcionan en tu dispositivo sin pagar
-              ni crear cuenta. Lo que cuesta dinero es lo que cuesta dinero de verdad: la IA
-              (cada respuesta se le paga al proveedor del modelo) y los servidores de
-              sincronización.
+              La casa entera: todos los cuartos, todas las apps y tus datos en tu dispositivo,
+              para siempre y sin renovaciones. Además, el primer mes trae 700 créditos de IA y
+              la sincronización incluidos, sin tarjeta. Antes de pagar puedes probar la demo
+              completa, que no pide cuenta.
+            </p>
+          </details>
+          <details>
+            <summary>¿Cuánto cuesta la IA después del primer mes?</summary>
+            <p>
+              Lo que tú elijas, o nada. La suscripción son 6 USD al mes (700 créditos y
+              sincronización), o 60 USD al año — dos meses de regalo. Si se te queda corta, los
+              niveles ×2 y ×3 dan 1400 o 2100 créditos por 12 o 18 USD al mes. Y si prefieres
+              no suscribirte, hay recargas sueltas: 6 USD por 700 créditos que no caducan y se
+              usan solo cuando los pides. Todo se gestiona en
+              <a href="/cuenta">tu cuenta</a>.
             </p>
           </details>
           <details>
             <summary>¿Qué son los créditos de IA?</summary>
             <p>
               La unidad con la que se cobra cada petición al asistente, según lo que cuesta
-              atenderla: una respuesta normal vale 1 crédito, un plan largo 3, y una imagen o
-              un modelo 3D 10. Con el plan Pro recibes 700 cada mes; también puedes comprar
-              paquetes sueltos sin suscribirte, y esos no caducan. Nunca se cobra automático:
-              solo se gasta cuando tú pides algo.
+              atenderla: una respuesta normal vale 1 crédito, un plan largo 4, una imagen 3
+              (10 en calidad alta) y un modelo 3D 10. Nunca se cobra automático: solo se gasta
+              cuando tú pides algo.
             </p>
           </details>
           <details>
             <summary>¿Qué pasa si cancelo?</summary>
             <p>
-              Conservas la app y todos tus datos en tus dispositivos, en modo local. Pierdes
-              los créditos mensuales y la sincronización, pero los créditos que hayas comprado
-              aparte siguen ahí. Si renuevas, todo se reactiva tal como lo dejaste.
+              Conservas la app entera y todos tus datos en tus dispositivos, en modo local.
+              Solo pierdes los créditos mensuales y la sincronización. Si renuevas, todo se
+              reactiva tal como lo dejaste.
             </p>
           </details>
           <details>
             <summary>¿Dónde se guardan mis datos?</summary>
             <p>
-              Primero en tu dispositivo (la app es local-first) y, con el plan Pro, también en
-              la nube para sincronizar entre dispositivos. En modo local no sale nada de tu
-              dispositivo. Los pagos los procesan RevenueCat y Stripe: nunca vemos tu tarjeta.
-              Más detalles en la <a href="/privacidad">política de privacidad</a>.
+              Primero en tu dispositivo (la app es local-first) y, con la sincronización
+              activa, también en la nube para pasar de un dispositivo a otro. En modo local no
+              sale nada de tu dispositivo. Los pagos los procesan RevenueCat y Stripe: nunca
+              vemos tu tarjeta. Más detalles en la
+              <a href="/privacidad">política de privacidad</a>.
             </p>
           </details>
           <details>
             <summary>¿En qué dispositivos funciona?</summary>
             <p>
               Hoy: en cualquier navegador moderno. Muy pronto: Windows, macOS, Android (Google
-              Play) y iPhone/iPad (App Store). Una sola suscripción vale para todos — se compra
-              aquí en la web y funciona en cualquier dispositivo donde entres con tu cuenta.
+              Play) y iPhone/iPad (App Store). Tu cuenta vale para todos — la compra y la
+              suscripción se contratan aquí en la web y funcionan en cualquier dispositivo
+              donde entres con ella.
             </p>
           </details>
           <details>

@@ -6,7 +6,7 @@ import { fechaLocalISO } from '../../core/fechaLocal'
 import { registrarProveedorMaterial } from '../../core/materialApps'
 import { COLOR_FABRICA, COLS_INICIO, FILAS_INICIO } from './constantes'
 import { OPERACIONES_IA } from './costosIA'
-import { flujosComputo } from './tutorial.meta'
+import { esencialComputo, flujosComputo } from './tutorial.meta'
 import { planMetasComputo } from './plan'
 
 // Las hojas se pueden enlazar desde otras apps (la enciclopedia de Biblioteca
@@ -50,6 +50,7 @@ const computo: Plantilla = {
   categoria: 'mente',
   color: COLOR_FABRICA,
   App: ComputoApp,
+  esencial: esencialComputo,
   flujos: flujosComputo,
   planMetas: planMetasComputo,
   operacionesIA: OPERACIONES_IA,

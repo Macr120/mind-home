@@ -297,6 +297,12 @@ export const EN: Dict = {
   'tren.bajarte': 'Get off',
   'tren.montarTren': 'Ride the train',
   'tren.montarCarrito': 'Ride the coaster cart',
+  'tren.menu': "What about the train?",
+  'tren.menu.coaster': "What about the cart?",
+  'tren.menu.solo': "Let it keep running on its own",
+  'tren.menu.asistente': "Let an assistant drive it",
+  'tren.menu.detener': "Stop it here",
+  'tren.menu.cancelar': "Cancel",
   'juego.tu': 'You',
   'juego.rival': 'Rival',
   'juego.gol': 'GOOOAL! 🎉',
@@ -377,6 +383,7 @@ export const EN: Dict = {
   'hoy.objetivo': 'Your daily target (0 turns it off)',
   'hoy.checklist': 'Daily checklist',
   'hoy.grupoApp': 'Daily missions',
+  'hoy.grupoMetas': 'Steps for your goals',
   'hoy.nueva': 'New checklist',
   'hoy.cerrar': 'Close',
   'hoy.ocultarHechos': 'Hide finished',
@@ -497,6 +504,7 @@ export const EN: Dict = {
   'progreso.semana': '7 days',
   'progreso.rachaTitulo': 'Streak of active days',
   'progreso.listasTitulo': 'Mission lists completed',
+  'progreso.planesTitulo': 'Accepted plans',
   'progreso.listasCumplidas': 'Lists completed',
 
   // Celebraciones de la gamificación (racha, lista cumplida, nivel)
@@ -5270,20 +5278,15 @@ export const EN: Dict = {
   'rot.izq': 'Rotate 90° left',
   'rutinas.activar': 'Activate',
   'rutinas.agregarPaso': 'Add step',
-  'rutinas.autoRegistro': 'Logs automatically in the room',
   'rutinas.borrar': 'Delete',
   'rutinas.confirmarBorrar': 'Delete this event?',
   'rutinas.cancelar': 'Cancel',
   'rutinas.cerrar': 'Close',
-  'rutinas.completada': 'Routine completed!',
   'rutinas.editar': 'Edit',
-  'rutinas.eventoSimple': 'Calendar event.',
   'rutinas.guardar': 'Save',
-  'rutinas.hoy': 'Today',
   'rutinas.nombre': 'Routine/event name',
   'rutinas.nueva': 'New',
   'rutinas.pasoPh': 'What to do…',
-  'rutinas.pasos': 'steps',
   'rutinas.pasosOpcional': 'optional',
   'rutinas.pasosTitulo': 'Steps',
   'rutinas.pausar': 'Pause',
@@ -5293,10 +5296,6 @@ export const EN: Dict = {
   'rutinas.rep.soloTrazo': 'scheduled by drawing it on the calendar; draw it again to change the dates',
   'rutinas.rep.termina': 'Ends on',
   'rutinas.rep.titulo': 'Repetition',
-  'rutinas.sinHora': 'no time',
-  'rutinas.titulo': 'Routines',
-  'rutinas.todas': 'All routines',
-  'rutinas.vacio': 'No routines yet. Create one with “+ New” or ask your assistant: “create me a morning routine with water, stretching and gratitude”.',
   'ui.sinApp': 'This room has no app assigned.',
   'ui.sinAppAyuda': 'Edit the room and assign an app to an object.',
   'ui.volverApps': '‹ Room apps',
@@ -5433,7 +5432,7 @@ export const EN: Dict = {
 
   // Tutoriales — casa
   'tut.casa.titulo': 'Your home',
-  'tut.casa.resumen': 'The home is the map of your apps: each room holds one. Move with the joystick or WASD, switch views with V and open the menu with the top-left button. The corner control changes on its own depending on what\'s nearby; the clock holds the calendar, routines and music.',
+  'tut.casa.resumen': 'The home is the map of your apps: each room holds one. Move with the joystick or WASD, switch views with V and open the menu with the top-left button. The corner control changes on its own depending on what\'s nearby; the clock holds the calendar and the passage of time, and the music has its own button.',
 
   // Tutoriales — primeros pasos (bienvenida)
   'tut.primeros.titulo': 'First steps',
@@ -5447,7 +5446,7 @@ export const EN: Dict = {
 
   // Tutoriales — menú Cuartos
   'tut.menu-cuartos.titulo': 'Menu · Rooms',
-  'tut.menu-cuartos.resumen': 'The Rooms tab lists your home\'s rooms by category, with their progress. Each card has Edit (customize the room) and Enter (open its app), or + Assign if it has no app yet. Your summary lives up top: mood, rank and streak; at the bottom you can create new rooms.',
+  'tut.menu-cuartos.resumen': 'The Rooms tab lists your home\'s rooms by category, with their progress. The whole card enters the app — or says + Assign if it has none yet — and its gear unfolds the options: move it in the list, delete the room or edit it. Your summary lives up top: mood, rank and streak; at the bottom you can create new rooms.',
   'tut.menu-cuartos.2b.titulo': 'Rank, badges and recap',
   'tut.menu-cuartos.2b.texto': 'The two rings next to your character are the Sisyphus Mountain (rank 1 to 12 and badges), and below sits your Wrapped, the recap of your week, month or year. Both have their own tutorial.',
 
@@ -5489,17 +5488,21 @@ export const EN: Dict = {
   'tut.editor-cuarto.titulo': 'Editing a room',
   'tut.editor-cuarto.resumen': 'When editing a specific room, the blueprint focuses on it: shape, floor, walls, color, name and —what brings people here the most— which app it has assigned, or whether to switch it. The panel\'s arrow returns to the full map, and the floating button over the room exits it.',
 
+  // Tutoriales — pantalla de inicio
+  'tut.inicio.titulo': 'Start screen',
+  'tut.inicio.resumen': 'The grid of your rooms with apps, with the mechanics of a phone: one tap enters, a long press reorders, and each card carries its level, its streak and today\'s pending missions. With its own wallpaper and icon or 3D view.',
+
   // Tutoriales — rueda de herramientas
   'tut.herramientas.titulo': 'Tool wheel',
   'tut.herramientas.resumen': 'The wheel equips your character across four categories: moves (run, dance, jump…), toys (laser, portals, graffiti…), rideable vehicles and construction (a shortcut into the map editor\'s modes). Two levels —category → tool— and up to 3 equipped at once.',
 
   // Tutoriales — navegación
   'tut.navegacion.titulo': 'Camera and movement',
-  'tut.navegacion.resumen': 'There are three views: isometric, third and first person (V key). You move with the joystick, WASD or arrows; the corner control orients the camera unless something\'s nearby, in which case it offers that action instead. In 3rd/1st person there\'s also the 3D Editor to touch the world directly.',
+  'tut.navegacion.resumen': 'There are three views: isometric, third and first person (V key). You move with the joystick, WASD or arrows; the corner control orients the camera unless something\'s nearby, in which case it offers that action instead. The Editor button works in any view: in 3rd/1st person you edit the world by walking through it.',
 
   // Tutoriales — chat
   'tut.chat.titulo': 'The architect\'s chat',
-  'tut.chat.resumen': 'The chat logs whatever you tell it into the right app ("ran 20 min" goes to Exercise), edits the home by text, dictates by voice and reads a photo. Each assistant has its face and voice; the manual lists everything you can ask, and whatever\'s already logged lives in its Records tab.',
+  'tut.chat.resumen': 'The chat logs whatever you tell it into the right app ("ran 20 min" goes to Exercise), edits the home by text and dictates by voice; its + attaches images, PDFs or photos and opens the AR mask and the AR chat. Each assistant has its face and voice; the manual lists everything you can ask, and whatever\'s logged lives in its Records tab.',
 
   // Tutoriales — chat · registros y memorias
   'tut.chat-registros.titulo': 'Chat · Records and memories',
@@ -5510,10 +5513,6 @@ export const EN: Dict = {
   'tut.app-generica.resumen': 'Every app lives in a room: the header shows the room and the app, the today list holds what to do here and "Back to the house" closes it. Your own templates are built from blocks: notes, lists, counters, habits…',
 
   // Tutoriales — rutinas
-  'tut.rutinas.titulo': 'Routines',
-  'tut.rutinas.resumen': 'The routines panel carries your day\'s checklist up top and the full catalog below: every routine has a time, a repeat and steps, and every step can log on its own into its app. At its time the assistant reminds you, and everything scheduled also shows in the calendar.',
-
-  // Tutoriales — los chips de app de metas y planes
   'tut.enlaces.titulo': 'The chip on every step',
   'tut.enlaces.resumen': 'An app chip next to a goal or a plan step says where it gets logged, and tapping it takes you there. It\'s navigation only: logging is always done by the app, never by the chip.',
 
@@ -5530,8 +5529,8 @@ export const EN: Dict = {
   'tut.ejemplos.resumen': 'Almost every app has a bar to see a factory example already filled in, and to hide it again later without losing anything of your own. It doesn\'t show up inside the demo home: there, the whole year already IS the example.',
 
   // Tutoriales — lista Hoy
-  'tut.hoy.titulo': 'Today\'s list',
-  'tut.hoy.resumen': 'Each app\'s Today list brings together three things in one place: that app\'s daily targets, what you scheduled for today, and the steps from your active goals. A step is done because the log already exists in the app, not because someone checked it by hand.',
+  'tut.hoy.titulo': 'Missions',
+  'tut.hoy.resumen': 'Each app\'s Missions button gathers the day in one panel: on top that app\'s goals, and below today\'s checklist — its targets, what\'s scheduled and the steps of your active goals. A step is done because the log already exists in the app, not because someone checked it by hand.',
 
   // Tutoriales — tu progreso (Sísifo)
   'tut.progreso.titulo': 'Your progress',
@@ -5833,6 +5832,10 @@ export const EN: Dict = {
   'cuenta.nivel.actual': 'Current',
   'cuenta.nivel.nota': 'You can move up or down a level whenever you want; the change is prorated.',
   'cuenta.nivel.subir': 'Move up to ×{n} — {c} credits a month for {p}',
+  'cuenta.nivel.anual': 'One year of level ×1 — {c} credits a month',
+  'cuenta.creditos.comprar': 'Top up {c} credits — {p}',
+  'cuenta.creditos.nota': 'One-time payment: they never expire and work even without a subscription.',
+  'cuenta.creditos.enCamino': 'Your payment is on its way: open this section again in a few seconds.',
   'cuenta.cuota.cuerpoNivel': 'Your credits renew on {f}. If they run short every month, move up a level.',
   'cuenta.cuota.cuerpoVencida': 'Your data is still on this device. Renew to get your monthly credits and syncing back.',
   'cuenta.cuota.cuerpoTrial': 'The app and your data are yours forever. Subscribe to Pro to keep your monthly credits and syncing.',
@@ -5869,7 +5872,11 @@ export const EN: Dict = {
   'puerta.sinCompra': 'This account ({correo}) doesn’t have the purchase yet.',
   'puerta.yaPague': 'I already paid: check again',
   'puerta.salir': 'Sign out',
-  'puerta.cuenta': 'Already bought it? Sign in with your account:',
+  'puerta.cuenta': 'Already bought it, or have a coupon? Sign in and you can redeem it inside.',
+  'puerta.cupon.tengo': 'Have a coupon?',
+  'puerta.cupon.codigo': 'Coupon code',
+  'puerta.cupon.canjear': 'Redeem',
+  'chat.creditos': 'Credits: {n}',
   'cuenta.uso.titulo': 'AI usage this month',
   'cuenta.uso.tituloLocal': 'Your AI credits',
   'cuenta.uso.creditos': 'Credits',
@@ -6061,6 +6068,45 @@ export const EN: Dict = {
   'demo.error': 'The demo could not be built.',
   'demo.reintentar': 'Retry',
   'tut.flujos.titulo': 'Tutorials for this app',
+  // Esenciales (corren en la casa real y recorren los menús de cada app)
+  'tut.esencial.titulo': 'The essentials',
+  'tut.tipo.ejemplos': 'Examples · demo house',
+  'tut.app-agenda--esencial.resumen':
+    "The agenda holds what isn't a habit, in three menus: Work (to-dos and board), Health (appointments, medication and care: yours, your loved ones' and your pets') and People (contacts and birthdays). Everything with a date lands in the calendar by itself.",
+  'tut.calendario--esencial.resumen':
+    "The calendar isn't a room: it lives in the house clock and gathers everything with a date and time, what you create by hand and what the other apps schedule on their own. There are four ways to look at it: Day and Week on the hourly grid, Month and Year for the big picture. Missions sits apart, the red button with today's checklist from every app at once.",
+  'tut.app-anecdotario--esencial.resumen':
+    'Anecdotario is your personal diary: entries with a mood, text and photos that save themselves by date. A calendar colors each day by your mood, and the history archives them in folders by year, month and week.',
+  'tut.app-biblioteca--esencial.resumen':
+    "The library is your personal encyclopedia, in four menus: Chats (you ask the Sage and every conversation is filed away and distilled into an entry), Encyclopedia (the tree where what you learn lives, by field of knowledge), Study (the simple or pomodoro timer, which logs every session) and Overview (how much you've written and how much you've studied).",
+  'tut.app-cocina--esencial.resumen':
+    'The kitchen has two menus. Recipe book keeps what you are going to cook: your recipes with their macros, the diets that group them and the grocery list. Nutrition control tracks what you eat, in four steps: your calorie and weight goals, the daily log, the meal plan for the days ahead and your progress.',
+  'tut.app-computo--esencial.resumen':
+    'The computer room has two menus. The Calculator does the everyday math and switches modes to plot graphs, work with number bases, matrices, systems of equations, units, tips and rule of three; hanging off it is the formulary, your formula book with Maths, Physics and Chemistry already loaded. Spreadsheets handle anything tabular, with formulas in plain language and export to Excel or PDF.',
+  'tut.app-descanso--esencial.resumen':
+    "Descanso tracks your sleep on a single screen: last night's score, your schedule with its reminders, the daily log, and the full history.",
+  'tut.app-despacho--esencial.resumen':
+    "The study organizes your money in four menus. Net worth holds what you own and what you owe, with its projection; Flow tracks expenses, income and the period's balance, with its budget and categories; Goals brings together saving, investing and debt, plus the calculators that suggest an amount. Markets is a live quote board, for reference only.",
+  'tut.app-diario--esencial.resumen':
+    "The diary is an ephemeral newspaper: real-press headlines by category and today's on-this-day facts, which renews itself on its own at midnight. From delivery you schedule an assistant to bring it to you in their own chat.",
+  'tut.app-ejercicio--esencial.resumen':
+    "Exercise keeps the body's three modes in one place: Strength (sets, reps and weight), Endurance (running, cycling or swimming, with a live workout using GPS and a heart rate sensor) and Flexibility (timed mobility, with a guided player). All three are laid out the same way — catalogue, routines and progress — and the Goals menu sets how much to train each week and sums up your streak and how far along you are.",
+  'tut.app-entretenimiento--esencial.resumen':
+    'Entertainment has two menus: Board games, a digital catalog grouped by family and filtered by player count, and Archive, where you keep the movies, shows, books, and video games you finish, with their status and your review.',
+  'tut.app-garage--esencial.resumen':
+    "The garage tracks your vehicles' maintenance: a traffic light flags what needs attention, the vehicle list holds each one's service history, and every entry gathers its procedures, documents and contacts. Anything with a date books itself onto the house calendar.",
+  'tut.app-hobbies--esencial.resumen':
+    "Hobbies tracks your pastimes: the list with each one's streak and weekly progress, and the form to add a new one. Inside each hobby lives the session log, the yearly heatmap and its projects.",
+  'tut.app-ideas--esencial.resumen':
+    'Ideas keeps whatever crosses your mind in three menus: Diary (loose occurrences or brainstorms by topic), Concept maps (a free canvas in several formats) and Decision diagrams (the same formats, meant for comparing and deciding). Everything can be filed into folders and turned from one menu into another.',
+  'tut.app-idiomas--esencial.resumen':
+    "Idiomas is your language school, in four menus. Chats opens a conversation with an AI tutor that responds to your level; Curriculum organizes the language into topics, pronunciation, and grammar from level A1 to C2, and that's where the vocabulary lives as cards; Review goes over it with a spaced system and exercises; Progress summarizes your advancement.",
+  'tut.app-jardin--esencial.resumen':
+    "The garden brings together meditation (with sound tracks), guided breathing, and daily gratitude, across three menus. It carries no points or streaks on purpose: nothing punishes missing a day here, it's just for practicing.",
+  'tut.app-metas--esencial.resumen':
+    'The planner for the whole house, in three menus: Goals (the list of what you set out to do, grouped by the app that carries each one), Plans (the schedule drafts that split a goal into phases) and Timeline (the time axis where they all land). It keeps no records of its own: it gathers the goals and plans that are born in the other apps. From a goal you open its sheet and, from there, the axis narrowed down to it.',
+  'tut.app-sala--esencial.resumen':
+    'The living room is your travel world, in four menus: Map (pins of places on the world map, with a globe view), Itinerary (places to see with a day-by-day plan), Routes (routes that chain places together) and Logbook (memories with photos and stories by country).',
   // Flujos G2 (corren sobre el año de Pep@ en la casa demo)
   'tut.app-anecdotario--diario.titulo': "Pep@'s journal",
   'tut.app-anecdotario--diario.resumen':
@@ -6119,6 +6165,9 @@ export const EN: Dict = {
   'tut.app-biblioteca--resumen.titulo': 'The year at a glance',
   'tut.app-biblioteca--resumen.resumen':
     'Summary gathers on one screen what the other three tabs spread out: how many entries you have per field, how much you have studied and on which days.',
+  'tut.app-idiomas--charlas.titulo': 'Chats with your tutor',
+  'tut.app-idiomas--charlas.resumen':
+    "The Chats tab opens conversation with your AI tutor: it answers at your profile's CEFR level, corrects gently and on your way out offers to extract the new vocabulary as cards. Every chat is saved, its title and topic filled in on their own.",
   'tut.app-idiomas--repaso.titulo': 'The daily review',
   'tut.app-idiomas--repaso.resumen':
     'Cards are reviewed in boxes: every hit pushes the next date further away, every miss brings it closer. The app only asks for what is due today.',
@@ -6143,7 +6192,7 @@ export const EN: Dict = {
     'The inbox of undated to-dos and a Kanban board where cards are dragged from column to column.',
   'tut.app-agenda--salud.titulo': 'Health and pets',
   'tut.app-agenda--salud.resumen':
-    'Medical appointments, medication schedules and pets with their care routines: it all lands in the calendar by itself.',
+    'Health in three submenus: You (appointments by specialty, care routines, medication and the cycle), Loved ones (the people in your care) and Pets. Everything with a date lands in the calendar by itself.',
   'tut.app-agenda--personas.titulo': 'People',
   'tut.app-agenda--personas.resumen':
     'Your address book by relationship, with birthdays that repeat themselves every year in the calendar.',
@@ -6200,7 +6249,7 @@ export const EN: Dict = {
     'Name, type, make, model, year, plates and today\'s odometer. With plates on file, the garage knows which paperwork to offer you later.',
   'tut.app-garage--tramites.titulo': 'Paperwork that books itself',
   'tut.app-garage--tramites.resumen':
-    'Schedule the inspection, the road tax, the insurance or a periodic service and the garage puts its block in the calendar, plus a heads-up as far ahead as you ask.',
+    "Each vehicle's file has three notebooks: Paperwork (inspection, periodic service), Documents (road tax, insurance, registration) and Contacts. Everything that comes due puts its block in the calendar, with the advance notice you ask for.",
   'tut.app-garage--tramites.2b.titulo': 'Papers, kept apart',
   'tut.app-garage--tramites.2b.texto':
     'The registration card, the policy and the road tax do not mix with what happens at the shop: they get their own notebook, with reference, due date and advance warning.',
@@ -6681,4 +6730,55 @@ export const EN: Dict = {
   'room.computo.corta': 'Calculator, charts and sheets',
   'room.agenda.corta': 'To-dos, health and people',
   'room.metas.corta': 'Goals, plans and timeline',
+
+  // Chat AR y máscara AR
+  'chat.menu.chatAr': 'AR chat',
+  'chatAr.salir': 'Exit',
+  'chatAr.voltear': 'Switch camera',
+  'chatAr.encuadre': 'Switch framing',
+  'chatAr.callar': 'Mute the voice',
+  'chatAr.asistente': 'Switch assistant',
+  'chatAr.permiso': 'The browser blocked the camera. Turn it on from the lock next to the address.',
+  'chatAr.sinCamara': 'No camera found on this device.',
+  'chatAr.reintentar': 'Retry',
+  'chatAr.placeholder': 'Talk to them or type…',
+  'chatAr.enviar': 'Send',
+  'chatAr.sinIa': 'To talk here, first pick an AI model in the house chat.',
+  'ia.donde.chatAr': 'AR chat',
+  'ia.op.chat.ar': 'Conversation in AR chat',
+  'ia.op.chat.ar.nota': 'If the assistant has an AI voice, reading it aloud is charged separately as assistant voice.',
+  'editor.pers.expresion.triste': 'Sad',
+  'editor.pers.expresion.enojado': 'Angry',
+  'mascara.ocultar': 'Hide',
+  'mascara.mostrar': 'Show interface',
+  'mascara.menos': 'Less',
+  'mascara.ajustes': 'Settings',
+  'mascara.cara': 'Face',
+  'mascara.cara.fija': 'Fixed',
+  'mascara.cara.imita': 'Mimic',
+  'mascara.cara.viva': 'Alive',
+  'mascara.camara': 'Camera',
+  'mascara.camara.frontal': 'Front',
+  'mascara.camara.trasera': 'Back',
+  'mascara.linterna': 'Flashlight',
+  'mascara.lenteAuto': 'Automatic lens ({camara})',
+  'mascara.camaraN': 'Camera {n}',
+  'mascara.zoom': 'Zoom',
+  'mascara.encuadre': 'Framing',
+  'mascara.encuadre.vertical': 'Vertical',
+  'mascara.encuadre.amplio': 'Wide (letterbox)',
+  'mascara.piel': 'Skin',
+  'mascara.pelo': 'Hair',
+  'mascara.tamano': 'Size',
+  'mascara.altura': 'Height',
+  'mascara.profundidad': 'Depth',
+  'mascara.grabar': 'Record',
+  'mascara.detener': 'Stop recording',
+  'mascara.estado.errorModelo': 'Error loading MediaPipe',
+  'mascara.estado.sinCamara': 'No camera',
+  'mascara.estado.cargando': 'Loading model…',
+  'mascara.estado.cara': 'Face detected',
+  'mascara.estado.buscando': 'Looking for a face…',
+  'mascara.errorCamara': 'Camera unavailable ({detalle}). On iPhone, open the HTTPS tunnel URL.',
+  'mascara.errorGrabar': 'Could not record: {detalle}',
 }

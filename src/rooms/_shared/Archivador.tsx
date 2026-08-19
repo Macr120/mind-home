@@ -45,6 +45,7 @@ export function Archivador<T>({
   resumen,
   vacio,
   abrirEn,
+  claseLista,
   children,
 }: {
   items: T[]
@@ -57,6 +58,8 @@ export function Archivador<T>({
   /** Día `yyyy-mm-dd` elegido fuera (un calendario): abre sus carpetas, lo
    *  destaca y lo trae a la vista. */
   abrirEn?: string
+  /** Clase del contenedor de los registros (lista apilada por defecto). */
+  claseLista?: string
   children: (item: T) => ReactNode
 }) {
   const t = useT()
@@ -165,7 +168,7 @@ export function Archivador<T>({
                   abierta={abierta(semana.lunes)}
                   onAlternar={() => alternar(semana.lunes)}
                 >
-                  <div className="space-y-2">
+                  <div className={claseLista ?? 'space-y-2'}>
                     {semana.items.map((item) =>
                       abrirEn ? (
                         <div
@@ -207,6 +210,7 @@ export function CarpetasPorEtiqueta<T>({
   sinEtiqueta,
   orden,
   onReordenar,
+  claseLista,
   children,
 }: {
   items: T[]
@@ -218,6 +222,8 @@ export function CarpetasPorEtiqueta<T>({
   orden?: string[]
   /** Si se define, las carpetas se arrastran y esto recibe el orden completo. */
   onReordenar?: (titulos: string[]) => void
+  /** Clase del contenedor de los registros (lista apilada por defecto). */
+  claseLista?: string
   children: (item: T) => ReactNode
 }) {
   const t = useT()
@@ -294,7 +300,7 @@ export function CarpetasPorEtiqueta<T>({
             })
           }
         >
-          <div className="space-y-2">
+          <div className={claseLista ?? 'space-y-2'}>
             {grupo.items.map((item) => (
               <Fragment key={clave(item)}>{children(item)}</Fragment>
             ))}

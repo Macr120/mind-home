@@ -118,10 +118,38 @@ export const buscarAgenda = (rutinas: Rutina[] | undefined, id: string): Rutina 
  * («¿la sigo haciendo?»), no del pasado. `tocaFecha` corta con ella antes que
  * nada, así que al pausar un hábito su pasado cumplido desaparecía de las
  * métricas de cumplimiento. Aquí el recorte del pasado lo hace `fechaFin`, que
- * la pausa fija en el día en que se apagó (ver `cambioPausa` en RutinasPanel).
+ * la pausa fija en el día en que se apagó (ver `cambioPausa` abajo).
  */
 export function tocaFechaHistorico(r: Rutina, d: Date): boolean {
   return tocaFecha(r.activa ? r : { ...r, activa: true }, d)
+}
+
+/**
+ * Pausar/reanudar un hábito, sin borrarle el pasado (el ON/OFF de la fila del
+ * calendario, en `DespliegueFila`).
+ *
+ * Antes esto solo alternaba `activa`, y `tocaFecha` corta en seco con ella: una
+ * rutina apagada dejaba de "tocar" en TODAS las fechas, así que sus días
+ * cumplidos desaparecían también del histórico de cumplimiento. Ahora la pausa
+ * además cierra la serie con `fechaFin` —campo que ya existía y que el cálculo
+ * respeta—, de modo que el pasado se conserva y solo deja de contar de hoy en
+ * adelante.
+ *
+ * No se tocan los finales que puso el usuario: solo se acota una serie abierta
+ * (o que aún no ha terminado), y al reanudar solo se limpia el `fechaFin` que
+ * ya quedó atrás, que es el que puso la pausa.
+ *
+ * Limitación asumida: los días en pausa cuentan como fallados si luego se
+ * reanuda. Recuperarlos pediría volcarlos en `excepciones`.
+ */
+export function cambioPausa(r: Rutina): Partial<Rutina> {
+  const hoy = hoyISO()
+  if (r.activa) {
+    return !r.fechaFin || r.fechaFin > hoy
+      ? { activa: false, fechaFin: hoy }
+      : { activa: false }
+  }
+  return r.fechaFin && r.fechaFin <= hoy ? { activa: true, fechaFin: undefined } : { activa: true }
 }
 
 /** ¿La rutina corresponde a esa fecha? (para el presente: las pausadas no tocan) */

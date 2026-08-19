@@ -1,34 +1,36 @@
 [
-  { "clave": "tut.chat.6.texto", "texto": "Instrukcja wypisuje komendy: dodawanie i usuwanie pokoi, tworzenie obiektów, zapamiętywanie rzeczy…" },
-  { "clave": "tut.chat.7.titulo", "texto": "Model AI" },
-  { "clave": "tut.chat.7.texto", "texto": "Ta ikona wybiera, które AI odpowiada, i zapisuje twój klucz, jeśli używasz własnego. Bez żadnego skonfigurowanego modelu czat nadal działa na słowa kluczowe, ale nie rozumie swobodnego języka." },
-  { "clave": "tut.chat.8.texto", "texto": "Możesz też zapytać tutaj „jak działa Kuchnia?” albo poprosić o „samouczek Siłowni”, a to, co zostało zapisane, sprawdzisz w samouczku „Wpisy i wspomnienia”." },
-  { "clave": "tut.chat-registros.1.texto", "texto": "Zakładka Czaty pokazuje, z kim toczyła się rozmowa; Wpisy — to, co z tych rozmów zostało zapisane." },
-  { "clave": "tut.chat-registros.2.titulo", "texto": "Co pamięta o tobie" },
-  { "clave": "tut.chat-registros.2.texto", "texto": "Dane, które asystent uznał za warte zapamiętania między sesjami —alergia, cel, preferencja— żeby nie pytać o nie znowu. Zapominasz je, dotykając ich ✕." },
-  { "clave": "tut.chat-registros.3.texto", "texto": "To, co zapisujesz w swoich aplikacjach (posiłki, wydatki, sesje), żyje w każdej z nich, nie tutaj: ta zakładka to tylko pamięć samej rozmowy." },
-  { "clave": "tut.app-generica.1.texto", "texto": "Nagłówek pokazuje pokój i otwartą aplikację. Jeśli pokój ma kilka aplikacji, strzałka ‹ wraca do ich listy." },
-  { "clave": "tut.app-generica.2.titulo", "texto": "Kroki na dziś" },
-  { "clave": "tut.app-generica.2.texto", "texto": "Twoje dzisiejsze kroki w tej aplikacji: twoje dzienne cele, to, co masz zaplanowane, i to, czego wymagają twoje cele. Dotknij jej, żeby ją rozwinąć; każdy krok skreśla się sam, gdy tylko coś zapiszesz." },
-  { "clave": "tut.app-generica.3.titulo", "texto": "Narzędzia" },
-  { "clave": "tut.app-generica.3.texto", "texto": "Ten szablon jest zbudowany z narzędzi (notatki, listy, liczniki, nawyki…). Możesz je zmienić w Menu › Szablony › Edytuj." },
-  { "clave": "tut.app-generica.4.titulo", "texto": "Wyjście" },
-  { "clave": "tut.app-generica.4.texto", "texto": "Przycisk „‹ Wróć do domu” zamyka aplikację i zostawia cię z powrotem w 3D. To, co tu zapiszesz, jest już zapisane." },
-  { "clave": "tut.rutinas.1.texto", "texto": "Panel rutyn Pepa: na górze to, co na dziś, na dole pełny katalog do wstrzymywania, edycji i usuwania." },
-  { "clave": "tut.rutinas.2.titulo", "texto": "Co wypada dziś" },
-  { "clave": "tut.rutinas.2.texto", "texto": "Zmiana w kawiarni, zajęcia z fizyki, bieganie o świcie, pianino wieczorem: każda karta to rutyna ze swoimi krokami. Ta wyróżniona na bursztynowo już powinna trwać, a wciąż czeka." },
-  { "clave": "tut.rutinas.3.titulo", "texto": "Nie zawsze trzeba odhaczać" },
-  { "clave": "tut.rutinas.3.texto", "texto": "Krok z błyskawicą ⚡ zapisuje się sam: bieganie o świcie zostaje skreślone, bo ten bieg jest już zapisany w Siłowni, a nie dlatego, że ktoś odhaczył go ręcznie. Pozostałe kroki odhaczasz dotknięciem." },
-  { "clave": "tut.rutinas.4.titulo", "texto": "Pełny katalog" },
-  { "clave": "tut.rutinas.4.texto", "texto": "Tu są wszystkie, wypadają dziś czy nie. ON/OFF wstrzymuje rutynę bez kasowania jej historii: to, co zrobione do dziś, zostaje, a od jutra przestaje być wymagana. Edytuj i ✕ zmieniają albo usuwają całą rutynę." },
-  { "clave": "tut.rutinas.5.titulo", "texto": "Tworzenie rutyny" },
-  { "clave": "tut.rutinas.5.texto", "texto": "Nazwa, aplikacja, do której należy (albo żadna, jeśli to luźne wydarzenie domu), godzina i kolor. Kroki są opcjonalne: bez nich to tylko wydarzenie w kalendarzu." },
-  { "clave": "tut.rutinas.6.titulo", "texto": "Raz, co tydzień albo zawsze" },
-  { "clave": "tut.rutinas.6.texto", "texto": "Pianino jest bezterminowe bez zaznaczonych dni (czyli każdego dnia); bieganie powtarza się tylko w dniach zaznaczonych przez Pepa. Powtarzania miesięcznego, rocznego ani w zakresie nie wybiera się tutaj: rodzi się z narysowania celu wprost na siatce kalendarza." },
-  { "clave": "tut.rutinas.7.titulo", "texto": "Przypomnienie o swojej porze" },
-  { "clave": "tut.rutinas.7.texto", "texto": "Przy przyznanym zezwoleniu przychodzi jako powiadomienie systemowe; jeśli nie, asystent powie o tym w aplikacji przy następnym otwarciu." },
-  { "clave": "tut.rutinas.8.texto", "texto": "Wszystko, co tu zaplanowane, pojawia się też na siatce kalendarza, a w aplikacji każdego kroku — na jej liście Dziś." },
-  { "clave": "tut.enlaces.1.titulo", "texto": "Od celu do jego aplikacji" },
-  { "clave": "tut.enlaces.1.texto", "texto": "Każdy cel albo krok planu może mieć chip z ikoną aplikacji: to odpowiedź na pytanie „a gdzie się to zapisuje?”." },
-  { "clave": "tut.enlaces.2.titulo", "texto": "Ustawianie i zmiana" }
+  {
+    "clave": "tut.app-metas--esencial.3.texto",
+    "texto": "Plan to szkic harmonogramu: dzieli cel na fazy z ich datami. Dopóki jest propozycją, poprawiasz go do woli; kiedy przekona, akceptujesz go, a jego fazy stają się prawdziwymi podcelami."
+  },
+  { "clave": "tut.app-metas--esencial.4.titulo", "texto": "Harmonogram" },
+  {
+    "clave": "tut.app-metas--esencial.4.texto",
+    "texto": "Oś czasu ze wszystkimi celami naraz: każdy jest paskiem nad datami. Przybliżasz i oddalasz według dni, tygodni, miesięcy albo lat, a plan można na nią nałożyć, żeby porównać go z tym, co już jest wyznaczone."
+  },
+  { "clave": "tut.app-sala--esencial.1.titulo", "texto": "Twój salon podróży" },
+  {
+    "clave": "tut.app-sala--esencial.1.texto",
+    "texto": "Tutaj mieszka twój świat podróżnika: mapa świata z pinezkami, plany podróży miejsc do poznania, trasy łączące miejsca i dziennik podróży ze wspomnieniami. Są cztery podmenu."
+  },
+  { "clave": "tut.app-sala--esencial.2.titulo", "texto": "Mapa" },
+  {
+    "clave": "tut.app-sala--esencial.2.texto",
+    "texto": "Każde miejsce, które odwiedziłeś albo marzysz odwiedzić, to pinezka na mapie świata. Przełącznik u góry zamienia płaską mapę na globus, którym obracasz, przeciągając."
+  },
+  { "clave": "tut.app-sala--esencial.3.titulo", "texto": "Plan podróży" },
+  {
+    "clave": "tut.app-sala--esencial.3.texto",
+    "texto": "Miejsca, które marzysz poznać, każde z własnym planem dzień po dniu. Te z datą planują się same w kalendarzu."
+  },
+  { "clave": "tut.app-sala--esencial.4.titulo", "texto": "Trasy" },
+  {
+    "clave": "tut.app-sala--esencial.4.texto",
+    "texto": "Trasa łączy miejsca w podróż i rysuje ją na mapie."
+  },
+  { "clave": "tut.app-sala--esencial.5.titulo", "texto": "Dziennik podróży" },
+  {
+    "clave": "tut.app-sala--esencial.5.texto",
+    "texto": "Wspomnienia z odwiedzonych miejsc, w albumach według kraju: zdjęcia i historie z każdego miejsca."
+  }
 ]

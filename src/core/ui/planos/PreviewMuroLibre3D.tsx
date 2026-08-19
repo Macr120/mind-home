@@ -14,7 +14,17 @@ import { useT } from '../../i18n/useT'
  * mapa. Reutiliza el mismo render de la escena (`MuroLibre3DItem`), centrado en el
  * origen y encuadrado con `Bounds`. Girable con el mouse (OrbitControls).
  */
-export function PreviewMuroLibre3D({ muroId, onOcultar }: { muroId: number; onOcultar?: () => void }) {
+export function PreviewMuroLibre3D({
+  muroId,
+  onOcultar,
+  fijo = true,
+}: {
+  muroId: number
+  onOcultar?: () => void
+  /** Se queda fijo (sticky) arriba al desplazar el panel. El constructor lo apaga cuando el
+   *  croquis está visible: solo una de las dos vistas se pega, si no se solaparían. */
+  fijo?: boolean
+}) {
   const t = useT()
   const muros = murosLibresRepo.useAll() ?? VACIO
   const claro = useEditorUi((s) => s.previewClaro)
@@ -40,7 +50,9 @@ export function PreviewMuroLibre3D({ muroId, onOcultar }: { muroId: number; onOc
 
   return (
     <div
-      className={`sticky top-0 z-10 overflow-hidden rounded-xl border border-white/10 ${claseFondoPreview(claro)}`}
+      // Sin `sticky` hace falta `relative`: los botones de la esquina (ojo y claro/oscuro)
+      // son `absolute` y cuelgan directo de este contenedor.
+      className={`${fijo ? 'sticky top-0 z-10' : 'relative'} overflow-hidden rounded-xl border border-white/10 ${claseFondoPreview(claro)}`}
     >
       <div className="absolute start-2 top-2 z-10 flex flex-col gap-1">
         {onOcultar && (

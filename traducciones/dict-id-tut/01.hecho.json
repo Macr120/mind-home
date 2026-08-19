@@ -1,38 +1,39 @@
 [
-  {
-    "clave": "tut.hoy.1.texto",
-    "texto": "Di header setiap aplikasi ada tombol Target, sama seperti yang di kalender tapi hanya untuk aplikasi ini. Tombol ini membuka panel dua lantai: di atas checklist hari ini, di bawah target dan rencana."
-  },
-  {
-    "clave": "tut.hoy.2.texto",
-    "texto": "Target milik aplikasi sendiri (air, kalori), apa yang kamu jadwalkan hari ini di kalender, dan langkah-langkah dari target yang sedang berjalan — semuanya jadi satu, dikelompokkan berdasarkan rencana atau target asal setiap langkah."
-  },
-  {
-    "clave": "tut.hoy.7.texto",
-    "texto": "Kalau ada yang kurang, «Checklist baru» bikin punyamu sendiri: daftar khusus aplikasi ini yang berulang tiap hari. Di bawah bagian Hari Ini ada perencana lengkap — Target, Rencana, dan Linimasa — dengan semua target aplikasi ini."
-  },
-  {
-    "clave": "tut.app-hobbies--gestion.4.texto",
-    "texto": "Target hobi dan proyekmu ada di tombol Target di header: perencana Target · Rencana · Linimasa yang sama dengan kalender, tapi hanya untuk aplikasi ini. Minta AI buatkan rencana dengan tahap dan tanggal."
-  },
-  {
-    "clave": "tut.app-biblioteca--estudio.2.texto",
-    "texto": "Target ada di tombol Target di header, linimasa yang sama dengan kalender: «selesaikan termodinamika sebelum ujian» sudah tercapai; persiapan pascasarjana masih berjalan."
-  },
-  {
-    "clave": "tut.app-ejercicio--anio.3.texto",
-    "texto": "Tombol Target di header menyimpan empat targetnya yang sudah tercapai — 5K, 10K, half marathon, dan marathon — dan satu yang masih berjalan. Target dengan tanggal juga muncul di kalender rumah."
-  },
-  {
-    "clave": "tut.app-cocina--cronograma.1.texto",
-    "texto": "Tombol Target di header membuka linimasa yang sama dengan kalender rumah, khusus target Dapur: buat target (misalnya «Turun 3 kilo») dan minta rencana ke AI — AI akan tanya tanggal targetmu dan menjadwalkan sub-target dengan tanggal masing-masing."
-  },
-  {
-    "clave": "tut.app-despacho--metas.2.texto",
-    "texto": "Tombol Target di header menyimpan target-target ini di garis waktu: beri tanggal pada salah satunya dan langsung muncul di antara hari-hari kalendermu. Dengan ✨ AI mengusulkan rencana setoran."
-  },
-  {
-    "clave": "tut.app-entretenimiento--programas.2.texto",
-    "texto": "Program yang tersimpan ada di tombol Target di header: setiap judul menyimpan catatan alasan kenapa ada di daftar, dan kalau diberi tanggal, judul itu masuk ke kalender seperti target lainnya."
-  }
+  { "clave": "tut.app-agenda--esencial.1.titulo", "texto": "Agendamu" },
+  { "clave": "tut.app-agenda--esencial.1.texto", "texto": "Agenda menyimpan yang bukan kebiasaan: tugas, janji temu, kontak. Ada tiga menu, dan semua yang punya tanggal langsung masuk sendiri ke kalender rumah." },
+  { "clave": "tut.app-agenda--esencial.2.titulo", "texto": "Kerja" },
+  { "clave": "tut.app-agenda--esencial.2.texto", "texto": "Kotak masuk mengumpulkan tugas tanpa tanggal supaya tidak hilang, dan papan memindahkan tugasmu antar kolom: perlu dikerjakan, sedang berlangsung, dan selesai." },
+  { "clave": "tut.app-agenda--esencial.3.titulo", "texto": "Kesehatan" },
+  { "clave": "tut.app-agenda--esencial.3.texto", "texto": "Janji dokter, obat, dan perawatan, dalam tiga submenu: Kamu, Orang tersayang (yang ada dalam perawatanmu), dan Hewan peliharaan." },
+  { "clave": "tut.app-agenda--esencial.4.titulo", "texto": "Orang" },
+  { "clave": "tut.app-agenda--esencial.4.texto", "texto": "Buku kontakmu menurut hubungan. Ulang tahun yang kamu simpan otomatis berulang setiap tahun di kalender." },
+  { "clave": "tut.calendario--esencial.1.titulo", "texto": "Jam rumah" },
+  { "clave": "tut.calendario--esencial.1.texto", "texto": "Kalender bukan ruangan: dia hidup di jam HUD, jadi terbuka dari mana pun kamu berada tanpa masuk ke tempat lain." },
+  { "clave": "tut.calendario--esencial.2.titulo", "texto": "Semua yang dijadwalkan, jadi satu" },
+  { "clave": "tut.calendario--esencial.2.texto", "texto": "Semua yang punya tanggal dan waktu jatuh di sini: yang kamu buat dengan «+ Baru» atau dengan menggambar di kisi, dan yang dijadwalkan sendiri oleh aplikasi lain. Filter di atas menampilkan satu aplikasi saja kalau terlalu ramai." },
+  { "clave": "tut.calendario--esencial.3.titulo", "texto": "Hari" },
+  { "clave": "tut.calendario--esencial.3.texto", "texto": "Kisi 24 jam dalam sehari: menunjukkan jam berapa tiap hal terjadi dan apakah ada yang bertumpukan. Tombol ini punya dua fungsi: bertuliskan «Hari ini» dan membawamu kembali ke masa kini, atau «Hari» kalau kamu sedang melihat tanggal lain." },
+  { "clave": "tut.calendario--esencial.4.titulo", "texto": "Minggu" },
+  { "clave": "tut.calendario--esencial.4.texto", "texto": "Kisi jam yang sama, tapi dengan tujuh hari berdampingan. Di sinilah kamu lihat bagaimana minggu terbagi, dan di sinilah blok diseret dari satu hari ke hari lain atau direntangkan supaya lebih lama." },
+  { "clave": "tut.calendario--esencial.5.titulo", "texto": "Bulan" },
+  { "clave": "tut.calendario--esencial.5.texto", "texto": "Menghilangkan sumbu jam dan menggambar hari sebagai kotak dengan apa pun yang jatuh di masing-masing. Ini tampilan menyeluruh: minggu mana yang padat dan hari mana yang kosong." },
+  { "clave": "tut.calendario--esencial.6.titulo", "texto": "Tahun" },
+  { "clave": "tut.calendario--esencial.6.texto", "texto": "Dua belas bulan sekaligus. Dari jarak ini jam sudah tidak terbaca lagi: yang terlihat adalah konsistensi — seberapa lama kamu mempertahankan apa yang kamu niatkan sepanjang tahun." },
+  { "clave": "tut.calendario--esencial.7.titulo", "texto": "Dan misi, terpisah" },
+  { "clave": "tut.calendario--esencial.7.texto", "texto": "Dengan warna merah, supaya tidak terbaca sebagai tampilan kelima: Misi mengumpulkan daftar tugas hari ini dari semua aplikasi dalam satu layar. Target dan rencananya tidak ada di sini — mereka hidup di ruangannya sendiri." },
+  { "clave": "tut.app-anecdotario--esencial.1.titulo", "texto": "Diarimu sendiri" },
+  { "clave": "tut.app-anecdotario--esencial.1.texto", "texto": "Buku kenangan menyimpan apa pun yang ingin kamu ceritakan, dengan suasana hati dan fotonya. Dia mengatur dirinya sendiri berdasarkan tanggal, kamu tidak perlu mengelompokkan apa pun." },
+  { "clave": "tut.app-anecdotario--esencial.2.titulo", "texto": "Cara menulis" },
+  { "clave": "tut.app-anecdotario--esencial.2.texto", "texto": "Pilih suasana hati hari itu, tulis apa yang ingin kamu ceritakan, dan lampirkan foto kalau ada. Satu foto saja tanpa teks juga cukup." },
+  { "clave": "tut.app-anecdotario--esencial.3.titulo", "texto": "Kalender suasana hati" },
+  { "clave": "tut.app-anecdotario--esencial.3.texto", "texto": "Setiap hari diwarnai sesuai suasana hati entrinya, jadi seluruh bulan terbaca sekali lihat. Ketuk satu hari untuk melihat entrinya di bawah." },
+  { "clave": "tut.app-anecdotario--esencial.4.titulo", "texto": "Riwayat" },
+  { "clave": "tut.app-anecdotario--esencial.4.texto", "texto": "Semua entri tetap ada di sini, terorganisir sendiri dalam folder per tahun, bulan, dan minggu." },
+  { "clave": "tut.app-biblioteca--esencial.1.titulo", "texto": "Perpustakaanmu" },
+  { "clave": "tut.app-biblioteca--esencial.1.texto", "texto": "Perpustakaan adalah ensiklopedia pribadimu: kamu tanyakan yang tidak kamu tahu, simpan yang kamu pelajari, dan catat apa yang kamu pelajari. Ada empat menu." },
+  { "clave": "tut.app-biblioteca--esencial.2.titulo", "texto": "Obrolan" },
+  { "clave": "tut.app-biblioteca--esencial.2.texto", "texto": "Di sini kamu tanya apa pun ke Sang Bijak dan percakapannya tersimpan. Setiap obrolan mengelompokkan dirinya sendiri ke bidang ilmunya dan keluar sudah disarikan sebagai entri ensiklopedia." },
+  { "clave": "tut.app-biblioteca--esencial.3.titulo", "texto": "Ensiklopedia" },
+  { "clave": "tut.app-biblioteca--esencial.3.texto", "texto": "Pohon tempat yang kamu pelajari hidup, disusun menurut bidang ilmu. Setiap entri punya ringkasan dan poin pentingnya, dan kamu juga bisa menulisnya sendiri; dengan pensil kamu mengembangkan indeksnya sesuai dirimu." },
+  { "clave": "tut.app-biblioteca--esencial.4.titulo", "texto": "Belajar" }
 ]

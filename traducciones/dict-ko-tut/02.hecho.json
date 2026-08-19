@@ -1,154 +1,130 @@
 [
   {
-    "clave": "tut.casa.1.texto",
-    "texto": "여기가 집이에요. 방마다 앱이 하나씩 들어 있어요. 기본 조작을 알려드릴게요."
+    "clave": "tut.app-biblioteca--esencial.4.texto",
+    "texto": "공부용 타이머예요. 분야와 시간을 고르고, 쭉 이어서 하거나 뽀모도로로 나눠서 하면 구간마다 알아서 기록돼요. 방을 나가도 계속 돌아가요."
   },
   {
-    "clave": "tut.casa.2.titulo",
-    "texto": "메인 메뉴"
+    "clave": "tut.app-biblioteca--esencial.5.titulo",
+    "texto": "개요"
   },
   {
-    "clave": "tut.casa.2.texto",
-    "texto": "이 버튼을 누르면 메뉴가 열려요. 방, 템플릿(앱) 목록, 오브젝트 인벤토리가 있어요."
+    "clave": "tut.app-biblioteca--esencial.5.texto",
+    "texto": "여기까지의 전체 그림이에요. 백과사전에 항목이 몇 개인지, 색인을 얼마나 채웠는지, 공부한 분 수, 연속 기록, 그리고 공부한 날들이 나와요."
   },
   {
-    "clave": "tut.casa.3.titulo",
-    "texto": "이동하기"
+    "clave": "tut.app-cocina--esencial.1.titulo",
+    "texto": "주방"
   },
   {
-    "clave": "tut.casa.3.texto",
-    "texto": "조이스틱, WASD, 방향키로 걸어요. 방의 문을 지나면 안으로 들어가고 그 앱이 저절로 열려요."
+    "clave": "tut.app-cocina--esencial.1.texto",
+    "texto": "이 앱이 챙기는 것은 두 가지예요. 앞으로 만들 것과 실제로 먹은 것이죠. 각각 위쪽에 자기 메뉴가 있고, 메뉴마다 고유한 탭이 열려요."
   },
   {
-    "clave": "tut.casa.4.titulo",
-    "texto": "보는 방법 세 가지"
+    "clave": "tut.app-cocina--esencial.2.titulo",
+    "texto": "레시피북"
   },
   {
-    "clave": "tut.casa.4.texto",
-    "texto": "아이소메트릭, 3인칭, 1인칭이 있어요(V 키로도 바뀌어요). 3인칭·1인칭에서는 걸어 다니며 세상을 편집하는 버튼도 나와요."
+    "clave": "tut.app-cocina--esencial.2.texto",
+    "texto": "요리하는 쪽이에요. 여기에 레시피와, 그것을 묶어 주는 식단, 그리고 장보기 목록이 있어요. 탭은 그 순서로 세 개예요."
   },
   {
-    "clave": "tut.casa.5.titulo",
-    "texto": "한 구석, 여러 주인"
+    "clave": "tut.app-cocina--esencial.3.titulo",
+    "texto": "식단"
   },
   {
-    "clave": "tut.casa.5.texto",
-    "texto": "그 구석은 시점 큐브만이 아니에요. 의자, 탈것, 코트처럼 만질 수 있는 것에 가까이 가면 근처에 있는 것에 맞춰 저절로 바뀌어요. 다가가지 않으면 아무것도 켜지지 않아요."
+    "clave": "tut.app-cocina--esencial.3.texto",
+    "texto": "식단은 레시피가 담긴 식사 계획이고, 원한다면 칼로리와 영양 성분 목표도 따로 정할 수 있어요. 앱에 이미 들어 있는 것들과 나란히 내 식단을 저장할 수 있어요."
   },
   {
-    "clave": "tut.casa.6.titulo",
-    "texto": "도구 휠"
+    "clave": "tut.app-cocina--esencial.4.titulo",
+    "texto": "레시피"
   },
   {
-    "clave": "tut.casa.6.texto",
-    "texto": "동작, 장난감, 탈것, 건축이 있고 한 번에 3개까지 장착할 수 있어요. 여기서 열 수도 있고, 맨손일 때는 아까 그 구석에서도 열려요."
+    "clave": "tut.app-cocina--esencial.4.texto",
+    "texto": "레시피북이에요. 레시피마다 재료와 조리 순서, 1인분 영양 성분을 담고 폴더로 정리돼요. 레시피에서 바로 식사를 기록하거나, 재료를 장보기 목록으로 보낼 수 있어요."
   },
   {
-    "clave": "tut.casa.7.titulo",
-    "texto": "시계"
+    "clave": "tut.app-cocina--esencial.5.titulo",
+    "texto": "장보기"
   },
   {
-    "clave": "tut.casa.7.texto",
-    "texto": "집의 시간이에요. 여기서 전체 캘린더와, 오늘 아직 남은 일이 담긴 루틴 패널을 열 수 있어요."
+    "clave": "tut.app-cocina--esencial.5.texto",
+    "texto": "장보기 목록이에요. 품목마다 해당하는 매대에 놓여요. 여러 레시피에서 모자란 것을 모아 목록을 만들고, 집에 이미 있는 것은 체크해 나가면 돼요."
   },
   {
-    "clave": "tut.casa.8.titulo",
-    "texto": "집의 음악"
+    "clave": "tut.app-cocina--esencial.6.titulo",
+    "texto": "영양 관리"
   },
   {
-    "clave": "tut.casa.8.texto",
-    "texto": "방마다 테마를 정할 수도 있고, 집 분위기를 그대로 틀어 둘 수도 있어요. 조용한 게 좋으면 완전히 꺼도 돼요."
+    "clave": "tut.app-cocina--esencial.6.texto",
+    "texto": "다른 메뉴에서는 먹은 것을 번호가 붙은 네 개의 탭으로 챙겨요. 첫 번째는 목표예요. 체중과 키, 활동량으로 하루에 얼마나 필요한지 계산하고 영양 성분을 나눠 줘요."
   },
   {
-    "clave": "tut.casa.9.titulo",
-    "texto": "채팅"
+    "clave": "tut.app-cocina--esencial.7.titulo",
+    "texto": "기록"
   },
   {
-    "clave": "tut.casa.9.texto",
-    "texto": "아키텍트 채팅이에요. 무엇을 했는지 말하면 알맞은 앱에 기록해 주고, 집을 바꿔 달라고 부탁할 수도 있어요."
+    "clave": "tut.app-cocina--esencial.7.texto",
+    "texto": "이미 지나간 것들이에요. 그날의 식사와 칼로리, 지금까지 마신 물, 그리고 잰 날의 체중이 나와요. 옆의 식단표 탭은 그 반대로, 앞으로 며칠 동안 먹을 계획을 담은 표예요."
   },
   {
-    "clave": "tut.casa.10.texto",
-    "texto": "기본은 여기까지예요. 위쪽 '편집기' 버튼을 누르면 전체 꾸미기가 열리고, 메뉴와 앱마다 각자의 '?' 버튼과 튜토리얼이 있어요."
+    "clave": "tut.app-cocina--esencial.8.titulo",
+    "texto": "진행 상황"
   },
   {
-    "clave": "tut.primeros.1.texto",
-    "texto": "먼저 집을 어떻게 짓는지부터요. 모든 건 '방' 탭에서 시작돼요."
+    "clave": "tut.app-cocina--esencial.8.texto",
+    "texto": "고른 기간 동안 위의 모든 것에 대한 통계예요. 칼로리와 영양 성분, 수분, 그리고 체중 곡선이 나와요. 아래에는 색이 칠해진 캘린더가 있어서 어느 날 목표 안에 머물렀는지 한눈에 보여요."
   },
   {
-    "clave": "tut.primeros.2.titulo",
-    "texto": "방 만들기"
+    "clave": "tut.app-computo--esencial.1.titulo",
+    "texto": "전산실"
   },
   {
-    "clave": "tut.primeros.2.texto",
-    "texto": "이 버튼으로 지도에 새 방을 그릴 수 있어요. 다음 과정을 보여드리려고 지금 하나 만들어 드릴게요…"
+    "clave": "tut.app-computo--esencial.1.texto",
+    "texto": "계산할 일은 여기서 해결돼요. 메뉴는 두 가지예요. 여러 모드와 나만의 공식집이 딸린 계산기, 그리고 표로 다룰 것들을 맡는 스프레드시트예요."
   },
   {
-    "clave": "tut.primeros.3.titulo",
-    "texto": "새로 생긴 방"
+    "clave": "tut.app-computo--esencial.2.titulo",
+    "texto": "계산기"
   },
   {
-    "clave": "tut.primeros.3.texto",
-    "texto": "여기 있어요! 방금 만든 방이라 아직 앱이 없어요. 그래서 버튼에 '+ 배정'이라고 쓰여 있죠."
+    "clave": "tut.app-computo--esencial.2.texto",
+    "texto": "입력하는 동안 결과를 보여주고 계산한 것을 기록에 남기는 공학용 계산기예요. 아래쪽 키패드 덕분에 휴대폰 키보드를 쓰지 않아도 되고, 표기 버튼은 커서가 있는 자리에 과학 기호를 넣어 줘요."
   },
   {
-    "clave": "tut.primeros.4.titulo",
-    "texto": "앱 배정하기"
+    "clave": "tut.app-computo--esencial.3.titulo",
+    "texto": "모드"
   },
   {
-    "clave": "tut.primeros.4.texto",
-    "texto": "'+ 배정'으로 앱을 넣었어요. 방이 이름과 아이콘, 가구를 갖게 됐고 버튼도 '입장'으로 바뀐 게 보이죠."
+    "clave": "tut.app-computo--esencial.3.texto",
+    "texto": "이 메뉴는 계산기 화면을 통째로 바꿔요. 그래프, 진법, 행렬, 연립방정식, 단위 변환, 팁, 비례식이에요. 어느 모드에서든 기록은 아래에 그대로 남아요."
   },
   {
-    "clave": "tut.primeros.5.titulo",
-    "texto": "입장"
+    "clave": "tut.app-computo--esencial.4.titulo",
+    "texto": "공식집"
   },
   {
-    "clave": "tut.primeros.5.texto",
-    "texto": "들어왔어요. 이게 방의 앱이에요. 돌아다닐 때는 문을 지나서도 들어올 수 있고, '‹ 집으로 돌아가기'로 나가요."
+    "clave": "tut.app-computo--esencial.4.texto",
+    "texto": "계산기 위에 접혀 있는 나만의 공식 노트예요. 수학, 물리, 화학이 미리 담겨 있고 폴더는 겹겹이 만들 수 있어요. 어떤 공식이든 열어서 변수를 채울 수 있고, 편집하거나 지울 수도 있어요."
   },
   {
-    "clave": "tut.primeros.6.texto",
-    "texto": "방은 앱과 함께 집에 남아요. 나머지도 이렇게 지으면 돼요. 챙기고 싶은 일마다 방 하나씩요."
+    "clave": "tut.app-computo--esencial.5.titulo",
+    "texto": "스프레드시트"
   },
   {
-    "clave": "tut.menu-cuartos.1.texto",
-    "texto": "'방' 탭에는 집에 있는 모든 방이 카테고리별로 나와요."
+    "clave": "tut.app-computo--esencial.5.texto",
+    "texto": "셀 참조와 수식(=SUMA 형태)을 쓸 수 있는 시트이고, 선택한 범위로 그래프도 그릴 수 있어요. 수식을 그대로 유지한 채 엑셀로 내보내거나 PDF로 저장할 수 있어요."
   },
   {
-    "clave": "tut.menu-cuartos.2.titulo",
-    "texto": "내 요약"
+    "clave": "tut.app-descanso--esencial.1.titulo",
+    "texto": "휴식"
   },
   {
-    "clave": "tut.menu-cuartos.2.texto",
-    "texto": "캐릭터는 실제 활동을 먹고 살아요. 여기서 기분, 레벨, 연속 기록을 볼 수 있어요. 아무 앱에나 뭔가 기록하면 기분이 좋아지고, 며칠 아무것도 없으면 시무룩해져요. 벌을 주거나 초기화하는 일은 없어요."
+    "clave": "tut.app-descanso--esencial.1.texto",
+    "texto": "이 앱은 잠을 한 화면에서 지켜봐요. 지난밤 점수, 알림이 딸린 수면 시간, 매일의 기록, 그리고 전체 기록이에요."
   },
   {
-    "clave": "tut.menu-cuartos.3.titulo",
-    "texto": "카드"
-  },
-  {
-    "clave": "tut.menu-cuartos.3.texto",
-    "texto": "카드 하나가 방 하나예요. 아이콘, 이름, 앱 진행 상황이 담기고 '몸', '마음', '기타', '설정'으로 묶여요. 앱이 배정되지 않은 방은 맨 뒤에 모여요."
-  },
-  {
-    "clave": "tut.menu-cuartos.4.titulo",
-    "texto": "편집"
-  },
-  {
-    "clave": "tut.menu-cuartos.4.texto",
-    "texto": "'편집'을 누르면 방 편집기가 열려요. 모양, 색, 벽, 오브젝트를 바꿀 수 있어요. (지금은 누르지 마세요. 이 메뉴가 닫혀요.)"
-  },
-  {
-    "clave": "tut.menu-cuartos.5.titulo",
-    "texto": "'입장'과 '배정'"
-  },
-  {
-    "clave": "tut.menu-cuartos.5.texto",
-    "texto": "'입장'을 누르면 방의 앱이 열려요. 아직 앱이 없는 방에는 대신 '+ 배정'이 보이고, 목록에서 하나 고를 수 있어요."
-  },
-  {
-    "clave": "tut.menu-cuartos.6.titulo",
-    "texto": "방 만들기"
+    "clave": "tut.app-descanso--esencial.2.titulo",
+    "texto": "점수"
   }
 ]

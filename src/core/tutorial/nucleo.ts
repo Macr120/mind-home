@@ -8,7 +8,7 @@
  * cada una (`APPS_DE_TOUR`).
  */
 import type { CuerpoTutorial, TextoTut } from './tipos'
-import { clickTut, esperarTut } from './dom'
+import { clickTut, elTut, esperarTut } from './dom'
 import { abrirApp } from '../abrirApp'
 import { irAPestanaMenu } from './dom'
 import { useSisifoUi } from '../state/sisifoUiStore'
@@ -22,10 +22,11 @@ export const cuerpoHoy: CuerpoTutorial = {
   },
   pasos: [
     {
+      // Solo muestra el botón: abrir aquí el modal (como antes) lo tapaba en el
+      // mismo paso que lo señala. Cerrarlo es para volver con «Atrás».
       sel: 'hoy.cabecera',
-      alEntrar: async () => {
-        clickTut('hoy.cabecera')
-        await esperarTut('hoy.lista', 2000)
+      alEntrar: () => {
+        if (elTut('hoy.lista')) clickTut('hoy.cerrar')
       },
       texto: T(
         'tut.hoy.1.texto',
@@ -35,9 +36,23 @@ export const cuerpoHoy: CuerpoTutorial = {
     {
       sel: 'hoy.lista',
       titulo: T('tut.hoy.2.titulo', 'Tres fuentes, una lista'),
+      // Aquí es donde se entra (el paso anterior solo mostró el botón).
+      alEntrar: async () => {
+        clickTut('hoy.cabecera')
+        await esperarTut('hoy.lista', 2000)
+      },
       texto: T(
         'tut.hoy.2.texto',
         'Las misiones propias de la app (el agua, las calorías), lo que agendaste para hoy en el calendario y los pasos de tus metas vigentes: todo junto, agrupado bajo el plan o la meta del que sale cada paso.',
+      ),
+    },
+    {
+      // El bloque de metas solo existe si la app tiene alguna: se cae a la lista.
+      sel: () => (elTut('hoy.metas') ? 'hoy.metas' : 'hoy.lista'),
+      titulo: T('tut.hoy.2b.titulo', 'Lo que te propusiste, arriba'),
+      texto: T(
+        'tut.hoy.2b.texto',
+        'Encima de la checklist viven las metas de esta app, con su avance y su plazo. Tocar una abre su plan aquí mismo, sin salir del panel, y con «+ meta» te propones otra.',
       ),
     },
     {
@@ -51,7 +66,9 @@ export const cuerpoHoy: CuerpoTutorial = {
       ),
     },
     {
-      sel: 'hoy.objetivo',
+      // Si ese día del demo no queda ningún objetivo ajustable pendiente
+      // (todos cumplidos → plegados en «Hechos»), se cae a la lista entera.
+      sel: () => (document.querySelector('[data-tut="hoy.objetivo"]') ? 'hoy.objetivo' : 'hoy.lista'),
       titulo: T('tut.hoy.4.titulo', 'Tu cifra de cada día'),
       texto: T(
         'tut.hoy.4.texto',
@@ -59,7 +76,8 @@ export const cuerpoHoy: CuerpoTutorial = {
       ),
     },
     {
-      sel: 'hoy.agendar',
+      // Mismo respaldo: el botón de agendar solo existe en filas de objetivo.
+      sel: () => (document.querySelector('[data-tut="hoy.agendar"]') ? 'hoy.agendar' : 'hoy.lista'),
       titulo: T('tut.hoy.5.titulo', 'De un objetivo a una rutina'),
       texto: T(
         'tut.hoy.5.texto',
@@ -74,6 +92,14 @@ export const cuerpoHoy: CuerpoTutorial = {
       texto: T(
         'tut.hoy.6.texto',
         'Baja a «Hechos», plegado: ver el registro surtir efecto es parte de la recompensa, y desde ahí se puede deshacer si se coló uno de más.',
+      ),
+    },
+    {
+      sel: 'hoy.lista',
+      titulo: T('tut.hoy.6b.titulo', 'La lista entera es la que puntúa'),
+      texto: T(
+        'tut.hoy.6b.texto',
+        'Completar todas las misiones del día enciende la celebración y suma el XP de la app: el nivel crece por listas cumplidas, no por registros sueltos.',
       ),
     },
     {
@@ -108,6 +134,8 @@ export const cuerpoProgreso: CuerpoTutorial = {
       ),
     },
     {
+      // Solo muestra el botón (abrir aquí taparía lo que el paso señala);
+      // entra el paso siguiente. El cerrar es para volver con «Atrás».
       sel: 'progreso.sisifo.rango',
       titulo: T('tut.progreso.3.titulo', 'El rango de Sísifo'),
       texto: T(
@@ -115,9 +143,8 @@ export const cuerpoProgreso: CuerpoTutorial = {
         'Doce rangos de ascenso: cada día con actividad sube un escalón de 365. Pep@ ya lleva varios rangos ganados; tócalo para ver la montaña completa.',
       ),
       alEntrar: () => {
-        useSisifoUi.getState().abrir()
+        useSisifoUi.getState().cerrar()
       },
-      esperar: 'sisifo.overlay',
     },
     {
       sel: 'sisifo.progreso',
@@ -126,17 +153,21 @@ export const cuerpoProgreso: CuerpoTutorial = {
         'tut.progreso.4.texto',
         'Cada 7 escalones llega una insignia, cada tramo de semanas sube el rango. Fallar un día no rompe nada: hay 2 días de gracia al mes antes de retroceder al inicio del rango actual.',
       ),
+      // Aquí es donde se entra a la montaña (el paso anterior mostró su botón).
+      alEntrar: () => {
+        useSisifoUi.getState().abrir()
+      },
+      esperar: 'sisifo.overlay',
     },
     {
+      // Sigue DENTRO de la montaña: cerrarla aquí (como antes) desmontaba el
+      // ancla que este paso señala y el spotlight se quedaba sin objetivo.
       sel: 'sisifo.insignias',
       titulo: T('tut.progreso.5.titulo', '52 insignias por familia'),
       texto: T(
         'tut.progreso.5.texto',
         'Agrupadas por familia geológica, en misterio hasta que se ganan: sin nombre ni descripción visibles hasta el desbloqueo.',
       ),
-      alEntrar: () => {
-        useSisifoUi.getState().cerrar()
-      },
     },
     {
       sel: 'progreso.wrapped',
@@ -145,6 +176,10 @@ export const cuerpoProgreso: CuerpoTutorial = {
         'tut.progreso.6.texto',
         'Wrapped arma el resumen de tu semana, mes o año en láminas — tiene su propio tour, con datos de sobra en un año como el de Pep@.',
       ),
+      // De vuelta al panel: la montaña ya cumplió su parte.
+      alEntrar: () => {
+        useSisifoUi.getState().cerrar()
+      },
     },
     {
       sel: 'progreso.radar',
@@ -158,13 +193,30 @@ export const cuerpoProgreso: CuerpoTutorial = {
 }
 
 export const cuerpoWrapped: CuerpoTutorial = {
-  preparar: () => {
-    useWrappedUi.getState().abrir()
+  // El botón que lo abre vive en la carta del jugador (menú › Cuartos): el
+  // paso 1 lo enseña ahí y es el paso 2 el que abre el overlay.
+  preparar: async () => {
+    clickTut('menu.abrir')
+    await irAPestanaMenu('menu.tab.cuartos')
   },
   pasos: [
     {
+      sel: 'progreso.wrapped',
+      texto: T(
+        'tut.wrapped.5.texto',
+        'Un punto junto al botón que lo abre avisa cuando hay un resumen nuevo sin ver; abrirlo lo apaga.',
+      ),
+      // Volver con «Atrás» destapa el botón que este paso señala.
+      alEntrar: () => {
+        useWrappedUi.getState().cerrar()
+      },
+    },
+    {
       sel: 'wrapped.laminas',
       esperar: 'wrapped.laminas',
+      alEntrar: () => {
+        useWrappedUi.getState().abrir()
+      },
       texto: T(
         'tut.wrapped.1.texto',
         'Estilo historias: toca el lado derecho para avanzar, el izquierdo para retroceder, y mantén pulsado para pausar en una lámina.',
@@ -192,12 +244,6 @@ export const cuerpoWrapped: CuerpoTutorial = {
       texto: T(
         'tut.wrapped.4.texto',
         'Copia el texto de la lámina que estés viendo, lista para pegar donde quieras — sin capturas de pantalla.',
-      ),
-    },
-    {
-      texto: T(
-        'tut.wrapped.5.texto',
-        'Un punto junto al botón que lo abre avisa cuando hay un resumen nuevo sin ver; abrirlo lo apaga.',
       ),
     },
   ],

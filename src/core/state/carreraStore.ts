@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { db, type CaminoCelda, type RecordCarrera } from '../data/db'
-import { worldToCeldaEntera, cellToWorld, HALF } from '../house/walls'
+import { worldToCeldaEntera, cellToWorld, HALF, nivelBaseY } from '../house/walls'
 import { esquinaDe, puntoArco, alturaArco, H } from '../house/caminosCurvas'
 import { monturaFrame, useMontura } from './monturaStore'
 import { ALTURA_NIVEL } from './caminosStore'
@@ -236,6 +236,15 @@ export function alturaSueloEn(x: number, z: number): number {
   if (f) return SUPERFICIE_PISTA + (f.altura ?? 0) * ALTURA_NIVEL
   if (enPistaLibre(x, z)) return SUPERFICIE_PISTA // el trazo libre es plano (v1)
   return SUPERFICIE_SUELO
+}
+
+/**
+ * Y del ORIGEN del avatar a pie (sus pies): base del nivel + superficie pisable
+ * (losa del mapa a 0.2, asfalto de pista a 0.26 con sus rampas). Misma convención
+ * que los vehículos (`conducir`: targetY + alturaSueloEn). No aplica al agua.
+ */
+export function ySueloJugador(nivel: number, apilado: boolean, x: number, z: number): number {
+  return nivelBaseY(nivel, apilado) + alturaSueloEn(x, z)
 }
 
 export type FaseCarrera = null | 'previa' | 'semaforo' | 'corriendo' | 'terminada'

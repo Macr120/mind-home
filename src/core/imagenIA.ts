@@ -9,6 +9,7 @@ import {
 } from './chat/ia'
 import { iaHabilitada } from './edicion'
 import { usarViaCuenta, iaImagenCuenta, ErrorIA } from './cuenta/api'
+import { esperarSesion } from './cuenta/sesionStore'
 import { hayBackend } from './cuenta/supabase'
 import { leerCalidadImagen, type CalidadImagen } from './cuenta/calidadImagen'
 import { useGastoByok } from './cuenta/gastoByok'
@@ -255,6 +256,9 @@ export async function generarImagen(
   aspecto: AspectoImagen = '1:1',
   calidad: CalidadImagen = leerCalidadImagen(),
 ): Promise<Blob> {
+  // Antes de elegir transporte, que la sesión termine de hidratar: si no, una
+  // imagen pedida al abrir la app caía a BYOK y acusaba de «sin créditos».
+  await esperarSesion()
   // La referencia viaja en el cuerpo de la petición: se reduce antes para no mandar megas.
   const ref = referencia ? await comprimirImagen(referencia, 768) : undefined
   // Vía cuenta: Edge Function con la clave del servidor y cuota.

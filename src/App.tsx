@@ -24,7 +24,6 @@ import { EditorHuerto } from './core/ui/EditorHuerto'
 import { EditorGranja } from './core/ui/EditorGranja'
 import { InfraNota } from './core/ui/InfraNota'
 import { ChatBox } from './core/chat/ChatBox'
-import { RutinasPanel } from './core/ui/RutinasPanel'
 import { AvisoRespaldo } from './core/ui/AvisoRespaldo'
 import { AsistenteBurbuja } from './core/ui/AsistenteBurbuja'
 import { AsistenteCercaOverlay } from './core/ui/AsistenteCercaOverlay'
@@ -88,8 +87,8 @@ const TutorialOverlay = lazy(() =>
 export default function App() {
   // Reloj del diario: rollover de medianoche + reparto de noticias por asistentes.
   useDiarioProgramado()
-  // Avisos de lo agendado y de las metas del día. Va aquí, y no en RutinasPanel,
-  // porque ese panel se desmonta al entrar a un cuarto (y dejaba de avisar).
+  // Avisos de lo agendado y de las metas del día. Va aquí, montado una sola vez,
+  // para que siga avisando estés en el cuarto o pantalla que estés.
   useAvisos()
   // Widgets nativos de Android: publica el snapshot del día y aplica los taps
   // hechos desde el launcher. Fuera de la app (Capacitor) no hace nada.
@@ -215,7 +214,6 @@ export default function App() {
         {!editMode && !activeRoom && !construyendo && !pintando && <Mira />}
         {!editMode && !activeRoom && !construyendo && <DialogoOverlay />}
         {!editMode && !activeRoom && !construyendo && !enCarrera && !enPaintball && <ChatBox menuAbierto={sidebarOpen} />}
-        {!editMode && !activeRoom && !construyendo && <RutinasPanel />}
         {!editMode && !activeRoom && <AvisoRespaldo />}
         {/* Montaje condicional: su chunk (calendario + metas) solo se descarga al
             abrir el reloj; su propio `if (!abierto) return null` queda de red. */}

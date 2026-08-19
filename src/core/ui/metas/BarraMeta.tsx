@@ -3,6 +3,7 @@ import type { Rutina } from '../../data/db'
 import { useT } from '../../i18n/useT'
 import { ponerPeriodo, progresoDe, rangoConHijas, vencida } from '../../metas'
 import { colorDe } from '../coloresRutina'
+import { ROJO, VERDE } from '../../../rooms/_shared/acento'
 import { anchoDeRango, diasDeDx, isoMasDias, xDeIso } from './escala'
 
 /** Alto de la barra y a qué altura de la fila se ancla (arriba, junto al nombre). */
@@ -103,7 +104,7 @@ export function BarraMeta({
 
   const progreso = progresoDe(metas, meta)
   const tarde = vencida(meta, hoyIso, metas)
-  const color = meta.completada ? '#10b981' : tarde ? '#ef4444' : colorDe(meta)
+  const color = meta.completada ? VERDE : tarde ? ROJO : colorDe(meta)
 
   const izquierda = xDeIso(desde, previo.ini, pxPerDia)
   const ancho = Math.max(anchoDeRango(previo.ini, previo.fin, pxPerDia), 3)
@@ -137,7 +138,7 @@ export function BarraMeta({
           height: ALTO,
           // La de resumen va hueca (solo contorno): así se distingue de un periodo
           // de verdad y no compite con las barras de sus propias hijas.
-          background: propia ? `${color}33` : 'transparent',
+          background: propia ? `color-mix(in srgb, ${color} 20%, transparent)` : 'transparent',
           borderColor: `${color}${propia ? 'aa' : '66'}`,
         }}
         className={`absolute overflow-hidden rounded border ${propia ? 'cursor-grab active:cursor-grabbing' : 'cursor-pointer border-dashed'} ${

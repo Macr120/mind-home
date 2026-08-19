@@ -1,4 +1,5 @@
 import type { CuerpoTutorial, TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import { fichaEsencial } from '../../core/tutorial/esencial'
 
 /**
  * Fichas de los tutoriales de esta app: id, título y resumen. Es lo único que
@@ -43,3 +44,13 @@ const flujoHorario = tour(
 )
 
 export const flujosDescanso: TutorialDef[] = [flujoNoche, flujoHorario]
+
+/** Esencial: recorre las secciones de la app en la casa real, sin necesitar datos. */
+export const esencialDescanso: TutorialDef = fichaEsencial(
+  'descanso',
+  T(
+    'tut.app-descanso--esencial.resumen',
+    'Descanso registra cómo duermes en una sola pantalla: la puntuación de la última noche, tu horario con sus avisos, el registro diario y el historial completo por año, mes y semana.',
+  ),
+  () => import('./tutorial').then((m) => m.cuerpoEsencial as CuerpoTutorial),
+)

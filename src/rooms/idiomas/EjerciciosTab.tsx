@@ -254,7 +254,6 @@ export function EjerciciosTab({ perfil, tarjetas, temaInicial, onTemaAplicado }:
           prefijoClave="idiomas.ej.modo"
           color={COLOR}
           variante="sub"
-          nivel={3}
           flecha={false}
         />
 
@@ -265,7 +264,6 @@ export function EjerciciosTab({ perfil, tarjetas, temaInicial, onTemaAplicado }:
           prefijoClave="idiomas.ej.reto"
           color={COLOR}
           variante="sub"
-          nivel={3}
           flecha={false}
         />
 

@@ -18,6 +18,7 @@ import {
   extenderRutinaARango,
 } from '../rutinas'
 import { addDias, deIso, inicioSemana } from '../fechaLocal'
+import { vibrar } from '../audio/vibrar'
 import {
   aHHMM,
   aMin,
@@ -74,7 +75,8 @@ import { BarraTiempo } from './calendario/BarraTiempo'
  * semana / mes. En día/semana la rejilla es interactiva: clic+arrastre en un
  * hueco crea un evento con esa duración, los bloques se mueven con drag&drop
  * (cambian hora y día), se estiran desde el borde inferior, y un clic abre el
- * detalle con la checklist. Cada rutina tiene su color.
+ * detalle con la checklist. Cada rutina tiene su color. Con el dedo los gestos
+ * piden pulsación larga (deslizar es hacer scroll): ver `conPulsacionLarga`.
  */
 
 type Vista = 'dia' | 'semana' | 'mes' | 'anio' | 'objetivos'
@@ -878,6 +880,47 @@ type Gesto =
    */
   | { tipo: 'repetir'; rutina: Rutina; isoAncla: string; col: number }
 
+// El gesto táctil de la casa (mismos valores que core/ui/comun/arrastre.tsx).
+const ESPERA_MS = 300
+const UMBRAL_PX = 6
+/** Freno del scroll de Android mientras dura un gesto (ver `seguirGesto`). */
+const frenarTouch = (e: TouchEvent) => e.preventDefault()
+
+/**
+ * Con el ratón el gesto arranca al instante (clic+arrastre); con el dedo, solo
+ * la pulsación larga: moverse enseguida es hacer scroll, y un toque corto es un
+ * toque (`alTocar`). Es el patrón de `core/ui/comun/arrastre.tsx`, sin fantasma:
+ * lo que sigue al dedo aquí lo pinta la propia rejilla.
+ */
+function conPulsacionLarga(e: React.PointerEvent, iniciar: () => void, alTocar?: () => void) {
+  if (e.pointerType === 'mouse') {
+    iniciar()
+    return
+  }
+  const { clientX, clientY } = e
+  const cancelar = () => {
+    clearTimeout(timer)
+    window.removeEventListener('pointermove', onMove)
+    window.removeEventListener('pointerup', onUp)
+    window.removeEventListener('pointercancel', cancelar)
+  }
+  const timer = window.setTimeout(() => {
+    cancelar()
+    vibrar(10)
+    iniciar()
+  }, ESPERA_MS)
+  const onMove = (ev: PointerEvent) => {
+    if (Math.abs(ev.clientX - clientX) > UMBRAL_PX || Math.abs(ev.clientY - clientY) > UMBRAL_PX) cancelar()
+  }
+  const onUp = () => {
+    cancelar()
+    alTocar?.()
+  }
+  window.addEventListener('pointermove', onMove)
+  window.addEventListener('pointerup', onUp)
+  window.addEventListener('pointercancel', cancelar)
+}
+
 function RejillaTiempo({
   dias,
   rutinas,
@@ -947,6 +990,13 @@ function RejillaTiempo({
   const seguirGesto = (inicial: Gesto) => {
     setGesto(inicial)
     let actual = inicial
+    const soltar = () => {
+      window.removeEventListener('pointermove', onMove)
+      window.removeEventListener('pointerup', onUp)
+      window.removeEventListener('pointercancel', soltar)
+      document.removeEventListener('touchmove', frenarTouch)
+      setGesto(null)
+    }
     const onMove = (e: PointerEvent) => {
       const { col, min } = localizar(e)
       if (actual.tipo === 'crear') {
@@ -966,9 +1016,7 @@ function RejillaTiempo({
       setGesto(actual)
     }
     const onUp = async () => {
-      window.removeEventListener('pointermove', onMove)
-      window.removeEventListener('pointerup', onUp)
-      setGesto(null)
+      soltar()
       if (actual.tipo === 'crear') {
         onCrear(dias[actual.col], actual.ini, actual.fin)
       } else if (actual.tipo === 'mover') {
@@ -1007,6 +1055,11 @@ function RejillaTiempo({
     }
     window.addEventListener('pointermove', onMove)
     window.addEventListener('pointerup', onUp)
+    // Si el navegador aborta el puntero, el gesto se suelta sin guardar nada.
+    window.addEventListener('pointercancel', soltar)
+    // El touch-action de la rejilla ya no se puede cambiar a mitad del gesto:
+    // el scroll de Android se frena a mano mientras dura (como en arrastre.tsx).
+    document.addEventListener('touchmove', frenarTouch, { passive: false })
   }
 
   // Lo que ocupa días enteros va arriba, no sobre el eje de horas.
@@ -1160,15 +1213,16 @@ function RejillaTiempo({
       )}
       </div>
 
-      {/* Rejilla por horas: clic+arrastre crea; bloques se mueven y estiran */}
+      {/* Rejilla por horas: clic+arrastre crea (con el dedo, pulsación larga;
+          deslizar sin más es hacer scroll); bloques se mueven y estiran */}
       <div
         ref={gridRef}
-        className="relative cursor-crosshair touch-none select-none"
+        className="relative cursor-crosshair touch-manipulation select-none"
         style={{ height: (TOTAL_MIN / 60) * ALTO_HORA }}
         onPointerDown={(e) => {
           if (e.button !== 0 || (e.target as HTMLElement).closest('[data-bloque]')) return
           const { col, min } = localizar(e)
-          seguirGesto({ tipo: 'crear', col, ini: min, fin: min + SNAP })
+          conPulsacionLarga(e, () => seguirGesto({ tipo: 'crear', col, ini: min, fin: min + SNAP }))
         }}
       >
         {/* Líneas de hora y etiquetas */}
@@ -1237,23 +1291,29 @@ function RejillaTiempo({
                     e.stopPropagation()
                     // La cola solo se consulta: se mueve desde su bloque de origen.
                     if (bloque.cola) {
-                      onDetalle(r, fechaBloque)
+                      conPulsacionLarga(e, () => onDetalle(r, fechaBloque), () => onDetalle(r, fechaBloque))
                       return
                     }
                     const { min } = localizar(e)
+                    const { clientX, clientY } = e
                     const rect = (e.currentTarget as HTMLElement).getBoundingClientRect()
                     // Los lados mandan sobre el borde inferior: en un bloque corto
                     // las esquinas se pisan, y estirar a lo ancho es lo específico.
                     const tramo = tramoDe(r, fechaBloque)
-                    if (nCols > 1 && e.clientX < rect.left + ASA) {
-                      seguirGesto({ tipo: 'repetir', rutina: r, isoAncla: tramo.fin, col })
-                    } else if (nCols > 1 && e.clientX > rect.right - ASA) {
-                      seguirGesto({ tipo: 'repetir', rutina: r, isoAncla: tramo.ini, col })
-                    } else if (e.clientY > rect.bottom - ASA) {
-                      seguirGesto({ tipo: 'estirar', rutina: r, col, ini: rango.ini, fin: rango.fin })
-                    } else {
-                      seguirGesto({ tipo: 'mover', rutina: r, dur: rango.fin - rango.ini, agarre: min - rango.ini, col, ini: rango.ini, movio: false, colOrigen: col })
+                    const iniciar = () => {
+                      if (nCols > 1 && clientX < rect.left + ASA) {
+                        seguirGesto({ tipo: 'repetir', rutina: r, isoAncla: tramo.fin, col })
+                      } else if (nCols > 1 && clientX > rect.right - ASA) {
+                        seguirGesto({ tipo: 'repetir', rutina: r, isoAncla: tramo.ini, col })
+                      } else if (clientY > rect.bottom - ASA) {
+                        seguirGesto({ tipo: 'estirar', rutina: r, col, ini: rango.ini, fin: rango.fin })
+                      } else {
+                        seguirGesto({ tipo: 'mover', rutina: r, dur: rango.fin - rango.ini, agarre: min - rango.ini, col, ini: rango.ini, movio: false, colOrigen: col })
+                      }
                     }
+                    // Con el dedo, el toque corto abre el detalle (con el ratón
+                    // eso ya lo hace 'mover' cuando se suelta sin moverse).
+                    conPulsacionLarga(e, iniciar, () => onDetalle(r, fechaBloque))
                   }}
                   className={`absolute z-10 cursor-grab overflow-hidden rounded-md border px-1 py-0.5 text-[10px] leading-tight text-white/95 transition-[filter] hover:brightness-125 ${
                     estado === 'completa' ? 'opacity-60' : ''

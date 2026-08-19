@@ -15,7 +15,7 @@ import { tGlobal } from '../../core/i18n/useT'
 import { agendaDelDia } from './agenda'
 import { planMetasEjercicio } from './plan'
 import { fechaLocalISO } from '../../core/fechaLocal'
-import { flujosEjercicio } from './tutorial.meta'
+import { esencialEjercicio, flujosEjercicio } from './tutorial.meta'
 import { OPERACIONES_IA } from './costosIA'
 
 /** Los tres tipos, para recorrer lo agendado de todos a la vez. */
@@ -141,6 +141,7 @@ const ejercicio: Plantilla = {
   esquemas,
   operacionesIA: OPERACIONES_IA,
   flujos: flujosEjercicio,
+  esencial: esencialEjercicio,
   // Booleana a propósito: las metas de la app son SEMANALES (3 sesiones/semana) y
   // repartirlas entre 7 días daría objetivos absurdos ("0.43 sesiones hoy"). Aquí
   // solo se pregunta si entrenaste; el contrato semanal sigue en su pestaña.

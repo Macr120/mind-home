@@ -1,10 +1,9 @@
 /**
- * Diccionario COREANO de la interfaz. Se carga con import() perezoso
- * desde dict.ts, igual que el inglés: quien no use este idioma no lo descarga.
+ * Diccionario KO de la interfaz. Se carga con import() perezoso
+ * desde dict.ts: quien no use este idioma no lo descarga.
  *
- * GENERADO por `npm run traducir:i18n` a partir de `dict.en.ts` y de los
- * fallbacks españoles del código. No lo edites a mano: se sobrescribe entero.
- * Lo que falte cae al inglés (ver `useT`); al español solo en último término.
+ * Lo monta `traducir-a-mano.mjs meter-dict` a partir de `dict.en.ts` y de los
+ * fallbacks españoles del código. Lo que falte cae al inglés (ver `useT`).
  */
 import type { Dict } from './dict'
 
@@ -291,6 +290,12 @@ export const KO: Dict = {
   'tren.bajarte': '내리기',
   'tren.montarTren': '기차 타기',
   'tren.montarCarrito': '카트 타기',
+  'tren.menu': '기차는 어떻게 할까요?',
+  'tren.menu.coaster': '카트는 어떻게 할까요?',
+  'tren.menu.solo': '혼자 계속 달리게 두기',
+  'tren.menu.asistente': '어시스턴트가 운전하게 하기',
+  'tren.menu.detener': '여기서 멈추기',
+  'tren.menu.cancelar': '취소',
   'juego.tu': '나',
   'juego.rival': '상대',
   'juego.gol': '고오오올! 🎉',
@@ -367,6 +372,7 @@ export const KO: Dict = {
   'hoy.objetivo': '매일의 목표(0으로 설정하면 꺼져요)',
   'hoy.checklist': '데일리 체크리스트',
   'hoy.grupoApp': '오늘의 미션',
+  'hoy.grupoMetas': '목표를 향한 단계',
   'hoy.nueva': '새 체크리스트',
   'hoy.cerrar': '닫기',
   'hoy.ocultarHechos': '완료한 것 숨기기',
@@ -476,8 +482,11 @@ export const KO: Dict = {
   'progreso.nivel': '레벨',
   'progreso.racha': '연속 기록',
   'progreso.dias': '일',
+  'progreso.hoy': '오늘',
+  'progreso.semana': '7일',
   'progreso.rachaTitulo': '활동한 날 연속 기록',
   'progreso.listasTitulo': '완료한 미션 리스트 수',
+  'progreso.planesTitulo': '승인한 계획 수',
   'progreso.listasCumplidas': '완료한 리스트',
   'celebra.racha.titulo': '{n}일 연속!',
   'celebra.racha.titulo1': '1일 연속!',
@@ -488,8 +497,6 @@ export const KO: Dict = {
   'celebra.nivel.titulo': '레벨 업!',
   'celebra.nivel.cuerpo': '{app} 레벨 {n} 달성 🎉',
   'celebra.seguir': '계속하기!',
-  'progreso.hoy': '오늘',
-  'progreso.semana': '7일',
   'plantillas.ayuda': '템플릿을 다른 폴더로 끌어다 놓으세요. 아이콘을 탭하면 앱을 써볼 수 있고, 폴더 이름을 탭하면 이름을 바꿀 수 있어요.',
   'plantillas.entrar': '앱 열기',
   'plantillas.cerrarPrevia': '‹ 닫기',
@@ -676,7 +683,7 @@ export const KO: Dict = {
   'chat.config.ponerMapa': '지도에 배치',
   'chat.config.voz': '목소리:',
   'chat.config.vozAuto': '자동 (언어별)',
-  'chat.config.vozIA': 'AI 음성 (더 자연스러움)',
+  'chat.config.vozIA': 'AI 음성 (OpenAI, 더 자연스러움)',
   'chat.config.vozLeer': '말하는 내용을 소리 내어 읽기',
   'chat.config.vozProbar': '목소리 들어보기',
   'chat.config.vozTono': '톤',
@@ -4977,20 +4984,15 @@ export const KO: Dict = {
   'rot.izq': '왼쪽으로 90° 회전',
   'rutinas.activar': '활성화',
   'rutinas.agregarPaso': '단계 추가',
-  'rutinas.autoRegistro': '방에 자동으로 기록해요',
   'rutinas.borrar': '삭제',
   'rutinas.confirmarBorrar': '이 일정을 삭제할까요?',
   'rutinas.cancelar': '취소',
   'rutinas.cerrar': '닫기',
-  'rutinas.completada': '루틴 완료!',
   'rutinas.editar': '편집',
-  'rutinas.eventoSimple': '캘린더 일정이에요.',
   'rutinas.guardar': '저장',
-  'rutinas.hoy': '오늘',
   'rutinas.nombre': '루틴/일정 이름',
   'rutinas.nueva': '새로 만들기',
   'rutinas.pasoPh': '할 일…',
-  'rutinas.pasos': '단계',
   'rutinas.pasosOpcional': '선택 사항',
   'rutinas.pasosTitulo': '단계',
   'rutinas.pausar': '일시 정지',
@@ -5000,10 +5002,6 @@ export const KO: Dict = {
   'rutinas.rep.soloTrazo': '캘린더에 그려서 일정이 등록됐어요. 날짜를 바꾸려면 다시 그려주세요.',
   'rutinas.rep.termina': '종료일:',
   'rutinas.rep.titulo': '반복',
-  'rutinas.sinHora': '시간 미설정',
-  'rutinas.titulo': '루틴',
-  'rutinas.todas': '모든 루틴',
-  'rutinas.vacio': '아직 루틴이 없어요. \'+ 새로 만들기\'로 만들거나, 어시스턴트에게 "물 마시기, 스트레칭, 감사 인사가 들어간 아침 루틴을 만들어줘"라고 부탁해 보세요.',
   'ui.sinApp': '이 방에는 배정된 앱이 없어요.',
   'ui.sinAppAyuda': '방을 편집해서 오브젝트에 앱을 배정해 주세요.',
   'ui.volverApps': '‹ 방의 앱',
@@ -5172,6 +5170,9 @@ export const KO: Dict = {
   'tut.editor-cuarto.titulo': '방 편집',
   'tut.editor-cuarto.resumen':
     '특정 방을 편집하면 도면이 그 방에 초점을 맞춰요: 모양, 바닥, 벽, 색, 이름, 그리고—여기서 가장 많이 쓰는—어떤 앱이 배정돼 있는지, 바꾸는 게 나을지예요. 패널의 화살표로 전체 지도로 돌아가고, 방 위의 플로팅 버튼으로 방에서 나갈 수 있어요.',
+  'tut.inicio.titulo': '시작 화면',
+  'tut.inicio.resumen':
+    '앱이 있는 방들을 격자로 모은 화면이에요. 휴대폰과 똑같이, 한 번 누르면 들어가고 길게 누르면 순서를 바꿔요. 카드마다 레벨, 연속 기록, 오늘 남은 미션이 보여요. 배경화면도 깔 수 있고, 아이콘 보기와 3D 보기를 오갈 수 있어요.',
   'tut.herramientas.titulo': '도구 휠',
   'tut.herramientas.resumen':
     '휠로 캐릭터에 네 가지 카테고리를 장착할 수 있어요: 동작(달리기, 춤, 점프…), 장난감(레이저, 포털, 그라피티…), 탈 수 있는 탈것, 건축(지도 에디터 모드로 가는 단축키)이에요. 카테고리→도구의 2레벨 구조이고, 최대 3개까지 동시에 장착할 수 있어요.',
@@ -5186,9 +5187,6 @@ export const KO: Dict = {
   'tut.app-generica.titulo': '이 앱',
   'tut.app-generica.resumen':
     '앱마다 방 안에 있어요: 헤더에 방과 앱 이름이 나오고, \'오늘\' 목록에는 여기서 할 일이 담기고, \'집으로 돌아가기\'로 닫아요. 나만의 템플릿은 블록으로 만들어요: 메모, 목록, 카운터, 습관…',
-  'tut.rutinas.titulo': '루틴',
-  'tut.rutinas.resumen':
-    '루틴 패널은 위쪽에 오늘의 체크리스트, 아래쪽에 전체 카탈로그가 있어요. 루틴마다 시간, 반복, 단계가 있고, 각 단계는 자기 앱에 알아서 기록될 수 있어요. 시간이 되면 어시스턴트가 알려주고, 예정된 건 캘린더에도 나타나요.',
   'tut.enlaces.titulo': '각 단계의 칩',
   'tut.enlaces.resumen': '목표나 계획 단계 옆의 앱 칩은 그게 어디에 기록되는지 알려주고, 탭하면 그곳으로 이동해요. 이건 이동만 해줘요: 기록은 항상 앱이 하고, 칩은 하지 않아요.',
   'tut.musica.titulo': '집의 음악',
@@ -5471,11 +5469,15 @@ export const KO: Dict = {
   'cuenta.nivel.actual': '현재',
   'cuenta.nivel.nota': '언제든 등급을 올리거나 내릴 수 있어요. 차액은 일할 계산돼요.',
   'cuenta.nivel.subir': '×{n}로 올리기 — 월 {c} 크레딧, {p}',
+  'cuenta.nivel.anual': '×1 등급 1년 — 매달 크레딧 {c}개',
+  'cuenta.creditos.comprar': '크레딧 {c}개 충전 — {p}',
+  'cuenta.creditos.nota': '단건 결제: 만료되지 않고 구독이 없어도 사용할 수 있어요.',
+  'cuenta.creditos.enCamino': '결제가 처리 중이에요. 몇 초 뒤에 이 화면을 다시 열어 주세요.',
   'cuenta.cuota.cuerpoNivel': '크레딧은 {f}에 갱신돼요. 매달 부족하면 등급을 올리세요.',
-  'cuenta.cuota.cuerpoVencida': '데이터는 이 기기에 그대로 있어요. 갱신하면 이달 크레딧과 동기화가 돌아와요.',
+  'cuenta.cuota.cuerpoVencida': '데이터는 이 기기에 남아 있어요. 갱신하면 매달 크레딧과 동기화가 돌아와요. 일회성 충전도 가능해요.',
   'cuenta.cuota.cuerpoTrial': '앱과 데이터는 영원히 당신 거예요. 매달 크레딧과 동기화를 이어가려면 Pro를 구독하세요.',
-  'cuenta.cuota.cuerpoLocal': '앱과 데이터는 돈을 내지 않아도 당신 거예요. AI만 유료예요. 구독하면 매달 크레딧을 받아요.',
-  'cuenta.cuota.web': '내 구독 보기',
+  'cuenta.cuota.cuerpoLocal': '앱과 데이터는 무료로 온전히 가질 수 있어요. AI만 유료예요. 필요할 때 크레딧을 충전하거나 구독해서 매달 받아보세요.',
+  'cuenta.cuota.web': '내 계정에서 크레딧 구매',
   'cuenta.conGoogle': 'Google로 계속하기',
   'cuenta.conApple': 'Apple로 계속하기',
   'cuenta.oCorreo': '또는 이메일로',
@@ -5505,7 +5507,11 @@ export const KO: Dict = {
   'puerta.sinCompra': '이 계정({correo})에는 아직 구매 내역이 없어요.',
   'puerta.yaPague': '결제했어요: 다시 확인',
   'puerta.salir': '계정에서 로그아웃',
-  'puerta.cuenta': '이미 구매하셨나요? 계정으로 로그인:',
+  'puerta.cuenta': '이미 구매했거나 쿠폰이 있나요? 로그인하면 안에서 사용할 수 있어요.',
+  'puerta.cupon.tengo': '쿠폰이 있나요?',
+  'puerta.cupon.codigo': '쿠폰 코드',
+  'puerta.cupon.canjear': '사용',
+  'chat.creditos': '크레딧: {n}',
   'cuenta.uso.titulo': '이번 달 AI 사용량',
   'cuenta.uso.tituloLocal': '내 AI 크레딧',
   'cuenta.uso.creditos': '크레딧',
@@ -5689,6 +5695,44 @@ export const KO: Dict = {
   'demo.error': '체험판을 만들지 못했어요.',
   'demo.reintentar': '다시 시도',
   'tut.flujos.titulo': '이 앱의 튜토리얼',
+  'tut.esencial.titulo': '기본 둘러보기',
+  'tut.tipo.ejemplos': '예시 · 데모 집',
+  'tut.app-agenda--esencial.resumen':
+    '일정은 습관이 아닌 일들을 세 가지 메뉴로 챙겨요. 업무(할 일과 보드), 건강(진료 예약, 약, 돌봄: 나와 소중한 사람, 반려동물까지), 연락처(연락처와 생일)예요. 날짜가 있는 것은 모두 캘린더에 알아서 들어가요.',
+  'tut.calendario--esencial.resumen':
+    '캘린더는 방이 아니에요. 집의 시계 안에 있으면서 날짜와 시간이 있는 모든 것을 모아요. 직접 만든 것도, 다른 앱이 알아서 잡아 둔 것도요. 보는 방법은 네 가지예요. 일과 주는 시간 격자 위에서, 월과 연도는 전체를 조망할 때 써요. 미션은 따로예요. 모든 앱의 오늘 체크리스트를 한데 모아 둔 빨간 버튼이에요.',
+  'tut.app-anecdotario--esencial.resumen':
+    '추억 노트는 나만의 일기예요. 기분과 글, 사진을 담은 기록이 날짜별로 알아서 저장돼요. 캘린더는 하루하루를 그날의 기분으로 색칠하고, 기록은 연·월·주별 폴더로 정리돼요.',
+  'tut.app-biblioteca--esencial.resumen':
+    '도서관은 나만의 백과사전이고, 메뉴는 네 가지예요. 채팅(현자에게 묻고, 대화는 하나하나 보관되어 항목으로 추출돼요), 백과사전(배운 것이 지식 분야별로 자라나는 트리), 학습(단순 타이머나 뽀모도로로 세션마다 기록해요), 개요(얼마나 쓰고 얼마나 공부했는지)예요.',
+  'tut.app-cocina--esencial.resumen':
+    '주방에는 메뉴가 두 개 있어요. 레시피북에는 앞으로 만들 것이 담겨요. 영양 성분이 딸린 레시피, 그것을 묶어 주는 식단, 그리고 장보기 목록이에요. 영양 관리는 먹은 것을 네 단계로 챙겨요. 칼로리와 체중 목표, 그날의 기록, 앞으로 며칠의 식단표, 그리고 진행 상황이에요.',
+  'tut.app-computo--esencial.resumen':
+    '전산실에는 메뉴가 두 개 있어요. 계산기는 평소의 계산을 처리하고, 모드를 바꾸면 그래프, 진법, 행렬, 연립방정식, 단위, 팁, 비례식까지 다뤄요. 거기에 공식집이 딸려 있는데, 수학·물리·화학이 미리 담긴 나만의 공식 노트예요. 스프레드시트는 표로 다룰 것들을 맡고, 수식(=SUMA 형태)을 쓸 수 있으며 엑셀이나 PDF로 내보낼 수 있어요.',
+  'tut.app-descanso--esencial.resumen':
+    '휴식은 어떻게 잤는지를 한 화면에 기록해요. 지난밤 점수, 알림이 딸린 수면 시간, 매일의 기록, 그리고 연·월·주로 살펴보는 전체 기록이에요.',
+  'tut.app-despacho--esencial.resumen':
+    '서재는 돈을 네 가지 메뉴로 정리해요. 순자산은 가진 것과 갚을 것을 예측과 함께 담고, 현금 흐름은 지출과 수입, 해당 기간의 수지를 예산·카테고리와 함께 챙기며, 목표는 저축과 투자, 부채를 모으고 금액을 제안해 주는 계산기도 갖췄어요. 시장은 실시간 시세 보드로, 확인용이에요.',
+  'tut.app-diario--esencial.resumen':
+    '일간 뉴스는 그날에만 있는 신문이에요. 실제 언론의 헤드라인이 카테고리별로 실리고 오늘의 역사도 함께 담기며, 자정이 되면 알아서 새로워져요. 전달 설정에서 어시스턴트가 자기 채팅으로 가져다주도록 예약할 수 있어요.',
+  'tut.app-ejercicio--esencial.resumen':
+    '헬스장은 몸을 쓰는 세 가지 방식을 한곳에 모아요. 근력(세트, 횟수, 무게), 지구력(달리기, 자전거, 수영을 GPS와 심박 센서로 실시간 운동하며), 유연성(시간으로 재는 가동성 운동을 가이드 플레이어와 함께)이에요. 셋 다 구성은 같아요. 카탈로그, 루틴, 진행 상황이고, 목표 메뉴에서 매주 얼마나 운동할지 정하고 연속 기록과 진행 정도를 정리해서 보여줘요.',
+  'tut.app-entretenimiento--esencial.resumen':
+    '오락실에는 메뉴가 두 개 있어요. 보드게임은 계열별로 묶이고 인원수로 걸러 볼 수 있는 디지털 카탈로그예요. 아카이브에는 다 본 영화와 드라마, 읽은 책, 즐긴 게임을 상태와 내 리뷰와 함께 남길 수 있어요.',
+  'tut.app-garage--esencial.resumen':
+    '차고는 차량 정비를 챙겨요. 신호등이 급한 일을 한눈에 알려주고, 차량 목록에는 정비 이력이 남으며, 차량마다 서류와 문서, 연락처가 모여 있어요. 날짜가 있는 것은 모두 집 캘린더에 알아서 들어가요.',
+  'tut.app-hobbies--esencial.resumen':
+    '취미는 즐겨 하는 일들을 지켜봐요. 목록에는 각 취미의 연속 기록과 이번 주 진행 정도가 나오고, 새 취미도 여기서 등록해요. 취미 안에는 세션 기록과 한 해의 히트맵, 그리고 프로젝트가 있어요.',
+  'tut.app-ideas--esencial.resumen':
+    '아이디어는 떠오른 것을 세 가지 메뉴에 담아요. 아이디어 일지(툭 떠오른 생각이나 주제별 브레인스토밍), 개념도(여러 형식으로 그리는 자유 캔버스), 결정 다이어그램(같은 형식을 비교하고 결정하는 데 쓰도록 만든 것)이에요. 모두 폴더에 정리할 수 있고, 다른 메뉴로 바꿀 수도 있어요.',
+  'tut.app-idiomas--esencial.resumen':
+    '어학은 나만의 어학원이고, 메뉴는 네 가지예요. 대화에서는 내 수준에 맞춰 대답해 주는 AI 선생님과 이야기할 수 있어요. 커리큘럼은 언어를 주제와 발음, 문법으로 나눠 초급부터 최상급까지 정리하고, 어휘 카드도 그 안에 있어요. 복습은 간격 반복과 연습 문제로 다시 익히게 해줘요. 진행률은 얼마나 늘었는지 정리해서 보여줘요.',
+  'tut.app-jardin--esencial.resumen':
+    '정원에는 명상(사운드 트랙 포함)과 가이드 호흡, 매일의 감사가 세 가지 메뉴로 담겨 있어요. 포인트도 연속 기록도 일부러 두지 않았어요. 여기서는 하루 빠져도 탓하지 않고, 그저 실천할 뿐이에요.',
+  'tut.app-metas--esencial.resumen':
+    '집 전체의 계획을 세우는 곳이고, 메뉴는 세 가지예요. 목표(마음먹은 것들의 목록을, 각각을 맡은 앱별로 묶어서), 계획(하나의 목표를 단계로 나눈 일정 초안), 일정(모든 것이 내려앉는 시간축)이에요. 자체 기록은 남기지 않아요. 다른 앱에서 생겨난 목표와 계획을 모아 둘 뿐이에요. 목표를 열면 그 시트가 나오고, 거기서 그 목표만 담은 시간축으로 넘어갈 수 있어요.',
+  'tut.app-sala--esencial.resumen':
+    '거실은 나의 여행 세계이고, 메뉴는 네 가지예요. 지도(세계 지도 위에 꽂는 장소 핀, 지구본 보기 포함), 일정(가 보고 싶은 곳과 하루하루의 계획), 경로(여러 장소를 이어 주는 여정), 여행 일지(나라별로 사진과 이야기를 담은 추억)예요.',
   'tut.app-anecdotario--diario.titulo': 'Pep님의 일기',
   'tut.app-anecdotario--diario.resumen':
     '추억 노트는 개인 일기예요. 기분과 글, 사진을 담은 기록, 한 해를 기분에 따라 색칠하는 캘린더, 연·월·주별 폴더로 정리된 기록까지 있어요.',
@@ -5713,12 +5757,11 @@ export const KO: Dict = {
   'tut.calendario.titulo': '캘린더',
   'tut.calendario.resumen':
     '집 시계에서 캘린더를 열 수 있어요. 근무, 수업, 습관, 그리고 다른 앱에서 들어오는 일정까지 모두 일간·주간·월간·연간·목표 보기에 모여요. 아래 패널은 계획한 일을 얼마나 지켰는지 보여줘요.',
-  'tut.calendario.3b.titulo': '오늘의 목표는 따로',
-  'tut.calendario.3b.texto':
-    '위의 네 가지와 헷갈리지 않도록 빨간색으로 표시했어요. \'오늘의 목표\'는 모든 앱의 오늘 체크리스트를 한데 모아요. 목표와 그 계획은 자기만의 방에 따로 있어요.',
+  'tut.calendario.3b.titulo': '목표는 따로',
+  'tut.calendario.3b.texto': '위의 네 가지와 헷갈리지 않도록 빨간색으로 표시했어요. \'목표\'를 열면 목표와 계획, 일정을 볼 수 있어요.',
   'tut.metas.titulo': '목표',
   'tut.metas.resumen':
-    '목표 목록, 그리고 각 목표 안의 시트예요. 시트에는 그것을 구체화하는 계획(AI가 제안하면 체크만 하면 돼요)과, 각 단계가 이미 진짜 하위 목표로 제 기간을 차지하는 일정이 들어 있어요.',
+    '목표에는 세 화면이 있어요. 목표가 태어나는 목록, 그것을 구체화하는 계획(AI가 제안하면 체크만 하면 돼요), 그리고 각 단계가 진짜 하위 목표로 자리 잡는 일정이에요.',
   'tut.app-biblioteca--enciclopedia.titulo': '나만의 백과사전',
   'tut.app-biblioteca--enciclopedia.resumen': '배운 모든 것이 지식 분야별 트리에 정리돼요. 요약과 핵심 포인트를 담은 카드에 그림도 넣을 수 있어요.',
   'tut.app-biblioteca--charlas.titulo': '대화하고 추출하기',
@@ -5732,6 +5775,9 @@ export const KO: Dict = {
     '분야를 고르고 시작해요. \'심플\'에서는 시간을 쭉 이어서 재고, \'뽀모도로\'에서는 집중과 휴식 구간을 번갈아 이어가요. 각 구간은 저절로 기록되고, 방을 나가도 시계는 계속 돌아가요.',
   'tut.app-biblioteca--resumen.titulo': '한 해의 전체 모습',
   'tut.app-biblioteca--resumen.resumen': '\'요약\'은 다른 세 탭에 흩어진 정보를 한 화면에 모아줘요. 분야별 기록 수, 공부한 시간, 그리고 공부한 날짜까지요.',
+  'tut.app-idiomas--charlas.titulo': '선생님과의 대화',
+  'tut.app-idiomas--charlas.resumen':
+    '\'대화\' 탭은 AI 선생님과의 대화를 열어줘요. 프로필의 CEFR 레벨에 맞춰 대답하고, 부드럽게 고쳐 주고, 나갈 때는 새 어휘를 카드로 추출하자고 제안해요. 대화는 전부 저장되고, 제목과 주제는 알아서 붙어요.',
   'tut.app-idiomas--repaso.titulo': '매일 복습',
   'tut.app-idiomas--repaso.resumen': '카드는 복습 상자별로 관리돼요. 맞히면 다음 복습일이 멀어지고, 틀리면 가까워져요. 앱은 오늘 차례가 된 카드만 보여줘요.',
   'tut.app-idiomas--repaso.2b.titulo': '카드가 아니라 문제',
@@ -6248,4 +6294,53 @@ export const KO: Dict = {
   'room.computo.corta': '계산기, 그래프, 시트',
   'room.agenda.corta': '할 일, 건강, 사람',
   'room.metas.corta': '목표, 계획, 일정',
+  'chat.menu.chatAr': 'AR 채팅',
+  'chatAr.salir': '나가기',
+  'chatAr.voltear': '카메라 전환',
+  'chatAr.encuadre': '화면 구도 전환',
+  'chatAr.callar': '음성 음소거',
+  'chatAr.asistente': '어시스턴트 변경',
+  'chatAr.permiso': '브라우저가 카메라를 차단했어요. 주소 옆 자물쇠에서 켜 주세요.',
+  'chatAr.sinCamara': '이 기기에서 카메라를 찾지 못했어요.',
+  'chatAr.reintentar': '다시 시도',
+  'chatAr.placeholder': '말하거나 입력해 보세요…',
+  'chatAr.enviar': '보내기',
+  'chatAr.sinIa': '여기서 대화하려면 먼저 집 채팅에서 AI 모델을 골라 주세요.',
+  'ia.donde.chatAr': 'AR 채팅',
+  'ia.op.chat.ar': 'AR 채팅에서의 대화',
+  'ia.op.chat.ar.nota': '어시스턴트가 AI 음성을 쓰면 읽어 주는 비용은 어시스턴트 음성으로 따로 청구돼요.',
+  'editor.pers.expresion.triste': '슬픔',
+  'editor.pers.expresion.enojado': '화남',
+  'mascara.ocultar': '숨기기',
+  'mascara.mostrar': '인터페이스 표시',
+  'mascara.menos': '접기',
+  'mascara.ajustes': '설정',
+  'mascara.cara': '얼굴',
+  'mascara.cara.fija': '고정',
+  'mascara.cara.imita': '따라하기',
+  'mascara.cara.viva': '생생',
+  'mascara.camara': '카메라',
+  'mascara.camara.frontal': '전면',
+  'mascara.camara.trasera': '후면',
+  'mascara.linterna': '플래시',
+  'mascara.lenteAuto': '자동 렌즈({camara})',
+  'mascara.camaraN': '카메라 {n}',
+  'mascara.zoom': '확대/축소',
+  'mascara.encuadre': '화면 구도',
+  'mascara.encuadre.vertical': '세로',
+  'mascara.encuadre.amplio': '넓게(레터박스)',
+  'mascara.piel': '피부',
+  'mascara.pelo': '머리',
+  'mascara.tamano': '크기',
+  'mascara.altura': '높이',
+  'mascara.profundidad': '깊이',
+  'mascara.grabar': '녹화',
+  'mascara.detener': '녹화 멈추기',
+  'mascara.estado.errorModelo': 'MediaPipe 불러오기 오류',
+  'mascara.estado.sinCamara': '카메라 없음',
+  'mascara.estado.cargando': '모델 불러오는 중…',
+  'mascara.estado.cara': '얼굴 인식됨',
+  'mascara.estado.buscando': '얼굴 찾는 중…',
+  'mascara.errorCamara': '카메라를 쓸 수 없어요({detalle}). iPhone에서는 HTTPS 터널 주소를 열어 주세요.',
+  'mascara.errorGrabar': '녹화하지 못했어요: {detalle}',
 }

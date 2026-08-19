@@ -1,6 +1,7 @@
 /**
- * Los dos tutoriales del calendario del reloj: la rejilla («Calendario») y el
- * recorrido por las metas («Metas»: la lista, la hoja de cada una y su eje).
+ * Los tutoriales del calendario del reloj: la rejilla («Calendario»), el
+ * recorrido por las metas («Metas»: la lista, la hoja de cada una y su eje) y
+ * los chips de enlace («Enlaces»).
  *
  * No son de ninguna app —el calendario dejó de ser un cuarto y vive en el HUD—,
  * pero tampoco son tutoriales de menú normales: corren sobre el AÑO de Pep@ en
@@ -18,18 +19,15 @@ import { construirAppDemo } from '../../demo/construir'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
-/** Abre el modal del reloj en la vista pedida (el `preparar` de los tours). */
-const abrirEn = (vista: 'semana' | 'objetivos') => () => {
-  useRutinasUI.getState().abrirCalendario(vista)
-}
-
 /**
  * La rejilla: qué hay dentro del calendario y cómo se lee el año. Absorbe el
  * antiguo tutorial de menú del reloj (arranca señalándolo) y sigue con la
  * semana de Pep@ y su panel de cumplimiento.
+ *
+ * Sin `preparar`: el paso 1 enseña el RELOJ con la casa a la vista (abrir el
+ * calendario antes lo taparía) y es el paso 2 el que entra.
  */
 export const cuerpoCalendario: CuerpoTutorial = {
-  preparar: abrirEn('semana'),
   pasos: [
     {
       sel: 'reloj.widget',
@@ -38,6 +36,11 @@ export const cuerpoCalendario: CuerpoTutorial = {
         'tut.calendario.1.texto',
         'El calendario no es un cuarto: vive en el reloj de la casa, así que se abre desde donde estés.',
       ),
+      // También al volver con «Atrás» (y si el tour se lanzó con el calendario
+      // ya abierto): destapar el reloj que este paso señala.
+      alEntrar: () => {
+        useRutinasUI.getState().cerrarCalendario()
+      },
     },
     {
       sel: 'cal.panel',
@@ -46,8 +49,11 @@ export const cuerpoCalendario: CuerpoTutorial = {
         'tut.calendario.2.texto',
         'Turnos en la cafetería, clases de física, correr al amanecer, piano por la noche. Cada bloque es una rutina con su hora y su color; se arrastran para moverlas y se estiran para cambiar su duración.',
       ),
-      // El modal tarda en montar: sin esperar, este primer clic cae en el vacío.
+      // Aquí es donde se entra (el paso anterior solo mostró el reloj). El
+      // clic en «Semana» repone la rejilla al volver desde los pasos de Año/Mes.
       alEntrar: async () => {
+        useRutinasUI.getState().abrirCalendario('semana')
+        // El modal tarda en montar: sin esperar, este primer clic cae en el vacío.
         await esperarTut('cal.vista.semana', 3000)
         clickTut('cal.vista.semana')
       },
@@ -239,88 +245,6 @@ export const cuerpoMetas: CuerpoTutorial = {
   ],
 }
 
-/** Los dos, en el orden en que se recorren. */
-/**
- * El panel de rutinas: se mudó aquí (venía de `menus.ts`) porque corre mejor
- * sobre el año de Pep@ que sobre un panel vacío de la casa real — con turnos,
- * clases y hábitos de verdad se ve qué hace cada pieza. Su zona sigue siendo
- * la del reloj (`data-tut-zona="calendario"` en `RutinasPanel`), así que
- * comparte menú con Calendario y Metas.
- */
-export const cuerpoRutinas: CuerpoTutorial = {
-  preparar: () => {
-    const ui = useRutinasUI.getState()
-    if (!ui.panel) ui.togglePanel()
-  },
-  pasos: [
-    {
-      sel: 'rutinas.panel',
-      texto: T(
-        'tut.rutinas.1.texto',
-        'El panel de rutinas de Pep@: arriba lo de hoy, abajo el catálogo completo para pausar, editar o borrar.',
-      ),
-    },
-    {
-      sel: 'rutinas.hoy',
-      titulo: T('tut.rutinas.2.titulo', 'Lo que toca hoy'),
-      texto: T(
-        'tut.rutinas.2.texto',
-        'El turno de cafetería, la clase de física, correr al amanecer, piano por la noche: cada tarjeta es una rutina con sus pasos. La que se sale en ámbar es la que ya debería estar en marcha y sigue pendiente.',
-      ),
-    },
-    {
-      sel: 'rutinas.hoy',
-      titulo: T('tut.rutinas.3.titulo', 'Palomear no siempre hace falta'),
-      texto: T(
-        'tut.rutinas.3.texto',
-        'El paso con el rayo ⚡ se registra solo: correr al amanecer se tacha porque esa carrera ya quedó guardada en Ejercicio, no porque alguien la marcó a mano. Los demás pasos sí se palomean tocándolos.',
-      ),
-    },
-    {
-      sel: 'rutinas.todas',
-      titulo: T('tut.rutinas.4.titulo', 'El catálogo completo'),
-      texto: T(
-        'tut.rutinas.4.texto',
-        'Aquí están todas, tocan hoy o no. ON/OFF pausa una rutina sin borrar su historial: lo cumplido hasta hoy se queda, y desde mañana deja de pedirse. Editar y ✕ cambian o eliminan la rutina entera.',
-      ),
-    },
-    {
-      sel: 'rutinas.nueva',
-      titulo: T('tut.rutinas.5.titulo', 'Crear una rutina'),
-      texto: T(
-        'tut.rutinas.5.texto',
-        'Nombre, la app a la que pertenece (o ninguna, si es un evento suelto de la casa), horario y color. Los pasos son opcionales: sin ellos es solo un evento en el calendario.',
-      ),
-      alEntrar: () => {
-        clickTut('rutinas.nueva')
-      },
-      esperar: 'rutinas.repeticion',
-    },
-    {
-      sel: 'rutinas.repeticion',
-      titulo: T('tut.rutinas.6.titulo', 'Una vez, cada semana o siempre'),
-      texto: T(
-        'tut.rutinas.6.texto',
-        'Piano es indefinida sin días marcados (todos); correr solo se repite los días que Pep@ marcó. Lo mensual, anual o en rango no se elige aquí: nace de trazar la meta directo sobre la rejilla del calendario.',
-      ),
-    },
-    {
-      sel: 'rutinas.avisar',
-      titulo: T('tut.rutinas.7.titulo', 'El aviso a su hora'),
-      texto: T(
-        'tut.rutinas.7.texto',
-        'Con el permiso concedido llega como notificación del sistema; si no, el asistente lo dice dentro de la app la próxima vez que la abras.',
-      ),
-    },
-    {
-      texto: T(
-        'tut.rutinas.8.texto',
-        'Todo lo agendado aquí también aparece en la rejilla del calendario y, en la app de cada paso, en su lista Hoy.',
-      ),
-    },
-  ],
-}
-
 /**
  * Los chips de app (`ChipApp`) que cuelgan de una meta o de un paso de plan:
  * navegan a donde se registra, nunca registran ellos mismos. Reutiliza la
@@ -329,7 +253,12 @@ export const cuerpoRutinas: CuerpoTutorial = {
  */
 export const cuerpoEnlaces: CuerpoTutorial = {
   preparar: () => {
+    // Mismas garantías que cuerpoMetas: el paso 1 señala una CARPETA (modo
+    // lista) y su alEntrar espera la fila del plan ACEPTADO, que siembra
+    // Biblioteca (idempotente y sin efecto fuera del demo).
+    localStorage.setItem(claveLS('mh.metas.columnas'), 'lista')
     abrirApp('metas')
+    void construirAppDemo('biblioteca')
   },
   pasos: [
     {
@@ -370,6 +299,108 @@ export const cuerpoEnlaces: CuerpoTutorial = {
       texto: T(
         'tut.enlaces.4.texto',
         'Solo las apps asignadas a un objeto de un cuarto aparecen como destino: enlazar a una sin cuarto sería un chip que no lleva a ningún sitio.',
+      ),
+    },
+  ],
+}
+
+/**
+ * El ESENCIAL del calendario: qué es y para qué sirve cada una de sus vistas.
+ * A diferencia de `cuerpoCalendario`, corre en la casa REAL y no necesita datos
+ * —solo señala mandos, nunca los textos hablan de lo agendado—, así que tampoco
+ * lleva `preparar`: el paso 1 enseña el RELOJ con la casa a la vista y es el
+ * paso 2 el que entra.
+ *
+ * Los botones de vista viven en la cabecera, que sigue montada en TODAS las
+ * vistas (incluida Misiones), así que sus anclas nunca desaparecen mientras el
+ * modal esté abierto y volver con «Atrás» siempre encuentra dónde pulsar.
+ */
+export const cuerpoCalendarioEsencial: CuerpoTutorial = {
+  pasos: [
+    {
+      sel: 'reloj.widget',
+      titulo: T('tut.calendario--esencial.1.titulo', 'El reloj de la casa'),
+      texto: T(
+        'tut.calendario--esencial.1.texto',
+        'El calendario no es un cuarto: vive en el reloj del HUD, así que se abre desde donde estés sin entrar a ningún sitio.',
+      ),
+      // También al volver con «Atrás» (y si el tour se lanzó con el calendario
+      // ya abierto): destapar el reloj que este paso señala.
+      alEntrar: () => {
+        useRutinasUI.getState().cerrarCalendario()
+      },
+    },
+    {
+      sel: 'cal.panel',
+      titulo: T('tut.calendario--esencial.2.titulo', 'Todo lo agendado, junto'),
+      texto: T(
+        'tut.calendario--esencial.2.texto',
+        'Aquí cae todo lo que tiene fecha y hora: lo que creas con «+ Nueva» o trazando sobre la rejilla, y lo que las demás apps agendan solas. El filtro de arriba deja ver una sola app cuando se junta demasiado.',
+      ),
+      // Aquí es donde se entra (el paso anterior solo mostró el reloj). Pedir la
+      // vista al abrir no basta al volver con «Atrás»: el store ya vale 'dia' y
+      // no cambiaría nada, así que el clic es el que repone la vista Día.
+      alEntrar: async () => {
+        useRutinasUI.getState().abrirCalendario('dia')
+        // El modal tarda en montar: sin esperar, este primer clic cae en el vacío.
+        await esperarTut('cal.hoy', 3000)
+        clickTut('cal.hoy')
+      },
+      esperar: 'cal.panel',
+    },
+    {
+      sel: 'cal.hoy',
+      titulo: T('tut.calendario--esencial.3.titulo', 'Día'),
+      texto: T(
+        'tut.calendario--esencial.3.texto',
+        'La rejilla de una jornada de 24 horas: sirve para ver a qué hora está cada cosa y si algo se encima. Este botón hace doble función: dice «Hoy» y te trae al presente, o «Día» si ya estás viendo otra fecha.',
+      ),
+      alEntrar: () => {
+        clickTut('cal.hoy')
+      },
+    },
+    {
+      sel: 'cal.vista.semana',
+      titulo: T('tut.calendario--esencial.4.titulo', 'Semana'),
+      texto: T(
+        'tut.calendario--esencial.4.texto',
+        'La misma rejilla por horas, pero con los siete días lado a lado. Es donde se ve cómo queda repartida la semana, y donde los bloques se arrastran de un día a otro o se estiran para durar más.',
+      ),
+      alEntrar: () => {
+        clickTut('cal.vista.semana')
+      },
+    },
+    {
+      sel: 'cal.vista.mes',
+      titulo: T('tut.calendario--esencial.5.titulo', 'Mes'),
+      texto: T(
+        'tut.calendario--esencial.5.texto',
+        'Deja el eje de horas y pinta los días como casillas con lo que cae en cada uno. Es la vista del panorama: qué semanas vienen cargadas y qué días quedan libres.',
+      ),
+      alEntrar: () => {
+        clickTut('cal.vista.mes')
+      },
+    },
+    {
+      sel: 'cal.vista.anio',
+      titulo: T('tut.calendario--esencial.6.titulo', 'Año'),
+      texto: T(
+        'tut.calendario--esencial.6.texto',
+        'Los doce meses de un tirón. A esta distancia ya no se leen las horas: lo que se ve es la constancia, qué tanto se sostuvo lo que te propusiste a lo largo del año.',
+      ),
+      alEntrar: () => {
+        clickTut('cal.vista.anio')
+      },
+    },
+    {
+      // Solo lo señala: pulsarlo cambiaría el cuerpo del calendario y taparía lo
+      // que este paso explica. La cabecera sigue montada, así que el botón está
+      // ahí en cualquier vista.
+      sel: 'cal.vista.objetivos',
+      titulo: T('tut.calendario--esencial.7.titulo', 'Y las misiones, aparte'),
+      texto: T(
+        'tut.calendario--esencial.7.texto',
+        'En rojo, para que no se lea como una quinta vista: Misiones junta en una sola pantalla la checklist de hoy de todas las apps. Las metas y sus planes no están aquí — viven en su propio cuarto.',
       ),
     },
   ],

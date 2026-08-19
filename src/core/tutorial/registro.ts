@@ -1,6 +1,6 @@
 import type { TutorialDef } from './tipos'
 import { TUTORIALES_MENU } from './menus.meta'
-import { FLUJOS_CALENDARIO } from './calendario.meta'
+import { esencialCalendario, FLUJOS_CALENDARIO } from './calendario.meta'
 import { FLUJOS_NUCLEO_NUEVOS } from './nucleo.meta'
 import { tutorialAppGenerica } from './appGenerica'
 import { esInfraestructura, getPlantilla } from '../registry'
@@ -27,24 +27,62 @@ const esAppInfra = (plantillaId: string): boolean => {
   return !!p && esInfraestructura(p)
 }
 
-/** Tutorial de una app por id de plantilla (el primero de sus flujos). */
-export function tutorialDeApp(plantillaId: string): TutorialDef | null {
-  const p = getPlantilla(plantillaId)
-  if (!p && !FLUJOS_NUCLEO[plantillaId]) return null
-  return flujosDeApp(plantillaId)[0] ?? null
+/**
+ * Esenciales del NÚCLEO: superficies que no son una plantilla pero tienen su
+ * tutorial esencial en la casa real (el calendario del reloj). La clave es la
+ * misma de `FLUJOS_NUCLEO`.
+ */
+export const ESENCIALES_NUCLEO: Record<string, TutorialDef> = {
+  calendario: esencialCalendario,
 }
 
 /**
- * Flujos de tutorial de una app: su menú `flujos` si lo tiene; si no, el
- * genérico, ya preparado para abrir la app (es el caso de las plantillas
- * personalizadas, que no traen tours propios). Los tours del núcleo (el
- * calendario) responden por su clave aunque no sean una plantilla.
+ * El tutorial ESENCIAL de una app: corre en la casa real y recorre sus menús
+ * principales sin crear datos. Las plantillas sin campo `esencial` (las
+ * personalizadas) caen al genérico; la infraestructura no tiene esencial (su
+ * editor se enseña con los ejemplos de la demo).
+ */
+export function esencialDeApp(plantillaId: string): TutorialDef | null {
+  const nucleo = ESENCIALES_NUCLEO[plantillaId]
+  if (nucleo) return nucleo
+  const p = getPlantilla(plantillaId)
+  if (!p || esInfraestructura(p)) return null
+  return p.esencial ?? tutorialAppGenerica(plantillaId)
+}
+
+/** ¿Es un tutorial esencial (o el genérico, que hace de esencial)? */
+export function esEsencial(def: TutorialDef): boolean {
+  return def.id === 'app-generica' || def.id.endsWith('--esencial')
+}
+
+/**
+ * Lanza el esencial de una app DONDE ESTÁS: nunca salta a la casa demo ni
+ * construye su año. `montada`: la app ya está en pantalla — sin `preparar`.
+ */
+export async function lanzarEsencial(
+  plantillaId: string,
+  opts?: { montada?: boolean },
+): Promise<void> {
+  const def = esencialDeApp(plantillaId)
+  if (!def) return
+  await useTutorial.getState().iniciar(def, { sinPreparar: opts?.montada })
+}
+
+/** El tutorial "cara" de una app (zonas amarillas, chat): su esencial, o el
+ * primer ejemplo para lo que no tiene (infraestructura, tours del núcleo). */
+export function tutorialDeApp(plantillaId: string): TutorialDef | null {
+  return esencialDeApp(plantillaId) ?? flujosDeApp(plantillaId)[0] ?? null
+}
+
+/**
+ * Los tutoriales de EJEMPLO de una app: sus `flujos`, que corren sobre el año
+ * de Pep@ en la casa demo. Los tours del núcleo (el calendario) responden por
+ * su clave aunque no sean una plantilla.
  */
 export function flujosDeApp(plantillaId: string): TutorialDef[] {
   const p = getPlantilla(plantillaId)
   if (!p) return FLUJOS_NUCLEO[plantillaId] ?? []
-  if (p.flujos) return p.flujos
-  return [tutorialAppGenerica(plantillaId)]
+  return p.flujos ?? []
 }
 
 /**

@@ -4,6 +4,7 @@
  */
 import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { abrirApp } from '../../core/abrirApp'
+import { esperarTut } from '../../core/tutorial/dom'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
@@ -68,6 +69,54 @@ export const cuerpoFotos: CuerpoTutorial = {
       texto: T(
         'tut.app-anecdotario--fotos.3.texto',
         'Cada entrada alimenta la racha y despierta al personaje: escribir aquí también es cuidar la casa.',
+      ),
+    },
+  ],
+}
+
+/**
+ * ESENCIAL: corre en la casa real y recorre las secciones de la página única
+ * una por una. Sin datos de por medio: sus anclas (el formulario, el
+ * calendario, el historial) existen con la BD vacía.
+ */
+export const cuerpoEsencial: CuerpoTutorial = {
+  preparar: () => {
+    abrirApp('anecdotario')
+  },
+  pasos: [
+    {
+      titulo: T('tut.app-anecdotario--esencial.1.titulo', 'Tu diario personal'),
+      texto: T(
+        'tut.app-anecdotario--esencial.1.texto',
+        'El anecdotario guarda lo que quieras contar, con su ánimo y sus fotos. Se organiza solo por fecha, sin que tengas que clasificar nada.',
+      ),
+    },
+    {
+      sel: 'anecdotario.form',
+      titulo: T('tut.app-anecdotario--esencial.2.titulo', 'Así se escribe'),
+      texto: T(
+        'tut.app-anecdotario--esencial.2.texto',
+        'Elige el ánimo del día, escribe lo que quieras contar y adjunta fotos si tienes. Con solo una foto, sin texto, también vale.',
+      ),
+      alEntrar: async () => {
+        // El formulario no es clicable (no es una pestaña): solo se espera a que exista.
+        await esperarTut('anecdotario.form', 4000)
+      },
+    },
+    {
+      sel: 'anecdotario.calendario',
+      titulo: T('tut.app-anecdotario--esencial.3.titulo', 'El calendario del ánimo'),
+      texto: T(
+        'tut.app-anecdotario--esencial.3.texto',
+        'Cada día se pinta con el ánimo de su entrada, así que el mes entero se lee de un vistazo. Toca un día para ver sus entradas debajo.',
+      ),
+    },
+    {
+      sel: 'anecdotario.lista',
+      titulo: T('tut.app-anecdotario--esencial.4.titulo', 'El historial'),
+      texto: T(
+        'tut.app-anecdotario--esencial.4.texto',
+        'Todas las entradas quedan aquí, organizadas solas en carpetas por año, mes y semana.',
       ),
     },
   ],

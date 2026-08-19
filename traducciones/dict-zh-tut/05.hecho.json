@@ -1,146 +1,130 @@
 [
- {
-  "clave": "tut.respaldo.3.texto",
-  "texto": "“恢复”会把当前所有数据替换成文件里的内容——它会先请你确认，并显示文件里有多少条记录，不会有意外。"
- },
- {
-  "clave": "tut.respaldo.4.texto",
-  "texto": "换设备、换浏览器之前，或者只是隔一段时间，都值得备份一下：没有账户的话，这是你唯一的一份副本。"
- },
- {
-  "clave": "tut.editor-cuarto.1.texto",
-  "texto": "你在编辑的是某个具体房间：平面图和相机都聚焦在它上面，而不是整个家。"
- },
- {
-  "clave": "tut.editor-cuarto.2.titulo",
-  "texto": "可以编辑什么"
- },
- {
-  "clave": "tut.editor-cuarto.2.texto",
-  "texto": "房间的形状、地板、墙、门、颜色和名字，还有它的物件。分配的应用也在这里更换：这正是大多数人打开这个面板的原因。"
- },
- {
-  "clave": "tut.editor-cuarto.3.titulo",
-  "texto": "返回地图"
- },
- {
-  "clave": "tut.editor-cuarto.3.texto",
-  "texto": "这个箭头不关闭编辑器就回到完整地图，方便你接着编辑另一个房间。"
- },
- {
-  "clave": "tut.editor-cuarto.4.texto",
-  "texto": "3D里房间上方还有一个悬浮按钮“退出房间”，想在那儿点也可以。"
- },
- {
-  "clave": "tut.herramientas.1.texto",
-  "texto": "这个按钮会打开角色的工具轮盘。"
- },
- {
-  "clave": "tut.herramientas.2.titulo",
-  "texto": "两级"
- },
- {
-  "clave": "tut.herramientas.2.texto",
-  "texto": "先选分类，再选里面具体的工具。最多可以同时装备3个，来自同一分类或不同分类都行。"
- },
- {
-  "clave": "tut.herramientas.3.titulo",
-  "texto": "第四个分类"
- },
- {
-  "clave": "tut.herramientas.3.texto",
-  "texto": "“建造”不会装备玩具：它打开地图的绘制模式（房间、墙、门、窗、地板、屋顶），不用绕道完整编辑器。还是同一张平面图，只是进得更快。"
- },
- {
-  "clave": "tut.herramientas.4.titulo",
-  "texto": "中心"
- },
- {
-  "clave": "tut.herramientas.4.texto",
-  "texto": "中心会卸下所有装备，把角落按钮恢复成平常的样子（视角方块，或者根据附近有什么显示别的按钮）。"
- },
- {
-  "clave": "tut.herramientas.5.texto",
-  "texto": "点轮盘外面就能关掉。随时试试看：这些都不会永久保存，只在装备着的时候有效。"
- },
- {
-  "clave": "tut.navegacion.1.texto",
-  "texto": "三种相机：等距（娃娃屋视角）、第三人称和第一人称。在这里切换，或者按V键。"
- },
- {
-  "clave": "tut.navegacion.2.titulo",
-  "texto": "调整方向"
- },
- {
-  "clave": "tut.navegacion.2.texto",
-  "texto": "等距下，方块按面转动相机；第三人称/第一人称下，拖动视角板四处张望。"
- },
- {
-  "clave": "tut.navegacion.3.titulo",
-  "texto": "附近有东西时"
- },
- {
-  "clave": "tut.navegacion.3.texto",
-  "texto": "靠近可以互动的东西时，这个位置就不再是相机了：球场会给出开始比赛的按钮，载具给上去的，椅子给坐下的。一次只出现一个，而且都要靠近才出现——绝不会自动触发。"
- },
- {
-  "clave": "tut.navegacion.4.titulo",
-  "texto": "旋转和居中"
- },
- {
-  "clave": "tut.navegacion.4.texto",
-  "texto": "可以把视角左右转动，或者在探索迷路时重新居中显示地图。"
- },
- {
-  "clave": "tut.navegacion.5.titulo",
-  "texto": "移动"
- },
- {
-  "clave": "tut.navegacion.5.texto",
-  "texto": "用摇杆、WASD或方向键走路。到水里会游泳；骑上载具后，用同样的操作驾驶。"
- },
- {
-  "clave": "tut.navegacion.6.texto",
-  "texto": "在第三人称/第一人称下会出现“3D编辑器”按钮：点物件、墙或角色，就能就地编辑，不用切回等距视角。"
- },
- {
-  "clave": "tut.chat.1.texto",
-  "texto": "建筑师聊天：记录你的一天、编辑家、回答你的疑问，全都在同一个输入框里完成。"
- },
- {
-  "clave": "tut.chat.2.titulo",
-  "texto": "输入"
- },
- {
-  "clave": "tut.chat.2.texto",
-  "texto": "随便写：“跑了20分钟”“在超市花了250”……旁边的标签会显示它要去哪个应用。猜错了就用 @房间 指定目的地。"
- },
- {
-  "clave": "tut.chat.3.titulo",
-  "texto": "语音输入"
- },
- {
-  "clave": "tut.chat.3.texto",
-  "texto": "麦克风会把你说的话转写到输入框里——手上拿着东西也能记录。"
- },
- {
-  "clave": "tut.chat.4.titulo",
-  "texto": "发送照片"
- },
- {
-  "clave": "tut.chat.4.texto",
-  "texto": "开启AI后，小票、菜品或体重秤的照片会自动读懂。没有AI时，这个按钮不可用。"
- },
- {
-  "clave": "tut.chat.5.titulo",
-  "texto": "助手"
- },
- {
-  "clave": "tut.chat.5.texto",
-  "texto": "助手会给回答配上一张脸和一个声音。点它就能查看对话、换个助手或者再创建几个。"
- },
- {
-  "clave": "tut.chat.6.titulo",
-  "texto": "使用手册"
- }
+  {
+    "clave": "tut.app-hobbies--esencial.4.texto",
+    "texto": "在那里你可以带着时长和备注记录练习，看一年的热力图，还能推进各有进度的项目。目标和它们的日程住在目标房间。"
+  },
+  {
+    "clave": "tut.app-ideas--esencial.1.titulo",
+    "texto": "点子"
+  },
+  {
+    "clave": "tut.app-ideas--esencial.1.texto",
+    "texto": "点子保存你想到的东西，并帮它长大：先写下来，再整理成一张图，需要的话还能比一比再做决定。一共三个菜单。"
+  },
+  {
+    "clave": "tut.app-ideas--esencial.2.titulo",
+    "texto": "想法日记"
+  },
+  {
+    "clave": "tut.app-ideas--esencial.2.texto",
+    "texto": "任何灵感都落在这个收件箱里，零散的也好，按主题凑成一场头脑风暴也好。它们可以归入文件夹、加星标，等想法成熟了再变成一张图。"
+  },
+  {
+    "clave": "tut.app-ideas--esencial.3.titulo",
+    "texto": "概念图"
+  },
+  {
+    "clave": "tut.app-ideas--esencial.3.texto",
+    "texto": "一块自由画布，用最合适的格式把一个主题理清楚：思维导图、树状图、流程图、时间线、循环图、金字塔图、韦恩图等等。"
+  },
+  {
+    "clave": "tut.app-ideas--esencial.4.titulo",
+    "texto": "决策图"
+  },
+  {
+    "clave": "tut.app-ideas--esencial.4.texto",
+    "texto": "同一块画布，换上专为做决定而设的格式：带权重的利弊分析、SWOT分析、艾森豪威尔矩阵，或者会自动给选项排序的加权决策矩阵。"
+  },
+  {
+    "clave": "tut.app-idiomas--esencial.1.titulo",
+    "texto": "你的语言学校"
+  },
+  {
+    "clave": "tut.app-idiomas--esencial.1.texto",
+    "texto": "在这里你选一门语言，和AI老师聊天，把学到的词汇存下来，再用间隔重复复习。一共四个菜单：聊天、大纲、复习和进度。"
+  },
+  {
+    "clave": "tut.app-idiomas--esencial.2.titulo",
+    "texto": "聊天"
+  },
+  {
+    "clave": "tut.app-idiomas--esencial.2.texto",
+    "texto": "用你正在学的语言和老师对话：他会按你的水平作答，并温和地纠正你。每段聊天都会保存并自动归类，离开时还会提议把新词做成卡片。"
+  },
+  {
+    "clave": "tut.app-idiomas--esencial.3.titulo",
+    "texto": "大纲"
+  },
+  {
+    "clave": "tut.app-idiomas--esencial.3.texto",
+    "texto": "把语言整理成主题、发音和语法，从入门到精通。词汇就住在每个主题里面：每张卡片连同它的翻译和例句都存在那儿。"
+  },
+  {
+    "clave": "tut.app-idiomas--esencial.4.titulo",
+    "texto": "复习"
+  },
+  {
+    "clave": "tut.app-idiomas--esencial.4.texto",
+    "texto": "间隔重复复习：每张卡片都待在一个盒子里，只有快要忘掉的才会出现，而且不是光看看，而是用选择题、反向题或补全句子的练习来记。"
+  },
+  {
+    "clave": "tut.app-idiomas--esencial.5.titulo",
+    "texto": "进度"
+  },
+  {
+    "clave": "tut.app-idiomas--esencial.5.texto",
+    "texto": "你的提升汇总：掌握了多少张卡片、复习了多少、目前是什么水平，还有逐日的复习记录。"
+  },
+  {
+    "clave": "tut.app-jardin--esencial.1.titulo",
+    "texto": "你的平静角落"
+  },
+  {
+    "clave": "tut.app-jardin--esencial.1.texto",
+    "texto": "花园里有三种练习：冥想、引导呼吸和感恩。这里刻意不设积分和连续天数：缺一天不会受罚，它只是安静地陪着你练。"
+  },
+  {
+    "clave": "tut.app-jardin--esencial.2.titulo",
+    "texto": "冥想"
+  },
+  {
+    "clave": "tut.app-jardin--esencial.2.texto",
+    "texto": "选一段音效和一个时长，或者在安静中冥想，只在开始和结束时敲一下钟。每一次都会保存到你的记录里。"
+  },
+  {
+    "clave": "tut.app-jardin--esencial.3.titulo",
+    "texto": "呼吸"
+  },
+  {
+    "clave": "tut.app-jardin--esencial.3.texto",
+    "texto": "两种引导呼吸法，一种让你静下来，一种把这一天放下：过程中屏幕会跟着你一起呼吸。"
+  },
+  {
+    "clave": "tut.app-jardin--esencial.4.titulo",
+    "texto": "感恩"
+  },
+  {
+    "clave": "tut.app-jardin--esencial.4.texto",
+    "texto": "写下今天让你心怀感激的事，哪怕只有一件，之后随时可以回头翻看。没有连续天数：漏掉一天，什么也不会消失。"
+  },
+  {
+    "clave": "tut.app-metas--esencial.1.titulo",
+    "texto": "整个家的规划中心"
+  },
+  {
+    "clave": "tut.app-metas--esencial.1.texto",
+    "texto": "这个房间不保存自己的记录：它把其他应用里诞生的目标和计划集中到一处。三个菜单，按这个顺序读：你给自己定下了什么、打算怎么拆开、以及什么时候落地。"
+  },
+  {
+    "clave": "tut.app-metas--esencial.2.titulo",
+    "texto": "目标"
+  },
+  {
+    "clave": "tut.app-metas--esencial.2.texto",
+    "texto": "你给自己定下的一切，按负责的应用分组。一个目标可以挂在另一个下面，点开它会打开它的详情页：期限、步骤，以及进入专属时间轴的入口都在那里。"
+  },
+  {
+    "clave": "tut.app-metas--esencial.3.titulo",
+    "texto": "计划"
+  }
 ]

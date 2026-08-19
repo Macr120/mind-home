@@ -97,7 +97,7 @@ export function MapaTab({ lugares, onIrABitacora }: Props) {
         onCambio={setVista}
         color={COLOR}
         variante="sub"
-        nivel={2}
+        prefijoTut="sala.mapa.vista"
       />
 
       <div className="flex flex-wrap items-center gap-2">

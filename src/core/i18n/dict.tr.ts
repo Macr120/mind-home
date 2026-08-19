@@ -1,10 +1,9 @@
 /**
- * Diccionario TURCO de la interfaz. Se carga con import() perezoso
- * desde dict.ts, igual que el inglés: quien no use este idioma no lo descarga.
+ * Diccionario TR de la interfaz. Se carga con import() perezoso
+ * desde dict.ts: quien no use este idioma no lo descarga.
  *
- * GENERADO por `npm run traducir:i18n` a partir de `dict.en.ts` y de los
- * fallbacks españoles del código. No lo edites a mano: se sobrescribe entero.
- * Lo que falte cae al inglés (ver `useT`); al español solo en último término.
+ * Lo monta `traducir-a-mano.mjs meter-dict` a partir de `dict.en.ts` y de los
+ * fallbacks españoles del código. Lo que falte cae al inglés (ver `useT`).
  */
 import type { Dict } from './dict'
 
@@ -297,6 +296,12 @@ export const TR: Dict = {
   'tren.bajarte': 'İn',
   'tren.montarTren': 'Trene bin',
   'tren.montarCarrito': 'Arabaya bin',
+  'tren.menu': 'Peki ya tren?',
+  'tren.menu.coaster': 'Peki ya araba?',
+  'tren.menu.solo': 'Kendi başına gitmeye devam etsin',
+  'tren.menu.asistente': 'Bir asistan sürsün',
+  'tren.menu.detener': 'Burada durdur',
+  'tren.menu.cancelar': 'Vazgeç',
   'juego.tu': 'Sen',
   'juego.rival': 'Rakip',
   'juego.gol': 'GOOOL! 🎉',
@@ -373,6 +378,7 @@ export const TR: Dict = {
   'hoy.objetivo': 'Günlük hedefin (0 kapatır)',
   'hoy.checklist': 'Günlük kontrol listesi',
   'hoy.grupoApp': 'Günün görevleri',
+  'hoy.grupoMetas': 'Hedeflerine giden adımlar',
   'hoy.nueva': 'Yeni kontrol listesi',
   'hoy.cerrar': 'Kapat',
   'hoy.ocultarHechos': 'Bitenleri gizle',
@@ -485,8 +491,11 @@ export const TR: Dict = {
   'progreso.nivel': 'Seviye',
   'progreso.racha': 'Seri',
   'progreso.dias': 'gün',
+  'progreso.hoy': 'Bugün',
+  'progreso.semana': '7 gün',
   'progreso.rachaTitulo': 'Aktif gün serisi',
   'progreso.listasTitulo': 'Tamamlanan görev listeleri',
+  'progreso.planesTitulo': 'Kabul edilen planlar',
   'progreso.listasCumplidas': 'Tamamlanan listeler',
   'celebra.racha.titulo': '{n} günlük seri!',
   'celebra.racha.titulo1': '1 günlük seri!',
@@ -497,8 +506,6 @@ export const TR: Dict = {
   'celebra.nivel.titulo': 'Seviye atladın!',
   'celebra.nivel.cuerpo': '{app} {n}. seviyeye ulaştı 🎉',
   'celebra.seguir': 'Devam!',
-  'progreso.hoy': 'Bugün',
-  'progreso.semana': '7 gün',
   'plantillas.ayuda':
     'Bir şablonu başka bir klasöre sürükle; simgeye dokunarak uygulamayı dene, klasörün adına dokunarak yeniden adlandır.',
   'plantillas.entrar': 'Uygulamayı aç',
@@ -689,7 +696,7 @@ export const TR: Dict = {
   'chat.config.ponerMapa': 'Haritaya ekle',
   'chat.config.voz': 'Ses:',
   'chat.config.vozAuto': 'Otomatik (dile göre)',
-  'chat.config.vozIA': 'Yapay zeka sesi (daha doğal)',
+  'chat.config.vozIA': 'Yapay zeka sesi (OpenAI, daha doğal)',
   'chat.config.vozLeer': 'Söylediklerini yüksek sesle oku',
   'chat.config.vozProbar': 'Sesi dene',
   'chat.config.vozTono': 'Ton',
@@ -4986,7 +4993,8 @@ export const TR: Dict = {
   'nav.editar.subirImagen': 'Görsel yükle',
   'nav.editar.color': 'Renk',
   'nav.editar.murosTitulo': 'Duvarlar da yeniden boyansın mı?',
-  'nav.editar.murosMensaje': 'Bu odada harita düzenleyicide elle boyadığın duvarlar var. Yeniden boyarsan renklerini kaybederler.',
+  'nav.editar.murosMensaje':
+    'Bu odada harita düzenleyicide elle boyadığın duvarlar var. Yeniden boyarsan renklerini kaybederler.',
   'nav.editar.murosOk': 'Yeniden boya',
   'nav.fondo.titulo': 'Duvar kâğıdı',
   'nav.fondo.desc': 'Görseller evin gökyüzü arka planıyla ortaktır.',
@@ -5127,20 +5135,15 @@ export const TR: Dict = {
   'rot.izq': '90° sola döndür',
   'rutinas.activar': 'Etkinleştir',
   'rutinas.agregarPaso': 'Adım ekle',
-  'rutinas.autoRegistro': 'Odada otomatik olarak kaydeder',
   'rutinas.borrar': 'Sil',
   'rutinas.confirmarBorrar': 'Bu etkinlik silinsin mi?',
   'rutinas.cancelar': 'İptal',
   'rutinas.cerrar': 'Kapat',
-  'rutinas.completada': 'Rutin tamamlandı!',
   'rutinas.editar': 'Düzenle',
-  'rutinas.eventoSimple': 'Takvim etkinliği.',
   'rutinas.guardar': 'Kaydet',
-  'rutinas.hoy': 'Bugün',
   'rutinas.nombre': 'Rutin/etkinlik adı',
   'rutinas.nueva': 'Yeni',
   'rutinas.pasoPh': 'Ne yapılacak…',
-  'rutinas.pasos': 'adım',
   'rutinas.pasosOpcional': 'isteğe bağlı',
   'rutinas.pasosTitulo': 'Adımlar',
   'rutinas.pausar': 'Duraklat',
@@ -5150,11 +5153,6 @@ export const TR: Dict = {
   'rutinas.rep.soloTrazo': 'takvimde çizilerek planlandı; tarihleri değiştirmek için tekrar çiz',
   'rutinas.rep.termina': 'Bitiş tarihi',
   'rutinas.rep.titulo': 'Tekrar',
-  'rutinas.sinHora': 'saatsiz',
-  'rutinas.titulo': 'Rutinler',
-  'rutinas.todas': 'Tüm rutinler',
-  'rutinas.vacio':
-    'Henüz rutin yok. «+ Yeni» ile bir tane oluştur ya da asistanından iste: «bana su, esneme ve minnettarlıkla sabah rutini oluştur».',
   'ui.sinApp': 'Bu odaya atanmış bir uygulama yok.',
   'ui.sinAppAyuda': 'Odayı düzenle ve bir nesneye uygulama ata.',
   'ui.volverApps': '‹ Oda uygulamaları',
@@ -5328,6 +5326,9 @@ export const TR: Dict = {
   'tut.editor-cuarto.titulo': 'Bir odayı düzenle',
   'tut.editor-cuarto.resumen':
     'Belirli bir oda düzenlenirken plan ona odaklanır: şekil, zemin, duvarlar, renk, ad ve —burada en çok kullanılan— hangi uygulamanın atandığı ya da değiştirmenin uygun olup olmadığı. Panelin oku tüm haritaya döner, oda üzerindeki yüzen düğme ise ondan çıkar.',
+  'tut.inicio.titulo': 'Başlangıç ekranı',
+  'tut.inicio.resumen':
+    'Uygulaması olan odalarının ızgarası, telefon mantığıyla: tek dokunuş girer, uzun basış yeniden sıralar ve her kart seviyesini, serisini ve bugünün bekleyen görevlerini taşır. Kendi duvar kâğıdı ve simge ya da 3D görünümüyle.',
   'tut.herramientas.titulo': 'Araç çarkı',
   'tut.herramientas.resumen':
     'Çark, karakterini dört kategoride donatır: hareketler (koşmak, dans etmek, zıplamak…), oyuncaklar (lazer, portallar, grafiti…), binilebilir araçlar ve inşaat (harita düzenleyicisinin modlarına bir kısayol). İki seviye —kategori → araç— ve aynı anda 3’e kadar donatılabilir.',
@@ -5343,9 +5344,6 @@ export const TR: Dict = {
   'tut.app-generica.titulo': 'Bu uygulama',
   'tut.app-generica.resumen':
     'Her uygulama bir odada yaşar: üstbilgi odayı ve uygulamayı gösterir, bugünün listesi burada yapılması gerekeni taşır ve «Eve dön» onu kapatır. Kendi şablonların bloklarla kurulur: notlar, listeler, sayaçlar, alışkanlıklar…',
-  'tut.rutinas.titulo': 'Rutinler',
-  'tut.rutinas.resumen':
-    'Rutinler paneli üstte günün kontrol listesini, altta ise tüm kataloğu taşır: her rutinin bir saati, tekrarı ve adımları vardır ve her adım kendi uygulamasına tek başına kaydedebilir. Saati geldiğinde asistan haber verir ve planlanan her şey takvimde de görünür.',
   'tut.enlaces.titulo': 'Her adımın chip’i',
   'tut.enlaces.resumen':
     'Bir hedefin veya plan adımının yanındaki uygulama chip’i, bunun nerede kaydedildiğini söyler ve bir dokunuş seni oraya götürür. Bu sadece gezinmedir: kaydı her zaman uygulama yapar, chip asla yapmaz.',
@@ -5645,13 +5643,18 @@ export const TR: Dict = {
   'cuenta.nivel.actual': 'Mevcut',
   'cuenta.nivel.nota': 'İstediğin zaman seviye yükseltip düşürebilirsin; fark orantılı hesaplanır.',
   'cuenta.nivel.subir': '×{n} seviyesine çık — {p} karşılığında ayda {c} kredi',
+  'cuenta.nivel.anual': '×1 seviyesinden bir yıl — ayda {c} kredi',
+  'cuenta.creditos.comprar': '{c} kredi yükle — {p}',
+  'cuenta.creditos.nota': 'Tek seferlik ödeme: süresi dolmaz ve abonelik olmadan da çalışır.',
+  'cuenta.creditos.enCamino': 'Ödemen yolda: bu bölümü birkaç saniye sonra tekrar aç.',
   'cuenta.cuota.cuerpoNivel': 'Kredilerin {f} tarihinde yenilenir. Her ay yetmiyorsa seviyeni yükselt.',
-  'cuenta.cuota.cuerpoVencida': 'Verilerin bu cihazda duruyor. Aylık kredileri ve eşitlemeyi geri almak için yenile.',
+  'cuenta.cuota.cuerpoVencida':
+    'Verilerin bu cihazda kalmaya devam eder. Aylık kredilerini ve senkronizasyonu geri almak için yenile, ya da tek seferlik kredi satın al.',
   'cuenta.cuota.cuerpoTrial':
     'Uygulama ve verilerin sonsuza dek senin. Aylık kredilerle eşitlemeyi sürdürmek için Pro’ya abone ol.',
   'cuenta.cuota.cuerpoLocal':
-    'Uygulama ve verilerin hiçbir ücret ödemeden senin. Sadece yapay zekâ ücretli: abone ol, her ay kredi al.',
-  'cuenta.cuota.web': 'Aboneliğimi gör',
+    'Uygulama ve verilerin hiçbir ücret ödemeden senindir. Sadece Yapay Zeka ücretlidir: ihtiyacın olduğunda kredi yükle ya da abone olup her ay al.',
+  'cuenta.cuota.web': 'Hesabımdan kredi satın al',
   'cuenta.conGoogle': 'Google ile devam et',
   'cuenta.conApple': 'Apple ile devam et',
   'cuenta.oCorreo': 'veya e-postanla',
@@ -5683,7 +5686,11 @@ export const TR: Dict = {
   'puerta.sinCompra': 'Bu hesapta ({correo}) satın alma henüz yok.',
   'puerta.yaPague': 'Ödedim: tekrar kontrol et',
   'puerta.salir': 'Hesaptan çık',
-  'puerta.cuenta': 'Zaten satın aldın mı? Hesabınla gir:',
+  'puerta.cuenta': 'Zaten satın aldın mı ya da kuponun mu var? Giriş yap, içeride kullan.',
+  'puerta.cupon.tengo': 'Kuponun var mı?',
+  'puerta.cupon.codigo': 'Kupon kodu',
+  'puerta.cupon.canjear': 'Kullan',
+  'chat.creditos': 'Krediler: {n}',
   'cuenta.uso.titulo': 'Bu ay Yapay Zeka kullanımı',
   'cuenta.uso.tituloLocal': 'Yapay Zeka kredilerin',
   'cuenta.uso.creditos': 'Krediler',
@@ -5704,7 +5711,7 @@ export const TR: Dict = {
   'gastoByok.modelo3d': '3D modeller',
   'gastoByok.voz': 'Dikte',
   'gastoByok.tts': 'Yapay Zeka sesi',
-  'ia.titulo': 'Yapay Zeka: açma ve fiyatlar',
+  'ia.titulo': 'Yapay Zeka: etkinleştirme ve fiyatlar',
   'ia.precios.titulo': 'Yapay Zeka fiyatları',
   'ia.activar.titulo': 'Yapay Zekayı etkinleştir',
   'ia.activar.porCuenta': 'Hesabınla açık: istediğin her şey kredi harcar.',
@@ -5876,6 +5883,44 @@ export const TR: Dict = {
   'demo.error': 'Demo oluşturulamadı.',
   'demo.reintentar': 'Tekrar dene',
   'tut.flujos.titulo': 'Bu uygulamanın öğreticileri',
+  'tut.esencial.titulo': 'Temel Bilgiler',
+  'tut.tipo.ejemplos': 'Örnekler · demo ev',
+  'tut.app-agenda--esencial.resumen':
+    'Ajanda, alışkanlık olmayan her şeyi üç bölümde tutar: İş (yapılacaklar ve pano), Sağlık (doktor randevuları, ilaçlar ve bakım — seninkiler, yakınlarınınkiler ve evcil hayvanlarınkiler) ve Kişiler (kişi listesi ve doğum günleri). Tarihi olan her şey kendiliğinden takvime düşer.',
+  'tut.calendario--esencial.resumen':
+    'Takvim ayrı bir oda değildir: evin saatinde yaşar ve tarihi ve saati olan her şeyi toplar — senin elle oluşturduklarını ve diğer uygulamaların kendiliğinden planladıklarını. Ona bakmanın dört yolu var: saat ızgarasında Gün ve Hafta, genel görünüm için Ay ve Yıl. Görevler ayrı durur — tüm uygulamaların bugünkü kontrol listesini bir araya getiren kırmızı buton.',
+  'tut.app-anecdotario--esencial.resumen':
+    'Anı defterin, kişisel günlüğündür: ruh hali, metin ve fotoğraflarla kendiliğinden tarihe göre kaydedilen kayıtlar. Takvim her günü ruh haline göre renklendirir, geçmiş ise bunları yıl, ay ve haftaya göre klasörlere ayırır.',
+  'tut.app-biblioteca--esencial.resumen':
+    'Kütüphane, kişisel ansiklopedin, dört bölümde: Sohbetler (Bilge\'ye sorular sorarsın ve her konuşma kendiliğinden arşivlenip bir maddeye dönüşür), Ansiklopedi (öğrendiklerinin yaşadığı ağaç, bilgi alanına göre), Çalışma (basit ya da pomodoro zamanlayıcı, her oturumu kaydeder) ve Genel bakış (ne kadar yazdığın ve ne kadar çalıştığın).',
+  'tut.app-cocina--esencial.resumen':
+    'Mutfağın iki bölümü var. Tarif defteri pişireceğin şeyleri tutar: makrolarıyla tariflerin, onları gruplayan diyetler ve market listesi. Beslenme, dört adımda ne yediğinin hesabını tutar: kalori ve kilo hedeflerin, günün kaydı, önümüzdeki günlerin öğün planı ve ilerleme.',
+  'tut.app-computo--esencial.resumen':
+    'Bilgi İşlem\'in iki bölümü var. Hesap Makinesi her zamanki hesapları yapar ve grafik çizmek, sayı tabanları, matrisler, denklem sistemleri, birimler, bahşiş ve üçlü kural için mod değiştirir; ona bağlı olan Formül Defteri, Matematik, Fizik ve Kimyanın zaten yüklü olduğu formül kitabındır. E-Tablolar tablo halindeki her şeyi yürütür, anlaşılır formüllerle ve Excel veya PDF\'e aktarımla.',
+  'tut.app-descanso--esencial.resumen':
+    'Dinlenme, nasıl uyuduğunu tek bir ekranda gösterir: son gecenin puanı, hatırlatıcılarıyla programın, günlük kayıt ve yıl, ay ve haftaya göre tam geçmiş.',
+  'tut.app-despacho--esencial.resumen':
+    'Çalışma Odası, paranı dört bölümde düzenler. Net değer, sahip olduğun ve borçlu olduğun şeyleri projeksiyonuyla tutar; Nakit akışı, dönemin giderlerini, gelirlerini ve bakiyesini bütçe ve kategorilerle birlikte tutar; Hedefler, tasarruf, yatırım ve borcu bir araya getirir, ayrıca bir tutar öneren hesaplayıcılarla. Piyasalar sadece görüntülemek için canlı fiyat panosudur.',
+  'tut.app-diario--esencial.resumen':
+    'Günlük Haberler, geçici bir gazetedir: kategoriye göre gerçek basın manşetleri ve gece yarısı kendiliğinden yenilenen «Bugün tarihte». Teslimat bölümünden bir asistanın bunu kendi sohbetinde sana getirmesini ayarlayabilirsin.',
+  'tut.app-ejercicio--esencial.resumen':
+    'Spor Salonu, bedenin üç modunu tek yerde tutar: Kuvvet (set, tekrar ve ağırlık), Dayanıklılık (koşu, bisiklet veya yüzme, GPS ve nabız sensörüyle canlı antrenman) ve Esneklik (zamana dayalı hareket, rehberli oynatıcıyla). Üçü de aynı şekilde düzenlenir — katalog, rutinler ve ilerleme — ve Hedefler bölümü her hafta ne kadar antrenman yapacağını belirler, serini ve ilerlemeni özetler.',
+  'tut.app-entretenimiento--esencial.resumen':
+    'Eğlence\'nin iki bölümü var: aile türüne göre gruplanmış ve oyuncu sayısına göre filtrelenen dijital bir katalogla Masa Oyunları, ve bitirdiğin filmleri, dizileri, kitapları ve video oyunlarını durumlarıyla ve senin değerlendirmenle tuttuğun Arşiv.',
+  'tut.app-garage--esencial.resumen':
+    'Garaj, araçlarının bakımını takip eder: bir trafik ışığı neyin acil olduğunu özetler, araç listesi her birinin servis geçmişini tutar, ve her kartta işlemleri, belgeleri ve kişileri bir araya gelir. Tarihi olan her şey kendiliğinden evin takvimine düşer.',
+  'tut.app-hobbies--esencial.resumen':
+    'Hobiler, uğraşlarını takip eder: her birinin serisini ve haftalık ilerlemesini gösteren liste, ve yeni bir tane ekleme formu. Her hobinin içinde oturum kaydı, yıllık etkinlik haritası ve projeleri yaşar.',
+  'tut.app-ideas--esencial.resumen':
+    'Fikirler, aklına geleni üç bölümde tutar: Fikir günlüğü (konuya göre tek başına ya da beyin fırtınası halinde düşünceler), Kavram haritaları (birkaç biçimde serbest bir tuval) ve Karar şemaları (aynı biçimler, ama karşılaştırıp karar vermek için). Her şey klasörlere kaldırılabilir ve bir bölümden diğerine dönüştürülebilir.',
+  'tut.app-idiomas--esencial.resumen':
+    'Diller, dört bölümlü dil okulundur. Sohbetler, seviyene göre yanıt veren bir yapay zekâ öğretmeniyle konuşma başlatır; Müfredat, dili konulara, telaffuza ve dil bilgisine A1\'den C2\'ye ayırır, ve kelime hazinesi de orada kartlar halinde yaşar; Tekrar, onu aralıklı bir sistemle ve alıştırmalarla tekrar eder; İlerleme, ilerlemeni özetler.',
+  'tut.app-jardin--esencial.resumen':
+    'Bahçe, meditasyonu (ses parçalarıyla), rehberli nefesi ve günlük şükranı üç bölümde bir araya getirir. Bilerek puan ya da seri tutmaz: burada gelmemek cezalandırılmaz, sadece pratik yapılır.',
+  'tut.app-metas--esencial.resumen':
+    'Tüm evin planlayıcısı, üç bölümde: Hedefler (kendine koyduklarının listesi, her birini yürüten uygulamaya göre gruplanmış), Planlar (bir hedefi aşamalara bölen zaman çizelgesi taslakları) ve Zaman çizelgesi (hepsinin düştüğü zaman ekseni). Kendine ait kayıt tutmaz: diğer uygulamalarda doğan hedefleri ve planları bir araya getirir. Bir hedeften onun kartı açılır, oradan da ona daraltılmış eksen.',
+  'tut.app-sala--esencial.resumen':
+    'Oturma Odası, dört bölümlü gezgin dünyandır: Harita (dünya haritasında yerlerin iğneleri, küre görünümüyle), Gezi planı (görülecek yerler, gün gün planlarıyla), Rotalar (yerleri birbirine bağlayan güzergâhlar) ve Seyir defteri (ülkeye göre fotoğraflar ve anılarla anılar).',
   'tut.app-anecdotario--diario.titulo': 'Pep’in anı defteri',
   'tut.app-anecdotario--diario.resumen':
     'Anı defteri kişisel günlüğündür: ruh hali, metin ve fotoğraflarla girdiler, kendini nasıl hissettiğine göre yılı boyayan bir takvim, ve yıl, ay ve haftaya göre klasörlenmiş geçmiş.',
@@ -5909,12 +5954,12 @@ export const TR: Dict = {
   'tut.calendario.titulo': 'Takvim',
   'tut.calendario.resumen':
     'Evin saati takvimi açar: vardiyalar, dersler, alışkanlıklar ve diğer uygulamaların eklediği her şey —Gün, Hafta, Ay, Yıl ve Hedefler görünümlerinde. Alttaki panel, planladıklarını ne kadar gerçekleştirdiğini ölçer.',
-  'tut.calendario.3b.titulo': 'Ve Günlük hedefler, ayrı',
+  'tut.calendario.3b.titulo': 'Ve Hedefler, ayrı',
   'tut.calendario.3b.texto':
-    'Kırmızıyla, yukarıdaki dördüyle karıştırılmasın diye: Günlük hedefler, tüm uygulamalarının bugünkü kontrol listesini bir araya getirir. Hedeflerin ve planları kendi odalarında yaşar.',
+    'Kırmızıyla, yukarıdaki dördüyle karıştırılmasın diye: Hedefler, hedeflerini, planlarını ve zaman çizelgesini açar.',
   'tut.metas.titulo': 'Hedefler',
   'tut.metas.resumen':
-    'Hedef listesi ve her birinin içinde kendi sayfası: onu geliştiren plan (Yapay Zeka önerir, sen işaretlersin) ve aşamalarının gerçek alt hedefler olarak kendi dönemlerini kapladığı zaman çizelgesi.',
+    'Bir hedefin üç ekranı: doğduğu liste, onu geliştiren plan (Yapay Zeka önerir, sen işaretlersin) ve aşamalarının gerçek alt hedefler olarak kendi dönemlerini kapladığı zaman çizelgesi.',
   'tut.app-biblioteca--enciclopedia.titulo': 'Kendi ansiklopedin',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Öğrendiğin her şey, bilgi alanına göre bir ağaçta arşivlenir: özet ve resimleyebileceğin ana noktalarla kartlar.',
@@ -5932,6 +5977,9 @@ export const TR: Dict = {
   'tut.app-biblioteca--resumen.titulo': 'Yılın genel görünümü',
   'tut.app-biblioteca--resumen.resumen':
     'Özet, diğer üç sekmenin dağıttığını tek ekranda toplar: her alanda kaç girdin olduğunu, ne kadar çalıştığını ve hangi günler çalıştığını.',
+  'tut.app-idiomas--charlas.titulo': 'Öğretmeninle sohbetler',
+  'tut.app-idiomas--charlas.resumen':
+    'Sohbetler sekmesi, Yapay Zeka öğretmeninle konuşma açar: profilindeki CEFR seviyesine göre yanıt verir, yumuşakça düzeltir ve çıkarken yeni kelimeleri kart olarak çıkarmayı önerir. Her sohbet, başlığı ve konusu kendiliğinden konmuş hâlde kayıtlı kalır.',
   'tut.app-idiomas--repaso.titulo': 'Günlük tekrar',
   'tut.app-idiomas--repaso.resumen':
     'Kartlar kutulara göre tekrar edilir: her doğru cevap bir sonraki tarihi uzaklaştırır, her yanlış cevap onu yaklaştırır. Uygulama sadece bugün sırası gelenleri sorar.',
@@ -6472,4 +6520,53 @@ export const TR: Dict = {
   'room.computo.corta': 'Hesap makinesi, grafikler ve tablolar',
   'room.agenda.corta': 'Görevler, sağlık ve kişiler',
   'room.metas.corta': 'Hedefler, planlar ve zaman çizelgesi',
+  'chat.menu.chatAr': 'AR sohbeti',
+  'chatAr.salir': 'Çık',
+  'chatAr.voltear': 'Kamerayı değiştir',
+  'chatAr.encuadre': 'Çerçevelemeyi değiştir',
+  'chatAr.callar': 'Sesi sustur',
+  'chatAr.asistente': 'Asistanı değiştir',
+  'chatAr.permiso': 'Tarayıcı kamerayı engelledi. Adresin yanındaki kilitten aç.',
+  'chatAr.sinCamara': 'Bu cihazda kamera bulunamadı.',
+  'chatAr.reintentar': 'Tekrar dene',
+  'chatAr.placeholder': 'Konuş ya da yaz…',
+  'chatAr.enviar': 'Gönder',
+  'chatAr.sinIa': 'Burada konuşmak için önce ev sohbetinde bir Yapay Zeka modeli seç.',
+  'ia.donde.chatAr': 'AR sohbeti',
+  'ia.op.chat.ar': 'AR sohbetinde konuşma',
+  'ia.op.chat.ar.nota': 'Asistanın Yapay Zeka sesi varsa, okuması asistan sesi olarak ayrıca ücretlendirilir.',
+  'editor.pers.expresion.triste': 'Üzgün',
+  'editor.pers.expresion.enojado': 'Kızgın',
+  'mascara.ocultar': 'Gizle',
+  'mascara.mostrar': 'Arayüzü göster',
+  'mascara.menos': 'Daha az',
+  'mascara.ajustes': 'Ayarlar',
+  'mascara.cara': 'Yüz',
+  'mascara.cara.fija': 'Sabit',
+  'mascara.cara.imita': 'Taklit',
+  'mascara.cara.viva': 'Canlı',
+  'mascara.camara': 'Kamera',
+  'mascara.camara.frontal': 'Ön',
+  'mascara.camara.trasera': 'Arka',
+  'mascara.linterna': 'Fener',
+  'mascara.lenteAuto': 'Otomatik lens ({camara})',
+  'mascara.camaraN': 'Kamera {n}',
+  'mascara.zoom': 'Yakınlaştırma',
+  'mascara.encuadre': 'Çerçeveleme',
+  'mascara.encuadre.vertical': 'Dikey',
+  'mascara.encuadre.amplio': 'Geniş (bantlı)',
+  'mascara.piel': 'Ten',
+  'mascara.pelo': 'Saç',
+  'mascara.tamano': 'Boyut',
+  'mascara.altura': 'Yükseklik',
+  'mascara.profundidad': 'Derinlik',
+  'mascara.grabar': 'Kaydet',
+  'mascara.detener': 'Kaydı durdur',
+  'mascara.estado.errorModelo': 'MediaPipe yüklenemedi',
+  'mascara.estado.sinCamara': 'Kamera yok',
+  'mascara.estado.cargando': 'Model yükleniyor…',
+  'mascara.estado.cara': 'Yüz algılandı',
+  'mascara.estado.buscando': 'Yüz aranıyor…',
+  'mascara.errorCamara': 'Kamera kullanılamıyor ({detalle}). iPhone\'da HTTPS tünel adresini aç.',
+  'mascara.errorGrabar': 'Kayıt yapılamadı: {detalle}',
 }

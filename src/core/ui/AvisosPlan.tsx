@@ -2,7 +2,14 @@ import { useEffect, useState } from 'react'
 import { useT } from '../i18n/useT'
 import { useAvisoDemo, useAvisoRenovar, useCuotaAgotada } from '../state/avisosPlanStore'
 import { esEscritorio, puedeMostrarPagos } from '../plataforma'
-import { hayPagos, obtenerNiveles, cambiarNivel, type OfertaPro } from '../cuenta/paywall'
+import {
+  hayPagos,
+  obtenerNiveles,
+  obtenerCreditos,
+  cambiarNivel,
+  comprarCreditos,
+  type OfertaPro,
+} from '../cuenta/paywall'
 import { URL_WEB as urlWeb } from '../cuenta/urlWeb'
 import { useSesion } from '../cuenta/sesionStore'
 import { esPro, esTrial, fuePro } from '../edicion'
@@ -128,6 +135,7 @@ function CuotaAgotada() {
   const planCrudo = useSesion((s) => s.plan)
   const nivelActual = useSesion((s) => s.nivel)
   const [niveles, setNiveles] = useState<OfertaPro[]>([])
+  const [creditos, setCreditos] = useState<OfertaPro | null>(null)
   const [ocupado, setOcupado] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -141,6 +149,11 @@ function CuotaAgotada() {
     obtenerNiveles()
       .then((n) => {
         if (vivo) setNiveles(n)
+      })
+      .catch(() => {})
+    obtenerCreditos()
+      .then((c) => {
+        if (vivo) setCreditos(c)
       })
       .catch(() => {})
     return () => {
@@ -233,6 +246,23 @@ function CuotaAgotada() {
     }
   }
 
+  // Recargar sí arregla la cuota agotada (los créditos comprados se gastan
+  // cuando el pool mensual ya no alcanza), y es la única salida de quien no
+  // quiere una suscripción.
+  const alRecargar = async () => {
+    if (ocupado || !creditos) return
+    setOcupado(true)
+    setError(null)
+    try {
+      await comprarCreditos(creditos.paquete)
+      cerrar()
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e))
+    } finally {
+      setOcupado(false)
+    }
+  }
+
   return (
     <Marco>
       <h2 className="text-sm font-bold text-white/90">{titulo}</h2>
@@ -254,6 +284,19 @@ function CuotaAgotada() {
               })}
             </button>
           ))}
+        {compraEmbebida && creditos && (
+          <button
+            type="button"
+            onClick={() => void alRecargar()}
+            disabled={ocupado}
+            className="w-full rounded-md border border-white/15 bg-white/10 px-2 py-1.5 text-[11px] font-bold text-white/85 transition hover:bg-white/15 disabled:opacity-50"
+          >
+            {t('cuenta.creditos.comprar', 'Recargar {c} créditos — {p}', {
+              c: creditos.creditos,
+              p: creditos.precio,
+            })}
+          </button>
+        )}
         {/* Sin compra embebida (escritorio, sin sesión) el checkout vive en la web. */}
         {puedeMostrarPagos() && !compraEmbebida && urlWeb && (
           <a

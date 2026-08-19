@@ -138,7 +138,6 @@ export function RegistroComida({
         onCambio={setMomento}
         color={COLOR}
         variante="sub"
-        nivel={3}
         flecha={false}
       />
 

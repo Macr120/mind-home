@@ -255,7 +255,6 @@ export function FlexibilidadTab({
           prefijoClave="ejercicio.sub"
           color={COLOR_FLEX}
           variante="sub"
-          nivel={2}
         />
       </div>
 

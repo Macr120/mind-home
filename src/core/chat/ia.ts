@@ -16,7 +16,8 @@ import type { Asistente, Pieza3D } from './mascotas'
 import { extraerEmocion, INSTRUCCION_EMOCION, type EmocionId } from './emociones'
 import { fechaLocalISO } from '../fechaLocal'
 import { devIA, iaHabilitada, tieneAcceso } from '../edicion'
-import { usarViaCuenta, iaChatCuenta, ErrorIA } from '../cuenta/api'
+import { usarViaCuenta, iaChatCuenta, ErrorIA, registrarByokUtilizable } from '../cuenta/api'
+import { esperarSesion } from '../cuenta/sesionStore'
 import { hayBackend } from '../cuenta/supabase'
 import { opDeTexto } from '../cuenta/costos'
 import { useGastoByok, type CategoriaGastoByok } from '../cuenta/gastoByok'
@@ -120,6 +121,17 @@ export function getIaKey(prov: ProveedorId): string {
   if (key) return key
   return prov === 'claude' ? (localStorage.getItem(LS_KEY_LEGADO) ?? '') : ''
 }
+
+/**
+ * `usarViaCuenta()` necesita saber si el BYOK elegido sirve para algo, y las
+ * claves viven aquí. Se registra en vez de importarse al revés: `cuenta/api.ts`
+ * lo cargan la web pública y módulos livianos que no deben arrastrar este
+ * archivo (prompts, tools, catálogo 3D).
+ */
+registrarByokUtilizable(() => {
+  const prov = getProveedor()
+  return prov.sinClave === true || getIaKey(prov.id).length > 0
+})
 
 export function setIaKey(prov: ProveedorId, key: string) {
   const limpia = key.trim()
@@ -286,8 +298,13 @@ export function iaOperativa(): boolean {
  * Corta ANTES de salir cuando no hay forma de pagar la llamada: ni cuenta con
  * créditos ni clave propia. Abre el modal de recarga en vez de morir con un
  * error de red que el usuario no puede interpretar.
+ *
+ * Espera a que la sesión hidrate ANTES de juzgar: en los primeros segundos tras
+ * abrir la app el store todavía no sabe que hay cuenta, y decidir ahí daba el
+ * falso «te quedaste sin créditos» con el pool entero por gastar (ago 2026).
  */
-function exigirTransporte(): void {
+async function exigirTransporte(): Promise<void> {
+  await esperarSesion()
   if (usarViaCuenta()) return
   const prov = getProveedor()
   if (prov.sinClave || getIaKey(prov.id).length > 0) return
@@ -810,7 +827,7 @@ export async function conversarIA(
 ): Promise<string> {
   const historial = normalizarHistorial(mensajes)
   if (!historial.length) throw new Error('Conversación vacía')
-  exigirTransporte()
+  await exigirTransporte()
 
   // Vía cuenta: proxy del servidor con cuota; los errores tipados (ErrorIA)
   // llegan al caller con mensaje listo para mostrarse. La tarifa la decide lo
@@ -927,7 +944,7 @@ export async function analizarImagenIA(
   texto: string,
   imagen: ImagenAdjunta,
 ): Promise<string> {
-  exigirTransporte()
+  await exigirTransporte()
   // La vía cuenta manda SIEMPRE, igual que en conversarIA: mirar primero el
   // proveedor dejaba que una clave BYOK guardada en localStorage saltara el
   // proxy — y con él la cuota.
@@ -984,7 +1001,7 @@ export async function generarModelo3D(
   tipo: TipoModelo3D = 'personaje',
   estilo: EstiloModelo3D = 'normal',
 ): Promise<{ piezas: Pieza3D[]; grupo: GrupoAccion | 'ninguno' | null }> {
-  exigirTransporte()
+  await exigirTransporte()
   const system = systemModelo3D(tipo, estilo)
 
   // Perfil `calidad`: la geometría es lo que peor sale con el modelo rápido.
@@ -1044,7 +1061,7 @@ export async function interpretarIA(
   imagen: ImagenAdjunta | null = null,
   historialCrudo: MensajeIA[] = [],
 ): Promise<ResultadoIA> {
-  exigirTransporte()
+  await exigirTransporte()
   const prov = getProveedor()
 
   // Alternancia estricta: si el hilo quedó en un turno del usuario (la IA no

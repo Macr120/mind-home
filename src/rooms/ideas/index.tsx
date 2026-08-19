@@ -4,7 +4,7 @@ import { ideasRepo, mapasIdeasRepo } from '../../core/data/repository'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { registrarProveedorMaterial } from '../../core/materialApps'
 import { COLOR_FABRICA } from './constantes'
-import { flujosIdeas } from './tutorial.meta'
+import { esencialIdeas, flujosIdeas } from './tutorial.meta'
 import { OPERACIONES_IA } from './costosIA'
 import { planMetasIdeas } from './plan'
 
@@ -70,6 +70,7 @@ const ideas: Plantilla = {
   App: IdeasApp,
   operacionesIA: OPERACIONES_IA,
   flujos: flujosIdeas,
+  esencial: esencialIdeas,
   // Acotamiento del planificador ✨: de la idea a algo real, o a una decisión.
   planMetas: planMetasIdeas,
   comandos: [

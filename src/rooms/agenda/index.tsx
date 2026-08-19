@@ -3,7 +3,7 @@ import { lazy } from 'react'
 import { esquemas } from './captura'
 import { COLOR_FABRICA } from './constantes'
 import { metaAgenda } from './meta'
-import { flujosAgenda } from './tutorial.meta'
+import { esencialAgenda, flujosAgenda } from './tutorial.meta'
 import { planMetasAgenda } from './plan'
 
 /**
@@ -27,6 +27,7 @@ const agenda: Plantilla = {
   categoria: 'complemento',
   color: COLOR_FABRICA,
   App: AgendaApp,
+  esencial: esencialAgenda,
   flujos: flujosAgenda,
   // Acotamiento del planificador ✨: llevar un proyecto hasta su entrega.
   planMetas: planMetasAgenda,

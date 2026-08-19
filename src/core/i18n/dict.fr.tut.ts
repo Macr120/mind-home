@@ -27,7 +27,19 @@ export const FR_TUT: Dict = {
     'Tout le scientifique est ici, et bien plus : tu choisis le groupe — fondamentaux, calcul, matrices, trigonométrie, symboles — et les boutons changent. Ils s’écrivent là où se trouve ton curseur et l’espace reste prêt à remplir.',
   'tut.app-computo--calculadora.3.titulo': 'Modes spéciaux',
   'tut.app-computo--calculadora.3.texto':
-    'La calculatrice change de vue en entier : le graphique, le binaire et l’hexadécimal, les matrices, les systèmes d’équations, la conversion d’unités, l’addition avec pourboire et la règle de trois. L’historique reste en bas dans tous.',
+    'La calculatrice change de vue en entier : le graphique, les bases de 2 à 16, les matrices, les systèmes d’équations, la conversion d’unités, l’addition avec pourboire et la règle de trois. L’historique reste en bas dans tous.',
+  'tut.app-computo--calculadora.3b.titulo': 'Bases',
+  'tut.app-computo--calculadora.3b.texto':
+    'Ce que tu écris se lit dans la base choisie et s’affiche dans les quinze à la fois, de 2 à 16, en direct. Il y a les opérations bit à bit, et avec les préfixes 0b, 0o et 0x tu mélanges les bases dans un même calcul.',
+  'tut.app-computo--calculadora.3c.titulo': 'Matrices et systèmes',
+  'tut.app-computo--calculadora.3c.texto':
+    'Matrices opère avec A et B jusqu’à 6×6 : somme, produit, déterminant, inverse, transposée et trace. Son voisin Systèmes résout des équations linéaires en lisant les inconnues de ce que tu écris, jusqu’à six équations.',
+  'tut.app-computo--calculadora.3d.titulo': 'Unités',
+  'tut.app-computo--calculadora.3d.texto':
+    'Huit catégories — de la longueur aux données — qui convertissent pendant que tu écris ; chacune se souvient de sa dernière paire et « Inverser » retourne la conversion. La température tombe juste : 100 °C font 212 °F.',
+  'tut.app-computo--calculadora.3e.titulo': 'Pourboire et règle de trois',
+  'tut.app-computo--calculadora.3e.texto':
+    'Les deux du calcul de tête rapide : Pourboire calcule sur l’addition — pas sur le total — et divise entre autant que vous êtes ; Règle de 3, directe ou inverse, remplit le x toute seule.',
   'tut.app-computo--calculadora.4.titulo': 'Le formulaire, sous la main',
   'tut.app-computo--calculadora.4.texto':
     'Tes formules sont accrochées à ce menu, leurs variables prêtes à remplir : c’est ce qui fait que les enregistrer sert à quelque chose.',
@@ -64,7 +76,7 @@ export const FR_TUT: Dict = {
     'Marche avec le joystick, avec WASD ou avec les flèches du clavier. Franchis la porte d’une pièce et tu y entres : son app s’ouvre toute seule.',
   'tut.casa.4.titulo': 'Trois façons de regarder',
   'tut.casa.4.texto':
-    'Isométrique, troisième et première personne (ou la touche V). En 3e/1re personne, un bouton apparaît en plus pour modifier le monde en le parcourant.',
+    'Isométrique, troisième et première personne (ou la touche V). Toucher Iso recentre aussi la caméra sur ton personnage : la sortie rapide si tu as filé trop loin en explorant.',
   'tut.casa.5.titulo': 'Un coin, plusieurs maîtres',
   'tut.casa.5.texto':
     'Ce coin n’est pas que le cube de vues : approche-toi de quelque chose avec quoi on peut interagir — une chaise, un véhicule, un terrain — et il se change tout seul en ce que tu as à côté. Rien ne s’active sans que tu t’approches.',
@@ -73,7 +85,7 @@ export const FR_TUT: Dict = {
     'Mouvements, jouets, véhicules et construction, jusqu’à 3 équipés à la fois. Elle s’ouvre ici, ou depuis ce même coin quand tu as les mains libres.',
   'tut.casa.7.titulo': 'L’horloge',
   'tut.casa.7.texto':
-    'L’heure de la maison. D’ici s’ouvrent le calendrier complet et le panneau des routines avec ce qu’il te reste aujourd’hui.',
+    'L’heure de la maison : touche-la et le calendrier complet s’ouvre, avec ses Missions du jour. Le soleil ou la lune d’à côté contrôlent le passage du temps et la lumière de la scène.',
   'tut.casa.8.titulo': 'La musique de la maison',
   'tut.casa.8.texto':
     'Chaque pièce peut avoir son propre thème, ou laisser jouer l’ambiance générale de la maison. Elle s’éteint complètement si tu préfères le silence.',
@@ -88,10 +100,10 @@ export const FR_TUT: Dict = {
     'Avec ce bouton, tu dessines de nouvelles pièces sur le plan. Pour te montrer la suite du chemin, je t’en crée une tout de suite…',
   'tut.primeros.3.titulo': 'Ta nouvelle pièce',
   'tut.primeros.3.texto':
-    'La voilà ! Une pièce toute neuve, encore sans app : c’est pour ça que son bouton dit + Assigner.',
+    'La voilà ! Une pièce toute neuve, encore sans app : c’est pour ça que sa carte dit + Assigner.',
   'tut.primeros.4.titulo': 'Assigner une app',
   'tut.primeros.4.texto':
-    'Avec + Assigner, je lui ai donné son app : regarde comme la pièce a pris son nom, son icône et ses meubles, et son bouton dit maintenant Entrer.',
+    'Avec + Assigner, je lui ai donné son app : regarde comme la pièce a pris son nom, son icône et ses meubles. Désormais, sa carte entière est le bouton pour entrer.',
   'tut.primeros.5.titulo': 'Entrer',
   'tut.primeros.5.texto':
     'Nous voilà dedans : c’est l’app de la pièce. En te promenant, tu y entres aussi en franchissant sa porte, et tu en sors avec ‹ Retour à la maison.',
@@ -104,12 +116,12 @@ export const FR_TUT: Dict = {
   'tut.menu-cuartos.3.titulo': 'Les cartes',
   'tut.menu-cuartos.3.texto':
     'Chaque carte est une pièce : son icône, son nom et l’avancement de son app, groupés en Corps, Esprit, Compléments et Paramètres. Les pièces sans app assignée restent tout à la fin.',
-  'tut.menu-cuartos.4.titulo': 'Modifier',
+  'tut.menu-cuartos.4.titulo': 'Options de la pièce',
   'tut.menu-cuartos.4.texto':
-    'Modifier ouvre l’éditeur de la pièce : forme, couleurs, murs et objets. (Ne le touche pas maintenant : ça fermerait ce menu.)',
-  'tut.menu-cuartos.5.titulo': 'Entrer et Assigner',
+    'L’engrenage déplie les options de la pièce sur une ligne : la monter ou la descendre dans la liste, la supprimer, et Modifier, qui ouvre son éditeur de forme, couleurs, murs et objets.',
+  'tut.menu-cuartos.5.titulo': 'La carte entière entre',
   'tut.menu-cuartos.5.texto':
-    'Entrer ouvre l’app de la pièce. Si une pièce n’a pas encore d’app, tu verras + Assigner à la place, pour lui en choisir une dans le catalogue.',
+    'La carte complète est le bouton : touche-la n’importe où et tu entres dans l’app de la pièce. Si elle n’a pas encore d’app, cette même carte dit + Assigner et ouvre le catalogue pour lui en choisir une.',
   'tut.menu-cuartos.6.titulo': 'Créer une pièce',
   'tut.menu-cuartos.6.texto':
     'Créer une pièce ouvre l’éditeur de plan, le pinceau déjà prêt à dessiner la nouvelle pièce : forme, taille et emplacement, c’est toi qui décides. Sur le téléphone, le raccourci de la roue d’outils › Construction › Pièces est plus commode : il dessine directement sur le plan, sans ouvrir le panneau.',
@@ -228,6 +240,22 @@ export const FR_TUT: Dict = {
     'Cette flèche revient au plan complet sans fermer l’éditeur, pour continuer sur une autre pièce.',
   'tut.editor-cuarto.4.texto':
     'Il y a aussi un bouton flottant « Quitter la pièce » au-dessus de la pièce elle-même en 3D, si tu préfères appuyer là.',
+  'tut.inicio.1.texto':
+    'Le bouton avec le nom de ta maison ouvre l’écran d’accueil : tes apps en grille, avec la mécanique d’un téléphone.',
+  'tut.inicio.2.titulo': 'Un toucher, une app',
+  'tut.inicio.2.texto':
+    'Ici n’apparaissent que les pièces qui ont déjà une app, avec leur niveau, leur série et leurs listes accomplies. Le compteur rouge du coin, ce sont leurs missions encore en attente aujourd’hui, et toucher la carte entre directement.',
+  'tut.inicio.3.titulo': 'Garde une carte appuyée',
+  'tut.inicio.3.texto':
+    'L’appui long la soulève et toutes se mettent à trembler, comme sur un téléphone : fais-la glisser pour réordonner, ou touche le crayon de son coin pour modifier sa fiche.',
+  'tut.inicio.4.titulo': 'Ton défi, sous les yeux',
+  'tut.inicio.4.texto':
+    'Les deux anneaux sont la Montagne de Sisyphe : le rang de l’année et les badges gagnés. Les toucher ouvre la montagne complète, la même que dans le menu latéral.',
+  'tut.inicio.5.titulo': 'Fond d’écran et vue 3D',
+  'tut.inicio.5.texto':
+    'Ce bouton met un fond d’écran à la grille, atténué pour que les cartes restent lisibles. Celui d’à côté alterne entre l’icône de chaque pièce et sa miniature meublée en 3D.',
+  'tut.inicio.6.texto':
+    'Créer des pièces, les supprimer ou assigner des apps reste l’affaire du menu latéral : cet écran sert à entrer vite. Il se ferme en touchant à l’extérieur.',
   'tut.herramientas.1.texto': 'Ce bouton ouvre la roue d’outils de ton personnage.',
   'tut.herramientas.2.titulo': 'Deux niveaux',
   'tut.herramientas.2.texto':
@@ -244,18 +272,18 @@ export const FR_TUT: Dict = {
     'Trois caméras : Iso (vue maison de poupée), 3e et 1re personne. Change ici ou avec la touche V.',
   'tut.navegacion.2.titulo': 'S’orienter',
   'tut.navegacion.2.texto':
-    'En iso, le cube fait tourner la caméra face par face ; en 3e/1re, fais glisser le pad pour regarder autour de toi.',
+    'En iso, tu diriges la caméra avec le cube : ses coins donnent les angles isométriques et ses faces, les vues à plat. En 3e/1re, sa place est prise par un pad que tu fais glisser pour regarder autour de toi.',
   'tut.navegacion.3.titulo': 'Quand quelque chose est tout près',
   'tut.navegacion.3.texto':
     'Ce même coin cesse d’être la caméra dès que tu t’approches de quelque chose d’interactif : un terrain propose son bouton pour jouer, un véhicule celui pour monter, une chaise celui pour s’asseoir. Une seule chose à la fois, et toujours par proximité — jamais automatiquement.',
   'tut.navegacion.4.titulo': 'Tourner et centrer',
   'tut.navegacion.4.texto':
-    'Fais tourner la vue sur les côtés, ou recentre-la sur le plan si tu ne sais plus où tu es à force d’explorer.',
+    'Chaque flèche tourne d’un quart de tour : le plan en iso, ton regard en 3e/1re. Le troisième bouton n’apparaît qu’avec le plan devant, et le recentre si tu ne sais plus où tu es à force d’explorer.',
   'tut.navegacion.5.titulo': 'Se déplacer',
   'tut.navegacion.5.texto':
     'Marche avec le joystick, WASD ou les flèches. Dans l’eau tu nages ; sur un véhicule, tu conduis avec les mêmes commandes.',
   'tut.navegacion.6.texto':
-    'En 3e/1re personne, le bouton Éditeur 3D apparaît : touche un objet, un mur ou un personnage pour le modifier là où il est, sans repasser en vue isométrique.',
+    'Le bouton Éditeur en haut fonctionne dans n’importe quelle vue : ouvre-le en 3e/1re personne et tu modifies en marchant, en touchant les objets, les murs ou les personnages juste là où ils sont.',
   'tut.chat.1.texto':
     'Le chat de l’architecte : il enregistre ta journée, modifie la maison et répond à tes questions, tout depuis le même champ.',
   'tut.chat.2.titulo': 'Écrire',
@@ -264,9 +292,15 @@ export const FR_TUT: Dict = {
   'tut.chat.3.titulo': 'Dicter à la voix',
   'tut.chat.3.texto':
     'Le micro transcrit ce que tu dis dans le champ de texte — pratique pour enregistrer sans lâcher ce que tu as dans les mains.',
-  'tut.chat.4.titulo': 'Envoyer une photo',
+  'tut.chat.4.titulo': 'Joindre',
   'tut.chat.4.texto':
-    'Avec l’IA activée, une photo du ticket, du plat ou de la balance se lit toute seule. Sans IA, ce bouton reste désactivé.',
+    'Le + déplie cinq options : envoyer une image ou un PDF et prendre une photo — avec l’IA activée, un ticket ou la balance se lisent tout seuls — plus deux qui ne demandent pas d’IA : le masque RA et le chat RA.',
+  'tut.chat.4b.titulo': 'Le masque RA',
+  'tut.chat.4b.texto':
+    'Il allume la caméra et te pose le masque sur le visage, en te suivant en direct — le même que dans la vidéo de présentation de la maison. Ça marche sans IA et sans compte.',
+  'tut.chat.4c.titulo': 'Le chat RA',
+  'tut.chat.4c.texto':
+    'La même conversation que d’habitude, mais avec ta caméra en fond et l’assistant en 3D devant, avec des émotions qui accompagnent ce qu’il répond.',
   'tut.chat.5.titulo': 'Assistants',
   'tut.chat.5.texto':
     'Ton assistant donne un visage et une voix aux réponses. Touche-le pour voir la conversation, changer d’assistant ou en créer d’autres.',
@@ -287,37 +321,15 @@ export const FR_TUT: Dict = {
     'Ce que tu enregistres dans tes apps (repas, dépenses, séances) vit dans chaque app, pas ici : cet onglet n’est que la mémoire de la conversation elle-même.',
   'tut.app-generica.1.texto':
     'L’en-tête montre la pièce et l’app ouverte. Si la pièce a plusieurs apps, la flèche ‹ ramène au lanceur.',
-  'tut.app-generica.2.titulo': 'Aujourd’hui',
+  'tut.app-generica.2.titulo': 'Missions',
   'tut.app-generica.2.texto':
-    'Tes étapes du jour dans cette app : ton objectif quotidien, ce que tu as programmé et ce que réclament tes objectifs. Touche-la pour la déplier ; chaque étape se raye toute seule dès que tu enregistres.',
+    'Le bouton Missions ouvre ce qui t’attend aujourd’hui dans cette app : ses objectifs, ce que tu as programmé et ce que réclament tes objectifs en cours. Chaque étape se raye toute seule dès que tu enregistres, et accomplir la liste entière est ce qui donne les XP du jour.',
   'tut.app-generica.3.titulo': 'Les blocs',
   'tut.app-generica.3.texto':
     'Ce modèle est monté avec des blocs (notes, listes, compteurs, habitudes…). Tu peux les changer dans Menu › Modèles › Modifier.',
   'tut.app-generica.4.titulo': 'Sortir',
   'tut.app-generica.4.texto':
     '« Retour à la maison » ferme l’app et te ramène dans la 3D. Ce que tu notes ici est déjà enregistré.',
-  'tut.rutinas.1.texto':
-    'Le panneau des routines de Pep : en haut ce qu’il y a aujourd’hui, en bas le catalogue complet pour mettre en pause, modifier ou supprimer.',
-  'tut.rutinas.2.titulo': 'Au programme aujourd’hui',
-  'tut.rutinas.2.texto':
-    'Le service au café, le cours de physique, la course à l’aube, le piano le soir : chaque carte est une routine avec ses étapes. Celle qui déborde en ambre devrait déjà être en cours et attend toujours.',
-  'tut.rutinas.3.titulo': 'Cocher n’est pas toujours nécessaire',
-  'tut.rutinas.3.texto':
-    'L’étape avec l’éclair ⚡ s’enregistre toute seule : la course à l’aube se raye parce que cette sortie est déjà enregistrée dans Gym, pas parce que quelqu’un l’a cochée à la main. Les autres étapes, elles, se cochent d’un toucher.',
-  'tut.rutinas.4.titulo': 'Le catalogue complet',
-  'tut.rutinas.4.texto':
-    'Elles sont toutes là, au programme aujourd’hui ou non. ON/OFF met une routine en pause sans effacer son historique : ce qui est fait jusqu’à aujourd’hui reste, et dès demain elle ne se demande plus. Modifier et ✕ changent ou suppriment la routine entière.',
-  'tut.rutinas.5.titulo': 'Créer une routine',
-  'tut.rutinas.5.texto':
-    'Un nom, l’app à laquelle elle appartient (ou aucune, si c’est un événement isolé de la maison), l’horaire et la couleur. Les étapes sont facultatives : sans elles, c’est juste un événement dans le calendrier.',
-  'tut.rutinas.6.titulo': 'Une fois, chaque semaine ou toujours',
-  'tut.rutinas.6.texto':
-    'Le piano est sans fin et sans jours cochés (donc tous) ; la course ne se répète que les jours que Pep a cochés. Le mensuel, l’annuel ou une période ne se choisissent pas ici : ça naît quand tu traces l’objectif directement sur la grille du calendrier.',
-  'tut.rutinas.7.titulo': 'Le rappel à l’heure dite',
-  'tut.rutinas.7.texto':
-    'Si tu as accordé l’autorisation, il arrive comme notification du système ; sinon, l’assistant te le dit dans l’app la prochaine fois que tu l’ouvres.',
-  'tut.rutinas.8.texto':
-    'Tout ce qui est programmé ici apparaît aussi sur la grille du calendrier et, dans l’app de chaque étape, dans sa liste Aujourd’hui.',
   'tut.enlaces.1.titulo': 'De l’objectif à son app',
   'tut.enlaces.1.texto':
     'N’importe quel objectif ou étape de plan peut porter une puce avec l’icône d’une app : c’est la réponse à « et ça, où ça se note ? ».',
@@ -369,6 +381,9 @@ export const FR_TUT: Dict = {
   'tut.hoy.2.titulo': 'Trois sources, une liste',
   'tut.hoy.2.texto':
     'Les objectifs propres à l\'appli (l\'eau, les calories), ce que tu as programmé pour aujourd\'hui dans le calendrier et les étapes de tes objectifs en cours : tout ensemble, regroupé sous le plan ou l\'objectif dont vient chaque étape.',
+  'tut.hoy.2b.titulo': 'Ce que tu t’es proposé, en haut',
+  'tut.hoy.2b.texto':
+    'Au-dessus de la checklist vivent les objectifs de cette app, avec leur avancement et leur échéance. En toucher un ouvre son plan ici même, sans quitter le panneau, et avec « + objectif » tu t’en proposes un autre.',
   'tut.hoy.3.titulo': 'C’est barré parce que la donnée existe',
   'tut.hoy.3.texto':
     'Le bouton de la ligne enregistre la donnée RÉELLE dans l’app — un verre d’eau, un repas — et l’étape se barre toute seule parce que cet enregistrement existe, pas parce que quelqu’un l’a cochée. Le presser à nouveau une fois l’étape faite ne duplique rien : le bouton disparaît.',
@@ -381,6 +396,9 @@ export const FR_TUT: Dict = {
   'tut.hoy.6.titulo': 'Ce qui est fait ne disparaît pas',
   'tut.hoy.6.texto':
     'Ça descend dans « Faits », replié : voir l’enregistrement faire son effet fait partie de la récompense, et de là tu peux annuler s’il s’en est glissé un de trop.',
+  'tut.hoy.6b.titulo': 'C’est la liste entière qui rapporte',
+  'tut.hoy.6b.texto':
+    'Terminer toutes les missions du jour déclenche la célébration et ajoute les XP de l’app : le niveau grandit par listes accomplies, pas par enregistrements isolés.',
   'tut.hoy.7.texto':
     'Et s\'il te manque quelque chose, « Nouvelle checklist » crée la tienne : une liste propre à cette appli qui se répète chaque jour. Les objectifs d\'où viennent ces étapes se planifient dans la pièce Objectifs.',
   'tut.progreso.1.texto':
@@ -650,7 +668,7 @@ export const FR_TUT: Dict = {
     'Les deux trous sont réels : la blessure au genou du mois 7 et les trois semaines au Japon. Rater des jours n’efface pas les progrès — le panneau montre l’année telle qu’elle a été, pas telle qu’elle aurait dû être. Et une routine ne compte qu’à partir du jour où tu l’as créée.',
   'tut.metas.1.titulo': 'D’abord, les objectifs',
   'tut.metas.1.texto':
-    'La pièce s’ouvre sur Objectifs, groupés par l’app qui les porte : la course dans Gym, la licence de physique dans Bibliothèque. « Maison » n’est aucune app — cette catégorie, Pep l’a inventée pour les travaux de la cuisine.',
+    'La vue s’ouvre sur Objectifs, groupés par l’app qui les porte : la course dans Gym, la licence de physique dans Bibliothèque. « Maison » n’est aucune app — cette catégorie, Pep l’a inventée pour les travaux de la cuisine.',
   'tut.metas.2.titulo': 'De l’objectif à son plan',
   'tut.metas.2.texto':
     'Chaque ligne se lit comme un tableau de bord : son numéro dans le dossier, l’échéance, l’avancement et l’état — à faire, en cours ou fait, selon ce qui est coché. Un clic ouvre l’objectif : son plan s’il en a un (le ✨ l’annonce) et, sinon, sa feuille avec les sous-objectifs, les dates et les étapes.',
@@ -659,7 +677,7 @@ export const FR_TUT: Dict = {
     'La cuisine et le prochain marathon sont encore des propositions ; la candidature en master est déjà dans le planning. Celui du marathon a été demandé sans échéance : l’IA a calculé qu’il exige 24 semaines, et elle le dit dans son résumé.',
   'tut.metas.4.titulo': 'La feuille du plan',
   'tut.metas.4.texto':
-    'Le ✨ d’une ligne annonce que l’objectif a déjà un plan, et un clic ouvre cette feuille : les phases et leurs sous-objectifs, chacun avec sa période. Tant que c’est une proposition, tout se modifie : renommer, déplacer des dates, ajouter ou retirer des nœuds sans dérégler les autres.',
+    'Six phases et leurs sous-objectifs, chacun avec sa période. Tant que c’est une proposition, tout se modifie : renommer, déplacer des dates, ajouter ou retirer des nœuds sans dérégler les autres.',
   'tut.metas.5.titulo': 'Cocher sans t’engager',
   'tut.metas.5.texto':
     'Les coches d’une proposition vivent dans la feuille, pas dans tes objectifs : tu peux marquer ce qui est fait sans toucher à ton planning. Les barres se remplissent toutes seules vers le haut — la planification de la cuisine est déjà bouclée.',
@@ -671,7 +689,7 @@ export const FR_TUT: Dict = {
     'Le plan du master est déjà déplacé. Ses coches sont maintenant celles des vrais sous-objectifs et la barre est celle de ton planning : la feuille arrête de tenir un compte à part.',
   'tut.metas.8.titulo': 'Et les voilà, sur l’axe',
   'tut.metas.8.texto':
-    'Le planning est celui de CET objectif : ses sous-objectifs occupent leur période sur l’axe du temps, avec le plan superposé en violet par-dessus — la proposition et le réel, ensemble.',
+    'Les sous-objectifs nés du plan occupent leur période dans le planning, avec le plan superposé en violet par-dessus : la proposition et le réel, sur le même axe.',
   'tut.metas.9.titulo': 'Chaque objectif, son axe',
   'tut.metas.9.texto':
     'L’axe est toujours celui d’un objectif : ici on donne des dates à ce qui n’en a pas, on accroche de nouveaux sous-objectifs et « Retour » te ramène à sa feuille. Le menu Planning en haut montre celui de tous les objectifs réunis.',
@@ -714,6 +732,14 @@ export const FR_TUT: Dict = {
   'tut.app-biblioteca--resumen.6.titulo': 'Une année de sessions',
   'tut.app-biblioteca--resumen.6.texto':
     'Et si tu veux le détail, l’historique garde chaque session avec ses minutes et son domaine, classée par année, mois et semaine.',
+  'tut.app-idiomas--charlas.1.titulo': 'Un tuteur à ton niveau',
+  'tut.app-idiomas--charlas.1.texto':
+    'Ton tuteur est l’assistant de la pièce : tu lui parles dans la langue que tu étudies et il répond au niveau CECR de ton profil — phrases courtes avec traduction en A1, expressions idiomatiques en C1. Si tu lui écris dans ta langue, il t’encourage à essayer dans celle que tu étudies.',
+  'tut.app-idiomas--charlas.2.titulo': 'Elles s’enregistrent et se classent toutes seules',
+  'tut.app-idiomas--charlas.2.texto':
+    'Chaque discussion reste dans cette liste avec son titre, son thème du programme et son niveau, posés sans que tu fasses quoi que ce soit. Elle peut aussi naître depuis un thème — avec le bouton de discussion de sa ligne — pour pratiquer exactement ça.',
+  'tut.app-idiomas--charlas.3.texto':
+    'Quand le tuteur corrige, la forme correcte va sur sa propre ligne avec une coche, et la conversation continue sans sermon. En sortant, il te propose d’extraire le vocabulaire apparu : tu choisis quelles cartes garder et elles héritent du thème de la discussion.',
   'tut.app-idiomas--repaso.1.titulo': 'Ce qui tombe aujourd’hui',
   'tut.app-idiomas--repaso.1.texto':
     'Pep fait ça depuis un an et il reste encore des révisions en attente : le système ne te demande pas tout le vocabulaire, seulement ce que tu es sur le point d’oublier.',
@@ -729,6 +755,272 @@ export const FR_TUT: Dict = {
   'tut.app-idiomas--temario.2.titulo': 'Où tu en es',
   'tut.app-idiomas--temario.2.texto':
     'Cartes maîtrisées, révisions du mois et ton niveau actuel. Pep a commencé l’année en A2 et tourne aujourd’hui autour du B1.',
+  'tut.app-agenda--esencial.1.titulo': 'Ton agenda',
+  'tut.app-agenda--esencial.1.texto':
+    'L’agenda garde ce qui n’est pas une habitude : tâches, rendez-vous, contacts. Trois menus, et tout ce qui a une date se programme tout seul dans le calendrier de la maison.',
+  'tut.app-agenda--esencial.2.titulo': 'Travail',
+  'tut.app-agenda--esencial.2.texto':
+    'La liste rassemble les tâches sans date pour qu’elles ne se perdent pas, et le tableau déplace tes tâches par colonnes : à faire, en cours et fait.',
+  'tut.app-agenda--esencial.3.titulo': 'Santé',
+  'tut.app-agenda--esencial.3.texto':
+    'Rendez-vous médicaux, médicaments et soins, en trois sous-menus : Toi, Proches (les personnes dont tu t’occupes) et Animaux.',
+  'tut.app-agenda--esencial.4.titulo': 'Personnes',
+  'tut.app-agenda--esencial.4.texto':
+    'Ton carnet de contacts classé par relation. Les anniversaires que tu enregistres se répètent tout seuls chaque année dans le calendrier.',
+  'tut.calendario--esencial.1.titulo': 'L’horloge de la maison',
+  'tut.calendario--esencial.1.texto':
+    'Le calendrier n’est pas une pièce : il vit dans l’horloge du HUD, donc il s’ouvre d’où que tu sois sans entrer nulle part.',
+  'tut.calendario--esencial.2.titulo': 'Tout ce qui est programmé, réuni',
+  'tut.calendario--esencial.2.texto':
+    'Tout ce qui a une date et une heure atterrit ici : ce que tu crées avec « + Nouveau » ou en traçant sur la grille, et ce que les autres apps programment toutes seules. Le filtre du haut permet de n’afficher qu’une seule app quand ça s’accumule trop.',
+  'tut.calendario--esencial.3.titulo': 'Jour',
+  'tut.calendario--esencial.3.texto':
+    'La grille d’une journée de 24 heures : elle sert à voir à quelle heure se trouve chaque chose et si ça se chevauche. Ce bouton fait double emploi : il dit « Aujourd’hui » et te ramène au présent, ou « Jour » si tu regardes déjà une autre date.',
+  'tut.calendario--esencial.4.titulo': 'Semaine',
+  'tut.calendario--esencial.4.texto':
+    'La même grille horaire, mais avec les sept jours côte à côte. C’est là que tu vois comment la semaine se répartit, et où les blocs se glissent d’un jour à l’autre ou s’étirent pour durer plus longtemps.',
+  'tut.calendario--esencial.5.titulo': 'Mois',
+  'tut.calendario--esencial.5.texto':
+    'Il abandonne l’axe des heures et peint les jours en cases avec ce qui tombe sur chacun. C’est la vue d’ensemble : quelles semaines s’annoncent chargées et quels jours restent libres.',
+  'tut.calendario--esencial.6.titulo': 'Année',
+  'tut.calendario--esencial.6.texto':
+    'Les douze mois d’un coup. À cette distance, les heures ne se lisent plus : ce qui se voit, c’est la régularité, à quel point tu as tenu ce que tu t’étais fixé tout au long de l’année.',
+  'tut.calendario--esencial.7.titulo': 'Et les missions, à part',
+  'tut.calendario--esencial.7.texto':
+    'En rouge, pour que ça ne se lise pas comme une cinquième vue : Missions réunit sur un seul écran la checklist du jour de toutes les apps. Les objectifs et leurs plans ne sont pas ici — ils vivent dans leur propre pièce.',
+  'tut.app-anecdotario--esencial.1.titulo': 'Ton journal personnel',
+  'tut.app-anecdotario--esencial.1.texto':
+    'Il garde ce que tu veux raconter, avec son humeur et ses photos. Il s’organise tout seul par date, sans que tu aies rien à classer.',
+  'tut.app-anecdotario--esencial.2.titulo': 'Comment on écrit',
+  'tut.app-anecdotario--esencial.2.texto':
+    'Choisis l’humeur du jour, écris ce que tu veux raconter et ajoute des photos si tu en as. Une seule photo, sans texte, ça compte aussi.',
+  'tut.app-anecdotario--esencial.3.titulo': 'Le calendrier de l’humeur',
+  'tut.app-anecdotario--esencial.3.texto':
+    'Chaque jour se peint de l’humeur de son entrée, si bien que le mois entier se lit d’un coup d’œil. Touche un jour pour voir ses entrées en dessous.',
+  'tut.app-anecdotario--esencial.4.titulo': 'L’historique',
+  'tut.app-anecdotario--esencial.4.texto':
+    'Toutes les entrées se retrouvent ici, classées toutes seules dans des dossiers par année, mois et semaine.',
+  'tut.app-biblioteca--esencial.1.titulo': 'Ta bibliothèque',
+  'tut.app-biblioteca--esencial.1.texto':
+    'La bibliothèque est ton encyclopédie personnelle : tu poses les questions que tu ne sais pas, tu gardes ce que tu apprends et tu suis ce que tu étudies. Quatre menus.',
+  'tut.app-biblioteca--esencial.2.titulo': 'Discussions',
+  'tut.app-biblioteca--esencial.2.texto':
+    'Ici, tu poses tes questions au Sage sur n’importe quel sujet et la conversation reste enregistrée. Chaque discussion se classe seule dans son domaine de connaissance et ressort distillée en fiche d’encyclopédie.',
+  'tut.app-biblioteca--esencial.3.titulo': 'Encyclopédie',
+  'tut.app-biblioteca--esencial.3.texto':
+    'L’arbre où vit ce que tu as appris, classé par domaine de connaissance. Chaque fiche porte son résumé et ses points clés, et tu peux aussi les écrire à la main ; avec le crayon, tu fais grandir l’index à ta mesure.',
+  'tut.app-biblioteca--esencial.4.titulo': 'Étude',
+  'tut.app-biblioteca--esencial.4.texto':
+    'Le minuteur pour étudier : tu choisis un domaine et une durée, d’une traite ou par pomodoros, et chaque tranche s’enregistre toute seule. Il continue de tourner même si tu quittes la pièce.',
+  'tut.app-biblioteca--esencial.5.titulo': 'Aperçu',
+  'tut.app-biblioteca--esencial.5.texto':
+    'La vue d’ensemble de tout ce qui précède : combien d’entrées compte ton encyclopédie et quelle part de l’index tu as couverte, tes minutes d’étude, ta série et les jours où tu as étudié.',
+  'tut.app-cocina--esencial.1.titulo': 'La cuisine',
+  'tut.app-cocina--esencial.1.texto':
+    'Cette app gère deux choses : ce que tu vas cuisiner et ce que tu finis par manger. Chacune a son menu en haut, et chaque menu ouvre ses propres onglets.',
+  'tut.app-cocina--esencial.2.titulo': 'Recettes',
+  'tut.app-cocina--esencial.2.texto':
+    'Le côté cuisine : c’est là que vivent tes recettes, les régimes qui les regroupent et la liste de courses. Trois onglets, dans cet ordre.',
+  'tut.app-cocina--esencial.3.titulo': 'Régime',
+  'tut.app-cocina--esencial.3.texto':
+    'Un régime est un plan alimentaire avec ses recettes à l’intérieur et, si tu veux, ses propres objectifs de calories et de macros. Tu enregistres les tiens à côté de ceux que l’app propose déjà.',
+  'tut.app-cocina--esencial.4.titulo': 'Recettes',
+  'tut.app-cocina--esencial.4.texto':
+    'Le livre de recettes : chaque recette garde ses ingrédients, ses étapes et ses macros par portion, et se range dans des dossiers. Depuis une recette, tu peux enregistrer le repas ou envoyer ses ingrédients vers la liste de courses.',
+  'tut.app-cocina--esencial.5.titulo': 'Courses',
+  'tut.app-cocina--esencial.5.texto':
+    'La liste de courses, avec chaque article dans le rayon qui lui correspond. Tu peux composer une liste en réunissant ce qui manque pour plusieurs recettes, et cocher ce qui est déjà dans le garde-manger.',
+  'tut.app-cocina--esencial.6.titulo': 'Suivi alimentaire',
+  'tut.app-cocina--esencial.6.texto':
+    'L’autre menu tient le compte de ce que tu manges, en quatre onglets numérotés. Le premier est Objectifs : à partir de ton poids, ta taille et ton activité, il calcule tes besoins quotidiens et répartit les macros.',
+  'tut.app-cocina--esencial.7.titulo': 'Journal',
+  'tut.app-cocina--esencial.7.texto':
+    'Ce qui s’est déjà passé : les repas du jour avec leurs calories, l’eau bue jusque-là et ton poids quand tu te pèses. L’onglet d’à côté, Plan repas, c’est l’inverse : la grille de ce que tu comptes manger les jours à venir.',
+  'tut.app-cocina--esencial.8.titulo': 'Progrès',
+  'tut.app-cocina--esencial.8.texto':
+    'Les statistiques de tout ce qui précède sur la période de ton choix : calories et macros, eau et courbe de poids. En bas, un calendrier coloré indique d’un coup d’œil les jours où tu es resté dans l’objectif.',
+  'tut.app-computo--esencial.1.titulo': 'La salle de calcul',
+  'tut.app-computo--esencial.1.texto':
+    'C’est ici que se résout tout ce qu’il faut calculer, en deux menus : la Calculatrice, avec ses modes et ton formulaire de formules, et les Feuilles de calcul pour tout ce qui va en tableaux.',
+  'tut.app-computo--esencial.2.titulo': 'Calculatrice',
+  'tut.app-computo--esencial.2.texto':
+    'Une calculatrice scientifique qui donne le résultat pendant que tu écris et garde chaque calcul dans l’historique. Le clavier du bas t’évite celui du téléphone, et les notations écrivent le scientifique là où se trouve ton curseur.',
+  'tut.app-computo--esencial.3.titulo': 'Les modes',
+  'tut.app-computo--esencial.3.texto':
+    'Ce menu change entièrement la vue de la calculatrice : traceur, bases numériques, matrices, systèmes d’équations, conversion d’unités, pourboire et règle de trois. L’historique reste en bas dans tous les modes.',
+  'tut.app-computo--esencial.4.titulo': 'Le formulaire',
+  'tut.app-computo--esencial.4.texto':
+    'Ton livre de formules, replié sur la calculatrice. Celles de Mathématiques, Physique et Chimie sont déjà incluses, dans des dossiers que tu peux imbriquer. N’importe laquelle s’ouvre pour remplir ses variables, se modifie ou se supprime.',
+  'tut.app-computo--esencial.5.titulo': 'Feuilles de calcul',
+  'tut.app-computo--esencial.5.texto':
+    'Des feuilles avec des références de cellule et des formules en langage clair (comme =SUMA), et des graphiques sur la plage que tu sélectionnes. Elles s’exportent vers Excel en conservant les formules, ou en PDF.',
+  'tut.app-descanso--esencial.1.titulo': 'Sommeil',
+  'tut.app-descanso--esencial.1.texto':
+    'Cette app suit ton sommeil sur un seul écran : le score de la dernière nuit, ton horaire avec ses rappels, le journal quotidien et l’historique complet.',
+  'tut.app-descanso--esencial.2.titulo': 'Le score',
+  'tut.app-descanso--esencial.2.texto':
+    'Chaque nuit enregistrée reçoit un score qui combine ta durée de sommeil, l’heure du coucher et le nombre de réveils. Sans aucun enregistrement encore, cette section t’invite à noter ta première nuit.',
+  'tut.app-descanso--esencial.3.titulo': 'Horaire et rappels',
+  'tut.app-descanso--esencial.3.texto':
+    'Tu règles ton heure de coucher et de réveil en faisant glisser les extrémités de la plage du jour ; le même horaire apparaît comme bloc dans le calendrier de la maison. C’est ici aussi que tu actives le réveil avec sa tonalité et les rappels pour ralentir le rythme avant de dormir.',
+  'tut.app-descanso--esencial.4.titulo': 'Enregistrer la nuit',
+  'tut.app-descanso--esencial.4.texto':
+    'Le formulaire pour noter comment tu as dormi : la date, l’heure du coucher et du réveil, les interruptions et une note de qualité, avec de la place pour un commentaire.',
+  'tut.app-descanso--esencial.5.titulo': 'L’historique',
+  'tut.app-descanso--esencial.5.texto':
+    'Toutes les nuits que tu enregistres se retrouvent ici, classées par année, mois et semaine, pour revoir ton sommeil dans la durée.',
+  'tut.app-despacho--esencial.1.titulo': 'Tes finances',
+  'tut.app-despacho--esencial.1.texto':
+    'Le bureau organise ton argent en quatre menus : ce que tu as, ce qui entre et sort, tes objectifs et les marchés. Chacun ouvre ses propres sections en dessous.',
+  'tut.app-despacho--esencial.2.titulo': 'Patrimoine net',
+  'tut.app-despacho--esencial.2.texto':
+    'Ce que tu possèdes et ce que tu dois, en deux listes : actifs et passifs. La troisième section projette cette photo dans le temps avec le taux que tu attribues à chaque ligne.',
+  'tut.app-despacho--esencial.3.titulo': 'Trésorerie',
+  'tut.app-despacho--esencial.3.texto':
+    'L’argent qui entre et celui qui sort, séparé en dépenses, revenus et solde. Le solde résume la période de ton choix — jour, semaine, mois ou année — avec son budget, ses catégories et sa tendance.',
+  'tut.app-despacho--esencial.4.titulo': 'Objectifs',
+  'tut.app-despacho--esencial.4.texto':
+    'Tes objectifs d’argent en trois sections : épargne et investissement, dette, et des calculatrices qui proposent un montant à partir de ton propre solde. Chaque objectif peut descendre dans le planning et prendre une date.',
+  'tut.app-despacho--esencial.5.titulo': 'Marchés',
+  'tut.app-despacho--esencial.5.texto':
+    'Cotations en direct des devises, cryptos, actions et matières premières ; nécessite une connexion. C’est un tableau de consultation : l’app ne recommande ni achat ni vente.',
+  'tut.app-diario--esencial.1.titulo': 'Le journal du jour',
+  'tut.app-diario--esencial.1.texto':
+    'Le journal apporte le résumé du jour en deux vues : titres et éphémérides. Il ne garde aucune donnée propre : chaque jour apporte un nouveau contenu et le remplace entièrement à minuit.',
+  'tut.app-diario--esencial.2.titulo': 'Titres',
+  'tut.app-diario--esencial.2.texto':
+    'Les titres du jour par catégorie — monde, économie, technologie, santé, sport et divertissement —, filtrables avec les puces du haut. Ils viennent de la vraie presse dans ta langue, avec des médias qui changent chaque jour.',
+  'tut.app-diario--esencial.3.titulo': 'Ce jour-là',
+  'tut.app-diario--esencial.3.texto':
+    'L’autre moitié du journal : ce qui s’est passé un jour comme aujourd’hui — une œuvre, un livre, une espèce, un mot. Une bonne excuse pour l’ouvrir même quand l’actualité n’intéresse pas ce jour-là.',
+  'tut.app-diario--esencial.4.titulo': 'Il se renouvelle tout seul',
+  'tut.app-diario--esencial.4.texto':
+    'L’édition se télécharge toute seule à l’ouverture de l’app et se remplace entièrement à minuit : rien ne s’accumule. Ce bouton force une actualisation avant cette heure-là.',
+  'tut.app-diario--esencial.5.titulo': 'Livraison',
+  'tut.app-diario--esencial.5.texto':
+    'Configure les sections que chaque assistant te livre dans son propre chat, à une heure fixe ou à un moment surprise de la journée.',
+  'tut.app-ejercicio--esencial.1.titulo': 'Ton entraînement',
+  'tut.app-ejercicio--esencial.1.texto':
+    'Gym réunit les trois façons de travailler le corps — force, endurance et souplesse — plus un menu d’objectifs où tu décides combien t’entraîner chaque semaine.',
+  'tut.app-ejercicio--esencial.2.titulo': 'Objectifs',
+  'tut.app-ejercicio--esencial.2.texto':
+    'Le résumé de la pièce : ta série, les jours où tu as enregistré quelque chose et une barre par discipline par rapport à l’objectif hebdomadaire que tu fixes ici. C’est aussi là que tu choisis le système de mesure, en kilos ou en livres.',
+  'tut.app-ejercicio--esencial.3.titulo': 'Force',
+  'tut.app-ejercicio--esencial.3.texto':
+    'L’entraînement avec charges : chaque séance garde ses exercices avec séries, répétitions et charge. À partir de ça, l’app calcule le volume du jour, trace la progression de chaque exercice et garde tes records.',
+  'tut.app-ejercicio--esencial.4.titulo': 'Catalogue, routines et progression',
+  'tut.app-ejercicio--esencial.4.texto':
+    'Les trois disciplines s’organisent de la même façon. Le Catalogue regroupe les exercices disponibles et compose des routines avec eux, Routines enregistre l’entraînement du jour choisi en haut, et Progression résume la période avec sa carte de chaleur.',
+  'tut.app-ejercicio--esencial.5.titulo': 'Endurance',
+  'tut.app-ejercicio--esencial.5.texto':
+    'Courir, pédaler, nager ou marcher, par tronçons avec leurs minutes et leur distance. C’est ici que s’ouvre l’entraînement en direct, qui capte le parcours par GPS et le pouls d’un capteur Bluetooth, et enregistre la séance à la fin.',
+  'tut.app-ejercicio--esencial.6.titulo': 'Souplesse',
+  'tut.app-ejercicio--esencial.6.texto':
+    'Étirements et mobilité, avec des séries minutées plutôt qu’en charge : chaque posture a ses secondes et ses répétitions. Le lecteur guidé déroule la routine posture par posture avec un minuteur qui indique quand changer.',
+  'tut.app-entretenimiento--esencial.1.titulo': 'Divertissement',
+  'tut.app-entretenimiento--esencial.1.texto':
+    'Garde les films, séries, livres et jeux vidéo que tu termines, et propose une table de jeux numérique pour jouer sans quitter la maison. Deux menus : Jeux de société et Archives.',
+  'tut.app-entretenimiento--esencial.2.titulo': 'Jeux de société',
+  'tut.app-entretenimiento--esencial.2.texto':
+    'La table réunit des jeux numériques qui se jouent directement à l’écran. Un filtre sépare ce qui est pensé pour un ou deux joueurs de ce qui convient à un groupe plus large.',
+  'tut.app-entretenimiento--esencial.3.titulo': 'Par familles',
+  'tut.app-entretenimiento--esencial.3.texto':
+    'Le catalogue se regroupe en familles — plateau, casse-têtes, arcade, cartes et casino, et en groupe — chacune avec sa propre couleur. Touche n’importe quelle carte pour ouvrir le jeu en plein écran.',
+  'tut.app-entretenimiento--esencial.4.titulo': 'Archives',
+  'tut.app-entretenimiento--esencial.4.texto':
+    'Les archives réunissent ce que tu regardes, lis et joues : chaque titre avec son statut, sa note et ton avis. Tu peux trier par genre, catégorie, auteur ou date.',
+  'tut.app-garage--esencial.1.titulo': 'Le garage',
+  'tut.app-garage--esencial.1.texto':
+    'Le garage suit tes véhicules : vélos, voitures, motos et tout ce que tu utilises pour te déplacer. Chacun avec son historique d’entretien et ses démarches, et tout ce qui a une date se programme tout seul dans le calendrier de la maison.',
+  'tut.app-garage--esencial.2.titulo': 'Résumé',
+  'tut.app-garage--esencial.2.texto':
+    'L’onglet d’entrée : un voyant tricolore indique d’un coup d’œil si quelque chose est en retard, si quelque chose approche, ou si le garage est tranquille.',
+  'tut.app-garage--esencial.3.titulo': 'En un coup d’œil',
+  'tut.app-garage--esencial.3.texto':
+    'Combien de véhicules tu as, combien de démarches sont encore actives et ce que tu as dépensé cette année.',
+  'tut.app-garage--esencial.4.titulo': 'Véhicules',
+  'tut.app-garage--esencial.4.texto':
+    'La liste complète, avec plaque, kilométrage et nombre d’entretiens sur chaque carte. En touchant un véhicule, sa fiche s’ouvre, avec son historique d’entretien et ses démarches.',
+  'tut.app-garage--esencial.5.titulo': 'Ajouter un nouveau véhicule',
+  'tut.app-garage--esencial.5.texto':
+    'Nom, type, marque, modèle, année, plaque et le kilométrage du jour. Une fois la plaque renseignée, la fiche débloque aussi les démarches propres à un véhicule immatriculé, comme le contrôle technique ou la taxe.',
+  'tut.app-hobbies--esencial.1.titulo': 'Tes loisirs',
+  'tut.app-hobbies--esencial.1.texto':
+    'Hobbies suit ce que tu pratiques par plaisir : chaque hobby réunit ses séances, sa série et, si tu veux, ses projets.',
+  'tut.app-hobbies--esencial.2.titulo': 'Tes hobbies',
+  'tut.app-hobbies--esencial.2.texto':
+    'Chaque hobby que tu enregistres apparaît ici sous forme de carte, avec la progression de la semaine et la série en cours. En ouvrant l’un d’eux, tu vois ses statistiques, son heatmap de l’année, le journal des séances et ses projets.',
+  'tut.app-hobbies--esencial.3.titulo': 'Ajouter un hobby',
+  'tut.app-hobbies--esencial.3.texto':
+    'Ce bouton ouvre le formulaire pour ajouter un nouveau hobby : nom, emoji, couleur et, si tu veux, un objectif hebdomadaire en jours de pratique.',
+  'tut.app-hobbies--esencial.4.titulo': 'À l’intérieur de chaque hobby',
+  'tut.app-hobbies--esencial.4.texto':
+    'Là, tu enregistres des séances avec minutes et note, tu vois ton heatmap de l’année et tu suis des projets avec leur propre avancement. Les objectifs et leur planning vivent dans la pièce Objectifs.',
+  'tut.app-ideas--esencial.1.titulo': 'Idées',
+  'tut.app-ideas--esencial.1.texto':
+    'Idées garde ce qui te passe par la tête et l’aide à mûrir : d’abord ça se note, ensuite ça s’ordonne dans une carte et, si besoin, ça se compare pour décider. Trois menus.',
+  'tut.app-ideas--esencial.2.titulo': 'Journal d’idées',
+  'tut.app-ideas--esencial.2.texto':
+    'La liste où atterrit chaque idée qui te passe par la tête, isolée ou regroupée en remue-méninges par thème. Tu peux la classer en dossiers, la marquer d’une étoile et, une fois mûre, la transformer en carte.',
+  'tut.app-ideas--esencial.3.titulo': 'Cartes conceptuelles',
+  'tut.app-ideas--esencial.3.texto':
+    'Une toile libre pour organiser un sujet dans le format qui lui va le mieux : carte mentale, arbre, logigramme, chronologie, cycle, pyramide, Venn et bien plus.',
+  'tut.app-ideas--esencial.4.titulo': 'Diagrammes de décision',
+  'tut.app-ideas--esencial.4.texto':
+    'La même toile, avec des formats pensés pour décider : avantages et inconvénients pondérés, SWOT, Eisenhower ou une matrice pondérée qui classe les options toute seule.',
+  'tut.app-idiomas--esencial.1.titulo': 'Ton école de langues',
+  'tut.app-idiomas--esencial.1.texto':
+    'Ici, tu choisis une langue, tu discutes avec un tuteur d’intelligence artificielle, tu enregistres le vocabulaire que tu apprends et tu le révises avec un système espacé. Quatre menus : Discussions, Programme, Révision et Progrès.',
+  'tut.app-idiomas--esencial.2.titulo': 'Discussions',
+  'tut.app-idiomas--esencial.2.texto':
+    'Tu converses avec ton tuteur dans la langue que tu étudies : il répond selon ton niveau et corrige en douceur. Chaque discussion reste enregistrée et se classe seule, et en sortant, il te propose d’extraire le nouveau vocabulaire sous forme de cartes.',
+  'tut.app-idiomas--esencial.3.titulo': 'Programme',
+  'tut.app-idiomas--esencial.3.texto':
+    'Organise la langue en thèmes, prononciation et grammaire, du niveau A1 au C2. Le vocabulaire vit à l’intérieur de chaque thème : chaque carte s’y enregistre, avec sa traduction et son exemple.',
+  'tut.app-idiomas--esencial.4.titulo': 'Révision',
+  'tut.app-idiomas--esencial.4.texto':
+    'La révision espacée : chaque carte vit dans une boîte et ne te propose que celles que tu es sur le point d’oublier, avec des exercices — choix multiple, à l’envers ou phrase à compléter — plutôt que de simplement les regarder.',
+  'tut.app-idiomas--esencial.5.titulo': 'Progrès',
+  'tut.app-idiomas--esencial.5.texto':
+    'Le résumé de ton avancée : combien de cartes tu maîtrises, combien tu as révisé et ton niveau actuel, avec l’historique de tes révisions jour par jour.',
+  'tut.app-jardin--esencial.1.titulo': 'Ton espace de calme',
+  'tut.app-jardin--esencial.1.texto':
+    'Le jardin réunit trois pratiques : méditation, respiration guidée et gratitude. Il n’a volontairement ni points ni séries : ici, rater un jour n’est pas puni, on accompagne juste ce que tu pratiques.',
+  'tut.app-jardin--esencial.2.titulo': 'Méditation',
+  'tut.app-jardin--esencial.2.texto':
+    'Choisis une piste sonore et une durée, ou médite en silence avec une cloche au début et à la fin. Chaque séance reste enregistrée dans ton historique.',
+  'tut.app-jardin--esencial.3.titulo': 'Respiration',
+  'tut.app-jardin--esencial.3.texto':
+    'Deux rythmes de respiration guidée, l’un pour te recentrer et l’autre pour relâcher la journée : l’écran respire avec toi à mesure qu’il avance.',
+  'tut.app-jardin--esencial.4.titulo': 'Gratitude',
+  'tut.app-jardin--esencial.4.texto':
+    'Note ce pour quoi tu es reconnaissant aujourd’hui, même une seule chose, et relis tes entrées précédentes quand tu veux. Sans séries : rater un jour n’efface rien.',
+  'tut.app-metas--esencial.1.titulo': 'Le planificateur de la maison',
+  'tut.app-metas--esencial.1.texto':
+    'Cette pièce ne garde aucun enregistrement propre : elle réunit en un seul endroit les objectifs et les plans qui naissent dans les autres apps. Trois menus, à lire dans cet ordre : ce que tu t’es fixé, comment tu comptes le répartir et quand ça tombe.',
+  'tut.app-metas--esencial.2.titulo': 'Objectifs',
+  'tut.app-metas--esencial.2.texto':
+    'La liste de tout ce que tu t’es fixé, groupée par l’app qui porte chaque objectif. Un objectif peut dépendre d’un autre, et le toucher ouvre sa feuille : on y trouve son échéance, ses étapes et l’accès à son propre planning.',
+  'tut.app-metas--esencial.3.titulo': 'Plans',
+  'tut.app-metas--esencial.3.texto':
+    'Un plan est le brouillon d’un planning : il répartit un objectif en phases avec leurs dates. Tant qu’il reste une proposition, tu le retouches à volonté ; une fois qu’il convainc, tu l’acceptes et ses phases deviennent de vrais sous-objectifs.',
+  'tut.app-metas--esencial.4.titulo': 'Planning',
+  'tut.app-metas--esencial.4.texto':
+    'L’axe du temps avec tous les objectifs à la fois : chacun est une barre sur les dates. Tu zoomes et dézoomes par jours, semaines, mois ou années, et un plan peut se superposer par-dessus pour le comparer à ce qui est déjà tracé.',
+  'tut.app-sala--esencial.1.titulo': 'Ton salon de voyage',
+  'tut.app-sala--esencial.1.texto':
+    'C’est ici que vit ton monde voyageur : un mappemonde avec des épingles, des itinéraires de lieux à découvrir, des parcours qui enchaînent des lieux et un journal de bord de souvenirs. Quatre menus.',
+  'tut.app-sala--esencial.2.titulo': 'Carte',
+  'tut.app-sala--esencial.2.texto':
+    'Chaque lieu que tu as visité ou rêves de visiter est une épingle sur le mappemonde. Le bouton du haut remplace le planisphère par un globe que tu fais tourner en le glissant.',
+  'tut.app-sala--esencial.3.titulo': 'Itinéraire',
+  'tut.app-sala--esencial.3.texto':
+    'Les lieux que tu rêves de découvrir, chacun avec son plan jour par jour. Ceux qui ont une date se programment tout seuls dans le calendrier.',
+  'tut.app-sala--esencial.4.titulo': 'Parcours',
+  'tut.app-sala--esencial.4.texto': 'Un parcours enchaîne des lieux en un trajet et le trace sur la carte.',
+  'tut.app-sala--esencial.5.titulo': 'Journal de bord',
+  'tut.app-sala--esencial.5.texto':
+    'Les souvenirs de tes lieux visités, en albums par pays : photos et anecdotes de chaque endroit.',
   'tut.app-agenda--trabajo.1.titulo': 'La liste À faire',
   'tut.app-agenda--trabajo.1.texto':
     'Ce qu’il faut faire mais qui n’a pas encore de jour vit ici, avec sa priorité. Rien ne t’oblige à lui mettre une date pour le noter.',
@@ -747,6 +1039,12 @@ export const FR_TUT: Dict = {
   'tut.app-agenda--salud.4.titulo': 'Ce qui se répète',
   'tut.app-agenda--salud.4.texto':
     'Le bilan annuel, le détartrage, les analyses : des soins avec leur propre période. En les marquant faits, la prochaine date avance toute seule : le calendrier ne pointe jamais vers quelque chose de déjà fait.',
+  'tut.app-agenda--salud.ciclo.titulo': 'Le cycle',
+  'tut.app-agenda--salud.ciclo.texto':
+    'À la fin de Toi vit le cycle, avec son propre interrupteur : saignements, symptômes et humeur par jour, et à partir de tes dernières règles il estime les suivantes et la fenêtre fertile. L’éteindre conserve tout ce qui est enregistré.',
+  'tut.app-agenda--salud.projimos.titulo': 'Proches',
+  'tut.app-agenda--salud.projimos.texto':
+    'Celles et ceux qui sont à ta charge : des contacts de Personnes marqués « À ma charge », chacun avec ses rendez-vous par spécialité, ses soins et ses médicaments. Pep garde ici sa mère.',
   'tut.app-agenda--personas.1.titulo': 'Le cercle de Pep',
   'tut.app-agenda--personas.1.texto':
     'Famille, amis, gens du travail et de la fac, chacun dans son dossier. Avec leur téléphone, leur adresse et tout ce que tu ne veux pas oublier.',
@@ -820,7 +1118,7 @@ export const FR_TUT: Dict = {
   'tut.app-cocina--recetario.5.titulo': 'Les listes enregistrées',
   'tut.app-cocina--recetario.5.texto':
     'Chaque liste garde ce qu’il reste à acheter et ce qui est déjà dans les placards. Si tu mets les prix, le total peut partir dans les dépenses du Bureau.',
-  'tut.app-cocina--cronograma.1.titulo': 'Ce que la Cuisine te demande aujourd’hui',
+  'tut.app-cocina--cronograma.1.titulo': 'L’objectif de poids, par phases',
   'tut.app-cocina--cronograma.1.texto':
     'Le bouton Missions de l\'en-tête ouvre la checklist du jour : l\'eau, les repas et les étapes qui viennent de tes objectifs. Les objectifs eux-mêmes — avec le plan que l\'IA leur propose — vivent dans la pièce Objectifs, groupés par l\'app qui les porte.',
   'tut.app-cocina--cronograma.2.texto':
@@ -916,6 +1214,9 @@ export const FR_TUT: Dict = {
   'tut.app-garage--vehiculos.2.titulo': 'Ce que tu as déjà dépensé',
   'tut.app-garage--vehiculos.2.texto':
     'Combien de véhicules, combien de démarches en cours et ce que tu as dépensé dans l’année. La voiture a coûté cher à Pep.',
+  'tut.app-garage--vehiculos.2b.titulo': 'Ajouter un nouveau',
+  'tut.app-garage--vehiculos.2b.texto':
+    'Nom, type, marque, modèle, année, plaques et le kilométrage du jour. Une fois les plaques renseignées, le garage sait quelles démarches te proposer plus tard.',
   'tut.app-garage--vehiculos.3.titulo': 'Le vélo de tous les jours',
   'tut.app-garage--vehiculos.3.texto':
     'Le vrai moyen de transport de Pep : chaîne, chambres à air, freins, chacun sur sa propre ligne — le même classeur en dossiers d’année et de mois que dans les autres apps. Regarde comme les entretiens s’accumulent sur les derniers mois : c’est l’entraînement du marathon qui présente la facture.',
@@ -925,12 +1226,18 @@ export const FR_TUT: Dict = {
   'tut.app-garage--vehiculos.5.titulo': 'La fiche',
   'tut.app-garage--vehiculos.5.texto':
     'Marque, modèle, année, plaque et le kilométrage à jour. Une fois la plaque renseignée, le garage débloque les démarches qui ne concernent qu’une voiture.',
+  'tut.app-garage--tramites.tabs.titulo': 'Trois carnets',
+  'tut.app-garage--tramites.tabs.texto':
+    'La fiche de chaque véhicule répartit ses papiers en trois carnets : Démarches, Documents et Contacts. L’historique d’entretiens reste toujours en dessous, quel que soit le carnet que tu regardes.',
   'tut.app-garage--tramites.1.titulo': 'Ce qui arrive',
   'tut.app-garage--tramites.1.texto':
     'Chaque démarche garde sa prochaine échéance, tous les combien de mois elle revient et ce qu’elle coûte. Une fois cochée, la date saute toute seule à la suivante.',
   'tut.app-garage--tramites.2.titulo': 'Le vélo ne passe pas au contrôle technique',
   'tut.app-garage--tramites.2.texto':
     'Sans plaque, le garage cache les démarches qui ne s’appliquent pas : au vélo, il ne propose que sa révision périodique.',
+  'tut.app-garage--tramites.2b.titulo': 'Les papiers, à part',
+  'tut.app-garage--tramites.2b.texto':
+    'La carte grise, le contrat d’assurance et la vignette ne se mélangent pas avec ce qui se passe à l’atelier : ils ont leur propre carnet, avec référence, échéance et rappel à l’avance.',
   'tut.app-garage--tramites.3.titulo': 'Le répertoire',
   'tut.app-garage--tramites.3.texto':
     'L’atelier de confiance, l’assureur, le centre de contrôle technique, le vélociste du quartier et la dépanneuse de cette nuit-là — téléphone et adresse à portée de doigt.',
@@ -942,6 +1249,9 @@ export const FR_TUT: Dict = {
   'tut.app-sala--mapa.2.titulo': 'Les épingles',
   'tut.app-sala--mapa.2.texto':
     'Les sept épingles serrées sur le Japon, ce sont les trois semaines du voyage. Les ambre — Séoul, la Patagonie, l’Islande — sont ce qui n’est pas encore arrivé. Touche la carte pour poser une nouvelle épingle où tu veux.',
+  'tut.app-sala--mapa.3.titulo': 'Le globe',
+  'tut.app-sala--mapa.3.texto':
+    'Le commutateur du haut échange le planisphère contre un globe que tu fais tourner en le faisant glisser, avec les mêmes épingles touchables. Le globe ne fait que regarder : les nouvelles épingles se posent dans la vue Plan.',
   'tut.app-sala--japon.1.titulo': 'Les albums',
   'tut.app-sala--japon.1.texto':
     'Un dossier par pays, avec sa photo de couverture. Dedans, une carte par lieu et, dans chacune, ce que Pep a écrit ce jour-là.',

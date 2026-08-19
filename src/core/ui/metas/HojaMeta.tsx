@@ -16,6 +16,7 @@ import {
 import { confirmar } from '../../state/confirmarStore'
 import { colorDe, colorPorProfundidad } from '../coloresRutina'
 import { Icono } from '../iconos/Icono'
+import { TONO_ESTADO } from './carpetas'
 import { ChipApp, SelectorApp } from './ChipApp'
 import { DetalleMeta } from './DetalleMeta'
 
@@ -114,14 +115,14 @@ export function HojaMeta({
   }
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col">
+    <div className="space-y-3">
       {/* Cabecera: de qué meta es, cómo va y el botón que la cierra. */}
-      <div className="space-y-1 border-b border-white/10 px-3 py-1.5">
+      <div className="space-y-1">
         <div className="flex items-center gap-2">
           <button
             type="button"
             onClick={onVolver}
-            className="shrink-0 rounded-lg px-1.5 py-0.5 text-[11px] font-semibold text-white/45 transition hover:bg-white/10 hover:text-white/85"
+            className="ui-presion shrink-0 rounded-lg px-1.5 py-0.5 text-2xs font-semibold text-white/45 transition hover:bg-white/10 hover:text-white/85"
           >
             ‹ {t('cal.meta.volverMetas', 'Volver a las metas')}
           </button>
@@ -135,7 +136,7 @@ export function HojaMeta({
                 if (e.key === 'Enter') confirmarRenombre()
                 else if (e.key === 'Escape') setRenombrando(false)
               }}
-              className="min-w-0 flex-1 rounded border border-white/15 bg-black/30 px-1.5 py-0.5 text-sm text-white/90 focus:outline-none"
+              className="min-w-0 flex-1 rounded-lg border border-white/15 bg-black/30 px-1.5 py-0.5 text-sm text-white/90 focus:border-accent/60 focus:outline-none"
             />
           ) : (
             <button
@@ -145,7 +146,7 @@ export function HojaMeta({
                 setRenombrando(true)
               }}
               title={t('cal.meta.renombrar', 'Renombrar')}
-              className="min-w-0 flex-1 truncate text-start text-sm font-semibold text-white/90"
+              className="ui-presion min-w-0 flex-1 truncate text-start text-sm font-semibold text-white/90"
             >
               <span className="me-1 inline-block h-2 w-2 rounded-full align-middle" style={{ background: color }} />
               <Icono emoji={meta.emoji} /> {meta.nombre}
@@ -157,7 +158,7 @@ export function HojaMeta({
               type="button"
               data-tut="cal.meta.hoja.verCronograma"
               onClick={onVerCronograma}
-              className="shrink-0 rounded-lg px-1.5 py-0.5 text-[11px] font-semibold text-white/45 transition hover:bg-white/10 hover:text-white/85"
+              className="ui-presion shrink-0 rounded-lg px-1.5 py-0.5 text-2xs font-semibold text-white/45 transition hover:bg-white/10 hover:text-white/85"
             >
               <Icono nombre="calendario" /> {t('cal.meta.verEnCronograma', 'Ver en el Cronograma')}
             </button>
@@ -166,13 +167,7 @@ export function HojaMeta({
             type="button"
             onClick={() => void toggleMeta(meta)}
             title={t('cal.meta.marcarHecha', 'Marcar la meta como hecha')}
-            className={`shrink-0 rounded-full border px-2 py-0.5 text-[10px] font-semibold transition ${
-              estado === 'hecho'
-                ? 'border-emerald-400/40 bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30'
-                : estado === 'enCurso'
-                  ? 'border-amber-400/40 bg-amber-500/15 text-amber-200 hover:bg-amber-500/25'
-                  : 'border-white/15 bg-white/5 text-white/45 hover:bg-white/10'
-            }`}
+            className={`ui-presion shrink-0 rounded-full border px-2 py-0.5 text-2xs font-semibold hover:brightness-125 ${TONO_ESTADO[estado]}`}
           >
             {ETIQUETA[estado]}
           </button>
@@ -186,10 +181,10 @@ export function HojaMeta({
                 style={{ width: `${Math.round(avance * 100)}%`, background: color }}
               />
             </div>
-            <span className="shrink-0 text-[11px] font-semibold tabular-nums text-white/60">
+            <span className="shrink-0 text-2xs font-semibold tabular-nums text-white/60">
               {Math.round(avance * 100)}%
             </span>
-            <span className="shrink-0 text-[11px] tabular-nums text-white/35">
+            <span className="shrink-0 text-2xs tabular-nums text-white/35">
               {resumen.hechos}/{resumen.total}
             </span>
           </div>
@@ -204,8 +199,8 @@ export function HojaMeta({
             data-tut="cal.enlace.boton"
             onClick={() => setEnlazando((v) => !v)}
             title={t('cal.enlace.poner', 'Enlazar con la app donde se registra')}
-            className={`rounded px-1 text-[10px] font-semibold transition hover:text-white/85 ${
-              enlazando ? 'text-emerald-400' : 'text-white/35'
+            className={`ui-presion rounded-lg px-1 text-2xs font-semibold transition hover:text-white/85 ${
+              enlazando ? 'text-accent' : 'text-white/35'
             }`}
           >
             <Icono nombre="vincular" />{' '}
@@ -216,61 +211,59 @@ export function HojaMeta({
       </div>
 
       {/* Cuerpo: fechas, nota, color, pasos… y las sub-metas. */}
-      <div className="min-h-0 flex-1 overflow-y-auto p-3">
-        <div className="mx-auto max-w-2xl space-y-3">
-          <div className="rounded-xl border border-white/10 bg-white/[0.03] px-2 py-1">
-            <DetalleMeta meta={meta} onPlanIA={onPlanIA} />
-          </div>
+      <div className="space-y-3">
+        <div className="rounded-xl border border-white/10 bg-white/[0.03] px-2 py-1">
+          <DetalleMeta meta={meta} onPlanIA={onPlanIA} />
+        </div>
 
-          <div className="rounded-xl border border-white/10 bg-white/[0.03] p-2">
-            <p className="mb-1 px-1 text-[10px] uppercase tracking-wide text-white/35">
-              {t('cal.meta.submetas', 'Sub-metas')}
+        <div className="rounded-xl border border-white/10 bg-white/[0.03] p-2">
+          <p className="mb-1 px-1 text-2xs uppercase tracking-wide text-white/35">
+            {t('cal.meta.submetas', 'Sub-metas')}
+          </p>
+          {rama.length === 0 && (
+            <p className="px-1 py-1 text-2xs text-white/25">
+              {t('cal.meta.sinSubmetas', 'Todavía no tiene sub-metas.')}
             </p>
-            {rama.length === 0 && (
-              <p className="px-1 py-1 text-[11px] text-white/25">
-                {t('cal.meta.sinSubmetas', 'Todavía no tiene sub-metas.')}
-              </p>
-            )}
-            {rama.map((f) => (
-              <SubMeta key={f.meta.id} metas={metas} meta={f.meta} profundidad={f.profundidad} />
-            ))}
-            {agregando ? (
-              <input
-                autoFocus
-                value={nombreHija}
-                onChange={(e) => setNombreHija(e.target.value)}
-                onBlur={() => {
-                  confirmarHija()
-                  setAgregando(false)
-                }}
-                // Enter deja la caja abierta: así se encadenan varias de un tirón.
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') confirmarHija()
-                  else if (e.key === 'Escape') setAgregando(false)
-                }}
-                placeholder={t('cal.meta.nuevaHija', 'Sub-meta…')}
-                className="mt-1 w-full rounded border border-white/15 bg-black/30 px-1.5 py-0.5 text-xs text-white/90 placeholder:text-white/25 focus:outline-none"
-              />
-            ) : (
-              <button
-                type="button"
-                onClick={() => setAgregando(true)}
-                className="mt-1 rounded px-1.5 py-0.5 text-[11px] font-bold leading-none text-emerald-300/90 transition hover:bg-emerald-500/15 hover:text-emerald-200"
-              >
-                + {t('cal.meta.etiquetaSubmeta', 'sub-meta')}
-              </button>
-            )}
-          </div>
-
-          <div className="flex justify-end">
+          )}
+          {rama.map((f) => (
+            <SubMeta key={f.meta.id} metas={metas} meta={f.meta} profundidad={f.profundidad} />
+          ))}
+          {agregando ? (
+            <input
+              autoFocus
+              value={nombreHija}
+              onChange={(e) => setNombreHija(e.target.value)}
+              onBlur={() => {
+                confirmarHija()
+                setAgregando(false)
+              }}
+              // Enter deja la caja abierta: así se encadenan varias de un tirón.
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') confirmarHija()
+                else if (e.key === 'Escape') setAgregando(false)
+              }}
+              placeholder={t('cal.meta.nuevaHija', 'Sub-meta…')}
+              className="mt-1 w-full rounded-lg border border-white/15 bg-black/30 px-1.5 py-0.5 text-xs text-white/90 placeholder:text-white/25 focus:border-accent/60 focus:outline-none"
+            />
+          ) : (
             <button
               type="button"
-              onClick={() => void borrar()}
-              className="rounded-lg border border-white/10 px-2.5 py-1 text-[11px] font-semibold text-white/40 transition hover:border-red-400/40 hover:text-red-400"
+              onClick={() => setAgregando(true)}
+              className="mt-1 rounded-lg px-1.5 py-0.5 ui-presion text-2xs font-bold leading-none text-accent hover:bg-white/10"
             >
-              <Icono nombre="basura" /> {t('cal.meta.borrarMeta', 'Borrar la meta')}
+              + {t('cal.meta.etiquetaSubmeta', 'sub-meta')}
             </button>
-          </div>
+          )}
+        </div>
+
+        <div className="flex justify-end">
+          <button
+            type="button"
+            onClick={() => void borrar()}
+            className="ui-presion rounded-lg border border-white/10 px-2.5 py-1 text-2xs font-semibold text-white/40 transition hover:border-red-400/40 hover:text-red-400"
+          >
+            <Icono nombre="basura" /> {t('cal.meta.borrarMeta', 'Borrar la meta')}
+          </button>
         </div>
       </div>
     </div>
@@ -295,12 +288,12 @@ function SubMeta({ metas, meta, profundidad }: { metas: Rutina[]; meta: Rutina; 
 
   return (
     <div style={{ paddingLeft: profundidad * SANGRIA }}>
-      <div className="group flex items-center gap-2 rounded px-1 py-0.5 transition hover:bg-white/5">
+      <div className="group flex items-center gap-2 rounded-lg px-1 py-0.5 transition hover:bg-white/5">
         <button
           type="button"
           onClick={() => void toggleMeta(meta)}
           title={t('cal.marcarHecho', 'Marcar como hecho')}
-          className={`grid h-4 w-4 shrink-0 place-items-center rounded border text-[10px] transition ${
+          className={`ui-presion grid h-4 w-4 shrink-0 place-items-center rounded-lg border text-2xs transition ${
             hecha ? 'border-emerald-400 bg-emerald-500/30 text-emerald-400' : 'border-white/25 hover:border-white/50'
           }`}
         >
@@ -314,14 +307,14 @@ function SubMeta({ metas, meta, profundidad }: { metas: Rutina[]; meta: Rutina; 
           type="button"
           onClick={() => setEnlazando((v) => !v)}
           title={t('cal.enlace.poner', 'Enlazar con la app donde se registra')}
-          className={`hidden shrink-0 px-0.5 text-[10px] transition hover:text-white/80 group-hover:block ${
-            enlazando ? 'text-emerald-400' : 'text-white/30'
+          className={`ui-presion hidden shrink-0 px-0.5 text-2xs transition hover:text-white/80 group-hover:block ${
+            enlazando ? 'text-accent' : 'text-white/30'
           }`}
         >
           <Icono nombre="vincular" />
         </button>
         {resumen.total > 0 && (
-          <span className="shrink-0 text-[10px] tabular-nums text-white/35">
+          <span className="shrink-0 text-2xs tabular-nums text-white/35">
             {resumen.hechos}/{resumen.total}
           </span>
         )}

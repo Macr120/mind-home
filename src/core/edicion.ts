@@ -3,14 +3,14 @@
  *
  * - **Demo** (gratis, sin cuenta): la casa de Pep@, no persistente. Es la única
  *   vía gratuita; la puerta (`PuertaUnlock`) ofrece entrar aquí.
- * - **Unlock** (`tieneUnlock()`, $10.99 pago único): persiste TU casa para
+ * - **Unlock** (`tieneUnlock()`, $6.99 pago único): persiste TU casa para
  *   siempre e incluye el primer mes (plan `trial`: 30 días con el pool de 700
  *   créditos + sync, sin tarjeta). Las instalaciones previas a esta versión
  *   quedan desbloqueadas por derechos adquiridos (`mh.unlockLocal`), y un build
  *   sin backend (.env ausente) no tiene puerta: 100% local, como siempre.
  * - **Trial** (`esTrial()`): el mes incluido del unlock. Al vencer, conserva la
  *   app y sus datos; pierde pool y sync hasta suscribirse.
- * - **Pro** (`esPro()`, 4.99 USD/mes): créditos mensuales + sync. Se compra solo
+ * - **Pro** (`esPro()`, 6 USD/mes en el nivel ×1): créditos mensuales + sync. Se compra solo
  *   en la web (la app nativa nunca muestra pagos, ver `plataforma.ts`).
  * - **Local / vencido**: la IA se paga con recargas de créditos que no caducan;
  *   sin créditos, las superficies siguen visibles y al usarlas sale el modal

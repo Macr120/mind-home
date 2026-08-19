@@ -106,13 +106,21 @@ tenis, básquet), Huerto (parcelas y cultivos), Granja (cría de animales) y Pai
 **El calendario NO es un cuarto**: vive en el reloj del HUD (`core/ui/Calendario.tsx`, a pantalla
 completa) con las vistas Día/Semana/Mes/Año más **Misiones** (el botón rojo: la checklist
 de HOY de todas las apps juntas, `core/ui/hoy/ObjetivosCasa.tsx`). Las metas y sus planes
-NO están ahí: viven en el cuarto **Metas**. Sus tutoriales («Calendario», «Metas», «Rutinas»
-y «Enlaces») viven en `core/tutorial/calendario.ts` y su año demo en `src/demo/anioCalendario.ts`.
+NO están ahí: viven en el cuarto **Metas**. Sus tutoriales («Calendario», «Metas» y «Enlaces»)
+viven en `core/tutorial/calendario.ts` y su año demo en `src/demo/anioCalendario.ts`.
 
 **Misiones vs Metas**: el botón del encabezado de cada cuarto («Misiones», `core/ui/hoy/ListaHoy.tsx`)
-solo lleva la checklist del día de ESA app —dentro se titula «Misiones del día»— y arriba
-enseña, plegables, las metas de esa app; planear es cosa del cuarto Metas. El nombre en
-pantalla es «Misiones»: en el código las claves y los archivos siguen diciendo `objetivos`.
+abre un panel titulado «Misiones» con dos bloques: arriba las metas de esa app (plegables,
+`hoy/MetasDeApp.tsx`) y abajo la checklist del día, que a su vez va partida en «Misiones del
+día» y «Pasos de tus metas» según `esDeMeta` (`core/hoy.ts`, el único sitio del criterio: un
+paso deriva de una meta si es suyo o si su bloque lleva `deMetaId`). La misma partición usan
+las Misiones de toda la casa del calendario (`hoy/ObjetivosCasa.tsx`), ahí con las tarjetas por
+app dentro de cada bloque; lo cumplido («Hechos»/«Logros») no se parte. Tocar
+una meta abre encima el planificador de la app (`CronogramaApp` → `Cronograma` con `ambito`,
+el mismo del cuarto Metas pero acotado): entra por la hoja del plan de esa meta —o por su
+hoja si aún no tiene plan— y desde ahí se va al cronograma y se vuelve, se crean metas, se
+piden planes y se retocan las fechas. El nombre en pantalla es «Misiones»: en el código las
+claves y los archivos siguen diciendo `objetivos`.
 
 **Personalización de la casa** (colores, avatar, objetos, perfil): modo **✏️ Editar mapa** → panel derecho (`EditPanel`).
 

@@ -1,130 +1,82 @@
 [
   {
-    "clave": "tut.editor-mapa.3.texto",
-    "texto": "Daken gaan per cel: elke cel kan zijn eigen vorm of materiaal hebben, dus één kamer kan verschillende dakschuintes combineren in plaats van één plat dak."
+    "clave": "tut.app-ejercicio--esencial.3.texto",
+    "texto": "Training met gewicht: elke sessie bewaart de oefeningen met sets, herhalingen en belasting. Daarmee berekent de app het volume van de dag, tekent het de progressie van elke oefening en bewaart het je records."
   },
+  { "clave": "tut.app-ejercicio--esencial.4.titulo", "texto": "Catalogus, routines en voortgang" },
   {
-    "clave": "tut.editor-mapa.4.texto",
-    "texto": "Het huis heeft ook niveaus: stapelbare verdiepingen naar boven en een kelder naar beneden. Elk nieuw niveau komt met zijn eigen manier om omhoog te gaan —een trap of een gat in de vloerplaat— die dwars door de vloer erboven heen gaat."
+    "clave": "tut.app-ejercicio--esencial.4.texto",
+    "texto": "De drie vormen zijn hetzelfde opgebouwd. De Catalogus groepeert de beschikbare oefeningen en stelt er routines mee samen, Routines registreert de training van de dag die je hierboven kiest, en Voortgang vat de periode samen met zijn heatmap."
   },
+  { "clave": "tut.app-ejercicio--esencial.5.titulo", "texto": "Conditie" },
   {
-    "clave": "tut.editor-mapa.5.titulo",
-    "texto": "Klaar"
+    "clave": "tut.app-ejercicio--esencial.5.texto",
+    "texto": "Hardlopen, fietsen, zwemmen of wandelen, in etappes met hun minuten en afstand. Vanaf hier open je de livetraining, die de route via gps en de hartslag van een bluetoothsensor vastlegt en de sessie bewaart als je klaar bent."
   },
+  { "clave": "tut.app-ejercicio--esencial.6.titulo", "texto": "Flexibiliteit" },
   {
-    "clave": "tut.editor-mapa.5.texto",
-    "texto": "Alles wordt vanzelf opgeslagen terwijl je bewerkt. Klaar sluit de editor en brengt je terug naar het spel, met het huis precies zoals je het achterliet."
+    "clave": "tut.app-ejercicio--esencial.6.texto",
+    "texto": "Rekoefeningen en mobiliteit, met sets op tijd in plaats van op gewicht: elke houding heeft zijn seconden en herhalingen. De begeleide speler doorloopt de routine houding voor houding met een timer die aangeeft wanneer je moet wisselen."
   },
+  { "clave": "tut.app-entretenimiento--esencial.1.titulo", "texto": "Vermaak" },
   {
-    "clave": "tut.editor-personajes.1.texto",
-    "texto": "Je hoofdpersonage en je assistenten wonen in dezelfde editor: kies bovenaan wie je bewerkt, en de hulpmiddelen veranderen mee met wat voor die ene zinvol is."
+    "clave": "tut.app-entretenimiento--esencial.1.texto",
+    "texto": "Bewaart de films, series, boeken en games die je uitspeelt, en brengt een digitale speeltafel om te spelen zonder het huis te verlaten. Er zijn twee menu's: Bordspellen en Archief."
   },
+  { "clave": "tut.app-entretenimiento--esencial.2.titulo", "texto": "Bordspellen" },
   {
-    "clave": "tut.editor-personajes.2.titulo",
-    "texto": "Gezicht en foto"
+    "clave": "tut.app-entretenimiento--esencial.2.texto",
+    "texto": "De tafel verzamelt digitale spellen die je rechtstreeks op het scherm speelt. Een filter scheidt wat bedoeld is voor één of twee spelers van wat geschikt is voor een grotere groep."
   },
+  { "clave": "tut.app-entretenimiento--esencial.3.titulo", "texto": "Per familie" },
   {
-    "clave": "tut.editor-personajes.2.texto",
-    "texto": "Expressie, kapsel en haarkleur, of gewoon een foto van jezelf zodat het personage op je lijkt. Niet elk lichaam kan een eigen gezicht dragen."
+    "clave": "tut.app-entretenimiento--esencial.3.texto",
+    "texto": "De catalogus is gegroepeerd in families — bord, denkwerk, arcade, kaarten en casino, en voor de groep — elk met zijn eigen kleur. Tik op een kaart om het spel op volledig scherm te openen."
   },
+  { "clave": "tut.app-entretenimiento--esencial.4.titulo", "texto": "Archief" },
   {
-    "clave": "tut.editor-personajes.3.titulo",
-    "texto": "Kleding per categorie"
+    "clave": "tut.app-entretenimiento--esencial.4.texto",
+    "texto": "Het archief verzamelt wat je bekijkt, leest en speelt: elke titel met zijn status, zijn beoordeling en jouw recensie. Je kunt sorteren op genre, categorie, auteur of datum."
   },
+  { "clave": "tut.app-garage--esencial.1.titulo", "texto": "De garage" },
   {
-    "clave": "tut.editor-personajes.3.texto",
-    "texto": "Elk kledingstuk trek je apart aan en uit, en verf je apart: overhemd, broek, schoeisel, accessoires. Je combineert ze vrij."
+    "clave": "tut.app-garage--esencial.1.texto",
+    "texto": "De garage houdt je voertuigen bij: fietsen, auto's, motoren en alles waarmee je je verplaatst. Elk voertuig heeft zijn servicegeschiedenis en zijn formaliteiten, en alles met een datum plant zichzelf in de huiskalender."
   },
+  { "clave": "tut.app-garage--esencial.2.titulo", "texto": "Overzicht" },
   {
-    "clave": "tut.editor-personajes.4.titulo",
-    "texto": "Opgeslagen outfits"
+    "clave": "tut.app-garage--esencial.2.texto",
+    "texto": "Het openingstabblad: een stoplicht laat in één oogopslag zien of iets verlopen is, iets eraan komt, of de garage rustig is."
   },
+  { "clave": "tut.app-garage--esencial.3.titulo", "texto": "In één oogopslag" },
   {
-    "clave": "tut.editor-personajes.4.texto",
-    "texto": "Sla een complete kledingcombinatie op als outfit en verkleed je in één tik helemaal, zonder elke keer stuk voor stuk opnieuw te beginnen."
+    "clave": "tut.app-garage--esencial.3.texto",
+    "texto": "Hoeveel voertuigen je hebt, hoeveel formaliteiten nog lopen en wat je dit jaar hebt uitgegeven."
   },
+  { "clave": "tut.app-garage--esencial.4.titulo", "texto": "Voertuigen" },
   {
-    "clave": "tut.editor-personajes.5.titulo",
-    "texto": "Garderobe per kamer"
+    "clave": "tut.app-garage--esencial.4.texto",
+    "texto": "De volledige lijst, met kenteken, kilometerstand en het aantal services op elke kaart. Als je er een aantikt, opent zijn dossier, met de servicegeschiedenis en zijn formaliteiten."
   },
+  { "clave": "tut.app-garage--esencial.5.titulo", "texto": "Een nieuw voertuig toevoegen" },
   {
-    "clave": "tut.editor-personajes.5.texto",
-    "texto": "Wijs elke kamer een andere outfit toe: je avatar loopt de Gym binnen in hardloopkleren en verkleedt zich vanzelf zodra hij de keuken in stapt."
+    "clave": "tut.app-garage--esencial.5.texto",
+    "texto": "Naam, type, merk, model, jaar, kenteken en de huidige kilometerstand. Met het kenteken ingevuld, ontgrendelt het dossier ook de formaliteiten die alleen gelden voor een voertuig met kenteken, zoals de keuring of de belasting."
   },
+  { "clave": "tut.app-hobbies--esencial.1.titulo", "texto": "Jouw bezigheden" },
   {
-    "clave": "tut.editor-personajes.6.texto",
-    "texto": "Lichaam, kleur en grootte bewerk je zoals altijd; met AI aan kun je bovendien je eigen 3D-model laten maken in plaats van er een uit de voorinstellingen te kiezen."
+    "clave": "tut.app-hobbies--esencial.1.texto",
+    "texto": "Hobby's houdt bij wat je voor je plezier doet: elke hobby verzamelt zijn sessies, zijn reeks en, als je wilt, zijn projecten."
   },
+  { "clave": "tut.app-hobbies--esencial.2.titulo", "texto": "Jouw hobby's" },
   {
-    "clave": "tut.editor-objetos.1.texto",
-    "texto": "Tik op een object in de scène (of in de lijst) om het te bewerken: kleur, grootte en rotatie zijn de drie instellingen die ze allemaal delen."
+    "clave": "tut.app-hobbies--esencial.2.texto",
+    "texto": "Elke hobby die je registreert, verschijnt hier als kaart, met de voortgang van de week en de actieve reeks. Als je er een opent, zie je zijn statistieken, zijn heatmap van het jaar, het sessieregister en zijn projecten."
   },
+  { "clave": "tut.app-hobbies--esencial.3.titulo", "texto": "Een hobby toevoegen" },
   {
-    "clave": "tut.editor-objetos.2.texto",
-    "texto": "Objecten met een toegewezen app openen hun sjabloon zodra je de kamer binnenkomt; de rest is gewoon decoratie — allebei bewerk je ze op dezelfde manier."
+    "clave": "tut.app-hobbies--esencial.3.texto",
+    "texto": "Deze knop opent het formulier om een nieuwe hobby toe te voegen: naam, emoji, kleur en, als je wilt, een wekelijks doel in oefendagen."
   },
-  {
-    "clave": "tut.editor-objetos.3.texto",
-    "texto": "Het tandwiel ⚙️ van een object maakt het bewerkbaar per onderdeel: bouw je eigen modellen door basisvormen te combineren, of vraag de AI om er een door hem te beschrijven."
-  },
-  {
-    "clave": "tut.editor-config.1.texto",
-    "texto": "Acht uitklapbare secties, geen lange lijst: tik op een titel om alleen die ene te openen."
-  },
-  {
-    "clave": "tut.editor-config.2.titulo",
-    "texto": "Account en AI"
-  },
-  {
-    "clave": "tut.editor-config.2.texto",
-    "texto": "Inloggen, je abonnement en hoeveel AI je deze maand hebt verbruikt; er pal naast de prijstabel van elke bewerking. Allebei hebben ze hun eigen uitgebreide tutorial."
-  },
-  {
-    "clave": "tut.editor-config.3.titulo",
-    "texto": "Visuele stijl"
-  },
-  {
-    "clave": "tut.editor-config.3.texto",
-    "texto": "Het thema van de kaart (licht, mist, belichting) en de nabewerkingsstijlen, allemaal pas geladen als je ze nodig hebt zodat ze niets extra wegen."
-  },
-  {
-    "clave": "tut.editor-config.4.titulo",
-    "texto": "Interface en taal"
-  },
-  {
-    "clave": "tut.editor-config.4.texto",
-    "texto": "Taal, thema van de interface (licht/donker/automatisch), iconenstijl en dichtheid — alles wat verandert HOE het huis eruitziet, niet wat erin zit."
-  },
-  {
-    "clave": "tut.editor-config.5.titulo",
-    "texto": "Meldingen"
-  },
-  {
-    "clave": "tut.editor-config.5.texto",
-    "texto": "Welke meldingen binnenkomen en welke stil blijven: routines, planmeldingen en herinneringen zet je afzonderlijk uit."
-  },
-  {
-    "clave": "tut.editor-config.6.texto",
-    "texto": "Muziek en Tutorials hebben hun eigen rondleiding; Back-up van gegevens ook, en dat is degene die je het best doorloopt voordat je van apparaat wisselt."
-  },
-  {
-    "clave": "tut.respaldo.1.titulo",
-    "texto": "Waar jouw huis woont"
-  },
-  {
-    "clave": "tut.respaldo.1.texto",
-    "texto": "Zonder account en zonder synchronisatie staan je gegevens alleen op dit apparaat. De melding bovenaan zegt of de browser toestemming heeft om ze te beschermen tegen een automatische opruiming."
-  },
-  {
-    "clave": "tut.respaldo.2.titulo",
-    "texto": "Exporteren"
-  },
-  {
-    "clave": "tut.respaldo.2.texto",
-    "texto": "Downloadt één JSON-bestand met al je tabellen: kamers, doelen, registraties, alles. Dat is je handmatige back-up."
-  },
-  {
-    "clave": "tut.respaldo.3.titulo",
-    "texto": "Herstellen"
-  }
+  { "clave": "tut.app-hobbies--esencial.4.titulo", "texto": "Binnen elke hobby" }
 ]

@@ -110,7 +110,6 @@ export function MetasTab({
               prefijoClave="ejercicio.sistema"
               color={COLOR}
               variante="sub"
-              nivel={3}
               flecha={false}
             />
           </div>

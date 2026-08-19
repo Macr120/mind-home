@@ -1,11 +1,11 @@
 /**
  * Cuadrante · La pista de carreras.
  *
- * Óvalo cerrado de `caminos.tipo = 'pista'` que LLENA el área útil de su
+ * Circuito cerrado de `caminos.tipo = 'pista'` que LLENA el área útil de su
  * cuadrante (el modo carrera exige al menos 8 celdas alcanzables desde la
- * meta), con la ÚNICA meta del mapa en el punto medio de la recta norte. El
- * paddock ocupa la primera columna útil, junto al andén del tren. Nada de
- * coordenadas absolutas: si la malla crece, el óvalo crece con ella.
+ * meta), con la ÚNICA meta del mapa en el punto medio de la recta norte y una
+ * CHICANE en la recta oeste, que se apoya en la columna del antiguo paddock.
+ * Nada de coordenadas absolutas: si la malla crece, el circuito crece con ella.
  *
  * También siembra el AÑO de récords (`db.carreras`, una fila por vehículo
  * para esta meta): se ven en la tabla de tiempos al pisar la pista.
@@ -21,8 +21,18 @@ export async function construirPista(cols: number, rows: number): Promise<void> 
   const u = areaUtilZona('zona-pista', cols, rows)
   const meta = metaPista(cols, rows)
 
-  // Óvalo: toda el área útil menos la primera columna (el paddock).
-  for (const c of bordeRect(u.c0 + 1, u.r0, u.c1, u.r1)) {
+  // El trazado: el óvalo del área útil menos la primera columna, con la recta
+  // oeste quebrada en dos curvas encadenadas. Cada celda conserva exactamente
+  // dos vecinas — así las esquinas se curvan solas y el rival no puede atajar.
+  // Con menos de cinco filas útiles el quiebre no cabe: se queda el óvalo.
+  const chicane = u.r1 - u.r0 >= 4
+  const trazado = bordeRect(u.c0 + 1, u.r0, u.c1, u.r1).filter(
+    (c) => !(chicane && c.col === u.c0 + 1 && c.row >= u.r0 + 2 && c.row <= u.r1 - 2),
+  )
+  if (chicane) {
+    for (let row = u.r0 + 1; row <= u.r1 - 1; row++) trazado.push({ col: u.c0, row })
+  }
+  for (const c of trazado) {
     await caminosRepo.add({
       col: c.col,
       row: c.row,
@@ -31,8 +41,8 @@ export async function construirPista(cols: number, rows: number): Promise<void> 
     })
   }
 
-  // Infield de cemento. El paddock se queda en el césped de fondo: una columna
-  // gris más solo apagaba el circuito.
+  // Infield de cemento. El hueco de la chicane y las esquinas libres se quedan
+  // en el césped de fondo: más gris solo apagaba el circuito.
   await aplicarPisoExteriorCeldas(0, celdasRect(u.c0 + 2, u.r0 + 1, u.c1 - 1, u.r1 - 1), 'cemento', '#9aa3ad')
 
   // Gradas improvisadas: faroles del circuito.

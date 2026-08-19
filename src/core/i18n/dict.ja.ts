@@ -1,10 +1,9 @@
 /**
- * Diccionario JAPONÉS de la interfaz. Se carga con import() perezoso
- * desde dict.ts, igual que el inglés: quien no use este idioma no lo descarga.
+ * Diccionario JA de la interfaz. Se carga con import() perezoso
+ * desde dict.ts: quien no use este idioma no lo descarga.
  *
- * GENERADO por `npm run traducir:i18n` a partir de `dict.en.ts` y de los
- * fallbacks españoles del código. No lo edites a mano: se sobrescribe entero.
- * Lo que falte cae al inglés (ver `useT`); al español solo en último término.
+ * Lo monta `traducir-a-mano.mjs meter-dict` a partir de `dict.en.ts` y de los
+ * fallbacks españoles del código. Lo que falte cae al inglés (ver `useT`).
  */
 import type { Dict } from './dict'
 
@@ -291,6 +290,12 @@ export const JA: Dict = {
   'tren.bajarte': '降りる',
   'tren.montarTren': '電車に乗る',
   'tren.montarCarrito': 'カートに乗る',
+  'tren.menu': '列車はどうする？',
+  'tren.menu.coaster': 'カートはどうする？',
+  'tren.menu.solo': 'そのまま走らせておく',
+  'tren.menu.asistente': 'アシスタントに運転させる',
+  'tren.menu.detener': 'ここで停める',
+  'tren.menu.cancelar': 'キャンセル',
   'juego.tu': '自分',
   'juego.rival': 'ライバル',
   'juego.gol': 'ゴーーール！🎉',
@@ -367,6 +372,7 @@ export const JA: Dict = {
   'hoy.objetivo': '毎日の目標（0でオフ）',
   'hoy.checklist': 'デイリーチェックリスト',
   'hoy.grupoApp': '今日のミッション',
+  'hoy.grupoMetas': '目標へのステップ',
   'hoy.nueva': '新しいチェックリスト',
   'hoy.cerrar': '閉じる',
   'hoy.ocultarHechos': '完了したものを隠す',
@@ -476,8 +482,11 @@ export const JA: Dict = {
   'progreso.nivel': 'レベル',
   'progreso.racha': '連続記録',
   'progreso.dias': '日',
+  'progreso.hoy': '今日',
+  'progreso.semana': '7日間',
   'progreso.rachaTitulo': '活動した日の連続記録',
   'progreso.listasTitulo': '達成したミッションリスト数',
+  'progreso.planesTitulo': '承認済みのプラン数',
   'progreso.listasCumplidas': '達成したリスト',
   'celebra.racha.titulo': '{n}日連続!',
   'celebra.racha.titulo1': '1日連続!',
@@ -488,8 +497,6 @@ export const JA: Dict = {
   'celebra.nivel.titulo': 'レベルアップ!',
   'celebra.nivel.cuerpo': '{app}がレベル{n}に到達 🎉',
   'celebra.seguir': '続ける!',
-  'progreso.hoy': '今日',
-  'progreso.semana': '7日間',
   'plantillas.ayuda': 'テンプレートを別のフォルダへドラッグします。アイコンをタップするとアプリを試せ、フォルダ名をタップすると名前を変更できます。',
   'plantillas.entrar': 'アプリを開く',
   'plantillas.cerrarPrevia': '‹ 閉じる',
@@ -676,7 +683,7 @@ export const JA: Dict = {
   'chat.config.ponerMapa': 'マップに配置',
   'chat.config.voz': '声：',
   'chat.config.vozAuto': '自動（言語に応じて）',
-  'chat.config.vozIA': 'AI音声（より自然）',
+  'chat.config.vozIA': 'AI音声（OpenAI、より自然）',
   'chat.config.vozLeer': '発言を音声で読み上げる',
   'chat.config.vozProbar': '声を試す',
   'chat.config.vozTono': 'トーン',
@@ -1018,7 +1025,7 @@ export const JA: Dict = {
   'despacho.m.sinGastos': '記録された支出はありません。',
   'despacho.m.sinIngresos': '記録された収入はありません。',
   'despacho.meta.nueva': '新しい貯蓄目標',
-  'despacho.meta.ph.nombre': '例：メキシコ旅行',
+  'despacho.meta.ph.nombre': '例：日本旅行',
   'despacho.meta.ph.objetivo': '目標額',
   'despacho.meta.crear': '目標を作成',
   'despacho.meta.vacio': 'まだ目標がありません。最初の貯蓄目標を作成しましょう！',
@@ -4968,20 +4975,15 @@ export const JA: Dict = {
   'rot.izq': '左に90°回転',
   'rutinas.activar': '有効にする',
   'rutinas.agregarPaso': 'ステップを追加',
-  'rutinas.autoRegistro': '部屋に自動で記録します',
   'rutinas.borrar': '削除',
   'rutinas.confirmarBorrar': 'このイベントを削除しますか？',
   'rutinas.cancelar': 'キャンセル',
   'rutinas.cerrar': '閉じる',
-  'rutinas.completada': 'ルーティン完了！',
   'rutinas.editar': '編集',
-  'rutinas.eventoSimple': 'カレンダーの予定です。',
   'rutinas.guardar': '保存',
-  'rutinas.hoy': '今日',
   'rutinas.nombre': 'ルーティン／イベント名',
   'rutinas.nueva': '新規',
   'rutinas.pasoPh': 'やること…',
-  'rutinas.pasos': 'ステップ',
   'rutinas.pasosOpcional': '任意',
   'rutinas.pasosTitulo': 'ステップ',
   'rutinas.pausar': '一時停止',
@@ -4991,10 +4993,6 @@ export const JA: Dict = {
   'rutinas.rep.soloTrazo': 'カレンダーに描いて予定されました。日付を変えるにはもう一度描き直してください。',
   'rutinas.rep.termina': '終了日：',
   'rutinas.rep.titulo': '繰り返し',
-  'rutinas.sinHora': '時刻未設定',
-  'rutinas.titulo': 'ルーティン',
-  'rutinas.todas': 'すべてのルーティン',
-  'rutinas.vacio': 'まだルーティンがありません。「+ 新規」で作成するか、アシスタントに「水・ストレッチ・感謝を含む朝のルーティンを作って」と頼んでみましょう。',
   'ui.sinApp': 'この部屋にはアプリが割り当てられていません。',
   'ui.sinAppAyuda': '部屋を編集して、オブジェクトにアプリを割り当ててください。',
   'ui.volverApps': '‹ 部屋のアプリ',
@@ -5163,6 +5161,9 @@ export const JA: Dict = {
   'tut.editor-cuarto.titulo': '部屋を編集',
   'tut.editor-cuarto.resumen':
     '特定の部屋を編集すると、見取り図がその部屋にフォーカスします。形、床、壁、色、名前、そして（ここで一番使うのが）どのアプリが割り当てられているか、変更すべきかどうかです。パネルの矢印で全体マップに戻り、部屋の上のフローティングボタンで部屋を出られます。',
+  'tut.inicio.titulo': 'スタート画面',
+  'tut.inicio.resumen':
+    'アプリのある部屋をグリッドに並べた画面で、スマホと同じ操作です。ワンタップで入り、長押しで並べ替え、カードごとにレベル、連続記録、今日残っているミッションが見えます。壁紙も付けられて、アイコン表示と3D表示を切り替えられます。',
   'tut.herramientas.titulo': 'ツールホイール',
   'tut.herramientas.resumen':
     'ホイールでキャラクターに4つのカテゴリーを装備できます。動作（走る、踊る、跳ぶ…）、おもちゃ（レーザー、ポータル、グラフィティ…）、乗れる乗り物、建築（マップエディターのモードへのショートカット）です。カテゴリー→ツールの2レベル構成で、同時に最大3つまで装備できます。',
@@ -5177,9 +5178,6 @@ export const JA: Dict = {
   'tut.app-generica.titulo': 'このアプリ',
   'tut.app-generica.resumen':
     '各アプリは部屋の中にあります。ヘッダーに部屋とアプリの名前が表示され、「今日」リストにはここでやることが並び、「家に戻る」で閉じます。自作テンプレートはブロックで組み立てます。メモ、リスト、カウンター、習慣などです。',
-  'tut.rutinas.titulo': 'ルーティン',
-  'tut.rutinas.resumen':
-    'ルーティンパネルには、上に今日のチェックリスト、下に全カタログがあります。各ルーティンには時刻、繰り返し、ステップがあり、各ステップは自分のアプリに自動で記録できます。時刻になるとアシスタントが知らせてくれ、予定はすべてカレンダーにも表示されます。',
   'tut.enlaces.titulo': '各ステップのチップ',
   'tut.enlaces.resumen':
     '目標やプランのステップの横にあるアプリのチップは、それがどこに記録されるかを示していて、タップするとそこへ移動します。あくまでナビゲーションだけで、記録は必ずアプリが行い、チップは行いません。',
@@ -5462,11 +5460,15 @@ export const JA: Dict = {
   'cuenta.nivel.actual': '現在',
   'cuenta.nivel.nota': 'レベルはいつでも上げ下げできます。差額は日割りで精算されます。',
   'cuenta.nivel.subir': '×{n}にアップ — 月{c}クレジットで{p}',
+  'cuenta.nivel.anual': 'レベル×1の1年分 — 毎月{c}クレジット',
+  'cuenta.creditos.comprar': 'クレジット{c}を追加 — {p}',
+  'cuenta.creditos.nota': '買い切り：有効期限はなく、サブスクがなくても使えます。',
+  'cuenta.creditos.enCamino': '支払いを処理中です。数秒後にこの画面をもう一度開いてください。',
   'cuenta.cuota.cuerpoNivel': 'クレジットは{f}に更新されます。毎月足りないならレベルを上げましょう。',
-  'cuenta.cuota.cuerpoVencida': 'データはこの端末に残っています。更新すると今月のクレジットと同期が戻ります。',
+  'cuenta.cuota.cuerpoVencida': 'データはこの端末に残ります。更新すると毎月のクレジットと同期が戻ります。単発のチャージも可能です。',
   'cuenta.cuota.cuerpoTrial': 'アプリとデータはずっとあなたのものです。毎月のクレジットと同期を続けるにはProに登録してください。',
-  'cuenta.cuota.cuerpoLocal': 'アプリとデータは無料であなたのものです。料金がかかるのはAIだけ。登録すれば毎月クレジットが届きます。',
-  'cuenta.cuota.web': '契約を見る',
+  'cuenta.cuota.cuerpoLocal': 'アプリもデータも無料で、すべて自分のものです。課金されるのはAIだけ。必要なときにクレジットをチャージするか、サブスクリプションで毎月受け取れます。',
+  'cuenta.cuota.web': 'アカウントでクレジットを購入',
   'cuenta.conGoogle': 'Googleで続ける',
   'cuenta.conApple': 'Appleで続ける',
   'cuenta.oCorreo': 'またはメールで',
@@ -5496,7 +5498,11 @@ export const JA: Dict = {
   'puerta.sinCompra': 'このアカウント（{correo}）にはまだ購入がありません。',
   'puerta.yaPague': '支払い済み：もう一度確認',
   'puerta.salir': 'アカウントからログアウト',
-  'puerta.cuenta': '購入済みですか？アカウントでログイン：',
+  'puerta.cuenta': '購入済み、またはクーポンをお持ちですか？ログインすると中で使えます。',
+  'puerta.cupon.tengo': 'クーポンをお持ちですか？',
+  'puerta.cupon.codigo': 'クーポンコード',
+  'puerta.cupon.canjear': '使う',
+  'chat.creditos': 'クレジット：{n}',
   'cuenta.uso.titulo': '今月のAI利用状況',
   'cuenta.uso.tituloLocal': 'AIクレジット',
   'cuenta.uso.creditos': 'クレジット',
@@ -5672,7 +5678,7 @@ export const JA: Dict = {
   'demo.visitar': '体験用の家を訪ねる',
   'demo.visitar.desc': '実際に1年分使い込んだPepさんの家です。自分の家やデータはそのまま残り、ボタン一つで戻れます。',
   'demo.bienvenida.titulo': 'ここはPepさんの家です',
-  'demo.bienvenida.sub': '中には1年分のリアルな暮らしが詰まっています。マラソン、メキシコ旅行、ピアノ、お金のこと。何でも触ってみて大丈夫です、何も保存されません。',
+  'demo.bienvenida.sub': '中には1年分のリアルな暮らしが詰まっています。マラソン、日本旅行、ピアノ、お金のこと。何でも触ってみて大丈夫です、何も保存されません。',
   'demo.autor.chip': '作者モード',
   'demo.autor.exportar': 'casa.jsonを書き出す',
   'demo.construyendo.sub': 'Pepさんの1年間の暮らしを組み立てています。',
@@ -5680,6 +5686,43 @@ export const JA: Dict = {
   'demo.error': '体験版を作成できませんでした。',
   'demo.reintentar': '再試行',
   'tut.flujos.titulo': 'このアプリのチュートリアル',
+  'tut.esencial.titulo': '基本の使い方',
+  'tut.tipo.ejemplos': '例・デモの家',
+  'tut.app-agenda--esencial.resumen':
+    'スケジュールは、習慣ではない用事を3つのメニューで管理します。仕事（タスクとボード）、健康（通院の予定、薬、継続ケア——自分の分も、大切な人やペットの分も）、連絡先（連絡先と誕生日）。日付のあるものは、すべて自動でカレンダーに入ります。',
+  'tut.calendario--esencial.resumen':
+    'カレンダーは部屋ではありません。家の時計の中にあり、日付と時刻を持つものをすべて集めます。自分で作った予定も、ほかのアプリが自動で入れた予定もです。見方は4つ。日と週は時間のグリッドで、月と年は全体を見渡すために使います。そのほかにミッションがあります。赤いボタンで、すべてのアプリの今日のチェックリストがひとつにまとまっています。',
+  'tut.app-anecdotario--esencial.resumen':
+    '思い出ノートはあなただけの日記です。気分・文章・写真を書いたエントリーが、日付ごとに自動で保存されます。カレンダーはその日の気分に合わせて色がつき、履歴は年・月・週のフォルダに整理してくれます。',
+  'tut.app-biblioteca--esencial.resumen':
+    '図書室はあなただけの百科事典で、メニューは4つです。チャット（賢者に質問すると、会話は一つひとつ保存され、項目として抽出されます）、百科事典（学んだことが分野ごとに並ぶツリー）、学習（シンプルまたはポモドーロのタイマーで、セッションを記録します）、概要（どれだけ書き、どれだけ学んだか）。',
+  'tut.app-cocina--esencial.resumen':
+    'キッチンのメニューは2つです。レシピ帳には、これから作るものが入ります。栄養素つきのレシピ、それをまとめる食事プラン、そして買い物リストです。食事管理は食べたものを4つのステップで記録します。カロリーと体重の目標、その日の記録、これからの献立表、そして進捗です。',
+  'tut.app-computo--esencial.resumen':
+    '計算室のメニューは2つです。電卓はふだんの計算をこなし、モードを切り替えるとグラフ、進数、行列、連立方程式、単位、チップ、比例式にも対応します。そこからは数式帳——数学・物理・化学があらかじめ入った自分の公式集——が開けます。表計算は表形式のデータを扱い、数式（=SUMA(B2:B15) の形）が使えて、ExcelやPDFに書き出せます。',
+  'tut.app-descanso--esencial.resumen': '休息は、眠りのようすを1つの画面に記録します。昨夜のスコア、通知つきのスケジュール、毎日の記録、そして年・月・週でたどれる履歴です。',
+  'tut.app-despacho--esencial.resumen':
+    '書斎はお金を4つのメニューで整理します。純資産は持っているものと借りているものを、その予測とともに管理します。収支は支出・収入とその期間の差し引きを、予算とカテゴリーつきで扱います。目標は貯蓄・投資・負債をまとめ、金額を提案してくれる計算ツールもついています。マーケットはリアルタイムの相場ボードで、見るだけの機能です。',
+  'tut.app-diario--esencial.resumen':
+    '日刊ニュースはその日かぎりの新聞です。実際の報道の見出しがカテゴリー別に並び、今日は何の日も載ります。真夜中になると自動で新しくなります。お届けを設定すると、アシスタントが自分のチャットで届けてくれます。',
+  'tut.app-ejercicio--esencial.resumen':
+    'ジムは体を鍛える3つの分野を一か所にまとめます。筋力（セット・回数・重量）、持久力（ランニング、自転車、水泳を、GPSと心拍センサーを使ったライブトレーニングで）、柔軟性（時間で計るモビリティを、ガイド付きプレーヤーで）。3つとも構成は同じで——カタログ、ルーティン、進捗——目標メニューでは週にどれだけ運動するかを決め、連続記録と進み具合をまとめて確認できます。',
+  'tut.app-entretenimiento--esencial.resumen':
+    '娯楽室のメニューは2つです。ボードゲームは、系統ごとにまとまり、人数で絞り込めるデジタルカタログです。アーカイブには、見終わった映画やドラマ、読み終えた本、遊んだゲームを、状態と自分のレビューつきで残せます。',
+  'tut.app-garage--esencial.resumen':
+    'ガレージは車両のメンテナンスを管理します。信号の色で急ぎの用件がひと目でわかり、車両リストには整備の履歴が残ります。1台ごとのページには手続き・書類・連絡先がまとまっています。日付のあるものは、すべて自動で家のカレンダーに入ります。',
+  'tut.app-hobbies--esencial.resumen':
+    '趣味は打ち込んでいることを見守ります。一覧には一つひとつの連続記録と今週の進み具合が並び、新しい趣味もここから登録できます。趣味の中には、練習の記録、1年分のヒートマップ、そしてプロジェクトがあります。',
+  'tut.app-ideas--esencial.resumen':
+    'アイデアは、思いついたことを3つのメニューに残します。アイデア日記（ふとした思いつきや、テーマごとのブレインストーミング）、コンセプトマップ（いろいろな形式で描ける自由なキャンバス）、決定図（同じ形式を、比べて決めるために使います）。どれもフォルダに整理でき、別のメニューへ変換することもできます。',
+  'tut.app-idiomas--esencial.resumen':
+    '語学はあなただけの語学スクールで、メニューは4つです。チャットでは、レベルに合わせて答えてくれるAIの先生と会話できます。シラバスは、言語をトピック・発音・文法に分けて初級から最上級まで並べ、単語カードもそこに収まっています。復習は間隔反復と練習問題でおさらいします。進捗は上達のようすをまとめます。',
+  'tut.app-jardin--esencial.resumen':
+    '庭には瞑想（音声トラック付き）、ガイド付きの呼吸法、毎日の感謝の3つのメニューがあります。ポイントも連続記録もあえてありません。ここでは休んでも責められることはなく、ただ実践するだけです。',
+  'tut.app-metas--esencial.resumen':
+    '家じゅうの計画を立てる場所で、メニューは3つです。目標（やると決めたことの一覧を、それを担当するアプリごとにまとめます）、プラン（一つの目標をフェーズに分けたスケジュールの下書き）、スケジュール（すべてが並ぶ時間軸）。ここには独自の記録はありません。ほかのアプリで生まれた目標とプランを集めているだけです。目標を開くとそのシートが表示され、そこからその目標だけに絞った時間軸へ移れます。',
+  'tut.app-sala--esencial.resumen':
+    'リビングはあなたの旅の世界で、メニューは4つです。マップ（世界地図に立てた場所のピン、地球儀表示つき）、旅程（行きたい場所と、その日ごとの計画）、ルート（複数の場所をつなぐ旅の道すじ）、旅日記（写真とエピソードで残す国ごとの思い出）。',
   'tut.app-anecdotario--diario.titulo': 'Pepさんの日記',
   'tut.app-anecdotario--diario.resumen':
     '思い出ノートは個人の日記です。気分、文章、写真を記録するエントリー、その年を気分で彩るカレンダー、そして年・月・週ごとのフォルダにまとまった履歴があります。',
@@ -5704,10 +5747,10 @@ export const JA: Dict = {
   'tut.calendario.titulo': 'カレンダー',
   'tut.calendario.resumen':
     '家の時計からカレンダーを開けます。シフト、授業、習慣、ほかのアプリから届く予定まで、すべての予定が「日」「週」「月」「年」「目標」の各表示にまとまります。下のパネルでは、予定をどれだけこなせたかがわかります。',
-  'tut.calendario.3b.titulo': '「今日の目標」だけ別枠に',
-  'tut.calendario.3b.texto': '上の4つと混同しないように赤色にしてあります。「今日の目標」は、すべてのアプリの今日のチェックリストをまとめます。目標とそのプランは、専用の部屋にあります。',
+  'tut.calendario.3b.titulo': '目標だけ別枠に',
+  'tut.calendario.3b.texto': '上の4つと混同しないように赤色にしてあります。「目標」を開くと、目標とそのプラン、スケジュールが表示されます。',
   'tut.metas.titulo': '目標',
-  'tut.metas.resumen': '目標の一覧と、それぞれの中にあるシート。それを形にするプラン(AIが提案し、チェックしながら仕上げます)と、そのフェーズがもう実際のサブ目標として期間を占めるスケジュールです。',
+  'tut.metas.resumen': '目標には3つの画面があります。目標が生まれる一覧、それを形にするプラン(AIが提案し、チェックしながら仕上げます)、そしてそのフェーズが実際のサブ目標として期間を占めるスケジュールです。',
   'tut.app-biblioteca--enciclopedia.titulo': '自分だけの百科事典',
   'tut.app-biblioteca--enciclopedia.resumen': '学んだことはすべて、知識の分野別のツリーに整理されます。要約とポイントをまとめたカードには、イラストも添えられます。',
   'tut.app-biblioteca--charlas.titulo': '会話して抽出する',
@@ -5721,6 +5764,9 @@ export const JA: Dict = {
     '分野を選んで開始します。「シンプル」では時間を一気に計り、「ポモドーロ」では集中と休憩を交互に繰り返します。各区切りは自動で記録され、時計は部屋を離れても動き続けます。',
   'tut.app-biblioteca--resumen.titulo': '1年の全体像',
   'tut.app-biblioteca--resumen.resumen': '「概要」は、ほかの3つのタブに散らばっている情報を1画面にまとめます。分野ごとのエントリー数、学習時間、そして学習した日です。',
+  'tut.app-idiomas--charlas.titulo': '先生とのチャット',
+  'tut.app-idiomas--charlas.resumen':
+    '「チャット」タブではAIの先生と会話できます。プロフィールのCEFRレベルに合わせて答え、やさしく直してくれて、終えるときには新しい語彙をカードとして抽出できます。チャットはどれも保存され、タイトルとテーマはひとりでに付きます。',
   'tut.app-idiomas--repaso.titulo': '毎日の復習',
   'tut.app-idiomas--repaso.resumen': 'カードは復習ボックスごとに管理されます。正解すると次の復習日が先に延び、間違えると近くなります。アプリが出すのは今日が期限のカードだけです。',
   'tut.app-idiomas--repaso.2b.titulo': 'カードではなく問題',
@@ -5766,7 +5812,7 @@ export const JA: Dict = {
   'tut.app-despacho--anio.resumen': '収支は、選んだ期間(日・週・月・年)の入金・出金・差額をまとめます。その下には純資産、月の予算、お金の使いみち、直近の推移が並びます。',
   'tut.app-despacho--captura.titulo': '固定費と変動費',
   'tut.app-despacho--captura.resumen': '固定費は一度入力すれば、アプリが毎月自動で計上します。変動費はその都度記録します。どちらも同じリストにあり、年と月のフォルダで日付順に並びます。',
-  'tut.app-despacho--metas.titulo': 'メキシコ旅行・緊急資金・借金',
+  'tut.app-despacho--metas.titulo': '日本旅行・緊急資金・借金',
   'tut.app-despacho--metas.resumen': '目標は、貯蓄と投資の目標を進捗バーつきの1つのリストにまとめ、借金は専用のシミュレーターで別に管理します。それぞれにスケジュールがあり、日付を設定できます。',
   'tut.app-despacho--patrimonio.titulo': '持っているもの、借りているもの、その行き先',
   'tut.app-despacho--patrimonio.resumen':
@@ -5784,7 +5830,7 @@ export const JA: Dict = {
   'tut.app-garage--tramites.2b.texto': '車検証、保険証券、税金は整備工場でのやり取りとは分けて管理します。専用のノートに、番号、期限、事前通知が記録されます。',
   'tut.app-sala--mapa.titulo': '旅人の地図',
   'tut.app-sala--mapa.resumen': '各地は世界地図上のピンです。訪れたところは緑、まだ叶えたい夢はオレンジ。上部には訪れた国と都市、残る夢の数が表示されます。',
-  'tut.app-sala--japon.titulo': 'メキシコでの3週間',
+  'tut.app-sala--japon.titulo': '日本での3週間',
   'tut.app-sala--japon.resumen': '旅日記には国と場所ごとに写真つきの思い出が残り、それぞれの旅には宿泊・交通・予算をまとめた日別プランのシートもあります。',
   'tut.app-sala--proximo.titulo': '次の旅',
   'tut.app-sala--proximo.resumen': '行きたい場所にはそれぞれ日別プランのシートがあり、予算の合計は書斎で貯蓄目標になります。',
@@ -6229,4 +6275,53 @@ export const JA: Dict = {
   'room.computo.corta': '電卓・グラフ・表計算',
   'room.agenda.corta': 'タスク・健康・人',
   'room.metas.corta': '目標・プラン・スケジュール',
+  'chat.menu.chatAr': 'ARチャット',
+  'chatAr.salir': '終了',
+  'chatAr.voltear': 'カメラを切り替える',
+  'chatAr.encuadre': '画角を切り替える',
+  'chatAr.callar': '音声をミュート',
+  'chatAr.asistente': 'アシスタントを切り替える',
+  'chatAr.permiso': 'ブラウザがカメラをブロックしました。アドレス横の鍵アイコンから許可してください。',
+  'chatAr.sinCamara': 'この端末にカメラが見つかりません。',
+  'chatAr.reintentar': '再試行',
+  'chatAr.placeholder': '話しかけるか入力してください…',
+  'chatAr.enviar': '送信',
+  'chatAr.sinIa': 'ここで話すには、まず家のチャットでAIモデルを選んでください。',
+  'ia.donde.chatAr': 'ARチャット',
+  'ia.op.chat.ar': 'ARチャットでの会話',
+  'ia.op.chat.ar.nota': 'アシスタントがAI音声を使う場合、その読み上げはアシスタントの音声として別に課金されます。',
+  'editor.pers.expresion.triste': '悲しみ',
+  'editor.pers.expresion.enojado': '怒り',
+  'mascara.ocultar': '非表示',
+  'mascara.mostrar': 'インターフェースを表示',
+  'mascara.menos': '閉じる',
+  'mascara.ajustes': '設定',
+  'mascara.cara': '顔',
+  'mascara.cara.fija': '固定',
+  'mascara.cara.imita': '模倣',
+  'mascara.cara.viva': '生き生き',
+  'mascara.camara': 'カメラ',
+  'mascara.camara.frontal': 'インカメラ',
+  'mascara.camara.trasera': 'アウトカメラ',
+  'mascara.linterna': 'ライト',
+  'mascara.lenteAuto': '自動レンズ（{camara}）',
+  'mascara.camaraN': 'カメラ{n}',
+  'mascara.zoom': 'ズーム',
+  'mascara.encuadre': '画角',
+  'mascara.encuadre.vertical': '縦',
+  'mascara.encuadre.amplio': '広角（帯あり）',
+  'mascara.piel': '肌',
+  'mascara.pelo': '髪',
+  'mascara.tamano': 'サイズ',
+  'mascara.altura': '高さ',
+  'mascara.profundidad': '奥行き',
+  'mascara.grabar': '録画',
+  'mascara.detener': '録画を止める',
+  'mascara.estado.errorModelo': 'MediaPipeの読み込みエラー',
+  'mascara.estado.sinCamara': 'カメラなし',
+  'mascara.estado.cargando': 'モデルを読み込み中…',
+  'mascara.estado.cara': '顔を検出',
+  'mascara.estado.buscando': '顔を探しています…',
+  'mascara.errorCamara': 'カメラを使えません（{detalle}）。iPhoneではHTTPSトンネルのURLを開いてください。',
+  'mascara.errorGrabar': '録画できませんでした：{detalle}',
 }

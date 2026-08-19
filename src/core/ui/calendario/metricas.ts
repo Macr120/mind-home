@@ -165,7 +165,7 @@ export function colorPct(pct: number): string {
  * El histórico usa `tocaFechaHistorico`, no `tocaFecha`: `activa` responde al
  * presente («¿lo sigo haciendo?») y no debe borrar el pasado. Quien recorta el
  * pasado es `fechaFin`, que la pausa fija en el día en que se apagó el hábito
- * (`cambioPausa`, en RutinasPanel). Antes, apagar un hábito hacía desaparecer
+ * (`cambioPausa`, en core/rutinas.ts). Antes, apagar un hábito hacía desaparecer
  * también sus días cumplidos de estas gráficas.
  *
  * Limitación asumida: los hábitos pausados ANTES de ago 2026 no tienen ese

@@ -10,7 +10,7 @@ import { FormularioAcceso } from './editor/EditorCuentaSection'
 
 /**
  * La puerta del pago único: sin unlock, la casa propia no se abre — se ofrece
- * la demo (gratis, no persistente) o comprar la app ($10.99, incluye el primer
+ * la demo (gratis, no persistente) o comprar la app ($6.99, incluye el primer
  * mes de IA y sync como plan `trial`).
  *
  * NO pasan por aquí: la demo, los builds sin backend (100% locales) y las
@@ -127,6 +127,7 @@ function Pantalla() {
             >
               {t('puerta.yaPague', 'Ya pagué: revisar de nuevo')}
             </button>
+            <FilaCupon />
             <button
               type="button"
               onClick={() => void salir()}
@@ -138,12 +139,73 @@ function Pantalla() {
         ) : (
           <div className="space-y-1.5 border-t border-white/10 pt-3">
             <p className="text-[11px] font-semibold text-white/55">
-              {t('puerta.cuenta', '¿Ya la compraste? Entra con tu cuenta:')}
+              {t('puerta.cuenta', '¿Ya la compraste o tienes un cupón? Entra con tu cuenta y lo canjeas dentro.')}
             </p>
             <FormularioAcceso />
           </div>
         )}
       </div>
+    </div>
+  )
+}
+
+/**
+ * Canje discreto de cupones (testers y accesos regalados). Exige sesión: la
+ * Edge Function `canjear-cupon` valida el JWT y aplica la misma alta que la
+ * compra del unlock. Al canjear, `refrescarPerfil` trae el unlock y la puerta
+ * de arriba se abre sola (está suscrita a `s.unlock`).
+ */
+function FilaCupon() {
+  const t = useT()
+  const canjearCupon = useSesion((s) => s.canjearCupon)
+  const [abierto, setAbierto] = useState(false)
+  const [codigo, setCodigo] = useState('')
+  const [ocupado, setOcupado] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  if (!abierto) {
+    return (
+      <button
+        type="button"
+        onClick={() => setAbierto(true)}
+        className="w-full px-2 py-0.5 text-[11px] text-white/40 transition hover:text-white/60"
+      >
+        {t('puerta.cupon.tengo', '¿Tienes un cupón?')}
+      </button>
+    )
+  }
+
+  const alCanjear = async () => {
+    if (!codigo.trim() || ocupado) return
+    setOcupado(true)
+    setError(null)
+    const mensaje = await canjearCupon(codigo)
+    setOcupado(false)
+    if (mensaje) setError(mensaje)
+  }
+
+  return (
+    <div className="space-y-1.5">
+      <div className="flex gap-1.5">
+        <input
+          value={codigo}
+          onChange={(e) => setCodigo(e.target.value.toUpperCase())}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') void alCanjear()
+          }}
+          placeholder={t('puerta.cupon.codigo', 'Código del cupón')}
+          className="min-w-0 flex-1 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-xs text-white/85 placeholder:text-white/30 focus:outline-none"
+        />
+        <button
+          type="button"
+          onClick={() => void alCanjear()}
+          disabled={ocupado || !codigo.trim()}
+          className="shrink-0 rounded-md border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-bold text-white/85 transition hover:bg-white/15 disabled:opacity-50"
+        >
+          {ocupado ? '…' : t('puerta.cupon.canjear', 'Canjear')}
+        </button>
+      </div>
+      {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
     </div>
   )
 }

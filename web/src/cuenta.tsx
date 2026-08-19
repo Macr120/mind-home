@@ -16,9 +16,12 @@ import {
   hayPagos,
   obtenerNiveles,
   obtenerUnlock,
+  obtenerCreditos,
+  obtenerAnual,
   comprar,
   cambiarNivel,
   comprarUnlock,
+  comprarCreditos,
   urlGestion,
   type OfertaPro,
 } from '../../src/core/cuenta/paywall'
@@ -36,9 +39,9 @@ const AHORA = Date.now()
 const inputCls =
   'w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-white/85 outline-none placeholder:text-white/30 focus:border-white/25'
 const botonPrincipal =
-  'w-full rounded-lg bg-[#863bff] px-3 py-2 text-sm font-bold text-white transition hover:bg-[#a06bff] disabled:opacity-50'
+  'ui-boton ui-accent-bg w-full rounded-lg px-3 py-2 text-sm font-bold hover:brightness-110 disabled:opacity-50'
 const botonSecundario =
-  'w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-white/60 transition hover:bg-white/10 disabled:opacity-50'
+  'ui-boton w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-white/60 hover:bg-white/10 disabled:opacity-50'
 
 function Panel({ children }: { children: React.ReactNode }) {
   return (
@@ -54,10 +57,10 @@ function Marco({ children }: { children: React.ReactNode }) {
         <span className="text-lg font-extrabold">Mind Planner Home</span>
       </a>
       {children}
-      <p className="text-center text-[11px] text-white/30">
-        <a href="/privacidad" className="hover:text-white/60">Privacidad</a>
+      <p className="text-center text-[11px] text-white/55">
+        <a href="/privacidad" className="hover:text-white/85">Privacidad</a>
         {' · '}
-        <a href="/terminos" className="hover:text-white/60">Términos</a>
+        <a href="/terminos" className="hover:text-white/85">Términos</a>
       </p>
     </div>
   )
@@ -84,7 +87,7 @@ function BotonesOAuth() {
   }
 
   const botonCls =
-    'flex w-full items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm font-semibold text-white/80 transition hover:bg-white/10 disabled:opacity-50'
+    'ui-boton flex w-full items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm font-semibold text-white/80 hover:bg-white/10 disabled:opacity-50'
 
   return (
     <>
@@ -116,7 +119,7 @@ function BotonesOAuth() {
         Continuar con Apple
       </button>
       {error && <p className="text-xs leading-snug text-red-400/90">{error}</p>}
-      <div className="flex items-center gap-2 text-[11px] text-white/30">
+      <div className="flex items-center gap-2 text-[11px] text-white/45">
         <span className="h-px flex-1 bg-white/10" />
         o con tu correo
         <span className="h-px flex-1 bg-white/10" />
@@ -310,7 +313,7 @@ function Unlock() {
   return (
     <Panel>
       <h2 className="text-sm font-bold text-white/90">Desbloquear la app</h2>
-      <div className="space-y-2 rounded-xl border border-[#863bff]/50 bg-white/5 p-3">
+      <div className="space-y-2 rounded-xl border border-accent/50 bg-white/5 p-3">
         <p className="text-2xl font-extrabold text-white/95">
           {oferta.precio}
           <span className="text-sm font-semibold text-white/50"> pago único</span>
@@ -329,12 +332,76 @@ function Unlock() {
   )
 }
 
+// ─── Créditos sueltos (recarga consumible) ───────────────────────────────────
+
+/**
+ * Recarga de créditos: mismo precio por crédito que la suscripción ($6 = 700),
+ * pero sin renovación. No caducan y se gastan cuando el pool mensual ya no
+ * alcanza, así que sirve tanto al suscriptor que se quedó corto como a quien
+ * no quiere suscribirse.
+ */
+function Creditos() {
+  const [oferta, setOferta] = useState<OfertaPro | null>(null)
+  const [error, setError] = useState<string | null>(null)
+  const [ocupado, setOcupado] = useState(false)
+
+  useEffect(() => {
+    let vivo = true
+    obtenerCreditos()
+      .then((o) => {
+        if (vivo) setOferta(o)
+      })
+      .catch(() => {})
+    return () => {
+      vivo = false
+    }
+  }, [])
+
+  if (!hayPagos() || !oferta) return null
+
+  const alComprar = async () => {
+    if (ocupado) return
+    setOcupado(true)
+    setError(null)
+    try {
+      const ok = await comprarCreditos(oferta.paquete)
+      if (!ok) setError('El pago está en camino: recarga la página en unos segundos.')
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e))
+    } finally {
+      setOcupado(false)
+    }
+  }
+
+  return (
+    <Panel>
+      <h2 className="text-sm font-bold text-white/90">Créditos sueltos</h2>
+      <div className="space-y-2 rounded-xl border border-white/10 bg-white/5 p-3">
+        <p className="text-2xl font-extrabold text-white/95">
+          {oferta.precio}
+          <span className="text-sm font-semibold text-white/50"> pago único</span>
+        </p>
+        <ul className="list-none space-y-1 text-xs text-white/60">
+          <li>✓ {oferta.creditos} créditos de IA, sin suscripción</li>
+          <li>✓ No caducan: se quedan en tu cuenta hasta que los gastes</li>
+          <li>✓ Se usan cuando tus créditos del mes se acaban</li>
+        </ul>
+        <button type="button" onClick={() => void alComprar()} disabled={ocupado} className={botonSecundario}>
+          {ocupado ? 'Procesando…' : `Recargar ${oferta.creditos} créditos`}
+        </button>
+      </div>
+      {error && <p className="text-xs leading-snug text-red-400/90">{error}</p>}
+    </Panel>
+  )
+}
+
 // ─── Tarifas (suscribirse / renovar) ─────────────────────────────────────────
 
 function Tarifas({ titulo }: { titulo: string }) {
   const nivelActual = useSesion((s) => s.nivel)
   const plan = useSesion((s) => s.plan)
   const [ofertas, setOfertas] = useState<OfertaPro[]>([])
+  const [anual, setAnual] = useState<OfertaPro | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [ocupado, setOcupado] = useState(false)
 
@@ -347,6 +414,11 @@ function Tarifas({ titulo }: { titulo: string }) {
       .catch(() => {
         if (vivo) setError('No se pudieron cargar los precios. Recarga la página.')
       })
+    obtenerAnual()
+      .then((o) => {
+        if (vivo) setAnual(o)
+      })
+      .catch(() => {})
     return () => {
       vivo = false
     }
@@ -384,7 +456,7 @@ function Tarifas({ titulo }: { titulo: string }) {
           <div
             key={o.paquete.identifier}
             className={`space-y-2 rounded-xl border bg-white/5 p-3 ${
-              actual ? 'border-[#863bff]' : 'border-white/10'
+              actual ? 'border-accent' : 'border-white/10'
             }`}
           >
             <div className="flex items-baseline gap-2">
@@ -395,7 +467,7 @@ function Tarifas({ titulo }: { titulo: string }) {
                 </span>
               </p>
               {actual && (
-                <span className="rounded-full bg-[#863bff] px-2 py-0.5 text-[11px] font-bold text-white">
+                <span className="rounded-full bg-accent px-2 py-0.5 text-[11px] font-bold text-accent-ink">
                   Tu nivel
                 </span>
               )}
@@ -424,6 +496,34 @@ function Tarifas({ titulo }: { titulo: string }) {
           </div>
         )
       })}
+      {/* La anualidad no es otro nivel: es el ×1 pagado de una vez, con dos
+          meses de regalo. Por eso va aparte y nunca se marca como «tu nivel». */}
+      {anual && (
+        <div className="space-y-2 rounded-xl border border-white/10 bg-white/5 p-3">
+          <div className="flex items-baseline gap-2">
+            <p className="text-2xl font-extrabold text-white/95">
+              {anual.precio}
+              <span className="text-sm font-semibold text-white/50"> /año</span>
+            </p>
+            <span className="rounded-full bg-white/10 px-2 py-0.5 text-[11px] font-bold text-white/70">
+              2 meses de regalo
+            </span>
+          </div>
+          <ul className="list-none space-y-1 text-xs text-white/60">
+            <li>✓ El nivel ×1 pagado de una vez: {anual.creditos} créditos de IA cada mes</li>
+            <li>✓ Un solo cobro al año en lugar de doce</li>
+            <li>✓ Sincronización y respaldo en la nube</li>
+          </ul>
+          <button
+            type="button"
+            onClick={() => void alComprar(anual)}
+            disabled={ocupado}
+            className={botonSecundario}
+          >
+            {ocupado ? 'Procesando…' : 'Pagar un año'}
+          </button>
+        </div>
+      )}
       {error && <p className="text-xs leading-snug text-red-400/90">{error}</p>}
       <p className="text-[11px] leading-snug text-white/35">
         Sin permanencia: subes, bajas o cancelas cuando quieras y solo pagas la diferencia. Si
@@ -463,7 +563,7 @@ function MiCuenta() {
           <span className="min-w-0 flex-1 truncate text-sm text-white/80">{usuario?.email}</span>
           <span
             className={`shrink-0 rounded-full px-2.5 py-0.5 text-[11px] font-bold ${
-              plan === 'pro' || trialVigente ? 'bg-[#863bff] text-white' : 'bg-white/10 text-white/60'
+              plan === 'pro' || trialVigente ? 'bg-accent text-accent-ink' : 'bg-white/10 text-white/60'
             }`}
           >
             {plan === 'pro' ? 'Pro' : trialVigente ? 'Primer mes' : 'Local'}
@@ -487,6 +587,7 @@ function MiCuenta() {
           {/* Con Pro, las tarjetas sirven para subir o bajar de nivel; con el
               trial, para convertir, que es el objetivo. */}
           <Tarifas titulo={trialVigente ? 'Hazte Pro' : 'Cambiar de nivel'} />
+          <Creditos />
         </>
       ) : (
         <>
@@ -505,6 +606,9 @@ function MiCuenta() {
           {/* Sin la compra única, lo primero es desbloquear la app. */}
           {!unlock && <Unlock />}
           <Tarifas titulo={fuePro ? 'Renovar suscripción' : 'Suscribirme'} />
+          {/* Solo con la app desbloqueada: sin unlock, la IA todavía no tiene
+              dónde usarse. */}
+          {unlock && <Creditos />}
         </>
       )}
 
@@ -562,7 +666,7 @@ function ProActivo({
               </span>
             </div>
             <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-white/10">
-              <div className="h-full rounded-full bg-[#863bff]" style={{ width: `${pct}%` }} />
+              <div className="h-full rounded-full bg-accent" style={{ width: `${pct}%` }} />
             </div>
             {creditosExtra > 0 && (
               <p className="mt-1 text-[11px] text-white/45">

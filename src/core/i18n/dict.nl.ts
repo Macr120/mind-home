@@ -1,10 +1,9 @@
 /**
- * Diccionario NEERLANDÉS de la interfaz. Se carga con import() perezoso
- * desde dict.ts, igual que el inglés: quien no use este idioma no lo descarga.
+ * Diccionario NL de la interfaz. Se carga con import() perezoso
+ * desde dict.ts: quien no use este idioma no lo descarga.
  *
- * GENERADO por `npm run traducir:i18n` a partir de `dict.en.ts` y de los
- * fallbacks españoles del código. No lo edites a mano: se sobrescribe entero.
- * Lo que falte cae al inglés (ver `useT`); al español solo en último término.
+ * Lo monta `traducir-a-mano.mjs meter-dict` a partir de `dict.en.ts` y de los
+ * fallbacks españoles del código. Lo que falte cae al inglés (ver `useT`).
  */
 import type { Dict } from './dict'
 
@@ -299,6 +298,12 @@ export const NL: Dict = {
   'tren.bajarte': 'Uitstappen',
   'tren.montarTren': 'In de trein stappen',
   'tren.montarCarrito': 'In het karretje stappen',
+  'tren.menu': 'En de trein?',
+  'tren.menu.coaster': 'En het karretje?',
+  'tren.menu.solo': 'Laat hem vanzelf doorrijden',
+  'tren.menu.asistente': 'Laat een assistent rijden',
+  'tren.menu.detener': 'Hier stoppen',
+  'tren.menu.cancelar': 'Annuleren',
   'juego.tu': 'Jij',
   'juego.rival': 'Tegenstander',
   'juego.gol': 'GOOOAL! 🎉',
@@ -375,6 +380,7 @@ export const NL: Dict = {
   'hoy.objetivo': 'Je dagelijkse doel (0 zet het uit)',
   'hoy.checklist': 'Dagelijkse checklist',
   'hoy.grupoApp': 'Missies van vandaag',
+  'hoy.grupoMetas': 'Stappen voor je doelen',
   'hoy.nueva': 'Nieuwe checklist',
   'hoy.cerrar': 'Sluiten',
   'hoy.ocultarHechos': 'Afgeronde verbergen',
@@ -487,8 +493,11 @@ export const NL: Dict = {
   'progreso.nivel': 'Niveau',
   'progreso.racha': 'Reeks',
   'progreso.dias': 'dagen',
+  'progreso.hoy': 'Vandaag',
+  'progreso.semana': '7 dagen',
   'progreso.rachaTitulo': 'Reeks actieve dagen',
   'progreso.listasTitulo': 'Voltooide missielijsten',
+  'progreso.planesTitulo': 'Geaccepteerde plannen',
   'progreso.listasCumplidas': 'Voltooide lijsten',
   'celebra.racha.titulo': 'Reeks van {n} dagen!',
   'celebra.racha.titulo1': 'Reeks van 1 dag!',
@@ -499,8 +508,6 @@ export const NL: Dict = {
   'celebra.nivel.titulo': 'Niveau omhoog!',
   'celebra.nivel.cuerpo': '{app} bereikte niveau {n} 🎉',
   'celebra.seguir': 'Ga door!',
-  'progreso.hoy': 'Vandaag',
-  'progreso.semana': '7 dagen',
   'plantillas.ayuda':
     'Sleep een sjabloon naar een andere map; tik op het icoon om de app te proberen en op de mapnaam om die te hernoemen.',
   'plantillas.entrar': 'App openen',
@@ -692,7 +699,7 @@ export const NL: Dict = {
   'chat.config.ponerMapa': 'Op de kaart zetten',
   'chat.config.voz': 'Stem:',
   'chat.config.vozAuto': 'Automatisch (op basis van taal)',
-  'chat.config.vozIA': 'AI-stem (natuurlijker)',
+  'chat.config.vozIA': 'AI-stem (OpenAI, natuurlijker)',
   'chat.config.vozLeer': 'Lees hardop voor wat ze zeggen',
   'chat.config.vozProbar': 'Stem uitproberen',
   'chat.config.vozTono': 'Toon',
@@ -5012,7 +5019,8 @@ export const NL: Dict = {
   'nav.editar.subirImagen': 'Afbeelding uploaden',
   'nav.editar.color': 'Kleur',
   'nav.editar.murosTitulo': 'Ook de muren overschilderen?',
-  'nav.editar.murosMensaje': 'Deze kamer heeft muren die je met de hand hebt geverfd in de kaarteditor. Bij overschilderen verliezen ze hun kleur.',
+  'nav.editar.murosMensaje':
+    'Deze kamer heeft muren die je met de hand hebt geverfd in de kaarteditor. Bij overschilderen verliezen ze hun kleur.',
   'nav.editar.murosOk': 'Overschilderen',
   'nav.fondo.titulo': 'Achtergrond',
   'nav.fondo.desc': 'De afbeeldingen worden gedeeld met de luchtachtergrond van het huis.',
@@ -5155,20 +5163,15 @@ export const NL: Dict = {
   'rot.izq': '90° linksom draaien',
   'rutinas.activar': 'Activeren',
   'rutinas.agregarPaso': 'Stap toevoegen',
-  'rutinas.autoRegistro': 'Registreert automatisch in de kamer',
   'rutinas.borrar': 'Verwijderen',
   'rutinas.confirmarBorrar': 'Deze gebeurtenis verwijderen?',
   'rutinas.cancelar': 'Annuleren',
   'rutinas.cerrar': 'Sluiten',
-  'rutinas.completada': 'Routine voltooid!',
   'rutinas.editar': 'Bewerken',
-  'rutinas.eventoSimple': 'Kalendergebeurtenis.',
   'rutinas.guardar': 'Opslaan',
-  'rutinas.hoy': 'Vandaag',
   'rutinas.nombre': 'Naam van de routine/gebeurtenis',
   'rutinas.nueva': 'Nieuw',
   'rutinas.pasoPh': 'Wat te doen…',
-  'rutinas.pasos': 'stappen',
   'rutinas.pasosOpcional': 'optioneel',
   'rutinas.pasosTitulo': 'Stappen',
   'rutinas.pausar': 'Pauzeren',
@@ -5179,11 +5182,6 @@ export const NL: Dict = {
     'is ingepland door hem op de kalender te tekenen; teken hem opnieuw om de datums te wijzigen',
   'rutinas.rep.termina': 'Eindigt op',
   'rutinas.rep.titulo': 'Herhaling',
-  'rutinas.sinHora': 'geen tijd',
-  'rutinas.titulo': 'Routines',
-  'rutinas.todas': 'Alle routines',
-  'rutinas.vacio':
-    'Nog geen routines. Maak er een met “+ Nieuw” of vraag het je assistent: “maak een ochtendroutine voor me met water, stretchen en dankbaarheid”.',
   'ui.sinApp': 'Deze kamer heeft geen app toegewezen.',
   'ui.sinAppAyuda': 'Bewerk de kamer en wijs een app toe aan een object.',
   'ui.volverApps': '‹ Apps van de kamer',
@@ -5360,6 +5358,9 @@ export const NL: Dict = {
   'tut.editor-cuarto.titulo': 'Een kamer bewerken',
   'tut.editor-cuarto.resumen':
     'Als je een specifieke kamer bewerkt, focust de plattegrond zich erop: vorm, vloer, muren, kleur, naam en —wat hier het meest gebruikt wordt— welke app eraan is toegewezen, of dat je die beter kunt wisselen. De pijl van het paneel gaat terug naar de volledige kaart, en de zwevende knop boven de kamer sluit hem af.',
+  'tut.inicio.titulo': 'Startscherm',
+  'tut.inicio.resumen':
+    'Het raster van je kamers met app, met de mechaniek van een telefoon: één tik gaat naar binnen, lang indrukken herordent, en elke kaart draagt zijn niveau, zijn reeks en de missies die vandaag nog openstaan. Met een eigen achtergrond en weergave met iconen of in 3D.',
   'tut.herramientas.titulo': 'Gereedschapswiel',
   'tut.herramientas.resumen':
     'Het wiel rust je personage uit met vier categorieën: bewegingen (rennen, dansen, springen…), speelgoed (laser, portalen, graffiti…), bestuurbare voertuigen en bouwen (een snelkoppeling naar de modi van de kaarteditor). Twee niveaus —categorie → gereedschap— en tot 3 tegelijk uitgerust.',
@@ -5375,9 +5376,6 @@ export const NL: Dict = {
   'tut.app-generica.titulo': 'Deze app',
   'tut.app-generica.resumen':
     'Elke app leeft in een kamer: de koptekst toont de kamer en de app, de lijst Vandaag bevat wat je hier moet doen en “Terug naar huis” sluit de app. Je eigen sjablonen bouw je met blokken: notities, lijsten, tellers, gewoontes…',
-  'tut.rutinas.titulo': 'Routines',
-  'tut.rutinas.resumen':
-    'Het routinepaneel toont je checklist van vandaag bovenaan en de volledige catalogus eronder: elke routine heeft een tijd, een herhaling en stappen, en elke stap kan zichzelf registreren in zijn app. Op het afgesproken tijdstip herinnert de assistent je eraan, en alles wat gepland staat, zie je ook in de kalender.',
   'tut.enlaces.titulo': 'De chip bij elke stap',
   'tut.enlaces.resumen':
     'Een app-chip naast een doel of een planstap laat zien waar dat geregistreerd wordt, en een tik brengt je erheen. Het is puur navigatie: de registratie doet altijd de app, nooit de chip.',
@@ -5681,14 +5679,18 @@ export const NL: Dict = {
   'cuenta.nivel.actual': 'Huidig',
   'cuenta.nivel.nota': 'Je kunt altijd een niveau omhoog of omlaag; het verschil wordt naar rato berekend.',
   'cuenta.nivel.subir': 'Naar ×{n} — {c} credits per maand voor {p}',
+  'cuenta.nivel.anual': 'Een jaar niveau ×1 — {c} credits per maand',
+  'cuenta.creditos.comprar': '{c} credits bijvullen — {p}',
+  'cuenta.creditos.nota': 'Eenmalige betaling: ze verlopen niet en werken ook zonder abonnement.',
+  'cuenta.creditos.enCamino': 'Je betaling is onderweg: open dit onderdeel over een paar seconden opnieuw.',
   'cuenta.cuota.cuerpoNivel': 'Je credits worden op {f} vernieuwd. Als ze elke maand opraken, ga een niveau omhoog.',
   'cuenta.cuota.cuerpoVencida':
-    'Je gegevens staan nog op dit apparaat. Verleng om je maandcredits en synchronisatie terug te krijgen.',
+    'Je gegevens blijven op dit apparaat. Vernieuw je abonnement om je maandelijkse credits en synchronisatie terug te krijgen, of koop een losse opwaardering.',
   'cuenta.cuota.cuerpoTrial':
     'De app en je gegevens zijn voorgoed van jou. Neem Pro om je maandcredits en synchronisatie te houden.',
   'cuenta.cuota.cuerpoLocal':
-    'De app en je gegevens zijn van jou zonder te betalen. Alleen AI kost geld: neem een abonnement en krijg elke maand credits.',
-  'cuenta.cuota.web': 'Mijn abonnement bekijken',
+    'De app en je gegevens zijn helemaal gratis van jou. Alleen AI wordt in rekening gebracht: waardeer credits op wanneer je ze nodig hebt, of neem een abonnement en krijg ze elke maand.',
+  'cuenta.cuota.web': 'Credits kopen in mijn account',
   'cuenta.conGoogle': 'Doorgaan met Google',
   'cuenta.conApple': 'Doorgaan met Apple',
   'cuenta.oCorreo': 'of met je e-mail',
@@ -5720,7 +5722,11 @@ export const NL: Dict = {
   'puerta.sinCompra': 'Dit account ({correo}) heeft de aankoop nog niet.',
   'puerta.yaPague': 'Al betaald: opnieuw controleren',
   'puerta.salir': 'Uitloggen',
-  'puerta.cuenta': 'Al gekocht? Log in met je account:',
+  'puerta.cuenta': 'Al gekocht of heb je een coupon? Log in en wissel hem binnen in.',
+  'puerta.cupon.tengo': 'Heb je een coupon?',
+  'puerta.cupon.codigo': 'Couponcode',
+  'puerta.cupon.canjear': 'Inwisselen',
+  'chat.creditos': 'Credits: {n}',
   'cuenta.uso.titulo': 'AI-gebruik deze maand',
   'cuenta.uso.tituloLocal': 'Je AI-credits',
   'cuenta.uso.creditos': 'Credits',
@@ -5916,6 +5922,44 @@ export const NL: Dict = {
   'demo.error': 'De demo kon niet worden opgebouwd.',
   'demo.reintentar': 'Opnieuw proberen',
   'tut.flujos.titulo': 'Tutorials voor deze app',
+  'tut.esencial.titulo': 'De basis',
+  'tut.tipo.ejemplos': 'Voorbeelden · demohuis',
+  'tut.app-agenda--esencial.resumen':
+    'De agenda houdt bij wat geen gewoonte is, in drie menu\'s: Werk (taken en bord), Gezondheid (afspraken, medicatie en zorg: voor jou, je naasten en je huisdieren) en Personen (contacten en verjaardagen). Alles met een datum komt vanzelf in de kalender terecht.',
+  'tut.calendario--esencial.resumen':
+    'De kalender is geen kamer: hij leeft in de klok van het huis en verzamelt alles met een datum en tijd, wat je zelf aanmaakt en wat de andere apps zelf inplannen. Je bekijkt hem op vier manieren: Dag en Week op het uurrooster, Maand en Jaar voor het overzicht. Apart staat Missies, de rode knop met de checklist van vandaag van alle apps samen.',
+  'tut.app-anecdotario--esencial.resumen':
+    'Het dagboek is je persoonlijke dagboek: items met een stemming, tekst en foto\'s die zichzelf op datum bewaren. Een kalender kleurt elke dag naar je stemming, en de geschiedenis archiveert ze in mappen per jaar, maand en week.',
+  'tut.app-biblioteca--esencial.resumen':
+    'De bibliotheek is je persoonlijke encyclopedie, in vier menu\'s: Chats (je stelt de Wijze een vraag en elk gesprek archiveert zichzelf en wordt gedestilleerd tot een item), Encyclopedie (de boom waar wat je leert leeft, per kennisgebied), Studie (de gewone of pomodorotimer, die elke sessie registreert) en Overzicht (hoeveel je geschreven en gestudeerd hebt).',
+  'tut.app-cocina--esencial.resumen':
+    'De keuken heeft twee menu\'s. Receptenboek bewaart wat je gaat koken: je recepten met hun macro\'s, de diëten die ze groeperen en het boodschappenlijstje. Voedingscontrole houdt bij wat je eet, in vier stappen: je calorie- en gewichtsdoelen, het dagregister, het maaltijdplan voor de komende dagen en de voortgang.',
+  'tut.app-computo--esencial.resumen':
+    'De computerkamer heeft twee menu\'s. De Rekenmachine doet de gewone berekeningen en wisselt van modus om te grafieken, te werken met talstelsels, matrices, stelsels van vergelijkingen, eenheden, fooi en de regel van drie; eraan hangt het formuleboek, jouw formuleboek met Wiskunde, Natuurkunde en Scheikunde al ingeladen. De Spreadsheets doen alles wat tabellen is, met formules in gewone taal en export naar Excel of PDF.',
+  'tut.app-descanso--esencial.resumen':
+    'Rust registreert hoe je slaapt op één scherm: de score van de afgelopen nacht, je schema met zijn herinneringen, het dagregister en de volledige geschiedenis per jaar, maand en week.',
+  'tut.app-despacho--esencial.resumen':
+    'De werkkamer ordent je geld in vier menu\'s. Vermogen bewaart wat je hebt en wat je schuldig bent, met de projectie ervan; Kasstroom houdt uitgaven, inkomsten en het saldo van de periode bij, met budget en categorieën; Doelen brengt sparen, beleggen en schulden samen, plus de rekenmachines die een bedrag voorstellen. Markten is een bord met live koersen, alleen ter info.',
+  'tut.app-diario--esencial.resumen':
+    'Het dagelijkse nieuws is een vluchtige krant: koppen uit echte pers per categorie en de rubriek \'op deze dag\', die zichzelf om middernacht vernieuwt. Bij de bezorging plan je in dat een assistent hem in zijn eigen chat aflevert.',
+  'tut.app-ejercicio--esencial.resumen':
+    'Sport brengt de drie vormen van lichaamsbeweging samen op één plek: Kracht (sets, herhalingen en gewicht), Conditie (hardlopen, fietsen of zwemmen, met live training via gps en hartslagmeter) en Flexibiliteit (mobiliteit op tijd, met begeleide speler). Alle drie zijn hetzelfde opgebouwd — catalogus, routines en voortgang — en het menu Doelen bepaalt hoeveel je elke week wilt trainen en vat je reeks en je voortgang samen.',
+  'tut.app-entretenimiento--esencial.resumen':
+    'Vermaak heeft twee menu\'s: Bordspellen, met een digitale catalogus gegroepeerd per familie en gefilterd op aantal spelers, en Archief, waar je de films, series, boeken en games bijhoudt die je uitspeelt, met hun status en jouw recensie.',
+  'tut.app-garage--esencial.resumen':
+    'De garage houdt het onderhoud van je voertuigen bij: een stoplicht vat samen wat urgent is, de voertuiglijst bewaart de servicegeschiedenis van elk voertuig, en elk dossier verzamelt zijn formaliteiten, documenten en contacten. Alles met een datum plant zichzelf in de huiskalender.',
+  'tut.app-hobbies--esencial.resumen':
+    'Hobby\'s houdt je bezigheden bij: de lijst met de reeks en de wekelijkse voortgang van elke hobby, en het aanmaken van een nieuwe. Binnen elke hobby leven het sessieregister, de heatmap van het jaar en de bijbehorende projecten.',
+  'tut.app-ideas--esencial.resumen':
+    'Ideeën bewaart wat er bij je opkomt in drie menu\'s: Dagboek (losse invallen of brainstorms per onderwerp), Conceptkaarten (een vrij canvas in meerdere vormen) en Beslisdiagrammen (dezelfde vormen, bedoeld om te vergelijken en te beslissen). Alles kan in mappen worden gearchiveerd en van het ene menu naar het andere worden omgezet.',
+  'tut.app-idiomas--esencial.resumen':
+    'Talen is jouw talenschool, in vier menu\'s. Chats opent een gesprek met een AI-tutor die op jouw niveau reageert; Leerplan ordent de taal in onderwerpen, uitspraak en grammatica van niveau A1 tot C2, en daar leeft ook de woordenschat als kaarten; Herhaling neemt het door met een gespreid systeem en oefeningen; Voortgang vat je vooruitgang samen.',
+  'tut.app-jardin--esencial.resumen':
+    'De tuin brengt meditatie (met geluidssporen), begeleide ademhaling en dagelijkse dankbaarheid samen, in drie menu\'s. Bewust zonder punten of reeksen: hier wordt een gemiste dag niet afgestraft, je oefent gewoon.',
+  'tut.app-metas--esencial.resumen':
+    'De planner van het hele huis, in drie menu\'s: Doelen (de lijst van wat je jezelf hebt voorgenomen, gegroepeerd per app die elk doel bijhoudt), Plannen (de planningsontwerpen die een doel in fasen verdelen) en Tijdlijn (de tijdas waar ze allemaal op vallen). Hij houdt zelf geen gegevens bij: hij verzamelt de doelen en plannen die in de andere apps ontstaan. Vanuit een doel open je het bijbehorende blad en, van daaruit, de tijdlijn die tot dat doel beperkt is.',
+  'tut.app-sala--esencial.resumen':
+    'De woonkamer is jouw reiswereld, in vier menu\'s: Kaart (spelden van plekken op de wereldkaart, met globeweergave), Reisplan (plekken om te ontdekken met een dag-tot-dagplan), Routes (trajecten die plekken aan elkaar rijgen) en Logboek (herinneringen met foto\'s en verhalen per land).',
   'tut.app-anecdotario--diario.titulo': 'Peps dagboek',
   'tut.app-anecdotario--diario.resumen':
     'Het herinneringsdagboek is het persoonlijke dagboek: items met een stemming, tekst en foto\'s, een kalender die het jaar inkleurt naar hoe je je voelde, en de geschiedenis in mappen per jaar, maand en week.',
@@ -5949,12 +5993,12 @@ export const NL: Dict = {
   'tut.calendario.titulo': 'Kalender',
   'tut.calendario.resumen':
     'De klok van het huis opent de kalender: alles wat je hebt gepland —diensten, lessen, gewoontes en wat de andere apps toevoegen— in de weergaven Dag, Week, Maand, Jaar en Doelen. Het paneel eronder meet hoeveel van wat je hebt gepland je ook echt doet.',
-  'tut.calendario.3b.titulo': 'En Dagdoelen, apart',
+  'tut.calendario.3b.titulo': 'En Doelen, apart',
   'tut.calendario.3b.texto':
-    'In rood, zodat het niet wordt verward met de vier hierboven: Dagdoelen bundelt de checklist van vandaag van al je apps. Je doelen en hun plannen wonen in hun eigen kamer.',
+    'In rood, zodat het niet wordt verward met de vier hierboven: Doelen opent je doelen, hun plannen en de planning.',
   'tut.metas.titulo': 'Doelen',
   'tut.metas.resumen':
-    'De lijst met doelen en, binnen elk ervan, zijn blad: het plan dat het uitwerkt (de AI stelt het voor en jij vinkt het af) en zijn planning, waar zijn fases hun eigen periode krijgen, als echte sub-doelen.',
+    'De drie schermen van een doel: de lijst waar het ontstaat, het plan dat het uitwerkt (de AI stelt het voor en jij vinkt het af) en de planning waar de fases hun eigen periode krijgen, als echte sub-doelen.',
   'tut.app-biblioteca--enciclopedia.titulo': 'Je eigen encyclopedie',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Alles wat je leert, wordt gearchiveerd in een boom per kennisgebied: items met een samenvatting en kernpunten die je kunt illustreren.',
@@ -5972,6 +6016,9 @@ export const NL: Dict = {
   'tut.app-biblioteca--resumen.titulo': 'Het jaar in één oogopslag',
   'tut.app-biblioteca--resumen.resumen':
     'Overzicht brengt op één scherm samen wat de andere drie tabbladen verspreiden: hoeveel items je per vak hebt, hoeveel je hebt gestudeerd en op welke dagen.',
+  'tut.app-idiomas--charlas.titulo': 'Chats met je tutor',
+  'tut.app-idiomas--charlas.resumen':
+    'Het tabblad Chats opent een gesprek met je AI-tutor: hij antwoordt op het MCER-niveau van je profiel, corrigeert zachtjes en biedt bij het weggaan aan de nieuwe woordenschat als kaarten eruit te halen. Elke chat wordt bewaard, met titel en onderwerp vanzelf ingevuld.',
   'tut.app-idiomas--repaso.titulo': 'De dagelijkse herhaling',
   'tut.app-idiomas--repaso.resumen':
     'Kaarten herhaal je via vakjes: elk goed antwoord duwt de volgende beurt verder weg, elke fout haalt hem dichterbij. De app vraagt je alleen wat er vandaag aan de beurt is.',
@@ -6513,4 +6560,53 @@ export const NL: Dict = {
   'room.computo.corta': 'Rekenmachine, grafieken en bladen',
   'room.agenda.corta': 'Taken, gezondheid en mensen',
   'room.metas.corta': 'Doelen, plannen en planning',
+  'chat.menu.chatAr': 'AR-chat',
+  'chatAr.salir': 'Afsluiten',
+  'chatAr.voltear': 'Camera wisselen',
+  'chatAr.encuadre': 'Beeldkader wisselen',
+  'chatAr.callar': 'Stem dempen',
+  'chatAr.asistente': 'Assistent wisselen',
+  'chatAr.permiso': 'De browser heeft de camera geblokkeerd. Zet hem aan via het slotje naast het adres.',
+  'chatAr.sinCamara': 'Geen camera gevonden op dit apparaat.',
+  'chatAr.reintentar': 'Opnieuw proberen',
+  'chatAr.placeholder': 'Praat of typ…',
+  'chatAr.enviar': 'Versturen',
+  'chatAr.sinIa': 'Om hier te praten kies je eerst een AI-model in de huischat.',
+  'ia.donde.chatAr': 'AR-chat',
+  'ia.op.chat.ar': 'Gesprek in de AR-chat',
+  'ia.op.chat.ar.nota': 'Heeft de assistent een AI-stem, dan wordt het voorlezen apart gerekend als assistentstem.',
+  'editor.pers.expresion.triste': 'Verdrietig',
+  'editor.pers.expresion.enojado': 'Boos',
+  'mascara.ocultar': 'Verbergen',
+  'mascara.mostrar': 'Interface tonen',
+  'mascara.menos': 'Minder',
+  'mascara.ajustes': 'Instellingen',
+  'mascara.cara': 'Gezicht',
+  'mascara.cara.fija': 'Vast',
+  'mascara.cara.imita': 'Nabootsen',
+  'mascara.cara.viva': 'Levend',
+  'mascara.camara': 'Camera',
+  'mascara.camara.frontal': 'Voor',
+  'mascara.camara.trasera': 'Achter',
+  'mascara.linterna': 'Zaklamp',
+  'mascara.lenteAuto': 'Automatische lens ({camara})',
+  'mascara.camaraN': 'Camera {n}',
+  'mascara.zoom': 'Zoom',
+  'mascara.encuadre': 'Kader',
+  'mascara.encuadre.vertical': 'Verticaal',
+  'mascara.encuadre.amplio': 'Breed (balken)',
+  'mascara.piel': 'Huid',
+  'mascara.pelo': 'Haar',
+  'mascara.tamano': 'Grootte',
+  'mascara.altura': 'Hoogte',
+  'mascara.profundidad': 'Diepte',
+  'mascara.grabar': 'Opnemen',
+  'mascara.detener': 'Opname stoppen',
+  'mascara.estado.errorModelo': 'Fout bij laden van MediaPipe',
+  'mascara.estado.sinCamara': 'Geen camera',
+  'mascara.estado.cargando': 'Model laden…',
+  'mascara.estado.cara': 'Gezicht herkend',
+  'mascara.estado.buscando': 'Gezicht zoeken…',
+  'mascara.errorCamara': 'Camera niet beschikbaar ({detalle}). Open op iPhone de HTTPS-tunnel-URL.',
+  'mascara.errorGrabar': 'Opnemen lukte niet: {detalle}',
 }

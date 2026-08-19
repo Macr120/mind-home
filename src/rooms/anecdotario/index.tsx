@@ -2,7 +2,7 @@ import { lazy } from 'react'
 import type { Plantilla, EsquemaCaptura } from '../../core/appContrato'
 import { vTexto, vFecha } from '../../core/appContrato'
 import { anecdotasRepo } from '../../core/data/repository'
-import { flujosAnecdotario } from './tutorial.meta'
+import { esencialAnecdotario, flujosAnecdotario } from './tutorial.meta'
 import { planMetasAnecdotario } from './plan'
 
 const esquemas: EsquemaCaptura[] = [
@@ -38,6 +38,7 @@ const anecdotario: Plantilla = {
   categoria: 'mente',
   color: '#a78bfa',
   App: AnecdotarioApp,
+  esencial: esencialAnecdotario,
   flujos: flujosAnecdotario,
   // Acotamiento del planificador ✨: aquí el plan es de escritura.
   planMetas: planMetasAnecdotario,

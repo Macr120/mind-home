@@ -8,7 +8,7 @@ import { useLayout } from '../state/layoutStore'
 import { useEditorUi } from '../state/editorUiStore'
 import { useDialogo } from '../state/dialogoStore'
 import { useMontura } from '../state/monturaStore'
-import { trenFrame } from '../state/trenStore'
+import { trenFrame, useTren, conduceTren } from '../state/trenStore'
 import { useAsistenteCerca } from '../state/asistenteCercaStore'
 import { usePaintball } from '../state/paintballStore'
 import { posAsistentes } from '../state/posAsistentes'
@@ -166,13 +166,16 @@ export function Asistente3D() {
   // En una batalla de paintball los asistentes salen del paseo: los combatientes
   // los renderiza el modo (BotsPaintball) y el resto no debe estorbar el campo.
   const fasePaintball = usePaintball((s) => s.fase)
+  // Reevalúa el filtro cuando un asistente sube o baja de un tren.
+  useTren((s) => s.version)
   if (fasePaintball === 'cuenta' || fasePaintball === 'jugando' || fasePaintball === 'fin')
     return null
   return (
     <>
-      {activo && <AsistenteActivo asistente={activo} />}
+      {/* El que va de maquinista lo dibuja su tren: aquí sobraría (se vería doble). */}
+      {activo && !conduceTren(activo.id) && <AsistenteActivo asistente={activo} />}
       {lista
-        .filter((a) => a.enMapa && a.id !== activo?.id)
+        .filter((a) => a.enMapa && a.id !== activo?.id && !conduceTren(a.id))
         .map((a) => (
           <Companero key={a.id} asistente={a} />
         ))}

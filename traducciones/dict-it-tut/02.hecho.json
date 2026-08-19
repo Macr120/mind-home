@@ -1,154 +1,130 @@
 [
   {
-    "clave": "tut.casa.1.texto",
-    "texto": "Questa è la tua casa: ogni stanza contiene un'app. Ti mostro i comandi di base."
+    "clave": "tut.app-biblioteca--esencial.4.texto",
+    "texto": "Il timer per studiare: scegli campo e durata, tutto d’un fiato o a pomodori, e ogni tratto si registra da solo. Continua a scorrere anche se esci dalla stanza."
   },
   {
-    "clave": "tut.casa.2.titulo",
-    "texto": "Il menu principale"
+    "clave": "tut.app-biblioteca--esencial.5.titulo",
+    "texto": "Panoramica"
   },
   {
-    "clave": "tut.casa.2.texto",
-    "texto": "Questo pulsante apre il menu: le tue stanze, il catalogo dei modelli (le app) e l'inventario degli oggetti."
+    "clave": "tut.app-biblioteca--esencial.5.texto",
+    "texto": "Il quadro generale di tutto quanto sopra: quante voci ha la tua enciclopedia e quale parte dell’indice hai coperto, i minuti di studio, la tua serie e i giorni in cui hai studiato."
   },
   {
-    "clave": "tut.casa.3.titulo",
-    "texto": "Muoversi"
+    "clave": "tut.app-cocina--esencial.1.titulo",
+    "texto": "La cucina"
   },
   {
-    "clave": "tut.casa.3.texto",
-    "texto": "Cammina con il joystick, con WASD o con le frecce della tastiera. Attraversa la porta di una stanza ed entri: la sua app si apre da sola."
+    "clave": "tut.app-cocina--esencial.1.texto",
+    "texto": "Questa app gestisce due cose: quello che stai per cucinare e quello che finisci per mangiare. Ognuna ha il suo menu in alto, e ogni menu apre le sue schede."
   },
   {
-    "clave": "tut.casa.4.titulo",
-    "texto": "Tre modi di guardare"
+    "clave": "tut.app-cocina--esencial.2.titulo",
+    "texto": "Ricettario"
   },
   {
-    "clave": "tut.casa.4.texto",
-    "texto": "Isometrica, terza e prima persona (o il tasto V). In 3ª/1ª persona compare anche un pulsante per modificare il mondo mentre lo attraversi."
+    "clave": "tut.app-cocina--esencial.2.texto",
+    "texto": "Il lato della cucina: qui vivono le tue ricette, le diete che le raggruppano e la lista della spesa. Sono tre schede, in quest’ordine."
   },
   {
-    "clave": "tut.casa.5.titulo",
-    "texto": "Un angolo, tanti padroni"
+    "clave": "tut.app-cocina--esencial.3.titulo",
+    "texto": "Dieta"
   },
   {
-    "clave": "tut.casa.5.texto",
-    "texto": "Quell'angolo non è solo il cubo delle viste: quando ti avvicini a qualcosa con cui si può interagire —una sedia, un veicolo, un campo— cambia da solo in base a ciò che hai vicino. Niente si attiva se non ti avvicini."
+    "clave": "tut.app-cocina--esencial.3.texto",
+    "texto": "Una dieta è un piano alimentare con le sue ricette dentro e, se vuoi, i suoi obiettivi di calorie e macro. Salvi le tue accanto a quelle che l’app porta già."
   },
   {
-    "clave": "tut.casa.6.titulo",
-    "texto": "La ruota degli strumenti"
+    "clave": "tut.app-cocina--esencial.4.titulo",
+    "texto": "Ricette"
   },
   {
-    "clave": "tut.casa.6.texto",
-    "texto": "Movimenti, giocattoli, veicoli e costruzione, fino a 3 equipaggiati alla volta. Si apre da qui o dallo stesso angolo quando hai le mani libere."
+    "clave": "tut.app-cocina--esencial.4.texto",
+    "texto": "Il ricettario: ogni ricetta custodisce ingredienti, passaggi e i suoi macro per porzione, e si ordina in cartelle. Da una ricetta puoi registrare il pasto o mandare i suoi ingredienti alla lista della spesa."
   },
   {
-    "clave": "tut.casa.7.titulo",
-    "texto": "L'orologio"
+    "clave": "tut.app-cocina--esencial.5.titulo",
+    "texto": "Spesa"
   },
   {
-    "clave": "tut.casa.7.texto",
-    "texto": "L'ora della casa. Da qui si aprono il calendario completo e il pannello delle routine con quello che ti manca oggi."
+    "clave": "tut.app-cocina--esencial.5.texto",
+    "texto": "La lista della spesa, con ogni articolo nel corridoio che gli spetta. Puoi creare una lista mettendo insieme ciò che manca da diverse ricette e spuntare quello che è già in dispensa."
   },
   {
-    "clave": "tut.casa.8.titulo",
-    "texto": "La musica della casa"
+    "clave": "tut.app-cocina--esencial.6.titulo",
+    "texto": "Controllo alimentare"
   },
   {
-    "clave": "tut.casa.8.texto",
-    "texto": "Ogni stanza può avere il suo tema, oppure lasciar suonare l'atmosfera generale della casa. Si spegne del tutto se preferisci il silenzio."
+    "clave": "tut.app-cocina--esencial.6.texto",
+    "texto": "L’altro menu tiene il conto di quello che mangi, in quattro schede numerate. La prima è Obiettivi: con il tuo peso, la tua altezza e la tua attività calcola quanto ti serve al giorno e distribuisce i macro."
   },
   {
-    "clave": "tut.casa.9.titulo",
-    "texto": "La chat"
+    "clave": "tut.app-cocina--esencial.7.titulo",
+    "texto": "Diario"
   },
   {
-    "clave": "tut.casa.9.texto",
-    "texto": "La chat dell'architetto: raccontagli cosa hai fatto e lo registra nell'app giusta, oppure chiedigli modifiche alla casa."
+    "clave": "tut.app-cocina--esencial.7.texto",
+    "texto": "Quello che è già successo: i pasti del giorno con le loro calorie, l’acqua che hai bevuto finora e il tuo peso quando ti pesi. La scheda accanto, Piano pasti, è il contrario: la griglia di quello che pensi di mangiare nei giorni a venire."
   },
   {
-    "clave": "tut.casa.10.texto",
-    "texto": "Questo è l'essenziale. Il pulsante Editor in alto apre la personalizzazione completa, e ogni menu e ogni app hanno il loro pulsante ? con il loro tutorial."
+    "clave": "tut.app-cocina--esencial.8.titulo",
+    "texto": "Progressi"
   },
   {
-    "clave": "tut.primeros.1.texto",
-    "texto": "Prima di tutto: come si costruisce la casa. Tutto parte dalla scheda Stanze."
+    "clave": "tut.app-cocina--esencial.8.texto",
+    "texto": "Le statistiche di tutto quanto sopra nel periodo che scegli: calorie e macro, acqua e la curva del tuo peso. In basso, un calendario colorato dice con un’occhiata in quali giorni sei rimasto entro l’obiettivo."
   },
   {
-    "clave": "tut.primeros.2.titulo",
-    "texto": "Crea stanza"
+    "clave": "tut.app-computo--esencial.1.titulo",
+    "texto": "La sala di calcolo"
   },
   {
-    "clave": "tut.primeros.2.texto",
-    "texto": "Con questo pulsante disegni nuove stanze sulla mappa. Per mostrarti il resto del percorso, ora te ne creo una…"
+    "clave": "tut.app-computo--esencial.1.texto",
+    "texto": "Qui si risolve quello che c’è da calcolare, in due schede: la Calcolatrice, con le sue modalità e il tuo formulario, e i Fogli di calcolo per tutto ciò che va in tabelle."
   },
   {
-    "clave": "tut.primeros.3.titulo",
-    "texto": "La tua nuova stanza"
+    "clave": "tut.app-computo--esencial.2.titulo",
+    "texto": "Calcolatrice"
   },
   {
-    "clave": "tut.primeros.3.texto",
-    "texto": "Eccola! Una stanza appena creata, ancora senza app: per questo il suo pulsante dice + Assegna."
+    "clave": "tut.app-computo--esencial.2.texto",
+    "texto": "Una calcolatrice scientifica che dà il risultato mentre scrivi e salva ogni calcolo nella cronologia. La tastiera in basso ti evita quella del telefono, e le notazioni scrivono la parte scientifica dove hai il cursore."
   },
   {
-    "clave": "tut.primeros.4.titulo",
-    "texto": "Assegnare un'app"
+    "clave": "tut.app-computo--esencial.3.titulo",
+    "texto": "Le modalità"
   },
   {
-    "clave": "tut.primeros.4.texto",
-    "texto": "Con + Assegna le ho dato la sua app: guarda come la stanza ha preso il suo nome, la sua icona e i suoi mobili, e ora il suo pulsante dice Entra."
+    "clave": "tut.app-computo--esencial.3.texto",
+    "texto": "Questo menu cambia l’intera vista della calcolatrice: grafico, basi numeriche, matrici, sistemi di equazioni, conversione di unità, mancia e regola del tre. La cronologia resta in basso in tutte."
   },
   {
-    "clave": "tut.primeros.5.titulo",
-    "texto": "Entra"
+    "clave": "tut.app-computo--esencial.4.titulo",
+    "texto": "Il formulario"
   },
   {
-    "clave": "tut.primeros.5.texto",
-    "texto": "Siamo dentro: questa è l'app della stanza. Passeggiando entri anche attraversando la sua porta, ed esci con ‹ Torna a casa."
+    "clave": "tut.app-computo--esencial.4.texto",
+    "texto": "Il tuo libro di formule, ripiegato sopra la calcolatrice. Ci sono già quelle di Matematica, Fisica e Chimica, in cartelle che puoi annidare. Ognuna si apre per riempire le sue variabili, si modifica o si elimina."
   },
   {
-    "clave": "tut.primeros.6.texto",
-    "texto": "La stanza resta nella tua casa, con la sua app pronta. Il resto si costruisce così: una stanza per ogni cosa che vuoi tenere qui."
+    "clave": "tut.app-computo--esencial.5.titulo",
+    "texto": "Fogli di calcolo"
   },
   {
-    "clave": "tut.menu-cuartos.1.texto",
-    "texto": "La scheda Stanze elenca tutte le stanze della tua casa, raggruppate per categoria."
+    "clave": "tut.app-computo--esencial.5.texto",
+    "texto": "Fogli con riferimenti di cella e formule in linguaggio chiaro (come =SUMA), e grafici sull’intervallo che selezioni. Si esportano in Excel mantenendo le formule, o in PDF."
   },
   {
-    "clave": "tut.menu-cuartos.2.titulo",
-    "texto": "Il tuo riepilogo"
+    "clave": "tut.app-descanso--esencial.1.titulo",
+    "texto": "Riposo"
   },
   {
-    "clave": "tut.menu-cuartos.2.texto",
-    "texto": "Il tuo personaggio vive della tua attività reale: qui vedi il suo umore, il suo livello e la sua serie. Registra qualcosa in una qualsiasi app e lo vedrai contento; qualche giorno senza niente e diventa triste — non riparte mai da zero e non ti punisce."
+    "clave": "tut.app-descanso--esencial.1.texto",
+    "texto": "Questa app tiene traccia del tuo sonno in un’unica schermata: il punteggio dell’ultima notte, il tuo orario con i suoi avvisi, il diario quotidiano e la cronologia completa."
   },
   {
-    "clave": "tut.menu-cuartos.3.titulo",
-    "texto": "Le schede"
-  },
-  {
-    "clave": "tut.menu-cuartos.3.texto",
-    "texto": "Ogni scheda è una stanza: la sua icona, il suo nome e i progressi della sua app, e si raggruppano in Corpo, Mente, Extra e Impostazioni. Le stanze senza app assegnata restano proprio in fondo."
-  },
-  {
-    "clave": "tut.menu-cuartos.4.titulo",
-    "texto": "Modifica"
-  },
-  {
-    "clave": "tut.menu-cuartos.4.texto",
-    "texto": "Modifica apre l'editor della stanza: forma, colori, muri e oggetti. (Non premerlo adesso: chiuderebbe questo menu.)"
-  },
-  {
-    "clave": "tut.menu-cuartos.5.titulo",
-    "texto": "Entra e Assegna"
-  },
-  {
-    "clave": "tut.menu-cuartos.5.texto",
-    "texto": "Entra apre l'app della stanza. Se una stanza non ha ancora un'app, al suo posto vedrai + Assegna per sceglierne una dal catalogo."
-  },
-  {
-    "clave": "tut.menu-cuartos.6.titulo",
-    "texto": "Crea stanza"
+    "clave": "tut.app-descanso--esencial.2.titulo",
+    "texto": "Il punteggio"
   }
 ]

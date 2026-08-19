@@ -8,13 +8,7 @@ import type { PropsArrastre } from '../comun/arrastre'
 import { Icono } from '../iconos/Icono'
 import { vivo } from '../estilos'
 import { PildoraCuenta } from './CuentaRegresiva'
-
-/** Cómo se pinta cada estado. El texto lo pone quien renderiza (necesita `t`). */
-const TONO_ESTADO: Record<EstadoMeta, string> = {
-  porHacer: 'border-white/15 bg-white/5 text-white/45',
-  enCurso: 'border-amber-400/40 bg-amber-500/15 text-amber-200',
-  hecho: 'border-emerald-400/40 bg-emerald-500/15 text-emerald-300',
-}
+import { TONO_ESTADO } from './carpetas'
 
 /**
  * Una meta en el panel de Metas, leída como una fila de tablero:
@@ -95,15 +89,19 @@ export function FilaMetaCard({
       {...(gesto && !editandoNota ? gesto : {})}
       data-meta-fila={meta.id != null ? String(meta.id) : undefined}
       data-grupo={grupoClave}
-      className={`group rounded-lg border bg-white/[0.02] px-1.5 py-1 transition hover:border-white/15 hover:bg-white/5 ${
+      className={`group rounded-lg border bg-white/5 px-1.5 py-1 transition hover:border-white/20 hover:bg-white/10 ${
         gesto ? 'cursor-grab' : ''
-      } ${encima ? 'border-t-2 border-t-accent' : 'border-white/5'} ${enMano ? 'opacity-40' : ''}`}
+      } ${encima ? 'border-t-2 border-t-accent' : 'border-white/10'} ${enMano ? 'opacity-40' : ''}`}
     >
-      <button type="button" onClick={() => onAbrir(meta)} className="flex w-full items-center gap-2 text-start">
+      <button type="button" onClick={() => onAbrir(meta)} className="ui-presion flex w-full items-center gap-2 text-start">
         {/* El número de la meta dentro de su carpeta: sustituye al check. */}
         <span
-          className="grid h-5 w-5 shrink-0 place-items-center rounded-md text-[10px] font-bold tabular-nums texto-vivo"
-          style={{ ...vivo(color), backgroundColor: `${color}26`, border: `1px solid ${color}59` }}
+          className="ui-presion grid h-5 w-5 shrink-0 place-items-center rounded-md text-[10px] font-bold tabular-nums texto-vivo"
+          style={{
+            ...vivo(color),
+            backgroundColor: `color-mix(in srgb, ${color} 15%, transparent)`,
+            border: `1px solid color-mix(in srgb, ${color} 35%, transparent)`,
+          }}
           title={t('cal.meta.numero', 'Meta {n} de esta carpeta', { n: indice })}
         >
           {indice}
@@ -144,7 +142,7 @@ export function FilaMetaCard({
         {/* Tiene plan: no es un botón (la fila entera ya lleva a su hoja), solo
             avisa de que ahí dentro hay un cronograma escrito. */}
         {plan && (
-          <span className="shrink-0 text-[10px] text-violet-300/80" title={t('cal.meta.tienePlan', 'Tiene un plan')}>
+          <span className="shrink-0 text-[10px] text-plan/80" title={t('cal.meta.tienePlan', 'Tiene un plan')}>
             <Icono nombre="brillo" />
           </span>
         )}
@@ -168,7 +166,7 @@ export function FilaMetaCard({
             else if (e.key === 'Escape') setEditandoNota(false)
           }}
           placeholder={t('cal.notaPlaceholder', 'Nota (opcional)')}
-          className="ms-7 mt-0.5 w-[calc(100%-1.75rem)] rounded border border-white/15 bg-black/30 px-1.5 py-0.5 text-[11px] text-white/80 placeholder:text-white/25 focus:outline-none"
+          className="ms-7 mt-0.5 w-[calc(100%-1.75rem)] rounded-lg border border-white/15 bg-black/30 px-1.5 py-0.5 text-2xs text-white/80 placeholder:text-white/25 focus:border-accent/60 focus:outline-none"
         />
       ) : (
         <button
@@ -177,7 +175,7 @@ export function FilaMetaCard({
           // Sin nota, la invitación solo se ve al pasar por encima, pero su línea
           // se reserva igual: si apareciera y desapareciera, la lista daría saltos
           // cada vez que el ratón cruza una fila.
-          className={`ms-7 block max-w-[calc(100%-1.75rem)] truncate text-start text-[11px] transition ${
+          className={`ui-presion ms-7 block max-w-[calc(100%-1.75rem)] truncate text-start text-2xs transition ${
             meta.nota
               ? 'text-white/40 hover:text-white/70'
               : 'text-white/20 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100'

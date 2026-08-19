@@ -27,7 +27,19 @@ export const TR_TUT: Dict = {
     'Bilimsel olan her şey ve fazlası burada: grubu seçersin —Temel, Kalkülüs, Matrisler, Trigonometri, Semboller— ve düğmeler değişir. İmlecin neredeyse oraya yazılırlar ve boşluk yazmaya hazır kalır.',
   'tut.app-computo--calculadora.3.titulo': 'Özel modlar',
   'tut.app-computo--calculadora.3.texto':
-    'Hesap makinesi bütün görünümünü değiştirir: grafik, ikilik ve onaltılık tabanlar, matrisler, denklem sistemleri, birim dönüştürme, bahşişli hesap ve üçlü kural. Geçmiş hepsinde altta kalır.',
+    'Hesap makinesi bütün görünümünü değiştirir: grafik, 2’den 16’ya tabanlar, matrisler, denklem sistemleri, birim dönüştürme, bahşişli hesap ve üçlü kural. Geçmiş hepsinde altta kalır.',
+  'tut.app-computo--calculadora.3b.titulo': 'Tabanlar',
+  'tut.app-computo--calculadora.3b.texto':
+    'Yazdığın şey seçilen tabanda okunur ve 2’den 16’ya on beş tabanda birden, canlı olarak gösterilir. Bit düzeyinde işlemler gelir; 0b, 0o ve 0x önekleriyle de aynı hesapta tabanlar karıştırılır.',
+  'tut.app-computo--calculadora.3c.titulo': 'Matrisler ve sistemler',
+  'tut.app-computo--calculadora.3c.texto':
+    'Matrisler, 6×6’ya kadar A ve B ile işlem yapar: toplam, çarpım, determinant, ters, transpoze ve iz. Komşusu Sistemler, yazdıklarından bilinmeyenleri okuyarak doğrusal denklemleri çözer; altı denkleme kadar.',
+  'tut.app-computo--calculadora.3d.titulo': 'Birimler',
+  'tut.app-computo--calculadora.3d.texto':
+    'Uzunluktan veriye sekiz kategori, sen yazarken dönüştürür; her biri son çiftini hatırlar ve «Ters çevir» dönüşümü tersine döndürür. Sıcaklık doğru çıkar: 100 °C, 212 °F eder.',
+  'tut.app-computo--calculadora.3e.titulo': 'Bahşiş ve üçlü kural',
+  'tut.app-computo--calculadora.3e.texto':
+    'Kafadan hızlı yapılan iki hesap: Bahşiş, toplamın değil hesabın üzerinden hesaplar ve kaç kişiyseniz aranızda böler; Üçlü kural, düz ya da ters, x’i kendiliğinden doldurur.',
   'tut.app-computo--calculadora.4.titulo': 'Formül Defteri elinin altında',
   'tut.app-computo--calculadora.4.texto':
     'Formüllerin bu menüden sarkar, değişkenleri doldurulmaya hazır: onları kaydetmeyi anlamlı kılan da bu.',
@@ -63,7 +75,7 @@ export const TR_TUT: Dict = {
     'Joystick’le, WASD ile ya da klavyenin ok tuşlarıyla yürü. Bir odanın kapısından geçtiğinde içeri girersin ve uygulaması kendiliğinden açılır.',
   'tut.casa.4.titulo': 'Üç bakış biçimi',
   'tut.casa.4.texto':
-    'İzometrik, üçüncü ve birinci şahıs (ya da V tuşu). 3. / 1. şahısta ayrıca dünyayı içinde yürürken düzenlemeni sağlayan bir düğme çıkar.',
+    'İzometrik, üçüncü ve birinci şahıs (ya da V tuşu). İzo’ya dokunmak ayrıca kamerayı karakterinin üzerine yeniden ortalar: keşfe dalıp uzaklaştıysan hızlı dönüş yolu.',
   'tut.casa.5.titulo': 'Tek köşe, birkaç sahip',
   'tut.casa.5.texto':
     'O köşe sadece bakış küpü değil: etkileşime girebileceğin bir şeye yaklaştığında —bir sandalye, bir araç, bir saha— yakınında ne varsa ona göre kendiliğinden değişir. Sen yaklaşmadan hiçbir şey çalışmaz.',
@@ -71,7 +83,8 @@ export const TR_TUT: Dict = {
   'tut.casa.6.texto':
     'Hareketler, Oyuncaklar, Araçlar ve İnşaat; aynı anda en fazla 3 tanesi kuşanılır. Buradan ya da elin boşken aynı köşedeki o yuvadan açılır.',
   'tut.casa.7.titulo': 'Saat',
-  'tut.casa.7.texto': 'Evin saati. Buradan tam takvim ve bugün sana kalanları gösteren Rutinler paneli açılır.',
+  'tut.casa.7.texto':
+    'Evin saati: ona dokununca tam takvim açılır, günün Görevler paneli de içinde. Yanındaki güneş ya da ay, zamanın akışını ve sahnenin ışığını yönetir.',
   'tut.casa.8.titulo': 'Evin müziği',
   'tut.casa.8.texto':
     'Her odanın kendi parçası olabilir ya da evin genel atmosferi çalmaya devam edebilir. Sessizliği tercih edersen tamamen kapatılır.',
@@ -85,10 +98,10 @@ export const TR_TUT: Dict = {
     'Bu düğmeyle haritaya yeni odalar çizersin. Yolun geri kalanını göstermek için şimdi sana bir tane oluşturuyorum…',
   'tut.primeros.3.titulo': 'Yeni odan',
   'tut.primeros.3.texto':
-    'İşte burada! Yeni oluşturulmuş bir oda, henüz uygulaması yok: bu yüzden düğmesinde + Ata yazıyor.',
+    'İşte burada! Yeni oluşturulmuş bir oda, henüz uygulaması yok: bu yüzden kartında + Ata yazıyor.',
   'tut.primeros.4.titulo': 'Bir uygulama ata',
   'tut.primeros.4.texto':
-    '+ Ata ile uygulamasını verdim: bak, oda adını, simgesini ve mobilyalarını nasıl aldı; düğmesinde de artık Gir yazıyor.',
+    '+ Ata ile uygulamasını verdim: bak, oda adını, simgesini ve mobilyalarını nasıl aldı. Artık kartının tamamı giriş düğmesi.',
   'tut.primeros.5.titulo': 'Gir',
   'tut.primeros.5.texto':
     'İçerideyiz: bu, odanın uygulaması. Dolaşırken de kapısından geçerek girersin ve ‹ Eve dön ile çıkarsın.',
@@ -101,12 +114,12 @@ export const TR_TUT: Dict = {
   'tut.menu-cuartos.3.titulo': 'Kartlar',
   'tut.menu-cuartos.3.texto':
     'Her kart bir odadır: simgesi, adı ve uygulamasının ilerlemesi; Beden, Zihin, Ekstralar ve Ayarlar altında gruplanır. Uygulaması atanmamış odalar en sonda kalır.',
-  'tut.menu-cuartos.4.titulo': 'Düzenle',
+  'tut.menu-cuartos.4.titulo': 'Odanın seçenekleri',
   'tut.menu-cuartos.4.texto':
-    'Düzenle, odanın düzenleyicisini açar: biçim, renkler, duvarlar ve nesneler. (Şimdi basma: bu menüyü kapatır.)',
-  'tut.menu-cuartos.5.titulo': 'Gir ve Ata',
+    'Dişli, odanın seçeneklerini tek sıra hâlinde açar: listede yukarı ya da aşağı taşımak, silmek ve biçim, renkler, duvarlar ve nesneler düzenleyicisini açan Düzenle.',
+  'tut.menu-cuartos.5.titulo': 'Kartın tamamı girer',
   'tut.menu-cuartos.5.texto':
-    'Gir, odanın uygulamasını açar. Bir odanın henüz uygulaması yoksa, onun yerinde + Ata görürsün: katalogdan birini seçmen için.',
+    'Kartın tamamı düğmedir: herhangi bir yerine dokun, odanın uygulamasına girersin. Henüz uygulaması yoksa aynı kart + Ata der ve ona bir tane seçmen için kataloğu açar.',
   'tut.menu-cuartos.6.titulo': 'Oda oluştur',
   'tut.menu-cuartos.6.texto':
     'Oda oluştur, fırçası yeni odayı çizmeye hazır halde harita düzenleyicisini açar: biçim, boyut ve konum senin elinde. Telefonda araç çarkı › İnşaat › Odalar kısayolu daha rahat: paneli açmadan doğrudan haritanın üstüne çizer.',
@@ -223,6 +236,22 @@ export const TR_TUT: Dict = {
     'Bu ok, düzenleyiciyi kapatmadan bütün haritaya döner; başka bir odada çalışmayı sürdürebilirsin.',
   'tut.editor-cuarto.4.texto':
     '3D görünümde odanın üzerinde yüzen bir «Odadan çık» düğmesi de var; oradan dokunmayı tercih edersen diye.',
+  'tut.inicio.1.texto':
+    'Evinin adını taşıyan düğme başlangıç ekranını açar: uygulamaların bir ızgarada, telefon mantığıyla.',
+  'tut.inicio.2.titulo': 'Tek dokunuş, tek uygulama',
+  'tut.inicio.2.texto':
+    'Burada yalnızca çoktan uygulaması olan odalar çıkar; seviyesi, serisi ve tamamlanan listeleriyle. Köşedeki kırmızı sayaç bugün bekleyen görevleri; karta dokunmak doğrudan içeri girer.',
+  'tut.inicio.3.titulo': 'Bir kartı basılı tut',
+  'tut.inicio.3.texto':
+    'Uzun basış kartı kaldırır ve hepsi titremeye başlar, tıpkı telefondaki gibi: yeniden sıralamak için sürükle ya da köşesindeki kaleme dokunup künyesini düzenle.',
+  'tut.inicio.4.titulo': 'Meydan okuman, göz önünde',
+  'tut.inicio.4.texto':
+    'İki halka Sisifos Dağı’dır: yılın rütbesi ve kazanılan rozetler. Onlara dokunmak dağın tamamını açar; yan menüdekiyle aynı dağ.',
+  'tut.inicio.5.titulo': 'Duvar kâğıdı ve 3D görünüm',
+  'tut.inicio.5.texto':
+    'Bu düğme ızgaraya bir duvar kâğıdı koyar; kartlar okunsun diye soluklaştırılmış. Yanındaki ise her odanın simgesiyle mobilyalı 3D minyatürü arasında geçiş yapar.',
+  'tut.inicio.6.texto':
+    'Oda oluşturmak, silmek ya da uygulama atamak hâlâ yan menünün işi: bu ekran hızlıca girmek için. Dışına dokununca kapanır.',
   'tut.herramientas.1.texto': 'Bu düğme karakterinin araç çarkını açar.',
   'tut.herramientas.2.titulo': 'İki seviye',
   'tut.herramientas.2.texto':
@@ -238,17 +267,18 @@ export const TR_TUT: Dict = {
   'tut.navegacion.1.texto': 'Üç kamera: İzo (oyuncak ev görünümü), 3. ve 1. şahıs. Buradan ya da V tuşuyla değiştir.',
   'tut.navegacion.2.titulo': 'Yönünü bulmak',
   'tut.navegacion.2.texto':
-    'İzo’da küp kamerayı yüzden yüze çevirir; 3. ve 1. şahısta etrafa bakmak için pad’i sürükle.',
+    'İzo’da kamerayı küple yönetirsin: köşeleri izometrik açıları, yüzleri ise düz görünümleri verir. 3. ve 1. şahısta yuvasını, etrafa bakmak için sürüklediğin bir pad alır.',
   'tut.navegacion.3.titulo': 'Yakında bir şey olduğunda',
   'tut.navegacion.3.texto':
     'Etkileşimli bir şeye yaklaştığında aynı yuva kamera olmaktan çıkar: saha oyna düğmesini, araç bin düğmesini, sandalye otur düğmesini sunar. Aynı anda tek bir şey, hep de yakınlıkla — asla kendiliğinden değil.',
   'tut.navegacion.4.titulo': 'Döndür ve ortala',
-  'tut.navegacion.4.texto': 'Görünümü yanlara döndür ya da keşfe dalıp kaybolduysan haritada yeniden ortala.',
+  'tut.navegacion.4.texto':
+    'Her ok çeyrek tur döndürür: İzo’da haritayı, 3. ve 1. şahısta bakışını. Üçüncü düğme yalnızca harita öndeyken görünür ve keşfe dalıp kaybolduysan onu yeniden ortalar.',
   'tut.navegacion.5.titulo': 'Hareket etmek',
   'tut.navegacion.5.texto':
     'Joystick, WASD ya da oklarla yürü. Suda yüzersin; bir araca bindiğinde aynı kontrollerle sürersin.',
   'tut.navegacion.6.texto':
-    '3. ve 1. şahısta 3D Düzenleyici düğmesi belirir: nesnelere, duvarlara ya da karakterlere dokun ve onları tam durdukları yerde, İzometrik görünüme dönmeden düzenle.',
+    'Üstteki Düzenleyici düğmesi her görünümde çalışır: onu 3. ya da 1. şahısta aç ve yürürken düzenle — nesnelere, duvarlara ya da karakterlere tam durdukları yerde dokunarak.',
   'tut.chat.1.texto':
     'Mimarın sohbeti: gününü kaydeder, evi düzenler ve aklına takılanları yanıtlar; hepsi aynı kutudan.',
   'tut.chat.2.titulo': 'Yazmak',
@@ -256,9 +286,15 @@ export const TR_TUT: Dict = {
     'Serbestçe yaz: «20 dk koştum», «markette 250 harcadım»… Yanındaki chip hangi uygulamaya gideceğini gösterir. Yanlış tahmin ederse hedefi @oda ile sen belirle.',
   'tut.chat.3.titulo': 'Sesle yazdırmak',
   'tut.chat.3.texto': 'Mikrofon söylediklerini metin kutusuna yazar — elin doluyken kayıt tutmak için birebir.',
-  'tut.chat.4.titulo': 'Fotoğraf göndermek',
+  'tut.chat.4.titulo': 'Eklemek',
   'tut.chat.4.texto':
-    'Yapay Zeka açıkken fişin, tabağın ya da tartının fotoğrafı kendi kendine okunur. Yapay Zeka yoksa bu düğme devre dışı kalır.',
+    '+ beş seçenek açar: bir görsel ya da PDF yüklemek ve fotoğraf çekmek —Yapay Zeka açıkken bir fiş ya da tartı kendi kendine okunur— artı Yapay Zeka istemeyen iki tane: AR maskesi ve AR sohbeti.',
+  'tut.chat.4b.titulo': 'AR maskesi',
+  'tut.chat.4b.texto':
+    'Kamerayı açar ve maskeyi yüzüne takar, seni canlı canlı izleyerek — evin tanıtım videosundakiyle aynı maske. Yapay Zeka olmadan da, hesap olmadan da çalışır.',
+  'tut.chat.4c.titulo': 'AR sohbeti',
+  'tut.chat.4c.texto':
+    'Her zamanki konuşmanın aynısı, ama arka planda kameran, önde de 3D asistanın var; verdiği yanıtlara eşlik eden duygularıyla.',
   'tut.chat.5.titulo': 'Asistanlar',
   'tut.chat.5.texto':
     'Asistanın yanıtlara bir yüz ve bir ses verir. Konuşmayı görmek, asistan değiştirmek ya da yenilerini oluşturmak için ona dokun.',
@@ -279,37 +315,15 @@ export const TR_TUT: Dict = {
     'Uygulamalarına kaydettiklerin (öğünler, harcamalar, seanslar) burada değil, her uygulamanın kendi içinde yaşar: bu sekme yalnızca konuşmanın kendi hafızası.',
   'tut.app-generica.1.texto':
     'Üstbilgi odayı ve açık uygulamayı gösterir. Odada birden fazla uygulama varsa ‹ oku seçim ekranına döner.',
-  'tut.app-generica.2.titulo': 'Bugünün adımları',
+  'tut.app-generica.2.titulo': 'Görevler',
   'tut.app-generica.2.texto':
-    'Bu uygulamada bugünkü adımların: günlük hedefin, ajandana yazdıkların ve hedeflerinin istedikleri. Açmak için dokun; sen kaydeder kaydetmez her adımın üstü kendiliğinden çizilir.',
+    'Görevler düğmesi bu uygulamada bugünü açar: günlük hedeflerin, ajandana yazdıkların ve hedeflerinin istedikleri. Sen kaydeder kaydetmez her adımın üstü kendiliğinden çizilir; günün XP’sini veren de listenin tamamını bitirmektir.',
   'tut.app-generica.3.titulo': 'Bloklar',
   'tut.app-generica.3.texto':
     'Bu şablon bloklarla kurulmuş (notlar, listeler, sayaçlar, alışkanlıklar…). Bunları Menü › Şablonlar › düzenle yolundan değiştirebilirsin.',
   'tut.app-generica.4.titulo': 'Çıkmak',
   'tut.app-generica.4.texto':
     '«Eve dön» uygulamayı kapatır ve seni yeniden 3D’ye bırakır. Burada kaydettiklerin çoktan saklandı.',
-  'tut.rutinas.1.texto':
-    'Pep’in rutin paneli: üstte bugünküler, altta duraklatmak, düzenlemek ya da silmek için tüm katalog.',
-  'tut.rutinas.2.titulo': 'Bugün sırası gelenler',
-  'tut.rutinas.2.texto':
-    'Kafeteryadaki vardiya, fizik dersi, şafakta koşu, akşam piyano: her kart, adımlarıyla birlikte bir rutin. Kehribar rengiyle taşan kart, çoktan başlamış olması gerekip hâlâ bekleyen karttır.',
-  'tut.rutinas.3.titulo': 'İşaretlemek her zaman gerekmez',
-  'tut.rutinas.3.texto':
-    '⚡ şimşekli adım kendini kaydeder: şafaktaki koşunun üstü çizilir, çünkü o koşu Spor Salonu’na çoktan kaydedilmiştir; biri elle işaretlediği için değil. Diğer adımlar ise dokununca işaretlenir.',
-  'tut.rutinas.4.titulo': 'Tüm katalog',
-  'tut.rutinas.4.texto':
-    'Bugün sırası gelsin gelmesin hepsi burada. ON/OFF bir rutini geçmişini silmeden duraklatır: bugüne kadar yapılanlar kalır, yarından itibaren istenmez olur. Düzenle ve ✕ ise rutinin tamamını değiştirir ya da siler.',
-  'tut.rutinas.5.titulo': 'Rutin oluşturmak',
-  'tut.rutinas.5.texto':
-    'Ad, ait olduğu uygulama (ya da hiçbiri: evin başıboş bir etkinliğiyse), saat ve renk. Adımlar isteğe bağlı: onlarsız takvimde yalnızca bir etkinlik olur.',
-  'tut.rutinas.6.titulo': 'Bir kez, her hafta ya da hep',
-  'tut.rutinas.6.texto':
-    'Piyano süresizdir ve işaretli günü yoktur (yani her gün); koşu ise yalnızca Pep’in işaretlediği günlerde tekrar eder. Aylık, yıllık ya da aralıklı tekrar buradan seçilmez: hedefi doğrudan takvim ızgarasına çizmekten doğar.',
-  'tut.rutinas.7.titulo': 'Zamanı gelince uyarı',
-  'tut.rutinas.7.texto':
-    'İzin verilmişse sistem bildirimi olarak gelir; verilmemişse asistan bunu uygulamayı bir dahaki açışında içeriden söyler.',
-  'tut.rutinas.8.texto':
-    'Burada planlanan her şey takvim ızgarasında da görünür ve her adımın uygulamasında, onun Bugün listesinde.',
   'tut.enlaces.1.titulo': 'Hedeften uygulamasına',
   'tut.enlaces.1.texto':
     'Her hedef ya da plan adımı, bir uygulamanın simgesini taşıyan bir chip alabilir: «peki bu nereye kaydediliyor?» sorusunun cevabıdır.',
@@ -360,6 +374,9 @@ export const TR_TUT: Dict = {
   'tut.hoy.2.titulo': 'Üç kaynak, tek liste',
   'tut.hoy.2.texto':
     'Uygulamanın kendi hedefleri (su, kalori), bugün için takvime eklediklerin ve devam eden hedeflerinin adımları — hepsi bir arada, her adımın geldiği plan veya hedefe göre gruplanmış.',
+  'tut.hoy.2b.titulo': 'Kendine koyduğun hedefler, üstte',
+  'tut.hoy.2b.texto':
+    'Kontrol listesinin üstünde bu uygulamanın hedefleri yaşar; ilerlemesi ve süresiyle. Birine dokunmak planını panelden çıkmadan tam burada açar; «+ hedef» ile de kendine bir yenisini koyarsın.',
   'tut.hoy.3.titulo': 'Veri var olduğu için üstü çizilir',
   'tut.hoy.3.texto':
     'Satırdaki düğme GERÇEK veriyi uygulamaya kaydeder — bir bardak su, bir öğün — ve adımın üstü, o kayıt artık orada olduğu için çizilir; biri işaretlediği için değil. Adım tamamlandıktan sonra düğmeye yeniden basmak hiçbir şeyi çoğaltmaz: düğme ortadan kaybolur.',
@@ -372,6 +389,9 @@ export const TR_TUT: Dict = {
   'tut.hoy.6.titulo': 'Tamamlanan kaybolmaz',
   'tut.hoy.6.texto':
     '«Tamamlanan» bölümüne kapalı olarak iner: kaydın etkisini görmek ödülün bir parçasıdır ve fazladan bir tanesi karıştıysa oradan geri alınabilir.',
+  'tut.hoy.6b.titulo': 'Puan getiren, listenin tamamı',
+  'tut.hoy.6b.texto':
+    'Günün bütün görevlerini tamamlamak kutlamayı başlatır ve uygulamanın XP’sini ekler: seviye, tamamlanan listelerle büyür, tek tük kayıtlarla değil.',
   'tut.hoy.7.texto':
     'Bir şey eksikse, «Yeni kontrol listesi» kendininkini oluşturur: her gün tekrarlanan, bu uygulamaya özel bir liste. Bu adımların çıktığı hedefler ise Hedefler odasında planlanır.',
   'tut.progreso.1.texto':
@@ -704,6 +724,14 @@ export const TR_TUT: Dict = {
   'tut.app-biblioteca--resumen.6.titulo': 'Bir yıllık oturumlar',
   'tut.app-biblioteca--resumen.6.texto':
     'Ayrıntısını istersen geçmiş, her oturumu dakikalarıyla ve alanıyla saklar; yıla, aya ve haftaya göre arşivlenmiş halde.',
+  'tut.app-idiomas--charlas.1.titulo': 'Senin seviyende bir öğretmen',
+  'tut.app-idiomas--charlas.1.texto':
+    'Öğretmenin, odanın asistanıdır: onunla çalıştığın dilde konuşursun ve profilindeki CEFR seviyesine göre yanıt verir — A1’de çevirili kısa cümleler, C1’de deyimler. Ona kendi dilinde yazarsan, çalıştığın dilde denemen için seni yüreklendirir.',
+  'tut.app-idiomas--charlas.2.titulo': 'Kendiliğinden kaydedilir ve sınıflanırlar',
+  'tut.app-idiomas--charlas.2.texto':
+    'Her sohbet bu listede kalır; başlığı, müfredattaki konusu ve seviyesi sen hiçbir şey yapmadan konmuş hâlde. Bir sohbet, tam da onu çalışmak için bir konudan da doğabilir — satırındaki sohbet düğmesiyle.',
+  'tut.app-idiomas--charlas.3.texto':
+    'Öğretmen düzelttiğinde doğru biçim, yanında bir onay işaretiyle kendi satırına yazılır ve konuşma azarsız devam eder. Çıkarken, geçen kelimeleri çıkarmayı önerir: hangi kartları saklayacağını seçersin ve kartlar sohbetin konusunu devralır.',
   'tut.app-idiomas--repaso.1.titulo': 'Bugün sırada ne var',
   'tut.app-idiomas--repaso.1.texto':
     'Pep bir yıldır bunu sürdürüyor ve hâlâ bekleyen tekrarları var: sistem senden bütün kelimeleri istemez, sadece unutmak üzere olduklarını ister.',
@@ -719,12 +747,277 @@ export const TR_TUT: Dict = {
   'tut.app-idiomas--temario.2.titulo': 'Nerede olduğun',
   'tut.app-idiomas--temario.2.texto':
     'Ustalaşılan kartlar, ayın tekrarları ve şu anki seviyen. Pep yıla A2’de başladı, bugün B1 civarında.',
+  'tut.app-agenda--esencial.1.titulo': 'Ajandan',
+  'tut.app-agenda--esencial.1.texto':
+    'Ajanda, alışkanlık olmayan şeyleri tutar: yapılacaklar, randevular, kişiler. Üç bölümü vardır, ve tarihi olan her şey kendiliğinden evin takvimine düşer.',
+  'tut.app-agenda--esencial.2.titulo': 'İş',
+  'tut.app-agenda--esencial.2.texto':
+    'Kutu, tarihsiz yapılacakları kaybolmasınlar diye toplar, ve pano görevlerini sütunlar arasında taşır: yapılacak, devam ediyor ve tamamlandı.',
+  'tut.app-agenda--esencial.3.titulo': 'Sağlık',
+  'tut.app-agenda--esencial.3.texto':
+    'Doktor randevuları, ilaçlar ve bakım, üç alt bölümde: Sen, Yakınların (bakımından sorumlu olduğun kişiler) ve Evcil hayvanlar.',
+  'tut.app-agenda--esencial.4.titulo': 'Kişiler',
+  'tut.app-agenda--esencial.4.texto':
+    'İlişkiye göre kişi rehberin. Kaydettiğin doğum günleri her yıl kendiliğinden takvimde tekrarlanır.',
+  'tut.calendario--esencial.1.titulo': 'Evin saati',
+  'tut.calendario--esencial.1.texto':
+    'Takvim bir oda değildir: HUD\'un saatinde yaşar, bu yüzden nerede olursan ol, hiçbir yere girmeden açılır.',
+  'tut.calendario--esencial.2.titulo': 'Planlanan her şey, bir arada',
+  'tut.calendario--esencial.2.texto':
+    'Tarihi ve saati olan her şey buraya düşer: «+ Yeni» ile ya da ızgara üzerine çizerek oluşturduğun şeyler, ve diğer uygulamaların kendiliğinden planladıkları. Üstteki filtre, çok kalabalık olduğunda tek bir uygulamayı görmeni sağlar.',
+  'tut.calendario--esencial.3.titulo': 'Gün',
+  'tut.calendario--esencial.3.texto':
+    'Bir günün 24 saatlik ızgarası: her şeyin saat kaçta olduğunu ve bir şeylerin çakışıp çakışmadığını gösterir. Bu buton çifte görev yapar: «Bugün» yazar ve seni şimdiye geri getirir, ya da başka bir tarihe bakıyorsan «Gün» yazar.',
+  'tut.calendario--esencial.4.titulo': 'Hafta',
+  'tut.calendario--esencial.4.texto':
+    'Aynı saatlik ızgara, ama yedi gün yan yana. Haftanın nasıl dağıldığını burada görürsün, ve bloklar burada bir günden diğerine sürüklenir ya da daha uzun sürsün diye gerilir.',
+  'tut.calendario--esencial.5.titulo': 'Ay',
+  'tut.calendario--esencial.5.texto':
+    'Saat eksenini kaldırır ve günleri, her birine düşenle birlikte kutucuklar olarak boyar. Genel görünüm budur: hangi haftalar dolu, hangi günler boş.',
+  'tut.calendario--esencial.6.titulo': 'Yıl',
+  'tut.calendario--esencial.6.texto':
+    'On iki ay bir arada. Bu uzaklıktan saatler artık okunmaz: görünen şey süreklilik — yıl boyunca kendine koyduğun şeyi ne kadar sürdürdüğün.',
+  'tut.calendario--esencial.7.titulo': 'Ve görevler, ayrı',
+  'tut.calendario--esencial.7.texto':
+    'Kırmızıyla, beşinci bir görünüm gibi okunmasın diye: Görevler, tüm uygulamaların bugünkü kontrol listesini tek bir ekranda toplar. Hedefler ve planları burada değildir — onlar kendi odalarında yaşar.',
+  'tut.app-anecdotario--esencial.1.titulo': 'Kişisel günlüğün',
+  'tut.app-anecdotario--esencial.1.texto':
+    'Anı defteri, anlatmak istediğin her şeyi ruh hali ve fotoğraflarıyla tutar. Kendiliğinden tarihe göre düzenlenir, hiçbir şeyi sınıflandırman gerekmez.',
+  'tut.app-anecdotario--esencial.2.titulo': 'Nasıl yazılır',
+  'tut.app-anecdotario--esencial.2.texto':
+    'Günün ruh halini seç, anlatmak istediğini yaz ve varsa fotoğraf ekle. Metinsiz tek bir fotoğraf da yeterlidir.',
+  'tut.app-anecdotario--esencial.3.titulo': 'Ruh hali takvimi',
+  'tut.app-anecdotario--esencial.3.texto':
+    'Her gün, o günün kaydının ruh haline göre renklenir, böylece tüm ay tek bakışta okunur. Alttaki kayıtları görmek için bir güne dokun.',
+  'tut.app-anecdotario--esencial.4.titulo': 'Geçmiş',
+  'tut.app-anecdotario--esencial.4.texto':
+    'Tüm kayıtlar burada kalır, kendiliğinden yıl, ay ve haftaya göre klasörlere ayrılmış olarak.',
+  'tut.app-biblioteca--esencial.1.titulo': 'Kütüphanen',
+  'tut.app-biblioteca--esencial.1.texto':
+    'Kütüphane, kişisel ansiklopedin: bilmediğini sorarsın, öğrendiğini kaydedersin ve çalıştığının hesabını tutarsın. Dört bölümü vardır.',
+  'tut.app-biblioteca--esencial.2.titulo': 'Sohbetler',
+  'tut.app-biblioteca--esencial.2.texto':
+    'Burada Bilge\'ye istediğin konuda sorular sorarsın ve konuşma kaydedilir. Her sohbet kendiliğinden bilgi alanına sınıflandırılır ve bir ansiklopedi maddesi olarak özetlenmiş şekilde çıkar.',
+  'tut.app-biblioteca--esencial.3.titulo': 'Ansiklopedi',
+  'tut.app-biblioteca--esencial.3.texto':
+    'Öğrendiklerinin yaşadığı ağaç, bilgi alanına göre sıralanmış. Her madde kendi özetini ve önemli noktalarını taşır, ve bunları elle de yazabilirsin; kalemle dizini kendine göre büyütürsün.',
+  'tut.app-biblioteca--esencial.4.titulo': 'Çalışma',
+  'tut.app-biblioteca--esencial.4.texto':
+    'Çalışmak için zamanlayıcı: bir alan ve bir süre seçersin, aralıksız ya da pomodorolarla, ve her aralık kendiliğinden kaydedilir. Odadan çıksan bile çalışmaya devam eder.',
+  'tut.app-biblioteca--esencial.5.titulo': 'Genel bakış',
+  'tut.app-biblioteca--esencial.5.texto':
+    'Yukarıdakilerin tamamının genel görünümü: ansiklopedinde kaç madde olduğu ve dizinin ne kadarını kapladığın, çalışma dakikaların, serin ve çalıştığın günler.',
+  'tut.app-cocina--esencial.1.titulo': 'Mutfak',
+  'tut.app-cocina--esencial.1.texto':
+    'Bu uygulama iki şeyi yürütür: pişireceğin şey ve sonunda yediğin şey. Her birinin üstte kendi menüsü var, ve her menü kendi sekmelerini açar.',
+  'tut.app-cocina--esencial.2.titulo': 'Tarif defteri',
+  'tut.app-cocina--esencial.2.texto':
+    'Pişirme tarafı: tariflerin, onları gruplayan diyetler ve market listesi burada yaşar. Üç sekme, bu sırayla.',
+  'tut.app-cocina--esencial.3.titulo': 'Diyet',
+  'tut.app-cocina--esencial.3.texto':
+    'Bir diyet, içinde tarifleri olan ve istersen kendi kalori ve makro hedefleri olan bir öğün planıdır. Kendi diyetlerini uygulamanın zaten getirdiklerinin yanına kaydedersin.',
+  'tut.app-cocina--esencial.4.titulo': 'Tarifler',
+  'tut.app-cocina--esencial.4.texto':
+    'Tarif defteri: her tarif malzemelerini, adımlarını ve porsiyon başına makrolarını tutar, klasörlere ayrılmış olarak. Bir tariften öğünü kaydedebilir ya da malzemelerini market listesine gönderebilirsin.',
+  'tut.app-cocina--esencial.5.titulo': 'Market',
+  'tut.app-cocina--esencial.5.texto':
+    'Her ürünün ait olduğu reyonda yer aldığı market listesi. Birkaç tariften eksik olanları toplayarak bir liste oluşturabilir ve kilerde zaten olanları işaretleyebilirsin.',
+  'tut.app-cocina--esencial.6.titulo': 'Beslenme',
+  'tut.app-cocina--esencial.6.texto':
+    'Diğer menü, dört numaralı sekmede ne yediğinin hesabını tutar. İlki Hedefler: kilon, boyun ve aktivitenden yola çıkarak günde ne kadar ihtiyacın olduğunu hesaplar ve makroları böler.',
+  'tut.app-cocina--esencial.7.titulo': 'Günlük',
+  'tut.app-cocina--esencial.7.texto':
+    'Zaten olan şey: kalorileriyle günün öğünleri, o ana kadar içtiğin su ve tartıldığında kilonun. Yanındaki sekme, Öğün planı, tam tersidir: önümüzdeki günlerde ne yemeyi planladığının ızgarası.',
+  'tut.app-cocina--esencial.8.titulo': 'İlerleme',
+  'tut.app-cocina--esencial.8.texto':
+    'Seçtiğin dönem için yukarıdakilerin tamamının istatistikleri: kalori ve makrolar, su ve kilo eğrin. Aşağıda, renkli bir takvim hangi günlerde hedefin içinde kaldığını tek bakışta gösterir.',
+  'tut.app-computo--esencial.1.titulo': 'Bilgi İşlem',
+  'tut.app-computo--esencial.1.texto':
+    'Hesaplanması gereken her şey burada, iki bölümde çözülür: modları ve formül defterinle Hesap Makinesi, ve tablo halindeki her şey için E-Tablolar.',
+  'tut.app-computo--esencial.2.titulo': 'Hesap Makinesi',
+  'tut.app-computo--esencial.2.texto':
+    'Yazarken sonucu gösteren ve hesapladığın her şeyi geçmişte tutan bilimsel bir hesap makinesi. Alttaki tuş takımı seni telefon klavyesinden kurtarır, ve gösterimler imlecin nerede olursa olsun bilimsel şeyleri yazar.',
+  'tut.app-computo--esencial.3.titulo': 'Modlar',
+  'tut.app-computo--esencial.3.texto':
+    'Bu bölüm hesap makinesinin tüm görünümünü değiştirir: grafik, sayı tabanları, matrisler, denklem sistemleri, birim dönüştürme, bahşiş ve üçlü kural. Geçmiş hepsinde altta kalır.',
+  'tut.app-computo--esencial.4.titulo': 'Formül defteri',
+  'tut.app-computo--esencial.4.texto':
+    'Hesap makinesinin üzerine katlanmış formül kitabın. Matematik, Fizik ve Kimya zaten yüklü gelir, iç içe geçirebileceğin klasörlerde. Herhangi bir formül değişkenlerini doldurmak için açılır, düzenlenebilir ya da silinebilir.',
+  'tut.app-computo--esencial.5.titulo': 'E-Tablolar',
+  'tut.app-computo--esencial.5.texto':
+    'Hücre referansları ve anlaşılır formülleri olan tablolar, artı seçtiğin aralık üzerinde grafikler. Formülleri canlı tutarak Excel\'e, ya da PDF\'e aktarılır.',
+  'tut.app-descanso--esencial.1.titulo': 'Dinlenme',
+  'tut.app-descanso--esencial.1.texto':
+    'Bu uygulama uykunu tek bir ekranda takip eder: son gecenin puanı, hatırlatıcılarıyla programın, günlük kayıt ve tam geçmiş.',
+  'tut.app-descanso--esencial.2.titulo': 'Puan',
+  'tut.app-descanso--esencial.2.texto':
+    'Kaydedilen her gece, ne kadar uyuduğunu, saat kaçta yattığını ve kaç kez uyandığını birleştiren bir puan alır. Henüz kayıt yokken, burada ilk geceni kaydetmeye davet edilirsin.',
+  'tut.app-descanso--esencial.3.titulo': 'Program ve hatırlatıcılar',
+  'tut.app-descanso--esencial.3.texto':
+    'Günün şeridinin uçlarını sürükleyerek yatma ve kalkma saatini ayarlarsın; aynı program evin takviminde bir blok olarak da görünür. Burada ayrıca tonuyla alarmı ve yatmadan önce yavaşlamak için hatırlatıcıları da açarsın.',
+  'tut.app-descanso--esencial.4.titulo': 'Geceyi kaydet',
+  'tut.app-descanso--esencial.4.texto':
+    'Nasıl uyuduğunu not etmek için form: tarih, yatma ve kalkma saati, uyanmalar ve bir kalite puanı, not için yer ile birlikte.',
+  'tut.app-descanso--esencial.5.titulo': 'Geçmiş',
+  'tut.app-descanso--esencial.5.texto':
+    'Kaydettiğin tüm geceler burada kalır, yıl, ay ve haftaya göre düzenlenmiş — böylece uykunu zaman içinde gözden geçirebilirsin.',
+  'tut.app-despacho--esencial.1.titulo': 'Finansların',
+  'tut.app-despacho--esencial.1.texto':
+    'Çalışma Odası, paranı dört bölümde düzenler: sahip olduğun, giren ve çıkan, hedeflerin ve piyasalar. Her birinin altında kendi bölümleri açılır.',
+  'tut.app-despacho--esencial.2.titulo': 'Net değer',
+  'tut.app-despacho--esencial.2.texto':
+    'Sahip olduğun ve borçlu olduğun şeyler, iki listede: varlıklar ve borçlar. Üçüncü bölüm, her satıra koyduğun oranla bu görüntüyü ileriye doğru projekte eder.',
+  'tut.app-despacho--esencial.3.titulo': 'Nakit akışı',
+  'tut.app-despacho--esencial.3.texto':
+    'Giren ve çıkan para, gider, gelir ve bakiye olarak ayrılmış. Bakiye, seçtiğin dönemi — gün, hafta, ay ya da yıl — bütçesi, kategorileri ve eğilimiyle özetler.',
+  'tut.app-despacho--esencial.4.titulo': 'Hedefler',
+  'tut.app-despacho--esencial.4.texto':
+    'Üç bölümde para hedeflerin: tasarruf ve yatırım, borç, ve kendi bakiyenden yola çıkarak bir tutar öneren hesaplayıcılar. Herhangi bir hedef zaman çizelgesine inebilir ve bir tarih alabilir.',
+  'tut.app-despacho--esencial.5.titulo': 'Piyasalar',
+  'tut.app-despacho--esencial.5.texto':
+    'Döviz, kripto, hisse senedi ve emtiaların canlı fiyatları; bağlantı gerektirir. Bu sadece görüntüleme panosudur: uygulama ne alıp ne satacağını önermez.',
+  'tut.app-diario--esencial.1.titulo': 'Bugünün gazetesi',
+  'tut.app-diario--esencial.1.texto':
+    'Günlük Haberler, günün özetini iki görünümde getirir: manşetler ve «Bugün tarihte». Kendine ait veri tutmaz: her gün yeni içerik getirir ve gece yarısı tamamen değişir.',
+  'tut.app-diario--esencial.2.titulo': 'Manşetler',
+  'tut.app-diario--esencial.2.texto':
+    'Kategoriye göre günün manşetleri — dünya, ekonomi, teknoloji, sağlık, spor ve eğlence —, üstteki çiplerle filtrelenebilir. Dilindeki gerçek basından gelirler, ve kaynaklar her gün değişir.',
+  'tut.app-diario--esencial.3.titulo': 'Bugün tarihte',
+  'tut.app-diario--esencial.3.texto':
+    'Gazetenin diğer yarısı: bugüne benzer bir günde ne olmuş — bir eser, bir kitap, bir tür, bir kelime. O gün haberler ilgini çekmese bile onu açmak için bir bahane.',
+  'tut.app-diario--esencial.4.titulo': 'Kendiliğinden yenilenir',
+  'tut.app-diario--esencial.4.texto':
+    'Uygulamayı açtığında baskı kendiliğinden indirilir ve gece yarısı tamamen değişir: hiçbir şey birikmez. Bu buton o saatten önce bir güncelleme zorlar.',
+  'tut.app-diario--esencial.5.titulo': 'Teslimat',
+  'tut.app-diario--esencial.5.texto':
+    'Her asistanın hangi bölümleri kendi sohbetinde sana getireceğini ayarla, sabit bir saatte ya da günün sürpriz bir anında.',
+  'tut.app-ejercicio--esencial.1.titulo': 'Antrenmanın',
+  'tut.app-ejercicio--esencial.1.texto':
+    'Spor Salonu, bedenin üç modunu — kuvvet, dayanıklılık ve esneklik — bir araya getirir, artı her hafta ne kadar antrenman yapmak istediğine karar verdiğin bir hedefler bölümü.',
+  'tut.app-ejercicio--esencial.2.titulo': 'Hedefler',
+  'tut.app-ejercicio--esencial.2.texto':
+    'Odanın özeti: serin, bir şey kaydedilen günler ve burada belirlediğin haftalık hedefe karşı her mod için bir çubuk. Burada ayrıca ölçü sistemini de seçersin, kilo ya da libre olarak.',
+  'tut.app-ejercicio--esencial.3.titulo': 'Kuvvet',
+  'tut.app-ejercicio--esencial.3.texto':
+    'Ağırlıkla antrenman: her oturum egzersizlerini setleri, tekrarları ve yüküyle tutar. Bununla uygulama günün hacmini hesaplar, her egzersizin ilerlemesini çizer ve rekorlarını tutar.',
+  'tut.app-ejercicio--esencial.4.titulo': 'Katalog, rutinler ve ilerleme',
+  'tut.app-ejercicio--esencial.4.texto':
+    'Üç mod da aynı şekilde düzenlenir. Katalog mevcut egzersizleri gruplar ve onlardan rutinler oluşturur, Rutinler yukarıda seçtiğin günün antrenmanını kaydeder, ve İlerleme dönemi etkinlik haritasıyla özetler.',
+  'tut.app-ejercicio--esencial.5.titulo': 'Dayanıklılık',
+  'tut.app-ejercicio--esencial.5.texto':
+    'Koşu, bisiklet, yüzme ya da yürüyüş, dakikaları ve mesafesiyle parçalara bölünmüş. Buradan canlı antrenman açılır: rotayı GPS\'ten ve nabzı bir Bluetooth sensöründen alır ve bitirdiğinde oturumu kaydeder.',
+  'tut.app-ejercicio--esencial.6.titulo': 'Esneklik',
+  'tut.app-ejercicio--esencial.6.texto':
+    'Gerinme ve hareketlilik, ağırlık yerine zamana dayalı setlerle: her pozun kendi saniyeleri ve tekrarları vardır. Rehberli oynatıcı, ne zaman değiştireceğini söyleyen bir zamanlayıcıyla rutini poz poz yürütür.',
+  'tut.app-entretenimiento--esencial.1.titulo': 'Eğlence',
+  'tut.app-entretenimiento--esencial.1.texto':
+    'Bitirmekte olduğun filmleri, dizileri, kitapları ve video oyunlarını tutar, ve evden çıkmadan oynayabileceğin dijital bir oyun masası getirir. İki bölümü var: Masa Oyunları ve Arşiv.',
+  'tut.app-entretenimiento--esencial.2.titulo': 'Masa Oyunları',
+  'tut.app-entretenimiento--esencial.2.texto':
+    'Masa, ekranda doğrudan oynanan dijital oyunları toplar. Bir filtre, bir ya da iki oyuncu için olanları daha büyük bir grup için uygun olanlardan ayırır.',
+  'tut.app-entretenimiento--esencial.3.titulo': 'Ailelere göre',
+  'tut.app-entretenimiento--esencial.3.texto':
+    'Katalog ailelere göre gruplanmıştır — masa, zekâ, arcade, kart ve kumarhane, ve grup için — her birinin kendi rengiyle. Oyunu tam ekran açmak için herhangi bir karta dokun.',
+  'tut.app-entretenimiento--esencial.4.titulo': 'Arşiv',
+  'tut.app-entretenimiento--esencial.4.texto':
+    'Arşiv izlediğin, okuduğun ve oynadığın şeyleri bir araya getirir: her yapımın durumu, puanı ve senin değerlendirmenle. Türe, kategoriye, yazara ya da tarihe göre sıralanabilir.',
+  'tut.app-garage--esencial.1.titulo': 'Garaj',
+  'tut.app-garage--esencial.1.texto':
+    'Garaj araçlarını takip eder: bisikletler, arabalar, motosikletler ve ulaşım için kullandığın her şey. Her birinin kendi servis geçmişi ve işlemleri vardır, ve tarihi olan her şey kendiliğinden evin takvimine düşer.',
+  'tut.app-garage--esencial.2.titulo': 'Özet',
+  'tut.app-garage--esencial.2.texto':
+    'Giriş sekmesi: bir trafik ışığı bir şeyin süresinin dolduğunu, yaklaştığını ya da garajın huzurlu olduğunu tek bakışta gösterir.',
+  'tut.app-garage--esencial.3.titulo': 'Bir bakışta',
+  'tut.app-garage--esencial.3.texto': 'Kaç aracın olduğu, kaç işlemin hâlâ aktif olduğu ve bu yıl ne kadar harcadığın.',
+  'tut.app-garage--esencial.4.titulo': 'Araçlar',
+  'tut.app-garage--esencial.4.texto':
+    'Her kartta plaka, kilometre ve servis sayısıyla tam liste. Birine dokunmak, servis geçmişi ve işlemleriyle kartını açar.',
+  'tut.app-garage--esencial.5.titulo': 'Yeni bir tane ekle',
+  'tut.app-garage--esencial.5.texto':
+    'Ad, tür, marka, model, yıl, plaka ve bugünün kilometre sayacı. Plaka girildiğinde, kart yalnızca plakalı bir araca uygulanan işlemleri de açar, egzoz muayenesi ya da taşıt vergisi gibi.',
+  'tut.app-hobbies--esencial.1.titulo': 'Uğraşların',
+  'tut.app-hobbies--esencial.1.texto':
+    'Hobiler, keyif için yaptığın şeyleri takip eder: her hobi kendi oturumlarını, serisini ve istersen projelerini toplar.',
+  'tut.app-hobbies--esencial.2.titulo': 'Hobilerin',
+  'tut.app-hobbies--esencial.2.texto':
+    'Kaydettiğin her hobi burada bir kart olarak görünür, haftanın ilerlemesi ve aktif serisiyle. Birini açtığında istatistiklerini, yıllık etkinlik haritasını, oturum kaydını ve projelerini görürsün.',
+  'tut.app-hobbies--esencial.3.titulo': 'Bir hobi ekle',
+  'tut.app-hobbies--esencial.3.texto':
+    'Bu buton yeni bir hobi eklemek için formu açar: ad, emoji, renk ve istersen pratik günlerinde haftalık bir hedef.',
+  'tut.app-hobbies--esencial.4.titulo': 'Her hobinin içinde',
+  'tut.app-hobbies--esencial.4.texto':
+    'Orada dakika ve notla oturumlar kaydedersin, yıllık etkinlik haritanı görürsün ve kendi ilerlemesi olan projeler yürütürsün. Hedefler ve zaman çizelgeleri Hedefler odasında yaşar.',
+  'tut.app-ideas--esencial.1.titulo': 'Fikirler',
+  'tut.app-ideas--esencial.1.texto':
+    'Fikirler, aklına geleni tutar ve olgunlaşmasına yardımcı olur: önce not edilir, sonra bir haritada düzenlenir ve gerekirse karar vermek için karşılaştırılır. Üç bölümü vardır.',
+  'tut.app-ideas--esencial.2.titulo': 'Fikir günlüğü',
+  'tut.app-ideas--esencial.2.texto':
+    'Herhangi bir düşüncenin, tek başına ya da konuya göre bir beyin fırtınasında gruplanmış olarak düştüğü kutu. Klasörlere kaldırılabilir, yıldızla işaretlenebilir ve olgunlaştığında bir haritaya dönüştürülebilir.',
+  'tut.app-ideas--esencial.3.titulo': 'Kavram haritaları',
+  'tut.app-ideas--esencial.3.texto':
+    'Bir konuyu en uygun biçimde düzenlemek için serbest bir tuval: zihin haritası, ağaç, akış, zaman çizelgesi, döngü, piramit, Venn ve daha fazlası.',
+  'tut.app-ideas--esencial.4.titulo': 'Karar şemaları',
+  'tut.app-ideas--esencial.4.texto':
+    'Aynı tuval, ama karar vermek için tasarlanmış biçimlerle: ağırlıklı artı-eksi, SWOT, Eisenhower ya da seçenekleri kendiliğinden sıralayan ağırlıklı bir matris.',
+  'tut.app-idiomas--esencial.1.titulo': 'Dil okulun',
+  'tut.app-idiomas--esencial.1.texto':
+    'Burada bir dil seçersin, yapay zekâ bir öğretmenle sohbet edersin, öğrendiğin kelimeleri kaydedersin ve aralıklı bir sistemle tekrar edersin. Dört bölümü vardır: Sohbetler, Müfredat, Tekrar ve İlerleme.',
+  'tut.app-idiomas--esencial.2.titulo': 'Sohbetler',
+  'tut.app-idiomas--esencial.2.texto':
+    'Öğrendiğin dilde öğretmeninle konuşursun: seviyene göre yanıt verir ve nazikçe düzeltir. Her sohbet kaydedilir ve kendiliğinden sınıflandırılır, ve çıkarken yeni kelimeleri kart olarak çıkarmayı önerir.',
+  'tut.app-idiomas--esencial.3.titulo': 'Müfredat',
+  'tut.app-idiomas--esencial.3.texto':
+    'Dili konulara, telaffuza ve dil bilgisine, A1\'den C2\'ye kadar düzenler. Kelime hazinesi her konunun içinde yaşar: her kart çevirisi ve örneğiyle orada saklanır.',
+  'tut.app-idiomas--esencial.4.titulo': 'Tekrar',
+  'tut.app-idiomas--esencial.4.texto':
+    'Aralıklı tekrar: her kart bir kutuda yaşar ve sadece unutmak üzere olduğun kartlar sorulur, sadece bakmak yerine alıştırmalarla — çoktan seçmeli, ters ya da cümleyi tamamlama.',
+  'tut.app-idiomas--esencial.5.titulo': 'İlerleme',
+  'tut.app-idiomas--esencial.5.texto':
+    'İlerlemenin özeti: kaç kartta ustalaştığın, ne kadar tekrar ettiğin ve mevcut seviyen, tekrarlarının gün gün geçmişiyle.',
+  'tut.app-jardin--esencial.1.titulo': 'Huzur alanın',
+  'tut.app-jardin--esencial.1.texto':
+    'Bahçe üç pratiği bir araya getirir: meditasyon, rehberli nefes ve şükran. Bilerek puan ya da seri tutmaz: burada gelmemek cezalandırılmaz, sadece pratiğine eşlik eder.',
+  'tut.app-jardin--esencial.2.titulo': 'Meditasyon',
+  'tut.app-jardin--esencial.2.texto':
+    'Bir ses parçası ve süre seç, ya da başta ve sonda bir çanla sessizce meditasyon yap. Her oturum geçmişine kaydedilir.',
+  'tut.app-jardin--esencial.3.titulo': 'Nefes',
+  'tut.app-jardin--esencial.3.texto':
+    'İki rehberli nefes deseni, biri seni merkezlemek için, diğeri günü bırakmak için: ekran ilerledikçe seninle birlikte nefes alır.',
+  'tut.app-jardin--esencial.4.titulo': 'Şükran',
+  'tut.app-jardin--esencial.4.texto':
+    'Bugün minnettar olduğun şeyi yaz, tek bir şey bile olsa, ve istediğinde geçmiş kayıtlarına bak. Seri yok: bir günü kaçırmak hiçbir şeyi silmez.',
+  'tut.app-metas--esencial.1.titulo': 'Evin planlayıcısı',
+  'tut.app-metas--esencial.1.texto':
+    'Bu oda kendine ait kayıt tutmaz: diğer uygulamalarda doğan hedefleri ve planları tek bir yerde toplar. Üç bölümü vardır, ve bu sırayla okunur: kendine ne koyduğun, nasıl bölmeyi düşündüğün ve ne zaman düştüğü.',
+  'tut.app-metas--esencial.2.titulo': 'Hedefler',
+  'tut.app-metas--esencial.2.texto':
+    'Kendine koyduğun her şeyin listesi, her hedefi yürüten uygulamaya göre gruplanmış. Bir hedef başka birine bağlı olabilir, ve ona dokunmak kartını açar: orada süresi, adımları ve kendi zaman çizelgesine giriş bulunur.',
+  'tut.app-metas--esencial.3.titulo': 'Planlar',
+  'tut.app-metas--esencial.3.texto':
+    'Bir plan, bir zaman çizelgesinin taslağıdır: bir hedefi tarihleriyle aşamalara böler. Öneri olduğu sürece dilediğin gibi düzenleyebilirsin; ikna olduğunda kabul edersin ve aşamaları gerçek alt hedeflere dönüşür.',
+  'tut.app-metas--esencial.4.titulo': 'Zaman çizelgesi',
+  'tut.app-metas--esencial.4.texto':
+    'Tüm hedeflerin aynı anda olduğu zaman ekseni: her biri tarihlerin üzerinde bir çubuktur. Gün, hafta, ay ya da yıla göre yakınlaştırıp uzaklaştırabilirsin, ve zaten çizilmiş olanla karşılaştırmak için bir plan üzerine yerleştirilebilir.',
+  'tut.app-sala--esencial.1.titulo': 'Gezgin oturma odan',
+  'tut.app-sala--esencial.1.texto':
+    'Gezgin dünyan burada yaşar: iğneli bir dünya haritası, görülecek yerlerin gezi planları, yerleri birbirine bağlayan rotalar ve bir anı seyir defteri. Dört bölümü vardır.',
+  'tut.app-sala--esencial.2.titulo': 'Harita',
+  'tut.app-sala--esencial.2.texto':
+    'Ziyaret ettiğin ya da ziyaret etmeyi hayal ettiğin her yer, dünya haritasında bir iğnedir. Üstteki anahtar, düz haritayı sürükleyerek döndürebileceğin bir küreyle değiştirir.',
+  'tut.app-sala--esencial.3.titulo': 'Gezi planı',
+  'tut.app-sala--esencial.3.texto':
+    'Görmeyi hayal ettiğin yerler, her birinin kendi gün gün planıyla. Tarihi olanlar kendiliğinden takvime planlanır.',
+  'tut.app-sala--esencial.4.titulo': 'Rotalar',
+  'tut.app-sala--esencial.4.texto': 'Bir rota yerleri bir güzergâhta birbirine bağlar ve haritada çizer.',
+  'tut.app-sala--esencial.5.titulo': 'Seyir defteri',
+  'tut.app-sala--esencial.5.texto':
+    'Ziyaret ettiğin yerlerin anıları, ülkeye göre albümlerde: her yerin fotoğrafları ve hikâyeleri.',
   'tut.app-agenda--trabajo.1.titulo': 'Gelen kutusu',
   'tut.app-agenda--trabajo.1.texto':
-    'Yapılması gereken ama henüz günü olmayan her şey önceliğiyle birlikte burada durur. Not almak için ona tarih koymak zorunda değilsin.',
+    'İş’in iki görünümü var: Yapılacaklar kutusu ve Pano. Yapılması gereken ama henüz günü olmayan her şey, önceliğiyle birlikte Yapılacaklar’da durur; not almak için tarih koymak zorunda değilsin.',
   'tut.app-agenda--trabajo.3.titulo': 'Pano',
   'tut.app-agenda--trabajo.3.texto':
-    'Aynı yapılacaklar, üç sütun hâlinde: Yapılacak, Devam ediyor ve Tamamlandı. Bir kartı başka bir sütuna sürüklemek için basılı tut —«Tamamlandı» sütununa bırakmak onu takvimde de işaretler— ya da oklarla taşı.',
+    'Bütün iş üç sütunda —Yapılacak, Devam ediyor ve Tamamlandı—, çoktan tarihi olanlar da dahil. Bir kartı başka bir sütuna sürüklemek için basılı tut («Tamamlandı»ya bırakmak onu takvimde de işaretler) ya da oklarla taşı.',
   'tut.app-agenda--salud.1.titulo': 'Dizin yılı',
   'tut.app-agenda--salud.1.texto':
     'Birkaç ayda bir beslenme, diş hekimi ve 7. aydaki altı fizyoterapi seansı: Pep’i durduran sakatlık burada kayıtlı.',
@@ -737,6 +1030,12 @@ export const TR_TUT: Dict = {
   'tut.app-agenda--salud.4.titulo': 'Tekrarlananlar',
   'tut.app-agenda--salud.4.texto':
     'Yıllık kontrol, diş temizliği, tahliller: kendi dönemi olan bakımlar. Yapıldı işaretleyince sonraki tarih kendiliğinden atlar; takvim asla çoktan yaptığın bir şeyi göstermez.',
+  'tut.app-agenda--salud.ciclo.titulo': 'Döngü',
+  'tut.app-agenda--salud.ciclo.texto':
+    'Sen bölümünün sonunda, kendi anahtarıyla döngü yaşar: gün gün kanama, belirtiler ve ruh hali; son periyotlarınla da bir sonrakini ve doğurgan pencereyi tahmin eder. Kapatmak kaydedilen hiçbir şeyi silmez.',
+  'tut.app-agenda--salud.projimos.titulo': 'Yakınların',
+  'tut.app-agenda--salud.projimos.texto':
+    'Bakımın altındakiler: Kişiler’de «Bakımımda» olarak işaretlenen kişiler; her biri uzmanlık alanına göre randevuları, bakımları ve ilaçlarıyla. Pep annesini burada takip ediyor.',
   'tut.app-agenda--personas.1.titulo': 'Pep’in çevresi',
   'tut.app-agenda--personas.1.texto':
     'Aile, arkadaşlar, iş ve üniversite çevresi; herkes kendi klasöründe. Telefonu, adresi ve unutmak istemediğin ne varsa onunla birlikte.',
@@ -906,6 +1205,9 @@ export const TR_TUT: Dict = {
   'tut.app-garage--vehiculos.2.titulo': 'Şimdiye kadar harcadığın',
   'tut.app-garage--vehiculos.2.texto':
     'Kaç araç, kaç açık işlem ve yıl içinde harcadığın tutar. Pep’e araba pahalıya patladı.',
+  'tut.app-garage--vehiculos.2b.titulo': 'Yeni bir tane ekleme',
+  'tut.app-garage--vehiculos.2b.texto':
+    'Ad, tür, marka, model, yıl, plaka ve bugünkü kilometre sayacı. Plaka girildiğinde, garaj ileride hangi işlemleri önereceğini bilir.',
   'tut.app-garage--vehiculos.3.titulo': 'Her günün bisikleti',
   'tut.app-garage--vehiculos.3.texto':
     'Gerçek ulaşımı: zincir, iç lastik, fren; her biri kendi satırında — diğer uygulamaların kullandığı, yıl ve ay klasörlerinden oluşan aynı arşiv. Servislerin son aylarda nasıl kümelendiğine bak: maraton antrenmanı faturasını kesiyor.',
@@ -915,13 +1217,19 @@ export const TR_TUT: Dict = {
   'tut.app-garage--vehiculos.5.titulo': 'Araç kartı',
   'tut.app-garage--vehiculos.5.texto':
     'Marka, model, yıl, plaka ve güncel kilometre. Plaka girildiğinde garaj, yalnızca arabaya işleyen işlemlerin kilidini açıyor.',
+  'tut.app-garage--tramites.tabs.titulo': 'Üç defter',
+  'tut.app-garage--tramites.tabs.texto':
+    'Her aracın kartı, evraklarını üç deftere dağıtır: İşlemler, Belgeler ve Kişiler. Servis geçmişi, hangi deftere bakılırsa bakılsın hep altta durur.',
   'tut.app-garage--tramites.1.titulo': 'Yaklaşanlar',
   'tut.app-garage--tramites.1.texto':
     'Her işlem bir sonraki son tarihini, kaç ayda bir tekrarlandığını ve ne kadar tuttuğunu saklıyor. Tamamladığında tarih kendiliğinden bir sonrakine atlıyor.',
   'tut.app-garage--tramites.2.titulo': 'Bisiklet taşıt vergisi ödemez',
   'tut.app-garage--tramites.2.texto':
-    'Plaka yoksa garaj, işlemeyen işlemleri gizliyor: bisiklete yalnızca periyodik bakımını öneriyor.',
-  'tut.app-garage--tramites.3.titulo': 'Rehber',
+    'Plaka yoksa yalnızca geçerli olanlar önerilir: bisiklete periyodik bakımı. Muayene, taşıt vergisi ya da sigorta plaka ister; bu yüzden bisikletin Belgeler defteri boş kalır.',
+  'tut.app-garage--tramites.2b.titulo': 'Belgeler, ayrı tutulur',
+  'tut.app-garage--tramites.2b.texto':
+    'Ruhsat, poliçe ve yol vergisi, atölyede yapılanlarla karışmaz: kendi defterleri vardır — numara, son geçerlilik tarihi ve önceden uyarıyla.',
+  'tut.app-garage--tramites.3.titulo': 'Kişiler defteri',
   'tut.app-garage--tramites.3.texto':
     'Güvendiğin servis, sigorta şirketi, muayene istasyonu, mahallenin bisikletçisi ve o geceki çekici — telefonu ve adresi bir dokunuş uzakta.',
   'tut.app-garage--tramites.4.texto':
@@ -931,7 +1239,10 @@ export const TR_TUT: Dict = {
     'Dört ülke ve birkaç şehir: neredeyse hepsi aynı seyahatten. Haritanın altındaki listeyi görmek için üç sayıdan birine dokun.',
   'tut.app-sala--mapa.2.titulo': 'İğneler',
   'tut.app-sala--mapa.2.texto':
-    'Japonya’da kümelenen yedi iğne, seyahatin üç haftası. Sarı olanlar —Seul, Patagonya, İzlanda— henüz gerçekleşmeyenler. Haritaya dokununca istediğin yere yeni bir iğne koyarsın.',
+    'Japonya’da kümelenen yedi iğne, seyahatin üç haftası; turuncu olanlar —Seul, Patagonya, İzlanda— henüz gerçekleşmeyenler. Yeni bir iğne koymak için «Ziyaret edilen iğne» ya da «Gidilecek iğne» seçeneğini aç ve haritada yerine dokun.',
+  'tut.app-sala--mapa.3.titulo': 'Küre',
+  'tut.app-sala--mapa.3.texto':
+    'Üstteki anahtar, düz haritayı sürükleyerek döndürdüğün bir küreyle değiştirir; aynı dokunulabilir iğnelerle. Küre yalnızca bakmak için: yeni iğneler Düz görünümde konur.',
   'tut.app-sala--japon.1.titulo': 'Albümler',
   'tut.app-sala--japon.1.texto':
     'Her ülke için bir klasör, kapak fotoğrafıyla. İçinde her yer için bir kart, her kartın içinde de Pep’in o gün yazdıkları.',
@@ -968,10 +1279,10 @@ export const TR_TUT: Dict = {
     'Her kart oyunu tam ekran açar; destekleyenler üstte kendi Zorluk seçicisiyle gelir. Geri, yerini kaybetmeden seni tam buraya döndürür.',
   'tut.app-diario--habito.1.titulo': 'Bugünün manşetleri',
   'tut.app-diario--habito.1.texto':
-    'Dünya, Ekonomi, Teknoloji, Sağlık, Spor ve Eğlence, hepsi gerçek kaynaklardan. Üstteki etiketler bölüme göre filtreler.',
+    'Dünya, ekonomi, teknoloji, sağlık, spor ve eğlence; filtrelemek için üstteki chip’ler. Kaynaklar senin dilindeki gerçek basın —her manşet hangi gazeteden geldiğini söyler— ve her gün, dönüşümlü olarak farklı medya kuruluşları girer.',
   'tut.app-diario--habito.2.titulo': 'Kendi kendini yeniler',
   'tut.app-diario--habito.2.texto':
-    'Günün baskısı kendiliğinden iner ve gece yarısı baştan aşağı değişir: burada hiçbir şey birikmez, tıpkı gerçek bir gazete gibi.',
+    'Günün baskısı kendiliğinden iner ve gece yarısı baştan aşağı değişir: burada hiçbir şey birikmez, tıpkı gerçek bir gazete gibi. Evin dilini değiştirirsen basın da değişir: her dil kendi medya kuruluşlarını getirir.',
   'tut.app-diario--habito.3.titulo': 'Tarihte bir gün',
   'tut.app-diario--habito.3.texto':
     'Diğer yarısı: bugün gibi bir günde ne olduğu, bir sanat eseri, bir kitap, bir canlı türü, bir kelime. Haberler içinden gelmese bile gazeteyi açmak için iyi bir bahane.',

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState, type CSSProperties } from 'react'
 import { createPortal } from 'react-dom'
 import { useShallow } from 'zustand/react/shallow'
 import type { Cuarto } from '../data/db'
-import { rutinasRepo } from '../data/repository'
+import { planesMetaRepo, rutinasRepo } from '../data/repository'
 import { useHouse } from '../state/houseStore'
 import { useDiseño } from '../state/disenoStore'
 import { useCuartos } from '../state/cuartosStore'
@@ -72,7 +72,7 @@ function RetoSisifo({ progreso }: { progreso: ProgresoJugador | undefined }) {
     useSisifoUi.getState().abrir()
   }
   return (
-    <div className="flex min-w-0 shrink items-center gap-1.5">
+    <div data-tut="inicio.reto" className="flex min-w-0 shrink items-center gap-1.5">
       <AroSisifo
         valor={sisifo.altura / DIAS_META}
         color={rango.color}
@@ -113,10 +113,13 @@ function CifrasApp({
   enfoque,
   color,
   metas,
+  planes,
 }: {
   enfoque: ProgresoPlantilla | undefined
   color: string
   metas: number | null
+  /** Planes aceptados; solo lo pasa el cuarto Metas, que es de quien son. */
+  planes: number | null
 }) {
   const t = useT()
   if (!enfoque) return null
@@ -132,7 +135,9 @@ function CifrasApp({
         </span>
         <span className="shrink-0 text-[9px] tabular-nums text-white/40">{enfoque.xp} XP</span>
       </div>
-      <div className="flex items-center justify-center gap-2 text-[9px] tabular-nums text-white/45">
+      {/* `flex-wrap`: con el 4º dato del planificador ya no caben en una línea a
+          `md:grid-cols-5`, y solo esa tarjeta parte en dos. */}
+      <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5 text-[9px] tabular-nums text-white/45">
         <span title={t('progreso.rachaTitulo', 'Racha de días con actividad')}>
           <Icono nombre="racha" /> {enfoque.racha}
         </span>
@@ -142,6 +147,11 @@ function CifrasApp({
         {metas != null && (
           <span title={t('nav.rapido.metas', 'Metas cumplidas en esta app')}>
             <Icono nombre="objetivo" /> {metas}
+          </span>
+        )}
+        {planes != null && (
+          <span title={t('progreso.planesTitulo', 'Planes aceptados')}>
+            <Icono nombre="lista" /> {planes}
           </span>
         )}
       </div>
@@ -195,6 +205,9 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
   // Una sola lectura de rutinas para las metas cumplidas de las 17.
   const rutinas = rutinasRepo.useAll()
   const metas = useMemo(() => (rutinas ?? []).filter(esMeta), [rutinas])
+  // Los planes son del planificador, así que solo su tarjeta gana el chip.
+  const planes = planesMetaRepo.useAll()
+  const aceptados = useMemo(() => (planes ?? []).filter((p) => p.aceptadoEn).length, [planes])
 
   // Escape sale primero del modo edición y solo después cierra el panel. Con un
   // diálogo encima no hace nada: ese Escape es suyo (los dos escuchan a la vez).
@@ -273,6 +286,7 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
               <>
                 <button
                   type="button"
+                  data-tut="inicio.fondo"
                   onClick={() => setFondoAbierto(true)}
                   title={t('nav.fondo.titulo', 'Fondo de pantalla')}
                   aria-label={t('nav.fondo.titulo', 'Fondo de pantalla')}
@@ -306,6 +320,7 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
             )}
             <button
               type="button"
+              data-tut="inicio.cerrar"
               onClick={onCerrar}
               title={t('rutinas.cerrar', 'Cerrar')}
               aria-label={t('rutinas.cerrar', 'Cerrar')}
@@ -326,6 +341,7 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
             // El fondo va DETRÁS DE LAS APPS, no de la ventana entera: sobre la
             // cabecera dejaba el título y los botones ilegibles.
             <ul
+              data-tut="inicio.rejilla"
               className="grid min-h-0 flex-1 grid-cols-2 content-start gap-1.5 overflow-y-auto rounded-xl p-1.5 sm:grid-cols-4 holgado:gap-2 holgado:p-2 md:grid-cols-5"
               style={fondo}
             >
@@ -355,11 +371,14 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
                         ...vivo(color),
                         borderColor: 'color-mix(in srgb, var(--ui-ink) 10%, transparent)',
                         // Opaca a propósito: con foto de fondo, una tarjeta translúcida
-                        // deja el nombre y las cifras ilegibles.
-                        backgroundColor: `color-mix(in srgb, ${color} 12%, var(--ui-panel-solido, var(--ui-panel)))`,
+                        // deja el nombre y las cifras ilegibles. Pero el fondo NO va en
+                        // línea: así ganaba al `:hover` de `.ui-brillo` y la dejaba muerta.
+                        // Aquí solo se dice SOBRE QUÉ mezcla la clase y cuánto en reposo.
+                        '--brillo-fondo': 'var(--ui-panel-solido, var(--ui-panel))',
+                        '--brillo': '12%',
                         // Desfase por tarjeta: si tiemblan al unísono parece un fallo.
                         animationDelay: edicion ? `${(i % 5) * -60}ms` : undefined,
-                      }}
+                      } as CSSProperties}
                     >
                       <span
                         className={`flex items-center justify-center overflow-hidden rounded-xl text-xl holgado:text-2xl ${
@@ -382,7 +401,12 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
                         )}
                       </span>
                       <span className="w-full truncate text-[11px] font-semibold text-white/90 holgado:text-xs">{titulo}</span>
-                      <CifrasApp enfoque={enfoque} color={color} metas={metasCumplidasDe(metas, appId)} />
+                      <CifrasApp
+                        enfoque={enfoque}
+                        color={color}
+                        metas={metasCumplidasDe(metas, appId)}
+                        planes={appId === 'metas' ? aceptados : null}
+                      />
                     </button>
 
                     {/* En modo edición el lápiz ocupa esa esquina. */}

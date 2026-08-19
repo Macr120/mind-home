@@ -211,6 +211,70 @@ export const cuerpoCalculadoras: CuerpoTutorial = {
   ],
 }
 
+/**
+ * Esencial: corre en la casa REAL, así que solo recorre los cuatro menús de
+ * primer nivel — anclas que existen con la BD vacía — y no crea ningún dato.
+ */
+export const cuerpoEsencial: CuerpoTutorial = {
+  preparar: () => {
+    abrirApp('despacho')
+  },
+  pasos: [
+    {
+      titulo: T('tut.app-despacho--esencial.1.titulo', 'Tus finanzas'),
+      texto: T(
+        'tut.app-despacho--esencial.1.texto',
+        'El despacho ordena tu dinero en cuatro menús: lo que tienes, lo que entra y sale, tus metas y los mercados. Cada uno abre sus propias secciones debajo.',
+      ),
+    },
+    {
+      sel: 'despacho.tab.patrimonio',
+      titulo: T('tut.app-despacho--esencial.2.titulo', 'Patrimonio'),
+      texto: T(
+        'tut.app-despacho--esencial.2.texto',
+        'Lo que tienes y lo que debes, en dos listas: activos y pasivos. La tercera sección proyecta esa foto hacia adelante con la tasa que le pongas a cada línea.',
+      ),
+      alEntrar: async () => {
+        await esperarTut('despacho.tab.patrimonio', 4000)
+        clickTut('despacho.tab.patrimonio')
+      },
+    },
+    {
+      sel: 'despacho.tab.balance',
+      titulo: T('tut.app-despacho--esencial.3.titulo', 'Flujo'),
+      texto: T(
+        'tut.app-despacho--esencial.3.texto',
+        'El dinero que entra y el que sale, separado en gastos, ingresos y balance. El balance resume el periodo que elijas —día, semana, mes o año— con su presupuesto, sus categorías y su tendencia.',
+      ),
+      alEntrar: () => {
+        clickTut('despacho.tab.balance')
+      },
+    },
+    {
+      sel: 'despacho.tab.metas',
+      titulo: T('tut.app-despacho--esencial.4.titulo', 'Metas'),
+      texto: T(
+        'tut.app-despacho--esencial.4.texto',
+        'Tus objetivos de dinero en tres secciones: ahorro e inversión, deuda, y unas calculadoras que proponen un monto a partir de tu propio balance. Cada meta puede bajar al cronograma y llevar fecha.',
+      ),
+      alEntrar: () => {
+        clickTut('despacho.tab.metas')
+      },
+    },
+    {
+      sel: 'despacho.tab.mercados',
+      titulo: T('tut.app-despacho--esencial.5.titulo', 'Mercados'),
+      texto: T(
+        'tut.app-despacho--esencial.5.texto',
+        'Cotizaciones en vivo de divisas, cripto, acciones y materias primas; necesita conexión. Es un tablero de consulta: la app no recomienda qué comprar ni qué vender.',
+      ),
+      alEntrar: () => {
+        clickTut('despacho.tab.mercados')
+      },
+    },
+  ],
+}
+
 export const cuerpoPatrimonio: CuerpoTutorial = {
   preparar: () => {
     abrirApp('despacho')

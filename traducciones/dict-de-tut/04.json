@@ -1,162 +1,162 @@
 [
   {
-    "clave": "tut.editor-mapa.3.texto",
-    "es": "Los techos son por celda: cada una puede tener su propia forma o material, así que un mismo cuarto puede combinar aguas distintas en vez de un solo techo plano.",
-    "en": "Roofs are per cell: each one can have its own shape or material, so a single room can mix different roof pitches instead of one flat roof."
+    "clave": "tut.app-ejercicio--esencial.3.texto",
+    "es": "El entrenamiento con peso: cada sesión guarda sus ejercicios con series, repeticiones y carga. Con eso la app calcula el volumen del día, dibuja la progresión de cada ejercicio y guarda los récords.",
+    "en": "Training with weight: every session stores its exercises with sets, reps and load. From that the app works out the day's volume, charts the progression of each exercise and keeps your records."
   },
   {
-    "clave": "tut.editor-mapa.4.texto",
-    "es": "La casa también tiene niveles: pisos apilables hacia arriba y un sótano hacia abajo. Cada nivel nuevo nace con su propia forma de subir —una escalera o un hueco en la losa— que perfora el piso de encima.",
-    "en": "The home also has levels: stackable floors going up and a basement going down. Every new level is born with its own way up —a staircase or a gap in the slab— that cuts through the floor above."
+    "clave": "tut.app-ejercicio--esencial.4.titulo",
+    "es": "Catálogo, rutinas y progreso",
+    "en": "Catalogue, routines and progress"
   },
   {
-    "clave": "tut.editor-mapa.5.titulo",
-    "es": "Listo",
-    "en": "Done"
+    "clave": "tut.app-ejercicio--esencial.4.texto",
+    "es": "Las tres modalidades se organizan igual. El Catálogo agrupa los ejercicios disponibles y arma rutinas con ellos, Rutinas registra el entreno del día que elijas arriba, y Progreso resume el periodo con su mapa de calor.",
+    "en": "All three modes are laid out the same way. The Catalogue groups the available exercises and builds routines from them, Routines logs the workout for the day you pick above, and Progress sums up the period with its heat map."
   },
   {
-    "clave": "tut.editor-mapa.5.texto",
-    "es": "Todo se guarda solo mientras editas. Listo cierra el editor y te regresa al juego con la casa ya como la dejaste.",
-    "en": "Everything saves itself as you edit. Done closes the editor and returns you to the game with the home just as you left it."
+    "clave": "tut.app-ejercicio--esencial.5.titulo",
+    "es": "Resistencia",
+    "en": "Endurance"
   },
   {
-    "clave": "tut.editor-personajes.1.texto",
-    "es": "Tu personaje principal y tus asistentes viven en el mismo editor: elige a quién editar arriba y las herramientas cambian según lo que tenga sentido para cada uno.",
-    "en": "Your main character and your assistants live in the same editor: pick who to edit up top, and the tools change to fit what makes sense for each."
+    "clave": "tut.app-ejercicio--esencial.5.texto",
+    "es": "Correr, pedalear, nadar o caminar, por tramos con sus minutos y su distancia. Desde aquí se abre el entrenamiento en vivo, que toma el recorrido por GPS y el pulso de un sensor Bluetooth y guarda la sesión al terminar.",
+    "en": "Running, cycling, swimming or walking, split into legs with their minutes and distance. The live workout opens from here: it takes the route from GPS and the heart rate from a Bluetooth sensor, and saves the session when you finish."
   },
   {
-    "clave": "tut.editor-personajes.2.titulo",
-    "es": "Rostro y foto",
-    "en": "Face and photo"
+    "clave": "tut.app-ejercicio--esencial.6.titulo",
+    "es": "Flexibilidad",
+    "en": "Flexibility"
   },
   {
-    "clave": "tut.editor-personajes.2.texto",
-    "es": "Expresión, peinado y color de pelo, o directo una foto tuya para que el personaje se parezca a ti. No todos los cuerpos admiten rostro propio.",
-    "en": "Expression, hairstyle and hair color, or straight-up a photo of you so the character looks like you. Not every body supports a custom face."
+    "clave": "tut.app-ejercicio--esencial.6.texto",
+    "es": "Estiramientos y movilidad, con series por tiempo en vez de por peso: cada postura lleva sus segundos y sus repeticiones. El reproductor guiado corre la rutina postura por postura con un temporizador que avisa cuándo cambiar.",
+    "en": "Stretching and mobility, with timed sets instead of weighted ones: each pose has its seconds and its reps. The guided player runs the routine pose by pose with a timer that tells you when to switch."
   },
   {
-    "clave": "tut.editor-personajes.3.titulo",
-    "es": "Ropa por categoría",
-    "en": "Clothes by category"
+    "clave": "tut.app-entretenimiento--esencial.1.titulo",
+    "es": "Entretenimiento",
+    "en": "Entertainment"
   },
   {
-    "clave": "tut.editor-personajes.3.texto",
-    "es": "Cada prenda se pone, se quita y cambia de color por separado: camisa, pantalón, calzado, accesorios. Se combinan libremente.",
-    "en": "Every piece goes on, comes off and changes color on its own: shirt, pants, footwear, accessories. They combine freely."
+    "clave": "tut.app-entretenimiento--esencial.1.texto",
+    "es": "Guarda las películas, series, libros y videojuegos que vas terminando, y trae una mesa de juegos digital para jugar sin salir de la casa. Son dos menús: Juegos de mesa y Archivo.",
+    "en": "Keeps the movies, shows, books, and video games you're finishing, and brings a digital game table you can play without leaving the house. There are two menus: Board games and Archive."
   },
   {
-    "clave": "tut.editor-personajes.4.titulo",
-    "es": "Atuendos guardados",
-    "en": "Saved outfits"
+    "clave": "tut.app-entretenimiento--esencial.2.titulo",
+    "es": "Juegos de mesa",
+    "en": "Board games"
   },
   {
-    "clave": "tut.editor-personajes.4.texto",
-    "es": "Guarda una combinación completa de ropa como un atuendo y cámbiate entero con un toque, sin rearmar prenda por prenda cada vez.",
-    "en": "Save a full clothing combo as an outfit and switch your whole look with one tap, instead of rebuilding it piece by piece every time."
+    "clave": "tut.app-entretenimiento--esencial.2.texto",
+    "es": "La mesa reúne juegos digitales que se juegan directo en pantalla. Un filtro separa lo pensado para uno o dos jugadores de lo que sirve para un grupo más grande.",
+    "en": "The table gathers digital games you play right on screen. A filter separates what works for one or two players from what suits a bigger group."
   },
   {
-    "clave": "tut.editor-personajes.5.titulo",
-    "es": "Guardarropa por cuarto",
-    "en": "Wardrobe by room"
+    "clave": "tut.app-entretenimiento--esencial.3.titulo",
+    "es": "Por familias",
+    "en": "By family"
   },
   {
-    "clave": "tut.editor-personajes.5.texto",
-    "es": "Asigna un atuendo distinto a cada cuarto: tu avatar entra vestido para correr en Ejercicio y cambia solo al pasar a la cocina.",
-    "en": "Assign a different outfit to each room: your avatar walks into Exercise dressed to run and switches on its own when it steps into the kitchen."
+    "clave": "tut.app-entretenimiento--esencial.3.texto",
+    "es": "El catálogo se agrupa en familias —tablero, ingenio, arcade, cartas y casino, y para el grupo— cada una con su propio color. Toca cualquier tarjeta para abrir el juego en pantalla completa.",
+    "en": "The catalog is grouped into families — board, puzzle, arcade, cards and casino, and for the group — each with its own color. Tap any card to open the game full screen."
   },
   {
-    "clave": "tut.editor-personajes.6.texto",
-    "es": "Cuerpo, color y tamaño se editan igual que siempre; con IA activada también puedes generar un modelo 3D propio en vez de elegir uno de los presets.",
-    "en": "Body, color and size edit the same as always; with AI enabled you can also generate your own 3D model instead of picking one of the presets."
+    "clave": "tut.app-entretenimiento--esencial.4.titulo",
+    "es": "Archivo",
+    "en": "Archive"
   },
   {
-    "clave": "tut.editor-objetos.1.texto",
-    "es": "Toca un objeto de la escena (o de la lista) para editarlo: color, tamaño y rotación son los tres ajustes que comparten todos.",
-    "en": "Tap an object in the scene (or the list) to edit it: color, size and rotation are the three settings every object shares."
+    "clave": "tut.app-entretenimiento--esencial.4.texto",
+    "es": "El archivo junta lo que ves, lees y juegas: cada título con su estado, su calificación y tu reseña. Se puede ordenar por género, categoría, autor o fecha.",
+    "en": "The archive gathers what you watch, read, and play: each title with its status, its rating, and your review. It can be sorted by genre, category, author, or date."
   },
   {
-    "clave": "tut.editor-objetos.2.texto",
-    "es": "Los objetos con app asignada abren su plantilla al entrar al cuarto; los que no, son solo decoración — ambos se editan igual.",
-    "en": "Objects with an app assigned open their template when you enter the room; the rest are just decoration — both edit the same way."
+    "clave": "tut.app-garage--esencial.1.titulo",
+    "es": "El garaje",
+    "en": "The garage"
   },
   {
-    "clave": "tut.editor-objetos.3.texto",
-    "es": "El engrane ⚙️ de un objeto lo convierte en editable por piezas: arma tus propios modelos combinando formas básicas, o pide uno a la IA describiéndolo.",
-    "en": "The ⚙️ gear on an object turns it into a piece-by-piece editable model: build your own by combining basic shapes, or ask the AI for one by describing it."
+    "clave": "tut.app-garage--esencial.1.texto",
+    "es": "El garaje lleva tus vehículos: bicicletas, autos, motos y lo que uses para moverte. Cada uno con su historial de servicios y sus trámites, y todo lo que tenga fecha se agenda solo en el calendario de la casa.",
+    "en": "The garage tracks your vehicles: bikes, cars, motorcycles, anything you get around on. Each one keeps its service history and its procedures, and anything with a date books itself onto the house calendar."
   },
   {
-    "clave": "tut.editor-config.1.texto",
-    "es": "Ocho secciones plegables, no una lista larga: toca el título para abrir solo la que te interesa.",
-    "en": "Eight collapsible sections, not one long list: tap a title to open only the one you care about."
+    "clave": "tut.app-garage--esencial.2.titulo",
+    "es": "Resumen",
+    "en": "Overview"
   },
   {
-    "clave": "tut.editor-config.2.titulo",
-    "es": "Cuenta e IA",
-    "en": "Account and AI"
+    "clave": "tut.app-garage--esencial.2.texto",
+    "es": "La pestaña de entrada: un semáforo dice de un vistazo si algo venció, si algo se acerca o si el garaje está en paz.",
+    "en": "The landing tab: a traffic light shows at a glance whether something is overdue, coming up, or the garage is all clear."
   },
   {
-    "clave": "tut.editor-config.2.texto",
-    "es": "Iniciar sesión, tu plan y cuánto llevas gastado de IA este mes; justo al lado, la tabla de precios de cada operación. Los dos tienen su propio tutorial detallado.",
-    "en": "Sign in, your plan and how much AI you've used this month; right next to it, the price table for every operation. Both have their own detailed tutorial."
+    "clave": "tut.app-garage--esencial.3.titulo",
+    "es": "De un vistazo",
+    "en": "At a glance"
   },
   {
-    "clave": "tut.editor-config.3.titulo",
-    "es": "Estilo visual",
-    "en": "Visual style"
+    "clave": "tut.app-garage--esencial.3.texto",
+    "es": "Cuántos vehículos tienes, cuántos trámites siguen activos y lo que llevas gastado en el año.",
+    "en": "How many vehicles you have, how many procedures are still active, and how much you've spent this year."
   },
   {
-    "clave": "tut.editor-config.3.texto",
-    "es": "El tema del mapa (luz, niebla, iluminación) y los estilos de postprocesado, todo cargado bajo demanda para no pesar de más.",
-    "en": "The map's theme (light, fog, lighting) and the postprocessing styles, all loaded on demand so they don't add weight upfront."
+    "clave": "tut.app-garage--esencial.4.titulo",
+    "es": "Vehículos",
+    "en": "Vehicles"
   },
   {
-    "clave": "tut.editor-config.4.titulo",
-    "es": "Interfaz e idioma",
-    "en": "Interface and language"
+    "clave": "tut.app-garage--esencial.4.texto",
+    "es": "La lista completa, con placa, kilometraje y número de servicios en cada tarjeta. Al tocar uno se abre su ficha, con el historial de servicios y sus trámites.",
+    "en": "The full list, with plate, mileage and service count on each card. Tapping one opens its record, with its service history and procedures."
   },
   {
-    "clave": "tut.editor-config.4.texto",
-    "es": "Idioma, tema de la interfaz (claro/oscuro/automático), estilo de iconos y densidad — todo lo que cambia CÓMO se ve la casa, no qué contiene.",
-    "en": "Language, interface theme (light/dark/automatic), icon style and density — everything that changes HOW the home looks, not what it holds."
+    "clave": "tut.app-garage--esencial.5.titulo",
+    "es": "Dar de alta uno nuevo",
+    "en": "Adding a new one"
   },
   {
-    "clave": "tut.editor-config.5.titulo",
-    "es": "Notificaciones",
-    "en": "Notifications"
+    "clave": "tut.app-garage--esencial.5.texto",
+    "es": "Nombre, tipo, marca, modelo, año, placas y el odómetro de hoy. Con las placas puestas, la ficha habilita también los trámites que solo aplican a un vehículo con matrícula, como la verificación o la tenencia.",
+    "en": "Name, type, make, model, year, plates and today's odometer reading. With plates set, the record also unlocks the procedures that only apply to a plated vehicle, like inspection or registration renewal."
   },
   {
-    "clave": "tut.editor-config.5.texto",
-    "es": "Qué avisos llegan y cuáles se callan: rutinas, avisos de plan y recordatorios se pueden apagar por separado.",
-    "en": "Which alerts arrive and which stay quiet: routines, plan reminders and notices can each be turned off separately."
+    "clave": "tut.app-hobbies--esencial.1.titulo",
+    "es": "Tus pasatiempos",
+    "en": "Your pastimes"
   },
   {
-    "clave": "tut.editor-config.6.texto",
-    "es": "Música y Tutoriales tienen su propio recorrido; Respaldo de datos también, y es el que más conviene revisar antes de un cambio de dispositivo.",
-    "en": "Music and Tutorials have their own walkthrough; so does Data backup, and it's the one most worth checking before switching devices."
+    "clave": "tut.app-hobbies--esencial.1.texto",
+    "es": "Hobbies lleva el seguimiento de lo que practicas por gusto: cada hobby junta sus sesiones, su racha y, si quieres, sus proyectos.",
+    "en": "Hobbies tracks what you practice for fun: each hobby gathers its sessions, its streak and, if you want, its projects."
   },
   {
-    "clave": "tut.respaldo.1.titulo",
-    "es": "Dónde vive tu casa",
-    "en": "Where your home lives"
+    "clave": "tut.app-hobbies--esencial.2.titulo",
+    "es": "Tus hobbies",
+    "en": "Your hobbies"
   },
   {
-    "clave": "tut.respaldo.1.texto",
-    "es": "Sin cuenta ni sincronización, tus datos están solo en este dispositivo. El aviso de arriba dice si el navegador tiene permiso para protegerlos de una limpieza automática.",
-    "en": "Without an account or sync, your data lives only on this device. The notice above says whether the browser has permission to protect it from an automatic cleanup."
+    "clave": "tut.app-hobbies--esencial.2.texto",
+    "es": "Cada hobby que registres aparece aquí como una tarjeta, con el avance de la semana y la racha activa. Al abrir uno ves sus estadísticas, su heatmap del año, el registro de sesiones y sus proyectos.",
+    "en": "Each hobby you register shows up here as a card, with the week's progress and the active streak. Opening one shows its stats, its yearly heatmap, the session log and its projects."
   },
   {
-    "clave": "tut.respaldo.2.titulo",
-    "es": "Exportar",
-    "en": "Export"
+    "clave": "tut.app-hobbies--esencial.3.titulo",
+    "es": "Dar de alta un hobby",
+    "en": "Adding a hobby"
   },
   {
-    "clave": "tut.respaldo.2.texto",
-    "es": "Descarga un único archivo JSON con todas tus tablas: cuartos, metas, registros, todo. Es tu copia de seguridad manual.",
-    "en": "Downloads a single JSON file with every table: rooms, goals, logs, everything. It's your manual backup copy."
+    "clave": "tut.app-hobbies--esencial.3.texto",
+    "es": "Este botón abre el formulario para sumar un hobby nuevo: nombre, emoji, color y, si quieres, una meta semanal en días de práctica.",
+    "en": "This button opens the form to add a new hobby: name, emoji, color and, if you want, a weekly goal in practice days."
   },
   {
-    "clave": "tut.respaldo.3.titulo",
-    "es": "Restaurar",
-    "en": "Restore"
+    "clave": "tut.app-hobbies--esencial.4.titulo",
+    "es": "Dentro de cada hobby",
+    "en": "Inside each hobby"
   }
 ]

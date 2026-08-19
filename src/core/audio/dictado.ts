@@ -1,4 +1,5 @@
 import { usarViaCuenta, iaVozCuenta, ErrorIA } from '../cuenta/api'
+import { esperarSesion } from '../cuenta/sesionStore'
 import { getIaKey, proveedorVoz } from '../chat/ia'
 import { blobABase64 } from '../imagenIA'
 import { useGastoByok } from '../cuenta/gastoByok'
@@ -50,7 +51,10 @@ if (typeof window !== 'undefined') {
  * Corta ANTES de grabar cuando no hay forma de pagar la transcripción: ni
  * cuenta con créditos ni proveedor de voz con clave propia.
  */
-function exigirTransporteVoz(): void {
+async function exigirTransporteVoz(): Promise<void> {
+  // Igual que en `chat/ia.ts`: primero que la sesión hidrate, o en los primeros
+  // segundos tras abrir la app esto acusaría de «sin créditos» a quien los tiene.
+  await esperarSesion()
   if (usarViaCuenta()) return
   if (proveedorVoz()) return
   useCuotaAgotada.getState().abrir()
@@ -88,7 +92,7 @@ async function sttGemini(blob: Blob, mime: string, key: string, idioma?: string)
  * usa para estimar el gasto BYOK — sin ella, la llamada BYOK no se cuenta.
  */
 export async function transcribir(blob: Blob, idioma?: string, duracionSeg?: number): Promise<string> {
-  exigirTransporteVoz()
+  await exigirTransporteVoz()
   const mime = blob.type || 'audio/webm'
   if (usarViaCuenta()) {
     return iaVozCuenta(await blobABase64(blob), mime, idioma)

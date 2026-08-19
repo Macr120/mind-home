@@ -1,130 +1,15 @@
 [
-  {
-    "clave": "tut.chat.6.texto",
-    "texto": "Das Handbuch listet die Befehle auf: Räume hinzufügen oder entfernen, Objekte erstellen, sich Dinge merken…"
-  },
-  {
-    "clave": "tut.chat.7.titulo",
-    "texto": "Das KI-Modell"
-  },
-  {
-    "clave": "tut.chat.7.texto",
-    "texto": "Dieses Symbol wählt aus, welche KI antwortet, und speichert deinen Schlüssel, falls du deinen eigenen nutzt. Ohne konfiguriertes Modell läuft der Chat weiter über Stichwörter, versteht aber keine freie Sprache."
-  },
-  {
-    "clave": "tut.chat.8.texto",
-    "texto": "Du kannst hier auch fragen „Wie funktioniert die Küche?“ oder „Tutorial zu Fitness“ verlangen; und was dabei gespeichert wurde, schaust du dir in der Tour „Einträge“ an."
-  },
-  {
-    "clave": "tut.chat-registros.1.texto",
-    "texto": "Chats zeigt, mit wem du geredet hast; Einträge zeigt, was aus diesen Gesprächen gespeichert wurde."
-  },
-  {
-    "clave": "tut.chat-registros.2.titulo",
-    "texto": "Was er sich über dich merkt"
-  },
-  {
-    "clave": "tut.chat-registros.2.texto",
-    "texto": "Dinge, die der Assistent es wert fand, sich zwischen den Sitzungen zu merken – eine Allergie, ein Ziel, eine Vorliebe – damit er dich nicht noch einmal danach fragt. Mit einem Tipp auf das ✕ vergisst er sie wieder."
-  },
-  {
-    "clave": "tut.chat-registros.3.texto",
-    "texto": "Was du in deinen Apps einträgst (Mahlzeiten, Ausgaben, Einheiten), lebt in der jeweiligen App, nicht hier: Dieser Tab ist nur das Gedächtnis des Gesprächs selbst."
-  },
-  {
-    "clave": "tut.app-generica.1.texto",
-    "texto": "Der Kopfbereich zeigt den Raum und die geöffnete App. Hat der Raum mehrere Apps, führt der Pfeil ‹ zurück zu den Apps des Raums."
-  },
-  {
-    "clave": "tut.app-generica.2.titulo",
-    "texto": "Was heute ansteht"
-  },
-  {
-    "clave": "tut.app-generica.2.texto",
-    "texto": "Deine Schritte für heute in dieser App: deine Tagesziele, was du eingeplant hast und was deine Ziele einfordern. Tipp darauf, um sie aufzuklappen – jeder Schritt streicht sich selbst durch, sobald du etwas einträgst."
-  },
-  {
-    "clave": "tut.app-generica.3.titulo",
-    "texto": "Die Bausteine"
-  },
-  {
-    "clave": "tut.app-generica.3.texto",
-    "texto": "Diese Vorlage ist aus Bausteinen zusammengesetzt (Notizen, Listen, Zähler, Gewohnheiten…). Ändern kannst du sie unter Menü › Vorlagen › Bearbeiten."
-  },
-  {
-    "clave": "tut.app-generica.4.titulo",
-    "texto": "Verlassen"
-  },
-  {
-    "clave": "tut.app-generica.4.texto",
-    "texto": "„Zurück zum Haus“ schließt die App und setzt dich wieder in der 3D-Ansicht ab. Was du hier eingetragen hast, ist längst gespeichert."
-  },
-  {
-    "clave": "tut.rutinas.1.texto",
-    "texto": "Peps Routinen-Panel: oben, was heute ansteht, unten der vollständige Katalog zum Pausieren, Bearbeiten oder Löschen."
-  },
-  {
-    "clave": "tut.rutinas.2.titulo",
-    "texto": "Was heute dran ist"
-  },
-  {
-    "clave": "tut.rutinas.2.texto",
-    "texto": "Die Schicht im Café, die Physikstunde, der Lauf im Morgengrauen, Klavier am Abend: Jede Karte ist eine Routine mit ihren Schritten. Die, die bernsteinfarben heraussticht, sollte längst laufen und steht immer noch aus."
-  },
-  {
-    "clave": "tut.rutinas.3.titulo",
-    "texto": "Abhaken ist nicht immer nötig"
-  },
-  {
-    "clave": "tut.rutinas.3.texto",
-    "texto": "Der Schritt mit dem Blitz ⚡ trägt sich von selbst ein: Der Lauf im Morgengrauen ist durchgestrichen, weil dieser Lauf schon in Fitness gespeichert ist, nicht weil ihn jemand von Hand abgehakt hätte. Die übrigen Schritte hakst du mit einem Tipp ab."
-  },
-  {
-    "clave": "tut.rutinas.4.titulo",
-    "texto": "Der vollständige Katalog"
-  },
-  {
-    "clave": "tut.rutinas.4.texto",
-    "texto": "Hier stehen alle, ob heute dran oder nicht. ON/OFF pausiert eine Routine, ohne ihre Historie zu löschen: Was bis heute erledigt ist, bleibt, und ab morgen wird sie nicht mehr eingefordert. Bearbeiten und ✕ ändern oder löschen die ganze Routine."
-  },
-  {
-    "clave": "tut.rutinas.5.titulo",
-    "texto": "Eine Routine anlegen"
-  },
-  {
-    "clave": "tut.rutinas.5.texto",
-    "texto": "Name, die App, zu der sie gehört (oder keine, wenn es ein loses Haus-Ereignis ist), Uhrzeit und Farbe. Die Schritte sind optional: ohne sie ist es einfach ein Ereignis im Kalender."
-  },
-  {
-    "clave": "tut.rutinas.6.titulo",
-    "texto": "Einmal, jede Woche oder für immer"
-  },
-  {
-    "clave": "tut.rutinas.6.texto",
-    "texto": "Klavier läuft unbefristet ohne markierte Tage (also jeden Tag); Laufen wiederholt sich nur an den Tagen, die Pep markiert hat. Monatlich, jährlich oder über einen Zeitraum wählst du hier nicht: Das entsteht, wenn du das Ziel direkt auf das Raster des Kalenders zeichnest."
-  },
-  {
-    "clave": "tut.rutinas.7.titulo",
-    "texto": "Die Erinnerung zur rechten Zeit"
-  },
-  {
-    "clave": "tut.rutinas.7.texto",
-    "texto": "Mit erteilter Erlaubnis kommt sie als Systembenachrichtigung; sonst sagt es dir der Assistent in der App, wenn du sie das nächste Mal öffnest."
-  },
-  {
-    "clave": "tut.rutinas.8.texto",
-    "texto": "Alles, was du hier einplanst, erscheint auch im Raster des Kalenders und – in der App jedes Schritts – in deren Liste Heute."
-  },
-  {
-    "clave": "tut.enlaces.1.titulo",
-    "texto": "Vom Ziel zu seiner App"
-  },
-  {
-    "clave": "tut.enlaces.1.texto",
-    "texto": "Jedes Ziel und jeder Planschritt kann einen Chip mit dem Symbol einer App tragen: Er beantwortet die Frage „Und wo trage ich das ein?“."
-  },
-  {
-    "clave": "tut.enlaces.2.titulo",
-    "texto": "Setzen oder ändern"
-  }
+  { "clave": "tut.app-metas--esencial.3.texto", "texto": "Ein Plan ist der Entwurf eines Zeitplans: Er teilt ein Ziel in Phasen mit ihren Terminen auf. Solange er ein Vorschlag ist, lässt er sich beliebig anpassen; überzeugt er, wird er angenommen, und seine Phasen werden zu echten Teilzielen." },
+  { "clave": "tut.app-metas--esencial.4.titulo", "texto": "Zeitplan" },
+  { "clave": "tut.app-metas--esencial.4.texto", "texto": "Die Zeitachse mit allen Zielen auf einmal: Jedes ist ein Balken über den Terminen. Du zoomst nach Tagen, Wochen, Monaten oder Jahren hinein und heraus, und ein Plan kann darübergelegt werden, um ihn mit dem bereits Geplanten zu vergleichen." },
+  { "clave": "tut.app-sala--esencial.1.titulo", "texto": "Dein Reise-Wohnzimmer" },
+  { "clave": "tut.app-sala--esencial.1.texto", "texto": "Hier lebt deine Reisewelt: eine Weltkarte mit Pins, Reisepläne für Orte, die du noch entdecken willst, Routen, die Orte verbinden, und ein Logbuch der Erinnerungen. Vier Tabs." },
+  { "clave": "tut.app-sala--esencial.2.titulo", "texto": "Karte" },
+  { "clave": "tut.app-sala--esencial.2.texto", "texto": "Jeder Ort, den du besucht hast oder besuchen möchtest, ist ein Pin auf der Weltkarte. Der Schalter oben tauscht die Weltkarte gegen einen Globus, den du durch Ziehen drehst." },
+  { "clave": "tut.app-sala--esencial.3.titulo", "texto": "Reiseplan" },
+  { "clave": "tut.app-sala--esencial.3.texto", "texto": "Die Orte, die du kennenlernen möchtest, jeder mit seinem Tag-für-Tag-Plan. Die mit einem Datum tragen sich von selbst in den Kalender ein." },
+  { "clave": "tut.app-sala--esencial.4.titulo", "texto": "Routen" },
+  { "clave": "tut.app-sala--esencial.4.texto", "texto": "Eine Route verbindet Orte zu einer Strecke und zeichnet sie auf der Karte." },
+  { "clave": "tut.app-sala--esencial.5.titulo", "texto": "Logbuch" },
+  { "clave": "tut.app-sala--esencial.5.texto", "texto": "Die Erinnerungen an deine besuchten Orte, in Alben nach Land: Fotos und Anekdoten von jedem Ort." }
 ]

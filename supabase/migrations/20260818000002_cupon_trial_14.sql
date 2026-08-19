@@ -1,0 +1,11 @@
+-- El periodo de pruebas de los testers son DOS SEMANAS (decisión del 18-ago-2026),
+-- así que el default de `cupones.trial_dias` baja de 30 a 14: emitir un cupón de
+-- tester ya no obliga a repetir el número.
+--
+-- No toca el mes incluido en la compra del unlock, que sigue en 30 días
+-- (`TRIAL_DIAS` en revenuecat-webhook): ese es un beneficio de pago, no el
+-- periodo de pruebas. Tampoco toca el pool: el plan `trial` da 700 créditos
+-- (`limites_plan`) tanto al tester como a quien compra.
+--
+-- Solo cambia el default; los cupones ya emitidos conservan su `trial_dias`.
+alter table public.cupones alter column trial_dias set default 14;

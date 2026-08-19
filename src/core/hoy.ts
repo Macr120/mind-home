@@ -70,6 +70,12 @@ export interface PasoHoy {
   hecho: boolean
   /** De qué meta o fase de plan viene. */
   deQuien?: string
+  /**
+   * La meta de la que DERIVA, si deriva de una: el bloque que ella agendó
+   * (`Rutina.deMetaId`) o su propio paso. Es lo que lee `esDeMeta` para decidir
+   * de qué lado de la lista cae; el nombre para leerlo va en `deQuien`.
+   */
+  metaId?: number
   /** Su hora, si la tiene («14:00»). */
   hora?: string
   /** Ya pasó su hora y sigue pendiente: se asoma aunque la lista esté plegada. */
@@ -154,12 +160,17 @@ export async function armarPasosHoy(
   const filas = todas.filter((r) => r.plantillaId === plantillaId)
   const ejecuciones = await db.ejecucionesRutina.where('fecha').equals(fecha).toArray()
   // De qué meta salió el bloque: la meta puede ser de otra app (una de cocina que
-  // agenda ejercicio), así que se busca en todas y no solo en las de esta.
-  const deMeta = (r: Rutina) => (r.deMetaId != null ? todas.find((m) => m.id === r.deMetaId)?.nombre : undefined)
+  // agenda ejercicio), así que se busca en todas y no solo en las de esta. Se
+  // devuelve la FILA y no su nombre porque de ella salen las dos cosas: el rótulo
+  // y el `metaId` con el que la lista separa lo del día de lo que sirve a una meta.
+  const metaDe = (r: Rutina) => (r.deMetaId != null ? todas.find((m) => m.id === r.deMetaId) : undefined)
 
   // ── 2. Lo agendado que toca hoy ───────────────────────────────────────────
   for (const r of filas) {
     if (esMeta(r) || !tocaFecha(r, dia)) continue
+    // Buscada contra `todas`, que ya viene filtrado por `visibles`: si la meta se
+    // ocultó o se borró, el bloque se queda sin madre y cuenta como del día a día.
+    const madre = metaDe(r)
     const hechos = pasosHechosHoy(r, ejecuciones)
     const tarde = esHoy && r.hora ? minutosDesde(r.hora, ahora) : -1
     const urgente = tarde >= 0 && tarde <= VENTANA_TARDE_MIN
@@ -170,7 +181,8 @@ export async function armarPasosHoy(
         origen: 'rutina',
         titulo: r.nombre,
         emoji: r.emoji,
-        deQuien: deMeta(r),
+        deQuien: madre?.nombre,
+        metaId: madre?.id,
         frac: hecho ? 1 : 0,
         hecho,
         hora: r.hora,
@@ -191,7 +203,8 @@ export async function armarPasosHoy(
         // el paso YA se llame como su bloque —lo que pasa con un objetivo del
         // catálogo, que es un bloque de un solo paso—: ahí repetirlo no dice nada.
         emoji: r.emoji,
-        deQuien: deMeta(r) ?? (p.titulo === r.nombre ? undefined : `${r.emoji} ${r.nombre}`),
+        deQuien: madre?.nombre ?? (p.titulo === r.nombre ? undefined : `${r.emoji} ${r.nombre}`),
+        metaId: madre?.id,
         frac: hecho ? 1 : 0,
         hecho,
         hora: r.hora,
@@ -217,6 +230,7 @@ export async function armarPasosHoy(
         origen: 'meta',
         titulo: m.nombre,
         emoji: m.emoji,
+        metaId: m.id,
         frac: m.completada ? 1 : 0,
         hecho: !!m.completada,
         hora: m.hora,
@@ -232,6 +246,7 @@ export async function armarPasosHoy(
         origen: 'meta',
         titulo: p.titulo,
         deQuien: m.nombre,
+        metaId: m.id,
         frac: hechos.has(i) ? 1 : 0,
         hecho: hechos.has(i),
         seccion: m.seccion,
@@ -245,6 +260,19 @@ export async function armarPasosHoy(
     if (!!a.urgente !== !!b.urgente) return a.urgente ? -1 : 1
     return (a.hora ?? '99:99').localeCompare(b.hora ?? '99:99')
   })
+}
+
+/**
+ * ¿El paso DERIVA de una meta, o es del día a día? Es el único sitio donde se
+ * decide: las dos listas de Misiones —la de cada app y la de toda la casa— se
+ * parten en dos con esta función, así que el criterio no puede divergir.
+ *
+ * El objetivo del día de la app no cuenta como de meta aunque una haya subido su
+ * cifra (eso es lo que pone su `deQuien`): la meta movió el listón, no inventó la
+ * misión — el agua de cada día sigue siendo el agua de cada día.
+ */
+export function esDeMeta(p: PasoHoy): boolean {
+  return p.origen === 'meta' || p.metaId != null
 }
 
 /**

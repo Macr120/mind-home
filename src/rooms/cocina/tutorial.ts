@@ -121,6 +121,94 @@ export const cuerpoRecetario: CuerpoTutorial = {
   ],
 }
 
+/**
+ * ESENCIAL: corre en la casa real y recorre los menús de la app uno por uno.
+ * Sin datos de por medio: sus anclas son las pestañas de los dos enfoques, que
+ * existen con la BD vacía.
+ */
+export const cuerpoEsencial: CuerpoTutorial = {
+  preparar: () => {
+    abrirApp('cocina')
+  },
+  pasos: [
+    {
+      titulo: T('tut.app-cocina--esencial.1.titulo', 'La cocina'),
+      texto: T(
+        'tut.app-cocina--esencial.1.texto',
+        'Esta app lleva dos cosas: lo que vas a cocinar y lo que acabas comiendo. Cada una tiene su menú arriba, y cada menú abre sus propias pestañas.',
+      ),
+    },
+    {
+      sel: 'cocina.enfoque.recetario',
+      titulo: T('tut.app-cocina--esencial.2.titulo', 'Recetario'),
+      texto: T(
+        'tut.app-cocina--esencial.2.texto',
+        'El lado de cocinar: aquí viven tus recetas, las dietas que las agrupan y la lista del súper. Son tres pestañas, en ese orden.',
+      ),
+      alEntrar: async () => {
+        await esperarTut('cocina.enfoque.recetario', 4000)
+        clickTut('cocina.enfoque.recetario')
+      },
+    },
+    {
+      sel: 'cocina.tab.plan',
+      titulo: T('tut.app-cocina--esencial.3.titulo', 'Dieta'),
+      texto: T(
+        'tut.app-cocina--esencial.3.texto',
+        'Una dieta es un plan de alimentación con sus recetas dentro y, si quieres, sus propias metas de calorías y macros. Guardas las tuyas junto a las que ya trae la app.',
+      ),
+      alEntrar: () => irA('recetario', 'plan'),
+    },
+    {
+      sel: 'cocina.tab.recetas',
+      titulo: T('tut.app-cocina--esencial.4.titulo', 'Recetas'),
+      texto: T(
+        'tut.app-cocina--esencial.4.texto',
+        'El recetario: cada receta guarda ingredientes, pasos y sus macros por porción, y se ordena en carpetas. Desde una receta puedes registrar la comida o mandar sus ingredientes a la lista del súper.',
+      ),
+      alEntrar: () => irA('recetario', 'recetas'),
+    },
+    {
+      sel: 'cocina.tab.compras',
+      titulo: T('tut.app-cocina--esencial.5.titulo', 'Compras'),
+      texto: T(
+        'tut.app-cocina--esencial.5.texto',
+        'La lista del súper, con cada artículo en el pasillo que le toca. Puedes armar una lista juntando lo que falta de varias recetas e ir marcando lo que ya está en la despensa.',
+      ),
+      alEntrar: () => irA('recetario', 'compras'),
+    },
+    {
+      sel: 'cocina.enfoque.peso',
+      titulo: T('tut.app-cocina--esencial.6.titulo', 'Control de alimentación'),
+      texto: T(
+        'tut.app-cocina--esencial.6.texto',
+        'El otro menú lleva la cuenta de lo que comes, en cuatro pestañas numeradas. La primera es Metas: con tu peso, tu altura y tu actividad calcula cuánto necesitas al día y reparte los macros.',
+      ),
+      alEntrar: () => {
+        clickTut('cocina.enfoque.peso')
+      },
+    },
+    {
+      sel: 'cocina.tab.diario',
+      titulo: T('tut.app-cocina--esencial.7.titulo', 'Registro'),
+      texto: T(
+        'tut.app-cocina--esencial.7.texto',
+        'Lo que ya pasó: las comidas del día con sus calorías, el agua que llevas y tu peso cuando te pesas. La pestaña de al lado, Plan de comidas, es lo contrario: la rejilla de lo que piensas comer los días que vienen.',
+      ),
+      alEntrar: () => irA('peso', 'diario'),
+    },
+    {
+      sel: 'cocina.tab.progreso',
+      titulo: T('tut.app-cocina--esencial.8.titulo', 'Progreso'),
+      texto: T(
+        'tut.app-cocina--esencial.8.texto',
+        'Las estadísticas de todo lo anterior en el periodo que elijas: calorías y macros, agua y la curva de tu peso. Abajo, un calendario coloreado dice de un vistazo qué días te quedaste dentro del objetivo.',
+      ),
+      alEntrar: () => irA('peso', 'progreso'),
+    },
+  ],
+}
+
 export const cuerpoCronograma: CuerpoTutorial = {
   preparar: () => {
     abrirApp('cocina')

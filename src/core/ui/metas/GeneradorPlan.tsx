@@ -270,12 +270,12 @@ export function GeneradorPlan({
   const diasPropuestos = propuesta ? diasDePlan(aplanar(propuesta.nodos)) : 0
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col">
-      <div className="flex items-center gap-2 border-b border-white/10 px-3 py-2">
+    <div className="space-y-3">
+      <div className="flex items-center gap-2">
         <button
           type="button"
           onClick={onCancelar}
-          className="shrink-0 rounded-lg px-1.5 py-0.5 text-[11px] font-semibold text-white/45 transition hover:bg-white/10 hover:text-white/85"
+          className="ui-presion shrink-0 rounded-lg px-1.5 py-0.5 text-2xs font-semibold text-white/45 transition hover:bg-white/10 hover:text-white/85"
         >
           ‹ {t('cal.meta.volverMetas', 'Volver a las metas')}
         </button>
@@ -284,356 +284,354 @@ export function GeneradorPlan({
         </p>
       </div>
 
-      <div className="min-h-0 flex-1 overflow-y-auto p-3">
-        <div className="mx-auto max-w-2xl space-y-3">
-          {propuesta === null && (
-            <>
-              <p className="text-xs leading-relaxed text-white/45">
-                {t('cal.plan.desc', 'Dime cuánto tiempo tienes y la IA arma un cronograma de sub-metas.')}
+      <div className="space-y-3">
+        {propuesta === null && (
+          <>
+            <p className="text-xs leading-relaxed text-white/45">
+              {t('cal.plan.desc', 'Dime cuánto tiempo tienes y la IA arma un cronograma de sub-metas.')}
+            </p>
+
+            <div className="space-y-1">
+              <p className="text-2xs uppercase tracking-wide text-white/40">
+                {t('cal.plan.plazo', 'Plazo')}
               </p>
-
-              <div className="space-y-1">
-                <p className="text-[10px] uppercase tracking-wide text-white/40">
-                  {t('cal.plan.plazo', 'Plazo')}
-                </p>
-                <div className="flex rounded-lg border border-white/10 p-0.5">
-                  {PLAZOS.map((v) => (
-                    <button
-                      key={v}
-                      type="button"
-                      onClick={() => setPlazo(v)}
-                      className={`flex-1 rounded-md px-1.5 py-1 text-[11px] font-semibold transition ${
-                        plazo === v ? 'bg-white/15 text-white' : 'text-white/45 hover:text-white/80'
-                      }`}
-                    >
-                      {t(`cal.plan.plazo.${v}`, TEXTO_PLAZO[v])}
-                    </button>
-                  ))}
-                </div>
-                <p className="text-[10px] leading-relaxed text-white/35">
-                  {t(`cal.plan.plazo.${plazo}.desc`, DESC_PLAZO[plazo])}
-                </p>
-                {!sinFechas && (
-                  <div className="flex items-center gap-2 pt-0.5">
-                    <input
-                      type="date"
-                      value={fechaInicio}
-                      min={hoy}
-                      onChange={(e) => setFechaInicio(e.target.value)}
-                      title={t('cal.plan.fechaInicio', 'Cuándo arranca el plan')}
-                      className="min-w-0 flex-1 rounded-lg border border-white/10 bg-black/30 px-2.5 py-2 text-sm tabular-nums outline-none focus:border-white/30"
-                    />
-                    {plazo === 'fija' && (
-                      <>
-                        <span className="shrink-0 text-xs text-white/30">→</span>
-                        <input
-                          type="date"
-                          value={fechaObjetivo}
-                          min={fechaInicio}
-                          onChange={(e) => setFechaObjetivo(e.target.value)}
-                          title={t('cal.plan.fechaObjetivo', 'Fecha objetivo')}
-                          className="min-w-0 flex-1 rounded-lg border border-white/10 bg-black/30 px-2.5 py-2 text-sm tabular-nums outline-none focus:border-white/30"
-                        />
-                      </>
-                    )}
-                  </div>
-                )}
-                {plazo === 'fija' && !fechasValidas && (
-                  <p className="text-[10px] text-amber-300">
-                    {t('cal.plan.fechasInvalidas', 'La fecha objetivo debe ir después del inicio.')}
-                  </p>
-                )}
+              <div className="flex rounded-lg border border-white/10 p-0.5">
+                {PLAZOS.map((v) => (
+                  <button
+                    key={v}
+                    type="button"
+                    onClick={() => setPlazo(v)}
+                    className={`ui-presion flex-1 rounded-md px-1.5 py-1 text-2xs font-semibold transition ${
+                      plazo === v ? 'bg-white/15 text-white' : 'text-white/45 hover:text-white/80'
+                    }`}
+                  >
+                    {t(`cal.plan.plazo.${v}`, TEXTO_PLAZO[v])}
+                  </button>
+                ))}
               </div>
-
-              <div className="space-y-1">
-                <p className="text-[10px] uppercase tracking-wide text-white/40">
-                  {t('cal.plan.horasSemana', 'Horas por semana')}
-                </p>
-                <div className="flex items-center gap-2">
-                  {HORAS.map((n) => (
-                    <button
-                      key={n}
-                      type="button"
-                      onClick={() => setHorasSemana(n)}
-                      className={`rounded-full px-3 py-1 text-xs tabular-nums transition ${
-                        horasSemana === n ? 'font-semibold text-black' : 'bg-white/5 text-white/70 hover:bg-white/10'
-                      }`}
-                      style={horasSemana === n ? { background: color } : undefined}
-                    >
-                      {n} h
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="space-y-1">
-                <p className="text-[10px] uppercase tracking-wide text-white/40">
-                  {t('cal.plan.dias', 'Días que puedes dedicarle')}
-                </p>
-                <div className="flex items-center gap-1">
-                  {DIAS_SEMANA.map((d) => (
-                    <button
-                      key={d}
-                      type="button"
-                      onClick={() => toggleDia(d)}
-                      className={`h-7 flex-1 rounded-lg text-[10px] font-semibold uppercase transition ${
-                        dias.includes(d) ? 'text-black' : 'bg-white/5 text-white/50 hover:bg-white/10'
-                      }`}
-                      style={dias.includes(d) ? { background: color } : undefined}
-                    >
-                      {t(`cal.plan.dia.${d}`, ['D', 'L', 'M', 'X', 'J', 'V', 'S'][d])}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="space-y-1">
-                <p className="text-[10px] uppercase tracking-wide text-white/40">
-                  {t('cal.plan.nivel', 'Punto de partida')}
-                </p>
-                <div className="flex flex-wrap items-center gap-1.5">
-                  {NIVELES.map((n) => (
-                    <button
-                      key={n}
-                      type="button"
-                      onClick={() => setNivel(n)}
-                      className={`rounded-full px-3 py-1 text-xs transition ${
-                        nivel === n ? 'font-semibold text-black' : 'bg-white/5 text-white/70 hover:bg-white/10'
-                      }`}
-                      style={nivel === n ? { background: color } : undefined}
-                    >
-                      {t(`cal.plan.nivel.${n}`, TEXTO_NIVEL[n])}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {!conIA && (
-                <p className="rounded-lg border border-amber-400/30 bg-amber-400/10 px-3 py-2 text-xs leading-relaxed text-amber-200/90">
-                  {t('cal.plan.iaApagada', 'La IA no está disponible: revisa tu clave y tu conexión. Mientras, puedes crear el plan a mano.')}
-                </p>
-              )}
-              {fallo && (
-                <div className="rounded-lg border border-amber-400/30 bg-amber-400/10 px-3 py-2 text-xs leading-relaxed text-amber-200/90">
-                  <p>{t('cal.plan.fallo', 'La IA no pudo armar el plan. Reintenta o créalo a mano.')}</p>
-                  <p className="mt-1 break-words font-mono text-[10px] text-amber-300">{fallo}</p>
-                </div>
-              )}
-
-              <button
-                type="button"
-                onClick={() => void generar()}
-                disabled={cargando || !conIA || dias.length === 0 || !fechasValidas}
-                className="w-full rounded-xl py-2.5 text-sm font-semibold text-black transition disabled:opacity-40"
-                style={{ background: color }}
-              >
-                {cargando ? (
-                  <span className="animate-pulse">
-                    <Icono nombre="reloj-arena" /> {t('cal.plan.generando', 'Armando el cronograma…')}
-                  </span>
-                ) : (
-                  <>
-                    <Icono nombre="brillo" /> {t('cal.plan.generar', 'Generar plan')}
-                  </>
-                )}
-              </button>
-              <div className="flex justify-center">
-                <Creditos op={OP_PLAN_IA} />
-              </div>
-
-              {/* La vía sin IA, siempre viva: el plan se guarda vacío y las fases se
-                  escriben en su hoja, que es donde de todos modos se retocan. */}
-              <div className="space-y-1 border-t border-white/10 pt-2">
-                <button
-                  type="button"
-                  onClick={() => void guardarManual()}
-                  disabled={guardando || !fechasValidas}
-                  className="w-full rounded-xl border border-white/15 py-2 text-sm font-semibold text-white/75 transition hover:bg-white/10 disabled:opacity-40"
-                >
-                  <Icono nombre="editar" /> {t('cal.plan.aMano', 'Crear a mano')}
-                </button>
-                <p className="text-center text-[10px] leading-relaxed text-white/35">
-                  {t('cal.plan.aMano.desc', 'Guarda el plan vacío y escribes tú las fases, sin gastar créditos.')}
-                </p>
-              </div>
-            </>
-          )}
-
-          {propuesta !== null && (
-            <>
-              {/* Lo primero que hay que ver cuando no se dio plazo: cuánto pide la meta.
-                  Sin plazo el plan no tiene calendario, así que solo se dice el esfuerzo. */}
-              <div className="rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2">
-                <p className="text-[10px] uppercase tracking-wide text-white/40">
-                  {sinFechas
-                    ? t('cal.plan.sinPlazo', 'Sin plazo')
-                    : plazo === 'fija'
-                      ? t('cal.plan.duracionPlan', 'Duración del plan')
-                      : t('cal.plan.duracionPropuesta', 'Tiempo que propone la IA')}
-                </p>
-                <p className="text-sm font-semibold text-white/90">
-                  {t('cal.plan.semanas', '{n} semanas', { n: Math.max(1, Math.round(diasPropuestos / 7)) })}
-                  <span className="ms-1 font-normal text-white/40">
-                    ({t('cal.plan.duracion', '{n} días', { n: diasPropuestos })}
-                    {!sinFechas && (
-                      <>
-                        {' · '}
-                        {t('cal.plan.hasta', 'hasta el {fecha}', {
-                          fecha: fechaCorta(isoMasDias(fechaInicio, diasPropuestos - 1)),
-                        })}
-                      </>
-                    )}
-                    )
-                  </span>
-                </p>
-              </div>
-
-              <p className="text-xs leading-relaxed text-white/45">
-                {propuesta.resumen || t('cal.plan.revisar', 'Este es el plan. Guárdalo para verlo sobre tu cronograma.')}
+              <p className="text-2xs leading-relaxed text-white/35">
+                {t(`cal.plan.plazo.${plazo}.desc`, DESC_PLAZO[plazo])}
               </p>
-
-              {/* Solo lectura: un cronograma no es una lista de sugerencias sueltas —
-                  quitarle una fase descuadra las fechas de las demás. Si no gusta, se
-                  regenera; y ya guardado, se retoca nodo a nodo en su hoja. */}
-              {nodosPropuestos.map((n) => (
-                <div
-                  key={n.id}
-                  style={{ marginLeft: n.padre ? 18 : 0 }}
-                  className="flex items-baseline gap-2 rounded-lg bg-black/20 px-3 py-2"
-                >
-                  <span className={`min-w-0 flex-1 text-sm ${n.padre ? 'text-white/75' : 'font-semibold text-white/90'}`}>
-                    {n.nombre}
-                  </span>
-                  {/* Dónde propone la IA que se registre el paso. Inerte hasta guardar:
-                      abrir la app dejaría la propuesta a medias y sin guardar. */}
-                  {n.enlaceApp && <ChipApp enlace={n.enlaceApp} soloLectura />}
-                  {n.ini != null && n.fin != null && (
-                    <span className="shrink-0 text-[11px] tabular-nums text-white/35">
-                      {fechaCorta(isoMasDias(fechaInicio, n.ini))} – {fechaCorta(isoMasDias(fechaInicio, n.fin))}
-                    </span>
+              {!sinFechas && (
+                <div className="flex items-center gap-2 pt-0.5">
+                  <input
+                    type="date"
+                    value={fechaInicio}
+                    min={hoy}
+                    onChange={(e) => setFechaInicio(e.target.value)}
+                    title={t('cal.plan.fechaInicio', 'Cuándo arranca el plan')}
+                    className="min-w-0 flex-1 rounded-lg border border-white/10 bg-black/30 px-2.5 py-2 text-sm tabular-nums outline-none focus:border-white/30"
+                  />
+                  {plazo === 'fija' && (
+                    <>
+                      <span className="shrink-0 text-xs text-white/30">→</span>
+                      <input
+                        type="date"
+                        value={fechaObjetivo}
+                        min={fechaInicio}
+                        onChange={(e) => setFechaObjetivo(e.target.value)}
+                        title={t('cal.plan.fechaObjetivo', 'Fecha objetivo')}
+                        className="min-w-0 flex-1 rounded-lg border border-white/10 bg-black/30 px-2.5 py-2 text-sm tabular-nums outline-none focus:border-white/30"
+                      />
+                    </>
                   )}
                 </div>
-              ))}
-
-              {materialSel.length > 0 && (
-                <div className="space-y-1.5 pt-1">
-                  <p className="text-[10px] uppercase tracking-wide text-white/40">
-                    {ctxApp?.material?.titulo ?? t('cal.plan.material', 'Material del plan')}
-                  </p>
-                  <p className="text-[10px] leading-relaxed text-white/35">
-                    {t('cal.plan.material.desc', 'Lo que el plan usa de esta app, con su porqué. Se guarda junto al plan.')}
-                  </p>
-                  {materialSel.map((x, i) => (
-                    <div key={x.m.nombre} className="rounded-lg bg-black/20 px-2.5 py-1.5">
-                      <div className="flex items-center gap-2">
-                        <button
-                          type="button"
-                          onClick={() => toggleMaterial(i)}
-                          aria-pressed={x.activa}
-                          title={t('cal.plan.material.usar', 'Incluir en el plan')}
-                          className={`flex h-5 w-5 shrink-0 items-center justify-center rounded border text-[10px] transition ${
-                            x.activa ? 'border-transparent text-black' : 'border-white/20 text-transparent hover:border-white/40'
-                          }`}
-                          style={x.activa ? { background: color } : undefined}
-                        >
-                          <Icono nombre="confirmar" />
-                        </button>
-                        <span className="min-w-0 flex-1 truncate text-xs text-white/90">{x.m.nombre}</span>
-                        {x.m.rutina && <span className="shrink-0 text-[10px] text-white/35">{x.m.rutina}</span>}
-                      </div>
-                      {x.activa && x.m.motivo && (
-                        <p className="mt-1 text-[10px] leading-relaxed text-white/40">{x.m.motivo}</p>
-                      )}
-                    </div>
-                  ))}
-                </div>
               )}
-
-              {sugeridas.length > 0 && (
-                <div className="space-y-1.5 pt-1">
-                  <p className="text-[10px] uppercase tracking-wide text-white/40">
-                    {t('cal.plan.rutinas', 'Agendar en el calendario')}
-                  </p>
-                  <p className="text-[10px] leading-relaxed text-white/35">
-                    {t(
-                      'cal.plan.rutinas.desc',
-                      'Las marcadas se agendan en el calendario al guardar el plan, con su hora y sus días.',
-                    )}
-                  </p>
-                  {sugeridas.map((s, i) => (
-                    <div key={s.r.actividad.actividadId} className="rounded-lg bg-black/20 px-2.5 py-1.5">
-                      <div className="flex items-center gap-2">
-                        <button
-                          type="button"
-                          onClick={() => toggleSugerida(i)}
-                          aria-pressed={s.activa}
-                          title={t('cal.plan.rutinas.usar', 'Agendar esta rutina')}
-                          className={`flex h-5 w-5 shrink-0 items-center justify-center rounded border text-[10px] transition ${
-                            s.activa ? 'border-transparent text-black' : 'border-white/20 text-transparent hover:border-white/40'
-                          }`}
-                          style={s.activa ? { background: color } : undefined}
-                        >
-                          <Icono nombre="confirmar" />
-                        </button>
-                        <span className="min-w-0 flex-1 truncate text-xs text-white/90">
-                          {s.r.actividad.nombre}
-                        </span>
-                        <span className="shrink-0 text-[10px] text-white/35">
-                          {s.r.tipoEtiqueta}
-                          {s.r.actividad.duracionMin ? ` · ${s.r.actividad.duracionMin} min` : ''}
-                        </span>
-                      </div>
-                      {s.activa && (
-                        <div className="mt-1.5 flex items-center gap-1">
-                          <input
-                            type="time"
-                            step={900}
-                            value={s.hora}
-                            onChange={(e) => ponerHoraSugerida(i, e.target.value)}
-                            title={t('horario.hora', 'Hora')}
-                            className="shrink-0 rounded-md border border-white/10 bg-black/30 px-1.5 py-0.5 text-[10px] font-semibold tabular-nums outline-none focus:border-white/30"
-                          />
-                          {DIAS_SEMANA.map((d) => (
-                            <button
-                              key={d}
-                              type="button"
-                              onClick={() => toggleDiaSugerida(i, d)}
-                              className={`h-6 flex-1 rounded-md text-[9px] font-semibold uppercase transition ${
-                                s.dias.includes(d) ? 'text-black' : 'bg-white/5 text-white/40 hover:bg-white/10'
-                              }`}
-                              style={s.dias.includes(d) ? { background: color } : undefined}
-                            >
-                              {t(`cal.plan.dia.${d}`, ['D', 'L', 'M', 'X', 'J', 'V', 'S'][d])}
-                            </button>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
+              {plazo === 'fija' && !fechasValidas && (
+                <p className="text-2xs text-amber-300">
+                  {t('cal.plan.fechasInvalidas', 'La fecha objetivo debe ir después del inicio.')}
+                </p>
               )}
+            </div>
 
-              <div className="flex justify-end gap-2 pt-1">
-                <button
-                  type="button"
-                  onClick={() => setPropuesta(null)}
-                  className="rounded-xl bg-white/5 px-4 py-2 text-sm hover:bg-white/10"
-                >
-                  {t('cal.plan.otraVez', 'Volver')}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => void guardar()}
-                  disabled={guardando}
-                  className="rounded-xl px-4 py-2 text-sm font-semibold text-black disabled:opacity-40"
-                  style={{ background: color }}
-                >
-                  {t('cal.plan.guardar', 'Guardar plan')}
-                </button>
+            <div className="space-y-1">
+              <p className="text-2xs uppercase tracking-wide text-white/40">
+                {t('cal.plan.horasSemana', 'Horas por semana')}
+              </p>
+              <div className="flex items-center gap-2">
+                {HORAS.map((n) => (
+                  <button
+                    key={n}
+                    type="button"
+                    onClick={() => setHorasSemana(n)}
+                    className={`ui-presion rounded-full px-3 py-1 text-xs tabular-nums transition ${
+                      horasSemana === n ? 'font-semibold text-black' : 'bg-white/5 text-white/70 hover:bg-white/10'
+                    }`}
+                    style={horasSemana === n ? { background: color } : undefined}
+                  >
+                    {n} h
+                  </button>
+                ))}
               </div>
-            </>
-          )}
-        </div>
+            </div>
+
+            <div className="space-y-1">
+              <p className="text-2xs uppercase tracking-wide text-white/40">
+                {t('cal.plan.dias', 'Días que puedes dedicarle')}
+              </p>
+              <div className="flex items-center gap-1">
+                {DIAS_SEMANA.map((d) => (
+                  <button
+                    key={d}
+                    type="button"
+                    onClick={() => toggleDia(d)}
+                    className={`ui-presion h-7 flex-1 rounded-lg text-2xs font-semibold uppercase transition ${
+                      dias.includes(d) ? 'text-black' : 'bg-white/5 text-white/50 hover:bg-white/10'
+                    }`}
+                    style={dias.includes(d) ? { background: color } : undefined}
+                  >
+                    {t(`cal.plan.dia.${d}`, ['D', 'L', 'M', 'X', 'J', 'V', 'S'][d])}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-1">
+              <p className="text-2xs uppercase tracking-wide text-white/40">
+                {t('cal.plan.nivel', 'Punto de partida')}
+              </p>
+              <div className="flex flex-wrap items-center gap-1.5">
+                {NIVELES.map((n) => (
+                  <button
+                    key={n}
+                    type="button"
+                    onClick={() => setNivel(n)}
+                    className={`ui-presion rounded-full px-3 py-1 text-xs transition ${
+                      nivel === n ? 'font-semibold text-black' : 'bg-white/5 text-white/70 hover:bg-white/10'
+                    }`}
+                    style={nivel === n ? { background: color } : undefined}
+                  >
+                    {t(`cal.plan.nivel.${n}`, TEXTO_NIVEL[n])}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {!conIA && (
+              <p className="rounded-lg border border-amber-400/30 bg-amber-400/10 px-3 py-2 text-xs leading-relaxed text-amber-200/90">
+                {t('cal.plan.iaApagada', 'La IA no está disponible: revisa tu clave y tu conexión. Mientras, puedes crear el plan a mano.')}
+              </p>
+            )}
+            {fallo && (
+              <div className="rounded-lg border border-amber-400/30 bg-amber-400/10 px-3 py-2 text-xs leading-relaxed text-amber-200/90">
+                <p>{t('cal.plan.fallo', 'La IA no pudo armar el plan. Reintenta o créalo a mano.')}</p>
+                <p className="mt-1 break-words font-mono text-2xs text-amber-300">{fallo}</p>
+              </div>
+            )}
+
+            <button
+              type="button"
+              onClick={() => void generar()}
+              disabled={cargando || !conIA || dias.length === 0 || !fechasValidas}
+              className="ui-presion w-full rounded-xl py-2.5 text-sm font-semibold text-black transition disabled:opacity-40"
+              style={{ background: color }}
+            >
+              {cargando ? (
+                <span className="animate-pulse">
+                  <Icono nombre="reloj-arena" /> {t('cal.plan.generando', 'Armando el cronograma…')}
+                </span>
+              ) : (
+                <>
+                  <Icono nombre="brillo" /> {t('cal.plan.generar', 'Generar plan')}
+                </>
+              )}
+            </button>
+            <div className="flex justify-center">
+              <Creditos op={OP_PLAN_IA} />
+            </div>
+
+            {/* La vía sin IA, siempre viva: el plan se guarda vacío y las fases se
+                escriben en su hoja, que es donde de todos modos se retocan. */}
+            <div className="space-y-1 border-t border-white/10 pt-2">
+              <button
+                type="button"
+                onClick={() => void guardarManual()}
+                disabled={guardando || !fechasValidas}
+                className="ui-presion w-full rounded-xl border border-white/15 py-2 text-sm font-semibold text-white/75 transition hover:bg-white/10 disabled:opacity-40"
+              >
+                <Icono nombre="editar" /> {t('cal.plan.aMano', 'Crear a mano')}
+              </button>
+              <p className="text-center text-2xs leading-relaxed text-white/35">
+                {t('cal.plan.aMano.desc', 'Guarda el plan vacío y escribes tú las fases, sin gastar créditos.')}
+              </p>
+            </div>
+          </>
+        )}
+
+        {propuesta !== null && (
+          <>
+            {/* Lo primero que hay que ver cuando no se dio plazo: cuánto pide la meta.
+                Sin plazo el plan no tiene calendario, así que solo se dice el esfuerzo. */}
+            <div className="rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2">
+              <p className="text-2xs uppercase tracking-wide text-white/40">
+                {sinFechas
+                  ? t('cal.plan.sinPlazo', 'Sin plazo')
+                  : plazo === 'fija'
+                    ? t('cal.plan.duracionPlan', 'Duración del plan')
+                    : t('cal.plan.duracionPropuesta', 'Tiempo que propone la IA')}
+              </p>
+              <p className="text-sm font-semibold text-white/90">
+                {t('cal.plan.semanas', '{n} semanas', { n: Math.max(1, Math.round(diasPropuestos / 7)) })}
+                <span className="ms-1 font-normal text-white/40">
+                  ({t('cal.plan.duracion', '{n} días', { n: diasPropuestos })}
+                  {!sinFechas && (
+                    <>
+                      {' · '}
+                      {t('cal.plan.hasta', 'hasta el {fecha}', {
+                        fecha: fechaCorta(isoMasDias(fechaInicio, diasPropuestos - 1)),
+                      })}
+                    </>
+                  )}
+                  )
+                </span>
+              </p>
+            </div>
+
+            <p className="text-xs leading-relaxed text-white/45">
+              {propuesta.resumen || t('cal.plan.revisar', 'Este es el plan. Guárdalo para verlo sobre tu cronograma.')}
+            </p>
+
+            {/* Solo lectura: un cronograma no es una lista de sugerencias sueltas —
+                quitarle una fase descuadra las fechas de las demás. Si no gusta, se
+                regenera; y ya guardado, se retoca nodo a nodo en su hoja. */}
+            {nodosPropuestos.map((n) => (
+              <div
+                key={n.id}
+                style={{ marginLeft: n.padre ? 18 : 0 }}
+                className="flex items-baseline gap-2 rounded-lg bg-black/20 px-3 py-2"
+              >
+                <span className={`min-w-0 flex-1 text-sm ${n.padre ? 'text-white/75' : 'font-semibold text-white/90'}`}>
+                  {n.nombre}
+                </span>
+                {/* Dónde propone la IA que se registre el paso. Inerte hasta guardar:
+                    abrir la app dejaría la propuesta a medias y sin guardar. */}
+                {n.enlaceApp && <ChipApp enlace={n.enlaceApp} soloLectura />}
+                {n.ini != null && n.fin != null && (
+                  <span className="shrink-0 text-2xs tabular-nums text-white/35">
+                    {fechaCorta(isoMasDias(fechaInicio, n.ini))} – {fechaCorta(isoMasDias(fechaInicio, n.fin))}
+                  </span>
+                )}
+              </div>
+            ))}
+
+            {materialSel.length > 0 && (
+              <div className="space-y-1.5 pt-1">
+                <p className="text-2xs uppercase tracking-wide text-white/40">
+                  {ctxApp?.material?.titulo ?? t('cal.plan.material', 'Material del plan')}
+                </p>
+                <p className="text-2xs leading-relaxed text-white/35">
+                  {t('cal.plan.material.desc', 'Lo que el plan usa de esta app, con su porqué. Se guarda junto al plan.')}
+                </p>
+                {materialSel.map((x, i) => (
+                  <div key={x.m.nombre} className="rounded-lg bg-black/20 px-2.5 py-1.5">
+                    <div className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() => toggleMaterial(i)}
+                        aria-pressed={x.activa}
+                        title={t('cal.plan.material.usar', 'Incluir en el plan')}
+                        className={`ui-presion flex h-5 w-5 shrink-0 items-center justify-center rounded-lg border text-2xs transition ${
+                          x.activa ? 'border-transparent text-black' : 'border-white/20 text-transparent hover:border-white/40'
+                        }`}
+                        style={x.activa ? { background: color } : undefined}
+                      >
+                        <Icono nombre="confirmar" />
+                      </button>
+                      <span className="min-w-0 flex-1 truncate text-xs text-white/90">{x.m.nombre}</span>
+                      {x.m.rutina && <span className="shrink-0 text-2xs text-white/35">{x.m.rutina}</span>}
+                    </div>
+                    {x.activa && x.m.motivo && (
+                      <p className="mt-1 text-2xs leading-relaxed text-white/40">{x.m.motivo}</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {sugeridas.length > 0 && (
+              <div className="space-y-1.5 pt-1">
+                <p className="text-2xs uppercase tracking-wide text-white/40">
+                  {t('cal.plan.rutinas', 'Agendar en el calendario')}
+                </p>
+                <p className="text-2xs leading-relaxed text-white/35">
+                  {t(
+                    'cal.plan.rutinas.desc',
+                    'Las marcadas se agendan en el calendario al guardar el plan, con su hora y sus días.',
+                  )}
+                </p>
+                {sugeridas.map((s, i) => (
+                  <div key={s.r.actividad.actividadId} className="rounded-lg bg-black/20 px-2.5 py-1.5">
+                    <div className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() => toggleSugerida(i)}
+                        aria-pressed={s.activa}
+                        title={t('cal.plan.rutinas.usar', 'Agendar esta rutina')}
+                        className={`ui-presion flex h-5 w-5 shrink-0 items-center justify-center rounded-lg border text-2xs transition ${
+                          s.activa ? 'border-transparent text-black' : 'border-white/20 text-transparent hover:border-white/40'
+                        }`}
+                        style={s.activa ? { background: color } : undefined}
+                      >
+                        <Icono nombre="confirmar" />
+                      </button>
+                      <span className="min-w-0 flex-1 truncate text-xs text-white/90">
+                        {s.r.actividad.nombre}
+                      </span>
+                      <span className="shrink-0 text-2xs text-white/35">
+                        {s.r.tipoEtiqueta}
+                        {s.r.actividad.duracionMin ? ` · ${s.r.actividad.duracionMin} min` : ''}
+                      </span>
+                    </div>
+                    {s.activa && (
+                      <div className="mt-1.5 flex items-center gap-1">
+                        <input
+                          type="time"
+                          step={900}
+                          value={s.hora}
+                          onChange={(e) => ponerHoraSugerida(i, e.target.value)}
+                          title={t('horario.hora', 'Hora')}
+                          className="shrink-0 rounded-md border border-white/10 bg-black/30 px-1.5 py-0.5 text-2xs font-semibold tabular-nums outline-none focus:border-white/30"
+                        />
+                        {DIAS_SEMANA.map((d) => (
+                          <button
+                            key={d}
+                            type="button"
+                            onClick={() => toggleDiaSugerida(i, d)}
+                            className={`ui-presion h-6 flex-1 rounded-md text-[9px] font-semibold uppercase transition ${
+                              s.dias.includes(d) ? 'text-black' : 'bg-white/5 text-white/40 hover:bg-white/10'
+                            }`}
+                            style={s.dias.includes(d) ? { background: color } : undefined}
+                          >
+                            {t(`cal.plan.dia.${d}`, ['D', 'L', 'M', 'X', 'J', 'V', 'S'][d])}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <div className="flex justify-end gap-2 pt-1">
+              <button
+                type="button"
+                onClick={() => setPropuesta(null)}
+                className="ui-presion rounded-xl bg-white/5 px-4 py-2 text-sm hover:bg-white/10"
+              >
+                {t('cal.plan.otraVez', 'Volver')}
+              </button>
+              <button
+                type="button"
+                onClick={() => void guardar()}
+                disabled={guardando}
+                className="ui-presion rounded-xl px-4 py-2 text-sm font-semibold text-black disabled:opacity-40"
+                style={{ background: color }}
+              >
+                {t('cal.plan.guardar', 'Guardar plan')}
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </div>
   )

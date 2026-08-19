@@ -4,7 +4,7 @@ import { vibrar } from '../../core/audio/vibrar'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
-import { acento, tinta, tono } from './acento'
+import { acento, tinta } from './acento'
 
 export interface ItemPestana<T extends string> {
   id: T
@@ -26,8 +26,8 @@ export interface ItemPestana<T extends string> {
 // un rótulo que no cabe partía en dos líneas y empujaba al chevron debajo,
 // dejando la fila descuadrada. En fila flex todo queda centrado en ambos ejes.
 const BASE = {
-  raiz: 'flex items-center justify-center gap-1 rounded-xl py-2.5 text-center text-xs font-semibold transition',
-  sub: 'flex items-center justify-center gap-1 rounded-lg py-1.5 text-center text-xs font-semibold transition',
+  raiz: 'ui-presion flex items-center justify-center gap-1 rounded-xl py-2.5 text-center text-xs font-semibold',
+  sub: 'ui-presion flex items-center justify-center gap-1 rounded-lg py-1.5 text-center text-xs font-semibold',
 }
 
 /**
@@ -45,7 +45,6 @@ export function PestanasCarpeta<T extends string>({
   prefijoClave = '',
   prefijoTut = prefijoClave,
   variante,
-  nivel = variante === 'raiz' ? 1 : 2,
   flecha = true,
   color,
   desplazable = false,
@@ -62,8 +61,6 @@ export function PestanasCarpeta<T extends string>({
   prefijoTut?: string
   /** raiz = carpetas · sub = ramas (más compactas). */
   variante: 'raiz' | 'sub'
-  /** Peldaño de la escalera tonal: 1 color puro, 2 y 3 tonos apagados. Default: raíz 1, sub 2. */
-  nivel?: 1 | 2 | 3
   /** Con `false` la activa no pinta el chevron (conmutadores de formulario: son inputs, no ramas). */
   flecha?: boolean
   /** Color de la app: el activo se pinta con él (item.color manda si está). */
@@ -84,6 +81,9 @@ export function PestanasCarpeta<T extends string>({
   // pintado (offset*) y el CSS anima posición y tamaño — también en vertical,
   // que en modo rejilla la activa puede cambiar de fila.
   // El ResizeObserver la recoloca cuando el carril cambia de ancho.
+  // OJO: tienen que ser `offset*` y no `getBoundingClientRect()`. Son métricas de
+  // LAYOUT, y el `scale` del press (ver `.ui-pildora` en index.css) no participa
+  // en el layout; con el rect, la píldora se pondría a perseguir su propio hundido.
   useLayoutEffect(() => {
     const cont = riel.current
     if (!cont) return
@@ -102,11 +102,11 @@ export function PestanasCarpeta<T extends string>({
     return () => ro.disconnect()
   }, [activo, items.length, plegado])
 
-  // El color contextual por ítem (verde/rojo, áreas…) va PURO; solo el de la app se entona.
+  // El color contextual por ítem (verde/rojo, áreas…) manda sobre el de la app.
   const propio = items.find((i) => i.id === activo)?.color
-  const colorActivo = propio ?? (color ? tono(color, nivel) : undefined)
+  const colorActivo = propio ?? color
   // Carril: las pestañas viven sobre un panel; el radio del panel envuelve al de los botones.
-  const marco = `relative border border-white/10 bg-white/5 p-1 ${variante === 'raiz' ? 'rounded-2xl' : 'rounded-xl'}`
+  const marco = `ui-pestanas relative border border-white/10 bg-white/5 p-1 ${variante === 'raiz' ? 'rounded-2xl' : 'rounded-xl'}`
   // Sin scroll ni rejilla, el carril ENVUELVE: con los rótulos en una sola línea
   // (ver `BASE`) una fila muy llena desbordaría el panel, y una segunda fila se
   // lee mejor que unos botones partiendo palabras. La píldora ya sigue al activo
@@ -121,7 +121,7 @@ export function PestanasCarpeta<T extends string>({
       {pildora && (
         <span
           aria-hidden
-          className={`ui-accent-bg pointer-events-none absolute transition-[left,top,width,height] duration-300 ease-out motion-reduce:transition-none ${
+          className={`ui-pildora ui-accent-bg pointer-events-none absolute ${
             variante === 'raiz' ? 'rounded-xl' : 'rounded-lg'
           }`}
           style={{
@@ -135,7 +135,7 @@ export function PestanasCarpeta<T extends string>({
       )}
       {items.map((item) => {
         const esActiva = item.id === activo
-        const clase = esActiva ? '' : 'text-white/40 hover:bg-white/10 hover:text-white/80'
+        const clase = esActiva ? '' : 'text-white/40 hover:bg-white/10 hover:text-white/80 active:bg-white/10'
         // flex-1 + shrink-0: reparten el ancho del carril y, si no caben, asoma el scroll.
         const ancho = rejilla ? 'px-2' : desplazable ? 'flex-1 shrink-0 px-3' : variante === 'raiz' ? 'flex-1 px-1' : 'flex-1'
         return (

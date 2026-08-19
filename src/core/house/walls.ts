@@ -1066,7 +1066,18 @@ export function formasColisionRoom(
   const [wx, , wz] = centroCuarto3D(anchor, fp)
   const pin = pinceles ?? PINCELES_DEFAULT
 
-  const procesa = (extras: MuroExtraPerimetro[], offSel: Cell, ladoRep: SideKey | null) => {
+  const procesa = (
+    extras: MuroExtraPerimetro[],
+    offSel: Cell,
+    ladoRep: SideKey | null,
+    offCelda: Cell,
+  ) => {
+    // Un lado ABIERTO tampoco colisiona cuando el recorte lo curva. El override
+    // vive en la arista de la CELDA entera (`0,0,N`), no en la de la sub-celda:
+    // sin esto, un cuarto sin muros con las cuatro esquinas redondeadas queda
+    // sellado por un anillo de colliders invisibles (el jardín zen de una sola
+    // celda no se podía pisar).
+    if (ladoRep && overrides?.[edgeKey(offCelda, ladoRep)] === 'abierto') return
     const key = ladoRep ? edgeKey(offSel, ladoRep) : ''
     const esPuerta = !!key && overrides?.[key] === 'puerta'
     const ep = key ? (estilos?.[key]?.puerta ?? pin.puerta) : undefined
@@ -1078,13 +1089,13 @@ export function formasColisionRoom(
     const [lx, lz] = tileLocalEnCuarto(anchor, off, fp)
     const forma = formaEnCelda(formasCelda, claveCeldaOff(off.col, off.row))
     const per = perimetroFormaCelda(forma, lx, lz)
-    if (per) procesa(per.extras, off, SIDE_KEYS.find((s) => !per.lados.has(s)) ?? null)
+    if (per) procesa(per.extras, off, SIDE_KEYS.find((s) => !per.lados.has(s)) ?? null, off)
     const sub = subformasDeCelda(formasCelda, off.col, off.row)
     if (sub) {
       for (const item of itemsPerimetroSubformas(sub, lx, lz)) {
         // Las mitades rectas ya colisionan como medio segmento (roomWallSegments).
         if (item.cuadrante == null) continue
-        procesa(item.extras, offSubcelda(off.col, off.row, item.cuadrante), item.ladoRep)
+        procesa(item.extras, offSubcelda(off.col, off.row, item.cuadrante), item.ladoRep, off)
       }
     }
   }

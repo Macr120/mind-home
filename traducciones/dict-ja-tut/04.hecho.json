@@ -1,130 +1,130 @@
 [
   {
-    "clave": "tut.editor-mapa.3.texto",
-    "texto": "屋根はマス単位です。マスごとに形も素材も選べるので、1つの部屋の中でも平らな屋根だけでなく、違う傾斜面を組み合わせられます。"
+    "clave": "tut.app-ejercicio--esencial.3.texto",
+    "texto": "重量を使うトレーニングです。セッションごとに種目をセット・回数・重量で保存します。そこからその日のボリュームを計算し、種目ごとの推移を描き、自己ベストを残します。"
   },
   {
-    "clave": "tut.editor-mapa.4.texto",
-    "texto": "家には階もあります。上へ積み重ねる階と、下へ掘る地下室です。新しい階には、上がるための手段が最初からついています。階段か、スラブに開いた穴です。それが上の床を貫きます。"
+    "clave": "tut.app-ejercicio--esencial.4.titulo",
+    "texto": "カタログ、ルーティン、進捗"
   },
   {
-    "clave": "tut.editor-mapa.5.titulo",
-    "texto": "完了"
+    "clave": "tut.app-ejercicio--esencial.4.texto",
+    "texto": "3つの分野はどれも同じ構成です。カタログでは使える種目をまとめてルーティンを組み、ルーティンでは上で選んだ日のトレーニングを記録し、進捗ではその期間をヒートマップとともにまとめます。"
   },
   {
-    "clave": "tut.editor-mapa.5.texto",
-    "texto": "編集中はすべて自動で保存されます。「完了」でエディターを閉じると、そのままの家でゲームに戻れます。"
+    "clave": "tut.app-ejercicio--esencial.5.titulo",
+    "texto": "持久力"
   },
   {
-    "clave": "tut.editor-personajes.1.texto",
-    "texto": "主人公もアシスタントも同じエディターで編集します。上で誰を編集するか選ぶと、その相手に合う道具に切り替わります。"
+    "clave": "tut.app-ejercicio--esencial.5.texto",
+    "texto": "走る、こぐ、泳ぐ、歩く。区間ごとに時間と距離を記録します。ここからライブトレーニングを開くと、GPSで経路を、Bluetoothセンサーで心拍数を取り込み、終了時にセッションを保存します。"
   },
   {
-    "clave": "tut.editor-personajes.2.titulo",
-    "texto": "顔と写真"
+    "clave": "tut.app-ejercicio--esencial.6.titulo",
+    "texto": "柔軟性"
   },
   {
-    "clave": "tut.editor-personajes.2.texto",
-    "texto": "表情、髪型、髪の色を選べます。自分の写真を使えば、キャラクターを自分に似せられます。専用の顔を持てない体もあります。"
+    "clave": "tut.app-ejercicio--esencial.6.texto",
+    "texto": "ストレッチとモビリティです。重量ではなく時間でセットを組み、ポーズごとに秒数と回数を決めます。ガイド付きプレーヤーがポーズを一つずつ進め、切り替えのタイミングをタイマーで知らせます。"
   },
   {
-    "clave": "tut.editor-personajes.3.titulo",
-    "texto": "カテゴリー別の服"
+    "clave": "tut.app-entretenimiento--esencial.1.titulo",
+    "texto": "娯楽室"
   },
   {
-    "clave": "tut.editor-personajes.3.texto",
-    "texto": "衣服は1点ずつ、着せる・脱がせる・色を変えるができます。シャツ、ズボン、靴、アクセサリー。自由に組み合わせてください。"
+    "clave": "tut.app-entretenimiento--esencial.1.texto",
+    "texto": "見終わった映画やドラマ、読んだ本、遊んだゲームを残しておけるほか、家から出ずに遊べるデジタルのゲームテーブルもあります。メニューはボードゲームとアーカイブの2つです。"
   },
   {
-    "clave": "tut.editor-personajes.4.titulo",
-    "texto": "保存したコーデ"
+    "clave": "tut.app-entretenimiento--esencial.2.titulo",
+    "texto": "ボードゲーム"
   },
   {
-    "clave": "tut.editor-personajes.4.texto",
-    "texto": "服の組み合わせをまるごとコーデとして保存すれば、ワンタップで全身を着替えられます。毎回1点ずつ組み直す必要はありません。"
+    "clave": "tut.app-entretenimiento--esencial.2.texto",
+    "texto": "テーブルには画面上でそのまま遊べるデジタルゲームが並びます。フィルターで、1〜2人向けのものと、大人数で楽しめるものを分けられます。"
   },
   {
-    "clave": "tut.editor-personajes.5.titulo",
-    "texto": "部屋ごとのワードローブ"
+    "clave": "tut.app-entretenimiento--esencial.3.titulo",
+    "texto": "系統ごとに"
   },
   {
-    "clave": "tut.editor-personajes.5.texto",
-    "texto": "部屋ごとに違うコーデを割り当てられます。「ジム」にはランニングの服で入り、「キッチン」に移ると自動で着替えます。"
+    "clave": "tut.app-entretenimiento--esencial.3.texto",
+    "texto": "カタログは系統ごとにまとまっています——ボード、パズル、アーケード、カードとカジノ、みんなで——それぞれに色がついています。カードをタップすると、ゲームが全画面で開きます。"
   },
   {
-    "clave": "tut.editor-personajes.6.texto",
-    "texto": "体、色、大きさはこれまでどおり編集できます。AIをオンにすれば、プリセットから選ぶ代わりに、自分だけの3Dモデルを生成することもできます。"
+    "clave": "tut.app-entretenimiento--esencial.4.titulo",
+    "texto": "アーカイブ"
   },
   {
-    "clave": "tut.editor-objetos.1.texto",
-    "texto": "シーン（または一覧）のオブジェクトをタップすると編集できます。色・大きさ・回転の3つは、どのオブジェクトにも共通の設定です。"
+    "clave": "tut.app-entretenimiento--esencial.4.texto",
+    "texto": "アーカイブは、見たもの、読んだもの、遊んだものを集めます。作品ごとに状態、評価、自分のレビューが残ります。ジャンル、カテゴリー、作者、日付で並べ替えられます。"
   },
   {
-    "clave": "tut.editor-objetos.2.texto",
-    "texto": "アプリを割り当てたオブジェクトは、部屋に入るとそのテンプレートが開きます。割り当てていないものは飾りです。編集のしかたはどちらも同じです。"
+    "clave": "tut.app-garage--esencial.1.titulo",
+    "texto": "ガレージ"
   },
   {
-    "clave": "tut.editor-objetos.3.texto",
-    "texto": "オブジェクトの歯車⚙️を押すと、パーツ単位で編集できるようになります。基本の形を組み合わせて自分のモデルを作るか、説明を書いてAIに作ってもらいましょう。"
+    "clave": "tut.app-garage--esencial.1.texto",
+    "texto": "ガレージは乗り物を管理します。自転車、車、バイクなど、移動に使うものなら何でも。1台ごとに整備の履歴と手続きが残り、日付のあるものはすべて自動で家のカレンダーに入ります。"
   },
   {
-    "clave": "tut.editor-config.1.texto",
-    "texto": "長いリストではなく、折りたたみ式のセクションが8つあります。タイトルをタップすれば、気になるものだけ開けます。"
+    "clave": "tut.app-garage--esencial.2.titulo",
+    "texto": "概要"
   },
   {
-    "clave": "tut.editor-config.2.titulo",
-    "texto": "アカウントとAI"
+    "clave": "tut.app-garage--esencial.2.texto",
+    "texto": "最初に開くタブです。信号の色で、期限切れがあるか、近づいているものがあるか、それとも落ち着いているかがひと目でわかります。"
   },
   {
-    "clave": "tut.editor-config.2.texto",
-    "texto": "ログイン、プラン、今月のAI利用量がここにあります。すぐ隣は、操作ごとの料金表です。どちらにも詳しい専用チュートリアルがあります。"
+    "clave": "tut.app-garage--esencial.3.titulo",
+    "texto": "ひと目でわかる数字"
   },
   {
-    "clave": "tut.editor-config.3.titulo",
-    "texto": "視覚スタイル"
+    "clave": "tut.app-garage--esencial.3.texto",
+    "texto": "持っている車両の数、まだ有効な手続きの数、そして今年これまでに使った金額です。"
   },
   {
-    "clave": "tut.editor-config.3.texto",
-    "texto": "マップのテーマ（光、霧、照明）とポストプロセスのスタイルです。必要なときだけ読み込むので、余計に重くなりません。"
+    "clave": "tut.app-garage--esencial.4.titulo",
+    "texto": "車両"
   },
   {
-    "clave": "tut.editor-config.4.titulo",
-    "texto": "インターフェースと言語"
+    "clave": "tut.app-garage--esencial.4.texto",
+    "texto": "すべての車両の一覧です。カードにはナンバー、走行距離、整備の回数が並びます。タップすると1台ごとのページが開き、整備の履歴と手続きが見られます。"
   },
   {
-    "clave": "tut.editor-config.4.texto",
-    "texto": "言語、インターフェースのテーマ（ライト・ダーク・自動）、アイコンのスタイル、表示密度です。家の「見え方」を変えるもので、中身は変わりません。"
+    "clave": "tut.app-garage--esencial.5.titulo",
+    "texto": "新しく登録する"
   },
   {
-    "clave": "tut.editor-config.5.titulo",
-    "texto": "通知"
+    "clave": "tut.app-garage--esencial.5.texto",
+    "texto": "名前、種類、メーカー、モデル、年式、ナンバー、そして今日の走行距離を入力します。ナンバーを登録すると、ナンバーのある車両だけに必要な手続き——排ガス検査や自動車税など——も使えるようになります。"
   },
   {
-    "clave": "tut.editor-config.5.texto",
-    "texto": "どのお知らせを受け取り、どれを黙らせるかを決めます。ルーティン、プランのお知らせ、リマインダーは別々にオフにできます。"
+    "clave": "tut.app-hobbies--esencial.1.titulo",
+    "texto": "あなたの趣味"
   },
   {
-    "clave": "tut.editor-config.6.texto",
-    "texto": "「音楽」と「チュートリアル」にはそれぞれのツアーがあります。「データのバックアップ」にもあり、端末を変える前にいちばん見ておきたいのはこれです。"
+    "clave": "tut.app-hobbies--esencial.1.texto",
+    "texto": "趣味は、好きでやっていることを見守ります。趣味ごとに練習の記録と連続記録が集まり、必要ならプロジェクトも持てます。"
   },
   {
-    "clave": "tut.respaldo.1.titulo",
-    "texto": "家がある場所"
+    "clave": "tut.app-hobbies--esencial.2.titulo",
+    "texto": "趣味の一覧"
   },
   {
-    "clave": "tut.respaldo.1.texto",
-    "texto": "アカウントも同期もなければ、データはこの端末だけにあります。上の表示は、自動的な削除から守る許可をブラウザが持っているかどうかを教えてくれます。"
+    "clave": "tut.app-hobbies--esencial.2.texto",
+    "texto": "登録した趣味はカードとしてここに並び、今週の進み具合と続いている連続記録が表示されます。開くと、統計、1年分のヒートマップ、練習の記録、そしてプロジェクトが見られます。"
   },
   {
-    "clave": "tut.respaldo.2.titulo",
-    "texto": "エクスポート"
+    "clave": "tut.app-hobbies--esencial.3.titulo",
+    "texto": "趣味を登録する"
   },
   {
-    "clave": "tut.respaldo.2.texto",
-    "texto": "すべてのテーブルを1つのJSONファイルにまとめてダウンロードします。部屋も目標も記録も、まるごとです。手動のバックアップになります。"
+    "clave": "tut.app-hobbies--esencial.3.texto",
+    "texto": "このボタンで、新しい趣味を追加するフォームが開きます。名前、絵文字、色、そして必要なら週に何日練習するかの目標を決められます。"
   },
   {
-    "clave": "tut.respaldo.3.titulo",
-    "texto": "復元"
+    "clave": "tut.app-hobbies--esencial.4.titulo",
+    "texto": "趣味の中身"
   }
 ]

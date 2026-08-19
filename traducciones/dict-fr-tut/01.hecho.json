@@ -1,38 +1,39 @@
 [
-  {
-    "clave": "tut.hoy.1.texto",
-    "texto": "Dans l'en-tête de chaque appli vit son bouton Objectifs, comme celui du calendrier mais limité à cette appli. Il ouvre un panneau à deux étages : en haut la checklist du jour, en dessous ses objectifs et ses plans."
-  },
-  {
-    "clave": "tut.hoy.2.texto",
-    "texto": "Les objectifs propres à l'appli (l'eau, les calories), ce que tu as programmé pour aujourd'hui dans le calendrier et les étapes de tes objectifs en cours : tout ensemble, regroupé sous le plan ou l'objectif dont vient chaque étape."
-  },
-  {
-    "clave": "tut.hoy.7.texto",
-    "texto": "Et s'il te manque quelque chose, « Nouvelle checklist » crée la tienne : une liste propre à cette appli qui se répète chaque jour. Sous la section Aujourd'hui se trouve le planificateur complet — Objectifs, Plans et Planning — avec tous les objectifs de l'appli."
-  },
-  {
-    "clave": "tut.app-hobbies--gestion.4.texto",
-    "texto": "Les objectifs de tes loisirs et de tes projets vivent dans le bouton Objectifs de l'en-tête : le même planificateur Objectifs · Plans · Planning du calendrier, limité à cette appli. Demande à l'IA un plan avec des phases et des dates."
-  },
-  {
-    "clave": "tut.app-biblioteca--estudio.2.texto",
-    "texto": "Les objectifs vivent dans le bouton Objectifs de l'en-tête, le planning du calendrier lui-même : « finir la thermodynamique avant le partiel » est déjà atteint ; préparer le master est encore en cours."
-  },
-  {
-    "clave": "tut.app-ejercicio--anio.3.texto",
-    "texto": "Le bouton Objectifs de l'en-tête garde ses quatre objectifs cochés — le 5 km, le 10 km, le semi-marathon et le marathon — et celui qui reste en cours. Les objectifs avec une date apparaissent aussi dans le calendrier de la maison."
-  },
-  {
-    "clave": "tut.app-cocina--cronograma.1.texto",
-    "texto": "Le bouton Objectifs de l'en-tête ouvre le même planning que celui du calendrier de la maison, limité aux objectifs de la Cuisine : crée un objectif (par ex. « Perdre 3 kilos ») et demande le plan à l'IA — elle demande ta date cible et programme des sous-objectifs avec leur propre date."
-  },
-  {
-    "clave": "tut.app-despacho--metas.2.texto",
-    "texto": "Le bouton Objectifs de l'en-tête garde ces objectifs sur l'axe du temps : tu mets des dates sur l'un d'eux et il apparaît parmi tes jours du calendrier. Avec ✨ l'IA propose le plan de versements."
-  },
-  {
-    "clave": "tut.app-entretenimiento--programas.2.texto",
-    "texto": "Le programme enregistré vit dans le bouton Objectifs de l'en-tête : chaque titre garde sa note sur pourquoi il est dans la liste, et si tu lui mets des dates il descend dans le calendrier comme n'importe quel autre objectif."
-  }
+  { "clave": "tut.app-agenda--esencial.1.titulo", "texto": "Ton agenda" },
+  { "clave": "tut.app-agenda--esencial.1.texto", "texto": "L’agenda garde ce qui n’est pas une habitude : tâches, rendez-vous, contacts. Trois menus, et tout ce qui a une date se programme tout seul dans le calendrier de la maison." },
+  { "clave": "tut.app-agenda--esencial.2.titulo", "texto": "Travail" },
+  { "clave": "tut.app-agenda--esencial.2.texto", "texto": "La liste rassemble les tâches sans date pour qu’elles ne se perdent pas, et le tableau déplace tes tâches par colonnes : à faire, en cours et fait." },
+  { "clave": "tut.app-agenda--esencial.3.titulo", "texto": "Santé" },
+  { "clave": "tut.app-agenda--esencial.3.texto", "texto": "Rendez-vous médicaux, médicaments et soins, en trois sous-menus : Toi, Proches (les personnes dont tu t’occupes) et Animaux." },
+  { "clave": "tut.app-agenda--esencial.4.titulo", "texto": "Personnes" },
+  { "clave": "tut.app-agenda--esencial.4.texto", "texto": "Ton carnet de contacts classé par relation. Les anniversaires que tu enregistres se répètent tout seuls chaque année dans le calendrier." },
+  { "clave": "tut.calendario--esencial.1.titulo", "texto": "L’horloge de la maison" },
+  { "clave": "tut.calendario--esencial.1.texto", "texto": "Le calendrier n’est pas une pièce : il vit dans l’horloge du HUD, donc il s’ouvre d’où que tu sois sans entrer nulle part." },
+  { "clave": "tut.calendario--esencial.2.titulo", "texto": "Tout ce qui est programmé, réuni" },
+  { "clave": "tut.calendario--esencial.2.texto", "texto": "Tout ce qui a une date et une heure atterrit ici : ce que tu crées avec « + Nouveau » ou en traçant sur la grille, et ce que les autres apps programment toutes seules. Le filtre du haut permet de n’afficher qu’une seule app quand ça s’accumule trop." },
+  { "clave": "tut.calendario--esencial.3.titulo", "texto": "Jour" },
+  { "clave": "tut.calendario--esencial.3.texto", "texto": "La grille d’une journée de 24 heures : elle sert à voir à quelle heure se trouve chaque chose et si ça se chevauche. Ce bouton fait double emploi : il dit « Aujourd’hui » et te ramène au présent, ou « Jour » si tu regardes déjà une autre date." },
+  { "clave": "tut.calendario--esencial.4.titulo", "texto": "Semaine" },
+  { "clave": "tut.calendario--esencial.4.texto", "texto": "La même grille horaire, mais avec les sept jours côte à côte. C’est là que tu vois comment la semaine se répartit, et où les blocs se glissent d’un jour à l’autre ou s’étirent pour durer plus longtemps." },
+  { "clave": "tut.calendario--esencial.5.titulo", "texto": "Mois" },
+  { "clave": "tut.calendario--esencial.5.texto", "texto": "Il abandonne l’axe des heures et peint les jours en cases avec ce qui tombe sur chacun. C’est la vue d’ensemble : quelles semaines s’annoncent chargées et quels jours restent libres." },
+  { "clave": "tut.calendario--esencial.6.titulo", "texto": "Année" },
+  { "clave": "tut.calendario--esencial.6.texto", "texto": "Les douze mois d’un coup. À cette distance, les heures ne se lisent plus : ce qui se voit, c’est la régularité, à quel point tu as tenu ce que tu t’étais fixé tout au long de l’année." },
+  { "clave": "tut.calendario--esencial.7.titulo", "texto": "Et les missions, à part" },
+  { "clave": "tut.calendario--esencial.7.texto", "texto": "En rouge, pour que ça ne se lise pas comme une cinquième vue : Missions réunit sur un seul écran la checklist du jour de toutes les apps. Les objectifs et leurs plans ne sont pas ici — ils vivent dans leur propre pièce." },
+  { "clave": "tut.app-anecdotario--esencial.1.titulo", "texto": "Ton journal personnel" },
+  { "clave": "tut.app-anecdotario--esencial.1.texto", "texto": "Il garde ce que tu veux raconter, avec son humeur et ses photos. Il s’organise tout seul par date, sans que tu aies rien à classer." },
+  { "clave": "tut.app-anecdotario--esencial.2.titulo", "texto": "Comment on écrit" },
+  { "clave": "tut.app-anecdotario--esencial.2.texto", "texto": "Choisis l’humeur du jour, écris ce que tu veux raconter et ajoute des photos si tu en as. Une seule photo, sans texte, ça compte aussi." },
+  { "clave": "tut.app-anecdotario--esencial.3.titulo", "texto": "Le calendrier de l’humeur" },
+  { "clave": "tut.app-anecdotario--esencial.3.texto", "texto": "Chaque jour se peint de l’humeur de son entrée, si bien que le mois entier se lit d’un coup d’œil. Touche un jour pour voir ses entrées en dessous." },
+  { "clave": "tut.app-anecdotario--esencial.4.titulo", "texto": "L’historique" },
+  { "clave": "tut.app-anecdotario--esencial.4.texto", "texto": "Toutes les entrées se retrouvent ici, classées toutes seules dans des dossiers par année, mois et semaine." },
+  { "clave": "tut.app-biblioteca--esencial.1.titulo", "texto": "Ta bibliothèque" },
+  { "clave": "tut.app-biblioteca--esencial.1.texto", "texto": "La bibliothèque est ton encyclopédie personnelle : tu poses les questions que tu ne sais pas, tu gardes ce que tu apprends et tu suis ce que tu étudies. Quatre menus." },
+  { "clave": "tut.app-biblioteca--esencial.2.titulo", "texto": "Discussions" },
+  { "clave": "tut.app-biblioteca--esencial.2.texto", "texto": "Ici, tu poses tes questions au Sage sur n’importe quel sujet et la conversation reste enregistrée. Chaque discussion se classe seule dans son domaine de connaissance et ressort distillée en fiche d’encyclopédie." },
+  { "clave": "tut.app-biblioteca--esencial.3.titulo", "texto": "Encyclopédie" },
+  { "clave": "tut.app-biblioteca--esencial.3.texto", "texto": "L’arbre où vit ce que tu as appris, classé par domaine de connaissance. Chaque fiche porte son résumé et ses points clés, et tu peux aussi les écrire à la main ; avec le crayon, tu fais grandir l’index à ta mesure." },
+  { "clave": "tut.app-biblioteca--esencial.4.titulo", "texto": "Étude" }
 ]

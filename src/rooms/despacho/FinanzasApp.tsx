@@ -181,7 +181,6 @@ export function FinanzasApp() {
                 prefijoClave="despacho.periodo"
                 color={AZUL}
                 variante="sub"
-                nivel={3}
               />
               <div className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-2 border border-white/10">
                 <button

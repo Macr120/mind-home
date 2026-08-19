@@ -13,10 +13,10 @@ export const PASOS_APP_GENERICA: PasoTutorial[] = [
   },
   {
     sel: 'room.meta',
-    titulo: T('tut.app-generica.2.titulo', 'Lo de hoy'),
+    titulo: T('tut.app-generica.2.titulo', 'Misiones'),
     texto: T(
       'tut.app-generica.2.texto',
-      'Tus pasos de hoy en esta app: tus objetivos, lo que tengas agendado y lo que pidan tus metas. Tócala para desplegarla; cada paso se tacha solo en cuanto registras.',
+      'El botón Misiones abre lo de hoy en esta app: tus objetivos, lo agendado y lo que pidan tus metas. Cada paso se tacha solo en cuanto registras, y cumplir la lista entera es lo que da el XP del día.',
     ),
   },
   {

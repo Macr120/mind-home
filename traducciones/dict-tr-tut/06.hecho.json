@@ -1,130 +1,15 @@
 [
-  {
-    "clave": "tut.chat.6.texto",
-    "texto": "Kılavuz komutları sıralar: oda eklemek ya da çıkarmak, nesne oluşturmak, bir şeyleri aklında tutmasını istemek…"
-  },
-  {
-    "clave": "tut.chat.7.titulo",
-    "texto": "Yapay Zeka modeli"
-  },
-  {
-    "clave": "tut.chat.7.texto",
-    "texto": "Bu simge hangi Yapay Zeka’nın yanıt vereceğini seçer ve kendi anahtarını kullanıyorsan onu saklar. Hiçbiri ayarlı değilse sohbet anahtar kelimelerle çalışmayı sürdürür, serbest dili anlamadan."
-  },
-  {
-    "clave": "tut.chat.8.texto",
-    "texto": "Buradan «Mutfak nasıl çalışıyor?» diye sorabilir ya da «Spor Salonu öğreticisi» isteyebilirsin; neyin kaydedildiğine ise Kayıtlar öğreticisinde bakılır."
-  },
-  {
-    "clave": "tut.chat-registros.1.texto",
-    "texto": "Sohbetler kiminle konuştuğunu gösterir; Kayıtlar ise o konuşmalardan geriye ne kaldığını."
-  },
-  {
-    "clave": "tut.chat-registros.2.titulo",
-    "texto": "Senin hakkında hatırladıkları"
-  },
-  {
-    "clave": "tut.chat-registros.2.texto",
-    "texto": "Asistanın oturumlar arasında hatırlamaya değer bulduğu bilgiler —bir alerji, bir hedef, bir tercih— sana tekrar sormak zorunda kalmasın diye. ✕ işaretine dokununca unutulurlar."
-  },
-  {
-    "clave": "tut.chat-registros.3.texto",
-    "texto": "Uygulamalarına kaydettiklerin (öğünler, harcamalar, seanslar) burada değil, her uygulamanın kendi içinde yaşar: bu sekme yalnızca konuşmanın kendi hafızası."
-  },
-  {
-    "clave": "tut.app-generica.1.texto",
-    "texto": "Üstbilgi odayı ve açık uygulamayı gösterir. Odada birden fazla uygulama varsa ‹ oku seçim ekranına döner."
-  },
-  {
-    "clave": "tut.app-generica.2.titulo",
-    "texto": "Bugünün adımları"
-  },
-  {
-    "clave": "tut.app-generica.2.texto",
-    "texto": "Bu uygulamada bugünkü adımların: günlük hedefin, ajandana yazdıkların ve hedeflerinin istedikleri. Açmak için dokun; sen kaydeder kaydetmez her adımın üstü kendiliğinden çizilir."
-  },
-  {
-    "clave": "tut.app-generica.3.titulo",
-    "texto": "Bloklar"
-  },
-  {
-    "clave": "tut.app-generica.3.texto",
-    "texto": "Bu şablon bloklarla kurulmuş (notlar, listeler, sayaçlar, alışkanlıklar…). Bunları Menü › Şablonlar › düzenle yolundan değiştirebilirsin."
-  },
-  {
-    "clave": "tut.app-generica.4.titulo",
-    "texto": "Çıkmak"
-  },
-  {
-    "clave": "tut.app-generica.4.texto",
-    "texto": "«Eve dön» uygulamayı kapatır ve seni yeniden 3D’ye bırakır. Burada kaydettiklerin çoktan saklandı."
-  },
-  {
-    "clave": "tut.rutinas.1.texto",
-    "texto": "Pep’in rutin paneli: üstte bugünküler, altta duraklatmak, düzenlemek ya da silmek için tüm katalog."
-  },
-  {
-    "clave": "tut.rutinas.2.titulo",
-    "texto": "Bugün sırası gelenler"
-  },
-  {
-    "clave": "tut.rutinas.2.texto",
-    "texto": "Kafeteryadaki vardiya, fizik dersi, şafakta koşu, akşam piyano: her kart, adımlarıyla birlikte bir rutin. Kehribar rengiyle taşan kart, çoktan başlamış olması gerekip hâlâ bekleyen karttır."
-  },
-  {
-    "clave": "tut.rutinas.3.titulo",
-    "texto": "İşaretlemek her zaman gerekmez"
-  },
-  {
-    "clave": "tut.rutinas.3.texto",
-    "texto": "⚡ şimşekli adım kendini kaydeder: şafaktaki koşunun üstü çizilir, çünkü o koşu Spor Salonu’na çoktan kaydedilmiştir; biri elle işaretlediği için değil. Diğer adımlar ise dokununca işaretlenir."
-  },
-  {
-    "clave": "tut.rutinas.4.titulo",
-    "texto": "Tüm katalog"
-  },
-  {
-    "clave": "tut.rutinas.4.texto",
-    "texto": "Bugün sırası gelsin gelmesin hepsi burada. ON/OFF bir rutini geçmişini silmeden duraklatır: bugüne kadar yapılanlar kalır, yarından itibaren istenmez olur. Düzenle ve ✕ ise rutinin tamamını değiştirir ya da siler."
-  },
-  {
-    "clave": "tut.rutinas.5.titulo",
-    "texto": "Rutin oluşturmak"
-  },
-  {
-    "clave": "tut.rutinas.5.texto",
-    "texto": "Ad, ait olduğu uygulama (ya da hiçbiri: evin başıboş bir etkinliğiyse), saat ve renk. Adımlar isteğe bağlı: onlarsız takvimde yalnızca bir etkinlik olur."
-  },
-  {
-    "clave": "tut.rutinas.6.titulo",
-    "texto": "Bir kez, her hafta ya da hep"
-  },
-  {
-    "clave": "tut.rutinas.6.texto",
-    "texto": "Piyano süresizdir ve işaretli günü yoktur (yani her gün); koşu ise yalnızca Pep’in işaretlediği günlerde tekrar eder. Aylık, yıllık ya da aralıklı tekrar buradan seçilmez: hedefi doğrudan takvim ızgarasına çizmekten doğar."
-  },
-  {
-    "clave": "tut.rutinas.7.titulo",
-    "texto": "Zamanı gelince uyarı"
-  },
-  {
-    "clave": "tut.rutinas.7.texto",
-    "texto": "İzin verilmişse sistem bildirimi olarak gelir; verilmemişse asistan bunu uygulamayı bir dahaki açışında içeriden söyler."
-  },
-  {
-    "clave": "tut.rutinas.8.texto",
-    "texto": "Burada planlanan her şey takvim ızgarasında da görünür ve her adımın uygulamasında, onun Bugün listesinde."
-  },
-  {
-    "clave": "tut.enlaces.1.titulo",
-    "texto": "Hedeften uygulamasına"
-  },
-  {
-    "clave": "tut.enlaces.1.texto",
-    "texto": "Her hedef ya da plan adımı, bir uygulamanın simgesini taşıyan bir chip alabilir: «peki bu nereye kaydediliyor?» sorusunun cevabıdır."
-  },
-  {
-    "clave": "tut.enlaces.2.titulo",
-    "texto": "Koymak ya da değiştirmek"
-  }
+  { "clave": "tut.app-metas--esencial.3.texto", "texto": "Bir plan, bir zaman çizelgesinin taslağıdır: bir hedefi tarihleriyle aşamalara böler. Öneri olduğu sürece dilediğin gibi düzenleyebilirsin; ikna olduğunda kabul edersin ve aşamaları gerçek alt hedeflere dönüşür." },
+  { "clave": "tut.app-metas--esencial.4.titulo", "texto": "Zaman çizelgesi" },
+  { "clave": "tut.app-metas--esencial.4.texto", "texto": "Tüm hedeflerin aynı anda olduğu zaman ekseni: her biri tarihlerin üzerinde bir çubuktur. Gün, hafta, ay ya da yıla göre yakınlaştırıp uzaklaştırabilirsin, ve zaten çizilmiş olanla karşılaştırmak için bir plan üzerine yerleştirilebilir." },
+  { "clave": "tut.app-sala--esencial.1.titulo", "texto": "Gezgin oturma odan" },
+  { "clave": "tut.app-sala--esencial.1.texto", "texto": "Gezgin dünyan burada yaşar: iğneli bir dünya haritası, görülecek yerlerin gezi planları, yerleri birbirine bağlayan rotalar ve bir anı seyir defteri. Dört bölümü vardır." },
+  { "clave": "tut.app-sala--esencial.2.titulo", "texto": "Harita" },
+  { "clave": "tut.app-sala--esencial.2.texto", "texto": "Ziyaret ettiğin ya da ziyaret etmeyi hayal ettiğin her yer, dünya haritasında bir iğnedir. Üstteki anahtar, düz haritayı sürükleyerek döndürebileceğin bir küreyle değiştirir." },
+  { "clave": "tut.app-sala--esencial.3.titulo", "texto": "Gezi planı" },
+  { "clave": "tut.app-sala--esencial.3.texto", "texto": "Görmeyi hayal ettiğin yerler, her birinin kendi gün gün planıyla. Tarihi olanlar kendiliğinden takvime planlanır." },
+  { "clave": "tut.app-sala--esencial.4.titulo", "texto": "Rotalar" },
+  { "clave": "tut.app-sala--esencial.4.texto", "texto": "Bir rota yerleri bir güzergâhta birbirine bağlar ve haritada çizer." },
+  { "clave": "tut.app-sala--esencial.5.titulo", "texto": "Seyir defteri" },
+  { "clave": "tut.app-sala--esencial.5.texto", "texto": "Ziyaret ettiğin yerlerin anıları, ülkeye göre albümlerde: her yerin fotoğrafları ve hikâyeleri." }
 ]

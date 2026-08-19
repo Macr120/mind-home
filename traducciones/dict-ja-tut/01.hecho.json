@@ -1,38 +1,150 @@
 [
   {
-    "clave": "tut.hoy.1.texto",
-    "texto": "各アプリのヘッダーには目標ボタンがあります。カレンダーのものと同じですが、そのアプリだけに絞られています。開くと2段のパネルが現れ、上に今日のチェックリスト、下に目標とプランが並びます。"
+    "clave": "tut.app-agenda--esencial.1.titulo",
+    "texto": "あなたのスケジュール"
   },
   {
-    "clave": "tut.hoy.2.texto",
-    "texto": "アプリ独自の目標(水分やカロリー)、今日カレンダーに入れた予定、進行中の目標のステップがすべてまとめて表示され、それぞれのステップの元になったプランや目標ごとにグループ分けされます。"
+    "clave": "tut.app-agenda--esencial.1.texto",
+    "texto": "スケジュールには、習慣ではないものが入ります。タスク、予約、連絡先です。メニューは3つ。日付のあるものは、すべて自動で家のカレンダーに入ります。"
   },
   {
-    "clave": "tut.hoy.7.texto",
-    "texto": "足りないものがあれば「新しいチェックリスト」で自分のものを作れます。毎日繰り返されるこのアプリ専用のリストです。「今日」セクションの下には、目標・プラン・スケジュールをまとめた完全なプランナーがあり、このアプリのすべての目標が並びます。"
+    "clave": "tut.app-agenda--esencial.2.titulo",
+    "texto": "仕事"
   },
   {
-    "clave": "tut.app-hobbies--gestion.4.texto",
-    "texto": "趣味やプロジェクトの目標はヘッダーの目標ボタンにあります。カレンダーと同じ目標・プラン・スケジュールのプランナーが、このアプリに絞られて使えます。AIにフェーズと日付付きのプランを頼んでみましょう。"
+    "clave": "tut.app-agenda--esencial.2.texto",
+    "texto": "タスクには日付のない用件がたまるので、うっかり忘れずにすみます。ボードでは、未着手・進行中・完了の列にタスクを動かしていきます。"
   },
   {
-    "clave": "tut.app-biblioteca--estudio.2.texto",
-    "texto": "目標はヘッダーの目標ボタン、カレンダーそのもののスケジュールにあります。「試験前に熱力学を終わらせる」はもう達成済みで、大学院の準備はまだ進行中です。"
+    "clave": "tut.app-agenda--esencial.3.titulo",
+    "texto": "健康"
   },
   {
-    "clave": "tut.app-ejercicio--anio.3.texto",
-    "texto": "ヘッダーの目標ボタンには、達成した4つの目標——5km、10km、ハーフマラソン、フルマラソン——と、まだ続いている目標が入っています。日付付きの目標は家のカレンダーにも表示されます。"
+    "clave": "tut.app-agenda--esencial.3.texto",
+    "texto": "通院の予定、薬、継続ケアを、3つのサブメニューで管理します。自分、大切な人（あなたがケアしている人）、ペットです。"
   },
   {
-    "clave": "tut.app-cocina--cronograma.1.texto",
-    "texto": "ヘッダーの目標ボタンは、家のカレンダーと同じスケジュールをキッチンの目標に絞って開きます。目標を作り(例えば「3キロ減らす」)、AIにプランを頼むと、目標の日付を聞いたうえでそれぞれ日付付きのサブ目標を予定に入れてくれます。"
+    "clave": "tut.app-agenda--esencial.4.titulo",
+    "texto": "連絡先"
   },
   {
-    "clave": "tut.app-despacho--metas.2.texto",
-    "texto": "ヘッダーの目標ボタンには、これらの目標が時間軸の上に並んでいます。日付を付けるとカレンダーの日々の中に現れます。✨を使うとAIが積立プランを提案してくれます。"
+    "clave": "tut.app-agenda--esencial.4.texto",
+    "texto": "関係ごとに整理された連絡先帳です。登録した誕生日は、毎年カレンダーに自動で繰り返し表示されます。"
   },
   {
-    "clave": "tut.app-entretenimiento--programas.2.texto",
-    "texto": "保存したプログラムはヘッダーの目標ボタンにあります。それぞれのタイトルにはリストに入れた理由のメモが残り、日付を付けると他の目標と同じようにカレンダーに入ります。"
+    "clave": "tut.calendario--esencial.1.titulo",
+    "texto": "家の時計"
+  },
+  {
+    "clave": "tut.calendario--esencial.1.texto",
+    "texto": "カレンダーは部屋ではありません。操作パネルの時計の中にあるので、どこにいてもその場で開けます。"
+  },
+  {
+    "clave": "tut.calendario--esencial.2.titulo",
+    "texto": "予定はすべてここに"
+  },
+  {
+    "clave": "tut.calendario--esencial.2.texto",
+    "texto": "日付と時刻を持つものは、すべてここに集まります。「＋新規」で作ったものも、グリッドをなぞって描いたものも、ほかのアプリが自動で入れたものもです。数が増えすぎたら、上のフィルターで1つのアプリだけを表示できます。"
+  },
+  {
+    "clave": "tut.calendario--esencial.3.titulo",
+    "texto": "日"
+  },
+  {
+    "clave": "tut.calendario--esencial.3.texto",
+    "texto": "1日24時間のグリッドです。何時に何があるか、予定が重なっていないかがわかります。このボタンは2役で、現在に戻るときは「今日」、別の日付を見ているときは「日」と表示されます。"
+  },
+  {
+    "clave": "tut.calendario--esencial.4.titulo",
+    "texto": "週"
+  },
+  {
+    "clave": "tut.calendario--esencial.4.texto",
+    "texto": "同じ時間のグリッドを、7日分並べて表示します。1週間の配分が見えるのはここで、ブロックを別の日へドラッグしたり、伸ばして長くしたりできます。"
+  },
+  {
+    "clave": "tut.calendario--esencial.5.titulo",
+    "texto": "月"
+  },
+  {
+    "clave": "tut.calendario--esencial.5.texto",
+    "texto": "時間軸はなくなり、日ごとのマスにその日の予定が並びます。全体を見渡すための表示で、どの週が詰まっていて、どの日が空いているかがわかります。"
+  },
+  {
+    "clave": "tut.calendario--esencial.6.titulo",
+    "texto": "年"
+  },
+  {
+    "clave": "tut.calendario--esencial.6.texto",
+    "texto": "12か月をひと息に。この距離では時刻までは読めません。見えてくるのは継続の度合いで、決めたことを1年のあいだどれだけ続けられたかがわかります。"
+  },
+  {
+    "clave": "tut.calendario--esencial.7.titulo",
+    "texto": "そして、ミッションは別枠で"
+  },
+  {
+    "clave": "tut.calendario--esencial.7.texto",
+    "texto": "5つ目の表示に見えないよう、赤くしてあります。ミッションは、すべてのアプリの今日のチェックリストを1つの画面に集めたものです。目標とそのプランはここにはありません。専用の部屋にあります。"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.1.titulo",
+    "texto": "あなただけの日記"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.1.texto",
+    "texto": "思い出ノートには、書き残したいことを気分と写真つきで保存できます。日付ごとに自動で整理されるので、自分で分類する必要はありません。"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.2.titulo",
+    "texto": "書き方"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.2.texto",
+    "texto": "その日の気分を選び、書きたいことを書いて、写真があれば添えます。文章なしで写真1枚だけでもかまいません。"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.3.titulo",
+    "texto": "気分のカレンダー"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.3.texto",
+    "texto": "一日ごとにエントリーの気分の色がつくので、1か月分がひと目で読めます。日付をタップすると、その日のエントリーが下に表示されます。"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.4.titulo",
+    "texto": "履歴"
+  },
+  {
+    "clave": "tut.app-anecdotario--esencial.4.texto",
+    "texto": "書いたエントリーはすべてここに残り、年・月・週のフォルダに自動で整理されます。"
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.1.titulo",
+    "texto": "あなたの図書室"
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.1.texto",
+    "texto": "図書室はあなただけの百科事典です。知らないことを聞き、学んだことを残し、勉強した分を記録していきます。メニューは4つです。"
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.2.titulo",
+    "texto": "チャット"
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.2.texto",
+    "texto": "ここでは賢者にどんな話題でも質問でき、会話はそのまま保存されます。チャットは分野ごとに自動で分類され、百科事典の項目として抽出されます。"
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.3.titulo",
+    "texto": "百科事典"
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.3.texto",
+    "texto": "学んだことが分野ごとに並ぶツリーです。項目にはそれぞれ要約と要点が入り、自分で書くこともできます。鉛筆のボタンを使えば、索引を自分好みに育てられます。"
+  },
+  {
+    "clave": "tut.app-biblioteca--esencial.4.titulo",
+    "texto": "学習"
   }
 ]

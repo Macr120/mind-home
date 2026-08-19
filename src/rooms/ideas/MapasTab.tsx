@@ -165,7 +165,6 @@ export function MapasTab({ familia }: { familia: 'mapas' | 'diagramas' }) {
             prefijoClave="ideas.tipo"
             color={COLOR}
             variante="sub"
-            nivel={3}
             flecha={false}
             rejilla
           />

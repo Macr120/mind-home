@@ -7,6 +7,8 @@ import { aceptarPlan, diasDePlan, origenDePlan, reanclarPlan } from '../../planM
 import { confirmar } from '../../state/confirmarStore'
 import { colorDe, colorPorProfundidad } from '../coloresRutina'
 import { Icono } from '../iconos/Icono'
+import { VERDE } from '../../../rooms/_shared/acento'
+import { COLOR_PLAN } from '../../../rooms/metas/constantes'
 
 /**
  * La fila que encabeza un plan superpuesto: qué plan es, cuándo arranca y los dos
@@ -93,10 +95,10 @@ export function CabeceraPlan({
   return (
     <div className="space-y-1 py-1 ps-1 pe-1">
       <div className="flex items-center gap-1">
-        <span className="shrink-0 text-[10px] text-violet-300/80">
+        <span className="shrink-0 text-[10px] text-plan/80">
           <Icono nombre="brillo" />
         </span>
-        <span className="min-w-0 flex-1 truncate text-[11px] font-semibold text-violet-200/90">
+        <span className="min-w-0 flex-1 truncate text-2xs font-semibold text-plan/90">
           {etiqueta ?? plan.nombre}
           <span className="ms-1 font-normal text-white/30">
             {dias > 0 ? t('cal.plan.duracion', '{n} días', { n: dias }) : t('cal.plan.sinPlazo', 'Sin plazo')}
@@ -106,7 +108,7 @@ export function CabeceraPlan({
           type="button"
           onClick={() => void borrar()}
           title={t('rutinas.borrar', 'Borrar')}
-          className="shrink-0 px-0.5 text-[10px] text-white/30 transition hover:text-red-400"
+          className="ui-presion shrink-0 px-0.5 text-[10px] text-white/30 transition hover:text-red-400"
         >
           <Icono nombre="basura" />
         </button>
@@ -123,7 +125,7 @@ export function CabeceraPlan({
             value={plan.inicioISO}
             onChange={(e) => void reanclarPlan(plan, e.target.value)}
             title={t('cal.plan.reanclar', 'Cambia el arranque: el plan entero se corre, sin volver a llamar a la IA')}
-            className="w-[86px] shrink-0 rounded border border-white/10 bg-black/30 px-1 py-0.5 text-[9px] tabular-nums text-white/60 focus:outline-none"
+            className="w-[86px] shrink-0 rounded-lg border border-white/10 bg-black/30 px-1 py-0.5 text-[9px] tabular-nums text-white/60 focus:border-accent/60 focus:outline-none"
           />
         </div>
       )}
@@ -135,13 +137,13 @@ export function CabeceraPlan({
           <button
             type="button"
             onClick={() => setVerMaterial((v) => !v)}
-            className="w-full text-start text-[9px] text-white/40 transition hover:text-white/70"
+            className="ui-presion w-full text-start text-[9px] text-white/40 transition hover:text-white/70"
           >
             {verMaterial ? '▾' : '▸'} {t('cal.plan.material.n', 'Material del plan ({n})', { n: material.length })}
           </button>
           {verMaterial &&
             material.map((m) => (
-              <div key={m.nombre} className="rounded bg-black/20 px-1.5 py-1">
+              <div key={m.nombre} className="rounded-lg bg-black/20 px-1.5 py-1">
                 <div className="flex items-baseline gap-1">
                   <span className="min-w-0 flex-1 truncate text-[10px] font-semibold text-white/80">{m.nombre}</span>
                   {m.rutina && <span className="shrink-0 text-[9px] text-white/35">{m.rutina}</span>}
@@ -156,11 +158,12 @@ export function CabeceraPlan({
         type="button"
         onClick={() => void aceptar()}
         disabled={aceptado || ocupado}
-        className={`flex w-full items-center justify-center gap-1 rounded-lg py-1 text-[11px] font-bold transition ${
+        className={`ui-presion flex w-full items-center justify-center gap-1 rounded-lg py-1 text-2xs font-bold ${
           aceptado
             ? 'bg-white/5 text-white/35'
-            : 'bg-emerald-500/90 text-black hover:bg-emerald-400 disabled:bg-white/5 disabled:text-white/25'
+            : 'text-black hover:brightness-110 disabled:bg-white/5 disabled:text-white/25'
         }`}
+        style={aceptado ? undefined : { background: VERDE }}
       >
         <Icono nombre="hecho" />
         {aceptado ? t('cal.plan.aceptado', 'Ya lo aceptaste') : t('cal.plan.aceptar', 'Mover a cronograma real')}
@@ -171,7 +174,8 @@ export function CabeceraPlan({
       <button
         type="button"
         onClick={onAbrirHoja}
-        className="w-full rounded-lg py-0.5 text-[10px] font-semibold text-violet-300/70 transition hover:text-violet-200"
+        className="ui-presion w-full rounded-lg py-0.5 text-[10px] font-semibold hover:brightness-125"
+        style={{ color: COLOR_PLAN }}
       >
         {t('cal.plan.abrirHoja', 'Abrir la hoja')}
       </button>

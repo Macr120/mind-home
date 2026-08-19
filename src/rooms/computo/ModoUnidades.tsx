@@ -38,7 +38,7 @@ export function ModoUnidades({ motor, selector }: { motor: Motor | null; selecto
   }, [motor, n, par.de, par.a, t])
 
   return (
-    <div className="space-y-3 rounded-2xl border border-white/10 bg-white/5 p-3">
+    <div data-tut="computo.calc.unidades" className="space-y-3 rounded-2xl border border-white/10 bg-white/5 p-3">
       <CabeceraModo selector={selector} />
 
       <div className="flex gap-1.5 overflow-x-auto pb-0.5">

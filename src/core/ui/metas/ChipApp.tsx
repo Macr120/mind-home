@@ -35,7 +35,10 @@ export function ChipApp({
     <span
       data-tut="cal.enlace.chip"
       className="inline-flex shrink-0 items-center gap-1 rounded-full border px-1.5 py-0.5"
-      style={{ borderColor: `${app.color}66`, background: `${app.color}1f` }}
+      style={{
+        borderColor: `color-mix(in srgb, ${app.color} 40%, transparent)`,
+        background: `color-mix(in srgb, ${app.color} 12%, transparent)`,
+      }}
     >
       <button
         type="button"
@@ -48,7 +51,7 @@ export function ChipApp({
               ? t('cal.enlace.dondeSeRegistra', 'Se registra en {app}', { app: app.nombre })
               : t('cal.enlace.abrir', 'Abrir {app}', { app: app.nombre })
         }
-        className={`flex items-center gap-1 text-[10px] font-semibold leading-none transition disabled:cursor-default ${
+        className={`ui-presion flex items-center gap-1 text-[10px] font-semibold leading-none transition disabled:cursor-default ${
           perdida ? 'text-amber-300' : 'texto-vivo hover:brightness-125'
         }`}
         style={vivo(app.color)}
@@ -61,7 +64,7 @@ export function ChipApp({
           type="button"
           onClick={onQuitar}
           title={t('cal.enlace.quitar', 'Quitar el chip')}
-          className="text-[9px] leading-none text-white/35 transition hover:text-red-400"
+          className="ui-presion text-[9px] leading-none text-white/35 transition hover:text-red-400"
         >
           <Icono nombre="cerrar" />
         </button>
@@ -101,7 +104,7 @@ export function SelectorApp({ onElegir, onCerrar }: { onElegir: (e: EnlaceApp) =
         <button
           type="button"
           onClick={() => (app ? setApp(null) : onCerrar())}
-          className="shrink-0 text-[10px] text-white/35 transition hover:text-white/80"
+          className="ui-presion shrink-0 text-[10px] text-white/35 transition hover:text-white/80"
         >
           {app ? `‹ ${t('cal.enlace.otraApp', 'Otra app')}` : <Icono nombre="cerrar" />}
         </button>
@@ -118,8 +121,11 @@ export function SelectorApp({ onElegir, onCerrar }: { onElegir: (e: EnlaceApp) =
               onClick={() =>
                 (p.comandos?.length ?? 0) > 0 ? setApp(p) : onElegir({ plantillaId: p.id })
               }
-              className="flex items-center gap-1 rounded-full border px-2 py-1 text-[10px] font-semibold transition hover:brightness-125"
-              style={{ borderColor: `${p.color}66`, background: `${p.color}1f` }}
+              className="ui-presion flex items-center gap-1 rounded-full border px-2 py-1 text-[10px] font-semibold transition hover:brightness-125"
+              style={{
+                borderColor: `color-mix(in srgb, ${p.color} 40%, transparent)`,
+                background: `color-mix(in srgb, ${p.color} 12%, transparent)`,
+              }}
             >
               <span className="texto-vivo" style={vivo(p.color)}>
                 <Icono emoji={p.icon} /> {p.nombre}
@@ -132,7 +138,7 @@ export function SelectorApp({ onElegir, onCerrar }: { onElegir: (e: EnlaceApp) =
               key={`${d.seccion ?? ''}|${d.dato ?? ''}`}
               type="button"
               onClick={() => onElegir({ plantillaId: app.id, seccion: d.seccion, dato: d.dato })}
-              className="rounded-full border border-white/15 px-2 py-1 text-[10px] font-semibold text-white/70 transition hover:border-white/35 hover:text-white"
+              className="ui-presion rounded-full border border-white/15 px-2 py-1 text-[10px] font-semibold text-white/70 transition hover:border-white/35 hover:text-white"
             >
               {d.etiqueta}
             </button>

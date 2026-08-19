@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { Rutina } from '../../data/db'
-import { repartirPasos, usePasosHoy, type PasoHoy } from '../../hoy'
+import { esDeMeta, repartirPasos, usePasosHoy, type PasoHoy } from '../../hoy'
 import { useOtorgarListasCompletas } from '../../gamificacion/listas'
 import { useT } from '../../i18n/useT'
 import { sincronizarAgendaDeMeta, sincronizarMetasDeApp, useMetaDiaria } from '../../metaDiaria'
@@ -19,13 +19,16 @@ import { MetasDeApp } from './MetasDeApp'
 
 /**
  * Las **Misiones** de la app abierta, desde su header: la checklist del día —
- * sus misiones, lo agendado y los pasos de sus metas, agrupados por el plan o
- * la meta del que salen (`deQuien`). El botón lleva la cuenta del día, y se pone
- * ámbar si un paso ya pasó de su hora.
+ * sus misiones, lo agendado y los pasos de sus metas. El botón lleva la cuenta
+ * del día, y se pone ámbar si un paso ya pasó de su hora.
  *
- * Aquí NO se planea nada: las metas, sus planes y el cronograma viven en el
- * cuarto «Metas» (`rooms/metas`), que los ve todos juntos. Este panel es solo lo
- * que toca hacer hoy en ESTA app.
+ * La lista va en DOS secciones (`esDeMeta`, en `core/hoy.ts`): «Misiones del día»
+ * —lo de cada día— y «Pasos de tus metas» —lo que sirve a algo más grande—, y
+ * dentro de cada una los pasos siguen agrupados por el plan o la meta del que
+ * salen (`deQuien`). Mezcladas se leían al mismo nivel y no lo están.
+ *
+ * Planear sigue siendo del planificador: se abre desde el bloque de metas de
+ * arriba (`MetasDeApp`). Este panel es lo que toca hacer hoy en ESTA app.
  *
  * Lo cumplido no se borra: baja a «Hechos», plegado. Ver el registro surtir
  * efecto es la mitad de la recompensa, y desde ahí se puede deshacer si se coló.
@@ -118,8 +121,54 @@ export function ListaHoy({
   // La lista entera cumplida es lo que da el XP; el otorgamiento es idempotente.
   useOtorgarListasCompletas(completa ? [plantillaId] : undefined, fecha)
   const urgente = pendientes.some((p) => p.urgente)
-  const grupos = agrupar(pendientes, t('hoy.grupoApp', 'Misiones del día'))
-  const nombreApp = t(`room.${plantillaId}.nombre`, getPlantilla(plantillaId)?.nombre ?? '').split(' · ')[0]
+  // La lista va en dos secciones: lo de cada día y lo que sirve a una meta. El
+  // rótulo de cada una es TAMBIÉN el nombre de su grupo sin dueño, por eso ese
+  // encabezado se calla (repetiría el rótulo que tiene justo encima).
+  const tituloDia = t('hoy.grupoApp', 'Misiones del día')
+  const tituloMetas = t('hoy.grupoMetas', 'Pasos de tus metas')
+  const deMetas = pendientes.filter(esDeMeta)
+  const secciones = [
+    // La del día va siempre: es de donde cuelgan «Todo hecho por hoy» y «Aún no te
+    // has propuesto nada», y sin ella la lista quedaría colgando de las metas.
+    { titulo: tituloDia, icono: 'lista' as const, pasos: pendientes.filter((p) => !esDeMeta(p)), porDueño: false },
+    // Aquí TODO viene de alguna meta, así que su nombre siempre encabeza: repetirlo
+    // fila por fila («· la meta») es lo que hacía falta cuando la lista era una sola.
+    { titulo: tituloMetas, icono: 'objetivo' as const, pasos: deMetas, porDueño: true },
+  ].filter((s) => s.titulo === tituloDia || s.pasos.length > 0)
+
+  /** Una sección con su rótulo y, dentro, los grupos por meta o por bloque. */
+  const seccion = ({ titulo, icono, pasos, porDueño }: (typeof secciones)[number]) => {
+    const grupos = agrupar(pasos, titulo)
+    const conEncabezado = porDueño || grupos.length > 1
+    return (
+      <div key={titulo}>
+        <p className="flex items-center gap-1.5 px-1 pb-1 pt-1.5 text-[11px] font-bold uppercase tracking-wider text-white/45">
+          <Icono nombre={icono} /> {titulo}
+        </p>
+        {grupos.map((g) => (
+          <div key={g.titulo}>
+            {/* Con un solo grupo el encabezado no dice nada que no se vea. */}
+            {conEncabezado && g.titulo !== titulo && (
+              <p className="truncate px-2 pb-0.5 pt-1.5 text-[10px] font-bold uppercase tracking-wider text-white/35">
+                {g.titulo}
+              </p>
+            )}
+            {g.pasos.map((p) => (
+              <FilaHoy
+                key={p.id}
+                // Con encabezado, el «de quién» de la fila lo repetiría.
+                paso={conEncabezado ? { ...p, deQuien: undefined } : p}
+                plantillaId={plantillaId}
+                fecha={fecha}
+                color={color}
+                onAgendar={agendar}
+              />
+            ))}
+          </div>
+        ))}
+      </div>
+    )
+  }
 
   // Quién se encarga de esta app: siempre uno de los asistentes de la casa. Es el
   // mismo que da los avisos de aquí (`asistenteDeApp` en core/avisos.ts).
@@ -168,9 +217,10 @@ export function ListaHoy({
                   <Icono emoji={asistente.emoji} />
                 </span>
               )}
+              {/* Solo «Misiones»: el nombre de la app ya está en el header del
+                  cuarto, y en móvil los dos juntos no caben. */}
               <h2 className={`min-w-0 truncate text-sm font-bold ${asistente ? '' : 'ms-auto'}`}>
-                {nombreApp}
-                <span className="text-white/40"> · {t('hoy.grupoApp', 'Misiones del día')}</span>
+                {t('hoy.titulo', 'Misiones')}
                 {cuentan.length > 0 && (
                   <span className="ms-1.5 tabular-nums font-normal text-white/40">
                     {hechos.length}/{cuentan.length}
@@ -180,6 +230,7 @@ export function ListaHoy({
 
               <button
                 type="button"
+                data-tut="hoy.cerrar"
                 onClick={() => setAbierto(false)}
                 title={t('hoy.cerrar', 'Cerrar')}
                 className="shrink-0 rounded-lg bg-white/10 px-3 py-1.5 text-sm font-semibold transition hover:bg-white/20"
@@ -206,27 +257,11 @@ export function ListaHoy({
               <MetasDeApp plantillaId={plantillaId} color={color} />
 
               <div data-tut="hoy.lista" className="space-y-0.5">
-                {grupos.map((g) => (
-                  <div key={g.titulo}>
-                    {/* Con un solo grupo el encabezado no dice nada que no se vea. */}
-                    {grupos.length > 1 && (
-                      <p className="truncate px-2 pb-0.5 pt-1.5 text-[10px] font-bold uppercase tracking-wider text-white/35">
-                        {g.titulo}
-                      </p>
-                    )}
-                    {g.pasos.map((p) => (
-                      <FilaHoy
-                        key={p.id}
-                        // Con encabezado, el «de quién» de la fila lo repetiría.
-                        paso={grupos.length > 1 ? { ...p, deQuien: undefined } : p}
-                        plantillaId={plantillaId}
-                        fecha={fecha}
-                        color={color}
-                        onAgendar={agendar}
-                      />
-                    ))}
-                  </div>
-                ))}
+                {/* Primero lo de cada día, después lo que sirve a una meta. El
+                    orden es fijo: que una sección salte de sitio según la hora
+                    despista más de lo que ayuda, y lo urgente ya se pinta en ámbar
+                    en su fila y en el chip del header. */}
+                {secciones.map(seccion)}
 
                 {pendientes.length === 0 && cuentan.length > 0 && (
                   <p className="px-2 py-1.5 text-xs text-white/40">{t('hoy.alDia', 'Todo hecho por hoy')}</p>

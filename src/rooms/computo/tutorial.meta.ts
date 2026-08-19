@@ -1,4 +1,5 @@
 import type { CuerpoTutorial, TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import { fichaEsencial } from '../../core/tutorial/esencial'
 
 /**
  * Fichas de los tutoriales de esta app: id, título y resumen. Es lo único que
@@ -53,3 +54,13 @@ const flujoHojas = tour(
 )
 
 export const flujosComputo: TutorialDef[] = [flujoFormulario, flujoCalculadora, flujoHojas]
+
+/** Esencial: recorre las dos pestañas en la casa real, sin necesitar datos. */
+export const esencialComputo: TutorialDef = fichaEsencial(
+  'computo',
+  T(
+    'tut.app-computo--esencial.resumen',
+    'La sala de cómputo tiene dos menús. La Calculadora hace las cuentas de siempre y cambia de modo para graficar, trabajar con bases numéricas, matrices, sistemas de ecuaciones, unidades, propina y regla de tres; de ella cuelga el formulario, tu libro de fórmulas con Matemáticas, Física y Química ya puestas. Las Hojas de cálculo llevan lo tabular, con fórmulas en español y exportación a Excel o PDF.',
+  ),
+  () => import('./tutorial').then((m) => m.cuerpoEsencial as CuerpoTutorial),
+)

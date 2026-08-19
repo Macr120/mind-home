@@ -28,9 +28,9 @@ import { ultimoCerrado, type TipoPeriodo } from './wrapped/periodo'
  * El reloj de los avisos: revisa cada minuto lo agendado y las metas del día.
  *
  * Vive en App (montado una vez, como `useDiarioProgramado`) y no dentro de un
- * panel: los recordatorios se disparaban desde `RutinasPanel`, que App desmonta
- * al entrar a un cuarto o abrir el editor — o sea que dejaban de avisar justo
- * cuando estabas usando la app.
+ * panel: cuando los disparaba el viejo panel de rutinas (hoy retirado), App lo
+ * desmontaba al entrar a un cuarto o abrir el editor — o sea que dejaban de
+ * avisar justo cuando estabas usando la app.
  */
 
 const LS_ESTADO = 'mh.avisos.estado'

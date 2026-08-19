@@ -24,7 +24,16 @@ import { claveLS, LS_DEMO, esDemo } from '../core/edicion'
 // migración v127, pero la demo se repone desde su foto (`demo/sandbox.ts`) y
 // volvería a la tarifa vieja: hay que rehacerla para que `sembrarListasDemo`
 // siembre con la vigente.
-export const DEMO_VERSION = 30
+// v31: mapa nuevo (`casa.json` re-exportado) — circuito con chicane en S, jardín
+// de mindfulness de una celda y alberca de 3×3. Sin subirla, quien ya tenga la
+// demo construida seguiría viendo el óvalo viejo con su BD cacheada.
+// v32: el cuarto Metas entra en `FUENTES`, así que `sembrarListasDemo` le siembra
+// por fin su año de listas. Sin subirla, la demo cacheada se repone desde su foto
+// y la tarjeta del planificador seguiría diciendo «Nv 1 · 0 XP».
+// v33: fuera el archivero de idiomas (`casa.json` retocado a mano): la escalera
+// sube por la esquina NE y lo atravesaba. Sin subirla, la demo cacheada se
+// repone desde su foto vieja con el mueble adentro.
+export const DEMO_VERSION = 33
 const LS_VERSION = 'mh.demo.version'
 const LS_INTENT = 'mh.demo.intent'
 

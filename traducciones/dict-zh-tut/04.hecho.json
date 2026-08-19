@@ -1,130 +1,130 @@
 [
   {
-    "clave": "tut.editor-mapa.3.texto",
-    "texto": "屋顶是按格子来的：每个格子都能有自己的形状或材质，所以同一个房间可以拼出不同的坡面，而不只是一整块平屋顶。"
+    "clave": "tut.app-ejercicio--esencial.3.texto",
+    "texto": "负重训练：每次训练都保存动作的组数、次数和负荷。应用据此算出当天的训练量，画出每个动作的进步曲线，并保存你的个人最佳。"
   },
   {
-    "clave": "tut.editor-mapa.4.texto",
-    "texto": "家还有层数：向上可叠加楼层，向下有地下室。每个新楼层生来就自带上去的方式——一段楼梯，或者楼板上的一个开口——它会穿透上面那层地板。"
+    "clave": "tut.app-ejercicio--esencial.4.titulo",
+    "texto": "目录、日常安排和进度"
   },
   {
-    "clave": "tut.editor-mapa.5.titulo",
-    "texto": "完成"
+    "clave": "tut.app-ejercicio--esencial.4.texto",
+    "texto": "三种训练的结构完全一样。目录把可用的动作分组，并用它们组成日常安排；日常安排记录你在上方选定那天的训练；进度用热力图汇总这段时间。"
   },
   {
-    "clave": "tut.editor-mapa.5.texto",
-    "texto": "编辑时一切都会自动保存。“完成”会关闭编辑器，带你回到游戏，家还是你离开时的样子。"
+    "clave": "tut.app-ejercicio--esencial.5.titulo",
+    "texto": "耐力"
   },
   {
-    "clave": "tut.editor-personajes.1.texto",
-    "texto": "你的主角和助手都在同一个编辑器里：在上方选择要编辑谁，工具就会换成适合对方的那些。"
+    "clave": "tut.app-ejercicio--esencial.5.texto",
+    "texto": "跑步、骑行、游泳或走路，按段记录时长和距离。实时训练也从这里打开：它用GPS记录路线，用蓝牙传感器读取心率，结束时保存这次训练。"
   },
   {
-    "clave": "tut.editor-personajes.2.titulo",
-    "texto": "脸部和照片"
+    "clave": "tut.app-ejercicio--esencial.6.titulo",
+    "texto": "柔韧性"
   },
   {
-    "clave": "tut.editor-personajes.2.texto",
-    "texto": "表情、发型和发色，或者直接用你的照片，让角色长得像你。不是所有身体都支持自定义脸部。"
+    "clave": "tut.app-ejercicio--esencial.6.texto",
+    "texto": "拉伸和活动度训练，用时间而不是重量来计组：每个姿势有自己的秒数和次数。引导播放器会带你一个姿势一个姿势地走完，并用计时器提示什么时候换。"
   },
   {
-    "clave": "tut.editor-personajes.3.titulo",
-    "texto": "按分类穿衣"
+    "clave": "tut.app-entretenimiento--esencial.1.titulo",
+    "texto": "娱乐室"
   },
   {
-    "clave": "tut.editor-personajes.3.texto",
-    "texto": "每件衣物都能单独穿上、脱下和换色：上衣、裤子、鞋子、配饰。可以随意搭配。"
+    "clave": "tut.app-entretenimiento--esencial.1.texto",
+    "texto": "保存你看完、读完、玩完的电影、剧集、书籍和电子游戏，还带来一张数字牌桌，不出家门就能玩。一共两个菜单：桌游和档案。"
   },
   {
-    "clave": "tut.editor-personajes.4.titulo",
-    "texto": "保存的穿搭"
+    "clave": "tut.app-entretenimiento--esencial.2.titulo",
+    "texto": "桌游"
   },
   {
-    "clave": "tut.editor-personajes.4.texto",
-    "texto": "把一整套衣物保存成一个穿搭，点一下就能整身换好，不用每次一件件重新搭。"
+    "clave": "tut.app-entretenimiento--esencial.2.texto",
+    "texto": "牌桌上汇集了可以直接在屏幕上玩的数字游戏。筛选可以把适合一两个人的，和适合更多人一起玩的分开。"
   },
   {
-    "clave": "tut.editor-personajes.5.titulo",
-    "texto": "按房间的衣柜"
+    "clave": "tut.app-entretenimiento--esencial.3.titulo",
+    "texto": "按系列分组"
   },
   {
-    "clave": "tut.editor-personajes.5.texto",
-    "texto": "给每个房间分配不同的穿搭：你的虚拟形象进“健身房”时穿着跑步装，走到“厨房”就自动换掉。"
+    "clave": "tut.app-entretenimiento--esencial.3.texto",
+    "texto": "目录按系列分组——棋盘、益智、街机、纸牌与博彩，以及适合多人的——每一类都有自己的颜色。点任意一张卡片，游戏就会全屏打开。"
   },
   {
-    "clave": "tut.editor-personajes.6.texto",
-    "texto": "身体、颜色和大小还是照旧编辑；开启AI后，你还可以生成专属的3D模型，而不用从预设里挑。"
+    "clave": "tut.app-entretenimiento--esencial.4.titulo",
+    "texto": "档案"
   },
   {
-    "clave": "tut.editor-objetos.1.texto",
-    "texto": "点一下场景里（或列表里）的物件就能编辑：颜色、大小和旋转是所有物件共有的三项设置。"
+    "clave": "tut.app-entretenimiento--esencial.4.texto",
+    "texto": "档案把你看的、读的、玩的都收在一起：每个作品都带状态、评分和你的评价。可以按类型、分类、作者或日期排序。"
   },
   {
-    "clave": "tut.editor-objetos.2.texto",
-    "texto": "分配了应用的物件，进入房间时会打开它的模板；没分配的就只是装饰——两者的编辑方式一样。"
+    "clave": "tut.app-garage--esencial.1.titulo",
+    "texto": "车库"
   },
   {
-    "clave": "tut.editor-objetos.3.texto",
-    "texto": "物件上的齿轮⚙️能让它按零件来编辑：用基本形状组合出自己的模型，或者描述一下，让AI给你做一个。"
+    "clave": "tut.app-garage--esencial.1.texto",
+    "texto": "车库管着你的车辆：自行车、汽车、摩托车，以及一切你用来代步的东西。每一辆都保存自己的维修记录和手续，凡是带日期的都会自动排进家里的日历。"
   },
   {
-    "clave": "tut.editor-config.1.texto",
-    "texto": "8个可折叠的区块，而不是一长串列表：点标题，只展开你关心的那个。"
+    "clave": "tut.app-garage--esencial.2.titulo",
+    "texto": "概览"
   },
   {
-    "clave": "tut.editor-config.2.titulo",
-    "texto": "账户与AI"
+    "clave": "tut.app-garage--esencial.2.texto",
+    "texto": "进门的第一个标签页：一个信号灯一眼告诉你有没有过期的、有没有快到期的，或者车库一切安好。"
   },
   {
-    "clave": "tut.editor-config.2.texto",
-    "texto": "登录、你的套餐，以及这个月用掉多少AI；旁边就是每项操作的价目表。两者都有各自的详细教程。"
+    "clave": "tut.app-garage--esencial.3.titulo",
+    "texto": "一眼看清"
   },
   {
-    "clave": "tut.editor-config.3.titulo",
-    "texto": "视觉风格"
+    "clave": "tut.app-garage--esencial.3.texto",
+    "texto": "你有多少辆车、还有多少手续在办，以及今年到目前为止花了多少。"
   },
   {
-    "clave": "tut.editor-config.3.texto",
-    "texto": "地图的主题（光线、雾气、照明）和后期处理风格，全都按需加载，不会白白增加负担。"
+    "clave": "tut.app-garage--esencial.4.titulo",
+    "texto": "车辆"
   },
   {
-    "clave": "tut.editor-config.4.titulo",
-    "texto": "界面与语言"
+    "clave": "tut.app-garage--esencial.4.texto",
+    "texto": "完整的列表，每张卡片上有车牌、里程和保养次数。点开一辆就会打开它的资料，里面是维修记录和手续。"
   },
   {
-    "clave": "tut.editor-config.4.texto",
-    "texto": "语言、界面主题（浅色/深色/自动）、图标样式和密度——都是改变家“看起来怎么样”的东西，而不是里面装着什么。"
+    "clave": "tut.app-garage--esencial.5.titulo",
+    "texto": "添加一辆新的"
   },
   {
-    "clave": "tut.editor-config.5.titulo",
-    "texto": "通知"
+    "clave": "tut.app-garage--esencial.5.texto",
+    "texto": "名称、类型、品牌、型号、年份、车牌，以及今天的里程表读数。填了车牌之后，资料里还会解锁只有上牌车辆才需要的手续，比如尾气检测或车船税。"
   },
   {
-    "clave": "tut.editor-config.5.texto",
-    "texto": "哪些提醒会来，哪些保持安静：日常安排、计划通知和提醒事项都能单独关掉。"
+    "clave": "tut.app-hobbies--esencial.1.titulo",
+    "texto": "你的消遣"
   },
   {
-    "clave": "tut.editor-config.6.texto",
-    "texto": "“音乐”和“教程”有各自的导览；“数据备份”也有，而且换设备前最值得先看看的就是它。"
+    "clave": "tut.app-hobbies--esencial.1.texto",
+    "texto": "爱好用来跟踪你出于喜欢而做的事：每项爱好汇集自己的练习记录、连续天数，愿意的话还有它的项目。"
   },
   {
-    "clave": "tut.respaldo.1.titulo",
-    "texto": "你的家住在哪里"
+    "clave": "tut.app-hobbies--esencial.2.titulo",
+    "texto": "你的爱好"
   },
   {
-    "clave": "tut.respaldo.1.texto",
-    "texto": "没有账户也没有同步时，你的数据只存在这台设备上。上面的提示会告诉你，浏览器有没有权限保护它不被自动清理掉。"
+    "clave": "tut.app-hobbies--esencial.2.texto",
+    "texto": "你登记的每项爱好都会在这里显示成一张卡片，带上本周的进展和当前的连续天数。打开一项，就能看到它的统计、年度热力图、练习记录和项目。"
   },
   {
-    "clave": "tut.respaldo.2.titulo",
-    "texto": "导出"
+    "clave": "tut.app-hobbies--esencial.3.titulo",
+    "texto": "添加一项爱好"
   },
   {
-    "clave": "tut.respaldo.2.texto",
-    "texto": "下载一个JSON文件，里面装着你所有的表：房间、目标、记录，全都有。这就是你手动的备份。"
+    "clave": "tut.app-hobbies--esencial.3.texto",
+    "texto": "这个按钮会打开添加新爱好的表单：名称、表情、颜色，愿意的话还可以设一个以练习天数计的每周目标。"
   },
   {
-    "clave": "tut.respaldo.3.titulo",
-    "texto": "恢复"
+    "clave": "tut.app-hobbies--esencial.4.titulo",
+    "texto": "每项爱好里面"
   }
 ]

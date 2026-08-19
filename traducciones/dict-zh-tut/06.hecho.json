@@ -1,130 +1,54 @@
 [
- {
-  "clave": "tut.chat.6.texto",
-  "texto": "使用手册里列着所有指令：添加或移除房间、创建物件、记住某些事……"
- },
- {
-  "clave": "tut.chat.7.titulo",
-  "texto": "AI模型"
- },
- {
-  "clave": "tut.chat.7.texto",
-  "texto": "这个图标用来选择由哪个AI回答，如果你用自己的密钥，也会存在这里。一个都没配置时，聊天仍然靠关键词工作，只是听不懂自由的说法。"
- },
- {
-  "clave": "tut.chat.8.texto",
-  "texto": "你也可以就在这里问“厨房怎么用？”，或者说“健身房教程”；而保存下来的内容，可以在“聊天·记录与记忆”教程里回顾。"
- },
- {
-  "clave": "tut.chat-registros.1.texto",
-  "texto": "“聊天”显示你和谁聊过；“记录”显示这些对话里保存下来的内容。"
- },
- {
-  "clave": "tut.chat-registros.2.titulo",
-  "texto": "它记住的事"
- },
- {
-  "clave": "tut.chat-registros.2.texto",
-  "texto": "助手觉得值得跨会话记住的信息——过敏、一个目标、一种偏好——这样就不用再问你一遍。点它的✕就会忘掉。"
- },
- {
-  "clave": "tut.chat-registros.3.texto",
-  "texto": "你在各个应用里记录的东西（饮食、支出、训练）都留在那些应用里，不在这里：这个标签页只是对话本身的记忆。"
- },
- {
-  "clave": "tut.app-generica.1.texto",
-  "texto": "顶部显示房间和当前打开的应用。如果这个房间有好几个应用，‹ 箭头会回到房间的应用列表。"
- },
- {
-  "clave": "tut.app-generica.2.titulo",
-  "texto": "今天的步骤"
- },
- {
-  "clave": "tut.app-generica.2.texto",
-  "texto": "这个应用里今天的步骤：你的每日目标、你安排好的事，以及目标要求的事。点一下就展开；只要你记录，每个步骤就会自动划掉。"
- },
- {
-  "clave": "tut.app-generica.3.titulo",
-  "texto": "模块"
- },
- {
-  "clave": "tut.app-generica.3.texto",
-  "texto": "这个模板是用模块（笔记、列表、计数器、习惯……）搭起来的。你可以在 菜单 › 模板 › 编辑 里更换它们。"
- },
- {
-  "clave": "tut.app-generica.4.titulo",
-  "texto": "离开"
- },
- {
-  "clave": "tut.app-generica.4.texto",
-  "texto": "“返回家”会关闭应用，把你放回3D里。你在这儿记录的内容早就存好了。"
- },
- {
-  "clave": "tut.rutinas.1.texto",
-  "texto": "Pep的日常安排面板：上面是今天的，下面是完整目录，可以暂停、编辑或删除。"
- },
- {
-  "clave": "tut.rutinas.2.titulo",
-  "texto": "今天该做的"
- },
- {
-  "clave": "tut.rutinas.2.texto",
-  "texto": "咖啡店的班、物理课、清晨跑步、晚上的钢琴：每张卡片都是一条带步骤的日常安排。用琥珀色溢出来的那条，是本该已经开始却还没动的。"
- },
- {
-  "clave": "tut.rutinas.3.titulo",
-  "texto": "不总是需要打勾"
- },
- {
-  "clave": "tut.rutinas.3.texto",
-  "texto": "带⚡闪电的步骤会自己记录：清晨跑步被划掉，是因为那次跑步已经存进了“健身房”，不是有人手动打的勾。其余步骤还是要点一下才打勾。"
- },
- {
-  "clave": "tut.rutinas.4.titulo",
-  "texto": "完整目录"
- },
- {
-  "clave": "tut.rutinas.4.texto",
-  "texto": "不管今天该不该做，全都在这里。ON/OFF可以暂停一条日常安排而不删掉它的历史：到今天为止完成的都留着，从明天起不再要求。“编辑”和✕会修改或删除整条日常安排。"
- },
- {
-  "clave": "tut.rutinas.5.titulo",
-  "texto": "创建一条日常安排"
- },
- {
-  "clave": "tut.rutinas.5.texto",
-  "texto": "名字、它属于哪个应用（如果只是家里的一个零散活动，就哪个都不选）、时间和颜色。步骤是可选的：没有步骤，它就只是日历上的一个活动。"
- },
- {
-  "clave": "tut.rutinas.6.titulo",
-  "texto": "一次、每周或一直"
- },
- {
-  "clave": "tut.rutinas.6.texto",
-  "texto": "钢琴没有勾选任何星期，是不限期的（也就是每天）；跑步只在Pep勾选的日子重复。每月、每年或某个区间的重复不在这里选：它们来自直接在日历格子上画出目标。"
- },
- {
-  "clave": "tut.rutinas.7.titulo",
-  "texto": "到点的提醒"
- },
- {
-  "clave": "tut.rutinas.7.texto",
-  "texto": "授予权限后，它会以系统通知的形式送达；没有的话，下次打开应用时助手会告诉你。"
- },
- {
-  "clave": "tut.rutinas.8.texto",
-  "texto": "在这里安排的一切，也会出现在日历的格子上，以及每个步骤所属应用的“今天”列表里。"
- },
- {
-  "clave": "tut.enlaces.1.titulo",
-  "texto": "从目标到它的应用"
- },
- {
-  "clave": "tut.enlaces.1.texto",
-  "texto": "任何目标或计划步骤都可以带一个应用图标的标签：它回答的就是“这条到底记在哪儿？”。"
- },
- {
-  "clave": "tut.enlaces.2.titulo",
-  "texto": "添加或更换"
- }
+  {
+    "clave": "tut.app-metas--esencial.3.texto",
+    "texto": "计划是日程的草稿：它把一个目标拆成带日期的若干阶段。还是提议时你可以随意修改；等它说服了你，接受之后，这些阶段就会变成真正的子目标。"
+  },
+  {
+    "clave": "tut.app-metas--esencial.4.titulo",
+    "texto": "日程"
+  },
+  {
+    "clave": "tut.app-metas--esencial.4.texto",
+    "texto": "所有目标同时排在一条时间轴上：每一个都是日期上的一条横杠。可以按日、周、月或年放大缩小，还能把一份计划叠在上面，和已经排好的对照着看。"
+  },
+  {
+    "clave": "tut.app-sala--esencial.1.titulo",
+    "texto": "你的旅行客厅"
+  },
+  {
+    "clave": "tut.app-sala--esencial.1.texto",
+    "texto": "你的旅行世界住在这里：插着图钉的世界地图、想去的地方的行程、把地点串起来的路线，还有一本回忆的旅行日志。一共四个菜单。"
+  },
+  {
+    "clave": "tut.app-sala--esencial.2.titulo",
+    "texto": "地图"
+  },
+  {
+    "clave": "tut.app-sala--esencial.2.texto",
+    "texto": "你去过的和梦想去的每一个地方，都是世界地图上的一枚图钉。顶部的开关能把平面地图换成可以拖着转的地球仪。"
+  },
+  {
+    "clave": "tut.app-sala--esencial.3.titulo",
+    "texto": "行程"
+  },
+  {
+    "clave": "tut.app-sala--esencial.3.texto",
+    "texto": "你梦想去的地方，每一个都带着自己的逐日计划。定了日期的会自动排进日历。"
+  },
+  {
+    "clave": "tut.app-sala--esencial.4.titulo",
+    "texto": "路线"
+  },
+  {
+    "clave": "tut.app-sala--esencial.4.texto",
+    "texto": "路线把几个地点串成一趟行程，并画在地图上。"
+  },
+  {
+    "clave": "tut.app-sala--esencial.5.titulo",
+    "texto": "旅行日志"
+  },
+  {
+    "clave": "tut.app-sala--esencial.5.texto",
+    "texto": "你去过的地方留下的回忆，按国家收进相册：每个地方的照片和故事。"
+  }
 ]
