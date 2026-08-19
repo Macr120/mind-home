@@ -6,6 +6,7 @@ import { useCam } from '../state/cameraStore'
 import { useInteractUi } from '../state/interactUiStore'
 import { useEditorUi } from '../state/editorUiStore'
 import { usePlanos } from '../state/planosStore'
+import { pulsacionLargaReciente } from './pulsacionLarga'
 import { useDiseño } from '../state/disenoStore'
 import { VACIO, pisosExteriorRepo } from '../data/repository'
 import { useCuartos } from '../state/cuartosStore'
@@ -53,6 +54,9 @@ export function PisosExterior3D() {
       // Con un modo de construcción activo (editor o atajo de la rueda) el tap
       // construye, no mueve al personaje.
       if (editMode || usePlanos.getState().activo) return
+      // Soltar tras una pulsación larga (despertar algo, abrir un editor) no es un
+      // toque para caminar.
+      if (pulsacionLargaReciente()) return
       if (useCam.getState().vista !== 'iso') return
       e.stopPropagation()
       clearInteract()

@@ -31,6 +31,7 @@ export function EditorHuerto() {
   const activo = useHuerto((s) => s.activo)
   const herramienta = useHuerto((s) => s.herramienta)
   const especie = useHuerto((s) => s.especie)
+  const sel = useHuerto((s) => s.sel)
   const cesta = (cestaRepo.useAll() ?? VACIO).filter((c) => c.cantidad > 0)
   if (!activo) return null
   const h = useHuerto.getState()
@@ -88,13 +89,21 @@ export function EditorHuerto() {
               })}
             </div>
           )}
+          {herramienta === 'mover' && (
+            <p data-tut="huerto.mover.pista" className="text-center text-[11px] text-white/60">
+              {sel == null
+                ? t('infra.mover.elegir', 'Toca lo que quieras mover.')
+                : t('infra.mover.destino', 'Ahora toca su sitio nuevo (o toca otro para cambiar).')}
+            </p>
+          )}
           {/* Rejilla: los botones quedan alineados en columnas y sin filas huérfanas. */}
-          <div data-tut="huerto.herramientas" className="grid grid-cols-3 gap-1.5 sm:grid-cols-6">
+          <div data-tut="huerto.herramientas" className="grid grid-cols-3 gap-1.5 sm:grid-cols-7">
             {herrBtn('parcela', 'parcela', t('huerto.herr.parcela', 'Parcela'))}
             {herrBtn('sembrar', 'sembrar', t('huerto.herr.sembrar', 'Sembrar'))}
             {herrBtn('regar', 'regadera', t('huerto.herr.regar', 'Regar'))}
             {herrBtn('cosechar', 'cosechar', t('huerto.herr.cosechar', 'Cosechar'))}
             {herrBtn('aspersor', 'aspersor', t('huerto.herr.aspersor', 'Aspersor'))}
+            {herrBtn('mover', 'mover', t('planos.herr.mover', 'Mover'))}
             {herrBtn('quitar', 'basura', t('huerto.herr.quitar', 'Quitar'))}
           </div>
           {cesta.length > 0 && (
@@ -110,9 +119,6 @@ export function EditorHuerto() {
               ))}
             </div>
           )}
-          <p className="max-w-md text-center text-[10px] leading-tight text-white/50">
-            {t('huerto.ayuda', 'Los cultivos crecen en tiempo real y piden riego: la gota azul avisa; si no riegas, se marchitan y al rato la parcela se limpia sola. Un aspersor riega solo su celda y las 8 vecinas. Las cosechas van a la cesta (también al caminar sobre lo listo): alimentan a los animales.')}
-          </p>
     </MarcoEditorInfra>
   )
 }

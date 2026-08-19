@@ -1,8 +1,8 @@
-import { memo, useEffect, useMemo } from 'react'
+import { memo, useEffect, useMemo, useRef } from 'react'
 import * as THREE from 'three'
 import { Canvas, useThree } from '@react-three/fiber'
 import { useShallow } from 'zustand/react/shallow'
-import type { Cuarto, CuadranteMapa } from '../data/db'
+import type { Cuarto, CuadranteMapa, ObjetoCuarto } from '../data/db'
 import { useHouse } from '../state/houseStore'
 import { useDiseño } from '../state/disenoStore'
 import { esGamaBaja } from '../gamaDispositivo'
@@ -39,7 +39,7 @@ import { FondoAnimaciones } from './FondoAnimaciones'
 import { FocosCasa } from './FocosCasa'
 import { TemaContext } from './primitivas'
 import { ObjetoView } from './catalogo'
-import { GrupoAnimado } from './Animado'
+import { GrupoAnimado, Temblor } from './Animado'
 import { objetosMapaIdx } from '../state/disenoStore'
 import { useMontura } from '../state/monturaStore'
 import { useCargar, ALTURA_CARGA_OBJETO, ALTURA_CARGA_CUARTO } from '../state/cargarStore'
@@ -66,6 +66,10 @@ import { useCanchas, esCancha, escalaCancha } from '../state/canchasStore'
 import { NavControls } from '../ui/NavControls'
 import { EditorMontaje, SalirCuartoFlotante } from '../ui/EditorHud'
 import { InteractAnchor } from './InteractAnchor'
+import { DespiertoAnchor } from './DespiertoAnchor'
+import { MenuDespierto } from '../ui/MenuDespierto'
+import { pulsacionLargaDespertar } from './pulsacionLarga'
+import { useDespierto } from '../state/despiertoStore'
 import { EtiquetasMapaProjector } from './etiquetasMapa'
 import { ZonaTutProjector } from './ZonaTutProjector'
 import { EditorAnchor } from './EditorAnchor'
@@ -172,6 +176,99 @@ function RejillaMapa({
   )
 }
 
+/**
+ * Un objeto libre del mapa. Es un componente propio (y no JSX suelto dentro del
+ * `map`) porque el temblor de la pulsación larga necesita un grupo con ref:
+ * sacudir un grupo SIEMPRE montado evita remontar el modelo al encender o
+ * apagar el temblor (un .glb parpadearía).
+ */
+function ObjetoDelMapa({
+  o,
+  drag,
+  elevado,
+  arrastreEditor,
+  seleccionaEnEditor,
+  despierto,
+}: {
+  o: ObjetoCuarto
+  /** Este objeto se está arrastrando (flota un poco). */
+  drag: boolean
+  /** El arrastre es "cargarlo" caminando, no un drag de puntero. */
+  elevado: boolean
+  /** Arrastrable desde un editor (mapa, 3D, inventario o canchas). */
+  arrastreEditor: boolean
+  /** Tocarlo lo selecciona además en el panel del editor. */
+  seleccionaEnEditor: boolean
+  /** Despierto por una pulsación larga: tiembla y se puede mover. */
+  despierto: boolean
+}) {
+  const gTemblor = useRef<THREE.Group>(null)
+  const D = Math.PI / 180
+  const arrastrable = arrastreEditor || despierto
+  // Las canchas siguen a la rejilla; el resto de objetos conserva su tamaño.
+  const escala = esCancha(o.tipo) ? escalaCancha(o.escala) : (o.escala ?? 1)
+  const alturaDrag = drag ? (elevado ? ALTURA_CARGA_OBJETO : 0.6) : 0.2
+  return (
+    <group
+      position={[o.x ?? 0, alturaDrag + (o.y ?? 0), o.z ?? 0]}
+      rotation={[(o.rotX ?? 0) * D, (o.rotY ?? 0) * D, (o.rotZ ?? 0) * D]}
+      scale={escala}
+      onPointerDown={
+        arrastrable
+          ? (e) => {
+              e.stopPropagation()
+              if (o.id == null) return
+              if (arrastreEditor) {
+                if (useEditorUi.getState().editor3d) useEditorUi.getState().setTab('objetos')
+                if (seleccionaEnEditor) useEditorUi.getState().setObjetoSel(o.id)
+              }
+              useDiseño.getState().startObjetoDrag(o.id)
+            }
+          : (e) => {
+              // Fuera de los editores, mantenerlo pulsado lo despierta: tiembla, se
+              // puede arrastrar y saca su menú (ver `MenuDespierto`). Un toque
+              // corto sigue sin hacer nada, así que no le roba el gesto a nadie.
+              const id = o.id
+              if (id != null) {
+                pulsacionLargaDespertar(e.nativeEvent, () =>
+                  useDespierto.getState().despertar({ tipo: 'objeto', id }),
+                )
+              }
+            }
+      }
+      // Despierto, el toque que lo arrastra no debe colarse al suelo de detrás
+      // (que mandaría al personaje a caminar hasta ahí).
+      onClick={despierto ? (e) => e.stopPropagation() : undefined}
+      onPointerOver={(e) => {
+        e.stopPropagation()
+        if (arrastrable) document.body.style.cursor = 'grab'
+      }}
+      onPointerOut={() => {
+        if (!useDiseño.getState().draggingObjeto) document.body.style.cursor = 'default'
+      }}
+    >
+      <group ref={gTemblor}>
+        <GrupoAnimado anim={o.animacion} nivel={0} objetoId={o.id}>
+          <ObjetoView
+            tipo={o.tipo}
+            color={o.color}
+            piezas={o.piezas}
+            modeloGlb={o.modeloGlb}
+            foto={o.foto}
+            texto={o.texto}
+            anim={o.animacion}
+            nivelAnim={0}
+            objetoId={o.id}
+            fx={o.fx}
+            grupoAccion={o.grupoAccion}
+          />
+        </GrupoAnimado>
+      </group>
+      {despierto && <Temblor grupo={gTemblor} />}
+    </group>
+  )
+}
+
 /** Objetos LIBRES sobre el mapa (fuera de cuartos): coordenadas de mundo. */
 const ObjetosMapa = memo(function ObjetosMapa({
   cuadranteVista,
@@ -182,15 +279,14 @@ const ObjetosMapa = memo(function ObjetosMapa({
   const objetos = useDiseño((s) => objetosMapaIdx(s.objetos))
   const draggingObjeto = useDiseño((s) => s.draggingObjeto)
   const arrastreElevado = useDiseño((s) => s.arrastreElevado)
-  const startObjetoDrag = useDiseño((s) => s.startObjetoDrag)
   const editMode = useLayout((s) => s.editMode)
   const editingRoomId = useLayout((s) => s.editingRoomId)
   const tab = useEditorUi((s) => s.tab)
-  const setObjetoSel = useEditorUi((s) => s.setObjetoSel)
   const objetoSel = useEditorUi((s) => s.objetoSel)
-  const setTab = useEditorUi((s) => s.setTab)
   const editor3d = useEditorUi((s) => s.editor3d)
   const inventarioObjetosActivo = useEditorUi((s) => s.inventarioObjetosActivo)
+  // Objeto despertado con una pulsación larga (fuera del editor).
+  const manipuladoId = useDespierto((s) => (s.sujeto?.tipo === 'objeto' ? s.sujeto.id : null))
   // El vehículo que se está conduciendo se dibuja dentro del Character, no aquí.
   const montadoId = useMontura((s) => s.instanciaId)
   const centro = useCercania((s) => s.centro)
@@ -202,7 +298,7 @@ const ObjetosMapa = memo(function ObjetosMapa({
   // Fuera del radio del foco no se montan: son los árboles, la fuente, el
   // espectacular… de la otra punta del mapa. Editando sí, que ahí se colocan —
   // salvo con un cuadrante en vista, cuyo recorte manda también en el editor
-  // (con excepción del objeto seleccionado o en arrastre).
+  // (con excepción del objeto seleccionado, el despierto o el que se arrastra).
   const enVista = (x: number, z: number) => {
     if (!cuadranteVista) return true
     const { col, row } = worldToCeldaEntera(x, z)
@@ -212,64 +308,24 @@ const ObjetosMapa = memo(function ObjetosMapa({
     (o) =>
       o.id !== montadoId &&
       (draggingObjeto === o.id ||
-        (o.id != null && o.id === objetoSel) ||
+        (o.id != null && (o.id === objetoSel || o.id === manipuladoId)) ||
         (enVista(o.x ?? 0, o.z ?? 0) &&
           (editables || cercaDelFocoMundo(o.x ?? 0, o.z ?? 0, centro)))),
   )
   if (items.length === 0) return null
   return (
     <TemaContext.Provider value={tema}>
-      {items.map((o) => {
-        const drag = draggingObjeto === o.id
-        const D = Math.PI / 180
-        const arrastrable = editables || (canchasEditar && esCancha(o.tipo))
-        // Las canchas siguen a la rejilla; el resto de objetos conserva su tamaño.
-        const escala = esCancha(o.tipo) ? escalaCancha(o.escala) : (o.escala ?? 1)
-        const alturaDrag = drag ? (arrastreElevado ? ALTURA_CARGA_OBJETO : 0.6) : 0.2
-        return (
-          <group
-            key={o.id}
-            position={[o.x ?? 0, alturaDrag + (o.y ?? 0), o.z ?? 0]}
-            rotation={[(o.rotX ?? 0) * D, (o.rotY ?? 0) * D, (o.rotZ ?? 0) * D]}
-            scale={escala}
-            onPointerDown={
-              arrastrable
-                ? (e) => {
-                    e.stopPropagation()
-                    if (o.id != null) {
-                      if (editor3d) setTab('objetos')
-                      if (!canchasEditar || editables) setObjetoSel(o.id)
-                      startObjetoDrag(o.id)
-                    }
-                  }
-                : undefined
-            }
-            onPointerOver={(e) => {
-              e.stopPropagation()
-              if (arrastrable) document.body.style.cursor = 'grab'
-            }}
-            onPointerOut={() => {
-              if (!useDiseño.getState().draggingObjeto) document.body.style.cursor = 'default'
-            }}
-          >
-            <GrupoAnimado anim={o.animacion} nivel={0} objetoId={o.id}>
-              <ObjetoView
-                tipo={o.tipo}
-                color={o.color}
-                piezas={o.piezas}
-                modeloGlb={o.modeloGlb}
-                foto={o.foto}
-                texto={o.texto}
-                anim={o.animacion}
-                nivelAnim={0}
-                objetoId={o.id}
-                fx={o.fx}
-                grupoAccion={o.grupoAccion}
-              />
-            </GrupoAnimado>
-          </group>
-        )
-      })}
+      {items.map((o) => (
+        <ObjetoDelMapa
+          key={o.id}
+          o={o}
+          drag={draggingObjeto === o.id}
+          elevado={arrastreElevado}
+          arrastreEditor={editables || (canchasEditar && esCancha(o.tipo))}
+          seleccionaEnEditor={editables || !canchasEditar}
+          despierto={o.id != null && o.id === manipuladoId}
+        />
+      ))}
     </TemaContext.Provider>
   )
 })
@@ -377,6 +433,12 @@ export function House() {
   // Arrastre de cuartos del registro: en el tab Mapa del editor completo, o con el atajo
   // de construcción (Cuartos + botón Mover) — misma condición que Room3D.puedeMoverCuarto.
   const planosMoverCuartos = planosActivo && planosCapa === 'cuartos' && planosHerr === 'mover'
+  // Un cuarto despertado con una pulsación larga también se arrastra (fuera del editor).
+  const cuartoDespiertoId = useDespierto((s) => (s.sujeto?.tipo === 'cuarto' ? s.sujeto.id : null))
+  // Con un arrastre EN CURSO el controlador se queda montado pase lo que pase: si se
+  // desmontara a media (al soltar el cuarto despierto, p. ej.) nadie escucharía el
+  // `pointerup` y el cuarto se quedaría pegado al dedo.
+  const arrastrandoCuarto = useLayout((s) => s.draggingId != null)
   // Dibujando una zona el arrastre es para marcar el rectángulo: no debe mover cuartos.
   const puedeArrastrarCuartos =
     !editor3d && !dibujandoCuadrante && (editMode ? tabMapa : planosMoverCuartos)
@@ -500,10 +562,13 @@ export function House() {
       {!aislarCuarto && <GranjaController />}
       {!aislarCuarto && <RoomProximity />}
       {!aislarCuarto && <InteractAnchor />}
+      {!aislarCuarto && <DespiertoAnchor />}
       {!aislarCuarto && <EtiquetasMapaProjector />}
       {!aislarCuarto && <ZonaTutProjector />}
       {!aislarCuarto && <EditorAnchor />}
-      {!aislarCuarto && puedeArrastrarCuartos && <RoomDragController />}
+      {!aislarCuarto && (puedeArrastrarCuartos || cuartoDespiertoId != null || arrastrandoCuarto) && (
+        <RoomDragController />
+      )}
       {!aislarCuarto && <AccesoDrag />}
       <ObjetoDragController />
       {!aislarCuarto && <ContextoProximity />}
@@ -549,6 +614,7 @@ export function House() {
       <NavControls />
       <EditorMontaje />
       <SalirCuartoFlotante />
+      <MenuDespierto />
     </>
   )
 }

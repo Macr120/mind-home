@@ -8,6 +8,7 @@ import { fechaLocalISO } from './fechaLocal'
 import { tGlobal } from './i18n/useT'
 import { estadoObjetivoDia, objetivosDiaDe } from './metaDiaria'
 import { esMeta, rangoDe, vigenteEn } from './metas'
+import { useDiseño } from './state/disenoStore'
 import type { AvanceDiario, ObjetivoDia, Plantilla, RegistroObjetivo } from './registry'
 import { pasosHechosHoy, tocaFecha } from './rutinas'
 
@@ -330,12 +331,20 @@ export async function armarPasosDeTodas(fecha: string): Promise<PasosDeApp[]> {
 }
 
 /**
- * La lista global (reactiva). Solo depende de la fecha: las apps salen del diseño
- * de la casa, que no cambia mientras el calendario está abierto.
+ * La lista global (reactiva). Depende de la fecha y de qué apps tiene la casa:
+ * esas salen del DISEÑO, no de la base, así que Dexie no rehace la consulta al
+ * cargarse la casa ni al asignar una app nueva. Sin esa dependencia, quien
+ * pregunte antes de que la casa exista (la sonda de la raíz) se quedaría para
+ * siempre con la lista vacía de aquel instante.
  */
 export function usePasosDeTodas(fecha?: string): PasosDeApp[] | undefined {
   const dia = fecha ?? fechaLocalISO()
-  return useLiveQuery(() => armarPasosDeTodas(dia), [dia])
+  const apps = useDiseño((s) => {
+    const ids = new Set<string>()
+    for (const o of s.objetos) if (o.plantillaId) ids.add(o.plantillaId)
+    return [...ids].sort().join(',')
+  })
+  return useLiveQuery(() => armarPasosDeTodas(dia), [dia, apps])
 }
 
 /** Lo que le queda a una app por hacer hoy: el globo de notificación de su tarjeta. */

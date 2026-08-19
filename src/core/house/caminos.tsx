@@ -10,6 +10,7 @@ import { celdaEnteraBajoCursor } from './arrastreCelda'
 import { cellToWorld, HALF, SIZE } from './walls'
 import { esquinaDe, puntoArco, alturaArco, H, type ArcoEsquina } from './caminosCurvas'
 import type { CaminoCelda } from '../data/db'
+import { pulsacionLargaAbrirEditor } from './pulsacionLarga'
 
 /** Base de los caminos: apenas sobre el tope del piso exterior (~0.19; los objetos de mapa van a 0.2). */
 const Y = 0.2
@@ -512,7 +513,14 @@ export function Caminos3D() {
     return m
   }, [filas])
   return (
-    <group>
+    // Mantener pulsado un tramo abre el editor de caminos (mismo gesto que despierta
+    // objetos y cuartos): el handler va en el grupo raíz y le llegan los clics de
+    // todos sus tramos por burbujeo.
+    <group
+      onPointerDown={(e) =>
+        pulsacionLargaAbrirEditor(e.nativeEvent, () => useCaminos.getState().iniciar())
+      }
+    >
       {filas
         .filter((f) => f.col < gridCols && f.row < gridRows)
         .map((f) => {
@@ -676,23 +684,27 @@ export function ContornoCelda({
   cz,
   y,
   lado,
+  largo,
   color,
 }: {
   cx: number
   cz: number
   y: number
   lado: number
+  /** Lado en Z (por defecto, cuadrado): un corral es un rectángulo de celdas. */
+  largo?: number
   color: string
 }) {
   const geo = useMemo(() => {
     const h = lado / 2
+    const v = (largo ?? lado) / 2
     return new THREE.BufferGeometry().setFromPoints([
-      new THREE.Vector3(-h, 0, -h),
-      new THREE.Vector3(h, 0, -h),
-      new THREE.Vector3(h, 0, h),
-      new THREE.Vector3(-h, 0, h),
+      new THREE.Vector3(-h, 0, -v),
+      new THREE.Vector3(h, 0, -v),
+      new THREE.Vector3(h, 0, v),
+      new THREE.Vector3(-h, 0, v),
     ])
-  }, [lado])
+  }, [lado, largo])
   return (
     <lineLoop position={[cx, y, cz]} geometry={geo}>
       <lineBasicMaterial color={color} transparent opacity={0.9} depthTest={false} />

@@ -3,9 +3,11 @@ import { Icono } from './iconos/Icono'
 import { getCuarto } from '../state/cuartosStore'
 import { useHouse } from '../state/houseStore'
 import { useLayout } from '../state/layoutStore'
-import { useRoomVisual } from '../state/disenoStore'
+import { useDiseño, useRoomVisual } from '../state/disenoStore'
 import { useInteractUi } from '../state/interactUiStore'
+import { usePendientesCasa } from '../state/pendientesStore'
 import { accionCuarto } from './roomInteract'
+import { BadgeMisiones } from './BadgeMisiones'
 
 /**
  * Diálogo 2D anclado al mueble principal (proyectado desde la escena 3D).
@@ -78,6 +80,10 @@ function Burbuja({
   onEntrar: () => void
 }) {
   const { color, nombre } = useRoomVisual(roomId, roomColor, roomNombre)
+  // Primera app del cuarto (como en el menú lateral): suyas son las misiones que
+  // pinta el globo rojo, el mismo de la tarjeta en la pantalla de inicio.
+  const appId = useDiseño((s) => s.objetos.find((o) => o.roomId === roomId && o.plantillaId)?.plantillaId)
+  const pendientes = usePendientesCasa((s) => (appId ? s.porApp[appId] : undefined))
   const accion = accionCuarto(roomId)
   const titulo = nombre.split(' · ')[0]
 
@@ -90,7 +96,7 @@ function Burbuja({
           onEntrar()
         }}
         title={`${accion} — ${titulo}`}
-        className="ui-panel-glass pointer-events-auto flex flex-col items-center gap-1 rounded-2xl border-2 px-4 py-2.5 shadow-xl backdrop-blur-md transition hover:scale-[1.04] active:scale-[0.97]"
+        className="ui-panel-glass pointer-events-auto relative flex flex-col items-center gap-1 rounded-2xl border-2 px-4 py-2.5 shadow-xl backdrop-blur-md transition hover:scale-[1.04] active:scale-[0.97]"
         style={{
           borderColor: color,
           boxShadow: `0 6px 28px ${color}55, 0 0 0 1px rgba(255,255,255,0.06)`,
@@ -106,6 +112,7 @@ function Burbuja({
         <span className="max-w-[9rem] truncate text-[10px] font-medium text-white/45">
           {titulo}
         </span>
+        {pendientes && <BadgeMisiones pendientes={pendientes} className="absolute -top-2 -end-2" />}
       </button>
       <span
         className="pointer-events-none -mt-px h-0 w-0 border-x-[10px] border-t-[12px] border-x-transparent"

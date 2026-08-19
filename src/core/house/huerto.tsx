@@ -1,17 +1,19 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { useFrame, useThree } from '@react-three/fiber'
-import { cultivosRepo } from '../data/repository'
+import { VACIO, cultivosRepo } from '../data/repository'
 import { useHuerto, limpiarMarchitos, type HerramientaHuerto } from '../state/huertoStore'
 import { useLayout } from '../state/layoutStore'
 import { useHouse } from '../state/houseStore'
 import { celdaEnteraBajoCursor } from './arrastreCelda'
-import { cellToWorld, factorCelda, SIZE } from './walls'
+import { cellToWorld, factorCelda, worldToCeldaEntera, SIZE } from './walls'
 import { ESPECIES, estadoCultivo, celdasRegadas, type EtapaCultivo } from './cultivos'
 import { ContornoCelda } from './caminos'
+import { ResizeCeldas3D, bandaDeLado, type RectCeldas } from './ResizeCeldas3D'
 import { notificar } from '../notificaciones'
 import { tGlobal } from '../i18n/useT'
 import type { CultivoCelda, EspecieCultivo } from '../data/db'
+import { pulsacionLargaAbrirEditor } from './pulsacionLarga'
 
 /** Tope de la loseta exterior (~0.19; los objetos de mapa van a 0.2) + margen. */
 const Y = 0.2
@@ -209,6 +211,8 @@ export function Huerto3D() {
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
   const activo = useHuerto((s) => s.activo)
+  // Arrastre en curso: la parcela se pinta donde la lleva el dedo, no donde está guardada.
+  const moverPreview = useHuerto((s) => s.moverPreview)
   const regadas = useMemo(() => celdasRegadas(filas), [filas])
   // Reloj de render: las etapas se derivan de timestamps al pintar (sin timers persistentes).
   const [ahora, setAhora] = useState(() => Date.now())
@@ -252,13 +256,29 @@ export function Huerto3D() {
     }
   }, [filasRaw, regadas, ahora])
   return (
-    <group>
+    // Mantener pulsada una parcela abre el editor del huerto (ver `pulsacionLarga`) y
+    // la deja AGARRADA con la herramienta Mover, lista para arrastrarla.
+    <group
+      onPointerDown={(e) => {
+        const { x, z } = e.point
+        pulsacionLargaAbrirEditor(e.nativeEvent, () => {
+          const h = useHuerto.getState()
+          h.iniciar()
+          h.setHerramienta('mover')
+          const { col, row } = worldToCeldaEntera(x, z)
+          void h.aplicarEnCelda(col, row)
+        })
+      }}
+    >
       {filas
         .filter((f) => f.col < gridCols && f.row < gridRows)
         .map((f) => {
-          const [wx, , wz] = cellToWorld(f.col, f.row)
+          // Llevándola en la mano manda la celda de preview (y flota un poco, como
+          // un cuarto arrastrado en el mapa).
+          const llevada = moverPreview?.id === f.id ? moverPreview : null
+          const [wx, , wz] = cellToWorld(llevada ? llevada.col : f.col, llevada ? llevada.row : f.row)
           return (
-            <group key={`${f.col},${f.row}`} position={[wx, 0, wz]}>
+            <group key={`${f.col},${f.row}`} position={[wx, llevada ? 0.35 : 0, wz]}>
               <Parcela fila={f} ahora={ahora} editor={activo} regadaDesde={regadas.get(`${f.col},${f.row}`)} />
             </group>
           )
@@ -278,8 +298,12 @@ const COLOR_HERRAMIENTA: Record<HerramientaHuerto, string> = {
   regar: '#38bdf8',
   cosechar: '#facc15',
   aspersor: '#0ea5e9',
+  mover: '#a78bfa',
   quitar: '#f87171',
 }
+
+/** Contorno de la parcela agarrada con 'mover'. */
+const COLOR_SELECCION = '#34d399'
 
 /**
  * Con el editor activo: clic en una celda aplica la herramienta (un arrastre
@@ -290,10 +314,45 @@ export function HuertoController() {
   return activo ? <HuertoControllerActivo /> : null
 }
 
+/**
+ * Tablón al que pertenece una parcela: su bloque contiguo (4 vecinos) medido como
+ * rectángulo. Es lo que agrandan y encogen los +/−, igual que la forma de un cuarto.
+ */
+function tablonDe(parcelas: { col: number; row: number }[], celda: { col: number; row: number }): RectCeldas {
+  const hay = new Set(parcelas.map((p) => `${p.col},${p.row}`))
+  const vistas = new Set<string>()
+  const pila = [celda]
+  let minC = celda.col
+  let maxC = celda.col
+  let minR = celda.row
+  let maxR = celda.row
+  while (pila.length) {
+    const c = pila.pop()!
+    const clave = `${c.col},${c.row}`
+    if (vistas.has(clave) || !hay.has(clave)) continue
+    vistas.add(clave)
+    minC = Math.min(minC, c.col)
+    maxC = Math.max(maxC, c.col)
+    minR = Math.min(minR, c.row)
+    maxR = Math.max(maxR, c.row)
+    pila.push({ col: c.col - 1, row: c.row }, { col: c.col + 1, row: c.row })
+    pila.push({ col: c.col, row: c.row - 1 }, { col: c.col, row: c.row + 1 })
+  }
+  return { col: minC, row: minR, ancho: maxC - minC + 1, alto: maxR - minR + 1 }
+}
+
 function HuertoControllerActivo() {
   const gl = useThree((s) => s.gl)
   const camera = useThree((s) => s.camera)
   const herramienta = useHuerto((s) => s.herramienta)
+  const sel = useHuerto((s) => s.sel)
+  const moverPreview = useHuerto((s) => s.moverPreview)
+  const parcelas = cultivosRepo.useAll() ?? VACIO
+  // Los listeners se registran una vez: las parcelas llegan por ref (si fueran
+  // dependencia del efecto, cada riego las volvería a montar).
+  const parcelasRef = useRef(parcelas)
+  parcelasRef.current = parcelas
+  const arrastre = useRef<{ id: number; desde: { col: number; row: number } } | null>(null)
   const aplicarEnCelda = useHuerto((s) => s.aplicarEnCelda)
   const salir = useHuerto((s) => s.salir)
   const apilado = !useHouse((s) => s.explotado)
@@ -309,20 +368,64 @@ function HuertoControllerActivo() {
     const onDown = (ev: PointerEvent) => {
       downX = ev.clientX
       downY = ev.clientY
+      arrastre.current = null
+      // Con «Mover», bajar el dedo sobre una parcela la agarra: desde aquí sigue al
+      // dedo (como un cuarto en el mapa) y se suelta donde se levante.
+      if (useHuerto.getState().herramienta !== 'mover') return
+      const c = celdaEnteraBajoCursor(ev.clientX, ev.clientY, opts)
+      if (!c) return
+      const col = Math.round(c.col)
+      const row = Math.round(c.row)
+      const parcela = parcelasRef.current.find((x) => x.col === col && x.row === row)
+      if (parcela?.id == null) return
+      arrastre.current = { id: parcela.id, desde: { col, row } }
+      useHuerto.setState({ sel: { col, row } })
     }
     const onUp = (ev: PointerEvent) => {
       if (ev.button !== 0) return
-      if (Math.hypot(ev.clientX - downX, ev.clientY - downY) > 6) return // fue arrastre de cámara
+      const movio = Math.hypot(ev.clientX - downX, ev.clientY - downY) > 6
+      const a = arrastre.current
+      arrastre.current = null
+      if (a) {
+        const h = useHuerto.getState()
+        const destino = h.moverPreview
+        h.setMoverPreview(null)
+        if (movio) {
+          // Al soltar se escribe donde quedó; si nunca hubo hueco, se queda como estaba.
+          if (destino) {
+            void h.moverParcela(a.id, destino.col, destino.row).then((ok) => {
+              if (ok) useHuerto.setState({ sel: { col: destino.col, row: destino.row } })
+            })
+          }
+          return
+        }
+        // Toque limpio: sigue el flujo de siempre (queda elegida).
+      }
+      if (movio) return // fue arrastre de cámara
       const c = celdaEnteraBajoCursor(ev.clientX, ev.clientY, opts)
       if (c) void aplicarEnCelda(Math.round(c.col), Math.round(c.row))
     }
     const onMove = (ev: PointerEvent) => {
       const c = celdaEnteraBajoCursor(ev.clientX, ev.clientY, opts)
       setHover(c ? { col: Math.round(c.col), row: Math.round(c.row) } : null)
+      const a = arrastre.current
+      if (!a || !c) return
+      const col = Math.round(c.col)
+      const row = Math.round(c.row)
+      // Sobre otra parcela no se posa: se queda en la última celda libre.
+      if (parcelasRef.current.some((x) => x.id !== a.id && x.col === col && x.row === row)) return
+      const prev = useHuerto.getState().moverPreview
+      if (prev?.id !== a.id || prev.col !== col || prev.row !== row) {
+        useHuerto.getState().setMoverPreview({ id: a.id, col, row })
+      }
     }
     const onLeave = () => setHover(null)
     const onKey = (ev: KeyboardEvent) => {
-      if (ev.key === 'Escape') salir()
+      // Igual que en la granja: Escape suelta primero la parcela agarrada.
+      if (ev.key !== 'Escape') return
+      const h = useHuerto.getState()
+      if (h.sel) useHuerto.setState({ sel: null })
+      else salir()
     }
     dom.addEventListener('pointerdown', onDown)
     dom.addEventListener('pointerup', onUp)
@@ -336,18 +439,46 @@ function HuertoControllerActivo() {
       dom.removeEventListener('pointerleave', onLeave)
       window.removeEventListener('keydown', onKey)
       setHover(null)
+      arrastre.current = null
+      useHuerto.getState().setMoverPreview(null)
     }
   }, [gl, camera, apilado, gridCols, gridRows, aplicarEnCelda, salir])
 
-  if (!hover) return null
-  const [hx, , hz] = cellToWorld(hover.col, hover.row)
+  const [hx, , hz] = hover ? cellToWorld(hover.col, hover.row) : [0, 0, 0]
+  // Arrastrándola, el contorno viaja con ella.
+  const celdaSel = moverPreview ?? sel
+  const [sx, , sz] = celdaSel ? cellToWorld(celdaSel.col, celdaSel.row) : [0, 0, 0]
+  const tablon = sel && !moverPreview ? tablonDe(parcelas, sel) : null
   return (
-    <ContornoCelda
-      cx={hx}
-      cz={hz}
-      y={Y + 0.25}
-      lado={SIZE - 0.15}
-      color={COLOR_HERRAMIENTA[herramienta]}
-    />
+    <>
+      {celdaSel && (
+        <ContornoCelda cx={sx} cz={sz} y={Y + 0.35} lado={SIZE - 0.25} color={COLOR_SELECCION} />
+      )}
+      {/* Parcela elegida: +/− por lado para sembrar o levantar toda una fila del
+          tablón, como se le da forma a un cuarto. */}
+      {tablon && (
+        <ResizeCeldas3D
+          rect={tablon}
+          y={Y + 1}
+          puede={(lado, delta) => {
+            if (delta === -1) return (lado === 'izq' || lado === 'der' ? tablon.ancho : tablon.alto) > 1
+            const banda = bandaDeLado(tablon, lado, delta)
+            return banda.every(
+              (c) => c.col >= 0 && c.row >= 0 && c.col < gridCols && c.row < gridRows,
+            )
+          }}
+          onCambio={(lado, delta) => void useHuerto.getState().redimensionarTablon(tablon, lado, delta)}
+        />
+      )}
+      {hover && (
+        <ContornoCelda
+          cx={hx}
+          cz={hz}
+          y={Y + 0.25}
+          lado={SIZE - 0.15}
+          color={COLOR_HERRAMIENTA[herramienta]}
+        />
+      )}
+    </>
   )
 }

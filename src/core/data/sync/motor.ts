@@ -15,7 +15,7 @@
  * el botón manual de la sección Cuenta.
  */
 import { esDemo } from '../../edicion'
-import { db, type EntradaOutbox } from '../db'
+import { db, type EntradaOutbox, type ObjetoCuarto } from '../db'
 import { exportarRespaldo } from '../respaldo'
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { hayBackend, obtenerSupabase } from '../../cuenta/supabase'
@@ -258,6 +258,81 @@ async function dedupeSingletons(): Promise<void> {
   }
 }
 
+/**
+ * Una app solo puede vivir en un cuarto (la UI local lo garantiza), pero la
+ * fusión de dos dispositivos puede traer la misma plantilla asignada en dos
+ * objetos — cada casa creó "su cocina". Gana el objeto con `updatedAt` mayor
+ * (LWW, como los choques únicos; empate por uid) y el cuarto del perdedor se
+ * elimina entero — como si el usuario lo borrara —, salvo que tenga OTRA app,
+ * en cuyo caso solo pierde el objeto duplicado.
+ *
+ * Corre tras el pull SIN marcar la escritura: el middleware tombstonea los
+ * borrados y el resto de dispositivos converge en su siguiente pull.
+ */
+async function curarAppsDuplicadas(): Promise<void> {
+  type ObjSync = ObjetoCuarto & { uid?: string; updatedAt?: number }
+  // Los cuartos especiales (__mapa__/__libreria__) nunca llevan app asignada.
+  const conApp = (await db.objetosCuarto
+    .filter((o) => !!o.plantillaId && !o.roomId.startsWith('__'))
+    .toArray()) as ObjSync[]
+  const porApp = new Map<string, ObjSync[]>()
+  for (const o of conApp) {
+    const grupo = porApp.get(o.plantillaId!) ?? []
+    grupo.push(o)
+    porApp.set(o.plantillaId!, grupo)
+  }
+  if (![...porApp.values()].some((g) => g.length > 1)) return
+
+  const cuartosReales = new Set((await db.cuartos.toCollection().primaryKeys()) as string[])
+  const perdedores: ObjSync[] = []
+  for (const grupo of porApp.values()) {
+    if (grupo.length <= 1) continue
+    // Los huérfanos (objetos legacy cuyo cuarto ya no existe) nunca ganan.
+    // Empate por uid con comparación simple (localeCompare varía por dispositivo).
+    grupo.sort(
+      (a, b) =>
+        Number(cuartosReales.has(b.roomId)) - Number(cuartosReales.has(a.roomId)) ||
+        (b.updatedAt ?? 0) - (a.updatedAt ?? 0) ||
+        ((b.uid ?? '') > (a.uid ?? '') ? 1 : -1),
+    )
+    perdedores.push(...grupo.slice(1))
+  }
+
+  const idsPerdedores = new Set(perdedores.map((o) => o.id))
+  // Cuartos cuya única app era la duplicada: se van enteros (con su rastro).
+  const cuartosABorrar = new Set<string>()
+  for (const o of perdedores) {
+    if (!cuartosReales.has(o.roomId)) continue
+    if (!conApp.some((x) => x.roomId === o.roomId && !idsPerdedores.has(x.id))) {
+      cuartosABorrar.add(o.roomId)
+    }
+  }
+
+  await db.transaction(
+    'rw',
+    [db.objetosCuarto, db.cuartos, db.layout, db.disenoRooms, db.accesos],
+    async () => {
+      for (const o of perdedores) {
+        if (o.id != null && !cuartosABorrar.has(o.roomId)) await db.objetosCuarto.delete(o.id)
+      }
+      // Misma limpieza que quitarCuarto/borrarCuartoInterno, pero sobre la BD.
+      for (const id of cuartosABorrar) {
+        const fila = await db.layout.where('roomId').equals(id).first()
+        await db.cuartos.delete(id)
+        if (fila?.id != null) await db.layout.delete(fila.id)
+        await db.disenoRooms.where('roomId').equals(id).delete()
+        await db.objetosCuarto.where('roomId').equals(id).delete()
+        // Si era el último cuarto de su nivel (piso alto o sótano), retira su acceso.
+        const nivel = fila?.nivel ?? 0
+        if (nivel !== 0) {
+          const quedan = await db.layout.filter((l) => l.placed && (l.nivel ?? 0) === nivel).count()
+          if (!quedan) await db.accesos.filter((a) => a.nivel === nivel).delete()
+        }
+      }
+    },
+  )
+}
+
 async function pull(vistos?: Map<string, Set<string>>): Promise<void> {
   let cursor = ((await db._syncMeta.get('cursor'))?.valor as number | undefined) ?? 0
   for (;;) {
@@ -410,6 +485,9 @@ export async function sincronizar(manual = false): Promise<void> {
       await bootstrap()
       await push(usuario.id)
       await pull()
+      // Sana duplicados que dejó la fusión (sus tombstones viajan en el
+      // siguiente ciclo): dos dispositivos que asignaron la misma app offline.
+      await curarAppsDuplicadas()
       falloSeguido = 0
       proximoIntento = 0
       useSesion.setState({ estadoSync: 'inactivo', ultimaSync: Date.now(), errorSync: null })

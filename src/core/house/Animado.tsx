@@ -283,3 +283,42 @@ export function CuerpoDePiezas({
   if (marcha) return <ModeloPiezasConMarcha piezas={piezas} marcha={marcha} estado={estado} />
   return <ModeloPiezas piezas={piezas} />
 }
+
+/**
+ * Temblor de "objeto despierto" (el de la pulsación larga en el mapa, como los
+ * iconos de un teléfono). Sacude el grupo que se le pasa por ref en vez de
+ * envolver el modelo: así encender y apagar el temblor no remonta la malla
+ * —un .glb parpadearía— y no compite con la animación propia del objeto, que
+ * cuelga de un grupo aparte.
+ */
+export function Temblor({
+  grupo,
+  factor = 1,
+  soloGiro = false,
+}: {
+  grupo: React.RefObject<THREE.Group | null>
+  /** Amplitud relativa: un cuarto entero tiembla mucho menos que una silla. */
+  factor?: number
+  /** No tocar la posición (la de un cuarto la escribe React en cada re-render). */
+  soloGiro?: boolean
+}) {
+  useFrame(({ clock }) => {
+    const g = grupo.current
+    if (!g) return
+    const t = clock.elapsedTime
+    g.rotation.z = Math.sin(t * 26) * 0.05 * factor
+    if (!soloGiro) g.position.x = Math.sin(t * 33) * 0.04 * factor
+  })
+
+  useEffect(
+    () => () => {
+      const g = grupo.current
+      if (!g) return
+      g.rotation.z = 0
+      if (!soloGiro) g.position.x = 0
+    },
+    [grupo, soloGiro],
+  )
+
+  return null
+}

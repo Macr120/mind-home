@@ -127,6 +127,13 @@ export function EditorGranja() {
               ))}
             </div>
           )}
+          {herramienta === 'mover' && (
+            <p data-tut="granja.mover.pista" className="text-center text-[11px] text-white/60">
+              {corralSel == null
+                ? t('infra.mover.elegir', 'Toca lo que quieras mover.')
+                : t('infra.mover.destino', 'Ahora toca su sitio nuevo (o toca otro para cambiar).')}
+            </p>
+          )}
           {herramienta === 'nombrar' &&
             (corralSel == null ? (
               <p data-tut="granja.nombrar.elegir" className="text-center text-[11px] text-white/60">
@@ -146,9 +153,9 @@ export function EditorGranja() {
             {herrBtn('limpiar', 'escoba', t('granja.herr.limpiar', 'Limpiar'))}
             {herrBtn('accesorio', 'accesorio', t('granja.herr.accesorio', 'Juguetes'))}
             {herrBtn('nombrar', 'etiqueta', t('granja.herr.nombrar', 'Nombrar'))}
+            {herrBtn('mover', 'mover', t('planos.herr.mover', 'Mover'))}
             {herrBtn('quitar', 'basura', t('granja.herr.quitar', 'Quitar'))}
           </div>
-          {/* Cesta y ayuda comparten renglón: en pantalla ancha ahorran una fila. */}
           <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
             <div
               data-tut="granja.cesta"
@@ -165,12 +172,6 @@ export function EditorGranja() {
                 ))
               )}
             </div>
-            <p className="max-w-md text-center text-[10px] leading-tight text-white/50">
-              {t(
-                'granja.ayuda',
-                'Corral crea corrales y los agranda tocando una celda pegada. Añade varios animales, aliméntalos con tus cosechas, mímalos y ponles juguetes. El que lleva mucho sin comer enferma: cúralo antes de una semana. Limpia cada corral una vez por semana o el ánimo caerá al doble.',
-              )}
-            </p>
           </div>
           {aviso === 'sinComida' && (
             <p className="text-center text-[11px] font-semibold text-amber-300">
@@ -185,6 +186,11 @@ export function EditorGranja() {
           {aviso === 'noCabe' && (
             <p className="text-center text-[11px] font-semibold text-amber-300">
               {t('granja.noCabe', 'Ahí no cabe: se sale del mapa o pisa otro corral.')}
+            </p>
+          )}
+          {aviso === 'noCabeGanado' && (
+            <p className="text-center text-[11px] font-semibold text-amber-300">
+              {t('granja.noCabeGanado', 'No cabe el ganado: saca animales antes de encogerlo.')}
             </p>
           )}
           {aviso === 'hayEnfermos' && (

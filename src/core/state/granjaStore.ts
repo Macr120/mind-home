@@ -8,6 +8,7 @@ import { useHouse } from './houseStore'
 import { useCam, type Vista } from './cameraStore'
 import { playerPos } from './playerPosition'
 import { setCuartoAbierto } from '../house/movement'
+import type { LadoRect } from '../house/ResizeCeldas3D'
 
 export type HerramientaGranja =
   | 'corral'
@@ -18,6 +19,7 @@ export type HerramientaGranja =
   | 'limpiar'
   | 'accesorio'
   | 'nombrar'
+  | 'mover'
   | 'quitar'
 
 export interface AnimalDef {
@@ -126,6 +128,37 @@ const solapan = (a: Rect, b: Rect): boolean =>
 const dentroDeGrid = (r: Rect): boolean => {
   const { gridCols, gridRows } = useLayout.getState()
   return r.col >= 0 && r.row >= 0 && r.col + r.ancho <= gridCols && r.row + r.alto <= gridRows
+}
+
+/** Rectángulo del corral tras crecer (+1) o encoger (−1) por un lado. */
+export const rectRedimensionado = (c: Corral, lado: LadoRect, delta: 1 | -1) => {
+  const r = { col: c.col, row: c.row, ancho: c.ancho, alto: c.alto }
+  if (lado === 'izq') {
+    r.col -= delta
+    r.ancho += delta
+  } else if (lado === 'der') {
+    r.ancho += delta
+  } else if (lado === 'arriba') {
+    r.row -= delta
+    r.alto += delta
+  } else {
+    r.alto += delta
+  }
+  return r
+}
+
+/** ¿Ese rectángulo cabe en el mapa sin pisar otro corral? */
+export const cabeRect = (corrales: Corral[], id: number | undefined, r: Rect): boolean =>
+  r.ancho >= 1 && r.alto >= 1 && dentroDeGrid(r) && !corrales.some((c) => c.id !== id && solapan(c, r))
+
+/**
+ * ¿Cabe el corral con su esquina en (col,row)? Cabe si no se sale del mapa ni
+ * pisa a otro. Lo usan el arrastre en vivo (para dejar o no que el corral siga
+ * al dedo) y la escritura final.
+ */
+export const cabeCorralEn = (corrales: Corral[], corral: Corral, col: number, row: number): boolean => {
+  const destino = { col, row, ancho: corral.ancho, alto: corral.alto }
+  return dentroDeGrid(destino) && !corrales.some((c) => c.id !== corral.id && solapan(c, destino))
 }
 
 /**
@@ -311,8 +344,17 @@ interface GranjaState {
   tipo: TipoAnimal
   /** Accesorio a colocar con la herramienta 'accesorio'. */
   accesorio: TipoAccesorio
-  /** Corral elegido con la herramienta 'nombrar' (el HUD lista sus animales). */
+  /** Corral elegido con 'nombrar' (el HUD lista sus animales) o con 'mover'. */
   corralSel: number | null
+  /** Celda por la que se agarró el corral con 'mover': su nuevo sitio se calcula desde ahí. */
+  moverDesde: { col: number; row: number } | null
+  /** Arrastre en curso: dónde se está viendo el corral mientras el dedo lo lleva. */
+  moverPreview: { id: number; col: number; row: number } | null
+  setMoverPreview: (p: { id: number; col: number; row: number } | null) => void
+  /** Lleva el corral a esa esquina (con sus accesorios). Devuelve false si no cabe. */
+  moverCorral: (id: number, col: number, row: number) => Promise<boolean>
+  /** Agranda (+1) o encoge (−1) el corral una cuadrícula por ese lado. */
+  redimensionarCorral: (id: number, lado: LadoRect, delta: 1 | -1) => Promise<boolean>
   /** Aviso transitorio del overlay ('sinComida' | 'corralLleno' | 'noCabe'). */
   aviso: string | null
   iniciar: () => void
@@ -333,10 +375,13 @@ let avisoTimer = 0
 
 export const useGranja = create<GranjaState>((set, get) => ({
   activo: false,
-  herramienta: 'animal',
+  // Se entra en «Corral»: primero se dibuja el corral y solo después se mete el ganado.
+  herramienta: 'corral',
   tipo: 'gallina',
   accesorio: 'pelota',
   corralSel: null,
+  moverDesde: null,
+  moverPreview: null,
   aviso: null,
 
   iniciar: () => {
@@ -350,7 +395,7 @@ export const useGranja = create<GranjaState>((set, get) => ({
     const v = useCam.getState().vista
     vistaAnterior = v === 'tercera' || v === 'primera' ? v : 'iso'
     useCam.getState().setVista('iso')
-    set({ activo: true, herramienta: 'animal' })
+    set({ activo: true, herramienta: 'corral' })
     setCuartoAbierto(true)
     casa.target.set(playerPos.x, 0, playerPos.z)
     void repararCorralesHuerfanos()
@@ -359,12 +404,71 @@ export const useGranja = create<GranjaState>((set, get) => ({
 
   salir: () => {
     if (!get().activo) return
-    set({ activo: false, aviso: null, corralSel: null })
+    set({ activo: false, aviso: null, corralSel: null, moverDesde: null, moverPreview: null })
     setCuartoAbierto(false)
     useCam.getState().setVista(vistaAnterior)
   },
 
-  setHerramienta: (herramienta) => set({ herramienta, corralSel: null }),
+  // Pasar a «Mover» CONSERVA el corral que ya estuviera elegido (venía de Nombrar,
+  // o de la pulsación larga en el mapa): ahí la selección es justo lo que se va a
+  // arrastrar. `moverDesde` se vuelve a fijar con el primer toque.
+  setHerramienta: (herramienta) =>
+    set((s) => ({
+      herramienta,
+      corralSel: herramienta === 'mover' ? s.corralSel : null,
+      moverDesde: null,
+      moverPreview: null,
+    })),
+
+  setMoverPreview: (moverPreview) => set({ moverPreview }),
+
+  moverCorral: async (id, col, row) => {
+    const corrales = await db.corrales.toArray()
+    const corral = corrales.find((c) => c.id === id)
+    if (!corral) return false
+    if (!cabeCorralEn(corrales, corral, col, row)) {
+      get().avisar('noCabe')
+      return false
+    }
+    const dcol = col - corral.col
+    const drow = row - corral.row
+    if (dcol === 0 && drow === 0) return true
+    await db.corrales.update(id, {
+      col,
+      row,
+      // Los accesorios guardan celda ABSOLUTA: viajan con el corral.
+      accesorios: corral.accesorios?.map((a) => ({ ...a, col: a.col + dcol, row: a.row + drow })),
+    })
+    return true
+  },
+
+  redimensionarCorral: async (id, lado, delta) => {
+    const corrales = await db.corrales.toArray()
+    const corral = corrales.find((c) => c.id === id)
+    if (!corral) return false
+    const r = rectRedimensionado(corral, lado, delta)
+    if (!cabeRect(corrales, id, r)) {
+      get().avisar('noCabe')
+      return false
+    }
+    // Encogiendo, el ganado tiene que seguir cabiendo dentro.
+    const habitantes = await db.animales.where('corralId').equals(id).count()
+    if (habitantes > r.ancho * r.alto * CAPACIDAD_POR_CELDA) {
+      get().avisar('noCabeGanado')
+      return false
+    }
+    await db.corrales.update(id, {
+      col: r.col,
+      row: r.row,
+      ancho: r.ancho,
+      alto: r.alto,
+      // Lo que quede fuera del corral nuevo se retira (los accesorios son de dentro).
+      accesorios: corral.accesorios?.filter(
+        (a) => a.col >= r.col && a.col < r.col + r.ancho && a.row >= r.row && a.row < r.row + r.alto,
+      ),
+    })
+    return true
+  },
   setTipo: (tipo) => set({ tipo, herramienta: 'animal' }),
   setAccesorio: (accesorio) => set({ accesorio, herramienta: 'accesorio' }),
   seleccionarCorral: (corralSel) => set({ corralSel }),
@@ -462,6 +566,26 @@ export const useGranja = create<GranjaState>((set, get) => ({
       case 'nombrar':
         get().seleccionarCorral(bajo?.id ?? null)
         return
+      case 'mover': {
+        const { corralSel, moverDesde } = get()
+        // Sin corral agarrado (o sin celda de agarre), o tocando OTRO: se agarra ese
+        // por ESTA celda, así el corral acaba donde el dedo lo suelta y no saltando
+        // por su esquina.
+        if (corralSel == null || !moverDesde || (bajo?.id != null && bajo.id !== corralSel)) {
+          if (bajo?.id == null) return
+          set({ corralSel: bajo.id, moverDesde: { col, row } })
+          return
+        }
+        const corral = corrales.find((c) => c.id === corralSel)
+        if (corral?.id == null || !moverDesde) return
+        const dcol = col - moverDesde.col
+        const drow = row - moverDesde.row
+        if (dcol === 0 && drow === 0) return
+        if (await get().moverCorral(corral.id, corral.col + dcol, corral.row + drow)) {
+          set({ moverDesde: { col, row } })
+        }
+        return
+      }
       case 'quitar': {
         if (bajo?.id == null) return
         // De a uno: último animal → accesorio de ESA celda → corral vacío.
@@ -482,3 +606,7 @@ export const useGranja = create<GranjaState>((set, get) => ({
     }
   },
 }))
+
+if (import.meta.env.DEV) {
+  ;(window as unknown as { useGranja: typeof useGranja }).useGranja = useGranja
+}

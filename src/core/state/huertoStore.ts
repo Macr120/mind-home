@@ -5,9 +5,17 @@ import { useHouse } from './houseStore'
 import { useCam, type Vista } from './cameraStore'
 import { playerPos } from './playerPosition'
 import { setCuartoAbierto } from '../house/movement'
+import { bandaDeLado, type LadoRect, type RectCeldas } from '../house/ResizeCeldas3D'
 import { estadoCultivo, celdasRegadas, MARCHITO_VISIBLE_MIN } from '../house/cultivos'
 
-export type HerramientaHuerto = 'parcela' | 'sembrar' | 'regar' | 'cosechar' | 'aspersor' | 'quitar'
+export type HerramientaHuerto =
+  | 'parcela'
+  | 'sembrar'
+  | 'regar'
+  | 'cosechar'
+  | 'aspersor'
+  | 'mover'
+  | 'quitar'
 
 /**
  * Cosecha una parcela lista: limpia el cultivo, suma su contador y manda la
@@ -96,6 +104,15 @@ interface HuertoState {
   activo: boolean
   herramienta: HerramientaHuerto
   especie: EspecieCultivo
+  /** Parcela agarrada con la herramienta 'mover' (su celda actual). */
+  sel: { col: number; row: number } | null
+  /** Arrastre en curso: dónde se está viendo la parcela mientras el dedo la lleva. */
+  moverPreview: { id: number; col: number; row: number } | null
+  setMoverPreview: (p: { id: number; col: number; row: number } | null) => void
+  /** Lleva la parcela (con su cultivo y su aspersor) a esa celda. false si está ocupada. */
+  moverParcela: (id: number, col: number, row: number) => Promise<boolean>
+  /** Agranda (+1) o encoge (−1) el tablón por ese lado: siembra o levanta esa fila. */
+  redimensionarTablon: (rect: RectCeldas, lado: LadoRect, delta: 1 | -1) => Promise<boolean>
   iniciar: () => void
   salir: () => void
   setHerramienta: (h: HerramientaHuerto) => void
@@ -111,6 +128,8 @@ export const useHuerto = create<HuertoState>((set, get) => ({
   activo: false,
   herramienta: 'parcela',
   especie: 'zanahoria',
+  sel: null,
+  moverPreview: null,
 
   iniciar: () => {
     const layout = useLayout.getState()
@@ -123,20 +142,63 @@ export const useHuerto = create<HuertoState>((set, get) => ({
     const v = useCam.getState().vista
     vistaAnterior = v === 'tercera' || v === 'primera' ? v : 'iso'
     useCam.getState().setVista('iso')
-    set({ activo: true, herramienta: 'parcela' })
+    set({ activo: true, herramienta: 'parcela', sel: null, moverPreview: null })
     setCuartoAbierto(true)
     casa.target.set(playerPos.x, 0, playerPos.z)
   },
 
   salir: () => {
     if (!get().activo) return
-    set({ activo: false })
+    set({ activo: false, sel: null, moverPreview: null })
     setCuartoAbierto(false)
     useCam.getState().setVista(vistaAnterior)
   },
 
-  setHerramienta: (herramienta) => set({ herramienta }),
-  setEspecie: (especie) => set({ especie, herramienta: 'sembrar' }),
+  // Pasar a «Mover» CONSERVA la parcela ya elegida (viene de la pulsación larga en
+  // el mapa): es justo la que se va a arrastrar.
+  setHerramienta: (herramienta) =>
+    set((s) => ({
+      herramienta,
+      sel: herramienta === 'mover' ? s.sel : null,
+      moverPreview: null,
+    })),
+  setEspecie: (especie) => set({ especie, herramienta: 'sembrar', sel: null, moverPreview: null }),
+
+  setMoverPreview: (moverPreview) => set({ moverPreview }),
+
+  redimensionarTablon: async (rect, lado, delta) => {
+    if (delta === -1 && ((lado === 'izq' || lado === 'der' ? rect.ancho : rect.alto) <= 1)) return false
+    const { gridCols, gridRows } = useLayout.getState()
+    const banda = bandaDeLado(rect, lado, delta)
+    if (banda.some((c) => c.col < 0 || c.row < 0 || c.col >= gridCols || c.row >= gridRows)) return false
+    const todas = await db.cultivos.toArray()
+    for (const c of banda) {
+      const previa = todas.find((x) => x.col === c.col && x.row === c.row)
+      if (delta === 1) {
+        // Crecer: la fila nueva nace como tierra; lo que ya hubiera ahí se respeta.
+        if (!previa) await db.cultivos.add({ col: c.col, row: c.row })
+      } else if (previa?.id != null) {
+        // Encoger: se levanta la fila entera (con lo que tuviera sembrado).
+        await db.cultivos.delete(previa.id)
+      }
+    }
+    // Si la parcela agarrada estaba en la fila levantada, se suelta.
+    const sel = get().sel
+    if (delta === -1 && sel && banda.some((c) => c.col === sel.col && c.row === sel.row)) {
+      set({ sel: null })
+    }
+    return true
+  },
+
+  moverParcela: async (id, col, row) => {
+    const todas = await db.cultivos.toArray()
+    // La celda destino tiene que estar libre: el índice [col+row] es único.
+    if (todas.some((c) => c.id !== id && c.col === col && c.row === row)) return false
+    const { gridCols, gridRows } = useLayout.getState()
+    if (col < 0 || row < 0 || col >= gridCols || row >= gridRows) return false
+    await db.cultivos.update(id, { col, row })
+    return true
+  },
 
   aplicarEnCelda: async (col, row) => {
     const { herramienta, especie } = get()
@@ -176,6 +238,19 @@ export const useHuerto = create<HuertoState>((set, get) => ({
             aspersorEn: previa.aspersorEn == null ? Date.now() : undefined,
           })
         return
+      case 'mover': {
+        const { sel } = get()
+        const agarrada = sel ? todas.find((c) => c.col === sel.col && c.row === sel.row) : undefined
+        // Tocar una parcela la agarra; tocar la que ya estaba agarrada, la suelta.
+        if (previa) {
+          set({ sel: agarrada && previa.id === agarrada.id ? null : { col, row } })
+          return
+        }
+        // Celda libre con una parcela agarrada: se muda entera (cultivo y aspersor incluidos).
+        if (agarrada?.id == null) return
+        if (await get().moverParcela(agarrada.id, col, row)) set({ sel: { col, row } })
+        return
+      }
       case 'quitar':
         // De a uno: cultivo (marchito incluido) → aspersor → parcela vacía.
         if (previa?.id == null) return
@@ -187,3 +262,7 @@ export const useHuerto = create<HuertoState>((set, get) => ({
     }
   },
 }))
+
+if (import.meta.env.DEV) {
+  ;(window as unknown as { useHuerto: typeof useHuerto }).useHuerto = useHuerto
+}

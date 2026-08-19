@@ -47,6 +47,7 @@ import { usePaintball } from './core/state/paintballStore'
 import { useDialogo } from './core/state/dialogoStore'
 import { useDiarioProgramado } from './rooms/diario/reparto'
 import { useAvisos } from './core/avisos'
+import { useSondaPendientes } from './core/state/pendientesStore'
 import { useWidgets } from './core/widgets/useWidgets'
 import { useMusicaAmbiental } from './core/audio/useMusicaAmbiental'
 import { useVozAsistente } from './core/audio/voz'
@@ -90,6 +91,9 @@ export default function App() {
   // Avisos de lo agendado y de las metas del día. Va aquí, montado una sola vez,
   // para que siga avisando estés en el cuarto o pantalla que estés.
   useAvisos()
+  // Misiones pendientes por app: las leen el orbe sobre el mueble principal y su
+  // burbuja de entrada. Una sola consulta para toda la casa.
+  useSondaPendientes()
   // Widgets nativos de Android: publica el snapshot del día y aplica los taps
   // hechos desde el launcher. Fuera de la app (Capacitor) no hace nada.
   useWidgets()

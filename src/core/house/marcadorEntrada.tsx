@@ -2,14 +2,16 @@ import { useRef, type ReactElement } from 'react'
 import { useFrame } from '@react-three/fiber'
 import type { Group, Mesh } from 'three'
 import { useDiseño } from '../state/disenoStore'
+import { usePendientesCasa } from '../state/pendientesStore'
 import type { TemaId } from './temas'
 
-/** Marcador por defecto (sin tema): esfera verde. */
-function MarcadorDefault() {
+/** Marcador por defecto (sin tema): esfera verde, roja con misiones pendientes. */
+function MarcadorDefault({ pendiente }: { pendiente: boolean }) {
+  const c = pendiente ? '#ef4444' : '#22c55e'
   return (
     <mesh>
       <sphereGeometry args={[0.16, 16, 16]} />
-      <meshStandardMaterial color="#22c55e" emissive="#22c55e" emissiveIntensity={0.9} toneMapped={false} />
+      <meshStandardMaterial color={c} emissive={c} emissiveIntensity={0.9} toneMapped={false} />
     </mesh>
   )
 }
@@ -160,25 +162,45 @@ const MARCADORES: Record<TemaId, () => ReactElement> = {
   navidad: MarcadorNavidad,
 }
 
-function MarcadorVisual({ tema }: { tema: TemaId | null }) {
-  if (!tema) return <MarcadorDefault />
+/** El aviso de los marcadores CON tema: conservan su forma y ganan un aro rojo. */
+function AroPendiente() {
+  return (
+    <mesh rotation={[Math.PI / 2, 0, 0]}>
+      <torusGeometry args={[0.3, 0.035, 8, 24]} />
+      <meshStandardMaterial color="#ef4444" emissive="#ef4444" emissiveIntensity={1} toneMapped={false} />
+    </mesh>
+  )
+}
+
+function MarcadorVisual({ tema, pendiente }: { tema: TemaId | null; pendiente: boolean }) {
+  if (!tema) return <MarcadorDefault pendiente={pendiente} />
   const Comp = MARCADORES[tema]
-  return <Comp />
+  return (
+    <>
+      <Comp />
+      {pendiente && <AroPendiente />}
+    </>
+  )
 }
 
 /**
  * Indicador flotante sobre el mueble principal: forma según el tema de la casa.
  * Sin tema → esfera verde clásica.
+ *
+ * El color avisa de las misiones del día de esa app: verde si no queda ninguna,
+ * rojo si quedan (el mismo criterio que el globo rojo de la pantalla de inicio).
  */
-export function MarcadorEntrada({ y }: { y: number }) {
+export function MarcadorEntrada({ y, appId }: { y: number; appId?: string }) {
   const tema = useDiseño((s) => s.temaGlobal)
+  // Booleano, no el objeto: el marcador solo se repinta al pasar de verde a rojo.
+  const pendiente = usePendientesCasa((s) => (appId ? (s.porApp[appId]?.cuantos ?? 0) : 0) > 0)
   const ref = useRef<Group>(null)
   useFrame((s) => {
     if (ref.current) ref.current.position.y = y + Math.sin(s.clock.elapsedTime * 2.2) * 0.12
   })
   return (
     <group ref={ref} position={[0, y, 0]}>
-      <MarcadorVisual tema={tema} />
+      <MarcadorVisual tema={tema} pendiente={pendiente} />
     </group>
   )
 }

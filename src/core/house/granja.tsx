@@ -10,8 +10,14 @@ import {
   corralSucio,
   mimarAnimal,
   revisarGranja,
+  cabeCorralEn,
+  cabeRect,
+  corralContiene,
+  rectRedimensionado,
+  CAPACIDAD_POR_CELDA,
   type HerramientaGranja,
 } from '../state/granjaStore'
+import { ResizeCeldas3D } from './ResizeCeldas3D'
 import { useLayout } from '../state/layoutStore'
 import { useHouse, playerPos } from '../state/houseStore'
 import { useMontura } from '../state/monturaStore'
@@ -20,11 +26,12 @@ import { useGranjaCerca } from '../state/granjaCercaStore'
 import { useAnimalSel } from '../state/animalSelStore'
 import { dragChar } from './characterDrag'
 import { celdaEnteraBajoCursor } from './arrastreCelda'
-import { cellToWorld, SIZE } from './walls'
+import { cellToWorld, worldToCeldaEntera, SIZE } from './walls'
 import { ContornoCelda } from './caminos'
 import { registrarAncla, quitarAncla } from './etiquetasMapa'
 import { Corazones, SenalAburrido, SenalHambre } from './senalesVida'
 import type { AnimalGranja, TipoAccesorio, TipoAnimal } from '../data/db'
+import { pulsacionLargaAbrirEditor } from './pulsacionLarga'
 
 /** Tope de la loseta exterior (~0.19; los objetos de mapa van a 0.2). */
 const Y = 0.2
@@ -592,6 +599,8 @@ export function Granja3D() {
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
   const activo = useGranja((s) => s.activo)
+  // Arrastre en curso: el corral se pinta donde lo lleva el dedo, no donde está guardado.
+  const moverPreview = useGranja((s) => s.moverPreview)
   // Reloj de render: hambre y aburrimiento se derivan de timestamps al pintar.
   // El mismo tick vigila la salud del rebaño (sellar enfermedad y plazo de muerte).
   const [ahora, setAhora] = useState(() => Date.now())
@@ -604,21 +613,40 @@ export function Granja3D() {
     return () => window.clearInterval(id)
   }, [activo])
   return (
-    <group>
+    // Mantener pulsado un corral abre el editor de la granja (ver `pulsacionLarga`) y
+    // lo deja AGARRADO con la herramienta Mover: el gesto que lo despierta es el
+    // mismo con el que se quiere arrastrarlo.
+    <group
+      onPointerDown={(e) => {
+        const { x, z } = e.point
+        pulsacionLargaAbrirEditor(e.nativeEvent, () => {
+          const g = useGranja.getState()
+          g.iniciar()
+          g.setHerramienta('mover')
+          const { col, row } = worldToCeldaEntera(x, z)
+          void g.aplicarEnCelda(col, row)
+        })
+      }}
+    >
       {corrales
         .filter((c) => c.col + c.ancho <= gridCols && c.row + c.alto <= gridRows)
         .map((c) => {
-          const [x0, , z0] = cellToWorld(c.col, c.row)
-          const [x1, , z1] = cellToWorld(c.col + c.ancho - 1, c.row + c.alto - 1)
+          // Mientras se arrastra manda la celda de preview (y el corral flota un poco,
+          // como un cuarto en el mapa); los accesorios se desplazan con él.
+          const llevado = moverPreview?.id === c.id ? moverPreview : null
+          const col = llevado ? llevado.col : c.col
+          const row = llevado ? llevado.row : c.row
+          const [x0, , z0] = cellToWorld(col, row)
+          const [x1, , z1] = cellToWorld(col + c.ancho - 1, row + c.alto - 1)
           const cx = (x0 + x1) / 2
           const cz = (z0 + z1) / 2
           const accesorios: AccesorioLocal[] = (c.accesorios ?? []).map((a) => {
-            const [ax, , az] = cellToWorld(a.col, a.row)
+            const [ax, , az] = cellToWorld(a.col + (col - c.col), a.row + (row - c.row))
             return { tipo: a.tipo, x: ax - cx, z: az - cz }
           })
           const sucio = corralSucio(c, ahora)
           return (
-            <group key={c.id} position={[cx, 0, cz]}>
+            <group key={c.id} position={[cx, llevado ? 0.35 : 0, cz]}>
               <Corral ancho={c.ancho} alto={c.alto} sucio={sucio} />
               {accesorios.map((a) => (
                 <group key={`${a.x},${a.z}`} position={[a.x, 0, a.z]}>
@@ -705,8 +733,12 @@ const COLOR_HERRAMIENTA: Record<HerramientaGranja, string> = {
   limpiar: '#c4b5fd',
   accesorio: '#22d3ee',
   nombrar: '#38bdf8',
+  mover: '#a78bfa',
   quitar: '#f87171',
 }
+
+/** Contorno del corral elegido (el que 'mover' arrastra y el que 'nombrar' lista). */
+const COLOR_SELECCION = '#34d399'
 
 /**
  * Con el editor activo: clic en una celda aplica la herramienta (un arrastre
@@ -721,6 +753,20 @@ function GranjaControllerActivo() {
   const gl = useThree((s) => s.gl)
   const camera = useThree((s) => s.camera)
   const herramienta = useGranja((s) => s.herramienta)
+  const corralSel = useGranja((s) => s.corralSel)
+  const moverPreview = useGranja((s) => s.moverPreview)
+  const corrales = corralesRepo.useAll() ?? VACIO
+  const animales = animalesRepo.useAll() ?? VACIO
+  const habitantes = animales.filter((a) => a.corralId === corralSel).length
+  // Los listeners se registran una vez: los corrales llegan por ref (si fueran
+  // dependencia del efecto, cada cambio de la tabla los volvería a montar).
+  const corralesRef = useRef(corrales)
+  corralesRef.current = corrales
+  const arrastre = useRef<{
+    id: number
+    origen: { col: number; row: number }
+    desde: { col: number; row: number }
+  } | null>(null)
   const aplicarEnCelda = useGranja((s) => s.aplicarEnCelda)
   const salir = useGranja((s) => s.salir)
   const apilado = !useHouse((s) => s.explotado)
@@ -736,16 +782,58 @@ function GranjaControllerActivo() {
     const onDown = (ev: PointerEvent) => {
       downX = ev.clientX
       downY = ev.clientY
+      arrastre.current = null
+      // Con «Mover», bajar el dedo sobre un corral lo agarra: desde aquí sigue al
+      // dedo (como un cuarto en el mapa) y se suelta donde se levante.
+      if (useGranja.getState().herramienta !== 'mover') return
+      const c = celdaEnteraBajoCursor(ev.clientX, ev.clientY, opts)
+      if (!c) return
+      const col = Math.round(c.col)
+      const row = Math.round(c.row)
+      const corral = corralesRef.current.find((x) => corralContiene(x, col, row))
+      if (corral?.id == null) return
+      arrastre.current = { id: corral.id, origen: { col: corral.col, row: corral.row }, desde: { col, row } }
+      useGranja.setState({ corralSel: corral.id, moverDesde: { col, row } })
     }
     const onUp = (ev: PointerEvent) => {
       if (ev.button !== 0) return
-      if (Math.hypot(ev.clientX - downX, ev.clientY - downY) > 6) return // fue arrastre de cámara
+      const movio = Math.hypot(ev.clientX - downX, ev.clientY - downY) > 6
+      const a = arrastre.current
+      arrastre.current = null
+      if (a) {
+        const g = useGranja.getState()
+        const destino = g.moverPreview
+        g.setMoverPreview(null)
+        if (movio) {
+          // Al soltar se escribe donde quedó; si nunca cupo, se queda como estaba.
+          if (destino) {
+            const c = celdaEnteraBajoCursor(ev.clientX, ev.clientY, opts)
+            void g.moverCorral(a.id, destino.col, destino.row)
+            if (c) useGranja.setState({ moverDesde: { col: Math.round(c.col), row: Math.round(c.row) } })
+          }
+          return
+        }
+        // Toque limpio: sigue el flujo de siempre (queda elegido).
+      }
+      if (movio) return // fue arrastre de cámara
       const c = celdaEnteraBajoCursor(ev.clientX, ev.clientY, opts)
       if (c) void aplicarEnCelda(Math.round(c.col), Math.round(c.row))
     }
     const onMove = (ev: PointerEvent) => {
       const c = celdaEnteraBajoCursor(ev.clientX, ev.clientY, opts)
       setHover(c ? { col: Math.round(c.col), row: Math.round(c.row) } : null)
+      const a = arrastre.current
+      if (!a || !c) return
+      const corral = corralesRef.current.find((x) => x.id === a.id)
+      if (!corral) return
+      const col = a.origen.col + (Math.round(c.col) - a.desde.col)
+      const row = a.origen.row + (Math.round(c.row) - a.desde.row)
+      // Donde no cabe, el corral no sigue al dedo: se queda en el último sitio bueno.
+      if (!cabeCorralEn(corralesRef.current, corral, col, row)) return
+      const prev = useGranja.getState().moverPreview
+      if (prev?.id !== a.id || prev.col !== col || prev.row !== row) {
+        useGranja.getState().setMoverPreview({ id: a.id, col, row })
+      }
     }
     const onLeave = () => setHover(null)
     const onKey = (ev: KeyboardEvent) => {
@@ -767,18 +855,59 @@ function GranjaControllerActivo() {
       dom.removeEventListener('pointerleave', onLeave)
       window.removeEventListener('keydown', onKey)
       setHover(null)
+      arrastre.current = null
+      useGranja.getState().setMoverPreview(null)
     }
   }, [gl, camera, apilado, gridCols, gridRows, aplicarEnCelda, salir])
 
-  if (!hover) return null
-  const [hx, , hz] = cellToWorld(hover.col, hover.row)
+  const elegido = corralSel != null ? corrales.find((c) => c.id === corralSel) : undefined
+  const [hx, , hz] = hover ? cellToWorld(hover.col, hover.row) : [0, 0, 0]
+  let marco = null
+  if (elegido) {
+    // Arrastrándolo, el contorno viaja con él.
+    const llevado = moverPreview?.id === elegido.id ? moverPreview : null
+    const eCol = llevado ? llevado.col : elegido.col
+    const eRow = llevado ? llevado.row : elegido.row
+    const [ex0, , ez0] = cellToWorld(eCol, eRow)
+    const [ex1, , ez1] = cellToWorld(eCol + elegido.ancho - 1, eRow + elegido.alto - 1)
+    marco = (
+      <ContornoCelda
+        cx={(ex0 + ex1) / 2}
+        cz={(ez0 + ez1) / 2}
+        // Por dentro de la valla y algo más alto: sobre la línea del cerco no se veía.
+        y={Y + 0.45}
+        lado={elegido.ancho * SIZE - 0.9}
+        largo={elegido.alto * SIZE - 0.9}
+        color={COLOR_SELECCION}
+      />
+    )
+  }
   return (
-    <ContornoCelda
-      cx={hx}
-      cz={hz}
-      y={Y + 0.25}
-      lado={SIZE - 0.15}
-      color={COLOR_HERRAMIENTA[herramienta]}
-    />
+    <>
+      {marco}
+      {/* Corral elegido: +/− por lado para agrandarlo o encogerlo una cuadrícula,
+          como los cuartos del mapa. Arrastrándolo se ocultan (estorbarían al dedo). */}
+      {elegido?.id != null && !moverPreview && (
+        <ResizeCeldas3D
+          rect={{ col: elegido.col, row: elegido.row, ancho: elegido.ancho, alto: elegido.alto }}
+          y={Y + 1.2}
+          puede={(lado, delta) => {
+            const r = rectRedimensionado(elegido, lado, delta)
+            if (!cabeRect(corrales, elegido.id, r)) return false
+            return delta === 1 || habitantes <= r.ancho * r.alto * CAPACIDAD_POR_CELDA
+          }}
+          onCambio={(lado, delta) => void useGranja.getState().redimensionarCorral(elegido.id!, lado, delta)}
+        />
+      )}
+      {hover && (
+        <ContornoCelda
+          cx={hx}
+          cz={hz}
+          y={Y + 0.25}
+          lado={SIZE - 0.15}
+          color={COLOR_HERRAMIENTA[herramienta]}
+        />
+      )}
+    </>
   )
 }

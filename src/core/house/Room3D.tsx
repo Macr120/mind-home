@@ -84,6 +84,9 @@ import { MurosPerimetroFormaCuarto } from './MurosPerimetroFormaCuarto'
 import { AguaCuarto } from './AguaCuarto'
 import { ComplementoPisoSotano } from './ComplementoPisoSotano'
 import { consumirClicMuro } from './PlanoMuroSelector3D'
+import { Temblor } from './Animado'
+import { pulsacionLargaDespertar, pulsacionLargaReciente } from './pulsacionLarga'
+import { useDespierto, cuartoDespierto } from '../state/despiertoStore'
 import { GrafitisMuroCuarto } from './grafiti'
 
 function tint(hex: string, amt: number) {
@@ -348,6 +351,8 @@ const ObjetoEnCuarto = memo(function ObjetoEnCuarto({
   puedeAbrirApp,
   moverObjetosEste,
   conAnillo,
+  despierto,
+  appId,
 }: {
   o: ObjetoCuarto
   roomId: string
@@ -364,6 +369,10 @@ const ObjetoEnCuarto = memo(function ObjetoEnCuarto({
   moverObjetosEste: boolean
   /** Aro celeste del objeto seleccionado en "mover objetos". */
   conAnillo: boolean
+  /** Despierto por una pulsación larga: tiembla y se puede arrastrar. */
+  despierto: boolean
+  /** App del cuarto: el marcador se pone rojo si le quedan misiones hoy. */
+  appId?: string
 }) {
   const setObjetoSel = useEditorUi((s) => s.setObjetoSel)
   const setTab = useEditorUi((s) => s.setTab)
@@ -371,6 +380,7 @@ const ObjetoEnCuarto = memo(function ObjetoEnCuarto({
   const arrastreElevado = useDiseño((s) => s.arrastreElevado)
   const selectMueble = useInteractUi((s) => s.selectMueble)
   // Posición por ranura de decoración (esquinas de la caja contenedora) si no tiene x/z.
+  const gTemblor = useRef<THREE.Group>(null)
   const ox = o.x ?? (o.slot % 2 === 0 ? -1 : 1) * (W / 2 - 1.4)
   const oz = o.z ?? (o.slot < 2 ? -1 : 1) * (H / 2 - 1.4)
   const D = Math.PI / 180
@@ -387,31 +397,51 @@ const ObjetoEnCuarto = memo(function ObjetoEnCuarto({
         puedeAbrirApp && esPrincipal
           ? (e) => {
               e.stopPropagation()
+              // Soltar tras una pulsación larga —o tocarlo ya despierto— no entra
+              // en la app: ese toque era para moverlo o para su menú.
+              if (despierto || pulsacionLargaReciente()) return
               selectMueble(roomId)
             }
           : // En "mover objetos" hay que frenar el clic aquí: si no, sigue de largo
             // hasta el piso (`onFloorClick`) y su deselección deshace la selección
             // que el propio pointerdown de este objeto acaba de hacer.
-            moverObjetosEste
-            ? (e) => e.stopPropagation()
-            : undefined
+            // Despierto pasa lo mismo: el toque que lo arrastra no debe mandar al
+            // personaje a caminar hasta el piso de detrás.
+            moverObjetosEste || despierto
+              ? (e) => e.stopPropagation()
+              : undefined
       }
       onPointerDown={
-        editable
+        editable || despierto
           ? (e) => {
               e.stopPropagation()
               if (o.id != null) {
-                // En el editor 3D abre el panel de Objetos con este objeto.
-                if (useEditorUi.getState().editor3d) setTab('objetos')
-                setObjetoSel(o.id)
+                if (editable) {
+                  // En el editor 3D abre el panel de Objetos con este objeto.
+                  if (useEditorUi.getState().editor3d) setTab('objetos')
+                  setObjetoSel(o.id)
+                }
                 startObjetoDrag(o.id)
               }
             }
-          : undefined
+          : puedeAbrirApp
+            ? (e) => {
+                // Fuera de los editores, mantenerlo pulsado lo despierta: tiembla, se
+                // arrastra y saca su menú. Se frena aquí para que el piso del cuarto
+                // no cuente la misma pulsación como suya (ver `onFloorDown`).
+                e.stopPropagation()
+                const id = o.id
+                if (id != null) {
+                  pulsacionLargaDespertar(e.nativeEvent, () =>
+                    useDespierto.getState().despertar({ tipo: 'objeto', id }),
+                  )
+                }
+              }
+            : undefined
       }
       onPointerOver={(e) => {
         e.stopPropagation()
-        if (editable) document.body.style.cursor = 'grab'
+        if (editable || despierto) document.body.style.cursor = 'grab'
         else if (!useLayout.getState().editMode && esPrincipal)
           document.body.style.cursor = 'pointer'
       }}
@@ -429,22 +459,25 @@ const ObjetoEnCuarto = memo(function ObjetoEnCuarto({
           <meshBasicMaterial color="#38bdf8" transparent opacity={0.9} depthWrite={false} toneMapped={false} />
         </mesh>
       )}
-      <GrupoAnimado anim={o.animacion} nivel={nivel} objetoId={o.id}>
-        <ObjetoView
-          tipo={o.tipo}
-          color={o.color}
-          piezas={o.piezas}
-          modeloGlb={o.modeloGlb}
-          foto={o.foto}
-          texto={o.texto}
-          anim={o.animacion}
-          nivelAnim={nivel}
-          objetoId={o.id}
-          fx={o.fx}
-          grupoAccion={o.grupoAccion}
-        />
-      </GrupoAnimado>
-      {esPrincipal && <MarcadorEntrada y={altoDeTipo(o.tipo) + 0.45} />}
+      <group ref={gTemblor}>
+        <GrupoAnimado anim={o.animacion} nivel={nivel} objetoId={o.id}>
+          <ObjetoView
+            tipo={o.tipo}
+            color={o.color}
+            piezas={o.piezas}
+            modeloGlb={o.modeloGlb}
+            foto={o.foto}
+            texto={o.texto}
+            anim={o.animacion}
+            nivelAnim={nivel}
+            objetoId={o.id}
+            fx={o.fx}
+            grupoAccion={o.grupoAccion}
+          />
+        </GrupoAnimado>
+      </group>
+      {despierto && <Temblor grupo={gTemblor} />}
+      {esPrincipal && <MarcadorEntrada y={altoDeTipo(o.tipo) + 0.45} appId={appId} />}
     </group>
   )
 })
@@ -488,6 +521,8 @@ const ObjetosCuarto = memo(function ObjetosCuarto({
     })),
   )
   const planosActivo = usePlanos((s) => s.activo)
+  // Objeto despertado con una pulsación larga (una suscripción para todo el cuarto).
+  const despiertoId = useDespierto((s) => (s.sujeto?.tipo === 'objeto' ? s.sujeto.id : null))
   if (objetosCuarto.length === 0) return null
   // Objetos arrastrables/seleccionables: al editar este cuarto o en la pestaña Objetos
   // del editor de mapa, con el editor 3D activo (en 3ª/1ª persona), o en el modo "mover
@@ -501,6 +536,9 @@ const ObjetosCuarto = memo(function ObjetosCuarto({
   // Fuera de todo modo de edición/construcción, tocar el objeto principal abre su app.
   const puedeAbrirApp =
     !editMode && !editor3d && !inventarioObjetosActivo && !planosActivo && !preview && !moverObjetosActivo
+  // Primera app del cuarto (como en el menú lateral): de ella son las misiones que
+  // pintan el marcador. En preview (miniaturas del panel) no se avisa de nada.
+  const appId = preview ? undefined : objetosCuarto.find((o) => o.plantillaId)?.plantillaId
   return (
     <TemaContext.Provider value={tema}>
       {objetosCuarto.map((o) => (
@@ -516,6 +554,8 @@ const ObjetosCuarto = memo(function ObjetosCuarto({
           puedeAbrirApp={puedeAbrirApp}
           moverObjetosEste={moverObjetosEste}
           conAnillo={moverObjetosEste && o.id === objetoSel}
+          despierto={o.id != null && o.id === despiertoId}
+          appId={appId}
         />
       ))}
     </TemaContext.Provider>
@@ -597,6 +637,10 @@ export function Room3D({
   const previewCellEste = useLayout((s) => (s.draggingId === id ? s.previewCell : null))
   const dragOriginCell = useLayout((s) => (s.draggingId === id ? s.dragOriginCell : null))
   const startDrag = useLayout((s) => s.startDrag)
+  // Despertado con una pulsación larga (fuera de los editores): tiembla, se arrastra
+  // y saca su menú (ver `MenuDespierto`).
+  const despierto = useDespierto((s) => cuartoDespierto(s, id))
+  const gTemblor = useRef<THREE.Group>(null)
   const { editorTab, editor3d } = useEditorUi(
     useShallow((s) => ({ editorTab: s.tab, editor3d: s.editor3d })),
   )
@@ -1061,6 +1105,9 @@ export function Room3D({
     // Con un modo de construcción activo (editor o atajo de la rueda), el tap construye,
     // no mueve al personaje.
     if (editMode || planosActivo || atenuado || preview) return
+    // Soltar tras una pulsación larga (o tras mover el cuarto despierto) no es un
+    // toque para caminar: el usuario mantuvo pulsado para otra cosa.
+    if (despierto || pulsacionLargaReciente()) return
     // En 1ª/3ª persona el clic en el suelo no mueve (el arrastre gira la cámara).
     if (useCam.getState().vista !== 'iso') return
     e.stopPropagation()
@@ -1078,8 +1125,23 @@ export function Room3D({
   const puedeMoverCuarto =
     !editor3d && !editingRoomId && !atenuado && !preview &&
     (editMode ? editorTab === 'mapa' && (!planosActivo || planosMover) : planosMover)
+  // Fuera de todo editor, mantener pulsado el cuarto lo despierta (y ya despierto,
+  // tocarlo lo arrastra). Un toque corto sigue llevando al personaje hasta ahí.
+  const puedeDespertar =
+    !editMode && !editor3d && !planosActivo && !preview && !interactivo && !atenuado &&
+    moverObjetosRoomId == null
   const onFloorDown = (e: ThreeEvent<PointerEvent>) => {
-    if (!puedeMoverCuarto) return
+    if (!puedeMoverCuarto) {
+      if (despierto) {
+        e.stopPropagation()
+        startDrag(id)
+      } else if (puedeDespertar) {
+        pulsacionLargaDespertar(e.nativeEvent, () =>
+          useDespierto.getState().despertar({ tipo: 'cuarto', id }),
+        )
+      }
+      return
+    }
     e.stopPropagation()
     if (planosMover) setSeleccionPlano({ tipo: 'cuarto', roomId: id })
     startDrag(id)
@@ -1121,7 +1183,10 @@ export function Room3D({
   }
 
   return (
-    <group position={position}>
+    <group ref={gTemblor} position={position}>
+      {/* Temblor de "cuarto despierto": sacude el grupo raíz (React solo le escribe
+          `position`, así que el giro no compite con ningún re-render). */}
+      {despierto && <Temblor grupo={gTemblor} factor={0.3} soloGiro />}
       {/* Piso: una loseta por celda del footprint */}
       {anchorCell &&
         fp.map((off, i) => {

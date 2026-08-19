@@ -16,3 +16,13 @@ export function useConstruyendo() {
   const enGranja = useGranja((s) => s.activo)
   return enCaminos || enCanchas || enHuerto || enGranja
 }
+
+/** Lo mismo, para handlers de la escena 3D (fuera de React, sin suscripción). */
+export function construyendoAhora(): boolean {
+  return (
+    useCaminos.getState().activo ||
+    useCanchas.getState().activo ||
+    useHuerto.getState().activo ||
+    useGranja.getState().activo
+  )
+}

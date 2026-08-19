@@ -56,8 +56,8 @@ export async function asignarPlantillaACuarto(
   const { objetos, addObjeto, setObjetoPlantilla, setObjetoPrincipal, setObjetoRotacion, setObjetoEscala } = useDiseño.getState()
   const existentes = objetosDeCuarto(objetos, cuartoId)
 
-  // Si el cuarto ya tiene esta app, no hay nada más que sembrar.
-  if (existentes.some((o) => o.plantillaId === plantillaId)) return
+  // Cada app vive en UN solo cuarto: si ya está asignada (aquí o en otro), no se duplica.
+  if (objetos.some((o) => o.plantillaId === plantillaId)) return
   const teniaApps = existentes.some((o) => o.plantillaId)
 
   const conjunto = objetosDe(plantillaId)
@@ -127,8 +127,10 @@ export async function asignarPlantillaAObjeto(
   plantillaId: string,
   soloPrincipal = false,
 ): Promise<void> {
-  const { setObjetoPlantilla, addObjeto, setObjetoRotacion, setObjetoEscala } = useDiseño.getState()
-  const teniaApps = objetosDeCuarto(useDiseño.getState().objetos, cuartoId).some(
+  const { objetos, setObjetoPlantilla, addObjeto, setObjetoRotacion, setObjetoEscala } = useDiseño.getState()
+  // Cada app vive en UN solo cuarto: si ya está asignada a otro objeto, no se duplica.
+  if (objetos.some((o) => o.plantillaId === plantillaId && o.id !== objetoId)) return
+  const teniaApps = objetosDeCuarto(objetos, cuartoId).some(
     (o) => o.plantillaId && o.id !== objetoId,
   )
   await setObjetoPlantilla(objetoId, plantillaId)
