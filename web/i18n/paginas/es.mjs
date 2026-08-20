@@ -15,6 +15,7 @@ export const TEXTOS = {
   'pie.terminos': 'Términos',
   'pie.cuenta': 'Mi cuenta',
   'pie.contacto': 'Contacto',
+  'tema.boton': 'Modo claro u oscuro',
 
   // ─── Portada ─────────────────────────────────────────────────────────────
   'meta.titulo': 'Mind Planner Home — Tu vida, en una casa 3D',

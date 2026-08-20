@@ -7,6 +7,7 @@ export const TEXTOS = {
   'pie.terminos': '이용약관',
   'pie.cuenta': '내 계정',
   'pie.contacto': '문의',
+  'tema.boton': '밝은 모드 또는 어두운 모드',
 
   'meta.titulo': 'Mind Planner Home — 당신의 삶을 3D 집 한 채에',
   'meta.desc':

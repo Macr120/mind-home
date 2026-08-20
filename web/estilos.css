@@ -7,16 +7,16 @@
    El acento y los toques salen del icono real (public/icon.svg). */
 
 :root {
-  /* Sin esto Chrome aplica su auto-dark y reescribe los colores de la página.
-     `light` a secas: la web no tiene modo oscuro. */
+  /* La web abre en CLARO y no le pregunta al sistema; el oscuro es una elección
+     explícita del visitante (botón de la barra → `data-tema` en el <html>).
+     `color-scheme` va con ellos para que Chrome no aplique su auto-dark. */
   color-scheme: light;
 
-  /* Tema medianoche de la app, con el morado del icono como acento. */
-  --ui-bg: #0f1115;
-  --ui-panel: #12151c;
-  --ui-panel-2: #171b24;
-  --ui-ink: #e7e9ee;
-  --ui-accent: #895ac6;
+  --ui-bg: #e9edf5;
+  --ui-panel: #f8fafd;
+  --ui-panel-2: #eef2f8;
+  --ui-ink: #1c2333;
+  --ui-accent: #6d34b8;
   --ui-accent-ink: #ffffff;
 
   /* Los tres colores de las piezas del icono. */
@@ -38,7 +38,11 @@
   --radio-boton: 0.5rem;
   --radio-tarjeta: 0.75rem;
   --radio-panel: 1rem;
-  --sombra: 0 20px 25px -5px rgb(0 0 0 / 0.35), 0 8px 10px -6px rgb(0 0 0 / 0.3);
+  --sombra: 0 20px 25px -5px rgb(28 35 51 / 0.1), 0 8px 10px -6px rgb(28 35 51 / 0.08);
+  /* Sobre fondo claro la tinta rebajada pierde contraste antes: las dos
+     secundarias suben para no bajar de AA (medido, no a ojo). */
+  --tinta-2: color-mix(in srgb, var(--ui-ink) 82%, transparent);
+  --tinta-3: color-mix(in srgb, var(--ui-ink) 70%, transparent);
 
   --ease-fluida: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-resorte: cubic-bezier(0.22, 1.9, 0.36, 1);
@@ -58,20 +62,19 @@
   }
 }
 
-/* Modo claro de la app, y aquí SIEMPRE: la web abre en claro pase lo que pase
-   con el tema del sistema (ago 2026), igual que la app. Estos valores pisan a
-   los de arriba por orden, así que la paleta oscura queda de andamio. */
-:root {
-  --ui-bg: #e9edf5;
-  --ui-panel: #f8fafd;
-  --ui-panel-2: #eef2f8;
-  --ui-ink: #1c2333;
-  --ui-accent: #6d34b8;
-  --sombra: 0 20px 25px -5px rgb(28 35 51 / 0.1), 0 8px 10px -6px rgb(28 35 51 / 0.08);
-  /* Sobre fondo claro la tinta rebajada pierde contraste antes: las dos
-     secundarias suben para no bajar de AA (medido, no a ojo). */
-  --tinta-2: color-mix(in srgb, var(--ui-ink) 82%, transparent);
-  --tinta-3: color-mix(in srgb, var(--ui-ink) 70%, transparent);
+/* Modo oscuro: el tema medianoche de la app, con el morado del icono. Solo con
+   `data-tema="oscuro"` en el <html>, que pone el botón de la barra. Los
+   derivados (bordes, tintas, sombra) vuelven a su mezcla de fondo oscuro. */
+html[data-tema='oscuro'] {
+  color-scheme: dark;
+  --ui-bg: #0f1115;
+  --ui-panel: #12151c;
+  --ui-panel-2: #171b24;
+  --ui-ink: #e7e9ee;
+  --ui-accent: #895ac6;
+  --sombra: 0 20px 25px -5px rgb(0 0 0 / 0.35), 0 8px 10px -6px rgb(0 0 0 / 0.3);
+  --tinta-2: color-mix(in srgb, var(--ui-ink) 70%, transparent);
+  --tinta-3: color-mix(in srgb, var(--ui-ink) 55%, transparent);
 }
 
 * {
@@ -203,6 +206,43 @@ a:hover {
   display: flex;
   gap: 8px;
   align-items: center;
+}
+
+/* ─── Botón de modo claro/oscuro ──────────────────────────────────────────── */
+/* Mismo tamaño y borde que el selector de idioma: son vecinos en la barra.
+   El icono lo decide el tema — se ve el sol cuando estás en oscuro (lo que te
+   llevas al pulsar) y la luna cuando estás en claro. */
+.tema {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-boton);
+  background-color: var(--tarjeta);
+  color: var(--tinta-2);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color var(--dur-presion) var(--ease-fluida);
+}
+.tema:hover {
+  background-color: var(--tarjeta-fuerte);
+  color: var(--ui-ink);
+}
+.tema .luna {
+  display: inline;
+}
+.tema .sol {
+  display: none;
+}
+html[data-tema='oscuro'] .tema .luna {
+  display: none;
+}
+html[data-tema='oscuro'] .tema .sol {
+  display: inline;
 }
 
 /* ─── Selector de idioma ──────────────────────────────────────────────────── */

@@ -7,6 +7,7 @@ export const TEXTOS = {
   'pie.terminos': 'Ketentuan',
   'pie.cuenta': 'Akun saya',
   'pie.contacto': 'Kontak',
+  'tema.boton': 'Mode terang atau gelap',
 
   'meta.titulo': 'Mind Planner Home — Hidupmu, dalam sebuah rumah 3D',
   'meta.desc':

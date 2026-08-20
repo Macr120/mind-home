@@ -7,6 +7,7 @@ export const TEXTOS = {
   'pie.terminos': 'الشروط',
   'pie.cuenta': 'حسابي',
   'pie.contacto': 'تواصل',
+  'tema.boton': 'الوضع الفاتح أو الداكن',
 
   'meta.titulo': 'Mind Planner Home — حياتك في بيت ثلاثي الأبعاد',
   'meta.desc':

@@ -7,6 +7,7 @@ export const TEXTOS = {
   'pie.terminos': '条款',
   'pie.cuenta': '我的账户',
   'pie.contacto': '联系',
+  'tema.boton': '浅色或深色模式',
 
   'meta.titulo': 'Mind Planner Home — 把你的生活装进一座 3D 房子',
   'meta.desc':

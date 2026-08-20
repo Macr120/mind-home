@@ -7,6 +7,7 @@ export const TEXTOS = {
   'pie.terminos': 'शर्तें',
   'pie.cuenta': 'मेरा खाता',
   'pie.contacto': 'संपर्क',
+  'tema.boton': 'हल्का या गहरा मोड',
 
   'meta.titulo': 'Mind Planner Home — आपका जीवन, एक 3D घर में',
   'meta.desc':

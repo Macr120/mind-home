@@ -7,6 +7,7 @@ export const TEXTOS = {
   'pie.terminos': 'Terms',
   'pie.cuenta': 'My account',
   'pie.contacto': 'Contact',
+  'tema.boton': 'Light or dark mode',
 
   'meta.titulo': 'Mind Planner Home — Your whole life, in a 3D house',
   'meta.desc':

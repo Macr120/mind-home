@@ -103,6 +103,34 @@ function autodeteccion() {
   )
 }
 
+/**
+ * El botón de modo claro/oscuro. Se ve el SOL cuando estás en oscuro y la LUNA
+ * cuando estás en claro: el icono es a dónde te lleva pulsarlo, no dónde estás.
+ * El `title` va traducido, y sin JavaScript el botón no aparece siquiera — lo
+ * escribe el propio script de tema, que es quien puede hacerlo funcionar.
+ */
+function botonTema(textos) {
+  const etiqueta = escapar(textos['tema.boton'] ?? 'Light or dark mode')
+  const html =
+    `<button type="button" class="tema ui-boton" title="${etiqueta}" aria-label="${etiqueta}" ` +
+    `onclick="mphTema()"><span class="luna">🌙</span><span class="sol">☀️</span></button>`
+  return `<script>document.write(${JSON.stringify(html)});function mphTema(){` +
+    `var d=document.documentElement,o=d.dataset.tema==='oscuro';` +
+    `if(o)delete d.dataset.tema;else d.dataset.tema='oscuro';` +
+    `try{localStorage.setItem('mph.tema',o?'claro':'oscuro')}catch(e){}}</script>`
+}
+
+/**
+ * Aplica el tema guardado ANTES de pintar. Va en el <head> y en línea: con un
+ * archivo aparte se vería un destello de claro antes de oscurecer.
+ */
+function temaGuardado() {
+  return (
+    `<script>try{if(localStorage.getItem('mph.tema')==='oscuro')` +
+    `document.documentElement.dataset.tema='oscuro'}catch(e){}</script>`
+  )
+}
+
 /** Guarda la elección del visitante: el enlace del selector no puede hacerlo solo. */
 function recordarEleccion() {
   return (
@@ -135,8 +163,13 @@ for (const { id } of DISPONIBLES) {
       .replace('<html lang="es"', `<html lang="${id}"`)
       // El selector va DESPUÉS de localizar: sus enlaces salen a otros idiomas.
       .replace('<!--selector-idiomas-->', selector(id, pagina))
+      .replace('<!--boton-tema-->', botonTema(textos))
       // La autodetección solo en la raíz: dentro de /<id>/ ya se está donde toca.
-      .replace('<!--idioma-script-->', id === IDIOMA_ORIGEN ? autodeteccion() : recordarEleccion())
+      // El tema guardado se aplica en las dos, y antes que nada.
+      .replace(
+        '<!--idioma-script-->',
+        temaGuardado() + (id === IDIOMA_ORIGEN ? autodeteccion() : recordarEleccion()),
+      )
     writeFileSync(path.join(destino, pagina), html, 'utf8')
     if (sinTraducir.size) {
       const previo = faltan.get(id) ?? new Set()
@@ -159,8 +192,9 @@ if (faltan.size) {
   process.exitCode = 1
 }
 
-// Aviso si algún catálogo trae claves que ya no usa ninguna página.
-const usadas = new Set()
+// Aviso si algún catálogo trae claves que ya no usa ninguna página. Las que
+// consume ESTE script (y no una marca de la plantilla) se apuntan a mano.
+const usadas = new Set(['tema.boton'])
 for (const plantilla of PLANTILLAS.values()) {
   for (const m of plantilla.matchAll(/\{\{([\w.-]+)(\|attr)?\}\}/g)) usadas.add(m[1])
 }

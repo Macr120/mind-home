@@ -7,6 +7,7 @@ export const TEXTOS = {
   'pie.terminos': 'Koşullar',
   'pie.cuenta': 'Hesabım',
   'pie.contacto': 'İletişim',
+  'tema.boton': 'Açık ya da koyu mod',
 
   'meta.titulo': 'Mind Planner Home — Hayatın, bir 3D evde',
   'meta.desc':
