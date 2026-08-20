@@ -5,7 +5,6 @@ export const TEXTOS: Record<string, string> = {
   'marco.privacidad': 'गोपनीयता',
   'marco.terminos': 'शर्तें',
   'marco.titulo': 'मेरा खाता — Mind Planner Home',
-  'tema.boton': 'हल्का या गहरा मोड',
   'comun.procesando': 'चल रहा है…',
   'oauth.google': 'Google से जारी रखें',
   'oauth.apple': 'Apple से जारी रखें',

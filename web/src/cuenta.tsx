@@ -18,7 +18,6 @@ import { createRoot } from 'react-dom/client'
 import './cuenta.css'
 import { obtenerSupabase, hayBackend } from '../../src/core/cuenta/supabase'
 import { aplicarIdioma, IDIOMA, ruta, t } from './i18n'
-import { SelectorIdioma, BotonTema } from './Controles'
 import { iniciarSesion, useSesion } from '../../src/core/cuenta/sesionStore'
 import {
   hayPagos,
@@ -60,18 +59,14 @@ function Marco({ children }: { children: React.ReactNode }) {
   const sub = t('marca.sub', 'Mind Planner Home')
   return (
     <div className="mx-auto flex min-h-screen w-full max-w-md flex-col gap-3 px-4 py-8">
-      {/* Los mismos dos controles que la barra de la landing, aquí junto al
-          logo: es la única fila fija que tiene esta página. */}
       <div className="barra flex items-center gap-2 !p-0">
         <a href={ruta('/')} className="flex flex-1 items-center gap-2 text-white/90">
           <img src="/favicon.svg?v=2" alt="" className="h-9 w-9 rounded-lg" />
           <span className="flex flex-col leading-tight">
-            <span className="text-lg font-extrabold">{t('marca.nombre', 'Casa mental')}</span>
+            <span className="text-lg font-extrabold">{t('marca.nombre', 'Planificador Mental-Casa')}</span>
             {sub && <small className="text-[11px] font-semibold text-white/55">{sub}</small>}
           </span>
         </a>
-        <SelectorIdioma />
-        <BotonTema />
       </div>
       {children}
       <p className="text-center text-[11px] text-white/55">

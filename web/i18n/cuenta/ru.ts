@@ -5,7 +5,6 @@ export const TEXTOS: Record<string, string> = {
   'marco.privacidad': 'Конфиденциальность',
   'marco.terminos': 'Условия',
   'marco.titulo': 'Мой аккаунт — Mind Planner Home',
-  'tema.boton': 'Светлая или тёмная тема',
   'comun.procesando': 'Обрабатываем…',
   'oauth.google': 'Продолжить с Google',
   'oauth.apple': 'Продолжить с Apple',

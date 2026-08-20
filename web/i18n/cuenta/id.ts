@@ -5,7 +5,6 @@ export const TEXTOS: Record<string, string> = {
   'marco.privacidad': 'Privasi',
   'marco.terminos': 'Ketentuan',
   'marco.titulo': 'Akun saya — Mind Planner Home',
-  'tema.boton': 'Mode terang atau gelap',
   'comun.procesando': 'Memproses…',
   'oauth.google': 'Lanjut dengan Google',
   'oauth.apple': 'Lanjut dengan Apple',

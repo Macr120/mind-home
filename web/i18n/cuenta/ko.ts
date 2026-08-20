@@ -5,7 +5,6 @@ export const TEXTOS: Record<string, string> = {
   'marco.privacidad': '개인정보',
   'marco.terminos': '이용약관',
   'marco.titulo': '내 계정 — Mind Planner Home',
-  'tema.boton': '밝은 모드 또는 어두운 모드',
   'comun.procesando': '처리 중…',
   'oauth.google': 'Google로 계속하기',
   'oauth.apple': 'Apple로 계속하기',
