@@ -1,21 +1,20 @@
 <!doctype html>
+<!-- Plantilla: las marcas «clave» entre dobles llaves las sustituye scripts/web-i18n.mjs con el
+     catálogo de cada idioma (web/i18n/paginas/<id>.mjs) al terminar el build, y
+     escribe una copia por idioma en dist-web/<id>/. El español vive en es.mjs
+     como cualquier otro: aquí no queda texto suelto. -->
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mind Planner Home — Tu vida, en una casa 3D</title>
-    <meta
-      name="description"
-      content="Organiza tus hábitos, metas, finanzas, comidas y más en una casa isométrica 3D donde cada cuarto es una app. Un solo pago de 6.99 USD con el primer mes de IA y sincronización incluido; demo gratis."
-    />
-    <meta name="theme-color" content="#0f1115" />
+    <!--idioma-script-->
+    <title>{{meta.titulo|attr}}</title>
+    <meta name="description" content="{{meta.desc|attr}}" />
+    <meta name="theme-color" content="#e9edf5" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="%VITE_URL_WEB%/" />
     <meta property="og:title" content="Mind Planner Home" />
-    <meta
-      property="og:description"
-      content="Tu vida, en una casa 3D: hábitos, metas, finanzas, comidas y más. Un pago de 6.99 USD con el primer mes de IA incluido; demo gratis."
-    />
+    <meta property="og:description" content="{{og.desc|attr}}" />
     <meta property="og:image" content="%VITE_URL_WEB%/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="%VITE_URL_WEB%/og.png" />
@@ -31,263 +30,180 @@
           <span>Mind Planner Home</span>
         </a>
         <nav>
-          <a class="boton ui-boton" href="/cuenta">Entrar</a>
-          <a class="boton principal ui-boton ui-accent-bg" href="#descargas">Descargar</a>
+          <!--selector-idiomas-->
+          <a class="boton ui-boton" href="/cuenta">{{nav.entrar}}</a>
+          <a class="boton principal ui-boton ui-accent-bg" href="#descargas">{{nav.descargar}}</a>
         </nav>
       </div>
     </header>
 
     <div class="contenedor">
       <section class="hero aura">
-        <h1>Tu vida entera,<br />en una casa 3D</h1>
-        <p class="sub">
-          Cada cuarto de tu casa es una app: ejercicio, comidas, finanzas, descanso, idiomas,
-          hobbies, metas… Un solo lugar, con un asistente con IA que te acompaña y tu progreso
-          sincronizado en todos tus dispositivos.
-        </p>
+        <h1>{{hero.h1}}</h1>
+        <p class="sub">{{hero.sub}}</p>
         <div class="acciones">
           <a class="boton principal grande ui-boton ui-accent-bg" href="#descargas">
-            Descargar la app
+            {{hero.cta}}
           </a>
-          <a class="boton grande ui-boton" href="%VITE_URL_APP%/?demo=1">Probar la demo gratis</a>
+          <a class="boton grande ui-boton" href="%VITE_URL_APP%/?demo=1">{{hero.demo}}</a>
         </div>
-        <p class="nota">
-          La app se compra una vez en la tienda de tu dispositivo y funciona sin conexión. La
-          IA y la sincronización son opcionales — y si las dejas, no pierdes nada.
-        </p>
+        <p class="nota">{{hero.nota}}</p>
         <!-- TODO(usuario): sustituir por el video o capturas reales (web/public/). -->
-        <div class="demo">Aquí va tu video o capturas de la casa</div>
+        <div class="demo">{{hero.video}}</div>
       </section>
 
       <section id="caracteristicas">
-        <h2>Una casa, muchas apps</h2>
+        <h2>{{car.h2}}</h2>
         <div class="piezas"></div>
         <div class="tarjetas">
           <div class="tarjeta">
-            <h3>🏠 Cuartos que son apps</h3>
-            <p>
-              Ejercicio, cocina, finanzas, descanso, biblioteca, idiomas, viajes, hobbies,
-              mindfulness y más: cada cuarto guarda una mini-app completa.
-            </p>
+            <h3>🏠 {{car.1.t}}</h3>
+            <p>{{car.1.p}}</p>
           </div>
           <div class="tarjeta">
-            <h3>✨ Asistente con IA</h3>
-            <p>
-              Chatea con tu asistente: captura comidas, crea rutinas, planea metas, genera
-              imágenes y modelos 3D. Tu primer mes trae 700 créditos incluidos; después la
-              IA es opcional.
-            </p>
+            <h3>✨ {{car.2.t}}</h3>
+            <p>{{car.2.p}}</p>
           </div>
           <div class="tarjeta">
-            <h3>🔄 Sincronización total</h3>
-            <p>
-              Tu casa te sigue al teléfono, la tablet y la computadora. Todo cifrado en
-              tránsito y respaldado en la nube.
-            </p>
+            <h3>🔄 {{car.3.t}}</h3>
+            <p>{{car.3.p}}</p>
           </div>
           <div class="tarjeta">
-            <h3>🎮 Se siente como un juego</h3>
-            <p>
-              Tu personaje vive de tu actividad real: rachas, insignias, la Montaña de Sísifo,
-              vehículos, carreras y minijuegos.
-            </p>
+            <h3>🎮 {{car.4.t}}</h3>
+            <p>{{car.4.p}}</p>
           </div>
           <div class="tarjeta">
-            <h3>📅 Calendario y metas</h3>
-            <p>
-              Rutinas de 24 horas, metas anidadas, cronogramas con IA y métricas de
-              cumplimiento que sí se entienden.
-            </p>
+            <h3>📅 {{car.5.t}}</h3>
+            <p>{{car.5.p}}</p>
           </div>
           <div class="tarjeta">
-            <h3>🔒 Tus datos, contigo</h3>
-            <p>
-              La app es local-first: todo vive primero en tu dispositivo. Si cancelas, no
-              pierdes tus datos — sigues en modo local.
-            </p>
+            <h3>🔒 {{car.6.t}}</h3>
+            <p>{{car.6.p}}</p>
           </div>
         </div>
       </section>
 
       <section id="precio">
-        <h2>Un solo pago en la tienda, tu casa para siempre</h2>
+        <h2>{{precio.h2}}</h2>
         <div class="piezas"></div>
         <div class="planes">
           <div class="precio-caja">
-            <h3 class="plan-nombre">Demo</h3>
-            <div class="cifra">Gratis</div>
+            <h3 class="plan-nombre">{{precio.demo.nombre}}</h3>
+            <div class="cifra">{{precio.demo.cifra}}</div>
             <ul>
-              <li>La casa de Pep@ con un año de vida dentro: pruébalo todo</li>
-              <li>Sin cuenta, sin tarjeta y sin conexión</li>
-              <li>Nada se guarda: al recargar, la casa vuelve a empezar</li>
+              <li>{{precio.demo.1}}</li>
+              <li>{{precio.demo.2}}</li>
+              <li>{{precio.demo.3}}</li>
             </ul>
-            <a class="boton grande ui-boton" href="%VITE_URL_APP%/?demo=1">Probar la demo</a>
-            <p class="letra-chica">La app completa, para conocerla sin compromiso.</p>
+            <a class="boton grande ui-boton" href="%VITE_URL_APP%/?demo=1">{{precio.demo.cta}}</a>
+            <p class="letra-chica">{{precio.demo.pie}}</p>
           </div>
           <div class="precio-caja destacado">
-            <h3 class="plan-nombre">La app</h3>
-            <div class="cifra">6.99 USD<small> pago único</small></div>
+            <h3 class="plan-nombre">{{precio.app.nombre}}</h3>
+            <div class="cifra">6.99 USD<small> {{precio.app.pagoUnico}}</small></div>
             <ul>
-              <li>Tu propia casa, para siempre: todas las apps, tus datos en tu dispositivo</li>
-              <li>Primer mes incluido: 700 créditos de IA + sincronización, sin tarjeta y sin suscripción</li>
-              <li>Al terminar el mes conservas la app entera y tus datos; los créditos de IA son opcionales</li>
+              <li>{{precio.app.1}}</li>
+              <li>{{precio.app.2}}</li>
+              <li>{{precio.app.3}}</li>
             </ul>
             <a class="boton principal grande ui-boton ui-accent-bg" href="#descargas">
-              Ver dónde descargarla
+              {{precio.app.cta}}
             </a>
-            <p class="letra-chica">
-              Se compra en Google Play o el App Store, y con tu cuenta la abres también en el
-              navegador. Un pago, sin renovaciones.
-            </p>
+            <p class="letra-chica">{{precio.app.pie}}</p>
           </div>
         </div>
         <!-- La IA es opcional: va aquí abajo, en voz baja, no como un tercer plan. -->
         <div class="franja-ia">
           <div class="texto">
-            <h3>IA y sincronización · opcional</h3>
-            <p class="precios-linea">
-              6 USD al mes<span>·</span>60 USD al año<span>·</span>o 6 USD por 700 créditos
-              sueltos
-            </p>
-            <p>
-              Solo si quieres seguir con la IA y la sincronización cuando termine tu primer
-              mes. Esto sí se contrata aquí, en la web, y vale para todos tus dispositivos.
-              Sin permanencia: si lo dejas, conservas la app y todos tus datos en modo local.
-            </p>
+            <h3>{{ia.t}}</h3>
+            <p class="precios-linea">{{ia.precios}}</p>
+            <p>{{ia.p}}</p>
           </div>
-          <a class="enlace" href="/cuenta#planes">Ver los planes →</a>
+          <a class="enlace" href="/cuenta#planes">{{ia.cta}}</a>
         </div>
       </section>
 
       <section id="descargas">
-        <h2>Descargar la app</h2>
-        <p class="sub">
-          La app se compra en la tienda de tu dispositivo. Al abrirla registras tu correo, y
-          esa misma cuenta te devuelve tu casa en cualquier otro sitio — incluido el navegador.
-        </p>
+        <h2>{{desc.h2}}</h2>
+        <p class="sub">{{desc.sub}}</p>
         <div class="piezas"></div>
         <div class="tarjetas">
           <div class="tarjeta">
             <h3>🤖 Android</h3>
-            <p>En Google Play, 6.99 USD.</p>
-            <span class="pronto">Próximamente</span>
+            <p>{{desc.android}}</p>
+            <span class="pronto">{{desc.pronto}}</span>
           </div>
           <div class="tarjeta">
-            <h3>📱 iPhone y iPad</h3>
-            <p>En el App Store, 6.99 USD.</p>
-            <span class="pronto">Próximamente</span>
+            <h3>📱 {{desc.ios.t}}</h3>
+            <p>{{desc.ios}}</p>
+            <span class="pronto">{{desc.pronto}}</span>
           </div>
           <div class="tarjeta">
-            <h3>🌐 En tu navegador</h3>
-            <p>
-              Sin instalar nada: entra con la cuenta con la que compraste la app y tu casa te
-              espera. Sin cuenta puedes probar la demo.
-            </p>
+            <h3>🌐 {{desc.web.t}}</h3>
+            <p>{{desc.web}}</p>
             <!-- El valor viene de VITE_URL_APP (.env / Cloudflare Pages). -->
             <a class="boton ui-boton" style="margin-top: 10px" href="%VITE_URL_APP%">
-              Abrir la app
+              {{desc.web.cta}}
             </a>
           </div>
           <div class="tarjeta">
             <h3>🪟 Windows</h3>
-            <p>Instalador para Windows 10/11.</p>
-            <span class="pronto">Próximamente</span>
+            <p>{{desc.windows}}</p>
+            <span class="pronto">{{desc.pronto}}</span>
           </div>
           <div class="tarjeta">
             <h3>🍎 macOS</h3>
-            <p>Imagen .dmg para Mac.</p>
-            <span class="pronto">Próximamente</span>
+            <p>{{desc.mac}}</p>
+            <span class="pronto">{{desc.pronto}}</span>
           </div>
         </div>
       </section>
 
       <section id="faq">
-        <h2>Preguntas frecuentes</h2>
+        <h2>{{faq.h2}}</h2>
         <div class="piezas"></div>
         <div class="faq">
           <details>
-            <summary>¿Dónde se compra la app?</summary>
-            <p>
-              En la tienda de tu dispositivo: Google Play o el App Store. Aquí en la web no se
-              vende — lo único que se paga en esta página son la suscripción de IA y las
-              recargas de créditos. Al abrir la app registras tu correo, y con esa cuenta tu
-              casa aparece en cualquier otro dispositivo, también en el
-              <a href="#descargas">navegador</a>.
-            </p>
+            <summary>{{faq.1.q}}</summary>
+            <p>{{faq.1.a}}</p>
           </details>
           <details>
-            <summary>¿Qué incluye el pago único?</summary>
-            <p>
-              La casa entera: todos los cuartos, todas las apps y tus datos en tu dispositivo,
-              para siempre y sin renovaciones. Además, el primer mes trae 700 créditos de IA y
-              la sincronización incluidos, sin tarjeta. Antes de comprarla puedes probar la
-              demo completa, que no pide cuenta.
-            </p>
+            <summary>{{faq.2.q}}</summary>
+            <p>{{faq.2.a}}</p>
           </details>
           <details>
-            <summary>¿Cuánto cuesta la IA después del primer mes?</summary>
-            <p>
-              Lo que tú elijas, o nada. La suscripción son 6 USD al mes (700 créditos y
-              sincronización), o 60 USD al año — dos meses de regalo. Si se te queda corta, los
-              niveles ×2 y ×3 dan 1400 o 2100 créditos por 12 o 18 USD al mes. Y si prefieres
-              no suscribirte, hay recargas sueltas: 6 USD por 700 créditos que no caducan y se
-              usan solo cuando los pides. Esto sí se paga aquí, en
-              <a href="/cuenta">tu cuenta</a>, y vale para todos tus dispositivos.
-            </p>
+            <summary>{{faq.3.q}}</summary>
+            <p>{{faq.3.a}}</p>
           </details>
           <details>
-            <summary>¿Qué son los créditos de IA?</summary>
-            <p>
-              La unidad con la que se cobra cada petición al asistente, según lo que cuesta
-              atenderla: una respuesta normal vale 1 crédito, un plan largo 4, una imagen 3
-              (10 en calidad alta) y un modelo 3D 10. Nunca se cobra automático: solo se gasta
-              cuando tú pides algo.
-            </p>
+            <summary>{{faq.4.q}}</summary>
+            <p>{{faq.4.a}}</p>
           </details>
           <details>
-            <summary>¿Qué pasa si cancelo?</summary>
-            <p>
-              Conservas la app entera y todos tus datos en tus dispositivos, en modo local.
-              Solo pierdes los créditos mensuales y la sincronización. Si renuevas, todo se
-              reactiva tal como lo dejaste.
-            </p>
+            <summary>{{faq.5.q}}</summary>
+            <p>{{faq.5.a}}</p>
           </details>
           <details>
-            <summary>¿Dónde se guardan mis datos?</summary>
-            <p>
-              Primero en tu dispositivo (la app es local-first) y, con la sincronización
-              activa, también en la nube para pasar de un dispositivo a otro. En modo local no
-              sale nada de tu dispositivo. La compra de la app la cobra la tienda (Google Play
-              o App Store) y la suscripción la procesan RevenueCat y Stripe: nunca vemos tu
-              tarjeta. Más detalles en la
-              <a href="/privacidad">política de privacidad</a>.
-            </p>
+            <summary>{{faq.6.q}}</summary>
+            <p>{{faq.6.a}}</p>
           </details>
           <details>
-            <summary>¿En qué dispositivos funciona?</summary>
-            <p>
-              Hoy: en cualquier navegador moderno. Muy pronto: Android (Google Play),
-              iPhone/iPad (App Store), Windows y macOS. Tu cuenta vale para todos — compras la
-              app una vez en la tienda y la suscripción de IA se contrata aquí en la web; las
-              dos funcionan en cualquier dispositivo donde entres con tu correo.
-            </p>
+            <summary>{{faq.7.q}}</summary>
+            <p>{{faq.7.a}}</p>
           </details>
           <details>
-            <summary>¿Cómo cancelo o borro mi cuenta?</summary>
-            <p>
-              Desde <a href="/cuenta">tu cuenta</a>: «Gestionar suscripción» para cancelar el
-              cobro, o «Eliminar cuenta» para borrar todos tus datos de nuestros servidores.
-            </p>
+            <summary>{{faq.8.q}}</summary>
+            <p>{{faq.8.a}}</p>
           </details>
         </div>
       </section>
 
       <footer>
         <div class="enlaces">
-          <a href="/privacidad">Privacidad</a>
-          <a href="/terminos">Términos</a>
-          <a href="/cuenta">Mi cuenta</a>
-          <a href="mailto:macr120cme@gmail.com">Contacto</a>
+          <a href="/privacidad">{{pie.privacidad}}</a>
+          <a href="/terminos">{{pie.terminos}}</a>
+          <a href="/cuenta">{{pie.cuenta}}</a>
+          <a href="mailto:macr120cme@gmail.com">{{pie.contacto}}</a>
         </div>
         <p>© 2026 Mind Planner Home</p>
       </footer>

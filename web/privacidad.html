@@ -1,11 +1,13 @@
 <!doctype html>
+<!-- Plantilla: ver web/index.html. Los textos viven en web/i18n/paginas/<id>.mjs. -->
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Política de privacidad — Mind Planner Home</title>
+    <!--idioma-script-->
+    <title>{{priv.titulo|attr}} — Mind Planner Home</title>
     <meta name="robots" content="noindex" />
-    <meta name="theme-color" content="#0f1115" />
+    <meta name="theme-color" content="#e9edf5" />
     <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
     <link rel="stylesheet" href="/estilos.css" />
@@ -18,102 +20,74 @@
           <span>Mind Planner Home</span>
         </a>
         <nav>
-          <a class="boton ui-boton" href="/cuenta">Mi cuenta</a>
+          <!--selector-idiomas-->
+          <a class="boton ui-boton" href="/cuenta">{{pie.cuenta}}</a>
         </nav>
       </div>
     </header>
 
     <main class="legal">
-      <h1>Política de privacidad</h1>
-      <p class="fecha">Última actualización: agosto de 2026.</p>
+      <h1>{{priv.titulo}}</h1>
+      <p class="fecha">{{legal.fecha}}</p>
+      <p class="fecha">{{legal.original}}</p>
 
       <section>
-        <h2>Quiénes somos</h2>
-        <p>
-          Mind Planner Home («la app») es una aplicación de organización personal. Contacto:
-          <a href="mailto:macr120cme@gmail.com">macr120cme@gmail.com</a>.
-        </p>
+        <h2>{{priv.quienes.h}}</h2>
+        <p>{{priv.quienes.p}}</p>
       </section>
 
       <section>
-        <h2>Qué datos recopilamos</h2>
+        <h2>{{priv.datos.h}}</h2>
         <ul>
-          <li>
-            <strong>Cuenta:</strong> tu correo electrónico y una contraseña cifrada, gestionados
-            por Supabase (nuestro proveedor de backend).
-          </li>
-          <li>
-            <strong>Datos de la app:</strong> lo que registras en tus cuartos (rutinas, comidas,
-            finanzas, notas, fotos…). Viven primero en tu dispositivo y, con la sincronización
-            activa, se sincronizan cifrados en tránsito con nuestros servidores para que tu casa
-            te siga entre dispositivos.
-          </li>
-          <li>
-            <strong>Pagos:</strong> los procesan RevenueCat y Stripe. Nunca vemos ni almacenamos
-            tu tarjeta; recibimos solo el estado de tu compra y de tu suscripción.
-          </li>
-          <li>
-            <strong>Uso de IA:</strong> contadores de créditos consumidos (no el contenido de tus
-            conversaciones, que se envía a los proveedores de IA únicamente para generar cada
-            respuesta y no se usa para entrenar).
-          </li>
+          <li>{{priv.datos.1}}</li>
+          <li>{{priv.datos.2}}</li>
+          <li>{{priv.datos.3}}</li>
+          <li>{{priv.datos.4}}</li>
         </ul>
       </section>
 
       <section>
-        <h2>Para qué los usamos</h2>
+        <h2>{{priv.uso.h}}</h2>
         <ul>
-          <li>Darte acceso a tu cuenta, a tu compra y a tu suscripción.</li>
-          <li>Sincronizar tus datos entre dispositivos y respaldarlos.</li>
-          <li>Operar las funciones de IA con tu cuota de créditos.</li>
-          <li>No vendemos tus datos ni los compartimos con terceros para publicidad.</li>
+          <li>{{priv.uso.1}}</li>
+          <li>{{priv.uso.2}}</li>
+          <li>{{priv.uso.3}}</li>
+          <li>{{priv.uso.4}}</li>
         </ul>
       </section>
 
       <section>
-        <h2>Si cancelas tu suscripción</h2>
-        <p>
-          Tus datos locales siguen en tus dispositivos. Los datos sincronizados quedan
-          almacenados (inaccesibles hasta que renueves) y puedes borrarlos definitivamente
-          eliminando tu cuenta.
-        </p>
+        <h2>{{priv.cancelas.h}}</h2>
+        <p>{{priv.cancelas.p}}</p>
       </section>
 
       <section>
-        <h2>Cómo borrar tu cuenta y tus datos</h2>
-        <p>
-          Desde <a href="/cuenta">tu cuenta</a> (botón «Eliminar cuenta») o desde la app (Editor
-          → Configuraciones → Cuenta). El borrado elimina tu usuario, tus datos sincronizados y
-          tus archivos de nuestros servidores; se conservan solo los registros de facturación que
-          la ley exige guardar.
-        </p>
+        <h2>{{priv.borrar.h}}</h2>
+        <p>{{priv.borrar.p}}</p>
       </section>
 
       <section>
-        <h2>Proveedores</h2>
+        <h2>{{priv.proveedores.h}}</h2>
         <ul>
-          <li>Supabase (base de datos, autenticación y archivos).</li>
-          <li>RevenueCat y Stripe (compras, suscripciones y pagos).</li>
-          <li>Anthropic y Google (respuestas e imágenes de IA, bajo demanda).</li>
+          <li>{{priv.proveedores.1}}</li>
+          <li>{{priv.proveedores.2}}</li>
+          <li>{{priv.proveedores.3}}</li>
         </ul>
       </section>
 
       <section>
-        <h2>Cambios</h2>
-        <p>
-          Si esta política cambia, publicaremos aquí la versión nueva con su fecha. Las dudas se
-          atienden en el correo de contacto.
-        </p>
+        <h2>{{priv.cambios.h}}</h2>
+        <p>{{priv.cambios.p}}</p>
       </section>
     </main>
 
     <div class="contenedor">
       <footer>
         <div class="enlaces">
-          <a href="/">Inicio</a>
-          <a href="/terminos">Términos</a>
-          <a href="/cuenta">Mi cuenta</a>
-          <a href="mailto:macr120cme@gmail.com">Contacto</a>
+          <a href="/">{{pie.inicio}}</a>
+          <a href="/terminos">{{pie.terminos}}</a>
+          <a href="/cuenta">{{pie.cuenta}}</a>
+          <a href="mailto:macr120cme@gmail.com">{{pie.contacto}}</a>
         </div>
         <p>© 2026 Mind Planner Home</p>
       </footer>

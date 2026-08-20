@@ -10,7 +10,7 @@
     "build": "tsc -b && vite build",
     "mascara:assets": "node scripts/copiar-mediapipe.mjs",
     "dev:web": "vite --config vite.config.web.ts",
-    "build:web": "tsc -b && vite build --config vite.config.web.ts",
+    "build:web": "tsc -b && vite build --config vite.config.web.ts && node scripts/web-i18n.mjs",
     "dev:mascara": "vite --config vite.config.mascara.ts",
     "build:mascara": "tsc -b && vite build --config vite.config.mascara.ts",
     "mascara:tunel": "node scripts/video/tunel.mjs",

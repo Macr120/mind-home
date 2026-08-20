@@ -205,6 +205,79 @@ a:hover {
   align-items: center;
 }
 
+/* ─── Selector de idioma ──────────────────────────────────────────────────── */
+/* Un <details> y no un <select>: estas páginas no cargan JavaScript, y cada
+   idioma es una URL de verdad (/en/, /fr/…), así que el menú son enlaces. */
+.idiomas {
+  position: relative;
+}
+.idiomas > summary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-boton);
+  background-color: var(--tarjeta);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--tinta-2);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  transition: background-color var(--dur-presion) var(--ease-fluida);
+}
+.idiomas > summary::-webkit-details-marker {
+  display: none;
+}
+.idiomas > summary:hover {
+  background-color: var(--tarjeta-fuerte);
+}
+.idiomas[open] > summary {
+  color: var(--ui-ink);
+}
+/* En pantallas estrechas se queda la bandera: el endónimo se lleva el ancho. */
+@media (max-width: 560px) {
+  .idiomas .endonimo {
+    display: none;
+  }
+}
+.idiomas > nav {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 6px);
+  right: 0;
+  display: grid;
+  max-height: min(70vh, 420px);
+  overflow-y: auto;
+  gap: 2px;
+  margin: 0;
+  padding: 6px;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-tarjeta);
+  background-color: var(--ui-panel);
+  box-shadow: var(--sombra);
+}
+.idiomas > nav a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: var(--radio-boton);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--tinta-2);
+}
+.idiomas > nav a:hover {
+  background-color: var(--tarjeta-fuerte);
+  text-decoration: none;
+}
+.idiomas > nav a[aria-current] {
+  color: var(--ui-ink);
+  background-color: var(--tarjeta-fuerte);
+}
+
 /* ─── Botones ─────────────────────────────────────────────────────────────── */
 /* Ojo: `background-color`, nunca el atajo `background` — el atajo borraría el
    gradiente que pone .ui-accent-bg en el botón principal. */
@@ -623,6 +696,11 @@ footer a:hover {
   color: var(--tinta-3);
   font-size: 13px;
   margin: 0 0 24px;
+}
+/* El aviso de «esto es una traducción» solo existe fuera del original: en
+   español la clave viene vacía y su párrafo no debe ocupar sitio. */
+.legal .fecha:empty {
+  display: none;
 }
 
 /* Cada apartado es un panel, como las tarjetas de la app. */
