@@ -378,10 +378,7 @@ export const IT_TUT: Dict = {
     'Le missioni non vivono in un posto a parte: vivono DENTRO ogni app. Nell’intestazione di ogni stanza c’è il suo pulsante Missioni, con l’elenco di ciò che quell’app ti chiede OGGI.',
   'tut.hoy.2.titulo': 'Tre fonti, una lista',
   'tut.hoy.2.texto':
-    'Gli obiettivi propri dell\'app (l\'acqua, le calorie), quello che hai programmato per oggi nel calendario e i passi dei tuoi obiettivi in corso: tutto insieme, raggruppato sotto il piano o l\'obiettivo da cui viene ogni passo.',
-  'tut.hoy.2b.titulo': 'I tuoi propositi, in alto',
-  'tut.hoy.2b.texto':
-    'Sopra la checklist vivono gli obiettivi di questa app, con il loro avanzamento e la loro scadenza. Toccarne uno apre il suo piano proprio qui, senza uscire dal pannello, e con «+ obiettivo» te ne proponi un altro.',
+    'Le missioni proprie dell’app — l’acqua, le calorie — e quello che hai messo in programma per oggi nel calendario: tutto insieme in un unico elenco, raggruppato sotto il blocco da cui esce ogni passo.',
   'tut.hoy.3.titulo': 'Si spunta perché il dato esiste',
   'tut.hoy.3.texto':
     'Il pulsante della riga registra il dato REALE nell\'app — un bicchiere d\'acqua, un pasto — e il passo si spunta da solo perché quella registrazione ormai c\'è, non perché qualcuno l\'ha segnata. Premerlo di nuovo a passo compiuto non duplica niente: il pulsante sparisce.',
@@ -398,7 +395,7 @@ export const IT_TUT: Dict = {
   'tut.hoy.6b.texto':
     'Completare tutte le missioni del giorno accende la celebrazione e somma gli XP dell\'app: il livello cresce per liste completate, non per registrazioni sparse.',
   'tut.hoy.7.texto':
-    'E se ti manca qualcosa, «Nuova checklist» crea la tua: una lista propria di quest\'app che si ripete ogni giorno. Gli obiettivi da cui nascono questi passi si pianificano nella stanza Obiettivi.',
+    'E se ti manca qualcosa, «Aggiungi missione» ti offre quello che di solito propone quest’app, e «Nuova checklist» crea la tua: un elenco tuo che si ripete ogni giorno.',
   'tut.hoy.8.titulo': 'Le sfere rosse',
   'tut.hoy.8.texto':
     'Quel pallino rosso su una stanza è il conto delle missioni ancora in sospeso OGGI: quello che ti resta da fare lì. Lo stesso numero compare nella schermata iniziale, nella bolla per entrare e nella sfera che fluttua sopra il mobile della stanza — e diventa ambra quando qualcosa ha già superato la sua ora. Senza pallino, quella stanza è in pari.',

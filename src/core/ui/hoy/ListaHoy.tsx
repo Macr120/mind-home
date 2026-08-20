@@ -12,6 +12,7 @@ import { useMascota } from '../../state/mascotaStore'
 import { asistenteResponsable } from '../../gamificacion/asistentesPlantilla'
 import { nombreAsistente } from '../../chat/mascotas'
 import { Icono } from '../iconos/Icono'
+import { BadgeMisiones } from '../BadgeMisiones'
 import { EditorRutina, rutinaNueva } from '../RutinasPanel'
 import { AnadirObjetivo } from './AnadirObjetivo'
 import { FilaHoy } from './FilaHoy'
@@ -181,22 +182,29 @@ export function ListaHoy({
     <div data-tut="room.meta" data-tut-zona="hoy" className={`relative shrink-0 ${className}`}>
       {/* El mismo botón rojo que abre las Misiones en el calendario, aquí acotado
           a esta app; el ámbar avisa de un paso de hoy que ya pasó de su hora y
-          sigue pendiente. */}
+          sigue pendiente.
+
+          La cuenta va en el GLOBO de siempre (`BadgeMisiones`), no en un «2/5»
+          dentro del botón: eso seguía marcando «5/5» con el día ya cerrado y se
+          leía como un aviso que no se apagaba nunca. Ahora dice lo que falta y,
+          cuando no falta nada, desaparece. El detalle hechos/total sigue en la
+          cabecera del panel, que es donde se mira el avance. */}
       <button
         type="button"
         data-tut="hoy.cabecera"
         onClick={() => setAbierto(true)}
-        className={`flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition ${
+        className={`relative flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition ${
           urgente
             ? 'ui-pop border-amber-400/40 bg-amber-400/10 text-amber-200'
             : 'border-red-500/40 text-red-400 hover:bg-red-500/10'
         }`}
       >
         {t('hoy.titulo', 'Misiones')}
-        {cuentan.length > 0 && (
-          <span className="tabular-nums opacity-70">
-            {hechos.length}/{cuentan.length}
-          </span>
+        {pendientes.length > 0 && (
+          <BadgeMisiones
+            pendientes={{ cuantos: pendientes.length, urgente }}
+            className="absolute -end-1.5 -top-1.5"
+          />
         )}
       </button>
 

@@ -400,6 +400,25 @@ export interface PendientesApp {
 }
 
 /**
+ * Lo que le queda hoy a TODA la casa, sumando también las misiones personales
+ * (las que no son de ninguna app): el globo del botón Misiones del calendario.
+ * Cuando no queda nada devuelve 0 y el globo desaparece, como el de un cuarto.
+ */
+export function usePendientesCasaHoy(fecha?: string): PendientesApp {
+  const porApp = usePasosDeTodas(fecha)
+  return useMemo(() => {
+    let cuantos = 0
+    let urgente = false
+    for (const g of porApp ?? []) {
+      const { pendientes } = repartirPasos(g.pasos)
+      cuantos += pendientes.length
+      urgente ||= pendientes.some((p) => p.urgente)
+    }
+    return { cuantos, urgente }
+  }, [porApp])
+}
+
+/**
  * Las misiones que quedan hoy, por app, para las tarjetas de la pantalla de inicio
  * y del menú lateral. Una sola suscripción: pedirlas con `usePasosHoy` en cada
  * tarjeta serían quince consultas rehaciéndose con cada registro que se guarda.

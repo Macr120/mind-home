@@ -267,9 +267,8 @@ export const EN_TUT: Dict = {
   'tut.hoy.1.texto':
     'Missions don\'t live somewhere apart: they live INSIDE each app. In every room\'s header sits its Missions button, with the checklist of what that app asks of you TODAY.',
   'tut.hoy.2.titulo': 'Three sources, one list',
-  'tut.hoy.2.texto': 'The app\'s own targets (water, calories), what you scheduled for today in the calendar, and the steps from your active goals: all together, grouped under the plan or the goal each step comes from.',
-  'tut.hoy.2b.titulo': 'What you set out to do, on top',
-  'tut.hoy.2b.texto': 'Above the checklist live this app\'s goals, with their progress and their deadline. Tapping one opens its plan right here, without leaving the panel, and "+ goal" sets up another.',
+  'tut.hoy.2.texto':
+    'The app\'s own missions — water, calories — and what you scheduled for today in the calendar: all together in one list, grouped under the block each step comes from.',
   'tut.hoy.3.titulo': 'It crosses off because the data exists',
   'tut.hoy.3.texto': 'The row\'s button logs the REAL data in the app — a glass of water, a meal — and the step crosses itself off simply because that record now exists, not because anyone marked it. Tapping it again once done doesn\'t duplicate anything: the button disappears.',
   'tut.hoy.4.titulo': 'Your number for each day',
@@ -280,7 +279,8 @@ export const EN_TUT: Dict = {
   'tut.hoy.6.texto': 'It drops down to "Done", collapsed: seeing the log take effect is part of the reward, and you can undo it from there if one slipped in by mistake.',
   'tut.hoy.6b.titulo': 'The whole list is what scores',
   'tut.hoy.6b.texto': 'Completing all of the day\'s missions sets off the celebration and adds the app\'s XP: the level grows by finished lists, not by loose logs.',
-  'tut.hoy.7.texto': 'And if something\'s missing, «New checklist» creates your own: a list of this app\'s that repeats every day. The goals these steps come from are planned in the Goals room.',
+  'tut.hoy.7.texto':
+    'And if something is missing, "Add mission" offers what this app usually suggests, and "New checklist" creates your own: a list of yours that repeats every day.',
   'tut.hoy.8.titulo': 'The red orbs',
   'tut.hoy.8.texto':
     'That red badge on a room is its count of missions still pending TODAY: what you have left to do in there. The same number shows up on the home screen, on the enter bubble and on the orb floating above the room\'s furniture — and it turns amber when something is already past its time. No badge means that room is up to date.',

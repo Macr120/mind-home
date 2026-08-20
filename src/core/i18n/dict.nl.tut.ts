@@ -379,10 +379,7 @@ export const NL_TUT: Dict = {
     'Missies wonen niet op een aparte plek: ze wonen IN elke app. Boven aan elke kamer staat de knop Missies, met de checklist van wat die app VANDAAG van je vraagt.',
   'tut.hoy.2.titulo': 'Drie bronnen, één lijst',
   'tut.hoy.2.texto':
-    'De eigen doelen van de app (water, calorieën), wat je vandaag in de kalender hebt ingepland, en de stappen van je lopende doelen: alles samen, gegroepeerd onder het plan of doel waar elke stap vandaan komt.',
-  'tut.hoy.2b.titulo': 'Wat je je voornam, bovenaan',
-  'tut.hoy.2b.texto':
-    'Boven de checklist wonen de doelen van deze app, met hun voortgang en hun deadline. Op één tikken opent zijn plan meteen hier, zonder het paneel te verlaten, en met «+ doel» neem je je het volgende voor.',
+    'De eigen missies van de app — het water, de calorieën — en wat je voor vandaag in de agenda hebt gezet: alles samen in één lijst, gegroepeerd onder het blok waar elke stap uit komt.',
   'tut.hoy.3.titulo': 'Doorgestreept omdat het gegeven er is',
   'tut.hoy.3.texto':
     'De knop op de regel legt het ECHTE gegeven vast in de app — een glas water, een maaltijd — en de stap streept zichzelf door simpelweg omdat die registratie er nu staat, niet omdat iemand hem aanvinkte. Nog eens tikken op een stap die al af is dupliceert niets: de knop verdwijnt.',
@@ -399,7 +396,7 @@ export const NL_TUT: Dict = {
   'tut.hoy.6b.texto':
     'Alle missies van de dag afronden ontsteekt het feestje en telt de XP van de app erbij op: het niveau groeit door afgemaakte lijsten, niet door losse registraties.',
   'tut.hoy.7.texto':
-    'En als je iets mist, maakt «Nieuwe checklist» je eigen lijst: een lijst van deze app die elke dag terugkomt. De doelen waar deze stappen uit komen, plan je in de kamer Doelen.',
+    'En als er iets ontbreekt: «Missie toevoegen» biedt aan wat deze app meestal voorstelt, en «Nieuwe checklist» maakt die van jou: een eigen lijst die zich elke dag herhaalt.',
   'tut.hoy.8.titulo': 'De rode bollen',
   'tut.hoy.8.texto':
     'Dat rode bolletje op een kamer is het aantal missies dat VANDAAG nog openstaat: wat je daar nog te doen hebt. Hetzelfde getal verschijnt op het startscherm, op de instapbel en op de bol die boven het meubel van de kamer zweeft — en het wordt amber zodra iets al over zijn tijd is. Geen bolletje betekent dat die kamer bij is.',

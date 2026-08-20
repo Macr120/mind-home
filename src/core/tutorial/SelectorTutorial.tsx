@@ -81,7 +81,8 @@ const GRUPOS_MENU: { clave: string; es: string; icono: NombreIcono; ids: string[
     clave: 'tut.selector.gProgreso',
     es: 'Tu día y tu progreso',
     icono: 'progreso',
-    ids: ['hoy', 'rutinas', 'enlaces', 'progreso', 'wrapped'],
+    // 'hoy' (Misiones) NO está: tiene su propio chip en la página 1.
+    ids: ['rutinas', 'enlaces', 'progreso', 'wrapped'],
   },
 ]
 

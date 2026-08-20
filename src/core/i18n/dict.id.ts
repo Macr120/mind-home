@@ -5381,7 +5381,7 @@ export const ID: Dict = {
     'Hampir setiap aplikasi punya bilah untuk melihat contoh siap pakai yang datanya sudah terisi, dan menyembunyikannya lagi nanti tanpa kehilangan apa pun milikmu. Ini tidak muncul di dalam rumah demo: di sana, seluruh tahun SUDAH menjadi contohnya.',
   'tut.hoy.titulo': 'Daftar hari ini',
   'tut.hoy.resumen':
-    'Misi tinggal di dalam tiap aplikasi: tombol Misi mengumpulkan hari ini dalam satu panel — di atas target aplikasi itu, di bawah daftar hari ini dengan sasarannya, yang terjadwal, dan langkah dari target yang sedang berjalan. Sebuah langkah dicoret karena catatannya memang sudah ada di aplikasi, bukan karena ada yang mencentangnya. Gelembung merah sebuah ruangan adalah sisa hari ini di sana, dan tombol Misi di jam menampilkan milik semua aplikasi sekaligus.',
+    'Misi tinggal di dalam tiap aplikasi: tombol Misi membuka daftar hari ini — apa yang diminta aplikasi itu dan apa yang kamu jadwalkan untuk hari ini. Sebuah langkah dicoret karena catatannya memang sudah ada di aplikasi, bukan karena ada yang mencentangnya. Gelembung merah sebuah ruangan adalah sisa hari ini di sana, dan tombol Misi di jam menampilkan milik semua aplikasi sekaligus.',
   'tut.progreso.titulo': 'Kemajuanmu',
   'tut.progreso.resumen':
     'Karaktermu hidup dari aktivitas nyatamu: suasana hatinya, levelnya, Gunung Sisifus (pangkat dan lencana), dan radar XP per ruangan. Semuanya dihitung dari apa yang sudah kamu catat, tidak ada yang diisi manual.',

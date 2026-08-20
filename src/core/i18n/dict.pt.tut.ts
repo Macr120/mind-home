@@ -376,10 +376,7 @@ export const PT_TUT: Dict = {
     'As missões não moram em um lugar à parte: moram DENTRO de cada app. No cabeçalho de cada cômodo está o botão Missões, com a lista do que esse app pede de você HOJE.',
   'tut.hoy.2.titulo': 'Três fontes, uma lista',
   'tut.hoy.2.texto':
-    'Os objetivos próprios do app (a água, as calorias), o que você agendou para hoje no calendário e os passos das suas metas em curso: tudo junto, agrupado sob o plano ou a meta de onde vem cada passo.',
-  'tut.hoy.2b.titulo': 'O que você se propôs, em cima',
-  'tut.hoy.2b.texto':
-    'Acima do checklist vivem as metas deste app, com seu avanço e seu prazo. Tocar em uma abre o plano dela aqui mesmo, sem sair do painel, e com «+ meta» você se propõe outra.',
+    'As missões do próprio app — a água, as calorias — e o que você agendou para hoje no calendário: tudo junto em uma só lista, agrupado sob o bloco de onde sai cada passo.',
   'tut.hoy.3.titulo': 'Risca porque o dado existe',
   'tut.hoy.3.texto':
     'O botão da linha registra o dado REAL no app — um copo de água, uma refeição — e o passo se risca sozinho porque esse registro já está ali, não porque alguém o marcou. Apertar de novo com o passo cumprido não duplica nada: o botão desaparece.',
@@ -396,7 +393,7 @@ export const PT_TUT: Dict = {
   'tut.hoy.6b.texto':
     'Completar todas as missões do dia acende a celebração e soma o XP do app: o nível cresce por listas cumpridas, não por registros soltos.',
   'tut.hoy.7.texto':
-    'E se faltar algo, «Novo checklist» cria o seu: uma lista própria deste app que se repete todo dia. As metas de onde saem esses passos são planejadas no cômodo Metas.',
+    'E se faltar algo, «Adicionar missão» oferece o que este app costuma sugerir, e «Nova checklist» cria a sua: uma lista própria que se repete todo dia.',
   'tut.hoy.8.titulo': 'Os orbes vermelhos',
   'tut.hoy.8.texto':
     'Aquele balão vermelho sobre um cômodo é a conta de missões pendentes de HOJE: o que falta fazer ali. O mesmo número aparece na tela inicial, no balão de entrar e no orbe que flutua sobre o móvel do cômodo — e fica âmbar quando algo já passou da hora. Sem balão, esse cômodo está em dia.',

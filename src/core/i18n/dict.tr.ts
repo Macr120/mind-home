@@ -5363,7 +5363,7 @@ export const TR: Dict = {
     'Neredeyse her uygulamada, içi dolu bir hazır örneği görmek ve sonradan kendine ait hiçbir şeyi kaybetmeden gizlemek için bir çubuk vardır. Demo evin içinde görünmez: orada bütün yıl zaten örnektir.',
   'tut.hoy.titulo': 'Bugünün listesi',
   'tut.hoy.resumen':
-    'Görevler her uygulamanın içinde yaşar: Görevler düğmesi günü tek bir panelde toplar — üstte o uygulamanın hedefleri, altta bugünün listesi: kendi ölçüleri, planlananlar ve yürüyen hedeflerinin adımları. Bir adım, biri elle işaretlediği için değil, kayıt uygulamada zaten var olduğu için üstü çizilir. Bir odanın kırmızı balonu bugün orada kalanı gösterir; saatteki Görevler düğmesi ise tüm uygulamalarınkini bir arada.',
+    'Görevler her uygulamanın içinde yaşar: Görevler düğmesi bugünün listesini açar — o uygulamanın senden istedikleri ve bugüne koyduklarını. Bir adım, biri elle işaretlediği için değil, kayıt uygulamada zaten var olduğu için üstü çizilir. Bir odanın kırmızı balonu bugün orada kalanı gösterir; saatteki Görevler düğmesi ise tüm uygulamalarınkini bir arada.',
   'tut.progreso.titulo': 'İlerlemen',
   'tut.progreso.resumen':
     'Karakterin gerçek etkinliğinden beslenir: ruh hali, seviyesi, Sisifos Dağı (rütbe ve rozetler) ve odaya göre XP radarı. Her şey zaten kaydettiklerinden hesaplanır, hiçbir şey elle girilmez.',

@@ -380,10 +380,7 @@ export const FR_TUT: Dict = {
     'Les missions ne vivent pas dans un coin à part : elles vivent DANS chaque app. En haut de chaque pièce se trouve son bouton Missions, avec la liste de ce que cette app te demande AUJOURD’HUI.',
   'tut.hoy.2.titulo': 'Trois sources, une liste',
   'tut.hoy.2.texto':
-    'Les objectifs propres à l\'appli (l\'eau, les calories), ce que tu as programmé pour aujourd\'hui dans le calendrier et les étapes de tes objectifs en cours : tout ensemble, regroupé sous le plan ou l\'objectif dont vient chaque étape.',
-  'tut.hoy.2b.titulo': 'Ce que tu t’es proposé, en haut',
-  'tut.hoy.2b.texto':
-    'Au-dessus de la checklist vivent les objectifs de cette app, avec leur avancement et leur échéance. En toucher un ouvre son plan ici même, sans quitter le panneau, et avec « + objectif » tu t’en proposes un autre.',
+    'Les missions propres à l’app — l’eau, les calories — et ce que tu as planifié pour aujourd’hui dans le calendrier : tout ensemble dans une seule liste, regroupé sous le bloc dont sort chaque étape.',
   'tut.hoy.3.titulo': 'C’est barré parce que la donnée existe',
   'tut.hoy.3.texto':
     'Le bouton de la ligne enregistre la donnée RÉELLE dans l’app — un verre d’eau, un repas — et l’étape se barre toute seule parce que cet enregistrement existe, pas parce que quelqu’un l’a cochée. Le presser à nouveau une fois l’étape faite ne duplique rien : le bouton disparaît.',
@@ -400,7 +397,7 @@ export const FR_TUT: Dict = {
   'tut.hoy.6b.texto':
     'Terminer toutes les missions du jour déclenche la célébration et ajoute les XP de l’app : le niveau grandit par listes accomplies, pas par enregistrements isolés.',
   'tut.hoy.7.texto':
-    'Et s\'il te manque quelque chose, « Nouvelle checklist » crée la tienne : une liste propre à cette appli qui se répète chaque jour. Les objectifs d\'où viennent ces étapes se planifient dans la pièce Objectifs.',
+    'Et s’il te manque quelque chose, « Ajouter une mission » propose ce que cette app suggère d’habitude, et « Nouvelle checklist » crée la tienne : une liste à toi qui revient chaque jour.',
   'tut.hoy.8.titulo': 'Les orbes rouges',
   'tut.hoy.8.texto':
     'Cette pastille rouge sur une pièce, c’est son compte de missions encore en attente AUJOURD’HUI : ce qu’il te reste à y faire. Le même chiffre apparaît sur l’écran d’accueil, sur la bulle d’entrée et sur l’orbe qui flotte au-dessus du meuble de la pièce — et il passe à l’ambre quand quelque chose a déjà dépassé son heure. Sans pastille, cette pièce est à jour.',

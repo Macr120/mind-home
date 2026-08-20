@@ -380,10 +380,7 @@ export const DE_TUT: Dict = {
     'Missionen wohnen nicht an einem eigenen Ort: sie wohnen IN jeder App. In der Kopfzeile jedes Raums sitzt sein Missionen-Knopf mit der Liste dessen, was diese App HEUTE von dir will.',
   'tut.hoy.2.titulo': 'Drei Quellen, eine Liste',
   'tut.hoy.2.texto':
-    'Die eigenen Ziele der App (Wasser, Kalorien), was du für heute im Kalender geplant hast, und die Schritte deiner aktuellen Ziele: alles zusammen, gruppiert unter dem Plan oder Ziel, aus dem jeder Schritt stammt.',
-  'tut.hoy.2b.titulo': 'Was du dir vorgenommen hast, oben',
-  'tut.hoy.2b.texto':
-    'Über der Checkliste wohnen die Ziele dieser App, mit ihrem Fortschritt und ihrer Frist. Ein Tipp auf eines öffnet seinen Plan gleich hier, ohne das Panel zu verlassen, und mit „+ Ziel“ nimmst du dir das nächste vor.',
+    'Die eigenen Missionen der App — das Wasser, die Kalorien — und was du für heute im Kalender eingeplant hast: alles zusammen in einer Liste, gruppiert nach dem Block, aus dem jeder Schritt stammt.',
   'tut.hoy.3.titulo': 'Erledigt, weil der Eintrag existiert',
   'tut.hoy.3.texto':
     'Der Button in der Zeile trägt den ECHTEN Wert in der App ein – ein Glas Wasser, eine Mahlzeit – und der Schritt hakt sich von selbst ab, einfach weil dieser Eintrag jetzt da ist, nicht weil ihn jemand markiert hätte. Noch einmal darauf zu tippen, wenn der Schritt erledigt ist, verdoppelt nichts: Der Button verschwindet.',
@@ -400,7 +397,7 @@ export const DE_TUT: Dict = {
   'tut.hoy.6b.texto':
     'Alle Missionen des Tages abzuschließen zündet die Feier und bringt die XP der App: Das Level wächst durch erfüllte Listen, nicht durch einzelne Einträge.',
   'tut.hoy.7.texto':
-    'Und wenn dir etwas fehlt: „Neue Checkliste“ legt deine eigene an — eine Liste dieser App, die sich jeden Tag wiederholt. Die Ziele, aus denen diese Schritte kommen, werden im Ziele-Raum geplant.',
+    'Und wenn dir etwas fehlt: «Mission hinzufügen» bietet an, was diese App üblicherweise vorschlägt, und «Neue Checkliste» legt deine eigene an — eine Liste, die sich jeden Tag wiederholt.',
   'tut.hoy.8.titulo': 'Die roten Kugeln',
   'tut.hoy.8.texto':
     'Diese rote Blase auf einem Raum ist seine Zahl offener Missionen von HEUTE: was dir dort noch bleibt. Dieselbe Zahl steht auf dem Startbildschirm, auf der Eintreten-Blase und auf der Kugel, die über dem Möbelstück des Raums schwebt — und sie wird bernsteinfarben, sobald etwas seine Uhrzeit überschritten hat. Ohne Blase ist dieser Raum auf dem Stand.',

@@ -55,16 +55,7 @@ export const cuerpoHoy: CuerpoTutorial = {
       },
       texto: T(
         'tut.hoy.2.texto',
-        'Las misiones propias de la app (el agua, las calorías), lo que agendaste para hoy en el calendario y los pasos de tus metas vigentes: todo junto, agrupado bajo el plan o la meta del que sale cada paso.',
-      ),
-    },
-    {
-      // El bloque de metas solo existe si la app tiene alguna: se cae a la lista.
-      sel: () => (elTut('hoy.metas') ? 'hoy.metas' : 'hoy.lista'),
-      titulo: T('tut.hoy.2b.titulo', 'Lo que te propusiste, arriba'),
-      texto: T(
-        'tut.hoy.2b.texto',
-        'Encima de la checklist viven las metas de esta app, con su avance y su plazo. Tocar una abre su plan aquí mismo, sin salir del panel, y con «+ meta» te propones otra.',
+        'Las misiones propias de la app —el agua, las calorías— y lo que agendaste para hoy en el calendario: todo junto en una sola lista, agrupado bajo el bloque del que sale cada paso.',
       ),
     },
     {
@@ -117,7 +108,7 @@ export const cuerpoHoy: CuerpoTutorial = {
     {
       texto: T(
         'tut.hoy.7.texto',
-        'Y si te falta algo, «Nueva checklist» crea la tuya: una lista propia de esta app que se repite cada día. Las metas de las que salen estos pasos se planean en el cuarto de Metas.',
+        'Y si te falta algo, «Añadir misión» te ofrece lo que esta app suele proponer, y «Nueva checklist» crea la tuya: una lista propia que se repite cada día.',
       ),
     },
     {

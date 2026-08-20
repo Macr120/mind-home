@@ -378,10 +378,7 @@ export const PL_TUT: Dict = {
     'Misje nie mieszkają w osobnym miejscu: mieszkają WEWNĄTRZ każdej aplikacji. W nagłówku każdego pokoju jest jej przycisk Misje z listą tego, o co ta aplikacja prosi DZIŚ.',
   'tut.hoy.2.titulo': 'Trzy źródła, jedna lista',
   'tut.hoy.2.texto':
-    'Własne cele aplikacji (woda, kalorie), to, co zaplanowałeś na dziś w kalendarzu, i kroki twoich aktualnych celów — wszystko razem, pogrupowane według planu lub celu, z którego pochodzi każdy krok.',
-  'tut.hoy.2b.titulo': 'Twoje postanowienia, u góry',
-  'tut.hoy.2b.texto':
-    'Nad checklistą mieszkają cele tej aplikacji, z postępem i terminem. Dotknięcie któregoś otwiera jego plan od razu tutaj, bez wychodzenia z panelu, a przyciskiem „+ cel” stawiasz sobie kolejny.',
+    'Własne misje aplikacji — woda, kalorie — i to, co zaplanowałeś na dziś w kalendarzu: wszystko na jednej liście, pogrupowane według bloku, z którego wychodzi każdy krok.',
   'tut.hoy.3.titulo': 'Skreśla się, bo wpis istnieje',
   'tut.hoy.3.texto':
     'Przycisk w wierszu zapisuje PRAWDZIWE dane w aplikacji — szklankę wody, posiłek — a krok skreśla się sam, bo ten wpis już tam jest, a nie dlatego, że ktoś go odhaczył. Ponowne naciśnięcie przy wykonanym kroku niczego nie zdubluje: przycisk po prostu znika.',
@@ -398,7 +395,7 @@ export const PL_TUT: Dict = {
   'tut.hoy.6b.texto':
     'Wykonanie wszystkich misji dnia odpala świętowanie i dolicza XP aplikacji: poziom rośnie za zaliczone listy, nie za pojedyncze wpisy.',
   'tut.hoy.7.texto':
-    'A jeśli czegoś brakuje, «Nowa lista» tworzy twoją własną: listę tej aplikacji, która powtarza się codziennie. Cele, z których biorą się te kroki, planuje się w pokoju Cele.',
+    'A jeśli czegoś brakuje, «Dodaj misję» podpowie to, co zwykle proponuje ta aplikacja, a «Nowa lista» stworzy twoją własną — listę, która powtarza się każdego dnia.',
   'tut.hoy.8.titulo': 'Czerwone kule',
   'tut.hoy.8.texto':
     'Ten czerwony znacznik na pokoju to liczba misji, które zostały na DZIŚ: co ci tam jeszcze zostało. Ta sama liczba pojawia się na ekranie startowym, na dymku wejścia i na kuli unoszącej się nad meblem pokoju — a robi się bursztynowa, gdy coś minęło już swoją godzinę. Brak znacznika oznacza, że ten pokój jest na bieżąco.',

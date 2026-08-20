@@ -5386,7 +5386,7 @@ export const IT: Dict = {
     'Quasi ogni app ha una barra per vedere un esempio pronto con i dati già inseriti, e nasconderlo dopo senza perdere nulla di tuo. Non compare nella casa demo: lì l\'anno intero È GIÀ l\'esempio.',
   'tut.hoy.titulo': 'Oggi',
   'tut.hoy.resumen':
-    'Le missioni vivono dentro ogni app: il suo pulsante Missioni raccoglie la giornata in un pannello — sopra gli obiettivi di quell’app, sotto l’elenco di oggi con i suoi traguardi, ciò che è in programma e i passi dei tuoi obiettivi in corso. Un passo è fatto perché la registrazione esiste già nell’app, non perché qualcuno l’ha spuntato. Il pallino rosso di una stanza è ciò che le resta oggi, e il pulsante Missioni dell’orologio mostra quello di tutte le app insieme.',
+    'Le missioni vivono dentro ogni app: il suo pulsante Missioni apre l’elenco di oggi — quello che quell’app ti chiede e quello che hai messo in programma per oggi. Un passo è fatto perché la registrazione esiste già nell’app, non perché qualcuno l’ha spuntato. Il pallino rosso di una stanza è ciò che le resta oggi, e il pulsante Missioni dell’orologio mostra quello di tutte le app insieme.',
   'tut.progreso.titulo': 'I tuoi progressi',
   'tut.progreso.resumen':
     'Il tuo personaggio vive della tua attività reale: il suo umore, il suo livello, la Montagna di Sisifo (grado e distintivi) e il radar XP per stanza. Tutto si calcola da quello che hai già registrato, niente si imposta a mano.',

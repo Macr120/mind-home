@@ -5363,7 +5363,7 @@ export const PL: Dict = {
     'Prawie każda aplikacja ma pasek, który pokazuje gotowy przykład z gotowymi danymi, a potem można go ukryć bez utraty własnych danych. Nie pojawia się w domu demo: tam cały rok JUŻ jest przykładem.',
   'tut.hoy.titulo': 'Lista na dziś',
   'tut.hoy.resumen':
-    'Misje mieszkają wewnątrz każdej aplikacji: jej przycisk Misje zbiera dzień w jednym panelu — u góry cele tej aplikacji, niżej dzisiejsza lista z jej normami, tym, co zaplanowane, i krokami twoich bieżących celów. Krok jest odhaczony, bo wpis już istnieje w aplikacji, a nie dlatego, że ktoś go zaznaczył. Czerwony znacznik pokoju to jego dzisiejsze zaległości, a przycisk Misje przy zegarze pokazuje je ze wszystkich aplikacji naraz.',
+    'Misje mieszkają wewnątrz każdej aplikacji: jej przycisk Misje otwiera dzisiejszą listę — to, o co prosi ta aplikacja, i to, co zaplanowałeś na dziś. Krok jest odhaczony, bo wpis już istnieje w aplikacji, a nie dlatego, że ktoś go zaznaczył. Czerwony znacznik pokoju to jego dzisiejsze zaległości, a przycisk Misje przy zegarze pokazuje je ze wszystkich aplikacji naraz.',
   'tut.progreso.titulo': 'Twój postęp',
   'tut.progreso.resumen':
     'Twoja postać żyje twoją prawdziwą aktywnością: jej nastrój, poziom, Góra Syzyfa (ranga i odznaki) oraz radar XP dla każdego pokoju. Wszystko liczy się z tego, co już zarejestrowano — nic nie wpisuje się ręcznie.',

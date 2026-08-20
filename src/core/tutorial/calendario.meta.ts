@@ -1,15 +1,12 @@
 import type { CuerpoTutorial, TextoTut, TutorialDef } from './tipos'
-import { tutorialHoy } from './nucleo.meta'
 
 /**
  * Fichas de los tres tours del reloj (calendario, metas y los chips de
  * enlace). Los pasos viven en `calendario.ts`, que solo baja al lanzarlos.
  *
- * Con ellos viaja «Misiones» (`tutorialHoy`, que vive en `nucleo.meta.ts`): es
- * suyo por tema —el botón rojo del calendario y el de cada cuarto son la misma
- * lista— y estaba enterrado en la página 2 del selector, donde no lo encontraba
- * nadie. Se REUTILIZA en vez de duplicarlo: dos tours llamados «Misiones» en la
- * misma lista no distinguirían nada.
+ * «Misiones» (`tutorialHoy`, en `nucleo.meta.ts`) NO está aquí: cada botón del
+ * selector explica lo suyo y ese tiene chip propio en la página 1. Mezclarlo en
+ * estas listas hacía que el botón de Metas ofreciera un tour de misiones.
  */
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
@@ -74,10 +71,9 @@ export const esencialCalendario = tour(
 
 export const FLUJOS_CALENDARIO: TutorialDef[] = [
   tutorialCalendario,
-  tutorialHoy,
   tutorialMetas,
   tutorialEnlaces,
 ]
 
-/** Los flujos del CUARTO Metas (su «?»): los tours que abren esa app. */
-export const FLUJOS_METAS: TutorialDef[] = [tutorialMetas, tutorialHoy, tutorialEnlaces]
+/** Los flujos del CUARTO Metas (su «?»): los dos tours que abren esa app. */
+export const FLUJOS_METAS: TutorialDef[] = [tutorialMetas, tutorialEnlaces]

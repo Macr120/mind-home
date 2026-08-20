@@ -5356,7 +5356,7 @@ export const PT: Dict = {
     'Quase todo app traz uma barra para ver um exemplo pronto com dados já preenchidos, e ocultá-lo depois sem perder nada seu. Não aparece dentro da casa demo: ali o ano inteiro JÁ é o exemplo.',
   'tut.hoy.titulo': 'Missões',
   'tut.hoy.resumen':
-    'As missões moram dentro de cada app: o botão Missões junta o dia em um painel — em cima as metas desse app, embaixo a lista de hoje com seus objetivos, o que foi agendado e os passos das suas metas vigentes. Um passo é cumprido porque o registro já existe no app, não porque alguém marcou. O balão vermelho de um cômodo é o que falta ali hoje, e o botão Missões do relógio mostra o de todos os apps juntos.',
+    'As missões moram dentro de cada app: o botão Missões abre a lista de hoje — o que esse app pede e o que você agendou para hoje. Um passo é cumprido porque o registro já existe no app, não porque alguém marcou. O balão vermelho de um cômodo é o que falta ali hoje, e o botão Missões do relógio mostra o de todos os apps juntos.',
   'tut.progreso.titulo': 'Seu progresso',
   'tut.progreso.resumen':
     'Seu personagem vive da sua atividade real: o humor, o nível, a Montanha de Sísifo (patente e emblemas) e o radar de XP por cômodo. Tudo é calculado do que você já registrou, nada é declarado na mão.',

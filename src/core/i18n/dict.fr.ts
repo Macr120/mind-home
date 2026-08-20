@@ -5409,7 +5409,7 @@ export const FR: Dict = {
     'Presque chaque app a une barre pour voir un exemple prêt à l’emploi déjà rempli, et le masquer ensuite sans rien perdre de ce qui t’appartient. Il n’apparaît pas dans la maison de démo : là-bas, l’année entière EST déjà l’exemple.',
   'tut.hoy.titulo': 'À faire aujourd’hui',
   'tut.hoy.resumen':
-    'Les missions vivent dans chaque app : son bouton Missions réunit la journée dans un panneau — en haut les objectifs de cette app, en bas la liste du jour avec ses cibles, ce qui est planifié et les étapes de tes objectifs en cours. Une étape est faite parce que l’enregistrement existe déjà dans l’app, pas parce que quelqu’un l’a cochée. La pastille rouge d’une pièce, c’est ce qu’il lui reste aujourd’hui, et le bouton Missions de l’horloge montre celle de toutes les apps à la fois.',
+    'Les missions vivent dans chaque app : son bouton Missions ouvre la liste du jour — ce que cette app te demande et ce que tu as planifié pour aujourd’hui. Une étape est faite parce que l’enregistrement existe déjà dans l’app, pas parce que quelqu’un l’a cochée. La pastille rouge d’une pièce, c’est ce qu’il lui reste aujourd’hui, et le bouton Missions de l’horloge montre celle de toutes les apps à la fois.',
   'tut.progreso.titulo': 'Ta progression',
   'tut.progreso.resumen':
     'Ton personnage vit de ton activité réelle : son humeur, son niveau, la Montagne de Sisyphe (rang et badges) et le radar d’XP par pièce. Tout est calculé à partir de ce que tu as déjà enregistré, rien n’est déclaré à la main.',

@@ -36,7 +36,9 @@ import {
   vigenteEn,
 } from '../metas'
 import { useRutinasUI } from '../state/rutinasUiStore'
+import { usePendientesCasaHoy } from '../hoy'
 import { colorDe, colorPorProfundidad } from './coloresRutina'
+import { BadgeMisiones } from './BadgeMisiones'
 import { ObjetivosCasa } from './hoy/ObjetivosCasa'
 import { PildoraCuenta } from './metas/CuentaRegresiva'
 import { EditorRutina, rutinaNueva } from './RutinasPanel'
@@ -478,6 +480,8 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
     if (esVista(vistaInicial)) setVista(vistaInicial)
   }
   const [fecha, setFecha] = useState(() => new Date())
+  // Lo que le queda hoy a la casa entera: el globo del botón Misiones.
+  const pendientesCasa = usePendientesCasaHoy()
   const [editando, setEditando] = useState<Rutina | null>(null)
   const [detalle, setDetalle] = useState<{ rutina: Rutina; fecha: string } | null>(null)
   // Meta armada: la siguiente vez que se trace un rango en el calendario, se le
@@ -684,13 +688,18 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
             type="button"
             data-tut="cal.vista.objetivos"
             onClick={() => setVista('objetivos')}
-            className={`rounded-lg border px-2.5 py-1 text-xs font-semibold transition ${
+            className={`relative rounded-lg border px-2.5 py-1 text-xs font-semibold transition ${
               vista === 'objetivos'
                 ? 'border-red-500 bg-red-500/90 text-white'
                 : 'border-red-500/40 text-red-400 hover:bg-red-500/10'
             }`}
           >
             {t('hoy.titulo', 'Misiones')}
+            {/* El globo de siempre, aquí con la cuenta de TODA la casa: cuando no
+                queda nada pendiente desaparece, como el de la tarjeta de un cuarto. */}
+            {pendientesCasa.cuantos > 0 && (
+              <BadgeMisiones pendientes={pendientesCasa} className="absolute -end-1.5 -top-1.5" />
+            )}
           </button>
           {/* Filtro por app: vive aquí para que valga en todas las vistas; entre
               las vistas y "+ Nueva" en vez de su propia fila, para no gastar alto. */}

@@ -25,7 +25,7 @@ export const tutorialHoy = tour(
   T('tut.hoy.titulo', 'Misiones'),
   T(
     'tut.hoy.resumen',
-    'Las misiones viven dentro de cada app: su botón Misiones junta lo del día en un panel —arriba las metas de esa app, abajo la checklist de hoy con sus objetivos, lo agendado y los pasos de tus metas vigentes—. Un paso se cumple porque el registro ya existe en la app, no porque nadie lo palomeó. El globo rojo de un cuarto es lo que le queda pendiente hoy, y el botón Misiones del reloj enseña el de todas las apps juntas.',
+    'Las misiones viven dentro de cada app: su botón Misiones abre la checklist de hoy —lo que esa app te pide y lo que agendaste para hoy—. Un paso se cumple porque el registro ya existe en la app, no porque nadie lo palomeó. El globo rojo de un cuarto es lo que le queda pendiente hoy, y el botón Misiones del reloj enseña el de todas las apps juntas.',
   ),
   'cuerpoHoy',
 )

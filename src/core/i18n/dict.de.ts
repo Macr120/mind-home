@@ -5413,7 +5413,7 @@ export const DE: Dict = {
     'Fast jede App hat eine Leiste, um ein fertiges Beispiel mit schon eingetragenen Daten zu sehen und es danach wieder auszublenden, ohne etwas Eigenes zu verlieren. Im Demo-Haus erscheint sie nicht: Dort ist das ganze Jahr BEREITS das Beispiel.',
   'tut.hoy.titulo': 'Heute',
   'tut.hoy.resumen':
-    'Missionen wohnen in jeder App: ihr Missionen-Knopf sammelt den Tag in einem Panel — oben die Ziele dieser App, unten die heutige Liste mit ihren Vorgaben, dem Geplanten und den Schritten deiner laufenden Ziele. Ein Schritt gilt als erledigt, weil der Eintrag in der App schon existiert, nicht weil ihn jemand abgehakt hat. Die rote Blase eines Raums ist das, was dort heute offen bleibt, und der Missionen-Knopf der Uhr zeigt die aller Apps auf einmal.',
+    'Missionen wohnen in jeder App: ihr Missionen-Knopf öffnet die heutige Liste — was diese App von dir will und was du für heute eingeplant hast. Ein Schritt gilt als erledigt, weil der Eintrag in der App schon existiert, nicht weil ihn jemand abgehakt hat. Die rote Blase eines Raums ist das, was dort heute offen bleibt, und der Missionen-Knopf der Uhr zeigt die aller Apps auf einmal.',
   'tut.progreso.titulo': 'Dein Fortschritt',
   'tut.progreso.resumen':
     'Deine Figur lebt von deiner echten Aktivität: ihre Laune, ihr Level, der Sisyphos-Berg (Rang und Abzeichen) und das XP-Radar pro Raum. Alles wird aus dem berechnet, was du schon eingetragen hast, nichts wird von Hand festgelegt.',

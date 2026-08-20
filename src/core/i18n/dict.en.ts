@@ -5538,7 +5538,7 @@ export const EN: Dict = {
   // Tutoriales — lista Hoy
   'tut.hoy.titulo': 'Missions',
   'tut.hoy.resumen':
-    'Missions live inside each app: its Missions button gathers the day in one panel — on top that app\'s goals, below today\'s checklist with its targets, what\'s scheduled and the steps of your active goals. A step is done because the log already exists in the app, not because someone checked it. A room\'s red badge is what it still has pending today, and the clock\'s Missions button shows every app\'s at once.',
+    'Missions live inside each app: its Missions button opens today\'s checklist — what that app asks of you and what you scheduled for today. A step is done because the log already exists in the app, not because someone checked it. A room\'s red badge is what it still has pending today, and the clock\'s Missions button shows every app\'s at once.',
 
   // Tutoriales — tu progreso (Sísifo)
   'tut.progreso.titulo': 'Your progress',

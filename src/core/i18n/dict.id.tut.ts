@@ -378,10 +378,7 @@ export const ID_TUT: Dict = {
     'Misi tidak tinggal di tempat terpisah: misi tinggal DI DALAM setiap aplikasi. Di bagian atas tiap ruangan ada tombol Misi, berisi daftar yang diminta aplikasi itu HARI INI.',
   'tut.hoy.2.titulo': 'Tiga sumber, satu daftar',
   'tut.hoy.2.texto':
-    'Target milik aplikasi sendiri (air, kalori), apa yang kamu jadwalkan hari ini di kalender, dan langkah-langkah dari target yang sedang berjalan — semuanya jadi satu, dikelompokkan berdasarkan rencana atau target asal setiap langkah.',
-  'tut.hoy.2b.titulo': 'Yang kamu niatkan, di atas',
-  'tut.hoy.2b.texto':
-    'Di atas checklist tinggal target-target aplikasi ini, dengan progres dan tenggatnya. Menyentuh satu membuka rencananya di sini juga, tanpa keluar dari panel, dan dengan «+ target» kamu meniatkan satu lagi.',
+    'Misi milik aplikasi itu sendiri — air, kalori — dan yang kamu jadwalkan untuk hari ini di kalender: semuanya dalam satu daftar, dikelompokkan menurut blok asal tiap langkah.',
   'tut.hoy.3.titulo': 'Tercoret karena datanya ada',
   'tut.hoy.3.texto':
     'Tombol di baris itu mencatat data ASLI di aplikasinya — segelas air, satu kali makan — dan langkahnya tercoret semata karena catatan itu sudah ada di sana, bukan karena ada yang menandainya. Menekannya lagi setelah langkahnya selesai tidak menggandakan apa pun: tombolnya menghilang.',
@@ -398,7 +395,7 @@ export const ID_TUT: Dict = {
   'tut.hoy.6b.texto':
     'Menuntaskan semua misi hari itu menyalakan perayaan dan menambah XP aplikasinya: level naik lewat daftar yang dituntaskan, bukan lewat catatan yang tercecer.',
   'tut.hoy.7.texto':
-    'Kalau ada yang kurang, «Checklist baru» bikin punyamu sendiri: daftar khusus aplikasi ini yang berulang tiap hari. Target yang melahirkan langkah-langkah ini direncanakan di ruangan Target.',
+    'Dan kalau ada yang kurang, «Tambah misi» menawarkan apa yang biasanya disarankan aplikasi ini, dan «Checklist baru» membuat milikmu sendiri: daftar yang berulang tiap hari.',
   'tut.hoy.8.titulo': 'Bola merah',
   'tut.hoy.8.texto':
     'Gelembung merah di sebuah ruangan adalah jumlah misi yang masih tertunda HARI INI: yang tersisa buat kamu di sana. Angka yang sama muncul di layar awal, di gelembung masuk, dan di bola yang melayang di atas perabot ruangan itu — dan berubah kuning kecokelatan kalau ada yang sudah lewat jamnya. Tanpa gelembung, ruangan itu sudah beres hari ini.',

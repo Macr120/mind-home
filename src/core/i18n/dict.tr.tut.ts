@@ -373,10 +373,7 @@ export const TR_TUT: Dict = {
     'Görevler ayrı bir yerde durmaz: her uygulamanın İÇİNDE yaşar. Her odanın başlığında Görevler düğmesi vardır; içinde o uygulamanın BUGÜN senden istediklerinin listesi bulunur.',
   'tut.hoy.2.titulo': 'Üç kaynak, tek liste',
   'tut.hoy.2.texto':
-    'Uygulamanın kendi hedefleri (su, kalori), bugün için takvime eklediklerin ve devam eden hedeflerinin adımları — hepsi bir arada, her adımın geldiği plan veya hedefe göre gruplanmış.',
-  'tut.hoy.2b.titulo': 'Kendine koyduğun hedefler, üstte',
-  'tut.hoy.2b.texto':
-    'Kontrol listesinin üstünde bu uygulamanın hedefleri yaşar; ilerlemesi ve süresiyle. Birine dokunmak planını panelden çıkmadan tam burada açar; «+ hedef» ile de kendine bir yenisini koyarsın.',
+    'Uygulamanın kendi görevleri —su, kaloriler— ve takvimde bugüne koyduklarının hepsi tek bir listede, her adımın çıktığı bloğun altında gruplanmış olarak.',
   'tut.hoy.3.titulo': 'Veri var olduğu için üstü çizilir',
   'tut.hoy.3.texto':
     'Satırdaki düğme GERÇEK veriyi uygulamaya kaydeder — bir bardak su, bir öğün — ve adımın üstü, o kayıt artık orada olduğu için çizilir; biri işaretlediği için değil. Adım tamamlandıktan sonra düğmeye yeniden basmak hiçbir şeyi çoğaltmaz: düğme ortadan kaybolur.',
@@ -393,7 +390,7 @@ export const TR_TUT: Dict = {
   'tut.hoy.6b.texto':
     'Günün bütün görevlerini tamamlamak kutlamayı başlatır ve uygulamanın XP’sini ekler: seviye, tamamlanan listelerle büyür, tek tük kayıtlarla değil.',
   'tut.hoy.7.texto':
-    'Bir şey eksikse, «Yeni kontrol listesi» kendininkini oluşturur: her gün tekrarlanan, bu uygulamaya özel bir liste. Bu adımların çıktığı hedefler ise Hedefler odasında planlanır.',
+    'Bir şey eksik kalıyorsa «Görev ekle» bu uygulamanın genelde önerdiklerini getirir, «Yeni kontrol listesi» ise seninkini oluşturur: her gün tekrarlanan kendi listen.',
   'tut.hoy.8.titulo': 'Kırmızı küreler',
   'tut.hoy.8.texto':
     'Bir odanın üstündeki o kırmızı balon, BUGÜN orada bekleyen görev sayısıdır: sana orada kalanlar. Aynı sayı ana ekranda, giriş balonunda ve odanın mobilyasının üstünde süzülen kürede de çıkar — ve bir şeyin saati geçtiyse kehribar rengine döner. Balon yoksa o oda bugünlük tamamdır.',

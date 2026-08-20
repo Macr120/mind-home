@@ -5395,7 +5395,7 @@ export const NL: Dict = {
     'Bijna elke app heeft een balk om een kant-en-klaar voorbeeld met al ingevulde gegevens te bekijken, en die later weer te verbergen zonder iets van jezelf te verliezen. In het demohuis zie je hem niet: daar IS het hele jaar al het voorbeeld.',
   'tut.hoy.titulo': 'Vandaag',
   'tut.hoy.resumen':
-    'Missies wonen in elke app: de knop Missies bundelt de dag in één paneel — bovenaan de doelen van die app, daaronder de checklist van vandaag met haar streefcijfers, wat er gepland staat en de stappen van je lopende doelen. Een stap wordt doorgestreept omdat de registratie al in de app bestaat, niet omdat iemand hem heeft afgevinkt. Het rode bolletje van een kamer is wat daar vandaag nog openstaat, en de knop Missies bij de klok laat die van alle apps tegelijk zien.',
+    'Missies wonen in elke app: de knop Missies opent de checklist van vandaag — wat die app van je vraagt en wat je voor vandaag hebt ingepland. Een stap wordt doorgestreept omdat de registratie al in de app bestaat, niet omdat iemand hem heeft afgevinkt. Het rode bolletje van een kamer is wat daar vandaag nog openstaat, en de knop Missies bij de klok laat die van alle apps tegelijk zien.',
   'tut.progreso.titulo': 'Jouw voortgang',
   'tut.progreso.resumen':
     'Jouw personage leeft van je echte activiteit: zijn stemming, zijn niveau, de Sisyphusberg (rang en badges) en de XP-radar per kamer. Alles wordt berekend uit wat je al hebt geregistreerd, niets wordt met de hand ingesteld.',
