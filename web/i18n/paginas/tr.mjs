@@ -1,6 +1,6 @@
 /** Textos de las páginas estáticas en turco. Traducción de `es.mjs`. */
 export const TEXTOS = {
-  'marca.nombre': 'Zihinsel Planlayıcı-Ev MPH',
+  'marca.nombre': 'Zihinsel Planlayıcı-Ev',
   'marca.sub': 'Mind Planner Home',
   'nav.entrar': 'Giriş yap',
   'nav.descargar': 'İndir',

@@ -1,6 +1,6 @@
 /** Textos de las páginas estáticas en chino simplificado. Traducción de `es.mjs`. */
 export const TEXTOS = {
-  'marca.nombre': '心智规划师-家 MPH',
+  'marca.nombre': '心智规划师-家',
   'marca.sub': 'Mind Planner Home',
   'nav.entrar': '登录',
   'nav.descargar': '下载',

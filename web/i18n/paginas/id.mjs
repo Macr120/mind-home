@@ -1,6 +1,6 @@
 /** Textos de las páginas estáticas en indonesio. Traducción de `es.mjs`. */
 export const TEXTOS = {
-  'marca.nombre': 'Perencana Mental-Rumah MPH',
+  'marca.nombre': 'Perencana Mental-Rumah',
   'marca.sub': 'Mind Planner Home',
   'nav.entrar': 'Masuk',
   'nav.descargar': 'Unduh',

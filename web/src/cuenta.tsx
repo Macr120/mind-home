@@ -61,7 +61,7 @@ function Marco({ children }: { children: React.ReactNode }) {
         <a href={ruta('/')} className="flex flex-1 items-center gap-2 text-white/90">
           <img src="/favicon.svg?v=2" alt="" className="h-9 w-9 rounded-lg" />
           <span className="flex flex-col leading-tight">
-            <span className="text-lg font-extrabold">{t('marca.nombre', 'Planificador Mental-Casa MPH')}</span>
+            <span className="text-lg font-extrabold">{t('marca.nombre', 'Planificador Mental-Casa')}</span>
             <small className="text-[11px] font-semibold text-white/55">{t('marca.sub', 'Mind Planner Home')}</small>
           </span>
         </a>

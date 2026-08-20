@@ -1,6 +1,6 @@
 /** Textos del portal /cuenta en neerlandés. Traducción del español de `web/src/cuenta.tsx`. */
 export const TEXTOS: Record<string, string> = {
-  'marca.nombre': 'Mentale Planner-Huis MPH',
+  'marca.nombre': 'Mentale Planner-Huis',
   'marca.sub': 'Mind Planner Home',
   'marco.privacidad': 'Privacy',
   'marco.terminos': 'Voorwaarden',

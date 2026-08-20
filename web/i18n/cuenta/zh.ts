@@ -1,6 +1,6 @@
 /** Textos del portal /cuenta en chino simplificado. Traducción del español de `web/src/cuenta.tsx`. */
 export const TEXTOS: Record<string, string> = {
-  'marca.nombre': '心智规划师-家 MPH',
+  'marca.nombre': '心智规划师-家',
   'marca.sub': 'Mind Planner Home',
   'marco.privacidad': '隐私',
   'marco.terminos': '条款',

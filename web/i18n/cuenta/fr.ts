@@ -1,6 +1,6 @@
 /** Textos del portal /cuenta en francés. Traducción del español de `web/src/cuenta.tsx`. */
 export const TEXTOS: Record<string, string> = {
-  'marca.nombre': 'Planificateur Mental-Maison MPH',
+  'marca.nombre': 'Planificateur Mental-Maison',
   'marca.sub': 'Mind Planner Home',
   'marco.privacidad': 'Confidentialité',
   'marco.terminos': 'Conditions',

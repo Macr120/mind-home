@@ -1,6 +1,6 @@
 /** Textos del portal /cuenta en turco. Traducción del español de `web/src/cuenta.tsx`. */
 export const TEXTOS: Record<string, string> = {
-  'marca.nombre': 'Zihinsel Planlayıcı-Ev MPH',
+  'marca.nombre': 'Zihinsel Planlayıcı-Ev',
   'marca.sub': 'Mind Planner Home',
   'marco.privacidad': 'Gizlilik',
   'marco.terminos': 'Koşullar',
