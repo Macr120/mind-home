@@ -115,3 +115,13 @@ body {
     transition: none;
   }
 }
+
+/* Árabe SIN espejo, igual que la app (src/index.css): el <html> se queda en LTR
+   —la barra, las tarjetas y las columnas no se invierten— y solo el TEXTO se
+   ordena RTL. `unicode-bidi: plaintext` deja que cada elemento decida por su
+   primer carácter fuerte, así la puntuación árabe queda en su sitio. OJO: nada
+   de contenedores (div, o un li que sea una fila de botones) en esta lista. */
+:lang(ar) :where(h1, h2, h3, h4, h5, h6, p, span, a, li, summary, small) {
+  unicode-bidi: plaintext;
+  text-align: start;
+}
