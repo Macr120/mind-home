@@ -75,6 +75,20 @@ const LS_SIN_CUENTA = 'mh.sinCuenta'
 
 export type Plan = 'local' | 'pro' | 'trial'
 
+// La landing enlaza a `?demo=1` para abrir la casa de Pep@ sin cuenta. Se
+// atiende AQUÍ, encima del flag congelado, porque cualquier otro sitio llegaría
+// tarde: `demoActivo` se resuelve al importar este módulo. El parámetro se borra
+// de la URL en cuanto se aplica; si se quedara, el `location.reload()` de
+// `salirDemo()` devolvería al usuario a la demo una y otra vez.
+if (typeof localStorage !== 'undefined' && typeof location !== 'undefined') {
+  const url = new URL(location.href)
+  if (url.searchParams.get('demo') === '1') {
+    localStorage.setItem(LS_DEMO, '1')
+    url.searchParams.delete('demo')
+    history.replaceState(null, '', url)
+  }
+}
+
 // Congelado a la carga: cambiar de modo SIEMPRE pasa por location.reload(),
 // porque la BD ya abrió con un nombre y los stores ya hidrataron de ella.
 const demoActivo = typeof localStorage !== 'undefined' && localStorage.getItem(LS_DEMO) === '1'

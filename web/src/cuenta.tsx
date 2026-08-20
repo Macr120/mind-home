@@ -527,6 +527,14 @@ function MiCuenta() {
   const trialVigente = plan === 'trial' && !!planExpira && Date.parse(planExpira) > AHORA
   const trialVencido = plan === 'trial' && !trialVigente
 
+  // Entrar es «mi cuenta», no una tienda: el paywall queda detrás de un botón.
+  // La landing enlaza a /cuenta#planes cuando el usuario SÍ viene a suscribirse.
+  const [verPlanes, setVerPlanes] = useState(() => location.hash === '#planes')
+  const abrirPlanes = () => {
+    setVerPlanes(true)
+    history.replaceState(null, '', '#planes')
+  }
+
   // La compra pudo aterrizar hace segundos (webhook): refrescar al montar.
   useEffect(() => {
     const s = useSesion.getState()
@@ -563,9 +571,20 @@ function MiCuenta() {
         <>
           <ProActivo usoIA={usoIA} creditosExtra={creditosExtra} />
           {/* Con Pro, las tarjetas sirven para subir o bajar de nivel; con el
-              trial, para convertir, que es el objetivo. */}
-          <Tarifas titulo={trialVigente ? 'Hazte Pro' : 'Cambiar de nivel'} />
-          <Creditos />
+              trial, para convertir. En ninguno de los dos casos es lo primero
+              que quiere ver quien solo entró a su cuenta. */}
+          {verPlanes ? (
+            <>
+              <Tarifas titulo={trialVigente ? 'Hazte Pro' : 'Cambiar de nivel'} />
+              <Creditos />
+            </>
+          ) : (
+            <Panel>
+              <button type="button" onClick={abrirPlanes} className={botonSecundario}>
+                {trialVigente ? 'Ver los planes de IA' : 'Cambiar de nivel o recargar créditos'}
+              </button>
+            </Panel>
+          )}
         </>
       ) : (
         <>
@@ -583,10 +602,20 @@ function MiCuenta() {
           </Panel>
           {/* Sin la compra, lo primero es conseguir la app en la tienda. */}
           {!unlock && <ConseguirApp />}
-          <Tarifas titulo={fuePro ? 'Renovar suscripción' : 'Suscribirme'} />
-          {/* Solo con la app desbloqueada: sin unlock, la IA todavía no tiene
-              dónde usarse. */}
-          {unlock && <Creditos />}
+          {verPlanes ? (
+            <>
+              <Tarifas titulo={fuePro ? 'Renovar suscripción' : 'Suscribirme'} />
+              {/* Solo con la app desbloqueada: sin unlock, la IA todavía no
+                  tiene dónde usarse. */}
+              {unlock && <Creditos />}
+            </>
+          ) : (
+            <Panel>
+              <button type="button" onClick={abrirPlanes} className={botonSecundario}>
+                {fuePro ? 'Renovar la suscripción' : 'Ver los planes de IA'}
+              </button>
+            </Panel>
+          )}
         </>
       )}
 
