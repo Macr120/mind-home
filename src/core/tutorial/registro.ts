@@ -86,9 +86,17 @@ export function flujosDeApp(plantillaId: string): TutorialDef[] {
 }
 
 /**
+ * Tours que corren DONDE ESTÁS y nunca saltan a la casa demo, aunque estén en
+ * `FLUJOS_NUCLEO`: enseñan la casa que tienes delante —la tuya o la de Pep@— y
+ * no un año de ejemplo. «Misiones» es uno: lo que cuenta son TUS pendientes y
+ * TUS orbes, y en la casa de otro no dicen nada.
+ */
+const EN_SITIO = new Set(['hoy'])
+
+/**
  * Lanza un flujo de app. Los flujos declarados (`flujos`) corren sobre el año
  * de Pep@: desde la casa real saltan a la casa demo con el tour como intent; el
- * tutorial genérico sigue corriendo donde estás.
+ * tutorial genérico y los de `EN_SITIO` siguen corriendo donde estás.
  * `montada`: la app ya está en pantalla — el tour no vuelve a abrir su cuarto.
  */
 export async function lanzarFlujo(
@@ -99,7 +107,7 @@ export async function lanzarFlujo(
   const esFlujoNuevo =
     !!getPlantilla(plantillaId)?.flujos?.some((f) => f.id === def.id) ||
     !!FLUJOS_NUCLEO[plantillaId]?.some((f) => f.id === def.id)
-  if (esFlujoNuevo && !esDemo()) {
+  if (esFlujoNuevo && !esDemo() && !EN_SITIO.has(def.id)) {
     entrarDemo({ app: plantillaId, tour: def.id })
     return
   }

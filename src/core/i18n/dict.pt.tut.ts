@@ -663,39 +663,24 @@ export const PT_TUT: Dict = {
   'tut.calendario.8.titulo': 'As quedas também contam',
   'tut.calendario.8.texto':
     'Os dois buracos são reais: a lesão no joelho do mês 7 e as três semanas no Japão. Falhar não apaga o progresso — o painel mostra o ano como ele foi, não como devia ter sido. E uma rotina só conta a partir do dia em que você a criou.',
-  'tut.metas.0.titulo': 'Um cômodo para se propor coisas',
+  'tut.metas.0.titulo': 'O centro das suas metas',
   'tut.metas.0.texto':
-    'Metas não guarda nada próprio: é onde você se propõe coisas e onde se vê tudo o que você se propôs, venha do cômodo que vier. As metas nascem nos outros apps — correr na Academia, a faculdade na Biblioteca, poupar no Escritório — e aqui se juntam agrupadas pelo app que cuida de cada uma.',
-  'tut.metas.1.titulo': 'Primeiro, as metas',
+    'Este cômodo não guarda nada próprio. As metas nascem nos outros apps — correr na Academia, a faculdade na Biblioteca, poupar no Escritório — e aqui se juntam TODAS: é o único lugar da casa onde se veem de uma vez, venham do cômodo que vierem.',
+  'tut.metas.1.titulo': 'Cada meta, com o seu app',
   'tut.metas.1.texto':
-    'O cômodo abre em Metas, agrupadas pelo app que cuida delas: correr em Exercício, o curso de física em Biblioteca. «Casa» não é nenhum app — essa categoria Pep@ inventou para a reforma da cozinha.',
-  'tut.metas.2.titulo': 'Da meta ao seu plano',
+    'As pastas não são enfeite: cada uma é o app que cuida daquelas metas, e é ele que sabe se elas se cumprem, porque é onde você registra. «Casa» não é app nenhum — essa categoria Pep@ inventou para a obra da cozinha.',
+  'tut.metas.2.titulo': 'A mesma folha, dos dois lados',
   'tut.metas.2.texto':
-    'Cada linha se lê como um painel: seu número na pasta, o prazo, o avanço e o estado — a fazer, em andamento ou feito, conforme o que já foi cumprido. Um clique abre a meta: seu plano, se tiver (o ✨ anuncia) e, se não, sua ficha com as submetas, as datas e os passos.',
-  'tut.metas.3.titulo': 'Três planos, três estados',
+    'Tocar uma meta abre a sua folha e, se tiver, o seu plano. É o MESMO planejador que aparece ao tocá-la pelo app, com uma diferença: lá ele vem limitado àquele app e aqui você o vê inteiro, com as metas da casa toda de uma vez.',
+  'tut.metas.3.titulo': 'Cumprem-se no app, não aqui',
   'tut.metas.3.texto':
-    'A cozinha e a próxima maratona ainda são propostas; a inscrição na pós-graduação já está no cronograma. O da maratona foi pedido sem prazo: a IA calculou que ele exige 24 semanas e diz isso no resumo.',
-  'tut.metas.4.titulo': 'A ficha do plano',
+    'O que uma meta pede HOJE não se faz neste cômodo: sai nas Missões do app que cuida dela, misturado com o resto do dia, e se cumpre registrando de verdade lá. Aqui se planeja; o app executa.',
+  'tut.metas.4.titulo': 'E as datas, no calendário',
   'tut.metas.4.texto':
-    'O ✨ de uma linha anuncia que a meta já tem plano, e seu clique abre esta ficha: as fases e suas submetas, cada uma com seu período. Enquanto é proposta, dá para editar tudo: renomear, mover datas, adicionar ou tirar nós sem desalinhar os demais.',
-  'tut.metas.5.titulo': 'Marcar sem se comprometer',
+    'Uma meta com prazo cai no calendário do relógio como qualquer outra coisa agendada, e com ela as submetas do seu plano. Você planeja de um lado e o ano se enche sozinho do outro.',
+  'tut.metas.5.titulo': 'Por isso está no centro',
   'tut.metas.5.texto':
-    'Os checks de uma proposta ficam na folha, não nas suas metas: você pode ir marcando o que fez sem tocar no seu cronograma. As barras se enchem sozinhas para cima — o planejamento da cozinha já está fechado.',
-  'tut.metas.6.titulo': 'Mover para o cronograma real',
-  'tut.metas.6.texto':
-    'Este botão transforma cada fase e cada submeta em metas de verdade, com suas datas definidas e presas à meta original. O que a meta já tinha se conserva.',
-  'tut.metas.7.titulo': 'Aceito: uma só verdade',
-  'tut.metas.7.texto':
-    'O plano da pós já foi movido. Agora seus checks são os das submetas reais e a barra é a do seu cronograma: a folha para de fazer uma contagem à parte.',
-  'tut.metas.8.titulo': 'E lá estão, no eixo',
-  'tut.metas.8.texto':
-    'O cronograma é o DESTA meta: suas submetas ocupam seu período sobre o eixo do tempo, com o plano sobreposto em violeta em cima — o proposto e o real, juntos.',
-  'tut.metas.9.titulo': 'Cada meta, seu eixo',
-  'tut.metas.9.texto':
-    'Este eixo é o de UMA meta: aqui você dá datas ao que não as tem, pendura submetas novas e «Voltar» devolve você à folha dela. O menu Cronograma de cima mostra o de todas juntas.',
-  'tut.metas.10.titulo': 'E daqui sai para a casa inteira',
-  'tut.metas.10.texto':
-    'Nada disso fica trancado: uma meta com datas aparece no calendário do relógio como qualquer outra coisa agendada, e os passos de hoje saem nas Missões do app que cuida dela — e no balão vermelho daquele cômodo. Aqui se planeja; cumpre-se no app, registrando de verdade.',
+    'Cada app cuida do que é seu, mas o que você se propôs só se vê junto neste cômodo — e daqui sai para o calendário e para as Missões de cada um. É esse o seu trabalho: ser o lugar onde tudo se cruza.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Um ano de curso, em uma árvore',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep@ estuda Física: mecânica no começo do ano, termodinâmica perto da prova do mês 6, relatividade e astrofísica no fim. Cada ramo se abre para ver suas fichas.',

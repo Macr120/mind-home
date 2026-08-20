@@ -665,39 +665,24 @@ export const PL_TUT: Dict = {
   'tut.calendario.8.titulo': 'Spadki też się liczą',
   'tut.calendario.8.texto':
     'Obie dziury są prawdziwe: kontuzja kolana w siódmym miesiącu i trzy tygodnie w Japonii. Potknięcie nie kasuje postępu — panel pokazuje rok takim, jaki był, a nie takim, jaki miał być. A rutyna liczy się dopiero od dnia, w którym powstała.',
-  'tut.metas.0.titulo': 'Pokój, w którym stawiasz sobie cele',
+  'tut.metas.0.titulo': 'Serce twoich celów',
   'tut.metas.0.texto':
-    'Cele nie trzymają nic własnego: to miejsce, gdzie stawiasz sobie cele i gdzie widać wszystko, co sobie postawiłeś, z dowolnego pokoju. Cele rodzą się w innych aplikacjach — bieganie na Siłowni, studia w Bibliotece, oszczędzanie w Gabinecie — a tutaj zbierają się razem, pogrupowane według aplikacji, która prowadzi każdy z nich.',
-  'tut.metas.1.titulo': 'Najpierw cele',
+    'Ten pokój nie trzyma nic własnego. Cele rodzą się w innych aplikacjach — bieganie na Siłowni, studia w Bibliotece, oszczędzanie w Gabinecie — a tutaj zbierają się WSZYSTKIE: to jedyne miejsce w domu, gdzie widać je naraz, z dowolnego pokoju.',
+  'tut.metas.1.titulo': 'Każdy cel ze swoją aplikacją',
   'tut.metas.1.texto':
-    'Widok otwiera się na Celach, pogrupowanych według aplikacji, która je prowadzi: bieganie w Siłowni, studia z fizyki w Bibliotece. „Dom” nie jest żadną aplikacją — to kategoria wymyślona przez Pepa na remont kuchni.',
-  'tut.metas.2.titulo': 'Od celu do jego planu',
+    'Foldery to nie ozdoba: każdy z nich to aplikacja, która prowadzi te cele, i to ona wie, czy zostały spełnione, bo tam właśnie zapisujesz. «Dom» to żadna aplikacja — tę kategorię Pep wymyślił na remont kuchni.',
+  'tut.metas.2.titulo': 'Ta sama karta, z obu stron',
   'tut.metas.2.texto':
-    'Każdy wiersz czyta się jak tablicę: numer w folderze, termin, postęp i stan — Do zrobienia, W trakcie albo Zrobione, zależnie od tego, ile jest już odhaczone. Kliknięcie otwiera cel: jego plan, jeśli go ma (zapowiada to ✨), a jeśli nie — jego arkusz z podcelami, datami i krokami.',
-  'tut.metas.3.titulo': 'Trzy plany, trzy stany',
+    'Dotknięcie celu otwiera jego kartę, a jeśli go ma — plan. To TEN SAM planer, który otwiera się z jego aplikacji, z jedną różnicą: tam jest zawężony do tej aplikacji, a tutaj widzisz go w całości, razem z celami całego domu.',
+  'tut.metas.3.titulo': 'Spełniają się w swojej aplikacji, nie tu',
   'tut.metas.3.texto':
-    'Kuchnia i kolejny maraton to wciąż propozycje; wniosek na studia podyplomowe jest już w Harmonogramie. Plan maratonu powstał bez terminu: AI wyliczyła, że potrzeba na niego 24 tygodni, i mówi o tym w swoim podsumowaniu.',
-  'tut.metas.4.titulo': 'Arkusz planu',
+    'To, o co cel prosi DZIŚ, nie dzieje się w tym pokoju: wychodzi w Misjach aplikacji, która go prowadzi, wymieszane z resztą jej dnia, i spełnia się przez prawdziwy wpis tam. Tutaj się planuje; aplikacja wykonuje.',
+  'tut.metas.4.titulo': 'A daty — w kalendarzu',
   'tut.metas.4.texto':
-    'Sześć etapów i ich podcele, każdy ze swoim okresem. Dopóki to propozycja, można go edytować w całości: zmieniać nazwy, przesuwać daty, dodawać i usuwać węzły, nie rozsypując reszty.',
-  'tut.metas.5.titulo': 'Odhaczaj bez zobowiązań',
+    'Cel z terminem trafia do kalendarza zegara jak każda inna zaplanowana rzecz, a z nim podcele jego planu. Planujesz po jednej stronie, a rok wypełnia się sam po drugiej.',
+  'tut.metas.5.titulo': 'Dlatego stoi w środku',
   'tut.metas.5.texto':
-    'Odhaczenia propozycji żyją w arkuszu, nie w twoich celach: możesz zaznaczać, co zrobione, nie ruszając swojego Harmonogramu. Paski wypełniają się same od dołu do góry — planowanie kuchni jest już zamknięte.',
-  'tut.metas.6.titulo': 'Przenieś do rzeczywistego harmonogramu',
-  'tut.metas.6.texto':
-    'Ten przycisk zamienia każdy etap i każdy podcel w prawdziwe cele, z ustawionymi datami i podpięte pod pierwotny cel. To, co cel już miał, zostaje zachowane.',
-  'tut.metas.7.titulo': 'Zaakceptowany: jedna prawda',
-  'tut.metas.7.texto':
-    'Plan studiów podyplomowych już się przeniósł. Teraz jego odhaczenia to odhaczenia prawdziwych podcelów, a pasek jest paskiem twojego Harmonogramu: arkusz przestaje liczyć osobno.',
-  'tut.metas.8.titulo': 'I są, na osi',
-  'tut.metas.8.texto':
-    'Podcele zrodzone z planu zajmują swój okres w Harmonogramie, a plan kładzie się na nich na fioletowo: propozycja i rzeczywistość na tej samej osi.',
-  'tut.metas.9.titulo': 'Każdy cel ma swoją oś',
-  'tut.metas.9.texto':
-    'Oś zawsze należy do jednego celu: tutaj nadaje się daty temu, co ich nie ma, podpina nowe podcele, a „Wróć” zabiera cię z powrotem do jego arkusza. Menu Harmonogram na górze pokazuje oś wszystkich celów razem.',
-  'tut.metas.10.titulo': 'A stąd rozchodzi się po całym domu',
-  'tut.metas.10.texto':
-    'Nic z tego nie zostaje zamknięte: cel z datami pojawia się w kalendarzu zegara jak każda inna zaplanowana rzecz, a jego dzisiejsze kroki wychodzą w Misjach aplikacji, która go prowadzi — i na czerwonym znaczniku tego pokoju. Tutaj się planuje; realizuje się w aplikacji, zapisując naprawdę.',
+    'Każda aplikacja prowadzi swoje, ale to, co sobie postawiłeś, widać razem tylko w tym pokoju — i stąd rozchodzi się do kalendarza i do Misji każdej z nich. Na tym polega jego praca: być miejscem, w którym wszystko się krzyżuje.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Rok studiów w jednym drzewie',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep studiuje fizykę: mechanika na początku roku, termodynamika w okolicach kolokwium w szóstym miesiącu, względność i astrofizyka na koniec. Każda gałąź otwiera się, żeby pokazać swoje wpisy.',

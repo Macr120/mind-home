@@ -668,39 +668,24 @@ export const NL_TUT: Dict = {
   'tut.calendario.8.titulo': 'De dalen tellen ook mee',
   'tut.calendario.8.texto':
     'Die twee gaten zijn echt: de knieblessure in maand 7 en de drie weken in Japan. Missen wist je voortgang niet uit — het paneel toont het jaar zoals het was, niet zoals het had moeten zijn. En een routine telt pas mee vanaf de dag dat je hem aanmaakte.',
-  'tut.metas.0.titulo': 'Een kamer om jezelf iets voor te nemen',
+  'tut.metas.0.titulo': 'Het hart van je doelen',
   'tut.metas.0.texto':
-    'Doelen bewaart niets van zichzelf: het is waar je jezelf iets voorneemt en waar je alles ziet wat je je hebt voorgenomen, uit welke kamer het ook komt. Doelen ontstaan in de andere apps — hardlopen in de Gym, de studie in de Bibliotheek, sparen in de Werkkamer — en hier komen ze samen, gegroepeerd per app die elk doel draagt.',
-  'tut.metas.1.titulo': 'Eerst de doelen',
+    'Deze kamer bewaart niets van zichzelf. Doelen ontstaan in de andere apps — hardlopen in de Gym, de studie in de Bibliotheek, sparen in de Werkkamer — en hier komen ze ALLEMAAL samen: de enige plek in huis waar je ze in één keer ziet, uit welke kamer ze ook komen.',
+  'tut.metas.1.titulo': 'Elk doel met zijn app',
   'tut.metas.1.texto':
-    'De weergave opent op Doelen, gegroepeerd per app die ze bijhoudt: hardlopen onder Gym, de studie natuurkunde onder Bibliotheek. “Huis” is geen app — die categorie bedacht Pep zelf voor de verbouwing van de keuken.',
-  'tut.metas.2.titulo': 'Van doel naar plan',
+    'De mappen zijn geen versiering: elke map is de app die die doelen draagt, en die app weet of ze gehaald worden, want daar leg je vast. «Huis» is geen app — die categorie verzon Pep@ voor de keukenverbouwing.',
+  'tut.metas.2.titulo': 'Hetzelfde blad, van twee kanten',
   'tut.metas.2.texto':
-    'Elke rij leest als een bord: zijn nummer in de map, de deadline, de voortgang en de status — Te doen, Bezig of Klaar, naargelang wat er is afgevinkt. Eén klik opent het doel: zijn plan als het er een heeft (het ✨ verklapt het) en anders zijn blad met de subdoelen, de data en de stappen.',
-  'tut.metas.3.titulo': 'Drie plannen, drie toestanden',
+    'Een doel aantikken opent zijn blad en, als het er een heeft, zijn plan. Het is DEZELFDE planner die opengaat vanuit zijn app, met één verschil: daar is hij beperkt tot die app, hier zie je hem heel, met de doelen van het hele huis tegelijk.',
+  'tut.metas.3.titulo': 'Ze worden waargemaakt in hun app, niet hier',
   'tut.metas.3.texto':
-    'De keuken en de volgende marathon zijn nog Voorstel; de aanvraag voor de master staat al in de planning. Die van de marathon werd zonder einddatum gevraagd: de AI rekende uit dat er 24 weken nodig zijn en zegt dat in zijn samenvatting.',
-  'tut.metas.4.titulo': 'Het blad van het plan',
+    'Wat een doel VANDAAG vraagt, gebeurt niet in deze kamer: het komt terug in de Missies van de app die het draagt, tussen de rest van haar dag, en wordt daar waargemaakt door echt vast te leggen. Hier plan je; de app voert uit.',
+  'tut.metas.4.titulo': 'En hun datums, in de agenda',
   'tut.metas.4.texto':
-    'Zes fases met hun subdoelen, elk met zijn eigen periode. Zolang het een voorstel is, bewerk je alles: hernoemen, data verschuiven, knooppunten toevoegen of weghalen zonder de rest scheef te trekken.',
-  'tut.metas.5.titulo': 'Afvinken zonder je vast te leggen',
+    'Een doel met een deadline belandt in de agenda van de klok als al het andere geplande, en de subdoelen van zijn plan met hem mee. Je plant aan de ene kant en het jaar vult zich vanzelf aan de andere.',
+  'tut.metas.5.titulo': 'Daarom staat hij in het midden',
   'tut.metas.5.texto':
-    'De vinkjes van een voorstel leven in het blad, niet in je doelen: je markeert wat klaar is zonder je planning aan te raken. De balken vullen zichzelf van onder naar boven — de planfase van de keuken is al afgerond.',
-  'tut.metas.6.titulo': 'Verplaatsen naar echte planning',
-  'tut.metas.6.texto':
-    'Deze knop maakt van elke fase en elk subdoel een echt doel, met de data erbij en hangend onder het oorspronkelijke doel. Wat het doel al had, blijft staan.',
-  'tut.metas.7.titulo': 'Geaccepteerd: één waarheid',
-  'tut.metas.7.texto':
-    'Het plan voor de master is al verplaatst. Zijn vinkjes zijn nu die van de echte subdoelen en de balk is die van je planning: het blad houdt geen aparte telling meer bij.',
-  'tut.metas.8.titulo': 'En daar staan ze, op de as',
-  'tut.metas.8.texto':
-    'De subdoelen die uit het plan zijn ontstaan, nemen hun periode in op de planning, met het plan er in paars overheen: het voorstel en het echte werk op dezelfde as.',
-  'tut.metas.9.titulo': 'Elk doel zijn eigen as',
-  'tut.metas.9.texto':
-    'Deze as is die van één doel: hier geef je data aan wat er nog geen heeft, hang je er nieuwe subdoelen aan en brengt «Terug» je terug naar zijn blad. Het menu Planning bovenaan toont die van allemaal samen.',
-  'tut.metas.10.titulo': 'En van hieruit gaat het het hele huis door',
-  'tut.metas.10.texto':
-    'Niets hiervan blijft opgesloten: een doel met datums verschijnt in de agenda van de klok als al het andere geplande, en zijn stappen van vandaag komen terug in de Missies van de app die het draagt — en in het rode bolletje van die kamer. Hier plan je; je maakt het waar in de app, door echt vast te leggen.',
+    'Elke app draagt het hare, maar wat je je hebt voorgenomen zie je alleen in deze kamer bij elkaar — en van hier gaat het naar de agenda en naar de Missies van elk. Dat is zijn werk: de plek zijn waar alles elkaar kruist.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Een jaar studie, in één boom',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep studeert natuurkunde: mechanica aan het begin van het jaar, thermodynamica richting het tentamen in maand 6, relativiteit en astrofysica aan het eind. Elke tak klapt open en toont zijn items.',

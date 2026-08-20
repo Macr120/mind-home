@@ -6025,7 +6025,7 @@ export const FR: Dict = {
     'En rouge, pour ne pas la confondre avec les quatre du dessus : Objectifs ouvre tes objectifs, leurs plans et le planning.',
   'tut.metas.titulo': 'Objectifs',
   'tut.metas.resumen':
-    'Comment la pièce Objectifs se relie au reste : les objectifs naissent dans les autres apps et se réunissent ici, regroupés par la leur ; leur fiche porte le plan qui les développe (l’IA propose, tu coches) et leur planning, avec les phases déjà en sous-objectifs réels. Une fois datés, ils apparaissent dans le calendrier, et leurs étapes du jour dans les Missions de cette app.',
+    'Comment la pièce Objectifs se relie au reste : les objectifs naissent dans les autres apps et se réunissent ici, regroupés par la leur. Les toucher ouvre le même planificateur que depuis leur app ; leurs étapes du jour sortent dans les Missions de cette pièce et leurs dates tombent dans le calendrier de l’horloge. Ici on planifie, l’app exécute.',
   'tut.app-biblioteca--enciclopedia.titulo': 'Ta propre encyclopédie',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Tout ce que tu apprends s’archive dans un arbre par domaine de connaissance : des fiches avec un résumé et des points clés que tu peux illustrer.',

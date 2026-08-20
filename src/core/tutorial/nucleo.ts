@@ -11,7 +11,10 @@ import type { CuerpoTutorial, TextoTut } from './tipos'
 import { clickTut, elTut, esperarTut } from './dom'
 import { abrirApp } from '../abrirApp'
 import { irAPestanaMenu } from './dom'
+import { esDemo } from '../edicion'
+import { appsParaEnlace } from '../enlaceApp'
 import { useHouse } from '../state/houseStore'
+import { usePendientesCasa } from '../state/pendientesStore'
 import { useRutinasUI } from '../state/rutinasUiStore'
 import { useSisifoUi } from '../state/sisifoUiStore'
 import { useWrappedUi } from '../state/wrappedUiStore'
@@ -19,24 +22,44 @@ import { construirAppDemo } from '../../demo/construir'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
+/**
+ * En qué cuarto se enseñan las Misiones. Este tour NO salta al demo (`EN_SITIO`
+ * en registro.ts): corre en la casa que tengas delante, así que la app tiene que
+ * ser una que exista ahí.
+ *
+ * En el demo, la cocina de Pep@ —su año es el que da contenido a la lista—. En tu
+ * casa, la que más misiones te deba hoy: es la única forma de que el globo del
+ * que habla el tour se vea de verdad; si no queda ninguna, la primera que tengas.
+ */
+function appDelTour(): string | undefined {
+  if (esDemo()) return 'cocina'
+  const apps = appsParaEnlace()
+  if (apps.length === 0) return undefined
+  const pendientes = usePendientesCasa.getState().porApp
+  const cuantos = (id: string) => pendientes[id]?.cuantos ?? 0
+  const masCargada = [...apps].sort((a, b) => cuantos(b.id) - cuantos(a.id))[0]
+  return masCargada.id
+}
+
 export const cuerpoHoy: CuerpoTutorial = {
-  // Sin `preparar` a propósito: este tour también se lanza desde el «?» del reloj
-  // y del cuarto Metas (`FLUJOS_CALENDARIO` / `FLUJOS_METAS`), y al aterrizar en
-  // el demo desde una APP `lanzarFlujoEnDemo` pasa `sinPreparar` — la preparación
-  // se quedaría sin correr. El `alEntrar` del paso 1 corre siempre y es idempotente.
+  // Sin `preparar` a propósito: este tour también se lanza desde el «?» del reloj,
+  // y al aterrizar en el demo desde una APP `lanzarFlujoEnDemo` pasa `sinPreparar`
+  // — la preparación se quedaría sin correr. El `alEntrar` del paso 1 corre
+  // siempre y es idempotente.
   pasos: [
     {
       // Solo muestra el botón: abrir aquí el modal (como antes) lo tapaba en el
       // mismo paso que lo señala. Cerrarlo es para volver con «Atrás».
       sel: 'hoy.cabecera',
       alEntrar: async () => {
-        // Los años que este tour enseña: la cocina (sus misiones del día) y el
-        // calendario (lo agendado del último paso). Idempotentes y sin efecto
-        // fuera del demo; venga por el intent que venga, aquí ya están.
+        // Los años que este tour enseña EN EL DEMO: la cocina (sus misiones del
+        // día) y el calendario (lo agendado del último paso). Idempotentes y sin
+        // efecto fuera del demo; venga por el intent que venga, aquí ya están.
         await construirAppDemo('cocina')
         void construirAppDemo('calendario')
         useRutinasUI.getState().cerrarCalendario()
-        abrirApp('cocina')
+        const app = appDelTour()
+        if (app) abrirApp(app)
         if (elTut('hoy.lista')) clickTut('hoy.cerrar')
         await esperarTut('hoy.cabecera', 4000)
       },

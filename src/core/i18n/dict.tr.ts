@@ -5969,7 +5969,7 @@ export const TR: Dict = {
     'Kırmızıyla, yukarıdaki dördüyle karıştırılmasın diye: Hedefler, hedeflerini, planlarını ve zaman çizelgesini açar.',
   'tut.metas.titulo': 'Hedefler',
   'tut.metas.resumen':
-    'Hedefler odası geri kalanla nasıl bağlanıyor: hedefler diğer uygulamalarda doğar ve burada kendi uygulamalarına göre gruplanıp toplanır; her hedefin sayfasında onu geliştiren plan (yapay zekâ önerir, sen onaylarsın) ve aşamaları çoktan gerçek alt hedeflere dönüşmüş zaman çizelgesi bulunur. Tarih verilince takvimde, bugünkü adımları da o uygulamanın Görevler’inde çıkar.',
+    'Hedefler odası geri kalanla nasıl bağlanıyor: hedefler diğer uygulamalarda doğar ve burada kendi uygulamalarına göre gruplanıp toplanır. Dokununca o uygulamadan göreceğin planlayıcının aynısı açılır; bugünkü adımları o odanın Görevler’inde, tarihleri de saatin takviminde çıkar. Burada planlanır, uygulama yapar.',
   'tut.app-biblioteca--enciclopedia.titulo': 'Kendi ansiklopedin',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Öğrendiğin her şey, bilgi alanına göre bir ağaçta arşivlenir: özet ve resimleyebileceğin ana noktalarla kartlar.',

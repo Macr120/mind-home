@@ -6160,7 +6160,7 @@ export const EN: Dict = {
     'In red, so it never gets mistaken for the four above: Objectives gathers the checklist of today from all your apps. Your goals and their plans live in their own room.',
   'tut.metas.titulo': 'Goals',
   'tut.metas.resumen':
-    'How the Goals room links up with the rest: goals are born in the other apps and gather here grouped by their own; a goal\'s sheet carries the plan that develops it (the AI proposes, you tick) and its timeline, with the phases already real sub-goals. Once dated they show up in the calendar, and their steps for today in that app\'s Missions.',
+    'How the Goals room links up with the rest: goals are born in the other apps and gather here, grouped by their own. Tapping them opens the same planner you would see from that app; their steps for today show up in that room\'s Missions and their dates land in the clock\'s calendar. You plan here, the app executes.',
   'tut.app-biblioteca--enciclopedia.titulo': 'Your own encyclopedia',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Everything you learn is filed in a tree by field of knowledge: cards with a summary and key points that you can illustrate.',

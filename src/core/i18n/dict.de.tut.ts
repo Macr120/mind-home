@@ -669,39 +669,24 @@ export const DE_TUT: Dict = {
   'tut.calendario.8.titulo': 'Die Einbrüche zählen auch',
   'tut.calendario.8.texto':
     'Beide Löcher sind echt: die Knieverletzung in Monat 7 und die drei Wochen in Japan. Aussetzen löscht den Fortschritt nicht – das Panel zeigt das Jahr, wie es war, nicht wie es hätte sein sollen. Und eine Routine zählt erst ab dem Tag, an dem du sie angelegt hast.',
-  'tut.metas.0.titulo': 'Ein Raum, um dir Dinge vorzunehmen',
+  'tut.metas.0.titulo': 'Das Herz deiner Ziele',
   'tut.metas.0.texto':
-    'Ziele speichert nichts Eigenes: hier nimmst du dir Dinge vor und hier siehst du alles, was du dir vorgenommen hast, aus welchem Raum es auch kommt. Ziele entstehen in den anderen Apps — Laufen im Fitness, das Studium in der Bibliothek, Sparen im Arbeitszimmer — und hier kommen sie zusammen, gruppiert nach der App, die jedes trägt.',
-  'tut.metas.1.titulo': 'Zuerst die Ziele',
+    'Dieser Raum speichert nichts Eigenes. Ziele entstehen in den anderen Apps — Laufen im Fitness, das Studium in der Bibliothek, Sparen im Arbeitszimmer — und hier kommen sie ALLE zusammen: der einzige Ort im Haus, an dem man sie auf einmal sieht, aus welchem Raum sie auch stammen.',
+  'tut.metas.1.titulo': 'Jedes Ziel mit seiner App',
   'tut.metas.1.texto':
-    'Die Ansicht öffnet bei Ziele, gruppiert nach der App, die sie führt: Laufen unter Fitness, das Physikstudium unter Bibliothek. „Haus“ ist keine App – diese Kategorie hat sich Pep für den Küchenumbau ausgedacht.',
-  'tut.metas.2.titulo': 'Vom Ziel zu seinem Plan',
+    'Die Ordner sind keine Zierde: jeder ist die App, die diese Ziele trägt, und sie ist es, die weiß, ob sie erfüllt sind, denn dort trägst du ein. «Haus» ist keine App — diese Kategorie hat sich Pep@ für den Küchenumbau ausgedacht.',
+  'tut.metas.2.titulo': 'Dasselbe Blatt, von beiden Seiten',
   'tut.metas.2.texto':
-    'Jede Zeile liest sich wie eine Anzeigetafel: ihre Nummer im Ordner, die Frist, der Fortschritt und der Status – Offen, Läuft oder Fertig, je nachdem, wie viel schon abgehakt ist. Ein Klick öffnet das Ziel: seinen Plan, wenn es einen hat (das ✨ verrät es), und sonst seine Tabelle mit den Teilzielen, den Terminen und den Schritten.',
-  'tut.metas.3.titulo': 'Drei Pläne, drei Zustände',
+    'Ein Ziel anzutippen öffnet sein Blatt und, wenn es einen hat, seinen Plan. Es ist DERSELBE Planer, der aus seiner App aufgeht, mit einem Unterschied: dort ist er auf diese App begrenzt, hier siehst du ihn ganz, mit den Zielen des ganzen Hauses auf einmal.',
+  'tut.metas.3.titulo': 'Erfüllt werden sie in ihrer App, nicht hier',
   'tut.metas.3.texto':
-    'Die Küche und der nächste Marathon sind noch Vorschläge; die Bewerbung fürs Masterstudium steht schon im Zeitplan. Der Marathon-Plan wurde ohne Frist angefragt: Die KI hat ausgerechnet, dass er 24 Wochen braucht, und sagt es in ihrer Zusammenfassung.',
-  'tut.metas.4.titulo': 'Die Tabelle des Plans',
+    'Was ein Ziel HEUTE verlangt, wird nicht in diesem Raum getan: es taucht in den Missionen der App auf, die es trägt, zwischen dem Rest ihres Tages, und wird dort mit einem echten Eintrag erfüllt. Hier wird geplant; die App führt aus.',
+  'tut.metas.4.titulo': 'Und ihre Daten im Kalender',
   'tut.metas.4.texto':
-    'Sechs Phasen und ihre Teilziele, jede mit ihrem eigenen Zeitraum. Solange es ein Vorschlag ist, lässt sich alles bearbeiten: umbenennen, Termine verschieben, Knoten hinzufügen oder entfernen, ohne den Rest durcheinanderzubringen.',
-  'tut.metas.5.titulo': 'Abhaken, ohne sich zu binden',
+    'Ein Ziel mit Frist landet im Kalender der Uhr wie alles andere Geplante, und die Unterziele seines Plans mit ihm. Du planst an der einen Stelle und das Jahr füllt sich von selbst an der anderen.',
+  'tut.metas.5.titulo': 'Darum steht er in der Mitte',
   'tut.metas.5.texto':
-    'Die Häkchen eines Vorschlags leben in seiner Tabelle, nicht in deinen Zielen: Du kannst abhaken, was erledigt ist, ohne deinen Zeitplan anzurühren. Die Balken füllen sich von selbst nach oben – die Küchenplanung ist schon abgeschlossen.',
-  'tut.metas.6.titulo': 'In den echten Zeitplan verschieben',
-  'tut.metas.6.texto':
-    'Dieser Button verwandelt jede Phase und jedes Teilziel in echte Ziele, mit gesetzten Terminen und direkt unter dem ursprünglichen Ziel. Was das Ziel schon hatte, bleibt erhalten.',
-  'tut.metas.7.titulo': 'Akzeptiert: eine einzige Wahrheit',
-  'tut.metas.7.texto':
-    'Der Plan fürs Masterstudium ist schon verschoben. Jetzt sind seine Häkchen die der echten Teilziele und der Balken ist der deines Zeitplans: Die Tabelle führt keine eigene Rechnung mehr.',
-  'tut.metas.8.titulo': 'Und da stehen sie, auf der Achse',
-  'tut.metas.8.texto':
-    'Die Teilziele, die aus dem Plan entstanden sind, nehmen ihren Zeitraum im Zeitplan ein, mit dem Plan violett darübergelegt: der Vorschlag und das Echte auf derselben Achse.',
-  'tut.metas.9.titulo': 'Jedes Ziel, seine Achse',
-  'tut.metas.9.texto':
-    'Die Achse ist immer die eines einzigen Ziels: Hier bekommt Termine, was noch keine hat, neue Teilziele werden angehängt, und „Zurück“ führt dich zu seiner Tabelle. Das Menü Zeitplan oben zeigt die Achse aller Ziele zusammen.',
-  'tut.metas.10.titulo': 'Und von hier geht es ins ganze Haus',
-  'tut.metas.10.texto':
-    'Nichts davon bleibt eingesperrt: ein Ziel mit Daten erscheint im Kalender der Uhr wie alles andere Geplante, und seine heutigen Schritte tauchen in den Missionen der App auf, die es trägt — und in der roten Blase jenes Raums. Hier wird geplant; erfüllt wird es in der App, mit echten Einträgen.',
+    'Jede App trägt ihr eigenes, aber was du dir vorgenommen hast, sieht man nur in diesem Raum beisammen — und von hier geht es hinaus in den Kalender und in die Missionen jeder einzelnen. Das ist seine Aufgabe: der Ort zu sein, an dem sich alles kreuzt.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Ein Studienjahr als Baum',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep studiert Physik: Mechanik am Anfang des Jahres, Thermodynamik gegen die Klausur in Monat 6, Relativität und Astrophysik zum Schluss. Jeder Zweig klappt auf und zeigt seine Einträge.',

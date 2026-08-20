@@ -666,39 +666,24 @@ export const IT_TUT: Dict = {
   'tut.calendario.8.titulo': 'Anche le cadute contano',
   'tut.calendario.8.texto':
     'I due buchi sono veri: l\'infortunio al ginocchio del mese 7 e le tre settimane in Giappone. Saltare dei giorni non cancella i progressi — il pannello mostra l\'anno com\'è stato, non come sarebbe dovuto essere. E una routine conta solo dal giorno in cui l\'hai creata.',
-  'tut.metas.0.titulo': 'Una stanza per proporti delle cose',
+  'tut.metas.0.titulo': 'Il centro dei tuoi obiettivi',
   'tut.metas.0.texto':
-    'Obiettivi non conserva nulla di suo: è dove ti proponi delle cose e dove si vede tutto quello che ti sei proposto, da qualunque stanza arrivi. Gli obiettivi nascono nelle altre app — correre in Palestra, la laurea in Biblioteca, risparmiare nello Studio — e qui si riuniscono, raggruppati per l’app che porta ciascuno.',
-  'tut.metas.1.titulo': 'Prima di tutto, gli obiettivi',
+    'Questa stanza non conserva nulla di suo. Gli obiettivi nascono nelle altre app — correre in Palestra, la laurea in Biblioteca, risparmiare nello Studio — e qui si riuniscono TUTTI: è l’unico posto della casa dove si vedono insieme, da qualunque stanza arrivino.',
+  'tut.metas.1.titulo': 'Ogni obiettivo, con la sua app',
   'tut.metas.1.texto':
-    'La vista si apre su Obiettivi, raggruppati per l\'app che li segue: la corsa in Palestra, la laurea in fisica in Biblioteca. «Casa» non è un\'app — quella categoria se l\'è inventata Pep per i lavori della cucina.',
-  'tut.metas.2.titulo': 'Dall\'obiettivo al suo piano',
+    'Le cartelle non sono un ornamento: ognuna è l’app che porta quegli obiettivi, ed è lei a sapere se si compiono, perché è dove registri. «Casa» non è nessuna app — quella categoria se l’è inventata Pep@ per i lavori della cucina.',
+  'tut.metas.2.titulo': 'La stessa scheda, dai due lati',
   'tut.metas.2.texto':
-    'Ogni riga si legge come una bacheca: il suo numero nella cartella, la scadenza, l\'avanzamento e lo stato — da fare, in corso o fatto, a seconda di quanto è già spuntato. Un clic apre l\'obiettivo: il suo piano se ce l\'ha (il ✨ lo annuncia) e, se no, il suo foglio con i sotto-obiettivi, le date e i passi.',
-  'tut.metas.3.titulo': 'Tre piani, tre stati',
+    'Toccare un obiettivo apre la sua scheda e, se ce l’ha, il suo piano. È lo STESSO pianificatore che si apre dalla sua app, con una differenza: là è limitato a quell’app, qui lo vedi intero, con gli obiettivi di tutta la casa insieme.',
+  'tut.metas.3.titulo': 'Si compiono nella loro app, non qui',
   'tut.metas.3.texto':
-    'La cucina e la prossima maratona sono ancora proposte; la domanda per il post-laurea è già nel programma. Quello della maratona è stato chiesto senza scadenza: l\'IA ha calcolato che servono 24 settimane e lo dice nel suo riassunto.',
-  'tut.metas.4.titulo': 'Il foglio del piano',
+    'Quello che un obiettivo chiede OGGI non si fa in questa stanza: esce nelle Missioni dell’app che lo porta, insieme al resto della sua giornata, e si compie registrando davvero lì. Qui si pianifica; l’app esegue.',
+  'tut.metas.4.titulo': 'E le loro date, nel calendario',
   'tut.metas.4.texto':
-    'Sei fasi con i loro sotto-obiettivi, ognuna con il suo periodo. Finché è una proposta si modifica tutta: rinominare, spostare date, aggiungere o togliere nodi senza scombinare gli altri.',
-  'tut.metas.5.titulo': 'Spuntare senza impegnarsi',
+    'Un obiettivo con scadenza cade nel calendario dell’orologio come qualsiasi altra cosa in programma, e con lui i sotto-obiettivi del suo piano. Pianifichi da una parte e l’anno si riempie da solo dall’altra.',
+  'tut.metas.5.titulo': 'Per questo sta al centro',
   'tut.metas.5.texto':
-    'Le spunte di una proposta vivono nel foglio, non nei tuoi obiettivi: puoi segnare quello che hai fatto senza toccare il tuo programma. Le barre si riempiono da sole verso l\'alto — la pianificazione della cucina è già chiusa.',
-  'tut.metas.6.titulo': 'Sposta nel programma reale',
-  'tut.metas.6.texto':
-    'Questo pulsante trasforma ogni fase e ogni sotto-obiettivo in obiettivi veri, con le loro date già messe e appesi all\'obiettivo originale. Quello che l\'obiettivo aveva già si conserva.',
-  'tut.metas.7.titulo': 'Accettato: una sola verità',
-  'tut.metas.7.texto':
-    'Il piano del post-laurea si è già spostato. Ora le sue spunte sono quelle dei sotto-obiettivi reali e la barra è quella del tuo programma: il foglio smette di tenere un conto a parte.',
-  'tut.metas.8.titulo': 'Ed eccoli, sull\'asse',
-  'tut.metas.8.texto':
-    'I sotto-obiettivi nati dal piano occupano il loro periodo nel programma, con il piano sovrapposto in viola: la proposta e il reale, sullo stesso asse.',
-  'tut.metas.9.titulo': 'Ogni obiettivo, il suo asse',
-  'tut.metas.9.texto':
-    'Quest\'asse è quello di UN obiettivo: qui si danno date a ciò che non le ha, si appendono sotto-obiettivi nuovi e «Torna» ti riporta al suo foglio. Il menu Programma in alto mostra quello di tutti insieme.',
-  'tut.metas.10.titulo': 'E da qui parte verso tutta la casa',
-  'tut.metas.10.texto':
-    'Niente di tutto questo resta chiuso qui: un obiettivo con delle date compare nel calendario dell’orologio come qualsiasi altra cosa in programma, e i suoi passi di oggi escono nelle Missioni dell’app che lo porta — e nel pallino rosso di quella stanza. Qui si pianifica; si compie nell’app, registrando davvero.',
+    'Ogni app porta il suo, ma quello che ti sei proposto si vede insieme solo in questa stanza — e da qui parte verso il calendario e verso le Missioni di ciascuna. È questo il suo lavoro: essere il posto dove tutto si incrocia.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Un anno di studi, in un albero',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep studia Fisica: meccanica all\'inizio dell\'anno, termodinamica verso il parziale del mese 6, relatività e astrofisica alla fine. Ogni ramo si apre per vedere le sue voci.',

@@ -6031,7 +6031,7 @@ export const DE: Dict = {
     'In Rot, damit es nicht mit den vier oberen verwechselt wird: Ziele öffnet deine Ziele, ihre Pläne und den Zeitplan.',
   'tut.metas.titulo': 'Ziele',
   'tut.metas.resumen':
-    'Wie der Raum Ziele mit dem Rest zusammenhängt: Ziele entstehen in den anderen Apps und sammeln sich hier, gruppiert nach ihrer eigenen; das Blatt eines Ziels trägt den Plan, der es entwickelt (die KI schlägt vor, du hakst ab), und seinen Zeitplan, mit den Phasen schon als echte Unterziele. Mit Daten versehen erscheinen sie im Kalender und ihre heutigen Schritte in den Missionen jener App.',
+    'Wie der Raum Ziele mit dem Rest zusammenhängt: Ziele entstehen in den anderen Apps und sammeln sich hier, gruppiert nach ihrer eigenen. Sie anzutippen öffnet denselben Planer wie aus ihrer App; ihre heutigen Schritte tauchen in den Missionen jenes Raums auf und ihre Daten landen im Kalender der Uhr. Hier wird geplant, die App führt aus.',
   'tut.app-biblioteca--enciclopedia.titulo': 'Die eigene Enzyklopädie',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Alles, was du lernst, wird in einem Baum nach Wissensgebiet abgelegt: Karten mit Zusammenfassung und Kernpunkten, die du illustrieren kannst.',

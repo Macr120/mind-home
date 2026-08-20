@@ -669,39 +669,24 @@ export const FR_TUT: Dict = {
   'tut.calendario.8.titulo': 'Les creux comptent aussi',
   'tut.calendario.8.texto':
     'Les deux trous sont réels : la blessure au genou du mois 7 et les trois semaines au Japon. Rater des jours n’efface pas les progrès — le panneau montre l’année telle qu’elle a été, pas telle qu’elle aurait dû être. Et une routine ne compte qu’à partir du jour où tu l’as créée.',
-  'tut.metas.0.titulo': 'Une pièce pour se fixer des choses',
+  'tut.metas.0.titulo': 'Le cœur de tes objectifs',
   'tut.metas.0.texto':
-    'Objectifs ne garde rien en propre : c’est là que tu te fixes des choses et que tu vois tout ce que tu t’es fixé, quelle que soit la pièce d’origine. Les objectifs naissent dans les autres apps — courir dans Gym, les études dans Bibliothèque, épargner dans Bureau — et ici ils se réunissent, regroupés par l’app qui porte chacun.',
-  'tut.metas.1.titulo': 'D’abord, les objectifs',
+    'Cette pièce ne garde rien en propre. Les objectifs naissent dans les autres apps — courir dans Gym, les études dans Bibliothèque, épargner dans Bureau — et ici ils se réunissent TOUS : c’est le seul endroit de la maison où on les voit d’un coup, quelle que soit la pièce d’origine.',
+  'tut.metas.1.titulo': 'Chaque objectif, avec son app',
   'tut.metas.1.texto':
-    'La vue s’ouvre sur Objectifs, groupés par l’app qui les porte : la course dans Gym, la licence de physique dans Bibliothèque. « Maison » n’est aucune app — cette catégorie, Pep l’a inventée pour les travaux de la cuisine.',
-  'tut.metas.2.titulo': 'De l’objectif à son plan',
+    'Les dossiers ne sont pas un décor : chacun est l’app qui porte ces objectifs, et c’est elle qui sait s’ils sont tenus, parce que c’est là que tu enregistres. « Maison » n’est aucune app — cette catégorie, Pep@ l’a inventée pour les travaux de la cuisine.',
+  'tut.metas.2.titulo': 'La même fiche, des deux côtés',
   'tut.metas.2.texto':
-    'Chaque ligne se lit comme un tableau de bord : son numéro dans le dossier, l’échéance, l’avancement et l’état — à faire, en cours ou fait, selon ce qui est coché. Un clic ouvre l’objectif : son plan s’il en a un (le ✨ l’annonce) et, sinon, sa feuille avec les sous-objectifs, les dates et les étapes.',
-  'tut.metas.3.titulo': 'Trois plans, trois états',
+    'Toucher un objectif ouvre sa fiche et, s’il en a un, son plan. C’est le MÊME planificateur que celui qui s’ouvre depuis son app, à une différence près : là-bas il est limité à cette app, ici tu le vois entier, avec les objectifs de toute la maison à la fois.',
+  'tut.metas.3.titulo': 'Ils se tiennent dans leur app, pas ici',
   'tut.metas.3.texto':
-    'La cuisine et le prochain marathon sont encore des propositions ; la candidature en master est déjà dans le planning. Celui du marathon a été demandé sans échéance : l’IA a calculé qu’il exige 24 semaines, et elle le dit dans son résumé.',
-  'tut.metas.4.titulo': 'La feuille du plan',
+    'Ce qu’un objectif demande AUJOURD’HUI ne se fait pas dans cette pièce : ça sort dans les Missions de l’app qui le porte, mêlé au reste de sa journée, et ça se tient en enregistrant vraiment là-bas. Ici on planifie ; l’app exécute.',
+  'tut.metas.4.titulo': 'Et leurs dates, dans le calendrier',
   'tut.metas.4.texto':
-    'Six phases et leurs sous-objectifs, chacun avec sa période. Tant que c’est une proposition, tout se modifie : renommer, déplacer des dates, ajouter ou retirer des nœuds sans dérégler les autres.',
-  'tut.metas.5.titulo': 'Cocher sans t’engager',
+    'Un objectif avec échéance tombe dans le calendrier de l’horloge comme tout ce qui est planifié, et les sous-objectifs de son plan avec lui. Tu planifies d’un côté et l’année se remplit toute seule de l’autre.',
+  'tut.metas.5.titulo': 'Voilà pourquoi il est au centre',
   'tut.metas.5.texto':
-    'Les coches d’une proposition vivent dans la feuille, pas dans tes objectifs : tu peux marquer ce qui est fait sans toucher à ton planning. Les barres se remplissent toutes seules vers le haut — la planification de la cuisine est déjà bouclée.',
-  'tut.metas.6.titulo': 'Déplacer vers le planning réel',
-  'tut.metas.6.texto':
-    'Ce bouton transforme chaque phase et chaque sous-objectif en véritables objectifs, avec leurs dates posées et accrochés à l’objectif d’origine. Ce que l’objectif avait déjà est conservé.',
-  'tut.metas.7.titulo': 'Accepté : une seule vérité',
-  'tut.metas.7.texto':
-    'Le plan du master est déjà déplacé. Ses coches sont maintenant celles des vrais sous-objectifs et la barre est celle de ton planning : la feuille arrête de tenir un compte à part.',
-  'tut.metas.8.titulo': 'Et les voilà, sur l’axe',
-  'tut.metas.8.texto':
-    'Les sous-objectifs nés du plan occupent leur période dans le planning, avec le plan superposé en violet par-dessus : la proposition et le réel, sur le même axe.',
-  'tut.metas.9.titulo': 'Chaque objectif, son axe',
-  'tut.metas.9.texto':
-    'L’axe est toujours celui d’un objectif : ici on donne des dates à ce qui n’en a pas, on accroche de nouveaux sous-objectifs et « Retour » te ramène à sa feuille. Le menu Planning en haut montre celui de tous les objectifs réunis.',
-  'tut.metas.10.titulo': 'Et d’ici ça part vers toute la maison',
-  'tut.metas.10.texto':
-    'Rien de tout ça ne reste enfermé : un objectif daté apparaît dans le calendrier de l’horloge comme n’importe quoi d’autre de planifié, et ses étapes du jour sortent dans les Missions de l’app qui le porte — et dans la pastille rouge de cette pièce. Ici on planifie ; on accomplit dans l’app, en enregistrant pour de vrai.',
+    'Chaque app porte les siens, mais ce que tu t’es fixé ne se voit ensemble que dans cette pièce — et de là ça part vers le calendrier et vers les Missions de chacune. C’est son travail : être l’endroit où tout se croise.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Une année d’études, en un arbre',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep étudie la physique : la mécanique en début d’année, la thermodynamique vers le partiel du mois 6, la relativité et l’astrophysique à la fin. Chaque branche s’ouvre pour voir ses fiches.',

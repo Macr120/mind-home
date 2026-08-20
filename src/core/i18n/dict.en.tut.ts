@@ -540,39 +540,24 @@ export const EN_TUT: Dict = {
   'tut.calendario.8.titulo': 'The dips count too',
   'tut.calendario.8.texto':
     'Both holes are real: the knee injury in month 7 and the three weeks in Japan. Missing days does not erase progress — the panel shows the year as it was, not as it should have been. And a routine only counts from the day you created it.',
-  'tut.metas.0.titulo': 'A room for setting things out',
+  'tut.metas.0.titulo': 'The heart of your goals',
   'tut.metas.0.texto':
-    'Goals keeps nothing of its own: it\'s where you set things out and where everything you set out to do can be seen, whatever room it came from. Goals are born in the other apps — running in the Gym, the degree in the Library, saving in the Office — and here they come together, grouped by the app that owns each one.',
-  'tut.metas.1.titulo': 'Goals come first',
+    'This room keeps nothing of its own. Goals are born in the other apps — running in the Gym, the degree in the Library, saving in the Office — and here ALL of them come together: it is the only place in the house where you see them at once, whatever room they came from.',
+  'tut.metas.1.titulo': 'Every goal, with its app',
   'tut.metas.1.texto':
-    'The room opens on Goals, grouped by the app that owns them: running under Exercise, the physics degree under Library. “Home” is no app — Pep@ made that category up for the kitchen build.',
-  'tut.metas.2.titulo': 'From the goal to its plan',
+    'The folders are not decoration: each one is the app that owns those goals, and it is that app that knows whether they are met, because that is where you log. “Home” is no app — Pep@ made that category up for the kitchen build.',
+  'tut.metas.2.titulo': 'The same sheet, from both sides',
   'tut.metas.2.texto':
-    'Every row reads like a board: its number in the folder, the deadline, the progress and the state — to do, in progress or done, depending on how much is ticked off. One click opens the goal: its plan if it has one (the ✨ says so) and, if not, its sheet with the sub-goals, the dates and the steps.',
-  'tut.metas.3.titulo': 'Three plans, three states',
+    'Tapping a goal opens its sheet and, if it has one, its plan. It is the SAME planner that comes up when you tap it from its app, with one difference: there it is scoped to that app, and here you see it whole, with the goals of the entire house at once.',
+  'tut.metas.3.titulo': 'They get done in their app, not here',
   'tut.metas.3.texto':
-    'The kitchen and the next marathon are still proposals; the grad application is already on the timeline. The marathon one was asked for with no deadline: the AI worked out it needs 24 weeks, and says so in its summary.',
-  'tut.metas.4.titulo': 'The plan sheet',
+    'What a goal asks of you TODAY is not done in this room: it shows up in the Missions of the app that owns it, mixed in with the rest of its day, and it is met by logging for real over there. Here you plan; the app executes.',
+  'tut.metas.4.titulo': 'And their dates, in the calendar',
   'tut.metas.4.texto':
-    'The ✨ on a row announces that the goal already has a plan, and clicking it opens this sheet: the phases and their sub-goals, each with its own window. While it is a proposal the whole thing is editable: rename, move dates, add or drop nodes without throwing the rest off.',
-  'tut.metas.5.titulo': 'Tick without committing',
+    'A goal with a deadline lands in the clock\'s calendar like anything else scheduled, and its plan\'s sub-goals with it. You plan in one place and the year fills itself in the other.',
+  'tut.metas.5.titulo': 'That is why it sits at the centre',
   'tut.metas.5.texto':
-    "A proposal's ticks live in the sheet, not in your goals: you can mark what's done without touching your timeline. The bars fill upwards on their own — the kitchen planning is already closed.",
-  'tut.metas.6.titulo': 'Move to real timeline',
-  'tut.metas.6.texto':
-    'This button turns every phase and sub-goal into real goals, with their dates set, hanging off the original goal. Whatever the goal already had is kept.',
-  'tut.metas.7.titulo': 'Accepted: a single truth',
-  'tut.metas.7.texto':
-    "The grad plan has already moved. Its ticks are now the real sub-goals' ticks and the bar is your timeline's: the sheet stops keeping a separate count.",
-  'tut.metas.8.titulo': 'And there they are, on the axis',
-  'tut.metas.8.texto':
-    "The timeline is THIS goal's: its sub-goals take up their window on the time axis, with the plan ghosted in violet on top — the proposal and the real thing, together.",
-  'tut.metas.9.titulo': 'Each goal, its own axis',
-  'tut.metas.9.texto':
-    'This axis belongs to a SINGLE goal: here you give dates to whatever has none, hang new sub-goals, and “Back” returns you to its sheet. The Timeline menu up top shows them all together.',
-  'tut.metas.10.titulo': 'And from here it reaches the whole house',
-  'tut.metas.10.texto':
-    'None of this stays locked in: a goal with dates shows up in the clock\'s calendar like anything else scheduled, and its steps for today appear in the Missions of the app that owns it — and in that room\'s red badge. You plan here; you get it done in the app, by logging for real.',
+    'Each app carries its own, but what you set out to do can only be seen together in this room — and from here it goes out to the calendar and to the Missions of each one. That is its job: to be the place where everything crosses.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'A year of studies, as a tree',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep@ studies Physics: mechanics early in the year, thermodynamics towards the month 6 midterm, relativity and astrophysics at the end. Each branch opens to show its cards.',

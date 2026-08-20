@@ -661,39 +661,24 @@ export const TR_TUT: Dict = {
   'tut.calendario.8.titulo': 'Düşüşler de sayılır',
   'tut.calendario.8.texto':
     'İki çukur da gerçek: 7. aydaki diz sakatlığı ve Japonya’daki üç hafta. Aksatmak ilerlemeyi silmez — panel yılı olması gerektiği gibi değil, olduğu gibi gösterir. Ve bir rutin ancak onu oluşturduğun günden itibaren sayılır.',
-  'tut.metas.0.titulo': 'Kendine bir şeyler koymak için bir oda',
+  'tut.metas.0.titulo': 'Hedeflerinin merkezi',
   'tut.metas.0.texto':
-    'Hedefler kendine ait bir şey tutmaz: kendine hedef koyduğun ve koyduğun her şeyi gördüğün yerdir, hangi odadan gelirse gelsin. Hedefler diğer uygulamalarda doğar — Spor Salonu’nda koşu, Kütüphane’de bölüm, Çalışma Odası’nda birikim — ve burada, her birini taşıyan uygulamaya göre gruplanıp bir araya gelir.',
-  'tut.metas.1.titulo': 'Önce hedefler',
+    'Bu oda kendine ait bir şey tutmaz. Hedefler diğer uygulamalarda doğar — Spor Salonu’nda koşu, Kütüphane’de bölüm, Çalışma Odası’nda birikim — ve burada HEPSİ bir araya gelir: hangi odadan gelirse gelsin hepsini bir bakışta gördüğün tek yer burasıdır.',
+  'tut.metas.1.titulo': 'Her hedefin bir uygulaması var',
   'tut.metas.1.texto':
-    'Oda Hedefler ile açılır ve hedefler onları taşıyan uygulamaya göre gruplanır: koşu Spor Salonu’nda, fizik bölümü Kütüphane’de. «Ev» hiçbir uygulama değil — o kategoriyi Pep mutfak tadilatı için kendi uydurdu.',
-  'tut.metas.2.titulo': 'Hedeften planına',
+    'Klasörler süs değil: her biri o hedefleri taşıyan uygulamadır ve tutulup tutulmadığını bilen de odur, çünkü kayıt orada yapılır. «Ev» hiçbir uygulama değil — o kategoriyi mutfak tadilatı için Pep uydurdu.',
+  'tut.metas.2.titulo': 'Aynı sayfa, iki taraftan',
   'tut.metas.2.texto':
-    'Her satır bir pano gibi okunur: klasördeki numarası, süresi, ilerlemesi ve durumu — tamamladığı kadarına göre Yapılacak, Devam ediyor ya da Tamamlandı. Bir tık hedefi açar: varsa planını (✨ bunu haber verir), yoksa alt hedefleri, tarihleri ve adımlarıyla kendi sayfasını.',
-  'tut.metas.3.titulo': 'Üç plan, üç durum',
+    'Bir hedefe dokununca sayfası ve varsa planı açılır. Kendi uygulamasından dokunduğunda çıkan planlayıcının AYNISI, tek farkla: orada o uygulamayla sınırlıdır, burada evin tamamının hedefleriyle birlikte bütün olarak görürsün.',
+  'tut.metas.3.titulo': 'Uygulamasında tamamlanır, burada değil',
   'tut.metas.3.texto':
-    'Mutfak ve bir sonraki maraton hâlâ birer öneri; yüksek lisans başvurusu ise çoktan Zaman Çizelgesi’nde. Maraton planı son tarih verilmeden istendi: Yapay Zeka bunun 24 hafta gerektirdiğini hesapladı ve özetinde bunu söylüyor.',
-  'tut.metas.4.titulo': 'Planın sayfası',
+    'Bir hedefin BUGÜN istediği şey bu odada yapılmaz: onu taşıyan uygulamanın Görevler’inde, o günün geri kalanıyla karışık olarak çıkar ve orada gerçekten kaydederek tamamlanır. Burada planlanır; uygulama yapar.',
+  'tut.metas.4.titulo': 'Tarihleri de takvimde',
   'tut.metas.4.texto':
-    'Satırdaki ✨, hedefin zaten bir planı olduğunu haber verir ve tıklanınca bu sayfa açılır: aşamalar ve alt hedefleri, her biri kendi dönemiyle. Öneri olduğu sürece tamamı düzenlenir: yeniden adlandır, tarihleri kaydır, diğerlerini bozmadan düğüm ekle ya da çıkar.',
-  'tut.metas.5.titulo': 'Söz vermeden işaretle',
+    'Süresi olan bir hedef, planlanmış her şey gibi saatin takviminde belirir; planının alt hedefleri de onunla. Bir yanda planlarsın, öbür yanda yıl kendi kendine dolar.',
+  'tut.metas.5.titulo': 'İşte bu yüzden merkezde',
   'tut.metas.5.texto':
-    'Bir önerinin işaretleri sayfasında durur, hedeflerinde değil: zaman çizelgene dokunmadan yaptıklarını işaretleyebilirsin. Çubuklar yukarı doğru kendiliğinden dolar — mutfağın planlaması çoktan kapandı.',
-  'tut.metas.6.titulo': 'Gerçek zaman çizelgesine taşı',
-  'tut.metas.6.texto':
-    'Bu düğme her aşamayı ve her alt hedefi gerçek hedeflere çevirir: tarihleri konmuş ve asıl hedefe bağlanmış olarak. Hedefin zaten sahip olduğu şeyler korunur.',
-  'tut.metas.7.titulo': 'Kabul edildi: tek bir gerçek',
-  'tut.metas.7.texto':
-    'Yüksek lisans planı çoktan taşındı. Artık işaretleri gerçek alt hedeflerin işaretleri, çubuğu da zaman çizelgenin çubuğu: sayfa ayrı bir hesap tutmayı bırakır.',
-  'tut.metas.8.titulo': 'İşte oradalar, eksende',
-  'tut.metas.8.texto':
-    'Zaman çizelgesi BU hedefin çizelgesidir: alt hedefleri zaman ekseninde kendi dönemlerini kaplar, planın moru da üstlerine bindirilmiş halde durur — önerilen ile gerçek olan, bir arada.',
-  'tut.metas.9.titulo': 'Her hedefin kendi ekseni',
-  'tut.metas.9.texto':
-    'Bu eksen tek bir hedefin eksenidir: tarihi olmayana burada tarih verilir, yeni alt hedefler bağlanır ve «Dön» seni onun sayfasına geri götürür. Yukarıdaki Zaman Çizelgesi menüsü ise hepsini bir arada gösterir.',
-  'tut.metas.10.titulo': 'Ve buradan evin tamamına yayılır',
-  'tut.metas.10.texto':
-    'Bunların hiçbiri burada kapalı kalmaz: tarihi olan bir hedef, planlanmış her şey gibi saatin takviminde görünür ve bugünkü adımları onu taşıyan uygulamanın Görevler’inde — ve o odanın kırmızı balonunda — çıkar. Burada planlanır; uygulamada, gerçekten kaydederek tamamlanır.',
+    'Her uygulama kendi işini taşır, ama kendine koyduklarını bir arada yalnızca bu odada görürsün — ve buradan takvime ve her odanın Görevler’ine dağılır. İşi bu: her şeyin kesiştiği yer olmak.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Bir yıllık öğrenim, tek bir ağaçta',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep Fizik okuyor: yılın başında mekanik, 6. aydaki vizeye doğru termodinamik, sonunda görelilik ve astrofizik. Her dal, girdilerini görmek için açılır.',

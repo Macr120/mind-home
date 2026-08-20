@@ -6008,7 +6008,7 @@ export const NL: Dict = {
     'In rood, zodat het niet wordt verward met de vier hierboven: Doelen opent je doelen, hun plannen en de planning.',
   'tut.metas.titulo': 'Doelen',
   'tut.metas.resumen':
-    'Hoe de kamer Doelen aan de rest vastzit: doelen ontstaan in de andere apps en komen hier samen, gegroepeerd per eigen app; het blad van een doel bevat het plan dat het uitwerkt (de AI stelt voor, jij vinkt af) en zijn planning, met de fasen al als echte subdoelen. Met datums verschijnen ze in de agenda, en hun stappen van vandaag in de Missies van die app.',
+    'Hoe de kamer Doelen aan de rest vastzit: doelen ontstaan in de andere apps en komen hier samen, gegroepeerd per eigen app. Ze aantikken opent dezelfde planner als vanuit die app; hun stappen van vandaag komen terug in de Missies van die kamer en hun datums belanden in de agenda van de klok. Hier plan je, de app voert uit.',
   'tut.app-biblioteca--enciclopedia.titulo': 'Je eigen encyclopedie',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Alles wat je leert, wordt gearchiveerd in een boom per kennisgebied: items met een samenvatting en kernpunten die je kunt illustreren.',

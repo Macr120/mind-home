@@ -667,39 +667,24 @@ export const ID_TUT: Dict = {
   'tut.calendario.8.titulo': 'Masa turun juga dihitung',
   'tut.calendario.8.texto':
     'Kedua lubang itu nyata: cedera lutut di bulan ke-7 dan tiga minggu di Jepang. Bolong tidak menghapus kemajuanmu — panel ini menampilkan tahun itu apa adanya, bukan seharusnya. Dan satu rutinitas baru dihitung sejak hari kamu membuatnya.',
-  'tut.metas.0.titulo': 'Ruangan untuk menetapkan target',
+  'tut.metas.0.titulo': 'Pusat target kamu',
   'tut.metas.0.texto':
-    'Target tidak menyimpan datanya sendiri: di sinilah kamu menetapkan target dan melihat semua yang sudah kamu tetapkan, dari ruangan mana pun asalnya. Target lahir di aplikasi lain — lari di Gym, kuliah di Perpustakaan, menabung di Ruang Kerja — dan di sini semuanya berkumpul, dikelompokkan menurut aplikasi yang memegangnya.',
-  'tut.metas.1.titulo': 'Target lebih dulu',
+    'Ruangan ini tidak menyimpan apa pun miliknya. Target lahir di aplikasi lain — lari di Gym, kuliah di Perpustakaan, menabung di Ruang Kerja — dan di sini SEMUANYA berkumpul: satu-satunya tempat di rumah yang memperlihatkan semuanya sekaligus, dari ruangan mana pun asalnya.',
+  'tut.metas.1.titulo': 'Tiap target punya aplikasinya',
   'tut.metas.1.texto':
-    'Ruangan ini terbuka di Target, dikelompokkan menurut aplikasi yang memegangnya: lari di Gym, kuliah fisika di Perpustakaan. “Rumah” bukan aplikasi mana pun — kategori itu dibuat sendiri oleh Pep untuk renovasi dapurnya.',
-  'tut.metas.2.titulo': 'Dari target ke rencananya',
+    'Foldernya bukan hiasan: tiap folder adalah aplikasi yang memegang target-target itu, dan aplikasi itulah yang tahu apakah tercapai, karena di sanalah kamu mencatat. «Rumah» bukan aplikasi — kategori itu dibuat sendiri oleh Pep untuk renovasi dapur.',
+  'tut.metas.2.titulo': 'Lembar yang sama, dari dua sisi',
   'tut.metas.2.texto':
-    'Setiap baris terbaca seperti papan: nomornya di dalam folder, tenggatnya, kemajuannya, dan statusnya — Belum dikerjakan, Sedang berjalan, atau Selesai, tergantung seberapa banyak yang sudah tercentang. Satu klik membuka targetnya: rencananya kalau ada (tanda ✨ yang memberitahu) dan, kalau tidak, lembarnya berisi sub-target, tanggal, dan langkah-langkahnya.',
-  'tut.metas.3.titulo': 'Tiga rencana, tiga status',
+    'Menyentuh sebuah target membuka lembarnya dan, kalau ada, rencananya. Ini perencana yang SAMA dengan yang muncul saat kamu menyentuhnya dari aplikasinya, dengan satu beda: di sana terbatas pada aplikasi itu, di sini kamu melihatnya utuh, dengan target seluruh rumah sekaligus.',
+  'tut.metas.3.titulo': 'Diselesaikan di aplikasinya, bukan di sini',
   'tut.metas.3.texto':
-    'Dapur dan maraton berikutnya masih berupa usulan; pendaftaran pascasarjana sudah masuk Linimasa. Rencana maraton diminta tanpa tenggat: AI menghitung bahwa itu butuh 24 minggu, dan mengatakannya di ringkasannya.',
-  'tut.metas.4.titulo': 'Lembar rencananya',
+    'Apa yang diminta sebuah target HARI INI tidak dikerjakan di ruangan ini: itu muncul di Misi aplikasi yang memegangnya, bercampur dengan sisa harinya, dan tercapai dengan mencatat sungguhan di sana. Di sini merencanakan; aplikasi mengerjakan.',
+  'tut.metas.4.titulo': 'Dan tanggalnya, di kalender',
   'tut.metas.4.texto':
-    'Tanda ✨ di sebuah baris menandakan target itu sudah punya rencana, dan mengekliknya membuka lembar ini: tahap-tahap beserta sub-targetnya, masing-masing dengan periodenya sendiri. Selama masih usulan, semuanya bisa diedit: ganti nama, geser tanggal, tambah atau buang simpul tanpa mengacaukan yang lain.',
-  'tut.metas.5.titulo': 'Mencentang tanpa terikat',
+    'Target yang punya tenggat jatuh ke kalender jam seperti hal terjadwal lainnya, berikut subtarget dari rencananya. Kamu merencanakan di satu sisi dan tahunnya terisi sendiri di sisi lain.',
+  'tut.metas.5.titulo': 'Karena itu ia ada di tengah',
   'tut.metas.5.texto':
-    'Centang sebuah usulan tinggal di lembarnya, bukan di targetmu: kamu bisa menandai yang sudah selesai tanpa menyentuh linimasamu. Batangnya terisi sendiri ke atas — perencanaan dapur sudah ditutup.',
-  'tut.metas.6.titulo': 'Pindahkan ke linimasa nyata',
-  'tut.metas.6.texto':
-    'Tombol ini mengubah setiap tahap dan setiap sub-target menjadi target sungguhan, dengan tanggalnya sudah terpasang dan menggantung pada target aslinya. Apa yang sudah dimiliki target itu tetap dipertahankan.',
-  'tut.metas.7.titulo': 'Diterima: satu kebenaran saja',
-  'tut.metas.7.texto':
-    'Rencana pascasarjana sudah dipindahkan. Sekarang centangnya adalah centang sub-target nyata dan batangnya adalah batang linimasamu: lembarnya berhenti menghitung sendiri.',
-  'tut.metas.8.titulo': 'Dan itu dia, di sumbunya',
-  'tut.metas.8.texto':
-    'Linimasanya milik target INI: sub-targetnya menempati periodenya di sumbu waktu, dengan rencananya tertumpuk berwarna ungu di atasnya — yang diusulkan dan yang nyata, bersama-sama.',
-  'tut.metas.9.titulo': 'Setiap target, sumbunya sendiri',
-  'tut.metas.9.texto':
-    'Sumbunya selalu milik satu target: di sini yang belum punya tanggal diberi tanggal, sub-target baru digantungkan, dan «Kembali» membawamu balik ke lembarnya. Menu Linimasa di atas menampilkan linimasa semua target sekaligus.',
-  'tut.metas.10.titulo': 'Dan dari sini menyebar ke seluruh rumah',
-  'tut.metas.10.texto':
-    'Tidak ada yang terkunci di sini: target yang punya tanggal muncul di kalender jam seperti hal terjadwal lainnya, dan langkah-langkah hari ini muncul di Misi aplikasi yang memegangnya — juga di gelembung merah ruangan itu. Di sini merencanakan; menuntaskannya di aplikasi, dengan mencatat sungguhan.',
+    'Tiap aplikasi mengurus miliknya, tapi apa yang kamu tetapkan hanya terlihat bersama di ruangan ini — dan dari sini menyebar ke kalender dan ke Misi masing-masing. Itulah tugasnya: menjadi tempat semuanya bersilangan.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Setahun kuliah, dalam satu pohon',
   'tut.app-biblioteca--enciclopedia.1.texto':
     'Pep kuliah Fisika: mekanika di awal tahun, termodinamika menjelang ujian tengah semester di bulan ke-6, relativitas dan astrofisika di akhir. Setiap cabang terbuka untuk memperlihatkan entri-entrinya.',

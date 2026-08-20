@@ -5998,7 +5998,7 @@ export const IT: Dict = {
     'In rosso, per non confonderlo con i quattro sopra: Obiettivi apre i tuoi obiettivi, i loro piani e il programma.',
   'tut.metas.titulo': 'Obiettivi',
   'tut.metas.resumen':
-    'Come la stanza Obiettivi si lega al resto: gli obiettivi nascono nelle altre app e qui si riuniscono raggruppati per la propria; la loro scheda porta il piano che li sviluppa (l’IA propone, tu spunti) e il loro cronoprogramma, con le fasi già come sotto-obiettivi reali. Con le date compaiono nel calendario, e i loro passi di oggi nelle Missioni di quell’app.',
+    'Come la stanza Obiettivi si lega al resto: gli obiettivi nascono nelle altre app e qui si riuniscono, raggruppati per la propria. Toccarli apre lo stesso pianificatore che vedresti dalla sua app; i loro passi di oggi escono nelle Missioni di quella stanza e le loro date cadono nel calendario dell’orologio. Qui si pianifica, l’app esegue.',
   'tut.app-biblioteca--enciclopedia.titulo': 'La tua enciclopedia personale',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Tutto ciò che impari viene archiviato in un albero per campo di conoscenza: schede con riepilogo e punti chiave che puoi illustrare.',

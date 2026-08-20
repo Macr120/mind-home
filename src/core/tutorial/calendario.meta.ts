@@ -38,7 +38,7 @@ export const tutorialMetas = tour(
   T('tut.metas.titulo', 'Metas'),
   T(
     'tut.metas.resumen',
-    'Cómo el cuarto de Metas se enlaza con el resto: las metas nacen en las demás apps y aquí se juntan agrupadas por la suya; su hoja lleva el plan que la desarrolla (la IA lo propone y tú lo palomeas) y su cronograma, con las fases ya como sub-metas reales. Con fechas puestas salen en el calendario, y sus pasos de hoy en las Misiones de esa app.',
+    'Cómo el cuarto de Metas se enlaza con el resto: las metas nacen en las demás apps y aquí se juntan todas, agrupadas por la suya. Tocarlas abre el mismo planificador que verías desde su app; sus pasos de hoy salen en las Misiones de ese cuarto y sus fechas caen en el calendario del reloj. Aquí se planea, la app ejecuta.',
   ),
   'cuerpoMetas',
 )

@@ -5970,7 +5970,7 @@ export const PL: Dict = {
     'Na czerwono, żeby nie mylić z czterema powyższymi: Cele otwierają twoje cele, ich plany i harmonogram.',
   'tut.metas.titulo': 'Cele',
   'tut.metas.resumen':
-    'Jak pokój Cele łączy się z resztą: cele rodzą się w innych aplikacjach i zbierają się tutaj, pogrupowane według swojej; karta celu zawiera plan, który go rozwija (SI proponuje, ty odhaczasz), i jego harmonogram, w którym fazy są już prawdziwymi podcelami. Z datami trafiają do kalendarza, a ich dzisiejsze kroki do Misji tej aplikacji.',
+    'Jak pokój Cele łączy się z resztą: cele rodzą się w innych aplikacjach i zbierają się tutaj, pogrupowane według swojej. Dotknięcie otwiera ten sam planer co z tamtej aplikacji; ich dzisiejsze kroki wychodzą w Misjach tamtego pokoju, a daty trafiają do kalendarza zegara. Tutaj się planuje, aplikacja wykonuje.',
   'tut.app-biblioteca--enciclopedia.titulo': 'Twoja osobista encyklopedia',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Wszystko, czego się uczysz, trafia do drzewa według dziedziny wiedzy: wpisy z podsumowaniem i kluczowymi punktami, które możesz zilustrować.',

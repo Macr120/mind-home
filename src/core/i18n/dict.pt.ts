@@ -5959,7 +5959,7 @@ export const PT: Dict = {
     'Em vermelho, para não confundir com as quatro de cima: Objetivos reúne o checklist de hoje de todos os seus apps. Suas metas e seus planos ficam em um cômodo próprio.',
   'tut.metas.titulo': 'Metas',
   'tut.metas.resumen':
-    'Como o cômodo Metas se liga ao resto: as metas nascem nos outros apps e aqui se juntam agrupadas pelo seu; a folha de cada uma traz o plano que a desenvolve (a IA propõe e você marca) e o cronograma, com as fases já como submetas reais. Com datas, aparecem no calendário, e os passos de hoje nas Missões daquele app.',
+    'Como o cômodo Metas se liga ao resto: as metas nascem nos outros apps e aqui se juntam, agrupadas pelo seu. Tocá-las abre o mesmo planejador que você veria pelo app; os passos de hoje saem nas Missões daquele cômodo e as datas caem no calendário do relógio. Aqui se planeja, o app executa.',
   'tut.app-biblioteca--enciclopedia.titulo': 'A enciclopédia própria',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Tudo o que você aprende é arquivado numa árvore por campo do conhecimento: fichas com resumo e pontos-chave que você pode ilustrar.',

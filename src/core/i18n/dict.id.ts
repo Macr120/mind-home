@@ -5994,7 +5994,7 @@ export const ID: Dict = {
     'Berwarna merah, agar tidak tertukar dengan empat tampilan di atas: Target membuka target-targetmu, rencananya, dan linimasa.',
   'tut.metas.titulo': 'Target',
   'tut.metas.resumen':
-    'Bagaimana ruangan Target terhubung dengan yang lain: target lahir di aplikasi lain dan berkumpul di sini dikelompokkan menurut aplikasinya; lembar tiap target memuat rencana yang mengembangkannya (AI mengusulkan, kamu mencentang) dan lini masanya, dengan fase-fase yang sudah menjadi subtarget sungguhan. Begitu bertanggal, semuanya muncul di kalender, dan langkah hari ini di Misi aplikasi tersebut.',
+    'Bagaimana ruangan Target terhubung dengan yang lain: target lahir di aplikasi lain dan berkumpul di sini, dikelompokkan menurut aplikasinya. Menyentuhnya membuka perencana yang sama seperti dari aplikasi itu; langkah hari ini muncul di Misi ruangan tersebut dan tanggalnya jatuh ke kalender jam. Di sini merencanakan, aplikasi mengerjakan.',
   'tut.app-biblioteca--enciclopedia.titulo': 'Ensiklopedia milikmu sendiri',
   'tut.app-biblioteca--enciclopedia.resumen':
     'Semua yang kamu pelajari diarsipkan dalam pohon berdasarkan bidang pengetahuan: kartu dengan ringkasan dan poin utama yang bisa kamu beri ilustrasi.',

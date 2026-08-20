@@ -125,12 +125,14 @@ export const cuerpoCalendario: CuerpoTutorial = {
 }
 
 /**
- * El recorrido por las metas sobre los planes de Pep@: se abre una propuesta
- * desde su fila (la hoja editable), luego el posgrado (ya aceptado, que es el
- * que enseña el modo espejo) y desde su hoja el eje ACOTADO a esa meta.
+ * Cómo el cuarto de Metas se enlaza con el resto de la casa: de dónde vienen las
+ * metas (de las demás apps), qué se abre al tocarlas (el mismo planificador que
+ * su app), dónde se cumplen (en las Misiones de esa app) y dónde caen sus fechas
+ * (en el calendario del reloj).
  *
- * Nunca pulsa «Generar plan»: en la demo eso gastaría créditos y el guard del
- * sandbox tiraría el resultado.
+ * NO recorre los tres menús del cuarto —eso es el esencial de la app
+ * (`rooms/metas/tutorial.ts`)— ni los chips de enlace, que tienen su propio tour.
+ * Corre sobre el año de Pep@: sin metas de varias apps no hay integración que ver.
  */
 export const cuerpoMetas: CuerpoTutorial = {
   preparar: () => {
@@ -140,125 +142,68 @@ export const cuerpoMetas: CuerpoTutorial = {
     localStorage.setItem(claveLS('mh.metas.columnas'), 'lista')
     // Las metas viven en su propio cuarto desde que dejaron el reloj.
     abrirApp('metas')
-    // Los planes de Pep@ los siembran sus apps: el del maratón Ejercicio y el del
-    // posgrado —el único ACEPTADO, el que enseña el modo espejo— Biblioteca. Quien
-    // entra al demo directo a este tour solo trae el año del calendario, así que se
-    // piden aquí (idempotente y sin efecto fuera del demo).
+    // Las metas de Pep@ las siembran SUS apps —el maratón Ejercicio, la carrera
+    // Biblioteca—, y el calendario trae lo agendado del último paso. Quien entra
+    // al demo directo a este tour solo trae uno de esos años, así que se piden
+    // aquí (idempotente y sin efecto fuera del demo).
     void construirAppDemo('ejercicio')
     void construirAppDemo('biblioteca')
+    void construirAppDemo('calendario')
   },
   pasos: [
     {
       // Sin `sel`: la tarjeta acompaña al mago mientras el cuarto termina de
-      // montar. Es el encuadre del tour — de qué va este cuarto y con qué habla —,
-      // porque el recorrido de sus tres menús es el esencial de la app.
-      titulo: T('tut.metas.0.titulo', 'Un cuarto para proponerte cosas'),
+      // montar, y lo que cuenta este paso no está en ningún mando concreto.
+      titulo: T('tut.metas.0.titulo', 'El centro de tus metas'),
       texto: T(
         'tut.metas.0.texto',
-        'Metas no guarda nada suyo: es donde te propones cosas y donde se ve todo lo que te propusiste, venga del cuarto que venga. Las metas nacen en las demás apps —correr en Ejercicio, la carrera en Biblioteca, ahorrar en el Despacho— y aquí se juntan agrupadas por la app que lleva cada una.',
+        'Este cuarto no guarda nada suyo. Las metas nacen en las demás apps —correr en Ejercicio, la carrera en Biblioteca, ahorrar en el Despacho— y aquí se juntan TODAS: es el único sitio de la casa donde se ven a la vez, vengan del cuarto que vengan.',
       ),
     },
     {
       sel: 'cal.metas.grupo',
-      titulo: T('tut.metas.1.titulo', 'Primero, las metas'),
+      titulo: T('tut.metas.1.titulo', 'Cada meta, con su app'),
       texto: T(
         'tut.metas.1.texto',
-        'El cuarto abre en Metas, agrupadas por la app que las lleva: correr en Ejercicio, la carrera de física en Biblioteca. «Casa» no es ninguna app — esa categoría la inventó Pep@ para la obra de la cocina.',
+        'Las carpetas no son un adorno: cada una es la app que lleva esas metas, y es ella la que sabe si se cumplen, porque es donde registras. «Casa» no es ninguna app — esa categoría se la inventó Pep@ para la obra de la cocina.',
       ),
       // `preparar` entra al cuarto, pero la app tarda en montar (va en lazy).
       esperar: 'cal.metas.grupo',
     },
     {
       sel: 'cal.metas.lista',
-      titulo: T('tut.metas.2.titulo', 'De la meta a su plan'),
+      titulo: T('tut.metas.2.titulo', 'La misma hoja, desde los dos lados'),
       texto: T(
         'tut.metas.2.texto',
-        'Cada fila se lee como un tablero: su número en la carpeta, el plazo, el avance y el estado — por hacer, en curso o hecho, según lo que lleve cumplido. Un clic abre la meta: su plan si lo tiene (el ✨ lo anuncia) y, si no, su hoja con las sub-metas, las fechas y los pasos.',
+        'Tocar una meta abre su hoja y, si lo tiene, su plan. Es el MISMO planificador que sale al tocarla desde su app, con una diferencia: allí va acotado a esa app y aquí lo ves entero, con las metas de toda la casa a la vez.',
       ),
     },
     {
-      sel: 'cal.plan.lista',
-      titulo: T('tut.metas.3.titulo', 'Tres planes, tres estados'),
+      // Sin `sel`: lo que cuenta pasa en OTRA pantalla (el panel de cada cuarto).
+      titulo: T('tut.metas.3.titulo', 'Se cumplen en su app, no aquí'),
       texto: T(
         'tut.metas.3.texto',
-        'La cocina y el siguiente maratón siguen siendo propuestas; la solicitud de posgrado ya está en el cronograma. El del maratón se pidió sin fecha límite: la IA calculó que exige 24 semanas y lo dice en su resumen.',
+        'Lo que una meta pide HOY no se hace en este cuarto: sale en las Misiones de la app que la lleva, mezclado con lo demás de su día, y se cumple registrando de verdad allí. Aquí se planea; la app ejecuta.',
       ),
-      alEntrar: () => {
-        clickTut('cal.cron.modo.planes')
-      },
-      esperar: 'cal.plan.lista',
     },
     {
-      sel: 'cal.plan.hoja.fases',
-      titulo: T('tut.metas.4.titulo', 'La hoja del plan'),
+      sel: 'cal.panel',
+      alEntrar: async () => {
+        useRutinasUI.getState().abrirCalendario('mes')
+        await esperarTut('cal.panel', 3000)
+      },
+      esperar: 'cal.panel',
+      titulo: T('tut.metas.4.titulo', 'Y sus fechas, en el calendario'),
       texto: T(
         'tut.metas.4.texto',
-        'El ✨ de una fila anuncia que la meta ya tiene plan, y su clic abre esta hoja: las fases y sus sub-metas, cada una con su periodo. Mientras es propuesta se edita entera: renombrar, mover fechas, agregar o quitar nodos sin descuadrar a los demás.',
+        'Una meta con plazo cae en el calendario del reloj como cualquier otra cosa agendada, y con ella las sub-metas de su plan. Se planifica en un sitio y el año se llena solo en el otro.',
       ),
-      alEntrar: () => {
-        clickTut('cal.plan.tarjeta.propuesta')
-      },
-      // Solo existe en la hoja de una propuesta: confirma que montó la correcta.
-      esperar: 'cal.plan.hoja.aceptar',
     },
     {
-      sel: 'cal.plan.hoja.check',
-      titulo: T('tut.metas.5.titulo', 'Palomear sin comprometerse'),
+      titulo: T('tut.metas.5.titulo', 'Por eso está en el centro'),
       texto: T(
         'tut.metas.5.texto',
-        'Los checks de una propuesta viven en la hoja, no en tus metas: puedes ir marcando lo hecho sin tocar tu cronograma. Las barras se llenan solas hacia arriba — la planificación de la cocina ya está cerrada.',
-      ),
-    },
-    {
-      sel: 'cal.plan.hoja.aceptar',
-      titulo: T('tut.metas.6.titulo', 'Mover a cronograma real'),
-      texto: T(
-        'tut.metas.6.texto',
-        'Este botón convierte cada fase y cada sub-meta en metas de verdad, con sus fechas puestas y colgando de la meta original. Lo que la meta ya tuviera se conserva.',
-      ),
-    },
-    {
-      sel: 'cal.plan.hoja.avance',
-      titulo: T('tut.metas.7.titulo', 'Aceptado: una sola verdad'),
-      texto: T(
-        'tut.metas.7.texto',
-        'El plan del posgrado ya se movió. Ahora sus checks son los de las sub-metas reales y la barra es la de tu cronograma: la hoja deja de llevar una cuenta aparte.',
-      ),
-      // Idempotente: volver a la lista no hace nada si ya estás en ella.
-      alEntrar: async () => {
-        clickTut('cal.plan.volver')
-        await esperarTut('cal.plan.tarjeta.aceptado', 3000)
-        clickTut('cal.plan.tarjeta.aceptado')
-      },
-      esperar: 'cal.plan.hoja.verCronograma',
-    },
-    {
-      sel: 'cal.cron.eje',
-      titulo: T('tut.metas.8.titulo', 'Y ahí están, en el eje'),
-      texto: T(
-        'tut.metas.8.texto',
-        'El cronograma es el de ESTA meta: sus sub-metas ocupan su periodo sobre el eje del tiempo, con el plan superpuesto en violeta encima — lo propuesto y lo real, juntos.',
-      ),
-      alEntrar: () => {
-        clickTut('cal.plan.hoja.verCronograma')
-      },
-      esperar: 'cal.cron.eje',
-    },
-    {
-      sel: 'cal.cron.volver',
-      titulo: T('tut.metas.9.titulo', 'Cada meta, su eje'),
-      texto: T(
-        'tut.metas.9.texto',
-        'Este eje es el de UNA meta: aquí se le dan fechas a lo que no las tiene, se cuelgan sub-metas nuevas y «Volver» te regresa a su hoja. El menú Cronograma de arriba enseña el de todas juntas.',
-      ),
-    },
-    {
-      // Cierre del tour: el camino de vuelta. Sin `sel` porque lo que cuenta pasa
-      // en OTRAS pantallas (el reloj y el panel de cada cuarto), no en esta.
-      titulo: T('tut.metas.10.titulo', 'Y de aquí sale hacia toda la casa'),
-      texto: T(
-        'tut.metas.10.texto',
-        'Nada de esto se queda encerrado: una meta con fechas aparece en el calendario del reloj como cualquier otra cosa agendada, y sus pasos de hoy salen en las Misiones de la app que la lleva —y en el globo rojo de ese cuarto—. Aquí se planea; se cumple en la app, registrando de verdad.',
+        'Cada app lleva lo suyo, pero lo que te propusiste solo se ve junto en este cuarto — y desde aquí sale hacia el calendario y hacia las Misiones de cada uno. Ese es su trabajo: ser el sitio donde todo se cruza.',
       ),
     },
   ],
