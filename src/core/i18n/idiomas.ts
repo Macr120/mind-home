@@ -180,6 +180,14 @@ export type Idioma = (typeof IDIOMAS)[number]['id']
 /** El idioma del que todo lo demás es traducción. */
 export const IDIOMA_BASE: Idioma = 'es'
 
+/**
+ * Con qué idioma arranca una instalación nueva, ANTES de que el usuario elija:
+ * inglés, que es lo que entiende más gente y en lo que se pinta el selector de
+ * la puerta de entrada. No es `IDIOMA_BASE`, que significa otra cosa (el idioma
+ * original del código y último respaldo de `t()`).
+ */
+export const IDIOMA_DEFAULT: Idioma = 'en'
+
 /** Lo guardado en localStorage o lo que mande la IA, saneado al catálogo. */
 export function idiomaValido(v: unknown): Idioma {
   return IDIOMAS.some((i) => i.id === v) ? (v as Idioma) : IDIOMA_BASE

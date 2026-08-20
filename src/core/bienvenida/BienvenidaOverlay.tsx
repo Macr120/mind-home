@@ -2,7 +2,6 @@ import { useMemo, useState, type ReactNode } from 'react'
 import { Shapes } from 'lucide-react'
 import { useAjustes, type EstiloIconos } from '../state/ajustesStore'
 import { useT } from '../i18n/useT'
-import { IDIOMAS } from '../i18n/idiomas'
 import { TEMAS_UI, modoBase, type ModoUI } from '../ui/temasUI'
 import { Icono } from '../ui/iconos/Icono'
 import { MASCOTAS, type MascotaId } from '../chat/mascotas'
@@ -199,13 +198,12 @@ function GuiaPasos() {
   )
 }
 
-const TOTAL_PASOS = 5
+// Cuatro: el idioma se pregunta antes, en la puerta de entrada (`PuertaIdioma`).
+const TOTAL_PASOS = 4
 
 function Wizard() {
   const t = useT()
   const cerrar = useBienvenida((s) => s.cerrar)
-  const idioma = useAjustes((s) => s.idioma)
-  const setIdioma = useAjustes((s) => s.setIdioma)
   const temaUI = useAjustes((s) => s.temaUI)
   const setTemaUI = useAjustes((s) => s.setTemaUI)
   const modoUI = useAjustes((s) => s.modoUI)
@@ -280,7 +278,6 @@ function Wizard() {
     },
   ]
   const titulos = [
-    t('bienvenida.idioma.titulo', '¿En qué idioma quieres la casa?'),
     t('bienvenida.apariencia.titulo', '¿Cómo quieres ver la interfaz?'),
     t('bienvenida.intereses.titulo', '¿Qué te interesa llevar aquí?'),
     t('bienvenida.personaje.titulo', '¿Qué personaje quieres ser?'),
@@ -307,37 +304,7 @@ function Wizard() {
       </header>
 
       <div className="min-h-0 flex-1 overflow-y-auto py-3">
-        {paso === 0 && (
-          <div className="space-y-3">
-            <p className="text-sm text-white/60">
-              {t('bienvenida.idioma.desc', 'Puedes cambiarlo después en Configuraciones.')}
-            </p>
-            {/* Cada chip lleva su endónimo (banderas: excepción deliberada a <Icono>). */}
-            <div className="grid grid-cols-3 gap-1.5 sm:grid-cols-4">
-              {IDIOMAS.map((it) => {
-                const activo = idioma === it.id
-                return (
-                  <button
-                    key={it.id}
-                    type="button"
-                    lang={it.id}
-                    onClick={() => setIdioma(it.id)}
-                    className={`flex flex-col items-center justify-center gap-1 rounded-xl border px-1.5 py-2.5 text-xs font-semibold leading-tight transition ${
-                      activo
-                        ? 'ui-accent-bg border-transparent'
-                        : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
-                    }`}
-                  >
-                    <span className="text-lg">{it.flag}</span>
-                    <span className="text-center">{it.endonimo}</span>
-                  </button>
-                )
-              })}
-            </div>
-          </div>
-        )}
-
-        {paso === 2 && (
+        {paso === 1 && (
           <div className="space-y-3">
             <p className="text-sm text-white/60">
               {t(
@@ -397,7 +364,7 @@ function Wizard() {
           </div>
         )}
 
-        {paso === 1 && (
+        {paso === 0 && (
           <div className="space-y-4">
             <div className="space-y-1.5">
               <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
@@ -484,7 +451,7 @@ function Wizard() {
           </div>
         )}
 
-        {paso === 3 && (
+        {paso === 2 && (
           <div className="space-y-3">
             <p className="text-sm text-white/60">
               {t(
@@ -533,7 +500,7 @@ function Wizard() {
           </div>
         )}
 
-        {paso === 4 && (
+        {paso === 3 && (
           <div className="space-y-3">
             <p className="text-sm text-white/60">
               {t('bienvenida.asistente.desc', 'Tu asistente habla contigo en el chat y vive en el mapa.')}

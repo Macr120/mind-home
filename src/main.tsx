@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import { DemoGate } from './demo/DemoGate'
+import { PuertaIdioma } from './core/ui/PuertaIdioma'
 import { PuertaUnlock } from './core/ui/PuertaUnlock'
 import { aplicarSpawnDemo } from './demo/spawn'
 import { bindKeyboard } from './core/house/movement'
@@ -112,9 +113,13 @@ createRoot(document.getElementById('root')!).render(
         previas no ven puerta. Lo cobrable (créditos, sync) lo revalida además
         el servidor. */}
     <DemoGate>
-      <PuertaUnlock>
-        <App />
-      </PuertaUnlock>
+      {/* El idioma va ANTES que la puerta: lo primero que se pregunta, para que
+          hasta la pantalla de cuenta se lea en el idioma del usuario. */}
+      <PuertaIdioma>
+        <PuertaUnlock>
+          <App />
+        </PuertaUnlock>
+      </PuertaIdioma>
     </DemoGate>
   </StrictMode>,
 )

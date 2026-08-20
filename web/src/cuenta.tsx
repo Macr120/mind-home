@@ -606,8 +606,7 @@ function MiCuenta() {
       )}
 
       {/* Dos acciones y nada más: abrir la app y salir. Las descargas viven en
-          la landing (`/#descargas`), a la que ya lleva «Consigue la app». Borrar
-          la cuenta se queda: las tiendas exigen que exista esa vía. */}
+          la landing (`/#descargas`), a la que ya lleva «Consigue la app». */}
       <Panel>
         {URL_APP && (
           <a href={URL_APP} className={botonSecundario + ' block text-center'}>
@@ -617,7 +616,6 @@ function MiCuenta() {
         <button type="button" onClick={() => void salir()} className={botonSecundario}>
           Cerrar sesión
         </button>
-        <EliminarCuenta />
       </Panel>
     </>
   )
@@ -674,45 +672,6 @@ function ProActivo({
           </a>
         )}
       </Panel>
-    </>
-  )
-}
-
-function EliminarCuenta() {
-  const eliminarCuenta = useSesion((s) => s.eliminarCuenta)
-  const [ocupado, setOcupado] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-
-  const alBorrar = async () => {
-    if (ocupado) return
-    if (
-      !window.confirm(
-        '¿Borrar tu cuenta y todos tus datos de los servidores? Esta acción no se puede deshacer. Los datos locales de tus dispositivos se conservan.',
-      )
-    )
-      return
-    if (!window.confirm('Última confirmación: ¿borrar la cuenta definitivamente?')) return
-    setOcupado(true)
-    setError(null)
-    try {
-      const err = await eliminarCuenta()
-      if (err) setError(err)
-    } finally {
-      setOcupado(false)
-    }
-  }
-
-  return (
-    <>
-      <button
-        type="button"
-        onClick={() => void alBorrar()}
-        disabled={ocupado}
-        className="w-full rounded-lg border border-red-400/20 bg-red-400/5 px-3 py-2 text-xs font-semibold text-red-400/70 transition hover:bg-red-400/10 disabled:opacity-50"
-      >
-        {ocupado ? 'Borrando…' : 'Eliminar cuenta'}
-      </button>
-      {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
     </>
   )
 }

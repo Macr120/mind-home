@@ -212,7 +212,9 @@ export const TEMAS_UI: TemaUI[] = [
 ]
 
 export const TEMA_UI_DEFAULT: TemaUIId = 'medianoche'
-export const MODO_UI_DEFAULT: ModoUI = 'oscuro'
+/** Con qué luz arranca una instalación nueva. Claro: es lo que espera quien abre
+ *  la app de día y por primera vez; el oscuro sigue a un toque en Configuraciones. */
+export const MODO_UI_DEFAULT: ModoUI = 'claro'
 
 /** Defaults del vidrio: equivalen al look previo (panel ~92% + blur 12px). */
 export const VIDRIO_TRANSPARENCIA_DEFAULT = 0.15

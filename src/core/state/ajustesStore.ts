@@ -16,7 +16,7 @@ import {
   type TipografiaId,
 } from '../ui/tipografias'
 import { colorFondo, estadoCielo } from '../house/cielo'
-import { IDIOMAS, idiomaValido, type Idioma } from '../i18n/idiomas'
+import { IDIOMA_BASE, IDIOMA_DEFAULT, IDIOMAS, idiomaValido, type Idioma } from '../i18n/idiomas'
 import {
   guardarCalidadImagen,
   leerCalidadImagen,
@@ -127,7 +127,14 @@ const ESTILO_ICONOS_DEFAULT: EstiloIconos = 'profesional'
 const HORA_METAS_DEFAULT = '20:00'
 
 function leerIdioma(): Idioma {
-  return idiomaValido(localStorage.getItem(LS_IDIOMA))
+  const v = localStorage.getItem(LS_IDIOMA)
+  if (v) return idiomaValido(v)
+  // Sin nada guardado manda `IDIOMA_DEFAULT` (inglés), no el idioma base: la
+  // puerta de entrada (`PuertaIdioma`) pregunta el idioma y tiene que pintarse
+  // en algo neutro. Pero solo en una instalación NUEVA: a quien ya venía usando
+  // la app no se le cambia el idioma por debajo — llevaba todo este tiempo en el
+  // base y nunca le preguntamos. La bandera es la de `bienvenidaStore`.
+  return localStorage.getItem('mh.bienvenida') === '1' ? IDIOMA_BASE : IDIOMA_DEFAULT
 }
 
 function leerTemaUI(): TemaUIId {
@@ -136,7 +143,10 @@ function leerTemaUI(): TemaUIId {
 
 function leerModoUI(): ModoUI {
   const v = localStorage.getItem(LS_MODO_UI)
-  return v === 'claro' || v === 'transparente' ? v : MODO_UI_DEFAULT
+  // Los TRES valores explícitos (como en `leerEstiloIconos`): así cambiar el
+  // default no le voltea el modo a quien sí lo eligió — con 'oscuro' cayendo al
+  // default, quien lo tenía puesto a mano habría amanecido en claro.
+  return v === 'claro' || v === 'oscuro' || v === 'transparente' ? v : MODO_UI_DEFAULT
 }
 
 function leerEstiloIconos(): EstiloIconos {
