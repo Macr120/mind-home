@@ -15,6 +15,8 @@ import { StrictMode, useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import './cuenta.css'
 import { obtenerSupabase, hayBackend } from '../../src/core/cuenta/supabase'
+import { aplicarIdioma, IDIOMA, ruta, t } from './i18n'
+import { SelectorIdioma, BotonTema } from './Controles'
 import { iniciarSesion, useSesion } from '../../src/core/cuenta/sesionStore'
 import {
   hayPagos,
@@ -54,15 +56,21 @@ function Panel({ children }: { children: React.ReactNode }) {
 function Marco({ children }: { children: React.ReactNode }) {
   return (
     <div className="mx-auto flex min-h-screen w-full max-w-md flex-col gap-3 px-4 py-8">
-      <a href="/" className="flex items-center justify-center gap-2 text-white/90">
-        <img src="/favicon.svg?v=2" alt="" className="h-9 w-9 rounded-lg" />
-        <span className="text-lg font-extrabold">Mind Planner Home</span>
-      </a>
+      {/* Los mismos dos controles que la barra de la landing, aquí junto al
+          logo: es la única fila fija que tiene esta página. */}
+      <div className="barra flex items-center gap-2 !p-0">
+        <a href={ruta('/')} className="flex flex-1 items-center gap-2 text-white/90">
+          <img src="/favicon.svg?v=2" alt="" className="h-9 w-9 rounded-lg" />
+          <span className="text-lg font-extrabold">Mind Planner Home</span>
+        </a>
+        <SelectorIdioma />
+        <BotonTema />
+      </div>
       {children}
       <p className="text-center text-[11px] text-white/55">
-        <a href="/privacidad" className="hover:text-white/85">Privacidad</a>
+        <a href={ruta('/privacidad')} className="hover:text-white/85">{t('marco.privacidad', 'Privacidad')}</a>
         {' · '}
-        <a href="/terminos" className="hover:text-white/85">Términos</a>
+        <a href={ruta('/terminos')} className="hover:text-white/85">{t('marco.terminos', 'Términos')}</a>
       </p>
     </div>
   )
@@ -112,18 +120,18 @@ function BotonesOAuth() {
             d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"
           />
         </svg>
-        Continuar con Google
+        {t('oauth.google', 'Continuar con Google')}
       </button>
       <button type="button" onClick={() => void con('apple')} disabled={ocupado} className={botonCls}>
         <svg viewBox="0 0 384 512" className="h-4 w-4 shrink-0 fill-current" aria-hidden>
           <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
         </svg>
-        Continuar con Apple
+        {t('oauth.apple', 'Continuar con Apple')}
       </button>
       {error && <p className="text-xs leading-snug text-red-400/90">{error}</p>}
       <div className="flex items-center gap-2 text-[11px] text-white/45">
         <span className="h-px flex-1 bg-white/10" />
-        o con tu correo
+        {t('oauth.oCorreo', 'o con tu correo')}
         <span className="h-px flex-1 bg-white/10" />
       </div>
     </>
@@ -155,7 +163,7 @@ function Acceso() {
       } else {
         const err = await registrar(email.trim(), contrasena)
         if (err) setError(err)
-        else setAviso('Cuenta creada: revisa tu correo y confírmalo para poder entrar.')
+        else setAviso(t('acc.creada', 'Cuenta creada: revisa tu correo y confírmalo para poder entrar.'))
       }
     } finally {
       setOcupado(false)
@@ -165,7 +173,7 @@ function Acceso() {
   const olvide = async () => {
     if (ocupado) return
     if (!email.trim()) {
-      setError('Escribe tu correo arriba primero.')
+      setError(t('acc.faltaCorreo', 'Escribe tu correo arriba primero.'))
       return
     }
     setOcupado(true)
@@ -173,7 +181,7 @@ function Acceso() {
     try {
       const err = await restablecer(email.trim())
       if (err) setError(err)
-      else setAviso('Te enviamos un correo para restablecer tu contraseña.')
+      else setAviso(t('acc.enviado', 'Te enviamos un correo para restablecer tu contraseña.'))
     } finally {
       setOcupado(false)
     }
@@ -182,19 +190,19 @@ function Acceso() {
   return (
     <Panel>
       <h1 className="text-base font-bold text-white/90">
-        {modo === 'registrar' ? 'Crea tu cuenta' : 'Entra a tu cuenta'}
+        {modo === 'registrar' ? t('acc.crear', 'Crea tu cuenta') : t('acc.entrar', 'Entra a tu cuenta')}
       </h1>
       <p className="text-xs text-white/45">
         {modo === 'registrar'
-          ? 'Primero tu cuenta; después eliges tu suscripción.'
-          : 'Tu suscripción y tu casa te esperan.'}
+          ? t('acc.crear.sub', 'Primero tu cuenta; después eliges tu suscripción.')
+          : t('acc.entrar.sub', 'Tu suscripción y tu casa te esperan.')}
       </p>
       <BotonesOAuth />
       <input
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        placeholder="Correo"
+        placeholder={t('acc.correo', 'Correo')}
         autoComplete="email"
         className={inputCls}
       />
@@ -205,14 +213,14 @@ function Acceso() {
         onKeyDown={(e) => {
           if (e.key === 'Enter') void enviar()
         }}
-        placeholder="Contraseña"
+        placeholder={t('acc.contrasena', 'Contraseña')}
         autoComplete={modo === 'entrar' ? 'current-password' : 'new-password'}
         className={inputCls}
       />
       {error && <p className="text-xs leading-snug text-red-400/90">{error}</p>}
       {aviso && <p className="text-xs leading-snug text-emerald-300/90">{aviso}</p>}
       <button type="button" onClick={() => void enviar()} disabled={ocupado} className={botonPrincipal}>
-        {modo === 'entrar' ? 'Entrar' : 'Crear cuenta'}
+        {modo === 'entrar' ? t('acc.btEntrar', 'Entrar') : t('acc.btCrear', 'Crear cuenta')}
       </button>
       <button
         type="button"
@@ -223,7 +231,9 @@ function Acceso() {
         }}
         className={botonSecundario}
       >
-        {modo === 'entrar' ? 'No tengo cuenta: crear una' : 'Ya tengo cuenta: entrar'}
+        {modo === 'entrar'
+          ? t('acc.sinCuenta', 'No tengo cuenta: crear una')
+          : t('acc.conCuenta', 'Ya tengo cuenta: entrar')}
       </button>
       {modo === 'entrar' && (
         <button
@@ -232,7 +242,7 @@ function Acceso() {
           disabled={ocupado}
           className="w-full py-0.5 text-[11px] text-white/40 transition hover:text-white/60"
         >
-          ¿Olvidaste tu contraseña?
+          {t('acc.olvide', '¿Olvidaste tu contraseña?')}
         </button>
       )}
     </Panel>
@@ -249,7 +259,7 @@ function NuevaContrasena({ alTerminar }: { alTerminar: () => void }) {
 
   const guardar = async () => {
     if (nueva.length < 8 || ocupado) {
-      if (nueva.length < 8) setError('Mínimo 8 caracteres.')
+      if (nueva.length < 8) setError(t('pass.minimo', 'Mínimo 8 caracteres.'))
       return
     }
     setOcupado(true)
@@ -262,18 +272,18 @@ function NuevaContrasena({ alTerminar }: { alTerminar: () => void }) {
 
   return (
     <Panel>
-      <h1 className="text-base font-bold text-white/90">Elige tu nueva contraseña</h1>
+      <h1 className="text-base font-bold text-white/90">{t('pass.titulo', 'Elige tu nueva contraseña')}</h1>
       <input
         type="password"
         value={nueva}
         onChange={(e) => setNueva(e.target.value)}
-        placeholder="Nueva contraseña"
+        placeholder={t('pass.nueva', 'Nueva contraseña')}
         autoComplete="new-password"
         className={inputCls}
       />
       {error && <p className="text-xs leading-snug text-red-400/90">{error}</p>}
       <button type="button" onClick={() => void guardar()} disabled={ocupado} className={botonPrincipal}>
-        Guardar contraseña
+        {t('pass.guardar', 'Guardar contraseña')}
       </button>
     </Panel>
   )
@@ -289,22 +299,24 @@ function NuevaContrasena({ alTerminar }: { alTerminar: () => void }) {
 function ConseguirApp() {
   return (
     <Panel>
-      <h2 className="text-sm font-bold text-white/90">Consigue la app</h2>
+      <h2 className="text-sm font-bold text-white/90">{t('app.titulo', 'Consigue la app')}</h2>
       <div className="space-y-2 rounded-xl border border-accent/50 bg-white/5 p-3">
         <p className="text-2xl font-extrabold text-white/95">
-          6.99 USD<span className="text-sm font-semibold text-white/50"> pago único</span>
+          6.99 USD<span className="text-sm font-semibold text-white/50">{' '}
+            {t('app.pagoUnico', 'pago único')}
+          </span>
         </p>
         <ul className="list-none space-y-1 text-xs text-white/60">
-          <li>✓ Tu casa para siempre, con todas las apps</li>
-          <li>✓ Primer mes incluido: 700 créditos de IA + sincronización</li>
-          <li>✓ Se compra en Google Play o el App Store</li>
+          <li>✓ {t('app.b1', 'Tu casa para siempre, con todas las apps')}</li>
+          <li>✓ {t('app.b2', 'Primer mes incluido: 700 créditos de IA + sincronización')}</li>
+          <li>✓ {t('app.b3', 'Se compra en Google Play o el App Store')}</li>
         </ul>
         <a href="/#descargas" className={botonPrincipal + ' block text-center'}>
-          Ver dónde descargarla
+          {t('app.cta', 'Ver dónde descargarla')}
         </a>
       </div>
       <p className="text-[11px] leading-snug text-white/45">
-        Al abrirla, entra con este mismo correo y tu casa te sigue a todos tus dispositivos.
+        {t('app.pie', 'Al abrirla, entra con este mismo correo y tu casa te sigue a todos tus dispositivos.')}
       </p>
     </Panel>
   )
@@ -343,7 +355,7 @@ function Creditos() {
     setError(null)
     try {
       const ok = await comprarCreditos(oferta.paquete)
-      if (!ok) setError('El pago está en camino: recarga la página en unos segundos.')
+      if (!ok) setError(t('cred.enCamino', 'El pago está en camino: recarga la página en unos segundos.'))
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e))
     } finally {
@@ -353,19 +365,23 @@ function Creditos() {
 
   return (
     <Panel>
-      <h2 className="text-sm font-bold text-white/90">Créditos sueltos</h2>
+      <h2 className="text-sm font-bold text-white/90">{t('cred.titulo', 'Créditos sueltos')}</h2>
       <div className="space-y-2 rounded-xl border border-white/10 bg-white/5 p-3">
         <p className="text-2xl font-extrabold text-white/95">
           {oferta.precio}
-          <span className="text-sm font-semibold text-white/50"> pago único</span>
+          <span className="text-sm font-semibold text-white/50">{' '}
+            {t('app.pagoUnico', 'pago único')}
+          </span>
         </p>
         <ul className="list-none space-y-1 text-xs text-white/60">
-          <li>✓ {oferta.creditos} créditos de IA, sin suscripción</li>
-          <li>✓ No caducan: se quedan en tu cuenta hasta que los gastes</li>
-          <li>✓ Se usan cuando tus créditos del mes se acaban</li>
+          <li>✓ {t('cred.b1', '{n} créditos de IA, sin suscripción', { n: oferta.creditos })}</li>
+          <li>✓ {t('cred.b2', 'No caducan: se quedan en tu cuenta hasta que los gastes')}</li>
+          <li>✓ {t('cred.b3', 'Se usan cuando tus créditos del mes se acaban')}</li>
         </ul>
         <button type="button" onClick={() => void alComprar()} disabled={ocupado} className={botonSecundario}>
-          {ocupado ? 'Procesando…' : `Recargar ${oferta.creditos} créditos`}
+          {ocupado
+            ? t('comun.procesando', 'Procesando…')
+            : t('cred.cta', 'Recargar {n} créditos', { n: oferta.creditos })}
         </button>
       </div>
       {error && <p className="text-xs leading-snug text-red-400/90">{error}</p>}
@@ -390,7 +406,7 @@ function Tarifas({ titulo }: { titulo: string }) {
         if (vivo) setOfertas(o)
       })
       .catch(() => {
-        if (vivo) setError('No se pudieron cargar los precios. Recarga la página.')
+        if (vivo) setError(t('tar.errorPrecios', 'No se pudieron cargar los precios. Recarga la página.'))
       })
     obtenerAnual()
       .then((o) => {
@@ -412,7 +428,7 @@ function Tarifas({ titulo }: { titulo: string }) {
     setError(null)
     try {
       const ok = suscrito ? await cambiarNivel(o.paquete, o.nivel) : await comprar(o.paquete)
-      if (!ok) setError('El cambio no se completó. Recarga la página en unos segundos.')
+      if (!ok) setError(t('tar.errorCambio', 'El cambio no se completó. Recarga la página en unos segundos.'))
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e))
     } finally {
@@ -421,13 +437,19 @@ function Tarifas({ titulo }: { titulo: string }) {
   }
 
   if (!hayPagos()) {
-    return <p className="text-xs text-white/45">Los pagos no están configurados en este entorno.</p>
+    return (
+      <p className="text-xs text-white/45">
+        {t('tar.sinPagos', 'Los pagos no están configurados en este entorno.')}
+      </p>
+    )
   }
 
   return (
     <Panel>
       <h2 className="text-sm font-bold text-white/90">{titulo}</h2>
-      {ofertas.length === 0 && !error && <p className="text-xs text-white/45">Cargando precios…</p>}
+      {ofertas.length === 0 && !error && (
+        <p className="text-xs text-white/45">{t('tar.cargando', 'Cargando precios…')}</p>
+      )}
       {ofertas.map((o) => {
         const actual = suscrito && o.nivel === nivelActual
         return (
@@ -441,19 +463,23 @@ function Tarifas({ titulo }: { titulo: string }) {
               <p className="text-2xl font-extrabold text-white/95">
                 {o.precio}
                 <span className="text-sm font-semibold text-white/50">
-                  {o.periodo === 'anio' ? ' /año' : o.periodo === 'mes' ? ' /mes' : ''}
+                  {o.periodo === 'anio'
+                    ? ` ${t('tar.porAnio', '/año')}`
+                    : o.periodo === 'mes'
+                      ? ` ${t('tar.porMes', '/mes')}`
+                      : ''}
                 </span>
               </p>
               {actual && (
                 <span className="rounded-full bg-accent px-2 py-0.5 text-[11px] font-bold text-accent-ink">
-                  Tu nivel
+                  {t('tar.tuNivel', 'Tu nivel')}
                 </span>
               )}
             </div>
             <ul className="list-none space-y-1 text-xs text-white/60">
-              <li>✓ Nivel ×{o.nivel}: {o.creditos} créditos de IA al mes</li>
-              <li>✓ Todas las apps de la casa, en todos tus dispositivos</li>
-              <li>✓ Sincronización y respaldo en la nube</li>
+              <li>✓ {t('tar.b1', 'Nivel ×{n}: {c} créditos de IA al mes', { n: o.nivel, c: o.creditos })}</li>
+              <li>✓ {t('tar.b2', 'Todas las apps de la casa, en todos tus dispositivos')}</li>
+              <li>✓ {t('tar.b3', 'Sincronización y respaldo en la nube')}</li>
             </ul>
             <button
               type="button"
@@ -462,13 +488,13 @@ function Tarifas({ titulo }: { titulo: string }) {
               className={botonPrincipal}
             >
               {actual
-                ? 'Es tu nivel actual'
+                ? t('tar.actual', 'Es tu nivel actual')
                 : ocupado
-                  ? 'Procesando…'
+                  ? t('comun.procesando', 'Procesando…')
                   : suscrito
                     ? o.nivel > nivelActual
-                      ? `Subir a ×${o.nivel}`
-                      : `Bajar a ×${o.nivel}`
+                      ? t('tar.subir', 'Subir a ×{n}', { n: o.nivel })
+                      : t('tar.bajar', 'Bajar a ×{n}', { n: o.nivel })
                     : titulo}
             </button>
           </div>
@@ -481,16 +507,16 @@ function Tarifas({ titulo }: { titulo: string }) {
           <div className="flex items-baseline gap-2">
             <p className="text-2xl font-extrabold text-white/95">
               {anual.precio}
-              <span className="text-sm font-semibold text-white/50"> /año</span>
+              <span className="text-sm font-semibold text-white/50">{` ${t('tar.porAnio', '/año')}`}</span>
             </p>
             <span className="rounded-full bg-white/10 px-2 py-0.5 text-[11px] font-bold text-white/70">
-              2 meses de regalo
+              {t('tar.regalo', '2 meses de regalo')}
             </span>
           </div>
           <ul className="list-none space-y-1 text-xs text-white/60">
-            <li>✓ El nivel ×1 pagado de una vez: {anual.creditos} créditos de IA cada mes</li>
-            <li>✓ Un solo cobro al año en lugar de doce</li>
-            <li>✓ Sincronización y respaldo en la nube</li>
+            <li>✓ {t('tar.a1', 'El nivel ×1 pagado de una vez: {n} créditos de IA cada mes', { n: anual.creditos })}</li>
+            <li>✓ {t('tar.a2', 'Un solo cobro al año en lugar de doce')}</li>
+            <li>✓ {t('tar.b3', 'Sincronización y respaldo en la nube')}</li>
           </ul>
           <button
             type="button"
@@ -498,14 +524,16 @@ function Tarifas({ titulo }: { titulo: string }) {
             disabled={ocupado}
             className={botonSecundario}
           >
-            {ocupado ? 'Procesando…' : 'Pagar un año'}
+            {ocupado ? t('comun.procesando', 'Procesando…') : t('tar.anual', 'Pagar un año')}
           </button>
         </div>
       )}
       {error && <p className="text-xs leading-snug text-red-400/90">{error}</p>}
       <p className="text-[11px] leading-snug text-white/35">
-        Sin permanencia: subes, bajas o cancelas cuando quieras y solo pagas la diferencia. Si
-        cancelas, la app sigue en tus dispositivos en modo local, sin IA ni sincronización.
+        {t(
+          'tar.pie',
+          'Sin permanencia: subes, bajas o cancelas cuando quieras y solo pagas la diferencia. Si cancelas, la app sigue en tus dispositivos en modo local, sin IA ni sincronización.',
+        )}
       </p>
     </Panel>
   )
@@ -550,17 +578,25 @@ function MiCuenta() {
               plan === 'pro' || trialVigente ? 'bg-accent text-accent-ink' : 'bg-white/10 text-white/60'
             }`}
           >
-            {plan === 'pro' ? 'Pro' : trialVigente ? 'Primer mes' : 'Local'}
+            {plan === 'pro'
+              ? t('mi.pro', 'Pro')
+              : trialVigente
+                ? t('mi.trial', 'Primer mes')
+                : t('mi.local', 'Local')}
           </span>
         </div>
         {plan === 'pro' && planExpira && (
           <p className="text-xs text-white/45">
-            Renueva o vence: {new Date(planExpira).toLocaleDateString()}
+            {t('mi.vence', 'Renueva o vence: {f}', {
+              f: new Date(planExpira).toLocaleDateString(IDIOMA),
+            })}
           </p>
         )}
         {trialVigente && planExpira && (
           <p className="text-xs text-white/45">
-            Tu mes incluido termina el {new Date(planExpira).toLocaleDateString()}.
+            {t('mi.trialHasta', 'Tu mes incluido termina el {f}.', {
+              f: new Date(planExpira).toLocaleDateString(IDIOMA),
+            })}
           </p>
         )}
       </Panel>
@@ -573,7 +609,9 @@ function MiCuenta() {
               ver quien solo entró a su cuenta, así que solo salen con `#planes`. */}
           {verPlanes && (
             <>
-              <Tarifas titulo={trialVigente ? 'Hazte Pro' : 'Cambiar de nivel'} />
+              <Tarifas
+                titulo={trialVigente ? t('tar.hazte', 'Hazte Pro') : t('tar.cambiar', 'Cambiar de nivel')}
+              />
               <Creditos />
             </>
           )}
@@ -583,20 +621,33 @@ function MiCuenta() {
           <Panel>
             <p className="text-xs leading-snug text-white/60">
               {fuePro
-                ? 'Tu suscripción terminó: la app sigue en tus dispositivos en modo local. Renueva y los créditos mensuales y la sincronización vuelven tal como los dejaste.'
+                ? t(
+                    'mi.estado.fuePro',
+                    'Tu suscripción terminó: la app sigue en tus dispositivos en modo local. Renueva y los créditos mensuales y la sincronización vuelven tal como los dejaste.',
+                  )
                 : trialVencido
-                  ? 'Tu mes incluido terminó: la app y tus datos son tuyos para siempre. Suscríbete para seguir con los créditos mensuales y la sincronización, o recarga créditos sueltos.'
-                  : 'Estás en modo local: la app y tus datos son tuyos sin pagar nada. La IA se paga por uso — compra los créditos que necesites, o suscríbete y recíbelos cada mes.'}
+                  ? t(
+                      'mi.estado.trialVencido',
+                      'Tu mes incluido terminó: la app y tus datos son tuyos para siempre. Suscríbete para seguir con los créditos mensuales y la sincronización, o recarga créditos sueltos.',
+                    )
+                  : t(
+                      'mi.estado.local',
+                      'Estás en modo local: la app y tus datos son tuyos sin pagar nada. La IA se paga por uso — compra los créditos que necesites, o suscríbete y recíbelos cada mes.',
+                    )}
             </p>
             {creditosExtra > 0 && (
-              <p className="text-[11px] text-white/45">Créditos disponibles: {creditosExtra}</p>
+              <p className="text-[11px] text-white/45">
+                {t('mi.disponibles', 'Créditos disponibles: {n}', { n: creditosExtra })}
+              </p>
             )}
           </Panel>
           {/* Sin la compra, lo primero es conseguir la app en la tienda. */}
           {!unlock && <ConseguirApp />}
           {verPlanes && (
             <>
-              <Tarifas titulo={fuePro ? 'Renovar suscripción' : 'Suscribirme'} />
+              <Tarifas
+                titulo={fuePro ? t('tar.renovar', 'Renovar suscripción') : t('tar.suscribir', 'Suscribirme')}
+              />
               {/* Solo con la app desbloqueada: sin unlock, la IA todavía no
                   tiene dónde usarse. */}
               {unlock && <Creditos />}
@@ -610,11 +661,11 @@ function MiCuenta() {
       <Panel>
         {URL_APP && (
           <a href={URL_APP} className={botonSecundario + ' block text-center'}>
-            Abrir la app en el navegador
+            {t('mi.abrirApp', 'Abrir la app en el navegador')}
           </a>
         )}
         <button type="button" onClick={() => void salir()} className={botonSecundario}>
-          Cerrar sesión
+          {t('mi.salir', 'Cerrar sesión')}
         </button>
       </Panel>
     </>
@@ -651,7 +702,7 @@ function ProActivo({
         {usoIA && (
           <div>
             <div className="flex items-center gap-2 text-xs text-white/60">
-              <span className="flex-1">Créditos de IA este mes</span>
+              <span className="flex-1">{t('pro.creditosMes', 'Créditos de IA este mes')}</span>
               <span className="tabular-nums text-white/40">
                 {usoIA.creditos}/{usoIA.limiteCreditos}
               </span>
@@ -661,14 +712,14 @@ function ProActivo({
             </div>
             {creditosExtra > 0 && (
               <p className="mt-1 text-[11px] text-white/45">
-                Créditos extra (recargas, no caducan): {creditosExtra}
+                {t('pro.extra', 'Créditos extra (recargas, no caducan): {n}', { n: creditosExtra })}
               </p>
             )}
           </div>
         )}
         {urlG && (
           <a href={urlG} target="_blank" rel="noreferrer" className={botonSecundario + ' block text-center'}>
-            Gestionar suscripción (cancelar, cambiar pago)
+            {t('pro.gestionar', 'Gestionar suscripción (cancelar, cambiar pago)')}
           </a>
         )}
       </Panel>
@@ -706,7 +757,10 @@ function Pagina() {
       <Marco>
         <Panel>
           <p className="text-xs text-white/60">
-            Este entorno no tiene backend configurado (faltan las variables VITE_SUPABASE_*).
+            {t(
+              'pag.sinBackend',
+              'Este entorno no tiene backend configurado (faltan las variables VITE_SUPABASE_*).',
+            )}
           </p>
         </Panel>
       </Marco>
@@ -715,7 +769,7 @@ function Pagina() {
   if (cargando) {
     return (
       <Marco>
-        <p className="text-center text-sm text-white/45">Cargando…</p>
+        <p className="text-center text-sm text-white/45">{t('pag.cargando', 'Cargando…')}</p>
       </Marco>
     )
   }
@@ -728,6 +782,8 @@ function Pagina() {
   }
   return <Marco>{usuario ? <MiCuenta /> : <Acceso />}</Marco>
 }
+
+aplicarIdioma()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

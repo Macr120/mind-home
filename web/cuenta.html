@@ -3,9 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- El tema guardado, ANTES de pintar: con React montando después se vería
+         un destello de claro. El idioma lo pone la propia página (src/i18n.ts). -->
+    <script>
+      try {
+        if (localStorage.getItem('mph.tema') === 'oscuro')
+          document.documentElement.dataset.tema = 'oscuro'
+      } catch (e) {}
+    </script>
     <title>Mi cuenta — Mind Planner Home</title>
     <meta name="description" content="Entra, suscríbete y gestiona tu suscripción de Mind Planner Home." />
-    <meta name="theme-color" content="#0f1115" />
+    <meta name="theme-color" content="#e9edf5" />
     <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
   </head>
