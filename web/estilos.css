@@ -7,8 +7,9 @@
    El acento y los toques salen del icono real (public/icon.svg). */
 
 :root {
-  /* Sin esto Chrome aplica su auto-dark y reescribe los colores de la página. */
-  color-scheme: light dark;
+  /* Sin esto Chrome aplica su auto-dark y reescribe los colores de la página.
+     `light` a secas: la web no tiene modo oscuro. */
+  color-scheme: light;
 
   /* Tema medianoche de la app, con el morado del icono como acento. */
   --ui-bg: #0f1115;
@@ -57,20 +58,20 @@
   }
 }
 
-/* Modo claro de la app: solo cambian los colores base. */
-@media (prefers-color-scheme: light) {
-  :root {
-    --ui-bg: #e9edf5;
-    --ui-panel: #f8fafd;
-    --ui-panel-2: #eef2f8;
-    --ui-ink: #1c2333;
-    --ui-accent: #6d34b8;
-    --sombra: 0 20px 25px -5px rgb(28 35 51 / 0.1), 0 8px 10px -6px rgb(28 35 51 / 0.08);
-    /* Sobre fondo claro la tinta rebajada pierde contraste antes: las dos
-       secundarias suben para no bajar de AA (medido, no a ojo). */
-    --tinta-2: color-mix(in srgb, var(--ui-ink) 82%, transparent);
-    --tinta-3: color-mix(in srgb, var(--ui-ink) 70%, transparent);
-  }
+/* Modo claro de la app, y aquí SIEMPRE: la web abre en claro pase lo que pase
+   con el tema del sistema (ago 2026), igual que la app. Estos valores pisan a
+   los de arriba por orden, así que la paleta oscura queda de andamio. */
+:root {
+  --ui-bg: #e9edf5;
+  --ui-panel: #f8fafd;
+  --ui-panel-2: #eef2f8;
+  --ui-ink: #1c2333;
+  --ui-accent: #6d34b8;
+  --sombra: 0 20px 25px -5px rgb(28 35 51 / 0.1), 0 8px 10px -6px rgb(28 35 51 / 0.08);
+  /* Sobre fondo claro la tinta rebajada pierde contraste antes: las dos
+     secundarias suben para no bajar de AA (medido, no a ojo). */
+  --tinta-2: color-mix(in srgb, var(--ui-ink) 82%, transparent);
+  --tinta-3: color-mix(in srgb, var(--ui-ink) 70%, transparent);
 }
 
 * {
