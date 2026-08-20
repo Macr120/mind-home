@@ -1,5 +1,7 @@
 /** Textos de las páginas estáticas en hindi. Traducción de `es.mjs`. */
 export const TEXTOS = {
+  'marca.nombre': 'मानसिक प्लानर-घर',
+  'marca.sub': 'Mind Planner Home',
   'nav.entrar': 'साइन इन',
   'nav.descargar': 'डाउनलोड',
   'pie.inicio': 'होम',

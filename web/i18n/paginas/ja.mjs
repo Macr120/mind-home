@@ -1,5 +1,7 @@
 /** Textos de las páginas estáticas en japonés. Traducción de `es.mjs`. */
 export const TEXTOS = {
+  'marca.nombre': 'メンタルプランナー・ハウス',
+  'marca.sub': 'Mind Planner Home',
   'nav.entrar': 'ログイン',
   'nav.descargar': 'ダウンロード',
   'pie.inicio': 'ホーム',

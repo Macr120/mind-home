@@ -1,7 +1,10 @@
 /** Textos del portal /cuenta en italiano. Traducción del español de `web/src/cuenta.tsx`. */
 export const TEXTOS: Record<string, string> = {
+  'marca.nombre': 'Pianificatore Mentale-Casa',
+  'marca.sub': 'Mind Planner Home',
   'marco.privacidad': 'Privacy',
   'marco.terminos': 'Termini',
+  'marco.titulo': 'Il mio account — Mind Planner Home',
   'tema.boton': 'Modalità chiara o scura',
   'comun.procesando': 'In corso…',
   'oauth.google': 'Continua con Google',

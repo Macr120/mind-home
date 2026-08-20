@@ -201,6 +201,25 @@ a:hover {
   border-radius: var(--radio-boton);
 }
 
+/* El nombre en el idioma de la página manda, y la marca original se queda
+   debajo en pequeño: la app se llama igual en todas partes. */
+.barra .logo .nombre {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.barra .logo small {
+  font-size: 11px;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--ui-ink) 55%, transparent);
+}
+
+/* En inglés el nombre ya ES la marca: el subtítulo viene vacío y sobra. */
+.barra .logo small:empty {
+  display: none;
+}
+
 .barra nav {
   margin-left: auto;
   display: flex;
@@ -355,7 +374,7 @@ html[data-tema='oscuro'] .tema .sol {
 /* En móvil el nombre no cabe junto a los dos botones y la barra se parte en dos
    pisos: se queda el icono, que ya identifica la marca. */
 @media (max-width: 520px) {
-  .barra .logo span {
+  .barra .logo .nombre {
     display: none;
   }
 

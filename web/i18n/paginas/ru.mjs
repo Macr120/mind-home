@@ -1,5 +1,7 @@
 /** Textos de las páginas estáticas en ruso. Traducción de `es.mjs`. */
 export const TEXTOS = {
+  'marca.nombre': 'Ментальный планировщик-Дом',
+  'marca.sub': 'Mind Planner Home',
   'nav.entrar': 'Войти',
   'nav.descargar': 'Скачать',
   'pie.inicio': 'Главная',

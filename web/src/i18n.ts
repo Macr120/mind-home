@@ -74,7 +74,12 @@ export function ruta(destino: string): string {
   return IDIOMA === IDIOMA_ORIGEN ? destino : `/${IDIOMA}${destino}`
 }
 
-/** Aplica el idioma al documento; el CSS hace el resto (árabe sin espejo). */
+/**
+ * Aplica el idioma al documento: el CSS hace el resto (árabe sin espejo) y el
+ * título, que en el HTML viene en español, se traduce aquí —cuenta.html se
+ * copia igual bajo cada idioma, así que la pestaña la pone React.
+ */
 export function aplicarIdioma(): void {
   document.documentElement.lang = IDIOMA
+  document.title = t('marco.titulo', 'Mi cuenta — Mind Planner Home')
 }

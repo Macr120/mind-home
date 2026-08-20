@@ -1,5 +1,7 @@
 /** Textos de las páginas estáticas en portugués (pt-BR). Traducción de `es.mjs`. */
 export const TEXTOS = {
+  'marca.nombre': 'Planejador Mental-Casa',
+  'marca.sub': 'Mind Planner Home',
   'nav.entrar': 'Entrar',
   'nav.descargar': 'Baixar',
   'pie.inicio': 'Início',

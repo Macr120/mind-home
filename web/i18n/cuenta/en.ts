@@ -4,8 +4,11 @@
  * demás archivos de esta carpeta va su traducción, con las mismas claves.
  */
 export const TEXTOS: Record<string, string> = {
+  'marca.nombre': 'Mind Planner Home',
+  'marca.sub': '',
   'marco.privacidad': 'Privacy',
   'marco.terminos': 'Terms',
+  'marco.titulo': 'My account — Mind Planner Home',
   'tema.boton': 'Light or dark mode',
   'comun.procesando': 'Working…',
 

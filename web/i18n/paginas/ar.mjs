@@ -1,5 +1,7 @@
 /** Textos de las páginas estáticas en árabe. Traducción de `es.mjs`. */
 export const TEXTOS = {
+  'marca.nombre': 'مخطط ذهني-بيت',
+  'marca.sub': 'Mind Planner Home',
   'nav.entrar': 'تسجيل الدخول',
   'nav.descargar': 'تنزيل',
   'pie.inicio': 'الرئيسية',

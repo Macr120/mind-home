@@ -1,5 +1,7 @@
 /** Textos de las páginas estáticas en alemán. Traducción de `es.mjs`. */
 export const TEXTOS = {
+  'marca.nombre': 'Mentaler Planer-Haus',
+  'marca.sub': 'Mind Planner Home',
   'nav.entrar': 'Anmelden',
   'nav.descargar': 'Herunterladen',
   'pie.inicio': 'Start',

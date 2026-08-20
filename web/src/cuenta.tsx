@@ -9,7 +9,9 @@
  * REUTILIZA los módulos de cuenta de la app (`src/core/cuenta/*`) por import
  * relativo — misma sesión de Supabase, mismo paywall, mismo espejo del plan.
  * Ojo: NO importar nada que arrastre dexie/three (ni useT/ajustesStore): esta
- * página debe seguir pesando poco. Solo español a propósito (la landing es ES).
+ * página debe seguir pesando poco. Los textos van por su propio i18n
+ * (`./i18n`: `t()` y `ruta()`), con el español inline y los otros quince en
+ * `web/i18n/cuenta/`.
  */
 import { StrictMode, useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
@@ -54,6 +56,8 @@ function Panel({ children }: { children: React.ReactNode }) {
 }
 
 function Marco({ children }: { children: React.ReactNode }) {
+  // En inglés el nombre ya ES la marca, así que el subtítulo viene vacío.
+  const sub = t('marca.sub', 'Mind Planner Home')
   return (
     <div className="mx-auto flex min-h-screen w-full max-w-md flex-col gap-3 px-4 py-8">
       {/* Los mismos dos controles que la barra de la landing, aquí junto al
@@ -61,7 +65,10 @@ function Marco({ children }: { children: React.ReactNode }) {
       <div className="barra flex items-center gap-2 !p-0">
         <a href={ruta('/')} className="flex flex-1 items-center gap-2 text-white/90">
           <img src="/favicon.svg?v=2" alt="" className="h-9 w-9 rounded-lg" />
-          <span className="text-lg font-extrabold">Mind Planner Home</span>
+          <span className="flex flex-col leading-tight">
+            <span className="text-lg font-extrabold">{t('marca.nombre', 'Casa mental')}</span>
+            {sub && <small className="text-[11px] font-semibold text-white/55">{sub}</small>}
+          </span>
         </a>
         <SelectorIdioma />
         <BotonTema />

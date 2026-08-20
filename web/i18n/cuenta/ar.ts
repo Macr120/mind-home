@@ -1,7 +1,10 @@
 /** Textos del portal /cuenta en árabe. Traducción del español de `web/src/cuenta.tsx`. */
 export const TEXTOS: Record<string, string> = {
+  'marca.nombre': 'مخطط ذهني-بيت',
+  'marca.sub': 'Mind Planner Home',
   'marco.privacidad': 'الخصوصية',
   'marco.terminos': 'الشروط',
+  'marco.titulo': 'حسابي — Mind Planner Home',
   'tema.boton': 'الوضع الفاتح أو الداكن',
   'comun.procesando': 'جارٍ التنفيذ…',
   'oauth.google': 'المتابعة بحساب Google',
