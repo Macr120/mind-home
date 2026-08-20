@@ -82,7 +82,9 @@ const HobbiesApp = lazy(() => import('./HobbiesApp').then((m) => ({ default: m.H
 const hobbies: Plantilla = {
   id: 'hobbies',
   nombre: 'Hobbies',
-  icon: '🎯',
+  // Guitarra y no la diana de antes: esa es la de Metas, y en el catálogo de
+  // plantillas las dos apps se veían con el mismo icono.
+  icon: '🎸',
   categoria: 'complemento',
   color: '#8b5cf6',
   App: HobbiesApp,

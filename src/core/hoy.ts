@@ -276,16 +276,17 @@ export async function armarPasosHoy(
   // cumplida y desaparece — nunca convive con las de verdad, así que ni engorda
   // la cuenta del día ni puede completar una lista por sí sola.
   //
-  // «Vacía» es sin objetivos declarados por la plantilla Y sin ninguna fila suya
-  // en `rutinas`, no «hoy no toca nada»: una misión de los lunes no debe hacerla
-  // reaparecer el martes. La infraestructura queda fuera: no tiene panel donde
-  // ofrecer el catálogo.
+  // «Vacía» es sin objetivos declarados por la plantilla Y sin ninguna MISIÓN
+  // suya, no «hoy no toca nada»: una misión de los lunes no debe hacerla
+  // reaparecer el martes. Las metas no cuentan —una meta no es una misión, y
+  // tenerlas no quita que la app siga sin nada que hacer hoy—. La infraestructura
+  // queda fuera: no tiene panel donde ofrecer el catálogo.
   const plantilla = plantillaId ? getPlantilla(plantillaId) : undefined
   if (
     plantillaId &&
     plantilla &&
     !esInfraestructura(plantilla) &&
-    filas.length === 0 &&
+    !filas.some((r) => !esMeta(r)) &&
     objetivosDiaDe(plantillaId).length === 0
   ) {
     pasos.push({
