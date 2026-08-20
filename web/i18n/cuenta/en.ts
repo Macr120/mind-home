@@ -5,7 +5,7 @@
  */
 export const TEXTOS: Record<string, string> = {
   'marca.nombre': 'Mind Planner Home',
-  'marca.sub': '',
+  'marca.sub': 'MPH',
   'marco.privacidad': 'Privacy',
   'marco.terminos': 'Terms',
   'marco.titulo': 'My account — Mind Planner Home',

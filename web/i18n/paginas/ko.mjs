@@ -1,6 +1,6 @@
 /** Textos de las páginas estáticas en coreano. Traducción de `es.mjs`. */
 export const TEXTOS = {
-  'marca.nombre': '멘탈 플래너-집',
+  'marca.nombre': '멘탈 플래너-집 MPH',
   'marca.sub': 'Mind Planner Home',
   'nav.entrar': '로그인',
   'nav.descargar': '내려받기',

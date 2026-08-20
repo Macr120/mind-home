@@ -1,7 +1,7 @@
 /** Textos de las páginas estáticas en inglés. Traducción de `es.mjs`. */
 export const TEXTOS = {
   'marca.nombre': 'Mind Planner Home',
-  'marca.sub': '',
+  'marca.sub': 'MPH',
   'nav.entrar': 'Sign in',
   'nav.descargar': 'Get the app',
   'pie.inicio': 'Home',

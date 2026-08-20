@@ -1,6 +1,6 @@
 /** Textos del portal /cuenta en hindi. Traducción del español de `web/src/cuenta.tsx`. */
 export const TEXTOS: Record<string, string> = {
-  'marca.nombre': 'मानसिक प्लानर-घर',
+  'marca.nombre': 'मानसिक प्लानर-घर MPH',
   'marca.sub': 'Mind Planner Home',
   'marco.privacidad': 'गोपनीयता',
   'marco.terminos': 'शर्तें',

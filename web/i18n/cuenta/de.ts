@@ -1,6 +1,6 @@
 /** Textos del portal /cuenta en alemán. Traducción del español de `web/src/cuenta.tsx`. */
 export const TEXTOS: Record<string, string> = {
-  'marca.nombre': 'Mentaler Planer-Haus',
+  'marca.nombre': 'Mentaler Planer-Haus MPH',
   'marca.sub': 'Mind Planner Home',
   'marco.privacidad': 'Datenschutz',
   'marco.terminos': 'Bedingungen',

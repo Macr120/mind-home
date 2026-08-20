@@ -8,7 +8,7 @@
  */
 export const TEXTOS = {
   // ─── Cabecera y pie, comunes a las tres páginas ──────────────────────────
-  'marca.nombre': 'Planificador Mental-Casa',
+  'marca.nombre': 'Planificador Mental-Casa MPH',
   'marca.sub': 'Mind Planner Home',
   'nav.entrar': 'Entrar',
   'nav.descargar': 'Descargar',

@@ -1,6 +1,6 @@
 /** Textos del portal /cuenta en ruso. Traducción del español de `web/src/cuenta.tsx`. */
 export const TEXTOS: Record<string, string> = {
-  'marca.nombre': 'Ментальный планировщик-Дом',
+  'marca.nombre': 'Ментальный планировщик-Дом MPH',
   'marca.sub': 'Mind Planner Home',
   'marco.privacidad': 'Конфиденциальность',
   'marco.terminos': 'Условия',

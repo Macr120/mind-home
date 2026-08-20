@@ -1,6 +1,6 @@
 /** Textos del portal /cuenta en japonés. Traducción del español de `web/src/cuenta.tsx`. */
 export const TEXTOS: Record<string, string> = {
-  'marca.nombre': 'メンタルプランナー・ハウス',
+  'marca.nombre': 'メンタルプランナー・ハウス MPH',
   'marca.sub': 'Mind Planner Home',
   'marco.privacidad': 'プライバシー',
   'marco.terminos': '利用規約',

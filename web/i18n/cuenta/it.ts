@@ -1,6 +1,6 @@
 /** Textos del portal /cuenta en italiano. Traducción del español de `web/src/cuenta.tsx`. */
 export const TEXTOS: Record<string, string> = {
-  'marca.nombre': 'Pianificatore Mentale-Casa',
+  'marca.nombre': 'Pianificatore Mentale-Casa MPH',
   'marca.sub': 'Mind Planner Home',
   'marco.privacidad': 'Privacy',
   'marco.terminos': 'Termini',

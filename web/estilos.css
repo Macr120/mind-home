@@ -215,11 +215,6 @@ a:hover {
   color: color-mix(in srgb, var(--ui-ink) 55%, transparent);
 }
 
-/* En inglés el nombre ya ES la marca: el subtítulo viene vacío y sobra. */
-.barra .logo small:empty {
-  display: none;
-}
-
 .barra nav {
   margin-left: auto;
   display: flex;

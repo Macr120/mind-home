@@ -1,6 +1,6 @@
 /** Textos de las páginas estáticas en neerlandés. Traducción de `es.mjs`. */
 export const TEXTOS = {
-  'marca.nombre': 'Mentale Planner-Huis',
+  'marca.nombre': 'Mentale Planner-Huis MPH',
   'marca.sub': 'Mind Planner Home',
   'nav.entrar': 'Inloggen',
   'nav.descargar': 'Downloaden',
