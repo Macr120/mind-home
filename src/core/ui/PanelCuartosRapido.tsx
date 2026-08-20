@@ -60,7 +60,8 @@ function useFondoPantalla(): CSSProperties | undefined {
 /**
  * El reto de Sísifo, en la misma fila del título: rango del año, insignias y
  * nivel general. Toca para abrir la montaña, igual que los aros del menú lateral.
- * El texto se esconde en pantallas estrechas; los dos aros siempre caben.
+ * Cada aro lleva su contador debajo (rango e insignias), como en la pestaña
+ * Cuartos; el texto del medio se esconde en pantallas estrechas.
  */
 function RetoSisifo({ progreso }: { progreso: ProgresoJugador | undefined }) {
   const t = useT()
@@ -73,33 +74,39 @@ function RetoSisifo({ progreso }: { progreso: ProgresoJugador | undefined }) {
   }
   return (
     <div data-tut="inicio.reto" className="flex min-w-0 shrink items-center gap-1.5">
-      <AroSisifo
-        valor={sisifo.altura / DIAS_META}
-        color={rango.color}
-        icono="montaña"
-        pequeno
-        onClick={abrir}
-        title={`${nombreRango(rango)} · ${t('sisifo.dia', 'Día')} ${sisifo.altura}/${DIAS_META}`}
-      />
+      <div className="flex shrink-0 flex-col items-center gap-0.5">
+        <AroSisifo
+          valor={sisifo.altura / DIAS_META}
+          color={rango.color}
+          icono="montaña"
+          pequeno
+          onClick={abrir}
+          title={`${nombreRango(rango)} · ${t('sisifo.dia', 'Día')} ${sisifo.altura}/${DIAS_META}`}
+        />
+        <span className="text-[9px] font-semibold tabular-nums text-white/50">
+          {sisifo.rango}/{RANGOS.length}
+        </span>
+      </div>
       <div className="hidden min-w-0 leading-tight md:block">
         <p className="truncate text-[11px] font-bold text-white/85">{nombreRango(rango)}</p>
         <p className="truncate text-[10px] text-white/45">
-          {t('sisifo.dia', 'Día')} {sisifo.altura}/{DIAS_META} · {t('progreso.nivel', 'Nivel')}{' '}
-          {progreso?.nivel ?? 1}
+          {t('progreso.nivel', 'Nivel')} {progreso?.nivel ?? 1}
         </p>
       </div>
-      <AroSisifo
-        valor={sisifo.insignias / SEMANAS}
-        color={colorArcoiris(Math.max(1, sisifo.insignias))}
-        icono="gema"
-        pequeno
-        onClick={abrir}
-        title={`${sisifo.insignias}/${SEMANAS} ${t('sisifo.insignias', 'insignias')}`}
-        ping={sisifo.hayNuevo}
-      />
-      <span className="hidden shrink-0 text-[10px] font-semibold tabular-nums text-white/50 md:inline">
-        {sisifo.insignias}/{SEMANAS}
-      </span>
+      <div className="flex shrink-0 flex-col items-center gap-0.5">
+        <AroSisifo
+          valor={sisifo.insignias / SEMANAS}
+          color={colorArcoiris(Math.max(1, sisifo.insignias))}
+          icono="gema"
+          pequeno
+          onClick={abrir}
+          title={`${sisifo.insignias}/${SEMANAS} ${t('sisifo.insignias', 'insignias')}`}
+          ping={sisifo.hayNuevo}
+        />
+        <span className="text-[9px] font-semibold tabular-nums text-white/50">
+          {sisifo.insignias}/{SEMANAS}
+        </span>
+      </div>
     </div>
   )
 }

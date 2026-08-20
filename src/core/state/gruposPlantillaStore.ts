@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import { db, GRUPOS_PLANTILLA_BASE, type GrupoPlantilla } from '../data/db'
+import { filasSeed } from '../data/sync/syncables'
 import type { TFunc } from '../i18n/useT'
 
 /**
@@ -131,22 +132,26 @@ export const useGruposPlantilla = create<GruposPlantillaState>((set, get) => ({
   },
 }))
 
-/** Carga las carpetas al arrancar; siembra las 4 iniciales la primera vez. */
+/** Carga las carpetas al arrancar; siembra las 5 iniciales la primera vez. */
 db.gruposPlantilla
   .orderBy('orden')
   .toArray()
   .then(async (rows) => {
     if (rows.length === 0) {
-      for (let i = 0; i < SEED.length; i++) {
-        const s = SEED[i]
-        await db.gruposPlantilla.add({
+      // Con uid de SIEMBRA: sin él cada dispositivo sembraba sus carpetas con un
+      // uid al azar y el sync las sumaba en vez de fundirlas — el catálogo salía
+      // repetido tantas veces como casas hubiera (lo arregla la migración v130).
+      const semilla = filasSeed(
+        'gruposPlantilla',
+        SEED.map((s, i) => ({
           nombre: s.nombre,
           emoji: s.emoji,
           orden: i,
           miembros: [...s.miembros],
           esBase: true,
-        })
-      }
+        })),
+      )
+      for (const g of semilla) await db.gruposPlantilla.add(g)
       rows = await db.gruposPlantilla.orderBy('orden').toArray()
     }
     useGruposPlantilla.setState({ grupos: rows })

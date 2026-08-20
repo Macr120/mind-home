@@ -5008,6 +5008,45 @@ class MindHomeDB extends Dexie {
         await tabla.update(admin.id, { miembros: [...admin.miembros, 'metas'] })
       }
     })
+
+    // v130: el catálogo de plantillas salía repetido (triplicado con tres
+    // dispositivos) en las casas con cuenta. Cada instalación sembraba SUS cinco
+    // carpetas base con un uid al azar y el sync, sin nada con qué reconocerlas
+    // como la misma carpeta, las sumaba como filas distintas.
+    //
+    // Aquí se funden las copias de cada carpeta base —las que comparten posición
+    // (`orden`)—: sobrevive la primera con la unión de sus miembros y estrena el
+    // uid de SIEMBRA (`seed-gruposPlantilla-<i>`, idéntico en todo dispositivo, el
+    // mismo que ahora pone `gruposPlantillaStore`), así que de aquí en adelante
+    // convergen en vez de multiplicarse. Las copias que sobran las tombstonea el
+    // middleware al borrarlas; el uid viejo de la superviviente se encola a mano,
+    // porque si no seguiría vivo en la nube y volvería a bajar como una carpeta
+    // más en la próxima casa que sincronice desde cero.
+    this.version(130).upgrade(async (tx) => {
+      const tabla = tx.table('gruposPlantilla')
+      const filas = (await tabla.toArray()) as (GrupoPlantilla & { uid?: string })[]
+      const porOrden = new Map<number, (GrupoPlantilla & { uid?: string })[]>()
+      for (const g of filas) {
+        if (g.id == null || !g.esBase) continue
+        const copias = porOrden.get(g.orden)
+        if (copias) copias.push(g)
+        else porOrden.set(g.orden, [g])
+      }
+      const slots = [...porOrden.values()].sort((a, b) => a[0].orden - b[0].orden)
+      for (let i = 0; i < slots.length; i++) {
+        const [viva, ...sobran] = slots[i].sort((a, b) => a.id! - b.id!)
+        const miembros = [...viva.miembros]
+        for (const c of sobran) {
+          for (const m of c.miembros) if (!miembros.includes(m)) miembros.push(m)
+          await tabla.delete(c.id!)
+        }
+        const uid = `seed-gruposPlantilla-${i}`
+        if (viva.uid && viva.uid !== uid) {
+          await tx.table('_outbox').add({ tabla: 'gruposPlantilla', uid: viva.uid, op: 'delete' })
+        }
+        await tabla.update(viva.id!, { miembros, uid })
+      }
+    })
   }
 }
 
