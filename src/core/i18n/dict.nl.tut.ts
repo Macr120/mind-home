@@ -399,10 +399,10 @@ export const NL_TUT: Dict = {
     'En als er iets ontbreekt: «Missie toevoegen» biedt aan wat deze app meestal voorstelt, en «Nieuwe checklist» maakt die van jou: een eigen lijst die zich elke dag herhaalt.',
   'tut.hoy.8.titulo': 'De rode bollen',
   'tut.hoy.8.texto':
-    'Dat rode bolletje op een kamer is het aantal missies dat VANDAAG nog openstaat: wat je daar nog te doen hebt. Hetzelfde getal verschijnt op het startscherm, op de instapbel en op de bol die boven het meubel van de kamer zweeft — en het wordt amber zodra iets al over zijn tijd is. Geen bolletje betekent dat die kamer bij is.',
+    'Kijk naar het huis: de bol die boven het meubel van elke kamer zweeft wordt rood als daar vandaag nog iets te doen is, en groen als er niets meer over is. Het precieze aantal staat in het rode bolletje van haar kaarten — het startscherm, het menu en de instapbel — en wordt amber als iets al over zijn tijd is.',
   'tut.hoy.9.titulo': 'En allemaal samen, in de agenda',
   'tut.hoy.9.texto':
-    'De knop Missies bij de klok bundelt wat er vandaag in het HELE huis te doen is, één kaart per app: links wat er nog is, rechts wat al klaar is. Hier leg je niets vast — elke regel brengt je naar de app, want daar wordt het gegeven genoteerd.',
+    'Dit is de knop Missies bij de klok, met een eigen bolletje: hij bundelt wat er vandaag in het HELE huis te doen is, één kaart per app — links wat er nog is, rechts wat al klaar is. Hier leg je niets vast: elke regel brengt je naar de app, want daar wordt het gegeven genoteerd.',
   'tut.progreso.1.texto':
     'De kaart van je personage: Pep heeft een heel jaar echte activiteit achter zich, dus elk getal hier heeft een echt verhaal dat het verklaart.',
   'tut.progreso.2.titulo': 'Het personage',

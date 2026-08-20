@@ -11,6 +11,7 @@ import type { CuerpoTutorial, TextoTut } from './tipos'
 import { clickTut, elTut, esperarTut } from './dom'
 import { abrirApp } from '../abrirApp'
 import { irAPestanaMenu } from './dom'
+import { useHouse } from '../state/houseStore'
 import { useRutinasUI } from '../state/rutinasUiStore'
 import { useSisifoUi } from '../state/sisifoUiStore'
 import { useWrappedUi } from '../state/wrappedUiStore'
@@ -112,32 +113,36 @@ export const cuerpoHoy: CuerpoTutorial = {
       ),
     },
     {
-      // Los globos cuelgan de las tarjetas de cuarto: se señala la lista entera,
-      // que es donde se ven varios a la vez y se entiende que son por app.
-      sel: 'menu.cuartos.lista',
+      // SIN `sel` a propósito: los orbes flotan sobre los muebles de la casa, y
+      // cualquier spotlight taparía justo lo que hay que mirar. Se despeja la
+      // pantalla —fuera del cuarto, panel cerrado y menú retraído— y la tarjeta
+      // acompaña al mago sobre la escena.
       alEntrar: async () => {
         if (elTut('hoy.lista')) clickTut('hoy.cerrar')
-        clickTut('menu.abrir')
-        await irAPestanaMenu('menu.tab.cuartos')
+        useRutinasUI.getState().cerrarCalendario()
+        useHouse.getState().closeRoom()
+        clickTut('menu.retraer')
+        await esperarTut('herr.boton', 2000)
       },
       titulo: T('tut.hoy.8.titulo', 'Los orbes rojos'),
       texto: T(
         'tut.hoy.8.texto',
-        'Ese globo rojo sobre un cuarto es su cuenta de misiones pendientes de HOY: lo que te queda por hacer ahí. El mismo número sale en la pantalla de inicio, en la burbuja de entrar y en el orbe que flota sobre el mueble del cuarto — y se pone ámbar cuando algo ya pasó de su hora. Sin globo, ese cuarto está al día.',
+        'Mira la casa: el orbe que flota sobre el mueble de cada cuarto se pone rojo cuando ahí queda algo por hacer hoy, y verde cuando no queda nada. La cuenta exacta va en el globo rojo de sus tarjetas —la pantalla de inicio, el menú y la burbuja de entrar—, y se pone ámbar si algo ya pasó de su hora.',
       ),
     },
     {
-      sel: 'cal.objetivos',
+      // Se señala el BOTÓN, no la lista que abre: es donde vive su globo, y el
+      // paso habla justamente de él. La lista queda detrás, ya abierta.
+      sel: 'cal.vista.objetivos',
       alEntrar: async () => {
-        clickTut('menu.retraer')
         useRutinasUI.getState().abrirCalendario('objetivos')
         await esperarTut('cal.objetivos', 3000)
       },
-      esperar: 'cal.objetivos',
+      esperar: 'cal.vista.objetivos',
       titulo: T('tut.hoy.9.titulo', 'Y todas juntas, en el calendario'),
       texto: T(
         'tut.hoy.9.texto',
-        'El botón Misiones del reloj junta lo que hay que hacer hoy en TODA la casa, una tarjeta por app: a la izquierda lo que falta, a la derecha lo que ya está. Aquí no se registra nada — cada fila te lleva a su app, que es donde se apunta el dato.',
+        'Este es el botón Misiones del reloj, con su propio globo: junta lo que hay que hacer hoy en TODA la casa, una tarjeta por app —a la izquierda lo que falta, a la derecha lo que ya está—. Aquí no se registra nada: cada fila te lleva a su app, que es donde se apunta el dato.',
       ),
     },
   ],

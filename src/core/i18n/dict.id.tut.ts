@@ -398,10 +398,10 @@ export const ID_TUT: Dict = {
     'Dan kalau ada yang kurang, «Tambah misi» menawarkan apa yang biasanya disarankan aplikasi ini, dan «Checklist baru» membuat milikmu sendiri: daftar yang berulang tiap hari.',
   'tut.hoy.8.titulo': 'Bola merah',
   'tut.hoy.8.texto':
-    'Gelembung merah di sebuah ruangan adalah jumlah misi yang masih tertunda HARI INI: yang tersisa buat kamu di sana. Angka yang sama muncul di layar awal, di gelembung masuk, dan di bola yang melayang di atas perabot ruangan itu — dan berubah kuning kecokelatan kalau ada yang sudah lewat jamnya. Tanpa gelembung, ruangan itu sudah beres hari ini.',
+    'Lihat rumahnya: bola yang melayang di atas perabot tiap ruangan berubah merah kalau di sana masih ada yang harus dikerjakan hari ini, dan hijau kalau tidak ada lagi. Jumlah persisnya ada di gelembung merah kartunya — layar awal, menu, dan gelembung masuk — dan berubah kuning kecokelatan kalau ada yang sudah lewat jamnya.',
   'tut.hoy.9.titulo': 'Dan semuanya sekaligus, di kalender',
   'tut.hoy.9.texto':
-    'Tombol Misi di jam mengumpulkan apa saja yang harus dikerjakan hari ini di SELURUH rumah, satu kartu per aplikasi: di kiri yang belum, di kanan yang sudah. Di sini tidak ada pencatatan — tiap baris membawamu ke aplikasinya, dan di sanalah datanya ditulis.',
+    'Ini tombol Misi di jam, dengan gelembungnya sendiri: mengumpulkan apa saja yang harus dikerjakan hari ini di SELURUH rumah, satu kartu per aplikasi — di kiri yang belum, di kanan yang sudah. Di sini tidak ada pencatatan: tiap baris membawamu ke aplikasinya, dan di sanalah datanya ditulis.',
   'tut.progreso.1.texto':
     'Kartu karaktermu: Pep punya satu tahun penuh aktivitas nyata di belakangnya, jadi setiap angka di sini punya cerita nyata yang menjelaskannya.',
   'tut.progreso.2.titulo': 'Karakternya',

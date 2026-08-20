@@ -400,10 +400,10 @@ export const FR_TUT: Dict = {
     'Et s’il te manque quelque chose, « Ajouter une mission » propose ce que cette app suggère d’habitude, et « Nouvelle checklist » crée la tienne : une liste à toi qui revient chaque jour.',
   'tut.hoy.8.titulo': 'Les orbes rouges',
   'tut.hoy.8.texto':
-    'Cette pastille rouge sur une pièce, c’est son compte de missions encore en attente AUJOURD’HUI : ce qu’il te reste à y faire. Le même chiffre apparaît sur l’écran d’accueil, sur la bulle d’entrée et sur l’orbe qui flotte au-dessus du meuble de la pièce — et il passe à l’ambre quand quelque chose a déjà dépassé son heure. Sans pastille, cette pièce est à jour.',
+    'Regarde la maison : l’orbe qui flotte au-dessus du meuble de chaque pièce passe au rouge quand il y reste quelque chose à faire aujourd’hui, et au vert quand il ne reste rien. Le compte exact est dans la pastille rouge de ses cartes — l’écran d’accueil, le menu et la bulle d’entrée — et passe à l’ambre si quelque chose a déjà dépassé son heure.',
   'tut.hoy.9.titulo': 'Et toutes ensemble, dans le calendrier',
   'tut.hoy.9.texto':
-    'Le bouton Missions de l’horloge réunit ce qu’il y a à faire aujourd’hui dans TOUTE la maison, une carte par app : à gauche ce qui manque, à droite ce qui est fait. Ici on n’enregistre rien — chaque ligne t’emmène dans son app, là où la donnée s’inscrit.',
+    'Voici le bouton Missions de l’horloge, avec sa propre pastille : il réunit ce qu’il y a à faire aujourd’hui dans TOUTE la maison, une carte par app — à gauche ce qui manque, à droite ce qui est fait. Ici on n’enregistre rien : chaque ligne t’emmène dans son app, là où la donnée s’inscrit.',
   'tut.progreso.1.texto':
     'La fiche de ton personnage : derrière Pep, il y a une année entière d’activité réelle, donc chaque chiffre ici a une vraie histoire qui l’explique.',
   'tut.progreso.2.titulo': 'Le personnage',

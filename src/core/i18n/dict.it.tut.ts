@@ -398,10 +398,10 @@ export const IT_TUT: Dict = {
     'E se ti manca qualcosa, «Aggiungi missione» ti offre quello che di solito propone quest’app, e «Nuova checklist» crea la tua: un elenco tuo che si ripete ogni giorno.',
   'tut.hoy.8.titulo': 'Le sfere rosse',
   'tut.hoy.8.texto':
-    'Quel pallino rosso su una stanza è il conto delle missioni ancora in sospeso OGGI: quello che ti resta da fare lì. Lo stesso numero compare nella schermata iniziale, nella bolla per entrare e nella sfera che fluttua sopra il mobile della stanza — e diventa ambra quando qualcosa ha già superato la sua ora. Senza pallino, quella stanza è in pari.',
+    'Guarda la casa: la sfera che fluttua sopra il mobile di ogni stanza diventa rossa quando lì resta qualcosa da fare oggi, e verde quando non resta niente. Il conto esatto sta nel pallino rosso delle sue schede — la schermata iniziale, il menu e la bolla per entrare — e diventa ambra se qualcosa ha già superato la sua ora.',
   'tut.hoy.9.titulo': 'E tutte insieme, nel calendario',
   'tut.hoy.9.texto':
-    'Il pulsante Missioni dell’orologio raccoglie quello che c’è da fare oggi in TUTTA la casa, una scheda per app: a sinistra ciò che manca, a destra ciò che è già fatto. Qui non si registra nulla — ogni riga ti porta nella sua app, che è dove il dato si annota.',
+    'Questo è il pulsante Missioni dell’orologio, con il suo pallino: raccoglie quello che c’è da fare oggi in TUTTA la casa, una scheda per app — a sinistra ciò che manca, a destra ciò che è già fatto. Qui non si registra nulla: ogni riga ti porta nella sua app, che è dove il dato si annota.',
   'tut.progreso.1.texto':
     'La scheda del tuo personaggio: Pep ha alle spalle un anno intero di attività reale, quindi ogni numero qui ha una storia vera che lo spiega.',
   'tut.progreso.2.titulo': 'Il personaggio',

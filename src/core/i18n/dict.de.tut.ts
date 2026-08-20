@@ -400,10 +400,10 @@ export const DE_TUT: Dict = {
     'Und wenn dir etwas fehlt: «Mission hinzufügen» bietet an, was diese App üblicherweise vorschlägt, und «Neue Checkliste» legt deine eigene an — eine Liste, die sich jeden Tag wiederholt.',
   'tut.hoy.8.titulo': 'Die roten Kugeln',
   'tut.hoy.8.texto':
-    'Diese rote Blase auf einem Raum ist seine Zahl offener Missionen von HEUTE: was dir dort noch bleibt. Dieselbe Zahl steht auf dem Startbildschirm, auf der Eintreten-Blase und auf der Kugel, die über dem Möbelstück des Raums schwebt — und sie wird bernsteinfarben, sobald etwas seine Uhrzeit überschritten hat. Ohne Blase ist dieser Raum auf dem Stand.',
+    'Schau dir das Haus an: die Kugel, die über dem Möbelstück jedes Raums schwebt, wird rot, wenn dort heute noch etwas offen ist, und grün, wenn nichts mehr bleibt. Die genaue Zahl steht in der roten Blase seiner Karten — Startbildschirm, Menü und Eintreten-Blase — und wird bernsteinfarben, wenn etwas seine Uhrzeit überschritten hat.',
   'tut.hoy.9.titulo': 'Und alle zusammen, im Kalender',
   'tut.hoy.9.texto':
-    'Der Missionen-Knopf der Uhr sammelt, was heute im GANZEN Haus zu tun ist, eine Karte pro App: links was fehlt, rechts was schon steht. Hier wird nichts eingetragen — jede Zeile bringt dich in ihre App, und dort entsteht der Eintrag.',
+    'Das ist der Missionen-Knopf der Uhr, mit eigener Blase: er sammelt, was heute im GANZEN Haus zu tun ist, eine Karte pro App — links was fehlt, rechts was schon steht. Hier wird nichts eingetragen: jede Zeile bringt dich in ihre App, und dort entsteht der Eintrag.',
   'tut.progreso.1.texto':
     'Der Steckbrief deiner Figur: Pep hat ein ganzes Jahr echter Aktivität hinter sich, also steckt hinter jeder Zahl hier eine echte Geschichte.',
   'tut.progreso.2.titulo': 'Die Figur',

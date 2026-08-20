@@ -398,10 +398,10 @@ export const PL_TUT: Dict = {
     'A jeśli czegoś brakuje, «Dodaj misję» podpowie to, co zwykle proponuje ta aplikacja, a «Nowa lista» stworzy twoją własną — listę, która powtarza się każdego dnia.',
   'tut.hoy.8.titulo': 'Czerwone kule',
   'tut.hoy.8.texto':
-    'Ten czerwony znacznik na pokoju to liczba misji, które zostały na DZIŚ: co ci tam jeszcze zostało. Ta sama liczba pojawia się na ekranie startowym, na dymku wejścia i na kuli unoszącej się nad meblem pokoju — a robi się bursztynowa, gdy coś minęło już swoją godzinę. Brak znacznika oznacza, że ten pokój jest na bieżąco.',
+    'Spójrz na dom: kula unosząca się nad meblem każdego pokoju robi się czerwona, gdy zostało tam coś na dziś, i zielona, gdy nie zostało nic. Dokładna liczba jest w czerwonym znaczniku jego kart — ekran startowy, menu i dymek wejścia — a robi się bursztynowa, gdy coś minęło już swoją godzinę.',
   'tut.hoy.9.titulo': 'A wszystkie razem — w kalendarzu',
   'tut.hoy.9.texto':
-    'Przycisk Misje przy zegarze zbiera to, co trzeba dziś zrobić w CAŁYM domu, po jednej karcie na aplikację: po lewej to, czego brakuje, po prawej to, co już jest. Tutaj nic się nie zapisuje — każdy wiersz prowadzi do swojej aplikacji, bo to tam trafia dana.',
+    'To przycisk Misje przy zegarze, ze swoim własnym znacznikiem: zbiera to, co trzeba dziś zrobić w CAŁYM domu, po jednej karcie na aplikację — po lewej to, czego brakuje, po prawej to, co już jest. Tutaj nic się nie zapisuje: każdy wiersz prowadzi do swojej aplikacji, bo to tam trafia dana.',
   'tut.progreso.1.texto':
     'Karta twojej postaci: za Pepem stoi cały rok prawdziwej aktywności, więc każda liczba ma tu prawdziwą historię, która ją tłumaczy.',
   'tut.progreso.2.titulo': 'Postać',

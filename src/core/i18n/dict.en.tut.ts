@@ -283,10 +283,10 @@ export const EN_TUT: Dict = {
     'And if something is missing, "Add mission" offers what this app usually suggests, and "New checklist" creates your own: a list of yours that repeats every day.',
   'tut.hoy.8.titulo': 'The red orbs',
   'tut.hoy.8.texto':
-    'That red badge on a room is its count of missions still pending TODAY: what you have left to do in there. The same number shows up on the home screen, on the enter bubble and on the orb floating above the room\'s furniture — and it turns amber when something is already past its time. No badge means that room is up to date.',
+    'Look at the house: the orb floating above each room\'s furniture turns red when something is still left to do there today, and green when nothing is. The exact count lives in the red badge on its cards — the home screen, the menu and the enter bubble — and turns amber if something is already past its time.',
   'tut.hoy.9.titulo': 'And all of them together, in the calendar',
   'tut.hoy.9.texto':
-    'The clock\'s Missions button gathers what has to be done today across the WHOLE house, one card per app: on the left what\'s left, on the right what\'s already done. Nothing is logged here — each row takes you to its app, which is where the data gets written.',
+    'This is the clock\'s Missions button, with its own badge: it gathers what has to be done today across the WHOLE house, one card per app — on the left what\'s left, on the right what\'s already done. Nothing is logged here: each row takes you to its app, which is where the data gets written.',
   'tut.progreso.1.texto': 'Your character\'s card: Pep@ has a whole year of real activity behind them, so every number here has a real story explaining it.',
   'tut.progreso.2.titulo': 'The character',
   'tut.progreso.2.texto': 'Tapping it opens the character editor. Its mood —happy, content, sad or asleep— rises with every new log and only drops if days pass with none; it never resets all at once.',

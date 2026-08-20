@@ -393,10 +393,10 @@ export const TR_TUT: Dict = {
     'Bir şey eksik kalıyorsa «Görev ekle» bu uygulamanın genelde önerdiklerini getirir, «Yeni kontrol listesi» ise seninkini oluşturur: her gün tekrarlanan kendi listen.',
   'tut.hoy.8.titulo': 'Kırmızı küreler',
   'tut.hoy.8.texto':
-    'Bir odanın üstündeki o kırmızı balon, BUGÜN orada bekleyen görev sayısıdır: sana orada kalanlar. Aynı sayı ana ekranda, giriş balonunda ve odanın mobilyasının üstünde süzülen kürede de çıkar — ve bir şeyin saati geçtiyse kehribar rengine döner. Balon yoksa o oda bugünlük tamamdır.',
+    'Eve bir bak: her odanın mobilyasının üstünde süzülen küre, bugün orada yapılacak bir şey kaldıysa kırmızıya, hiçbir şey kalmadıysa yeşile döner. Tam sayı kartlarındaki kırmızı balonda durur —ana ekran, menü ve giriş balonu— ve bir şeyin saati geçtiyse kehribar rengine döner.',
   'tut.hoy.9.titulo': 'Ve hepsi bir arada, takvimde',
   'tut.hoy.9.texto':
-    'Saatteki Görevler düğmesi, bugün EVİN tamamında yapılacakları uygulama başına birer kartta toplar: solda eksik olanlar, sağda bitenler. Burada hiçbir şey kaydedilmez — her satır seni uygulamasına götürür, veri orada yazılır.',
+    'Bu, saatteki Görevler düğmesi; kendi balonu da var: bugün EVİN tamamında yapılacakları uygulama başına birer kartta toplar —solda eksik olanlar, sağda bitenler—. Burada hiçbir şey kaydedilmez: her satır seni uygulamasına götürür, veri orada yazılır.',
   'tut.progreso.1.texto':
     'Karakterinin kartı: Pep’in arkasında bir yıllık gerçek etkinlik var, yani buradaki her sayının onu açıklayan gerçek bir hikâyesi var.',
   'tut.progreso.2.titulo': 'Karakter',

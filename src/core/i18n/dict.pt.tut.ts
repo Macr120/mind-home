@@ -396,10 +396,10 @@ export const PT_TUT: Dict = {
     'E se faltar algo, «Adicionar missão» oferece o que este app costuma sugerir, e «Nova checklist» cria a sua: uma lista própria que se repete todo dia.',
   'tut.hoy.8.titulo': 'Os orbes vermelhos',
   'tut.hoy.8.texto':
-    'Aquele balão vermelho sobre um cômodo é a conta de missões pendentes de HOJE: o que falta fazer ali. O mesmo número aparece na tela inicial, no balão de entrar e no orbe que flutua sobre o móvel do cômodo — e fica âmbar quando algo já passou da hora. Sem balão, esse cômodo está em dia.',
+    'Olhe a casa: o orbe que flutua sobre o móvel de cada cômodo fica vermelho quando ainda falta algo para hoje ali, e verde quando não falta nada. A conta exata fica no balão vermelho dos seus cartões — a tela inicial, o menu e o balão de entrar — e fica âmbar se algo já passou da hora.',
   'tut.hoy.9.titulo': 'E todas juntas, no calendário',
   'tut.hoy.9.texto':
-    'O botão Missões do relógio junta o que há para fazer hoje na casa INTEIRA, um cartão por app: à esquerda o que falta, à direita o que já está feito. Aqui não se registra nada — cada linha leva você ao app, que é onde o dado é anotado.',
+    'Este é o botão Missões do relógio, com o seu próprio balão: junta o que há para fazer hoje na casa INTEIRA, um cartão por app — à esquerda o que falta, à direita o que já está feito. Aqui não se registra nada: cada linha leva você ao app, que é onde o dado é anotado.',
   'tut.progreso.1.texto':
     'A carta do seu personagem: Pep@ tem um ano inteiro de atividade real por trás, então cada número aqui tem uma história real que o explica.',
   'tut.progreso.2.titulo': 'O personagem',
