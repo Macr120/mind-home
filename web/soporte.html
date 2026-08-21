@@ -33,7 +33,9 @@
       <h1>{{sop.titulo}}</h1>
       <p>{{sop.p}}</p>
 
-      <section>
+      <!-- Ancla de «Contacto» del pie: un `mailto:` suelto no abre nada en
+           quien no tiene cliente de correo; aquí el correo se ve y se copia. -->
+      <section id="contacto">
         <h2>{{sop.correo.h}}</h2>
         <p>
           <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a>
@@ -68,7 +70,7 @@
           <a href="/privacidad">{{pie.privacidad}}</a>
           <a href="/terminos">{{pie.terminos}}</a>
           <a href="/cuenta">{{pie.cuenta}}</a>
-          <a href="mailto:mindplannerhome@gmail.com">{{pie.contacto}}</a>
+          <a href="/soporte#contacto">{{pie.contacto}}</a>
         </div>
         <p>© 2026 Mind Planner Home</p>
       </footer>

@@ -166,6 +166,12 @@ a:hover {
   padding: 0 20px;
 }
 
+/* Llegar por ancla (#contacto, #descargas…) dejaba el destino DEBAJO de la
+   barra pegajosa: se reserva su alto. */
+:target {
+  scroll-margin-top: 88px;
+}
+
 /* ─── Barra superior (vidrio pegajoso, como el HUD de la app) ─────────────── */
 .barra-marco {
   position: sticky;
