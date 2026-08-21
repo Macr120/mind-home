@@ -13,9 +13,9 @@ export const TEXTOS = {
 
   'meta.titulo': 'Mind Planner Home — Pikiranmu, dalam sebuah rumah 3D',
   'meta.desc':
-    'Atur kebiasaan, target, keuangan, makanan, dan lainnya di rumah isometrik 3D tempat setiap ruangan adalah sebuah aplikasi. Sekali bayar 6,99 USD, bulan pertama sudah termasuk AI dan sinkronisasi; demo gratis.',
+    'Atur kebiasaan, target, keuangan, makanan, dan lainnya di rumah isometrik 3D tempat setiap ruangan adalah sebuah aplikasi. Sekali bayar 8,89 USD, bulan pertama sudah termasuk AI dan sinkronisasi; demo gratis.',
   'og.desc':
-    'Hidupmu dalam rumah 3D: kebiasaan, target, keuangan, makanan, dan lainnya. Sekali bayar 6,99 USD, bulan pertama termasuk AI; demo gratis.',
+    'Hidupmu dalam rumah 3D: kebiasaan, target, keuangan, makanan, dan lainnya. Sekali bayar 8,89 USD, bulan pertama termasuk AI; demo gratis.',
 
   'hero.h1': 'Pikiranmu,<br />dalam sebuah rumah 3D',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -215,7 +215,7 @@ export const TEXTOS = {
     'Mind Planner Home adalah aplikasi penataan pribadi. Demonya gratis dan tidak memerlukan akun. Aplikasinya dibeli dengan sekali bayar; fitur berulang (kredit AI dan sinkronisasi) hanya diambil di situs web ini; aplikasi desktop dan toko adalah klien dari akun yang sama.',
   'term.app.h': 'Aplikasinya (sekali bayar)',
   'term.app.1':
-    'Membuka aplikasinya: 6,99 USD, sekali bayar. Ini membuka rumahmu selamanya di akunmu, tanpa perpanjangan.',
+    'Membuka aplikasinya: 8,89 USD, sekali bayar. Ini membuka rumahmu selamanya di akunmu, tanpa perpanjangan.',
   'term.app.2':
     'Termasuk bulan pertama: 30 hari dengan 700 kredit AI bulanan dan sinkronisasi, tanpa kartu dan tanpa langganan. Setelah selesai, aplikasi dan datamu tetap milikmu; kredit bulanan dan sinkronisasi memerlukan langganan.',
   'term.app.3': 'Demo gratis tidak menyimpan apa pun: itu untuk mengenal aplikasinya sebelum membeli.',

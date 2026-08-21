@@ -13,9 +13,9 @@ export const TEXTOS = {
 
   'meta.titulo': 'Mind Planner Home — Sua mente, em uma casa 3D',
   'meta.desc':
-    'Organize seus hábitos, metas, finanças, refeições e mais em uma casa isométrica 3D onde cada cômodo é um app. Um único pagamento de 6,99 USD com o primeiro mês de IA e sincronização incluído; demo grátis.',
+    'Organize seus hábitos, metas, finanças, refeições e mais em uma casa isométrica 3D onde cada cômodo é um app. Um único pagamento de 8,89 USD com o primeiro mês de IA e sincronização incluído; demo grátis.',
   'og.desc':
-    'Sua vida, em uma casa 3D: hábitos, metas, finanças, refeições e mais. Um pagamento de 6,99 USD com o primeiro mês de IA incluído; demo grátis.',
+    'Sua vida, em uma casa 3D: hábitos, metas, finanças, refeições e mais. Um pagamento de 8,89 USD com o primeiro mês de IA incluído; demo grátis.',
 
   'hero.h1': 'Sua mente,<br />em uma casa 3D',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -215,7 +215,7 @@ export const TEXTOS = {
     'Mind Planner Home é um app de organização pessoal. A demo é gratuita e não exige conta. O app se compra com um pagamento único; as funções recorrentes (créditos de IA e sincronização) contratam-se unicamente nesta página web; os apps de desktop e de loja são clientes dessa mesma conta.',
   'term.app.h': 'O app (pagamento único)',
   'term.app.1':
-    'Desbloqueio do app: 6,99 USD, pagamento único. Desbloqueia sua casa para sempre na sua conta, sem renovações.',
+    'Desbloqueio do app: 8,89 USD, pagamento único. Desbloqueia sua casa para sempre na sua conta, sem renovações.',
   'term.app.2':
     'Inclui o primeiro mês: 30 dias com os 700 créditos de IA mensais e a sincronização, sem cartão e sem assinatura. Ao terminar, você fica com o app e seus dados; os créditos mensais e a sincronização exigem a assinatura.',
   'term.app.3': 'A demo gratuita não guarda nada: é para conhecer o app antes de comprá-lo.',

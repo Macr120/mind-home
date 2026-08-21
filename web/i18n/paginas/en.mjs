@@ -13,9 +13,9 @@ export const TEXTOS = {
 
   'meta.titulo': 'Mind Planner Home — Your mind, in a 3D house',
   'meta.desc':
-    'Organise your habits, goals, finances, meals and more in an isometric 3D house where every room is an app. One payment of USD 6.99 with the first month of AI and sync included; free demo.',
+    'Organise your habits, goals, finances, meals and more in an isometric 3D house where every room is an app. One payment of USD 8.89 with the first month of AI and sync included; free demo.',
   'og.desc':
-    'Your life, in a 3D house: habits, goals, finances, meals and more. One payment of USD 6.99 with the first month of AI included; free demo.',
+    'Your life, in a 3D house: habits, goals, finances, meals and more. One payment of USD 8.89 with the first month of AI included; free demo.',
 
   'hero.h1': 'Your mind,<br />in a 3D house',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -214,7 +214,7 @@ export const TEXTOS = {
     'Mind Planner Home is a personal organisation app. The demo is free and requires no account. The app is bought with a one-off payment; the recurring features (AI credits and sync) are taken out on this website only; the desktop and store apps are clients of that same account.',
   'term.app.h': 'The app (one-off payment)',
   'term.app.1':
-    'App unlock: USD 6.99, one-off payment. It unlocks your house forever on your account, with no renewals.',
+    'App unlock: USD 8.89, one-off payment. It unlocks your house forever on your account, with no renewals.',
   'term.app.2':
     'It includes the first month: 30 days with the 700 monthly AI credits and sync, with no card and no subscription. When it ends you keep the app and your data; the monthly credits and sync require the subscription.',
   'term.app.3': 'The free demo saves nothing: it is there to get to know the app before buying it.',

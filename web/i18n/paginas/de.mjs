@@ -13,9 +13,9 @@ export const TEXTOS = {
 
   'meta.titulo': 'Mind Planner Home — Dein Geist, in einem 3D-Haus',
   'meta.desc':
-    'Ordne deine Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr in einem isometrischen 3D-Haus, in dem jeder Raum eine App ist. Eine einmalige Zahlung von 6,99 USD, erster Monat mit KI und Sync inklusive; kostenlose Demo.',
+    'Ordne deine Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr in einem isometrischen 3D-Haus, in dem jeder Raum eine App ist. Eine einmalige Zahlung von 8,89 USD, erster Monat mit KI und Sync inklusive; kostenlose Demo.',
   'og.desc':
-    'Dein Leben, in einem 3D-Haus: Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr. Eine Zahlung von 6,99 USD, erster Monat mit KI inklusive; kostenlose Demo.',
+    'Dein Leben, in einem 3D-Haus: Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr. Eine Zahlung von 8,89 USD, erster Monat mit KI inklusive; kostenlose Demo.',
 
   'hero.h1': 'Dein Geist,<br />in einem 3D-Haus',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -215,7 +215,7 @@ export const TEXTOS = {
     'Mind Planner Home ist eine App zur persönlichen Organisation. Die Demo ist kostenlos und braucht kein Konto. Die App wird mit einer einmaligen Zahlung gekauft; die wiederkehrenden Funktionen (KI-Credits und Sync) werden ausschließlich auf dieser Website abgeschlossen; die Desktop- und Store-Apps sind Clients desselben Kontos.',
   'term.app.h': 'Die App (einmalige Zahlung)',
   'term.app.1':
-    'Freischaltung der App: 6,99 USD, einmalige Zahlung. Sie schaltet dein Haus für immer in deinem Konto frei, ohne Verlängerungen.',
+    'Freischaltung der App: 8,89 USD, einmalige Zahlung. Sie schaltet dein Haus für immer in deinem Konto frei, ohne Verlängerungen.',
   'term.app.2':
     'Enthält den ersten Monat: 30 Tage mit den 700 monatlichen KI-Credits und der Sync, ohne Karte und ohne Abo. Danach behältst du die App und deine Daten; die monatlichen Credits und die Sync erfordern das Abo.',
   'term.app.3':
