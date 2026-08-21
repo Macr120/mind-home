@@ -395,7 +395,7 @@ Puesta en marcha:
 Qué mirar si algo falla: `rc_eventos` guarda el payload íntegro de cada evento,
 así que ahí se ve el `product_id` real que manda cada tienda.
 
-### 3f. Créditos proporcionales + proveedor a elección (20-ago-2026) — PENDIENTE DE DESPLIEGUE
+### 3f. Créditos proporcionales + proveedor a elección — DESPLEGADO (21-ago-2026)
 
 Dos cambios que viajan juntos (ver `docs/COSTOS.md` § «Créditos proporcionales»):
 
@@ -415,12 +415,22 @@ Dos cambios que viajan juntos (ver `docs/COSTOS.md` § «Créditos proporcionale
   5.0/5.1 quieren `OPENAI_TEXT_EFFORT=minimal` en vez de `none`). Los PDF y el
   perfil `calidad` nunca salen por ahí.
 
-1. `npx supabase db push` (aplica `20260820000002_creditos_proporcionales.sql`).
-2. `npx supabase functions deploy ia-chat ia-imagen ia-tts ia-voz`.
+**Desplegado el 21-ago-2026**, en este orden (primero la migración: un proxy
+nuevo contra la BD vieja solo pierde el saldo de la deuda y cobra como antes;
+una BD nueva con proxies viejos es inofensiva, los que no mandan `prov` usan la
+cadena por defecto):
 
-Orden: primero la migración. Un proxy nuevo contra la BD vieja solo pierde el
-saldo de la deuda (cobra como antes); una BD nueva con proxies viejos es
-inofensiva (los que no mandan `prov` usan la cadena por defecto).
+1. `npx supabase db push` — aplicó `20260820000002_creditos_proporcionales.sql`
+   y `20260820000003_sin_alta_tienda.sql`, que se había quedado atrás. Cero
+   pendientes contra el remoto.
+2. `npx supabase functions deploy` — las OCHO, no solo las cuatro de IA: el
+   endurecimiento de `_shared/cors.ts` (fail-closed sin `CORS_ORIGENES`) lo
+   importan todas. `revenuecat-webhook` conserva `verify_jwt = false`
+   (verificado tras el despliegue) y `alta-tienda` sigue desplegada a propósito,
+   como puerta cerrada que responde 410.
+
+Comprobado en vivo: las funciones responden 401 sin credenciales y el preflight
+NO devuelve `*` a un origen cualquiera. `GEMINI_API_KEY` ya estaba puesta.
 
 ### 4. Storage (sync de blobs)
 La migración crea el bucket privado `sync-blobs` con acceso por carpeta de usuario;
