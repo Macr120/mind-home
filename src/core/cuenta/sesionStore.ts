@@ -8,6 +8,7 @@
 import { create } from 'zustand'
 import type { AuthError, User } from '@supabase/supabase-js'
 import { hayBackend, obtenerSupabase } from './supabase'
+import { esAppNativa } from '../plataforma'
 import { LS_FUE_PRO, LS_PLAN_EXPIRA, LS_PLAN_REAL, LS_UNLOCK, type Plan } from '../edicion'
 
 /**
@@ -93,6 +94,14 @@ interface SesionState {
   refrescarUso: () => Promise<void>
 }
 
+/**
+ * A dónde vuelve el navegador del sistema tras el login social en la app. Es un
+ * esquema propio (el applicationId, que nadie más puede reclamar) y lo enruta el
+ * `intent-filter` de `MainActivity`. Tiene que estar además en las Redirect URLs
+ * del panel de Supabase, o el proveedor se niega a volver.
+ */
+const REDIRECT_NATIVO = 'com.macr120.mindhome://oauth'
+
 function espejarPlan(plan: Plan, expira: string | null, fuePro: boolean, unlock: boolean): void {
   localStorage.setItem(LS_PLAN_REAL, plan)
   if (expira) localStorage.setItem(LS_PLAN_EXPIRA, expira)
@@ -157,6 +166,20 @@ export const useSesion = create<SesionState>((set, get) => ({
   entrarConProveedor: async (proveedor) => {
     const sb = await obtenerSupabase()
     if (!sb) return 'Sin backend'
+    if (esAppNativa()) {
+      // Google RECHAZA el login dentro de un WebView (`disallowed_useragent`),
+      // así que se abre el navegador del sistema y se vuelve por deep link:
+      // `skipBrowserRedirect` deja que seamos nosotros quienes abrimos la URL.
+      const { data, error } = await sb.auth.signInWithOAuth({
+        provider: proveedor,
+        options: { redirectTo: REDIRECT_NATIVO, skipBrowserRedirect: true },
+      })
+      if (error) return mensajeAuth(error)
+      if (!data.url) return 'Sin backend'
+      const { Browser } = await import('@capacitor/browser')
+      await Browser.open({ url: data.url })
+      return null
+    }
     // Redirige al proveedor y vuelve a la MISMA página (la app o /cuenta de la
     // web): al aterrizar, el SDK detecta la sesión en la URL y onAuthStateChange
     // hace el resto. Si no hay error, la página está a punto de abandonarse.
@@ -399,4 +422,34 @@ export function iniciarSesion(): void {
       void s.refrescarPerfil().then(() => useSesion.getState().refrescarUso())
     })
   })
+}
+
+/**
+ * Cierra el círculo del login social nativo: el navegador vuelve a la app por
+ * deep link con un `code` de PKCE y aquí se canjea por sesión (en la app no hay
+ * URL de página que el SDK pueda mirar por su cuenta). Se llama UNA vez al
+ * arrancar; `onAuthStateChange` hace el resto, igual que en la web.
+ */
+export async function escucharDeepLinkAuth(): Promise<void> {
+  if (!esAppNativa() || !hayBackend()) return
+  try {
+    const { App } = await import('@capacitor/app')
+    await App.addListener('appUrlOpen', ({ url }) => {
+      if (!url.startsWith(REDIRECT_NATIVO)) return
+      void (async () => {
+        // El code se saca a mano: `new URL()` no es de fiar con esquemas propios.
+        const code = /[?&]code=([^&]+)/.exec(url)?.[1]
+        const sb = await obtenerSupabase()
+        if (code && sb) {
+          const { error } = await sb.auth.exchangeCodeForSession(decodeURIComponent(code))
+          if (error) console.warn('[MPH] El login social no se pudo completar:', error.message)
+        }
+        // La pestaña del navegador se queda encima si no se cierra a mano.
+        const { Browser } = await import('@capacitor/browser')
+        await Browser.close().catch(() => {})
+      })()
+    })
+  } catch (err) {
+    console.warn('[MPH] No se pudo escuchar el deep link de login:', err)
+  }
 }

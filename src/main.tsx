@@ -8,7 +8,7 @@ import { PuertaUnlock } from './core/ui/PuertaUnlock'
 import { aplicarSpawnDemo } from './demo/spawn'
 import { bindKeyboard } from './core/house/movement'
 import { bindAtajosPersonaje } from './core/house/atajosTeclado'
-import { iniciarSesion } from './core/cuenta/sesionStore'
+import { escucharDeepLinkAuth, iniciarSesion } from './core/cuenta/sesionStore'
 import { esDemo, sellarDerechos } from './core/edicion'
 import { conectarMotorSync } from './core/data/sync/motor'
 import { abrirApp } from './core/abrirApp'
@@ -98,6 +98,8 @@ if ('serviceWorker' in navigator) {
 
 // Android: el toque en la notificación del sistema entra por el plugin.
 void iniciarAvisosNativos(seguirAviso)
+// Y la vuelta del navegador tras el login con Google/Apple.
+void escucharDeepLinkAuth()
 
 const params = new URLSearchParams(location.search)
 const appPedida = params.get('app')

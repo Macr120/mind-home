@@ -8,6 +8,7 @@
  * app se comporta 100% local, exactamente como antes de existir el backend.
  */
 import type { SupabaseClient } from '@supabase/supabase-js'
+import { esAppNativa } from '../plataforma'
 
 const url = import.meta.env.VITE_SUPABASE_URL as string | undefined
 const anon = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined
@@ -25,7 +26,13 @@ export function obtenerSupabase(): Promise<SupabaseClient | null> {
     if (!url || !anon) return null
     try {
       const { createClient } = await import('@supabase/supabase-js')
-      return createClient(url, anon)
+      // En la app nativa el login social sale al navegador del sistema y vuelve
+      // por deep link con un `code`: eso es PKCE, y el canje lo hace a mano
+      // `escucharDeepLinkAuth` (no hay URL de página que el SDK pueda mirar).
+      // En web se deja el flujo de siempre para no tocar lo que ya funciona.
+      return esAppNativa()
+        ? createClient(url, anon, { auth: { flowType: 'pkce', detectSessionInUrl: false } })
+        : createClient(url, anon)
     } catch (e) {
       cliente = null
       console.warn('[MPH] No se pudo cargar el SDK de Supabase', e)

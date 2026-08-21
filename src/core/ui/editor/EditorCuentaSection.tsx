@@ -15,7 +15,7 @@ import {
   urlGestion,
   type OfertaPro,
 } from '../../cuenta/paywall'
-import { canalPago, esAppNativa } from '../../plataforma'
+import { canalPago } from '../../plataforma'
 import { sincronizar } from '../../data/sync/motor'
 import { GastoByok } from '../GastoByok'
 
@@ -129,18 +129,15 @@ export function FormularioAcceso({ inicial = 'entrar' }: { inicial?: 'entrar' | 
           'Con una cuenta estrenas tu primer mes: 700 créditos de IA y sincronización, sin tarjeta.',
         )}
       </p>
-      {/* En la app nativa (WebView) Google bloquea OAuth (disallowed_useragent):
-          ese flujo llegará con @capacitor/browser + deep link. Solo web por ahora. */}
-      {!esAppNativa() && (
-        <>
-          <BotonesOAuth />
-          <div className="flex items-center gap-2 text-[10px] text-white/30">
-            <span className="h-px flex-1 bg-white/10" />
-            {t('cuenta.oCorreo', 'o con tu correo')}
-            <span className="h-px flex-1 bg-white/10" />
-          </div>
-        </>
-      )}
+      {/* También en la app: Google rechaza OAuth dentro del WebView
+          (`disallowed_useragent`), así que en nativo el flujo sale al navegador
+          del sistema y vuelve por deep link (ver `entrarConProveedor`). */}
+      <BotonesOAuth />
+      <div className="flex items-center gap-2 text-[10px] text-white/30">
+        <span className="h-px flex-1 bg-white/10" />
+        {t('cuenta.oCorreo', 'o con tu correo')}
+        <span className="h-px flex-1 bg-white/10" />
+      </div>
       <input
         type="email"
         value={email}

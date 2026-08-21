@@ -24,6 +24,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+            <!--
+              Vuelta del login con Google/Apple: el flujo sale al navegador del
+              sistema (el WebView lo rechaza Google) y regresa a este esquema
+              propio con el `code` de PKCE, que canjea `escucharDeepLinkAuth`.
+              El esquema es el applicationId: nadie más puede reclamarlo. La MISMA
+              URL tiene que estar en las Redirect URLs de Supabase.
+            -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="com.macr120.mindhome" android:host="oauth" />
+            </intent-filter>
+
         </activity>
 
         <!-- Widgets de pantalla de inicio (ver src/core/widgets/ y widgets/ en java) -->
