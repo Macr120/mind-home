@@ -54,7 +54,7 @@ function Selector({ alListo }: { alListo: () => void }) {
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-[#0f1115] p-4">
+    <div className="ui-app fixed inset-0 z-50 flex items-center justify-center overflow-y-auto p-4">
       <div className="ui-panel ui-pop flex w-full max-w-lg flex-col rounded-2xl border border-white/10 p-5 shadow-2xl">
         <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
           Mind Planner Home

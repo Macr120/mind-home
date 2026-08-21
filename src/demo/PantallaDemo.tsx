@@ -38,7 +38,7 @@ export function PantallaDemo() {
   }
 
   return (
-    <div className="ui-noche fixed inset-0 z-50 flex items-center justify-center bg-[#0f1115] p-4">
+    <div className="ui-app fixed inset-0 z-50 flex items-center justify-center p-4">
       <div className="w-full max-w-sm space-y-3 text-center">
         <img src="/icon.svg" alt="" className="mx-auto h-12 w-12" />
         {error ? (

@@ -52,12 +52,12 @@ const botonSecundario =
 
 function Marco({ children }: { children: React.ReactNode }) {
   return (
-    // `ui-noche`: el fondo es oscuro FIJO, pero en base clara `temasUI` reescribe
-    // `--color-white` con la tinta del tema y los `text-white/X` de aquí salían
-    // casi negros — ilegibles. Una instalación nueva arranca en claro, así que
-    // esto lo veía TODO usuario nuevo.
-    <div className="ui-noche fixed inset-0 z-[80] flex items-center justify-center overflow-y-auto bg-[#0f1115] p-4">
-      <div className="w-full max-w-sm space-y-3 rounded-2xl border border-white/10 bg-white/5 p-5">
+    // Superficie y panel DEL TEMA (`ui-app`/`ui-panel`), como la puerta de idioma:
+    // el arranque entero respeta la luz elegida y en una instalación nueva sale
+    // claro. Con un fondo oscuro fijo, en base clara los `text-white/X` se
+    // volvían tinta casi negra sobre negro y no se leía nada.
+    <div className="ui-app fixed inset-0 z-[80] flex items-center justify-center overflow-y-auto p-4">
+      <div className="ui-panel w-full max-w-sm space-y-3 rounded-2xl border border-white/10 p-5">
         <h1 className="text-lg font-extrabold text-white/95">Mind Planner Home</h1>
         {children}
       </div>

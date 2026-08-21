@@ -62,5 +62,5 @@ function GateActivo({ children }: { children: ReactNode }) {
   if (fase === 'listo') return <>{children}</>
   if (fase === 'construyendo') return <PantallaDemo />
   // `preparando`: un instante en negro mientras se decide si la BD está limpia.
-  return <div className="fixed inset-0 z-50 bg-[#0f1115]" />
+  return <div className="ui-app fixed inset-0 z-50" />
 }
