@@ -1,169 +1,498 @@
 [
-  { "clave": "plantillaCustom.borrarBloqueMsj", "texto": "该工具会连同你保存的全部内容一起删除。" },
-  { "clave": "plantillaCustom.borrarBloqueAhora", "texto": "删除工具及其数据" },
-  { "clave": "plantillaCustom.meta", "texto": "目标（可选）" },
-  { "clave": "plantillaCustom.guardar", "texto": "保存" },
-  { "clave": "plantillaCustom.cancelar", "texto": "取消" },
-  { "clave": "plantillaCustom.tipo.notas", "texto": "笔记" },
-  { "clave": "plantillaCustom.tipo.checklist", "texto": "清单" },
-  { "clave": "plantillaCustom.tipo.contador", "texto": "计数器" },
-  { "clave": "plantillaCustom.tipo.enlaces", "texto": "链接" },
-  { "clave": "plantillaCustom.tipo.lista", "texto": "列表" },
-  { "clave": "plantillaCustom.tipo.valoracion", "texto": "评分" },
-  { "clave": "plantillaCustom.tipo.bitacora", "texto": "日志" },
-  { "clave": "plantillaCustom.tipo.progreso", "texto": "进度" },
-  { "clave": "plantillaCustom.tipo.habito", "texto": "习惯" },
-  { "clave": "plantillaCustom.tipo.sesiones", "texto": "场次" },
-  { "clave": "plantillaCustom.tipo.cuenta", "texto": "倒计时" },
-  { "clave": "plantillaCustom.tipo.galeria", "texto": "相册" },
-  { "clave": "amueblar.titulo", "texto": "如何布置房间？" },
-  { "clave": "amueblar.completo", "texto": "已布置" },
-  { "clave": "amueblar.completoDesc", "texto": "带入应用的全部物件。" },
-  { "clave": "amueblar.principal", "texto": "仅主物件" },
-  { "clave": "amueblar.principalDesc", "texto": "只带入打开应用的那个物件，其余不带。" },
-  { "clave": "plantillaCustom.eliminada", "texto": "此模板已被删除。" },
-  { "clave": "plantillaCustom.notasPh", "texto": "写下你的笔记…（自动保存）" },
-  { "clave": "plantillaCustom.checklistPh", "texto": "新待办…" },
-  { "clave": "plantillaCustom.checklistVacio", "texto": "还没有待办事项。" },
-  { "clave": "plantillaCustom.borrarItem", "texto": "删除" },
-  { "clave": "plantillaCustom.enlaceTitulo", "texto": "标题（可选）" },
-  { "clave": "plantillaCustom.enlacesVacio", "texto": "没有保存的链接。" },
-  { "clave": "plantillaCustom.listaPh", "texto": "新条目…" },
-  { "clave": "plantillaCustom.listaVacio", "texto": "列表为空。" },
-  { "clave": "plantillaCustom.bitacoraPh", "texto": "新条目…" },
-  { "clave": "plantillaCustom.bitacoraVacio", "texto": "还没有记录。" },
-  { "clave": "plantillaCustom.progresoPh", "texto": "数值…" },
-  { "clave": "plantillaCustom.progresoVacio", "texto": "还没有测量记录。" },
-  { "clave": "plantillaCustom.unidad", "texto": "单位（可选）" },
-  { "clave": "plantillaCustom.habitoMarcar", "texto": "标记今天" },
-  { "clave": "plantillaCustom.habitoHecho", "texto": "今天已完成 ✓" },
-  { "clave": "plantillaCustom.habitoRacha", "texto": "连续天数" },
-  { "clave": "plantillaCustom.habitoDias", "texto": "活跃天数" },
-  { "clave": "plantillaCustom.metaSemana", "texto": "每周次数（可选）" },
-  { "clave": "plantillaCustom.sesionMin", "texto": "分钟" },
-  { "clave": "plantillaCustom.sesionNota", "texto": "备注（可选）" },
-  { "clave": "plantillaCustom.sesionVacio", "texto": "还没有场次记录。" },
-  { "clave": "plantillaCustom.sesionTotal", "texto": "总计" },
-  { "clave": "plantillaCustom.metaMin", "texto": "目标分钟数（可选）" },
-  { "clave": "plantillaCustom.cuentaFecha", "texto": "目标日期" },
-  { "clave": "plantillaCustom.cuentaSinFecha", "texto": "编辑时设置目标日期。" },
-  { "clave": "plantillaCustom.cuentaDias", "texto": "剩余天数" },
-  { "clave": "plantillaCustom.cuentaHoy", "texto": "就是今天！" },
-  { "clave": "plantillaCustom.cuentaPaso", "texto": "天前" },
-  { "clave": "plantillaCustom.galeriaAgregar", "texto": "添加照片" },
-  { "clave": "plantillaCustom.galeriaVacio", "texto": "还没有照片。" },
-  { "clave": "objetos.ayuda", "texto": "按类别列出所有已有物件。你可以创建、编辑或删除自己的物件。" },
-  { "clave": "objetos.ayudaEspeciales", "texto": "有特殊效果的物件，按功能分组。点开可以查看其文件夹。" },
-  { "clave": "objetos.agregar", "texto": "添加3D物件" },
-  { "clave": "objetos.alMapa", "texto": "放置在地图或房间中" },
-  { "clave": "destinoObj.titulo", "texto": "你要放在哪里？" },
-  { "clave": "destinoObj.mapa", "texto": "在地图上" },
-  { "clave": "destinoObj.mapaDesc", "texto": "放在室外，房间之外，自由摆放。" },
-  { "clave": "destinoObj.enCuarto", "texto": "或者放在房间里" },
-  { "clave": "objetos.editar", "texto": "在编辑器中编辑" },
-  { "clave": "objetos.editarForma", "texto": "编辑形状" },
-  { "clave": "objetos.animado", "texto": "动画物件" },
-  { "clave": "objetos.funcion.vehiculo", "texto": "可驾驶" },
-  { "clave": "objetos.funcion.asiento", "texto": "可以坐在这里" },
-  { "clave": "objetos.funcion.acostarse", "texto": "可以躺在这里" },
-  { "clave": "objetos.funcion.laptop", "texto": "用于工作" },
-  { "clave": "objetos.funcion.cajaFuerte", "texto": "存放重要物品" },
-  { "clave": "objetos.funcion.computo", "texto": "用于计算" },
-  { "clave": "objetos.funcion.tapete", "texto": "用于冥想" },
-  { "clave": "objetos.funcion.libreta", "texto": "用于书写" },
-  { "clave": "objetos.funcion.caminadora", "texto": "用于走路锻炼" },
-  { "clave": "objetos.funcion.anuncio", "texto": "告示牌：可写上自己的文字" },
-  { "clave": "objetos.funcion.parque", "texto": "互动：跳上去玩耍" },
-  { "clave": "objetos.rotarIzq", "texto": "向左旋转" },
-  { "clave": "objetos.rotarDer", "texto": "向右旋转" },
-  { "clave": "objetos.quitarDelMapa", "texto": "从地图中移除" },
-  { "clave": "objetos.borrar", "texto": "删除物件" },
-  { "clave": "objetos.borrarConfirm", "texto": "删除“{nombre}”吗？此操作无法撤销。" },
-  { "clave": "objetos.renombrar", "texto": "重命名文件夹" },
-  { "clave": "objetos.restaurar", "texto": "恢复基础物件" },
-  { "clave": "objetos.restaurarConfirm", "texto": "你删除过的基础目录物件会被重新添加。要继续吗？" },
-  { "clave": "mapa.editar", "texto": "编辑地图" },
-  { "clave": "mapa.editarTitulo", "texto": "编辑房屋地图" },
-  { "clave": "mapa.quitar", "texto": "从地图中移除" },
-  { "clave": "chat.tuAsistente", "texto": "你的助手：" },
-  { "clave": "chat.vacio", "texto": "还没有记录。告诉建筑师你做了什么吧。" },
-  { "clave": "chat.sinClasificar", "texto": "未分类" },
-  { "clave": "chat.capturado", "texto": "已记录" },
-  { "clave": "chat.reclasificar", "texto": "重新分类" },
-  { "clave": "chat.eliminar", "texto": "删除" },
-  { "clave": "chat.ocultar", "texto": "关闭菜单" },
-  { "clave": "chat.verMenu", "texto": "打开菜单" },
-  { "clave": "chat.registrar", "texto": "记录" },
-  { "clave": "chat.chip.crear", "texto": "创建" },
-  { "clave": "chat.chip.enMapa", "texto": "（地图上）" },
-  { "clave": "chat.chip.fuera", "texto": "（未放置）" },
-  { "clave": "chat.abrirConv", "texto": "查看对话" },
-  { "clave": "chat.verConv", "texto": "查看完整对话" },
-  { "clave": "chat.burbuja.ver", "texto": "点击阅读全文" },
-  { "clave": "dialogo.salir", "texto": "结束对话（Esc）" },
-  { "clave": "dialogo.completar", "texto": "显示全文" },
-  { "clave": "dialogo.hablar", "texto": "说话" },
-  { "clave": "chat.conversacion", "texto": "对话" },
-  { "clave": "chat.conv.vacia", "texto": "还没有和{pet}的消息。在下方输入框写点什么吧。" },
-  { "clave": "chat.conv.limpiar", "texto": "清空对话" },
-  { "clave": "chat.conv.cerrar", "texto": "关闭" },
-  { "clave": "chat.tu", "texto": "你" },
-  { "clave": "chat.tab.chats", "texto": "聊天" },
-  { "clave": "chat.tab.registros", "texto": "记录" },
-  { "clave": "chat.config.abrir", "texto": "设置助手" },
-  { "clave": "chat.config.titulo", "texto": "你的助手" },
-  { "clave": "chat.config.activo", "texto": "启用中" },
-  { "clave": "chat.config.sinCaracter", "texto": "尚未设置性格" },
-  { "clave": "chat.config.archivaTodo", "texto": "在所有房间归档" },
-  { "clave": "chat.config.cuartos", "texto": "分配房间" },
-  { "clave": "chat.config.cuartosTodos", "texto": "（都不勾选=全部）" },
-  { "clave": "chat.config.nuevo", "texto": "创建助手" },
-  { "clave": "chat.config.nuevoNombre", "texto": "新助手" },
-  { "clave": "chat.config.nuevoSaludo", "texto": "你好！我是你的新助手。" },
-  { "clave": "chat.config.nombre", "texto": "名称" },
-  { "clave": "chat.config.emoji", "texto": "助手表情符号" },
-  { "clave": "chat.config.historia", "texto": "角色的背景故事" },
-  { "clave": "chat.config.historiaPh", "texto": "背景故事：例如“守了40年灯塔的老海员，如今守护着你的家”" },
-  { "clave": "chat.config.caracterPh", "texto": "性格：例如“说话像海盗，风趣直接，结尾加🏴‍☠️”" },
-  { "clave": "chat.config.forma", "texto": "3D形状：" },
-  { "clave": "chat.config.color", "texto": "角色颜色" },
-  { "clave": "chat.config.formaPh", "texto": "描述它：“戴眼镜穿背心的绿色龙”" },
-  { "clave": "chat.config.formaSinIa", "texto": "描述形状需要AI（在栏中选择模型）" },
-  { "clave": "chat.config.formaGenerar", "texto": "用AI创建形状" },
-  { "clave": "chat.config.formaError", "texto": "无法创建形状，请检查AI模型后重试。" },
-  { "clave": "chat.config.subirGlb", "texto": "上传.glb模型" },
-  { "clave": "chat.config.quitarGlb", "texto": "移除已上传的模型" },
-  { "clave": "chat.config.quitarFormaIa", "texto": "移除AI生成的形状" },
-  { "clave": "chat.config.enMapa", "texto": "从地图中移除" },
-  { "clave": "chat.config.ponerMapa", "texto": "放置到地图上" },
-  { "clave": "chat.config.voz", "texto": "声音：" },
-  { "clave": "chat.config.vozAuto", "texto": "自动（按语言）" },
-  { "clave": "chat.config.vozIA", "texto": "AI语音（OpenAI，更自然）" },
-  { "clave": "chat.config.vozLeer", "texto": "朗读它说的内容" },
-  { "clave": "chat.config.vozProbar", "texto": "试听声音" },
-  { "clave": "chat.config.vozTono", "texto": "音调" },
-  { "clave": "chat.config.vozVelocidad", "texto": "语速" },
-  { "clave": "chat.config.vozVolumen", "texto": "音量" },
-  { "clave": "chat.config.espontaneo", "texto": "自发评论" },
-  { "clave": "chat.config.corazon", "texto": "心（自发性）" },
-  { "clave": "chat.config.corazonOff", "texto": "关闭" },
-  { "clave": "corazon.nivel.0", "texto": "安静" },
-  { "clave": "corazon.nivel.1", "texto": "平和" },
-  { "clave": "corazon.nivel.2", "texto": "爱聊天" },
-  { "clave": "corazon.nivel.3", "texto": "话痨" },
-  { "clave": "corazon.mago.manana.0", "texto": "黎明带来了新的魔力…我能感觉到 ✨" },
-  { "clave": "corazon.mago.manana.1", "texto": "卷轴们整整齐齐地醒来了，好兆头 🔮" },
-  { "clave": "corazon.mago.tarde.0", "texto": "下午最适合在魔法书上记下功绩了 ✨" },
-  { "clave": "corazon.mago.tarde.1", "texto": "今天下午，我感觉到家里弥漫着平静的气息 🔮" },
-  { "clave": "corazon.mago.noche.0", "texto": "星辰正在诉说秘密…今夜适合施法 🌙" },
-  { "clave": "corazon.mago.noche.1", "texto": "月亮为我的法球充能，这里一片安宁 🔮" },
-  { "clave": "corazon.mago.rutina.0", "texto": "我的水晶球预言：{h}将有“{r}” ✨" },
-  { "clave": "corazon.mago.rutina.1", "texto": "命运指向{h}：“{r}”即将到来 🔮" },
-  { "clave": "corazon.mago.generica.0", "texto": "今天，这个家充满了魔力 ✨" },
-  { "clave": "corazon.mago.generica.1", "texto": "施个整理魔法也不错… 🔮" },
-  { "clave": "corazon.gato.manana.0", "texto": "太早了吧。人类起床的时间真奇怪 🐾" },
-  { "clave": "corazon.gato.manana.1", "texto": "哈欠。要是早上能打个盹就更好了 🐱" },
-  { "clave": "corazon.gato.tarde.0", "texto": "正是晒太阳打盹的好时候，随便说说 🐾" },
-  { "clave": "corazon.gato.tarde.1", "texto": "慵懒的下午…正合我意 🐱" },
-  { "clave": "corazon.gato.noche.0", "texto": "终于到晚上了，这是我的黄金时间 🐱" }
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-gemelos",
+    "texto": "双手扶墙，后腿伸直，拉伸小腿。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-hombros",
+    "texto": "一只手臂横过胸前，用另一只手轻轻拉近。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.foam-roller",
+    "texto": "训练后在泡沫轴上滚动肌肉，释放紧张。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-triceps",
+    "texto": "将手肘举到头后，用另一只手轻轻下压。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-de-cadera",
+    "texto": "呈弓步姿势，将髋部向前推，拉伸大腿前侧。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.piernas-en-la-pared",
+    "texto": "仰卧，将双腿靠墙抬起，放松身心，促进血液回流。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.savasana",
+    "texto": "仰卧，缓慢呼吸，放松全身。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-del-nino-apoyada",
+    "texto": "借助支撑做婴儿式，可以放松更长时间。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.respiracion-profunda",
+    "texto": "缓慢深长地呼吸，平静神经系统。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.mariposa-reclinada",
+    "texto": "仰卧，脚掌相对，让膝盖自然下沉，放松髋部。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsion-reclinada",
+    "texto": "仰卧，让双膝倒向一侧，温和地扭转脊柱。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.liberacion-miofascial-con-pelota",
+    "texto": "用硬球控制力度，从脚跟滚到脚掌前端。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-tobillo",
+    "texto": "抬起一条腿，双向大幅转动脚踝。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.recogida-de-toalla-con-dedos",
+    "texto": "只用脚趾把地上的毛巾抓皱并收拢。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-dorsiflexion",
+    "texto": "面对墙壁，脚跟贴地，弯曲前脚膝盖进行拉伸。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-talones-unipodal",
+    "texto": "单脚站立，缓慢提起脚跟，再有控制地放下。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-y-extension-en-descarga",
+    "texto": "仰卧，屈膝将脚跟靠近臀部，再不抬脚地伸直。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "将一侧脚跟放在身前，保持膝盖伸直，温和地前屈上身。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-isometrica-wall-squat",
+    "texto": "背靠墙壁下蹲至90度并保持，注意膝盖不要内扣。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.equilibrio-unipodal-single-leg-balance",
+    "texto": "单腿站立保持平衡，膝盖微屈，注意不要内扣。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadillas-del-arquero",
+    "texto": "双腿分开，屈一侧膝盖并转移重心，另一侧腿保持伸直。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estocadas-lunges",
+    "texto": "向前迈步下蹲，前膝呈90度角。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-90-90",
+    "texto": "坐姿双腿呈90度，左右转动上身和双腿。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.el-puente-glute-bridge",
+    "texto": "仰卧，收紧臀部抬起骨盆，直到肩、髋、膝呈一条直线。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-en-estocada",
+    "texto": "一侧膝盖着地，保持背部挺直，将骨盆前推以拉伸髂腰肌。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.abduccion-lateral-de-cadera",
+    "texto": "侧卧，保持骨盆稳定，抬起上方的腿。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-profunda-con-apertura",
+    "texto": "深蹲姿势下，用手肘将膝盖向外推，打开髋部。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.balanceo-dinamico-de-piernas",
+    "texto": "站立，将一条腿像钟摆一样前后、左右摆动。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-gato-vaca",
+    "texto": "呈四足跪姿，交替将背部拱向天花板和让腹部下沉靠近地面。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsiones-lumbares-suaves",
+    "texto": "仰卧，双膝并拢倒向一侧，再倒向另一侧。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.pointer-bird-dog",
+    "texto": "呈四足跪姿，保持下背部平稳，同时伸展对侧的手臂和腿。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-frontal-isometricos",
+    "texto": "用前臂支撑做平板支撑，保持身体呈一条直线。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.roll-down-curl-jefferson",
+    "texto": "站立，一节一节地缓慢卷动脊柱向下。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-lumbar-boca-abajo",
+    "texto": "俯卧，先抬起髋部再放下，伸展背部。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotacion-toracica",
+    "texto": "呈四足跪姿，将一只手臂向侧方抬起，目光跟随手部移动。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.retraccion-escapular",
+    "texto": "保持挺直姿势，将肩胛骨向后下方收紧。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.angeles-de-pared-wall-angels",
+    "texto": "背靠墙壁，肘部贴墙，手臂上下滑动。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.lunge-con-apertura-de-pectoral",
+    "texto": "呈弓步姿势，双手交叉放在颈后，将肘部向后打开。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-dorsal-en-pared",
+    "texto": "双手扶墙，保持膝盖伸直，让上身下沉。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.el-gato-y-la-mesa",
+    "texto": "呈四足跪姿，拱起背部，再放低胸部。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-hombros",
+    "texto": "大幅度画圈，着重向后向下的路径。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-pecho-pectoral",
+    "texto": "双手在背后交握，不给颈部施加压力地打开胸部。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.dislocaciones-con-goma-o-palo",
+    "texto": "保持手肘伸直，将弹力带从头顶绕到背后。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotacion-externa-con-banda",
+    "texto": "手肘贴身弯曲呈90度，克服阻力将手向外旋转。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.thread-the-needle-enhebrar-aguja",
+    "texto": "呈四足跪姿，将一只手臂穿入身体下方，让肩膀贴地。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-y-medios-circulos",
+    "texto": "下巴贴近胸口，缓慢画大圈，不要勉强忍痛。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-trapecio-superior",
+    "texto": "轻轻侧倾头部，让耳朵靠近对侧肩膀。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-cervicales-con-nodding",
+    "texto": "转动头部，做出小幅度的“点头”动作。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.retracciones-de-barbilla-chin-tucks",
+    "texto": "将下巴向后收，做出“双下巴”，以调整颈部姿势。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.isometricos-cervicales",
+    "texto": "用头部顶住手掌，抵抗力量避免头部倾斜。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-y-extension-de-muneca",
+    "texto": "手臂伸直，将手腕向上再向下弯曲。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-munecas",
+    "texto": "双手腕向两个方向转动。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores",
+    "texto": "掌心朝上，用另一只手将手指向身体方向轻推拉伸。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.agarre-activo-y-pasivo",
+    "texto": "用力握拳，然后完全放松张开。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-de-munecas",
+    "texto": "在平板支撑或跪姿下，仅用指尖支撑身体再放下。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.liberacion-miofascial-con-pelota",
+    "texto": "每只脚1-2分钟（持续动作）。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-tobillo",
+    "texto": "每侧脚踝各方向10-12次。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.recogida-de-toalla-con-dedos",
+    "texto": "每只脚10-15次（抓紧再放松）。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-dorsiflexion",
+    "texto": "每条腿保持15-30秒，做2-4组。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.elevacion-de-talones-unipodal",
+    "texto": "每条腿10-15次。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-en-descarga",
+    "texto": "每条腿8-10次。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "每条腿保持20秒。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadilla-isometrica-wall-squat",
+    "texto": "保持5-15秒后站起，重复3-5次。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.equilibrio-unipodal-single-leg-balance",
+    "texto": "每条腿保持15-60秒（重复2-3次）。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadillas-del-arquero",
+    "texto": "左右交替15次。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estocadas-lunges",
+    "texto": "每条腿8-12次。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.movilidad-90-90",
+    "texto": "每侧8-12次（约1-2分钟）。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.el-puente-glute-bridge",
+    "texto": "15次（每次顶点保持2-3秒）。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores-en-estocada",
+    "texto": "每条腿保持20秒。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.abduccion-lateral-de-cadera",
+    "texto": "每侧10-15次，顶点保持几秒。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadilla-profunda-con-apertura",
+    "texto": "开髋动作15次。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.balanceo-dinamico-de-piernas",
+    "texto": "每条腿8-10次。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.postura-gato-vaca",
+    "texto": "持续1分钟（或呼吸10-15次）。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.torsiones-lumbares-suaves",
+    "texto": "每侧10-15次。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.pointer-bird-dog",
+    "texto": "一侧保持30秒，然后换边。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.plancha-frontal-isometricos",
+    "texto": "根据能力保持15-60秒。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.roll-down-curl-jefferson",
+    "texto": "缓慢做15次。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-lumbar-boca-abajo",
+    "texto": "持续1分钟。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotacion-toracica",
+    "texto": "每侧30秒。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.retraccion-escapular",
+    "texto": "8-10次，每次收紧保持5-10秒。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.angeles-de-pared-wall-angels",
+    "texto": "缓慢做10-15次。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.lunge-con-apertura-de-pectoral",
+    "texto": "每侧15次。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-dorsal-en-pared",
+    "texto": "保持20秒。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.el-gato-y-la-mesa",
+    "texto": "配合呼吸做15次。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-hombros",
+    "texto": "8-10次（向前和向后）。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-pecho-pectoral",
+    "texto": "保持15-20秒。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.dislocaciones-con-goma-o-palo",
+    "texto": "10-15次。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotacion-externa-con-banda",
+    "texto": "8-12次。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.thread-the-needle-enhebrar-aguja",
+    "texto": "每侧保持15-30秒（2-3组）。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotaciones-y-medios-circulos",
+    "texto": "每个方向8-10次。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-trapecio-superior",
+    "texto": "每侧保持15-30秒。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotaciones-cervicales-con-nodding",
+    "texto": "每侧8-12次。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.retracciones-de-barbilla-chin-tucks",
+    "texto": "10-15次，每次保持5-10秒。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.isometricos-cervicales",
+    "texto": "8-12次（每次紧张保持5-10秒）。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-de-muneca",
+    "texto": "10-12次。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-munecas",
+    "texto": "每个方向转10-15圈。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores",
+    "texto": "保持15-30秒。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.agarre-activo-y-pasivo",
+    "texto": "10-15次。"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.plancha-de-munecas",
+    "texto": "8-12次。"
+  },
+  {
+    "clave": "ejercicio.dificultad.baja",
+    "texto": "低"
+  },
+  {
+    "clave": "ejercicio.dificultad.media",
+    "texto": "中"
+  },
+  {
+    "clave": "ejercicio.dificultad.alta",
+    "texto": "高"
+  },
+  {
+    "clave": "ejercicio.dificultad.mediaAlta",
+    "texto": "中/高"
+  },
+  {
+    "clave": "ejercicio.rut.full-body",
+    "texto": "全身"
+  },
+  {
+    "clave": "ejercicio.rut.tren-superior",
+    "texto": "上半身"
+  },
+  {
+    "clave": "ejercicio.rut.tren-inferior",
+    "texto": "下半身"
+  },
+  {
+    "clave": "ejercicio.rut.push-pecho-y-triceps",
+    "texto": "推·胸和肱三头肌"
+  },
+  {
+    "clave": "ejercicio.rut.pull-espalda-y-biceps",
+    "texto": "拉·背部和肱二头肌"
+  },
+  {
+    "clave": "ejercicio.rut.legs-pierna-completa",
+    "texto": "腿·全腿"
+  },
+  {
+    "clave": "ejercicio.rut.hiit-20-min",
+    "texto": "HIIT 20分钟"
+  },
+  {
+    "clave": "ejercicio.rut.carrera-continua",
+    "texto": "匀速跑"
+  },
+  {
+    "clave": "ejercicio.rut.caminata-inclinada",
+    "texto": "坡度快走"
+  },
+  {
+    "clave": "ejercicio.rut.bike-tempo",
+    "texto": "节奏骑行"
+  },
+  {
+    "clave": "ejercicio.rut.triatlon-sprint",
+    "texto": "短距离铁人三项"
+  },
+  {
+    "clave": "ejercicio.rut.movilidad-matutina",
+    "texto": "晨间活动度训练"
+  },
+  {
+    "clave": "ejercicio.rut.yoga-flow",
+    "texto": "流瑜伽"
+  },
+  {
+    "clave": "ejercicio.rut.cadera-y-piernas",
+    "texto": "髋部与腿部"
+  },
+  {
+    "clave": "ejercicio.rut.estiramiento-post-entreno",
+    "texto": "训练后拉伸"
+  },
+  {
+    "clave": "ejercicio.rut.espalda-y-hombros",
+    "texto": "背部与肩部"
+  },
+  {
+    "clave": "ejercicio.rut.cuello-y-oficina",
+    "texto": "颈部·办公室放松"
+  },
+  {
+    "clave": "ejercicio.rut.antes-de-dormir",
+    "texto": "睡前"
+  },
+  {
+    "clave": "ejercicio.rutDesc.full-body",
+    "texto": "全身力量循环训练。"
+  },
+  {
+    "clave": "ejercicio.rutDesc.tren-superior",
+    "texto": "一次训练胸、背、肩和手臂。"
+  },
+  {
+    "clave": "ejercicio.rutDesc.tren-inferior",
+    "texto": "全面训练腿部和臀部。"
+  }
 ]

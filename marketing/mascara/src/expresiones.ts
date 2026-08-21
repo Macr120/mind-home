@@ -15,7 +15,7 @@ export interface SenalesCara {
   /** eyeBlinkLeft (ojo izquierdo anatómico del usuario) → ojo del avatar en x=+sep. */
   parpadeoL: number
   parpadeoR: number
-  /** jawOpen: 0 = boca de la expresión, 1 = abierta al máximo. */
+  /** Cuánto habla (ver `nivelBoca`): 0 = boca de la expresión, 1 = abierta al máximo. */
   boca: number
   /** Promedio mouthSmile: curva la boca hablante. */
   sonrisa: number
@@ -47,6 +47,17 @@ const U_TERNURA = 0.6
 const N_GUINO = 9
 const N_NEUTRAL = 12
 const N_CAMBIO = 6
+
+/**
+ * Cuánto se abre la boca al HABLAR (0..1). `jawOpen` a secas se queda corta: al
+ * conversar la mandíbula apenas baja (0.05-0.2) y la boca del avatar no llegaba
+ * a abrirse. Se amplifica, y se le suman las vocales redondas (o/u), que casi no
+ * bajan la mandíbula pero sí ahuecan los labios.
+ */
+export function nivelBoca(b: Record<string, number>): number {
+  const redondas = Math.max(b.mouthFunnel ?? 0, b.mouthPucker ?? 0)
+  return Math.min(1, (b.jawOpen ?? 0) * 1.8 + redondas * 0.5)
+}
 
 /** Puntuaciones por nombre de categoría ARKit. */
 export function puntuaciones(blend: Classifications): Record<string, number> {

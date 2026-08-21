@@ -1,137 +1,338 @@
 [
-  {"clave":"ejercicio.cronograma.desc","texto":"I tuoi grandi obiettivi sull'asse del tempo. Con ✨ l'IA prepara il piano e ti suggerisce quali routine programmare."},
-  {"clave":"sala.tab.cronograma","texto":"Obiettivi"},
-  {"clave":"avisos.rutinaPasos","texto":"Ti toccano {n} passi."},
-  {"clave":"avisos.rutinaHora","texto":"È l'ora."},
-  {"clave":"avisos.abrir","texto":"Apri"},
-  {"clave":"avisos.metaFalta","texto":"Sei a {hecho} di {objetivo}."},
-  {"clave":"notif.titulo","texto":"Notifiche"},
-  {"clave":"notif.general","texto":"Avvisami"},
-  {"clave":"notif.rutinas","texto":"Eventi e routine con orario"},
-  {"clave":"notif.metas","texto":"Obiettivi del giorno non raggiunti"},
-  {"clave":"notif.porApp","texto":"Per app"},
-  {"clave":"notif.denegado","texto":"Il browser ha bloccato le notifiche per questo sito: puoi sbloccarle solo dal suo lucchetto. Nel frattempo, gli avvisi ti arrivano tramite il tuo assistente."},
-  {"clave":"notif.noSoportado","texto":"Questo browser non ha notifiche; gli avvisi ti arrivano tramite il tuo assistente."},
-  {"clave":"horario.agendar","texto":"Programma"},
-  {"clave":"horario.titulo","texto":"Orario"},
-  {"clave":"horario.plegar","texto":"Fatto"},
-  {"clave":"horario.hora","texto":"Ora"},
-  {"clave":"horario.frecuencia","texto":"Frequenza"},
-  {"clave":"horario.dias","texto":"Giorni"},
-  {"clave":"horario.sinDias","texto":"Nessuno selezionato: tutti i giorni."},
-  {"clave":"horario.sinHora","texto":"Senza orario"},
-  {"clave":"horario.todosDias","texto":"tutti i giorni"},
-  {"clave":"horario.avisar","texto":"Avvisami all'orario stabilito"},
-  {"clave":"horario.avisar.hint","texto":"Riceverai una notifica."},
-  {"clave":"horario.avisar.hintSinPermiso","texto":"Ti avviseremo dentro l'app."},
-  {"clave":"horario.avisar.on","texto":"Sì"},
-  {"clave":"horario.avisar.off","texto":"No"},
-  {"clave":"horario.hechoHoy","texto":"Fatto oggi"},
-  {"clave":"horario.masOpciones","texto":"Altre opzioni ›"},
-  {"clave":"horario.quitar","texto":"Rimuovi"},
-  {"clave":"rutinas.avisar","texto":"Avvisami all'orario stabilito"},
-  {"clave":"rutinas.avisar.hint","texto":"Riceverai una notifica."},
-  {"clave":"rutinas.avisar.hintSinPermiso","texto":"Ti avviseremo dentro l'app."},
-  {"clave":"rutinas.avisar.on","texto":"Sì"},
-  {"clave":"rutinas.avisar.off","texto":"No"},
-  {"clave":"avisoAct.cuerpo","texto":"È l'ora ({hora})."},
-  {"clave":"avisoAct.ahoraNo","texto":"Non ora"},
-  {"clave":"avisoAct.ir","texto":"Vai a registrare"},
-  {"clave":"hobbies.registrarMin","texto":"Registra {n} min"},
-  {"clave":"hobbies.plan.tipo","texto":"Pratica"},
-  {"clave":"hobbies.plan.ejemplo","texto":"Suonare 3 canzoni intere"},
-  {"clave":"hobbies.plan.ejProyecto","texto":"Finire {proyecto}"},
-  {"clave":"hobbies.plan.material","texto":"Progetti del piano"},
-  {"clave":"ejercicio.registrarSesion","texto":"Registra {n} min"},
-  {"clave":"ejercicio.plan.ejemplo","texto":"Correre 5 km senza fermarsi"},
-  {"clave":"ejercicio.plan.material","texto":"Routine del piano"},
-  {"clave":"cocina.horarios","texto":"Orari dei pasti"},
-  {"clave":"cocina.plan.tipoComida","texto":"Pasto"},
-  {"clave":"cocina.plan.material","texto":"Ricette del piano"},
-  {"clave":"cocina.plan.ejemplo","texto":"Provare la dieta mediterranea"},
-  {"clave":"cocina.plan.ejBajar","texto":"Scendere a {kg} kg"},
-  {"clave":"cocina.plan.ejSubir","texto":"Salire a {kg} kg"},
-  {"clave":"cocina.plan.ejMantener","texto":"Mantenermi a {kg} kg"},
-  {"clave":"biblioteca.plan.ejemplo","texto":"Padroneggiare le basi della statistica"},
-  {"clave":"biblioteca.plan.material","texto":"Dalla tua enciclopedia"},
-  {"clave":"idiomas.plan.ejemplo","texto":"Parlare con scioltezza nel mio prossimo viaggio"},
-  {"clave":"idiomas.plan.ejemploNivel","texto":"Raggiungere il livello {nivel} di {idioma}"},
-  {"clave":"idiomas.plan.material","texto":"Temi del piano"},
-  {"clave":"sala.plan.ejemplo","texto":"Itinerario di 5 giorni a Kyoto"},
-  {"clave":"sala.plan.ejLugar","texto":"Itinerario di viaggio a {lugar}"},
-  {"clave":"sala.plan.material","texto":"Dalla tua lista Da vedere"},
-  {"clave":"entret.plan.ejemplo","texto":"Finire la saga del Padrino"},
-  {"clave":"entret.plan.material","texto":"Dal tuo archivio"},
-  {"clave":"descanso.plan.ejemplo","texto":"Addormentarmi in meno di 15 minuti"},
-  {"clave":"anecdotario.plan.ejemplo","texto":"Raccontare il viaggio di quest'anno"},
-  {"clave":"jardin.plan.ejemplo","texto":"Dieci minuti di calma al giorno"},
-  {"clave":"ideas.plan.ejemplo","texto":"Trasformare un'idea del diario in qualcosa di reale"},
-  {"clave":"ideas.plan.material","texto":"Idee del piano"},
-  {"clave":"diario.plan.ejemplo","texto":"Leggere l'edizione del mattino ogni giorno"},
-  {"clave":"garage.plan.ejemplo","texto":"Preparare l'auto per l'inverno"},
-  {"clave":"garage.plan.material","texto":"Pratiche del piano"},
-  {"clave":"agenda.plan.ejemplo","texto":"Consegnare il progetto in tempo"},
-  {"clave":"agenda.plan.material","texto":"Attività del piano"},
-  {"clave":"cocina.horarios.ayuda","texto":"Quando mangi ogni pasto. Compaiono nel tuo calendario e possono ricordartelo."},
-  {"clave":"jardin.med.reservar","texto":"Il tuo momento di calma"},
-  {"clave":"jardin.med.bloque","texto":"Medita"},
-  {"clave":"jardin.registrarMin","texto":"Registra {n} min"},
-  {"clave":"biblioteca.est.reservar","texto":"Il tuo momento di studio"},
-  {"clave":"biblioteca.est.bloque","texto":"Studia"},
-  {"clave":"biblioteca.registrarMin","texto":"Registra {n} min"},
-  {"clave":"idiomas.rep.reservar","texto":"Il tuo momento di ripasso"},
-  {"clave":"idiomas.rep.bloque","texto":"Ripassa {idioma}"},
-  {"clave":"notif.ayudaCerrada","texto":"Gli avvisi arrivano con l'app aperta, anche in background. Con la scheda chiusa il browser non può risvegliarla: per questo serve l'app installata sul cellulare."},
-  {"clave":"progreso.nivel","texto":"Livello"},
-  {"clave":"progreso.racha","texto":"Serie"},
-  {"clave":"progreso.dias","texto":"giorni"},
-  {"clave":"progreso.hoy","texto":"Oggi"},
-  {"clave":"progreso.semana","texto":"7 giorni"},
-  {"clave":"plantillas.ayuda","texto":"Tocca l'icona per aprire l'app, scegli il suo assistente e assegnala a una stanza."},
-  {"clave":"plantillas.entrar","texto":"Apri l'app"},
-  {"clave":"plantillas.cerrarPrevia","texto":"‹ Chiudi"},
-  {"clave":"plantillas.asistente","texto":"Assistente responsabile"},
-  {"clave":"plantillas.sinAsistente","texto":"Nessun assistente (se ne occupano tutti)"},
-  {"clave":"plantillas.asignar","texto":"Assegna a un oggetto o a una stanza"},
-  {"clave":"plantillas.asignarObjeto","texto":"+ Assegna a un oggetto…"},
-  {"clave":"plantillas.asignarA","texto":"+ Assegna a una stanza…"},
-  {"clave":"plantillas.sinCuartos","texto":"Crea prima una stanza"},
-  {"clave":"plantillas.objetoPrincipal","texto":"Oggetto principale (ingresso della stanza)"},
-  {"clave":"plantillas.traeObjetos","texto":"Oggetti che porta l'app"},
-  {"clave":"plantillas.esPrincipal","texto":"Oggetto principale"},
-  {"clave":"plantillas.hacerPrincipal","texto":"Imposta come principale"},
-  {"clave":"plantillas.quitarObjeto","texto":"Rimuovi oggetto"},
-  {"clave":"plantillas.agregarObjeto","texto":"Aggiungi oggetto"},
-  {"clave":"selObjeto.titulo","texto":"Aggiungi oggetto"},
-  {"clave":"plantillas.todasAsignadas","texto":"Tutte le app vivono già in una stanza. Se elimini una stanza, il suo modello torna qui."},
-  {"clave":"plantillaCustom.crear","texto":"Crea modello"},
-  {"clave":"plantillaCustom.editar","texto":"Modifica modello"},
-  {"clave":"plantillaCustom.eliminar","texto":"Elimina modello"},
-  {"clave":"plantillaCustom.confirmarBorrar","texto":"Eliminare questo modello e tutti i suoi dati?"},
-  {"clave":"plantillaCustom.enUso","texto":"I tuoi modelli in uso"},
-  {"clave":"plantillaCustom.nombrePh","texto":"Es. Trasloco, piante, animale…"},
-  {"clave":"plantillaCustom.emojiLibre","texto":"Altra emoji"},
-  {"clave":"plantillaCustom.herramientas","texto":"Strumenti del modello"},
-  {"clave":"plantillaCustom.sinBloques","texto":"Aggiungi almeno uno strumento: saranno le sezioni della tua app."},
-  {"clave":"plantillaCustom.quitarBloque","texto":"Rimuovi (salvando si eliminano i suoi dati)"},
-  {"clave":"plantillaCustom.menusAyuda","texto":"Distribuisci i blocchi in schede. Senza menu, la tua app è un'unica schermata."},
-  {"clave":"plantillaCustom.agregarMenu","texto":"Menu"},
-  {"clave":"plantillaCustom.agregarAqui","texto":"Aggiungi strumento"},
-  {"clave":"plantillaCustom.agregarSubmenu","texto":"Sottomenu di questo menu"},
-  {"clave":"plantillaCustom.menuNuevo","texto":"Menu {n}"},
-  {"clave":"plantillaCustom.submenuNuevo","texto":"Sottomenu {n}"},
-  {"clave":"plantillaCustom.menuSinNombre","texto":"Menu"},
-  {"clave":"plantillaCustom.menuNombrePh","texto":"Nome del menu"},
-  {"clave":"plantillaCustom.menuEmoji","texto":"Emoji del menu (facoltativo)"},
-  {"clave":"plantillaCustom.borrarMenu","texto":"Elimina menu (i suoi blocchi passano al primo)"},
-  {"clave":"plantillaCustom.menuBloque","texto":"Menu"},
-  {"clave":"plantillaCustom.menuVacio","texto":"Questo menu non ha ancora blocchi."},
-  {"clave":"plantillaCustom.submenu","texto":"Sottomenu"},
-  {"clave":"plantillaCustom.editarApp","texto":"Modifica app"},
-  {"clave":"plantillaCustom.listo","texto":"Fatto"},
-  {"clave":"plantillaCustom.editorCompleto","texto":"Editor completo"},
-  {"clave":"plantillaCustom.borrar","texto":"Elimina"},
-  {"clave":"plantillaCustom.borrarMenuTitulo","texto":"Elimina «{nombre}»"},
-  {"clave":"plantillaCustom.borrarMenuMsj","texto":"I suoi strumenti passano al primo menu, dati inclusi."},
-  {"clave":"plantillaCustom.borrarBloqueTitulo","texto":"Elimina «{nombre}»"}
+  {
+    "clave": "ejercicio.ejDesc.curl-martillo",
+    "texto": "Con presa neutra (palmi rivolti l'uno verso l'altro), solleva i manubri per lavorare l'avambraccio."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-predicador",
+    "texto": "Con il braccio appoggiato alla panca Scott, piega il gomito per isolare il bicipite."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-concentrado",
+    "texto": "Seduto, appoggia il gomito sulla coscia e solleva il manubrio, concentrandoti sulla contrazione."
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-triceps-en-polea",
+    "texto": "In piedi al cavo alto, spingi la barra verso il basso estendendo i gomiti."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-frances",
+    "texto": "Sdraiato, abbassa il bilanciere verso la fronte ed estendi i gomiti senza spostarli."
+  },
+  {
+    "clave": "ejercicio.ejDesc.fondos-entre-bancos",
+    "texto": "Con le mani appoggiate alla panca, abbassa il corpo piegando i gomiti, poi spingi per risalire."
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-sobre-cabeza",
+    "texto": "Solleva un manubrio dietro la testa ed estendi i gomiti verso l'alto."
+  },
+  {
+    "clave": "ejercicio.ejDesc.patada-de-triceps",
+    "texto": "Busto piegato con il gomito alto, estendi l'avambraccio all'indietro."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla",
+    "texto": "Con il bilanciere sulla schiena, abbassa i fianchi finché le cosce sono parallele al suolo e risali."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-frontal",
+    "texto": "Con il bilanciere davanti, scendi in squat mantenendo il busto eretto."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-bulgara",
+    "texto": "Con un piede appoggiato dietro di te, scendi con la gamba anteriore fino a 90 gradi."
+  },
+  {
+    "clave": "ejercicio.ejDesc.prensa-de-pierna",
+    "texto": "Sulla macchina, spingi la pedana estendendo le gambe senza bloccare le ginocchia."
+  },
+  {
+    "clave": "ejercicio.ejDesc.zancadas",
+    "texto": "Fai un passo in avanti e abbassa il ginocchio posteriore quasi fino al pavimento, alternando i lati."
+  },
+  {
+    "clave": "ejercicio.ejDesc.peso-muerto",
+    "texto": "Con la schiena dritta, solleva il bilanciere da terra estendendo fianchi e ginocchia."
+  },
+  {
+    "clave": "ejercicio.ejDesc.peso-muerto-rumano",
+    "texto": "Abbassa il bilanciere lungo le gambe piegando i fianchi, con le ginocchia quasi tese."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-femoral",
+    "texto": "Sulla macchina, piega le ginocchia portando i talloni verso i glutei."
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-de-cuadriceps",
+    "texto": "Seduto sulla macchina, estendi le ginocchia sollevando il peso con controllo."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-talones",
+    "texto": "In piedi con un carico, solleva i talloni contraendo i polpacci."
+  },
+  {
+    "clave": "ejercicio.ejDesc.hip-thrust",
+    "texto": "Con la parte alta della schiena appoggiata alla panca, spingi i fianchi verso l'alto contraendo i glutei."
+  },
+  {
+    "clave": "ejercicio.ejDesc.puente-de-gluteo",
+    "texto": "Sdraiato, solleva i fianchi finché spalle, fianchi e ginocchia sono allineati."
+  },
+  {
+    "clave": "ejercicio.ejDesc.patada-de-gluteo-en-polea",
+    "texto": "A quattro zampe o in piedi, spingi la gamba all'indietro contraendo il gluteo."
+  },
+  {
+    "clave": "ejercicio.ejDesc.abduccion-de-cadera",
+    "texto": "Seduto o sdraiato su un fianco, apri le gambe contro resistenza."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha",
+    "texto": "Appoggiato sugli avambracci, mantieni il corpo dritto senza far cadere i fianchi."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-lateral",
+    "texto": "Su un fianco, appoggiato su un avambraccio, mantieni i fianchi sollevati e allineati."
+  },
+  {
+    "clave": "ejercicio.ejDesc.crunch-abdominal",
+    "texto": "Sdraiato, solleva le spalle contraendo gli addominali senza tirare il collo."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-piernas",
+    "texto": "Sdraiato o sospeso, solleva le gambe tese controllando la discesa."
+  },
+  {
+    "clave": "ejercicio.ejDesc.russian-twist",
+    "texto": "Seduto con il busto inclinato all'indietro, ruota il busto da un lato all'altro."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rueda-abdominal",
+    "texto": "In ginocchio, rotola in avanti senza inarcare la schiena, poi torna indietro."
+  },
+  {
+    "clave": "ejercicio.ejDesc.escaladores",
+    "texto": "In posizione di plank, porta rapidamente le ginocchia al petto, alternando le gambe."
+  },
+  {
+    "clave": "ejercicio.ejDesc.carrera",
+    "texto": "Mantieni un ritmo costante in zona 2-3, con appoggio leggero e postura eretta."
+  },
+  {
+    "clave": "ejercicio.ejDesc.trote-suave",
+    "texto": "Mantieni un ritmo confortevole in cui riesci a parlare; ideale per le uscite lunghe."
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata-rapida",
+    "texto": "Cammina a ritmo sostenuto muovendo attivamente le braccia, senza passare alla corsa."
+  },
+  {
+    "clave": "ejercicio.ejDesc.ciclismo",
+    "texto": "Pedala con cadenza elevata e resistenza moderata, mantenendo la schiena rilassata."
+  },
+  {
+    "clave": "ejercicio.ejDesc.senderismo",
+    "texto": "Cammina su terreno naturale con dislivelli; lascia che la pendenza detti il ritmo."
+  },
+  {
+    "clave": "ejercicio.ejDesc.trail-running",
+    "texto": "Corri su terreno montano o irregolare; accorcia il passo in salita."
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminadora",
+    "texto": "Cammina o corri sul tapis roulant senza aggrapparti ai corrimano."
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata-inclinada",
+    "texto": "Sul tapis roulant in pendenza a ritmo moderato: bruciagrassi costante e basso impatto."
+  },
+  {
+    "clave": "ejercicio.ejDesc.eliptica",
+    "texto": "Mantieni un movimento fluido, spingendo anche con le braccia, senza impatto sulle ginocchia."
+  },
+  {
+    "clave": "ejercicio.ejDesc.bicicleta-estatica",
+    "texto": "Regola il sellino all'altezza del fianco e pedala a cadenza costante."
+  },
+  {
+    "clave": "ejercicio.ejDesc.escaladora",
+    "texto": "Sali i gradini a ritmo costante, appoggiando tutto il piede."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-maquina",
+    "texto": "Spingi con le gambe, poi tira con la schiena e concludi con le braccia."
+  },
+  {
+    "clave": "ejercicio.ejDesc.hiit",
+    "texto": "Alterna intervalli brevi a intensità massima con brevi pause di recupero."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sprints",
+    "texto": "Esegui serie a velocità massima con recupero completo tra una e l'altra."
+  },
+  {
+    "clave": "ejercicio.ejDesc.saltar-cuerda",
+    "texto": "Esegui salti bassi, facendo ruotare la corda con i polsi, non con le braccia."
+  },
+  {
+    "clave": "ejercicio.ejDesc.burpees",
+    "texto": "Dalla posizione in piedi al plank, esegui un piegamento, riporta i piedi con un salto e salta verso l'alto con le braccia sopra la testa."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circuito-metabolico",
+    "texto": "Concatena più esercizi senza pause per mantenere la frequenza cardiaca alta."
+  },
+  {
+    "clave": "ejercicio.ejDesc.natacion",
+    "texto": "Nuota a ritmo costante, coordinando la respirazione con la bracciata."
+  },
+  {
+    "clave": "ejercicio.ejDesc.aqua-aerobicos",
+    "texto": "Allenati in acqua: la resistenza lavora sui muscoli senza sovraccaricare le articolazioni."
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata",
+    "texto": "Mantieni un ritmo calmo e continuo; è la base del tuo volume aerobico."
+  },
+  {
+    "clave": "ejercicio.ejDesc.futbol",
+    "texto": "Corri in modo intermittente, con cambi di ritmo e direzione."
+  },
+  {
+    "clave": "ejercicio.ejDesc.basquetbol",
+    "texto": "Alterna scatti brevi, salti e movimento laterale costante."
+  },
+  {
+    "clave": "ejercicio.ejDesc.tenis",
+    "texto": "Alterna scatti esplosivi a pause; grande impegno per le gambe."
+  },
+  {
+    "clave": "ejercicio.ejDesc.padel",
+    "texto": "Gioca punti brevi e intensi su un campo piccolo, con molti cambi di direzione."
+  },
+  {
+    "clave": "ejercicio.ejDesc.boxeo",
+    "texto": "Alterna combinazioni e gioco di gambe mantenendo la guardia alta."
+  },
+  {
+    "clave": "ejercicio.ejDesc.baile",
+    "texto": "Muoviti in continuazione a ritmo di musica; un cardio che non sembra un allenamento."
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-matutina",
+    "texto": "Esegui una sequenza dolce per svegliare il corpo e sciogliere le articolazioni appena sveglio."
+  },
+  {
+    "clave": "ejercicio.ejDesc.yoga-flow",
+    "texto": "Collega le posizioni al respiro in un flusso continuo per tutto il corpo."
+  },
+  {
+    "clave": "ejercicio.ejDesc.saludo-al-sol",
+    "texto": "Esegui questa sequenza classica di yoga che allunga e attiva tutto il corpo."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-general",
+    "texto": "Lavora sui principali gruppi muscolari con allungamenti dolci e prolungati."
+  },
+  {
+    "clave": "ejercicio.ejDesc.guerrero-i",
+    "texto": "In affondo, alza le braccia e apri il petto mantenendo i fianchi rivolti in avanti."
+  },
+  {
+    "clave": "ejercicio.ejDesc.guerrero-ii",
+    "texto": "In affondo ampio, estendi le braccia e guarda avanti mentre pieghi il ginocchio anteriore."
+  },
+  {
+    "clave": "ejercicio.ejDesc.triangulo",
+    "texto": "Con le gambe divaricate, inclina il busto e abbassa una mano verso la caviglia."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-de-pie",
+    "texto": "In piedi, piega il busto sopra le gambe, rilassando collo e schiena."
+  },
+  {
+    "clave": "ejercicio.ejDesc.apertura-de-cadera",
+    "texto": "Lavora sulla mobilità per rilasciare i fianchi e guadagnare ampiezza di movimento nelle gambe."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-paloma",
+    "texto": "Con una gamba piegata davanti, abbassa il busto per aprire il gluteo."
+  },
+  {
+    "clave": "ejercicio.ejDesc.mariposa",
+    "texto": "Seduto, unisci le piante dei piedi e lascia cadere le ginocchia verso l'esterno."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-isquiotibiales",
+    "texto": "Allunga la parte posteriore della coscia con il ginocchio esteso."
+  },
+  {
+    "clave": "ejercicio.ejDesc.zancada-baja",
+    "texto": "Con un ginocchio a terra, spingi il fianco in avanti per allungare il flessore."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-guirnalda",
+    "texto": "In uno squat profondo, apri le ginocchia con i gomiti per rilasciare i fianchi."
+  },
+  {
+    "clave": "ejercicio.ejDesc.figura-4",
+    "texto": "Incrocia la caviglia sopra il ginocchio opposto e tira la coscia verso di te per allungare il gluteo."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-aductores",
+    "texto": "Apri le gambe e abbassa il busto per allungare l'interno coscia."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rana",
+    "texto": "A quattro zampe con le ginocchia ben divaricate, sposta i fianchi indietro."
+  },
+  {
+    "clave": "ejercicio.ejDesc.perro-boca-abajo",
+    "texto": "A V rovesciata, spingi i fianchi verso l'alto, allungando schiena e gambe."
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsion-espinal",
+    "texto": "Seduto o sdraiato, ruota delicatamente il busto per mobilizzare la colonna."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-del-nino",
+    "texto": "Seduto sui talloni, estendi le braccia in avanti, rilassando la schiena."
+  },
+  {
+    "clave": "ejercicio.ejDesc.apertura-de-pecho",
+    "texto": "Porta le braccia indietro per aprire il petto e correggere la postura curva."
+  },
+  {
+    "clave": "ejercicio.ejDesc.esfinge",
+    "texto": "A pancia in giù, appoggiato sugli avambracci, solleva il petto estendendo la zona lombare."
+  },
+  {
+    "clave": "ejercicio.ejDesc.hilo-y-aguja",
+    "texto": "A quattro zampe, infila un braccio sotto il corpo per allungare la spalla."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-dorsales",
+    "texto": "Allunga i fianchi sollevando le braccia verso l'alto e leggermente di lato."
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-cervical",
+    "texto": "Esegui movimenti lenti del collo in tutte le direzioni per rilasciare la tensione."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-de-columna",
+    "texto": "Ruota delicatamente la colonna, segmento per segmento, per mobilizzarla."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-cobra",
+    "texto": "A pancia in giù, solleva il petto con le mani, estendendo la schiena."
+  },
+  {
+    "clave": "ejercicio.ejDesc.inclinacion-lateral-de-cuello",
+    "texto": "Avvicina l'orecchio alla spalla per allungare il lato del collo."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-cuadriceps",
+    "texto": "In piedi, porta il tallone verso il gluteo, tenendo il piede per allungare la coscia."
+  }
 ]

@@ -1,46 +1,878 @@
 [
   {
-    "clave": "tut.esencial.titulo",
-    "texto": "기본 둘러보기"
+    "clave": "hoy.casa.personales",
+    "texto": "개인"
   },
   {
-    "clave": "tut.tipo.ejemplos",
-    "texto": "예시 · 데모 집"
+    "clave": "hoy.irApp",
+    "texto": "앱에서 기록하기"
   },
   {
-    "clave": "tut.app-agenda--esencial.resumen",
-    "texto": "일정은 습관이 아닌 일들을 세 가지 메뉴로 챙겨요. 업무(할 일과 보드), 건강(진료 예약, 약, 돌봄: 나와 소중한 사람, 반려동물까지), 연락처(연락처와 생일)예요. 날짜가 있는 것은 모두 캘린더에 알아서 들어가요."
+    "clave": "hoy.nada",
+    "texto": "이 앱에서는 아직 아무것도 정하지 않았어요."
   },
   {
-    "clave": "tut.calendario--esencial.resumen",
-    "texto": "캘린더는 방이 아니에요. 집의 시계 안에 있으면서 날짜와 시간이 있는 모든 것을 모아요. 직접 만든 것도, 다른 앱이 알아서 잡아 둔 것도요. 보는 방법은 네 가지예요. 일과 주는 시간 격자 위에서, 월과 연도는 전체를 조망할 때 써요. 미션은 따로예요. 모든 앱의 오늘 체크리스트를 한데 모아 둔 빨간 버튼이에요."
+    "clave": "hoy.metas.titulo",
+    "texto": "목표"
   },
   {
-    "clave": "tut.app-anecdotario--esencial.resumen",
-    "texto": "추억 노트는 나만의 일기예요. 기분과 글, 사진을 담은 기록이 날짜별로 알아서 저장돼요. 캘린더는 하루하루를 그날의 기분으로 색칠하고, 기록은 연·월·주별 폴더로 정리돼요."
+    "clave": "hoy.metas.vencida",
+    "texto": "기한 초과"
   },
   {
-    "clave": "tut.app-biblioteca--esencial.resumen",
-    "texto": "도서관은 나만의 백과사전이고, 메뉴는 네 가지예요. 채팅(현자에게 묻고, 대화는 하나하나 보관되어 항목으로 추출돼요), 백과사전(배운 것이 지식 분야별로 자라나는 트리), 학습(단순 타이머나 뽀모도로로 세션마다 기록해요), 개요(얼마나 쓰고 얼마나 공부했는지)예요."
+    "clave": "hoy.metas.faltan",
+    "texto": "{n}일"
   },
   {
-    "clave": "tut.app-cocina--esencial.resumen",
-    "texto": "주방에는 메뉴가 두 개 있어요. 레시피북에는 앞으로 만들 것이 담겨요. 영양 성분이 딸린 레시피, 그것을 묶어 주는 식단, 그리고 장보기 목록이에요. 영양 관리는 먹은 것을 네 단계로 챙겨요. 칼로리와 체중 목표, 그날의 기록, 앞으로 며칠의 식단표, 그리고 진행 상황이에요."
+    "clave": "objetivos.anadir",
+    "texto": "미션 추가"
   },
   {
-    "clave": "tut.app-computo--esencial.resumen",
-    "texto": "전산실에는 메뉴가 두 개 있어요. 계산기는 평소의 계산을 처리하고, 모드를 바꾸면 그래프, 진법, 행렬, 연립방정식, 단위, 팁, 비례식까지 다뤄요. 거기에 공식집이 딸려 있는데, 수학·물리·화학이 미리 담긴 나만의 공식 노트예요. 스프레드시트는 표로 다룰 것들을 맡고, 수식(=SUMA 형태)을 쓸 수 있으며 엑셀이나 PDF로 내보낼 수 있어요."
+    "clave": "objetivos.responsable",
+    "texto": "{quien}님이 여기 일을 알려줘요."
   },
   {
-    "clave": "tut.app-descanso--esencial.resumen",
-    "texto": "휴식은 어떻게 잤는지를 한 화면에 기록해요. 지난밤 점수, 알림이 딸린 수면 시간, 매일의 기록, 그리고 연·월·주로 살펴보는 전체 기록이에요."
+    "clave": "objetivos.nuevo.deQueApp",
+    "texto": "어떤 앱의 미션이에요?"
   },
   {
-    "clave": "tut.app-despacho--esencial.resumen",
-    "texto": "서재는 돈을 네 가지 메뉴로 정리해요. 순자산은 가진 것과 갚을 것을 예측과 함께 담고, 현금 흐름은 지출과 수입, 해당 기간의 수지를 예산·카테고리와 함께 챙기며, 목표는 저축과 투자, 부채를 모으고 금액을 제안해 주는 계산기도 갖췄어요. 시장은 실시간 시세 보드로, 확인용이에요."
+    "clave": "objetivos.nuevo.responsable",
+    "texto": "여기 일은 제가 알려드릴게요. 뭘 정해볼까요?"
   },
   {
-    "clave": "tut.app-diario--esencial.resumen",
-    "texto": "일간 뉴스는 그날에만 있는 신문이에요. 실제 언론의 헤드라인이 카테고리별로 실리고 오늘의 역사도 함께 담기며, 자정이 되면 알아서 새로워져요. 전달 설정에서 어시스턴트가 자기 채팅으로 가져다주도록 예약할 수 있어요."
+    "clave": "objetivos.nuevo.personal",
+    "texto": "어떤 앱에도 속하지 않는 개인 미션이에요."
+  },
+  {
+    "clave": "objetivos.nuevo.personales",
+    "texto": "개인"
+  },
+  {
+    "clave": "objetivos.nuevo.poner",
+    "texto": "＋"
+  },
+  {
+    "clave": "objetivos.nuevo.todos",
+    "texto": "이 앱의 미션은 모두 정했어요."
+  },
+  {
+    "clave": "objetivos.nuevo.otro",
+    "texto": "다른 미션…"
+  },
+  {
+    "clave": "objetivos.nuevo.otroPlaceholder",
+    "texto": "뭘 해볼래요?"
+  },
+  {
+    "clave": "objetivos.nuevo.checklist",
+    "texto": "여러 단계가 필요해요? 새 체크리스트"
+  },
+  {
+    "clave": "objetivos.nuevo.dias",
+    "texto": "어느 요일에?"
+  },
+  {
+    "clave": "objetivos.nuevo.faltanDias",
+    "texto": "하루는 골라야 해요."
+  },
+  {
+    "clave": "objetivos.nuevo.cantidad",
+    "texto": "얼마나?"
+  },
+  {
+    "clave": "objetivos.nuevo.meta",
+    "texto": "어떤 목표를 위해?"
+  },
+  {
+    "clave": "objetivos.nuevo.sinMeta",
+    "texto": "없음(단독)"
+  },
+  {
+    "clave": "objetivos.nuevo.mientrasDure",
+    "texto": "{ini}부터 {fin}까지, 목표가 진행되는 동안만요."
+  },
+  {
+    "clave": "objetivos.nuevo.hora",
+    "texto": "시간을 정할까요?"
+  },
+  {
+    "clave": "objetivos.nuevo.sinHora",
+    "texto": "시간 없음"
+  },
+  {
+    "clave": "objetivos.nuevo.anadir",
+    "texto": "추가"
+  },
+  {
+    "clave": "objetivos.nuevo.cancelar",
+    "texto": "취소"
+  },
+  {
+    "clave": "objetivos.nuevo.cambiar",
+    "texto": "어시스턴트 바꾸기"
+  },
+  {
+    "clave": "objetivos.nuevo.nadie",
+    "texto": "어시스턴트 없음"
+  },
+  {
+    "clave": "avisos.objetivos",
+    "texto": "{app}에 미션이 {n}개 남았어요."
+  },
+  {
+    "clave": "biblioteca.nodo.filosofia",
+    "texto": "철학과 사상"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.filosofia",
+    "texto": "실재, 지식, 마음, 행위에 관한 근본적인 질문들."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-metafisica",
+    "texto": "형이상학과 존재론"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-ser",
+    "texto": "존재와 실존"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-ser",
+    "texto": "무언가가 존재한다는 것의 의미."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-mente",
+    "texto": "마음과 의식"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-mente",
+    "texto": "심신 문제와 현상학."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-libre",
+    "texto": "자유와 결정론"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-libre",
+    "texto": "우리는 자유로운 걸까요, 아니면 모든 것에 원인이 있는 걸까요?"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-epistemologia",
+    "texto": "인식론"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-conocimiento",
+    "texto": "지식 이론"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-conocimiento",
+    "texto": "정당화, 진리, 믿음."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-ciencia-fil",
+    "texto": "과학철학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-ciencia-fil",
+    "texto": "방법, 패러다임, 구획."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-escepticismo",
+    "texto": "회의주의"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-escepticismo",
+    "texto": "우리가 알 수 있는 것의 한계."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-etica",
+    "texto": "윤리학과 정치철학"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-moral",
+    "texto": "도덕 이론"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-moral",
+    "texto": "의무론, 공리주의, 덕 윤리."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-justicia",
+    "texto": "사회 정의"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-justicia",
+    "texto": "형평, 권리, 공동선."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-bioetica",
+    "texto": "생명윤리학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-bioetica",
+    "texto": "생명, 의료, 응용 기술."
+  },
+  {
+    "clave": "biblioteca.nodo.matematicas",
+    "texto": "수학과 논리학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.matematicas",
+    "texto": "추상 구조, 형식적 추론, 정량 모델."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-puras",
+    "texto": "순수수학"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-algebra",
+    "texto": "대수학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-algebra",
+    "texto": "구조, 방정식, 대칭성."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-analisis",
+    "texto": "해석학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-analisis",
+    "texto": "극한, 연속성, 미적분."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-geometria",
+    "texto": "기하학과 위상수학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-geometria",
+    "texto": "도형, 공간, 변환."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-aplicadas",
+    "texto": "응용수학"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-prob",
+    "texto": "확률론"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-prob",
+    "texto": "불확실성과 무작위 사건."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-stats",
+    "texto": "통계학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-stats",
+    "texto": "데이터, 추론, 모델."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-discreta",
+    "texto": "이산수학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-discreta",
+    "texto": "조합론, 그래프, 재귀."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-logica",
+    "texto": "논리학"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-log-formal",
+    "texto": "형식논리학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-log-formal",
+    "texto": "명제, 술어, 증명."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-log-comput",
+    "texto": "계산논리학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-log-comput",
+    "texto": "알고리즘, 복잡도, 검증."
+  },
+  {
+    "clave": "biblioteca.nodo.naturales",
+    "texto": "자연과학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.naturales",
+    "texto": "물리 우주의 법칙, 물질, 에너지, 생명 시스템."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-fisica",
+    "texto": "물리학"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-mecanica",
+    "texto": "고전역학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-mecanica",
+    "texto": "운동, 힘, 에너지."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-cuantica",
+    "texto": "양자물리학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-cuantica",
+    "texto": "입자, 파동, 확률."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-relatividad",
+    "texto": "상대성이론"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-relatividad",
+    "texto": "시공간과 우주론."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-termodinamica",
+    "texto": "열역학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-termodinamica",
+    "texto": "열, 엔트로피, 평형."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-quimica",
+    "texto": "화학"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-org",
+    "texto": "유기화학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-org",
+    "texto": "탄소, 생체분자, 반응."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-inorg",
+    "texto": "무기화학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-inorg",
+    "texto": "원소, 결합, 재료."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-fisicoquim",
+    "texto": "물리화학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-fisicoquim",
+    "texto": "반응과 평형에서의 에너지."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-biologia",
+    "texto": "생물학"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-celula",
+    "texto": "세포생물학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-celula",
+    "texto": "세포, 대사, 신호 전달."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-genetica",
+    "texto": "유전학과 진화"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-genetica",
+    "texto": "DNA, 선택, 계통 발생."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-ecologia",
+    "texto": "생태학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-ecologia",
+    "texto": "생태계, 생물다양성, 순환."
+  },
+  {
+    "clave": "biblioteca.nodo.tierra",
+    "texto": "지구과학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tierra",
+    "texto": "지구, 대기, 해양, 지질 작용."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-geologia",
+    "texto": "지질학과 지구물리학"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-placas",
+    "texto": "판구조론"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-placas",
+    "texto": "지형 형성과 지진."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-minerales",
+    "texto": "광물학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-minerales",
+    "texto": "암석, 광물, 자원."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-paleont",
+    "texto": "고생물학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-paleont",
+    "texto": "화석과 생명의 역사."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-clima",
+    "texto": "기후와 대기"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-meteorologia",
+    "texto": "기상학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-meteorologia",
+    "texto": "날씨, 기압, 강수."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-climatologia",
+    "texto": "기후학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-climatologia",
+    "texto": "장기적인 패턴과 기후 변화."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-oceanos",
+    "texto": "해양학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-oceanos",
+    "texto": "해류, 바다, 해안."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-espacial",
+    "texto": "지리와 공간"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-cartografia",
+    "texto": "지도학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-cartografia",
+    "texto": "지도, 좌표, GIS."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-geomorf",
+    "texto": "지형학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-geomorf",
+    "texto": "지형과 침식."
+  },
+  {
+    "clave": "biblioteca.nodo.sociales",
+    "texto": "사회과학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sociales",
+    "texto": "사회, 경제, 제도, 인간의 집단 행동."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-sociologia",
+    "texto": "사회학과 인류학"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-estructura",
+    "texto": "사회 구조"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-estructura",
+    "texto": "계급, 네트워크, 불평등."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-cultura",
+    "texto": "문화인류학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-cultura",
+    "texto": "의례, 정체성, 상징."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-urbano",
+    "texto": "도시학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-urbano",
+    "texto": "도시, 이주, 지역."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-economia",
+    "texto": "경제학"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-micro",
+    "texto": "미시경제학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-micro",
+    "texto": "공급, 수요, 의사결정."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-macro",
+    "texto": "거시경제학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-macro",
+    "texto": "GDP, 인플레이션, 재정 정책."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-comercio",
+    "texto": "국제무역"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-comercio",
+    "texto": "세계화와 가치사슬."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-politica",
+    "texto": "정치학"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-estado",
+    "texto": "국가와 정부"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-estado",
+    "texto": "권력, 법, 민주주의."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-derechos",
+    "texto": "인권"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-derechos",
+    "texto": "자유, 정의, 시민권."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-relaciones",
+    "texto": "국제관계"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-relaciones",
+    "texto": "외교, 갈등, 협력."
+  },
+  {
+    "clave": "biblioteca.nodo.psicologia",
+    "texto": "심리학과 인간의 마음"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psicologia",
+    "texto": "인지, 감정, 발달, 심리적 웰빙."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-cognitiva",
+    "texto": "인지심리학"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-percepcion",
+    "texto": "지각과 주의"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-percepcion",
+    "texto": "자극을 처리하는 방식."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-memoria",
+    "texto": "기억과 학습"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-memoria",
+    "texto": "부호화, 회상, 망각."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-lenguaje-psi",
+    "texto": "심리언어학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-lenguaje-psi",
+    "texto": "언어 습득과 처리."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-desarrollo",
+    "texto": "발달과 성격"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-infancia",
+    "texto": "아동발달"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-infancia",
+    "texto": "인지 및 사회성 발달의 이정표."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-personalidad",
+    "texto": "성격"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-personalidad",
+    "texto": "특성, 기질, 모델."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-social-psi",
+    "texto": "사회심리학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-social-psi",
+    "texto": "집단, 태도, 동조."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-clinica",
+    "texto": "정신 건강"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-clinica-gen",
+    "texto": "임상심리학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-clinica-gen",
+    "texto": "장애, 진단, 치료."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-neuropsi",
+    "texto": "신경심리학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-neuropsi",
+    "texto": "뇌, 손상, 재활."
+  },
+  {
+    "clave": "biblioteca.nodo.humanidades",
+    "texto": "인문학과 역사"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.humanidades",
+    "texto": "시간과 사상, 문화유산을 아우르는 인간의 경험."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-historia",
+    "texto": "역사학"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-antigua",
+    "texto": "고대사"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-antigua",
+    "texto": "고전 문명과 그 기원."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-moderna",
+    "texto": "근현대사"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-moderna",
+    "texto": "혁명, 국가, 세계화."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-metodo",
+    "texto": "역사학 방법론"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-metodo",
+    "texto": "사료, 해석, 논쟁."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-religion",
+    "texto": "종교와 신화"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-comparada",
+    "texto": "비교종교학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-comparada",
+    "texto": "전통, 경전, 의례."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-mito",
+    "texto": "신화학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-mito",
+    "texto": "근원 서사와 원형."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-patrimonio",
+    "texto": "유산과 문화연구"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-museos",
+    "texto": "물질 유산"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-museos",
+    "texto": "박물관, 보존, 유물."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-memoria",
+    "texto": "집단 기억"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-memoria",
+    "texto": "증언, 기록, 망각."
+  },
+  {
+    "clave": "biblioteca.nodo.lengua",
+    "texto": "언어와 문학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.lengua",
+    "texto": "소통, 텍스트, 언어 분석, 문자로 이어진 전통."
+  },
+  {
+    "clave": "biblioteca.nodo.len-linguistica",
+    "texto": "언어학"
+  },
+  {
+    "clave": "biblioteca.nodo.len-fonetica",
+    "texto": "음성학과 음운론"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-fonetica",
+    "texto": "말소리와 음운 체계."
+  },
+  {
+    "clave": "biblioteca.nodo.len-sintaxis",
+    "texto": "통사론과 형태론"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-sintaxis",
+    "texto": "문장과 단어의 구조."
+  },
+  {
+    "clave": "biblioteca.nodo.len-semantica",
+    "texto": "의미론과 화용론"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-semantica",
+    "texto": "맥락 속의 의미."
+  },
+  {
+    "clave": "biblioteca.nodo.len-literatura",
+    "texto": "문학"
+  },
+  {
+    "clave": "biblioteca.nodo.len-generos",
+    "texto": "문학 장르"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-generos",
+    "texto": "소설, 시, 희곡, 에세이."
+  },
+  {
+    "clave": "biblioteca.nodo.len-teoria-lit",
+    "texto": "문학 이론"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-teoria-lit",
+    "texto": "비평, 서사론, 정전."
+  },
+  {
+    "clave": "biblioteca.nodo.len-mundo",
+    "texto": "세계문학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-mundo",
+    "texto": "지역 전통과 번역."
+  },
+  {
+    "clave": "biblioteca.nodo.len-comunicacion",
+    "texto": "커뮤니케이션학"
+  },
+  {
+    "clave": "biblioteca.nodo.len-periodismo",
+    "texto": "저널리즘"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-periodismo",
+    "texto": "뉴스, 팩트체크, 의견."
+  },
+  {
+    "clave": "biblioteca.nodo.len-retorica",
+    "texto": "수사학과 논증"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-retorica",
+    "texto": "설득과 공적 토론."
+  },
+  {
+    "clave": "biblioteca.nodo.idiomas",
+    "texto": "어학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idiomas",
+    "texto": "외국어 학습: 어휘, 문법, 발음, 연습."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-aprendizaje",
+    "texto": "학습 기초"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-vocabulario",
+    "texto": "어휘"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-vocabulario",
+    "texto": "유용한 단어와 표현의 습득과 복습."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-gramatica",
+    "texto": "문법"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-gramatica",
+    "texto": "구조, 시제, 비교 통사론."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-pronunciacion",
+    "texto": "발음과 듣기"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-pronunciacion",
+    "texto": "음성, 억양, 듣기 이해."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-lenguas",
+    "texto": "세계의 언어"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-ingles",
+    "texto": "영어"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-ingles",
+    "texto": "세계 공용어."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-romances",
+    "texto": "로망스어파"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-romances",
+    "texto": "프랑스어, 이탈리아어, 포르투갈어와 그 친연 관계."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-asiaticas",
+    "texto": "아시아 언어"
   }
 ]

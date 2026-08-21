@@ -1,38 +1,1010 @@
 [
   {
-    "clave": "tut.app-ejercicio--esencial.resumen",
-    "texto": "जिम शरीर के तीनों तरीक़ों को एक ही जगह रखता है: ताकत (सेट, रेप्स और वज़न), सहनशक्ति (दौड़ना, साइकिल या तैराकी, GPS और हार्ट रेट सेंसर के साथ लाइव वर्कआउट), और लचीलापन (समय के हिसाब से मूवमेंट, गाइडेड प्लेयर के साथ)। तीनों एक जैसे बने हैं — कैटलॉग, दिनचर्या और प्रगति — और लक्ष्य सेक्शन तय करता है कि हर हफ़्ते कितना ट्रेन करना है और सिलसिला व प्रगति का सार देता है।"
+    "clave": "biblioteca.nodoDesc.idi-asiaticas",
+    "texto": "जापानी, चीनी, कोरियाई भाषाएँ और उनकी लिपियाँ।"
   },
   {
-    "clave": "tut.app-entretenimiento--esencial.resumen",
-    "texto": "मनोरंजन में दो सेक्शन हैं: बोर्ड गेम, जिसमें परिवार के हिसाब से बंटा एक डिजिटल कैटलॉग है और खिलाड़ियों की संख्या से फ़िल्टर होता है, और संग्रह, जहां आप अपनी देखी-पढ़ी फ़िल्में, सीरीज़, किताबें और वीडियो गेम्स उनके स्टेटस और आपके रिव्यू के साथ रखते हैं।"
+    "clave": "biblioteca.nodo.idi-practica",
+    "texto": "अभ्यास और संस्कृति"
   },
   {
-    "clave": "tut.app-garage--esencial.resumen",
-    "texto": "गैराज आपके वाहनों का रखरखाव संभालता है: एक ट्रैफ़िक लाइट एक नज़र में बताती है कि क्या जल्दी करना है, वाहनों की लिस्ट हर एक की सर्विस हिस्ट्री रखती है, और हर एंट्री में उसकी कार्रवाई, दस्तावेज़ और संपर्क इकट्ठा होते हैं। जिस भी चीज़ की तारीख़ होती है, वह अपने आप घर के कैलेंडर में चली जाती है।"
+    "clave": "biblioteca.nodo.idi-conversacion",
+    "texto": "बातचीत"
   },
   {
-    "clave": "tut.app-hobbies--esencial.resumen",
-    "texto": "शौक आपके पैशन को ट्रैक करता है: हर एक की सिलसिला और हफ़्ते की प्रगति वाली लिस्ट, और नया जोड़ने का फ़ॉर्म। हर शौक के अंदर सेशन लॉग, साल की सक्रियता का नक्शा और उसके प्रोजेक्ट रहते हैं।"
+    "clave": "biblioteca.nodoDesc.idi-conversacion",
+    "texto": "प्रवाह, अभिव्यक्तियाँ और रोज़मर्रा की स्थितियाँ।"
   },
   {
-    "clave": "tut.app-ideas--esencial.resumen",
-    "texto": "विचार में जो कुछ आपके दिमाग़ में आता है वह तीन सेक्शन में रहता है: डायरी (अलग-अलग खयाल या विषय के हिसाब से ब्रेनस्टॉर्मिंग), मैप्स (कई फ़ॉर्मैट में एक फ़्री कैनवस) और आरेख (वही फ़ॉर्मैट, तुलना करने और तय करने के लिए)। सब कुछ फ़ोल्डर में रखा जा सकता है और एक सेक्शन से दूसरे में बदला जा सकता है।"
+    "clave": "biblioteca.nodo.idi-lectura",
+    "texto": "पठन और लेखन"
   },
   {
-    "clave": "tut.app-idiomas--esencial.resumen",
-    "texto": "भाषाएं आपका भाषा स्कूल है, चार सेक्शन में। चैट AI ट्यूटर के साथ बातचीत शुरू करता है, जो आपके स्तर के हिसाब से जवाब देता है; पाठ्यक्रम भाषा को टॉपिक, उच्चारण और व्याकरण में A1 से C2 तक बांटता है, और वहीं कार्ड्स में शब्दावली रहती है; रिवीज़न इसे स्पेस्ड-रिपिटिशन सिस्टम और एक्सरसाइज़ के साथ दोहराता है; प्रगति आपकी उन्नति का सार देती है।"
+    "clave": "biblioteca.nodoDesc.idi-lectura",
+    "texto": "स्तरानुसार पाठ, निबंध-लेखन और वर्तनी।"
   },
   {
-    "clave": "tut.app-jardin--esencial.resumen",
-    "texto": "बगीचा ध्यान (साउंड ट्रैक्स के साथ), गाइडेड श्वास और रोज़ की कृतज्ञता को तीन सेक्शन में इकट्ठा करता है। यहां जान-बूझकर कोई पॉइंट या सिलसिला नहीं है: यहां न आने पर कोई सज़ा नहीं मिलती, बस अभ्यास होता है।"
+    "clave": "biblioteca.nodo.idi-inmersion",
+    "texto": "संस्कृति और इमर्शन"
   },
   {
-    "clave": "tut.app-metas--esencial.resumen",
-    "texto": "पूरे घर का प्लानर, तीन सेक्शन में: लक्ष्य (आपने जो तय किया उसकी लिस्ट, हर एक को चलाने वाले ऐप के हिसाब से ग्रुप की गई), योजनाएं (समय-सारणी के ड्राफ़्ट, जो एक लक्ष्य को चरणों में बांटते हैं) और समय-सारणी (वह टाइमलाइन जहां सब कुछ आकर बैठता है)। इसकी अपनी कोई एंट्री नहीं होती: यह बाक़ी ऐप्स में बनने वाले लक्ष्य और योजनाएं इकट्ठा करता है। किसी लक्ष्य से उसका कार्ड खुलता है, और वहां से उसी तक सीमित टाइमलाइन।"
+    "clave": "biblioteca.nodoDesc.idi-inmersion",
+    "texto": "रीति-रिवाज, मीडिया और सीखने के लिए यात्रा।"
   },
   {
-    "clave": "tut.app-sala--esencial.resumen",
-    "texto": "बैठक आपकी यात्रा की दुनिया है, चार सेक्शन में: नक्शा (वर्ल्ड मैप पर जगहों के पिन, ग्लोब व्यू के साथ), योजना (देखने लायक जगहें उनकी दिन-ब-दिन प्लानिंग के साथ), मार्ग (जगहों को आपस में जोड़ने वाले रूट) और सफ़रनामा (हर देश की फ़ोटो और किस्सों वाली यादें)।"
+    "clave": "biblioteca.nodo.artes",
+    "texto": "कला और अभिव्यक्ति"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.artes",
+    "texto": "सौंदर्यात्मक सृजन, कलात्मक बोध और दृश्य-श्रव्य संस्कृति।"
+  },
+  {
+    "clave": "biblioteca.nodo.art-visuales",
+    "texto": "दृश्य कलाएँ"
+  },
+  {
+    "clave": "biblioteca.nodo.art-pintura",
+    "texto": "चित्रकला और रेखांकन"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-pintura",
+    "texto": "तकनीकें, संयोजन और रंग।"
+  },
+  {
+    "clave": "biblioteca.nodo.art-escultura",
+    "texto": "मूर्तिकला और वास्तुकला"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-escultura",
+    "texto": "अवकाश, आकार और डिज़ाइन।"
+  },
+  {
+    "clave": "biblioteca.nodo.art-fotografia",
+    "texto": "फ़ोटोग्राफी"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-fotografia",
+    "texto": "प्रकाश, फ़्रेमिंग और दृश्य-वर्णन।"
+  },
+  {
+    "clave": "biblioteca.nodo.art-musica",
+    "texto": "संगीत"
+  },
+  {
+    "clave": "biblioteca.nodo.art-teoria-mus",
+    "texto": "संगीत सिद्धांत"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-teoria-mus",
+    "texto": "स्वर-सामंजस्य, लय और स्वरलिपि।"
+  },
+  {
+    "clave": "biblioteca.nodo.art-historia-mus",
+    "texto": "संगीत का इतिहास"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-historia-mus",
+    "texto": "शैलियाँ, युग और संगीतकार।"
+  },
+  {
+    "clave": "biblioteca.nodo.art-escenicas",
+    "texto": "प्रदर्शन कला और फ़िल्म"
+  },
+  {
+    "clave": "biblioteca.nodo.art-teatro",
+    "texto": "रंगमंच और अभिनय"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-teatro",
+    "texto": "नाट्यशास्त्र, अभिनय और मंचन।"
+  },
+  {
+    "clave": "biblioteca.nodo.art-cine",
+    "texto": "सिनेमा और दृश्य-श्रव्य माध्यम"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-cine",
+    "texto": "पटकथा-लेखन, संपादन और फ़िल्म की भाषा।"
+  },
+  {
+    "clave": "biblioteca.nodo.tecnologia",
+    "texto": "प्रौद्योगिकी और इंजीनियरिंग"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tecnologia",
+    "texto": "समस्याएँ सुलझाने और दुनिया को बदलने के लिए ज्ञान का उपयोग।"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-informatica",
+    "texto": "कंप्यूटर विज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-algoritmos",
+    "texto": "एल्गोरिदम और डेटा संरचनाएँ"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-algoritmos",
+    "texto": "दक्षता, डेटा और डिज़ाइन।"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ia",
+    "texto": "कृत्रिम बुद्धिमत्ता"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-ia",
+    "texto": "मशीन लर्निंग और एआई नैतिकता।"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-redes",
+    "texto": "नेटवर्क और सिस्टम"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-redes",
+    "texto": "इंटरनेट, सुरक्षा और वितरण।"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ingenieria",
+    "texto": "इंजीनियरिंग"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-mecanica",
+    "texto": "यांत्रिक इंजीनियरिंग"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-mecanica",
+    "texto": "मशीनें, सामग्री और विनिर्माण।"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-electrica",
+    "texto": "विद्युत इंजीनियरिंग"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-electrica",
+    "texto": "परिपथ, ऊर्जा और इलेक्ट्रॉनिक्स।"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-civil",
+    "texto": "सिविल इंजीनियरिंग"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-civil",
+    "texto": "अवसंरचना, जलगतिकी और संरचनाएँ।"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-energia",
+    "texto": "ऊर्जा और स्थिरता"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-renovables",
+    "texto": "नवीकरणीय ऊर्जा"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-renovables",
+    "texto": "सौर, पवन और हाइड्रोजन।"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ambiental",
+    "texto": "पर्यावरण इंजीनियरिंग"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-ambiental",
+    "texto": "अपशिष्ट, जल और पारिस्थितिक पदचिह्न।"
+  },
+  {
+    "clave": "biblioteca.nodo.salud",
+    "texto": "स्वास्थ्य और चिकित्सा"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.salud",
+    "texto": "मानव शरीर, रोग, रोकथाम और देखभाल प्रणालियाँ।"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-anatomia",
+    "texto": "शरीर रचना विज्ञान और शरीर क्रिया विज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-cuerpo",
+    "texto": "शरीर के तंत्र"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-cuerpo",
+    "texto": "अंग, समस्थिति और समन्वय।"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-neuro",
+    "texto": "चिकित्सा तंत्रिका विज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-neuro",
+    "texto": "मस्तिष्क, इंद्रियाँ और गति।"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-clinica",
+    "texto": "नैदानिक चिकित्सा"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-patologia",
+    "texto": "रोगविज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-patologia",
+    "texto": "रोग, निदान और कारण।"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-farmacologia",
+    "texto": "औषध विज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-farmacologia",
+    "texto": "दवाएँ, खुराक और प्रभाव।"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-salud-pub",
+    "texto": "सार्वजनिक स्वास्थ्य"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-salud-pub",
+    "texto": "महामारी विज्ञान, टीके और नीति।"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-bienestar",
+    "texto": "कल्याण और पोषण"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-nutricion",
+    "texto": "नैदानिक पोषण"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-nutricion",
+    "texto": "आहार, उपापचय और सूक्ष्म पोषक तत्व।"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-prevencion",
+    "texto": "निवारक चिकित्सा"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-prevencion",
+    "texto": "आदतें, जांच और दीर्घायु।"
+  },
+  {
+    "clave": "ejercicio.ej.press-banca",
+    "texto": "बेंच प्रेस"
+  },
+  {
+    "clave": "ejercicio.ej.press-inclinado",
+    "texto": "इंक्लाइन प्रेस"
+  },
+  {
+    "clave": "ejercicio.ej.press-con-mancuernas",
+    "texto": "डम्बल प्रेस"
+  },
+  {
+    "clave": "ejercicio.ej.aperturas-con-mancuernas",
+    "texto": "डम्बल फ्लाई"
+  },
+  {
+    "clave": "ejercicio.ej.cruce-en-polea",
+    "texto": "केबल क्रॉसओवर"
+  },
+  {
+    "clave": "ejercicio.ej.fondos-en-paralelas",
+    "texto": "डिप्स"
+  },
+  {
+    "clave": "ejercicio.ej.flexiones",
+    "texto": "पुश-अप्स"
+  },
+  {
+    "clave": "ejercicio.ej.dominadas",
+    "texto": "पुल-अप्स"
+  },
+  {
+    "clave": "ejercicio.ej.jalon-al-pecho",
+    "texto": "लैट पुलडाउन"
+  },
+  {
+    "clave": "ejercicio.ej.remo-con-barra",
+    "texto": "बारबेल रो"
+  },
+  {
+    "clave": "ejercicio.ej.remo-con-mancuerna",
+    "texto": "डम्बल रो"
+  },
+  {
+    "clave": "ejercicio.ej.remo-en-polea-baja",
+    "texto": "सीटेड केबल रो"
+  },
+  {
+    "clave": "ejercicio.ej.pull-over",
+    "texto": "पुल-ओवर"
+  },
+  {
+    "clave": "ejercicio.ej.face-pull",
+    "texto": "फेस पुल"
+  },
+  {
+    "clave": "ejercicio.ej.hiperextensiones",
+    "texto": "हाइपरएक्सटेंशन"
+  },
+  {
+    "clave": "ejercicio.ej.press-militar",
+    "texto": "मिलिट्री प्रेस"
+  },
+  {
+    "clave": "ejercicio.ej.press-arnold",
+    "texto": "आर्नोल्ड प्रेस"
+  },
+  {
+    "clave": "ejercicio.ej.elevaciones-laterales",
+    "texto": "लेटरल रेज़"
+  },
+  {
+    "clave": "ejercicio.ej.elevaciones-frontales",
+    "texto": "फ्रंट रेज़"
+  },
+  {
+    "clave": "ejercicio.ej.pajaros",
+    "texto": "रिवर्स फ्लाई"
+  },
+  {
+    "clave": "ejercicio.ej.encogimientos",
+    "texto": "श्रग्स"
+  },
+  {
+    "clave": "ejercicio.ej.curl-con-barra",
+    "texto": "बारबेल कर्ल"
+  },
+  {
+    "clave": "ejercicio.ej.curl-con-mancuernas",
+    "texto": "डम्बल कर्ल"
+  },
+  {
+    "clave": "ejercicio.ej.curl-martillo",
+    "texto": "हैमर कर्ल"
+  },
+  {
+    "clave": "ejercicio.ej.curl-predicador",
+    "texto": "प्रीचर कर्ल"
+  },
+  {
+    "clave": "ejercicio.ej.curl-concentrado",
+    "texto": "कंसंट्रेशन कर्ल"
+  },
+  {
+    "clave": "ejercicio.ej.extension-triceps-en-polea",
+    "texto": "ट्राइसेप्स पुशडाउन"
+  },
+  {
+    "clave": "ejercicio.ej.press-frances",
+    "texto": "स्कल क्रशर"
+  },
+  {
+    "clave": "ejercicio.ej.fondos-entre-bancos",
+    "texto": "बेंच डिप्स"
+  },
+  {
+    "clave": "ejercicio.ej.extension-sobre-cabeza",
+    "texto": "ओवरहेड एक्सटेंशन"
+  },
+  {
+    "clave": "ejercicio.ej.patada-de-triceps",
+    "texto": "ट्राइसेप्स किकबैक"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla",
+    "texto": "स्क्वाट"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-frontal",
+    "texto": "फ्रंट स्क्वाट"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-bulgara",
+    "texto": "बल्गेरियन स्प्लिट स्क्वाट"
+  },
+  {
+    "clave": "ejercicio.ej.prensa-de-pierna",
+    "texto": "लेग प्रेस"
+  },
+  {
+    "clave": "ejercicio.ej.zancadas",
+    "texto": "लंजेस"
+  },
+  {
+    "clave": "ejercicio.ej.peso-muerto",
+    "texto": "डेडलिफ्ट"
+  },
+  {
+    "clave": "ejercicio.ej.peso-muerto-rumano",
+    "texto": "रोमानियन डेडलिफ्ट"
+  },
+  {
+    "clave": "ejercicio.ej.curl-femoral",
+    "texto": "लेग कर्ल"
+  },
+  {
+    "clave": "ejercicio.ej.extension-de-cuadriceps",
+    "texto": "लेग एक्सटेंशन"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-talones",
+    "texto": "काल्फ़ रेज़"
+  },
+  {
+    "clave": "ejercicio.ej.hip-thrust",
+    "texto": "हिप थ्रस्ट"
+  },
+  {
+    "clave": "ejercicio.ej.puente-de-gluteo",
+    "texto": "ग्लूट ब्रिज"
+  },
+  {
+    "clave": "ejercicio.ej.patada-de-gluteo-en-polea",
+    "texto": "केबल ग्लूट किकबैक"
+  },
+  {
+    "clave": "ejercicio.ej.abduccion-de-cadera",
+    "texto": "हिप एब्डक्शन"
+  },
+  {
+    "clave": "ejercicio.ej.plancha",
+    "texto": "प्लांक"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-lateral",
+    "texto": "साइड प्लांक"
+  },
+  {
+    "clave": "ejercicio.ej.crunch-abdominal",
+    "texto": "एब्डॉमिनल क्रंच"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-piernas",
+    "texto": "लेग रेज़"
+  },
+  {
+    "clave": "ejercicio.ej.russian-twist",
+    "texto": "रशियन ट्विस्ट"
+  },
+  {
+    "clave": "ejercicio.ej.rueda-abdominal",
+    "texto": "एब व्हील रोलआउट"
+  },
+  {
+    "clave": "ejercicio.ej.escaladores",
+    "texto": "माउंटेन क्लाइंबर्स"
+  },
+  {
+    "clave": "ejercicio.ej.carrera",
+    "texto": "दौड़"
+  },
+  {
+    "clave": "ejercicio.ej.trote-suave",
+    "texto": "हल्की जॉगिंग"
+  },
+  {
+    "clave": "ejercicio.ej.caminata-rapida",
+    "texto": "तेज़ चाल"
+  },
+  {
+    "clave": "ejercicio.ej.ciclismo",
+    "texto": "साइकिलिंग"
+  },
+  {
+    "clave": "ejercicio.ej.senderismo",
+    "texto": "हाइकिंग"
+  },
+  {
+    "clave": "ejercicio.ej.trail-running",
+    "texto": "ट्रेल रनिंग"
+  },
+  {
+    "clave": "ejercicio.ej.caminadora",
+    "texto": "ट्रेडमिल"
+  },
+  {
+    "clave": "ejercicio.ej.caminata-inclinada",
+    "texto": "इंक्लाइन वॉक"
+  },
+  {
+    "clave": "ejercicio.ej.eliptica",
+    "texto": "इलिप्टिकल"
+  },
+  {
+    "clave": "ejercicio.ej.bicicleta-estatica",
+    "texto": "स्टेशनरी बाइक"
+  },
+  {
+    "clave": "ejercicio.ej.escaladora",
+    "texto": "स्टेयर क्लाइंबर"
+  },
+  {
+    "clave": "ejercicio.ej.remo-maquina",
+    "texto": "रोइंग मशीन"
+  },
+  {
+    "clave": "ejercicio.ej.hiit",
+    "texto": "HIIT"
+  },
+  {
+    "clave": "ejercicio.ej.sprints",
+    "texto": "स्प्रिंट्स"
+  },
+  {
+    "clave": "ejercicio.ej.saltar-cuerda",
+    "texto": "जंप रोप"
+  },
+  {
+    "clave": "ejercicio.ej.burpees",
+    "texto": "बर्पीज़"
+  },
+  {
+    "clave": "ejercicio.ej.circuito-metabolico",
+    "texto": "मेटाबॉलिक सर्किट"
+  },
+  {
+    "clave": "ejercicio.ej.natacion",
+    "texto": "तैराकी"
+  },
+  {
+    "clave": "ejercicio.ej.aqua-aerobicos",
+    "texto": "वॉटर एरोबिक्स"
+  },
+  {
+    "clave": "ejercicio.ej.caminata",
+    "texto": "वॉकिंग"
+  },
+  {
+    "clave": "ejercicio.ej.futbol",
+    "texto": "फ़ुटबॉल"
+  },
+  {
+    "clave": "ejercicio.ej.basquetbol",
+    "texto": "बास्केटबॉल"
+  },
+  {
+    "clave": "ejercicio.ej.tenis",
+    "texto": "टेनिस"
+  },
+  {
+    "clave": "ejercicio.ej.padel",
+    "texto": "पैडल टेनिस"
+  },
+  {
+    "clave": "ejercicio.ej.boxeo",
+    "texto": "बॉक्सिंग"
+  },
+  {
+    "clave": "ejercicio.ej.baile",
+    "texto": "डांस"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-matutina",
+    "texto": "सुबह की मोबिलिटी"
+  },
+  {
+    "clave": "ejercicio.ej.yoga-flow",
+    "texto": "योगा फ्लो"
+  },
+  {
+    "clave": "ejercicio.ej.saludo-al-sol",
+    "texto": "सूर्य नमस्कार"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-general",
+    "texto": "सामान्य स्ट्रेचिंग"
+  },
+  {
+    "clave": "ejercicio.ej.guerrero-i",
+    "texto": "वीरभद्रासन 1"
+  },
+  {
+    "clave": "ejercicio.ej.guerrero-ii",
+    "texto": "वीरभद्रासन 2"
+  },
+  {
+    "clave": "ejercicio.ej.triangulo",
+    "texto": "त्रिकोणासन"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-de-pie",
+    "texto": "उत्तानासन"
+  },
+  {
+    "clave": "ejercicio.ej.apertura-de-cadera",
+    "texto": "हिप ओपनर"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-paloma",
+    "texto": "कपोतासन"
+  },
+  {
+    "clave": "ejercicio.ej.mariposa",
+    "texto": "तितली आसन"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-isquiotibiales",
+    "texto": "हैमस्ट्रिंग स्ट्रेच"
+  },
+  {
+    "clave": "ejercicio.ej.zancada-baja",
+    "texto": "लो लंज"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-guirnalda",
+    "texto": "मालासन"
+  },
+  {
+    "clave": "ejercicio.ej.figura-4",
+    "texto": "फिगर 4 स्ट्रेच"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-aductores",
+    "texto": "एडक्टर स्ट्रेच"
+  },
+  {
+    "clave": "ejercicio.ej.rana",
+    "texto": "मेंढक आसन"
+  },
+  {
+    "clave": "ejercicio.ej.perro-boca-abajo",
+    "texto": "अधोमुख श्वानासन"
+  },
+  {
+    "clave": "ejercicio.ej.torsion-espinal",
+    "texto": "स्पाइनल ट्विस्ट"
+  },
+  {
+    "clave": "ejercicio.ej.postura-del-nino",
+    "texto": "बालासन"
+  },
+  {
+    "clave": "ejercicio.ej.apertura-de-pecho",
+    "texto": "चेस्ट ओपनर"
+  },
+  {
+    "clave": "ejercicio.ej.esfinge",
+    "texto": "स्फिंक्स आसन"
+  },
+  {
+    "clave": "ejercicio.ej.hilo-y-aguja",
+    "texto": "थ्रेड द नीडल"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-dorsales",
+    "texto": "लैट स्ट्रेच"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-cervical",
+    "texto": "नेक मोबिलिटी"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-de-columna",
+    "texto": "स्पाइन रोटेशन"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-cobra",
+    "texto": "भुजंगासन"
+  },
+  {
+    "clave": "ejercicio.ej.inclinacion-lateral-de-cuello",
+    "texto": "नेक टिल्ट"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-cuadriceps",
+    "texto": "क्वाड स्ट्रेच"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-gemelos",
+    "texto": "काल्फ़ स्ट्रेच"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-hombros",
+    "texto": "शोल्डर स्ट्रेच"
+  },
+  {
+    "clave": "ejercicio.ej.foam-roller",
+    "texto": "फोम रोलर"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-triceps",
+    "texto": "ट्राइसेप्स स्ट्रेच"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores-de-cadera",
+    "texto": "हिप फ्लेक्सर स्ट्रेच"
+  },
+  {
+    "clave": "ejercicio.ej.piernas-en-la-pared",
+    "texto": "विपरीत करणी"
+  },
+  {
+    "clave": "ejercicio.ej.savasana",
+    "texto": "शवासन"
+  },
+  {
+    "clave": "ejercicio.ej.postura-del-nino-apoyada",
+    "texto": "सहारे वाला बालासन"
+  },
+  {
+    "clave": "ejercicio.ej.respiracion-profunda",
+    "texto": "गहरी साँस लेना"
+  },
+  {
+    "clave": "ejercicio.ej.mariposa-reclinada",
+    "texto": "सुप्त तितली आसन"
+  },
+  {
+    "clave": "ejercicio.ej.torsion-reclinada",
+    "texto": "लेटकर मरोड़"
+  },
+  {
+    "clave": "ejercicio.ej.liberacion-miofascial-con-pelota",
+    "texto": "बॉल से मायोफेशियल रिलीज़"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-tobillo",
+    "texto": "एंकल सर्कल्स"
+  },
+  {
+    "clave": "ejercicio.ej.recogida-de-toalla-con-dedos",
+    "texto": "तौलिया टो-स्क्रंच"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-dorsiflexion",
+    "texto": "डॉर्सिफ्लेक्शन स्ट्रेच"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-talones-unipodal",
+    "texto": "सिंगल-लेग काल्फ़ रेज़"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-y-extension-en-descarga",
+    "texto": "बिना भार फ्लेक्शन-एक्सटेंशन"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "डायनामिक हैमस्ट्रिंग स्ट्रेच"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-isometrica-wall-squat",
+    "texto": "आइसोमेट्रिक स्क्वाट (वॉल स्क्वाट)"
+  },
+  {
+    "clave": "ejercicio.ej.equilibrio-unipodal-single-leg-balance",
+    "texto": "सिंगल-लेग बैलेंस"
+  },
+  {
+    "clave": "ejercicio.ej.sentadillas-del-arquero",
+    "texto": "आर्चर स्क्वाट"
+  },
+  {
+    "clave": "ejercicio.ej.estocadas-lunges",
+    "texto": "लंजेस"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-90-90",
+    "texto": "90/90 मोबिलिटी"
+  },
+  {
+    "clave": "ejercicio.ej.el-puente-glute-bridge",
+    "texto": "ग्लूट ब्रिज"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores-en-estocada",
+    "texto": "लंज हिप फ्लेक्सर स्ट्रेच"
+  },
+  {
+    "clave": "ejercicio.ej.abduccion-lateral-de-cadera",
+    "texto": "लेटरल हिप एब्डक्शन"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-profunda-con-apertura",
+    "texto": "डीप स्क्वाट (घुटने खोलकर)"
+  },
+  {
+    "clave": "ejercicio.ej.balanceo-dinamico-de-piernas",
+    "texto": "डायनामिक लेग स्विंग"
+  },
+  {
+    "clave": "ejercicio.ej.postura-gato-vaca",
+    "texto": "कैट-काउ पोज़"
+  },
+  {
+    "clave": "ejercicio.ej.torsiones-lumbares-suaves",
+    "texto": "सौम्य लम्बर ट्विस्ट"
+  },
+  {
+    "clave": "ejercicio.ej.pointer-bird-dog",
+    "texto": "बर्ड डॉग"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-frontal-isometricos",
+    "texto": "फ्रंट प्लांक (आइसोमेट्रिक)"
+  },
+  {
+    "clave": "ejercicio.ej.roll-down-curl-jefferson",
+    "texto": "रोल डाउन (जेफरसन कर्ल)"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-lumbar-boca-abajo",
+    "texto": "लोअर बैक स्ट्रेच (पेट के बल)"
+  },
+  {
+    "clave": "ejercicio.ej.rotacion-toracica",
+    "texto": "थोरेसिक रोटेशन"
+  },
+  {
+    "clave": "ejercicio.ej.retraccion-escapular",
+    "texto": "स्कैपुलर रिट्रैक्शन"
+  },
+  {
+    "clave": "ejercicio.ej.angeles-de-pared-wall-angels",
+    "texto": "वॉल एंजल्स"
+  },
+  {
+    "clave": "ejercicio.ej.lunge-con-apertura-de-pectoral",
+    "texto": "लंज विद चेस्ट ओपनर"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-dorsal-en-pared",
+    "texto": "वॉल लैट स्ट्रेच"
+  },
+  {
+    "clave": "ejercicio.ej.el-gato-y-la-mesa",
+    "texto": "कैट-टेबल स्ट्रेच"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-hombros",
+    "texto": "शोल्डर सर्कल्स"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-pecho-pectoral",
+    "texto": "चेस्ट स्ट्रेच"
+  },
+  {
+    "clave": "ejercicio.ej.dislocaciones-con-goma-o-palo",
+    "texto": "शोल्डर डिस्लोकेट्स (बैंड या स्टिक से)"
+  },
+  {
+    "clave": "ejercicio.ej.rotacion-externa-con-banda",
+    "texto": "एक्सटर्नल रोटेशन विद बैंड"
+  },
+  {
+    "clave": "ejercicio.ej.thread-the-needle-enhebrar-aguja",
+    "texto": "थ्रेड द नीडल"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-y-medios-circulos",
+    "texto": "रोटेशन और हाफ सर्कल"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-trapecio-superior",
+    "texto": "अपर ट्रैपेज़ियस स्ट्रेच"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-cervicales-con-nodding",
+    "texto": "नेक रोटेशन (नॉडिंग सहित)"
+  },
+  {
+    "clave": "ejercicio.ej.retracciones-de-barbilla-chin-tucks",
+    "texto": "चिन टक"
+  },
+  {
+    "clave": "ejercicio.ej.isometricos-cervicales",
+    "texto": "नेक आइसोमेट्रिक्स"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-y-extension-de-muneca",
+    "texto": "रिस्ट फ्लेक्शन-एक्सटेंशन"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-munecas",
+    "texto": "रिस्ट सर्कल्स"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores",
+    "texto": "फ्लेक्सर स्ट्रेच"
+  },
+  {
+    "clave": "ejercicio.ej.agarre-activo-y-pasivo",
+    "texto": "एक्टिव और पैसिव ग्रिप"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-de-munecas",
+    "texto": "रिस्ट प्लांक"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-banca",
+    "texto": "बेंच पर लेटकर बार को छाती तक नीचे लाएं और कोहनियाँ सीधी होने तक ऊपर धकेलें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-inclinado",
+    "texto": "इंक्लाइन बेंच पर बार या डम्बल को ऊपर धकेलें ताकि ऊपरी छाती पर ज़ोर पड़े।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-con-mancuernas",
+    "texto": "लेटकर दोनों डम्बल ऊपर धकेलें; बारबेल से ज़्यादा गति की सीमा मिलती है।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.aperturas-con-mancuernas",
+    "texto": "लेटकर बाहों को चाप की तरह खोलें और कोहनियाँ हल्की मुड़ी रखते हुए वापस पास लाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.cruce-en-polea",
+    "texto": "दो ऊँची पुली के बीच खड़े होकर हाथों को सामने मिलाएं और छाती को कसें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.fondos-en-paralelas",
+    "texto": "पैरेलल बार पर लटककर, धड़ को आगे झुकाते हुए कोहनियाँ मोड़कर नीचे जाएं, फिर वापस ऊपर धकेलें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexiones",
+    "texto": "मुँह के बल लेटकर शरीर सीधा रखते हुए छाती को फ़र्श तक नीचे लाएं, फिर वापस ऊपर धकेलें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.dominadas",
+    "texto": "बार पर लटककर शरीर को तब तक ऊपर खींचें जब तक ठुड्डी बार से ऊपर न निकल जाए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.jalon-al-pecho",
+    "texto": "ऊँची पुली पर बैठकर बार को छाती तक खींचें, कोहनियों को नीचे की ओर धकेलते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-con-barra",
+    "texto": "पीठ सीधी रखते हुए झुकें और बार को पेट तक खींचें, पीठ की मांसपेशियों को कसते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-con-mancuerna",
+    "texto": "बेंच पर सहारा लेकर डम्बल को शरीर की ओर खींचें, बिना धड़ मरोड़े।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-en-polea-baja",
+    "texto": "बैठकर हैंडल को पेट तक खींचें, पीठ सीधी रखते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.pull-over",
+    "texto": "लेटकर डम्बल को सिर के पीछे नीचे लाएं, फिर वापस छाती के ऊपर लाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.face-pull",
+    "texto": "चेहरे की ऊँचाई वाली पुली पर, रस्सी को माथे की ओर खींचें और कोहनियों को बाहर फैलाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.hiperextensiones",
+    "texto": "बेंच पर धड़ को नीचे लाएं और वापस ऊपर उठाएं, पीठ के निचले हिस्से को खींचते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-militar",
+    "texto": "खड़े होकर बार को कंधों से सिर के ऊपर तक धकेलें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-arnold",
+    "texto": "बैठकर डम्बल को सिर के ऊपर धकेलें और साथ ही हथेलियों को अंदर से बाहर की ओर घुमाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevaciones-laterales",
+    "texto": "खड़े होकर डम्बल को बाजू की ओर कंधे की ऊँचाई तक उठाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevaciones-frontales",
+    "texto": "खड़े होकर डम्बल को सामने की ओर आँखों की ऊँचाई तक उठाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.pajaros",
+    "texto": "झुककर बाहों को बाजू की ओर खोलें ताकि कंधे का पिछला हिस्सा सक्रिय हो।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.encogimientos",
+    "texto": "वज़न के साथ खड़े होकर कंधों को कानों की ओर उठाएं और नियंत्रण के साथ नीचे लाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-con-barra",
+    "texto": "खड़े होकर बिना धड़ हिलाए कोहनियाँ मोड़कर बार को ऊपर उठाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-con-mancuernas",
+    "texto": "खड़े या बैठे हुए, कोहनियाँ मोड़कर डम्बल को बारी-बारी या साथ में ऊपर उठाएं।"
   }
 ]

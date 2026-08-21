@@ -1,137 +1,338 @@
 [
-  { "clave": "ejercicio.cronograma.desc", "texto": "把你的大目标放在时间轴上。点击✨，AI会帮你制定计划，并建议将哪些日常安排排入日程。" },
-  { "clave": "sala.tab.cronograma", "texto": "目标" },
-  { "clave": "avisos.rutinaPasos", "texto": "还有{n}个步骤要做。" },
-  { "clave": "avisos.rutinaHora", "texto": "到时间了。" },
-  { "clave": "avisos.abrir", "texto": "打开" },
-  { "clave": "avisos.metaFalta", "texto": "已完成{objetivo}中的{hecho}。" },
-  { "clave": "notif.titulo", "texto": "通知" },
-  { "clave": "notif.general", "texto": "通知我" },
-  { "clave": "notif.rutinas", "texto": "有时间的活动和日常安排" },
-  { "clave": "notif.metas", "texto": "今日未完成的目标" },
-  { "clave": "notif.porApp", "texto": "按应用" },
-  { "clave": "notif.denegado", "texto": "浏览器已阻止此网站的通知，只能从地址栏的锁形图标解除。在此之前，提醒会由你的助手送达。" },
-  { "clave": "notif.noSoportado", "texto": "此浏览器不支持通知，提醒会改由你的助手送达。" },
-  { "clave": "horario.agendar", "texto": "加入日程" },
-  { "clave": "horario.titulo", "texto": "日程" },
-  { "clave": "horario.plegar", "texto": "完成" },
-  { "clave": "horario.hora", "texto": "时间" },
-  { "clave": "horario.frecuencia", "texto": "重复" },
-  { "clave": "horario.dias", "texto": "星期" },
-  { "clave": "horario.sinDias", "texto": "都不勾选就是每天。" },
-  { "clave": "horario.sinHora", "texto": "无时间" },
-  { "clave": "horario.todosDias", "texto": "每天" },
-  { "clave": "horario.avisar", "texto": "到时间提醒我" },
-  { "clave": "horario.avisar.hint", "texto": "你会收到通知。" },
-  { "clave": "horario.avisar.hintSinPermiso", "texto": "我们会在应用内提醒你。" },
-  { "clave": "horario.avisar.on", "texto": "是" },
-  { "clave": "horario.avisar.off", "texto": "否" },
-  { "clave": "horario.hechoHoy", "texto": "今天已完成" },
-  { "clave": "horario.masOpciones", "texto": "更多选项 ›" },
-  { "clave": "horario.quitar", "texto": "移除" },
-  { "clave": "rutinas.avisar", "texto": "到时间提醒我" },
-  { "clave": "rutinas.avisar.hint", "texto": "你会收到通知。" },
-  { "clave": "rutinas.avisar.hintSinPermiso", "texto": "我们会在应用内提醒你。" },
-  { "clave": "rutinas.avisar.on", "texto": "是" },
-  { "clave": "rutinas.avisar.off", "texto": "否" },
-  { "clave": "avisoAct.cuerpo", "texto": "到时间了（{hora}）。" },
-  { "clave": "avisoAct.ahoraNo", "texto": "现在不要" },
-  { "clave": "avisoAct.ir", "texto": "去记录" },
-  { "clave": "hobbies.registrarMin", "texto": "记录{n}分钟" },
-  { "clave": "hobbies.plan.tipo", "texto": "练习" },
-  { "clave": "hobbies.plan.ejemplo", "texto": "完整演奏3首歌曲" },
-  { "clave": "hobbies.plan.ejProyecto", "texto": "完成{proyecto}" },
-  { "clave": "hobbies.plan.material", "texto": "计划中的项目" },
-  { "clave": "ejercicio.registrarSesion", "texto": "记录{n}分钟" },
-  { "clave": "ejercicio.plan.ejemplo", "texto": "不间断跑5公里" },
-  { "clave": "ejercicio.plan.material", "texto": "计划中的日常安排" },
-  { "clave": "cocina.horarios", "texto": "用餐时间" },
-  { "clave": "cocina.plan.tipoComida", "texto": "餐食" },
-  { "clave": "cocina.plan.material", "texto": "计划中的食谱" },
-  { "clave": "cocina.plan.ejemplo", "texto": "尝试地中海饮食" },
-  { "clave": "cocina.plan.ejBajar", "texto": "减到{kg}公斤" },
-  { "clave": "cocina.plan.ejSubir", "texto": "增到{kg}公斤" },
-  { "clave": "cocina.plan.ejMantener", "texto": "保持在{kg}公斤" },
-  { "clave": "biblioteca.plan.ejemplo", "texto": "掌握统计学基础" },
-  { "clave": "biblioteca.plan.material", "texto": "来自你的百科全书" },
-  { "clave": "idiomas.plan.ejemplo", "texto": "在下次旅行中自信地开口说话" },
-  { "clave": "idiomas.plan.ejemploNivel", "texto": "{idioma}达到{nivel}等级" },
-  { "clave": "idiomas.plan.material", "texto": "计划中的主题" },
-  { "clave": "sala.plan.ejemplo", "texto": "京都5日行程" },
-  { "clave": "sala.plan.ejLugar", "texto": "前往{lugar}的旅行行程" },
-  { "clave": "sala.plan.material", "texto": "来自你的“想去的地方”列表" },
-  { "clave": "entret.plan.ejemplo", "texto": "看完《教父》三部曲" },
-  { "clave": "entret.plan.material", "texto": "来自你的档案" },
-  { "clave": "descanso.plan.ejemplo", "texto": "15分钟内入睡" },
-  { "clave": "anecdotario.plan.ejemplo", "texto": "把今年的旅行记录下来" },
-  { "clave": "jardin.plan.ejemplo", "texto": "每天10分钟的平静时光" },
-  { "clave": "ideas.plan.ejemplo", "texto": "把日记里的一个想法变成现实" },
-  { "clave": "ideas.plan.material", "texto": "计划中的想法" },
-  { "clave": "diario.plan.ejemplo", "texto": "每天阅读晨报" },
-  { "clave": "garage.plan.ejemplo", "texto": "把车准备好过冬" },
-  { "clave": "garage.plan.material", "texto": "计划中的手续" },
-  { "clave": "agenda.plan.ejemplo", "texto": "按时交付项目" },
-  { "clave": "agenda.plan.material", "texto": "计划中的待办事项" },
-  { "clave": "cocina.horarios.ayuda", "texto": "你每次用餐的时间，会显示在日历中，也可以提醒你。" },
-  { "clave": "jardin.med.reservar", "texto": "你的平静时光" },
-  { "clave": "jardin.med.bloque", "texto": "冥想" },
-  { "clave": "jardin.registrarMin", "texto": "记录{n}分钟" },
-  { "clave": "biblioteca.est.reservar", "texto": "你的学习时光" },
-  { "clave": "biblioteca.est.bloque", "texto": "学习" },
-  { "clave": "biblioteca.registrarMin", "texto": "记录{n}分钟" },
-  { "clave": "idiomas.rep.reservar", "texto": "你的复习时光" },
-  { "clave": "idiomas.rep.bloque", "texto": "复习{idioma}" },
-  { "clave": "notif.ayudaCerrada", "texto": "提醒只在应用打开时送达，即使在后台运行也可以。标签页关闭后，浏览器就无法唤醒它，这需要在手机上安装应用。" },
-  { "clave": "progreso.nivel", "texto": "等级" },
-  { "clave": "progreso.racha", "texto": "连续天数" },
-  { "clave": "progreso.dias", "texto": "天" },
-  { "clave": "progreso.hoy", "texto": "今天" },
-  { "clave": "progreso.semana", "texto": "7天" },
-  { "clave": "plantillas.ayuda", "texto": "把模板拖到另一个文件夹；点击图标试用应用，点击文件夹名称重命名。" },
-  { "clave": "plantillas.entrar", "texto": "打开应用" },
-  { "clave": "plantillas.cerrarPrevia", "texto": "‹ 关闭" },
-  { "clave": "plantillas.asistente", "texto": "负责的助手" },
-  { "clave": "plantillas.sinAsistente", "texto": "无助手（由全部助手负责）" },
-  { "clave": "plantillas.asignar", "texto": "分配给物件或房间" },
-  { "clave": "plantillas.asignarObjeto", "texto": "+ 分配给物件…" },
-  { "clave": "plantillas.asignarA", "texto": "+ 分配给房间…" },
-  { "clave": "plantillas.sinCuartos", "texto": "请先创建房间" },
-  { "clave": "plantillas.objetoPrincipal", "texto": "主物件（房间入口）" },
-  { "clave": "plantillas.traeObjetos", "texto": "应用自带的物件" },
-  { "clave": "plantillas.esPrincipal", "texto": "主物件" },
-  { "clave": "plantillas.hacerPrincipal", "texto": "设为主物件" },
-  { "clave": "plantillas.quitarObjeto", "texto": "移除物件" },
-  { "clave": "plantillas.agregarObjeto", "texto": "添加物件" },
-  { "clave": "selObjeto.titulo", "texto": "添加物件" },
-  { "clave": "plantillas.todasAsignadas", "texto": "所有应用都已经放在房间里了。删除房间后，它的模板会回到这里。" },
-  { "clave": "plantillaCustom.crear", "texto": "创建模板" },
-  { "clave": "plantillaCustom.editar", "texto": "编辑模板" },
-  { "clave": "plantillaCustom.eliminar", "texto": "删除模板" },
-  { "clave": "plantillaCustom.confirmarBorrar", "texto": "删除此模板及其全部数据吗？" },
-  { "clave": "plantillaCustom.enUso", "texto": "使用中的模板" },
-  { "clave": "plantillaCustom.nombrePh", "texto": "例如：搬家、植物、宠物…" },
-  { "clave": "plantillaCustom.emojiLibre", "texto": "其他表情符号" },
-  { "clave": "plantillaCustom.herramientas", "texto": "模板工具" },
-  { "clave": "plantillaCustom.sinBloques", "texto": "至少添加一个工具，它们会成为你应用的板块。" },
-  { "clave": "plantillaCustom.quitarBloque", "texto": "移除（保存后其数据将被删除）" },
-  { "clave": "plantillaCustom.menusAyuda", "texto": "把板块分配到多个标签页。没有菜单时，应用只有一个画面。" },
-  { "clave": "plantillaCustom.agregarMenu", "texto": "菜单" },
-  { "clave": "plantillaCustom.agregarAqui", "texto": "添加工具" },
-  { "clave": "plantillaCustom.agregarSubmenu", "texto": "此菜单的子菜单" },
-  { "clave": "plantillaCustom.menuNuevo", "texto": "菜单{n}" },
-  { "clave": "plantillaCustom.submenuNuevo", "texto": "子菜单{n}" },
-  { "clave": "plantillaCustom.menuSinNombre", "texto": "菜单" },
-  { "clave": "plantillaCustom.menuNombrePh", "texto": "菜单名称" },
-  { "clave": "plantillaCustom.menuEmoji", "texto": "菜单表情符号（可选）" },
-  { "clave": "plantillaCustom.borrarMenu", "texto": "删除菜单（其板块会移到第一个菜单）" },
-  { "clave": "plantillaCustom.menuBloque", "texto": "菜单" },
-  { "clave": "plantillaCustom.menuVacio", "texto": "此菜单还没有板块。" },
-  { "clave": "plantillaCustom.submenu", "texto": "子菜单" },
-  { "clave": "plantillaCustom.editarApp", "texto": "编辑应用" },
-  { "clave": "plantillaCustom.listo", "texto": "完成" },
-  { "clave": "plantillaCustom.editorCompleto", "texto": "完整编辑器" },
-  { "clave": "plantillaCustom.borrar", "texto": "删除" },
-  { "clave": "plantillaCustom.borrarMenuTitulo", "texto": "删除“{nombre}”" },
-  { "clave": "plantillaCustom.borrarMenuMsj", "texto": "其工具会连同数据一起移到第一个菜单。" },
-  { "clave": "plantillaCustom.borrarBloqueTitulo", "texto": "删除“{nombre}”" }
+  {
+    "clave": "ejercicio.ejDesc.curl-martillo",
+    "texto": "采用中立握法（掌心相对），将哑铃卷起，锻炼前臂。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-predicador",
+    "texto": "手臂靠在牧师凳上，弯曲肘部集中刺激肱二头肌。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-concentrado",
+    "texto": "坐姿，将肘部靠在大腿上，专注收缩感将哑铃卷起。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-triceps-en-polea",
+    "texto": "站在高位滑轮前，伸直肘部将横杆向下压。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-frances",
+    "texto": "仰卧，肘部位置固定不动，将杠铃下放至额头附近再伸直。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.fondos-entre-bancos",
+    "texto": "双手撑在长凳上，弯曲肘部下降身体，再撑起还原。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-sobre-cabeza",
+    "texto": "将哑铃举至头后，再向上伸直肘部。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.patada-de-triceps",
+    "texto": "上身前倾，肘部抬高，将前臂向后伸直。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla",
+    "texto": "杠铃置于背部，下蹲至大腿与地面平行，再站起。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-frontal",
+    "texto": "杠铃置于身前，保持上身挺直下蹲。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-bulgara",
+    "texto": "一只脚后置于高台上，前腿下蹲至90度。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.prensa-de-pierna",
+    "texto": "在器械上，伸直双腿推动踏板，膝盖不要完全锁死。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.zancadas",
+    "texto": "向前迈步，后腿膝盖下降至接近地面，双腿交替进行。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.peso-muerto",
+    "texto": "保持背部挺直，伸展髋关节和膝盖将杠铃从地面拉起。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.peso-muerto-rumano",
+    "texto": "膝盖基本伸直，以髋部为轴前屈，将杠铃贴近双腿下放。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-femoral",
+    "texto": "在器械上弯曲膝盖，将脚跟拉向臀部。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-de-cuadriceps",
+    "texto": "坐在器械上，伸直膝盖，有控制地举起重量。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-talones",
+    "texto": "站姿持重物，收缩小腿肌肉将脚跟抬起。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.hip-thrust",
+    "texto": "上背部靠在卧推凳上，收紧臀部将髋部向上推起。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.puente-de-gluteo",
+    "texto": "仰卧，将髋部抬起，直到肩、髋、膝呈一条直线。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.patada-de-gluteo-en-polea",
+    "texto": "跪姿或站姿，收紧臀部将腿向后踢出。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.abduccion-de-cadera",
+    "texto": "坐姿或侧卧，对抗阻力将双腿打开。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha",
+    "texto": "前臂撑地，保持身体呈一条直线，髋部不要下沉。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-lateral",
+    "texto": "侧卧，单臂前臂撑地，保持髋部抬起并与身体呈一条直线。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.crunch-abdominal",
+    "texto": "仰卧，收缩腹肌将肩部抬起，注意不要用力拉扯颈部。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-piernas",
+    "texto": "仰卧或悬挂，将伸直的双腿抬起，再有控制地放下。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.russian-twist",
+    "texto": "坐姿，上身向后倾，将躯干左右转动。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.rueda-abdominal",
+    "texto": "跪姿，身体前滚，注意不要塌腰，再滚回原位。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.escaladores",
+    "texto": "保持平板支撑姿势，快速交替将膝盖拉向胸部。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.carrera",
+    "texto": "保持心率区间2-3的稳定配速，轻盈落地，姿态挺直。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.trote-suave",
+    "texto": "保持能够正常交谈的舒适配速，适合长距离跑。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata-rapida",
+    "texto": "快步走，积极摆臂，但不要转为慢跑。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.ciclismo",
+    "texto": "保持较高的踏频和适度阻力，背部放松骑行。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.senderismo",
+    "texto": "在有高度变化的自然地形中行走，让坡度决定配速。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.trail-running",
+    "texto": "在山地或不平坦地形上奔跑，上坡时缩短步幅。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminadora",
+    "texto": "在跑步机上行走或奔跑，不要扶栏杆。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata-inclinada",
+    "texto": "跑步机设置坡度，以适中配速行走，持续燃脂且冲击力低。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.eliptica",
+    "texto": "动作流畅，同时用手臂发力，对膝盖零冲击。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.bicicleta-estatica",
+    "texto": "将坐垫调整至髋部高度，以稳定的踏频骑行。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.escaladora",
+    "texto": "全脚掌踩踏，以稳定的节奏爬阶梯。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-maquina",
+    "texto": "先用腿部发力蹬出，再用背部拉动，最后用手臂收尾。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.hiit",
+    "texto": "全力短时间冲刺与短暂休息交替进行。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.sprints",
+    "texto": "每组全速冲刺，组间充分恢复。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.saltar-cuerda",
+    "texto": "用手腕而非手臂甩绳，跳跃幅度尽量小。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.burpees",
+    "texto": "从站立到平板支撑做一个俯卧撑，收腿起身，再向上跳跃并举起双臂。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.circuito-metabolico",
+    "texto": "多个动作连续进行不休息，保持心率处于高位。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.natacion",
+    "texto": "保持稳定配速游泳，呼吸与划水动作配合。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.aqua-aerobicos",
+    "texto": "在水中运动，水的阻力锻炼肌肉却不会增加关节负担。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata",
+    "texto": "保持平稳持续的步速，是有氧运动量的基础。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.futbol",
+    "texto": "间歇性跑动，伴随速度和方向的变化。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.basquetbol",
+    "texto": "短距离冲刺、跳跃与持续的横向移动。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.tenis",
+    "texto": "爆发式短暂发力，伴随停顿，对下肢负荷较大。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.padel",
+    "texto": "在小场地内进行短促激烈的对抗，方向变化频繁。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.boxeo",
+    "texto": "保持防守姿势，进行组合拳与步法练习。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.baile",
+    "texto": "随着音乐节奏持续舞动，是一种不像运动的有氧锻炼。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-matutina",
+    "texto": "一套温和的动作序列，唤醒身体、放松关节，适合一天开始时进行。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.yoga-flow",
+    "texto": "配合呼吸将体式串联，形成连贯的全身流动序列。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.saludo-al-sol",
+    "texto": "经典瑜伽序列，依次拉伸并激活全身。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-general",
+    "texto": "用温和且持续的拉伸依次放松主要肌群。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.guerrero-i",
+    "texto": "弓步姿势下，髋部朝向正前方，举起手臂打开胸腔。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.guerrero-ii",
+    "texto": "大幅度弓步姿势下，前腿屈膝，双臂伸展，目视前方。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.triangulo",
+    "texto": "双腿分开，上身侧倾，一只手向下伸向脚踝。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-de-pie",
+    "texto": "站立，上身向前折叠俯于双腿，放松颈部与背部。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.apertura-de-cadera",
+    "texto": "髋关节松动训练，放松髋部并提升腿部活动范围。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-paloma",
+    "texto": "前腿弯曲，上身向下俯，打开臀部。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.mariposa",
+    "texto": "坐姿，双脚脚掌相对，让膝盖自然向两侧下沉。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-isquiotibiales",
+    "texto": "保持膝盖伸直，拉伸大腿后侧。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.zancada-baja",
+    "texto": "一侧膝盖着地，将髋部向前推，拉伸髋屈肌。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-guirnalda",
+    "texto": "深蹲姿势下，用手肘将膝盖向外顶开，放松髋部。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.figura-4",
+    "texto": "将脚踝搭在对侧膝盖上，把大腿拉近身体拉伸臀部。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-aductores",
+    "texto": "双腿分开，下压上身拉伸大腿内侧。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.rana",
+    "texto": "跪姿膝盖大幅打开，将臀部向后摇动。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.perro-boca-abajo",
+    "texto": "呈倒V字形，将臀部向上顶起，拉伸背部与双腿。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsion-espinal",
+    "texto": "坐姿或仰卧，轻柔转动躯干活动脊柱。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-del-nino",
+    "texto": "臀部坐向脚跟，双臂向前伸展，放松背部。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.apertura-de-pecho",
+    "texto": "双臂向后打开胸腔，改善圆肩驼背。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.esfinge",
+    "texto": "俯卧，前臂撑地，抬起胸部伸展下背部。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.hilo-y-aguja",
+    "texto": "跪姿，一只手臂穿过身体下方，拉伸肩部。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-dorsales",
+    "texto": "双臂上举并略微侧倾，拉伸身体两侧。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-cervical",
+    "texto": "缓慢地朝各个方向活动颈部，释放紧张。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-de-columna",
+    "texto": "逐节轻柔转动脊柱，提升其活动度。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-cobra",
+    "texto": "俯卧，用双手撑起胸部，伸展背部。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.inclinacion-lateral-de-cuello",
+    "texto": "将耳朵靠近肩膀，拉伸颈部侧面。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-cuadriceps",
+    "texto": "站立，将脚跟拉向臀部，握住脚掌拉伸大腿前侧。"
+  }
 ]

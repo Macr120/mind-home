@@ -68,12 +68,14 @@ async function leerEjemplos() {
     ...datos.RECETAS_EJEMPLO.map((r) => ({
       tipo: 'receta',
       nombres: [r.nombre],
+      clave: r.clave,
       slug: datos.slugCocina(r.nombre),
       prompt: prompts.promptReceta(r),
     })),
     ...datos.DIETAS_EJEMPLO.map((d) => ({
       tipo: 'dieta',
       nombres: [d.nombre],
+      clave: d.clave,
       slug: `dieta-${datos.slugCocina(d.nombre)}`,
       prompt: prompts.promptDieta(d),
     })),
@@ -142,7 +144,8 @@ function escribirManifiesto(items) {
   )
   // Un item puede registrar más de un nombre (las dietas del demo: ES + EN
   // apuntando a la misma foto), así que cada uno aporta una o varias filas.
-  const filas = (i) => i.nombres.map((n) => `  ${JSON.stringify(n)}: '${i.slug}',`)
+  const filas = (i) =>
+    [...i.nombres, ...(i.clave ? [i.clave] : [])].map((n) => `  ${JSON.stringify(n)}: '${i.slug}',`)
   const recetas = items.filter((i) => i.tipo === 'receta' && enDisco.has(i.slug)).flatMap(filas).join('\n')
   const dietas = items.filter((i) => i.tipo === 'dieta' && enDisco.has(i.slug)).flatMap(filas).join('\n')
   writeFileSync(
@@ -166,14 +169,24 @@ ${dietas}
 const url = (slug: string | undefined) =>
   slug ? \`\${import.meta.env.BASE_URL}cocina/\${slug}.webp\` : null
 
-/** URL de la foto preguardada de una receta de ejemplo, o null si no trae. */
-export function urlImagenReceta(nombre: string): string | null {
-  return url(RECETAS[nombre])
+/** La clave de siembra de la fila (\`seed-<prefijo>-<clave>\`), si es sembrada. */
+const claveSeed = (uid: string | undefined, prefijo: string) =>
+  uid?.startsWith(\`seed-\${prefijo}-\`) ? uid.slice(\`seed-\${prefijo}-\`.length) : undefined
+
+/**
+ * URL de la foto preguardada de una receta de ejemplo, o null si no trae.
+ * Resuelve por la CLAVE del uid de siembra primero (la fila puede estar
+ * traducida) y por nombre como respaldo (recetas del demo, ES/EN).
+ */
+export function urlImagenReceta(r: { nombre: string; uid?: string }): string | null {
+  const clave = claveSeed(r.uid, 'recetas')
+  return url((clave && RECETAS[clave]) || RECETAS[r.nombre])
 }
 
 /** URL de la portada preguardada de una dieta de ejemplo, o null si no trae. */
-export function urlImagenDieta(nombre: string): string | null {
-  return url(DIETAS[nombre])
+export function urlImagenDieta(d: { nombre: string; uid?: string }): string | null {
+  const clave = claveSeed(d.uid, 'dietasGuardadas')
+  return url((clave && DIETAS[clave]) || DIETAS[d.nombre])
 }
 `,
     'utf8',

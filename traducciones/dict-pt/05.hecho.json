@@ -1,362 +1,362 @@
 [
   {
     "clave": "ejercicio.rutDesc.push-pecho-y-triceps",
-    "texto": "Жим лёжа, армейский жим, брусья, разгибания."
+    "texto": "Supino, desenvolvimento militar, dips, extensões."
   },
   {
     "clave": "ejercicio.rutDesc.pull-espalda-y-biceps",
-    "texto": "Подтягивания, тяги, сгибания на бицепс. Прогрессия нагрузки."
+    "texto": "Barra fixa, remadas, roscas. Sobrecarga progressiva."
   },
   {
     "clave": "ejercicio.rutDesc.legs-pierna-completa",
-    "texto": "Приседания, румынская тяга, выпады."
+    "texto": "Agachamentos, levantamento terra romeno, afundos."
   },
   {
     "clave": "ejercicio.rutDesc.hiit-20-min",
-    "texto": "Интервалы 40 с работы / 20 с отдыха."
+    "texto": "Intervalos de 40s de esforço / 20s de descanso."
   },
   {
     "clave": "ejercicio.rutDesc.carrera-continua",
-    "texto": "Умеренный темп, зона 2–3."
+    "texto": "Ritmo moderado, zona 2-3."
   },
   {
     "clave": "ejercicio.rutDesc.caminata-inclinada",
-    "texto": "Низкая ударная нагрузка, стабильное сжигание калорий."
+    "texto": "Baixo impacto, queima constante."
   },
   {
     "clave": "ejercicio.rutDesc.bike-tempo",
-    "texto": "Велопрогулка в стабильном темпе."
+    "texto": "Pedalada em ritmo constante."
   },
   {
     "clave": "ejercicio.rutDesc.triatlon-sprint",
-    "texto": "Плавание, велосипед и бег друг за другом, каждый этап в своём темпе."
+    "texto": "Natação, bike e corrida encadeadas, cada trecho no seu próprio ritmo."
   },
   {
     "clave": "ejercicio.rutDesc.movilidad-matutina",
-    "texto": "Разбуди суставы и позвоночник."
+    "texto": "Desperte as articulações e a coluna."
   },
   {
     "clave": "ejercicio.rutDesc.yoga-flow",
-    "texto": "Мягкая последовательность виньяса."
+    "texto": "Sequência suave de vinyasa."
   },
   {
     "clave": "ejercicio.rutDesc.cadera-y-piernas",
-    "texto": "Раскрытие бёдер и задней поверхности бедра."
+    "texto": "Abertura de quadril e isquiotibiais."
   },
   {
     "clave": "ejercicio.rutDesc.estiramiento-post-entreno",
-    "texto": "Заминка и восстановление."
+    "texto": "Desaquecimento e recuperação."
   },
   {
     "clave": "ejercicio.rutDesc.espalda-y-hombros",
-    "texto": "Облегчение для спины и плеч."
+    "texto": "Alívio para costas e ombros."
   },
   {
     "clave": "ejercicio.rutDesc.cuello-y-oficina",
-    "texto": "Активная пауза для шеи и позвоночника."
+    "texto": "Pausa ativa para pescoço e coluna."
   },
   {
     "clave": "ejercicio.rutDesc.antes-de-dormir",
-    "texto": "Восстанавливающее расслабление, помогающее уснуть."
+    "texto": "Relaxamento restaurativo para ajudar você a pegar no sono."
   },
   {
     "clave": "cal.logros",
-    "texto": "Достижения"
+    "texto": "Conquistas"
   },
   {
     "clave": "cal.logros.vacio",
-    "texto": "Сегодня пока ничего не выполнено."
+    "texto": "Você ainda não cumpriu nada hoje."
   },
   {
     "clave": "cal.objetivos",
-    "texto": "Миссии"
+    "texto": "Missões"
   },
   {
     "clave": "cal.objetivo.nuevo",
-    "texto": "Миссия"
+    "texto": "Missão"
   },
   {
     "clave": "cal.irApp",
-    "texto": "Отметь это в приложении"
+    "texto": "Registrar no app"
   },
   {
     "clave": "chat.vistaCal.objetivos",
-    "texto": "Миссии"
+    "texto": "Missões"
   },
   {
     "clave": "chat.vistaCal.dia",
-    "texto": "План на сегодня"
+    "texto": "Agenda de hoje"
   },
   {
     "clave": "chat.vistaCal.semana",
-    "texto": "Неделя"
+    "texto": "Semana"
   },
   {
     "clave": "chat.vistaCal.mes",
-    "texto": "Месяц"
+    "texto": "Mês"
   },
   {
     "clave": "chat.vistaCal.anio",
-    "texto": "Год"
+    "texto": "Ano"
   },
   {
     "clave": "chat.vistaCal.calendario",
-    "texto": "Календарь"
+    "texto": "Calendário"
   },
   {
     "clave": "room.agenda.cmd.trabajo",
-    "texto": "Работа"
+    "texto": "Trabalho"
   },
   {
     "clave": "room.agenda.cmd.salud",
-    "texto": "Здоровье"
+    "texto": "Saúde"
   },
   {
     "clave": "room.agenda.cmd.personas",
-    "texto": "Контакты"
+    "texto": "Pessoas"
   },
   {
     "clave": "room.anecdotario.cmd.anecdotas",
-    "texto": "Дневник"
+    "texto": "Diário"
   },
   {
     "clave": "room.biblioteca.cmd.charlas",
-    "texto": "Чаты"
+    "texto": "Conversas"
   },
   {
     "clave": "room.biblioteca.cmd.enciclopedia",
-    "texto": "Энциклопедия"
+    "texto": "Enciclopédia"
   },
   {
     "clave": "room.biblioteca.cmd.estudio",
-    "texto": "Учёба"
+    "texto": "Estudo"
   },
   {
     "clave": "room.biblioteca.cmd.resumen",
-    "texto": "Обзор"
+    "texto": "Resumo"
   },
   {
     "clave": "room.cocina.cmd.metas",
-    "texto": "Цели"
+    "texto": "Metas"
   },
   {
     "clave": "room.cocina.cmd.diario",
-    "texto": "Дневник"
+    "texto": "Registro"
   },
   {
     "clave": "room.cocina.cmd.progreso",
-    "texto": "Прогресс"
+    "texto": "Progresso"
   },
   {
     "clave": "room.cocina.cmd.plan",
-    "texto": "Диета"
+    "texto": "Dieta"
   },
   {
     "clave": "room.cocina.cmd.recetas",
-    "texto": "Рецепты"
+    "texto": "Receitas"
   },
   {
     "clave": "room.cocina.cmd.compras",
-    "texto": "Покупки"
+    "texto": "Mercado"
   },
   {
     "clave": "room.computo.cmd.formulario",
-    "texto": "Формулы"
+    "texto": "Formulário"
   },
   {
     "clave": "room.computo.cmd.calculadora",
-    "texto": "Калькулятор"
+    "texto": "Calculadora"
   },
   {
     "clave": "room.computo.cmd.grafica",
-    "texto": "Графики"
+    "texto": "Gráfico"
   },
   {
     "clave": "room.computo.cmd.ecuacion",
-    "texto": "Решение уравнений"
+    "texto": "Equações"
   },
   {
     "clave": "room.computo.cmd.hojas",
-    "texto": "Таблицы"
+    "texto": "Planilhas"
   },
   {
     "clave": "room.computo.cmd.bases",
-    "texto": "Системы счисления"
+    "texto": "Bases (binário e hex)"
   },
   {
     "clave": "room.computo.cmd.matrices",
-    "texto": "Матрицы"
+    "texto": "Matrizes"
   },
   {
     "clave": "room.computo.cmd.sistemas",
-    "texto": "Системы уравнений"
+    "texto": "Sistemas"
   },
   {
     "clave": "room.computo.cmd.unidades",
-    "texto": "Конвертер единиц"
+    "texto": "Unidades"
   },
   {
     "clave": "room.computo.cmd.propina",
-    "texto": "Калькулятор чаевых"
+    "texto": "Gorjeta"
   },
   {
     "clave": "room.computo.cmd.regla3",
-    "texto": "Правило трёх"
+    "texto": "Regra de três"
   },
   {
     "clave": "room.descanso.cmd.sueno",
-    "texto": "Сон"
+    "texto": "Sono"
   },
   {
     "clave": "room.despacho.cmd.balance",
-    "texto": "Денежный поток"
+    "texto": "Fluxo de caixa"
   },
   {
     "clave": "room.despacho.cmd.patrimonio",
-    "texto": "Капитал"
+    "texto": "Patrimônio líquido"
   },
   {
     "clave": "room.despacho.cmd.gastos",
-    "texto": "Расходы"
+    "texto": "Gastos"
   },
   {
     "clave": "room.despacho.cmd.ingresos",
-    "texto": "Доходы"
+    "texto": "Receitas"
   },
   {
     "clave": "room.despacho.cmd.metas",
-    "texto": "Накопления/Инвестиции"
+    "texto": "Poupança/Investimento"
   },
   {
     "clave": "room.despacho.cmd.financieras",
-    "texto": "Финансовые калькуляторы"
+    "texto": "Calculadoras financeiras"
   },
   {
     "clave": "room.despacho.cmd.deuda",
-    "texto": "Цели по долгам"
+    "texto": "Metas de dívida"
   },
   {
     "clave": "room.despacho.cmd.simuladores",
-    "texto": "Симуляторы"
+    "texto": "Simuladores"
   },
   {
     "clave": "room.despacho.cmd.simulacion",
-    "texto": "Прогноз капитала"
+    "texto": "Projeção de patrimônio"
   },
   {
     "clave": "room.despacho.cmd.divisas",
-    "texto": "Форекс"
+    "texto": "Forex"
   },
   {
     "clave": "room.despacho.cmd.criptos",
-    "texto": "Крипто"
+    "texto": "Cripto"
   },
   {
     "clave": "room.despacho.cmd.acciones",
-    "texto": "Акции"
+    "texto": "Ações"
   },
   {
     "clave": "room.despacho.cmd.commodities",
-    "texto": "Сырьё"
+    "texto": "Commodities"
   },
   {
     "clave": "room.diario.cmd.titulares",
-    "texto": "Заголовки"
+    "texto": "Manchetes de hoje"
   },
   {
     "clave": "room.diario.cmd.efemerides",
-    "texto": "В этот день"
+    "texto": "Neste dia"
   },
   {
     "clave": "room.ejercicio.cmd.metas",
-    "texto": "Цели"
+    "texto": "Metas"
   },
   {
     "clave": "room.ejercicio.cmd.fuerza",
-    "texto": "Силовые"
+    "texto": "Força"
   },
   {
     "clave": "room.ejercicio.cmd.resistencia",
-    "texto": "Выносливость"
+    "texto": "Resistência"
   },
   {
     "clave": "room.ejercicio.cmd.flexibilidad",
-    "texto": "Гибкость"
+    "texto": "Flexibilidade"
   },
   {
     "clave": "room.entretenimiento.cmd.archivo",
-    "texto": "Архив"
+    "texto": "Arquivo"
   },
   {
     "clave": "room.entretenimiento.cmd.mesa",
-    "texto": "Настольные игры"
+    "texto": "Jogos de tabuleiro"
   },
   {
     "clave": "room.garage.cmd.resumen",
-    "texto": "Обзор"
+    "texto": "Resumo"
   },
   {
     "clave": "room.garage.cmd.vehiculos",
-    "texto": "Транспорт"
+    "texto": "Veículos"
   },
   {
     "clave": "room.hobbies.cmd.hobbies",
-    "texto": "Хобби"
+    "texto": "Hobbies"
   },
   {
     "clave": "room.ideas.cmd.diario",
-    "texto": "Дневник"
+    "texto": "Diário de ideias"
   },
   {
     "clave": "room.ideas.cmd.mapas",
-    "texto": "Карты"
+    "texto": "Mapas conceituais"
   },
   {
     "clave": "room.ideas.cmd.diagramas",
-    "texto": "Диаграммы"
+    "texto": "Diagramas de decisão"
   },
   {
     "clave": "room.idiomas.cmd.charlas",
-    "texto": "Репетитор"
+    "texto": "Conversas"
   },
   {
     "clave": "room.idiomas.cmd.repaso",
-    "texto": "Повторение"
+    "texto": "Revisão"
   },
   {
     "clave": "room.idiomas.cmd.temario",
-    "texto": "Программа"
+    "texto": "Programa"
   },
   {
     "clave": "room.idiomas.cmd.progreso",
-    "texto": "Прогресс"
+    "texto": "Progresso"
   },
   {
     "clave": "room.jardin.cmd.meditacion",
-    "texto": "Медитация"
+    "texto": "Meditação"
   },
   {
     "clave": "room.jardin.cmd.respiracion",
-    "texto": "Дыхание"
+    "texto": "Respiração"
   },
   {
     "clave": "room.jardin.cmd.gratitud",
-    "texto": "Благодарность"
+    "texto": "Gratidão"
   },
   {
     "clave": "room.sala.cmd.mapa",
-    "texto": "Карта мира"
+    "texto": "Mapa"
   },
   {
     "clave": "room.sala.cmd.porConocer",
-    "texto": "Планы"
+    "texto": "Itinerário"
   },
   {
     "clave": "room.sala.cmd.rutas",
-    "texto": "Маршруты"
+    "texto": "Rotas"
   },
   {
     "clave": "room.sala.cmd.bitacora",
-    "texto": "Дневник"
+    "texto": "Diário"
   }
 ]

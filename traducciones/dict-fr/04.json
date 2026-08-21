@@ -1,593 +1,498 @@
 [
   {
-    "clave": "despacho.sim.sinDatos",
-    "es": "Aún no hay nada que proyectar. Anota lo que tienes en Activos y lo que debes en Pasivos, ponles su tasa, y aquí verás a dónde va.",
-    "en": "Nothing to project yet. Add what you own under Assets and what you owe under Liabilities, give them a rate, and you will see where it goes."
+    "clave": "ejercicio.ejDesc.estiramiento-de-gemelos",
+    "en": "Place your hands on the wall and stretch your calf with your back leg straight."
   },
   {
-    "clave": "despacho.sim.netoHoy",
-    "es": "Neto hoy",
-    "en": "Net worth today"
+    "clave": "ejercicio.ejDesc.estiramiento-de-hombros",
+    "en": "Cross one arm in front of your chest and pull it in with the other."
   },
   {
-    "clave": "despacho.sim.netoFinal",
-    "en": "In {n} months"
+    "clave": "ejercicio.ejDesc.foam-roller",
+    "en": "Roll your muscles over the foam roller to release tension after training."
   },
   {
-    "clave": "despacho.sim.interesesFuturos",
-    "es": "Intereses por pagar",
-    "en": "Interest still to pay"
+    "clave": "ejercicio.ejDesc.estiramiento-de-triceps",
+    "en": "Bring your elbow behind your head and gently push with the other hand."
   },
   {
-    "clave": "despacho.sim.aportado",
-    "es": "Lo que aportarás",
-    "en": "What you will put in"
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-de-cadera",
+    "en": "In a lunge, push your hip forward to stretch the front of the thigh."
   },
   {
-    "clave": "despacho.sim.horizonte",
-    "es": "Proyectar (meses)",
-    "en": "Project (months)"
+    "clave": "ejercicio.ejDesc.piernas-en-la-pared",
+    "en": "Lying down, rest your legs up against the wall to relax and drain."
   },
   {
-    "clave": "despacho.sim.inflacion",
-    "es": "Inflación anual %",
-    "en": "Yearly inflation %"
+    "clave": "ejercicio.ejDesc.savasana",
+    "en": "Lying on your back, relax your whole body while breathing slowly."
   },
   {
-    "clave": "despacho.sim.dineroDeHoy",
-    "es": "Verlo en dinero de hoy",
-    "en": "See it in today's money"
+    "clave": "ejercicio.ejDesc.postura-del-nino-apoyada",
+    "en": "Child's pose with support to relax for a longer time."
   },
   {
-    "clave": "despacho.sim.dineroDeHoyAyuda",
-    "es": "Descuenta la inflación: cuánto valdrá de verdad ese dinero, no cuántos billetes serán.",
-    "en": "Strips out inflation: what that money will really be worth, not how many notes it is."
+    "clave": "ejercicio.ejDesc.respiracion-profunda",
+    "en": "Breathe in and out slowly and deeply to calm the nervous system."
   },
   {
-    "clave": "despacho.sim.flujoMensual",
-    "es": "Sumar lo que ahorro cada mes",
-    "en": "Add what I save each month"
+    "clave": "ejercicio.ejDesc.mariposa-reclinada",
+    "en": "Lying down with soles together, let your knees drop and relax your hips."
   },
   {
-    "clave": "despacho.sim.flujoAyuda",
-    "en": "From your movements: {i} comes in and {g} goes out each month."
+    "clave": "ejercicio.ejDesc.torsion-reclinada",
+    "en": "Lying down, let your knees drop to one side, gently rotating your spine."
   },
   {
-    "clave": "despacho.sim.crecIngreso",
-    "es": "Mis ingresos suben %/año",
-    "en": "My income rises %/year"
+    "clave": "ejercicio.ejDesc.liberacion-miofascial-con-pelota",
+    "en": "Roll a hard ball with controlled pressure from your heel to the balls of your feet."
   },
   {
-    "clave": "despacho.sim.crecGasto",
-    "es": "Mis gastos suben %/año",
-    "en": "My expenses rise %/year"
+    "clave": "ejercicio.ejDesc.circulos-de-tobillo",
+    "en": "Lift one leg and move your ankle in wide circles in both directions."
   },
   {
-    "clave": "despacho.sim.pagosYaEnGastos",
-    "es": "Mis pagos de deuda ya están entre esos gastos",
-    "en": "My debt payments are already among those expenses"
+    "clave": "ejercicio.ejDesc.recogida-de-toalla-con-dedos",
+    "en": "Try to scrunch up and gather a towel on the floor using only your toes."
   },
   {
-    "clave": "despacho.sim.pagosDeudaMes",
-    "en": "Your debts ask for {n} a month. If you have not logged them as an expense, turn this off and they will be subtracted separately."
+    "clave": "ejercicio.ejDesc.estiramiento-de-dorsiflexion",
+    "en": "Facing a wall, bend your front knee while keeping your heel flat on the floor to stretch."
   },
   {
-    "clave": "despacho.sim.activos",
-    "es": "Activos",
-    "en": "Assets"
+    "clave": "ejercicio.ejDesc.elevacion-de-talones-unipodal",
+    "en": "Standing on one foot, raise your heel slowly and lower it with eccentric control."
   },
   {
-    "clave": "despacho.sim.pasivos",
-    "es": "Pasivos",
-    "en": "Liabilities"
+    "clave": "ejercicio.ejDesc.flexion-y-extension-en-descarga",
+    "en": "Lying down, bend your knee bringing your heel to your glute, then extend without lifting your foot."
   },
   {
-    "clave": "despacho.sim.neto",
-    "es": "Neto",
-    "en": "Net"
+    "clave": "ejercicio.ejDesc.estiramiento-dinamico-de-isquiotibiales",
+    "en": "Place a heel in front of you and gently fold your trunk forward with the knee extended."
   },
   {
-    "clave": "despacho.sim.hoy",
-    "es": "hoy",
-    "en": "today"
+    "clave": "ejercicio.ejDesc.sentadilla-isometrica-wall-squat",
+    "en": "Rest your back against the wall, lower to 90 degrees, and hold, making sure your knees don't cave in."
   },
   {
-    "clave": "despacho.sim.hitoLiquidas",
-    "en": "You pay off “{n}” in {f}"
+    "clave": "ejercicio.ejDesc.equilibrio-unipodal-single-leg-balance",
+    "en": "Balance on one leg with the knee slightly bent, without letting it cave inward."
   },
   {
-    "clave": "despacho.sim.hitoPositivo",
-    "en": "Your net worth stops being negative in {f}"
+    "clave": "ejercicio.ejDesc.sentadillas-del-arquero",
+    "en": "With legs apart, bend one knee, shifting your weight while keeping the other leg extended."
   },
   {
-    "clave": "despacho.sim.hitoDoble",
-    "en": "Your net worth doubles in {f}"
+    "clave": "ejercicio.ejDesc.estocadas-lunges",
+    "en": "Step forward and lower your hip, forming a 90-degree angle with your front knee."
   },
   {
-    "clave": "despacho.sim.noBaja",
-    "en": "“{n}” does not go down on {p} a month: interest alone is {i}."
+    "clave": "ejercicio.ejDesc.movilidad-90-90",
+    "en": "Seated with legs at 90 degrees, rotate your trunk and legs from side to side."
   },
   {
-    "clave": "despacho.sim.creceSinPago",
-    "en": "“{n}” has a rate but no monthly payment: it only grows."
+    "clave": "ejercicio.ejDesc.el-puente-glute-bridge",
+    "en": "Lying on your back, raise your pelvis, squeezing your glutes, until your shoulders, hips, and knees align."
   },
   {
-    "clave": "despacho.sim.avisoCorta",
-    "es": "Es una proyección, no una promesa.",
-    "en": "A projection, not a promise."
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-en-estocada",
+    "en": "With one knee on the floor, push your pelvis forward with a straight back to stretch the psoas."
   },
   {
-    "clave": "despacho.sim.controles",
-    "es": "Ajusta el escenario",
-    "en": "Tune the scenario"
+    "clave": "ejercicio.ejDesc.abduccion-lateral-de-cadera",
+    "en": "Lying on your side, raise your top leg while keeping your pelvis stable."
   },
   {
-    "clave": "despacho.periodo.anterior",
-    "es": "Periodo anterior",
-    "en": "Previous period"
+    "clave": "ejercicio.ejDesc.sentadilla-profunda-con-apertura",
+    "en": "In a squat, push your knees outward with your elbows to open the hips."
   },
   {
-    "clave": "despacho.periodo.siguiente",
-    "es": "Periodo siguiente",
-    "en": "Next period"
+    "clave": "ejercicio.ejDesc.balanceo-dinamico-de-piernas",
+    "en": "Standing, swing one leg forward, back, and side to side like a pendulum."
   },
   {
-    "clave": "despacho.sim.aviso",
-    "es": "Sale de las tasas que tú escribiste: sirve para comparar escenarios, no para saber lo que va a pasar.",
-    "en": "It comes from the rates you entered: use it to compare scenarios, not to know what will happen."
+    "clave": "ejercicio.ejDesc.postura-gato-vaca",
+    "en": "On all fours, alternate between arching your back toward the ceiling and dropping your belly toward the floor."
   },
   {
-    "clave": "despacho.meta.hasPuesto",
-    "en": "you have put in {n}"
+    "clave": "ejercicio.ejDesc.torsiones-lumbares-suaves",
+    "en": "Lying on your back, let both knees drop together to one side and then the other."
   },
   {
-    "clave": "despacho.meta.pediste",
-    "en": "you borrowed {n}"
+    "clave": "ejercicio.ejDesc.pointer-bird-dog",
+    "en": "On all fours, extend opposite leg and arm while keeping your lower back flat."
   },
   {
-    "clave": "despacho.meta.valenHoy",
-    "en": "worth {n} today"
+    "clave": "ejercicio.ejDesc.plancha-frontal-isometricos",
+    "en": "Hold a plank position resting on your forearms, forming a straight line."
   },
   {
-    "clave": "despacho.meta.debesHoy",
-    "en": "you owe {n} today"
+    "clave": "ejercicio.ejDesc.roll-down-curl-jefferson",
+    "en": "Standing, slowly roll your spine down one vertebra at a time."
   },
   {
-    "clave": "despacho.meta.deRendimiento",
-    "es": "de rendimiento",
-    "en": "in returns"
+    "clave": "ejercicio.ejDesc.estiramiento-lumbar-boca-abajo",
+    "en": "Lying face down, lift your hips and then lower them, extending your back."
   },
   {
-    "clave": "despacho.meta.deIntereses",
-    "es": "de intereses",
-    "en": "in interest"
+    "clave": "ejercicio.ejDesc.rotacion-toracica",
+    "en": "On all fours, lift one arm out to the side and follow your hand with your gaze."
   },
   {
-    "clave": "despacho.meta.tasaPuesta",
-    "en": "{n} %/year"
+    "clave": "ejercicio.ejDesc.retraccion-escapular",
+    "en": "Squeeze your shoulder blades back and down while keeping an upright posture."
   },
   {
-    "clave": "despacho.meta.ponerTasaDeuda",
-    "es": "Ponerle su tasa de interés",
-    "en": "Set its interest rate"
+    "clave": "ejercicio.ejDesc.angeles-de-pared-wall-angels",
+    "en": "Back against the wall, slide your arms up and down keeping your elbows in contact."
   },
   {
-    "clave": "despacho.meta.ponerTasaAhorro",
-    "es": "Ponerle cuánto rinde",
-    "en": "Set what it earns"
+    "clave": "ejercicio.ejDesc.lunge-con-apertura-de-pectoral",
+    "en": "In a lunge, clasp your hands behind your neck and open your elbows back."
   },
   {
-    "clave": "despacho.meta.tasaDeuda",
-    "es": "Tasa anual %",
-    "en": "Yearly rate %"
+    "clave": "ejercicio.ejDesc.estiramiento-dorsal-en-pared",
+    "en": "Place your hands on the wall and let your trunk drop with your knees straight."
   },
   {
-    "clave": "despacho.meta.tasaAhorro",
-    "es": "Rinde al año %",
-    "en": "Earns per year %"
+    "clave": "ejercicio.ejDesc.el-gato-y-la-mesa",
+    "en": "On all fours, arch your back and then lower your chest."
   },
   {
-    "clave": "despacho.meta.desde",
-    "es": "Desde",
-    "en": "Since"
+    "clave": "ejercicio.ejDesc.circulos-de-hombros",
+    "en": "Wide circular movements, favoring the path backward and down."
   },
   {
-    "clave": "despacho.meta.ayudaTasaDeuda",
-    "es": "La del banco. Cada pago que registres deja de generar intereses desde su fecha.",
-    "en": "The one your bank quotes. Every payment you log stops earning interest from its own date."
+    "clave": "ejercicio.ejDesc.estiramiento-de-pecho-pectoral",
+    "en": "Clasp your hands behind your back and open your chest without straining your neck."
   },
   {
-    "clave": "despacho.meta.ayudaTasaAhorro",
-    "es": "Cada aportación rinde desde el día que la hiciste, no desde el principio.",
-    "en": "Each contribution earns from the day you made it, not from the start."
+    "clave": "ejercicio.ejDesc.dislocaciones-con-goma-o-palo",
+    "en": "Pass a band overhead and behind your back with your elbows straight."
   },
   {
-    "clave": "despacho.meta.movs",
-    "en": "Movements ({n})"
+    "clave": "ejercicio.ejDesc.rotacion-externa-con-banda",
+    "en": "With elbows at 90 degrees against your body, rotate your hands outward against resistance."
   },
   {
-    "clave": "despacho.meta.borrarTitulo",
-    "es": "¿Borrar esta meta?",
-    "en": "Delete this goal?"
+    "clave": "ejercicio.ejDesc.thread-the-needle-enhebrar-aguja",
+    "en": "On all fours, thread one arm underneath your body, resting your shoulder on the floor."
   },
   {
-    "clave": "despacho.meta.borrarMsg",
-    "en": "“{n}” goes away; its movements stay in your history, but unlinked."
+    "clave": "ejercicio.ejDesc.rotaciones-y-medios-circulos",
+    "en": "Chin to chest, trace wide, very slow circles without forcing through pain."
   },
   {
-    "clave": "despacho.meta.borrarOk",
-    "es": "Borrar",
-    "en": "Delete"
+    "clave": "ejercicio.ejDesc.estiramiento-de-trapecio-superior",
+    "en": "Gently tilt your head, bringing your ear toward the opposite shoulder."
   },
   {
-    "clave": "despacho.meta.deshacer",
-    "es": "Deshacer este abono",
-    "en": "Undo this payment"
+    "clave": "ejercicio.ejDesc.rotaciones-cervicales-con-nodding",
+    "en": "Turn your head and make small nodding movements (\"yes\")."
   },
   {
-    "clave": "despacho.metas.disponible",
-    "es": "Disponible este mes",
-    "en": "Available this month"
+    "clave": "ejercicio.ejDesc.retracciones-de-barbilla-chin-tucks",
+    "en": "Draw your chin straight back, making a \"double chin,\" to align your neck."
   },
   {
-    "clave": "despacho.metas.disponibleDetalle",
-    "en": "income {i} − expenses {g}"
+    "clave": "ejercicio.ejDesc.isometricos-cervicales",
+    "en": "Push your head against your hand, resisting the movement to avoid bending."
   },
   {
-    "clave": "despacho.plan.titulo",
-    "es": "Metas",
-    "en": "Goals"
+    "clave": "ejercicio.ejDesc.flexion-y-extension-de-muneca",
+    "en": "With arms extended, flex your wrist toward the ceiling and then toward the floor."
   },
   {
-    "clave": "despacho.plan.desc",
-    "es": "Tu meta grande sobre el eje del tiempo. Con ✨ la IA te arma un plan de aportaciones.",
-    "en": "Your big goal on the timeline. With ✨ the AI builds you a contribution plan."
+    "clave": "ejercicio.ejDesc.circulos-de-munecas",
+    "en": "Rotate both wrists, making circles in both directions."
   },
   {
-    "clave": "despacho.plan.ejAhorro",
-    "es": "Fondo de emergencia",
-    "en": "Emergency fund"
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores",
+    "en": "Palm facing up, use your other hand to push your fingers toward your body."
   },
   {
-    "clave": "despacho.plan.material",
-    "es": "De dónde saldrá el dinero",
-    "en": "Where the money will come from"
+    "clave": "ejercicio.ejDesc.agarre-activo-y-pasivo",
+    "en": "Clench your fists tightly and then open them, relaxing completely."
   },
   {
-    "clave": "despacho.plan.ejDeuda",
-    "es": "Pagar la tarjeta de crédito",
-    "en": "Pay off the credit card"
+    "clave": "ejercicio.ejDesc.plancha-de-munecas",
+    "en": "In a plank or kneeling position, rise up to rest on your fingertips only, then lower."
   },
   {
-    "clave": "despacho.calc.titulo",
-    "es": "Calculadoras financieras",
-    "en": "Financial calculators"
+    "clave": "ejercicio.ejTiempo.liberacion-miofascial-con-pelota",
+    "en": "1 to 2 minutes per foot (continuous movement)."
   },
   {
-    "clave": "despacho.calc.tab.fondoEmergencia",
-    "en": "Emergency fund"
+    "clave": "ejercicio.ejTiempo.circulos-de-tobillo",
+    "en": "10 to 12 reps in each direction per ankle."
   },
   {
-    "clave": "despacho.calc.tab.libertadFinanciera",
-    "en": "Financial independence"
+    "clave": "ejercicio.ejTiempo.recogida-de-toalla-con-dedos",
+    "en": "10 to 15 reps (scrunch and release) per foot."
   },
   {
-    "clave": "despacho.calc.tab.reglaCincuenta",
-    "en": "50/30/20"
+    "clave": "ejercicio.ejTiempo.estiramiento-de-dorsiflexion",
+    "en": "Hold for 15 to 30 seconds per leg, do 2 to 4 sets."
   },
   {
-    "clave": "despacho.calc.tab.reglaAuto",
-    "en": "Car 20/4/10"
+    "clave": "ejercicio.ejTiempo.elevacion-de-talones-unipodal",
+    "en": "10 to 15 reps per leg."
   },
   {
-    "clave": "despacho.calc.crearMeta",
-    "es": "Crear meta con este monto",
-    "en": "Create goal with this amount"
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-en-descarga",
+    "en": "8 to 10 reps per leg."
   },
   {
-    "clave": "despacho.calc.metaCreada",
-    "es": "Meta creada — revísala arriba",
-    "en": "Goal created — check it above"
+    "clave": "ejercicio.ejTiempo.estiramiento-dinamico-de-isquiotibiales",
+    "en": "Hold for 20 seconds per leg."
   },
   {
-    "clave": "despacho.calc.gastoEsencial",
-    "es": "Gasto mensual esencial",
-    "en": "Essential monthly expenses"
+    "clave": "ejercicio.ejTiempo.sentadilla-isometrica-wall-squat",
+    "en": "Hold for 5 to 15 seconds, stand up, and repeat (3 to 5 times)."
   },
   {
-    "clave": "despacho.calc.mesesColchon",
-    "es": "Meses de colchón",
-    "en": "Months of cushion"
+    "clave": "ejercicio.ejTiempo.equilibrio-unipodal-single-leg-balance",
+    "en": "Hold for 15 to 60 seconds per leg (repeat 2 to 3 times)."
   },
   {
-    "clave": "despacho.calc.fondoObjetivo",
-    "es": "Fondo objetivo",
-    "en": "Target fund"
+    "clave": "ejercicio.ejTiempo.sentadillas-del-arquero",
+    "en": "15 reps, alternating sides."
   },
   {
-    "clave": "despacho.calc.fondoNota",
-    "en": "{g} × {n} months"
+    "clave": "ejercicio.ejTiempo.estocadas-lunges",
+    "en": "8 to 12 reps per leg."
   },
   {
-    "clave": "despacho.calc.nombreFondo",
-    "es": "Fondo de emergencia",
-    "en": "Emergency fund"
+    "clave": "ejercicio.ejTiempo.movilidad-90-90",
+    "en": "8 to 12 reps per side (about 1-2 minutes)."
   },
   {
-    "clave": "despacho.calc.gastoDeseado",
-    "es": "Gasto mensual deseado",
-    "en": "Desired monthly expenses"
+    "clave": "ejercicio.ejTiempo.el-puente-glute-bridge",
+    "en": "15 reps (hold at the top for 2-3 seconds each)."
   },
   {
-    "clave": "despacho.calc.tasaRetiro",
-    "es": "Tasa de retiro segura %",
-    "en": "Safe withdrawal rate %"
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores-en-estocada",
+    "en": "Hold for 20 seconds per leg."
   },
   {
-    "clave": "despacho.calc.libertadObjetivo",
-    "es": "Necesitas invertido",
-    "en": "You need invested"
+    "clave": "ejercicio.ejTiempo.abduccion-lateral-de-cadera",
+    "en": "10 to 15 reps per side, holding a few seconds at the top."
   },
   {
-    "clave": "despacho.calc.libertadNota",
-    "en": "Your annual expenses × {n}"
+    "clave": "ejercicio.ejTiempo.sentadilla-profunda-con-apertura",
+    "en": "15 opening reps."
   },
   {
-    "clave": "despacho.calc.nombreLibertad",
-    "es": "Libertad financiera",
-    "en": "Financial independence"
+    "clave": "ejercicio.ejTiempo.balanceo-dinamico-de-piernas",
+    "en": "8 to 10 reps per leg."
   },
   {
-    "clave": "despacho.calc.ingresoMensual",
-    "es": "Ingreso mensual",
-    "en": "Monthly income"
+    "clave": "ejercicio.ejTiempo.postura-gato-vaca",
+    "en": "1 minute continuous (or 10 to 15 breaths)."
   },
   {
-    "clave": "despacho.calc.pctNecesidades",
-    "es": "Necesidades %",
-    "en": "Needs %"
+    "clave": "ejercicio.ejTiempo.torsiones-lumbares-suaves",
+    "en": "10 to 15 reps per side."
   },
   {
-    "clave": "despacho.calc.pctCaprichos",
-    "es": "Caprichos %",
-    "en": "Wants %"
+    "clave": "ejercicio.ejTiempo.pointer-bird-dog",
+    "en": "Hold for 30 seconds on one side, then switch."
   },
   {
-    "clave": "despacho.calc.pctAhorro",
-    "es": "Ahorro %",
-    "en": "Savings %"
+    "clave": "ejercicio.ejTiempo.plancha-frontal-isometricos",
+    "en": "Hold for 15 to 60 seconds depending on ability."
   },
   {
-    "clave": "despacho.calc.noSuman100",
-    "en": "The percentages add up to {n}%, not 100%."
+    "clave": "ejercicio.ejTiempo.roll-down-curl-jefferson",
+    "en": "15 slow reps."
   },
   {
-    "clave": "despacho.calc.necesidades",
-    "es": "Necesidades",
-    "en": "Needs"
+    "clave": "ejercicio.ejTiempo.estiramiento-lumbar-boca-abajo",
+    "en": "1 minute continuous."
   },
   {
-    "clave": "despacho.calc.caprichos",
-    "es": "Caprichos",
-    "en": "Wants"
+    "clave": "ejercicio.ejTiempo.rotacion-toracica",
+    "en": "30 seconds per side."
   },
   {
-    "clave": "despacho.calc.ahorroTxt",
-    "es": "Ahorro",
-    "en": "Savings"
+    "clave": "ejercicio.ejTiempo.retraccion-escapular",
+    "en": "8 to 10 reps, holding the contraction for 5 to 10 seconds each time."
   },
   {
-    "clave": "despacho.calc.nombreCaprichos",
-    "es": "Presupuesto de caprichos",
-    "en": "Discretionary budget"
+    "clave": "ejercicio.ejTiempo.angeles-de-pared-wall-angels",
+    "en": "10 to 15 slow reps."
   },
   {
-    "clave": "despacho.calc.precioAuto",
-    "es": "Precio del auto",
-    "en": "Car price"
+    "clave": "ejercicio.ejTiempo.lunge-con-apertura-de-pectoral",
+    "en": "15 reps on each side."
   },
   {
-    "clave": "despacho.calc.pctEnganche",
-    "es": "Enganche %",
-    "en": "Down payment %"
+    "clave": "ejercicio.ejTiempo.estiramiento-dorsal-en-pared",
+    "en": "Hold for 20 seconds."
   },
   {
-    "clave": "despacho.calc.plazoMax",
-    "es": "Plazo máx. (meses)",
-    "en": "Max. term (months)"
+    "clave": "ejercicio.ejTiempo.el-gato-y-la-mesa",
+    "en": "15 reps coordinated with your breathing."
   },
   {
-    "clave": "despacho.calc.pctIngresoAuto",
-    "es": "Máx. del ingreso %",
-    "en": "Max. of income %"
+    "clave": "ejercicio.ejTiempo.circulos-de-hombros",
+    "en": "8 to 10 reps (forward and backward)."
   },
   {
-    "clave": "despacho.calc.tasaAuto",
-    "es": "Tasa anual %",
-    "en": "Annual rate %"
+    "clave": "ejercicio.ejTiempo.estiramiento-de-pecho-pectoral",
+    "en": "Hold for 15 to 20 seconds."
   },
   {
-    "clave": "despacho.calc.enganche",
-    "es": "Enganche requerido",
-    "en": "Down payment needed"
+    "clave": "ejercicio.ejTiempo.dislocaciones-con-goma-o-palo",
+    "en": "10 to 15 reps."
   },
   {
-    "clave": "despacho.calc.mensualidadMax",
-    "es": "Mensualidad máxima",
-    "en": "Maximum payment"
+    "clave": "ejercicio.ejTiempo.rotacion-externa-con-banda",
+    "en": "8 to 12 reps."
   },
   {
-    "clave": "despacho.calc.autoCabe",
-    "en": "It fits: the estimated payment is {m}."
+    "clave": "ejercicio.ejTiempo.thread-the-needle-enhebrar-aguja",
+    "en": "Hold for 15 to 30 seconds per side (2-3 sets)."
   },
   {
-    "clave": "despacho.calc.autoNoCabe",
-    "en": "It doesn't fit these terms: the estimated payment ({m}) is over your maximum."
+    "clave": "ejercicio.ejTiempo.rotaciones-y-medios-circulos",
+    "en": "8 to 10 reps per direction."
   },
   {
-    "clave": "despacho.calc.nombreEnganche",
-    "es": "Enganche del auto",
-    "en": "Car down payment"
+    "clave": "ejercicio.ejTiempo.estiramiento-de-trapecio-superior",
+    "en": "Hold for 15 to 30 seconds per side."
   },
   {
-    "clave": "biblioteca.desc",
-    "es": "Tu enciclopedia personal: charla con el Sabio sobre cualquier tema, guarda lo aprendido por campo del conocimiento y estudia con temporizador.",
-    "en": "Your personal encyclopedia: chat with the Sage about any topic, keep what you learn by field of knowledge and study with a timer."
+    "clave": "ejercicio.ejTiempo.rotaciones-cervicales-con-nodding",
+    "en": "8 to 12 reps per side."
   },
   {
-    "clave": "biblioteca.tab.charlas",
-    "en": "Chats"
+    "clave": "ejercicio.ejTiempo.retracciones-de-barbilla-chin-tucks",
+    "en": "10 to 15 reps, holding the position for 5 to 10 seconds."
   },
   {
-    "clave": "biblioteca.tab.enciclopedia",
-    "es": "Enciclopedia",
-    "en": "Encyclopedia"
+    "clave": "ejercicio.ejTiempo.isometricos-cervicales",
+    "en": "8 to 12 reps (holding tension for 5-10 sec)."
   },
   {
-    "clave": "biblioteca.tab.estudio",
-    "en": "Study"
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-de-muneca",
+    "en": "10 to 12 reps."
   },
   {
-    "clave": "biblioteca.tab.resumen",
-    "en": "Overview"
+    "clave": "ejercicio.ejTiempo.circulos-de-munecas",
+    "en": "10 to 15 circles per direction."
   },
   {
-    "clave": "biblioteca.sinIA",
-    "es": "Configura tu IA (Ajustes → Inteligencia artificial) para charlar con el Sabio. Mientras, puedes crear entradas a mano en la Enciclopedia.",
-    "en": "Set up your AI (Settings → Artificial intelligence) to chat with the Sage. Meanwhile, you can create entries by hand in the Encyclopedia."
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores",
+    "en": "Hold for 15 to 30 seconds."
   },
   {
-    "clave": "biblioteca.charla.nuevaBtn",
-    "es": "Nueva charla con el Sabio",
-    "en": "New chat with the Sage"
+    "clave": "ejercicio.ejTiempo.agarre-activo-y-pasivo",
+    "en": "10 to 15 reps."
   },
   {
-    "clave": "biblioteca.charla.todas",
-    "es": "Todas",
-    "en": "All"
+    "clave": "ejercicio.ejTiempo.plancha-de-munecas",
+    "en": "8 to 12 reps."
   },
   {
-    "clave": "biblioteca.charla.vacio",
-    "es": "Aún no hay charlas. Pregunta lo que sea — «¿por qué el cielo es azul?» — y la biblioteca la archivará en su campo del conocimiento.",
-    "en": "No chats yet. Ask anything — \"why is the sky blue?\" — and the library will file it under its field of knowledge."
+    "clave": "ejercicio.dificultad.baja",
+    "en": "Low"
   },
   {
-    "clave": "biblioteca.charla.sinTitulo",
-    "es": "Charla sin título",
-    "en": "Untitled chat"
+    "clave": "ejercicio.dificultad.media",
+    "en": "Medium"
   },
   {
-    "clave": "biblioteca.charla.porClasificar",
-    "es": "por clasificar",
-    "en": "to classify"
+    "clave": "ejercicio.dificultad.alta",
+    "en": "High"
   },
   {
-    "clave": "biblioteca.charla.nueva",
-    "es": "Nueva charla",
-    "en": "New chat"
+    "clave": "ejercicio.dificultad.mediaAlta",
+    "en": "Medium / High"
   },
   {
-    "clave": "biblioteca.charla.sub",
-    "es": "Charla de enciclopedia",
-    "en": "Encyclopedia chat"
+    "clave": "ejercicio.rut.full-body",
+    "en": "Full body"
   },
   {
-    "clave": "biblioteca.charla.volver",
-    "es": "Volver a las charlas",
-    "en": "Back to chats"
+    "clave": "ejercicio.rut.tren-superior",
+    "en": "Upper body"
   },
   {
-    "clave": "biblioteca.charla.renombrar",
-    "es": "Tocar para renombrar",
-    "en": "Tap to rename"
+    "clave": "ejercicio.rut.tren-inferior",
+    "en": "Lower body"
   },
   {
-    "clave": "biblioteca.charla.destilar",
-    "en": "Distill"
+    "clave": "ejercicio.rut.push-pecho-y-triceps",
+    "en": "Push · Chest & triceps"
   },
   {
-    "clave": "biblioteca.charla.reDestilar",
-    "en": "Update entry"
+    "clave": "ejercicio.rut.pull-espalda-y-biceps",
+    "en": "Pull · Back & biceps"
   },
   {
-    "clave": "biblioteca.charla.destilarTip",
-    "en": "The AI summarizes the chat into an encyclopedia entry"
+    "clave": "ejercicio.rut.legs-pierna-completa",
+    "en": "Legs · Full leg"
   },
   {
-    "clave": "biblioteca.charla.destilarFallo",
-    "en": "The AI could not distill the chat; fill in the entry by hand."
+    "clave": "ejercicio.rut.hiit-20-min",
+    "en": "HIIT 20 min"
   },
   {
-    "clave": "biblioteca.charla.borrar",
-    "es": "Borrar charla",
-    "en": "Delete chat"
+    "clave": "ejercicio.rut.carrera-continua",
+    "en": "Steady-state run"
   },
   {
-    "clave": "biblioteca.charla.campoTip",
-    "es": "Campo del conocimiento donde se archiva la charla",
-    "en": "Field of knowledge where the chat is filed"
+    "clave": "ejercicio.rut.caminata-inclinada",
+    "en": "Incline walk"
   },
   {
-    "clave": "biblioteca.charla.reclasificar",
-    "es": "Clasificar",
-    "en": "Classify"
+    "clave": "ejercicio.rut.bike-tempo",
+    "en": "Bike tempo"
   },
   {
-    "clave": "biblioteca.charla.reclasificarTip",
-    "es": "Clasificar la charla en el árbol y destilar su entrada",
-    "en": "Classify the chat in the tree and distil its entry"
+    "clave": "ejercicio.rut.triatlon-sprint",
+    "en": "Sprint triathlon"
   },
   {
-    "clave": "biblioteca.charla.verEntrada",
-    "es": "Entrada",
-    "en": "Entry"
+    "clave": "ejercicio.rut.movilidad-matutina",
+    "en": "Morning mobility"
   },
   {
-    "clave": "biblioteca.charla.verEntradaTip",
-    "es": "Ver la entrada que se destiló de esta charla",
-    "en": "See the entry distilled from this chat"
+    "clave": "ejercicio.rut.yoga-flow",
+    "en": "Yoga flow"
   },
   {
-    "clave": "biblioteca.charla.irANodo",
-    "es": "Ver «{n}» en la enciclopedia",
-    "en": "See «{n}» in the encyclopedia"
+    "clave": "ejercicio.rut.cadera-y-piernas",
+    "en": "Hips & legs"
   },
   {
-    "clave": "biblioteca.charla.ramificarTip",
-    "en": "Branch: add subtopics from this chat to the tree"
+    "clave": "ejercicio.rut.estiramiento-post-entreno",
+    "en": "Post-workout stretch"
   },
   {
-    "clave": "biblioteca.charla.ramificarSinTema",
-    "en": "This chat has no place in the tree yet"
+    "clave": "ejercicio.rut.espalda-y-hombros",
+    "en": "Back & shoulders"
   },
   {
-    "clave": "biblioteca.ramas.titulo",
-    "es": "Ramificar el árbol",
-    "en": "Branch the tree"
+    "clave": "ejercicio.rut.cuello-y-oficina",
+    "en": "Neck & desk relief"
   },
   {
-    "clave": "biblioteca.ramas.desc",
-    "es": "Ramas nuevas bajo «{tema}» a partir de esta charla:",
-    "en": "New branches under \"{tema}\" from this chat:"
+    "clave": "ejercicio.rut.antes-de-dormir",
+    "en": "Before bed"
   },
   {
-    "clave": "biblioteca.ramas.cargando",
-    "es": "El Sabio busca ramas nuevas…",
-    "en": "The Sage is looking for new branches…"
+    "clave": "ejercicio.rutDesc.full-body",
+    "en": "Full-body strength circuit."
   },
   {
-    "clave": "biblioteca.ramas.vacio",
-    "es": "No hay ramas nuevas que sugerir para este tema.",
-    "en": "No new branches to suggest for this topic."
+    "clave": "ejercicio.rutDesc.tren-superior",
+    "en": "Chest, back, shoulders, and arms in one session."
   },
   {
-    "clave": "biblioteca.ramas.agregar",
-    "es": "Agregar seleccionadas",
-    "en": "Add selected"
-  },
-  {
-    "clave": "biblioteca.ramas.ahoraNo",
-    "es": "Ahora no",
-    "en": "Not now"
+    "clave": "ejercicio.rutDesc.tren-inferior",
+    "en": "Complete legs and glutes."
   }
 ]

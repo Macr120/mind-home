@@ -1,0 +1,498 @@
+[
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-gemelos",
+    "texto": "Apoie as mãos na parede e alongue a panturrilha com a perna de trás esticada."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-hombros",
+    "texto": "Cruze um braço na frente do peito e puxe-o com o outro."
+  },
+  {
+    "clave": "ejercicio.ejDesc.foam-roller",
+    "texto": "Role os músculos sobre o rolo de espuma para liberar a tensão depois do treino."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-triceps",
+    "texto": "Leve o cotovelo atrás da cabeça e empurre suavemente com a outra mão."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-de-cadera",
+    "texto": "Em afundo, empurre o quadril para a frente para alongar a parte da frente da coxa."
+  },
+  {
+    "clave": "ejercicio.ejDesc.piernas-en-la-pared",
+    "texto": "Deitado, apoie as pernas na parede para relaxar e drenar."
+  },
+  {
+    "clave": "ejercicio.ejDesc.savasana",
+    "texto": "Deitado de costas, relaxe o corpo todo enquanto respira devagar."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-del-nino-apoyada",
+    "texto": "Postura da criança com apoio para relaxar por mais tempo."
+  },
+  {
+    "clave": "ejercicio.ejDesc.respiracion-profunda",
+    "texto": "Inspire e expire devagar e fundo para acalmar o sistema nervoso."
+  },
+  {
+    "clave": "ejercicio.ejDesc.mariposa-reclinada",
+    "texto": "Deitado com as solas dos pés juntas, deixe os joelhos caírem e relaxe os quadris."
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsion-reclinada",
+    "texto": "Deitado, deixe os joelhos caírem para um lado, girando suavemente a coluna."
+  },
+  {
+    "clave": "ejercicio.ejDesc.liberacion-miofascial-con-pelota",
+    "texto": "Role uma bola dura com pressão controlada do calcanhar até a base dos dedos do pé."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-tobillo",
+    "texto": "Levante uma perna e faça círculos amplos com o tornozelo nos dois sentidos."
+  },
+  {
+    "clave": "ejercicio.ejDesc.recogida-de-toalla-con-dedos",
+    "texto": "Tente amassar e juntar uma toalha no chão usando só os dedos do pé."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-dorsiflexion",
+    "texto": "De frente para a parede, dobre o joelho da frente mantendo o calcanhar apoiado no chão para alongar."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-talones-unipodal",
+    "texto": "Em pé sobre um pé só, levante o calcanhar devagar e desça com controle excêntrico."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-y-extension-en-descarga",
+    "texto": "Deitado, dobre o joelho levando o calcanhar ao glúteo e depois estenda sem levantar o pé."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "Apoie um calcanhar à frente e incline o tronco para a frente suavemente com o joelho esticado."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-isometrica-wall-squat",
+    "texto": "Apoie as costas na parede, desça até 90 graus e segure, sem deixar os joelhos caírem para dentro."
+  },
+  {
+    "clave": "ejercicio.ejDesc.equilibrio-unipodal-single-leg-balance",
+    "texto": "Equilibre-se em uma perna com o joelho levemente flexionado, sem deixá-lo cair para dentro."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadillas-del-arquero",
+    "texto": "Com as pernas afastadas, dobre um joelho, transferindo o peso e mantendo a outra perna esticada."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estocadas-lunges",
+    "texto": "Dê um passo à frente e desça o quadril, formando um ângulo de 90 graus com o joelho da frente."
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-90-90",
+    "texto": "Sentado com as pernas a 90 graus, gire o tronco e as pernas de um lado para o outro."
+  },
+  {
+    "clave": "ejercicio.ejDesc.el-puente-glute-bridge",
+    "texto": "Deitado de costas, levante o quadril contraindo os glúteos até alinhar ombros, quadris e joelhos."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-en-estocada",
+    "texto": "Com um joelho no chão, empurre o quadril para a frente mantendo as costas retas para alongar o psoas."
+  },
+  {
+    "clave": "ejercicio.ejDesc.abduccion-lateral-de-cadera",
+    "texto": "Deitado de lado, levante a perna de cima mantendo o quadril estável."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-profunda-con-apertura",
+    "texto": "No agachamento, empurre os joelhos para fora com os cotovelos para abrir o quadril."
+  },
+  {
+    "clave": "ejercicio.ejDesc.balanceo-dinamico-de-piernas",
+    "texto": "Em pé, balance uma perna para a frente, para trás e para os lados, como um pêndulo."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-gato-vaca",
+    "texto": "De quatro apoios, alterne entre arquear as costas para o teto e deixar a barriga cair em direção ao chão."
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsiones-lumbares-suaves",
+    "texto": "Deitado de costas, deixe os dois joelhos caírem juntos para um lado e depois para o outro."
+  },
+  {
+    "clave": "ejercicio.ejDesc.pointer-bird-dog",
+    "texto": "De quatro apoios, estenda a perna e o braço opostos mantendo a lombar estável."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-frontal-isometricos",
+    "texto": "Segure a posição de prancha apoiado nos antebraços, formando uma linha reta."
+  },
+  {
+    "clave": "ejercicio.ejDesc.roll-down-curl-jefferson",
+    "texto": "Em pé, desenrole a coluna devagar, vértebra por vértebra."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-lumbar-boca-abajo",
+    "texto": "Deitado de bruços, levante o quadril e depois abaixe, estendendo as costas."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotacion-toracica",
+    "texto": "De quatro apoios, levante um braço para o lado e acompanhe a mão com o olhar."
+  },
+  {
+    "clave": "ejercicio.ejDesc.retraccion-escapular",
+    "texto": "Aperte as escápulas para trás e para baixo mantendo a postura ereta."
+  },
+  {
+    "clave": "ejercicio.ejDesc.angeles-de-pared-wall-angels",
+    "texto": "Com as costas na parede, deslize os braços para cima e para baixo mantendo os cotovelos em contato."
+  },
+  {
+    "clave": "ejercicio.ejDesc.lunge-con-apertura-de-pectoral",
+    "texto": "Em afundo, entrelace as mãos atrás da nuca e abra os cotovelos para trás."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-dorsal-en-pared",
+    "texto": "Apoie as mãos na parede e deixe o tronco cair com os joelhos esticados."
+  },
+  {
+    "clave": "ejercicio.ejDesc.el-gato-y-la-mesa",
+    "texto": "De quatro apoios, arqueie as costas e depois abaixe o peito."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-hombros",
+    "texto": "Movimentos circulares amplos, priorizando o percurso para trás e para baixo."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-pecho-pectoral",
+    "texto": "Entrelace as mãos atrás das costas e abra o peito sem forçar o pescoço."
+  },
+  {
+    "clave": "ejercicio.ejDesc.dislocaciones-con-goma-o-palo",
+    "texto": "Passe uma faixa por cima da cabeça e por trás das costas com os cotovelos esticados."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotacion-externa-con-banda",
+    "texto": "Com os cotovelos a 90 graus junto ao corpo, gire as mãos para fora contra a resistência."
+  },
+  {
+    "clave": "ejercicio.ejDesc.thread-the-needle-enhebrar-aguja",
+    "texto": "De quatro apoios, passe um braço por baixo do corpo, apoiando o ombro no chão."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-y-medios-circulos",
+    "texto": "Com o queixo em direção ao peito, trace círculos amplos e bem devagar sem forçar até sentir dor."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-trapecio-superior",
+    "texto": "Incline a cabeça suavemente, levando a orelha em direção ao ombro oposto."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-cervicales-con-nodding",
+    "texto": "Vire a cabeça e faça pequenos movimentos de balançar, como dizendo \"sim\"."
+  },
+  {
+    "clave": "ejercicio.ejDesc.retracciones-de-barbilla-chin-tucks",
+    "texto": "Puxe o queixo para trás, fazendo um \"papo duplo\", para alinhar o pescoço."
+  },
+  {
+    "clave": "ejercicio.ejDesc.isometricos-cervicales",
+    "texto": "Empurre a cabeça contra a mão, resistindo ao movimento para não dobrar o pescoço."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-y-extension-de-muneca",
+    "texto": "Com os braços esticados, flexione o pulso em direção ao teto e depois ao chão."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-munecas",
+    "texto": "Gire os dois pulsos, fazendo círculos nos dois sentidos."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores",
+    "texto": "Com a palma para cima, use a outra mão para empurrar os dedos em direção ao corpo."
+  },
+  {
+    "clave": "ejercicio.ejDesc.agarre-activo-y-pasivo",
+    "texto": "Feche os punhos com força e depois abra, relaxando completamente."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-de-munecas",
+    "texto": "Em prancha ou ajoelhado, suba para apoiar só nas pontas dos dedos e depois desça."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.liberacion-miofascial-con-pelota",
+    "texto": "1 a 2 minutos por pé (movimento contínuo)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-tobillo",
+    "texto": "10 a 12 repetições em cada direção por tornozelo."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.recogida-de-toalla-con-dedos",
+    "texto": "10 a 15 repetições (amassar e soltar) por pé."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-dorsiflexion",
+    "texto": "Segure 15 a 30 segundos por perna, faça de 2 a 4 séries."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.elevacion-de-talones-unipodal",
+    "texto": "10 a 15 repetições por perna."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-en-descarga",
+    "texto": "8 a 10 repetições por perna."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "Segure 20 segundos por perna."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadilla-isometrica-wall-squat",
+    "texto": "Segure 5 a 15 segundos, levante e repita (3 a 5 vezes)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.equilibrio-unipodal-single-leg-balance",
+    "texto": "Segure 15 a 60 segundos por perna (repita 2 a 3 vezes)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadillas-del-arquero",
+    "texto": "15 repetições, alternando os lados."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estocadas-lunges",
+    "texto": "8 a 12 repetições por perna."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.movilidad-90-90",
+    "texto": "8 a 12 repetições por lado (cerca de 1-2 minutos)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.el-puente-glute-bridge",
+    "texto": "15 repetições (segure 2-3 segundos no topo de cada uma)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores-en-estocada",
+    "texto": "Segure 20 segundos por perna."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.abduccion-lateral-de-cadera",
+    "texto": "10 a 15 repetições por lado, segurando alguns segundos no topo."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadilla-profunda-con-apertura",
+    "texto": "15 repetições de abertura."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.balanceo-dinamico-de-piernas",
+    "texto": "8 a 10 repetições por perna."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.postura-gato-vaca",
+    "texto": "1 minuto contínuo (ou 10 a 15 respirações)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.torsiones-lumbares-suaves",
+    "texto": "10 a 15 repetições por lado."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.pointer-bird-dog",
+    "texto": "Segure 30 segundos de um lado, depois troque."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.plancha-frontal-isometricos",
+    "texto": "Segure de 15 a 60 segundos, conforme sua capacidade."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.roll-down-curl-jefferson",
+    "texto": "15 repetições lentas."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-lumbar-boca-abajo",
+    "texto": "1 minuto contínuo."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotacion-toracica",
+    "texto": "30 segundos por lado."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.retraccion-escapular",
+    "texto": "8 a 10 repetições, segurando a contração por 5 a 10 segundos cada vez."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.angeles-de-pared-wall-angels",
+    "texto": "10 a 15 repetições lentas."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.lunge-con-apertura-de-pectoral",
+    "texto": "15 repetições de cada lado."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-dorsal-en-pared",
+    "texto": "Segure 20 segundos."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.el-gato-y-la-mesa",
+    "texto": "15 repetições coordenadas com a respiração."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-hombros",
+    "texto": "8 a 10 repetições (para a frente e para trás)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-pecho-pectoral",
+    "texto": "Segure 15 a 20 segundos."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.dislocaciones-con-goma-o-palo",
+    "texto": "10 a 15 repetições."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotacion-externa-con-banda",
+    "texto": "8 a 12 repetições."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.thread-the-needle-enhebrar-aguja",
+    "texto": "Segure 15 a 30 segundos por lado (2-3 séries)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotaciones-y-medios-circulos",
+    "texto": "8 a 10 repetições por direção."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-trapecio-superior",
+    "texto": "Segure 15 a 30 segundos por lado."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotaciones-cervicales-con-nodding",
+    "texto": "8 a 12 repetições por lado."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.retracciones-de-barbilla-chin-tucks",
+    "texto": "10 a 15 repetições, segurando a posição por 5 a 10 segundos."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.isometricos-cervicales",
+    "texto": "8 a 12 repetições (segurando a tensão por 5-10 seg)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-de-muneca",
+    "texto": "10 a 12 repetições."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-munecas",
+    "texto": "10 a 15 círculos por direção."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores",
+    "texto": "Segure 15 a 30 segundos."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.agarre-activo-y-pasivo",
+    "texto": "10 a 15 repetições."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.plancha-de-munecas",
+    "texto": "8 a 12 repetições."
+  },
+  {
+    "clave": "ejercicio.dificultad.baja",
+    "texto": "Baixa"
+  },
+  {
+    "clave": "ejercicio.dificultad.media",
+    "texto": "Média"
+  },
+  {
+    "clave": "ejercicio.dificultad.alta",
+    "texto": "Alta"
+  },
+  {
+    "clave": "ejercicio.dificultad.mediaAlta",
+    "texto": "Média / Alta"
+  },
+  {
+    "clave": "ejercicio.rut.full-body",
+    "texto": "Corpo inteiro"
+  },
+  {
+    "clave": "ejercicio.rut.tren-superior",
+    "texto": "Parte superior"
+  },
+  {
+    "clave": "ejercicio.rut.tren-inferior",
+    "texto": "Parte inferior"
+  },
+  {
+    "clave": "ejercicio.rut.push-pecho-y-triceps",
+    "texto": "Push · Peito e tríceps"
+  },
+  {
+    "clave": "ejercicio.rut.pull-espalda-y-biceps",
+    "texto": "Pull · Costas e bíceps"
+  },
+  {
+    "clave": "ejercicio.rut.legs-pierna-completa",
+    "texto": "Legs · Perna completa"
+  },
+  {
+    "clave": "ejercicio.rut.hiit-20-min",
+    "texto": "HIIT 20 min"
+  },
+  {
+    "clave": "ejercicio.rut.carrera-continua",
+    "texto": "Corrida contínua"
+  },
+  {
+    "clave": "ejercicio.rut.caminata-inclinada",
+    "texto": "Caminhada inclinada"
+  },
+  {
+    "clave": "ejercicio.rut.bike-tempo",
+    "texto": "Bike tempo"
+  },
+  {
+    "clave": "ejercicio.rut.triatlon-sprint",
+    "texto": "Triatlo sprint"
+  },
+  {
+    "clave": "ejercicio.rut.movilidad-matutina",
+    "texto": "Mobilidade matinal"
+  },
+  {
+    "clave": "ejercicio.rut.yoga-flow",
+    "texto": "Yoga flow"
+  },
+  {
+    "clave": "ejercicio.rut.cadera-y-piernas",
+    "texto": "Quadril e pernas"
+  },
+  {
+    "clave": "ejercicio.rut.estiramiento-post-entreno",
+    "texto": "Alongamento pós-treino"
+  },
+  {
+    "clave": "ejercicio.rut.espalda-y-hombros",
+    "texto": "Costas e ombros"
+  },
+  {
+    "clave": "ejercicio.rut.cuello-y-oficina",
+    "texto": "Alívio para pescoço e escritório"
+  },
+  {
+    "clave": "ejercicio.rut.antes-de-dormir",
+    "texto": "Antes de dormir"
+  },
+  {
+    "clave": "ejercicio.rutDesc.full-body",
+    "texto": "Circuito de força para o corpo todo."
+  },
+  {
+    "clave": "ejercicio.rutDesc.tren-superior",
+    "texto": "Peito, costas, ombros e braços em uma sessão."
+  },
+  {
+    "clave": "ejercicio.rutDesc.tren-inferior",
+    "texto": "Pernas e glúteos completos."
+  }
+]

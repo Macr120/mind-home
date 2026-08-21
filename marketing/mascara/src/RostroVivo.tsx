@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react'
+import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import type { AnclasRopa, ExpresionId } from '../../../src/core/house/apariencia'
@@ -47,7 +47,8 @@ export function RostroVivo({
   const bocaO = useRef<THREE.Mesh>(null)
   const bocaHabla = useRef<THREE.Mesh>(null)
   const rubor = useRef<THREE.Group>(null)
-  const suave = useMemo(() => ({ pL: 0, pR: 0, bo: 0, so: 0, ce: 0, hablando: false }), [])
+  // Ref (contenedor mutable): el frame suaviza estos valores sin re-renderizar.
+  const suave = useRef({ pL: 0, pR: 0, bo: 0, so: 0, ce: 0, hablando: false }).current
 
   useFrame((_, dt) => {
     const g = grupo.current
@@ -59,7 +60,8 @@ export function RostroVivo({
     // Suavizado (párpados ágiles: un cierre real dura ~100 ms).
     suave.pL = amortiguar(suave.pL, Math.max(s.parpadeoL, expresion === 'guino' ? 1 : 0), dt, 0.05)
     suave.pR = amortiguar(suave.pR, s.parpadeoR, dt, 0.05)
-    suave.bo = amortiguar(suave.bo, s.boca, dt, 0.08)
+    // La boca sigue a las sílabas: si se suaviza más, hablar normal no se nota.
+    suave.bo = amortiguar(suave.bo, s.boca, dt, 0.05)
     suave.so = amortiguar(suave.so, s.sonrisa, dt, 0.15)
     suave.ce = amortiguar(suave.ce, s.cejas, dt, 0.15)
 
@@ -71,8 +73,8 @@ export function RostroVivo({
     parpado(ojoR.current, suave.pR)
 
     // Boca: hablando gana la boca abierta; con histéresis para que no titile.
-    if (suave.bo >= 0.15) suave.hablando = true
-    else if (suave.bo <= 0.08) suave.hablando = false
+    if (suave.bo >= 0.12) suave.hablando = true
+    else if (suave.bo <= 0.06) suave.hablando = false
     const estatica = suave.hablando
       ? null
       : expresion === 'sorpresa'

@@ -1,46 +1,878 @@
 [
   {
-    "clave": "tut.esencial.titulo",
-    "texto": "الأساسيات"
+    "clave": "hoy.casa.personales",
+    "texto": "شخصي"
   },
   {
-    "clave": "tut.tipo.ejemplos",
-    "texto": "أمثلة · البيت التجريبي"
+    "clave": "hoy.irApp",
+    "texto": "سجّله في التطبيق"
   },
   {
-    "clave": "tut.app-agenda--esencial.resumen",
-    "texto": "الأجندة تحمل ما ليس عادة، في ثلاث قوائم: العمل (المهام واللوحة)، والصحة (المواعيد والأدوية والرعاية: لك ولمقرَّبيك ولحيواناتك الأليفة)، والأشخاص (جهات الاتصال وأعياد الميلاد). وكل ما يحمل تاريخًا يُدرَج وحده في التقويم."
+    "clave": "hoy.nada",
+    "texto": "لم تلتزم بأي شيء في هذا التطبيق بعد."
   },
   {
-    "clave": "tut.calendario--esencial.resumen",
-    "texto": "التقويم ليس غرفة: يعيش في ساعة البيت ويجمع كل ما له تاريخ ووقت، ما تنشئه بيدك وما تجدوله التطبيقات الأخرى من تلقاء نفسها. يُنظر إليه بأربع طرق: يوم وأسبوع على شبكة الساعات، وشهر وسنة للنظرة الشاملة. وعلى حدة تأتي «المهام»، الزر الأحمر الذي يحمل قائمة اليوم من كل التطبيقات مجتمعة."
+    "clave": "hoy.metas.titulo",
+    "texto": "الأهداف"
   },
   {
-    "clave": "tut.app-anecdotario--esencial.resumen",
-    "texto": "دفتر الذكريات هو يومياتك الشخصية: مدخلات بمزاج ونص وصور تُحفظ وحدها حسب التاريخ. تقويم يلوّن كل يوم حسب مزاجك، وسجلّ يؤرشفها في مجلدات حسب السنة والشهر والأسبوع."
+    "clave": "hoy.metas.vencida",
+    "texto": "متأخر"
   },
   {
-    "clave": "tut.app-biblioteca--esencial.resumen",
-    "texto": "المكتبة هي موسوعتك الشخصية، في أربع قوائم: المحادثات (تسأل الحكيم، وكل محادثة تُؤرشف وتُقطَّر في مدخل)، والموسوعة (الشجرة التي يعيش فيها ما تعلّمته، حسب مجال المعرفة)، والدراسة (المؤقّت البسيط أو بومودورو، الذي يسجّل كل جلسة)، ونظرة عامة (كم كتبت وكم درست)."
+    "clave": "hoy.metas.faltan",
+    "texto": "{n} يوم"
   },
   {
-    "clave": "tut.app-cocina--esencial.resumen",
-    "texto": "للمطبخ قائمتان. كتاب الوصفات يحفظ ما ستطبخه: الوصفات بمغذّياتها الكبرى، والحميات التي تجمعها، وقائمة المشتريات. وضبط التغذية يتابع ما تأكله في أربع خطوات: أهداف السعرات والوزن، وسجل اليوم، وخطة وجبات الأيام القادمة، والتقدم."
+    "clave": "objetivos.anadir",
+    "texto": "إضافة مهمة"
   },
   {
-    "clave": "tut.app-computo--esencial.resumen",
-    "texto": "لغرفة الحوسبة قائمتان. الآلة الحاسبة تجري الحسابات المعتادة وتبدّل وضعها للرسم البياني، وللعمل بأنظمة العد والمصفوفات وأنظمة المعادلات والوحدات والإكرامية وقاعدة الثلاثة؛ ويتعلّق بها كتيب الصيغ، كتاب صيغك بالرياضيات والفيزياء والكيمياء الجاهزة فيه. أما جداول البيانات فتتولى ما هو جدولي، بصيغ حسابية واضحة وتصدير إلى Excel أو PDF."
+    "clave": "objetivos.responsable",
+    "texto": "{quien} يذكّرك بما يخص هذا المكان"
   },
   {
-    "clave": "tut.app-descanso--esencial.resumen",
-    "texto": "الراحة تسجّل كيف تنام في شاشة واحدة: تقييم الليلة الأخيرة، وجدولك بتذكيراته، وسجل اليوم، والسجل الكامل حسب السنة والشهر والأسبوع."
+    "clave": "objetivos.nuevo.deQueApp",
+    "texto": "ما موضوع هذه المهمة؟"
   },
   {
-    "clave": "tut.app-despacho--esencial.resumen",
-    "texto": "المكتب يرتّب مالك في أربع قوائم. صافي الثروة يحفظ ما تملكه وما عليك، مع توقّعه؛ والتدفق النقدي يتابع المصروفات والدخل ورصيد الفترة، بميزانيته وفئاته؛ والأهداف تجمع الادخار والاستثمار والدين، مع الحاسبات التي تقترح مبلغًا. أما الأسواق فلوحة أسعار مباشرة، للاطلاع فقط."
+    "clave": "objetivos.nuevo.responsable",
+    "texto": "سأذكّرك بهذا. بماذا تلتزم؟"
   },
   {
-    "clave": "tut.app-diario--esencial.resumen",
-    "texto": "الصحيفة جريدة عابرة: عناوين من صحافة حقيقية حسب الفئة، ووقائع «حدث في مثل هذا اليوم»، تتجدد وحدها عند منتصف الليل. ومن التوصيل تجدول أن يسلّمك إياها مساعد في محادثته الخاصة."
+    "clave": "objetivos.nuevo.personal",
+    "texto": "مهمة شخصية غير مرتبطة بأي تطبيق."
+  },
+  {
+    "clave": "objetivos.nuevo.personales",
+    "texto": "شخصي"
+  },
+  {
+    "clave": "objetivos.nuevo.poner",
+    "texto": "＋"
+  },
+  {
+    "clave": "objetivos.nuevo.todos",
+    "texto": "لقد التزمت بكل شيء في هذا التطبيق."
+  },
+  {
+    "clave": "objetivos.nuevo.otro",
+    "texto": "مهمة أخرى…"
+  },
+  {
+    "clave": "objetivos.nuevo.otroPlaceholder",
+    "texto": "بماذا تلتزم؟"
+  },
+  {
+    "clave": "objetivos.nuevo.checklist",
+    "texto": "تحتاج عدة خطوات؟ قائمة تحقق جديدة"
+  },
+  {
+    "clave": "objetivos.nuevo.dias",
+    "texto": "أي أيام؟"
+  },
+  {
+    "clave": "objetivos.nuevo.faltanDias",
+    "texto": "اختر يومًا واحدًا على الأقل."
+  },
+  {
+    "clave": "objetivos.nuevo.cantidad",
+    "texto": "كم؟"
+  },
+  {
+    "clave": "objetivos.nuevo.meta",
+    "texto": "لأي هدف؟"
+  },
+  {
+    "clave": "objetivos.nuevo.sinMeta",
+    "texto": "بلا (مستقل)"
+  },
+  {
+    "clave": "objetivos.nuevo.mientrasDure",
+    "texto": "فقط من {ini} إلى {fin}، طوال مدة الهدف."
+  },
+  {
+    "clave": "objetivos.nuevo.hora",
+    "texto": "في وقت محدد؟"
+  },
+  {
+    "clave": "objetivos.nuevo.sinHora",
+    "texto": "بلا وقت"
+  },
+  {
+    "clave": "objetivos.nuevo.anadir",
+    "texto": "إضافة"
+  },
+  {
+    "clave": "objetivos.nuevo.cancelar",
+    "texto": "إلغاء"
+  },
+  {
+    "clave": "objetivos.nuevo.cambiar",
+    "texto": "تغيير المساعد"
+  },
+  {
+    "clave": "objetivos.nuevo.nadie",
+    "texto": "بلا مساعد"
+  },
+  {
+    "clave": "avisos.objetivos",
+    "texto": "تبقّى لديك {n} مهمة في {app}."
+  },
+  {
+    "clave": "biblioteca.nodo.filosofia",
+    "texto": "الفلسفة والفكر"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.filosofia",
+    "texto": "أسئلة جوهرية حول الواقع والمعرفة والعقل والسلوك."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-metafisica",
+    "texto": "ما بعد الطبيعة وعلم الوجود"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-ser",
+    "texto": "الكينونة والوجود"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-ser",
+    "texto": "ماذا يعني أن يكون لشيء ما وجود."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-mente",
+    "texto": "العقل والوعي"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-mente",
+    "texto": "مشكلة العقل والجسد والظاهراتية."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-libre",
+    "texto": "الحرية والحتمية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-libre",
+    "texto": "هل نحن أحرار، أم أن كل شيء له سبب؟"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-epistemologia",
+    "texto": "الإبستمولوجيا"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-conocimiento",
+    "texto": "نظرية المعرفة"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-conocimiento",
+    "texto": "التبرير والحقيقة والاعتقاد."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-ciencia-fil",
+    "texto": "فلسفة العلم"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-ciencia-fil",
+    "texto": "المنهج والنماذج الإرشادية ومعيار الفصل."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-escepticismo",
+    "texto": "الشكوكية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-escepticismo",
+    "texto": "حدود ما يمكننا معرفته."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-etica",
+    "texto": "الأخلاق والفلسفة السياسية"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-moral",
+    "texto": "النظريات الأخلاقية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-moral",
+    "texto": "الأخلاق الواجبية والنفعية وأخلاق الفضيلة."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-justicia",
+    "texto": "العدالة الاجتماعية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-justicia",
+    "texto": "الإنصاف والحقوق والصالح العام."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-bioetica",
+    "texto": "الأخلاقيات الحيوية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-bioetica",
+    "texto": "الحياة والطب والتقنية التطبيقية."
+  },
+  {
+    "clave": "biblioteca.nodo.matematicas",
+    "texto": "الرياضيات والمنطق"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.matematicas",
+    "texto": "بنى مجردة واستدلال صوري ونماذج كمية."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-puras",
+    "texto": "الرياضيات البحتة"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-algebra",
+    "texto": "الجبر"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-algebra",
+    "texto": "البنى والمعادلات والتماثلات."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-analisis",
+    "texto": "التحليل"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-analisis",
+    "texto": "النهايات والاتصال وحساب التفاضل والتكامل."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-geometria",
+    "texto": "الهندسة والطوبولوجيا"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-geometria",
+    "texto": "الأشكال والفضاءات والتحويلات."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-aplicadas",
+    "texto": "الرياضيات التطبيقية"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-prob",
+    "texto": "الاحتمالات"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-prob",
+    "texto": "عدم اليقين والأحداث العشوائية."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-stats",
+    "texto": "الإحصاء"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-stats",
+    "texto": "البيانات والاستدلال والنماذج."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-discreta",
+    "texto": "الرياضيات المتقطعة"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-discreta",
+    "texto": "التوافقيات ونظرية البيان والعودية."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-logica",
+    "texto": "المنطق"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-log-formal",
+    "texto": "المنطق الصوري"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-log-formal",
+    "texto": "القضايا والمسندات والبرهان."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-log-comput",
+    "texto": "المنطق الحاسوبي"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-log-comput",
+    "texto": "الخوارزميات والتعقيد والتحقق."
+  },
+  {
+    "clave": "biblioteca.nodo.naturales",
+    "texto": "العلوم الطبيعية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.naturales",
+    "texto": "قوانين الكون المادي والمادة والطاقة والأنظمة الحية."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-fisica",
+    "texto": "الفيزياء"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-mecanica",
+    "texto": "الميكانيكا الكلاسيكية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-mecanica",
+    "texto": "الحركة والقوى والطاقة."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-cuantica",
+    "texto": "فيزياء الكم"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-cuantica",
+    "texto": "الجسيمات والموجات والاحتمالات."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-relatividad",
+    "texto": "النسبية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-relatividad",
+    "texto": "الزمكان وعلم الكونيات."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-termodinamica",
+    "texto": "الديناميكا الحرارية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-termodinamica",
+    "texto": "الحرارة والإنتروبيا والاتزان."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-quimica",
+    "texto": "الكيمياء"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-org",
+    "texto": "الكيمياء العضوية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-org",
+    "texto": "الكربون والجزيئات الحيوية والتفاعلات."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-inorg",
+    "texto": "الكيمياء غير العضوية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-inorg",
+    "texto": "العناصر والروابط والمواد."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-fisicoquim",
+    "texto": "الكيمياء الفيزيائية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-fisicoquim",
+    "texto": "الطاقة في التفاعلات والاتزان."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-biologia",
+    "texto": "علم الأحياء"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-celula",
+    "texto": "علم الأحياء الخلوي"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-celula",
+    "texto": "الخلايا والأيض والإشارات الخلوية."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-genetica",
+    "texto": "علم الوراثة والتطور"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-genetica",
+    "texto": "الحمض النووي والانتخاب والفيلوجينيا."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-ecologia",
+    "texto": "علم البيئة"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-ecologia",
+    "texto": "النظم البيئية والتنوع الحيوي والدورات."
+  },
+  {
+    "clave": "biblioteca.nodo.tierra",
+    "texto": "علوم الأرض"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tierra",
+    "texto": "الكوكب والغلاف الجوي والمحيطات والعمليات الجيولوجية."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-geologia",
+    "texto": "الجيولوجيا والجيوفيزياء"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-placas",
+    "texto": "الصفائح التكتونية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-placas",
+    "texto": "تشكل التضاريس والزلازل."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-minerales",
+    "texto": "علم المعادن"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-minerales",
+    "texto": "الصخور والمعادن والموارد."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-paleont",
+    "texto": "علم الحفريات"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-paleont",
+    "texto": "الأحافير وتاريخ الحياة."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-clima",
+    "texto": "المناخ والغلاف الجوي"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-meteorologia",
+    "texto": "علم الأرصاد الجوية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-meteorologia",
+    "texto": "الطقس والضغط الجوي والهطول."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-climatologia",
+    "texto": "علم المناخ"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-climatologia",
+    "texto": "الأنماط طويلة المدى وتغير المناخ."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-oceanos",
+    "texto": "علم المحيطات"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-oceanos",
+    "texto": "التيارات والبحار والسواحل."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-espacial",
+    "texto": "الجغرافيا والمكان"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-cartografia",
+    "texto": "علم الخرائط"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-cartografia",
+    "texto": "الخرائط والإحداثيات ونظم المعلومات الجغرافية."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-geomorf",
+    "texto": "علم الأشكال الأرضية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-geomorf",
+    "texto": "المناظر الطبيعية والتعرية."
+  },
+  {
+    "clave": "biblioteca.nodo.sociales",
+    "texto": "العلوم الاجتماعية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sociales",
+    "texto": "المجتمعات والاقتصادات والمؤسسات والسلوك البشري الجماعي."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-sociologia",
+    "texto": "علم الاجتماع والأنثروبولوجيا"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-estructura",
+    "texto": "البنية الاجتماعية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-estructura",
+    "texto": "الطبقات والشبكات وعدم المساواة."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-cultura",
+    "texto": "الأنثروبولوجيا الثقافية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-cultura",
+    "texto": "الطقوس والهوية والرموز."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-urbano",
+    "texto": "الدراسات الحضرية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-urbano",
+    "texto": "المدينة والهجرة والإقليم."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-economia",
+    "texto": "الاقتصاد"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-micro",
+    "texto": "الاقتصاد الجزئي"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-micro",
+    "texto": "العرض والطلب والقرارات."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-macro",
+    "texto": "الاقتصاد الكلي"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-macro",
+    "texto": "الناتج المحلي الإجمالي والتضخم والسياسة المالية."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-comercio",
+    "texto": "التجارة الدولية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-comercio",
+    "texto": "العولمة وسلاسل القيمة."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-politica",
+    "texto": "العلوم السياسية"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-estado",
+    "texto": "الدولة والحكومة"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-estado",
+    "texto": "السلطة والقوانين والديمقراطية."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-derechos",
+    "texto": "حقوق الإنسان"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-derechos",
+    "texto": "الحريات والعدالة والمواطنة."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-relaciones",
+    "texto": "العلاقات الدولية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-relaciones",
+    "texto": "الدبلوماسية والنزاع والتعاون."
+  },
+  {
+    "clave": "biblioteca.nodo.psicologia",
+    "texto": "علم النفس والعقل البشري"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psicologia",
+    "texto": "الإدراك والانفعال والنمو والصحة النفسية."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-cognitiva",
+    "texto": "علم النفس المعرفي"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-percepcion",
+    "texto": "الإدراك الحسي والانتباه"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-percepcion",
+    "texto": "كيف نعالج المؤثرات الحسية."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-memoria",
+    "texto": "الذاكرة والتعلم"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-memoria",
+    "texto": "الترميز والاستدعاء والنسيان."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-lenguaje-psi",
+    "texto": "علم اللغة النفسي"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-lenguaje-psi",
+    "texto": "اكتساب اللغة ومعالجتها."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-desarrollo",
+    "texto": "النمو والشخصية"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-infancia",
+    "texto": "نمو الطفل"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-infancia",
+    "texto": "المعالم المعرفية والاجتماعية."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-personalidad",
+    "texto": "الشخصية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-personalidad",
+    "texto": "السمات والمزاجات والنماذج."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-social-psi",
+    "texto": "علم النفس الاجتماعي"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-social-psi",
+    "texto": "الجماعات والاتجاهات والمسايرة."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-clinica",
+    "texto": "الصحة النفسية"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-clinica-gen",
+    "texto": "علم النفس الإكلينيكي"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-clinica-gen",
+    "texto": "الاضطرابات والتشخيص والعلاج."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-neuropsi",
+    "texto": "علم النفس العصبي"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-neuropsi",
+    "texto": "الدماغ والإصابة وإعادة التأهيل."
+  },
+  {
+    "clave": "biblioteca.nodo.humanidades",
+    "texto": "العلوم الإنسانية والتاريخ"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.humanidades",
+    "texto": "التجربة الإنسانية عبر الزمن والفكر والتراث الثقافي."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-historia",
+    "texto": "التاريخ"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-antigua",
+    "texto": "التاريخ القديم"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-antigua",
+    "texto": "الحضارات الكلاسيكية والأصول."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-moderna",
+    "texto": "التاريخ الحديث والمعاصر"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-moderna",
+    "texto": "الثورات والدول والعولمة."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-metodo",
+    "texto": "الكتابة التاريخية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-metodo",
+    "texto": "المصادر والتأويل والجدل."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-religion",
+    "texto": "الدين والأساطير"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-comparada",
+    "texto": "الأديان المقارنة"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-comparada",
+    "texto": "التقاليد والنصوص والممارسات."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-mito",
+    "texto": "الأساطير"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-mito",
+    "texto": "السرديات التأسيسية والنماذج الأصلية."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-patrimonio",
+    "texto": "التراث والدراسات الثقافية"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-museos",
+    "texto": "التراث المادي"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-museos",
+    "texto": "المتاحف والصون والقطع الأثرية."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-memoria",
+    "texto": "الذاكرة الجماعية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-memoria",
+    "texto": "الشهادات والأرشيفات والنسيان."
+  },
+  {
+    "clave": "biblioteca.nodo.lengua",
+    "texto": "اللغة والأدب"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.lengua",
+    "texto": "التواصل والنصوص والتحليل اللغوي والتراث المكتوب."
+  },
+  {
+    "clave": "biblioteca.nodo.len-linguistica",
+    "texto": "علم اللغة"
+  },
+  {
+    "clave": "biblioteca.nodo.len-fonetica",
+    "texto": "علم الأصوات والفونولوجيا"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-fonetica",
+    "texto": "الأصوات والأنظمة الصوتية."
+  },
+  {
+    "clave": "biblioteca.nodo.len-sintaxis",
+    "texto": "النحو والصرف"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-sintaxis",
+    "texto": "بنية الجملة والكلمة."
+  },
+  {
+    "clave": "biblioteca.nodo.len-semantica",
+    "texto": "علم الدلالة والتداولية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-semantica",
+    "texto": "المعنى في السياق."
+  },
+  {
+    "clave": "biblioteca.nodo.len-literatura",
+    "texto": "الأدب"
+  },
+  {
+    "clave": "biblioteca.nodo.len-generos",
+    "texto": "الأجناس الأدبية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-generos",
+    "texto": "الرواية والشعر والمسرح والمقالة."
+  },
+  {
+    "clave": "biblioteca.nodo.len-teoria-lit",
+    "texto": "النظرية الأدبية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-teoria-lit",
+    "texto": "النقد والسرديات والكانون الأدبي."
+  },
+  {
+    "clave": "biblioteca.nodo.len-mundo",
+    "texto": "آداب العالم"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-mundo",
+    "texto": "التقاليد الإقليمية والترجمة."
+  },
+  {
+    "clave": "biblioteca.nodo.len-comunicacion",
+    "texto": "التواصل"
+  },
+  {
+    "clave": "biblioteca.nodo.len-periodismo",
+    "texto": "الصحافة"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-periodismo",
+    "texto": "الأخبار والتحقق من الحقائق والرأي."
+  },
+  {
+    "clave": "biblioteca.nodo.len-retorica",
+    "texto": "البلاغة والحجاج"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-retorica",
+    "texto": "الإقناع والنقاش العام."
+  },
+  {
+    "clave": "biblioteca.nodo.idiomas",
+    "texto": "اللغات"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idiomas",
+    "texto": "تعلم اللغات الأجنبية: المفردات والقواعد والنطق والتدريب."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-aprendizaje",
+    "texto": "أساسيات التعلم"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-vocabulario",
+    "texto": "المفردات"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-vocabulario",
+    "texto": "اكتساب ومراجعة الكلمات والعبارات المفيدة."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-gramatica",
+    "texto": "القواعد"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-gramatica",
+    "texto": "التراكيب وأزمنة الأفعال والنحو المقارن."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-pronunciacion",
+    "texto": "النطق والاستماع"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-pronunciacion",
+    "texto": "علم الأصوات واللكنة والفهم الاستماعي."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-lenguas",
+    "texto": "لغات العالم"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-ingles",
+    "texto": "الإنجليزية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-ingles",
+    "texto": "لغة التواصل العالمية."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-romances",
+    "texto": "اللغات الرومانسية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-romances",
+    "texto": "الفرنسية والإيطالية والبرتغالية وقراباتها اللغوية."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-asiaticas",
+    "texto": "اللغات الآسيوية"
   }
 ]

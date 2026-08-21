@@ -1,1078 +1,362 @@
 [
   {
-    "clave": "corazon.gato.noche.1",
-    "texto": "Notte tranquilla. Non rovinarla 🐾"
+    "clave": "ejercicio.rutDesc.push-pecho-y-triceps",
+    "texto": "Panca piana, military press, dip, estensioni."
   },
   {
-    "clave": "corazon.gato.rutina.0",
-    "texto": "Ehi, “{r}” è alle {h}. Io non mi muovo 🐾"
+    "clave": "ejercicio.rutDesc.pull-espalda-y-biceps",
+    "texto": "Trazioni, rematore, curl. Sovraccarico progressivo."
   },
   {
-    "clave": "corazon.gato.rutina.1",
-    "texto": "“{r}” sta per arrivare ({h}). Ce la fai; io supervisiono 🐱"
+    "clave": "ejercicio.rutDesc.legs-pierna-completa",
+    "texto": "Squat, stacco rumeno, affondi."
   },
   {
-    "clave": "corazon.gato.generica.0",
-    "texto": "Tutto sotto controllo. Ho controllato mentre facevo un pisolino 🐾"
+    "clave": "ejercicio.rutDesc.hiit-20-min",
+    "texto": "Intervalli di 40s di lavoro / 20s di riposo."
   },
   {
-    "clave": "corazon.gato.generica.1",
-    "texto": "Hmm. La casa è ancora in piedi. Prego 🐱"
+    "clave": "ejercicio.rutDesc.carrera-continua",
+    "texto": "Ritmo moderato, zona 2-3."
   },
   {
-    "clave": "corazon.perro.manana.0",
-    "texto": "Buongiorno! Oggi si respira una grande giornata! 🐶"
+    "clave": "ejercicio.rutDesc.caminata-inclinada",
+    "texto": "Basso impatto, consumo costante."
   },
   {
-    "clave": "corazon.perro.manana.1",
-    "texto": "È mattina! Andiamo andiamo andiamo! 🦴"
+    "clave": "ejercicio.rutDesc.bike-tempo",
+    "texto": "Pedalata a ritmo costante."
   },
   {
-    "clave": "corazon.perro.tarde.0",
-    "texto": "Il pomeriggio perfetto per sbrigare le cose! Bau! 🐶"
+    "clave": "ejercicio.rutDesc.triatlon-sprint",
+    "texto": "Nuoto, bici e corsa collegati, ogni frazione al proprio ritmo."
   },
   {
-    "clave": "corazon.perro.tarde.1",
-    "texto": "Ancora qui, a guardare tutto! 🎉"
+    "clave": "ejercicio.rutDesc.movilidad-matutina",
+    "texto": "Sveglia le articolazioni e la colonna."
   },
   {
-    "clave": "corazon.perro.noche.0",
-    "texto": "Che bella giornata abbiamo avuto! Vero? Vero? 🐶"
+    "clave": "ejercicio.rutDesc.yoga-flow",
+    "texto": "Sequenza vinyasa delicata."
   },
   {
-    "clave": "corazon.perro.noche.1",
-    "texto": "Notte tranquilla… io monto la guardia! 🦴"
+    "clave": "ejercicio.rutDesc.cadera-y-piernas",
+    "texto": "Apertura di fianchi e ischiocrurali."
   },
   {
-    "clave": "corazon.perro.rutina.0",
-    "texto": "“{r}” alle {h}! Ce la puoi fare! 🎉"
+    "clave": "ejercicio.rutDesc.estiramiento-post-entreno",
+    "texto": "Defaticamento e recupero."
   },
   {
-    "clave": "corazon.perro.rutina.1",
-    "texto": "Non dimenticare “{r}” alle {h}! Bau! 🐶"
+    "clave": "ejercicio.rutDesc.espalda-y-hombros",
+    "texto": "Sollievo per schiena e spalle."
   },
   {
-    "clave": "corazon.perro.generica.0",
-    "texto": "Amo questa casa! 🐶"
+    "clave": "ejercicio.rutDesc.cuello-y-oficina",
+    "texto": "Pausa attiva per collo e colonna."
   },
   {
-    "clave": "corazon.perro.generica.1",
-    "texto": "Chiamami se hai bisogno di qualcosa! Qualsiasi cosa! 🦴"
+    "clave": "ejercicio.rutDesc.antes-de-dormir",
+    "texto": "Rilassamento rigenerante per aiutarti ad addormentarti."
   },
   {
-    "clave": "corazon.buho.manana.0",
-    "texto": "Alba. Ideale per pianificare la giornata con calma. 🦉"
+    "clave": "cal.logros",
+    "texto": "Traguardi"
   },
   {
-    "clave": "corazon.buho.manana.1",
-    "texto": "Una mattina ordinata rende il doppio."
+    "clave": "cal.logros.vacio",
+    "texto": "Non hai ancora completato nulla oggi."
   },
   {
-    "clave": "corazon.buho.tarde.0",
-    "texto": "Mezzogiorno: un buon momento per rivedere i progressi. 🦉"
+    "clave": "cal.objetivos",
+    "texto": "Missioni"
   },
   {
-    "clave": "corazon.buho.tarde.1",
-    "texto": "Il pomeriggio procede come previsto."
+    "clave": "cal.objetivo.nuevo",
+    "texto": "Missione"
   },
   {
-    "clave": "corazon.buho.noche.0",
-    "texto": "Cala la notte. Suggerisco di chiudere la giornata con un appunto. 🦉"
+    "clave": "cal.irApp",
+    "texto": "Registralo nell'app"
   },
   {
-    "clave": "corazon.buho.noche.1",
-    "texto": "La notte invita alla riflessione."
+    "clave": "chat.vistaCal.objetivos",
+    "texto": "Missioni"
   },
   {
-    "clave": "corazon.buho.rutina.0",
-    "texto": "Avviso puntuale: “{r}” alle {h}. 🦉"
+    "clave": "chat.vistaCal.dia",
+    "texto": "Agenda di oggi"
   },
   {
-    "clave": "corazon.buho.rutina.1",
-    "texto": "Il tuo programma indica “{r}” alle {h}."
-  },
-  {
-    "clave": "corazon.buho.generica.0",
-    "texto": "Osservo e prendo nota. Tutto in ordine. 🦉"
-  },
-  {
-    "clave": "corazon.buho.generica.1",
-    "texto": "La conoscenza si accumula giorno dopo giorno."
-  },
-  {
-    "clave": "corazon.robot.manana.0",
-    "texto": "☀ CICLO GIORNALIERO AVVIATO. SISTEMI AL 100%. 🤖"
-  },
-  {
-    "clave": "corazon.robot.manana.1",
-    "texto": "BUONGIORNO. BATTERIA CARICA. ✓"
-  },
-  {
-    "clave": "corazon.robot.tarde.0",
-    "texto": "SCANSIONE POMERIDIANA COMPLETATA. NESSUNA ANOMALIA. ✓"
-  },
-  {
-    "clave": "corazon.robot.tarde.1",
-    "texto": "PRODUTTIVITÀ NEI PARAMETRI. 🤖"
-  },
-  {
-    "clave": "corazon.robot.noche.0",
-    "texto": "MODALITÀ NOTTURNA ATTIVA. SORVEGLIANZA IN CORSO. 🤖"
-  },
-  {
-    "clave": "corazon.robot.noche.1",
-    "texto": "RACCOMANDAZIONE: RICARICARE UNITÀ UMANA (DORMIRE). ✓"
-  },
-  {
-    "clave": "corazon.robot.rutina.0",
-    "texto": "PROMEMORIA: “{r}” PROGRAMMATO ALLE {h}. ✓"
-  },
-  {
-    "clave": "corazon.robot.rutina.1",
-    "texto": "ALLERTA: “{r}” ALLE {h}. 🤖"
-  },
-  {
-    "clave": "corazon.robot.generica.0",
-    "texto": "TUTTI I SISTEMI NOMINALI. 🤖"
-  },
-  {
-    "clave": "corazon.robot.generica.1",
-    "texto": "IN ATTESA DI ISTRUZIONI. NON URGENTE. ✓"
-  },
-  {
-    "clave": "chat.config.activoMapa",
-    "texto": "L'assistente attivo è sempre sulla mappa"
-  },
-  {
-    "clave": "chat.config.editar",
-    "texto": "Personalizza"
-  },
-  {
-    "clave": "chat.config.eliminar",
-    "texto": "Rimuovi assistente"
-  },
-  {
-    "clave": "chat.config.eliminarConfirma",
-    "texto": "Rimuovere {n}? Le sue conversazioni restano."
-  },
-  {
-    "clave": "chat.config.eliminarOk",
-    "texto": "Rimuovi"
-  },
-  {
-    "clave": "chat.config.eliminarUltimo",
-    "texto": "Deve restare almeno un assistente"
-  },
-  {
-    "clave": "chat.config.restaurar",
-    "texto": "Ripristina:"
-  },
-  {
-    "clave": "chat.config.restaurarUno",
-    "texto": "Ripristina a"
-  },
-  {
-    "clave": "acceso.subir",
-    "texto": "Sali al livello {n}"
-  },
-  {
-    "clave": "acceso.bajarPlanta",
-    "texto": "Scendi al piano terra"
-  },
-  {
-    "clave": "acceso.bajar",
-    "texto": "Scendi al livello {n}"
-  },
-  {
-    "clave": "veh.ayuda",
-    "texto": "Posiziona un veicolo sulla mappa e avvicinati per salirci."
-  },
-  {
-    "clave": "veh.colocar",
-    "texto": "Posiziona sulla mappa"
-  },
-  {
-    "clave": "veh.color",
-    "texto": "Colore del veicolo"
-  },
-  {
-    "clave": "veh.subirte",
-    "texto": "Salire"
-  },
-  {
-    "clave": "veh.bajarte",
-    "texto": "Scendere"
-  },
-  {
-    "clave": "accion.sentarte",
-    "texto": "Sedersi"
-  },
-  {
-    "clave": "accion.acostarte",
-    "texto": "Sdraiarsi"
-  },
-  {
-    "clave": "accion.sentado",
-    "texto": "Seduto"
-  },
-  {
-    "clave": "accion.acostado",
-    "texto": "Sdraiato"
-  },
-  {
-    "clave": "accion.levantarte",
-    "texto": "Alzarsi"
-  },
-  {
-    "clave": "veh.subir",
-    "texto": "Salire (Spazio)"
-  },
-  {
-    "clave": "veh.bajar",
-    "texto": "Scendere (Shift)"
-  },
-  {
-    "clave": "veh.derrape",
-    "texto": "Derapata (Spazio)"
-  },
-  {
-    "clave": "hud.ayuda",
-    "texto": "Muoviti con WASD/frecce o il pad (in basso a sinistra). Ruota e ingrandisci con i pulsanti (in basso a destra). Attraversa le porte tra le stanze."
-  },
-  {
-    "clave": "cat.cuerpo",
-    "texto": "Corpo"
-  },
-  {
-    "clave": "cat.mente",
-    "texto": "Mente"
-  },
-  {
-    "clave": "cat.complemento",
-    "texto": "Extra"
-  },
-  {
-    "clave": "cat.config",
-    "texto": "Impostazioni"
-  },
-  {
-    "clave": "ajustes.titulo",
-    "texto": "Impostazioni"
-  },
-  {
-    "clave": "ajustes.idioma",
-    "texto": "Lingua"
-  },
-  {
-    "clave": "diario.nacidoAbrev",
-    "texto": "n."
-  },
-  {
-    "clave": "ajustes.tema",
-    "texto": "Tema dell'interfaccia"
-  },
-  {
-    "clave": "ajustes.modo",
-    "texto": "Aspetto"
-  },
-  {
-    "clave": "ajustes.modo.claro",
-    "texto": "Chiaro"
-  },
-  {
-    "clave": "ajustes.modo.oscuro",
-    "texto": "Scuro"
-  },
-  {
-    "clave": "ajustes.modo.transparente",
-    "texto": "Trasparente"
-  },
-  {
-    "clave": "ajustes.iconos",
-    "texto": "Stile delle icone"
-  },
-  {
-    "clave": "ajustes.iconos.emoji",
-    "texto": "Emoji"
-  },
-  {
-    "clave": "ajustes.iconos.profesional",
-    "texto": "Professionale"
-  },
-  {
-    "clave": "ajustes.tipografia",
-    "texto": "Tipografia"
-  },
-  {
-    "clave": "ajustes.abrir",
-    "texto": "Impostazioni"
-  },
-  {
-    "clave": "tipografia.sistema",
-    "texto": "Sistema"
-  },
-  {
-    "clave": "tipografia.serif",
-    "texto": "Serif"
-  },
-  {
-    "clave": "tipografia.mono",
-    "texto": "Monospazio"
-  },
-  {
-    "clave": "tipografia.redondeada",
-    "texto": "Arrotondato"
-  },
-  {
-    "clave": "tipografia.manuscrita",
-    "texto": "Manoscritto"
-  },
-  {
-    "clave": "temaUI.medianoche",
-    "texto": "Mezzanotte"
-  },
-  {
-    "clave": "temaUI.neon",
-    "texto": "Neon"
-  },
-  {
-    "clave": "temaUI.bosque",
-    "texto": "Foresta"
-  },
-  {
-    "clave": "temaUI.ambar",
-    "texto": "Ambra"
-  },
-  {
-    "clave": "temaUI.ciruela",
-    "texto": "Prugna"
-  },
-  {
-    "clave": "room.cocina.nombre",
-    "texto": "Cucina"
-  },
-  {
-    "clave": "room.ejercicio.nombre",
-    "texto": "Palestra"
-  },
-  {
-    "clave": "room.recamara.nombre",
-    "texto": "Camera da letto"
-  },
-  {
-    "clave": "room.descanso.nombre",
-    "texto": "Letto · Riposo"
-  },
-  {
-    "clave": "room.anecdotario.nombre",
-    "texto": "Scrivania · Diario"
-  },
-  {
-    "clave": "room.despacho.nombre",
-    "texto": "Studio"
-  },
-  {
-    "clave": "room.biblioteca.nombre",
-    "texto": "Biblioteca"
-  },
-  {
-    "clave": "room.entretenimiento.nombre",
-    "texto": "Intrattenimento"
-  },
-  {
-    "clave": "room.sala.nombre",
-    "texto": "Soggiorno"
-  },
-  {
-    "clave": "room.jardin.nombre",
-    "texto": "Giardino"
-  },
-  {
-    "clave": "room.garage.nombre",
-    "texto": "Garage"
-  },
-  {
-    "clave": "room.diario.nombre",
-    "texto": "Notizie del giorno"
-  },
-  {
-    "clave": "room.hobbies.nombre",
-    "texto": "Hobby"
-  },
-  {
-    "clave": "room.idiomas.nombre",
-    "texto": "Lingue"
-  },
-  {
-    "clave": "room.caminos.nombre",
-    "texto": "Circuiti"
-  },
-  {
-    "clave": "room.canchas.nombre",
-    "texto": "Campi"
-  },
-  {
-    "clave": "room.huerto.nombre",
-    "texto": "Cibo"
-  },
-  {
-    "clave": "room.granja.nombre",
-    "texto": "Fattoria"
-  },
-  {
-    "clave": "room.ideas.nombre",
-    "texto": "Idee"
-  },
-  {
-    "clave": "room.computo.nombre",
-    "texto": "Calcolo"
-  },
-  {
-    "clave": "room.agenda.nombre",
-    "texto": "Agenda"
-  },
-  {
-    "clave": "room.cocina.sub",
-    "texto": "Nutrizione"
-  },
-  {
-    "clave": "room.ejercicio.sub",
-    "texto": "Routine di forza e fitness"
-  },
-  {
-    "clave": "room.recamara.sub",
-    "texto": "Sonno e ricordi"
-  },
-  {
-    "clave": "room.descanso.sub",
-    "texto": "Sonno e sveglia"
-  },
-  {
-    "clave": "room.anecdotario.sub",
-    "texto": "Diario personale"
-  },
-  {
-    "clave": "room.despacho.sub",
-    "texto": "Finanze"
-  },
-  {
-    "clave": "room.biblioteca.sub",
-    "texto": "Apprendimento"
-  },
-  {
-    "clave": "room.entretenimiento.sub",
-    "texto": "Archivio e giochi da tavolo"
-  },
-  {
-    "clave": "room.sala.sub",
-    "texto": "Viaggi"
-  },
-  {
-    "clave": "room.jardin.sub",
-    "texto": "Mindfulness"
-  },
-  {
-    "clave": "room.garage.sub",
-    "texto": "Manutenzione dei veicoli"
-  },
-  {
-    "clave": "room.diario.sub",
-    "texto": "Notizie del giorno"
-  },
-  {
-    "clave": "room.hobbies.sub",
-    "texto": "Passatempi e progetti"
-  },
-  {
-    "clave": "room.calendario.sub",
-    "texto": "Eventi e routine"
-  },
-  {
-    "clave": "room.ideas.sub",
-    "texto": "Mappe concettuali su una tela libera"
-  },
-  {
-    "clave": "room.computo.sub",
-    "texto": "Calcolatrice e fogli di calcolo"
-  },
-  {
-    "clave": "room.agenda.sub",
-    "texto": "Lavoro, salute e persone"
-  },
-  {
-    "clave": "hud.plegar",
-    "texto": "Comprimi controlli"
-  },
-  {
-    "clave": "hud.desplegar",
-    "texto": "Mostra controlli"
-  },
-  {
-    "clave": "nav3d.aria",
-    "texto": "Controlli vista"
-  },
-  {
-    "clave": "nav3d.vistaCuarto",
-    "texto": "Vista della stanza"
-  },
-  {
-    "clave": "nav3d.vistaInterior",
-    "texto": "Guardando la parete"
-  },
-  {
-    "clave": "nav3d.rotarIzq",
-    "texto": "Ruota vista a sinistra"
-  },
-  {
-    "clave": "nav3d.rotarDer",
-    "texto": "Ruota vista a destra"
-  },
-  {
-    "clave": "nav3d.acercar",
-    "texto": "Ingrandisci"
-  },
-  {
-    "clave": "nav3d.alejar",
-    "texto": "Rimpicciolisci"
-  },
-  {
-    "clave": "nav3d.restaurarCuarto",
-    "texto": "Ripristina zoom e focus della stanza"
-  },
-  {
-    "clave": "nav3d.vistaInicial",
-    "texto": "Vista iniziale"
-  },
-  {
-    "clave": "nav3d.centrarCuarto",
-    "texto": "Centra stanza"
-  },
-  {
-    "clave": "nav3d.reiniciar",
-    "texto": "Ripristina vista"
-  },
-  {
-    "clave": "nav3d.editor3d",
-    "texto": "Editor 3D"
-  },
-  {
-    "clave": "nav3d.editor3dOn",
-    "texto": "Chiudi editor"
-  },
-  {
-    "clave": "nav3d.editor3dHint",
-    "texto": "Modifica il mondo in prospettiva: tocca un oggetto, pavimento, muro o personaggio per modificarlo"
-  },
-  {
-    "clave": "nav3d.verFlechas",
-    "texto": "Torna alle frecce di movimento"
-  },
-  {
-    "clave": "nav3d.verCubo",
-    "texto": "Comprimi le frecce e mostra il cubo delle viste"
-  },
-  {
-    "clave": "nav3d.verFlechasBtn",
-    "texto": "Mostra frecce"
-  },
-  {
-    "clave": "nav3d.verCuboBtn",
-    "texto": "Mostra vista"
-  },
-  {
-    "clave": "herr.boton",
-    "texto": "Strumenti"
-  },
-  {
-    "clave": "herr.rueda",
-    "texto": "Ruota degli strumenti"
-  },
-  {
-    "clave": "herr.cubo",
-    "texto": "Cubo"
-  },
-  {
-    "clave": "herr.saltar",
-    "texto": "Salta"
-  },
-  {
-    "clave": "herr.correr",
-    "texto": "Corri"
-  },
-  {
-    "clave": "herr.bailar",
-    "texto": "Balla"
-  },
-  {
-    "clave": "herr.laser",
-    "texto": "Laser"
-  },
-  {
-    "clave": "herr.volverCubo",
-    "texto": "Torna al cubo delle viste"
-  },
-  {
-    "clave": "herr.saltarBtn",
-    "texto": "Salta!"
-  },
-  {
-    "clave": "herr.corriendo",
-    "texto": "Correndo"
-  },
-  {
-    "clave": "herr.bailando",
-    "texto": "Ballando"
-  },
-  {
-    "clave": "herr.disparar",
-    "texto": "Spara"
-  },
-  {
-    "clave": "herr.invocar",
-    "texto": "Evoca"
-  },
-  {
-    "clave": "herr.soloPlantaBaja",
-    "texto": "Scendi al piano terra per evocarlo"
-  },
-  {
-    "clave": "herr.veh.bicicleta",
-    "texto": "Bicicletta"
-  },
-  {
-    "clave": "herr.veh.motocicleta",
-    "texto": "Moto"
-  },
-  {
-    "clave": "herr.veh.automovil",
-    "texto": "Auto"
-  },
-  {
-    "clave": "herr.veh.ovni",
-    "texto": "UFO"
-  },
-  {
-    "clave": "herr.cat.movimientos",
-    "texto": "Mosse"
-  },
-  {
-    "clave": "herr.cat.juguetes",
-    "texto": "Giocattoli"
-  },
-  {
-    "clave": "herr.cat.vehiculos",
-    "texto": "Veicoli"
-  },
-  {
-    "clave": "herr.cat.construccion",
-    "texto": "Costruzione"
-  },
-  {
-    "clave": "herr.construir",
-    "texto": "Costruisci"
-  },
-  {
-    "clave": "herr.constrDibujar",
-    "texto": "Disegna"
-  },
-  {
-    "clave": "herr.abrirEditor",
-    "texto": "Apri editor"
-  },
-  {
-    "clave": "herr.atras",
-    "texto": "Indietro"
-  },
-  {
-    "clave": "herr.cuerda",
-    "texto": "Salta la corda"
-  },
-  {
-    "clave": "herr.mortal",
-    "texto": "Capriola"
-  },
-  {
-    "clave": "herr.saludar",
-    "texto": "Saluta"
-  },
-  {
-    "clave": "herr.mover",
-    "texto": "Sposta"
-  },
-  {
-    "clave": "herr.moverAcercate",
-    "texto": "Avvicinati a un oggetto o a una stanza"
-  },
-  {
-    "clave": "herr.agarrar",
-    "texto": "Afferra"
-  },
-  {
-    "clave": "herr.agarrarCuarto",
-    "texto": "Afferra stanza"
-  },
-  {
-    "clave": "herr.moverCargandoObjeto",
-    "texto": "Trasportando l'oggetto"
-  },
-  {
-    "clave": "herr.moverCargandoCuarto",
-    "texto": "Trasportando la stanza"
-  },
-  {
-    "clave": "herr.soltar",
-    "texto": "Rilascia"
-  },
-  {
-    "clave": "ctx.interactuar",
-    "texto": "Interagisci"
-  },
-  {
-    "clave": "ctx.entrarApp",
-    "texto": "Apri l'app"
-  },
-  {
-    "clave": "ctx.cambiarLetrero",
-    "texto": "Modifica cartello"
-  },
-  {
-    "clave": "ctx.usar",
-    "texto": "Usa"
-  },
-  {
-    "clave": "ctx.subirte",
-    "texto": "Sali"
-  },
-  {
-    "clave": "ctx.subirteDona",
-    "texto": "Sali sulla ciambella"
-  },
-  {
-    "clave": "ctx.cosechar",
-    "texto": "Raccogli"
-  },
-  {
-    "clave": "ctx.recoger",
-    "texto": "Prendi"
-  },
-  {
-    "clave": "ctx.bajarte",
-    "texto": "Scendi"
-  },
-  {
-    "clave": "ctx.correr",
-    "texto": "Gareggia"
-  },
-  {
-    "clave": "ctx.revisarTu",
-    "texto": "Controlla il tuo"
-  },
-  {
-    "clave": "ctx.subirA",
-    "texto": "Sali a"
-  },
-  {
-    "clave": "ctx.bajarA",
-    "texto": "Scendi a"
-  },
-  {
-    "clave": "ctx.nivelN",
-    "texto": "Livello {n}"
-  },
-  {
-    "clave": "ctx.plantaBaja",
-    "texto": "Piano terra"
-  },
-  {
-    "clave": "ctx.jugar.futbol",
-    "texto": "Gioca a calcio"
-  },
-  {
-    "clave": "ctx.jugar.tenis",
-    "texto": "Gioca a tennis"
-  },
-  {
-    "clave": "ctx.jugar.basket",
-    "texto": "Gioca a basket"
-  },
-  {
-    "clave": "ctx.jugar.beisbol",
-    "texto": "Gioca a baseball"
-  },
-  {
-    "clave": "herr.portales",
-    "texto": "Portali"
-  },
-  {
-    "clave": "herr.fuegos",
-    "texto": "Fuochi d'artificio"
-  },
-  {
-    "clave": "herr.burbujas",
-    "texto": "Bolle"
-  },
-  {
-    "clave": "herr.cuerdaOn",
-    "texto": "Saltando la corda"
-  },
-  {
-    "clave": "herr.mortalBtn",
-    "texto": "Capriola!"
-  },
-  {
-    "clave": "herr.saludarBtn",
-    "texto": "Ciao!"
-  },
-  {
-    "clave": "herr.portalColocar",
-    "texto": "Posiziona portale"
-  },
-  {
-    "clave": "herr.portalQuitar",
-    "texto": "Rimuovi portali"
-  },
-  {
-    "clave": "herr.fuegosBtn",
-    "texto": "Lancia!"
-  },
-  {
-    "clave": "herr.burbujasOn",
-    "texto": "Soffiando bolle"
-  },
-  {
-    "clave": "herr.quitar",
-    "texto": "Rimuovi strumento"
-  },
-  {
-    "clave": "herr.grafiti",
-    "texto": "Graffiti"
-  },
-  {
-    "clave": "herr.grafitiPintar",
-    "texto": "Dipingi parete"
-  },
-  {
-    "clave": "herr.grafitiSinMuro",
-    "texto": "Avvicinati a una parete"
-  },
-  {
-    "clave": "herr.grafitiMuroPuerta",
-    "texto": "I muri con porte non si possono dipingere"
-  },
-  {
-    "clave": "herr.grafitiMuroCurvo",
-    "texto": "I muri curvi non si possono dipingere"
-  },
-  {
-    "clave": "graf.titulo",
-    "texto": "Graffiti"
-  },
-  {
-    "clave": "graf.pincel",
-    "texto": "Pennello"
-  },
-  {
-    "clave": "graf.spray",
-    "texto": "Spray"
-  },
-  {
-    "clave": "graf.borrador",
-    "texto": "Gomma"
-  },
-  {
-    "clave": "graf.bote",
-    "texto": "Riempi tutto con un colore"
-  },
-  {
-    "clave": "graf.grosor",
-    "texto": "Spessore"
-  },
-  {
-    "clave": "graf.color",
-    "texto": "Colore"
-  },
-  {
-    "clave": "graf.deshacer",
-    "texto": "Annulla"
-  },
-  {
-    "clave": "graf.limpiar",
-    "texto": "Pulisci"
-  },
-  {
-    "clave": "graf.borrar",
-    "texto": "Elimina graffiti"
-  },
-  {
-    "clave": "graf.guardar",
-    "texto": "Salva"
-  },
-  {
-    "clave": "graf.salir",
-    "texto": "Esci senza salvare"
-  },
-  {
-    "clave": "despacho.tab.balance",
-    "texto": "Flusso di cassa"
-  },
-  {
-    "clave": "despacho.tab.mercados",
-    "texto": "Mercati"
-  },
-  {
-    "clave": "despacho.tab.divisas",
-    "texto": "Forex"
-  },
-  {
-    "clave": "despacho.tab.criptos",
-    "texto": "Crypto"
-  },
-  {
-    "clave": "despacho.tab.acciones",
-    "texto": "Azioni"
-  },
-  {
-    "clave": "despacho.tab.commodities",
-    "texto": "Materie prime"
-  },
-  {
-    "clave": "despacho.sub.balance",
-    "texto": "Saldo"
-  },
-  {
-    "clave": "despacho.tab.gastos",
-    "texto": "Spese"
-  },
-  {
-    "clave": "despacho.tab.ingresos",
-    "texto": "Entrate"
-  },
-  {
-    "clave": "despacho.tab.metas",
-    "texto": "Obiettivi"
-  },
-  {
-    "clave": "despacho.tab.financieras",
-    "texto": "Finanziario"
-  },
-  {
-    "clave": "despacho.tab.ahorroInversion",
-    "texto": "Risparmio/Investimenti"
-  },
-  {
-    "clave": "despacho.tab.ahorro",
-    "texto": "Risparmio"
-  },
-  {
-    "clave": "despacho.tab.inversion",
-    "texto": "Investimenti"
-  },
-  {
-    "clave": "despacho.tab.deuda",
-    "texto": "Debito"
-  },
-  {
-    "clave": "despacho.r.ingresos",
-    "texto": "Entrate"
-  },
-  {
-    "clave": "despacho.r.gastos",
-    "texto": "Spese"
-  },
-  {
-    "clave": "despacho.r.balance",
-    "texto": "Saldo"
-  },
-  {
-    "clave": "despacho.presupuesto",
-    "texto": "Budget mensile"
-  },
-  {
-    "clave": "despacho.presupuesto.equivale",
-    "texto": "Corrisponde a {n} per questo periodo"
-  },
-  {
-    "clave": "despacho.patrimonio",
-    "texto": "Patrimonio netto"
-  },
-  {
-    "clave": "despacho.patrimonio.ayuda",
-    "texto": "I tuoi attivi meno i tuoi passivi, nella scheda Patrimonio. Qui vedi solo come resta se il periodo si chiude così."
-  },
-  {
-    "clave": "despacho.excedido",
-    "texto": "Budget superato di {n}"
-  },
-  {
-    "clave": "despacho.progreso",
-    "texto": "Hai {used} di {total} ({pct}%)"
-  },
-  {
-    "clave": "despacho.catGastos",
-    "texto": "Spese per categoria"
-  },
-  {
-    "clave": "despacho.sinGastos",
-    "texto": "Nessuna spesa in questo periodo."
-  },
-  {
-    "clave": "despacho.periodo.dia",
-    "texto": "Giorno"
-  },
-  {
-    "clave": "despacho.periodo.semana",
+    "clave": "chat.vistaCal.semana",
     "texto": "Settimana"
   },
   {
-    "clave": "despacho.periodo.mes",
+    "clave": "chat.vistaCal.mes",
     "texto": "Mese"
   },
   {
-    "clave": "despacho.periodo.anio",
+    "clave": "chat.vistaCal.anio",
     "texto": "Anno"
   },
   {
-    "clave": "despacho.plazo.dia",
-    "texto": "Ogni giorno"
+    "clave": "chat.vistaCal.calendario",
+    "texto": "Calendario"
   },
   {
-    "clave": "despacho.plazo.semana",
-    "texto": "Ogni settimana"
+    "clave": "room.agenda.cmd.trabajo",
+    "texto": "Lavoro"
   },
   {
-    "clave": "despacho.plazo.mes",
-    "texto": "Ogni mese"
+    "clave": "room.agenda.cmd.salud",
+    "texto": "Salute"
   },
   {
-    "clave": "despacho.plazo.anio",
-    "texto": "Ogni anno"
+    "clave": "room.agenda.cmd.personas",
+    "texto": "Persone"
   },
   {
-    "clave": "despacho.tendencia.dia",
-    "texto": "Saldo · ultimi 6 giorni"
+    "clave": "room.anecdotario.cmd.anecdotas",
+    "texto": "Diario"
   },
   {
-    "clave": "despacho.tendencia.semana",
-    "texto": "Saldo · ultime 6 settimane"
+    "clave": "room.biblioteca.cmd.charlas",
+    "texto": "Chat"
   },
   {
-    "clave": "despacho.tendencia.mes",
-    "texto": "Saldo · ultimi 6 mesi"
+    "clave": "room.biblioteca.cmd.enciclopedia",
+    "texto": "Enciclopedia"
   },
   {
-    "clave": "despacho.tendencia.anio",
-    "texto": "Saldo · ultimi 6 anni"
+    "clave": "room.biblioteca.cmd.estudio",
+    "texto": "Studio"
   },
   {
-    "clave": "despacho.m.monto",
-    "texto": "Importo"
+    "clave": "room.biblioteca.cmd.resumen",
+    "texto": "Panoramica"
   },
   {
-    "clave": "despacho.m.nota",
-    "texto": "Nota (opzionale)"
+    "clave": "room.cocina.cmd.metas",
+    "texto": "Obiettivi"
   },
   {
-    "clave": "despacho.m.categoria",
-    "texto": "Categoria"
+    "clave": "room.cocina.cmd.diario",
+    "texto": "Diario"
+  },
+  {
+    "clave": "room.cocina.cmd.progreso",
+    "texto": "Progressi"
+  },
+  {
+    "clave": "room.cocina.cmd.plan",
+    "texto": "Dieta"
+  },
+  {
+    "clave": "room.cocina.cmd.recetas",
+    "texto": "Ricette"
+  },
+  {
+    "clave": "room.cocina.cmd.compras",
+    "texto": "Spesa"
+  },
+  {
+    "clave": "room.computo.cmd.formulario",
+    "texto": "Formulario"
+  },
+  {
+    "clave": "room.computo.cmd.calculadora",
+    "texto": "Calcolatrice"
+  },
+  {
+    "clave": "room.computo.cmd.grafica",
+    "texto": "Grafico"
+  },
+  {
+    "clave": "room.computo.cmd.ecuacion",
+    "texto": "Equazioni"
+  },
+  {
+    "clave": "room.computo.cmd.hojas",
+    "texto": "Fogli di calcolo"
+  },
+  {
+    "clave": "room.computo.cmd.bases",
+    "texto": "Basi (binario ed esadecimale)"
+  },
+  {
+    "clave": "room.computo.cmd.matrices",
+    "texto": "Matrici"
+  },
+  {
+    "clave": "room.computo.cmd.sistemas",
+    "texto": "Sistemi"
+  },
+  {
+    "clave": "room.computo.cmd.unidades",
+    "texto": "Unità"
+  },
+  {
+    "clave": "room.computo.cmd.propina",
+    "texto": "Mancia"
+  },
+  {
+    "clave": "room.computo.cmd.regla3",
+    "texto": "Regola del tre"
+  },
+  {
+    "clave": "room.descanso.cmd.sueno",
+    "texto": "Sonno"
+  },
+  {
+    "clave": "room.despacho.cmd.balance",
+    "texto": "Flusso di cassa"
+  },
+  {
+    "clave": "room.despacho.cmd.patrimonio",
+    "texto": "Patrimonio netto"
+  },
+  {
+    "clave": "room.despacho.cmd.gastos",
+    "texto": "Spese"
+  },
+  {
+    "clave": "room.despacho.cmd.ingresos",
+    "texto": "Entrate"
+  },
+  {
+    "clave": "room.despacho.cmd.metas",
+    "texto": "Risparmio/Investimenti"
+  },
+  {
+    "clave": "room.despacho.cmd.financieras",
+    "texto": "Calcolatrici finanziarie"
+  },
+  {
+    "clave": "room.despacho.cmd.deuda",
+    "texto": "Obiettivi di debito"
+  },
+  {
+    "clave": "room.despacho.cmd.simuladores",
+    "texto": "Simulatori"
+  },
+  {
+    "clave": "room.despacho.cmd.simulacion",
+    "texto": "Previsione patrimonio"
+  },
+  {
+    "clave": "room.despacho.cmd.divisas",
+    "texto": "Forex"
+  },
+  {
+    "clave": "room.despacho.cmd.criptos",
+    "texto": "Crypto"
+  },
+  {
+    "clave": "room.despacho.cmd.acciones",
+    "texto": "Azioni"
+  },
+  {
+    "clave": "room.despacho.cmd.commodities",
+    "texto": "Materie prime"
+  },
+  {
+    "clave": "room.diario.cmd.titulares",
+    "texto": "Titoli di oggi"
+  },
+  {
+    "clave": "room.diario.cmd.efemerides",
+    "texto": "Accadde oggi"
+  },
+  {
+    "clave": "room.ejercicio.cmd.metas",
+    "texto": "Obiettivi"
+  },
+  {
+    "clave": "room.ejercicio.cmd.fuerza",
+    "texto": "Forza"
+  },
+  {
+    "clave": "room.ejercicio.cmd.resistencia",
+    "texto": "Resistenza"
+  },
+  {
+    "clave": "room.ejercicio.cmd.flexibilidad",
+    "texto": "Flessibilità"
+  },
+  {
+    "clave": "room.entretenimiento.cmd.archivo",
+    "texto": "Archivio"
+  },
+  {
+    "clave": "room.entretenimiento.cmd.mesa",
+    "texto": "Giochi da tavolo"
+  },
+  {
+    "clave": "room.garage.cmd.resumen",
+    "texto": "Riepilogo"
+  },
+  {
+    "clave": "room.garage.cmd.vehiculos",
+    "texto": "Veicoli"
+  },
+  {
+    "clave": "room.hobbies.cmd.hobbies",
+    "texto": "Hobby"
+  },
+  {
+    "clave": "room.ideas.cmd.diario",
+    "texto": "Diario delle idee"
+  },
+  {
+    "clave": "room.ideas.cmd.mapas",
+    "texto": "Mappe concettuali"
+  },
+  {
+    "clave": "room.ideas.cmd.diagramas",
+    "texto": "Diagrammi decisionali"
+  },
+  {
+    "clave": "room.idiomas.cmd.charlas",
+    "texto": "Chat"
+  },
+  {
+    "clave": "room.idiomas.cmd.repaso",
+    "texto": "Ripasso"
+  },
+  {
+    "clave": "room.idiomas.cmd.temario",
+    "texto": "Programma"
+  },
+  {
+    "clave": "room.idiomas.cmd.progreso",
+    "texto": "Progressi"
+  },
+  {
+    "clave": "room.jardin.cmd.meditacion",
+    "texto": "Meditazione"
+  },
+  {
+    "clave": "room.jardin.cmd.respiracion",
+    "texto": "Respirazione"
+  },
+  {
+    "clave": "room.jardin.cmd.gratitud",
+    "texto": "Gratitudine"
+  },
+  {
+    "clave": "room.sala.cmd.mapa",
+    "texto": "Mappa"
+  },
+  {
+    "clave": "room.sala.cmd.porConocer",
+    "texto": "Itinerario"
+  },
+  {
+    "clave": "room.sala.cmd.rutas",
+    "texto": "Percorsi"
+  },
+  {
+    "clave": "room.sala.cmd.bitacora",
+    "texto": "Diario di bordo"
   }
 ]

@@ -1,40 +1,878 @@
 [
-  { "clave": "tut.esencial.titulo", "texto": "De basis" },
-  { "clave": "tut.tipo.ejemplos", "texto": "Voorbeelden · demohuis" },
   {
-    "clave": "tut.app-agenda--esencial.resumen",
-    "texto": "De agenda houdt bij wat geen gewoonte is, in drie menu's: Werk (taken en bord), Gezondheid (afspraken, medicatie en zorg: voor jou, je naasten en je huisdieren) en Personen (contacten en verjaardagen). Alles met een datum komt vanzelf in de kalender terecht."
+    "clave": "hoy.casa.personales",
+    "texto": "Persoonlijk"
   },
   {
-    "clave": "tut.calendario--esencial.resumen",
-    "texto": "De kalender is geen kamer: hij leeft in de klok van het huis en verzamelt alles met een datum en tijd, wat je zelf aanmaakt en wat de andere apps zelf inplannen. Je bekijkt hem op vier manieren: Dag en Week op het uurrooster, Maand en Jaar voor het overzicht. Apart staat Missies, de rode knop met de checklist van vandaag van alle apps samen."
+    "clave": "hoy.irApp",
+    "texto": "In de app registreren"
   },
   {
-    "clave": "tut.app-anecdotario--esencial.resumen",
-    "texto": "Het dagboek is je persoonlijke dagboek: items met een stemming, tekst en foto's die zichzelf op datum bewaren. Een kalender kleurt elke dag naar je stemming, en de geschiedenis archiveert ze in mappen per jaar, maand en week."
+    "clave": "hoy.nada",
+    "texto": "Je hebt in deze app nog niets voorgenomen."
   },
   {
-    "clave": "tut.app-biblioteca--esencial.resumen",
-    "texto": "De bibliotheek is je persoonlijke encyclopedie, in vier menu's: Chats (je stelt de Wijze een vraag en elk gesprek archiveert zichzelf en wordt gedestilleerd tot een item), Encyclopedie (de boom waar wat je leert leeft, per kennisgebied), Studie (de gewone of pomodorotimer, die elke sessie registreert) en Overzicht (hoeveel je geschreven en gestudeerd hebt)."
+    "clave": "hoy.metas.titulo",
+    "texto": "Doelen"
   },
   {
-    "clave": "tut.app-cocina--esencial.resumen",
-    "texto": "De keuken heeft twee menu's. Receptenboek bewaart wat je gaat koken: je recepten met hun macro's, de diëten die ze groeperen en het boodschappenlijstje. Voedingscontrole houdt bij wat je eet, in vier stappen: je calorie- en gewichtsdoelen, het dagregister, het maaltijdplan voor de komende dagen en de voortgang."
+    "clave": "hoy.metas.vencida",
+    "texto": "verlopen"
   },
   {
-    "clave": "tut.app-computo--esencial.resumen",
-    "texto": "De computerkamer heeft twee menu's. De Rekenmachine doet de gewone berekeningen en wisselt van modus om te grafieken, te werken met talstelsels, matrices, stelsels van vergelijkingen, eenheden, fooi en de regel van drie; eraan hangt het formuleboek, jouw formuleboek met Wiskunde, Natuurkunde en Scheikunde al ingeladen. De Spreadsheets doen alles wat tabellen is, met formules in gewone taal en export naar Excel of PDF."
+    "clave": "hoy.metas.faltan",
+    "texto": "{n} d"
   },
   {
-    "clave": "tut.app-descanso--esencial.resumen",
-    "texto": "Rust registreert hoe je slaapt op één scherm: de score van de afgelopen nacht, je schema met zijn herinneringen, het dagregister en de volledige geschiedenis per jaar, maand en week."
+    "clave": "objetivos.anadir",
+    "texto": "Missie toevoegen"
   },
   {
-    "clave": "tut.app-despacho--esencial.resumen",
-    "texto": "De werkkamer ordent je geld in vier menu's. Vermogen bewaart wat je hebt en wat je schuldig bent, met de projectie ervan; Kasstroom houdt uitgaven, inkomsten en het saldo van de periode bij, met budget en categorieën; Doelen brengt sparen, beleggen en schulden samen, plus de rekenmachines die een bedrag voorstellen. Markten is een bord met live koersen, alleen ter info."
+    "clave": "objetivos.responsable",
+    "texto": "{quien} herinnert je aan wat hier speelt"
   },
   {
-    "clave": "tut.app-diario--esencial.resumen",
-    "texto": "Het dagelijkse nieuws is een vluchtige krant: koppen uit echte pers per categorie en de rubriek 'op deze dag', die zichzelf om middernacht vernieuwt. Bij de bezorging plan je in dat een assistent hem in zijn eigen chat aflevert."
+    "clave": "objetivos.nuevo.deQueApp",
+    "texto": "Waar gaat de missie over?"
+  },
+  {
+    "clave": "objetivos.nuevo.responsable",
+    "texto": "Ik herinner je hieraan. Wat neem je je voor?"
+  },
+  {
+    "clave": "objetivos.nuevo.personal",
+    "texto": "Persoonlijke missie, niet gekoppeld aan een app."
+  },
+  {
+    "clave": "objetivos.nuevo.personales",
+    "texto": "Persoonlijk"
+  },
+  {
+    "clave": "objetivos.nuevo.poner",
+    "texto": "＋"
+  },
+  {
+    "clave": "objetivos.nuevo.todos",
+    "texto": "Je hebt jezelf al alles in deze app voorgenomen."
+  },
+  {
+    "clave": "objetivos.nuevo.otro",
+    "texto": "Nog een missie…"
+  },
+  {
+    "clave": "objetivos.nuevo.otroPlaceholder",
+    "texto": "Wat neem je je voor?"
+  },
+  {
+    "clave": "objetivos.nuevo.checklist",
+    "texto": "Heb je meerdere stappen nodig? Nieuwe checklist"
+  },
+  {
+    "clave": "objetivos.nuevo.dias",
+    "texto": "Welke dagen?"
+  },
+  {
+    "clave": "objetivos.nuevo.faltanDias",
+    "texto": "Kies minstens één dag."
+  },
+  {
+    "clave": "objetivos.nuevo.cantidad",
+    "texto": "Hoeveel?"
+  },
+  {
+    "clave": "objetivos.nuevo.meta",
+    "texto": "Voor welk doel?"
+  },
+  {
+    "clave": "objetivos.nuevo.sinMeta",
+    "texto": "Geen (los)"
+  },
+  {
+    "clave": "objetivos.nuevo.mientrasDure",
+    "texto": "Alleen van {ini} tot {fin}, zolang het doel loopt."
+  },
+  {
+    "clave": "objetivos.nuevo.hora",
+    "texto": "Op een vaste tijd?"
+  },
+  {
+    "clave": "objetivos.nuevo.sinHora",
+    "texto": "Geen tijd"
+  },
+  {
+    "clave": "objetivos.nuevo.anadir",
+    "texto": "Toevoegen"
+  },
+  {
+    "clave": "objetivos.nuevo.cancelar",
+    "texto": "Annuleren"
+  },
+  {
+    "clave": "objetivos.nuevo.cambiar",
+    "texto": "Assistent wisselen"
+  },
+  {
+    "clave": "objetivos.nuevo.nadie",
+    "texto": "Geen assistent"
+  },
+  {
+    "clave": "avisos.objetivos",
+    "texto": "Je hebt nog {n} missies over in {app}."
+  },
+  {
+    "clave": "biblioteca.nodo.filosofia",
+    "texto": "Filosofie en denken"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.filosofia",
+    "texto": "Fundamentele vragen over werkelijkheid, kennis, geest en handelen."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-metafisica",
+    "texto": "Metafysica en ontologie"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-ser",
+    "texto": "Zijn en bestaan"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-ser",
+    "texto": "Wat het betekent dat iets bestaat."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-mente",
+    "texto": "Geest en bewustzijn"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-mente",
+    "texto": "Het lichaam-geestprobleem en de fenomenologie."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-libre",
+    "texto": "Vrijheid en determinisme"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-libre",
+    "texto": "Zijn we vrij, of heeft alles een oorzaak?"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-epistemologia",
+    "texto": "Epistemologie"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-conocimiento",
+    "texto": "Kennistheorie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-conocimiento",
+    "texto": "Rechtvaardiging, waarheid en overtuiging."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-ciencia-fil",
+    "texto": "Wetenschapsfilosofie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-ciencia-fil",
+    "texto": "Methode, paradigma's en afbakening."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-escepticismo",
+    "texto": "Scepticisme"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-escepticismo",
+    "texto": "De grenzen van wat we kunnen weten."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-etica",
+    "texto": "Ethiek en politieke filosofie"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-moral",
+    "texto": "Morele theorieën"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-moral",
+    "texto": "Deontologie, utilitarisme, deugdethiek."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-justicia",
+    "texto": "Sociale rechtvaardigheid"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-justicia",
+    "texto": "Gelijkheid, rechten en het algemeen belang."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-bioetica",
+    "texto": "Bio-ethiek"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-bioetica",
+    "texto": "Leven, geneeskunde en toegepaste technologie."
+  },
+  {
+    "clave": "biblioteca.nodo.matematicas",
+    "texto": "Wiskunde en logica"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.matematicas",
+    "texto": "Abstracte structuren, formeel redeneren en kwantitatieve modellen."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-puras",
+    "texto": "Zuivere wiskunde"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-algebra",
+    "texto": "Algebra"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-algebra",
+    "texto": "Structuren, vergelijkingen en symmetrieën."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-analisis",
+    "texto": "Analyse"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-analisis",
+    "texto": "Limieten, continuïteit en calculus."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-geometria",
+    "texto": "Meetkunde en topologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-geometria",
+    "texto": "Vormen, ruimtes en transformaties."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-aplicadas",
+    "texto": "Toegepaste wiskunde"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-prob",
+    "texto": "Kansrekening"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-prob",
+    "texto": "Onzekerheid en toevalsgebeurtenissen."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-stats",
+    "texto": "Statistiek"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-stats",
+    "texto": "Data, inferentie en modellen."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-discreta",
+    "texto": "Discrete wiskunde"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-discreta",
+    "texto": "Combinatoriek, grafen en recursie."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-logica",
+    "texto": "Logica"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-log-formal",
+    "texto": "Formele logica"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-log-formal",
+    "texto": "Uitspraken, predikaten en bewijzen."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-log-comput",
+    "texto": "Computationele logica"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-log-comput",
+    "texto": "Algoritmen, complexiteit en verificatie."
+  },
+  {
+    "clave": "biblioteca.nodo.naturales",
+    "texto": "Natuurwetenschappen"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.naturales",
+    "texto": "Wetten van het fysieke universum, materie, energie en levende systemen."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-fisica",
+    "texto": "Natuurkunde"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-mecanica",
+    "texto": "Klassieke mechanica"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-mecanica",
+    "texto": "Beweging, krachten en energie."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-cuantica",
+    "texto": "Kwantumfysica"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-cuantica",
+    "texto": "Deeltjes, golven en waarschijnlijkheid."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-relatividad",
+    "texto": "Relativiteitstheorie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-relatividad",
+    "texto": "Ruimtetijd en kosmologie."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-termodinamica",
+    "texto": "Thermodynamica"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-termodinamica",
+    "texto": "Warmte, entropie en evenwicht."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-quimica",
+    "texto": "Scheikunde"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-org",
+    "texto": "Organische chemie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-org",
+    "texto": "Koolstof, biomoleculen en reacties."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-inorg",
+    "texto": "Anorganische chemie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-inorg",
+    "texto": "Elementen, bindingen en materialen."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-fisicoquim",
+    "texto": "Fysische chemie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-fisicoquim",
+    "texto": "Energie in reacties en evenwichten."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-biologia",
+    "texto": "Biologie"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-celula",
+    "texto": "Celbiologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-celula",
+    "texto": "Cellen, metabolisme en signalering."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-genetica",
+    "texto": "Genetica en evolutie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-genetica",
+    "texto": "DNA, selectie en fylogenie."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-ecologia",
+    "texto": "Ecologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-ecologia",
+    "texto": "Ecosystemen, biodiversiteit en kringlopen."
+  },
+  {
+    "clave": "biblioteca.nodo.tierra",
+    "texto": "Aardwetenschappen"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tierra",
+    "texto": "De planeet, de atmosfeer, de oceanen en geologische processen."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-geologia",
+    "texto": "Geologie en geofysica"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-placas",
+    "texto": "Platentektoniek"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-placas",
+    "texto": "Landvorming en aardbevingen."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-minerales",
+    "texto": "Mineralogie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-minerales",
+    "texto": "Gesteenten, mineralen en hulpbronnen."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-paleont",
+    "texto": "Paleontologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-paleont",
+    "texto": "Fossielen en de geschiedenis van het leven."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-clima",
+    "texto": "Klimaat en atmosfeer"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-meteorologia",
+    "texto": "Meteorologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-meteorologia",
+    "texto": "Weer, luchtdruk en neerslag."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-climatologia",
+    "texto": "Klimatologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-climatologia",
+    "texto": "Langetermijnpatronen en klimaatverandering."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-oceanos",
+    "texto": "Oceanografie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-oceanos",
+    "texto": "Stromingen, zeeën en kusten."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-espacial",
+    "texto": "Geografie en ruimte"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-cartografia",
+    "texto": "Cartografie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-cartografia",
+    "texto": "Kaarten, coördinaten en GIS."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-geomorf",
+    "texto": "Geomorfologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-geomorf",
+    "texto": "Landschappen en erosie."
+  },
+  {
+    "clave": "biblioteca.nodo.sociales",
+    "texto": "Sociale wetenschappen"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sociales",
+    "texto": "Samenlevingen, economieën, instituties en collectief menselijk gedrag."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-sociologia",
+    "texto": "Sociologie en antropologie"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-estructura",
+    "texto": "Sociale structuur"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-estructura",
+    "texto": "Klassen, netwerken en ongelijkheid."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-cultura",
+    "texto": "Culturele antropologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-cultura",
+    "texto": "Rituelen, identiteit en symbolen."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-urbano",
+    "texto": "Stadsstudies"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-urbano",
+    "texto": "Stad, migratie en territorium."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-economia",
+    "texto": "Economie"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-micro",
+    "texto": "Micro-economie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-micro",
+    "texto": "Aanbod, vraag en beslissingen."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-macro",
+    "texto": "Macro-economie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-macro",
+    "texto": "Bbp, inflatie en begrotingsbeleid."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-comercio",
+    "texto": "Internationale handel"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-comercio",
+    "texto": "Globalisering en waardeketens."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-politica",
+    "texto": "Politicologie"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-estado",
+    "texto": "Staat en overheid"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-estado",
+    "texto": "Macht, wetten en democratie."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-derechos",
+    "texto": "Mensenrechten"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-derechos",
+    "texto": "Vrijheden, rechtvaardigheid en burgerschap."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-relaciones",
+    "texto": "Internationale betrekkingen"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-relaciones",
+    "texto": "Diplomatie, conflict en samenwerking."
+  },
+  {
+    "clave": "biblioteca.nodo.psicologia",
+    "texto": "Psychologie en de menselijke geest"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psicologia",
+    "texto": "Cognitie, emotie, ontwikkeling en psychisch welzijn."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-cognitiva",
+    "texto": "Cognitieve psychologie"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-percepcion",
+    "texto": "Waarneming en aandacht"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-percepcion",
+    "texto": "Hoe we prikkels verwerken."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-memoria",
+    "texto": "Geheugen en leren"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-memoria",
+    "texto": "Encodering, herinnering en vergeten."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-lenguaje-psi",
+    "texto": "Psycholinguïstiek"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-lenguaje-psi",
+    "texto": "Taalverwerving en taalverwerking."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-desarrollo",
+    "texto": "Ontwikkeling en persoonlijkheid"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-infancia",
+    "texto": "Kinderontwikkeling"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-infancia",
+    "texto": "Cognitieve en sociale mijlpalen."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-personalidad",
+    "texto": "Persoonlijkheid"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-personalidad",
+    "texto": "Eigenschappen, temperamenten en modellen."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-social-psi",
+    "texto": "Sociale psychologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-social-psi",
+    "texto": "Groepen, attitudes en conformiteit."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-clinica",
+    "texto": "Geestelijke gezondheid"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-clinica-gen",
+    "texto": "Klinische psychologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-clinica-gen",
+    "texto": "Stoornissen, diagnose en therapie."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-neuropsi",
+    "texto": "Neuropsychologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-neuropsi",
+    "texto": "Brein, letsel en revalidatie."
+  },
+  {
+    "clave": "biblioteca.nodo.humanidades",
+    "texto": "Geesteswetenschappen en geschiedenis"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.humanidades",
+    "texto": "Menselijke ervaring door de tijd, het denken en het cultureel erfgoed."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-historia",
+    "texto": "Geschiedenis"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-antigua",
+    "texto": "Oude geschiedenis"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-antigua",
+    "texto": "Klassieke beschavingen en oorsprong."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-moderna",
+    "texto": "Moderne en hedendaagse geschiedenis"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-moderna",
+    "texto": "Revoluties, staten en globalisering."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-metodo",
+    "texto": "Geschiedschrijving"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-metodo",
+    "texto": "Bronnen, interpretatie en debat."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-religion",
+    "texto": "Religie en mythologie"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-comparada",
+    "texto": "Vergelijkende godsdienstwetenschap"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-comparada",
+    "texto": "Tradities, teksten en praktijken."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-mito",
+    "texto": "Mythologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-mito",
+    "texto": "Oorsprongsverhalen en archetypen."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-patrimonio",
+    "texto": "Erfgoed en cultuurwetenschap"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-museos",
+    "texto": "Materieel erfgoed"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-museos",
+    "texto": "Musea, conservering en artefacten."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-memoria",
+    "texto": "Collectief geheugen"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-memoria",
+    "texto": "Getuigenissen, archieven en vergeten."
+  },
+  {
+    "clave": "biblioteca.nodo.lengua",
+    "texto": "Taal en literatuur"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.lengua",
+    "texto": "Communicatie, teksten, taalanalyse en schriftelijke traditie."
+  },
+  {
+    "clave": "biblioteca.nodo.len-linguistica",
+    "texto": "Taalkunde"
+  },
+  {
+    "clave": "biblioteca.nodo.len-fonetica",
+    "texto": "Fonetiek en fonologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-fonetica",
+    "texto": "Klanken en fonologische systemen."
+  },
+  {
+    "clave": "biblioteca.nodo.len-sintaxis",
+    "texto": "Syntaxis en morfologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-sintaxis",
+    "texto": "Zins- en woordstructuur."
+  },
+  {
+    "clave": "biblioteca.nodo.len-semantica",
+    "texto": "Semantiek en pragmatiek"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-semantica",
+    "texto": "Betekenis in context."
+  },
+  {
+    "clave": "biblioteca.nodo.len-literatura",
+    "texto": "Literatuur"
+  },
+  {
+    "clave": "biblioteca.nodo.len-generos",
+    "texto": "Literaire genres"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-generos",
+    "texto": "Roman, poëzie, drama en essay."
+  },
+  {
+    "clave": "biblioteca.nodo.len-teoria-lit",
+    "texto": "Literatuurtheorie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-teoria-lit",
+    "texto": "Kritiek, narratologie en canon."
+  },
+  {
+    "clave": "biblioteca.nodo.len-mundo",
+    "texto": "Wereldliteraturen"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-mundo",
+    "texto": "Regionale tradities en vertaling."
+  },
+  {
+    "clave": "biblioteca.nodo.len-comunicacion",
+    "texto": "Communicatie"
+  },
+  {
+    "clave": "biblioteca.nodo.len-periodismo",
+    "texto": "Journalistiek"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-periodismo",
+    "texto": "Nieuws, factchecking en opinie."
+  },
+  {
+    "clave": "biblioteca.nodo.len-retorica",
+    "texto": "Retorica en argumentatie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-retorica",
+    "texto": "Overtuiging en publiek debat."
+  },
+  {
+    "clave": "biblioteca.nodo.idiomas",
+    "texto": "Talen"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idiomas",
+    "texto": "Vreemde talen leren: woordenschat, grammatica, uitspraak en oefening."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-aprendizaje",
+    "texto": "Basisprincipes van het leren"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-vocabulario",
+    "texto": "Woordenschat"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-vocabulario",
+    "texto": "Verwerving en herhaling van nuttige woorden en zinnen."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-gramatica",
+    "texto": "Grammatica"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-gramatica",
+    "texto": "Structuren, werkwoordstijden en vergelijkende syntaxis."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-pronunciacion",
+    "texto": "Uitspraak en luistervaardigheid"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-pronunciacion",
+    "texto": "Fonetiek, accent en luistervaardigheid."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-lenguas",
+    "texto": "Talen van de wereld"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-ingles",
+    "texto": "Engels"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-ingles",
+    "texto": "De wereldwijde voertaal."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-romances",
+    "texto": "Romaanse talen"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-romances",
+    "texto": "Frans, Italiaans, Portugees en hun verwantschap."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-asiaticas",
+    "texto": "Aziatische talen"
   }
 ]

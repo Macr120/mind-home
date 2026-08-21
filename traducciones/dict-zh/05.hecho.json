@@ -1,1078 +1,362 @@
 [
- {
-  "clave": "corazon.gato.noche.1",
-  "texto": "安静的夜晚。别搞砸了🐾"
- },
- {
-  "clave": "corazon.gato.rutina.0",
-  "texto": "喂，“{r}”是{h}。我可不会动🐾"
- },
- {
-  "clave": "corazon.gato.rutina.1",
-  "texto": "“{r}”快到了（{h}）。你可以的，我来监督🐱"
- },
- {
-  "clave": "corazon.gato.generica.0",
-  "texto": "一切尽在掌控。我打盹时顺便检查过了🐾"
- },
- {
-  "clave": "corazon.gato.generica.1",
-  "texto": "嗯。房子还立着呢。不客气🐱"
- },
- {
-  "clave": "corazon.perro.manana.0",
-  "texto": "早上好！今天闻起来会是美好的一天！🐶"
- },
- {
-  "clave": "corazon.perro.manana.1",
-  "texto": "早上啦！走走走！🦴"
- },
- {
-  "clave": "corazon.perro.tarde.0",
-  "texto": "正是完成任务的好下午！汪！🐶"
- },
- {
-  "clave": "corazon.perro.tarde.1",
-  "texto": "还在这儿呢，全程盯着！🎉"
- },
- {
-  "clave": "corazon.perro.noche.0",
-  "texto": "今天过得真棒对吧？对吧？🐶"
- },
- {
-  "clave": "corazon.perro.noche.1",
-  "texto": "安静的夜晚……我来守夜！🦴"
- },
- {
-  "clave": "corazon.perro.rutina.0",
-  "texto": "“{r}”在{h}！你能做到！🎉"
- },
- {
-  "clave": "corazon.perro.rutina.1",
-  "texto": "别忘了“{r}”，{h}！汪！🐶"
- },
- {
-  "clave": "corazon.perro.generica.0",
-  "texto": "我超爱这个家！🐶"
- },
- {
-  "clave": "corazon.perro.generica.1",
-  "texto": "有什么事就叫我！什么都行！🦴"
- },
- {
-  "clave": "corazon.buho.manana.0",
-  "texto": "黎明。正适合静下心来规划一天🦉"
- },
- {
-  "clave": "corazon.buho.manana.1",
-  "texto": "井然有序的早晨，收获加倍"
- },
- {
-  "clave": "corazon.buho.tarde.0",
-  "texto": "正午，是回顾进度的好时机🦉"
- },
- {
-  "clave": "corazon.buho.tarde.1",
-  "texto": "下午正按计划进行"
- },
- {
-  "clave": "corazon.buho.noche.0",
-  "texto": "夜幕降临。建议写点笔记为这一天收尾🦉"
- },
- {
-  "clave": "corazon.buho.noche.1",
-  "texto": "夜晚适合沉思"
- },
- {
-  "clave": "corazon.buho.rutina.0",
-  "texto": "及时提醒：“{r}”在{h}🦉"
- },
- {
-  "clave": "corazon.buho.rutina.1",
-  "texto": "你的日程上写着“{r}”在{h}"
- },
- {
-  "clave": "corazon.buho.generica.0",
-  "texto": "我在观察并记录。一切正常🦉"
- },
- {
-  "clave": "corazon.buho.generica.1",
-  "texto": "知识每天都在积累"
- },
- {
-  "clave": "corazon.robot.manana.0",
-  "texto": "☀ 日间周期启动。系统100%。🤖"
- },
- {
-  "clave": "corazon.robot.manana.1",
-  "texto": "早上好。电量已满。✓"
- },
- {
-  "clave": "corazon.robot.tarde.0",
-  "texto": "下午扫描完成。无异常。✓"
- },
- {
-  "clave": "corazon.robot.tarde.1",
-  "texto": "生产力处于正常范围。🤖"
- },
- {
-  "clave": "corazon.robot.noche.0",
-  "texto": "夜间模式已启动。监控中。🤖"
- },
- {
-  "clave": "corazon.robot.noche.1",
-  "texto": "建议：为人类单元充电（睡眠）。✓"
- },
- {
-  "clave": "corazon.robot.rutina.0",
-  "texto": "提醒：“{r}”安排在{h}。✓"
- },
- {
-  "clave": "corazon.robot.rutina.1",
-  "texto": "警报：“{r}”，{h}。🤖"
- },
- {
-  "clave": "corazon.robot.generica.0",
-  "texto": "所有系统正常。🤖"
- },
- {
-  "clave": "corazon.robot.generica.1",
-  "texto": "等待指令。不紧急。✓"
- },
- {
-  "clave": "chat.config.activoMapa",
-  "texto": "当前助手一直在地图上"
- },
- {
-  "clave": "chat.config.editar",
-  "texto": "自定义"
- },
- {
-  "clave": "chat.config.eliminar",
-  "texto": "删除助手"
- },
- {
-  "clave": "chat.config.eliminarConfirma",
-  "texto": "删除{n}？对话记录会保留。"
- },
- {
-  "clave": "chat.config.eliminarOk",
-  "texto": "删除"
- },
- {
-  "clave": "chat.config.eliminarUltimo",
-  "texto": "至少要保留一个助手"
- },
- {
-  "clave": "chat.config.restaurar",
-  "texto": "恢复："
- },
- {
-  "clave": "chat.config.restaurarUno",
-  "texto": "恢复"
- },
- {
-  "clave": "acceso.subir",
-  "texto": "上到{n}层"
- },
- {
-  "clave": "acceso.bajarPlanta",
-  "texto": "下到一楼"
- },
- {
-  "clave": "acceso.bajar",
-  "texto": "下到{n}层"
- },
- {
-  "clave": "veh.ayuda",
-  "texto": "在地图上放置一辆载具，靠近即可乘坐。"
- },
- {
-  "clave": "veh.colocar",
-  "texto": "放到地图上"
- },
- {
-  "clave": "veh.color",
-  "texto": "载具颜色"
- },
- {
-  "clave": "veh.subirte",
-  "texto": "乘坐"
- },
- {
-  "clave": "veh.bajarte",
-  "texto": "下车"
- },
- {
-  "clave": "accion.sentarte",
-  "texto": "坐下"
- },
- {
-  "clave": "accion.acostarte",
-  "texto": "躺下"
- },
- {
-  "clave": "accion.sentado",
-  "texto": "坐着"
- },
- {
-  "clave": "accion.acostado",
-  "texto": "躺着"
- },
- {
-  "clave": "accion.levantarte",
-  "texto": "起身"
- },
- {
-  "clave": "veh.subir",
-  "texto": "上升（空格）"
- },
- {
-  "clave": "veh.bajar",
-  "texto": "下降（Shift）"
- },
- {
-  "clave": "veh.derrape",
-  "texto": "漂移（空格）"
- },
- {
-  "clave": "hud.ayuda",
-  "texto": "用WASD/方向键或摇杆（左下）移动。用按钮（右下）旋转和缩放。穿过房间之间的门移动。"
- },
- {
-  "clave": "cat.cuerpo",
-  "texto": "身体"
- },
- {
-  "clave": "cat.mente",
-  "texto": "心灵"
- },
- {
-  "clave": "cat.complemento",
-  "texto": "附加"
- },
- {
-  "clave": "cat.config",
-  "texto": "设置"
- },
- {
-  "clave": "ajustes.titulo",
-  "texto": "设置"
- },
- {
-  "clave": "ajustes.idioma",
-  "texto": "语言"
- },
- {
-  "clave": "diario.nacidoAbrev",
-  "texto": "生"
- },
- {
-  "clave": "ajustes.tema",
-  "texto": "界面主题"
- },
- {
-  "clave": "ajustes.modo",
-  "texto": "外观"
- },
- {
-  "clave": "ajustes.modo.claro",
-  "texto": "浅色"
- },
- {
-  "clave": "ajustes.modo.oscuro",
-  "texto": "深色"
- },
- {
-  "clave": "ajustes.modo.transparente",
-  "texto": "透明"
- },
- {
-  "clave": "ajustes.iconos",
-  "texto": "图标样式"
- },
- {
-  "clave": "ajustes.iconos.emoji",
-  "texto": "表情符号"
- },
- {
-  "clave": "ajustes.iconos.profesional",
-  "texto": "专业"
- },
- {
-  "clave": "ajustes.tipografia",
-  "texto": "字体"
- },
- {
-  "clave": "ajustes.abrir",
-  "texto": "设置"
- },
- {
-  "clave": "tipografia.sistema",
-  "texto": "系统"
- },
- {
-  "clave": "tipografia.serif",
-  "texto": "衬线"
- },
- {
-  "clave": "tipografia.mono",
-  "texto": "等宽"
- },
- {
-  "clave": "tipografia.redondeada",
-  "texto": "圆体"
- },
- {
-  "clave": "tipografia.manuscrita",
-  "texto": "手写体"
- },
- {
-  "clave": "temaUI.medianoche",
-  "texto": "午夜"
- },
- {
-  "clave": "temaUI.neon",
-  "texto": "霓虹"
- },
- {
-  "clave": "temaUI.bosque",
-  "texto": "森林"
- },
- {
-  "clave": "temaUI.ambar",
-  "texto": "琥珀"
- },
- {
-  "clave": "temaUI.ciruela",
-  "texto": "梅紫"
- },
- {
-  "clave": "room.cocina.nombre",
-  "texto": "厨房"
- },
- {
-  "clave": "room.ejercicio.nombre",
-  "texto": "健身房"
- },
- {
-  "clave": "room.recamara.nombre",
-  "texto": "卧室"
- },
- {
-  "clave": "room.descanso.nombre",
-  "texto": "床·休息"
- },
- {
-  "clave": "room.anecdotario.nombre",
-  "texto": "书桌·日记"
- },
- {
-  "clave": "room.despacho.nombre",
-  "texto": "书房"
- },
- {
-  "clave": "room.biblioteca.nombre",
-  "texto": "图书馆"
- },
- {
-  "clave": "room.entretenimiento.nombre",
-  "texto": "娱乐室"
- },
- {
-  "clave": "room.sala.nombre",
-  "texto": "客厅"
- },
- {
-  "clave": "room.jardin.nombre",
-  "texto": "花园"
- },
- {
-  "clave": "room.garage.nombre",
-  "texto": "车库"
- },
- {
-  "clave": "room.diario.nombre",
-  "texto": "每日新闻"
- },
- {
-  "clave": "room.hobbies.nombre",
-  "texto": "爱好"
- },
- {
-  "clave": "room.idiomas.nombre",
-  "texto": "语言学习"
- },
- {
-  "clave": "room.caminos.nombre",
-  "texto": "赛道"
- },
- {
-  "clave": "room.canchas.nombre",
-  "texto": "球场"
- },
- {
-  "clave": "room.huerto.nombre",
-  "texto": "食物"
- },
- {
-  "clave": "room.granja.nombre",
-  "texto": "农场"
- },
- {
-  "clave": "room.ideas.nombre",
-  "texto": "点子"
- },
- {
-  "clave": "room.computo.nombre",
-  "texto": "电脑室"
- },
- {
-  "clave": "room.agenda.nombre",
-  "texto": "日程"
- },
- {
-  "clave": "room.cocina.sub",
-  "texto": "营养"
- },
- {
-  "clave": "room.ejercicio.sub",
-  "texto": "力量与健身日常安排"
- },
- {
-  "clave": "room.recamara.sub",
-  "texto": "睡眠与回忆"
- },
- {
-  "clave": "room.descanso.sub",
-  "texto": "睡眠与闹钟"
- },
- {
-  "clave": "room.anecdotario.sub",
-  "texto": "个人日记"
- },
- {
-  "clave": "room.despacho.sub",
-  "texto": "财务"
- },
- {
-  "clave": "room.biblioteca.sub",
-  "texto": "学习"
- },
- {
-  "clave": "room.entretenimiento.sub",
-  "texto": "档案与桌游"
- },
- {
-  "clave": "room.sala.sub",
-  "texto": "旅行"
- },
- {
-  "clave": "room.jardin.sub",
-  "texto": "正念"
- },
- {
-  "clave": "room.garage.sub",
-  "texto": "车辆保养"
- },
- {
-  "clave": "room.diario.sub",
-  "texto": "每日新闻"
- },
- {
-  "clave": "room.hobbies.sub",
-  "texto": "爱好与项目"
- },
- {
-  "clave": "room.calendario.sub",
-  "texto": "活动与日常安排"
- },
- {
-  "clave": "room.ideas.sub",
-  "texto": "在自由画布上绘制概念图"
- },
- {
-  "clave": "room.computo.sub",
-  "texto": "计算器与电子表格"
- },
- {
-  "clave": "room.agenda.sub",
-  "texto": "工作、健康与人际"
- },
- {
-  "clave": "hud.plegar",
-  "texto": "收起控制面板"
- },
- {
-  "clave": "hud.desplegar",
-  "texto": "展开控制面板"
- },
- {
-  "clave": "nav3d.aria",
-  "texto": "视角控制"
- },
- {
-  "clave": "nav3d.vistaCuarto",
-  "texto": "房间视角"
- },
- {
-  "clave": "nav3d.vistaInterior",
-  "texto": "面向墙壁"
- },
- {
-  "clave": "nav3d.rotarIzq",
-  "texto": "视角向左旋转"
- },
- {
-  "clave": "nav3d.rotarDer",
-  "texto": "视角向右旋转"
- },
- {
-  "clave": "nav3d.acercar",
-  "texto": "放大"
- },
- {
-  "clave": "nav3d.alejar",
-  "texto": "缩小"
- },
- {
-  "clave": "nav3d.restaurarCuarto",
-  "texto": "重置房间的缩放和焦点"
- },
- {
-  "clave": "nav3d.vistaInicial",
-  "texto": "初始视角"
- },
- {
-  "clave": "nav3d.centrarCuarto",
-  "texto": "居中显示房间"
- },
- {
-  "clave": "nav3d.reiniciar",
-  "texto": "重置视角"
- },
- {
-  "clave": "nav3d.editor3d",
-  "texto": "3D编辑器"
- },
- {
-  "clave": "nav3d.editor3dOn",
-  "texto": "关闭编辑器"
- },
- {
-  "clave": "nav3d.editor3dHint",
-  "texto": "以立体视角编辑世界：点击物件、地板、墙壁或角色即可编辑"
- },
- {
-  "clave": "nav3d.verFlechas",
-  "texto": "返回移动方向键"
- },
- {
-  "clave": "nav3d.verCubo",
-  "texto": "收起方向键，显示视角方块"
- },
- {
-  "clave": "nav3d.verFlechasBtn",
-  "texto": "显示方向键"
- },
- {
-  "clave": "nav3d.verCuboBtn",
-  "texto": "显示视角"
- },
- {
-  "clave": "herr.boton",
-  "texto": "工具"
- },
- {
-  "clave": "herr.rueda",
-  "texto": "工具轮盘"
- },
- {
-  "clave": "herr.cubo",
-  "texto": "方块"
- },
- {
-  "clave": "herr.saltar",
-  "texto": "跳跃"
- },
- {
-  "clave": "herr.correr",
-  "texto": "奔跑"
- },
- {
-  "clave": "herr.bailar",
-  "texto": "跳舞"
- },
- {
-  "clave": "herr.laser",
-  "texto": "激光"
- },
- {
-  "clave": "herr.volverCubo",
-  "texto": "返回视角方块"
- },
- {
-  "clave": "herr.saltarBtn",
-  "texto": "跳跃！"
- },
- {
-  "clave": "herr.corriendo",
-  "texto": "奔跑中"
- },
- {
-  "clave": "herr.bailando",
-  "texto": "跳舞中"
- },
- {
-  "clave": "herr.disparar",
-  "texto": "发射"
- },
- {
-  "clave": "herr.invocar",
-  "texto": "召唤"
- },
- {
-  "clave": "herr.soloPlantaBaja",
-  "texto": "下到一楼才能召唤"
- },
- {
-  "clave": "herr.veh.bicicleta",
-  "texto": "自行车"
- },
- {
-  "clave": "herr.veh.motocicleta",
-  "texto": "摩托车"
- },
- {
-  "clave": "herr.veh.automovil",
-  "texto": "汽车"
- },
- {
-  "clave": "herr.veh.ovni",
-  "texto": "UFO"
- },
- {
-  "clave": "herr.cat.movimientos",
-  "texto": "动作"
- },
- {
-  "clave": "herr.cat.juguetes",
-  "texto": "玩具"
- },
- {
-  "clave": "herr.cat.vehiculos",
-  "texto": "载具"
- },
- {
-  "clave": "herr.cat.construccion",
-  "texto": "建造"
- },
- {
-  "clave": "herr.construir",
-  "texto": "建造"
- },
- {
-  "clave": "herr.constrDibujar",
-  "texto": "绘制"
- },
- {
-  "clave": "herr.abrirEditor",
-  "texto": "打开编辑器"
- },
- {
-  "clave": "herr.atras",
-  "texto": "返回"
- },
- {
-  "clave": "herr.cuerda",
-  "texto": "跳绳"
- },
- {
-  "clave": "herr.mortal",
-  "texto": "空翻"
- },
- {
-  "clave": "herr.saludar",
-  "texto": "挥手"
- },
- {
-  "clave": "herr.mover",
-  "texto": "移动"
- },
- {
-  "clave": "herr.moverAcercate",
-  "texto": "靠近一个物件或房间"
- },
- {
-  "clave": "herr.agarrar",
-  "texto": "抓取"
- },
- {
-  "clave": "herr.agarrarCuarto",
-  "texto": "抓取房间"
- },
- {
-  "clave": "herr.moverCargandoObjeto",
-  "texto": "正在搬运物件"
- },
- {
-  "clave": "herr.moverCargandoCuarto",
-  "texto": "正在搬运房间"
- },
- {
-  "clave": "herr.soltar",
-  "texto": "放下"
- },
- {
-  "clave": "ctx.interactuar",
-  "texto": "互动"
- },
- {
-  "clave": "ctx.entrarApp",
-  "texto": "进入应用"
- },
- {
-  "clave": "ctx.cambiarLetrero",
-  "texto": "编辑门牌"
- },
- {
-  "clave": "ctx.usar",
-  "texto": "使用"
- },
- {
-  "clave": "ctx.subirte",
-  "texto": "上去"
- },
- {
-  "clave": "ctx.subirteDona",
-  "texto": "坐上浮圈"
- },
- {
-  "clave": "ctx.cosechar",
-  "texto": "收获"
- },
- {
-  "clave": "ctx.recoger",
-  "texto": "拾取"
- },
- {
-  "clave": "ctx.bajarte",
-  "texto": "下来"
- },
- {
-  "clave": "ctx.correr",
-  "texto": "比赛"
- },
- {
-  "clave": "ctx.revisarTu",
-  "texto": "查看你的"
- },
- {
-  "clave": "ctx.subirA",
-  "texto": "上到"
- },
- {
-  "clave": "ctx.bajarA",
-  "texto": "下到"
- },
- {
-  "clave": "ctx.nivelN",
-  "texto": "{n}层"
- },
- {
-  "clave": "ctx.plantaBaja",
-  "texto": "一楼"
- },
- {
-  "clave": "ctx.jugar.futbol",
-  "texto": "踢足球"
- },
- {
-  "clave": "ctx.jugar.tenis",
-  "texto": "打网球"
- },
- {
-  "clave": "ctx.jugar.basket",
-  "texto": "打篮球"
- },
- {
-  "clave": "ctx.jugar.beisbol",
-  "texto": "打棒球"
- },
- {
-  "clave": "herr.portales",
-  "texto": "传送门"
- },
- {
-  "clave": "herr.fuegos",
-  "texto": "烟花"
- },
- {
-  "clave": "herr.burbujas",
-  "texto": "泡泡"
- },
- {
-  "clave": "herr.cuerdaOn",
-  "texto": "跳绳中"
- },
- {
-  "clave": "herr.mortalBtn",
-  "texto": "空翻！"
- },
- {
-  "clave": "herr.saludarBtn",
-  "texto": "你好！"
- },
- {
-  "clave": "herr.portalColocar",
-  "texto": "放置传送门"
- },
- {
-  "clave": "herr.portalQuitar",
-  "texto": "移除传送门"
- },
- {
-  "clave": "herr.fuegosBtn",
-  "texto": "发射！"
- },
- {
-  "clave": "herr.burbujasOn",
-  "texto": "吹泡泡中"
- },
- {
-  "clave": "herr.quitar",
-  "texto": "取消工具"
- },
- {
-  "clave": "herr.grafiti",
-  "texto": "涂鸦"
- },
- {
-  "clave": "herr.grafitiPintar",
-  "texto": "涂鸦墙壁"
- },
- {
-  "clave": "herr.grafitiSinMuro",
-  "texto": "靠近一面墙"
- },
- {
-  "clave": "herr.grafitiMuroPuerta",
-  "texto": "带门的墙无法涂鸦"
- },
- {
-  "clave": "herr.grafitiMuroCurvo",
-  "texto": "弧形墙无法涂鸦"
- },
- {
-  "clave": "graf.titulo",
-  "texto": "涂鸦"
- },
- {
-  "clave": "graf.pincel",
-  "texto": "画笔"
- },
- {
-  "clave": "graf.spray",
-  "texto": "喷漆"
- },
- {
-  "clave": "graf.borrador",
-  "texto": "橡皮擦"
- },
- {
-  "clave": "graf.bote",
-  "texto": "用一种颜色填满"
- },
- {
-  "clave": "graf.grosor",
-  "texto": "粗细"
- },
- {
-  "clave": "graf.color",
-  "texto": "颜色"
- },
- {
-  "clave": "graf.deshacer",
-  "texto": "撤销"
- },
- {
-  "clave": "graf.limpiar",
-  "texto": "清空"
- },
- {
-  "clave": "graf.borrar",
-  "texto": "删除涂鸦"
- },
- {
-  "clave": "graf.guardar",
-  "texto": "保存"
- },
- {
-  "clave": "graf.salir",
-  "texto": "不保存退出"
- },
- {
-  "clave": "despacho.tab.balance",
-  "texto": "现金流"
- },
- {
-  "clave": "despacho.tab.mercados",
-  "texto": "市场"
- },
- {
-  "clave": "despacho.tab.divisas",
-  "texto": "外汇"
- },
- {
-  "clave": "despacho.tab.criptos",
-  "texto": "加密货币"
- },
- {
-  "clave": "despacho.tab.acciones",
-  "texto": "股票"
- },
- {
-  "clave": "despacho.tab.commodities",
-  "texto": "大宗商品"
- },
- {
-  "clave": "despacho.sub.balance",
-  "texto": "结余"
- },
- {
-  "clave": "despacho.tab.gastos",
-  "texto": "支出"
- },
- {
-  "clave": "despacho.tab.ingresos",
-  "texto": "收入"
- },
- {
-  "clave": "despacho.tab.metas",
-  "texto": "目标"
- },
- {
-  "clave": "despacho.tab.financieras",
-  "texto": "金融"
- },
- {
-  "clave": "despacho.tab.ahorroInversion",
-  "texto": "储蓄/投资"
- },
- {
-  "clave": "despacho.tab.ahorro",
-  "texto": "储蓄"
- },
- {
-  "clave": "despacho.tab.inversion",
-  "texto": "投资"
- },
- {
-  "clave": "despacho.tab.deuda",
-  "texto": "债务"
- },
- {
-  "clave": "despacho.r.ingresos",
-  "texto": "收入"
- },
- {
-  "clave": "despacho.r.gastos",
-  "texto": "支出"
- },
- {
-  "clave": "despacho.r.balance",
-  "texto": "结余"
- },
- {
-  "clave": "despacho.presupuesto",
-  "texto": "每月预算"
- },
- {
-  "clave": "despacho.presupuesto.equivale",
-  "texto": "相当于本期的{n}"
- },
- {
-  "clave": "despacho.patrimonio",
-  "texto": "总净资产"
- },
- {
-  "clave": "despacho.patrimonio.ayuda",
-  "texto": "资产减去负债，在“净资产”标签页里。这里只是显示如果本期就这样结束会是什么样。"
- },
- {
-  "clave": "despacho.excedido",
-  "texto": "预算超支{n}"
- },
- {
-  "clave": "despacho.progreso",
-  "texto": "已用{used}/{total}（{pct}%）"
- },
- {
-  "clave": "despacho.catGastos",
-  "texto": "按类别划分的支出"
- },
- {
-  "clave": "despacho.sinGastos",
-  "texto": "本期没有支出。"
- },
- {
-  "clave": "despacho.periodo.dia",
-  "texto": "日"
- },
- {
-  "clave": "despacho.periodo.semana",
-  "texto": "周"
- },
- {
-  "clave": "despacho.periodo.mes",
-  "texto": "月"
- },
- {
-  "clave": "despacho.periodo.anio",
-  "texto": "年"
- },
- {
-  "clave": "despacho.plazo.dia",
-  "texto": "每天"
- },
- {
-  "clave": "despacho.plazo.semana",
-  "texto": "每周"
- },
- {
-  "clave": "despacho.plazo.mes",
-  "texto": "每月"
- },
- {
-  "clave": "despacho.plazo.anio",
-  "texto": "每年"
- },
- {
-  "clave": "despacho.tendencia.dia",
-  "texto": "结余·最近6天"
- },
- {
-  "clave": "despacho.tendencia.semana",
-  "texto": "结余·最近6周"
- },
- {
-  "clave": "despacho.tendencia.mes",
-  "texto": "结余·最近6个月"
- },
- {
-  "clave": "despacho.tendencia.anio",
-  "texto": "结余·最近6年"
- },
- {
-  "clave": "despacho.m.monto",
-  "texto": "金额"
- },
- {
-  "clave": "despacho.m.nota",
-  "texto": "备注（选填）"
- },
- {
-  "clave": "despacho.m.categoria",
-  "texto": "类别"
- }
+  {
+    "clave": "ejercicio.rutDesc.push-pecho-y-triceps",
+    "texto": "卧推、站姿推举、双杠臂屈伸、绳索下压。"
+  },
+  {
+    "clave": "ejercicio.rutDesc.pull-espalda-y-biceps",
+    "texto": "引体向上、划船、弯举。渐进超负荷。"
+  },
+  {
+    "clave": "ejercicio.rutDesc.legs-pierna-completa",
+    "texto": "深蹲、罗马尼亚硬拉、弓步蹲。"
+  },
+  {
+    "clave": "ejercicio.rutDesc.hiit-20-min",
+    "texto": "40秒运动/20秒休息的间歇。"
+  },
+  {
+    "clave": "ejercicio.rutDesc.carrera-continua",
+    "texto": "配速适中，区间2-3。"
+  },
+  {
+    "clave": "ejercicio.rutDesc.caminata-inclinada",
+    "texto": "低冲击，持续燃脂。"
+  },
+  {
+    "clave": "ejercicio.rutDesc.bike-tempo",
+    "texto": "匀速骑行。"
+  },
+  {
+    "clave": "ejercicio.rutDesc.triatlon-sprint",
+    "texto": "游泳、骑行、跑步依次连续进行，各段保持自己的节奏。"
+  },
+  {
+    "clave": "ejercicio.rutDesc.movilidad-matutina",
+    "texto": "唤醒关节与脊柱。"
+  },
+  {
+    "clave": "ejercicio.rutDesc.yoga-flow",
+    "texto": "温和的流瑜伽序列。"
+  },
+  {
+    "clave": "ejercicio.rutDesc.cadera-y-piernas",
+    "texto": "髋部与腘绳肌放松。"
+  },
+  {
+    "clave": "ejercicio.rutDesc.estiramiento-post-entreno",
+    "texto": "放松整理与恢复。"
+  },
+  {
+    "clave": "ejercicio.rutDesc.espalda-y-hombros",
+    "texto": "缓解背部与肩部。"
+  },
+  {
+    "clave": "ejercicio.rutDesc.cuello-y-oficina",
+    "texto": "颈部和脊柱的活动休息。"
+  },
+  {
+    "clave": "ejercicio.rutDesc.antes-de-dormir",
+    "texto": "帮助入睡的修复性放松。"
+  },
+  {
+    "clave": "cal.logros",
+    "texto": "成就"
+  },
+  {
+    "clave": "cal.logros.vacio",
+    "texto": "今天还没有完成任何任务。"
+  },
+  {
+    "clave": "cal.objetivos",
+    "texto": "任务"
+  },
+  {
+    "clave": "cal.objetivo.nuevo",
+    "texto": "任务"
+  },
+  {
+    "clave": "cal.irApp",
+    "texto": "去应用里记录"
+  },
+  {
+    "clave": "chat.vistaCal.objetivos",
+    "texto": "任务"
+  },
+  {
+    "clave": "chat.vistaCal.dia",
+    "texto": "今天的日程"
+  },
+  {
+    "clave": "chat.vistaCal.semana",
+    "texto": "周"
+  },
+  {
+    "clave": "chat.vistaCal.mes",
+    "texto": "月"
+  },
+  {
+    "clave": "chat.vistaCal.anio",
+    "texto": "年"
+  },
+  {
+    "clave": "chat.vistaCal.calendario",
+    "texto": "日历"
+  },
+  {
+    "clave": "room.agenda.cmd.trabajo",
+    "texto": "工作"
+  },
+  {
+    "clave": "room.agenda.cmd.salud",
+    "texto": "健康"
+  },
+  {
+    "clave": "room.agenda.cmd.personas",
+    "texto": "联系人"
+  },
+  {
+    "clave": "room.anecdotario.cmd.anecdotas",
+    "texto": "日记"
+  },
+  {
+    "clave": "room.biblioteca.cmd.charlas",
+    "texto": "聊天"
+  },
+  {
+    "clave": "room.biblioteca.cmd.enciclopedia",
+    "texto": "百科全书"
+  },
+  {
+    "clave": "room.biblioteca.cmd.estudio",
+    "texto": "学习"
+  },
+  {
+    "clave": "room.biblioteca.cmd.resumen",
+    "texto": "概览"
+  },
+  {
+    "clave": "room.cocina.cmd.metas",
+    "texto": "目标"
+  },
+  {
+    "clave": "room.cocina.cmd.diario",
+    "texto": "记录"
+  },
+  {
+    "clave": "room.cocina.cmd.progreso",
+    "texto": "进度"
+  },
+  {
+    "clave": "room.cocina.cmd.plan",
+    "texto": "饮食方案"
+  },
+  {
+    "clave": "room.cocina.cmd.recetas",
+    "texto": "食谱"
+  },
+  {
+    "clave": "room.cocina.cmd.compras",
+    "texto": "购物"
+  },
+  {
+    "clave": "room.computo.cmd.formulario",
+    "texto": "公式手册"
+  },
+  {
+    "clave": "room.computo.cmd.calculadora",
+    "texto": "计算器"
+  },
+  {
+    "clave": "room.computo.cmd.grafica",
+    "texto": "图形"
+  },
+  {
+    "clave": "room.computo.cmd.ecuacion",
+    "texto": "解方程"
+  },
+  {
+    "clave": "room.computo.cmd.hojas",
+    "texto": "电子表格"
+  },
+  {
+    "clave": "room.computo.cmd.bases",
+    "texto": "进制"
+  },
+  {
+    "clave": "room.computo.cmd.matrices",
+    "texto": "矩阵"
+  },
+  {
+    "clave": "room.computo.cmd.sistemas",
+    "texto": "方程组"
+  },
+  {
+    "clave": "room.computo.cmd.unidades",
+    "texto": "单位"
+  },
+  {
+    "clave": "room.computo.cmd.propina",
+    "texto": "小费"
+  },
+  {
+    "clave": "room.computo.cmd.regla3",
+    "texto": "三率法"
+  },
+  {
+    "clave": "room.descanso.cmd.sueno",
+    "texto": "睡眠"
+  },
+  {
+    "clave": "room.despacho.cmd.balance",
+    "texto": "现金流"
+  },
+  {
+    "clave": "room.despacho.cmd.patrimonio",
+    "texto": "净资产"
+  },
+  {
+    "clave": "room.despacho.cmd.gastos",
+    "texto": "支出"
+  },
+  {
+    "clave": "room.despacho.cmd.ingresos",
+    "texto": "收入"
+  },
+  {
+    "clave": "room.despacho.cmd.metas",
+    "texto": "储蓄/投资"
+  },
+  {
+    "clave": "room.despacho.cmd.financieras",
+    "texto": "金融"
+  },
+  {
+    "clave": "room.despacho.cmd.deuda",
+    "texto": "债务"
+  },
+  {
+    "clave": "room.despacho.cmd.simuladores",
+    "texto": "模拟"
+  },
+  {
+    "clave": "room.despacho.cmd.simulacion",
+    "texto": "预测"
+  },
+  {
+    "clave": "room.despacho.cmd.divisas",
+    "texto": "外汇"
+  },
+  {
+    "clave": "room.despacho.cmd.criptos",
+    "texto": "加密货币"
+  },
+  {
+    "clave": "room.despacho.cmd.acciones",
+    "texto": "股票"
+  },
+  {
+    "clave": "room.despacho.cmd.commodities",
+    "texto": "大宗商品"
+  },
+  {
+    "clave": "room.diario.cmd.titulares",
+    "texto": "今日头条"
+  },
+  {
+    "clave": "room.diario.cmd.efemerides",
+    "texto": "历史上的今天"
+  },
+  {
+    "clave": "room.ejercicio.cmd.metas",
+    "texto": "目标"
+  },
+  {
+    "clave": "room.ejercicio.cmd.fuerza",
+    "texto": "力量"
+  },
+  {
+    "clave": "room.ejercicio.cmd.resistencia",
+    "texto": "耐力"
+  },
+  {
+    "clave": "room.ejercicio.cmd.flexibilidad",
+    "texto": "柔韧性"
+  },
+  {
+    "clave": "room.entretenimiento.cmd.archivo",
+    "texto": "档案"
+  },
+  {
+    "clave": "room.entretenimiento.cmd.mesa",
+    "texto": "桌游"
+  },
+  {
+    "clave": "room.garage.cmd.resumen",
+    "texto": "概览"
+  },
+  {
+    "clave": "room.garage.cmd.vehiculos",
+    "texto": "车辆"
+  },
+  {
+    "clave": "room.hobbies.cmd.hobbies",
+    "texto": "爱好"
+  },
+  {
+    "clave": "room.ideas.cmd.diario",
+    "texto": "想法日记"
+  },
+  {
+    "clave": "room.ideas.cmd.mapas",
+    "texto": "概念图"
+  },
+  {
+    "clave": "room.ideas.cmd.diagramas",
+    "texto": "决策图"
+  },
+  {
+    "clave": "room.idiomas.cmd.charlas",
+    "texto": "聊天"
+  },
+  {
+    "clave": "room.idiomas.cmd.repaso",
+    "texto": "复习"
+  },
+  {
+    "clave": "room.idiomas.cmd.temario",
+    "texto": "大纲"
+  },
+  {
+    "clave": "room.idiomas.cmd.progreso",
+    "texto": "进度"
+  },
+  {
+    "clave": "room.jardin.cmd.meditacion",
+    "texto": "冥想"
+  },
+  {
+    "clave": "room.jardin.cmd.respiracion",
+    "texto": "呼吸"
+  },
+  {
+    "clave": "room.jardin.cmd.gratitud",
+    "texto": "感恩"
+  },
+  {
+    "clave": "room.sala.cmd.mapa",
+    "texto": "地图"
+  },
+  {
+    "clave": "room.sala.cmd.porConocer",
+    "texto": "行程"
+  },
+  {
+    "clave": "room.sala.cmd.rutas",
+    "texto": "路线"
+  },
+  {
+    "clave": "room.sala.cmd.bitacora",
+    "texto": "旅行日志"
+  }
 ]

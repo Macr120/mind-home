@@ -1,169 +1,498 @@
 [
-  { "clave": "plantillaCustom.borrarBloqueMsj", "texto": "Araç, içine kaydettiğin her şeyle birlikte silinir." },
-  { "clave": "plantillaCustom.borrarBloqueAhora", "texto": "Aracı ve verilerini sil" },
-  { "clave": "plantillaCustom.meta", "texto": "Hedef (isteğe bağlı)" },
-  { "clave": "plantillaCustom.guardar", "texto": "Kaydet" },
-  { "clave": "plantillaCustom.cancelar", "texto": "İptal" },
-  { "clave": "plantillaCustom.tipo.notas", "texto": "Notlar" },
-  { "clave": "plantillaCustom.tipo.checklist", "texto": "Kontrol listesi" },
-  { "clave": "plantillaCustom.tipo.contador", "texto": "Sayaç" },
-  { "clave": "plantillaCustom.tipo.enlaces", "texto": "Bağlantılar" },
-  { "clave": "plantillaCustom.tipo.lista", "texto": "Liste" },
-  { "clave": "plantillaCustom.tipo.valoracion", "texto": "Değerlendirme" },
-  { "clave": "plantillaCustom.tipo.bitacora", "texto": "Günlük" },
-  { "clave": "plantillaCustom.tipo.progreso", "texto": "İlerleme" },
-  { "clave": "plantillaCustom.tipo.habito", "texto": "Alışkanlık" },
-  { "clave": "plantillaCustom.tipo.sesiones", "texto": "Oturumlar" },
-  { "clave": "plantillaCustom.tipo.cuenta", "texto": "Geri sayım" },
-  { "clave": "plantillaCustom.tipo.galeria", "texto": "Galeri" },
-  { "clave": "amueblar.titulo", "texto": "Oda nasıl döşenecek?" },
-  { "clave": "amueblar.completo", "texto": "Döşenmiş" },
-  { "clave": "amueblar.completoDesc", "texto": "Uygulamanın tüm nesnelerini getirir." },
-  { "clave": "amueblar.principal", "texto": "Sadece ana nesne" },
-  { "clave": "amueblar.principalDesc", "texto": "Yalnızca uygulamayı açan nesne, gerisi yok." },
-  { "clave": "plantillaCustom.eliminada", "texto": "Bu şablon silindi." },
-  { "clave": "plantillaCustom.notasPh", "texto": "Notlarını yaz… (otomatik kaydedilir)" },
-  { "clave": "plantillaCustom.checklistPh", "texto": "Yeni yapılacak…" },
-  { "clave": "plantillaCustom.checklistVacio", "texto": "Henüz yapılacak yok." },
-  { "clave": "plantillaCustom.borrarItem", "texto": "Sil" },
-  { "clave": "plantillaCustom.enlaceTitulo", "texto": "Başlık (isteğe bağlı)" },
-  { "clave": "plantillaCustom.enlacesVacio", "texto": "Kayıtlı bağlantı yok." },
-  { "clave": "plantillaCustom.listaPh", "texto": "Yeni öğe…" },
-  { "clave": "plantillaCustom.listaVacio", "texto": "Liste boş." },
-  { "clave": "plantillaCustom.bitacoraPh", "texto": "Yeni kayıt…" },
-  { "clave": "plantillaCustom.bitacoraVacio", "texto": "Henüz kayıt yok." },
-  { "clave": "plantillaCustom.progresoPh", "texto": "Değer…" },
-  { "clave": "plantillaCustom.progresoVacio", "texto": "Henüz ölçüm yok." },
-  { "clave": "plantillaCustom.unidad", "texto": "Birim (isteğe bağlı)" },
-  { "clave": "plantillaCustom.habitoMarcar", "texto": "Bugünü işaretle" },
-  { "clave": "plantillaCustom.habitoHecho", "texto": "Bugün yapıldı ✓" },
-  { "clave": "plantillaCustom.habitoRacha", "texto": "seri" },
-  { "clave": "plantillaCustom.habitoDias", "texto": "aktif gün" },
-  { "clave": "plantillaCustom.metaSemana", "texto": "Haftada kaç kez (isteğe bağlı)" },
-  { "clave": "plantillaCustom.sesionMin", "texto": "Dakika" },
-  { "clave": "plantillaCustom.sesionNota", "texto": "Not (isteğe bağlı)" },
-  { "clave": "plantillaCustom.sesionVacio", "texto": "Henüz oturum yok." },
-  { "clave": "plantillaCustom.sesionTotal", "texto": "Toplam" },
-  { "clave": "plantillaCustom.metaMin", "texto": "Dakika cinsinden hedef (isteğe bağlı)" },
-  { "clave": "plantillaCustom.cuentaFecha", "texto": "Hedef tarih" },
-  { "clave": "plantillaCustom.cuentaSinFecha", "texto": "Düzenlerken bir hedef tarih ayarla." },
-  { "clave": "plantillaCustom.cuentaDias", "texto": "kalan gün" },
-  { "clave": "plantillaCustom.cuentaHoy", "texto": "Bugün!" },
-  { "clave": "plantillaCustom.cuentaPaso", "texto": "gün önce" },
-  { "clave": "plantillaCustom.galeriaAgregar", "texto": "Fotoğraf ekle" },
-  { "clave": "plantillaCustom.galeriaVacio", "texto": "Henüz fotoğraf yok." },
-  { "clave": "objetos.ayuda", "texto": "Var olan tüm nesneler, kategoriye göre. Kendininkileri oluştur, düzenle ya da sil." },
-  { "clave": "objetos.ayudaEspeciales", "texto": "Efekti olan nesneler, ne yaptıklarına göre gruplanmış. Klasörlerini görmek için birini aç." },
-  { "clave": "objetos.agregar", "texto": "3D nesne ekle" },
-  { "clave": "objetos.alMapa", "texto": "Haritaya veya bir odaya yerleştir" },
-  { "clave": "destinoObj.titulo", "texto": "Nereye koyuyorsun?" },
-  { "clave": "destinoObj.mapa", "texto": "Haritada" },
-  { "clave": "destinoObj.mapaDesc", "texto": "Dışarıda, odaların dışında serbest." },
-  { "clave": "destinoObj.enCuarto", "texto": "Ya da bir odanın içinde" },
-  { "clave": "objetos.editar", "texto": "Düzenleyicide düzenle" },
-  { "clave": "objetos.editarForma", "texto": "Şeklini düzenle" },
-  { "clave": "objetos.animado", "texto": "Animasyonlu nesne" },
-  { "clave": "objetos.funcion.vehiculo", "texto": "Sürülebilir" },
-  { "clave": "objetos.funcion.asiento", "texto": "Buraya oturabilirsin" },
-  { "clave": "objetos.funcion.acostarse", "texto": "Buraya uzanabilirsin" },
-  { "clave": "objetos.funcion.laptop", "texto": "İş için kullanılır" },
-  { "clave": "objetos.funcion.cajaFuerte", "texto": "Önemli olanı saklar" },
-  { "clave": "objetos.funcion.computo", "texto": "Hesaplama için kullanılır" },
-  { "clave": "objetos.funcion.tapete", "texto": "Meditasyon için kullanılır" },
-  { "clave": "objetos.funcion.libreta", "texto": "Yazmak için kullanılır" },
-  { "clave": "objetos.funcion.caminadora", "texto": "Yürümek için kullanılır" },
-  { "clave": "objetos.funcion.anuncio", "texto": "Tabela: kendi metnini yaz" },
-  { "clave": "objetos.funcion.parque", "texto": "Etkileşimli: oynamak için üstüne çık" },
-  { "clave": "objetos.rotarIzq", "texto": "Sola döndür" },
-  { "clave": "objetos.rotarDer", "texto": "Sağa döndür" },
-  { "clave": "objetos.quitarDelMapa", "texto": "Haritadan kaldır" },
-  { "clave": "objetos.borrar", "texto": "Nesneyi sil" },
-  { "clave": "objetos.borrarConfirm", "texto": "«{nombre}» silinsin mi? Bu geri alınamaz." },
-  { "clave": "objetos.renombrar", "texto": "Klasörü yeniden adlandır" },
-  { "clave": "objetos.restaurar", "texto": "Temel nesneleri geri yükle" },
-  { "clave": "objetos.restaurarConfirm", "texto": "Sildiğin temel katalog nesneleri yeniden eklenecek. Devam edilsin mi?" },
-  { "clave": "mapa.editar", "texto": "Haritayı düzenle" },
-  { "clave": "mapa.editarTitulo", "texto": "Ev haritasını düzenle" },
-  { "clave": "mapa.quitar", "texto": "Haritadan kaldır" },
-  { "clave": "chat.tuAsistente", "texto": "Asistanın:" },
-  { "clave": "chat.vacio", "texto": "Henüz kayıt yok. Mimara ne yaptığını anlat." },
-  { "clave": "chat.sinClasificar", "texto": "Sınıflandırılmamış" },
-  { "clave": "chat.capturado", "texto": "yakalandı" },
-  { "clave": "chat.reclasificar", "texto": "Yeniden sınıflandır" },
-  { "clave": "chat.eliminar", "texto": "Sil" },
-  { "clave": "chat.ocultar", "texto": "Menüyü kapat" },
-  { "clave": "chat.verMenu", "texto": "menüyü aç" },
-  { "clave": "chat.registrar", "texto": "Kaydet" },
-  { "clave": "chat.chip.crear", "texto": "Oluştur" },
-  { "clave": "chat.chip.enMapa", "texto": "(haritada)" },
-  { "clave": "chat.chip.fuera", "texto": "(dışarıda)" },
-  { "clave": "chat.abrirConv", "texto": "sohbeti görüntüle" },
-  { "clave": "chat.verConv", "texto": "Tüm sohbeti görüntüle" },
-  { "clave": "chat.burbuja.ver", "texto": "Tümünü okumak için dokun" },
-  { "clave": "dialogo.salir", "texto": "Sohbeti bitir (Esc)" },
-  { "clave": "dialogo.completar", "texto": "Metnin tamamını göster" },
-  { "clave": "dialogo.hablar", "texto": "Konuş" },
-  { "clave": "chat.conversacion", "texto": "Sohbet" },
-  { "clave": "chat.conv.vacia", "texto": "{pet} ile henüz mesaj yok. Aşağıdaki çubuktan yaz" },
-  { "clave": "chat.conv.limpiar", "texto": "Sohbeti temizle" },
-  { "clave": "chat.conv.cerrar", "texto": "Kapat" },
-  { "clave": "chat.tu", "texto": "Sen" },
-  { "clave": "chat.tab.chats", "texto": "Sohbetler" },
-  { "clave": "chat.tab.registros", "texto": "Kayıtlar" },
-  { "clave": "chat.config.abrir", "texto": "Asistanları ayarla" },
-  { "clave": "chat.config.titulo", "texto": "Asistanların" },
-  { "clave": "chat.config.activo", "texto": "aktif" },
-  { "clave": "chat.config.sinCaracter", "texto": "Karakter ayarlanmadı" },
-  { "clave": "chat.config.archivaTodo", "texto": "Tüm odalarda arşivler" },
-  { "clave": "chat.config.cuartos", "texto": "Uygulamaları ata" },
-  { "clave": "chat.config.cuartosTodos", "texto": "(hiçbiri işaretli değilse = hepsi)" },
-  { "clave": "chat.config.nuevo", "texto": "Asistan oluştur" },
-  { "clave": "chat.config.nuevoNombre", "texto": "Yeni asistan" },
-  { "clave": "chat.config.nuevoSaludo", "texto": "Merhaba! Ben senin yeni asistanın." },
-  { "clave": "chat.config.nombre", "texto": "İsim" },
-  { "clave": "chat.config.emoji", "texto": "Asistanın emojisi" },
-  { "clave": "chat.config.historia", "texto": "Karakterin geçmişi ve bağlamı" },
-  { "clave": "chat.config.historiaPh", "texto": "Geçmiş ve bağlam: örn. «40 yıl bir deniz feneriyle ilgilenmiş yaşlı bir deniz kurdu; şimdi senin evine bakıyor»" },
-  { "clave": "chat.config.caracterPh", "texto": "Karakter: örn. «Korsan gibi konuşursun, şakacı ve doğrudansın, 🏴‍☠️ ile bitirirsin»" },
-  { "clave": "chat.config.forma", "texto": "3D şekil:" },
-  { "clave": "chat.config.color", "texto": "Karakterin rengi" },
-  { "clave": "chat.config.formaPh", "texto": "Tarif et: «gözlüklü ve yelekli yeşil ejderha»" },
-  { "clave": "chat.config.formaSinIa", "texto": "Şekli tarif etmek yapay zeka gerektirir (çubuktan bir model seç)" },
-  { "clave": "chat.config.formaGenerar", "texto": "Şekli yapay zeka ile oluştur" },
-  { "clave": "chat.config.formaError", "texto": "Şekil oluşturulamadı. Yapay zeka modelini kontrol edip tekrar dene." },
-  { "clave": "chat.config.subirGlb", "texto": ".glb modeli yükle" },
-  { "clave": "chat.config.quitarGlb", "texto": "Yüklenen modeli kaldır" },
-  { "clave": "chat.config.quitarFormaIa", "texto": "Yapay zeka ile oluşturulan şekli kaldır" },
-  { "clave": "chat.config.enMapa", "texto": "Haritadan kaldır" },
-  { "clave": "chat.config.ponerMapa", "texto": "Haritaya ekle" },
-  { "clave": "chat.config.voz", "texto": "Ses:" },
-  { "clave": "chat.config.vozAuto", "texto": "Otomatik (dile göre)" },
-  { "clave": "chat.config.vozIA", "texto": "Yapay zeka sesi (OpenAI, daha doğal)" },
-  { "clave": "chat.config.vozLeer", "texto": "Söylediklerini yüksek sesle oku" },
-  { "clave": "chat.config.vozProbar", "texto": "Sesi dene" },
-  { "clave": "chat.config.vozTono", "texto": "Ton" },
-  { "clave": "chat.config.vozVelocidad", "texto": "Hız" },
-  { "clave": "chat.config.vozVolumen", "texto": "Ses düzeyi" },
-  { "clave": "chat.config.espontaneo", "texto": "Kendiliğinden yorumlar" },
-  { "clave": "chat.config.corazon", "texto": "Kalp (kendiliğindenlik)" },
-  { "clave": "chat.config.corazonOff", "texto": "Kapalı" },
-  { "clave": "corazon.nivel.0", "texto": "Sessiz" },
-  { "clave": "corazon.nivel.1", "texto": "Sakin" },
-  { "clave": "corazon.nivel.2", "texto": "Konuşkan" },
-  { "clave": "corazon.nivel.3", "texto": "Geveze" },
-  { "clave": "corazon.mago.manana.0", "texto": "Şafak taze mana getiriyor… Hissedebiliyorum ✨" },
-  { "clave": "corazon.mago.manana.1", "texto": "Parşömenlerim düzenli uyandı. İyi bir alamet 🔮" },
-  { "clave": "corazon.mago.tarde.0", "texto": "Öğleden sonra, işleri büyü kitabına yazmak için mükemmel ✨" },
-  { "clave": "corazon.mago.tarde.1", "texto": "Bu öğleden sonra evin etrafında sakin enerjiler hissediyorum 🔮" },
-  { "clave": "corazon.mago.noche.0", "texto": "Yıldızlar sırlarını anlatıyor… büyüler için güzel bir gece 🌙" },
-  { "clave": "corazon.mago.noche.1", "texto": "Ay, küremi şarj ediyor. Burada her şey sakin 🔮" },
-  { "clave": "corazon.mago.rutina.0", "texto": "Kristal kürem duyuruyor: {h}’de «{r}» ✨" },
-  { "clave": "corazon.mago.rutina.1", "texto": "Kader {h}’i işaretliyor: «{r}» yaklaşıyor 🔮" },
-  { "clave": "corazon.mago.generica.0", "texto": "Bugün bu ev sihirle dolup taşıyor ✨" },
-  { "clave": "corazon.mago.generica.1", "texto": "Bir düzenleme büyüsü asla zarar vermez… 🔮" },
-  { "clave": "corazon.gato.manana.0", "texto": "Fazlasıyla erken. İnsanlar tuhaf uyanıyor 🐾" },
-  { "clave": "corazon.gato.manana.1", "texto": "Esneme. Sabahlar bir kestirmeyle daha güzel olurdu 🐱" },
-  { "clave": "corazon.gato.tarde.0", "texto": "Güneşte kestirmek için mükemmel zaman. Sadece söylüyorum 🐾" },
-  { "clave": "corazon.gato.tarde.1", "texto": "Sakin bir öğleden sonra… tam sevdiğim gibi 🐱" },
-  { "clave": "corazon.gato.noche.0", "texto": "Sonunda gece. Benim en verimli zamanım 🐱" }
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-gemelos",
+    "texto": "Ellerini duvara koy ve arka bacağını düz tutarak baldırını gerdir."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-hombros",
+    "texto": "Bir kolunu göğsünün önünden çaprazla ve diğer kolunla içeri doğru çek."
+  },
+  {
+    "clave": "ejercicio.ejDesc.foam-roller",
+    "texto": "Antrenman sonrası gerginliği gidermek için kaslarını foam roller üzerinde yuvarla."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-triceps",
+    "texto": "Dirseğini başının arkasına getir ve diğer elinle nazikçe it."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-de-cadera",
+    "texto": "Lunge pozisyonunda, uyluğunun önünü germek için kalçanı öne it."
+  },
+  {
+    "clave": "ejercicio.ejDesc.piernas-en-la-pared",
+    "texto": "Sırtüstü uzanarak bacaklarını duvara yasla, gevşe ve dolaşımını rahatlat."
+  },
+  {
+    "clave": "ejercicio.ejDesc.savasana",
+    "texto": "Sırtüstü yatarak yavaşça nefes alıp verirken tüm vücudunu gevşet."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-del-nino-apoyada",
+    "texto": "Daha uzun süre rahatlamak için destekli Çocuk Pozu."
+  },
+  {
+    "clave": "ejercicio.ejDesc.respiracion-profunda",
+    "texto": "Sinir sistemini sakinleştirmek için yavaş ve derin nefes al ver."
+  },
+  {
+    "clave": "ejercicio.ejDesc.mariposa-reclinada",
+    "texto": "Ayak tabanlarını birleştirerek sırtüstü uzan, dizlerinin düşmesine izin ver ve kalçalarını gevşet."
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsion-reclinada",
+    "texto": "Sırtüstü yatarak dizlerini bir yana bırak ve omurganı nazikçe döndür."
+  },
+  {
+    "clave": "ejercicio.ejDesc.liberacion-miofascial-con-pelota",
+    "texto": "Sert bir topu kontrollü baskıyla topuğundan ayak parmak diplerine kadar yuvarla."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-tobillo",
+    "texto": "Bir bacağını kaldır ve ayak bileğini her iki yönde geniş daireler çizerek hareket ettir."
+  },
+  {
+    "clave": "ejercicio.ejDesc.recogida-de-toalla-con-dedos",
+    "texto": "Yerdeki bir havluyu sadece ayak parmaklarını kullanarak buruşturup toplamaya çalış."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-dorsiflexion",
+    "texto": "Duvara bakarak, gerilim hissetmek için topuğunu yerden kaldırmadan ön dizini bük."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-talones-unipodal",
+    "texto": "Tek ayak üzerinde durarak topuğunu yavaşça kaldır ve eksantrik kontrolle indir."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-y-extension-en-descarga",
+    "texto": "Sırtüstü yatarak dizini büküp topuğunu kalça kasına yaklaştır, sonra ayağını yerden kaldırmadan bacağını uzat."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "Topuğunu önüne koy ve dizini düz tutarak gövdeni nazikçe öne eğ."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-isometrica-wall-squat",
+    "texto": "Sırtını duvara yasla, 90 dereceye kadar çök ve dizlerinin içe çökmediğinden emin olarak bu pozisyonda kal."
+  },
+  {
+    "clave": "ejercicio.ejDesc.equilibrio-unipodal-single-leg-balance",
+    "texto": "Dizini hafifçe bükerek tek ayak üzerinde denge kur, dizinin içe çökmesine izin verme."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadillas-del-arquero",
+    "texto": "Bacaklarını açarak bir dizini bük, diğer bacağını düz tutup ağırlığını o tarafa kaydır."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estocadas-lunges",
+    "texto": "Öne adım at ve ön dizinle 90 derecelik açı oluşturarak kalçanı indir."
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-90-90",
+    "texto": "Bacakların 90 derece açıda olduğu oturuşta, gövdeni ve bacaklarını yana yana döndür."
+  },
+  {
+    "clave": "ejercicio.ejDesc.el-puente-glute-bridge",
+    "texto": "Sırtüstü yatarak, omuzların, kalçan ve dizlerin hizalanana kadar kalça kaslarını sıkarak pelvisini kaldır."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-en-estocada",
+    "texto": "Bir dizini yere koyarak, psoas kasını germek için sırtını düz tutup pelvisini öne it."
+  },
+  {
+    "clave": "ejercicio.ejDesc.abduccion-lateral-de-cadera",
+    "texto": "Yan yatarak, pelvisini sabit tutup üstteki bacağını kaldır."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-profunda-con-apertura",
+    "texto": "Squat pozisyonunda, kalçalarını açmak için dizlerini dirseklerinle dışarı it."
+  },
+  {
+    "clave": "ejercicio.ejDesc.balanceo-dinamico-de-piernas",
+    "texto": "Ayakta dururken, bir bacağını sarkaç gibi öne, arkaya ve yanlara salla."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-gato-vaca",
+    "texto": "Dört ayak üzerinde, sırtını tavana doğru kamburlaştırmakla karnını yere indirmek arasında dönüşümlü hareket et."
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsiones-lumbares-suaves",
+    "texto": "Sırtüstü yatarak iki dizini birlikte önce bir yana, sonra diğer yana bırak."
+  },
+  {
+    "clave": "ejercicio.ejDesc.pointer-bird-dog",
+    "texto": "Dört ayak üzerinde, belini düz tutarak karşı bacağını ve kolunu uzat."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-frontal-isometricos",
+    "texto": "Önkollarına dayanarak düz bir çizgi oluşturan Plank pozisyonunu koru."
+  },
+  {
+    "clave": "ejercicio.ejDesc.roll-down-curl-jefferson",
+    "texto": "Ayakta dururken, omurganı tek tek omur omur yavaşça aşağı doğru yuvarla."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-lumbar-boca-abajo",
+    "texto": "Yüzüstü yatarak kalçanı kaldır, sonra sırtını uzatarak indir."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotacion-toracica",
+    "texto": "Dört ayak üzerinde, bir kolunu yana doğru kaldır ve gözlerinle elini takip et."
+  },
+  {
+    "clave": "ejercicio.ejDesc.retraccion-escapular",
+    "texto": "Dik bir duruş korurken kürek kemiklerini geriye ve aşağıya doğru sık."
+  },
+  {
+    "clave": "ejercicio.ejDesc.angeles-de-pared-wall-angels",
+    "texto": "Sırtın duvara yaslı şekilde, dirseklerin duvarla temas halinde kalarak kollarını yukarı aşağı kaydır."
+  },
+  {
+    "clave": "ejercicio.ejDesc.lunge-con-apertura-de-pectoral",
+    "texto": "Lunge pozisyonunda ellerini ensende kenetle ve dirseklerini geriye doğru aç."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-dorsal-en-pared",
+    "texto": "Ellerini duvara koy ve dizlerini düz tutarak gövdeni aşağı bırak."
+  },
+  {
+    "clave": "ejercicio.ejDesc.el-gato-y-la-mesa",
+    "texto": "Dört ayak üzerinde, sırtını kamburlaştır, sonra göğsünü indir."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-hombros",
+    "texto": "Geniş dairesel hareketler yap, geriye ve aşağıya doğru olan yönü tercih et."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-pecho-pectoral",
+    "texto": "Ellerini arkanda kenetle ve boynunu zorlamadan göğsünü aç."
+  },
+  {
+    "clave": "ejercicio.ejDesc.dislocaciones-con-goma-o-palo",
+    "texto": "Dirseklerini düz tutarak bir bandı başının üzerinden sırtının arkasına geçir."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotacion-externa-con-banda",
+    "texto": "Dirseklerin vücuduna yapışık ve 90 derece açıda iken, ellerini dirence karşı dışa doğru döndür."
+  },
+  {
+    "clave": "ejercicio.ejDesc.thread-the-needle-enhebrar-aguja",
+    "texto": "Dört ayak üzerinde, bir kolunu vücudunun altından geçirerek omzunu yere dayandır."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-y-medios-circulos",
+    "texto": "Çeneni göğsüne yaklaştırarak, acıyı zorlamadan geniş ve çok yavaş daireler çiz."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-trapecio-superior",
+    "texto": "Başını nazikçe eğerek kulağını karşı omzuna yaklaştır."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-cervicales-con-nodding",
+    "texto": "Başını çevir ve küçük \"evet\" başı sallama hareketleri yap."
+  },
+  {
+    "clave": "ejercicio.ejDesc.retracciones-de-barbilla-chin-tucks",
+    "texto": "Boynunu hizalamak için çeneni düz bir şekilde geriye çekerek \"çift çene\" yap."
+  },
+  {
+    "clave": "ejercicio.ejDesc.isometricos-cervicales",
+    "texto": "Başını elinin karşısına doğru it, bükülmeyi önlemek için harekete direnç göster."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-y-extension-de-muneca",
+    "texto": "Kollarını uzatarak, bileğini önce tavana sonra yere doğru bük."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-munecas",
+    "texto": "Her iki bileğini de her iki yönde daireler çizerek döndür."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores",
+    "texto": "Avuç içi yukarı bakarken, diğer elinle parmaklarını vücuduna doğru it."
+  },
+  {
+    "clave": "ejercicio.ejDesc.agarre-activo-y-pasivo",
+    "texto": "Yumruklarını sıkıca sık, sonra tamamen gevşeyerek aç."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-de-munecas",
+    "texto": "Plank ya da diz üstü pozisyonunda, sadece parmak uçlarına dayanacak şekilde yüksel, sonra in."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.liberacion-miofascial-con-pelota",
+    "texto": "Ayak başına 1-2 dakika (kesintisiz hareket)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-tobillo",
+    "texto": "Ayak bileği başına her yönde 10-12 tekrar."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.recogida-de-toalla-con-dedos",
+    "texto": "Ayak başına 10-15 tekrar (buruştur ve bırak)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-dorsiflexion",
+    "texto": "Bacak başına 15-30 saniye tut, 2-4 set yap."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.elevacion-de-talones-unipodal",
+    "texto": "Bacak başına 10-15 tekrar."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-en-descarga",
+    "texto": "Bacak başına 8-10 tekrar."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "Bacak başına 20 saniye tut."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadilla-isometrica-wall-squat",
+    "texto": "5-15 saniye tut, ayağa kalk ve tekrarla (3-5 kez)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.equilibrio-unipodal-single-leg-balance",
+    "texto": "Bacak başına 15-60 saniye tut (2-3 kez tekrarla)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadillas-del-arquero",
+    "texto": "Yanları değiştirerek 15 tekrar."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estocadas-lunges",
+    "texto": "Bacak başına 8-12 tekrar."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.movilidad-90-90",
+    "texto": "Taraf başına 8-12 tekrar (yaklaşık 1-2 dakika)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.el-puente-glute-bridge",
+    "texto": "15 tekrar (her birinde tepe noktasında 2-3 saniye tut)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores-en-estocada",
+    "texto": "Bacak başına 20 saniye tut."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.abduccion-lateral-de-cadera",
+    "texto": "Taraf başına 10-15 tekrar, tepe noktasında birkaç saniye tut."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadilla-profunda-con-apertura",
+    "texto": "15 açma tekrarı."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.balanceo-dinamico-de-piernas",
+    "texto": "Bacak başına 8-10 tekrar."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.postura-gato-vaca",
+    "texto": "Kesintisiz 1 dakika (veya 10-15 nefes)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.torsiones-lumbares-suaves",
+    "texto": "Taraf başına 10-15 tekrar."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.pointer-bird-dog",
+    "texto": "Bir tarafta 30 saniye tut, sonra değiştir."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.plancha-frontal-isometricos",
+    "texto": "Seviyene göre 15-60 saniye tut."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.roll-down-curl-jefferson",
+    "texto": "15 yavaş tekrar."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-lumbar-boca-abajo",
+    "texto": "Kesintisiz 1 dakika."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotacion-toracica",
+    "texto": "Taraf başına 30 saniye."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.retraccion-escapular",
+    "texto": "8-10 tekrar, her seferinde kasılmayı 5-10 saniye tut."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.angeles-de-pared-wall-angels",
+    "texto": "10-15 yavaş tekrar."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.lunge-con-apertura-de-pectoral",
+    "texto": "Her tarafta 15 tekrar."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-dorsal-en-pared",
+    "texto": "20 saniye tut."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.el-gato-y-la-mesa",
+    "texto": "Nefesinle uyumlu 15 tekrar."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-hombros",
+    "texto": "8-10 tekrar (ileri ve geri)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-pecho-pectoral",
+    "texto": "15-20 saniye tut."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.dislocaciones-con-goma-o-palo",
+    "texto": "10-15 tekrar."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotacion-externa-con-banda",
+    "texto": "8-12 tekrar."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.thread-the-needle-enhebrar-aguja",
+    "texto": "Taraf başına 15-30 saniye tut (2-3 set)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotaciones-y-medios-circulos",
+    "texto": "Yön başına 8-10 tekrar."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-trapecio-superior",
+    "texto": "Taraf başına 15-30 saniye tut."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotaciones-cervicales-con-nodding",
+    "texto": "Taraf başına 8-12 tekrar."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.retracciones-de-barbilla-chin-tucks",
+    "texto": "10-15 tekrar, pozisyonu 5-10 saniye tut."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.isometricos-cervicales",
+    "texto": "8-12 tekrar (gerilimi 5-10 saniye tut)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-de-muneca",
+    "texto": "10-12 tekrar."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-munecas",
+    "texto": "Yön başına 10-15 daire."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores",
+    "texto": "15-30 saniye tut."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.agarre-activo-y-pasivo",
+    "texto": "10-15 tekrar."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.plancha-de-munecas",
+    "texto": "8-12 tekrar."
+  },
+  {
+    "clave": "ejercicio.dificultad.baja",
+    "texto": "Düşük"
+  },
+  {
+    "clave": "ejercicio.dificultad.media",
+    "texto": "Orta"
+  },
+  {
+    "clave": "ejercicio.dificultad.alta",
+    "texto": "Yüksek"
+  },
+  {
+    "clave": "ejercicio.dificultad.mediaAlta",
+    "texto": "Orta / Yüksek"
+  },
+  {
+    "clave": "ejercicio.rut.full-body",
+    "texto": "Tüm vücut"
+  },
+  {
+    "clave": "ejercicio.rut.tren-superior",
+    "texto": "Üst vücut"
+  },
+  {
+    "clave": "ejercicio.rut.tren-inferior",
+    "texto": "Alt vücut"
+  },
+  {
+    "clave": "ejercicio.rut.push-pecho-y-triceps",
+    "texto": "İtme · Göğüs ve Triceps"
+  },
+  {
+    "clave": "ejercicio.rut.pull-espalda-y-biceps",
+    "texto": "Çekme · Sırt ve Biceps"
+  },
+  {
+    "clave": "ejercicio.rut.legs-pierna-completa",
+    "texto": "Bacak · Tam bacak"
+  },
+  {
+    "clave": "ejercicio.rut.hiit-20-min",
+    "texto": "HIIT 20 dk"
+  },
+  {
+    "clave": "ejercicio.rut.carrera-continua",
+    "texto": "Sabit tempo koşu"
+  },
+  {
+    "clave": "ejercicio.rut.caminata-inclinada",
+    "texto": "Eğimli yürüyüş"
+  },
+  {
+    "clave": "ejercicio.rut.bike-tempo",
+    "texto": "Bisiklet tempo"
+  },
+  {
+    "clave": "ejercicio.rut.triatlon-sprint",
+    "texto": "Sprint triatlon"
+  },
+  {
+    "clave": "ejercicio.rut.movilidad-matutina",
+    "texto": "Sabah Mobilitesi"
+  },
+  {
+    "clave": "ejercicio.rut.yoga-flow",
+    "texto": "Yoga Flow"
+  },
+  {
+    "clave": "ejercicio.rut.cadera-y-piernas",
+    "texto": "Kalça ve bacaklar"
+  },
+  {
+    "clave": "ejercicio.rut.estiramiento-post-entreno",
+    "texto": "Antrenman sonrası esneme"
+  },
+  {
+    "clave": "ejercicio.rut.espalda-y-hombros",
+    "texto": "Sırt ve omuzlar"
+  },
+  {
+    "clave": "ejercicio.rut.cuello-y-oficina",
+    "texto": "Boyun ve ofis molası"
+  },
+  {
+    "clave": "ejercicio.rut.antes-de-dormir",
+    "texto": "Uyumadan önce"
+  },
+  {
+    "clave": "ejercicio.rutDesc.full-body",
+    "texto": "Tüm vücut için kuvvet devresi."
+  },
+  {
+    "clave": "ejercicio.rutDesc.tren-superior",
+    "texto": "Tek seansta göğüs, sırt, omuz ve kollar."
+  },
+  {
+    "clave": "ejercicio.rutDesc.tren-inferior",
+    "texto": "Bacaklar ve kalça kasları için tam antrenman."
+  }
 ]

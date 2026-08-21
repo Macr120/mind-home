@@ -1,46 +1,878 @@
 [
   {
-    "clave": "tut.esencial.titulo",
-    "texto": "Temel Bilgiler"
+    "clave": "hoy.casa.personales",
+    "texto": "Kişisel"
   },
   {
-    "clave": "tut.tipo.ejemplos",
-    "texto": "Örnekler · demo ev"
+    "clave": "hoy.irApp",
+    "texto": "Kaydetmek için uygulamaya git"
   },
   {
-    "clave": "tut.app-agenda--esencial.resumen",
-    "texto": "Ajanda, alışkanlık olmayan her şeyi üç bölümde tutar: İş (yapılacaklar ve pano), Sağlık (doktor randevuları, ilaçlar ve bakım — seninkiler, yakınlarınınkiler ve evcil hayvanlarınkiler) ve Kişiler (kişi listesi ve doğum günleri). Tarihi olan her şey kendiliğinden takvime düşer."
+    "clave": "hoy.nada",
+    "texto": "Bu uygulamada henüz kendine bir şey belirlemedin."
   },
   {
-    "clave": "tut.calendario--esencial.resumen",
-    "texto": "Takvim ayrı bir oda değildir: evin saatinde yaşar ve tarihi ve saati olan her şeyi toplar — senin elle oluşturduklarını ve diğer uygulamaların kendiliğinden planladıklarını. Ona bakmanın dört yolu var: saat ızgarasında Gün ve Hafta, genel görünüm için Ay ve Yıl. Görevler ayrı durur — tüm uygulamaların bugünkü kontrol listesini bir araya getiren kırmızı buton."
+    "clave": "hoy.metas.titulo",
+    "texto": "Hedefler"
   },
   {
-    "clave": "tut.app-anecdotario--esencial.resumen",
-    "texto": "Anı defterin, kişisel günlüğündür: ruh hali, metin ve fotoğraflarla kendiliğinden tarihe göre kaydedilen kayıtlar. Takvim her günü ruh haline göre renklendirir, geçmiş ise bunları yıl, ay ve haftaya göre klasörlere ayırır."
+    "clave": "hoy.metas.vencida",
+    "texto": "gecikmiş"
   },
   {
-    "clave": "tut.app-biblioteca--esencial.resumen",
-    "texto": "Kütüphane, kişisel ansiklopedin, dört bölümde: Sohbetler (Bilge'ye sorular sorarsın ve her konuşma kendiliğinden arşivlenip bir maddeye dönüşür), Ansiklopedi (öğrendiklerinin yaşadığı ağaç, bilgi alanına göre), Çalışma (basit ya da pomodoro zamanlayıcı, her oturumu kaydeder) ve Genel bakış (ne kadar yazdığın ve ne kadar çalıştığın)."
+    "clave": "hoy.metas.faltan",
+    "texto": "{n} g"
   },
   {
-    "clave": "tut.app-cocina--esencial.resumen",
-    "texto": "Mutfağın iki bölümü var. Tarif defteri pişireceğin şeyleri tutar: makrolarıyla tariflerin, onları gruplayan diyetler ve market listesi. Beslenme, dört adımda ne yediğinin hesabını tutar: kalori ve kilo hedeflerin, günün kaydı, önümüzdeki günlerin öğün planı ve ilerleme."
+    "clave": "objetivos.anadir",
+    "texto": "Görev ekle"
   },
   {
-    "clave": "tut.app-computo--esencial.resumen",
-    "texto": "Bilgi İşlem'in iki bölümü var. Hesap Makinesi her zamanki hesapları yapar ve grafik çizmek, sayı tabanları, matrisler, denklem sistemleri, birimler, bahşiş ve üçlü kural için mod değiştirir; ona bağlı olan Formül Defteri, Matematik, Fizik ve Kimyanın zaten yüklü olduğu formül kitabındır. E-Tablolar tablo halindeki her şeyi yürütür, anlaşılır formüllerle ve Excel veya PDF'e aktarımla."
+    "clave": "objetivos.responsable",
+    "texto": "{quien} burada olanları sana hatırlatıyor."
   },
   {
-    "clave": "tut.app-descanso--esencial.resumen",
-    "texto": "Dinlenme, nasıl uyuduğunu tek bir ekranda gösterir: son gecenin puanı, hatırlatıcılarıyla programın, günlük kayıt ve yıl, ay ve haftaya göre tam geçmiş."
+    "clave": "objetivos.nuevo.deQueApp",
+    "texto": "Görev ne hakkında?"
   },
   {
-    "clave": "tut.app-despacho--esencial.resumen",
-    "texto": "Çalışma Odası, paranı dört bölümde düzenler. Net değer, sahip olduğun ve borçlu olduğun şeyleri projeksiyonuyla tutar; Nakit akışı, dönemin giderlerini, gelirlerini ve bakiyesini bütçe ve kategorilerle birlikte tutar; Hedefler, tasarruf, yatırım ve borcu bir araya getirir, ayrıca bir tutar öneren hesaplayıcılarla. Piyasalar sadece görüntülemek için canlı fiyat panosudur."
+    "clave": "objetivos.nuevo.responsable",
+    "texto": "Bunu sana ben hatırlatacağım. Neyi hedefliyorsun?"
   },
   {
-    "clave": "tut.app-diario--esencial.resumen",
-    "texto": "Günlük Haberler, geçici bir gazetedir: kategoriye göre gerçek basın manşetleri ve gece yarısı kendiliğinden yenilenen «Bugün tarihte». Teslimat bölümünden bir asistanın bunu kendi sohbetinde sana getirmesini ayarlayabilirsin."
+    "clave": "objetivos.nuevo.personal",
+    "texto": "Kişisel görev, hiçbir uygulamaya bağlı değil."
+  },
+  {
+    "clave": "objetivos.nuevo.personales",
+    "texto": "Kişisel"
+  },
+  {
+    "clave": "objetivos.nuevo.poner",
+    "texto": "＋"
+  },
+  {
+    "clave": "objetivos.nuevo.todos",
+    "texto": "Bu uygulamadaki her şeyi zaten hedefledin."
+  },
+  {
+    "clave": "objetivos.nuevo.otro",
+    "texto": "Başka bir görev…"
+  },
+  {
+    "clave": "objetivos.nuevo.otroPlaceholder",
+    "texto": "Neyi hedefliyorsun?"
+  },
+  {
+    "clave": "objetivos.nuevo.checklist",
+    "texto": "Birden fazla adıma mı ihtiyacın var? Yeni kontrol listesi"
+  },
+  {
+    "clave": "objetivos.nuevo.dias",
+    "texto": "Hangi günler?"
+  },
+  {
+    "clave": "objetivos.nuevo.faltanDias",
+    "texto": "En az bir gün seç."
+  },
+  {
+    "clave": "objetivos.nuevo.cantidad",
+    "texto": "Ne kadar?"
+  },
+  {
+    "clave": "objetivos.nuevo.meta",
+    "texto": "Hangi hedef için?"
+  },
+  {
+    "clave": "objetivos.nuevo.sinMeta",
+    "texto": "Hiçbiri (bağımsız)"
+  },
+  {
+    "clave": "objetivos.nuevo.mientrasDure",
+    "texto": "Sadece {ini} - {fin} arasında, hedef sürdüğü sürece."
+  },
+  {
+    "clave": "objetivos.nuevo.hora",
+    "texto": "Belirli bir saatte mi?"
+  },
+  {
+    "clave": "objetivos.nuevo.sinHora",
+    "texto": "Saatsiz"
+  },
+  {
+    "clave": "objetivos.nuevo.anadir",
+    "texto": "Ekle"
+  },
+  {
+    "clave": "objetivos.nuevo.cancelar",
+    "texto": "İptal"
+  },
+  {
+    "clave": "objetivos.nuevo.cambiar",
+    "texto": "Asistanı değiştir"
+  },
+  {
+    "clave": "objetivos.nuevo.nadie",
+    "texto": "Asistansız"
+  },
+  {
+    "clave": "avisos.objetivos",
+    "texto": "{app} içinde {n} görevin kaldı."
+  },
+  {
+    "clave": "biblioteca.nodo.filosofia",
+    "texto": "Felsefe ve düşünce"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.filosofia",
+    "texto": "Gerçeklik, bilgi, zihin ve ahlak üzerine temel sorular."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-metafisica",
+    "texto": "Metafizik ve ontoloji"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-ser",
+    "texto": "Varlık ve varoluş"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-ser",
+    "texto": "Bir şeyin var olmasının ne anlama geldiği."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-mente",
+    "texto": "Zihin ve bilinç"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-mente",
+    "texto": "Zihin-beden sorunu ve fenomenoloji."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-libre",
+    "texto": "Özgürlük ve determinizm"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-libre",
+    "texto": "Özgür müyüz, yoksa her şeyin bir nedeni mi var?"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-epistemologia",
+    "texto": "Epistemoloji"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-conocimiento",
+    "texto": "Bilgi kuramı"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-conocimiento",
+    "texto": "Gerekçelendirme, doğruluk ve inanç."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-ciencia-fil",
+    "texto": "Bilim felsefesi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-ciencia-fil",
+    "texto": "Yöntem, paradigmalar ve sınır çizimi."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-escepticismo",
+    "texto": "Şüphecilik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-escepticismo",
+    "texto": "Bilebileceklerimizin sınırları."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-etica",
+    "texto": "Etik ve siyaset felsefesi"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-moral",
+    "texto": "Ahlak kuramları"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-moral",
+    "texto": "Deontoloji, faydacılık, erdem."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-justicia",
+    "texto": "Sosyal adalet"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-justicia",
+    "texto": "Eşitlik, haklar ve ortak iyi."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-bioetica",
+    "texto": "Biyoetik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-bioetica",
+    "texto": "Yaşam, tıp ve uygulamalı teknoloji."
+  },
+  {
+    "clave": "biblioteca.nodo.matematicas",
+    "texto": "Matematik ve mantık"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.matematicas",
+    "texto": "Soyut yapılar, biçimsel akıl yürütme ve nicel modeller."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-puras",
+    "texto": "Saf matematik"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-algebra",
+    "texto": "Cebir"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-algebra",
+    "texto": "Yapılar, denklemler ve simetriler."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-analisis",
+    "texto": "Analiz"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-analisis",
+    "texto": "Limitler, süreklilik ve kalkülüs."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-geometria",
+    "texto": "Geometri ve topoloji"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-geometria",
+    "texto": "Şekiller, uzaylar ve dönüşümler."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-aplicadas",
+    "texto": "Uygulamalı matematik"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-prob",
+    "texto": "Olasılık"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-prob",
+    "texto": "Belirsizlik ve rastgele olaylar."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-stats",
+    "texto": "İstatistik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-stats",
+    "texto": "Veri, çıkarım ve modeller."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-discreta",
+    "texto": "Ayrık matematik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-discreta",
+    "texto": "Kombinatorik, çizgeler ve özyineleme."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-logica",
+    "texto": "Mantık"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-log-formal",
+    "texto": "Biçimsel mantık"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-log-formal",
+    "texto": "Önermeler, yüklemler ve ispat."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-log-comput",
+    "texto": "Hesaplamalı mantık"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-log-comput",
+    "texto": "Algoritmalar, karmaşıklık ve doğrulama."
+  },
+  {
+    "clave": "biblioteca.nodo.naturales",
+    "texto": "Doğa bilimleri"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.naturales",
+    "texto": "Fiziksel evrenin yasaları, madde, enerji ve canlı sistemler."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-fisica",
+    "texto": "Fizik"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-mecanica",
+    "texto": "Klasik mekanik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-mecanica",
+    "texto": "Hareket, kuvvetler ve enerji."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-cuantica",
+    "texto": "Kuantum fiziği"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-cuantica",
+    "texto": "Parçacıklar, dalgalar ve olasılık."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-relatividad",
+    "texto": "Görelilik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-relatividad",
+    "texto": "Uzay-zaman ve kozmoloji."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-termodinamica",
+    "texto": "Termodinamik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-termodinamica",
+    "texto": "Isı, entropi ve denge."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-quimica",
+    "texto": "Kimya"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-org",
+    "texto": "Organik kimya"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-org",
+    "texto": "Karbon, biyomoleküller ve tepkimeler."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-inorg",
+    "texto": "İnorganik kimya"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-inorg",
+    "texto": "Elementler, bağlar ve malzemeler."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-fisicoquim",
+    "texto": "Fizikokimya"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-fisicoquim",
+    "texto": "Tepkimelerde enerji ve denge."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-biologia",
+    "texto": "Biyoloji"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-celula",
+    "texto": "Hücre biyolojisi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-celula",
+    "texto": "Hücreler, metabolizma ve sinyalleşme."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-genetica",
+    "texto": "Genetik ve evrim"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-genetica",
+    "texto": "DNA, doğal seçilim ve filogeni."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-ecologia",
+    "texto": "Ekoloji"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-ecologia",
+    "texto": "Ekosistemler, biyoçeşitlilik ve döngüler."
+  },
+  {
+    "clave": "biblioteca.nodo.tierra",
+    "texto": "Yer bilimleri"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tierra",
+    "texto": "Gezegen, atmosfer, okyanuslar ve jeolojik süreçler."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-geologia",
+    "texto": "Jeoloji ve jeofizik"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-placas",
+    "texto": "Levha tektoniği"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-placas",
+    "texto": "Yer şekillerinin oluşumu ve depremler."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-minerales",
+    "texto": "Mineraloji"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-minerales",
+    "texto": "Kayaçlar, mineraller ve kaynaklar."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-paleont",
+    "texto": "Paleontoloji"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-paleont",
+    "texto": "Fosiller ve yaşamın tarihi."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-clima",
+    "texto": "İklim ve atmosfer"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-meteorologia",
+    "texto": "Meteoroloji"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-meteorologia",
+    "texto": "Hava durumu, basınç ve yağış."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-climatologia",
+    "texto": "Klimatoloji"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-climatologia",
+    "texto": "Uzun vadeli örüntüler ve iklim değişikliği."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-oceanos",
+    "texto": "Oşinografi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-oceanos",
+    "texto": "Akıntılar, denizler ve kıyılar."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-espacial",
+    "texto": "Coğrafya ve mekân"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-cartografia",
+    "texto": "Kartografya"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-cartografia",
+    "texto": "Haritalar, koordinatlar ve CBS."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-geomorf",
+    "texto": "Jeomorfoloji"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-geomorf",
+    "texto": "Yeryüzü şekilleri ve erozyon."
+  },
+  {
+    "clave": "biblioteca.nodo.sociales",
+    "texto": "Sosyal bilimler"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sociales",
+    "texto": "Toplumlar, ekonomiler, kurumlar ve toplu insan davranışı."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-sociologia",
+    "texto": "Sosyoloji ve antropoloji"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-estructura",
+    "texto": "Toplumsal yapı"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-estructura",
+    "texto": "Sınıflar, ağlar ve eşitsizlik."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-cultura",
+    "texto": "Kültürel antropoloji"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-cultura",
+    "texto": "Ritüeller, kimlik ve semboller."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-urbano",
+    "texto": "Kentsel çalışmalar"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-urbano",
+    "texto": "Kent, göç ve bölge."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-economia",
+    "texto": "Ekonomi"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-micro",
+    "texto": "Mikroekonomi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-micro",
+    "texto": "Arz, talep ve kararlar."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-macro",
+    "texto": "Makroekonomi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-macro",
+    "texto": "GSYH, enflasyon ve maliye politikası."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-comercio",
+    "texto": "Uluslararası ticaret"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-comercio",
+    "texto": "Küreselleşme ve değer zincirleri."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-politica",
+    "texto": "Siyaset bilimi"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-estado",
+    "texto": "Devlet ve yönetim"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-estado",
+    "texto": "İktidar, yasalar ve demokrasi."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-derechos",
+    "texto": "İnsan hakları"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-derechos",
+    "texto": "Özgürlükler, adalet ve vatandaşlık."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-relaciones",
+    "texto": "Uluslararası ilişkiler"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-relaciones",
+    "texto": "Diplomasi, çatışma ve iş birliği."
+  },
+  {
+    "clave": "biblioteca.nodo.psicologia",
+    "texto": "Psikoloji ve insan zihni"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psicologia",
+    "texto": "Biliş, duygu, gelişim ve psikolojik iyi oluş."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-cognitiva",
+    "texto": "Bilişsel psikoloji"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-percepcion",
+    "texto": "Algı ve dikkat"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-percepcion",
+    "texto": "Uyaranları nasıl işlediğimiz."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-memoria",
+    "texto": "Bellek ve öğrenme"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-memoria",
+    "texto": "Kodlama, hatırlama ve unutma."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-lenguaje-psi",
+    "texto": "Psikodilbilim"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-lenguaje-psi",
+    "texto": "Dil edinimi ve dil işleme."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-desarrollo",
+    "texto": "Gelişim ve kişilik"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-infancia",
+    "texto": "Çocuk gelişimi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-infancia",
+    "texto": "Bilişsel ve sosyal gelişim aşamaları."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-personalidad",
+    "texto": "Kişilik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-personalidad",
+    "texto": "Özellikler, mizaçlar ve modeller."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-social-psi",
+    "texto": "Sosyal psikoloji"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-social-psi",
+    "texto": "Gruplar, tutumlar ve uyma davranışı."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-clinica",
+    "texto": "Ruh sağlığı"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-clinica-gen",
+    "texto": "Klinik psikoloji"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-clinica-gen",
+    "texto": "Bozukluklar, tanı ve terapi."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-neuropsi",
+    "texto": "Nöropsikoloji"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-neuropsi",
+    "texto": "Beyin, yaralanma ve rehabilitasyon."
+  },
+  {
+    "clave": "biblioteca.nodo.humanidades",
+    "texto": "Beşeri bilimler ve tarih"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.humanidades",
+    "texto": "Zaman, düşünce ve kültürel miras boyunca insan deneyimi."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-historia",
+    "texto": "Tarih"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-antigua",
+    "texto": "Antik tarih"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-antigua",
+    "texto": "Klasik uygarlıklar ve kökenler."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-moderna",
+    "texto": "Modern ve güncel tarih"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-moderna",
+    "texto": "Devrimler, devletler ve küreselleşme."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-metodo",
+    "texto": "Tarihyazımı"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-metodo",
+    "texto": "Kaynaklar, yorum ve tartışma."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-religion",
+    "texto": "Din ve mitoloji"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-comparada",
+    "texto": "Karşılaştırmalı dinler tarihi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-comparada",
+    "texto": "Gelenekler, metinler ve uygulamalar."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-mito",
+    "texto": "Mitoloji"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-mito",
+    "texto": "Kurucu anlatılar ve arketipler."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-patrimonio",
+    "texto": "Miras ve kültür çalışmaları"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-museos",
+    "texto": "Somut miras"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-museos",
+    "texto": "Müzeler, koruma ve eserler."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-memoria",
+    "texto": "Kolektif hafıza"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-memoria",
+    "texto": "Tanıklık, arşivler ve unutma."
+  },
+  {
+    "clave": "biblioteca.nodo.lengua",
+    "texto": "Dil ve edebiyat"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.lengua",
+    "texto": "İletişim, metinler, dilsel çözümleme ve yazılı gelenek."
+  },
+  {
+    "clave": "biblioteca.nodo.len-linguistica",
+    "texto": "Dilbilim"
+  },
+  {
+    "clave": "biblioteca.nodo.len-fonetica",
+    "texto": "Sesbilgisi ve sesbilim"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-fonetica",
+    "texto": "Sesler ve sesbilimsel dizgeler."
+  },
+  {
+    "clave": "biblioteca.nodo.len-sintaxis",
+    "texto": "Sözdizimi ve biçimbilim"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-sintaxis",
+    "texto": "Cümle ve sözcük yapısı."
+  },
+  {
+    "clave": "biblioteca.nodo.len-semantica",
+    "texto": "Anlambilim ve edimbilim"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-semantica",
+    "texto": "Bağlam içinde anlam."
+  },
+  {
+    "clave": "biblioteca.nodo.len-literatura",
+    "texto": "Edebiyat"
+  },
+  {
+    "clave": "biblioteca.nodo.len-generos",
+    "texto": "Edebi türler"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-generos",
+    "texto": "Roman, şiir, tiyatro ve deneme."
+  },
+  {
+    "clave": "biblioteca.nodo.len-teoria-lit",
+    "texto": "Edebiyat kuramı"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-teoria-lit",
+    "texto": "Eleştiri, anlatıbilim ve kanonlar."
+  },
+  {
+    "clave": "biblioteca.nodo.len-mundo",
+    "texto": "Dünya edebiyatları"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-mundo",
+    "texto": "Bölgesel gelenekler ve çeviri."
+  },
+  {
+    "clave": "biblioteca.nodo.len-comunicacion",
+    "texto": "İletişim"
+  },
+  {
+    "clave": "biblioteca.nodo.len-periodismo",
+    "texto": "Gazetecilik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-periodismo",
+    "texto": "Haberler, doğrulama ve yorum."
+  },
+  {
+    "clave": "biblioteca.nodo.len-retorica",
+    "texto": "Retorik ve argümantasyon"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-retorica",
+    "texto": "İkna ve kamusal tartışma."
+  },
+  {
+    "clave": "biblioteca.nodo.idiomas",
+    "texto": "Diller"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idiomas",
+    "texto": "Yabancı dil öğrenimi: kelime bilgisi, dil bilgisi, telaffuz ve pratik."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-aprendizaje",
+    "texto": "Öğrenmenin temelleri"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-vocabulario",
+    "texto": "Kelime bilgisi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-vocabulario",
+    "texto": "Yararlı kelime ve ifadelerin edinimi ve tekrarı."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-gramatica",
+    "texto": "Dil bilgisi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-gramatica",
+    "texto": "Yapılar, fiil zamanları ve karşılaştırmalı sözdizimi."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-pronunciacion",
+    "texto": "Telaffuz ve dinleme"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-pronunciacion",
+    "texto": "Sesbilgisi, aksan ve dinlediğini anlama."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-lenguas",
+    "texto": "Dünya dilleri"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-ingles",
+    "texto": "İngilizce"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-ingles",
+    "texto": "Küresel ortak dil."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-romances",
+    "texto": "Roman dilleri"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-romances",
+    "texto": "Fransızca, İtalyanca, Portekizce ve akraba dilleri."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-asiaticas",
+    "texto": "Asya dilleri"
   }
 ]

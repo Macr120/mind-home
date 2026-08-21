@@ -1,668 +1,338 @@
 [
   {
-    "clave": "ejercicio.cronograma.desc",
-    "es": "Tus metas grandes sobre el eje del tiempo. Con ✨ la IA te arma el plan y te sugiere cuáles de tus rutinas agendar.",
-    "en": "Your big goals on the time axis. With ✨ the AI builds the plan and suggests which of your routines to schedule."
+    "clave": "ejercicio.ejDesc.curl-martillo",
+    "en": "With a neutral grip (palms facing each other), curl the dumbbells up to work the forearm."
   },
   {
-    "clave": "sala.tab.cronograma",
-    "en": "Goals"
+    "clave": "ejercicio.ejDesc.curl-predicador",
+    "en": "With your arm resting on the bench, bend your elbow to isolate the biceps."
   },
   {
-    "clave": "avisos.rutinaPasos",
-    "es": "Te tocan {n} pasos.",
-    "en": "You have {n} steps to do."
+    "clave": "ejercicio.ejDesc.curl-concentrado",
+    "en": "Seated, rest your elbow on your thigh and curl the dumbbell up, focusing on the contraction."
   },
   {
-    "clave": "avisos.rutinaHora",
-    "es": "Es la hora.",
-    "en": "It's time."
+    "clave": "ejercicio.ejDesc.extension-triceps-en-polea",
+    "en": "Standing at a high pulley, push the bar down, extending your elbows."
   },
   {
-    "clave": "avisos.abrir",
-    "es": "Abrir",
-    "en": "Open"
+    "clave": "ejercicio.ejDesc.press-frances",
+    "en": "Lying down, lower the bar toward your forehead and extend your elbows without moving them."
   },
   {
-    "clave": "avisos.metaFalta",
-    "es": "Llevas {hecho} de {objetivo}.",
-    "en": "You're at {hecho} of {objetivo}."
+    "clave": "ejercicio.ejDesc.fondos-entre-bancos",
+    "en": "With your hands on a bench, lower your body by bending your elbows, then push back up."
   },
   {
-    "clave": "notif.titulo",
-    "es": "Notificaciones",
-    "en": "Notifications"
+    "clave": "ejercicio.ejDesc.extension-sobre-cabeza",
+    "en": "Raise a dumbbell behind your head and extend your elbows upward."
   },
   {
-    "clave": "notif.general",
-    "es": "Avisarme",
-    "en": "Notify me"
+    "clave": "ejercicio.ejDesc.patada-de-triceps",
+    "en": "Bent over with your elbow high, extend your forearm backward."
   },
   {
-    "clave": "notif.rutinas",
-    "es": "Eventos y rutinas con hora",
-    "en": "Timed events and routines"
+    "clave": "ejercicio.ejDesc.sentadilla",
+    "en": "With the bar on your back, lower your hips until your thighs are parallel and stand back up."
   },
   {
-    "clave": "notif.metas",
-    "es": "Metas del día sin cumplir",
-    "en": "Unmet daily goals"
+    "clave": "ejercicio.ejDesc.sentadilla-frontal",
+    "en": "With the bar in front, squat down while keeping your torso upright."
   },
   {
-    "clave": "notif.porApp",
-    "es": "Por app",
-    "en": "Per app"
+    "clave": "ejercicio.ejDesc.sentadilla-bulgara",
+    "en": "With one foot elevated behind you, lower your front leg to 90 degrees."
   },
   {
-    "clave": "notif.denegado",
-    "es": "El navegador tiene bloqueadas las notificaciones de este sitio: solo puedes desbloquearlas desde su candado. Mientras tanto, los avisos te llegan por tu asistente.",
-    "en": "Your browser has blocked notifications for this site: only you can unblock them from its padlock. Meanwhile, your assistant still delivers the reminders."
+    "clave": "ejercicio.ejDesc.prensa-de-pierna",
+    "en": "On the machine, push the platform by extending your legs without locking your knees."
   },
   {
-    "clave": "notif.noSoportado",
-    "es": "Este navegador no tiene notificaciones; los avisos te llegan por tu asistente.",
-    "en": "This browser has no notifications; your assistant delivers the reminders instead."
+    "clave": "ejercicio.ejDesc.zancadas",
+    "en": "Step forward and lower your back knee almost to the floor, alternating sides."
   },
   {
-    "clave": "horario.agendar",
-    "es": "Agendar",
-    "en": "Schedule"
+    "clave": "ejercicio.ejDesc.peso-muerto",
+    "en": "With a straight back, lift the bar off the floor by extending your hips and knees."
   },
   {
-    "clave": "horario.titulo",
-    "es": "Horario",
-    "en": "Schedule"
+    "clave": "ejercicio.ejDesc.peso-muerto-rumano",
+    "en": "Lower the bar close to your legs by hinging at the hips, with knees nearly straight."
   },
   {
-    "clave": "horario.plegar",
-    "es": "Listo",
-    "en": "Done"
+    "clave": "ejercicio.ejDesc.curl-femoral",
+    "en": "On the machine, bend your knees, bringing your heels toward your glutes."
   },
   {
-    "clave": "horario.hora",
-    "es": "Hora",
-    "en": "Time"
+    "clave": "ejercicio.ejDesc.extension-de-cuadriceps",
+    "en": "Seated on the machine, extend your knees, raising the weight with control."
   },
   {
-    "clave": "horario.frecuencia",
-    "es": "Frecuencia",
-    "en": "Repeats"
+    "clave": "ejercicio.ejDesc.elevacion-de-talones",
+    "en": "Standing with weight, raise your heels, contracting your calves."
   },
   {
-    "clave": "horario.dias",
-    "es": "Días",
-    "en": "Days"
+    "clave": "ejercicio.ejDesc.hip-thrust",
+    "en": "With your upper back on the bench, drive your hips up, squeezing your glutes."
   },
   {
-    "clave": "horario.sinDias",
-    "es": "Sin marcar ninguno: todos los días.",
-    "en": "None checked: every day."
+    "clave": "ejercicio.ejDesc.puente-de-gluteo",
+    "en": "Lying down, raise your hips until your shoulders, hips, and knees are aligned."
   },
   {
-    "clave": "horario.sinHora",
-    "es": "Sin hora",
-    "en": "No time"
+    "clave": "ejercicio.ejDesc.patada-de-gluteo-en-polea",
+    "en": "On all fours or standing, kick your leg back, squeezing your glute."
   },
   {
-    "clave": "horario.todosDias",
-    "es": "todos los días",
-    "en": "every day"
+    "clave": "ejercicio.ejDesc.abduccion-de-cadera",
+    "en": "Seated or lying on your side, open your legs against resistance."
   },
   {
-    "clave": "horario.avisar",
-    "es": "Avisarme a su hora",
-    "en": "Remind me at that time"
+    "clave": "ejercicio.ejDesc.plancha",
+    "en": "Resting on your forearms, keep your body straight without letting your hips sag."
   },
   {
-    "clave": "horario.avisar.hint",
-    "es": "Te llegará una notificación.",
-    "en": "You'll get a notification."
+    "clave": "ejercicio.ejDesc.plancha-lateral",
+    "en": "On your side resting on one forearm, keep your hips raised and aligned."
   },
   {
-    "clave": "horario.avisar.hintSinPermiso",
-    "es": "Te avisaremos dentro de la app.",
-    "en": "We'll remind you inside the app."
+    "clave": "ejercicio.ejDesc.crunch-abdominal",
+    "en": "Lying down, raise your shoulders by contracting your abs without pulling on your neck."
   },
   {
-    "clave": "horario.avisar.on",
-    "es": "Sí",
-    "en": "Yes"
+    "clave": "ejercicio.ejDesc.elevacion-de-piernas",
+    "en": "Lying down or hanging, raise your straight legs, controlling the descent."
   },
   {
-    "clave": "horario.avisar.off",
-    "es": "No",
-    "en": "No"
+    "clave": "ejercicio.ejDesc.russian-twist",
+    "en": "Seated with your torso leaning back, rotate your trunk from side to side."
   },
   {
-    "clave": "horario.hechoHoy",
-    "es": "Hecho hoy",
-    "en": "Done today"
+    "clave": "ejercicio.ejDesc.rueda-abdominal",
+    "en": "Kneeling, roll forward without arching your back, then return."
   },
   {
-    "clave": "horario.masOpciones",
-    "es": "Más opciones ›",
-    "en": "More options ›"
+    "clave": "ejercicio.ejDesc.escaladores",
+    "en": "In plank position, drive your knees to your chest, alternating quickly."
   },
   {
-    "clave": "horario.quitar",
-    "es": "Quitar",
-    "en": "Remove"
+    "clave": "ejercicio.ejDesc.carrera",
+    "en": "Steady pace in zone 2-3, light footstrike and upright posture."
   },
   {
-    "clave": "rutinas.avisar",
-    "es": "Avisarme a su hora",
-    "en": "Remind me at that time"
+    "clave": "ejercicio.ejDesc.trote-suave",
+    "en": "A comfortable pace where you can hold a conversation; ideal for long runs."
   },
   {
-    "clave": "rutinas.avisar.hint",
-    "es": "Te llegará una notificación.",
-    "en": "You'll get a notification."
+    "clave": "ejercicio.ejDesc.caminata-rapida",
+    "en": "Brisk pace with active arm swing, without breaking into a jog."
   },
   {
-    "clave": "rutinas.avisar.hintSinPermiso",
-    "es": "Te avisaremos dentro de la app.",
-    "en": "We'll remind you inside the app."
+    "clave": "ejercicio.ejDesc.ciclismo",
+    "en": "Pedal with a high cadence and moderate resistance, keeping your back relaxed."
   },
   {
-    "clave": "rutinas.avisar.on",
-    "es": "Sí",
-    "en": "Yes"
+    "clave": "ejercicio.ejDesc.senderismo",
+    "en": "Walk on natural terrain with elevation changes; let the incline set the pace."
   },
   {
-    "clave": "rutinas.avisar.off",
-    "es": "No",
-    "en": "No"
+    "clave": "ejercicio.ejDesc.trail-running",
+    "en": "Running on mountain or uneven terrain; shorten your stride on the climbs."
   },
   {
-    "clave": "avisoAct.cuerpo",
-    "en": "It's time ({hora})."
+    "clave": "ejercicio.ejDesc.caminadora",
+    "en": "Walk or run on the treadmill without holding onto the handrails."
   },
   {
-    "clave": "avisoAct.ahoraNo",
-    "es": "Ahora no",
-    "en": "Not now"
+    "clave": "ejercicio.ejDesc.caminata-inclinada",
+    "en": "Treadmill with an incline at a moderate pace: steady burn, low impact."
   },
   {
-    "clave": "avisoAct.ir",
-    "es": "Ir a registrar",
-    "en": "Go log it"
+    "clave": "ejercicio.ejDesc.eliptica",
+    "en": "Smooth motion, pushing with your arms too, with no impact on your knees."
   },
   {
-    "clave": "hobbies.registrarMin",
-    "es": "Registrar {n} min",
-    "en": "Log {n} min"
+    "clave": "ejercicio.ejDesc.bicicleta-estatica",
+    "en": "Adjust the seat to hip height and pedal at a steady cadence."
   },
   {
-    "clave": "hobbies.plan.tipo",
-    "es": "Práctica",
-    "en": "Practice"
+    "clave": "ejercicio.ejDesc.escaladora",
+    "en": "Climb steps at a steady pace, placing your whole foot down."
   },
   {
-    "clave": "hobbies.plan.ejemplo",
-    "es": "Tocar 3 canciones completas",
-    "en": "Play 3 full songs"
+    "clave": "ejercicio.ejDesc.remo-maquina",
+    "en": "Push with your legs, then pull with your back, and finish with your arms."
   },
   {
-    "clave": "hobbies.plan.ejProyecto",
-    "es": "Terminar {proyecto}",
-    "en": "Finish {proyecto}"
+    "clave": "ejercicio.ejDesc.hiit",
+    "en": "Short, all-out intervals alternated with brief rest periods."
   },
   {
-    "clave": "hobbies.plan.material",
-    "es": "Proyectos del plan",
-    "en": "Plan projects"
+    "clave": "ejercicio.ejDesc.sprints",
+    "en": "Sets at maximum speed with full recovery between reps."
   },
   {
-    "clave": "ejercicio.registrarSesion",
-    "es": "Registrar {n} min",
-    "en": "Log {n} min"
+    "clave": "ejercicio.ejDesc.saltar-cuerda",
+    "en": "Low jumps, turning the rope with your wrists, not your arms."
   },
   {
-    "clave": "ejercicio.plan.ejemplo",
-    "es": "Correr 5 km sin parar",
-    "en": "Run 5 km non-stop"
+    "clave": "ejercicio.ejDesc.burpees",
+    "en": "From standing to plank, do a push-up, jump your feet in, and jump up with arms overhead."
   },
   {
-    "clave": "ejercicio.plan.material",
-    "es": "Rutinas del plan",
-    "en": "Plan routines"
+    "clave": "ejercicio.ejDesc.circuito-metabolico",
+    "en": "Chain several exercises together without rest to keep your heart rate up."
   },
   {
-    "clave": "cocina.horarios",
-    "en": "Meal times"
+    "clave": "ejercicio.ejDesc.natacion",
+    "en": "Swim at a steady pace, coordinating your breathing with your stroke."
   },
   {
-    "clave": "cocina.plan.tipoComida",
-    "es": "Comida",
-    "en": "Meal"
+    "clave": "ejercicio.ejDesc.aqua-aerobicos",
+    "en": "Exercise in the water: resistance works your muscles without stressing your joints."
   },
   {
-    "clave": "cocina.plan.material",
-    "es": "Recetas del plan",
-    "en": "Plan recipes"
+    "clave": "ejercicio.ejDesc.caminata",
+    "en": "A calm, continuous pace; the base of your aerobic volume."
   },
   {
-    "clave": "cocina.plan.ejemplo",
-    "es": "Probar la dieta mediterránea",
-    "en": "Try the Mediterranean diet"
+    "clave": "ejercicio.ejDesc.futbol",
+    "en": "Intermittent running with changes of pace and direction."
   },
   {
-    "clave": "cocina.plan.ejBajar",
-    "es": "Bajar a {kg} kg",
-    "en": "Get down to {kg} kg"
+    "clave": "ejercicio.ejDesc.basquetbol",
+    "en": "Short sprints, jumps, and constant lateral movement."
   },
   {
-    "clave": "cocina.plan.ejSubir",
-    "es": "Subir a {kg} kg",
-    "en": "Get up to {kg} kg"
+    "clave": "ejercicio.ejDesc.tenis",
+    "en": "Explosive bursts with pauses; heavy lower-body work."
   },
   {
-    "clave": "cocina.plan.ejMantener",
-    "es": "Mantenerme en {kg} kg",
-    "en": "Stay at {kg} kg"
+    "clave": "ejercicio.ejDesc.padel",
+    "en": "Short, intense points on a small court, with lots of changes of direction."
   },
   {
-    "clave": "biblioteca.plan.ejemplo",
-    "es": "Dominar los fundamentos de estadística",
-    "en": "Master the basics of statistics"
+    "clave": "ejercicio.ejDesc.boxeo",
+    "en": "Combinations and footwork while keeping your guard up."
   },
   {
-    "clave": "biblioteca.plan.material",
-    "es": "De tu enciclopedia",
-    "en": "From your encyclopedia"
+    "clave": "ejercicio.ejDesc.baile",
+    "en": "Continuous movement to the rhythm of the music; cardio that doesn't feel like a workout."
   },
   {
-    "clave": "idiomas.plan.ejemplo",
-    "es": "Hablar con soltura en mi próximo viaje",
-    "en": "Speak with confidence on my next trip"
+    "clave": "ejercicio.ejDesc.movilidad-matutina",
+    "en": "A gentle sequence to wake up the body and loosen the joints first thing in the day."
   },
   {
-    "clave": "idiomas.plan.ejemploNivel",
-    "es": "Alcanzar nivel {nivel} de {idioma}",
-    "en": "Reach {nivel} level in {idioma}"
+    "clave": "ejercicio.ejDesc.yoga-flow",
+    "en": "Link poses with your breath in a continuous full-body flow."
   },
   {
-    "clave": "idiomas.plan.material",
-    "es": "Temas del plan",
-    "en": "Plan topics"
+    "clave": "ejercicio.ejDesc.saludo-al-sol",
+    "en": "A classic yoga series that stretches and activates the whole body in sequence."
   },
   {
-    "clave": "sala.plan.ejemplo",
-    "es": "Itinerario de 5 días en Kioto",
-    "en": "A 5-day itinerary in Kyoto"
+    "clave": "ejercicio.ejDesc.estiramiento-general",
+    "en": "Work through the major muscle groups with gentle, sustained stretches."
   },
   {
-    "clave": "sala.plan.ejLugar",
-    "es": "Itinerario de viaje a {lugar}",
-    "en": "Travel itinerary to {lugar}"
+    "clave": "ejercicio.ejDesc.guerrero-i",
+    "en": "In a lunge, raise your arms and open your chest while keeping your hips forward."
   },
   {
-    "clave": "sala.plan.material",
-    "es": "De tu lista Por conocer",
-    "en": "From your Places to see"
+    "clave": "ejercicio.ejDesc.guerrero-ii",
+    "en": "In a wide lunge, extend your arms and gaze forward while bending your front knee."
   },
   {
-    "clave": "entret.plan.ejemplo",
-    "es": "Terminar la saga de El Padrino",
-    "en": "Finish The Godfather saga"
+    "clave": "ejercicio.ejDesc.triangulo",
+    "en": "With legs apart, tilt your torso and lower one hand toward your ankle."
   },
   {
-    "clave": "entret.plan.material",
-    "es": "De tu archivo",
-    "en": "From your archive"
+    "clave": "ejercicio.ejDesc.flexion-de-pie",
+    "en": "Standing, fold your torso over your legs, releasing your neck and back."
   },
   {
-    "clave": "descanso.plan.ejemplo",
-    "es": "Dormirme en menos de 15 minutos",
-    "en": "Fall asleep in under 15 minutes"
+    "clave": "ejercicio.ejDesc.apertura-de-cadera",
+    "en": "Mobility work to release the hips and gain range of motion in the legs."
   },
   {
-    "clave": "anecdotario.plan.ejemplo",
-    "es": "Dejar contado el viaje de este año",
-    "en": "Get this year's trip written down"
+    "clave": "ejercicio.ejDesc.postura-de-la-paloma",
+    "en": "With one leg bent in front, lower your torso to open up the glute."
   },
   {
-    "clave": "jardin.plan.ejemplo",
-    "es": "Diez minutos de calma al día",
-    "en": "Ten minutes of calm a day"
+    "clave": "ejercicio.ejDesc.mariposa",
+    "en": "Seated, bring the soles of your feet together and let your knees drop out to the sides."
   },
   {
-    "clave": "ideas.plan.ejemplo",
-    "es": "Convertir una idea del diario en algo real",
-    "en": "Turn an idea from the diary into something real"
+    "clave": "ejercicio.ejDesc.estiramiento-de-isquiotibiales",
+    "en": "Stretch the back of the thigh with the knee extended."
   },
   {
-    "clave": "ideas.plan.material",
-    "es": "Ideas del plan",
-    "en": "Ideas in the plan"
+    "clave": "ejercicio.ejDesc.zancada-baja",
+    "en": "With one knee on the floor, push your hip forward to stretch the flexor."
   },
   {
-    "clave": "diario.plan.ejemplo",
-    "es": "Leer la edición de la mañana todos los días",
-    "en": "Read the morning edition every day"
+    "clave": "ejercicio.ejDesc.postura-de-la-guirnalda",
+    "en": "In a deep squat, push your knees open with your elbows to release the hips."
   },
   {
-    "clave": "garage.plan.ejemplo",
-    "es": "Dejar el coche listo para el invierno",
-    "en": "Get the car ready for winter"
+    "clave": "ejercicio.ejDesc.figura-4",
+    "en": "Cross your ankle over the opposite knee and pull your thigh in to stretch the glute."
   },
   {
-    "clave": "garage.plan.material",
-    "es": "Trámites del plan",
-    "en": "Paperwork in the plan"
+    "clave": "ejercicio.ejDesc.estiramiento-de-aductores",
+    "en": "Open your legs and lower your torso to stretch the inner thigh."
   },
   {
-    "clave": "agenda.plan.ejemplo",
-    "es": "Entregar el proyecto a tiempo",
-    "en": "Hand the project in on time"
+    "clave": "ejercicio.ejDesc.rana",
+    "en": "On all fours with knees spread wide, rock your hips back."
   },
   {
-    "clave": "agenda.plan.material",
-    "es": "Pendientes del plan",
-    "en": "Tasks in the plan"
+    "clave": "ejercicio.ejDesc.perro-boca-abajo",
+    "en": "In an inverted V, push your hips up, stretching your back and legs."
   },
   {
-    "clave": "cocina.horarios.ayuda",
-    "en": "When you eat each one. They show up in your calendar and can remind you."
+    "clave": "ejercicio.ejDesc.torsion-espinal",
+    "en": "Seated or lying down, gently rotate your trunk to mobilize the spine."
   },
   {
-    "clave": "jardin.med.reservar",
-    "es": "Tu rato de calma",
-    "en": "Your calm time"
+    "clave": "ejercicio.ejDesc.postura-del-nino",
+    "en": "Sitting back on your heels, extend your arms forward, relaxing your back."
   },
   {
-    "clave": "jardin.med.bloque",
-    "es": "Meditar",
-    "en": "Meditate"
+    "clave": "ejercicio.ejDesc.apertura-de-pecho",
+    "en": "Bring your arms back to open your chest and counter a hunched posture."
   },
   {
-    "clave": "jardin.registrarMin",
-    "es": "Registrar {n} min",
-    "en": "Log {n} min"
+    "clave": "ejercicio.ejDesc.esfinge",
+    "en": "Face down resting on your forearms, lift your chest, extending your lower back."
   },
   {
-    "clave": "biblioteca.est.reservar",
-    "es": "Tu rato de estudio",
-    "en": "Your study time"
+    "clave": "ejercicio.ejDesc.hilo-y-aguja",
+    "en": "On all fours, thread one arm under your body to stretch the shoulder."
   },
   {
-    "clave": "biblioteca.est.bloque",
-    "es": "Estudiar",
-    "en": "Study"
+    "clave": "ejercicio.ejDesc.estiramiento-de-dorsales",
+    "en": "Stretch your sides by raising your arms up and slightly to the side."
   },
   {
-    "clave": "biblioteca.registrarMin",
-    "es": "Registrar {n} min",
-    "en": "Log {n} min"
+    "clave": "ejercicio.ejDesc.movilidad-cervical",
+    "en": "Slow neck movements in all directions to release tension."
   },
   {
-    "clave": "idiomas.rep.reservar",
-    "es": "Tu rato de repaso",
-    "en": "Your review time"
+    "clave": "ejercicio.ejDesc.rotaciones-de-columna",
+    "en": "Gently rotate the spine segment by segment to mobilize it."
   },
   {
-    "clave": "idiomas.rep.bloque",
-    "es": "Repasar {idioma}",
-    "en": "Review {idioma}"
+    "clave": "ejercicio.ejDesc.postura-de-la-cobra",
+    "en": "Face down, lift your chest with your hands, extending your back."
   },
   {
-    "clave": "notif.ayudaCerrada",
-    "es": "Los avisos llegan con la app abierta, aunque esté en segundo plano. Con la pestaña cerrada el navegador no puede despertarla: para eso hace falta la app instalada en el móvil.",
-    "en": "Reminders arrive while the app is open, even in the background. With the tab closed the browser can't wake it up: that needs the app installed on your phone."
+    "clave": "ejercicio.ejDesc.inclinacion-lateral-de-cuello",
+    "en": "Bring your ear toward your shoulder to stretch the side of your neck."
   },
   {
-    "clave": "progreso.nivel",
-    "es": "Nivel",
-    "en": "Level"
-  },
-  {
-    "clave": "progreso.racha",
-    "es": "Racha",
-    "en": "Streak"
-  },
-  {
-    "clave": "progreso.dias",
-    "en": "days"
-  },
-  {
-    "clave": "progreso.hoy",
-    "es": "Hoy",
-    "en": "Today"
-  },
-  {
-    "clave": "progreso.semana",
-    "es": "7 días",
-    "en": "7 days"
-  },
-  {
-    "clave": "plantillas.ayuda",
-    "es": "Arrastra una plantilla a otra carpeta; toca el icono para probar la app y el nombre de la carpeta para renombrarla.",
-    "en": "Tap the icon to open the app, pick its assistant and assign it to a room."
-  },
-  {
-    "clave": "plantillas.entrar",
-    "es": "Entrar a la app",
-    "en": "Open the app"
-  },
-  {
-    "clave": "plantillas.cerrarPrevia",
-    "es": "‹ Cerrar",
-    "en": "‹ Close"
-  },
-  {
-    "clave": "plantillas.asistente",
-    "es": "Asistente que la atiende",
-    "en": "Assistant in charge"
-  },
-  {
-    "clave": "plantillas.sinAsistente",
-    "es": "Sin asistente (la atienden todos)",
-    "en": "No assistant (handled by all)"
-  },
-  {
-    "clave": "plantillas.asignar",
-    "es": "Asignar a un objeto o cuarto",
-    "en": "Assign to an object or room"
-  },
-  {
-    "clave": "plantillas.asignarObjeto",
-    "en": "+ Assign to an object…"
-  },
-  {
-    "clave": "plantillas.asignarA",
-    "en": "+ Assign to a room…"
-  },
-  {
-    "clave": "plantillas.sinCuartos",
-    "en": "Create a room first"
-  },
-  {
-    "clave": "plantillas.objetoPrincipal",
-    "es": "Objeto principal (entrada del cuarto)",
-    "en": "Main object (room entrance)"
-  },
-  {
-    "clave": "plantillas.traeObjetos",
-    "es": "Objetos que trae la app",
-    "en": "Objects the app brings"
-  },
-  {
-    "clave": "plantillas.esPrincipal",
-    "es": "Objeto principal",
-    "en": "Main object"
-  },
-  {
-    "clave": "plantillas.hacerPrincipal",
-    "es": "Marcar como principal",
-    "en": "Set as main object"
-  },
-  {
-    "clave": "plantillas.quitarObjeto",
-    "es": "Quitar objeto",
-    "en": "Remove object"
-  },
-  {
-    "clave": "plantillas.agregarObjeto",
-    "es": "Agregar objeto",
-    "en": "Add object"
-  },
-  {
-    "clave": "selObjeto.titulo",
-    "es": "Agregar objeto",
-    "en": "Add object"
-  },
-  {
-    "clave": "plantillas.todasAsignadas",
-    "es": "Todas las apps ya viven en un cuarto. Si borras un cuarto, su plantilla vuelve aquí.",
-    "en": "All apps already live in a room. If you delete a room, its template comes back here."
-  },
-  {
-    "clave": "plantillaCustom.crear",
-    "es": "Crear plantilla",
-    "en": "Create template"
-  },
-  {
-    "clave": "plantillaCustom.editar",
-    "es": "Editar plantilla",
-    "en": "Edit template"
-  },
-  {
-    "clave": "plantillaCustom.eliminar",
-    "es": "Eliminar plantilla",
-    "en": "Delete template"
-  },
-  {
-    "clave": "plantillaCustom.confirmarBorrar",
-    "es": "¿Eliminar esta plantilla y todos sus datos?",
-    "en": "Delete this template and all its data?"
-  },
-  {
-    "clave": "plantillaCustom.enUso",
-    "en": "Your templates in use"
-  },
-  {
-    "clave": "plantillaCustom.nombrePh",
-    "es": "Ej. Mudanza, plantas, mascota…",
-    "en": "E.g. Moving, plants, pet…"
-  },
-  {
-    "clave": "plantillaCustom.emojiLibre",
-    "es": "Otro emoji",
-    "en": "Another emoji"
-  },
-  {
-    "clave": "plantillaCustom.herramientas",
-    "es": "Herramientas de la plantilla",
-    "en": "Template tools"
-  },
-  {
-    "clave": "plantillaCustom.sinBloques",
-    "es": "Agrega al menos una herramienta: serán las secciones de tu app.",
-    "en": "Add at least one tool: they become the sections of your app."
-  },
-  {
-    "clave": "plantillaCustom.quitarBloque",
-    "es": "Quitar (al guardar se borran sus datos)",
-    "en": "Remove (its data is deleted on save)"
-  },
-  {
-    "clave": "plantillaCustom.menusAyuda",
-    "es": "Reparte los bloques en pestañas. Sin menús, tu app es una sola pantalla.",
-    "en": "Split the blocks into tabs. With no menus your app is a single screen."
-  },
-  {
-    "clave": "plantillaCustom.agregarMenu",
-    "es": "Menú",
-    "en": "Menu"
-  },
-  {
-    "clave": "plantillaCustom.agregarAqui",
-    "es": "Agregar herramienta",
-    "en": "Add tool"
-  },
-  {
-    "clave": "plantillaCustom.agregarSubmenu",
-    "es": "Submenú de este menú",
-    "en": "Submenu of this menu"
-  },
-  {
-    "clave": "plantillaCustom.menuNuevo",
-    "es": "Menú {n}",
-    "en": "Menu {n}"
-  },
-  {
-    "clave": "plantillaCustom.submenuNuevo",
-    "es": "Submenú {n}",
-    "en": "Submenu {n}"
-  },
-  {
-    "clave": "plantillaCustom.menuSinNombre",
-    "es": "Menú",
-    "en": "Menu"
-  },
-  {
-    "clave": "plantillaCustom.menuNombrePh",
-    "es": "Nombre del menú",
-    "en": "Menu name"
-  },
-  {
-    "clave": "plantillaCustom.menuEmoji",
-    "es": "Emoji del menú (opcional)",
-    "en": "Menu emoji (optional)"
-  },
-  {
-    "clave": "plantillaCustom.borrarMenu",
-    "es": "Borrar menú (sus bloques pasan al primero)",
-    "en": "Delete menu (its blocks move to the first one)"
-  },
-  {
-    "clave": "plantillaCustom.menuBloque",
-    "es": "Menú",
-    "en": "Menu"
-  },
-  {
-    "clave": "plantillaCustom.menuVacio",
-    "es": "Este menú aún no tiene bloques.",
-    "en": "This menu has no blocks yet."
-  },
-  {
-    "clave": "plantillaCustom.submenu",
-    "es": "Submenú",
-    "en": "Submenu"
-  },
-  {
-    "clave": "plantillaCustom.editarApp",
-    "es": "Editar app",
-    "en": "Edit app"
-  },
-  {
-    "clave": "plantillaCustom.listo",
-    "es": "Listo",
-    "en": "Done"
-  },
-  {
-    "clave": "plantillaCustom.editorCompleto",
-    "es": "Editor completo",
-    "en": "Full editor"
-  },
-  {
-    "clave": "plantillaCustom.borrar",
-    "es": "Borrar",
-    "en": "Delete"
-  },
-  {
-    "clave": "plantillaCustom.borrarMenuTitulo",
-    "es": "Borrar «{nombre}»",
-    "en": "Delete “{nombre}”"
-  },
-  {
-    "clave": "plantillaCustom.borrarMenuMsj",
-    "es": "Sus herramientas pasan al primer menú, con sus datos.",
-    "en": "Its tools move to the first menu, data included."
-  },
-  {
-    "clave": "plantillaCustom.borrarBloqueTitulo",
-    "es": "Borrar «{nombre}»",
-    "en": "Delete “{nombre}”"
+    "clave": "ejercicio.ejDesc.estiramiento-de-cuadriceps",
+    "en": "Standing, bring your heel to your glute, holding your foot to stretch the thigh."
   }
 ]

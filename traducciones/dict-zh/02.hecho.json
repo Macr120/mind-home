@@ -1,38 +1,1010 @@
 [
   {
-    "clave": "tut.app-ejercicio--esencial.resumen",
-    "texto": "健身房把身体的三种训练放在一处：力量（组数、次数和重量）、耐力（跑步、骑行或游泳，可用GPS和心率带做实时训练）、柔韧性（按时间计的活动度训练，配引导播放器）。三者的结构一样——目录、日常安排和进度——目标菜单用来定下每周练多少，并汇总连续天数和进展。"
+    "clave": "biblioteca.nodoDesc.idi-asiaticas",
+    "texto": "日语、汉语、韩语及其文字体系。"
   },
   {
-    "clave": "tut.app-entretenimiento--esencial.resumen",
-    "texto": "娱乐室有两个菜单：桌游，一个按系列分组、可按人数筛选的数字目录；档案，用来保存你看完、读完、玩完的电影、剧集、书籍和电子游戏，附上状态和你的评价。"
+    "clave": "biblioteca.nodo.idi-practica",
+    "texto": "实践与文化"
   },
   {
-    "clave": "tut.app-garage--esencial.resumen",
-    "texto": "车库负责车辆的保养：一个信号灯汇总哪些事最急，车辆列表保存各自的维修记录，每辆车的资料里汇集了手续、文件和联系人。凡是带日期的，都会自动排进家里的日历。"
+    "clave": "biblioteca.nodo.idi-conversacion",
+    "texto": "会话"
   },
   {
-    "clave": "tut.app-hobbies--esencial.resumen",
-    "texto": "爱好用来跟踪你的消遣：列表显示每一项的连续天数和本周进展，也能在这里添加新的。每项爱好里面有练习记录、一年的热力图和它的项目。"
+    "clave": "biblioteca.nodoDesc.idi-conversacion",
+    "texto": "流利表达、常用语与日常场景。"
   },
   {
-    "clave": "tut.app-ideas--esencial.resumen",
-    "texto": "点子把你想到的东西分三个菜单保存：想法日记（零散的灵感，或按主题的头脑风暴）、概念图（多种格式的自由画布）、决策图（同样的格式，专为比较和做决定而设）。所有内容都能归入文件夹，也能从一个菜单转成另一个。"
+    "clave": "biblioteca.nodo.idi-lectura",
+    "texto": "读写"
   },
   {
-    "clave": "tut.app-idiomas--esencial.resumen",
-    "texto": "语言学习是你的私人语言学校，分四个菜单。聊天让你和AI老师对话，它会按你的水平作答；大纲把语言整理成主题、发音和语法，从入门到精通，词汇卡片就放在里面；复习用间隔重复和练习题帮你巩固；进度汇总你的提升。"
+    "clave": "biblioteca.nodoDesc.idi-lectura",
+    "texto": "分级读物、写作与拼写。"
   },
   {
-    "clave": "tut.app-jardin--esencial.resumen",
-    "texto": "花园把冥想（带音效引导）、引导呼吸和每日感恩放在三个菜单里。这里刻意不设积分和连续天数：缺一天不会受罚，只管练。"
+    "clave": "biblioteca.nodo.idi-inmersion",
+    "texto": "文化与浸入式学习"
   },
   {
-    "clave": "tut.app-metas--esencial.resumen",
-    "texto": "整个家的规划中心，分三个菜单：目标（你给自己定下的事，按负责的应用分组）、计划（把一个目标拆成若干阶段的日程草稿）、日程（所有目标落下的时间轴）。它不保存自己的记录：只汇集其他应用里诞生的目标和计划。点开一个目标会打开它的详情页，从那里再进入只属于它的时间轴。"
+    "clave": "biblioteca.nodoDesc.idi-inmersion",
+    "texto": "风俗、媒体与游学体验。"
   },
   {
-    "clave": "tut.app-sala--esencial.resumen",
-    "texto": "客厅是你的旅行世界，分四个菜单：地图（在世界地图上标记地点的图钉，还有地球仪视图）、行程（想去的地方和它们的逐日计划）、路线（把多个地点串成一条线）、旅行日志（按国家整理的照片和故事）。"
+    "clave": "biblioteca.nodo.artes",
+    "texto": "艺术与表达"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.artes",
+    "texto": "审美创作、艺术感知与视听文化。"
+  },
+  {
+    "clave": "biblioteca.nodo.art-visuales",
+    "texto": "视觉艺术"
+  },
+  {
+    "clave": "biblioteca.nodo.art-pintura",
+    "texto": "绘画与素描"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-pintura",
+    "texto": "技法、构图与色彩。"
+  },
+  {
+    "clave": "biblioteca.nodo.art-escultura",
+    "texto": "雕塑与建筑"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-escultura",
+    "texto": "空间、造型与设计。"
+  },
+  {
+    "clave": "biblioteca.nodo.art-fotografia",
+    "texto": "摄影"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-fotografia",
+    "texto": "光线、构图与视觉叙事。"
+  },
+  {
+    "clave": "biblioteca.nodo.art-musica",
+    "texto": "音乐"
+  },
+  {
+    "clave": "biblioteca.nodo.art-teoria-mus",
+    "texto": "音乐理论"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-teoria-mus",
+    "texto": "和声、节奏与记谱法。"
+  },
+  {
+    "clave": "biblioteca.nodo.art-historia-mus",
+    "texto": "音乐史"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-historia-mus",
+    "texto": "风格、时代与作曲家。"
+  },
+  {
+    "clave": "biblioteca.nodo.art-escenicas",
+    "texto": "表演艺术与电影"
+  },
+  {
+    "clave": "biblioteca.nodo.art-teatro",
+    "texto": "戏剧与表演"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-teatro",
+    "texto": "剧作、表演与舞台呈现。"
+  },
+  {
+    "clave": "biblioteca.nodo.art-cine",
+    "texto": "电影与视听媒体"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-cine",
+    "texto": "编剧、剪辑与电影语言。"
+  },
+  {
+    "clave": "biblioteca.nodo.tecnologia",
+    "texto": "技术与工程"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tecnologia",
+    "texto": "运用知识解决问题，改变世界。"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-informatica",
+    "texto": "计算机科学"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-algoritmos",
+    "texto": "算法与数据结构"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-algoritmos",
+    "texto": "效率、数据与设计。"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ia",
+    "texto": "人工智能"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-ia",
+    "texto": "机器学习与人工智能伦理。"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-redes",
+    "texto": "网络与系统"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-redes",
+    "texto": "互联网、安全与分布式系统。"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ingenieria",
+    "texto": "工程学"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-mecanica",
+    "texto": "机械工程"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-mecanica",
+    "texto": "机械、材料与制造。"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-electrica",
+    "texto": "电气工程"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-electrica",
+    "texto": "电路、电力与电子技术。"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-civil",
+    "texto": "土木工程"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-civil",
+    "texto": "基础设施、水力学与结构工程。"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-energia",
+    "texto": "能源与可持续发展"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-renovables",
+    "texto": "可再生能源"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-renovables",
+    "texto": "太阳能、风能与氢能。"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ambiental",
+    "texto": "环境工程"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-ambiental",
+    "texto": "废弃物、水资源与生态足迹。"
+  },
+  {
+    "clave": "biblioteca.nodo.salud",
+    "texto": "健康与医学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.salud",
+    "texto": "人体、疾病、预防与医疗体系。"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-anatomia",
+    "texto": "解剖学与生理学"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-cuerpo",
+    "texto": "人体系统"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-cuerpo",
+    "texto": "器官、稳态与整合功能。"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-neuro",
+    "texto": "医学神经科学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-neuro",
+    "texto": "大脑、感觉与运动。"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-clinica",
+    "texto": "临床医学"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-patologia",
+    "texto": "病理学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-patologia",
+    "texto": "疾病、诊断与病因。"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-farmacologia",
+    "texto": "药理学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-farmacologia",
+    "texto": "药物、剂量与作用。"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-salud-pub",
+    "texto": "公共卫生"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-salud-pub",
+    "texto": "流行病学、疫苗与政策。"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-bienestar",
+    "texto": "健康生活与营养"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-nutricion",
+    "texto": "临床营养学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-nutricion",
+    "texto": "膳食、代谢与微量营养素。"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-prevencion",
+    "texto": "预防医学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-prevencion",
+    "texto": "生活习惯、筛查与长寿。"
+  },
+  {
+    "clave": "ejercicio.ej.press-banca",
+    "texto": "卧推"
+  },
+  {
+    "clave": "ejercicio.ej.press-inclinado",
+    "texto": "上斜卧推"
+  },
+  {
+    "clave": "ejercicio.ej.press-con-mancuernas",
+    "texto": "哑铃卧推"
+  },
+  {
+    "clave": "ejercicio.ej.aperturas-con-mancuernas",
+    "texto": "哑铃飞鸟"
+  },
+  {
+    "clave": "ejercicio.ej.cruce-en-polea",
+    "texto": "绳索夹胸"
+  },
+  {
+    "clave": "ejercicio.ej.fondos-en-paralelas",
+    "texto": "双杠臂屈伸"
+  },
+  {
+    "clave": "ejercicio.ej.flexiones",
+    "texto": "俯卧撑"
+  },
+  {
+    "clave": "ejercicio.ej.dominadas",
+    "texto": "引体向上"
+  },
+  {
+    "clave": "ejercicio.ej.jalon-al-pecho",
+    "texto": "高位下拉"
+  },
+  {
+    "clave": "ejercicio.ej.remo-con-barra",
+    "texto": "杠铃划船"
+  },
+  {
+    "clave": "ejercicio.ej.remo-con-mancuerna",
+    "texto": "哑铃划船"
+  },
+  {
+    "clave": "ejercicio.ej.remo-en-polea-baja",
+    "texto": "坐姿绳索划船"
+  },
+  {
+    "clave": "ejercicio.ej.pull-over",
+    "texto": "直臂下拉"
+  },
+  {
+    "clave": "ejercicio.ej.face-pull",
+    "texto": "面拉"
+  },
+  {
+    "clave": "ejercicio.ej.hiperextensiones",
+    "texto": "背部伸展"
+  },
+  {
+    "clave": "ejercicio.ej.press-militar",
+    "texto": "站姿推举"
+  },
+  {
+    "clave": "ejercicio.ej.press-arnold",
+    "texto": "阿诺德推举"
+  },
+  {
+    "clave": "ejercicio.ej.elevaciones-laterales",
+    "texto": "侧平举"
+  },
+  {
+    "clave": "ejercicio.ej.elevaciones-frontales",
+    "texto": "前平举"
+  },
+  {
+    "clave": "ejercicio.ej.pajaros",
+    "texto": "反向飞鸟"
+  },
+  {
+    "clave": "ejercicio.ej.encogimientos",
+    "texto": "耸肩"
+  },
+  {
+    "clave": "ejercicio.ej.curl-con-barra",
+    "texto": "杠铃弯举"
+  },
+  {
+    "clave": "ejercicio.ej.curl-con-mancuernas",
+    "texto": "哑铃弯举"
+  },
+  {
+    "clave": "ejercicio.ej.curl-martillo",
+    "texto": "锤式弯举"
+  },
+  {
+    "clave": "ejercicio.ej.curl-predicador",
+    "texto": "牧师凳弯举"
+  },
+  {
+    "clave": "ejercicio.ej.curl-concentrado",
+    "texto": "集中弯举"
+  },
+  {
+    "clave": "ejercicio.ej.extension-triceps-en-polea",
+    "texto": "绳索下压"
+  },
+  {
+    "clave": "ejercicio.ej.press-frances",
+    "texto": "法式卧推"
+  },
+  {
+    "clave": "ejercicio.ej.fondos-entre-bancos",
+    "texto": "长凳臂屈伸"
+  },
+  {
+    "clave": "ejercicio.ej.extension-sobre-cabeza",
+    "texto": "颈后臂屈伸"
+  },
+  {
+    "clave": "ejercicio.ej.patada-de-triceps",
+    "texto": "三头肌后屈伸"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla",
+    "texto": "深蹲"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-frontal",
+    "texto": "前蹲"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-bulgara",
+    "texto": "保加利亚分腿蹲"
+  },
+  {
+    "clave": "ejercicio.ej.prensa-de-pierna",
+    "texto": "腿举"
+  },
+  {
+    "clave": "ejercicio.ej.zancadas",
+    "texto": "弓步蹲"
+  },
+  {
+    "clave": "ejercicio.ej.peso-muerto",
+    "texto": "硬拉"
+  },
+  {
+    "clave": "ejercicio.ej.peso-muerto-rumano",
+    "texto": "罗马尼亚硬拉"
+  },
+  {
+    "clave": "ejercicio.ej.curl-femoral",
+    "texto": "腿弯举"
+  },
+  {
+    "clave": "ejercicio.ej.extension-de-cuadriceps",
+    "texto": "腿屈伸"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-talones",
+    "texto": "提踵"
+  },
+  {
+    "clave": "ejercicio.ej.hip-thrust",
+    "texto": "臀推"
+  },
+  {
+    "clave": "ejercicio.ej.puente-de-gluteo",
+    "texto": "臀桥"
+  },
+  {
+    "clave": "ejercicio.ej.patada-de-gluteo-en-polea",
+    "texto": "绳索臀部后踢"
+  },
+  {
+    "clave": "ejercicio.ej.abduccion-de-cadera",
+    "texto": "髋外展"
+  },
+  {
+    "clave": "ejercicio.ej.plancha",
+    "texto": "平板支撑"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-lateral",
+    "texto": "侧平板支撑"
+  },
+  {
+    "clave": "ejercicio.ej.crunch-abdominal",
+    "texto": "卷腹"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-piernas",
+    "texto": "举腿"
+  },
+  {
+    "clave": "ejercicio.ej.russian-twist",
+    "texto": "俄罗斯转体"
+  },
+  {
+    "clave": "ejercicio.ej.rueda-abdominal",
+    "texto": "健腹轮"
+  },
+  {
+    "clave": "ejercicio.ej.escaladores",
+    "texto": "登山者"
+  },
+  {
+    "clave": "ejercicio.ej.carrera",
+    "texto": "跑步"
+  },
+  {
+    "clave": "ejercicio.ej.trote-suave",
+    "texto": "轻松慢跑"
+  },
+  {
+    "clave": "ejercicio.ej.caminata-rapida",
+    "texto": "快走"
+  },
+  {
+    "clave": "ejercicio.ej.ciclismo",
+    "texto": "骑行"
+  },
+  {
+    "clave": "ejercicio.ej.senderismo",
+    "texto": "徒步"
+  },
+  {
+    "clave": "ejercicio.ej.trail-running",
+    "texto": "越野跑"
+  },
+  {
+    "clave": "ejercicio.ej.caminadora",
+    "texto": "跑步机"
+  },
+  {
+    "clave": "ejercicio.ej.caminata-inclinada",
+    "texto": "坡度快走"
+  },
+  {
+    "clave": "ejercicio.ej.eliptica",
+    "texto": "椭圆机"
+  },
+  {
+    "clave": "ejercicio.ej.bicicleta-estatica",
+    "texto": "动感单车"
+  },
+  {
+    "clave": "ejercicio.ej.escaladora",
+    "texto": "爬楼机"
+  },
+  {
+    "clave": "ejercicio.ej.remo-maquina",
+    "texto": "划船机"
+  },
+  {
+    "clave": "ejercicio.ej.hiit",
+    "texto": "HIIT"
+  },
+  {
+    "clave": "ejercicio.ej.sprints",
+    "texto": "冲刺跑"
+  },
+  {
+    "clave": "ejercicio.ej.saltar-cuerda",
+    "texto": "跳绳"
+  },
+  {
+    "clave": "ejercicio.ej.burpees",
+    "texto": "波比跳"
+  },
+  {
+    "clave": "ejercicio.ej.circuito-metabolico",
+    "texto": "代谢循环训练"
+  },
+  {
+    "clave": "ejercicio.ej.natacion",
+    "texto": "游泳"
+  },
+  {
+    "clave": "ejercicio.ej.aqua-aerobicos",
+    "texto": "水中健身操"
+  },
+  {
+    "clave": "ejercicio.ej.caminata",
+    "texto": "步行"
+  },
+  {
+    "clave": "ejercicio.ej.futbol",
+    "texto": "足球"
+  },
+  {
+    "clave": "ejercicio.ej.basquetbol",
+    "texto": "篮球"
+  },
+  {
+    "clave": "ejercicio.ej.tenis",
+    "texto": "网球"
+  },
+  {
+    "clave": "ejercicio.ej.padel",
+    "texto": "帕德尔网球"
+  },
+  {
+    "clave": "ejercicio.ej.boxeo",
+    "texto": "拳击"
+  },
+  {
+    "clave": "ejercicio.ej.baile",
+    "texto": "舞蹈"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-matutina",
+    "texto": "晨间活动度训练"
+  },
+  {
+    "clave": "ejercicio.ej.yoga-flow",
+    "texto": "流瑜伽"
+  },
+  {
+    "clave": "ejercicio.ej.saludo-al-sol",
+    "texto": "拜日式"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-general",
+    "texto": "全身拉伸"
+  },
+  {
+    "clave": "ejercicio.ej.guerrero-i",
+    "texto": "战士一式"
+  },
+  {
+    "clave": "ejercicio.ej.guerrero-ii",
+    "texto": "战士二式"
+  },
+  {
+    "clave": "ejercicio.ej.triangulo",
+    "texto": "三角式"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-de-pie",
+    "texto": "站立前屈"
+  },
+  {
+    "clave": "ejercicio.ej.apertura-de-cadera",
+    "texto": "髋部打开"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-paloma",
+    "texto": "鸽子式"
+  },
+  {
+    "clave": "ejercicio.ej.mariposa",
+    "texto": "蝴蝶式"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-isquiotibiales",
+    "texto": "腘绳肌拉伸"
+  },
+  {
+    "clave": "ejercicio.ej.zancada-baja",
+    "texto": "低位弓步"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-guirnalda",
+    "texto": "花环式"
+  },
+  {
+    "clave": "ejercicio.ej.figura-4",
+    "texto": "4字拉伸"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-aductores",
+    "texto": "内收肌拉伸"
+  },
+  {
+    "clave": "ejercicio.ej.rana",
+    "texto": "青蛙式"
+  },
+  {
+    "clave": "ejercicio.ej.perro-boca-abajo",
+    "texto": "下犬式"
+  },
+  {
+    "clave": "ejercicio.ej.torsion-espinal",
+    "texto": "脊柱扭转"
+  },
+  {
+    "clave": "ejercicio.ej.postura-del-nino",
+    "texto": "婴儿式"
+  },
+  {
+    "clave": "ejercicio.ej.apertura-de-pecho",
+    "texto": "胸部打开"
+  },
+  {
+    "clave": "ejercicio.ej.esfinge",
+    "texto": "狮身人面式"
+  },
+  {
+    "clave": "ejercicio.ej.hilo-y-aguja",
+    "texto": "穿针式"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-dorsales",
+    "texto": "背阔肌拉伸"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-cervical",
+    "texto": "颈部活动度"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-de-columna",
+    "texto": "脊柱旋转"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-cobra",
+    "texto": "眼镜蛇式"
+  },
+  {
+    "clave": "ejercicio.ej.inclinacion-lateral-de-cuello",
+    "texto": "颈部侧屈"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-cuadriceps",
+    "texto": "股四头肌拉伸"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-gemelos",
+    "texto": "小腿拉伸"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-hombros",
+    "texto": "肩部拉伸"
+  },
+  {
+    "clave": "ejercicio.ej.foam-roller",
+    "texto": "泡沫轴放松"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-triceps",
+    "texto": "三头肌拉伸"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores-de-cadera",
+    "texto": "髋屈肌拉伸"
+  },
+  {
+    "clave": "ejercicio.ej.piernas-en-la-pared",
+    "texto": "靠墙抬腿式"
+  },
+  {
+    "clave": "ejercicio.ej.savasana",
+    "texto": "摊尸式"
+  },
+  {
+    "clave": "ejercicio.ej.postura-del-nino-apoyada",
+    "texto": "支撑婴儿式"
+  },
+  {
+    "clave": "ejercicio.ej.respiracion-profunda",
+    "texto": "深呼吸"
+  },
+  {
+    "clave": "ejercicio.ej.mariposa-reclinada",
+    "texto": "仰卧蝴蝶式"
+  },
+  {
+    "clave": "ejercicio.ej.torsion-reclinada",
+    "texto": "仰卧脊柱扭转"
+  },
+  {
+    "clave": "ejercicio.ej.liberacion-miofascial-con-pelota",
+    "texto": "筋膜球放松"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-tobillo",
+    "texto": "踝关节绕环"
+  },
+  {
+    "clave": "ejercicio.ej.recogida-de-toalla-con-dedos",
+    "texto": "脚趾抓毛巾"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-dorsiflexion",
+    "texto": "踝背屈拉伸"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-talones-unipodal",
+    "texto": "单腿提踵"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-y-extension-en-descarga",
+    "texto": "无负重屈伸"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "腘绳肌动态拉伸"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-isometrica-wall-squat",
+    "texto": "靠墙静蹲"
+  },
+  {
+    "clave": "ejercicio.ej.equilibrio-unipodal-single-leg-balance",
+    "texto": "单腿平衡"
+  },
+  {
+    "clave": "ejercicio.ej.sentadillas-del-arquero",
+    "texto": "射箭蹲"
+  },
+  {
+    "clave": "ejercicio.ej.estocadas-lunges",
+    "texto": "弓步蹲"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-90-90",
+    "texto": "90/90髋关节活动度"
+  },
+  {
+    "clave": "ejercicio.ej.el-puente-glute-bridge",
+    "texto": "臀桥"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores-en-estocada",
+    "texto": "弓步式髋屈肌拉伸"
+  },
+  {
+    "clave": "ejercicio.ej.abduccion-lateral-de-cadera",
+    "texto": "侧向髋外展"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-profunda-con-apertura",
+    "texto": "深蹲开膝"
+  },
+  {
+    "clave": "ejercicio.ej.balanceo-dinamico-de-piernas",
+    "texto": "动态摆腿"
+  },
+  {
+    "clave": "ejercicio.ej.postura-gato-vaca",
+    "texto": "猫牛式"
+  },
+  {
+    "clave": "ejercicio.ej.torsiones-lumbares-suaves",
+    "texto": "温和腰部扭转"
+  },
+  {
+    "clave": "ejercicio.ej.pointer-bird-dog",
+    "texto": "鸟狗式"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-frontal-isometricos",
+    "texto": "静态平板支撑"
+  },
+  {
+    "clave": "ejercicio.ej.roll-down-curl-jefferson",
+    "texto": "杰斐逊卷曲"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-lumbar-boca-abajo",
+    "texto": "俯卧腰部拉伸"
+  },
+  {
+    "clave": "ejercicio.ej.rotacion-toracica",
+    "texto": "胸椎旋转"
+  },
+  {
+    "clave": "ejercicio.ej.retraccion-escapular",
+    "texto": "肩胛骨后缩"
+  },
+  {
+    "clave": "ejercicio.ej.angeles-de-pared-wall-angels",
+    "texto": "靠墙天使"
+  },
+  {
+    "clave": "ejercicio.ej.lunge-con-apertura-de-pectoral",
+    "texto": "弓步扩胸"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-dorsal-en-pared",
+    "texto": "靠墙背阔肌拉伸"
+  },
+  {
+    "clave": "ejercicio.ej.el-gato-y-la-mesa",
+    "texto": "猫式桌面伸展"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-hombros",
+    "texto": "肩部绕环"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-pecho-pectoral",
+    "texto": "胸肌拉伸"
+  },
+  {
+    "clave": "ejercicio.ej.dislocaciones-con-goma-o-palo",
+    "texto": "肩关节绕环（弹力带/木棍）"
+  },
+  {
+    "clave": "ejercicio.ej.rotacion-externa-con-banda",
+    "texto": "弹力带外旋"
+  },
+  {
+    "clave": "ejercicio.ej.thread-the-needle-enhebrar-aguja",
+    "texto": "穿针式"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-y-medios-circulos",
+    "texto": "旋转与半圆运动"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-trapecio-superior",
+    "texto": "上斜方肌拉伸"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-cervicales-con-nodding",
+    "texto": "点头式颈部旋转"
+  },
+  {
+    "clave": "ejercicio.ej.retracciones-de-barbilla-chin-tucks",
+    "texto": "收下巴"
+  },
+  {
+    "clave": "ejercicio.ej.isometricos-cervicales",
+    "texto": "颈部等长收缩训练"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-y-extension-de-muneca",
+    "texto": "腕关节屈伸"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-munecas",
+    "texto": "手腕绕环"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores",
+    "texto": "屈肌拉伸"
+  },
+  {
+    "clave": "ejercicio.ej.agarre-activo-y-pasivo",
+    "texto": "主动与被动抓握"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-de-munecas",
+    "texto": "手腕支撑平板"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-banca",
+    "texto": "仰卧在卧推凳上，将杠铃下放至胸部，再向上推起直到手肘伸直。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-inclinado",
+    "texto": "在上斜卧推凳上，推举杠铃或哑铃，重点刺激胸部上沿。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-con-mancuernas",
+    "texto": "仰卧，将两只哑铃向上推起，比杠铃拥有更大的动作幅度。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.aperturas-con-mancuernas",
+    "texto": "仰卧，手肘微屈，双臂呈弧形打开再合拢。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.cruce-en-polea",
+    "texto": "站在高位滑轮之间，收紧胸部，将双手在身前合拢。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.fondos-en-paralelas",
+    "texto": "悬空撑在双杠上，上身前倾，弯曲手肘下降身体，再撑起还原。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexiones",
+    "texto": "俯身撑地，身体保持一条直线，将胸部下降至接近地面，再撑起还原。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.dominadas",
+    "texto": "悬挂在单杠上，将身体向上拉起，直到下巴超过横杠。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.jalon-al-pecho",
+    "texto": "坐姿面对高位滑轮，肘部向下发力，将横杆下拉至胸前。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-con-barra",
+    "texto": "上身前倾，保持背部挺直，收紧背部肌肉将杠铃拉向腹部。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-con-mancuerna",
+    "texto": "单手撑于卧推凳上，身体不扭转，将哑铃拉向身体一侧。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-en-polea-baja",
+    "texto": "坐姿，保持背部挺直，将把手拉向腹部。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.pull-over",
+    "texto": "仰卧，将哑铃下放至头后，再拉回胸部上方。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.face-pull",
+    "texto": "面对与脸同高的滑轮，肘部向外打开，将绳索拉向额头。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.hiperextensiones",
+    "texto": "在罗马椅上下放上身再抬起，伸展下背部。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-militar",
+    "texto": "站姿，将杠铃从肩部推举至头顶上方。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-arnold",
+    "texto": "坐姿，手掌由内转外的同时将哑铃推举过头顶。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevaciones-laterales",
+    "texto": "站姿，将哑铃向两侧举起至肩部高度。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevaciones-frontales",
+    "texto": "站姿，将哑铃向前举起至眼睛高度。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.pajaros",
+    "texto": "上身前倾，双臂向两侧打开，锻炼三角肌后束。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.encogimientos",
+    "texto": "站姿持重物，将肩膀向耳朵方向耸起，再有控制地放下。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-con-barra",
+    "texto": "站姿，肘部弯曲将杠铃卷起，上身不要晃动。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-con-mancuernas",
+    "texto": "站姿或坐姿，弯曲肘部将哑铃卷起，可交替或同时进行。"
   }
 ]

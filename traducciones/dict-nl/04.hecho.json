@@ -1,169 +1,498 @@
 [
-  { "clave": "plantillaCustom.borrarBloqueMsj", "texto": "De tool verdwijnt met alles wat je erin hebt opgeslagen." },
-  { "clave": "plantillaCustom.borrarBloqueAhora", "texto": "Tool en gegevens verwijderen" },
-  { "clave": "plantillaCustom.meta", "texto": "Doel (optioneel)" },
-  { "clave": "plantillaCustom.guardar", "texto": "Opslaan" },
-  { "clave": "plantillaCustom.cancelar", "texto": "Annuleren" },
-  { "clave": "plantillaCustom.tipo.notas", "texto": "Notities" },
-  { "clave": "plantillaCustom.tipo.checklist", "texto": "Checklist" },
-  { "clave": "plantillaCustom.tipo.contador", "texto": "Teller" },
-  { "clave": "plantillaCustom.tipo.enlaces", "texto": "Links" },
-  { "clave": "plantillaCustom.tipo.lista", "texto": "Lijst" },
-  { "clave": "plantillaCustom.tipo.valoracion", "texto": "Beoordeling" },
-  { "clave": "plantillaCustom.tipo.bitacora", "texto": "Logboek" },
-  { "clave": "plantillaCustom.tipo.progreso", "texto": "Voortgang" },
-  { "clave": "plantillaCustom.tipo.habito", "texto": "Gewoonte" },
-  { "clave": "plantillaCustom.tipo.sesiones", "texto": "Sessies" },
-  { "clave": "plantillaCustom.tipo.cuenta", "texto": "Aftellen" },
-  { "clave": "plantillaCustom.tipo.galeria", "texto": "Galerij" },
-  { "clave": "amueblar.titulo", "texto": "Hoe wil je de kamer inrichten?" },
-  { "clave": "amueblar.completo", "texto": "Ingericht" },
-  { "clave": "amueblar.completoDesc", "texto": "Brengt alle objecten van de app mee." },
-  { "clave": "amueblar.principal", "texto": "Alleen het hoofdobject" },
-  { "clave": "amueblar.principalDesc", "texto": "Alleen het object dat de app opent, verder niets." },
-  { "clave": "plantillaCustom.eliminada", "texto": "Dit sjabloon is verwijderd." },
-  { "clave": "plantillaCustom.notasPh", "texto": "Schrijf je notities… (worden automatisch opgeslagen)" },
-  { "clave": "plantillaCustom.checklistPh", "texto": "Nieuwe taak…" },
-  { "clave": "plantillaCustom.checklistVacio", "texto": "Nog geen taken." },
-  { "clave": "plantillaCustom.borrarItem", "texto": "Verwijderen" },
-  { "clave": "plantillaCustom.enlaceTitulo", "texto": "Titel (optioneel)" },
-  { "clave": "plantillaCustom.enlacesVacio", "texto": "Geen opgeslagen links." },
-  { "clave": "plantillaCustom.listaPh", "texto": "Nieuw item…" },
-  { "clave": "plantillaCustom.listaVacio", "texto": "Lege lijst." },
-  { "clave": "plantillaCustom.bitacoraPh", "texto": "Nieuwe vermelding…" },
-  { "clave": "plantillaCustom.bitacoraVacio", "texto": "Nog geen vermeldingen." },
-  { "clave": "plantillaCustom.progresoPh", "texto": "Waarde…" },
-  { "clave": "plantillaCustom.progresoVacio", "texto": "Nog geen metingen." },
-  { "clave": "plantillaCustom.unidad", "texto": "Eenheid (optioneel)" },
-  { "clave": "plantillaCustom.habitoMarcar", "texto": "Vandaag afvinken" },
-  { "clave": "plantillaCustom.habitoHecho", "texto": "Vandaag gedaan ✓" },
-  { "clave": "plantillaCustom.habitoRacha", "texto": "reeks" },
-  { "clave": "plantillaCustom.habitoDias", "texto": "actieve dagen" },
-  { "clave": "plantillaCustom.metaSemana", "texto": "Keer per week (optioneel)" },
-  { "clave": "plantillaCustom.sesionMin", "texto": "Minuten" },
-  { "clave": "plantillaCustom.sesionNota", "texto": "Notitie (optioneel)" },
-  { "clave": "plantillaCustom.sesionVacio", "texto": "Nog geen sessies." },
-  { "clave": "plantillaCustom.sesionTotal", "texto": "Totaal" },
-  { "clave": "plantillaCustom.metaMin", "texto": "Doel in minuten (optioneel)" },
-  { "clave": "plantillaCustom.cuentaFecha", "texto": "Streefdatum" },
-  { "clave": "plantillaCustom.cuentaSinFecha", "texto": "Stel een streefdatum in tijdens het bewerken." },
-  { "clave": "plantillaCustom.cuentaDias", "texto": "dagen te gaan" },
-  { "clave": "plantillaCustom.cuentaHoy", "texto": "Vandaag!" },
-  { "clave": "plantillaCustom.cuentaPaso", "texto": "dagen geleden" },
-  { "clave": "plantillaCustom.galeriaAgregar", "texto": "Foto's toevoegen" },
-  { "clave": "plantillaCustom.galeriaVacio", "texto": "Nog geen foto's." },
-  { "clave": "objetos.ayuda", "texto": "Alle objecten die er zijn, per categorie. Maak je eigen objecten, bewerk of verwijder ze." },
-  { "clave": "objetos.ayudaEspeciales", "texto": "Objecten met een effect, gegroepeerd op wat ze doen. Open er een om de mappen te zien." },
-  { "clave": "objetos.agregar", "texto": "3D-object toevoegen" },
-  { "clave": "objetos.alMapa", "texto": "Plaatsen op de kaart of in een kamer" },
-  { "clave": "destinoObj.titulo", "texto": "Waar wil je het plaatsen?" },
-  { "clave": "destinoObj.mapa", "texto": "Op de kaart" },
-  { "clave": "destinoObj.mapaDesc", "texto": "Los buiten, buiten de kamers." },
-  { "clave": "destinoObj.enCuarto", "texto": "Of in een kamer" },
-  { "clave": "objetos.editar", "texto": "Bewerken in de editor" },
-  { "clave": "objetos.editarForma", "texto": "Vorm bewerken" },
-  { "clave": "objetos.animado", "texto": "Geanimeerd object" },
-  { "clave": "objetos.funcion.vehiculo", "texto": "Bestuurbaar" },
-  { "clave": "objetos.funcion.asiento", "texto": "Je kunt hier zitten" },
-  { "clave": "objetos.funcion.acostarse", "texto": "Je kunt hier liggen" },
-  { "clave": "objetos.funcion.laptop", "texto": "Voor werk" },
-  { "clave": "objetos.funcion.cajaFuerte", "texto": "Bewaart wat belangrijk is" },
-  { "clave": "objetos.funcion.computo", "texto": "Voor berekeningen" },
-  { "clave": "objetos.funcion.tapete", "texto": "Voor meditatie" },
-  { "clave": "objetos.funcion.libreta", "texto": "Voor het schrijven" },
-  { "clave": "objetos.funcion.caminadora", "texto": "Voor het lopen" },
-  { "clave": "objetos.funcion.anuncio", "texto": "Bord: schrijf je eigen tekst" },
-  { "clave": "objetos.funcion.parque", "texto": "Interactief: spring erop om te spelen" },
-  { "clave": "objetos.rotarIzq", "texto": "Naar links draaien" },
-  { "clave": "objetos.rotarDer", "texto": "Naar rechts draaien" },
-  { "clave": "objetos.quitarDelMapa", "texto": "Van de kaart verwijderen" },
-  { "clave": "objetos.borrar", "texto": "Object verwijderen" },
-  { "clave": "objetos.borrarConfirm", "texto": "“{nombre}” verwijderen? Dit kan niet ongedaan worden gemaakt." },
-  { "clave": "objetos.renombrar", "texto": "Map hernoemen" },
-  { "clave": "objetos.restaurar", "texto": "Standaardobjecten herstellen" },
-  { "clave": "objetos.restaurarConfirm", "texto": "De basisobjecten uit de catalogus die je hebt verwijderd, worden opnieuw toegevoegd. Doorgaan?" },
-  { "clave": "mapa.editar", "texto": "Kaart bewerken" },
-  { "clave": "mapa.editarTitulo", "texto": "De huiskaart bewerken" },
-  { "clave": "mapa.quitar", "texto": "Van de kaart verwijderen" },
-  { "clave": "chat.tuAsistente", "texto": "Je assistent:" },
-  { "clave": "chat.vacio", "texto": "Nog geen registraties. Vertel de architect wat je hebt gedaan." },
-  { "clave": "chat.sinClasificar", "texto": "Niet gesorteerd" },
-  { "clave": "chat.capturado", "texto": "vastgelegd" },
-  { "clave": "chat.reclasificar", "texto": "Opnieuw indelen" },
-  { "clave": "chat.eliminar", "texto": "Verwijderen" },
-  { "clave": "chat.ocultar", "texto": "Menu sluiten" },
-  { "clave": "chat.verMenu", "texto": "menu openen" },
-  { "clave": "chat.registrar", "texto": "Registreren" },
-  { "clave": "chat.chip.crear", "texto": "Maken" },
-  { "clave": "chat.chip.enMapa", "texto": "(op kaart)" },
-  { "clave": "chat.chip.fuera", "texto": "(uit)" },
-  { "clave": "chat.abrirConv", "texto": "gesprek bekijken" },
-  { "clave": "chat.verConv", "texto": "Het hele gesprek bekijken" },
-  { "clave": "chat.burbuja.ver", "texto": "Tik om alles te lezen" },
-  { "clave": "dialogo.salir", "texto": "Gesprek beëindigen (Esc)" },
-  { "clave": "dialogo.completar", "texto": "Hele tekst tonen" },
-  { "clave": "dialogo.hablar", "texto": "Praten" },
-  { "clave": "chat.conversacion", "texto": "Gesprek" },
-  { "clave": "chat.conv.vacia", "texto": "Nog geen berichten met {pet}. Typ iets in de balk hieronder" },
-  { "clave": "chat.conv.limpiar", "texto": "Gesprek wissen" },
-  { "clave": "chat.conv.cerrar", "texto": "Sluiten" },
-  { "clave": "chat.tu", "texto": "Jij" },
-  { "clave": "chat.tab.chats", "texto": "Chats" },
-  { "clave": "chat.tab.registros", "texto": "Registraties" },
-  { "clave": "chat.config.abrir", "texto": "Assistenten instellen" },
-  { "clave": "chat.config.titulo", "texto": "Je assistenten" },
-  { "clave": "chat.config.activo", "texto": "actief" },
-  { "clave": "chat.config.sinCaracter", "texto": "Geen persoonlijkheid ingesteld" },
-  { "clave": "chat.config.archivaTodo", "texto": "Archiveert in alle kamers" },
-  { "clave": "chat.config.cuartos", "texto": "Apps toewijzen" },
-  { "clave": "chat.config.cuartosTodos", "texto": "(niets aangevinkt = alle)" },
-  { "clave": "chat.config.nuevo", "texto": "Assistent maken" },
-  { "clave": "chat.config.nuevoNombre", "texto": "Nieuwe assistent" },
-  { "clave": "chat.config.nuevoSaludo", "texto": "Hoi! Ik ben je nieuwe assistent." },
-  { "clave": "chat.config.nombre", "texto": "Naam" },
-  { "clave": "chat.config.emoji", "texto": "Emoji van de assistent" },
-  { "clave": "chat.config.historia", "texto": "Achtergrondverhaal en context van het personage" },
-  { "clave": "chat.config.historiaPh", "texto": "Achtergrondverhaal: bijv. “Oude zeebonk die 40 jaar een vuurtoren onderhield; nu waakt hij over jouw huis”" },
-  { "clave": "chat.config.caracterPh", "texto": "Persoonlijkheid: bijv. “Je praat als een piraat, grappig en direct, je sluit af met 🏴‍☠️”" },
-  { "clave": "chat.config.forma", "texto": "3D-vorm:" },
-  { "clave": "chat.config.color", "texto": "Kleur van het personage" },
-  { "clave": "chat.config.formaPh", "texto": "Beschrijf het: “groene draak met bril en vest”" },
-  { "clave": "chat.config.formaSinIa", "texto": "Voor het beschrijven van de vorm is AI nodig (kies een model in de balk)" },
-  { "clave": "chat.config.formaGenerar", "texto": "Vorm maken met AI" },
-  { "clave": "chat.config.formaError", "texto": "De vorm kon niet worden gemaakt. Controleer het AI-model en probeer het opnieuw." },
-  { "clave": "chat.config.subirGlb", "texto": ".glb-model uploaden" },
-  { "clave": "chat.config.quitarGlb", "texto": "Geüpload model verwijderen" },
-  { "clave": "chat.config.quitarFormaIa", "texto": "Door AI gemaakte vorm verwijderen" },
-  { "clave": "chat.config.enMapa", "texto": "Van de kaart verwijderen" },
-  { "clave": "chat.config.ponerMapa", "texto": "Op de kaart zetten" },
-  { "clave": "chat.config.voz", "texto": "Stem:" },
-  { "clave": "chat.config.vozAuto", "texto": "Automatisch (op basis van taal)" },
-  { "clave": "chat.config.vozIA", "texto": "AI-stem (OpenAI, natuurlijker)" },
-  { "clave": "chat.config.vozLeer", "texto": "Lees hardop voor wat ze zeggen" },
-  { "clave": "chat.config.vozProbar", "texto": "Stem uitproberen" },
-  { "clave": "chat.config.vozTono", "texto": "Toon" },
-  { "clave": "chat.config.vozVelocidad", "texto": "Snelheid" },
-  { "clave": "chat.config.vozVolumen", "texto": "Volume" },
-  { "clave": "chat.config.espontaneo", "texto": "Spontane opmerkingen" },
-  { "clave": "chat.config.corazon", "texto": "Hart (spontaniteit)" },
-  { "clave": "chat.config.corazonOff", "texto": "Uit" },
-  { "clave": "corazon.nivel.0", "texto": "Stil" },
-  { "clave": "corazon.nivel.1", "texto": "Rustig" },
-  { "clave": "corazon.nivel.2", "texto": "Praatgraag" },
-  { "clave": "corazon.nivel.3", "texto": "Kletsgraag" },
-  { "clave": "corazon.mago.manana.0", "texto": "De dageraad brengt verse mana… ik voel het ✨" },
-  { "clave": "corazon.mago.manana.1", "texto": "Mijn rollen werden netjes wakker. Een goed voorteken 🔮" },
-  { "clave": "corazon.mago.tarde.0", "texto": "De middag is perfect om daden in het grimoire te griffen ✨" },
-  { "clave": "corazon.mago.tarde.1", "texto": "Ik voel vandaag rustige energieën rond het huis 🔮" },
-  { "clave": "corazon.mago.noche.0", "texto": "De sterren fluisteren hun geheimen… een fijne nacht voor spreuken 🌙" },
-  { "clave": "corazon.mago.noche.1", "texto": "De maan laadt mijn bol op. Hier is alles rustig 🔮" },
-  { "clave": "corazon.mago.rutina.0", "texto": "Mijn kristallen bol kondigt aan: “{r}” om {h} ✨" },
-  { "clave": "corazon.mago.rutina.1", "texto": "Het lot markeert {h}: “{r}” nadert 🔮" },
-  { "clave": "corazon.mago.generica.0", "texto": "Dit huis bruist vandaag van de magie ✨" },
-  { "clave": "corazon.mago.generica.1", "texto": "Een opruimspreuk kan nooit kwaad… 🔮" },
-  { "clave": "corazon.gato.manana.0", "texto": "Veel te vroeg. Mensen worden op rare tijden wakker 🐾" },
-  { "clave": "corazon.gato.manana.1", "texto": "Geeuw. Ochtenden zouden beter zijn met een dutje 🐱" },
-  { "clave": "corazon.gato.tarde.0", "texto": "Perfect moment voor een dutje in de zon. Gewoon even zeggen 🐾" },
-  { "clave": "corazon.gato.tarde.1", "texto": "Rustige middag… precies zoals ik het graag heb 🐱" },
-  { "clave": "corazon.gato.noche.0", "texto": "Eindelijk nacht. Mijn beste tijd 🐱" }
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-gemelos",
+    "texto": "Plaats je handen tegen de muur en rek je kuit met het achterste been gestrekt."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-hombros",
+    "texto": "Kruis een arm voor je borst en trek hem met de andere arm naar je toe."
+  },
+  {
+    "clave": "ejercicio.ejDesc.foam-roller",
+    "texto": "Rol je spieren over de foamroller om spanning na de training los te maken."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-triceps",
+    "texto": "Breng je elleboog achter je hoofd en duw zachtjes met je andere hand."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-de-cadera",
+    "texto": "Duw in een uitvalspas je heup naar voren om de voorkant van je dijbeen te rekken."
+  },
+  {
+    "clave": "ejercicio.ejDesc.piernas-en-la-pared",
+    "texto": "Ga liggen en leg je benen tegen de muur om te ontspannen en te laten afvloeien."
+  },
+  {
+    "clave": "ejercicio.ejDesc.savasana",
+    "texto": "Ontspan liggend op je rug je hele lichaam terwijl je langzaam ademt."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-del-nino-apoyada",
+    "texto": "Kindhouding met ondersteuning om langer te ontspannen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.respiracion-profunda",
+    "texto": "Adem langzaam en diep in en uit om je zenuwstelsel te kalmeren."
+  },
+  {
+    "clave": "ejercicio.ejDesc.mariposa-reclinada",
+    "texto": "Ga liggen met je voetzolen tegen elkaar, laat je knieën zakken en ontspan je heupen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsion-reclinada",
+    "texto": "Ga liggen en laat je knieën zachtjes naar één kant zakken om je wervelkolom te draaien."
+  },
+  {
+    "clave": "ejercicio.ejDesc.liberacion-miofascial-con-pelota",
+    "texto": "Rol een harde bal met gecontroleerde druk van je hiel naar je voorvoet."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-tobillo",
+    "texto": "Til één been op en beweeg je enkel in wijde cirkels in beide richtingen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.recogida-de-toalla-con-dedos",
+    "texto": "Probeer met alleen je tenen een handdoek op de grond samen te knijpen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-dorsiflexion",
+    "texto": "Buig voor de muur je voorste knie terwijl je hiel plat op de grond blijft om te rekken."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-talones-unipodal",
+    "texto": "Til op één voet staand langzaam je hiel en laat hem met excentrische controle weer zakken."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-y-extension-en-descarga",
+    "texto": "Buig liggend je knie tot je hiel je bil raakt, en strek het weer zonder je voet op te tillen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "Plaats een hiel voor je en buig je romp zachtjes naar voren met de knie gestrekt."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-isometrica-wall-squat",
+    "texto": "Leun met je rug tegen de muur, zak tot 90 graden en hou vast, zonder dat je knieën naar binnen zakken."
+  },
+  {
+    "clave": "ejercicio.ejDesc.equilibrio-unipodal-single-leg-balance",
+    "texto": "Balanceer op één been met licht gebogen knie, zonder dat hij naar binnen zakt."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadillas-del-arquero",
+    "texto": "Buig met gespreide benen één knie en verplaats je gewicht, terwijl het andere been gestrekt blijft."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estocadas-lunges",
+    "texto": "Stap naar voren en zak met je heup tot je voorste knie een hoek van 90 graden vormt."
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-90-90",
+    "texto": "Draai zittend met je benen in een hoek van 90 graden je romp en benen van de ene naar de andere kant."
+  },
+  {
+    "clave": "ejercicio.ejDesc.el-puente-glute-bridge",
+    "texto": "Til liggend op je rug je bekken op en span je bilspieren aan, tot schouders, heupen en knieën één lijn vormen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-en-estocada",
+    "texto": "Duw met één knie op de grond je bekken met een rechte rug naar voren om je heupbuiger te rekken."
+  },
+  {
+    "clave": "ejercicio.ejDesc.abduccion-lateral-de-cadera",
+    "texto": "Til liggend op je zij je bovenste been op, terwijl je bekken stabiel blijft."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-profunda-con-apertura",
+    "texto": "Duw in een diepe squat je knieën met je ellebogen naar buiten om je heupen te openen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.balanceo-dinamico-de-piernas",
+    "texto": "Zwaai staand één been als een slinger naar voren, naar achteren en opzij."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-gato-vaca",
+    "texto": "Wissel op handen en knieën af tussen een naar het plafond gewelfde rug en een naar de grond zakkende buik."
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsiones-lumbares-suaves",
+    "texto": "Laat liggend op je rug beide knieën samen naar één kant zakken en dan naar de andere."
+  },
+  {
+    "clave": "ejercicio.ejDesc.pointer-bird-dog",
+    "texto": "Strek op handen en knieën een arm en het tegenovergestelde been, terwijl je onderrug vlak blijft."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-frontal-isometricos",
+    "texto": "Hou de plank op je onderarmen vast en vorm een rechte lijn."
+  },
+  {
+    "clave": "ejercicio.ejDesc.roll-down-curl-jefferson",
+    "texto": "Rol staand je wervelkolom langzaam wervel voor wervel naar beneden af."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-lumbar-boca-abajo",
+    "texto": "Til liggend op je buik je heupen op en laat ze weer zakken om je rug te strekken."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotacion-toracica",
+    "texto": "Til op handen en knieën een arm opzij en volg je hand met je blik."
+  },
+  {
+    "clave": "ejercicio.ejDesc.retraccion-escapular",
+    "texto": "Trek je schouderbladen naar achteren en beneden, terwijl je rechtop blijft staan."
+  },
+  {
+    "clave": "ejercicio.ejDesc.angeles-de-pared-wall-angels",
+    "texto": "Schuif met je rug tegen de muur je armen op en neer, terwijl je ellebogen contact houden."
+  },
+  {
+    "clave": "ejercicio.ejDesc.lunge-con-apertura-de-pectoral",
+    "texto": "Vouw in een uitvalspas je handen achter je nek en open je ellebogen naar achteren."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-dorsal-en-pared",
+    "texto": "Plaats je handen tegen de muur en laat je romp met gestrekte knieën zakken."
+  },
+  {
+    "clave": "ejercicio.ejDesc.el-gato-y-la-mesa",
+    "texto": "Welf op handen en knieën je rug en laat dan je borst zakken."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-hombros",
+    "texto": "Wijde cirkelbewegingen, met de nadruk op het pad naar achteren en beneden."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-pecho-pectoral",
+    "texto": "Vouw je handen achter je rug en open je borst zonder je nek te belasten."
+  },
+  {
+    "clave": "ejercicio.ejDesc.dislocaciones-con-goma-o-palo",
+    "texto": "Breng met gestrekte ellebogen een band over je hoofd en achter je rug."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotacion-externa-con-banda",
+    "texto": "Draai met je ellebogen in een hoek van 90 graden tegen je lichaam je handen tegen weerstand naar buiten."
+  },
+  {
+    "clave": "ejercicio.ejDesc.thread-the-needle-enhebrar-aguja",
+    "texto": "Rijg op handen en knieën een arm onder je lichaam door, tot je schouder de grond raakt."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-y-medios-circulos",
+    "texto": "Teken met je kin naar je borst wijde, heel langzame cirkels, zonder door pijn heen te forceren."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-trapecio-superior",
+    "texto": "Kantel je hoofd zachtjes en breng je oor naar de tegenoverliggende schouder."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-cervicales-con-nodding",
+    "texto": "Draai je hoofd en maak kleine knikkende bewegingen (“ja”)."
+  },
+  {
+    "clave": "ejercicio.ejDesc.retracciones-de-barbilla-chin-tucks",
+    "texto": "Trek je kin recht naar achteren en maak een “dubbele kin” om je nek uit te lijnen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.isometricos-cervicales",
+    "texto": "Duw je hoofd tegen je hand en verzet je tegen de beweging, zonder te buigen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-y-extension-de-muneca",
+    "texto": "Buig met gestrekte armen je pols naar het plafond en dan naar de grond."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-munecas",
+    "texto": "Draai beide polsen in cirkels, in beide richtingen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores",
+    "texto": "Duw met je handpalm naar boven met je andere hand je vingers naar je toe."
+  },
+  {
+    "clave": "ejercicio.ejDesc.agarre-activo-y-pasivo",
+    "texto": "Bal je vuisten stevig en open ze dan volledig ontspannen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-de-munecas",
+    "texto": "Til jezelf in de plank of knielend op tot je alleen op je vingertoppen rust, en zak weer terug."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.liberacion-miofascial-con-pelota",
+    "texto": "1 tot 2 minuten per voet (doorlopende beweging)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-tobillo",
+    "texto": "10 tot 12 herhalingen per richting, per enkel."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.recogida-de-toalla-con-dedos",
+    "texto": "10 tot 15 herhalingen (samenknijpen en loslaten) per voet."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-dorsiflexion",
+    "texto": "15 tot 30 seconden per been vasthouden, 2 tot 4 sets."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.elevacion-de-talones-unipodal",
+    "texto": "10 tot 15 herhalingen per been."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-en-descarga",
+    "texto": "8 tot 10 herhalingen per been."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "20 seconden per been vasthouden."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadilla-isometrica-wall-squat",
+    "texto": "5 tot 15 seconden vasthouden, opstaan en herhalen (3 tot 5 keer)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.equilibrio-unipodal-single-leg-balance",
+    "texto": "15 tot 60 seconden per been vasthouden (2 tot 3 keer herhalen)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadillas-del-arquero",
+    "texto": "15 herhalingen, afwisselend van kant."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estocadas-lunges",
+    "texto": "8 tot 12 herhalingen per been."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.movilidad-90-90",
+    "texto": "8 tot 12 herhalingen per kant (ongeveer 1-2 minuten)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.el-puente-glute-bridge",
+    "texto": "15 herhalingen (boven telkens 2-3 seconden vasthouden)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores-en-estocada",
+    "texto": "20 seconden per been vasthouden."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.abduccion-lateral-de-cadera",
+    "texto": "10 tot 15 herhalingen per kant, boven een paar seconden vasthouden."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadilla-profunda-con-apertura",
+    "texto": "15 openingsherhalingen."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.balanceo-dinamico-de-piernas",
+    "texto": "8 tot 10 herhalingen per been."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.postura-gato-vaca",
+    "texto": "1 minuut doorlopend (of 10 tot 15 ademhalingen)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.torsiones-lumbares-suaves",
+    "texto": "10 tot 15 herhalingen per kant."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.pointer-bird-dog",
+    "texto": "30 seconden aan één kant vasthouden, dan wisselen."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.plancha-frontal-isometricos",
+    "texto": "15 tot 60 seconden vasthouden, afhankelijk van je niveau."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.roll-down-curl-jefferson",
+    "texto": "15 langzame herhalingen."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-lumbar-boca-abajo",
+    "texto": "1 minuut doorlopend."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotacion-toracica",
+    "texto": "30 seconden per kant."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.retraccion-escapular",
+    "texto": "8 tot 10 herhalingen, de spanning telkens 5 tot 10 seconden vasthouden."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.angeles-de-pared-wall-angels",
+    "texto": "10 tot 15 langzame herhalingen."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.lunge-con-apertura-de-pectoral",
+    "texto": "15 herhalingen per kant."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-dorsal-en-pared",
+    "texto": "20 seconden vasthouden."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.el-gato-y-la-mesa",
+    "texto": "15 herhalingen op het ritme van je ademhaling."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-hombros",
+    "texto": "8 tot 10 herhalingen (voorwaarts en achterwaarts)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-pecho-pectoral",
+    "texto": "15 tot 20 seconden vasthouden."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.dislocaciones-con-goma-o-palo",
+    "texto": "10 tot 15 herhalingen."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotacion-externa-con-banda",
+    "texto": "8 tot 12 herhalingen."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.thread-the-needle-enhebrar-aguja",
+    "texto": "15 tot 30 seconden per kant vasthouden (2-3 sets)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotaciones-y-medios-circulos",
+    "texto": "8 tot 10 herhalingen per richting."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-trapecio-superior",
+    "texto": "15 tot 30 seconden per kant vasthouden."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotaciones-cervicales-con-nodding",
+    "texto": "8 tot 12 herhalingen per kant."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.retracciones-de-barbilla-chin-tucks",
+    "texto": "10 tot 15 herhalingen, de positie 5 tot 10 seconden vasthouden."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.isometricos-cervicales",
+    "texto": "8 tot 12 herhalingen (spanning 5-10 sec vasthouden)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-de-muneca",
+    "texto": "10 tot 12 herhalingen."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-munecas",
+    "texto": "10 tot 15 cirkels per richting."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores",
+    "texto": "15 tot 30 seconden vasthouden."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.agarre-activo-y-pasivo",
+    "texto": "10 tot 15 herhalingen."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.plancha-de-munecas",
+    "texto": "8 tot 12 herhalingen."
+  },
+  {
+    "clave": "ejercicio.dificultad.baja",
+    "texto": "Laag"
+  },
+  {
+    "clave": "ejercicio.dificultad.media",
+    "texto": "Gemiddeld"
+  },
+  {
+    "clave": "ejercicio.dificultad.alta",
+    "texto": "Hoog"
+  },
+  {
+    "clave": "ejercicio.dificultad.mediaAlta",
+    "texto": "Gemiddeld / Hoog"
+  },
+  {
+    "clave": "ejercicio.rut.full-body",
+    "texto": "Volledig lichaam"
+  },
+  {
+    "clave": "ejercicio.rut.tren-superior",
+    "texto": "Bovenlichaam"
+  },
+  {
+    "clave": "ejercicio.rut.tren-inferior",
+    "texto": "Onderlichaam"
+  },
+  {
+    "clave": "ejercicio.rut.push-pecho-y-triceps",
+    "texto": "Push · Borst & triceps"
+  },
+  {
+    "clave": "ejercicio.rut.pull-espalda-y-biceps",
+    "texto": "Pull · Rug & biceps"
+  },
+  {
+    "clave": "ejercicio.rut.legs-pierna-completa",
+    "texto": "Legs · Volledig been"
+  },
+  {
+    "clave": "ejercicio.rut.hiit-20-min",
+    "texto": "HIIT 20 min"
+  },
+  {
+    "clave": "ejercicio.rut.carrera-continua",
+    "texto": "Duurloop"
+  },
+  {
+    "clave": "ejercicio.rut.caminata-inclinada",
+    "texto": "Wandelen met helling"
+  },
+  {
+    "clave": "ejercicio.rut.bike-tempo",
+    "texto": "Tempo fietsen"
+  },
+  {
+    "clave": "ejercicio.rut.triatlon-sprint",
+    "texto": "Sprinttriatlon"
+  },
+  {
+    "clave": "ejercicio.rut.movilidad-matutina",
+    "texto": "Ochtendmobiliteit"
+  },
+  {
+    "clave": "ejercicio.rut.yoga-flow",
+    "texto": "Yogaflow"
+  },
+  {
+    "clave": "ejercicio.rut.cadera-y-piernas",
+    "texto": "Heupen & benen"
+  },
+  {
+    "clave": "ejercicio.rut.estiramiento-post-entreno",
+    "texto": "Stretchen na de training"
+  },
+  {
+    "clave": "ejercicio.rut.espalda-y-hombros",
+    "texto": "Rug & schouders"
+  },
+  {
+    "clave": "ejercicio.rut.cuello-y-oficina",
+    "texto": "Nek & bureaupauze"
+  },
+  {
+    "clave": "ejercicio.rut.antes-de-dormir",
+    "texto": "Voor het slapen"
+  },
+  {
+    "clave": "ejercicio.rutDesc.full-body",
+    "texto": "Krachtcircuit voor het hele lichaam."
+  },
+  {
+    "clave": "ejercicio.rutDesc.tren-superior",
+    "texto": "Borst, rug, schouders en armen in één sessie."
+  },
+  {
+    "clave": "ejercicio.rutDesc.tren-inferior",
+    "texto": "Complete training voor benen en billen."
+  }
 ]

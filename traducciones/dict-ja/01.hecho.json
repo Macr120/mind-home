@@ -1,46 +1,878 @@
 [
   {
-    "clave": "tut.esencial.titulo",
-    "texto": "基本の使い方"
+    "clave": "hoy.casa.personales",
+    "texto": "個人"
   },
   {
-    "clave": "tut.tipo.ejemplos",
-    "texto": "例・デモの家"
+    "clave": "hoy.irApp",
+    "texto": "アプリで記録"
   },
   {
-    "clave": "tut.app-agenda--esencial.resumen",
-    "texto": "スケジュールは、習慣ではない用事を3つのメニューで管理します。仕事（タスクとボード）、健康（通院の予定、薬、継続ケア——自分の分も、大切な人やペットの分も）、連絡先（連絡先と誕生日）。日付のあるものは、すべて自動でカレンダーに入ります。"
+    "clave": "hoy.nada",
+    "texto": "このアプリではまだ何も決めていません。"
   },
   {
-    "clave": "tut.calendario--esencial.resumen",
-    "texto": "カレンダーは部屋ではありません。家の時計の中にあり、日付と時刻を持つものをすべて集めます。自分で作った予定も、ほかのアプリが自動で入れた予定もです。見方は4つ。日と週は時間のグリッドで、月と年は全体を見渡すために使います。そのほかにミッションがあります。赤いボタンで、すべてのアプリの今日のチェックリストがひとつにまとまっています。"
+    "clave": "hoy.metas.titulo",
+    "texto": "目標"
   },
   {
-    "clave": "tut.app-anecdotario--esencial.resumen",
-    "texto": "思い出ノートはあなただけの日記です。気分・文章・写真を書いたエントリーが、日付ごとに自動で保存されます。カレンダーはその日の気分に合わせて色がつき、履歴は年・月・週のフォルダに整理してくれます。"
+    "clave": "hoy.metas.vencida",
+    "texto": "期限切れ"
   },
   {
-    "clave": "tut.app-biblioteca--esencial.resumen",
-    "texto": "図書室はあなただけの百科事典で、メニューは4つです。チャット（賢者に質問すると、会話は一つひとつ保存され、項目として抽出されます）、百科事典（学んだことが分野ごとに並ぶツリー）、学習（シンプルまたはポモドーロのタイマーで、セッションを記録します）、概要（どれだけ書き、どれだけ学んだか）。"
+    "clave": "hoy.metas.faltan",
+    "texto": "{n}日"
   },
   {
-    "clave": "tut.app-cocina--esencial.resumen",
-    "texto": "キッチンのメニューは2つです。レシピ帳には、これから作るものが入ります。栄養素つきのレシピ、それをまとめる食事プラン、そして買い物リストです。食事管理は食べたものを4つのステップで記録します。カロリーと体重の目標、その日の記録、これからの献立表、そして進捗です。"
+    "clave": "objetivos.anadir",
+    "texto": "ミッションを追加"
   },
   {
-    "clave": "tut.app-computo--esencial.resumen",
-    "texto": "計算室のメニューは2つです。電卓はふだんの計算をこなし、モードを切り替えるとグラフ、進数、行列、連立方程式、単位、チップ、比例式にも対応します。そこからは数式帳——数学・物理・化学があらかじめ入った自分の公式集——が開けます。表計算は表形式のデータを扱い、数式（=SUMA(B2:B15) の形）が使えて、ExcelやPDFに書き出せます。"
+    "clave": "objetivos.responsable",
+    "texto": "{quien}がここのことを思い出させてくれます。"
   },
   {
-    "clave": "tut.app-descanso--esencial.resumen",
-    "texto": "休息は、眠りのようすを1つの画面に記録します。昨夜のスコア、通知つきのスケジュール、毎日の記録、そして年・月・週でたどれる履歴です。"
+    "clave": "objetivos.nuevo.deQueApp",
+    "texto": "どのアプリのミッションですか？"
   },
   {
-    "clave": "tut.app-despacho--esencial.resumen",
-    "texto": "書斎はお金を4つのメニューで整理します。純資産は持っているものと借りているものを、その予測とともに管理します。収支は支出・収入とその期間の差し引きを、予算とカテゴリーつきで扱います。目標は貯蓄・投資・負債をまとめ、金額を提案してくれる計算ツールもついています。マーケットはリアルタイムの相場ボードで、見るだけの機能です。"
+    "clave": "objetivos.nuevo.responsable",
+    "texto": "ここのことは私がお知らせしますね。何に取り組みますか？"
   },
   {
-    "clave": "tut.app-diario--esencial.resumen",
-    "texto": "日刊ニュースはその日かぎりの新聞です。実際の報道の見出しがカテゴリー別に並び、今日は何の日も載ります。真夜中になると自動で新しくなります。お届けを設定すると、アシスタントが自分のチャットで届けてくれます。"
+    "clave": "objetivos.nuevo.personal",
+    "texto": "どのアプリにも属さない、個人のミッションです。"
+  },
+  {
+    "clave": "objetivos.nuevo.personales",
+    "texto": "個人"
+  },
+  {
+    "clave": "objetivos.nuevo.poner",
+    "texto": "＋"
+  },
+  {
+    "clave": "objetivos.nuevo.todos",
+    "texto": "このアプリのミッションはすべて決めました。"
+  },
+  {
+    "clave": "objetivos.nuevo.otro",
+    "texto": "別のミッション…"
+  },
+  {
+    "clave": "objetivos.nuevo.otroPlaceholder",
+    "texto": "何を決めますか？"
+  },
+  {
+    "clave": "objetivos.nuevo.checklist",
+    "texto": "複数のステップが必要？新しいチェックリスト"
+  },
+  {
+    "clave": "objetivos.nuevo.dias",
+    "texto": "何曜日？"
+  },
+  {
+    "clave": "objetivos.nuevo.faltanDias",
+    "texto": "少なくとも1日選んでください。"
+  },
+  {
+    "clave": "objetivos.nuevo.cantidad",
+    "texto": "どれくらい？"
+  },
+  {
+    "clave": "objetivos.nuevo.meta",
+    "texto": "どの目標のため？"
+  },
+  {
+    "clave": "objetivos.nuevo.sinMeta",
+    "texto": "なし（独立）"
+  },
+  {
+    "clave": "objetivos.nuevo.mientrasDure",
+    "texto": "{ini}から{fin}まで、目標が続く間だけ。"
+  },
+  {
+    "clave": "objetivos.nuevo.hora",
+    "texto": "時間を決める？"
+  },
+  {
+    "clave": "objetivos.nuevo.sinHora",
+    "texto": "時間なし"
+  },
+  {
+    "clave": "objetivos.nuevo.anadir",
+    "texto": "追加"
+  },
+  {
+    "clave": "objetivos.nuevo.cancelar",
+    "texto": "キャンセル"
+  },
+  {
+    "clave": "objetivos.nuevo.cambiar",
+    "texto": "アシスタントを切り替え"
+  },
+  {
+    "clave": "objetivos.nuevo.nadie",
+    "texto": "アシスタントなし"
+  },
+  {
+    "clave": "avisos.objetivos",
+    "texto": "{app}にミッションがあと{n}件残っています。"
+  },
+  {
+    "clave": "biblioteca.nodo.filosofia",
+    "texto": "哲学と思想"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.filosofia",
+    "texto": "存在・知識・心・行為をめぐる根本的な問い。"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-metafisica",
+    "texto": "形而上学と存在論"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-ser",
+    "texto": "存在と実在"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-ser",
+    "texto": "何かが存在するとはどういうことか。"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-mente",
+    "texto": "心と意識"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-mente",
+    "texto": "心身問題と現象学。"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-libre",
+    "texto": "自由と決定論"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-libre",
+    "texto": "私たちは自由なのか、すべては因果で決まっているのか。"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-epistemologia",
+    "texto": "認識論"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-conocimiento",
+    "texto": "知識論"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-conocimiento",
+    "texto": "正当化・真理・信念。"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-ciencia-fil",
+    "texto": "科学哲学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-ciencia-fil",
+    "texto": "方法・パラダイム・境界設定。"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-escepticismo",
+    "texto": "懐疑論"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-escepticismo",
+    "texto": "私たちが知りうることの限界。"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-etica",
+    "texto": "倫理学と政治哲学"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-moral",
+    "texto": "道徳理論"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-moral",
+    "texto": "義務論・功利主義・徳倫理。"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-justicia",
+    "texto": "社会正義"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-justicia",
+    "texto": "公正・権利・共通善。"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-bioetica",
+    "texto": "生命倫理学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-bioetica",
+    "texto": "生命・医療・応用技術。"
+  },
+  {
+    "clave": "biblioteca.nodo.matematicas",
+    "texto": "数学と論理学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.matematicas",
+    "texto": "抽象構造・形式的推論・定量モデル。"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-puras",
+    "texto": "純粋数学"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-algebra",
+    "texto": "代数学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-algebra",
+    "texto": "構造・方程式・対称性。"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-analisis",
+    "texto": "解析学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-analisis",
+    "texto": "極限・連続性・微積分。"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-geometria",
+    "texto": "幾何学とトポロジー"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-geometria",
+    "texto": "図形・空間・変換。"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-aplicadas",
+    "texto": "応用数学"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-prob",
+    "texto": "確率論"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-prob",
+    "texto": "不確実性と偶然の出来事。"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-stats",
+    "texto": "統計学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-stats",
+    "texto": "データ・推測・モデル。"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-discreta",
+    "texto": "離散数学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-discreta",
+    "texto": "組合せ論・グラフ理論・再帰。"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-logica",
+    "texto": "論理学"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-log-formal",
+    "texto": "形式論理学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-log-formal",
+    "texto": "命題・述語・証明。"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-log-comput",
+    "texto": "計算論理学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-log-comput",
+    "texto": "アルゴリズム・計算量・検証。"
+  },
+  {
+    "clave": "biblioteca.nodo.naturales",
+    "texto": "自然科学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.naturales",
+    "texto": "物理宇宙の法則、物質、エネルギー、そして生命システム。"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-fisica",
+    "texto": "物理学"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-mecanica",
+    "texto": "古典力学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-mecanica",
+    "texto": "運動・力・エネルギー。"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-cuantica",
+    "texto": "量子物理学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-cuantica",
+    "texto": "粒子・波・確率。"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-relatividad",
+    "texto": "相対性理論"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-relatividad",
+    "texto": "時空と宇宙論。"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-termodinamica",
+    "texto": "熱力学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-termodinamica",
+    "texto": "熱・エントロピー・平衡。"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-quimica",
+    "texto": "化学"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-org",
+    "texto": "有機化学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-org",
+    "texto": "炭素・生体分子・反応。"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-inorg",
+    "texto": "無機化学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-inorg",
+    "texto": "元素・結合・材料。"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-fisicoquim",
+    "texto": "物理化学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-fisicoquim",
+    "texto": "反応と平衡におけるエネルギー。"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-biologia",
+    "texto": "生物学"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-celula",
+    "texto": "細胞生物学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-celula",
+    "texto": "細胞・代謝・シグナル伝達。"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-genetica",
+    "texto": "遺伝学と進化"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-genetica",
+    "texto": "DNA・自然選択・系統発生。"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-ecologia",
+    "texto": "生態学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-ecologia",
+    "texto": "生態系・生物多様性・循環。"
+  },
+  {
+    "clave": "biblioteca.nodo.tierra",
+    "texto": "地球科学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tierra",
+    "texto": "惑星・大気・海洋・地質作用。"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-geologia",
+    "texto": "地質学と地球物理学"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-placas",
+    "texto": "プレートテクトニクス"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-placas",
+    "texto": "地形の形成と地震。"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-minerales",
+    "texto": "鉱物学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-minerales",
+    "texto": "岩石・鉱物・資源。"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-paleont",
+    "texto": "古生物学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-paleont",
+    "texto": "化石と生命の歴史。"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-clima",
+    "texto": "気候と大気"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-meteorologia",
+    "texto": "気象学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-meteorologia",
+    "texto": "天気・気圧・降水。"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-climatologia",
+    "texto": "気候学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-climatologia",
+    "texto": "長期的な傾向と気候変動。"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-oceanos",
+    "texto": "海洋学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-oceanos",
+    "texto": "海流・海・海岸。"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-espacial",
+    "texto": "地理と宇宙"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-cartografia",
+    "texto": "地図学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-cartografia",
+    "texto": "地図・座標・GIS。"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-geomorf",
+    "texto": "地形学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-geomorf",
+    "texto": "地形と侵食。"
+  },
+  {
+    "clave": "biblioteca.nodo.sociales",
+    "texto": "社会科学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sociales",
+    "texto": "社会・経済・制度、そして人間の集団行動。"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-sociologia",
+    "texto": "社会学と人類学"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-estructura",
+    "texto": "社会構造"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-estructura",
+    "texto": "階級・ネットワーク・不平等。"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-cultura",
+    "texto": "文化人類学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-cultura",
+    "texto": "儀礼・アイデンティティ・象徴。"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-urbano",
+    "texto": "都市研究"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-urbano",
+    "texto": "都市・移住・領域。"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-economia",
+    "texto": "経済学"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-micro",
+    "texto": "ミクロ経済学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-micro",
+    "texto": "供給・需要・意思決定。"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-macro",
+    "texto": "マクロ経済学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-macro",
+    "texto": "GDP・インフレ・財政政策。"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-comercio",
+    "texto": "国際貿易"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-comercio",
+    "texto": "グローバル化とバリューチェーン。"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-politica",
+    "texto": "政治学"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-estado",
+    "texto": "国家と政府"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-estado",
+    "texto": "権力・法・民主主義。"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-derechos",
+    "texto": "人権"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-derechos",
+    "texto": "自由・正義・市民権。"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-relaciones",
+    "texto": "国際関係論"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-relaciones",
+    "texto": "外交・紛争・協力。"
+  },
+  {
+    "clave": "biblioteca.nodo.psicologia",
+    "texto": "心理学と人間の心"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psicologia",
+    "texto": "認知・感情・発達、そして心理的な健康。"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-cognitiva",
+    "texto": "認知心理学"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-percepcion",
+    "texto": "知覚と注意"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-percepcion",
+    "texto": "刺激をどう処理するか。"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-memoria",
+    "texto": "記憶と学習"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-memoria",
+    "texto": "符号化・想起・忘却。"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-lenguaje-psi",
+    "texto": "心理言語学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-lenguaje-psi",
+    "texto": "言語の習得と処理。"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-desarrollo",
+    "texto": "発達と人格"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-infancia",
+    "texto": "児童発達"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-infancia",
+    "texto": "認知的・社会的な発達の節目。"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-personalidad",
+    "texto": "パーソナリティ"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-personalidad",
+    "texto": "特性・気質・モデル。"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-social-psi",
+    "texto": "社会心理学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-social-psi",
+    "texto": "集団・態度・同調。"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-clinica",
+    "texto": "メンタルヘルス"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-clinica-gen",
+    "texto": "臨床心理学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-clinica-gen",
+    "texto": "障害・診断・治療。"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-neuropsi",
+    "texto": "神経心理学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-neuropsi",
+    "texto": "脳・損傷・リハビリテーション。"
+  },
+  {
+    "clave": "biblioteca.nodo.humanidades",
+    "texto": "人文学と歴史"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.humanidades",
+    "texto": "時代・思想・文化遺産を通じた人間の経験。"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-historia",
+    "texto": "歴史学"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-antigua",
+    "texto": "古代史"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-antigua",
+    "texto": "古典文明とその起源。"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-moderna",
+    "texto": "近現代史"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-moderna",
+    "texto": "革命・国家・グローバル化。"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-metodo",
+    "texto": "歴史学方法論"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-metodo",
+    "texto": "史料・解釈・論争。"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-religion",
+    "texto": "宗教と神話"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-comparada",
+    "texto": "比較宗教学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-comparada",
+    "texto": "伝統・聖典・実践。"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-mito",
+    "texto": "神話学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-mito",
+    "texto": "起源の物語と元型。"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-patrimonio",
+    "texto": "遺産と文化研究"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-museos",
+    "texto": "物質文化遺産"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-museos",
+    "texto": "博物館・保存・遺物。"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-memoria",
+    "texto": "集合的記憶"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-memoria",
+    "texto": "証言・記録・忘却。"
+  },
+  {
+    "clave": "biblioteca.nodo.lengua",
+    "texto": "言語と文学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.lengua",
+    "texto": "コミュニケーション・テクスト・言語分析、そして文字による伝統。"
+  },
+  {
+    "clave": "biblioteca.nodo.len-linguistica",
+    "texto": "言語学"
+  },
+  {
+    "clave": "biblioteca.nodo.len-fonetica",
+    "texto": "音声学と音韻論"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-fonetica",
+    "texto": "音声と音韻体系。"
+  },
+  {
+    "clave": "biblioteca.nodo.len-sintaxis",
+    "texto": "統語論と形態論"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-sintaxis",
+    "texto": "文と語の構造。"
+  },
+  {
+    "clave": "biblioteca.nodo.len-semantica",
+    "texto": "意味論と語用論"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-semantica",
+    "texto": "文脈における意味。"
+  },
+  {
+    "clave": "biblioteca.nodo.len-literatura",
+    "texto": "文学"
+  },
+  {
+    "clave": "biblioteca.nodo.len-generos",
+    "texto": "文学のジャンル"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-generos",
+    "texto": "小説・詩・戯曲・エッセイ。"
+  },
+  {
+    "clave": "biblioteca.nodo.len-teoria-lit",
+    "texto": "文学理論"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-teoria-lit",
+    "texto": "批評・物語論・正典。"
+  },
+  {
+    "clave": "biblioteca.nodo.len-mundo",
+    "texto": "世界文学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-mundo",
+    "texto": "地域の伝統と翻訳。"
+  },
+  {
+    "clave": "biblioteca.nodo.len-comunicacion",
+    "texto": "コミュニケーション学"
+  },
+  {
+    "clave": "biblioteca.nodo.len-periodismo",
+    "texto": "ジャーナリズム"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-periodismo",
+    "texto": "ニュース・ファクトチェック・論説。"
+  },
+  {
+    "clave": "biblioteca.nodo.len-retorica",
+    "texto": "修辞学と論証"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-retorica",
+    "texto": "説得と公共の議論。"
+  },
+  {
+    "clave": "biblioteca.nodo.idiomas",
+    "texto": "語学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idiomas",
+    "texto": "外国語学習：語彙・文法・発音・練習。"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-aprendizaje",
+    "texto": "学習の基礎"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-vocabulario",
+    "texto": "語彙"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-vocabulario",
+    "texto": "役立つ単語やフレーズの習得と復習。"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-gramatica",
+    "texto": "文法"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-gramatica",
+    "texto": "構造・時制・比較統語論。"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-pronunciacion",
+    "texto": "発音とリスニング"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-pronunciacion",
+    "texto": "音声学・アクセント・リスニング理解。"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-lenguas",
+    "texto": "世界の言語"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-ingles",
+    "texto": "英語"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-ingles",
+    "texto": "世界共通語。"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-romances",
+    "texto": "ロマンス諸語"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-romances",
+    "texto": "フランス語・イタリア語・ポルトガル語とその親縁関係。"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-asiaticas",
+    "texto": "アジアの言語"
   }
 ]

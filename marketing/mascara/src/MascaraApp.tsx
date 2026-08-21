@@ -12,13 +12,16 @@ import {
 import { CabezaAvatar } from './CabezaAvatar'
 import { useFaceLandmarker } from './useFaceLandmarker'
 import { iniciarGrabacion, guardarGrabacion, type Encuadre, type Grabador } from './grabador'
-import { crearClasificador, puntuaciones, senalesIniciales, type ModoCara, type SenalesCara } from './expresiones'
+import { crearClasificador, nivelBoca, puntuaciones, senalesIniciales, type ModoCara, type SenalesCara } from './expresiones'
+import { MASCARAS, mascaraDe } from './mascaras'
 // Estilos del componente (acotados a `.mascara-ui`): así valen igual en el build
 // standalone y dentro de la app, que no carga el `estilos.css` global.
 import './mascara.css'
 
 /** Configuración calibrable de la máscara, persistida en localStorage. */
 interface Config {
+  /** Cabeza que se lleva puesta (ver `MASCARAS`): la Base o la de un cuerpo prediseñado. */
+  mascaraId: string
   expresion: ExpresionId
   peinado: PeinadoId
   piel: string
@@ -44,6 +47,7 @@ interface Config {
 }
 
 const CONFIG_DEFAULT: Config = {
+  mascaraId: 'base',
   expresion: 'feliz',
   peinado: 'corto',
   piel: '#ffd23b', // mismo amarillo del avatar Base por defecto
@@ -124,6 +128,7 @@ function Escena({
     onExpresion(null)
   }, [config.modoCara, onExpresion])
 
+  // eslint-disable-next-line react-hooks/immutability -- muta el ref compartido `senales` por frame (bus de señales con RostroVivo)
   useFrame(({ clock }) => {
     const g = grupo.current
     if (!g) return
@@ -149,9 +154,10 @@ function Escena({
       if (config.modoCara === 'vivo') {
         const b = puntuaciones(blend)
         const s = senales.current
+        // eslint-disable-next-line react-hooks/immutability -- `senales` es un ref compartido; se rellena por frame
         s.parpadeoL = b.eyeBlinkLeft ?? 0
         s.parpadeoR = b.eyeBlinkRight ?? 0
-        s.boca = b.jawOpen ?? 0
+        s.boca = nivelBoca(b)
         s.sonrisa = ((b.mouthSmileLeft ?? 0) + (b.mouthSmileRight ?? 0)) / 2
         s.cejas = b.browInnerUp ?? 0
       }
@@ -194,6 +200,7 @@ function Escena({
       <group position={[0, config.altura / config.escala, config.profundidad / config.escala]}>
         <CabezaAvatar
           piel={config.piel}
+          mascara={config.mascaraId}
           expresion={expresion}
           peinado={config.peinado}
           pelo={config.pelo}
@@ -216,6 +223,8 @@ export interface TextosMascara {
   mostrar: string
   menos: string
   ajustes: string
+  mascara: string
+  mascaraNombre: (id: string, nombre: string) => string
   cara: string
   caraFija: string
   caraImita: string
@@ -254,6 +263,8 @@ export const TEXTOS_ES: TextosMascara = {
   mostrar: 'Mostrar interfaz',
   menos: 'Menos',
   ajustes: 'Ajustes',
+  mascara: 'Máscara',
+  mascaraNombre: (_id, nombre) => nombre,
   cara: 'Cara',
   caraFija: 'Fija',
   caraImita: 'Imita',
@@ -461,6 +472,11 @@ export function MascaraApp({ onSalir, textos }: { onSalir?: () => void; textos?:
       return !v
     })
   }
+  // Cada máscara trae lo suyo horneado: solo la Base tiene piel/peinado editables,
+  // y solo Base y Princesa llevan el rostro dibujado encima.
+  const mascara = mascaraDe(config.mascaraId)
+  const esBase = mascara.piezas === null
+
   /** La detectada manda en modos automáticos; el chip manual es la cara base/reposo. */
   const expresionEfectiva = config.modoCara !== 'estatico' && expresionDetectada ? expresionDetectada : config.expresion
 
@@ -487,23 +503,39 @@ export function MascaraApp({ onSalir, textos }: { onSalir?: () => void; textos?:
   const controles = (
     <>
       <div className="flex items-center gap-1">
-        <span className="mr-1">{tx.cara}</span>
-        {(
-          [
-            ['estatico', tx.caraFija],
-            ['expresiones', tx.caraImita],
-            ['vivo', tx.caraViva],
-          ] as const
-        ).map(([id, nombre]) => (
-          <button
-            key={id}
-            onClick={() => cambiar('modoCara', id)}
-            className={`rounded-full px-2 py-1 ${config.modoCara === id ? 'bg-emerald-600' : 'bg-white/10'}`}
-          >
-            {nombre}
-          </button>
-        ))}
+        <span className="mr-1">{tx.mascara}</span>
+        <div className="flex flex-1 gap-1 overflow-x-auto pb-1">
+          {MASCARAS.map((m) => (
+            <button
+              key={m.id}
+              onClick={() => cambiar('mascaraId', m.id)}
+              className={`shrink-0 rounded-full px-2 py-1 ${config.mascaraId === m.id ? 'bg-emerald-600' : 'bg-white/10'}`}
+            >
+              {m.emoji} {tx.mascaraNombre(m.id, m.nombre)}
+            </button>
+          ))}
+        </div>
       </div>
+      {mascara.conRostro && (
+        <div className="flex items-center gap-1">
+          <span className="mr-1">{tx.cara}</span>
+          {(
+            [
+              ['estatico', tx.caraFija],
+              ['expresiones', tx.caraImita],
+              ['vivo', tx.caraViva],
+            ] as const
+          ).map(([id, nombre]) => (
+            <button
+              key={id}
+              onClick={() => cambiar('modoCara', id)}
+              className={`rounded-full px-2 py-1 ${config.modoCara === id ? 'bg-emerald-600' : 'bg-white/10'}`}
+            >
+              {nombre}
+            </button>
+          ))}
+        </div>
+      )}
       <div className="flex items-center gap-1">
         <span className="mr-1">{tx.camara}</span>
         {(
@@ -576,40 +608,46 @@ export function MascaraApp({ onSalir, textos }: { onSalir?: () => void; textos?:
           </button>
         ))}
       </div>
-      <div className="flex gap-1 overflow-x-auto pb-1">
-        {EXPRESIONES.map((e) => (
-          <button
-            key={e.id}
-            onClick={() => cambiar('expresion', e.id)}
-            className={`shrink-0 rounded-full px-2 py-1 ${config.expresion === e.id ? 'bg-emerald-600' : 'bg-white/10'} ${
-              config.modoCara !== 'estatico' && expresionDetectada === e.id ? 'ring-2 ring-sky-400' : ''
-            }`}
-          >
-            {e.emoji} {tx.expresion(e.id, e.nombre)}
-          </button>
-        ))}
-      </div>
-      <div className="flex gap-1 overflow-x-auto pb-1">
-        {PEINADOS.map((p) => (
-          <button
-            key={p.id}
-            onClick={() => cambiar('peinado', p.id)}
-            className={`shrink-0 rounded-full px-2 py-1 ${config.peinado === p.id ? 'bg-emerald-600' : 'bg-white/10'}`}
-          >
-            {p.emoji} {tx.peinado(p.id, p.nombre)}
-          </button>
-        ))}
-      </div>
-      <div className="flex items-center gap-4">
-        <label className="flex items-center gap-2">
-          {tx.piel}
-          <input type="color" value={config.piel} onChange={(e) => cambiar('piel', e.target.value)} className="h-9 w-12" />
-        </label>
-        <label className="flex items-center gap-2">
-          {tx.pelo}
-          <input type="color" value={config.pelo} onChange={(e) => cambiar('pelo', e.target.value)} className="h-9 w-12" />
-        </label>
-      </div>
+      {mascara.conRostro && (
+        <div className="flex gap-1 overflow-x-auto pb-1">
+          {EXPRESIONES.map((e) => (
+            <button
+              key={e.id}
+              onClick={() => cambiar('expresion', e.id)}
+              className={`shrink-0 rounded-full px-2 py-1 ${config.expresion === e.id ? 'bg-emerald-600' : 'bg-white/10'} ${
+                config.modoCara !== 'estatico' && expresionDetectada === e.id ? 'ring-2 ring-sky-400' : ''
+              }`}
+            >
+              {e.emoji} {tx.expresion(e.id, e.nombre)}
+            </button>
+          ))}
+        </div>
+      )}
+      {esBase && (
+        <div className="flex gap-1 overflow-x-auto pb-1">
+          {PEINADOS.map((p) => (
+            <button
+              key={p.id}
+              onClick={() => cambiar('peinado', p.id)}
+              className={`shrink-0 rounded-full px-2 py-1 ${config.peinado === p.id ? 'bg-emerald-600' : 'bg-white/10'}`}
+            >
+              {p.emoji} {tx.peinado(p.id, p.nombre)}
+            </button>
+          ))}
+        </div>
+      )}
+      {esBase && (
+        <div className="flex items-center gap-4">
+          <label className="flex items-center gap-2">
+            {tx.piel}
+            <input type="color" value={config.piel} onChange={(e) => cambiar('piel', e.target.value)} className="h-9 w-12" />
+          </label>
+          <label className="flex items-center gap-2">
+            {tx.pelo}
+            <input type="color" value={config.pelo} onChange={(e) => cambiar('pelo', e.target.value)} className="h-9 w-12" />
+          </label>
+        </div>
+      )}
       {(
         [
           { clave: 'escala', nombre: tx.tamano, min: 30, max: 80 },

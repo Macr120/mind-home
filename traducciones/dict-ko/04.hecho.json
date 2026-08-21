@@ -1,169 +1,498 @@
 [
-  { "clave": "plantillaCustom.borrarBloqueMsj", "texto": "그 도구는 저장한 내용과 함께 삭제돼요." },
-  { "clave": "plantillaCustom.borrarBloqueAhora", "texto": "도구와 데이터 삭제" },
-  { "clave": "plantillaCustom.meta", "texto": "목표 (선택)" },
-  { "clave": "plantillaCustom.guardar", "texto": "저장" },
-  { "clave": "plantillaCustom.cancelar", "texto": "취소" },
-  { "clave": "plantillaCustom.tipo.notas", "texto": "메모" },
-  { "clave": "plantillaCustom.tipo.checklist", "texto": "체크리스트" },
-  { "clave": "plantillaCustom.tipo.contador", "texto": "카운터" },
-  { "clave": "plantillaCustom.tipo.enlaces", "texto": "링크" },
-  { "clave": "plantillaCustom.tipo.lista", "texto": "목록" },
-  { "clave": "plantillaCustom.tipo.valoracion", "texto": "평점" },
-  { "clave": "plantillaCustom.tipo.bitacora", "texto": "일지" },
-  { "clave": "plantillaCustom.tipo.progreso", "texto": "진행 상황" },
-  { "clave": "plantillaCustom.tipo.habito", "texto": "습관" },
-  { "clave": "plantillaCustom.tipo.sesiones", "texto": "세션" },
-  { "clave": "plantillaCustom.tipo.cuenta", "texto": "카운트다운" },
-  { "clave": "plantillaCustom.tipo.galeria", "texto": "갤러리" },
-  { "clave": "amueblar.titulo", "texto": "방을 어떻게 꾸밀까요?" },
-  { "clave": "amueblar.completo", "texto": "가구 완비" },
-  { "clave": "amueblar.completoDesc", "texto": "앱의 모든 오브젝트를 가져와요." },
-  { "clave": "amueblar.principal", "texto": "메인 오브젝트만" },
-  { "clave": "amueblar.principalDesc", "texto": "앱을 여는 오브젝트만 가져오고 나머지는 안 가져와요." },
-  { "clave": "plantillaCustom.eliminada", "texto": "이 템플릿은 삭제됐어요." },
-  { "clave": "plantillaCustom.notasPh", "texto": "메모를 적어보세요… (자동으로 저장돼요)" },
-  { "clave": "plantillaCustom.checklistPh", "texto": "새 할 일…" },
-  { "clave": "plantillaCustom.checklistVacio", "texto": "아직 할 일이 없어요." },
-  { "clave": "plantillaCustom.borrarItem", "texto": "삭제" },
-  { "clave": "plantillaCustom.enlaceTitulo", "texto": "제목 (선택)" },
-  { "clave": "plantillaCustom.enlacesVacio", "texto": "저장된 링크가 없어요." },
-  { "clave": "plantillaCustom.listaPh", "texto": "새 항목…" },
-  { "clave": "plantillaCustom.listaVacio", "texto": "목록이 비어 있어요." },
-  { "clave": "plantillaCustom.bitacoraPh", "texto": "새 기록…" },
-  { "clave": "plantillaCustom.bitacoraVacio", "texto": "아직 기록이 없어요." },
-  { "clave": "plantillaCustom.progresoPh", "texto": "값…" },
-  { "clave": "plantillaCustom.progresoVacio", "texto": "아직 측정값이 없어요." },
-  { "clave": "plantillaCustom.unidad", "texto": "단위 (선택)" },
-  { "clave": "plantillaCustom.habitoMarcar", "texto": "오늘 체크" },
-  { "clave": "plantillaCustom.habitoHecho", "texto": "오늘 완료 ✓" },
-  { "clave": "plantillaCustom.habitoRacha", "texto": "연속 기록" },
-  { "clave": "plantillaCustom.habitoDias", "texto": "활동 일수" },
-  { "clave": "plantillaCustom.metaSemana", "texto": "주간 횟수 (선택)" },
-  { "clave": "plantillaCustom.sesionMin", "texto": "분" },
-  { "clave": "plantillaCustom.sesionNota", "texto": "메모 (선택)" },
-  { "clave": "plantillaCustom.sesionVacio", "texto": "아직 세션이 없어요." },
-  { "clave": "plantillaCustom.sesionTotal", "texto": "합계" },
-  { "clave": "plantillaCustom.metaMin", "texto": "목표 시간 (분, 선택)" },
-  { "clave": "plantillaCustom.cuentaFecha", "texto": "목표 날짜" },
-  { "clave": "plantillaCustom.cuentaSinFecha", "texto": "편집할 때 목표 날짜를 설정하세요." },
-  { "clave": "plantillaCustom.cuentaDias", "texto": "남은 일수" },
-  { "clave": "plantillaCustom.cuentaHoy", "texto": "오늘이에요!" },
-  { "clave": "plantillaCustom.cuentaPaso", "texto": "일 전" },
-  { "clave": "plantillaCustom.galeriaAgregar", "texto": "사진 추가" },
-  { "clave": "plantillaCustom.galeriaVacio", "texto": "아직 사진이 없어요." },
-  { "clave": "objetos.ayuda", "texto": "존재하는 모든 오브젝트를 카테고리별로 볼 수 있어요. 직접 만들고, 수정하거나 삭제할 수 있어요." },
-  { "clave": "objetos.ayudaEspeciales", "texto": "효과가 있는 오브젝트를 기능별로 모았어요. 열면 폴더를 볼 수 있어요." },
-  { "clave": "objetos.agregar", "texto": "3D 오브젝트 추가" },
-  { "clave": "objetos.alMapa", "texto": "지도나 방에 배치" },
-  { "clave": "destinoObj.titulo", "texto": "어디에 둘까요?" },
-  { "clave": "destinoObj.mapa", "texto": "지도에" },
-  { "clave": "destinoObj.mapaDesc", "texto": "방 밖 야외에 자유롭게 둬요." },
-  { "clave": "destinoObj.enCuarto", "texto": "아니면 방 안에" },
-  { "clave": "objetos.editar", "texto": "에디터에서 편집" },
-  { "clave": "objetos.editarForma", "texto": "모양 편집" },
-  { "clave": "objetos.animado", "texto": "애니메이션 오브젝트" },
-  { "clave": "objetos.funcion.vehiculo", "texto": "운전 가능" },
-  { "clave": "objetos.funcion.asiento", "texto": "여기 앉을 수 있어요" },
-  { "clave": "objetos.funcion.acostarse", "texto": "여기 누울 수 있어요" },
-  { "clave": "objetos.funcion.laptop", "texto": "업무용" },
-  { "clave": "objetos.funcion.cajaFuerte", "texto": "소중한 것을 보관해요" },
-  { "clave": "objetos.funcion.computo", "texto": "계산용" },
-  { "clave": "objetos.funcion.tapete", "texto": "명상용" },
-  { "clave": "objetos.funcion.libreta", "texto": "글쓰기용" },
-  { "clave": "objetos.funcion.caminadora", "texto": "걷기용" },
-  { "clave": "objetos.funcion.anuncio", "texto": "표지판: 원하는 글을 쓸 수 있어요" },
-  { "clave": "objetos.funcion.parque", "texto": "인터랙티브: 올라타서 놀 수 있어요" },
-  { "clave": "objetos.rotarIzq", "texto": "왼쪽으로 회전" },
-  { "clave": "objetos.rotarDer", "texto": "오른쪽으로 회전" },
-  { "clave": "objetos.quitarDelMapa", "texto": "지도에서 제거" },
-  { "clave": "objetos.borrar", "texto": "오브젝트 삭제" },
-  { "clave": "objetos.borrarConfirm", "texto": "'{nombre}'을(를) 삭제할까요? 되돌릴 수 없어요." },
-  { "clave": "objetos.renombrar", "texto": "폴더 이름 바꾸기" },
-  { "clave": "objetos.restaurar", "texto": "기본 오브젝트 복원" },
-  { "clave": "objetos.restaurarConfirm", "texto": "삭제했던 기본 카탈로그 오브젝트가 다시 추가돼요. 계속할까요?" },
-  { "clave": "mapa.editar", "texto": "지도 편집" },
-  { "clave": "mapa.editarTitulo", "texto": "집 지도 편집" },
-  { "clave": "mapa.quitar", "texto": "지도에서 제거" },
-  { "clave": "chat.tuAsistente", "texto": "내 어시스턴트:" },
-  { "clave": "chat.vacio", "texto": "아직 기록이 없어요. 아키텍트에게 무엇을 했는지 알려주세요." },
-  { "clave": "chat.sinClasificar", "texto": "미분류" },
-  { "clave": "chat.capturado", "texto": "기록됨" },
-  { "clave": "chat.reclasificar", "texto": "다시 분류" },
-  { "clave": "chat.eliminar", "texto": "삭제" },
-  { "clave": "chat.ocultar", "texto": "메뉴 닫기" },
-  { "clave": "chat.verMenu", "texto": "메뉴 열기" },
-  { "clave": "chat.registrar", "texto": "기록" },
-  { "clave": "chat.chip.crear", "texto": "만들기" },
-  { "clave": "chat.chip.enMapa", "texto": "(지도 위)" },
-  { "clave": "chat.chip.fuera", "texto": "(지도 밖)" },
-  { "clave": "chat.abrirConv", "texto": "대화 보기" },
-  { "clave": "chat.verConv", "texto": "전체 대화 보기" },
-  { "clave": "chat.burbuja.ver", "texto": "탭해서 전체 읽기" },
-  { "clave": "dialogo.salir", "texto": "대화 종료 (Esc)" },
-  { "clave": "dialogo.completar", "texto": "전체 텍스트 표시" },
-  { "clave": "dialogo.hablar", "texto": "말하기" },
-  { "clave": "chat.conversacion", "texto": "대화" },
-  { "clave": "chat.conv.vacia", "texto": "아직 {pet}와의 메시지가 없어요. 아래 입력창에 말을 걸어보세요." },
-  { "clave": "chat.conv.limpiar", "texto": "대화 지우기" },
-  { "clave": "chat.conv.cerrar", "texto": "닫기" },
-  { "clave": "chat.tu", "texto": "나" },
-  { "clave": "chat.tab.chats", "texto": "채팅" },
-  { "clave": "chat.tab.registros", "texto": "기록" },
-  { "clave": "chat.config.abrir", "texto": "어시스턴트 설정" },
-  { "clave": "chat.config.titulo", "texto": "내 어시스턴트" },
-  { "clave": "chat.config.activo", "texto": "활성" },
-  { "clave": "chat.config.sinCaracter", "texto": "성격이 설정되지 않았어요" },
-  { "clave": "chat.config.archivaTodo", "texto": "모든 방에서 보관" },
-  { "clave": "chat.config.cuartos", "texto": "방 배정" },
-  { "clave": "chat.config.cuartosTodos", "texto": "(아무것도 선택 안 하면 전체)" },
-  { "clave": "chat.config.nuevo", "texto": "어시스턴트 만들기" },
-  { "clave": "chat.config.nuevoNombre", "texto": "새 어시스턴트" },
-  { "clave": "chat.config.nuevoSaludo", "texto": "안녕하세요! 새로운 어시스턴트예요." },
-  { "clave": "chat.config.nombre", "texto": "이름" },
-  { "clave": "chat.config.emoji", "texto": "어시스턴트 이모지" },
-  { "clave": "chat.config.historia", "texto": "캐릭터의 배경 이야기" },
-  { "clave": "chat.config.historiaPh", "texto": "배경 이야기: 예 \"40년간 등대를 지킨 늙은 뱃사람, 이제는 우리 집을 지켜요\"" },
-  { "clave": "chat.config.caracterPh", "texto": "성격: 예 \"해적처럼 말해요, 장난스럽고 직설적, 마지막엔 🏴‍☠️로 마무리해요\"" },
-  { "clave": "chat.config.forma", "texto": "3D 모양:" },
-  { "clave": "chat.config.color", "texto": "캐릭터 색상" },
-  { "clave": "chat.config.formaPh", "texto": "설명해 주세요: \"안경과 조끼를 착용한 초록 용\"" },
-  { "clave": "chat.config.formaSinIa", "texto": "모양을 설명하려면 AI가 필요해요 (바에서 모델을 선택하세요)" },
-  { "clave": "chat.config.formaGenerar", "texto": "AI로 모양 만들기" },
-  { "clave": "chat.config.formaError", "texto": "모양을 만들지 못했어요. AI 모델을 확인하고 다시 시도해 주세요." },
-  { "clave": "chat.config.subirGlb", "texto": ".glb 모델 업로드" },
-  { "clave": "chat.config.quitarGlb", "texto": "업로드한 모델 제거" },
-  { "clave": "chat.config.quitarFormaIa", "texto": "AI가 만든 모양 제거" },
-  { "clave": "chat.config.enMapa", "texto": "지도에서 제거" },
-  { "clave": "chat.config.ponerMapa", "texto": "지도에 배치" },
-  { "clave": "chat.config.voz", "texto": "목소리:" },
-  { "clave": "chat.config.vozAuto", "texto": "자동 (언어별)" },
-  { "clave": "chat.config.vozIA", "texto": "AI 음성 (OpenAI, 더 자연스러움)" },
-  { "clave": "chat.config.vozLeer", "texto": "말하는 내용을 소리 내어 읽기" },
-  { "clave": "chat.config.vozProbar", "texto": "목소리 들어보기" },
-  { "clave": "chat.config.vozTono", "texto": "톤" },
-  { "clave": "chat.config.vozVelocidad", "texto": "속도" },
-  { "clave": "chat.config.vozVolumen", "texto": "음량" },
-  { "clave": "chat.config.espontaneo", "texto": "자발적인 코멘트" },
-  { "clave": "chat.config.corazon", "texto": "하트 (자발성)" },
-  { "clave": "chat.config.corazonOff", "texto": "꺼짐" },
-  { "clave": "corazon.nivel.0", "texto": "조용함" },
-  { "clave": "corazon.nivel.1", "texto": "차분함" },
-  { "clave": "corazon.nivel.2", "texto": "수다스러움" },
-  { "clave": "corazon.nivel.3", "texto": "매우 수다스러움" },
-  { "clave": "corazon.mago.manana.0", "texto": "새벽이 신선한 마나를 가져와… 느껴져요 ✨" },
-  { "clave": "corazon.mago.manana.1", "texto": "두루마리들이 가지런히 깨어났어요. 좋은 징조예요 🔮" },
-  { "clave": "corazon.mago.tarde.0", "texto": "오후는 마법서에 업적을 새기기 딱 좋은 시간이에요 ✨" },
-  { "clave": "corazon.mago.tarde.1", "texto": "오늘 오후, 집 주변에서 고요한 기운이 느껴져요 🔮" },
-  { "clave": "corazon.mago.noche.0", "texto": "별들이 비밀을 속삭이네요… 마법 걸기 좋은 밤이에요 🌙" },
-  { "clave": "corazon.mago.noche.1", "texto": "달이 제 구슬을 충전해줘요. 여기는 모든 게 평온해요 🔮" },
-  { "clave": "corazon.mago.rutina.0", "texto": "제 수정구가 알려줘요: {h}에 '{r}' ✨" },
-  { "clave": "corazon.mago.rutina.1", "texto": "운명이 {h}를 가리켜요: '{r}'가 다가와요 🔮" },
-  { "clave": "corazon.mago.generica.0", "texto": "오늘 이 집은 마법으로 가득해요 ✨" },
-  { "clave": "corazon.mago.generica.1", "texto": "정리 마법도 나쁘지 않죠… 🔮" },
-  { "clave": "corazon.gato.manana.0", "texto": "너무 일러요. 사람들은 이상한 시간에 일어나네요 🐾" },
-  { "clave": "corazon.gato.manana.1", "texto": "하품. 아침엔 낮잠이 있으면 더 좋을 텐데요 🐱" },
-  { "clave": "corazon.gato.tarde.0", "texto": "햇볕 아래 낮잠 자기 딱 좋은 시간이에요. 그냥 그렇다고요 🐾" },
-  { "clave": "corazon.gato.tarde.1", "texto": "느긋한 오후… 딱 제 취향이에요 🐱" },
-  { "clave": "corazon.gato.noche.0", "texto": "드디어 밤이에요. 제 전성기 시간이죠 🐱" }
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-gemelos",
+    "texto": "벽에 손을 짚고 뒷다리를 편 채로 종아리를 늘여요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-hombros",
+    "texto": "한쪽 팔을 가슴 앞으로 교차시키고 다른 손으로 당겨요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.foam-roller",
+    "texto": "운동 후 폼롤러 위에서 근육을 굴려 긴장을 풀어요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-triceps",
+    "texto": "팔꿈치를 머리 뒤로 가져가고 다른 손으로 부드럽게 눌러요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-de-cadera",
+    "texto": "런지 자세에서 골반을 앞으로 밀어 허벅지 앞쪽을 늘여요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.piernas-en-la-pared",
+    "texto": "누운 자세에서 다리를 벽에 기대어 올리고 편안히 쉬며 혈액 순환을 도와요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.savasana",
+    "texto": "누운 자세에서 천천히 호흡하며 온몸의 힘을 빼요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-del-nino-apoyada",
+    "texto": "도구로 받쳐 오래 편안히 쉴 수 있는 차일드 자세예요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.respiracion-profunda",
+    "texto": "천천히 깊게 숨을 쉬며 신경계를 진정시켜요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.mariposa-reclinada",
+    "texto": "누운 자세에서 발바닥을 맞대고 무릎을 자연스럽게 내려 고관절을 풀어요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsion-reclinada",
+    "texto": "누운 자세에서 무릎을 한쪽으로 내려 척추를 부드럽게 비틀어요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.liberacion-miofascial-con-pelota",
+    "texto": "발뒤꿈치부터 발볼까지 단단한 볼을 조절된 압력으로 굴려요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-tobillo",
+    "texto": "한쪽 다리를 들고 발목을 양방향으로 크게 돌려요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.recogida-de-toalla-con-dedos",
+    "texto": "발가락만 사용해 바닥의 수건을 오므려 모아요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-dorsiflexion",
+    "texto": "벽을 보고 서서 뒤꿈치를 바닥에 붙인 채 앞무릎을 굽혀 늘여요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-talones-unipodal",
+    "texto": "한 발로 서서 뒤꿈치를 천천히 들어 올렸다가 조절하며 내려요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-y-extension-en-descarga",
+    "texto": "누운 자세에서 무릎을 굽혀 뒤꿈치를 엉덩이 쪽으로 당겼다가 발을 들지 않고 펴요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "한쪽 뒤꿈치를 앞에 두고 무릎을 편 채 상체를 부드럽게 앞으로 숙여요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-isometrica-wall-squat",
+    "texto": "등을 벽에 대고 90도까지 내려가 버텨요. 무릎이 안쪽으로 모이지 않게 주의해요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.equilibrio-unipodal-single-leg-balance",
+    "texto": "무릎을 살짝 굽힌 채 한 발로 균형을 잡고, 무릎이 안쪽으로 모이지 않게 해요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadillas-del-arquero",
+    "texto": "다리를 넓게 벌리고 한쪽 무릎을 굽혀 체중을 옮기며, 반대쪽 다리는 편 상태를 유지해요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estocadas-lunges",
+    "texto": "앞으로 한 걸음 내디디며 골반을 낮춰 앞무릎이 90도가 되게 해요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-90-90",
+    "texto": "앉아서 다리를 90도로 두고 상체와 다리를 좌우로 회전해요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.el-puente-glute-bridge",
+    "texto": "누운 자세에서 엉덩이를 조이며 골반을 들어 올려 어깨, 골반, 무릎이 일직선이 되게 해요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-en-estocada",
+    "texto": "한쪽 무릎을 바닥에 대고 등을 곧게 편 채 골반을 앞으로 밀어 장요근을 늘여요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.abduccion-lateral-de-cadera",
+    "texto": "옆으로 누워 골반을 고정한 채 위쪽 다리를 들어 올려요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-profunda-con-apertura",
+    "texto": "스쿼트 자세에서 팔꿈치로 무릎을 바깥쪽으로 밀어 고관절을 열어요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.balanceo-dinamico-de-piernas",
+    "texto": "선 자세에서 한쪽 다리를 시계추처럼 앞뒤·좌우로 흔들어요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-gato-vaca",
+    "texto": "네발기기 자세에서 등을 천장 쪽으로 둥글게 말았다가 배를 바닥 쪽으로 내리는 동작을 번갈아 해요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsiones-lumbares-suaves",
+    "texto": "누운 자세에서 두 무릎을 모은 채 한쪽으로, 다시 반대쪽으로 내려요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.pointer-bird-dog",
+    "texto": "네발기기 자세에서 허리를 평평하게 유지하며 반대쪽 팔과 다리를 뻗어요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-frontal-isometricos",
+    "texto": "팔뚝으로 지지하는 플랭크 자세를 취해 몸을 일직선으로 유지해요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.roll-down-curl-jefferson",
+    "texto": "선 자세에서 척추를 한 마디씩 천천히 말아 내려요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-lumbar-boca-abajo",
+    "texto": "엎드린 자세에서 골반을 들었다가 내리며 허리를 늘여요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotacion-toracica",
+    "texto": "네발기기 자세에서 한쪽 팔을 옆으로 들어 올리며 시선으로 손을 따라가요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.retraccion-escapular",
+    "texto": "바른 자세를 유지하며 견갑골을 뒤아래로 모아요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.angeles-de-pared-wall-angels",
+    "texto": "등을 벽에 대고 팔꿈치를 벽에 붙인 채 팔을 위아래로 움직여요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.lunge-con-apertura-de-pectoral",
+    "texto": "런지 자세에서 손을 목 뒤로 깍지 끼고 팔꿈치를 뒤로 열어요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-dorsal-en-pared",
+    "texto": "벽에 손을 짚고 무릎을 편 채 상체를 아래로 늘어뜨려요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.el-gato-y-la-mesa",
+    "texto": "네발기기 자세에서 등을 둥글게 말았다가 가슴을 낮춰요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-hombros",
+    "texto": "크게 원을 그리며 뒤쪽에서 아래로 내려가는 방향을 중심으로 돌려요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-pecho-pectoral",
+    "texto": "두 손을 등 뒤에서 맞잡고 목에 무리를 주지 않으며 가슴을 열어요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.dislocaciones-con-goma-o-palo",
+    "texto": "팔꿈치를 편 채로 밴드를 머리 위로 넘겨 등 뒤로 보내요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotacion-externa-con-banda",
+    "texto": "팔꿈치를 몸에 붙이고 90도로 굽힌 채 저항을 이기며 손을 바깥으로 돌려요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.thread-the-needle-enhebrar-aguja",
+    "texto": "네발기기 자세에서 한쪽 팔을 몸 아래로 통과시켜 어깨를 바닥에 대요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-y-medios-circulos",
+    "texto": "턱을 가슴 쪽으로 당긴 채 통증 없이 크고 아주 천천히 원을 그려요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-trapecio-superior",
+    "texto": "머리를 부드럽게 기울여 귀를 반대쪽 어깨 쪽으로 가져가요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-cervicales-con-nodding",
+    "texto": "고개를 돌린 상태에서 작게 \"끄덕이는\" 동작을 해요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.retracciones-de-barbilla-chin-tucks",
+    "texto": "턱을 곧게 뒤로 당겨 \"이중턱\"을 만들며 목을 정렬해요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.isometricos-cervicales",
+    "texto": "머리를 손에 대고 밀며 움직이지 않도록 저항해요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-y-extension-de-muneca",
+    "texto": "팔을 편 채 손목을 천장 쪽, 이어서 바닥 쪽으로 굽혀요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-munecas",
+    "texto": "양쪽 손목을 양방향으로 돌려요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores",
+    "texto": "손바닥을 위로 향한 채 다른 손으로 손가락을 몸 쪽으로 밀어 늘여요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.agarre-activo-y-pasivo",
+    "texto": "주먹을 꽉 쥐었다가 완전히 힘을 빼고 펴요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-de-munecas",
+    "texto": "플랭크나 무릎 꿇은 자세에서 손가락 끝으로만 몸을 지탱했다가 내려요."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.liberacion-miofascial-con-pelota",
+    "texto": "발마다 1~2분(멈추지 않고 계속)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-tobillo",
+    "texto": "발목마다 각 방향으로 10~12회."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.recogida-de-toalla-con-dedos",
+    "texto": "발마다 10~15회(오므렸다 풀기)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-dorsiflexion",
+    "texto": "다리마다 15~30초 유지, 2~4세트."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.elevacion-de-talones-unipodal",
+    "texto": "다리마다 10~15회."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-en-descarga",
+    "texto": "다리마다 8~10회."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "다리마다 20초 유지."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadilla-isometrica-wall-squat",
+    "texto": "5~15초 유지 후 일어서기(3~5회 반복)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.equilibrio-unipodal-single-leg-balance",
+    "texto": "다리마다 15~60초 유지(2~3회 반복)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadillas-del-arquero",
+    "texto": "좌우 번갈아 15회."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estocadas-lunges",
+    "texto": "다리마다 8~12회."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.movilidad-90-90",
+    "texto": "좌우 각 8~12회(약 1~2분)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.el-puente-glute-bridge",
+    "texto": "15회(매번 정점에서 2~3초 유지)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores-en-estocada",
+    "texto": "다리마다 20초 유지."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.abduccion-lateral-de-cadera",
+    "texto": "좌우 각 10~15회, 정점에서 몇 초 유지."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadilla-profunda-con-apertura",
+    "texto": "벌리기 동작 15회."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.balanceo-dinamico-de-piernas",
+    "texto": "다리마다 8~10회."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.postura-gato-vaca",
+    "texto": "1분간 계속(또는 호흡 10~15회)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.torsiones-lumbares-suaves",
+    "texto": "좌우 각 10~15회."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.pointer-bird-dog",
+    "texto": "한쪽 30초 유지 후 반대쪽도."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.plancha-frontal-isometricos",
+    "texto": "능력에 따라 15~60초 유지."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.roll-down-curl-jefferson",
+    "texto": "천천히 15회."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-lumbar-boca-abajo",
+    "texto": "1분간 계속."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotacion-toracica",
+    "texto": "좌우 각 30초."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.retraccion-escapular",
+    "texto": "8~10회, 매번 수축을 5~10초 유지."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.angeles-de-pared-wall-angels",
+    "texto": "천천히 10~15회."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.lunge-con-apertura-de-pectoral",
+    "texto": "좌우 각 15회."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-dorsal-en-pared",
+    "texto": "20초 유지."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.el-gato-y-la-mesa",
+    "texto": "호흡에 맞춰 15회."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-hombros",
+    "texto": "8~10회(앞뒤 방향)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-pecho-pectoral",
+    "texto": "15~20초 유지."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.dislocaciones-con-goma-o-palo",
+    "texto": "10~15회."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotacion-externa-con-banda",
+    "texto": "8~12회."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.thread-the-needle-enhebrar-aguja",
+    "texto": "좌우 각 15~30초 유지(2~3세트)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotaciones-y-medios-circulos",
+    "texto": "각 방향 8~10회."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-trapecio-superior",
+    "texto": "좌우 각 15~30초 유지."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotaciones-cervicales-con-nodding",
+    "texto": "좌우 각 8~12회."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.retracciones-de-barbilla-chin-tucks",
+    "texto": "10~15회, 5~10초 유지."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.isometricos-cervicales",
+    "texto": "8~12회(긴장을 5~10초 유지)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-de-muneca",
+    "texto": "10~12회."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-munecas",
+    "texto": "각 방향 10~15회."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores",
+    "texto": "15~30초 유지."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.agarre-activo-y-pasivo",
+    "texto": "10~15회."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.plancha-de-munecas",
+    "texto": "8~12회."
+  },
+  {
+    "clave": "ejercicio.dificultad.baja",
+    "texto": "낮음"
+  },
+  {
+    "clave": "ejercicio.dificultad.media",
+    "texto": "보통"
+  },
+  {
+    "clave": "ejercicio.dificultad.alta",
+    "texto": "높음"
+  },
+  {
+    "clave": "ejercicio.dificultad.mediaAlta",
+    "texto": "보통/높음"
+  },
+  {
+    "clave": "ejercicio.rut.full-body",
+    "texto": "전신"
+  },
+  {
+    "clave": "ejercicio.rut.tren-superior",
+    "texto": "상체"
+  },
+  {
+    "clave": "ejercicio.rut.tren-inferior",
+    "texto": "하체"
+  },
+  {
+    "clave": "ejercicio.rut.push-pecho-y-triceps",
+    "texto": "푸시·가슴과 삼두근"
+  },
+  {
+    "clave": "ejercicio.rut.pull-espalda-y-biceps",
+    "texto": "풀·등과 이두근"
+  },
+  {
+    "clave": "ejercicio.rut.legs-pierna-completa",
+    "texto": "다리·다리 전체"
+  },
+  {
+    "clave": "ejercicio.rut.hiit-20-min",
+    "texto": "HIIT 20분"
+  },
+  {
+    "clave": "ejercicio.rut.carrera-continua",
+    "texto": "일정 페이스 달리기"
+  },
+  {
+    "clave": "ejercicio.rut.caminata-inclinada",
+    "texto": "경사 걷기"
+  },
+  {
+    "clave": "ejercicio.rut.bike-tempo",
+    "texto": "템포 라이딩"
+  },
+  {
+    "clave": "ejercicio.rut.triatlon-sprint",
+    "texto": "스프린트 철인 3종"
+  },
+  {
+    "clave": "ejercicio.rut.movilidad-matutina",
+    "texto": "아침 가동성 운동"
+  },
+  {
+    "clave": "ejercicio.rut.yoga-flow",
+    "texto": "요가 플로우"
+  },
+  {
+    "clave": "ejercicio.rut.cadera-y-piernas",
+    "texto": "엉덩이와 다리"
+  },
+  {
+    "clave": "ejercicio.rut.estiramiento-post-entreno",
+    "texto": "운동 후 스트레칭"
+  },
+  {
+    "clave": "ejercicio.rut.espalda-y-hombros",
+    "texto": "등과 어깨"
+  },
+  {
+    "clave": "ejercicio.rut.cuello-y-oficina",
+    "texto": "목·사무실 스트레칭"
+  },
+  {
+    "clave": "ejercicio.rut.antes-de-dormir",
+    "texto": "잠들기 전"
+  },
+  {
+    "clave": "ejercicio.rutDesc.full-body",
+    "texto": "전신 근력 서킷."
+  },
+  {
+    "clave": "ejercicio.rutDesc.tren-superior",
+    "texto": "가슴, 등, 어깨, 팔을 한 번에."
+  },
+  {
+    "clave": "ejercicio.rutDesc.tren-inferior",
+    "texto": "다리와 둔근을 전체적으로."
+  }
 ]

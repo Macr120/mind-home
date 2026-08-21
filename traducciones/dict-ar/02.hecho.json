@@ -1,38 +1,1010 @@
 [
   {
-    "clave": "tut.app-ejercicio--esencial.resumen",
-    "texto": "التمارين تجمع أنماط الجسم الثلاثة في مكان واحد: القوة (المجموعات والتكرارات والوزن)، والتحمل (الركض أو الدراجة أو السباحة، بتدريب مباشر عبر GPS ومستشعر معدل النبض)، والمرونة (حركية محسوبة بالوقت، بمشغّل موجَّه). الثلاثة منظَّمة بالطريقة نفسها — كتالوج وروتينات وتقدم — وقائمة الأهداف تحدد كم تتدرب كل أسبوع وتلخّص سلسلتك وتقدّمك."
+    "clave": "biblioteca.nodoDesc.idi-asiaticas",
+    "texto": "اليابانية والصينية والكورية وأنظمة كتابتها."
   },
   {
-    "clave": "tut.app-entretenimiento--esencial.resumen",
-    "texto": "للترفيه قائمتان: ألعاب الطاولة، بكتالوج رقمي مصنّف حسب الفئة ومُصفّى حسب عدد اللاعبين، والأرشيف، حيث تحفظ الأفلام والمسلسلات والكتب وألعاب الفيديو التي تنهيها، بحالتها ومراجعتك لها."
+    "clave": "biblioteca.nodo.idi-practica",
+    "texto": "الممارسة والثقافة"
   },
   {
-    "clave": "tut.app-garage--esencial.resumen",
-    "texto": "المرآب يتابع صيانة مركباتك: إشارة ضوئية تلخّص ما هو عاجل، وقائمة المركبات تحفظ سجل صياناتها، وكل بطاقة تجمع معاملاتها ومستنداتها وجهات اتصالها. وكل ما يحمل تاريخًا يُدرَج وحده في تقويم البيت."
+    "clave": "biblioteca.nodo.idi-conversacion",
+    "texto": "المحادثة"
   },
   {
-    "clave": "tut.app-hobbies--esencial.resumen",
-    "texto": "الهوايات تتابع هواياتك: القائمة بسلسلة كل واحدة وتقدّمها الأسبوعي، ونموذج إضافة هواية جديدة. وداخل كل هواية يعيش سجل الجلسات وخريطة نشاط السنة ومشاريعها."
+    "clave": "biblioteca.nodoDesc.idi-conversacion",
+    "texto": "الطلاقة والتعبيرات والمواقف اليومية."
   },
   {
-    "clave": "tut.app-ideas--esencial.resumen",
-    "texto": "الأفكار تحفظ ما يخطر لك في ثلاث قوائم: يوميات الأفكار (خواطر متفرقة أو عصف ذهني حسب الموضوع)، والخرائط الذهنية (لوحة حرة بأشكال متعددة)، ومخططات القرار (الأشكال نفسها، مصمَّمة للمقارنة والاختيار). ويمكن أرشفة كل شيء في مجلدات وتحويله من قائمة إلى أخرى."
+    "clave": "biblioteca.nodo.idi-lectura",
+    "texto": "القراءة والكتابة"
   },
   {
-    "clave": "tut.app-idiomas--esencial.resumen",
-    "texto": "اللغات هي مدرستك اللغوية، في أربع قوائم. المحادثات تفتح حوارًا مع معلّم بالذكاء الاصطناعي يجيب بمستواك؛ والمنهج ينظّم اللغة في مواضيع ونطق وقواعد من المستوى A1 إلى C2، وفيه تعيش المفردات كبطاقات؛ والمراجعة تراجعها بنظام تكرار متباعد وتمارين؛ والتقدم يلخّص مسارك."
+    "clave": "biblioteca.nodoDesc.idi-lectura",
+    "texto": "نصوص متدرجة، والإنشاء، والإملاء."
   },
   {
-    "clave": "tut.app-jardin--esencial.resumen",
-    "texto": "الحديقة تجمع التأمل (بمقاطع صوتية) والتنفس الموجَّه والامتنان اليومي، في ثلاث قوائم. لا نقاط فيها ولا سلاسل، عن قصد: لا عقاب هنا على التغيّب، بل ممارسة فقط."
+    "clave": "biblioteca.nodo.idi-inmersion",
+    "texto": "الثقافة والانغماس اللغوي"
   },
   {
-    "clave": "tut.app-metas--esencial.resumen",
-    "texto": "مخطِّط البيت كله، في ثلاث قوائم: الأهداف (قائمة ما عزمت عليه، مجمّعة حسب التطبيق الذي يتولى كل واحد)، والخطط (مسوّدات الجدول الزمني التي توزّع الهدف على مراحل)، والجدول الزمني (المحور الزمني الذي تقع فيه كلها). لا يحفظ سجلات خاصة به: إنه يجمع الأهداف والخطط التي تنشأ في التطبيقات الأخرى. ومن الهدف تُفتح صفحته، ومنها المحور الزمني المقصور عليه."
+    "clave": "biblioteca.nodoDesc.idi-inmersion",
+    "texto": "العادات ووسائل الإعلام والسفر من أجل التعلم."
   },
   {
-    "clave": "tut.app-sala--esencial.resumen",
-    "texto": "غرفة المعيشة هي عالمك المسافر، في أربع قوائم: الخريطة (دبابيس الأماكن على خريطة العالم، مع عرض الكرة الأرضية)، وخطة الرحلة (الأماكن التي للزيارة بخطتها يومًا بيوم)، والمسارات (رحلات تصل الأماكن ببعضها)، ويوميات الرحلة (ذكريات بالصور والحكايات حسب الدولة)."
+    "clave": "biblioteca.nodo.artes",
+    "texto": "الفنون والتعبير"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.artes",
+    "texto": "الإبداع الجمالي والإدراك الفني والثقافة البصرية والسمعية."
+  },
+  {
+    "clave": "biblioteca.nodo.art-visuales",
+    "texto": "الفنون البصرية"
+  },
+  {
+    "clave": "biblioteca.nodo.art-pintura",
+    "texto": "الرسم والتلوين"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-pintura",
+    "texto": "التقنيات والتكوين واللون."
+  },
+  {
+    "clave": "biblioteca.nodo.art-escultura",
+    "texto": "النحت والعمارة"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-escultura",
+    "texto": "الفضاء والشكل والتصميم."
+  },
+  {
+    "clave": "biblioteca.nodo.art-fotografia",
+    "texto": "التصوير الفوتوغرافي"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-fotografia",
+    "texto": "الضوء والتأطير والسرد البصري."
+  },
+  {
+    "clave": "biblioteca.nodo.art-musica",
+    "texto": "الموسيقى"
+  },
+  {
+    "clave": "biblioteca.nodo.art-teoria-mus",
+    "texto": "نظرية الموسيقى"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-teoria-mus",
+    "texto": "التناغم والإيقاع والتدوين الموسيقي."
+  },
+  {
+    "clave": "biblioteca.nodo.art-historia-mus",
+    "texto": "تاريخ الموسيقى"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-historia-mus",
+    "texto": "الأساليب والعصور والملحّنون."
+  },
+  {
+    "clave": "biblioteca.nodo.art-escenicas",
+    "texto": "الفنون الأدائية والسينما"
+  },
+  {
+    "clave": "biblioteca.nodo.art-teatro",
+    "texto": "المسرح والتمثيل"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-teatro",
+    "texto": "الدراماتورجيا والتمثيل والإخراج المسرحي."
+  },
+  {
+    "clave": "biblioteca.nodo.art-cine",
+    "texto": "السينما والوسائط السمعية البصرية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-cine",
+    "texto": "كتابة السيناريو والمونتاج ولغة السينما."
+  },
+  {
+    "clave": "biblioteca.nodo.tecnologia",
+    "texto": "التقنية والهندسة"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tecnologia",
+    "texto": "تطبيق المعرفة لحل المشكلات وتغيير العالم."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-informatica",
+    "texto": "علوم الحاسوب"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-algoritmos",
+    "texto": "الخوارزميات وبنى البيانات"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-algoritmos",
+    "texto": "الكفاءة والبيانات والتصميم."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ia",
+    "texto": "الذكاء الاصطناعي"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-ia",
+    "texto": "التعلّم الآلي وأخلاقيات الذكاء الاصطناعي."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-redes",
+    "texto": "الشبكات والأنظمة"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-redes",
+    "texto": "الإنترنت والأمان والتوزيع."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ingenieria",
+    "texto": "الهندسة"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-mecanica",
+    "texto": "الهندسة الميكانيكية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-mecanica",
+    "texto": "الآلات والمواد والتصنيع."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-electrica",
+    "texto": "الهندسة الكهربائية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-electrica",
+    "texto": "الدوائر والطاقة والإلكترونيات."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-civil",
+    "texto": "الهندسة المدنية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-civil",
+    "texto": "البنية التحتية والهيدروليكا والمنشآت."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-energia",
+    "texto": "الطاقة والاستدامة"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-renovables",
+    "texto": "الطاقة المتجددة"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-renovables",
+    "texto": "الطاقة الشمسية والرياح والهيدروجين."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ambiental",
+    "texto": "الهندسة البيئية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-ambiental",
+    "texto": "النفايات والمياه والبصمة البيئية."
+  },
+  {
+    "clave": "biblioteca.nodo.salud",
+    "texto": "الصحة والطب"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.salud",
+    "texto": "جسم الإنسان والمرض والوقاية وأنظمة الرعاية."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-anatomia",
+    "texto": "التشريح وعلم وظائف الأعضاء"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-cuerpo",
+    "texto": "أجهزة الجسم"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-cuerpo",
+    "texto": "الأعضاء والاتزان الداخلي والتكامل."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-neuro",
+    "texto": "علم الأعصاب الطبي"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-neuro",
+    "texto": "الدماغ والحواس والحركة."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-clinica",
+    "texto": "الطب الإكلينيكي"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-patologia",
+    "texto": "علم الأمراض"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-patologia",
+    "texto": "المرض والتشخيص والأسباب."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-farmacologia",
+    "texto": "علم الأدوية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-farmacologia",
+    "texto": "الأدوية والجرعات والتأثيرات."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-salud-pub",
+    "texto": "الصحة العامة"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-salud-pub",
+    "texto": "علم الأوبئة واللقاحات والسياسات."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-bienestar",
+    "texto": "الرفاهية والتغذية"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-nutricion",
+    "texto": "التغذية الإكلينيكية"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-nutricion",
+    "texto": "الحميات والأيض والعناصر الدقيقة."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-prevencion",
+    "texto": "الطب الوقائي"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-prevencion",
+    "texto": "العادات والفحص وطول العمر."
+  },
+  {
+    "clave": "ejercicio.ej.press-banca",
+    "texto": "بنش برس"
+  },
+  {
+    "clave": "ejercicio.ej.press-inclinado",
+    "texto": "بنش مائل"
+  },
+  {
+    "clave": "ejercicio.ej.press-con-mancuernas",
+    "texto": "برس دمبل"
+  },
+  {
+    "clave": "ejercicio.ej.aperturas-con-mancuernas",
+    "texto": "فلاي بالدمبل"
+  },
+  {
+    "clave": "ejercicio.ej.cruce-en-polea",
+    "texto": "كروس كيبل"
+  },
+  {
+    "clave": "ejercicio.ej.fondos-en-paralelas",
+    "texto": "الديبس"
+  },
+  {
+    "clave": "ejercicio.ej.flexiones",
+    "texto": "تمرين الضغط"
+  },
+  {
+    "clave": "ejercicio.ej.dominadas",
+    "texto": "العقلة"
+  },
+  {
+    "clave": "ejercicio.ej.jalon-al-pecho",
+    "texto": "سحب أمامي"
+  },
+  {
+    "clave": "ejercicio.ej.remo-con-barra",
+    "texto": "تجديف بالبار"
+  },
+  {
+    "clave": "ejercicio.ej.remo-con-mancuerna",
+    "texto": "تجديف بالدمبل"
+  },
+  {
+    "clave": "ejercicio.ej.remo-en-polea-baja",
+    "texto": "تجديف الكابل"
+  },
+  {
+    "clave": "ejercicio.ej.pull-over",
+    "texto": "بول أوفر"
+  },
+  {
+    "clave": "ejercicio.ej.face-pull",
+    "texto": "فيس بول"
+  },
+  {
+    "clave": "ejercicio.ej.hiperextensiones",
+    "texto": "هايبر إكستنشن"
+  },
+  {
+    "clave": "ejercicio.ej.press-militar",
+    "texto": "الضغط العسكري"
+  },
+  {
+    "clave": "ejercicio.ej.press-arnold",
+    "texto": "برس أرنولد"
+  },
+  {
+    "clave": "ejercicio.ej.elevaciones-laterales",
+    "texto": "رفرفة جانبية"
+  },
+  {
+    "clave": "ejercicio.ej.elevaciones-frontales",
+    "texto": "رفرفة أمامية"
+  },
+  {
+    "clave": "ejercicio.ej.pajaros",
+    "texto": "فلاي معكوس"
+  },
+  {
+    "clave": "ejercicio.ej.encogimientos",
+    "texto": "الشراغ"
+  },
+  {
+    "clave": "ejercicio.ej.curl-con-barra",
+    "texto": "كيرل بالبار"
+  },
+  {
+    "clave": "ejercicio.ej.curl-con-mancuernas",
+    "texto": "كيرل بالدمبل"
+  },
+  {
+    "clave": "ejercicio.ej.curl-martillo",
+    "texto": "كيرل المطرقة"
+  },
+  {
+    "clave": "ejercicio.ej.curl-predicador",
+    "texto": "بريتشر كيرل"
+  },
+  {
+    "clave": "ejercicio.ej.curl-concentrado",
+    "texto": "كيرل التركيز"
+  },
+  {
+    "clave": "ejercicio.ej.extension-triceps-en-polea",
+    "texto": "بوشداون الترايسبس"
+  },
+  {
+    "clave": "ejercicio.ej.press-frances",
+    "texto": "سكال كراشر"
+  },
+  {
+    "clave": "ejercicio.ej.fondos-entre-bancos",
+    "texto": "ديبس البنش"
+  },
+  {
+    "clave": "ejercicio.ej.extension-sobre-cabeza",
+    "texto": "امتداد فوق الرأس"
+  },
+  {
+    "clave": "ejercicio.ej.patada-de-triceps",
+    "texto": "كيك باك الترايسبس"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla",
+    "texto": "سكوات"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-frontal",
+    "texto": "سكوات أمامي"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-bulgara",
+    "texto": "سكوات بلغاري"
+  },
+  {
+    "clave": "ejercicio.ej.prensa-de-pierna",
+    "texto": "ليج برس"
+  },
+  {
+    "clave": "ejercicio.ej.zancadas",
+    "texto": "لنجز"
+  },
+  {
+    "clave": "ejercicio.ej.peso-muerto",
+    "texto": "الرفعة الميتة"
+  },
+  {
+    "clave": "ejercicio.ej.peso-muerto-rumano",
+    "texto": "الرفعة الميتة الرومانية"
+  },
+  {
+    "clave": "ejercicio.ej.curl-femoral",
+    "texto": "ليج كيرل"
+  },
+  {
+    "clave": "ejercicio.ej.extension-de-cuadriceps",
+    "texto": "ليج إكستنشن"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-talones",
+    "texto": "رفع السمانة"
+  },
+  {
+    "clave": "ejercicio.ej.hip-thrust",
+    "texto": "هيب ثرست"
+  },
+  {
+    "clave": "ejercicio.ej.puente-de-gluteo",
+    "texto": "جسر الأرداف"
+  },
+  {
+    "clave": "ejercicio.ej.patada-de-gluteo-en-polea",
+    "texto": "كيك باك الأرداف بالكابل"
+  },
+  {
+    "clave": "ejercicio.ej.abduccion-de-cadera",
+    "texto": "تباعد الورك"
+  },
+  {
+    "clave": "ejercicio.ej.plancha",
+    "texto": "بلانك"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-lateral",
+    "texto": "بلانك جانبي"
+  },
+  {
+    "clave": "ejercicio.ej.crunch-abdominal",
+    "texto": "كرنش البطن"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-piernas",
+    "texto": "رفع الأرجل"
+  },
+  {
+    "clave": "ejercicio.ej.russian-twist",
+    "texto": "الالتفاف الروسي"
+  },
+  {
+    "clave": "ejercicio.ej.rueda-abdominal",
+    "texto": "عجلة البطن"
+  },
+  {
+    "clave": "ejercicio.ej.escaladores",
+    "texto": "متسلق الجبل"
+  },
+  {
+    "clave": "ejercicio.ej.carrera",
+    "texto": "الجري"
+  },
+  {
+    "clave": "ejercicio.ej.trote-suave",
+    "texto": "هرولة خفيفة"
+  },
+  {
+    "clave": "ejercicio.ej.caminata-rapida",
+    "texto": "مشي سريع"
+  },
+  {
+    "clave": "ejercicio.ej.ciclismo",
+    "texto": "ركوب الدراجة"
+  },
+  {
+    "clave": "ejercicio.ej.senderismo",
+    "texto": "رحلات المشي"
+  },
+  {
+    "clave": "ejercicio.ej.trail-running",
+    "texto": "تريل رنينغ"
+  },
+  {
+    "clave": "ejercicio.ej.caminadora",
+    "texto": "جهاز المشي"
+  },
+  {
+    "clave": "ejercicio.ej.caminata-inclinada",
+    "texto": "مشي مائل"
+  },
+  {
+    "clave": "ejercicio.ej.eliptica",
+    "texto": "الإليبتيكال"
+  },
+  {
+    "clave": "ejercicio.ej.bicicleta-estatica",
+    "texto": "الدراجة الثابتة"
+  },
+  {
+    "clave": "ejercicio.ej.escaladora",
+    "texto": "جهاز تسلق الدرج"
+  },
+  {
+    "clave": "ejercicio.ej.remo-maquina",
+    "texto": "جهاز التجديف"
+  },
+  {
+    "clave": "ejercicio.ej.hiit",
+    "texto": "HIIT"
+  },
+  {
+    "clave": "ejercicio.ej.sprints",
+    "texto": "سبرنت"
+  },
+  {
+    "clave": "ejercicio.ej.saltar-cuerda",
+    "texto": "نط الحبل"
+  },
+  {
+    "clave": "ejercicio.ej.burpees",
+    "texto": "بيربيز"
+  },
+  {
+    "clave": "ejercicio.ej.circuito-metabolico",
+    "texto": "الدائرة الأيضية"
+  },
+  {
+    "clave": "ejercicio.ej.natacion",
+    "texto": "السباحة"
+  },
+  {
+    "clave": "ejercicio.ej.aqua-aerobicos",
+    "texto": "التمارين المائية"
+  },
+  {
+    "clave": "ejercicio.ej.caminata",
+    "texto": "المشي"
+  },
+  {
+    "clave": "ejercicio.ej.futbol",
+    "texto": "كرة القدم"
+  },
+  {
+    "clave": "ejercicio.ej.basquetbol",
+    "texto": "كرة السلة"
+  },
+  {
+    "clave": "ejercicio.ej.tenis",
+    "texto": "التنس"
+  },
+  {
+    "clave": "ejercicio.ej.padel",
+    "texto": "البادل"
+  },
+  {
+    "clave": "ejercicio.ej.boxeo",
+    "texto": "الملاكمة"
+  },
+  {
+    "clave": "ejercicio.ej.baile",
+    "texto": "الرقص"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-matutina",
+    "texto": "مرونة الصباح"
+  },
+  {
+    "clave": "ejercicio.ej.yoga-flow",
+    "texto": "يوغا فلو"
+  },
+  {
+    "clave": "ejercicio.ej.saludo-al-sol",
+    "texto": "تحية الشمس"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-general",
+    "texto": "تمدد عام"
+  },
+  {
+    "clave": "ejercicio.ej.guerrero-i",
+    "texto": "وضعية المحارب الأولى"
+  },
+  {
+    "clave": "ejercicio.ej.guerrero-ii",
+    "texto": "وضعية المحارب الثانية"
+  },
+  {
+    "clave": "ejercicio.ej.triangulo",
+    "texto": "وضعية المثلث"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-de-pie",
+    "texto": "الانحناء الأمامي واقفاً"
+  },
+  {
+    "clave": "ejercicio.ej.apertura-de-cadera",
+    "texto": "فتح الورك"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-paloma",
+    "texto": "وضعية الحمامة"
+  },
+  {
+    "clave": "ejercicio.ej.mariposa",
+    "texto": "وضعية الفراشة"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-isquiotibiales",
+    "texto": "تمدد أوتار الركبة"
+  },
+  {
+    "clave": "ejercicio.ej.zancada-baja",
+    "texto": "لنج منخفض"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-guirnalda",
+    "texto": "وضعية الإكليل"
+  },
+  {
+    "clave": "ejercicio.ej.figura-4",
+    "texto": "تمدد الرقم 4"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-aductores",
+    "texto": "تمدد المقربات"
+  },
+  {
+    "clave": "ejercicio.ej.rana",
+    "texto": "وضعية الضفدع"
+  },
+  {
+    "clave": "ejercicio.ej.perro-boca-abajo",
+    "texto": "الكلب المطأطئ"
+  },
+  {
+    "clave": "ejercicio.ej.torsion-espinal",
+    "texto": "التواء العمود الفقري"
+  },
+  {
+    "clave": "ejercicio.ej.postura-del-nino",
+    "texto": "وضعية الطفل"
+  },
+  {
+    "clave": "ejercicio.ej.apertura-de-pecho",
+    "texto": "فتح الصدر"
+  },
+  {
+    "clave": "ejercicio.ej.esfinge",
+    "texto": "وضعية أبو الهول"
+  },
+  {
+    "clave": "ejercicio.ej.hilo-y-aguja",
+    "texto": "خيط الإبرة"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-dorsales",
+    "texto": "تمدد عضلات الظهر"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-cervical",
+    "texto": "مرونة الرقبة"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-de-columna",
+    "texto": "دورانات العمود الفقري"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-cobra",
+    "texto": "وضعية الكوبرا"
+  },
+  {
+    "clave": "ejercicio.ej.inclinacion-lateral-de-cuello",
+    "texto": "إمالة الرقبة الجانبية"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-cuadriceps",
+    "texto": "تمدد الفخذ الأمامي"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-gemelos",
+    "texto": "تمدد السمانة"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-hombros",
+    "texto": "تمدد الكتف"
+  },
+  {
+    "clave": "ejercicio.ej.foam-roller",
+    "texto": "الفوم رولر"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-triceps",
+    "texto": "تمدد الترايسبس"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores-de-cadera",
+    "texto": "تمدد ثنيات الورك"
+  },
+  {
+    "clave": "ejercicio.ej.piernas-en-la-pared",
+    "texto": "الأرجل على الحائط"
+  },
+  {
+    "clave": "ejercicio.ej.savasana",
+    "texto": "السافاسانا"
+  },
+  {
+    "clave": "ejercicio.ej.postura-del-nino-apoyada",
+    "texto": "وضعية الطفل المدعومة"
+  },
+  {
+    "clave": "ejercicio.ej.respiracion-profunda",
+    "texto": "التنفس العميق"
+  },
+  {
+    "clave": "ejercicio.ej.mariposa-reclinada",
+    "texto": "الفراشة المستلقية"
+  },
+  {
+    "clave": "ejercicio.ej.torsion-reclinada",
+    "texto": "الالتواء المستلقي"
+  },
+  {
+    "clave": "ejercicio.ej.liberacion-miofascial-con-pelota",
+    "texto": "تحرير اللفافة العضلية بالكرة"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-tobillo",
+    "texto": "دوائر الكاحل"
+  },
+  {
+    "clave": "ejercicio.ej.recogida-de-toalla-con-dedos",
+    "texto": "جمع المنشفة بالأصابع"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-dorsiflexion",
+    "texto": "تمدد الثني الظهري"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-talones-unipodal",
+    "texto": "رفع السمانة بساق واحدة"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-y-extension-en-descarga",
+    "texto": "الثني والبسط دون حمل"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "تمدد ديناميكي لأوتار الركبة"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-isometrica-wall-squat",
+    "texto": "سكوات ثابت (سكوات الحائط)"
+  },
+  {
+    "clave": "ejercicio.ej.equilibrio-unipodal-single-leg-balance",
+    "texto": "توازن بساق واحدة"
+  },
+  {
+    "clave": "ejercicio.ej.sentadillas-del-arquero",
+    "texto": "سكوات الرامي"
+  },
+  {
+    "clave": "ejercicio.ej.estocadas-lunges",
+    "texto": "لنجز"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-90-90",
+    "texto": "مرونة 90/90"
+  },
+  {
+    "clave": "ejercicio.ej.el-puente-glute-bridge",
+    "texto": "جسر الأرداف"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores-en-estocada",
+    "texto": "تمدد الورك بوضع اللنج"
+  },
+  {
+    "clave": "ejercicio.ej.abduccion-lateral-de-cadera",
+    "texto": "تباعد الورك الجانبي"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-profunda-con-apertura",
+    "texto": "سكوات عميق مع فتح الركبتين"
+  },
+  {
+    "clave": "ejercicio.ej.balanceo-dinamico-de-piernas",
+    "texto": "أرجحة الأرجل الديناميكية"
+  },
+  {
+    "clave": "ejercicio.ej.postura-gato-vaca",
+    "texto": "وضعية القطة والبقرة"
+  },
+  {
+    "clave": "ejercicio.ej.torsiones-lumbares-suaves",
+    "texto": "التواءات أسفل الظهر اللطيفة"
+  },
+  {
+    "clave": "ejercicio.ej.pointer-bird-dog",
+    "texto": "تمرين الكلب والطائر"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-frontal-isometricos",
+    "texto": "بلانك أمامي (ثابت)"
+  },
+  {
+    "clave": "ejercicio.ej.roll-down-curl-jefferson",
+    "texto": "رول داون (جيفرسون كيرل)"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-lumbar-boca-abajo",
+    "texto": "تمدد أسفل الظهر (على البطن)"
+  },
+  {
+    "clave": "ejercicio.ej.rotacion-toracica",
+    "texto": "الدوران الصدري"
+  },
+  {
+    "clave": "ejercicio.ej.retraccion-escapular",
+    "texto": "سحب لوح الكتف"
+  },
+  {
+    "clave": "ejercicio.ej.angeles-de-pared-wall-angels",
+    "texto": "ملائكة الحائط"
+  },
+  {
+    "clave": "ejercicio.ej.lunge-con-apertura-de-pectoral",
+    "texto": "لنج مع فتح الصدر"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-dorsal-en-pared",
+    "texto": "تمدد الظهر على الحائط"
+  },
+  {
+    "clave": "ejercicio.ej.el-gato-y-la-mesa",
+    "texto": "القطة والطاولة"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-hombros",
+    "texto": "دوائر الكتف"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-pecho-pectoral",
+    "texto": "تمدد الصدر"
+  },
+  {
+    "clave": "ejercicio.ej.dislocaciones-con-goma-o-palo",
+    "texto": "مرونة الكتف بالعصا أو الشريط"
+  },
+  {
+    "clave": "ejercicio.ej.rotacion-externa-con-banda",
+    "texto": "دوران خارجي بالشريط المطاطي"
+  },
+  {
+    "clave": "ejercicio.ej.thread-the-needle-enhebrar-aguja",
+    "texto": "خيط الإبرة"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-y-medios-circulos",
+    "texto": "دورانات وأنصاف دوائر"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-trapecio-superior",
+    "texto": "تمدد شبه المنحرف العلوي"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-cervicales-con-nodding",
+    "texto": "دورانات الرقبة مع الإيماء"
+  },
+  {
+    "clave": "ejercicio.ej.retracciones-de-barbilla-chin-tucks",
+    "texto": "سحب الذقن"
+  },
+  {
+    "clave": "ejercicio.ej.isometricos-cervicales",
+    "texto": "تمارين الرقبة الثابتة"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-y-extension-de-muneca",
+    "texto": "ثني وبسط الرسغ"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-munecas",
+    "texto": "دوائر الرسغ"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores",
+    "texto": "تمدد العضلات القابضة"
+  },
+  {
+    "clave": "ejercicio.ej.agarre-activo-y-pasivo",
+    "texto": "قبضة نشطة وسلبية"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-de-munecas",
+    "texto": "بلانك على الرسغين"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-banca",
+    "texto": "استلقِ على المقعد، أنزل البار حتى صدرك، ثم ادفعه للأعلى حتى يستقيم مرفقاك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-inclinado",
+    "texto": "على مقعد مائل، ادفع البار أو الدمبل للأعلى للتركيز على أعلى الصدر."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-con-mancuernas",
+    "texto": "استلقِ وادفع الدمبلين للأعلى؛ يمنحك مدى حركة أوسع من البار."
+  },
+  {
+    "clave": "ejercicio.ejDesc.aperturas-con-mancuernas",
+    "texto": "استلقِ وافتح ذراعيك في قوس، ثم أعدهما لبعضهما مع إبقاء مرفقيك مثنيين قليلاً."
+  },
+  {
+    "clave": "ejercicio.ejDesc.cruce-en-polea",
+    "texto": "قف بين بكرتين عاليتين وقرّب يديك أمامك مع الضغط على عضلات صدرك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.fondos-en-paralelas",
+    "texto": "تعلّق على المتوازي، وأنزل جسمك بثني مرفقيك مع إمالة جذعك للأمام، ثم ادفع نفسك للأعلى مجدداً."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexiones",
+    "texto": "استلقِ على وجهك، وأنزل صدرك نحو الأرض مع إبقاء جسمك مستقيماً، ثم ادفع نفسك للأعلى."
+  },
+  {
+    "clave": "ejercicio.ejDesc.dominadas",
+    "texto": "تعلّق من البار، واسحب جسمك للأعلى حتى تتجاوز ذقنك مستوى البار."
+  },
+  {
+    "clave": "ejercicio.ejDesc.jalon-al-pecho",
+    "texto": "اجلس أمام بكرة عالية واسحب البار نحو صدرك مع دفع مرفقيك للأسفل."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-con-barra",
+    "texto": "انحنِ مع إبقاء ظهرك مستقيماً، واسحب البار نحو بطنك مع الضغط على عضلات ظهرك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-con-mancuerna",
+    "texto": "استند على مقعد واسحب الدمبل نحو جانبك دون لف جذعك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-en-polea-baja",
+    "texto": "اجلس واسحب المقبض نحو بطنك مع إبقاء ظهرك منتصباً."
+  },
+  {
+    "clave": "ejercicio.ejDesc.pull-over",
+    "texto": "استلقِ وأنزل الدمبل خلف رأسك، ثم أعده فوق صدرك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.face-pull",
+    "texto": "عند بكرة بارتفاع الوجه، اسحب الحبل نحو جبهتك مع فتح مرفقيك للخارج."
+  },
+  {
+    "clave": "ejercicio.ejDesc.hiperextensiones",
+    "texto": "على المقعد، أنزل جذعك ثم ارفعه مجدداً مع تمديد أسفل ظهرك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-militar",
+    "texto": "قف وادفع البار من كتفيك إلى أعلى فوق رأسك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-arnold",
+    "texto": "اجلس وادفع الدمبلين فوق رأسك مع تدوير راحتي يديك من الداخل إلى الخارج."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevaciones-laterales",
+    "texto": "قف وارفع الدمبلين جانبياً حتى مستوى الكتفين."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevaciones-frontales",
+    "texto": "قف وارفع الدمبل أمامك حتى مستوى العينين."
+  },
+  {
+    "clave": "ejercicio.ejDesc.pajaros",
+    "texto": "انحنِ وافتح ذراعيك جانبياً لتفعيل الجزء الخلفي من الكتف."
+  },
+  {
+    "clave": "ejercicio.ejDesc.encogimientos",
+    "texto": "قف حاملاً الوزن وارفع كتفيك نحو أذنيك ثم أنزلهما بتحكم."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-con-barra",
+    "texto": "قف واثنِ مرفقيك لرفع البار للأعلى دون تأرجح جذعك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-con-mancuernas",
+    "texto": "وقوفاً أو جلوساً، اثنِ مرفقيك لرفع الدمبل بالتناوب أو معاً."
   }
 ]

@@ -1,47 +1,1010 @@
 [
   {
-    "clave": "tut.app-ejercicio--esencial.resumen",
-    "es": "Ejercicio lleva las tres modalidades del cuerpo en un mismo sitio: Fuerza (series, repeticiones y peso), Resistencia (carrera, bici o nado, con entrenamiento en vivo por GPS y pulsómetro) y Flexibilidad (movilidad por tiempo, con reproductor guiado). Las tres se organizan igual —catálogo, rutinas y progreso— y el menú Metas fija cuánto entrenar cada semana y resume la racha y el avance.",
-    "en": "Exercise keeps the body's three modes in one place: Strength (sets, reps and weight), Endurance (running, cycling or swimming, with a live workout using GPS and a heart rate sensor) and Flexibility (timed mobility, with a guided player). All three are laid out the same way — catalogue, routines and progress — and the Goals menu sets how much to train each week and sums up your streak and how far along you are."
+    "clave": "biblioteca.nodoDesc.idi-asiaticas",
+    "en": "Japanese, Chinese, Korean, and their writing systems."
   },
   {
-    "clave": "tut.app-entretenimiento--esencial.resumen",
-    "es": "Entretenimiento tiene dos menús: Juegos de mesa, con un catálogo digital agrupado por familias y filtrado por número de jugadores, y Archivo, donde guardas las películas, series, libros y videojuegos que vas terminando con su estado y tu reseña.",
-    "en": "Entertainment has two menus: Board games, a digital catalog grouped by family and filtered by player count, and Archive, where you keep the movies, shows, books, and video games you finish, with their status and your review."
+    "clave": "biblioteca.nodo.idi-practica",
+    "en": "Practice and culture"
   },
   {
-    "clave": "tut.app-garage--esencial.resumen",
-    "es": "El garaje lleva el mantenimiento de tus vehículos: un semáforo resume qué urge, la lista de vehículos guarda su historial de servicios, y cada ficha reúne sus trámites, documentos y contactos. Todo lo que tiene fecha se agenda solo en el calendario de la casa.",
-    "en": "The garage tracks your vehicles' maintenance: a traffic light flags what needs attention, the vehicle list holds each one's service history, and every entry gathers its procedures, documents and contacts. Anything with a date books itself onto the house calendar."
+    "clave": "biblioteca.nodo.idi-conversacion",
+    "en": "Conversation"
   },
   {
-    "clave": "tut.app-hobbies--esencial.resumen",
-    "es": "Hobbies lleva el seguimiento de tus pasatiempos: la lista con la racha y el avance semanal de cada uno, y el alta de uno nuevo. Dentro de cada hobby vive el registro de sesiones, el heatmap del año y sus proyectos.",
-    "en": "Hobbies tracks your pastimes: the list with each one's streak and weekly progress, and the form to add a new one. Inside each hobby lives the session log, the yearly heatmap and its projects."
+    "clave": "biblioteca.nodoDesc.idi-conversacion",
+    "en": "Fluency, expressions, and everyday situations."
   },
   {
-    "clave": "tut.app-ideas--esencial.resumen",
-    "es": "Ideas guarda lo que se te ocurre en tres menús: Diario (ocurrencias sueltas o lluvias por tema), Mapas conceptuales (un lienzo libre en varios formatos) y Diagramas de decisiones (los mismos formatos, pensados para comparar y decidir). Todo se puede archivar en carpetas y convertir de un menú a otro.",
-    "en": "Ideas keeps whatever crosses your mind in three menus: Diary (loose occurrences or brainstorms by topic), Concept maps (a free canvas in several formats) and Decision diagrams (the same formats, meant for comparing and deciding). Everything can be filed into folders and turned from one menu into another."
+    "clave": "biblioteca.nodo.idi-lectura",
+    "en": "Reading and writing"
   },
   {
-    "clave": "tut.app-idiomas--esencial.resumen",
-    "es": "Idiomas es tu escuela de idiomas, en cuatro menús. Charlas abre conversación con un tutor de inteligencia artificial que responde a tu nivel; Temario ordena el idioma en temas, pronunciación y gramática del nivel A1 al C2, y ahí vive el vocabulario en tarjetas; Repaso lo repasa con un sistema espaciado y ejercicios; Progreso resume tu avance.",
-    "en": "Idiomas is your language school, in four menus. Chats opens a conversation with an AI tutor that responds to your level; Curriculum organizes the language into topics, pronunciation, and grammar from level A1 to C2, and that's where the vocabulary lives as cards; Review goes over it with a spaced system and exercises; Progress summarizes your advancement."
+    "clave": "biblioteca.nodoDesc.idi-lectura",
+    "en": "Graded texts, composition, and spelling."
   },
   {
-    "clave": "tut.app-jardin--esencial.resumen",
-    "es": "El jardín reúne meditación (con pistas de sonido), respiración guiada y agradecimientos diarios, en tres menús. No lleva puntos ni rachas a propósito: aquí no se castiga faltar, solo se practica.",
-    "en": "The garden brings together meditation (with sound tracks), guided breathing, and daily gratitude, across three menus. It carries no points or streaks on purpose: nothing punishes missing a day here, it's just for practicing."
+    "clave": "biblioteca.nodo.idi-inmersion",
+    "en": "Culture and immersion"
   },
   {
-    "clave": "tut.app-metas--esencial.resumen",
-    "es": "El planificador de toda la casa, en tres menús: Metas (la lista de lo que te propusiste, agrupada por la app que lleva cada una), Planes (los borradores de cronograma que reparten una meta en fases) y Cronograma (el eje del tiempo donde caen todas). No guarda registros propios: reúne las metas y los planes que nacen en las demás apps. Desde una meta se abre su hoja y, desde ahí, el eje acotado a ella.",
-    "en": "The planner for the whole house, in three menus: Goals (the list of what you set out to do, grouped by the app that carries each one), Plans (the schedule drafts that split a goal into phases) and Timeline (the time axis where they all land). It keeps no records of its own: it gathers the goals and plans that are born in the other apps. From a goal you open its sheet and, from there, the axis narrowed down to it."
+    "clave": "biblioteca.nodoDesc.idi-inmersion",
+    "en": "Customs, media, and travel for learning."
   },
   {
-    "clave": "tut.app-sala--esencial.resumen",
-    "es": "La sala es tu mundo viajero, en cuatro menús: Mapa (pines de lugares en el mapamundi, con vista de globo), Itinerario (lugares por conocer con su plan día a día), Rutas (recorridos que encadenan lugares) y Bitácora (recuerdos con fotos y anécdotas por país).",
-    "en": "The living room is your travel world, in four menus: Map (pins of places on the world map, with a globe view), Itinerary (places to see with a day-by-day plan), Routes (routes that chain places together) and Logbook (memories with photos and stories by country)."
+    "clave": "biblioteca.nodo.artes",
+    "en": "Arts and expression"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.artes",
+    "en": "Aesthetic creation, artistic perception, and visual and sound culture."
+  },
+  {
+    "clave": "biblioteca.nodo.art-visuales",
+    "en": "Visual arts"
+  },
+  {
+    "clave": "biblioteca.nodo.art-pintura",
+    "en": "Painting and drawing"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-pintura",
+    "en": "Techniques, composition, and color."
+  },
+  {
+    "clave": "biblioteca.nodo.art-escultura",
+    "en": "Sculpture and architecture"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-escultura",
+    "en": "Space, form, and design."
+  },
+  {
+    "clave": "biblioteca.nodo.art-fotografia",
+    "en": "Photography"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-fotografia",
+    "en": "Light, framing, and visual narrative."
+  },
+  {
+    "clave": "biblioteca.nodo.art-musica",
+    "en": "Music"
+  },
+  {
+    "clave": "biblioteca.nodo.art-teoria-mus",
+    "en": "Music theory"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-teoria-mus",
+    "en": "Harmony, rhythm, and notation."
+  },
+  {
+    "clave": "biblioteca.nodo.art-historia-mus",
+    "en": "History of music"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-historia-mus",
+    "en": "Styles, eras, and composers."
+  },
+  {
+    "clave": "biblioteca.nodo.art-escenicas",
+    "en": "Performing arts and film"
+  },
+  {
+    "clave": "biblioteca.nodo.art-teatro",
+    "en": "Theater and performance"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-teatro",
+    "en": "Dramaturgy, acting, and staging."
+  },
+  {
+    "clave": "biblioteca.nodo.art-cine",
+    "en": "Film and audiovisual media"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-cine",
+    "en": "Screenwriting, editing, and film language."
+  },
+  {
+    "clave": "biblioteca.nodo.tecnologia",
+    "en": "Technology and engineering"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tecnologia",
+    "en": "Applying knowledge to solve problems and transform the world."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-informatica",
+    "en": "Computer science"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-algoritmos",
+    "en": "Algorithms and data structures"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-algoritmos",
+    "en": "Efficiency, data, and design."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ia",
+    "en": "Artificial intelligence"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-ia",
+    "en": "Machine learning and AI ethics."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-redes",
+    "en": "Networks and systems"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-redes",
+    "en": "Internet, security, and distribution."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ingenieria",
+    "en": "Engineering"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-mecanica",
+    "en": "Mechanical engineering"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-mecanica",
+    "en": "Machines, materials, and manufacturing."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-electrica",
+    "en": "Electrical engineering"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-electrica",
+    "en": "Circuits, power, and electronics."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-civil",
+    "en": "Civil engineering"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-civil",
+    "en": "Infrastructure, hydraulics, and structures."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-energia",
+    "en": "Energy and sustainability"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-renovables",
+    "en": "Renewable energy"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-renovables",
+    "en": "Solar, wind, and hydrogen."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ambiental",
+    "en": "Environmental engineering"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-ambiental",
+    "en": "Waste, water, and ecological footprint."
+  },
+  {
+    "clave": "biblioteca.nodo.salud",
+    "en": "Health and medicine"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.salud",
+    "en": "The human body, disease, prevention, and care systems."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-anatomia",
+    "en": "Anatomy and physiology"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-cuerpo",
+    "en": "Body systems"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-cuerpo",
+    "en": "Organs, homeostasis, and integration."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-neuro",
+    "en": "Medical neuroscience"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-neuro",
+    "en": "Brain, senses, and movement."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-clinica",
+    "en": "Clinical medicine"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-patologia",
+    "en": "Pathology"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-patologia",
+    "en": "Disease, diagnosis, and causes."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-farmacologia",
+    "en": "Pharmacology"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-farmacologia",
+    "en": "Drugs, dosage, and effects."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-salud-pub",
+    "en": "Public health"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-salud-pub",
+    "en": "Epidemiology, vaccines, and policy."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-bienestar",
+    "en": "Well-being and nutrition"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-nutricion",
+    "en": "Clinical nutrition"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-nutricion",
+    "en": "Diets, metabolism, and micronutrients."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-prevencion",
+    "en": "Preventive medicine"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-prevencion",
+    "en": "Habits, screening, and longevity."
+  },
+  {
+    "clave": "ejercicio.ej.press-banca",
+    "en": "Bench press"
+  },
+  {
+    "clave": "ejercicio.ej.press-inclinado",
+    "en": "Incline press"
+  },
+  {
+    "clave": "ejercicio.ej.press-con-mancuernas",
+    "en": "Dumbbell press"
+  },
+  {
+    "clave": "ejercicio.ej.aperturas-con-mancuernas",
+    "en": "Dumbbell flys"
+  },
+  {
+    "clave": "ejercicio.ej.cruce-en-polea",
+    "en": "Cable crossover"
+  },
+  {
+    "clave": "ejercicio.ej.fondos-en-paralelas",
+    "en": "Dips"
+  },
+  {
+    "clave": "ejercicio.ej.flexiones",
+    "en": "Push-ups"
+  },
+  {
+    "clave": "ejercicio.ej.dominadas",
+    "en": "Pull-ups"
+  },
+  {
+    "clave": "ejercicio.ej.jalon-al-pecho",
+    "en": "Lat pulldown"
+  },
+  {
+    "clave": "ejercicio.ej.remo-con-barra",
+    "en": "Barbell row"
+  },
+  {
+    "clave": "ejercicio.ej.remo-con-mancuerna",
+    "en": "Dumbbell row"
+  },
+  {
+    "clave": "ejercicio.ej.remo-en-polea-baja",
+    "en": "Seated cable row"
+  },
+  {
+    "clave": "ejercicio.ej.pull-over",
+    "en": "Pullover"
+  },
+  {
+    "clave": "ejercicio.ej.face-pull",
+    "en": "Face pull"
+  },
+  {
+    "clave": "ejercicio.ej.hiperextensiones",
+    "en": "Hyperextensions"
+  },
+  {
+    "clave": "ejercicio.ej.press-militar",
+    "en": "Military press"
+  },
+  {
+    "clave": "ejercicio.ej.press-arnold",
+    "en": "Arnold press"
+  },
+  {
+    "clave": "ejercicio.ej.elevaciones-laterales",
+    "en": "Lateral raises"
+  },
+  {
+    "clave": "ejercicio.ej.elevaciones-frontales",
+    "en": "Front raises"
+  },
+  {
+    "clave": "ejercicio.ej.pajaros",
+    "en": "Reverse flys"
+  },
+  {
+    "clave": "ejercicio.ej.encogimientos",
+    "en": "Shrugs"
+  },
+  {
+    "clave": "ejercicio.ej.curl-con-barra",
+    "en": "Barbell curl"
+  },
+  {
+    "clave": "ejercicio.ej.curl-con-mancuernas",
+    "en": "Dumbbell curl"
+  },
+  {
+    "clave": "ejercicio.ej.curl-martillo",
+    "en": "Hammer curl"
+  },
+  {
+    "clave": "ejercicio.ej.curl-predicador",
+    "en": "Preacher curl"
+  },
+  {
+    "clave": "ejercicio.ej.curl-concentrado",
+    "en": "Concentration curl"
+  },
+  {
+    "clave": "ejercicio.ej.extension-triceps-en-polea",
+    "en": "Triceps pushdown"
+  },
+  {
+    "clave": "ejercicio.ej.press-frances",
+    "en": "Skull crusher"
+  },
+  {
+    "clave": "ejercicio.ej.fondos-entre-bancos",
+    "en": "Bench dips"
+  },
+  {
+    "clave": "ejercicio.ej.extension-sobre-cabeza",
+    "en": "Overhead extension"
+  },
+  {
+    "clave": "ejercicio.ej.patada-de-triceps",
+    "en": "Triceps kickback"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla",
+    "en": "Squat"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-frontal",
+    "en": "Front squat"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-bulgara",
+    "en": "Bulgarian split squat"
+  },
+  {
+    "clave": "ejercicio.ej.prensa-de-pierna",
+    "en": "Leg press"
+  },
+  {
+    "clave": "ejercicio.ej.zancadas",
+    "en": "Lunges"
+  },
+  {
+    "clave": "ejercicio.ej.peso-muerto",
+    "en": "Deadlift"
+  },
+  {
+    "clave": "ejercicio.ej.peso-muerto-rumano",
+    "en": "Romanian deadlift"
+  },
+  {
+    "clave": "ejercicio.ej.curl-femoral",
+    "en": "Leg curl"
+  },
+  {
+    "clave": "ejercicio.ej.extension-de-cuadriceps",
+    "en": "Leg extension"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-talones",
+    "en": "Calf raises"
+  },
+  {
+    "clave": "ejercicio.ej.hip-thrust",
+    "en": "Hip thrust"
+  },
+  {
+    "clave": "ejercicio.ej.puente-de-gluteo",
+    "en": "Glute bridge"
+  },
+  {
+    "clave": "ejercicio.ej.patada-de-gluteo-en-polea",
+    "en": "Cable glute kickback"
+  },
+  {
+    "clave": "ejercicio.ej.abduccion-de-cadera",
+    "en": "Hip abduction"
+  },
+  {
+    "clave": "ejercicio.ej.plancha",
+    "en": "Plank"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-lateral",
+    "en": "Side plank"
+  },
+  {
+    "clave": "ejercicio.ej.crunch-abdominal",
+    "en": "Abdominal crunch"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-piernas",
+    "en": "Leg raises"
+  },
+  {
+    "clave": "ejercicio.ej.russian-twist",
+    "en": "Russian twist"
+  },
+  {
+    "clave": "ejercicio.ej.rueda-abdominal",
+    "en": "Ab wheel rollout"
+  },
+  {
+    "clave": "ejercicio.ej.escaladores",
+    "en": "Mountain climbers"
+  },
+  {
+    "clave": "ejercicio.ej.carrera",
+    "en": "Running"
+  },
+  {
+    "clave": "ejercicio.ej.trote-suave",
+    "en": "Easy jog"
+  },
+  {
+    "clave": "ejercicio.ej.caminata-rapida",
+    "en": "Brisk walk"
+  },
+  {
+    "clave": "ejercicio.ej.ciclismo",
+    "en": "Cycling"
+  },
+  {
+    "clave": "ejercicio.ej.senderismo",
+    "en": "Hiking"
+  },
+  {
+    "clave": "ejercicio.ej.trail-running",
+    "en": "Trail running"
+  },
+  {
+    "clave": "ejercicio.ej.caminadora",
+    "en": "Treadmill"
+  },
+  {
+    "clave": "ejercicio.ej.caminata-inclinada",
+    "en": "Incline walk"
+  },
+  {
+    "clave": "ejercicio.ej.eliptica",
+    "en": "Elliptical"
+  },
+  {
+    "clave": "ejercicio.ej.bicicleta-estatica",
+    "en": "Stationary bike"
+  },
+  {
+    "clave": "ejercicio.ej.escaladora",
+    "en": "Stair climber"
+  },
+  {
+    "clave": "ejercicio.ej.remo-maquina",
+    "en": "Rowing (machine)"
+  },
+  {
+    "clave": "ejercicio.ej.hiit",
+    "en": "HIIT"
+  },
+  {
+    "clave": "ejercicio.ej.sprints",
+    "en": "Sprints"
+  },
+  {
+    "clave": "ejercicio.ej.saltar-cuerda",
+    "en": "Jump rope"
+  },
+  {
+    "clave": "ejercicio.ej.burpees",
+    "en": "Burpees"
+  },
+  {
+    "clave": "ejercicio.ej.circuito-metabolico",
+    "en": "Metabolic circuit"
+  },
+  {
+    "clave": "ejercicio.ej.natacion",
+    "en": "Swimming"
+  },
+  {
+    "clave": "ejercicio.ej.aqua-aerobicos",
+    "en": "Water aerobics"
+  },
+  {
+    "clave": "ejercicio.ej.caminata",
+    "en": "Walking"
+  },
+  {
+    "clave": "ejercicio.ej.futbol",
+    "en": "Soccer"
+  },
+  {
+    "clave": "ejercicio.ej.basquetbol",
+    "en": "Basketball"
+  },
+  {
+    "clave": "ejercicio.ej.tenis",
+    "en": "Tennis"
+  },
+  {
+    "clave": "ejercicio.ej.padel",
+    "en": "Padel"
+  },
+  {
+    "clave": "ejercicio.ej.boxeo",
+    "en": "Boxing"
+  },
+  {
+    "clave": "ejercicio.ej.baile",
+    "en": "Dance"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-matutina",
+    "en": "Morning mobility"
+  },
+  {
+    "clave": "ejercicio.ej.yoga-flow",
+    "en": "Yoga flow"
+  },
+  {
+    "clave": "ejercicio.ej.saludo-al-sol",
+    "en": "Sun salutation"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-general",
+    "en": "General stretch"
+  },
+  {
+    "clave": "ejercicio.ej.guerrero-i",
+    "en": "Warrior I"
+  },
+  {
+    "clave": "ejercicio.ej.guerrero-ii",
+    "en": "Warrior II"
+  },
+  {
+    "clave": "ejercicio.ej.triangulo",
+    "en": "Triangle pose"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-de-pie",
+    "en": "Standing forward fold"
+  },
+  {
+    "clave": "ejercicio.ej.apertura-de-cadera",
+    "en": "Hip opener"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-paloma",
+    "en": "Pigeon pose"
+  },
+  {
+    "clave": "ejercicio.ej.mariposa",
+    "en": "Butterfly stretch"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-isquiotibiales",
+    "en": "Hamstring stretch"
+  },
+  {
+    "clave": "ejercicio.ej.zancada-baja",
+    "en": "Low lunge"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-guirnalda",
+    "en": "Garland pose"
+  },
+  {
+    "clave": "ejercicio.ej.figura-4",
+    "en": "Figure 4 stretch"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-aductores",
+    "en": "Adductor stretch"
+  },
+  {
+    "clave": "ejercicio.ej.rana",
+    "en": "Frog pose"
+  },
+  {
+    "clave": "ejercicio.ej.perro-boca-abajo",
+    "en": "Downward dog"
+  },
+  {
+    "clave": "ejercicio.ej.torsion-espinal",
+    "en": "Spinal twist"
+  },
+  {
+    "clave": "ejercicio.ej.postura-del-nino",
+    "en": "Child's pose"
+  },
+  {
+    "clave": "ejercicio.ej.apertura-de-pecho",
+    "en": "Chest opener"
+  },
+  {
+    "clave": "ejercicio.ej.esfinge",
+    "en": "Sphinx pose"
+  },
+  {
+    "clave": "ejercicio.ej.hilo-y-aguja",
+    "en": "Thread the needle"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-dorsales",
+    "en": "Lat stretch"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-cervical",
+    "en": "Neck mobility"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-de-columna",
+    "en": "Spine rotations"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-cobra",
+    "en": "Cobra pose"
+  },
+  {
+    "clave": "ejercicio.ej.inclinacion-lateral-de-cuello",
+    "en": "Lateral neck tilt"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-cuadriceps",
+    "en": "Quad stretch"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-gemelos",
+    "en": "Calf stretch"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-hombros",
+    "en": "Shoulder stretch"
+  },
+  {
+    "clave": "ejercicio.ej.foam-roller",
+    "en": "Foam rolling"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-triceps",
+    "en": "Triceps stretch"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores-de-cadera",
+    "en": "Hip flexor stretch"
+  },
+  {
+    "clave": "ejercicio.ej.piernas-en-la-pared",
+    "en": "Legs up the wall"
+  },
+  {
+    "clave": "ejercicio.ej.savasana",
+    "en": "Savasana"
+  },
+  {
+    "clave": "ejercicio.ej.postura-del-nino-apoyada",
+    "en": "Supported child's pose"
+  },
+  {
+    "clave": "ejercicio.ej.respiracion-profunda",
+    "en": "Deep breathing"
+  },
+  {
+    "clave": "ejercicio.ej.mariposa-reclinada",
+    "en": "Reclined butterfly"
+  },
+  {
+    "clave": "ejercicio.ej.torsion-reclinada",
+    "en": "Reclined twist"
+  },
+  {
+    "clave": "ejercicio.ej.liberacion-miofascial-con-pelota",
+    "en": "Myofascial Release with Ball"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-tobillo",
+    "en": "Ankle Circles"
+  },
+  {
+    "clave": "ejercicio.ej.recogida-de-toalla-con-dedos",
+    "en": "Towel Scrunches with Toes"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-dorsiflexion",
+    "en": "Dorsiflexion Stretch"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-talones-unipodal",
+    "en": "Single-Leg Calf Raise"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-y-extension-en-descarga",
+    "en": "Unloaded Flexion and Extension"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-dinamico-de-isquiotibiales",
+    "en": "Dynamic Hamstring Stretch"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-isometrica-wall-squat",
+    "en": "Isometric Squat (Wall Squat)"
+  },
+  {
+    "clave": "ejercicio.ej.equilibrio-unipodal-single-leg-balance",
+    "en": "Single-Leg Balance"
+  },
+  {
+    "clave": "ejercicio.ej.sentadillas-del-arquero",
+    "en": "Archer Squats"
+  },
+  {
+    "clave": "ejercicio.ej.estocadas-lunges",
+    "en": "Lunges"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-90-90",
+    "en": "90/90 Mobility"
+  },
+  {
+    "clave": "ejercicio.ej.el-puente-glute-bridge",
+    "en": "Glute Bridge"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores-en-estocada",
+    "en": "Lunge Hip Flexor Stretch"
+  },
+  {
+    "clave": "ejercicio.ej.abduccion-lateral-de-cadera",
+    "en": "Lateral Hip Abduction"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-profunda-con-apertura",
+    "en": "Deep Squat with Knee Opening"
+  },
+  {
+    "clave": "ejercicio.ej.balanceo-dinamico-de-piernas",
+    "en": "Dynamic Leg Swings"
+  },
+  {
+    "clave": "ejercicio.ej.postura-gato-vaca",
+    "en": "Cat-Cow Pose"
+  },
+  {
+    "clave": "ejercicio.ej.torsiones-lumbares-suaves",
+    "en": "Gentle Lumbar Twists"
+  },
+  {
+    "clave": "ejercicio.ej.pointer-bird-dog",
+    "en": "Bird Dog"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-frontal-isometricos",
+    "en": "Front Plank (Isometric)"
+  },
+  {
+    "clave": "ejercicio.ej.roll-down-curl-jefferson",
+    "en": "Roll Down (Jefferson Curl)"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-lumbar-boca-abajo",
+    "en": "Lower Back Stretch (Prone)"
+  },
+  {
+    "clave": "ejercicio.ej.rotacion-toracica",
+    "en": "Thoracic Rotation"
+  },
+  {
+    "clave": "ejercicio.ej.retraccion-escapular",
+    "en": "Scapular Retraction"
+  },
+  {
+    "clave": "ejercicio.ej.angeles-de-pared-wall-angels",
+    "en": "Wall Angels"
+  },
+  {
+    "clave": "ejercicio.ej.lunge-con-apertura-de-pectoral",
+    "en": "Lunge with Chest Opener"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-dorsal-en-pared",
+    "en": "Wall Lat Stretch"
+  },
+  {
+    "clave": "ejercicio.ej.el-gato-y-la-mesa",
+    "en": "Cat and Table"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-hombros",
+    "en": "Shoulder Circles"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-pecho-pectoral",
+    "en": "Chest/Pectoral Stretch"
+  },
+  {
+    "clave": "ejercicio.ej.dislocaciones-con-goma-o-palo",
+    "en": "Shoulder Dislocates (Band or Stick)"
+  },
+  {
+    "clave": "ejercicio.ej.rotacion-externa-con-banda",
+    "en": "External Rotation with Band"
+  },
+  {
+    "clave": "ejercicio.ej.thread-the-needle-enhebrar-aguja",
+    "en": "Thread the Needle"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-y-medios-circulos",
+    "en": "Rotations and Half Circles"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-trapecio-superior",
+    "en": "Upper Trapezius Stretch"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-cervicales-con-nodding",
+    "en": "Neck Rotations with Nodding"
+  },
+  {
+    "clave": "ejercicio.ej.retracciones-de-barbilla-chin-tucks",
+    "en": "Chin Tucks"
+  },
+  {
+    "clave": "ejercicio.ej.isometricos-cervicales",
+    "en": "Neck Isometrics"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-y-extension-de-muneca",
+    "en": "Wrist Flexion and Extension"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-munecas",
+    "en": "Wrist Circles"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores",
+    "en": "Flexor Stretch"
+  },
+  {
+    "clave": "ejercicio.ej.agarre-activo-y-pasivo",
+    "en": "Active and Passive Grip"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-de-munecas",
+    "en": "Wrist Plank"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-banca",
+    "en": "Lying on a bench, lower the bar to your chest and press up until your elbows extend."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-inclinado",
+    "en": "On an incline bench, press the bar or dumbbells to emphasize the upper chest."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-con-mancuernas",
+    "en": "Lying down, press two dumbbells upward with a greater range of motion than a barbell."
+  },
+  {
+    "clave": "ejercicio.ejDesc.aperturas-con-mancuernas",
+    "en": "Lying down, open your arms in an arc and bring them together with elbows slightly bent."
+  },
+  {
+    "clave": "ejercicio.ejDesc.cruce-en-polea",
+    "en": "Standing between high pulleys, bring your hands together in front while squeezing your chest."
+  },
+  {
+    "clave": "ejercicio.ejDesc.fondos-en-paralelas",
+    "en": "Suspended on parallel bars, lower yourself by bending your elbows with your torso leaning forward, then press back up."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexiones",
+    "en": "Face down, lower your chest to the floor keeping your body straight, then push back up."
+  },
+  {
+    "clave": "ejercicio.ejDesc.dominadas",
+    "en": "Hanging from the bar, pull your body up until your chin clears the bar."
+  },
+  {
+    "clave": "ejercicio.ejDesc.jalon-al-pecho",
+    "en": "Seated at a high pulley, pull the bar to your chest, driving your elbows down."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-con-barra",
+    "en": "Bent over with a straight back, pull the bar to your abdomen, squeezing your back."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-con-mancuerna",
+    "en": "Supported on a bench, pull a dumbbell to your side without twisting your torso."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-en-polea-baja",
+    "en": "Seated, pull the handle to your abdomen while keeping your back upright."
+  },
+  {
+    "clave": "ejercicio.ejDesc.pull-over",
+    "en": "Lying down, lower a dumbbell behind your head, then bring it back over your chest."
+  },
+  {
+    "clave": "ejercicio.ejDesc.face-pull",
+    "en": "At a face-height pulley, pull the rope toward your forehead, flaring your elbows out."
+  },
+  {
+    "clave": "ejercicio.ejDesc.hiperextensiones",
+    "en": "On the bench, lower your torso and raise it back up, extending your lower back."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-militar",
+    "en": "Standing, press the bar from your shoulders up overhead."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-arnold",
+    "en": "Seated, press the dumbbells overhead while rotating your palms from facing in to facing out."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevaciones-laterales",
+    "en": "Standing, raise the dumbbells out to the sides up to shoulder height."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevaciones-frontales",
+    "en": "Standing, raise the dumbbell in front of you up to eye level."
+  },
+  {
+    "clave": "ejercicio.ejDesc.pajaros",
+    "en": "Bent over, open your arms out to the sides to work the rear shoulder."
+  },
+  {
+    "clave": "ejercicio.ejDesc.encogimientos",
+    "en": "Standing with weight, raise your shoulders toward your ears and lower with control."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-con-barra",
+    "en": "Standing, bend your elbows to curl the bar up without swinging your torso."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-con-mancuernas",
+    "en": "Standing or seated, curl the dumbbells up by bending your elbows, alternating or together."
   }
 ]

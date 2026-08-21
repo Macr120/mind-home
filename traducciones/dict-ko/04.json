@@ -1,794 +1,498 @@
 [
   {
-    "clave": "plantillaCustom.borrarBloqueMsj",
-    "es": "Se borra la herramienta con todo lo que guardaste en ella.",
-    "en": "The tool goes away with everything you saved in it."
+    "clave": "ejercicio.ejDesc.estiramiento-de-gemelos",
+    "en": "Place your hands on the wall and stretch your calf with your back leg straight."
   },
   {
-    "clave": "plantillaCustom.borrarBloqueAhora",
-    "es": "Borrar la herramienta y sus datos",
-    "en": "Delete the tool and its data"
+    "clave": "ejercicio.ejDesc.estiramiento-de-hombros",
+    "en": "Cross one arm in front of your chest and pull it in with the other."
   },
   {
-    "clave": "plantillaCustom.meta",
-    "es": "Meta (opcional)",
-    "en": "Goal (optional)"
+    "clave": "ejercicio.ejDesc.foam-roller",
+    "en": "Roll your muscles over the foam roller to release tension after training."
   },
   {
-    "clave": "plantillaCustom.guardar",
-    "es": "Guardar",
-    "en": "Save"
+    "clave": "ejercicio.ejDesc.estiramiento-de-triceps",
+    "en": "Bring your elbow behind your head and gently push with the other hand."
   },
   {
-    "clave": "plantillaCustom.cancelar",
-    "es": "Cancelar",
-    "en": "Cancel"
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-de-cadera",
+    "en": "In a lunge, push your hip forward to stretch the front of the thigh."
   },
   {
-    "clave": "plantillaCustom.tipo.notas",
-    "en": "Notes"
+    "clave": "ejercicio.ejDesc.piernas-en-la-pared",
+    "en": "Lying down, rest your legs up against the wall to relax and drain."
   },
   {
-    "clave": "plantillaCustom.tipo.checklist",
-    "en": "Checklist"
+    "clave": "ejercicio.ejDesc.savasana",
+    "en": "Lying on your back, relax your whole body while breathing slowly."
   },
   {
-    "clave": "plantillaCustom.tipo.contador",
-    "en": "Counter"
+    "clave": "ejercicio.ejDesc.postura-del-nino-apoyada",
+    "en": "Child's pose with support to relax for a longer time."
   },
   {
-    "clave": "plantillaCustom.tipo.enlaces",
-    "en": "Links"
+    "clave": "ejercicio.ejDesc.respiracion-profunda",
+    "en": "Breathe in and out slowly and deeply to calm the nervous system."
   },
   {
-    "clave": "plantillaCustom.tipo.lista",
-    "en": "List"
+    "clave": "ejercicio.ejDesc.mariposa-reclinada",
+    "en": "Lying down with soles together, let your knees drop and relax your hips."
   },
   {
-    "clave": "plantillaCustom.tipo.valoracion",
-    "en": "Rating"
+    "clave": "ejercicio.ejDesc.torsion-reclinada",
+    "en": "Lying down, let your knees drop to one side, gently rotating your spine."
   },
   {
-    "clave": "plantillaCustom.tipo.bitacora",
-    "en": "Log"
+    "clave": "ejercicio.ejDesc.liberacion-miofascial-con-pelota",
+    "en": "Roll a hard ball with controlled pressure from your heel to the balls of your feet."
   },
   {
-    "clave": "plantillaCustom.tipo.progreso",
-    "en": "Progress"
+    "clave": "ejercicio.ejDesc.circulos-de-tobillo",
+    "en": "Lift one leg and move your ankle in wide circles in both directions."
   },
   {
-    "clave": "plantillaCustom.tipo.habito",
-    "en": "Habit"
+    "clave": "ejercicio.ejDesc.recogida-de-toalla-con-dedos",
+    "en": "Try to scrunch up and gather a towel on the floor using only your toes."
   },
   {
-    "clave": "plantillaCustom.tipo.sesiones",
-    "en": "Sessions"
+    "clave": "ejercicio.ejDesc.estiramiento-de-dorsiflexion",
+    "en": "Facing a wall, bend your front knee while keeping your heel flat on the floor to stretch."
   },
   {
-    "clave": "plantillaCustom.tipo.cuenta",
-    "en": "Countdown"
+    "clave": "ejercicio.ejDesc.elevacion-de-talones-unipodal",
+    "en": "Standing on one foot, raise your heel slowly and lower it with eccentric control."
   },
   {
-    "clave": "plantillaCustom.tipo.galeria",
-    "en": "Gallery"
+    "clave": "ejercicio.ejDesc.flexion-y-extension-en-descarga",
+    "en": "Lying down, bend your knee bringing your heel to your glute, then extend without lifting your foot."
   },
   {
-    "clave": "amueblar.titulo",
-    "es": "¿Cómo amueblar el cuarto?",
-    "en": "How to furnish the room?"
+    "clave": "ejercicio.ejDesc.estiramiento-dinamico-de-isquiotibiales",
+    "en": "Place a heel in front of you and gently fold your trunk forward with the knee extended."
   },
   {
-    "clave": "amueblar.completo",
-    "es": "Amueblado",
-    "en": "Furnished"
+    "clave": "ejercicio.ejDesc.sentadilla-isometrica-wall-squat",
+    "en": "Rest your back against the wall, lower to 90 degrees, and hold, making sure your knees don't cave in."
   },
   {
-    "clave": "amueblar.completoDesc",
-    "es": "Trae todos los objetos de la app.",
-    "en": "Bring all of the app’s objects."
+    "clave": "ejercicio.ejDesc.equilibrio-unipodal-single-leg-balance",
+    "en": "Balance on one leg with the knee slightly bent, without letting it cave inward."
   },
   {
-    "clave": "amueblar.principal",
-    "es": "Solo el objeto principal",
-    "en": "Main object only"
+    "clave": "ejercicio.ejDesc.sentadillas-del-arquero",
+    "en": "With legs apart, bend one knee, shifting your weight while keeping the other leg extended."
   },
   {
-    "clave": "amueblar.principalDesc",
-    "es": "Solo el objeto que abre la app, sin el resto.",
-    "en": "Only the object that opens the app, nothing else."
+    "clave": "ejercicio.ejDesc.estocadas-lunges",
+    "en": "Step forward and lower your hip, forming a 90-degree angle with your front knee."
   },
   {
-    "clave": "plantillaCustom.eliminada",
-    "es": "Esta plantilla fue eliminada.",
-    "en": "This template was deleted."
+    "clave": "ejercicio.ejDesc.movilidad-90-90",
+    "en": "Seated with legs at 90 degrees, rotate your trunk and legs from side to side."
   },
   {
-    "clave": "plantillaCustom.notasPh",
-    "es": "Escribe tus notas… (se guardan solas)",
-    "en": "Write your notes… (saved automatically)"
+    "clave": "ejercicio.ejDesc.el-puente-glute-bridge",
+    "en": "Lying on your back, raise your pelvis, squeezing your glutes, until your shoulders, hips, and knees align."
   },
   {
-    "clave": "plantillaCustom.checklistPh",
-    "es": "Nuevo pendiente…",
-    "en": "New to-do…"
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-en-estocada",
+    "en": "With one knee on the floor, push your pelvis forward with a straight back to stretch the psoas."
   },
   {
-    "clave": "plantillaCustom.checklistVacio",
-    "es": "Sin pendientes todavía.",
-    "en": "No to-dos yet."
+    "clave": "ejercicio.ejDesc.abduccion-lateral-de-cadera",
+    "en": "Lying on your side, raise your top leg while keeping your pelvis stable."
   },
   {
-    "clave": "plantillaCustom.borrarItem",
-    "es": "Borrar",
-    "en": "Delete"
+    "clave": "ejercicio.ejDesc.sentadilla-profunda-con-apertura",
+    "en": "In a squat, push your knees outward with your elbows to open the hips."
   },
   {
-    "clave": "plantillaCustom.enlaceTitulo",
-    "es": "Título (opcional)",
-    "en": "Title (optional)"
+    "clave": "ejercicio.ejDesc.balanceo-dinamico-de-piernas",
+    "en": "Standing, swing one leg forward, back, and side to side like a pendulum."
   },
   {
-    "clave": "plantillaCustom.enlacesVacio",
-    "es": "Sin enlaces guardados.",
-    "en": "No saved links."
+    "clave": "ejercicio.ejDesc.postura-gato-vaca",
+    "en": "On all fours, alternate between arching your back toward the ceiling and dropping your belly toward the floor."
   },
   {
-    "clave": "plantillaCustom.listaPh",
-    "es": "Nuevo elemento…",
-    "en": "New item…"
+    "clave": "ejercicio.ejDesc.torsiones-lumbares-suaves",
+    "en": "Lying on your back, let both knees drop together to one side and then the other."
   },
   {
-    "clave": "plantillaCustom.listaVacio",
-    "es": "Lista vacía.",
-    "en": "Empty list."
+    "clave": "ejercicio.ejDesc.pointer-bird-dog",
+    "en": "On all fours, extend opposite leg and arm while keeping your lower back flat."
   },
   {
-    "clave": "plantillaCustom.bitacoraPh",
-    "es": "Nueva entrada…",
-    "en": "New entry…"
+    "clave": "ejercicio.ejDesc.plancha-frontal-isometricos",
+    "en": "Hold a plank position resting on your forearms, forming a straight line."
   },
   {
-    "clave": "plantillaCustom.bitacoraVacio",
-    "es": "Sin entradas todavía.",
-    "en": "No entries yet."
+    "clave": "ejercicio.ejDesc.roll-down-curl-jefferson",
+    "en": "Standing, slowly roll your spine down one vertebra at a time."
   },
   {
-    "clave": "plantillaCustom.progresoPh",
-    "es": "Valor…",
-    "en": "Value…"
+    "clave": "ejercicio.ejDesc.estiramiento-lumbar-boca-abajo",
+    "en": "Lying face down, lift your hips and then lower them, extending your back."
   },
   {
-    "clave": "plantillaCustom.progresoVacio",
-    "es": "Sin mediciones todavía.",
-    "en": "No measurements yet."
+    "clave": "ejercicio.ejDesc.rotacion-toracica",
+    "en": "On all fours, lift one arm out to the side and follow your hand with your gaze."
   },
   {
-    "clave": "plantillaCustom.unidad",
-    "es": "Unidad (opcional)",
-    "en": "Unit (optional)"
+    "clave": "ejercicio.ejDesc.retraccion-escapular",
+    "en": "Squeeze your shoulder blades back and down while keeping an upright posture."
   },
   {
-    "clave": "plantillaCustom.habitoMarcar",
-    "es": "Marcar hoy",
-    "en": "Mark today"
+    "clave": "ejercicio.ejDesc.angeles-de-pared-wall-angels",
+    "en": "Back against the wall, slide your arms up and down keeping your elbows in contact."
   },
   {
-    "clave": "plantillaCustom.habitoHecho",
-    "es": "Hecho hoy ✓",
-    "en": "Done today ✓"
+    "clave": "ejercicio.ejDesc.lunge-con-apertura-de-pectoral",
+    "en": "In a lunge, clasp your hands behind your neck and open your elbows back."
   },
   {
-    "clave": "plantillaCustom.habitoRacha",
-    "es": "racha",
-    "en": "streak"
+    "clave": "ejercicio.ejDesc.estiramiento-dorsal-en-pared",
+    "en": "Place your hands on the wall and let your trunk drop with your knees straight."
   },
   {
-    "clave": "plantillaCustom.habitoDias",
-    "es": "días activos",
-    "en": "active days"
+    "clave": "ejercicio.ejDesc.el-gato-y-la-mesa",
+    "en": "On all fours, arch your back and then lower your chest."
   },
   {
-    "clave": "plantillaCustom.metaSemana",
-    "es": "Veces por semana (opcional)",
-    "en": "Times per week (optional)"
+    "clave": "ejercicio.ejDesc.circulos-de-hombros",
+    "en": "Wide circular movements, favoring the path backward and down."
   },
   {
-    "clave": "plantillaCustom.sesionMin",
-    "es": "Minutos",
-    "en": "Minutes"
+    "clave": "ejercicio.ejDesc.estiramiento-de-pecho-pectoral",
+    "en": "Clasp your hands behind your back and open your chest without straining your neck."
   },
   {
-    "clave": "plantillaCustom.sesionNota",
-    "es": "Nota (opcional)",
-    "en": "Note (optional)"
+    "clave": "ejercicio.ejDesc.dislocaciones-con-goma-o-palo",
+    "en": "Pass a band overhead and behind your back with your elbows straight."
   },
   {
-    "clave": "plantillaCustom.sesionVacio",
-    "es": "Sin sesiones todavía.",
-    "en": "No sessions yet."
+    "clave": "ejercicio.ejDesc.rotacion-externa-con-banda",
+    "en": "With elbows at 90 degrees against your body, rotate your hands outward against resistance."
   },
   {
-    "clave": "plantillaCustom.sesionTotal",
-    "es": "Total",
-    "en": "Total"
+    "clave": "ejercicio.ejDesc.thread-the-needle-enhebrar-aguja",
+    "en": "On all fours, thread one arm underneath your body, resting your shoulder on the floor."
   },
   {
-    "clave": "plantillaCustom.metaMin",
-    "es": "Meta en minutos (opcional)",
-    "en": "Goal in minutes (optional)"
+    "clave": "ejercicio.ejDesc.rotaciones-y-medios-circulos",
+    "en": "Chin to chest, trace wide, very slow circles without forcing through pain."
   },
   {
-    "clave": "plantillaCustom.cuentaFecha",
-    "es": "Fecha objetivo",
-    "en": "Target date"
+    "clave": "ejercicio.ejDesc.estiramiento-de-trapecio-superior",
+    "en": "Gently tilt your head, bringing your ear toward the opposite shoulder."
   },
   {
-    "clave": "plantillaCustom.cuentaSinFecha",
-    "es": "Configura una fecha objetivo al editar.",
-    "en": "Set a target date when editing."
+    "clave": "ejercicio.ejDesc.rotaciones-cervicales-con-nodding",
+    "en": "Turn your head and make small nodding movements (\"yes\")."
   },
   {
-    "clave": "plantillaCustom.cuentaDias",
-    "es": "días restantes",
-    "en": "days left"
+    "clave": "ejercicio.ejDesc.retracciones-de-barbilla-chin-tucks",
+    "en": "Draw your chin straight back, making a \"double chin,\" to align your neck."
   },
   {
-    "clave": "plantillaCustom.cuentaHoy",
-    "es": "¡Hoy!",
-    "en": "Today!"
+    "clave": "ejercicio.ejDesc.isometricos-cervicales",
+    "en": "Push your head against your hand, resisting the movement to avoid bending."
   },
   {
-    "clave": "plantillaCustom.cuentaPaso",
-    "es": "días atrás",
-    "en": "days ago"
+    "clave": "ejercicio.ejDesc.flexion-y-extension-de-muneca",
+    "en": "With arms extended, flex your wrist toward the ceiling and then toward the floor."
   },
   {
-    "clave": "plantillaCustom.galeriaAgregar",
-    "es": "Agregar fotos",
-    "en": "Add photos"
+    "clave": "ejercicio.ejDesc.circulos-de-munecas",
+    "en": "Rotate both wrists, making circles in both directions."
   },
   {
-    "clave": "plantillaCustom.galeriaVacio",
-    "es": "Sin fotos todavía.",
-    "en": "No photos yet."
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores",
+    "en": "Palm facing up, use your other hand to push your fingers toward your body."
   },
   {
-    "clave": "objetos.ayuda",
-    "es": "Todos los objetos que existen, por categoría. Crea los tuyos, edítalos o bórralos.",
-    "en": "Every object that exists, by category. Create your own, edit or delete them."
+    "clave": "ejercicio.ejDesc.agarre-activo-y-pasivo",
+    "en": "Clench your fists tightly and then open them, relaxing completely."
   },
   {
-    "clave": "objetos.ayudaEspeciales",
-    "es": "Los objetos con efecto, agrupados por lo que hacen. Ábrelos para ver sus carpetas.",
-    "en": "Objects with an effect, grouped by what they do. Open one to see its folders."
+    "clave": "ejercicio.ejDesc.plancha-de-munecas",
+    "en": "In a plank or kneeling position, rise up to rest on your fingertips only, then lower."
   },
   {
-    "clave": "objetos.agregar",
-    "es": "Agregar objeto 3D",
-    "en": "Add 3D object"
+    "clave": "ejercicio.ejTiempo.liberacion-miofascial-con-pelota",
+    "en": "1 to 2 minutes per foot (continuous movement)."
   },
   {
-    "clave": "objetos.alMapa",
-    "es": "Colocar en el mapa o en un cuarto",
-    "en": "Place on the map or in a room"
+    "clave": "ejercicio.ejTiempo.circulos-de-tobillo",
+    "en": "10 to 12 reps in each direction per ankle."
   },
   {
-    "clave": "destinoObj.titulo",
-    "es": "¿Dónde lo pones?",
-    "en": "Where do you want it?"
+    "clave": "ejercicio.ejTiempo.recogida-de-toalla-con-dedos",
+    "en": "10 to 15 reps (scrunch and release) per foot."
   },
   {
-    "clave": "destinoObj.mapa",
-    "es": "En el mapa",
-    "en": "On the map"
+    "clave": "ejercicio.ejTiempo.estiramiento-de-dorsiflexion",
+    "en": "Hold for 15 to 30 seconds per leg, do 2 to 4 sets."
   },
   {
-    "clave": "destinoObj.mapaDesc",
-    "es": "Suelto en el exterior, fuera de los cuartos.",
-    "en": "Loose outdoors, outside the rooms."
+    "clave": "ejercicio.ejTiempo.elevacion-de-talones-unipodal",
+    "en": "10 to 15 reps per leg."
   },
   {
-    "clave": "destinoObj.enCuarto",
-    "es": "O dentro de un cuarto",
-    "en": "Or inside a room"
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-en-descarga",
+    "en": "8 to 10 reps per leg."
   },
   {
-    "clave": "objetos.editar",
-    "es": "Editar en el editor",
-    "en": "Edit in the editor"
+    "clave": "ejercicio.ejTiempo.estiramiento-dinamico-de-isquiotibiales",
+    "en": "Hold for 20 seconds per leg."
   },
   {
-    "clave": "objetos.editarForma",
-    "es": "Editar su forma",
-    "en": "Edit its shape"
+    "clave": "ejercicio.ejTiempo.sentadilla-isometrica-wall-squat",
+    "en": "Hold for 5 to 15 seconds, stand up, and repeat (3 to 5 times)."
   },
   {
-    "clave": "objetos.animado",
-    "es": "Objeto animado",
-    "en": "Animated object"
+    "clave": "ejercicio.ejTiempo.equilibrio-unipodal-single-leg-balance",
+    "en": "Hold for 15 to 60 seconds per leg (repeat 2 to 3 times)."
   },
   {
-    "clave": "objetos.funcion.vehiculo",
-    "en": "Drivable"
+    "clave": "ejercicio.ejTiempo.sentadillas-del-arquero",
+    "en": "15 reps, alternating sides."
   },
   {
-    "clave": "objetos.funcion.asiento",
-    "en": "You can sit here"
+    "clave": "ejercicio.ejTiempo.estocadas-lunges",
+    "en": "8 to 12 reps per leg."
   },
   {
-    "clave": "objetos.funcion.acostarse",
-    "en": "You can lie down here"
+    "clave": "ejercicio.ejTiempo.movilidad-90-90",
+    "en": "8 to 12 reps per side (about 1-2 minutes)."
   },
   {
-    "clave": "objetos.funcion.laptop",
-    "en": "Used for work"
+    "clave": "ejercicio.ejTiempo.el-puente-glute-bridge",
+    "en": "15 reps (hold at the top for 2-3 seconds each)."
   },
   {
-    "clave": "objetos.funcion.cajaFuerte",
-    "en": "Keeps what matters"
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores-en-estocada",
+    "en": "Hold for 20 seconds per leg."
   },
   {
-    "clave": "objetos.funcion.computo",
-    "en": "Used for calculating"
+    "clave": "ejercicio.ejTiempo.abduccion-lateral-de-cadera",
+    "en": "10 to 15 reps per side, holding a few seconds at the top."
   },
   {
-    "clave": "objetos.funcion.tapete",
-    "en": "Used for meditation"
+    "clave": "ejercicio.ejTiempo.sentadilla-profunda-con-apertura",
+    "en": "15 opening reps."
   },
   {
-    "clave": "objetos.funcion.libreta",
-    "en": "Used for writing"
+    "clave": "ejercicio.ejTiempo.balanceo-dinamico-de-piernas",
+    "en": "8 to 10 reps per leg."
   },
   {
-    "clave": "objetos.funcion.caminadora",
-    "en": "Used for walking"
+    "clave": "ejercicio.ejTiempo.postura-gato-vaca",
+    "en": "1 minute continuous (or 10 to 15 breaths)."
   },
   {
-    "clave": "objetos.funcion.anuncio",
-    "en": "Sign: write your own text"
+    "clave": "ejercicio.ejTiempo.torsiones-lumbares-suaves",
+    "en": "10 to 15 reps per side."
   },
   {
-    "clave": "objetos.funcion.parque",
-    "en": "Interactive: hop on to play"
+    "clave": "ejercicio.ejTiempo.pointer-bird-dog",
+    "en": "Hold for 30 seconds on one side, then switch."
   },
   {
-    "clave": "objetos.rotarIzq",
-    "es": "Rotar a la izquierda",
-    "en": "Rotate left"
+    "clave": "ejercicio.ejTiempo.plancha-frontal-isometricos",
+    "en": "Hold for 15 to 60 seconds depending on ability."
   },
   {
-    "clave": "objetos.rotarDer",
-    "es": "Rotar a la derecha",
-    "en": "Rotate right"
+    "clave": "ejercicio.ejTiempo.roll-down-curl-jefferson",
+    "en": "15 slow reps."
   },
   {
-    "clave": "objetos.quitarDelMapa",
-    "es": "Quitar del mapa",
-    "en": "Remove from the map"
+    "clave": "ejercicio.ejTiempo.estiramiento-lumbar-boca-abajo",
+    "en": "1 minute continuous."
   },
   {
-    "clave": "objetos.borrar",
-    "es": "Borrar objeto",
-    "en": "Delete object"
+    "clave": "ejercicio.ejTiempo.rotacion-toracica",
+    "en": "30 seconds per side."
   },
   {
-    "clave": "objetos.borrarConfirm",
-    "en": "Delete \"{nombre}\"? This can't be undone."
+    "clave": "ejercicio.ejTiempo.retraccion-escapular",
+    "en": "8 to 10 reps, holding the contraction for 5 to 10 seconds each time."
   },
   {
-    "clave": "objetos.renombrar",
-    "es": "Renombrar carpeta",
-    "en": "Rename folder"
+    "clave": "ejercicio.ejTiempo.angeles-de-pared-wall-angels",
+    "en": "10 to 15 slow reps."
   },
   {
-    "clave": "objetos.restaurar",
-    "es": "Restaurar objetos base",
-    "en": "Restore base objects"
+    "clave": "ejercicio.ejTiempo.lunge-con-apertura-de-pectoral",
+    "en": "15 reps on each side."
   },
   {
-    "clave": "objetos.restaurarConfirm",
-    "es": "Se volverán a añadir los objetos base del catálogo que hayas borrado. ¿Continuar?",
-    "en": "The base catalog objects you deleted will be added back. Continue?"
+    "clave": "ejercicio.ejTiempo.estiramiento-dorsal-en-pared",
+    "en": "Hold for 20 seconds."
   },
   {
-    "clave": "mapa.editar",
-    "en": "Edit map"
+    "clave": "ejercicio.ejTiempo.el-gato-y-la-mesa",
+    "en": "15 reps coordinated with your breathing."
   },
   {
-    "clave": "mapa.editarTitulo",
-    "en": "Edit the house map"
+    "clave": "ejercicio.ejTiempo.circulos-de-hombros",
+    "en": "8 to 10 reps (forward and backward)."
   },
   {
-    "clave": "mapa.quitar",
-    "en": "Remove from map"
+    "clave": "ejercicio.ejTiempo.estiramiento-de-pecho-pectoral",
+    "en": "Hold for 15 to 20 seconds."
   },
   {
-    "clave": "chat.tuAsistente",
-    "es": "Tu asistente:",
-    "en": "Your assistant:"
+    "clave": "ejercicio.ejTiempo.dislocaciones-con-goma-o-palo",
+    "en": "10 to 15 reps."
   },
   {
-    "clave": "chat.vacio",
-    "es": "Aún no hay registros. Cuéntale al arquitecto qué hiciste.",
-    "en": "No entries yet. Tell the architect what you did."
+    "clave": "ejercicio.ejTiempo.rotacion-externa-con-banda",
+    "en": "8 to 12 reps."
   },
   {
-    "clave": "chat.sinClasificar",
-    "es": "Sin clasificar",
-    "en": "Unsorted"
+    "clave": "ejercicio.ejTiempo.thread-the-needle-enhebrar-aguja",
+    "en": "Hold for 15 to 30 seconds per side (2-3 sets)."
   },
   {
-    "clave": "chat.capturado",
-    "es": "capturado",
-    "en": "captured"
+    "clave": "ejercicio.ejTiempo.rotaciones-y-medios-circulos",
+    "en": "8 to 10 reps per direction."
   },
   {
-    "clave": "chat.reclasificar",
-    "es": "Reclasificar",
-    "en": "Reclassify"
+    "clave": "ejercicio.ejTiempo.estiramiento-de-trapecio-superior",
+    "en": "Hold for 15 to 30 seconds per side."
   },
   {
-    "clave": "chat.eliminar",
-    "es": "Eliminar",
-    "en": "Delete"
+    "clave": "ejercicio.ejTiempo.rotaciones-cervicales-con-nodding",
+    "en": "8 to 12 reps per side."
   },
   {
-    "clave": "chat.ocultar",
-    "es": "Cerrar el menú",
-    "en": "Close menu"
+    "clave": "ejercicio.ejTiempo.retracciones-de-barbilla-chin-tucks",
+    "en": "10 to 15 reps, holding the position for 5 to 10 seconds."
   },
   {
-    "clave": "chat.verMenu",
-    "es": "abrir el menú",
-    "en": "open the menu"
+    "clave": "ejercicio.ejTiempo.isometricos-cervicales",
+    "en": "8 to 12 reps (holding tension for 5-10 sec)."
   },
   {
-    "clave": "chat.registrar",
-    "es": "Registrar",
-    "en": "Log"
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-de-muneca",
+    "en": "10 to 12 reps."
   },
   {
-    "clave": "chat.chip.crear",
-    "es": "Crear",
-    "en": "Create"
+    "clave": "ejercicio.ejTiempo.circulos-de-munecas",
+    "en": "10 to 15 circles per direction."
   },
   {
-    "clave": "chat.chip.enMapa",
-    "es": "(en mapa)",
-    "en": "(on map)"
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores",
+    "en": "Hold for 15 to 30 seconds."
   },
   {
-    "clave": "chat.chip.fuera",
-    "es": "(fuera)",
-    "en": "(off)"
+    "clave": "ejercicio.ejTiempo.agarre-activo-y-pasivo",
+    "en": "10 to 15 reps."
   },
   {
-    "clave": "chat.abrirConv",
-    "es": "ver conversación",
-    "en": "view conversation"
+    "clave": "ejercicio.ejTiempo.plancha-de-munecas",
+    "en": "8 to 12 reps."
   },
   {
-    "clave": "chat.verConv",
-    "es": "Ver la conversación completa",
-    "en": "See the full conversation"
+    "clave": "ejercicio.dificultad.baja",
+    "en": "Low"
   },
   {
-    "clave": "chat.burbuja.ver",
-    "es": "Toca para leer todo",
-    "en": "Tap to read it all"
+    "clave": "ejercicio.dificultad.media",
+    "en": "Medium"
   },
   {
-    "clave": "dialogo.salir",
-    "es": "Terminar la conversación (Esc)",
-    "en": "End the conversation (Esc)"
+    "clave": "ejercicio.dificultad.alta",
+    "en": "High"
   },
   {
-    "clave": "dialogo.completar",
-    "es": "Mostrar todo el texto",
-    "en": "Show the whole text"
+    "clave": "ejercicio.dificultad.mediaAlta",
+    "en": "Medium / High"
   },
   {
-    "clave": "dialogo.hablar",
-    "es": "Hablar",
-    "en": "Talk"
+    "clave": "ejercicio.rut.full-body",
+    "en": "Full body"
   },
   {
-    "clave": "chat.conversacion",
-    "es": "Conversación",
-    "en": "Conversation"
+    "clave": "ejercicio.rut.tren-superior",
+    "en": "Upper body"
   },
   {
-    "clave": "chat.conv.vacia",
-    "es": "Aún no hay mensajes con {pet}. Escríbele desde la barra de abajo",
-    "en": "No messages with {pet} yet. Type in the bar below "
+    "clave": "ejercicio.rut.tren-inferior",
+    "en": "Lower body"
   },
   {
-    "clave": "chat.conv.limpiar",
-    "es": "Vaciar conversación",
-    "en": "Clear conversation"
+    "clave": "ejercicio.rut.push-pecho-y-triceps",
+    "en": "Push · Chest & triceps"
   },
   {
-    "clave": "chat.conv.cerrar",
-    "es": "Cerrar",
-    "en": "Close"
+    "clave": "ejercicio.rut.pull-espalda-y-biceps",
+    "en": "Pull · Back & biceps"
   },
   {
-    "clave": "chat.tu",
-    "es": "Tú",
-    "en": "You"
+    "clave": "ejercicio.rut.legs-pierna-completa",
+    "en": "Legs · Full leg"
   },
   {
-    "clave": "chat.tab.chats",
-    "es": "Chats",
-    "en": "Chats"
+    "clave": "ejercicio.rut.hiit-20-min",
+    "en": "HIIT 20 min"
   },
   {
-    "clave": "chat.tab.registros",
-    "es": "Registros",
-    "en": "Entries"
+    "clave": "ejercicio.rut.carrera-continua",
+    "en": "Steady-state run"
   },
   {
-    "clave": "chat.config.abrir",
-    "es": "Configurar asistentes",
-    "en": "Set up assistants"
+    "clave": "ejercicio.rut.caminata-inclinada",
+    "en": "Incline walk"
   },
   {
-    "clave": "chat.config.titulo",
-    "es": "Tus asistentes",
-    "en": "Your assistants"
+    "clave": "ejercicio.rut.bike-tempo",
+    "en": "Bike tempo"
   },
   {
-    "clave": "chat.config.activo",
-    "es": "activo",
-    "en": "active"
+    "clave": "ejercicio.rut.triatlon-sprint",
+    "en": "Sprint triathlon"
   },
   {
-    "clave": "chat.config.sinCaracter",
-    "en": "No personality set"
+    "clave": "ejercicio.rut.movilidad-matutina",
+    "en": "Morning mobility"
   },
   {
-    "clave": "chat.config.archivaTodo",
-    "es": "Archiva en todos los cuartos",
-    "en": "Archives in every room"
+    "clave": "ejercicio.rut.yoga-flow",
+    "en": "Yoga flow"
   },
   {
-    "clave": "chat.config.cuartos",
-    "es": "Asignar apps",
-    "en": "Assign rooms"
+    "clave": "ejercicio.rut.cadera-y-piernas",
+    "en": "Hips & legs"
   },
   {
-    "clave": "chat.config.cuartosTodos",
-    "es": "(ninguna marcada = todas)",
-    "en": "(none checked = all)"
+    "clave": "ejercicio.rut.estiramiento-post-entreno",
+    "en": "Post-workout stretch"
   },
   {
-    "clave": "chat.config.nuevo",
-    "es": "Crear asistente",
-    "en": "Create assistant"
+    "clave": "ejercicio.rut.espalda-y-hombros",
+    "en": "Back & shoulders"
   },
   {
-    "clave": "chat.config.nuevoNombre",
-    "es": "Nuevo asistente",
-    "en": "New assistant"
+    "clave": "ejercicio.rut.cuello-y-oficina",
+    "en": "Neck & desk relief"
   },
   {
-    "clave": "chat.config.nuevoSaludo",
-    "es": "¡Hola! Soy tu nuevo asistente.",
-    "en": "Hi! I'm your new assistant."
+    "clave": "ejercicio.rut.antes-de-dormir",
+    "en": "Before bed"
   },
   {
-    "clave": "chat.config.nombre",
-    "es": "Nombre",
-    "en": "Name"
+    "clave": "ejercicio.rutDesc.full-body",
+    "en": "Full-body strength circuit."
   },
   {
-    "clave": "chat.config.emoji",
-    "es": "Emoji del asistente",
-    "en": "Assistant emoji"
+    "clave": "ejercicio.rutDesc.tren-superior",
+    "en": "Chest, back, shoulders, and arms in one session."
   },
   {
-    "clave": "chat.config.historia",
-    "es": "Historia y contexto del personaje",
-    "en": "Character backstory and context"
-  },
-  {
-    "clave": "chat.config.historiaPh",
-    "es": "Historia y contexto: ej. \"Viejo lobo de mar que cuidó un faro 40 años; ahora cuida tu casa\"",
-    "en": "Backstory: e.g. \"Old sea wolf who kept a lighthouse for 40 years; now he keeps your home\""
-  },
-  {
-    "clave": "chat.config.caracterPh",
-    "es": "Carácter: ej. \"Hablas como pirata, bromista y directo, cierras con 🏴‍☠️\"",
-    "en": "Personality: e.g. \"You talk like a pirate, playful and direct, you end with 🏴‍☠️\""
-  },
-  {
-    "clave": "chat.config.forma",
-    "es": "Forma 3D:",
-    "en": "3D shape:"
-  },
-  {
-    "clave": "chat.config.color",
-    "es": "Color del personaje",
-    "en": "Character color"
-  },
-  {
-    "clave": "chat.config.formaPh",
-    "es": "Descríbelo: \"dragón verde con lentes y chaleco\"",
-    "en": "Describe it: \"green dragon with glasses and a vest\""
-  },
-  {
-    "clave": "chat.config.formaSinIa",
-    "es": "Describir la forma requiere IA (elige modelo en la barra)",
-    "en": "Describing the shape needs AI (pick a model in the bar)"
-  },
-  {
-    "clave": "chat.config.formaGenerar",
-    "es": "Crear la forma con IA",
-    "en": "Create the shape with AI"
-  },
-  {
-    "clave": "chat.config.formaError",
-    "es": "No pude crear la forma. Revisa el modelo de IA e inténtalo de nuevo.",
-    "en": "Couldn't create the shape. Check the AI model and try again."
-  },
-  {
-    "clave": "chat.config.subirGlb",
-    "es": "Subir modelo .glb",
-    "en": "Upload .glb model"
-  },
-  {
-    "clave": "chat.config.quitarGlb",
-    "es": "Quitar modelo subido",
-    "en": "Remove uploaded model"
-  },
-  {
-    "clave": "chat.config.quitarFormaIa",
-    "es": "Quitar forma creada por IA",
-    "en": "Remove AI-made shape"
-  },
-  {
-    "clave": "chat.config.enMapa",
-    "es": "Quitar del mapa",
-    "en": "Remove from map"
-  },
-  {
-    "clave": "chat.config.ponerMapa",
-    "es": "Poner en el mapa",
-    "en": "Add to the map"
-  },
-  {
-    "clave": "chat.config.voz",
-    "es": "Voz:",
-    "en": "Voice:"
-  },
-  {
-    "clave": "chat.config.vozAuto",
-    "es": "Automática (por idioma)",
-    "en": "Automatic (by language)"
-  },
-  {
-    "clave": "chat.config.vozIA",
-    "es": "Voz con IA (OpenAI, más natural)",
-    "en": "AI voice (OpenAI, more natural)"
-  },
-  {
-    "clave": "chat.config.vozLeer",
-    "es": "Leer en voz alta lo que dice",
-    "en": "Read aloud what they say"
-  },
-  {
-    "clave": "chat.config.vozProbar",
-    "es": "Probar la voz",
-    "en": "Try the voice"
-  },
-  {
-    "clave": "chat.config.vozTono",
-    "es": "Tono",
-    "en": "Tone"
-  },
-  {
-    "clave": "chat.config.vozVelocidad",
-    "es": "Velocidad",
-    "en": "Speed"
-  },
-  {
-    "clave": "chat.config.vozVolumen",
-    "es": "Volumen",
-    "en": "Volume"
-  },
-  {
-    "clave": "chat.config.espontaneo",
-    "es": "Comentarios espontáneos",
-    "en": "Spontaneous comments"
-  },
-  {
-    "clave": "chat.config.corazon",
-    "es": "Corazón (espontaneidad)",
-    "en": "Heart (spontaneity)"
-  },
-  {
-    "clave": "chat.config.corazonOff",
-    "es": "Apagados",
-    "en": "Off"
-  },
-  {
-    "clave": "corazon.nivel.0",
-    "es": "Callado",
-    "en": "Silent"
-  },
-  {
-    "clave": "corazon.nivel.1",
-    "es": "Tranquilo",
-    "en": "Calm"
-  },
-  {
-    "clave": "corazon.nivel.2",
-    "es": "Hablador",
-    "en": "Chatty"
-  },
-  {
-    "clave": "corazon.nivel.3",
-    "es": "Parlanchín",
-    "en": "Talkative"
-  },
-  {
-    "clave": "corazon.mago.manana.0",
-    "en": "Dawn brings fresh mana… I can feel it ✨"
-  },
-  {
-    "clave": "corazon.mago.manana.1",
-    "en": "My scrolls woke up tidy. A good omen 🔮"
-  },
-  {
-    "clave": "corazon.mago.tarde.0",
-    "en": "The afternoon is perfect for inscribing deeds in the grimoire ✨"
-  },
-  {
-    "clave": "corazon.mago.tarde.1",
-    "en": "I sense calm energies around the house this afternoon 🔮"
-  },
-  {
-    "clave": "corazon.mago.noche.0",
-    "en": "The stars are telling their secrets… a fine night for spells 🌙"
-  },
-  {
-    "clave": "corazon.mago.noche.1",
-    "en": "The moon charges my orb. All is calm here 🔮"
-  },
-  {
-    "clave": "corazon.mago.rutina.0",
-    "en": "My crystal ball announces: “{r}” at {h} ✨"
-  },
-  {
-    "clave": "corazon.mago.rutina.1",
-    "en": "Fate marks {h}: “{r}” approaches 🔮"
-  },
-  {
-    "clave": "corazon.mago.generica.0",
-    "en": "This home brims with magic today ✨"
-  },
-  {
-    "clave": "corazon.mago.generica.1",
-    "en": "A tidying spell never hurts… 🔮"
-  },
-  {
-    "clave": "corazon.gato.manana.0",
-    "en": "Way too early. Humans wake up weird 🐾"
-  },
-  {
-    "clave": "corazon.gato.manana.1",
-    "en": "Yawn. Mornings would be better with a nap 🐱"
-  },
-  {
-    "clave": "corazon.gato.tarde.0",
-    "en": "Perfect time for a nap in the sun. Just saying 🐾"
-  },
-  {
-    "clave": "corazon.gato.tarde.1",
-    "en": "Slow afternoon… just how I like it 🐱"
-  },
-  {
-    "clave": "corazon.gato.noche.0",
-    "en": "Night at last. My prime time 🐱"
+    "clave": "ejercicio.rutDesc.tren-inferior",
+    "en": "Complete legs and glutes."
   }
 ]

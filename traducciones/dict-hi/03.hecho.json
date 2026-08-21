@@ -1,542 +1,338 @@
 [
- {
-  "clave": "ejercicio.cronograma.desc",
-  "texto": "समय की धुरी पर आपके बड़े लक्ष्य। ✨ के साथ AI योजना बनाता है और सुझाता है कि आपकी किन दिनचर्याओं को शेड्यूल करना है।"
- },
- {
-  "clave": "sala.tab.cronograma",
-  "texto": "लक्ष्य"
- },
- {
-  "clave": "avisos.rutinaPasos",
-  "texto": "आपको {n} चरण करने हैं।"
- },
- {
-  "clave": "avisos.rutinaHora",
-  "texto": "समय हो गया।"
- },
- {
-  "clave": "avisos.abrir",
-  "texto": "खोलें"
- },
- {
-  "clave": "avisos.metaFalta",
-  "texto": "प्रगति: {objetivo} में से {hecho}।"
- },
- {
-  "clave": "notif.titulo",
-  "texto": "सूचनाएं"
- },
- {
-  "clave": "notif.general",
-  "texto": "मुझे सूचित करें"
- },
- {
-  "clave": "notif.rutinas",
-  "texto": "तय समय वाले इवेंट और दिनचर्याएं"
- },
- {
-  "clave": "notif.metas",
-  "texto": "दिन के अधूरे लक्ष्य"
- },
- {
-  "clave": "notif.porApp",
-  "texto": "ऐप के अनुसार"
- },
- {
-  "clave": "notif.denegado",
-  "texto": "आपके ब्राउज़र ने इस साइट की सूचनाएं ब्लॉक कर रखी हैं: इन्हें केवल पैडलॉक आइकन से ही अनब्लॉक किया जा सकता है। तब तक रिमाइंडर आपके सहायक के ज़रिए मिलते रहेंगे।"
- },
- {
-  "clave": "notif.noSoportado",
-  "texto": "इस ब्राउज़र में सूचनाएं उपलब्ध नहीं हैं; इसके बजाय रिमाइंडर आपके सहायक के ज़रिए मिलते हैं।"
- },
- {
-  "clave": "horario.agendar",
-  "texto": "शेड्यूल करें"
- },
- {
-  "clave": "horario.titulo",
-  "texto": "समय-सारणी"
- },
- {
-  "clave": "horario.plegar",
-  "texto": "हो गया"
- },
- {
-  "clave": "horario.hora",
-  "texto": "समय"
- },
- {
-  "clave": "horario.frecuencia",
-  "texto": "दोहराव"
- },
- {
-  "clave": "horario.dias",
-  "texto": "दिन"
- },
- {
-  "clave": "horario.sinDias",
-  "texto": "कोई नहीं चुना गया — तो हर दिन।"
- },
- {
-  "clave": "horario.sinHora",
-  "texto": "समय नहीं"
- },
- {
-  "clave": "horario.todosDias",
-  "texto": "हर दिन"
- },
- {
-  "clave": "horario.avisar",
-  "texto": "उस समय याद दिलाएं"
- },
- {
-  "clave": "horario.avisar.hint",
-  "texto": "एक सूचना मिलेगी।"
- },
- {
-  "clave": "horario.avisar.hintSinPermiso",
-  "texto": "याद ऐप के अंदर ही दिलाई जाएगी।"
- },
- {
-  "clave": "horario.avisar.on",
-  "texto": "हां"
- },
- {
-  "clave": "horario.avisar.off",
-  "texto": "नहीं"
- },
- {
-  "clave": "horario.hechoHoy",
-  "texto": "आज पूरा हुआ"
- },
- {
-  "clave": "horario.masOpciones",
-  "texto": "और विकल्प ›"
- },
- {
-  "clave": "horario.quitar",
-  "texto": "हटाएं"
- },
- {
-  "clave": "rutinas.avisar",
-  "texto": "उस समय याद दिलाएं"
- },
- {
-  "clave": "rutinas.avisar.hint",
-  "texto": "एक सूचना मिलेगी।"
- },
- {
-  "clave": "rutinas.avisar.hintSinPermiso",
-  "texto": "याद ऐप के अंदर ही दिलाई जाएगी।"
- },
- {
-  "clave": "rutinas.avisar.on",
-  "texto": "हां"
- },
- {
-  "clave": "rutinas.avisar.off",
-  "texto": "नहीं"
- },
- {
-  "clave": "avisoAct.cuerpo",
-  "texto": "समय हो गया ({hora})।"
- },
- {
-  "clave": "avisoAct.ahoraNo",
-  "texto": "अभी नहीं"
- },
- {
-  "clave": "avisoAct.ir",
-  "texto": "जाकर दर्ज करें"
- },
- {
-  "clave": "hobbies.registrarMin",
-  "texto": "{n} मिनट दर्ज करें"
- },
- {
-  "clave": "hobbies.plan.tipo",
-  "texto": "अभ्यास"
- },
- {
-  "clave": "hobbies.plan.ejemplo",
-  "texto": "3 पूरे गाने बजाना"
- },
- {
-  "clave": "hobbies.plan.ejProyecto",
-  "texto": "{proyecto} पूरा करें"
- },
- {
-  "clave": "hobbies.plan.material",
-  "texto": "योजना के प्रोजेक्ट"
- },
- {
-  "clave": "ejercicio.registrarSesion",
-  "texto": "{n} मिनट दर्ज करें"
- },
- {
-  "clave": "ejercicio.plan.ejemplo",
-  "texto": "बिना रुके 5 किमी दौड़ना"
- },
- {
-  "clave": "ejercicio.plan.material",
-  "texto": "योजना की दिनचर्याएं"
- },
- {
-  "clave": "cocina.horarios",
-  "texto": "भोजन का समय"
- },
- {
-  "clave": "cocina.plan.tipoComida",
-  "texto": "भोजन"
- },
- {
-  "clave": "cocina.plan.material",
-  "texto": "योजना की रेसिपी"
- },
- {
-  "clave": "cocina.plan.ejemplo",
-  "texto": "भूमध्यसागरीय डाइट आज़माना"
- },
- {
-  "clave": "cocina.plan.ejBajar",
-  "texto": "वज़न घटाकर {kg} किग्रा करना"
- },
- {
-  "clave": "cocina.plan.ejSubir",
-  "texto": "वज़न बढ़ाकर {kg} किग्रा करना"
- },
- {
-  "clave": "cocina.plan.ejMantener",
-  "texto": "वज़न {kg} किग्रा पर बनाए रखना"
- },
- {
-  "clave": "biblioteca.plan.ejemplo",
-  "texto": "सांख्यिकी की बुनियादी बातें सीखना"
- },
- {
-  "clave": "biblioteca.plan.material",
-  "texto": "आपके विश्वकोश से"
- },
- {
-  "clave": "idiomas.plan.ejemplo",
-  "texto": "अगली यात्रा में सहजता से बोलना"
- },
- {
-  "clave": "idiomas.plan.ejemploNivel",
-  "texto": "{idioma} में {nivel} स्तर तक पहुंचना"
- },
- {
-  "clave": "idiomas.plan.material",
-  "texto": "योजना के विषय"
- },
- {
-  "clave": "sala.plan.ejemplo",
-  "texto": "क्योटो में 5 दिन का यात्रा कार्यक्रम"
- },
- {
-  "clave": "sala.plan.ejLugar",
-  "texto": "{lugar} की यात्रा का कार्यक्रम"
- },
- {
-  "clave": "sala.plan.material",
-  "texto": "आपकी \"देखने की जगहें\" सूची से"
- },
- {
-  "clave": "entret.plan.ejemplo",
-  "texto": "\"द गॉडफादर\" सागा पूरी करना"
- },
- {
-  "clave": "entret.plan.material",
-  "texto": "आपके संग्रह से"
- },
- {
-  "clave": "descanso.plan.ejemplo",
-  "texto": "15 मिनट से कम में सो जाना"
- },
- {
-  "clave": "anecdotario.plan.ejemplo",
-  "texto": "इस साल की यात्रा को लिख लेना"
- },
- {
-  "clave": "jardin.plan.ejemplo",
-  "texto": "दिन में दस मिनट शांति"
- },
- {
-  "clave": "ideas.plan.ejemplo",
-  "texto": "डायरी के किसी विचार को हकीकत बनाना"
- },
- {
-  "clave": "ideas.plan.material",
-  "texto": "योजना के विचार"
- },
- {
-  "clave": "diario.plan.ejemplo",
-  "texto": "हर दिन सुबह का अंक पढ़ना"
- },
- {
-  "clave": "garage.plan.ejemplo",
-  "texto": "कार को सर्दियों के लिए तैयार करना"
- },
- {
-  "clave": "garage.plan.material",
-  "texto": "योजना के कागज़ी काम"
- },
- {
-  "clave": "agenda.plan.ejemplo",
-  "texto": "प्रोजेक्ट समय पर सौंपना"
- },
- {
-  "clave": "agenda.plan.material",
-  "texto": "योजना के कार्य"
- },
- {
-  "clave": "cocina.horarios.ayuda",
-  "texto": "आप हर भोजन कब करते हैं। ये आपके कैलेंडर में दिखते हैं और याद दिला सकते हैं।"
- },
- {
-  "clave": "jardin.med.reservar",
-  "texto": "आपका शांति का समय"
- },
- {
-  "clave": "jardin.med.bloque",
-  "texto": "ध्यान करना"
- },
- {
-  "clave": "jardin.registrarMin",
-  "texto": "{n} मिनट दर्ज करें"
- },
- {
-  "clave": "biblioteca.est.reservar",
-  "texto": "आपका पढ़ाई का समय"
- },
- {
-  "clave": "biblioteca.est.bloque",
-  "texto": "पढ़ाई करना"
- },
- {
-  "clave": "biblioteca.registrarMin",
-  "texto": "{n} मिनट दर्ज करें"
- },
- {
-  "clave": "idiomas.rep.reservar",
-  "texto": "आपका दोहराव का समय"
- },
- {
-  "clave": "idiomas.rep.bloque",
-  "texto": "{idioma} दोहराना"
- },
- {
-  "clave": "notif.ayudaCerrada",
-  "texto": "रिमाइंडर तभी आते हैं जब ऐप खुला हो, भले ही वह बैकग्राउंड में हो। टैब बंद होने पर ब्राउज़र उसे जगा नहीं सकता: इसके लिए फ़ोन में ऐप इंस्टॉल होना ज़रूरी है।"
- },
- {
-  "clave": "progreso.nivel",
-  "texto": "स्तर"
- },
- {
-  "clave": "progreso.racha",
-  "texto": "सिलसिला"
- },
- {
-  "clave": "progreso.dias",
-  "texto": "दिन"
- },
- {
-  "clave": "progreso.hoy",
-  "texto": "आज"
- },
- {
-  "clave": "progreso.semana",
-  "texto": "7 दिन"
- },
- {
-  "clave": "plantillas.ayuda",
-  "texto": "किसी टेम्पलेट को दूसरे फ़ोल्डर में खींचें; ऐप आज़माने के लिए आइकन पर टैप करें और फ़ोल्डर का नाम बदलने के लिए उसके नाम पर टैप करें।"
- },
- {
-  "clave": "plantillas.entrar",
-  "texto": "ऐप खोलें"
- },
- {
-  "clave": "plantillas.cerrarPrevia",
-  "texto": "‹ बंद करें"
- },
- {
-  "clave": "plantillas.asistente",
-  "texto": "इसे संभालने वाला सहायक"
- },
- {
-  "clave": "plantillas.sinAsistente",
-  "texto": "कोई सहायक नहीं (सभी संभालते हैं)"
- },
- {
-  "clave": "plantillas.asignar",
-  "texto": "किसी वस्तु या कमरे को सौंपें"
- },
- {
-  "clave": "plantillas.asignarObjeto",
-  "texto": "+ किसी वस्तु को सौंपें…"
- },
- {
-  "clave": "plantillas.asignarA",
-  "texto": "+ किसी कमरे को सौंपें…"
- },
- {
-  "clave": "plantillas.sinCuartos",
-  "texto": "पहले एक कमरा बनाएं"
- },
- {
-  "clave": "plantillas.objetoPrincipal",
-  "texto": "मुख्य वस्तु (कमरे का प्रवेश)"
- },
- {
-  "clave": "plantillas.traeObjetos",
-  "texto": "ऐप के साथ आने वाली वस्तुएं"
- },
- {
-  "clave": "plantillas.esPrincipal",
-  "texto": "मुख्य वस्तु"
- },
- {
-  "clave": "plantillas.hacerPrincipal",
-  "texto": "मुख्य के रूप में सेट करें"
- },
- {
-  "clave": "plantillas.quitarObjeto",
-  "texto": "वस्तु हटाएं"
- },
- {
-  "clave": "plantillas.agregarObjeto",
-  "texto": "वस्तु जोड़ें"
- },
- {
-  "clave": "selObjeto.titulo",
-  "texto": "वस्तु जोड़ें"
- },
- {
-  "clave": "plantillas.todasAsignadas",
-  "texto": "सभी ऐप पहले से किसी कमरे में हैं। अगर आप कोई कमरा हटाते हैं, तो उसका टेम्पलेट यहां वापस आ जाएगा।"
- },
- {
-  "clave": "plantillaCustom.crear",
-  "texto": "टेम्पलेट बनाएं"
- },
- {
-  "clave": "plantillaCustom.editar",
-  "texto": "टेम्पलेट संपादित करें"
- },
- {
-  "clave": "plantillaCustom.eliminar",
-  "texto": "टेम्पलेट हटाएं"
- },
- {
-  "clave": "plantillaCustom.confirmarBorrar",
-  "texto": "क्या इस टेम्पलेट और इसका सारा डेटा हटाना है?"
- },
- {
-  "clave": "plantillaCustom.enUso",
-  "texto": "आपके इस्तेमाल हो रहे टेम्पलेट"
- },
- {
-  "clave": "plantillaCustom.nombrePh",
-  "texto": "उदा. शिफ्टिंग, पौधे, पालतू जानवर…"
- },
- {
-  "clave": "plantillaCustom.emojiLibre",
-  "texto": "दूसरा इमोजी"
- },
- {
-  "clave": "plantillaCustom.herramientas",
-  "texto": "टेम्पलेट के टूल"
- },
- {
-  "clave": "plantillaCustom.sinBloques",
-  "texto": "कम से कम एक टूल जोड़ें: ये आपके ऐप के सेक्शन बनेंगे।"
- },
- {
-  "clave": "plantillaCustom.quitarBloque",
-  "texto": "हटाएं (सेव करने पर इसका डेटा मिट जाएगा)"
- },
- {
-  "clave": "plantillaCustom.menusAyuda",
-  "texto": "ब्लॉक को टैब में बांटें। बिना मेनू के आपका ऐप एक ही स्क्रीन रहेगा।"
- },
- {
-  "clave": "plantillaCustom.agregarMenu",
-  "texto": "मेनू"
- },
- {
-  "clave": "plantillaCustom.agregarAqui",
-  "texto": "टूल जोड़ें"
- },
- {
-  "clave": "plantillaCustom.agregarSubmenu",
-  "texto": "इस मेनू का सबमेनू"
- },
- {
-  "clave": "plantillaCustom.menuNuevo",
-  "texto": "मेनू {n}"
- },
- {
-  "clave": "plantillaCustom.submenuNuevo",
-  "texto": "सबमेनू {n}"
- },
- {
-  "clave": "plantillaCustom.menuSinNombre",
-  "texto": "मेनू"
- },
- {
-  "clave": "plantillaCustom.menuNombrePh",
-  "texto": "मेनू का नाम"
- },
- {
-  "clave": "plantillaCustom.menuEmoji",
-  "texto": "मेनू का इमोजी (वैकल्पिक)"
- },
- {
-  "clave": "plantillaCustom.borrarMenu",
-  "texto": "मेनू हटाएं (इसके ब्लॉक पहले मेनू में चले जाएंगे)"
- },
- {
-  "clave": "plantillaCustom.menuBloque",
-  "texto": "मेनू"
- },
- {
-  "clave": "plantillaCustom.menuVacio",
-  "texto": "इस मेनू में अभी कोई ब्लॉक नहीं है।"
- },
- {
-  "clave": "plantillaCustom.submenu",
-  "texto": "सबमेनू"
- },
- {
-  "clave": "plantillaCustom.editarApp",
-  "texto": "ऐप संपादित करें"
- },
- {
-  "clave": "plantillaCustom.listo",
-  "texto": "हो गया"
- },
- {
-  "clave": "plantillaCustom.editorCompleto",
-  "texto": "पूरा एडिटर"
- },
- {
-  "clave": "plantillaCustom.borrar",
-  "texto": "हटाएं"
- },
- {
-  "clave": "plantillaCustom.borrarMenuTitulo",
-  "texto": "“{nombre}” हटाएं"
- },
- {
-  "clave": "plantillaCustom.borrarMenuMsj",
-  "texto": "इसके टूल डेटा सहित पहले मेनू में चले जाएंगे।"
- },
- {
-  "clave": "plantillaCustom.borrarBloqueTitulo",
-  "texto": "“{nombre}” हटाएं"
- }
+  {
+    "clave": "ejercicio.ejDesc.curl-martillo",
+    "texto": "न्यूट्रल पकड़ के साथ (हथेलियाँ आमने-सामने), डम्बल को ऊपर उठाएं ताकि बाँह का अगला हिस्सा सक्रिय हो।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-predicador",
+    "texto": "बाँह को बेंच पर टिकाकर कोहनी मोड़ें ताकि बाइसेप्स पर ध्यान केंद्रित हो।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-concentrado",
+    "texto": "बैठकर कोहनी को जांघ पर टिकाएं और डम्बल को ऊपर उठाएं, संकुचन पर ध्यान देते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-triceps-en-polea",
+    "texto": "ऊँची पुली के सामने खड़े होकर बार को नीचे धकेलें, कोहनियाँ सीधी करते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-frances",
+    "texto": "लेटकर बार को माथे की ओर नीचे लाएं और कोहनियों को बिना हिलाए सीधा करें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.fondos-entre-bancos",
+    "texto": "हाथों को बेंच पर रखकर कोहनियाँ मोड़ते हुए शरीर को नीचे लाएं, फिर वापस ऊपर धकेलें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-sobre-cabeza",
+    "texto": "डम्बल को सिर के पीछे उठाएं और कोहनियों को ऊपर की ओर सीधा करें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.patada-de-triceps",
+    "texto": "झुककर कोहनी को ऊँचा रखते हुए बाँह के अगले हिस्से को पीछे की ओर सीधा करें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla",
+    "texto": "बार को पीठ पर रखकर कूल्हों को तब तक नीचे लाएं जब तक जांघें फ़र्श के समानांतर न हों, फिर वापस खड़े हों।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-frontal",
+    "texto": "बार को सामने रखकर धड़ सीधा रखते हुए स्क्वाट करें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-bulgara",
+    "texto": "एक पैर पीछे ऊँचाई पर रखते हुए, अगले पैर को 90 डिग्री तक नीचे लाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.prensa-de-pierna",
+    "texto": "मशीन पर पैर सीधे करते हुए प्लेटफ़ॉर्म को धकेलें, घुटनों को पूरी तरह लॉक किए बिना।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.zancadas",
+    "texto": "आगे कदम बढ़ाएं और पिछले घुटने को लगभग फ़र्श तक नीचे लाएं, बारी-बारी दोनों तरफ़।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.peso-muerto",
+    "texto": "पीठ सीधी रखते हुए कूल्हों और घुटनों को सीधा करके बार को फ़र्श से उठाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.peso-muerto-rumano",
+    "texto": "कूल्हों से झुकते हुए बार को पैरों के पास नीचे लाएं, घुटने लगभग सीधे रखते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-femoral",
+    "texto": "मशीन पर घुटनों को मोड़ें, एड़ियों को नितंबों की ओर लाते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-de-cuadriceps",
+    "texto": "मशीन पर बैठकर घुटनों को सीधा करें, वज़न को नियंत्रण के साथ उठाते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-talones",
+    "texto": "वज़न के साथ खड़े होकर एड़ियाँ उठाएं, पिंडलियों को कसते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.hip-thrust",
+    "texto": "ऊपरी पीठ को बेंच पर टिकाकर कूल्हों को ऊपर धकेलें, नितंबों को कसते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.puente-de-gluteo",
+    "texto": "लेटकर कूल्हों को तब तक ऊपर उठाएं जब तक कंधे, कूल्हे और घुटने एक सीध में न आ जाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.patada-de-gluteo-en-polea",
+    "texto": "चारों पैरों पर या खड़े होकर, पैर को पीछे की ओर धकेलें, नितंब को कसते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.abduccion-de-cadera",
+    "texto": "बैठकर या करवट लेकर, प्रतिरोध के विरुद्ध पैरों को खोलें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha",
+    "texto": "बाँहों के अगले हिस्से पर टिककर शरीर सीधा रखें, कूल्हों को नीचे झुकने न दें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-lateral",
+    "texto": "करवट पर एक बाँह के सहारे टिककर कूल्हों को ऊपर और एक सीध में रखें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.crunch-abdominal",
+    "texto": "लेटकर पेट की मांसपेशियों को कसते हुए कंधों को उठाएं, गर्दन को खींचे बिना।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-piernas",
+    "texto": "लेटकर या लटककर, पैरों को सीधा रखते हुए उठाएं और नीचे लाते समय नियंत्रण रखें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.russian-twist",
+    "texto": "बैठकर धड़ को पीछे झुकाते हुए शरीर को एक तरफ़ से दूसरी तरफ़ घुमाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.rueda-abdominal",
+    "texto": "घुटनों के बल बैठकर आगे की ओर लुढ़कें, पीठ को धनुषाकार हुए बिना, फिर वापस आएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.escaladores",
+    "texto": "प्लांक की स्थिति में, घुटनों को छाती की ओर तेज़ी से बारी-बारी लाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.carrera",
+    "texto": "ज़ोन 2-3 में स्थिर गति, हल्की पदचाप और सीधी मुद्रा रखें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.trote-suave",
+    "texto": "इतनी आरामदायक गति रखें कि बातचीत कर सकें; लंबी दौड़ के लिए आदर्श।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata-rapida",
+    "texto": "तेज़ चाल रखें और बाहों को सक्रिय रूप से हिलाएं, बिना दौड़े।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.ciclismo",
+    "texto": "तेज़ कैडेंस और मध्यम प्रतिरोध के साथ पैडल चलाएं, पीठ को शिथिल रखते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.senderismo",
+    "texto": "ऊँचाई-नीचाई वाले प्राकृतिक रास्ते पर चलें; चढ़ाई को अपनी गति तय करने दें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.trail-running",
+    "texto": "पहाड़ी या असमान रास्ते पर दौड़ें; चढ़ाई पर कदम छोटे रखें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminadora",
+    "texto": "ट्रेडमिल पर हैंडरेल पकड़े बिना चलें या दौड़ें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata-inclinada",
+    "texto": "ट्रेडमिल पर ढलान के साथ मध्यम गति रखें: स्थिर कैलोरी बर्न, कम प्रभाव।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.eliptica",
+    "texto": "सहज गति रखें, बाहों से भी धकेलें, घुटनों पर कोई प्रभाव नहीं पड़ेगा।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.bicicleta-estatica",
+    "texto": "सीट को कूल्हे की ऊँचाई पर सेट करें और स्थिर कैडेंस से पैडल चलाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.escaladora",
+    "texto": "स्थिर गति से सीढ़ियाँ चढ़ें, पूरे पैर को नीचे रखते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-maquina",
+    "texto": "पहले पैरों से धकेलें, फिर पीठ से खींचें, और अंत में बाहों से समाप्त करें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.hiit",
+    "texto": "छोटे, पूरी क्षमता वाले इंटरवल, संक्षिप्त आराम के साथ बारी-बारी।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.sprints",
+    "texto": "अधिकतम गति पर सेट, हर दोहराव के बीच पूरा आराम।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.saltar-cuerda",
+    "texto": "छोटी छलांगें लगाएं, रस्सी को कलाइयों से घुमाएं, बाहों से नहीं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.burpees",
+    "texto": "खड़े होने से प्लांक तक जाएं, एक पुश-अप करें, पैरों को अंदर कूदाएं, और बाहों को सिर के ऊपर करते हुए कूदें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.circuito-metabolico",
+    "texto": "कई व्यायामों को बिना आराम के लगातार जोड़ें ताकि हृदय गति ऊँची बनी रहे।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.natacion",
+    "texto": "स्थिर गति से तैरें, साँस को स्ट्रोक के साथ तालमेल में रखते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.aqua-aerobicos",
+    "texto": "पानी में व्यायाम करें: प्रतिरोध मांसपेशियों पर काम करता है, जोड़ों पर दबाव डाले बिना।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata",
+    "texto": "शांत, निरंतर गति रखें; यही आपके एरोबिक बेस की नींव है।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.futbol",
+    "texto": "रुक-रुक कर दौड़ना, गति और दिशा में बदलाव के साथ।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.basquetbol",
+    "texto": "छोटी स्प्रिंट, छलांगें और लगातार पार्श्व गति।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.tenis",
+    "texto": "रुक-रुक कर विस्फोटक गति; निचले शरीर पर भारी काम।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.padel",
+    "texto": "छोटे कोर्ट पर संक्षिप्त, तीव्र अंक, दिशा में बार-बार बदलाव के साथ।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.boxeo",
+    "texto": "गार्ड ऊपर रखते हुए कॉम्बिनेशन और फ़ुटवर्क करें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.baile",
+    "texto": "संगीत की लय पर निरंतर गति; ऐसा कार्डियो जो वर्कआउट जैसा महसूस नहीं होता।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-matutina",
+    "texto": "दिन की शुरुआत में शरीर को जगाने और जोड़ों को ढीला करने के लिए हल्का क्रम।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.yoga-flow",
+    "texto": "साँस के साथ आसनों को जोड़ें, पूरे शरीर के निरंतर प्रवाह में।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.saludo-al-sol",
+    "texto": "एक क्लासिक योग श्रृंखला जो क्रमबद्ध रूप से पूरे शरीर को खींचती और सक्रिय करती है।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-general",
+    "texto": "प्रमुख मांसपेशी समूहों पर हल्के, स्थिर स्ट्रेच के साथ काम करें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.guerrero-i",
+    "texto": "लंज में बाहों को ऊपर उठाएं और छाती खोलें, कूल्हों को आगे की ओर रखते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.guerrero-ii",
+    "texto": "चौड़े लंज में बाहों को फैलाएं और सामने देखें, अगले घुटने को मोड़ते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.triangulo",
+    "texto": "पैरों को दूर रखकर धड़ को झुकाएं और एक हाथ को टखने की ओर नीचे लाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-de-pie",
+    "texto": "खड़े होकर धड़ को पैरों पर झुकाएं, गर्दन और पीठ को ढीला छोड़ते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.apertura-de-cadera",
+    "texto": "कूल्हों को ढीला करने और पैरों में गति की सीमा बढ़ाने के लिए मोबिलिटी अभ्यास।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-paloma",
+    "texto": "एक पैर सामने मोड़कर धड़ को नीचे लाएं ताकि नितंब खुल सके।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.mariposa",
+    "texto": "बैठकर पैरों के तलवे आपस में मिलाएं और घुटनों को बाजू की ओर गिरने दें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-isquiotibiales",
+    "texto": "घुटने को सीधा रखते हुए जांघ के पिछले हिस्से को खींचें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.zancada-baja",
+    "texto": "एक घुटना फ़र्श पर रखते हुए कूल्हे को आगे धकेलें ताकि फ्लेक्सर खिंचे।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-guirnalda",
+    "texto": "गहरे स्क्वाट में कोहनियों से घुटनों को बाहर धकेलें ताकि कूल्हे खुलें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.figura-4",
+    "texto": "टखने को दूसरे घुटने पर पार करें और जांघ को अंदर खींचें ताकि नितंब खिंचे।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-aductores",
+    "texto": "पैरों को खोलें और धड़ को नीचे लाएं ताकि जांघ का भीतरी हिस्सा खिंचे।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.rana",
+    "texto": "चारों पैरों पर घुटनों को चौड़ा फैलाकर कूल्हों को पीछे हिलाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.perro-boca-abajo",
+    "texto": "उल्टे V आकार में कूल्हों को ऊपर धकेलें, पीठ और पैरों को खींचते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsion-espinal",
+    "texto": "बैठकर या लेटकर धीरे से धड़ को घुमाएं ताकि रीढ़ सक्रिय हो।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-del-nino",
+    "texto": "एड़ियों पर बैठते हुए बाहों को सामने फैलाएं, पीठ को शिथिल रखते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.apertura-de-pecho",
+    "texto": "बाहों को पीछे लाएं ताकि छाती खुले और झुकी हुई मुद्रा में सुधार हो।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.esfinge",
+    "texto": "मुँह के बल बाँहों के अगले हिस्से पर टिककर छाती उठाएं, पीठ के निचले हिस्से को खींचते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.hilo-y-aguja",
+    "texto": "चारों पैरों पर एक बाँह को शरीर के नीचे से निकालें ताकि कंधा खिंचे।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-dorsales",
+    "texto": "बाहों को ऊपर और थोड़ा बाजू की ओर उठाकर शरीर के किनारों को खींचें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-cervical",
+    "texto": "तनाव दूर करने के लिए गर्दन को सभी दिशाओं में धीरे-धीरे घुमाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-de-columna",
+    "texto": "रीढ़ को सक्रिय करने के लिए इसे धीरे-धीरे हिस्सा-दर-हिस्सा घुमाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-cobra",
+    "texto": "मुँह के बल लेटकर हाथों से छाती उठाएं, पीठ को खींचते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.inclinacion-lateral-de-cuello",
+    "texto": "कान को कंधे की ओर लाएं ताकि गर्दन का किनारा खिंचे।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-cuadriceps",
+    "texto": "खड़े होकर एड़ी को नितंब की ओर लाएं और पैर को पकड़कर जांघ को खींचें।"
+  }
 ]

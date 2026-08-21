@@ -1,139 +1,338 @@
 [
-  {"clave":"despacho.s.deTuBolsillo","texto":"De ta poche"},
-  {"clave":"despacho.s.generaInteres","texto":"Par les intérêts"},
-  {"clave":"despacho.s.montoCredito","texto":"Montant du crédit"},
-  {"clave":"despacho.s.plazoMeses","texto":"Durée (mois)"},
-  {"clave":"despacho.s.mensualidad","texto":"Mensualité"},
-  {"clave":"despacho.s.totalPagado","texto":"Total payé"},
-  {"clave":"despacho.s.intereses","texto":"Intérêts totaux"},
-  {"clave":"despacho.s.col.capital","texto":"Capital"},
-  {"clave":"despacho.s.col.restante","texto":"Restant"},
-  {"clave":"despacho.ejemplo.vacio","texto":"Tu ne sais pas par où commencer ? Charge un exemple et regarde comment il fonctionne."},
-  {"clave":"despacho.ejemplo.cargado","texto":"Ce que tu vois là est un exemple et peut être effacé d’un coup."},
-  {"clave":"despacho.ejemplo.cargar","texto":"Charger un exemple"},
-  {"clave":"despacho.ejemplo.borrar","texto":"Supprimer l’exemple"},
-  {"clave":"despacho.ejemplo.confirmar","texto":"Oui, supprimer l’exemple"},
-  {"clave":"despacho.mk.divisas","texto":"Forex"},
-  {"clave":"despacho.mk.criptos","texto":"Cryptomonnaies"},
-  {"clave":"despacho.mk.acciones","texto":"Actions"},
-  {"clave":"despacho.mk.commodities","texto":"Matières premières"},
-  {"clave":"despacho.mk.dias30","texto":"30 jours"},
-  {"clave":"despacho.mk.dias7","texto":"7 jours"},
-  {"clave":"despacho.mk.top10cap","texto":"top 10 par capitalisation · USD"},
-  {"clave":"despacho.mk.top10capNyse","texto":"top 10 par capitalisation · USD · NYSE/Nasdaq"},
-  {"clave":"despacho.mk.top10pares","texto":"les 10 paires les plus échangées"},
-  {"clave":"despacho.mk.col.activo","texto":"Actif"},
-  {"clave":"despacho.mk.col.precio","texto":"Prix"},
-  {"clave":"despacho.mk.col.dia","texto":"Jour"},
-  {"clave":"despacho.mk.col.cap","texto":"Cap."},
-  {"clave":"despacho.mk.col.30d","texto":"30 j"},
-  {"clave":"despacho.mk.col.etf","texto":"ETF"},
-  {"clave":"despacho.mk.viaEtf","texto":"via ETF · USD"},
-  {"clave":"despacho.mk.sinCapDivisas","texto":"Une paire de devises n’a pas de capitalisation : à la place, tu vois la variation sur 30 jours."},
-  {"clave":"despacho.mk.notaEtf","texto":"Le prix est celui de l’ETF qui réplique chaque matière première, pas son prix spot ; elles n’ont pas non plus de capitalisation boursière."},
-  {"clave":"despacho.mk.fuenteDivisas","texto":"Source : BCE (Frankfurter)"},
-  {"clave":"despacho.mk.fuenteCripto","texto":"Source : CoinGecko · 7 jours"},
-  {"clave":"despacho.mk.fuenteAcciones","texto":"Source : Finnhub"},
-  {"clave":"despacho.mk.miLista","texto":"Ma liste de suivi"},
-  {"clave":"despacho.mk.cargando","texto":"Chargement des marchés…"},
-  {"clave":"despacho.mk.cargandoBtn","texto":"Chargement…"},
-  {"clave":"despacho.mk.error","texto":"Impossible de joindre les sources de marché. Vérifie ta connexion internet."},
-  {"clave":"despacho.mk.reintentar","texto":"Réessayer"},
-  {"clave":"despacho.mk.cacheAviso","texto":"Une source est injoignable — affichage des dernières données enregistrées."},
-  {"clave":"despacho.mk.clave","texto":"Clé API Finnhub"},
-  {"clave":"despacho.mk.clave.ph","texto":"Clé finnhub.io"},
-  {"clave":"despacho.mk.clave.guardada","texto":"Clé enregistrée — colle-en une nouvelle pour la remplacer"},
-  {"clave":"despacho.mk.guardar","texto":"Enregistrer"},
-  {"clave":"despacho.mk.claveInvalida","texto":"Clé Finnhub invalide. Change-la dans le bouton API (gratuit sur finnhub.io)."},
-  {"clave":"despacho.mk.sinDatos","texto":"Aucune donnée"},
-  {"clave":"despacho.mk.vacia","texto":"Ajoute des actions pour les suivre ici."},
-  {"clave":"despacho.mk.misDivisas","texto":"Mes paires de devises"},
-  {"clave":"despacho.mk.vaciaDivisa","texto":"Ajoute une paire de devises pour la suivre ici."},
-  {"clave":"despacho.mk.misCriptos","texto":"Mes cryptomonnaies"},
-  {"clave":"despacho.mk.vaciaCripto","texto":"Cherche une cryptomonnaie pour la suivre ici."},
-  {"clave":"despacho.mk.buscarCripto.ph","texto":"Rechercher (ex. cardano)"},
-  {"clave":"despacho.mk.misMaterias","texto":"Mes matières premières"},
-  {"clave":"despacho.mk.vaciaMateria","texto":"Ajoute l’ETF d’une matière première que tu veux suivre."},
-  {"clave":"despacho.mk.nombreMateria.ph","texto":"Nom (ex. Palladium)"},
-  {"clave":"despacho.mk.etf.ph","texto":"ETF (ex. PALL)"},
-  {"clave":"despacho.mk.ticker.ph","texto":"Ticker (ex. AAPL)"},
-  {"clave":"despacho.mk.agregar","texto":"Ajouter"},
-  {"clave":"despacho.mk.actualizar","texto":"Actualiser"},
-  {"clave":"despacho.mk.com.oro","texto":"Or"},
-  {"clave":"despacho.mk.com.plata","texto":"Argent"},
-  {"clave":"despacho.mk.com.platino","texto":"Platine"},
-  {"clave":"despacho.mk.com.petroleo","texto":"Pétrole (WTI)"},
-  {"clave":"despacho.mk.com.gas","texto":"Gaz naturel"},
-  {"clave":"despacho.mk.com.cobre","texto":"Cuivre"},
-  {"clave":"despacho.mk.com.maiz","texto":"Maïs"},
-  {"clave":"despacho.mk.com.trigo","texto":"Blé"},
-  {"clave":"despacho.mk.com.soya","texto":"Soja"},
-  {"clave":"despacho.mk.com.agricolas","texto":"Panier agricole"},
-  {"clave":"despacho.tab.patrimonio","texto":"Patrimoine net"},
-  {"clave":"despacho.tab.activos","texto":"Actifs"},
-  {"clave":"despacho.tab.pasivos","texto":"Passifs"},
-  {"clave":"despacho.patr.neto","texto":"Patrimoine net"},
-  {"clave":"despacho.patr.ayudaCorta","texto":"Ce que tu possèdes moins ce que tu dois."},
-  {"clave":"despacho.patr.ayuda","texto":"L’épargne, l’investissement et les dettes arrivent tout seuls depuis tes objectifs ; le solde de la période n’est PAS ajouté ici : c’est ce qui va arriver à ce chiffre, pas de l’argent en plus."},
-  {"clave":"despacho.patr.efectivoOjoCorta","texto":"Quand est-ce utile ?"},
-  {"clave":"despacho.ui.masAyuda","texto":"Plus de détails"},
-  {"clave":"despacho.patr.fisicos","texto":"Biens et propriétés"},
-  {"clave":"despacho.patr.liquidos","texto":"Liquidités et investissements"},
-  {"clave":"despacho.patr.deudas","texto":"Dettes, crédits et hypothèques"},
-  {"clave":"despacho.patr.deMetas","texto":"de tes objectifs"},
-  {"clave":"despacho.patr.efectivo","texto":"Liquidités · de tes transactions"},
-  {"clave":"despacho.patr.deMovs","texto":"revenus − dépenses depuis toujours"},
-  {"clave":"despacho.patr.efectivoAuto","texto":"Ajouter ici ce qu’il me reste de mes transactions (tous mes revenus moins toutes mes dépenses)"},
-  {"clave":"despacho.patr.efectivoOjo","texto":"Ça ne colle que si tu as enregistré tes transactions depuis le début. Si tu as déjà listé tes comptes ci-dessus, laisse-le désactivé : ce serait compter le même argent deux fois."},
-  {"clave":"despacho.patr.nueva","texto":"Ajouter"},
-  {"clave":"despacho.patr.vacio","texto":"Rien ici pour l’instant. Note ce que tu possèdes — ou ce que tu dois."},
-  {"clave":"despacho.patr.phFisico","texto":"Ex. Appartement, voiture"},
-  {"clave":"despacho.patr.phLiquido","texto":"Ex. Compte courant"},
-  {"clave":"despacho.patr.phPasivo","texto":"Ex. Hypothèque"},
-  {"clave":"despacho.patr.phMonto","texto":"Montant"},
-  {"clave":"despacho.patr.escrito","texto":"ce que tu as saisi"},
-  {"clave":"despacho.patr.porTasas","texto":"selon tes taux"},
-  {"clave":"despacho.patr.verEscrito","texto":"voir seulement la saisie"},
-  {"clave":"despacho.patr.verEstimado","texto":"voir avec les taux"},
-  {"clave":"despacho.patr.detalles","texto":"Comment ça évolue avec le temps"},
-  {"clave":"despacho.patr.phTasaActivo","texto":"Monte ou baisse par an %"},
-  {"clave":"despacho.patr.phTasaPasivo","texto":"Taux du crédit %"},
-  {"clave":"despacho.patr.phPago","texto":"Mensualité"},
-  {"clave":"despacho.patr.ayudaTasaActivo","texto":"En négatif si ça perd de la valeur, comme une voiture."},
-  {"clave":"despacho.patr.tasaBanco","texto":"Le taux annuel que te donne ta banque, et ce que tu payes chaque mois."},
-  {"clave":"despacho.patr.alAno","texto":"%/an"},
-  {"clave":"despacho.patr.cuota","texto":"{n}/mois"},
-  {"clave":"despacho.patr.eran","texto":"était {n}"},
-  {"clave":"despacho.patr.editar","texto":"Modifier cette ligne"},
-  {"clave":"despacho.patr.monto","texto":"Valeur"},
-  {"clave":"despacho.patr.fechaValor","texto":"Depuis"},
-  {"clave":"despacho.patr.tasaActivo","texto":"Monte par an %"},
-  {"clave":"despacho.patr.tasaPasivo","texto":"Taux annuel %"},
-  {"clave":"despacho.patr.pagoMensual","texto":"Paiement mensuel"},
-  {"clave":"despacho.patr.borrar","texto":"Supprimer"},
-  {"clave":"despacho.patr.borrarTitulo","texto":"Supprimer cette ligne ?"},
-  {"clave":"despacho.patr.borrarMsg","texto":"« {n} » ne comptera plus dans ton patrimoine net."},
-  {"clave":"despacho.patr.borrarOk","texto":"Supprimer"},
-  {"clave":"despacho.patr.hoy","texto":"aujourd’hui"},
-  {"clave":"despacho.patr.deMeta","texto":"lié à « {n} »"},
-  {"clave":"despacho.patr.metaIda","texto":"l’objectif lié n’existe plus"},
-  {"clave":"despacho.patr.metaIdaSoltar","texto":"L’objectif lié n’existe plus. Touche pour délier cette ligne."},
-  {"clave":"despacho.patr.montoOriginal","texto":"Crédit initial"},
-  {"clave":"despacho.patr.valorAparte","texto":"Valeur à part"},
-  {"clave":"despacho.patr.abonarEnMetas","texto":"Payer dans Objectifs › Dette"},
-  {"clave":"despacho.patr.aportarEnMetas","texto":"Ajouter dans Objectifs"},
-  {"clave":"despacho.patr.desenlazar","texto":"Délier de l’objectif ?"},
-  {"clave":"despacho.patr.desenlazarMsg","texto":"Ce seront de nouveau deux choses séparées : cette ligne garde {n} et l’objectif continue de son côté."},
-  {"clave":"despacho.patr.desenlazarOk","texto":"Délier"},
-  {"clave":"despacho.patr.soltar","texto":"délier"},
-  {"clave":"despacho.patr.crearMetaDeuda","texto":"La suivre comme objectif de dette"},
-  {"clave":"despacho.patr.crearMetaAhorro","texto":"Le suivre comme objectif d’épargne"},
-  {"clave":"despacho.patr.enlazarMeta","texto":"Lier à un objectif que j’ai déjà…"},
-  {"clave":"despacho.patr.objetivoTitulo","texto":"Jusqu’où veux-tu aller ?"},
-  {"clave":"despacho.patr.objetivoMsg","texto":"Tu as déjà {n} ici."},
-  {"clave":"despacho.meta.verEnPasivos","texto":"Voir dans Patrimoine net › Passifs"},
-  {"clave":"despacho.meta.verEnActivos","texto":"Voir dans Patrimoine net › Actifs"},
-  {"clave":"despacho.meta.anadirAPasivos","texto":"L’ajouter aux Passifs (avec taux et durée)"},
-  {"clave":"despacho.meta.anadirAActivos","texto":"L’ajouter aux Actifs (avec rendement)"},
-  {"clave":"despacho.tab.simulacion","texto":"Prévision"}
+  {
+    "clave": "ejercicio.ejDesc.curl-martillo",
+    "texto": "En prise neutre (paumes face à face), remonte les haltères pour travailler l'avant-bras."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-predicador",
+    "texto": "Bras posé sur le pupitre, fléchis le coude pour isoler le biceps."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-concentrado",
+    "texto": "Assis, appuie ton coude sur ta cuisse et remonte l'haltère en te concentrant sur la contraction."
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-triceps-en-polea",
+    "texto": "Debout à la poulie haute, pousse la barre vers le bas en tendant les coudes."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-frances",
+    "texto": "Allongé, descends la barre vers ton front et tends les coudes sans les déplacer."
+  },
+  {
+    "clave": "ejercicio.ejDesc.fondos-entre-bancos",
+    "texto": "Mains posées sur un banc, descends ton corps en fléchissant les coudes, puis remonte en poussant."
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-sobre-cabeza",
+    "texto": "Lève un haltère derrière ta tête et tends les coudes vers le haut."
+  },
+  {
+    "clave": "ejercicio.ejDesc.patada-de-triceps",
+    "texto": "Buste penché, coude relevé, tends l'avant-bras vers l'arrière."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla",
+    "texto": "Barre sur le dos, descends les hanches jusqu'à ce que tes cuisses soient parallèles au sol, puis remonte."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-frontal",
+    "texto": "Barre à l'avant, descends en squat en gardant le buste droit."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-bulgara",
+    "texto": "Un pied surélevé derrière toi, descends la jambe avant jusqu'à 90 degrés."
+  },
+  {
+    "clave": "ejercicio.ejDesc.prensa-de-pierna",
+    "texto": "Sur la machine, pousse la plateforme en tendant les jambes sans bloquer les genoux."
+  },
+  {
+    "clave": "ejercicio.ejDesc.zancadas",
+    "texto": "Fais un pas en avant et descends le genou arrière presque jusqu'au sol, en alternant les côtés."
+  },
+  {
+    "clave": "ejercicio.ejDesc.peso-muerto",
+    "texto": "Dos droit, soulève la barre du sol en tendant les hanches et les genoux."
+  },
+  {
+    "clave": "ejercicio.ejDesc.peso-muerto-rumano",
+    "texto": "Descends la barre le long de tes jambes en fléchissant les hanches, genoux presque tendus."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-femoral",
+    "texto": "Sur la machine, fléchis les genoux en ramenant les talons vers les fessiers."
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-de-cuadriceps",
+    "texto": "Assis sur la machine, tends les genoux en soulevant la charge avec contrôle."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-talones",
+    "texto": "Debout avec une charge, élève les talons en contractant les mollets."
+  },
+  {
+    "clave": "ejercicio.ejDesc.hip-thrust",
+    "texto": "Haut du dos appuyé sur le banc, pousse les hanches vers le haut en contractant les fessiers."
+  },
+  {
+    "clave": "ejercicio.ejDesc.puente-de-gluteo",
+    "texto": "Allongé, élève les hanches jusqu'à aligner épaules, hanches et genoux."
+  },
+  {
+    "clave": "ejercicio.ejDesc.patada-de-gluteo-en-polea",
+    "texto": "À quatre pattes ou debout, tends la jambe vers l'arrière en contractant le fessier."
+  },
+  {
+    "clave": "ejercicio.ejDesc.abduccion-de-cadera",
+    "texto": "Assis ou allongé sur le côté, écarte les jambes contre une résistance."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha",
+    "texto": "Appuyé sur les avant-bras, garde le corps droit sans laisser tomber les hanches."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-lateral",
+    "texto": "Sur le côté, appuyé sur un avant-bras, garde les hanches levées et alignées."
+  },
+  {
+    "clave": "ejercicio.ejDesc.crunch-abdominal",
+    "texto": "Allongé, élève les épaules en contractant les abdominaux sans tirer sur ta nuque."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-piernas",
+    "texto": "Allongé ou suspendu, élève les jambes tendues en contrôlant la descente."
+  },
+  {
+    "clave": "ejercicio.ejDesc.russian-twist",
+    "texto": "Assis, buste incliné vers l'arrière, tourne le tronc d'un côté à l'autre."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rueda-abdominal",
+    "texto": "À genoux, roule vers l'avant sans cambrer le dos, puis reviens."
+  },
+  {
+    "clave": "ejercicio.ejDesc.escaladores",
+    "texto": "En position de planche, ramène rapidement les genoux vers la poitrine en alternant les jambes."
+  },
+  {
+    "clave": "ejercicio.ejDesc.carrera",
+    "texto": "Garde une allure régulière en zone 2-3, avec une foulée légère et le buste droit."
+  },
+  {
+    "clave": "ejercicio.ejDesc.trote-suave",
+    "texto": "Garde une allure confortable qui te permet de parler ; idéale pour les sorties longues."
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata-rapida",
+    "texto": "Marche à allure soutenue en balançant activement les bras, sans passer à la course."
+  },
+  {
+    "clave": "ejercicio.ejDesc.ciclismo",
+    "texto": "Pédale à cadence élevée avec une résistance modérée, en gardant le dos détendu."
+  },
+  {
+    "clave": "ejercicio.ejDesc.senderismo",
+    "texto": "Marche sur un terrain naturel avec du dénivelé ; laisse la pente dicter l'allure."
+  },
+  {
+    "clave": "ejercicio.ejDesc.trail-running",
+    "texto": "Cours en montagne ou sur terrain irrégulier ; raccourcis ta foulée dans les montées."
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminadora",
+    "texto": "Marche ou cours sur le tapis sans t'accrocher aux barres."
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata-inclinada",
+    "texto": "Sur le tapis incliné à allure modérée : combustion régulière et faible impact."
+  },
+  {
+    "clave": "ejercicio.ejDesc.eliptica",
+    "texto": "Adopte un mouvement fluide, en poussant aussi avec les bras, sans impact sur les genoux."
+  },
+  {
+    "clave": "ejercicio.ejDesc.bicicleta-estatica",
+    "texto": "Règle la selle à hauteur de hanche et pédale à cadence régulière."
+  },
+  {
+    "clave": "ejercicio.ejDesc.escaladora",
+    "texto": "Monte les marches à un rythme régulier, en posant tout le pied."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-maquina",
+    "texto": "Pousse avec les jambes, puis tire avec le dos, et termine avec les bras."
+  },
+  {
+    "clave": "ejercicio.ejDesc.hiit",
+    "texto": "Enchaîne des intervalles courts à effort maximal avec de brèves périodes de repos."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sprints",
+    "texto": "Enchaîne des séries à vitesse maximale avec une récupération complète entre chacune."
+  },
+  {
+    "clave": "ejercicio.ejDesc.saltar-cuerda",
+    "texto": "Fais des sauts bas, en faisant tourner la corde avec les poignets, pas avec les bras."
+  },
+  {
+    "clave": "ejercicio.ejDesc.burpees",
+    "texto": "De la position debout à la planche, fais une pompe, ramène les pieds en sautant, puis saute vers le haut en levant les bras."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circuito-metabolico",
+    "texto": "Enchaîne plusieurs exercices sans repos pour garder le rythme cardiaque élevé."
+  },
+  {
+    "clave": "ejercicio.ejDesc.natacion",
+    "texto": "Nage à un rythme régulier, en coordonnant ta respiration avec tes mouvements de bras."
+  },
+  {
+    "clave": "ejercicio.ejDesc.aqua-aerobicos",
+    "texto": "Exerce-toi dans l'eau : la résistance travaille tes muscles sans stresser tes articulations."
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata",
+    "texto": "Garde une allure calme et continue ; c'est la base de ton volume aérobie."
+  },
+  {
+    "clave": "ejercicio.ejDesc.futbol",
+    "texto": "Cours de façon intermittente, avec des changements de rythme et de direction."
+  },
+  {
+    "clave": "ejercicio.ejDesc.basquetbol",
+    "texto": "Enchaîne des sprints courts, des sauts et des déplacements latéraux constants."
+  },
+  {
+    "clave": "ejercicio.ejDesc.tenis",
+    "texto": "Enchaîne des accélérations explosives entrecoupées de pauses ; sollicite beaucoup les jambes."
+  },
+  {
+    "clave": "ejercicio.ejDesc.padel",
+    "texto": "Joue des points courts et intenses sur un petit terrain, avec beaucoup de changements de direction."
+  },
+  {
+    "clave": "ejercicio.ejDesc.boxeo",
+    "texto": "Enchaîne des combinaisons et du jeu de jambes en gardant ta garde haute."
+  },
+  {
+    "clave": "ejercicio.ejDesc.baile",
+    "texto": "Bouge en continu au rythme de la musique ; un cardio qui ne ressemble pas à un entraînement."
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-matutina",
+    "texto": "Fais un enchaînement doux pour réveiller le corps et assouplir les articulations dès le matin."
+  },
+  {
+    "clave": "ejercicio.ejDesc.yoga-flow",
+    "texto": "Enchaîne les postures au rythme de ta respiration dans un flow continu pour tout le corps."
+  },
+  {
+    "clave": "ejercicio.ejDesc.saludo-al-sol",
+    "texto": "Enchaîne cette série classique de yoga qui étire et active tout le corps."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-general",
+    "texto": "Travaille les principaux groupes musculaires avec des étirements doux et maintenus."
+  },
+  {
+    "clave": "ejercicio.ejDesc.guerrero-i",
+    "texto": "En fente, lève les bras et ouvre la poitrine en gardant les hanches face à l'avant."
+  },
+  {
+    "clave": "ejercicio.ejDesc.guerrero-ii",
+    "texto": "En fente large, tends les bras et regarde devant toi en fléchissant le genou avant."
+  },
+  {
+    "clave": "ejercicio.ejDesc.triangulo",
+    "texto": "Jambes écartées, incline le buste et descends une main vers ta cheville."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-de-pie",
+    "texto": "Debout, plie le buste au-dessus des jambes en relâchant la nuque et le dos."
+  },
+  {
+    "clave": "ejercicio.ejDesc.apertura-de-cadera",
+    "texto": "Travaille la mobilité pour relâcher les hanches et gagner en amplitude dans les jambes."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-paloma",
+    "texto": "Une jambe pliée devant toi, descends le buste pour ouvrir le fessier."
+  },
+  {
+    "clave": "ejercicio.ejDesc.mariposa",
+    "texto": "Assis, joins les plantes des pieds et laisse tes genoux tomber sur les côtés."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-isquiotibiales",
+    "texto": "Étire l'arrière de la cuisse en gardant le genou tendu."
+  },
+  {
+    "clave": "ejercicio.ejDesc.zancada-baja",
+    "texto": "Un genou au sol, pousse la hanche vers l'avant pour étirer le fléchisseur."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-guirnalda",
+    "texto": "En squat profond, écarte les genoux avec les coudes pour libérer les hanches."
+  },
+  {
+    "clave": "ejercicio.ejDesc.figura-4",
+    "texto": "Croise ta cheville sur le genou opposé et ramène la cuisse vers toi pour étirer le fessier."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-aductores",
+    "texto": "Écarte les jambes et abaisse le buste pour étirer l'intérieur des cuisses."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rana",
+    "texto": "À quatre pattes, genoux bien écartés, bascule les hanches vers l'arrière."
+  },
+  {
+    "clave": "ejercicio.ejDesc.perro-boca-abajo",
+    "texto": "En V inversé, pousse les hanches vers le haut en étirant le dos et les jambes."
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsion-espinal",
+    "texto": "Assis ou allongé, tourne doucement le tronc pour mobiliser la colonne vertébrale."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-del-nino",
+    "texto": "Assis sur les talons, tends les bras vers l'avant en relâchant le dos."
+  },
+  {
+    "clave": "ejercicio.ejDesc.apertura-de-pecho",
+    "texto": "Ramène les bras vers l'arrière pour ouvrir la poitrine et corriger une posture voûtée."
+  },
+  {
+    "clave": "ejercicio.ejDesc.esfinge",
+    "texto": "Face au sol, appuyé sur les avant-bras, soulève la poitrine en étendant le bas du dos."
+  },
+  {
+    "clave": "ejercicio.ejDesc.hilo-y-aguja",
+    "texto": "À quatre pattes, glisse un bras sous ton corps pour étirer l'épaule."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-dorsales",
+    "texto": "Étire tes flancs en levant les bras vers le haut et légèrement sur le côté."
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-cervical",
+    "texto": "Effectue des mouvements lents du cou dans toutes les directions pour relâcher les tensions."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-de-columna",
+    "texto": "Fais tourner doucement la colonne, segment par segment, pour la mobiliser."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-cobra",
+    "texto": "Face au sol, soulève la poitrine avec les mains en étendant le dos."
+  },
+  {
+    "clave": "ejercicio.ejDesc.inclinacion-lateral-de-cuello",
+    "texto": "Rapproche l'oreille de l'épaule pour étirer le côté du cou."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-cuadriceps",
+    "texto": "Debout, ramène le talon vers le fessier en tenant ton pied pour étirer la cuisse."
+  }
 ]

@@ -1,38 +1,1010 @@
 [
   {
-    "clave": "tut.app-ejercicio--esencial.resumen",
-    "texto": "Fitness vereint die drei Trainingsarten für den Körper an einem Ort: Kraft (Sätze, Wiederholungen und Gewicht), Ausdauer (Laufen, Rad fahren oder Schwimmen, mit Live-Training per GPS und Pulsmesser) und Beweglichkeit (zeitgesteuerte Mobilität mit geführtem Player). Alle drei sind gleich aufgebaut — Katalog, Routinen und Fortschritt — und das Menü Ziele legt fest, wie viel du jede Woche trainierst, und fasst deine Serie und deinen Fortschritt zusammen."
+    "clave": "biblioteca.nodoDesc.idi-asiaticas",
+    "texto": "Japanisch, Chinesisch, Koreanisch und ihre Schriftsysteme."
   },
   {
-    "clave": "tut.app-entretenimiento--esencial.resumen",
-    "texto": "Unterhaltung hat zwei Tabs: Brettspiele, mit einem digitalen Katalog nach Familien gruppiert und nach Spielerzahl filterbar, und Archiv, wo du die Filme, Serien, Bücher und Videospiele speicherst, die du beendest, mit ihrem Status und deiner Bewertung."
+    "clave": "biblioteca.nodo.idi-practica",
+    "texto": "Praxis und Kultur"
   },
   {
-    "clave": "tut.app-garage--esencial.resumen",
-    "texto": "Die Garage verwaltet die Wartung deiner Fahrzeuge: eine Ampel fasst zusammen, was dringend ist, die Fahrzeugliste bewahrt den Wartungsverlauf jedes einzelnen, und jede Akte vereint seine Behördengänge, Dokumente und Kontakte. Alles mit einem Datum trägt sich von selbst in den Hauskalender ein."
+    "clave": "biblioteca.nodo.idi-conversacion",
+    "texto": "Konversation"
   },
   {
-    "clave": "tut.app-hobbies--esencial.resumen",
-    "texto": "Hobbys behält deine Freizeitbeschäftigungen im Blick: die Liste mit Serie und wöchentlichem Fortschritt jedes einzelnen, und das Anlegen eines neuen. In jedem Hobby leben das Sitzungsprotokoll, die Heatmap des Jahres und seine Projekte."
+    "clave": "biblioteca.nodoDesc.idi-conversacion",
+    "texto": "Sprachfluss, Redewendungen und Alltagssituationen."
   },
   {
-    "clave": "tut.app-ideas--esencial.resumen",
-    "texto": "Ideen bewahrt, was dir einfällt, in drei Tabs: Ideentagebuch (einzelne Einfälle oder thematische Brainstormings), Konzeptkarten (eine freie Leinwand in mehreren Formaten) und Diagramme (dieselben Formate, gedacht zum Vergleichen und Entscheiden). Alles lässt sich in Ordnern ablegen und von einem Tab in den anderen umwandeln."
+    "clave": "biblioteca.nodo.idi-lectura",
+    "texto": "Lesen und Schreiben"
   },
   {
-    "clave": "tut.app-idiomas--esencial.resumen",
-    "texto": "Sprachen ist deine Sprachschule, in vier Tabs. Chats eröffnet ein Gespräch mit einem KI-Tutor, der auf deinem Niveau antwortet; Lehrplan ordnet die Sprache in Themen, Aussprache und Grammatik vom Niveau A1 bis C2, und dort lebt der Wortschatz als Karten; Wiederholung übt ihn mit einem verteilten System und Übungen; Fortschritt fasst deine Entwicklung zusammen."
+    "clave": "biblioteca.nodoDesc.idi-lectura",
+    "texto": "Abgestufte Texte, Aufsatz und Rechtschreibung."
   },
   {
-    "clave": "tut.app-jardin--esencial.resumen",
-    "texto": "Der Garten vereint Meditation (mit Klangspuren), geführte Atmung und tägliche Dankbarkeit, in drei Tabs. Er hat absichtlich weder Punkte noch Serien: Hier wird ein ausgelassener Tag nicht bestraft, hier wird einfach geübt."
+    "clave": "biblioteca.nodo.idi-inmersion",
+    "texto": "Kultur und Immersion"
   },
   {
-    "clave": "tut.app-metas--esencial.resumen",
-    "texto": "Der Planer für das ganze Haus, in drei Tabs: Ziele (die Liste dessen, was du dir vorgenommen hast, gruppiert nach der App, die es trägt), Pläne (die Zeitplan-Entwürfe, die ein Ziel in Phasen aufteilen) und Zeitplan (die Zeitachse, auf der sie alle landen). Er führt keine eigenen Einträge: Er sammelt die Ziele und Pläne, die in den anderen Apps entstehen. Von einem Ziel aus öffnet sich seine Tabelle und von dort seine eigene, eingegrenzte Achse."
+    "clave": "biblioteca.nodoDesc.idi-inmersion",
+    "texto": "Bräuche, Medien und Reisen zum Lernen."
   },
   {
-    "clave": "tut.app-sala--esencial.resumen",
-    "texto": "Das Wohnzimmer ist deine Reisewelt, in vier Tabs: Karte (Pins von Orten auf der Weltkarte, mit Globus-Ansicht), Reiseplan (Orte, die du noch entdecken willst, mit ihrem Tag-für-Tag-Plan), Routen (Strecken, die Orte verbinden) und Logbuch (Erinnerungen mit Fotos und Anekdoten nach Land)."
+    "clave": "biblioteca.nodo.artes",
+    "texto": "Kunst und Ausdruck"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.artes",
+    "texto": "Ästhetisches Schaffen, künstlerische Wahrnehmung und visuelle sowie klangliche Kultur."
+  },
+  {
+    "clave": "biblioteca.nodo.art-visuales",
+    "texto": "Bildende Kunst"
+  },
+  {
+    "clave": "biblioteca.nodo.art-pintura",
+    "texto": "Malerei und Zeichnung"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-pintura",
+    "texto": "Techniken, Komposition und Farbe."
+  },
+  {
+    "clave": "biblioteca.nodo.art-escultura",
+    "texto": "Bildhauerei und Architektur"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-escultura",
+    "texto": "Raum, Form und Gestaltung."
+  },
+  {
+    "clave": "biblioteca.nodo.art-fotografia",
+    "texto": "Fotografie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-fotografia",
+    "texto": "Licht, Bildausschnitt und visuelle Erzählung."
+  },
+  {
+    "clave": "biblioteca.nodo.art-musica",
+    "texto": "Musik"
+  },
+  {
+    "clave": "biblioteca.nodo.art-teoria-mus",
+    "texto": "Musiktheorie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-teoria-mus",
+    "texto": "Harmonie, Rhythmus und Notation."
+  },
+  {
+    "clave": "biblioteca.nodo.art-historia-mus",
+    "texto": "Musikgeschichte"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-historia-mus",
+    "texto": "Stile, Epochen und Komponisten."
+  },
+  {
+    "clave": "biblioteca.nodo.art-escenicas",
+    "texto": "Darstellende Kunst und Film"
+  },
+  {
+    "clave": "biblioteca.nodo.art-teatro",
+    "texto": "Theater und Performance"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-teatro",
+    "texto": "Dramaturgie, Schauspiel und Inszenierung."
+  },
+  {
+    "clave": "biblioteca.nodo.art-cine",
+    "texto": "Film und audiovisuelle Medien"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-cine",
+    "texto": "Drehbuch, Schnitt und Filmsprache."
+  },
+  {
+    "clave": "biblioteca.nodo.tecnologia",
+    "texto": "Technik und Ingenieurwesen"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tecnologia",
+    "texto": "Wissen anwenden, um Probleme zu lösen und die Welt zu verändern."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-informatica",
+    "texto": "Informatik"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-algoritmos",
+    "texto": "Algorithmen und Datenstrukturen"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-algoritmos",
+    "texto": "Effizienz, Daten und Entwurf."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ia",
+    "texto": "Künstliche Intelligenz"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-ia",
+    "texto": "Maschinelles Lernen und KI-Ethik."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-redes",
+    "texto": "Netzwerke und Systeme"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-redes",
+    "texto": "Internet, Sicherheit und Verteilung."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ingenieria",
+    "texto": "Ingenieurwesen"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-mecanica",
+    "texto": "Maschinenbau"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-mecanica",
+    "texto": "Maschinen, Werkstoffe und Fertigung."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-electrica",
+    "texto": "Elektrotechnik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-electrica",
+    "texto": "Schaltungen, Energie und Elektronik."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-civil",
+    "texto": "Bauingenieurwesen"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-civil",
+    "texto": "Infrastruktur, Wasserbau und Tragwerke."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-energia",
+    "texto": "Energie und Nachhaltigkeit"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-renovables",
+    "texto": "Erneuerbare Energien"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-renovables",
+    "texto": "Solar-, Wind- und Wasserstoffenergie."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ambiental",
+    "texto": "Umwelttechnik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-ambiental",
+    "texto": "Abfall, Wasser und ökologischer Fußabdruck."
+  },
+  {
+    "clave": "biblioteca.nodo.salud",
+    "texto": "Gesundheit und Medizin"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.salud",
+    "texto": "Der menschliche Körper, Krankheit, Vorsorge und Versorgungssysteme."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-anatomia",
+    "texto": "Anatomie und Physiologie"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-cuerpo",
+    "texto": "Körpersysteme"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-cuerpo",
+    "texto": "Organe, Homöostase und Zusammenspiel."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-neuro",
+    "texto": "Medizinische Neurowissenschaft"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-neuro",
+    "texto": "Gehirn, Sinne und Bewegung."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-clinica",
+    "texto": "Klinische Medizin"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-patologia",
+    "texto": "Pathologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-patologia",
+    "texto": "Krankheit, Diagnose und Ursachen."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-farmacologia",
+    "texto": "Pharmakologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-farmacologia",
+    "texto": "Medikamente, Dosierung und Wirkungen."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-salud-pub",
+    "texto": "Öffentliche Gesundheit"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-salud-pub",
+    "texto": "Epidemiologie, Impfstoffe und Gesundheitspolitik."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-bienestar",
+    "texto": "Wohlbefinden und Ernährung"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-nutricion",
+    "texto": "Klinische Ernährung"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-nutricion",
+    "texto": "Diäten, Stoffwechsel und Mikronährstoffe."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-prevencion",
+    "texto": "Präventivmedizin"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-prevencion",
+    "texto": "Gewohnheiten, Vorsorgeuntersuchungen und Langlebigkeit."
+  },
+  {
+    "clave": "ejercicio.ej.press-banca",
+    "texto": "Bankdrücken"
+  },
+  {
+    "clave": "ejercicio.ej.press-inclinado",
+    "texto": "Schrägbankdrücken"
+  },
+  {
+    "clave": "ejercicio.ej.press-con-mancuernas",
+    "texto": "Kurzhantel-Bankdrücken"
+  },
+  {
+    "clave": "ejercicio.ej.aperturas-con-mancuernas",
+    "texto": "Kurzhantel-Fliegende"
+  },
+  {
+    "clave": "ejercicio.ej.cruce-en-polea",
+    "texto": "Kabelzug-Crossover"
+  },
+  {
+    "clave": "ejercicio.ej.fondos-en-paralelas",
+    "texto": "Dips"
+  },
+  {
+    "clave": "ejercicio.ej.flexiones",
+    "texto": "Liegestütze"
+  },
+  {
+    "clave": "ejercicio.ej.dominadas",
+    "texto": "Klimmzüge"
+  },
+  {
+    "clave": "ejercicio.ej.jalon-al-pecho",
+    "texto": "Latzug"
+  },
+  {
+    "clave": "ejercicio.ej.remo-con-barra",
+    "texto": "Langhantelrudern"
+  },
+  {
+    "clave": "ejercicio.ej.remo-con-mancuerna",
+    "texto": "Kurzhantelrudern"
+  },
+  {
+    "clave": "ejercicio.ej.remo-en-polea-baja",
+    "texto": "Kabelrudern"
+  },
+  {
+    "clave": "ejercicio.ej.pull-over",
+    "texto": "Überzüge"
+  },
+  {
+    "clave": "ejercicio.ej.face-pull",
+    "texto": "Face Pull"
+  },
+  {
+    "clave": "ejercicio.ej.hiperextensiones",
+    "texto": "Rückenstrecker"
+  },
+  {
+    "clave": "ejercicio.ej.press-militar",
+    "texto": "Schulterdrücken"
+  },
+  {
+    "clave": "ejercicio.ej.press-arnold",
+    "texto": "Arnold-Press"
+  },
+  {
+    "clave": "ejercicio.ej.elevaciones-laterales",
+    "texto": "Seitheben"
+  },
+  {
+    "clave": "ejercicio.ej.elevaciones-frontales",
+    "texto": "Frontheben"
+  },
+  {
+    "clave": "ejercicio.ej.pajaros",
+    "texto": "Reverse Flys"
+  },
+  {
+    "clave": "ejercicio.ej.encogimientos",
+    "texto": "Shrugs"
+  },
+  {
+    "clave": "ejercicio.ej.curl-con-barra",
+    "texto": "Langhantel-Curl"
+  },
+  {
+    "clave": "ejercicio.ej.curl-con-mancuernas",
+    "texto": "Kurzhantel-Curl"
+  },
+  {
+    "clave": "ejercicio.ej.curl-martillo",
+    "texto": "Hammer Curl"
+  },
+  {
+    "clave": "ejercicio.ej.curl-predicador",
+    "texto": "Scott-Curl"
+  },
+  {
+    "clave": "ejercicio.ej.curl-concentrado",
+    "texto": "Konzentrationscurl"
+  },
+  {
+    "clave": "ejercicio.ej.extension-triceps-en-polea",
+    "texto": "Trizepsdrücken"
+  },
+  {
+    "clave": "ejercicio.ej.press-frances",
+    "texto": "Stirndrücken"
+  },
+  {
+    "clave": "ejercicio.ej.fondos-entre-bancos",
+    "texto": "Bankdips"
+  },
+  {
+    "clave": "ejercicio.ej.extension-sobre-cabeza",
+    "texto": "Trizeps über Kopf"
+  },
+  {
+    "clave": "ejercicio.ej.patada-de-triceps",
+    "texto": "Trizeps-Kickback"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla",
+    "texto": "Kniebeugen"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-frontal",
+    "texto": "Frontkniebeugen"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-bulgara",
+    "texto": "Bulgarische Kniebeugen"
+  },
+  {
+    "clave": "ejercicio.ej.prensa-de-pierna",
+    "texto": "Beinpresse"
+  },
+  {
+    "clave": "ejercicio.ej.zancadas",
+    "texto": "Ausfallschritte"
+  },
+  {
+    "clave": "ejercicio.ej.peso-muerto",
+    "texto": "Kreuzheben"
+  },
+  {
+    "clave": "ejercicio.ej.peso-muerto-rumano",
+    "texto": "Rumänisches Kreuzheben"
+  },
+  {
+    "clave": "ejercicio.ej.curl-femoral",
+    "texto": "Beinbeuger"
+  },
+  {
+    "clave": "ejercicio.ej.extension-de-cuadriceps",
+    "texto": "Beinstrecker"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-talones",
+    "texto": "Wadenheben"
+  },
+  {
+    "clave": "ejercicio.ej.hip-thrust",
+    "texto": "Hip Thrust"
+  },
+  {
+    "clave": "ejercicio.ej.puente-de-gluteo",
+    "texto": "Gesäßbrücke"
+  },
+  {
+    "clave": "ejercicio.ej.patada-de-gluteo-en-polea",
+    "texto": "Gesäß-Kickback"
+  },
+  {
+    "clave": "ejercicio.ej.abduccion-de-cadera",
+    "texto": "Hüftabduktion"
+  },
+  {
+    "clave": "ejercicio.ej.plancha",
+    "texto": "Unterarmstütz"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-lateral",
+    "texto": "Seitstütz"
+  },
+  {
+    "clave": "ejercicio.ej.crunch-abdominal",
+    "texto": "Crunches"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-piernas",
+    "texto": "Beinheben"
+  },
+  {
+    "clave": "ejercicio.ej.russian-twist",
+    "texto": "Russian Twist"
+  },
+  {
+    "clave": "ejercicio.ej.rueda-abdominal",
+    "texto": "Ab-Rollout"
+  },
+  {
+    "clave": "ejercicio.ej.escaladores",
+    "texto": "Bergsteiger"
+  },
+  {
+    "clave": "ejercicio.ej.carrera",
+    "texto": "Laufen"
+  },
+  {
+    "clave": "ejercicio.ej.trote-suave",
+    "texto": "Lockeres Joggen"
+  },
+  {
+    "clave": "ejercicio.ej.caminata-rapida",
+    "texto": "Zügiges Gehen"
+  },
+  {
+    "clave": "ejercicio.ej.ciclismo",
+    "texto": "Radfahren"
+  },
+  {
+    "clave": "ejercicio.ej.senderismo",
+    "texto": "Wandern"
+  },
+  {
+    "clave": "ejercicio.ej.trail-running",
+    "texto": "Trailrunning"
+  },
+  {
+    "clave": "ejercicio.ej.caminadora",
+    "texto": "Laufband"
+  },
+  {
+    "clave": "ejercicio.ej.caminata-inclinada",
+    "texto": "Steigungsgehen"
+  },
+  {
+    "clave": "ejercicio.ej.eliptica",
+    "texto": "Crosstrainer"
+  },
+  {
+    "clave": "ejercicio.ej.bicicleta-estatica",
+    "texto": "Ergometer"
+  },
+  {
+    "clave": "ejercicio.ej.escaladora",
+    "texto": "Stepper"
+  },
+  {
+    "clave": "ejercicio.ej.remo-maquina",
+    "texto": "Rudergerät"
+  },
+  {
+    "clave": "ejercicio.ej.hiit",
+    "texto": "HIIT"
+  },
+  {
+    "clave": "ejercicio.ej.sprints",
+    "texto": "Sprints"
+  },
+  {
+    "clave": "ejercicio.ej.saltar-cuerda",
+    "texto": "Seilspringen"
+  },
+  {
+    "clave": "ejercicio.ej.burpees",
+    "texto": "Burpees"
+  },
+  {
+    "clave": "ejercicio.ej.circuito-metabolico",
+    "texto": "Metabolisches Zirkeltraining"
+  },
+  {
+    "clave": "ejercicio.ej.natacion",
+    "texto": "Schwimmen"
+  },
+  {
+    "clave": "ejercicio.ej.aqua-aerobicos",
+    "texto": "Wassergymnastik"
+  },
+  {
+    "clave": "ejercicio.ej.caminata",
+    "texto": "Gehen"
+  },
+  {
+    "clave": "ejercicio.ej.futbol",
+    "texto": "Fußball"
+  },
+  {
+    "clave": "ejercicio.ej.basquetbol",
+    "texto": "Basketball"
+  },
+  {
+    "clave": "ejercicio.ej.tenis",
+    "texto": "Tennis"
+  },
+  {
+    "clave": "ejercicio.ej.padel",
+    "texto": "Padel"
+  },
+  {
+    "clave": "ejercicio.ej.boxeo",
+    "texto": "Boxen"
+  },
+  {
+    "clave": "ejercicio.ej.baile",
+    "texto": "Tanzen"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-matutina",
+    "texto": "Morgenmobilität"
+  },
+  {
+    "clave": "ejercicio.ej.yoga-flow",
+    "texto": "Yoga-Flow"
+  },
+  {
+    "clave": "ejercicio.ej.saludo-al-sol",
+    "texto": "Sonnengruß"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-general",
+    "texto": "Allgemeines Dehnen"
+  },
+  {
+    "clave": "ejercicio.ej.guerrero-i",
+    "texto": "Krieger I"
+  },
+  {
+    "clave": "ejercicio.ej.guerrero-ii",
+    "texto": "Krieger II"
+  },
+  {
+    "clave": "ejercicio.ej.triangulo",
+    "texto": "Dreieck"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-de-pie",
+    "texto": "Stehende Vorbeuge"
+  },
+  {
+    "clave": "ejercicio.ej.apertura-de-cadera",
+    "texto": "Hüftöffner"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-paloma",
+    "texto": "Taube"
+  },
+  {
+    "clave": "ejercicio.ej.mariposa",
+    "texto": "Schmetterling"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-isquiotibiales",
+    "texto": "Hamstring-Dehnung"
+  },
+  {
+    "clave": "ejercicio.ej.zancada-baja",
+    "texto": "Tiefer Ausfallschritt"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-guirnalda",
+    "texto": "Girlande"
+  },
+  {
+    "clave": "ejercicio.ej.figura-4",
+    "texto": "Figur 4"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-aductores",
+    "texto": "Adduktoren-Dehnung"
+  },
+  {
+    "clave": "ejercicio.ej.rana",
+    "texto": "Frosch"
+  },
+  {
+    "clave": "ejercicio.ej.perro-boca-abajo",
+    "texto": "Herabschauender Hund"
+  },
+  {
+    "clave": "ejercicio.ej.torsion-espinal",
+    "texto": "Rückendrehung"
+  },
+  {
+    "clave": "ejercicio.ej.postura-del-nino",
+    "texto": "Kindposition"
+  },
+  {
+    "clave": "ejercicio.ej.apertura-de-pecho",
+    "texto": "Brustöffner"
+  },
+  {
+    "clave": "ejercicio.ej.esfinge",
+    "texto": "Sphinx"
+  },
+  {
+    "clave": "ejercicio.ej.hilo-y-aguja",
+    "texto": "Nadel und Faden"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-dorsales",
+    "texto": "Latissimus-Dehnung"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-cervical",
+    "texto": "Nackenmobilität"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-de-columna",
+    "texto": "Wirbelsäulenrotationen"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-cobra",
+    "texto": "Kobra"
+  },
+  {
+    "clave": "ejercicio.ej.inclinacion-lateral-de-cuello",
+    "texto": "Seitliche Nackenneigung"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-cuadriceps",
+    "texto": "Quadrizeps-Dehnung"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-gemelos",
+    "texto": "Waden-Dehnung"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-hombros",
+    "texto": "Schulter-Dehnung"
+  },
+  {
+    "clave": "ejercicio.ej.foam-roller",
+    "texto": "Foam Rolling"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-triceps",
+    "texto": "Trizeps-Dehnung"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores-de-cadera",
+    "texto": "Hüftbeuger-Dehnung"
+  },
+  {
+    "clave": "ejercicio.ej.piernas-en-la-pared",
+    "texto": "Beine an der Wand"
+  },
+  {
+    "clave": "ejercicio.ej.savasana",
+    "texto": "Savasana"
+  },
+  {
+    "clave": "ejercicio.ej.postura-del-nino-apoyada",
+    "texto": "Unterstützte Kindposition"
+  },
+  {
+    "clave": "ejercicio.ej.respiracion-profunda",
+    "texto": "Tiefe Atmung"
+  },
+  {
+    "clave": "ejercicio.ej.mariposa-reclinada",
+    "texto": "Liegender Schmetterling"
+  },
+  {
+    "clave": "ejercicio.ej.torsion-reclinada",
+    "texto": "Liegende Drehung"
+  },
+  {
+    "clave": "ejercicio.ej.liberacion-miofascial-con-pelota",
+    "texto": "Faszienlösen mit Ball"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-tobillo",
+    "texto": "Knöchelkreise"
+  },
+  {
+    "clave": "ejercicio.ej.recogida-de-toalla-con-dedos",
+    "texto": "Handtuch-Zehengriff"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-dorsiflexion",
+    "texto": "Dorsalflexions-Dehnung"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-talones-unipodal",
+    "texto": "Einbeiniges Wadenheben"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-y-extension-en-descarga",
+    "texto": "Entlastete Beugung und Streckung"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "Dynamische Hamstring-Dehnung"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-isometrica-wall-squat",
+    "texto": "Wandsitz"
+  },
+  {
+    "clave": "ejercicio.ej.equilibrio-unipodal-single-leg-balance",
+    "texto": "Einbeiniges Gleichgewicht"
+  },
+  {
+    "clave": "ejercicio.ej.sentadillas-del-arquero",
+    "texto": "Bogenschützen-Kniebeugen"
+  },
+  {
+    "clave": "ejercicio.ej.estocadas-lunges",
+    "texto": "Ausfallschritte"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-90-90",
+    "texto": "90/90-Mobilisation"
+  },
+  {
+    "clave": "ejercicio.ej.el-puente-glute-bridge",
+    "texto": "Gesäßbrücke"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores-en-estocada",
+    "texto": "Hüftbeuger-Dehnung im Ausfallschritt"
+  },
+  {
+    "clave": "ejercicio.ej.abduccion-lateral-de-cadera",
+    "texto": "Seitliche Hüftabduktion"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-profunda-con-apertura",
+    "texto": "Tiefe Kniebeuge mit Knieöffnung"
+  },
+  {
+    "clave": "ejercicio.ej.balanceo-dinamico-de-piernas",
+    "texto": "Dynamisches Beinschwingen"
+  },
+  {
+    "clave": "ejercicio.ej.postura-gato-vaca",
+    "texto": "Katze-Kuh"
+  },
+  {
+    "clave": "ejercicio.ej.torsiones-lumbares-suaves",
+    "texto": "Sanfte Lendenwirbel-Drehungen"
+  },
+  {
+    "clave": "ejercicio.ej.pointer-bird-dog",
+    "texto": "Bird Dog"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-frontal-isometricos",
+    "texto": "Isometrischer Unterarmstütz"
+  },
+  {
+    "clave": "ejercicio.ej.roll-down-curl-jefferson",
+    "texto": "Jefferson Curl"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-lumbar-boca-abajo",
+    "texto": "Lendendehnung (Bauchlage)"
+  },
+  {
+    "clave": "ejercicio.ej.rotacion-toracica",
+    "texto": "Brustwirbelrotation"
+  },
+  {
+    "clave": "ejercicio.ej.retraccion-escapular",
+    "texto": "Schulterblatt-Retraktion"
+  },
+  {
+    "clave": "ejercicio.ej.angeles-de-pared-wall-angels",
+    "texto": "Wall Angels"
+  },
+  {
+    "clave": "ejercicio.ej.lunge-con-apertura-de-pectoral",
+    "texto": "Ausfallschritt mit Brustöffner"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-dorsal-en-pared",
+    "texto": "Latissimus-Dehnung an der Wand"
+  },
+  {
+    "clave": "ejercicio.ej.el-gato-y-la-mesa",
+    "texto": "Katze und Tisch"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-hombros",
+    "texto": "Schulterkreisen"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-pecho-pectoral",
+    "texto": "Brust-Dehnung"
+  },
+  {
+    "clave": "ejercicio.ej.dislocaciones-con-goma-o-palo",
+    "texto": "Schulterdislokationen"
+  },
+  {
+    "clave": "ejercicio.ej.rotacion-externa-con-banda",
+    "texto": "Außenrotation mit Band"
+  },
+  {
+    "clave": "ejercicio.ej.thread-the-needle-enhebrar-aguja",
+    "texto": "Nadel und Faden"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-y-medios-circulos",
+    "texto": "Rotationen und Halbkreise"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-trapecio-superior",
+    "texto": "Trapezius-Dehnung (oberer)"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-cervicales-con-nodding",
+    "texto": "Nackenrotationen mit Nicken"
+  },
+  {
+    "clave": "ejercicio.ej.retracciones-de-barbilla-chin-tucks",
+    "texto": "Chin Tucks"
+  },
+  {
+    "clave": "ejercicio.ej.isometricos-cervicales",
+    "texto": "Nacken-Isometrie"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-y-extension-de-muneca",
+    "texto": "Handgelenk beugen und strecken"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-munecas",
+    "texto": "Handgelenkkreisen"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores",
+    "texto": "Unterarmbeuger-Dehnung"
+  },
+  {
+    "clave": "ejercicio.ej.agarre-activo-y-pasivo",
+    "texto": "Aktiver und passiver Griff"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-de-munecas",
+    "texto": "Handgelenk-Planke"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-banca",
+    "texto": "Lege dich auf die Bank, senke die Stange zur Brust ab und drücke sie hoch, bis die Ellbogen gestreckt sind."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-inclinado",
+    "texto": "Drücke auf der Schrägbank die Stange oder die Kurzhanteln hoch, um die obere Brust zu betonen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-con-mancuernas",
+    "texto": "Drücke im Liegen zwei Kurzhanteln mit größerem Bewegungsradius als bei der Langhantel nach oben."
+  },
+  {
+    "clave": "ejercicio.ejDesc.aperturas-con-mancuernas",
+    "texto": "Öffne im Liegen die Arme bogenförmig und führe sie mit leicht gebeugten Ellbogen wieder zusammen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.cruce-en-polea",
+    "texto": "Stehe zwischen den hohen Kabelzügen und führe die Hände vor dem Körper zusammen, während du die Brust anspannst."
+  },
+  {
+    "clave": "ejercicio.ejDesc.fondos-en-paralelas",
+    "texto": "Hänge dich an den Barren, senke dich mit vorgebeugtem Oberkörper durch Beugen der Ellbogen ab und drücke dich wieder hoch."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexiones",
+    "texto": "Senke dich in Bauchlage mit geradem Körper zum Boden ab und drücke dich wieder hoch."
+  },
+  {
+    "clave": "ejercicio.ejDesc.dominadas",
+    "texto": "Ziehe dich hängend an der Stange hoch, bis dein Kinn über die Stange kommt."
+  },
+  {
+    "clave": "ejercicio.ejDesc.jalon-al-pecho",
+    "texto": "Ziehe sitzend am hohen Kabelzug die Stange zur Brust, indem du die Ellbogen nach unten drückst."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-con-barra",
+    "texto": "Ziehe vorgebeugt mit geradem Rücken die Stange zum Bauch und spanne dabei den Rücken an."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-con-mancuerna",
+    "texto": "Stütze dich auf der Bank ab und ziehe eine Kurzhantel seitlich heran, ohne den Oberkörper zu verdrehen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-en-polea-baja",
+    "texto": "Ziehe im Sitzen den Griff zum Bauch, während du den Rücken aufrecht hältst."
+  },
+  {
+    "clave": "ejercicio.ejDesc.pull-over",
+    "texto": "Senke im Liegen eine Kurzhantel hinter den Kopf ab und führe sie wieder über die Brust zurück."
+  },
+  {
+    "clave": "ejercicio.ejDesc.face-pull",
+    "texto": "Ziehe am kopfhohen Kabelzug das Seil zur Stirn und spreize dabei die Ellbogen nach außen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.hiperextensiones",
+    "texto": "Senke auf der Bank den Oberkörper ab und richte ihn wieder auf, um den unteren Rücken zu strecken."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-militar",
+    "texto": "Drücke im Stehen die Stange von den Schultern über den Kopf."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-arnold",
+    "texto": "Drücke im Sitzen die Kurzhanteln über den Kopf und drehe dabei die Handflächen von innen nach außen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevaciones-laterales",
+    "texto": "Hebe im Stehen die Kurzhanteln seitlich bis auf Schulterhöhe an."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevaciones-frontales",
+    "texto": "Hebe im Stehen die Kurzhantel vor dir bis auf Augenhöhe an."
+  },
+  {
+    "clave": "ejercicio.ejDesc.pajaros",
+    "texto": "Öffne vorgebeugt die Arme seitlich, um die hintere Schulter zu trainieren."
+  },
+  {
+    "clave": "ejercicio.ejDesc.encogimientos",
+    "texto": "Hebe im Stehen mit Gewicht die Schultern zu den Ohren und senke sie kontrolliert wieder ab."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-con-barra",
+    "texto": "Beuge im Stehen die Ellbogen, um die Stange hochzucurlen, ohne den Oberkörper zu schwingen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-con-mancuernas",
+    "texto": "Curl im Stehen oder Sitzen die Kurzhanteln durch Beugen der Ellbogen hoch, wechselseitig oder gleichzeitig."
   }
 ]

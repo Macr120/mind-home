@@ -31,6 +31,10 @@ Complementa a [`BACKEND.md`](BACKEND.md) (arquitectura del proxy y la cuota).
 | **gpt-image-1-mini** low (imagen PRINCIPAL) | **$0.005** / imagen 1024² ($0.011 en medium) |
 | **Gemini 3.1 Flash Lite Image** (calidad «buena») | **$0.0336 / imagen** (1K, único tamaño) |
 | Gemini 3.1 Flash Lite (texto de respaldo) | $0.25 entrada / $1.50 salida por M tokens |
+| **gpt-5.6-luna** (cerebro OpenAI, el que se sirve) | **$0.20 / $1.20** por M · caché leído $0.02 · escritura GRATIS |
+| gpt-5-mini (default del BYOK) | $0.25 / $2.00 · caché leído $0.025 |
+| gpt-5-nano (el más barato de la familia) | $0.05 / $0.40 · caché leído $0.005 |
+| Caché de OpenAI | automático desde 1024 tok · 0.1× · TTL 30 min · sin prima de escritura |
 
 ⚠️ **Sonnet 5 corre con precio introductorio ($2/$10) hasta el 31-ago-2026.** A
 partir del 1 de septiembre el modelo 3D cuesta 50% más. La tabla de abajo ya usa
@@ -476,10 +480,11 @@ usd_mes >= greatest(techo_piso_usd, (créditos consumidos + costo_op) × $0.005 
   1400 → $7.00, 2100 → $10.50. Lo fija la regla de negocio de ago-2026: de cada
   $6 cobrados, $2 de ganancia mínima, y la pasarela ya se lleva ~$0.47. K=1.1
   dejaba la ganancia del nivel ×1 en $1.68; K=1.25 la dejaba en $1.30.
-- Contrapartida asumida: un uso legítimo pesado (chat de editor con tools sin
-  caché ronda $0.0153/cr en ráfagas) puede tocar el techo antes de agotar los
-  créditos. Es el precio de que el margen no dependa del comportamiento; si se
-  ve en la telemetría, la palanca es el caché de prompts, no el factor.
+- Contrapartida asumida hasta el 20-ago-2026: un uso legítimo pesado (chat de
+  editor con tools sin caché ronda $0.0153/cr en ráfagas) tocaba el techo antes
+  de agotar los créditos, y el usuario veía «alcanzaste el límite» con la barra
+  a media asta. Resuelto por los créditos proporcionales (siguiente sección):
+  el bucket sigue ahí, pero ya no puede disparar antes que el contador.
 - El techo ESCALA con los créditos consumidos: quien recarga más tiene más
   margen. El ponderado real es $0.0033/cr, así que >97% de usuarios no lo tocan
   nunca — es anti-abuso, no una tarifa.
@@ -488,9 +493,100 @@ usd_mes >= greatest(techo_piso_usd, (créditos consumidos + costo_op) × $0.005 
 - Cliente: 429 con `error: 'techo'` → cara propia de `CuotaAgotada` («límite de
   uso del mes»); recargar no lo quita a propósito.
 
+## Créditos proporcionales al gasto real (migración `20260820000002`)
+
+El bucket y la tarifa medían lo mismo con reglas distintas, así que el número
+que veía el usuario no decía la verdad en ninguno de los dos extremos: quien
+gastaba caro se quedaba cortado con 400 de 700 créditos, y quien gastaba barato
+llegaba a los 700 habiendo costado $2.30. Ahora son **un solo medidor**: antes
+de cobrar la op, `consumir_cuota_ia` salda la DEUDA del gasto real.
+
+```
+ancla = $0.005 × techo_factor                 (con factor 1.00: 700 cr ≡ $3.50)
+deuda = ceil(usd_mes / ancla) − créditos cobrados del mes
+cobro = deuda + costo_op                      (si hay saldo; si no, la deuda que quepa)
+```
+
+- **El tope de $3.50 queda repartido sobre los 700 créditos**: cada centavo real
+  consume 2 créditos y la barra enseña cómo se agotan de verdad.
+- **Se agota EN 700, no antes.** Si la deuda se lleva lo que quedaba, el corte
+  sale por `cuota` («te quedaste sin créditos») con el medidor en el tope, en
+  vez de por `techo` con saldo a la vista. El guard del techo se conserva como
+  red: tras el cargo se cumple `usd ≤ créditos × ancla`, así que no puede
+  disparar primero.
+- **La tarifa por op sigue siendo el precio ANUNCIADO**, pero ya es aproximada:
+  todos los badges de la UI llevan «≈» y el pie de la pantalla de precios lo
+  dice (`creditos.aprox`). Con el ponderado real medido (~$0.0033/cr) la deuda
+  es 0 y no cambia nada — solo muerde a quien de verdad cuesta más de lo que su
+  tarifa dice.
+- **Efecto lateral que abarata el riesgo de la elección de proveedor**: desde
+  esta migración, elegir el proveedor caro para una modalidad barata (Gemini en
+  la imagen «rápida», por ejemplo) se cobra por lo que cuesta. Por eso el panel
+  de IA puede ofrecer la preferencia también en modo Créditos.
+- Cliente: `refrescarUso()` (`sesionStore.ts`) deriva los créditos efectivos con
+  `max(creditos, ceil(usd / 0.005))`, porque la deuda de la ÚLTIMA llamada se
+  cobra al empezar la siguiente y si no el medidor enseñaría de menos.
+
+## El cerebro de OpenAI: análisis de costo (20-ago-2026)
+
+Precios tomados de `developers.openai.com/api/docs/pricing` **ese día** (los de
+Anthropic y Gemini son los de la tabla de arriba). Los perfiles de tokens son
+los de «Anatomía de una solicitud»; solo `texto_largo` está MEDIDO, el resto son
+estimaciones sobre el tokenizador de Anthropic (±10% al cruzar de proveedor).
+
+| Perfil (entrada / salida) | Haiku 4.5 | Gemini 3.1 Flash Lite | **gpt-5.6-luna** |
+|---|---|---|---|
+| `chat` sin tools (4 000 / 400) | $0.0060 | $0.0016 | **$0.0013** |
+| `chat` con TOOLS_EDITOR, caché frío (10 000 / 400) | $0.0120 | $0.0031 | **$0.0025** |
+| `chat` con TOOLS_EDITOR, caché caliente (5 500 leídos + 4 500 / 400) | $0.0071 | $0.0031 | **$0.0015** |
+| `texto` (800 / 900) | $0.0053 | $0.0016 | **$0.0012** |
+| `vision` (1 600 / 150) | $0.0024 | $0.0006 | **$0.0005** |
+| `texto_largo` MEDIDO (3 653 / 3 771) | $0.0225 | $0.0066 | **$0.0053** |
+
+**Entre 4× y 4.7× más barato que Haiku 4.5 en todas las formas**, y ~20% bajo
+Gemini Flash Lite. Sale de dos números: la entrada cuesta 1/5 ($0.20 vs $1.00) y
+la salida 1/4.2 ($1.20 vs $5.00), que es la que manda.
+
+Lo que eso cambia en el negocio, en créditos reales (ancla $0.005):
+
+- `texto_largo` pasa de **4.5 créditos de costo** (se cobran 4: la única op que
+  se vendía por debajo) a **1.05**.
+- `chat` con el editor y caché frío pasa de 2.4 créditos a **0.5**.
+- **El peor caso deja de tocar el techo.** 700 créditos gastados enteros en chat
+  de editor sin caché costaban $8.40 con Haiku —el techo de $3.50 cortaba a los
+  ~290 créditos— y con luna cuestan **$1.74**: ni acercándose. Gastarlos todos en
+  planes IA: $3.94 (cortaba a los ~620) contra **$0.92**.
+- El ponderado real del mes (~$0.0033/crédito con Haiku) bajaría a **~$0.0008**
+  si el usuario mueve todo el texto a OpenAI.
+
+Con la deuda proporcional de `20260820000002` esto NO le regala créditos a nadie
+—la tarifa por op no cambia— pero sí borra la deuda: quien elige OpenAI gasta 1
+crédito por chat siempre, y el margen mejora en vez de erosionarse.
+
+**Los tres cuidados que hacen honesto el número** (los tres están en el código):
+
+1. **Razonamiento.** Toda la familia GPT-5 razona por defecto en `medium` y esos
+   tokens se cobran como SALIDA *y* consumen `max_completion_tokens`, así que
+   además de multiplicar el costo por 3–6× pueden comerse la respuesta entera y
+   devolver `content` vacío. El proxy manda `reasoning_effort: 'none'`
+   (`OPENAI_TEXT_EFFORT` para cambiarlo) y, si aun así vuelve sin texto ni
+   tools, lanza para que entre el respaldo.
+2. **PDF.** La API de chat no acepta documentos —eso es de la de Responses—, así
+   que la op `pdf` se sirve siempre con Anthropic o Gemini, elija lo que elija el
+   usuario. Igual que el perfil `calidad` (3D), que sigue siendo de Sonnet.
+3. **Caché.** No hay breakpoints que marcar: es automático desde 1024 tokens,
+   dura 30 min (6× el TTL efímero de Anthropic) y **no cobra la escritura**. El
+   prefijo TOOLS_EDITOR cachea mejor aquí que en Anthropic; se manda
+   `prompt_cache_key` para que las peticiones con el mismo prefijo caigan juntas.
+
+Lo que queda sin medir es la **calidad con 56 tools**: por eso entra como
+elección del usuario y no como principal. Se mide con `uso_ia_ops` (guarda el
+proveedor por llamada) y, si convence, la palanca para promoverlo es la misma
+que la de Gemini: un secreto de muestreo.
+
 ## Respaldo entre proveedores
 
-Los dos proxies son una **cadena**: si el principal falla (error, timeout de
+Los cuatro proxies son una **cadena**: si el principal falla (error, timeout de
 60 s o respuesta sin contenido), entra el siguiente. La cuota se cobra una sola
 vez para toda la cadena y solo se devuelve si fallan todos.
 
@@ -498,7 +594,17 @@ vez para toda la cadena y solo se devuelve si fallan todos.
 |---|---|---|---|
 | `ia-imagen` calidad rápida | gpt-image-1-mini | Gemini 3.1 Flash Lite Image | `IMG_CADENA_RAPIDA` |
 | `ia-imagen` calidad buena | Gemini 3.1 Flash Lite Image | gpt-image-1-mini | `IMG_CADENA_ALTA` |
-| `ia-chat` | Claude Haiku 4.5 / Sonnet 5 | Gemini 3.1 Flash Lite / Flash | fijo |
+| `ia-chat` | Claude Haiku 4.5 / Sonnet 5 | Gemini 3.1 Flash Lite / Flash → gpt-5.6-luna | fijo |
+| `ia-tts` | OpenAI tts-1 (mp3) | Gemini TTS preview (WAV) | fijo |
+| `ia-voz` | Whisper | Gemini multimodal | fijo |
+
+**La preferencia del usuario reordena la cadena** (20-ago-2026): el panel de IA
+en modo Créditos manda `prov` en el cuerpo (`cuenta/provCuenta.ts` → `ia-chat`,
+`ia-imagen`, `ia-tts`, `ia-voz`) y el proxy pone delante a ese proveedor. Nunca
+la acorta: el otro sigue de respaldo, así que elegir mal no deja al usuario sin
+respuesta. `perfil: 'calidad'` (geometría 3D) ignora la preferencia a propósito,
+igual que ignora el muestreo. Lo que cueste de más lo cobra el saldo de créditos
+proporcionales, no el margen.
 
 **Corrección respecto a la revisión anterior**: cuando Gemini era el principal, el
 respaldo abarataba la factura. Ya no. Con gpt-image-1-mini de principal, una caída

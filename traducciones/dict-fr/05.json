@@ -1,583 +1,367 @@
 [
   {
-    "clave": "biblioteca.ramas.charlarSug",
-    "es": "Agregar y charlar sobre esta rama",
-    "en": "Add and chat about this branch"
+    "clave": "ejercicio.rutDesc.push-pecho-y-triceps",
+    "en": "Bench press, military press, dips, extensions."
   },
   {
-    "clave": "biblioteca.charla.confirmarBorrar",
-    "es": "¿Borrar la charla? La entrada destilada se conserva.",
-    "en": "Delete the chat? The distilled entry is kept."
+    "clave": "ejercicio.rutDesc.pull-espalda-y-biceps",
+    "en": "Pull-ups, rows, curls. Progressive overload."
   },
   {
-    "clave": "biblioteca.charla.siBorrar",
-    "es": "Borrar",
-    "en": "Delete"
+    "clave": "ejercicio.rutDesc.legs-pierna-completa",
+    "en": "Squats, Romanian deadlifts, lunges."
   },
   {
-    "clave": "biblioteca.charla.vacia",
-    "es": "Pregúntale lo que quieras a {sabio}: la charla se archivará sola en su campo del conocimiento",
-    "en": "Ask {sabio} anything: the chat will file itself under its field of knowledge"
+    "clave": "ejercicio.rutDesc.hiit-20-min",
+    "en": "40s work / 20s rest intervals."
   },
   {
-    "clave": "biblioteca.charla.error",
-    "es": "El Sabio no pudo responder. Revisa tu IA en Ajustes o reintenta.",
-    "en": "The Sage could not reply. Check your AI in Settings or retry."
+    "clave": "ejercicio.rutDesc.carrera-continua",
+    "en": "Moderate pace, zone 2-3."
   },
   {
-    "clave": "biblioteca.charla.reintentar",
-    "es": "Reintentar",
-    "en": "Retry"
+    "clave": "ejercicio.rutDesc.caminata-inclinada",
+    "en": "Low impact, steady burn."
   },
   {
-    "clave": "biblioteca.charla.placeholder",
-    "es": "Pregunta sobre cualquier tema…",
-    "en": "Ask about any topic…"
+    "clave": "ejercicio.rutDesc.bike-tempo",
+    "en": "Steady-pace bike ride."
   },
   {
-    "clave": "biblioteca.charla.sinIA",
-    "es": "Configura tu IA en Ajustes para charlar",
-    "en": "Set up your AI in Settings to chat"
+    "clave": "ejercicio.rutDesc.triatlon-sprint",
+    "en": "Swim, bike, and run linked together, each leg at its own pace."
   },
   {
-    "clave": "biblioteca.ent.nueva",
-    "es": "Nueva entrada",
-    "en": "New entry"
+    "clave": "ejercicio.rutDesc.movilidad-matutina",
+    "en": "Wake up joints and spine."
   },
   {
-    "clave": "biblioteca.ent.editar",
-    "es": "Editar entrada",
-    "en": "Edit entry"
+    "clave": "ejercicio.rutDesc.yoga-flow",
+    "en": "Gentle vinyasa sequence."
   },
   {
-    "clave": "biblioteca.ent.editarBtn",
-    "es": "Editar",
-    "en": "Edit"
+    "clave": "ejercicio.rutDesc.cadera-y-piernas",
+    "en": "Hip and hamstring opener."
   },
   {
-    "clave": "biblioteca.ent.titulo",
-    "es": "Título",
-    "en": "Title"
+    "clave": "ejercicio.rutDesc.estiramiento-post-entreno",
+    "en": "Cooldown and recovery."
   },
   {
-    "clave": "biblioteca.ent.tituloPh",
-    "es": "Ej. La entropía",
-    "en": "E.g. Entropy"
+    "clave": "ejercicio.rutDesc.espalda-y-hombros",
+    "en": "Relief for back and shoulders."
   },
   {
-    "clave": "biblioteca.ent.campo",
-    "es": "Campo",
-    "en": "Field"
+    "clave": "ejercicio.rutDesc.cuello-y-oficina",
+    "en": "Active break for neck and spine."
   },
   {
-    "clave": "biblioteca.ent.tema",
-    "es": "Tema del índice",
-    "en": "Index topic"
+    "clave": "ejercicio.rutDesc.antes-de-dormir",
+    "en": "Restorative relaxation to help you fall asleep."
   },
   {
-    "clave": "biblioteca.ent.sinTema",
-    "es": "— Ninguno —",
-    "en": "— None —"
+    "clave": "cal.logros",
+    "es": "Logros",
+    "en": "Achievements"
   },
   {
-    "clave": "biblioteca.ent.resumen",
-    "es": "Resumen",
-    "en": "Summary"
+    "clave": "cal.logros.vacio",
+    "es": "Todavía no has cumplido nada hoy.",
+    "en": "Nothing completed yet today."
   },
   {
-    "clave": "biblioteca.ent.resumenPh",
-    "es": "Qué aprendiste, en 3-5 frases.",
-    "en": "What you learned, in 3-5 sentences."
+    "clave": "cal.objetivos",
+    "es": "Misiones",
+    "en": "Missions"
   },
   {
-    "clave": "biblioteca.ent.puntos",
-    "es": "Puntos clave (uno por línea)",
-    "en": "Key points (one per line)"
+    "clave": "cal.objetivo.nuevo",
+    "es": "Misión",
+    "en": "Mission"
   },
   {
-    "clave": "biblioteca.ent.puntosPh",
-    "es": "Idea clave 1\nIdea clave 2",
-    "en": "Key idea 1\nKey idea 2"
+    "clave": "cal.irApp",
+    "es": "Ir a la app a registrarlo",
+    "en": "Log it in the app"
   },
   {
-    "clave": "biblioteca.ent.puntosTitulo",
-    "es": "Puntos clave",
-    "en": "Key points"
+    "clave": "chat.vistaCal.objetivos",
+    "en": "Missions"
   },
   {
-    "clave": "biblioteca.mat.titulo",
-    "es": "Material",
-    "en": "Material"
+    "clave": "chat.vistaCal.dia",
+    "en": "Today's agenda"
   },
   {
-    "clave": "biblioteca.mat.agregar",
-    "es": "Generar o enlazar material",
-    "en": "Generate or link material"
+    "clave": "chat.vistaCal.semana",
+    "en": "Week"
   },
   {
-    "clave": "biblioteca.mat.vacio",
-    "en": "Hook up here the spreadsheets and maps you use to study this topic; they open in their own room."
+    "clave": "chat.vistaCal.mes",
+    "en": "Month"
   },
   {
-    "clave": "biblioteca.mat.hoja",
-    "es": "Hoja de cálculo",
-    "en": "Spreadsheet"
+    "clave": "chat.vistaCal.anio",
+    "en": "Year"
   },
   {
-    "clave": "biblioteca.mat.mapa",
-    "es": "Mapa o diagrama",
-    "en": "Map or diagram"
+    "clave": "chat.vistaCal.calendario",
+    "en": "Calendar"
   },
   {
-    "clave": "biblioteca.mat.idea",
-    "es": "Idea",
-    "en": "Idea"
+    "clave": "room.agenda.cmd.trabajo",
+    "en": "Work"
   },
   {
-    "clave": "biblioteca.mat.nuevaHoja",
-    "es": "Nueva hoja de cálculo",
-    "en": "New spreadsheet"
+    "clave": "room.agenda.cmd.salud",
+    "en": "Health"
   },
   {
-    "clave": "biblioteca.mat.nuevoMapa",
-    "es": "Nuevo mapa o diagrama",
-    "en": "New map or diagram"
+    "clave": "room.agenda.cmd.personas",
+    "en": "People"
   },
   {
-    "clave": "biblioteca.mat.nuevaIdea",
-    "es": "Nueva idea",
-    "en": "New idea"
+    "clave": "room.anecdotario.cmd.anecdotas",
+    "en": "Journal"
   },
   {
-    "clave": "biblioteca.mat.crearTit",
-    "es": "Nuevo: {tipo}",
-    "en": "New: {tipo}"
+    "clave": "room.biblioteca.cmd.charlas",
+    "en": "Chats"
   },
   {
-    "clave": "biblioteca.mat.existente",
-    "es": "Enlazar {tipo} que ya tengo",
-    "en": "Link a {tipo} I already have"
+    "clave": "room.biblioteca.cmd.enciclopedia",
+    "en": "Encyclopedia"
   },
   {
-    "clave": "biblioteca.mat.enlazar",
-    "es": "— Enlazar —",
-    "en": "— Link —"
+    "clave": "room.biblioteca.cmd.estudio",
+    "en": "Study"
   },
   {
-    "clave": "biblioteca.mat.quitar",
-    "es": "Quitar el enlace (no borra el material)",
-    "en": "Remove the link (does not delete the material)"
+    "clave": "room.biblioteca.cmd.resumen",
+    "en": "Overview"
   },
   {
-    "clave": "biblioteca.mat.roto",
-    "es": "ya no existe",
-    "en": "gone"
+    "clave": "room.cocina.cmd.metas",
+    "en": "Goals"
   },
   {
-    "clave": "computo.vista.vacia",
-    "es": "La hoja aún está vacía.",
-    "en": "The sheet is still empty."
+    "clave": "room.cocina.cmd.diario",
+    "en": "Log"
   },
   {
-    "clave": "biblioteca.mat.sinCuarto",
-    "es": "Coloca el cuarto de esa app en tu casa para poder abrir su material.",
-    "en": "Place that app’s room in your house to open its material."
+    "clave": "room.cocina.cmd.progreso",
+    "en": "Progress"
   },
   {
-    "clave": "material.estudiasEn",
-    "es": "Lo estudias en",
-    "en": "You study it in"
+    "clave": "room.cocina.cmd.plan",
+    "en": "Diet"
   },
   {
-    "clave": "material.abrirEntrada",
-    "es": "Abrir «{n}» en la enciclopedia",
-    "en": "Open “{n}” in the encyclopedia"
+    "clave": "room.cocina.cmd.recetas",
+    "en": "Recipes"
   },
   {
-    "clave": "material.sinBiblioteca",
-    "es": "Coloca el cuarto de la biblioteca en tu casa para abrir su enciclopedia.",
-    "en": "Place the library room in your house to open its encyclopedia."
+    "clave": "room.cocina.cmd.compras",
+    "en": "Groceries"
   },
   {
-    "clave": "biblioteca.mat.vacio2",
-    "es": "Genera aquí un mapa o unas notas de este tema con la IA, o engancha las hojas y mapas que ya uses para estudiarlo.",
-    "en": "Generate a map or some notes on this topic with AI, or hook up the spreadsheets and maps you already study it with."
+    "clave": "room.computo.cmd.formulario",
+    "en": "Formulas"
   },
   {
-    "clave": "biblioteca.mat.ver",
-    "es": "Ver aquí mismo",
-    "en": "See it right here"
+    "clave": "room.computo.cmd.calculadora",
+    "en": "Calculator"
   },
   {
-    "clave": "biblioteca.mat.abrirEn",
-    "es": "Abrir en su cuarto para editarlo",
-    "en": "Open in its room to edit it"
+    "clave": "room.computo.cmd.grafica",
+    "en": "Grapher"
   },
   {
-    "clave": "biblioteca.mat.generarTip",
-    "es": "Que la IA lo arme con lo que dice esta entrada",
-    "en": "Let the AI build it from what this entry says"
+    "clave": "room.computo.cmd.ecuacion",
+    "en": "Equation solver"
   },
   {
-    "clave": "biblioteca.mat.falloIA",
-    "es": "La IA no pudo generar el material.",
-    "en": "The AI could not generate the material."
+    "clave": "room.computo.cmd.hojas",
+    "en": "Spreadsheets"
   },
   {
-    "clave": "biblioteca.ent.cancelar",
-    "es": "Cancelar",
-    "en": "Cancel"
+    "clave": "room.computo.cmd.bases",
+    "en": "Bases (binary & hex)"
   },
   {
-    "clave": "biblioteca.ent.guardar",
-    "es": "Guardar",
-    "en": "Save"
+    "clave": "room.computo.cmd.matrices",
+    "en": "Matrices"
   },
   {
-    "clave": "biblioteca.ent.borrar",
-    "es": "Borrar entrada",
-    "en": "Delete entry"
+    "clave": "room.computo.cmd.sistemas",
+    "en": "Equation systems"
   },
   {
-    "clave": "biblioteca.ent.confirmarBorrar",
-    "es": "¿Borrar esta entrada? La charla origen no se toca.",
-    "en": "Delete this entry? The source chat is not touched."
+    "clave": "room.computo.cmd.unidades",
+    "en": "Unit conversion"
   },
   {
-    "clave": "biblioteca.ent.verCharla",
-    "es": "Ver charla origen",
-    "en": "View source chat"
+    "clave": "room.computo.cmd.propina",
+    "en": "Tip calculator"
   },
   {
-    "clave": "biblioteca.enc.sub",
-    "es": "{n} entradas en {c} campos",
-    "en": "{n} entries in {c} fields"
+    "clave": "room.computo.cmd.regla3",
+    "en": "Rule of three"
   },
   {
-    "clave": "biblioteca.enc.nEntradas",
-    "es": "{n} entradas",
-    "en": "{n} entries"
+    "clave": "room.descanso.cmd.sueno",
+    "en": "Sleep"
   },
   {
-    "clave": "biblioteca.enc.buscarTema",
-    "es": "Buscar tema…",
-    "en": "Search topic…"
+    "clave": "room.despacho.cmd.balance",
+    "en": "Cash flow"
   },
   {
-    "clave": "biblioteca.enc.verEntrada",
-    "es": "Ver la entrada de este tema",
-    "en": "View this topic's entry"
+    "clave": "room.despacho.cmd.patrimonio",
+    "en": "Net worth"
   },
   {
-    "clave": "biblioteca.enc.charlarTema",
-    "es": "Charlar sobre esto con el Sabio",
-    "en": "Chat about this with the Sage"
+    "clave": "room.despacho.cmd.gastos",
+    "en": "Expenses"
   },
   {
-    "clave": "biblioteca.enc.promptTema",
-    "es": "Cuéntame sobre {tema}. {desc}",
-    "en": "Tell me about {tema}. {desc}"
+    "clave": "room.despacho.cmd.ingresos",
+    "en": "Income"
   },
   {
-    "clave": "biblioteca.enc.arbolDesc",
-    "es": "Todo tu conocimiento en un árbol: cada charla se archiva en su lugar y crece cuando tú la ramificas.",
-    "en": "All your knowledge in one tree: each chat files itself in its place and grows when you branch it ()."
+    "clave": "room.despacho.cmd.metas",
+    "en": "Savings & investing"
   },
   {
-    "clave": "biblioteca.enc.semilla",
-    "es": "Semilla",
-    "en": "Seed"
+    "clave": "room.despacho.cmd.financieras",
+    "en": "Financial calculators"
   },
   {
-    "clave": "biblioteca.enc.sinResultados",
-    "es": "Nada en el árbol coincide con tu búsqueda.",
-    "en": "Nothing in the tree matches your search."
+    "clave": "room.despacho.cmd.deuda",
+    "en": "Debt goals"
   },
   {
-    "clave": "biblioteca.enc.nuevo",
-    "es": "nuevo",
-    "en": "new"
+    "clave": "room.despacho.cmd.simuladores",
+    "en": "Simulators"
   },
   {
-    "clave": "biblioteca.enc.subtemas",
-    "es": "{n} subtemas",
-    "en": "{n} subtopics"
+    "clave": "room.despacho.cmd.simulacion",
+    "en": "Net worth forecast"
   },
   {
-    "clave": "biblioteca.enc.nSubindices",
-    "es": "{n} subíndices aquí debajo",
-    "en": "{n} sub-indexes below this"
+    "clave": "room.despacho.cmd.divisas",
+    "en": "Forex"
   },
   {
-    "clave": "biblioteca.enc.modoEdicion",
-    "es": "Editar el índice",
-    "en": "Edit the index"
+    "clave": "room.despacho.cmd.criptos",
+    "en": "Crypto"
   },
   {
-    "clave": "biblioteca.enc.edicionDesc",
-    "es": "Haz tuyo el índice: con el + de cada fila añades ramas a cualquier altura, incluso colgando de la Semilla. También renombras, reordenas y borras.",
-    "en": "Make the index yours: the + on each row adds branches at any level, even hanging off the Seed. You can also rename, reorder and delete."
+    "clave": "room.despacho.cmd.acciones",
+    "en": "Stocks"
   },
   {
-    "clave": "biblioteca.enc.renombrar",
-    "es": "Renombrar",
-    "en": "Rename"
+    "clave": "room.despacho.cmd.commodities",
+    "en": "Commodities"
   },
   {
-    "clave": "biblioteca.enc.agregarHijo",
-    "es": "Añadir algo dentro",
-    "en": "Add something inside"
+    "clave": "room.diario.cmd.titulares",
+    "en": "Headlines"
   },
   {
-    "clave": "biblioteca.enc.moverEntradaA",
-    "es": "Mover «{n}» a…",
-    "en": "Move «{n}» to…"
+    "clave": "room.diario.cmd.efemerides",
+    "en": "On this day"
   },
   {
-    "clave": "biblioteca.enc.entradaAqui",
-    "es": "Escribir una entrada aquí",
-    "en": "Write an entry here"
+    "clave": "room.ejercicio.cmd.metas",
+    "en": "Goals"
   },
   {
-    "clave": "biblioteca.enc.borrarNodo",
-    "es": "Borrar",
-    "en": "Delete"
+    "clave": "room.ejercicio.cmd.fuerza",
+    "en": "Strength"
   },
   {
-    "clave": "biblioteca.enc.borrarTit",
-    "es": "¿Borrar «{n}»?",
-    "en": "Delete «{n}»?"
+    "clave": "room.ejercicio.cmd.resistencia",
+    "en": "Endurance"
   },
   {
-    "clave": "biblioteca.enc.borrarMsg",
-    "es": "Tus entradas NO se borran: quedan sueltas en su campo.",
-    "en": "Your entries are NOT deleted: they stay loose in their field."
+    "clave": "room.ejercicio.cmd.flexibilidad",
+    "en": "Flexibility"
   },
   {
-    "clave": "biblioteca.enc.borrarMsgHijos",
-    "es": "Se va con todo lo que cuelga de él. Tus entradas NO se borran: quedan sueltas en su campo.",
-    "en": "It goes along with everything under it. Your entries are NOT deleted: they stay loose in their field."
+    "clave": "room.entretenimiento.cmd.archivo",
+    "en": "Archive"
   },
   {
-    "clave": "biblioteca.enc.subir",
-    "es": "Subir",
-    "en": "Move up"
+    "clave": "room.entretenimiento.cmd.mesa",
+    "en": "Board games"
   },
   {
-    "clave": "biblioteca.enc.bajar",
-    "es": "Bajar",
-    "en": "Move down"
+    "clave": "room.garage.cmd.resumen",
+    "en": "Overview"
   },
   {
-    "clave": "biblioteca.enc.nuevaRama",
-    "es": "Nueva rama",
-    "en": "New branch"
+    "clave": "room.garage.cmd.vehiculos",
+    "en": "Vehicles"
   },
   {
-    "clave": "biblioteca.enc.nuevoTema",
-    "es": "Nuevo tema",
-    "en": "New topic"
+    "clave": "room.hobbies.cmd.hobbies",
+    "en": "Hobbies"
   },
   {
-    "clave": "biblioteca.enc.nuevoCampo",
-    "es": "Nuevo campo",
-    "en": "New field"
+    "clave": "room.ideas.cmd.diario",
+    "en": "Idea journal"
   },
   {
-    "clave": "biblioteca.enc.nuevoCampoMsg",
-    "es": "Un campo propio del conocimiento, al lado de los de fábrica.",
-    "en": "A knowledge field of your own, next to the factory ones."
+    "clave": "room.ideas.cmd.mapas",
+    "en": "Maps"
   },
   {
-    "clave": "biblioteca.enc.dentroDe",
-    "es": "Dentro de «{padre}»",
-    "en": "Inside «{padre}»"
+    "clave": "room.ideas.cmd.diagramas",
+    "en": "Diagrams"
   },
   {
-    "clave": "biblioteca.enc.crear",
-    "es": "Crear",
-    "en": "Create"
+    "clave": "room.idiomas.cmd.charlas",
+    "en": "Tutor"
   },
   {
-    "clave": "biblioteca.ent.mover",
-    "es": "Mover a otro tema",
-    "en": "Move to another topic"
+    "clave": "room.idiomas.cmd.repaso",
+    "en": "Review"
   },
   {
-    "clave": "biblioteca.ent.ramificar",
-    "es": "Ramificar",
-    "en": "Branch out"
+    "clave": "room.idiomas.cmd.temario",
+    "en": "Syllabus"
   },
   {
-    "clave": "biblioteca.ent.ramificarTip",
-    "es": "Ramificar: subtemas nuevos bajo «{n}»",
-    "en": "Branch out: new subtopics under «{n}»"
+    "clave": "room.idiomas.cmd.progreso",
+    "en": "Progress"
   },
   {
-    "clave": "biblioteca.ent.ramificarSinNodo",
-    "es": "La entrada aún no tiene lugar en el árbol",
-    "en": "The entry has no place in the tree yet"
+    "clave": "room.jardin.cmd.meditacion",
+    "en": "Meditation"
   },
   {
-    "clave": "biblioteca.mover.cerrar",
-    "es": "Cerrar",
-    "en": "Close"
+    "clave": "room.jardin.cmd.respiracion",
+    "en": "Breathing"
   },
   {
-    "clave": "biblioteca.mover.notaEntrada",
-    "es": "Si eliges un campo, la entrada queda suelta en él, sin tema.",
-    "en": "If you pick a field, the entry stays loose in it, with no topic."
+    "clave": "room.jardin.cmd.gratitud",
+    "en": "Gratitude"
   },
   {
-    "clave": "biblioteca.r.arbol",
-    "es": "{n} temas desbloqueados por tus charlas",
-    "en": "{n} topics unlocked by your chats"
+    "clave": "room.sala.cmd.mapa",
+    "en": "World map"
   },
   {
-    "clave": "biblioteca.est.titulo",
-    "es": "Sesión de estudio",
-    "en": "Study session"
+    "clave": "room.sala.cmd.porConocer",
+    "en": "Itinerary"
   },
   {
-    "clave": "biblioteca.est.personalizada",
-    "es": "Duración personalizada (minutos)",
-    "en": "Custom duration (minutes)"
+    "clave": "room.sala.cmd.rutas",
+    "en": "Routes"
   },
   {
-    "clave": "biblioteca.est.entrada",
-    "es": "Entrada (opcional)",
-    "en": "Entry (optional)"
-  },
-  {
-    "clave": "biblioteca.est.libre",
-    "es": "— Estudio libre —",
-    "en": "— Free study —"
-  },
-  {
-    "clave": "biblioteca.est.iniciar",
-    "es": "Iniciar {n} min",
-    "en": "Start {n} min"
-  },
-  {
-    "clave": "biblioteca.est.nota",
-    "es": "El temporizador sigue corriendo aunque cierres el cuarto.",
-    "en": "The timer keeps running even if you close the room."
-  },
-  {
-    "clave": "biblioteca.est.sesionDe",
-    "es": "Sesión de {n} min — al terminar se registra sola",
-    "en": "{n} min session — it logs itself when done"
-  },
-  {
-    "clave": "biblioteca.est.cancelar",
-    "es": "Terminar antes",
-    "en": "End early"
-  },
-  {
-    "clave": "biblioteca.est.cancelarTip",
-    "es": "Los minutos completos ya transcurridos se acreditan",
-    "en": "Full minutes already elapsed are credited"
-  },
-  {
-    "clave": "biblioteca.est.fin",
-    "es": "¡Sesión completada! +{n} min en {campo}",
-    "en": "Session complete! +{n} min in {campo}"
-  },
-  {
-    "clave": "biblioteca.est.porCampo",
-    "es": "Tiempo por campo",
-    "en": "Time by field"
-  },
-  {
-    "clave": "biblioteca.est.historial",
-    "es": "Sesiones recientes",
-    "en": "Recent sessions"
-  },
-  {
-    "clave": "biblioteca.est.sinSesiones",
-    "es": "Aún no has estudiado con el temporizador.",
-    "en": "You have not used the study timer yet."
-  },
-  {
-    "clave": "biblioteca.est.modoSimple",
-    "es": "Simple",
-    "en": "Simple"
-  },
-  {
-    "clave": "biblioteca.est.modoPomodoro",
-    "es": "Pomodoro",
-    "en": "Pomodoro"
-  },
-  {
-    "clave": "biblioteca.est.pomodoroDesc",
-    "es": "Trabajas a tramos y descansas entre uno y otro; tras varios tramos, un descanso largo. Cada tramo de concentración se registra solo.",
-    "en": "You work in stretches and rest in between; after a few stretches, a long break. Each focus stretch is logged on its own."
-  },
-  {
-    "clave": "biblioteca.est.faseTrabajo",
-    "es": "Concentración",
-    "en": "Focus"
-  },
-  {
-    "clave": "biblioteca.est.faseCorta",
-    "es": "Descanso",
-    "en": "Break"
-  },
-  {
-    "clave": "biblioteca.est.faseLarga",
-    "es": "Descanso largo",
-    "en": "Long break"
-  },
-  {
-    "clave": "biblioteca.est.pomodoroNota",
-    "es": "Cada tramo de concentración se registra al terminar; los descansos no cuentan.",
-    "en": "Each focus stretch is logged when it ends; breaks do not count."
-  },
-  {
-    "clave": "biblioteca.est.tandaTip",
-    "es": "{n} tramos de concentración completados",
-    "en": "{n} focus stretches completed"
-  },
-  {
-    "clave": "biblioteca.est.pausar",
-    "es": "Pausar",
-    "en": "Pause"
-  },
-  {
-    "clave": "biblioteca.est.reanudar",
-    "es": "Reanudar",
-    "en": "Resume"
-  },
-  {
-    "clave": "biblioteca.est.saltar",
-    "es": "Saltar descanso",
-    "en": "Skip break"
-  },
-  {
-    "clave": "biblioteca.est.ciclo.clasico",
-    "en": "Classic"
-  },
-  {
-    "clave": "biblioteca.est.ciclo.profundo",
-    "en": "Deep"
-  },
-  {
-    "clave": "biblioteca.est.ciclo.corto",
-    "en": "Short"
-  },
-  {
-    "clave": "biblioteca.est.trabajoMin",
-    "es": "Concentración",
-    "en": "Focus"
-  },
-  {
-    "clave": "biblioteca.est.cortoMin",
-    "es": "Descanso",
-    "en": "Break"
-  },
-  {
-    "clave": "biblioteca.est.largoMin",
-    "es": "Descanso largo",
-    "en": "Long break"
+    "clave": "room.sala.cmd.bitacora",
+    "en": "Journal"
   }
 ]

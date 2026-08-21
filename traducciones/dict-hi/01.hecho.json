@@ -1,46 +1,878 @@
 [
   {
-    "clave": "tut.esencial.titulo",
-    "texto": "ज़रूरी बातें"
+    "clave": "hoy.casa.personales",
+    "texto": "व्यक्तिगत"
   },
   {
-    "clave": "tut.tipo.ejemplos",
-    "texto": "उदाहरण · डेमो घर"
+    "clave": "hoy.irApp",
+    "texto": "ऐप में दर्ज करें"
   },
   {
-    "clave": "tut.app-agenda--esencial.resumen",
-    "texto": "एजेंडा में वह सब कुछ रहता है जो आदत नहीं है, तीन सेक्शन में: काम (पेंडिंग और बोर्ड), स्वास्थ्य (डॉक्टर की अपॉइंटमेंट, दवाइयां और देखभाल — आपकी, आपके प्रियजनों की और पालतू जानवरों की) और संपर्क (संपर्कों की सूची और जन्मदिन)। जिस भी चीज़ की तारीख़ होती है, वह अपने आप कैलेंडर में चली जाती है।"
+    "clave": "hoy.nada",
+    "texto": "इस ऐप में अभी तक आपकी कोई प्रतिबद्धता नहीं है।"
   },
   {
-    "clave": "tut.calendario--esencial.resumen",
-    "texto": "कैलेंडर कोई कमरा नहीं है: यह घर की घड़ी में रहता है और तारीख़ और समय वाली हर चीज़ को इकट्ठा करता है — जो आप ख़ुद बनाते हैं और जो बाक़ी ऐप्स अपने आप शेड्यूल करते हैं। इसे देखने के चार तरीक़े हैं: घंटों की ग्रिड पर दिन और सप्ताह, पूरी तस्वीर के लिए महीना और वर्ष। मिशन अलग है — वह लाल बटन, जिसमें सभी ऐप्स की आज की चेकलिस्ट एक साथ मिलती है।"
+    "clave": "hoy.metas.titulo",
+    "texto": "लक्ष्य"
   },
   {
-    "clave": "tut.app-anecdotario--esencial.resumen",
-    "texto": "डायरी आपकी निजी डायरी है: मूड, टेक्स्ट और फ़ोटो वाली एंट्रीज़ जो अपने आप तारीख़ से सेव हो जाती हैं। कैलेंडर हर दिन को आपके मूड के हिसाब से रंग देता है, और हिस्ट्री उन्हें साल, महीने और हफ़्ते के फ़ोल्डर में रखती है।"
+    "clave": "hoy.metas.vencida",
+    "texto": "अतिदेय"
   },
   {
-    "clave": "tut.app-biblioteca--esencial.resumen",
-    "texto": "लाइब्रेरी आपका निजी विश्वकोश है, चार सेक्शन में: चैट (गुरु से सवाल पूछें और हर बातचीत अपने आप आर्काइव होकर एंट्री में बदल जाती है), विश्वकोश (वह पेड़ जहां सीखी हुई चीज़ें रहती हैं, ज्ञान के क्षेत्र के हिसाब से), अध्ययन (सिंपल या पोमोडोरो टाइमर, जो हर सेशन दर्ज करता है) और सारांश (आपने कितना लिखा और कितनी पढ़ाई की)।"
+    "clave": "hoy.metas.faltan",
+    "texto": "{n} दिन"
   },
   {
-    "clave": "tut.app-cocina--esencial.resumen",
-    "texto": "रसोई में दो सेक्शन हैं। रेसिपी बुक में वह रहता है जो आप बनाने वाले हैं: मैक्रोज़ के साथ रेसिपी, उन्हें ग्रुप करने वाली डाइट्स और किराना लिस्ट। पोषण में आप क्या खाते हैं इसका हिसाब चार चरणों में रहता है: कैलोरी और वज़न के लक्ष्य, दिन की डायरी, आने वाले दिनों की भोजन योजना और प्रगति।"
+    "clave": "objetivos.anadir",
+    "texto": "मिशन जोड़ें"
   },
   {
-    "clave": "tut.app-computo--esencial.resumen",
-    "texto": "कंप्यूटिंग कक्ष में दो सेक्शन हैं। कैलकुलेटर हमेशा वाला हिसाब करता है और ग्राफ़, नंबर बेस, मैट्रिक्स, इक्वेशन सिस्टम, यूनिट्स, टिप और त्रैराशिक के लिए मोड बदल लेता है; इससे जुड़ी है फ़ॉर्मूला बुक, आपकी फ़ॉर्मूला किताब, जिसमें गणित, भौतिकी और रसायन पहले से मौजूद हैं। स्प्रेडशीट टेबल वाली हर चीज़ संभालती है, समझने में आसान फ़ॉर्मूलों और Excel या PDF में एक्सपोर्ट के साथ।"
+    "clave": "objetivos.responsable",
+    "texto": "{quien} की तरफ़ से आपको यहां की याद मिलती है"
   },
   {
-    "clave": "tut.app-descanso--esencial.resumen",
-    "texto": "आराम एक ही स्क्रीन पर दिखाता है कि आप कैसे सोए: पिछली रात का स्कोर, रिमाइंडर के साथ आपकी समय-सारणी, रोज़ की डायरी और साल, महीने और हफ़्ते के हिसाब से पूरी हिस्ट्री।"
+    "clave": "objetivos.nuevo.deQueApp",
+    "texto": "यह मिशन किस बारे में है?"
   },
   {
-    "clave": "tut.app-despacho--esencial.resumen",
-    "texto": "कार्यकक्ष आपके पैसों को चार सेक्शन में व्यवस्थित करता है। पूंजी में वह रहता है जो आपके पास है और जो आप पर बकाया है, प्रोजेक्शन के साथ; नकदी प्रवाह में खर्च, आमदनी और उस अवधि का बैलेंस रहता है, बजट और कैटेगरी के साथ; लक्ष्य में बचत, निवेश और कर्ज़ इकट्ठा होते हैं, साथ ही ऐसे कैलकुलेटर जो एक रकम सुझाते हैं। बाज़ार सिर्फ़ देखने के लिए लाइव भाव का बोर्ड है।"
+    "clave": "objetivos.nuevo.responsable",
+    "texto": "यह याद दिलाना मेरी ज़िम्मेदारी है। आपको क्या तय करना है?"
   },
   {
-    "clave": "tut.app-diario--esencial.resumen",
-    "texto": "दैनिक समाचार एक क्षणभंगुर अख़बार है: कैटेगरी के हिसाब से असली प्रेस की सुर्खियां और «इतिहास में आज», जो आधी रात को अपने आप रीन्यू हो जाता है। डिलीवरी सेक्शन से आप तय कर सकते हैं कि कोई सहायक इसे आपके अपने चैट में लाए।"
+    "clave": "objetivos.nuevo.personal",
+    "texto": "व्यक्तिगत मिशन, किसी ऐप से नहीं जुड़ा।"
+  },
+  {
+    "clave": "objetivos.nuevo.personales",
+    "texto": "व्यक्तिगत"
+  },
+  {
+    "clave": "objetivos.nuevo.poner",
+    "texto": "＋"
+  },
+  {
+    "clave": "objetivos.nuevo.todos",
+    "texto": "इस ऐप में अब कुछ भी तय करने के लिए बाकी नहीं है।"
+  },
+  {
+    "clave": "objetivos.nuevo.otro",
+    "texto": "एक और मिशन…"
+  },
+  {
+    "clave": "objetivos.nuevo.otroPlaceholder",
+    "texto": "आपको क्या तय करना है?"
+  },
+  {
+    "clave": "objetivos.nuevo.checklist",
+    "texto": "कई चरण चाहिए? नई चेकलिस्ट"
+  },
+  {
+    "clave": "objetivos.nuevo.dias",
+    "texto": "कौन-से दिन?"
+  },
+  {
+    "clave": "objetivos.nuevo.faltanDias",
+    "texto": "कम से कम एक दिन चुनें।"
+  },
+  {
+    "clave": "objetivos.nuevo.cantidad",
+    "texto": "कितना?"
+  },
+  {
+    "clave": "objetivos.nuevo.meta",
+    "texto": "किस लक्ष्य के लिए?"
+  },
+  {
+    "clave": "objetivos.nuevo.sinMeta",
+    "texto": "कोई नहीं (अलग से)"
+  },
+  {
+    "clave": "objetivos.nuevo.mientrasDure",
+    "texto": "सिर्फ़ {ini} से {fin} तक, जब तक लक्ष्य चले।"
+  },
+  {
+    "clave": "objetivos.nuevo.hora",
+    "texto": "किसी तय समय पर?"
+  },
+  {
+    "clave": "objetivos.nuevo.sinHora",
+    "texto": "कोई समय नहीं"
+  },
+  {
+    "clave": "objetivos.nuevo.anadir",
+    "texto": "जोड़ें"
+  },
+  {
+    "clave": "objetivos.nuevo.cancelar",
+    "texto": "रद्द करें"
+  },
+  {
+    "clave": "objetivos.nuevo.cambiar",
+    "texto": "सहायक बदलें"
+  },
+  {
+    "clave": "objetivos.nuevo.nadie",
+    "texto": "कोई सहायक नहीं"
+  },
+  {
+    "clave": "avisos.objetivos",
+    "texto": "आपके पास {app} में {n} मिशन बाकी हैं।"
+  },
+  {
+    "clave": "biblioteca.nodo.filosofia",
+    "texto": "दर्शनशास्त्र और चिंतन"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.filosofia",
+    "texto": "वास्तविकता, ज्ञान, मन और आचरण से जुड़े बुनियादी सवाल।"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-metafisica",
+    "texto": "तत्वमीमांसा और सत्तामीमांसा"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-ser",
+    "texto": "सत्ता और अस्तित्व"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-ser",
+    "texto": "किसी चीज़ के अस्तित्व में होने का क्या मतलब है।"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-mente",
+    "texto": "मन और चेतना"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-mente",
+    "texto": "मन-शरीर समस्या और फ़िनोमेनोलॉजी।"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-libre",
+    "texto": "स्वतंत्रता और नियतिवाद"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-libre",
+    "texto": "क्या हम स्वतंत्र हैं, या हर चीज़ किसी कारण से होती है?"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-epistemologia",
+    "texto": "ज्ञानमीमांसा"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-conocimiento",
+    "texto": "ज्ञान का सिद्धांत"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-conocimiento",
+    "texto": "औचित्य, सत्य और विश्वास।"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-ciencia-fil",
+    "texto": "विज्ञान का दर्शन"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-ciencia-fil",
+    "texto": "पद्धति, प्रतिमान और सीमांकन।"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-escepticismo",
+    "texto": "संशयवाद"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-escepticismo",
+    "texto": "हम क्या जान सकते हैं, इसकी सीमाएँ।"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-etica",
+    "texto": "नैतिकता और राजनीतिक दर्शन"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-moral",
+    "texto": "नैतिक सिद्धांत"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-moral",
+    "texto": "कर्तव्यवाद, उपयोगितावाद और सद्गुण नैतिकता।"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-justicia",
+    "texto": "सामाजिक न्याय"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-justicia",
+    "texto": "समता, अधिकार और सामूहिक भलाई।"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-bioetica",
+    "texto": "जैवनैतिकता"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-bioetica",
+    "texto": "जीवन, चिकित्सा और व्यावहारिक तकनीक।"
+  },
+  {
+    "clave": "biblioteca.nodo.matematicas",
+    "texto": "गणित और तर्कशास्त्र"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.matematicas",
+    "texto": "अमूर्त संरचनाएँ, औपचारिक तर्क और मात्रात्मक मॉडल।"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-puras",
+    "texto": "शुद्ध गणित"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-algebra",
+    "texto": "बीजगणित"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-algebra",
+    "texto": "संरचनाएँ, समीकरण और सममिति।"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-analisis",
+    "texto": "विश्लेषण"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-analisis",
+    "texto": "सीमा, निरंतरता और कैलकुलस।"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-geometria",
+    "texto": "ज्यामिति और टोपोलॉजी"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-geometria",
+    "texto": "आकृतियाँ, स्पेस और रूपांतरण।"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-aplicadas",
+    "texto": "अनुप्रयुक्त गणित"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-prob",
+    "texto": "प्रायिकता"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-prob",
+    "texto": "अनिश्चितता और यादृच्छिक घटनाएँ।"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-stats",
+    "texto": "सांख्यिकी"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-stats",
+    "texto": "डेटा, निष्कर्ष और मॉडल।"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-discreta",
+    "texto": "असतत गणित"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-discreta",
+    "texto": "कॉम्बिनेटरिक्स, ग्राफ़ और पुनरावर्तन।"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-logica",
+    "texto": "तर्कशास्त्र"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-log-formal",
+    "texto": "औपचारिक तर्कशास्त्र"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-log-formal",
+    "texto": "प्रस्ताव, विधेय और प्रमाण।"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-log-comput",
+    "texto": "कंप्यूटेशनल तर्कशास्त्र"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-log-comput",
+    "texto": "एल्गोरिदम, जटिलता और सत्यापन।"
+  },
+  {
+    "clave": "biblioteca.nodo.naturales",
+    "texto": "प्राकृतिक विज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.naturales",
+    "texto": "भौतिक ब्रह्मांड, पदार्थ, ऊर्जा और जीव-तंत्रों के नियम।"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-fisica",
+    "texto": "भौतिकी"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-mecanica",
+    "texto": "शास्त्रीय यांत्रिकी"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-mecanica",
+    "texto": "गति, बल और ऊर्जा।"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-cuantica",
+    "texto": "क्वांटम भौतिकी"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-cuantica",
+    "texto": "कण, तरंगें और प्रायिकता।"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-relatividad",
+    "texto": "सापेक्षता"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-relatividad",
+    "texto": "देशकाल और ब्रह्मांडविज्ञान।"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-termodinamica",
+    "texto": "ऊष्मागतिकी"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-termodinamica",
+    "texto": "ऊष्मा, एन्ट्रॉपी और साम्यावस्था।"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-quimica",
+    "texto": "रसायन विज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-org",
+    "texto": "कार्बनिक रसायन"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-org",
+    "texto": "कार्बन, जैव-अणु और अभिक्रियाएँ।"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-inorg",
+    "texto": "अकार्बनिक रसायन"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-inorg",
+    "texto": "तत्व, बंध और पदार्थ।"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-fisicoquim",
+    "texto": "भौतिक रसायन"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-fisicoquim",
+    "texto": "अभिक्रियाओं और साम्यावस्था में ऊर्जा।"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-biologia",
+    "texto": "जीव विज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-celula",
+    "texto": "कोशिका जीव विज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-celula",
+    "texto": "कोशिकाएँ, उपापचय और सिग्नलिंग।"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-genetica",
+    "texto": "आनुवंशिकी और क्रमविकास"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-genetica",
+    "texto": "डीएनए, चयन और फ़ाइलोजेनी।"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-ecologia",
+    "texto": "पारिस्थितिकी"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-ecologia",
+    "texto": "पारिस्थितिकी तंत्र, जैव विविधता और चक्र।"
+  },
+  {
+    "clave": "biblioteca.nodo.tierra",
+    "texto": "पृथ्वी विज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tierra",
+    "texto": "ग्रह, वायुमंडल, महासागर और भूवैज्ञानिक प्रक्रियाएँ।"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-geologia",
+    "texto": "भूविज्ञान और भूभौतिकी"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-placas",
+    "texto": "प्लेट विवर्तनिकी"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-placas",
+    "texto": "भू-आकृतियों का निर्माण और भूकंप।"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-minerales",
+    "texto": "खनिज विज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-minerales",
+    "texto": "चट्टानें, खनिज और संसाधन।"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-paleont",
+    "texto": "जीवाश्म विज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-paleont",
+    "texto": "जीवाश्म और जीवन का इतिहास।"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-clima",
+    "texto": "जलवायु और वायुमंडल"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-meteorologia",
+    "texto": "मौसम विज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-meteorologia",
+    "texto": "मौसम, वायुदाब और वर्षण।"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-climatologia",
+    "texto": "जलवायु विज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-climatologia",
+    "texto": "दीर्घकालिक प्रवृत्तियाँ और जलवायु परिवर्तन।"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-oceanos",
+    "texto": "समुद्र विज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-oceanos",
+    "texto": "धाराएँ, समुद्र और तट।"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-espacial",
+    "texto": "भूगोल और अंतरिक्ष"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-cartografia",
+    "texto": "मानचित्रकला"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-cartografia",
+    "texto": "नक्शे, निर्देशांक और जीआईएस।"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-geomorf",
+    "texto": "भू-आकृति विज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-geomorf",
+    "texto": "भू-दृश्य और अपरदन।"
+  },
+  {
+    "clave": "biblioteca.nodo.sociales",
+    "texto": "सामाजिक विज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sociales",
+    "texto": "समाज, अर्थव्यवस्थाएँ, संस्थाएँ और सामूहिक मानव व्यवहार।"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-sociologia",
+    "texto": "समाजशास्त्र और मानवशास्त्र"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-estructura",
+    "texto": "सामाजिक संरचना"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-estructura",
+    "texto": "वर्ग, नेटवर्क और असमानता।"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-cultura",
+    "texto": "सांस्कृतिक मानवशास्त्र"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-cultura",
+    "texto": "अनुष्ठान, पहचान और प्रतीक।"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-urbano",
+    "texto": "नगरीय अध्ययन"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-urbano",
+    "texto": "शहर, प्रवासन और क्षेत्र।"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-economia",
+    "texto": "अर्थशास्त्र"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-micro",
+    "texto": "सूक्ष्म अर्थशास्त्र"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-micro",
+    "texto": "आपूर्ति, मांग और निर्णय।"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-macro",
+    "texto": "समष्टि अर्थशास्त्र"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-macro",
+    "texto": "जीडीपी, मुद्रास्फीति और राजकोषीय नीति।"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-comercio",
+    "texto": "अंतरराष्ट्रीय व्यापार"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-comercio",
+    "texto": "वैश्वीकरण और मूल्य शृंखलाएँ।"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-politica",
+    "texto": "राजनीति विज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-estado",
+    "texto": "राज्य और सरकार"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-estado",
+    "texto": "सत्ता, कानून और लोकतंत्र।"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-derechos",
+    "texto": "मानवाधिकार"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-derechos",
+    "texto": "स्वतंत्रताएँ, न्याय और नागरिकता।"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-relaciones",
+    "texto": "अंतरराष्ट्रीय संबंध"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-relaciones",
+    "texto": "कूटनीति, संघर्ष और सहयोग।"
+  },
+  {
+    "clave": "biblioteca.nodo.psicologia",
+    "texto": "मनोविज्ञान और मानव मन"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psicologia",
+    "texto": "संज्ञान, भावना, विकास और मानसिक कल्याण।"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-cognitiva",
+    "texto": "संज्ञानात्मक मनोविज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-percepcion",
+    "texto": "प्रत्यक्षीकरण और ध्यान"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-percepcion",
+    "texto": "हम उद्दीपकों को कैसे संसाधित करते हैं।"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-memoria",
+    "texto": "स्मृति और सीखना"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-memoria",
+    "texto": "एन्कोडिंग, स्मरण और विस्मरण।"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-lenguaje-psi",
+    "texto": "मनोभाषाविज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-lenguaje-psi",
+    "texto": "भाषा-अर्जन और भाषा-प्रसंस्करण।"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-desarrollo",
+    "texto": "विकास और व्यक्तित्व"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-infancia",
+    "texto": "बाल विकास"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-infancia",
+    "texto": "संज्ञानात्मक और सामाजिक विकास-पड़ाव।"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-personalidad",
+    "texto": "व्यक्तित्व"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-personalidad",
+    "texto": "गुण, स्वभाव और मॉडल।"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-social-psi",
+    "texto": "सामाजिक मनोविज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-social-psi",
+    "texto": "समूह, अभिवृत्ति और अनुरूपता।"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-clinica",
+    "texto": "मानसिक स्वास्थ्य"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-clinica-gen",
+    "texto": "नैदानिक मनोविज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-clinica-gen",
+    "texto": "विकार, निदान और चिकित्सा।"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-neuropsi",
+    "texto": "तंत्रिका-मनोविज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-neuropsi",
+    "texto": "मस्तिष्क, चोट और पुनर्वास।"
+  },
+  {
+    "clave": "biblioteca.nodo.humanidades",
+    "texto": "मानविकी और इतिहास"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.humanidades",
+    "texto": "समय, विचार और सांस्कृतिक विरासत में मानव अनुभव।"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-historia",
+    "texto": "इतिहास"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-antigua",
+    "texto": "प्राचीन इतिहास"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-antigua",
+    "texto": "शास्त्रीय सभ्यताएँ और उद्गम।"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-moderna",
+    "texto": "आधुनिक और समकालीन इतिहास"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-moderna",
+    "texto": "क्रांतियाँ, राज्य और वैश्वीकरण।"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-metodo",
+    "texto": "इतिहासलेखन"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-metodo",
+    "texto": "स्रोत, व्याख्या और बहस।"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-religion",
+    "texto": "धर्म और पुराणकथा"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-comparada",
+    "texto": "तुलनात्मक धर्म"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-comparada",
+    "texto": "परंपराएँ, ग्रंथ और आचरण।"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-mito",
+    "texto": "पुराणकथा"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-mito",
+    "texto": "मूल आख्यान और आर्किटाइप।"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-patrimonio",
+    "texto": "विरासत और सांस्कृतिक अध्ययन"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-museos",
+    "texto": "भौतिक विरासत"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-museos",
+    "texto": "संग्रहालय, संरक्षण और पुरावशेष।"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-memoria",
+    "texto": "सामूहिक स्मृति"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-memoria",
+    "texto": "गवाही, अभिलेखागार और विस्मृति।"
+  },
+  {
+    "clave": "biblioteca.nodo.lengua",
+    "texto": "भाषा और साहित्य"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.lengua",
+    "texto": "संचार, पाठ, भाषिक विश्लेषण और लिखित परंपरा।"
+  },
+  {
+    "clave": "biblioteca.nodo.len-linguistica",
+    "texto": "भाषाविज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodo.len-fonetica",
+    "texto": "ध्वनि विज्ञान और स्वनिमविज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-fonetica",
+    "texto": "ध्वनियाँ और स्वनिम तंत्र।"
+  },
+  {
+    "clave": "biblioteca.nodo.len-sintaxis",
+    "texto": "वाक्यविन्यास और रूपविज्ञान"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-sintaxis",
+    "texto": "वाक्य और शब्द की संरचना।"
+  },
+  {
+    "clave": "biblioteca.nodo.len-semantica",
+    "texto": "अर्थविज्ञान और प्रैग्मेटिक्स"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-semantica",
+    "texto": "संदर्भ में अर्थ।"
+  },
+  {
+    "clave": "biblioteca.nodo.len-literatura",
+    "texto": "साहित्य"
+  },
+  {
+    "clave": "biblioteca.nodo.len-generos",
+    "texto": "साहित्यिक विधाएँ"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-generos",
+    "texto": "उपन्यास, कविता, नाटक और निबंध।"
+  },
+  {
+    "clave": "biblioteca.nodo.len-teoria-lit",
+    "texto": "साहित्य सिद्धांत"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-teoria-lit",
+    "texto": "आलोचना, नैरेटोलॉजी और साहित्यिक कैनन।"
+  },
+  {
+    "clave": "biblioteca.nodo.len-mundo",
+    "texto": "विश्व साहित्य"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-mundo",
+    "texto": "क्षेत्रीय परंपराएँ और अनुवाद।"
+  },
+  {
+    "clave": "biblioteca.nodo.len-comunicacion",
+    "texto": "संचार"
+  },
+  {
+    "clave": "biblioteca.nodo.len-periodismo",
+    "texto": "पत्रकारिता"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-periodismo",
+    "texto": "समाचार, तथ्य-जांच और राय।"
+  },
+  {
+    "clave": "biblioteca.nodo.len-retorica",
+    "texto": "अलंकारशास्त्र और तर्क-वितर्क"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-retorica",
+    "texto": "अनुनय और सार्वजनिक बहस।"
+  },
+  {
+    "clave": "biblioteca.nodo.idiomas",
+    "texto": "भाषाएँ"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idiomas",
+    "texto": "विदेशी भाषाएँ सीखना: शब्दावली, व्याकरण, उच्चारण और अभ्यास।"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-aprendizaje",
+    "texto": "अधिगम के मूल सिद्धांत"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-vocabulario",
+    "texto": "शब्दावली"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-vocabulario",
+    "texto": "उपयोगी शब्दों और वाक्यांशों का अर्जन और पुनरावलोकन।"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-gramatica",
+    "texto": "व्याकरण"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-gramatica",
+    "texto": "संरचनाएँ, क्रिया काल और तुलनात्मक वाक्यविन्यास।"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-pronunciacion",
+    "texto": "उच्चारण और श्रवण"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-pronunciacion",
+    "texto": "ध्वनि विज्ञान, एक्सेंट और श्रवण-बोध।"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-lenguas",
+    "texto": "दुनिया की भाषाएँ"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-ingles",
+    "texto": "अंग्रेज़ी"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-ingles",
+    "texto": "वैश्विक संपर्क भाषा।"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-romances",
+    "texto": "रोमांस भाषाएँ"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-romances",
+    "texto": "फ़्रेंच, इतालवी, पुर्तगाली और उनकी नातेदारी।"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-asiaticas",
+    "texto": "एशियाई भाषाएँ"
   }
 ]

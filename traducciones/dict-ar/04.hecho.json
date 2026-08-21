@@ -1,169 +1,498 @@
 [
-  { "clave": "plantillaCustom.borrarBloqueMsj", "texto": "ستُحذف الأداة مع كل ما حُفظ فيها." },
-  { "clave": "plantillaCustom.borrarBloqueAhora", "texto": "حذف الأداة وبياناتها" },
-  { "clave": "plantillaCustom.meta", "texto": "الهدف (اختياري)" },
-  { "clave": "plantillaCustom.guardar", "texto": "حفظ" },
-  { "clave": "plantillaCustom.cancelar", "texto": "إلغاء" },
-  { "clave": "plantillaCustom.tipo.notas", "texto": "الملاحظات" },
-  { "clave": "plantillaCustom.tipo.checklist", "texto": "قائمة المهام" },
-  { "clave": "plantillaCustom.tipo.contador", "texto": "العداد" },
-  { "clave": "plantillaCustom.tipo.enlaces", "texto": "الروابط" },
-  { "clave": "plantillaCustom.tipo.lista", "texto": "القائمة" },
-  { "clave": "plantillaCustom.tipo.valoracion", "texto": "التقييم" },
-  { "clave": "plantillaCustom.tipo.bitacora", "texto": "السجل" },
-  { "clave": "plantillaCustom.tipo.progreso", "texto": "التقدم" },
-  { "clave": "plantillaCustom.tipo.habito", "texto": "العادة" },
-  { "clave": "plantillaCustom.tipo.sesiones", "texto": "الجلسات" },
-  { "clave": "plantillaCustom.tipo.cuenta", "texto": "العد التنازلي" },
-  { "clave": "plantillaCustom.tipo.galeria", "texto": "المعرض" },
-  { "clave": "amueblar.titulo", "texto": "كيف يتم تأثيث الغرفة؟" },
-  { "clave": "amueblar.completo", "texto": "التأثيث الكامل" },
-  { "clave": "amueblar.completoDesc", "texto": "يُحضر كل عناصر التطبيق." },
-  { "clave": "amueblar.principal", "texto": "العنصر الرئيسي فقط" },
-  { "clave": "amueblar.principalDesc", "texto": "العنصر الذي يفتح التطبيق فقط، دون البقية." },
-  { "clave": "plantillaCustom.eliminada", "texto": "تم حذف هذا القالب." },
-  { "clave": "plantillaCustom.notasPh", "texto": "اكتب ملاحظاتك… (تُحفظ تلقائيًا)" },
-  { "clave": "plantillaCustom.checklistPh", "texto": "مهمة جديدة…" },
-  { "clave": "plantillaCustom.checklistVacio", "texto": "لا توجد مهام بعد." },
-  { "clave": "plantillaCustom.borrarItem", "texto": "حذف" },
-  { "clave": "plantillaCustom.enlaceTitulo", "texto": "العنوان (اختياري)" },
-  { "clave": "plantillaCustom.enlacesVacio", "texto": "لا توجد روابط محفوظة." },
-  { "clave": "plantillaCustom.listaPh", "texto": "عنصر جديد…" },
-  { "clave": "plantillaCustom.listaVacio", "texto": "القائمة فارغة." },
-  { "clave": "plantillaCustom.bitacoraPh", "texto": "تدوينة جديدة…" },
-  { "clave": "plantillaCustom.bitacoraVacio", "texto": "لا توجد تدوينات بعد." },
-  { "clave": "plantillaCustom.progresoPh", "texto": "القيمة…" },
-  { "clave": "plantillaCustom.progresoVacio", "texto": "لا توجد قياسات بعد." },
-  { "clave": "plantillaCustom.unidad", "texto": "الوحدة (اختياري)" },
-  { "clave": "plantillaCustom.habitoMarcar", "texto": "تحديد اليوم" },
-  { "clave": "plantillaCustom.habitoHecho", "texto": "تم اليوم ✓" },
-  { "clave": "plantillaCustom.habitoRacha", "texto": "سلسلة" },
-  { "clave": "plantillaCustom.habitoDias", "texto": "أيام النشاط" },
-  { "clave": "plantillaCustom.metaSemana", "texto": "عدد المرات أسبوعيًا (اختياري)" },
-  { "clave": "plantillaCustom.sesionMin", "texto": "الدقائق" },
-  { "clave": "plantillaCustom.sesionNota", "texto": "ملاحظة (اختياري)" },
-  { "clave": "plantillaCustom.sesionVacio", "texto": "لا توجد جلسات بعد." },
-  { "clave": "plantillaCustom.sesionTotal", "texto": "الإجمالي" },
-  { "clave": "plantillaCustom.metaMin", "texto": "الهدف بالدقائق (اختياري)" },
-  { "clave": "plantillaCustom.cuentaFecha", "texto": "التاريخ المستهدف" },
-  { "clave": "plantillaCustom.cuentaSinFecha", "texto": "يلزم تحديد تاريخ مستهدف عند التعديل." },
-  { "clave": "plantillaCustom.cuentaDias", "texto": "أيام متبقية" },
-  { "clave": "plantillaCustom.cuentaHoy", "texto": "اليوم!" },
-  { "clave": "plantillaCustom.cuentaPaso", "texto": "أيام مضت" },
-  { "clave": "plantillaCustom.galeriaAgregar", "texto": "إضافة صور" },
-  { "clave": "plantillaCustom.galeriaVacio", "texto": "لا توجد صور بعد." },
-  { "clave": "objetos.ayuda", "texto": "جميع العناصر الموجودة، مصنّفة حسب الفئة. أنشئ عناصرك الخاصة أو عدّلها أو احذفها." },
-  { "clave": "objetos.ayudaEspeciales", "texto": "العناصر ذات التأثير، مُجمّعة حسب وظيفتها. افتحها لعرض مجلداتها." },
-  { "clave": "objetos.agregar", "texto": "إضافة عنصر ثلاثي الأبعاد" },
-  { "clave": "objetos.alMapa", "texto": "وضعه على الخريطة أو في غرفة" },
-  { "clave": "destinoObj.titulo", "texto": "أين يوضع؟" },
-  { "clave": "destinoObj.mapa", "texto": "على الخريطة" },
-  { "clave": "destinoObj.mapaDesc", "texto": "بشكل حر في الخارج، خارج الغرف." },
-  { "clave": "destinoObj.enCuarto", "texto": "أو داخل غرفة" },
-  { "clave": "objetos.editar", "texto": "تعديل في المحرر" },
-  { "clave": "objetos.editarForma", "texto": "تعديل شكله" },
-  { "clave": "objetos.animado", "texto": "عنصر متحرك" },
-  { "clave": "objetos.funcion.vehiculo", "texto": "قابل للقيادة" },
-  { "clave": "objetos.funcion.asiento", "texto": "يمكن الجلوس هنا" },
-  { "clave": "objetos.funcion.acostarse", "texto": "يمكن الاستلقاء هنا" },
-  { "clave": "objetos.funcion.laptop", "texto": "يُستخدم للعمل" },
-  { "clave": "objetos.funcion.cajaFuerte", "texto": "يحفظ ما يهم" },
-  { "clave": "objetos.funcion.computo", "texto": "يُستخدم للحساب" },
-  { "clave": "objetos.funcion.tapete", "texto": "يُستخدم للتأمل" },
-  { "clave": "objetos.funcion.libreta", "texto": "يُستخدم للكتابة" },
-  { "clave": "objetos.funcion.caminadora", "texto": "يُستخدم للمشي" },
-  { "clave": "objetos.funcion.anuncio", "texto": "لافتة: نص من اختيارك" },
-  { "clave": "objetos.funcion.parque", "texto": "تفاعلي: يمكن الصعود إليه للعب" },
-  { "clave": "objetos.rotarIzq", "texto": "تدوير لليسار" },
-  { "clave": "objetos.rotarDer", "texto": "تدوير لليمين" },
-  { "clave": "objetos.quitarDelMapa", "texto": "إزالة من الخريطة" },
-  { "clave": "objetos.borrar", "texto": "حذف العنصر" },
-  { "clave": "objetos.borrarConfirm", "texto": "حذف «{nombre}»؟ لا يمكن التراجع عن هذا الإجراء." },
-  { "clave": "objetos.renombrar", "texto": "إعادة تسمية المجلد" },
-  { "clave": "objetos.restaurar", "texto": "استعادة العناصر الأساسية" },
-  { "clave": "objetos.restaurarConfirm", "texto": "ستتم إعادة إضافة عناصر الكتالوج الأساسية التي حُذفت. المتابعة؟" },
-  { "clave": "mapa.editar", "texto": "تعديل الخريطة" },
-  { "clave": "mapa.editarTitulo", "texto": "تعديل خريطة البيت" },
-  { "clave": "mapa.quitar", "texto": "إزالة من الخريطة" },
-  { "clave": "chat.tuAsistente", "texto": "مساعدك:" },
-  { "clave": "chat.vacio", "texto": "لا توجد تدوينات بعد. أخبر المهندس بما فعلت." },
-  { "clave": "chat.sinClasificar", "texto": "غير مصنّف" },
-  { "clave": "chat.capturado", "texto": "تم الالتقاط" },
-  { "clave": "chat.reclasificar", "texto": "إعادة التصنيف" },
-  { "clave": "chat.eliminar", "texto": "حذف" },
-  { "clave": "chat.ocultar", "texto": "إغلاق القائمة" },
-  { "clave": "chat.verMenu", "texto": "فتح القائمة" },
-  { "clave": "chat.registrar", "texto": "تسجيل" },
-  { "clave": "chat.chip.crear", "texto": "إنشاء" },
-  { "clave": "chat.chip.enMapa", "texto": "(على الخريطة)" },
-  { "clave": "chat.chip.fuera", "texto": "(خارج)" },
-  { "clave": "chat.abrirConv", "texto": "عرض المحادثة" },
-  { "clave": "chat.verConv", "texto": "عرض المحادثة كاملة" },
-  { "clave": "chat.burbuja.ver", "texto": "المس لقراءة كل النص" },
-  { "clave": "dialogo.salir", "texto": "إنهاء المحادثة (Esc)" },
-  { "clave": "dialogo.completar", "texto": "عرض النص كاملاً" },
-  { "clave": "dialogo.hablar", "texto": "التحدث" },
-  { "clave": "chat.conversacion", "texto": "المحادثة" },
-  { "clave": "chat.conv.vacia", "texto": "لا توجد رسائل مع {pet} بعد. يمكنك الكتابة في الشريط أدناه." },
-  { "clave": "chat.conv.limpiar", "texto": "مسح المحادثة" },
-  { "clave": "chat.conv.cerrar", "texto": "إغلاق" },
-  { "clave": "chat.tu", "texto": "أنت" },
-  { "clave": "chat.tab.chats", "texto": "المحادثات" },
-  { "clave": "chat.tab.registros", "texto": "التدوينات" },
-  { "clave": "chat.config.abrir", "texto": "إعداد المساعدين" },
-  { "clave": "chat.config.titulo", "texto": "مساعدوك" },
-  { "clave": "chat.config.activo", "texto": "نشط" },
-  { "clave": "chat.config.sinCaracter", "texto": "لم يتم تحديد شخصية" },
-  { "clave": "chat.config.archivaTodo", "texto": "يؤرشف في كل الغرف" },
-  { "clave": "chat.config.cuartos", "texto": "تعيين التطبيقات" },
-  { "clave": "chat.config.cuartosTodos", "texto": "(بلا تحديد = الكل)" },
-  { "clave": "chat.config.nuevo", "texto": "إنشاء مساعد" },
-  { "clave": "chat.config.nuevoNombre", "texto": "مساعد جديد" },
-  { "clave": "chat.config.nuevoSaludo", "texto": "مرحبًا! أنا مساعدك الجديد." },
-  { "clave": "chat.config.nombre", "texto": "الاسم" },
-  { "clave": "chat.config.emoji", "texto": "الرمز التعبيري للمساعد" },
-  { "clave": "chat.config.historia", "texto": "قصة الشخصية وسياقها" },
-  { "clave": "chat.config.historiaPh", "texto": "القصة والسياق: مثال: «بحّار عجوز حرس منارة لأربعين عامًا، والآن يحرس بيتك»" },
-  { "clave": "chat.config.caracterPh", "texto": "الشخصية: مثال: «تتحدث كالقراصنة، بأسلوب مرح ومباشر، وتنهي حديثك بـ 🏴‍☠️»" },
-  { "clave": "chat.config.forma", "texto": "الشكل ثلاثي الأبعاد:" },
-  { "clave": "chat.config.color", "texto": "لون الشخصية" },
-  { "clave": "chat.config.formaPh", "texto": "صِفه: «تنين أخضر يرتدي نظارة وسترة»" },
-  { "clave": "chat.config.formaSinIa", "texto": "وصف الشكل يتطلب الذكاء الاصطناعي (يلزم اختيار نموذج من الشريط)" },
-  { "clave": "chat.config.formaGenerar", "texto": "إنشاء الشكل بالذكاء الاصطناعي" },
-  { "clave": "chat.config.formaError", "texto": "تعذّر إنشاء الشكل. تحقق من نموذج الذكاء الاصطناعي وحاول مرة أخرى." },
-  { "clave": "chat.config.subirGlb", "texto": "رفع نموذج .glb" },
-  { "clave": "chat.config.quitarGlb", "texto": "إزالة النموذج المرفوع" },
-  { "clave": "chat.config.quitarFormaIa", "texto": "إزالة الشكل الذي أنشأه الذكاء الاصطناعي" },
-  { "clave": "chat.config.enMapa", "texto": "إزالة من الخريطة" },
-  { "clave": "chat.config.ponerMapa", "texto": "إضافة إلى الخريطة" },
-  { "clave": "chat.config.voz", "texto": "الصوت:" },
-  { "clave": "chat.config.vozAuto", "texto": "تلقائي (حسب اللغة)" },
-  { "clave": "chat.config.vozIA", "texto": "صوت بالذكاء الاصطناعي (OpenAI، أكثر طبيعية)" },
-  { "clave": "chat.config.vozLeer", "texto": "قراءة ما يقوله بصوت عالٍ" },
-  { "clave": "chat.config.vozProbar", "texto": "تجربة الصوت" },
-  { "clave": "chat.config.vozTono", "texto": "النبرة" },
-  { "clave": "chat.config.vozVelocidad", "texto": "السرعة" },
-  { "clave": "chat.config.vozVolumen", "texto": "مستوى الصوت" },
-  { "clave": "chat.config.espontaneo", "texto": "تعليقات عفوية" },
-  { "clave": "chat.config.corazon", "texto": "القلب (العفوية)" },
-  { "clave": "chat.config.corazonOff", "texto": "معطّلة" },
-  { "clave": "corazon.nivel.0", "texto": "صامت" },
-  { "clave": "corazon.nivel.1", "texto": "هادئ" },
-  { "clave": "corazon.nivel.2", "texto": "ثرثار" },
-  { "clave": "corazon.nivel.3", "texto": "مهذار" },
-  { "clave": "corazon.mago.manana.0", "texto": "الفجر يجلب مانا جديدة... أشعر بذلك ✨" },
-  { "clave": "corazon.mago.manana.1", "texto": "استيقظت لفافاتي مرتبة. فأل حسن 🔮" },
-  { "clave": "corazon.mago.tarde.0", "texto": "بعد الظهر مثالي لتدوين الأعمال في كتاب التعاويذ ✨" },
-  { "clave": "corazon.mago.tarde.1", "texto": "أشعر بطاقات هادئة حول البيت بعد الظهر 🔮" },
-  { "clave": "corazon.mago.noche.0", "texto": "النجوم تبوح بأسرارها... ليلة مثالية للتعاويذ 🌙" },
-  { "clave": "corazon.mago.noche.1", "texto": "القمر يشحن كرتي. كل شيء هادئ هنا 🔮" },
-  { "clave": "corazon.mago.rutina.0", "texto": "كرتي البلورية تعلن: «{r}» في {h} ✨" },
-  { "clave": "corazon.mago.rutina.1", "texto": "القدر يحدد {h}: «{r}» يقترب 🔮" },
-  { "clave": "corazon.mago.generica.0", "texto": "هذا البيت يفيض بالسحر اليوم ✨" },
-  { "clave": "corazon.mago.generica.1", "texto": "تعويذة ترتيب لا تضر أبدًا... 🔮" },
-  { "clave": "corazon.gato.manana.0", "texto": "الوقت مبكر جدًا. البشر يستيقظون بغرابة 🐾" },
-  { "clave": "corazon.gato.manana.1", "texto": "تثاؤب. الصباح أفضل مع قيلولة 🐱" },
-  { "clave": "corazon.gato.tarde.0", "texto": "وقت مثالي لقيلولة في الشمس. مجرد رأي 🐾" },
-  { "clave": "corazon.gato.tarde.1", "texto": "بعد ظهر هادئ... تمامًا كما أحب 🐱" },
-  { "clave": "corazon.gato.noche.0", "texto": "أخيرًا حلّ الليل. وقتي المفضل 🐱" }
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-gemelos",
+    "texto": "ضع يديك على الحائط ومدّد ربلة ساقك مع إبقاء رجلك الخلفية مستقيمة."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-hombros",
+    "texto": "اعبر بذراع واحدة أمام صدرك واسحبها بالذراع الأخرى."
+  },
+  {
+    "clave": "ejercicio.ejDesc.foam-roller",
+    "texto": "دحرج عضلاتك على أسطوانة الفوم لتحرير التوتر بعد التمرين."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-triceps",
+    "texto": "ضع مرفقك خلف رأسك وادفعه برفق باليد الأخرى."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-de-cadera",
+    "texto": "في وضعية الاندفاع، ادفع وركك للأمام لتمديد مقدمة الفخذ."
+  },
+  {
+    "clave": "ejercicio.ejDesc.piernas-en-la-pared",
+    "texto": "استلقِ وأسند رجليك على الحائط للاسترخاء وتصريف السوائل."
+  },
+  {
+    "clave": "ejercicio.ejDesc.savasana",
+    "texto": "استلقِ على ظهرك وأرخِ جسمك بالكامل مع التنفس ببطء."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-del-nino-apoyada",
+    "texto": "وضعية الطفل مع سند للاسترخاء لفترة أطول."
+  },
+  {
+    "clave": "ejercicio.ejDesc.respiracion-profunda",
+    "texto": "تنفّس ببطء وعمق شهيقًا وزفيرًا لتهدئة الجهاز العصبي."
+  },
+  {
+    "clave": "ejercicio.ejDesc.mariposa-reclinada",
+    "texto": "استلقِ مع ملامسة باطن قدميك لبعضهما، ودع ركبتيك تنزلان وأرخِ وركيك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsion-reclinada",
+    "texto": "استلقِ ودع ركبتيك تسقطان إلى جانب واحد، مع تدوير عمودك الفقري برفق."
+  },
+  {
+    "clave": "ejercicio.ejDesc.liberacion-miofascial-con-pelota",
+    "texto": "دحرج كرة صلبة بضغط متحكَّم به من كعبك إلى مقدمة قدمك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-tobillo",
+    "texto": "ارفع رجلًا واحدة وحرّك كاحلك في دوائر واسعة باتجاهين."
+  },
+  {
+    "clave": "ejercicio.ejDesc.recogida-de-toalla-con-dedos",
+    "texto": "حاول جمع منشفة على الأرض باستخدام أصابع قدمك فقط."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-dorsiflexion",
+    "texto": "قف مواجهًا للحائط واثنِ ركبتك الأمامية مع إبقاء كعبك مسطحًا على الأرض للتمدد."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-talones-unipodal",
+    "texto": "قف على قدم واحدة وارفع كعبك ببطء ثم أنزله بتحكم لامركزي."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-y-extension-en-descarga",
+    "texto": "استلقِ واثنِ ركبتك مقرّبًا كعبك من مؤخرتك، ثم مدّدها دون رفع قدمك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "ضع كعبك أمامك واثنِ جذعك للأمام برفق مع إبقاء ركبتك ممدودة."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-isometrica-wall-squat",
+    "texto": "أسند ظهرك على الحائط، انزل حتى زاوية 90 درجة، واستمر في الوضعية مع التأكد من عدم انثناء ركبتيك للداخل."
+  },
+  {
+    "clave": "ejercicio.ejDesc.equilibrio-unipodal-single-leg-balance",
+    "texto": "حافظ على توازنك على رجل واحدة مع ثني ركبتك قليلًا، دون أن تدعها تنثني للداخل."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadillas-del-arquero",
+    "texto": "وسّع رجليك، واثنِ ركبة واحدة ناقلاً وزنك مع إبقاء الرجل الأخرى ممدودة."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estocadas-lunges",
+    "texto": "خطُ خطوة للأمام وأنزل وركك، مكوّنًا زاوية 90 درجة مع ركبتك الأمامية."
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-90-90",
+    "texto": "اجلس مع وضع رجليك بزاوية 90 درجة، ودوّر جذعك ورجليك من جانب إلى آخر."
+  },
+  {
+    "clave": "ejercicio.ejDesc.el-puente-glute-bridge",
+    "texto": "استلقِ على ظهرك وارفع حوضك مع شد عضلات الأرداف حتى تصطف كتفاك وركك وركبتاك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-en-estocada",
+    "texto": "مع وضع ركبة واحدة على الأرض، ادفع حوضك للأمام مع إبقاء ظهرك مستقيمًا لتمديد عضلة السواس."
+  },
+  {
+    "clave": "ejercicio.ejDesc.abduccion-lateral-de-cadera",
+    "texto": "استلقِ على جنبك وارفع رجلك العلوية مع إبقاء حوضك ثابتًا."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-profunda-con-apertura",
+    "texto": "في وضعية القرفصاء، ادفع ركبتيك للخارج بمرفقيك لفتح الوركين."
+  },
+  {
+    "clave": "ejercicio.ejDesc.balanceo-dinamico-de-piernas",
+    "texto": "قف وأرجح رجلًا واحدة للأمام والخلف وجانبيًا كأنها بندول."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-gato-vaca",
+    "texto": "على يديك وركبتيك، بدّل بين تقويس ظهرك نحو السقف وإنزال بطنك نحو الأرض."
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsiones-lumbares-suaves",
+    "texto": "استلقِ على ظهرك ودع ركبتيك تسقطان معًا إلى جانب ثم الجانب الآخر."
+  },
+  {
+    "clave": "ejercicio.ejDesc.pointer-bird-dog",
+    "texto": "على يديك وركبتيك، مدّد الرجل والذراع المتقابلتين مع إبقاء أسفل ظهرك مسطحًا."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-frontal-isometricos",
+    "texto": "حافظ على وضعية البلانك مستندًا على ساعديك، مكوّنًا خطًا مستقيمًا."
+  },
+  {
+    "clave": "ejercicio.ejDesc.roll-down-curl-jefferson",
+    "texto": "قف ولفّ عمودك الفقري للأسفل ببطء فقرة تلو الأخرى."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-lumbar-boca-abajo",
+    "texto": "استلقِ على بطنك وارفع وركيك ثم أنزلهما مع تمديد ظهرك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotacion-toracica",
+    "texto": "على يديك وركبتيك، ارفع ذراعًا واحدة إلى الجانب وتابع يدك بنظرك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.retraccion-escapular",
+    "texto": "اضغط لوحي كتفيك للخلف وللأسفل مع الحفاظ على وضعية مستقيمة."
+  },
+  {
+    "clave": "ejercicio.ejDesc.angeles-de-pared-wall-angels",
+    "texto": "استند بظهرك على الحائط وحرّك ذراعيك للأعلى وللأسفل مع إبقاء مرفقيك ملامسين للحائط."
+  },
+  {
+    "clave": "ejercicio.ejDesc.lunge-con-apertura-de-pectoral",
+    "texto": "في وضعية الاندفاع، اربط يديك خلف رقبتك وافتح مرفقيك للخلف."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-dorsal-en-pared",
+    "texto": "ضع يديك على الحائط ودع جذعك ينزل مع إبقاء ركبتيك مستقيمتين."
+  },
+  {
+    "clave": "ejercicio.ejDesc.el-gato-y-la-mesa",
+    "texto": "على يديك وركبتيك، قوّس ظهرك ثم أنزل صدرك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-hombros",
+    "texto": "حركات دائرية واسعة، مع تفضيل المسار للخلف وللأسفل."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-pecho-pectoral",
+    "texto": "اربط يديك خلف ظهرك وافتح صدرك دون إجهاد رقبتك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.dislocaciones-con-goma-o-palo",
+    "texto": "مرّر شريطًا فوق رأسك وخلف ظهرك مع إبقاء مرفقيك مستقيمين."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotacion-externa-con-banda",
+    "texto": "مع إبقاء مرفقيك بزاوية 90 درجة ملاصقين لجسمك، دوّر يديك للخارج ضد المقاومة."
+  },
+  {
+    "clave": "ejercicio.ejDesc.thread-the-needle-enhebrar-aguja",
+    "texto": "على يديك وركبتيك، مرّر ذراعًا واحدة تحت جسمك مع إسناد كتفك على الأرض."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-y-medios-circulos",
+    "texto": "بإسناد ذقنك على صدرك، ارسم دوائر واسعة وبطيئة جدًا دون إجبار الحركة عبر الألم."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-trapecio-superior",
+    "texto": "أمِل رأسك برفق مقرّبًا أذنك من الكتف المقابل."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-cervicales-con-nodding",
+    "texto": "أدر رأسك وقم بحركات إيماء صغيرة (كأنك تقول «نعم»)."
+  },
+  {
+    "clave": "ejercicio.ejDesc.retracciones-de-barbilla-chin-tucks",
+    "texto": "اسحب ذقنك للخلف مباشرة مكوّنًا «ذقنًا مزدوجة» لمحاذاة رقبتك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.isometricos-cervicales",
+    "texto": "ادفع رأسك بيدك، مع مقاومة الحركة لتجنب الانحناء."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-y-extension-de-muneca",
+    "texto": "مع تمديد ذراعيك، اثنِ رسغك نحو السقف ثم نحو الأرض."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-munecas",
+    "texto": "دوّر رسغيك مكوّنًا دوائر باتجاهين."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores",
+    "texto": "مع توجيه راحة يدك للأعلى، استخدم يدك الأخرى لدفع أصابعك نحو جسمك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.agarre-activo-y-pasivo",
+    "texto": "أغلق قبضتيك بإحكام ثم افتحهما مع الاسترخاء التام."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-de-munecas",
+    "texto": "في وضعية البلانك أو الركوع، ارتفع لتستند على أطراف أصابعك فقط، ثم انزل."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.liberacion-miofascial-con-pelota",
+    "texto": "من 1 إلى 2 دقيقة لكل قدم (حركة متواصلة)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-tobillo",
+    "texto": "10 إلى 12 تكرارًا في كل اتجاه لكل كاحل."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.recogida-de-toalla-con-dedos",
+    "texto": "10 إلى 15 تكرارًا (اقبض وأفلت) لكل قدم."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-dorsiflexion",
+    "texto": "استمر 15 إلى 30 ثانية لكل رجل، ونفّذ 2 إلى 4 مجموعات."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.elevacion-de-talones-unipodal",
+    "texto": "10 إلى 15 تكرارًا لكل رجل."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-en-descarga",
+    "texto": "8 إلى 10 تكرارات لكل رجل."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "استمر 20 ثانية لكل رجل."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadilla-isometrica-wall-squat",
+    "texto": "استمر 5 إلى 15 ثانية، ثم قف، وكرّر (3 إلى 5 مرات)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.equilibrio-unipodal-single-leg-balance",
+    "texto": "استمر 15 إلى 60 ثانية لكل رجل (كرّر 2 إلى 3 مرات)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadillas-del-arquero",
+    "texto": "15 تكرارًا، بالتناوب بين الجانبين."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estocadas-lunges",
+    "texto": "8 إلى 12 تكرارًا لكل رجل."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.movilidad-90-90",
+    "texto": "8 إلى 12 تكرارًا لكل جانب (نحو 1-2 دقيقة)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.el-puente-glute-bridge",
+    "texto": "15 تكرارًا (استمر أعلى الحركة 2-3 ثانية في كل مرة)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores-en-estocada",
+    "texto": "استمر 20 ثانية لكل رجل."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.abduccion-lateral-de-cadera",
+    "texto": "10 إلى 15 تكرارًا لكل جانب، مع الاستمرار بضع ثوانٍ أعلى الحركة."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadilla-profunda-con-apertura",
+    "texto": "15 تكرارًا للفتح."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.balanceo-dinamico-de-piernas",
+    "texto": "8 إلى 10 تكرارات لكل رجل."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.postura-gato-vaca",
+    "texto": "دقيقة واحدة متواصلة (أو 10 إلى 15 نفسًا)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.torsiones-lumbares-suaves",
+    "texto": "10 إلى 15 تكرارًا لكل جانب."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.pointer-bird-dog",
+    "texto": "استمر 30 ثانية على جانب واحد، ثم بدّل."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.plancha-frontal-isometricos",
+    "texto": "استمر 15 إلى 60 ثانية حسب قدرتك."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.roll-down-curl-jefferson",
+    "texto": "15 تكرارًا بطيئًا."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-lumbar-boca-abajo",
+    "texto": "دقيقة واحدة متواصلة."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotacion-toracica",
+    "texto": "30 ثانية لكل جانب."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.retraccion-escapular",
+    "texto": "8 إلى 10 تكرارات، مع الاستمرار في الانقباض 5 إلى 10 ثوانٍ في كل مرة."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.angeles-de-pared-wall-angels",
+    "texto": "10 إلى 15 تكرارًا بطيئًا."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.lunge-con-apertura-de-pectoral",
+    "texto": "15 تكرارًا على كل جانب."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-dorsal-en-pared",
+    "texto": "استمر 20 ثانية."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.el-gato-y-la-mesa",
+    "texto": "15 تكرارًا بالتناغم مع تنفسك."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-hombros",
+    "texto": "8 إلى 10 تكرارات (للأمام وللخلف)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-pecho-pectoral",
+    "texto": "استمر 15 إلى 20 ثانية."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.dislocaciones-con-goma-o-palo",
+    "texto": "10 إلى 15 تكرارًا."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotacion-externa-con-banda",
+    "texto": "8 إلى 12 تكرارًا."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.thread-the-needle-enhebrar-aguja",
+    "texto": "استمر 15 إلى 30 ثانية لكل جانب (2-3 مجموعات)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotaciones-y-medios-circulos",
+    "texto": "8 إلى 10 تكرارات لكل اتجاه."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-trapecio-superior",
+    "texto": "استمر 15 إلى 30 ثانية لكل جانب."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotaciones-cervicales-con-nodding",
+    "texto": "8 إلى 12 تكرارًا لكل جانب."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.retracciones-de-barbilla-chin-tucks",
+    "texto": "10 إلى 15 تكرارًا، مع الاستمرار في الوضعية 5 إلى 10 ثوانٍ."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.isometricos-cervicales",
+    "texto": "8 إلى 12 تكرارًا (مع الاستمرار في الشد 5-10 ثوانٍ)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-de-muneca",
+    "texto": "10 إلى 12 تكرارًا."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-munecas",
+    "texto": "10 إلى 15 دورة لكل اتجاه."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores",
+    "texto": "استمر 15 إلى 30 ثانية."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.agarre-activo-y-pasivo",
+    "texto": "10 إلى 15 تكرارًا."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.plancha-de-munecas",
+    "texto": "8 إلى 12 تكرارًا."
+  },
+  {
+    "clave": "ejercicio.dificultad.baja",
+    "texto": "منخفضة"
+  },
+  {
+    "clave": "ejercicio.dificultad.media",
+    "texto": "متوسطة"
+  },
+  {
+    "clave": "ejercicio.dificultad.alta",
+    "texto": "عالية"
+  },
+  {
+    "clave": "ejercicio.dificultad.mediaAlta",
+    "texto": "متوسطة / عالية"
+  },
+  {
+    "clave": "ejercicio.rut.full-body",
+    "texto": "الجسم بالكامل"
+  },
+  {
+    "clave": "ejercicio.rut.tren-superior",
+    "texto": "الجزء العلوي"
+  },
+  {
+    "clave": "ejercicio.rut.tren-inferior",
+    "texto": "الجزء السفلي"
+  },
+  {
+    "clave": "ejercicio.rut.push-pecho-y-triceps",
+    "texto": "دفع · الصدر والترايسبس"
+  },
+  {
+    "clave": "ejercicio.rut.pull-espalda-y-biceps",
+    "texto": "سحب · الظهر والبايسبس"
+  },
+  {
+    "clave": "ejercicio.rut.legs-pierna-completa",
+    "texto": "أرجل · الساق كاملة"
+  },
+  {
+    "clave": "ejercicio.rut.hiit-20-min",
+    "texto": "HIIT 20 دقيقة"
+  },
+  {
+    "clave": "ejercicio.rut.carrera-continua",
+    "texto": "الجري الثابت"
+  },
+  {
+    "clave": "ejercicio.rut.caminata-inclinada",
+    "texto": "المشي المائل"
+  },
+  {
+    "clave": "ejercicio.rut.bike-tempo",
+    "texto": "دراجة تيمبو"
+  },
+  {
+    "clave": "ejercicio.rut.triatlon-sprint",
+    "texto": "ترياثلون سريع"
+  },
+  {
+    "clave": "ejercicio.rut.movilidad-matutina",
+    "texto": "حركة الصباح"
+  },
+  {
+    "clave": "ejercicio.rut.yoga-flow",
+    "texto": "يوغا فلو"
+  },
+  {
+    "clave": "ejercicio.rut.cadera-y-piernas",
+    "texto": "الورك والساقين"
+  },
+  {
+    "clave": "ejercicio.rut.estiramiento-post-entreno",
+    "texto": "تمدد بعد التمرين"
+  },
+  {
+    "clave": "ejercicio.rut.espalda-y-hombros",
+    "texto": "الظهر والكتفان"
+  },
+  {
+    "clave": "ejercicio.rut.cuello-y-oficina",
+    "texto": "راحة الرقبة والمكتب"
+  },
+  {
+    "clave": "ejercicio.rut.antes-de-dormir",
+    "texto": "قبل النوم"
+  },
+  {
+    "clave": "ejercicio.rutDesc.full-body",
+    "texto": "دائرة قوة لكامل الجسم."
+  },
+  {
+    "clave": "ejercicio.rutDesc.tren-superior",
+    "texto": "الصدر والظهر والكتفان والذراعان في جلسة واحدة."
+  },
+  {
+    "clave": "ejercicio.rutDesc.tren-inferior",
+    "texto": "الأرجل والأرداف كاملة."
+  }
 ]

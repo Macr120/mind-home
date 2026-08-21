@@ -1,542 +1,86 @@
 [
-  {
-    "clave": "ejercicio.cronograma.desc",
-    "texto": "Твои большие цели на оси времени. С ✨ ИИ составляет план и подсказывает, какие рутины стоит добавить в расписание."
-  },
-  {
-    "clave": "sala.tab.cronograma",
-    "texto": "Цели"
-  },
-  {
-    "clave": "avisos.rutinaPasos",
-    "texto": "Тебе нужно сделать {n} шагов."
-  },
-  {
-    "clave": "avisos.rutinaHora",
-    "texto": "Пора."
-  },
-  {
-    "clave": "avisos.abrir",
-    "texto": "Открыть"
-  },
-  {
-    "clave": "avisos.metaFalta",
-    "texto": "Пройдено {hecho} из {objetivo}."
-  },
-  {
-    "clave": "notif.titulo",
-    "texto": "Уведомления"
-  },
-  {
-    "clave": "notif.general",
-    "texto": "Уведомлять меня"
-  },
-  {
-    "clave": "notif.rutinas",
-    "texto": "События и рутины по времени"
-  },
-  {
-    "clave": "notif.metas",
-    "texto": "Невыполненные цели дня"
-  },
-  {
-    "clave": "notif.porApp",
-    "texto": "По приложениям"
-  },
-  {
-    "clave": "notif.denegado",
-    "texto": "Браузер заблокировал уведомления для этого сайта: разблокировать их можно только через значок замка. А пока напоминания будут приходить через твоего помощника."
-  },
-  {
-    "clave": "notif.noSoportado",
-    "texto": "В этом браузере нет уведомлений — напоминания приходят через твоего помощника."
-  },
-  {
-    "clave": "horario.agendar",
-    "texto": "Запланировать"
-  },
-  {
-    "clave": "horario.titulo",
-    "texto": "Расписание"
-  },
-  {
-    "clave": "horario.plegar",
-    "texto": "Готово"
-  },
-  {
-    "clave": "horario.hora",
-    "texto": "Время"
-  },
-  {
-    "clave": "horario.frecuencia",
-    "texto": "Повтор"
-  },
-  {
-    "clave": "horario.dias",
-    "texto": "Дни"
-  },
-  {
-    "clave": "horario.sinDias",
-    "texto": "Ничего не отмечено — значит, каждый день."
-  },
-  {
-    "clave": "horario.sinHora",
-    "texto": "Без времени"
-  },
-  {
-    "clave": "horario.todosDias",
-    "texto": "каждый день"
-  },
-  {
-    "clave": "horario.avisar",
-    "texto": "Напомнить в это время"
-  },
-  {
-    "clave": "horario.avisar.hint",
-    "texto": "Придёт уведомление."
-  },
-  {
-    "clave": "horario.avisar.hintSinPermiso",
-    "texto": "Напомним прямо в приложении."
-  },
-  {
-    "clave": "horario.avisar.on",
-    "texto": "Да"
-  },
-  {
-    "clave": "horario.avisar.off",
-    "texto": "Нет"
-  },
-  {
-    "clave": "horario.hechoHoy",
-    "texto": "Сделано сегодня"
-  },
-  {
-    "clave": "horario.masOpciones",
-    "texto": "Больше опций ›"
-  },
-  {
-    "clave": "horario.quitar",
-    "texto": "Убрать"
-  },
-  {
-    "clave": "rutinas.avisar",
-    "texto": "Напомнить в это время"
-  },
-  {
-    "clave": "rutinas.avisar.hint",
-    "texto": "Придёт уведомление."
-  },
-  {
-    "clave": "rutinas.avisar.hintSinPermiso",
-    "texto": "Напомним прямо в приложении."
-  },
-  {
-    "clave": "rutinas.avisar.on",
-    "texto": "Да"
-  },
-  {
-    "clave": "rutinas.avisar.off",
-    "texto": "Нет"
-  },
-  {
-    "clave": "avisoAct.cuerpo",
-    "texto": "Время ({hora})."
-  },
-  {
-    "clave": "avisoAct.ahoraNo",
-    "texto": "Не сейчас"
-  },
-  {
-    "clave": "avisoAct.ir",
-    "texto": "Перейти и записать"
-  },
-  {
-    "clave": "hobbies.registrarMin",
-    "texto": "Записать {n} мин"
-  },
-  {
-    "clave": "hobbies.plan.tipo",
-    "texto": "Практика"
-  },
-  {
-    "clave": "hobbies.plan.ejemplo",
-    "texto": "Сыграть 3 песни целиком"
-  },
-  {
-    "clave": "hobbies.plan.ejProyecto",
-    "texto": "Завершить {proyecto}"
-  },
-  {
-    "clave": "hobbies.plan.material",
-    "texto": "Проекты плана"
-  },
-  {
-    "clave": "ejercicio.registrarSesion",
-    "texto": "Записать {n} мин"
-  },
-  {
-    "clave": "ejercicio.plan.ejemplo",
-    "texto": "Пробежать 5 км без остановки"
-  },
-  {
-    "clave": "ejercicio.plan.material",
-    "texto": "Рутины плана"
-  },
-  {
-    "clave": "cocina.horarios",
-    "texto": "Время приёма пищи"
-  },
-  {
-    "clave": "cocina.plan.tipoComida",
-    "texto": "Приём пищи"
-  },
-  {
-    "clave": "cocina.plan.material",
-    "texto": "Рецепты плана"
-  },
-  {
-    "clave": "cocina.plan.ejemplo",
-    "texto": "Попробовать средиземноморскую диету"
-  },
-  {
-    "clave": "cocina.plan.ejBajar",
-    "texto": "Снизить вес до {kg} кг"
-  },
-  {
-    "clave": "cocina.plan.ejSubir",
-    "texto": "Набрать вес до {kg} кг"
-  },
-  {
-    "clave": "cocina.plan.ejMantener",
-    "texto": "Удерживать вес {kg} кг"
-  },
-  {
-    "clave": "biblioteca.plan.ejemplo",
-    "texto": "Освоить основы статистики"
-  },
-  {
-    "clave": "biblioteca.plan.material",
-    "texto": "Из твоей энциклопедии"
-  },
-  {
-    "clave": "idiomas.plan.ejemplo",
-    "texto": "Свободно говорить в следующей поездке"
-  },
-  {
-    "clave": "idiomas.plan.ejemploNivel",
-    "texto": "Достичь уровня {nivel} по {idioma}"
-  },
-  {
-    "clave": "idiomas.plan.material",
-    "texto": "Темы плана"
-  },
-  {
-    "clave": "sala.plan.ejemplo",
-    "texto": "Маршрут на 5 дней по Киото"
-  },
-  {
-    "clave": "sala.plan.ejLugar",
-    "texto": "Маршрут поездки в {lugar}"
-  },
-  {
-    "clave": "sala.plan.material",
-    "texto": "Из твоего списка «Хочу увидеть»"
-  },
-  {
-    "clave": "entret.plan.ejemplo",
-    "texto": "Досмотреть сагу «Крёстный отец»"
-  },
-  {
-    "clave": "entret.plan.material",
-    "texto": "Из твоего архива"
-  },
-  {
-    "clave": "descanso.plan.ejemplo",
-    "texto": "Засыпать меньше чем за 15 минут"
-  },
-  {
-    "clave": "anecdotario.plan.ejemplo",
-    "texto": "Записать поездку этого года"
-  },
-  {
-    "clave": "jardin.plan.ejemplo",
-    "texto": "Десять минут покоя в день"
-  },
-  {
-    "clave": "ideas.plan.ejemplo",
-    "texto": "Превратить идею из дневника в реальность"
-  },
-  {
-    "clave": "ideas.plan.material",
-    "texto": "Идеи плана"
-  },
-  {
-    "clave": "diario.plan.ejemplo",
-    "texto": "Читать утренний выпуск каждый день"
-  },
-  {
-    "clave": "garage.plan.ejemplo",
-    "texto": "Подготовить машину к зиме"
-  },
-  {
-    "clave": "garage.plan.material",
-    "texto": "Документы плана"
-  },
-  {
-    "clave": "agenda.plan.ejemplo",
-    "texto": "Сдать проект вовремя"
-  },
-  {
-    "clave": "agenda.plan.material",
-    "texto": "Задачи плана"
-  },
-  {
-    "clave": "cocina.horarios.ayuda",
-    "texto": "Когда ты ешь каждый приём пищи. Они появляются в твоём календаре и могут присылать напоминания."
-  },
-  {
-    "clave": "jardin.med.reservar",
-    "texto": "Твоё время покоя"
-  },
-  {
-    "clave": "jardin.med.bloque",
-    "texto": "Медитировать"
-  },
-  {
-    "clave": "jardin.registrarMin",
-    "texto": "Записать {n} мин"
-  },
-  {
-    "clave": "biblioteca.est.reservar",
-    "texto": "Твоё время учёбы"
-  },
-  {
-    "clave": "biblioteca.est.bloque",
-    "texto": "Учиться"
-  },
-  {
-    "clave": "biblioteca.registrarMin",
-    "texto": "Записать {n} мин"
-  },
-  {
-    "clave": "idiomas.rep.reservar",
-    "texto": "Твоё время повторения"
-  },
-  {
-    "clave": "idiomas.rep.bloque",
-    "texto": "Повторить {idioma}"
-  },
-  {
-    "clave": "notif.ayudaCerrada",
-    "texto": "Напоминания приходят, пока приложение открыто, даже в фоне. Если вкладка закрыта, браузер не может его разбудить — для этого нужно установить приложение на телефон."
-  },
-  {
-    "clave": "progreso.nivel",
-    "texto": "Уровень"
-  },
-  {
-    "clave": "progreso.racha",
-    "texto": "Серия"
-  },
-  {
-    "clave": "progreso.dias",
-    "texto": "дней"
-  },
-  {
-    "clave": "progreso.hoy",
-    "texto": "Сегодня"
-  },
-  {
-    "clave": "progreso.semana",
-    "texto": "7 дней"
-  },
-  {
-    "clave": "plantillas.ayuda",
-    "texto": "Перетащи шаблон в другую папку; коснись значка, чтобы попробовать приложение, и названия папки, чтобы переименовать её."
-  },
-  {
-    "clave": "plantillas.entrar",
-    "texto": "Открыть приложение"
-  },
-  {
-    "clave": "plantillas.cerrarPrevia",
-    "texto": "‹ Закрыть"
-  },
-  {
-    "clave": "plantillas.asistente",
-    "texto": "Помощник, который её ведёт"
-  },
-  {
-    "clave": "plantillas.sinAsistente",
-    "texto": "Без помощника (её ведут все)"
-  },
-  {
-    "clave": "plantillas.asignar",
-    "texto": "Назначить объекту или комнате"
-  },
-  {
-    "clave": "plantillas.asignarObjeto",
-    "texto": "+ Назначить объекту…"
-  },
-  {
-    "clave": "plantillas.asignarA",
-    "texto": "+ Назначить комнате…"
-  },
-  {
-    "clave": "plantillas.sinCuartos",
-    "texto": "Сначала создай комнату"
-  },
-  {
-    "clave": "plantillas.objetoPrincipal",
-    "texto": "Главный объект (вход в комнату)"
-  },
-  {
-    "clave": "plantillas.traeObjetos",
-    "texto": "Объекты, которые добавляет приложение"
-  },
-  {
-    "clave": "plantillas.esPrincipal",
-    "texto": "Главный объект"
-  },
-  {
-    "clave": "plantillas.hacerPrincipal",
-    "texto": "Сделать главным"
-  },
-  {
-    "clave": "plantillas.quitarObjeto",
-    "texto": "Убрать объект"
-  },
-  {
-    "clave": "plantillas.agregarObjeto",
-    "texto": "Добавить объект"
-  },
-  {
-    "clave": "selObjeto.titulo",
-    "texto": "Добавить объект"
-  },
-  {
-    "clave": "plantillas.todasAsignadas",
-    "texto": "Все приложения уже живут в комнатах. Если удалить комнату, её шаблон вернётся сюда."
-  },
-  {
-    "clave": "plantillaCustom.crear",
-    "texto": "Создать шаблон"
-  },
-  {
-    "clave": "plantillaCustom.editar",
-    "texto": "Изменить шаблон"
-  },
-  {
-    "clave": "plantillaCustom.eliminar",
-    "texto": "Удалить шаблон"
-  },
-  {
-    "clave": "plantillaCustom.confirmarBorrar",
-    "texto": "Удалить этот шаблон и все его данные?"
-  },
-  {
-    "clave": "plantillaCustom.enUso",
-    "texto": "Твои используемые шаблоны"
-  },
-  {
-    "clave": "plantillaCustom.nombrePh",
-    "texto": "Напр. Переезд, растения, питомец…"
-  },
-  {
-    "clave": "plantillaCustom.emojiLibre",
-    "texto": "Другой эмодзи"
-  },
-  {
-    "clave": "plantillaCustom.herramientas",
-    "texto": "Инструменты шаблона"
-  },
-  {
-    "clave": "plantillaCustom.sinBloques",
-    "texto": "Добавь хотя бы один инструмент — он станет разделом твоего приложения."
-  },
-  {
-    "clave": "plantillaCustom.quitarBloque",
-    "texto": "Убрать (при сохранении данные удалятся)"
-  },
-  {
-    "clave": "plantillaCustom.menusAyuda",
-    "texto": "Раздели блоки по вкладкам. Без меню приложение — это один экран."
-  },
-  {
-    "clave": "plantillaCustom.agregarMenu",
-    "texto": "Меню"
-  },
-  {
-    "clave": "plantillaCustom.agregarAqui",
-    "texto": "Добавить инструмент"
-  },
-  {
-    "clave": "plantillaCustom.agregarSubmenu",
-    "texto": "Подменю этого меню"
-  },
-  {
-    "clave": "plantillaCustom.menuNuevo",
-    "texto": "Меню {n}"
-  },
-  {
-    "clave": "plantillaCustom.submenuNuevo",
-    "texto": "Подменю {n}"
-  },
-  {
-    "clave": "plantillaCustom.menuSinNombre",
-    "texto": "Меню"
-  },
-  {
-    "clave": "plantillaCustom.menuNombrePh",
-    "texto": "Название меню"
-  },
-  {
-    "clave": "plantillaCustom.menuEmoji",
-    "texto": "Эмодзи меню (необязательно)"
-  },
-  {
-    "clave": "plantillaCustom.borrarMenu",
-    "texto": "Удалить меню (его блоки перейдут в первое)"
-  },
-  {
-    "clave": "plantillaCustom.menuBloque",
-    "texto": "Меню"
-  },
-  {
-    "clave": "plantillaCustom.menuVacio",
-    "texto": "В этом меню пока нет блоков."
-  },
-  {
-    "clave": "plantillaCustom.submenu",
-    "texto": "Подменю"
-  },
-  {
-    "clave": "plantillaCustom.editarApp",
-    "texto": "Изменить приложение"
-  },
-  {
-    "clave": "plantillaCustom.listo",
-    "texto": "Готово"
-  },
-  {
-    "clave": "plantillaCustom.editorCompleto",
-    "texto": "Полный редактор"
-  },
-  {
-    "clave": "plantillaCustom.borrar",
-    "texto": "Удалить"
-  },
-  {
-    "clave": "plantillaCustom.borrarMenuTitulo",
-    "texto": "Удалить «{nombre}»"
-  },
-  {
-    "clave": "plantillaCustom.borrarMenuMsj",
-    "texto": "Его инструменты вместе с данными перейдут в первое меню."
-  },
-  {
-    "clave": "plantillaCustom.borrarBloqueTitulo",
-    "texto": "Удалить «{nombre}»"
-  }
+  { "clave": "ejercicio.ejDesc.curl-martillo", "texto": "Нейтральным хватом (ладони друг к другу) поднимай гантели вверх, включая предплечье." },
+  { "clave": "ejercicio.ejDesc.curl-predicador", "texto": "Опираясь рукой на скамью, сгибай локоть, изолируя бицепс." },
+  { "clave": "ejercicio.ejDesc.curl-concentrado", "texto": "Сидя, упри локоть в бедро и поднимай гантель, концентрируясь на сокращении мышцы." },
+  { "clave": "ejercicio.ejDesc.extension-triceps-en-polea", "texto": "Стоя у верхнего блока, толкай рукоять вниз, разгибая локти." },
+  { "clave": "ejercicio.ejDesc.press-frances", "texto": "Лёжа, опускай штангу ко лбу и разгибай локти, не сдвигая их с места." },
+  { "clave": "ejercicio.ejDesc.fondos-entre-bancos", "texto": "Опираясь руками на скамью, опускай тело, сгибая локти, затем выжимайся обратно вверх." },
+  { "clave": "ejercicio.ejDesc.extension-sobre-cabeza", "texto": "Подними гантель за голову и разгибай локти вверх." },
+  { "clave": "ejercicio.ejDesc.patada-de-triceps", "texto": "В наклоне с высоко поднятым локтем разгибай предплечье назад." },
+  { "clave": "ejercicio.ejDesc.sentadilla", "texto": "Со штангой на спине опускай таз, пока бёдра не станут параллельны полу, затем вставай обратно." },
+  { "clave": "ejercicio.ejDesc.sentadilla-frontal", "texto": "Со штангой спереди приседай, удерживая корпус вертикально." },
+  { "clave": "ejercicio.ejDesc.sentadilla-bulgara", "texto": "Поставив одну ногу сзади на возвышение, опускай переднюю ногу до угла 90 градусов." },
+  { "clave": "ejercicio.ejDesc.prensa-de-pierna", "texto": "На тренажёре толкай платформу, разгибая ноги, не блокируя колени." },
+  { "clave": "ejercicio.ejDesc.zancadas", "texto": "Делай шаг вперёд и опускай заднее колено почти до пола, чередуя ноги." },
+  { "clave": "ejercicio.ejDesc.peso-muerto", "texto": "С прямой спиной поднимай штангу с пола, разгибая бёдра и колени." },
+  { "clave": "ejercicio.ejDesc.peso-muerto-rumano", "texto": "Опускай штангу вдоль ног, сгибаясь в тазобедренных суставах, с почти прямыми коленями." },
+  { "clave": "ejercicio.ejDesc.curl-femoral", "texto": "На тренажёре сгибай колени, подтягивая пятки к ягодицам." },
+  { "clave": "ejercicio.ejDesc.extension-de-cuadriceps", "texto": "Сидя на тренажёре, разгибай колени, поднимая вес подконтрольно." },
+  { "clave": "ejercicio.ejDesc.elevacion-de-talones", "texto": "Стоя с весом, поднимайся на носки, сокращая икры." },
+  { "clave": "ejercicio.ejDesc.hip-thrust", "texto": "Упираясь верхом спины в скамью, толкай таз вверх, сжимая ягодицы." },
+  { "clave": "ejercicio.ejDesc.puente-de-gluteo", "texto": "Лёжа, поднимай таз, пока плечи, бёдра и колени не выстроятся на одной линии." },
+  { "clave": "ejercicio.ejDesc.patada-de-gluteo-en-polea", "texto": "Стоя на четвереньках или стоя, отводи ногу назад, сжимая ягодицу." },
+  { "clave": "ejercicio.ejDesc.abduccion-de-cadera", "texto": "Сидя или лёжа на боку, разводи ноги, преодолевая сопротивление." },
+  { "clave": "ejercicio.ejDesc.plancha", "texto": "Опираясь на предплечья, держи тело прямым, не позволяя тазу провисать." },
+  { "clave": "ejercicio.ejDesc.plancha-lateral", "texto": "Лёжа на боку, опираясь на предплечье, держи таз поднятым и на одной линии." },
+  { "clave": "ejercicio.ejDesc.crunch-abdominal", "texto": "Лёжа, поднимай плечи, сокращая пресс, не тяни шею руками." },
+  { "clave": "ejercicio.ejDesc.elevacion-de-piernas", "texto": "Лёжа или в висе, поднимай прямые ноги, контролируя опускание." },
+  { "clave": "ejercicio.ejDesc.russian-twist", "texto": "Сидя с отклонённым назад корпусом, поворачивай туловище из стороны в сторону." },
+  { "clave": "ejercicio.ejDesc.rueda-abdominal", "texto": "Стоя на коленях, катись вперёд, не прогибая спину, затем возвращайся обратно." },
+  { "clave": "ejercicio.ejDesc.escaladores", "texto": "В упоре лёжа быстро подтягивай колени к груди, чередуя ноги." },
+  { "clave": "ejercicio.ejDesc.carrera", "texto": "Ровный темп в зоне 2-3, лёгкая постановка стопы и прямая осанка." },
+  { "clave": "ejercicio.ejDesc.trote-suave", "texto": "Комфортный темп, при котором можно разговаривать — идеально для длинных пробежек." },
+  { "clave": "ejercicio.ejDesc.caminata-rapida", "texto": "Быстрый темп с активной работой рук, не переходя на бег." },
+  { "clave": "ejercicio.ejDesc.ciclismo", "texto": "Крути педали с высоким каденсом и умеренным сопротивлением, держа спину расслабленной." },
+  { "clave": "ejercicio.ejDesc.senderismo", "texto": "Иди по природному рельефу с перепадами высоты — пусть подъём задаёт темп." },
+  { "clave": "ejercicio.ejDesc.trail-running", "texto": "Бег по горной или неровной местности — укорачивай шаг на подъёмах." },
+  { "clave": "ejercicio.ejDesc.caminadora", "texto": "Иди или беги на беговой дорожке, не держась за поручни." },
+  { "clave": "ejercicio.ejDesc.caminata-inclinada", "texto": "Дорожка с наклоном в умеренном темпе — ровная нагрузка, низкая ударность." },
+  { "clave": "ejercicio.ejDesc.eliptica", "texto": "Плавное движение с работой рук, без ударной нагрузки на колени." },
+  { "clave": "ejercicio.ejDesc.bicicleta-estatica", "texto": "Отрегулируй седло по высоте бедра и крути педали в ровном темпе." },
+  { "clave": "ejercicio.ejDesc.escaladora", "texto": "Поднимайся по ступеням в ровном темпе, ставя стопу полностью." },
+  { "clave": "ejercicio.ejDesc.remo-maquina", "texto": "Толкай ногами, затем тяни спиной и завершай движение руками." },
+  { "clave": "ejercicio.ejDesc.hiit", "texto": "Короткие интервалы на максимум, чередуемые с короткими паузами отдыха." },
+  { "clave": "ejercicio.ejDesc.sprints", "texto": "Отрезки на максимальной скорости с полным восстановлением между повторениями." },
+  { "clave": "ejercicio.ejDesc.saltar-cuerda", "texto": "Невысокие прыжки, вращай скакалку кистями, а не руками." },
+  { "clave": "ejercicio.ejDesc.burpees", "texto": "Из положения стоя перейди в планку, сделай отжимание, подпрыгни ногами к рукам и выпрыгни вверх, подняв руки над головой." },
+  { "clave": "ejercicio.ejDesc.circuito-metabolico", "texto": "Выполняй несколько упражнений подряд без отдыха, чтобы держать пульс высоким." },
+  { "clave": "ejercicio.ejDesc.natacion", "texto": "Плыви в ровном темпе, согласовывая дыхание с гребками." },
+  { "clave": "ejercicio.ejDesc.aqua-aerobicos", "texto": "Занимайся в воде — сопротивление воды нагружает мышцы, не перегружая суставы." },
+  { "clave": "ejercicio.ejDesc.caminata", "texto": "Спокойный, непрерывный темп — основа твоего аэробного объёма." },
+  { "clave": "ejercicio.ejDesc.futbol", "texto": "Прерывистый бег со сменой темпа и направления." },
+  { "clave": "ejercicio.ejDesc.basquetbol", "texto": "Короткие рывки, прыжки и постоянное движение в стороны." },
+  { "clave": "ejercicio.ejDesc.tenis", "texto": "Взрывные рывки с паузами — большая нагрузка на ноги." },
+  { "clave": "ejercicio.ejDesc.padel", "texto": "Короткие интенсивные розыгрыши на небольшом корте с частой сменой направления." },
+  { "clave": "ejercicio.ejDesc.boxeo", "texto": "Комбинации ударов и работа ног, не опуская защиту." },
+  { "clave": "ejercicio.ejDesc.baile", "texto": "Непрерывное движение под ритм музыки — кардио, которое не ощущается тренировкой." },
+  { "clave": "ejercicio.ejDesc.movilidad-matutina", "texto": "Мягкая последовательность движений, чтобы разбудить тело и размять суставы с утра." },
+  { "clave": "ejercicio.ejDesc.yoga-flow", "texto": "Соединяй позы с дыханием в непрерывном потоке для всего тела." },
+  { "clave": "ejercicio.ejDesc.saludo-al-sol", "texto": "Классическая последовательность йоги, которая растягивает и активирует всё тело." },
+  { "clave": "ejercicio.ejDesc.estiramiento-general", "texto": "Прорабатывай основные группы мышц мягкими продолжительными растяжками." },
+  { "clave": "ejercicio.ejDesc.guerrero-i", "texto": "В выпаде подними руки и раскрой грудь, удерживая таз развёрнутым вперёд." },
+  { "clave": "ejercicio.ejDesc.guerrero-ii", "texto": "В широком выпаде вытяни руки и смотри вперёд, сгибая переднее колено." },
+  { "clave": "ejercicio.ejDesc.triangulo", "texto": "С широко расставленными ногами наклони корпус и опусти одну руку к лодыжке." },
+  { "clave": "ejercicio.ejDesc.flexion-de-pie", "texto": "Стоя, наклони корпус к ногам, расслабляя шею и спину." },
+  { "clave": "ejercicio.ejDesc.apertura-de-cadera", "texto": "Работа на мобильность, чтобы раскрепостить бёдра и увеличить амплитуду движения ног." },
+  { "clave": "ejercicio.ejDesc.postura-de-la-paloma", "texto": "С согнутой впереди ногой опускай корпус, раскрывая ягодицу." },
+  { "clave": "ejercicio.ejDesc.mariposa", "texto": "Сидя, соедини стопы вместе и опусти колени в стороны." },
+  { "clave": "ejercicio.ejDesc.estiramiento-de-isquiotibiales", "texto": "Растягивай заднюю поверхность бедра с выпрямленным коленом." },
+  { "clave": "ejercicio.ejDesc.zancada-baja", "texto": "С одним коленом на полу подавай таз вперёд, растягивая сгибатель бедра." },
+  { "clave": "ejercicio.ejDesc.postura-de-la-guirnalda", "texto": "В глубоком приседе разводи колени локтями, раскрепощая бёдра." },
+  { "clave": "ejercicio.ejDesc.figura-4", "texto": "Положи лодыжку на противоположное колено и подтяни бедро к себе, растягивая ягодицу." },
+  { "clave": "ejercicio.ejDesc.estiramiento-de-aductores", "texto": "Разведи ноги и опусти корпус, растягивая внутреннюю поверхность бедра." },
+  { "clave": "ejercicio.ejDesc.rana", "texto": "Стоя на четвереньках с широко разведёнными коленями, качни таз назад." },
+  { "clave": "ejercicio.ejDesc.perro-boca-abajo", "texto": "В перевёрнутой V толкай таз вверх, растягивая спину и ноги." },
+  { "clave": "ejercicio.ejDesc.torsion-espinal", "texto": "Сидя или лёжа, мягко поворачивай туловище, разрабатывая позвоночник." },
+  { "clave": "ejercicio.ejDesc.postura-del-nino", "texto": "Сидя на пятках, вытяни руки вперёд, расслабляя спину." },
+  { "clave": "ejercicio.ejDesc.apertura-de-pecho", "texto": "Отведи руки назад, раскрывая грудь и компенсируя сутулость." },
+  { "clave": "ejercicio.ejDesc.esfinge", "texto": "Лёжа на животе, опираясь на предплечья, приподними грудь, разгибая поясницу." },
+  { "clave": "ejercicio.ejDesc.hilo-y-aguja", "texto": "Стоя на четвереньках, проведи одну руку под телом, растягивая плечо." },
+  { "clave": "ejercicio.ejDesc.estiramiento-de-dorsales", "texto": "Растягивай бока, поднимая руки вверх и немного в сторону." },
+  { "clave": "ejercicio.ejDesc.movilidad-cervical", "texto": "Медленные движения шеей во всех направлениях, снимая напряжение." },
+  { "clave": "ejercicio.ejDesc.rotaciones-de-columna", "texto": "Мягко вращай позвоночник по сегментам, разрабатывая его." },
+  { "clave": "ejercicio.ejDesc.postura-de-la-cobra", "texto": "Лёжа на животе, приподними грудь на руках, разгибая спину." },
+  { "clave": "ejercicio.ejDesc.inclinacion-lateral-de-cuello", "texto": "Наклони ухо к плечу, растягивая боковую часть шеи." },
+  { "clave": "ejercicio.ejDesc.estiramiento-de-cuadriceps", "texto": "Стоя, подтяни пятку к ягодице, удерживая стопу рукой, растягивая бедро." }
 ]

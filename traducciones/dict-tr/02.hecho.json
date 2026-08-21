@@ -1,38 +1,1010 @@
 [
   {
-    "clave": "tut.app-ejercicio--esencial.resumen",
-    "texto": "Spor Salonu, bedenin üç modunu tek yerde tutar: Kuvvet (set, tekrar ve ağırlık), Dayanıklılık (koşu, bisiklet veya yüzme, GPS ve nabız sensörüyle canlı antrenman) ve Esneklik (zamana dayalı hareket, rehberli oynatıcıyla). Üçü de aynı şekilde düzenlenir — katalog, rutinler ve ilerleme — ve Hedefler bölümü her hafta ne kadar antrenman yapacağını belirler, serini ve ilerlemeni özetler."
+    "clave": "biblioteca.nodoDesc.idi-asiaticas",
+    "texto": "Japonca, Çince, Korece ve yazı sistemleri."
   },
   {
-    "clave": "tut.app-entretenimiento--esencial.resumen",
-    "texto": "Eğlence'nin iki bölümü var: aile türüne göre gruplanmış ve oyuncu sayısına göre filtrelenen dijital bir katalogla Masa Oyunları, ve bitirdiğin filmleri, dizileri, kitapları ve video oyunlarını durumlarıyla ve senin değerlendirmenle tuttuğun Arşiv."
+    "clave": "biblioteca.nodo.idi-practica",
+    "texto": "Pratik ve kültür"
   },
   {
-    "clave": "tut.app-garage--esencial.resumen",
-    "texto": "Garaj, araçlarının bakımını takip eder: bir trafik ışığı neyin acil olduğunu özetler, araç listesi her birinin servis geçmişini tutar, ve her kartta işlemleri, belgeleri ve kişileri bir araya gelir. Tarihi olan her şey kendiliğinden evin takvimine düşer."
+    "clave": "biblioteca.nodo.idi-conversacion",
+    "texto": "Konuşma"
   },
   {
-    "clave": "tut.app-hobbies--esencial.resumen",
-    "texto": "Hobiler, uğraşlarını takip eder: her birinin serisini ve haftalık ilerlemesini gösteren liste, ve yeni bir tane ekleme formu. Her hobinin içinde oturum kaydı, yıllık etkinlik haritası ve projeleri yaşar."
+    "clave": "biblioteca.nodoDesc.idi-conversacion",
+    "texto": "Akıcılık, ifadeler ve günlük durumlar."
   },
   {
-    "clave": "tut.app-ideas--esencial.resumen",
-    "texto": "Fikirler, aklına geleni üç bölümde tutar: Fikir günlüğü (konuya göre tek başına ya da beyin fırtınası halinde düşünceler), Kavram haritaları (birkaç biçimde serbest bir tuval) ve Karar şemaları (aynı biçimler, ama karşılaştırıp karar vermek için). Her şey klasörlere kaldırılabilir ve bir bölümden diğerine dönüştürülebilir."
+    "clave": "biblioteca.nodo.idi-lectura",
+    "texto": "Okuma ve yazma"
   },
   {
-    "clave": "tut.app-idiomas--esencial.resumen",
-    "texto": "Diller, dört bölümlü dil okulundur. Sohbetler, seviyene göre yanıt veren bir yapay zekâ öğretmeniyle konuşma başlatır; Müfredat, dili konulara, telaffuza ve dil bilgisine A1'den C2'ye ayırır, ve kelime hazinesi de orada kartlar halinde yaşar; Tekrar, onu aralıklı bir sistemle ve alıştırmalarla tekrar eder; İlerleme, ilerlemeni özetler."
+    "clave": "biblioteca.nodoDesc.idi-lectura",
+    "texto": "Seviyeli metinler, kompozisyon ve yazım."
   },
   {
-    "clave": "tut.app-jardin--esencial.resumen",
-    "texto": "Bahçe, meditasyonu (ses parçalarıyla), rehberli nefesi ve günlük şükranı üç bölümde bir araya getirir. Bilerek puan ya da seri tutmaz: burada gelmemek cezalandırılmaz, sadece pratik yapılır."
+    "clave": "biblioteca.nodo.idi-inmersion",
+    "texto": "Kültür ve içe dalış"
   },
   {
-    "clave": "tut.app-metas--esencial.resumen",
-    "texto": "Tüm evin planlayıcısı, üç bölümde: Hedefler (kendine koyduklarının listesi, her birini yürüten uygulamaya göre gruplanmış), Planlar (bir hedefi aşamalara bölen zaman çizelgesi taslakları) ve Zaman çizelgesi (hepsinin düştüğü zaman ekseni). Kendine ait kayıt tutmaz: diğer uygulamalarda doğan hedefleri ve planları bir araya getirir. Bir hedeften onun kartı açılır, oradan da ona daraltılmış eksen."
+    "clave": "biblioteca.nodoDesc.idi-inmersion",
+    "texto": "Gelenekler, medya ve öğrenmek için seyahat."
   },
   {
-    "clave": "tut.app-sala--esencial.resumen",
-    "texto": "Oturma Odası, dört bölümlü gezgin dünyandır: Harita (dünya haritasında yerlerin iğneleri, küre görünümüyle), Gezi planı (görülecek yerler, gün gün planlarıyla), Rotalar (yerleri birbirine bağlayan güzergâhlar) ve Seyir defteri (ülkeye göre fotoğraflar ve anılarla anılar)."
+    "clave": "biblioteca.nodo.artes",
+    "texto": "Sanat ve ifade"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.artes",
+    "texto": "Estetik yaratım, sanatsal algı ve görsel-işitsel kültür."
+  },
+  {
+    "clave": "biblioteca.nodo.art-visuales",
+    "texto": "Görsel sanatlar"
+  },
+  {
+    "clave": "biblioteca.nodo.art-pintura",
+    "texto": "Resim ve çizim"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-pintura",
+    "texto": "Teknikler, kompozisyon ve renk."
+  },
+  {
+    "clave": "biblioteca.nodo.art-escultura",
+    "texto": "Heykel ve mimari"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-escultura",
+    "texto": "Mekân, form ve tasarım."
+  },
+  {
+    "clave": "biblioteca.nodo.art-fotografia",
+    "texto": "Fotoğrafçılık"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-fotografia",
+    "texto": "Işık, kadraj ve görsel anlatı."
+  },
+  {
+    "clave": "biblioteca.nodo.art-musica",
+    "texto": "Müzik"
+  },
+  {
+    "clave": "biblioteca.nodo.art-teoria-mus",
+    "texto": "Müzik teorisi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-teoria-mus",
+    "texto": "Armoni, ritim ve notasyon."
+  },
+  {
+    "clave": "biblioteca.nodo.art-historia-mus",
+    "texto": "Müzik tarihi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-historia-mus",
+    "texto": "Akımlar, dönemler ve besteciler."
+  },
+  {
+    "clave": "biblioteca.nodo.art-escenicas",
+    "texto": "Sahne sanatları ve sinema"
+  },
+  {
+    "clave": "biblioteca.nodo.art-teatro",
+    "texto": "Tiyatro ve performans"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-teatro",
+    "texto": "Dramaturji, oyunculuk ve sahneleme."
+  },
+  {
+    "clave": "biblioteca.nodo.art-cine",
+    "texto": "Sinema ve görsel-işitsel medya"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-cine",
+    "texto": "Senaryo, kurgu ve sinema dili."
+  },
+  {
+    "clave": "biblioteca.nodo.tecnologia",
+    "texto": "Teknoloji ve mühendislik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tecnologia",
+    "texto": "Sorunları çözmek ve dünyayı dönüştürmek için bilgiyi uygulamak."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-informatica",
+    "texto": "Bilgisayar bilimi"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-algoritmos",
+    "texto": "Algoritmalar ve veri yapıları"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-algoritmos",
+    "texto": "Verimlilik, veri ve tasarım."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ia",
+    "texto": "Yapay zekâ"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-ia",
+    "texto": "Makine öğrenmesi ve yapay zekâ etiği."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-redes",
+    "texto": "Ağlar ve sistemler"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-redes",
+    "texto": "İnternet, güvenlik ve dağıtım."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ingenieria",
+    "texto": "Mühendislik"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-mecanica",
+    "texto": "Makine mühendisliği"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-mecanica",
+    "texto": "Makineler, malzemeler ve üretim."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-electrica",
+    "texto": "Elektrik mühendisliği"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-electrica",
+    "texto": "Devreler, güç ve elektronik."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-civil",
+    "texto": "İnşaat mühendisliği"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-civil",
+    "texto": "Altyapı, hidrolik ve yapılar."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-energia",
+    "texto": "Enerji ve sürdürülebilirlik"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-renovables",
+    "texto": "Yenilenebilir enerji"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-renovables",
+    "texto": "Güneş, rüzgâr ve hidrojen."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ambiental",
+    "texto": "Çevre mühendisliği"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-ambiental",
+    "texto": "Atık, su ve ekolojik ayak izi."
+  },
+  {
+    "clave": "biblioteca.nodo.salud",
+    "texto": "Sağlık ve tıp"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.salud",
+    "texto": "İnsan vücudu, hastalık, önleme ve bakım sistemleri."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-anatomia",
+    "texto": "Anatomi ve fizyoloji"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-cuerpo",
+    "texto": "Vücut sistemleri"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-cuerpo",
+    "texto": "Organlar, homeostaz ve bütünleşme."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-neuro",
+    "texto": "Tıbbi nörobilim"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-neuro",
+    "texto": "Beyin, duyular ve hareket."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-clinica",
+    "texto": "Klinik tıp"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-patologia",
+    "texto": "Patoloji"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-patologia",
+    "texto": "Hastalık, tanı ve nedenler."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-farmacologia",
+    "texto": "Farmakoloji"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-farmacologia",
+    "texto": "İlaçlar, doz ve etkiler."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-salud-pub",
+    "texto": "Halk sağlığı"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-salud-pub",
+    "texto": "Epidemiyoloji, aşılar ve politikalar."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-bienestar",
+    "texto": "Esenlik ve beslenme"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-nutricion",
+    "texto": "Klinik beslenme"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-nutricion",
+    "texto": "Diyetler, metabolizma ve mikro besinler."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-prevencion",
+    "texto": "Önleyici tıp"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-prevencion",
+    "texto": "Alışkanlıklar, tarama ve uzun ömür."
+  },
+  {
+    "clave": "ejercicio.ej.press-banca",
+    "texto": "Bench Press"
+  },
+  {
+    "clave": "ejercicio.ej.press-inclinado",
+    "texto": "Eğimli Bench Press"
+  },
+  {
+    "clave": "ejercicio.ej.press-con-mancuernas",
+    "texto": "Dambıl Press"
+  },
+  {
+    "clave": "ejercicio.ej.aperturas-con-mancuernas",
+    "texto": "Dambıl Açma"
+  },
+  {
+    "clave": "ejercicio.ej.cruce-en-polea",
+    "texto": "Kablo Çaprazlama"
+  },
+  {
+    "clave": "ejercicio.ej.fondos-en-paralelas",
+    "texto": "Paralel Barda Dips"
+  },
+  {
+    "clave": "ejercicio.ej.flexiones",
+    "texto": "Şınav"
+  },
+  {
+    "clave": "ejercicio.ej.dominadas",
+    "texto": "Barfiks"
+  },
+  {
+    "clave": "ejercicio.ej.jalon-al-pecho",
+    "texto": "Göğüse Çekiş"
+  },
+  {
+    "clave": "ejercicio.ej.remo-con-barra",
+    "texto": "Barla Kürek Çekme"
+  },
+  {
+    "clave": "ejercicio.ej.remo-con-mancuerna",
+    "texto": "Dambılla Kürek Çekme"
+  },
+  {
+    "clave": "ejercicio.ej.remo-en-polea-baja",
+    "texto": "Alçak Makarada Kürek Çekme"
+  },
+  {
+    "clave": "ejercicio.ej.pull-over",
+    "texto": "Pull-Over"
+  },
+  {
+    "clave": "ejercicio.ej.face-pull",
+    "texto": "Face Pull"
+  },
+  {
+    "clave": "ejercicio.ej.hiperextensiones",
+    "texto": "Hiperekstansiyon"
+  },
+  {
+    "clave": "ejercicio.ej.press-militar",
+    "texto": "Askeri Press"
+  },
+  {
+    "clave": "ejercicio.ej.press-arnold",
+    "texto": "Arnold Press"
+  },
+  {
+    "clave": "ejercicio.ej.elevaciones-laterales",
+    "texto": "Yana Kaldırış"
+  },
+  {
+    "clave": "ejercicio.ej.elevaciones-frontales",
+    "texto": "Öne Kaldırış"
+  },
+  {
+    "clave": "ejercicio.ej.pajaros",
+    "texto": "Arka Omuz Açması"
+  },
+  {
+    "clave": "ejercicio.ej.encogimientos",
+    "texto": "Omuz Silkme"
+  },
+  {
+    "clave": "ejercicio.ej.curl-con-barra",
+    "texto": "Barla Curl"
+  },
+  {
+    "clave": "ejercicio.ej.curl-con-mancuernas",
+    "texto": "Dambılla Curl"
+  },
+  {
+    "clave": "ejercicio.ej.curl-martillo",
+    "texto": "Çekiç Curl"
+  },
+  {
+    "clave": "ejercicio.ej.curl-predicador",
+    "texto": "Scott Curl"
+  },
+  {
+    "clave": "ejercicio.ej.curl-concentrado",
+    "texto": "Konsantrasyon Curl"
+  },
+  {
+    "clave": "ejercicio.ej.extension-triceps-en-polea",
+    "texto": "Makarada Triceps Ekstansiyonu"
+  },
+  {
+    "clave": "ejercicio.ej.press-frances",
+    "texto": "Fransız Press"
+  },
+  {
+    "clave": "ejercicio.ej.fondos-entre-bancos",
+    "texto": "Banklar Arası Dips"
+  },
+  {
+    "clave": "ejercicio.ej.extension-sobre-cabeza",
+    "texto": "Baş Üstü Ekstansiyon"
+  },
+  {
+    "clave": "ejercicio.ej.patada-de-triceps",
+    "texto": "Triceps Kikbek"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla",
+    "texto": "Squat"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-frontal",
+    "texto": "Ön Squat"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-bulgara",
+    "texto": "Bulgar Squat"
+  },
+  {
+    "clave": "ejercicio.ej.prensa-de-pierna",
+    "texto": "Leg Press"
+  },
+  {
+    "clave": "ejercicio.ej.zancadas",
+    "texto": "Lunge"
+  },
+  {
+    "clave": "ejercicio.ej.peso-muerto",
+    "texto": "Deadlift"
+  },
+  {
+    "clave": "ejercicio.ej.peso-muerto-rumano",
+    "texto": "Romen Deadlift"
+  },
+  {
+    "clave": "ejercicio.ej.curl-femoral",
+    "texto": "Leg Curl"
+  },
+  {
+    "clave": "ejercicio.ej.extension-de-cuadriceps",
+    "texto": "Leg Extension"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-talones",
+    "texto": "Baldır Kaldırma"
+  },
+  {
+    "clave": "ejercicio.ej.hip-thrust",
+    "texto": "Hip Thrust"
+  },
+  {
+    "clave": "ejercicio.ej.puente-de-gluteo",
+    "texto": "Kalça Köprüsü"
+  },
+  {
+    "clave": "ejercicio.ej.patada-de-gluteo-en-polea",
+    "texto": "Makarada Kalça Kası Kikbek"
+  },
+  {
+    "clave": "ejercicio.ej.abduccion-de-cadera",
+    "texto": "Kalça Abdüksiyonu"
+  },
+  {
+    "clave": "ejercicio.ej.plancha",
+    "texto": "Plank"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-lateral",
+    "texto": "Yan Plank"
+  },
+  {
+    "clave": "ejercicio.ej.crunch-abdominal",
+    "texto": "Mekik"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-piernas",
+    "texto": "Bacak Kaldırma"
+  },
+  {
+    "clave": "ejercicio.ej.russian-twist",
+    "texto": "Russian Twist"
+  },
+  {
+    "clave": "ejercicio.ej.rueda-abdominal",
+    "texto": "Ab Wheel"
+  },
+  {
+    "clave": "ejercicio.ej.escaladores",
+    "texto": "Mountain Climber"
+  },
+  {
+    "clave": "ejercicio.ej.carrera",
+    "texto": "Koşu"
+  },
+  {
+    "clave": "ejercicio.ej.trote-suave",
+    "texto": "Rahat Koşu"
+  },
+  {
+    "clave": "ejercicio.ej.caminata-rapida",
+    "texto": "Hızlı Yürüyüş"
+  },
+  {
+    "clave": "ejercicio.ej.ciclismo",
+    "texto": "Bisiklet"
+  },
+  {
+    "clave": "ejercicio.ej.senderismo",
+    "texto": "Doğa Yürüyüşü"
+  },
+  {
+    "clave": "ejercicio.ej.trail-running",
+    "texto": "Trail Running"
+  },
+  {
+    "clave": "ejercicio.ej.caminadora",
+    "texto": "Koşu Bandı"
+  },
+  {
+    "clave": "ejercicio.ej.caminata-inclinada",
+    "texto": "Eğimli Yürüyüş"
+  },
+  {
+    "clave": "ejercicio.ej.eliptica",
+    "texto": "Eliptik"
+  },
+  {
+    "clave": "ejercicio.ej.bicicleta-estatica",
+    "texto": "Sabit Bisiklet"
+  },
+  {
+    "clave": "ejercicio.ej.escaladora",
+    "texto": "Basamak Makinesi"
+  },
+  {
+    "clave": "ejercicio.ej.remo-maquina",
+    "texto": "Kürek Makinesi"
+  },
+  {
+    "clave": "ejercicio.ej.hiit",
+    "texto": "HIIT"
+  },
+  {
+    "clave": "ejercicio.ej.sprints",
+    "texto": "Sprint"
+  },
+  {
+    "clave": "ejercicio.ej.saltar-cuerda",
+    "texto": "İp Atlama"
+  },
+  {
+    "clave": "ejercicio.ej.burpees",
+    "texto": "Burpee"
+  },
+  {
+    "clave": "ejercicio.ej.circuito-metabolico",
+    "texto": "Metabolik Devre"
+  },
+  {
+    "clave": "ejercicio.ej.natacion",
+    "texto": "Yüzme"
+  },
+  {
+    "clave": "ejercicio.ej.aqua-aerobicos",
+    "texto": "Su Aerobiği"
+  },
+  {
+    "clave": "ejercicio.ej.caminata",
+    "texto": "Yürüyüş"
+  },
+  {
+    "clave": "ejercicio.ej.futbol",
+    "texto": "Futbol"
+  },
+  {
+    "clave": "ejercicio.ej.basquetbol",
+    "texto": "Basketbol"
+  },
+  {
+    "clave": "ejercicio.ej.tenis",
+    "texto": "Tenis"
+  },
+  {
+    "clave": "ejercicio.ej.padel",
+    "texto": "Padel"
+  },
+  {
+    "clave": "ejercicio.ej.boxeo",
+    "texto": "Boks"
+  },
+  {
+    "clave": "ejercicio.ej.baile",
+    "texto": "Dans"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-matutina",
+    "texto": "Sabah Mobilitesi"
+  },
+  {
+    "clave": "ejercicio.ej.yoga-flow",
+    "texto": "Yoga Flow"
+  },
+  {
+    "clave": "ejercicio.ej.saludo-al-sol",
+    "texto": "Güneşe Selam"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-general",
+    "texto": "Genel Esneme"
+  },
+  {
+    "clave": "ejercicio.ej.guerrero-i",
+    "texto": "Savaşçı I"
+  },
+  {
+    "clave": "ejercicio.ej.guerrero-ii",
+    "texto": "Savaşçı II"
+  },
+  {
+    "clave": "ejercicio.ej.triangulo",
+    "texto": "Üçgen Duruşu"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-de-pie",
+    "texto": "Ayakta Öne Eğilme"
+  },
+  {
+    "clave": "ejercicio.ej.apertura-de-cadera",
+    "texto": "Kalça Açma"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-paloma",
+    "texto": "Güvercin Duruşu"
+  },
+  {
+    "clave": "ejercicio.ej.mariposa",
+    "texto": "Kelebek Duruşu"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-isquiotibiales",
+    "texto": "Hamstring Esnetmesi"
+  },
+  {
+    "clave": "ejercicio.ej.zancada-baja",
+    "texto": "Alçak Lunge"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-guirnalda",
+    "texto": "Çelenk Duruşu"
+  },
+  {
+    "clave": "ejercicio.ej.figura-4",
+    "texto": "4 Rakamı Esnetmesi"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-aductores",
+    "texto": "Adduktor Esnetmesi"
+  },
+  {
+    "clave": "ejercicio.ej.rana",
+    "texto": "Kurbağa Duruşu"
+  },
+  {
+    "clave": "ejercicio.ej.perro-boca-abajo",
+    "texto": "Aşağı Bakan Köpek"
+  },
+  {
+    "clave": "ejercicio.ej.torsion-espinal",
+    "texto": "Omurga Döndürme"
+  },
+  {
+    "clave": "ejercicio.ej.postura-del-nino",
+    "texto": "Çocuk Duruşu"
+  },
+  {
+    "clave": "ejercicio.ej.apertura-de-pecho",
+    "texto": "Göğüs Açma"
+  },
+  {
+    "clave": "ejercicio.ej.esfinge",
+    "texto": "Sfenks Duruşu"
+  },
+  {
+    "clave": "ejercicio.ej.hilo-y-aguja",
+    "texto": "İplik ve İğne"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-dorsales",
+    "texto": "Sırt (Lat) Esnetmesi"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-cervical",
+    "texto": "Boyun Mobilitesi"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-de-columna",
+    "texto": "Omurga Döndürmeleri"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-cobra",
+    "texto": "Kobra Duruşu"
+  },
+  {
+    "clave": "ejercicio.ej.inclinacion-lateral-de-cuello",
+    "texto": "Yana Boyun Eğme"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-cuadriceps",
+    "texto": "Kuadriseps Esnetmesi"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-gemelos",
+    "texto": "Baldır Esnetmesi"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-hombros",
+    "texto": "Omuz Esnetmesi"
+  },
+  {
+    "clave": "ejercicio.ej.foam-roller",
+    "texto": "Foam Roller"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-triceps",
+    "texto": "Triceps Esnetmesi"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores-de-cadera",
+    "texto": "Kalça Fleksör Esnetmesi"
+  },
+  {
+    "clave": "ejercicio.ej.piernas-en-la-pared",
+    "texto": "Duvarda Bacaklar"
+  },
+  {
+    "clave": "ejercicio.ej.savasana",
+    "texto": "Savasana"
+  },
+  {
+    "clave": "ejercicio.ej.postura-del-nino-apoyada",
+    "texto": "Destekli Çocuk Duruşu"
+  },
+  {
+    "clave": "ejercicio.ej.respiracion-profunda",
+    "texto": "Derin Nefes"
+  },
+  {
+    "clave": "ejercicio.ej.mariposa-reclinada",
+    "texto": "Yatık Kelebek"
+  },
+  {
+    "clave": "ejercicio.ej.torsion-reclinada",
+    "texto": "Yatarak Döndürme"
+  },
+  {
+    "clave": "ejercicio.ej.liberacion-miofascial-con-pelota",
+    "texto": "Topla Miyofasyal Gevşetme"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-tobillo",
+    "texto": "Ayak Bileği Çemberleri"
+  },
+  {
+    "clave": "ejercicio.ej.recogida-de-toalla-con-dedos",
+    "texto": "Parmaklarla Havlu Toplama"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-dorsiflexion",
+    "texto": "Dorsifleksiyon Esnetmesi"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-talones-unipodal",
+    "texto": "Tek Bacak Baldır Kaldırma"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-y-extension-en-descarga",
+    "texto": "Yüksüz Fleksiyon-Ekstansiyon"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "Dinamik Hamstring Esnetmesi"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-isometrica-wall-squat",
+    "texto": "İzometrik Squat (Duvar Squat)"
+  },
+  {
+    "clave": "ejercicio.ej.equilibrio-unipodal-single-leg-balance",
+    "texto": "Tek Bacak Denge"
+  },
+  {
+    "clave": "ejercicio.ej.sentadillas-del-arquero",
+    "texto": "Okçu Squat"
+  },
+  {
+    "clave": "ejercicio.ej.estocadas-lunges",
+    "texto": "Lunge"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-90-90",
+    "texto": "90/90 Mobilite"
+  },
+  {
+    "clave": "ejercicio.ej.el-puente-glute-bridge",
+    "texto": "Kalça Köprüsü (Glute Bridge)"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores-en-estocada",
+    "texto": "Lunge'da Kalça Fleksör Esnetmesi"
+  },
+  {
+    "clave": "ejercicio.ej.abduccion-lateral-de-cadera",
+    "texto": "Yanal Kalça Abdüksiyonu"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-profunda-con-apertura",
+    "texto": "Açılımlı Derin Squat"
+  },
+  {
+    "clave": "ejercicio.ej.balanceo-dinamico-de-piernas",
+    "texto": "Dinamik Bacak Sallama"
+  },
+  {
+    "clave": "ejercicio.ej.postura-gato-vaca",
+    "texto": "Kedi-İnek Duruşu"
+  },
+  {
+    "clave": "ejercicio.ej.torsiones-lumbares-suaves",
+    "texto": "Hafif Bel Burkulmaları"
+  },
+  {
+    "clave": "ejercicio.ej.pointer-bird-dog",
+    "texto": "Bird Dog"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-frontal-isometricos",
+    "texto": "İzometrik Ön Plank"
+  },
+  {
+    "clave": "ejercicio.ej.roll-down-curl-jefferson",
+    "texto": "Roll Down (Jefferson Curl)"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-lumbar-boca-abajo",
+    "texto": "Yüzükoyun Bel Esnetmesi"
+  },
+  {
+    "clave": "ejercicio.ej.rotacion-toracica",
+    "texto": "Torasik Rotasyon"
+  },
+  {
+    "clave": "ejercicio.ej.retraccion-escapular",
+    "texto": "Skapular Retraksiyon"
+  },
+  {
+    "clave": "ejercicio.ej.angeles-de-pared-wall-angels",
+    "texto": "Duvar Melekleri"
+  },
+  {
+    "clave": "ejercicio.ej.lunge-con-apertura-de-pectoral",
+    "texto": "Göğüs Açmalı Lunge"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-dorsal-en-pared",
+    "texto": "Duvarda Sırt Esnetmesi"
+  },
+  {
+    "clave": "ejercicio.ej.el-gato-y-la-mesa",
+    "texto": "Kedi ve Masa"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-hombros",
+    "texto": "Omuz Çemberleri"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-pecho-pectoral",
+    "texto": "Göğüs Esnetmesi"
+  },
+  {
+    "clave": "ejercicio.ej.dislocaciones-con-goma-o-palo",
+    "texto": "Bantla (veya Sopayla) Dislokasyon"
+  },
+  {
+    "clave": "ejercicio.ej.rotacion-externa-con-banda",
+    "texto": "Bantla Dış Rotasyon"
+  },
+  {
+    "clave": "ejercicio.ej.thread-the-needle-enhebrar-aguja",
+    "texto": "İğneden İplik Geçirme"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-y-medios-circulos",
+    "texto": "Döndürmeler ve Yarım Çemberler"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-trapecio-superior",
+    "texto": "Üst Trapez Esnetmesi"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-cervicales-con-nodding",
+    "texto": "Başı Sallamalı Boyun Döndürmeleri"
+  },
+  {
+    "clave": "ejercicio.ej.retracciones-de-barbilla-chin-tucks",
+    "texto": "Çene Çekmeleri (Chin Tuck)"
+  },
+  {
+    "clave": "ejercicio.ej.isometricos-cervicales",
+    "texto": "Boyun İzometrikleri"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-y-extension-de-muneca",
+    "texto": "Bilek Fleksiyon-Ekstansiyonu"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-munecas",
+    "texto": "Bilek Çemberleri"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores",
+    "texto": "Fleksör Esnetmesi"
+  },
+  {
+    "clave": "ejercicio.ej.agarre-activo-y-pasivo",
+    "texto": "Aktif ve Pasif Kavrama"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-de-munecas",
+    "texto": "Bilek Plankı"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-banca",
+    "texto": "Bench üzerinde sırtüstü yatarak barı göğsüne indir, dirseklerini tam uzatana kadar yukarı it."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-inclinado",
+    "texto": "Eğimli bench üzerinde barı veya dambılları press yaparak üst göğsü çalıştır."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-con-mancuernas",
+    "texto": "Sırtüstü yatarak iki dambılı, bardan daha geniş bir hareket açıklığıyla yukarı it."
+  },
+  {
+    "clave": "ejercicio.ejDesc.aperturas-con-mancuernas",
+    "texto": "Sırtüstü yatarak kollarını yay çizerek aç ve dirseklerini hafif bükerek birleştir."
+  },
+  {
+    "clave": "ejercicio.ejDesc.cruce-en-polea",
+    "texto": "Yüksek makaralar arasında ayakta durarak göğsünü sıkarak ellerini önde birleştir."
+  },
+  {
+    "clave": "ejercicio.ejDesc.fondos-en-paralelas",
+    "texto": "Paralel barda asılı durarak gövdeni öne eğip dirseklerini bükerek in, sonra yukarı it."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexiones",
+    "texto": "Yüzükoyun pozisyonda, vücudunu düz tutarak göğsünü yere indir ve yukarı it."
+  },
+  {
+    "clave": "ejercicio.ejDesc.dominadas",
+    "texto": "Bardan asılı durarak çenen barın üstüne çıkana kadar vücudunu yukarı çek."
+  },
+  {
+    "clave": "ejercicio.ejDesc.jalon-al-pecho",
+    "texto": "Yüksek makarada otururken dirseklerini aşağı iterek barı göğsüne çek."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-con-barra",
+    "texto": "Sırtın düz kalacak şekilde öne eğilerek barı sırtını sıkarak karnına çek."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-con-mancuerna",
+    "texto": "Bench üzerine dayanarak gövdeni döndürmeden dambılı yanına çek."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-en-polea-baja",
+    "texto": "Otururken sırtını dik tutarak kabzayı karnına çek."
+  },
+  {
+    "clave": "ejercicio.ejDesc.pull-over",
+    "texto": "Sırtüstü yatarak dambılı başının arkasına indir, sonra göğsünün üstüne geri getir."
+  },
+  {
+    "clave": "ejercicio.ejDesc.face-pull",
+    "texto": "Yüz hizasındaki makarada, dirseklerini dışa açarak ipi alnına doğru çek."
+  },
+  {
+    "clave": "ejercicio.ejDesc.hiperextensiones",
+    "texto": "Bench üzerinde belini uzatarak gövdeni indir ve tekrar yukarı kaldır."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-militar",
+    "texto": "Ayakta durarak barı omuzlarından başının üstüne doğru it."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-arnold",
+    "texto": "Otururken avuç içlerini içe bakan pozisyondan dışa çevirerek dambılları başının üstüne it."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevaciones-laterales",
+    "texto": "Ayakta durarak dambılları omuz hizasına kadar yanlara kaldır."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevaciones-frontales",
+    "texto": "Ayakta durarak dambılı göz hizasına kadar öne kaldır."
+  },
+  {
+    "clave": "ejercicio.ejDesc.pajaros",
+    "texto": "Öne eğilerek arka omuzu çalıştırmak için kollarını yanlara aç."
+  },
+  {
+    "clave": "ejercicio.ejDesc.encogimientos",
+    "texto": "Ağırlıkla ayakta durarak omuzlarını kulaklarına doğru kaldır ve kontrollü indir."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-con-barra",
+    "texto": "Ayakta durarak gövdeni sallamadan barı yukarı bükerek curl yap."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-con-mancuernas",
+    "texto": "Ayakta ya da oturarak dirseklerini bükerek dambılları tek tek ya da birlikte yukarı kaldır."
   }
 ]

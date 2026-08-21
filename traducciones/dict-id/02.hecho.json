@@ -1,38 +1,1010 @@
 [
   {
-    "clave": "tut.app-ejercicio--esencial.resumen",
-    "texto": "Gym menggabungkan tiga mode tubuh di satu tempat: Kekuatan (set, repetisi, dan beban), Daya tahan (lari, sepeda, atau renang, dengan latihan langsung pakai GPS dan sensor detak jantung), dan Fleksibilitas (mobilitas berdasarkan waktu, dengan pemutar terpandu). Ketiganya disusun sama — katalog, rutinitas, dan progres — dan menu Target menentukan berapa banyak latihan tiap minggu serta merangkum runtunan dan kemajuanmu."
+    "clave": "biblioteca.nodoDesc.idi-asiaticas",
+    "texto": "Bahasa Jepang, Mandarin, Korea, dan sistem tulisannya."
   },
   {
-    "clave": "tut.app-entretenimiento--esencial.resumen",
-    "texto": "Hiburan punya dua menu: Permainan Papan, dengan katalog digital yang dikelompokkan menurut keluarga dan difilter menurut jumlah pemain, dan Arsip, tempat kamu menyimpan film, serial, buku, dan video game yang kamu selesaikan lengkap dengan status dan ulasanmu."
+    "clave": "biblioteca.nodo.idi-practica",
+    "texto": "Praktik dan budaya"
   },
   {
-    "clave": "tut.app-garage--esencial.resumen",
-    "texto": "Garasi melacak perawatan kendaraanmu: lampu lalu lintas merangkum apa yang mendesak, daftar kendaraan menyimpan riwayat servis masing-masing, dan setiap berkas mengumpulkan administrasi, dokumen, dan kontaknya. Semua yang punya tanggal langsung masuk sendiri ke kalender rumah."
+    "clave": "biblioteca.nodo.idi-conversacion",
+    "texto": "Percakapan"
   },
   {
-    "clave": "tut.app-hobbies--esencial.resumen",
-    "texto": "Hobi melacak kegemaranmu: daftar dengan runtunan dan progres mingguan masing-masing, dan formulir untuk menambah yang baru. Di dalam setiap hobi ada catatan sesi, peta aktivitas tahunan, dan proyeknya."
+    "clave": "biblioteca.nodoDesc.idi-conversacion",
+    "texto": "Kelancaran, ungkapan, dan situasi sehari-hari."
   },
   {
-    "clave": "tut.app-ideas--esencial.resumen",
-    "texto": "Ide menyimpan apa pun yang terlintas di kepalamu dalam tiga menu: Jurnal ide (pikiran lepas atau curah gagasan menurut topik), Peta konsep (kanvas bebas dalam berbagai format) dan Diagram keputusan (format yang sama, dibuat untuk membandingkan dan memutuskan). Semuanya bisa diarsipkan ke folder dan diubah dari satu menu ke menu lain."
+    "clave": "biblioteca.nodo.idi-lectura",
+    "texto": "Membaca dan menulis"
   },
   {
-    "clave": "tut.app-idiomas--esencial.resumen",
-    "texto": "Bahasa adalah sekolah bahasamu, dalam empat menu. Obrolan membuka percakapan dengan tutor AI yang merespons sesuai levelmu; Silabus menyusun bahasa dalam topik, pelafalan, dan tata bahasa dari level A1 sampai C2, dan di situlah kosakata hidup dalam kartu; Tinjauan mengulangnya dengan sistem berjarak dan latihan; Progres merangkum kemajuanmu."
+    "clave": "biblioteca.nodoDesc.idi-lectura",
+    "texto": "Teks berjenjang, komposisi, dan ejaan."
   },
   {
-    "clave": "tut.app-jardin--esencial.resumen",
-    "texto": "Taman menggabungkan meditasi (dengan trek suara), pernapasan terpandu, dan rasa syukur harian, dalam tiga menu. Sengaja tidak ada poin atau runtunan: di sini tidak ada hukuman kalau kamu lewatkan satu hari, ini cuma untuk berlatih."
+    "clave": "biblioteca.nodo.idi-inmersion",
+    "texto": "Budaya dan imersi"
   },
   {
-    "clave": "tut.app-metas--esencial.resumen",
-    "texto": "Perencana seluruh rumah, dalam tiga menu: Target (daftar yang kamu tetapkan untuk dirimu, dikelompokkan menurut aplikasi yang mengelola masing-masing), Rencana (draf linimasa yang membagi target jadi beberapa fase) dan Linimasa (sumbu waktu tempat semuanya jatuh). Tidak menyimpan catatannya sendiri: mengumpulkan target dan rencana yang lahir di aplikasi lain. Dari sebuah target, kartunya terbuka, dan dari situ, sumbu yang dipersempit ke target itu."
+    "clave": "biblioteca.nodoDesc.idi-inmersion",
+    "texto": "Adat, media, dan perjalanan untuk belajar."
   },
   {
-    "clave": "tut.app-sala--esencial.resumen",
-    "texto": "Ruang Tamu adalah dunia jalan-jalanmu, dalam empat menu: Peta (pin tempat di peta dunia, dengan tampilan globe), Rencana perjalanan (tempat yang ingin dikunjungi dengan rencana harian), Rute (perjalanan yang menghubungkan tempat) dan Jurnal perjalanan (kenangan dengan foto dan cerita per negara)."
+    "clave": "biblioteca.nodo.artes",
+    "texto": "Seni dan ekspresi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.artes",
+    "texto": "Penciptaan estetika, persepsi seni, serta budaya visual dan suara."
+  },
+  {
+    "clave": "biblioteca.nodo.art-visuales",
+    "texto": "Seni visual"
+  },
+  {
+    "clave": "biblioteca.nodo.art-pintura",
+    "texto": "Melukis dan menggambar"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-pintura",
+    "texto": "Teknik, komposisi, dan warna."
+  },
+  {
+    "clave": "biblioteca.nodo.art-escultura",
+    "texto": "Patung dan arsitektur"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-escultura",
+    "texto": "Ruang, bentuk, dan desain."
+  },
+  {
+    "clave": "biblioteca.nodo.art-fotografia",
+    "texto": "Fotografi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-fotografia",
+    "texto": "Cahaya, pembingkaian, dan narasi visual."
+  },
+  {
+    "clave": "biblioteca.nodo.art-musica",
+    "texto": "Musik"
+  },
+  {
+    "clave": "biblioteca.nodo.art-teoria-mus",
+    "texto": "Teori musik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-teoria-mus",
+    "texto": "Harmoni, ritme, dan notasi."
+  },
+  {
+    "clave": "biblioteca.nodo.art-historia-mus",
+    "texto": "Sejarah musik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-historia-mus",
+    "texto": "Gaya, era, dan komposer."
+  },
+  {
+    "clave": "biblioteca.nodo.art-escenicas",
+    "texto": "Seni pertunjukan dan film"
+  },
+  {
+    "clave": "biblioteca.nodo.art-teatro",
+    "texto": "Teater dan pertunjukan"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-teatro",
+    "texto": "Dramaturgi, akting, dan penyutradaraan panggung."
+  },
+  {
+    "clave": "biblioteca.nodo.art-cine",
+    "texto": "Film dan media audiovisual"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-cine",
+    "texto": "Penulisan skenario, penyuntingan, dan bahasa film."
+  },
+  {
+    "clave": "biblioteca.nodo.tecnologia",
+    "texto": "Teknologi dan rekayasa"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tecnologia",
+    "texto": "Menerapkan pengetahuan untuk memecahkan masalah dan mengubah dunia."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-informatica",
+    "texto": "Ilmu komputer"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-algoritmos",
+    "texto": "Algoritma dan struktur data"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-algoritmos",
+    "texto": "Efisiensi, data, dan desain."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ia",
+    "texto": "Kecerdasan buatan"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-ia",
+    "texto": "Pembelajaran mesin dan etika AI."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-redes",
+    "texto": "Jaringan dan sistem"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-redes",
+    "texto": "Internet, keamanan, dan distribusi."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ingenieria",
+    "texto": "Rekayasa"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-mecanica",
+    "texto": "Teknik mesin"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-mecanica",
+    "texto": "Mesin, material, dan manufaktur."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-electrica",
+    "texto": "Teknik elektro"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-electrica",
+    "texto": "Rangkaian, daya, dan elektronik."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-civil",
+    "texto": "Teknik sipil"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-civil",
+    "texto": "Infrastruktur, hidraulika, dan struktur."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-energia",
+    "texto": "Energi dan keberlanjutan"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-renovables",
+    "texto": "Energi terbarukan"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-renovables",
+    "texto": "Surya, angin, dan hidrogen."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ambiental",
+    "texto": "Teknik lingkungan"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-ambiental",
+    "texto": "Limbah, air, dan jejak ekologis."
+  },
+  {
+    "clave": "biblioteca.nodo.salud",
+    "texto": "Kesehatan dan kedokteran"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.salud",
+    "texto": "Tubuh manusia, penyakit, pencegahan, dan sistem perawatan."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-anatomia",
+    "texto": "Anatomi dan fisiologi"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-cuerpo",
+    "texto": "Sistem tubuh"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-cuerpo",
+    "texto": "Organ, homeostasis, dan integrasi."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-neuro",
+    "texto": "Neurosains medis"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-neuro",
+    "texto": "Otak, indera, dan gerak."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-clinica",
+    "texto": "Kedokteran klinis"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-patologia",
+    "texto": "Patologi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-patologia",
+    "texto": "Penyakit, diagnosis, dan penyebab."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-farmacologia",
+    "texto": "Farmakologi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-farmacologia",
+    "texto": "Obat, dosis, dan efek."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-salud-pub",
+    "texto": "Kesehatan masyarakat"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-salud-pub",
+    "texto": "Epidemiologi, vaksin, dan kebijakan."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-bienestar",
+    "texto": "Kesejahteraan dan nutrisi"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-nutricion",
+    "texto": "Nutrisi klinis"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-nutricion",
+    "texto": "Diet, metabolisme, dan mikronutrien."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-prevencion",
+    "texto": "Kedokteran preventif"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-prevencion",
+    "texto": "Kebiasaan, skrining, dan usia panjang."
+  },
+  {
+    "clave": "ejercicio.ej.press-banca",
+    "texto": "Bench Press"
+  },
+  {
+    "clave": "ejercicio.ej.press-inclinado",
+    "texto": "Incline Press"
+  },
+  {
+    "clave": "ejercicio.ej.press-con-mancuernas",
+    "texto": "Dumbbell Press"
+  },
+  {
+    "clave": "ejercicio.ej.aperturas-con-mancuernas",
+    "texto": "Dumbbell Fly"
+  },
+  {
+    "clave": "ejercicio.ej.cruce-en-polea",
+    "texto": "Cable Crossover"
+  },
+  {
+    "clave": "ejercicio.ej.fondos-en-paralelas",
+    "texto": "Dips"
+  },
+  {
+    "clave": "ejercicio.ej.flexiones",
+    "texto": "Push-Up"
+  },
+  {
+    "clave": "ejercicio.ej.dominadas",
+    "texto": "Pull-Up"
+  },
+  {
+    "clave": "ejercicio.ej.jalon-al-pecho",
+    "texto": "Lat Pulldown"
+  },
+  {
+    "clave": "ejercicio.ej.remo-con-barra",
+    "texto": "Barbell Row"
+  },
+  {
+    "clave": "ejercicio.ej.remo-con-mancuerna",
+    "texto": "Dumbbell Row"
+  },
+  {
+    "clave": "ejercicio.ej.remo-en-polea-baja",
+    "texto": "Seated Cable Row"
+  },
+  {
+    "clave": "ejercicio.ej.pull-over",
+    "texto": "Pull-Over"
+  },
+  {
+    "clave": "ejercicio.ej.face-pull",
+    "texto": "Face Pull"
+  },
+  {
+    "clave": "ejercicio.ej.hiperextensiones",
+    "texto": "Hyperextension"
+  },
+  {
+    "clave": "ejercicio.ej.press-militar",
+    "texto": "Military Press"
+  },
+  {
+    "clave": "ejercicio.ej.press-arnold",
+    "texto": "Arnold Press"
+  },
+  {
+    "clave": "ejercicio.ej.elevaciones-laterales",
+    "texto": "Lateral Raise"
+  },
+  {
+    "clave": "ejercicio.ej.elevaciones-frontales",
+    "texto": "Front Raise"
+  },
+  {
+    "clave": "ejercicio.ej.pajaros",
+    "texto": "Reverse Fly"
+  },
+  {
+    "clave": "ejercicio.ej.encogimientos",
+    "texto": "Shrug"
+  },
+  {
+    "clave": "ejercicio.ej.curl-con-barra",
+    "texto": "Barbell Curl"
+  },
+  {
+    "clave": "ejercicio.ej.curl-con-mancuernas",
+    "texto": "Dumbbell Curl"
+  },
+  {
+    "clave": "ejercicio.ej.curl-martillo",
+    "texto": "Hammer Curl"
+  },
+  {
+    "clave": "ejercicio.ej.curl-predicador",
+    "texto": "Preacher Curl"
+  },
+  {
+    "clave": "ejercicio.ej.curl-concentrado",
+    "texto": "Concentration Curl"
+  },
+  {
+    "clave": "ejercicio.ej.extension-triceps-en-polea",
+    "texto": "Triceps Pushdown"
+  },
+  {
+    "clave": "ejercicio.ej.press-frances",
+    "texto": "Skull Crusher"
+  },
+  {
+    "clave": "ejercicio.ej.fondos-entre-bancos",
+    "texto": "Bench Dips"
+  },
+  {
+    "clave": "ejercicio.ej.extension-sobre-cabeza",
+    "texto": "Overhead Extension"
+  },
+  {
+    "clave": "ejercicio.ej.patada-de-triceps",
+    "texto": "Triceps Kickback"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla",
+    "texto": "Squat"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-frontal",
+    "texto": "Front Squat"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-bulgara",
+    "texto": "Bulgarian Split Squat"
+  },
+  {
+    "clave": "ejercicio.ej.prensa-de-pierna",
+    "texto": "Leg Press"
+  },
+  {
+    "clave": "ejercicio.ej.zancadas",
+    "texto": "Lunges"
+  },
+  {
+    "clave": "ejercicio.ej.peso-muerto",
+    "texto": "Deadlift"
+  },
+  {
+    "clave": "ejercicio.ej.peso-muerto-rumano",
+    "texto": "Romanian Deadlift"
+  },
+  {
+    "clave": "ejercicio.ej.curl-femoral",
+    "texto": "Leg Curl"
+  },
+  {
+    "clave": "ejercicio.ej.extension-de-cuadriceps",
+    "texto": "Leg Extension"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-talones",
+    "texto": "Calf Raise"
+  },
+  {
+    "clave": "ejercicio.ej.hip-thrust",
+    "texto": "Hip Thrust"
+  },
+  {
+    "clave": "ejercicio.ej.puente-de-gluteo",
+    "texto": "Glute Bridge"
+  },
+  {
+    "clave": "ejercicio.ej.patada-de-gluteo-en-polea",
+    "texto": "Cable Glute Kickback"
+  },
+  {
+    "clave": "ejercicio.ej.abduccion-de-cadera",
+    "texto": "Hip Abduction"
+  },
+  {
+    "clave": "ejercicio.ej.plancha",
+    "texto": "Plank"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-lateral",
+    "texto": "Side Plank"
+  },
+  {
+    "clave": "ejercicio.ej.crunch-abdominal",
+    "texto": "Crunch"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-piernas",
+    "texto": "Leg Raise"
+  },
+  {
+    "clave": "ejercicio.ej.russian-twist",
+    "texto": "Russian Twist"
+  },
+  {
+    "clave": "ejercicio.ej.rueda-abdominal",
+    "texto": "Ab Wheel Rollout"
+  },
+  {
+    "clave": "ejercicio.ej.escaladores",
+    "texto": "Mountain Climber"
+  },
+  {
+    "clave": "ejercicio.ej.carrera",
+    "texto": "Lari"
+  },
+  {
+    "clave": "ejercicio.ej.trote-suave",
+    "texto": "Jogging Santai"
+  },
+  {
+    "clave": "ejercicio.ej.caminata-rapida",
+    "texto": "Jalan Cepat"
+  },
+  {
+    "clave": "ejercicio.ej.ciclismo",
+    "texto": "Bersepeda"
+  },
+  {
+    "clave": "ejercicio.ej.senderismo",
+    "texto": "Hiking"
+  },
+  {
+    "clave": "ejercicio.ej.trail-running",
+    "texto": "Trail Running"
+  },
+  {
+    "clave": "ejercicio.ej.caminadora",
+    "texto": "Treadmill"
+  },
+  {
+    "clave": "ejercicio.ej.caminata-inclinada",
+    "texto": "Jalan Menanjak"
+  },
+  {
+    "clave": "ejercicio.ej.eliptica",
+    "texto": "Elliptical"
+  },
+  {
+    "clave": "ejercicio.ej.bicicleta-estatica",
+    "texto": "Sepeda Statis"
+  },
+  {
+    "clave": "ejercicio.ej.escaladora",
+    "texto": "Stair Climber"
+  },
+  {
+    "clave": "ejercicio.ej.remo-maquina",
+    "texto": "Rowing Machine"
+  },
+  {
+    "clave": "ejercicio.ej.hiit",
+    "texto": "HIIT"
+  },
+  {
+    "clave": "ejercicio.ej.sprints",
+    "texto": "Sprint"
+  },
+  {
+    "clave": "ejercicio.ej.saltar-cuerda",
+    "texto": "Lompat Tali"
+  },
+  {
+    "clave": "ejercicio.ej.burpees",
+    "texto": "Burpee"
+  },
+  {
+    "clave": "ejercicio.ej.circuito-metabolico",
+    "texto": "Sirkuit Metabolik"
+  },
+  {
+    "clave": "ejercicio.ej.natacion",
+    "texto": "Berenang"
+  },
+  {
+    "clave": "ejercicio.ej.aqua-aerobicos",
+    "texto": "Aqua Aerobik"
+  },
+  {
+    "clave": "ejercicio.ej.caminata",
+    "texto": "Jalan Kaki"
+  },
+  {
+    "clave": "ejercicio.ej.futbol",
+    "texto": "Sepak Bola"
+  },
+  {
+    "clave": "ejercicio.ej.basquetbol",
+    "texto": "Basket"
+  },
+  {
+    "clave": "ejercicio.ej.tenis",
+    "texto": "Tenis"
+  },
+  {
+    "clave": "ejercicio.ej.padel",
+    "texto": "Padel"
+  },
+  {
+    "clave": "ejercicio.ej.boxeo",
+    "texto": "Tinju"
+  },
+  {
+    "clave": "ejercicio.ej.baile",
+    "texto": "Menari"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-matutina",
+    "texto": "Mobilitas Pagi"
+  },
+  {
+    "clave": "ejercicio.ej.yoga-flow",
+    "texto": "Yoga Flow"
+  },
+  {
+    "clave": "ejercicio.ej.saludo-al-sol",
+    "texto": "Salam Matahari"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-general",
+    "texto": "Peregangan Umum"
+  },
+  {
+    "clave": "ejercicio.ej.guerrero-i",
+    "texto": "Pose Pejuang I"
+  },
+  {
+    "clave": "ejercicio.ej.guerrero-ii",
+    "texto": "Pose Pejuang II"
+  },
+  {
+    "clave": "ejercicio.ej.triangulo",
+    "texto": "Pose Segitiga"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-de-pie",
+    "texto": "Tekuk Berdiri"
+  },
+  {
+    "clave": "ejercicio.ej.apertura-de-cadera",
+    "texto": "Pembuka Pinggul"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-paloma",
+    "texto": "Pose Merpati"
+  },
+  {
+    "clave": "ejercicio.ej.mariposa",
+    "texto": "Peregangan Kupu-Kupu"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-isquiotibiales",
+    "texto": "Peregangan Hamstring"
+  },
+  {
+    "clave": "ejercicio.ej.zancada-baja",
+    "texto": "Lunge Rendah"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-guirnalda",
+    "texto": "Pose Garland"
+  },
+  {
+    "clave": "ejercicio.ej.figura-4",
+    "texto": "Peregangan Figure 4"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-aductores",
+    "texto": "Peregangan Adduktor"
+  },
+  {
+    "clave": "ejercicio.ej.rana",
+    "texto": "Pose Katak"
+  },
+  {
+    "clave": "ejercicio.ej.perro-boca-abajo",
+    "texto": "Anjing Menghadap Bawah"
+  },
+  {
+    "clave": "ejercicio.ej.torsion-espinal",
+    "texto": "Puntiran Tulang Belakang"
+  },
+  {
+    "clave": "ejercicio.ej.postura-del-nino",
+    "texto": "Pose Anak"
+  },
+  {
+    "clave": "ejercicio.ej.apertura-de-pecho",
+    "texto": "Pembuka Dada"
+  },
+  {
+    "clave": "ejercicio.ej.esfinge",
+    "texto": "Pose Sphinx"
+  },
+  {
+    "clave": "ejercicio.ej.hilo-y-aguja",
+    "texto": "Thread the Needle"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-dorsales",
+    "texto": "Peregangan Lat"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-cervical",
+    "texto": "Mobilitas Leher"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-de-columna",
+    "texto": "Rotasi Tulang Belakang"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-cobra",
+    "texto": "Pose Kobra"
+  },
+  {
+    "clave": "ejercicio.ej.inclinacion-lateral-de-cuello",
+    "texto": "Miring Leher ke Samping"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-cuadriceps",
+    "texto": "Peregangan Paha Depan"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-gemelos",
+    "texto": "Peregangan Betis"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-hombros",
+    "texto": "Peregangan Bahu"
+  },
+  {
+    "clave": "ejercicio.ej.foam-roller",
+    "texto": "Foam Rolling"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-triceps",
+    "texto": "Peregangan Trisep"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores-de-cadera",
+    "texto": "Peregangan Fleksor Pinggul"
+  },
+  {
+    "clave": "ejercicio.ej.piernas-en-la-pared",
+    "texto": "Kaki di Dinding"
+  },
+  {
+    "clave": "ejercicio.ej.savasana",
+    "texto": "Savasana"
+  },
+  {
+    "clave": "ejercicio.ej.postura-del-nino-apoyada",
+    "texto": "Pose Anak dengan Bantuan"
+  },
+  {
+    "clave": "ejercicio.ej.respiracion-profunda",
+    "texto": "Napas Dalam"
+  },
+  {
+    "clave": "ejercicio.ej.mariposa-reclinada",
+    "texto": "Kupu-Kupu Berbaring"
+  },
+  {
+    "clave": "ejercicio.ej.torsion-reclinada",
+    "texto": "Puntiran Berbaring"
+  },
+  {
+    "clave": "ejercicio.ej.liberacion-miofascial-con-pelota",
+    "texto": "Pelepasan Miofasial dengan Bola"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-tobillo",
+    "texto": "Putaran Pergelangan Kaki"
+  },
+  {
+    "clave": "ejercicio.ej.recogida-de-toalla-con-dedos",
+    "texto": "Mengambil Handuk dengan Jari Kaki"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-dorsiflexion",
+    "texto": "Peregangan Dorsifleksi"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-talones-unipodal",
+    "texto": "Angkat Tumit Satu Kaki"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-y-extension-en-descarga",
+    "texto": "Fleksi dan Ekstensi Tanpa Beban"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "Peregangan Dinamis Hamstring"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-isometrica-wall-squat",
+    "texto": "Squat Isometrik (Wall Squat)"
+  },
+  {
+    "clave": "ejercicio.ej.equilibrio-unipodal-single-leg-balance",
+    "texto": "Keseimbangan Satu Kaki"
+  },
+  {
+    "clave": "ejercicio.ej.sentadillas-del-arquero",
+    "texto": "Archer Squat"
+  },
+  {
+    "clave": "ejercicio.ej.estocadas-lunges",
+    "texto": "Lunges"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-90-90",
+    "texto": "Mobilitas 90/90"
+  },
+  {
+    "clave": "ejercicio.ej.el-puente-glute-bridge",
+    "texto": "Glute Bridge"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores-en-estocada",
+    "texto": "Peregangan Fleksor Pinggul dalam Lunge"
+  },
+  {
+    "clave": "ejercicio.ej.abduccion-lateral-de-cadera",
+    "texto": "Abduksi Lateral Pinggul"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-profunda-con-apertura",
+    "texto": "Deep Squat dengan Bukaan Lutut"
+  },
+  {
+    "clave": "ejercicio.ej.balanceo-dinamico-de-piernas",
+    "texto": "Ayunan Kaki Dinamis"
+  },
+  {
+    "clave": "ejercicio.ej.postura-gato-vaca",
+    "texto": "Pose Kucing-Sapi"
+  },
+  {
+    "clave": "ejercicio.ej.torsiones-lumbares-suaves",
+    "texto": "Puntiran Lumbar Lembut"
+  },
+  {
+    "clave": "ejercicio.ej.pointer-bird-dog",
+    "texto": "Bird Dog"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-frontal-isometricos",
+    "texto": "Plank Depan Isometrik"
+  },
+  {
+    "clave": "ejercicio.ej.roll-down-curl-jefferson",
+    "texto": "Roll Down (Jefferson Curl)"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-lumbar-boca-abajo",
+    "texto": "Peregangan Punggung Bawah (Tengkurap)"
+  },
+  {
+    "clave": "ejercicio.ej.rotacion-toracica",
+    "texto": "Rotasi Toraks"
+  },
+  {
+    "clave": "ejercicio.ej.retraccion-escapular",
+    "texto": "Retraksi Skapula"
+  },
+  {
+    "clave": "ejercicio.ej.angeles-de-pared-wall-angels",
+    "texto": "Wall Angels"
+  },
+  {
+    "clave": "ejercicio.ej.lunge-con-apertura-de-pectoral",
+    "texto": "Lunge dengan Pembuka Dada"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-dorsal-en-pared",
+    "texto": "Peregangan Lat di Dinding"
+  },
+  {
+    "clave": "ejercicio.ej.el-gato-y-la-mesa",
+    "texto": "Kucing dan Meja"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-hombros",
+    "texto": "Putaran Bahu"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-pecho-pectoral",
+    "texto": "Peregangan Dada/Pektoral"
+  },
+  {
+    "clave": "ejercicio.ej.dislocaciones-con-goma-o-palo",
+    "texto": "Dislokasi dengan Band (atau Tongkat)"
+  },
+  {
+    "clave": "ejercicio.ej.rotacion-externa-con-banda",
+    "texto": "Rotasi Eksternal dengan Band"
+  },
+  {
+    "clave": "ejercicio.ej.thread-the-needle-enhebrar-aguja",
+    "texto": "Thread the Needle"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-y-medios-circulos",
+    "texto": "Rotasi dan Setengah Lingkaran"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-trapecio-superior",
+    "texto": "Peregangan Trapesius Atas"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-cervicales-con-nodding",
+    "texto": "Rotasi Leher dengan Anggukan"
+  },
+  {
+    "clave": "ejercicio.ej.retracciones-de-barbilla-chin-tucks",
+    "texto": "Chin Tuck"
+  },
+  {
+    "clave": "ejercicio.ej.isometricos-cervicales",
+    "texto": "Isometrik Leher"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-y-extension-de-muneca",
+    "texto": "Fleksi dan Ekstensi Pergelangan Tangan"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-munecas",
+    "texto": "Putaran Pergelangan Tangan"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores",
+    "texto": "Peregangan Fleksor"
+  },
+  {
+    "clave": "ejercicio.ej.agarre-activo-y-pasivo",
+    "texto": "Genggaman Aktif dan Pasif"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-de-munecas",
+    "texto": "Plank Pergelangan Tangan"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-banca",
+    "texto": "Sambil berbaring di bench, turunkan bar ke dada lalu dorong ke atas sampai siku lurus."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-inclinado",
+    "texto": "Di bench miring, dorong bar atau dumbbell untuk menekankan dada atas."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-con-mancuernas",
+    "texto": "Sambil berbaring, dorong dua dumbbell ke atas dengan jangkauan gerak lebih luas dari bar."
+  },
+  {
+    "clave": "ejercicio.ejDesc.aperturas-con-mancuernas",
+    "texto": "Sambil berbaring, buka lengan membentuk busur lalu satukan dengan siku sedikit ditekuk."
+  },
+  {
+    "clave": "ejercicio.ejDesc.cruce-en-polea",
+    "texto": "Berdiri di antara cable tinggi, satukan tangan di depan sambil mengontraksikan dada."
+  },
+  {
+    "clave": "ejercicio.ejDesc.fondos-en-paralelas",
+    "texto": "Bergantung di palang paralel, turunkan tubuh dengan menekuk siku sambil badan condong ke depan, lalu dorong naik."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexiones",
+    "texto": "Tengkurap, turunkan dada ke lantai dengan tubuh lurus, lalu dorong kembali ke atas."
+  },
+  {
+    "clave": "ejercicio.ejDesc.dominadas",
+    "texto": "Bergantung di bar, tarik tubuh ke atas sampai dagu melewati bar."
+  },
+  {
+    "clave": "ejercicio.ejDesc.jalon-al-pecho",
+    "texto": "Duduk di cable atas, tarik bar ke dada sambil menurunkan siku."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-con-barra",
+    "texto": "Condong ke depan dengan punggung lurus, tarik bar ke perut sambil mengontraksikan punggung."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-con-mancuerna",
+    "texto": "Bertumpu di bench, tarik dumbbell ke samping tanpa memutar badan."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-en-polea-baja",
+    "texto": "Sambil duduk, tarik pegangan ke perut sambil menjaga punggung tegak."
+  },
+  {
+    "clave": "ejercicio.ejDesc.pull-over",
+    "texto": "Sambil berbaring, turunkan dumbbell ke belakang kepala, lalu kembalikan ke atas dada."
+  },
+  {
+    "clave": "ejercicio.ejDesc.face-pull",
+    "texto": "Di cable setinggi wajah, tarik tali ke arah dahi sambil membuka siku ke luar."
+  },
+  {
+    "clave": "ejercicio.ejDesc.hiperextensiones",
+    "texto": "Di bench, turunkan badan lalu naikkan kembali dengan meluruskan punggung bawah."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-militar",
+    "texto": "Berdiri, dorong bar dari bahu ke atas kepala."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-arnold",
+    "texto": "Sambil duduk, dorong dumbbell ke atas sambil memutar telapak tangan dari menghadap dalam ke luar."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevaciones-laterales",
+    "texto": "Berdiri, angkat dumbbell ke samping sampai setinggi bahu."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevaciones-frontales",
+    "texto": "Berdiri, angkat dumbbell ke depan sampai setinggi mata."
+  },
+  {
+    "clave": "ejercicio.ejDesc.pajaros",
+    "texto": "Condong ke depan, buka lengan ke samping untuk melatih bahu belakang."
+  },
+  {
+    "clave": "ejercicio.ejDesc.encogimientos",
+    "texto": "Berdiri sambil membawa beban, angkat bahu ke arah telinga lalu turunkan dengan terkontrol."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-con-barra",
+    "texto": "Berdiri, tekuk siku mengangkat bar tanpa mengayunkan badan."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-con-mancuernas",
+    "texto": "Berdiri atau duduk, angkat dumbbell dengan menekuk siku, bergantian atau bersamaan."
   }
 ]

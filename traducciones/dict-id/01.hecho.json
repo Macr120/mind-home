@@ -1,46 +1,878 @@
 [
   {
-    "clave": "tut.esencial.titulo",
-    "texto": "Yang Penting"
+    "clave": "hoy.casa.personales",
+    "texto": "Pribadi"
   },
   {
-    "clave": "tut.tipo.ejemplos",
-    "texto": "Contoh · rumah demo"
+    "clave": "hoy.irApp",
+    "texto": "Catat di aplikasi"
   },
   {
-    "clave": "tut.app-agenda--esencial.resumen",
-    "texto": "Agenda menyimpan semua yang bukan kebiasaan, dalam tiga menu: Kerja (tugas dan papan), Kesehatan (janji dokter, obat, dan perawatan — kamu, orang tersayangmu, dan hewan peliharaanmu) dan Orang (daftar kontak dan ulang tahun). Semua yang punya tanggal langsung masuk sendiri ke kalender."
+    "clave": "hoy.nada",
+    "texto": "Kamu belum menetapkan apa pun di aplikasi ini."
   },
   {
-    "clave": "tut.calendario--esencial.resumen",
-    "texto": "Kalender bukan ruangan: dia hidup di jam rumah dan mengumpulkan semua yang punya tanggal dan waktu — yang kamu buat sendiri dan yang dijadwalkan otomatis oleh aplikasi lain. Ada empat cara melihatnya: Hari dan Minggu di kisi jam, Bulan dan Tahun untuk gambaran besar. Misi berdiri sendiri — tombol merah dengan daftar tugas hari ini dari semua aplikasi sekaligus."
+    "clave": "hoy.metas.titulo",
+    "texto": "Target"
   },
   {
-    "clave": "tut.app-anecdotario--esencial.resumen",
-    "texto": "Buku kenangan adalah diarimu sendiri: entri dengan suasana hati, teks, dan foto yang tersimpan sendiri berdasarkan tanggal. Kalender mewarnai setiap hari sesuai suasana hatimu, dan riwayat mengarsipkannya dalam folder per tahun, bulan, dan minggu."
+    "clave": "hoy.metas.vencida",
+    "texto": "terlambat"
   },
   {
-    "clave": "tut.app-biblioteca--esencial.resumen",
-    "texto": "Perpustakaan adalah ensiklopedia pribadimu, dalam empat menu: Obrolan (tanya Sang Bijak dan setiap percakapan otomatis diarsipkan dan disarikan jadi entri), Ensiklopedia (pohon tempat semua yang kamu pelajari hidup, menurut bidang ilmu), Belajar (timer biasa atau pomodoro, yang mencatat setiap sesi) dan Ringkasan (berapa banyak yang sudah kamu tulis dan pelajari)."
+    "clave": "hoy.metas.faltan",
+    "texto": "{n} h"
   },
   {
-    "clave": "tut.app-cocina--esencial.resumen",
-    "texto": "Dapur punya dua menu. Buku resep menyimpan yang akan kamu masak: resep dengan makronya, diet yang mengelompokkannya, dan daftar belanja. Nutrisi mencatat apa yang kamu makan, dalam empat langkah: target kalori dan berat badan, catatan harian, rencana makan untuk hari-hari mendatang, dan progres."
+    "clave": "objetivos.anadir",
+    "texto": "Tambah misi"
   },
   {
-    "clave": "tut.app-computo--esencial.resumen",
-    "texto": "Komputasi punya dua menu. Kalkulator melakukan hitungan sehari-hari dan berganti mode untuk membuat grafik, bekerja dengan basis angka, matriks, sistem persamaan, satuan, tip, dan aturan tiga; tergantung padanya ada Buku Rumus, buku rumusmu dengan Matematika, Fisika, dan Kimia yang sudah dimuat. Spreadsheet menangani semua yang berbentuk tabel, dengan rumus yang mudah dipahami dan ekspor ke Excel atau PDF."
+    "clave": "objetivos.responsable",
+    "texto": "{quien} mengingatkanmu soal yang ada di sini."
   },
   {
-    "clave": "tut.app-descanso--esencial.resumen",
-    "texto": "Istirahat mencatat cara tidurmu dalam satu layar: skor malam terakhir, jadwalmu dengan pengingatnya, catatan harian, dan riwayat lengkap per tahun, bulan, dan minggu."
+    "clave": "objetivos.nuevo.deQueApp",
+    "texto": "Misi ini soal apa?"
   },
   {
-    "clave": "tut.app-despacho--esencial.resumen",
-    "texto": "Ruang Kerja mengatur uangmu dalam empat menu. Kekayaan bersih menyimpan yang kamu punya dan yang kamu utang, dengan proyeksinya; Arus kas mencatat pengeluaran, pemasukan, dan saldo periode, dengan anggaran dan kategorinya; Target menggabungkan tabungan, investasi, dan utang, plus kalkulator yang mengusulkan jumlah tertentu. Pasar adalah papan kutipan langsung, hanya untuk referensi."
+    "clave": "objetivos.nuevo.responsable",
+    "texto": "Aku yang mengingatkanmu soal ini. Apa yang kamu niatkan?"
   },
   {
-    "clave": "tut.app-diario--esencial.resumen",
-    "texto": "Berita Harian adalah koran yang sementara: berita utama pers asli menurut kategori dan «Hari ini dalam sejarah», yang memperbarui diri sendiri tengah malam. Dari Pengiriman kamu bisa atur asisten membawakannya untukmu di obrolannya sendiri."
+    "clave": "objetivos.nuevo.personal",
+    "texto": "Misi pribadi, tidak terikat ke aplikasi mana pun."
+  },
+  {
+    "clave": "objetivos.nuevo.personales",
+    "texto": "Pribadi"
+  },
+  {
+    "clave": "objetivos.nuevo.poner",
+    "texto": "＋"
+  },
+  {
+    "clave": "objetivos.nuevo.todos",
+    "texto": "Kamu sudah menargetkan semuanya di aplikasi ini."
+  },
+  {
+    "clave": "objetivos.nuevo.otro",
+    "texto": "Misi lain…"
+  },
+  {
+    "clave": "objetivos.nuevo.otroPlaceholder",
+    "texto": "Apa yang kamu niatkan?"
+  },
+  {
+    "clave": "objetivos.nuevo.checklist",
+    "texto": "Butuh beberapa langkah? Checklist baru"
+  },
+  {
+    "clave": "objetivos.nuevo.dias",
+    "texto": "Hari apa saja?"
+  },
+  {
+    "clave": "objetivos.nuevo.faltanDias",
+    "texto": "Pilih minimal satu hari."
+  },
+  {
+    "clave": "objetivos.nuevo.cantidad",
+    "texto": "Berapa banyak?"
+  },
+  {
+    "clave": "objetivos.nuevo.meta",
+    "texto": "Untuk target yang mana?"
+  },
+  {
+    "clave": "objetivos.nuevo.sinMeta",
+    "texto": "Tidak ada (mandiri)"
+  },
+  {
+    "clave": "objetivos.nuevo.mientrasDure",
+    "texto": "Hanya dari {ini} sampai {fin}, selama target ini berlangsung."
+  },
+  {
+    "clave": "objetivos.nuevo.hora",
+    "texto": "Pada jam tertentu?"
+  },
+  {
+    "clave": "objetivos.nuevo.sinHora",
+    "texto": "Tanpa jam"
+  },
+  {
+    "clave": "objetivos.nuevo.anadir",
+    "texto": "Tambah"
+  },
+  {
+    "clave": "objetivos.nuevo.cancelar",
+    "texto": "Batal"
+  },
+  {
+    "clave": "objetivos.nuevo.cambiar",
+    "texto": "Ganti asisten"
+  },
+  {
+    "clave": "objetivos.nuevo.nadie",
+    "texto": "Tanpa asisten"
+  },
+  {
+    "clave": "avisos.objetivos",
+    "texto": "Kamu punya {n} misi tersisa di {app}."
+  },
+  {
+    "clave": "biblioteca.nodo.filosofia",
+    "texto": "Filsafat dan pemikiran"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.filosofia",
+    "texto": "Pertanyaan mendasar tentang realitas, pengetahuan, pikiran, dan perilaku."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-metafisica",
+    "texto": "Metafisika dan ontologi"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-ser",
+    "texto": "Keberadaan dan eksistensi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-ser",
+    "texto": "Makna dari keberadaan sesuatu."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-mente",
+    "texto": "Pikiran dan kesadaran"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-mente",
+    "texto": "Masalah pikiran-tubuh dan fenomenologi."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-libre",
+    "texto": "Kebebasan dan determinisme"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-libre",
+    "texto": "Apakah kita bebas, atau semua punya sebab?"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-epistemologia",
+    "texto": "Epistemologi"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-conocimiento",
+    "texto": "Teori pengetahuan"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-conocimiento",
+    "texto": "Justifikasi, kebenaran, dan keyakinan."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-ciencia-fil",
+    "texto": "Filsafat ilmu"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-ciencia-fil",
+    "texto": "Metode, paradigma, dan demarkasi."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-escepticismo",
+    "texto": "Skeptisisme"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-escepticismo",
+    "texto": "Batas dari apa yang bisa kita ketahui."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-etica",
+    "texto": "Etika dan filsafat politik"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-moral",
+    "texto": "Teori-teori moral"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-moral",
+    "texto": "Deontologi, utilitarianisme, keutamaan."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-justicia",
+    "texto": "Keadilan sosial"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-justicia",
+    "texto": "Kesetaraan, hak, dan kebaikan bersama."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-bioetica",
+    "texto": "Bioetika"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-bioetica",
+    "texto": "Kehidupan, kedokteran, dan teknologi terapan."
+  },
+  {
+    "clave": "biblioteca.nodo.matematicas",
+    "texto": "Matematika dan logika"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.matematicas",
+    "texto": "Struktur abstrak, penalaran formal, dan model kuantitatif."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-puras",
+    "texto": "Matematika murni"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-algebra",
+    "texto": "Aljabar"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-algebra",
+    "texto": "Struktur, persamaan, dan simetri."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-analisis",
+    "texto": "Analisis"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-analisis",
+    "texto": "Limit, kekontinuan, dan kalkulus."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-geometria",
+    "texto": "Geometri dan topologi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-geometria",
+    "texto": "Bentuk, ruang, dan transformasi."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-aplicadas",
+    "texto": "Matematika terapan"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-prob",
+    "texto": "Peluang"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-prob",
+    "texto": "Ketidakpastian dan kejadian acak."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-stats",
+    "texto": "Statistika"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-stats",
+    "texto": "Data, inferensi, dan model."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-discreta",
+    "texto": "Matematika diskrit"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-discreta",
+    "texto": "Kombinatorika, graf, dan rekursi."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-logica",
+    "texto": "Logika"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-log-formal",
+    "texto": "Logika formal"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-log-formal",
+    "texto": "Proposisi, predikat, dan pembuktian."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-log-comput",
+    "texto": "Logika komputasi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-log-comput",
+    "texto": "Algoritma, kompleksitas, dan verifikasi."
+  },
+  {
+    "clave": "biblioteca.nodo.naturales",
+    "texto": "Ilmu alam"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.naturales",
+    "texto": "Hukum alam semesta fisik, materi, energi, dan sistem kehidupan."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-fisica",
+    "texto": "Fisika"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-mecanica",
+    "texto": "Mekanika klasik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-mecanica",
+    "texto": "Gerak, gaya, dan energi."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-cuantica",
+    "texto": "Fisika kuantum"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-cuantica",
+    "texto": "Partikel, gelombang, dan peluang."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-relatividad",
+    "texto": "Relativitas"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-relatividad",
+    "texto": "Ruang-waktu dan kosmologi."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-termodinamica",
+    "texto": "Termodinamika"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-termodinamica",
+    "texto": "Panas, entropi, dan kesetimbangan."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-quimica",
+    "texto": "Kimia"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-org",
+    "texto": "Kimia organik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-org",
+    "texto": "Karbon, biomolekul, dan reaksi."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-inorg",
+    "texto": "Kimia anorganik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-inorg",
+    "texto": "Unsur, ikatan, dan material."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-fisicoquim",
+    "texto": "Kimia fisik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-fisicoquim",
+    "texto": "Energi dalam reaksi dan kesetimbangan."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-biologia",
+    "texto": "Biologi"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-celula",
+    "texto": "Biologi sel"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-celula",
+    "texto": "Sel, metabolisme, dan pensinyalan."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-genetica",
+    "texto": "Genetika dan evolusi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-genetica",
+    "texto": "DNA, seleksi, dan filogeni."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-ecologia",
+    "texto": "Ekologi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-ecologia",
+    "texto": "Ekosistem, keanekaragaman hayati, dan siklus."
+  },
+  {
+    "clave": "biblioteca.nodo.tierra",
+    "texto": "Ilmu kebumian"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tierra",
+    "texto": "Planet, atmosfer, lautan, dan proses geologi."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-geologia",
+    "texto": "Geologi dan geofisika"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-placas",
+    "texto": "Tektonika lempeng"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-placas",
+    "texto": "Pembentukan bentang alam dan gempa bumi."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-minerales",
+    "texto": "Mineralogi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-minerales",
+    "texto": "Batuan, mineral, dan sumber daya."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-paleont",
+    "texto": "Paleontologi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-paleont",
+    "texto": "Fosil dan sejarah kehidupan."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-clima",
+    "texto": "Iklim dan atmosfer"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-meteorologia",
+    "texto": "Meteorologi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-meteorologia",
+    "texto": "Cuaca, tekanan, dan curah hujan."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-climatologia",
+    "texto": "Klimatologi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-climatologia",
+    "texto": "Pola jangka panjang dan perubahan iklim."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-oceanos",
+    "texto": "Oseanografi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-oceanos",
+    "texto": "Arus, laut, dan pesisir."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-espacial",
+    "texto": "Geografi dan keruangan"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-cartografia",
+    "texto": "Kartografi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-cartografia",
+    "texto": "Peta, koordinat, dan SIG."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-geomorf",
+    "texto": "Geomorfologi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-geomorf",
+    "texto": "Bentang alam dan erosi."
+  },
+  {
+    "clave": "biblioteca.nodo.sociales",
+    "texto": "Ilmu sosial"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sociales",
+    "texto": "Masyarakat, ekonomi, institusi, dan perilaku manusia secara kolektif."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-sociologia",
+    "texto": "Sosiologi dan antropologi"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-estructura",
+    "texto": "Struktur sosial"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-estructura",
+    "texto": "Kelas, jaringan, dan ketimpangan."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-cultura",
+    "texto": "Antropologi budaya"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-cultura",
+    "texto": "Ritual, identitas, dan simbol."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-urbano",
+    "texto": "Kajian perkotaan"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-urbano",
+    "texto": "Kota, migrasi, dan wilayah."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-economia",
+    "texto": "Ekonomi"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-micro",
+    "texto": "Ekonomi mikro"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-micro",
+    "texto": "Penawaran, permintaan, dan keputusan."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-macro",
+    "texto": "Ekonomi makro"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-macro",
+    "texto": "PDB, inflasi, dan kebijakan fiskal."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-comercio",
+    "texto": "Perdagangan internasional"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-comercio",
+    "texto": "Globalisasi dan rantai nilai."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-politica",
+    "texto": "Ilmu politik"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-estado",
+    "texto": "Negara dan pemerintahan"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-estado",
+    "texto": "Kekuasaan, hukum, dan demokrasi."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-derechos",
+    "texto": "Hak asasi manusia"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-derechos",
+    "texto": "Kebebasan, keadilan, dan kewarganegaraan."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-relaciones",
+    "texto": "Hubungan internasional"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-relaciones",
+    "texto": "Diplomasi, konflik, dan kerja sama."
+  },
+  {
+    "clave": "biblioteca.nodo.psicologia",
+    "texto": "Psikologi dan pikiran manusia"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psicologia",
+    "texto": "Kognisi, emosi, perkembangan, dan kesejahteraan psikologis."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-cognitiva",
+    "texto": "Psikologi kognitif"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-percepcion",
+    "texto": "Persepsi dan atensi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-percepcion",
+    "texto": "Bagaimana kita memproses rangsangan."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-memoria",
+    "texto": "Memori dan pembelajaran"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-memoria",
+    "texto": "Pengkodean, pengingatan, dan lupa."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-lenguaje-psi",
+    "texto": "Psikolinguistik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-lenguaje-psi",
+    "texto": "Pemerolehan dan pemrosesan bahasa."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-desarrollo",
+    "texto": "Perkembangan dan kepribadian"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-infancia",
+    "texto": "Perkembangan anak"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-infancia",
+    "texto": "Tonggak kognitif dan sosial."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-personalidad",
+    "texto": "Kepribadian"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-personalidad",
+    "texto": "Sifat, temperamen, dan model."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-social-psi",
+    "texto": "Psikologi sosial"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-social-psi",
+    "texto": "Kelompok, sikap, dan konformitas."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-clinica",
+    "texto": "Kesehatan mental"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-clinica-gen",
+    "texto": "Psikologi klinis"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-clinica-gen",
+    "texto": "Gangguan, diagnosis, dan terapi."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-neuropsi",
+    "texto": "Neuropsikologi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-neuropsi",
+    "texto": "Otak, cedera, dan rehabilitasi."
+  },
+  {
+    "clave": "biblioteca.nodo.humanidades",
+    "texto": "Humaniora dan sejarah"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.humanidades",
+    "texto": "Pengalaman manusia lintas waktu, pemikiran, dan warisan budaya."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-historia",
+    "texto": "Sejarah"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-antigua",
+    "texto": "Sejarah kuno"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-antigua",
+    "texto": "Peradaban klasik dan asal-usulnya."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-moderna",
+    "texto": "Sejarah modern dan kontemporer"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-moderna",
+    "texto": "Revolusi, negara, dan globalisasi."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-metodo",
+    "texto": "Historiografi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-metodo",
+    "texto": "Sumber, interpretasi, dan perdebatan."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-religion",
+    "texto": "Agama dan mitologi"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-comparada",
+    "texto": "Perbandingan agama"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-comparada",
+    "texto": "Tradisi, teks, dan praktik."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-mito",
+    "texto": "Mitologi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-mito",
+    "texto": "Narasi dasar dan arketipe."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-patrimonio",
+    "texto": "Warisan dan kajian budaya"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-museos",
+    "texto": "Warisan benda"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-museos",
+    "texto": "Museum, konservasi, dan artefak."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-memoria",
+    "texto": "Memori kolektif"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-memoria",
+    "texto": "Kesaksian, arsip, dan lupa."
+  },
+  {
+    "clave": "biblioteca.nodo.lengua",
+    "texto": "Bahasa dan sastra"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.lengua",
+    "texto": "Komunikasi, teks, analisis linguistik, dan tradisi tulis."
+  },
+  {
+    "clave": "biblioteca.nodo.len-linguistica",
+    "texto": "Linguistik"
+  },
+  {
+    "clave": "biblioteca.nodo.len-fonetica",
+    "texto": "Fonetik dan fonologi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-fonetica",
+    "texto": "Bunyi dan sistem fonologis."
+  },
+  {
+    "clave": "biblioteca.nodo.len-sintaxis",
+    "texto": "Sintaksis dan morfologi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-sintaxis",
+    "texto": "Struktur kalimat dan kata."
+  },
+  {
+    "clave": "biblioteca.nodo.len-semantica",
+    "texto": "Semantik dan pragmatik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-semantica",
+    "texto": "Makna dalam konteks."
+  },
+  {
+    "clave": "biblioteca.nodo.len-literatura",
+    "texto": "Sastra"
+  },
+  {
+    "clave": "biblioteca.nodo.len-generos",
+    "texto": "Genre sastra"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-generos",
+    "texto": "Novel, puisi, drama, dan esai."
+  },
+  {
+    "clave": "biblioteca.nodo.len-teoria-lit",
+    "texto": "Teori sastra"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-teoria-lit",
+    "texto": "Kritik, naratologi, dan kanon."
+  },
+  {
+    "clave": "biblioteca.nodo.len-mundo",
+    "texto": "Sastra dunia"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-mundo",
+    "texto": "Tradisi regional dan penerjemahan."
+  },
+  {
+    "clave": "biblioteca.nodo.len-comunicacion",
+    "texto": "Komunikasi"
+  },
+  {
+    "clave": "biblioteca.nodo.len-periodismo",
+    "texto": "Jurnalisme"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-periodismo",
+    "texto": "Berita, pemeriksaan fakta, dan opini."
+  },
+  {
+    "clave": "biblioteca.nodo.len-retorica",
+    "texto": "Retorika dan argumentasi"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-retorica",
+    "texto": "Persuasi dan debat publik."
+  },
+  {
+    "clave": "biblioteca.nodo.idiomas",
+    "texto": "Bahasa"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idiomas",
+    "texto": "Belajar bahasa asing: kosakata, tata bahasa, pelafalan, dan latihan."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-aprendizaje",
+    "texto": "Dasar-dasar belajar"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-vocabulario",
+    "texto": "Kosakata"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-vocabulario",
+    "texto": "Pemerolehan dan pengulangan kata serta frasa yang berguna."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-gramatica",
+    "texto": "Tata bahasa"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-gramatica",
+    "texto": "Struktur, bentuk waktu kata kerja, dan sintaksis komparatif."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-pronunciacion",
+    "texto": "Pelafalan dan menyimak"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-pronunciacion",
+    "texto": "Fonetik, aksen, dan pemahaman menyimak."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-lenguas",
+    "texto": "Bahasa-bahasa dunia"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-ingles",
+    "texto": "Bahasa Inggris"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-ingles",
+    "texto": "Bahasa penghubung global."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-romances",
+    "texto": "Bahasa-bahasa Roman"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-romances",
+    "texto": "Prancis, Italia, Portugis, dan bahasa-bahasa kerabatnya."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-asiaticas",
+    "texto": "Bahasa-bahasa Asia"
   }
 ]

@@ -1,38 +1,1010 @@
 [
   {
-    "clave": "tut.app-ejercicio--esencial.resumen",
-    "texto": "ジムは体を鍛える3つの分野を一か所にまとめます。筋力（セット・回数・重量）、持久力（ランニング、自転車、水泳を、GPSと心拍センサーを使ったライブトレーニングで）、柔軟性（時間で計るモビリティを、ガイド付きプレーヤーで）。3つとも構成は同じで——カタログ、ルーティン、進捗——目標メニューでは週にどれだけ運動するかを決め、連続記録と進み具合をまとめて確認できます。"
+    "clave": "biblioteca.nodoDesc.idi-asiaticas",
+    "texto": "日本語、中国語、韓国語とその文字体系。"
   },
   {
-    "clave": "tut.app-entretenimiento--esencial.resumen",
-    "texto": "娯楽室のメニューは2つです。ボードゲームは、系統ごとにまとまり、人数で絞り込めるデジタルカタログです。アーカイブには、見終わった映画やドラマ、読み終えた本、遊んだゲームを、状態と自分のレビューつきで残せます。"
+    "clave": "biblioteca.nodo.idi-practica",
+    "texto": "実践と文化"
   },
   {
-    "clave": "tut.app-garage--esencial.resumen",
-    "texto": "ガレージは車両のメンテナンスを管理します。信号の色で急ぎの用件がひと目でわかり、車両リストには整備の履歴が残ります。1台ごとのページには手続き・書類・連絡先がまとまっています。日付のあるものは、すべて自動で家のカレンダーに入ります。"
+    "clave": "biblioteca.nodo.idi-conversacion",
+    "texto": "会話"
   },
   {
-    "clave": "tut.app-hobbies--esencial.resumen",
-    "texto": "趣味は打ち込んでいることを見守ります。一覧には一つひとつの連続記録と今週の進み具合が並び、新しい趣味もここから登録できます。趣味の中には、練習の記録、1年分のヒートマップ、そしてプロジェクトがあります。"
+    "clave": "biblioteca.nodoDesc.idi-conversacion",
+    "texto": "流暢さ、表現、日常会話。"
   },
   {
-    "clave": "tut.app-ideas--esencial.resumen",
-    "texto": "アイデアは、思いついたことを3つのメニューに残します。アイデア日記（ふとした思いつきや、テーマごとのブレインストーミング）、コンセプトマップ（いろいろな形式で描ける自由なキャンバス）、決定図（同じ形式を、比べて決めるために使います）。どれもフォルダに整理でき、別のメニューへ変換することもできます。"
+    "clave": "biblioteca.nodo.idi-lectura",
+    "texto": "読み書き"
   },
   {
-    "clave": "tut.app-idiomas--esencial.resumen",
-    "texto": "語学はあなただけの語学スクールで、メニューは4つです。チャットでは、レベルに合わせて答えてくれるAIの先生と会話できます。シラバスは、言語をトピック・発音・文法に分けて初級から最上級まで並べ、単語カードもそこに収まっています。復習は間隔反復と練習問題でおさらいします。進捗は上達のようすをまとめます。"
+    "clave": "biblioteca.nodoDesc.idi-lectura",
+    "texto": "段階別の教材、作文、綴り。"
   },
   {
-    "clave": "tut.app-jardin--esencial.resumen",
-    "texto": "庭には瞑想（音声トラック付き）、ガイド付きの呼吸法、毎日の感謝の3つのメニューがあります。ポイントも連続記録もあえてありません。ここでは休んでも責められることはなく、ただ実践するだけです。"
+    "clave": "biblioteca.nodo.idi-inmersion",
+    "texto": "文化とイマージョン"
   },
   {
-    "clave": "tut.app-metas--esencial.resumen",
-    "texto": "家じゅうの計画を立てる場所で、メニューは3つです。目標（やると決めたことの一覧を、それを担当するアプリごとにまとめます）、プラン（一つの目標をフェーズに分けたスケジュールの下書き）、スケジュール（すべてが並ぶ時間軸）。ここには独自の記録はありません。ほかのアプリで生まれた目標とプランを集めているだけです。目標を開くとそのシートが表示され、そこからその目標だけに絞った時間軸へ移れます。"
+    "clave": "biblioteca.nodoDesc.idi-inmersion",
+    "texto": "習慣、メディア、学びのための旅。"
   },
   {
-    "clave": "tut.app-sala--esencial.resumen",
-    "texto": "リビングはあなたの旅の世界で、メニューは4つです。マップ（世界地図に立てた場所のピン、地球儀表示つき）、旅程（行きたい場所と、その日ごとの計画）、ルート（複数の場所をつなぐ旅の道すじ）、旅日記（写真とエピソードで残す国ごとの思い出）。"
+    "clave": "biblioteca.nodo.artes",
+    "texto": "芸術と表現"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.artes",
+    "texto": "美的創作、芸術的知覚、視覚と音の文化。"
+  },
+  {
+    "clave": "biblioteca.nodo.art-visuales",
+    "texto": "視覚芸術"
+  },
+  {
+    "clave": "biblioteca.nodo.art-pintura",
+    "texto": "絵画とデッサン"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-pintura",
+    "texto": "技法、構図、色彩。"
+  },
+  {
+    "clave": "biblioteca.nodo.art-escultura",
+    "texto": "彫刻と建築"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-escultura",
+    "texto": "空間、造形、デザイン。"
+  },
+  {
+    "clave": "biblioteca.nodo.art-fotografia",
+    "texto": "写真"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-fotografia",
+    "texto": "光、構図、映像による物語。"
+  },
+  {
+    "clave": "biblioteca.nodo.art-musica",
+    "texto": "音楽"
+  },
+  {
+    "clave": "biblioteca.nodo.art-teoria-mus",
+    "texto": "音楽理論"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-teoria-mus",
+    "texto": "和声、リズム、記譜法。"
+  },
+  {
+    "clave": "biblioteca.nodo.art-historia-mus",
+    "texto": "音楽史"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-historia-mus",
+    "texto": "様式、時代、作曲家。"
+  },
+  {
+    "clave": "biblioteca.nodo.art-escenicas",
+    "texto": "舞台芸術と映画"
+  },
+  {
+    "clave": "biblioteca.nodo.art-teatro",
+    "texto": "演劇とパフォーマンス"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-teatro",
+    "texto": "劇作、演技、演出。"
+  },
+  {
+    "clave": "biblioteca.nodo.art-cine",
+    "texto": "映画と映像メディア"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-cine",
+    "texto": "脚本、編集、映画的表現。"
+  },
+  {
+    "clave": "biblioteca.nodo.tecnologia",
+    "texto": "技術と工学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tecnologia",
+    "texto": "知識を応用して課題を解決し、世界を変えていく。"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-informatica",
+    "texto": "コンピュータサイエンス"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-algoritmos",
+    "texto": "アルゴリズムとデータ構造"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-algoritmos",
+    "texto": "効率性、データ、設計。"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ia",
+    "texto": "人工知能"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-ia",
+    "texto": "機械学習とAI倫理。"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-redes",
+    "texto": "ネットワークとシステム"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-redes",
+    "texto": "インターネット、セキュリティ、分散処理。"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ingenieria",
+    "texto": "工学"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-mecanica",
+    "texto": "機械工学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-mecanica",
+    "texto": "機械、材料、製造。"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-electrica",
+    "texto": "電気工学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-electrica",
+    "texto": "回路、電力、電子工学。"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-civil",
+    "texto": "土木工学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-civil",
+    "texto": "インフラ、水理学、構造物。"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-energia",
+    "texto": "エネルギーと持続可能性"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-renovables",
+    "texto": "再生可能エネルギー"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-renovables",
+    "texto": "太陽光、風力、水素。"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ambiental",
+    "texto": "環境工学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-ambiental",
+    "texto": "廃棄物、水、環境フットプリント。"
+  },
+  {
+    "clave": "biblioteca.nodo.salud",
+    "texto": "健康と医学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.salud",
+    "texto": "人体、疾病、予防、医療制度。"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-anatomia",
+    "texto": "解剖学と生理学"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-cuerpo",
+    "texto": "身体のシステム"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-cuerpo",
+    "texto": "臓器、恒常性、統合。"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-neuro",
+    "texto": "医学的神経科学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-neuro",
+    "texto": "脳、感覚、運動。"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-clinica",
+    "texto": "臨床医学"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-patologia",
+    "texto": "病理学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-patologia",
+    "texto": "疾病、診断、原因。"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-farmacologia",
+    "texto": "薬理学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-farmacologia",
+    "texto": "薬剤、用量、作用。"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-salud-pub",
+    "texto": "公衆衛生"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-salud-pub",
+    "texto": "疫学、ワクチン、政策。"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-bienestar",
+    "texto": "ウェルビーイングと栄養"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-nutricion",
+    "texto": "臨床栄養学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-nutricion",
+    "texto": "食事療法、代謝、微量栄養素。"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-prevencion",
+    "texto": "予防医学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-prevencion",
+    "texto": "生活習慣、検診、長寿。"
+  },
+  {
+    "clave": "ejercicio.ej.press-banca",
+    "texto": "ベンチプレス"
+  },
+  {
+    "clave": "ejercicio.ej.press-inclinado",
+    "texto": "インクラインプレス"
+  },
+  {
+    "clave": "ejercicio.ej.press-con-mancuernas",
+    "texto": "ダンベルプレス"
+  },
+  {
+    "clave": "ejercicio.ej.aperturas-con-mancuernas",
+    "texto": "ダンベルフライ"
+  },
+  {
+    "clave": "ejercicio.ej.cruce-en-polea",
+    "texto": "ケーブルクロスオーバー"
+  },
+  {
+    "clave": "ejercicio.ej.fondos-en-paralelas",
+    "texto": "ディップス"
+  },
+  {
+    "clave": "ejercicio.ej.flexiones",
+    "texto": "腕立て伏せ"
+  },
+  {
+    "clave": "ejercicio.ej.dominadas",
+    "texto": "懸垂"
+  },
+  {
+    "clave": "ejercicio.ej.jalon-al-pecho",
+    "texto": "ラットプルダウン"
+  },
+  {
+    "clave": "ejercicio.ej.remo-con-barra",
+    "texto": "バーベルロウ"
+  },
+  {
+    "clave": "ejercicio.ej.remo-con-mancuerna",
+    "texto": "ダンベルロウ"
+  },
+  {
+    "clave": "ejercicio.ej.remo-en-polea-baja",
+    "texto": "シーテッドロウ"
+  },
+  {
+    "clave": "ejercicio.ej.pull-over",
+    "texto": "プルオーバー"
+  },
+  {
+    "clave": "ejercicio.ej.face-pull",
+    "texto": "フェイスプル"
+  },
+  {
+    "clave": "ejercicio.ej.hiperextensiones",
+    "texto": "バックエクステンション"
+  },
+  {
+    "clave": "ejercicio.ej.press-militar",
+    "texto": "ミリタリープレス"
+  },
+  {
+    "clave": "ejercicio.ej.press-arnold",
+    "texto": "アーノルドプレス"
+  },
+  {
+    "clave": "ejercicio.ej.elevaciones-laterales",
+    "texto": "サイドレイズ"
+  },
+  {
+    "clave": "ejercicio.ej.elevaciones-frontales",
+    "texto": "フロントレイズ"
+  },
+  {
+    "clave": "ejercicio.ej.pajaros",
+    "texto": "リアレイズ"
+  },
+  {
+    "clave": "ejercicio.ej.encogimientos",
+    "texto": "シュラッグ"
+  },
+  {
+    "clave": "ejercicio.ej.curl-con-barra",
+    "texto": "バーベルカール"
+  },
+  {
+    "clave": "ejercicio.ej.curl-con-mancuernas",
+    "texto": "ダンベルカール"
+  },
+  {
+    "clave": "ejercicio.ej.curl-martillo",
+    "texto": "ハンマーカール"
+  },
+  {
+    "clave": "ejercicio.ej.curl-predicador",
+    "texto": "プリーチャーカール"
+  },
+  {
+    "clave": "ejercicio.ej.curl-concentrado",
+    "texto": "コンセントレーションカール"
+  },
+  {
+    "clave": "ejercicio.ej.extension-triceps-en-polea",
+    "texto": "トライセプスプレスダウン"
+  },
+  {
+    "clave": "ejercicio.ej.press-frances",
+    "texto": "スカルクラッシャー"
+  },
+  {
+    "clave": "ejercicio.ej.fondos-entre-bancos",
+    "texto": "ベンチディップス"
+  },
+  {
+    "clave": "ejercicio.ej.extension-sobre-cabeza",
+    "texto": "オーバーヘッドエクステンション"
+  },
+  {
+    "clave": "ejercicio.ej.patada-de-triceps",
+    "texto": "トライセプスキックバック"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla",
+    "texto": "スクワット"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-frontal",
+    "texto": "フロントスクワット"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-bulgara",
+    "texto": "ブルガリアンスクワット"
+  },
+  {
+    "clave": "ejercicio.ej.prensa-de-pierna",
+    "texto": "レッグプレス"
+  },
+  {
+    "clave": "ejercicio.ej.zancadas",
+    "texto": "ランジ"
+  },
+  {
+    "clave": "ejercicio.ej.peso-muerto",
+    "texto": "デッドリフト"
+  },
+  {
+    "clave": "ejercicio.ej.peso-muerto-rumano",
+    "texto": "ルーマニアンデッドリフト"
+  },
+  {
+    "clave": "ejercicio.ej.curl-femoral",
+    "texto": "レッグカール"
+  },
+  {
+    "clave": "ejercicio.ej.extension-de-cuadriceps",
+    "texto": "レッグエクステンション"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-talones",
+    "texto": "カーフレイズ"
+  },
+  {
+    "clave": "ejercicio.ej.hip-thrust",
+    "texto": "ヒップスラスト"
+  },
+  {
+    "clave": "ejercicio.ej.puente-de-gluteo",
+    "texto": "グルートブリッジ"
+  },
+  {
+    "clave": "ejercicio.ej.patada-de-gluteo-en-polea",
+    "texto": "ケーブルキックバック"
+  },
+  {
+    "clave": "ejercicio.ej.abduccion-de-cadera",
+    "texto": "ヒップアブダクション"
+  },
+  {
+    "clave": "ejercicio.ej.plancha",
+    "texto": "プランク"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-lateral",
+    "texto": "サイドプランク"
+  },
+  {
+    "clave": "ejercicio.ej.crunch-abdominal",
+    "texto": "クランチ"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-piernas",
+    "texto": "レッグレイズ"
+  },
+  {
+    "clave": "ejercicio.ej.russian-twist",
+    "texto": "ロシアンツイスト"
+  },
+  {
+    "clave": "ejercicio.ej.rueda-abdominal",
+    "texto": "アブローラー"
+  },
+  {
+    "clave": "ejercicio.ej.escaladores",
+    "texto": "マウンテンクライマー"
+  },
+  {
+    "clave": "ejercicio.ej.carrera",
+    "texto": "ランニング"
+  },
+  {
+    "clave": "ejercicio.ej.trote-suave",
+    "texto": "軽いジョギング"
+  },
+  {
+    "clave": "ejercicio.ej.caminata-rapida",
+    "texto": "早歩き"
+  },
+  {
+    "clave": "ejercicio.ej.ciclismo",
+    "texto": "サイクリング"
+  },
+  {
+    "clave": "ejercicio.ej.senderismo",
+    "texto": "ハイキング"
+  },
+  {
+    "clave": "ejercicio.ej.trail-running",
+    "texto": "トレイルランニング"
+  },
+  {
+    "clave": "ejercicio.ej.caminadora",
+    "texto": "トレッドミル"
+  },
+  {
+    "clave": "ejercicio.ej.caminata-inclinada",
+    "texto": "傾斜ウォーキング"
+  },
+  {
+    "clave": "ejercicio.ej.eliptica",
+    "texto": "エリプティカル"
+  },
+  {
+    "clave": "ejercicio.ej.bicicleta-estatica",
+    "texto": "エアロバイク"
+  },
+  {
+    "clave": "ejercicio.ej.escaladora",
+    "texto": "ステアクライマー"
+  },
+  {
+    "clave": "ejercicio.ej.remo-maquina",
+    "texto": "ローイングマシン"
+  },
+  {
+    "clave": "ejercicio.ej.hiit",
+    "texto": "HIIT"
+  },
+  {
+    "clave": "ejercicio.ej.sprints",
+    "texto": "スプリント"
+  },
+  {
+    "clave": "ejercicio.ej.saltar-cuerda",
+    "texto": "縄跳び"
+  },
+  {
+    "clave": "ejercicio.ej.burpees",
+    "texto": "バーピー"
+  },
+  {
+    "clave": "ejercicio.ej.circuito-metabolico",
+    "texto": "メタボリックサーキット"
+  },
+  {
+    "clave": "ejercicio.ej.natacion",
+    "texto": "水泳"
+  },
+  {
+    "clave": "ejercicio.ej.aqua-aerobicos",
+    "texto": "水中エアロビクス"
+  },
+  {
+    "clave": "ejercicio.ej.caminata",
+    "texto": "ウォーキング"
+  },
+  {
+    "clave": "ejercicio.ej.futbol",
+    "texto": "サッカー"
+  },
+  {
+    "clave": "ejercicio.ej.basquetbol",
+    "texto": "バスケットボール"
+  },
+  {
+    "clave": "ejercicio.ej.tenis",
+    "texto": "テニス"
+  },
+  {
+    "clave": "ejercicio.ej.padel",
+    "texto": "パデル"
+  },
+  {
+    "clave": "ejercicio.ej.boxeo",
+    "texto": "ボクシング"
+  },
+  {
+    "clave": "ejercicio.ej.baile",
+    "texto": "ダンス"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-matutina",
+    "texto": "朝のモビリティ"
+  },
+  {
+    "clave": "ejercicio.ej.yoga-flow",
+    "texto": "ヨガフロー"
+  },
+  {
+    "clave": "ejercicio.ej.saludo-al-sol",
+    "texto": "太陽礼拝"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-general",
+    "texto": "全身ストレッチ"
+  },
+  {
+    "clave": "ejercicio.ej.guerrero-i",
+    "texto": "英雄のポーズI"
+  },
+  {
+    "clave": "ejercicio.ej.guerrero-ii",
+    "texto": "英雄のポーズII"
+  },
+  {
+    "clave": "ejercicio.ej.triangulo",
+    "texto": "三角のポーズ"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-de-pie",
+    "texto": "立位前屈"
+  },
+  {
+    "clave": "ejercicio.ej.apertura-de-cadera",
+    "texto": "股関節ストレッチ"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-paloma",
+    "texto": "鳩のポーズ"
+  },
+  {
+    "clave": "ejercicio.ej.mariposa",
+    "texto": "合蹠のポーズ"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-isquiotibiales",
+    "texto": "ハムストリングストレッチ"
+  },
+  {
+    "clave": "ejercicio.ej.zancada-baja",
+    "texto": "ローランジ"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-guirnalda",
+    "texto": "花輪のポーズ"
+  },
+  {
+    "clave": "ejercicio.ej.figura-4",
+    "texto": "数字4のストレッチ"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-aductores",
+    "texto": "内転筋ストレッチ"
+  },
+  {
+    "clave": "ejercicio.ej.rana",
+    "texto": "蛙のポーズ"
+  },
+  {
+    "clave": "ejercicio.ej.perro-boca-abajo",
+    "texto": "下向きの犬のポーズ"
+  },
+  {
+    "clave": "ejercicio.ej.torsion-espinal",
+    "texto": "脊椎のツイスト"
+  },
+  {
+    "clave": "ejercicio.ej.postura-del-nino",
+    "texto": "チャイルドポーズ"
+  },
+  {
+    "clave": "ejercicio.ej.apertura-de-pecho",
+    "texto": "胸を開くストレッチ"
+  },
+  {
+    "clave": "ejercicio.ej.esfinge",
+    "texto": "スフィンクスのポーズ"
+  },
+  {
+    "clave": "ejercicio.ej.hilo-y-aguja",
+    "texto": "針の糸通しのポーズ"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-dorsales",
+    "texto": "広背筋ストレッチ"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-cervical",
+    "texto": "首のモビリティ"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-de-columna",
+    "texto": "脊柱の回旋"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-cobra",
+    "texto": "コブラのポーズ"
+  },
+  {
+    "clave": "ejercicio.ej.inclinacion-lateral-de-cuello",
+    "texto": "首の側屈"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-cuadriceps",
+    "texto": "大腿四頭筋ストレッチ"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-gemelos",
+    "texto": "ふくらはぎのストレッチ"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-hombros",
+    "texto": "肩のストレッチ"
+  },
+  {
+    "clave": "ejercicio.ej.foam-roller",
+    "texto": "フォームローラー"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-triceps",
+    "texto": "上腕三頭筋ストレッチ"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores-de-cadera",
+    "texto": "股関節屈筋ストレッチ"
+  },
+  {
+    "clave": "ejercicio.ej.piernas-en-la-pared",
+    "texto": "レッグアップザウォール"
+  },
+  {
+    "clave": "ejercicio.ej.savasana",
+    "texto": "シャヴァーサナ"
+  },
+  {
+    "clave": "ejercicio.ej.postura-del-nino-apoyada",
+    "texto": "補助付きチャイルドポーズ"
+  },
+  {
+    "clave": "ejercicio.ej.respiracion-profunda",
+    "texto": "深呼吸"
+  },
+  {
+    "clave": "ejercicio.ej.mariposa-reclinada",
+    "texto": "仰向けの合蹠のポーズ"
+  },
+  {
+    "clave": "ejercicio.ej.torsion-reclinada",
+    "texto": "仰向けのツイスト"
+  },
+  {
+    "clave": "ejercicio.ej.liberacion-miofascial-con-pelota",
+    "texto": "ボールを使った筋膜リリース"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-tobillo",
+    "texto": "足首回し"
+  },
+  {
+    "clave": "ejercicio.ej.recogida-de-toalla-con-dedos",
+    "texto": "タオルギャザー"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-dorsiflexion",
+    "texto": "足関節背屈ストレッチ"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-talones-unipodal",
+    "texto": "片脚カーフレイズ"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-y-extension-en-descarga",
+    "texto": "無負荷での屈伸運動"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "ハムストリングの動的ストレッチ"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-isometrica-wall-squat",
+    "texto": "ウォールスクワット"
+  },
+  {
+    "clave": "ejercicio.ej.equilibrio-unipodal-single-leg-balance",
+    "texto": "片脚バランス"
+  },
+  {
+    "clave": "ejercicio.ej.sentadillas-del-arquero",
+    "texto": "アーチャースクワット"
+  },
+  {
+    "clave": "ejercicio.ej.estocadas-lunges",
+    "texto": "ランジ"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-90-90",
+    "texto": "90/90モビリティ"
+  },
+  {
+    "clave": "ejercicio.ej.el-puente-glute-bridge",
+    "texto": "グルートブリッジ"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores-en-estocada",
+    "texto": "ランジで行う股関節屈筋ストレッチ"
+  },
+  {
+    "clave": "ejercicio.ej.abduccion-lateral-de-cadera",
+    "texto": "側方ヒップアブダクション"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-profunda-con-apertura",
+    "texto": "膝開きのディープスクワット"
+  },
+  {
+    "clave": "ejercicio.ej.balanceo-dinamico-de-piernas",
+    "texto": "脚の動的スイング"
+  },
+  {
+    "clave": "ejercicio.ej.postura-gato-vaca",
+    "texto": "猫のポーズ"
+  },
+  {
+    "clave": "ejercicio.ej.torsiones-lumbares-suaves",
+    "texto": "腰のやさしいツイスト"
+  },
+  {
+    "clave": "ejercicio.ej.pointer-bird-dog",
+    "texto": "バードドッグ"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-frontal-isometricos",
+    "texto": "フロントプランク"
+  },
+  {
+    "clave": "ejercicio.ej.roll-down-curl-jefferson",
+    "texto": "ジェファーソンカール"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-lumbar-boca-abajo",
+    "texto": "うつ伏せの腰ストレッチ"
+  },
+  {
+    "clave": "ejercicio.ej.rotacion-toracica",
+    "texto": "胸椎の回旋"
+  },
+  {
+    "clave": "ejercicio.ej.retraccion-escapular",
+    "texto": "肩甲骨の内転"
+  },
+  {
+    "clave": "ejercicio.ej.angeles-de-pared-wall-angels",
+    "texto": "ウォールエンジェル"
+  },
+  {
+    "clave": "ejercicio.ej.lunge-con-apertura-de-pectoral",
+    "texto": "胸を開くランジ"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-dorsal-en-pared",
+    "texto": "壁を使った広背筋ストレッチ"
+  },
+  {
+    "clave": "ejercicio.ej.el-gato-y-la-mesa",
+    "texto": "キャット&テーブル"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-hombros",
+    "texto": "肩回し"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-pecho-pectoral",
+    "texto": "胸のストレッチ"
+  },
+  {
+    "clave": "ejercicio.ej.dislocaciones-con-goma-o-palo",
+    "texto": "ショルダーディスロケーション"
+  },
+  {
+    "clave": "ejercicio.ej.rotacion-externa-con-banda",
+    "texto": "バンドを使った外旋運動"
+  },
+  {
+    "clave": "ejercicio.ej.thread-the-needle-enhebrar-aguja",
+    "texto": "針の糸通しのポーズ"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-y-medios-circulos",
+    "texto": "回旋と半円運動"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-trapecio-superior",
+    "texto": "僧帽筋上部のストレッチ"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-cervicales-con-nodding",
+    "texto": "うなずきを伴う首の回旋"
+  },
+  {
+    "clave": "ejercicio.ej.retracciones-de-barbilla-chin-tucks",
+    "texto": "チンタック"
+  },
+  {
+    "clave": "ejercicio.ej.isometricos-cervicales",
+    "texto": "首のアイソメトリック運動"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-y-extension-de-muneca",
+    "texto": "手首の屈伸"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-munecas",
+    "texto": "手首回し"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores",
+    "texto": "前腕屈筋のストレッチ"
+  },
+  {
+    "clave": "ejercicio.ej.agarre-activo-y-pasivo",
+    "texto": "アクティブ&パッシブグリップ"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-de-munecas",
+    "texto": "リストプランク"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-banca",
+    "texto": "ベンチに仰向けになり、バーを胸まで下ろしてから、肘が伸びるまで押し上げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-inclinado",
+    "texto": "インクラインベンチで、バーまたはダンベルを押し上げ、胸の上部を重点的に鍛えます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-con-mancuernas",
+    "texto": "仰向けになり、バーベルより広い可動域でダンベルを押し上げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.aperturas-con-mancuernas",
+    "texto": "仰向けになり、肘を軽く曲げたまま腕を弧を描くように開き、閉じます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.cruce-en-polea",
+    "texto": "高い位置のケーブルの間に立ち、胸を絞りながら両手を体の前で合わせます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.fondos-en-paralelas",
+    "texto": "平行棒にぶら下がり、上体を前傾させながら肘を曲げて体を下ろし、再び押し上げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexiones",
+    "texto": "うつ伏せになり、体をまっすぐに保ちながら胸を床に近づけ、再び押し上げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.dominadas",
+    "texto": "バーにぶら下がり、あごがバーを越えるまで体を引き上げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.jalon-al-pecho",
+    "texto": "高い位置のケーブルに座り、肘を下に引きながらバーを胸まで引き寄せます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-con-barra",
+    "texto": "背中をまっすぐに保って前傾し、背中を絞りながらバーを腹部まで引き上げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-con-mancuerna",
+    "texto": "ベンチに手をついて体を支え、上体をひねらずにダンベルを体側まで引き上げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-en-polea-baja",
+    "texto": "座った姿勢で、背中をまっすぐに保ちながらハンドルを腹部まで引き寄せます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.pull-over",
+    "texto": "仰向けになり、ダンベルを頭の後ろに下ろしてから、胸の上まで戻します。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.face-pull",
+    "texto": "顔の高さのケーブルで、肘を外側に開きながらロープを額に向かって引きます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.hiperextensiones",
+    "texto": "専用ベンチで上体を下げてから戻し、腰を伸ばします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-militar",
+    "texto": "立った姿勢で、バーを肩から頭上まで押し上げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-arnold",
+    "texto": "座った姿勢で、手のひらを内向きから外向きに回しながらダンベルを頭上に押し上げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevaciones-laterales",
+    "texto": "立った姿勢で、ダンベルを肩の高さまで左右に持ち上げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevaciones-frontales",
+    "texto": "立った姿勢で、ダンベルを目の高さまで前方に持ち上げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.pajaros",
+    "texto": "前傾姿勢で腕を左右に開き、肩の後ろ側を鍛えます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.encogimientos",
+    "texto": "重りを持って立ち、肩を耳に近づけるように持ち上げ、コントロールしながら下ろします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-con-barra",
+    "texto": "立った姿勢で、上体を揺らさずに肘を曲げてバーを巻き上げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-con-mancuernas",
+    "texto": "立位または座位で、肘を曲げてダンベルを交互または同時に巻き上げます。"
   }
 ]

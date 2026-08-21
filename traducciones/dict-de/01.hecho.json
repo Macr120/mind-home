@@ -1,46 +1,878 @@
 [
   {
-    "clave": "tut.esencial.titulo",
-    "texto": "Das Wichtigste"
+    "clave": "hoy.casa.personales",
+    "texto": "Persönliches"
   },
   {
-    "clave": "tut.tipo.ejemplos",
-    "texto": "Beispiele · Demo-Haus"
+    "clave": "hoy.irApp",
+    "texto": "In der App eintragen"
   },
   {
-    "clave": "tut.app-agenda--esencial.resumen",
-    "texto": "Der Terminplan verwaltet, was keine Gewohnheit ist, in drei Tabs: Arbeit (Aufgaben und Board), Gesundheit (Arzttermine, Medikamente und Pflege: für dich, deine Angehörigen und deine Haustiere) und Personen (Kontakte und Geburtstage). Alles mit einem Datum trägt sich von selbst in den Kalender ein."
+    "clave": "hoy.nada",
+    "texto": "In dieser App hast du dir noch nichts vorgenommen."
   },
   {
-    "clave": "tut.calendario--esencial.resumen",
-    "texto": "Der Kalender ist kein Raum: Er wohnt in der Uhr des Hauses und sammelt alles mit Datum und Uhrzeit, was du von Hand anlegst und was die anderen Apps von selbst eintragen. Du siehst ihn auf vier Arten: Tag und Woche im Stundenraster, Monat und Jahr für den Überblick. Separat gibt es Missionen, den roten Button mit der Tages-Checkliste aller Apps zusammen."
+    "clave": "hoy.metas.titulo",
+    "texto": "Ziele"
   },
   {
-    "clave": "tut.app-anecdotario--esencial.resumen",
-    "texto": "Das Erinnerungsbuch ist dein persönliches Tagebuch: Einträge mit Stimmung, Text und Fotos, die sich von selbst nach Datum ordnen. Ein Kalender färbt jeden Tag nach deiner Stimmung, und der Verlauf archiviert sie in Ordnern nach Jahr, Monat und Woche."
+    "clave": "hoy.metas.vencida",
+    "texto": "überfällig"
   },
   {
-    "clave": "tut.app-biblioteca--esencial.resumen",
-    "texto": "Die Bibliothek ist deine persönliche Enzyklopädie, in vier Tabs: Chats (du fragst den Weisen, und jedes Gespräch wird archiviert und zu einem Eintrag destilliert), Enzyklopädie (der Baum, in dem das Gelernte lebt, nach Wissensgebiet), Lernen (der einfache Timer oder Pomodoro, der jede Sitzung erfasst) und Übersicht (wie viel du geschrieben und wie viel du gelernt hast)."
+    "clave": "hoy.metas.faltan",
+    "texto": "{n} T"
   },
   {
-    "clave": "tut.app-cocina--esencial.resumen",
-    "texto": "Die Küche hat zwei Tabs. Rezeptbuch bewahrt, was du kochen willst: deine Rezepte mit ihren Makros, die Diäten, die sie gruppieren, und die Einkaufsliste. Ernährungskontrolle führt Buch über das, was du isst, in vier Schritten: die Kalorien- und Gewichtsziele, das Tagesprotokoll, den Essensplan für die kommenden Tage und den Fortschritt."
+    "clave": "objetivos.anadir",
+    "texto": "Mission hinzufügen"
   },
   {
-    "clave": "tut.app-computo--esencial.resumen",
-    "texto": "Der Rechenraum hat zwei Tabs. Der Rechner erledigt die alltäglichen Rechnungen und wechselt den Modus zum Grafiken zeichnen, für Zahlensysteme, Matrizen, Gleichungssysteme, Einheiten, Trinkgeld und die Dreisatzrechnung; daran hängt das Formelbuch, dein Sammelband mit Mathematik, Physik und Chemie schon eingetragen. Die Tabellen übernehmen alles Tabellarische, mit Formeln in Klartext (etwa =SUMA) und Export nach Excel oder PDF."
+    "clave": "objetivos.responsable",
+    "texto": "{quien} erinnert dich an das, was hier ansteht"
   },
   {
-    "clave": "tut.app-descanso--esencial.resumen",
-    "texto": "Schlaf erfasst, wie du schläfst, auf einem einzigen Bildschirm: die Bewertung der letzten Nacht, deinen Zeitplan mit seinen Erinnerungen, das Tagesprotokoll und den vollständigen Verlauf nach Jahr, Monat und Woche."
+    "clave": "objetivos.nuevo.deQueApp",
+    "texto": "Worum geht es bei der Mission?"
   },
   {
-    "clave": "tut.app-despacho--esencial.resumen",
-    "texto": "Das Arbeitszimmer ordnet dein Geld in vier Tabs. Vermögen bewahrt, was du hast und was du schuldest, mit seiner Hochrechnung; Cashflow führt Ausgaben, Einnahmen und den Saldo der Periode, mit Budget und Kategorien; Ziele vereint Sparen, Investieren und Schulden, dazu die Rechner, die einen Betrag vorschlagen. Märkte ist ein Kursbrett in Echtzeit, nur zur Ansicht."
+    "clave": "objetivos.nuevo.responsable",
+    "texto": "Ich erinnere dich daran. Was nimmst du dir vor?"
   },
   {
-    "clave": "tut.app-diario--esencial.resumen",
-    "texto": "Die Tagesnachrichten sind eine flüchtige Zeitung: Schlagzeilen echter Presse nach Kategorie und die Ereignisse dieses Tages, die sich jede Mitternacht von selbst erneuert. Über die Zustellung richtest du ein, dass ein Assistent sie dir in seinem eigenen Chat bringt."
+    "clave": "objetivos.nuevo.personal",
+    "texto": "Persönliche Mission, keiner App zugeordnet."
+  },
+  {
+    "clave": "objetivos.nuevo.personales",
+    "texto": "Persönliches"
+  },
+  {
+    "clave": "objetivos.nuevo.poner",
+    "texto": "＋"
+  },
+  {
+    "clave": "objetivos.nuevo.todos",
+    "texto": "Du hast dir schon alles in dieser App vorgenommen."
+  },
+  {
+    "clave": "objetivos.nuevo.otro",
+    "texto": "Weitere Mission…"
+  },
+  {
+    "clave": "objetivos.nuevo.otroPlaceholder",
+    "texto": "Was nimmst du dir vor?"
+  },
+  {
+    "clave": "objetivos.nuevo.checklist",
+    "texto": "Brauchst du mehrere Schritte? Neue Checkliste"
+  },
+  {
+    "clave": "objetivos.nuevo.dias",
+    "texto": "Welche Tage?"
+  },
+  {
+    "clave": "objetivos.nuevo.faltanDias",
+    "texto": "Wähle mindestens einen Tag."
+  },
+  {
+    "clave": "objetivos.nuevo.cantidad",
+    "texto": "Wie viel?"
+  },
+  {
+    "clave": "objetivos.nuevo.meta",
+    "texto": "Für welches Ziel?"
+  },
+  {
+    "clave": "objetivos.nuevo.sinMeta",
+    "texto": "Keins (eigenständig)"
+  },
+  {
+    "clave": "objetivos.nuevo.mientrasDure",
+    "texto": "Nur vom {ini} bis {fin}, solange das Ziel läuft."
+  },
+  {
+    "clave": "objetivos.nuevo.hora",
+    "texto": "Zu einer festen Uhrzeit?"
+  },
+  {
+    "clave": "objetivos.nuevo.sinHora",
+    "texto": "Ohne Uhrzeit"
+  },
+  {
+    "clave": "objetivos.nuevo.anadir",
+    "texto": "Hinzufügen"
+  },
+  {
+    "clave": "objetivos.nuevo.cancelar",
+    "texto": "Abbrechen"
+  },
+  {
+    "clave": "objetivos.nuevo.cambiar",
+    "texto": "Assistent wechseln"
+  },
+  {
+    "clave": "objetivos.nuevo.nadie",
+    "texto": "Kein Assistent"
+  },
+  {
+    "clave": "avisos.objetivos",
+    "texto": "Dir fehlen noch {n} Missionen in {app}."
+  },
+  {
+    "clave": "biblioteca.nodo.filosofia",
+    "texto": "Philosophie und Denken"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.filosofia",
+    "texto": "Grundlegende Fragen zu Wirklichkeit, Erkenntnis, Geist und Handeln."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-metafisica",
+    "texto": "Metaphysik und Ontologie"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-ser",
+    "texto": "Sein und Existenz"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-ser",
+    "texto": "Was es bedeutet, dass etwas existiert."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-mente",
+    "texto": "Geist und Bewusstsein"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-mente",
+    "texto": "Das Leib-Seele-Problem und die Phänomenologie."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-libre",
+    "texto": "Freiheit und Determinismus"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-libre",
+    "texto": "Sind wir frei, oder hat alles eine Ursache?"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-epistemologia",
+    "texto": "Epistemologie"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-conocimiento",
+    "texto": "Erkenntnistheorie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-conocimiento",
+    "texto": "Rechtfertigung, Wahrheit und Überzeugung."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-ciencia-fil",
+    "texto": "Wissenschaftstheorie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-ciencia-fil",
+    "texto": "Methode, Paradigmen und Abgrenzung."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-escepticismo",
+    "texto": "Skeptizismus"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-escepticismo",
+    "texto": "Die Grenzen dessen, was wir wissen können."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-etica",
+    "texto": "Ethik und politische Philosophie"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-moral",
+    "texto": "Moraltheorien"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-moral",
+    "texto": "Deontologie, Utilitarismus, Tugendethik."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-justicia",
+    "texto": "Soziale Gerechtigkeit"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-justicia",
+    "texto": "Gleichheit, Rechte und das Gemeinwohl."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-bioetica",
+    "texto": "Bioethik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-bioetica",
+    "texto": "Leben, Medizin und angewandte Technik."
+  },
+  {
+    "clave": "biblioteca.nodo.matematicas",
+    "texto": "Mathematik und Logik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.matematicas",
+    "texto": "Abstrakte Strukturen, formales Denken und quantitative Modelle."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-puras",
+    "texto": "Reine Mathematik"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-algebra",
+    "texto": "Algebra"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-algebra",
+    "texto": "Strukturen, Gleichungen und Symmetrien."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-analisis",
+    "texto": "Analysis"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-analisis",
+    "texto": "Grenzwerte, Stetigkeit und Infinitesimalrechnung."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-geometria",
+    "texto": "Geometrie und Topologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-geometria",
+    "texto": "Formen, Räume und Transformationen."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-aplicadas",
+    "texto": "Angewandte Mathematik"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-prob",
+    "texto": "Wahrscheinlichkeitsrechnung"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-prob",
+    "texto": "Unsicherheit und Zufallsereignisse."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-stats",
+    "texto": "Statistik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-stats",
+    "texto": "Daten, Inferenz und Modelle."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-discreta",
+    "texto": "Diskrete Mathematik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-discreta",
+    "texto": "Kombinatorik, Graphen und Rekursion."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-logica",
+    "texto": "Logik"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-log-formal",
+    "texto": "Formale Logik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-log-formal",
+    "texto": "Aussagen, Prädikate und Beweise."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-log-comput",
+    "texto": "Computerlogik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-log-comput",
+    "texto": "Algorithmen, Komplexität und Verifikation."
+  },
+  {
+    "clave": "biblioteca.nodo.naturales",
+    "texto": "Naturwissenschaften"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.naturales",
+    "texto": "Gesetze des physikalischen Universums, Materie, Energie und lebende Systeme."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-fisica",
+    "texto": "Physik"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-mecanica",
+    "texto": "Klassische Mechanik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-mecanica",
+    "texto": "Bewegung, Kräfte und Energie."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-cuantica",
+    "texto": "Quantenphysik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-cuantica",
+    "texto": "Teilchen, Wellen und Wahrscheinlichkeit."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-relatividad",
+    "texto": "Relativitätstheorie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-relatividad",
+    "texto": "Raumzeit und Kosmologie."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-termodinamica",
+    "texto": "Thermodynamik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-termodinamica",
+    "texto": "Wärme, Entropie und Gleichgewicht."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-quimica",
+    "texto": "Chemie"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-org",
+    "texto": "Organische Chemie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-org",
+    "texto": "Kohlenstoff, Biomoleküle und Reaktionen."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-inorg",
+    "texto": "Anorganische Chemie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-inorg",
+    "texto": "Elemente, Bindungen und Materialien."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-fisicoquim",
+    "texto": "Physikalische Chemie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-fisicoquim",
+    "texto": "Energie in Reaktionen und Gleichgewichten."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-biologia",
+    "texto": "Biologie"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-celula",
+    "texto": "Zellbiologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-celula",
+    "texto": "Zellen, Stoffwechsel und Signalübertragung."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-genetica",
+    "texto": "Genetik und Evolution"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-genetica",
+    "texto": "DNA, Selektion und Phylogenie."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-ecologia",
+    "texto": "Ökologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-ecologia",
+    "texto": "Ökosysteme, Biodiversität und Kreisläufe."
+  },
+  {
+    "clave": "biblioteca.nodo.tierra",
+    "texto": "Geowissenschaften"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tierra",
+    "texto": "Der Planet, die Atmosphäre, die Ozeane und geologische Prozesse."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-geologia",
+    "texto": "Geologie und Geophysik"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-placas",
+    "texto": "Plattentektonik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-placas",
+    "texto": "Landschaftsbildung und Erdbeben."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-minerales",
+    "texto": "Mineralogie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-minerales",
+    "texto": "Gesteine, Minerale und Ressourcen."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-paleont",
+    "texto": "Paläontologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-paleont",
+    "texto": "Fossilien und die Geschichte des Lebens."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-clima",
+    "texto": "Klima und Atmosphäre"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-meteorologia",
+    "texto": "Meteorologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-meteorologia",
+    "texto": "Wetter, Luftdruck und Niederschlag."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-climatologia",
+    "texto": "Klimatologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-climatologia",
+    "texto": "Langfristige Muster und Klimawandel."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-oceanos",
+    "texto": "Ozeanografie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-oceanos",
+    "texto": "Strömungen, Meere und Küsten."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-espacial",
+    "texto": "Geografie und Raum"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-cartografia",
+    "texto": "Kartografie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-cartografia",
+    "texto": "Karten, Koordinaten und GIS."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-geomorf",
+    "texto": "Geomorphologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-geomorf",
+    "texto": "Landschaften und Erosion."
+  },
+  {
+    "clave": "biblioteca.nodo.sociales",
+    "texto": "Sozialwissenschaften"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sociales",
+    "texto": "Gesellschaften, Wirtschaft, Institutionen und kollektives menschliches Verhalten."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-sociologia",
+    "texto": "Soziologie und Anthropologie"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-estructura",
+    "texto": "Sozialstruktur"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-estructura",
+    "texto": "Klassen, Netzwerke und Ungleichheit."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-cultura",
+    "texto": "Kulturanthropologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-cultura",
+    "texto": "Rituale, Identität und Symbole."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-urbano",
+    "texto": "Stadtforschung"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-urbano",
+    "texto": "Stadt, Migration und Territorium."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-economia",
+    "texto": "Wirtschaftswissenschaft"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-micro",
+    "texto": "Mikroökonomie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-micro",
+    "texto": "Angebot, Nachfrage und Entscheidungen."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-macro",
+    "texto": "Makroökonomie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-macro",
+    "texto": "BIP, Inflation und Fiskalpolitik."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-comercio",
+    "texto": "Internationaler Handel"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-comercio",
+    "texto": "Globalisierung und Wertschöpfungsketten."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-politica",
+    "texto": "Politikwissenschaft"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-estado",
+    "texto": "Staat und Regierung"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-estado",
+    "texto": "Macht, Gesetze und Demokratie."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-derechos",
+    "texto": "Menschenrechte"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-derechos",
+    "texto": "Freiheiten, Gerechtigkeit und Staatsbürgerschaft."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-relaciones",
+    "texto": "Internationale Beziehungen"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-relaciones",
+    "texto": "Diplomatie, Konflikt und Zusammenarbeit."
+  },
+  {
+    "clave": "biblioteca.nodo.psicologia",
+    "texto": "Psychologie und der menschliche Geist"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psicologia",
+    "texto": "Kognition, Emotion, Entwicklung und psychisches Wohlbefinden."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-cognitiva",
+    "texto": "Kognitive Psychologie"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-percepcion",
+    "texto": "Wahrnehmung und Aufmerksamkeit"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-percepcion",
+    "texto": "Wie wir Reize verarbeiten."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-memoria",
+    "texto": "Gedächtnis und Lernen"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-memoria",
+    "texto": "Enkodierung, Abruf und Vergessen."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-lenguaje-psi",
+    "texto": "Psycholinguistik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-lenguaje-psi",
+    "texto": "Spracherwerb und Sprachverarbeitung."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-desarrollo",
+    "texto": "Entwicklung und Persönlichkeit"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-infancia",
+    "texto": "Kindliche Entwicklung"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-infancia",
+    "texto": "Kognitive und soziale Meilensteine."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-personalidad",
+    "texto": "Persönlichkeit"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-personalidad",
+    "texto": "Merkmale, Temperamente und Modelle."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-social-psi",
+    "texto": "Sozialpsychologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-social-psi",
+    "texto": "Gruppen, Einstellungen und Konformität."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-clinica",
+    "texto": "Psychische Gesundheit"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-clinica-gen",
+    "texto": "Klinische Psychologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-clinica-gen",
+    "texto": "Störungen, Diagnose und Therapie."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-neuropsi",
+    "texto": "Neuropsychologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-neuropsi",
+    "texto": "Gehirn, Verletzung und Rehabilitation."
+  },
+  {
+    "clave": "biblioteca.nodo.humanidades",
+    "texto": "Geisteswissenschaften und Geschichte"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.humanidades",
+    "texto": "Menschliche Erfahrung durch Zeit, Denken und kulturelles Erbe."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-historia",
+    "texto": "Geschichte"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-antigua",
+    "texto": "Antike Geschichte"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-antigua",
+    "texto": "Antike Zivilisationen und Ursprünge."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-moderna",
+    "texto": "Neuzeit und Zeitgeschichte"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-moderna",
+    "texto": "Revolutionen, Staaten und Globalisierung."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-metodo",
+    "texto": "Geschichtsschreibung"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-metodo",
+    "texto": "Quellen, Interpretation und Debatte."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-religion",
+    "texto": "Religion und Mythologie"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-comparada",
+    "texto": "Vergleichende Religionswissenschaft"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-comparada",
+    "texto": "Traditionen, Texte und Praktiken."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-mito",
+    "texto": "Mythologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-mito",
+    "texto": "Gründungserzählungen und Archetypen."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-patrimonio",
+    "texto": "Kulturerbe und Kulturwissenschaft"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-museos",
+    "texto": "Materielles Erbe"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-museos",
+    "texto": "Museen, Konservierung und Artefakte."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-memoria",
+    "texto": "Kollektives Gedächtnis"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-memoria",
+    "texto": "Zeugnis, Archive und Vergessen."
+  },
+  {
+    "clave": "biblioteca.nodo.lengua",
+    "texto": "Sprache und Literatur"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.lengua",
+    "texto": "Kommunikation, Texte, Sprachanalyse und schriftliche Tradition."
+  },
+  {
+    "clave": "biblioteca.nodo.len-linguistica",
+    "texto": "Linguistik"
+  },
+  {
+    "clave": "biblioteca.nodo.len-fonetica",
+    "texto": "Phonetik und Phonologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-fonetica",
+    "texto": "Laute und phonologische Systeme."
+  },
+  {
+    "clave": "biblioteca.nodo.len-sintaxis",
+    "texto": "Syntax und Morphologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-sintaxis",
+    "texto": "Satz- und Wortstruktur."
+  },
+  {
+    "clave": "biblioteca.nodo.len-semantica",
+    "texto": "Semantik und Pragmatik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-semantica",
+    "texto": "Bedeutung im Kontext."
+  },
+  {
+    "clave": "biblioteca.nodo.len-literatura",
+    "texto": "Literatur"
+  },
+  {
+    "clave": "biblioteca.nodo.len-generos",
+    "texto": "Literarische Gattungen"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-generos",
+    "texto": "Roman, Lyrik, Drama und Essay."
+  },
+  {
+    "clave": "biblioteca.nodo.len-teoria-lit",
+    "texto": "Literaturtheorie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-teoria-lit",
+    "texto": "Kritik, Erzähltheorie und Kanon."
+  },
+  {
+    "clave": "biblioteca.nodo.len-mundo",
+    "texto": "Weltliteraturen"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-mundo",
+    "texto": "Regionale Traditionen und Übersetzung."
+  },
+  {
+    "clave": "biblioteca.nodo.len-comunicacion",
+    "texto": "Kommunikation"
+  },
+  {
+    "clave": "biblioteca.nodo.len-periodismo",
+    "texto": "Journalismus"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-periodismo",
+    "texto": "Nachrichten, Faktencheck und Meinung."
+  },
+  {
+    "clave": "biblioteca.nodo.len-retorica",
+    "texto": "Rhetorik und Argumentation"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-retorica",
+    "texto": "Überzeugung und öffentliche Debatte."
+  },
+  {
+    "clave": "biblioteca.nodo.idiomas",
+    "texto": "Sprachen"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idiomas",
+    "texto": "Fremdsprachen lernen: Wortschatz, Grammatik, Aussprache und Übung."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-aprendizaje",
+    "texto": "Grundlagen des Lernens"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-vocabulario",
+    "texto": "Wortschatz"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-vocabulario",
+    "texto": "Erwerb und Wiederholung nützlicher Wörter und Redewendungen."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-gramatica",
+    "texto": "Grammatik"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-gramatica",
+    "texto": "Strukturen, Verbzeiten und vergleichende Syntax."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-pronunciacion",
+    "texto": "Aussprache und Hörverstehen"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-pronunciacion",
+    "texto": "Phonetik, Akzent und Hörverständnis."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-lenguas",
+    "texto": "Sprachen der Welt"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-ingles",
+    "texto": "Englisch"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-ingles",
+    "texto": "Die globale Verkehrssprache."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-romances",
+    "texto": "Romanische Sprachen"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-romances",
+    "texto": "Französisch, Italienisch, Portugiesisch und ihre Verwandtschaft."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-asiaticas",
+    "texto": "Asiatische Sprachen"
   }
 ]

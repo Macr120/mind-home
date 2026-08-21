@@ -1,137 +1,338 @@
 [
-  { "clave": "ejercicio.cronograma.desc", "texto": "Target-target besarmu di sepanjang garis waktu. Dengan ✨ AI menyusun rencana dan menyarankan rutinitas mana yang perlu kamu jadwalkan." },
-  { "clave": "sala.tab.cronograma", "texto": "Target" },
-  { "clave": "avisos.rutinaPasos", "texto": "Kamu punya {n} langkah." },
-  { "clave": "avisos.rutinaHora", "texto": "Sudah waktunya." },
-  { "clave": "avisos.abrir", "texto": "Buka" },
-  { "clave": "avisos.metaFalta", "texto": "Kamu sudah mencapai {hecho} dari {objetivo}." },
-  { "clave": "notif.titulo", "texto": "Notifikasi" },
-  { "clave": "notif.general", "texto": "Beritahu aku" },
-  { "clave": "notif.rutinas", "texto": "Acara dan rutinitas berwaktu" },
-  { "clave": "notif.metas", "texto": "Target harian yang belum tercapai" },
-  { "clave": "notif.porApp", "texto": "Per aplikasi" },
-  { "clave": "notif.denegado", "texto": "Browser kamu memblokir notifikasi untuk situs ini: hanya kamu yang bisa membukanya lewat ikon gembok di address bar. Sementara itu, asistenmu tetap mengirim pengingat untukmu." },
-  { "clave": "notif.noSoportado", "texto": "Browser ini tidak punya notifikasi; pengingat akan dikirim lewat asistenmu." },
-  { "clave": "horario.agendar", "texto": "Jadwalkan" },
-  { "clave": "horario.titulo", "texto": "Jadwal" },
-  { "clave": "horario.plegar", "texto": "Selesai" },
-  { "clave": "horario.hora", "texto": "Waktu" },
-  { "clave": "horario.frecuencia", "texto": "Pengulangan" },
-  { "clave": "horario.dias", "texto": "Hari" },
-  { "clave": "horario.sinDias", "texto": "Tidak ada yang dicentang: setiap hari." },
-  { "clave": "horario.sinHora", "texto": "Tanpa waktu" },
-  { "clave": "horario.todosDias", "texto": "setiap hari" },
-  { "clave": "horario.avisar", "texto": "Ingatkan aku saat itu" },
-  { "clave": "horario.avisar.hint", "texto": "Kamu akan dapat notifikasi." },
-  { "clave": "horario.avisar.hintSinPermiso", "texto": "Kami akan mengingatkanmu di dalam aplikasi." },
-  { "clave": "horario.avisar.on", "texto": "Ya" },
-  { "clave": "horario.avisar.off", "texto": "Tidak" },
-  { "clave": "horario.hechoHoy", "texto": "Sudah selesai hari ini" },
-  { "clave": "horario.masOpciones", "texto": "Opsi lainnya ›" },
-  { "clave": "horario.quitar", "texto": "Hapus" },
-  { "clave": "rutinas.avisar", "texto": "Ingatkan aku saat itu" },
-  { "clave": "rutinas.avisar.hint", "texto": "Kamu akan dapat notifikasi." },
-  { "clave": "rutinas.avisar.hintSinPermiso", "texto": "Kami akan mengingatkanmu di dalam aplikasi." },
-  { "clave": "rutinas.avisar.on", "texto": "Ya" },
-  { "clave": "rutinas.avisar.off", "texto": "Tidak" },
-  { "clave": "avisoAct.cuerpo", "texto": "Sudah waktunya ({hora})." },
-  { "clave": "avisoAct.ahoraNo", "texto": "Nanti saja" },
-  { "clave": "avisoAct.ir", "texto": "Catat sekarang" },
-  { "clave": "hobbies.registrarMin", "texto": "Catat {n} mnt" },
-  { "clave": "hobbies.plan.tipo", "texto": "Latihan" },
-  { "clave": "hobbies.plan.ejemplo", "texto": "Mainkan 3 lagu penuh" },
-  { "clave": "hobbies.plan.ejProyecto", "texto": "Selesaikan {proyecto}" },
-  { "clave": "hobbies.plan.material", "texto": "Proyek dalam rencana" },
-  { "clave": "ejercicio.registrarSesion", "texto": "Catat {n} mnt" },
-  { "clave": "ejercicio.plan.ejemplo", "texto": "Lari 5 km tanpa henti" },
-  { "clave": "ejercicio.plan.material", "texto": "Rutinitas dalam rencana" },
-  { "clave": "cocina.horarios", "texto": "Waktu makan" },
-  { "clave": "cocina.plan.tipoComida", "texto": "Makanan" },
-  { "clave": "cocina.plan.material", "texto": "Resep dalam rencana" },
-  { "clave": "cocina.plan.ejemplo", "texto": "Coba diet Mediterania" },
-  { "clave": "cocina.plan.ejBajar", "texto": "Turun ke {kg} kg" },
-  { "clave": "cocina.plan.ejSubir", "texto": "Naik ke {kg} kg" },
-  { "clave": "cocina.plan.ejMantener", "texto": "Bertahan di {kg} kg" },
-  { "clave": "biblioteca.plan.ejemplo", "texto": "Kuasai dasar-dasar statistik" },
-  { "clave": "biblioteca.plan.material", "texto": "Dari ensiklopediamu" },
-  { "clave": "idiomas.plan.ejemplo", "texto": "Bicara lancar di perjalanan berikutnya" },
-  { "clave": "idiomas.plan.ejemploNivel", "texto": "Capai level {nivel} dalam {idioma}" },
-  { "clave": "idiomas.plan.material", "texto": "Topik dalam rencana" },
-  { "clave": "sala.plan.ejemplo", "texto": "Itinerari 5 hari di Kyoto" },
-  { "clave": "sala.plan.ejLugar", "texto": "Itinerari perjalanan ke {lugar}" },
-  { "clave": "sala.plan.material", "texto": "Dari daftar Tempat yang Ingin Dikunjungi" },
-  { "clave": "entret.plan.ejemplo", "texto": "Selesaikan saga The Godfather" },
-  { "clave": "entret.plan.material", "texto": "Dari arsipmu" },
-  { "clave": "descanso.plan.ejemplo", "texto": "Tertidur dalam waktu kurang dari 15 menit" },
-  { "clave": "anecdotario.plan.ejemplo", "texto": "Tuliskan perjalanan tahun ini" },
-  { "clave": "jardin.plan.ejemplo", "texto": "Sepuluh menit ketenangan sehari" },
-  { "clave": "ideas.plan.ejemplo", "texto": "Ubah satu ide dari jurnal menjadi kenyataan" },
-  { "clave": "ideas.plan.material", "texto": "Ide dalam rencana" },
-  { "clave": "diario.plan.ejemplo", "texto": "Baca edisi pagi setiap hari" },
-  { "clave": "garage.plan.ejemplo", "texto": "Siapkan mobil untuk musim dingin" },
-  { "clave": "garage.plan.material", "texto": "Dokumen dalam rencana" },
-  { "clave": "agenda.plan.ejemplo", "texto": "Serahkan proyek tepat waktu" },
-  { "clave": "agenda.plan.material", "texto": "Tugas dalam rencana" },
-  { "clave": "cocina.horarios.ayuda", "texto": "Kapan kamu makan masing-masing. Semuanya muncul di kalendermu dan bisa mengingatkanmu." },
-  { "clave": "jardin.med.reservar", "texto": "Waktu tenangmu" },
-  { "clave": "jardin.med.bloque", "texto": "Bermeditasi" },
-  { "clave": "jardin.registrarMin", "texto": "Catat {n} mnt" },
-  { "clave": "biblioteca.est.reservar", "texto": "Waktu belajarmu" },
-  { "clave": "biblioteca.est.bloque", "texto": "Belajar" },
-  { "clave": "biblioteca.registrarMin", "texto": "Catat {n} mnt" },
-  { "clave": "idiomas.rep.reservar", "texto": "Waktu pengulanganmu" },
-  { "clave": "idiomas.rep.bloque", "texto": "Ulang {idioma}" },
-  { "clave": "notif.ayudaCerrada", "texto": "Pengingat akan muncul selama aplikasi terbuka, bahkan saat di latar belakang. Kalau tabnya ditutup, browser tidak bisa membangunkannya lagi: untuk itu kamu perlu aplikasi yang terpasang di ponselmu." },
-  { "clave": "progreso.nivel", "texto": "Level" },
-  { "clave": "progreso.racha", "texto": "Runtunan" },
-  { "clave": "progreso.dias", "texto": "hari" },
-  { "clave": "progreso.hoy", "texto": "Hari ini" },
-  { "clave": "progreso.semana", "texto": "7 hari" },
-  { "clave": "plantillas.ayuda", "texto": "Seret templat ke folder lain; ketuk ikonnya untuk mencoba aplikasi dan nama foldernya untuk mengganti namanya." },
-  { "clave": "plantillas.entrar", "texto": "Buka aplikasi" },
-  { "clave": "plantillas.cerrarPrevia", "texto": "‹ Tutup" },
-  { "clave": "plantillas.asistente", "texto": "Asisten yang bertanggung jawab" },
-  { "clave": "plantillas.sinAsistente", "texto": "Tanpa asisten (ditangani semua)" },
-  { "clave": "plantillas.asignar", "texto": "Tetapkan ke objek atau ruangan" },
-  { "clave": "plantillas.asignarObjeto", "texto": "+ Tetapkan ke objek…" },
-  { "clave": "plantillas.asignarA", "texto": "+ Tetapkan ke ruangan…" },
-  { "clave": "plantillas.sinCuartos", "texto": "Buat ruangan dulu" },
-  { "clave": "plantillas.objetoPrincipal", "texto": "Objek utama (pintu masuk ruangan)" },
-  { "clave": "plantillas.traeObjetos", "texto": "Objek yang dibawa aplikasi" },
-  { "clave": "plantillas.esPrincipal", "texto": "Objek utama" },
-  { "clave": "plantillas.hacerPrincipal", "texto": "Jadikan objek utama" },
-  { "clave": "plantillas.quitarObjeto", "texto": "Hapus objek" },
-  { "clave": "plantillas.agregarObjeto", "texto": "Tambah objek" },
-  { "clave": "selObjeto.titulo", "texto": "Tambah objek" },
-  { "clave": "plantillas.todasAsignadas", "texto": "Semua aplikasi sudah ada di sebuah ruangan. Kalau kamu menghapus ruangan, templatnya akan kembali ke sini." },
-  { "clave": "plantillaCustom.crear", "texto": "Buat templat" },
-  { "clave": "plantillaCustom.editar", "texto": "Edit templat" },
-  { "clave": "plantillaCustom.eliminar", "texto": "Hapus templat" },
-  { "clave": "plantillaCustom.confirmarBorrar", "texto": "Hapus templat ini beserta semua datanya?" },
-  { "clave": "plantillaCustom.enUso", "texto": "Templat yang kamu pakai" },
-  { "clave": "plantillaCustom.nombrePh", "texto": "Mis. Pindahan, tanaman, hewan peliharaan…" },
-  { "clave": "plantillaCustom.emojiLibre", "texto": "Emoji lain" },
-  { "clave": "plantillaCustom.herramientas", "texto": "Alat templat" },
-  { "clave": "plantillaCustom.sinBloques", "texto": "Tambahkan minimal satu alat: itu akan jadi bagian aplikasimu." },
-  { "clave": "plantillaCustom.quitarBloque", "texto": "Hapus (datanya terhapus saat disimpan)" },
-  { "clave": "plantillaCustom.menusAyuda", "texto": "Bagi blok ke dalam tab. Tanpa menu, aplikasimu jadi satu layar saja." },
-  { "clave": "plantillaCustom.agregarMenu", "texto": "Menu" },
-  { "clave": "plantillaCustom.agregarAqui", "texto": "Tambah alat" },
-  { "clave": "plantillaCustom.agregarSubmenu", "texto": "Submenu dari menu ini" },
-  { "clave": "plantillaCustom.menuNuevo", "texto": "Menu {n}" },
-  { "clave": "plantillaCustom.submenuNuevo", "texto": "Submenu {n}" },
-  { "clave": "plantillaCustom.menuSinNombre", "texto": "Menu" },
-  { "clave": "plantillaCustom.menuNombrePh", "texto": "Nama menu" },
-  { "clave": "plantillaCustom.menuEmoji", "texto": "Emoji menu (opsional)" },
-  { "clave": "plantillaCustom.borrarMenu", "texto": "Hapus menu (bloknya pindah ke menu pertama)" },
-  { "clave": "plantillaCustom.menuBloque", "texto": "Menu" },
-  { "clave": "plantillaCustom.menuVacio", "texto": "Menu ini belum punya blok." },
-  { "clave": "plantillaCustom.submenu", "texto": "Submenu" },
-  { "clave": "plantillaCustom.editarApp", "texto": "Edit aplikasi" },
-  { "clave": "plantillaCustom.listo", "texto": "Selesai" },
-  { "clave": "plantillaCustom.editorCompleto", "texto": "Editor lengkap" },
-  { "clave": "plantillaCustom.borrar", "texto": "Hapus" },
-  { "clave": "plantillaCustom.borrarMenuTitulo", "texto": "Hapus “{nombre}”" },
-  { "clave": "plantillaCustom.borrarMenuMsj", "texto": "Alatnya pindah ke menu pertama, beserta datanya." },
-  { "clave": "plantillaCustom.borrarBloqueTitulo", "texto": "Hapus “{nombre}”" }
+  {
+    "clave": "ejercicio.ejDesc.curl-martillo",
+    "texto": "Dengan pegangan netral (telapak tangan saling berhadapan), angkat dumbbell untuk melatih lengan bawah."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-predicador",
+    "texto": "Dengan lengan bertumpu di bench, tekuk siku untuk mengisolasi bisep."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-concentrado",
+    "texto": "Sambil duduk, sandarkan siku di paha dan angkat dumbbell sambil fokus pada kontraksi."
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-triceps-en-polea",
+    "texto": "Berdiri di cable atas, dorong bar ke bawah dengan meluruskan siku."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-frances",
+    "texto": "Sambil berbaring, turunkan bar ke arah dahi dan luruskan siku tanpa menggerakkannya."
+  },
+  {
+    "clave": "ejercicio.ejDesc.fondos-entre-bancos",
+    "texto": "Dengan tangan di bench, turunkan tubuh dengan menekuk siku, lalu dorong naik."
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-sobre-cabeza",
+    "texto": "Angkat dumbbell ke belakang kepala lalu luruskan siku ke atas."
+  },
+  {
+    "clave": "ejercicio.ejDesc.patada-de-triceps",
+    "texto": "Condong ke depan dengan siku tinggi, luruskan lengan bawah ke belakang."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla",
+    "texto": "Dengan bar di punggung, turunkan pinggul sampai paha sejajar lalu berdiri kembali."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-frontal",
+    "texto": "Dengan bar di depan, turun sambil menjaga badan tetap tegak."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-bulgara",
+    "texto": "Dengan satu kaki terangkat di belakang, turunkan kaki depan sampai 90 derajat."
+  },
+  {
+    "clave": "ejercicio.ejDesc.prensa-de-pierna",
+    "texto": "Di mesin, dorong platform dengan meluruskan kaki tanpa mengunci lutut."
+  },
+  {
+    "clave": "ejercicio.ejDesc.zancadas",
+    "texto": "Melangkah ke depan dan turunkan lutut belakang hampir menyentuh lantai, bergantian sisi."
+  },
+  {
+    "clave": "ejercicio.ejDesc.peso-muerto",
+    "texto": "Dengan punggung lurus, angkat bar dari lantai dengan meluruskan pinggul dan lutut."
+  },
+  {
+    "clave": "ejercicio.ejDesc.peso-muerto-rumano",
+    "texto": "Turunkan bar dekat kaki dengan menekuk dari pinggul, lutut hampir lurus."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-femoral",
+    "texto": "Di mesin, tekuk lutut membawa tumit ke arah bokong."
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-de-cuadriceps",
+    "texto": "Sambil duduk di mesin, luruskan lutut mengangkat beban dengan terkontrol."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-talones",
+    "texto": "Berdiri sambil membawa beban, angkat tumit sambil mengontraksikan betis."
+  },
+  {
+    "clave": "ejercicio.ejDesc.hip-thrust",
+    "texto": "Dengan punggung atas di bench, dorong pinggul ke atas sambil mengontraksikan otot bokong."
+  },
+  {
+    "clave": "ejercicio.ejDesc.puente-de-gluteo",
+    "texto": "Sambil berbaring, angkat pinggul sampai bahu, pinggul, dan lutut sejajar."
+  },
+  {
+    "clave": "ejercicio.ejDesc.patada-de-gluteo-en-polea",
+    "texto": "Dengan posisi merangkak atau berdiri, tendangkan kaki ke belakang sambil mengontraksikan otot bokong."
+  },
+  {
+    "clave": "ejercicio.ejDesc.abduccion-de-cadera",
+    "texto": "Sambil duduk atau berbaring menyamping, buka kaki melawan tahanan."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha",
+    "texto": "Bertumpu pada lengan bawah, jaga tubuh tetap lurus tanpa menjatuhkan pinggul."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-lateral",
+    "texto": "Menyamping bertumpu pada satu lengan bawah, jaga pinggul terangkat dan sejajar."
+  },
+  {
+    "clave": "ejercicio.ejDesc.crunch-abdominal",
+    "texto": "Sambil berbaring, angkat bahu dengan mengontraksikan perut tanpa menarik leher."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-piernas",
+    "texto": "Sambil berbaring atau bergantung, angkat kaki lurus sambil mengontrol turunnya."
+  },
+  {
+    "clave": "ejercicio.ejDesc.russian-twist",
+    "texto": "Sambil duduk dengan badan condong ke belakang, putar badan dari sisi ke sisi."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rueda-abdominal",
+    "texto": "Berlutut, gulingkan ke depan tanpa melengkungkan punggung, lalu kembali."
+  },
+  {
+    "clave": "ejercicio.ejDesc.escaladores",
+    "texto": "Dalam posisi plank, bawa lutut ke dada bergantian dengan cepat."
+  },
+  {
+    "clave": "ejercicio.ejDesc.carrera",
+    "texto": "Tempo stabil di zona 2-3, pijakan ringan dan badan tegak."
+  },
+  {
+    "clave": "ejercicio.ejDesc.trote-suave",
+    "texto": "Tempo nyaman yang masih bisa sambil mengobrol; ideal untuk lari jarak jauh."
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata-rapida",
+    "texto": "Langkah cepat dengan ayunan tangan aktif, tanpa sampai berlari kecil."
+  },
+  {
+    "clave": "ejercicio.ejDesc.ciclismo",
+    "texto": "Kayuh dengan kadensi tinggi dan tahanan sedang, punggung tetap rileks."
+  },
+  {
+    "clave": "ejercicio.ejDesc.senderismo",
+    "texto": "Berjalan di medan alami dengan perbedaan ketinggian; tanjakan yang menentukan tempo."
+  },
+  {
+    "clave": "ejercicio.ejDesc.trail-running",
+    "texto": "Lari di gunung atau medan tidak rata; persingkat langkah saat tanjakan."
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminadora",
+    "texto": "Berjalan atau berlari di treadmill tanpa berpegangan pada pegangan tangan."
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata-inclinada",
+    "texto": "Treadmill dengan kemiringan pada tempo sedang: bakar kalori stabil, dampak rendah."
+  },
+  {
+    "clave": "ejercicio.ejDesc.eliptica",
+    "texto": "Gerakan mulus sambil mendorong dengan lengan juga, tanpa membebani lutut."
+  },
+  {
+    "clave": "ejercicio.ejDesc.bicicleta-estatica",
+    "texto": "Atur sadel setinggi pinggul dan kayuh dengan kadensi stabil."
+  },
+  {
+    "clave": "ejercicio.ejDesc.escaladora",
+    "texto": "Naik anak tangga dengan tempo stabil, injakkan seluruh telapak kaki."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-maquina",
+    "texto": "Dorong dengan kaki, lalu tarik dengan punggung, dan selesaikan dengan lengan."
+  },
+  {
+    "clave": "ejercicio.ejDesc.hiit",
+    "texto": "Interval singkat dengan intensitas maksimal diselingi istirahat pendek."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sprints",
+    "texto": "Set dengan kecepatan maksimal dengan pemulihan penuh di antara repetisi."
+  },
+  {
+    "clave": "ejercicio.ejDesc.saltar-cuerda",
+    "texto": "Lompatan rendah dengan memutar tali menggunakan pergelangan tangan, bukan lengan."
+  },
+  {
+    "clave": "ejercicio.ejDesc.burpees",
+    "texto": "Dari berdiri ke plank, lakukan push-up, tarik kaki masuk, dan lompat dengan lengan ke atas."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circuito-metabolico",
+    "texto": "Rangkai beberapa latihan tanpa istirahat untuk menjaga detak jantung tetap tinggi."
+  },
+  {
+    "clave": "ejercicio.ejDesc.natacion",
+    "texto": "Berenang dengan tempo stabil sambil menyelaraskan napas dengan gerakan."
+  },
+  {
+    "clave": "ejercicio.ejDesc.aqua-aerobicos",
+    "texto": "Olahraga di air: tahanan air melatih otot tanpa membebani sendi."
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata",
+    "texto": "Tempo tenang dan berkelanjutan; dasar dari volume aerobik."
+  },
+  {
+    "clave": "ejercicio.ejDesc.futbol",
+    "texto": "Lari terputus-putus dengan perubahan tempo dan arah."
+  },
+  {
+    "clave": "ejercicio.ejDesc.basquetbol",
+    "texto": "Sprint pendek, lompatan, dan pergerakan lateral yang konstan."
+  },
+  {
+    "clave": "ejercicio.ejDesc.tenis",
+    "texto": "Usaha eksplosif dengan jeda; banyak kerja tubuh bagian bawah."
+  },
+  {
+    "clave": "ejercicio.ejDesc.padel",
+    "texto": "Poin pendek dan intens di lapangan kecil, dengan banyak perubahan arah."
+  },
+  {
+    "clave": "ejercicio.ejDesc.boxeo",
+    "texto": "Kombinasi pukulan dan gerakan kaki sambil menjaga guard tetap tinggi."
+  },
+  {
+    "clave": "ejercicio.ejDesc.baile",
+    "texto": "Gerakan terus-menerus mengikuti irama musik; kardio yang tidak terasa seperti latihan."
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-matutina",
+    "texto": "Rangkaian lembut untuk membangunkan tubuh dan melepaskan sendi di awal hari."
+  },
+  {
+    "clave": "ejercicio.ejDesc.yoga-flow",
+    "texto": "Rangkaikan pose dengan napas dalam aliran tubuh penuh yang berkelanjutan."
+  },
+  {
+    "clave": "ejercicio.ejDesc.saludo-al-sol",
+    "texto": "Rangkaian yoga klasik yang meregangkan dan mengaktifkan seluruh tubuh secara berurutan."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-general",
+    "texto": "Latih kelompok otot utama dengan peregangan lembut dan tertahan."
+  },
+  {
+    "clave": "ejercicio.ejDesc.guerrero-i",
+    "texto": "Dalam lunge, angkat lengan dan buka dada sambil menjaga pinggul menghadap depan."
+  },
+  {
+    "clave": "ejercicio.ejDesc.guerrero-ii",
+    "texto": "Dalam lunge lebar, rentangkan lengan dan pandangan ke depan sambil menekuk lutut depan."
+  },
+  {
+    "clave": "ejercicio.ejDesc.triangulo",
+    "texto": "Dengan kaki terbuka, condongkan badan dan turunkan satu tangan ke arah pergelangan kaki."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-de-pie",
+    "texto": "Berdiri, jatuhkan badan ke atas kaki sambil melepaskan tegangan leher dan punggung."
+  },
+  {
+    "clave": "ejercicio.ejDesc.apertura-de-cadera",
+    "texto": "Latihan mobilitas untuk melepaskan pinggul dan mendapatkan jangkauan gerak di kaki."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-paloma",
+    "texto": "Dengan satu kaki ditekuk di depan, turunkan badan untuk membuka otot bokong."
+  },
+  {
+    "clave": "ejercicio.ejDesc.mariposa",
+    "texto": "Sambil duduk, satukan telapak kaki dan biarkan lutut jatuh ke samping."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-isquiotibiales",
+    "texto": "Regangkan bagian belakang paha dengan lutut lurus."
+  },
+  {
+    "clave": "ejercicio.ejDesc.zancada-baja",
+    "texto": "Dengan satu lutut di lantai, dorong pinggul ke depan untuk meregangkan fleksor."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-guirnalda",
+    "texto": "Dalam jongkok dalam, dorong lutut terbuka dengan siku untuk melepaskan pinggul."
+  },
+  {
+    "clave": "ejercicio.ejDesc.figura-4",
+    "texto": "Silangkan pergelangan kaki di atas lutut yang berlawanan dan tarik paha untuk meregangkan otot bokong."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-aductores",
+    "texto": "Buka kaki dan turunkan badan untuk meregangkan bagian dalam paha."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rana",
+    "texto": "Merangkak dengan lutut terbuka lebar, ayunkan pinggul ke belakang."
+  },
+  {
+    "clave": "ejercicio.ejDesc.perro-boca-abajo",
+    "texto": "Dalam bentuk V terbalik, dorong pinggul ke atas sambil meregangkan punggung dan kaki."
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsion-espinal",
+    "texto": "Sambil duduk atau berbaring, putar badan perlahan untuk melatih mobilitas tulang belakang."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-del-nino",
+    "texto": "Duduk di atas tumit, rentangkan lengan ke depan sambil merilekskan punggung."
+  },
+  {
+    "clave": "ejercicio.ejDesc.apertura-de-pecho",
+    "texto": "Bawa lengan ke belakang untuk membuka dada dan melawan postur membungkuk."
+  },
+  {
+    "clave": "ejercicio.ejDesc.esfinge",
+    "texto": "Tengkurap bertumpu pada lengan bawah, angkat dada sambil meregangkan punggung bawah."
+  },
+  {
+    "clave": "ejercicio.ejDesc.hilo-y-aguja",
+    "texto": "Merangkak, selipkan satu lengan di bawah badan untuk meregangkan bahu."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-dorsales",
+    "texto": "Regangkan sisi badan dengan mengangkat lengan ke atas dan sedikit ke samping."
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-cervical",
+    "texto": "Gerakan leher perlahan ke segala arah untuk melepaskan ketegangan."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-de-columna",
+    "texto": "Putar tulang belakang perlahan segmen demi segmen untuk melatih mobilitasnya."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-cobra",
+    "texto": "Tengkurap, angkat dada dengan tangan sambil meregangkan punggung."
+  },
+  {
+    "clave": "ejercicio.ejDesc.inclinacion-lateral-de-cuello",
+    "texto": "Bawa telinga ke arah bahu untuk meregangkan sisi leher."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-cuadriceps",
+    "texto": "Berdiri, bawa tumit ke bokong sambil memegang kaki untuk meregangkan paha."
+  }
 ]

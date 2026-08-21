@@ -1,1078 +1,362 @@
 [
- {
-  "clave": "corazon.gato.noche.1",
-  "texto": "शांत रात है। इसे खराब मत करना 🐾"
- },
- {
-  "clave": "corazon.gato.rutina.0",
-  "texto": "अरे, \"{r}\" {h} बजे है। मैं यहीं हूं 🐾"
- },
- {
-  "clave": "corazon.gato.rutina.1",
-  "texto": "\"{r}\" आने वाला है ({h})। आप कर लेंगे; मेरी नज़र रहेगी 🐱"
- },
- {
-  "clave": "corazon.gato.generica.0",
-  "texto": "सब कुछ नियंत्रण में है। झपकी के दौरान जांच हो चुकी है 🐾"
- },
- {
-  "clave": "corazon.gato.generica.1",
-  "texto": "हम्म। घर अभी भी खड़ा है। कोई बात नहीं 🐱"
- },
- {
-  "clave": "corazon.perro.manana.0",
-  "texto": "सुप्रभात! आज शानदार दिन जैसी खुशबू आ रही है! 🐶"
- },
- {
-  "clave": "corazon.perro.manana.1",
-  "texto": "सुबह हो गई! चलो चलो चलो! 🦴"
- },
- {
-  "clave": "corazon.perro.tarde.0",
-  "texto": "काम निपटाने के लिए एकदम सही दोपहर है! भौं! 🐶"
- },
- {
-  "clave": "corazon.perro.tarde.1",
-  "texto": "अभी भी यहीं हूं, सब पर नज़र है! 🎉"
- },
- {
-  "clave": "corazon.perro.noche.0",
-  "texto": "क्या दिन था! है ना? है ना? 🐶"
- },
- {
-  "clave": "corazon.perro.noche.1",
-  "texto": "शांत रात… मैं पहरे पर हूं! 🦴"
- },
- {
-  "clave": "corazon.perro.rutina.0",
-  "texto": "\"{r}\" {h} बजे! आप कर सकते हैं! 🎉"
- },
- {
-  "clave": "corazon.perro.rutina.1",
-  "texto": "\"{r}\" {h} बजे मत भूलिए! भौं! 🐶"
- },
- {
-  "clave": "corazon.perro.generica.0",
-  "texto": "मुझे यह घर बहुत पसंद है! 🐶"
- },
- {
-  "clave": "corazon.perro.generica.1",
-  "texto": "कुछ भी चाहिए तो बुला लीजिए! कुछ भी! 🦴"
- },
- {
-  "clave": "corazon.buho.manana.0",
-  "texto": "भोर। दिन की शांति से योजना बनाने का सही समय। 🦉"
- },
- {
-  "clave": "corazon.buho.manana.1",
-  "texto": "व्यवस्थित सुबह दोगुना फल देती है।"
- },
- {
-  "clave": "corazon.buho.tarde.0",
-  "texto": "दोपहर: प्रगति की समीक्षा का अच्छा समय। 🦉"
- },
- {
-  "clave": "corazon.buho.tarde.1",
-  "texto": "दोपहर योजना के अनुसार आगे बढ़ रही है।"
- },
- {
-  "clave": "corazon.buho.noche.0",
-  "texto": "रात हो रही है। सुझाव है कि दिन को एक नोट के साथ समाप्त करें। 🦉"
- },
- {
-  "clave": "corazon.buho.noche.1",
-  "texto": "रात मनन के लिए न्योता देती है।"
- },
- {
-  "clave": "corazon.buho.rutina.0",
-  "texto": "समय पर सूचना: \"{r}\" {h} बजे। 🦉"
- },
- {
-  "clave": "corazon.buho.rutina.1",
-  "texto": "आपकी समय-सारणी में \"{r}\" {h} बजे दर्ज है।"
- },
- {
-  "clave": "corazon.buho.generica.0",
-  "texto": "अवलोकन जारी है। नोट लिए जा रहे हैं। सब ठीक है। 🦉"
- },
- {
-  "clave": "corazon.buho.generica.1",
-  "texto": "ज्ञान दिन-ब-दिन बढ़ता जाता है।"
- },
- {
-  "clave": "corazon.robot.manana.0",
-  "texto": "☀ दिन-चक्र शुरू। सिस्टम 100% पर। 🤖"
- },
- {
-  "clave": "corazon.robot.manana.1",
-  "texto": "सुप्रभात। बैटरी पूरी तरह चार्ज। ✓"
- },
- {
-  "clave": "corazon.robot.tarde.0",
-  "texto": "दोपहर स्कैन पूर्ण। कोई गड़बड़ी नहीं। ✓"
- },
- {
-  "clave": "corazon.robot.tarde.1",
-  "texto": "उत्पादकता तय सीमा में। 🤖"
- },
- {
-  "clave": "corazon.robot.noche.0",
-  "texto": "नाइट मोड सक्रिय। निगरानी जारी। 🤖"
- },
- {
-  "clave": "corazon.robot.noche.1",
-  "texto": "सिफ़ारिश: मानव इकाई को रिचार्ज करें (नींद)। ✓"
- },
- {
-  "clave": "corazon.robot.rutina.0",
-  "texto": "अनुस्मारक: \"{r}\" {h} बजे नियत। ✓"
- },
- {
-  "clave": "corazon.robot.rutina.1",
-  "texto": "चेतावनी: \"{r}\" {h} बजे। 🤖"
- },
- {
-  "clave": "corazon.robot.generica.0",
-  "texto": "सभी सिस्टम सामान्य। 🤖"
- },
- {
-  "clave": "corazon.robot.generica.1",
-  "texto": "निर्देशों की प्रतीक्षा। जल्दी नहीं। ✓"
- },
- {
-  "clave": "chat.config.activoMapa",
-  "texto": "सक्रिय सहायक हमेशा नक्शे पर रहता है"
- },
- {
-  "clave": "chat.config.editar",
-  "texto": "अनुकूलित करें"
- },
- {
-  "clave": "chat.config.eliminar",
-  "texto": "सहायक हटाएं"
- },
- {
-  "clave": "chat.config.eliminarConfirma",
-  "texto": "\"{n}\" को हटाएं? बातचीत बनी रहेगी।"
- },
- {
-  "clave": "chat.config.eliminarOk",
-  "texto": "हटाएं"
- },
- {
-  "clave": "chat.config.eliminarUltimo",
-  "texto": "कम से कम एक सहायक बना रहना चाहिए"
- },
- {
-  "clave": "chat.config.restaurar",
-  "texto": "पुनर्स्थापित करें:"
- },
- {
-  "clave": "chat.config.restaurarUno",
-  "texto": "पुनर्स्थापित करें"
- },
- {
-  "clave": "acceso.subir",
-  "texto": "स्तर {n} पर जाएं"
- },
- {
-  "clave": "acceso.bajarPlanta",
-  "texto": "भूतल पर जाएं"
- },
- {
-  "clave": "acceso.bajar",
-  "texto": "स्तर {n} पर नीचे जाएं"
- },
- {
-  "clave": "veh.ayuda",
-  "texto": "नक्शे पर कोई वाहन रखें और उसके पास जाकर उस पर सवार हों।"
- },
- {
-  "clave": "veh.colocar",
-  "texto": "नक्शे पर रखें"
- },
- {
-  "clave": "veh.color",
-  "texto": "वाहन का रंग"
- },
- {
-  "clave": "veh.subirte",
-  "texto": "सवार हों"
- },
- {
-  "clave": "veh.bajarte",
-  "texto": "उतरें"
- },
- {
-  "clave": "accion.sentarte",
-  "texto": "बैठें"
- },
- {
-  "clave": "accion.acostarte",
-  "texto": "लेटें"
- },
- {
-  "clave": "accion.sentado",
-  "texto": "बैठे हुए"
- },
- {
-  "clave": "accion.acostado",
-  "texto": "लेटे हुए"
- },
- {
-  "clave": "accion.levantarte",
-  "texto": "उठें"
- },
- {
-  "clave": "veh.subir",
-  "texto": "ऊपर जाएं (स्पेस)"
- },
- {
-  "clave": "veh.bajar",
-  "texto": "नीचे जाएं (Shift)"
- },
- {
-  "clave": "veh.derrape",
-  "texto": "ड्रिफ्ट (स्पेस)"
- },
- {
-  "clave": "hud.ayuda",
-  "texto": "WASD/एरो कीज़ या पैड (नीचे बाईं ओर) से चलें। बटन (नीचे दाईं ओर) से घुमाएं और ज़ूम करें। कमरों के बीच दरवाज़ों से होकर जाएं।"
- },
- {
-  "clave": "cat.cuerpo",
-  "texto": "शरीर"
- },
- {
-  "clave": "cat.mente",
-  "texto": "मन"
- },
- {
-  "clave": "cat.complemento",
-  "texto": "अतिरिक्त"
- },
- {
-  "clave": "cat.config",
-  "texto": "सेटिंग्स"
- },
- {
-  "clave": "ajustes.titulo",
-  "texto": "सेटिंग्स"
- },
- {
-  "clave": "ajustes.idioma",
-  "texto": "भाषा"
- },
- {
-  "clave": "diario.nacidoAbrev",
-  "texto": "ज."
- },
- {
-  "clave": "ajustes.tema",
-  "texto": "इंटरफ़ेस थीम"
- },
- {
-  "clave": "ajustes.modo",
-  "texto": "स्वरूप"
- },
- {
-  "clave": "ajustes.modo.claro",
-  "texto": "हल्का"
- },
- {
-  "clave": "ajustes.modo.oscuro",
-  "texto": "गहरा"
- },
- {
-  "clave": "ajustes.modo.transparente",
-  "texto": "पारदर्शी"
- },
- {
-  "clave": "ajustes.iconos",
-  "texto": "आइकन शैली"
- },
- {
-  "clave": "ajustes.iconos.emoji",
-  "texto": "इमोजी"
- },
- {
-  "clave": "ajustes.iconos.profesional",
-  "texto": "प्रोफेशनल"
- },
- {
-  "clave": "ajustes.tipografia",
-  "texto": "फ़ॉन्ट"
- },
- {
-  "clave": "ajustes.abrir",
-  "texto": "सेटिंग्स"
- },
- {
-  "clave": "tipografia.sistema",
-  "texto": "सिस्टम"
- },
- {
-  "clave": "tipografia.serif",
-  "texto": "सेरिफ़"
- },
- {
-  "clave": "tipografia.mono",
-  "texto": "मोनोस्पेस"
- },
- {
-  "clave": "tipografia.redondeada",
-  "texto": "गोलाकार"
- },
- {
-  "clave": "tipografia.manuscrita",
-  "texto": "हस्तलिखित"
- },
- {
-  "clave": "temaUI.medianoche",
-  "texto": "मध्यरात्रि"
- },
- {
-  "clave": "temaUI.neon",
-  "texto": "नियॉन"
- },
- {
-  "clave": "temaUI.bosque",
-  "texto": "वन"
- },
- {
-  "clave": "temaUI.ambar",
-  "texto": "एम्बर"
- },
- {
-  "clave": "temaUI.ciruela",
-  "texto": "बेर"
- },
- {
-  "clave": "room.cocina.nombre",
-  "texto": "रसोई"
- },
- {
-  "clave": "room.ejercicio.nombre",
-  "texto": "जिम"
- },
- {
-  "clave": "room.recamara.nombre",
-  "texto": "शयनकक्ष"
- },
- {
-  "clave": "room.descanso.nombre",
-  "texto": "बिस्तर · आराम"
- },
- {
-  "clave": "room.anecdotario.nombre",
-  "texto": "मेज़ · डायरी"
- },
- {
-  "clave": "room.despacho.nombre",
-  "texto": "कार्यकक्ष"
- },
- {
-  "clave": "room.biblioteca.nombre",
-  "texto": "पुस्तकालय"
- },
- {
-  "clave": "room.entretenimiento.nombre",
-  "texto": "मनोरंजन"
- },
- {
-  "clave": "room.sala.nombre",
-  "texto": "बैठक"
- },
- {
-  "clave": "room.jardin.nombre",
-  "texto": "बगीचा"
- },
- {
-  "clave": "room.garage.nombre",
-  "texto": "गैराज"
- },
- {
-  "clave": "room.diario.nombre",
-  "texto": "दैनिक समाचार"
- },
- {
-  "clave": "room.hobbies.nombre",
-  "texto": "शौक"
- },
- {
-  "clave": "room.idiomas.nombre",
-  "texto": "भाषाएं"
- },
- {
-  "clave": "room.caminos.nombre",
-  "texto": "ट्रैक"
- },
- {
-  "clave": "room.canchas.nombre",
-  "texto": "मैदान"
- },
- {
-  "clave": "room.huerto.nombre",
-  "texto": "भोजन"
- },
- {
-  "clave": "room.granja.nombre",
-  "texto": "फ़ार्म"
- },
- {
-  "clave": "room.ideas.nombre",
-  "texto": "विचार"
- },
- {
-  "clave": "room.computo.nombre",
-  "texto": "कंप्यूटिंग कक्ष"
- },
- {
-  "clave": "room.agenda.nombre",
-  "texto": "एजेंडा"
- },
- {
-  "clave": "room.cocina.sub",
-  "texto": "पोषण"
- },
- {
-  "clave": "room.ejercicio.sub",
-  "texto": "ताकत और फिटनेस दिनचर्या"
- },
- {
-  "clave": "room.recamara.sub",
-  "texto": "नींद और यादें"
- },
- {
-  "clave": "room.descanso.sub",
-  "texto": "नींद और अलार्म"
- },
- {
-  "clave": "room.anecdotario.sub",
-  "texto": "व्यक्तिगत डायरी"
- },
- {
-  "clave": "room.despacho.sub",
-  "texto": "वित्त"
- },
- {
-  "clave": "room.biblioteca.sub",
-  "texto": "सीखना"
- },
- {
-  "clave": "room.entretenimiento.sub",
-  "texto": "संग्रह और बोर्ड गेम"
- },
- {
-  "clave": "room.sala.sub",
-  "texto": "यात्राएं"
- },
- {
-  "clave": "room.jardin.sub",
-  "texto": "सजगता"
- },
- {
-  "clave": "room.garage.sub",
-  "texto": "वाहन रखरखाव"
- },
- {
-  "clave": "room.diario.sub",
-  "texto": "दैनिक समाचार"
- },
- {
-  "clave": "room.hobbies.sub",
-  "texto": "शौक और परियोजनाएं"
- },
- {
-  "clave": "room.calendario.sub",
-  "texto": "कार्यक्रम और दिनचर्या"
- },
- {
-  "clave": "room.ideas.sub",
-  "texto": "खुले कैनवास पर अवधारणा मानचित्र"
- },
- {
-  "clave": "room.computo.sub",
-  "texto": "कैलकुलेटर और स्प्रेडशीट"
- },
- {
-  "clave": "room.agenda.sub",
-  "texto": "काम, स्वास्थ्य और लोग"
- },
- {
-  "clave": "hud.plegar",
-  "texto": "नियंत्रण समेटें"
- },
- {
-  "clave": "hud.desplegar",
-  "texto": "नियंत्रण दिखाएं"
- },
- {
-  "clave": "nav3d.aria",
-  "texto": "दृश्य नियंत्रण"
- },
- {
-  "clave": "nav3d.vistaCuarto",
-  "texto": "कमरे का दृश्य"
- },
- {
-  "clave": "nav3d.vistaInterior",
-  "texto": "दीवार की ओर दृश्य"
- },
- {
-  "clave": "nav3d.rotarIzq",
-  "texto": "दृश्य बाईं ओर घुमाएं"
- },
- {
-  "clave": "nav3d.rotarDer",
-  "texto": "दृश्य दाईं ओर घुमाएं"
- },
- {
-  "clave": "nav3d.acercar",
-  "texto": "ज़ूम इन करें"
- },
- {
-  "clave": "nav3d.alejar",
-  "texto": "ज़ूम आउट करें"
- },
- {
-  "clave": "nav3d.restaurarCuarto",
-  "texto": "कमरे का ज़ूम और फ़ोकस रीसेट करें"
- },
- {
-  "clave": "nav3d.vistaInicial",
-  "texto": "शुरुआती दृश्य"
- },
- {
-  "clave": "nav3d.centrarCuarto",
-  "texto": "कमरा केंद्रित करें"
- },
- {
-  "clave": "nav3d.reiniciar",
-  "texto": "दृश्य रीसेट करें"
- },
- {
-  "clave": "nav3d.editor3d",
-  "texto": "3D एडिटर"
- },
- {
-  "clave": "nav3d.editor3dOn",
-  "texto": "एडिटर बंद करें"
- },
- {
-  "clave": "nav3d.editor3dHint",
-  "texto": "परिप्रेक्ष्य में दुनिया को संपादित करें: किसी वस्तु, फ़र्श, दीवार या किरदार को छूकर संपादित करें"
- },
- {
-  "clave": "nav3d.verFlechas",
-  "texto": "गति के तीरों पर वापस जाएं"
- },
- {
-  "clave": "nav3d.verCubo",
-  "texto": "तीरों को समेटें और दृश्य घन देखें"
- },
- {
-  "clave": "nav3d.verFlechasBtn",
-  "texto": "तीर दिखाएं"
- },
- {
-  "clave": "nav3d.verCuboBtn",
-  "texto": "दृश्य दिखाएं"
- },
- {
-  "clave": "herr.boton",
-  "texto": "उपकरण"
- },
- {
-  "clave": "herr.rueda",
-  "texto": "उपकरण चक्र"
- },
- {
-  "clave": "herr.cubo",
-  "texto": "घन"
- },
- {
-  "clave": "herr.saltar",
-  "texto": "कूदना"
- },
- {
-  "clave": "herr.correr",
-  "texto": "दौड़ना"
- },
- {
-  "clave": "herr.bailar",
-  "texto": "नाचना"
- },
- {
-  "clave": "herr.laser",
-  "texto": "लेज़र"
- },
- {
-  "clave": "herr.volverCubo",
-  "texto": "दृश्य घन पर वापस जाएं"
- },
- {
-  "clave": "herr.saltarBtn",
-  "texto": "कूदें!"
- },
- {
-  "clave": "herr.corriendo",
-  "texto": "दौड़ते हुए"
- },
- {
-  "clave": "herr.bailando",
-  "texto": "नाचते हुए"
- },
- {
-  "clave": "herr.disparar",
-  "texto": "फ़ायर करना"
- },
- {
-  "clave": "herr.invocar",
-  "texto": "बुलाना"
- },
- {
-  "clave": "herr.soloPlantaBaja",
-  "texto": "उसे बुलाने के लिए भूतल पर जाएं"
- },
- {
-  "clave": "herr.veh.bicicleta",
-  "texto": "साइकिल"
- },
- {
-  "clave": "herr.veh.motocicleta",
-  "texto": "मोटरसाइकिल"
- },
- {
-  "clave": "herr.veh.automovil",
-  "texto": "कार"
- },
- {
-  "clave": "herr.veh.ovni",
-  "texto": "यूएफ़ओ"
- },
- {
-  "clave": "herr.cat.movimientos",
-  "texto": "हरकतें"
- },
- {
-  "clave": "herr.cat.juguetes",
-  "texto": "खिलौने"
- },
- {
-  "clave": "herr.cat.vehiculos",
-  "texto": "वाहन"
- },
- {
-  "clave": "herr.cat.construccion",
-  "texto": "निर्माण"
- },
- {
-  "clave": "herr.construir",
-  "texto": "बनाना"
- },
- {
-  "clave": "herr.constrDibujar",
-  "texto": "खींचना"
- },
- {
-  "clave": "herr.abrirEditor",
-  "texto": "एडिटर खोलें"
- },
- {
-  "clave": "herr.atras",
-  "texto": "वापस"
- },
- {
-  "clave": "herr.cuerda",
-  "texto": "रस्सी कूद"
- },
- {
-  "clave": "herr.mortal",
-  "texto": "कलाबाज़ी"
- },
- {
-  "clave": "herr.saludar",
-  "texto": "हाथ हिलाना"
- },
- {
-  "clave": "herr.mover",
-  "texto": "खिसकाना"
- },
- {
-  "clave": "herr.moverAcercate",
-  "texto": "किसी वस्तु या कमरे के पास जाएं"
- },
- {
-  "clave": "herr.agarrar",
-  "texto": "पकड़ना"
- },
- {
-  "clave": "herr.agarrarCuarto",
-  "texto": "कमरा पकड़ना"
- },
- {
-  "clave": "herr.moverCargandoObjeto",
-  "texto": "वस्तु उठाई हुई है"
- },
- {
-  "clave": "herr.moverCargandoCuarto",
-  "texto": "कमरा उठाया हुआ है"
- },
- {
-  "clave": "herr.soltar",
-  "texto": "छोड़ना"
- },
- {
-  "clave": "ctx.interactuar",
-  "texto": "इंटरैक्ट करें"
- },
- {
-  "clave": "ctx.entrarApp",
-  "texto": "ऐप खोलें"
- },
- {
-  "clave": "ctx.cambiarLetrero",
-  "texto": "साइनबोर्ड बदलें"
- },
- {
-  "clave": "ctx.usar",
-  "texto": "उपयोग करें"
- },
- {
-  "clave": "ctx.subirte",
-  "texto": "चढ़ें"
- },
- {
-  "clave": "ctx.subirteDona",
-  "texto": "ट्यूब पर चढ़ें"
- },
- {
-  "clave": "ctx.cosechar",
-  "texto": "कटाई करें"
- },
- {
-  "clave": "ctx.recoger",
-  "texto": "उठाएं"
- },
- {
-  "clave": "ctx.bajarte",
-  "texto": "उतरें"
- },
- {
-  "clave": "ctx.correr",
-  "texto": "रेस"
- },
- {
-  "clave": "ctx.revisarTu",
-  "texto": "जांचें"
- },
- {
-  "clave": "ctx.subirA",
-  "texto": "ऊपर जाएं"
- },
- {
-  "clave": "ctx.bajarA",
-  "texto": "नीचे जाएं"
- },
- {
-  "clave": "ctx.nivelN",
-  "texto": "स्तर {n}"
- },
- {
-  "clave": "ctx.plantaBaja",
-  "texto": "भूतल"
- },
- {
-  "clave": "ctx.jugar.futbol",
-  "texto": "फ़ुटबॉल खेलें"
- },
- {
-  "clave": "ctx.jugar.tenis",
-  "texto": "टेनिस खेलें"
- },
- {
-  "clave": "ctx.jugar.basket",
-  "texto": "बास्केटबॉल खेलें"
- },
- {
-  "clave": "ctx.jugar.beisbol",
-  "texto": "बेसबॉल खेलें"
- },
- {
-  "clave": "herr.portales",
-  "texto": "पोर्टल"
- },
- {
-  "clave": "herr.fuegos",
-  "texto": "आतिशबाज़ी"
- },
- {
-  "clave": "herr.burbujas",
-  "texto": "बुलबुले"
- },
- {
-  "clave": "herr.cuerdaOn",
-  "texto": "रस्सी कूदते हुए"
- },
- {
-  "clave": "herr.mortalBtn",
-  "texto": "कलाबाज़ी!"
- },
- {
-  "clave": "herr.saludarBtn",
-  "texto": "नमस्ते!"
- },
- {
-  "clave": "herr.portalColocar",
-  "texto": "पोर्टल रखें"
- },
- {
-  "clave": "herr.portalQuitar",
-  "texto": "पोर्टल हटाएं"
- },
- {
-  "clave": "herr.fuegosBtn",
-  "texto": "छोड़ें!"
- },
- {
-  "clave": "herr.burbujasOn",
-  "texto": "बुलबुले उड़ाते हुए"
- },
- {
-  "clave": "herr.quitar",
-  "texto": "उपकरण हटाएं"
- },
- {
-  "clave": "herr.grafiti",
-  "texto": "ग्रैफिटी"
- },
- {
-  "clave": "herr.grafitiPintar",
-  "texto": "दीवार पेंट करें"
- },
- {
-  "clave": "herr.grafitiSinMuro",
-  "texto": "किसी दीवार के पास जाएं"
- },
- {
-  "clave": "herr.grafitiMuroPuerta",
-  "texto": "दरवाज़े वाली दीवारें रंगी नहीं जा सकतीं"
- },
- {
-  "clave": "herr.grafitiMuroCurvo",
-  "texto": "घुमावदार दीवारें रंगी नहीं जा सकतीं"
- },
- {
-  "clave": "graf.titulo",
-  "texto": "ग्रैफिटी"
- },
- {
-  "clave": "graf.pincel",
-  "texto": "ब्रश"
- },
- {
-  "clave": "graf.spray",
-  "texto": "स्प्रे"
- },
- {
-  "clave": "graf.borrador",
-  "texto": "रबड़"
- },
- {
-  "clave": "graf.bote",
-  "texto": "सब कुछ एक रंग से भरें"
- },
- {
-  "clave": "graf.grosor",
-  "texto": "मोटाई"
- },
- {
-  "clave": "graf.color",
-  "texto": "रंग"
- },
- {
-  "clave": "graf.deshacer",
-  "texto": "पूर्ववत करें"
- },
- {
-  "clave": "graf.limpiar",
-  "texto": "साफ़ करें"
- },
- {
-  "clave": "graf.borrar",
-  "texto": "ग्रैफिटी हटाएं"
- },
- {
-  "clave": "graf.guardar",
-  "texto": "सहेजें"
- },
- {
-  "clave": "graf.salir",
-  "texto": "बिना सहेजे बाहर जाएं"
- },
- {
-  "clave": "despacho.tab.balance",
-  "texto": "नकदी प्रवाह"
- },
- {
-  "clave": "despacho.tab.mercados",
-  "texto": "बाज़ार"
- },
- {
-  "clave": "despacho.tab.divisas",
-  "texto": "फ़ॉरेक्स"
- },
- {
-  "clave": "despacho.tab.criptos",
-  "texto": "क्रिप्टो"
- },
- {
-  "clave": "despacho.tab.acciones",
-  "texto": "शेयर"
- },
- {
-  "clave": "despacho.tab.commodities",
-  "texto": "कमोडिटी"
- },
- {
-  "clave": "despacho.sub.balance",
-  "texto": "बैलेंस"
- },
- {
-  "clave": "despacho.tab.gastos",
-  "texto": "खर्च"
- },
- {
-  "clave": "despacho.tab.ingresos",
-  "texto": "आय"
- },
- {
-  "clave": "despacho.tab.metas",
-  "texto": "लक्ष्य"
- },
- {
-  "clave": "despacho.tab.financieras",
-  "texto": "वित्त"
- },
- {
-  "clave": "despacho.tab.ahorroInversion",
-  "texto": "बचत/निवेश"
- },
- {
-  "clave": "despacho.tab.ahorro",
-  "texto": "बचत"
- },
- {
-  "clave": "despacho.tab.inversion",
-  "texto": "निवेश"
- },
- {
-  "clave": "despacho.tab.deuda",
-  "texto": "क़र्ज़"
- },
- {
-  "clave": "despacho.r.ingresos",
-  "texto": "आय"
- },
- {
-  "clave": "despacho.r.gastos",
-  "texto": "खर्च"
- },
- {
-  "clave": "despacho.r.balance",
-  "texto": "बैलेंस"
- },
- {
-  "clave": "despacho.presupuesto",
-  "texto": "मासिक बजट"
- },
- {
-  "clave": "despacho.presupuesto.equivale",
-  "texto": "यह इस अवधि के लिए {n} है"
- },
- {
-  "clave": "despacho.patrimonio",
-  "texto": "पूंजी"
- },
- {
-  "clave": "despacho.patrimonio.ayuda",
-  "texto": "आपकी संपत्ति घटा देनदारियां — «पूंजी» टैब में देखें। यहां सिर्फ़ यह दिखता है कि यह अवधि ऐसे बंद होने पर स्थिति क्या बनेगी।"
- },
- {
-  "clave": "despacho.excedido",
-  "texto": "बजट {n} से अधिक हो गया"
- },
- {
-  "clave": "despacho.progreso",
-  "texto": "आपके पास {total} में से {used} है ({pct}%)"
- },
- {
-  "clave": "despacho.catGastos",
-  "texto": "श्रेणी के अनुसार खर्च"
- },
- {
-  "clave": "despacho.sinGastos",
-  "texto": "इस अवधि में कोई खर्च नहीं।"
- },
- {
-  "clave": "despacho.periodo.dia",
-  "texto": "दिन"
- },
- {
-  "clave": "despacho.periodo.semana",
-  "texto": "सप्ताह"
- },
- {
-  "clave": "despacho.periodo.mes",
-  "texto": "महीना"
- },
- {
-  "clave": "despacho.periodo.anio",
-  "texto": "साल"
- },
- {
-  "clave": "despacho.plazo.dia",
-  "texto": "हर दिन"
- },
- {
-  "clave": "despacho.plazo.semana",
-  "texto": "हर सप्ताह"
- },
- {
-  "clave": "despacho.plazo.mes",
-  "texto": "हर महीने"
- },
- {
-  "clave": "despacho.plazo.anio",
-  "texto": "हर साल"
- },
- {
-  "clave": "despacho.tendencia.dia",
-  "texto": "बैलेंस · पिछले 6 दिन"
- },
- {
-  "clave": "despacho.tendencia.semana",
-  "texto": "बैलेंस · पिछले 6 सप्ताह"
- },
- {
-  "clave": "despacho.tendencia.mes",
-  "texto": "बैलेंस · पिछले 6 महीने"
- },
- {
-  "clave": "despacho.tendencia.anio",
-  "texto": "बैलेंस · पिछले 6 साल"
- },
- {
-  "clave": "despacho.m.monto",
-  "texto": "राशि"
- },
- {
-  "clave": "despacho.m.nota",
-  "texto": "नोट (वैकल्पिक)"
- },
- {
-  "clave": "despacho.m.categoria",
-  "texto": "श्रेणी"
- }
+  {
+    "clave": "ejercicio.rutDesc.push-pecho-y-triceps",
+    "texto": "बेंच प्रेस, मिलिट्री प्रेस, डिप्स, एक्सटेंशन।"
+  },
+  {
+    "clave": "ejercicio.rutDesc.pull-espalda-y-biceps",
+    "texto": "पुल-अप्स, रो, कर्ल। प्रोग्रेसिव ओवरलोड।"
+  },
+  {
+    "clave": "ejercicio.rutDesc.legs-pierna-completa",
+    "texto": "स्क्वाट, रोमानियन डेडलिफ्ट, लंजेस।"
+  },
+  {
+    "clave": "ejercicio.rutDesc.hiit-20-min",
+    "texto": "40 सेकंड काम / 20 सेकंड आराम के इंटरवल।"
+  },
+  {
+    "clave": "ejercicio.rutDesc.carrera-continua",
+    "texto": "मध्यम गति, ज़ोन 2-3।"
+  },
+  {
+    "clave": "ejercicio.rutDesc.caminata-inclinada",
+    "texto": "कम प्रभाव, लगातार कैलोरी बर्न।"
+  },
+  {
+    "clave": "ejercicio.rutDesc.bike-tempo",
+    "texto": "स्थिर गति से बाइक राइड।"
+  },
+  {
+    "clave": "ejercicio.rutDesc.triatlon-sprint",
+    "texto": "तैराकी, साइकिल और दौड़ जुड़े हुए, हर चरण अपनी गति से।"
+  },
+  {
+    "clave": "ejercicio.rutDesc.movilidad-matutina",
+    "texto": "जोड़ों और रीढ़ को जगाएं।"
+  },
+  {
+    "clave": "ejercicio.rutDesc.yoga-flow",
+    "texto": "हल्का विन्यास सीक्वेंस।"
+  },
+  {
+    "clave": "ejercicio.rutDesc.cadera-y-piernas",
+    "texto": "कूल्हे और हैमस्ट्रिंग खोलने के लिए।"
+  },
+  {
+    "clave": "ejercicio.rutDesc.estiramiento-post-entreno",
+    "texto": "कूलडाउन और रिकवरी।"
+  },
+  {
+    "clave": "ejercicio.rutDesc.espalda-y-hombros",
+    "texto": "पीठ और कंधों को राहत।"
+  },
+  {
+    "clave": "ejercicio.rutDesc.cuello-y-oficina",
+    "texto": "गर्दन और रीढ़ के लिए सक्रिय ब्रेक।"
+  },
+  {
+    "clave": "ejercicio.rutDesc.antes-de-dormir",
+    "texto": "सोने में मदद के लिए आरामदायक रिलैक्सेशन।"
+  },
+  {
+    "clave": "cal.logros",
+    "texto": "उपलब्धियां"
+  },
+  {
+    "clave": "cal.logros.vacio",
+    "texto": "आज अभी तक कुछ पूरा नहीं हुआ।"
+  },
+  {
+    "clave": "cal.objetivos",
+    "texto": "मिशन"
+  },
+  {
+    "clave": "cal.objetivo.nuevo",
+    "texto": "मिशन"
+  },
+  {
+    "clave": "cal.irApp",
+    "texto": "ऐप में दर्ज करें"
+  },
+  {
+    "clave": "chat.vistaCal.objetivos",
+    "texto": "मिशन"
+  },
+  {
+    "clave": "chat.vistaCal.dia",
+    "texto": "आज का एजेंडा"
+  },
+  {
+    "clave": "chat.vistaCal.semana",
+    "texto": "सप्ताह"
+  },
+  {
+    "clave": "chat.vistaCal.mes",
+    "texto": "महीना"
+  },
+  {
+    "clave": "chat.vistaCal.anio",
+    "texto": "वर्ष"
+  },
+  {
+    "clave": "chat.vistaCal.calendario",
+    "texto": "कैलेंडर"
+  },
+  {
+    "clave": "room.agenda.cmd.trabajo",
+    "texto": "काम"
+  },
+  {
+    "clave": "room.agenda.cmd.salud",
+    "texto": "स्वास्थ्य"
+  },
+  {
+    "clave": "room.agenda.cmd.personas",
+    "texto": "संपर्क"
+  },
+  {
+    "clave": "room.anecdotario.cmd.anecdotas",
+    "texto": "किस्से"
+  },
+  {
+    "clave": "room.biblioteca.cmd.charlas",
+    "texto": "चैट"
+  },
+  {
+    "clave": "room.biblioteca.cmd.enciclopedia",
+    "texto": "विश्वकोश"
+  },
+  {
+    "clave": "room.biblioteca.cmd.estudio",
+    "texto": "अध्ययन"
+  },
+  {
+    "clave": "room.biblioteca.cmd.resumen",
+    "texto": "सारांश"
+  },
+  {
+    "clave": "room.cocina.cmd.metas",
+    "texto": "लक्ष्य"
+  },
+  {
+    "clave": "room.cocina.cmd.diario",
+    "texto": "डायरी"
+  },
+  {
+    "clave": "room.cocina.cmd.progreso",
+    "texto": "प्रगति"
+  },
+  {
+    "clave": "room.cocina.cmd.plan",
+    "texto": "डाइट"
+  },
+  {
+    "clave": "room.cocina.cmd.recetas",
+    "texto": "रेसिपी"
+  },
+  {
+    "clave": "room.cocina.cmd.compras",
+    "texto": "किराना"
+  },
+  {
+    "clave": "room.computo.cmd.formulario",
+    "texto": "फ़ॉर्मूला"
+  },
+  {
+    "clave": "room.computo.cmd.calculadora",
+    "texto": "कैलकुलेटर"
+  },
+  {
+    "clave": "room.computo.cmd.grafica",
+    "texto": "ग्राफ़"
+  },
+  {
+    "clave": "room.computo.cmd.ecuacion",
+    "texto": "समीकरण हल"
+  },
+  {
+    "clave": "room.computo.cmd.hojas",
+    "texto": "स्प्रेडशीट"
+  },
+  {
+    "clave": "room.computo.cmd.bases",
+    "texto": "आधार"
+  },
+  {
+    "clave": "room.computo.cmd.matrices",
+    "texto": "मैट्रिक्स"
+  },
+  {
+    "clave": "room.computo.cmd.sistemas",
+    "texto": "सिस्टम"
+  },
+  {
+    "clave": "room.computo.cmd.unidades",
+    "texto": "इकाइयां"
+  },
+  {
+    "clave": "room.computo.cmd.propina",
+    "texto": "टिप"
+  },
+  {
+    "clave": "room.computo.cmd.regla3",
+    "texto": "त्रैराशिक"
+  },
+  {
+    "clave": "room.descanso.cmd.sueno",
+    "texto": "नींद"
+  },
+  {
+    "clave": "room.despacho.cmd.balance",
+    "texto": "नकदी प्रवाह"
+  },
+  {
+    "clave": "room.despacho.cmd.patrimonio",
+    "texto": "पूंजी"
+  },
+  {
+    "clave": "room.despacho.cmd.gastos",
+    "texto": "खर्च"
+  },
+  {
+    "clave": "room.despacho.cmd.ingresos",
+    "texto": "आय"
+  },
+  {
+    "clave": "room.despacho.cmd.metas",
+    "texto": "बचत/निवेश"
+  },
+  {
+    "clave": "room.despacho.cmd.financieras",
+    "texto": "वित्त"
+  },
+  {
+    "clave": "room.despacho.cmd.deuda",
+    "texto": "क़र्ज़"
+  },
+  {
+    "clave": "room.despacho.cmd.simuladores",
+    "texto": "सिमुलेशन"
+  },
+  {
+    "clave": "room.despacho.cmd.simulacion",
+    "texto": "पूर्वानुमान"
+  },
+  {
+    "clave": "room.despacho.cmd.divisas",
+    "texto": "फ़ॉरेक्स"
+  },
+  {
+    "clave": "room.despacho.cmd.criptos",
+    "texto": "क्रिप्टो"
+  },
+  {
+    "clave": "room.despacho.cmd.acciones",
+    "texto": "शेयर"
+  },
+  {
+    "clave": "room.despacho.cmd.commodities",
+    "texto": "कमोडिटी"
+  },
+  {
+    "clave": "room.diario.cmd.titulares",
+    "texto": "सुर्खियां"
+  },
+  {
+    "clave": "room.diario.cmd.efemerides",
+    "texto": "इतिहास में आज"
+  },
+  {
+    "clave": "room.ejercicio.cmd.metas",
+    "texto": "लक्ष्य"
+  },
+  {
+    "clave": "room.ejercicio.cmd.fuerza",
+    "texto": "ताकत"
+  },
+  {
+    "clave": "room.ejercicio.cmd.resistencia",
+    "texto": "सहनशक्ति"
+  },
+  {
+    "clave": "room.ejercicio.cmd.flexibilidad",
+    "texto": "लचीलापन"
+  },
+  {
+    "clave": "room.entretenimiento.cmd.archivo",
+    "texto": "संग्रह"
+  },
+  {
+    "clave": "room.entretenimiento.cmd.mesa",
+    "texto": "बोर्ड गेम"
+  },
+  {
+    "clave": "room.garage.cmd.resumen",
+    "texto": "सारांश"
+  },
+  {
+    "clave": "room.garage.cmd.vehiculos",
+    "texto": "वाहन"
+  },
+  {
+    "clave": "room.hobbies.cmd.hobbies",
+    "texto": "शौक"
+  },
+  {
+    "clave": "room.ideas.cmd.diario",
+    "texto": "डायरी"
+  },
+  {
+    "clave": "room.ideas.cmd.mapas",
+    "texto": "मैप्स"
+  },
+  {
+    "clave": "room.ideas.cmd.diagramas",
+    "texto": "आरेख"
+  },
+  {
+    "clave": "room.idiomas.cmd.charlas",
+    "texto": "चैट"
+  },
+  {
+    "clave": "room.idiomas.cmd.repaso",
+    "texto": "रिवीज़न"
+  },
+  {
+    "clave": "room.idiomas.cmd.temario",
+    "texto": "पाठ्यक्रम"
+  },
+  {
+    "clave": "room.idiomas.cmd.progreso",
+    "texto": "प्रगति"
+  },
+  {
+    "clave": "room.jardin.cmd.meditacion",
+    "texto": "ध्यान"
+  },
+  {
+    "clave": "room.jardin.cmd.respiracion",
+    "texto": "श्वास"
+  },
+  {
+    "clave": "room.jardin.cmd.gratitud",
+    "texto": "कृतज्ञता"
+  },
+  {
+    "clave": "room.sala.cmd.mapa",
+    "texto": "नक्शा"
+  },
+  {
+    "clave": "room.sala.cmd.porConocer",
+    "texto": "योजना"
+  },
+  {
+    "clave": "room.sala.cmd.rutas",
+    "texto": "मार्ग"
+  },
+  {
+    "clave": "room.sala.cmd.bitacora",
+    "texto": "सफ़रनामा"
+  }
 ]

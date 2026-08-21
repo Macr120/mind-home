@@ -1,271 +1,362 @@
 [
-  {"clave":"corazon.gato.noche.1","texto":"Ruhige Nacht. Verdirb sie nicht 🐾"},
-  {"clave":"corazon.gato.rutina.0","texto":"Hey, „{r}“ ist um {h}. Ich beweg mich nicht 🐾"},
-  {"clave":"corazon.gato.rutina.1","texto":"„{r}“ steht bald an ({h}). Du schaffst das, ich behalte alles im Blick 🐱"},
-  {"clave":"corazon.gato.generica.0","texto":"Alles unter Kontrolle. Ich hab's beim Nickerchen geprüft 🐾"},
-  {"clave":"corazon.gato.generica.1","texto":"Hmm. Das Haus steht noch. Gern geschehen 🐱"},
-  {"clave":"corazon.perro.manana.0","texto":"Guten Morgen! Heute riecht nach einem großartigen Tag! 🐶"},
-  {"clave":"corazon.perro.manana.1","texto":"Es ist Morgen! Auf geht's, los, los! 🦴"},
-  {"clave":"corazon.perro.tarde.0","texto":"Der perfekte Nachmittag, um Dinge zu erledigen! Wuff! 🐶"},
-  {"clave":"corazon.perro.tarde.1","texto":"Immer noch hier, ich behalte alles im Auge! 🎉"},
-  {"clave":"corazon.perro.noche.0","texto":"Was für ein toller Tag! Oder? Oder? 🐶"},
-  {"clave":"corazon.perro.noche.1","texto":"Ruhige Nacht … ich halte Wache! 🦴"},
-  {"clave":"corazon.perro.rutina.0","texto":"„{r}“ um {h}! Du schaffst das! 🎉"},
-  {"clave":"corazon.perro.rutina.1","texto":"Vergiss „{r}“ um {h} nicht! Wuff! 🐶"},
-  {"clave":"corazon.perro.generica.0","texto":"Ich liebe dieses Haus! 🐶"},
-  {"clave":"corazon.perro.generica.1","texto":"Ruf mich, wenn du irgendetwas brauchst! Irgendetwas! 🦴"},
-  {"clave":"corazon.buho.manana.0","texto":"Morgendämmerung. Ideal, um den Tag in Ruhe zu planen. 🦉"},
-  {"clave":"corazon.buho.manana.1","texto":"Ein geordneter Morgen bringt doppelten Ertrag."},
-  {"clave":"corazon.buho.tarde.0","texto":"Mittag: ein guter Moment, um den Fortschritt zu prüfen. 🦉"},
-  {"clave":"corazon.buho.tarde.1","texto":"Der Nachmittag verläuft wie geplant."},
-  {"clave":"corazon.buho.noche.0","texto":"Die Nacht bricht an. Ich empfehle, den Tag mit einer Notiz abzuschließen. 🦉"},
-  {"clave":"corazon.buho.noche.1","texto":"Die Nacht lädt zur Reflexion ein."},
-  {"clave":"corazon.buho.rutina.0","texto":"Rechtzeitiger Hinweis: „{r}“ um {h}. 🦉"},
-  {"clave":"corazon.buho.rutina.1","texto":"Dein Zeitplan verzeichnet „{r}“ um {h}."},
-  {"clave":"corazon.buho.generica.0","texto":"Ich beobachte und notiere. Alles in Ordnung. 🦉"},
-  {"clave":"corazon.buho.generica.1","texto":"Wissen wächst Tag für Tag."},
-  {"clave":"corazon.robot.manana.0","texto":"☀ TAGESZYKLUS GESTARTET. SYSTEME BEI 100 %. 🤖"},
-  {"clave":"corazon.robot.manana.1","texto":"GUTEN MORGEN. AKKU VOLL. ✓"},
-  {"clave":"corazon.robot.tarde.0","texto":"NACHMITTAGS-SCAN ABGESCHLOSSEN. KEINE ANOMALIEN. ✓"},
-  {"clave":"corazon.robot.tarde.1","texto":"PRODUKTIVITÄT INNERHALB DER PARAMETER. 🤖"},
-  {"clave":"corazon.robot.noche.0","texto":"NACHTMODUS AKTIV. ÜBERWACHUNG LÄUFT. 🤖"},
-  {"clave":"corazon.robot.noche.1","texto":"EMPFEHLUNG: MENSCHLICHE EINHEIT AUFLADEN (SCHLAF). ✓"},
-  {"clave":"corazon.robot.rutina.0","texto":"ERINNERUNG: „{r}“ GEPLANT UM {h}. ✓"},
-  {"clave":"corazon.robot.rutina.1","texto":"ALARM: „{r}“ UM {h}. 🤖"},
-  {"clave":"corazon.robot.generica.0","texto":"ALLE SYSTEME NOMINAL. 🤖"},
-  {"clave":"corazon.robot.generica.1","texto":"WARTE AUF ANWEISUNGEN. NICHT DRINGEND. ✓"},
-  {"clave":"chat.config.activoMapa","texto":"Der aktive Assistent ist immer auf der Karte"},
-  {"clave":"chat.config.editar","texto":"Anpassen"},
-  {"clave":"chat.config.eliminar","texto":"Assistent entfernen"},
-  {"clave":"chat.config.eliminarConfirma","texto":"{n} entfernen? Die Unterhaltungen bleiben erhalten."},
-  {"clave":"chat.config.eliminarOk","texto":"Entfernen"},
-  {"clave":"chat.config.eliminarUltimo","texto":"Es muss mindestens ein Assistent übrig bleiben"},
-  {"clave":"chat.config.restaurar","texto":"Wiederherstellen:"},
-  {"clave":"chat.config.restaurarUno","texto":"Wiederherstellen"},
-  {"clave":"acceso.subir","texto":"Zu Level {n} hochgehen"},
-  {"clave":"acceso.bajarPlanta","texto":"Zum Erdgeschoss hinuntergehen"},
-  {"clave":"acceso.bajar","texto":"Zu Level {n} hinuntergehen"},
-  {"clave":"veh.ayuda","texto":"Platziere ein Fahrzeug auf der Karte und lauf hin, um darauf zu fahren."},
-  {"clave":"veh.colocar","texto":"Auf der Karte platzieren"},
-  {"clave":"veh.color","texto":"Fahrzeugfarbe"},
-  {"clave":"veh.subirte","texto":"Aufsteigen"},
-  {"clave":"veh.bajarte","texto":"Absteigen"},
-  {"clave":"accion.sentarte","texto":"Hinsetzen"},
-  {"clave":"accion.acostarte","texto":"Hinlegen"},
-  {"clave":"accion.sentado","texto":"Sitzend"},
-  {"clave":"accion.acostado","texto":"Liegend"},
-  {"clave":"accion.levantarte","texto":"Aufstehen"},
-  {"clave":"veh.subir","texto":"Aufsteigen (Leertaste)"},
-  {"clave":"veh.bajar","texto":"Absteigen (Shift)"},
-  {"clave":"veh.derrape","texto":"Drift (Leertaste)"},
-  {"clave":"hud.ayuda","texto":"Bewege dich mit WASD/Pfeiltasten oder dem Steuerkreuz (unten links). Drehen und Zoomen mit den Tasten (unten rechts). Geh durch die Türen zwischen den Räumen."},
-  {"clave":"cat.cuerpo","texto":"Körper"},
-  {"clave":"cat.mente","texto":"Geist"},
-  {"clave":"cat.complemento","texto":"Extras"},
-  {"clave":"cat.config","texto":"Einstellungen"},
-  {"clave":"ajustes.titulo","texto":"Einstellungen"},
-  {"clave":"ajustes.idioma","texto":"Sprache"},
-  {"clave":"diario.nacidoAbrev","texto":"geb."},
-  {"clave":"ajustes.tema","texto":"Oberflächendesign"},
-  {"clave":"ajustes.modo","texto":"Erscheinungsbild"},
-  {"clave":"ajustes.modo.claro","texto":"Hell"},
-  {"clave":"ajustes.modo.oscuro","texto":"Dunkel"},
-  {"clave":"ajustes.modo.transparente","texto":"Transparent"},
-  {"clave":"ajustes.iconos","texto":"Symbolstil"},
-  {"clave":"ajustes.iconos.emoji","texto":"Emojis"},
-  {"clave":"ajustes.iconos.profesional","texto":"Professionell"},
-  {"clave":"ajustes.tipografia","texto":"Schriftart"},
-  {"clave":"ajustes.abrir","texto":"Einstellungen"},
-  {"clave":"tipografia.sistema","texto":"System"},
-  {"clave":"tipografia.serif","texto":"Serif"},
-  {"clave":"tipografia.mono","texto":"Monospace"},
-  {"clave":"tipografia.redondeada","texto":"Rund"},
-  {"clave":"tipografia.manuscrita","texto":"Handschrift"},
-  {"clave":"temaUI.medianoche","texto":"Mitternacht"},
-  {"clave":"temaUI.neon","texto":"Neon"},
-  {"clave":"temaUI.bosque","texto":"Wald"},
-  {"clave":"temaUI.ambar","texto":"Bernstein"},
-  {"clave":"temaUI.ciruela","texto":"Pflaume"},
-  {"clave":"room.cocina.nombre","texto":"Küche"},
-  {"clave":"room.ejercicio.nombre","texto":"Fitness"},
-  {"clave":"room.recamara.nombre","texto":"Schlafzimmer"},
-  {"clave":"room.descanso.nombre","texto":"Bett · Ruhe"},
-  {"clave":"room.anecdotario.nombre","texto":"Schreibtisch · Erinnerungsbuch"},
-  {"clave":"room.despacho.nombre","texto":"Arbeitszimmer"},
-  {"clave":"room.biblioteca.nombre","texto":"Bibliothek"},
-  {"clave":"room.entretenimiento.nombre","texto":"Unterhaltung"},
-  {"clave":"room.sala.nombre","texto":"Wohnzimmer"},
-  {"clave":"room.jardin.nombre","texto":"Garten"},
-  {"clave":"room.garage.nombre","texto":"Garage"},
-  {"clave":"room.diario.nombre","texto":"Tagesnachrichten"},
-  {"clave":"room.hobbies.nombre","texto":"Hobbys"},
-  {"clave":"room.idiomas.nombre","texto":"Sprachen"},
-  {"clave":"room.caminos.nombre","texto":"Strecken"},
-  {"clave":"room.canchas.nombre","texto":"Plätze"},
-  {"clave":"room.huerto.nombre","texto":"Essen"},
-  {"clave":"room.granja.nombre","texto":"Bauernhof"},
-  {"clave":"room.ideas.nombre","texto":"Ideen"},
-  {"clave":"room.computo.nombre","texto":"Rechnen"},
-  {"clave":"room.agenda.nombre","texto":"Terminplan"},
-  {"clave":"room.cocina.sub","texto":"Ernährung"},
-  {"clave":"room.ejercicio.sub","texto":"Kraft- und Fitnessroutinen"},
-  {"clave":"room.recamara.sub","texto":"Schlaf & Erinnerungen"},
-  {"clave":"room.descanso.sub","texto":"Schlaf & Wecker"},
-  {"clave":"room.anecdotario.sub","texto":"Persönliches Erinnerungsbuch"},
-  {"clave":"room.despacho.sub","texto":"Finanzen"},
-  {"clave":"room.biblioteca.sub","texto":"Lernen"},
-  {"clave":"room.entretenimiento.sub","texto":"Archiv & Brettspiele"},
-  {"clave":"room.sala.sub","texto":"Reisen"},
-  {"clave":"room.jardin.sub","texto":"Achtsamkeit"},
-  {"clave":"room.garage.sub","texto":"Fahrzeugwartung"},
-  {"clave":"room.diario.sub","texto":"Tagesnachrichten"},
-  {"clave":"room.hobbies.sub","texto":"Hobbys & Projekte"},
-  {"clave":"room.calendario.sub","texto":"Termine & Routinen"},
-  {"clave":"room.ideas.sub","texto":"Konzeptkarten auf freier Fläche"},
-  {"clave":"room.computo.sub","texto":"Taschenrechner & Tabellen"},
-  {"clave":"room.agenda.sub","texto":"Arbeit, Gesundheit & Personen"},
-  {"clave":"hud.plegar","texto":"Steuerung einklappen"},
-  {"clave":"hud.desplegar","texto":"Steuerung einblenden"},
-  {"clave":"nav3d.aria","texto":"Ansichtssteuerung"},
-  {"clave":"nav3d.vistaCuarto","texto":"Raumansicht"},
-  {"clave":"nav3d.vistaInterior","texto":"Blick zur Wand"},
-  {"clave":"nav3d.rotarIzq","texto":"Ansicht nach links drehen"},
-  {"clave":"nav3d.rotarDer","texto":"Ansicht nach rechts drehen"},
-  {"clave":"nav3d.acercar","texto":"Vergrößern"},
-  {"clave":"nav3d.alejar","texto":"Verkleinern"},
-  {"clave":"nav3d.restaurarCuarto","texto":"Zoom und Fokus des Raums zurücksetzen"},
-  {"clave":"nav3d.vistaInicial","texto":"Ausgangsansicht"},
-  {"clave":"nav3d.centrarCuarto","texto":"Raum zentrieren"},
-  {"clave":"nav3d.reiniciar","texto":"Ansicht zurücksetzen"},
-  {"clave":"nav3d.editor3d","texto":"3D-Editor"},
-  {"clave":"nav3d.editor3dOn","texto":"Editor schließen"},
-  {"clave":"nav3d.editor3dHint","texto":"Bearbeite die Welt in Perspektive: Tippe auf ein Objekt, den Boden, eine Wand oder eine Figur, um es zu bearbeiten"},
-  {"clave":"nav3d.verFlechas","texto":"Zurück zu den Bewegungspfeilen"},
-  {"clave":"nav3d.verCubo","texto":"Pfeile einklappen und den Ansichtswürfel anzeigen"},
-  {"clave":"nav3d.verFlechasBtn","texto":"Pfeile anzeigen"},
-  {"clave":"nav3d.verCuboBtn","texto":"Ansicht anzeigen"},
-  {"clave":"herr.boton","texto":"Werkzeuge"},
-  {"clave":"herr.rueda","texto":"Werkzeugrad"},
-  {"clave":"herr.cubo","texto":"Würfel"},
-  {"clave":"herr.saltar","texto":"Springen"},
-  {"clave":"herr.correr","texto":"Rennen"},
-  {"clave":"herr.bailar","texto":"Tanzen"},
-  {"clave":"herr.laser","texto":"Laser"},
-  {"clave":"herr.volverCubo","texto":"Zurück zum Ansichtswürfel"},
-  {"clave":"herr.saltarBtn","texto":"Springen!"},
-  {"clave":"herr.corriendo","texto":"Rennend"},
-  {"clave":"herr.bailando","texto":"Tanzend"},
-  {"clave":"herr.disparar","texto":"Schießen"},
-  {"clave":"herr.invocar","texto":"Rufen"},
-  {"clave":"herr.soloPlantaBaja","texto":"Geh ins Erdgeschoss, um es zu rufen"},
-  {"clave":"herr.veh.bicicleta","texto":"Fahrrad"},
-  {"clave":"herr.veh.motocicleta","texto":"Motorrad"},
-  {"clave":"herr.veh.automovil","texto":"Auto"},
-  {"clave":"herr.veh.ovni","texto":"UFO"},
-  {"clave":"herr.cat.movimientos","texto":"Bewegungen"},
-  {"clave":"herr.cat.juguetes","texto":"Spielzeug"},
-  {"clave":"herr.cat.vehiculos","texto":"Fahrzeuge"},
-  {"clave":"herr.cat.construccion","texto":"Bauen"},
-  {"clave":"herr.construir","texto":"Bauen"},
-  {"clave":"herr.constrDibujar","texto":"Zeichnen"},
-  {"clave":"herr.abrirEditor","texto":"Editor öffnen"},
-  {"clave":"herr.atras","texto":"Zurück"},
-  {"clave":"herr.cuerda","texto":"Seilspringen"},
-  {"clave":"herr.mortal","texto":"Salto"},
-  {"clave":"herr.saludar","texto":"Winken"},
-  {"clave":"herr.mover","texto":"Bewegen"},
-  {"clave":"herr.moverAcercate","texto":"Geh nah an ein Objekt oder einen Raum"},
-  {"clave":"herr.agarrar","texto":"Greifen"},
-  {"clave":"herr.agarrarCuarto","texto":"Raum greifen"},
-  {"clave":"herr.moverCargandoObjeto","texto":"Trägt das Objekt"},
-  {"clave":"herr.moverCargandoCuarto","texto":"Trägt den Raum"},
-  {"clave":"herr.soltar","texto":"Loslassen"},
-  {"clave":"ctx.interactuar","texto":"Interagieren"},
-  {"clave":"ctx.entrarApp","texto":"App öffnen"},
-  {"clave":"ctx.cambiarLetrero","texto":"Schild bearbeiten"},
-  {"clave":"ctx.usar","texto":"Benutzen"},
-  {"clave":"ctx.subirte","texto":"Aufsteigen"},
-  {"clave":"ctx.subirteDona","texto":"Auf den Schwimmring steigen"},
-  {"clave":"ctx.cosechar","texto":"Ernten"},
-  {"clave":"ctx.recoger","texto":"Aufheben"},
-  {"clave":"ctx.bajarte","texto":"Absteigen"},
-  {"clave":"ctx.correr","texto":"Wettrennen"},
-  {"clave":"ctx.revisarTu","texto":"Sieh nach in deiner"},
-  {"clave":"ctx.subirA","texto":"Hoch zu"},
-  {"clave":"ctx.bajarA","texto":"Runter zu"},
-  {"clave":"ctx.nivelN","texto":"Level {n}"},
-  {"clave":"ctx.plantaBaja","texto":"Erdgeschoss"},
-  {"clave":"ctx.jugar.futbol","texto":"Fußball spielen"},
-  {"clave":"ctx.jugar.tenis","texto":"Tennis spielen"},
-  {"clave":"ctx.jugar.basket","texto":"Basketball spielen"},
-  {"clave":"ctx.jugar.beisbol","texto":"Baseball spielen"},
-  {"clave":"herr.portales","texto":"Portale"},
-  {"clave":"herr.fuegos","texto":"Feuerwerk"},
-  {"clave":"herr.burbujas","texto":"Seifenblasen"},
-  {"clave":"herr.cuerdaOn","texto":"Am Seilspringen"},
-  {"clave":"herr.mortalBtn","texto":"Salto!"},
-  {"clave":"herr.saludarBtn","texto":"Hallo!"},
-  {"clave":"herr.portalColocar","texto":"Portal platzieren"},
-  {"clave":"herr.portalQuitar","texto":"Portale entfernen"},
-  {"clave":"herr.fuegosBtn","texto":"Zünden!"},
-  {"clave":"herr.burbujasOn","texto":"Bläst Seifenblasen"},
-  {"clave":"herr.quitar","texto":"Werkzeug entfernen"},
-  {"clave":"herr.grafiti","texto":"Graffiti"},
-  {"clave":"herr.grafitiPintar","texto":"Wand bemalen"},
-  {"clave":"herr.grafitiSinMuro","texto":"Geh nah an eine Wand"},
-  {"clave":"herr.grafitiMuroPuerta","texto":"Wände mit Tür lassen sich nicht bemalen"},
-  {"clave":"herr.grafitiMuroCurvo","texto":"Gebogene Wände lassen sich nicht bemalen"},
-  {"clave":"graf.titulo","texto":"Graffiti"},
-  {"clave":"graf.pincel","texto":"Pinsel"},
-  {"clave":"graf.spray","texto":"Spray"},
-  {"clave":"graf.borrador","texto":"Radierer"},
-  {"clave":"graf.bote","texto":"Alles mit einer Farbe füllen"},
-  {"clave":"graf.grosor","texto":"Größe"},
-  {"clave":"graf.color","texto":"Farbe"},
-  {"clave":"graf.deshacer","texto":"Rückgängig"},
-  {"clave":"graf.limpiar","texto":"Leeren"},
-  {"clave":"graf.borrar","texto":"Graffiti löschen"},
-  {"clave":"graf.guardar","texto":"Speichern"},
-  {"clave":"graf.salir","texto":"Beenden ohne zu speichern"},
-  {"clave":"despacho.tab.balance","texto":"Cashflow"},
-  {"clave":"despacho.tab.mercados","texto":"Märkte"},
-  {"clave":"despacho.tab.divisas","texto":"Devisen"},
-  {"clave":"despacho.tab.criptos","texto":"Krypto"},
-  {"clave":"despacho.tab.acciones","texto":"Aktien"},
-  {"clave":"despacho.tab.commodities","texto":"Rohstoffe"},
-  {"clave":"despacho.sub.balance","texto":"Saldo"},
-  {"clave":"despacho.tab.gastos","texto":"Ausgaben"},
-  {"clave":"despacho.tab.ingresos","texto":"Einnahmen"},
-  {"clave":"despacho.tab.metas","texto":"Ziele"},
-  {"clave":"despacho.tab.financieras","texto":"Finanzen"},
-  {"clave":"despacho.tab.ahorroInversion","texto":"Sparen/Investieren"},
-  {"clave":"despacho.tab.ahorro","texto":"Sparen"},
-  {"clave":"despacho.tab.inversion","texto":"Investieren"},
-  {"clave":"despacho.tab.deuda","texto":"Schulden"},
-  {"clave":"despacho.r.ingresos","texto":"Einnahmen"},
-  {"clave":"despacho.r.gastos","texto":"Ausgaben"},
-  {"clave":"despacho.r.balance","texto":"Saldo"},
-  {"clave":"despacho.presupuesto","texto":"Monatsbudget"},
-  {"clave":"despacho.presupuesto.equivale","texto":"Das sind {n} für diesen Zeitraum"},
-  {"clave":"despacho.patrimonio","texto":"Gesamtvermögen"},
-  {"clave":"despacho.patrimonio.ayuda","texto":"Deine Vermögenswerte minus deine Verbindlichkeiten, drüben im Tab Vermögen. Hier siehst du nur, wie es aussieht, wenn der Zeitraum so endet."},
-  {"clave":"despacho.excedido","texto":"Budget um {n} überschritten"},
-  {"clave":"despacho.progreso","texto":"Du hast {used} von {total} ({pct} %)"},
-  {"clave":"despacho.catGastos","texto":"Ausgaben nach Kategorie"},
-  {"clave":"despacho.sinGastos","texto":"Keine Ausgaben in diesem Zeitraum."},
-  {"clave":"despacho.periodo.dia","texto":"Tag"},
-  {"clave":"despacho.periodo.semana","texto":"Woche"},
-  {"clave":"despacho.periodo.mes","texto":"Monat"},
-  {"clave":"despacho.periodo.anio","texto":"Jahr"},
-  {"clave":"despacho.plazo.dia","texto":"Jeden Tag"},
-  {"clave":"despacho.plazo.semana","texto":"Jede Woche"},
-  {"clave":"despacho.plazo.mes","texto":"Jeden Monat"},
-  {"clave":"despacho.plazo.anio","texto":"Jedes Jahr"},
-  {"clave":"despacho.tendencia.dia","texto":"Saldo · letzte 6 Tage"},
-  {"clave":"despacho.tendencia.semana","texto":"Saldo · letzte 6 Wochen"},
-  {"clave":"despacho.tendencia.mes","texto":"Saldo · letzte 6 Monate"},
-  {"clave":"despacho.tendencia.anio","texto":"Saldo · letzte 6 Jahre"},
-  {"clave":"despacho.m.monto","texto":"Betrag"},
-  {"clave":"despacho.m.nota","texto":"Notiz (optional)"},
-  {"clave":"despacho.m.categoria","texto":"Kategorie"}
+  {
+    "clave": "ejercicio.rutDesc.push-pecho-y-triceps",
+    "texto": "Bankdrücken, Schulterdrücken, Dips, Extensions."
+  },
+  {
+    "clave": "ejercicio.rutDesc.pull-espalda-y-biceps",
+    "texto": "Klimmzüge, Rudern, Curls. Progressive Überlastung."
+  },
+  {
+    "clave": "ejercicio.rutDesc.legs-pierna-completa",
+    "texto": "Kniebeugen, Rumänisches Kreuzheben, Ausfallschritte."
+  },
+  {
+    "clave": "ejercicio.rutDesc.hiit-20-min",
+    "texto": "Intervalle: 40 Sek. Belastung / 20 Sek. Pause."
+  },
+  {
+    "clave": "ejercicio.rutDesc.carrera-continua",
+    "texto": "Moderates Tempo, Zone 2–3."
+  },
+  {
+    "clave": "ejercicio.rutDesc.caminata-inclinada",
+    "texto": "Schonend für die Gelenke, gleichmäßige Belastung."
+  },
+  {
+    "clave": "ejercicio.rutDesc.bike-tempo",
+    "texto": "Radfahrt im gleichmäßigen Tempo."
+  },
+  {
+    "clave": "ejercicio.rutDesc.triatlon-sprint",
+    "texto": "Schwimmen, Radfahren und Laufen im Verbund, jede Etappe im eigenen Tempo."
+  },
+  {
+    "clave": "ejercicio.rutDesc.movilidad-matutina",
+    "texto": "Gelenke und Wirbelsäule wecken."
+  },
+  {
+    "clave": "ejercicio.rutDesc.yoga-flow",
+    "texto": "Sanfte Vinyasa-Sequenz."
+  },
+  {
+    "clave": "ejercicio.rutDesc.cadera-y-piernas",
+    "texto": "Öffnet Hüfte und hintere Oberschenkel."
+  },
+  {
+    "clave": "ejercicio.rutDesc.estiramiento-post-entreno",
+    "texto": "Abkühlung und Erholung."
+  },
+  {
+    "clave": "ejercicio.rutDesc.espalda-y-hombros",
+    "texto": "Entlastung für Rücken und Schultern."
+  },
+  {
+    "clave": "ejercicio.rutDesc.cuello-y-oficina",
+    "texto": "Aktive Pause für Nacken und Wirbelsäule."
+  },
+  {
+    "clave": "ejercicio.rutDesc.antes-de-dormir",
+    "texto": "Erholsame Entspannung zum Einschlafen."
+  },
+  {
+    "clave": "cal.logros",
+    "texto": "Erfolge"
+  },
+  {
+    "clave": "cal.logros.vacio",
+    "texto": "Heute hast du noch nichts erledigt."
+  },
+  {
+    "clave": "cal.objetivos",
+    "texto": "Missionen"
+  },
+  {
+    "clave": "cal.objetivo.nuevo",
+    "texto": "Mission"
+  },
+  {
+    "clave": "cal.irApp",
+    "texto": "In der App eintragen"
+  },
+  {
+    "clave": "chat.vistaCal.objetivos",
+    "texto": "Missionen"
+  },
+  {
+    "clave": "chat.vistaCal.dia",
+    "texto": "Tagesagenda"
+  },
+  {
+    "clave": "chat.vistaCal.semana",
+    "texto": "Woche"
+  },
+  {
+    "clave": "chat.vistaCal.mes",
+    "texto": "Monat"
+  },
+  {
+    "clave": "chat.vistaCal.anio",
+    "texto": "Jahr"
+  },
+  {
+    "clave": "chat.vistaCal.calendario",
+    "texto": "Kalender"
+  },
+  {
+    "clave": "room.agenda.cmd.trabajo",
+    "texto": "Arbeit"
+  },
+  {
+    "clave": "room.agenda.cmd.salud",
+    "texto": "Gesundheit"
+  },
+  {
+    "clave": "room.agenda.cmd.personas",
+    "texto": "Personen"
+  },
+  {
+    "clave": "room.anecdotario.cmd.anecdotas",
+    "texto": "Erinnerungsbuch"
+  },
+  {
+    "clave": "room.biblioteca.cmd.charlas",
+    "texto": "Chats"
+  },
+  {
+    "clave": "room.biblioteca.cmd.enciclopedia",
+    "texto": "Enzyklopädie"
+  },
+  {
+    "clave": "room.biblioteca.cmd.estudio",
+    "texto": "Lernen"
+  },
+  {
+    "clave": "room.biblioteca.cmd.resumen",
+    "texto": "Übersicht"
+  },
+  {
+    "clave": "room.cocina.cmd.metas",
+    "texto": "Ziele"
+  },
+  {
+    "clave": "room.cocina.cmd.diario",
+    "texto": "Log"
+  },
+  {
+    "clave": "room.cocina.cmd.progreso",
+    "texto": "Fortschritt"
+  },
+  {
+    "clave": "room.cocina.cmd.plan",
+    "texto": "Diät"
+  },
+  {
+    "clave": "room.cocina.cmd.recetas",
+    "texto": "Rezepte"
+  },
+  {
+    "clave": "room.cocina.cmd.compras",
+    "texto": "Einkauf"
+  },
+  {
+    "clave": "room.computo.cmd.formulario",
+    "texto": "Formelbuch"
+  },
+  {
+    "clave": "room.computo.cmd.calculadora",
+    "texto": "Rechner"
+  },
+  {
+    "clave": "room.computo.cmd.grafica",
+    "texto": "Grafik"
+  },
+  {
+    "clave": "room.computo.cmd.ecuacion",
+    "texto": "Gleichungslöser"
+  },
+  {
+    "clave": "room.computo.cmd.hojas",
+    "texto": "Tabellen"
+  },
+  {
+    "clave": "room.computo.cmd.bases",
+    "texto": "Basen (Binär, Hex)"
+  },
+  {
+    "clave": "room.computo.cmd.matrices",
+    "texto": "Matrizen"
+  },
+  {
+    "clave": "room.computo.cmd.sistemas",
+    "texto": "Gleichungssysteme"
+  },
+  {
+    "clave": "room.computo.cmd.unidades",
+    "texto": "Einheiten umrechnen"
+  },
+  {
+    "clave": "room.computo.cmd.propina",
+    "texto": "Trinkgeld"
+  },
+  {
+    "clave": "room.computo.cmd.regla3",
+    "texto": "Dreisatz"
+  },
+  {
+    "clave": "room.descanso.cmd.sueno",
+    "texto": "Schlaf"
+  },
+  {
+    "clave": "room.despacho.cmd.balance",
+    "texto": "Cashflow"
+  },
+  {
+    "clave": "room.despacho.cmd.patrimonio",
+    "texto": "Vermögen"
+  },
+  {
+    "clave": "room.despacho.cmd.gastos",
+    "texto": "Ausgaben"
+  },
+  {
+    "clave": "room.despacho.cmd.ingresos",
+    "texto": "Einnahmen"
+  },
+  {
+    "clave": "room.despacho.cmd.metas",
+    "texto": "Sparen/Investieren"
+  },
+  {
+    "clave": "room.despacho.cmd.financieras",
+    "texto": "Finanzrechner"
+  },
+  {
+    "clave": "room.despacho.cmd.deuda",
+    "texto": "Schuldenziele"
+  },
+  {
+    "clave": "room.despacho.cmd.simuladores",
+    "texto": "Simulieren"
+  },
+  {
+    "clave": "room.despacho.cmd.simulacion",
+    "texto": "Prognose"
+  },
+  {
+    "clave": "room.despacho.cmd.divisas",
+    "texto": "Devisen"
+  },
+  {
+    "clave": "room.despacho.cmd.criptos",
+    "texto": "Krypto"
+  },
+  {
+    "clave": "room.despacho.cmd.acciones",
+    "texto": "Aktien"
+  },
+  {
+    "clave": "room.despacho.cmd.commodities",
+    "texto": "Rohstoffe"
+  },
+  {
+    "clave": "room.diario.cmd.titulares",
+    "texto": "Schlagzeilen"
+  },
+  {
+    "clave": "room.diario.cmd.efemerides",
+    "texto": "An diesem Tag"
+  },
+  {
+    "clave": "room.ejercicio.cmd.metas",
+    "texto": "Ziele"
+  },
+  {
+    "clave": "room.ejercicio.cmd.fuerza",
+    "texto": "Kraft"
+  },
+  {
+    "clave": "room.ejercicio.cmd.resistencia",
+    "texto": "Ausdauer"
+  },
+  {
+    "clave": "room.ejercicio.cmd.flexibilidad",
+    "texto": "Beweglichkeit"
+  },
+  {
+    "clave": "room.entretenimiento.cmd.archivo",
+    "texto": "Archiv"
+  },
+  {
+    "clave": "room.entretenimiento.cmd.mesa",
+    "texto": "Brettspiele"
+  },
+  {
+    "clave": "room.garage.cmd.resumen",
+    "texto": "Übersicht"
+  },
+  {
+    "clave": "room.garage.cmd.vehiculos",
+    "texto": "Fahrzeuge"
+  },
+  {
+    "clave": "room.hobbies.cmd.hobbies",
+    "texto": "Hobbys"
+  },
+  {
+    "clave": "room.ideas.cmd.diario",
+    "texto": "Ideentagebuch"
+  },
+  {
+    "clave": "room.ideas.cmd.mapas",
+    "texto": "Konzeptkarten"
+  },
+  {
+    "clave": "room.ideas.cmd.diagramas",
+    "texto": "Diagramme"
+  },
+  {
+    "clave": "room.idiomas.cmd.charlas",
+    "texto": "Tutor"
+  },
+  {
+    "clave": "room.idiomas.cmd.repaso",
+    "texto": "Wiederholung"
+  },
+  {
+    "clave": "room.idiomas.cmd.temario",
+    "texto": "Lehrplan"
+  },
+  {
+    "clave": "room.idiomas.cmd.progreso",
+    "texto": "Fortschritt"
+  },
+  {
+    "clave": "room.jardin.cmd.meditacion",
+    "texto": "Meditation"
+  },
+  {
+    "clave": "room.jardin.cmd.respiracion",
+    "texto": "Atmung"
+  },
+  {
+    "clave": "room.jardin.cmd.gratitud",
+    "texto": "Dankbarkeit"
+  },
+  {
+    "clave": "room.sala.cmd.mapa",
+    "texto": "Weltkarte"
+  },
+  {
+    "clave": "room.sala.cmd.porConocer",
+    "texto": "Reiseplan"
+  },
+  {
+    "clave": "room.sala.cmd.rutas",
+    "texto": "Routen"
+  },
+  {
+    "clave": "room.sala.cmd.bitacora",
+    "texto": "Logbuch"
+  }
 ]

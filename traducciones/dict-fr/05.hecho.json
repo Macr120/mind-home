@@ -1,470 +1,362 @@
 [
   {
-    "clave": "biblioteca.ramas.charlarSug",
-    "texto": "Ajouter et discuter de cette branche"
+    "clave": "ejercicio.rutDesc.push-pecho-y-triceps",
+    "texto": "Développé couché, développé militaire, dips, extensions."
   },
   {
-    "clave": "biblioteca.charla.confirmarBorrar",
-    "texto": "Supprimer la discussion ? L’entrée distillée est conservée."
+    "clave": "ejercicio.rutDesc.pull-espalda-y-biceps",
+    "texto": "Tractions, rowing, curls. Surcharge progressive."
   },
   {
-    "clave": "biblioteca.charla.siBorrar",
-    "texto": "Supprimer"
+    "clave": "ejercicio.rutDesc.legs-pierna-completa",
+    "texto": "Squats, soulevés de terre roumains, fentes."
   },
   {
-    "clave": "biblioteca.charla.vacia",
-    "texto": "Demande ce que tu veux à {sabio} : la discussion se classera seule dans son domaine de connaissance"
+    "clave": "ejercicio.rutDesc.hiit-20-min",
+    "texto": "Intervalles de 40s d'effort / 20s de repos."
   },
   {
-    "clave": "biblioteca.charla.error",
-    "texto": "Le Sage n’a pas pu répondre. Vérifie ton IA dans Paramètres ou réessaie."
+    "clave": "ejercicio.rutDesc.carrera-continua",
+    "texto": "Allure modérée, zone 2-3."
   },
   {
-    "clave": "biblioteca.charla.reintentar",
-    "texto": "Réessayer"
+    "clave": "ejercicio.rutDesc.caminata-inclinada",
+    "texto": "Faible impact, combustion régulière."
   },
   {
-    "clave": "biblioteca.charla.placeholder",
-    "texto": "Pose une question sur n’importe quel sujet…"
+    "clave": "ejercicio.rutDesc.bike-tempo",
+    "texto": "Sortie vélo à allure constante."
   },
   {
-    "clave": "biblioteca.charla.sinIA",
-    "texto": "Configure ton IA dans Paramètres pour discuter"
+    "clave": "ejercicio.rutDesc.triatlon-sprint",
+    "texto": "Natation, vélo et course enchaînés, chaque portion à son propre rythme."
   },
   {
-    "clave": "biblioteca.ent.nueva",
-    "texto": "Nouvelle entrée"
+    "clave": "ejercicio.rutDesc.movilidad-matutina",
+    "texto": "Réveille les articulations et la colonne."
   },
   {
-    "clave": "biblioteca.ent.editar",
-    "texto": "Modifier l’entrée"
+    "clave": "ejercicio.rutDesc.yoga-flow",
+    "texto": "Séquence de vinyasa douce."
   },
   {
-    "clave": "biblioteca.ent.editarBtn",
-    "texto": "Modifier"
+    "clave": "ejercicio.rutDesc.cadera-y-piernas",
+    "texto": "Ouverture des hanches et des ischio-jambiers."
   },
   {
-    "clave": "biblioteca.ent.titulo",
-    "texto": "Titre"
+    "clave": "ejercicio.rutDesc.estiramiento-post-entreno",
+    "texto": "Retour au calme et récupération."
   },
   {
-    "clave": "biblioteca.ent.tituloPh",
-    "texto": "Ex. L’entropie"
+    "clave": "ejercicio.rutDesc.espalda-y-hombros",
+    "texto": "Détente pour le dos et les épaules."
   },
   {
-    "clave": "biblioteca.ent.campo",
-    "texto": "Domaine"
+    "clave": "ejercicio.rutDesc.cuello-y-oficina",
+    "texto": "Pause active pour le cou et la colonne."
   },
   {
-    "clave": "biblioteca.ent.tema",
-    "texto": "Sujet de l’index"
+    "clave": "ejercicio.rutDesc.antes-de-dormir",
+    "texto": "Relaxation réparatrice pour t'aider à t'endormir."
   },
   {
-    "clave": "biblioteca.ent.sinTema",
-    "texto": "— Aucun —"
+    "clave": "cal.logros",
+    "texto": "Réussites"
   },
   {
-    "clave": "biblioteca.ent.resumen",
+    "clave": "cal.logros.vacio",
+    "texto": "Rien d'accompli aujourd'hui pour l'instant."
+  },
+  {
+    "clave": "cal.objetivos",
+    "texto": "Missions"
+  },
+  {
+    "clave": "cal.objetivo.nuevo",
+    "texto": "Mission"
+  },
+  {
+    "clave": "cal.irApp",
+    "texto": "Enregistre-le dans l'app"
+  },
+  {
+    "clave": "chat.vistaCal.objetivos",
+    "texto": "Missions"
+  },
+  {
+    "clave": "chat.vistaCal.dia",
+    "texto": "Agenda du jour"
+  },
+  {
+    "clave": "chat.vistaCal.semana",
+    "texto": "Semaine"
+  },
+  {
+    "clave": "chat.vistaCal.mes",
+    "texto": "Mois"
+  },
+  {
+    "clave": "chat.vistaCal.anio",
+    "texto": "Année"
+  },
+  {
+    "clave": "chat.vistaCal.calendario",
+    "texto": "Calendrier"
+  },
+  {
+    "clave": "room.agenda.cmd.trabajo",
+    "texto": "Travail"
+  },
+  {
+    "clave": "room.agenda.cmd.salud",
+    "texto": "Santé"
+  },
+  {
+    "clave": "room.agenda.cmd.personas",
+    "texto": "Personnes"
+  },
+  {
+    "clave": "room.anecdotario.cmd.anecdotas",
+    "texto": "Journal"
+  },
+  {
+    "clave": "room.biblioteca.cmd.charlas",
+    "texto": "Discussions"
+  },
+  {
+    "clave": "room.biblioteca.cmd.enciclopedia",
+    "texto": "Encyclopédie"
+  },
+  {
+    "clave": "room.biblioteca.cmd.estudio",
+    "texto": "Étude"
+  },
+  {
+    "clave": "room.biblioteca.cmd.resumen",
+    "texto": "Aperçu"
+  },
+  {
+    "clave": "room.cocina.cmd.metas",
+    "texto": "Objectifs"
+  },
+  {
+    "clave": "room.cocina.cmd.diario",
+    "texto": "Journal"
+  },
+  {
+    "clave": "room.cocina.cmd.progreso",
+    "texto": "Progrès"
+  },
+  {
+    "clave": "room.cocina.cmd.plan",
+    "texto": "Régime"
+  },
+  {
+    "clave": "room.cocina.cmd.recetas",
+    "texto": "Recettes"
+  },
+  {
+    "clave": "room.cocina.cmd.compras",
+    "texto": "Courses"
+  },
+  {
+    "clave": "room.computo.cmd.formulario",
+    "texto": "Formulaire"
+  },
+  {
+    "clave": "room.computo.cmd.calculadora",
+    "texto": "Calculatrice"
+  },
+  {
+    "clave": "room.computo.cmd.grafica",
+    "texto": "Graphique"
+  },
+  {
+    "clave": "room.computo.cmd.ecuacion",
+    "texto": "Équations"
+  },
+  {
+    "clave": "room.computo.cmd.hojas",
+    "texto": "Feuilles de calcul"
+  },
+  {
+    "clave": "room.computo.cmd.bases",
+    "texto": "Bases (binaire et hex)"
+  },
+  {
+    "clave": "room.computo.cmd.matrices",
+    "texto": "Matrices"
+  },
+  {
+    "clave": "room.computo.cmd.sistemas",
+    "texto": "Systèmes"
+  },
+  {
+    "clave": "room.computo.cmd.unidades",
+    "texto": "Unités"
+  },
+  {
+    "clave": "room.computo.cmd.propina",
+    "texto": "Pourboire"
+  },
+  {
+    "clave": "room.computo.cmd.regla3",
+    "texto": "Règle de trois"
+  },
+  {
+    "clave": "room.descanso.cmd.sueno",
+    "texto": "Sommeil"
+  },
+  {
+    "clave": "room.despacho.cmd.balance",
+    "texto": "Trésorerie"
+  },
+  {
+    "clave": "room.despacho.cmd.patrimonio",
+    "texto": "Patrimoine net"
+  },
+  {
+    "clave": "room.despacho.cmd.gastos",
+    "texto": "Dépenses"
+  },
+  {
+    "clave": "room.despacho.cmd.ingresos",
+    "texto": "Revenus"
+  },
+  {
+    "clave": "room.despacho.cmd.metas",
+    "texto": "Épargne/Investissement"
+  },
+  {
+    "clave": "room.despacho.cmd.financieras",
+    "texto": "Calculatrices financières"
+  },
+  {
+    "clave": "room.despacho.cmd.deuda",
+    "texto": "Objectifs de dette"
+  },
+  {
+    "clave": "room.despacho.cmd.simuladores",
+    "texto": "Simulateurs"
+  },
+  {
+    "clave": "room.despacho.cmd.simulacion",
+    "texto": "Prévision de patrimoine"
+  },
+  {
+    "clave": "room.despacho.cmd.divisas",
+    "texto": "Forex"
+  },
+  {
+    "clave": "room.despacho.cmd.criptos",
+    "texto": "Crypto"
+  },
+  {
+    "clave": "room.despacho.cmd.acciones",
+    "texto": "Actions"
+  },
+  {
+    "clave": "room.despacho.cmd.commodities",
+    "texto": "Matières premières"
+  },
+  {
+    "clave": "room.diario.cmd.titulares",
+    "texto": "Titres du jour"
+  },
+  {
+    "clave": "room.diario.cmd.efemerides",
+    "texto": "Ce jour-là"
+  },
+  {
+    "clave": "room.ejercicio.cmd.metas",
+    "texto": "Objectifs"
+  },
+  {
+    "clave": "room.ejercicio.cmd.fuerza",
+    "texto": "Force"
+  },
+  {
+    "clave": "room.ejercicio.cmd.resistencia",
+    "texto": "Endurance"
+  },
+  {
+    "clave": "room.ejercicio.cmd.flexibilidad",
+    "texto": "Souplesse"
+  },
+  {
+    "clave": "room.entretenimiento.cmd.archivo",
+    "texto": "Archives"
+  },
+  {
+    "clave": "room.entretenimiento.cmd.mesa",
+    "texto": "Jeux de société"
+  },
+  {
+    "clave": "room.garage.cmd.resumen",
     "texto": "Résumé"
   },
   {
-    "clave": "biblioteca.ent.resumenPh",
-    "texto": "Ce que tu as appris, en 3 à 5 phrases."
+    "clave": "room.garage.cmd.vehiculos",
+    "texto": "Véhicules"
   },
   {
-    "clave": "biblioteca.ent.puntos",
-    "texto": "Points clés (un par ligne)"
+    "clave": "room.hobbies.cmd.hobbies",
+    "texto": "Loisirs"
   },
   {
-    "clave": "biblioteca.ent.puntosPh",
-    "texto": "Idée clé 1\nIdée clé 2"
+    "clave": "room.ideas.cmd.diario",
+    "texto": "Journal d’idées"
   },
   {
-    "clave": "biblioteca.ent.puntosTitulo",
-    "texto": "Points clés"
+    "clave": "room.ideas.cmd.mapas",
+    "texto": "Cartes conceptuelles"
   },
   {
-    "clave": "biblioteca.mat.titulo",
-    "texto": "Matériel"
+    "clave": "room.ideas.cmd.diagramas",
+    "texto": "Diagrammes de décision"
   },
   {
-    "clave": "biblioteca.mat.agregar",
-    "texto": "Générer ou lier du matériel"
+    "clave": "room.idiomas.cmd.charlas",
+    "texto": "Discussions"
   },
   {
-    "clave": "biblioteca.mat.vacio",
-    "texto": "Rattache ici les feuilles de calcul et les plans que tu utilises pour étudier ce sujet ; ils s’ouvrent dans leur propre pièce."
+    "clave": "room.idiomas.cmd.repaso",
+    "texto": "Révision"
   },
   {
-    "clave": "biblioteca.mat.hoja",
-    "texto": "Feuille de calcul"
+    "clave": "room.idiomas.cmd.temario",
+    "texto": "Programme"
   },
   {
-    "clave": "biblioteca.mat.mapa",
-    "texto": "Plan ou diagramme"
+    "clave": "room.idiomas.cmd.progreso",
+    "texto": "Progrès"
   },
   {
-    "clave": "biblioteca.mat.idea",
-    "texto": "Idée"
+    "clave": "room.jardin.cmd.meditacion",
+    "texto": "Méditation"
   },
   {
-    "clave": "biblioteca.mat.nuevaHoja",
-    "texto": "Nouvelle feuille de calcul"
+    "clave": "room.jardin.cmd.respiracion",
+    "texto": "Respiration"
   },
   {
-    "clave": "biblioteca.mat.nuevoMapa",
-    "texto": "Nouveau plan ou diagramme"
+    "clave": "room.jardin.cmd.gratitud",
+    "texto": "Gratitude"
   },
   {
-    "clave": "biblioteca.mat.nuevaIdea",
-    "texto": "Nouvelle idée"
+    "clave": "room.sala.cmd.mapa",
+    "texto": "Carte"
   },
   {
-    "clave": "biblioteca.mat.crearTit",
-    "texto": "Nouveau : {tipo}"
+    "clave": "room.sala.cmd.porConocer",
+    "texto": "Itinéraire"
   },
   {
-    "clave": "biblioteca.mat.existente",
-    "texto": "Lier {tipo} que j’ai déjà"
+    "clave": "room.sala.cmd.rutas",
+    "texto": "Parcours"
   },
   {
-    "clave": "biblioteca.mat.enlazar",
-    "texto": "— Lier —"
-  },
-  {
-    "clave": "biblioteca.mat.quitar",
-    "texto": "Retirer le lien (ne supprime pas le matériel)"
-  },
-  {
-    "clave": "biblioteca.mat.roto",
-    "texto": "disparu"
-  },
-  {
-    "clave": "computo.vista.vacia",
-    "texto": "La feuille est encore vide."
-  },
-  {
-    "clave": "biblioteca.mat.sinCuarto",
-    "texto": "Place la pièce de cette app dans ta maison pour ouvrir son matériel."
-  },
-  {
-    "clave": "material.estudiasEn",
-    "texto": "Tu l’étudies dans"
-  },
-  {
-    "clave": "material.abrirEntrada",
-    "texto": "Ouvrir « {n} » dans l’encyclopédie"
-  },
-  {
-    "clave": "material.sinBiblioteca",
-    "texto": "Place la pièce de la bibliothèque dans ta maison pour ouvrir son encyclopédie."
-  },
-  {
-    "clave": "biblioteca.mat.vacio2",
-    "texto": "Génère ici un plan ou des notes sur ce sujet avec l’IA, ou rattache les feuilles et plans que tu utilises déjà pour l’étudier."
-  },
-  {
-    "clave": "biblioteca.mat.ver",
-    "texto": "Voir ici même"
-  },
-  {
-    "clave": "biblioteca.mat.abrirEn",
-    "texto": "Ouvrir dans sa pièce pour le modifier"
-  },
-  {
-    "clave": "biblioteca.mat.generarTip",
-    "texto": "Laisse l’IA le créer à partir de cette entrée"
-  },
-  {
-    "clave": "biblioteca.mat.falloIA",
-    "texto": "L’IA n’a pas pu générer le matériel."
-  },
-  {
-    "clave": "biblioteca.ent.cancelar",
-    "texto": "Annuler"
-  },
-  {
-    "clave": "biblioteca.ent.guardar",
-    "texto": "Enregistrer"
-  },
-  {
-    "clave": "biblioteca.ent.borrar",
-    "texto": "Supprimer l’entrée"
-  },
-  {
-    "clave": "biblioteca.ent.confirmarBorrar",
-    "texto": "Supprimer cette entrée ? La discussion d’origine n’est pas touchée."
-  },
-  {
-    "clave": "biblioteca.ent.verCharla",
-    "texto": "Voir la discussion d’origine"
-  },
-  {
-    "clave": "biblioteca.enc.sub",
-    "texto": "{n} entrées dans {c} domaines"
-  },
-  {
-    "clave": "biblioteca.enc.nEntradas",
-    "texto": "{n} entrées"
-  },
-  {
-    "clave": "biblioteca.enc.buscarTema",
-    "texto": "Rechercher un sujet…"
-  },
-  {
-    "clave": "biblioteca.enc.verEntrada",
-    "texto": "Voir l’entrée de ce sujet"
-  },
-  {
-    "clave": "biblioteca.enc.charlarTema",
-    "texto": "En discuter avec le Sage"
-  },
-  {
-    "clave": "biblioteca.enc.promptTema",
-    "texto": "Parle-moi de {tema}. {desc}"
-  },
-  {
-    "clave": "biblioteca.enc.arbolDesc",
-    "texto": "Tout ton savoir dans un arbre : chaque discussion se classe à sa place et grandit quand tu la ramifies."
-  },
-  {
-    "clave": "biblioteca.enc.semilla",
-    "texto": "Graine"
-  },
-  {
-    "clave": "biblioteca.enc.sinResultados",
-    "texto": "Rien dans l’arbre ne correspond à ta recherche."
-  },
-  {
-    "clave": "biblioteca.enc.nuevo",
-    "texto": "nouveau"
-  },
-  {
-    "clave": "biblioteca.enc.subtemas",
-    "texto": "{n} sous-sujets"
-  },
-  {
-    "clave": "biblioteca.enc.nSubindices",
-    "texto": "{n} sous-index en dessous"
-  },
-  {
-    "clave": "biblioteca.enc.modoEdicion",
-    "texto": "Modifier l’index"
-  },
-  {
-    "clave": "biblioteca.enc.edicionDesc",
-    "texto": "Fais de l’index le tien : le + de chaque ligne ajoute des branches à n’importe quel niveau, même directement sous la Graine. Tu peux aussi renommer, réordonner et supprimer."
-  },
-  {
-    "clave": "biblioteca.enc.renombrar",
-    "texto": "Renommer"
-  },
-  {
-    "clave": "biblioteca.enc.agregarHijo",
-    "texto": "Ajouter quelque chose dedans"
-  },
-  {
-    "clave": "biblioteca.enc.moverEntradaA",
-    "texto": "Déplacer « {n} » vers…"
-  },
-  {
-    "clave": "biblioteca.enc.entradaAqui",
-    "texto": "Écrire une entrée ici"
-  },
-  {
-    "clave": "biblioteca.enc.borrarNodo",
-    "texto": "Supprimer"
-  },
-  {
-    "clave": "biblioteca.enc.borrarTit",
-    "texto": "Supprimer « {n} » ?"
-  },
-  {
-    "clave": "biblioteca.enc.borrarMsg",
-    "texto": "Tes entrées ne sont PAS supprimées : elles restent isolées dans leur domaine."
-  },
-  {
-    "clave": "biblioteca.enc.borrarMsgHijos",
-    "texto": "Il disparaît avec tout ce qui en dépend. Tes entrées ne sont PAS supprimées : elles restent isolées dans leur domaine."
-  },
-  {
-    "clave": "biblioteca.enc.subir",
-    "texto": "Monter"
-  },
-  {
-    "clave": "biblioteca.enc.bajar",
-    "texto": "Descendre"
-  },
-  {
-    "clave": "biblioteca.enc.nuevaRama",
-    "texto": "Nouvelle branche"
-  },
-  {
-    "clave": "biblioteca.enc.nuevoTema",
-    "texto": "Nouveau sujet"
-  },
-  {
-    "clave": "biblioteca.enc.nuevoCampo",
-    "texto": "Nouveau domaine"
-  },
-  {
-    "clave": "biblioteca.enc.nuevoCampoMsg",
-    "texto": "Un domaine de connaissance à toi, à côté de ceux d’origine."
-  },
-  {
-    "clave": "biblioteca.enc.dentroDe",
-    "texto": "Dans « {padre} »"
-  },
-  {
-    "clave": "biblioteca.enc.crear",
-    "texto": "Créer"
-  },
-  {
-    "clave": "biblioteca.ent.mover",
-    "texto": "Déplacer vers un autre sujet"
-  },
-  {
-    "clave": "biblioteca.ent.ramificar",
-    "texto": "Ramifier"
-  },
-  {
-    "clave": "biblioteca.ent.ramificarTip",
-    "texto": "Ramifier : nouveaux sous-sujets sous « {n} »"
-  },
-  {
-    "clave": "biblioteca.ent.ramificarSinNodo",
-    "texto": "L’entrée n’a pas encore de place dans l’arbre"
-  },
-  {
-    "clave": "biblioteca.mover.cerrar",
-    "texto": "Fermer"
-  },
-  {
-    "clave": "biblioteca.mover.notaEntrada",
-    "texto": "Si tu choisis un domaine, l’entrée y reste isolée, sans sujet."
-  },
-  {
-    "clave": "biblioteca.r.arbol",
-    "texto": "{n} sujets débloqués par tes discussions"
-  },
-  {
-    "clave": "biblioteca.est.titulo",
-    "texto": "Session d’étude"
-  },
-  {
-    "clave": "biblioteca.est.personalizada",
-    "texto": "Durée personnalisée (minutes)"
-  },
-  {
-    "clave": "biblioteca.est.entrada",
-    "texto": "Entrée (facultatif)"
-  },
-  {
-    "clave": "biblioteca.est.libre",
-    "texto": "— Étude libre —"
-  },
-  {
-    "clave": "biblioteca.est.iniciar",
-    "texto": "Démarrer {n} min"
-  },
-  {
-    "clave": "biblioteca.est.nota",
-    "texto": "Le minuteur continue même si tu fermes la pièce."
-  },
-  {
-    "clave": "biblioteca.est.sesionDe",
-    "texto": "Session de {n} min — elle s’enregistre seule à la fin"
-  },
-  {
-    "clave": "biblioteca.est.cancelar",
-    "texto": "Terminer avant"
-  },
-  {
-    "clave": "biblioteca.est.cancelarTip",
-    "texto": "Les minutes complètes déjà passées sont créditées"
-  },
-  {
-    "clave": "biblioteca.est.fin",
-    "texto": "Session terminée ! +{n} min en {campo}"
-  },
-  {
-    "clave": "biblioteca.est.porCampo",
-    "texto": "Temps par domaine"
-  },
-  {
-    "clave": "biblioteca.est.historial",
-    "texto": "Sessions récentes"
-  },
-  {
-    "clave": "biblioteca.est.sinSesiones",
-    "texto": "Tu n’as pas encore utilisé le minuteur d’étude."
-  },
-  {
-    "clave": "biblioteca.est.modoSimple",
-    "texto": "Simple"
-  },
-  {
-    "clave": "biblioteca.est.modoPomodoro",
-    "texto": "Pomodoro"
-  },
-  {
-    "clave": "biblioteca.est.pomodoroDesc",
-    "texto": "Tu travailles par tranches et te reposes entre chacune ; après plusieurs tranches, une pause longue. Chaque tranche de concentration s’enregistre seule."
-  },
-  {
-    "clave": "biblioteca.est.faseTrabajo",
-    "texto": "Concentration"
-  },
-  {
-    "clave": "biblioteca.est.faseCorta",
-    "texto": "Pause"
-  },
-  {
-    "clave": "biblioteca.est.faseLarga",
-    "texto": "Pause longue"
-  },
-  {
-    "clave": "biblioteca.est.pomodoroNota",
-    "texto": "Chaque tranche de concentration s’enregistre à la fin ; les pauses ne comptent pas."
-  },
-  {
-    "clave": "biblioteca.est.tandaTip",
-    "texto": "{n} tranches de concentration terminées"
-  },
-  {
-    "clave": "biblioteca.est.pausar",
-    "texto": "Pause"
-  },
-  {
-    "clave": "biblioteca.est.reanudar",
-    "texto": "Reprendre"
-  },
-  {
-    "clave": "biblioteca.est.saltar",
-    "texto": "Passer la pause"
-  },
-  {
-    "clave": "biblioteca.est.ciclo.clasico",
-    "texto": "Classique"
-  },
-  {
-    "clave": "biblioteca.est.ciclo.profundo",
-    "texto": "Profond"
-  },
-  {
-    "clave": "biblioteca.est.ciclo.corto",
-    "texto": "Court"
-  },
-  {
-    "clave": "biblioteca.est.trabajoMin",
-    "texto": "Concentration"
-  },
-  {
-    "clave": "biblioteca.est.cortoMin",
-    "texto": "Pause"
-  },
-  {
-    "clave": "biblioteca.est.largoMin",
-    "texto": "Pause longue"
+    "clave": "room.sala.cmd.bitacora",
+    "texto": "Journal de bord"
   }
 ]

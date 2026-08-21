@@ -1,46 +1,878 @@
 [
   {
-    "clave": "tut.esencial.titulo",
-    "texto": "基础导览"
+    "clave": "hoy.casa.personales",
+    "texto": "个人"
   },
   {
-    "clave": "tut.tipo.ejemplos",
-    "texto": "示例·演示之家"
+    "clave": "hoy.irApp",
+    "texto": "去应用记录"
   },
   {
-    "clave": "tut.app-agenda--esencial.resumen",
-    "texto": "日程管的是习惯以外的事，分三个菜单：工作（待办和看板）、健康（就诊预约、用药和护理：你自己的、亲友的和宠物的）、联系人（通讯录和生日）。凡是带日期的，都会自动排进日历。"
+    "clave": "hoy.nada",
+    "texto": "你还没有在这个应用里定下什么。"
   },
   {
-    "clave": "tut.calendario--esencial.resumen",
-    "texto": "日历不是一个房间：它住在家里的时钟里，汇集所有带日期和时间的事，既有你手动创建的，也有其他应用自己排进来的。看法有四种：日和周在小时网格上，月和年用来看全局。任务另算，那个红色按钮把所有应用今天的清单集中在一起。"
+    "clave": "hoy.metas.titulo",
+    "texto": "目标"
   },
   {
-    "clave": "tut.app-anecdotario--esencial.resumen",
-    "texto": "回忆本就是你的私人日记：带心情、文字和照片的记录，按日期自动保存。日历会按你的心情给每一天上色，历史记录则自动归入按年、月、周分的文件夹。"
+    "clave": "hoy.metas.vencida",
+    "texto": "已逾期"
   },
   {
-    "clave": "tut.app-biblioteca--esencial.resumen",
-    "texto": "图书馆是你的私人百科全书，分四个菜单：聊天（向智者提问，每段对话都会存档并提炼成条目）、百科全书（学到的东西按知识领域生长的树）、学习（普通计时器或番茄钟，每次都会自动记录）、概览（你写了多少、学了多少）。"
+    "clave": "hoy.metas.faltan",
+    "texto": "{n}天"
   },
   {
-    "clave": "tut.app-cocina--esencial.resumen",
-    "texto": "厨房有两个菜单。食谱库保存你要做的菜：带营养成分的食谱、把它们归到一起的饮食方案，还有购物清单。饮食管理分四步记录你吃了什么：热量和体重目标、当天的记录、接下来几天的膳食计划，以及进度。"
+    "clave": "objetivos.anadir",
+    "texto": "添加任务"
   },
   {
-    "clave": "tut.app-computo--esencial.resumen",
-    "texto": "电脑室有两个菜单。计算器负责日常运算，切换模式还能绘图，处理进制、矩阵、方程组、单位、小费和三率法；它下面挂着公式手册，也就是你自己的公式本，数学、物理和化学都已备好。电子表格负责表格类的一切，支持公式（=SUMA 这样的写法），可导出为Excel或PDF。"
+    "clave": "objetivos.responsable",
+    "texto": "{quien}会提醒你这里的事。"
   },
   {
-    "clave": "tut.app-descanso--esencial.resumen",
-    "texto": "休息在一块屏幕上记录你怎么睡：昨晚的评分、带提醒的作息时间、每天的记录，以及按年、月、周查看的完整历史。"
+    "clave": "objetivos.nuevo.deQueApp",
+    "texto": "这是哪个应用的任务？"
   },
   {
-    "clave": "tut.app-despacho--esencial.resumen",
-    "texto": "书房把你的钱分成四个菜单来打理。净资产保存你拥有的和欠下的，并给出预测；现金流管支出、收入和这一时期的结余，带预算和分类；目标把储蓄、投资和负债放在一起，还有会替你算出金额的计算器。市场是一块实时行情看板，只供查看。"
+    "clave": "objetivos.nuevo.responsable",
+    "texto": "这里的事我会提醒你。你想定下什么？"
   },
   {
-    "clave": "tut.app-diario--esencial.resumen",
-    "texto": "每日新闻是一份只属于当天的报纸：按类别汇集真实媒体的头条，还有历史上的今天，每到午夜自动换新。在助手推送里可以安排某位助手在自己的聊天中把它送给你。"
+    "clave": "objetivos.nuevo.personal",
+    "texto": "不属于任何应用的个人任务。"
+  },
+  {
+    "clave": "objetivos.nuevo.personales",
+    "texto": "个人"
+  },
+  {
+    "clave": "objetivos.nuevo.poner",
+    "texto": "＋"
+  },
+  {
+    "clave": "objetivos.nuevo.todos",
+    "texto": "你已经在这个应用里定下了所有任务。"
+  },
+  {
+    "clave": "objetivos.nuevo.otro",
+    "texto": "其他任务…"
+  },
+  {
+    "clave": "objetivos.nuevo.otroPlaceholder",
+    "texto": "你想定下什么？"
+  },
+  {
+    "clave": "objetivos.nuevo.checklist",
+    "texto": "需要好几个步骤？新建清单"
+  },
+  {
+    "clave": "objetivos.nuevo.dias",
+    "texto": "哪几天？"
+  },
+  {
+    "clave": "objetivos.nuevo.faltanDias",
+    "texto": "请至少选一天。"
+  },
+  {
+    "clave": "objetivos.nuevo.cantidad",
+    "texto": "多少？"
+  },
+  {
+    "clave": "objetivos.nuevo.meta",
+    "texto": "为哪个目标？"
+  },
+  {
+    "clave": "objetivos.nuevo.sinMeta",
+    "texto": "无（独立）"
+  },
+  {
+    "clave": "objetivos.nuevo.mientrasDure",
+    "texto": "仅从{ini}到{fin}，目标持续期间。"
+  },
+  {
+    "clave": "objetivos.nuevo.hora",
+    "texto": "要定时间吗？"
+  },
+  {
+    "clave": "objetivos.nuevo.sinHora",
+    "texto": "不设时间"
+  },
+  {
+    "clave": "objetivos.nuevo.anadir",
+    "texto": "添加"
+  },
+  {
+    "clave": "objetivos.nuevo.cancelar",
+    "texto": "取消"
+  },
+  {
+    "clave": "objetivos.nuevo.cambiar",
+    "texto": "切换助手"
+  },
+  {
+    "clave": "objetivos.nuevo.nadie",
+    "texto": "无助手"
+  },
+  {
+    "clave": "avisos.objetivos",
+    "texto": "{app}还剩{n}个任务。"
+  },
+  {
+    "clave": "biblioteca.nodo.filosofia",
+    "texto": "哲学与思想"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.filosofia",
+    "texto": "关于实在、知识、心灵与行为的根本问题。"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-metafisica",
+    "texto": "形而上学与本体论"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-ser",
+    "texto": "存在与实在"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-ser",
+    "texto": "事物存在意味着什么。"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-mente",
+    "texto": "心灵与意识"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-mente",
+    "texto": "身心问题与现象学。"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-libre",
+    "texto": "自由与决定论"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-libre",
+    "texto": "我们是自由的，还是一切都有因果？"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-epistemologia",
+    "texto": "认识论"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-conocimiento",
+    "texto": "知识论"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-conocimiento",
+    "texto": "证成、真理与信念。"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-ciencia-fil",
+    "texto": "科学哲学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-ciencia-fil",
+    "texto": "方法、范式与划界。"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-escepticismo",
+    "texto": "怀疑论"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-escepticismo",
+    "texto": "我们所能认知的界限。"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-etica",
+    "texto": "伦理学与政治哲学"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-moral",
+    "texto": "道德理论"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-moral",
+    "texto": "义务论、功利主义与美德伦理。"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-justicia",
+    "texto": "社会正义"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-justicia",
+    "texto": "公平、权利与共同善。"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-bioetica",
+    "texto": "生命伦理学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-bioetica",
+    "texto": "生命、医学与应用技术。"
+  },
+  {
+    "clave": "biblioteca.nodo.matematicas",
+    "texto": "数学与逻辑学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.matematicas",
+    "texto": "抽象结构、形式推理与定量模型。"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-puras",
+    "texto": "纯数学"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-algebra",
+    "texto": "代数"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-algebra",
+    "texto": "结构、方程与对称性。"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-analisis",
+    "texto": "分析学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-analisis",
+    "texto": "极限、连续性与微积分。"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-geometria",
+    "texto": "几何与拓扑"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-geometria",
+    "texto": "形状、空间与变换。"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-aplicadas",
+    "texto": "应用数学"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-prob",
+    "texto": "概率论"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-prob",
+    "texto": "不确定性与随机事件。"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-stats",
+    "texto": "统计学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-stats",
+    "texto": "数据、推断与模型。"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-discreta",
+    "texto": "离散数学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-discreta",
+    "texto": "组合数学、图论与递归。"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-logica",
+    "texto": "逻辑学"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-log-formal",
+    "texto": "形式逻辑"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-log-formal",
+    "texto": "命题、谓词与证明。"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-log-comput",
+    "texto": "计算逻辑"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-log-comput",
+    "texto": "算法、复杂度与验证。"
+  },
+  {
+    "clave": "biblioteca.nodo.naturales",
+    "texto": "自然科学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.naturales",
+    "texto": "物理宇宙的法则、物质、能量与生命系统。"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-fisica",
+    "texto": "物理学"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-mecanica",
+    "texto": "经典力学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-mecanica",
+    "texto": "运动、力与能量。"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-cuantica",
+    "texto": "量子物理学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-cuantica",
+    "texto": "粒子、波与概率。"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-relatividad",
+    "texto": "相对论"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-relatividad",
+    "texto": "时空与宇宙学。"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-termodinamica",
+    "texto": "热力学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-termodinamica",
+    "texto": "热、熵与平衡。"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-quimica",
+    "texto": "化学"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-org",
+    "texto": "有机化学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-org",
+    "texto": "碳、生物分子与反应。"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-inorg",
+    "texto": "无机化学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-inorg",
+    "texto": "元素、化学键与材料。"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-fisicoquim",
+    "texto": "物理化学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-fisicoquim",
+    "texto": "反应与平衡中的能量。"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-biologia",
+    "texto": "生物学"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-celula",
+    "texto": "细胞生物学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-celula",
+    "texto": "细胞、代谢与信号传导。"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-genetica",
+    "texto": "遗传学与进化"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-genetica",
+    "texto": "DNA、自然选择与系统发生。"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-ecologia",
+    "texto": "生态学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-ecologia",
+    "texto": "生态系统、生物多样性与循环。"
+  },
+  {
+    "clave": "biblioteca.nodo.tierra",
+    "texto": "地球科学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tierra",
+    "texto": "地球、大气、海洋与地质过程。"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-geologia",
+    "texto": "地质学与地球物理学"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-placas",
+    "texto": "板块构造"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-placas",
+    "texto": "地貌形成与地震。"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-minerales",
+    "texto": "矿物学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-minerales",
+    "texto": "岩石、矿物与资源。"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-paleont",
+    "texto": "古生物学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-paleont",
+    "texto": "化石与生命史。"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-clima",
+    "texto": "气候与大气"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-meteorologia",
+    "texto": "气象学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-meteorologia",
+    "texto": "天气、气压与降水。"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-climatologia",
+    "texto": "气候学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-climatologia",
+    "texto": "长期规律与气候变化。"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-oceanos",
+    "texto": "海洋学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-oceanos",
+    "texto": "洋流、海洋与海岸。"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-espacial",
+    "texto": "地理与空间"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-cartografia",
+    "texto": "制图学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-cartografia",
+    "texto": "地图、坐标与GIS。"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-geomorf",
+    "texto": "地貌学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-geomorf",
+    "texto": "地貌与侵蚀。"
+  },
+  {
+    "clave": "biblioteca.nodo.sociales",
+    "texto": "社会科学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sociales",
+    "texto": "社会、经济、制度与人类集体行为。"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-sociologia",
+    "texto": "社会学与人类学"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-estructura",
+    "texto": "社会结构"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-estructura",
+    "texto": "阶层、网络与不平等。"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-cultura",
+    "texto": "文化人类学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-cultura",
+    "texto": "仪式、身份与象征。"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-urbano",
+    "texto": "城市研究"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-urbano",
+    "texto": "城市、迁移与地域。"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-economia",
+    "texto": "经济学"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-micro",
+    "texto": "微观经济学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-micro",
+    "texto": "供给、需求与决策。"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-macro",
+    "texto": "宏观经济学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-macro",
+    "texto": "GDP、通货膨胀与财政政策。"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-comercio",
+    "texto": "国际贸易"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-comercio",
+    "texto": "全球化与价值链。"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-politica",
+    "texto": "政治学"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-estado",
+    "texto": "国家与政府"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-estado",
+    "texto": "权力、法律与民主。"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-derechos",
+    "texto": "人权"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-derechos",
+    "texto": "自由、正义与公民身份。"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-relaciones",
+    "texto": "国际关系"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-relaciones",
+    "texto": "外交、冲突与合作。"
+  },
+  {
+    "clave": "biblioteca.nodo.psicologia",
+    "texto": "心理学与人类心智"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psicologia",
+    "texto": "认知、情绪、发展与心理健康。"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-cognitiva",
+    "texto": "认知心理学"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-percepcion",
+    "texto": "知觉与注意"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-percepcion",
+    "texto": "我们如何处理刺激。"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-memoria",
+    "texto": "记忆与学习"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-memoria",
+    "texto": "编码、回忆与遗忘。"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-lenguaje-psi",
+    "texto": "心理语言学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-lenguaje-psi",
+    "texto": "语言习得与加工。"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-desarrollo",
+    "texto": "发展与人格"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-infancia",
+    "texto": "儿童发展"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-infancia",
+    "texto": "认知与社会性发展的里程碑。"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-personalidad",
+    "texto": "人格"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-personalidad",
+    "texto": "特质、气质与模型。"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-social-psi",
+    "texto": "社会心理学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-social-psi",
+    "texto": "群体、态度与从众。"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-clinica",
+    "texto": "心理健康"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-clinica-gen",
+    "texto": "临床心理学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-clinica-gen",
+    "texto": "障碍、诊断与治疗。"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-neuropsi",
+    "texto": "神经心理学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-neuropsi",
+    "texto": "大脑、损伤与康复。"
+  },
+  {
+    "clave": "biblioteca.nodo.humanidades",
+    "texto": "人文与历史"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.humanidades",
+    "texto": "跨越时间、思想与文化遗产的人类经验。"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-historia",
+    "texto": "历史学"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-antigua",
+    "texto": "古代史"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-antigua",
+    "texto": "古典文明与起源。"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-moderna",
+    "texto": "近现代史"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-moderna",
+    "texto": "革命、国家与全球化。"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-metodo",
+    "texto": "史学方法论"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-metodo",
+    "texto": "史料、诠释与论辩。"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-religion",
+    "texto": "宗教与神话"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-comparada",
+    "texto": "比较宗教学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-comparada",
+    "texto": "传统、经典与实践。"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-mito",
+    "texto": "神话学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-mito",
+    "texto": "创世叙事与原型。"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-patrimonio",
+    "texto": "遗产与文化研究"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-museos",
+    "texto": "物质遗产"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-museos",
+    "texto": "博物馆、保护与文物。"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-memoria",
+    "texto": "集体记忆"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-memoria",
+    "texto": "见证、档案与遗忘。"
+  },
+  {
+    "clave": "biblioteca.nodo.lengua",
+    "texto": "语言与文学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.lengua",
+    "texto": "沟通、文本、语言分析与书写传统。"
+  },
+  {
+    "clave": "biblioteca.nodo.len-linguistica",
+    "texto": "语言学"
+  },
+  {
+    "clave": "biblioteca.nodo.len-fonetica",
+    "texto": "语音学与音系学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-fonetica",
+    "texto": "语音与音系系统。"
+  },
+  {
+    "clave": "biblioteca.nodo.len-sintaxis",
+    "texto": "句法与形态学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-sintaxis",
+    "texto": "句子与词语的结构。"
+  },
+  {
+    "clave": "biblioteca.nodo.len-semantica",
+    "texto": "语义学与语用学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-semantica",
+    "texto": "语境中的意义。"
+  },
+  {
+    "clave": "biblioteca.nodo.len-literatura",
+    "texto": "文学"
+  },
+  {
+    "clave": "biblioteca.nodo.len-generos",
+    "texto": "文学体裁"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-generos",
+    "texto": "小说、诗歌、戏剧与散文。"
+  },
+  {
+    "clave": "biblioteca.nodo.len-teoria-lit",
+    "texto": "文学理论"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-teoria-lit",
+    "texto": "批评、叙事学与经典。"
+  },
+  {
+    "clave": "biblioteca.nodo.len-mundo",
+    "texto": "世界文学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-mundo",
+    "texto": "地域传统与翻译。"
+  },
+  {
+    "clave": "biblioteca.nodo.len-comunicacion",
+    "texto": "传播学"
+  },
+  {
+    "clave": "biblioteca.nodo.len-periodismo",
+    "texto": "新闻学"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-periodismo",
+    "texto": "新闻、事实核查与评论。"
+  },
+  {
+    "clave": "biblioteca.nodo.len-retorica",
+    "texto": "修辞与论证"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-retorica",
+    "texto": "说服与公共辩论。"
+  },
+  {
+    "clave": "biblioteca.nodo.idiomas",
+    "texto": "语言学习"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idiomas",
+    "texto": "外语学习：词汇、语法、发音与练习。"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-aprendizaje",
+    "texto": "学习基础"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-vocabulario",
+    "texto": "词汇"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-vocabulario",
+    "texto": "常用词汇与短语的习得与复习。"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-gramatica",
+    "texto": "语法"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-gramatica",
+    "texto": "结构、时态与比较句法。"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-pronunciacion",
+    "texto": "发音与听力"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-pronunciacion",
+    "texto": "语音、口音与听力理解。"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-lenguas",
+    "texto": "世界语言"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-ingles",
+    "texto": "英语"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-ingles",
+    "texto": "全球通用语。"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-romances",
+    "texto": "罗曼语族"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-romances",
+    "texto": "法语、意大利语、葡萄牙语及其亲缘关系。"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-asiaticas",
+    "texto": "亚洲语言"
   }
 ]

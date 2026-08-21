@@ -1,38 +1,1010 @@
 [
   {
-    "clave": "tut.app-ejercicio--esencial.resumen",
-    "texto": "Sport brengt de drie vormen van lichaamsbeweging samen op één plek: Kracht (sets, herhalingen en gewicht), Conditie (hardlopen, fietsen of zwemmen, met live training via gps en hartslagmeter) en Flexibiliteit (mobiliteit op tijd, met begeleide speler). Alle drie zijn hetzelfde opgebouwd — catalogus, routines en voortgang — en het menu Doelen bepaalt hoeveel je elke week wilt trainen en vat je reeks en je voortgang samen."
+    "clave": "biblioteca.nodoDesc.idi-asiaticas",
+    "texto": "Japans, Chinees, Koreaans en hun schriftsystemen."
   },
   {
-    "clave": "tut.app-entretenimiento--esencial.resumen",
-    "texto": "Vermaak heeft twee menu's: Bordspellen, met een digitale catalogus gegroepeerd per familie en gefilterd op aantal spelers, en Archief, waar je de films, series, boeken en games bijhoudt die je uitspeelt, met hun status en jouw recensie."
+    "clave": "biblioteca.nodo.idi-practica",
+    "texto": "Praktijk en cultuur"
   },
   {
-    "clave": "tut.app-garage--esencial.resumen",
-    "texto": "De garage houdt het onderhoud van je voertuigen bij: een stoplicht vat samen wat urgent is, de voertuiglijst bewaart de servicegeschiedenis van elk voertuig, en elk dossier verzamelt zijn formaliteiten, documenten en contacten. Alles met een datum plant zichzelf in de huiskalender."
+    "clave": "biblioteca.nodo.idi-conversacion",
+    "texto": "Conversatie"
   },
   {
-    "clave": "tut.app-hobbies--esencial.resumen",
-    "texto": "Hobby's houdt je bezigheden bij: de lijst met de reeks en de wekelijkse voortgang van elke hobby, en het aanmaken van een nieuwe. Binnen elke hobby leven het sessieregister, de heatmap van het jaar en de bijbehorende projecten."
+    "clave": "biblioteca.nodoDesc.idi-conversacion",
+    "texto": "Vloeiendheid, uitdrukkingen en alledaagse situaties."
   },
   {
-    "clave": "tut.app-ideas--esencial.resumen",
-    "texto": "Ideeën bewaart wat er bij je opkomt in drie menu's: Dagboek (losse invallen of brainstorms per onderwerp), Conceptkaarten (een vrij canvas in meerdere vormen) en Beslisdiagrammen (dezelfde vormen, bedoeld om te vergelijken en te beslissen). Alles kan in mappen worden gearchiveerd en van het ene menu naar het andere worden omgezet."
+    "clave": "biblioteca.nodo.idi-lectura",
+    "texto": "Lezen en schrijven"
   },
   {
-    "clave": "tut.app-idiomas--esencial.resumen",
-    "texto": "Talen is jouw talenschool, in vier menu's. Chats opent een gesprek met een AI-tutor die op jouw niveau reageert; Leerplan ordent de taal in onderwerpen, uitspraak en grammatica van niveau A1 tot C2, en daar leeft ook de woordenschat als kaarten; Herhaling neemt het door met een gespreid systeem en oefeningen; Voortgang vat je vooruitgang samen."
+    "clave": "biblioteca.nodoDesc.idi-lectura",
+    "texto": "Teksten met oplopend niveau, opstel en spelling."
   },
   {
-    "clave": "tut.app-jardin--esencial.resumen",
-    "texto": "De tuin brengt meditatie (met geluidssporen), begeleide ademhaling en dagelijkse dankbaarheid samen, in drie menu's. Bewust zonder punten of reeksen: hier wordt een gemiste dag niet afgestraft, je oefent gewoon."
+    "clave": "biblioteca.nodo.idi-inmersion",
+    "texto": "Cultuur en onderdompeling"
   },
   {
-    "clave": "tut.app-metas--esencial.resumen",
-    "texto": "De planner van het hele huis, in drie menu's: Doelen (de lijst van wat je jezelf hebt voorgenomen, gegroepeerd per app die elk doel bijhoudt), Plannen (de planningsontwerpen die een doel in fasen verdelen) en Tijdlijn (de tijdas waar ze allemaal op vallen). Hij houdt zelf geen gegevens bij: hij verzamelt de doelen en plannen die in de andere apps ontstaan. Vanuit een doel open je het bijbehorende blad en, van daaruit, de tijdlijn die tot dat doel beperkt is."
+    "clave": "biblioteca.nodoDesc.idi-inmersion",
+    "texto": "Gewoonten, media en reizen om te leren."
   },
   {
-    "clave": "tut.app-sala--esencial.resumen",
-    "texto": "De woonkamer is jouw reiswereld, in vier menu's: Kaart (spelden van plekken op de wereldkaart, met globeweergave), Reisplan (plekken om te ontdekken met een dag-tot-dagplan), Routes (trajecten die plekken aan elkaar rijgen) en Logboek (herinneringen met foto's en verhalen per land)."
+    "clave": "biblioteca.nodo.artes",
+    "texto": "Kunst en expressie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.artes",
+    "texto": "Esthetische creatie, artistieke waarneming en visuele en auditieve cultuur."
+  },
+  {
+    "clave": "biblioteca.nodo.art-visuales",
+    "texto": "Beeldende kunst"
+  },
+  {
+    "clave": "biblioteca.nodo.art-pintura",
+    "texto": "Schilderen en tekenen"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-pintura",
+    "texto": "Technieken, compositie en kleur."
+  },
+  {
+    "clave": "biblioteca.nodo.art-escultura",
+    "texto": "Beeldhouwkunst en architectuur"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-escultura",
+    "texto": "Ruimte, vorm en ontwerp."
+  },
+  {
+    "clave": "biblioteca.nodo.art-fotografia",
+    "texto": "Fotografie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-fotografia",
+    "texto": "Licht, beeldopbouw en visueel verhaal."
+  },
+  {
+    "clave": "biblioteca.nodo.art-musica",
+    "texto": "Muziek"
+  },
+  {
+    "clave": "biblioteca.nodo.art-teoria-mus",
+    "texto": "Muziektheorie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-teoria-mus",
+    "texto": "Harmonie, ritme en notatie."
+  },
+  {
+    "clave": "biblioteca.nodo.art-historia-mus",
+    "texto": "Muziekgeschiedenis"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-historia-mus",
+    "texto": "Stijlen, tijdperken en componisten."
+  },
+  {
+    "clave": "biblioteca.nodo.art-escenicas",
+    "texto": "Podiumkunsten en film"
+  },
+  {
+    "clave": "biblioteca.nodo.art-teatro",
+    "texto": "Theater en performance"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-teatro",
+    "texto": "Dramaturgie, acteren en enscenering."
+  },
+  {
+    "clave": "biblioteca.nodo.art-cine",
+    "texto": "Film en audiovisuele media"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-cine",
+    "texto": "Scenario, montage en filmtaal."
+  },
+  {
+    "clave": "biblioteca.nodo.tecnologia",
+    "texto": "Technologie en techniek"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tecnologia",
+    "texto": "Kennis toepassen om problemen op te lossen en de wereld te veranderen."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-informatica",
+    "texto": "Informatica"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-algoritmos",
+    "texto": "Algoritmen en datastructuren"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-algoritmos",
+    "texto": "Efficiëntie, data en ontwerp."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ia",
+    "texto": "Kunstmatige intelligentie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-ia",
+    "texto": "Machine learning en AI-ethiek."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-redes",
+    "texto": "Netwerken en systemen"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-redes",
+    "texto": "Internet, beveiliging en distributie."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ingenieria",
+    "texto": "Techniek"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-mecanica",
+    "texto": "Werktuigbouwkunde"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-mecanica",
+    "texto": "Machines, materialen en productie."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-electrica",
+    "texto": "Elektrotechniek"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-electrica",
+    "texto": "Schakelingen, energie en elektronica."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-civil",
+    "texto": "Civiele techniek"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-civil",
+    "texto": "Infrastructuur, waterbouw en constructies."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-energia",
+    "texto": "Energie en duurzaamheid"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-renovables",
+    "texto": "Hernieuwbare energie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-renovables",
+    "texto": "Zonne-, wind- en waterstofenergie."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ambiental",
+    "texto": "Milieutechniek"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-ambiental",
+    "texto": "Afval, water en ecologische voetafdruk."
+  },
+  {
+    "clave": "biblioteca.nodo.salud",
+    "texto": "Gezondheid en geneeskunde"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.salud",
+    "texto": "Het menselijk lichaam, ziekte, preventie en zorgsystemen."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-anatomia",
+    "texto": "Anatomie en fysiologie"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-cuerpo",
+    "texto": "Lichaamssystemen"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-cuerpo",
+    "texto": "Organen, homeostase en samenspel."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-neuro",
+    "texto": "Medische neurowetenschap"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-neuro",
+    "texto": "Brein, zintuigen en beweging."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-clinica",
+    "texto": "Klinische geneeskunde"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-patologia",
+    "texto": "Pathologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-patologia",
+    "texto": "Ziekte, diagnose en oorzaken."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-farmacologia",
+    "texto": "Farmacologie"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-farmacologia",
+    "texto": "Medicijnen, dosering en effecten."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-salud-pub",
+    "texto": "Volksgezondheid"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-salud-pub",
+    "texto": "Epidemiologie, vaccins en beleid."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-bienestar",
+    "texto": "Welzijn en voeding"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-nutricion",
+    "texto": "Klinische voeding"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-nutricion",
+    "texto": "Diëten, stofwisseling en micronutriënten."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-prevencion",
+    "texto": "Preventieve geneeskunde"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-prevencion",
+    "texto": "Gewoontes, screening en levensduur."
+  },
+  {
+    "clave": "ejercicio.ej.press-banca",
+    "texto": "Bankdrukken"
+  },
+  {
+    "clave": "ejercicio.ej.press-inclinado",
+    "texto": "Schuine bankdrukken"
+  },
+  {
+    "clave": "ejercicio.ej.press-con-mancuernas",
+    "texto": "Bankdrukken met dumbbells"
+  },
+  {
+    "clave": "ejercicio.ej.aperturas-con-mancuernas",
+    "texto": "Dumbbell flyes"
+  },
+  {
+    "clave": "ejercicio.ej.cruce-en-polea",
+    "texto": "Kabel crossover"
+  },
+  {
+    "clave": "ejercicio.ej.fondos-en-paralelas",
+    "texto": "Dips"
+  },
+  {
+    "clave": "ejercicio.ej.flexiones",
+    "texto": "Opdrukken"
+  },
+  {
+    "clave": "ejercicio.ej.dominadas",
+    "texto": "Optrekken"
+  },
+  {
+    "clave": "ejercicio.ej.jalon-al-pecho",
+    "texto": "Lat pulldown"
+  },
+  {
+    "clave": "ejercicio.ej.remo-con-barra",
+    "texto": "Barbell roeien"
+  },
+  {
+    "clave": "ejercicio.ej.remo-con-mancuerna",
+    "texto": "Dumbbell roeien"
+  },
+  {
+    "clave": "ejercicio.ej.remo-en-polea-baja",
+    "texto": "Kabelroeien"
+  },
+  {
+    "clave": "ejercicio.ej.pull-over",
+    "texto": "Pullover"
+  },
+  {
+    "clave": "ejercicio.ej.face-pull",
+    "texto": "Face pull"
+  },
+  {
+    "clave": "ejercicio.ej.hiperextensiones",
+    "texto": "Rugstrekker"
+  },
+  {
+    "clave": "ejercicio.ej.press-militar",
+    "texto": "Schouderdrukken"
+  },
+  {
+    "clave": "ejercicio.ej.press-arnold",
+    "texto": "Arnold press"
+  },
+  {
+    "clave": "ejercicio.ej.elevaciones-laterales",
+    "texto": "Zijheffingen"
+  },
+  {
+    "clave": "ejercicio.ej.elevaciones-frontales",
+    "texto": "Frontheffingen"
+  },
+  {
+    "clave": "ejercicio.ej.pajaros",
+    "texto": "Reverse flyes"
+  },
+  {
+    "clave": "ejercicio.ej.encogimientos",
+    "texto": "Shrugs"
+  },
+  {
+    "clave": "ejercicio.ej.curl-con-barra",
+    "texto": "Barbell curl"
+  },
+  {
+    "clave": "ejercicio.ej.curl-con-mancuernas",
+    "texto": "Dumbbell curl"
+  },
+  {
+    "clave": "ejercicio.ej.curl-martillo",
+    "texto": "Hamercurl"
+  },
+  {
+    "clave": "ejercicio.ej.curl-predicador",
+    "texto": "Scottcurl"
+  },
+  {
+    "clave": "ejercicio.ej.curl-concentrado",
+    "texto": "Concentratiecurl"
+  },
+  {
+    "clave": "ejercicio.ej.extension-triceps-en-polea",
+    "texto": "Tricepsdrukken"
+  },
+  {
+    "clave": "ejercicio.ej.press-frances",
+    "texto": "Skullcrusher"
+  },
+  {
+    "clave": "ejercicio.ej.fondos-entre-bancos",
+    "texto": "Bankdips"
+  },
+  {
+    "clave": "ejercicio.ej.extension-sobre-cabeza",
+    "texto": "Overhead tricepsstrekking"
+  },
+  {
+    "clave": "ejercicio.ej.patada-de-triceps",
+    "texto": "Triceps kickback"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla",
+    "texto": "Squat"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-frontal",
+    "texto": "Front squat"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-bulgara",
+    "texto": "Bulgaarse split squat"
+  },
+  {
+    "clave": "ejercicio.ej.prensa-de-pierna",
+    "texto": "Beenpers"
+  },
+  {
+    "clave": "ejercicio.ej.zancadas",
+    "texto": "Uitvalspas"
+  },
+  {
+    "clave": "ejercicio.ej.peso-muerto",
+    "texto": "Deadlift"
+  },
+  {
+    "clave": "ejercicio.ej.peso-muerto-rumano",
+    "texto": "Roemeense deadlift"
+  },
+  {
+    "clave": "ejercicio.ej.curl-femoral",
+    "texto": "Beenbuiger"
+  },
+  {
+    "clave": "ejercicio.ej.extension-de-cuadriceps",
+    "texto": "Beenstrekker"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-talones",
+    "texto": "Kuitheffen"
+  },
+  {
+    "clave": "ejercicio.ej.hip-thrust",
+    "texto": "Hip thrust"
+  },
+  {
+    "clave": "ejercicio.ej.puente-de-gluteo",
+    "texto": "Bilbrug"
+  },
+  {
+    "clave": "ejercicio.ej.patada-de-gluteo-en-polea",
+    "texto": "Kabel bil-kickback"
+  },
+  {
+    "clave": "ejercicio.ej.abduccion-de-cadera",
+    "texto": "Heupabductie"
+  },
+  {
+    "clave": "ejercicio.ej.plancha",
+    "texto": "Plank"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-lateral",
+    "texto": "Zijplank"
+  },
+  {
+    "clave": "ejercicio.ej.crunch-abdominal",
+    "texto": "Crunches"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-piernas",
+    "texto": "Beenheffen"
+  },
+  {
+    "clave": "ejercicio.ej.russian-twist",
+    "texto": "Russian twist"
+  },
+  {
+    "clave": "ejercicio.ej.rueda-abdominal",
+    "texto": "Ab wheel rollout"
+  },
+  {
+    "clave": "ejercicio.ej.escaladores",
+    "texto": "Mountain climbers"
+  },
+  {
+    "clave": "ejercicio.ej.carrera",
+    "texto": "Hardlopen"
+  },
+  {
+    "clave": "ejercicio.ej.trote-suave",
+    "texto": "Rustig joggen"
+  },
+  {
+    "clave": "ejercicio.ej.caminata-rapida",
+    "texto": "Stevig wandelen"
+  },
+  {
+    "clave": "ejercicio.ej.ciclismo",
+    "texto": "Fietsen"
+  },
+  {
+    "clave": "ejercicio.ej.senderismo",
+    "texto": "Hiken"
+  },
+  {
+    "clave": "ejercicio.ej.trail-running",
+    "texto": "Trailrunning"
+  },
+  {
+    "clave": "ejercicio.ej.caminadora",
+    "texto": "Loopband"
+  },
+  {
+    "clave": "ejercicio.ej.caminata-inclinada",
+    "texto": "Hellingwandelen"
+  },
+  {
+    "clave": "ejercicio.ej.eliptica",
+    "texto": "Crosstrainer"
+  },
+  {
+    "clave": "ejercicio.ej.bicicleta-estatica",
+    "texto": "Hometrainer"
+  },
+  {
+    "clave": "ejercicio.ej.escaladora",
+    "texto": "Stepper"
+  },
+  {
+    "clave": "ejercicio.ej.remo-maquina",
+    "texto": "Roeimachine"
+  },
+  {
+    "clave": "ejercicio.ej.hiit",
+    "texto": "HIIT"
+  },
+  {
+    "clave": "ejercicio.ej.sprints",
+    "texto": "Sprints"
+  },
+  {
+    "clave": "ejercicio.ej.saltar-cuerda",
+    "texto": "Touwtjespringen"
+  },
+  {
+    "clave": "ejercicio.ej.burpees",
+    "texto": "Burpees"
+  },
+  {
+    "clave": "ejercicio.ej.circuito-metabolico",
+    "texto": "Metabool circuit"
+  },
+  {
+    "clave": "ejercicio.ej.natacion",
+    "texto": "Zwemmen"
+  },
+  {
+    "clave": "ejercicio.ej.aqua-aerobicos",
+    "texto": "Aquagym"
+  },
+  {
+    "clave": "ejercicio.ej.caminata",
+    "texto": "Wandelen"
+  },
+  {
+    "clave": "ejercicio.ej.futbol",
+    "texto": "Voetbal"
+  },
+  {
+    "clave": "ejercicio.ej.basquetbol",
+    "texto": "Basketbal"
+  },
+  {
+    "clave": "ejercicio.ej.tenis",
+    "texto": "Tennis"
+  },
+  {
+    "clave": "ejercicio.ej.padel",
+    "texto": "Padel"
+  },
+  {
+    "clave": "ejercicio.ej.boxeo",
+    "texto": "Boksen"
+  },
+  {
+    "clave": "ejercicio.ej.baile",
+    "texto": "Dansen"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-matutina",
+    "texto": "Ochtendmobiliteit"
+  },
+  {
+    "clave": "ejercicio.ej.yoga-flow",
+    "texto": "Yoga flow"
+  },
+  {
+    "clave": "ejercicio.ej.saludo-al-sol",
+    "texto": "Zonnegroet"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-general",
+    "texto": "Algemene stretch"
+  },
+  {
+    "clave": "ejercicio.ej.guerrero-i",
+    "texto": "Krijger I"
+  },
+  {
+    "clave": "ejercicio.ej.guerrero-ii",
+    "texto": "Krijger II"
+  },
+  {
+    "clave": "ejercicio.ej.triangulo",
+    "texto": "Driehoek"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-de-pie",
+    "texto": "Staande voorwaartse buiging"
+  },
+  {
+    "clave": "ejercicio.ej.apertura-de-cadera",
+    "texto": "Heupopener"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-paloma",
+    "texto": "Duif"
+  },
+  {
+    "clave": "ejercicio.ej.mariposa",
+    "texto": "Vlinder"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-isquiotibiales",
+    "texto": "Hamstringstretch"
+  },
+  {
+    "clave": "ejercicio.ej.zancada-baja",
+    "texto": "Lage uitvalspas"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-guirnalda",
+    "texto": "Guirlande"
+  },
+  {
+    "clave": "ejercicio.ej.figura-4",
+    "texto": "Figuur 4"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-aductores",
+    "texto": "Adductorenstretch"
+  },
+  {
+    "clave": "ejercicio.ej.rana",
+    "texto": "Kikker"
+  },
+  {
+    "clave": "ejercicio.ej.perro-boca-abajo",
+    "texto": "Neerwaartse hond"
+  },
+  {
+    "clave": "ejercicio.ej.torsion-espinal",
+    "texto": "Rugdraai"
+  },
+  {
+    "clave": "ejercicio.ej.postura-del-nino",
+    "texto": "Kindhouding"
+  },
+  {
+    "clave": "ejercicio.ej.apertura-de-pecho",
+    "texto": "Borstopener"
+  },
+  {
+    "clave": "ejercicio.ej.esfinge",
+    "texto": "Sfinx"
+  },
+  {
+    "clave": "ejercicio.ej.hilo-y-aguja",
+    "texto": "Naald en draad"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-dorsales",
+    "texto": "Latstretch"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-cervical",
+    "texto": "Nekmobiliteit"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-de-columna",
+    "texto": "Wervelkolomrotaties"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-cobra",
+    "texto": "Cobra"
+  },
+  {
+    "clave": "ejercicio.ej.inclinacion-lateral-de-cuello",
+    "texto": "Zijwaartse nekbuiging"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-cuadriceps",
+    "texto": "Quadricepsstretch"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-gemelos",
+    "texto": "Kuitstretch"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-hombros",
+    "texto": "Schouderstretch"
+  },
+  {
+    "clave": "ejercicio.ej.foam-roller",
+    "texto": "Foam rolling"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-triceps",
+    "texto": "Tricepsstretch"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores-de-cadera",
+    "texto": "Heupbuigerstretch"
+  },
+  {
+    "clave": "ejercicio.ej.piernas-en-la-pared",
+    "texto": "Benen tegen de muur"
+  },
+  {
+    "clave": "ejercicio.ej.savasana",
+    "texto": "Savasana"
+  },
+  {
+    "clave": "ejercicio.ej.postura-del-nino-apoyada",
+    "texto": "Ondersteunde kindhouding"
+  },
+  {
+    "clave": "ejercicio.ej.respiracion-profunda",
+    "texto": "Diep ademhalen"
+  },
+  {
+    "clave": "ejercicio.ej.mariposa-reclinada",
+    "texto": "Liggende vlinder"
+  },
+  {
+    "clave": "ejercicio.ej.torsion-reclinada",
+    "texto": "Liggende draai"
+  },
+  {
+    "clave": "ejercicio.ej.liberacion-miofascial-con-pelota",
+    "texto": "Myofasciale release met bal"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-tobillo",
+    "texto": "Enkelcirkels"
+  },
+  {
+    "clave": "ejercicio.ej.recogida-de-toalla-con-dedos",
+    "texto": "Handdoek grijpen met tenen"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-dorsiflexion",
+    "texto": "Dorsiflexiestretch"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-talones-unipodal",
+    "texto": "Eenbenig kuitheffen"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-y-extension-en-descarga",
+    "texto": "Onbelaste buiging en strekking"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "Dynamische hamstringstretch"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-isometrica-wall-squat",
+    "texto": "Muurzit"
+  },
+  {
+    "clave": "ejercicio.ej.equilibrio-unipodal-single-leg-balance",
+    "texto": "Eenbenig evenwicht"
+  },
+  {
+    "clave": "ejercicio.ej.sentadillas-del-arquero",
+    "texto": "Boogschutter squats"
+  },
+  {
+    "clave": "ejercicio.ej.estocadas-lunges",
+    "texto": "Uitvalspas"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-90-90",
+    "texto": "90/90-mobiliteit"
+  },
+  {
+    "clave": "ejercicio.ej.el-puente-glute-bridge",
+    "texto": "Bilbrug"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores-en-estocada",
+    "texto": "Heupbuigerstretch in uitvalspas"
+  },
+  {
+    "clave": "ejercicio.ej.abduccion-lateral-de-cadera",
+    "texto": "Zijwaartse heupabductie"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-profunda-con-apertura",
+    "texto": "Diepe squat met knieopening"
+  },
+  {
+    "clave": "ejercicio.ej.balanceo-dinamico-de-piernas",
+    "texto": "Dynamisch beenzwaaien"
+  },
+  {
+    "clave": "ejercicio.ej.postura-gato-vaca",
+    "texto": "Kat-koe"
+  },
+  {
+    "clave": "ejercicio.ej.torsiones-lumbares-suaves",
+    "texto": "Zachte lumbale draaien"
+  },
+  {
+    "clave": "ejercicio.ej.pointer-bird-dog",
+    "texto": "Bird dog"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-frontal-isometricos",
+    "texto": "Isometrische frontplank"
+  },
+  {
+    "clave": "ejercicio.ej.roll-down-curl-jefferson",
+    "texto": "Roll down (Jefferson curl)"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-lumbar-boca-abajo",
+    "texto": "Onderrugstretch (buikligging)"
+  },
+  {
+    "clave": "ejercicio.ej.rotacion-toracica",
+    "texto": "Thoracale rotatie"
+  },
+  {
+    "clave": "ejercicio.ej.retraccion-escapular",
+    "texto": "Scapulaire retractie"
+  },
+  {
+    "clave": "ejercicio.ej.angeles-de-pared-wall-angels",
+    "texto": "Wall angels"
+  },
+  {
+    "clave": "ejercicio.ej.lunge-con-apertura-de-pectoral",
+    "texto": "Lunge met borstopener"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-dorsal-en-pared",
+    "texto": "Latstretch tegen de muur"
+  },
+  {
+    "clave": "ejercicio.ej.el-gato-y-la-mesa",
+    "texto": "Kat en tafel"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-hombros",
+    "texto": "Schoudercirkels"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-pecho-pectoral",
+    "texto": "Borststretch"
+  },
+  {
+    "clave": "ejercicio.ej.dislocaciones-con-goma-o-palo",
+    "texto": "Schouderdislocaties"
+  },
+  {
+    "clave": "ejercicio.ej.rotacion-externa-con-banda",
+    "texto": "Buitenwaartse rotatie met band"
+  },
+  {
+    "clave": "ejercicio.ej.thread-the-needle-enhebrar-aguja",
+    "texto": "Naald en draad"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-y-medios-circulos",
+    "texto": "Rotaties en halve cirkels"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-trapecio-superior",
+    "texto": "Bovenste trapeziusstretch"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-cervicales-con-nodding",
+    "texto": "Nekrotaties met knikken"
+  },
+  {
+    "clave": "ejercicio.ej.retracciones-de-barbilla-chin-tucks",
+    "texto": "Chin tucks"
+  },
+  {
+    "clave": "ejercicio.ej.isometricos-cervicales",
+    "texto": "Nekisometrie"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-y-extension-de-muneca",
+    "texto": "Pols buigen en strekken"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-munecas",
+    "texto": "Polscirkels"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores",
+    "texto": "Onderarmbuigerstretch"
+  },
+  {
+    "clave": "ejercicio.ej.agarre-activo-y-pasivo",
+    "texto": "Actieve en passieve grip"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-de-munecas",
+    "texto": "Polsplank"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-banca",
+    "texto": "Ga op de bank liggen, laat de stang naar je borst zakken en druk hem omhoog tot je ellebogen gestrekt zijn."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-inclinado",
+    "texto": "Druk op de schuine bank de stang of de dumbbells omhoog om de bovenborst te benadrukken."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-con-mancuernas",
+    "texto": "Druk liggend twee dumbbells omhoog met een groter bewegingsbereik dan met een barbell."
+  },
+  {
+    "clave": "ejercicio.ejDesc.aperturas-con-mancuernas",
+    "texto": "Open liggend je armen in een boog en breng ze met licht gebogen ellebogen weer samen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.cruce-en-polea",
+    "texto": "Sta tussen de hoge kabels en breng je handen voor je lichaam samen terwijl je je borst aanspant."
+  },
+  {
+    "clave": "ejercicio.ejDesc.fondos-en-paralelas",
+    "texto": "Hang aan de brug, laat jezelf met voorovergebogen romp zakken door je ellebogen te buigen en druk jezelf weer omhoog."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexiones",
+    "texto": "Laat je in buiklig met een recht lichaam naar de grond zakken en druk jezelf weer omhoog."
+  },
+  {
+    "clave": "ejercicio.ejDesc.dominadas",
+    "texto": "Trek jezelf hangend aan de stang omhoog tot je kin boven de stang uitkomt."
+  },
+  {
+    "clave": "ejercicio.ejDesc.jalon-al-pecho",
+    "texto": "Trek zittend aan de hoge kabel de stang naar je borst door je ellebogen naar beneden te duwen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-con-barra",
+    "texto": "Trek voorovergebogen met een rechte rug de stang naar je buik en span daarbij je rug aan."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-con-mancuerna",
+    "texto": "Steun op de bank en trek een dumbbell zijwaarts naar je toe zonder je romp te draaien."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-en-polea-baja",
+    "texto": "Trek zittend het handvat naar je buik terwijl je je rug rechtop houdt."
+  },
+  {
+    "clave": "ejercicio.ejDesc.pull-over",
+    "texto": "Laat liggend een dumbbell achter je hoofd zakken en breng hem weer terug over je borst."
+  },
+  {
+    "clave": "ejercicio.ejDesc.face-pull",
+    "texto": "Trek bij een kabel op hoofdhoogte het touw naar je voorhoofd en spreid daarbij je ellebogen naar buiten."
+  },
+  {
+    "clave": "ejercicio.ejDesc.hiperextensiones",
+    "texto": "Laat op de bank je romp zakken en breng hem weer omhoog om je onderrug te strekken."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-militar",
+    "texto": "Druk staand de stang vanaf je schouders boven je hoofd."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-arnold",
+    "texto": "Druk zittend de dumbbells boven je hoofd en draai je handpalmen daarbij van binnenwaarts naar buitenwaarts."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevaciones-laterales",
+    "texto": "Hef staand de dumbbells zijwaarts tot schouderhoogte."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevaciones-frontales",
+    "texto": "Hef staand de dumbbell voor je tot ooghoogte."
+  },
+  {
+    "clave": "ejercicio.ejDesc.pajaros",
+    "texto": "Open voorovergebogen je armen zijwaarts om je achterste schouder te trainen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.encogimientos",
+    "texto": "Hef staand met gewicht je schouders naar je oren en laat ze gecontroleerd weer zakken."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-con-barra",
+    "texto": "Buig staand je ellebogen om de stang omhoog te curlen zonder met je romp te zwaaien."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-con-mancuernas",
+    "texto": "Curl staand of zittend de dumbbells omhoog door je ellebogen te buigen, afwisselend of tegelijk."
   }
 ]

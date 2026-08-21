@@ -1,0 +1,338 @@
+[
+  {
+    "clave": "ejercicio.ejDesc.curl-martillo",
+    "texto": "Com pegada neutra (palmas voltadas uma para a outra), levante os halteres para trabalhar o antebraço."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-predicador",
+    "texto": "Com o braço apoiado no banco, flexione o cotovelo para isolar o bíceps."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-concentrado",
+    "texto": "Sentado, apoie o cotovelo na coxa e levante o halter, concentrando-se na contração."
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-triceps-en-polea",
+    "texto": "Em pé na polia alta, empurre a barra para baixo estendendo os cotovelos."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-frances",
+    "texto": "Deitado, desça a barra em direção à testa e estenda os cotovelos sem movê-los do lugar."
+  },
+  {
+    "clave": "ejercicio.ejDesc.fondos-entre-bancos",
+    "texto": "Com as mãos apoiadas no banco, desça o corpo flexionando os cotovelos e depois empurre para cima."
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-sobre-cabeza",
+    "texto": "Eleve um halter atrás da cabeça e estenda os cotovelos para cima."
+  },
+  {
+    "clave": "ejercicio.ejDesc.patada-de-triceps",
+    "texto": "Curvado com o cotovelo elevado, estenda o antebraço para trás."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla",
+    "texto": "Com a barra nas costas, desça o quadril até as coxas ficarem paralelas ao chão e volte a subir."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-frontal",
+    "texto": "Com a barra à frente, agache mantendo o tronco ereto."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-bulgara",
+    "texto": "Com um pé elevado atrás do corpo, desça a perna da frente até 90 graus."
+  },
+  {
+    "clave": "ejercicio.ejDesc.prensa-de-pierna",
+    "texto": "No aparelho, empurre a plataforma estendendo as pernas sem travar os joelhos."
+  },
+  {
+    "clave": "ejercicio.ejDesc.zancadas",
+    "texto": "Dê um passo à frente e desça o joelho de trás quase até o chão, alternando os lados."
+  },
+  {
+    "clave": "ejercicio.ejDesc.peso-muerto",
+    "texto": "Com as costas retas, levante a barra do chão estendendo o quadril e os joelhos."
+  },
+  {
+    "clave": "ejercicio.ejDesc.peso-muerto-rumano",
+    "texto": "Desça a barra rente às pernas dobrando o quadril, com os joelhos quase estendidos."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-femoral",
+    "texto": "No aparelho, flexione os joelhos levando os calcanhares em direção aos glúteos."
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-de-cuadriceps",
+    "texto": "Sentado no aparelho, estenda os joelhos levantando o peso com controle."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-talones",
+    "texto": "Em pé com peso, eleve os calcanhares contraindo as panturrilhas."
+  },
+  {
+    "clave": "ejercicio.ejDesc.hip-thrust",
+    "texto": "Com a parte superior das costas apoiada no banco, empurre o quadril para cima contraindo os glúteos."
+  },
+  {
+    "clave": "ejercicio.ejDesc.puente-de-gluteo",
+    "texto": "Deitado, eleve o quadril até alinhar ombros, quadril e joelhos."
+  },
+  {
+    "clave": "ejercicio.ejDesc.patada-de-gluteo-en-polea",
+    "texto": "De quatro apoios ou em pé, chute a perna para trás contraindo o glúteo."
+  },
+  {
+    "clave": "ejercicio.ejDesc.abduccion-de-cadera",
+    "texto": "Sentado ou deitado de lado, abra as pernas contra a resistência."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha",
+    "texto": "Apoiado nos antebraços, mantenha o corpo reto sem deixar o quadril cair."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-lateral",
+    "texto": "De lado, apoiado em um antebraço, mantenha o quadril elevado e alinhado."
+  },
+  {
+    "clave": "ejercicio.ejDesc.crunch-abdominal",
+    "texto": "Deitado, eleve os ombros contraindo o abdômen sem puxar o pescoço."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-piernas",
+    "texto": "Deitado ou pendurado, eleve as pernas retas controlando a descida."
+  },
+  {
+    "clave": "ejercicio.ejDesc.russian-twist",
+    "texto": "Sentado com o tronco inclinado para trás, gire o tronco de um lado para o outro."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rueda-abdominal",
+    "texto": "Ajoelhado, role para a frente sem arquear as costas e depois volte."
+  },
+  {
+    "clave": "ejercicio.ejDesc.escaladores",
+    "texto": "Em posição de prancha, leve os joelhos ao peito rapidamente, alternando as pernas."
+  },
+  {
+    "clave": "ejercicio.ejDesc.carrera",
+    "texto": "Mantenha um ritmo constante na zona 2-3, com pisada leve e postura ereta."
+  },
+  {
+    "clave": "ejercicio.ejDesc.trote-suave",
+    "texto": "Mantenha um ritmo confortável em que dá para conversar; ideal para corridas longas."
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata-rapida",
+    "texto": "Caminhe em ritmo acelerado balançando os braços ativamente, sem chegar a trotar."
+  },
+  {
+    "clave": "ejercicio.ejDesc.ciclismo",
+    "texto": "Pedale com cadência alta e resistência moderada, mantendo as costas relaxadas."
+  },
+  {
+    "clave": "ejercicio.ejDesc.senderismo",
+    "texto": "Caminhe em terreno natural com variação de altitude; deixe a subida ditar o ritmo."
+  },
+  {
+    "clave": "ejercicio.ejDesc.trail-running",
+    "texto": "Corra em terreno de montanha ou irregular; encurte a passada nas subidas."
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminadora",
+    "texto": "Caminhe ou corra na esteira sem se segurar nas barras."
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata-inclinada",
+    "texto": "Na esteira inclinada em ritmo moderado: queima constante e baixo impacto."
+  },
+  {
+    "clave": "ejercicio.ejDesc.eliptica",
+    "texto": "Faça um movimento fluido, empurrando também com os braços, sem impacto nos joelhos."
+  },
+  {
+    "clave": "ejercicio.ejDesc.bicicleta-estatica",
+    "texto": "Ajuste o banco na altura do quadril e pedale em cadência constante."
+  },
+  {
+    "clave": "ejercicio.ejDesc.escaladora",
+    "texto": "Suba os degraus em ritmo constante, apoiando o pé por completo."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-maquina",
+    "texto": "Empurre com as pernas, depois puxe com as costas e finalize com os braços."
+  },
+  {
+    "clave": "ejercicio.ejDesc.hiit",
+    "texto": "Faça intervalos curtos em esforço máximo alternados com pausas breves."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sprints",
+    "texto": "Faça séries em velocidade máxima com recuperação completa entre elas."
+  },
+  {
+    "clave": "ejercicio.ejDesc.saltar-cuerda",
+    "texto": "Dê saltos baixos, girando a corda com os pulsos, não com os braços."
+  },
+  {
+    "clave": "ejercicio.ejDesc.burpees",
+    "texto": "Da posição em pé para a prancha, faça uma flexão, traga os pés de volta com um salto e salte para cima com os braços acima da cabeça."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circuito-metabolico",
+    "texto": "Encadeie vários exercícios sem descanso para manter a frequência cardíaca alta."
+  },
+  {
+    "clave": "ejercicio.ejDesc.natacion",
+    "texto": "Nade em ritmo constante, coordenando a respiração com a braçada."
+  },
+  {
+    "clave": "ejercicio.ejDesc.aqua-aerobicos",
+    "texto": "Exercite-se na água: a resistência trabalha os músculos sem sobrecarregar as articulações."
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata",
+    "texto": "Mantenha um ritmo calmo e contínuo; é a base do seu volume aeróbico."
+  },
+  {
+    "clave": "ejercicio.ejDesc.futbol",
+    "texto": "Corra de forma intermitente, com mudanças de ritmo e direção."
+  },
+  {
+    "clave": "ejercicio.ejDesc.basquetbol",
+    "texto": "Faça sprints curtos, saltos e movimentação lateral constante."
+  },
+  {
+    "clave": "ejercicio.ejDesc.tenis",
+    "texto": "Faça arrancadas explosivas com pausas; grande exigência para as pernas."
+  },
+  {
+    "clave": "ejercicio.ejDesc.padel",
+    "texto": "Jogue pontos curtos e intensos em uma quadra pequena, com muitas mudanças de direção."
+  },
+  {
+    "clave": "ejercicio.ejDesc.boxeo",
+    "texto": "Encadeie combinações e jogo de pernas mantendo a guarda alta."
+  },
+  {
+    "clave": "ejercicio.ejDesc.baile",
+    "texto": "Mova-se continuamente no ritmo da música; um cardio que não parece treino."
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-matutina",
+    "texto": "Faça uma sequência suave para despertar o corpo e soltar as articulações logo pela manhã."
+  },
+  {
+    "clave": "ejercicio.ejDesc.yoga-flow",
+    "texto": "Conecte as posturas com a respiração em um fluxo contínuo para o corpo todo."
+  },
+  {
+    "clave": "ejercicio.ejDesc.saludo-al-sol",
+    "texto": "Execute essa sequência clássica de ioga que alonga e ativa o corpo todo."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-general",
+    "texto": "Trabalhe os principais grupos musculares com alongamentos suaves e sustentados."
+  },
+  {
+    "clave": "ejercicio.ejDesc.guerrero-i",
+    "texto": "Em um avanço, eleve os braços e abra o peito mantendo o quadril à frente."
+  },
+  {
+    "clave": "ejercicio.ejDesc.guerrero-ii",
+    "texto": "Em um avanço amplo, estenda os braços e olhe para a frente enquanto flexiona o joelho dianteiro."
+  },
+  {
+    "clave": "ejercicio.ejDesc.triangulo",
+    "texto": "Com as pernas afastadas, incline o tronco e desça uma mão em direção ao tornozelo."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-de-pie",
+    "texto": "Em pé, dobre o tronco sobre as pernas, relaxando o pescoço e as costas."
+  },
+  {
+    "clave": "ejercicio.ejDesc.apertura-de-cadera",
+    "texto": "Trabalhe a mobilidade para soltar o quadril e ganhar amplitude de movimento nas pernas."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-paloma",
+    "texto": "Com uma perna dobrada à frente, desça o tronco para abrir o glúteo."
+  },
+  {
+    "clave": "ejercicio.ejDesc.mariposa",
+    "texto": "Sentado, junte as solas dos pés e deixe os joelhos caírem para os lados."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-isquiotibiales",
+    "texto": "Alongue a parte posterior da coxa com o joelho estendido."
+  },
+  {
+    "clave": "ejercicio.ejDesc.zancada-baja",
+    "texto": "Com um joelho no chão, empurre o quadril para a frente para alongar o flexor."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-guirnalda",
+    "texto": "Em um agachamento profundo, empurre os joelhos para abrir com os cotovelos para soltar o quadril."
+  },
+  {
+    "clave": "ejercicio.ejDesc.figura-4",
+    "texto": "Cruze o tornozelo sobre o joelho oposto e puxe a coxa para alongar o glúteo."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-aductores",
+    "texto": "Abra as pernas e desça o tronco para alongar a parte interna da coxa."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rana",
+    "texto": "De quatro apoios com os joelhos bem afastados, balance o quadril para trás."
+  },
+  {
+    "clave": "ejercicio.ejDesc.perro-boca-abajo",
+    "texto": "Em formato de V invertido, empurre o quadril para cima, alongando as costas e as pernas."
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsion-espinal",
+    "texto": "Sentado ou deitado, gire o tronco suavemente para mobilizar a coluna."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-del-nino",
+    "texto": "Sentado sobre os calcanhares, estenda os braços à frente, relaxando as costas."
+  },
+  {
+    "clave": "ejercicio.ejDesc.apertura-de-pecho",
+    "texto": "Leve os braços para trás para abrir o peito e corrigir a postura curvada."
+  },
+  {
+    "clave": "ejercicio.ejDesc.esfinge",
+    "texto": "De bruços, apoiado nos antebraços, eleve o peito estendendo a lombar."
+  },
+  {
+    "clave": "ejercicio.ejDesc.hilo-y-aguja",
+    "texto": "De quatro apoios, passe um braço por baixo do corpo para alongar o ombro."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-dorsales",
+    "texto": "Alongue as laterais elevando os braços para cima e levemente para o lado."
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-cervical",
+    "texto": "Faça movimentos lentos com o pescoço em todas as direções para liberar a tensão."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-de-columna",
+    "texto": "Gire a coluna suavemente, vértebra por vértebra, para mobilizá-la."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-cobra",
+    "texto": "De bruços, eleve o peito com as mãos, estendendo as costas."
+  },
+  {
+    "clave": "ejercicio.ejDesc.inclinacion-lateral-de-cuello",
+    "texto": "Leve a orelha em direção ao ombro para alongar a lateral do pescoço."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-cuadriceps",
+    "texto": "Em pé, leve o calcanhar em direção ao glúteo, segurando o pé para alongar a coxa."
+  }
+]

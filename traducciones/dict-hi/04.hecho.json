@@ -1,670 +1,498 @@
 [
- {
-  "clave": "plantillaCustom.borrarBloqueMsj",
-  "texto": "टूल उसमें सेव किए गए सभी डेटा के साथ मिट जाएगा।"
- },
- {
-  "clave": "plantillaCustom.borrarBloqueAhora",
-  "texto": "टूल और उसका डेटा हटाएं"
- },
- {
-  "clave": "plantillaCustom.meta",
-  "texto": "लक्ष्य (वैकल्पिक)"
- },
- {
-  "clave": "plantillaCustom.guardar",
-  "texto": "सहेजें"
- },
- {
-  "clave": "plantillaCustom.cancelar",
-  "texto": "रद्द करें"
- },
- {
-  "clave": "plantillaCustom.tipo.notas",
-  "texto": "नोट्स"
- },
- {
-  "clave": "plantillaCustom.tipo.checklist",
-  "texto": "चेकलिस्ट"
- },
- {
-  "clave": "plantillaCustom.tipo.contador",
-  "texto": "काउंटर"
- },
- {
-  "clave": "plantillaCustom.tipo.enlaces",
-  "texto": "लिंक"
- },
- {
-  "clave": "plantillaCustom.tipo.lista",
-  "texto": "सूची"
- },
- {
-  "clave": "plantillaCustom.tipo.valoracion",
-  "texto": "रेटिंग"
- },
- {
-  "clave": "plantillaCustom.tipo.bitacora",
-  "texto": "डायरी"
- },
- {
-  "clave": "plantillaCustom.tipo.progreso",
-  "texto": "प्रगति"
- },
- {
-  "clave": "plantillaCustom.tipo.habito",
-  "texto": "आदत"
- },
- {
-  "clave": "plantillaCustom.tipo.sesiones",
-  "texto": "सेशन"
- },
- {
-  "clave": "plantillaCustom.tipo.cuenta",
-  "texto": "उलटी गिनती"
- },
- {
-  "clave": "plantillaCustom.tipo.galeria",
-  "texto": "गैलरी"
- },
- {
-  "clave": "amueblar.titulo",
-  "texto": "कमरे को कैसे सजाएं?"
- },
- {
-  "clave": "amueblar.completo",
-  "texto": "सजा हुआ"
- },
- {
-  "clave": "amueblar.completoDesc",
-  "texto": "ऐप की सभी वस्तुएं लाता है।"
- },
- {
-  "clave": "amueblar.principal",
-  "texto": "सिर्फ़ मुख्य वस्तु"
- },
- {
-  "clave": "amueblar.principalDesc",
-  "texto": "सिर्फ़ वह वस्तु जो ऐप खोलती है, बाकी कुछ नहीं।"
- },
- {
-  "clave": "plantillaCustom.eliminada",
-  "texto": "यह टेम्पलेट हटाया जा चुका है।"
- },
- {
-  "clave": "plantillaCustom.notasPh",
-  "texto": "अपने नोट्स लिखें… (अपने आप सेव हो जाते हैं)"
- },
- {
-  "clave": "plantillaCustom.checklistPh",
-  "texto": "नया टू-डू…"
- },
- {
-  "clave": "plantillaCustom.checklistVacio",
-  "texto": "अभी कोई टू-डू नहीं है।"
- },
- {
-  "clave": "plantillaCustom.borrarItem",
-  "texto": "हटाएं"
- },
- {
-  "clave": "plantillaCustom.enlaceTitulo",
-  "texto": "शीर्षक (वैकल्पिक)"
- },
- {
-  "clave": "plantillaCustom.enlacesVacio",
-  "texto": "कोई सेव की गई लिंक नहीं है।"
- },
- {
-  "clave": "plantillaCustom.listaPh",
-  "texto": "नया आइटम…"
- },
- {
-  "clave": "plantillaCustom.listaVacio",
-  "texto": "सूची खाली है।"
- },
- {
-  "clave": "plantillaCustom.bitacoraPh",
-  "texto": "नई प्रविष्टि…"
- },
- {
-  "clave": "plantillaCustom.bitacoraVacio",
-  "texto": "अभी कोई प्रविष्टि नहीं है।"
- },
- {
-  "clave": "plantillaCustom.progresoPh",
-  "texto": "मान…"
- },
- {
-  "clave": "plantillaCustom.progresoVacio",
-  "texto": "अभी कोई माप नहीं है।"
- },
- {
-  "clave": "plantillaCustom.unidad",
-  "texto": "इकाई (वैकल्पिक)"
- },
- {
-  "clave": "plantillaCustom.habitoMarcar",
-  "texto": "आज को मार्क करें"
- },
- {
-  "clave": "plantillaCustom.habitoHecho",
-  "texto": "आज पूरा ✓"
- },
- {
-  "clave": "plantillaCustom.habitoRacha",
-  "texto": "सिलसिला"
- },
- {
-  "clave": "plantillaCustom.habitoDias",
-  "texto": "सक्रिय दिन"
- },
- {
-  "clave": "plantillaCustom.metaSemana",
-  "texto": "हफ़्ते में कितनी बार (वैकल्पिक)"
- },
- {
-  "clave": "plantillaCustom.sesionMin",
-  "texto": "मिनट"
- },
- {
-  "clave": "plantillaCustom.sesionNota",
-  "texto": "नोट (वैकल्पिक)"
- },
- {
-  "clave": "plantillaCustom.sesionVacio",
-  "texto": "अभी कोई सत्र नहीं है।"
- },
- {
-  "clave": "plantillaCustom.sesionTotal",
-  "texto": "कुल"
- },
- {
-  "clave": "plantillaCustom.metaMin",
-  "texto": "लक्ष्य मिनटों में (वैकल्पिक)"
- },
- {
-  "clave": "plantillaCustom.cuentaFecha",
-  "texto": "लक्ष्य तिथि"
- },
- {
-  "clave": "plantillaCustom.cuentaSinFecha",
-  "texto": "संपादित करते समय लक्ष्य तिथि सेट करें।"
- },
- {
-  "clave": "plantillaCustom.cuentaDias",
-  "texto": "बचे दिन"
- },
- {
-  "clave": "plantillaCustom.cuentaHoy",
-  "texto": "आज!"
- },
- {
-  "clave": "plantillaCustom.cuentaPaso",
-  "texto": "दिन पहले"
- },
- {
-  "clave": "plantillaCustom.galeriaAgregar",
-  "texto": "फ़ोटो जोड़ें"
- },
- {
-  "clave": "plantillaCustom.galeriaVacio",
-  "texto": "अभी कोई फ़ोटो नहीं है।"
- },
- {
-  "clave": "objetos.ayuda",
-  "texto": "मौजूद सभी वस्तुएं, श्रेणी के अनुसार। अपनी वस्तुएं बनाएं, बदलें या हटाएं।"
- },
- {
-  "clave": "objetos.ayudaEspeciales",
-  "texto": "असर वाली वस्तुएं, उनके काम के हिसाब से समूहों में। इन्हें खोलकर फ़ोल्डर देखें।"
- },
- {
-  "clave": "objetos.agregar",
-  "texto": "3D वस्तु जोड़ें"
- },
- {
-  "clave": "objetos.alMapa",
-  "texto": "नक्शे पर या किसी कमरे में रखें"
- },
- {
-  "clave": "destinoObj.titulo",
-  "texto": "इसे कहां रखना है?"
- },
- {
-  "clave": "destinoObj.mapa",
-  "texto": "नक्शे पर"
- },
- {
-  "clave": "destinoObj.mapaDesc",
-  "texto": "कमरों के बाहर, खुले में।"
- },
- {
-  "clave": "destinoObj.enCuarto",
-  "texto": "या किसी कमरे के अंदर"
- },
- {
-  "clave": "objetos.editar",
-  "texto": "एडिटर में संपादित करें"
- },
- {
-  "clave": "objetos.editarForma",
-  "texto": "इसका आकार बदलें"
- },
- {
-  "clave": "objetos.animado",
-  "texto": "एनिमेटेड वस्तु"
- },
- {
-  "clave": "objetos.funcion.vehiculo",
-  "texto": "चलाया जा सकता है"
- },
- {
-  "clave": "objetos.funcion.asiento",
-  "texto": "यहां बैठ सकते हैं"
- },
- {
-  "clave": "objetos.funcion.acostarse",
-  "texto": "यहां लेट सकते हैं"
- },
- {
-  "clave": "objetos.funcion.laptop",
-  "texto": "काम के लिए"
- },
- {
-  "clave": "objetos.funcion.cajaFuerte",
-  "texto": "ज़रूरी चीज़ें रखता है"
- },
- {
-  "clave": "objetos.funcion.computo",
-  "texto": "गणना के लिए"
- },
- {
-  "clave": "objetos.funcion.tapete",
-  "texto": "ध्यान के लिए"
- },
- {
-  "clave": "objetos.funcion.libreta",
-  "texto": "लिखने के लिए"
- },
- {
-  "clave": "objetos.funcion.caminadora",
-  "texto": "चलने के लिए"
- },
- {
-  "clave": "objetos.funcion.anuncio",
-  "texto": "बोर्ड: अपना टेक्स्ट लिखें"
- },
- {
-  "clave": "objetos.funcion.parque",
-  "texto": "इंटरैक्टिव: खेलने के लिए इस पर चढ़ें"
- },
- {
-  "clave": "objetos.rotarIzq",
-  "texto": "बाईं ओर घुमाएं"
- },
- {
-  "clave": "objetos.rotarDer",
-  "texto": "दाईं ओर घुमाएं"
- },
- {
-  "clave": "objetos.quitarDelMapa",
-  "texto": "नक्शे से हटाएं"
- },
- {
-  "clave": "objetos.borrar",
-  "texto": "वस्तु हटाएं"
- },
- {
-  "clave": "objetos.borrarConfirm",
-  "texto": "\"{nombre}\" हटाएं? इसे वापस नहीं लाया जा सकता।"
- },
- {
-  "clave": "objetos.renombrar",
-  "texto": "फ़ोल्डर का नाम बदलें"
- },
- {
-  "clave": "objetos.restaurar",
-  "texto": "बेस वस्तुएं फिर से लाएं"
- },
- {
-  "clave": "objetos.restaurarConfirm",
-  "texto": "आपने कैटलॉग से जो बेस वस्तुएं हटाई थीं, वे फिर से जुड़ जाएंगी। जारी रखें?"
- },
- {
-  "clave": "mapa.editar",
-  "texto": "नक्शा संपादित करें"
- },
- {
-  "clave": "mapa.editarTitulo",
-  "texto": "घर का नक्शा संपादित करें"
- },
- {
-  "clave": "mapa.quitar",
-  "texto": "नक्शे से हटाएं"
- },
- {
-  "clave": "chat.tuAsistente",
-  "texto": "आपका सहायक:"
- },
- {
-  "clave": "chat.vacio",
-  "texto": "अभी कोई प्रविष्टि नहीं है। आर्किटेक्ट को बताएं कि आपने क्या किया।"
- },
- {
-  "clave": "chat.sinClasificar",
-  "texto": "बिना वर्गीकृत"
- },
- {
-  "clave": "chat.capturado",
-  "texto": "कैप्चर किया गया"
- },
- {
-  "clave": "chat.reclasificar",
-  "texto": "फिर से वर्गीकृत करें"
- },
- {
-  "clave": "chat.eliminar",
-  "texto": "हटाएं"
- },
- {
-  "clave": "chat.ocultar",
-  "texto": "मेनू बंद करें"
- },
- {
-  "clave": "chat.verMenu",
-  "texto": "मेनू खोलें"
- },
- {
-  "clave": "chat.registrar",
-  "texto": "दर्ज करें"
- },
- {
-  "clave": "chat.chip.crear",
-  "texto": "बनाएं"
- },
- {
-  "clave": "chat.chip.enMapa",
-  "texto": "(नक्शे पर)"
- },
- {
-  "clave": "chat.chip.fuera",
-  "texto": "(बाहर)"
- },
- {
-  "clave": "chat.abrirConv",
-  "texto": "बातचीत देखें"
- },
- {
-  "clave": "chat.verConv",
-  "texto": "पूरी बातचीत देखें"
- },
- {
-  "clave": "chat.burbuja.ver",
-  "texto": "सब पढ़ने के लिए टैप करें"
- },
- {
-  "clave": "dialogo.salir",
-  "texto": "बातचीत खत्म करें (Esc)"
- },
- {
-  "clave": "dialogo.completar",
-  "texto": "पूरा टेक्स्ट दिखाएं"
- },
- {
-  "clave": "dialogo.hablar",
-  "texto": "बोलें"
- },
- {
-  "clave": "chat.conversacion",
-  "texto": "बातचीत"
- },
- {
-  "clave": "chat.conv.vacia",
-  "texto": "{pet} के साथ अभी कोई संदेश नहीं है। नीचे दिए बार में लिखें"
- },
- {
-  "clave": "chat.conv.limpiar",
-  "texto": "बातचीत साफ़ करें"
- },
- {
-  "clave": "chat.conv.cerrar",
-  "texto": "बंद करें"
- },
- {
-  "clave": "chat.tu",
-  "texto": "आप"
- },
- {
-  "clave": "chat.tab.chats",
-  "texto": "चैट"
- },
- {
-  "clave": "chat.tab.registros",
-  "texto": "प्रविष्टियां"
- },
- {
-  "clave": "chat.config.abrir",
-  "texto": "सहायक सेट करें"
- },
- {
-  "clave": "chat.config.titulo",
-  "texto": "आपके सहायक"
- },
- {
-  "clave": "chat.config.activo",
-  "texto": "सक्रिय"
- },
- {
-  "clave": "chat.config.sinCaracter",
-  "texto": "कोई व्यक्तित्व सेट नहीं है"
- },
- {
-  "clave": "chat.config.archivaTodo",
-  "texto": "सभी कमरों में संग्रहित करता है"
- },
- {
-  "clave": "chat.config.cuartos",
-  "texto": "ऐप सौंपें"
- },
- {
-  "clave": "chat.config.cuartosTodos",
-  "texto": "(कोई नहीं चुना = सभी)"
- },
- {
-  "clave": "chat.config.nuevo",
-  "texto": "सहायक बनाएं"
- },
- {
-  "clave": "chat.config.nuevoNombre",
-  "texto": "नया सहायक"
- },
- {
-  "clave": "chat.config.nuevoSaludo",
-  "texto": "नमस्ते! मैं आपका नया सहायक हूं।"
- },
- {
-  "clave": "chat.config.nombre",
-  "texto": "नाम"
- },
- {
-  "clave": "chat.config.emoji",
-  "texto": "सहायक का इमोजी"
- },
- {
-  "clave": "chat.config.historia",
-  "texto": "किरदार की पृष्ठभूमि और संदर्भ"
- },
- {
-  "clave": "chat.config.historiaPh",
-  "texto": "पृष्ठभूमि और संदर्भ: उदा. \"पुराना समुद्री भेड़िया, जिसने 40 साल लाइटहाउस संभाला; अब आपके घर की देखभाल करता है\""
- },
- {
-  "clave": "chat.config.caracterPh",
-  "texto": "व्यक्तित्व: उदा. \"आप समुद्री डाकू की तरह बोलते हैं, मज़ाकिया और सीधे, 🏴‍☠️ से बात खत्म करते हैं\""
- },
- {
-  "clave": "chat.config.forma",
-  "texto": "3D आकार:"
- },
- {
-  "clave": "chat.config.color",
-  "texto": "किरदार का रंग"
- },
- {
-  "clave": "chat.config.formaPh",
-  "texto": "इसका वर्णन करें: \"हरा ड्रैगन, चश्मा और वेस्ट पहने हुए\""
- },
- {
-  "clave": "chat.config.formaSinIa",
-  "texto": "आकार बताने के लिए AI चाहिए (बार में मॉडल चुनें)"
- },
- {
-  "clave": "chat.config.formaGenerar",
-  "texto": "AI से आकार बनाएं"
- },
- {
-  "clave": "chat.config.formaError",
-  "texto": "आकार नहीं बन सका। AI मॉडल जांचें और फिर कोशिश करें।"
- },
- {
-  "clave": "chat.config.subirGlb",
-  "texto": ".glb मॉडल अपलोड करें"
- },
- {
-  "clave": "chat.config.quitarGlb",
-  "texto": "अपलोड की गई मॉडल हटाएं"
- },
- {
-  "clave": "chat.config.quitarFormaIa",
-  "texto": "AI से बनाया गया आकार हटाएं"
- },
- {
-  "clave": "chat.config.enMapa",
-  "texto": "नक्शे से हटाएं"
- },
- {
-  "clave": "chat.config.ponerMapa",
-  "texto": "नक्शे पर रखें"
- },
- {
-  "clave": "chat.config.voz",
-  "texto": "आवाज़:"
- },
- {
-  "clave": "chat.config.vozAuto",
-  "texto": "स्वचालित (भाषा के अनुसार)"
- },
- {
-  "clave": "chat.config.vozIA",
-  "texto": "AI आवाज़ (OpenAI, ज़्यादा नैचुरल)"
- },
- {
-  "clave": "chat.config.vozLeer",
-  "texto": "जो कहा जाए उसे ज़ोर से पढ़ें"
- },
- {
-  "clave": "chat.config.vozProbar",
-  "texto": "आवाज़ आज़माएं"
- },
- {
-  "clave": "chat.config.vozTono",
-  "texto": "टोन"
- },
- {
-  "clave": "chat.config.vozVelocidad",
-  "texto": "गति"
- },
- {
-  "clave": "chat.config.vozVolumen",
-  "texto": "वॉल्यूम"
- },
- {
-  "clave": "chat.config.espontaneo",
-  "texto": "सहज टिप्पणियां"
- },
- {
-  "clave": "chat.config.corazon",
-  "texto": "दिल (सहजता)"
- },
- {
-  "clave": "chat.config.corazonOff",
-  "texto": "बंद"
- },
- {
-  "clave": "corazon.nivel.0",
-  "texto": "चुप"
- },
- {
-  "clave": "corazon.nivel.1",
-  "texto": "शांत"
- },
- {
-  "clave": "corazon.nivel.2",
-  "texto": "बातूनी"
- },
- {
-  "clave": "corazon.nivel.3",
-  "texto": "बहुत बातूनी"
- },
- {
-  "clave": "corazon.mago.manana.0",
-  "texto": "सुबह नई जादुई ऊर्जा लाती है… मुझे महसूस हो रहा है ✨"
- },
- {
-  "clave": "corazon.mago.manana.1",
-  "texto": "मेरे स्क्रॉल आज करीने से जागे। अच्छा शगुन है 🔮"
- },
- {
-  "clave": "corazon.mago.tarde.0",
-  "texto": "दोपहर ग्रिमोयर में कारनामे दर्ज करने के लिए एकदम सही है ✨"
- },
- {
-  "clave": "corazon.mago.tarde.1",
-  "texto": "आज दोपहर घर के आसपास शांत ऊर्जाएं महसूस हो रही हैं 🔮"
- },
- {
-  "clave": "corazon.mago.noche.0",
-  "texto": "तारे अपने राज़ बता रहे हैं… जादू के लिए बढ़िया रात है 🌙"
- },
- {
-  "clave": "corazon.mago.noche.1",
-  "texto": "चांद मेरे गोले को ऊर्जा दे रहा है। यहां सब शांत है 🔮"
- },
- {
-  "clave": "corazon.mago.rutina.0",
-  "texto": "मेरी क्रिस्टल बॉल बताती है: {h} पर \"{r}\" ✨"
- },
- {
-  "clave": "corazon.mago.rutina.1",
-  "texto": "नियति {h} बजे को चिन्हित करती है: \"{r}\" नज़दीक आ रहा है 🔮"
- },
- {
-  "clave": "corazon.mago.generica.0",
-  "texto": "आज यह घर जादू से भरा है ✨"
- },
- {
-  "clave": "corazon.mago.generica.1",
-  "texto": "सफ़ाई का जादू कभी बुरा नहीं होता… 🔮"
- },
- {
-  "clave": "corazon.gato.manana.0",
-  "texto": "बहुत जल्दी है। इंसान अजीब समय पर उठते हैं 🐾"
- },
- {
-  "clave": "corazon.gato.manana.1",
-  "texto": "उबासी। सुबह एक झपकी के साथ बेहतर होती 🐱"
- },
- {
-  "clave": "corazon.gato.tarde.0",
-  "texto": "धूप में झपकी का बढ़िया समय है। बस इतना ही कहना है 🐾"
- },
- {
-  "clave": "corazon.gato.tarde.1",
-  "texto": "सुस्त दोपहर… बिल्कुल वैसी जैसी मुझे पसंद है 🐱"
- },
- {
-  "clave": "corazon.gato.noche.0",
-  "texto": "आखिरकार रात। यही तो मेरा असली समय है 🐱"
- }
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-gemelos",
+    "texto": "अपने हाथ दीवार पर रखें और पिछली टांग सीधी रखते हुए पिंडली को खींचें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-hombros",
+    "texto": "एक बाँह को छाती के सामने से पार करें और दूसरी बाँह से उसे अंदर खींचें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.foam-roller",
+    "texto": "ट्रेनिंग के बाद तनाव छोड़ने के लिए अपनी मांसपेशियों को फ़ोम रोलर पर घुमाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-triceps",
+    "texto": "कोहनी को सिर के पीछे लाएं और दूसरे हाथ से हल्के से धकेलें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-de-cadera",
+    "texto": "लंज में, जांघ के अगले हिस्से को खींचने के लिए कूल्हे को आगे धकेलें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.piernas-en-la-pared",
+    "texto": "लेटकर, आराम और सूजन कम करने के लिए टांगों को दीवार के सहारे ऊपर टिकाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.savasana",
+    "texto": "पीठ के बल लेटकर, धीरे-धीरे सांस लेते हुए पूरे शरीर को शिथिल करें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-del-nino-apoyada",
+    "texto": "ज़्यादा देर आराम करने के लिए सहारे के साथ बालासन।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.respiracion-profunda",
+    "texto": "नर्वस सिस्टम को शांत करने के लिए धीरे और गहरी सांस अंदर-बाहर लें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.mariposa-reclinada",
+    "texto": "पैरों के तलवे मिलाकर लेटें, घुटनों को गिरने दें और कूल्हों को शिथिल करें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsion-reclinada",
+    "texto": "लेटकर, घुटनों को एक तरफ़ गिरने दें, रीढ़ को धीरे से घुमाते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.liberacion-miofascial-con-pelota",
+    "texto": "एड़ी से पैर के अगले हिस्से तक नियंत्रित दबाव के साथ एक कड़ी गेंद घुमाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-tobillo",
+    "texto": "एक टांग उठाएं और टखने को दोनों दिशाओं में बड़े गोल घुमाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.recogida-de-toalla-con-dedos",
+    "texto": "सिर्फ़ पैर की उंगलियों से ज़मीन पर रखे तौलिये को सिकोड़कर इकट्ठा करने की कोशिश करें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-dorsiflexion",
+    "texto": "दीवार की ओर मुंह करके, खींचने के लिए एड़ी को ज़मीन पर सपाट रखते हुए अगले घुटने को मोड़ें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-talones-unipodal",
+    "texto": "एक पैर पर खड़े होकर, एड़ी को धीरे-धीरे उठाएं और नियंत्रित तरीक़े से नीचे लाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-y-extension-en-descarga",
+    "texto": "लेटकर, एड़ी को नितंब की ओर लाते हुए घुटना मोड़ें, फिर पैर उठाए बिना सीधा करें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "अपने सामने एड़ी टिकाएं और घुटना सीधा रखते हुए धड़ को धीरे से आगे झुकाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-isometrica-wall-squat",
+    "texto": "पीठ को दीवार से टिकाएं, 90 डिग्री तक नीचे जाएं, और रोकें, ध्यान रखें कि घुटने अंदर की ओर न मुड़ें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.equilibrio-unipodal-single-leg-balance",
+    "texto": "घुटने को थोड़ा मोड़कर एक टांग पर संतुलन बनाएं, उसे अंदर की ओर मुड़ने न दें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadillas-del-arquero",
+    "texto": "टांगों को फैलाकर, दूसरी टांग सीधी रखते हुए वज़न को शिफ़्ट करते हुए एक घुटना मोड़ें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estocadas-lunges",
+    "texto": "आगे कदम बढ़ाएं और कूल्हे को नीचे लाएं, अगले घुटने से 90 डिग्री का कोण बनाते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-90-90",
+    "texto": "टांगों को 90 डिग्री पर रखते हुए बैठें, और धड़ व टांगों को एक तरफ़ से दूसरी तरफ़ घुमाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.el-puente-glute-bridge",
+    "texto": "पीठ के बल लेटकर, ग्लूट्स को भींचते हुए पेल्विस को तब तक उठाएं जब तक कंधे, कूल्हे और घुटने एक सीध में न आ जाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-en-estocada",
+    "texto": "एक घुटना ज़मीन पर रखते हुए, पीठ सीधी रखते हुए पेल्विस को आगे धकेलें ताकि सोआस मसल खिंचे।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.abduccion-lateral-de-cadera",
+    "texto": "करवट लेकर लेटें, पेल्विस को स्थिर रखते हुए ऊपर वाली टांग को उठाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-profunda-con-apertura",
+    "texto": "स्क्वाट में, कूल्हों को खोलने के लिए कोहनियों से घुटनों को बाहर की ओर धकेलें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.balanceo-dinamico-de-piernas",
+    "texto": "खड़े होकर, एक टांग को पेंडुलम की तरह आगे, पीछे और अगल-बगल झुलाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-gato-vaca",
+    "texto": "चारों हाथ-पैरों के बल होकर, पीठ को छत की ओर मोड़ने और पेट को ज़मीन की ओर गिराने के बीच बारी-बारी करें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsiones-lumbares-suaves",
+    "texto": "पीठ के बल लेटकर, दोनों घुटनों को साथ में एक तरफ़ और फिर दूसरी तरफ़ गिरने दें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.pointer-bird-dog",
+    "texto": "चारों हाथ-पैरों के बल होकर, पीठ के निचले हिस्से को सपाट रखते हुए विपरीत टांग और बाँह को सीधा करें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-frontal-isometricos",
+    "texto": "बाँहों के अगले हिस्से पर टिककर प्लांक की स्थिति में रहें, एक सीधी रेखा बनाते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.roll-down-curl-jefferson",
+    "texto": "खड़े होकर, रीढ़ को धीरे-धीरे एक-एक मणिका करके नीचे की ओर घुमाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-lumbar-boca-abajo",
+    "texto": "पेट के बल लेटकर, कूल्हों को ऊपर उठाएं और फिर नीचे लाएं, पीठ को खींचते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotacion-toracica",
+    "texto": "चारों हाथ-पैरों के बल होकर, एक बाँह को बगल में उठाएं और नज़रों से हाथ का पीछा करें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.retraccion-escapular",
+    "texto": "सीधी मुद्रा बनाए रखते हुए कंधे की हड्डियों को पीछे और नीचे की ओर भींचें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.angeles-de-pared-wall-angels",
+    "texto": "पीठ को दीवार से लगाकर, कोहनियों को दीवार से छुआए रखते हुए बाँहों को ऊपर-नीचे सरकाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.lunge-con-apertura-de-pectoral",
+    "texto": "लंज में, हाथों को गर्दन के पीछे जोड़ें और कोहनियों को पीछे की ओर खोलें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-dorsal-en-pared",
+    "texto": "हाथों को दीवार पर रखें और घुटने सीधे रखते हुए धड़ को नीचे गिरने दें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.el-gato-y-la-mesa",
+    "texto": "चारों हाथ-पैरों के बल होकर, पीठ को मोड़ें और फिर छाती को नीचे लाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-hombros",
+    "texto": "बड़े गोलाकार हरकतें, पीछे और नीचे की दिशा को प्राथमिकता देते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-pecho-pectoral",
+    "texto": "हाथों को पीठ के पीछे जोड़ें और गर्दन पर ज़ोर डाले बिना छाती को खोलें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.dislocaciones-con-goma-o-palo",
+    "texto": "कोहनियां सीधी रखते हुए बैंड को सिर के ऊपर से पीठ के पीछे ले जाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotacion-externa-con-banda",
+    "texto": "कोहनियों को शरीर से सटाकर 90 डिग्री पर रखते हुए, प्रतिरोध के विरुद्ध हाथों को बाहर की ओर घुमाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.thread-the-needle-enhebrar-aguja",
+    "texto": "चारों हाथ-पैरों के बल होकर, एक बाँह को शरीर के नीचे से पिरोएं, कंधे को ज़मीन पर टिकाते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-y-medios-circulos",
+    "texto": "ठुड्डी को छाती से लगाकर, बिना दर्द से ज़बरदस्ती किए बड़े और बहुत धीमे गोले बनाएं।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-trapecio-superior",
+    "texto": "सिर को धीरे से झुकाएं, कान को विपरीत कंधे की ओर लाते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-cervicales-con-nodding",
+    "texto": "सिर घुमाएं और छोटी सी «हां» वाली सिर हिलाने की हरकत करें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.retracciones-de-barbilla-chin-tucks",
+    "texto": "गर्दन को सीधा करने के लिए ठुड्डी को सीधे पीछे खींचें, «डबल चिन» बनाते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.isometricos-cervicales",
+    "texto": "सिर को हाथ के विरुद्ध धकेलें, मुड़ने से बचने के लिए हरकत का प्रतिरोध करते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-y-extension-de-muneca",
+    "texto": "बाँहें सीधी रखते हुए, कलाई को छत की ओर और फिर ज़मीन की ओर मोड़ें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-munecas",
+    "texto": "दोनों कलाइयों को घुमाएं, दोनों दिशाओं में गोले बनाते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores",
+    "texto": "हथेली ऊपर की ओर रखते हुए, दूसरे हाथ से उंगलियों को शरीर की ओर धकेलें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.agarre-activo-y-pasivo",
+    "texto": "मुट्ठियों को कसकर बंद करें और फिर पूरी तरह ढीला छोड़ते हुए खोलें।"
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-de-munecas",
+    "texto": "प्लांक या घुटनों के बल स्थिति में, सिर्फ़ उंगलियों के सिरों पर टिकने के लिए ऊपर उठें, फिर नीचे आएं।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.liberacion-miofascial-con-pelota",
+    "texto": "प्रति पैर 1 से 2 मिनट (लगातार गति)।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-tobillo",
+    "texto": "प्रति टखना हर दिशा में 10 से 12 बार।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.recogida-de-toalla-con-dedos",
+    "texto": "प्रति पैर 10 से 15 बार (सिकोड़ें और छोड़ें)।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-dorsiflexion",
+    "texto": "प्रति टांग 15 से 30 सेकंड रोकें, 2 से 4 सेट करें।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.elevacion-de-talones-unipodal",
+    "texto": "प्रति टांग 10 से 15 बार।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-en-descarga",
+    "texto": "प्रति टांग 8 से 10 बार।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "प्रति टांग 20 सेकंड रोकें।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadilla-isometrica-wall-squat",
+    "texto": "5 से 15 सेकंड रोकें, खड़े हों, और दोहराएं (3 से 5 बार)।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.equilibrio-unipodal-single-leg-balance",
+    "texto": "प्रति टांग 15 से 60 सेकंड रोकें (2 से 3 बार दोहराएं)।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadillas-del-arquero",
+    "texto": "15 बार, दोनों तरफ़ बारी-बारी से।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estocadas-lunges",
+    "texto": "प्रति टांग 8 से 12 बार।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.movilidad-90-90",
+    "texto": "प्रति तरफ़ 8 से 12 बार (लगभग 1-2 मिनट)।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.el-puente-glute-bridge",
+    "texto": "15 बार (हर बार ऊपर 2-3 सेकंड रोकें)।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores-en-estocada",
+    "texto": "प्रति टांग 20 सेकंड रोकें।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.abduccion-lateral-de-cadera",
+    "texto": "प्रति तरफ़ 10 से 15 बार, ऊपर कुछ सेकंड रोकते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadilla-profunda-con-apertura",
+    "texto": "15 बार खोलते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.balanceo-dinamico-de-piernas",
+    "texto": "प्रति टांग 8 से 10 बार।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.postura-gato-vaca",
+    "texto": "1 मिनट लगातार (या 10 से 15 सांसें)।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.torsiones-lumbares-suaves",
+    "texto": "प्रति तरफ़ 10 से 15 बार।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.pointer-bird-dog",
+    "texto": "एक तरफ़ 30 सेकंड रोकें, फिर बदलें।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.plancha-frontal-isometricos",
+    "texto": "क्षमता के अनुसार 15 से 60 सेकंड रोकें।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.roll-down-curl-jefferson",
+    "texto": "15 धीमी बार।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-lumbar-boca-abajo",
+    "texto": "1 मिनट लगातार।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotacion-toracica",
+    "texto": "प्रति तरफ़ 30 सेकंड।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.retraccion-escapular",
+    "texto": "8 से 10 बार, हर बार संकुचन को 5 से 10 सेकंड रोकते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.angeles-de-pared-wall-angels",
+    "texto": "10 से 15 धीमी बार।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.lunge-con-apertura-de-pectoral",
+    "texto": "हर तरफ़ 15 बार।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-dorsal-en-pared",
+    "texto": "20 सेकंड रोकें।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.el-gato-y-la-mesa",
+    "texto": "अपनी सांस के साथ तालमेल बिठाते हुए 15 बार।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-hombros",
+    "texto": "8 से 10 बार (आगे और पीछे)।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-pecho-pectoral",
+    "texto": "15 से 20 सेकंड रोकें।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.dislocaciones-con-goma-o-palo",
+    "texto": "10 से 15 बार।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotacion-externa-con-banda",
+    "texto": "8 से 12 बार।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.thread-the-needle-enhebrar-aguja",
+    "texto": "प्रति तरफ़ 15 से 30 सेकंड रोकें (2-3 सेट)।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotaciones-y-medios-circulos",
+    "texto": "प्रति दिशा 8 से 10 बार।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-trapecio-superior",
+    "texto": "प्रति तरफ़ 15 से 30 सेकंड रोकें।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotaciones-cervicales-con-nodding",
+    "texto": "प्रति तरफ़ 8 से 12 बार।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.retracciones-de-barbilla-chin-tucks",
+    "texto": "10 से 15 बार, स्थिति को 5 से 10 सेकंड रोकते हुए।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.isometricos-cervicales",
+    "texto": "8 से 12 बार (तनाव को 5-10 सेकंड रोकते हुए)।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-de-muneca",
+    "texto": "10 से 12 बार।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-munecas",
+    "texto": "प्रति दिशा 10 से 15 चक्कर।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores",
+    "texto": "15 से 30 सेकंड रोकें।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.agarre-activo-y-pasivo",
+    "texto": "10 से 15 बार।"
+  },
+  {
+    "clave": "ejercicio.ejTiempo.plancha-de-munecas",
+    "texto": "8 से 12 बार।"
+  },
+  {
+    "clave": "ejercicio.dificultad.baja",
+    "texto": "निम्न"
+  },
+  {
+    "clave": "ejercicio.dificultad.media",
+    "texto": "मध्यम"
+  },
+  {
+    "clave": "ejercicio.dificultad.alta",
+    "texto": "उच्च"
+  },
+  {
+    "clave": "ejercicio.dificultad.mediaAlta",
+    "texto": "मध्यम / उच्च"
+  },
+  {
+    "clave": "ejercicio.rut.full-body",
+    "texto": "फुल बॉडी"
+  },
+  {
+    "clave": "ejercicio.rut.tren-superior",
+    "texto": "ऊपरी शरीर"
+  },
+  {
+    "clave": "ejercicio.rut.tren-inferior",
+    "texto": "निचला शरीर"
+  },
+  {
+    "clave": "ejercicio.rut.push-pecho-y-triceps",
+    "texto": "पुश · छाती और ट्राइसेप्स"
+  },
+  {
+    "clave": "ejercicio.rut.pull-espalda-y-biceps",
+    "texto": "पुल · पीठ और बाइसेप्स"
+  },
+  {
+    "clave": "ejercicio.rut.legs-pierna-completa",
+    "texto": "लेग्स · पूरी टांग"
+  },
+  {
+    "clave": "ejercicio.rut.hiit-20-min",
+    "texto": "HIIT 20 मिनट"
+  },
+  {
+    "clave": "ejercicio.rut.carrera-continua",
+    "texto": "स्टेडी-स्टेट रन"
+  },
+  {
+    "clave": "ejercicio.rut.caminata-inclinada",
+    "texto": "इनक्लाइन वॉक"
+  },
+  {
+    "clave": "ejercicio.rut.bike-tempo",
+    "texto": "बाइक टेम्पो"
+  },
+  {
+    "clave": "ejercicio.rut.triatlon-sprint",
+    "texto": "स्प्रिंट ट्रायथलॉन"
+  },
+  {
+    "clave": "ejercicio.rut.movilidad-matutina",
+    "texto": "सुबह मोबिलिटी"
+  },
+  {
+    "clave": "ejercicio.rut.yoga-flow",
+    "texto": "योगा फ्लो"
+  },
+  {
+    "clave": "ejercicio.rut.cadera-y-piernas",
+    "texto": "कूल्हे और टांगें"
+  },
+  {
+    "clave": "ejercicio.rut.estiramiento-post-entreno",
+    "texto": "वर्कआउट के बाद स्ट्रेच"
+  },
+  {
+    "clave": "ejercicio.rut.espalda-y-hombros",
+    "texto": "पीठ और कंधे"
+  },
+  {
+    "clave": "ejercicio.rut.cuello-y-oficina",
+    "texto": "गर्दन और डेस्क राहत"
+  },
+  {
+    "clave": "ejercicio.rut.antes-de-dormir",
+    "texto": "सोने से पहले"
+  },
+  {
+    "clave": "ejercicio.rutDesc.full-body",
+    "texto": "पूरे शरीर की स्ट्रेंथ सर्किट।"
+  },
+  {
+    "clave": "ejercicio.rutDesc.tren-superior",
+    "texto": "एक ही सेशन में छाती, पीठ, कंधे और बाहें।"
+  },
+  {
+    "clave": "ejercicio.rutDesc.tren-inferior",
+    "texto": "पूरी टांगें और ग्लूट्स।"
+  }
 ]

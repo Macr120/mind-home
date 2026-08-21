@@ -1,665 +1,338 @@
 [
   {
-    "clave": "despacho.s.deTuBolsillo",
-    "en": "Out of your pocket"
+    "clave": "ejercicio.ejDesc.curl-martillo",
+    "en": "With a neutral grip (palms facing each other), curl the dumbbells up to work the forearm."
   },
   {
-    "clave": "despacho.s.generaInteres",
-    "en": "Interest covers"
+    "clave": "ejercicio.ejDesc.curl-predicador",
+    "en": "With your arm resting on the bench, bend your elbow to isolate the biceps."
   },
   {
-    "clave": "despacho.s.montoCredito",
-    "es": "Monto del crédito",
-    "en": "Loan amount"
+    "clave": "ejercicio.ejDesc.curl-concentrado",
+    "en": "Seated, rest your elbow on your thigh and curl the dumbbell up, focusing on the contraction."
   },
   {
-    "clave": "despacho.s.plazoMeses",
-    "es": "Plazo (meses)",
-    "en": "Term (months)"
+    "clave": "ejercicio.ejDesc.extension-triceps-en-polea",
+    "en": "Standing at a high pulley, push the bar down, extending your elbows."
   },
   {
-    "clave": "despacho.s.mensualidad",
-    "es": "Mensualidad",
-    "en": "Monthly payment"
+    "clave": "ejercicio.ejDesc.press-frances",
+    "en": "Lying down, lower the bar toward your forehead and extend your elbows without moving them."
   },
   {
-    "clave": "despacho.s.totalPagado",
-    "es": "Total pagado",
-    "en": "Total paid"
+    "clave": "ejercicio.ejDesc.fondos-entre-bancos",
+    "en": "With your hands on a bench, lower your body by bending your elbows, then push back up."
   },
   {
-    "clave": "despacho.s.intereses",
-    "es": "Intereses totales",
-    "en": "Total interest"
+    "clave": "ejercicio.ejDesc.extension-sobre-cabeza",
+    "en": "Raise a dumbbell behind your head and extend your elbows upward."
   },
   {
-    "clave": "despacho.s.col.capital",
-    "es": "Capital",
-    "en": "Principal"
+    "clave": "ejercicio.ejDesc.patada-de-triceps",
+    "en": "Bent over with your elbow high, extend your forearm backward."
   },
   {
-    "clave": "despacho.s.col.restante",
-    "es": "Saldo restante",
-    "en": "Remaining"
+    "clave": "ejercicio.ejDesc.sentadilla",
+    "en": "With the bar on your back, lower your hips until your thighs are parallel and stand back up."
   },
   {
-    "clave": "despacho.ejemplo.vacio",
-    "es": "¿No sabes por dónde empezar? Carga un ejemplo y míralo por dentro.",
-    "en": "Not sure where to start? Load an example and poke around inside it."
+    "clave": "ejercicio.ejDesc.sentadilla-frontal",
+    "en": "With the bar in front, squat down while keeping your torso upright."
   },
   {
-    "clave": "despacho.ejemplo.cargado",
-    "es": "Lo que ves de ejemplo se puede borrar de golpe.",
-    "en": "Everything you see as an example can be wiped in one go."
+    "clave": "ejercicio.ejDesc.sentadilla-bulgara",
+    "en": "With one foot elevated behind you, lower your front leg to 90 degrees."
   },
   {
-    "clave": "despacho.ejemplo.cargar",
-    "es": "Cargar un ejemplo",
-    "en": "Load an example"
+    "clave": "ejercicio.ejDesc.prensa-de-pierna",
+    "en": "On the machine, push the platform by extending your legs without locking your knees."
   },
   {
-    "clave": "despacho.ejemplo.borrar",
-    "es": "Borrar el ejemplo",
-    "en": "Delete the example"
+    "clave": "ejercicio.ejDesc.zancadas",
+    "en": "Step forward and lower your back knee almost to the floor, alternating sides."
   },
   {
-    "clave": "despacho.ejemplo.confirmar",
-    "es": "Sí, borrar el ejemplo",
-    "en": "Yes, delete the example"
+    "clave": "ejercicio.ejDesc.peso-muerto",
+    "en": "With a straight back, lift the bar off the floor by extending your hips and knees."
   },
   {
-    "clave": "despacho.mk.divisas",
-    "es": "Divisas",
-    "en": "Forex"
+    "clave": "ejercicio.ejDesc.peso-muerto-rumano",
+    "en": "Lower the bar close to your legs by hinging at the hips, with knees nearly straight."
   },
   {
-    "clave": "despacho.mk.criptos",
-    "es": "Criptomonedas",
-    "en": "Cryptocurrencies"
+    "clave": "ejercicio.ejDesc.curl-femoral",
+    "en": "On the machine, bend your knees, bringing your heels toward your glutes."
   },
   {
-    "clave": "despacho.mk.acciones",
-    "es": "Acciones",
-    "en": "Stocks"
+    "clave": "ejercicio.ejDesc.extension-de-cuadriceps",
+    "en": "Seated on the machine, extend your knees, raising the weight with control."
   },
   {
-    "clave": "despacho.mk.commodities",
-    "es": "Materias primas",
-    "en": "Commodities"
+    "clave": "ejercicio.ejDesc.elevacion-de-talones",
+    "en": "Standing with weight, raise your heels, contracting your calves."
   },
   {
-    "clave": "despacho.mk.dias30",
-    "es": "30 días",
-    "en": "30 days"
+    "clave": "ejercicio.ejDesc.hip-thrust",
+    "en": "With your upper back on the bench, drive your hips up, squeezing your glutes."
   },
   {
-    "clave": "despacho.mk.dias7",
-    "es": "7 días",
-    "en": "7 days"
+    "clave": "ejercicio.ejDesc.puente-de-gluteo",
+    "en": "Lying down, raise your hips until your shoulders, hips, and knees are aligned."
   },
   {
-    "clave": "despacho.mk.top10cap",
-    "es": "top 10 por capitalización · USD",
-    "en": "top 10 by market cap · USD"
+    "clave": "ejercicio.ejDesc.patada-de-gluteo-en-polea",
+    "en": "On all fours or standing, kick your leg back, squeezing your glute."
   },
   {
-    "clave": "despacho.mk.top10capNyse",
-    "es": "top 10 por capitalización · NYSE/Nasdaq",
-    "en": "top 10 by market cap · USD · NYSE/Nasdaq"
+    "clave": "ejercicio.ejDesc.abduccion-de-cadera",
+    "en": "Seated or lying on your side, open your legs against resistance."
   },
   {
-    "clave": "despacho.mk.top10pares",
-    "es": "los 10 pares más operados",
-    "en": "the 10 most traded pairs"
+    "clave": "ejercicio.ejDesc.plancha",
+    "en": "Resting on your forearms, keep your body straight without letting your hips sag."
   },
   {
-    "clave": "despacho.mk.col.activo",
-    "es": "Activo",
-    "en": "Asset"
+    "clave": "ejercicio.ejDesc.plancha-lateral",
+    "en": "On your side resting on one forearm, keep your hips raised and aligned."
   },
   {
-    "clave": "despacho.mk.col.precio",
-    "es": "Precio",
-    "en": "Price"
+    "clave": "ejercicio.ejDesc.crunch-abdominal",
+    "en": "Lying down, raise your shoulders by contracting your abs without pulling on your neck."
   },
   {
-    "clave": "despacho.mk.col.dia",
-    "es": "Día",
-    "en": "Day"
+    "clave": "ejercicio.ejDesc.elevacion-de-piernas",
+    "en": "Lying down or hanging, raise your straight legs, controlling the descent."
   },
   {
-    "clave": "despacho.mk.col.cap",
-    "es": "Cap.",
-    "en": "Cap."
+    "clave": "ejercicio.ejDesc.russian-twist",
+    "en": "Seated with your torso leaning back, rotate your trunk from side to side."
   },
   {
-    "clave": "despacho.mk.col.30d",
-    "es": "30 d",
-    "en": "30 d"
+    "clave": "ejercicio.ejDesc.rueda-abdominal",
+    "en": "Kneeling, roll forward without arching your back, then return."
   },
   {
-    "clave": "despacho.mk.col.etf",
-    "es": "ETF",
-    "en": "ETF"
+    "clave": "ejercicio.ejDesc.escaladores",
+    "en": "In plank position, drive your knees to your chest, alternating quickly."
   },
   {
-    "clave": "despacho.mk.viaEtf",
-    "es": "vía ETF · USD",
-    "en": "via ETF · USD"
+    "clave": "ejercicio.ejDesc.carrera",
+    "en": "Steady pace in zone 2-3, light footstrike and upright posture."
   },
   {
-    "clave": "despacho.mk.sinCapDivisas",
-    "es": "Un par de divisas no tiene capitalización: en su lugar va la variación de 30 días.",
-    "en": "A currency pair has no market cap: the 30-day change is shown instead."
+    "clave": "ejercicio.ejDesc.trote-suave",
+    "en": "A comfortable pace where you can hold a conversation; ideal for long runs."
   },
   {
-    "clave": "despacho.mk.notaEtf",
-    "es": "El precio es el del ETF que replica cada materia prima, no su precio spot; tampoco tienen capitalización de mercado.",
-    "en": "The price is that of the ETF tracking each commodity, not its spot price; they have no market cap either."
+    "clave": "ejercicio.ejDesc.caminata-rapida",
+    "en": "Brisk pace with active arm swing, without breaking into a jog."
   },
   {
-    "clave": "despacho.mk.fuenteDivisas",
-    "es": "Fuente: BCE (Frankfurter)",
-    "en": "Source: ECB (Frankfurter)"
+    "clave": "ejercicio.ejDesc.ciclismo",
+    "en": "Pedal with a high cadence and moderate resistance, keeping your back relaxed."
   },
   {
-    "clave": "despacho.mk.fuenteCripto",
-    "es": "Fuente: CoinGecko · 7 días",
-    "en": "Source: CoinGecko · 7 days"
+    "clave": "ejercicio.ejDesc.senderismo",
+    "en": "Walk on natural terrain with elevation changes; let the incline set the pace."
   },
   {
-    "clave": "despacho.mk.fuenteAcciones",
-    "es": "Fuente: Finnhub",
-    "en": "Source: Finnhub"
+    "clave": "ejercicio.ejDesc.trail-running",
+    "en": "Running on mountain or uneven terrain; shorten your stride on the climbs."
   },
   {
-    "clave": "despacho.mk.miLista",
-    "es": "Mi lista de seguimiento",
-    "en": "My watchlist"
+    "clave": "ejercicio.ejDesc.caminadora",
+    "en": "Walk or run on the treadmill without holding onto the handrails."
   },
   {
-    "clave": "despacho.mk.cargando",
-    "es": "Cargando mercados…",
-    "en": "Loading markets…"
+    "clave": "ejercicio.ejDesc.caminata-inclinada",
+    "en": "Treadmill with an incline at a moderate pace: steady burn, low impact."
   },
   {
-    "clave": "despacho.mk.cargandoBtn",
-    "es": "Cargando…",
-    "en": "Loading…"
+    "clave": "ejercicio.ejDesc.eliptica",
+    "en": "Smooth motion, pushing with your arms too, with no impact on your knees."
   },
   {
-    "clave": "despacho.mk.error",
-    "es": "No se pudo conectar a las fuentes de mercados. Revisa tu internet.",
-    "en": "Could not reach market sources. Check your internet."
+    "clave": "ejercicio.ejDesc.bicicleta-estatica",
+    "en": "Adjust the seat to hip height and pedal at a steady cadence."
   },
   {
-    "clave": "despacho.mk.reintentar",
-    "es": "Reintentar",
-    "en": "Retry"
+    "clave": "ejercicio.ejDesc.escaladora",
+    "en": "Climb steps at a steady pace, placing your whole foot down."
   },
   {
-    "clave": "despacho.mk.cacheAviso",
-    "es": "Sin conexión con alguna fuente — mostrando últimos datos guardados.",
-    "en": "A source is unreachable — showing last saved data."
+    "clave": "ejercicio.ejDesc.remo-maquina",
+    "en": "Push with your legs, then pull with your back, and finish with your arms."
   },
   {
-    "clave": "despacho.mk.clave",
-    "es": "Clave API de Finnhub",
-    "en": "Finnhub API key"
+    "clave": "ejercicio.ejDesc.hiit",
+    "en": "Short, all-out intervals alternated with brief rest periods."
   },
   {
-    "clave": "despacho.mk.clave.ph",
-    "es": "Clave de finnhub.io",
-    "en": "finnhub.io key"
+    "clave": "ejercicio.ejDesc.sprints",
+    "en": "Sets at maximum speed with full recovery between reps."
   },
   {
-    "clave": "despacho.mk.clave.guardada",
-    "es": "Clave guardada — pega una nueva para sustituirla",
-    "en": "Key saved — paste a new one to replace it"
+    "clave": "ejercicio.ejDesc.saltar-cuerda",
+    "en": "Low jumps, turning the rope with your wrists, not your arms."
   },
   {
-    "clave": "despacho.mk.guardar",
-    "es": "Guardar",
-    "en": "Save"
+    "clave": "ejercicio.ejDesc.burpees",
+    "en": "From standing to plank, do a push-up, jump your feet in, and jump up with arms overhead."
   },
   {
-    "clave": "despacho.mk.claveInvalida",
-    "es": "Clave de Finnhub inválida. Cámbiala en el botón API (gratis en finnhub.io).",
-    "en": "Invalid Finnhub key. Change it in API (free at finnhub.io)."
+    "clave": "ejercicio.ejDesc.circuito-metabolico",
+    "en": "Chain several exercises together without rest to keep your heart rate up."
   },
   {
-    "clave": "despacho.mk.sinDatos",
-    "es": "Sin datos",
-    "en": "No data"
+    "clave": "ejercicio.ejDesc.natacion",
+    "en": "Swim at a steady pace, coordinating your breathing with your stroke."
   },
   {
-    "clave": "despacho.mk.vacia",
-    "es": "Agrega acciones para seguirlas aquí.",
-    "en": "Add stocks to track them here."
+    "clave": "ejercicio.ejDesc.aqua-aerobicos",
+    "en": "Exercise in the water: resistance works your muscles without stressing your joints."
   },
   {
-    "clave": "despacho.mk.misDivisas",
-    "es": "Mis divisas",
-    "en": "My currency pairs"
+    "clave": "ejercicio.ejDesc.caminata",
+    "en": "A calm, continuous pace; the base of your aerobic volume."
   },
   {
-    "clave": "despacho.mk.vaciaDivisa",
-    "es": "Agrega un par de divisas para seguirlo aquí.",
-    "en": "Add a currency pair to track it here."
+    "clave": "ejercicio.ejDesc.futbol",
+    "en": "Intermittent running with changes of pace and direction."
   },
   {
-    "clave": "despacho.mk.misCriptos",
-    "es": "Mis criptomonedas",
-    "en": "My cryptocurrencies"
+    "clave": "ejercicio.ejDesc.basquetbol",
+    "en": "Short sprints, jumps, and constant lateral movement."
   },
   {
-    "clave": "despacho.mk.vaciaCripto",
-    "es": "Busca una criptomoneda para seguirla aquí.",
-    "en": "Search a cryptocurrency to track it here."
+    "clave": "ejercicio.ejDesc.tenis",
+    "en": "Explosive bursts with pauses; heavy lower-body work."
   },
   {
-    "clave": "despacho.mk.buscarCripto.ph",
-    "es": "Buscar (ej. cardano)",
-    "en": "Search (e.g. cardano)"
+    "clave": "ejercicio.ejDesc.padel",
+    "en": "Short, intense points on a small court, with lots of changes of direction."
   },
   {
-    "clave": "despacho.mk.misMaterias",
-    "es": "Mis materias primas",
-    "en": "My commodities"
+    "clave": "ejercicio.ejDesc.boxeo",
+    "en": "Combinations and footwork while keeping your guard up."
   },
   {
-    "clave": "despacho.mk.vaciaMateria",
-    "es": "Agrega el ETF de una materia prima que quieras seguir.",
-    "en": "Add the ETF of a commodity you want to track."
+    "clave": "ejercicio.ejDesc.baile",
+    "en": "Continuous movement to the rhythm of the music; cardio that doesn't feel like a workout."
   },
   {
-    "clave": "despacho.mk.nombreMateria.ph",
-    "es": "Nombre (ej. Paladio)",
-    "en": "Name (e.g. Palladium)"
+    "clave": "ejercicio.ejDesc.movilidad-matutina",
+    "en": "A gentle sequence to wake up the body and loosen the joints first thing in the day."
   },
   {
-    "clave": "despacho.mk.etf.ph",
-    "es": "ETF (ej. PALL)",
-    "en": "ETF (e.g. PALL)"
+    "clave": "ejercicio.ejDesc.yoga-flow",
+    "en": "Link poses with your breath in a continuous full-body flow."
   },
   {
-    "clave": "despacho.mk.ticker.ph",
-    "es": "Ticker (ej. AAPL)",
-    "en": "Ticker (e.g. AAPL)"
+    "clave": "ejercicio.ejDesc.saludo-al-sol",
+    "en": "A classic yoga series that stretches and activates the whole body in sequence."
   },
   {
-    "clave": "despacho.mk.agregar",
-    "es": "Agregar",
-    "en": "Add"
+    "clave": "ejercicio.ejDesc.estiramiento-general",
+    "en": "Work through the major muscle groups with gentle, sustained stretches."
   },
   {
-    "clave": "despacho.mk.actualizar",
-    "es": "Actualizar",
-    "en": "Refresh"
+    "clave": "ejercicio.ejDesc.guerrero-i",
+    "en": "In a lunge, raise your arms and open your chest while keeping your hips forward."
   },
   {
-    "clave": "despacho.mk.com.oro",
-    "en": "Gold"
+    "clave": "ejercicio.ejDesc.guerrero-ii",
+    "en": "In a wide lunge, extend your arms and gaze forward while bending your front knee."
   },
   {
-    "clave": "despacho.mk.com.plata",
-    "en": "Silver"
+    "clave": "ejercicio.ejDesc.triangulo",
+    "en": "With legs apart, tilt your torso and lower one hand toward your ankle."
   },
   {
-    "clave": "despacho.mk.com.platino",
-    "en": "Platinum"
+    "clave": "ejercicio.ejDesc.flexion-de-pie",
+    "en": "Standing, fold your torso over your legs, releasing your neck and back."
   },
   {
-    "clave": "despacho.mk.com.petroleo",
-    "en": "Oil (WTI)"
+    "clave": "ejercicio.ejDesc.apertura-de-cadera",
+    "en": "Mobility work to release the hips and gain range of motion in the legs."
   },
   {
-    "clave": "despacho.mk.com.gas",
-    "en": "Natural gas"
+    "clave": "ejercicio.ejDesc.postura-de-la-paloma",
+    "en": "With one leg bent in front, lower your torso to open up the glute."
   },
   {
-    "clave": "despacho.mk.com.cobre",
-    "en": "Copper"
+    "clave": "ejercicio.ejDesc.mariposa",
+    "en": "Seated, bring the soles of your feet together and let your knees drop out to the sides."
   },
   {
-    "clave": "despacho.mk.com.maiz",
-    "en": "Corn"
+    "clave": "ejercicio.ejDesc.estiramiento-de-isquiotibiales",
+    "en": "Stretch the back of the thigh with the knee extended."
   },
   {
-    "clave": "despacho.mk.com.trigo",
-    "en": "Wheat"
+    "clave": "ejercicio.ejDesc.zancada-baja",
+    "en": "With one knee on the floor, push your hip forward to stretch the flexor."
   },
   {
-    "clave": "despacho.mk.com.soya",
-    "en": "Soybeans"
+    "clave": "ejercicio.ejDesc.postura-de-la-guirnalda",
+    "en": "In a deep squat, push your knees open with your elbows to release the hips."
   },
   {
-    "clave": "despacho.mk.com.agricolas",
-    "en": "Agricultural basket"
+    "clave": "ejercicio.ejDesc.figura-4",
+    "en": "Cross your ankle over the opposite knee and pull your thigh in to stretch the glute."
   },
   {
-    "clave": "despacho.tab.patrimonio",
-    "en": "Net worth"
+    "clave": "ejercicio.ejDesc.estiramiento-de-aductores",
+    "en": "Open your legs and lower your torso to stretch the inner thigh."
   },
   {
-    "clave": "despacho.tab.activos",
-    "en": "Assets"
+    "clave": "ejercicio.ejDesc.rana",
+    "en": "On all fours with knees spread wide, rock your hips back."
   },
   {
-    "clave": "despacho.tab.pasivos",
-    "en": "Liabilities"
+    "clave": "ejercicio.ejDesc.perro-boca-abajo",
+    "en": "In an inverted V, push your hips up, stretching your back and legs."
   },
   {
-    "clave": "despacho.patr.neto",
-    "es": "Patrimonio neto",
-    "en": "Net worth"
+    "clave": "ejercicio.ejDesc.torsion-espinal",
+    "en": "Seated or lying down, gently rotate your trunk to mobilize the spine."
   },
   {
-    "clave": "despacho.patr.ayudaCorta",
-    "es": "Lo que tienes menos lo que debes.",
-    "en": "What you own minus what you owe."
+    "clave": "ejercicio.ejDesc.postura-del-nino",
+    "en": "Sitting back on your heels, extend your arms forward, relaxing your back."
   },
   {
-    "clave": "despacho.patr.ayuda",
-    "es": "El ahorro, la inversión y las deudas entran solos desde tus metas; el balance del mes NO se suma aquí: es lo que le va a pasar a este número, no dinero aparte.",
-    "en": "Savings, investments and debts come in on their own from your goals; the period balance is NOT added here — it is what will happen to this number, not money on the side."
+    "clave": "ejercicio.ejDesc.apertura-de-pecho",
+    "en": "Bring your arms back to open your chest and counter a hunched posture."
   },
   {
-    "clave": "despacho.patr.efectivoOjoCorta",
-    "es": "¿Cuándo conviene?",
-    "en": "When does it make sense?"
+    "clave": "ejercicio.ejDesc.esfinge",
+    "en": "Face down resting on your forearms, lift your chest, extending your lower back."
   },
   {
-    "clave": "despacho.ui.masAyuda",
-    "es": "Más detalles",
-    "en": "More details"
+    "clave": "ejercicio.ejDesc.hilo-y-aguja",
+    "en": "On all fours, thread one arm under your body to stretch the shoulder."
   },
   {
-    "clave": "despacho.patr.fisicos",
-    "es": "Bienes y propiedades",
-    "en": "Property and belongings"
+    "clave": "ejercicio.ejDesc.estiramiento-de-dorsales",
+    "en": "Stretch your sides by raising your arms up and slightly to the side."
   },
   {
-    "clave": "despacho.patr.liquidos",
-    "es": "Dinero e inversiones",
-    "en": "Cash and investments"
+    "clave": "ejercicio.ejDesc.movilidad-cervical",
+    "en": "Slow neck movements in all directions to release tension."
   },
   {
-    "clave": "despacho.patr.deudas",
-    "es": "Deudas, créditos e hipotecas",
-    "en": "Debts, loans and mortgages"
+    "clave": "ejercicio.ejDesc.rotaciones-de-columna",
+    "en": "Gently rotate the spine segment by segment to mobilize it."
   },
   {
-    "clave": "despacho.patr.deMetas",
-    "es": "de tus metas",
-    "en": "from your goals"
+    "clave": "ejercicio.ejDesc.postura-de-la-cobra",
+    "en": "Face down, lift your chest with your hands, extending your back."
   },
   {
-    "clave": "despacho.patr.efectivo",
-    "es": "Efectivo · de tus movimientos",
-    "en": "Cash · from your movements"
+    "clave": "ejercicio.ejDesc.inclinacion-lateral-de-cuello",
+    "en": "Bring your ear toward your shoulder to stretch the side of your neck."
   },
   {
-    "clave": "despacho.patr.deMovs",
-    "es": "ingresos − gastos de siempre",
-    "en": "all-time income − expenses"
-  },
-  {
-    "clave": "despacho.patr.efectivoAuto",
-    "es": "Sumar aquí lo que sobra de mis movimientos (todos mis ingresos menos todos mis gastos)",
-    "en": "Add what my movements leave over (all my income minus all my expenses)"
-  },
-  {
-    "clave": "despacho.patr.efectivoOjo",
-    "es": "Solo cuadra si llevas registrados tus movimientos desde el principio. Si ya apuntaste tus cuentas arriba, déjalo apagado: sería el mismo dinero dos veces.",
-    "en": "Only adds up if you have logged your movements from the start. If you already listed your accounts above, leave it off: it would be the same money twice."
-  },
-  {
-    "clave": "despacho.patr.nueva",
-    "es": "Añadir",
-    "en": "Add"
-  },
-  {
-    "clave": "despacho.patr.vacio",
-    "es": "Nada aquí todavía. Anota lo que tienes — o lo que debes.",
-    "en": "Nothing here yet. Add what you own — or what you owe."
-  },
-  {
-    "clave": "despacho.patr.phFisico",
-    "es": "Ej. Departamento, coche",
-    "en": "e.g. Flat, car"
-  },
-  {
-    "clave": "despacho.patr.phLiquido",
-    "es": "Ej. Cuenta de nómina",
-    "en": "e.g. Current account"
-  },
-  {
-    "clave": "despacho.patr.phPasivo",
-    "es": "Ej. Hipoteca de la casa",
-    "en": "e.g. Mortgage"
-  },
-  {
-    "clave": "despacho.patr.phMonto",
-    "es": "Monto",
-    "en": "Amount"
-  },
-  {
-    "clave": "despacho.patr.escrito",
-    "es": "lo que apuntaste",
-    "en": "you entered"
-  },
-  {
-    "clave": "despacho.patr.porTasas",
-    "es": "por tus tasas",
-    "en": "from your rates"
-  },
-  {
-    "clave": "despacho.patr.verEscrito",
-    "es": "ver solo lo escrito",
-    "en": "show entered only"
-  },
-  {
-    "clave": "despacho.patr.verEstimado",
-    "es": "ver con tasas",
-    "en": "show with rates"
-  },
-  {
-    "clave": "despacho.patr.detalles",
-    "es": "Cómo cambia con el tiempo",
-    "en": "How it changes over time"
-  },
-  {
-    "clave": "despacho.patr.phTasaActivo",
-    "es": "Sube o baja al año %",
-    "en": "Up or down per year %"
-  },
-  {
-    "clave": "despacho.patr.phTasaPasivo",
-    "es": "Tasa del crédito %",
-    "en": "Loan rate %"
-  },
-  {
-    "clave": "despacho.patr.phPago",
-    "es": "Mensualidad",
-    "en": "Monthly payment"
-  },
-  {
-    "clave": "despacho.patr.ayudaTasaActivo",
-    "es": "En negativo si pierde valor, como un coche.",
-    "en": "Negative if it loses value, like a car."
-  },
-  {
-    "clave": "despacho.patr.tasaBanco",
-    "es": "La tasa anual que te da el banco, y lo que pagas cada mes.",
-    "en": "The yearly rate your bank quotes, and what you pay each month."
-  },
-  {
-    "clave": "despacho.patr.alAno",
-    "es": "%/año",
-    "en": "%/year"
-  },
-  {
-    "clave": "despacho.patr.cuota",
-    "en": "{n}/month"
-  },
-  {
-    "clave": "despacho.patr.eran",
-    "en": "was {n}"
-  },
-  {
-    "clave": "despacho.patr.editar",
-    "es": "Editar esta línea",
-    "en": "Edit this entry"
-  },
-  {
-    "clave": "despacho.patr.monto",
-    "es": "Vale",
-    "en": "Worth"
-  },
-  {
-    "clave": "despacho.patr.fechaValor",
-    "es": "Desde",
-    "en": "Since"
-  },
-  {
-    "clave": "despacho.patr.tasaActivo",
-    "es": "Sube al año %",
-    "en": "Up per year %"
-  },
-  {
-    "clave": "despacho.patr.tasaPasivo",
-    "es": "Tasa anual %",
-    "en": "Yearly rate %"
-  },
-  {
-    "clave": "despacho.patr.pagoMensual",
-    "es": "Pago al mes",
-    "en": "Monthly payment"
-  },
-  {
-    "clave": "despacho.patr.borrar",
-    "es": "Borrar",
-    "en": "Delete"
-  },
-  {
-    "clave": "despacho.patr.borrarTitulo",
-    "es": "¿Borrar esta línea?",
-    "en": "Delete this entry?"
-  },
-  {
-    "clave": "despacho.patr.borrarMsg",
-    "en": "“{n}” will stop counting towards your net worth."
-  },
-  {
-    "clave": "despacho.patr.borrarOk",
-    "es": "Borrar",
-    "en": "Delete"
-  },
-  {
-    "clave": "despacho.patr.hoy",
-    "es": "hoy",
-    "en": "today"
-  },
-  {
-    "clave": "despacho.patr.deMeta",
-    "en": "linked to “{n}”"
-  },
-  {
-    "clave": "despacho.patr.metaIda",
-    "es": "la meta enlazada ya no existe",
-    "en": "the linked goal no longer exists"
-  },
-  {
-    "clave": "despacho.patr.metaIdaSoltar",
-    "es": "La meta enlazada ya no existe. Tócalo para soltar esta línea.",
-    "en": "The linked goal no longer exists. Tap to unlink this entry."
-  },
-  {
-    "clave": "despacho.patr.montoOriginal",
-    "es": "Crédito original",
-    "en": "Original loan"
-  },
-  {
-    "clave": "despacho.patr.valorAparte",
-    "es": "Valor aparte",
-    "en": "Value aside"
-  },
-  {
-    "clave": "despacho.patr.abonarEnMetas",
-    "es": "Pagar en Metas › Deuda",
-    "en": "Pay in Goals › Debt"
-  },
-  {
-    "clave": "despacho.patr.aportarEnMetas",
-    "es": "Aportar en Metas",
-    "en": "Add to it in Goals"
-  },
-  {
-    "clave": "despacho.patr.desenlazar",
-    "es": "¿Soltar de la meta?",
-    "en": "Unlink from the goal?"
-  },
-  {
-    "clave": "despacho.patr.desenlazarMsg",
-    "en": "They will be two separate things again: this entry keeps {n} and the goal carries on by itself."
-  },
-  {
-    "clave": "despacho.patr.desenlazarOk",
-    "es": "Soltar",
-    "en": "Unlink"
-  },
-  {
-    "clave": "despacho.patr.soltar",
-    "es": "soltar",
-    "en": "unlink"
-  },
-  {
-    "clave": "despacho.patr.crearMetaDeuda",
-    "es": "Seguirla como meta de deuda",
-    "en": "Track it as a debt goal"
-  },
-  {
-    "clave": "despacho.patr.crearMetaAhorro",
-    "es": "Seguirlo como meta de ahorro",
-    "en": "Track it as a savings goal"
-  },
-  {
-    "clave": "despacho.patr.enlazarMeta",
-    "es": "Enlazar con una meta que ya tengo…",
-    "en": "Link to a goal I already have…"
-  },
-  {
-    "clave": "despacho.patr.objetivoTitulo",
-    "es": "¿Hasta cuánto quieres llegar?",
-    "en": "How far do you want to get?"
-  },
-  {
-    "clave": "despacho.patr.objetivoMsg",
-    "en": "You already have {n} here."
-  },
-  {
-    "clave": "despacho.meta.verEnPasivos",
-    "es": "Ver en Patrimonio › Pasivos",
-    "en": "See in Net worth › Liabilities"
-  },
-  {
-    "clave": "despacho.meta.verEnActivos",
-    "es": "Ver en Patrimonio › Activos",
-    "en": "See in Net worth › Assets"
-  },
-  {
-    "clave": "despacho.meta.anadirAPasivos",
-    "es": "Añadirla a Pasivos (con tasa y plazo)",
-    "en": "Add it to Liabilities (with rate and term)"
-  },
-  {
-    "clave": "despacho.meta.anadirAActivos",
-    "es": "Añadirla a Activos (con rendimiento)",
-    "en": "Add it to Assets (with return)"
-  },
-  {
-    "clave": "despacho.tab.simulacion",
-    "en": "Forecast"
+    "clave": "ejercicio.ejDesc.estiramiento-de-cuadriceps",
+    "en": "Standing, bring your heel to your glute, holding your foot to stretch the thigh."
   }
 ]

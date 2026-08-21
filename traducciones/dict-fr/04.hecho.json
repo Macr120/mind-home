@@ -1,127 +1,498 @@
 [
-  {"clave":"despacho.sim.sinDatos","texto":"Rien à projeter pour l’instant. Note ce que tu possèdes dans Actifs et ce que tu dois dans Passifs, donne-leur un taux, et tu verras où ça mène."},
-  {"clave":"despacho.sim.netoHoy","texto":"Patrimoine net aujourd’hui"},
-  {"clave":"despacho.sim.netoFinal","texto":"Dans {n} mois"},
-  {"clave":"despacho.sim.interesesFuturos","texto":"Intérêts restant à payer"},
-  {"clave":"despacho.sim.aportado","texto":"Ce que tu vas verser"},
-  {"clave":"despacho.sim.horizonte","texto":"Projeter (mois)"},
-  {"clave":"despacho.sim.inflacion","texto":"Inflation annuelle %"},
-  {"clave":"despacho.sim.dineroDeHoy","texto":"Le voir en monnaie constante"},
-  {"clave":"despacho.sim.dineroDeHoyAyuda","texto":"Retire l’inflation : ce que cet argent vaudra vraiment, pas combien de billets ce sera."},
-  {"clave":"despacho.sim.flujoMensual","texto":"Ajouter ce que j’épargne chaque mois"},
-  {"clave":"despacho.sim.flujoAyuda","texto":"D’après tes transactions : {i} entre et {g} sort chaque mois."},
-  {"clave":"despacho.sim.crecIngreso","texto":"Mes revenus augmentent de %/an"},
-  {"clave":"despacho.sim.crecGasto","texto":"Mes dépenses augmentent de %/an"},
-  {"clave":"despacho.sim.pagosYaEnGastos","texto":"Mes paiements de dette sont déjà comptés dans ces dépenses"},
-  {"clave":"despacho.sim.pagosDeudaMes","texto":"Tes dettes te demandent {n} par mois. Si tu ne les as pas enregistrées comme dépense, désactive ceci et elles seront déduites séparément."},
-  {"clave":"despacho.sim.activos","texto":"Actifs"},
-  {"clave":"despacho.sim.pasivos","texto":"Passifs"},
-  {"clave":"despacho.sim.neto","texto":"Net"},
-  {"clave":"despacho.sim.hoy","texto":"aujourd’hui"},
-  {"clave":"despacho.sim.hitoLiquidas","texto":"Tu finis de rembourser « {n} » en {f}"},
-  {"clave":"despacho.sim.hitoPositivo","texto":"Ton patrimoine net cesse d’être négatif en {f}"},
-  {"clave":"despacho.sim.hitoDoble","texto":"Ton patrimoine net double en {f}"},
-  {"clave":"despacho.sim.noBaja","texto":"« {n} » ne baisse pas avec {p} par mois : les intérêts seuls s’élèvent à {i}."},
-  {"clave":"despacho.sim.creceSinPago","texto":"« {n} » a un taux mais pas de paiement mensuel : elle ne fait que croître."},
-  {"clave":"despacho.sim.avisoCorta","texto":"Une projection, pas une promesse."},
-  {"clave":"despacho.sim.controles","texto":"Ajuster le scénario"},
-  {"clave":"despacho.periodo.anterior","texto":"Période précédente"},
-  {"clave":"despacho.periodo.siguiente","texto":"Période suivante"},
-  {"clave":"despacho.sim.aviso","texto":"Ça vient des taux que tu as saisis : ça sert à comparer des scénarios, pas à savoir ce qui va se passer."},
-  {"clave":"despacho.meta.hasPuesto","texto":"tu as versé {n}"},
-  {"clave":"despacho.meta.pediste","texto":"tu as emprunté {n}"},
-  {"clave":"despacho.meta.valenHoy","texto":"vaut {n} aujourd’hui"},
-  {"clave":"despacho.meta.debesHoy","texto":"tu dois {n} aujourd’hui"},
-  {"clave":"despacho.meta.deRendimiento","texto":"de rendement"},
-  {"clave":"despacho.meta.deIntereses","texto":"d’intérêts"},
-  {"clave":"despacho.meta.tasaPuesta","texto":"{n} %/an"},
-  {"clave":"despacho.meta.ponerTasaDeuda","texto":"Lui donner son taux d’intérêt"},
-  {"clave":"despacho.meta.ponerTasaAhorro","texto":"Lui donner son rendement"},
-  {"clave":"despacho.meta.tasaDeuda","texto":"Taux annuel %"},
-  {"clave":"despacho.meta.tasaAhorro","texto":"Rapporte par an %"},
-  {"clave":"despacho.meta.desde","texto":"Depuis"},
-  {"clave":"despacho.meta.ayudaTasaDeuda","texto":"Celui de ta banque. Chaque paiement que tu enregistres arrête de générer des intérêts à partir de sa date."},
-  {"clave":"despacho.meta.ayudaTasaAhorro","texto":"Chaque versement rapporte depuis le jour où tu l’as fait, pas depuis le début."},
-  {"clave":"despacho.meta.movs","texto":"Transactions ({n})"},
-  {"clave":"despacho.meta.borrarTitulo","texto":"Supprimer cet objectif ?"},
-  {"clave":"despacho.meta.borrarMsg","texto":"« {n} » disparaît ; ses transactions restent dans ton historique, mais déliées."},
-  {"clave":"despacho.meta.borrarOk","texto":"Supprimer"},
-  {"clave":"despacho.meta.deshacer","texto":"Annuler ce versement"},
-  {"clave":"despacho.metas.disponible","texto":"Disponible ce mois-ci"},
-  {"clave":"despacho.metas.disponibleDetalle","texto":"revenus {i} − dépenses {g}"},
-  {"clave":"despacho.plan.titulo","texto":"Objectifs"},
-  {"clave":"despacho.plan.desc","texto":"Ton grand objectif sur la ligne du temps. Avec ✨ l’IA te prépare un plan de versements."},
-  {"clave":"despacho.plan.ejAhorro","texto":"Fonds d’urgence"},
-  {"clave":"despacho.plan.material","texto":"D’où viendra l’argent"},
-  {"clave":"despacho.plan.ejDeuda","texto":"Rembourser la carte de crédit"},
-  {"clave":"despacho.calc.titulo","texto":"Calculatrices financières"},
-  {"clave":"despacho.calc.tab.fondoEmergencia","texto":"Fonds d’urgence"},
-  {"clave":"despacho.calc.tab.libertadFinanciera","texto":"Indépendance financière"},
-  {"clave":"despacho.calc.tab.reglaCincuenta","texto":"50/30/20"},
-  {"clave":"despacho.calc.tab.reglaAuto","texto":"Voiture 20/4/10"},
-  {"clave":"despacho.calc.crearMeta","texto":"Créer un objectif avec ce montant"},
-  {"clave":"despacho.calc.metaCreada","texto":"Objectif créé — regarde-le ci-dessus"},
-  {"clave":"despacho.calc.gastoEsencial","texto":"Dépenses mensuelles essentielles"},
-  {"clave":"despacho.calc.mesesColchon","texto":"Mois de matelas"},
-  {"clave":"despacho.calc.fondoObjetivo","texto":"Fonds cible"},
-  {"clave":"despacho.calc.fondoNota","texto":"{g} × {n} mois"},
-  {"clave":"despacho.calc.nombreFondo","texto":"Fonds d’urgence"},
-  {"clave":"despacho.calc.gastoDeseado","texto":"Dépenses mensuelles souhaitées"},
-  {"clave":"despacho.calc.tasaRetiro","texto":"Taux de retrait sûr %"},
-  {"clave":"despacho.calc.libertadObjetivo","texto":"Tu dois avoir investi"},
-  {"clave":"despacho.calc.libertadNota","texto":"Tes dépenses annuelles × {n}"},
-  {"clave":"despacho.calc.nombreLibertad","texto":"Indépendance financière"},
-  {"clave":"despacho.calc.ingresoMensual","texto":"Revenu mensuel"},
-  {"clave":"despacho.calc.pctNecesidades","texto":"Besoins %"},
-  {"clave":"despacho.calc.pctCaprichos","texto":"Envies %"},
-  {"clave":"despacho.calc.pctAhorro","texto":"Épargne %"},
-  {"clave":"despacho.calc.noSuman100","texto":"Les pourcentages font {n} %, pas 100 %."},
-  {"clave":"despacho.calc.necesidades","texto":"Besoins"},
-  {"clave":"despacho.calc.caprichos","texto":"Envies"},
-  {"clave":"despacho.calc.ahorroTxt","texto":"Épargne"},
-  {"clave":"despacho.calc.nombreCaprichos","texto":"Budget envies"},
-  {"clave":"despacho.calc.precioAuto","texto":"Prix de la voiture"},
-  {"clave":"despacho.calc.pctEnganche","texto":"Apport %"},
-  {"clave":"despacho.calc.plazoMax","texto":"Durée max. (mois)"},
-  {"clave":"despacho.calc.pctIngresoAuto","texto":"Max. du revenu %"},
-  {"clave":"despacho.calc.tasaAuto","texto":"Taux annuel %"},
-  {"clave":"despacho.calc.enganche","texto":"Apport nécessaire"},
-  {"clave":"despacho.calc.mensualidadMax","texto":"Mensualité maximale"},
-  {"clave":"despacho.calc.autoCabe","texto":"Ça passe : la mensualité estimée est de {m}."},
-  {"clave":"despacho.calc.autoNoCabe","texto":"Ça ne passe pas avec ces conditions : la mensualité estimée ({m}) dépasse ton maximum."},
-  {"clave":"despacho.calc.nombreEnganche","texto":"Apport pour la voiture"},
-  {"clave":"biblioteca.desc","texto":"Ton encyclopédie personnelle : discute avec le Sage de n’importe quel sujet, garde ce que tu apprends par domaine de connaissance et étudie avec un minuteur."},
-  {"clave":"biblioteca.tab.charlas","texto":"Discussions"},
-  {"clave":"biblioteca.tab.enciclopedia","texto":"Encyclopédie"},
-  {"clave":"biblioteca.tab.estudio","texto":"Étude"},
-  {"clave":"biblioteca.tab.resumen","texto":"Aperçu"},
-  {"clave":"biblioteca.sinIA","texto":"Configure ton IA (Paramètres → Intelligence artificielle) pour discuter avec le Sage. En attendant, tu peux créer des entrées à la main dans l’Encyclopédie."},
-  {"clave":"biblioteca.charla.nuevaBtn","texto":"Nouvelle discussion avec le Sage"},
-  {"clave":"biblioteca.charla.todas","texto":"Toutes"},
-  {"clave":"biblioteca.charla.vacio","texto":"Pas encore de discussion. Demande ce que tu veux — « pourquoi le ciel est-il bleu ? » — et la bibliothèque la classera dans son domaine de connaissance."},
-  {"clave":"biblioteca.charla.sinTitulo","texto":"Discussion sans titre"},
-  {"clave":"biblioteca.charla.porClasificar","texto":"à classer"},
-  {"clave":"biblioteca.charla.nueva","texto":"Nouvelle discussion"},
-  {"clave":"biblioteca.charla.sub","texto":"Discussion d’encyclopédie"},
-  {"clave":"biblioteca.charla.volver","texto":"Retour aux discussions"},
-  {"clave":"biblioteca.charla.renombrar","texto":"Touche pour renommer"},
-  {"clave":"biblioteca.charla.destilar","texto":"Résumer"},
-  {"clave":"biblioteca.charla.reDestilar","texto":"Mettre à jour l’entrée"},
-  {"clave":"biblioteca.charla.destilarTip","texto":"L’IA résume la discussion en une entrée d’encyclopédie"},
-  {"clave":"biblioteca.charla.destilarFallo","texto":"L’IA n’a pas pu résumer la discussion ; remplis l’entrée à la main."},
-  {"clave":"biblioteca.charla.borrar","texto":"Supprimer la discussion"},
-  {"clave":"biblioteca.charla.campoTip","texto":"Domaine de connaissance où la discussion est classée"},
-  {"clave":"biblioteca.charla.reclasificar","texto":"Classer"},
-  {"clave":"biblioteca.charla.reclasificarTip","texto":"Classer la discussion dans l’arbre et résumer son entrée"},
-  {"clave":"biblioteca.charla.verEntrada","texto":"Entrée"},
-  {"clave":"biblioteca.charla.verEntradaTip","texto":"Voir l’entrée résumée à partir de cette discussion"},
-  {"clave":"biblioteca.charla.irANodo","texto":"Voir « {n} » dans l’encyclopédie"},
-  {"clave":"biblioteca.charla.ramificarTip","texto":"Ramifier : ajouter des sous-thèmes de cette discussion à l’arbre"},
-  {"clave":"biblioteca.charla.ramificarSinTema","texto":"Cette discussion n’a pas encore de place dans l’arbre"},
-  {"clave":"biblioteca.ramas.titulo","texto":"Ramifier l’arbre"},
-  {"clave":"biblioteca.ramas.desc","texto":"Nouvelles branches sous « {tema} » à partir de cette discussion :"},
-  {"clave":"biblioteca.ramas.cargando","texto":"Le Sage cherche de nouvelles branches…"},
-  {"clave":"biblioteca.ramas.vacio","texto":"Aucune nouvelle branche à suggérer pour ce sujet."},
-  {"clave":"biblioteca.ramas.agregar","texto":"Ajouter la sélection"},
-  {"clave":"biblioteca.ramas.ahoraNo","texto":"Pas maintenant"}
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-gemelos",
+    "texto": "Pose les mains contre le mur et étire ton mollet avec la jambe arrière tendue."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-hombros",
+    "texto": "Croise un bras devant ta poitrine et tire-le avec l'autre main."
+  },
+  {
+    "clave": "ejercicio.ejDesc.foam-roller",
+    "texto": "Fais rouler tes muscles sur le rouleau de mousse pour relâcher les tensions après l'entraînement."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-triceps",
+    "texto": "Amène ton coude derrière la tête et pousse doucement avec l'autre main."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-de-cadera",
+    "texto": "En fente, pousse la hanche vers l'avant pour étirer l'avant de la cuisse."
+  },
+  {
+    "clave": "ejercicio.ejDesc.piernas-en-la-pared",
+    "texto": "Allongé, pose les jambes contre le mur pour relâcher et drainer."
+  },
+  {
+    "clave": "ejercicio.ejDesc.savasana",
+    "texto": "Allongé sur le dos, relâche tout ton corps en respirant lentement."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-del-nino-apoyada",
+    "texto": "Posture de l'enfant avec support pour te relâcher plus longtemps."
+  },
+  {
+    "clave": "ejercicio.ejDesc.respiracion-profunda",
+    "texto": "Inspire et expire lentement et profondément pour calmer le système nerveux."
+  },
+  {
+    "clave": "ejercicio.ejDesc.mariposa-reclinada",
+    "texto": "Allongé, plantes de pieds jointes, laisse tomber les genoux et relâche les hanches."
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsion-reclinada",
+    "texto": "Allongé, laisse tomber les genoux d'un côté en faisant doucement pivoter la colonne."
+  },
+  {
+    "clave": "ejercicio.ejDesc.liberacion-miofascial-con-pelota",
+    "texto": "Fais rouler une balle dure avec une pression contrôlée du talon jusqu'à l'avant du pied."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-tobillo",
+    "texto": "Lève une jambe et fais de grands cercles avec la cheville dans les deux sens."
+  },
+  {
+    "clave": "ejercicio.ejDesc.recogida-de-toalla-con-dedos",
+    "texto": "Essaie de froisser et rassembler une serviette au sol en utilisant seulement tes orteils."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-dorsiflexion",
+    "texto": "Face à un mur, plie le genou avant en gardant le talon au sol pour étirer."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-talones-unipodal",
+    "texto": "Debout sur un pied, lève le talon lentement et redescends-le en contrôlant le mouvement."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-y-extension-en-descarga",
+    "texto": "Allongé, plie le genou en amenant le talon vers la fesse, puis tends la jambe sans lever le pied."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "Place un talon devant toi et penche doucement le buste vers l'avant, genou tendu."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-isometrica-wall-squat",
+    "texto": "Adosse-toi au mur, descends à 90 degrés et tiens la position, sans laisser les genoux rentrer vers l'intérieur."
+  },
+  {
+    "clave": "ejercicio.ejDesc.equilibrio-unipodal-single-leg-balance",
+    "texto": "Tiens-toi en équilibre sur une jambe, genou légèrement fléchi, sans le laisser rentrer vers l'intérieur."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadillas-del-arquero",
+    "texto": "Jambes écartées, plie un genou en transférant ton poids tout en gardant l'autre jambe tendue."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estocadas-lunges",
+    "texto": "Avance un pas et descends la hanche en formant un angle de 90 degrés avec le genou avant."
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-90-90",
+    "texto": "Assis, jambes à 90 degrés, fais pivoter le buste et les jambes d'un côté à l'autre."
+  },
+  {
+    "clave": "ejercicio.ejDesc.el-puente-glute-bridge",
+    "texto": "Allongé sur le dos, soulève le bassin en contractant les fessiers jusqu'à aligner épaules, hanches et genoux."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-en-estocada",
+    "texto": "Un genou au sol, pousse le bassin vers l'avant en gardant le dos droit pour étirer le psoas."
+  },
+  {
+    "clave": "ejercicio.ejDesc.abduccion-lateral-de-cadera",
+    "texto": "Allongé sur le côté, lève la jambe du dessus en gardant le bassin stable."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-profunda-con-apertura",
+    "texto": "En squat, pousse tes genoux vers l'extérieur avec les coudes pour ouvrir les hanches."
+  },
+  {
+    "clave": "ejercicio.ejDesc.balanceo-dinamico-de-piernas",
+    "texto": "Debout, balance une jambe d'avant en arrière puis d'un côté à l'autre, comme un pendule."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-gato-vaca",
+    "texto": "À quatre pattes, alterne entre arrondir le dos vers le plafond et creuser le ventre vers le sol."
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsiones-lumbares-suaves",
+    "texto": "Allongé sur le dos, laisse tomber les deux genoux ensemble d'un côté puis de l'autre."
+  },
+  {
+    "clave": "ejercicio.ejDesc.pointer-bird-dog",
+    "texto": "À quatre pattes, tends la jambe et le bras opposés en gardant le bas du dos stable."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-frontal-isometricos",
+    "texto": "Tiens la position de planche en appui sur les avant-bras, en formant une ligne droite."
+  },
+  {
+    "clave": "ejercicio.ejDesc.roll-down-curl-jefferson",
+    "texto": "Debout, déroule lentement la colonne vertèbre par vertèbre."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-lumbar-boca-abajo",
+    "texto": "Allongé sur le ventre, soulève les hanches puis redescends-les en étirant le dos."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotacion-toracica",
+    "texto": "À quatre pattes, lève un bras sur le côté et suis ta main du regard."
+  },
+  {
+    "clave": "ejercicio.ejDesc.retraccion-escapular",
+    "texto": "Serre les omoplates vers l'arrière et le bas en gardant le buste droit."
+  },
+  {
+    "clave": "ejercicio.ejDesc.angeles-de-pared-wall-angels",
+    "texto": "Dos au mur, fais glisser les bras de haut en bas en gardant les coudes au contact."
+  },
+  {
+    "clave": "ejercicio.ejDesc.lunge-con-apertura-de-pectoral",
+    "texto": "En fente, croise les mains derrière la nuque et ouvre les coudes vers l'arrière."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-dorsal-en-pared",
+    "texto": "Pose les mains sur le mur et laisse le buste tomber, jambes tendues."
+  },
+  {
+    "clave": "ejercicio.ejDesc.el-gato-y-la-mesa",
+    "texto": "À quatre pattes, arrondis le dos puis abaisse la poitrine."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-hombros",
+    "texto": "Mouvements circulaires amples, en privilégiant le trajet vers l'arrière et le bas."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-pecho-pectoral",
+    "texto": "Croise les mains derrière le dos et ouvre la poitrine sans forcer sur le cou."
+  },
+  {
+    "clave": "ejercicio.ejDesc.dislocaciones-con-goma-o-palo",
+    "texto": "Fais passer un élastique au-dessus de la tête puis derrière le dos, coudes tendus."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotacion-externa-con-banda",
+    "texto": "Coudes à 90 degrés contre le corps, fais pivoter les mains vers l'extérieur contre la résistance."
+  },
+  {
+    "clave": "ejercicio.ejDesc.thread-the-needle-enhebrar-aguja",
+    "texto": "À quatre pattes, glisse un bras sous le corps en posant l'épaule au sol."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-y-medios-circulos",
+    "texto": "Menton vers la poitrine, trace de grands cercles très lents sans forcer si ça fait mal."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-trapecio-superior",
+    "texto": "Incline doucement la tête en amenant l'oreille vers l'épaule opposée."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-cervicales-con-nodding",
+    "texto": "Tourne la tête et fais de petits mouvements de hochement (comme pour dire « oui »)."
+  },
+  {
+    "clave": "ejercicio.ejDesc.retracciones-de-barbilla-chin-tucks",
+    "texto": "Ramène le menton vers l'arrière, en faisant un « double menton », pour aligner le cou."
+  },
+  {
+    "clave": "ejercicio.ejDesc.isometricos-cervicales",
+    "texto": "Pousse la tête contre ta main en résistant au mouvement pour ne pas plier le cou."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-y-extension-de-muneca",
+    "texto": "Bras tendus, plie le poignet vers le plafond puis vers le sol."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-munecas",
+    "texto": "Fais tourner les deux poignets en cercles dans les deux sens."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores",
+    "texto": "Paume vers le haut, utilise l'autre main pour pousser les doigts vers toi."
+  },
+  {
+    "clave": "ejercicio.ejDesc.agarre-activo-y-pasivo",
+    "texto": "Serre les poings fort puis ouvre-les en te relâchant complètement."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-de-munecas",
+    "texto": "En planche ou à genoux, monte pour t'appuyer uniquement sur le bout des doigts, puis redescends."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.liberacion-miofascial-con-pelota",
+    "texto": "1 à 2 minutes par pied (mouvement continu)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-tobillo",
+    "texto": "10 à 12 répétitions dans chaque sens par cheville."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.recogida-de-toalla-con-dedos",
+    "texto": "10 à 15 répétitions (froisser et relâcher) par pied."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-dorsiflexion",
+    "texto": "Tiens 15 à 30 secondes par jambe, fais 2 à 4 séries."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.elevacion-de-talones-unipodal",
+    "texto": "10 à 15 répétitions par jambe."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-en-descarga",
+    "texto": "8 à 10 répétitions par jambe."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "Tiens 20 secondes par jambe."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadilla-isometrica-wall-squat",
+    "texto": "Tiens 5 à 15 secondes, relève-toi et répète (3 à 5 fois)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.equilibrio-unipodal-single-leg-balance",
+    "texto": "Tiens 15 à 60 secondes par jambe (répète 2 à 3 fois)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadillas-del-arquero",
+    "texto": "15 répétitions, en alternant les côtés."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estocadas-lunges",
+    "texto": "8 à 12 répétitions par jambe."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.movilidad-90-90",
+    "texto": "8 à 12 répétitions par côté (environ 1 à 2 minutes)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.el-puente-glute-bridge",
+    "texto": "15 répétitions (tiens 2-3 secondes en haut à chaque fois)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores-en-estocada",
+    "texto": "Tiens 20 secondes par jambe."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.abduccion-lateral-de-cadera",
+    "texto": "10 à 15 répétitions par côté, en tenant quelques secondes en haut."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadilla-profunda-con-apertura",
+    "texto": "15 répétitions d'ouverture."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.balanceo-dinamico-de-piernas",
+    "texto": "8 à 10 répétitions par jambe."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.postura-gato-vaca",
+    "texto": "1 minute en continu (ou 10 à 15 respirations)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.torsiones-lumbares-suaves",
+    "texto": "10 à 15 répétitions par côté."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.pointer-bird-dog",
+    "texto": "Tiens 30 secondes d'un côté, puis change."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.plancha-frontal-isometricos",
+    "texto": "Tiens 15 à 60 secondes selon ton niveau."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.roll-down-curl-jefferson",
+    "texto": "15 répétitions lentes."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-lumbar-boca-abajo",
+    "texto": "1 minute en continu."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotacion-toracica",
+    "texto": "30 secondes par côté."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.retraccion-escapular",
+    "texto": "8 à 10 répétitions, en tenant la contraction 5 à 10 secondes à chaque fois."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.angeles-de-pared-wall-angels",
+    "texto": "10 à 15 répétitions lentes."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.lunge-con-apertura-de-pectoral",
+    "texto": "15 répétitions de chaque côté."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-dorsal-en-pared",
+    "texto": "Tiens 20 secondes."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.el-gato-y-la-mesa",
+    "texto": "15 répétitions coordonnées avec ta respiration."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-hombros",
+    "texto": "8 à 10 répétitions (vers l'avant et vers l'arrière)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-pecho-pectoral",
+    "texto": "Tiens 15 à 20 secondes."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.dislocaciones-con-goma-o-palo",
+    "texto": "10 à 15 répétitions."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotacion-externa-con-banda",
+    "texto": "8 à 12 répétitions."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.thread-the-needle-enhebrar-aguja",
+    "texto": "Tiens 15 à 30 secondes par côté (2-3 séries)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotaciones-y-medios-circulos",
+    "texto": "8 à 10 répétitions par direction."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-trapecio-superior",
+    "texto": "Tiens 15 à 30 secondes par côté."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotaciones-cervicales-con-nodding",
+    "texto": "8 à 12 répétitions par côté."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.retracciones-de-barbilla-chin-tucks",
+    "texto": "10 à 15 répétitions, en tenant la position 5 à 10 secondes."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.isometricos-cervicales",
+    "texto": "8 à 12 répétitions (en tenant la tension 5-10 sec)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-de-muneca",
+    "texto": "10 à 12 répétitions."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-munecas",
+    "texto": "10 à 15 cercles par direction."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores",
+    "texto": "Tiens 15 à 30 secondes."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.agarre-activo-y-pasivo",
+    "texto": "10 à 15 répétitions."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.plancha-de-munecas",
+    "texto": "8 à 12 répétitions."
+  },
+  {
+    "clave": "ejercicio.dificultad.baja",
+    "texto": "Faible"
+  },
+  {
+    "clave": "ejercicio.dificultad.media",
+    "texto": "Moyenne"
+  },
+  {
+    "clave": "ejercicio.dificultad.alta",
+    "texto": "Élevée"
+  },
+  {
+    "clave": "ejercicio.dificultad.mediaAlta",
+    "texto": "Moyenne / Élevée"
+  },
+  {
+    "clave": "ejercicio.rut.full-body",
+    "texto": "Corps entier"
+  },
+  {
+    "clave": "ejercicio.rut.tren-superior",
+    "texto": "Haut du corps"
+  },
+  {
+    "clave": "ejercicio.rut.tren-inferior",
+    "texto": "Bas du corps"
+  },
+  {
+    "clave": "ejercicio.rut.push-pecho-y-triceps",
+    "texto": "Push · Pecs et triceps"
+  },
+  {
+    "clave": "ejercicio.rut.pull-espalda-y-biceps",
+    "texto": "Pull · Dos et biceps"
+  },
+  {
+    "clave": "ejercicio.rut.legs-pierna-completa",
+    "texto": "Legs · Jambes complètes"
+  },
+  {
+    "clave": "ejercicio.rut.hiit-20-min",
+    "texto": "HIIT 20 min"
+  },
+  {
+    "clave": "ejercicio.rut.carrera-continua",
+    "texto": "Course en endurance"
+  },
+  {
+    "clave": "ejercicio.rut.caminata-inclinada",
+    "texto": "Marche inclinée"
+  },
+  {
+    "clave": "ejercicio.rut.bike-tempo",
+    "texto": "Vélo tempo"
+  },
+  {
+    "clave": "ejercicio.rut.triatlon-sprint",
+    "texto": "Triathlon sprint"
+  },
+  {
+    "clave": "ejercicio.rut.movilidad-matutina",
+    "texto": "Mobilité matinale"
+  },
+  {
+    "clave": "ejercicio.rut.yoga-flow",
+    "texto": "Yoga flow"
+  },
+  {
+    "clave": "ejercicio.rut.cadera-y-piernas",
+    "texto": "Hanches et jambes"
+  },
+  {
+    "clave": "ejercicio.rut.estiramiento-post-entreno",
+    "texto": "Étirements post-entraînement"
+  },
+  {
+    "clave": "ejercicio.rut.espalda-y-hombros",
+    "texto": "Dos et épaules"
+  },
+  {
+    "clave": "ejercicio.rut.cuello-y-oficina",
+    "texto": "Détente cou et bureau"
+  },
+  {
+    "clave": "ejercicio.rut.antes-de-dormir",
+    "texto": "Avant de dormir"
+  },
+  {
+    "clave": "ejercicio.rutDesc.full-body",
+    "texto": "Circuit de force pour tout le corps."
+  },
+  {
+    "clave": "ejercicio.rutDesc.tren-superior",
+    "texto": "Pecs, dos, épaules et bras en une séance."
+  },
+  {
+    "clave": "ejercicio.rutDesc.tren-inferior",
+    "texto": "Jambes et fessiers complets."
+  }
 ]

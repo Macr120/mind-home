@@ -1,542 +1,338 @@
 [
   {
-    "clave": "ejercicio.cronograma.desc",
-    "texto": "Deine großen Ziele im Zeitplan. Mit ✨ erstellt die KI den Plan und schlägt vor, welche deiner Routinen du einplanen solltest."
+    "clave": "ejercicio.ejDesc.curl-martillo",
+    "texto": "Curl mit neutralem Griff (Handflächen zueinander) die Kurzhanteln hoch, um den Unterarm zu trainieren."
   },
   {
-    "clave": "sala.tab.cronograma",
-    "texto": "Ziele"
+    "clave": "ejercicio.ejDesc.curl-predicador",
+    "texto": "Beuge mit dem Arm auf der Scott-Bank aufgelegt den Ellbogen, um den Bizeps zu isolieren."
   },
   {
-    "clave": "avisos.rutinaPasos",
-    "texto": "Es warten {n} Schritte auf dich."
+    "clave": "ejercicio.ejDesc.curl-concentrado",
+    "texto": "Stütze im Sitzen den Ellbogen auf den Oberschenkel und curle die Kurzhantel hoch, konzentriert auf die Kontraktion."
   },
   {
-    "clave": "avisos.rutinaHora",
-    "texto": "Es ist so weit."
+    "clave": "ejercicio.ejDesc.extension-triceps-en-polea",
+    "texto": "Drücke im Stehen am hohen Kabelzug die Stange nach unten und strecke dabei die Ellbogen."
   },
   {
-    "clave": "avisos.abrir",
-    "texto": "Öffnen"
+    "clave": "ejercicio.ejDesc.press-frances",
+    "texto": "Senke im Liegen die Stange zur Stirn ab und strecke die Ellbogen, ohne sie zu bewegen."
   },
   {
-    "clave": "avisos.metaFalta",
-    "texto": "Du bist bei {hecho} von {objetivo}."
+    "clave": "ejercicio.ejDesc.fondos-entre-bancos",
+    "texto": "Senke dich mit den Händen auf der Bank durch Beugen der Ellbogen ab und drücke dich wieder hoch."
   },
   {
-    "clave": "notif.titulo",
-    "texto": "Benachrichtigungen"
+    "clave": "ejercicio.ejDesc.extension-sobre-cabeza",
+    "texto": "Hebe eine Kurzhantel hinter dem Kopf an und strecke die Ellbogen nach oben."
   },
   {
-    "clave": "notif.general",
-    "texto": "Benachrichtige mich"
+    "clave": "ejercicio.ejDesc.patada-de-triceps",
+    "texto": "Strecke vorgebeugt mit hoch gehaltenem Ellbogen den Unterarm nach hinten."
   },
   {
-    "clave": "notif.rutinas",
-    "texto": "Ereignisse und Routinen mit Uhrzeit"
+    "clave": "ejercicio.ejDesc.sentadilla",
+    "texto": "Senke mit der Stange auf dem Rücken die Hüfte ab, bis die Oberschenkel parallel sind, und richte dich wieder auf."
   },
   {
-    "clave": "notif.metas",
-    "texto": "Nicht erfüllte Tagesziele"
+    "clave": "ejercicio.ejDesc.sentadilla-frontal",
+    "texto": "Gehe mit der Stange vorn in die Hocke, während du den Oberkörper aufrecht hältst."
   },
   {
-    "clave": "notif.porApp",
-    "texto": "Pro App"
+    "clave": "ejercicio.ejDesc.sentadilla-bulgara",
+    "texto": "Senke mit einem Fuß erhöht hinter dir das vordere Bein bis 90 Grad ab."
   },
   {
-    "clave": "notif.denegado",
-    "texto": "Dein Browser hat Benachrichtigungen für diese Seite blockiert: nur du kannst sie über das Schloss-Symbol freigeben. Bis dahin bekommst du die Hinweise über deinen Assistenten."
+    "clave": "ejercicio.ejDesc.prensa-de-pierna",
+    "texto": "Drücke an der Maschine die Plattform durch Strecken der Beine, ohne die Knie durchzudrücken."
   },
   {
-    "clave": "notif.noSoportado",
-    "texto": "Dieser Browser hat keine Benachrichtigungen; die Hinweise kommen stattdessen über deinen Assistenten."
+    "clave": "ejercicio.ejDesc.zancadas",
+    "texto": "Mache einen Schritt nach vorn und senke das hintere Knie fast bis zum Boden ab, abwechselnd auf beiden Seiten."
   },
   {
-    "clave": "horario.agendar",
-    "texto": "Einplanen"
+    "clave": "ejercicio.ejDesc.peso-muerto",
+    "texto": "Hebe mit geradem Rücken die Stange vom Boden, indem du Hüfte und Knie streckst."
   },
   {
-    "clave": "horario.titulo",
-    "texto": "Zeitplan"
+    "clave": "ejercicio.ejDesc.peso-muerto-rumano",
+    "texto": "Senke die Stange nah am Bein durch Beugen in der Hüfte ab, mit fast gestreckten Knien."
   },
   {
-    "clave": "horario.plegar",
-    "texto": "Fertig"
+    "clave": "ejercicio.ejDesc.curl-femoral",
+    "texto": "Beuge an der Maschine die Knie und ziehe die Fersen Richtung Gesäß."
   },
   {
-    "clave": "horario.hora",
-    "texto": "Uhrzeit"
+    "clave": "ejercicio.ejDesc.extension-de-cuadriceps",
+    "texto": "Strecke sitzend an der Maschine die Knie und hebe das Gewicht kontrolliert an."
   },
   {
-    "clave": "horario.frecuencia",
-    "texto": "Wiederholung"
+    "clave": "ejercicio.ejDesc.elevacion-de-talones",
+    "texto": "Hebe im Stehen mit Gewicht die Fersen an und spanne dabei die Waden an."
   },
   {
-    "clave": "horario.dias",
-    "texto": "Tage"
+    "clave": "ejercicio.ejDesc.hip-thrust",
+    "texto": "Drücke mit dem oberen Rücken auf der Bank die Hüfte nach oben und spanne dabei das Gesäß an."
   },
   {
-    "clave": "horario.sinDias",
-    "texto": "Keiner markiert: jeden Tag."
+    "clave": "ejercicio.ejDesc.puente-de-gluteo",
+    "texto": "Hebe im Liegen die Hüfte an, bis Schultern, Hüfte und Knie eine Linie bilden."
   },
   {
-    "clave": "horario.sinHora",
-    "texto": "Keine Uhrzeit"
+    "clave": "ejercicio.ejDesc.patada-de-gluteo-en-polea",
+    "texto": "Strecke im Vierfüßlerstand oder im Stehen das Bein nach hinten und spanne dabei das Gesäß an."
   },
   {
-    "clave": "horario.todosDias",
-    "texto": "jeden Tag"
+    "clave": "ejercicio.ejDesc.abduccion-de-cadera",
+    "texto": "Öffne die Beine sitzend oder seitlich liegend gegen einen Widerstand."
   },
   {
-    "clave": "horario.avisar",
-    "texto": "Erinnere mich zu dieser Zeit"
+    "clave": "ejercicio.ejDesc.plancha",
+    "texto": "Halte den Körper gestützt auf den Unterarmen gerade, ohne die Hüfte durchhängen zu lassen."
   },
   {
-    "clave": "horario.avisar.hint",
-    "texto": "Du bekommst eine Benachrichtigung."
+    "clave": "ejercicio.ejDesc.plancha-lateral",
+    "texto": "Halte seitlich auf einen Unterarm gestützt die Hüfte angehoben und in einer Linie."
   },
   {
-    "clave": "horario.avisar.hintSinPermiso",
-    "texto": "Wir erinnern dich innerhalb der App."
+    "clave": "ejercicio.ejDesc.crunch-abdominal",
+    "texto": "Hebe im Liegen die Schultern durch Anspannen der Bauchmuskeln an, ohne am Nacken zu ziehen."
   },
   {
-    "clave": "horario.avisar.on",
-    "texto": "Ja"
+    "clave": "ejercicio.ejDesc.elevacion-de-piernas",
+    "texto": "Hebe liegend oder hängend die gestreckten Beine an und kontrolliere das Absenken."
   },
   {
-    "clave": "horario.avisar.off",
-    "texto": "Nein"
+    "clave": "ejercicio.ejDesc.russian-twist",
+    "texto": "Drehe im Sitzen mit nach hinten geneigtem Oberkörper den Rumpf von einer Seite zur anderen."
   },
   {
-    "clave": "horario.hechoHoy",
-    "texto": "Heute erledigt"
+    "clave": "ejercicio.ejDesc.rueda-abdominal",
+    "texto": "Rolle kniend nach vorn, ohne den Rücken durchzudrücken, und kehre zurück."
   },
   {
-    "clave": "horario.masOpciones",
-    "texto": "Mehr Optionen ›"
+    "clave": "ejercicio.ejDesc.escaladores",
+    "texto": "Ziehe in der Liegestützposition die Knie schnell abwechselnd zur Brust."
   },
   {
-    "clave": "horario.quitar",
-    "texto": "Entfernen"
+    "clave": "ejercicio.ejDesc.carrera",
+    "texto": "Laufe in gleichmäßigem Tempo in Zone 2-3, mit leichtem Fußaufsatz und aufrechter Haltung."
   },
   {
-    "clave": "rutinas.avisar",
-    "texto": "Erinnere mich zu dieser Zeit"
+    "clave": "ejercicio.ejDesc.trote-suave",
+    "texto": "Ein angenehmes Tempo, bei dem du dich noch unterhalten kannst; ideal für lange Läufe."
   },
   {
-    "clave": "rutinas.avisar.hint",
-    "texto": "Du bekommst eine Benachrichtigung."
+    "clave": "ejercicio.ejDesc.caminata-rapida",
+    "texto": "Zügiges Tempo mit aktivem Armschwung, ohne ins Joggen überzugehen."
   },
   {
-    "clave": "rutinas.avisar.hintSinPermiso",
-    "texto": "Wir erinnern dich innerhalb der App."
+    "clave": "ejercicio.ejDesc.ciclismo",
+    "texto": "Trete mit hoher Trittfrequenz und moderatem Widerstand in die Pedale und halte den Rücken entspannt."
   },
   {
-    "clave": "rutinas.avisar.on",
-    "texto": "Ja"
+    "clave": "ejercicio.ejDesc.senderismo",
+    "texto": "Wandere auf natürlichem Gelände mit Höhenunterschieden; lass die Steigung das Tempo bestimmen."
   },
   {
-    "clave": "rutinas.avisar.off",
-    "texto": "Nein"
+    "clave": "ejercicio.ejDesc.trail-running",
+    "texto": "Laufe im Gebirge oder auf unebenem Gelände; verkürze den Schritt an den Anstiegen."
   },
   {
-    "clave": "avisoAct.cuerpo",
-    "texto": "Es ist so weit ({hora})."
+    "clave": "ejercicio.ejDesc.caminadora",
+    "texto": "Gehe oder laufe auf dem Laufband, ohne dich an den Griffen festzuhalten."
   },
   {
-    "clave": "avisoAct.ahoraNo",
-    "texto": "Jetzt nicht"
+    "clave": "ejercicio.ejDesc.caminata-inclinada",
+    "texto": "Laufband mit Steigung in moderatem Tempo: gleichmäßiges Brennen, gelenkschonend."
   },
   {
-    "clave": "avisoAct.ir",
-    "texto": "Zum Eintragen gehen"
+    "clave": "ejercicio.ejDesc.eliptica",
+    "texto": "Gleichmäßige Bewegung, bei der auch die Arme mitarbeiten, ganz ohne Belastung für die Knie."
   },
   {
-    "clave": "hobbies.registrarMin",
-    "texto": "{n} Min eintragen"
+    "clave": "ejercicio.ejDesc.bicicleta-estatica",
+    "texto": "Stelle den Sattel auf Hüfthöhe ein und trete mit gleichmäßiger Trittfrequenz."
   },
   {
-    "clave": "hobbies.plan.tipo",
-    "texto": "Übung"
+    "clave": "ejercicio.ejDesc.escaladora",
+    "texto": "Steige in gleichmäßigem Tempo Stufen, wobei du den ganzen Fuß aufsetzt."
   },
   {
-    "clave": "hobbies.plan.ejemplo",
-    "texto": "3 ganze Lieder spielen"
+    "clave": "ejercicio.ejDesc.remo-maquina",
+    "texto": "Drücke mit den Beinen, ziehe dann mit dem Rücken und beende die Bewegung mit den Armen."
   },
   {
-    "clave": "hobbies.plan.ejProyecto",
-    "texto": "{proyecto} fertigstellen"
+    "clave": "ejercicio.ejDesc.hiit",
+    "texto": "Kurze Intervalle mit voller Intensität, abgewechselt mit kurzen Erholungsphasen."
   },
   {
-    "clave": "hobbies.plan.material",
-    "texto": "Projekte des Plans"
+    "clave": "ejercicio.ejDesc.sprints",
+    "texto": "Sätze mit maximaler Geschwindigkeit und vollständiger Erholung zwischen den Wiederholungen."
   },
   {
-    "clave": "ejercicio.registrarSesion",
-    "texto": "{n} Min eintragen"
+    "clave": "ejercicio.ejDesc.saltar-cuerda",
+    "texto": "Niedrige Sprünge, das Seil drehst du mit den Handgelenken, nicht mit den Armen."
   },
   {
-    "clave": "ejercicio.plan.ejemplo",
-    "texto": "5 km ohne Pause laufen"
+    "clave": "ejercicio.ejDesc.burpees",
+    "texto": "Vom Stand in die Liegestützposition, mache einen Liegestütz, springe mit den Füßen nach vorn und springe mit erhobenen Armen hoch."
   },
   {
-    "clave": "ejercicio.plan.material",
-    "texto": "Routinen des Plans"
+    "clave": "ejercicio.ejDesc.circuito-metabolico",
+    "texto": "Reihe mehrere Übungen ohne Pause aneinander, um die Herzfrequenz oben zu halten."
   },
   {
-    "clave": "cocina.horarios",
-    "texto": "Essenszeiten"
+    "clave": "ejercicio.ejDesc.natacion",
+    "texto": "Schwimme in gleichmäßigem Tempo und stimme deine Atmung auf den Zug ab."
   },
   {
-    "clave": "cocina.plan.tipoComida",
-    "texto": "Mahlzeit"
+    "clave": "ejercicio.ejDesc.aqua-aerobicos",
+    "texto": "Trainiere im Wasser: Der Widerstand beansprucht die Muskeln, ohne die Gelenke zu belasten."
   },
   {
-    "clave": "cocina.plan.material",
-    "texto": "Rezepte des Plans"
+    "clave": "ejercicio.ejDesc.caminata",
+    "texto": "Ein ruhiges, gleichmäßiges Tempo; die Basis deines aeroben Volumens."
   },
   {
-    "clave": "cocina.plan.ejemplo",
-    "texto": "Die mediterrane Ernährung ausprobieren"
+    "clave": "ejercicio.ejDesc.futbol",
+    "texto": "Intervallartiges Laufen mit Tempo- und Richtungswechseln."
   },
   {
-    "clave": "cocina.plan.ejBajar",
-    "texto": "Auf {kg} kg abnehmen"
+    "clave": "ejercicio.ejDesc.basquetbol",
+    "texto": "Kurze Sprints, Sprünge und ständige seitliche Bewegung."
   },
   {
-    "clave": "cocina.plan.ejSubir",
-    "texto": "Auf {kg} kg zunehmen"
+    "clave": "ejercicio.ejDesc.tenis",
+    "texto": "Explosive Antritte mit Pausen; starke Beanspruchung der Beine."
   },
   {
-    "clave": "cocina.plan.ejMantener",
-    "texto": "Bei {kg} kg bleiben"
+    "clave": "ejercicio.ejDesc.padel",
+    "texto": "Kurze, intensive Ballwechsel auf kleinem Feld mit vielen Richtungswechseln."
   },
   {
-    "clave": "biblioteca.plan.ejemplo",
-    "texto": "Die Grundlagen der Statistik beherrschen"
+    "clave": "ejercicio.ejDesc.boxeo",
+    "texto": "Kombinationen und Beinarbeit, während du die Deckung oben hältst."
   },
   {
-    "clave": "biblioteca.plan.material",
-    "texto": "Aus deiner Enzyklopädie"
+    "clave": "ejercicio.ejDesc.baile",
+    "texto": "Durchgehende Bewegung im Rhythmus der Musik; Cardio, das sich nicht wie Training anfühlt."
   },
   {
-    "clave": "idiomas.plan.ejemplo",
-    "texto": "Auf meiner nächsten Reise flüssig sprechen"
+    "clave": "ejercicio.ejDesc.movilidad-matutina",
+    "texto": "Eine sanfte Abfolge, um den Körper gleich morgens zu wecken und die Gelenke zu lockern."
   },
   {
-    "clave": "idiomas.plan.ejemploNivel",
-    "texto": "Niveau {nivel} in {idioma} erreichen"
+    "clave": "ejercicio.ejDesc.yoga-flow",
+    "texto": "Verbinde die Haltungen mit dem Atem zu einem durchgehenden Ganzkörper-Flow."
   },
   {
-    "clave": "idiomas.plan.material",
-    "texto": "Themen des Plans"
+    "clave": "ejercicio.ejDesc.saludo-al-sol",
+    "texto": "Eine klassische Yoga-Reihe, die den ganzen Körper nacheinander dehnt und aktiviert."
   },
   {
-    "clave": "sala.plan.ejemplo",
-    "texto": "5-tägige Reiseroute in Kyoto"
+    "clave": "ejercicio.ejDesc.estiramiento-general",
+    "texto": "Arbeite die großen Muskelgruppen mit sanften, gehaltenen Dehnungen durch."
   },
   {
-    "clave": "sala.plan.ejLugar",
-    "texto": "Reiseroute nach {lugar}"
+    "clave": "ejercicio.ejDesc.guerrero-i",
+    "texto": "Hebe im Ausfallschritt die Arme und öffne die Brust, während die Hüfte nach vorn zeigt."
   },
   {
-    "clave": "sala.plan.material",
-    "texto": "Aus deiner Liste „Noch zu sehen“"
+    "clave": "ejercicio.ejDesc.guerrero-ii",
+    "texto": "Strecke im weiten Ausfallschritt die Arme aus und blicke nach vorn, während du das vordere Knie beugst."
   },
   {
-    "clave": "entret.plan.ejemplo",
-    "texto": "Die Der-Pate-Saga zu Ende schauen"
+    "clave": "ejercicio.ejDesc.triangulo",
+    "texto": "Neige mit gegrätschten Beinen den Oberkörper zur Seite und senke eine Hand Richtung Knöchel."
   },
   {
-    "clave": "entret.plan.material",
-    "texto": "Aus deinem Archiv"
+    "clave": "ejercicio.ejDesc.flexion-de-pie",
+    "texto": "Falte im Stehen den Oberkörper über die Beine und lasse Nacken und Rücken locker."
   },
   {
-    "clave": "descanso.plan.ejemplo",
-    "texto": "In weniger als 15 Minuten einschlafen"
+    "clave": "ejercicio.ejDesc.apertura-de-cadera",
+    "texto": "Mobilitätsarbeit, um die Hüfte zu lösen und mehr Bewegungsspielraum in den Beinen zu gewinnen."
   },
   {
-    "clave": "anecdotario.plan.ejemplo",
-    "texto": "Die Reise dieses Jahres festhalten"
+    "clave": "ejercicio.ejDesc.postura-de-la-paloma",
+    "texto": "Senke mit einem vorn gebeugten Bein den Oberkörper ab, um das Gesäß zu öffnen."
   },
   {
-    "clave": "jardin.plan.ejemplo",
-    "texto": "Zehn Minuten Ruhe pro Tag"
+    "clave": "ejercicio.ejDesc.mariposa",
+    "texto": "Führe im Sitzen die Fußsohlen zusammen und lasse die Knie seitlich absinken."
   },
   {
-    "clave": "ideas.plan.ejemplo",
-    "texto": "Eine Idee aus dem Tagebuch in etwas Reales verwandeln"
+    "clave": "ejercicio.ejDesc.estiramiento-de-isquiotibiales",
+    "texto": "Dehne die Oberschenkelrückseite bei gestrecktem Knie."
   },
   {
-    "clave": "ideas.plan.material",
-    "texto": "Ideen des Plans"
+    "clave": "ejercicio.ejDesc.zancada-baja",
+    "texto": "Schiebe mit einem Knie am Boden die Hüfte nach vorn, um den Hüftbeuger zu dehnen."
   },
   {
-    "clave": "diario.plan.ejemplo",
-    "texto": "Jeden Tag die Morgenausgabe lesen"
+    "clave": "ejercicio.ejDesc.postura-de-la-guirnalda",
+    "texto": "Drücke in der tiefen Hocke die Knie mit den Ellbogen auseinander, um die Hüfte zu lösen."
   },
   {
-    "clave": "garage.plan.ejemplo",
-    "texto": "Das Auto winterfest machen"
+    "clave": "ejercicio.ejDesc.figura-4",
+    "texto": "Lege den Knöchel über das gegenüberliegende Knie und ziehe den Oberschenkel heran, um das Gesäß zu dehnen."
   },
   {
-    "clave": "garage.plan.material",
-    "texto": "Behördengänge des Plans"
+    "clave": "ejercicio.ejDesc.estiramiento-de-aductores",
+    "texto": "Öffne die Beine und senke den Oberkörper ab, um die Innenseite der Oberschenkel zu dehnen."
   },
   {
-    "clave": "agenda.plan.ejemplo",
-    "texto": "Das Projekt rechtzeitig abgeben"
+    "clave": "ejercicio.ejDesc.rana",
+    "texto": "Schaukle im Vierfüßlerstand mit weit gespreizten Knien die Hüfte nach hinten."
   },
   {
-    "clave": "agenda.plan.material",
-    "texto": "Aufgaben des Plans"
+    "clave": "ejercicio.ejDesc.perro-boca-abajo",
+    "texto": "Drücke im umgekehrten V die Hüfte nach oben, um Rücken und Beine zu dehnen."
   },
   {
-    "clave": "cocina.horarios.ayuda",
-    "texto": "Wann du jede Mahlzeit isst. Sie erscheinen in deinem Kalender und können dich erinnern."
+    "clave": "ejercicio.ejDesc.torsion-espinal",
+    "texto": "Drehe sitzend oder liegend den Rumpf sanft, um die Wirbelsäule zu mobilisieren."
   },
   {
-    "clave": "jardin.med.reservar",
-    "texto": "Deine Ruhezeit"
+    "clave": "ejercicio.ejDesc.postura-del-nino",
+    "texto": "Strecke, auf den Fersen sitzend, die Arme nach vorn und entspanne den Rücken."
   },
   {
-    "clave": "jardin.med.bloque",
-    "texto": "Meditieren"
+    "clave": "ejercicio.ejDesc.apertura-de-pecho",
+    "texto": "Führe die Arme nach hinten, um die Brust zu öffnen und einer gekrümmten Haltung entgegenzuwirken."
   },
   {
-    "clave": "jardin.registrarMin",
-    "texto": "{n} Min eintragen"
+    "clave": "ejercicio.ejDesc.esfinge",
+    "texto": "Hebe in Bauchlage, auf den Unterarmen abgestützt, die Brust an und strecke den unteren Rücken."
   },
   {
-    "clave": "biblioteca.est.reservar",
-    "texto": "Deine Lernzeit"
+    "clave": "ejercicio.ejDesc.hilo-y-aguja",
+    "texto": "Fädle im Vierfüßlerstand einen Arm unter dem Körper hindurch, um die Schulter zu dehnen."
   },
   {
-    "clave": "biblioteca.est.bloque",
-    "texto": "Lernen"
+    "clave": "ejercicio.ejDesc.estiramiento-de-dorsales",
+    "texto": "Dehne die Seiten, indem du die Arme nach oben und leicht seitlich hebst."
   },
   {
-    "clave": "biblioteca.registrarMin",
-    "texto": "{n} Min eintragen"
+    "clave": "ejercicio.ejDesc.movilidad-cervical",
+    "texto": "Langsame Nackenbewegungen in alle Richtungen, um Spannung zu lösen."
   },
   {
-    "clave": "idiomas.rep.reservar",
-    "texto": "Deine Wiederholungszeit"
+    "clave": "ejercicio.ejDesc.rotaciones-de-columna",
+    "texto": "Drehe die Wirbelsäule sanft Segment für Segment, um sie zu mobilisieren."
   },
   {
-    "clave": "idiomas.rep.bloque",
-    "texto": "{idioma} wiederholen"
+    "clave": "ejercicio.ejDesc.postura-de-la-cobra",
+    "texto": "Hebe in Bauchlage mit den Händen die Brust an und strecke dabei den Rücken."
   },
   {
-    "clave": "notif.ayudaCerrada",
-    "texto": "Hinweise kommen bei geöffneter App, auch im Hintergrund. Bei geschlossenem Tab kann der Browser sie nicht aufwecken: dafür braucht es die installierte App auf dem Handy."
+    "clave": "ejercicio.ejDesc.inclinacion-lateral-de-cuello",
+    "texto": "Neige das Ohr Richtung Schulter, um die Seite des Halses zu dehnen."
   },
   {
-    "clave": "progreso.nivel",
-    "texto": "Level"
-  },
-  {
-    "clave": "progreso.racha",
-    "texto": "Serie"
-  },
-  {
-    "clave": "progreso.dias",
-    "texto": "Tage"
-  },
-  {
-    "clave": "progreso.hoy",
-    "texto": "Heute"
-  },
-  {
-    "clave": "progreso.semana",
-    "texto": "7 Tage"
-  },
-  {
-    "clave": "plantillas.ayuda",
-    "texto": "Tippe auf das Symbol, um die App zu öffnen, wähle ihren Assistenten und weise sie einem Raum zu."
-  },
-  {
-    "clave": "plantillas.entrar",
-    "texto": "App öffnen"
-  },
-  {
-    "clave": "plantillas.cerrarPrevia",
-    "texto": "‹ Schließen"
-  },
-  {
-    "clave": "plantillas.asistente",
-    "texto": "Zuständiger Assistent"
-  },
-  {
-    "clave": "plantillas.sinAsistente",
-    "texto": "Kein Assistent (von allen betreut)"
-  },
-  {
-    "clave": "plantillas.asignar",
-    "texto": "Einem Objekt oder Raum zuweisen"
-  },
-  {
-    "clave": "plantillas.asignarObjeto",
-    "texto": "+ Einem Objekt zuweisen…"
-  },
-  {
-    "clave": "plantillas.asignarA",
-    "texto": "+ Einem Raum zuweisen…"
-  },
-  {
-    "clave": "plantillas.sinCuartos",
-    "texto": "Erstelle zuerst einen Raum"
-  },
-  {
-    "clave": "plantillas.objetoPrincipal",
-    "texto": "Hauptobjekt (Raumeingang)"
-  },
-  {
-    "clave": "plantillas.traeObjetos",
-    "texto": "Objekte, die die App mitbringt"
-  },
-  {
-    "clave": "plantillas.esPrincipal",
-    "texto": "Hauptobjekt"
-  },
-  {
-    "clave": "plantillas.hacerPrincipal",
-    "texto": "Als Hauptobjekt festlegen"
-  },
-  {
-    "clave": "plantillas.quitarObjeto",
-    "texto": "Objekt entfernen"
-  },
-  {
-    "clave": "plantillas.agregarObjeto",
-    "texto": "Objekt hinzufügen"
-  },
-  {
-    "clave": "selObjeto.titulo",
-    "texto": "Objekt hinzufügen"
-  },
-  {
-    "clave": "plantillas.todasAsignadas",
-    "texto": "Alle Apps sind schon in einem Raum. Wenn du einen Raum löschst, kommt seine Vorlage hierher zurück."
-  },
-  {
-    "clave": "plantillaCustom.crear",
-    "texto": "Vorlage erstellen"
-  },
-  {
-    "clave": "plantillaCustom.editar",
-    "texto": "Vorlage bearbeiten"
-  },
-  {
-    "clave": "plantillaCustom.eliminar",
-    "texto": "Vorlage löschen"
-  },
-  {
-    "clave": "plantillaCustom.confirmarBorrar",
-    "texto": "Diese Vorlage und alle ihre Daten löschen?"
-  },
-  {
-    "clave": "plantillaCustom.enUso",
-    "texto": "Deine verwendeten Vorlagen"
-  },
-  {
-    "clave": "plantillaCustom.nombrePh",
-    "texto": "Z. B. Umzug, Pflanzen, Haustier…"
-  },
-  {
-    "clave": "plantillaCustom.emojiLibre",
-    "texto": "Anderes Emoji"
-  },
-  {
-    "clave": "plantillaCustom.herramientas",
-    "texto": "Werkzeuge der Vorlage"
-  },
-  {
-    "clave": "plantillaCustom.sinBloques",
-    "texto": "Füge mindestens ein Werkzeug hinzu: sie werden die Abschnitte deiner App."
-  },
-  {
-    "clave": "plantillaCustom.quitarBloque",
-    "texto": "Entfernen (beim Speichern werden seine Daten gelöscht)"
-  },
-  {
-    "clave": "plantillaCustom.menusAyuda",
-    "texto": "Verteile die Blöcke auf Tabs. Ohne Menüs ist deine App ein einziger Bildschirm."
-  },
-  {
-    "clave": "plantillaCustom.agregarMenu",
-    "texto": "Menü"
-  },
-  {
-    "clave": "plantillaCustom.agregarAqui",
-    "texto": "Werkzeug hinzufügen"
-  },
-  {
-    "clave": "plantillaCustom.agregarSubmenu",
-    "texto": "Untermenü dieses Menüs"
-  },
-  {
-    "clave": "plantillaCustom.menuNuevo",
-    "texto": "Menü {n}"
-  },
-  {
-    "clave": "plantillaCustom.submenuNuevo",
-    "texto": "Untermenü {n}"
-  },
-  {
-    "clave": "plantillaCustom.menuSinNombre",
-    "texto": "Menü"
-  },
-  {
-    "clave": "plantillaCustom.menuNombrePh",
-    "texto": "Menüname"
-  },
-  {
-    "clave": "plantillaCustom.menuEmoji",
-    "texto": "Emoji des Menüs (optional)"
-  },
-  {
-    "clave": "plantillaCustom.borrarMenu",
-    "texto": "Menü löschen (seine Blöcke wandern zum ersten)"
-  },
-  {
-    "clave": "plantillaCustom.menuBloque",
-    "texto": "Menü"
-  },
-  {
-    "clave": "plantillaCustom.menuVacio",
-    "texto": "Dieses Menü hat noch keine Blöcke."
-  },
-  {
-    "clave": "plantillaCustom.submenu",
-    "texto": "Untermenü"
-  },
-  {
-    "clave": "plantillaCustom.editarApp",
-    "texto": "App bearbeiten"
-  },
-  {
-    "clave": "plantillaCustom.listo",
-    "texto": "Fertig"
-  },
-  {
-    "clave": "plantillaCustom.editorCompleto",
-    "texto": "Vollständiger Editor"
-  },
-  {
-    "clave": "plantillaCustom.borrar",
-    "texto": "Löschen"
-  },
-  {
-    "clave": "plantillaCustom.borrarMenuTitulo",
-    "texto": "„{nombre}“ löschen"
-  },
-  {
-    "clave": "plantillaCustom.borrarMenuMsj",
-    "texto": "Seine Werkzeuge wandern mit ihren Daten ins erste Menü."
-  },
-  {
-    "clave": "plantillaCustom.borrarBloqueTitulo",
-    "texto": "„{nombre}“ löschen"
+    "clave": "ejercicio.ejDesc.estiramiento-de-cuadriceps",
+    "texto": "Ziehe im Stehen die Ferse zum Gesäß und halte den Fuß fest, um den Oberschenkel zu dehnen."
   }
 ]

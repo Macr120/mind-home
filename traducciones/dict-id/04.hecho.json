@@ -1,169 +1,498 @@
 [
-  { "clave": "plantillaCustom.borrarBloqueMsj", "texto": "Alat akan terhapus beserta semua yang kamu simpan di dalamnya." },
-  { "clave": "plantillaCustom.borrarBloqueAhora", "texto": "Hapus alat dan datanya" },
-  { "clave": "plantillaCustom.meta", "texto": "Target (opsional)" },
-  { "clave": "plantillaCustom.guardar", "texto": "Simpan" },
-  { "clave": "plantillaCustom.cancelar", "texto": "Batal" },
-  { "clave": "plantillaCustom.tipo.notas", "texto": "Catatan" },
-  { "clave": "plantillaCustom.tipo.checklist", "texto": "Daftar periksa" },
-  { "clave": "plantillaCustom.tipo.contador", "texto": "Penghitung" },
-  { "clave": "plantillaCustom.tipo.enlaces", "texto": "Tautan" },
-  { "clave": "plantillaCustom.tipo.lista", "texto": "Daftar" },
-  { "clave": "plantillaCustom.tipo.valoracion", "texto": "Penilaian" },
-  { "clave": "plantillaCustom.tipo.bitacora", "texto": "Log" },
-  { "clave": "plantillaCustom.tipo.progreso", "texto": "Progres" },
-  { "clave": "plantillaCustom.tipo.habito", "texto": "Kebiasaan" },
-  { "clave": "plantillaCustom.tipo.sesiones", "texto": "Sesi" },
-  { "clave": "plantillaCustom.tipo.cuenta", "texto": "Hitung mundur" },
-  { "clave": "plantillaCustom.tipo.galeria", "texto": "Galeri" },
-  { "clave": "amueblar.titulo", "texto": "Bagaimana melengkapi ruangan?" },
-  { "clave": "amueblar.completo", "texto": "Lengkap" },
-  { "clave": "amueblar.completoDesc", "texto": "Membawa semua objek aplikasi." },
-  { "clave": "amueblar.principal", "texto": "Hanya objek utama" },
-  { "clave": "amueblar.principalDesc", "texto": "Hanya objek yang membuka aplikasi, tanpa yang lain." },
-  { "clave": "plantillaCustom.eliminada", "texto": "Templat ini sudah dihapus." },
-  { "clave": "plantillaCustom.notasPh", "texto": "Tulis catatanmu… (tersimpan otomatis)" },
-  { "clave": "plantillaCustom.checklistPh", "texto": "Tugas baru…" },
-  { "clave": "plantillaCustom.checklistVacio", "texto": "Belum ada tugas." },
-  { "clave": "plantillaCustom.borrarItem", "texto": "Hapus" },
-  { "clave": "plantillaCustom.enlaceTitulo", "texto": "Judul (opsional)" },
-  { "clave": "plantillaCustom.enlacesVacio", "texto": "Belum ada tautan tersimpan." },
-  { "clave": "plantillaCustom.listaPh", "texto": "Item baru…" },
-  { "clave": "plantillaCustom.listaVacio", "texto": "Daftar kosong." },
-  { "clave": "plantillaCustom.bitacoraPh", "texto": "Entri baru…" },
-  { "clave": "plantillaCustom.bitacoraVacio", "texto": "Belum ada entri." },
-  { "clave": "plantillaCustom.progresoPh", "texto": "Nilai…" },
-  { "clave": "plantillaCustom.progresoVacio", "texto": "Belum ada pengukuran." },
-  { "clave": "plantillaCustom.unidad", "texto": "Satuan (opsional)" },
-  { "clave": "plantillaCustom.habitoMarcar", "texto": "Tandai hari ini" },
-  { "clave": "plantillaCustom.habitoHecho", "texto": "Selesai hari ini ✓" },
-  { "clave": "plantillaCustom.habitoRacha", "texto": "runtunan" },
-  { "clave": "plantillaCustom.habitoDias", "texto": "hari aktif" },
-  { "clave": "plantillaCustom.metaSemana", "texto": "Berapa kali seminggu (opsional)" },
-  { "clave": "plantillaCustom.sesionMin", "texto": "Menit" },
-  { "clave": "plantillaCustom.sesionNota", "texto": "Catatan (opsional)" },
-  { "clave": "plantillaCustom.sesionVacio", "texto": "Belum ada sesi." },
-  { "clave": "plantillaCustom.sesionTotal", "texto": "Total" },
-  { "clave": "plantillaCustom.metaMin", "texto": "Target dalam menit (opsional)" },
-  { "clave": "plantillaCustom.cuentaFecha", "texto": "Tanggal target" },
-  { "clave": "plantillaCustom.cuentaSinFecha", "texto": "Atur tanggal target saat mengedit." },
-  { "clave": "plantillaCustom.cuentaDias", "texto": "hari lagi" },
-  { "clave": "plantillaCustom.cuentaHoy", "texto": "Hari ini!" },
-  { "clave": "plantillaCustom.cuentaPaso", "texto": "hari lalu" },
-  { "clave": "plantillaCustom.galeriaAgregar", "texto": "Tambah foto" },
-  { "clave": "plantillaCustom.galeriaVacio", "texto": "Belum ada foto." },
-  { "clave": "objetos.ayuda", "texto": "Semua objek yang ada, per kategori. Buat objekmu sendiri, edit, atau hapus." },
-  { "clave": "objetos.ayudaEspeciales", "texto": "Objek dengan efek, dikelompokkan menurut fungsinya. Buka salah satu untuk melihat foldernya." },
-  { "clave": "objetos.agregar", "texto": "Tambah objek 3D" },
-  { "clave": "objetos.alMapa", "texto": "Tempatkan di peta atau di ruangan" },
-  { "clave": "destinoObj.titulo", "texto": "Mau ditaruh di mana?" },
-  { "clave": "destinoObj.mapa", "texto": "Di peta" },
-  { "clave": "destinoObj.mapaDesc", "texto": "Bebas di luar, di luar ruangan." },
-  { "clave": "destinoObj.enCuarto", "texto": "Atau di dalam ruangan" },
-  { "clave": "objetos.editar", "texto": "Edit di editor" },
-  { "clave": "objetos.editarForma", "texto": "Edit bentuknya" },
-  { "clave": "objetos.animado", "texto": "Objek beranimasi" },
-  { "clave": "objetos.funcion.vehiculo", "texto": "Bisa dikendarai" },
-  { "clave": "objetos.funcion.asiento", "texto": "Kamu bisa duduk di sini" },
-  { "clave": "objetos.funcion.acostarse", "texto": "Kamu bisa berbaring di sini" },
-  { "clave": "objetos.funcion.laptop", "texto": "Digunakan untuk bekerja" },
-  { "clave": "objetos.funcion.cajaFuerte", "texto": "Menyimpan yang penting" },
-  { "clave": "objetos.funcion.computo", "texto": "Digunakan untuk menghitung" },
-  { "clave": "objetos.funcion.tapete", "texto": "Digunakan untuk meditasi" },
-  { "clave": "objetos.funcion.libreta", "texto": "Digunakan untuk menulis" },
-  { "clave": "objetos.funcion.caminadora", "texto": "Digunakan untuk berjalan" },
-  { "clave": "objetos.funcion.anuncio", "texto": "Papan: tulis teksmu sendiri" },
-  { "clave": "objetos.funcion.parque", "texto": "Interaktif: naik untuk bermain" },
-  { "clave": "objetos.rotarIzq", "texto": "Putar ke kiri" },
-  { "clave": "objetos.rotarDer", "texto": "Putar ke kanan" },
-  { "clave": "objetos.quitarDelMapa", "texto": "Hapus dari peta" },
-  { "clave": "objetos.borrar", "texto": "Hapus objek" },
-  { "clave": "objetos.borrarConfirm", "texto": "Hapus “{nombre}”? Ini tidak bisa dibatalkan." },
-  { "clave": "objetos.renombrar", "texto": "Ganti nama folder" },
-  { "clave": "objetos.restaurar", "texto": "Pulihkan objek dasar" },
-  { "clave": "objetos.restaurarConfirm", "texto": "Objek dasar katalog yang kamu hapus akan ditambahkan kembali. Lanjutkan?" },
-  { "clave": "mapa.editar", "texto": "Edit peta" },
-  { "clave": "mapa.editarTitulo", "texto": "Edit peta rumah" },
-  { "clave": "mapa.quitar", "texto": "Hapus dari peta" },
-  { "clave": "chat.tuAsistente", "texto": "Asistenmu:" },
-  { "clave": "chat.vacio", "texto": "Belum ada catatan. Ceritakan ke arsitek apa yang kamu lakukan." },
-  { "clave": "chat.sinClasificar", "texto": "Belum dikategorikan" },
-  { "clave": "chat.capturado", "texto": "tertangkap" },
-  { "clave": "chat.reclasificar", "texto": "Klasifikasi ulang" },
-  { "clave": "chat.eliminar", "texto": "Hapus" },
-  { "clave": "chat.ocultar", "texto": "Tutup menu" },
-  { "clave": "chat.verMenu", "texto": "buka menu" },
-  { "clave": "chat.registrar", "texto": "Catat" },
-  { "clave": "chat.chip.crear", "texto": "Buat" },
-  { "clave": "chat.chip.enMapa", "texto": "(di peta)" },
-  { "clave": "chat.chip.fuera", "texto": "(di luar)" },
-  { "clave": "chat.abrirConv", "texto": "lihat percakapan" },
-  { "clave": "chat.verConv", "texto": "Lihat percakapan lengkap" },
-  { "clave": "chat.burbuja.ver", "texto": "Ketuk untuk membaca semuanya" },
-  { "clave": "dialogo.salir", "texto": "Akhiri percakapan (Esc)" },
-  { "clave": "dialogo.completar", "texto": "Tampilkan seluruh teks" },
-  { "clave": "dialogo.hablar", "texto": "Bicara" },
-  { "clave": "chat.conversacion", "texto": "Percakapan" },
-  { "clave": "chat.conv.vacia", "texto": "Belum ada pesan dengan {pet}. Ketik di bilah bawah" },
-  { "clave": "chat.conv.limpiar", "texto": "Bersihkan percakapan" },
-  { "clave": "chat.conv.cerrar", "texto": "Tutup" },
-  { "clave": "chat.tu", "texto": "Kamu" },
-  { "clave": "chat.tab.chats", "texto": "Obrolan" },
-  { "clave": "chat.tab.registros", "texto": "Entri" },
-  { "clave": "chat.config.abrir", "texto": "Atur asisten" },
-  { "clave": "chat.config.titulo", "texto": "Asistenmu" },
-  { "clave": "chat.config.activo", "texto": "aktif" },
-  { "clave": "chat.config.sinCaracter", "texto": "Kepribadian belum diatur" },
-  { "clave": "chat.config.archivaTodo", "texto": "Mengarsipkan di semua ruangan" },
-  { "clave": "chat.config.cuartos", "texto": "Tetapkan aplikasi" },
-  { "clave": "chat.config.cuartosTodos", "texto": "(tidak ada yang dicentang = semua)" },
-  { "clave": "chat.config.nuevo", "texto": "Buat asisten" },
-  { "clave": "chat.config.nuevoNombre", "texto": "Asisten baru" },
-  { "clave": "chat.config.nuevoSaludo", "texto": "Hai! Aku asisten barumu." },
-  { "clave": "chat.config.nombre", "texto": "Nama" },
-  { "clave": "chat.config.emoji", "texto": "Emoji asisten" },
-  { "clave": "chat.config.historia", "texto": "Latar belakang dan konteks karakter" },
-  { "clave": "chat.config.historiaPh", "texto": "Latar belakang dan konteks: mis. “Pelaut tua yang menjaga mercusuar selama 40 tahun; sekarang menjaga rumahmu”" },
-  { "clave": "chat.config.caracterPh", "texto": "Kepribadian: mis. “Kamu bicara seperti bajak laut, jenaka dan blak-blakan, kamu menutup dengan 🏴‍☠️”" },
-  { "clave": "chat.config.forma", "texto": "Bentuk 3D:" },
-  { "clave": "chat.config.color", "texto": "Warna karakter" },
-  { "clave": "chat.config.formaPh", "texto": "Deskripsikan: “naga hijau berkacamata dan berompi”" },
-  { "clave": "chat.config.formaSinIa", "texto": "Mendeskripsikan bentuk butuh AI (pilih model di bilah)" },
-  { "clave": "chat.config.formaGenerar", "texto": "Buat bentuk dengan AI" },
-  { "clave": "chat.config.formaError", "texto": "Tidak bisa membuat bentuk. Periksa model AI-nya dan coba lagi." },
-  { "clave": "chat.config.subirGlb", "texto": "Unggah model .glb" },
-  { "clave": "chat.config.quitarGlb", "texto": "Hapus model yang diunggah" },
-  { "clave": "chat.config.quitarFormaIa", "texto": "Hapus bentuk buatan AI" },
-  { "clave": "chat.config.enMapa", "texto": "Hapus dari peta" },
-  { "clave": "chat.config.ponerMapa", "texto": "Tambahkan ke peta" },
-  { "clave": "chat.config.voz", "texto": "Suara:" },
-  { "clave": "chat.config.vozAuto", "texto": "Otomatis (berdasarkan bahasa)" },
-  { "clave": "chat.config.vozIA", "texto": "Suara AI (OpenAI, lebih alami)" },
-  { "clave": "chat.config.vozLeer", "texto": "Bacakan dengan suara apa yang dikatakannya" },
-  { "clave": "chat.config.vozProbar", "texto": "Coba suaranya" },
-  { "clave": "chat.config.vozTono", "texto": "Nada" },
-  { "clave": "chat.config.vozVelocidad", "texto": "Kecepatan" },
-  { "clave": "chat.config.vozVolumen", "texto": "Volume" },
-  { "clave": "chat.config.espontaneo", "texto": "Komentar spontan" },
-  { "clave": "chat.config.corazon", "texto": "Hati (spontanitas)" },
-  { "clave": "chat.config.corazonOff", "texto": "Nonaktif" },
-  { "clave": "corazon.nivel.0", "texto": "Diam" },
-  { "clave": "corazon.nivel.1", "texto": "Tenang" },
-  { "clave": "corazon.nivel.2", "texto": "Cerewet" },
-  { "clave": "corazon.nivel.3", "texto": "Banyak bicara" },
-  { "clave": "corazon.mago.manana.0", "texto": "Fajar membawa mana segar… aku bisa merasakannya ✨" },
-  { "clave": "corazon.mago.manana.1", "texto": "Gulungan mantraku bangun rapi. Pertanda baik 🔮" },
-  { "clave": "corazon.mago.tarde.0", "texto": "Sore ini sempurna untuk mencatat perbuatan di dalam grimoire ✨" },
-  { "clave": "corazon.mago.tarde.1", "texto": "Aku merasakan energi tenang di sekitar rumah sore ini 🔮" },
-  { "clave": "corazon.mago.noche.0", "texto": "Bintang-bintang membisikkan rahasianya… malam yang pas untuk mantra 🌙" },
-  { "clave": "corazon.mago.noche.1", "texto": "Bulan mengisi bola kristalku. Semua tenang di sini 🔮" },
-  { "clave": "corazon.mago.rutina.0", "texto": "Bola kristalku mengumumkan: pukul {h} “{r}” ✨" },
-  { "clave": "corazon.mago.rutina.1", "texto": "Takdir menandai pukul {h}: “{r}” akan datang 🔮" },
-  { "clave": "corazon.mago.generica.0", "texto": "Rumah ini penuh sihir hari ini ✨" },
-  { "clave": "corazon.mago.generica.1", "texto": "Mantra beres-beres tidak ada salahnya… 🔮" },
-  { "clave": "corazon.gato.manana.0", "texto": "Terlalu pagi. Manusia bangun dengan aneh 🐾" },
-  { "clave": "corazon.gato.manana.1", "texto": "Menguap. Pagi hari akan lebih baik dengan tidur siang 🐱" },
-  { "clave": "corazon.gato.tarde.0", "texto": "Waktu yang pas buat tidur siang di bawah matahari. Cuma bilang aja 🐾" },
-  { "clave": "corazon.gato.tarde.1", "texto": "Sore yang santai… persis seperti yang kusuka 🐱" },
-  { "clave": "corazon.gato.noche.0", "texto": "Akhirnya malam. Waktu terbaikku 🐱" }
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-gemelos",
+    "texto": "Letakkan tanganmu di dinding dan regangkan betismu dengan kaki belakang lurus."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-hombros",
+    "texto": "Silangkan satu lengan di depan dada dan tarik dengan tangan yang lain."
+  },
+  {
+    "clave": "ejercicio.ejDesc.foam-roller",
+    "texto": "Gulingkan ototmu di atas foam roller untuk melepaskan ketegangan setelah latihan."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-triceps",
+    "texto": "Bawa sikumu ke belakang kepala dan dorong perlahan dengan tangan yang lain."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-de-cadera",
+    "texto": "Dalam lunge, dorong pinggulmu ke depan untuk meregangkan bagian depan paha."
+  },
+  {
+    "clave": "ejercicio.ejDesc.piernas-en-la-pared",
+    "texto": "Berbaring telentang, sandarkan kakimu ke dinding untuk rileks dan melancarkan peredaran darah."
+  },
+  {
+    "clave": "ejercicio.ejDesc.savasana",
+    "texto": "Berbaring telentang, rilekskan seluruh tubuhmu sambil bernapas perlahan."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-del-nino-apoyada",
+    "texto": "Pose Anak dengan bantalan untuk rileks lebih lama."
+  },
+  {
+    "clave": "ejercicio.ejDesc.respiracion-profunda",
+    "texto": "Tarik dan buang napas perlahan serta dalam untuk menenangkan sistem saraf."
+  },
+  {
+    "clave": "ejercicio.ejDesc.mariposa-reclinada",
+    "texto": "Berbaring dengan telapak kaki bertemu, biarkan lututmu jatuh ke samping dan rilekskan pinggulmu."
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsion-reclinada",
+    "texto": "Berbaring telentang, biarkan lututmu jatuh ke satu sisi sambil memutar tulang belakang dengan lembut."
+  },
+  {
+    "clave": "ejercicio.ejDesc.liberacion-miofascial-con-pelota",
+    "texto": "Gulingkan bola keras dengan tekanan terkontrol dari tumit hingga bagian depan telapak kakimu."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-tobillo",
+    "texto": "Angkat satu kaki dan putar pergelangan kakimu membentuk lingkaran besar ke kedua arah."
+  },
+  {
+    "clave": "ejercicio.ejDesc.recogida-de-toalla-con-dedos",
+    "texto": "Coba kumpulkan handuk di lantai hanya dengan menggunakan jari-jari kakimu."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-dorsiflexion",
+    "texto": "Menghadap dinding, tekuk lutut depan sambil menjaga tumit tetap menapak di lantai untuk meregangkan otot."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-talones-unipodal",
+    "texto": "Berdiri dengan satu kaki, angkat tumitmu perlahan lalu turunkan dengan kontrol eksentrik."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-y-extension-en-descarga",
+    "texto": "Berbaring, tekuk lututmu membawa tumit mendekati bokong, lalu luruskan tanpa mengangkat kaki dari lantai."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "Letakkan tumit di depanmu dan tekuk badan ke depan perlahan dengan lutut tetap lurus."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-isometrica-wall-squat",
+    "texto": "Sandarkan punggungmu ke dinding, turun hingga membentuk sudut 90 derajat, dan tahan sambil memastikan lututmu tidak masuk ke dalam."
+  },
+  {
+    "clave": "ejercicio.ejDesc.equilibrio-unipodal-single-leg-balance",
+    "texto": "Jaga keseimbangan dengan satu kaki, lutut sedikit ditekuk, tanpa membiarkannya masuk ke dalam."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadillas-del-arquero",
+    "texto": "Dengan kaki terbuka lebar, tekuk satu lutut sambil memindahkan berat badan, dan jaga kaki yang lain tetap lurus."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estocadas-lunges",
+    "texto": "Melangkah ke depan dan turunkan pinggulmu hingga lutut depan membentuk sudut 90 derajat."
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-90-90",
+    "texto": "Duduk dengan kaki membentuk sudut 90 derajat, putar badan dan kakimu dari sisi ke sisi."
+  },
+  {
+    "clave": "ejercicio.ejDesc.el-puente-glute-bridge",
+    "texto": "Berbaring telentang, angkat pinggulmu sambil mengencangkan otot bokong hingga bahu, pinggul, dan lutut sejajar."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-en-estocada",
+    "texto": "Dengan satu lutut di lantai, dorong pinggulmu ke depan dengan punggung lurus untuk meregangkan otot psoas."
+  },
+  {
+    "clave": "ejercicio.ejDesc.abduccion-lateral-de-cadera",
+    "texto": "Berbaring menyamping, angkat kaki bagian atas sambil menjaga pinggul tetap stabil."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-profunda-con-apertura",
+    "texto": "Dalam squat, dorong lututmu ke luar dengan siku untuk membuka pinggul."
+  },
+  {
+    "clave": "ejercicio.ejDesc.balanceo-dinamico-de-piernas",
+    "texto": "Sambil berdiri, ayunkan satu kaki ke depan, belakang, dan samping seperti bandul."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-gato-vaca",
+    "texto": "Dengan posisi merangkak, gerakkan tubuh bergantian antara melengkungkan punggung ke atas dan menurunkan perut ke bawah."
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsiones-lumbares-suaves",
+    "texto": "Berbaring telentang, biarkan kedua lututmu jatuh bersama ke satu sisi lalu ke sisi lainnya."
+  },
+  {
+    "clave": "ejercicio.ejDesc.pointer-bird-dog",
+    "texto": "Dengan posisi merangkak, luruskan tangan dan kaki yang berlawanan sambil menjaga punggung bawah tetap datar."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-frontal-isometricos",
+    "texto": "Tahan posisi Plank bertumpu pada lengan bawah, membentuk garis lurus."
+  },
+  {
+    "clave": "ejercicio.ejDesc.roll-down-curl-jefferson",
+    "texto": "Sambil berdiri, gulingkan tulang belakangmu perlahan ke bawah, satu ruas demi satu ruas."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-lumbar-boca-abajo",
+    "texto": "Berbaring tengkurap, angkat pinggulmu lalu turunkan sambil melengkungkan punggung."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotacion-toracica",
+    "texto": "Dengan posisi merangkak, angkat satu lengan ke samping dan ikuti tanganmu dengan pandangan."
+  },
+  {
+    "clave": "ejercicio.ejDesc.retraccion-escapular",
+    "texto": "Kencangkan tulang belikatmu ke belakang dan bawah sambil menjaga postur tegak."
+  },
+  {
+    "clave": "ejercicio.ejDesc.angeles-de-pared-wall-angels",
+    "texto": "Dengan punggung menempel di dinding, geser lenganmu naik turun sambil menjaga siku tetap menyentuh dinding."
+  },
+  {
+    "clave": "ejercicio.ejDesc.lunge-con-apertura-de-pectoral",
+    "texto": "Dalam lunge, kaitkan tanganmu di belakang leher dan buka sikumu ke belakang."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-dorsal-en-pared",
+    "texto": "Letakkan tanganmu di dinding dan biarkan badanmu turun dengan lutut tetap lurus."
+  },
+  {
+    "clave": "ejercicio.ejDesc.el-gato-y-la-mesa",
+    "texto": "Dengan posisi merangkak, lengkungkan punggungmu lalu turunkan dada."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-hombros",
+    "texto": "Lakukan gerakan memutar yang lebar, lebih menekankan arah ke belakang dan bawah."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-pecho-pectoral",
+    "texto": "Kaitkan tanganmu di belakang punggung dan buka dadamu tanpa memaksakan leher."
+  },
+  {
+    "clave": "ejercicio.ejDesc.dislocaciones-con-goma-o-palo",
+    "texto": "Lewatkan band di atas kepala hingga ke belakang punggung dengan siku tetap lurus."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotacion-externa-con-banda",
+    "texto": "Dengan siku menempel di tubuh membentuk sudut 90 derajat, putar tanganmu ke luar melawan tahanan."
+  },
+  {
+    "clave": "ejercicio.ejDesc.thread-the-needle-enhebrar-aguja",
+    "texto": "Dengan posisi merangkak, selipkan satu lengan ke bawah tubuh hingga bahu menyentuh lantai."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-y-medios-circulos",
+    "texto": "Dengan dagu mendekati dada, buat lingkaran lebar dan sangat perlahan tanpa memaksakan jika terasa nyeri."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-trapecio-superior",
+    "texto": "Miringkan kepalamu perlahan, dekatkan telinga ke bahu yang berlawanan."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-cervicales-con-nodding",
+    "texto": "Putar kepalamu dan buat gerakan mengangguk kecil (seperti mengatakan \"ya\")."
+  },
+  {
+    "clave": "ejercicio.ejDesc.retracciones-de-barbilla-chin-tucks",
+    "texto": "Tarik dagumu lurus ke belakang hingga membentuk \"dagu ganda\" untuk meluruskan lehermu."
+  },
+  {
+    "clave": "ejercicio.ejDesc.isometricos-cervicales",
+    "texto": "Dorong kepalamu ke arah tanganmu, tahan gerakannya agar leher tidak menekuk."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-y-extension-de-muneca",
+    "texto": "Dengan lengan terentang, tekuk pergelangan tanganmu ke arah langit-langit lalu ke arah lantai."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-munecas",
+    "texto": "Putar kedua pergelangan tanganmu membentuk lingkaran ke kedua arah."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores",
+    "texto": "Dengan telapak tangan menghadap ke atas, gunakan tangan yang lain untuk mendorong jari-jarimu ke arah tubuh."
+  },
+  {
+    "clave": "ejercicio.ejDesc.agarre-activo-y-pasivo",
+    "texto": "Kepalkan tanganmu erat-erat lalu buka sambil rileks sepenuhnya."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-de-munecas",
+    "texto": "Dalam posisi Plank atau berlutut, naik hingga bertumpu hanya pada ujung jari, lalu turun."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.liberacion-miofascial-con-pelota",
+    "texto": "1-2 menit per kaki (gerakan berkelanjutan)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-tobillo",
+    "texto": "10-12 repetisi per arah, per pergelangan kaki."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.recogida-de-toalla-con-dedos",
+    "texto": "10-15 repetisi (remas dan lepas) per kaki."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-dorsiflexion",
+    "texto": "Tahan 15-30 detik per kaki, lakukan 2-4 set."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.elevacion-de-talones-unipodal",
+    "texto": "10-15 repetisi per kaki."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-en-descarga",
+    "texto": "8-10 repetisi per kaki."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "Tahan 20 detik per kaki."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadilla-isometrica-wall-squat",
+    "texto": "Tahan 5-15 detik, berdiri, lalu ulangi (3-5 kali)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.equilibrio-unipodal-single-leg-balance",
+    "texto": "Tahan 15-60 detik per kaki (ulangi 2-3 kali)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadillas-del-arquero",
+    "texto": "15 repetisi, bergantian sisi."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estocadas-lunges",
+    "texto": "8-12 repetisi per kaki."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.movilidad-90-90",
+    "texto": "8-12 repetisi per sisi (sekitar 1-2 menit)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.el-puente-glute-bridge",
+    "texto": "15 repetisi (tahan 2-3 detik di posisi atas setiap kali)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores-en-estocada",
+    "texto": "Tahan 20 detik per kaki."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.abduccion-lateral-de-cadera",
+    "texto": "10-15 repetisi per sisi, tahan beberapa detik di posisi atas."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadilla-profunda-con-apertura",
+    "texto": "15 repetisi membuka."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.balanceo-dinamico-de-piernas",
+    "texto": "8-10 repetisi per kaki."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.postura-gato-vaca",
+    "texto": "1 menit tanpa henti (atau 10-15 kali napas)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.torsiones-lumbares-suaves",
+    "texto": "10-15 repetisi per sisi."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.pointer-bird-dog",
+    "texto": "Tahan 30 detik di satu sisi, lalu ganti."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.plancha-frontal-isometricos",
+    "texto": "Tahan 15-60 detik sesuai kemampuan."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.roll-down-curl-jefferson",
+    "texto": "15 repetisi lambat."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-lumbar-boca-abajo",
+    "texto": "1 menit tanpa henti."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotacion-toracica",
+    "texto": "30 detik per sisi."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.retraccion-escapular",
+    "texto": "8-10 repetisi, tahan kontraksi 5-10 detik setiap kali."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.angeles-de-pared-wall-angels",
+    "texto": "10-15 repetisi lambat."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.lunge-con-apertura-de-pectoral",
+    "texto": "15 repetisi per sisi."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-dorsal-en-pared",
+    "texto": "Tahan 20 detik."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.el-gato-y-la-mesa",
+    "texto": "15 repetisi selaras dengan napasmu."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-hombros",
+    "texto": "8-10 repetisi (maju dan mundur)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-pecho-pectoral",
+    "texto": "Tahan 15-20 detik."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.dislocaciones-con-goma-o-palo",
+    "texto": "10-15 repetisi."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotacion-externa-con-banda",
+    "texto": "8-12 repetisi."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.thread-the-needle-enhebrar-aguja",
+    "texto": "Tahan 15-30 detik per sisi (2-3 set)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotaciones-y-medios-circulos",
+    "texto": "8-10 repetisi per arah."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-trapecio-superior",
+    "texto": "Tahan 15-30 detik per sisi."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotaciones-cervicales-con-nodding",
+    "texto": "8-12 repetisi per sisi."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.retracciones-de-barbilla-chin-tucks",
+    "texto": "10-15 repetisi, tahan posisi 5-10 detik."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.isometricos-cervicales",
+    "texto": "8-12 repetisi (tahan tegangan 5-10 detik)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-de-muneca",
+    "texto": "10-12 repetisi."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-munecas",
+    "texto": "10-15 putaran per arah."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores",
+    "texto": "Tahan 15-30 detik."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.agarre-activo-y-pasivo",
+    "texto": "10-15 repetisi."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.plancha-de-munecas",
+    "texto": "8-12 repetisi."
+  },
+  {
+    "clave": "ejercicio.dificultad.baja",
+    "texto": "Rendah"
+  },
+  {
+    "clave": "ejercicio.dificultad.media",
+    "texto": "Sedang"
+  },
+  {
+    "clave": "ejercicio.dificultad.alta",
+    "texto": "Tinggi"
+  },
+  {
+    "clave": "ejercicio.dificultad.mediaAlta",
+    "texto": "Sedang / Tinggi"
+  },
+  {
+    "clave": "ejercicio.rut.full-body",
+    "texto": "Seluruh tubuh"
+  },
+  {
+    "clave": "ejercicio.rut.tren-superior",
+    "texto": "Tubuh atas"
+  },
+  {
+    "clave": "ejercicio.rut.tren-inferior",
+    "texto": "Tubuh bawah"
+  },
+  {
+    "clave": "ejercicio.rut.push-pecho-y-triceps",
+    "texto": "Push · Dada & Trisep"
+  },
+  {
+    "clave": "ejercicio.rut.pull-espalda-y-biceps",
+    "texto": "Pull · Punggung & Bisep"
+  },
+  {
+    "clave": "ejercicio.rut.legs-pierna-completa",
+    "texto": "Legs · Kaki lengkap"
+  },
+  {
+    "clave": "ejercicio.rut.hiit-20-min",
+    "texto": "HIIT 20 mnt"
+  },
+  {
+    "clave": "ejercicio.rut.carrera-continua",
+    "texto": "Lari tempo stabil"
+  },
+  {
+    "clave": "ejercicio.rut.caminata-inclinada",
+    "texto": "Jalan menanjak"
+  },
+  {
+    "clave": "ejercicio.rut.bike-tempo",
+    "texto": "Tempo bersepeda"
+  },
+  {
+    "clave": "ejercicio.rut.triatlon-sprint",
+    "texto": "Triatlon sprint"
+  },
+  {
+    "clave": "ejercicio.rut.movilidad-matutina",
+    "texto": "Mobilitas Pagi"
+  },
+  {
+    "clave": "ejercicio.rut.yoga-flow",
+    "texto": "Yoga Flow"
+  },
+  {
+    "clave": "ejercicio.rut.cadera-y-piernas",
+    "texto": "Pinggul & kaki"
+  },
+  {
+    "clave": "ejercicio.rut.estiramiento-post-entreno",
+    "texto": "Peregangan pasca-latihan"
+  },
+  {
+    "clave": "ejercicio.rut.espalda-y-hombros",
+    "texto": "Punggung & bahu"
+  },
+  {
+    "clave": "ejercicio.rut.cuello-y-oficina",
+    "texto": "Leher & istirahat kantor"
+  },
+  {
+    "clave": "ejercicio.rut.antes-de-dormir",
+    "texto": "Sebelum tidur"
+  },
+  {
+    "clave": "ejercicio.rutDesc.full-body",
+    "texto": "Sirkuit kekuatan seluruh tubuh."
+  },
+  {
+    "clave": "ejercicio.rutDesc.tren-superior",
+    "texto": "Dada, punggung, bahu, dan lengan dalam satu sesi."
+  },
+  {
+    "clave": "ejercicio.rutDesc.tren-inferior",
+    "texto": "Latihan lengkap untuk kaki dan bokong."
+  }
 ]

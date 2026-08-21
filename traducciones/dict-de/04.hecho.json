@@ -1,169 +1,498 @@
 [
-  {"clave":"plantillaCustom.borrarBloqueMsj","texto":"Das Werkzeug wird zusammen mit allem gelöscht, was du darin gespeichert hast."},
-  {"clave":"plantillaCustom.borrarBloqueAhora","texto":"Werkzeug und seine Daten löschen"},
-  {"clave":"plantillaCustom.meta","texto":"Ziel (optional)"},
-  {"clave":"plantillaCustom.guardar","texto":"Speichern"},
-  {"clave":"plantillaCustom.cancelar","texto":"Abbrechen"},
-  {"clave":"plantillaCustom.tipo.notas","texto":"Notizen"},
-  {"clave":"plantillaCustom.tipo.checklist","texto":"Checkliste"},
-  {"clave":"plantillaCustom.tipo.contador","texto":"Zähler"},
-  {"clave":"plantillaCustom.tipo.enlaces","texto":"Links"},
-  {"clave":"plantillaCustom.tipo.lista","texto":"Liste"},
-  {"clave":"plantillaCustom.tipo.valoracion","texto":"Bewertung"},
-  {"clave":"plantillaCustom.tipo.bitacora","texto":"Journal"},
-  {"clave":"plantillaCustom.tipo.progreso","texto":"Fortschritt"},
-  {"clave":"plantillaCustom.tipo.habito","texto":"Gewohnheit"},
-  {"clave":"plantillaCustom.tipo.sesiones","texto":"Sitzungen"},
-  {"clave":"plantillaCustom.tipo.cuenta","texto":"Countdown"},
-  {"clave":"plantillaCustom.tipo.galeria","texto":"Galerie"},
-  {"clave":"amueblar.titulo","texto":"Wie soll der Raum eingerichtet werden?"},
-  {"clave":"amueblar.completo","texto":"Eingerichtet"},
-  {"clave":"amueblar.completoDesc","texto":"Bringt alle Objekte der App mit."},
-  {"clave":"amueblar.principal","texto":"Nur das Hauptobjekt"},
-  {"clave":"amueblar.principalDesc","texto":"Nur das Objekt, das die App öffnet, sonst nichts."},
-  {"clave":"plantillaCustom.eliminada","texto":"Diese Vorlage wurde gelöscht."},
-  {"clave":"plantillaCustom.notasPh","texto":"Schreib deine Notizen… (werden automatisch gespeichert)"},
-  {"clave":"plantillaCustom.checklistPh","texto":"Neue Aufgabe…"},
-  {"clave":"plantillaCustom.checklistVacio","texto":"Noch keine Aufgaben."},
-  {"clave":"plantillaCustom.borrarItem","texto":"Löschen"},
-  {"clave":"plantillaCustom.enlaceTitulo","texto":"Titel (optional)"},
-  {"clave":"plantillaCustom.enlacesVacio","texto":"Keine gespeicherten Links."},
-  {"clave":"plantillaCustom.listaPh","texto":"Neues Element…"},
-  {"clave":"plantillaCustom.listaVacio","texto":"Leere Liste."},
-  {"clave":"plantillaCustom.bitacoraPh","texto":"Neuer Eintrag…"},
-  {"clave":"plantillaCustom.bitacoraVacio","texto":"Noch keine Einträge."},
-  {"clave":"plantillaCustom.progresoPh","texto":"Wert…"},
-  {"clave":"plantillaCustom.progresoVacio","texto":"Noch keine Messungen."},
-  {"clave":"plantillaCustom.unidad","texto":"Einheit (optional)"},
-  {"clave":"plantillaCustom.habitoMarcar","texto":"Heute markieren"},
-  {"clave":"plantillaCustom.habitoHecho","texto":"Heute erledigt ✓"},
-  {"clave":"plantillaCustom.habitoRacha","texto":"Serie"},
-  {"clave":"plantillaCustom.habitoDias","texto":"aktive Tage"},
-  {"clave":"plantillaCustom.metaSemana","texto":"Mal pro Woche (optional)"},
-  {"clave":"plantillaCustom.sesionMin","texto":"Minuten"},
-  {"clave":"plantillaCustom.sesionNota","texto":"Notiz (optional)"},
-  {"clave":"plantillaCustom.sesionVacio","texto":"Noch keine Sitzungen."},
-  {"clave":"plantillaCustom.sesionTotal","texto":"Gesamt"},
-  {"clave":"plantillaCustom.metaMin","texto":"Ziel in Minuten (optional)"},
-  {"clave":"plantillaCustom.cuentaFecha","texto":"Zieldatum"},
-  {"clave":"plantillaCustom.cuentaSinFecha","texto":"Lege beim Bearbeiten ein Zieldatum fest."},
-  {"clave":"plantillaCustom.cuentaDias","texto":"verbleibende Tage"},
-  {"clave":"plantillaCustom.cuentaHoy","texto":"Heute!"},
-  {"clave":"plantillaCustom.cuentaPaso","texto":"Tage her"},
-  {"clave":"plantillaCustom.galeriaAgregar","texto":"Fotos hinzufügen"},
-  {"clave":"plantillaCustom.galeriaVacio","texto":"Noch keine Fotos."},
-  {"clave":"objetos.ayuda","texto":"Alle vorhandenen Objekte, nach Kategorie. Erstelle eigene, bearbeite oder lösche sie."},
-  {"clave":"objetos.ayudaEspeciales","texto":"Objekte mit Effekt, gruppiert nach ihrer Funktion. Öffne eines, um seine Ordner zu sehen."},
-  {"clave":"objetos.agregar","texto":"3D-Objekt hinzufügen"},
-  {"clave":"objetos.alMapa","texto":"Auf der Karte oder in einem Raum platzieren"},
-  {"clave":"destinoObj.titulo","texto":"Wo möchtest du es platzieren?"},
-  {"clave":"destinoObj.mapa","texto":"Auf der Karte"},
-  {"clave":"destinoObj.mapaDesc","texto":"Frei im Freien, außerhalb der Räume."},
-  {"clave":"destinoObj.enCuarto","texto":"Oder in einem Raum"},
-  {"clave":"objetos.editar","texto":"Im Editor bearbeiten"},
-  {"clave":"objetos.editarForma","texto":"Seine Form bearbeiten"},
-  {"clave":"objetos.animado","texto":"Animiertes Objekt"},
-  {"clave":"objetos.funcion.vehiculo","texto":"Fahrbar"},
-  {"clave":"objetos.funcion.asiento","texto":"Hier kannst du sitzen"},
-  {"clave":"objetos.funcion.acostarse","texto":"Hier kannst du liegen"},
-  {"clave":"objetos.funcion.laptop","texto":"Wird zum Arbeiten benutzt"},
-  {"clave":"objetos.funcion.cajaFuerte","texto":"Bewahrt das Wichtige auf"},
-  {"clave":"objetos.funcion.computo","texto":"Wird zum Rechnen benutzt"},
-  {"clave":"objetos.funcion.tapete","texto":"Wird zur Meditation benutzt"},
-  {"clave":"objetos.funcion.libreta","texto":"Wird zum Schreiben benutzt"},
-  {"clave":"objetos.funcion.caminadora","texto":"Wird zum Gehen benutzt"},
-  {"clave":"objetos.funcion.anuncio","texto":"Schild: schreib deinen eigenen Text"},
-  {"clave":"objetos.funcion.parque","texto":"Interaktiv: steig auf, um zu spielen"},
-  {"clave":"objetos.rotarIzq","texto":"Nach links drehen"},
-  {"clave":"objetos.rotarDer","texto":"Nach rechts drehen"},
-  {"clave":"objetos.quitarDelMapa","texto":"Von der Karte entfernen"},
-  {"clave":"objetos.borrar","texto":"Objekt löschen"},
-  {"clave":"objetos.borrarConfirm","texto":"„{nombre}“ löschen? Das kann nicht rückgängig gemacht werden."},
-  {"clave":"objetos.renombrar","texto":"Ordner umbenennen"},
-  {"clave":"objetos.restaurar","texto":"Basisobjekte wiederherstellen"},
-  {"clave":"objetos.restaurarConfirm","texto":"Die gelöschten Basisobjekte des Katalogs werden wieder hinzugefügt. Fortfahren?"},
-  {"clave":"mapa.editar","texto":"Karte bearbeiten"},
-  {"clave":"mapa.editarTitulo","texto":"Die Hauskarte bearbeiten"},
-  {"clave":"mapa.quitar","texto":"Von der Karte entfernen"},
-  {"clave":"chat.tuAsistente","texto":"Dein Assistent:"},
-  {"clave":"chat.vacio","texto":"Noch keine Einträge. Erzähl dem Architekten, was du getan hast."},
-  {"clave":"chat.sinClasificar","texto":"Nicht eingeordnet"},
-  {"clave":"chat.capturado","texto":"erfasst"},
-  {"clave":"chat.reclasificar","texto":"Neu einordnen"},
-  {"clave":"chat.eliminar","texto":"Löschen"},
-  {"clave":"chat.ocultar","texto":"Menü schließen"},
-  {"clave":"chat.verMenu","texto":"Menü öffnen"},
-  {"clave":"chat.registrar","texto":"Eintragen"},
-  {"clave":"chat.chip.crear","texto":"Erstellen"},
-  {"clave":"chat.chip.enMapa","texto":"(auf Karte)"},
-  {"clave":"chat.chip.fuera","texto":"(aus)"},
-  {"clave":"chat.abrirConv","texto":"Unterhaltung ansehen"},
-  {"clave":"chat.verConv","texto":"Die ganze Unterhaltung ansehen"},
-  {"clave":"chat.burbuja.ver","texto":"Tippe, um alles zu lesen"},
-  {"clave":"dialogo.salir","texto":"Unterhaltung beenden (Esc)"},
-  {"clave":"dialogo.completar","texto":"Ganzen Text anzeigen"},
-  {"clave":"dialogo.hablar","texto":"Sprechen"},
-  {"clave":"chat.conversacion","texto":"Unterhaltung"},
-  {"clave":"chat.conv.vacia","texto":"Noch keine Nachrichten mit {pet}. Schreib ihm über die Leiste unten"},
-  {"clave":"chat.conv.limpiar","texto":"Unterhaltung leeren"},
-  {"clave":"chat.conv.cerrar","texto":"Schließen"},
-  {"clave":"chat.tu","texto":"Du"},
-  {"clave":"chat.tab.chats","texto":"Chats"},
-  {"clave":"chat.tab.registros","texto":"Einträge"},
-  {"clave":"chat.config.abrir","texto":"Assistenten einrichten"},
-  {"clave":"chat.config.titulo","texto":"Deine Assistenten"},
-  {"clave":"chat.config.activo","texto":"aktiv"},
-  {"clave":"chat.config.sinCaracter","texto":"Keine Persönlichkeit festgelegt"},
-  {"clave":"chat.config.archivaTodo","texto":"Archiviert in allen Räumen"},
-  {"clave":"chat.config.cuartos","texto":"Räume zuweisen"},
-  {"clave":"chat.config.cuartosTodos","texto":"(keiner markiert = alle)"},
-  {"clave":"chat.config.nuevo","texto":"Assistenten erstellen"},
-  {"clave":"chat.config.nuevoNombre","texto":"Neuer Assistent"},
-  {"clave":"chat.config.nuevoSaludo","texto":"Hallo! Ich bin dein neuer Assistent."},
-  {"clave":"chat.config.nombre","texto":"Name"},
-  {"clave":"chat.config.emoji","texto":"Emoji des Assistenten"},
-  {"clave":"chat.config.historia","texto":"Hintergrundgeschichte und Kontext des Charakters"},
-  {"clave":"chat.config.historiaPh","texto":"Hintergrundgeschichte: z. B. „Alter Seebär, der 40 Jahre einen Leuchtturm hütete; jetzt hütet er dein Haus“"},
-  {"clave":"chat.config.caracterPh","texto":"Persönlichkeit: z. B. „Du sprichst wie ein Pirat, scherzhaft und direkt, du beendest mit 🏴‍☠️“"},
-  {"clave":"chat.config.forma","texto":"3D-Form:"},
-  {"clave":"chat.config.color","texto":"Farbe des Charakters"},
-  {"clave":"chat.config.formaPh","texto":"Beschreib es: „grüner Drache mit Brille und Weste“"},
-  {"clave":"chat.config.formaSinIa","texto":"Die Form zu beschreiben braucht KI (wähle ein Modell in der Leiste)"},
-  {"clave":"chat.config.formaGenerar","texto":"Die Form mit KI erstellen"},
-  {"clave":"chat.config.formaError","texto":"Die Form konnte nicht erstellt werden. Prüfe das KI-Modell und versuch es erneut."},
-  {"clave":"chat.config.subirGlb","texto":"GLB-Modell hochladen"},
-  {"clave":"chat.config.quitarGlb","texto":"Hochgeladenes Modell entfernen"},
-  {"clave":"chat.config.quitarFormaIa","texto":"Von der KI erstellte Form entfernen"},
-  {"clave":"chat.config.enMapa","texto":"Von der Karte entfernen"},
-  {"clave":"chat.config.ponerMapa","texto":"Auf die Karte setzen"},
-  {"clave":"chat.config.voz","texto":"Stimme:"},
-  {"clave":"chat.config.vozAuto","texto":"Automatisch (nach Sprache)"},
-  {"clave":"chat.config.vozIA","texto":"KI-Stimme (OpenAI, natürlicher)"},
-  {"clave":"chat.config.vozLeer","texto":"Laut vorlesen, was er sagt"},
-  {"clave":"chat.config.vozProbar","texto":"Stimme testen"},
-  {"clave":"chat.config.vozTono","texto":"Tonlage"},
-  {"clave":"chat.config.vozVelocidad","texto":"Geschwindigkeit"},
-  {"clave":"chat.config.vozVolumen","texto":"Lautstärke"},
-  {"clave":"chat.config.espontaneo","texto":"Spontane Kommentare"},
-  {"clave":"chat.config.corazon","texto":"Herz (Spontaneität)"},
-  {"clave":"chat.config.corazonOff","texto":"Aus"},
-  {"clave":"corazon.nivel.0","texto":"Still"},
-  {"clave":"corazon.nivel.1","texto":"Ruhig"},
-  {"clave":"corazon.nivel.2","texto":"Gesprächig"},
-  {"clave":"corazon.nivel.3","texto":"Redselig"},
-  {"clave":"corazon.mago.manana.0","texto":"Die Morgendämmerung bringt frisches Mana… ich spüre es ✨"},
-  {"clave":"corazon.mago.manana.1","texto":"Meine Schriftrollen sind ordentlich aufgewacht. Ein gutes Omen 🔮"},
-  {"clave":"corazon.mago.tarde.0","texto":"Der Nachmittag ist perfekt, um Taten ins Grimoire einzutragen ✨"},
-  {"clave":"corazon.mago.tarde.1","texto":"Ich spüre ruhige Energien im Haus heute Nachmittag 🔮"},
-  {"clave":"corazon.mago.noche.0","texto":"Die Sterne verraten ihre Geheimnisse… eine gute Nacht für Zaubersprüche 🌙"},
-  {"clave":"corazon.mago.noche.1","texto":"Der Mond lädt meine Kugel auf. Hier ist alles ruhig 🔮"},
-  {"clave":"corazon.mago.rutina.0","texto":"Meine Kristallkugel kündigt an: „{r}“ um {h} ✨"},
-  {"clave":"corazon.mago.rutina.1","texto":"Das Schicksal markiert {h}: „{r}“ naht 🔮"},
-  {"clave":"corazon.mago.generica.0","texto":"Dieses Zuhause strotzt heute vor Magie ✨"},
-  {"clave":"corazon.mago.generica.1","texto":"Ein Aufräumzauber schadet nie… 🔮"},
-  {"clave":"corazon.gato.manana.0","texto":"Viel zu früh. Menschen wachen komisch auf 🐾"},
-  {"clave":"corazon.gato.manana.1","texto":"Gähn. Morgen wären besser mit einem Nickerchen 🐱"},
-  {"clave":"corazon.gato.tarde.0","texto":"Perfekte Zeit für ein Nickerchen in der Sonne. Nur so gesagt 🐾"},
-  {"clave":"corazon.gato.tarde.1","texto":"Ruhiger Nachmittag… genau wie ich es mag 🐱"},
-  {"clave":"corazon.gato.noche.0","texto":"Endlich Nacht. Meine beste Zeit 🐱"}
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-gemelos",
+    "texto": "Stütze deine Hände an der Wand und dehne deine Wade mit gestrecktem hinteren Bein."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-hombros",
+    "texto": "Kreuze einen Arm vor der Brust und ziehe ihn mit dem anderen Arm heran."
+  },
+  {
+    "clave": "ejercicio.ejDesc.foam-roller",
+    "texto": "Rolle deine Muskeln über die Faszienrolle, um Spannungen nach dem Training zu lösen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-triceps",
+    "texto": "Führe deinen Ellbogen hinter den Kopf und drücke sanft mit der anderen Hand."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-de-cadera",
+    "texto": "Schiebe im Ausfallschritt die Hüfte nach vorn, um die Vorderseite des Oberschenkels zu dehnen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.piernas-en-la-pared",
+    "texto": "Lege dich hin und lehne deine Beine an der Wand an, um zu entspannen und abzuschwellen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.savasana",
+    "texto": "Entspanne im Liegen auf dem Rücken deinen ganzen Körper bei langsamer Atmung."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-del-nino-apoyada",
+    "texto": "Kindeshaltung mit Unterstützung, um dich länger zu entspannen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.respiracion-profunda",
+    "texto": "Atme langsam und tief ein und aus, um das Nervensystem zu beruhigen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.mariposa-reclinada",
+    "texto": "Lege dich mit den Fußsohlen zusammen hin, lass die Knie sinken und entspanne die Hüften."
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsion-reclinada",
+    "texto": "Lege dich hin und lass die Knie sanft zu einer Seite sinken, um die Wirbelsäule zu drehen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.liberacion-miofascial-con-pelota",
+    "texto": "Rolle einen harten Ball mit kontrolliertem Druck von der Ferse bis zum Fußballen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-tobillo",
+    "texto": "Hebe ein Bein an und bewege den Knöchel in weiten Kreisen in beide Richtungen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.recogida-de-toalla-con-dedos",
+    "texto": "Versuche, ein Handtuch auf dem Boden nur mit den Zehen zusammenzuraffen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-dorsiflexion",
+    "texto": "Beuge vor der Wand stehend das vordere Knie, während die Ferse flach am Boden bleibt, um zu dehnen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-talones-unipodal",
+    "texto": "Hebe im Einbeinstand langsam die Ferse und senke sie mit exzentrischer Kontrolle."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-y-extension-en-descarga",
+    "texto": "Beuge im Liegen das Knie, bis die Ferse das Gesäß berührt, und strecke es wieder, ohne den Fuß anzuheben."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "Setze eine Ferse vor dich und beuge den Oberkörper sanft nach vorn bei gestrecktem Knie."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-isometrica-wall-squat",
+    "texto": "Lehne den Rücken an die Wand, gehe bis 90 Grad hinunter und halte, ohne dass die Knie einknicken."
+  },
+  {
+    "clave": "ejercicio.ejDesc.equilibrio-unipodal-single-leg-balance",
+    "texto": "Balanciere auf einem Bein mit leicht gebeugtem Knie, ohne dass es nach innen einknickt."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadillas-del-arquero",
+    "texto": "Beuge mit gegrätschten Beinen ein Knie und verlagere das Gewicht, während das andere Bein gestreckt bleibt."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estocadas-lunges",
+    "texto": "Trete nach vorn und senke die Hüfte, bis das vordere Knie einen 90-Grad-Winkel bildet."
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-90-90",
+    "texto": "Drehe im Sitzen mit den Beinen im 90-Grad-Winkel Oberkörper und Beine von einer Seite zur anderen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.el-puente-glute-bridge",
+    "texto": "Hebe im Rückenliegen das Becken an und spanne das Gesäß an, bis Schultern, Hüfte und Knie eine Linie bilden."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-en-estocada",
+    "texto": "Schiebe mit einem Knie am Boden das Becken bei geradem Rücken nach vorn, um den Hüftbeuger zu dehnen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.abduccion-lateral-de-cadera",
+    "texto": "Hebe im Seitliegen das obere Bein an, während das Becken stabil bleibt."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-profunda-con-apertura",
+    "texto": "Drücke in der tiefen Kniebeuge die Knie mit den Ellbogen nach außen, um die Hüften zu öffnen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.balanceo-dinamico-de-piernas",
+    "texto": "Schwinge im Stehen ein Bein wie ein Pendel nach vorn, zurück und zur Seite."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-gato-vaca",
+    "texto": "Wechsle im Vierfüßlerstand zwischen einem zur Decke gewölbten Rücken und einem zum Boden sinkenden Bauch."
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsiones-lumbares-suaves",
+    "texto": "Lass im Rückenliegen beide Knie zusammen zu einer Seite sinken und dann zur anderen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.pointer-bird-dog",
+    "texto": "Strecke im Vierfüßlerstand Arm und Bein diagonal aus, während der untere Rücken flach bleibt."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-frontal-isometricos",
+    "texto": "Halte den Unterarmstütz und bilde eine gerade Linie von Kopf bis Fuß."
+  },
+  {
+    "clave": "ejercicio.ejDesc.roll-down-curl-jefferson",
+    "texto": "Rolle im Stehen die Wirbelsäule langsam Wirbel für Wirbel nach unten ab."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-lumbar-boca-abajo",
+    "texto": "Hebe im Bauchliegen die Hüfte an und senke sie wieder, um den Rücken zu strecken."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotacion-toracica",
+    "texto": "Hebe im Vierfüßlerstand einen Arm zur Seite und folge ihm mit dem Blick."
+  },
+  {
+    "clave": "ejercicio.ejDesc.retraccion-escapular",
+    "texto": "Ziehe die Schulterblätter nach hinten unten zusammen, während du aufrecht bleibst."
+  },
+  {
+    "clave": "ejercicio.ejDesc.angeles-de-pared-wall-angels",
+    "texto": "Schiebe mit dem Rücken an der Wand die Arme auf und ab, ohne den Kontakt mit den Ellbogen zu verlieren."
+  },
+  {
+    "clave": "ejercicio.ejDesc.lunge-con-apertura-de-pectoral",
+    "texto": "Verschränke im Ausfallschritt die Hände im Nacken und öffne die Ellbogen nach hinten."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-dorsal-en-pared",
+    "texto": "Lege die Hände an die Wand und lass den Oberkörper bei gestreckten Knien nach unten sinken."
+  },
+  {
+    "clave": "ejercicio.ejDesc.el-gato-y-la-mesa",
+    "texto": "Wölbe im Vierfüßlerstand den Rücken und senke dann die Brust."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-hombros",
+    "texto": "Weite kreisende Bewegungen, mit Betonung auf dem Weg nach hinten unten."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-pecho-pectoral",
+    "texto": "Verschränke die Hände hinter dem Rücken und öffne die Brust, ohne den Nacken zu belasten."
+  },
+  {
+    "clave": "ejercicio.ejDesc.dislocaciones-con-goma-o-palo",
+    "texto": "Führe ein Band bei gestreckten Ellbogen über den Kopf und hinter den Rücken."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotacion-externa-con-banda",
+    "texto": "Drehe bei 90 Grad angewinkelten, am Körper anliegenden Ellbogen die Hände gegen den Widerstand nach außen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.thread-the-needle-enhebrar-aguja",
+    "texto": "Fädle im Vierfüßlerstand einen Arm unter dem Körper hindurch, bis die Schulter den Boden berührt."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-y-medios-circulos",
+    "texto": "Zeichne mit dem Kinn zur Brust weite, sehr langsame Kreise, ohne gegen Schmerz zu forcieren."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-trapecio-superior",
+    "texto": "Neige den Kopf sanft und führe das Ohr zur gegenüberliegenden Schulter."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-cervicales-con-nodding",
+    "texto": "Drehe den Kopf und mache kleine nickende Bewegungen („Ja“)."
+  },
+  {
+    "clave": "ejercicio.ejDesc.retracciones-de-barbilla-chin-tucks",
+    "texto": "Ziehe das Kinn gerade nach hinten und bilde ein „Doppelkinn“, um den Nacken auszurichten."
+  },
+  {
+    "clave": "ejercicio.ejDesc.isometricos-cervicales",
+    "texto": "Drücke den Kopf gegen deine Hand und widerstehe der Bewegung, ohne dich zu beugen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-y-extension-de-muneca",
+    "texto": "Beuge bei gestreckten Armen das Handgelenk zur Decke und dann zum Boden."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circulos-de-munecas",
+    "texto": "Kreise beide Handgelenke in beide Richtungen."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-flexores",
+    "texto": "Drücke bei nach oben gerichteter Handfläche mit der anderen Hand die Finger zu dir heran."
+  },
+  {
+    "clave": "ejercicio.ejDesc.agarre-activo-y-pasivo",
+    "texto": "Balle die Fäuste fest und öffne sie dann vollständig entspannt."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-de-munecas",
+    "texto": "Hebe dich im Unterarmstütz oder im Knien auf die Fingerspitzen an und senke dich wieder."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.liberacion-miofascial-con-pelota",
+    "texto": "1 bis 2 Minuten pro Fuß (durchgehende Bewegung)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-tobillo",
+    "texto": "10 bis 12 Wiederholungen pro Richtung und Knöchel."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.recogida-de-toalla-con-dedos",
+    "texto": "10 bis 15 Wiederholungen (zusammenraffen und lösen) pro Fuß."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-dorsiflexion",
+    "texto": "15 bis 30 Sekunden pro Bein halten, 2 bis 4 Sätze."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.elevacion-de-talones-unipodal",
+    "texto": "10 bis 15 Wiederholungen pro Bein."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-en-descarga",
+    "texto": "8 bis 10 Wiederholungen pro Bein."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "20 Sekunden pro Bein halten."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadilla-isometrica-wall-squat",
+    "texto": "5 bis 15 Sekunden halten, aufstehen und wiederholen (3 bis 5 Mal)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.equilibrio-unipodal-single-leg-balance",
+    "texto": "15 bis 60 Sekunden pro Bein halten (2 bis 3 Mal wiederholen)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadillas-del-arquero",
+    "texto": "15 Wiederholungen, Seiten abwechselnd."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estocadas-lunges",
+    "texto": "8 bis 12 Wiederholungen pro Bein."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.movilidad-90-90",
+    "texto": "8 bis 12 Wiederholungen pro Seite (etwa 1–2 Minuten)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.el-puente-glute-bridge",
+    "texto": "15 Wiederholungen (oben jeweils 2–3 Sekunden halten)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores-en-estocada",
+    "texto": "20 Sekunden pro Bein halten."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.abduccion-lateral-de-cadera",
+    "texto": "10 bis 15 Wiederholungen pro Seite, oben ein paar Sekunden halten."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.sentadilla-profunda-con-apertura",
+    "texto": "15 Öffnungswiederholungen."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.balanceo-dinamico-de-piernas",
+    "texto": "8 bis 10 Wiederholungen pro Bein."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.postura-gato-vaca",
+    "texto": "1 Minute durchgehend (oder 10 bis 15 Atemzüge)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.torsiones-lumbares-suaves",
+    "texto": "10 bis 15 Wiederholungen pro Seite."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.pointer-bird-dog",
+    "texto": "30 Sekunden auf einer Seite halten, dann wechseln."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.plancha-frontal-isometricos",
+    "texto": "15 bis 60 Sekunden halten, je nach Leistungsstand."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.roll-down-curl-jefferson",
+    "texto": "15 langsame Wiederholungen."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-lumbar-boca-abajo",
+    "texto": "1 Minute durchgehend."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotacion-toracica",
+    "texto": "30 Sekunden pro Seite."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.retraccion-escapular",
+    "texto": "8 bis 10 Wiederholungen, die Anspannung jeweils 5 bis 10 Sekunden halten."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.angeles-de-pared-wall-angels",
+    "texto": "10 bis 15 langsame Wiederholungen."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.lunge-con-apertura-de-pectoral",
+    "texto": "15 Wiederholungen pro Seite."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-dorsal-en-pared",
+    "texto": "20 Sekunden halten."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.el-gato-y-la-mesa",
+    "texto": "15 Wiederholungen im Rhythmus deiner Atmung."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-hombros",
+    "texto": "8 bis 10 Wiederholungen (vorwärts und rückwärts)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-pecho-pectoral",
+    "texto": "15 bis 20 Sekunden halten."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.dislocaciones-con-goma-o-palo",
+    "texto": "10 bis 15 Wiederholungen."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotacion-externa-con-banda",
+    "texto": "8 bis 12 Wiederholungen."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.thread-the-needle-enhebrar-aguja",
+    "texto": "15 bis 30 Sekunden pro Seite halten (2–3 Sätze)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotaciones-y-medios-circulos",
+    "texto": "8 bis 10 Wiederholungen pro Richtung."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-trapecio-superior",
+    "texto": "15 bis 30 Sekunden pro Seite halten."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.rotaciones-cervicales-con-nodding",
+    "texto": "8 bis 12 Wiederholungen pro Seite."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.retracciones-de-barbilla-chin-tucks",
+    "texto": "10 bis 15 Wiederholungen, die Position 5 bis 10 Sekunden halten."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.isometricos-cervicales",
+    "texto": "8 bis 12 Wiederholungen (Spannung 5–10 Sek. halten)."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.flexion-y-extension-de-muneca",
+    "texto": "10 bis 12 Wiederholungen."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.circulos-de-munecas",
+    "texto": "10 bis 15 Kreise pro Richtung."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores",
+    "texto": "15 bis 30 Sekunden halten."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.agarre-activo-y-pasivo",
+    "texto": "10 bis 15 Wiederholungen."
+  },
+  {
+    "clave": "ejercicio.ejTiempo.plancha-de-munecas",
+    "texto": "8 bis 12 Wiederholungen."
+  },
+  {
+    "clave": "ejercicio.dificultad.baja",
+    "texto": "Niedrig"
+  },
+  {
+    "clave": "ejercicio.dificultad.media",
+    "texto": "Mittel"
+  },
+  {
+    "clave": "ejercicio.dificultad.alta",
+    "texto": "Hoch"
+  },
+  {
+    "clave": "ejercicio.dificultad.mediaAlta",
+    "texto": "Mittel / Hoch"
+  },
+  {
+    "clave": "ejercicio.rut.full-body",
+    "texto": "Ganzkörper"
+  },
+  {
+    "clave": "ejercicio.rut.tren-superior",
+    "texto": "Oberkörper"
+  },
+  {
+    "clave": "ejercicio.rut.tren-inferior",
+    "texto": "Unterkörper"
+  },
+  {
+    "clave": "ejercicio.rut.push-pecho-y-triceps",
+    "texto": "Push · Brust & Trizeps"
+  },
+  {
+    "clave": "ejercicio.rut.pull-espalda-y-biceps",
+    "texto": "Pull · Rücken & Bizeps"
+  },
+  {
+    "clave": "ejercicio.rut.legs-pierna-completa",
+    "texto": "Legs · Ganzes Bein"
+  },
+  {
+    "clave": "ejercicio.rut.hiit-20-min",
+    "texto": "HIIT 20 Min"
+  },
+  {
+    "clave": "ejercicio.rut.carrera-continua",
+    "texto": "Dauerlauf"
+  },
+  {
+    "clave": "ejercicio.rut.caminata-inclinada",
+    "texto": "Steigungsgehen"
+  },
+  {
+    "clave": "ejercicio.rut.bike-tempo",
+    "texto": "Tempo-Radfahren"
+  },
+  {
+    "clave": "ejercicio.rut.triatlon-sprint",
+    "texto": "Sprint-Triathlon"
+  },
+  {
+    "clave": "ejercicio.rut.movilidad-matutina",
+    "texto": "Morgenmobilität"
+  },
+  {
+    "clave": "ejercicio.rut.yoga-flow",
+    "texto": "Yoga-Flow"
+  },
+  {
+    "clave": "ejercicio.rut.cadera-y-piernas",
+    "texto": "Hüfte & Beine"
+  },
+  {
+    "clave": "ejercicio.rut.estiramiento-post-entreno",
+    "texto": "Dehnen nach dem Training"
+  },
+  {
+    "clave": "ejercicio.rut.espalda-y-hombros",
+    "texto": "Rücken & Schultern"
+  },
+  {
+    "clave": "ejercicio.rut.cuello-y-oficina",
+    "texto": "Nacken & Büropause"
+  },
+  {
+    "clave": "ejercicio.rut.antes-de-dormir",
+    "texto": "Vor dem Schlafen"
+  },
+  {
+    "clave": "ejercicio.rutDesc.full-body",
+    "texto": "Kraftzirkel für den ganzen Körper."
+  },
+  {
+    "clave": "ejercicio.rutDesc.tren-superior",
+    "texto": "Brust, Rücken, Schultern und Arme in einer Einheit."
+  },
+  {
+    "clave": "ejercicio.rutDesc.tren-inferior",
+    "texto": "Komplettes Bein- und Gesäßtraining."
+  }
 ]

@@ -1,271 +1,362 @@
 [
-  { "clave": "corazon.gato.noche.1", "texto": "ليلة هادئة. لا داعي لإفسادها 🐾" },
-  { "clave": "corazon.gato.rutina.0", "texto": "مرحبًا، «{r}» في {h}. لن أتحرك 🐾" },
-  { "clave": "corazon.gato.rutina.1", "texto": "اقترب موعد «{r}» ({h}). الأمر بإمكانك، وأنا سأتولى المراقبة 🐱" },
-  { "clave": "corazon.gato.generica.0", "texto": "كل شيء تحت السيطرة. تفقدت الأمر أثناء قيلولتي 🐾" },
-  { "clave": "corazon.gato.generica.1", "texto": "همم. البيت ما زال قائمًا. لا شكر على واجب 🐱" },
-  { "clave": "corazon.perro.manana.0", "texto": "صباح الخير! رائحة هذا اليوم تبشّر بيوم رائع! 🐶" },
-  { "clave": "corazon.perro.manana.1", "texto": "حان الصباح! هيا بنا، هيا بنا! 🦴" },
-  { "clave": "corazon.perro.tarde.0", "texto": "ظهيرة مثالية لإنجاز الأمور! هاو! 🐶" },
-  { "clave": "corazon.perro.tarde.1", "texto": "ما زلت هنا، أراقب كل شيء! 🎉" },
-  { "clave": "corazon.perro.noche.0", "texto": "يا له من يوم رائع قضيناه! أليس كذلك؟ أليس كذلك؟ 🐶" },
-  { "clave": "corazon.perro.noche.1", "texto": "ليلة هادئة… سأحرس المكان! 🦴" },
-  { "clave": "corazon.perro.rutina.0", "texto": "«{r}» في {h}! الأمر بإمكانك! 🎉" },
-  { "clave": "corazon.perro.rutina.1", "texto": "تذكير: «{r}» في {h}! هاو! 🐶" },
-  { "clave": "corazon.perro.generica.0", "texto": "أحب هذا البيت! 🐶" },
-  { "clave": "corazon.perro.generica.1", "texto": "أنا هنا لأي طلب! أي شيء! 🦴" },
-  { "clave": "corazon.buho.manana.0", "texto": "الفجر. وقت مثالي لتخطيط اليوم بهدوء. 🦉" },
-  { "clave": "corazon.buho.manana.1", "texto": "الصباح المنظم يُثمر ضعفين." },
-  { "clave": "corazon.buho.tarde.0", "texto": "منتصف النهار: لحظة جيدة لمراجعة التقدم. 🦉" },
-  { "clave": "corazon.buho.tarde.1", "texto": "تسير الظهيرة كما هو مخطط لها." },
-  { "clave": "corazon.buho.noche.0", "texto": "يحل الليل. أقترح إنهاء اليوم بملاحظة. 🦉" },
-  { "clave": "corazon.buho.noche.1", "texto": "الليل يدعو إلى التأمل." },
-  { "clave": "corazon.buho.rutina.0", "texto": "تنبيه في وقته: «{r}» في {h}. 🦉" },
-  { "clave": "corazon.buho.rutina.1", "texto": "جدولك الزمني يتضمن «{r}» في {h}." },
-  { "clave": "corazon.buho.generica.0", "texto": "أراقب وأدوّن الملاحظات. كل شيء على ما يرام. 🦉" },
-  { "clave": "corazon.buho.generica.1", "texto": "المعرفة تتراكم يومًا بعد يوم." },
-  { "clave": "corazon.robot.manana.0", "texto": "☀ بدأت دورة اليوم. الأنظمة بنسبة 100%. 🤖" },
-  { "clave": "corazon.robot.manana.1", "texto": "صباح الخير. البطارية ممتلئة. ✓" },
-  { "clave": "corazon.robot.tarde.0", "texto": "اكتمل مسح الظهيرة. لا يوجد خلل. ✓" },
-  { "clave": "corazon.robot.tarde.1", "texto": "الإنتاجية ضمن المعايير المحددة. 🤖" },
-  { "clave": "corazon.robot.noche.0", "texto": "وضع الليل نشط. المراقبة جارية. 🤖" },
-  { "clave": "corazon.robot.noche.1", "texto": "توصية: إعادة شحن الوحدة البشرية (النوم). ✓" },
-  { "clave": "corazon.robot.rutina.0", "texto": "تذكير: موعد «{r}» في {h}. ✓" },
-  { "clave": "corazon.robot.rutina.1", "texto": "تنبيه: «{r}» في {h}. 🤖" },
-  { "clave": "corazon.robot.generica.0", "texto": "جميع الأنظمة تعمل بشكل طبيعي. 🤖" },
-  { "clave": "corazon.robot.generica.1", "texto": "بانتظار التعليمات. الأمر غير عاجل. ✓" },
-  { "clave": "chat.config.activoMapa", "texto": "المساعد النشط موجود دائمًا على الخريطة" },
-  { "clave": "chat.config.editar", "texto": "تخصيص" },
-  { "clave": "chat.config.eliminar", "texto": "إزالة المساعد" },
-  { "clave": "chat.config.eliminarConfirma", "texto": "إزالة «{n}»؟ تبقى المحادثات محفوظة." },
-  { "clave": "chat.config.eliminarOk", "texto": "إزالة" },
-  { "clave": "chat.config.eliminarUltimo", "texto": "يجب أن يبقى مساعد واحد على الأقل" },
-  { "clave": "chat.config.restaurar", "texto": "استعادة:" },
-  { "clave": "chat.config.restaurarUno", "texto": "استعادة إلى" },
-  { "clave": "acceso.subir", "texto": "الصعود إلى المستوى {n}" },
-  { "clave": "acceso.bajarPlanta", "texto": "النزول إلى الطابق الأرضي" },
-  { "clave": "acceso.bajar", "texto": "النزول إلى المستوى {n}" },
-  { "clave": "veh.ayuda", "texto": "وضع مركبة على الخريطة والاقتراب منها يتيح ركوبها." },
-  { "clave": "veh.colocar", "texto": "وضع على الخريطة" },
-  { "clave": "veh.color", "texto": "لون المركبة" },
-  { "clave": "veh.subirte", "texto": "الركوب" },
-  { "clave": "veh.bajarte", "texto": "النزول" },
-  { "clave": "accion.sentarte", "texto": "الجلوس" },
-  { "clave": "accion.acostarte", "texto": "الاستلقاء" },
-  { "clave": "accion.sentado", "texto": "الجلوس" },
-  { "clave": "accion.acostado", "texto": "الاستلقاء" },
-  { "clave": "accion.levantarte", "texto": "النهوض" },
-  { "clave": "veh.subir", "texto": "الصعود (مسافة)" },
-  { "clave": "veh.bajar", "texto": "الهبوط (Shift)" },
-  { "clave": "veh.derrape", "texto": "الانزلاق (مسافة)" },
-  { "clave": "hud.ayuda", "texto": "التحرك باستخدام WASD/الأسهم أو لوحة التحكم (أسفل اليسار). التدوير والتكبير باستخدام الأزرار (أسفل اليمين). المرور عبر الأبواب بين الغرف." },
-  { "clave": "cat.cuerpo", "texto": "الجسد" },
-  { "clave": "cat.mente", "texto": "العقل" },
-  { "clave": "cat.complemento", "texto": "الإضافات" },
-  { "clave": "cat.config", "texto": "الإعدادات" },
-  { "clave": "ajustes.titulo", "texto": "الإعدادات" },
-  { "clave": "ajustes.idioma", "texto": "اللغة" },
-  { "clave": "diario.nacidoAbrev", "texto": "و." },
-  { "clave": "ajustes.tema", "texto": "سمة الواجهة" },
-  { "clave": "ajustes.modo", "texto": "المظهر" },
-  { "clave": "ajustes.modo.claro", "texto": "فاتح" },
-  { "clave": "ajustes.modo.oscuro", "texto": "داكن" },
-  { "clave": "ajustes.modo.transparente", "texto": "شفاف" },
-  { "clave": "ajustes.iconos", "texto": "نمط الأيقونات" },
-  { "clave": "ajustes.iconos.emoji", "texto": "الرموز التعبيرية" },
-  { "clave": "ajustes.iconos.profesional", "texto": "احترافي" },
-  { "clave": "ajustes.tipografia", "texto": "الخط" },
-  { "clave": "ajustes.abrir", "texto": "الإعدادات" },
-  { "clave": "tipografia.sistema", "texto": "النظام" },
-  { "clave": "tipografia.serif", "texto": "سيريف" },
-  { "clave": "tipografia.mono", "texto": "أحادي التباعد" },
-  { "clave": "tipografia.redondeada", "texto": "مدور" },
-  { "clave": "tipografia.manuscrita", "texto": "بخط اليد" },
-  { "clave": "temaUI.medianoche", "texto": "منتصف الليل" },
-  { "clave": "temaUI.neon", "texto": "نيون" },
-  { "clave": "temaUI.bosque", "texto": "الغابة" },
-  { "clave": "temaUI.ambar", "texto": "العنبر" },
-  { "clave": "temaUI.ciruela", "texto": "البرقوق" },
-  { "clave": "room.cocina.nombre", "texto": "المطبخ" },
-  { "clave": "room.ejercicio.nombre", "texto": "صالة الرياضة" },
-  { "clave": "room.recamara.nombre", "texto": "غرفة النوم" },
-  { "clave": "room.descanso.nombre", "texto": "السرير · الراحة" },
-  { "clave": "room.anecdotario.nombre", "texto": "الطاولة · دفتر الذكريات" },
-  { "clave": "room.despacho.nombre", "texto": "المكتب" },
-  { "clave": "room.biblioteca.nombre", "texto": "المكتبة" },
-  { "clave": "room.entretenimiento.nombre", "texto": "الترفيه" },
-  { "clave": "room.sala.nombre", "texto": "غرفة المعيشة" },
-  { "clave": "room.jardin.nombre", "texto": "الحديقة" },
-  { "clave": "room.garage.nombre", "texto": "المرآب" },
-  { "clave": "room.diario.nombre", "texto": "أخبار اليوم" },
-  { "clave": "room.hobbies.nombre", "texto": "الهوايات" },
-  { "clave": "room.idiomas.nombre", "texto": "اللغات" },
-  { "clave": "room.caminos.nombre", "texto": "المسارات" },
-  { "clave": "room.canchas.nombre", "texto": "الملاعب" },
-  { "clave": "room.huerto.nombre", "texto": "الطعام" },
-  { "clave": "room.granja.nombre", "texto": "المزرعة" },
-  { "clave": "room.ideas.nombre", "texto": "الأفكار" },
-  { "clave": "room.computo.nombre", "texto": "الحوسبة" },
-  { "clave": "room.agenda.nombre", "texto": "الأجندة" },
-  { "clave": "room.cocina.sub", "texto": "التغذية" },
-  { "clave": "room.ejercicio.sub", "texto": "روتينات القوة واللياقة" },
-  { "clave": "room.recamara.sub", "texto": "النوم والذكريات" },
-  { "clave": "room.descanso.sub", "texto": "النوم والمنبه" },
-  { "clave": "room.anecdotario.sub", "texto": "دفتر الذكريات الشخصي" },
-  { "clave": "room.despacho.sub", "texto": "المالية" },
-  { "clave": "room.biblioteca.sub", "texto": "التعلم" },
-  { "clave": "room.entretenimiento.sub", "texto": "الأرشيف وألعاب الطاولة" },
-  { "clave": "room.sala.sub", "texto": "الرحلات" },
-  { "clave": "room.jardin.sub", "texto": "اليقظة الذهنية" },
-  { "clave": "room.garage.sub", "texto": "صيانة المركبات" },
-  { "clave": "room.diario.sub", "texto": "أخبار اليوم" },
-  { "clave": "room.hobbies.sub", "texto": "الهوايات والمشاريع" },
-  { "clave": "room.calendario.sub", "texto": "الأحداث والروتين" },
-  { "clave": "room.ideas.sub", "texto": "خرائط المفاهيم على لوحة حرة" },
-  { "clave": "room.computo.sub", "texto": "الآلة الحاسبة وجداول البيانات" },
-  { "clave": "room.agenda.sub", "texto": "العمل والصحة والأشخاص" },
-  { "clave": "hud.plegar", "texto": "طي عناصر التحكم" },
-  { "clave": "hud.desplegar", "texto": "إظهار عناصر التحكم" },
-  { "clave": "nav3d.aria", "texto": "عناصر تحكم العرض" },
-  { "clave": "nav3d.vistaCuarto", "texto": "عرض الغرفة" },
-  { "clave": "nav3d.vistaInterior", "texto": "النظر إلى الجدار" },
-  { "clave": "nav3d.rotarIzq", "texto": "تدوير العرض لليسار" },
-  { "clave": "nav3d.rotarDer", "texto": "تدوير العرض لليمين" },
-  { "clave": "nav3d.acercar", "texto": "تكبير" },
-  { "clave": "nav3d.alejar", "texto": "تصغير" },
-  { "clave": "nav3d.restaurarCuarto", "texto": "إعادة ضبط تكبير الغرفة والتركيز عليها" },
-  { "clave": "nav3d.vistaInicial", "texto": "العرض الأولي" },
-  { "clave": "nav3d.centrarCuarto", "texto": "توسيط الغرفة" },
-  { "clave": "nav3d.reiniciar", "texto": "إعادة ضبط العرض" },
-  { "clave": "nav3d.editor3d", "texto": "محرر ثلاثي الأبعاد" },
-  { "clave": "nav3d.editor3dOn", "texto": "إغلاق المحرر" },
-  { "clave": "nav3d.editor3dHint", "texto": "تحرير العالم بمنظور ثلاثي الأبعاد: النقر على عنصر أو أرضية أو جدار أو شخصية يتيح تحريره." },
-  { "clave": "nav3d.verFlechas", "texto": "العودة إلى أسهم الحركة" },
-  { "clave": "nav3d.verCubo", "texto": "طي الأسهم وإظهار مكعب العرض" },
-  { "clave": "nav3d.verFlechasBtn", "texto": "إظهار الأسهم" },
-  { "clave": "nav3d.verCuboBtn", "texto": "إظهار العرض" },
-  { "clave": "herr.boton", "texto": "الأدوات" },
-  { "clave": "herr.rueda", "texto": "عجلة الأدوات" },
-  { "clave": "herr.cubo", "texto": "المكعب" },
-  { "clave": "herr.saltar", "texto": "القفز" },
-  { "clave": "herr.correr", "texto": "الجري" },
-  { "clave": "herr.bailar", "texto": "الرقص" },
-  { "clave": "herr.laser", "texto": "الليزر" },
-  { "clave": "herr.volverCubo", "texto": "العودة إلى مكعب العرض" },
-  { "clave": "herr.saltarBtn", "texto": "قفزة!" },
-  { "clave": "herr.corriendo", "texto": "الجري" },
-  { "clave": "herr.bailando", "texto": "الرقص" },
-  { "clave": "herr.disparar", "texto": "إطلاق النار" },
-  { "clave": "herr.invocar", "texto": "الاستدعاء" },
-  { "clave": "herr.soloPlantaBaja", "texto": "النزول إلى الطابق الأرضي لاستدعائه" },
-  { "clave": "herr.veh.bicicleta", "texto": "الدراجة" },
-  { "clave": "herr.veh.motocicleta", "texto": "الدراجة النارية" },
-  { "clave": "herr.veh.automovil", "texto": "السيارة" },
-  { "clave": "herr.veh.ovni", "texto": "الصحن الطائر" },
-  { "clave": "herr.cat.movimientos", "texto": "الحركات" },
-  { "clave": "herr.cat.juguetes", "texto": "الألعاب" },
-  { "clave": "herr.cat.vehiculos", "texto": "المركبات" },
-  { "clave": "herr.cat.construccion", "texto": "البناء" },
-  { "clave": "herr.construir", "texto": "البناء" },
-  { "clave": "herr.constrDibujar", "texto": "الرسم" },
-  { "clave": "herr.abrirEditor", "texto": "فتح المحرر" },
-  { "clave": "herr.atras", "texto": "رجوع" },
-  { "clave": "herr.cuerda", "texto": "نط الحبل" },
-  { "clave": "herr.mortal", "texto": "الشقلبة" },
-  { "clave": "herr.saludar", "texto": "التلويح" },
-  { "clave": "herr.mover", "texto": "تحريك" },
-  { "clave": "herr.moverAcercate", "texto": "الاقتراب من عنصر أو غرفة" },
-  { "clave": "herr.agarrar", "texto": "الإمساك" },
-  { "clave": "herr.agarrarCuarto", "texto": "الإمساك بالغرفة" },
-  { "clave": "herr.moverCargandoObjeto", "texto": "جارٍ حمل العنصر" },
-  { "clave": "herr.moverCargandoCuarto", "texto": "جارٍ حمل الغرفة" },
-  { "clave": "herr.soltar", "texto": "الإفلات" },
-  { "clave": "ctx.interactuar", "texto": "التفاعل" },
-  { "clave": "ctx.entrarApp", "texto": "فتح التطبيق" },
-  { "clave": "ctx.cambiarLetrero", "texto": "تعديل اللافتة" },
-  { "clave": "ctx.usar", "texto": "الاستخدام" },
-  { "clave": "ctx.subirte", "texto": "الركوب" },
-  { "clave": "ctx.subirteDona", "texto": "الركوب على العوامة" },
-  { "clave": "ctx.cosechar", "texto": "الحصاد" },
-  { "clave": "ctx.recoger", "texto": "الالتقاط" },
-  { "clave": "ctx.bajarte", "texto": "النزول" },
-  { "clave": "ctx.correr", "texto": "السباق" },
-  { "clave": "ctx.revisarTu", "texto": "مراجعة" },
-  { "clave": "ctx.subirA", "texto": "الصعود إلى" },
-  { "clave": "ctx.bajarA", "texto": "النزول إلى" },
-  { "clave": "ctx.nivelN", "texto": "المستوى {n}" },
-  { "clave": "ctx.plantaBaja", "texto": "الطابق الأرضي" },
-  { "clave": "ctx.jugar.futbol", "texto": "لعب كرة القدم" },
-  { "clave": "ctx.jugar.tenis", "texto": "لعب التنس" },
-  { "clave": "ctx.jugar.basket", "texto": "لعب كرة السلة" },
-  { "clave": "ctx.jugar.beisbol", "texto": "لعب البيسبول" },
-  { "clave": "herr.portales", "texto": "البوابات" },
-  { "clave": "herr.fuegos", "texto": "الألعاب النارية" },
-  { "clave": "herr.burbujas", "texto": "الفقاعات" },
-  { "clave": "herr.cuerdaOn", "texto": "نط الحبل" },
-  { "clave": "herr.mortalBtn", "texto": "شقلبة!" },
-  { "clave": "herr.saludarBtn", "texto": "مرحبًا!" },
-  { "clave": "herr.portalColocar", "texto": "وضع بوابة" },
-  { "clave": "herr.portalQuitar", "texto": "إزالة البوابات" },
-  { "clave": "herr.fuegosBtn", "texto": "إطلاق!" },
-  { "clave": "herr.burbujasOn", "texto": "نفخ الفقاعات" },
-  { "clave": "herr.quitar", "texto": "إزالة الأداة" },
-  { "clave": "herr.grafiti", "texto": "الغرافيتي" },
-  { "clave": "herr.grafitiPintar", "texto": "الرسم على الجدار" },
-  { "clave": "herr.grafitiSinMuro", "texto": "الاقتراب من جدار" },
-  { "clave": "herr.grafitiMuroPuerta", "texto": "لا يمكن الرسم على الجدران التي بها أبواب" },
-  { "clave": "herr.grafitiMuroCurvo", "texto": "لا يمكن الرسم على الجدران المنحنية" },
-  { "clave": "graf.titulo", "texto": "الغرافيتي" },
-  { "clave": "graf.pincel", "texto": "الفرشاة" },
-  { "clave": "graf.spray", "texto": "الرش" },
-  { "clave": "graf.borrador", "texto": "الممحاة" },
-  { "clave": "graf.bote", "texto": "تعبئة الكل بلون واحد" },
-  { "clave": "graf.grosor", "texto": "السماكة" },
-  { "clave": "graf.color", "texto": "اللون" },
-  { "clave": "graf.deshacer", "texto": "التراجع" },
-  { "clave": "graf.limpiar", "texto": "مسح" },
-  { "clave": "graf.borrar", "texto": "حذف الغرافيتي" },
-  { "clave": "graf.guardar", "texto": "حفظ" },
-  { "clave": "graf.salir", "texto": "الخروج دون حفظ" },
-  { "clave": "despacho.tab.balance", "texto": "التدفق النقدي" },
-  { "clave": "despacho.tab.mercados", "texto": "الأسواق" },
-  { "clave": "despacho.tab.divisas", "texto": "العملات" },
-  { "clave": "despacho.tab.criptos", "texto": "العملات الرقمية" },
-  { "clave": "despacho.tab.acciones", "texto": "الأسهم" },
-  { "clave": "despacho.tab.commodities", "texto": "السلع" },
-  { "clave": "despacho.sub.balance", "texto": "الرصيد" },
-  { "clave": "despacho.tab.gastos", "texto": "المصروفات" },
-  { "clave": "despacho.tab.ingresos", "texto": "الدخل" },
-  { "clave": "despacho.tab.metas", "texto": "الأهداف" },
-  { "clave": "despacho.tab.financieras", "texto": "المالية" },
-  { "clave": "despacho.tab.ahorroInversion", "texto": "الادخار/الاستثمار" },
-  { "clave": "despacho.tab.ahorro", "texto": "الادخار" },
-  { "clave": "despacho.tab.inversion", "texto": "الاستثمار" },
-  { "clave": "despacho.tab.deuda", "texto": "الدين" },
-  { "clave": "despacho.r.ingresos", "texto": "الدخل" },
-  { "clave": "despacho.r.gastos", "texto": "المصروفات" },
-  { "clave": "despacho.r.balance", "texto": "الرصيد" },
-  { "clave": "despacho.presupuesto", "texto": "الميزانية الشهرية" },
-  { "clave": "despacho.presupuesto.equivale", "texto": "أي ما يعادل {n} لهذه الفترة" },
-  { "clave": "despacho.patrimonio", "texto": "صافي الثروة" },
-  { "clave": "despacho.patrimonio.ayuda", "texto": "أصولك ناقص خصومك، في تبويب صافي الثروة. هنا تظهر فقط النتيجة المحتملة لو أُغلقت الفترة على هذا النحو." },
-  { "clave": "despacho.excedido", "texto": "تجاوزت الميزانية بمقدار {n}" },
-  { "clave": "despacho.progreso", "texto": "لديك {used} من {total} ({pct}%)" },
-  { "clave": "despacho.catGastos", "texto": "المصروفات حسب الفئة" },
-  { "clave": "despacho.sinGastos", "texto": "لا توجد مصروفات في هذه الفترة." },
-  { "clave": "despacho.periodo.dia", "texto": "اليوم" },
-  { "clave": "despacho.periodo.semana", "texto": "الأسبوع" },
-  { "clave": "despacho.periodo.mes", "texto": "الشهر" },
-  { "clave": "despacho.periodo.anio", "texto": "السنة" },
-  { "clave": "despacho.plazo.dia", "texto": "كل يوم" },
-  { "clave": "despacho.plazo.semana", "texto": "كل أسبوع" },
-  { "clave": "despacho.plazo.mes", "texto": "كل شهر" },
-  { "clave": "despacho.plazo.anio", "texto": "كل سنة" },
-  { "clave": "despacho.tendencia.dia", "texto": "الرصيد · آخر 6 أيام" },
-  { "clave": "despacho.tendencia.semana", "texto": "الرصيد · آخر 6 أسابيع" },
-  { "clave": "despacho.tendencia.mes", "texto": "الرصيد · آخر 6 أشهر" },
-  { "clave": "despacho.tendencia.anio", "texto": "الرصيد · آخر 6 سنوات" },
-  { "clave": "despacho.m.monto", "texto": "المبلغ" },
-  { "clave": "despacho.m.nota", "texto": "ملاحظة (اختياري)" },
-  { "clave": "despacho.m.categoria", "texto": "الفئة" }
+  {
+    "clave": "ejercicio.rutDesc.push-pecho-y-triceps",
+    "texto": "بنش برس، الضغط العسكري، الديبس، التمديد."
+  },
+  {
+    "clave": "ejercicio.rutDesc.pull-espalda-y-biceps",
+    "texto": "العقلة، التجديف، الكيرل. زيادة الحمل تدريجيًا."
+  },
+  {
+    "clave": "ejercicio.rutDesc.legs-pierna-completa",
+    "texto": "سكوات، الرفعة الميتة الرومانية، لنجز."
+  },
+  {
+    "clave": "ejercicio.rutDesc.hiit-20-min",
+    "texto": "فواصل 40 ثانية عمل / 20 ثانية راحة."
+  },
+  {
+    "clave": "ejercicio.rutDesc.carrera-continua",
+    "texto": "وتيرة معتدلة، المنطقة 2-3."
+  },
+  {
+    "clave": "ejercicio.rutDesc.caminata-inclinada",
+    "texto": "تأثير منخفض، حرق ثابت للسعرات."
+  },
+  {
+    "clave": "ejercicio.rutDesc.bike-tempo",
+    "texto": "ركوب دراجة بوتيرة ثابتة."
+  },
+  {
+    "clave": "ejercicio.rutDesc.triatlon-sprint",
+    "texto": "سباحة ودراجة وجري مترابطة، كل مرحلة بوتيرتها."
+  },
+  {
+    "clave": "ejercicio.rutDesc.movilidad-matutina",
+    "texto": "أيقظ المفاصل والعمود الفقري."
+  },
+  {
+    "clave": "ejercicio.rutDesc.yoga-flow",
+    "texto": "سلسلة فينياسا هادئة."
+  },
+  {
+    "clave": "ejercicio.rutDesc.cadera-y-piernas",
+    "texto": "لفتح الورك وأوتار الركبة."
+  },
+  {
+    "clave": "ejercicio.rutDesc.estiramiento-post-entreno",
+    "texto": "تهدئة واستشفاء."
+  },
+  {
+    "clave": "ejercicio.rutDesc.espalda-y-hombros",
+    "texto": "راحة للظهر والكتفين."
+  },
+  {
+    "clave": "ejercicio.rutDesc.cuello-y-oficina",
+    "texto": "استراحة نشطة للرقبة والعمود الفقري."
+  },
+  {
+    "clave": "ejercicio.rutDesc.antes-de-dormir",
+    "texto": "استرخاء علاجي يساعدك على النوم."
+  },
+  {
+    "clave": "cal.logros",
+    "texto": "الإنجازات"
+  },
+  {
+    "clave": "cal.logros.vacio",
+    "texto": "لم يُنجز شيء بعد اليوم."
+  },
+  {
+    "clave": "cal.objetivos",
+    "texto": "المهام"
+  },
+  {
+    "clave": "cal.objetivo.nuevo",
+    "texto": "مهمة"
+  },
+  {
+    "clave": "cal.irApp",
+    "texto": "سجّله في التطبيق"
+  },
+  {
+    "clave": "chat.vistaCal.objetivos",
+    "texto": "المهام"
+  },
+  {
+    "clave": "chat.vistaCal.dia",
+    "texto": "أجندة اليوم"
+  },
+  {
+    "clave": "chat.vistaCal.semana",
+    "texto": "أسبوع"
+  },
+  {
+    "clave": "chat.vistaCal.mes",
+    "texto": "شهر"
+  },
+  {
+    "clave": "chat.vistaCal.anio",
+    "texto": "سنة"
+  },
+  {
+    "clave": "chat.vistaCal.calendario",
+    "texto": "التقويم"
+  },
+  {
+    "clave": "room.agenda.cmd.trabajo",
+    "texto": "العمل"
+  },
+  {
+    "clave": "room.agenda.cmd.salud",
+    "texto": "الصحة"
+  },
+  {
+    "clave": "room.agenda.cmd.personas",
+    "texto": "الأشخاص"
+  },
+  {
+    "clave": "room.anecdotario.cmd.anecdotas",
+    "texto": "الحكايات"
+  },
+  {
+    "clave": "room.biblioteca.cmd.charlas",
+    "texto": "المحادثات"
+  },
+  {
+    "clave": "room.biblioteca.cmd.enciclopedia",
+    "texto": "الموسوعة"
+  },
+  {
+    "clave": "room.biblioteca.cmd.estudio",
+    "texto": "الدراسة"
+  },
+  {
+    "clave": "room.biblioteca.cmd.resumen",
+    "texto": "نظرة عامة"
+  },
+  {
+    "clave": "room.cocina.cmd.metas",
+    "texto": "الأهداف"
+  },
+  {
+    "clave": "room.cocina.cmd.diario",
+    "texto": "السجل"
+  },
+  {
+    "clave": "room.cocina.cmd.progreso",
+    "texto": "التقدم"
+  },
+  {
+    "clave": "room.cocina.cmd.plan",
+    "texto": "الحمية"
+  },
+  {
+    "clave": "room.cocina.cmd.recetas",
+    "texto": "الوصفات"
+  },
+  {
+    "clave": "room.cocina.cmd.compras",
+    "texto": "المشتريات"
+  },
+  {
+    "clave": "room.computo.cmd.formulario",
+    "texto": "الصيغ"
+  },
+  {
+    "clave": "room.computo.cmd.calculadora",
+    "texto": "الآلة الحاسبة"
+  },
+  {
+    "clave": "room.computo.cmd.grafica",
+    "texto": "رسم بياني"
+  },
+  {
+    "clave": "room.computo.cmd.ecuacion",
+    "texto": "حل المعادلة"
+  },
+  {
+    "clave": "room.computo.cmd.hojas",
+    "texto": "جداول البيانات"
+  },
+  {
+    "clave": "room.computo.cmd.bases",
+    "texto": "الأسس"
+  },
+  {
+    "clave": "room.computo.cmd.matrices",
+    "texto": "المصفوفات"
+  },
+  {
+    "clave": "room.computo.cmd.sistemas",
+    "texto": "الأنظمة"
+  },
+  {
+    "clave": "room.computo.cmd.unidades",
+    "texto": "الوحدات"
+  },
+  {
+    "clave": "room.computo.cmd.propina",
+    "texto": "الإكرامية"
+  },
+  {
+    "clave": "room.computo.cmd.regla3",
+    "texto": "قاعدة الثلاثة"
+  },
+  {
+    "clave": "room.descanso.cmd.sueno",
+    "texto": "النوم"
+  },
+  {
+    "clave": "room.despacho.cmd.balance",
+    "texto": "التدفق النقدي"
+  },
+  {
+    "clave": "room.despacho.cmd.patrimonio",
+    "texto": "صافي الثروة"
+  },
+  {
+    "clave": "room.despacho.cmd.gastos",
+    "texto": "المصروفات"
+  },
+  {
+    "clave": "room.despacho.cmd.ingresos",
+    "texto": "الدخل"
+  },
+  {
+    "clave": "room.despacho.cmd.metas",
+    "texto": "الادخار/الاستثمار"
+  },
+  {
+    "clave": "room.despacho.cmd.financieras",
+    "texto": "المالية"
+  },
+  {
+    "clave": "room.despacho.cmd.deuda",
+    "texto": "الدين"
+  },
+  {
+    "clave": "room.despacho.cmd.simuladores",
+    "texto": "المحاكاة"
+  },
+  {
+    "clave": "room.despacho.cmd.simulacion",
+    "texto": "التوقعات"
+  },
+  {
+    "clave": "room.despacho.cmd.divisas",
+    "texto": "العملات"
+  },
+  {
+    "clave": "room.despacho.cmd.criptos",
+    "texto": "العملات الرقمية"
+  },
+  {
+    "clave": "room.despacho.cmd.acciones",
+    "texto": "الأسهم"
+  },
+  {
+    "clave": "room.despacho.cmd.commodities",
+    "texto": "السلع"
+  },
+  {
+    "clave": "room.diario.cmd.titulares",
+    "texto": "العناوين"
+  },
+  {
+    "clave": "room.diario.cmd.efemerides",
+    "texto": "في مثل هذا اليوم"
+  },
+  {
+    "clave": "room.ejercicio.cmd.metas",
+    "texto": "الأهداف"
+  },
+  {
+    "clave": "room.ejercicio.cmd.fuerza",
+    "texto": "القوة"
+  },
+  {
+    "clave": "room.ejercicio.cmd.resistencia",
+    "texto": "التحمل"
+  },
+  {
+    "clave": "room.ejercicio.cmd.flexibilidad",
+    "texto": "المرونة"
+  },
+  {
+    "clave": "room.entretenimiento.cmd.archivo",
+    "texto": "الأرشيف"
+  },
+  {
+    "clave": "room.entretenimiento.cmd.mesa",
+    "texto": "ألعاب الطاولة"
+  },
+  {
+    "clave": "room.garage.cmd.resumen",
+    "texto": "الملخص"
+  },
+  {
+    "clave": "room.garage.cmd.vehiculos",
+    "texto": "المركبات"
+  },
+  {
+    "clave": "room.hobbies.cmd.hobbies",
+    "texto": "الهوايات"
+  },
+  {
+    "clave": "room.ideas.cmd.diario",
+    "texto": "يوميات الأفكار"
+  },
+  {
+    "clave": "room.ideas.cmd.mapas",
+    "texto": "خرائط ذهنية"
+  },
+  {
+    "clave": "room.ideas.cmd.diagramas",
+    "texto": "مخططات القرار"
+  },
+  {
+    "clave": "room.idiomas.cmd.charlas",
+    "texto": "المحادثات"
+  },
+  {
+    "clave": "room.idiomas.cmd.repaso",
+    "texto": "المراجعة"
+  },
+  {
+    "clave": "room.idiomas.cmd.temario",
+    "texto": "المنهج"
+  },
+  {
+    "clave": "room.idiomas.cmd.progreso",
+    "texto": "التقدم"
+  },
+  {
+    "clave": "room.jardin.cmd.meditacion",
+    "texto": "التأمل"
+  },
+  {
+    "clave": "room.jardin.cmd.respiracion",
+    "texto": "التنفس"
+  },
+  {
+    "clave": "room.jardin.cmd.gratitud",
+    "texto": "الامتنان"
+  },
+  {
+    "clave": "room.sala.cmd.mapa",
+    "texto": "الخريطة"
+  },
+  {
+    "clave": "room.sala.cmd.porConocer",
+    "texto": "خطة الرحلة"
+  },
+  {
+    "clave": "room.sala.cmd.rutas",
+    "texto": "المسارات"
+  },
+  {
+    "clave": "room.sala.cmd.bitacora",
+    "texto": "يوميات الرحلة"
+  }
 ]

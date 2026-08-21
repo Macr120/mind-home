@@ -1,137 +1,338 @@
 [
-  { "clave": "ejercicio.cronograma.desc", "texto": "أهدافك الكبيرة على مقياس الزمن. مع ✨ يضع الذكاء الاصطناعي الخطة ويقترح لك أي من روتيناتك يستحق الجدولة." },
-  { "clave": "sala.tab.cronograma", "texto": "الأهداف" },
-  { "clave": "avisos.rutinaPasos", "texto": "لديك {n} خطوات لإنجازها." },
-  { "clave": "avisos.rutinaHora", "texto": "حان الوقت." },
-  { "clave": "avisos.abrir", "texto": "فتح" },
-  { "clave": "avisos.metaFalta", "texto": "لديك {hecho} من {objetivo}." },
-  { "clave": "notif.titulo", "texto": "الإشعارات" },
-  { "clave": "notif.general", "texto": "تفعيل التنبيهات" },
-  { "clave": "notif.rutinas", "texto": "الفعاليات والروتينات المحددة بوقت" },
-  { "clave": "notif.metas", "texto": "أهداف اليوم غير المُنجزة" },
-  { "clave": "notif.porApp", "texto": "حسب التطبيق" },
-  { "clave": "notif.denegado", "texto": "متصفحك حظر إشعارات هذا الموقع: يمكن إلغاء الحظر فقط من أيقونة القفل في شريط العنوان. في هذه الأثناء، يواصل مساعدك إيصال التذكيرات." },
-  { "clave": "notif.noSoportado", "texto": "هذا المتصفح لا يدعم الإشعارات؛ يتولى مساعدك إيصال التذكيرات بدلاً من ذلك." },
-  { "clave": "horario.agendar", "texto": "جدولة" },
-  { "clave": "horario.titulo", "texto": "الجدول الزمني" },
-  { "clave": "horario.plegar", "texto": "تم" },
-  { "clave": "horario.hora", "texto": "الوقت" },
-  { "clave": "horario.frecuencia", "texto": "التكرار" },
-  { "clave": "horario.dias", "texto": "الأيام" },
-  { "clave": "horario.sinDias", "texto": "دون تحديد أي يوم: كل الأيام." },
-  { "clave": "horario.sinHora", "texto": "بلا وقت محدد" },
-  { "clave": "horario.todosDias", "texto": "كل يوم" },
-  { "clave": "horario.avisar", "texto": "التذكير في ذلك الوقت" },
-  { "clave": "horario.avisar.hint", "texto": "سيصلك إشعار." },
-  { "clave": "horario.avisar.hintSinPermiso", "texto": "سنذكّرك داخل التطبيق." },
-  { "clave": "horario.avisar.on", "texto": "نعم" },
-  { "clave": "horario.avisar.off", "texto": "لا" },
-  { "clave": "horario.hechoHoy", "texto": "تم اليوم" },
-  { "clave": "horario.masOpciones", "texto": "خيارات أكثر ‹" },
-  { "clave": "horario.quitar", "texto": "إزالة" },
-  { "clave": "rutinas.avisar", "texto": "التذكير في ذلك الوقت" },
-  { "clave": "rutinas.avisar.hint", "texto": "سيصلك إشعار." },
-  { "clave": "rutinas.avisar.hintSinPermiso", "texto": "سنذكّرك داخل التطبيق." },
-  { "clave": "rutinas.avisar.on", "texto": "نعم" },
-  { "clave": "rutinas.avisar.off", "texto": "لا" },
-  { "clave": "avisoAct.cuerpo", "texto": "حان الوقت ({hora})." },
-  { "clave": "avisoAct.ahoraNo", "texto": "ليس الآن" },
-  { "clave": "avisoAct.ir", "texto": "الانتقال للتسجيل" },
-  { "clave": "hobbies.registrarMin", "texto": "تسجيل {n} دقيقة" },
-  { "clave": "hobbies.plan.tipo", "texto": "الممارسة" },
-  { "clave": "hobbies.plan.ejemplo", "texto": "عزف 3 أغانٍ كاملة" },
-  { "clave": "hobbies.plan.ejProyecto", "texto": "إنهاء {proyecto}" },
-  { "clave": "hobbies.plan.material", "texto": "مشاريع الخطة" },
-  { "clave": "ejercicio.registrarSesion", "texto": "تسجيل {n} دقيقة" },
-  { "clave": "ejercicio.plan.ejemplo", "texto": "الجري 5 كم دون توقف" },
-  { "clave": "ejercicio.plan.material", "texto": "روتينات الخطة" },
-  { "clave": "cocina.horarios", "texto": "أوقات الوجبات" },
-  { "clave": "cocina.plan.tipoComida", "texto": "الوجبة" },
-  { "clave": "cocina.plan.material", "texto": "وصفات الخطة" },
-  { "clave": "cocina.plan.ejemplo", "texto": "تجربة الحمية المتوسطية" },
-  { "clave": "cocina.plan.ejBajar", "texto": "خفض الوزن إلى {kg} كجم" },
-  { "clave": "cocina.plan.ejSubir", "texto": "زيادة الوزن إلى {kg} كجم" },
-  { "clave": "cocina.plan.ejMantener", "texto": "الحفاظ على {kg} كجم" },
-  { "clave": "biblioteca.plan.ejemplo", "texto": "إتقان أساسيات الإحصاء" },
-  { "clave": "biblioteca.plan.material", "texto": "من موسوعتك" },
-  { "clave": "idiomas.plan.ejemplo", "texto": "التحدث بطلاقة في رحلتي القادمة" },
-  { "clave": "idiomas.plan.ejemploNivel", "texto": "الوصول إلى المستوى {nivel} في {idioma}" },
-  { "clave": "idiomas.plan.material", "texto": "مواضيع الخطة" },
-  { "clave": "sala.plan.ejemplo", "texto": "خطة رحلة لمدة 5 أيام في كيوتو" },
-  { "clave": "sala.plan.ejLugar", "texto": "خطة رحلة إلى {lugar}" },
-  { "clave": "sala.plan.material", "texto": "من قائمة الأماكن المراد زيارتها" },
-  { "clave": "entret.plan.ejemplo", "texto": "إنهاء ثلاثية العراب" },
-  { "clave": "entret.plan.material", "texto": "من أرشيفك" },
-  { "clave": "descanso.plan.ejemplo", "texto": "النوم خلال أقل من 15 دقيقة" },
-  { "clave": "anecdotario.plan.ejemplo", "texto": "توثيق رحلة هذا العام" },
-  { "clave": "jardin.plan.ejemplo", "texto": "عشر دقائق من الهدوء يوميًا" },
-  { "clave": "ideas.plan.ejemplo", "texto": "تحويل فكرة من اليوميات إلى شيء حقيقي" },
-  { "clave": "ideas.plan.material", "texto": "أفكار الخطة" },
-  { "clave": "diario.plan.ejemplo", "texto": "قراءة عدد الصباح يوميًا" },
-  { "clave": "garage.plan.ejemplo", "texto": "تجهيز السيارة للشتاء" },
-  { "clave": "garage.plan.material", "texto": "معاملات الخطة" },
-  { "clave": "agenda.plan.ejemplo", "texto": "تسليم المشروع في الوقت المحدد" },
-  { "clave": "agenda.plan.material", "texto": "مهام الخطة" },
-  { "clave": "cocina.horarios.ayuda", "texto": "وقت تناول كل وجبة. تظهر في تقويمك وقد تُذكّرك بها." },
-  { "clave": "jardin.med.reservar", "texto": "وقت هدوئك" },
-  { "clave": "jardin.med.bloque", "texto": "التأمل" },
-  { "clave": "jardin.registrarMin", "texto": "تسجيل {n} دقيقة" },
-  { "clave": "biblioteca.est.reservar", "texto": "وقت دراستك" },
-  { "clave": "biblioteca.est.bloque", "texto": "الدراسة" },
-  { "clave": "biblioteca.registrarMin", "texto": "تسجيل {n} دقيقة" },
-  { "clave": "idiomas.rep.reservar", "texto": "وقت مراجعتك" },
-  { "clave": "idiomas.rep.bloque", "texto": "مراجعة {idioma}" },
-  { "clave": "notif.ayudaCerrada", "texto": "تصلك التذكيرات ما دام التطبيق مفتوحًا، حتى في الخلفية. عند إغلاق التبويب، لا يستطيع المتصفح إيقاظه: لذلك يلزم تثبيت التطبيق على هاتفك." },
-  { "clave": "progreso.nivel", "texto": "المستوى" },
-  { "clave": "progreso.racha", "texto": "سلسلة" },
-  { "clave": "progreso.dias", "texto": "أيام" },
-  { "clave": "progreso.hoy", "texto": "اليوم" },
-  { "clave": "progreso.semana", "texto": "7 أيام" },
-  { "clave": "plantillas.ayuda", "texto": "اسحب القالب إلى مجلد آخر؛ المس الأيقونة لتجربة التطبيق واسم المجلد لإعادة تسميته." },
-  { "clave": "plantillas.entrar", "texto": "فتح التطبيق" },
-  { "clave": "plantillas.cerrarPrevia", "texto": "› إغلاق" },
-  { "clave": "plantillas.asistente", "texto": "المساعد المسؤول عنها" },
-  { "clave": "plantillas.sinAsistente", "texto": "بلا مساعد (يتولاها الجميع)" },
-  { "clave": "plantillas.asignar", "texto": "التعيين لعنصر أو غرفة" },
-  { "clave": "plantillas.asignarObjeto", "texto": "+ تعيين لعنصر…" },
-  { "clave": "plantillas.asignarA", "texto": "+ تعيين لغرفة…" },
-  { "clave": "plantillas.sinCuartos", "texto": "يلزم إنشاء غرفة أولاً" },
-  { "clave": "plantillas.objetoPrincipal", "texto": "العنصر الرئيسي (مدخل الغرفة)" },
-  { "clave": "plantillas.traeObjetos", "texto": "العناصر التي يجلبها التطبيق" },
-  { "clave": "plantillas.esPrincipal", "texto": "العنصر الرئيسي" },
-  { "clave": "plantillas.hacerPrincipal", "texto": "التعيين كعنصر رئيسي" },
-  { "clave": "plantillas.quitarObjeto", "texto": "إزالة العنصر" },
-  { "clave": "plantillas.agregarObjeto", "texto": "إضافة عنصر" },
-  { "clave": "selObjeto.titulo", "texto": "إضافة عنصر" },
-  { "clave": "plantillas.todasAsignadas", "texto": "جميع التطبيقات موجودة بالفعل في غرفة. عند حذف غرفة، يعود قالبها إلى هنا." },
-  { "clave": "plantillaCustom.crear", "texto": "إنشاء قالب" },
-  { "clave": "plantillaCustom.editar", "texto": "تعديل القالب" },
-  { "clave": "plantillaCustom.eliminar", "texto": "حذف القالب" },
-  { "clave": "plantillaCustom.confirmarBorrar", "texto": "حذف هذا القالب وكل بياناته؟" },
-  { "clave": "plantillaCustom.enUso", "texto": "قوالبك المستخدمة" },
-  { "clave": "plantillaCustom.nombrePh", "texto": "مثال: الانتقال، النباتات، الحيوان الأليف…" },
-  { "clave": "plantillaCustom.emojiLibre", "texto": "رمز تعبيري آخر" },
-  { "clave": "plantillaCustom.herramientas", "texto": "أدوات القالب" },
-  { "clave": "plantillaCustom.sinBloques", "texto": "أضِف أداة واحدة على الأقل: ستصبح أقسام تطبيقك." },
-  { "clave": "plantillaCustom.quitarBloque", "texto": "إزالة (تُحذف بياناتها عند الحفظ)" },
-  { "clave": "plantillaCustom.menusAyuda", "texto": "وزّع الكتل على تبويبات. بلا قوائم، يصبح تطبيقك شاشة واحدة." },
-  { "clave": "plantillaCustom.agregarMenu", "texto": "القائمة" },
-  { "clave": "plantillaCustom.agregarAqui", "texto": "إضافة أداة" },
-  { "clave": "plantillaCustom.agregarSubmenu", "texto": "قائمة فرعية لهذه القائمة" },
-  { "clave": "plantillaCustom.menuNuevo", "texto": "القائمة {n}" },
-  { "clave": "plantillaCustom.submenuNuevo", "texto": "القائمة الفرعية {n}" },
-  { "clave": "plantillaCustom.menuSinNombre", "texto": "القائمة" },
-  { "clave": "plantillaCustom.menuNombrePh", "texto": "اسم القائمة" },
-  { "clave": "plantillaCustom.menuEmoji", "texto": "رمز القائمة التعبيري (اختياري)" },
-  { "clave": "plantillaCustom.borrarMenu", "texto": "حذف القائمة (تنتقل كتلها إلى الأولى)" },
-  { "clave": "plantillaCustom.menuBloque", "texto": "القائمة" },
-  { "clave": "plantillaCustom.menuVacio", "texto": "لا تحتوي هذه القائمة على كتل بعد." },
-  { "clave": "plantillaCustom.submenu", "texto": "قائمة فرعية" },
-  { "clave": "plantillaCustom.editarApp", "texto": "تعديل التطبيق" },
-  { "clave": "plantillaCustom.listo", "texto": "تم" },
-  { "clave": "plantillaCustom.editorCompleto", "texto": "المحرر الكامل" },
-  { "clave": "plantillaCustom.borrar", "texto": "حذف" },
-  { "clave": "plantillaCustom.borrarMenuTitulo", "texto": "حذف «{nombre}»" },
-  { "clave": "plantillaCustom.borrarMenuMsj", "texto": "تنتقل أدواتها إلى القائمة الأولى، مع بياناتها." },
-  { "clave": "plantillaCustom.borrarBloqueTitulo", "texto": "حذف «{nombre}»" }
+  {
+    "clave": "ejercicio.ejDesc.curl-martillo",
+    "texto": "بقبضة محايدة (الراحتان متقابلتان)، ارفع الدمبل للأعلى لتفعيل الساعد."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-predicador",
+    "texto": "مع إسناد ذراعك على المقعد، اثنِ مرفقك لعزل عضلة البايسبس."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-concentrado",
+    "texto": "اجلس وأسند مرفقك على فخذك وارفع الدمبل للأعلى مع التركيز على الانقباض العضلي."
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-triceps-en-polea",
+    "texto": "قف أمام بكرة عالية وادفع البار للأسفل مع تمديد مرفقيك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-frances",
+    "texto": "استلقِ وأنزل البار نحو جبهتك ثم مدّد مرفقيك دون تحريكهما."
+  },
+  {
+    "clave": "ejercicio.ejDesc.fondos-entre-bancos",
+    "texto": "ضع يديك على المقعد وأنزل جسمك بثني مرفقيك، ثم ادفع نفسك للأعلى مجدداً."
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-sobre-cabeza",
+    "texto": "ارفع الدمبل خلف رأسك ومدّد مرفقيك للأعلى."
+  },
+  {
+    "clave": "ejercicio.ejDesc.patada-de-triceps",
+    "texto": "انحنِ مع رفع مرفقك، ثم مدّد ساعدك للخلف."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla",
+    "texto": "ضع البار على ظهرك وأنزل وركيك حتى تصبح فخذاك موازيتين للأرض، ثم قف مجدداً."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-frontal",
+    "texto": "ضع البار أمامك واجلس القرفصاء مع إبقاء جذعك منتصباً."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-bulgara",
+    "texto": "مع رفع إحدى قدميك خلفك، أنزل ساقك الأمامية حتى زاوية 90 درجة."
+  },
+  {
+    "clave": "ejercicio.ejDesc.prensa-de-pierna",
+    "texto": "على الجهاز، ادفع المنصة بتمديد ساقيك دون قفل ركبتيك بالكامل."
+  },
+  {
+    "clave": "ejercicio.ejDesc.zancadas",
+    "texto": "تقدّم بخطوة للأمام وأنزل ركبتك الخلفية حتى قرب الأرض، بالتناوب بين الساقين."
+  },
+  {
+    "clave": "ejercicio.ejDesc.peso-muerto",
+    "texto": "مع إبقاء ظهرك مستقيماً، ارفع البار عن الأرض بتمديد وركيك وركبتيك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.peso-muerto-rumano",
+    "texto": "أنزل البار قريباً من ساقيك بثني وركيك، مع إبقاء ركبتيك شبه مستقيمتين."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-femoral",
+    "texto": "على الجهاز، اثنِ ركبتيك مع تقريب كعبيك من الأرداف."
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-de-cuadriceps",
+    "texto": "اجلس على الجهاز ومدّد ركبتيك مع رفع الوزن بتحكم."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-talones",
+    "texto": "قف حاملاً الوزن وارفع كعبيك مع انقباض عضلات السمانة."
+  },
+  {
+    "clave": "ejercicio.ejDesc.hip-thrust",
+    "texto": "مع إسناد أعلى ظهرك على المقعد، ادفع وركيك للأعلى مع الضغط على عضلات الأرداف."
+  },
+  {
+    "clave": "ejercicio.ejDesc.puente-de-gluteo",
+    "texto": "استلقِ وارفع وركيك حتى تصطف كتفاك ووركاك وركبتاك في خط واحد."
+  },
+  {
+    "clave": "ejercicio.ejDesc.patada-de-gluteo-en-polea",
+    "texto": "على أربع أو واقفاً، ادفع ساقك للخلف مع الضغط على عضلة الأرداف."
+  },
+  {
+    "clave": "ejercicio.ejDesc.abduccion-de-cadera",
+    "texto": "جالساً أو مستلقياً على جانبك، افتح ساقيك ضد المقاومة."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha",
+    "texto": "استند على ساعديك وحافظ على استقامة جسمك دون هبوط وركيك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-lateral",
+    "texto": "على جانبك مستنداً على ساعد واحد، حافظ على وركيك مرفوعين ومستقيمين."
+  },
+  {
+    "clave": "ejercicio.ejDesc.crunch-abdominal",
+    "texto": "استلقِ وارفع كتفيك بانقباض عضلات بطنك دون شد رقبتك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-piernas",
+    "texto": "استلقِ أو تعلّق، وارفع ساقيك مستقيمتين مع التحكم في النزول."
+  },
+  {
+    "clave": "ejercicio.ejDesc.russian-twist",
+    "texto": "اجلس مع إمالة جذعك للخلف، ولفّ جذعك من جانب إلى آخر."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rueda-abdominal",
+    "texto": "وأنت راكع، تدحرج للأمام دون تقويس ظهرك، ثم عد للخلف."
+  },
+  {
+    "clave": "ejercicio.ejDesc.escaladores",
+    "texto": "في وضعية البلانك، ادفع ركبتيك نحو صدرك بالتناوب وبسرعة."
+  },
+  {
+    "clave": "ejercicio.ejDesc.carrera",
+    "texto": "حافظ على وتيرة ثابتة ضمن المنطقة 2-3، مع وطأة خفيفة للقدم ووضعية منتصبة."
+  },
+  {
+    "clave": "ejercicio.ejDesc.trote-suave",
+    "texto": "حافظ على وتيرة مريحة تسمح لك بالمحادثة؛ مثالية للجري الطويل."
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata-rapida",
+    "texto": "امشِ بوتيرة سريعة مع تحريك نشط لذراعيك، دون الانتقال إلى الهرولة."
+  },
+  {
+    "clave": "ejercicio.ejDesc.ciclismo",
+    "texto": "دُس الدواسة بمعدل سريع ومقاومة معتدلة، مع إبقاء ظهرك مسترخياً."
+  },
+  {
+    "clave": "ejercicio.ejDesc.senderismo",
+    "texto": "امشِ على تضاريس طبيعية متغيرة الارتفاع؛ ودع الانحدار يحدد وتيرتك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.trail-running",
+    "texto": "اجرِ على تضاريس جبلية أو غير مستوية؛ وقصّر خطواتك في الصعود."
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminadora",
+    "texto": "امشِ أو اجرِ على جهاز المشي دون التمسك بالمقابض."
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata-inclinada",
+    "texto": "استخدم جهاز المشي بميل ووتيرة معتدلة: حرق ثابت للسعرات وتأثير منخفض على المفاصل."
+  },
+  {
+    "clave": "ejercicio.ejDesc.eliptica",
+    "texto": "حافظ على حركة سلسة، وادفع بذراعيك أيضاً، دون أي تأثير على ركبتيك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.bicicleta-estatica",
+    "texto": "اضبط المقعد على ارتفاع الورك ودُس الدواسة بمعدل ثابت."
+  },
+  {
+    "clave": "ejercicio.ejDesc.escaladora",
+    "texto": "تسلّق الدرجات بوتيرة ثابتة، مع وضع قدمك كاملة عند كل خطوة."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-maquina",
+    "texto": "ادفع بساقيك أولاً، ثم اسحب بظهرك، وأنهِ الحركة بذراعيك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.hiit",
+    "texto": "فترات قصيرة بأقصى جهد تتناوب مع فترات راحة موجزة."
+  },
+  {
+    "clave": "ejercicio.ejDesc.sprints",
+    "texto": "مجموعات بأقصى سرعة مع استعادة كاملة بين التكرارات."
+  },
+  {
+    "clave": "ejercicio.ejDesc.saltar-cuerda",
+    "texto": "قفز خفيف، مع تدوير الحبل بمعصميك لا بذراعيك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.burpees",
+    "texto": "انتقل من الوقوف إلى البلانك، وقم بتمرين ضغط، ثم اقفز بقدميك للأمام، واقفز للأعلى برفع ذراعيك فوق رأسك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.circuito-metabolico",
+    "texto": "اربط عدة تمارين متتالية دون راحة للحفاظ على معدل ضربات قلب مرتفع."
+  },
+  {
+    "clave": "ejercicio.ejDesc.natacion",
+    "texto": "اسبح بوتيرة ثابتة، مع تنسيق تنفسك مع حركة السباحة."
+  },
+  {
+    "clave": "ejercicio.ejDesc.aqua-aerobicos",
+    "texto": "مارس التمارين في الماء: تعمل المقاومة على عضلاتك دون إجهاد مفاصلك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata",
+    "texto": "وتيرة هادئة ومستمرة؛ أساس حجم تدريبك الهوائي."
+  },
+  {
+    "clave": "ejercicio.ejDesc.futbol",
+    "texto": "جري متقطع مع تغييرات في الوتيرة والاتجاه."
+  },
+  {
+    "clave": "ejercicio.ejDesc.basquetbol",
+    "texto": "عدو قصير، وقفزات، وحركة جانبية مستمرة."
+  },
+  {
+    "clave": "ejercicio.ejDesc.tenis",
+    "texto": "اندفاعات انفجارية مع فترات توقف؛ عمل مكثف على أسفل الجسم."
+  },
+  {
+    "clave": "ejercicio.ejDesc.padel",
+    "texto": "نقاط قصيرة ومكثفة على ملعب صغير، مع تغييرات كثيرة في الاتجاه."
+  },
+  {
+    "clave": "ejercicio.ejDesc.boxeo",
+    "texto": "نفّذ تركيبات ضربات وحركة أقدام مع إبقاء حراستك مرفوعة."
+  },
+  {
+    "clave": "ejercicio.ejDesc.baile",
+    "texto": "حركة مستمرة على إيقاع الموسيقى؛ كارديو لا يشعرك بأنك تتمرن."
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-matutina",
+    "texto": "سلسلة لطيفة لإيقاظ الجسم وتحرير المفاصل في بداية اليوم."
+  },
+  {
+    "clave": "ejercicio.ejDesc.yoga-flow",
+    "texto": "اربط الأوضاع بأنفاسك في تدفق مستمر لكامل الجسم."
+  },
+  {
+    "clave": "ejercicio.ejDesc.saludo-al-sol",
+    "texto": "سلسلة يوغا كلاسيكية تُمدد وتُنشّط الجسم كاملاً بالتتابع."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-general",
+    "texto": "اعمل على المجموعات العضلية الرئيسية بتمددات لطيفة ومستمرة."
+  },
+  {
+    "clave": "ejercicio.ejDesc.guerrero-i",
+    "texto": "في وضعية اللنج، ارفع ذراعيك وافتح صدرك مع إبقاء وركيك للأمام."
+  },
+  {
+    "clave": "ejercicio.ejDesc.guerrero-ii",
+    "texto": "في وضعية لنج واسعة، مدّد ذراعيك وانظر للأمام مع ثني ركبتك الأمامية."
+  },
+  {
+    "clave": "ejercicio.ejDesc.triangulo",
+    "texto": "مع فتح ساقيك، أمِل جذعك وأنزل يداً واحدة نحو كاحلك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-de-pie",
+    "texto": "قف واثنِ جذعك فوق ساقيك، مع إرخاء رقبتك وظهرك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.apertura-de-cadera",
+    "texto": "تمرين مرونة لتحرير الوركين وزيادة مدى حركة الساقين."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-paloma",
+    "texto": "مع ثني ساق أمامك، أنزل جذعك لفتح عضلة الأرداف."
+  },
+  {
+    "clave": "ejercicio.ejDesc.mariposa",
+    "texto": "اجلس وقرّب باطن قدميك من بعضهما ودع ركبتيك تنزلان جانبياً."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-isquiotibiales",
+    "texto": "مدّد الجزء الخلفي من الفخذ مع إبقاء الركبة ممدودة."
+  },
+  {
+    "clave": "ejercicio.ejDesc.zancada-baja",
+    "texto": "مع وضع ركبة واحدة على الأرض، ادفع وركك للأمام لتمديد ثنية الورك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-guirnalda",
+    "texto": "في القرفصاء العميق، ادفع ركبتيك للخارج بمرفقيك لتحرير الوركين."
+  },
+  {
+    "clave": "ejercicio.ejDesc.figura-4",
+    "texto": "ضع كاحلك فوق الركبة المقابلة واسحب فخذك نحوك لتمديد عضلة الأرداف."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-aductores",
+    "texto": "افتح ساقيك وأنزل جذعك لتمديد الجزء الداخلي من الفخذ."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rana",
+    "texto": "على أربع مع تباعد الركبتين، حرّك وركيك للخلف."
+  },
+  {
+    "clave": "ejercicio.ejDesc.perro-boca-abajo",
+    "texto": "في وضعية V المقلوبة، ادفع وركيك للأعلى مع تمديد ظهرك وساقيك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsion-espinal",
+    "texto": "جالساً أو مستلقياً، لُف جذعك بلطف لتحريك العمود الفقري."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-del-nino",
+    "texto": "اجلس على كعبيك ومدّد ذراعيك للأمام مع إرخاء ظهرك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.apertura-de-pecho",
+    "texto": "اسحب ذراعيك للخلف لفتح صدرك وتصحيح وضعية الانحناء."
+  },
+  {
+    "clave": "ejercicio.ejDesc.esfinge",
+    "texto": "استلقِ على وجهك مستنداً على ساعديك، وارفع صدرك مع تمديد أسفل ظهرك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.hilo-y-aguja",
+    "texto": "على أربع، مرّر إحدى ذراعيك تحت جسمك لتمديد الكتف."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-dorsales",
+    "texto": "مدّد جانبي جسمك برفع ذراعيك للأعلى ومائلتين قليلاً جانبياً."
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-cervical",
+    "texto": "حرّك رقبتك ببطء في جميع الاتجاهات لتحرير التوتر."
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-de-columna",
+    "texto": "لُف العمود الفقري بلطف فقرة تلو الأخرى لتحريكه."
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-cobra",
+    "texto": "استلقِ على وجهك وارفع صدرك بيديك مع تمديد ظهرك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.inclinacion-lateral-de-cuello",
+    "texto": "قرّب أذنك من كتفك لتمديد جانب رقبتك."
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-cuadriceps",
+    "texto": "قف وقرّب كعبك من ردفك، وأمسك قدمك لتمديد الفخذ."
+  }
 ]

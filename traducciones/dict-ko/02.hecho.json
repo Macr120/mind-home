@@ -1,38 +1,1010 @@
 [
   {
-    "clave": "tut.app-ejercicio--esencial.resumen",
-    "texto": "헬스장은 몸을 쓰는 세 가지 방식을 한곳에 모아요. 근력(세트, 횟수, 무게), 지구력(달리기, 자전거, 수영을 GPS와 심박 센서로 실시간 운동하며), 유연성(시간으로 재는 가동성 운동을 가이드 플레이어와 함께)이에요. 셋 다 구성은 같아요. 카탈로그, 루틴, 진행 상황이고, 목표 메뉴에서 매주 얼마나 운동할지 정하고 연속 기록과 진행 정도를 정리해서 보여줘요."
+    "clave": "biblioteca.nodoDesc.idi-asiaticas",
+    "texto": "일본어, 중국어, 한국어와 그 문자 체계."
   },
   {
-    "clave": "tut.app-entretenimiento--esencial.resumen",
-    "texto": "오락실에는 메뉴가 두 개 있어요. 보드게임은 계열별로 묶이고 인원수로 걸러 볼 수 있는 디지털 카탈로그예요. 아카이브에는 다 본 영화와 드라마, 읽은 책, 즐긴 게임을 상태와 내 리뷰와 함께 남길 수 있어요."
+    "clave": "biblioteca.nodo.idi-practica",
+    "texto": "실습과 문화"
   },
   {
-    "clave": "tut.app-garage--esencial.resumen",
-    "texto": "차고는 차량 정비를 챙겨요. 신호등이 급한 일을 한눈에 알려주고, 차량 목록에는 정비 이력이 남으며, 차량마다 서류와 문서, 연락처가 모여 있어요. 날짜가 있는 것은 모두 집 캘린더에 알아서 들어가요."
+    "clave": "biblioteca.nodo.idi-conversacion",
+    "texto": "회화"
   },
   {
-    "clave": "tut.app-hobbies--esencial.resumen",
-    "texto": "취미는 즐겨 하는 일들을 지켜봐요. 목록에는 각 취미의 연속 기록과 이번 주 진행 정도가 나오고, 새 취미도 여기서 등록해요. 취미 안에는 세션 기록과 한 해의 히트맵, 그리고 프로젝트가 있어요."
+    "clave": "biblioteca.nodoDesc.idi-conversacion",
+    "texto": "유창함, 표현, 일상 상황."
   },
   {
-    "clave": "tut.app-ideas--esencial.resumen",
-    "texto": "아이디어는 떠오른 것을 세 가지 메뉴에 담아요. 아이디어 일지(툭 떠오른 생각이나 주제별 브레인스토밍), 개념도(여러 형식으로 그리는 자유 캔버스), 결정 다이어그램(같은 형식을 비교하고 결정하는 데 쓰도록 만든 것)이에요. 모두 폴더에 정리할 수 있고, 다른 메뉴로 바꿀 수도 있어요."
+    "clave": "biblioteca.nodo.idi-lectura",
+    "texto": "읽기와 쓰기"
   },
   {
-    "clave": "tut.app-idiomas--esencial.resumen",
-    "texto": "어학은 나만의 어학원이고, 메뉴는 네 가지예요. 대화에서는 내 수준에 맞춰 대답해 주는 AI 선생님과 이야기할 수 있어요. 커리큘럼은 언어를 주제와 발음, 문법으로 나눠 초급부터 최상급까지 정리하고, 어휘 카드도 그 안에 있어요. 복습은 간격 반복과 연습 문제로 다시 익히게 해줘요. 진행률은 얼마나 늘었는지 정리해서 보여줘요."
+    "clave": "biblioteca.nodoDesc.idi-lectura",
+    "texto": "단계별 지문, 작문, 맞춤법."
   },
   {
-    "clave": "tut.app-jardin--esencial.resumen",
-    "texto": "정원에는 명상(사운드 트랙 포함)과 가이드 호흡, 매일의 감사가 세 가지 메뉴로 담겨 있어요. 포인트도 연속 기록도 일부러 두지 않았어요. 여기서는 하루 빠져도 탓하지 않고, 그저 실천할 뿐이에요."
+    "clave": "biblioteca.nodo.idi-inmersion",
+    "texto": "문화와 몰입 학습"
   },
   {
-    "clave": "tut.app-metas--esencial.resumen",
-    "texto": "집 전체의 계획을 세우는 곳이고, 메뉴는 세 가지예요. 목표(마음먹은 것들의 목록을, 각각을 맡은 앱별로 묶어서), 계획(하나의 목표를 단계로 나눈 일정 초안), 일정(모든 것이 내려앉는 시간축)이에요. 자체 기록은 남기지 않아요. 다른 앱에서 생겨난 목표와 계획을 모아 둘 뿐이에요. 목표를 열면 그 시트가 나오고, 거기서 그 목표만 담은 시간축으로 넘어갈 수 있어요."
+    "clave": "biblioteca.nodoDesc.idi-inmersion",
+    "texto": "관습, 미디어, 학습을 위한 여행."
   },
   {
-    "clave": "tut.app-sala--esencial.resumen",
-    "texto": "거실은 나의 여행 세계이고, 메뉴는 네 가지예요. 지도(세계 지도 위에 꽂는 장소 핀, 지구본 보기 포함), 일정(가 보고 싶은 곳과 하루하루의 계획), 경로(여러 장소를 이어 주는 여정), 여행 일지(나라별로 사진과 이야기를 담은 추억)예요."
+    "clave": "biblioteca.nodo.artes",
+    "texto": "예술과 표현"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.artes",
+    "texto": "미적 창작, 예술적 감각, 시각과 음향 문화."
+  },
+  {
+    "clave": "biblioteca.nodo.art-visuales",
+    "texto": "시각 예술"
+  },
+  {
+    "clave": "biblioteca.nodo.art-pintura",
+    "texto": "회화와 드로잉"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-pintura",
+    "texto": "기법, 구도, 색채."
+  },
+  {
+    "clave": "biblioteca.nodo.art-escultura",
+    "texto": "조각과 건축"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-escultura",
+    "texto": "공간, 조형, 디자인."
+  },
+  {
+    "clave": "biblioteca.nodo.art-fotografia",
+    "texto": "사진"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-fotografia",
+    "texto": "빛, 구도, 시각적 서사."
+  },
+  {
+    "clave": "biblioteca.nodo.art-musica",
+    "texto": "음악"
+  },
+  {
+    "clave": "biblioteca.nodo.art-teoria-mus",
+    "texto": "음악 이론"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-teoria-mus",
+    "texto": "화성, 리듬, 악보 표기법."
+  },
+  {
+    "clave": "biblioteca.nodo.art-historia-mus",
+    "texto": "음악사"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-historia-mus",
+    "texto": "양식, 시대, 작곡가."
+  },
+  {
+    "clave": "biblioteca.nodo.art-escenicas",
+    "texto": "공연 예술과 영화"
+  },
+  {
+    "clave": "biblioteca.nodo.art-teatro",
+    "texto": "연극과 퍼포먼스"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-teatro",
+    "texto": "극작, 연기, 연출."
+  },
+  {
+    "clave": "biblioteca.nodo.art-cine",
+    "texto": "영화와 영상 매체"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.art-cine",
+    "texto": "시나리오, 편집, 영화적 표현."
+  },
+  {
+    "clave": "biblioteca.nodo.tecnologia",
+    "texto": "기술과 공학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tecnologia",
+    "texto": "지식을 활용해 문제를 풀고 세상을 바꾸는 일."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-informatica",
+    "texto": "컴퓨터 과학"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-algoritmos",
+    "texto": "알고리즘과 자료 구조"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-algoritmos",
+    "texto": "효율성, 데이터, 설계."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ia",
+    "texto": "인공지능"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-ia",
+    "texto": "머신러닝과 AI 윤리."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-redes",
+    "texto": "네트워크와 시스템"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-redes",
+    "texto": "인터넷, 보안, 분산 처리."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ingenieria",
+    "texto": "공학"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-mecanica",
+    "texto": "기계 공학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-mecanica",
+    "texto": "기계, 재료, 제조."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-electrica",
+    "texto": "전기 공학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-electrica",
+    "texto": "회로, 전력, 전자공학."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-civil",
+    "texto": "토목 공학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-civil",
+    "texto": "인프라, 수리학, 구조물."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-energia",
+    "texto": "에너지와 지속가능성"
+  },
+  {
+    "clave": "biblioteca.nodo.tec-renovables",
+    "texto": "재생 에너지"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-renovables",
+    "texto": "태양광, 풍력, 수소."
+  },
+  {
+    "clave": "biblioteca.nodo.tec-ambiental",
+    "texto": "환경 공학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tec-ambiental",
+    "texto": "폐기물, 수자원, 생태 발자국."
+  },
+  {
+    "clave": "biblioteca.nodo.salud",
+    "texto": "건강과 의학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.salud",
+    "texto": "인체, 질병, 예방, 의료 체계."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-anatomia",
+    "texto": "해부학과 생리학"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-cuerpo",
+    "texto": "신체 계통"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-cuerpo",
+    "texto": "장기, 항상성, 통합 기능."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-neuro",
+    "texto": "의학 신경과학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-neuro",
+    "texto": "뇌, 감각, 운동."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-clinica",
+    "texto": "임상 의학"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-patologia",
+    "texto": "병리학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-patologia",
+    "texto": "질병, 진단, 원인."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-farmacologia",
+    "texto": "약리학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-farmacologia",
+    "texto": "약물, 용량, 효과."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-salud-pub",
+    "texto": "공중 보건"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-salud-pub",
+    "texto": "역학, 백신, 정책."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-bienestar",
+    "texto": "웰빙과 영양"
+  },
+  {
+    "clave": "biblioteca.nodo.sal-nutricion",
+    "texto": "임상 영양학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-nutricion",
+    "texto": "식단, 대사, 미량 영양소."
+  },
+  {
+    "clave": "biblioteca.nodo.sal-prevencion",
+    "texto": "예방 의학"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sal-prevencion",
+    "texto": "생활 습관, 검진, 장수."
+  },
+  {
+    "clave": "ejercicio.ej.press-banca",
+    "texto": "벤치프레스"
+  },
+  {
+    "clave": "ejercicio.ej.press-inclinado",
+    "texto": "인클라인 프레스"
+  },
+  {
+    "clave": "ejercicio.ej.press-con-mancuernas",
+    "texto": "덤벨 프레스"
+  },
+  {
+    "clave": "ejercicio.ej.aperturas-con-mancuernas",
+    "texto": "덤벨 플라이"
+  },
+  {
+    "clave": "ejercicio.ej.cruce-en-polea",
+    "texto": "케이블 크로스오버"
+  },
+  {
+    "clave": "ejercicio.ej.fondos-en-paralelas",
+    "texto": "딥스"
+  },
+  {
+    "clave": "ejercicio.ej.flexiones",
+    "texto": "푸시업"
+  },
+  {
+    "clave": "ejercicio.ej.dominadas",
+    "texto": "턱걸이"
+  },
+  {
+    "clave": "ejercicio.ej.jalon-al-pecho",
+    "texto": "랫풀다운"
+  },
+  {
+    "clave": "ejercicio.ej.remo-con-barra",
+    "texto": "바벨 로우"
+  },
+  {
+    "clave": "ejercicio.ej.remo-con-mancuerna",
+    "texto": "덤벨 로우"
+  },
+  {
+    "clave": "ejercicio.ej.remo-en-polea-baja",
+    "texto": "시티드 케이블 로우"
+  },
+  {
+    "clave": "ejercicio.ej.pull-over",
+    "texto": "풀오버"
+  },
+  {
+    "clave": "ejercicio.ej.face-pull",
+    "texto": "페이스 풀"
+  },
+  {
+    "clave": "ejercicio.ej.hiperextensiones",
+    "texto": "백 익스텐션"
+  },
+  {
+    "clave": "ejercicio.ej.press-militar",
+    "texto": "밀리터리 프레스"
+  },
+  {
+    "clave": "ejercicio.ej.press-arnold",
+    "texto": "아놀드 프레스"
+  },
+  {
+    "clave": "ejercicio.ej.elevaciones-laterales",
+    "texto": "사이드 레터럴 레이즈"
+  },
+  {
+    "clave": "ejercicio.ej.elevaciones-frontales",
+    "texto": "프론트 레이즈"
+  },
+  {
+    "clave": "ejercicio.ej.pajaros",
+    "texto": "리버스 플라이"
+  },
+  {
+    "clave": "ejercicio.ej.encogimientos",
+    "texto": "슈러그"
+  },
+  {
+    "clave": "ejercicio.ej.curl-con-barra",
+    "texto": "바벨 컬"
+  },
+  {
+    "clave": "ejercicio.ej.curl-con-mancuernas",
+    "texto": "덤벨 컬"
+  },
+  {
+    "clave": "ejercicio.ej.curl-martillo",
+    "texto": "해머 컬"
+  },
+  {
+    "clave": "ejercicio.ej.curl-predicador",
+    "texto": "프리처 컬"
+  },
+  {
+    "clave": "ejercicio.ej.curl-concentrado",
+    "texto": "컨센트레이션 컬"
+  },
+  {
+    "clave": "ejercicio.ej.extension-triceps-en-polea",
+    "texto": "트라이셉스 푸시다운"
+  },
+  {
+    "clave": "ejercicio.ej.press-frances",
+    "texto": "스컬크러셔"
+  },
+  {
+    "clave": "ejercicio.ej.fondos-entre-bancos",
+    "texto": "벤치 딥스"
+  },
+  {
+    "clave": "ejercicio.ej.extension-sobre-cabeza",
+    "texto": "오버헤드 익스텐션"
+  },
+  {
+    "clave": "ejercicio.ej.patada-de-triceps",
+    "texto": "트라이셉스 킥백"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla",
+    "texto": "스쿼트"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-frontal",
+    "texto": "프론트 스쿼트"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-bulgara",
+    "texto": "불가리안 스플릿 스쿼트"
+  },
+  {
+    "clave": "ejercicio.ej.prensa-de-pierna",
+    "texto": "레그 프레스"
+  },
+  {
+    "clave": "ejercicio.ej.zancadas",
+    "texto": "런지"
+  },
+  {
+    "clave": "ejercicio.ej.peso-muerto",
+    "texto": "데드리프트"
+  },
+  {
+    "clave": "ejercicio.ej.peso-muerto-rumano",
+    "texto": "루마니안 데드리프트"
+  },
+  {
+    "clave": "ejercicio.ej.curl-femoral",
+    "texto": "레그 컬"
+  },
+  {
+    "clave": "ejercicio.ej.extension-de-cuadriceps",
+    "texto": "레그 익스텐션"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-talones",
+    "texto": "카프 레이즈"
+  },
+  {
+    "clave": "ejercicio.ej.hip-thrust",
+    "texto": "힙 스러스트"
+  },
+  {
+    "clave": "ejercicio.ej.puente-de-gluteo",
+    "texto": "글루트 브릿지"
+  },
+  {
+    "clave": "ejercicio.ej.patada-de-gluteo-en-polea",
+    "texto": "케이블 힙 킥백"
+  },
+  {
+    "clave": "ejercicio.ej.abduccion-de-cadera",
+    "texto": "힙 어브덕션"
+  },
+  {
+    "clave": "ejercicio.ej.plancha",
+    "texto": "플랭크"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-lateral",
+    "texto": "사이드 플랭크"
+  },
+  {
+    "clave": "ejercicio.ej.crunch-abdominal",
+    "texto": "크런치"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-piernas",
+    "texto": "레그 레이즈"
+  },
+  {
+    "clave": "ejercicio.ej.russian-twist",
+    "texto": "러시안 트위스트"
+  },
+  {
+    "clave": "ejercicio.ej.rueda-abdominal",
+    "texto": "애브 롤러"
+  },
+  {
+    "clave": "ejercicio.ej.escaladores",
+    "texto": "마운틴 클라이머"
+  },
+  {
+    "clave": "ejercicio.ej.carrera",
+    "texto": "러닝"
+  },
+  {
+    "clave": "ejercicio.ej.trote-suave",
+    "texto": "가벼운 조깅"
+  },
+  {
+    "clave": "ejercicio.ej.caminata-rapida",
+    "texto": "파워 워킹"
+  },
+  {
+    "clave": "ejercicio.ej.ciclismo",
+    "texto": "사이클링"
+  },
+  {
+    "clave": "ejercicio.ej.senderismo",
+    "texto": "하이킹"
+  },
+  {
+    "clave": "ejercicio.ej.trail-running",
+    "texto": "트레일 러닝"
+  },
+  {
+    "clave": "ejercicio.ej.caminadora",
+    "texto": "트레드밀"
+  },
+  {
+    "clave": "ejercicio.ej.caminata-inclinada",
+    "texto": "경사 걷기"
+  },
+  {
+    "clave": "ejercicio.ej.eliptica",
+    "texto": "일립티컬"
+  },
+  {
+    "clave": "ejercicio.ej.bicicleta-estatica",
+    "texto": "실내 자전거"
+  },
+  {
+    "clave": "ejercicio.ej.escaladora",
+    "texto": "스텝밀"
+  },
+  {
+    "clave": "ejercicio.ej.remo-maquina",
+    "texto": "로잉 머신"
+  },
+  {
+    "clave": "ejercicio.ej.hiit",
+    "texto": "HIIT"
+  },
+  {
+    "clave": "ejercicio.ej.sprints",
+    "texto": "스프린트"
+  },
+  {
+    "clave": "ejercicio.ej.saltar-cuerda",
+    "texto": "줄넘기"
+  },
+  {
+    "clave": "ejercicio.ej.burpees",
+    "texto": "버피"
+  },
+  {
+    "clave": "ejercicio.ej.circuito-metabolico",
+    "texto": "메타볼릭 서킷"
+  },
+  {
+    "clave": "ejercicio.ej.natacion",
+    "texto": "수영"
+  },
+  {
+    "clave": "ejercicio.ej.aqua-aerobicos",
+    "texto": "아쿠아 에어로빅"
+  },
+  {
+    "clave": "ejercicio.ej.caminata",
+    "texto": "걷기"
+  },
+  {
+    "clave": "ejercicio.ej.futbol",
+    "texto": "축구"
+  },
+  {
+    "clave": "ejercicio.ej.basquetbol",
+    "texto": "농구"
+  },
+  {
+    "clave": "ejercicio.ej.tenis",
+    "texto": "테니스"
+  },
+  {
+    "clave": "ejercicio.ej.padel",
+    "texto": "파델"
+  },
+  {
+    "clave": "ejercicio.ej.boxeo",
+    "texto": "복싱"
+  },
+  {
+    "clave": "ejercicio.ej.baile",
+    "texto": "댄스"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-matutina",
+    "texto": "아침 가동성 운동"
+  },
+  {
+    "clave": "ejercicio.ej.yoga-flow",
+    "texto": "요가 플로우"
+  },
+  {
+    "clave": "ejercicio.ej.saludo-al-sol",
+    "texto": "태양 경배 자세"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-general",
+    "texto": "전신 스트레칭"
+  },
+  {
+    "clave": "ejercicio.ej.guerrero-i",
+    "texto": "전사 자세 1"
+  },
+  {
+    "clave": "ejercicio.ej.guerrero-ii",
+    "texto": "전사 자세 2"
+  },
+  {
+    "clave": "ejercicio.ej.triangulo",
+    "texto": "삼각 자세"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-de-pie",
+    "texto": "스탠딩 포워드 폴드"
+  },
+  {
+    "clave": "ejercicio.ej.apertura-de-cadera",
+    "texto": "힙 오프너"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-paloma",
+    "texto": "비둘기 자세"
+  },
+  {
+    "clave": "ejercicio.ej.mariposa",
+    "texto": "나비 자세"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-isquiotibiales",
+    "texto": "햄스트링 스트레칭"
+  },
+  {
+    "clave": "ejercicio.ej.zancada-baja",
+    "texto": "로우 런지"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-guirnalda",
+    "texto": "화환 자세"
+  },
+  {
+    "clave": "ejercicio.ej.figura-4",
+    "texto": "피겨4 스트레칭"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-aductores",
+    "texto": "내전근 스트레칭"
+  },
+  {
+    "clave": "ejercicio.ej.rana",
+    "texto": "개구리 자세"
+  },
+  {
+    "clave": "ejercicio.ej.perro-boca-abajo",
+    "texto": "다운독 자세"
+  },
+  {
+    "clave": "ejercicio.ej.torsion-espinal",
+    "texto": "척추 트위스트"
+  },
+  {
+    "clave": "ejercicio.ej.postura-del-nino",
+    "texto": "차일드 자세"
+  },
+  {
+    "clave": "ejercicio.ej.apertura-de-pecho",
+    "texto": "가슴 열기 스트레칭"
+  },
+  {
+    "clave": "ejercicio.ej.esfinge",
+    "texto": "스핑크스 자세"
+  },
+  {
+    "clave": "ejercicio.ej.hilo-y-aguja",
+    "texto": "실 꿰기 자세"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-dorsales",
+    "texto": "광배근 스트레칭"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-cervical",
+    "texto": "목 가동성 운동"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-de-columna",
+    "texto": "척추 회전"
+  },
+  {
+    "clave": "ejercicio.ej.postura-de-la-cobra",
+    "texto": "코브라 자세"
+  },
+  {
+    "clave": "ejercicio.ej.inclinacion-lateral-de-cuello",
+    "texto": "목 옆으로 기울이기"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-cuadriceps",
+    "texto": "대퇴사두근 스트레칭"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-gemelos",
+    "texto": "종아리 스트레칭"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-hombros",
+    "texto": "어깨 스트레칭"
+  },
+  {
+    "clave": "ejercicio.ej.foam-roller",
+    "texto": "폼롤러"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-triceps",
+    "texto": "삼두근 스트레칭"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores-de-cadera",
+    "texto": "고관절 굴곡근 스트레칭"
+  },
+  {
+    "clave": "ejercicio.ej.piernas-en-la-pared",
+    "texto": "다리 벽에 올리기"
+  },
+  {
+    "clave": "ejercicio.ej.savasana",
+    "texto": "사바아사나"
+  },
+  {
+    "clave": "ejercicio.ej.postura-del-nino-apoyada",
+    "texto": "서포트 차일드 자세"
+  },
+  {
+    "clave": "ejercicio.ej.respiracion-profunda",
+    "texto": "심호흡"
+  },
+  {
+    "clave": "ejercicio.ej.mariposa-reclinada",
+    "texto": "리클라인드 나비 자세"
+  },
+  {
+    "clave": "ejercicio.ej.torsion-reclinada",
+    "texto": "리클라인드 트위스트"
+  },
+  {
+    "clave": "ejercicio.ej.liberacion-miofascial-con-pelota",
+    "texto": "볼 마사지（근막 이완）"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-tobillo",
+    "texto": "발목 돌리기"
+  },
+  {
+    "clave": "ejercicio.ej.recogida-de-toalla-con-dedos",
+    "texto": "발가락으로 수건 잡기"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-dorsiflexion",
+    "texto": "발등 굽힘 스트레칭"
+  },
+  {
+    "clave": "ejercicio.ej.elevacion-de-talones-unipodal",
+    "texto": "싱글 레그 카프 레이즈"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-y-extension-en-descarga",
+    "texto": "무부하 굴곡 신전 운동"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-dinamico-de-isquiotibiales",
+    "texto": "햄스트링 동적 스트레칭"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-isometrica-wall-squat",
+    "texto": "월 스쿼트"
+  },
+  {
+    "clave": "ejercicio.ej.equilibrio-unipodal-single-leg-balance",
+    "texto": "한 발 균형 잡기"
+  },
+  {
+    "clave": "ejercicio.ej.sentadillas-del-arquero",
+    "texto": "아처 스쿼트"
+  },
+  {
+    "clave": "ejercicio.ej.estocadas-lunges",
+    "texto": "런지"
+  },
+  {
+    "clave": "ejercicio.ej.movilidad-90-90",
+    "texto": "90/90 가동성 운동"
+  },
+  {
+    "clave": "ejercicio.ej.el-puente-glute-bridge",
+    "texto": "글루트 브릿지"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores-en-estocada",
+    "texto": "런지 고관절 굴곡근 스트레칭"
+  },
+  {
+    "clave": "ejercicio.ej.abduccion-lateral-de-cadera",
+    "texto": "옆으로 힙 어브덕션"
+  },
+  {
+    "clave": "ejercicio.ej.sentadilla-profunda-con-apertura",
+    "texto": "무릎 벌리기 딥 스쿼트"
+  },
+  {
+    "clave": "ejercicio.ej.balanceo-dinamico-de-piernas",
+    "texto": "다리 스윙 운동"
+  },
+  {
+    "clave": "ejercicio.ej.postura-gato-vaca",
+    "texto": "캣카우 자세"
+  },
+  {
+    "clave": "ejercicio.ej.torsiones-lumbares-suaves",
+    "texto": "부드러운 허리 트위스트"
+  },
+  {
+    "clave": "ejercicio.ej.pointer-bird-dog",
+    "texto": "버드독"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-frontal-isometricos",
+    "texto": "프론트 플랭크"
+  },
+  {
+    "clave": "ejercicio.ej.roll-down-curl-jefferson",
+    "texto": "제퍼슨 컬"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-lumbar-boca-abajo",
+    "texto": "엎드려 허리 스트레칭"
+  },
+  {
+    "clave": "ejercicio.ej.rotacion-toracica",
+    "texto": "흉추 회전"
+  },
+  {
+    "clave": "ejercicio.ej.retraccion-escapular",
+    "texto": "견갑골 후인 운동"
+  },
+  {
+    "clave": "ejercicio.ej.angeles-de-pared-wall-angels",
+    "texto": "월 엔젤"
+  },
+  {
+    "clave": "ejercicio.ej.lunge-con-apertura-de-pectoral",
+    "texto": "가슴 열기 런지"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-dorsal-en-pared",
+    "texto": "벽 짚고 광배근 스트레칭"
+  },
+  {
+    "clave": "ejercicio.ej.el-gato-y-la-mesa",
+    "texto": "캣 앤 테이블"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-hombros",
+    "texto": "어깨 돌리기"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-pecho-pectoral",
+    "texto": "가슴 스트레칭"
+  },
+  {
+    "clave": "ejercicio.ej.dislocaciones-con-goma-o-palo",
+    "texto": "숄더 디슬로케이션"
+  },
+  {
+    "clave": "ejercicio.ej.rotacion-externa-con-banda",
+    "texto": "밴드 외회전 운동"
+  },
+  {
+    "clave": "ejercicio.ej.thread-the-needle-enhebrar-aguja",
+    "texto": "실 꿰기 자세"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-y-medios-circulos",
+    "texto": "회전과 반원 운동"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-trapecio-superior",
+    "texto": "상부 승모근 스트레칭"
+  },
+  {
+    "clave": "ejercicio.ej.rotaciones-cervicales-con-nodding",
+    "texto": "끄덕임을 곁들인 목 회전"
+  },
+  {
+    "clave": "ejercicio.ej.retracciones-de-barbilla-chin-tucks",
+    "texto": "턱 당기기"
+  },
+  {
+    "clave": "ejercicio.ej.isometricos-cervicales",
+    "texto": "목 등척성 운동"
+  },
+  {
+    "clave": "ejercicio.ej.flexion-y-extension-de-muneca",
+    "texto": "손목 굴곡 신전 운동"
+  },
+  {
+    "clave": "ejercicio.ej.circulos-de-munecas",
+    "texto": "손목 돌리기"
+  },
+  {
+    "clave": "ejercicio.ej.estiramiento-de-flexores",
+    "texto": "굴곡근 스트레칭"
+  },
+  {
+    "clave": "ejercicio.ej.agarre-activo-y-pasivo",
+    "texto": "능동 수동 그립 운동"
+  },
+  {
+    "clave": "ejercicio.ej.plancha-de-munecas",
+    "texto": "손목 플랭크"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-banca",
+    "texto": "벤치에 누워 바벨을 가슴까지 내린 다음, 팔꿈치가 펴질 때까지 밀어 올려요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-inclinado",
+    "texto": "인클라인 벤치에서 바벨이나 덤벨을 밀어 올리며 가슴 윗부분을 집중적으로 자극해요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-con-mancuernas",
+    "texto": "누운 자세에서 덤벨 두 개를 바벨보다 넓은 가동 범위로 밀어 올려요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.aperturas-con-mancuernas",
+    "texto": "누운 자세에서 팔꿈치를 살짝 굽힌 채 팔을 호를 그리듯 벌렸다가 모아요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.cruce-en-polea",
+    "texto": "상단 케이블 사이에 서서 가슴을 조이며 양손을 몸 앞으로 모아요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.fondos-en-paralelas",
+    "texto": "평행봉에 매달려 상체를 앞으로 기울인 채 팔꿈치를 굽혀 몸을 내렸다가 다시 밀어 올려요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexiones",
+    "texto": "엎드린 자세에서 몸을 일직선으로 유지하며 가슴을 바닥 가까이 내린 다음 다시 밀어 올려요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.dominadas",
+    "texto": "바에 매달려 턱이 바를 넘을 때까지 몸을 끌어올려요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.jalon-al-pecho",
+    "texto": "상단 케이블 앞에 앉아 팔꿈치를 아래로 내리며 바를 가슴까지 당겨요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-con-barra",
+    "texto": "허리를 곧게 편 채 상체를 숙이고, 등을 조이며 바벨을 배 쪽으로 당겨요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-con-mancuerna",
+    "texto": "벤치에 몸을 지지한 채 상체를 비틀지 않고 덤벨을 옆구리 쪽으로 당겨요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-en-polea-baja",
+    "texto": "앉은 자세에서 허리를 곧게 세운 채 손잡이를 배 쪽으로 당겨요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.pull-over",
+    "texto": "누운 자세에서 덤벨을 머리 뒤로 내렸다가 다시 가슴 위로 가져와요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.face-pull",
+    "texto": "얼굴 높이의 케이블 앞에서 팔꿈치를 바깥으로 벌리며 로프를 이마 쪽으로 당겨요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.hiperextensiones",
+    "texto": "벤치에서 상체를 내렸다가 다시 들어 올리며 허리를 펴요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-militar",
+    "texto": "선 자세에서 바벨을 어깨에서 머리 위로 밀어 올려요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-arnold",
+    "texto": "앉은 자세에서 손바닥을 안쪽에서 바깥쪽으로 돌리며 덤벨을 머리 위로 밀어 올려요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevaciones-laterales",
+    "texto": "선 자세에서 덤벨을 양옆으로 어깨 높이까지 들어 올려요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevaciones-frontales",
+    "texto": "선 자세에서 덤벨을 앞으로 눈높이까지 들어 올려요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.pajaros",
+    "texto": "상체를 숙인 채 팔을 양옆으로 벌려 어깨 뒤쪽을 단련해요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.encogimientos",
+    "texto": "무게를 든 채 선 자세에서 어깨를 귀 쪽으로 으쓱 올렸다가 천천히 내려요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-con-barra",
+    "texto": "선 자세에서 상체를 흔들지 않고 팔꿈치를 굽혀 바벨을 말아 올려요."
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-con-mancuernas",
+    "texto": "서거나 앉은 자세에서 팔꿈치를 굽혀 덤벨을 번갈아 또는 동시에 말아 올려요."
   }
 ]

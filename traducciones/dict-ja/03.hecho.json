@@ -1,137 +1,338 @@
 [
-  { "clave": "ejercicio.cronograma.desc", "texto": "大きな目標を時間軸に並べます。✨でAIがプランを組み立て、どのルーティンを予定に入れるか提案します。" },
-  { "clave": "sala.tab.cronograma", "texto": "目標" },
-  { "clave": "avisos.rutinaPasos", "texto": "あと{n}ステップあります。" },
-  { "clave": "avisos.rutinaHora", "texto": "時間です。" },
-  { "clave": "avisos.abrir", "texto": "開く" },
-  { "clave": "avisos.metaFalta", "texto": "{objetivo}のうち{hecho}まで達成しました。" },
-  { "clave": "notif.titulo", "texto": "通知" },
-  { "clave": "notif.general", "texto": "通知する" },
-  { "clave": "notif.rutinas", "texto": "時間指定のイベントとルーティン" },
-  { "clave": "notif.metas", "texto": "未達成の今日の目標" },
-  { "clave": "notif.porApp", "texto": "アプリ別" },
-  { "clave": "notif.denegado", "texto": "ブラウザがこのサイトの通知をブロックしています。解除できるのはアドレスバーの鍵アイコンからだけです。それまでは、アシスタントがお知らせを届けます。" },
-  { "clave": "notif.noSoportado", "texto": "このブラウザには通知機能がありません。アシスタントがお知らせを届けます。" },
-  { "clave": "horario.agendar", "texto": "予定に入れる" },
-  { "clave": "horario.titulo", "texto": "スケジュール" },
-  { "clave": "horario.plegar", "texto": "完了" },
-  { "clave": "horario.hora", "texto": "時刻" },
-  { "clave": "horario.frecuencia", "texto": "繰り返し" },
-  { "clave": "horario.dias", "texto": "曜日" },
-  { "clave": "horario.sinDias", "texto": "何も選ばなければ毎日になります。" },
-  { "clave": "horario.sinHora", "texto": "時刻なし" },
-  { "clave": "horario.todosDias", "texto": "毎日" },
-  { "clave": "horario.avisar", "texto": "その時刻に通知する" },
-  { "clave": "horario.avisar.hint", "texto": "通知が届きます。" },
-  { "clave": "horario.avisar.hintSinPermiso", "texto": "アプリ内でお知らせします。" },
-  { "clave": "horario.avisar.on", "texto": "はい" },
-  { "clave": "horario.avisar.off", "texto": "いいえ" },
-  { "clave": "horario.hechoHoy", "texto": "今日完了" },
-  { "clave": "horario.masOpciones", "texto": "詳細オプション ›" },
-  { "clave": "horario.quitar", "texto": "削除" },
-  { "clave": "rutinas.avisar", "texto": "その時刻に通知する" },
-  { "clave": "rutinas.avisar.hint", "texto": "通知が届きます。" },
-  { "clave": "rutinas.avisar.hintSinPermiso", "texto": "アプリ内でお知らせします。" },
-  { "clave": "rutinas.avisar.on", "texto": "はい" },
-  { "clave": "rutinas.avisar.off", "texto": "いいえ" },
-  { "clave": "avisoAct.cuerpo", "texto": "時間です（{hora}）。" },
-  { "clave": "avisoAct.ahoraNo", "texto": "あとで" },
-  { "clave": "avisoAct.ir", "texto": "記録しに行く" },
-  { "clave": "hobbies.registrarMin", "texto": "{n}分を記録" },
-  { "clave": "hobbies.plan.tipo", "texto": "練習" },
-  { "clave": "hobbies.plan.ejemplo", "texto": "3曲をフルで演奏する" },
-  { "clave": "hobbies.plan.ejProyecto", "texto": "{proyecto}を完成させる" },
-  { "clave": "hobbies.plan.material", "texto": "プランのプロジェクト" },
-  { "clave": "ejercicio.registrarSesion", "texto": "{n}分を記録" },
-  { "clave": "ejercicio.plan.ejemplo", "texto": "5kmを止まらずに走る" },
-  { "clave": "ejercicio.plan.material", "texto": "プランのルーティン" },
-  { "clave": "cocina.horarios", "texto": "食事の時間" },
-  { "clave": "cocina.plan.tipoComida", "texto": "食事" },
-  { "clave": "cocina.plan.material", "texto": "プランのレシピ" },
-  { "clave": "cocina.plan.ejemplo", "texto": "地中海式ダイエットを試す" },
-  { "clave": "cocina.plan.ejBajar", "texto": "{kg}kgまで落とす" },
-  { "clave": "cocina.plan.ejSubir", "texto": "{kg}kgまで増やす" },
-  { "clave": "cocina.plan.ejMantener", "texto": "{kg}kgを維持する" },
-  { "clave": "biblioteca.plan.ejemplo", "texto": "統計学の基礎をマスターする" },
-  { "clave": "biblioteca.plan.material", "texto": "百科事典から" },
-  { "clave": "idiomas.plan.ejemplo", "texto": "次の旅行で自信を持って話す" },
-  { "clave": "idiomas.plan.ejemploNivel", "texto": "{idioma}で{nivel}レベルに到達する" },
-  { "clave": "idiomas.plan.material", "texto": "プランのテーマ" },
-  { "clave": "sala.plan.ejemplo", "texto": "京都5日間の旅程" },
-  { "clave": "sala.plan.ejLugar", "texto": "{lugar}への旅行の旅程" },
-  { "clave": "sala.plan.material", "texto": "「行きたい場所」リストから" },
-  { "clave": "entret.plan.ejemplo", "texto": "『ゴッドファーザー』三部作を見終える" },
-  { "clave": "entret.plan.material", "texto": "アーカイブから" },
-  { "clave": "descanso.plan.ejemplo", "texto": "15分以内に眠りにつく" },
-  { "clave": "anecdotario.plan.ejemplo", "texto": "今年の旅を書き残す" },
-  { "clave": "jardin.plan.ejemplo", "texto": "1日10分の静かな時間" },
-  { "clave": "ideas.plan.ejemplo", "texto": "日記のアイデアを現実にする" },
-  { "clave": "ideas.plan.material", "texto": "プランのアイデア" },
-  { "clave": "diario.plan.ejemplo", "texto": "毎日、朝刊を読む" },
-  { "clave": "garage.plan.ejemplo", "texto": "冬に向けて車を整備しておく" },
-  { "clave": "garage.plan.material", "texto": "プランの手続き" },
-  { "clave": "agenda.plan.ejemplo", "texto": "プロジェクトを期限内に提出する" },
-  { "clave": "agenda.plan.material", "texto": "プランのタスク" },
-  { "clave": "cocina.horarios.ayuda", "texto": "それぞれ何時に食べるか。カレンダーに表示され、通知もできます。" },
-  { "clave": "jardin.med.reservar", "texto": "静かなひととき" },
-  { "clave": "jardin.med.bloque", "texto": "瞑想する" },
-  { "clave": "jardin.registrarMin", "texto": "{n}分を記録" },
-  { "clave": "biblioteca.est.reservar", "texto": "勉強の時間" },
-  { "clave": "biblioteca.est.bloque", "texto": "勉強する" },
-  { "clave": "biblioteca.registrarMin", "texto": "{n}分を記録" },
-  { "clave": "idiomas.rep.reservar", "texto": "復習の時間" },
-  { "clave": "idiomas.rep.bloque", "texto": "{idioma}を復習する" },
-  { "clave": "notif.ayudaCerrada", "texto": "通知はアプリが開いている間だけ届きます。バックグラウンドでも大丈夫ですが、タブを閉じるとブラウザは起動できません。それにはスマートフォンにインストールしたアプリが必要です。" },
-  { "clave": "progreso.nivel", "texto": "レベル" },
-  { "clave": "progreso.racha", "texto": "連続記録" },
-  { "clave": "progreso.dias", "texto": "日" },
-  { "clave": "progreso.hoy", "texto": "今日" },
-  { "clave": "progreso.semana", "texto": "7日間" },
-  { "clave": "plantillas.ayuda", "texto": "テンプレートを別のフォルダへドラッグします。アイコンをタップするとアプリを試せ、フォルダ名をタップすると名前を変更できます。" },
-  { "clave": "plantillas.entrar", "texto": "アプリを開く" },
-  { "clave": "plantillas.cerrarPrevia", "texto": "‹ 閉じる" },
-  { "clave": "plantillas.asistente", "texto": "担当アシスタント" },
-  { "clave": "plantillas.sinAsistente", "texto": "アシスタントなし（全員が担当）" },
-  { "clave": "plantillas.asignar", "texto": "オブジェクトか部屋に割り当てる" },
-  { "clave": "plantillas.asignarObjeto", "texto": "+ オブジェクトに割り当て…" },
-  { "clave": "plantillas.asignarA", "texto": "+ 部屋に割り当て…" },
-  { "clave": "plantillas.sinCuartos", "texto": "まず部屋を作ってください" },
-  { "clave": "plantillas.objetoPrincipal", "texto": "メインオブジェクト（部屋の入り口）" },
-  { "clave": "plantillas.traeObjetos", "texto": "アプリが持ち込むオブジェクト" },
-  { "clave": "plantillas.esPrincipal", "texto": "メインオブジェクト" },
-  { "clave": "plantillas.hacerPrincipal", "texto": "メインに設定" },
-  { "clave": "plantillas.quitarObjeto", "texto": "オブジェクトを削除" },
-  { "clave": "plantillas.agregarObjeto", "texto": "オブジェクトを追加" },
-  { "clave": "selObjeto.titulo", "texto": "オブジェクトを追加" },
-  { "clave": "plantillas.todasAsignadas", "texto": "すべてのアプリはすでに部屋にあります。部屋を削除すると、そのテンプレートはここに戻ります。" },
-  { "clave": "plantillaCustom.crear", "texto": "テンプレートを作成" },
-  { "clave": "plantillaCustom.editar", "texto": "テンプレートを編集" },
-  { "clave": "plantillaCustom.eliminar", "texto": "テンプレートを削除" },
-  { "clave": "plantillaCustom.confirmarBorrar", "texto": "このテンプレートとすべてのデータを削除しますか？" },
-  { "clave": "plantillaCustom.enUso", "texto": "使用中のテンプレート" },
-  { "clave": "plantillaCustom.nombrePh", "texto": "例：引っ越し、植物、ペットなど…" },
-  { "clave": "plantillaCustom.emojiLibre", "texto": "別の絵文字" },
-  { "clave": "plantillaCustom.herramientas", "texto": "テンプレートのツール" },
-  { "clave": "plantillaCustom.sinBloques", "texto": "ツールを1つ以上追加してください。それがアプリのセクションになります。" },
-  { "clave": "plantillaCustom.quitarBloque", "texto": "削除（保存するとデータも消えます）" },
-  { "clave": "plantillaCustom.menusAyuda", "texto": "ブロックをタブに振り分けます。メニューがなければ、アプリは1画面だけになります。" },
-  { "clave": "plantillaCustom.agregarMenu", "texto": "メニュー" },
-  { "clave": "plantillaCustom.agregarAqui", "texto": "ツールを追加" },
-  { "clave": "plantillaCustom.agregarSubmenu", "texto": "このメニューのサブメニュー" },
-  { "clave": "plantillaCustom.menuNuevo", "texto": "メニュー{n}" },
-  { "clave": "plantillaCustom.submenuNuevo", "texto": "サブメニュー{n}" },
-  { "clave": "plantillaCustom.menuSinNombre", "texto": "メニュー" },
-  { "clave": "plantillaCustom.menuNombrePh", "texto": "メニュー名" },
-  { "clave": "plantillaCustom.menuEmoji", "texto": "メニューの絵文字（任意）" },
-  { "clave": "plantillaCustom.borrarMenu", "texto": "メニューを削除（ブロックは最初のメニューに移動します）" },
-  { "clave": "plantillaCustom.menuBloque", "texto": "メニュー" },
-  { "clave": "plantillaCustom.menuVacio", "texto": "このメニューにはまだブロックがありません。" },
-  { "clave": "plantillaCustom.submenu", "texto": "サブメニュー" },
-  { "clave": "plantillaCustom.editarApp", "texto": "アプリを編集" },
-  { "clave": "plantillaCustom.listo", "texto": "完了" },
-  { "clave": "plantillaCustom.editorCompleto", "texto": "フルエディター" },
-  { "clave": "plantillaCustom.borrar", "texto": "削除" },
-  { "clave": "plantillaCustom.borrarMenuTitulo", "texto": "「{nombre}」を削除" },
-  { "clave": "plantillaCustom.borrarMenuMsj", "texto": "そのツールはデータごと最初のメニューに移動します。" },
-  { "clave": "plantillaCustom.borrarBloqueTitulo", "texto": "「{nombre}」を削除" }
+  {
+    "clave": "ejercicio.ejDesc.curl-martillo",
+    "texto": "手のひらを向かい合わせたニュートラルグリップで、前腕を鍛えながらダンベルを巻き上げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-predicador",
+    "texto": "腕を専用ベンチに乗せ、肘を曲げて上腕二頭筋を集中的に鍛えます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-concentrado",
+    "texto": "座った姿勢で肘を太ももに乗せ、収縮を意識しながらダンベルを巻き上げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-triceps-en-polea",
+    "texto": "高い位置のケーブルの前に立ち、肘を伸ばしながらバーを下に押し下げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.press-frances",
+    "texto": "仰向けになり、肘の位置を動かさずにバーを額に向けて下ろしてから伸ばします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.fondos-entre-bancos",
+    "texto": "両手をベンチにつき、肘を曲げて体を下ろし、再び押し上げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-sobre-cabeza",
+    "texto": "ダンベルを頭の後ろに構え、肘を上に伸ばします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.patada-de-triceps",
+    "texto": "前傾姿勢で肘を高く保ち、前腕を後ろに伸ばします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla",
+    "texto": "バーを背負い、太ももが床と平行になるまで腰を下げ、再び立ち上がります。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-frontal",
+    "texto": "バーを体の前に構え、上体をまっすぐに保ちながらしゃがみます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.sentadilla-bulgara",
+    "texto": "片足を後ろの台に乗せ、前脚の膝が90度になるまで下ろします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.prensa-de-pierna",
+    "texto": "マシンで、膝を伸ばしきらないようにしながら脚でプレートを押します。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.zancadas",
+    "texto": "前に一歩踏み出し、後ろ脚の膝を床近くまで下ろします。左右交互に行います。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.peso-muerto",
+    "texto": "背中をまっすぐに保ち、股関節と膝を伸ばしながらバーを床から持ち上げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.peso-muerto-rumano",
+    "texto": "膝をほぼ伸ばしたまま股関節を折り、バーを脚に沿わせて下ろします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.curl-femoral",
+    "texto": "マシンで膝を曲げ、かかとをお尻に近づけます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.extension-de-cuadriceps",
+    "texto": "マシンに座り、コントロールしながら膝を伸ばしてウエイトを持ち上げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-talones",
+    "texto": "重りを持って立ち、ふくらはぎを収縮させながらかかとを持ち上げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.hip-thrust",
+    "texto": "上背部をベンチに乗せ、お尻を絞りながら腰を突き上げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.puente-de-gluteo",
+    "texto": "仰向けになり、肩・腰・膝が一直線になるまで腰を持ち上げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.patada-de-gluteo-en-polea",
+    "texto": "四つ這いまたは立位で、お尻を絞りながら脚を後ろに蹴り上げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.abduccion-de-cadera",
+    "texto": "座位または横向きに寝た姿勢で、負荷に逆らって脚を開きます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha",
+    "texto": "前腕をついて支え、腰を落とさずに体をまっすぐに保ちます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.plancha-lateral",
+    "texto": "横向きになり片方の前腕で体を支え、腰を上げてまっすぐに保ちます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.crunch-abdominal",
+    "texto": "仰向けになり、首を引っ張らずに腹筋を収縮させて肩を持ち上げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.elevacion-de-piernas",
+    "texto": "仰向けまたはぶら下がった姿勢で、脚を伸ばしたまま持ち上げ、コントロールしながら下ろします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.russian-twist",
+    "texto": "座った姿勢で上体を後ろに傾け、体幹を左右にひねります。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.rueda-abdominal",
+    "texto": "膝をついた姿勢で、腰を反らさずに前に転がしてから戻します。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.escaladores",
+    "texto": "プランクの姿勢で、膝を素早く交互に胸へ引き寄せます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.carrera",
+    "texto": "ゾーン2~3の一定のペースで、軽い着地と正しい姿勢を保ちます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.trote-suave",
+    "texto": "会話ができる程度の快適なペース。長距離走に最適です。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata-rapida",
+    "texto": "腕を大きく振りながら、走り出さない程度の速いペースで歩きます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.ciclismo",
+    "texto": "背中をリラックスさせたまま、高いケイデンスと適度な負荷でペダルを漕ぎます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.senderismo",
+    "texto": "起伏のある自然の地形を歩き、傾斜に合わせてペースを調整します。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.trail-running",
+    "texto": "山道や不整地を走り、登りでは歩幅を狭くします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminadora",
+    "texto": "手すりにつかまらずにトレッドミルで歩く、または走ります。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata-inclinada",
+    "texto": "傾斜をつけたトレッドミルで、適度なペースで歩きます。負荷が低く効果が持続します。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.eliptica",
+    "texto": "膝への衝撃がなく、腕も使いながらなめらかに動きます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.bicicleta-estatica",
+    "texto": "サドルを腰の高さに調整し、一定のケイデンスでペダルを漕ぎます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.escaladora",
+    "texto": "足裏全体を着地させながら、一定のペースで階段を上ります。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.remo-maquina",
+    "texto": "脚で押し出し、背中で引き、最後に腕で仕上げます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.hiit",
+    "texto": "全力の短時間インターバルと短い休憩を交互に行います。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.sprints",
+    "texto": "各セット全速力で行い、セット間はしっかり休みます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.saltar-cuerda",
+    "texto": "腕ではなく手首を使ってロープを回し、低くジャンプします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.burpees",
+    "texto": "立った姿勢からプランクになり腕立て伏せを行い、脚を引き寄せてから腕を上げてジャンプします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.circuito-metabolico",
+    "texto": "複数の種目を休みなく続け、心拍数を高く保ちます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.natacion",
+    "texto": "呼吸をストロークに合わせながら、一定のペースで泳ぎます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.aqua-aerobicos",
+    "texto": "水中で運動し、水の抵抗で関節に負担をかけずに筋肉を鍛えます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.caminata",
+    "texto": "落ち着いた一定のペースで歩く、有酸素運動の基礎になります。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.futbol",
+    "texto": "ペースと方向を変えながら断続的に走ります。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.basquetbol",
+    "texto": "短距離ダッシュとジャンプ、絶え間ない横方向の動きを繰り返します。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.tenis",
+    "texto": "瞬発的な動きと休止を繰り返し、下半身への負荷が大きい運動です。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.padel",
+    "texto": "狭いコートで短く激しいラリーを行い、方向転換が多い運動です。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.boxeo",
+    "texto": "ガードを保ちながら、コンビネーションとフットワークを行います。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.baile",
+    "texto": "音楽のリズムに合わせて絶え間なく動く、運動している感覚のない有酸素運動です。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-matutina",
+    "texto": "一日の始まりに体を目覚めさせ、関節をほぐす穏やかな一連の動きです。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.yoga-flow",
+    "texto": "呼吸に合わせてポーズをつなげ、全身を使った連続した流れをつくります。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.saludo-al-sol",
+    "texto": "全身を順番にストレッチし活性化させる、伝統的なヨガの一連の動きです。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-general",
+    "texto": "穏やかに時間をかけて主要な筋肉群をストレッチします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.guerrero-i",
+    "texto": "ランジの姿勢で腰を正面に向けたまま、腕を上げて胸を開きます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.guerrero-ii",
+    "texto": "大きく広げたランジの姿勢で前脚の膝を曲げ、腕を伸ばして前を見つめます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.triangulo",
+    "texto": "脚を大きく開き、上体を傾けて片手を足首に近づけます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.flexion-de-pie",
+    "texto": "立った姿勢で上体を脚の上に倒し、首と背中の力を抜きます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.apertura-de-cadera",
+    "texto": "股関節をほぐし、脚の可動域を広げるモビリティエクササイズです。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-paloma",
+    "texto": "前脚を曲げた状態で上体を下ろし、お尻を開きます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.mariposa",
+    "texto": "座った姿勢で両足の裏を合わせ、膝を左右に開いていきます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-isquiotibiales",
+    "texto": "膝を伸ばしたまま、太もも裏をストレッチします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.zancada-baja",
+    "texto": "片膝を床につけ、股関節屈筋をストレッチしながら腰を前に押し出します。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-guirnalda",
+    "texto": "深いしゃがみ姿勢で、肘で膝を押し開いて股関節をほぐします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.figura-4",
+    "texto": "足首を反対の膝に乗せ、太ももを引き寄せてお尻をストレッチします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-aductores",
+    "texto": "脚を開いて上体を下げ、太ももの内側をストレッチします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.rana",
+    "texto": "四つ這いで膝を大きく開き、腰を後ろに揺らします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.perro-boca-abajo",
+    "texto": "逆V字の姿勢で腰を高く突き上げ、背中と脚をストレッチします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.torsion-espinal",
+    "texto": "座位または仰向けの姿勢で、体幹を穏やかにひねって背骨をほぐします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-del-nino",
+    "texto": "かかとの上に座り、腕を前に伸ばして背中の力を抜きます。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.apertura-de-pecho",
+    "texto": "腕を後ろに引いて胸を開き、猫背を改善します。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.esfinge",
+    "texto": "うつ伏せで前腕をつき、胸を持ち上げて腰を伸ばします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.hilo-y-aguja",
+    "texto": "四つ這いの姿勢で、片腕を体の下に通して肩をストレッチします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-dorsales",
+    "texto": "腕を上げて少し横に傾け、体側をストレッチします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.movilidad-cervical",
+    "texto": "首をゆっくり全方向に動かし、緊張をほぐします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.rotaciones-de-columna",
+    "texto": "背骨を一節ずつ穏やかに回旋させてほぐします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.postura-de-la-cobra",
+    "texto": "うつ伏せになり、手で支えながら胸を持ち上げて背中を伸ばします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.inclinacion-lateral-de-cuello",
+    "texto": "耳を肩に近づけ、首の側面をストレッチします。"
+  },
+  {
+    "clave": "ejercicio.ejDesc.estiramiento-de-cuadriceps",
+    "texto": "立った姿勢でかかとをお尻に近づけ、足を持って太ももをストレッチします。"
+  }
 ]

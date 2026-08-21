@@ -1,57 +1,908 @@
 [
   {
-    "clave": "tut.esencial.titulo",
-    "es": "Lo esencial",
-    "en": "The essentials"
+    "clave": "hoy.casa.personales",
+    "es": "Personales",
+    "en": "Personal"
   },
   {
-    "clave": "tut.tipo.ejemplos",
-    "es": "Ejemplos · casa demo",
-    "en": "Examples · demo house"
+    "clave": "hoy.irApp",
+    "es": "Ir a la app a registrarlo",
+    "en": "Log it in the app"
   },
   {
-    "clave": "tut.app-agenda--esencial.resumen",
-    "es": "La agenda lleva lo que no es un hábito, en tres menús: Trabajo (pendientes y tablero), Salud (citas, medicamentos y cuidados: tuyos, de tus prójimos y de tus mascotas) y Personas (contactos y cumpleaños). Todo lo que lleva fecha se agenda solo en el calendario.",
-    "en": "The agenda holds what isn't a habit, in three menus: Work (to-dos and board), Health (appointments, medication and care: yours, your loved ones' and your pets') and People (contacts and birthdays). Everything with a date lands in the calendar by itself."
+    "clave": "hoy.nada",
+    "es": "Aún no te has propuesto nada en esta app.",
+    "en": "You haven't committed to anything in this app yet."
   },
   {
-    "clave": "tut.calendario--esencial.resumen",
-    "es": "El calendario no es un cuarto: vive en el reloj de la casa y reúne todo lo que tiene fecha y hora, lo que creas a mano y lo que agendan solas las demás apps. Se mira de cuatro maneras: Día y Semana sobre la rejilla de horas, Mes y Año para el panorama. Aparte va Misiones, el botón rojo con la checklist de hoy de todas las apps juntas.",
-    "en": "The calendar isn't a room: it lives in the house clock and gathers everything with a date and time, what you create by hand and what the other apps schedule on their own. There are four ways to look at it: Day and Week on the hourly grid, Month and Year for the big picture. Missions sits apart, the red button with today's checklist from every app at once."
+    "clave": "hoy.metas.titulo",
+    "es": "Metas",
+    "en": "Goals"
   },
   {
-    "clave": "tut.app-anecdotario--esencial.resumen",
-    "es": "El anecdotario es tu diario personal: entradas con ánimo, texto y fotos que se guardan solas por fecha. Un calendario pinta cada día según tu ánimo, y el historial las archiva en carpetas por año, mes y semana.",
-    "en": "Anecdotario is your personal diary: entries with a mood, text and photos that save themselves by date. A calendar colors each day by your mood, and the history archives them in folders by year, month and week."
+    "clave": "hoy.metas.vencida",
+    "es": "vencida",
+    "en": "overdue"
   },
   {
-    "clave": "tut.app-biblioteca--esencial.resumen",
-    "es": "La biblioteca es tu enciclopedia personal, en cuatro menús: Charlas (preguntas al Sabio y cada conversación se archiva y se destila en ficha), Enciclopedia (el árbol donde vive lo aprendido, por campo del conocimiento), Estudio (el temporizador simple o pomodoro, que registra cada sesión) y Resumen (cuánto has escrito y cuánto has estudiado).",
-    "en": "The library is your personal encyclopedia, in four menus: Chats (you ask the Sage and every conversation is filed away and distilled into an entry), Encyclopedia (the tree where what you learn lives, by field of knowledge), Study (the simple or pomodoro timer, which logs every session) and Overview (how much you've written and how much you've studied)."
+    "clave": "hoy.metas.faltan",
+    "es": "{n} d",
+    "en": "{n} d"
   },
   {
-    "clave": "tut.app-cocina--esencial.resumen",
-    "es": "La cocina tiene dos menús. Recetario guarda lo que vas a cocinar: las recetas con sus macros, las dietas que las agrupan y la lista del súper. Control de alimentación lleva la cuenta de lo que comes, en cuatro pasos: las metas de calorías y peso, el registro del día, el plan de comidas de los días que vienen y el progreso.",
-    "en": "The kitchen has two menus. Recipe book keeps what you are going to cook: your recipes with their macros, the diets that group them and the grocery list. Nutrition control tracks what you eat, in four steps: your calorie and weight goals, the daily log, the meal plan for the days ahead and your progress."
+    "clave": "objetivos.anadir",
+    "es": "Añadir misión",
+    "en": "Add mission"
   },
   {
-    "clave": "tut.app-computo--esencial.resumen",
-    "es": "La sala de cómputo tiene dos menús. La Calculadora hace las cuentas de siempre y cambia de modo para graficar, trabajar con bases numéricas, matrices, sistemas de ecuaciones, unidades, propina y regla de tres; de ella cuelga el formulario, tu libro de fórmulas con Matemáticas, Física y Química ya puestas. Las Hojas de cálculo llevan lo tabular, con fórmulas en español y exportación a Excel o PDF.",
-    "en": "The computer room has two menus. The Calculator does the everyday math and switches modes to plot graphs, work with number bases, matrices, systems of equations, units, tips and rule of three; hanging off it is the formulary, your formula book with Maths, Physics and Chemistry already loaded. Spreadsheets handle anything tabular, with formulas in plain language and export to Excel or PDF."
+    "clave": "objetivos.responsable",
+    "es": "{quien} te recuerda lo de aquí",
+    "en": "{quien} reminds you about what lives here"
   },
   {
-    "clave": "tut.app-descanso--esencial.resumen",
-    "es": "Descanso registra cómo duermes en una sola pantalla: la puntuación de la última noche, tu horario con sus avisos, el registro diario y el historial completo por año, mes y semana.",
-    "en": "Descanso tracks your sleep on a single screen: last night's score, your schedule with its reminders, the daily log, and the full history."
+    "clave": "objetivos.nuevo.deQueApp",
+    "es": "¿De qué es la misión?",
+    "en": "What is the mission about?"
   },
   {
-    "clave": "tut.app-despacho--esencial.resumen",
-    "es": "El despacho ordena tu dinero en cuatro menús. Patrimonio guarda lo que tienes y lo que debes, con su proyección; Flujo lleva gastos, ingresos y el balance del periodo, con presupuesto y categorías; Metas junta ahorro, inversión y deuda, más las calculadoras que proponen un monto. Mercados es un tablero de cotizaciones en vivo, solo de consulta.",
-    "en": "The study organizes your money in four menus. Net worth holds what you own and what you owe, with its projection; Flow tracks expenses, income and the period's balance, with its budget and categories; Goals brings together saving, investing and debt, plus the calculators that suggest an amount. Markets is a live quote board, for reference only."
+    "clave": "objetivos.nuevo.responsable",
+    "es": "Yo te recuerdo lo de aquí. ¿Qué te propones?",
+    "en": "I'll remind you about this. What do you commit to?"
   },
   {
-    "clave": "tut.app-diario--esencial.resumen",
-    "es": "El diario es un periódico efímero: titulares de prensa real por categoría y efemérides del día, que se renueva solo a medianoche. Desde el reparto programas que un asistente te lo entregue en su propio chat.",
-    "en": "The diary is an ephemeral newspaper: real-press headlines by category and today's on-this-day facts, which renews itself on its own at midnight. From delivery you schedule an assistant to bring it to you in their own chat."
+    "clave": "objetivos.nuevo.personal",
+    "es": "Misión personal, de ninguna app.",
+    "en": "Personal mission, not tied to any app."
+  },
+  {
+    "clave": "objetivos.nuevo.personales",
+    "es": "Personales",
+    "en": "Personal"
+  },
+  {
+    "clave": "objetivos.nuevo.poner",
+    "es": "＋",
+    "en": "＋"
+  },
+  {
+    "clave": "objetivos.nuevo.todos",
+    "es": "Ya te propusiste todo lo de esta app.",
+    "en": "You've already committed to everything in this app."
+  },
+  {
+    "clave": "objetivos.nuevo.otro",
+    "es": "Otra misión…",
+    "en": "Another mission…"
+  },
+  {
+    "clave": "objetivos.nuevo.otroPlaceholder",
+    "es": "¿Qué te propones?",
+    "en": "What do you commit to?"
+  },
+  {
+    "clave": "objetivos.nuevo.checklist",
+    "es": "¿Necesitas varios pasos? Nueva checklist",
+    "en": "Need several steps? New checklist"
+  },
+  {
+    "clave": "objetivos.nuevo.dias",
+    "es": "¿Qué días?",
+    "en": "Which days?"
+  },
+  {
+    "clave": "objetivos.nuevo.faltanDias",
+    "es": "Marca al menos un día.",
+    "en": "Pick at least one day."
+  },
+  {
+    "clave": "objetivos.nuevo.cantidad",
+    "es": "¿Cuánto?",
+    "en": "How much?"
+  },
+  {
+    "clave": "objetivos.nuevo.meta",
+    "es": "¿Para qué meta?",
+    "en": "For which goal?"
+  },
+  {
+    "clave": "objetivos.nuevo.sinMeta",
+    "es": "Ninguna (suelto)",
+    "en": "None (standalone)"
+  },
+  {
+    "clave": "objetivos.nuevo.mientrasDure",
+    "es": "Solo del {ini} al {fin}, mientras dure la meta.",
+    "en": "Only from {ini} to {fin}, while the goal lasts."
+  },
+  {
+    "clave": "objetivos.nuevo.hora",
+    "es": "¿A una hora?",
+    "en": "At a set time?"
+  },
+  {
+    "clave": "objetivos.nuevo.sinHora",
+    "es": "Sin hora",
+    "en": "No time"
+  },
+  {
+    "clave": "objetivos.nuevo.anadir",
+    "es": "Añadir",
+    "en": "Add"
+  },
+  {
+    "clave": "objetivos.nuevo.cancelar",
+    "es": "Cancelar",
+    "en": "Cancel"
+  },
+  {
+    "clave": "objetivos.nuevo.cambiar",
+    "es": "Cambiar de asistente",
+    "en": "Switch assistant"
+  },
+  {
+    "clave": "objetivos.nuevo.nadie",
+    "es": "Sin asistente",
+    "en": "No assistant"
+  },
+  {
+    "clave": "avisos.objetivos",
+    "es": "Te faltan {n} misiones en {app}.",
+    "en": "You have {n} missions left in {app}."
+  },
+  {
+    "clave": "biblioteca.nodo.filosofia",
+    "en": "Philosophy and thought"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.filosofia",
+    "en": "Fundamental questions about reality, knowledge, mind, and conduct."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-metafisica",
+    "en": "Metaphysics and ontology"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-ser",
+    "en": "Being and existence"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-ser",
+    "en": "What it means for something to exist."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-mente",
+    "en": "Mind and consciousness"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-mente",
+    "en": "The mind-body problem and phenomenology."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-libre",
+    "en": "Freedom and determinism"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-libre",
+    "en": "Are we free, or is everything caused?"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-epistemologia",
+    "en": "Epistemology"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-conocimiento",
+    "en": "Theory of knowledge"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-conocimiento",
+    "en": "Justification, truth, and belief."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-ciencia-fil",
+    "en": "Philosophy of science"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-ciencia-fil",
+    "en": "Method, paradigms, and demarcation."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-escepticismo",
+    "en": "Skepticism"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-escepticismo",
+    "en": "The limits of what we can know."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-etica",
+    "en": "Ethics and political philosophy"
+  },
+  {
+    "clave": "biblioteca.nodo.fil-moral",
+    "en": "Moral theories"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-moral",
+    "en": "Deontology, utilitarianism, virtue."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-justicia",
+    "en": "Social justice"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-justicia",
+    "en": "Equity, rights, and the common good."
+  },
+  {
+    "clave": "biblioteca.nodo.fil-bioetica",
+    "en": "Bioethics"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.fil-bioetica",
+    "en": "Life, medicine, and applied technology."
+  },
+  {
+    "clave": "biblioteca.nodo.matematicas",
+    "en": "Mathematics and logic"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.matematicas",
+    "en": "Abstract structures, formal reasoning, and quantitative models."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-puras",
+    "en": "Pure mathematics"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-algebra",
+    "en": "Algebra"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-algebra",
+    "en": "Structures, equations, and symmetries."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-analisis",
+    "en": "Analysis"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-analisis",
+    "en": "Limits, continuity, and calculus."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-geometria",
+    "en": "Geometry and topology"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-geometria",
+    "en": "Shapes, spaces, and transformations."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-aplicadas",
+    "en": "Applied mathematics"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-prob",
+    "en": "Probability"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-prob",
+    "en": "Uncertainty and random events."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-stats",
+    "en": "Statistics"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-stats",
+    "en": "Data, inference, and models."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-discreta",
+    "en": "Discrete mathematics"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-discreta",
+    "en": "Combinatorics, graphs, and recursion."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-logica",
+    "en": "Logic"
+  },
+  {
+    "clave": "biblioteca.nodo.mat-log-formal",
+    "en": "Formal logic"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-log-formal",
+    "en": "Propositions, predicates, and proof."
+  },
+  {
+    "clave": "biblioteca.nodo.mat-log-comput",
+    "en": "Computational logic"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.mat-log-comput",
+    "en": "Algorithms, complexity, and verification."
+  },
+  {
+    "clave": "biblioteca.nodo.naturales",
+    "en": "Natural sciences"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.naturales",
+    "en": "Laws of the physical universe, matter, energy, and living systems."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-fisica",
+    "en": "Physics"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-mecanica",
+    "en": "Classical mechanics"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-mecanica",
+    "en": "Motion, forces, and energy."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-cuantica",
+    "en": "Quantum physics"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-cuantica",
+    "en": "Particles, waves, and probability."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-relatividad",
+    "en": "Relativity"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-relatividad",
+    "en": "Spacetime and cosmology."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-termodinamica",
+    "en": "Thermodynamics"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-termodinamica",
+    "en": "Heat, entropy, and equilibrium."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-quimica",
+    "en": "Chemistry"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-org",
+    "en": "Organic chemistry"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-org",
+    "en": "Carbon, biomolecules, and reactions."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-inorg",
+    "en": "Inorganic chemistry"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-inorg",
+    "en": "Elements, bonds, and materials."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-fisicoquim",
+    "en": "Physical chemistry"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-fisicoquim",
+    "en": "Energy in reactions and equilibrium."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-biologia",
+    "en": "Biology"
+  },
+  {
+    "clave": "biblioteca.nodo.nat-celula",
+    "en": "Cell biology"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-celula",
+    "en": "Cells, metabolism, and signaling."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-genetica",
+    "en": "Genetics and evolution"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-genetica",
+    "en": "DNA, selection, and phylogeny."
+  },
+  {
+    "clave": "biblioteca.nodo.nat-ecologia",
+    "en": "Ecology"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.nat-ecologia",
+    "en": "Ecosystems, biodiversity, and cycles."
+  },
+  {
+    "clave": "biblioteca.nodo.tierra",
+    "en": "Earth sciences"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tierra",
+    "en": "The planet, atmosphere, oceans, and geological processes."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-geologia",
+    "en": "Geology and geophysics"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-placas",
+    "en": "Plate tectonics"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-placas",
+    "en": "Landform formation and earthquakes."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-minerales",
+    "en": "Mineralogy"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-minerales",
+    "en": "Rocks, minerals, and resources."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-paleont",
+    "en": "Paleontology"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-paleont",
+    "en": "Fossils and the history of life."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-clima",
+    "en": "Climate and atmosphere"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-meteorologia",
+    "en": "Meteorology"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-meteorologia",
+    "en": "Weather, pressure, and precipitation."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-climatologia",
+    "en": "Climatology"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-climatologia",
+    "en": "Long-term patterns and climate change."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-oceanos",
+    "en": "Oceanography"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-oceanos",
+    "en": "Currents, seas, and coasts."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-espacial",
+    "en": "Geography and space"
+  },
+  {
+    "clave": "biblioteca.nodo.tie-cartografia",
+    "en": "Cartography"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-cartografia",
+    "en": "Maps, coordinates, and GIS."
+  },
+  {
+    "clave": "biblioteca.nodo.tie-geomorf",
+    "en": "Geomorphology"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.tie-geomorf",
+    "en": "Landscapes and erosion."
+  },
+  {
+    "clave": "biblioteca.nodo.sociales",
+    "en": "Social sciences"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.sociales",
+    "en": "Societies, economies, institutions, and collective human behavior."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-sociologia",
+    "en": "Sociology and anthropology"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-estructura",
+    "en": "Social structure"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-estructura",
+    "en": "Classes, networks, and inequality."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-cultura",
+    "en": "Cultural anthropology"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-cultura",
+    "en": "Rituals, identity, and symbols."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-urbano",
+    "en": "Urban studies"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-urbano",
+    "en": "City, migration, and territory."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-economia",
+    "en": "Economics"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-micro",
+    "en": "Microeconomics"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-micro",
+    "en": "Supply, demand, and decisions."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-macro",
+    "en": "Macroeconomics"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-macro",
+    "en": "GDP, inflation, and fiscal policy."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-comercio",
+    "en": "International trade"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-comercio",
+    "en": "Globalization and value chains."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-politica",
+    "en": "Political science"
+  },
+  {
+    "clave": "biblioteca.nodo.soc-estado",
+    "en": "State and government"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-estado",
+    "en": "Power, laws, and democracy."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-derechos",
+    "en": "Human rights"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-derechos",
+    "en": "Freedoms, justice, and citizenship."
+  },
+  {
+    "clave": "biblioteca.nodo.soc-relaciones",
+    "en": "International relations"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.soc-relaciones",
+    "en": "Diplomacy, conflict, and cooperation."
+  },
+  {
+    "clave": "biblioteca.nodo.psicologia",
+    "en": "Psychology and the human mind"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psicologia",
+    "en": "Cognition, emotion, development, and psychological well-being."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-cognitiva",
+    "en": "Cognitive psychology"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-percepcion",
+    "en": "Perception and attention"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-percepcion",
+    "en": "How we process stimuli."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-memoria",
+    "en": "Memory and learning"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-memoria",
+    "en": "Encoding, recall, and forgetting."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-lenguaje-psi",
+    "en": "Psycholinguistics"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-lenguaje-psi",
+    "en": "Language acquisition and processing."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-desarrollo",
+    "en": "Development and personality"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-infancia",
+    "en": "Child development"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-infancia",
+    "en": "Cognitive and social milestones."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-personalidad",
+    "en": "Personality"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-personalidad",
+    "en": "Traits, temperaments, and models."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-social-psi",
+    "en": "Social psychology"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-social-psi",
+    "en": "Groups, attitudes, and conformity."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-clinica",
+    "en": "Mental health"
+  },
+  {
+    "clave": "biblioteca.nodo.psi-clinica-gen",
+    "en": "Clinical psychology"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-clinica-gen",
+    "en": "Disorders, diagnosis, and therapy."
+  },
+  {
+    "clave": "biblioteca.nodo.psi-neuropsi",
+    "en": "Neuropsychology"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.psi-neuropsi",
+    "en": "Brain, injury, and rehabilitation."
+  },
+  {
+    "clave": "biblioteca.nodo.humanidades",
+    "en": "Humanities and history"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.humanidades",
+    "en": "Human experience across time, thought, and cultural heritage."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-historia",
+    "en": "History"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-antigua",
+    "en": "Ancient history"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-antigua",
+    "en": "Classical civilizations and origins."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-moderna",
+    "en": "Modern and contemporary history"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-moderna",
+    "en": "Revolutions, states, and globalization."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-metodo",
+    "en": "Historiography"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-metodo",
+    "en": "Sources, interpretation, and debate."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-religion",
+    "en": "Religion and mythology"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-comparada",
+    "en": "Comparative religion"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-comparada",
+    "en": "Traditions, texts, and practices."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-mito",
+    "en": "Mythology"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-mito",
+    "en": "Foundational narratives and archetypes."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-patrimonio",
+    "en": "Heritage and cultural studies"
+  },
+  {
+    "clave": "biblioteca.nodo.hum-museos",
+    "en": "Material heritage"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-museos",
+    "en": "Museums, conservation, and artifacts."
+  },
+  {
+    "clave": "biblioteca.nodo.hum-memoria",
+    "en": "Collective memory"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.hum-memoria",
+    "en": "Testimony, archives, and forgetting."
+  },
+  {
+    "clave": "biblioteca.nodo.lengua",
+    "en": "Language and literature"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.lengua",
+    "en": "Communication, texts, linguistic analysis, and written tradition."
+  },
+  {
+    "clave": "biblioteca.nodo.len-linguistica",
+    "en": "Linguistics"
+  },
+  {
+    "clave": "biblioteca.nodo.len-fonetica",
+    "en": "Phonetics and phonology"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-fonetica",
+    "en": "Sounds and phonological systems."
+  },
+  {
+    "clave": "biblioteca.nodo.len-sintaxis",
+    "en": "Syntax and morphology"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-sintaxis",
+    "en": "Sentence and word structure."
+  },
+  {
+    "clave": "biblioteca.nodo.len-semantica",
+    "en": "Semantics and pragmatics"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-semantica",
+    "en": "Meaning in context."
+  },
+  {
+    "clave": "biblioteca.nodo.len-literatura",
+    "en": "Literature"
+  },
+  {
+    "clave": "biblioteca.nodo.len-generos",
+    "en": "Literary genres"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-generos",
+    "en": "Novel, poetry, drama, and essay."
+  },
+  {
+    "clave": "biblioteca.nodo.len-teoria-lit",
+    "en": "Literary theory"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-teoria-lit",
+    "en": "Criticism, narratology, and canons."
+  },
+  {
+    "clave": "biblioteca.nodo.len-mundo",
+    "en": "World literatures"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-mundo",
+    "en": "Regional traditions and translation."
+  },
+  {
+    "clave": "biblioteca.nodo.len-comunicacion",
+    "en": "Communication"
+  },
+  {
+    "clave": "biblioteca.nodo.len-periodismo",
+    "en": "Journalism"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-periodismo",
+    "en": "News, fact-checking, and opinion."
+  },
+  {
+    "clave": "biblioteca.nodo.len-retorica",
+    "en": "Rhetoric and argumentation"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.len-retorica",
+    "en": "Persuasion and public debate."
+  },
+  {
+    "clave": "biblioteca.nodo.idiomas",
+    "en": "Languages"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idiomas",
+    "en": "Learning foreign languages: vocabulary, grammar, pronunciation, and practice."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-aprendizaje",
+    "en": "Learning fundamentals"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-vocabulario",
+    "en": "Vocabulary"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-vocabulario",
+    "en": "Acquisition and review of useful words and phrases."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-gramatica",
+    "en": "Grammar"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-gramatica",
+    "en": "Structures, verb tenses, and comparative syntax."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-pronunciacion",
+    "en": "Pronunciation and listening"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-pronunciacion",
+    "en": "Phonetics, accent, and listening comprehension."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-lenguas",
+    "en": "Languages of the world"
+  },
+  {
+    "clave": "biblioteca.nodo.idi-ingles",
+    "en": "English"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-ingles",
+    "en": "The global lingua franca."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-romances",
+    "en": "Romance languages"
+  },
+  {
+    "clave": "biblioteca.nodoDesc.idi-romances",
+    "en": "French, Italian, Portuguese, and their kinships."
+  },
+  {
+    "clave": "biblioteca.nodo.idi-asiaticas",
+    "en": "Asian languages"
   }
 ]
