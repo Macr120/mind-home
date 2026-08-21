@@ -11,22 +11,69 @@ export const TEXTOS = {
   'pie.contacto': 'Kontakt',
   'tema.boton': 'Heller oder dunkler Modus',
 
-  'meta.titulo': 'Mind Planner Home — Dein Leben, in einem 3D-Haus',
+  'meta.titulo': 'Mind Planner Home — Dein Geist, in einem 3D-Haus',
   'meta.desc':
     'Ordne deine Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr in einem isometrischen 3D-Haus, in dem jeder Raum eine App ist. Eine einmalige Zahlung von 6,99 USD, erster Monat mit KI und Sync inklusive; kostenlose Demo.',
   'og.desc':
     'Dein Leben, in einem 3D-Haus: Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr. Eine Zahlung von 6,99 USD, erster Monat mit KI inklusive; kostenlose Demo.',
 
-  'hero.h1': 'Dein ganzes Leben,<br />in einem 3D-Haus',
-  'hero.sub':
-    'Jeder Raum deines Hauses ist eine App: Sport, Essen, Finanzen, Schlaf, Sprachen, Hobbys, Ziele… Ein einziger Ort, mit einem KI-Assistenten an deiner Seite und deinem Fortschritt auf allen Geräten synchronisiert.',
+  'hero.h1': 'Dein Geist,<br />in einem 3D-Haus',
+  // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
+  // terna tiene que cuadrar en orden (cocina → nutrición → recetas), y los
+  // ejemplos de un mismo hueco convienen parecidos de largo (se queda con el
+  // ancho del más largo). Un trozo fijo puede ir vacío si el idioma lo pide.
+  'hero.sub.1': 'Ein Ort, an dem du dein Haus baust: du setzt',
+  'hero.sub.ej1.1': 'eine Küche oder einen Gemüsegarten',
+  'hero.sub.ej1.2': 'ein Büro oder einen Sportplatz',
+  'hero.sub.ej1.3': 'eine Bibliothek oder eine Strecke',
+  'hero.sub.ej1.4': 'einen Garten oder einen Bauernhof',
+  'hero.sub.2': 'ein, und in jeden Raum kommt eine vollständige App, etwa die für',
+  'hero.sub.ej2.1': 'Ernährung',
+  'hero.sub.ej2.2': 'Finanzen',
+  'hero.sub.ej2.3': 'Lernen',
+  'hero.sub.ej2.4': 'Ruhe',
+  'hero.sub.3': 'um deine',
+  'hero.sub.ej3.1': 'Mahlzeiten, Makros und Rezepte',
+  'hero.sub.ej3.2': 'Budgets und Sparziele',
+  'hero.sub.ej3.3': 'Notizen und Lerneinheiten',
+  'hero.sub.ej3.4': 'Meditationen und Dankbarkeit',
+  'hero.sub.4':
+    'zu archivieren, zu planen oder neu zu erschaffen — ganz von Hand oder mit Hilfe der KI. Und alle hängen an einem Kalender, an täglichen Missionen und an deinen persönlichen Zielen, synchron auf Handy und Computer.',
   'hero.cta': 'App herunterladen',
   'hero.demo': 'Kostenlose Demo testen',
   'hero.nota':
     'Die App wird einmal im Store deines Geräts gekauft und läuft offline. KI und Sync sind optional — und wenn du sie sein lässt, verlierst du nichts.',
   'hero.video': 'Hier kommt dein Video oder deine Screenshots vom Haus hin',
 
+  // Lo que trae la casa, en cifras (el número lo pone el HTML).
+  'cifras.apps': 'Apps',
+  'cifras.infra': 'Anlagen',
+  'cifras.ra': 'AR-Apps',
+  'cifras.calendario': 'Kalender',
+  'cifras.chat': 'Chat',
+
+  'como.h2': 'So funktioniert es',
+  'como.sub': 'Ein Ort, an dem du dein Haus baust und danach dein Leben hineinstellst.',
+  'como.1.t': 'Du baust dein Haus',
+  'como.1.p':
+    'Du setzt Räume, Stockwerke und sogar einen Keller ein, und drumherum alles, was draußen gebaut wird: Gemüsegarten, Bauernhof, Sportplätze, Rennstrecken. Wände, Farben, Möbel und deinen Avatar wählst du selbst.',
+  'como.2.t': 'Jeder Raum ist eine vollständige App',
+  'como.2.p':
+    'Du weist ihm eine der 17 Apps zu — Ernährung, Sport, Schlaf, Finanzen, Bibliothek, Sprachen, Ideen, Agenda, Reisen, Hobbys, Ziele… — oder du baust dir deine eigene. Damit archivierst du, was du schon erlebt hast, planst, was kommt, und erschaffst, was es noch nicht gibt: Routinen, Rezepte, Budgets, Notizen, Mindmaps und Zeitpläne. Alles von Hand — oder mit der KI an deiner Seite.',
+  'como.3.t': 'Alles landet am selben Ort',
+  'como.3.p':
+    'Die 17 Apps teilen sich einen Kalender, eine Liste täglicher Missionen und deine persönlichen Ziele. Und dein ganzes Haus folgt dir vom Handy zum Computer.',
+
   'car.h2': 'Ein Haus, viele Apps',
+  // Las tres primeras tarjetas: el argumento de compra.
+  'car.todo.t': 'Alles in einem, wirklich',
+  'car.todo.p':
+    'Eine App statt zwanzig: Essen, Geld, Schlaf, Lernen, Gewohnheiten und Ziele unter einem Dach — und miteinander verbunden, was genau das ist, was keine einzelne App kann.',
+  'car.nocaduca.t': 'Läuft nicht ab, wenn du aufhörst zu zahlen',
+  'car.nocaduca.p':
+    'Einmal gekauft, dann gehört sie dir. Abo-Apps gehen aus, sobald du nicht mehr zahlst; hier behältst du das ganze Haus und alle Daten auf deinem Gerät, auch wenn du die KI sein lässt.',
+  'car.nuevas.t': 'Neue Updates',
+  'car.nuevas.p': 'Das Haus wächst weiter: Räume, Apps und Verbesserungen, die kommen, ohne dass du erneut zahlst.',
   'car.1.t': 'Räume, die Apps sind',
   'car.1.p':
     'Sport, Küche, Finanzen, Schlaf, Bibliothek, Sprachen, Reisen, Hobbys, Achtsamkeit und mehr: jeder Raum beherbergt eine vollständige Mini-App.',
@@ -46,6 +93,14 @@ export const TEXTOS = {
   'car.6.p':
     'Die App ist local-first: alles lebt zuerst auf deinem Gerät. Wenn du kündigst, verlierst du deine Daten nicht — du machst im lokalen Modus weiter.',
 
+
+  'mani.h2': 'Dein Leben, als Videospiel',
+  'mani.p1':
+    'MPH ist die Darstellung deines Lebens als Videospiel, gespielt vom bequemsten Ort, den es gibt: deinem eigenen Haus. Level und Ränge sind keine Deko — sie sind das, was du da draußen getan hast, hier drinnen erzählt.',
+  'mani.p2':
+    'Hier baust du neue Fähigkeiten aus, behältst deine Ressourcen im Griff und stellst die Technik auf deine Seite. Gegen den unbewussten Konsum von Kurzformaten. Gegen den kognitiven Verfall, den die Konsumgewohnheiten hinterlassen, die uns die großen Konzerne aufdrängen.',
+  'mani.cierre': 'Dasselbe Dopamin. Diesmal für dein echtes Leben.',
+
   'precio.h2': 'Eine Zahlung im Store, dein Haus für immer',
   'precio.demo.nombre': 'Demo',
   'precio.demo.cifra': 'Kostenlos',
@@ -60,27 +115,27 @@ export const TEXTOS = {
   'precio.app.2': 'Erster Monat inklusive: 700 KI-Credits + Sync, ohne Karte und ohne Abo',
   'precio.app.3':
     'Nach dem Monat behältst du die ganze App und deine Daten; die KI-Credits sind optional',
-  'precio.app.cta': 'Sehen, wo es sie gibt',
+  'precio.app.cta': 'Haus kaufen',
   'precio.app.pie':
-    'Gekauft wird sie bei Google Play oder im App Store, und mit deinem Konto öffnest du sie auch im Browser. Eine Zahlung, keine Verlängerungen.',
+    'Kauf es direkt hier, ganz ohne Store, oder in der App auf deinem Handy. Eine Zahlung, keine Verlängerungen, gültig auf allen deinen Geräten.',
 
   'ia.t': 'KI und Sync · optional',
   'ia.precios':
     '6 USD im Monat<span>·</span>60 USD im Jahr<span>·</span>oder 6 USD für 700 einzelne Credits',
   'ia.p':
-    'Nur wenn du nach deinem ersten Monat mit KI und Sync weitermachen willst. Das wird hier im Web abgeschlossen und gilt für alle deine Geräte. Ohne Bindung: wenn du aufhörst, behältst du die App und all deine Daten im lokalen Modus.',
+    'Nur wenn du nach dem ersten Monat mit KI und Synchronisierung weitermachen willst. Das lässt sich hier oder in der App abschließen und gilt für alle deine Geräte. Ohne Bindung: Wenn du aufhörst, behältst du die App und alle deine Daten im lokalen Modus.',
   'ia.cta': 'Die Tarife ansehen →',
 
   'desc.h2': 'App herunterladen',
   'desc.sub':
-    'Die App wird im Store deines Geräts gekauft. Beim Öffnen registrierst du deine E-Mail, und dasselbe Konto gibt dir dein Haus überall sonst zurück — im Browser inklusive.',
+    'Lade sie gratis herunter und kaufe das Haus in der App — oder hier im Web. Mit deinem Konto taucht dein Haus überall sonst wieder auf, auch im Browser.',
   'desc.pronto': 'Demnächst',
-  'desc.android': 'Bei Google Play, 6,99 USD.',
+  'desc.android': 'Gratis bei Google Play. Das Haus wird darin gekauft.',
   'desc.ios.t': 'iPhone und iPad',
-  'desc.ios': 'Im App Store, 6,99 USD.',
+  'desc.ios': 'Gratis im App Store. Das Haus wird darin gekauft.',
   'desc.web.t': 'In deinem Browser',
   'desc.web':
-    'Nichts zu installieren: melde dich mit dem Konto an, mit dem du die App gekauft hast, und dein Haus wartet. Ohne Konto kannst du die Demo testen.',
+    'Nichts zu installieren: Melde dich mit deinem Konto an und dein Haus wartet. Ohne Konto kannst du die Demo ausprobieren.',
   'desc.web.cta': 'App öffnen',
   'desc.windows': 'Installer für Windows 10/11.',
   'desc.mac': '.dmg-Image für Mac.',
@@ -88,7 +143,7 @@ export const TEXTOS = {
   'faq.h2': 'Häufige Fragen',
   'faq.1.q': 'Wo kauft man die App?',
   'faq.1.a':
-    'Im Store deines Geräts: Google Play oder App Store. Hier im Web wird sie nicht verkauft — auf dieser Seite bezahlt man nur das KI-Abo und die Credit-Aufladungen. Beim Öffnen der App registrierst du deine E-Mail, und mit diesem Konto erscheint dein Haus auf jedem anderen Gerät, auch im <a href="#descargas">Browser</a>.',
+    'Wo du willst: hier im Web, in <a href="/cuenta">deinem Konto</a>, oder in der App für Android und iPhone. Es ist eine einmalige Zahlung, die in deinem Konto gespeichert wird — egal wo du kaufst, dein Haus erscheint auf allen deinen Geräten.',
   'faq.2.q': 'Was ist in der einmaligen Zahlung enthalten?',
   'faq.2.a':
     'Das ganze Haus: alle Räume, alle Apps und deine Daten auf deinem Gerät, für immer und ohne Verlängerungen. Dazu bringt der erste Monat 700 KI-Credits und die Sync mit, ohne Karte. Vor dem Kauf kannst du die komplette Demo testen, die kein Konto verlangt.',
@@ -103,10 +158,10 @@ export const TEXTOS = {
     'Du behältst die ganze App und all deine Daten auf deinen Geräten, im lokalen Modus. Du verlierst nur die monatlichen Credits und die Sync. Wenn du erneuerst, kommt alles genau so zurück, wie du es verlassen hast.',
   'faq.6.q': 'Wo werden meine Daten gespeichert?',
   'faq.6.a':
-    'Zuerst auf deinem Gerät (die App ist local-first) und, mit aktiver Sync, auch in der Cloud, damit sie von einem Gerät zum anderen kommen. Im lokalen Modus verlässt nichts dein Gerät. Den Kauf der App zieht der Store ein (Google Play oder App Store) und das Abo verarbeiten RevenueCat und Stripe: wir sehen deine Karte nie. Mehr Details in der <a href="/privacidad">Datenschutzerklärung</a>.',
+    'Zuerst auf deinem Gerät (die App ist local-first) und, mit aktiver Synchronisierung, auch in der Cloud, um von einem Gerät zum anderen zu wechseln. Im lokalen Modus verlässt nichts dein Gerät. Die Zahlungen wickeln RevenueCat und Stripe ab — oder der Store, wenn du vom Handy aus kaufst: Deine Karte sehen wir nie. Mehr dazu in der <a href="/privacidad">Datenschutzerklärung</a>.',
   'faq.7.q': 'Auf welchen Geräten läuft sie?',
   'faq.7.a':
-    'Heute: in jedem modernen Browser. Sehr bald: Android (Google Play), iPhone/iPad (App Store), Windows und macOS. Dein Konto gilt für alle — die App kaufst du einmal im Store und das KI-Abo schließt du hier im Web ab; beides funktioniert auf jedem Gerät, auf dem du dich mit deiner E-Mail anmeldest.',
+    'Heute: in jedem modernen Browser. Sehr bald: Android (Google Play), iPhone/iPad (App Store), Windows und macOS. Dein Konto gilt für alle: Du kaufst einmal, wo es dir passt, und sowohl das Haus als auch das KI-Abo funktionieren auf jedem Gerät, auf dem du dich mit deiner E-Mail anmeldest.',
   'faq.8.q': 'Wie kündige oder lösche ich mein Konto?',
   'faq.8.a':
     'Zum Kündigen der Abbuchung «Abo verwalten» in <a href="/cuenta">deinem Konto</a>. Zum Löschen deines Kontos und all deiner Daten von unseren Servern aus der App: Editor → Einstellungen → Konto.',
@@ -128,6 +183,10 @@ export const TEXTOS = {
     '<strong>Zahlungen:</strong> verarbeitet von RevenueCat und Stripe. Wir sehen und speichern deine Karte nie; wir erhalten nur den Status deines Kaufs und deines Abos.',
   'priv.datos.4':
     '<strong>KI-Nutzung:</strong> Zähler der verbrauchten Credits (nicht der Inhalt deiner Gespräche, der nur zum Erzeugen jeder Antwort an die KI-Anbieter geht und nicht zum Training verwendet wird).',
+  'priv.datos.5':
+    '<strong>Kamera und Mikrofon:</strong> nur wenn du sie einschaltest (AR-Maske, Foto für den Chat, Sprachdiktat). Die Maske wird auf deinem Gerät verarbeitet; das Audio des Diktats und die Fotos, die du an den Chat anhängst, gehen nur zum Erzeugen dieser Antwort an die KI-Anbieter.',
+  'priv.datos.6':
+    '<strong>Gesundheits- und Wohlbefindensdaten:</strong> was du zu Bewegung, Ernährung, Medikamenten, Arztterminen oder Zyklus einträgst, wird für dich wie alle anderen App-Daten gespeichert; es wird nie verkauft oder für Werbung genutzt.',
   'priv.uso.h': 'Wofür wir sie nutzen',
   'priv.uso.1': 'Dir Zugang zu deinem Konto, deinem Kauf und deinem Abo zu geben.',
   'priv.uso.2': 'Deine Daten zwischen Geräten zu synchronisieren und zu sichern.',
@@ -144,6 +203,8 @@ export const TEXTOS = {
   'priv.proveedores.1': 'Supabase (Datenbank, Authentifizierung und Dateien).',
   'priv.proveedores.2': 'RevenueCat und Stripe (Käufe, Abos und Zahlungen).',
   'priv.proveedores.3': 'Anthropic und Google (KI-Antworten und -Bilder, auf Anfrage).',
+  'priv.proveedores.4':
+    'OpenAI (Sprachtranskription und Bild-Fallback der KI, auf Anfrage).',
   'priv.cambios.h': 'Änderungen',
   'priv.cambios.p':
     'Wenn sich diese Erklärung ändert, veröffentlichen wir hier die neue Fassung mit ihrem Datum. Fragen beantworten wir unter der Kontaktadresse.',

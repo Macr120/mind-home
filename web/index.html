@@ -41,12 +41,42 @@
       </div>
     </header>
 
-    <div class="contenedor">
+    <!-- `recorrido`: cada sección entra desde un lado distinto (derecha, abajo,
+         izquierda, abajo…). Va en el contenedor de la página y no en el de la
+         barra, que necesita desbordarse para el menú de idiomas. -->
+    <div class="contenedor recorrido">
       <section class="hero aura">
         <h1>{{hero.h1}}</h1>
-        <p class="sub">{{hero.sub}}</p>
+        <!-- Los tres huecos rotan con CSS, sin JavaScript: los cuatro ejemplos de
+             cada uno están en el HTML (así los indexa Google y se leen aunque la
+             animación esté desactivada). Van sincronizados, de modo que la terna
+             siempre cuadra: cocina → nutrición → recetas. -->
+        <p class="sub con-huecos">
+          <span class="fijo">{{hero.sub.1}}</span>
+          <span class="rota">
+            <span>{{hero.sub.ej1.1}}</span>
+            <span>{{hero.sub.ej1.2}}</span>
+            <span>{{hero.sub.ej1.3}}</span>
+            <span>{{hero.sub.ej1.4}}</span>
+          </span>
+          <span class="fijo">{{hero.sub.2}}</span>
+          <span class="rota">
+            <span>{{hero.sub.ej2.1}}</span>
+            <span>{{hero.sub.ej2.2}}</span>
+            <span>{{hero.sub.ej2.3}}</span>
+            <span>{{hero.sub.ej2.4}}</span>
+          </span>
+          <span class="fijo">{{hero.sub.3}}</span>
+          <span class="rota">
+            <span>{{hero.sub.ej3.1}}</span>
+            <span>{{hero.sub.ej3.2}}</span>
+            <span>{{hero.sub.ej3.3}}</span>
+            <span>{{hero.sub.ej3.4}}</span>
+          </span>
+          <span class="fijo">{{hero.sub.4}}</span>
+        </p>
         <div class="acciones">
-          <a class="boton principal grande ui-boton ui-accent-bg" href="#descargas">
+          <a class="boton principal grande ui-boton ui-accent-bg" href="/cuenta">
             {{hero.cta}}
           </a>
           <a class="boton grande ui-boton" href="%VITE_URL_APP%/?demo=1">{{hero.demo}}</a>
@@ -54,12 +84,57 @@
         <p class="nota">{{hero.nota}}</p>
         <!-- TODO(usuario): sustituir por el video o capturas reales (web/public/). -->
         <div class="demo">{{hero.video}}</div>
+        <!-- Lo que trae la casa, en cifras. El número va aquí y no en el
+             catálogo: es el mismo en los 16 idiomas. -->
+        <ul class="cifras">
+          <li><b>17</b>{{cifras.apps}}</li>
+          <li><b>5</b>{{cifras.infra}}</li>
+          <li><b>2</b>{{cifras.ra}}</li>
+          <li><b>1</b>{{cifras.calendario}}</li>
+          <li><b>1</b>{{cifras.chat}}</li>
+        </ul>
+      </section>
+
+      <section id="como">
+        <h2>{{como.h2}}</h2>
+        <div class="piezas"></div>
+        <p class="sub-seccion">{{como.sub}}</p>
+        <!-- Los pasos van numerados porque SON una secuencia: sin casa no hay
+             cuarto, y sin cuarto no hay app que asignarle. -->
+        <ol class="pasos">
+          <li>
+            <h3>{{como.1.t}}</h3>
+            <p>{{como.1.p}}</p>
+          </li>
+          <li>
+            <h3>{{como.2.t}}</h3>
+            <p>{{como.2.p}}</p>
+          </li>
+          <li>
+            <h3>{{como.3.t}}</h3>
+            <p>{{como.3.p}}</p>
+          </li>
+        </ol>
       </section>
 
       <section id="caracteristicas">
         <h2>{{car.h2}}</h2>
         <div class="piezas"></div>
         <div class="tarjetas">
+          <!-- Las tres primeras son el argumento de compra: una sola app, que se
+               queda contigo y que sigue creciendo. -->
+          <div class="tarjeta">
+            <h3>🧩 {{car.todo.t}}</h3>
+            <p>{{car.todo.p}}</p>
+          </div>
+          <div class="tarjeta">
+            <h3>♾️ {{car.nocaduca.t}}</h3>
+            <p>{{car.nocaduca.p}}</p>
+          </div>
+          <div class="tarjeta">
+            <h3>🚀 {{car.nuevas.t}}</h3>
+            <p>{{car.nuevas.p}}</p>
+          </div>
           <div class="tarjeta">
             <h3>🏠 {{car.1.t}}</h3>
             <p>{{car.1.p}}</p>
@@ -87,6 +162,15 @@
         </div>
       </section>
 
+      <section id="manifiesto">
+        <div class="manifiesto">
+          <h2>{{mani.h2}}</h2>
+          <p>{{mani.p1}}</p>
+          <p>{{mani.p2}}</p>
+          <p class="remate">{{mani.cierre}}</p>
+        </div>
+      </section>
+
       <section id="precio">
         <h2>{{precio.h2}}</h2>
         <div class="piezas"></div>
@@ -104,13 +188,13 @@
           </div>
           <div class="precio-caja destacado">
             <h3 class="plan-nombre">{{precio.app.nombre}}</h3>
-            <div class="cifra">6.99 USD<small> {{precio.app.pagoUnico}}</small></div>
+            <div class="cifra">8.89 USD<small> {{precio.app.pagoUnico}}</small></div>
             <ul>
               <li>{{precio.app.1}}</li>
               <li>{{precio.app.2}}</li>
               <li>{{precio.app.3}}</li>
             </ul>
-            <a class="boton principal grande ui-boton ui-accent-bg" href="#descargas">
+            <a class="boton principal grande ui-boton ui-accent-bg" href="/cuenta">
               {{precio.app.cta}}
             </a>
             <p class="letra-chica">{{precio.app.pie}}</p>

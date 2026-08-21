@@ -11,22 +11,69 @@ export const TEXTOS = {
   'pie.contacto': 'Kontak',
   'tema.boton': 'Mode terang atau gelap',
 
-  'meta.titulo': 'Mind Planner Home — Hidupmu, dalam sebuah rumah 3D',
+  'meta.titulo': 'Mind Planner Home — Pikiranmu, dalam sebuah rumah 3D',
   'meta.desc':
     'Atur kebiasaan, target, keuangan, makanan, dan lainnya di rumah isometrik 3D tempat setiap ruangan adalah sebuah aplikasi. Sekali bayar 6,99 USD, bulan pertama sudah termasuk AI dan sinkronisasi; demo gratis.',
   'og.desc':
     'Hidupmu dalam rumah 3D: kebiasaan, target, keuangan, makanan, dan lainnya. Sekali bayar 6,99 USD, bulan pertama termasuk AI; demo gratis.',
 
-  'hero.h1': 'Seluruh hidupmu,<br />dalam sebuah rumah 3D',
-  'hero.sub':
-    'Setiap ruangan rumahmu adalah sebuah aplikasi: olahraga, makanan, keuangan, tidur, bahasa, hobi, target… Satu tempat saja, dengan asisten AI yang menemanimu dan kemajuanmu tersinkron di semua perangkat.',
+  'hero.h1': 'Pikiranmu,<br />dalam sebuah rumah 3D',
+  // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
+  // terna tiene que cuadrar en orden (cocina → nutrición → recetas), y los
+  // ejemplos de un mismo hueco convienen parecidos de largo (se queda con el
+  // ancho del más largo). Un trozo fijo puede ir vacío si el idioma lo pide.
+  'hero.sub.1': 'Sebuah ruang tempat kamu membangun rumah dengan menyisipkan',
+  'hero.sub.ej1.1': 'dapur atau kebun sayur',
+  'hero.sub.ej1.2': 'ruang kerja atau lapangan',
+  'hero.sub.ej1.3': 'perpustakaan atau sirkuit',
+  'hero.sub.ej1.4': 'taman atau peternakan',
+  'hero.sub.2': 'dan di tiap ruangan kamu pasang satu aplikasi utuh, misalnya untuk',
+  'hero.sub.ej2.1': 'nutrisi',
+  'hero.sub.ej2.2': 'keuangan',
+  'hero.sub.ej2.3': 'belajar',
+  'hero.sub.ej2.4': 'ketenangan',
+  'hero.sub.3': 'untuk mengarsipkan, merencanakan, atau menciptakan',
+  'hero.sub.ej3.1': 'makanan, makro, dan resepmu',
+  'hero.sub.ej3.2': 'anggaran dan target tabunganmu',
+  'hero.sub.ej3.3': 'catatan dan sesi belajarmu',
+  'hero.sub.ej3.4': 'meditasi dan rasa syukurmu',
+  'hero.sub.4':
+    'sepenuhnya manual atau dibantu AI. Dan semuanya terhubung ke satu kalender, satu sistem misi harian, dan target pribadimu — tersinkron di ponsel dan komputermu.',
   'hero.cta': 'Unduh aplikasinya',
   'hero.demo': 'Coba demo gratis',
   'hero.nota':
     'Aplikasinya dibeli sekali di toko perangkatmu dan jalan tanpa koneksi. AI dan sinkronisasi bersifat opsional — kalau kamu tinggalkan pun, tidak ada yang hilang.',
   'hero.video': 'Di sini videomu atau tangkapan layar rumahnya',
 
+  // Lo que trae la casa, en cifras (el número lo pone el HTML).
+  'cifras.apps': 'aplikasi',
+  'cifras.infra': 'bangunan luar',
+  'cifras.ra': 'aplikasi AR',
+  'cifras.calendario': 'kalender',
+  'cifras.chat': 'obrolan',
+
+  'como.h2': 'Cara kerjanya',
+  'como.sub': 'Sebuah ruang tempat kamu membangun rumah, lalu memasukkan hidupmu ke dalamnya.',
+  'como.1.t': 'Kamu membangun rumahnya',
+  'como.1.p':
+    'Kamu menyisipkan ruangan, lantai, bahkan ruang bawah tanah, dan di sekelilingnya apa pun yang dibangun di luar: kebun, peternakan, lapangan, sirkuit balap. Dinding, warna, perabot, dan avatarmu — semuanya kamu yang pilih.',
+  'como.2.t': 'Setiap ruangan adalah satu aplikasi utuh',
+  'como.2.p':
+    'Kamu menugaskan salah satu dari 17 aplikasi — nutrisi, olahraga, tidur, keuangan, perpustakaan, bahasa, ide, agenda, perjalanan, hobi, target… — atau membuat aplikasimu sendiri. Dengannya kamu mengarsipkan yang sudah kamu jalani, merencanakan yang akan datang, dan menciptakan yang belum ada: rutinitas, resep, anggaran, catatan, peta pikiran, dan jadwal. Semuanya manual, atau ditemani AI.',
+  'como.3.t': 'Semuanya jatuh di tempat yang sama',
+  'como.3.p':
+    '17 aplikasi itu berbagi satu kalender, satu daftar misi harian, dan target pribadimu. Dan seluruh rumahmu mengikutimu dari ponsel ke komputer.',
+
   'car.h2': 'Satu rumah, banyak aplikasi',
+  // Las tres primeras tarjetas: el argumento de compra.
+  'car.todo.t': 'Benar-benar semua dalam satu',
+  'car.todo.p':
+    'Satu aplikasi, bukan dua puluh: makan, uang, tidur, belajar, kebiasaan, dan target di bawah satu atap — dan saling terhubung, hal yang tak bisa dilakukan aplikasi terpisah.',
+  'car.nocaduca.t': 'Tidak mati saat kamu berhenti bayar',
+  'car.nocaduca.p':
+    'Beli sekali, jadi milikmu. Aplikasi langganan mati begitu kamu berhenti membayar; di sini, kalau kamu tinggalkan AI-nya, seluruh rumah dan semua datamu tetap ada di perangkatmu.',
+  'car.nuevas.t': 'Pembaruan baru',
+  'car.nuevas.p': 'Rumahnya terus tumbuh: ruangan, aplikasi, dan perbaikan yang datang tanpa bayar lagi.',
   'car.1.t': 'Ruangan yang berupa aplikasi',
   'car.1.p':
     'Olahraga, dapur, keuangan, tidur, perpustakaan, bahasa, perjalanan, hobi, mindfulness, dan lainnya: setiap ruangan menyimpan satu mini-aplikasi yang utuh.',
@@ -46,6 +93,14 @@ export const TEXTOS = {
   'car.6.p':
     'Aplikasinya local-first: semuanya hidup lebih dulu di perangkatmu. Kalau berhenti berlangganan, datamu tidak hilang — kamu lanjut di mode lokal.',
 
+
+  'mani.h2': 'Hidupmu, dijadikan video game',
+  'mani.p1':
+    'MPH adalah hidupmu yang diubah menjadi video game, dimainkan dari tempat ternyaman yang ada: rumahmu sendiri. Naik level dan naik pangkat bukan hiasan — itu yang kamu lakukan di luar sana, diceritakan di dalam sini.',
+  'mani.p2':
+    'Di sini kamu menumbuhkan kemampuan baru, memegang kendali atas sumber dayamu, dan menaruh teknologi di pihakmu. Melawan konsumsi tak sadar format pendek. Melawan kemerosotan kognitif yang ditinggalkan kebiasaan konsumsi yang dipaksakan korporasi besar.',
+  'mani.cierre': 'Dopamin yang sama. Kali ini untuk hidupmu yang nyata.',
+
   'precio.h2': 'Sekali bayar di toko, rumahmu selamanya',
   'precio.demo.nombre': 'Demo',
   'precio.demo.cifra': 'Gratis',
@@ -61,27 +116,27 @@ export const TEXTOS = {
     'Bulan pertama termasuk: 700 kredit AI + sinkronisasi, tanpa kartu dan tanpa langganan',
   'precio.app.3':
     'Setelah bulan itu berakhir, seluruh aplikasi dan datamu tetap milikmu; kredit AI opsional',
-  'precio.app.cta': 'Lihat di mana mengunduhnya',
+  'precio.app.cta': 'Beli rumah',
   'precio.app.pie':
-    'Dibeli di Google Play atau App Store, dan dengan akunmu bisa dibuka di browser juga. Sekali bayar, tanpa perpanjangan.',
+    'Beli langsung di sini, tanpa lewat toko mana pun, atau di dalam aplikasi di ponselmu. Sekali bayar, tanpa perpanjangan, dan berlaku di semua perangkatmu.',
 
   'ia.t': 'AI dan sinkronisasi · opsional',
   'ia.precios':
     '6 USD per bulan<span>·</span>60 USD per tahun<span>·</span>atau 6 USD untuk 700 kredit satuan',
   'ia.p':
-    'Hanya kalau kamu ingin melanjutkan AI dan sinkronisasi setelah bulan pertamamu habis. Yang ini memang dibeli di sini, di web, dan berlaku untuk semua perangkatmu. Tanpa ikatan: kalau berhenti, aplikasi dan seluruh datamu tetap ada dalam mode lokal.',
+    'Hanya kalau kamu ingin melanjutkan AI dan sinkronisasi setelah bulan pertama berakhir. Bisa diambil di sini atau di dalam aplikasi, dan berlaku untuk semua perangkatmu. Tanpa ikatan: kalau berhenti, aplikasi dan semua datamu tetap ada dalam mode lokal.',
   'ia.cta': 'Lihat paketnya →',
 
   'desc.h2': 'Unduh aplikasinya',
   'desc.sub':
-    'Aplikasinya dibeli di toko perangkatmu. Saat membukanya kamu mendaftarkan emailmu, dan akun yang sama mengembalikan rumahmu di mana pun — termasuk di browser.',
+    'Unduh gratis lalu beli rumahnya di dalam aplikasi — atau di sini, di web. Dengan akunmu, rumahmu muncul di mana pun, termasuk di peramban.',
   'desc.pronto': 'Segera hadir',
-  'desc.android': 'Di Google Play, 6,99 USD.',
+  'desc.android': 'Gratis di Google Play. Rumahnya dibeli di dalam.',
   'desc.ios.t': 'iPhone dan iPad',
-  'desc.ios': 'Di App Store, 6,99 USD.',
+  'desc.ios': 'Gratis di App Store. Rumahnya dibeli di dalam.',
   'desc.web.t': 'Di browsermu',
   'desc.web':
-    'Tanpa memasang apa pun: masuk dengan akun yang kamu pakai membeli aplikasinya, dan rumahmu sudah menunggu. Tanpa akun kamu bisa mencoba demonya.',
+    'Tanpa memasang apa pun: masuk dengan akunmu dan rumahmu sudah menunggu. Tanpa akun kamu bisa mencoba demo.',
   'desc.web.cta': 'Buka aplikasinya',
   'desc.windows': 'Penginstal untuk Windows 10/11.',
   'desc.mac': 'Image .dmg untuk Mac.',
@@ -89,7 +144,7 @@ export const TEXTOS = {
   'faq.h2': 'Pertanyaan yang sering diajukan',
   'faq.1.q': 'Di mana aplikasinya dibeli?',
   'faq.1.a':
-    'Di toko perangkatmu: Google Play atau App Store. Di web ini tidak dijual — yang dibayar di halaman ini hanyalah langganan AI dan isi ulang kredit. Saat membuka aplikasinya kamu mendaftarkan emailmu, dan dengan akun itu rumahmu muncul di perangkat mana pun, termasuk di <a href="#descargas">browser</a>.',
+    'Di mana pun kamu mau: di sini di web, lewat <a href="/cuenta">akunmu</a>, atau di dalam aplikasi Android dan iPhone. Ini pembayaran sekali yang tersimpan di akunmu, jadi di mana pun membelinya, rumahmu muncul di semua perangkatmu.',
   'faq.2.q': 'Apa saja yang termasuk dalam sekali bayar?',
   'faq.2.a':
     'Rumah seutuhnya: semua ruangan, semua aplikasi, dan datamu di perangkatmu, selamanya dan tanpa perpanjangan. Selain itu, bulan pertama membawa 700 kredit AI dan sinkronisasi, tanpa kartu. Sebelum membelinya kamu bisa mencoba demo lengkap yang tidak meminta akun.',
@@ -104,10 +159,10 @@ export const TEXTOS = {
     'Seluruh aplikasi dan semua datamu tetap ada di perangkatmu, dalam mode lokal. Yang hilang hanya kredit bulanan dan sinkronisasi. Kalau berlangganan lagi, semuanya kembali persis seperti kamu tinggalkan.',
   'faq.6.q': 'Di mana data saya disimpan?',
   'faq.6.a':
-    'Pertama di perangkatmu (aplikasinya local-first) dan, dengan sinkronisasi aktif, juga di cloud supaya bisa berpindah dari satu perangkat ke perangkat lain. Dalam mode lokal tidak ada yang keluar dari perangkatmu. Pembelian aplikasinya ditagih oleh toko (Google Play atau App Store) dan langganannya diproses RevenueCat dan Stripe: kami tidak pernah melihat kartumu. Rinciannya di <a href="/privacidad">kebijakan privasi</a>.',
+    'Pertama di perangkatmu (aplikasi ini local-first) dan, dengan sinkronisasi aktif, juga di awan agar bisa berpindah perangkat. Dalam mode lokal tidak ada yang keluar dari perangkatmu. Pembayaran diproses RevenueCat dan Stripe — atau tokonya, kalau kamu membeli dari ponsel: kami tidak pernah melihat kartumu. Selengkapnya di <a href="/privacidad">kebijakan privasi</a>.',
   'faq.7.q': 'Di perangkat apa saja ini jalan?',
   'faq.7.a':
-    'Hari ini: di browser modern mana pun. Segera: Android (Google Play), iPhone/iPad (App Store), Windows, dan macOS. Akunmu berlaku untuk semuanya — aplikasinya kamu beli sekali di toko dan langganan AI diambil di sini, di web; keduanya jalan di perangkat mana pun tempat kamu masuk dengan emailmu.',
+    'Hari ini: di peramban modern mana pun. Segera: Android (Google Play), iPhone/iPad (App Store), Windows, dan macOS. Akunmu berlaku di semuanya: beli sekali, dari mana saja yang nyaman, dan rumah maupun langganan AI berfungsi di perangkat mana pun tempat kamu masuk dengan emailmu.',
   'faq.8.q': 'Bagaimana cara berhenti berlangganan atau menghapus akun?',
   'faq.8.a':
     'Untuk menghentikan penagihan, «Kelola langganan» di <a href="/cuenta">akunmu</a>. Untuk menghapus akunmu dan seluruh datamu dari server kami, lewat aplikasi: Editor → Pengaturan → Akun.',
@@ -129,6 +184,10 @@ export const TEXTOS = {
     '<strong>Pembayaran:</strong> diproses oleh RevenueCat dan Stripe. Kami tidak pernah melihat atau menyimpan kartumu; kami hanya menerima status pembelian dan langgananmu.',
   'priv.datos.4':
     '<strong>Penggunaan AI:</strong> penghitung kredit yang terpakai (bukan isi percakapanmu, yang dikirim ke penyedia AI semata untuk membuat setiap jawaban dan tidak dipakai untuk pelatihan).',
+  'priv.datos.5':
+    '<strong>Kamera dan mikrofon:</strong> hanya saat kamu menyalakannya (masker AR, foto untuk chat, dikte suara). Masker diproses di perangkatmu; audio dikte dan foto yang kamu lampirkan ke chat dikirim ke penyedia AI semata untuk membuat jawaban itu.',
+  'priv.datos.6':
+    '<strong>Data kesehatan dan kesejahteraan:</strong> apa yang kamu catat tentang olahraga, makan, obat, janji medis, atau siklus disimpan untukmu seperti data aplikasi lainnya; tidak pernah dijual atau dipakai untuk iklan.',
   'priv.uso.h': 'Untuk apa kami memakainya',
   'priv.uso.1': 'Memberimu akses ke akun, pembelian, dan langgananmu.',
   'priv.uso.2': 'Menyinkronkan datamu antar perangkat dan mencadangkannya.',
@@ -144,6 +203,8 @@ export const TEXTOS = {
   'priv.proveedores.1': 'Supabase (basis data, autentikasi, dan berkas).',
   'priv.proveedores.2': 'RevenueCat dan Stripe (pembelian, langganan, dan pembayaran).',
   'priv.proveedores.3': 'Anthropic dan Google (jawaban dan gambar AI, sesuai permintaan).',
+  'priv.proveedores.4':
+    'OpenAI (transkripsi suara dan gambar cadangan AI, sesuai permintaan).',
   'priv.cambios.h': 'Perubahan',
   'priv.cambios.p':
     'Kalau kebijakan ini berubah, kami akan menerbitkan versi barunya di sini beserta tanggalnya. Pertanyaan dijawab lewat email kontak.',

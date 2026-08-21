@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useT } from '../i18n/useT'
 import { useAvisoDemo, useAvisoRenovar, useCuotaAgotada } from '../state/avisosPlanStore'
-import { esEscritorio, puedeMostrarPagos } from '../plataforma'
+import { canalPago } from '../plataforma'
 import {
   hayPagos,
   obtenerNiveles,
@@ -24,7 +24,10 @@ import { FormularioAcceso } from './editor/EditorCuentaSection'
  *   salir. Tiene tres caras según el plan — nunca pagó, Pro sin créditos del
  *   mes, o suscripción vencida.
  * - AvisoRenovar: respaldo del 403 'sin-pro' (solo si el SQL viejo sigue vivo).
- * En apps de tienda (Android/iOS) ninguno menciona compras ni enlaza fuera.
+ *
+ * Todos venden dentro de la app, por la caja de la plataforma (`canalPago()`).
+ * En las apps de tienda la compra es in-app y NUNCA se pinta un enlace de pago
+ * externo: Apple lo prohíbe y es motivo de rechazo.
  */
 export function AvisosPlan() {
   return (
@@ -64,7 +67,9 @@ function AvisoRenovar() {
         )}
       </p>
       <div className="space-y-1.5 pt-1">
-        {puedeMostrarPagos() && urlWeb && (
+        {/* En la tienda no se enlaza fuera: allí se renueva desde el modal de
+            cuota o desde Editor › Cuenta, con compra in-app. */}
+        {canalPago() !== 'iap' && urlWeb && (
           <a
             href={`${urlWeb}/cuenta`}
             target="_blank"
@@ -141,9 +146,14 @@ function CuotaAgotada() {
   const [ocupado, setOcupado] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  // El cambio de nivel se hace dentro de la app SOLO en web y con sesión: en
-  // Electron el checkout va al navegador (enlace) y en tiendas ni se ofrece.
-  const compraEmbebida = !!usuario && puedeMostrarPagos() && !esEscritorio() && hayPagos()
+  // Se compra dentro de la app en todas partes menos en el escritorio, donde
+  // el checkout se abre en el navegador. Exige sesión: la compra se ata a la
+  // cuenta, que es lo que la lleva a los demás dispositivos.
+  const canal = canalPago()
+  const compraEmbebida = !!usuario && canal !== 'escritorio' && hayPagos()
+  // El enlace a la web es el plan B del escritorio (y de un build sin claves);
+  // en la tienda no se pinta jamás.
+  const enlaceWeb = canal !== 'iap' && !compraEmbebida && !!urlWeb
 
   useEffect(() => {
     if (!abierto || !compraEmbebida) return
@@ -260,9 +270,11 @@ function CuotaAgotada() {
             'La app y tus datos son tuyos sin pagar nada. Solo la IA se cobra: suscríbete y recibe créditos cada mes.',
           )
 
-  // Solo se ofrecen los niveles por encima del actual: bajar de nivel a mitad
-  // de mes con la cuota agotada no arreglaría nada.
-  const superiores = pro ? niveles.filter((n) => n.nivel > nivelActual) : []
+  // Con Pro solo se ofrecen los niveles por encima del actual: bajar de nivel a
+  // mitad de mes con la cuota agotada no arreglaría nada. Sin Pro se ofrecen
+  // todos —es la primera suscripción—, y así también se vende en la tienda,
+  // donde no hay enlace a la web que ofrecerle.
+  const superiores = pro ? niveles.filter((n) => n.nivel > nivelActual) : niveles
 
   const alSubir = async (oferta: OfertaPro) => {
     if (ocupado) return
@@ -303,17 +315,23 @@ function CuotaAgotada() {
         {compraEmbebida &&
           superiores.map((n) => (
             <button
-              key={n.paquete.identifier}
+              key={n.id}
               type="button"
               onClick={() => void alSubir(n)}
               disabled={ocupado}
               className="ui-accent-bg w-full rounded-md px-2 py-1.5 text-xs font-bold transition disabled:opacity-50"
             >
-              {t('cuenta.nivel.subir', 'Subir a ×{n} — {c} créditos al mes por {p}', {
-                n: n.nivel,
-                c: n.creditos,
-                p: n.precio,
-              })}
+              {pro
+                ? t('cuenta.nivel.subir', 'Subir a ×{n} — {c} créditos al mes por {p}', {
+                    n: n.nivel,
+                    c: n.creditos,
+                    p: n.precio,
+                  })
+                : t('cuenta.nivel.contratar', 'Nivel ×{n} — {c} créditos al mes por {p}', {
+                    n: n.nivel,
+                    c: n.creditos,
+                    p: n.precio,
+                  })}
             </button>
           ))}
         {compraEmbebida && creditos && (
@@ -330,7 +348,7 @@ function CuotaAgotada() {
           </button>
         )}
         {/* Sin compra embebida (escritorio, sin sesión) el checkout vive en la web. */}
-        {puedeMostrarPagos() && !compraEmbebida && urlWeb && (
+        {enlaceWeb && (
           <a
             href={`${urlWeb}/cuenta`}
             target="_blank"
@@ -341,7 +359,7 @@ function CuotaAgotada() {
           </a>
         )}
         {/* Al que nunca pagó se le ofrece además el plan: sale más barato por crédito. */}
-        {!pro && puedeMostrarPagos() && urlWeb && (
+        {!pro && enlaceWeb && (
           <a
             href={urlWeb}
             target="_blank"
@@ -353,8 +371,9 @@ function CuotaAgotada() {
               : t('cuenta.cuota.suscribirse', 'Ver la suscripción')}
           </a>
         )}
-        {/* En tiendas no se menciona ni precio ni enlace: modelo solo-consumo. */}
-        {!puedeMostrarPagos() && (
+        {/* Tienda sin caja configurada (falta la clave de RevenueCat en el
+            build): no hay nada que ofrecer y tampoco se enlaza fuera. */}
+        {canal === 'iap' && !compraEmbebida && (
           <p className="text-[11px] leading-snug text-white/45">
             {t('cuenta.cuota.nativo', 'Los créditos se gestionan desde tu cuenta.')}
           </p>

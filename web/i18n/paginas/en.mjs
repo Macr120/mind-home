@@ -11,22 +11,69 @@ export const TEXTOS = {
   'pie.contacto': 'Contact',
   'tema.boton': 'Light or dark mode',
 
-  'meta.titulo': 'Mind Planner Home — Your whole life, in a 3D house',
+  'meta.titulo': 'Mind Planner Home — Your mind, in a 3D house',
   'meta.desc':
     'Organise your habits, goals, finances, meals and more in an isometric 3D house where every room is an app. One payment of USD 6.99 with the first month of AI and sync included; free demo.',
   'og.desc':
     'Your life, in a 3D house: habits, goals, finances, meals and more. One payment of USD 6.99 with the first month of AI included; free demo.',
 
-  'hero.h1': 'Your whole life,<br />in a 3D house',
-  'hero.sub':
-    'Every room of your house is an app: exercise, meals, finances, sleep, languages, hobbies, goals… One single place, with an AI assistant alongside you and your progress synced across all your devices.',
+  'hero.h1': 'Your mind,<br />in a 3D house',
+  // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
+  // terna tiene que cuadrar en orden (cocina → nutrición → recetas), y los
+  // ejemplos de un mismo hueco convienen parecidos de largo (se queda con el
+  // ancho del más largo). Un trozo fijo puede ir vacío si el idioma lo pide.
+  'hero.sub.1': 'It’s a space where you build a house by dropping in',
+  'hero.sub.ej1.1': 'a kitchen or a vegetable patch',
+  'hero.sub.ej1.2': 'an office or a sports court',
+  'hero.sub.ej1.3': 'a library or a race track',
+  'hero.sub.ej1.4': 'a garden or a farm',
+  'hero.sub.2': 'and into every room you fit a complete app, like the one for',
+  'hero.sub.ej2.1': 'nutrition',
+  'hero.sub.ej2.2': 'finances',
+  'hero.sub.ej2.3': 'learning',
+  'hero.sub.ej2.4': 'calm',
+  'hero.sub.3': 'to file, plan or create your',
+  'hero.sub.ej3.1': 'meals, macros and recipes',
+  'hero.sub.ej3.2': 'budgets and savings goals',
+  'hero.sub.ej3.3': 'notes and study sessions',
+  'hero.sub.ej3.4': 'meditations and gratitude',
+  'hero.sub.4':
+    'either entirely by hand or with the AI helping. And they all run on one calendar, one daily mission list and your own personal goals, synced on your phone and your computer.',
   'hero.cta': 'Get the app',
   'hero.demo': 'Try the free demo',
   'hero.nota':
     'The app is bought once in your device’s store and works offline. AI and sync are optional — and if you drop them, you lose nothing.',
   'hero.video': 'Your video or screenshots of the house go here',
 
+  // Lo que trae la casa, en cifras (el número lo pone el HTML).
+  'cifras.apps': 'apps',
+  'cifras.infra': 'outdoor builds',
+  'cifras.ra': 'AR apps',
+  'cifras.calendario': 'calendar',
+  'cifras.chat': 'chat',
+
+  'como.h2': 'How it works',
+  'como.sub': 'A place where you build your house and then move your life into it.',
+  'como.1.t': 'You build the house',
+  'como.1.p':
+    'You drop in rooms, floors, even a basement, and around them everything you build outdoors: vegetable patch, farm, sports courts, race tracks. The walls, the colors, the furniture and your avatar are all your call.',
+  'como.2.t': 'Every room is a complete app',
+  'como.2.p':
+    'You assign it one of the 17 apps — nutrition, exercise, sleep, finances, library, languages, ideas, planner, travel, hobbies, goals… — or you build your own. With them you file what you have already lived, plan what is coming and create what does not exist yet: routines, recipes, budgets, notes, mind maps and schedules. All by hand, or with the AI beside you.',
+  'como.3.t': 'It all lands in the same place',
+  'como.3.p':
+    'The 17 apps share one calendar, one list of daily missions and your own personal goals. And your whole house follows you from phone to computer.',
+
   'car.h2': 'One house, many apps',
+  // Las tres primeras tarjetas: el argumento de compra.
+  'car.todo.t': 'All in one, for real',
+  'car.todo.p':
+    'One app instead of twenty: food, money, sleep, study, habits and goals under the same roof — and talking to each other, which is exactly what no separate app can do.',
+  'car.nocaduca.t': 'It doesn’t expire when you stop paying',
+  'car.nocaduca.p':
+    'You buy it once and it’s yours. Subscription apps switch off the moment you stop paying; here, if you drop the AI, you keep the whole house and all your data on your device.',
+  'car.nuevas.t': 'New updates',
+  'car.nuevas.p': 'The house keeps growing: rooms, apps and improvements that arrive without paying again.',
   'car.1.t': 'Rooms that are apps',
   'car.1.p':
     'Exercise, kitchen, finances, sleep, library, languages, travel, hobbies, mindfulness and more: every room holds a complete mini-app.',
@@ -46,6 +93,14 @@ export const TEXTOS = {
   'car.6.p':
     'The app is local-first: everything lives on your device first. If you cancel, you do not lose your data — you carry on in local mode.',
 
+
+  'mani.h2': 'Your life, turned into a video game',
+  'mani.p1':
+    'MPH is your life rendered as a video game, played from the most comfortable place there is: your own house. Leveling up and earning ranks is not decoration — it is what you did out there, told in here.',
+  'mani.p2':
+    'Here you grow new skills, keep control of your resources and put technology on your side. Against the mindless consumption of short-form content. Against the cognitive decay left behind by the consumption habits that big corporations impose on us.',
+  'mani.cierre': 'The same dopamine. This time, for your real life.',
+
   'precio.h2': 'One payment in the store, your house forever',
   'precio.demo.nombre': 'Demo',
   'precio.demo.cifra': 'Free',
@@ -60,27 +115,27 @@ export const TEXTOS = {
   'precio.app.2': 'First month included: 700 AI credits + sync, no card and no subscription',
   'precio.app.3':
     'When the month ends you keep the whole app and your data; the AI credits are optional',
-  'precio.app.cta': 'See where to download it',
+  'precio.app.cta': 'Buy the house',
   'precio.app.pie':
-    'Bought on Google Play or the App Store, and with your account you can open it in the browser too. One payment, no renewals.',
+    'Buy it right here, with no store in between, or inside the app on your phone. One payment, no renewals, and it works on all your devices.',
 
   'ia.t': 'AI and sync · optional',
   'ia.precios':
     'USD 6 a month<span>·</span>USD 60 a year<span>·</span>or USD 6 for 700 one-off credits',
   'ia.p':
-    'Only if you want to carry on with AI and sync once your first month is over. This part is bought here, on the web, and it works on all your devices. No lock-in: if you drop it, you keep the app and all your data in local mode.',
+    'Only if you want to carry on with AI and sync once your first month ends. You can take it here or inside the app, and it works on all your devices. No lock-in: if you stop, you keep the app and all your data in local mode.',
   'ia.cta': 'See the plans →',
 
   'desc.h2': 'Get the app',
   'desc.sub':
-    'The app is bought in your device’s store. When you open it you register your email, and that same account hands your house back anywhere else — the browser included.',
+    'Download it free and buy the house inside the app — or here on the web. With your account, your house shows up anywhere else, browser included.',
   'desc.pronto': 'Coming soon',
-  'desc.android': 'On Google Play, USD 6.99.',
+  'desc.android': 'Free on Google Play. The house is bought inside.',
   'desc.ios.t': 'iPhone and iPad',
-  'desc.ios': 'On the App Store, USD 6.99.',
+  'desc.ios': 'Free on the App Store. The house is bought inside.',
   'desc.web.t': 'In your browser',
   'desc.web':
-    'Nothing to install: sign in with the account you bought the app with and your house is waiting. Without an account you can try the demo.',
+    'Nothing to install: sign in with your account and your house is waiting. Without an account you can try the demo.',
   'desc.web.cta': 'Open the app',
   'desc.windows': 'Installer for Windows 10/11.',
   'desc.mac': '.dmg image for Mac.',
@@ -88,7 +143,7 @@ export const TEXTOS = {
   'faq.h2': 'Frequently asked questions',
   'faq.1.q': 'Where do I buy the app?',
   'faq.1.a':
-    'In your device’s store: Google Play or the App Store. It is not sold here on the web — the only things paid for on this page are the AI subscription and credit top-ups. When you open the app you register your email, and with that account your house shows up on any other device, the <a href="#descargas">browser</a> included.',
+    'Wherever you prefer: here on the web, from <a href="/cuenta">your account</a>, or inside the Android and iPhone app. It is a one-off payment stored in your account, so wherever you buy it, your house shows up on all your devices.',
   'faq.2.q': 'What does the one-off payment include?',
   'faq.2.a':
     'The whole house: every room, every app and your data on your device, forever and with no renewals. On top of that, the first month brings 700 AI credits and sync included, with no card. Before buying it you can try the full demo, which asks for no account.',
@@ -103,10 +158,10 @@ export const TEXTOS = {
     'You keep the whole app and all your data on your devices, in local mode. All you lose are the monthly credits and sync. If you renew, everything comes back exactly as you left it.',
   'faq.6.q': 'Where is my data stored?',
   'faq.6.a':
-    'On your device first (the app is local-first) and, with sync on, in the cloud as well so it can move from one device to another. In local mode nothing leaves your device. The app purchase is charged by the store (Google Play or App Store) and the subscription is processed by RevenueCat and Stripe: we never see your card. More detail in the <a href="/privacidad">privacy policy</a>.',
+    'On your device first (the app is local-first) and, with sync on, in the cloud as well so it can move from one device to another. In local mode nothing leaves your device. Payments are processed by RevenueCat and Stripe — or by the store, if you buy from your phone: we never see your card. More detail in the <a href="/privacidad">privacy policy</a>.',
   'faq.7.q': 'Which devices does it work on?',
   'faq.7.a':
-    'Today: any modern browser. Very soon: Android (Google Play), iPhone/iPad (App Store), Windows and macOS. Your account works on all of them — you buy the app once in the store and the AI subscription is taken out here on the web; both work on any device you sign in to with your email.',
+    'Today: any modern browser. Very soon: Android (Google Play), iPhone/iPad (App Store), Windows and macOS. Your account works everywhere: you buy once, wherever suits you, and both the house and the AI subscription work on any device you sign in to with your email.',
   'faq.8.q': 'How do I cancel or delete my account?',
   'faq.8.a':
     'To cancel the charge, “Manage subscription” in <a href="/cuenta">your account</a>. To delete your account and all your data from our servers, from the app: Editor → Settings → Account.',
@@ -128,6 +183,10 @@ export const TEXTOS = {
     '<strong>Payments:</strong> processed by RevenueCat and Stripe. We never see or store your card; we only receive the status of your purchase and your subscription.',
   'priv.datos.4':
     '<strong>AI usage:</strong> counters of credits consumed (not the content of your conversations, which is sent to the AI providers solely to generate each reply and is not used for training).',
+  'priv.datos.5':
+    '<strong>Camera and microphone:</strong> only when you turn them on (AR mask, chat photo, voice dictation). The mask is processed on your device; the dictation audio and the photos you attach to the chat are sent to the AI providers solely to generate that reply.',
+  'priv.datos.6':
+    '<strong>Health and wellbeing data:</strong> whatever you record about exercise, meals, medications, medical appointments or cycle is stored for you like any other app data; it is never sold or used for advertising.',
   'priv.uso.h': 'What we use it for',
   'priv.uso.1': 'Giving you access to your account, your purchase and your subscription.',
   'priv.uso.2': 'Syncing your data between devices and backing it up.',
@@ -143,6 +202,8 @@ export const TEXTOS = {
   'priv.proveedores.1': 'Supabase (database, authentication and files).',
   'priv.proveedores.2': 'RevenueCat and Stripe (purchases, subscriptions and payments).',
   'priv.proveedores.3': 'Anthropic and Google (AI replies and images, on demand).',
+  'priv.proveedores.4':
+    'OpenAI (voice transcription and AI image fallback, on demand).',
   'priv.cambios.h': 'Changes',
   'priv.cambios.p':
     'If this policy changes, we will publish the new version here with its date. Questions are answered at the contact address.',

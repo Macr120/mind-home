@@ -1,28 +1,32 @@
 /**
- * Modelo de negocio (ago 2026): la APP se compra en las tiendas, la IA se paga
- * en la web. Dos cajas distintas, cada una donde le toca.
+ * Modelo de negocio (ago 2026): TODO se compra dentro de la app, en cualquier
+ * plataforma. Lo que cambia es la caja (`canalPago()` en `plataforma.ts`):
+ * compra in-app en Android e iOS —obligatorio por sus normativas— y cobro
+ * directo, sin comisión, en el navegador y en el escritorio.
  *
- * El flujo canónico es: comprar la app (Google Play / App Store) → registrar el
- * correo → bienvenida. La compra la cobra y la garantiza la tienda: instalada
- * = pagada, así que la app nativa nunca pide precio, solo cuenta.
+ * Se paga UNA vez por cuenta, no por dispositivo: la compra vive en `perfiles`
+ * (la escribe el webhook de RevenueCat, que recibe igual a las tres cajas), así
+ * que comprar en el móvil abre la casa en el navegador y al revés.
+ *
+ * El flujo canónico es: instalar → registrar el correo → comprar la casa →
+ * bienvenida.
  *
  * - **Demo** (gratis, sin cuenta): la casa de Pep@, no persistente. Es la única
  *   vía gratuita; la puerta (`PuertaUnlock`) ofrece entrar aquí.
  * - **Cuenta** (obligatoria): sin correo registrado no se abre la casa propia.
- *   Es lo que ata la compra de la tienda a la persona y lo que deja seguir en
- *   otro dispositivo (incluido el navegador).
- * - **Unlock** (`tieneUnlock()`): la cuenta tiene la app. Lo concede el alta de
- *   tienda al registrarse desde la app nativa (`alta-tienda`) o un cupón, e
+ *   Es lo que ata la compra a la persona y lo que deja seguir en otro
+ *   dispositivo.
+ * - **Unlock** (`tieneUnlock()`): la cuenta compró la casa. Lo concede el
+ *   webhook al recibir la compra —de la tienda o de la web— o un cupón, e
  *   incluye el primer mes (plan `trial`: 30 días con el pool de 700 créditos +
- *   sync, sin tarjeta). En el NAVEGADOR el unlock es lo que abre la casa: se
- *   entra con la cuenta que compró en la tienda. Las instalaciones previas a
- *   esta versión quedan dentro por derechos adquiridos (`mh.unlockLocal`, ver
- *   `sellarDerechos`), y un build sin backend (.env ausente) no tiene puerta:
- *   100% local, como siempre.
+ *   sync, sin tarjeta). Es lo que abre la puerta en TODAS las plataformas. Las
+ *   instalaciones previas a esta versión quedan dentro por derechos adquiridos
+ *   (`mh.unlockLocal`, ver `sellarDerechos`), y un build sin backend (.env
+ *   ausente) no tiene puerta: 100% local, como siempre.
  * - **Trial** (`esTrial()`): el mes incluido de la compra. Al vencer, conserva
  *   la app y sus datos; pierde pool y sync hasta suscribirse.
- * - **Pro** (`esPro()`, 6 USD/mes en el nivel ×1): créditos mensuales + sync. Se compra solo
- *   en la web (la app nativa nunca muestra pagos, ver `plataforma.ts`).
+ * - **Pro** (`esPro()`, 6 USD/mes en el nivel ×1): créditos mensuales + sync.
+ *   Se compra donde se esté, por la caja de esa plataforma.
  * - **Local / vencido**: la IA se paga con recargas de créditos que no caducan;
  *   sin créditos, las superficies siguen visibles y al usarlas sale el modal
  *   de recarga. No hay sincronización entre dispositivos.
@@ -70,8 +74,6 @@ export const LS_UNLOCK = 'mh.unlock'
 export const LS_UNLOCK_LOCAL = 'mh.unlockLocal'
 /** Esta instalación ya arrancó con la cuenta obligatoria (ver `sellarDerechos`). */
 const LS_ERA_CUENTA = 'mh.eraCuenta'
-/** El usuario dejó el registro para después (ver `pospusoCuenta`). */
-const LS_SIN_CUENTA = 'mh.sinCuenta'
 
 export type Plan = 'local' | 'pro' | 'trial'
 
@@ -173,25 +175,10 @@ export function derechosAdquiridos(): boolean {
 }
 
 /**
- * ¿Dejó el registro para después? Es el «ahora no» de la puerta, y SOLO existe
- * en la app de tienda: allí la compra ya está hecha, así que exigir cuenta al
- * arrancar dejaría fuera a quien abre la app sin cobertura. La casa funciona
- * entera en modo local; lo que espera a la cuenta es lo que vive en el
- * servidor — los créditos del primer mes y la sincronización —, y por eso el
- * modal de créditos ofrece registrarse en el momento en que hacen falta.
- */
-export function pospusoCuenta(): boolean {
-  return localStorage.getItem(LS_SIN_CUENTA) === '1'
-}
-
-export function posponerCuenta(): void {
-  localStorage.setItem(LS_SIN_CUENTA, '1')
-}
-
-/**
- * ¿La cuenta tiene la app? (alta de tienda, cupón, derechos adquiridos, o build
- * sin backend). Lo consulta `PuertaUnlock` para el NAVEGADOR; en la app nativa
- * la compra la garantiza la tienda y ni se pregunta. La demo no pasa por aquí.
+ * ¿La cuenta compró la casa? (compra in-app o web, cupón, derechos adquiridos,
+ * o build sin backend). Lo consulta `PuertaUnlock` en TODAS las plataformas:
+ * desde que la casa se vende dentro de la app, instalada ya no es pagada. La
+ * demo no pasa por aquí.
  */
 export function tieneUnlock(): boolean {
   // Sin backend no hay compras posibles: la app queda 100% local e idéntica.
@@ -225,9 +212,9 @@ export function iaHabilitada(): boolean {
   return !devIAApagada()
 }
 
-// Interruptores de pruebas internas desde la consola del navegador:
+// Interruptores de pruebas internas desde la consola del navegador (SOLO dev):
 // window.mhIA(false) apaga la IA (ver la versión sin IA), window.mhIA(true) la enciende (BYOK).
-if (typeof window !== 'undefined') {
+if (import.meta.env.DEV && typeof window !== 'undefined') {
   ;(window as unknown as { mhIA?: (on?: boolean) => boolean }).mhIA = (on = true) => {
     localStorage.setItem(LS_DEV_IA, on ? '1' : '0')
     return iaHabilitada()

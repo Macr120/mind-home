@@ -39,8 +39,10 @@ export const TEXTOS: Record<string, string> = {
   'app.pagoUnico': 'one-off payment',
   'app.b1': 'Your house forever, with every app',
   'app.b2': 'First month included: 700 AI credits + sync',
-  'app.b3': 'Bought on Google Play or the App Store',
+  'app.b3': 'One purchase for every device: browser, Android and iOS',
   'app.cta': 'See where to download it',
+  'app.comprar': 'Buy the house',
+  'app.enCamino': 'The payment is on its way: reload the page in a few seconds.',
   'app.pie': 'When you open it, sign in with this same email and your house follows you to every device.',
 
   'cred.titulo': 'One-off credits',

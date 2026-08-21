@@ -20,22 +20,69 @@ export const TEXTOS = {
   'tema.boton': 'Modo claro u oscuro',
 
   // ─── Portada ─────────────────────────────────────────────────────────────
-  'meta.titulo': 'Mind Planner Home — Tu vida, en una casa 3D',
+  'meta.titulo': 'Mind Planner Home — Tu mente, en una casa 3D',
   'meta.desc':
     'Organiza tus hábitos, metas, finanzas, comidas y más en una casa isométrica 3D donde cada cuarto es una app. Un solo pago de 6.99 USD con el primer mes de IA y sincronización incluido; demo gratis.',
   'og.desc':
     'Tu vida, en una casa 3D: hábitos, metas, finanzas, comidas y más. Un pago de 6.99 USD con el primer mes de IA incluido; demo gratis.',
 
-  'hero.h1': 'Tu vida entera,<br />en una casa 3D',
-  'hero.sub':
-    'Cada cuarto de tu casa es una app: ejercicio, comidas, finanzas, descanso, idiomas, hobbies, metas… Un solo lugar, con un asistente con IA que te acompaña y tu progreso sincronizado en todos tus dispositivos.',
+  'hero.h1': 'Tu mente,<br />en una casa 3D',
+  // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
+  // terna tiene que cuadrar en orden (cocina → nutrición → recetas), y los
+  // ejemplos de un mismo hueco convienen parecidos de largo (se queda con el
+  // ancho del más largo). Un trozo fijo puede ir vacío si el idioma lo pide.
+  'hero.sub.1': 'Es un espacio donde creas una casa insertando',
+  'hero.sub.ej1.1': 'una cocina o un huerto',
+  'hero.sub.ej1.2': 'un despacho o una cancha',
+  'hero.sub.ej1.3': 'una biblioteca o un circuito',
+  'hero.sub.ej1.4': 'un jardín o una granja',
+  'hero.sub.2': 'y en cada cuarto integras una aplicación completa, como la de',
+  'hero.sub.ej2.1': 'nutrición',
+  'hero.sub.ej2.2': 'finanzas',
+  'hero.sub.ej2.3': 'aprendizaje',
+  'hero.sub.ej2.4': 'calma',
+  'hero.sub.3': 'para archivar, planear o crear tus',
+  'hero.sub.ej3.1': 'comidas, macros y recetas',
+  'hero.sub.ej3.2': 'presupuestos y metas de ahorro',
+  'hero.sub.ej3.3': 'apuntes y sesiones de estudio',
+  'hero.sub.ej3.4': 'meditaciones y agradecimientos',
+  'hero.sub.4':
+    'ya sea totalmente a mano o con ayuda de la IA. Y todas están integradas a un calendario, a un sistema de misiones diarias y a tus metas personales, sincronizadas en tu teléfono y en tu computadora.',
   'hero.cta': 'Descargar la app',
   'hero.demo': 'Probar la demo gratis',
   'hero.nota':
     'La app se compra una vez en la tienda de tu dispositivo y funciona sin conexión. La IA y la sincronización son opcionales — y si las dejas, no pierdes nada.',
   'hero.video': 'Aquí va tu video o capturas de la casa',
 
+  // Lo que trae la casa, en cifras (el número lo pone el HTML).
+  'cifras.apps': 'apps',
+  'cifras.infra': 'infraestructuras',
+  'cifras.ra': 'apps de RA',
+  'cifras.calendario': 'calendario',
+  'cifras.chat': 'chat',
+
+  'como.h2': 'Cómo funciona',
+  'como.sub': 'Un espacio donde levantas tu casa y luego le metes tu vida dentro.',
+  'como.1.t': 'Levantas tu casa',
+  'como.1.p':
+    'Insertas cuartos, pisos y hasta un sótano, y alrededor la infraestructura: huerto, granja, canchas, circuitos de carreras. Los muros, los colores, los muebles y tu avatar los eliges tú.',
+  'como.2.t': 'Cada cuarto es una app completa',
+  'como.2.p':
+    'Le asignas una de las 17 apps —nutrición, ejercicio, descanso, finanzas, biblioteca, idiomas, ideas, agenda, viajes, hobbies, metas…— o te fabricas la tuya. Con ellas archivas lo que ya viviste, planeas lo que viene y creas lo que todavía no existe: rutinas, recetas, presupuestos, apuntes, mapas mentales y cronogramas. Todo a mano, o con la IA a tu lado.',
+  'como.3.t': 'Todo cae en el mismo sitio',
+  'como.3.p':
+    'Las 17 apps comparten un calendario, una lista de misiones diarias y tus metas personales. Y tu casa entera te sigue del teléfono a la computadora.',
+
   'car.h2': 'Una casa, muchas apps',
+  // Las tres primeras tarjetas: el argumento de compra.
+  'car.todo.t': 'Todo en uno, de verdad',
+  'car.todo.p':
+    'Una sola app en lugar de veinte: comida, dinero, descanso, estudio, hábitos y metas bajo el mismo techo — y hablándose entre ellas, que es justo lo que ninguna app suelta puede hacer.',
+  'car.nocaduca.t': 'No caduca si dejas de pagar',
+  'car.nocaduca.p':
+    'La compras una vez y es tuya. Las apps de suscripción se apagan en cuanto dejas de pagarlas; aquí, si dejas la IA, conservas la casa entera y todos tus datos en tu dispositivo.',
+  'car.nuevas.t': 'Actualizaciones nuevas',
+  'car.nuevas.p': 'La casa sigue creciendo: cuartos, apps y mejoras que van llegando sin volver a pagar por ellas.',
   'car.1.t': 'Cuartos que son apps',
   'car.1.p':
     'Ejercicio, cocina, finanzas, descanso, biblioteca, idiomas, viajes, hobbies, mindfulness y más: cada cuarto guarda una mini-app completa.',
@@ -55,6 +102,14 @@ export const TEXTOS = {
   'car.6.p':
     'La app es local-first: todo vive primero en tu dispositivo. Si cancelas, no pierdes tus datos — sigues en modo local.',
 
+
+  'mani.h2': 'Tu vida, hecha videojuego',
+  'mani.p1':
+    'MPH es la representación de tu vida convertida en videojuego, jugada desde el lugar más cómodo que existe: tu propia casa. Subir de nivel y ganar rangos no es un adorno — es lo que hiciste allá afuera, contado aquí dentro.',
+  'mani.p2':
+    'Aquí expandes habilidades nuevas, llevas el control de tus recursos y pones la tecnología a tu favor. Contra el consumismo inconsciente del formato corto. Contra el deterioro cognitivo que dejan los hábitos de consumo que imponen las grandes corporaciones.',
+  'mani.cierre': 'La misma dopamina. Esta vez, para tu vida real.',
+
   'precio.h2': 'Un solo pago en la tienda, tu casa para siempre',
   'precio.demo.nombre': 'Demo',
   'precio.demo.cifra': 'Gratis',
@@ -70,26 +125,25 @@ export const TEXTOS = {
     'Primer mes incluido: 700 créditos de IA + sincronización, sin tarjeta y sin suscripción',
   'precio.app.3':
     'Al terminar el mes conservas la app entera y tus datos; los créditos de IA son opcionales',
-  'precio.app.cta': 'Ver dónde descargarla',
+  'precio.app.cta': 'Comprar la casa',
   'precio.app.pie':
-    'Se compra en Google Play o el App Store, y con tu cuenta la abres también en el navegador. Un pago, sin renovaciones.',
+    'Cómprala aquí mismo, sin pasar por ninguna tienda, o dentro de la app en tu móvil. Un pago, sin renovaciones, y vale en todos tus dispositivos.',
 
   'ia.t': 'IA y sincronización · opcional',
   'ia.precios': '6 USD al mes<span>·</span>60 USD al año<span>·</span>o 6 USD por 700 créditos sueltos',
   'ia.p':
-    'Solo si quieres seguir con la IA y la sincronización cuando termine tu primer mes. Esto sí se contrata aquí, en la web, y vale para todos tus dispositivos. Sin permanencia: si lo dejas, conservas la app y todos tus datos en modo local.',
+    'Solo si quieres seguir con la IA y la sincronización cuando termine tu primer mes. Se contrata aquí o dentro de la app, y vale para todos tus dispositivos. Sin permanencia: si lo dejas, conservas la app y todos tus datos en modo local.',
   'ia.cta': 'Ver los planes →',
 
   'desc.h2': 'Descargar la app',
   'desc.sub':
-    'La app se compra en la tienda de tu dispositivo. Al abrirla registras tu correo, y esa misma cuenta te devuelve tu casa en cualquier otro sitio — incluido el navegador.',
+    'Descárgala gratis y compra la casa dentro de la app —o aquí en la web—. Con tu cuenta, tu casa aparece en cualquier otro sitio, incluido el navegador.',
   'desc.pronto': 'Próximamente',
-  'desc.android': 'En Google Play, 6.99 USD.',
+  'desc.android': 'Gratis en Google Play. La casa se compra dentro.',
   'desc.ios.t': 'iPhone y iPad',
-  'desc.ios': 'En el App Store, 6.99 USD.',
+  'desc.ios': 'Gratis en el App Store. La casa se compra dentro.',
   'desc.web.t': 'En tu navegador',
-  'desc.web':
-    'Sin instalar nada: entra con la cuenta con la que compraste la app y tu casa te espera. Sin cuenta puedes probar la demo.',
+  'desc.web': 'Sin instalar nada: entra con tu cuenta y tu casa te espera. Sin cuenta puedes probar la demo.',
   'desc.web.cta': 'Abrir la app',
   'desc.windows': 'Instalador para Windows 10/11.',
   'desc.mac': 'Imagen .dmg para Mac.',
@@ -97,7 +151,7 @@ export const TEXTOS = {
   'faq.h2': 'Preguntas frecuentes',
   'faq.1.q': '¿Dónde se compra la app?',
   'faq.1.a':
-    'En la tienda de tu dispositivo: Google Play o el App Store. Aquí en la web no se vende — lo único que se paga en esta página son la suscripción de IA y las recargas de créditos. Al abrir la app registras tu correo, y con esa cuenta tu casa aparece en cualquier otro dispositivo, también en el <a href="#descargas">navegador</a>.',
+    'Donde prefieras: aquí en la web, desde <a href="/cuenta">tu cuenta</a>, o dentro de la app de Android y iPhone. Es un pago único que se guarda en tu cuenta, así que la compres donde la compres, tu casa aparece en todos tus dispositivos.',
   'faq.2.q': '¿Qué incluye el pago único?',
   'faq.2.a':
     'La casa entera: todos los cuartos, todas las apps y tus datos en tu dispositivo, para siempre y sin renovaciones. Además, el primer mes trae 700 créditos de IA y la sincronización incluidos, sin tarjeta. Antes de comprarla puedes probar la demo completa, que no pide cuenta.',
@@ -112,10 +166,10 @@ export const TEXTOS = {
     'Conservas la app entera y todos tus datos en tus dispositivos, en modo local. Solo pierdes los créditos mensuales y la sincronización. Si renuevas, todo se reactiva tal como lo dejaste.',
   'faq.6.q': '¿Dónde se guardan mis datos?',
   'faq.6.a':
-    'Primero en tu dispositivo (la app es local-first) y, con la sincronización activa, también en la nube para pasar de un dispositivo a otro. En modo local no sale nada de tu dispositivo. La compra de la app la cobra la tienda (Google Play o App Store) y la suscripción la procesan RevenueCat y Stripe: nunca vemos tu tarjeta. Más detalles en la <a href="/privacidad">política de privacidad</a>.',
+    'Primero en tu dispositivo (la app es local-first) y, con la sincronización activa, también en la nube para pasar de un dispositivo a otro. En modo local no sale nada de tu dispositivo. Los pagos los procesan RevenueCat y Stripe —o la tienda, si compras desde el móvil—: nunca vemos tu tarjeta. Más detalles en la <a href="/privacidad">política de privacidad</a>.',
   'faq.7.q': '¿En qué dispositivos funciona?',
   'faq.7.a':
-    'Hoy: en cualquier navegador moderno. Muy pronto: Android (Google Play), iPhone/iPad (App Store), Windows y macOS. Tu cuenta vale para todos — compras la app una vez en la tienda y la suscripción de IA se contrata aquí en la web; las dos funcionan en cualquier dispositivo donde entres con tu correo.',
+    'Hoy: en cualquier navegador moderno. Muy pronto: Android (Google Play), iPhone/iPad (App Store), Windows y macOS. Tu cuenta vale para todos: compras una vez, donde te venga bien, y tanto la casa como la suscripción de IA funcionan en cualquier dispositivo donde entres con tu correo.',
   'faq.8.q': '¿Cómo cancelo o borro mi cuenta?',
   'faq.8.a':
     'Para cancelar el cobro, «Gestionar suscripción» en <a href="/cuenta">tu cuenta</a>. Para borrar tu cuenta y todos tus datos de nuestros servidores, desde la app: Editor → Configuraciones → Cuenta.',
@@ -140,6 +194,10 @@ export const TEXTOS = {
     '<strong>Pagos:</strong> los procesan RevenueCat y Stripe. Nunca vemos ni almacenamos tu tarjeta; recibimos solo el estado de tu compra y de tu suscripción.',
   'priv.datos.4':
     '<strong>Uso de IA:</strong> contadores de créditos consumidos (no el contenido de tus conversaciones, que se envía a los proveedores de IA únicamente para generar cada respuesta y no se usa para entrenar).',
+  'priv.datos.5':
+    '<strong>Cámara y micrófono:</strong> solo cuando los activas (máscara AR, foto para el chat, dictado por voz). La máscara se procesa en tu dispositivo; el audio del dictado y las fotos que adjuntas al chat se envían a los proveedores de IA únicamente para generar esa respuesta.',
+  'priv.datos.6':
+    '<strong>Datos de salud y bienestar:</strong> lo que registras sobre ejercicio, alimentación, medicamentos, citas médicas o ciclo se guarda para ti como cualquier otro dato de la app; nunca se vende ni se usa para publicidad.',
   'priv.uso.h': 'Para qué los usamos',
   'priv.uso.1': 'Darte acceso a tu cuenta, a tu compra y a tu suscripción.',
   'priv.uso.2': 'Sincronizar tus datos entre dispositivos y respaldarlos.',
@@ -155,6 +213,8 @@ export const TEXTOS = {
   'priv.proveedores.1': 'Supabase (base de datos, autenticación y archivos).',
   'priv.proveedores.2': 'RevenueCat y Stripe (compras, suscripciones y pagos).',
   'priv.proveedores.3': 'Anthropic y Google (respuestas e imágenes de IA, bajo demanda).',
+  'priv.proveedores.4':
+    'OpenAI (transcripción de voz y respaldo de imágenes de IA, bajo demanda).',
   'priv.cambios.h': 'Cambios',
   'priv.cambios.p':
     'Si esta política cambia, publicaremos aquí la versión nueva con su fecha. Las dudas se atienden en el correo de contacto.',

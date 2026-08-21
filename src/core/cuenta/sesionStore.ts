@@ -46,6 +46,21 @@ export interface UsoIA {
   limiteCreditos: number
 }
 
+/** Ancla de precio: 1 crédito ≈ $0.005 de gasto real (espejo del SQL). */
+const USD_POR_CREDITO = 0.005
+
+/**
+ * Créditos que de verdad lleva consumidos el mes. El servidor cobra la DEUDA
+ * del gasto real al empezar la llamada SIGUIENTE (migración 20260820000002),
+ * así que la última puede no estar reflejada todavía en `uso_ia.creditos`;
+ * derivarla del USD aquí evita que el medidor enseñe menos de lo que ya se
+ * gastó. Cuando el gasto real es más barato que la tarifa —el caso normal— la
+ * cuenta no cambia nada.
+ */
+function creditosEfectivos(creditos: number, usd: number): number {
+  return Math.max(creditos, Math.ceil(usd / USD_POR_CREDITO))
+}
+
 interface SesionState {
   /** true mientras se hidrata la sesión guardada al arrancar. */
   cargando: boolean
@@ -74,11 +89,6 @@ interface SesionState {
   eliminarCuenta: () => Promise<string | null>
   /** Canjea un cupón de acceso (unlock + trial); devuelve el error o null. */
   canjearCupon: (codigo: string) => Promise<string | null>
-  /**
-   * Registra la compra hecha en la tienda (app de pago): unlock + primer mes.
-   * `token` es el recibo/licencia que el servidor verifica (`reciboTienda.ts`).
-   */
-  altaTienda: (tienda: string, token: string | null) => Promise<void>
   refrescarPerfil: () => Promise<void>
   refrescarUso: () => Promise<void>
 }
@@ -211,18 +221,6 @@ export const useSesion = create<SesionState>((set, get) => ({
     return null
   },
 
-  altaTienda: async (tienda, token) => {
-    const sb = get().usuario ? await obtenerSupabase() : null
-    if (!sb) return
-    // Silenciosa a propósito: el usuario ya compró en la tienda y está DENTRO
-    // de la app; si el alta falla (sin red, recibo que no llegó), se reintenta
-    // al volver a abrirla —la puerta la dispara mientras no haya unlock—.
-    const { error } = await sb.functions.invoke('alta-tienda', { body: { tienda, token } })
-    if (error) return
-    await get().refrescarPerfil()
-    void get().refrescarUso()
-  },
-
   refrescarPerfil: async () => {
     const usuario = get().usuario
     const sb = usuario ? await obtenerSupabase() : null
@@ -266,7 +264,7 @@ export const useSesion = create<SesionState>((set, get) => ({
       const planActual = vigente ? get().plan : 'local'
       const multiplicador = planActual === 'pro' ? get().nivel : 1
       const [uso, limites] = await Promise.all([
-        sb.from('uso_ia').select('creditos').eq('periodo', periodo).maybeSingle(),
+        sb.from('uso_ia').select('creditos, usd').eq('periodo', periodo).maybeSingle(),
         sb.from('limites_plan').select('creditos_mes').eq('plan', planActual).maybeSingle(),
       ])
       if (!limites.data) {
@@ -275,7 +273,7 @@ export const useSesion = create<SesionState>((set, get) => ({
       }
       set({
         usoIA: {
-          creditos: uso.data?.creditos ?? 0,
+          creditos: creditosEfectivos(uso.data?.creditos ?? 0, uso.data?.usd ?? 0),
           limiteCreditos: limites.data.creditos_mes * multiplicador,
         },
       })

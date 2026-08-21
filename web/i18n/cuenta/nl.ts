@@ -31,8 +31,10 @@ export const TEXTOS: Record<string, string> = {
   'app.pagoUnico': 'eenmalige betaling',
   'app.b1': 'Je huis voor altijd, met alle apps',
   'app.b2': 'Eerste maand inbegrepen: 700 AI-credits + synchronisatie',
-  'app.b3': 'Je koopt haar in Google Play of de App Store',
+  'app.b3': 'Eén aankoop voor al je apparaten: browser, Android en iOS',
   'app.cta': 'Kijken waar je haar downloadt',
+  'app.comprar': 'Huis kopen',
+  'app.enCamino': 'De betaling is onderweg: herlaad de pagina over een paar seconden.',
   'app.pie':
     'Als je haar opent, log je in met ditzelfde e-mailadres en volgt je huis je naar al je apparaten.',
   'cred.titulo': 'Losse credits',

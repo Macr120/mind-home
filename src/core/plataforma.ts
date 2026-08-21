@@ -34,14 +34,23 @@ export function esEscritorio(): boolean {
   return typeof navigator !== 'undefined' && navigator.userAgent.includes('Electron')
 }
 
+/** Por qué caja cobra esta plataforma (ver `cuenta/paywall.ts`). */
+export type CanalPago = 'web' | 'escritorio' | 'iap'
+
 /**
- * ¿Puede esta plataforma mostrar compra/enlaces de pago? Solo web y escritorio:
- * en las apps de tienda (Android/iOS) la suscripción ni se menciona — modelo
- * «solo consumo», sin comisión ni riesgo de rechazo por pagos externos.
+ * Dónde se paga aquí. Se compra TODO —la casa, los créditos y la suscripción—
+ * en las tres plataformas; lo que cambia es la caja:
  *
- * La APP no pasa por aquí en ningún caso: se compra en la tienda (Android/iOS)
- * y en el navegador no se vende, se entra con la cuenta que ya la compró.
+ * - `web`: checkout de RevenueCat dentro de la propia página. Directo, sin
+ *   comisión de tienda.
+ * - `escritorio`: mismo cobro directo, pero el checkout se abre en el navegador
+ *   del sistema (Electron no es sitio para un formulario de pago).
+ * - `iap`: compra in-app de Google Play o el App Store. Es obligatoria en las
+ *   apps nativas (Apple 3.1.1 y Google Play Payments), y por eso es la única
+ *   caja con comisión. En iOS, además, la app NO puede enlazar ni mencionar la
+ *   compra de la web: quien vea `iap` no debe pintar enlaces de pago externos.
  */
-export function puedeMostrarPagos(): boolean {
-  return !esAppNativa()
+export function canalPago(): CanalPago {
+  if (esAppNativa()) return 'iap'
+  return esEscritorio() ? 'escritorio' : 'web'
 }

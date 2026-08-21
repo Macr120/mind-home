@@ -17,31 +17,31 @@ src/core/data/sync/ middleware.ts (DBCore)     · revenuecat-webhook · borrar-c
                   blobs.ts                 RevenueCat Web Billing ── Stripe
 ```
 
-- **Modelo de negocio (19-ago-2026)**: la APP se compra en las TIENDAS, la IA se
-  paga en la WEB. Detrás hay una sola regla: **6 USD = 700 créditos**, y de cada
-  6 USD la ganancia mínima son 2 USD (por eso el bucket va a `techo_factor 1.00`
-  = $3.50 de gasto real máximo por cada 700 créditos; ver COSTOS.md). La **demo**
-  (no persistente) es el free tier. La **app** ($6.99 pago único) se publica como
-  app de pago en Google Play y el App Store: instalada = pagada. Al registrar el
-  correo, la app nativa llama a `alta-tienda`, que concede `perfiles.unlock` +
-  el **primer mes** (plan `trial`: 30 días con pool de 700 créditos + sync, sin
-  tarjeta). Ese unlock es además lo que abre la casa en el NAVEGADOR: allí no se
-  vende nada, se entra con la cuenta que compró en el móvil.
-  **Pro** a 6 / 12 / 18 USD al mes según nivel —o **60 USD/año**
-  (`pro_x1_anual`, el ×1 pagado de una vez)— con créditos mensuales + sync, y
-  **créditos sueltos** (`creditos_x1`, $6 por 700 que no caducan), ambos
-  vendidos únicamente en la web pública (`web/`, modelo Spotify: las apps de
-  tienda no muestran compra). La puerta cliente es `PuertaUnlock` (main.tsx) y
-  va en dos pasos: **cuenta** (siempre) y **compra** (solo en el navegador). En
-  la app de tienda la cuenta se puede aplazar («ahora no» → `mh.sinCuenta`): la
-  casa es local y ya está pagada, así que lo único que espera al correo es lo
-  que vive en el servidor —los créditos del primer mes y el sync—, y el modal de
-  créditos ofrece registrarse justo cuando hacen falta. Instalaciones previas
-  quedan con derechos adquiridos (`mh.unlockLocal`, sellado una vez por
-  `sellarDerechos()`) y un build sin backend no tiene puerta; lo cobrable lo
-  revalida el servidor. `alta-tienda` **verifica el recibo** de la tienda antes
-  de conceder nada (ver §3e). El unlock viejo (`unlock_casa*`, vendido en la web
-  hasta hoy) ya no se ofrece; el webhook lo sigue honrando para quien lo compró.
+- **Modelo de negocio (20-ago-2026)**: **todo se compra DENTRO de la app, en
+  todas las plataformas**; lo que cambia es la caja (`canalPago()` en
+  `plataforma.ts`): **compra in-app** en Android e iOS —obligatoria por
+  normativa de Apple (3.1.1) y Google Play— y **cobro directo, sin comisión**,
+  en el navegador y en el escritorio (RevenueCat Web Billing). Detrás hay una
+  sola regla: **6 USD = 700 créditos**, y de cada 6 USD la ganancia mínima son
+  2 USD (por eso el bucket va a `techo_factor 1.00` = $3.50 de gasto real máximo
+  por cada 700 créditos; ver COSTOS.md). La **demo** (no persistente) es el free
+  tier. La **casa** ($6.99 pago único, `unlock_casa_v3`) se vende en las tres
+  cajas e incluye el **primer mes** (plan `trial`: 30 días con pool de 700
+  créditos + sync, sin tarjeta). **Pro** a 6 / 12 / 18 USD al mes según nivel
+  —o **60 USD/año** (`pro_x1_anual`, el ×1 pagado de una vez)— con créditos
+  mensuales + sync, y **créditos sueltos** (`creditos_x1`, $6 por 700 que no
+  caducan): también en las tres cajas.
+  La app de las tiendas se publica **gratis**: instalada ya NO es pagada. Lo que
+  abre la casa es `perfiles.unlock`, que cuelga de la CUENTA, así que comprar en
+  una plataforma la abre en todas —el webhook recibe igual a las tres cajas
+  porque el `app_user_id` es siempre el user.id de Supabase—.
+  La puerta cliente es `PuertaUnlock` (main.tsx) y va en dos pasos, iguales en
+  todas partes: **cuenta** y **compra**. Ya no hay «ahora no» (con la app gratis
+  sería la casa regalada) ni alta por licencia de tienda (ver §3e).
+  Instalaciones previas quedan con derechos adquiridos (`mh.unlockLocal`,
+  sellado una vez por `sellarDerechos()`) y un build sin backend no tiene
+  puerta; lo cobrable lo revalida el servidor. En las apps de tienda **no se
+  pinta ningún enlace de pago externo**: Apple lo prohíbe y es motivo de rechazo.
 - **Plan**: `perfiles.plan` (`local`/`pro`/`trial`) es la fuente de verdad; lo
   escriben solo el trigger de alta y el webhook de RevenueCat. El cliente lo
   espeja en `localStorage mh.planReal`/`mh.planExpira`/`mh.fuePro`/`mh.unlock`
@@ -99,7 +99,9 @@ Copia `.env.example` a `.env.local`:
 |---|---|
 | `VITE_SUPABASE_URL` | Dashboard → Settings → API |
 | `VITE_SUPABASE_ANON_KEY` | Dashboard → Settings → API (anon public) |
-| `VITE_REVENUECAT_WEB_KEY` | RevenueCat → API keys (`rcb_...`) |
+| `VITE_REVENUECAT_WEB_KEY` | RevenueCat → API keys (`rcb_...`), caja del navegador y el escritorio |
+| `VITE_REVENUECAT_ANDROID_KEY` | RevenueCat → API keys (`goog_...`), compra in-app de Play |
+| `VITE_REVENUECAT_IOS_KEY` | RevenueCat → API keys (`appl_...`), compra in-app del App Store |
 | `VITE_URL_WEB` | Dominio de la web de venta, sin barra final (dev: `http://localhost:5174`) |
 | `VITE_URL_APP` | Dónde vive la app web (dev: `http://localhost:5173`) |
 
@@ -205,7 +207,7 @@ Opcionales, todos con default y sin redeploy al cambiarlos:
    conserva en RevenueCat y el webhook lo sigue mapeando a `perfiles.unlock` +
    plan `trial` de 30 días para honrar las compras hechas antes; el cliente ya
    no lo ofrece en ningún sitio. **Sin trial de RC** en ningún producto (el
-   «primer mes» lo da el webhook o `alta-tienda`, sin tarjeta). Ojo: si se
+   «primer mes» lo da el webhook al recibir la compra, sin tarjeta). Ojo: si se
    añadiera un trial de RC habría que excluir `period_type === 'TRIAL'` del
    `fue_pro: true` del webhook, o marcaría como pagador a quien no pagó.
 3b. Crear la **recarga `creditos_x1` ($6), consumible y SIN entitlement**, y
@@ -339,51 +341,79 @@ update perfiles set plan = 'trial',
  where user_id in (select user_id from cupones_canjes where codigo = 'MPH-…');
 ```
 
-### 3e. Alta de tienda (la app se compra en Play/App Store) — 19-ago-2026
-La app se publica como **app de pago**: instalada = pagada. Al registrar el
-correo, la app nativa llama a la Edge Function `alta-tienda` (JWT verificado) →
-RPC `alta_tienda` (solo service_role, migración `20260819000001`), que concede
-`perfiles.unlock` + plan `trial` de 30 días y anota `perfiles.tienda`
-(`android`/`ios`). Es idempotente: la app reintenta en cada arranque mientras el
-perfil no tenga unlock, y el segundo intento devuelve `ya` sin regalar otro mes.
+### 3e. Compra dentro de la app: IAP en las tiendas, directo en la web — 20-ago-2026
 
-**El recibo se verifica antes de conceder nada** (`_shared/reciboTienda.ts`).
-Como es una app de pago no hay compra in-app que consultar: lo que se comprueba
-es la **licencia** de la instalación.
+Sustituye al alta por licencia de tienda del 19-ago (`alta-tienda` + Play
+Integrity), que valía cuando la app se publicaba **de pago**. Con la app
+**gratis** ese camino es un agujero —el veredicto `LICENSED` lo obtiene
+cualquiera que la instale—, así que se retira: la migración
+`20260820000003_sin_alta_tienda.sql` borra la RPC `alta_tienda` y la Edge
+Function responde 410 (conviene además `npx supabase functions delete
+alta-tienda`). Quedan sin uso, para borrar cuando se limpie: el plugin
+`android/…/tienda/ReciboTiendaPlugin.java` con su dependencia
+`com.google.android.play:integrity`, y `supabase/functions/_shared/reciboTienda.ts`.
 
-- **Android → Play Integrity.** El plugin local `ReciboTienda`
-  (`android/…/tienda/ReciboTiendaPlugin.java`, dependencia
-  `com.google.android.play:integrity`) pide el token; el servidor lo decodifica
-  con la Play Integrity API y exige `appRecognitionVerdict: PLAY_RECOGNIZED`,
-  el `packageName` correcto y **`appLicensingVerdict: LICENSED`** — que es
-  exactamente «esta cuenta compró la app en Play».
-- **iOS → recibo de aplicación** (`verifyReceipt`, con reintento en sandbox si
-  responde 21007) comprobando el `bundle_id`. Sin proyecto iOS todavía: el
-  camino queda listo, el cliente lo dará cuando exista.
-- **Nonce atado a la sesión**: el cliente pide el token con `sha256(access_token)`
-  como nonce y llama con ese mismo token en la cabecera, así que un veredicto no
-  vale en otra cuenta ni pasado un rato (margen: 5 minutos). Sin tabla de nonces.
+**Ahora la única puerta que concede `perfiles.unlock` es el webhook de
+RevenueCat** (o un cupón). El cliente:
 
-Secretos de la función (`npx supabase secrets set …`):
+| Plataforma | Caja | Módulo |
+|---|---|---|
+| Navegador | RevenueCat Web Billing (checkout embebido) | `cuenta/paywallWeb.ts` |
+| Escritorio (Electron) | el mismo cobro, abriendo el navegador | enlace a `web/cuenta` |
+| Android · iOS | compra in-app (`@revenuecat/purchases-capacitor`) | `cuenta/paywallNativo.ts` |
 
-| Secreto | Para qué |
-|---|---|
-| `ANDROID_PACKAGE` | `com.macr120.mindhome` |
-| `GOOGLE_SERVICE_ACCOUNT` | JSON de una cuenta de servicio con permiso de Play Integrity (se usan `client_email` y `private_key`) |
-| `IOS_BUNDLE_ID` | bundle de la app cuando exista el proyecto iOS |
-| `ALTA_TIENDA_SIN_RECIBO` | `1` **solo para probar**: acepta el alta sin verificar. Quitar antes de publicar |
+`cuenta/paywall.ts` es la fachada: elige caja, traduce los paquetes con el
+catálogo (`cuenta/productos.ts`) y espera a que el webhook escriba `perfiles`.
+El `appUserID` es el user.id de Supabase en las tres cajas: eso es lo que hace
+que una compra hecha en Play se vea en el navegador y al revés. Si se compra sin
+sesión (no debería: la puerta exige cuenta antes), RevenueCat usa un id anónimo
+y `logIn()` transfiere la compra al registrarse.
 
-En Play Console hay que **vincular el proyecto de Google Cloud** de esa cuenta
-de servicio (Configuración › Integridad de la app) o la API no responde. Sin
-`ANDROID_PACKAGE`/`GOOGLE_SERVICE_ACCOUNT` el alta se **rechaza** (403 `recibo`):
-la app entra igual —la tienda ya cobró— pero se queda sin el primer mes hasta
-que la verificación esté configurada.
+**Ids de producto por tienda.** El paquete del offering se llama igual en las
+tres (`unlock`, `nivel_1/2/3`, `anual`, `creditos`); el producto no: Apple exige
+id único global (`com.macr120.mindhome.pro_x1_v2`) y Play cuelga el plan base
+(`pro_x1_v2:mensual`). `idBase()` —en el cliente y en el webhook— devuelve el id
+canónico quitando bundle y plan base, así que las tablas del webhook siguen
+siendo las mismas.
 
-1. `npx supabase db push` (aplica `20260819000001_alta_tienda.sql`).
-2. `npx supabase functions deploy alta-tienda` (verify_jwt por defecto).
+Puesta en marcha:
 
-Quién entró por tienda: `select tienda, count(*) from perfiles group by tienda;`
-Rechazos: el log de la función escribe el motivo (`nonce`, `sin-licencia`, …).
+1. Claves en el `.env`: `VITE_REVENUECAT_ANDROID_KEY` (`goog_…`) y
+   `VITE_REVENUECAT_IOS_KEY` (`appl_…`), del mismo proyecto de RevenueCat.
+2. En Play Console / App Store Connect: crear los productos con los ids de
+   arriba —la casa y las recargas como consumibles/compra única, los niveles
+   como suscripción— y publicar la app **gratis**.
+3. En RevenueCat: añadir esos productos a los offerings, cada uno en su
+   **paquete** canónico, y activar los webhooks de ambas tiendas (mismo endpoint
+   y mismo `RC_WEBHOOK_AUTH` que la web).
+4. `npx supabase db push` (aplica `20260820000003_sin_alta_tienda.sql`).
+5. Probar con cuentas de prueba (licence testers en Play, sandbox en Apple) que
+   la compra aparece en `perfiles` y que la MISMA cuenta abre la casa en el
+   navegador.
+
+Qué mirar si algo falla: `rc_eventos` guarda el payload íntegro de cada evento,
+así que ahí se ve el `product_id` real que manda cada tienda.
+
+### 3f. Créditos proporcionales + proveedor a elección (20-ago-2026) — PENDIENTE DE DESPLIEGUE
+
+Dos cambios que viajan juntos (ver `docs/COSTOS.md` § «Créditos proporcionales»):
+
+- **`consumir_cuota_ia` v11**: antes de cobrar la op salda la deuda del gasto
+  real (`ceil(usd / ($0.005 × techo_factor)) − créditos cobrados`). Así el pool
+  se agota exactamente al llegar al techo y el corte sale por `cuota`, no por
+  `techo` con saldo a la vista.
+- **Preferencia de proveedor en modo Créditos**: los cuatro proxies aceptan
+  `prov` en el cuerpo y lo ponen delante de su cadena (`anthropic`/`gemini` en
+  el cerebro; `openai`/`gemini` en voz e imagen). `ia-tts` e `ia-voz` estrenan
+  el camino de Gemini (TTS preview con envoltura WAV y transcripción
+  multimodal), así que ahora **también necesitan `GEMINI_API_KEY`**.
+
+1. `npx supabase db push` (aplica `20260820000002_creditos_proporcionales.sql`).
+2. `npx supabase functions deploy ia-chat ia-imagen ia-tts ia-voz`.
+
+Orden: primero la migración. Un proxy nuevo contra la BD vieja solo pierde el
+saldo de la deuda (cobra como antes); una BD nueva con proxies viejos es
+inofensiva (los que no mandan `prov` usan la cadena por defecto).
 
 ### 4. Storage (sync de blobs)
 La migración crea el bucket privado `sync-blobs` con acceso por carpeta de usuario;
@@ -392,10 +422,11 @@ no requiere pasos manuales. (Desde jul 2026 la policy también exige Pro vigente
 ### 5. Web pública (landing + /cuenta) — YA DESPLEGADA (15-ago-2026)
 - Código en `web/` (segundo build de Vite): `npm run dev:web` (puerto 5174) y
   `npm run build:web` (→ `dist-web/`). Ligera a propósito: sin three ni dexie.
-- **Qué se vende aquí (19-ago-2026)**: la suscripción y las recargas, nada más.
-  «Descargar» lleva a `#descargas` (las tiendas) y «Entrar» a `/cuenta`; una
-  cuenta sin unlock ve «Consigue la app» con el enlace a las tiendas, no un
-  botón de compra.
+- **Qué se vende aquí (20-ago-2026)**: TODO —la casa (8.89 USD, `unlock_casa_v4`),
+  la suscripción y las recargas—, por la caja directa y sin comisión de tienda.
+  El CTA de la sección de precio lleva a `/cuenta`, y una cuenta sin unlock ve
+  «Consigue la app» con su botón de compra (si el build no trae claves de pago,
+  cae al enlace de descargas).
 - **En producción**: dominio `mindplannerhome.com` (Cloudflare Registrar, renovación
   automática, vence 15-ago-2027) y dos proyectos de Cloudflare Pages:
   `mindplannerhome` (landing, `dist-web`) en el dominio raíz y `mindplannerhome-app`

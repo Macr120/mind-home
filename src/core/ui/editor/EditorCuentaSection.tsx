@@ -11,10 +11,11 @@ import {
   comprar,
   cambiarNivel,
   comprarCreditos,
+  restaurarCompras,
   urlGestion,
   type OfertaPro,
 } from '../../cuenta/paywall'
-import { esAppNativa, esEscritorio } from '../../plataforma'
+import { canalPago, esAppNativa } from '../../plataforma'
 import { sincronizar } from '../../data/sync/motor'
 import { GastoByok } from '../GastoByok'
 
@@ -429,9 +430,9 @@ function FilaSync() {
 
 /**
  * Compra/renovación (sin Pro) o gestión + recarga (con Pro), vía RevenueCat.
- * En apps de tienda (Android/iOS) NO se renderiza nada: ni compra, ni
- * "gestionar", ni enlaces de pago (modelo solo-consumo).
- * En escritorio (Electron) el checkout va SIEMPRE al navegador, vía la web.
+ * Se vende en las tres plataformas, cada una por su caja (`canalPago()`): compra
+ * in-app en Android/iOS y checkout directo en el navegador. En escritorio
+ * (Electron) el pago va SIEMPRE al navegador, vía la web.
  */
 function BloquePaywall() {
   const t = useT()
@@ -441,11 +442,10 @@ function BloquePaywall() {
   const [urlG, setUrlG] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [ocupado, setOcupado] = useState(false)
-  const nativo = esAppNativa()
-  const escritorio = esEscritorio()
+  const escritorio = canalPago() === 'escritorio'
 
   useEffect(() => {
-    if (nativo || escritorio || !hayPagos()) return
+    if (escritorio || !hayPagos()) return
     let vivo = true
     if (plan === 'pro') {
       void urlGestion().then((u) => {
@@ -461,9 +461,7 @@ function BloquePaywall() {
     return () => {
       vivo = false
     }
-  }, [plan, nativo, escritorio])
-
-  if (nativo) return null
+  }, [plan, escritorio])
 
   // Escritorio: todo el flujo de pago vive en la web (navegador externo).
   if (escritorio) {
@@ -493,6 +491,7 @@ function BloquePaywall() {
       <div className="space-y-1.5">
         <Niveles />
         <Creditos />
+        <Restaurar />
         {urlG && (
           <a
             href={urlG}
@@ -536,7 +535,49 @@ function BloquePaywall() {
           : t('cuenta.pago.comprar', 'Hazte Pro')}
       </button>
       <Creditos />
+      <Restaurar />
       {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
+    </div>
+  )
+}
+
+/**
+ * «Restaurar compras»: Apple lo EXIGE en cualquier app con compra in-app, y en
+ * Android saca del apuro a quien reinstala o estrena teléfono. En la web no
+ * aparece: allí las compras ya cuelgan de la cuenta, no del dispositivo.
+ */
+function Restaurar() {
+  const t = useT()
+  const [ocupado, setOcupado] = useState(false)
+  const [aviso, setAviso] = useState<string | null>(null)
+
+  if (canalPago() !== 'iap' || !hayPagos()) return null
+
+  const alRestaurar = async () => {
+    if (ocupado) return
+    setOcupado(true)
+    setAviso(null)
+    try {
+      const ok = await restaurarCompras()
+      if (!ok) setAviso(t('cuenta.pago.sinRestaurar', 'No encontramos compras de esta cuenta.'))
+    } catch (e) {
+      setAviso(e instanceof Error ? e.message : String(e))
+    } finally {
+      setOcupado(false)
+    }
+  }
+
+  return (
+    <div className="space-y-1">
+      <button
+        type="button"
+        onClick={() => void alRestaurar()}
+        disabled={ocupado}
+        className="w-full rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] font-semibold text-white/60 transition hover:bg-white/10 disabled:opacity-50"
+      >
+        {t('cuenta.pago.restaurar', 'Restaurar compras')}
+      </button>
+      {aviso && <p className="text-[11px] leading-snug text-white/45">{aviso}</p>}
     </div>
   )
 }
@@ -657,7 +698,7 @@ function Niveles() {
         const actual = n.nivel === nivelActual
         return (
           <button
-            key={n.paquete.identifier}
+            key={n.id}
             type="button"
             onClick={() => void alCambiar(n)}
             disabled={ocupado || actual}

@@ -2,9 +2,10 @@
  * Portal de cuenta de la web pública (dominio.com/cuenta): registro, login,
  * suscripción (RevenueCat Web Billing), recargas, gestión y borrado de cuenta.
  *
- * La APP no se vende aquí: se compra en Google Play o el App Store (ver
- * `src/core/edicion.ts`). En esta página solo se pagan la suscripción de IA y
- * las recargas de créditos, que valen para todos los dispositivos.
+ * Aquí se vende TODO —la casa, la suscripción y las recargas— por la caja
+ * directa, sin comisión de tienda (ver `src/core/edicion.ts`). Es la misma
+ * compra que hace la app de Android o iOS in-app: cuelga de la cuenta, así que
+ * lo pagado aquí vale en todos los dispositivos.
  *
  * REUTILIZA los módulos de cuenta de la app (`src/core/cuenta/*`) por import
  * relativo — misma sesión de Supabase, mismo paywall, mismo espejo del plan.
@@ -24,9 +25,11 @@ import {
   obtenerNiveles,
   obtenerCreditos,
   obtenerAnual,
+  obtenerUnlock,
   comprar,
   cambiarNivel,
   comprarCreditos,
+  comprarUnlock,
   urlGestion,
   type OfertaPro,
 } from '../../src/core/cuenta/paywall'
@@ -142,8 +145,8 @@ function Acceso() {
   const entrar = useSesion((s) => s.entrar)
   const registrar = useSesion((s) => s.registrar)
   const restablecer = useSesion((s) => s.restablecer)
-  // Quien llega aquí ya suele tener cuenta: la creó en la app al comprarla, y
-  // viene a suscribirse o a gestionar lo suyo.
+  // Quien llega aquí ya suele tener cuenta: la creó en la app, y viene a
+  // comprar, a suscribirse o a gestionar lo suyo.
   const [modo, setModo] = useState<'entrar' | 'registrar'>('entrar')
   const [email, setEmail] = useState('')
   const [contrasena, setContrasena] = useState('')
@@ -289,31 +292,73 @@ function NuevaContrasena({ alTerminar }: { alTerminar: () => void }) {
   )
 }
 
-// ─── Conseguir la app (se compra en las tiendas, no aquí) ────────────────────
+// ─── Conseguir la app (pago único, directo y sin comisión) ───────────────────
 
 /**
- * La cuenta todavía no tiene la app. Aquí no se vende: se compra en Google Play
- * o el App Store y, al registrar el correo desde la app, esta misma cuenta abre
- * la casa en cualquier dispositivo (`alta-tienda`).
+ * La cuenta todavía no tiene la casa. Aquí se vende por la caja DIRECTA —la web
+ * no paga comisión de tienda—, y es la misma compra que haría in-app quien
+ * estuviera en Android o iOS: el unlock vive en la cuenta, así que pagar aquí
+ * abre la casa también en el móvil. Sin pagos configurados en el build queda el
+ * enlace a las tiendas.
  */
 function ConseguirApp() {
+  const [oferta, setOferta] = useState<OfertaPro | null>(null)
+  const [error, setError] = useState<string | null>(null)
+  const [ocupado, setOcupado] = useState(false)
+
+  useEffect(() => {
+    let vivo = true
+    obtenerUnlock()
+      .then((o) => {
+        if (vivo) setOferta(o)
+      })
+      .catch(() => {})
+    return () => {
+      vivo = false
+    }
+  }, [])
+
+  const alComprar = async () => {
+    if (!oferta || ocupado) return
+    setOcupado(true)
+    setError(null)
+    try {
+      const ok = await comprarUnlock(oferta.paquete)
+      if (!ok) setError(t('app.enCamino', 'El pago está en camino: recarga la página en unos segundos.'))
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e))
+    } finally {
+      setOcupado(false)
+    }
+  }
+
+  const puedeComprar = hayPagos() && !!oferta
+
   return (
     <Panel>
       <h2 className="text-sm font-bold text-white/90">{t('app.titulo', 'Consigue la app')}</h2>
       <div className="space-y-2 rounded-xl border border-accent/50 bg-white/5 p-3">
         <p className="text-2xl font-extrabold text-white/95">
-          6.99 USD<span className="text-sm font-semibold text-white/50">{' '}
+          {oferta?.precio || '8.89 USD'}
+          <span className="text-sm font-semibold text-white/50">{' '}
             {t('app.pagoUnico', 'pago único')}
           </span>
         </p>
         <ul className="list-none space-y-1 text-xs text-white/60">
           <li>✓ {t('app.b1', 'Tu casa para siempre, con todas las apps')}</li>
           <li>✓ {t('app.b2', 'Primer mes incluido: 700 créditos de IA + sincronización')}</li>
-          <li>✓ {t('app.b3', 'Se compra en Google Play o el App Store')}</li>
+          <li>✓ {t('app.b3', 'Una compra para todos tus dispositivos: navegador, Android e iOS')}</li>
         </ul>
-        <a href="/#descargas" className={botonPrincipal + ' block text-center'}>
-          {t('app.cta', 'Ver dónde descargarla')}
-        </a>
+        {puedeComprar ? (
+          <button type="button" onClick={() => void alComprar()} disabled={ocupado} className={botonPrincipal}>
+            {ocupado ? t('comun.procesando', 'Procesando…') : t('app.comprar', 'Comprar la casa')}
+          </button>
+        ) : (
+          <a href="/#descargas" className={botonPrincipal + ' block text-center'}>
+            {t('app.cta', 'Ver dónde descargarla')}
+          </a>
+        )}
+        {error && <p className="text-xs leading-snug text-red-400/90">{error}</p>}
       </div>
       <p className="text-[11px] leading-snug text-white/45">
         {t('app.pie', 'Al abrirla, entra con este mismo correo y tu casa te sigue a todos tus dispositivos.')}
@@ -454,7 +499,7 @@ function Tarifas({ titulo }: { titulo: string }) {
         const actual = suscrito && o.nivel === nivelActual
         return (
           <div
-            key={o.paquete.identifier}
+            key={o.id}
             className={`space-y-2 rounded-xl border bg-white/5 p-3 ${
               actual ? 'border-accent' : 'border-white/10'
             }`}
@@ -641,7 +686,7 @@ function MiCuenta() {
               </p>
             )}
           </Panel>
-          {/* Sin la compra, lo primero es conseguir la app en la tienda. */}
+          {/* Sin la compra, lo primero es comprar la casa. */}
           {!unlock && <ConseguirApp />}
           {verPlanes && (
             <>

@@ -11,22 +11,69 @@ export const TEXTOS = {
   'pie.contacto': 'İletişim',
   'tema.boton': 'Açık ya da koyu mod',
 
-  'meta.titulo': 'Mind Planner Home — Hayatın, bir 3D evde',
+  'meta.titulo': 'Mind Planner Home — Zihnin, bir 3D evde',
   'meta.desc':
     'Alışkanlıklarını, hedeflerini, finansını, öğünlerini ve daha fazlasını her odası bir uygulama olan izometrik bir 3D evde düzenle. Tek seferlik 6,99 USD, ilk ay yapay zekâ ve eşitleme dahil; demo ücretsiz.',
   'og.desc':
     'Hayatın bir 3D evde: alışkanlıklar, hedefler, finans, öğünler ve dahası. 6,99 USD tek ödeme, ilk ay yapay zekâ dahil; demo ücretsiz.',
 
-  'hero.h1': 'Bütün hayatın,<br />bir 3D evde',
-  'hero.sub':
-    'Evindeki her oda bir uygulama: egzersiz, öğünler, finans, uyku, diller, hobiler, hedefler… Tek bir yer, yanında bir yapay zekâ asistanı ve tüm cihazlarında eşitlenen ilerlemen.',
+  'hero.h1': 'Zihnin,<br />bir 3D evde',
+  // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
+  // terna tiene que cuadrar en orden (cocina → nutrición → recetas), y los
+  // ejemplos de un mismo hueco convienen parecidos de largo (se queda con el
+  // ancho del más largo). Un trozo fijo puede ir vacío si el idioma lo pide.
+  'hero.sub.1': '',
+  'hero.sub.ej1.1': 'bir mutfak ya da bir bostan',
+  'hero.sub.ej1.2': 'bir çalışma odası ya da saha',
+  'hero.sub.ej1.3': 'bir kütüphane ya da bir pist',
+  'hero.sub.ej1.4': 'bir bahçe ya da bir çiftlik',
+  'hero.sub.2': 'ekleyerek evini kurduğun bir alan; her odaya eksiksiz bir uygulama koyarsın, mesela',
+  'hero.sub.ej2.1': 'beslenme',
+  'hero.sub.ej2.2': 'finans',
+  'hero.sub.ej2.3': 'öğrenme',
+  'hero.sub.ej2.4': 'huzur',
+  'hero.sub.3': 'uygulamasını. Böylece',
+  'hero.sub.ej3.1': 'öğünlerini, makrolarını ve tariflerini',
+  'hero.sub.ej3.2': 'bütçeni ve birikim hedeflerini',
+  'hero.sub.ej3.3': 'notlarını ve çalışma kayıtlarını',
+  'hero.sub.ej3.4': 'meditasyonlarını ve şükranlarını',
+  'hero.sub.4':
+    'arşivler, planlar ya da sıfırdan yaratırsın — tamamen elle ya da yapay zekânın yardımıyla. Hepsi tek bir takvime, günlük görevlere ve kişisel hedeflerine bağlı; telefonunda ve bilgisayarında eşitlenir.',
   'hero.cta': 'Uygulamayı indir',
   'hero.demo': 'Ücretsiz demoyu dene',
   'hero.nota':
     'Uygulama cihazının mağazasından bir kez satın alınır ve çevrimdışı çalışır. Yapay zekâ ve eşitleme isteğe bağlıdır — bırakırsan da hiçbir şey kaybetmezsin.',
   'hero.video': 'Buraya videon ya da evin ekran görüntüleri gelir',
 
+  // Lo que trae la casa, en cifras (el número lo pone el HTML).
+  'cifras.apps': 'uygulama',
+  'cifras.infra': 'açık hava yapısı',
+  'cifras.ra': 'AR uygulaması',
+  'cifras.calendario': 'takvim',
+  'cifras.chat': 'sohbet',
+
+  'como.h2': 'Nasıl çalışıyor',
+  'como.sub': 'Önce evini kurduğun, sonra hayatını içine taşıdığın bir alan.',
+  'como.1.t': 'Evini kurarsın',
+  'como.1.p':
+    'Odalar, katlar, hatta bir bodrum eklersin; etrafına da açık havada kurulanları: bostan, çiftlik, sahalar, yarış pistleri. Duvarlar, renkler, mobilyalar ve avatarın — hepsini sen seçersin.',
+  'como.2.t': 'Her oda eksiksiz bir uygulama',
+  'como.2.p':
+    'Odaya 17 uygulamadan birini atarsın — beslenme, egzersiz, uyku, finans, kütüphane, diller, fikirler, ajanda, seyahat, hobiler, hedefler… — ya da kendi uygulamanı yaparsın. Onlarla yaşadıklarını arşivler, geleni planlar ve henüz olmayanı yaratırsın: rutinler, tarifler, bütçeler, notlar, zihin haritaları ve zaman çizelgeleri. Elle ya da yapay zekâ yanındayken.',
+  'como.3.t': 'Her şey aynı yere düşer',
+  'como.3.p':
+    '17 uygulama tek bir takvimi, günlük görevlerden oluşan tek bir listeyi ve kişisel hedeflerini paylaşır. Evinin tamamı da telefondan bilgisayara seni takip eder.',
+
   'car.h2': 'Bir ev, bir sürü uygulama',
+  // Las tres primeras tarjetas: el argumento de compra.
+  'car.todo.t': 'Gerçekten hepsi bir arada',
+  'car.todo.p':
+    'Yirmi uygulama yerine bir tane: yemek, para, uyku, çalışma, alışkanlıklar ve hedefler aynı çatı altında — üstelik birbirleriyle konuşarak, ki bunu ayrı uygulamalar yapamaz.',
+  'car.nocaduca.t': 'Ödemeyi bırakınca kapanmaz',
+  'car.nocaduca.p':
+    'Bir kez alırsın, senindir. Abonelikli uygulamalar ödemeyi kestiğin anda kapanır; burada yapay zekâyı bıraksan bile evin tamamı ve cihazındaki tüm verin sende kalır.',
+  'car.nuevas.t': 'Yeni güncellemeler',
+  'car.nuevas.p': 'Ev büyümeye devam ediyor: odalar, uygulamalar ve iyileştirmeler yeniden ödeme yapmadan geliyor.',
   'car.1.t': 'Uygulama olan odalar',
   'car.1.p':
     'Egzersiz, mutfak, finans, uyku, kütüphane, diller, seyahat, hobiler, farkındalık ve dahası: her oda eksiksiz bir mini uygulama barındırır.',
@@ -46,6 +93,14 @@ export const TEXTOS = {
   'car.6.p':
     'Uygulama local-first: her şey önce senin cihazında yaşar. İptal edersen verini kaybetmezsin — yerel modda devam edersin.',
 
+
+  'mani.h2': 'Hayatın, video oyununa dönüşmüş hâli',
+  'mani.p1':
+    'MPH, hayatının video oyununa dönüşmüş hâlidir; üstelik var olan en rahat yerden oynanır: kendi evinden. Seviye ve rütbe atlamak süs değildir — dışarıda yaptığın şeyin burada anlatılmasıdır.',
+  'mani.p2':
+    'Burada yeni beceriler geliştirir, kaynaklarını kontrol altında tutar ve teknolojiyi kendi lehine çevirirsin. Kısa formatın bilinçsiz tüketimine karşı. Büyük şirketlerin dayattığı tüketim alışkanlıklarının bıraktığı bilişsel çöküşe karşı.',
+  'mani.cierre': 'Aynı dopamin. Bu kez gerçek hayatın için.',
+
   'precio.h2': 'Mağazada tek ödeme, evin sonsuza dek senin',
   'precio.demo.nombre': 'Demo',
   'precio.demo.cifra': 'Ücretsiz',
@@ -60,26 +115,25 @@ export const TEXTOS = {
   'precio.app.2': 'İlk ay dahil: 700 yapay zekâ kredisi + eşitleme, kartsız ve aboneliksiz',
   'precio.app.3':
     'Ay bittiğinde uygulamanın tamamı ve verilerin sende kalır; yapay zekâ kredileri isteğe bağlı',
-  'precio.app.cta': 'Nereden indirileceğine bak',
+  'precio.app.cta': 'Evi satın al',
   'precio.app.pie':
-    'Google Play’den ya da App Store’dan alınır, hesabınla tarayıcıda da açarsın. Tek ödeme, yenileme yok.',
+    'Buradan, hiçbir mağazadan geçmeden satın al ya da telefonundaki uygulamanın içinden. Tek ödeme, yenileme yok, tüm cihazlarında geçerli.',
 
   'ia.t': 'Yapay zekâ ve eşitleme · isteğe bağlı',
   'ia.precios': 'Ayda 6 USD<span>·</span>yılda 60 USD<span>·</span>ya da 700 tekil kredi için 6 USD',
   'ia.p':
-    'Yalnızca ilk ayın bittiğinde yapay zekâ ve eşitlemeyle devam etmek istersen. Bu kısım burada, web’de alınır ve bütün cihazlarında geçerlidir. Taahhüt yok: bırakırsan uygulama ve bütün verilerin yerel modda sende kalır.',
+    'Sadece ilk ayın bitince yapay zekâ ve eşitlemeyle devam etmek istersen. Buradan ya da uygulamanın içinden alınır ve tüm cihazlarında geçerlidir. Taahhüt yok: bırakırsan uygulama ve tüm verilerin yerel modda sende kalır.',
   'ia.cta': 'Planları gör →',
 
   'desc.h2': 'Uygulamayı indir',
   'desc.sub':
-    'Uygulama cihazının mağazasından satın alınır. Açtığında e-postanı kaydedersin ve aynı hesap evini başka her yerde — tarayıcı dahil — sana geri verir.',
+    'Ücretsiz indir ve evi uygulamanın içinden — ya da buradan, web’den — satın al. Hesabınla evin başka her yerde, tarayıcı dahil, seni bekler.',
   'desc.pronto': 'Çok yakında',
-  'desc.android': 'Google Play’de, 6,99 USD.',
+  'desc.android': 'Google Play’de ücretsiz. Ev içeriden satın alınır.',
   'desc.ios.t': 'iPhone ve iPad',
-  'desc.ios': 'App Store’da, 6,99 USD.',
+  'desc.ios': 'App Store’da ücretsiz. Ev içeriden satın alınır.',
   'desc.web.t': 'Tarayıcında',
-  'desc.web':
-    'Hiçbir şey kurmadan: uygulamayı aldığın hesapla gir, evin seni bekliyor. Hesapsız da demoyu deneyebilirsin.',
+  'desc.web': 'Hiçbir şey kurmadan: hesabınla gir, evin seni bekliyor. Hesabın yoksa demoyu deneyebilirsin.',
   'desc.web.cta': 'Uygulamayı aç',
   'desc.windows': 'Windows 10/11 için yükleyici.',
   'desc.mac': 'Mac için .dmg imajı.',
@@ -87,7 +141,7 @@ export const TEXTOS = {
   'faq.h2': 'Sık sorulan sorular',
   'faq.1.q': 'Uygulama nereden alınır?',
   'faq.1.a':
-    'Cihazının mağazasından: Google Play ya da App Store. Burada, web’de satılmıyor — bu sayfada ödenen tek şey yapay zekâ aboneliği ve kredi yüklemeleri. Uygulamayı açtığında e-postanı kaydedersin ve o hesapla evin başka herhangi bir cihazda, <a href="#descargas">tarayıcıda</a> da beliriverir.',
+    'Nereden istersen: buradan web’den, <a href="/cuenta">hesabından</a> ya da Android ve iPhone uygulamasının içinden. Hesabına kaydedilen tek seferlik bir ödemedir; nereden alırsan al, evin tüm cihazlarında görünür.',
   'faq.2.q': 'Tek ödeme neleri kapsıyor?',
   'faq.2.a':
     'Evin tamamını: bütün odalar, bütün uygulamalar ve cihazındaki verilerin, sonsuza dek ve yenilemesiz. Üstelik ilk ay 700 yapay zekâ kredisi ve eşitleme dahil gelir, kartsız. Almadan önce hesap istemeyen eksiksiz demoyu deneyebilirsin.',
@@ -102,10 +156,10 @@ export const TEXTOS = {
     'Uygulamanın tamamı ve cihazlarındaki bütün verilerin yerel modda sende kalır. Yalnızca aylık kredileri ve eşitlemeyi kaybedersin. Yenilersen her şey bıraktığın gibi geri gelir.',
   'faq.6.q': 'Verilerim nerede saklanıyor?',
   'faq.6.a':
-    'Önce cihazında (uygulama local-first) ve eşitleme açıksa bir cihazdan diğerine geçebilsin diye bulutta da. Yerel modda cihazından hiçbir şey çıkmaz. Uygulamanın bedelini mağaza tahsil eder (Google Play ya da App Store), aboneliği ise RevenueCat ve Stripe işler: kartını asla görmeyiz. Ayrıntılar <a href="/privacidad">gizlilik politikasında</a>.',
+    'Önce cihazında (uygulama local-first) ve eşitleme açıkken bir cihazdan diğerine geçebilmek için bulutta da. Yerel modda cihazından hiçbir şey çıkmaz. Ödemeleri RevenueCat ve Stripe işler — telefondan alıyorsan mağaza: kartını asla görmeyiz. Ayrıntılar <a href="/privacidad">gizlilik politikasında</a>.',
   'faq.7.q': 'Hangi cihazlarda çalışıyor?',
   'faq.7.a':
-    'Bugün: her modern tarayıcıda. Çok yakında: Android (Google Play), iPhone/iPad (App Store), Windows ve macOS. Hesabın hepsinde geçerli — uygulamayı mağazadan bir kez alırsın, yapay zekâ aboneliğini burada web’de yaparsın; ikisi de e-postanla girdiğin her cihazda çalışır.',
+    'Bugün: her modern tarayıcıda. Çok yakında: Android (Google Play), iPhone/iPad (App Store), Windows ve macOS. Hesabın hepsinde geçerli: bir kez, sana uyan yerden satın alırsın; hem ev hem yapay zekâ aboneliği e-postanla girdiğin her cihazda çalışır.',
   'faq.8.q': 'Aboneliği nasıl iptal ederim, hesabımı nasıl silerim?',
   'faq.8.a':
     'Tahsilatı durdurmak için <a href="/cuenta">hesabındaki</a> «Aboneliği yönet». Hesabını ve sunucularımızdaki bütün verilerini silmek için uygulamadan: Düzenleyici → Ayarlar → Hesap.',
@@ -127,6 +181,10 @@ export const TEXTOS = {
     '<strong>Ödemeler:</strong> RevenueCat ve Stripe işler. Kartını asla görmeyiz ve saklamayız; yalnızca satın alma ve abonelik durumunu alırız.',
   'priv.datos.4':
     '<strong>Yapay zekâ kullanımı:</strong> harcanan kredilerin sayaçları (konuşmalarının içeriği değil; o içerik yalnızca her yanıtı üretmek için yapay zekâ sağlayıcılarına gider ve eğitimde kullanılmaz).',
+  'priv.datos.5':
+    '<strong>Kamera ve mikrofon:</strong> yalnızca sen açtığında (AR maskesi, sohbete fotoğraf, sesle yazdırma). Maske cihazında işlenir; yazdırma sesi ve sohbete eklediğin fotoğraflar, yalnızca o yanıtı üretmek için yapay zekâ sağlayıcılarına gönderilir.',
+  'priv.datos.6':
+    '<strong>Sağlık ve esenlik verileri:</strong> egzersiz, beslenme, ilaçlar, doktor randevuları veya döngü hakkında kaydettiklerin, diğer uygulama verileri gibi senin için saklanır; asla satılmaz ve reklamda kullanılmaz.',
   'priv.uso.h': 'Bunları ne için kullanıyoruz',
   'priv.uso.1': 'Hesabına, satın almana ve aboneliğine erişim vermek için.',
   'priv.uso.2': 'Verilerini cihazlar arasında eşitlemek ve yedeklemek için.',
@@ -142,6 +200,8 @@ export const TEXTOS = {
   'priv.proveedores.1': 'Supabase (veritabanı, kimlik doğrulama ve dosyalar).',
   'priv.proveedores.2': 'RevenueCat ve Stripe (satın almalar, abonelikler ve ödemeler).',
   'priv.proveedores.3': 'Anthropic ve Google (talep üzerine yapay zekâ yanıtları ve görselleri).',
+  'priv.proveedores.4':
+    'OpenAI (talep üzerine ses dökümü ve yapay zekâ görselleri için yedek).',
   'priv.cambios.h': 'Değişiklikler',
   'priv.cambios.p':
     'Bu politika değişirse yeni sürümü tarihiyle birlikte burada yayımlarız. Sorular iletişim adresinden yanıtlanır.',

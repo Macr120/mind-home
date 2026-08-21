@@ -1,6 +1,11 @@
 /**
  * Webhook de RevenueCat → perfiles.plan.
  *
+ * Es la ÚNICA puerta por la que entra una compra, venga de donde venga: el
+ * checkout web (sin comisión), Google Play o el App Store. Como el
+ * `app_user_id` es siempre el user.id de Supabase, comprar en una plataforma
+ * se ve en todas las demás en cuanto refrescan el perfil.
+ *
  * Se despliega con `--no-verify-jwt` (RC no manda JWT de Supabase); la
  * autenticación es el header Authorization comparado con RC_WEBHOOK_AUTH.
  *
@@ -10,6 +15,12 @@
  */
 import { json } from '../_shared/cors.ts'
 import { createClient } from 'npm:@supabase/supabase-js@2'
+
+/** Error de BD: se registra el detalle en el log del servidor, no en la respuesta. */
+function errorBd(e: unknown): Response {
+  console.error('[rc-webhook] error de base de datos:', e)
+  return json({ error: 'bd' }, 500)
+}
 
 const ACTIVAN = ['INITIAL_PURCHASE', 'RENEWAL', 'UNCANCELLATION', 'PRODUCT_CHANGE']
 /**
@@ -21,7 +32,7 @@ const ACTIVAN = ['INITIAL_PURCHASE', 'RENEWAL', 'UNCANCELLATION', 'PRODUCT_CHANG
  * `_v2` son los de $6/$12/$18 (ago 2026); los viejos ($5/$10/$15) se conservan
  * para no dejar sin pool a quien siga suscrito a ellos —en RevenueCat el precio
  * es inmutable, así que cambiarlo obliga a crear productos nuevos—. Espejo de
- * `NIVEL_PRODUCTOS` en src/core/cuenta/paywall.ts.
+ * `NIVELES` en src/core/cuenta/productos.ts.
  */
 const NIVELES: Record<string, number> = {
   pro_x1_v2: 1,
@@ -50,10 +61,25 @@ const CREDITOS: Record<string, number> = {
  * Es una LISTA porque en RevenueCat el precio de un producto es INMUTABLE: cada
  * cambio de precio obliga a crear otro producto. Los ids viejos se conservan
  * para seguir honrando una compra en vuelo. Espejo de `UNLOCK_PRODUCTOS` en
- * src/core/cuenta/paywall.ts.
+ * src/core/cuenta/productos.ts.
  */
-const UNLOCK_PRODUCTOS = ['unlock_casa_v3', 'unlock_casa_v2', 'unlock_casa']
+const UNLOCK_PRODUCTOS = ['unlock_casa_v4', 'unlock_casa_v3', 'unlock_casa_v2', 'unlock_casa']
 const TRIAL_DIAS = 30
+
+/** En Apple el id de producto es único en TODO el App Store: lleva el bundle. */
+const BUNDLE = 'com.macr120.mindhome.'
+
+/**
+ * El mismo producto se llama distinto en cada tienda. Aquí se devuelve al id
+ * canónico —el de las tablas de arriba— quitando lo que le añade la tienda:
+ * el bundle por delante (Apple) y el plan base de la suscripción por detrás
+ * (`pro_x1_v2:mensual`, Google Play). Espejo de `idBase()` en
+ * src/core/cuenta/productos.ts.
+ */
+function idBase(id: string): string {
+  const sinPlan = id.split(':')[0]
+  return sinPlan.startsWith(BUNDLE) ? sinPlan.slice(BUNDLE.length) : sinPlan
+}
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 
 /**
@@ -131,7 +157,7 @@ Deno.serve(async (req) => {
     // El nivel viaja en el product_id. PRODUCT_CHANGE (subir o bajar de nivel)
     // entra por aquí, así que el mismo update lo actualiza. Un producto
     // desconocido se queda en el nivel base en vez de dejar al usuario sin pool.
-    const nivel = NIVELES[String(evento.product_id ?? '')] ?? 1
+    const nivel = NIVELES[idBase(String(evento.product_id ?? ''))] ?? 1
     // fue_pro: sin trials configurados en RC, todo evento de ACTIVAN implica
     // cobro real. Si algún día se añade trial, excluir aquí period_type==='TRIAL'.
     const { error } = await admin
@@ -143,9 +169,9 @@ Deno.serve(async (req) => {
         nivel,
       })
       .eq('user_id', uid)
-    if (error) return json({ error: 'bd', mensaje: error.message }, 500)
+    if (error) return errorBd(error)
   } else if (tipo === 'NON_RENEWING_PURCHASE') {
-    const producto = String(evento.product_id ?? '')
+    const producto = idBase(String(evento.product_id ?? ''))
     if (UNLOCK_PRODUCTOS.includes(producto)) {
       // unlock=true se aplica SIEMPRE (idempotente, como los updates de plan);
       // el trial de 30 días solo la primera vez que el flag cambia y solo si el
@@ -157,14 +183,14 @@ Deno.serve(async (req) => {
         .select('plan, unlock')
         .eq('user_id', uid)
         .single()
-      if (errSel) return json({ error: 'bd', mensaje: errSel.message }, 500)
+      if (errSel) return errorBd(errSel)
       const cambios: Record<string, unknown> = { unlock: true }
       if (perfil && !perfil.unlock && perfil.plan === 'local') {
         cambios.plan = 'trial'
         cambios.plan_expira = new Date(Date.now() + TRIAL_DIAS * 86_400_000).toISOString()
       }
       const { error } = await admin.from('perfiles').update(cambios).eq('user_id', uid)
-      if (error) return json({ error: 'bd', mensaje: error.message }, 500)
+      if (error) return errorBd(error)
     } else if (producto in CREDITOS) {
       // Recarga de créditos. A diferencia de los updates de plan, sumar NO es
       // idempotente: solo se abona en el primer intento (`esNuevo`); un
@@ -174,7 +200,7 @@ Deno.serve(async (req) => {
           p_uid: uid,
           p_creditos: CREDITOS[producto],
         })
-        if (error) return json({ error: 'bd', mensaje: error.message }, 500)
+        if (error) return errorBd(error)
       }
     }
     // Cualquier otro one-time queda auditado y sin efecto.
@@ -185,7 +211,7 @@ Deno.serve(async (req) => {
       .from('perfiles')
       .update({ plan: 'local', plan_expira: null, nivel: 1 })
       .eq('user_id', uid)
-    if (error) return json({ error: 'bd', mensaje: error.message }, 500)
+    if (error) return errorBd(error)
   }
   // CANCELLATION: sigue Pro hasta EXPIRATION → no tocar.
   // BILLING_ISSUE / TRANSFER / etc.: solo auditoría.

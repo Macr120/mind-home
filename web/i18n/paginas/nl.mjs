@@ -11,22 +11,69 @@ export const TEXTOS = {
   'pie.contacto': 'Contact',
   'tema.boton': 'Lichte of donkere modus',
 
-  'meta.titulo': 'Mind Planner Home — Je leven, in een 3D-huis',
+  'meta.titulo': 'Mind Planner Home — Je geest, in een 3D-huis',
   'meta.desc':
     'Breng je gewoontes, doelen, financiën, maaltijden en meer op orde in een isometrisch 3D-huis waarin elke kamer een app is. Eén betaling van 6,99 USD, met de eerste maand AI en synchronisatie erbij; demo gratis.',
   'og.desc':
     'Je leven in een 3D-huis: gewoontes, doelen, financiën, maaltijden en meer. Eén betaling van 6,99 USD, eerste maand AI erbij; demo gratis.',
 
-  'hero.h1': 'Je hele leven,<br />in een 3D-huis',
-  'hero.sub':
-    'Elke kamer van je huis is een app: sport, maaltijden, financiën, slaap, talen, hobby’s, doelen… Eén plek, met een AI-assistent naast je en je voortgang gesynchroniseerd op al je apparaten.',
+  'hero.h1': 'Je geest,<br />in een 3D-huis',
+  // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
+  // terna tiene que cuadrar en orden (cocina → nutrición → recetas), y los
+  // ejemplos de un mismo hueco convienen parecidos de largo (se queda con el
+  // ancho del más largo). Un trozo fijo puede ir vacío si el idioma lo pide.
+  'hero.sub.1': 'Een plek waar je een huis maakt door er',
+  'hero.sub.ej1.1': 'een keuken of een moestuin',
+  'hero.sub.ej1.2': 'een kantoor of een sportveld',
+  'hero.sub.ej1.3': 'een bibliotheek of een circuit',
+  'hero.sub.ej1.4': 'een tuin of een boerderij',
+  'hero.sub.2': 'in te zetten, en in elke kamer een complete app, bijvoorbeeld die voor',
+  'hero.sub.ej2.1': 'voeding',
+  'hero.sub.ej2.2': 'financiën',
+  'hero.sub.ej2.3': 'leren',
+  'hero.sub.ej2.4': 'rust',
+  'hero.sub.3': 'om je',
+  'hero.sub.ej3.1': 'maaltijden, macro’s en recepten',
+  'hero.sub.ej3.2': 'budgetten en spaardoelen',
+  'hero.sub.ej3.3': 'aantekeningen en studiesessies',
+  'hero.sub.ej3.4': 'meditaties en dankbaarheid',
+  'hero.sub.4':
+    'te bewaren, te plannen of te maken — helemaal met de hand of met hulp van de AI. En alle apps hangen aan één kalender, aan dagelijkse missies en aan je eigen doelen, gesynchroniseerd op je telefoon en je computer.',
   'hero.cta': 'De app downloaden',
   'hero.demo': 'Probeer de gratis demo',
   'hero.nota':
     'De app koop je één keer in de store van je apparaat en werkt offline. AI en synchronisatie zijn optioneel — en als je ze laat vallen, verlies je niets.',
   'hero.video': 'Hier komt je video of komen je schermafbeeldingen van het huis',
 
+  // Lo que trae la casa, en cifras (el número lo pone el HTML).
+  'cifras.apps': 'apps',
+  'cifras.infra': 'buitenbouwsels',
+  'cifras.ra': 'AR-apps',
+  'cifras.calendario': 'kalender',
+  'cifras.chat': 'chat',
+
+  'como.h2': 'Hoe het werkt',
+  'como.sub': 'Een plek waar je eerst je huis bouwt en er daarna je leven in zet.',
+  'como.1.t': 'Je bouwt je huis',
+  'como.1.p':
+    'Je plaatst kamers, verdiepingen en zelfs een kelder, en eromheen alles wat je buiten bouwt: moestuin, boerderij, sportvelden, racecircuits. Muren, kleuren, meubels en je avatar kies je zelf.',
+  'como.2.t': 'Elke kamer is een complete app',
+  'como.2.p':
+    'Je wijst er een van de 17 apps aan toe — voeding, sport, slaap, financiën, bibliotheek, talen, ideeën, planner, reizen, hobby’s, doelen… — of je maakt je eigen app. Daarmee archiveer je wat je al hebt meegemaakt, plan je wat eraan komt en maak je wat er nog niet is: routines, recepten, budgetten, aantekeningen, mindmaps en planningen. Met de hand, of met de AI naast je.',
+  'como.3.t': 'Alles komt op dezelfde plek terecht',
+  'como.3.p':
+    'De 17 apps delen één kalender, één lijst met dagelijkse missies en je eigen doelen. En je hele huis gaat met je mee van telefoon naar computer.',
+
   'car.h2': 'Eén huis, veel apps',
+  // Las tres primeras tarjetas: el argumento de compra.
+  'car.todo.t': 'Echt alles in één',
+  'car.todo.p':
+    'Eén app in plaats van twintig: eten, geld, slaap, studie, gewoontes en doelen onder hetzelfde dak — en met elkaar verbonden, wat losse apps nooit kunnen.',
+  'car.nocaduca.t': 'Vervalt niet als je stopt met betalen',
+  'car.nocaduca.p':
+    'Je koopt hem één keer en hij is van jou. Abonnementsapps gaan uit zodra je stopt met betalen; hier houd je het hele huis en al je gegevens op je apparaat, ook als je de AI laat vallen.',
+  'car.nuevas.t': 'Nieuwe updates',
+  'car.nuevas.p': 'Het huis blijft groeien: kamers, apps en verbeteringen die binnenkomen zonder opnieuw te betalen.',
   'car.1.t': 'Kamers die apps zijn',
   'car.1.p':
     'Sport, keuken, financiën, slaap, bibliotheek, talen, reizen, hobby’s, mindfulness en meer: in elke kamer zit een complete mini-app.',
@@ -46,6 +93,14 @@ export const TEXTOS = {
   'car.6.p':
     'De app is local-first: alles leeft eerst op je apparaat. Zeg je op, dan raak je je gegevens niet kwijt — je gaat verder in lokale modus.',
 
+
+  'mani.h2': 'Je leven, als videogame',
+  'mani.p1':
+    'MPH is je leven omgezet in een videogame, gespeeld vanaf de comfortabelste plek die er is: je eigen huis. Levels en rangen zijn geen versiering — het is wat je daarbuiten hebt gedaan, hierbinnen verteld.',
+  'mani.p2':
+    'Hier bouw je nieuwe vaardigheden op, houd je grip op je middelen en zet je de technologie aan jouw kant. Tegen de onbewuste consumptie van korte video. Tegen het cognitieve verval dat de consumptiegewoontes achterlaten die de grote bedrijven ons opleggen.',
+  'mani.cierre': 'Dezelfde dopamine. Deze keer voor je echte leven.',
+
   'precio.h2': 'Eén betaling in de store, je huis voor altijd',
   'precio.demo.nombre': 'Demo',
   'precio.demo.cifra': 'Gratis',
@@ -61,27 +116,27 @@ export const TEXTOS = {
     'Eerste maand inbegrepen: 700 AI-credits + synchronisatie, zonder kaart en zonder abonnement',
   'precio.app.3':
     'Als die maand voorbij is hou je de hele app en je gegevens; de AI-credits zijn optioneel',
-  'precio.app.cta': 'Kijken waar je haar downloadt',
+  'precio.app.cta': 'Huis kopen',
   'precio.app.pie':
-    'Je koopt haar in Google Play of de App Store, en met je account open je haar ook in de browser. Eén betaling, geen verlengingen.',
+    'Koop het hier, zonder tussenkomst van een store, of in de app op je telefoon. Eén betaling, geen verlengingen, en het geldt op al je apparaten.',
 
   'ia.t': 'AI en synchronisatie · optioneel',
   'ia.precios':
     '6 USD per maand<span>·</span>60 USD per jaar<span>·</span>of 6 USD voor 700 losse credits',
   'ia.p':
-    'Alleen als je met AI en synchronisatie verder wilt wanneer je eerste maand voorbij is. Dít sluit je hier op het web af, en het geldt voor al je apparaten. Zonder binding: stop je ermee, dan hou je de app en al je gegevens in lokale modus.',
+    'Alleen als je na je eerste maand verder wilt met AI en synchronisatie. Je sluit het hier of in de app af, en het geldt voor al je apparaten. Zonder verplichting: stop je ermee, dan houd je de app en al je gegevens in lokale modus.',
   'ia.cta': 'De plannen bekijken →',
 
   'desc.h2': 'De app downloaden',
   'desc.sub':
-    'De app koop je in de store van je apparaat. Bij het openen registreer je je e-mail, en datzelfde account geeft je je huis overal terug — ook in de browser.',
+    'Download hem gratis en koop het huis in de app — of hier op het web. Met je account staat je huis overal anders klaar, ook in de browser.',
   'desc.pronto': 'Binnenkort',
-  'desc.android': 'In Google Play, 6,99 USD.',
+  'desc.android': 'Gratis in Google Play. Het huis koop je erin.',
   'desc.ios.t': 'iPhone en iPad',
-  'desc.ios': 'In de App Store, 6,99 USD.',
+  'desc.ios': 'Gratis in de App Store. Het huis koop je erin.',
   'desc.web.t': 'In je browser',
   'desc.web':
-    'Zonder iets te installeren: log in met het account waarmee je de app kocht en je huis staat klaar. Zonder account kun je de demo proberen.',
+    'Niets installeren: log in met je account en je huis wacht op je. Zonder account kun je de demo proberen.',
   'desc.web.cta': 'De app openen',
   'desc.windows': 'Installatieprogramma voor Windows 10/11.',
   'desc.mac': '.dmg-image voor Mac.',
@@ -89,7 +144,7 @@ export const TEXTOS = {
   'faq.h2': 'Veelgestelde vragen',
   'faq.1.q': 'Waar koop je de app?',
   'faq.1.a':
-    'In de store van je apparaat: Google Play of de App Store. Hier op het web wordt zij niet verkocht — het enige dat op deze pagina betaald wordt zijn het AI-abonnement en de creditbundels. Bij het openen van de app registreer je je e-mail, en met dat account verschijnt je huis op elk ander apparaat, ook in de <a href="#descargas">browser</a>.',
+    'Waar je wilt: hier op het web, in <a href="/cuenta">je account</a>, of in de app voor Android en iPhone. Het is een eenmalige betaling die in je account staat, dus waar je hem ook koopt, je huis verschijnt op al je apparaten.',
   'faq.2.q': 'Wat zit er in de eenmalige betaling?',
   'faq.2.a':
     'Het hele huis: alle kamers, alle apps en je gegevens op je apparaat, voor altijd en zonder verlengingen. Daar bovenop brengt de eerste maand 700 AI-credits en synchronisatie mee, zonder kaart. Voor je koopt kun je de volledige demo proberen, die geen account vraagt.',
@@ -104,10 +159,10 @@ export const TEXTOS = {
     'Je houdt de hele app en al je gegevens op je apparaten, in lokale modus. Je raakt alleen de maandcredits en de synchronisatie kwijt. Verleng je weer, dan komt alles terug zoals je het achterliet.',
   'faq.6.q': 'Waar worden mijn gegevens bewaard?',
   'faq.6.a':
-    'Eerst op je apparaat (de app is local-first) en, met synchronisatie aan, ook in de cloud om van het ene naar het andere apparaat te gaan. In lokale modus verlaat er niets je apparaat. De aankoop van de app int de store (Google Play of App Store) en het abonnement verwerken RevenueCat en Stripe: wij zien je kaart nooit. Meer details in het <a href="/privacidad">privacybeleid</a>.',
+    'Eerst op je apparaat (de app is local-first) en, met synchronisatie aan, ook in de cloud om van het ene apparaat naar het andere te gaan. In lokale modus verlaat er niets je apparaat. Betalingen verlopen via RevenueCat en Stripe — of via de store, als je vanaf je telefoon koopt: we zien je kaart nooit. Meer details in het <a href="/privacidad">privacybeleid</a>.',
   'faq.7.q': 'Op welke apparaten werkt het?',
   'faq.7.a':
-    'Vandaag: in elke moderne browser. Heel binnenkort: Android (Google Play), iPhone/iPad (App Store), Windows en macOS. Je account geldt voor allemaal — de app koop je één keer in de store en het AI-abonnement sluit je hier op het web af; beide werken op elk apparaat waarop je met je e-mail inlogt.',
+    'Vandaag: in elke moderne browser. Heel binnenkort: Android (Google Play), iPhone/iPad (App Store), Windows en macOS. Je account geldt overal: je koopt één keer, waar het jou uitkomt, en zowel het huis als het AI-abonnement werken op elk apparaat waarop je met je e-mail inlogt.',
   'faq.8.q': 'Hoe zeg ik op of verwijder ik mijn account?',
   'faq.8.a':
     'Om de afschrijving te stoppen: «Abonnement beheren» in <a href="/cuenta">je account</a>. Om je account en al je gegevens van onze servers te verwijderen, vanuit de app: Editor → Instellingen → Account.',
@@ -129,6 +184,10 @@ export const TEXTOS = {
     '<strong>Betalingen:</strong> verwerkt door RevenueCat en Stripe. We zien of bewaren je kaart nooit; we ontvangen alleen de status van je aankoop en je abonnement.',
   'priv.datos.4':
     '<strong>AI-gebruik:</strong> tellers van verbruikte credits (niet de inhoud van je gesprekken, die alleen naar de AI-leveranciers gaat om elk antwoord te maken en niet voor training wordt gebruikt).',
+  'priv.datos.5':
+    '<strong>Camera en microfoon:</strong> alleen als je ze aanzet (AR-masker, foto voor de chat, spraakdictaat). Het masker wordt op je apparaat verwerkt; de audio van het dictaat en de foto’s die je aan de chat toevoegt gaan alleen naar de AI-leveranciers om dat antwoord te maken.',
+  'priv.datos.6':
+    '<strong>Gezondheids- en welzijnsgegevens:</strong> wat je noteert over beweging, maaltijden, medicijnen, doktersafspraken of cyclus wordt voor jou bewaard zoals alle andere app-gegevens; het wordt nooit verkocht of voor reclame gebruikt.',
   'priv.uso.h': 'Waarvoor we ze gebruiken',
   'priv.uso.1': 'Om je toegang te geven tot je account, je aankoop en je abonnement.',
   'priv.uso.2': 'Om je gegevens tussen apparaten te synchroniseren en er een back-up van te maken.',
@@ -144,6 +203,8 @@ export const TEXTOS = {
   'priv.proveedores.1': 'Supabase (database, authenticatie en bestanden).',
   'priv.proveedores.2': 'RevenueCat en Stripe (aankopen, abonnementen en betalingen).',
   'priv.proveedores.3': 'Anthropic en Google (AI-antwoorden en -beelden, op verzoek).',
+  'priv.proveedores.4':
+    'OpenAI (spraaktranscriptie en AI-beeld-fallback, op verzoek).',
   'priv.cambios.h': 'Wijzigingen',
   'priv.cambios.p':
     'Als dit beleid verandert, publiceren we hier de nieuwe versie met haar datum. Vragen beantwoorden we op het contactadres.',

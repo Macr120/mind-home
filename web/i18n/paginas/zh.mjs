@@ -11,22 +11,64 @@ export const TEXTOS = {
   'pie.contacto': '联系',
   'tema.boton': '浅色或深色模式',
 
-  'meta.titulo': 'Mind Planner Home — 把你的生活装进一座 3D 房子',
+  'meta.titulo': 'Mind Planner Home — 你的心智，装进一座 3D 房子',
   'meta.desc':
     '在一座等距 3D 房子里整理习惯、目标、财务、饮食等等，每个房间就是一个应用。一次性支付 6.99 美元，首月含 AI 和同步；demo 免费。',
   'og.desc':
     '把你的生活装进 3D 房子：习惯、目标、财务、饮食等等。一次支付 6.99 美元，首月含 AI；demo 免费。',
 
-  'hero.h1': '你的整个生活，<br />装进一座 3D 房子',
-  'hero.sub':
-    '房子里的每个房间都是一个应用：运动、饮食、财务、睡眠、语言、爱好、目标……全都在一个地方，有 AI 助手陪着你，进度在你所有设备上同步。',
+  'hero.h1': '你的心智，<br />装进一座 3D 房子',
+  // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
+  // terna tiene que cuadrar en orden (cocina → nutrición → recetas), y los
+  // ejemplos de un mismo hueco convienen parecidos de largo (se queda con el
+  // ancho del más largo). Un trozo fijo puede ir vacío si el idioma lo pide.
+  'hero.sub.1': '这是一个空间：你放进',
+  'hero.sub.ej1.1': '一间厨房或一片菜园',
+  'hero.sub.ej1.2': '一间书房或一片球场',
+  'hero.sub.ej1.3': '一间图书室或一条赛道',
+  'hero.sub.ej1.4': '一座花园或一座农场',
+  'hero.sub.2': '来盖起自己的房子，每个房间装进一个完整的应用，比如',
+  'hero.sub.ej2.1': '饮食',
+  'hero.sub.ej2.2': '财务',
+  'hero.sub.ej2.3': '学习',
+  'hero.sub.ej2.4': '静心',
+  'hero.sub.3': '，用来归档、规划或创造你的',
+  'hero.sub.ej3.1': '三餐、营养和食谱',
+  'hero.sub.ej3.2': '预算和存钱目标',
+  'hero.sub.ej3.3': '笔记和学习记录',
+  'hero.sub.ej3.4': '冥想和感恩',
+  'hero.sub.4': '，全部手动，或者让 AI 帮你。所有应用都接到同一个日历、每日任务和你的个人目标上，手机和电脑同步。',
   'hero.cta': '下载应用',
   'hero.demo': '试试免费 demo',
   'hero.nota':
     '应用在你设备的商店里买一次，离线也能用。AI 和同步是可选的——就算不要，你也不会失去什么。',
   'hero.video': '这里放你的视频或房子的截图',
 
+  // Lo que trae la casa, en cifras (el número lo pone el HTML).
+  'cifras.apps': '个应用',
+  'cifras.infra': '项户外建造',
+  'cifras.ra': '个 AR 应用',
+  'cifras.calendario': '个日历',
+  'cifras.chat': '个聊天框',
+
+  'como.h2': '怎么运作',
+  'como.sub': '一个先盖房子、再把生活搬进去的地方。',
+  'como.1.t': '你把房子盖起来',
+  'como.1.p': '插入房间、楼层，甚至地下室，四周再建起露天的部分：菜园、农场、球场和赛道。墙、颜色、家具和你的形象，都由你来选。',
+  'como.2.t': '每个房间都是一个完整的应用',
+  'como.2.p':
+    '给它指派 17 个应用中的一个——饮食、运动、睡眠、财务、书房、语言、想法、日程、旅行、爱好、目标……——或者自己做一个。用它们归档你已经经历的，计划将要到来的，创造还不存在的：作息、食谱、预算、笔记、思维导图和进度表。全部手动，或者让 AI 陪着你。',
+  'como.3.t': '所有东西都落在同一个地方',
+  'como.3.p': '17 个应用共用一个日历、一份每日任务清单和你自己的目标。整座房子跟着你，从手机到电脑。',
+
   'car.h2': '一座房子，很多应用',
+  // Las tres primeras tarjetas: el argumento de compra.
+  'car.todo.t': '真正的全部合一',
+  'car.todo.p': '一个应用，而不是二十个：吃饭、钱、睡眠、学习、习惯和目标都在同一个屋檐下，而且彼此相通——这正是任何单独的应用都做不到的。',
+  'car.nocaduca.t': '停止付费也不会失效',
+  'car.nocaduca.p': '买一次就是你的。订阅制应用一停付费就关掉；在这里，就算你不再用 AI，整座房子和设备里的数据都还在。',
+  'car.nuevas.t': '持续更新',
+  'car.nuevas.p': '房子会继续长大：新的房间、新的应用和改进，都不用再付一次钱。',
   'car.1.t': '房间就是应用',
   'car.1.p':
     '运动、厨房、财务、睡眠、图书馆、语言、旅行、爱好、正念等等：每个房间里都装着一个完整的小应用。',
@@ -44,6 +86,12 @@ export const TEXTOS = {
   'car.6.p':
     '应用是本地优先的：一切先存在你的设备上。就算取消订阅，数据也不会丢——你继续用本地模式。',
 
+
+  'mani.h2': '把你的人生，做成一款游戏',
+  'mani.p1': 'MPH 是把你的人生变成电子游戏的样子，而且是在最舒服的地方玩——你自己的家。升级和升段位不是装饰，那是你在外面做过的事，在这里被讲了出来。',
+  'mani.p2': '在这里你拓展新的能力，掌握自己的资源，让技术站在你这边。对抗短视频里那种无意识的消费。对抗大公司强加的消费习惯留下的认知退化。',
+  'mani.cierre': '同样的多巴胺。这一次，给你真实的人生。',
+
   'precio.h2': '在商店付一次，房子永远是你的',
   'precio.demo.nombre': 'Demo',
   'precio.demo.cifra': '免费',
@@ -57,26 +105,22 @@ export const TEXTOS = {
   'precio.app.1': '一座属于你的房子，永远：所有应用，数据都在你的设备上',
   'precio.app.2': '含首月：700 点 AI 额度 + 同步，不用银行卡，也不是订阅',
   'precio.app.3': '首月结束后，整个应用和你的数据都还在；AI 额度是可选的',
-  'precio.app.cta': '看看去哪儿下载',
-  'precio.app.pie':
-    '在 Google Play 或 App Store 购买，用你的账户也能在浏览器里打开。付一次，不续费。',
+  'precio.app.cta': '购买这个家',
+  'precio.app.pie': '可以直接在这里买，不经过任何商店，也可以在手机的 App 内购买。一次付费，无需续订，所有设备都能用。',
 
   'ia.t': 'AI 与同步 · 可选',
   'ia.precios': '每月 6 美元<span>·</span>每年 60 美元<span>·</span>或 6 美元买 700 点单独额度',
-  'ia.p':
-    '只有当你想在首月结束后继续用 AI 和同步时才需要。这部分确实在网页上订购，并且对你所有设备都有效。没有约束期：如果不再续，应用和你所有的数据都以本地模式保留。',
+  'ia.p': '只有当第一个月结束后你还想继续使用 AI 和同步时才需要。在这里或在 App 内都能订阅，所有设备通用。没有绑定：停止后，App 和你的全部数据仍以本地模式保留。',
   'ia.cta': '查看方案 →',
 
   'desc.h2': '下载应用',
-  'desc.sub':
-    '应用在你设备的商店里购买。打开时登记你的邮箱，同一个账户会把你的房子还给你——在任何地方，包括浏览器。',
+  'desc.sub': '免费下载，在 App 内购买这个家——在网页上买也一样。有账号后，你的家会出现在任何地方，包括浏览器。',
   'desc.pronto': '即将推出',
-  'desc.android': '在 Google Play，6.99 美元。',
+  'desc.android': 'Google Play 免费下载，家在应用内购买。',
   'desc.ios.t': 'iPhone 和 iPad',
-  'desc.ios': '在 App Store，6.99 美元。',
+  'desc.ios': 'App Store 免费下载，家在应用内购买。',
   'desc.web.t': '在你的浏览器里',
-  'desc.web':
-    '什么都不用装：用买应用的那个账户登录，房子就在等你。没有账户也可以试 demo。',
+  'desc.web': '无需安装：用你的账号登录，你的家就在那里。没有账号也可以试用演示。',
   'desc.web.cta': '打开应用',
   'desc.windows': 'Windows 10/11 安装程序。',
   'desc.mac': 'Mac 用的 .dmg 镜像。',
@@ -84,7 +128,7 @@ export const TEXTOS = {
   'faq.h2': '常见问题',
   'faq.1.q': '在哪里买应用？',
   'faq.1.a':
-    '在你设备的商店里：Google Play 或 App Store。网页上不卖——这个页面上要付费的只有 AI 订阅和额度充值。打开应用时登记你的邮箱，用那个账户，你的房子就会出现在任何其他设备上，<a href="#descargas">浏览器</a>也算。',
+    '你想在哪买都行：在网页上通过<a href="/cuenta">你的账号</a>，或在 Android 和 iPhone 的 App 内。这是一次性付费，记录在你的账号里，所以无论在哪购买，你的家都会出现在所有设备上。',
   'faq.2.q': '一次性付款包含什么？',
   'faq.2.a':
     '整座房子：所有房间、所有应用，以及存在你设备上的数据，永远有效，不用续费。另外，首月还带 700 点 AI 额度和同步，不用银行卡。购买前你可以试完整版 demo，它不要求账户。',
@@ -99,10 +143,10 @@ export const TEXTOS = {
     '整个应用和设备上所有数据都留给你，以本地模式运行。你失去的只有每月额度和同步。重新续订后，一切都会按你离开时的样子恢复。',
   'faq.6.q': '我的数据存在哪里？',
   'faq.6.a':
-    '先在你的设备上（应用是本地优先的）；开启同步后，也会存在云端，好在设备之间流转。本地模式下什么都不会离开你的设备。应用的购买由商店收款（Google Play 或 App Store），订阅由 RevenueCat 和 Stripe 处理：我们从来看不到你的卡。更多细节见<a href="/privacidad">隐私政策</a>。',
+    '先存在你的设备上（App 是本地优先），开启同步后也会存到云端，方便在设备之间切换。本地模式下不会有任何数据离开你的设备。付款由 RevenueCat 和 Stripe 处理——如果你从手机购买，则由应用商店处理：我们从不接触你的银行卡。详见<a href="/privacidad">隐私政策</a>。',
   'faq.7.q': '哪些设备能用？',
   'faq.7.a':
-    '今天：任何现代浏览器。很快就会有：Android（Google Play）、iPhone/iPad（App Store）、Windows 和 macOS。你的账户在所有设备上通用——应用在商店买一次，AI 订阅在网页上订；两者在任何用你邮箱登录的设备上都能用。',
+    '目前：任何现代浏览器。很快支持：Android（Google Play）、iPhone/iPad（App Store）、Windows 和 macOS。你的账号在哪里都有效：只买一次，在哪买都行，家和 AI 订阅在你用邮箱登录的任何设备上都能用。',
   'faq.8.q': '怎么取消或删除账户？',
   'faq.8.a':
     '要停止扣费，去<a href="/cuenta">你的账户</a>点「管理订阅」。要从我们的服务器上删除账户和全部数据，请在应用里操作：编辑器 → 设置 → 账户。',
@@ -124,6 +168,10 @@ export const TEXTOS = {
     '<strong>支付：</strong>由 RevenueCat 和 Stripe 处理。我们从不查看也不保存你的银行卡；只收到你的购买和订阅状态。',
   'priv.datos.4':
     '<strong>AI 使用：</strong>已消耗额度的计数（不含你对话的内容，那些内容只会为生成每次回复而发送给 AI 服务商，不用于训练）。',
+  'priv.datos.5':
+    '<strong>相机和麦克风：</strong>仅在你开启时使用（AR 面具、发到聊天的照片、语音输入）。面具在你的设备上处理；语音输入的音频和你附到聊天的照片，仅为生成该回复而发送给 AI 服务商。',
+  'priv.datos.6':
+    '<strong>健康与身心数据：</strong>你记录的运动、饮食、用药、就医和生理周期等内容，会像其他应用数据一样为你保存；绝不出售，也不用于广告。',
   'priv.uso.h': '我们用它们做什么',
   'priv.uso.1': '让你能访问自己的账户、购买和订阅。',
   'priv.uso.2': '在设备之间同步并备份你的数据。',
@@ -139,6 +187,8 @@ export const TEXTOS = {
   'priv.proveedores.1': 'Supabase（数据库、认证和文件）。',
   'priv.proveedores.2': 'RevenueCat 和 Stripe（购买、订阅和支付）。',
   'priv.proveedores.3': 'Anthropic 和 Google（按需提供 AI 回复与图像）。',
+  'priv.proveedores.4':
+    'OpenAI（语音转写与 AI 图像备用，按需）。',
   'priv.cambios.h': '变更',
   'priv.cambios.p':
     '如果本政策有变更，我们会在此发布带日期的新版本。有疑问请写到联系邮箱。',
