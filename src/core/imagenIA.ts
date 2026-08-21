@@ -8,13 +8,12 @@ import {
   type ProveedorMediaId,
 } from './chat/ia'
 import { iaHabilitada } from './edicion'
-import { usarViaCuenta, iaImagenCuenta, ErrorIA } from './cuenta/api'
+import { usarViaCuenta, cuentaDisponible, iaImagenCuenta, ErrorIA } from './cuenta/api'
 import { esperarSesion } from './cuenta/sesionStore'
 import { hayBackend } from './cuenta/supabase'
 import { leerCalidadImagen, type CalidadImagen } from './cuenta/calidadImagen'
 import { useGastoByok } from './cuenta/gastoByok'
 import { costoImagenByok } from './cuenta/tarifasByok'
-import { useCuotaAgotada } from './state/avisosPlanStore'
 import { tGlobal } from './i18n/useT'
 
 /**
@@ -261,8 +260,11 @@ export async function generarImagen(
   await esperarSesion()
   // La referencia viaja en el cuerpo de la petición: se reduce antes para no mandar megas.
   const ref = referencia ? await comprimirImagen(referencia, 768) : undefined
-  // Vía cuenta: Edge Function con la clave del servidor y cuota.
-  if (usarViaCuenta()) {
+  const provId = proveedorImagen(calidad)
+  // Vía cuenta: Edge Function con la clave del servidor y cuota. También cuando
+  // BYOK está elegido pero ninguna de tus claves genera imágenes (BYOK se elige
+  // por el proveedor de TEXTO): antes eso acusaba de «sin créditos» teniéndolos.
+  if (usarViaCuenta() || (!provId && cuentaDisponible())) {
     const r = await iaImagenCuenta(
       prompt,
       ref ? { base64: await blobABase64(ref), mime: ref.type || 'image/jpeg' } : undefined,
@@ -271,12 +273,16 @@ export async function generarImagen(
     )
     return comprimirImagen(base64ABlob(r.base64, r.mime), max)
   }
-  // BYOK. Sin ningún proveedor de imagen con clave no hay forma de pagar:
-  // el modal de recarga es mejor respuesta que un error de red.
-  const provId = proveedorImagen(calidad)
+  // BYOK sin proveedor de imagen y sin cuenta que pueda pagarla: falta un
+  // proveedor, no créditos. Decirlo tal cual (el modal de recarga mentía).
   if (!provId) {
-    useCuotaAgotada.getState().abrir()
-    throw new ErrorIA('cuota-agotada', tGlobal('cuenta.creditos.faltan', 'Te quedaste sin créditos de IA.'))
+    throw new ErrorIA(
+      'proveedor',
+      tGlobal(
+        'ia.sinProveedorImagen',
+        'Ninguna de tus claves genera imágenes. Elige OpenAI o Gemini en el panel de IA, o usa tus créditos.',
+      ),
+    )
   }
   const key = getIaKey(provId)
   let blob: Blob

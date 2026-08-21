@@ -82,8 +82,18 @@ export function registrarByokUtilizable(fn: () => boolean) {
  *    puesta, BYOK manda y los créditos no se tocan.
  */
 export function usarViaCuenta(): boolean {
-  if (!hayBackend() || !haySesionProbable()) return false
   if (getTransporte() === 'byok' && byokUtilizable()) return false
+  return cuentaDisponible()
+}
+
+/**
+ * Lo mismo SIN mirar la preferencia de transporte: ¿la cuenta podría pagar esto?
+ * BYOK se elige por el proveedor de TEXTO, y ese proveedor puede no generar
+ * imágenes; entonces la cuenta paga la imagen en vez de acusar de «sin créditos»
+ * con el pool intacto (ver `generarImagen`).
+ */
+export function cuentaDisponible(): boolean {
+  if (!hayBackend() || !haySesionProbable()) return false
   return tieneAcceso() || fuePro() || useSesion.getState().creditosExtra > 0
 }
 
@@ -156,6 +166,9 @@ async function llamarFuncion<T>(nombre: string, cuerpo: unknown): Promise<T> {
       useCuotaAgotada.getState().abrir(codigo === 'techo' ? 'techo' : 'cuota')
       // Los créditos que quedan pudieron cambiar en otro dispositivo.
       void useSesion.getState().refrescarPerfil()
+      // Y el medidor: sin esto seguía enseñando saldo libre justo después de
+      // que el servidor denegara, que es la peor mezcla posible.
+      void useSesion.getState().refrescarUso()
     } else if (codigo === 'sin-pro') {
       // El espejo local iba desfasado (canceló en otro lado): resincronizar.
       useAvisoRenovar.getState().abrir()
