@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
 import { useThree } from '@react-three/fiber'
 import type * as THREE from 'three'
-import { Vector3 } from 'three'
-import { useLayout, roomWorldPos } from '../state/layoutStore'
+import { OrthographicCamera, Vector3 } from 'three'
+import { mapFocusPos, useLayout, roomWorldPos } from '../state/layoutStore'
 import { useCuartos } from '../state/cuartosStore'
+import { CAM_R, useCam, zoomEncuadre } from '../state/cameraStore'
 import { SPACING, WALL_H } from '../house/walls'
 
 /**
@@ -52,9 +53,9 @@ export interface Encuadre {
  * Se proyectan las esquinas de los cuartos colocados con la MISMA cámara del
  * render, se toma su caja en pantalla y se estira al aspecto del widget.
  */
-export function encuadreCasa(aspecto: number): Encuadre | null {
+export function encuadreCasa(aspecto: number, camera: THREE.Camera): Encuadre | null {
   if (!motor) return null
-  const { camera, gl } = motor
+  const { gl } = motor
   const colocados = useLayout.getState().placed
   const cuartos = useCuartos.getState().cuartos.filter((c) => colocados[c.id] === true)
   if (cuartos.length === 0) return null
@@ -109,6 +110,44 @@ export function encuadreCasa(aspecto: number): Encuadre | null {
   const x = Math.max(0, Math.min(ancho - w, cx - w / 2))
   const y = Math.max(0, Math.min(alto - h, cy - h / 2))
   return { x: Math.round(x), y: Math.round(y), w: Math.round(w), h: Math.round(h) }
+}
+
+/**
+ * La cámara del botón «centrar en el mapa» (NavControls), CLONADA: mismo foco y
+ * mismo zoom de encuadre que `centrarIso`, conservando el giro que tenga puesto
+ * el usuario. Se clona en vez de mover la de verdad porque la foto se pinta
+ * fuera del loop: el frame siguiente vuelve a dibujar con la real y en pantalla
+ * no se nota nada.
+ *
+ * Sin esto la foto salía como estuviera mirando el usuario en ese momento —la
+ * cámara sigue al personaje—, así que el widget podía ser un prado vacío.
+ * Devuelve null en 3ª/1ª persona (ahí la cámara es en perspectiva y no hay vista
+ * isométrica que clonar): entonces se usa la de la escena, como antes.
+ */
+function camaraCentrada(): OrthographicCamera | null {
+  if (!motor || !(motor.camera instanceof OrthographicCamera)) return null
+  const { az, el } = useCam.getState()
+  const [fx, fy, fz] = mapFocusPos()
+  const cam = motor.camera.clone()
+  const ce = Math.cos(el)
+  cam.position.set(fx + CAM_R * ce * Math.cos(az), fy + CAM_R * Math.sin(el), fz + CAM_R * ce * Math.sin(az))
+  cam.lookAt(fx, fy, fz)
+  cam.zoom = zoomEncuadre()
+  cam.updateProjectionMatrix()
+  return cam
+}
+
+/** Foto para el widget: mapa centrado y ya recortado a la forma del widget. */
+export function fotoCasaWidget(aspecto: number): { dataUrl: string; encuadre: Encuadre | null } | null {
+  if (!motor) return null
+  const camara = camaraCentrada() ?? motor.camera
+  try {
+    motor.gl.render(motor.scene, camara)
+    const dataUrl = motor.gl.domElement.toDataURL('image/jpeg', 0.85)
+    return { dataUrl, encuadre: encuadreCasa(aspecto, camara) }
+  } catch {
+    return null
+  }
 }
 
 // Depuración: window.mhFotoCasa() devuelve la foto que vería el widget.

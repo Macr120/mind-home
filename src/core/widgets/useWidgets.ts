@@ -9,7 +9,7 @@ import { useDiseño } from '../state/disenoStore'
 import { esAccionGlobal, lanzarAccionGlobal } from '../state/accionGlobal'
 import { Widgets } from './plugin'
 import { armarSnapshot } from './snapshot'
-import { encuadreCasa, fotoCasa, reducirFoto } from './CapturaCasa'
+import { fotoCasaWidget, reducirFoto } from './CapturaCasa'
 import { aplicarAccionesPendientes } from './acciones'
 import type { SnapshotWidgets } from './tipos'
 
@@ -133,11 +133,10 @@ async function publicarFotoCasa(): Promise<void> {
   try {
     if (useHouse.getState().activeRoom || document.visibilityState !== 'visible') return
     if (!(await Widgets.hayWidgets()).casa) return
-    const foto = fotoCasa()
+    // Mapa centrado (como el botón «centrar») y recortado a la forma del widget.
+    const foto = fotoCasaWidget(ASPECTO_WIDGET)
     if (!foto) return
-    // El encuadre se toma con la MISMA cámara del render, así que hay que
-    // pedirlo pegado a la foto: si el jugador se mueve, deja de valer.
-    const base64 = await reducirFoto(foto, ANCHO_FOTO, encuadreCasa(ASPECTO_WIDGET))
+    const base64 = await reducirFoto(foto.dataUrl, ANCHO_FOTO, foto.encuadre)
     if (base64) await Widgets.publicarFotoCasa({ base64 })
   } catch (err) {
     console.warn('[Widgets] no se pudo publicar la foto de la casa:', err)
