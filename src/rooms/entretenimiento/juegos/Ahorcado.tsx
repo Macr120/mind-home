@@ -4,21 +4,17 @@ import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
 import { guardarRecord, leerNumero } from './almacen'
 import { claveDificultad, type Dificultad, type PropsDificultad } from './dificultad'
+import { enIdioma } from '../../../core/i18n/porIdioma'
+import { idiomaActual } from '../../../core/i18n/useT'
+import { BANCOS_AHORCADO } from './ahorcado.palabras'
 
-const PALABRAS = [
-  'ÁRBOL', 'MONTAÑA', 'GUITARRA', 'ELEFANTE', 'MARIPOSA', 'BIBLIOTECA', 'CHOCOLATE', 'VENTANA', 'PIRÁMIDE', 'DINOSAURIO',
-  'TELÉFONO', 'CASTILLO', 'JIRAFA', 'HELADO', 'PLANETA', 'VOLCÁN', 'BRÚJULA', 'CANGREJO', 'ESPEJO', 'FANTASMA',
-  'GALLETA', 'HORMIGA', 'INVIERNO', 'JARDÍN', 'LÁMPARA', 'MURCIÉLAGO', 'NARANJA', 'ORQUESTA', 'PAYASO', 'QUESO',
-  'RELÁMPAGO', 'SEMÁFORO', 'TIBURÓN', 'UNICORNIO', 'VIOLÍN', 'ZANAHORIA', 'AVIÓN', 'BALLENA', 'CIRUELA', 'DELFÍN',
-  'ESCALERA', 'FUEGO', 'GLOBO', 'HURACÁN', 'IGLESIA', 'JUGUETE', 'KOALA', 'LIMONADA', 'MERCADO', 'NUBE',
-  'OSO', 'PINGÜINO', 'RATÓN', 'SERPIENTE', 'TORTUGA', 'UVA', 'VAMPIRO', 'YOGUR', 'ZAPATO', 'ARAÑA',
-  'BOSQUE', 'CAMISETA', 'DRAGÓN', 'ESTRELLA', 'FLAUTA', 'GIRASOL', 'HOSPITAL', 'ISLA', 'JAMÓN', 'LEÓN',
-  'MAGIA', 'NIEVE', 'OCÉANO', 'PELUCHE', 'RANA', 'SOMBRERO', 'TREN', 'VELERO', 'ZORRO', 'ANILLO',
-  'BUFANDA', 'COMETA', 'DIAMANTE', 'ESQUELETO', 'FRESA', 'GAVIOTA', 'HAMACA', 'IMÁN', 'LADRILLO', 'MELÓN',
-  'NIDO', 'OVEJA', 'PIRATA', 'ROBOT', 'SIRENA', 'TAMBOR', 'VACUNA', 'CIGÜEÑA', 'MUÑECA', 'PIÑATA',
-]
-
-const LETRAS = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.split('')
+/**
+ * El banco (alfabeto + 100 palabras) vive en `ahorcado.palabras.ts`, por
+ * idioma: las palabras se SUSTITUYEN por palabras nativas, no se traducen, y
+ * los idiomas sin escritura alfabética caen al inglés. Se lee al montar: la
+ * partida en curso no cambia de idioma a medias.
+ */
+const banco = () => enIdioma(BANCOS_AHORCADO, idiomaActual())
 
 // Fallos permitidos y longitud de las palabras del sorteo
 const AJUSTE: Record<Dificultad, { fallos: number; max: number; min: number }> = {
@@ -27,13 +23,20 @@ const AJUSTE: Record<Dificultad, { fallos: number; max: number; min: number }> =
   dificil: { fallos: 4, min: 8, max: 99 },
 }
 
-const SIN_TILDE: Record<string, string> = { Á: 'A', É: 'E', Í: 'I', Ó: 'O', Ú: 'U', Ü: 'U' }
-// La Ñ se conserva: solo se pliegan las vocales acentuadas para comparar
-const normalizar = (s: string) => s.toUpperCase().replace(/[ÁÉÍÓÚÜ]/g, (c) => SIN_TILDE[c])
+/**
+ * Pliega a su tecla los diacríticos que NO son letra propia del alfabeto del
+ * banco (Á→A en español) y conserva las que sí lo son (Ñ, las umlauts…).
+ */
+const normalizarCon = (letras: string) => (s: string) =>
+  s
+    .toUpperCase()
+    .split('')
+    .map((c) => (letras.includes(c) ? c : c.normalize('NFD').replace(/[̀-ͯ]/g, '')))
+    .join('')
 
 function palabraAleatoria(dif: Dificultad): string {
   const { min, max } = AJUSTE[dif]
-  const pozo = PALABRAS.filter((p) => p.length >= min && p.length <= max)
+  const pozo = banco().palabras.filter((p) => p.length >= min && p.length <= max)
   return pozo[Math.floor(Math.random() * pozo.length)]
 }
 
@@ -41,12 +44,15 @@ export function Ahorcado({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
   const maxFallos = AJUSTE[dificultad].fallos
   const clave = claveDificultad('ahorcado-racha', dificultad)
+  // El alfabeto del idioma se fija al montar (la palabra sorteada es de ese banco).
+  const [letras] = useState(() => banco().letras.split(''))
+  const normalizar = normalizarCon(letras.join(''))
   const [palabra, setPalabra] = useState(() => palabraAleatoria(dificultad))
   const [usadas, setUsadas] = useState<Set<string>>(new Set())
   const [racha, setRacha] = useState(0)
   const [record, setRecord] = useState(() => leerNumero(clave, 0))
 
-  const letrasPalabra = new Set(normalizar(palabra).split('').filter((c) => LETRAS.includes(c)))
+  const letrasPalabra = new Set(normalizar(palabra).split('').filter((c) => letras.includes(c)))
   const fallos = [...usadas].filter((l) => !letrasPalabra.has(l)).length
   const ganado = [...letrasPalabra].every((l) => usadas.has(l))
   const perdido = fallos >= maxFallos
@@ -76,7 +82,7 @@ export function Ahorcado({ dificultad = 'medio' }: PropsDificultad) {
     const manejar = (e: KeyboardEvent) => {
       if (e.target instanceof HTMLElement && ['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return
       const letra = normalizar(e.key)
-      if (letra.length === 1 && LETRAS.includes(letra)) probar(letra)
+      if (letra.length === 1 && letras.includes(letra)) probar(letra)
     }
     window.addEventListener('keydown', manejar)
     return () => window.removeEventListener('keydown', manejar)
@@ -137,7 +143,7 @@ export function Ahorcado({ dificultad = 'medio' }: PropsDificultad) {
       </div>
 
       <div className="grid grid-cols-9 gap-1">
-        {LETRAS.map((l) => {
+        {letras.map((l) => {
           const usada = usadas.has(l)
           const acierto = usada && letrasPalabra.has(l)
           return (

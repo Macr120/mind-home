@@ -14,6 +14,8 @@ import { DialogoEstadisticas, RutaSvg } from './EstadisticasCardio'
 import { CheckFila } from './CheckFila'
 import { aGrupoCatalogo } from './catalogo'
 import { CrearRutinaCardio } from './CrearRutinaCardio'
+import { useFocoRegistro } from './focoRegistro'
+import { nombreEjercicio, nombreRutina } from './nombres'
 import { HeatmapMensual } from './HeatmapMensual'
 import { useImagenesPorClave } from './imagenIA'
 import { MiniaturaEjercicio } from './MiniaturaEjercicio'
@@ -94,6 +96,8 @@ export function ResistenciaTab({
   const [editandoId, setEditandoId] = useState<number | null>(null)
   const [rutinasAbierto, setRutinasAbierto] = useState(true)
 
+  const { refRegistro, irAlRegistro } = useFocoRegistro<HTMLFormElement>()
+
   const rutinas = rutinasCardioRepo.useAll() ?? VACIO
   const gruposCardio = gruposCardioRepo.useAll() ?? VACIO
   const catalogoNombres = useMemo(() => aGrupoCatalogo(gruposCardio), [gruposCardio])
@@ -170,6 +174,7 @@ export function ResistenciaTab({
       setFilas([{ actividad: r.nombre, minutos: String(r.duracionMin), dist: '' }])
     }
     if (subR !== 'rutinas') setSubR('rutinas')
+    irAlRegistro()
   }
 
   const usarProgramada = (p: PlanDelDia) => {
@@ -268,7 +273,7 @@ export function ResistenciaTab({
                   <Icono nombre="calendario" /> {t('ejercicio.plan.dia', 'Plan del día')}
                   {p.hora ? ` · ${p.hora}` : ''}:
                 </span>{' '}
-                {p.rutinaNombre} · {p.duracionMin} min
+                {nombreRutina(t, p.rutinaNombre)} · {p.duracionMin} min
               </p>
               <button
                 type="button"
@@ -341,7 +346,11 @@ export function ResistenciaTab({
             </p>
           )}
 
-          <form onSubmit={guardar} className="rounded-xl bg-white/5 p-4 space-y-3 border border-white/10">
+          <form
+            ref={refRegistro}
+            onSubmit={guardar}
+            className="rounded-xl bg-white/5 p-4 space-y-3 border border-white/10"
+          >
             <p className="text-base font-bold">
               <Icono nombre={editandoId !== null ? 'editar' : 'tab-cardio'} />{' '}
               {editandoId !== null
@@ -687,7 +696,7 @@ export function HistorialSesiones({
                 <ul className="mt-1 text-xs text-white/55">
                   {splits.map((x) => (
                     <li key={x.id}>
-                      {x.actividad}: {x.minutos} min
+                      {nombreEjercicio(t, x.actividad)}: {x.minutos} min
                       {x.km ? ` · ${fmtDistancia(x.km, unidades, 2)}` : ''}
                     </li>
                   ))}

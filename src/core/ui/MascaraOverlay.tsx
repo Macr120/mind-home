@@ -24,6 +24,10 @@ export default function MascaraOverlay() {
       mostrar: t('mascara.mostrar', 'Mostrar interfaz'),
       menos: t('mascara.menos', 'Menos'),
       ajustes: t('mascara.ajustes', 'Ajustes'),
+      mascara: t('mascara.modelo', 'Máscara'),
+      // La cabeza Base y los cuerpos prediseñados ya tienen nombre en el editor de personajes.
+      mascaraNombre: (id, nombre) =>
+        id === 'base' ? t('editor.pers.modeloBase', 'Humano') : t(`editor.pers.cuerpo.${id}`, nombre),
       cara: t('mascara.cara', 'Cara'),
       caraFija: t('mascara.cara.fija', 'Fija'),
       caraImita: t('mascara.cara.imita', 'Imita'),
@@ -59,7 +63,9 @@ export default function MascaraOverlay() {
     [t],
   )
   return (
-    <div className="fixed inset-0 z-[60] bg-[#0f1115]">
+    // `ui-noche`: el panel de la máscara flota sobre la cámara y está pensado en
+    // oscuro, así que conserva la tinta blanca aunque la app esté en modo claro.
+    <div className="ui-noche fixed inset-0 z-[60] bg-[#0f1115]">
       <MascaraApp onSalir={cerrar} textos={textos} />
     </div>
   )

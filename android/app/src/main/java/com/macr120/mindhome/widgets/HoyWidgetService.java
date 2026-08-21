@@ -19,7 +19,7 @@ import java.util.Map;
 import com.macr120.mindhome.R;
 
 /**
- * Sirve las filas de la lista del widget «Hoy» desde el snapshot publicado.
+ * Sirve las filas de la lista del widget «Misiones» desde el snapshot publicado.
  * El estado pintado de cada fila es el del snapshot CORREGIDO por el último
  * optimista de ese ítem: así el tap se ve al instante aunque la app (que es
  * quien de verdad escribe) siga cerrada.
@@ -39,6 +39,7 @@ public class HoyWidgetService extends RemoteViewsService {
     String emoji;
     String hora;
     boolean hecho;
+    boolean urgente;
   }
 
   private static final class Factory implements RemoteViewsFactory {
@@ -93,6 +94,7 @@ public class HoyWidgetService extends RemoteViewsService {
           f.hora = item.optString("hora");
           Boolean optimista = optimistaPorItem.get(f.id);
           f.hecho = optimista != null ? optimista : item.optBoolean("hecho");
+          f.urgente = item.optBoolean("urgente") && !f.hecho;
           filas.add(f);
         } catch (JSONException ignorada) {
           // Un ítem malformado se salta; el resto de la lista sigue.
@@ -111,6 +113,12 @@ public class HoyWidgetService extends RemoteViewsService {
       rv.setTextViewText(R.id.item_detalle, f.detalle);
       rv.setViewVisibility(R.id.item_detalle, f.detalle.isEmpty() ? View.GONE : View.VISIBLE);
       rv.setTextViewText(R.id.item_hora, f.hora);
+      // La lista lleva juntos los pendientes y los cumplidos: lo hecho baja de tono
+      // para que lo que falta siga leyéndose primero, y la hora de lo que ya se pasó
+      // va en ámbar, como el globo de Misiones dentro de la app.
+      rv.setTextColor(R.id.item_titulo, f.hecho ? 0xFF6B7280 : 0xFFEDEDF2);
+      rv.setTextColor(R.id.item_detalle, f.hecho ? 0xFF565C66 : 0xFF9AA0AA);
+      rv.setTextColor(R.id.item_hora, f.urgente ? 0xFFFBBF24 : 0xFF9AA0AA);
       rv.setViewVisibility(R.id.item_hora, f.hora.isEmpty() ? View.GONE : View.VISIBLE);
       rv.setImageViewResource(
           R.id.item_check, f.hecho ? R.drawable.widget_check_on : R.drawable.widget_check_off);

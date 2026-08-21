@@ -142,7 +142,7 @@ export function EditorZonaPisoSection({ zona }: { zona: ZonaPlano }) {
                   className="w-full rounded-md bg-cover bg-center"
                   style={{ height: 28, ...swatchStyle(p) }}
                 />
-                <span className="text-[10px] font-medium leading-tight">{p.nombre}</span>
+                <span className="text-[10px] font-medium leading-tight">{t(`piso.${p.id}`, p.nombre)}</span>
               </button>
             )
           })}

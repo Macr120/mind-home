@@ -7,6 +7,7 @@ import { useImagenesPorClave } from './imagenIA'
 import { MiniaturaEjercicio } from './MiniaturaEjercicio'
 import { normalizarEjercicio } from './stats'
 import { RUTINAS, type RutinaPlantilla } from './rutinas'
+import { descEjercicio, nombreEjercicio, nombreRutina } from './nombres'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { acento } from '../_shared/acento'
@@ -223,10 +224,14 @@ export function CatalogoFuerza({
                           className="min-w-0 flex-1 text-start"
                         >
                           <div className="flex items-center gap-2">
-                            <span className="flex-1 text-sm font-semibold text-white/90">{ej.nombre}</span>
+                            <span className="flex-1 text-sm font-semibold text-white/90">
+                              {nombreEjercicio(t, ej.nombre)}
+                            </span>
                             <span className="shrink-0 font-bold text-orange-400">+</span>
                           </div>
-                          {ej.descripcion && <p className="mt-0.5 text-xs text-white/55">{ej.descripcion}</p>}
+                          {ej.descripcion && (
+                            <p className="mt-0.5 text-xs text-white/55">{descEjercicio(t, ej.nombre, ej.descripcion)}</p>
+                          )}
                         </button>
                         {grupoUnico && (
                           <button
@@ -304,11 +309,13 @@ export function CatalogoFuerza({
                     className="block w-full rounded-lg bg-white/5 hover:bg-orange-500/15 border border-white/10 px-3 py-2 text-start transition"
                   >
                     <div className="flex items-center gap-2">
-                      <span className="flex-1 text-sm font-semibold text-white/90">{r.nombre}</span>
+                      <span className="flex-1 text-sm font-semibold text-white/90">{nombreRutina(t, r.nombre)}</span>
                       <span className="shrink-0 text-xs text-white/40">{r.duracionMin} min</span>
                     </div>
                     {r.ejercicios && r.ejercicios.length > 0 && (
-                      <p className="mt-0.5 text-xs text-white/55">{r.ejercicios.join(' · ')}</p>
+                      <p className="mt-0.5 text-xs text-white/55">
+                        {r.ejercicios.map((n) => nombreEjercicio(t, n)).join(' · ')}
+                      </p>
                     )}
                   </button>
                 ))}

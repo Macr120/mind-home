@@ -14,8 +14,8 @@ import org.json.JSONObject;
 import com.macr120.mindhome.R;
 
 /**
- * Widget «Hoy»: la checklist del día (rutinas/eventos del calendario y metas
- * diarias por app), palomeable desde el launcher. Las filas las sirve
+ * Widget «Misiones»: la checklist de HOY de toda la casa —lo que pide cada app
+ * y lo que hay agendado—, palomeable desde el launcher. Las filas las sirve
  * HoyWidgetService; los taps disparan WidgetAccionReceiver vía la plantilla de
  * PendingIntent (MUTABLE: el fill-in de cada fila necesita aplicarse).
  */
@@ -40,7 +40,7 @@ public class HoyWidgetProvider extends AppWidgetProvider {
         R.id.widget_hoy_titulo,
         snap != null ? textos.optString("titulo") : ctx.getString(R.string.app_name));
     rv.setTextViewText(R.id.widget_hoy_fecha, textos.optString("fechaLarga"));
-    rv.setTextViewText(R.id.widget_hoy_metas, textos.optString("metas"));
+    rv.setTextViewText(R.id.widget_hoy_cuenta, textos.optString("misiones"));
 
     boolean viejo = WidgetsComun.desactualizado(snap);
     rv.setTextViewText(R.id.widget_hoy_desactualizado, textos.optString("desactualizado"));

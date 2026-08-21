@@ -6,6 +6,7 @@ import { GenerarImagenesBar } from './GenerarImagenesBar'
 import { useImagenesPorClave } from './imagenIA'
 import { MiniaturaEjercicio } from './MiniaturaEjercicio'
 import { normalizarEjercicio } from './stats'
+import { descEjercicio, nombreEjercicio } from './nombres'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { acento } from '../_shared/acento'
@@ -151,10 +152,12 @@ export function CatalogoCardio({ onAgregar }: { onAgregar: (nombre: string) => v
                   className="min-w-0 flex-1 text-start"
                 >
                   <div className="flex items-center gap-2">
-                    <span className="flex-1 text-sm font-semibold text-white/90">{ej.nombre}</span>
+                    <span className="flex-1 text-sm font-semibold text-white/90">{nombreEjercicio(t, ej.nombre)}</span>
                     <span className="shrink-0 font-bold text-sky-400">+</span>
                   </div>
-                  {ej.descripcion && <p className="mt-0.5 text-xs text-white/55">{ej.descripcion}</p>}
+                  {ej.descripcion && (
+                    <p className="mt-0.5 text-xs text-white/55">{descEjercicio(t, ej.nombre, ej.descripcion)}</p>
+                  )}
                 </button>
                 <button
                   type="button"

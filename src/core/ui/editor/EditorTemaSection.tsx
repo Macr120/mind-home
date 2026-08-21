@@ -50,10 +50,10 @@ export function EditorTemaSection({ embed }: { embed?: boolean } = {}) {
                   : 'color-mix(in srgb, var(--ui-ink) 5%, transparent)',
               boxShadow: temaGlobal === tema.id ? `inset 0 0 0 1px ${tema.paleta[1] ?? tema.paleta[0]}` : 'none',
             }}
-            title={tema.nombre}
+            title={t(`tema.${tema.id}`, tema.nombre)}
           >
             <span className="text-lg"><Icono emoji={tema.icon} /></span>
-            <span className="text-white/80">{tema.nombre}</span>
+            <span className="text-white/80">{t(`tema.${tema.id}`, tema.nombre)}</span>
           </button>
         ))}
       </div>

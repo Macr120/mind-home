@@ -9,7 +9,8 @@ import { DetalleVehiculo } from './DetalleVehiculo'
 import { ResumenTab } from './ResumenTab'
 import { VehiculosTab } from './VehiculosTab'
 import { reconciliarGarage } from './calendario'
-import { sembrarGarage } from './seed'
+import { retraducirGarage, sembrarGarage } from './seed'
+import { useAjustes } from '../../core/state/ajustesStore'
 import { useT } from '../../core/i18n/useT'
 import { tabInicial } from '../../core/state/intencionApp'
 import { PestanasCarpeta, type ItemPestana } from '../_shared/PestanasCarpeta'
@@ -35,9 +36,12 @@ export function GarageApp() {
 
   const vehiculoSel = vehiculoId ? vehiculos.find((v) => v.id === vehiculoId) : null
 
+  // La semilla sale en el idioma activo; al cambiarlo, las filas sin tocar se
+  // reescriben en el nuevo (retraducirGarage).
+  const idioma = useAjustes((s) => s.idioma)
   useEffect(() => {
-    void sembrarGarage().then(reconciliarGarage)
-  }, [])
+    void sembrarGarage().then(reconciliarGarage).then(retraducirGarage)
+  }, [idioma])
 
   if (vehiculoSel) {
     return (

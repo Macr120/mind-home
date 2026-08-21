@@ -269,7 +269,7 @@ function TarjetaReceta({ receta: r, onClick }: { receta: Receta; onClick: () => 
       <div className="flex items-center gap-3">
         <Portada
           foto={r.foto}
-          url={urlImagenReceta(r.nombre)}
+          url={urlImagenReceta(r)}
           emoji={r.emoji}
           nombre={r.nombre}
           className="h-11 w-11 shrink-0 rounded-lg"
@@ -398,7 +398,7 @@ export function DetalleReceta({
       {onEditar ? (
         <ImagenCocina
           foto={receta.foto}
-          url={urlImagenReceta(receta.nombre)}
+          url={urlImagenReceta(receta)}
           prompt={promptReceta(receta)}
           emoji={receta.emoji}
           nombre={receta.nombre}
@@ -407,7 +407,7 @@ export function DetalleReceta({
       ) : (
         <Portada
           foto={receta.foto}
-          url={urlImagenReceta(receta.nombre)}
+          url={urlImagenReceta(receta)}
           emoji={receta.emoji}
           nombre={receta.nombre}
           className="aspect-video w-full rounded-xl border border-white/10"

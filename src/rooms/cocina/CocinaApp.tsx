@@ -18,7 +18,8 @@ import { ProgresoTab } from './ProgresoTab'
 import { RecetasTab } from './RecetasTab'
 import { hoyISO, nombreFecha, sumarDias } from './fecha'
 import { perfilEfectivo, usePerfil } from './usePerfil'
-import { sembrarCocina } from './seed'
+import { retraducirCocina, sembrarCocina } from './seed'
+import { useAjustes } from '../../core/state/ajustesStore'
 import { claveLS } from '../../core/edicion'
 import { useT } from '../../core/i18n/useT'
 import { intencionApp } from '../../core/state/intencionApp'
@@ -105,9 +106,12 @@ export function CocinaApp() {
 
   const aguaDia = agua.filter((a) => a.fecha === fecha).reduce((s, a) => s + a.ml, 0)
 
+  // La siembra sale en el idioma activo, y al CAMBIAR de idioma las filas
+  // sembradas que nadie tocó se reescriben en el nuevo (retraducirCocina).
+  const idioma = useAjustes((s) => s.idioma)
   useEffect(() => {
-    void sembrarCocina()
-  }, [])
+    void sembrarCocina().then(retraducirCocina)
+  }, [idioma])
 
   const cambiarEnfoque = (id: Enfoque) => {
     localStorage.setItem(CLAVE_ENFOQUE, id)

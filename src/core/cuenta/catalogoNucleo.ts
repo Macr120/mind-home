@@ -52,7 +52,6 @@ export const OPS_CHAT: OperacionIA[] = [
     es: '«Hazme un mapa de ideas» por chat',
     dondeClave: 'ia.donde.chat',
     dondeEs: 'Chat de la casa',
-    aprox: true,
     notaClave: 'ia.op.chat.mapaIdeas.nota',
     notaEs: 'Si el mapa no sale bien a la primera, se reintenta una vez.',
     partes: [{ op: 'chat' }, { op: 'texto_largo' }],

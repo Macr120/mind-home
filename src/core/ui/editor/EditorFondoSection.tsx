@@ -310,11 +310,11 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
                   ? 'rgba(52,211,153,0.12)'
                   : 'color-mix(in srgb, var(--ui-ink) 4%, transparent)',
             }}
-            title={f.tema ? `Sugerido para tema ${f.tema}` : undefined}
+            title={f.tema ? t('editor.fondo.sugerido', 'Sugerido para el tema {tema}', { tema: t(`tema.${f.tema}`, f.tema) }) : undefined}
           >
             <span className="flex items-center gap-1.5 text-sm">
               <span><Icono emoji={f.icon} /></span>
-              <span className="text-white/85 font-medium">{f.nombre}</span>
+              <span className="text-white/85 font-medium">{t(`fondo.${f.id}`, f.nombre)}</span>
             </span>
             <span
               className="h-2 w-full rounded-sm"

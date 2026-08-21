@@ -131,7 +131,7 @@ export function DietasTab({ dietas, recetas }: { dietas: DietaGuardada[]; receta
           {/* La dieta es lo más caro de la app: sus recetas se escriben una a
               una y cada foto son 10 créditos. El número va antes del gasto. */}
           <div className="flex items-center gap-2">
-            <Creditos n={costoDieta(imagenIaActiva())} aprox />
+            <Creditos n={costoDieta(imagenIaActiva())} />
             <span className="text-[10px] text-white/40">
               {imagenIaActiva()
                 ? t('cocina.ia.costoDieta', `La dieta, hasta ${RECETAS_POR_DIETA} recetas y sus fotos`, {
@@ -198,7 +198,7 @@ export function DietasTab({ dietas, recetas }: { dietas: DietaGuardada[]; receta
             >
               <Portada
                 foto={d.foto}
-                url={urlImagenDieta(d.nombre)}
+                url={urlImagenDieta(d)}
                 emoji={emojiDieta(d, recetas)}
                 nombre={d.nombre}
                 className="h-12 w-12 shrink-0 rounded-lg"
@@ -314,7 +314,7 @@ function DetalleDieta({
 
       <ImagenCocina
         foto={dieta.foto}
-        url={urlImagenDieta(dieta.nombre)}
+        url={urlImagenDieta(dieta)}
         prompt={promptDieta(dieta)}
         emoji={emojiDieta(dieta, recetas)}
         nombre={dieta.nombre}

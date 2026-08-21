@@ -90,7 +90,7 @@ export function EditorTemaDetalle() {
     <div className="space-y-4 rounded-lg border border-white/10 bg-black/20 p-3">
       <div className="flex items-center justify-between gap-2">
         <p className="text-xs font-semibold text-white/80">
-          {t('editor.tema.ajustesDe', 'Ajustes de')} {tema.nombre}
+          {t('editor.tema.ajustesDe', 'Ajustes de')} {t(`tema.${tema.id}`, tema.nombre)}
         </p>
         <button
           type="button"

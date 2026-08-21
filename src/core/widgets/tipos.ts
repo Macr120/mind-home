@@ -3,24 +3,28 @@
  *
  * La app EMPUJA un snapshot JSON ya localizado a SharedPreferences (el widget
  * solo pinta) y el widget ENCOLA acciones con estado destino que la app aplica
- * al abrirse con la lógica real (rutinas.ts / metaDiaria.ts): Java nunca decide
- * negocio. Los mismos esquemas los parsea el lado Java (widgets/ del proyecto
- * Android), así que cualquier cambio aquí debe reflejarse allá.
+ * al abrirse con la lógica real (core/hoy.ts): Java nunca decide negocio. Los
+ * mismos esquemas los parsea el lado Java (widgets/ del proyecto Android), así
+ * que cualquier cambio aquí debe reflejarse allá.
  */
 import type { Idioma } from '../i18n/idiomas'
+import type { OrigenPaso } from '../hoy'
 
-/** Un renglón del widget «Hoy»: rutina/evento del calendario o meta diaria de una app. */
+/** Un renglón del widget «Misiones»: un `PasoHoy` de cualquier app de la casa. */
 export interface ItemHoy {
-  /** 'rutina:12' | 'meta:cocina' — también identifica la acción del tap. */
+  /** El `PasoHoy.id` («obj:cocina|clave», «rut:12|0», «meta:34»): con él se
+   *  reencuentra el paso al aplicar la acción, así que no puede componerse aquí. */
   id: string
-  tipo: 'rutina' | 'meta'
+  tipo: OrigenPaso
   titulo: string
-  /** Línea secundaria (avance de la meta, etiqueta). */
+  /** Línea secundaria: el cuarto del que sale y su avance o su meta. */
   detalle?: string
   emoji?: string
   /** 'HH:mm'; vacío = sin hora. */
   hora?: string
   hecho: boolean
+  /** Ya se pasó de su hora y sigue pendiente: el widget lo pinta en ámbar. */
+  urgente?: boolean
 }
 
 export interface ResumenWidget {
@@ -32,8 +36,8 @@ export interface ResumenWidget {
   sisifo: { altura: number; rango: number; estrellas: number } | null
   proximo: { titulo: string; hora: string } | null
   efemeride: { titulo: string; anio?: string; texto: string } | null
-  metasHechas: number
-  metasTotal: number
+  misionesHechas: number
+  misionesTotal: number
 }
 
 export interface SnapshotWidgets {
@@ -47,7 +51,7 @@ export interface SnapshotWidgets {
    * vive en fuentes .java, donde javac en Windows puede corromperlos.
    */
   textos: Record<string, string>
-  /** Renglones del día: con hora asc → sin hora → metas. */
+  /** Las misiones del día: lo pendiente primero (lo atrasado arriba), lo hecho al final. */
   hoy: ItemHoy[]
   resumen: ResumenWidget
 }
@@ -58,7 +62,7 @@ export interface AccionWidget {
   accionId: string
   /** ItemHoy.id */
   id: string
-  tipo: 'rutina' | 'meta'
+  tipo: OrigenPaso
   /** La fecha del snapshot al momento del tap (puede ser de días atrás si la app no se abrió). */
   fecha: string
   /** Estado DESTINO. */

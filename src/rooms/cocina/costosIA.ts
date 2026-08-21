@@ -26,7 +26,6 @@ export const OP_DIETA: OperacionIA = {
   es: 'Dieta completa o plan alimenticio',
   dondeClave: 'ia.donde.cocina.dietas',
   dondeEs: 'Dietas · Plan alimenticio',
-  aprox: true,
   notaClave: 'ia.op.cocina.dieta.nota',
   notaEs: 'El plan y cada una de sus recetas se escriben aparte, y cada plato lleva su foto.',
   partes: [

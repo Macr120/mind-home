@@ -13,6 +13,7 @@ import type { TipoEntrenamiento } from '../../core/data/db'
 import { actividadId } from '../../core/rutinas'
 import { tGlobal } from '../../core/i18n/useT'
 import { agendaDelDia } from './agenda'
+import { nombreRutina } from './nombres'
 import { planMetasEjercicio } from './plan'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { esencialEjercicio, flujosEjercicio } from './tutorial.meta'
@@ -78,7 +79,7 @@ function sugerible(
       actividad: {
         actividadId: actividadId(tipo, r.id),
         plantillaId: 'ejercicio',
-        nombre: r.nombre,
+        nombre: nombreRutina(tGlobal, r.nombre),
         emoji: '💪',
         horaSugerida: '07:00',
         duracionMin: r.duracionMin,
@@ -160,7 +161,9 @@ const ejercicio: Plantilla = {
         objetivo: 1,
         // Sin entrenar aún, lo agendado dice qué toca; ya entrenado, no estorba.
         detalle:
-          hecho === 0 && plan.length > 0 ? plan.map((p) => p.rutinaNombre).join(' · ') : undefined,
+          hecho === 0 && plan.length > 0
+            ? plan.map((p) => nombreRutina(tGlobal, p.rutinaNombre)).join(' · ')
+            : undefined,
       }
     },
   },

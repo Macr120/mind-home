@@ -2,10 +2,16 @@ import { useMemo, useState } from 'react'
 import type { GrupoCatalogo } from './catalogo'
 import { normalizarEjercicio } from './stats'
 import { useT } from '../../core/i18n/useT'
+import { nombreEjercicio } from './nombres'
 
 /**
  * Input con sugerencias del catálogo agrupadas por funcionalidad,
  * más una sección con los nombres que el usuario ya usó.
+ *
+ * Bilingüe a propósito: el botón PINTA el nombre traducido pero devuelve el
+ * canónico (español), que es la identidad con la que guardan historial,
+ * récords e imágenes. El filtro busca en los dos, así «Bank» encuentra
+ * «Press banca» y «banca» también.
  */
 export function AutocompleteEjercicio({
   value,
@@ -29,7 +35,10 @@ export function AutocompleteEjercicio({
   const q = normalizarEjercicio(value)
 
   const secciones = useMemo(() => {
-    const coincide = (nombre: string) => !q || normalizarEjercicio(nombre).includes(q)
+    const coincide = (nombre: string) =>
+      !q ||
+      normalizarEjercicio(nombre).includes(q) ||
+      normalizarEjercicio(nombreEjercicio(t, nombre)).includes(q)
     const lista: { id: string; label: string; items: { nombre: string; grupo?: GrupoCatalogo }[] }[] = []
     const propios = recientes.filter(coincide).slice(0, 6)
     if (propios.length) {
@@ -83,7 +92,7 @@ export function AutocompleteEjercicio({
                   }}
                   className="block w-full px-2 py-1.5 text-start text-xs text-white/85 hover:bg-white/10"
                 >
-                  {item.nombre}
+                  {nombreEjercicio(t, item.nombre)}
                 </button>
               ))}
             </div>

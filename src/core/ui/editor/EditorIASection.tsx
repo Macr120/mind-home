@@ -106,7 +106,6 @@ export function EditorIASection({ embed, sinTitulo }: { embed?: boolean; sinTitu
                 </div>
                 <CreditosBadge
                   n={op.lote ? costoUnitario(op, { calidad }) : costoOperacion(op, { calidad })}
-                  aprox={op.aprox}
                   lote={op.lote}
                 />
               </div>
@@ -118,7 +117,10 @@ export function EditorIASection({ embed, sinTitulo }: { embed?: boolean; sinTitu
 
       <p className="text-[10px] leading-snug text-white/35">
         {hayCreditos()
-          ? t('ia.precios.pie', 'El cobro lo hace el servidor: esto es lo que costará antes de pedirlo.')
+          ? `${t('ia.precios.pie', 'El cobro lo hace el servidor: esto es lo que costará antes de pedirlo.')} ${t(
+              'creditos.aprox',
+              'Los precios en créditos son aproximados: el cobro sigue el consumo real.',
+            )}`
           : t(
               'ia.precios.pieSinCuenta',
               'Con tu propia clave de IA no se gastan créditos: pagas directo a tu proveedor.',

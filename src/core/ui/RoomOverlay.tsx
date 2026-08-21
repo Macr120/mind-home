@@ -8,6 +8,7 @@ import { intencionAppActiva } from '../state/intencionApp'
 import { useDiseño, useRoomVisual } from '../state/disenoStore'
 import { ErrorBoundary } from './ErrorBoundary'
 import { ListaHoy } from './hoy/ListaHoy'
+import { useNombreCuarto } from './roomDisplay'
 import { VigiaRachaApp } from '../gamificacion/listas'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
@@ -35,12 +36,14 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
     }),
   )
   const cuarto = activeRoom ? getCuarto(activeRoom) : null
-  // Color/nombre efectivos (ligados con el menú y la casa). Hooks antes de cualquier return.
-  const { color, nombre } = useRoomVisual(
-    cuarto?.id ?? '',
-    cuarto?.color ?? '#94a3b8',
-    cuarto?.nombre ?? '',
-  )
+  // Color efectivo (ligado con el menú y la casa). Hooks antes de cualquier return.
+  const { color } = useRoomVisual(cuarto?.id ?? '', cuarto?.color ?? '#94a3b8', cuarto?.nombre ?? '')
+  // El NOMBRE va por `useNombreCuarto` (no por el crudo de `useRoomVisual`): el
+  // que el cuarto heredó de su app se traduce, y el que puso el usuario a mano
+  // se respeta. Sin esto, en otro idioma la cabecera mezclaba el nombre español
+  // del cuarto con el de la app ya traducido («Ejercicio · صالة الرياضة»).
+  const nombreCuarto = useNombreCuarto()
+  const nombre = cuarto ? nombreCuarto(cuarto) : ''
   const [seleccionada, setSeleccionada] = useState<string | null>(null)
   // Marca de la última intención de chat aplicada (para aplicarla una sola vez).
   const [intencionVista, setIntencionVista] = useState<number | null>(null)

@@ -8,7 +8,6 @@ export const OP_MAPA: OperacionIA = {
   es: 'Mapa conceptual con IA',
   dondeClave: 'ia.donde.ideas.mapas',
   dondeEs: 'Mapas y diagramas · Lluvia de ideas',
-  aprox: true,
   notaClave: 'ia.op.ideas.mapa.nota',
   notaEs: 'Si el mapa no sale usable a la primera, se reintenta una vez y cuesta el doble.',
   partes: [{ op: 'texto_largo' }],

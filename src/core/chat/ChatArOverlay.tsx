@@ -51,6 +51,7 @@ function useCamaraAr() {
   useEffect(() => {
     let vivo = true
     let stream: MediaStream | null = null
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- limpia el error al re-montar la cámara (cambio de facing/reintento)
     setError(null)
     if (!navigator.mediaDevices?.getUserMedia) {
       setError('sinCamara')
@@ -174,10 +175,12 @@ export default function ChatArOverlay() {
   const [encuadre, setEncuadre] = useState<Encuadre>('cuerpo')
   const [selector, setSelector] = useState(false)
   const emocion = useEmocionActiva(asistente.id)
-  const cam = useCamaraAr()
+  const { videoRef, facing, error: errorCamara, voltear, reintentar } = useCamaraAr()
   const dictado = useDictado({ onTexto: setTexto, onError: (m) => setBurbuja(m) })
   const detenerDictado = useRef(dictado.detener)
-  detenerDictado.current = dictado.detener
+  useEffect(() => {
+    detenerDictado.current = dictado.detener
+  })
   // Dónde puso el usuario al personaje: ref (no estado) porque lo lee la escena
   // por frame y arrastrar no debe re-renderizar el overlay.
   const arrastre = useRef<Punto>({ x: 0, y: 0 })
@@ -185,6 +188,7 @@ export default function ChatArOverlay() {
   // Saludo al abrir y al cambiar de asistente (hablado: abrir el overlay ya fue un gesto).
   useEffect(() => {
     const saludo = saludoAsistente(t, asistente)
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- saludo inicial al abrir o cambiar de asistente
     setBurbuja(saludo)
     void hablarComoAsistente(limpiarMarkdown(saludo), asistente)
     return () => callarComoAsistente()
@@ -279,34 +283,36 @@ export default function ChatArOverlay() {
     'ui-panel-glass grid h-10 w-10 place-items-center rounded-xl border border-white/10 text-lg text-white/80 transition hover:bg-white/10'
 
   return (
-    <div className="ui-noche fixed inset-0 z-[60] bg-black">
+    // Sin `ui-noche`: los paneles son de vidrio del tema (claros en modo claro),
+    // así que la tinta tiene que acompañarlos o el texto blanco se pierde.
+    <div className="fixed inset-0 z-[60] bg-black">
       {/* Cámara de fondo (espejada si es la frontal) */}
-      {!cam.error && (
+      {!errorCamara && (
         <video
-          ref={cam.videoRef}
+          ref={videoRef}
           autoPlay
           playsInline
           muted
-          className={`absolute inset-0 h-full w-full object-cover ${cam.facing === 'user' ? '-scale-x-100' : ''}`}
+          className={`absolute inset-0 h-full w-full object-cover ${facing === 'user' ? '-scale-x-100' : ''}`}
         />
       )}
 
       {/* Cámara denegada o inexistente: aviso amable, nunca cerrar solo */}
-      {cam.error && (
+      {errorCamara && (
         <div className="absolute inset-0 grid place-items-center p-6">
           <div className="ui-panel-glass w-full max-w-sm rounded-2xl border border-white/10 p-5 text-center">
             <div className="text-3xl">
               <Icono nombre="chat-ar" />
             </div>
             <p className="mt-3 text-sm text-white/80">
-              {cam.error === 'permiso'
+              {errorCamara === 'permiso'
                 ? t('chatAr.permiso', 'El navegador bloqueó la cámara. Actívala en el candado junto a la dirección.')
                 : t('chatAr.sinCamara', 'No encontré ninguna cámara en este equipo.')}
             </p>
             <div className="mt-4 flex justify-center gap-2">
               <button
                 type="button"
-                onClick={cam.reintentar}
+                onClick={reintentar}
                 className="rounded-xl bg-white/10 px-4 py-2 text-sm font-semibold text-white/85 transition hover:bg-white/20"
               >
                 {t('chatAr.reintentar', 'Reintentar')}
@@ -325,7 +331,7 @@ export default function ChatArOverlay() {
 
       {/* El asistente 3D encima del video: arrastrable con el dedo o el puntero
           (doble toque lo vuelve a centrar). */}
-      {!cam.error && (
+      {!errorCamara && (
         <div
           className="absolute inset-0 cursor-grab active:cursor-grabbing"
           style={{ touchAction: 'none' }}
@@ -342,9 +348,9 @@ export default function ChatArOverlay() {
 
       {/* Botonera superior */}
       <div className="absolute end-3 top-3 flex gap-2" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
-        {!cam.error && (
+        {!errorCamara && (
           <>
-            <button type="button" onClick={cam.voltear} className={botonTop} title={t('chatAr.voltear', 'Cambiar de cámara')}>
+            <button type="button" onClick={voltear} className={botonTop} title={t('chatAr.voltear', 'Cambiar de cámara')}>
               <Icono nombre="sincronizar" />
             </button>
             <button

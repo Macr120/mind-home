@@ -54,6 +54,8 @@ export interface PiezaCasa {
   /** Emoji SOLO para los materiales de piso, que lo traen como dato en `PISOS`. */
   emoji?: string
   color?: string
+  /** Clave i18n propia, cuando la pieza ya tiene una en otro catálogo (los pisos). */
+  clave?: string
   cuantas: number
 }
 
@@ -362,14 +364,14 @@ export function catalogoCasa(
       nombre: 'Piso interior',
       icono: 'baldosa',
       unidad: 'por cuarto',
-      piezas: desde(PISOS, pisoInt, (d) => ({ emoji: d.emoji, color: d.color })),
+      piezas: desde(PISOS, pisoInt, (d) => ({ emoji: d.emoji, color: d.color, clave: `piso.${d.id}` })),
     },
     {
       id: 'pisoExterior',
       nombre: 'Piso exterior',
       icono: 'pasto',
       unidad: 'por celda',
-      piezas: desde(PISOS, pisoExt, (d) => ({ emoji: d.emoji, color: d.color })),
+      piezas: desde(PISOS, pisoExt, (d) => ({ emoji: d.emoji, color: d.color, clave: `piso.${d.id}` })),
     },
     {
       id: 'accesos',

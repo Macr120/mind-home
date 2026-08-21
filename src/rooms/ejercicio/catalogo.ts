@@ -173,19 +173,15 @@ export function piramideFuerza(grupos: GrupoFuerza[]): OpcionSplit[][] {
   ]
 }
 
-// Marcas diacríticas combinantes (acentos) que deja `normalize('NFD')`, para quitarlas al hacer un slug.
-const DIACRITICOS_RE = /[̀-ͯ]/g
+// Con extensión: este módulo lo importan scripts de Node (generar-imagenes /
+// generar-i18n-ejercicio) con quitado de tipos, y ahí './slug' a secas no resuelve.
+import { slugTexto } from './slug.ts'
+
+export { slugTexto }
 
 /** Slug estable a partir de una etiqueta, evitando choques con los ids existentes. */
 export function slugGrupo(label: string, existentes: string[]): string {
-  const base =
-    label
-      .trim()
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(DIACRITICOS_RE, '')
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/(^-+|-+$)/g, '') || 'grupo'
+  const base = slugTexto(label) || 'grupo'
   let slug = base
   let i = 2
   while (existentes.includes(slug)) slug = `${base}-${i++}`

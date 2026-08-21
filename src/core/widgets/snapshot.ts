@@ -1,10 +1,8 @@
-import { db, type Rutina } from '../data/db'
-import { visibles } from '../data/ejemplos'
+import { db } from '../data/db'
 import { useDiseño } from '../state/disenoStore'
-import { appsAsignadas } from '../chat/dispatcher'
 import { tGlobal, idiomaActual, localeActual } from '../i18n/useT'
-import { hoyISO, tocaHoy, pasosHechosHoy } from '../rutinas'
-import { estadoMetaDiaria } from '../metaDiaria'
+import { hoyISO } from '../rutinas'
+import { armarPasosDeTodas, repartirPasos } from '../hoy'
 import { progresoDeEnfoques, EMOJI_HUMOR } from '../gamificacion/actividad'
 import { estadoSisifoActual } from '../gamificacion/sisifo'
 import type { ItemHoy, SnapshotWidgets } from './tipos'
@@ -20,46 +18,43 @@ const recortar = (s: string, n: number): string => (s.length > n ? `${s.slice(0,
 export async function armarSnapshot(): Promise<SnapshotWidgets> {
   const fecha = hoyISO()
 
-  // Rutinas y eventos del día. Los de Agenda (citas, medicamentos, cumpleaños,
-  // cuidados) ya viven proyectados como rutinas, así que esta lista los incluye
-  // sin leer sus tablas — y palomearlos aquí equivale a palomear su bloque del
-  // calendario (reconciliarAgenda repara la ficha al abrir la room).
-  const rutinas = visibles(await db.rutinas.toArray()).filter(tocaHoy)
-  const ejecs = await db.ejecucionesRutina.where('fecha').equals(fecha).toArray()
-  const hechaHoy = (r: Rutina): boolean => {
-    if (r.pasos.length > 0) return pasosHechosHoy(r, ejecs).size >= r.pasos.length
-    return !!ejecs.find((e) => e.rutinaId === r.id)?.hecho
+  // Las MISIONES de hoy de toda la casa: la misma lista que el botón «Misiones»
+  // del reloj (`armarPasosDeTodas`), no una copia. El widget armaba antes su
+  // propia mezcla de rutinas y metas diarias, así que enseñaba una cosa y la app
+  // otra —y las metas diarias ya ni son la unidad con la que se pide el día—.
+  const grupos = await armarPasosDeTodas(fecha)
+  const items: ItemHoy[] = []
+  for (const g of grupos) {
+    // De dónde sale la misión. En la lista plana del widget no hay cabeceras por
+    // app, así que el cuarto va en la línea de abajo de cada renglón.
+    const deQuien = g.app
+      ? tGlobal(`room.${g.app.id}.nombre`, g.app.nombre).split(' · ')[0]
+      : tGlobal('hoy.casa.personales', 'Personales')
+    for (const p of repartirPasos(g.pasos).cuentan) {
+      // La misión de ARRANQUE no se palomea (se cumple creando la primera): aquí
+      // solo sería un renglón que no responde al tap.
+      if (p.accion.tipo === 'sinMisiones') continue
+      items.push({
+        id: p.id,
+        tipo: p.origen,
+        titulo: p.titulo,
+        detalle: [deQuien, p.detalle ?? p.deQuien].filter(Boolean).join(' · '),
+        emoji: p.emoji || g.app?.icon,
+        hora: p.hora || undefined,
+        hecho: p.hecho,
+        urgente: p.urgente,
+      })
+    }
   }
-  const itemsRutina: ItemHoy[] = rutinas
-    .filter((r) => r.id != null)
-    .map((r) => ({
-      id: `rutina:${r.id}`,
-      tipo: 'rutina' as const,
-      titulo: r.nombre,
-      emoji: r.emoji,
-      hora: r.hora || undefined,
-      hecho: hechaHoy(r),
-    }))
-    .sort((a, b) => (a.hora && b.hora ? a.hora.localeCompare(b.hora) : a.hora ? -1 : b.hora ? 1 : 0))
-
-  // Metas diarias de las apps asignadas: el mismo estado que la barra del cuarto.
-  const itemsMeta: ItemHoy[] = []
-  for (const p of appsAsignadas()) {
-    const estado = await estadoMetaDiaria(p.id, fecha)
-    if (!estado || estado.avance.objetivo <= 0) continue
-    const etiqueta = tGlobal(estado.meta.clave, estado.meta.etiquetaEs)
-    itemsMeta.push({
-      id: `meta:${p.id}`,
-      tipo: 'meta',
-      titulo: tGlobal(`room.${p.id}.nombre`, p.nombre).split(' · ')[0],
-      detalle:
-        estado.avance.objetivo > 1
-          ? `${etiqueta} · ${estado.avance.hecho}/${estado.avance.objetivo}`
-          : etiqueta,
-      emoji: p.icon,
-      hecho: estado.cumplida,
-    })
-  }
+  // Lo que falta arriba (lo atrasado, primero) y lo cumplido al fondo: la lista
+  // del launcher se ve de tres renglones, y ahí lo pendiente no puede quedar
+  // debajo de lo que ya está hecho.
+  items.sort((a, b) => {
+    if (a.hecho !== b.hecho) return a.hecho ? 1 : -1
+    if (!!a.urgente !== !!b.urgente) return a.urgente ? -1 : 1
+    return (a.hora ?? '99:99').localeCompare(b.hora ?? '99:99')
+  })
+  const hechas = items.filter((i) => i.hecho).length
 
   // Resumen: progreso del tamagotchi + Sísifo + próximo con hora + efeméride.
   const ids = [
@@ -70,7 +65,7 @@ export async function armarSnapshot(): Promise<SnapshotWidgets> {
 
   const ahora = new Date()
   const horaActual = `${String(ahora.getHours()).padStart(2, '0')}:${String(ahora.getMinutes()).padStart(2, '0')}`
-  const prox = itemsRutina.find((i) => !i.hecho && i.hora && i.hora >= horaActual)
+  const prox = items.find((i) => !i.hecho && i.hora && i.hora >= horaActual)
   const proximo = prox?.hora ? { titulo: prox.titulo, hora: prox.hora } : null
 
   // La edición del diario es efímera (solo vive la del día): si aún no se generó,
@@ -79,14 +74,12 @@ export async function armarSnapshot(): Promise<SnapshotWidgets> {
   const ef = edicion?.efemerides.find((e) => e.tipo === 'historia') ?? edicion?.efemerides[0]
   const efemeride = ef ? { titulo: ef.titulo, anio: ef.anio, texto: recortar(ef.texto, 200) } : null
 
-  const metasHechas = itemsMeta.filter((m) => m.hecho).length
-
   return {
     version: 1,
     fecha,
     idioma: idiomaActual(),
     textos: {
-      titulo: tGlobal('widgets.titulo', 'Hoy'),
+      titulo: tGlobal('hoy.titulo', 'Misiones'),
       fechaLarga: ahora.toLocaleDateString(localeActual(), { weekday: 'long', day: 'numeric', month: 'long' }),
       // Fecha partida en tres para el widget de la casa (el día, en grande).
       diaNumero: String(ahora.getDate()),
@@ -95,7 +88,9 @@ export async function armarSnapshot(): Promise<SnapshotWidgets> {
       humor: EMOJI_HUMOR[progreso.humor],
       racha: `🔥 ${progreso.racha}`,
       nivel: tGlobal('widgets.nivel', 'Nivel {n}', { n: progreso.nivel }),
-      metas: tGlobal('widgets.metas', 'Metas {h}/{t}', { h: metasHechas, t: itemsMeta.length }),
+      // Sin palabra al lado del título, que ya dice «Misiones»: la cifra sola cabe
+      // en la cabecera en los dieciséis idiomas.
+      misiones: items.length > 0 ? `${hechas}/${items.length}` : '',
       sisifo: sisifo ? `⛰️ ${tGlobal('widgets.sisifo', 'Día {d} · Rango {r}', { d: sisifo.altura, r: sisifo.rango })}` : '',
       proximoTitulo: tGlobal('widgets.proximoTitulo', 'Próximo'),
       proximo: proximo ? `${proximo.hora} · ${proximo.titulo}` : tGlobal('widgets.sinProximo', 'Nada pendiente con hora'),
@@ -103,10 +98,10 @@ export async function armarSnapshot(): Promise<SnapshotWidgets> {
       efemerideTexto: efemeride
         ? `${efemeride.titulo}${efemeride.anio ? ` (${efemeride.anio})` : ''} — ${efemeride.texto}`
         : '',
-      vacio: tGlobal('widgets.vacio', 'Nada agendado para hoy'),
+      vacio: tGlobal('hoy.casa.vacio', 'Nada pendiente hoy en ninguna app.'),
       desactualizado: tGlobal('widgets.desactualizado', 'Toca para actualizar'),
     },
-    hoy: [...itemsRutina, ...itemsMeta],
+    hoy: items,
     resumen: {
       racha: progreso.racha,
       nivel: progreso.nivel,
@@ -115,8 +110,8 @@ export async function armarSnapshot(): Promise<SnapshotWidgets> {
       sisifo,
       proximo,
       efemeride,
-      metasHechas,
-      metasTotal: itemsMeta.length,
+      misionesHechas: hechas,
+      misionesTotal: items.length,
     },
   }
 }

@@ -10,6 +10,7 @@ import {
   useUrlImagen,
 } from './imagenIA'
 import { urlImagenPreset } from './imagenesPreset'
+import { descEjercicio, nombreEjercicio } from './nombres'
 import { Creditos } from '../../core/ui/Creditos'
 import { OP_IMAGEN_EJERCICIO } from './costosIA'
 import { acento } from '../_shared/acento'
@@ -129,8 +130,10 @@ function DialogoImagen({
       >
         <header className="mb-3 flex items-center gap-3">
           <div className="min-w-0">
-            <p className="truncate text-base font-black">{nombre}</p>
-            {descripcion && <p className="truncate text-[11px] text-white/45">{descripcion}</p>}
+            <p className="truncate text-base font-black">{nombreEjercicio(t, nombre)}</p>
+            {descripcion && (
+              <p className="truncate text-[11px] text-white/45">{descEjercicio(t, nombre, descripcion)}</p>
+            )}
           </div>
           <button
             type="button"
@@ -148,7 +151,7 @@ function DialogoImagen({
               {t('ejercicio.img.generando', 'Generando…')}
             </span>
           ) : url ? (
-            <img src={url} alt={nombre} className="max-h-[45vh] w-full object-contain" />
+            <img src={url} alt={nombreEjercicio(t, nombre)} className="max-h-[45vh] w-full object-contain" />
           ) : (
             <span className="py-10 text-3xl text-white/20">
               <Icono nombre="foto" />

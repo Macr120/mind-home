@@ -50,6 +50,7 @@ async function interpretarEdicionDiferida(texto: string): Promise<EdicionLocal |
 }
 import { useT } from '../i18n/useT'
 import { Icono } from '../ui/iconos/Icono'
+import { LogoIA } from '../ui/iconos/logosIA'
 import { useHud } from '../state/hudStore'
 import { BotonPlegarHud } from '../ui/HudPlegable'
 import { useTopeHud, anclajeChat } from '../ui/hudMedida'
@@ -435,7 +436,9 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
       const item = getCatalogoItem(interp.objeto)
       const roomId = cuartoMasCercano()
       if (!item || !roomId) {
-        hablar('No hay ningún cuarto en el mapa donde colocarlo. Agrega uno primero.', { asistenteId: destinoId })
+        hablar(t('chat.ed.sinCuartoObjeto', 'No hay ningún cuarto en el mapa donde colocarlo. Agrega uno primero.'), {
+          asistenteId: destinoId,
+        })
         setTexto('')
         return
       }
@@ -446,7 +449,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
         creado: new Date().toISOString(),
         procesado: true,
       })
-      decir('objeto', nombreCorto(roomId), item.nombre.toLowerCase())
+      decir('objeto', nombreCorto(roomId), t(`objeto.${item.id}`, item.nombre).toLowerCase())
       setTexto('')
       return
     }
@@ -655,16 +658,6 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
    * historial que casi nunca era el que buscabas.
    */
   const hiloVisible = conversacion != null && !otroPanel && !hiloOculto && !chatPlegado
-  // El asistente al que pertenece el hilo mostrado (mismo cálculo que ChatConversacion).
-  const hiloId = conversacion ?? mascotaId
-  // Publicado para que la burbuja flotante (AsistenteBurbuja) no repita el
-  // mismo mensaje cuando el panel de abajo ya lo está mostrando.
-  useEffect(() => {
-    useMascota.getState().setPanelHiloId(hiloVisible ? hiloId : null)
-    // Al desmontar (entras a un cuarto, editas, corres, juegas paintball…) no
-    // debe quedar un id fantasma bloqueando la burbuja de otra pantalla.
-    return () => useMascota.getState().setPanelHiloId(null)
-  }, [hiloVisible, hiloId])
   /** Cierra todo lo que el chat haya desplegado sobre su barra. */
   const cerrarPaneles = useCallback(() => {
     setAbierto(false)
@@ -1276,7 +1269,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
             ) : interp.objeto && objetoCat ? (
               <>
                 <span><Icono emoji={objetoCat.icon} /></span>
-                <span>{t('chat.chip.crear', 'Crear')} {objetoCat.nombre.toLowerCase()}</span>
+                <span>{t('chat.chip.crear', 'Crear')} {t(`objeto.${objetoCat.id}`, objetoCat.nombre).toLowerCase()}</span>
               </>
             ) : interp.comando === 'recordar' ? (
               <>
@@ -1349,7 +1342,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
               }`}
               title={t('chat.modelo', 'Modelo de IA: {prov}', { prov: proveedor.nombre })}
             >
-              <Icono emoji={proveedor.emoji} />
+              <LogoIA prov={proveedor.id} />
               <span
                 className={`absolute end-1 top-1 h-1.5 w-1.5 rounded-full ${
                   conIA ? 'bg-accent' : 'bg-white/20'

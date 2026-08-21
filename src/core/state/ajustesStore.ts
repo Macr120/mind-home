@@ -291,13 +291,13 @@ export const useAjustes = create<AjustesState>((set, get) => ({
   })(),
   musicaMood: (MOODS as string[]).includes(localStorage.getItem(LS_MUSICA_MOOD) ?? '')
     ? (localStorage.getItem(LS_MUSICA_MOOD) as MoodMusica)
-    : 'calma',
+    : 'chiptune',
   musicaPistaId: (() => {
     const v = Number(localStorage.getItem(LS_MUSICA_PISTA))
     return Number.isFinite(v) && v > 0 ? v : null
   })(),
   musicaCarpetaId: localStorage.getItem(LS_MUSICA_CARPETA) || null,
-  sfxVolumen: leer01(LS_SFX_VOLUMEN, 0.6),
+  sfxVolumen: leer01(LS_SFX_VOLUMEN, 1),
   hudMusica: leerSiNo(LS_HUD_MUSICA, true),
   hudTutoriales: leerSiNo(LS_HUD_TUTORIALES, true),
   vozTutoriales: leerSiNo(LS_VOZ_TUTORIALES, false),

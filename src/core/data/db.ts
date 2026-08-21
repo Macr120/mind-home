@@ -256,6 +256,8 @@ export type MomentoComida = 'desayuno' | 'comida' | 'cena' | 'snack'
 /** Registro real de lo consumido. */
 export interface RegistroComida {
   id?: number
+  /** Identidad de sync (la sella el middleware); `seed-…` = fila de siembra. */
+  uid?: string
   fecha: string
   momento: MomentoComida
   nombre: string
@@ -289,6 +291,8 @@ export interface RegistroAgua {
 /** Lista de compras guardada (colección con nombre) del súper. */
 export interface ListaCompra {
   id?: number
+  /** Identidad de sync (la sella el middleware); `seed-…` = fila de siembra. */
+  uid?: string
   nombre: string
   creadoEn: string
   /**
@@ -302,6 +306,8 @@ export interface ListaCompra {
 /** Artículo de la lista de compras del súper, agrupado por categoría (pasillo). */
 export interface ItemCompra {
   id?: number
+  /** Identidad de sync (la sella el middleware); `seed-…` = fila de siembra. */
+  uid?: string
   nombre: string
   /** Cantidad en texto libre: "2 kg", "3 piezas" (opcional). */
   cantidad?: string
@@ -318,6 +324,8 @@ export interface ItemCompra {
 /** Receta del recetario (manual o pedida a la IA). Macros POR PORCIÓN. */
 export interface Receta {
   id?: number
+  /** Identidad de sync (la sella el middleware); `seed-…` = fila de siembra. */
+  uid?: string
   nombre: string
   emoji: string
   porciones: number
@@ -348,6 +356,8 @@ export interface Receta {
 /** Dieta preguardada: plan de alimentación con recetas asociadas y metas opcionales. */
 export interface DietaGuardada {
   id?: number
+  /** Identidad de sync (la sella el middleware); `seed-…` = fila de siembra. */
+  uid?: string
   nombre: string
   descripcion: string
   /** Metas opcionales que se pueden aplicar al perfil de objetivos. */
@@ -1029,6 +1039,8 @@ type UnidadOdometro = 'km' | 'mi'
 /** Vehículo registrado (bicicleta, auto, moto, etc.). */
 export interface Vehiculo {
   id?: number
+  /** Identidad de sync (la sella el middleware); `seed-…` = fila de siembra. */
+  uid?: string
   nombre: string
   tipo: TipoVehiculo
   marca?: string
@@ -1059,6 +1071,8 @@ export type TipoMantenimiento =
 /** Registro de mantenimiento o servicio realizado. */
 export interface RegistroMantenimiento {
   id?: number
+  /** Identidad de sync (la sella el middleware); `seed-…` = fila de siembra. */
+  uid?: string
   vehiculoId: number
   fecha: string
   tipo: TipoMantenimiento
@@ -1091,6 +1105,8 @@ export type TipoTramite =
  */
 export interface TramiteVehiculo {
   id?: number
+  /** Identidad de sync (la sella el middleware); `seed-…` = fila de siembra. */
+  uid?: string
   /** Id estable ('tv-…'): amarra las rutinas que proyecta en el calendario. */
   tramiteId: string
   vehiculoId: number
@@ -1126,6 +1142,8 @@ export type TipoTaller =
 /** Contacto del garaje: mecánico, aseguradora, verificentro, grúa… */
 export interface TallerVehiculo {
   id?: number
+  /** Identidad de sync (la sella el middleware); `seed-…` = fila de siembra. */
+  uid?: string
   /** Id estable ('tl-…'): es lo que guarda `TramiteVehiculo.tallerId`. */
   tallerId: string
   nombre: string

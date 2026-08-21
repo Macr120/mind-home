@@ -6,6 +6,7 @@ import { GenerarImagenesBar } from './GenerarImagenesBar'
 import { useImagenesPorClave } from './imagenIA'
 import { MiniaturaEjercicio } from './MiniaturaEjercicio'
 import { normalizarEjercicio } from './stats'
+import { descEjercicio, dificultadEjercicio, nombreEjercicio, tiempoEjercicio } from './nombres'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { acento } from '../_shared/acento'
@@ -155,16 +156,20 @@ export function CatalogoFlex({ onAgregar }: { onAgregar: (nombre: string, grupoL
                   className="min-w-0 flex-1 text-start"
                 >
                   <div className="flex items-center gap-2">
-                    <span className="flex-1 text-sm font-semibold text-white/90">{ej.nombre}</span>
+                    <span className="flex-1 text-sm font-semibold text-white/90">{nombreEjercicio(t, ej.nombre)}</span>
                     {ej.dificultad && (
                       <span className="shrink-0 rounded-md bg-white/10 px-1.5 py-0.5 text-[10px] text-white/60">
-                        {ej.dificultad}
+                        {dificultadEjercicio(t, ej.dificultad)}
                       </span>
                     )}
                     <span className="shrink-0 font-bold text-violet-400">+</span>
                   </div>
-                  {ej.descripcion && <p className="mt-0.5 text-xs text-white/55">{ej.descripcion}</p>}
-                  {ej.tiempo && <p className="mt-0.5 text-[11px] text-white/40">{ej.tiempo}</p>}
+                  {ej.descripcion && (
+                    <p className="mt-0.5 text-xs text-white/55">{descEjercicio(t, ej.nombre, ej.descripcion)}</p>
+                  )}
+                  {ej.tiempo && (
+                    <p className="mt-0.5 text-[11px] text-white/40">{tiempoEjercicio(t, ej.nombre, ej.tiempo)}</p>
+                  )}
                 </button>
                 <button
                   type="button"

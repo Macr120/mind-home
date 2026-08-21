@@ -16,6 +16,8 @@ import { useCam } from '../state/cameraStore'
 import { useMontura } from '../state/monturaStore'
 import { VEHICULOS_JUGABLES, esVehiculo } from '../house/vehiculos'
 import { abrirApp } from '../abrirApp'
+import { nombreCuartoGlobal } from '../ui/roomDisplay'
+import { tGlobal } from '../i18n/useT'
 import {
   footprintCells,
   cellId,
@@ -117,10 +119,10 @@ function resolverColor(texto: string): string | null {
   return null
 }
 
-/** Etiqueta amigable de un hex (nombre conocido si lo hay; si no, el hex). */
+/** Etiqueta amigable de un hex (nombre TRADUCIDO si lo hay; si no, el hex). */
 function etiquetaColor(hex: string): string {
   for (const nombre in COLORES_NOMBRADOS) {
-    if (COLORES_NOMBRADOS[nombre] === hex) return nombre
+    if (COLORES_NOMBRADOS[nombre] === hex) return tGlobal(`chat.ed.color.${nombre}`, nombre)
   }
   return hex
 }
@@ -129,6 +131,17 @@ interface ConNombre {
   id: string
   nombre: string
 }
+
+// Nombre TRADUCIDO de un elemento de catálogo. Los catálogos siguen llevando el
+// nombre en español dentro del dato: es el respaldo de `t()` y lo que lee el
+// parser determinista (`resolverPorNombre`).
+const nombrePiso = (p: ConNombre): string => tGlobal(`piso.${p.id}`, p.nombre)
+const nombreTecho = (t: ConNombre): string => tGlobal(`techo.${t.id}`, t.nombre)
+const nombreTema = (t: ConNombre): string => tGlobal(`tema.${t.id}`, t.nombre)
+const nombreFondo = (f: ConNombre): string => tGlobal(`fondo.${f.id}`, f.nombre)
+const nombreObjeto = (o: ConNombre): string => tGlobal(`objeto.${o.id}`, o.nombre)
+const nombrePrenda = (id: string): string =>
+  tGlobal(`editor.pers.prenda.${id}`, PRENDAS.find((p) => p.id === id)?.nombre ?? id)
 
 /** Casa un elemento de un catálogo por id, por su nombre o por sinónimos. */
 function resolverPorNombre<T extends ConNombre>(
@@ -152,7 +165,8 @@ function resolverPorNombre<T extends ConNombre>(
 /** Nombre efectivo (override del editor o el del cuarto). */
 function nombreCuarto(id: string): string {
   const c = useCuartos.getState().cuartos.find((x) => x.id === id)
-  return useDiseño.getState().roomNames[id] || c?.nombre || id
+  // Mismo texto que ve en la casa: el heredado de la app se traduce y el suyo manda.
+  return c ? nombreCuartoGlobal(c) : id
 }
 
 /** Resuelve un cuarto por id/nombre, incluyendo el nombre personalizado del editor. */
@@ -217,13 +231,14 @@ const SINONIMOS_CANCHA: Record<string, string[]> = {
 
 /** Grupos plegables de la pestaña Configuraciones (para abrirlos desde el chat). */
 const GRUPOS_CONFIG = [
-  { id: 'cuenta', nombre: 'Cuenta' },
-  { id: 'estilo', nombre: 'Estilo visual del mapa' },
-  { id: 'interfaz', nombre: 'Interfaz e idioma' },
-  { id: 'musica', nombre: 'Música' },
-  { id: 'tutoriales', nombre: 'Tutoriales y bienvenida' },
-  { id: 'notificaciones', nombre: 'Notificaciones' },
-  { id: 'respaldo', nombre: 'Respaldo de datos' },
+  // `clave`: la MISMA que usa el título del grupo en `EditPanel`, para no duplicar textos.
+  { id: 'cuenta', clave: 'cuenta.titulo', nombre: 'Cuenta' },
+  { id: 'estilo', clave: 'ajustes.estiloMapa', nombre: 'Estilo visual del mapa' },
+  { id: 'interfaz', clave: 'config.grupo.interfaz', nombre: 'Interfaz e idioma' },
+  { id: 'musica', clave: 'ajustes.musica', nombre: 'Música' },
+  { id: 'tutoriales', clave: 'ajustes.tutoriales', nombre: 'Tutoriales y bienvenida' },
+  { id: 'notificaciones', clave: 'notif.titulo', nombre: 'Notificaciones' },
+  { id: 'respaldo', clave: 'respaldo.titulo', nombre: 'Respaldo de datos' },
 ]
 
 /** Modos de apariencia de la interfaz (ajustesStore.modoUI). */
@@ -249,6 +264,10 @@ const DELTA_DIR: Record<SideKey, { col: number; row: number }> = {
   N: { col: 0, row: -1 }, S: { col: 0, row: 1 }, O: { col: -1, row: 0 }, E: { col: 1, row: 0 },
 }
 const ladoNombre = (s: SideKey): string => LADO_NOMBRE[s]
+
+/** El lado para MOSTRARLO al usuario. `ladoNombre` se queda en español porque
+ *  alimenta el input de las tools, y `ladoDeTexto` lo vuelve a leer en español. */
+const ladoTexto = (s: SideKey): string => tGlobal(`chat.ed.lado.${s}`, LADO_NOMBRE[s])
 
 /** Palabra de dirección/lado → SideKey (N/S/E/O). */
 function ladoDeTexto(texto: string): SideKey | null {
@@ -304,6 +323,16 @@ function nombreEnTexto(nombre: string, n: string, tokens: Set<string>): boolean 
   return nombre.includes(' ') ? n.includes(nombre) : tokens.has(nombre)
 }
 
+/**
+ * Etiqueta visible de un comando de app, traducida por su clave estable
+ * (`room.<app>.cmd.<seccion>`). Los juegos de mesa (comandos con `dato`)
+ * reusan la clave de su catálogo (`entre.j.<id>.nombre`) en vez de duplicarla.
+ */
+function etiquetaComando(appId: string, cmd: ComandoApp): string {
+  if (appId === 'entretenimiento' && cmd.dato) return tGlobal(`entre.j.${cmd.dato}.nombre`, cmd.etiqueta)
+  return tGlobal(`room.${appId}.cmd.${cmd.seccion}`, cmd.etiqueta)
+}
+
 /** Busca una sección/juego pedible («recetario», «viborita») entre los comandos de las apps. */
 function resolverComandoApp(texto: string): { app: Plantilla; cmd: ComandoApp } | null {
   const n = normalizar(texto)
@@ -327,31 +356,34 @@ function resolverComandoApp(texto: string): { app: Plantilla; cmd: ComandoApp } 
  * porque el calendario dejó de ser una app: se abre en el reloj del HUD, así que
  * `resolverComandoApp` (que recorre el catálogo) ya no lo encuentra.
  */
-const VISTAS_CALENDARIO: { vista: VistaCalendario; etiqueta: string; nombres: string[] }[] = [
+const VISTAS_CALENDARIO: { vista: VistaCalendario; clave: string; etiqueta: string; nombres: string[] }[] = [
   // «mis metas»/«mis planes» NO están aquí: eso es el cuarto de Metas, y lo
   // resuelve `resolverApp` por el nombre de la plantilla.
   {
     vista: 'objetivos',
+    clave: 'chat.vistaCal.objetivos',
     etiqueta: 'Misiones',
     nombres: ['misiones', 'mis misiones', 'objetivos', 'mis objetivos', 'lo de hoy', 'que me toca hoy'],
   },
-  { vista: 'dia', etiqueta: 'Agenda de hoy', nombres: ['agenda de hoy', 'agenda del dia', 'mi dia'] },
-  { vista: 'semana', etiqueta: 'Semana', nombres: ['agenda de la semana', 'mi semana'] },
-  { vista: 'mes', etiqueta: 'Mes', nombres: ['calendario del mes', 'mi mes'] },
-  { vista: 'anio', etiqueta: 'Año', nombres: ['calendario del ano', 'mi ano'] },
+  { vista: 'dia', clave: 'chat.vistaCal.dia', etiqueta: 'Agenda de hoy', nombres: ['agenda de hoy', 'agenda del dia', 'mi dia'] },
+  { vista: 'semana', clave: 'chat.vistaCal.semana', etiqueta: 'Semana', nombres: ['agenda de la semana', 'mi semana'] },
+  { vista: 'mes', clave: 'chat.vistaCal.mes', etiqueta: 'Mes', nombres: ['calendario del mes', 'mi mes'] },
+  { vista: 'anio', clave: 'chat.vistaCal.anio', etiqueta: 'Año', nombres: ['calendario del ano', 'mi ano'] },
   // El genérico al final: gana el nombre más largo, así «mi semana» no cae aquí.
-  { vista: 'semana', etiqueta: 'Calendario', nombres: ['calendario'] },
+  { vista: 'semana', clave: 'chat.vistaCal.calendario', etiqueta: 'Calendario', nombres: ['calendario'] },
 ]
 
 /** ¿El texto pide el calendario (o una de sus vistas)? Gana el nombre más largo. */
-function resolverVistaCalendario(texto: string): { vista: VistaCalendario; etiqueta: string } | null {
+function resolverVistaCalendario(
+  texto: string,
+): { vista: VistaCalendario; clave: string; etiqueta: string } | null {
   const n = normalizar(texto)
   const tokens = new Set(n.split(/[^a-z0-9]+/).filter(Boolean))
-  let mejor: { vista: VistaCalendario; etiqueta: string; largo: number } | null = null
+  let mejor: { vista: VistaCalendario; clave: string; etiqueta: string; largo: number } | null = null
   for (const v of VISTAS_CALENDARIO) {
     for (const nombre of v.nombres) {
       if (nombreEnTexto(nombre, n, tokens) && (!mejor || nombre.length > mejor.largo)) {
-        mejor = { vista: v.vista, etiqueta: v.etiqueta, largo: nombre.length }
+        mejor = { vista: v.vista, clave: v.clave, etiqueta: v.etiqueta, largo: nombre.length }
       }
     }
   }
@@ -421,35 +453,43 @@ export async function ejecutarToolEditor(
       const cat = str(input, 'categoria') as Cuarto['categoria'] | undefined
       const categoria = cat && ['cuerpo', 'mente', 'complemento', 'config'].includes(cat) ? cat : undefined
       await c.crear({ nombre, icon, color, categoria })
-      return `Creé el cuarto «${nombre || 'Cuarto nuevo'}» y lo coloqué en el mapa.`
+      return tGlobal('chat.ed.cuartoCreado', 'Creé el cuarto «{nombre}» y lo coloqué en el mapa.', {
+        nombre: nombre || tGlobal('chat.ed.cuartoNuevo', 'Cuarto nuevo'),
+      })
     }
     case 'editor_renombrar_cuarto': {
       const cu = cuartoDeInput(input)
       const nombre = str(input, 'nombre')
       if (!cu || !nombre) return null
       await c.renombrar(cu.id, nombre)
-      return `Renombré ese cuarto a «${nombre}».`
+      return tGlobal('chat.ed.cuartoRenombrado', 'Renombré ese cuarto a «{nombre}».', { nombre })
     }
     case 'editor_icono_cuarto': {
       const cu = cuartoDeInput(input)
       const icono = str(input, 'icono')
       if (!cu || !icono) return null
       await c.setIcon(cu.id, icono)
-      return `Cambié el ícono de «${nombreCuarto(cu.id)}» a ${icono}.`
+      return tGlobal('chat.ed.cuartoIcono', 'Cambié el ícono de «{cuarto}» a {icono}.', {
+        cuarto: nombreCuarto(cu.id),
+        icono,
+      })
     }
     case 'editor_categoria_cuarto': {
       const cu = cuartoDeInput(input)
       const cat = str(input, 'categoria') as Cuarto['categoria'] | undefined
       if (!cu || !cat || !['cuerpo', 'mente', 'complemento', 'config'].includes(cat)) return null
       await c.setCategoria(cu.id, cat)
-      return `Puse «${nombreCuarto(cu.id)}» en la categoría ${cat}.`
+      return tGlobal('chat.ed.cuartoCategoria', 'Puse «{cuarto}» en la categoría {categoria}.', {
+        cuarto: nombreCuarto(cu.id),
+        categoria: tGlobal(`cat.${cat}`, cat),
+      })
     }
     case 'editor_eliminar_cuarto': {
       const cu = cuartoDeInput(input)
       if (!cu) return null
       const nom = nombreCuarto(cu.id)
       await c.eliminar(cu.id)
-      return `Eliminé el cuarto «${nom}».`
+      return tGlobal('chat.ed.cuartoEliminado', 'Eliminé el cuarto «{cuarto}».', { cuarto: nom })
     }
 
     // ── Apariencia / superficies del cuarto ──
@@ -458,35 +498,50 @@ export async function ejecutarToolEditor(
       const hex = str(input, 'color') ? resolverColor(str(input, 'color')!) : null
       if (!cu || !hex) return null
       await d.setRoomColor(cu.id, hex)
-      return `Pinté «${nombreCuarto(cu.id)}» de ${etiquetaColor(hex)}.`
+      return tGlobal('chat.ed.cuartoPintado', 'Pinté «{cuarto}» de {color}.', {
+        cuarto: nombreCuarto(cu.id),
+        color: etiquetaColor(hex),
+      })
     }
     case 'editor_piso_cuarto': {
       const cu = cuartoDeInput(input)
       const piso = resolverPorNombre(PISOS, str(input, 'piso') ?? '')
       if (!cu || !piso) return null
       await d.setRoomPisoTipo(cu.id, piso.id as PisoTipoId)
-      return `Cambié el piso de «${nombreCuarto(cu.id)}» a ${piso.nombre}.`
+      return tGlobal('chat.ed.pisoCuarto', 'Cambié el piso de «{cuarto}» a {piso}.', {
+        cuarto: nombreCuarto(cu.id),
+        piso: nombrePiso(piso),
+      })
     }
     case 'editor_piso_color_cuarto': {
       const cu = cuartoDeInput(input)
       const hex = str(input, 'color') ? resolverColor(str(input, 'color')!) : null
       if (!cu || !hex) return null
       await d.setRoomPisoColor(cu.id, hex)
-      return `Pinté el piso de «${nombreCuarto(cu.id)}» de ${etiquetaColor(hex)}.`
+      return tGlobal('chat.ed.pisoColor', 'Pinté el piso de «{cuarto}» de {color}.', {
+        cuarto: nombreCuarto(cu.id),
+        color: etiquetaColor(hex),
+      })
     }
     case 'editor_techo_cuarto': {
       const cu = cuartoDeInput(input)
       const techo = resolverPorNombre(TECHOS, str(input, 'techo') ?? '')
       if (!cu || !techo) return null
       await d.setRoomTechoTipo(cu.id, techo.id as TechoTipoId)
-      return `Cambié el techo de «${nombreCuarto(cu.id)}» a ${techo.nombre}.`
+      return tGlobal('chat.ed.techoCuarto', 'Cambié el techo de «{cuarto}» a {techo}.', {
+        cuarto: nombreCuarto(cu.id),
+        techo: nombreTecho(techo),
+      })
     }
     case 'editor_techo_color_cuarto': {
       const cu = cuartoDeInput(input)
       const hex = str(input, 'color') ? resolverColor(str(input, 'color')!) : null
       if (!cu || !hex) return null
       await d.setRoomTechoColor(cu.id, hex)
-      return `Pinté el techo de «${nombreCuarto(cu.id)}» de ${etiquetaColor(hex)}.`
+      return tGlobal('chat.ed.techoColor', 'Pinté el techo de «{cuarto}» de {color}.', {
+        cuarto: nombreCuarto(cu.id),
+        color: etiquetaColor(hex),
+      })
     }
     case 'editor_techo_forma_cuarto': {
       const cu = cuartoDeInput(input)
@@ -497,7 +552,10 @@ export async function ejecutarToolEditor(
       })
       if (!cu || !forma) return null
       await d.setRoomTechoForma(cu.id, forma.id as TechoFormaId)
-      return `Le puse techo ${forma.nombre.toLowerCase()} a «${nombreCuarto(cu.id)}».`
+      return tGlobal('chat.ed.techoForma', 'Le puse techo {forma} a «{cuarto}».', {
+        forma: tGlobal(`editor.techoForma.${forma.id}`, forma.nombre).toLowerCase(),
+        cuarto: nombreCuarto(cu.id),
+      })
     }
 
     // ── Objetos ──
@@ -506,9 +564,14 @@ export async function ejecutarToolEditor(
       const item = tipo ? getCatalogoItem(tipo) : null
       if (!item) return null
       const roomId = cuartoDestino(str(input, 'cuarto'))
-      if (!roomId) return 'No hay ningún cuarto en el mapa donde colocarlo. Agrega uno primero.'
+      if (!roomId) {
+        return tGlobal('chat.ed.sinCuartoObjeto', 'No hay ningún cuarto en el mapa donde colocarlo. Agrega uno primero.')
+      }
       await d.addObjeto(roomId, item.id, item.defaultColor)
-      return `Agregué ${item.nombre.toLowerCase()} a «${nombreCuarto(roomId)}».`
+      return tGlobal('chat.ed.objetoAgregado', 'Agregué {objeto} a «{cuarto}».', {
+        objeto: nombreObjeto(item).toLowerCase(),
+        cuarto: nombreCuarto(roomId),
+      })
     }
 
     // ── Avatar / personaje ──
@@ -517,25 +580,44 @@ export async function ejecutarToolEditor(
       const hex = str(input, 'color') ? resolverColor(str(input, 'color')!) : null
       if (!hex || (parte !== 'cabeza' && parte !== 'torso' && parte !== 'piernas')) return null
       await d.setAvatarColor(parte, hex)
-      return `Pinté ${parte === 'cabeza' ? 'la cabeza' : parte === 'torso' ? 'el torso' : 'las piernas'} de tu personaje de ${etiquetaColor(hex)}.`
+      const nombreParte =
+        parte === 'cabeza'
+          ? tGlobal('chat.ed.parte.cabeza', 'la cabeza')
+          : parte === 'torso'
+            ? tGlobal('chat.ed.parte.torso', 'el torso')
+            : tGlobal('chat.ed.parte.piernas', 'las piernas')
+      return tGlobal('chat.ed.avatarColor', 'Pinté {parte} de tu personaje de {color}.', {
+        parte: nombreParte,
+        color: etiquetaColor(hex),
+      })
     }
     case 'editor_avatar_tamano': {
       const escala = num(input, 'escala')
       if (escala == null) return null
       const e = Math.max(ESCALA_MIN, Math.min(ESCALA_MAX, escala))
       await d.setAvatarEscala(e)
-      return `Ajusté el tamaño de tu personaje a ${e.toFixed(2)}×.`
+      return tGlobal('chat.ed.avatarTamano', 'Ajusté el tamaño de tu personaje a {escala}×.', {
+        escala: e.toFixed(2),
+      })
     }
     case 'editor_avatar_prenda': {
       const prenda = str(input, 'prenda') as PrendaId | undefined
       if (!prenda || !PRENDAS.some((p) => p.id === prenda)) return null
       if (bool(input, 'quitar')) {
         await d.setAvatarPrenda(prenda, null)
-        return `Le quité ${prenda} a tu personaje.`
+        return tGlobal('chat.ed.prendaQuitada', 'Le quité {prenda} a tu personaje.', {
+          prenda: nombrePrenda(prenda).toLowerCase(),
+        })
       }
       const hex = str(input, 'color') ? resolverColor(str(input, 'color')!) : null
       await d.setAvatarPrenda(prenda, hex ?? PRENDA_COLOR_DEFAULT[prenda])
-      return `Le puse ${prenda}${hex ? ` ${etiquetaColor(hex)}` : ''} a tu personaje.`
+      const nomPrenda = nombrePrenda(prenda).toLowerCase()
+      return hex
+        ? tGlobal('chat.ed.prendaPuestaColor', 'Le puse {prenda} {color} a tu personaje.', {
+            prenda: nomPrenda,
+            color: etiquetaColor(hex),
+          })
+        : tGlobal('chat.ed.prendaPuesta', 'Le puse {prenda} a tu personaje.', { prenda: nomPrenda })
     }
 
     // ── Diseño global ──
@@ -543,18 +625,18 @@ export async function ejecutarToolEditor(
       const t = str(input, 'tema')
       if (t === 'ninguno' || t === 'sin') {
         await d.setTemaGlobal(null)
-        return 'Quité el tema de la casa.'
+        return tGlobal('chat.ed.temaQuitado', 'Quité el tema de la casa.')
       }
       const tema = resolverPorNombre(TEMAS, t ?? '')
       if (!tema) return null
       await d.setTemaGlobal(tema.id as TemaId)
-      return `Le puse el tema ${tema.nombre} a la casa.`
+      return tGlobal('chat.ed.temaPuesto', 'Le puse el tema {tema} a la casa.', { tema: nombreTema(tema) })
     }
     case 'editor_fondo': {
       const fondo = resolverPorNombre(FONDOS, str(input, 'fondo') ?? '')
       if (!fondo) return null
       await d.setFondoId(fondo.id as FondoId)
-      return `Cambié el fondo del cielo a ${fondo.nombre}.`
+      return tGlobal('chat.ed.fondo', 'Cambié el fondo del cielo a {fondo}.', { fondo: nombreFondo(fondo) })
     }
     case 'editor_animaciones_fondo': {
       const activo = bool(input, 'activo')
@@ -564,9 +646,13 @@ export async function ejecutarToolEditor(
         // Acepta 0-1 y 0-100 (la IA manda una u otra según cómo lo pida el usuario).
         await d.setAnimacionesIntensidad(intensidad > 1 ? intensidad / 100 : intensidad)
         const val = useDiseño.getState().animacionesIntensidad
-        return `Puse las animaciones del fondo al ${Math.round(val * 100)}%.`
+        return tGlobal('chat.ed.animFondoPct', 'Puse las animaciones del fondo al {pct}%.', {
+          pct: Math.round(val * 100),
+        })
       }
-      return activo ? 'Activé las animaciones del fondo.' : 'Apagué las animaciones del fondo.'
+      return activo
+        ? tGlobal('chat.ed.animFondoOn', 'Activé las animaciones del fondo.')
+        : tGlobal('chat.ed.animFondoOff', 'Apagué las animaciones del fondo.')
     }
 
     // ── Ajustes de interfaz ──
@@ -575,19 +661,25 @@ export async function ejecutarToolEditor(
       const datos = IDIOMAS.find((i) => i.id === pedido)
       if (!datos) return null
       useAjustes.getState().setIdioma(datos.id)
-      return `Cambié el idioma de la app a ${datos.nombreIA}.`
+      return tGlobal('chat.ed.idioma', 'Cambié el idioma de la app a {idioma}.', {
+        idioma: tGlobal(datos.clave, datos.label),
+      })
     }
     case 'editor_tema_interfaz': {
       const tema = resolverPorNombre(TEMAS_UI, str(input, 'tema') ?? '')
       if (!tema) return null
       useAjustes.getState().setTemaUI(tema.id as TemaUIId)
-      return `Cambié el tema de la interfaz a ${tema.nombre}.`
+      return tGlobal('chat.ed.temaUI', 'Cambié el tema de la interfaz a {tema}.', {
+        tema: tGlobal(`temaUI.${tema.id}`, tema.nombre),
+      })
     }
     case 'editor_tipografia': {
       const tipo = resolverPorNombre(TIPOGRAFIAS, str(input, 'tipografia') ?? '')
       if (!tipo) return null
       useAjustes.getState().setTipografia(tipo.id as TipografiaId)
-      return `Cambié la tipografía a ${tipo.nombre}.`
+      return tGlobal('chat.ed.tipografia', 'Cambié la tipografía a {tipografia}.', {
+        tipografia: tGlobal(`tipografia.${tipo.id}`, tipo.nombre),
+      })
     }
     case 'editor_apariencia': {
       const aj = useAjustes.getState()
@@ -598,24 +690,28 @@ export async function ejecutarToolEditor(
       const partes: string[] = []
       if (modo === 'claro' || modo === 'oscuro' || modo === 'transparente') {
         aj.setModoUI(modo)
-        partes.push(`modo ${modo}`)
+        partes.push(tGlobal(`chat.ed.ap.modo.${modo}`, `modo ${modo}`))
       }
       if (iconos === 'emoji' || iconos === 'profesional') {
         aj.setEstiloIconos(iconos)
-        partes.push(iconos === 'emoji' ? 'iconos con emojis' : 'iconos profesionales')
+        partes.push(
+          iconos === 'emoji'
+            ? tGlobal('chat.ed.ap.iconosEmoji', 'iconos con emojis')
+            : tGlobal('chat.ed.ap.iconosProfesional', 'iconos profesionales'),
+        )
       }
       if (transp != null) {
         const v = Math.max(0, Math.min(1, transp))
         aj.setVidrioTransparencia(v)
-        partes.push(`transparencia al ${Math.round(v * 100)}%`)
+        partes.push(tGlobal('chat.ed.ap.transparencia', 'transparencia al {pct}%', { pct: Math.round(v * 100) }))
       }
       if (intens != null) {
         const v = Math.max(0, Math.min(1, intens))
         aj.setVidrioIntensidad(v)
-        partes.push(`desenfoque al ${Math.round(v * 100)}%`)
+        partes.push(tGlobal('chat.ed.ap.desenfoque', 'desenfoque al {pct}%', { pct: Math.round(v * 100) }))
       }
       if (!partes.length) return null
-      return `Listo: ${partes.join(', ')}.`
+      return tGlobal('chat.ed.ap.listo', 'Listo: {partes}.', { partes: partes.join(', ') })
     }
     case 'editor_estilo_mapa': {
       const estilo = resolverPorNombre(ESTILOS, str(input, 'estilo') ?? '', {
@@ -630,12 +726,16 @@ export async function ejecutarToolEditor(
         if (estilo.id !== 'normal' && !useDiseño.getState().efectosVisuales) {
           await d.setEfectosVisuales(true)
         }
-        return `Le puse el estilo ${estilo.nombre.toLowerCase()} al mapa.`
+        return tGlobal('chat.ed.estiloMapa', 'Le puse el estilo {estilo} al mapa.', {
+          estilo: tGlobal(`estilo.${estilo.id}`, estilo.nombre).toLowerCase(),
+        })
       }
       if ('efectos' in input) {
         const activo = bool(input, 'efectos')
         await d.setEfectosVisuales(activo)
-        return activo ? 'Activé los efectos visuales del mapa.' : 'Apagué los efectos visuales del mapa.'
+        return activo
+          ? tGlobal('chat.ed.efectosOn', 'Activé los efectos visuales del mapa.')
+          : tGlobal('chat.ed.efectosOff', 'Apagué los efectos visuales del mapa.')
       }
       return null
     }
@@ -647,34 +747,46 @@ export async function ejecutarToolEditor(
       if (hora && /^\d{1,2}:\d{2}$/.test(hora)) {
         aj.setNotifHoraMetas(hora.padStart(5, '0'))
         aj.setNotifMetas(true)
-        return `Te avisaré de tus metas del día a las ${hora}.`
+        return tGlobal('chat.ed.notifHora', 'Te avisaré de tus metas del día a las {hora}.', { hora })
       }
       const aviso =
         activo && permisoNotificaciones() !== 'granted'
-          ? ' Si el navegador no te pide permiso, dáselo desde Configuraciones → Notificaciones.'
+          ? ' ' +
+            tGlobal(
+              'chat.ed.notifPermiso',
+              'Si el navegador no te pide permiso, dáselo desde Configuraciones → Notificaciones.',
+            )
           : ''
       switch (que) {
         case 'rutinas':
           aj.setNotifRutinas(activo)
-          return activo ? `Te avisaré de tus rutinas del calendario.${aviso}` : 'Ya no te aviso de las rutinas.'
+          return activo
+            ? tGlobal('chat.ed.notifRutinasOn', 'Te avisaré de tus rutinas del calendario.') + aviso
+            : tGlobal('chat.ed.notifRutinasOff', 'Ya no te aviso de las rutinas.')
         case 'metas':
           aj.setNotifMetas(activo)
-          return activo ? `Te avisaré de tus metas del día.${aviso}` : 'Ya no te aviso de las metas.'
+          return activo
+            ? tGlobal('chat.ed.notifMetasOn', 'Te avisaré de tus metas del día.') + aviso
+            : tGlobal('chat.ed.notifMetasOff', 'Ya no te aviso de las metas.')
         case 'wrapped':
           aj.setNotifWrapped(activo)
-          return activo ? `Te avisaré cuando haya un resumen nuevo.${aviso}` : 'Ya no te aviso de los resúmenes.'
+          return activo
+            ? tGlobal('chat.ed.notifWrappedOn', 'Te avisaré cuando haya un resumen nuevo.') + aviso
+            : tGlobal('chat.ed.notifWrappedOff', 'Ya no te aviso de los resúmenes.')
         default:
           aj.setNotif(activo)
-          return activo ? `Encendí los avisos.${aviso}` : 'Apagué todos los avisos.'
+          return activo
+            ? tGlobal('chat.ed.notifTodoOn', 'Encendí los avisos.') + aviso
+            : tGlobal('chat.ed.notifTodoOff', 'Apagué todos los avisos.')
       }
     }
     case 'editor_respaldo': {
       await exportarRespaldo()
-      return 'Descargué un respaldo de tus datos en formato JSON.'
+      return tGlobal('chat.ed.respaldo', 'Descargué un respaldo de tus datos en formato JSON.')
     }
     case 'editor_bienvenida': {
       useBienvenida.getState().abrir()
-      return 'Abrí el menú de bienvenida.'
+      return tGlobal('chat.ed.bienvenida', 'Abrí el menú de bienvenida.')
     }
     case 'editor_ajustes_abrir': {
       const grupo = str(input, 'grupo')
@@ -683,8 +795,10 @@ export async function ejecutarToolEditor(
       useEditorUi.getState().setTab('config')
       if (g) useEditorUi.getState().abrirConfigGrupo(g.id)
       return g
-        ? `Abrí Configuraciones en «${g.nombre}».`
-        : 'Abrí las Configuraciones del editor.'
+        ? tGlobal('chat.ed.configGrupo', 'Abrí Configuraciones en «{grupo}».', {
+            grupo: tGlobal(g.clave, g.nombre),
+          })
+        : tGlobal('chat.ed.configAbrir', 'Abrí las Configuraciones del editor.')
     }
 
     // ── Fase 2: forma, tamaño, muros, niveles, mapa y objetos ──
@@ -695,7 +809,10 @@ export async function ejecutarToolEditor(
       const forma: CeldaFormaLoseta | null =
         f === 'cuadrado' ? null : { forma: f as FormaLoseta, rotacion: 0 }
       await useLayout.getState().aplicarFormaCuartoTodas(cu.id, forma)
-      return `Cambié la forma de «${nombreCuarto(cu.id)}» a ${f === 'circular' ? 'redonda' : f}.`
+      return tGlobal('chat.ed.formaCuarto', 'Cambié la forma de «{cuarto}» a {forma}.', {
+        cuarto: nombreCuarto(cu.id),
+        forma: tGlobal(`chat.ed.forma.${f}`, f === 'circular' ? 'redonda' : f),
+      })
     }
     case 'editor_crecer_cuarto': {
       const cu = cuartoDeInput(input)
@@ -712,11 +829,11 @@ export async function ejecutarToolEditor(
           if (own.has(cellId(abs.col, abs.row))) continue
           await L.addRoomCell(cu.id, abs)
           if ((useLayout.getState().footprints[cu.id] ?? FOOTPRINT_DEFAULT).length > antes) {
-            return `Agrandé «${nombreCuarto(cu.id)}» una celda.`
+            return tGlobal('chat.ed.crecio', 'Agrandé «{cuarto}» una celda.', { cuarto: nombreCuarto(cu.id) })
           }
         }
       }
-      return 'No hay espacio libre junto a ese cuarto para agrandarlo.'
+      return tGlobal('chat.ed.sinEspacioCrecer', 'No hay espacio libre junto a ese cuarto para agrandarlo.')
     }
     case 'editor_encoger_cuarto': {
       const cu = cuartoDeInput(input)
@@ -725,15 +842,15 @@ export async function ejecutarToolEditor(
       const anchor = L.cells[cu.id]
       const fp = L.footprints[cu.id] ?? FOOTPRINT_DEFAULT
       if (!anchor) return null
-      if (fp.length <= 1) return 'Ese cuarto ya es del tamaño mínimo.'
+      if (fp.length <= 1) return tGlobal('chat.ed.yaMinimo', 'Ese cuarto ya es del tamaño mínimo.')
       const antes = fp.length
       for (const off of [...fp].reverse()) {
         await L.removeRoomCell(cu.id, { col: anchor.col + off.col, row: anchor.row + off.row })
         if ((useLayout.getState().footprints[cu.id] ?? FOOTPRINT_DEFAULT).length < antes) {
-          return `Encogí «${nombreCuarto(cu.id)}» una celda.`
+          return tGlobal('chat.ed.encogio', 'Encogí «{cuarto}» una celda.', { cuarto: nombreCuarto(cu.id) })
         }
       }
-      return 'No pude encoger ese cuarto sin partirlo.'
+      return tGlobal('chat.ed.noEncoge', 'No pude encoger ese cuarto sin partirlo.')
     }
     case 'editor_muro': {
       const cu = cuartoDeInput(input)
@@ -752,10 +869,14 @@ export async function ejecutarToolEditor(
       const fp = L.footprints[cu.id] ?? FOOTPRINT_DEFAULT
       const occ = L.ocupadoPorNivel.get(L.niveles[cu.id] ?? 0) ?? new Set<string>()
       const edges = roomEdges(anchor, fp, occ).filter((ed) => ed.side === lado)
-      if (!edges.length) return 'Ese lado no tiene muro exterior.'
+      if (!edges.length) return tGlobal('chat.ed.sinMuroExterior', 'Ese lado no tiene muro exterior.')
       for (const ed of edges) await L.paintEdge(cu.id, ed.off, ed.side, estado)
-      const verbo = estado === 'abierto' ? 'Abrí' : estado === 'puerta' ? 'Puse una puerta en' : 'Cerré'
-      return `${verbo} el muro ${ladoNombre(lado)} de «${nombreCuarto(cu.id)}».`
+      const vars = { lado: ladoTexto(lado), cuarto: nombreCuarto(cu.id) }
+      return estado === 'abierto'
+        ? tGlobal('chat.ed.muroAbierto', 'Abrí el muro {lado} de «{cuarto}».', vars)
+        : estado === 'puerta'
+          ? tGlobal('chat.ed.muroPuerta', 'Puse una puerta en el muro {lado} de «{cuarto}».', vars)
+          : tGlobal('chat.ed.muroCerrado', 'Cerré el muro {lado} de «{cuarto}».', vars)
     }
     case 'editor_mover_cuarto': {
       const cu = cuartoDeInput(input)
@@ -766,7 +887,9 @@ export async function ejecutarToolEditor(
       const fp = L.footprints[cu.id] ?? FOOTPRINT_DEFAULT
       const nivel = L.niveles[cu.id] ?? 0
       const target = { col: anchor.col + DELTA_DIR[dir].col, row: anchor.row + DELTA_DIR[dir].row }
-      if (!cabeEnRejilla(target, fp, L.gridCols, L.gridRows)) return 'No cabe en esa dirección.'
+      if (!cabeEnRejilla(target, fp, L.gridCols, L.gridRows)) {
+        return tGlobal('chat.ed.noCabeDir', 'No cabe en esa dirección.')
+      }
       const destino = new Set(footprintCells(target, fp).map((c) => cellId(c.col, c.row)))
       const choca = useCuartos.getState().cuartos.some(
         (r) =>
@@ -777,9 +900,12 @@ export async function ejecutarToolEditor(
             destino.has(cellId(c.col, c.row)),
           ),
       )
-      if (choca) return 'Hay otro cuarto en esa dirección.'
+      if (choca) return tGlobal('chat.ed.chocaDir', 'Hay otro cuarto en esa dirección.')
       await L.moveRoom(cu.id, target)
-      return `Moví «${nombreCuarto(cu.id)}» hacia el ${ladoNombre(dir)}.`
+      return tGlobal('chat.ed.cuartoMovido', 'Moví «{cuarto}» hacia el {lado}.', {
+        cuarto: nombreCuarto(cu.id),
+        lado: ladoTexto(dir),
+      })
     }
     case 'editor_apilar_cuarto': {
       const cu = cuartoDeInput(input)
@@ -789,7 +915,10 @@ export async function ejecutarToolEditor(
       const acc = str(input, 'acceso')
       const acceso: TipoAcceso = acc === 'elevador' || acc === 'resbaladilla' ? acc : 'escalera'
       await useLayout.getState().addRoomOnTop(cu.id, base.id, acceso)
-      return `Apilé «${nombreCuarto(cu.id)}» encima de «${nombreCuarto(base.id)}».`
+      return tGlobal('chat.ed.cuartoApilado', 'Apilé «{cuarto}» encima de «{base}».', {
+        cuarto: nombreCuarto(cu.id),
+        base: nombreCuarto(base.id),
+      })
     }
     case 'editor_redimensionar_mapa': {
       const dir = ladoDeTexto(str(input, 'direccion') ?? '') ?? 'E'
@@ -797,37 +926,39 @@ export async function ejecutarToolEditor(
       const L = useLayout.getState()
       if (/encog|reduc|achic|peque/.test(accion)) {
         await L.contractGrid(dir)
-        return `Encogí el mapa por el lado ${ladoNombre(dir)}.`
+        return tGlobal('chat.ed.mapaEncogido', 'Encogí el mapa por el lado {lado}.', { lado: ladoTexto(dir) })
       }
       await L.expandGrid(dir)
-      return `Agrandé el mapa por el lado ${ladoNombre(dir)}.`
+      return tGlobal('chat.ed.mapaAgrandado', 'Agrandé el mapa por el lado {lado}.', { lado: ladoTexto(dir) })
     }
     case 'editor_objeto_color': {
       const hex = str(input, 'color') ? resolverColor(str(input, 'color')!) : null
       const o = ultimoObjeto(str(input, 'cuarto'), str(input, 'tipo'))
       if (!hex || !o?.id) return null
       await useDiseño.getState().setObjetoColor(o.id, hex)
-      return `Pinté el último objeto de ${etiquetaColor(hex)}.`
+      return tGlobal('chat.ed.objetoPintado', 'Pinté el último objeto de {color}.', {
+        color: etiquetaColor(hex),
+      })
     }
     case 'editor_objeto_tamano': {
       const escala = num(input, 'escala')
       const o = ultimoObjeto(str(input, 'cuarto'), str(input, 'tipo'))
       if (escala == null || !o?.id) return null
       await useDiseño.getState().setObjetoEscala(o.id, Math.max(0.3, Math.min(3, escala)))
-      return 'Cambié el tamaño del último objeto.'
+      return tGlobal('chat.ed.objetoTamano', 'Cambié el tamaño del último objeto.')
     }
     case 'editor_objeto_rotar': {
       const o = ultimoObjeto(str(input, 'cuarto'), str(input, 'tipo'))
       if (!o?.id) return null
       const grados = num(input, 'grados') ?? 90
       await useDiseño.getState().setObjetoRotacion(o.id, (o.rotY ?? 0) + grados)
-      return 'Giré el último objeto.'
+      return tGlobal('chat.ed.objetoRotado', 'Giré el último objeto.')
     }
     case 'editor_eliminar_objeto': {
       const o = ultimoObjeto(str(input, 'cuarto'), str(input, 'tipo'))
       if (!o?.id) return null
       await useDiseño.getState().removeObjeto(o.id)
-      return 'Quité el último objeto.'
+      return tGlobal('chat.ed.objetoQuitado', 'Quité el último objeto.')
     }
     case 'editor_muro_estilo': {
       const cu = cuartoDeInput(input)
@@ -857,7 +988,7 @@ export async function ejecutarToolEditor(
       const fp = L.footprints[cu.id] ?? FOOTPRINT_DEFAULT
       const occ = L.ocupadoPorNivel.get(L.niveles[cu.id] ?? 0) ?? new Set<string>()
       const edges = roomEdges(anchor, fp, occ).filter((e) => e.side === lado)
-      if (!edges.length) return 'Ese lado no tiene muro exterior.'
+      if (!edges.length) return tGlobal('chat.ed.sinMuroExterior', 'Ese lado no tiene muro exterior.')
       for (const e of edges) {
         if (tipoP) await L.paintEdge(cu.id, e.off, e.side, 'puerta')
         await L.setEdgeEstilo(cu.id, e.off, e.side, {
@@ -865,7 +996,10 @@ export async function ejecutarToolEditor(
           ...(tipoP ? { puerta } : {}),
         })
       }
-      return `Cambié el estilo del muro ${ladoNombre(lado)} de «${nombreCuarto(cu.id)}».`
+      return tGlobal('chat.ed.muroEstilo', 'Cambié el estilo del muro {lado} de «{cuarto}».', {
+        lado: ladoTexto(lado),
+        cuarto: nombreCuarto(cu.id),
+      })
     }
     case 'editor_agrupar_objetos': {
       const cu = cuartoDeInput(input)
@@ -874,18 +1008,25 @@ export async function ejecutarToolEditor(
         .getState()
         .objetos.filter((o) => o.roomId === cu.id && o.id != null)
         .map((o) => o.id as number)
-      if (ids.length < 2) return 'Ese cuarto no tiene suficientes objetos para agrupar.'
+      if (ids.length < 2) {
+        return tGlobal('chat.ed.pocosObjetos', 'Ese cuarto no tiene suficientes objetos para agrupar.')
+      }
       useDiseño.setState({ seleccion: ids })
       await useDiseño.getState().agrupar()
-      return `Agrupé ${ids.length} objetos de «${nombreCuarto(cu.id)}».`
+      return tGlobal('chat.ed.objetosAgrupados', 'Agrupé {n} objetos de «{cuarto}».', {
+        n: ids.length,
+        cuarto: nombreCuarto(cu.id),
+      })
     }
     case 'editor_desagrupar_objetos': {
       const cu = cuartoDeInput(input)
       if (!cu) return null
       const grupo = useDiseño.getState().objetos.find((o) => o.roomId === cu.id && o.grupoId)?.grupoId
-      if (!grupo) return 'No hay ningún grupo en ese cuarto.'
+      if (!grupo) return tGlobal('chat.ed.sinGrupo', 'No hay ningún grupo en ese cuarto.')
       await useDiseño.getState().desagrupar(grupo)
-      return `Desagrupé los objetos de «${nombreCuarto(cu.id)}».`
+      return tGlobal('chat.ed.objetosDesagrupados', 'Desagrupé los objetos de «{cuarto}».', {
+        cuarto: nombreCuarto(cu.id),
+      })
     }
 
     // ── Abrir cuarto / app / sección / juego ──
@@ -899,7 +1040,7 @@ export async function ejecutarToolEditor(
         const cu = resolverCuarto(cuartoTxt)
         if (!cu) return null
         useHouse.getState().openRoom(cu.id)
-        return `Abrí «${nombreCuarto(cu.id)}».`
+        return tGlobal('chat.ed.cuartoAbierto', 'Abrí «{cuarto}».', { cuarto: nombreCuarto(cu.id) })
       }
       if (!appTxt) return null
       const app = resolverApp(appTxt) ?? resolverComandoApp(appTxt)?.app ?? null
@@ -907,14 +1048,25 @@ export async function ejecutarToolEditor(
       // La app lee la intención al montarse y abre la sección/juego pedido.
       const roomId = abrirApp(app.id, seccion, dato)
       if (!roomId) {
-        return `No tienes «${nombreApp(app)}» en ningún cuarto: asígnala a un objeto desde el editor.`
+        return tGlobal(
+          'chat.ed.appSinCuarto',
+          'No tienes «{app}» en ningún cuarto: asígnala a un objeto desde el editor.',
+          { app: nombreApp(app) },
+        )
       }
       const cmd = seccion
         ? app.comandos?.find((x) => x.seccion === seccion && (dato ? x.dato === dato : !x.dato))
         : undefined
       return cmd
-        ? `Abrí ${cmd.etiqueta} (${nombreApp(app)}) en «${nombreCuarto(roomId)}».`
-        : `Abrí ${nombreApp(app)} en «${nombreCuarto(roomId)}».`
+        ? tGlobal('chat.ed.appSeccionAbierta', 'Abrí {seccion} ({app}) en «{cuarto}».', {
+            seccion: etiquetaComando(app.id, cmd),
+            app: nombreApp(app),
+            cuarto: nombreCuarto(roomId),
+          })
+        : tGlobal('chat.ed.appAbierta', 'Abrí {app} en «{cuarto}».', {
+            app: nombreApp(app),
+            cuarto: nombreCuarto(roomId),
+          })
     }
 
     // El calendario no vive en ningún cuarto: se abre sobre la casa, desde el reloj.
@@ -922,7 +1074,11 @@ export async function ejecutarToolEditor(
       const pedida = str(input, 'vista')
       const vista = VISTAS_CALENDARIO.find((v) => v.vista === pedida)
       useRutinasUI.getState().abrirCalendario(vista?.vista)
-      return vista ? `Abrí el calendario en ${vista.etiqueta}.` : 'Abrí el calendario.'
+      return vista
+        ? tGlobal('chat.ed.calVista', 'Abrí el calendario en {vista}.', {
+            vista: tGlobal(vista.clave, vista.etiqueta),
+          })
+        : tGlobal('chat.ed.calAbierto', 'Abrí el calendario.')
     }
 
     // ── Ideas: mapas conceptuales ──
@@ -946,39 +1102,67 @@ export async function ejecutarToolEditor(
         }
       } catch (e) {
         console.warn('[MPH] no pude dibujar el mapa desde el chat:', e)
-        return 'No pude dibujar el mapa: la IA no devolvió nada usable. Prueba otra vez o con un tema más concreto.'
+        return tGlobal(
+          'chat.ed.mapaFallo',
+          'No pude dibujar el mapa: la IA no devolvió nada usable. Prueba otra vez o con un tema más concreto.',
+        )
       }
       marcarUltimoMapa(id)
       const roomId = abrirApp('ideas', def.familia, String(id))
-      const etiqueta = def.nombreEs.toLowerCase()
+      const etiqueta = tGlobal(`ideas.tipo.${def.id}`, def.nombreEs).toLowerCase()
       return roomId
-        ? `Dibujé «${nombre}» (${etiqueta}) y lo abrí en «${nombreCuarto(roomId)}».`
-        : `Dibujé «${nombre}» (${etiqueta}), pero no tienes la app Ideas en ningún cuarto: asígnala a un objeto para verlo.`
+        ? tGlobal('chat.ed.mapaDibujado', 'Dibujé «{nombre}» ({tipo}) y lo abrí en «{cuarto}».', {
+            nombre,
+            tipo: etiqueta,
+            cuarto: nombreCuarto(roomId),
+          })
+        : tGlobal(
+            'chat.ed.mapaSinCuarto',
+            'Dibujé «{nombre}» ({tipo}), pero no tienes la app Ideas en ningún cuarto: asígnala a un objeto para verlo.',
+            { nombre, tipo: etiqueta },
+          )
     }
 
     // ── Paintball: batalla contra los asistentes por toda la casa ──
     case 'editor_paintball': {
       const pb = usePaintball.getState()
       if (bool(input, 'salir')) {
-        if (!pb.fase) return 'No hay ninguna batalla en marcha.'
+        if (!pb.fase) return tGlobal('chat.ed.pbSinBatalla', 'No hay ninguna batalla en marcha.')
         pb.cancelar()
-        return 'Salimos del paintball. La casa vuelve a la normalidad.'
+        return tGlobal('chat.ed.pbSalir', 'Salimos del paintball. La casa vuelve a la normalidad.')
       }
       const dif = num(input, 'dificultad')
       if (dif != null) pb.setDificultad(Math.max(0, Math.min(1, dif)))
       const vista = str(input, 'vista')
       if (vista === 'primera' || vista === 'tercera') pb.setVistaCombate(vista)
-      if (pb.fase === 'cuenta' || pb.fase === 'jugando') return 'Ya estás en plena batalla: ¡a disparar!'
+      if (pb.fase === 'cuenta' || pb.fase === 'jugando') {
+        return tGlobal('chat.ed.pbYaEnBatalla', 'Ya estás en plena batalla: ¡a disparar!')
+      }
 
       pb.iniciar() // deja fase='config' (el menú de batalla)
-      if (!usePaintball.getState().fase) return 'No puedo abrir el paintball mientras editas la casa: sal del editor primero.'
+      if (!usePaintball.getState().fase) {
+        return tGlobal(
+          'chat.ed.pbEditando',
+          'No puedo abrir el paintball mientras editas la casa: sal del editor primero.',
+        )
+      }
       const modoTxt = str(input, 'modo')
-      if (!modoTxt) return 'Abrí el menú del paintball: elige modo, rival y dificultad.'
+      if (!modoTxt) return tGlobal('chat.ed.pbMenu', 'Abrí el menú del paintball: elige modo, rival y dificultad.')
       const modo: ModoPaintball = modoTxt === '1v1' || modoTxt === '2v2' ? modoTxt : 'royale'
 
       const asistentes = useAsistentes.getState().lista
-      if (!asistentes.length) return 'Necesitas al menos un asistente para jugar: créalo en la configuración del chat.'
-      if (modo === '2v2' && asistentes.length < 3) return 'Para un 2 vs 2 hacen falta al menos 3 asistentes (tu compañero y dos rivales).'
+      if (!asistentes.length) {
+        return tGlobal(
+          'chat.ed.pbSinAsistentes',
+          'Necesitas al menos un asistente para jugar: créalo en la configuración del chat.',
+        )
+      }
+      if (modo === '2v2' && asistentes.length < 3) {
+        return tGlobal(
+          'chat.ed.pb2v2Pocos',
+          'Para un 2 vs 2 hacen falta al menos 3 asistentes (tu compañero y dos rivales).',
+        )
+      }
       // Rival (o compañero en 2v2) pedido por su nombre; los demás salen al azar.
       const nom = str(input, 'rival')
       const elegido = nom
@@ -990,15 +1174,22 @@ export async function ejecutarToolEditor(
       const equipo = orden.slice(0, modo === '1v1' ? 1 : modo === '2v2' ? 3 : MAX_BOTS_ROYALE)
       pb.empezar(modo, equipo.map((a) => a.id))
       if (usePaintball.getState().fase === 'config') {
-        return 'El paintball se juega en la planta baja: baja por la escalera y te preparo la batalla.'
+        return tGlobal(
+          'chat.ed.pbPlantaBaja',
+          'El paintball se juega en la planta baja: baja por la escalera y te preparo la batalla.',
+        )
       }
       const comoJuega =
         modo === '1v1'
-          ? `1 vs 1 contra ${equipo[0].nombre}`
+          ? tGlobal('chat.ed.pb1v1', '1 vs 1 contra {rival}', { rival: equipo[0].nombre })
           : modo === '2v2'
-            ? `2 vs 2 con ${equipo[0].nombre} de compañero`
-            : `batalla campal contra ${equipo.length} asistentes`
-      return `¡Marcadora en mano! ${comoJuega}. Aguantas ${VIDAS_PAINTBALL} bolazos: apunta y dispara.`
+            ? tGlobal('chat.ed.pb2v2', '2 vs 2 con {companero} de compañero', { companero: equipo[0].nombre })
+            : tGlobal('chat.ed.pbRoyale', 'batalla campal contra {n} asistentes', { n: equipo.length })
+      return tGlobal(
+        'chat.ed.pbListo',
+        '¡Marcadora en mano! {modo}. Aguantas {vidas} bolazos: apunta y dispara.',
+        { modo: comoJuega, vidas: VIDAS_PAINTBALL },
+      )
     }
 
     // ── Infraestructura del mapa (huerto, granja, caminos, canchas) ──
@@ -1014,13 +1205,19 @@ export async function ejecutarToolEditor(
           const esp = str(input, 'especie')
           if (esp && esp in ESPECIES) {
             h.setEspecie(esp as EspecieCultivo) // ya deja la herramienta en 'sembrar'
-            const nom = ESPECIES[esp as EspecieCultivo].nombre.toLowerCase()
-            infraNota(`Listo para sembrar ${nom}: toca las parcelas del mapa.`)
-            return `Abrí el huerto con ${nom} lista para sembrar.`
+            const nom = tGlobal(`huerto.especie.${esp}`, ESPECIES[esp as EspecieCultivo].nombre).toLowerCase()
+            infraNota(
+              tGlobal('chat.ed.huertoNotaEspecie', 'Listo para sembrar {especie}: toca las parcelas del mapa.', {
+                especie: nom,
+              }),
+            )
+            return tGlobal('chat.ed.huertoConEspecie', 'Abrí el huerto con {especie} lista para sembrar.', {
+              especie: nom,
+            })
           }
           if (herr) h.setHerramienta(herr as HerramientaHuerto)
-          infraNota('Pinta parcelas tocando el mapa y luego siembra en ellas.')
-          return 'Abrí el editor del huerto.'
+          infraNota(tGlobal('chat.ed.huertoNota', 'Pinta parcelas tocando el mapa y luego siembra en ellas.'))
+          return tGlobal('chat.ed.huertoAbierto', 'Abrí el editor del huerto.')
         }
         case 'granja': {
           const g = useGranja.getState()
@@ -1028,13 +1225,16 @@ export async function ejecutarToolEditor(
           const an = str(input, 'animal')
           if (an && an in ANIMALES) {
             g.setTipo(an as TipoAnimal) // ya deja la herramienta en 'animal'
-            const nom = ANIMALES[an as TipoAnimal].nombre.toLowerCase()
-            infraNota(`Toca dentro de un corral para poner ${nom}s.`)
-            return `Abrí la granja lista para poner ${nom}s.`
+            const nom = tGlobal(`granja.animal.${an}`, ANIMALES[an as TipoAnimal].nombre).toLowerCase()
+            // La «s» del plural vive DENTRO de cada traducción: cada idioma la pone o no.
+            infraNota(
+              tGlobal('chat.ed.granjaNotaAnimal', 'Toca dentro de un corral para poner {animal}s.', { animal: nom }),
+            )
+            return tGlobal('chat.ed.granjaConAnimal', 'Abrí la granja lista para poner {animal}s.', { animal: nom })
           }
           if (herr) g.setHerramienta(herr as HerramientaGranja)
-          infraNota('Dibuja un corral tocando el mapa y mete animales dentro.')
-          return 'Abrí el editor de la granja.'
+          infraNota(tGlobal('chat.ed.granjaNota', 'Dibuja un corral tocando el mapa y mete animales dentro.'))
+          return tGlobal('chat.ed.granjaAbierta', 'Abrí el editor de la granja.')
         }
         case 'caminos': {
           const cm = useCaminos.getState()
@@ -1042,17 +1242,22 @@ export async function ejecutarToolEditor(
           const via = str(input, 'via')
           if (via === 'pista' || via === 'riel' || via === 'coaster') cm.setTipo(via)
           if (herr) cm.setHerramienta(herr as HerramientaCamino) // después de setTipo
-          const nom = via === 'coaster' ? 'la montaña rusa' : via === 'riel' ? 'las vías del tren' : 'la pista'
-          infraNota(`Pinta ${nom} tocando las celdas del mapa.`)
-          return `Abrí el editor de caminos para trazar ${nom}.`
+          const nom =
+            via === 'coaster'
+              ? tGlobal('chat.ed.via.coaster', 'la montaña rusa')
+              : via === 'riel'
+                ? tGlobal('chat.ed.via.riel', 'las vías del tren')
+                : tGlobal('chat.ed.via.pista', 'la pista')
+          infraNota(tGlobal('chat.ed.caminosNota', 'Pinta {via} tocando las celdas del mapa.', { via: nom }))
+          return tGlobal('chat.ed.caminosAbierto', 'Abrí el editor de caminos para trazar {via}.', { via: nom })
         }
         case 'canchas': {
           const k = useCanchas.getState()
           k.iniciar() // resetea la clase a 'futbol'
           const clase = str(input, 'clase')
           if (clase && clase in CANCHAS) k.setClase(clase as ClaseCancha)
-          infraNota('Toca el mapa para soltar la cancha donde quieras.')
-          return 'Abrí el editor de canchas.'
+          infraNota(tGlobal('chat.ed.canchasNota', 'Toca el mapa para soltar la cancha donde quieras.'))
+          return tGlobal('chat.ed.canchasAbierto', 'Abrí el editor de canchas.')
         }
         default:
           return null
@@ -1077,20 +1282,26 @@ export async function ejecutarToolEditor(
       // para no dejarlo dentro de la cancha.
       const def = CANCHAS[clase as ClaseCancha]
       await k.colocar(playerPos.x + (def.largo * escalaCancha(escala)) / 2 + 2, playerPos.z)
-      return `Puse una ${def.corto.toLowerCase()} junto a ti. Camina dentro para jugar.`
+      return tGlobal('chat.ed.canchaPuesta', 'Puse una {cancha} junto a ti. Camina dentro para jugar.', {
+        cancha: tGlobal(`canchas.clase.${clase}`, def.corto).toLowerCase(),
+      })
     }
 
     case 'editor_infra_huerto_accion': {
       const accion = str(input, 'accion')
       if (accion === 'regar') {
         const n = await regarTodo()
-        return n ? `Regué ${n} cultivo${n > 1 ? 's' : ''} del huerto.` : 'No hay nada que regar ahora mismo.'
+        if (!n) return tGlobal('chat.ed.nadaQueRegar', 'No hay nada que regar ahora mismo.')
+        return n === 1
+          ? tGlobal('chat.ed.regadoUno', 'Regué 1 cultivo del huerto.')
+          : tGlobal('chat.ed.regadoN', 'Regué {n} cultivos del huerto.', { n })
       }
       if (accion === 'cosechar') {
         const n = await cosecharTodo()
-        return n
-          ? `Coseché ${n} parcela${n > 1 ? 's' : ''}; todo fue a la cesta.`
-          : 'Todavía no hay nada listo para cosechar.'
+        if (!n) return tGlobal('chat.ed.nadaQueCosechar', 'Todavía no hay nada listo para cosechar.')
+        return n === 1
+          ? tGlobal('chat.ed.cosechadoUno', 'Coseché 1 parcela; todo fue a la cesta.')
+          : tGlobal('chat.ed.cosechadoN', 'Coseché {n} parcelas; todo fue a la cesta.', { n })
       }
       return null
     }
@@ -1099,24 +1310,42 @@ export async function ejecutarToolEditor(
       const accion = str(input, 'accion')
       if (accion === 'alimentar') {
         const r = await alimentarTodos()
-        if (!r.corrales) return 'Aún no tienes corrales en la granja.'
-        if (r.ok) return `Alimenté a los animales de ${r.ok} corral${r.ok > 1 ? 'es' : ''}.`
-        if (r.sinComida) return 'La cesta está vacía: cosecha algo del huerto y vuelvo a alimentarlos.'
+        if (!r.corrales) return tGlobal('chat.ed.sinCorrales', 'Aún no tienes corrales en la granja.')
+        if (r.ok) {
+          return r.ok === 1
+            ? tGlobal('chat.ed.alimentadoUno', 'Alimenté a los animales de 1 corral.')
+            : tGlobal('chat.ed.alimentadoN', 'Alimenté a los animales de {n} corrales.', { n: r.ok })
+        }
+        if (r.sinComida) {
+          return tGlobal(
+            'chat.ed.cestaVacia',
+            'La cesta está vacía: cosecha algo del huerto y vuelvo a alimentarlos.',
+          )
+        }
         return r.enfermos
-          ? 'Los que quedan están enfermos y no comen: pídeme que los cure.'
-          : 'Ninguno tiene hambre todavía.'
+          ? tGlobal('chat.ed.enfermosNoComen', 'Los que quedan están enfermos y no comen: pídeme que los cure.')
+          : tGlobal('chat.ed.sinHambre', 'Ninguno tiene hambre todavía.')
       }
       if (accion === 'mimar') {
         const n = await mimarTodos()
-        return n ? `Mimé a los animales de ${n} corral${n > 1 ? 'es' : ''}.` : 'Aún no tienes corrales en la granja.'
+        if (!n) return tGlobal('chat.ed.sinCorrales', 'Aún no tienes corrales en la granja.')
+        return n === 1
+          ? tGlobal('chat.ed.mimadoUno', 'Mimé a los animales de 1 corral.')
+          : tGlobal('chat.ed.mimadoN', 'Mimé a los animales de {n} corrales.', { n })
       }
       if (accion === 'curar') {
         const n = await curarTodos()
-        return n ? `Curé a ${n} animal${n > 1 ? 'es' : ''}.` : 'Ninguno está enfermo ahora mismo.'
+        if (!n) return tGlobal('chat.ed.ningunoEnfermo', 'Ninguno está enfermo ahora mismo.')
+        return n === 1
+          ? tGlobal('chat.ed.curadoUno', 'Curé a 1 animal.')
+          : tGlobal('chat.ed.curadoN', 'Curé a {n} animales.', { n })
       }
       if (accion === 'limpiar') {
         const n = await limpiarTodos()
-        return n ? `Limpié ${n} corral${n > 1 ? 'es' : ''}.` : 'Los corrales ya estaban limpios.'
+        if (!n) return tGlobal('chat.ed.corralesLimpios', 'Los corrales ya estaban limpios.')
+        return n === 1
+          ? tGlobal('chat.ed.limpiadoUno', 'Limpié 1 corral.')
+          : tGlobal('chat.ed.limpiadoN', 'Limpié {n} corrales.', { n })
       }
       return null
     }
@@ -1128,16 +1357,19 @@ export async function ejecutarToolEditor(
         await p.entrar() // asegura la fila de la pista antes de borrarla
         p.borrarTodo()
         p.salir()
-        return 'Borré el trazo libre de la pista.'
+        return tGlobal('chat.ed.trazoBorrado', 'Borré el trazo libre de la pista.')
       }
       const tipo = que === 'pista' || que === 'riel' || que === 'coaster' ? (que as TipoCamino) : undefined
       const n = await borrarCaminos(tipo)
-      return n ? `Borré ${n} tramo${n > 1 ? 's' : ''} del mapa.` : 'No había nada que borrar ahí.'
+      if (!n) return tGlobal('chat.ed.nadaQueBorrar', 'No había nada que borrar ahí.')
+      return n === 1
+        ? tGlobal('chat.ed.tramoBorradoUno', 'Borré 1 tramo del mapa.')
+        : tGlobal('chat.ed.tramosBorrados', 'Borré {n} tramos del mapa.', { n })
     }
 
     case 'editor_infra_carrera': {
       const carrera = useCarrera.getState()
-      if (carrera.fase) return 'Ya hay una carrera en marcha.'
+      if (carrera.fase) return tGlobal('chat.ed.carreraEnMarcha', 'Ya hay una carrera en marcha.')
       const dif = num(input, 'dificultad')
       if (dif != null) carrera.setDificultad(Math.max(0, Math.min(1, dif)))
       const vueltas = Math.max(1, Math.min(9, Math.round(num(input, 'vueltas') ?? 3)))
@@ -1151,27 +1383,45 @@ export async function ejecutarToolEditor(
       // por estar lejos de la meta (house/carrera.tsx).
       void carrera.ofrecer(null)
       if (!useCarrera.getState().fase) void useCarrera.getState().ofrecer(null, 'libre')
-      if (!useCarrera.getState().fase)
-        return 'Todavía no hay línea de meta: ponla en Caminos con la herramienta de meta sobre una celda de pista.'
+      if (!useCarrera.getState().fase) {
+        return tGlobal(
+          'chat.ed.sinMeta',
+          'Todavía no hay línea de meta: ponla en Caminos con la herramienta de meta sobre una celda de pista.',
+        )
+      }
       useCarrera.getState().iniciar(vueltas, rival)
       if (useCarrera.getState().fase === 'previa') {
         useCarrera.getState().cancelar()
-        return 'El circuito es demasiado corto: necesita al menos 8 tramos de pista enlazados.'
+        return tGlobal(
+          'chat.ed.circuitoCorto',
+          'El circuito es demasiado corto: necesita al menos 8 tramos de pista enlazados.',
+        )
       }
-      return `¡A correr! ${vueltas} vuelta${vueltas > 1 ? 's' : ''}${rival ? ` contra ${rival.nombre}` : ' a contrarreloj'}.`
+      const cuantas =
+        vueltas === 1
+          ? tGlobal('chat.ed.vueltaUna', '1 vuelta')
+          : tGlobal('chat.ed.vueltasN', '{n} vueltas', { n: vueltas })
+      return rival
+        ? tGlobal('chat.ed.carreraRival', '¡A correr! {vueltas} contra {rival}.', {
+            vueltas: cuantas,
+            rival: rival.nombre,
+          })
+        : tGlobal('chat.ed.carreraSolo', '¡A correr! {vueltas} a contrarreloj.', { vueltas: cuantas })
     }
 
     case 'editor_infra_montar_tren': {
       const tr = useTren.getState()
-      if (tr.montado) return 'Ya vas montado.'
+      if (tr.montado) return tGlobal('chat.ed.yaMontado', 'Ya vas montado.')
       if (tr.cerca) {
         tr.montar()
-        return '¡Arriba! Disfruta el paseo.'
+        return tGlobal('chat.ed.trenArriba', '¡Arriba! Disfruta el paseo.')
       }
       const p = await posicionInfra('tren')
-      if (!p) return 'Aún no hay vías en el mapa: traza unas en Caminos (riel o montaña rusa).'
+      if (!p) {
+        return tGlobal('chat.ed.sinVias', 'Aún no hay vías en el mapa: traza unas en Caminos (riel o montaña rusa).')
+      }
       useHouse.getState().target.set(p.x, 0, p.z)
-      return 'Te llevo caminando a la vía más cercana; al llegar toca «Montar».'
+      return tGlobal('chat.ed.trenCaminando', 'Te llevo caminando a la vía más cercana; al llegar toca «Montar».')
     }
 
     case 'editor_infra_ir_a': {
@@ -1179,19 +1429,19 @@ export async function ejecutarToolEditor(
       if (!destino) return null
       if (destino === 'cancha') {
         const canchas = useDiseño.getState().objetos.filter((o) => esCancha(o.tipo))
-        if (!canchas.length) return 'Aún no tienes ninguna cancha en el mapa.'
+        if (!canchas.length) return tGlobal('chat.ed.sinCancha', 'Aún no tienes ninguna cancha en el mapa.')
         const mejor = canchas.reduce((a, b) => {
           const da = ((a.x ?? 0) - playerPos.x) ** 2 + ((a.z ?? 0) - playerPos.z) ** 2
           const db2 = ((b.x ?? 0) - playerPos.x) ** 2 + ((b.z ?? 0) - playerPos.z) ** 2
           return db2 < da ? b : a
         })
         useHouse.getState().target.set(mejor.x ?? 0, 0, mejor.z ?? 0)
-        return 'Vamos a la cancha. Al entrar te pregunto cómo quieres jugar.'
+        return tGlobal('chat.ed.vamosCancha', 'Vamos a la cancha. Al entrar te pregunto cómo quieres jugar.')
       }
       const p = await posicionInfra(destino as DestinoInfra)
-      if (!p) return 'Todavía no hay nada de eso construido en el mapa.'
+      if (!p) return tGlobal('chat.ed.sinConstruir', 'Todavía no hay nada de eso construido en el mapa.')
       useHouse.getState().target.set(p.x, 0, p.z)
-      return 'Vamos para allá.'
+      return tGlobal('chat.ed.vamos', 'Vamos para allá.')
     }
 
     // ── Casa e interfaz: música, wrapped y vista de cámara ──
@@ -1203,21 +1453,27 @@ export async function ejecutarToolEditor(
       const partes: string[] = []
       if (accion === 'apagar') {
         aj.setMusicaAmbiental(false)
-        return 'Apagué la música.'
+        return tGlobal('chat.ed.musicaApagada', 'Apagué la música.')
       }
       if (mood && MOODS_MUSICA.includes(mood as MoodMusica)) {
         aj.setMusicaFuente('generada')
         aj.setMusicaMood(mood as MoodMusica)
-        partes.push(`ambiente ${mood}`)
+        partes.push(
+          tGlobal('chat.ed.mus.mood', 'ambiente {mood}', {
+            mood: tGlobal(`ajustes.musica.mood.${mood}`, mood),
+          }),
+        )
       }
       if (vol != null) {
         const v = Math.max(0, Math.min(1, vol))
         aj.setMusicaVolumen(v)
-        partes.push(`volumen al ${Math.round(v * 100)}%`)
+        partes.push(tGlobal('chat.ed.mus.volumen', 'volumen al {pct}%', { pct: Math.round(v * 100) }))
       }
       if (accion === 'encender' || partes.length) {
         if (!aj.musicaAmbiental) aj.setMusicaAmbiental(true)
-        return partes.length ? `Música lista: ${partes.join(', ')}.` : 'Encendí la música ambiental.'
+        return partes.length
+          ? tGlobal('chat.ed.musicaLista', 'Música lista: {partes}.', { partes: partes.join(', ') })
+          : tGlobal('chat.ed.musicaEncendida', 'Encendí la música ambiental.')
       }
       return null
     }
@@ -1225,34 +1481,41 @@ export async function ejecutarToolEditor(
       const p = str(input, 'periodo')
       const periodo = p === 'mes' || p === 'anio' ? p : 'semana'
       useWrappedUi.getState().abrir(periodo)
-      return `Abrí tu resumen ${periodo === 'semana' ? 'semanal' : periodo === 'mes' ? 'mensual' : 'anual'}.`
+      return tGlobal('chat.ed.wrapped', 'Abrí tu resumen {periodo}.', {
+        periodo:
+          periodo === 'semana'
+            ? tGlobal('chat.ed.periodo.semana', 'semanal')
+            : periodo === 'mes'
+              ? tGlobal('chat.ed.periodo.mes', 'mensual')
+              : tGlobal('chat.ed.periodo.anio', 'anual'),
+      })
     }
     case 'editor_mascara': {
       useMascaraUi.getState().abrir()
-      return 'Abrí la máscara AR: mírate a la cámara.'
+      return tGlobal('chat.ed.mascara', 'Abrí la máscara AR: mírate a la cámara.')
     }
     case 'editor_chat_ar': {
       useChatArUi.getState().abrir()
-      return 'Abrí el Chat AR: aquí estoy, en tu cámara.'
+      return tGlobal('chat.ed.chatAr', 'Abrí el Chat AR: aquí estoy, en tu cámara.')
     }
     case 'editor_vista': {
       const v = str(input, 'vista')
       if (v !== 'iso' && v !== 'tercera' && v !== 'primera') return null
       useCam.getState().setVista(v)
       return v === 'iso'
-        ? 'Volví a la vista isométrica.'
+        ? tGlobal('chat.ed.vistaIso', 'Volví a la vista isométrica.')
         : v === 'tercera'
-          ? 'Cambié a tercera persona: arrastra para mirar alrededor.'
-          : 'Cambié a primera persona: arrastra para mirar alrededor.'
+          ? tGlobal('chat.ed.vistaTercera', 'Cambié a tercera persona: arrastra para mirar alrededor.')
+          : tGlobal('chat.ed.vistaPrimera', 'Cambié a primera persona: arrastra para mirar alrededor.')
     }
 
     // ── Vehículos: montar el más cercano o bajarse ──
     case 'editor_vehiculo': {
       const m = useMontura.getState()
       if (bool(input, 'bajar')) {
-        if (!m.tipo) return 'No vas montado en nada ahora mismo.'
+        if (!m.tipo) return tGlobal('chat.ed.noMontado', 'No vas montado en nada ahora mismo.')
         m.solicitarDesmontar()
-        return 'Listo, te bajas aquí.'
+        return tGlobal('chat.ed.bajaste', 'Listo, te bajas aquí.')
       }
       const pedido = str(input, 'vehiculo')
       const candidatos = useDiseño
@@ -1265,10 +1528,12 @@ export async function ejecutarToolEditor(
             (!pedido || o.tipo === pedido),
         )
       if (!candidatos.length) {
-        const nom = pedido ? VEHICULOS_JUGABLES.find((v) => v.tipo === pedido)?.nombre.toLowerCase() : null
-        return nom
-          ? `No hay ninguna ${nom} en el mapa: créala desde Editor → Vehículos.`
-          : 'No tienes vehículos en el mapa: créalos desde Editor → Vehículos.'
+        const veh = pedido ? VEHICULOS_JUGABLES.find((v) => v.tipo === pedido) : null
+        return veh
+          ? tGlobal('chat.ed.sinVehiculoTipo', 'No hay ninguna {vehiculo} en el mapa: créala desde Editor → Vehículos.', {
+              vehiculo: tGlobal(`herr.veh.${veh.tipo}`, veh.nombre).toLowerCase(),
+            })
+          : tGlobal('chat.ed.sinVehiculos', 'No tienes vehículos en el mapa: créalos desde Editor → Vehículos.')
       }
       const cerca = candidatos.reduce((a, b) => {
         const da = ((a.x ?? 0) - playerPos.x) ** 2 + ((a.z ?? 0) - playerPos.z) ** 2
@@ -1276,14 +1541,19 @@ export async function ejecutarToolEditor(
         return db2 < da ? b : a
       })
       const dist = Math.hypot((cerca.x ?? 0) - playerPos.x, (cerca.z ?? 0) - playerPos.z)
-      const nombre = VEHICULOS_JUGABLES.find((v) => v.tipo === cerca.tipo)?.nombre.toLowerCase() ?? 'vehículo'
-      if (m.tipo) return 'Ya vas montado: bájate primero para cambiar de vehículo.'
+      const dato = VEHICULOS_JUGABLES.find((v) => v.tipo === cerca.tipo)
+      const nombre = dato
+        ? tGlobal(`herr.veh.${dato.tipo}`, dato.nombre).toLowerCase()
+        : tGlobal('chat.ed.vehiculoGenerico', 'vehículo')
+      if (m.tipo) return tGlobal('chat.ed.yaMontadoCambiar', 'Ya vas montado: bájate primero para cambiar de vehículo.')
       if (dist <= 2.5) {
         m.montar(cerca)
-        return `¡Arriba! Conduce con las flechas o el joystick.`
+        return tGlobal('chat.ed.vehiculoArriba', '¡Arriba! Conduce con las flechas o el joystick.')
       }
       useHouse.getState().target.set(cerca.x ?? 0, 0, cerca.z ?? 0)
-      return `Te llevo caminando a la ${nombre}; al llegar toca «Subirte».`
+      return tGlobal('chat.ed.vehiculoCaminando', 'Te llevo caminando a la {vehiculo}; al llegar toca «Subirte».', {
+        vehiculo: nombre,
+      })
     }
 
     default:
@@ -1967,12 +2237,26 @@ export interface EdicionLocal {
   soloSinIA?: boolean
 }
 
+/**
+ * Etiqueta de un chip de edición. El emoji va FUERA de la traducción (regla de
+ * `t()`: nunca emojis dentro del texto) y el resto se traduce como cualquier
+ * otro texto de interfaz.
+ */
+const chip = (emoji: string, etiqueta: string): string => `${emoji} ${etiqueta}`
+
+/** Chip «Abrir <grupo de Configuraciones>», con el título del grupo traducido. */
+const chipGrupo = (id: string): string => {
+  const g = GRUPOS_CONFIG.find((x) => x.id === id)
+  return chip('⚙️', tGlobal('chat.ed.chip.abrirGrupo', 'Abrir {grupo}', { grupo: g ? tGlobal(g.clave, g.nombre) : id }))
+}
+
 /** Envuelve un `(name, input)` en una EdicionLocal con su resumen. */
 function edicion(resumen: string, name: string, input: Record<string, unknown>): EdicionLocal {
   return {
     resumen,
     tool: name,
-    ejecutar: async () => (await ejecutarToolEditor(name, input)) ?? 'No pude completar esa edición.',
+    ejecutar: async () =>
+      (await ejecutarToolEditor(name, input)) ?? tGlobal('chat.ed.noPude', 'No pude completar esa edición.'),
   }
 }
 
@@ -1991,30 +2275,58 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
   const crear = /^(?:crea(?:r|me)?|nuevo)\s+(?:un[ao]?\s+)?(?:cuarto|habitaci[oó]n|recamara|rec[aá]mara|oficina|estudio|sala)\b\s*(?:llamad[oa]|de nombre|con nombre|:)?\s*(.*)$/i.exec(limpio)
   if (crear) {
     const nombre = crear[1].replace(/^["']|["']$/g, '').trim()
-    return edicion(`✏️ Crear cuarto${nombre ? ` «${nombre}»` : ''}`, 'editor_crear_cuarto', { nombre })
+    return edicion(
+      nombre
+        ? chip('✏️', tGlobal('chat.ed.chip.crearCuartoNom', 'Crear cuarto «{nombre}»', { nombre }))
+        : chip('✏️', tGlobal('chat.ed.chip.crearCuarto', 'Crear cuarto')),
+      'editor_crear_cuarto',
+      { nombre },
+    )
   }
 
   // 2. Renombrar cuarto: "renombra X a Y" / "cambia el nombre de X a Y"
   const renom = /^(?:renombra(?:r)?|cambia(?:le)?\s+el\s+nombre\s+(?:de|del)?|pon(?:le)?\s+(?:de\s+)?nombre)\s+(.+?)\s+(?:a|como|por)\s+["']?(.+?)["']?$/i.exec(limpio)
   if (renom) {
     const cu = resolverCuarto(renom[1])
-    if (cu) return edicion(`✏️ Renombrar a «${renom[2].trim()}»`, 'editor_renombrar_cuarto', { cuarto: cu.id, nombre: renom[2].trim() })
+    if (cu) {
+      const nuevo = renom[2].trim()
+      return edicion(chip('✏️', tGlobal('chat.ed.chip.renombrar', 'Renombrar a «{nombre}»', { nombre: nuevo })), 'editor_renombrar_cuarto', {
+        cuarto: cu.id,
+        nombre: nuevo,
+      })
+    }
   }
 
   // 3. Idioma (antes que "tema", por si dicen "interfaz")
   if (/\b(idioma|language)\b/.test(n) || /\b(al?|en)\s+(ingles|english|espanol|spanish|castellano)\b/.test(n)) {
-    if (/\bingl|english\b/.test(n)) return edicion('✏️ Idioma: inglés', 'editor_idioma', { idioma: 'en' })
-    if (/\bespanol|spanish|castellano\b/.test(n)) return edicion('✏️ Idioma: español', 'editor_idioma', { idioma: 'es' })
+    const chipIdioma = (id: 'en' | 'es', es: string) =>
+      chip('✏️', tGlobal('chat.ed.chip.idioma', 'Idioma: {idioma}', { idioma: tGlobal(`ajustes.idioma.${id}`, es) }))
+    if (/\bingl|english\b/.test(n)) return edicion(chipIdioma('en', 'inglés'), 'editor_idioma', { idioma: 'en' })
+    if (/\bespanol|spanish|castellano\b/.test(n)) return edicion(chipIdioma('es', 'español'), 'editor_idioma', { idioma: 'es' })
   }
 
   // 4. Tema / tipografía de la INTERFAZ (más específico que el tema 3D)
   if (/\b(interfaz|tema ui)\b/.test(n)) {
     const tui = resolverPorNombre(TEMAS_UI, limpio)
-    if (tui) return edicion(`✏️ Interfaz: ${tui.nombre}`, 'editor_tema_interfaz', { tema: tui.id })
+    if (tui) {
+      return edicion(
+        chip('✏️', tGlobal('chat.ed.chip.temaUI', 'Interfaz: {tema}', { tema: tGlobal(`temaUI.${tui.id}`, tui.nombre) })),
+        'editor_tema_interfaz',
+        { tema: tui.id },
+      )
+    }
   }
   if (/\b(tipografia|tipograf[ií]a|fuente|letra)\b/.test(n)) {
     const tip = resolverPorNombre(TIPOGRAFIAS, limpio)
-    if (tip) return edicion(`✏️ Tipografía: ${tip.nombre}`, 'editor_tipografia', { tipografia: tip.id })
+    if (tip) {
+      return edicion(
+        chip('✏️', tGlobal('chat.ed.chip.tipografia', 'Tipografía: {tipografia}', {
+          tipografia: tGlobal(`tipografia.${tip.id}`, tip.nombre),
+        })),
+        'editor_tipografia',
+        { tipografia: tip.id },
+      )
+    }
   }
 
   // ── Configuraciones (pestaña del editor) ──
@@ -2045,7 +2357,7 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
                 : /\b(interfaz|idioma|apariencia|tema|tipografia)\b/.test(n)
                   ? 'interfaz'
                   : undefined
-    return edicion('⚙️ Abrir Configuraciones', 'editor_ajustes_abrir', grupo ? { grupo } : {})
+    return edicion(chip('⚙️', tGlobal('chat.ed.chip.abrirConfig', 'Abrir Configuraciones')), 'editor_ajustes_abrir', grupo ? { grupo } : {})
   }
 
   // C-0b. Cuenta: iniciar sesión / ver el plan (no se hace por chat, se abre).
@@ -2053,7 +2365,7 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
     /\b(cuenta|sesion|suscripcion|plan pro)\b/.test(n) &&
     /\b(inicia|iniciar|entra|entrar|abre|abrir|muestra|mostrar|ver|crea|crear|registrar|registrarme)\b/.test(n)
   ) {
-    return edicion('⚙️ Abrir Cuenta', 'editor_ajustes_abrir', { grupo: 'cuenta' })
+    return edicion(chipGrupo('cuenta'), 'editor_ajustes_abrir', { grupo: 'cuenta' })
   }
 
   // C-1. Apariencia: modo claro / oscuro / transparente.
@@ -2068,7 +2380,10 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
         : /\btransparent/.test(n)
           ? 'transparente'
           : null
-    if (modo) return edicion(`✏️ Modo ${modo}`, 'editor_apariencia', { modo })
+    if (modo) {
+      const nombres = { claro: 'Modo claro', oscuro: 'Modo oscuro', transparente: 'Modo transparente' }
+      return edicion(chip('✏️', tGlobal(`chat.ed.chip.modo.${modo}`, nombres[modo])), 'editor_apariencia', { modo })
+    }
   }
 
   // C-2. Estilo de iconos (emojis o SVG profesionales). Sin emoji suelto en el
@@ -2080,7 +2395,15 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
         : /\b(profesional(es)?|svg|minimalista|serios?)\b/.test(n)
           ? 'profesional'
           : null
-      if (iconos) return edicion(`✏️ Iconos: ${iconos}`, 'editor_apariencia', { iconos })
+      if (iconos) {
+        return edicion(
+          iconos === 'emoji'
+            ? chip('✏️', tGlobal('chat.ed.chip.iconosEmoji', 'Iconos: emoji'))
+            : chip('✏️', tGlobal('chat.ed.chip.iconosProfesional', 'Iconos: profesionales')),
+          'editor_apariencia',
+          { iconos },
+        )
+      }
     }
   }
 
@@ -2098,8 +2421,14 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
           ? Math.max(0, actual - 0.15)
           : null
     if (v != null) {
-      const et = campo === 'intensidad' ? 'Desenfoque' : 'Transparencia'
-      return edicion(`✏️ ${et} al ${Math.round(v * 100)}%`, 'editor_apariencia', { [campo]: v })
+      const pctV = Math.round(v * 100)
+      return edicion(
+        campo === 'intensidad'
+          ? chip('✏️', tGlobal('chat.ed.chip.desenfoque', 'Desenfoque al {pct}%', { pct: pctV }))
+          : chip('✏️', tGlobal('chat.ed.chip.transparencia', 'Transparencia al {pct}%', { pct: pctV })),
+        'editor_apariencia',
+        { [campo]: v },
+      )
     }
   }
 
@@ -2107,9 +2436,9 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
   if (/\b(estilo|render|efectos?)\b/.test(n)) {
     if (/\befectos?\b/.test(n)) {
       if (/\b(apaga|apagar|quita|quitar|desactiva|desactivar|sin)\b/.test(n))
-        return edicion('✏️ Efectos apagados', 'editor_estilo_mapa', { efectos: false })
+        return edicion(chip('✏️', tGlobal('chat.ed.chip.efectosOff', 'Efectos apagados')), 'editor_estilo_mapa', { efectos: false })
       if (/\b(activa|activar|enciende|encender|prende|pon|poner|quiero)\b/.test(n))
-        return edicion('✏️ Efectos activados', 'editor_estilo_mapa', { efectos: true })
+        return edicion(chip('✏️', tGlobal('chat.ed.chip.efectosOn', 'Efectos activados')), 'editor_estilo_mapa', { efectos: true })
     }
     const est = resolverPorNombre(ESTILOS, limpio, {
       comic: ['caricatura', 'cartoon'],
@@ -2117,7 +2446,15 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
       retro: ['pixel', 'pixelado', 'pixeles'],
       normal: ['ninguno'],
     })
-    if (est) return edicion(`✏️ Estilo ${est.nombre.toLowerCase()}`, 'editor_estilo_mapa', { estilo: est.id })
+    if (est) {
+      return edicion(
+        chip('✏️', tGlobal('chat.ed.chip.estilo', 'Estilo {estilo}', {
+          estilo: tGlobal(`estilo.${est.id}`, est.nombre),
+        })),
+        'editor_estilo_mapa',
+        { estilo: est.id },
+      )
+    }
   }
 
   // C-5. Notificaciones: general, rutinas, metas, resumen y hora de las metas.
@@ -2135,47 +2472,85 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
     const hm = /\ba\s+las\s+(\d{1,2})(?::(\d{2}))?/.exec(n)
     if (hm && que === 'metas' && !apagar) {
       const hora = `${hm[1].padStart(2, '0')}:${hm[2] ?? '00'}`
-      return edicion(`🔔 Avisar metas a las ${hora}`, 'editor_notificaciones', { que, activo: true, hora })
+      return edicion(chip('🔔', tGlobal('chat.ed.chip.avisarMetasHora', 'Avisar metas a las {hora}', { hora })), 'editor_notificaciones', {
+        que,
+        activo: true,
+        hora,
+      })
     }
-    const et = que === 'todo' ? 'avisos' : que === 'wrapped' ? 'avisos del resumen' : `avisos de ${que}`
-    return edicion(`${apagar ? '🔕 Apagar' : '🔔 Encender'} ${et}`, 'editor_notificaciones', {
-      que,
-      activo: !apagar,
-    })
+    const etAvisos = {
+      todo: 'avisos',
+      wrapped: 'avisos del resumen',
+      rutinas: 'avisos de rutinas',
+      metas: 'avisos de metas',
+    }
+    const et = tGlobal(`chat.ed.chip.avisos.${que}`, etAvisos[que as keyof typeof etAvisos])
+    return edicion(
+      apagar
+        ? chip('🔕', tGlobal('chat.ed.chip.apagar', 'Apagar {que}', { que: et }))
+        : chip('🔔', tGlobal('chat.ed.chip.encender', 'Encender {que}', { que: et })),
+      'editor_notificaciones',
+      { que, activo: !apagar },
+    )
   }
 
   // C-6. Respaldo de datos: exportar por chat; restaurar/borrar solo a mano.
   if (/\b(respald(o|a|ame|ar)|backup|copia de seguridad)\b/.test(n) || (/\bexporta/.test(n) && /\b(datos|todo)\b/.test(n))) {
     if (/\b(restaura|restaurar|importa|importar|borra|borrar|elimina|eliminar)\b/.test(n))
-      return edicion('⚙️ Abrir Respaldo de datos', 'editor_ajustes_abrir', { grupo: 'respaldo' })
-    return edicion('💾 Descargar respaldo', 'editor_respaldo', {})
+      return edicion(chipGrupo('respaldo'), 'editor_ajustes_abrir', { grupo: 'respaldo' })
+    return edicion(chip('💾', tGlobal('chat.ed.chip.respaldo', 'Descargar respaldo')), 'editor_respaldo', {})
   }
 
   // C-7. Bienvenida: volver a ver el menú de la primera vez.
   if (/\bbienvenida\b/.test(n) && /\b(ver|vuelve|volver|abre|abrir|muestra|mostrar|repite|repetir|otra vez)\b/.test(n)) {
-    return edicion('👋 Abrir la bienvenida', 'editor_bienvenida', {})
+    return edicion(chip('👋', tGlobal('chat.ed.chip.bienvenida', 'Abrir la bienvenida')), 'editor_bienvenida', {})
   }
 
   // 5. Tema estacional global
   if (/\b(tema|ambiente|estilo)\b/.test(n)) {
-    if (/\b(quita|quitar|sin|ninguno|nada)\b/.test(n)) return edicion('✏️ Quitar tema', 'editor_tema', { tema: 'ninguno' })
+    if (/\b(quita|quitar|sin|ninguno|nada)\b/.test(n)) {
+      return edicion(chip('✏️', tGlobal('chat.ed.chip.quitarTema', 'Quitar tema')), 'editor_tema', { tema: 'ninguno' })
+    }
     const tema = resolverPorNombre(TEMAS, limpio)
-    if (tema) return edicion(`✏️ Tema: ${tema.nombre}`, 'editor_tema', { tema: tema.id })
+    if (tema) {
+      return edicion(chip('✏️', tGlobal('chat.ed.chip.tema', 'Tema: {tema}', { tema: nombreTema(tema) })), 'editor_tema', {
+        tema: tema.id,
+      })
+    }
   }
 
   // 6. Fondo de cielo
   if (/\b(fondo|cielo)\b/.test(n)) {
     const fondo = resolverPorNombre(FONDOS, limpio)
-    if (fondo) return edicion(`✏️ Fondo: ${fondo.nombre}`, 'editor_fondo', { fondo: fondo.id })
+    if (fondo) {
+      return edicion(chip('✏️', tGlobal('chat.ed.chip.fondo', 'Fondo: {fondo}', { fondo: nombreFondo(fondo) })), 'editor_fondo', {
+        fondo: fondo.id,
+      })
+    }
   }
 
   // 7. Piso de un cuarto (material o color)
   if (/\bpiso\b/.test(n)) {
     const cu = resolverCuarto(limpio)
     const piso = resolverPorNombre(PISOS, limpio)
-    if (piso && cu) return edicion(`✏️ Piso ${piso.nombre} · ${nombreCuarto(cu.id)}`, 'editor_piso_cuarto', { cuarto: cu.id, piso: piso.id })
+    if (piso && cu) {
+      return edicion(
+        chip('✏️', tGlobal('chat.ed.chip.piso', 'Piso {piso} · {cuarto}', { piso: nombrePiso(piso), cuarto: nombreCuarto(cu.id) })),
+        'editor_piso_cuarto',
+        { cuarto: cu.id, piso: piso.id },
+      )
+    }
     const hex = resolverColor(limpio)
-    if (hex && cu) return edicion(`✏️ Piso de «${nombreCuarto(cu.id)}» ${etiquetaColor(hex)}`, 'editor_piso_color_cuarto', { cuarto: cu.id, color: hex })
+    if (hex && cu) {
+      return edicion(
+        chip('✏️', tGlobal('chat.ed.chip.pisoColor', 'Piso de «{cuarto}» {color}', {
+          cuarto: nombreCuarto(cu.id),
+          color: etiquetaColor(hex),
+        })),
+        'editor_piso_color_cuarto',
+        { cuarto: cu.id, color: hex },
+      )
+    }
   }
 
   // 8. Techo de un cuarto (forma o material)
@@ -2186,9 +2561,27 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
       abovedado: ['boveda', 'bóveda'],
       cupula: ['cúpula', 'domo'],
     })
-    if (cu && forma) return edicion(`✏️ Techo ${forma.nombre} · ${nombreCuarto(cu.id)}`, 'editor_techo_forma_cuarto', { cuarto: cu.id, forma: forma.id })
+    if (cu && forma) {
+      return edicion(
+        chip('✏️', tGlobal('chat.ed.chip.techoForma', 'Techo {forma} · {cuarto}', {
+          forma: tGlobal(`editor.techoForma.${forma.id}`, forma.nombre),
+          cuarto: nombreCuarto(cu.id),
+        })),
+        'editor_techo_forma_cuarto',
+        { cuarto: cu.id, forma: forma.id },
+      )
+    }
     const mat = resolverPorNombre(TECHOS, limpio)
-    if (cu && mat) return edicion(`✏️ Techo ${mat.nombre} · ${nombreCuarto(cu.id)}`, 'editor_techo_cuarto', { cuarto: cu.id, techo: mat.id })
+    if (cu && mat) {
+      return edicion(
+        chip('✏️', tGlobal('chat.ed.chip.techo', 'Techo {techo} · {cuarto}', {
+          techo: nombreTecho(mat),
+          cuarto: nombreCuarto(cu.id),
+        })),
+        'editor_techo_cuarto',
+        { cuarto: cu.id, techo: mat.id },
+      )
+    }
   }
 
   // ── Infraestructura del mapa (huerto, granja, caminos, canchas) ──
@@ -2209,13 +2602,18 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
   // en cuanto pide rival o dificultad se deja pasar a la IA, que sí sabe elegirlos.
   if (/\bpaintball\b/.test(n)) {
     if (/\b(sal|salir|salgamos|termina|terminar|acaba|acabar|cancela|cancelar|deja|dejar|basta)\b/.test(n))
-      return edicion('🥎 Salir del paintball', 'editor_paintball', { salir: true })
+      return edicion(chip('🥎', tGlobal('chat.ed.chip.pbSalir', 'Salir del paintball')), 'editor_paintball', { salir: true })
     const pb =
       /^(?:juguemos|jueguemos|juega|jugar|quiero jugar|vamos a jugar|abre(?:me)?|abrir|inicia|empieza|empecemos)\s+(?:al?\s+|el\s+|la\s+|un[ao]?\s+)?(?:partida\s+de\s+|batalla\s+de\s+)?paintball(?:\s+(1v1|2v2|campal|batalla campal|royale))?$/.exec(n)
     if (pb) {
       const modo = pb[1] ? (pb[1] === '1v1' || pb[1] === '2v2' ? pb[1] : 'royale') : undefined
+      const etModo = modo
+        ? tGlobal(`paintball.m${modo === 'royale' ? 'Royale' : modo}`, modo === 'royale' ? 'campal' : modo)
+        : null
       return edicion(
-        `🥎 Paintball${modo ? ` ${modo === 'royale' ? 'campal' : modo}` : ''}`,
+        etModo
+          ? chip('🥎', tGlobal('chat.ed.chip.paintballModo', 'Paintball {modo}', { modo: etModo }))
+          : chip('🥎', tGlobal('chat.ed.chip.paintball', 'Paintball')),
         'editor_paintball',
         modo ? { modo } : {},
       )
@@ -2237,7 +2635,16 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
               : /\b(pista|circuito)\b/.test(n)
                 ? 'pista'
                 : null
-    if (destino) return edicion('🚶 Ir a ' + destino, 'editor_infra_ir_a', { destino })
+    if (destino) {
+      const nombres = { huerto: 'el huerto', granja: 'la granja', cancha: 'la cancha', meta: 'la meta', tren: 'el tren', pista: 'la pista' }
+      return edicion(
+        chip('🚶', tGlobal('chat.ed.chip.irA', 'Ir a {destino}', {
+          destino: tGlobal(`chat.ed.destino.${destino}`, nombres[destino]),
+        })),
+        'editor_infra_ir_a',
+        { destino },
+      )
+    }
   }
 
   // I-1. Carrera: «carrera» sola no basta (existe «estudiar una carrera»).
@@ -2250,7 +2657,11 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
     const vueltas = mv ? Math.max(1, Math.min(9, parseInt(mv[1], 10))) : 3
     const rival = /\b(contra|rival|reta|retame|asistente)\b/.test(n) && !/\bsolo\b/.test(n)
     const dificultad = /\b(dificil|experto)\b/.test(n) ? 1 : /\bfacil\b/.test(n) ? 0 : undefined
-    return edicion(`🏁 Carrera · ${vueltas} vuelta${vueltas > 1 ? 's' : ''}`, 'editor_infra_carrera', {
+    const cuantas =
+      vueltas === 1
+        ? tGlobal('chat.ed.vueltaUna', '1 vuelta')
+        : tGlobal('chat.ed.vueltasN', '{n} vueltas', { n: vueltas })
+    return edicion(chip('🏁', tGlobal('chat.ed.chip.carrera', 'Carrera · {vueltas}', { vueltas: cuantas })), 'editor_infra_carrera', {
       vueltas,
       rival,
       ...(dificultad != null ? { dificultad } : {}),
@@ -2263,40 +2674,43 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
     /\b(monta|montame|montar|montarme|montemos|sube|subir|subirme|subeme|quiero|paseo|pasear)\b/.test(n) &&
     !/\b(traza|trazar|construye|construir|crea|crear|pinta|pintar|borra|borrar)\b/.test(n)
   ) {
-    return edicion('🚂 Montar el tren', 'editor_infra_montar_tren', {})
+    return edicion(chip('🚂', tGlobal('chat.ed.chip.montarTren', 'Montar el tren')), 'editor_infra_montar_tren', {})
   }
 
   // I-3. Canchas. El guardián \bcancha es OBLIGATORIO: sin él, «ponme tenis
   // rojos» caería aquí en vez de en la regla de prendas.
   if (/\bcanchas?\b/.test(n)) {
     const clase = (resolverPorNombre(LISTA_CANCHAS, limpio, SINONIMOS_CANCHA)?.id ?? 'futbol') as ClaseCancha
-    const nom = CANCHAS[clase].corto.toLowerCase()
+    const nom = tGlobal(`canchas.clase.${clase}`, CANCHAS[clase].corto)
     if (/\b(edita|editar|editor|mueve|mover|rota|rotar|acomoda)\b/.test(n))
-      return edicion('🏟️ Editor de canchas', 'editor_infra_construir', { obra: 'canchas', clase })
+      return edicion(chip('🏟️', tGlobal('chat.ed.chip.editorCanchas', 'Editor de canchas')), 'editor_infra_construir', { obra: 'canchas', clase })
     if (/\b(pon|poner|ponme|coloca|colocar|crea|crear|construye|construir|haz|hazme|quiero|agrega|agregar|arma|armar|dame|necesito)\b/.test(n)) {
       const hex = resolverColor(limpio)
-      return edicion(`🏟️ Cancha de ${nom}`, 'editor_infra_cancha', { clase, ...(hex ? { color: hex } : {}) })
+      return edicion(chip('🏟️', tGlobal('chat.ed.chip.cancha', 'Cancha: {cancha}', { cancha: nom })), 'editor_infra_cancha', {
+        clase,
+        ...(hex ? { color: hex } : {}),
+      })
     }
   }
 
   // I-4. Huerto: cuidado global (antes que "construir huerto").
   if (nHuerto && /\b(riega|riegue|riegalo|regar|reguemos|riego)\b/.test(n))
-    return edicion('💧 Regar el huerto', 'editor_infra_huerto_accion', { accion: 'regar' })
+    return edicion(chip('💧', tGlobal('chat.ed.chip.regar', 'Regar el huerto')), 'editor_infra_huerto_accion', { accion: 'regar' })
   if (
     (nHuerto || /\bcosech/.test(n)) &&
     /\b(cosecha|cosechar|cosechemos|recoge|recoger|recolecta|recolectar)\b/.test(n)
   )
-    return edicion('🧺 Cosechar el huerto', 'editor_infra_huerto_accion', { accion: 'cosechar' })
+    return edicion(chip('🧺', tGlobal('chat.ed.chip.cosechar', 'Cosechar el huerto')), 'editor_infra_huerto_accion', { accion: 'cosechar' })
 
   // I-5. Granja: cuidado global.
   if (nGranja && /\b(alimenta|alimentar|alimentemos|dales de comer|de comer)\b/.test(n))
-    return edicion('🌾 Alimentar a los animales', 'editor_infra_granja_accion', { accion: 'alimentar' })
+    return edicion(chip('🌾', tGlobal('chat.ed.chip.alimentar', 'Alimentar a los animales')), 'editor_infra_granja_accion', { accion: 'alimentar' })
   if (nGranja && /\b(mima|mimar|acaricia|acariciar|consiente|consentir)\b/.test(n))
-    return edicion('💛 Mimar a los animales', 'editor_infra_granja_accion', { accion: 'mimar' })
+    return edicion(chip('💛', tGlobal('chat.ed.chip.mimar', 'Mimar a los animales')), 'editor_infra_granja_accion', { accion: 'mimar' })
   if (nGranja && /\b(cura|curar|curalos|curalas|sana|sanar|sanalos|medicina)\b/.test(n))
-    return edicion('💊 Curar a los animales', 'editor_infra_granja_accion', { accion: 'curar' })
+    return edicion(chip('💊', tGlobal('chat.ed.chip.curar', 'Curar a los animales')), 'editor_infra_granja_accion', { accion: 'curar' })
   if (nGranja && /\b(limpia|limpiar|limpialos|limpiemos|asea|asear|barre|barrer)\b/.test(n))
-    return edicion('🧹 Limpiar los corrales', 'editor_infra_granja_accion', { accion: 'limpiar' })
+    return edicion(chip('🧹', tGlobal('chat.ed.chip.limpiar', 'Limpiar los corrales')), 'editor_infra_granja_accion', { accion: 'limpiar' })
 
   // I-6. Borrar caminos / trazo (no toca muros ni puertas).
   if (
@@ -2313,7 +2727,12 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
           : /\bpista/.test(n)
             ? 'pista'
             : 'caminos'
-    return edicion(`🧹 Borrar ${que}`, 'editor_infra_borrar', { que })
+    const queEs = { trazo: 'el trazo', coaster: 'la montaña rusa', riel: 'las vías', pista: 'la pista', caminos: 'los caminos' }
+    return edicion(
+      chip('🧹', tGlobal('chat.ed.chip.borrar', 'Borrar {que}', { que: tGlobal(`chat.ed.borrar.${que}`, queEs[que]) })),
+      'editor_infra_borrar',
+      { que },
+    )
   }
 
   // I-7. Construir / abrir el editor con la herramienta lista.
@@ -2323,10 +2742,13 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
     if (nHuerto || /\b(sembrar|plantar|cultivar)\b/.test(n)) {
       const esp = resolverPorNombre(LISTA_ESPECIES, limpio, SINONIMOS_ESPECIE)
       if (esp)
-        return edicion(`🌱 Sembrar ${esp.nombre.toLowerCase()}`, 'editor_infra_construir', {
-          obra: 'huerto',
-          especie: esp.id,
-        })
+        return edicion(
+          chip('🌱', tGlobal('chat.ed.chip.sembrar', 'Sembrar: {especie}', {
+            especie: tGlobal(`huerto.especie.${esp.id}`, esp.nombre),
+          })),
+          'editor_infra_construir',
+          { obra: 'huerto', especie: esp.id },
+        )
       const herramienta = /\baspersor/.test(n)
         ? 'aspersor'
         : /\b(sembrar|siembra|plantar|semilla)\b/.test(n)
@@ -2334,17 +2756,26 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
           : /\b(quita|quitar|arranca)\b/.test(n)
             ? 'quitar'
             : 'parcela'
-      return edicion('🌱 Construir el huerto', 'editor_infra_construir', { obra: 'huerto', herramienta })
+      return edicion(chip('🌱', tGlobal('chat.ed.chip.construirHuerto', 'Construir el huerto')), 'editor_infra_construir', {
+        obra: 'huerto',
+        herramienta,
+      })
     }
     if (nGranja) {
       const an = resolverPorNombre(LISTA_ANIMALES, limpio, SINONIMOS_ANIMAL)
       if (an)
-        return edicion(`🐄 Poner ${an.nombre.toLowerCase()}s`, 'editor_infra_construir', {
-          obra: 'granja',
-          animal: an.id,
-        })
+        return edicion(
+          chip('🐄', tGlobal('chat.ed.chip.ponerAnimal', 'Poner: {animal}', {
+            animal: tGlobal(`granja.animal.${an.id}`, an.nombre),
+          })),
+          'editor_infra_construir',
+          { obra: 'granja', animal: an.id },
+        )
       const herramienta = /\b(corral|establo|cerca)\b/.test(n) ? 'corral' : 'animal'
-      return edicion('🐄 Construir la granja', 'editor_infra_construir', { obra: 'granja', herramienta })
+      return edicion(chip('🐄', tGlobal('chat.ed.chip.construirGranja', 'Construir la granja')), 'editor_infra_construir', {
+        obra: 'granja',
+        herramienta,
+      })
     }
     // El tren "de montar" ya se atendió en I-2: aquí solo se traza la vía.
     if (nVia || /\bmeta\b/.test(n)) {
@@ -2358,8 +2789,8 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
         : /\b(rampa|sube|subir|eleva|elevar)\b/.test(n)
           ? 'subir'
           : undefined
-      const et = via === 'coaster' ? 'Montaña rusa' : via === 'riel' ? 'Vías de tren' : 'Pista de carreras'
-      return edicion(`🛤️ ${et}`, 'editor_infra_construir', {
+      const etVia = { coaster: 'Montaña rusa', riel: 'Vías de tren', pista: 'Pista de carreras' }
+      return edicion(chip('🛤️', tGlobal(`chat.ed.chip.via.${via}`, etVia[via])), 'editor_infra_construir', {
         obra: 'caminos',
         via,
         ...(herramienta ? { herramienta } : {}),
@@ -2372,7 +2803,7 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
   // Música ambiental y volumen. Guardián \bmusica|volumen\b: no roba nada.
   if (/\b(musica|volumen|cancion|melodia)\b/.test(n)) {
     if (/\b(apaga|apagar|quita|quitar|silencia|silenciar|deten|pausa|pausar)\b/.test(n) && /\bmusica\b/.test(n)) {
-      return edicion('🔇 Apagar la música', 'editor_musica', { accion: 'apagar' })
+      return edicion(chip('🔇', tGlobal('chat.ed.chip.musicaOff', 'Apagar la música')), 'editor_musica', { accion: 'apagar' })
     }
     const mood = MOODS_MUSICA.find((m) => new RegExp(`\\b${m}\\b`).test(n))
       ?? (/\b(relajante|tranquila|chill)\b/.test(n) ? 'calma'
@@ -2382,30 +2813,39 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
     const pct = /(\d{1,3})\s*%/.exec(n) ?? (/\bvolumen\b.*?\b(\d{1,3})\b/.exec(n) || undefined)
     if (pct) {
       const v = Math.max(0, Math.min(100, parseInt(pct[1], 10))) / 100
-      return edicion(`🔊 Volumen al ${Math.round(v * 100)}%`, 'editor_musica', { volumen: v, ...(mood ? { mood } : {}) })
+      return edicion(chip('🔊', tGlobal('chat.ed.chip.volumenPct', 'Volumen al {pct}%', { pct: Math.round(v * 100) })), 'editor_musica', {
+        volumen: v,
+        ...(mood ? { mood } : {}),
+      })
     }
     if (/\bvolumen\b/.test(n) && /\b(sube|subir|alza|mas alto)\b/.test(n)) {
       const v = Math.min(1, useAjustes.getState().musicaVolumen + 0.15)
-      return edicion('🔊 Subir el volumen', 'editor_musica', { volumen: v })
+      return edicion(chip('🔊', tGlobal('chat.ed.chip.volumenSubir', 'Subir el volumen')), 'editor_musica', { volumen: v })
     }
     if (/\bvolumen\b/.test(n) && /\b(baja|bajar|menos|mas bajo)\b/.test(n)) {
       const v = Math.max(0, useAjustes.getState().musicaVolumen - 0.15)
-      return edicion('🔉 Bajar el volumen', 'editor_musica', { volumen: v })
+      return edicion(chip('🔉', tGlobal('chat.ed.chip.volumenBajar', 'Bajar el volumen')), 'editor_musica', { volumen: v })
     }
-    if (mood) return edicion(`🎵 Música ${mood}`, 'editor_musica', { mood })
+    if (mood) {
+      return edicion(
+        chip('🎵', tGlobal('chat.ed.chip.musicaMood', 'Música {mood}', { mood: tGlobal(`ajustes.musica.mood.${mood}`, mood) })),
+        'editor_musica',
+        { mood },
+      )
+    }
     if (/\b(musica|cancion|melodia)\b/.test(n) && /\b(pon|ponme|enciende|activa|quiero|reproduce|toca|dale)\b/.test(n)) {
-      return edicion('🎵 Encender la música', 'editor_musica', { accion: 'encender' })
+      return edicion(chip('🎵', tGlobal('chat.ed.chip.musicaOn', 'Encender la música')), 'editor_musica', { accion: 'encender' })
     }
   }
 
   // Máscara AR: abrirla no necesita IA (la cámara con la cabeza del avatar).
   if (/\bmascara\b/.test(n) && /\b(abre|abrir|abreme|pon|ponme|quiero|entra|entrar|activa)\b/.test(n)) {
-    return edicion('🎭 Máscara AR', 'editor_mascara', {})
+    return edicion(chip('🎭', tGlobal('chat.ed.chip.mascara', 'Máscara AR')), 'editor_mascara', {})
   }
 
   // Chat AR: tampoco necesita IA para abrirse (la cámara con el asistente encima).
   if (/\bchat ?ar\b/.test(n) && /\b(abre|abrir|abreme|pon|ponme|quiero|entra|entrar|activa)\b/.test(n)) {
-    return edicion('🤳 Chat AR', 'editor_chat_ar', {})
+    return edicion(chip('🤳', tGlobal('chat.ed.chip.chatAr', 'Chat AR')), 'editor_chat_ar', {})
   }
 
   // Wrapped / resumen del periodo. Exige "wrapped" o resumen+periodo para no
@@ -2415,21 +2855,23 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
     (/\bresumen\b/.test(n) && /\b(semanal|mensual|anual|semana|mes|ano|anio)\b/.test(n))
   ) {
     const periodo = /\b(mensual|mes)\b/.test(n) ? 'mes' : /\b(anual|ano|anio)\b/.test(n) ? 'anio' : 'semana'
-    const et = periodo === 'mes' ? 'mensual' : periodo === 'anio' ? 'anual' : 'semanal'
-    return edicion(`📊 Resumen ${et}`, 'editor_wrapped', { periodo })
+    const etResumen = { semana: 'Resumen semanal', mes: 'Resumen mensual', anio: 'Resumen anual' }
+    return edicion(chip('📊', tGlobal(`chat.ed.chip.resumen.${periodo}`, etResumen[periodo])), 'editor_wrapped', {
+      periodo,
+    })
   }
 
   // Vista de cámara: primera/tercera persona o isométrica.
-  if (/\bprimera persona\b/.test(n)) return edicion('🎥 Primera persona', 'editor_vista', { vista: 'primera' })
-  if (/\btercera persona\b/.test(n)) return edicion('🎥 Tercera persona', 'editor_vista', { vista: 'tercera' })
+  if (/\bprimera persona\b/.test(n)) return edicion(chip('🎥', tGlobal('chat.ed.chip.vistaPrimera', 'Primera persona')), 'editor_vista', { vista: 'primera' })
+  if (/\btercera persona\b/.test(n)) return edicion(chip('🎥', tGlobal('chat.ed.chip.vistaTercera', 'Tercera persona')), 'editor_vista', { vista: 'tercera' })
   if (/\b(vista|camara)\b/.test(n) && /\b(iso|isometrica|aerea|normal|clasica)\b/.test(n)) {
-    return edicion('🎥 Vista isométrica', 'editor_vista', { vista: 'iso' })
+    return edicion(chip('🎥', tGlobal('chat.ed.chip.vistaIso', 'Vista isométrica')), 'editor_vista', { vista: 'iso' })
   }
 
   // Vehículos montables: bajarse o montar el pedido/más cercano. Verbos en
   // presente/imperativo (como el tren): «monté la bici 20 min» sigue siendo registro.
   if (/\b(bajame|bajarme|bajate|me bajo|desmonta|desmontar|desmontame)\b/.test(n)) {
-    return edicion('🚲 Bajarse del vehículo', 'editor_vehiculo', { bajar: true })
+    return edicion(chip('🚲', tGlobal('chat.ed.chip.bajarse', 'Bajarse del vehículo')), 'editor_vehiculo', { bajar: true })
   }
   {
     const veh = resolverPorNombre(LISTA_VEHICULOS, limpio, SINONIMOS_VEHICULO)
@@ -2438,7 +2880,13 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
       /\b(monta|montame|montar|montarme|montemos|sube|subir|subirme|subeme|conduce|conducir|maneja|manejar|pilotea|pilotear|quiero|paseo|pasear|andar)\b/.test(n) &&
       !/\b(crea|crear|pinta|pintar|borra|borrar|elimina|eliminar|quita|quitar|compra|comprar|vende|vender)\b/.test(n)
     ) {
-      return edicion(`🚗 Montar la ${veh.nombre.toLowerCase()}`, 'editor_vehiculo', { vehiculo: veh.id })
+      return edicion(
+        chip('🚗', tGlobal('chat.ed.chip.montarVehiculo', 'Montar: {vehiculo}', {
+          vehiculo: tGlobal(`herr.veh.${veh.id}`, veh.nombre),
+        })),
+        'editor_vehiculo',
+        { vehiculo: veh.id },
+      )
     }
   }
 
@@ -2448,14 +2896,29 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
   if (/\b(icono|[ií]cono|emoji)\b/.test(n)) {
     const emoji = /(\p{Extended_Pictographic})/u.exec(limpio)
     const cu = resolverCuarto(limpio)
-    if (emoji && cu) return edicion(`✏️ Ícono ${emoji[1]} · ${nombreCuarto(cu.id)}`, 'editor_icono_cuarto', { cuarto: cu.id, icono: emoji[1] })
+    if (emoji && cu) {
+      return edicion(
+        chip('✏️', tGlobal('chat.ed.chip.icono', 'Ícono {icono} · {cuarto}', { icono: emoji[1], cuarto: nombreCuarto(cu.id) })),
+        'editor_icono_cuarto',
+        { cuarto: cu.id, icono: emoji[1] },
+      )
+    }
   }
 
   // Categoría de un cuarto
   if (/\bcategor[ií]a\b/.test(n)) {
     const cat = /\b(cuerpo|mente|complemento|config)\b/.exec(n)
     const cu = resolverCuarto(limpio)
-    if (cat && cu) return edicion(`✏️ Categoría ${cat[1]} · ${nombreCuarto(cu.id)}`, 'editor_categoria_cuarto', { cuarto: cu.id, categoria: cat[1] })
+    if (cat && cu) {
+      return edicion(
+        chip('✏️', tGlobal('chat.ed.chip.categoria', 'Categoría {categoria} · {cuarto}', {
+          categoria: tGlobal(`cat.${cat[1]}`, cat[1]),
+          cuarto: nombreCuarto(cu.id),
+        })),
+        'editor_categoria_cuarto',
+        { cuarto: cu.id, categoria: cat[1] },
+      )
+    }
   }
 
   // Forma/silueta de un cuarto: "haz la cocina redonda"
@@ -2464,7 +2927,14 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
     const cu = resolverCuarto(limpio)
     if (cu) {
       const forma = /redond|circular/.test(formaMatch[1]) ? 'circular' : formaMatch[1].startsWith('triangul') ? 'triangular' : 'cuadrado'
-      return edicion(`✏️ Forma ${forma === 'circular' ? 'redonda' : forma} · ${nombreCuarto(cu.id)}`, 'editor_forma_cuarto', { cuarto: cu.id, forma })
+      return edicion(
+        chip('✏️', tGlobal('chat.ed.chip.forma', 'Forma {forma} · {cuarto}', {
+          forma: tGlobal(`chat.ed.forma.${forma}`, forma === 'circular' ? 'redonda' : forma),
+          cuarto: nombreCuarto(cu.id),
+        })),
+        'editor_forma_cuarto',
+        { cuarto: cu.id, forma },
+      )
     }
   }
 
@@ -2472,7 +2942,13 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
   if (/\bmapa\b/.test(n) && /\b(agranda|agrandar|ampl[ií]a|ampliar|crece|crecer|expande|expandir|encoge|encoger|achica|reduce|reducir)\b/.test(n)) {
     const accion = /\b(encoge|encoger|achica|reduce|reducir)\b/.test(n) ? 'encoger' : 'agrandar'
     const dir = ladoDeTexto(limpio) ?? 'E'
-    return edicion(`✏️ ${accion === 'encoger' ? 'Encoger' : 'Agrandar'} mapa (${ladoNombre(dir)})`, 'editor_redimensionar_mapa', { accion, direccion: ladoNombre(dir) })
+    return edicion(
+      accion === 'encoger'
+        ? chip('✏️', tGlobal('chat.ed.chip.mapaEncoger', 'Encoger mapa ({lado})', { lado: ladoTexto(dir) }))
+        : chip('✏️', tGlobal('chat.ed.chip.mapaAgrandar', 'Agrandar mapa ({lado})', { lado: ladoTexto(dir) })),
+      'editor_redimensionar_mapa',
+      { accion, direccion: ladoNombre(dir) },
+    )
   }
 
   // Apilar un cuarto sobre otro: "apila la sala sobre la cocina"
@@ -2481,7 +2957,16 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
     if (m) {
       const cu = resolverCuarto(m[1])
       const base = resolverCuarto(m[2])
-      if (cu && base && cu.id !== base.id) return edicion(`✏️ Apilar «${nombreCuarto(cu.id)}» sobre «${nombreCuarto(base.id)}»`, 'editor_apilar_cuarto', { cuarto: cu.id, base: base.id })
+      if (cu && base && cu.id !== base.id) {
+        return edicion(
+          chip('✏️', tGlobal('chat.ed.chip.apilar', 'Apilar «{cuarto}» sobre «{base}»', {
+            cuarto: nombreCuarto(cu.id),
+            base: nombreCuarto(base.id),
+          })),
+          'editor_apilar_cuarto',
+          { cuarto: cu.id, base: base.id },
+        )
+      }
     }
   }
 
@@ -2489,7 +2974,16 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
   if (/\b(mueve|mover|desplaza|desplazar)\b/.test(n)) {
     const dir = ladoDeTexto(limpio)
     const cu = resolverCuarto(limpio)
-    if (dir && cu) return edicion(`✏️ Mover «${nombreCuarto(cu.id)}» al ${ladoNombre(dir)}`, 'editor_mover_cuarto', { cuarto: cu.id, direccion: ladoNombre(dir) })
+    if (dir && cu) {
+      return edicion(
+        chip('✏️', tGlobal('chat.ed.chip.mover', 'Mover «{cuarto}» al {lado}', {
+          cuarto: nombreCuarto(cu.id),
+          lado: ladoTexto(dir),
+        })),
+        'editor_mover_cuarto',
+        { cuarto: cu.id, direccion: ladoNombre(dir) },
+      )
+    }
   }
 
   // Estilo de un lado: material/color/grosor/alto del muro o tipo de puerta
@@ -2513,7 +3007,14 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
         if (hex) inp.color = hex
         if (grosor) inp.grosor = grosor
         if (alto) inp.alto = alto
-        return edicion(`✏️ Estilo muro ${ladoNombre(lado)} · ${nombreCuarto(cu.id)}`, 'editor_muro_estilo', inp)
+        return edicion(
+          chip('✏️', tGlobal('chat.ed.chip.muroEstilo', 'Estilo muro {lado} · {cuarto}', {
+            lado: ladoTexto(lado),
+            cuarto: nombreCuarto(cu.id),
+          })),
+          'editor_muro_estilo',
+          inp,
+        )
       }
     }
   }
@@ -2524,7 +3025,16 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
     const cu = resolverCuarto(limpio)
     if (lado && cu) {
       const estado = /puerta/.test(n) ? 'puerta' : /\b(abre|abrir|quita|quitar)\b/.test(n) ? 'abierto' : 'pared'
-      return edicion(`✏️ Muro ${ladoNombre(lado)} (${estado}) · ${nombreCuarto(cu.id)}`, 'editor_muro', { cuarto: cu.id, lado: ladoNombre(lado), estado })
+      const etEstado = { puerta: 'puerta', abierto: 'abierto', pared: 'pared' }
+      return edicion(
+        chip('✏️', tGlobal('chat.ed.chip.muro', 'Muro {lado} ({estado}) · {cuarto}', {
+          lado: ladoTexto(lado),
+          estado: tGlobal(`chat.ed.estado.${estado}`, etEstado[estado]),
+          cuarto: nombreCuarto(cu.id),
+        })),
+        'editor_muro',
+        { cuarto: cu.id, lado: ladoNombre(lado), estado },
+      )
     }
   }
 
@@ -2532,32 +3042,62 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
   if (!/\bmapa\b/.test(n) && !/\b(avatar|personaje|monito)\b/.test(n)) {
     if (/\b(agranda|agrandar|ampl[ií]a|ampliar|crece|crecer|expande|expandir)\b/.test(n) || /\bm[aá]s\s+grande\b/.test(n)) {
       const cu = resolverCuarto(limpio)
-      if (cu) return edicion(`✏️ Agrandar «${nombreCuarto(cu.id)}»`, 'editor_crecer_cuarto', { cuarto: cu.id })
+      if (cu) {
+        return edicion(
+          chip('✏️', tGlobal('chat.ed.chip.agrandarCuarto', 'Agrandar «{cuarto}»', { cuarto: nombreCuarto(cu.id) })),
+          'editor_crecer_cuarto',
+          { cuarto: cu.id },
+        )
+      }
     }
     if (/\b(encoge|encoger|achica|achicar|reduce|reducir)\b/.test(n) || /\bm[aá]s\s+peque/.test(n)) {
       const cu = resolverCuarto(limpio)
-      if (cu) return edicion(`✏️ Encoger «${nombreCuarto(cu.id)}»`, 'editor_encoger_cuarto', { cuarto: cu.id })
+      if (cu) {
+        return edicion(
+          chip('✏️', tGlobal('chat.ed.chip.encogerCuarto', 'Encoger «{cuarto}»', { cuarto: nombreCuarto(cu.id) })),
+          'editor_encoger_cuarto',
+          { cuarto: cu.id },
+        )
+      }
     }
   }
 
   // Agrupar / desagrupar objetos de un cuarto
   if (/\b(agrupa|agrupar|junta|juntar)\b/.test(n) && /\b(objeto|objetos|muebles|cosas)\b/.test(n)) {
     const cu = resolverCuarto(limpio)
-    if (cu) return edicion(`✏️ Agrupar objetos · ${nombreCuarto(cu.id)}`, 'editor_agrupar_objetos', { cuarto: cu.id })
+    if (cu) {
+      return edicion(
+        chip('✏️', tGlobal('chat.ed.chip.agrupar', 'Agrupar objetos · {cuarto}', { cuarto: nombreCuarto(cu.id) })),
+        'editor_agrupar_objetos',
+        { cuarto: cu.id },
+      )
+    }
   }
   if (/\b(desagrupa|desagrupar|separa|separar)\b/.test(n) && /\b(objeto|objetos|muebles|grupo)\b/.test(n)) {
     const cu = resolverCuarto(limpio)
-    if (cu) return edicion(`✏️ Desagrupar objetos · ${nombreCuarto(cu.id)}`, 'editor_desagrupar_objetos', { cuarto: cu.id })
+    if (cu) {
+      return edicion(
+        chip('✏️', tGlobal('chat.ed.chip.desagrupar', 'Desagrupar objetos · {cuarto}', { cuarto: nombreCuarto(cu.id) })),
+        'editor_desagrupar_objetos',
+        { cuarto: cu.id },
+      )
+    }
   }
 
   // Editar el último objeto: "gira/quita/pinta/agranda el último objeto"
   if (/\b[uú]ltimo\b/.test(n) && /\b(objeto|mueble|cosa)\b/.test(n)) {
-    if (/\b(gira|girar|rota|rotar|voltea|voltear)\b/.test(n)) return edicion('✏️ Girar último objeto', 'editor_objeto_rotar', {})
-    if (/\b(quita|quitar|elimina|eliminar|borra|borrar)\b/.test(n)) return edicion('✏️ Quitar último objeto', 'editor_eliminar_objeto', {})
-    if (/\b(grande|agranda|agrandar)\b/.test(n)) return edicion('✏️ Agrandar último objeto', 'editor_objeto_tamano', { escala: 1.4 })
-    if (/\b(peque|chico|achica|achicar)\b/.test(n)) return edicion('✏️ Encoger último objeto', 'editor_objeto_tamano', { escala: 0.7 })
+    if (/\b(gira|girar|rota|rotar|voltea|voltear)\b/.test(n)) return edicion(chip('✏️', tGlobal('chat.ed.chip.objRotar', 'Girar último objeto')), 'editor_objeto_rotar', {})
+    if (/\b(quita|quitar|elimina|eliminar|borra|borrar)\b/.test(n)) return edicion(chip('✏️', tGlobal('chat.ed.chip.objQuitar', 'Quitar último objeto')), 'editor_eliminar_objeto', {})
+    if (/\b(grande|agranda|agrandar)\b/.test(n)) return edicion(chip('✏️', tGlobal('chat.ed.chip.objAgrandar', 'Agrandar último objeto')), 'editor_objeto_tamano', { escala: 1.4 })
+    if (/\b(peque|chico|achica|achicar)\b/.test(n)) return edicion(chip('✏️', tGlobal('chat.ed.chip.objEncoger', 'Encoger último objeto')), 'editor_objeto_tamano', { escala: 0.7 })
     const hexObj = resolverColor(limpio)
-    if (hexObj) return edicion(`✏️ Pintar último objeto de ${etiquetaColor(hexObj)}`, 'editor_objeto_color', { color: hexObj })
+    if (hexObj) {
+      return edicion(
+        chip('✏️', tGlobal('chat.ed.chip.objPintar', 'Pintar último objeto de {color}', { color: etiquetaColor(hexObj) })),
+        'editor_objeto_color',
+        { color: hexObj },
+      )
+    }
   }
 
   // 9. Avatar: poner/quitar prenda
@@ -2567,8 +3107,11 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
     if (prenda) {
       const quitar = /\bqu[ií]ta/.test(n)
       const hex = resolverColor(limpio)
+      const nomPrenda = nombrePrenda(prenda.id)
       return edicion(
-        `✏️ ${quitar ? 'Quitar' : 'Poner'} ${prenda.nombre.toLowerCase()}`,
+        quitar
+          ? chip('✏️', tGlobal('chat.ed.chip.quitarPrenda', 'Quitar: {prenda}', { prenda: nomPrenda }))
+          : chip('✏️', tGlobal('chat.ed.chip.ponerPrenda', 'Poner: {prenda}', { prenda: nomPrenda })),
         'editor_avatar_prenda',
         { prenda: prenda.id, quitar, ...(hex ? { color: hex } : {}) },
       )
@@ -2581,7 +3124,14 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
     const hex = resolverColor(limpio)
     if (hex) {
       const parte = parteMatch[1] === 'cabeza' ? 'cabeza' : parteMatch[1].startsWith('pierna') ? 'piernas' : 'torso'
-      return edicion(`✏️ Avatar: ${parte}`, 'editor_avatar_color', { parte, color: hex })
+      const etParte = { cabeza: 'cabeza', torso: 'torso', piernas: 'piernas' }
+      return edicion(
+        chip('✏️', tGlobal('chat.ed.chip.avatarParte', 'Avatar: {parte}', {
+          parte: tGlobal(`chat.ed.parteNom.${parte}`, etParte[parte]),
+        })),
+        'editor_avatar_color',
+        { parte, color: hex },
+      )
     }
   }
 
@@ -2593,14 +3143,23 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
     if (numMatch) escala = parseFloat(numMatch[1])
     else if (/\b(grande|alto|gigante|mayor|mas)\b/.test(n)) escala = actual + 0.25
     else if (/\b(peque|chico|bajo|enano|menor)\b/.test(n)) escala = actual - 0.25
-    if (escala !== actual) return edicion('✏️ Tamaño del personaje', 'editor_avatar_tamano', { escala })
+    if (escala !== actual) return edicion(chip('✏️', tGlobal('chat.ed.chip.avatarTamano', 'Tamaño del personaje')), 'editor_avatar_tamano', { escala })
   }
 
   // 12. Pintar un cuarto (al final: muchos verbos podrían chocar)
   if (/\b(pinta|pintar|colorea|colorear|color)\b/.test(n)) {
     const hex = resolverColor(limpio)
     const cu = resolverCuarto(limpio)
-    if (hex && cu) return edicion(`✏️ Pintar «${nombreCuarto(cu.id)}» de ${etiquetaColor(hex)}`, 'editor_pintar_cuarto', { cuarto: cu.id, color: hex })
+    if (hex && cu) {
+      return edicion(
+        chip('✏️', tGlobal('chat.ed.chip.pintarCuarto', 'Pintar «{cuarto}» de {color}', {
+          cuarto: nombreCuarto(cu.id),
+          color: etiquetaColor(hex),
+        })),
+        'editor_pintar_cuarto',
+        { cuarto: cu.id, color: hex },
+      )
+    }
   }
 
   // 12b. Mapa conceptual: sin IA solo se puede crear en blanco con el tema de
@@ -2636,7 +3195,7 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
     ]
     const tipo: TipoMapa = CLAVES.find(([palabra]) => k.includes(palabra))?.[1] ?? 'mental'
     return {
-      ...edicion(`💡 Mapa: ${tema}`, 'editor_mapa_ideas', { tema, tipo, vacio: true }),
+      ...edicion(chip('💡', tGlobal('chat.ed.chip.mapaIdeas', 'Mapa: {tema}', { tema })), 'editor_mapa_ideas', { tema, tipo, vacio: true }),
       soloSinIA: true,
     }
   }
@@ -2646,7 +3205,7 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
   if (/\b(juega|jugar|juguemos)\b/.test(n)) {
     const res = resolverComandoApp(limpio)
     if (res && res.cmd.dato) {
-      return edicion(`🎮 Jugar ${res.cmd.etiqueta}`, 'editor_abrir_app', {
+      return edicion(chip('🎮', tGlobal('chat.ed.chip.jugar', 'Jugar {juego}', { juego: etiquetaComando(res.app.id, res.cmd) })), 'editor_abrir_app', {
         app: res.app.id,
         seccion: res.cmd.seccion,
         dato: res.cmd.dato,
@@ -2662,20 +3221,40 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
     // El calendario primero: no es una app, así que `resolverComandoApp` no lo ve.
     const cal = resolverVistaCalendario(resto)
     if (cal) {
-      return edicion(`🗓️ Abrir ${cal.etiqueta}`, 'editor_abrir_calendario', { vista: cal.vista })
+      return edicion(
+        chip('🗓️', tGlobal('chat.ed.chip.abrirCal', 'Abrir {vista}', { vista: tGlobal(cal.clave, cal.etiqueta) })),
+        'editor_abrir_calendario',
+        { vista: cal.vista },
+      )
     }
     const res = resolverComandoApp(resto)
     if (res) {
-      return edicion(`🚪 Abrir ${res.cmd.etiqueta} · ${nombreApp(res.app)}`, 'editor_abrir_app', {
+      return edicion(
+        chip('🚪', tGlobal('chat.ed.chip.abrirSeccion', 'Abrir {seccion} · {app}', {
+          seccion: etiquetaComando(res.app.id, res.cmd),
+          app: nombreApp(res.app),
+        })),
+        'editor_abrir_app',
+        {
         app: res.app.id,
         seccion: res.cmd.seccion,
         ...(res.cmd.dato ? { dato: res.cmd.dato } : {}),
       })
     }
     const cu = resolverCuarto(resto)
-    if (cu) return edicion(`🚪 Abrir «${nombreCuarto(cu.id)}»`, 'editor_abrir_app', { cuarto: cu.id })
+    if (cu) {
+      return edicion(
+        chip('🚪', tGlobal('chat.ed.chip.abrirCuarto', 'Abrir «{cuarto}»', { cuarto: nombreCuarto(cu.id) })),
+        'editor_abrir_app',
+        { cuarto: cu.id },
+      )
+    }
     const app = resolverApp(resto)
-    if (app) return edicion(`🚪 Abrir ${nombreApp(app)}`, 'editor_abrir_app', { app: app.id })
+    if (app) {
+      return edicion(chip('🚪', tGlobal('chat.ed.chip.abrirApp', 'Abrir {app}', { app: nombreApp(app) })), 'editor_abrir_app', {
+        app: app.id,
+      })
+    }
   }
 
   return null

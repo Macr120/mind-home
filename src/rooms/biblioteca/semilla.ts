@@ -1,6 +1,8 @@
 import { useMemo } from 'react'
 import type { AjusteSemilla, EntradaBiblio, NivelIndice, TemaArbol } from '../../core/data/db'
 import { VACIO, ajustesSemillaRepo, borrarRamaIndice, temasArbolRepo } from '../../core/data/repository'
+import { dictStore } from '../../core/i18n/dict'
+import { idiomaActual, tGlobal, useT } from '../../core/i18n/useT'
 import { PILARES } from './pilares'
 
 /**
@@ -63,7 +65,14 @@ let instantanea: Indice = INDICE_VACIO
  * dexie-react-hooks mantiene estables las referencias de los arrays, así que
  * con esto el árbol se arma UNA vez por cambio de datos y no cinco.
  */
-let ultimo: { ajustes: AjusteSemilla[]; propios: TemaArbol[]; indice: Indice } | null = null
+let ultimo: { ajustes: AjusteSemilla[]; propios: TemaArbol[]; marca: string; indice: Indice } | null = null
+
+/**
+ * Llave de idioma del caché: cambia al conmutar idioma Y cuando termina de
+ * llegar el diccionario perezoso (sin esto, el árbol quedaría con los títulos
+ * en el fallback español construido antes de la descarga).
+ */
+const marcaIdioma = () => `${idiomaActual()}/${dictStore.getSnapshot()}`
 
 function ordenar(nodos: NodoIndice[]): NodoIndice[] {
   return nodos.sort((a, b) => a.orden - b.orden || a.titulo.localeCompare(b.titulo))
@@ -71,16 +80,25 @@ function ordenar(nodos: NodoIndice[]): NodoIndice[] {
 
 /** Arma el índice resuelto. Determinista: mismas entradas, mismo árbol. */
 export function construirIndice(ajustes: AjusteSemilla[], propios: TemaArbol[]): Indice {
-  if (ultimo && ultimo.ajustes === ajustes && ultimo.propios === propios) return ultimo.indice
+  const marca = marcaIdioma()
+  if (ultimo && ultimo.ajustes === ajustes && ultimo.propios === propios && ultimo.marca === marca)
+    return ultimo.indice
   const porId = new Map<string, NodoIndice>()
   const parche = new Map(ajustes.map((a) => [a.nodoId, a]))
 
   const nuevo = (base: Omit<NodoIndice, 'hijos'>): NodoIndice => {
     const a = base.fabrica ? parche.get(base.id) : undefined
+    // Lo de fábrica sin renombrar se traduce (`biblioteca.nodo.<id>`); en
+    // cuanto el usuario lo renombra (parche), manda su texto — la misma
+    // doctrina que el temario del cuarto de Idiomas.
     const nodo: NodoIndice = {
       ...base,
-      titulo: a?.titulo ?? base.titulo,
-      descripcion: a?.descripcion ?? base.descripcion,
+      titulo: a?.titulo ?? (base.fabrica ? tGlobal(`biblioteca.nodo.${base.id}`, base.titulo) : base.titulo),
+      descripcion:
+        a?.descripcion ??
+        (base.fabrica && base.descripcion
+          ? tGlobal(`biblioteca.nodoDesc.${base.id}`, base.descripcion)
+          : base.descripcion),
       icono: a?.icono ?? base.icono,
       orden: a?.orden ?? base.orden,
       hijos: [],
@@ -160,7 +178,7 @@ export function construirIndice(ajustes: AjusteSemilla[], propios: TemaArbol[]):
 
   const indice: Indice = { campos, porId }
   instantanea = indice
-  ultimo = { ajustes, propios, indice }
+  ultimo = { ajustes, propios, marca, indice }
   return indice
 }
 
@@ -168,7 +186,11 @@ export function construirIndice(ajustes: AjusteSemilla[], propios: TemaArbol[]):
 export function useIndice(): Indice {
   const ajustes = ajustesSemillaRepo.useAll() ?? VACIO
   const propios = temasArbolRepo.useAll() ?? VACIO
-  return useMemo(() => construirIndice(ajustes, propios), [ajustes, propios])
+  // `t` está memoizada por idioma y por llegada del diccionario perezoso: es
+  // exactamente la llave que invalida el árbol traducido.
+  const t = useT()
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- `t` invalida a propósito
+  return useMemo(() => construirIndice(ajustes, propios), [ajustes, propios, t])
 }
 
 /** Gemelo asíncrono para quien no es un componente (arbol.ts, sabio.ts). */

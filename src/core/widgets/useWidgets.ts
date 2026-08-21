@@ -28,8 +28,16 @@ export function useWidgets(): void {
   // Ambos son fijos por sesión: la demo y la plataforma se deciden al cargar.
   const activo = esAppNativa() && !esDemo()
 
-  // Reactivo: rastrea todas las tablas Dexie que lee armarSnapshot.
-  const snapshot = useLiveQuery(() => (activo ? armarSnapshot() : undefined), [activo])
+  // Reactivo: rastrea todas las tablas Dexie que lee armarSnapshot. Qué apps
+  // tiene la casa sale además del DISEÑO, no de Dexie: sin esa dependencia el
+  // primer snapshot —armado antes de que la casa cargue— se quedaría sin
+  // misiones hasta la siguiente escritura en la base.
+  const apps = useDiseño((s) => {
+    const ids = new Set<string>()
+    for (const o of s.objetos) if (o.plantillaId) ids.add(o.plantillaId)
+    return [...ids].sort().join(',')
+  })
+  const snapshot = useLiveQuery(() => (activo ? armarSnapshot() : undefined), [activo, apps])
 
   const timer = useRef<number | undefined>(undefined)
   const fechaPublicada = useRef('')

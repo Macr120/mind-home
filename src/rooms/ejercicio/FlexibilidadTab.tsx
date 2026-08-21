@@ -12,6 +12,8 @@ import { AutocompleteEjercicio } from './AutocompleteEjercicio'
 import { CheckFila } from './CheckFila'
 import { aGrupoCatalogo } from './catalogo'
 import { CrearRutinaFlex } from './CrearRutinaFlex'
+import { useFocoRegistro } from './focoRegistro'
+import { nombreRutina } from './nombres'
 import { HeatmapMensual } from './HeatmapMensual'
 import { useImagenesPorClave } from './imagenIA'
 import { MiniaturaEjercicio } from './MiniaturaEjercicio'
@@ -68,12 +70,17 @@ export function FlexibilidadTab({
   periodo: Periodo
   setPeriodo: (p: Periodo) => void
 }) {
+  const t = useT()
+  // Vacío = «sin tocar»: el nombre por defecto se resuelve al pintar, así sigue al
+  // idioma (el diccionario llega perezoso, después del primer render).
+  const tituloDefecto = t('ejercicio.flex.tituloDefecto', 'Sesión de movilidad')
+
   const gruposFlex = gruposFlexRepo.useAll() ?? VACIO
   const catalogoNombres = useMemo(() => aGrupoCatalogo(gruposFlex), [gruposFlex])
   const imgPorClave = useImagenesPorClave()
 
   const [subF, setSubF] = useState<SubFlex>('catalogo')
-  const [titulo, setTitulo] = useState('Sesión de movilidad')
+  const [titulo, setTitulo] = useState('')
   const [enfoque, setEnfoque] = useState(catalogoNombres[0]?.label ?? '')
   const [filas, setFilas] = useState<FilaFlex[]>([filaVacia(), filaVacia()])
   const [editandoId, setEditandoId] = useState<number | null>(null)
@@ -82,6 +89,8 @@ export function FlexibilidadTab({
   const [timerNonce, setTimerNonce] = useState(0)
   // Rutina que se está reproduciendo en el modo guiado (imagen + contador).
   const [rutinaFlexActiva, setRutinaFlexActiva] = useState<RutinaFlex | null>(null)
+
+  const { refRegistro, irAlRegistro } = useFocoRegistro<HTMLFormElement>()
 
   const rutinas = rutinasFlexRepo.useAll() ?? VACIO
 
@@ -147,6 +156,7 @@ export function FlexibilidadTab({
     if (r.enfoque) setEnfoque(r.enfoque)
     if (r.ejercicios?.length) setFilas(filasDeRutina(r.ejercicios))
     if (subF !== 'rutinas') setSubF('rutinas')
+    irAlRegistro()
   }
 
   const usarProgramada = (p: PlanDelDia) => {
@@ -178,7 +188,7 @@ export function FlexibilidadTab({
 
   const cancelarEdicion = () => {
     setEditandoId(null)
-    setTitulo('Sesión de movilidad')
+    setTitulo('')
     setEnfoque(catalogoNombres[0]?.label ?? '')
     setFilas([filaVacia(), filaVacia()])
   }
@@ -189,7 +199,7 @@ export function FlexibilidadTab({
     const mins = sumaSeg > 0 ? Math.max(1, Math.round(sumaSeg / 60)) : 0
     if (!mins || !todoHecho) return
     const datos = {
-      titulo: titulo.trim() || 'Flexibilidad',
+      titulo: titulo.trim() || tituloDefecto,
       duracionMin: mins,
       enfoque,
     }
@@ -216,8 +226,6 @@ export function FlexibilidadTab({
     cancelarEdicion()
   }
 
-  const t = useT()
-
   return (
     <div className="space-y-5">
       {planDia.length > 0 && (
@@ -232,7 +240,7 @@ export function FlexibilidadTab({
                   <Icono nombre="calendario" /> {t('ejercicio.plan.dia', 'Plan del día')}
                   {p.hora ? ` · ${p.hora}` : ''}:
                 </span>{' '}
-                {p.rutinaNombre} · {p.duracionMin} min
+                {nombreRutina(t, p.rutinaNombre)} · {p.duracionMin} min
               </p>
               <button
                 type="button"
@@ -299,6 +307,7 @@ export function FlexibilidadTab({
           </div>
 
           <form
+            ref={refRegistro}
             onSubmit={guardar}
             className="rounded-xl bg-white/5 p-4 space-y-3 border border-white/10"
           >
@@ -309,7 +318,7 @@ export function FlexibilidadTab({
                 : t('ejercicio.flex.registrar', 'Registrar flexibilidad')}
             </p>
             <AutocompleteEjercicio
-              value={titulo}
+              value={titulo || tituloDefecto}
               onChange={setTitulo}
               onSelect={(nombre, grupo) => {
                 setTitulo(nombre)

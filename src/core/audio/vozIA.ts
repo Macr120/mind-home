@@ -1,4 +1,5 @@
 import { usarViaCuenta, iaTtsCuenta, ErrorIA } from '../cuenta/api'
+import { provCuentaEfectivo } from '../cuenta/provCuenta'
 import { getIaKey, proveedorVoz, type ProveedorMediaId } from '../chat/ia'
 import { quitarEmojis } from '../chat/texto'
 import { useAjustes } from '../state/ajustesStore'
@@ -10,7 +11,8 @@ import { contextoAudio, gainMaestro } from './motor'
  * Voz con IA de los asistentes: alternativa a `speechSynthesis` nativo
  * (`voz.ts`) cuando el asistente tiene `vozIA` activado en su ficha. Quién la
  * sirve en BYOK lo decide `proveedorVoz()` (OpenAI tts-1 o Gemini TTS); la vía
- * cuenta sigue saliendo por el proxy `ia-tts`. El ducking de música se duplica
+ * cuenta sale por el proxy `ia-tts`, que ofrece los MISMOS dos proveedores y
+ * respeta la preferencia del panel de IA. El ducking de música se duplica
  * de `voz.ts` (7 líneas, mismo criterio que los proxies gemelos).
  */
 
@@ -20,9 +22,13 @@ export const VOCES_IA: Record<ProveedorMediaId, readonly string[]> = {
   gemini: ['Zephyr', 'Puck', 'Charon', 'Kore', 'Fenrir', 'Leda', 'Orus', 'Aoede'],
 }
 
-/** Voces elegibles AHORA: vía cuenta = OpenAI (el proxy `ia-tts` usa tts-1). */
+/**
+ * Voces elegibles AHORA. Cada proveedor tiene las suyas, así que la lista
+ * depende de quién vaya a servir: en BYOK lo dice `proveedorVoz()` y vía cuenta
+ * la fila «Voz» del panel de IA (el proxy respeta esa preferencia).
+ */
 export function vocesIaDisponibles(): readonly string[] {
-  if (usarViaCuenta()) return VOCES_IA.chatgpt
+  if (usarViaCuenta()) return VOCES_IA[provCuentaEfectivo().voz === 'gemini' ? 'gemini' : 'chatgpt']
   return VOCES_IA[proveedorVoz() ?? 'chatgpt']
 }
 
@@ -131,7 +137,10 @@ export async function hablarVozIA(texto: string, opts: OpcionesHablaIA = {}): Pr
   try {
     let blob: Blob
     if (usarViaCuenta()) {
-      blob = base64ABlob((await iaTtsCuenta(limpio, voz)).base64, 'audio/mpeg')
+      // El mime lo dice el proxy: OpenAI devuelve mp3 y Gemini un WAV armado
+      // allá desde su PCM crudo. Fijarlo aquí dejaba mudo al respaldo.
+      const r = await iaTtsCuenta(limpio, voz)
+      blob = base64ABlob(r.base64, r.mime || 'audio/mpeg')
     } else {
       const provId = proveedorVoz()
       if (!provId) throw new Error('sin proveedor de voz')

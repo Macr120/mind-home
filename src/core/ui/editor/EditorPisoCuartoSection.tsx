@@ -128,7 +128,7 @@ export function EditorPisoCuartoSection({ room }: { room: Cuarto }) {
                 key={p.id}
                 type="button"
                 onClick={() => setRoomPisoTipo(room.id, p.id)}
-                title={p.tema ? `Recomendado para tema ${p.tema}` : undefined}
+                title={p.tema ? t('editor.piso.recomendado', 'Recomendado para el tema {tema}', { tema: t(`tema.${p.tema}`, p.tema) }) : undefined}
                 className={[
                   'flex flex-col items-center gap-1 rounded-lg border px-1 py-2 text-center transition',
                   activo
@@ -140,7 +140,7 @@ export function EditorPisoCuartoSection({ room }: { room: Cuarto }) {
                   className="w-full rounded-md bg-cover bg-center"
                   style={{ height: 28, ...swatchStyle(p) }}
                 />
-                <span className="text-[10px] font-medium leading-tight">{p.nombre}</span>
+                <span className="text-[10px] font-medium leading-tight">{t(`piso.${p.id}`, p.nombre)}</span>
               </button>
             )
           })}
@@ -346,7 +346,7 @@ export function EditorPisoCuartoSection({ room }: { room: Cuarto }) {
                   ].join(' ')}
                 >
                   <div className="w-full rounded-md bg-cover bg-center" style={{ height: 28, ...swatchStyle(p) }} />
-                  <span className="text-[10px] font-medium leading-tight">{p.nombre}</span>
+                  <span className="text-[10px] font-medium leading-tight">{t(`piso.${p.id}`, p.nombre)}</span>
                 </button>
               )
             })}

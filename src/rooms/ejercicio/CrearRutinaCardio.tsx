@@ -4,6 +4,7 @@ import { CatalogoCardio } from './CatalogoCardio'
 import { useImagenesPorClave } from './imagenIA'
 import { MiniaturaEjercicio } from './MiniaturaEjercicio'
 import { normalizarEjercicio } from './stats'
+import { nombreEjercicio } from './nombres'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { acento } from '../_shared/acento'
@@ -86,7 +87,7 @@ export function CrearRutinaCardio() {
                   hoverBorde="hover:border-sky-500/50"
                   tamano="sm"
                 />
-                <span className="flex-1 truncate text-white/85">{e}</span>
+                <span className="flex-1 truncate text-white/85">{nombreEjercicio(t, e)}</span>
                 <button
                   type="button"
                   onClick={() => quitar(i)}

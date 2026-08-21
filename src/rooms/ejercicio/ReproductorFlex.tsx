@@ -6,6 +6,7 @@ import { useUrlImagen } from './imagenIA'
 import { urlImagenPreset } from './imagenesPreset'
 import { normalizarEjercicio } from './stats'
 import { pitar } from './pitar'
+import { nombreEjercicio, nombreRutina } from './nombres'
 
 const COLOR = '#a78bfa' // violeta, el acento de Flexibilidad
 const SEG_DEFECTO = 30 // segundos por postura al abrir (mismo valor por defecto que el formulario)
@@ -113,7 +114,7 @@ export function ReproductorFlex({
       >
         <header className="mb-3 flex items-center gap-3">
           <div className="min-w-0">
-            <p className="truncate text-base font-black">{rutina.nombre}</p>
+            <p className="truncate text-base font-black">{nombreRutina(t, rutina.nombre)}</p>
             <p className="text-[11px] text-white/45">
               {completado
                 ? t('ejercicio.reproductor.completado', '¡Rutina completada!')
@@ -147,7 +148,7 @@ export function ReproductorFlex({
         {/* Imagen de la postura actual (contain: las ilustraciones son cuadradas y recortarlas se come la postura) */}
         <div className="mb-3 flex aspect-video items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-black/30">
           {url ? (
-            <img src={url} alt={posturas[idx]} className="h-full w-full object-contain" />
+            <img src={url} alt={nombreEjercicio(t, posturas[idx])} className="h-full w-full object-contain" />
           ) : (
             <span className="flex flex-col items-center gap-1 py-6 text-white/25">
               <span className="text-3xl">
@@ -160,7 +161,7 @@ export function ReproductorFlex({
           )}
         </div>
 
-        <p className="mb-1 truncate text-center text-lg font-bold">{posturas[idx]}</p>
+        <p className="mb-1 truncate text-center text-lg font-bold">{nombreEjercicio(t, posturas[idx])}</p>
 
         {/* Contador */}
         <p className="text-center text-5xl font-black tabular-nums" style={{ color: COLOR }}>

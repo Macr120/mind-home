@@ -12,16 +12,14 @@ import { useT } from '../i18n/useT'
  * número rancio al cambiarla. `n` queda para los pocos casos sin operación.
  */
 
-/** El chip, sin condiciones. Lo usa la pantalla de precios (que se ve siempre). */
-export function CreditosBadge({
-  n,
-  aprox = false,
-  lote = false,
-}: {
-  n: number
-  aprox?: boolean
-  lote?: boolean
-}) {
+/**
+ * El chip, sin condiciones. Lo usa la pantalla de precios (que se ve siempre).
+ *
+ * SIEMPRE lleva «≈»: la tarifa por operación es el precio anunciado, pero el
+ * cobro real lo ajusta el servidor al gasto de la llamada (migración
+ * 20260820000002), así que ningún número de aquí es exacto por definición.
+ */
+export function CreditosBadge({ n, lote = false }: { n: number; lote?: boolean }) {
   const t = useT()
   if (n <= 0) return null
 
@@ -33,21 +31,20 @@ export function CreditosBadge({
 
   return (
     <span
-      title={t(
+      title={`${t(
         'creditos.ayuda',
         '1 respuesta = 1 crédito · un plan largo = 4 · una imagen 3 o 10 · un modelo 3D = 10',
-      )}
+      )} · ${t('creditos.aprox', 'Los precios en créditos son aproximados: el cobro sigue el consumo real.')}`}
       className="shrink-0 rounded-full border border-violet-400/25 bg-violet-400/10 px-2 py-0.5 text-[10px] font-bold text-violet-200"
     >
-      {aprox ? '≈ ' : ''}
-      {etiqueta}
+      ≈ {etiqueta}
     </span>
   )
 }
 
 type PropsCreditos =
-  | { op: OperacionIA; ctx?: CtxCosto; n?: never; aprox?: never }
-  | { n: number; aprox?: boolean; op?: never; ctx?: never }
+  | { op: OperacionIA; ctx?: CtxCosto; n?: never }
+  | { n: number; op?: never; ctx?: never }
 
 /**
  * El badge junto a un botón. No se pinta en BYOK ni sin cuenta: ahí la IA va con
@@ -63,10 +60,9 @@ export function Creditos(props: PropsCreditos) {
     return (
       <CreditosBadge
         n={costoOperacion(props.op, { ...props.ctx, calidad })}
-        aprox={props.op.aprox}
         lote={props.op.lote && props.ctx?.n === undefined}
       />
     )
   }
-  return <CreditosBadge n={props.n} aprox={props.aprox} />
+  return <CreditosBadge n={props.n} />
 }

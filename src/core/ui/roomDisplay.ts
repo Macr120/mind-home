@@ -1,7 +1,7 @@
 import { useShallow } from 'zustand/react/shallow'
 import { DESCRIPCIONES, getPlantilla } from '../registry'
 import { useDiseño } from '../state/disenoStore'
-import { useT } from '../i18n/useT'
+import { tGlobal, useT, type TFunc } from '../i18n/useT'
 
 const SUBTITULO_FALLBACK: Record<string, string> = {
   recamara: 'Sueño y anécdotas',
@@ -45,12 +45,45 @@ export function tituloSubtituloCuarto(
  *
  * - El nombre que el usuario puso a mano (`roomNames`) se respeta TAL CUAL: es
  *   suyo, no se traduce.
+ * - El que puso la casa al crearlo («Cuarto 19», «Cuarto nuevo») SÍ se traduce: es
+ *   un rótulo del sistema, no un nombre escrito por nadie. Se guarda siempre en
+ *   español para que siga cambiando de idioma con la app.
  * - El heredado de la app al asignarla (ver `adoptarIdentidad`) sí se traduce.
  *   La clave sale de la PLANTILLA (`room.<app>.nombre`), no del cuarto: los ids
  *   de cuarto son generados y nunca están en el diccionario.
  * - Si el cuarto se renombró por otra vía (chat), su texto ya no coincide con el
  *   de la plantilla y también se deja como está.
  */
+export function nombreCuartoResuelto(
+  room: { id: string; nombre: string },
+  roomNames: Record<string, string>,
+  appId: string | undefined,
+  t: TFunc,
+): string {
+  const propio = roomNames[room.id]
+  if (propio) return propio
+  const base = room.nombre.split(' · ')[0]
+  const numerado = /^Cuarto (\d+)$/.exec(base)
+  if (numerado) return t('casa.cuartoN', 'Cuarto {n}', { n: numerado[1] })
+  if (base === 'Cuarto nuevo') return t('casa.cuartoNuevo', 'Cuarto nuevo')
+  const p = appId ? getPlantilla(appId) : undefined
+  if (!p || p.nombre.split(' · ')[0] !== base) return base
+  return t(`room.${appId}.nombre`, base).split(' · ')[0]
+}
+
+/** La primera app del cuarto (estable al mover objetos), como en el menú lateral. */
+const primeraApp = (objetos: { roomId: string; plantillaId?: string }[], roomId: string) =>
+  objetos.find((o) => o.roomId === roomId && o.plantillaId)?.plantillaId
+
+/**
+ * Gemelo sin hook de `useNombreCuarto`, para código fuera de React (el chat).
+ * Misma regla y mismo texto que ve el usuario en la casa.
+ */
+export function nombreCuartoGlobal(room: { id: string; nombre: string }): string {
+  const { roomNames, objetos } = useDiseño.getState()
+  return nombreCuartoResuelto(room, roomNames, primeraApp(objetos, room.id), tGlobal)
+}
+
 export function useNombreCuarto() {
   const t = useT()
   const roomNames = useDiseño((s) => s.roomNames)
@@ -63,13 +96,6 @@ export function useNombreCuarto() {
     }),
   )
 
-  return (room: { id: string; nombre: string }) => {
-    const propio = roomNames[room.id]
-    if (propio) return propio
-    const base = room.nombre.split(' · ')[0]
-    const appId = appPorCuarto[room.id]
-    const p = appId ? getPlantilla(appId) : undefined
-    if (!p || p.nombre.split(' · ')[0] !== base) return base
-    return t(`room.${appId}.nombre`, base).split(' · ')[0]
-  }
+  return (room: { id: string; nombre: string }) =>
+    nombreCuartoResuelto(room, roomNames, appPorCuarto[room.id], t)
 }

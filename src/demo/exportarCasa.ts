@@ -23,7 +23,7 @@ export async function descargarCasaJson(): Promise<void> {
   console.info('[MPH demo] casa.json exportada — commitéala a public/demo/casa.json')
 }
 
-if (typeof window !== 'undefined') {
+if (import.meta.env.DEV && typeof window !== 'undefined') {
   ;(window as unknown as { mhExportarCasaDemo?: () => Promise<void> }).mhExportarCasaDemo =
     descargarCasaJson
 }

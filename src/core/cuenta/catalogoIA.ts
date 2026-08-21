@@ -39,8 +39,6 @@ export interface OperacionIA {
   partes: ParteIA[]
   /** El precio depende de N (lotes): la pantalla pinta «N ×». */
   lote?: boolean
-  /** El número es un promedio o un mínimo (contenido variable, reintentos). */
-  aprox?: boolean
   /** Por qué cuesta lo que cuesta, cuando no es evidente. */
   notaClave?: string
   notaEs?: string

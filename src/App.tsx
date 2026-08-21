@@ -14,7 +14,6 @@ import { ConfirmarDialog } from './core/ui/ConfirmarDialog'
 import { EliminarCuartoDialog } from './core/ui/EliminarCuartoDialog'
 import { RoomOverlay } from './core/ui/RoomOverlay'
 import { RoomSideMenu, FloatingMenuButton } from './core/ui/RoomSideMenu'
-import { PilaPrompts } from './core/ui/HudPlegable'
 import { MoveControls } from './core/ui/MoveControls'
 import { MenuHerramientas } from './core/ui/MenuHerramientas'
 import { EditorGrafiti } from './core/ui/EditorGrafiti'
@@ -25,7 +24,6 @@ import { EditorGranja } from './core/ui/EditorGranja'
 import { InfraNota } from './core/ui/InfraNota'
 import { ChatBox } from './core/chat/ChatBox'
 import { AvisoRespaldo } from './core/ui/AvisoRespaldo'
-import { AsistenteBurbuja } from './core/ui/AsistenteBurbuja'
 import { AsistenteCercaOverlay } from './core/ui/AsistenteCercaOverlay'
 import { DialogoOverlay } from './core/ui/DialogoOverlay'
 import { GeneradorMiniaturas } from './core/house/Miniatura'
@@ -199,17 +197,8 @@ export default function App() {
         {!editMode && !sidebarOpen && !pintando && !construyendo && !enPaintball && <MenuHerramientas />}
         {!editMode && <InteractOverlay />}
         <EtiquetasMapaOverlay />
-        {/* Prompts contextuales (secundarios): apilados SIEMPRE por encima de los
-            controles de las esquinas y del chat, nunca sobre ellos. */}
-        {!editMode && !activeRoom && (
-          <PilaPrompts>
-            {/* El tren y los accesos ya no tienen prompt propio: montar, bajarse y
-                cambiar de piso son botones del hueco del cubo, con el resto de
-                acciones contextuales. */}
-            {/* Burbuja del asistente: la más cercana al chat, justo encima de él. */}
-            {!construyendo && !dialogoActivo && !enPaintball && <AsistenteBurbuja />}
-          </PilaPrompts>
-        )}
+        {/* La nube del asistente ya no vive aquí: sale de su cabeza en la escena 3D
+            (`NubeAsistente`), y solo si el personaje está a la vista. */}
         {!editMode && !activeRoom && !construyendo && <MarcadorCancha />}
         {!editMode && !activeRoom && !construyendo && !dialogoActivo && !enPaintball && <AsistenteCercaOverlay />}
         {!editMode && !activeRoom && !construyendo && <CarreraOverlay />}

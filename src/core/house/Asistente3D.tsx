@@ -23,6 +23,7 @@ import { Rostro } from './Rostro'
 import { Peinado } from './Peinado'
 import { GestoEmocion } from './GestoEmocion'
 import { ReaccionEmoji } from './ReaccionEmoji'
+import { NubeAsistente } from './NubeAsistente'
 import { useExpresionViva } from '../state/emocionesStore'
 import { anclasDe, muestraRostro, soportaPeinado } from './apariencia'
 import { dragChar } from './characterDrag'
@@ -35,7 +36,7 @@ import { dragChar } from './characterDrag'
  * - Siempre miran al jugador (cara +Z apuntando al player).
  * - No salen de los límites del mapa.
  * - El activo levanta la mano cuando el usuario manda un mensaje (`saludando`);
- *   su burbuja 2D (`AsistenteBurbuja`) se ancla encima del chat, no aquí.
+ *   lo que dice sale por su nube (`NubeAsistente`), anclada sobre su cabeza.
  * - Los demás asistentes con `enMapa` aparecen como compañeros que solo flotan.
  */
 
@@ -362,6 +363,7 @@ function AsistenteActivo({ asistente }: { asistente: Asistente }) {
             )}
           </GestoEmocion>
           <ReaccionEmoji asistenteId={asistente.id} altura={1.9} />
+          <NubeAsistente asistenteId={asistente.id} altura={2.5} />
         </group>
       </GrupoAnimado>
     </group>
@@ -477,6 +479,7 @@ function Companero({ asistente }: { asistente: Asistente }) {
             )}
           </GestoEmocion>
           <ReaccionEmoji asistenteId={asistente.id} altura={1.9} />
+          <NubeAsistente asistenteId={asistente.id} altura={2.5} />
         </group>
       </GrupoAnimado>
     </group>

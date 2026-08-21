@@ -14,7 +14,7 @@ import java.util.UUID;
 import com.macr120.mindhome.R;
 
 /**
- * Recibe los taps de las filas del widget «Hoy». No ejecuta negocio: encola la
+ * Recibe los taps de las filas del widget «Misiones». No ejecuta negocio: encola la
  * acción con estado destino (idempotente) y repinta la lista, que la mostrará
  * en optimista hasta que la app se abra, aplique la cola con la lógica real y
  * re-publique el snapshot.

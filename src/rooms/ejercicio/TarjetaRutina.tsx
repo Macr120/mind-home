@@ -5,6 +5,7 @@ import { HorarioActividad } from '../../core/ui/HorarioActividad'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { MiniaturaEjercicio } from './MiniaturaEjercicio'
 import { normalizarEjercicio } from './stats'
+import { nombreEjercicio, nombreRutina, descRutina } from './nombres'
 import { acento as estiloAcento } from '../_shared/acento'
 
 /**
@@ -55,10 +56,10 @@ export function TarjetaRutina({
     <div className="rounded-xl border border-white/10 bg-black/20 p-3">
       <div className="flex items-center gap-2">
         <div className="min-w-0 flex-1">
-          <p className="text-base font-bold">{rutina.nombre}</p>
+          <p className="text-base font-bold">{nombreRutina(t, rutina.nombre)}</p>
           {rutina.descripcion && (
             <p className="text-xs text-white/45">
-              {rutina.descripcion} · {rutina.duracionMin} min
+              {descRutina(t, rutina.nombre, rutina.descripcion)} · {rutina.duracionMin} min
             </p>
           )}
         </div>
@@ -94,7 +95,9 @@ export function TarjetaRutina({
 
       {rutina.ejercicios && rutina.ejercicios.length > 0 && (
         <>
-          <p className="mt-1.5 text-xs text-white/55">{rutina.ejercicios.join(', ')}</p>
+          <p className="mt-1.5 text-xs text-white/55">
+            {rutina.ejercicios.map((n) => nombreEjercicio(t, n)).join(', ')}
+          </p>
           <div className="mt-1.5 flex gap-1.5 overflow-x-auto pb-0.5">
             {rutina.ejercicios.map((nombreEj) => (
               <MiniaturaEjercicio
@@ -116,7 +119,7 @@ export function TarjetaRutina({
             actividad={{
               actividadId: actividadId(tipo, rutina.id),
               plantillaId: 'ejercicio',
-              nombre: rutina.nombre,
+              nombre: nombreRutina(t, rutina.nombre),
               emoji: '💪',
               horaSugerida: '07:00',
               duracionMin: rutina.duracionMin,

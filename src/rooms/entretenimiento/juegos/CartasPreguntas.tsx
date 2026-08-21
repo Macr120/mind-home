@@ -11,14 +11,18 @@ import {
   type GrupoPregunta,
   type Pregunta,
 } from './preguntas'
+import { useBancoPreguntas } from './preguntas.i18n'
 
 function MazoPreguntas({
   preguntas,
+  traduccion,
   grupos,
   gradiente,
   icono,
 }: {
   preguntas: Pregunta[]
+  /** El banco del idioma activo, por índice de pregunta; null = español. */
+  traduccion: string[] | null
   grupos: GrupoPregunta[]
   gradiente: string
   icono: string
@@ -101,7 +105,7 @@ function MazoPreguntas({
               )}
             </div>
             <p className="flex flex-1 items-center justify-center px-2 text-center text-xl font-bold leading-snug text-white drop-shadow-sm">
-              {pregunta.texto}
+              {traduccion?.[pregunta.i] ?? pregunta.texto}
             </p>
             <p className="text-center text-xs text-white/60">
               {t('entre.j.cartas.toca', 'Toca la carta para la siguiente')}
@@ -155,9 +159,11 @@ function MazoPreguntas({
 }
 
 export function CartasConocerse() {
+  const banco = useBancoPreguntas()
   return (
     <MazoPreguntas
       preguntas={PREGUNTAS_CONOCERSE}
+      traduccion={banco?.conocerse ?? null}
       grupos={GRUPOS_CONOCERSE}
       gradiente="linear-gradient(135deg, #7c3aed, #db2777)"
       icono="💬"
@@ -166,9 +172,11 @@ export function CartasConocerse() {
 }
 
 export function CartasDebates() {
+  const banco = useBancoPreguntas()
   return (
     <MazoPreguntas
       preguntas={PREGUNTAS_DEBATES}
+      traduccion={banco?.debates ?? null}
       grupos={GRUPOS_DEBATES}
       gradiente="linear-gradient(135deg, #ea580c, #b91c1c)"
       icono="🔥"

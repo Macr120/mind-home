@@ -20,24 +20,46 @@ import {
 } from '../chat/ia'
 import { proveedorImagen, setProvImagen, type ProveedorImagenId } from '../imagenIA'
 import { useAsistentes } from '../state/asistentesStore'
+import { useAjustes } from '../state/ajustesStore'
 import { getTransporte, setTransporte } from '../cuenta/api'
+import {
+  provCuentaEfectivo,
+  setProvCerebroCuenta,
+  setProvImagenCuenta,
+  setProvVozCuenta,
+  type ProvCerebroCuenta,
+  type ProvMediaCuenta,
+} from '../cuenta/provCuenta'
 import { hayBackend } from '../cuenta/supabase'
 import { haySesionProbable } from '../cuenta/sesionStore'
 import { GastoByok } from './GastoByok'
 import { useT } from '../i18n/useT'
-import { Icono } from './iconos/Icono'
+import { LogoIA } from './iconos/logosIA'
 
 /**
  * Panel único de configuración de la IA, compartido por el botón del chat y por
  * Configuraciones › IA. Dos transportes —Créditos (vía cuenta) y BYOK (claves
- * propias)— y, dentro de BYOK, una TABLA proveedor × modalidad: la columna
- * Cerebro elige quién piensa el texto, y Voz/Imagen quién sirve cada media
- * (solo OpenAI y Gemini pueden). El estado vive en localStorage (getIaKey y
- * compañía); aquí solo hay espejos de edición. Dos paneles montados a la vez no
- * se sincronizan en vivo (limitación aceptada, igual que antes de extraerlo).
+ * propias)— y, en LOS DOS, una TABLA proveedor × modalidad: la columna Cerebro
+ * elige quién piensa el texto, y Voz/Imagen quién sirve cada media (solo OpenAI
+ * y Gemini pueden). El estado vive en localStorage (getIaKey y compañía); aquí
+ * solo hay espejos de edición. Dos paneles montados a la vez no se sincronizan
+ * en vivo (limitación aceptada, igual que antes de extraerlo).
+ *
+ * La diferencia entre las dos tablas es de QUIÉN pone la clave, no de qué se
+ * puede elegir: en Créditos las claves son del servidor, así que no hay campos
+ * que llenar y la preferencia (`cuenta/provCuenta.ts`) viaja en cada petición
+ * para que el proxy ponga delante al proveedor elegido. En Créditos no aparece
+ * Ollama: corre en la máquina del usuario, no en el servidor.
  */
 
 const esMedia = (id: ProveedorId): id is ProveedorMediaId => id === 'chatgpt' || id === 'gemini'
+
+/** Id del panel → ids del proxy, por modalidad. Sin entrada = no lo sirve la cuenta. */
+const PROV_PROXY: Partial<Record<ProveedorId, { cerebro?: ProvCerebroCuenta; media?: ProvMediaCuenta }>> = {
+  claude: { cerebro: 'anthropic' },
+  gemini: { cerebro: 'gemini', media: 'gemini' },
+  chatgpt: { cerebro: 'openai', media: 'openai' },
+}
 
 export function PanelIA({ variante, onCambio }: { variante: 'chat' | 'editor'; onCambio?: () => void }) {
   const t = useT()
@@ -46,6 +68,7 @@ export function PanelIA({ variante, onCambio }: { variante: 'chat' | 'editor'; o
   const [modeloDraft, setModeloDraft] = useState(() => getModelo(getProveedor()))
   const [modelosOllama, setModelosOllama] = useState<string[]>([])
   const [baseDraft, setBaseDraft] = useState(() => localStorage.getItem('mh.iaBase.local') ?? '')
+  const calidadImagen = useAjustes((s) => s.calidadImagen)
 
   const refrescar = () => {
     setTick((n) => n + 1)
@@ -61,6 +84,9 @@ export function PanelIA({ variante, onCambio }: { variante: 'chat' | 'editor'; o
   const enCreditos = hayCuenta && getTransporte() === 'creditos'
   const provVoz = proveedorVoz()
   const provImagen = proveedorImagen()
+  // Sin preferencia, la imagen de la vía cuenta la sirve quien mande la calidad
+  // elegida: suscribirse a ella mueve el ● solo cuando se cambia en Ajustes.
+  const provCuenta = provCuentaEfectivo(calidadImagen)
 
   /**
    * Pregunta al modelo local si genera imágenes (capacidad `image`) y lo apunta:
@@ -107,11 +133,30 @@ export function PanelIA({ variante, onCambio }: { variante: 'chat' | 'editor'; o
    * fijara el proveedor, nada sonaría distinto y habría que ir a buscar el
    * interruptor a la ficha de cada asistente.
    */
-  const elegirVoz = (id: ProveedorMediaId) => {
-    setProvVoz(id)
+  const encenderVozAsistentes = () => {
     const { lista, guardar } = useAsistentes.getState()
     for (const a of lista) if (!a.vozIA) void guardar({ ...a, vozIA: true })
   }
+
+  const elegirVoz = (id: ProveedorMediaId) => {
+    setProvVoz(id)
+    encenderVozAsistentes()
+  }
+
+  /** Cabecera común de las dos tablas (créditos y BYOK). */
+  const cabecera = (
+    <thead>
+      <tr className="text-[10px] font-bold uppercase tracking-wider text-white/35">
+        <th className="pb-1 text-start font-bold">{t('ia.panel.proveedor', 'Proveedor')}</th>
+        <th className="pb-1 text-center font-bold">{t('ia.panel.cerebro', 'Cerebro')}</th>
+        <th className="pb-1 text-center font-bold">{t('ia.panel.voz', 'Voz')}</th>
+        <th className="pb-1 text-center font-bold">{t('ia.panel.imagen', 'Imagen')}</th>
+      </tr>
+    </thead>
+  )
+
+  /** Celda de una modalidad que este proveedor no sirve. */
+  const sinModalidad = <span className="text-[11px] text-white/20">—</span>
 
   /** Radio de una celda de la tabla: ● elegido, ○ elegible, atenuado sin clave. */
   const radio = (activo: boolean, deshabilitado: boolean, alElegir: () => void, titulo?: string) => (
@@ -164,24 +209,66 @@ export function PanelIA({ variante, onCambio }: { variante: 'chat' | 'editor'; o
       </div>
 
       {enCreditos ? (
-        <p className="text-[10px] leading-relaxed text-white/35">
-          {t(
-            'ia.transporte.creditosDesc',
-            'Sale por tu cuenta: el servidor pone las claves y cada petición gasta créditos del plan.',
-          )}
-        </p>
+        <>
+          {/* La misma matriz, con las claves del servidor: aquí solo se elige
+              a quién prefieres para cada cosa. */}
+          <table className="w-full">
+            {cabecera}
+            <tbody>
+              {PROVEEDORES.filter((p) => PROV_PROXY[p.id]).map((p) => {
+                const { cerebro, media } = PROV_PROXY[p.id] ?? {}
+                return (
+                  <tr key={p.id} className="border-t border-white/5">
+                    <td className="py-0.5">
+                      <span className="flex w-full min-w-0 items-center gap-1.5 px-1.5 py-1 text-xs font-semibold text-white/60">
+                        <LogoIA prov={p.id} />
+                        <span className="min-w-0 flex-1 truncate text-start">{p.nombre}</span>
+                      </span>
+                    </td>
+                    <td className="py-0.5 text-center">
+                      {cerebro
+                        ? radio(provCuenta.cerebro === cerebro, false, () => setProvCerebroCuenta(cerebro))
+                        : sinModalidad}
+                    </td>
+                    <td className="py-0.5 text-center">
+                      {media
+                        ? radio(
+                            provCuenta.voz === media,
+                            false,
+                            () => {
+                              setProvVozCuenta(media)
+                              encenderVozAsistentes()
+                            },
+                            t('ia.panel.vozAyuda', 'Enciende la voz con IA de los asistentes con este proveedor'),
+                          )
+                        : sinModalidad}
+                    </td>
+                    <td className="py-0.5 text-center">
+                      {media
+                        ? radio(provCuenta.imagen === media, false, () => setProvImagenCuenta(media))
+                        : sinModalidad}
+                    </td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+
+          <p className="text-[10px] leading-relaxed text-white/35">
+            {t(
+              'ia.transporte.creditosDesc',
+              'Sale por tu cuenta: el servidor pone las claves y cada petición gasta créditos del plan.',
+            )}
+          </p>
+          <p className="text-[10px] leading-relaxed text-white/35">
+            {t('creditos.aprox', 'Los precios en créditos son aproximados: el cobro sigue el consumo real.')}
+          </p>
+        </>
       ) : (
         <>
           {/* La matriz proveedor × modalidad. */}
           <table className="w-full">
-            <thead>
-              <tr className="text-[10px] font-bold uppercase tracking-wider text-white/35">
-                <th className="pb-1 text-start font-bold">{t('ia.panel.proveedor', 'Proveedor')}</th>
-                <th className="pb-1 text-center font-bold">{t('ia.panel.cerebro', 'Cerebro')}</th>
-                <th className="pb-1 text-center font-bold">{t('ia.panel.voz', 'Voz')}</th>
-                <th className="pb-1 text-center font-bold">{t('ia.panel.imagen', 'Imagen')}</th>
-              </tr>
-            </thead>
+            {cabecera}
             <tbody>
               {PROVEEDORES.map((p) => {
                 const conClave = getIaKey(p.id).length > 0
@@ -196,7 +283,7 @@ export function PanelIA({ variante, onCambio }: { variante: 'chat' | 'editor'; o
                           p.id === proveedor.id ? 'text-white/90' : 'text-white/60'
                         }`}
                       >
-                        <Icono emoji={p.emoji} />
+                        <LogoIA prov={p.id} />
                         <span className="min-w-0 flex-1 truncate text-start">{p.nombre}</span>
                         {listo && <span className="shrink-0 text-[9px] text-accent">●</span>}
                       </button>
@@ -210,7 +297,7 @@ export function PanelIA({ variante, onCambio }: { variante: 'chat' | 'editor'; o
                             () => elegirVoz(p.id as ProveedorMediaId),
                             t('ia.panel.vozAyuda', 'Enciende la voz con IA de los asistentes con este proveedor'),
                           )
-                        : <span className="text-[11px] text-white/20">—</span>}
+                        : sinModalidad}
                     </td>
                     <td className="py-0.5 text-center">
                       {/* Ollama entra aquí solo si su modelo declara la capacidad `image`. */}
@@ -220,7 +307,7 @@ export function PanelIA({ variante, onCambio }: { variante: 'chat' | 'editor'; o
                             p.id === 'local' ? false : !conClave,
                             () => setProvImagen(p.id as ProveedorImagenId),
                           )
-                        : <span className="text-[11px] text-white/20">—</span>}
+                        : sinModalidad}
                     </td>
                   </tr>
                 )

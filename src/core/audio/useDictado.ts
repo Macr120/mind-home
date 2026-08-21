@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useAjustes } from '../state/ajustesStore'
 import { datosIdioma } from '../i18n/idiomas'
 import { useT } from '../i18n/useT'
@@ -48,9 +48,11 @@ export function useDictado({
   const descartar = useRef(false)
   // Últimos callbacks: evita closures viejas dentro de onstop/onresult.
   const onTextoRef = useRef(onTexto)
-  onTextoRef.current = onTexto
   const onErrorRef = useRef(onError)
-  onErrorRef.current = onError
+  useEffect(() => {
+    onTextoRef.current = onTexto
+    onErrorRef.current = onError
+  })
 
   /**
    * Fallback de dictado (MediaRecorder + Whisper) para cuando no hay

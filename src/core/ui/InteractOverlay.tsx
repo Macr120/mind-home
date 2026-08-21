@@ -4,6 +4,7 @@ import { getCuarto } from '../state/cuartosStore'
 import { useHouse } from '../state/houseStore'
 import { useLayout } from '../state/layoutStore'
 import { useDiseño, useRoomVisual } from '../state/disenoStore'
+import { useNombreCuarto } from './roomDisplay'
 import { useInteractUi } from '../state/interactUiStore'
 import { usePendientesCasa } from '../state/pendientesStore'
 import { accionCuarto } from './roomInteract'
@@ -79,7 +80,10 @@ function Burbuja({
   roomIcon: string
   onEntrar: () => void
 }) {
-  const { color, nombre } = useRoomVisual(roomId, roomColor, roomNombre)
+  const { color } = useRoomVisual(roomId, roomColor, roomNombre)
+  // El nombre, traducido igual que en el menú lateral y la cabecera del cuarto.
+  const nombreCuarto = useNombreCuarto()
+  const nombre = nombreCuarto({ id: roomId, nombre: roomNombre })
   // Primera app del cuarto (como en el menú lateral): suyas son las misiones que
   // pinta el globo rojo, el mismo de la tarjeta en la pantalla de inicio.
   const appId = useDiseño((s) => s.objetos.find((o) => o.roomId === roomId && o.plantillaId)?.plantillaId)

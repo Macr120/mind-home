@@ -6,34 +6,26 @@ import { Icono } from './iconos/Icono'
 import { BotonVoz } from './BotonVoz'
 
 /**
- * Burbuja de diálogo del asistente. La coloca `PilaPrompts` (en `App.tsx`),
- * SIEMPRE encima del chat y de los prompts contextuales — nunca anclada a su
- * posición 3D, para no quedar tapada por el HUD ni saltar por el mapa según
- * dónde esté parado el personaje. Al tocarla se abre la conversación completa
- * con ese asistente (por si el mensaje desaparece antes de alcanzar a leerlo).
+ * Nube de diálogo del asistente. La coloca `NubeAsistente` (en la escena 3D),
+ * anclada sobre la cabeza del personaje que habla: la nube SALE de él, no de un
+ * punto fijo de la pantalla. Al tocarla se abre la conversación completa con ese
+ * asistente (por si el mensaje desaparece antes de alcanzar a leerlo).
  *
- * Se calla si el panel de conversación (siempre visible sobre el chat,
- * `ChatConversacion`) ya está mostrando el hilo de quien habla: no hace falta
- * decir lo mismo dos veces en el mismo lugar de la pantalla.
+ * Solo pinta si el mensaje (o el "pensando…") es de `asistenteId`: cada
+ * asistente del mapa monta la suya y únicamente habla la del hablante.
  */
-export function AsistenteBurbuja() {
+export function AsistenteBurbuja({ asistenteId }: { asistenteId: string }) {
   const t = useT()
   const mensaje = useMascota((s) => s.mensaje)
-  const mensajePersistido = useMascota((s) => s.mensajePersistido)
   const mascotaId = useMascota((s) => s.mascota)
   const hablanteId = useMascota((s) => s.hablanteId)
-  const panelHiloId = useMascota((s) => s.panelHiloId)
   const abrirConversacion = useMascota((s) => s.abrirConversacion)
   const pensando = useMascota((s) => s.pensando)
   const lista = useAsistentes((s) => s.lista)
 
   if (!mensaje && !pensando) return null
-  const quienHabla = hablanteId ?? mascotaId
-  // El panel ya cuenta lo mismo: "escribiendo…" mientras piensa, el mensaje
-  // una vez llega (si quedó en el hilo). Las frases espontáneas (sin persistir,
-  // p. ej. el corazón) no viven en ningún hilo: su burbuja nunca se calla.
-  if (panelHiloId === quienHabla && (pensando || mensajePersistido)) return null
-  const m = lista.find((a) => a.id === quienHabla) ?? lista[0]
+  if ((hablanteId ?? mascotaId) !== asistenteId) return null
+  const m = lista.find((a) => a.id === asistenteId)
   if (!m) return null
   const texto = mensaje ? limpiarMarkdown(mensaje) : null
 

@@ -17,6 +17,8 @@ import { AutocompleteEjercicio } from './AutocompleteEjercicio'
 import { CheckFila } from './CheckFila'
 import { aGrupoCatalogo } from './catalogo'
 import { CrearRutinaFuerza } from './CrearRutinaFuerza'
+import { useFocoRegistro } from './focoRegistro'
+import { nombreEjercicio, nombreRutina } from './nombres'
 import { GraficaProgreso } from './GraficaProgreso'
 import { HeatmapMensual } from './HeatmapMensual'
 import { useImagenesPorClave } from './imagenIA'
@@ -94,15 +96,22 @@ export function FuerzaTab({
   periodo: Periodo
   setPeriodo: (p: Periodo) => void
 }) {
+  const t = useT()
+  // Vacío = «sin tocar»: el nombre por defecto se resuelve al pintar, así sigue al
+  // idioma (el diccionario llega perezoso, después del primer render).
+  const tituloDefecto = t('ejercicio.fuerza.tituloDefecto', 'Entrenamiento de fuerza')
+
   const [sub, setSub] = useState<SubFuerza>('catalogo')
   const [rutinasAbierto, setRutinasAbierto] = useState(true)
-  const [titulo, setTitulo] = useState('Entrenamiento de fuerza')
+  const [titulo, setTitulo] = useState('')
   const [duracion, setDuracion] = useState('45')
   const [nota, setNota] = useState('')
   const [rpe, setRpe] = useState('7')
   const [filas, setFilas] = useState<FilaEjercicio[]>([filaVacia(), filaVacia()])
   const [editandoId, setEditandoId] = useState<number | null>(null)
   const [ejercicioGrafica, setEjercicioGrafica] = useState('')
+
+  const { refRegistro, irAlRegistro } = useFocoRegistro()
 
   const rutinasLista = rutinasFuerzaRepo.useAll() ?? VACIO
   const gruposFuerza = gruposFuerzaRepo.useAll() ?? VACIO
@@ -197,6 +206,7 @@ export function FuerzaTab({
       setFilas(r.ejercicios.map(filaConHistorial))
     }
     if (sub !== 'rutinas') setSub('rutinas')
+    irAlRegistro()
   }
 
   const usarProgramada = (p: PlanDelDia) => {
@@ -208,7 +218,7 @@ export function FuerzaTab({
 
   const cancelarEdicion = () => {
     setEditandoId(null)
-    setTitulo('Entrenamiento de fuerza')
+    setTitulo('')
     setDuracion('45')
     setRpe('7')
     setNota('')
@@ -257,7 +267,7 @@ export function FuerzaTab({
     }))
     const vol = seriesData.reduce((a, s) => a + volumenSerie(s), 0)
     const datos = {
-      titulo: titulo.trim() || 'Fuerza',
+      titulo: titulo.trim() || tituloDefecto,
       duracionMin: parseInt(duracion, 10) || 45,
       nota: nota.trim() || undefined,
       rpe: parseInt(rpe, 10) || undefined,
@@ -277,8 +287,6 @@ export function FuerzaTab({
 
     cancelarEdicion()
   }
-
-  const t = useT()
 
   return (
     <div className="space-y-5">
@@ -305,7 +313,7 @@ export function FuerzaTab({
                   <Icono nombre="calendario" /> {t('ejercicio.plan.dia', 'Plan del día')}
                   {p.hora ? ` · ${p.hora}` : ''}:
                 </span>{' '}
-                {p.rutinaNombre} · {p.duracionMin} min
+                {nombreRutina(t, p.rutinaNombre)} · {p.duracionMin} min
               </p>
               <button
                 type="button"
@@ -359,29 +367,31 @@ export function FuerzaTab({
             )}
           </div>
 
-          <SesionForm
-            titulo={titulo}
-            setTitulo={setTitulo}
-            duracion={duracion}
-            setDuracion={setDuracion}
-            rpe={rpe}
-            setRpe={setRpe}
-            nota={nota}
-            setNota={setNota}
-            filas={filas}
-            actualizarFila={actualizarFila}
-            agregarFila={agregarFila}
-            filaConHistorial={filaConHistorial}
-            ultimaVez={ultimaVez}
-            recientes={recientes}
-            editandoId={editandoId}
-            cancelarEdicion={cancelarEdicion}
-            guardar={guardar}
-            todoHecho={todoHecho}
-            catalogoNombres={catalogoNombres}
-            imgPorClave={imgPorClave}
-            unidades={unidades}
-          />
+          <div ref={refRegistro}>
+            <SesionForm
+              titulo={titulo || tituloDefecto}
+              setTitulo={setTitulo}
+              duracion={duracion}
+              setDuracion={setDuracion}
+              rpe={rpe}
+              setRpe={setRpe}
+              nota={nota}
+              setNota={setNota}
+              filas={filas}
+              actualizarFila={actualizarFila}
+              agregarFila={agregarFila}
+              filaConHistorial={filaConHistorial}
+              ultimaVez={ultimaVez}
+              recientes={recientes}
+              editandoId={editandoId}
+              cancelarEdicion={cancelarEdicion}
+              guardar={guardar}
+              todoHecho={todoHecho}
+              catalogoNombres={catalogoNombres}
+              imgPorClave={imgPorClave}
+              unidades={unidades}
+            />
+          </div>
 
           <ListaSesiones
             fecha={fecha}
@@ -443,7 +453,7 @@ export function FuerzaTab({
                 >
                   {recientes.map((n) => (
                     <option key={n} value={n}>
-                      {n}
+                      {nombreEjercicio(t, n)}
                     </option>
                   ))}
                 </select>
@@ -482,7 +492,7 @@ export function FuerzaTab({
                   {records.slice(0, 6).map((r) => (
                     <li key={r.ejercicio} className="text-sm">
                       <div className="flex justify-between gap-2">
-                        <span className="truncate text-white/85">{r.ejercicio}</span>
+                        <span className="truncate text-white/85">{nombreEjercicio(t, r.ejercicio)}</span>
                         <span className="shrink-0 font-semibold text-orange-400">
                           {r.pesoKg > 0
                             ? `${fmtPeso(r.pesoKg, unidades)} × ${r.repeticiones}`
@@ -773,7 +783,7 @@ function ListaSesiones({
               <ul className="mt-1 text-xs text-white/55">
                 {series.map((x) => (
                   <li key={x.id}>
-                    {x.ejercicio}: {x.series}×{x.repeticiones} @ {fmtPeso(x.pesoKg, unidades)}
+                    {nombreEjercicio(t, x.ejercicio)}: {x.series}×{x.repeticiones} @ {fmtPeso(x.pesoKg, unidades)}
                   </li>
                 ))}
               </ul>

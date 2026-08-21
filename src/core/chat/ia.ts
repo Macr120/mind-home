@@ -23,7 +23,8 @@ import { opDeTexto } from '../cuenta/costos'
 import { useGastoByok, type CategoriaGastoByok } from '../cuenta/gastoByok'
 import { costoTexto } from '../cuenta/tarifasByok'
 import { useCuotaAgotada } from '../state/avisosPlanStore'
-import { tGlobal } from '../i18n/useT'
+import { idiomaActual, tGlobal } from '../i18n/useT'
+import { datosIdioma } from '../i18n/idiomas'
 import { systemModelo3D, type TipoModelo3D, type EstiloModelo3D } from './prompt3d'
 import type { GrupoAccion } from '../state/accionCuartoStore'
 
@@ -521,6 +522,26 @@ interface LlamadaTool {
   input: Record<string, unknown>
 }
 
+/**
+ * Regla de idioma de los system CONVERSACIONALES (chat de la casa y Chat AR).
+ *
+ * Va la PRIMERA y gritada porque compite con MUCHO español: estas
+ * instrucciones, la personalidad del asistente y las ~60 descripciones de
+ * tools están en español, y el modelo tiende a contestar en el idioma
+ * dominante del prompt. Decirlo de pasada a mitad de un párrafo —como estaba—
+ * no bastaba: se le escribía en inglés y contestaba en español.
+ *
+ * Manda el idioma del MENSAJE, no el de la interfaz: quien escribe en inglés
+ * con la app en español quiere respuesta en inglés. El idioma de la app es
+ * solo el desempate para cuando el mensaje no permite saberlo («ok», un emoji,
+ * una cifra). Los textos GENERADOS por otras apps (recetas, resúmenes, planes)
+ * siguen la regla contraria a propósito: van en el idioma de la interfaz,
+ * porque se guardan y se leen fuera del chat.
+ */
+function reglaIdioma(): string {
+  return `IDIOMA — ESTA REGLA MANDA SOBRE TODAS LAS DEMÁS: responde SIEMPRE en el mismo idioma en el que te escribe el usuario en su ÚLTIMO mensaje, aunque estas instrucciones, tu personalidad y los nombres de los cuartos estén en español. Si cambia de idioma a mitad de la conversación, cambia tú en ese mismo turno. Solo si su mensaje no permite saber el idioma (un «ok», un emoji, una cifra), escribe en ${datosIdioma(idiomaActual()).nombreIA}.`
+}
+
 /** Identidad del personaje (personalidad + historia), compartida por los system del chat y del Chat AR. */
 function lineasPersonaje(mascota: Asistente): string[] {
   return [
@@ -546,6 +567,7 @@ async function construirSystem(mascotaId: string, adjunto: 'imagen' | 'pdf' | nu
   // módulo diferido (para entonces `interpretarIA` ya lo está descargando).
   const descCuartos = conEditor ? (await cargarEditor()).descripcionCuartos() : ''
   return [
+    reglaIdioma(),
     `Eres ${mascota.nombre} ${mascota.emoji}, el asistente-arquitecto de Mind Planner Home: una casa virtual donde cada cuarto registra una parte de la vida del usuario.`,
     ...lineasPersonaje(mascota),
     mascota.cuartos.length
@@ -582,6 +604,9 @@ async function construirSystem(mascotaId: string, adjunto: 'imagen' | 'pdf' | nu
       ? 'El mensaje incluye un documento PDF: léelo, resume lo esencial y registra los datos que correspondan (ej. una factura → registra el gasto; un plan de entrenamiento → sus pasos).'
       : '',
     ...(await lineasContexto()),
+    // Recordatorio de cierre: el principio y el final del system son lo que
+    // más pesa, y este lleva ~10k tokens de español en medio.
+    'Recuerda: tu respuesta va en el idioma del último mensaje del usuario.',
   ]
     .filter(Boolean)
     .join('\n\n')
@@ -922,6 +947,7 @@ export async function conversarConAsistente(
 ): Promise<{ respuesta: string; emocion: EmocionId | null }> {
   const mascota = getAsistente(asistenteId)
   const system = [
+    reglaIdioma(),
     `Eres ${mascota.nombre} ${mascota.emoji}, un asistente de Mind Planner Home: una casa virtual donde cada cuarto registra una parte de la vida del usuario.`,
     ...lineasPersonaje(mascota),
     'Estás en modo cámara AR, cara a cara con el usuario a través de su cámara. Responde en 1–3 frases naturales, pensadas para decirse en voz alta, en el idioma del usuario. Si te pide registrar datos o editar la casa, sugiérele amablemente hacerlo desde el chat de la casa.',

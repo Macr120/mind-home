@@ -1086,7 +1086,7 @@ export function ManualComandos({
                                     ))}
                                     {ej.creditos != null && (
                                       <span className="ms-1.5 inline-block align-middle">
-                                        <Creditos n={ej.creditos} aprox />
+                                        <Creditos n={ej.creditos} />
                                       </span>
                                     )}
                                   </button>

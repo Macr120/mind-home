@@ -40,30 +40,33 @@ const FX_MIN = 0.2
 const FX_MAX = 2
 const FX_DEFAULT = 1
 
-const nombreRecurso = (id: number) =>
-  RECURSOS.find((r) => r.id === id)?.nombre ?? `Recurso ${id}`
+const nombreRecurso = (id: number, t: TFunc) => {
+  const r = RECURSOS.find((x) => x.id === id)
+  return r ? t(`recurso.${id}`, r.nombre) : t('objetos.nombreRecurso', 'Recurso {id}', { id })
+}
 
 /** Nombre legible de un objeto colocado. */
 function nombreObjeto(o: ObjetoCuarto, t: TFunc): string {
   if (o.nombre) return o.nombre
   if (o.tipo === TIPO_PIEZAS) return t('objetos.nombrePiezas', 'Objeto de piezas')
-  if (o.tipo === TIPO_GLB) return 'Modelo subido'
-  if (o.tipo === TIPO_CUADRO_FOTO) return 'Cuadro con foto'
-  if (o.tipo === TIPO_ESPEJO) return 'Espejo'
-  if (o.tipo === TIPO_FUENTE) return 'Fuente clásica'
-  if (o.tipo === TIPO_ESTANQUE) return 'Estanque con chorro'
-  if (o.tipo === TIPO_CASCADA) return 'Cascada de pared'
-  if (o.tipo === TIPO_RESBALADILLA) return 'Resbaladilla'
-  if (o.tipo === TIPO_PASAMANOS) return 'Pasamanos'
-  if (o.tipo === TIPO_CARRUSEL) return 'Carrusel'
-  if (o.tipo === TIPO_COLUMPIO) return 'Columpio'
-  if (o.tipo === TIPO_ESPECTACULAR) return 'Espectacular de carretera'
-  if (o.tipo === TIPO_LETRERO_VEGAS) return 'Letrero Las Vegas'
-  if (o.tipo === TIPO_LETRERO_NEON) return 'Letrero de neón'
+  if (o.tipo === TIPO_GLB) return t('objetos.nombreGlb', 'Modelo subido')
+  if (o.tipo === TIPO_CUADRO_FOTO) return t('recursoExtra.cuadro-foto', 'Cuadro con foto')
+  if (o.tipo === TIPO_ESPEJO) return t('recursoExtra.espejo', 'Espejo')
+  if (o.tipo === TIPO_FUENTE) return t('recursoExtra.fuente', 'Fuente clásica')
+  if (o.tipo === TIPO_ESTANQUE) return t('recursoExtra.estanque', 'Estanque con chorro')
+  if (o.tipo === TIPO_CASCADA) return t('recursoExtra.cascada-pared', 'Cascada de pared')
+  if (o.tipo === TIPO_RESBALADILLA) return t('recursoExtra.resbaladilla', 'Resbaladilla')
+  if (o.tipo === TIPO_PASAMANOS) return t('recursoExtra.pasamanos', 'Pasamanos')
+  if (o.tipo === TIPO_CARRUSEL) return t('recursoExtra.carrusel', 'Carrusel')
+  if (o.tipo === TIPO_COLUMPIO) return t('recursoExtra.columpio', 'Columpio')
+  if (o.tipo === TIPO_ESPECTACULAR) return t('recursoExtra.espectacular', 'Espectacular de carretera')
+  if (o.tipo === TIPO_LETRERO_VEGAS) return t('recursoExtra.letrero-vegas', 'Letrero Las Vegas')
+  if (o.tipo === TIPO_LETRERO_NEON) return t('recursoExtra.letrero-neon', 'Letrero de neón')
   if (o.tipo.startsWith('recurso:')) {
-    return nombreRecurso(Number(o.tipo.slice('recurso:'.length)))
+    return nombreRecurso(Number(o.tipo.slice('recurso:'.length)), t)
   }
-  return CATALOGO.find((i) => i.id === o.tipo)?.nombre ?? 'Objeto'
+  const item = CATALOGO.find((i) => i.id === o.tipo)
+  return item ? t(`objeto.${item.id}`, item.nombre) : t('objetos.nombreGenerico', 'Objeto')
 }
 
 /** Una ubicación con objetos (un cuarto o el mapa) y sus objetos colocados. */

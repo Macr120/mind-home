@@ -10,6 +10,7 @@ import { usePlantillasCustom } from '../state/plantillasCustomStore'
 import { useGruposPlantilla, nombreCarpeta } from '../state/gruposPlantillaStore'
 import { useObjetosPlantilla } from '../state/objetosPlantillaStore'
 import { asistenteDePlantilla } from '../gamificacion/asistentesPlantilla'
+import { useAppsConDatos } from '../gamificacion/actividad'
 import { RECURSOS } from '../house/recursos'
 import { SIEMBRA, tipoYColor } from '../house/modelosRecursos'
 import { META_ESPECIAL_PLANTILLA } from '../house/especialesPlantillaMeta'
@@ -61,6 +62,14 @@ export function PlantillasCatalogo() {
 
   const asignadas = new Set(idsAsignadas)
   const idsCustom = new Set(customs.map((c) => c.id))
+
+  // Apps sin cuarto que NO están vacías: borrar un cuarto no borra los datos de
+  // su app, así que aquí siguen esperando con toda su información.
+  const conDatos = useAppsConDatos(
+    plantillasCuarto()
+      .map((p) => p.id)
+      .filter((id) => !asignadas.has(id)),
+  )
 
   // Reconciliación: cualquier plantilla (sistema o custom) sin carpeta cae en la primera.
   useEffect(() => {
@@ -160,10 +169,22 @@ export function PlantillasCatalogo() {
           <span className="min-w-0 flex-1 truncate text-sm font-semibold text-white/90">
             {t(`room.${p.id}.nombre`, p.nombre).split(' · ')[0]}
           </span>
-          {enUso && (
+          {enUso ? (
             <span className="shrink-0 rounded-full bg-white/10 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-white/50">
               {t('plantillaCustom.enUsoTag', 'en uso')}
             </span>
+          ) : (
+            conDatos.has(p.id) && (
+              <span
+                title={t(
+                  'plantillas.conDatosAyuda',
+                  'Esta app guarda información tuya aunque no viva en ningún cuarto. Toca su icono para abrirla, o asígnala a un cuarto.',
+                )}
+                className="shrink-0 rounded-full bg-white/10 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-white/50"
+              >
+                {t('plantillas.conDatos', 'con datos')}
+              </span>
+            )
           )}
           <button
             type="button"

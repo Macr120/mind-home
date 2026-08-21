@@ -878,7 +878,7 @@ function CarpetaCasa({ tema }: { tema: Tema | null }) {
             {s.piezas.map((p) => (
               <FilaPieza
                 key={p.id}
-                nombre={t(`inv.casa.pieza.${s.id}.${p.id}`, p.nombre)}
+                nombre={t(p.clave ?? `inv.casa.pieza.${s.id}.${p.id}`, p.nombre)}
                 miniatura={
                   <>
                     {/* Miniatura 3D de la pieza real, como los muebles. El icono del

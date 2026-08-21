@@ -84,7 +84,7 @@ export function MisTemas() {
                   type="button"
                   onClick={() => void aplicarTemaPropio(tp.id!)}
                   className="flex w-full items-center gap-2 px-2 py-1.5 text-start transition hover:bg-white/5"
-                  title={base?.nombre}
+                  title={base ? t(`tema.${base.id}`, base.nombre) : undefined}
                 >
                   <span className="text-base"><Icono emoji={base?.icon ?? '🎨'} /></span>
                   <span className="min-w-0 flex-1 truncate text-[11px] font-medium text-white/80">

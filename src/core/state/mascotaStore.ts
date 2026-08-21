@@ -9,8 +9,8 @@ const MASCOTA_ROW = '__mascota__'
  * Mascota/asistente del arquitecto.
  * - `mascota` se persiste en una fila sentinela de disenoRooms (sin migración).
  * - El resto es estado EFÍMERO del personaje en el mundo 3D: qué dice ahora y
- *   si está saludando (levanta la mano). Su burbuja (`AsistenteBurbuja`) se
- *   ancla siempre encima del chat, no a su posición 3D.
+ *   si está saludando (levanta la mano). Su nube (`NubeAsistente`) sale de su
+ *   cabeza en la escena 3D, y solo mientras el personaje esté a la vista.
  */
 interface MascotaState {
   /** Id del asistente activo (integrado o 'custom-<n>'). */
@@ -20,8 +20,8 @@ interface MascotaState {
   mensaje: string | null
   /**
    * false en las frases espontáneas (`persistir:false`: corazón, saludo de
-   * diálogo…): esas NUNCA quedan en el hilo, así que su burbuja flotante no
-   * se calla aunque el panel esté a la vista (no hay dónde más leerlas).
+   * diálogo…): esas NUNCA quedan en el hilo: la nube es el único sitio donde
+   * se leen.
    */
   mensajePersistido: boolean
   /** Quién dice el mensaje actual (null = el activo). Permite hablar a los compañeros. */
@@ -67,14 +67,6 @@ interface MascotaState {
    */
   hiloOculto: boolean
   setHiloOculto: (v: boolean) => void
-  /**
-   * Id del hilo que el panel persistente (`ChatConversacion`, siempre encima
-   * del chat) tiene a la vista ahora mismo; null si el panel no se ve (chat
-   * plegado, u otro panel del chat abierto). Lo publica `ChatBox` en cada
-   * cambio; lo lee `AsistenteBurbuja` para no duplicar el mismo mensaje.
-   */
-  panelHiloId: string | null
-  setPanelHiloId: (id: string | null) => void
 }
 
 // Timeouts del diálogo (módulo, no estado).
@@ -89,14 +81,12 @@ export const useMascota = create<MascotaState>((set, get) => ({
   saludando: false,
   destino: null,
   conversacion: null,
-  panelHiloId: null,
   hiloOculto: true,
   irA: (x, z) => set({ destino: { x, z } }),
   llegoADestino: () => set({ destino: null }),
   abrirConversacion: (id) => set({ conversacion: id }),
   cerrarConversacion: () => set({ conversacion: null }),
   setHiloOculto: (hiloOculto) => set({ hiloOculto }),
-  setPanelHiloId: (panelHiloId) => set((s) => (s.panelHiloId === panelHiloId ? s : { panelHiloId })),
   setMascota: async (id) => {
     set({ mascota: id })
     const existing = await db.disenoRooms.where('roomId').equals(MASCOTA_ROW).first()

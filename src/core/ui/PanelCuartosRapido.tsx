@@ -6,6 +6,8 @@ import { planesMetaRepo, rutinasRepo } from '../data/repository'
 import { useHouse } from '../state/houseStore'
 import { useDiseño } from '../state/disenoStore'
 import { useCuartos } from '../state/cuartosStore'
+import { useLayout } from '../state/layoutStore'
+import { useAsignar } from '../state/asignarStore'
 import { useAjustes } from '../state/ajustesStore'
 import { objetosDe } from '../state/objetosPlantillaStore'
 import { MiniaturaCuarto } from '../house/Miniatura'
@@ -175,8 +177,8 @@ function CifrasApp({
  * quedan misiones para hoy, un contador rojo en la esquina, como las notificaciones
  * de un teléfono.
  *
- * Solo salen los cuartos que YA tienen app: un cuarto vacío no es una app a la que
- * entrar. Administrarlos (crear, borrar, asignar) sigue siendo cosa del menú lateral.
+ * También salen los cuartos vacíos, al final y con «+ Asignar»: tocarlos abre el
+ * catálogo de apps para darles una sin pasar por el menú lateral.
  *
  * Va por portal al body porque `fixed` NO es la pantalla cuando algún ancestro tiene
  * `backdrop-filter` (la pastilla del HUD lo lleva).
@@ -187,9 +189,11 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
   const progreso = useProgreso()
   const enfoques = progreso?.enfoques
   const openRoom = useHouse((s) => s.openRoom)
+  const abrirAsignar = useAsignar((s) => s.abrir)
   const cuartos = useCuartos((s) => s.cuartos)
   const reordenarPanel = useCuartos((s) => s.reordenarPanel)
   const roomColors = useDiseño((s) => s.roomColors)
+  const conAgua = useLayout((s) => s.conAgua)
   const nombreApp = useAjustes((s) => s.nombreApp)
   const nombreCuarto = useNombreCuarto()
   // Iconos vs. miniaturas 3D del cuarto amueblado (preferencia del dispositivo).
@@ -229,14 +233,22 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
     return () => window.removeEventListener('keydown', alTecla)
   }, [onCerrar, edicion, conDialogo])
 
-  const visibles = cuartos.filter((c) => appPorCuarto[c.id])
   // Base por categoría (como el menú lateral) y encima el puesto que el usuario
   // haya arrastrado; lo que nunca se movió se queda detrás en su sitio de siempre.
-  const lista = [...visibles]
+  // Los cuartos sin app se van al final: son un pendiente, no un sitio al que
+  // entrar. Ese desempate va DESPUÉS del puesto arrastrado (el sort es estable),
+  // así ninguno se cuela entre las apps; al recibir una, su `ordenPanel` lo
+  // recoloca solo.
+  //
+  // La alberca vacía no entra: es agua, no una app pendiente de asignar. Con app
+  // asignada sí sale, porque entonces hay algo a lo que entrar.
+  const lista = cuartos
+    .filter((c) => appPorCuarto[c.id] || !conAgua[c.id])
     .sort((a, b) => ORDEN.indexOf(a.categoria) - ORDEN.indexOf(b.categoria))
-    .map((c, i) => ({ c, k: c.ordenPanel ?? visibles.length + i }))
+    .map((c, i) => ({ c, k: c.ordenPanel ?? cuartos.length + i }))
     .sort((a, b) => a.k - b.k)
     .map((p) => p.c)
+    .sort((a, b) => Number(!appPorCuarto[a.id]) - Number(!appPorCuarto[b.id]))
 
   const arrastre = useArrastreFilas(
     lista,
@@ -268,7 +280,7 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
               <p className="truncate text-base font-black text-white/90">
                 <Icono nombre="casa" />{' '}
                 <span className="sm:hidden">{nombreApp || t('app.brandCorto', 'MPH')}</span>
-                <span className="hidden sm:inline">{nombreApp || t('app.brand', 'Mind Planner Home')}</span>
+                <span className="hidden sm:inline">{nombreApp || t('app.brand', 'Planificador Mental-Casa')}</span>
               </p>
               {/* `truncate`: en móvil el bloque es estrecho y sin esto la ayuda se
                   partía en tres líneas y estiraba la cabecera. */}
@@ -340,8 +352,8 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
           {lista.length === 0 ? (
             <p className="px-2 py-8 text-center text-xs leading-relaxed text-white/40">
               {t(
-                'nav.sinApps',
-                'Aquí aparecen los cuartos con app. Asigna una desde el menú de cuartos.',
+                'nav.rapido.sinCuartos',
+                'Aún no hay cuartos. Créalos desde el editor de mapa.',
               )}
             </p>
           ) : (
@@ -355,22 +367,31 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
               {lista.map((cuarto, i) => {
                 const color = roomColors[cuarto.id] ?? cuarto.color
                 const { titulo } = tituloSubtituloCuarto(cuarto, nombreCuarto(cuarto), t)
-                const appId = appPorCuarto[cuarto.id]
+                const appId: string | undefined = appPorCuarto[cuarto.id]
                 const props = arrastre.fila(cuarto)
-                const enfoque = enfoques?.find((e) => e.plantillaId === appId)
-                const porHacer = pendientes.get(appId)
+                const enfoque = appId ? enfoques?.find((e) => e.plantillaId === appId) : undefined
+                const porHacer = appId ? pendientes.get(appId) : undefined
                 return (
                   <li key={cuarto.id} {...props} className={`relative ${props.className}`}>
                     <button
                       type="button"
                       // En modo edición un toque ya no entra: se estaría entrando a la
                       // app justo cuando se quiere ordenarla.
+                      //
+                      // El cuarto vacío abre el catálogo de apps. Se cierra el panel a
+                      // propósito: el diálogo de asignar no va por portal y con el panel
+                      // encima (mismo z, y este se monta después en el body) no se vería.
                       onClick={() => {
                         if (edicion) return
-                        openRoom(cuarto.id)
+                        if (appId) openRoom(cuarto.id)
+                        else abrirAsignar(cuarto.id)
                         onCerrar()
                       }}
-                      title={t('nav.entrarCuarto', 'Entrar a {nombre}', { nombre: titulo })}
+                      title={
+                        appId
+                          ? t('nav.entrarCuarto', 'Entrar a {nombre}', { nombre: titulo })
+                          : t('nav.asignarApp', 'Asignar una app a este cuarto')
+                      }
                       className={`ui-brillo flex h-full w-full flex-col items-center gap-1 rounded-xl border px-1 py-2 text-center holgado:gap-1.5 holgado:px-1.5 holgado:py-3 ${
                         edicion ? 'ui-tiembla' : ''
                       }`}
@@ -408,12 +429,18 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
                         )}
                       </span>
                       <span className="w-full truncate text-[11px] font-semibold text-white/90 holgado:text-xs">{titulo}</span>
-                      <CifrasApp
-                        enfoque={enfoque}
-                        color={color}
-                        metas={metasCumplidasDe(metas, appId)}
-                        planes={appId === 'metas' ? aceptados : null}
-                      />
+                      {appId ? (
+                        <CifrasApp
+                          enfoque={enfoque}
+                          color={color}
+                          metas={metasCumplidasDe(metas, appId)}
+                          planes={appId === 'metas' ? aceptados : null}
+                        />
+                      ) : (
+                        <span className="w-full truncate text-[11px] font-bold" style={{ color }}>
+                          {t('nav.asignar', '+ Asignar')}
+                        </span>
+                      )}
                     </button>
 
                     {/* En modo edición el lápiz ocupa esa esquina. */}

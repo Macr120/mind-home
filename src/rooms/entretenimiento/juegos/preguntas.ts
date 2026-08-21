@@ -4,6 +4,8 @@
 export interface Pregunta {
   texto: string
   grupo: string
+  /** Índice dentro de su mazo: con él se resuelve la traducción de `preguntas.i18n.ts`. */
+  i: number
 }
 
 export interface GrupoPregunta {
@@ -133,7 +135,7 @@ export const PREGUNTAS_CONOCERSE: Pregunta[] = [
   ...ROMPEHIELOS.map((texto) => ({ texto, grupo: 'rompehielos' })),
   ...PERSONAL.map((texto) => ({ texto, grupo: 'personal' })),
   ...PROFUNDO.map((texto) => ({ texto, grupo: 'profundo' })),
-]
+].map((p, i) => ({ ...p, i }))
 
 // ───────────────────────── Debates (100) ─────────────────────────
 
@@ -266,4 +268,4 @@ export const PREGUNTAS_DEBATES: Pregunta[] = [
   ...TECNOLOGIA.map((texto) => ({ texto, grupo: 'tecnologia' })),
   ...CULTURA.map((texto) => ({ texto, grupo: 'cultura' })),
   ...FUTURO.map((texto) => ({ texto, grupo: 'futuro' })),
-]
+].map((p, i) => ({ ...p, i }))

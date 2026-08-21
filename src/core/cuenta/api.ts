@@ -15,6 +15,7 @@ import { fuePro, tieneAcceso } from '../edicion'
 import { obtenerSupabase, hayBackend } from './supabase'
 import { haySesionProbable, useSesion } from './sesionStore'
 import { useAvisoRenovar, useCuotaAgotada } from '../state/avisosPlanStore'
+import { getProvCerebroCuenta, getProvImagenCuenta, getProvVozCuenta } from './provCuenta'
 import type { OpIA } from './costos'
 import type { CalidadImagen } from './calidadImagen'
 
@@ -176,21 +177,35 @@ export async function iaChatCuenta(cuerpo: {
   /** Operación que se cobra. El servidor le impone su tope de `maxTokens`. */
   op?: OpIA
 }): Promise<RespuestaChatCuenta> {
-  const r = await llamarFuncion<RespuestaChatCuenta>('ia-chat', cuerpo)
+  // La preferencia de proveedor se pega aquí y no en los ~20 call-sites: es del
+  // TRANSPORTE, no de la llamada. El proxy la usa para reordenar su cadena.
+  const r = await llamarFuncion<RespuestaChatCuenta>('ia-chat', {
+    ...cuerpo,
+    prov: getProvCerebroCuenta() ?? undefined,
+  })
   refrescarMedidor(r.uso)
   return r
 }
 
 /** Dictado vía `ia-voz` (Whisper). Fallback cuando no hay `SpeechRecognition` nativo. */
 export async function iaVozCuenta(audioBase64: string, mime: string, idioma?: string): Promise<string> {
-  const r = await llamarFuncion<{ texto: string; uso: UsoCuenta }>('ia-voz', { audioBase64, mime, idioma })
+  const r = await llamarFuncion<{ texto: string; uso: UsoCuenta }>('ia-voz', {
+    audioBase64,
+    mime,
+    idioma,
+    prov: getProvVozCuenta() ?? undefined,
+  })
   refrescarMedidor(r.uso)
   return r.texto
 }
 
 /** Voz con IA vía `ia-tts` (OpenAI). Alternativa a `speechSynthesis` nativo. */
 export async function iaTtsCuenta(texto: string, voz?: string): Promise<{ base64: string; mime: string }> {
-  const r = await llamarFuncion<{ base64: string; mime: string; uso: UsoCuenta }>('ia-tts', { texto, voz })
+  const r = await llamarFuncion<{ base64: string; mime: string; uso: UsoCuenta }>('ia-tts', {
+    texto,
+    voz,
+    prov: getProvVozCuenta() ?? undefined,
+  })
   refrescarMedidor(r.uso)
   return { base64: r.base64, mime: r.mime }
 }
@@ -208,6 +223,7 @@ export async function iaImagenCuenta(
     imagen,
     aspecto,
     calidad,
+    prov: getProvImagenCuenta() ?? undefined,
   })
   refrescarMedidor(r.uso)
   return { base64: r.base64, mime: r.mime }

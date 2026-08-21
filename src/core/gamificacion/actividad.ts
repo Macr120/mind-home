@@ -157,6 +157,33 @@ export async function registrosDelDia(plantillaId: string, fecha: string): Promi
   return (await fuente()).filter((f) => f === fecha).length
 }
 
+/**
+ * ¿La app guarda información del usuario? Vuelve a apoyarse en `FUENTES`, que ya
+ * sabe qué tablas mira cada app y descuenta los ejemplos de fábrica; las
+ * plantillas personalizadas no están ahí, lo suyo son las filas de
+ * `itemsPlantilla`. Sirve para avisar de que una app sin cuarto no está vacía.
+ */
+export async function tieneDatos(plantillaId: string): Promise<boolean> {
+  const fuente = FUENTES[plantillaId]
+  if (fuente) return (await fuente()).length > 0
+  return (await db.itemsPlantilla.where('plantillaId').equals(plantillaId).count()) > 0
+}
+
+/**
+ * Cuáles de esas apps tienen información guardada (reactivo). Se le pasan solo
+ * las plantillas que se están pintando: cada `FUENTES[id]()` recorre las tablas
+ * de su app, así que preguntarlo por las 22 costaría como un `useProgreso`.
+ */
+export function useAppsConDatos(ids: string[]): Set<string> {
+  const clave = [...ids].sort().join(',')
+  const conDatos = useLiveQuery(async () => {
+    const lista: string[] = []
+    for (const id of clave ? clave.split(',') : []) if (await tieneDatos(id)) lista.push(id)
+    return lista
+  }, [clave])
+  return useMemo(() => new Set(conDatos ?? []), [conDatos])
+}
+
 /** Racha: días consecutivos con actividad terminando hoy (o ayer, si hoy aún no hay). */
 export function racha(fechas: Set<string>): number {
   let dia = 0

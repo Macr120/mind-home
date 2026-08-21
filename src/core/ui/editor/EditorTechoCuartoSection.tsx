@@ -385,7 +385,7 @@ export function EditorTechoCuartoSection({ room }: { room: Cuarto }) {
               key={techo.id}
               activo={tipoActual === techo.id}
               preview={<TechoMaterialSwatch modo="tipo" tipo={techo.id} colorCuarto={colorCuarto} />}
-              nombre={techo.nombre}
+              nombre={t(`techo.${techo.id}`, techo.nombre)}
               onClick={() => setRoomTechoTipo(room.id, techo.id)}
             />
           ))}
@@ -394,8 +394,8 @@ export function EditorTechoCuartoSection({ room }: { room: Cuarto }) {
               key={techo.id}
               activo={tipoActual === techo.id}
               preview={<TechoMaterialSwatch modo="tipo" tipo={techo.id} colorCuarto={colorCuarto} />}
-              nombre={techo.nombre}
-              subtitulo={techo.tema}
+              nombre={t(`techo.${techo.id}`, techo.nombre)}
+              subtitulo={techo.tema ? t(`tema.${techo.tema}`, techo.tema) : undefined}
               onClick={() => setRoomTechoTipo(room.id, techo.id)}
             />
           ))}

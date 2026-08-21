@@ -35,7 +35,7 @@ export function EliminarCuartoDialog() {
             <p className="text-[11px] text-white/45">
               {t(
                 'casa.confirmarEliminarCuarto',
-                '«{nombre}» tiene una app asignada. ¿Eliminar el cuarto? La plantilla volverá al catálogo.',
+                '«{nombre}» tiene una app asignada. Si eliminas el cuarto, la app y toda su información se conservan: la encontrarás en Plantillas, donde puedes abrirla o asignarla a otro cuarto.',
                 { nombre: pendiente.nombre },
               )}
             </p>
