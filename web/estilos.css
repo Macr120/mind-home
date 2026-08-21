@@ -507,6 +507,273 @@ section h2 {
   padding: 2px 10px;
 }
 
+/* ─── Cómo funciona: los tres pasos ───────────────────────────────────────── */
+.sub-seccion {
+  max-width: 580px;
+  margin: -4px auto 22px;
+  text-align: center;
+  font-size: 15px;
+  color: var(--tinta-2);
+}
+
+.pasos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+  counter-reset: paso;
+}
+
+.pasos li {
+  counter-increment: paso;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-tarjeta);
+  padding: 18px 16px 16px;
+  transition: background-color 0.18s var(--ease-fluida);
+}
+
+.pasos li:hover {
+  background: var(--tarjeta-fuerte);
+}
+
+/* El número lleva el color de la pieza del icono que le toca, mezclado con la
+   tinta para que aguante el contraste en claro y en oscuro. */
+.pasos li::before {
+  content: counter(paso, decimal-leading-zero);
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+  color: color-mix(in srgb, var(--marca-naranja) 50%, var(--ui-ink));
+}
+
+.pasos li:nth-child(2)::before {
+  color: color-mix(in srgb, var(--marca-rojo) 50%, var(--ui-ink));
+}
+
+.pasos li:nth-child(3)::before {
+  color: color-mix(in srgb, var(--marca-morado) 50%, var(--ui-ink));
+}
+
+.pasos h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+}
+
+.pasos p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--tinta-2);
+}
+
+/* ─── El recorrido: cada sección entra por un lado ────────────────────────── */
+/* La página deja de caer siempre hacia abajo: la primera sección llega desde la
+   derecha, la siguiente desde abajo, la siguiente desde la izquierda, y así.
+   Va con `animation-timeline: view()` —el scroll manda, sin JavaScript— y todo
+   cuelga de un @supports: donde no exista, la página se ve quieta y entera, que
+   es exactamente lo que debe pasar. El hero nunca se anima: ya está en pantalla
+   al cargar. */
+.recorrido {
+  /* Las secciones se desplazan de lado: `clip` impide que eso abra una barra
+     horizontal. No vale `hidden` aquí, que anularía el sticky de la barra. */
+  overflow-x: clip;
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .recorrido > section:not(.hero) {
+      animation: llegar-derecha linear both;
+      animation-timeline: view();
+      /* Sobre `cover` y no sobre `entry`: el recorrido avanza mientras la sección
+         cruza la pantalla, y se completa mucho antes de acabarse el scroll. Con
+         `entry`, la ÚLTIMA sección puede quedarse a medias —translúcida y
+         corrida— si la página ya no da más de sí. */
+      animation-range: cover 0% cover 30%;
+    }
+
+    .recorrido > section:nth-of-type(4n + 3) {
+      animation-name: llegar-abajo;
+    }
+
+    .recorrido > section:nth-of-type(4n + 4) {
+      animation-name: llegar-izquierda;
+    }
+
+    .recorrido > section:nth-of-type(4n + 5) {
+      animation-name: llegar-abajo;
+    }
+  }
+}
+
+@keyframes llegar-derecha {
+  from {
+    opacity: 0;
+    transform: translateX(64px);
+  }
+}
+
+@keyframes llegar-izquierda {
+  from {
+    opacity: 0;
+    transform: translateX(-64px);
+  }
+}
+
+@keyframes llegar-abajo {
+  from {
+    opacity: 0;
+    transform: translateY(48px);
+  }
+}
+
+/* ─── Cifras bajo el video ────────────────────────────────────────────────── */
+.cifras {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 26px;
+  font-size: 13px;
+  color: var(--tinta-3);
+}
+
+.cifras li {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.cifras b {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--ui-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── Huecos que rotan (la frase de la portada) ───────────────────────────── */
+/* Gana a `.hero p.sub` por especificidad a propósito: el `font-size: 0` se come
+   los saltos de línea del HTML, y así el espacio de alrededor del hueco lo pone
+   el CSS. En japonés, chino y coreano eso permite pegarlo a su partícula
+   («今日食べたもの を記録する» era el error). */
+.hero p.sub.con-huecos {
+  --fs-huecos: 17px;
+  font-size: 0;
+  max-width: 700px;
+}
+
+.con-huecos > * {
+  font-size: var(--fs-huecos, 1rem);
+}
+
+/* Vacío (los idiomas que no necesitan esa parte) no debe dejar un espacio. */
+.fijo:empty {
+  display: none;
+}
+
+/* Los cuatro ejemplos ocupan la MISMA celda: así la frase no salta de alto ni
+   se recompone al cambiar. El ancho lo marca el ejemplo más largo. */
+.rota {
+  display: inline-grid;
+  vertical-align: bottom;
+  margin-inline: 0.28em;
+  font-weight: 700;
+  color: var(--acento-vivo);
+}
+
+/* Las escrituras sin espacio entre palabras pegan el hueco a su partícula. */
+:lang(ja) .rota,
+:lang(zh) .rota,
+:lang(ko) .rota {
+  margin-inline: 0;
+}
+
+/* Si el idioma abre la frase con el hueco, nada de sangría suelta. */
+.fijo:empty + .rota {
+  margin-inline-start: 0;
+}
+
+/* Los tres huecos comparten ciclo y retardos: la terna cambia a la vez y
+   siempre cuadra (cocina → nutrición → recetas). */
+.rota > span {
+  grid-area: 1 / 1;
+  opacity: 0;
+  animation: rotar-ejemplo 14s infinite;
+}
+
+.rota > span:nth-child(2) {
+  animation-delay: 3.5s;
+}
+
+.rota > span:nth-child(3) {
+  animation-delay: 7s;
+}
+
+.rota > span:nth-child(4) {
+  animation-delay: 10.5s;
+}
+
+@keyframes rotar-ejemplo {
+  0% {
+    opacity: 0;
+    transform: translateY(0.35em);
+  }
+  3%,
+  22% {
+    opacity: 1;
+    transform: none;
+  }
+  25%,
+  100% {
+    opacity: 0;
+    transform: translateY(-0.35em);
+  }
+}
+
+/* Sin movimiento: se queda el primer ejemplo, fijo y legible. */
+@media (prefers-reduced-motion: reduce) {
+  .rota > span {
+    animation: none;
+  }
+  .rota > span:first-child {
+    opacity: 1;
+  }
+}
+
+/* ─── Manifiesto: por qué existe la casa ──────────────────────────────────── */
+.manifiesto {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 28px 24px;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-panel);
+  background: var(--tarjeta);
+  text-align: center;
+}
+
+.manifiesto h2 {
+  margin-bottom: 16px;
+}
+
+.manifiesto p {
+  margin: 0 0 12px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--tinta-2);
+}
+
+.manifiesto .remate {
+  margin-bottom: 0;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--acento-vivo);
+}
+
 /* ─── Precio ──────────────────────────────────────────────────────────────── */
 /* Solo dos planes: la demo y la compra. La IA vive en la franja de abajo. */
 .planes {
