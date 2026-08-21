@@ -71,19 +71,6 @@
             android:name=".widgets.WidgetAccionReceiver"
             android:exported="false" />
 
-        <!-- Cascarón vacío: no lee notificaciones. Solo existe porque
-             MediaSessionManager.getActiveSessions() exige un listener habilitado
-             para dejar ver qué canción suena (ver media/MediaSesionPlugin.java). -->
-        <service
-            android:name=".media.MphNotificationListener"
-            android:exported="false"
-            android:label="@string/app_name"
-            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
-            <intent-filter>
-                <action android:name="android.service.notification.NotificationListenerService" />
-            </intent-filter>
-        </service>
-
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"

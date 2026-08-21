@@ -1,5 +1,4 @@
 import { registerPlugin } from '@capacitor/core'
-import { esAppNativa } from '../plataforma'
 
 /**
  * Qué canción suena AHORA en el teléfono (Spotify, YouTube Music, el navegador…).
@@ -33,8 +32,16 @@ interface MediaSesionPlugin {
 
 const MediaSesion = registerPlugin<MediaSesionPlugin>('MediaSesion')
 
-/** ¿Se puede siquiera intentar? Solo en la app de Android. */
-export const hayMediaSesion = (): boolean => esAppNativa()
+/**
+ * ¿Se puede siquiera intentar? **Apagado desde el 21-ago-2026**: leer la sesión
+ * de reproducción exige `BIND_NOTIFICATION_LISTENER_SERVICE`, un permiso que
+ * Play revisa con lupa y que aquí solo servía para enseñar qué canción suena —
+ * demasiado riesgo de rechazo para el primer envío. El plugin Java se retiró con
+ * él; para revivirlo hay que restaurarlo de git, redeclarar el servicio en el
+ * manifiesto, volver a poner `esAppNativa()` aquí y justificar el permiso en la
+ * ficha de Play.
+ */
+export const hayMediaSesion = (): boolean => false
 
 export async function permisoMediaSesion(): Promise<boolean> {
   if (!hayMediaSesion()) return false
