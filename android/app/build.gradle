@@ -43,7 +43,10 @@ android {
             // con un signingConfig a medio rellenar.
             if (archivoClaves.exists()) signingConfig signingConfigs.release
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // `proguard-android.txt` desapareció en AGP 9 («no longer supported»);
+            // la variante -optimize existe desde AGP 3 y es la recomendada, así
+            // que vale para la 8.13 de hoy y para cuando se actualice.
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 }
