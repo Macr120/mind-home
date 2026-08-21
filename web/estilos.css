@@ -486,8 +486,26 @@ section h2 {
 }
 
 .tarjeta h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin: 0 0 6px;
   font-size: 15px;
+}
+
+/* Logo de la plataforma: monocromo, hereda el color del título. */
+.tarjeta h3 .logo-plat {
+  flex: none;
+  width: 1.25em;
+  height: 1.25em;
+  fill: currentColor;
+}
+
+/* El globo del navegador es de trazo (no hay marca que poner ahí). */
+.tarjeta h3 .logo-plat.trazo {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
 }
 
 .tarjeta p {
