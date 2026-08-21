@@ -1,0 +1,7 @@
+# Copia a `android/key.properties` (ignorado por git) con tus datos reales.
+# El keystore NO va en el repo: guárdalo fuera y con copia de seguridad — si se
+# pierde, Play no vuelve a aceptar una actualización de esta app.
+storeFile=C:/ruta/fuera/del/repo/mph-subida.jks
+storePassword=
+keyAlias=mph
+keyPassword=

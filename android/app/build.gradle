@@ -1,5 +1,16 @@
 apply plugin: 'com.android.application'
 
+// Firma de release. Las credenciales viven en `android/key.properties` y el
+// keystore FUERA del repo (ambos ignorados por git): quien clone el proyecto
+// compila igual, solo que su release sale sin firmar. Perder el keystore de
+// subida significa no poder volver a actualizar la app en Play NUNCA, así que su
+// copia de seguridad no es opcional.
+def archivoClaves = rootProject.file('key.properties')
+def clavesRelease = new Properties()
+if (archivoClaves.exists()) {
+    archivoClaves.withInputStream { clavesRelease.load(it) }
+}
+
 android {
     namespace = "com.macr120.mindhome"
     compileSdk = rootProject.ext.compileSdkVersion
@@ -16,8 +27,21 @@ android {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+    signingConfigs {
+        release {
+            if (archivoClaves.exists()) {
+                storeFile file(clavesRelease['storeFile'])
+                storePassword clavesRelease['storePassword']
+                keyAlias clavesRelease['keyAlias']
+                keyPassword clavesRelease['keyPassword']
+            }
+        }
+    }
     buildTypes {
         release {
+            // Sin `key.properties` no se asigna: Gradle fallaría al configurar
+            // con un signingConfig a medio rellenar.
+            if (archivoClaves.exists()) signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

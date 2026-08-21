@@ -50,4 +50,7 @@ android/captures
 android/.externalNativeBuild
 android/.cxx
 *.keystore
+*.jks
 !debug.keystore
+# Credenciales de firma de release (el keystore vive fuera del repo)
+android/key.properties
