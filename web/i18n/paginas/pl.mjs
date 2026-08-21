@@ -42,7 +42,7 @@ export const TEXTOS = {
   'hero.cta': 'Pobierz aplikację',
   'hero.demo': 'Wypróbuj darmowe demo',
   'hero.nota':
-    'Aplikację kupujesz raz w sklepie swojego urządzenia i działa bez internetu. SI i synchronizacja są opcjonalne — a jeśli z nich zrezygnujesz, nic nie tracisz.',
+    'Aplikacja jest darmowa i działa bez internetu; dom kupujesz raz — tutaj w sieci albo w aplikacji. SI i synchronizacja są opcjonalne — a jeśli z nich zrezygnujesz, nic nie tracisz.',
   'hero.video': 'Tutaj trafi twój film albo zrzuty ekranu domu',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -249,4 +249,20 @@ export const TEXTOS = {
   'term.contacto.h': 'Kontakt',
   'term.contacto.p':
     'Pytania i wsparcie: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+
+  // ── Soporte (web/soporte.html) ──
+  'pie.soporte': 'Wsparcie',
+  'sop.titulo': 'Wsparcie',
+  'sop.p': 'Jeśli coś nie działa albo masz pytanie, napisz do nas — odpowiemy najszybciej, jak się da.',
+  'sop.correo.h': 'Napisz do nas',
+  'sop.datos.h': 'Co zawrzeć w wiadomości',
+  'sop.datos.1': 'Twoje urządzenie i system (na przykład: Android 14, iPhone 15, Windows 11).',
+  'sop.datos.2': 'Co robiłeś(-aś), gdy pojawił się problem.',
+  'sop.datos.3': 'Zrzut ekranu, jeśli się da.',
+  'sop.faq.h': 'Częste pytania',
+  'sop.faq.p': 'Najczęstsze pytania — ceny, urządzenia, SI i twoje dane — mają odpowiedzi na stronie głównej.',
+  'sop.faq.enlace': 'Zobacz częste pytania',
+  'sop.cuenta.h': 'Usunięcie konta',
+  'sop.cuenta.p': 'Konto i wszystkie dane w chmurze możesz usunąć z aplikacji (Edytor → Ustawienia → Konto) albo ze swojego konta w sieci.',
+  'sop.cuenta.enlace': 'Przejdź do konta',
 }

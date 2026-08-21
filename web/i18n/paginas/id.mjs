@@ -42,7 +42,7 @@ export const TEXTOS = {
   'hero.cta': 'Unduh aplikasinya',
   'hero.demo': 'Coba demo gratis',
   'hero.nota':
-    'Aplikasinya dibeli sekali di toko perangkatmu dan jalan tanpa koneksi. AI dan sinkronisasi bersifat opsional — kalau kamu tinggalkan pun, tidak ada yang hilang.',
+    'Aplikasinya gratis dan jalan tanpa koneksi; rumahnya dibeli sekali — di web ini atau di dalam aplikasi. AI dan sinkronisasi bersifat opsional — kalau kamu tinggalkan pun, tidak ada yang hilang.',
   'hero.video': 'Di sini videomu atau tangkapan layar rumahnya',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -250,4 +250,20 @@ export const TEXTOS = {
   'term.contacto.h': 'Kontak',
   'term.contacto.p':
     'Pertanyaan dan dukungan: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+
+  // ── Soporte (web/soporte.html) ──
+  'pie.soporte': 'Dukungan',
+  'sop.titulo': 'Dukungan',
+  'sop.p': 'Kalau ada yang tidak jalan atau kamu punya pertanyaan, tulis ke kami — kami balas secepatnya.',
+  'sop.correo.h': 'Tulis ke kami',
+  'sop.datos.h': 'Apa yang perlu ada di pesanmu',
+  'sop.datos.1': 'Perangkat dan sistemmu (misalnya: Android 14, iPhone 15, Windows 11).',
+  'sop.datos.2': 'Apa yang sedang kamu lakukan saat masalahnya muncul.',
+  'sop.datos.3': 'Tangkapan layar, kalau bisa.',
+  'sop.faq.h': 'Pertanyaan umum',
+  'sop.faq.p': 'Pertanyaan yang paling umum — harga, perangkat, AI, dan datamu — sudah dijawab di halaman utama.',
+  'sop.faq.enlace': 'Lihat pertanyaan umum',
+  'sop.cuenta.h': 'Menghapus akunmu',
+  'sop.cuenta.p': 'Kamu bisa menghapus akun dan semua datamu di cloud dari aplikasi (Editor → Pengaturan → Akun) atau dari akunmu di web.',
+  'sop.cuenta.enlace': 'Ke akunmu',
 }

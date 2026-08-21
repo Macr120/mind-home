@@ -41,7 +41,7 @@ export const TEXTOS = {
   'hero.cta': '앱 내려받기',
   'hero.demo': '무료 데모 해보기',
   'hero.nota':
-    '앱은 기기의 스토어에서 한 번만 구매하고, 오프라인에서도 작동해요. AI와 동기화는 선택이에요 — 그만두더라도 잃는 건 없어요.',
+    '앱은 무료이고 오프라인에서도 작동해요. 집은 여기 웹에서 또는 앱 안에서 한 번만 구매해요. AI와 동기화는 선택이에요 — 그만두더라도 잃는 건 없어요.',
   'hero.video': '여기에 영상이나 집 스크린샷이 들어갑니다',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -238,4 +238,20 @@ export const TEXTOS = {
   'term.contacto.h': '문의',
   'term.contacto.p':
     '질문과 지원: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+
+  // ── Soporte (web/soporte.html) ──
+  'pie.soporte': '지원',
+  'sop.titulo': '지원',
+  'sop.p': '뭔가 안 되거나 궁금한 게 있으면 메일을 보내 주세요. 최대한 빨리 답해 드릴게요.',
+  'sop.correo.h': '문의하기',
+  'sop.datos.h': '메시지에 담아 주시면 좋은 것',
+  'sop.datos.1': '기기와 시스템 (예: Android 14, iPhone 15, Windows 11).',
+  'sop.datos.2': '문제가 생겼을 때 무엇을 하고 있었는지.',
+  'sop.datos.3': '가능하다면 스크린샷.',
+  'sop.faq.h': '자주 묻는 질문',
+  'sop.faq.p': '가장 흔한 질문들 — 가격, 기기, AI, 데이터 — 은 메인 페이지에 답이 있어요.',
+  'sop.faq.enlace': '자주 묻는 질문 보기',
+  'sop.cuenta.h': '계정 삭제',
+  'sop.cuenta.p': '앱 안에서 (에디터 → 설정 → 계정) 또는 웹의 계정 페이지에서 계정과 클라우드의 모든 데이터를 삭제할 수 있어요.',
+  'sop.cuenta.enlace': '내 계정으로 가기',
 }

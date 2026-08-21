@@ -42,7 +42,7 @@ export const TEXTOS = {
   'hero.cta': 'App herunterladen',
   'hero.demo': 'Kostenlose Demo testen',
   'hero.nota':
-    'Die App wird einmal im Store deines Geräts gekauft und läuft offline. KI und Sync sind optional — und wenn du sie sein lässt, verlierst du nichts.',
+    'Die App ist gratis und läuft offline; das Haus wird einmal gekauft — hier im Web oder in der App. KI und Sync sind optional — und wenn du sie sein lässt, verlierst du nichts.',
   'hero.video': 'Hier kommt dein Video oder deine Screenshots vom Haus hin',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -251,4 +251,20 @@ export const TEXTOS = {
   'term.contacto.h': 'Kontakt',
   'term.contacto.p':
     'Fragen und Support: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+
+  // ── Soporte (web/soporte.html) ──
+  'pie.soporte': 'Support',
+  'sop.titulo': 'Support',
+  'sop.p': 'Wenn etwas nicht funktioniert oder du eine Frage hast, schreib uns — wir antworten so schnell wie möglich.',
+  'sop.correo.h': 'Schreib uns',
+  'sop.datos.h': 'Was in deine Nachricht gehört',
+  'sop.datos.1': 'Dein Gerät und System (zum Beispiel: Android 14, iPhone 15, Windows 11).',
+  'sop.datos.2': 'Was du gerade gemacht hast, als das Problem auftrat.',
+  'sop.datos.3': 'Ein Screenshot, wenn möglich.',
+  'sop.faq.h': 'Häufige Fragen',
+  'sop.faq.p': 'Die häufigsten Fragen — Preise, Geräte, KI und deine Daten — sind auf der Hauptseite beantwortet.',
+  'sop.faq.enlace': 'Zu den häufigen Fragen',
+  'sop.cuenta.h': 'Konto löschen',
+  'sop.cuenta.p': 'Du kannst dein Konto und alle deine Daten in der Cloud in der App löschen (Editor → Einstellungen → Konto) oder über dein Konto im Web.',
+  'sop.cuenta.enlace': 'Zu deinem Konto',
 }

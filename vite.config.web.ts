@@ -15,7 +15,7 @@ const raiz = path.dirname(fileURLToPath(import.meta.url))
  * igual en local que en producción.
  */
 function urlsLimpias(): Plugin {
-  const paginas = new Set(['cuenta', 'privacidad', 'terminos'])
+  const paginas = new Set(['cuenta', 'privacidad', 'terminos', 'soporte'])
   return {
     name: 'mph-urls-limpias',
     configureServer(server) {
@@ -42,6 +42,7 @@ export default defineConfig({
         cuenta: path.resolve(raiz, 'web/cuenta.html'),
         privacidad: path.resolve(raiz, 'web/privacidad.html'),
         terminos: path.resolve(raiz, 'web/terminos.html'),
+        soporte: path.resolve(raiz, 'web/soporte.html'),
       },
     },
   },

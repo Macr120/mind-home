@@ -51,7 +51,7 @@ export const TEXTOS = {
   'hero.cta': 'Descargar la app',
   'hero.demo': 'Probar la demo gratis',
   'hero.nota':
-    'La app se compra una vez en la tienda de tu dispositivo y funciona sin conexión. La IA y la sincronización son opcionales — y si las dejas, no pierdes nada.',
+    'La app es gratis y funciona sin conexión; la casa se compra una vez — aquí en la web o dentro de la app. La IA y la sincronización son opcionales — y si las dejas, no pierdes nada.',
   'hero.video': 'Aquí va tu video o capturas de la casa',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -261,4 +261,20 @@ export const TEXTOS = {
   'term.contacto.h': 'Contacto',
   'term.contacto.p':
     'Dudas y soporte: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+
+  // ── Soporte (web/soporte.html) ──
+  'pie.soporte': 'Soporte',
+  'sop.titulo': 'Soporte',
+  'sop.p': 'Si algo no funciona o tienes una duda, escríbenos y te respondemos lo antes posible.',
+  'sop.correo.h': 'Escríbenos',
+  'sop.datos.h': 'Qué incluir en tu mensaje',
+  'sop.datos.1': 'Tu dispositivo y sistema (por ejemplo: Android 14, iPhone 15, Windows 11).',
+  'sop.datos.2': 'Qué estabas haciendo cuando apareció el problema.',
+  'sop.datos.3': 'Una captura de pantalla, si se puede.',
+  'sop.faq.h': 'Preguntas frecuentes',
+  'sop.faq.p': 'Las dudas más comunes — precios, dispositivos, IA y tus datos — están respondidas en la página principal.',
+  'sop.faq.enlace': 'Ver preguntas frecuentes',
+  'sop.cuenta.h': 'Eliminar tu cuenta',
+  'sop.cuenta.p': 'Puedes borrar tu cuenta y todos tus datos en la nube desde la app (Editor → Configuraciones → Cuenta) o desde tu cuenta en la web.',
+  'sop.cuenta.enlace': 'Ir a tu cuenta',
 }

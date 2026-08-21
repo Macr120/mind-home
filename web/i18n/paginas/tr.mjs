@@ -42,7 +42,7 @@ export const TEXTOS = {
   'hero.cta': 'Uygulamayı indir',
   'hero.demo': 'Ücretsiz demoyu dene',
   'hero.nota':
-    'Uygulama cihazının mağazasından bir kez satın alınır ve çevrimdışı çalışır. Yapay zekâ ve eşitleme isteğe bağlıdır — bırakırsan da hiçbir şey kaybetmezsin.',
+    'Uygulama ücretsizdir ve çevrimdışı çalışır; ev bir kez satın alınır — burada webde ya da uygulamanın içinde. Yapay zekâ ve eşitleme isteğe bağlıdır — bırakırsan da hiçbir şey kaybetmezsin.',
   'hero.video': 'Buraya videon ya da evin ekran görüntüleri gelir',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -248,4 +248,20 @@ export const TEXTOS = {
   'term.contacto.h': 'İletişim',
   'term.contacto.p':
     'Sorular ve destek: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+
+  // ── Soporte (web/soporte.html) ──
+  'pie.soporte': 'Destek',
+  'sop.titulo': 'Destek',
+  'sop.p': 'Bir şey çalışmıyorsa ya da bir sorun varsa bize yaz; en kısa sürede yanıtlarız.',
+  'sop.correo.h': 'Bize yaz',
+  'sop.datos.h': 'Mesajına neleri eklemelisin',
+  'sop.datos.1': 'Cihazın ve sistemin (örneğin: Android 14, iPhone 15, Windows 11).',
+  'sop.datos.2': 'Sorun ortaya çıktığında ne yapıyordun.',
+  'sop.datos.3': 'Mümkünse bir ekran görüntüsü.',
+  'sop.faq.h': 'Sık sorulan sorular',
+  'sop.faq.p': 'En sık sorulan sorular — fiyatlar, cihazlar, yapay zekâ ve verilerin — ana sayfada yanıtlı.',
+  'sop.faq.enlace': 'Sık sorulan soruları gör',
+  'sop.cuenta.h': 'Hesabını silme',
+  'sop.cuenta.p': 'Hesabını ve buluttaki tüm verilerini uygulamadan (Editör → Ayarlar → Hesap) ya da webdeki hesabından silebilirsin.',
+  'sop.cuenta.enlace': 'Hesabına git',
 }

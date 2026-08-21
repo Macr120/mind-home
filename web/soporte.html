@@ -5,8 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--idioma-script-->
-    <title>{{term.titulo|attr}} — Mind Planner Home</title>
-    <meta name="robots" content="noindex" />
+    <title>{{sop.titulo|attr}} — Mind Planner Home</title>
     <meta name="theme-color" content="#e9edf5" />
     <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
@@ -31,64 +30,34 @@
     </header>
 
     <main class="legal">
-      <h1>{{term.titulo}}</h1>
-      <p class="fecha">{{legal.fecha}}</p>
-      <p class="fecha">{{legal.original}}</p>
+      <h1>{{sop.titulo}}</h1>
+      <p>{{sop.p}}</p>
 
       <section>
-        <h2>{{term.servicio.h}}</h2>
-        <p>{{term.servicio.p}}</p>
+        <h2>{{sop.correo.h}}</h2>
+        <p>
+          <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a>
+          · <a href="tel:5510132542">55 1013 2542</a>
+        </p>
       </section>
 
       <section>
-        <h2>{{term.app.h}}</h2>
+        <h2>{{sop.datos.h}}</h2>
         <ul>
-          <li>{{term.app.1}}</li>
-          <li>{{term.app.2}}</li>
-          <li>{{term.app.3}}</li>
+          <li>{{sop.datos.1}}</li>
+          <li>{{sop.datos.2}}</li>
+          <li>{{sop.datos.3}}</li>
         </ul>
       </section>
 
       <section>
-        <h2>{{term.local.h}}</h2>
-        <p>{{term.local.p}}</p>
+        <h2>{{sop.faq.h}}</h2>
+        <p>{{sop.faq.p}} <a href="/#faq">{{sop.faq.enlace}}</a></p>
       </section>
 
-      <section>
-        <h2>{{term.precio.h}}</h2>
-        <ul>
-          <li>{{term.precio.1}}</li>
-          <li>{{term.precio.2}}</li>
-          <li>{{term.precio.3}}</li>
-          <li>{{term.precio.4}}</li>
-          <li>{{term.precio.5}}</li>
-          <li>{{term.precio.6}}</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>{{term.cancelacion.h}}</h2>
-        <p>{{term.cancelacion.p}}</p>
-      </section>
-
-      <section>
-        <h2>{{term.datos.h}}</h2>
-        <p>{{term.datos.p}}</p>
-      </section>
-
-      <section>
-        <h2>{{term.razonable.h}}</h2>
-        <p>{{term.razonable.p}}</p>
-      </section>
-
-      <section>
-        <h2>{{term.cambios.h}}</h2>
-        <p>{{term.cambios.p}}</p>
-      </section>
-
-      <section>
-        <h2>{{term.contacto.h}}</h2>
-        <p>{{term.contacto.p}}</p>
+      <section id="eliminar-cuenta">
+        <h2>{{sop.cuenta.h}}</h2>
+        <p>{{sop.cuenta.p}} <a href="/cuenta">{{sop.cuenta.enlace}}</a></p>
       </section>
     </main>
 
@@ -97,10 +66,9 @@
         <div class="enlaces">
           <a href="/">{{pie.inicio}}</a>
           <a href="/privacidad">{{pie.privacidad}}</a>
-          <a href="/soporte">{{pie.soporte}}</a>
+          <a href="/terminos">{{pie.terminos}}</a>
           <a href="/cuenta">{{pie.cuenta}}</a>
           <a href="mailto:mindplannerhome@gmail.com">{{pie.contacto}}</a>
-          <a href="tel:5510132542">55 1013 2542</a>
         </div>
         <p>© 2026 Mind Planner Home</p>
       </footer>

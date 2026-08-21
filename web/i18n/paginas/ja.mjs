@@ -41,7 +41,7 @@ export const TEXTOS = {
   'hero.cta': 'アプリをダウンロード',
   'hero.demo': '無料デモを試す',
   'hero.nota':
-    'アプリはお使いの端末のストアで一度だけ購入し、オフラインでも動きます。AIと同期は任意です。やめても失うものはありません。',
+    'アプリは無料で、オフラインでも動きます。家はこのウェブで、またはアプリ内で一度だけ購入します。AIと同期は任意です。やめても失うものはありません。',
   'hero.video': 'ここに動画や家のスクリーンショットが入ります',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -237,4 +237,20 @@ export const TEXTOS = {
   'term.contacto.h': 'お問い合わせ',
   'term.contacto.p':
     'ご質問とサポート：<a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>。',
+
+  // ── Soporte (web/soporte.html) ──
+  'pie.soporte': 'サポート',
+  'sop.titulo': 'サポート',
+  'sop.p': '不具合や質問があれば、メールでご連絡ください。できるだけ早くお返事します。',
+  'sop.correo.h': 'ご連絡先',
+  'sop.datos.h': 'メッセージに含めてほしいこと',
+  'sop.datos.1': 'お使いの端末とシステム（例：Android 14、iPhone 15、Windows 11）。',
+  'sop.datos.2': '問題が起きたときに何をしていたか。',
+  'sop.datos.3': 'できればスクリーンショット。',
+  'sop.faq.h': 'よくある質問',
+  'sop.faq.p': 'よくある質問（価格・対応端末・AI・データ）はメインページで回答しています。',
+  'sop.faq.enlace': 'よくある質問を見る',
+  'sop.cuenta.h': 'アカウントの削除',
+  'sop.cuenta.p': 'アカウントとクラウド上の全データは、アプリ内（エディター → 設定 → アカウント）またはウェブのアカウントページから削除できます。',
+  'sop.cuenta.enlace': 'アカウントページへ',
 }

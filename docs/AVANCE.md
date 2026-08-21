@@ -68,10 +68,10 @@ Huerto, Granja y Paintball.
 
 Backend Supabase completo: cuenta y sesión, proxy de IA con **créditos por operación** y
 reservas, RevenueCat (suscripción y recargas), sincronización solo-Pro y borrado de cuenta.
-15 migraciones en `supabase/migrations/`, 4 Edge Functions. Detalle y runbook en
+28 migraciones en `supabase/migrations/`, 7 Edge Functions activas (`alta-tienda` se retiró). Detalle y runbook en
 [`BACKEND.md`](BACKEND.md); tarifas y márgenes en [`COSTOS.md`](COSTOS.md).
 
-**Web pública** (`web/`, segundo build de Vite): landing, `/cuenta`, términos y privacidad.
+**Web pública** (`web/`, segundo build de Vite): landing, `/cuenta`, términos, privacidad y soporte.
 
 ---
 

@@ -41,7 +41,7 @@ export const TEXTOS = {
   'hero.cta': '下载应用',
   'hero.demo': '试试免费 demo',
   'hero.nota':
-    '应用在你设备的商店里买一次，离线也能用。AI 和同步是可选的——就算不要，你也不会失去什么。',
+    '应用免费，离线也能用；房子只买一次——就在这个网页上，或在应用里。AI 和同步是可选的——就算不要，你也不会失去什么。',
   'hero.video': '这里放你的视频或房子的截图',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -234,4 +234,20 @@ export const TEXTOS = {
   'term.contacto.h': '联系',
   'term.contacto.p':
     '疑问与支持：<a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>。',
+
+  // ── Soporte (web/soporte.html) ──
+  'pie.soporte': '支持',
+  'sop.titulo': '支持',
+  'sop.p': '如果有什么不正常，或者你有疑问，写信给我们，我们会尽快回复。',
+  'sop.correo.h': '联系我们',
+  'sop.datos.h': '邮件里最好写上',
+  'sop.datos.1': '你的设备和系统（例如：Android 14、iPhone 15、Windows 11）。',
+  'sop.datos.2': '问题出现时你正在做什么。',
+  'sop.datos.3': '如果方便，附一张截图。',
+  'sop.faq.h': '常见问题',
+  'sop.faq.p': '最常见的问题——价格、设备、AI 和你的数据——都在主页上有解答。',
+  'sop.faq.enlace': '查看常见问题',
+  'sop.cuenta.h': '删除账号',
+  'sop.cuenta.p': '你可以在应用里（编辑器 → 设置 → 账号）或在网页的账号页面删除账号和云端的全部数据。',
+  'sop.cuenta.enlace': '前往你的账号',
 }

@@ -42,7 +42,7 @@ export const TEXTOS = {
   'hero.cta': 'De app downloaden',
   'hero.demo': 'Probeer de gratis demo',
   'hero.nota':
-    'De app koop je één keer in de store van je apparaat en werkt offline. AI en synchronisatie zijn optioneel — en als je ze laat vallen, verlies je niets.',
+    'De app is gratis en werkt offline; het huis koop je één keer — hier op het web of in de app. AI en synchronisatie zijn optioneel — en als je ze laat vallen, verlies je niets.',
   'hero.video': 'Hier komt je video of komen je schermafbeeldingen van het huis',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -251,4 +251,20 @@ export const TEXTOS = {
   'term.contacto.h': 'Contact',
   'term.contacto.p':
     'Vragen en ondersteuning: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+
+  // ── Soporte (web/soporte.html) ──
+  'pie.soporte': 'Ondersteuning',
+  'sop.titulo': 'Ondersteuning',
+  'sop.p': 'Werkt iets niet of heb je een vraag? Schrijf ons en we antwoorden zo snel mogelijk.',
+  'sop.correo.h': 'Schrijf ons',
+  'sop.datos.h': 'Wat je in je bericht zet',
+  'sop.datos.1': 'Je apparaat en systeem (bijvoorbeeld: Android 14, iPhone 15, Windows 11).',
+  'sop.datos.2': 'Wat je aan het doen was toen het probleem opdook.',
+  'sop.datos.3': 'Een schermafbeelding, als het kan.',
+  'sop.faq.h': 'Veelgestelde vragen',
+  'sop.faq.p': 'De meest gestelde vragen — prijzen, apparaten, AI en je gegevens — worden beantwoord op de hoofdpagina.',
+  'sop.faq.enlace': 'Bekijk de veelgestelde vragen',
+  'sop.cuenta.h': 'Je account verwijderen',
+  'sop.cuenta.p': 'Je kunt je account en al je gegevens in de cloud verwijderen vanuit de app (Editor → Instellingen → Account) of via je account op het web.',
+  'sop.cuenta.enlace': 'Naar je account',
 }

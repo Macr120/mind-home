@@ -21,7 +21,7 @@ const DIST = path.join(RAIZ, 'dist-web')
 const CATALOGOS = path.join(RAIZ, 'web', 'i18n', 'paginas')
 
 /** Las páginas sin JS que se multiplican. `cuenta.html` NO: es la app React. */
-const PAGINAS = ['index.html', 'privacidad.html', 'terminos.html']
+const PAGINAS = ['index.html', 'privacidad.html', 'terminos.html', 'soporte.html']
 
 if (!existsSync(DIST)) {
   console.error('dist-web no existe: corre primero `vite build --config vite.config.web.ts`')
@@ -66,7 +66,7 @@ function traducir(html, textos, faltan) {
 function localizarEnlaces(html, id) {
   if (id === IDIOMA_ORIGEN) return html
   return html.replace(
-    /href="\/(cuenta|privacidad|terminos)?((?:#[^"]*)?)"/g,
+    /href="\/(cuenta|privacidad|terminos|soporte)?((?:#[^"]*)?)"/g,
     (_, ruta, ancla) => `href="/${id}/${ruta ?? ''}${ancla}"`,
   )
 }
