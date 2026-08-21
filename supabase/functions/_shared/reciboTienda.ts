@@ -88,7 +88,8 @@ async function verificarAndroid(token: string, nonceEsperado: string): Promise<V
   try {
     acceso = await tokenGoogle(cuenta, 'https://www.googleapis.com/auth/playintegrity')
   } catch (e) {
-    return no(`google-auth: ${e instanceof Error ? e.message : String(e)}`)
+    console.error('[reciboTienda] fallo al obtener el token de Google:', e)
+    return no('google-auth')
   }
 
   const r = await fetch(

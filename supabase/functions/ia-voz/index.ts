@@ -4,17 +4,24 @@
  * vía Capacitor: ese API no existe ahí, a diferencia de `speechSynthesis`).
  * Mismos errores tipados que ia-chat/ia-imagen. Devuelve el texto transcrito.
  *
- * Un solo proveedor (no hay cadena de respaldo: sería sobre-diseño para un
- * único transporte). La cuota se cobra ANTES de llamar y se devuelve si falla.
+ * DOS proveedores, como en BYOK: Whisper (OpenAI) y la transcripción multimodal
+ * de Gemini. El cliente pide cuál con `prov` —la fila «Voz» del panel de IA en
+ * modo Créditos— y el otro queda de respaldo. La cuota se cobra ANTES de llamar
+ * y se devuelve si falla toda la cadena.
  *
- * Secretos: `OPENAI_API_KEY` (la misma que usan ia-chat/ia-imagen).
+ * Secretos: `OPENAI_API_KEY`, `GEMINI_API_KEY` (las mismas que ia-chat/ia-imagen).
  */
 import { preflight, json, corsDe } from '../_shared/cors.ts'
 import { clienteUsuario, clienteAdmin, usuarioDe } from '../_shared/auth.ts'
 import { COSTO_FIJO } from '../_shared/costoUsd.ts'
 
-/** Corta el intento para que el error sea claro en vez de colgarse esperando. */
+/** Corta el intento para que entre el respaldo en vez de colgarse esperando. */
 const TIMEOUT_MS = 30_000
+
+/** Modelo multimodal de Gemini que transcribe (el mismo del chat). */
+const MODELO_GEMINI = Deno.env.get('GEMINI_TEXT_MODEL') ?? 'gemini-3.1-flash-lite'
+
+type ProvVoz = 'openai' | 'gemini'
 
 /**
  * Límite de ENTRADA: el precio de la op solo cubre ~30s de audio (el cliente
@@ -54,6 +61,36 @@ async function porOpenAI(bytes: Uint8Array, mime: string, idioma?: string): Prom
   return data.text
 }
 
+/**
+ * Transcripción con Gemini: el audio va en `inlineData` a su modelo de chat (no
+ * hay endpoint de audio aparte). El prompt exige SOLO el texto para que no
+ * comente ni traduzca. Mismo enfoque que `sttGemini` en `core/audio/dictado.ts`.
+ */
+async function porGemini(audioBase64: string, mime: string, idioma?: string): Promise<string> {
+  const key = Deno.env.get('GEMINI_API_KEY') ?? ''
+  if (!key) throw new Error('sin clave')
+  const prompt = `Transcribe literalmente este audio${idioma ? ` (idioma: ${idioma})` : ''}. Responde SOLO con el texto transcrito, sin comentarios.`
+  const resp = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/${MODELO_GEMINI}:generateContent`,
+    {
+      method: 'POST',
+      headers: { 'x-goog-api-key': key, 'content-type': 'application/json' },
+      signal: AbortSignal.timeout(TIMEOUT_MS),
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }, { inlineData: { mimeType: mime, data: audioBase64 } }] }],
+      }),
+    },
+  )
+  if (!resp.ok) throw new Error(`http ${resp.status}`)
+  const data = (await resp.json()) as { candidates?: { content?: { parts?: { text?: string }[] } }[] }
+  const texto = (data.candidates?.[0]?.content?.parts ?? [])
+    .map((p) => p.text ?? '')
+    .join('')
+    .trim()
+  if (!texto) throw new Error('sin texto')
+  return texto
+}
+
 Deno.serve(async (req) => {
   const pre = preflight(req)
   if (pre) return pre
@@ -72,11 +109,19 @@ Deno.serve(async (req) => {
   let audioBase64: string
   let mime: string
   let idioma: string | undefined
+  /** Proveedor preferido del usuario (fila «Voz» del panel de IA en Créditos). */
+  let preferido: ProvVoz | null = null
   try {
-    const body = (await req.json()) as { audioBase64?: unknown; mime?: unknown; idioma?: unknown }
+    const body = (await req.json()) as {
+      audioBase64?: unknown
+      mime?: unknown
+      idioma?: unknown
+      prov?: unknown
+    }
     audioBase64 = typeof body.audioBase64 === 'string' ? body.audioBase64 : ''
     mime = typeof body.mime === 'string' ? body.mime : ''
     idioma = typeof body.idioma === 'string' && body.idioma ? body.idioma : undefined
+    if (body.prov === 'openai' || body.prov === 'gemini') preferido = body.prov
   } catch {
     return json({ error: 'peticion-invalida', mensaje: 'JSON inválido.' }, 400, cors)
   }
@@ -102,31 +147,49 @@ Deno.serve(async (req) => {
     return json({ error: 'cuota-agotada', mensaje: 'Te quedaste sin créditos de IA.' }, 429, cors)
   }
 
-  let texto: string
-  try {
-    texto = await porOpenAI(base64ABytes(audioBase64), mime, idioma)
-  } catch (e) {
-    // La reserva emitida al cobrar es lo que autoriza la devolución (un solo uso).
-    await admin.rpc('devolver_cuota_ia', { p_uid: usuario.id, p_tipo: 'voz', p_reserva: cuota.reserva })
-    console.error(`ia-voz: ${e instanceof Error ? e.message : 'error'}`)
-    return json({ error: 'proveedor', mensaje: 'El proveedor de voz no respondió.' }, 502, cors)
+  const cadena: ProvVoz[] = preferido === 'gemini' ? ['gemini', 'openai'] : ['openai', 'gemini']
+  let texto: string | null = null
+  let proveedor: ProvVoz = 'openai'
+  const fallos: string[] = []
+  for (const id of cadena) {
+    try {
+      texto =
+        id === 'openai'
+          ? await porOpenAI(base64ABytes(audioBase64), mime, idioma)
+          : await porGemini(audioBase64, mime, idioma)
+      proveedor = id
+      break
+    } catch (e) {
+      fallos.push(`${id}: ${e instanceof Error ? e.message : 'error'}`)
+    }
   }
 
-  await admin.rpc('registrar_uso_ia', {
+  if (texto === null) {
+    // La reserva emitida al cobrar es lo que autoriza la devolución (un solo uso).
+    await admin.rpc('devolver_cuota_ia', { p_uid: usuario.id, p_tipo: 'voz', p_reserva: cuota.reserva })
+    console.error(`ia-voz: cadena agotada — ${fallos.join(' | ')}`)
+    return json({ error: 'proveedor', mensaje: 'El proveedor de voz no respondió.' }, 502, cors)
+  }
+  if (fallos.length) console.warn(`ia-voz: respaldo ${proveedor} tras ${fallos.join(' | ')}`)
+
+  // Se completa aunque el cliente corte tras responder el proveedor (M4); fallback a await.
+  const registro = admin.rpc('registrar_uso_ia', {
     p_uid: usuario.id,
     p_entrada: 0,
     p_salida: 0,
     p_cache_crear: 0,
     p_cache_leer: 0,
-    p_proveedor: 'openai',
+    p_proveedor: proveedor,
     p_tipo: 'voz',
-    p_usd: COSTO_FIJO.voz,
+    p_usd: proveedor === 'gemini' ? COSTO_FIJO.vozGemini : COSTO_FIJO.voz,
   })
+  if (typeof EdgeRuntime !== 'undefined') EdgeRuntime.waitUntil(registro)
+  else await registro
 
   return json(
     {
       texto,
-      proveedor: 'openai',
+      proveedor,
       uso: {
         usadas: cuota.usadas,
         limite: cuota.limite,

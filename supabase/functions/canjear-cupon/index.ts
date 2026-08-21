@@ -35,7 +35,7 @@ Deno.serve(async (req) => {
     p_uid: usuario.id,
     p_codigo: codigo,
   })
-  if (error) return json({ error: 'bd', mensaje: error.message }, 500, cors)
+  if (error) return json({ error: 'bd' }, 500, cors)
 
   const resultado = String(data)
   return json({ ok: resultado === 'ok', resultado }, 200, cors)

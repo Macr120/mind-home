@@ -15,19 +15,25 @@
  * nº/tamaño de mensajes, imagen). La tabla de precios vive en SQL
  * (`costo_op`); aquí solo se valida el nombre y se aplican los topes.
  *
- * Proveedores: Anthropic (principal) y Gemini (respaldo). El secreto
+ * Proveedores: Anthropic (principal), Gemini y OpenAI. El cliente puede pedir
+ * cuál va primero con `prov` (la fila «Cerebro» del panel de IA en modo
+ * Créditos); los otros se quedan de respaldo, así que una preferencia nunca
+ * deja al usuario sin respuesta. OpenAI no entra en dos casos: el perfil
+ * `calidad` y los PDF (ver `capaces`). El secreto
  * `IA_CHAT_GEMINI_PCT` manda ese % del tráfico rápido a Gemini de entrada para
  * medir su costo real en `uso_ia` (columnas *_gemini); con 0 (por defecto)
  * Gemini solo actúa como respaldo. El perfil `calidad` nunca se muestrea: su
  * geometría 3D depende del razonamiento afinado de Anthropic.
  *
- * Caching (solo Anthropic, GA, sin header beta): hasta 3 breakpoints
+ * Caching de Anthropic (GA, sin header beta): hasta 3 breakpoints
  * `cache_control` — la tool que el cliente marque con `cache: true` (fin del
  * bloque estático TOOLS_EDITOR, prefijo compartido entre TODOS los usuarios),
  * el system (tools+system por usuario) y el último mensaje (conversación
  * incremental). Bajo el mínimo cacheable del modelo el marcador es un no-op
  * sin costo. Gemini no lo replica: cachea de forma implícita, así que un
- * respaldo prolongado sale más caro de lo que modela docs/COSTOS.md.
+ * respaldo prolongado sale más caro de lo que modela docs/COSTOS.md. OpenAI
+ * cachea automático desde 1024 tokens de prefijo, con TTL de 30 min y SIN
+ * prima de escritura: ahí no hay breakpoints que marcar, solo prefijo estable.
  */
 import { preflight, json, corsDe } from '../_shared/cors.ts'
 import { clienteUsuario, clienteAdmin, usuarioDe } from '../_shared/auth.ts'
@@ -43,6 +49,20 @@ const MODELO = 'claude-haiku-4-5'
 const MODELO_CALIDAD = 'claude-sonnet-5'
 const MODELO_GEMINI = Deno.env.get('GEMINI_TEXT_MODEL') ?? 'gemini-3.1-flash-lite'
 const MODELO_GEMINI_CALIDAD = Deno.env.get('GEMINI_TEXT_MODEL_CALIDAD') ?? 'gemini-3.1-flash'
+/**
+ * Cerebro de OpenAI. `gpt-5.6-luna` es el escalón barato de la familia 5.6
+ * ($0.20/$1.20 por M contra $1/$5 de Haiku 4.5) con function calling, visión y
+ * caché automático. Sobreescribible sin redeploy: `OPENAI_TEXT_MODEL`.
+ */
+const MODELO_OPENAI = Deno.env.get('OPENAI_TEXT_MODEL') ?? 'gpt-5.6-luna'
+/**
+ * Toda la familia GPT-5 razona, y los tokens de razonamiento se cobran como
+ * SALIDA y consumen `max_completion_tokens` (con el tope apretado se llevan la
+ * respuesta entera y `content` vuelve vacío). Para un cerebro de captura eso
+ * es puro costo: `none` lo apaga. Los modelos 5.0/5.1 llaman `minimal` a ese
+ * nivel, así que el secreto `OPENAI_TEXT_EFFORT` lo cambia sin redeploy.
+ */
+const ESFUERZO_OPENAI = Deno.env.get('OPENAI_TEXT_EFFORT') ?? 'none'
 /** % del tráfico rápido que arranca en Gemini para medir su costo (0–100). */
 const MUESTREO_GEMINI = Number(Deno.env.get('IA_CHAT_GEMINI_PCT') ?? '0')
 const CACHE = { type: 'ephemeral' } as const
@@ -97,6 +117,7 @@ const LIMITES = {
   texto: 10_000, // chars por mensaje (~2.5k tokens): cabe pegar un texto largo
   tools: 80, // TOOLS_EDITOR son ~56
   imagenB64: 3_000_000, // ~2.2 MB reales; el cliente comprime a 1280px JPEG
+  imagenes: 8, // nº máx de imágenes/PDF por petición: corta meter 24 adjuntos con 1 crédito
   // ~2 MB reales (≈30–40 páginas): cada página cuesta ~1.5–3k tokens de entrada,
   // así que este tope es el que mantiene la op `pdf` (4 créditos) dentro de COGS.
   pdfB64: 2_800_000,
@@ -108,11 +129,13 @@ function entradaInvalida(body: BodyIn, mensajes: MensajeIn[]): string | null {
   if ((body.system?.length ?? 0) > LIMITES.system) return 'System demasiado largo.'
   if (mensajes.length > LIMITES.mensajes) return 'Demasiados mensajes.'
   if ((body.tools?.length ?? 0) > LIMITES.tools) return 'Demasiadas tools.'
+  let nImagenes = 0
   for (const m of mensajes) {
     if (typeof m.texto !== 'string' || m.texto.length > LIMITES.texto) {
       return 'Mensaje demasiado largo.'
     }
     if (m.imagen) {
+      nImagenes++
       if (typeof m.imagen.base64 !== 'string') return 'Imagen demasiado grande.'
       if (m.imagen.mediaType === 'application/pdf') {
         if (m.imagen.base64.length > LIMITES.pdfB64) return 'PDF demasiado grande.'
@@ -122,6 +145,7 @@ function entradaInvalida(body: BodyIn, mensajes: MensajeIn[]): string | null {
       }
     }
   }
+  if (nImagenes > LIMITES.imagenes) return 'Demasiadas imágenes.'
   return null
 }
 
@@ -138,6 +162,9 @@ interface ToolIn {
   cache?: boolean
 }
 
+/** Los tres cerebros del proxy. El orden por defecto de la cadena es este. */
+type ProvTexto = 'anthropic' | 'gemini' | 'openai'
+
 interface BodyIn {
   system?: string
   mensajes?: MensajeIn[]
@@ -146,6 +173,9 @@ interface BodyIn {
   perfil?: 'rapido' | 'calidad'
   /** Operación que se cobra (ver TOPES). Desconocida o ausente → 'chat'. */
   op?: string
+  /** Proveedor preferido del usuario (panel de IA en modo Créditos). El otro
+      sigue de respaldo; el perfil `calidad` la ignora. */
+  prov?: string
 }
 
 /** Lo que devuelve cualquier proveedor, ya normalizado. */
@@ -295,6 +325,107 @@ function limpiarSchema(valor: unknown): unknown {
   return salida
 }
 
+/**
+ * OpenAI por su API de chat completions (el mismo formato que ya habla el BYOK
+ * del cliente). Tres diferencias con Anthropic que cuestan dinero si se
+ * ignoran, y por eso están aquí explícitas:
+ *
+ * 1. `max_completion_tokens`, no `max_tokens` (los modelos de razonamiento
+ *    rechazan el nombre viejo), y el tope INCLUYE los tokens de razonamiento.
+ * 2. `reasoning_effort` en `none`: sin eso el modelo piensa por defecto en
+ *    `medium` y esa reflexión se factura como salida.
+ * 3. El caché es AUTOMÁTICO desde 1024 tokens de prefijo (TTL 30 min, sin
+ *    prima de escritura): no hay breakpoints que marcar, solo prefijo estable.
+ *    `prompt_cache_key` ayuda a que las peticiones con el mismo prefijo caigan
+ *    en la misma máquina; se separan las que llevan tools de las que no.
+ *
+ * `prompt_tokens` ya INCLUYE los cacheados, así que se resta antes de
+ * devolverlos: `costoTokensUsd` los tarifa por separado y si no se contarían
+ * dos veces (y el usuario pagaría esa deuda inventada en créditos).
+ */
+async function porOpenAI(body: BodyIn, mensajes: MensajeIn[], maxTokens: number): Promise<Salida> {
+  const key = Deno.env.get('OPENAI_API_KEY') ?? ''
+  if (!key) throw new Error('sin clave')
+
+  const contenido = (m: MensajeIn): string | Record<string, unknown>[] =>
+    m.imagen
+      ? [
+          { type: 'text', text: m.texto },
+          {
+            type: 'image_url',
+            image_url: { url: `data:${m.imagen.mediaType};base64,${m.imagen.base64}` },
+          },
+        ]
+      : m.texto
+
+  const resp = await fetch('https://api.openai.com/v1/chat/completions', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${key}`, 'content-type': 'application/json' },
+    signal: AbortSignal.timeout(60_000),
+    body: JSON.stringify({
+      model: MODELO_OPENAI,
+      max_completion_tokens: maxTokens,
+      reasoning_effort: ESFUERZO_OPENAI,
+      prompt_cache_key: body.tools?.length ? 'mph-tools' : 'mph-base',
+      messages: [
+        ...(body.system ? [{ role: 'system', content: body.system }] : []),
+        ...mensajes.map((m) => ({
+          role: m.rol === 'usuario' ? 'user' : 'assistant',
+          content: contenido(m),
+        })),
+      ],
+      tools: body.tools?.length
+        ? body.tools.map((t) => ({
+            type: 'function',
+            function: { name: t.name, description: t.description, parameters: t.schema },
+          }))
+        : undefined,
+    }),
+  })
+  if (!resp.ok) throw new Error(`http ${resp.status}`)
+
+  const data = (await resp.json()) as {
+    choices?: {
+      message?: {
+        content?: string | null
+        tool_calls?: { function?: { name?: string; arguments?: string } }[]
+      }
+    }[]
+    usage?: {
+      prompt_tokens?: number
+      completion_tokens?: number
+      prompt_tokens_details?: { cached_tokens?: number }
+    }
+  }
+  const msg = data.choices?.[0]?.message
+  const llamadas: { name: string; input: Record<string, unknown> }[] = []
+  for (const tc of msg?.tool_calls ?? []) {
+    if (!tc.function?.name) continue
+    try {
+      llamadas.push({
+        name: tc.function.name,
+        input: JSON.parse(tc.function.arguments || '{}') as Record<string, unknown>,
+      })
+    } catch {
+      // Argumentos que no son JSON: la tool se descarta, no la respuesta.
+    }
+  }
+  const texto = msg?.content?.trim() || null
+  // Ni texto ni tools = respuesta inservible (típico si el razonamiento se
+  // comió el tope). Lanzar deja entrar al respaldo en vez de responder vacío.
+  if (!texto && !llamadas.length) throw new Error('sin contenido')
+
+  const cacheLeer = Number(data.usage?.prompt_tokens_details?.cached_tokens ?? 0)
+  return {
+    texto,
+    llamadas,
+    entrada: Math.max(Number(data.usage?.prompt_tokens ?? 0) - cacheLeer, 0),
+    salida: Number(data.usage?.completion_tokens ?? 0),
+    cacheCrear: 0,
+    cacheLeer,
+  }
+}
+
 async function porGemini(
   body: BodyIn,
   mensajes: MensajeIn[],
@@ -429,11 +560,20 @@ Deno.serve(async (req) => {
     return json({ error: 'cuota-agotada', mensaje: 'Te quedaste sin créditos de IA.' }, 429, cors)
   }
 
-  // El muestreo solo reordena la cadena: el otro proveedor sigue de respaldo.
-  const geminiPrimero = !calidad && MUESTREO_GEMINI > 0 && Math.random() * 100 < MUESTREO_GEMINI
-  const cadena: ('anthropic' | 'gemini')[] = geminiPrimero
-    ? ['gemini', 'anthropic']
-    : ['anthropic', 'gemini']
+  // Quién PUEDE servir ESTA llamada. OpenAI queda fuera de dos casos: el perfil
+  // `calidad` (la geometría 3D vive del razonamiento afinado de Sonnet) y los
+  // PDF, que su API de chat no acepta como adjunto —eso es de la de Responses—
+  // mientras Anthropic y Gemini los reciben en el cuerpo. El orden de la lista
+  // es el orden por defecto de la cadena.
+  const capaces: ProvTexto[] = calidad || conPdf ? ['anthropic', 'gemini'] : ['anthropic', 'gemini', 'openai']
+  // La preferencia del usuario (panel de IA › Créditos) manda sobre el muestreo;
+  // ambos solo REORDENAN la cadena, los demás siguen de respaldo. El perfil
+  // `calidad` la ignora a propósito (misma razón por la que nunca se muestrea).
+  const preferido = !calidad && capaces.includes(body.prov as ProvTexto) ? (body.prov as ProvTexto) : null
+  const geminiPrimero =
+    !calidad && !preferido && MUESTREO_GEMINI > 0 && Math.random() * 100 < MUESTREO_GEMINI
+  const primero = preferido ?? (geminiPrimero ? 'gemini' : null)
+  const cadena: ProvTexto[] = primero ? [primero, ...capaces.filter((p) => p !== primero)] : capaces
 
   let salida: Salida | null = null
   let proveedor = ''
@@ -443,7 +583,9 @@ Deno.serve(async (req) => {
       salida =
         id === 'anthropic'
           ? await porAnthropic(body, mensajes, calidad, maxTokens)
-          : await porGemini(body, mensajes, calidad, maxTokens)
+          : id === 'gemini'
+            ? await porGemini(body, mensajes, calidad, maxTokens)
+            : await porOpenAI(body, mensajes, maxTokens)
       proveedor = id
       break
     } catch (e) {
@@ -460,14 +602,21 @@ Deno.serve(async (req) => {
   if (fallos.length) console.warn(`ia-chat: respaldo ${proveedor} tras ${fallos.join(' | ')}`)
 
   const modeloServido =
-    proveedor === 'anthropic'
-      ? calidad
-        ? MODELO_CALIDAD
-        : MODELO
-      : calidad
-        ? MODELO_GEMINI_CALIDAD
-        : MODELO_GEMINI
-  await admin.rpc('registrar_uso_ia', {
+    proveedor === 'openai'
+      ? MODELO_OPENAI
+      : proveedor === 'anthropic'
+        ? calidad
+          ? MODELO_CALIDAD
+          : MODELO
+        : calidad
+          ? MODELO_GEMINI_CALIDAD
+          : MODELO_GEMINI
+  // El registro del uso —y del costo USD real que sostiene el techo de COGS— se
+  // completa aunque el cliente corte la conexión justo tras responder el
+  // proveedor: así el techo no se queda corto por un corte a destiempo (M4). Se
+  // agenda con EdgeRuntime.waitUntil (background garantizado); fallback a await
+  // si el runtime no lo expone.
+  const registro = admin.rpc('registrar_uso_ia', {
     p_uid: usuario.id,
     p_entrada: salida.entrada,
     p_salida: salida.salida,
@@ -477,6 +626,8 @@ Deno.serve(async (req) => {
     p_tipo: op,
     p_usd: costoTokensUsd(modeloServido, salida),
   })
+  if (typeof EdgeRuntime !== 'undefined') EdgeRuntime.waitUntil(registro)
+  else await registro
 
   return json(
     {

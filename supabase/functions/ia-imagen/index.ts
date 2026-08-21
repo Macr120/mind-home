@@ -10,6 +10,9 @@
  * principal de la otra. Ojo con el margen: si la calidad rápida cae a Gemini,
  * la imagen se sirve por más de lo que se cobró (ver docs/COSTOS.md).
  *
+ * `prov` ('openai' | 'gemini') pone delante al proveedor que el usuario eligió
+ * en el panel de IA; el resto de la cadena queda detrás como respaldo.
+ *
  * La cuota se cobra UNA vez para toda la cadena (el usuario paga la imagen, no
  * los intentos) y se devuelve solo si fallan todos.
  *
@@ -172,17 +175,21 @@ Deno.serve(async (req) => {
   let alta = false
   /** Foto de referencia opcional: el modelo parte de ella en vez de generar de cero. */
   let referencia: Imagen | null = null
+  /** Proveedor preferido del usuario (fila «Imagen» del panel de IA en Créditos). */
+  let preferido: 'openai' | 'gemini' | null = null
   try {
     const body = (await req.json()) as {
       prompt?: unknown
       imagen?: unknown
       aspecto?: unknown
       calidad?: unknown
+      prov?: unknown
     }
     prompt = typeof body.prompt === 'string' ? body.prompt.trim() : ''
     if (ASPECTOS.includes(body.aspecto as Aspecto)) aspecto = body.aspecto as Aspecto
     // Un cliente viejo no manda `calidad`: cae en la rápida, que es la barata.
     if (body.calidad === 'buena') alta = true
+    if (body.prov === 'openai' || body.prov === 'gemini') preferido = body.prov
     const img = body.imagen as { base64?: unknown; mime?: unknown } | undefined
     if (img && typeof img.base64 === 'string' && img.base64) {
       referencia = {
@@ -207,7 +214,12 @@ Deno.serve(async (req) => {
   }
 
   const op = alta ? 'imagen_alta' : 'imagen'
-  const CADENA = alta ? CADENA_ALTA : CADENA_RAPIDA
+  // La preferencia del usuario solo REORDENA: el otro proveedor sigue de
+  // respaldo. Que elija el caro en la calidad rápida no rompe el margen: los
+  // créditos siguen al gasto real (20260820000002), así que esa imagen se cobra
+  // por lo que cuesta aunque su tarifa nominal diga 3.
+  const base = alta ? CADENA_ALTA : CADENA_RAPIDA
+  const CADENA = preferido ? [preferido, ...base.filter((id) => id !== preferido)] : base
 
   const { data: cuota, error: errCuota } = await admin.rpc('consumir_cuota_ia', {
     p_uid: usuario.id,
@@ -257,7 +269,8 @@ Deno.serve(async (req) => {
   // Sin tokens que contar, pero sí la llamada y el proveedor: es lo que separa
   // el costo de Gemini del de OpenAI en `uso_ia_ops` (antes solo se podía
   // inferir del contador agregado `uso_ia.imagenes`).
-  await admin.rpc('registrar_uso_ia', {
+  // Se completa aunque el cliente corte tras responder el proveedor (M4); fallback a await.
+  const registro = admin.rpc('registrar_uso_ia', {
     p_uid: usuario.id,
     p_entrada: 0,
     p_salida: 0,
@@ -269,6 +282,8 @@ Deno.serve(async (req) => {
     // acota también la rápida servida por Gemini a pérdida.
     p_usd: proveedor === 'gemini' ? COSTO_FIJO.imagenGemini : COSTO_FIJO.imagenOpenai,
   })
+  if (typeof EdgeRuntime !== 'undefined') EdgeRuntime.waitUntil(registro)
+  else await registro
 
   return json(
     {

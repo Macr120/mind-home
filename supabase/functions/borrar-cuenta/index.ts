@@ -23,7 +23,12 @@ async function borrarCarpeta(
     if (error || !data || data.length === 0) return
     const archivos = data.filter((e) => e.id !== null).map((e) => `${prefijo}/${e.name}`)
     const carpetas = data.filter((e) => e.id === null).map((e) => `${prefijo}/${e.name}`)
-    if (archivos.length > 0) await bucket.remove(archivos)
+    if (archivos.length > 0) {
+      const { error } = await bucket.remove(archivos)
+      // No seguir si el borrado falla: nunca eliminar la cuenta de auth dejando
+      // blobs personales huérfanos (ya no se podrían reasociar ni borrar).
+      if (error) throw new Error(error.message)
+    }
     for (const c of carpetas) await borrarCarpeta(admin, c)
     if (archivos.length < 1000 && carpetas.length === 0) return
     if (archivos.length === 0 && carpetas.length > 0) return
@@ -44,10 +49,16 @@ Deno.serve(async (req) => {
     Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!,
   )
 
-  await borrarCarpeta(admin, usuario.id)
+  try {
+    await borrarCarpeta(admin, usuario.id)
+  } catch (e) {
+    // Blobs sin borrar del todo: no tocar la cuenta de auth, el usuario reintenta.
+    console.error('[borrar-cuenta] fallo al borrar los blobs:', e)
+    return json({ error: 'blobs' }, 500, cors)
+  }
 
   const { error } = await admin.auth.admin.deleteUser(usuario.id)
-  if (error) return json({ error: 'bd', mensaje: error.message }, 500, cors)
+  if (error) return json({ error: 'bd' }, 500, cors)
 
   return json({ ok: true }, 200, cors)
 })
