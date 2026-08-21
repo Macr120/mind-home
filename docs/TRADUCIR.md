@@ -50,16 +50,22 @@ De ahí salen las reglas:
 
 ## 2. El mapa: idiomas y estado
 
-Estado al 12 ago 2026 (`node scripts/verificar-i18n.mjs` da el actual):
+**La misión está CERRADA (21 ago 2026).** Los 14 idiomas traducidos van al
+100 % en las cuatro capas y `node scripts/verificar-i18n.mjs` sale `sin errores`;
+el propio script da el estado del día, que manda sobre esta tabla.
 
-| Idioma | dict (5.883) | tut (612) | contenido (~3.670) | alta en `idiomas.ts` |
+| Idioma | dict | tut | contenido | alta en `idiomas.ts` |
 |---|---|---|---|---|
-| pt | 5.883 ✓ | 612 ✓ | solo jardín (261) | ✓ |
-| fr | 676 | 0 | — | ✓ |
-| de | 676 | 0 | — | ✓ |
-| it | 676 | 0 | — | ✓ |
-| ja, zh, ko, ru, hi | 11 (arranque) | 0 | — | ✓ (Ola 0, 12 ago 2026) |
-| ar | — | — | — | ✗ (Ola 7, después del RTL) |
+| pt, fr, de, it, nl, pl, tr, id | 100 % | 100 % | 100 % | ✓ |
+| ja, zh, ko, ru, hi | 100 % | 100 % | 100 % | ✓ |
+| ar | 100 % | 100 % | 100 % | ✓ (RTL sin espejo: solo el texto) |
+
+Fuera de esas cuatro capas quedan traducidas la web pública
+(`web/i18n/paginas/*.mjs`, 16 idiomas, y `web/i18n/cuenta/*.ts`, 15) y los
+widgets de Android (`android/app/src/main/res/values-<id>/strings.xml`), que
+Android localiza por su cuenta y por eso NO viajan en el snapshot de la app.
+El verificador mira las tres primeras y el portal `/cuenta`; de la web estática
+responde `npm run build:web`, que falla si le falta una clave.
 
 Volumen por idioma: 5.878 claves de interfaz (139 KB en inglés) + 612 pasos de
 tutorial (53 KB) + ~3.670 textos de contenido (212 KB). **La misión entera ronda
@@ -1632,4 +1638,94 @@ Canon fijado por los obreros de R1 (rige para R2+ y el revisor):
 · tr: şnitzel (milanesa), börek (empanadas), kâse (bowl), Kaşarlı tost
 · platos japoneses del viaje SIN traducir en tr/id (ramen, okonomiyaki…)
 ═══════════════════════════════════════════════════════════════════
+```
+
+---
+
+## 16. Misión «catálogos 2026» (20 ago 2026) — bitácora y protocolo
+
+La segunda misión: el CONTENIDO que la primera dejó fuera. La fase de código ya
+está HECHA (mecanismos + inglés; ver plan): traducir al pintar en ejercicio
+(`ejercicio.ej/ejDesc/ejTiempo/dificultad/rut/rutDesc.*` por slug), pilares de
+biblioteca (`biblioteca.nodo/nodoDesc.*`), etiquetas de comandos del chat
+(`room.*.cmd.*` + `chat.vistaCal.*`) y las 35 claves de Misiones — TODO eso
+viaja por el flujo dict normal (`sacar-dict`/`meter-dict`). Aparte, los
+catálogos de edición directa: cocina `ejemplos.i18n.<id>.ts` (siembra
+traducida + retraducción de filas intactas), garage `seed.i18n.ts` (un archivo,
+todos los idiomas), cartas `preguntas.i18n.<id>.ts` (índice a índice) y
+Ahorcado `ahorcado.palabras.ts` (SUSTITUCIÓN nativa; solo latinos+ru, el resto
+cae al en). El glosario tiene las reglas del dominio en
+`DECISIONES.catalogos2026` — leerlo ANTES de traducir.
+
+**Regla mientras `ESTADO: ACTIVO`**: ninguna otra sesión ejecuta sacar/meter ni
+escribe en `traducciones/` o en los archivos i18n listados. Protocolo de
+arranque, bucle de ronda, QA y repesca: los de §15.
+
+Al arrancar esta misión se LIMPIARON los `traducciones/dict-<id>/` de los
+trozos ya consolidados de la misión 1 (chocaban con la numeración nueva); los
+`-tut` quedaron intactos.
+
+### Bitácora
+
+```
+ESTADO: CERRADA (20 ago 2026, mismo día) · Fase de código HECHA (tsc/build/lint verdes,
+verificada en la app en EN: catálogo+rutinas+autocompletado bilingüe+imágenes,
+pilares, cocina sembrada/retraducida es↔en, cartas). dict.en: 6.996 claves
+(+769: 35 misiones + 408 ejercicio + 256 pilares + 70 chat).
+Inventario dict: 14 idiomas × 5 trozos (01: 219 · 02: 252 · 03: 84 · 04: 124 ·
+05: 90 = 769 claves), numeración IDÉNTICA entre idiomas.
+Grupos de obreros dict: G1 pt/fr/it · G2 de/nl · G3 ja/zh/ko · G4 ru/pl ·
+G5 tr/id · G6 hi/ar (un trozo × grupo por obrero; leer una vez, escribir N).
+Catálogos: cocina ×13 por grupos de idiomas (archivo por idioma) · preguntas
+×13 ídem · garage 1 obrero (archivo único) · Ahorcado 1 obrero (9 ramas
+nativas: pt fr de it tr id pl nl ru). Los ÍNDICES/CARGADORES (ejemplos.i18n.ts,
+preguntas.i18n.ts) los edita SOLO el orquestador al meter.
+
+R1: trozo 01 ✓×14 METIDO (QA 0 marcadores rotos, orden verificado) · garage
+✓×14 ramas (tsc ok; APK-keuring/TÜV/車検/техосмотр…) · Ahorcado ✓ 9 bancos
+nativos (chequeo programático de alfabetos; SAUDADE/COQUELICOT/STROOPWAFEL) ·
+cocina pt/fr/it ✓ + ja/zh/ko ✓ (9/7/4/12 verificados; zh conserva «bowl»).
+CANON de la misión (fijado por los obreros de R1, rige para R2+ y el revisor):
+· misión = missão/mission/missione/Mission/missie/görev/misi/миссия/misja/
+  मिशन/مهمة/ミッション/任务/미션 (distinto de meta=Ziel/doel/objectif/obiettivo…)
+· checklist = kontrol listesi (tr) / checklista (pl) / чек-лист (ru) /
+  चेकलिस्ट (hi) / قائمة تحقق (ar); préstamo en id
+· {n} d → de `{n} T` · fr `{n} j` · it `{n} g` · hi `{n} दिन` · ar `{n} يوم`
+· ru/pl/hi: pasado dirigido al usuario SIEMPRE impersonal (запланировано/
+  zaplanowano/इंफिनितिव+है); ar impersonal donde quepa (تبقّى لديك)
+· biblioteca: «espacio» de tie-espacial = territorio (пространство/przestrzeń/
+  mekân), NUNCA cosmos; fr «langue véhiculaire mondiale» (no «lingua franca»);
+  ar distingue الإبستمولوجيا (rama) vs نظرية المعرفة (subtema)
+R2-R3: trozos 02-05 ✓×14 METIDOS (QA 0 marcadores rotos en 70 archivos
+.hecho) · cocina ✓×13 + 15 cargadores registrados · preguntas ✓×13 (100+100
+c/u) + 15 cargadores · garage ✓×14 ramas · Ahorcado ✓ 9 bancos.
+1 caída de conexión (preguntas ja/zh/ko): el ja quedó válido en disco, zh/ko
+por repesca — 0 pérdidas.
+Canon fitness por idioma: registrado por los obreros en sus reportes (pt
+rosca/agachamento · fr développé couché/rowing barre · de Bankdrücken/
+Kniebeugen/Unterarmstütz · nl Uitvalspas/Optrekken pero Plank · ru жим лёжа/
+бёрпи · pl wyciskanie/pompki · tr Squat/Deadlift préstamo + Barfiks/Şınav,
+glúteo=kalça kası · id préstamo total en fuerza · ja/zh/ko préstamos katakana/
+汉语/hangul · hi préstamo devanagari + yoga en sánscrito · ar préstamo pesas +
+yoga traducido). Los chips room.*.cmd.* reusan las pestañas ya asentadas.
+
+CIERRE 20 ago 2026: verificar-i18n SIN ERRORES (7034/7034 ×14 + 831/831 tut);
+tsc -b + build + lint en verde; QA visual en la app: EN (fase 0 completa),
+DE (catálogo Bankdrücken + rutinas Ganzkörper + recetario Lachs aus dem Ofen
+con 9 imágenes + pilares Philosophie und Denken), AR (بنش برس + rutinas,
+RTL), retraducción cocina ES↔EN comprobada en vivo. Revisor Opus muestral al
+cierre: APTO CON PARCHES → 12 parches del orquestador APLICADOS (dict y
+.hecho): tr tobillo≠muñeca (Ayak Bileği Çemberleri, la colisión grave) · ar
+tie-espacial الفضاء→المكان (canon territorio) · chips=pestaña en ru×4/pl×3 ·
+fr apóstrofo tipográfico · pt Crunch abdominal. Residuo MENOR aceptado y
+anotado: capitalización mixta ejercicio.rut tr · Kablo vs Makarada (tr) ·
+hilo-y-aguja calcado en de/tr/pl · preguntas ar en pasiva de registro alto ·
+pl conocerse[99] cojea · HÜZÜN/MASAL abstractas. Defectos del EN fuente
+(fuera de alcance): pares redundantes zancadas/estocadas-lunges y
+puente-de-gluteo/el-puente, ejercicio.rpe sin escala en pt/it.
+OJO: 11 claves `puerta.*`/`cuenta.*` sin inglés que acusa verificar-i18n son
+de la SESIÓN PARALELA del flujo de compra (PuertaUnlock/AvisosPlan, archivos
+suyos sin commitear) — NO son de esta misión; le toca a esa sesión meterlas
+en dict.en y pasar el flujo. ESTADO: CERRADA (queda solo el residuo listado
+en AVANCE.md: web/cuenta y alias nombres[] del chat).
 ```

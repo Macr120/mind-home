@@ -99,9 +99,16 @@ Lo que está identificado y sin cerrar, por orden de impacto:
 2. **Duplicación con sitio natural en `src/rooms/_shared/`**: `BarraEjemplo` (agenda y despacho
    sin migrar al de `_shared/ejemplos/`), `sala/fotos.tsx`, `campana.ts`, `ids.ts`, helpers de
    fecha (`hoyISO` ×9, `sumarDias` ×7) y el heatmap anual ×3.
-3. **Contenido sin traducir**: la UI está al 99,97 %, pero los catálogos de datos
-   (`biblioteca/pilares.ts`, `entretenimiento/juegos/preguntas.ts`…) se pintan en español
-   crudo, `ComandoApp.etiqueta` no tiene clave i18n, y `web/cuenta` es solo español.
+3. **Contenido sin traducir**: HECHO (20 ago 2026, misión «catálogos 2026», ver
+   `TRADUCIR.md` §16): catálogo y rutinas de Ejercicio (traducir al pintar por slug,
+   `rooms/ejercicio/nombres.ts`), pilares de Biblioteca, siembras de Cocina/Garage
+   (sembrar traducido + retraducción de filas intactas), preguntas de cartas, Ahorcado
+   (bancos nativos) y `ComandoApp.etiqueta` (`room.*.cmd.*`). El 21-ago se cerraron los
+   tres huecos que quedaban: los WIDGETS de Android (`res/values-<id>/`, que Android
+   localiza por su cuenta y no viajan en el snapshot), los asistentes de fábrica
+   (`asistente.*.nombre`) y el idioma objetivo del ejemplo de Idiomas. `web/cuenta` ya
+   estaba en 15 idiomas. Queda solo: los alias `nombres[]` del parser del chat
+   (fuera de alcance a propósito).
 4. **`categoriasCardio`** no se puede borrar todavía: su lectura en el seed de Ejercicio es la
    única migración de esos datos a `gruposCardio` y solo corre al sembrar ese cuarto.
 5. **Créditos**: el peor caso real de COGS es el `chat` con TOOLS_EDITOR (~$14/mes con 700

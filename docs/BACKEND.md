@@ -25,7 +25,7 @@ src/core/data/sync/ middleware.ts (DBCore)     · revenuecat-webhook · borrar-c
   sola regla: **6 USD = 700 créditos**, y de cada 6 USD la ganancia mínima son
   2 USD (por eso el bucket va a `techo_factor 1.00` = $3.50 de gasto real máximo
   por cada 700 créditos; ver COSTOS.md). La **demo** (no persistente) es el free
-  tier. La **casa** ($6.99 pago único, `unlock_casa_v3`) se vende en las tres
+  tier. La **casa** ($8.89 pago único, `unlock_casa_v4`) se vende en las tres
   cajas e incluye el **primer mes** (plan `trial`: 30 días con pool de 700
   créditos + sync, sin tarjeta). **Pro** a 6 / 12 / 18 USD al mes según nivel
   —o **60 USD/año** (`pro_x1_anual`, el ×1 pagado de una vez)— con créditos
@@ -202,11 +202,11 @@ Opcionales, todos con default y sin redeploy al cambiarlos:
    `pro_x1_v2` ($6), `pro_x2_v2` ($12) y `pro_x3_v2` ($18). Deben ir en el MISMO
    grupo de suscripción para que cambiar de nivel sea un PRODUCT_CHANGE
    prorrateado y no dos suscripciones a la vez.
-3. El **pago único del unlock ($6.99, `unlock_casa_v3`) YA NO SE VENDE**: desde
-   el 19-ago-2026 la app se compra en las tiendas (ver 3e). El producto se
-   conserva en RevenueCat y el webhook lo sigue mapeando a `perfiles.unlock` +
-   plan `trial` de 30 días para honrar las compras hechas antes; el cliente ya
-   no lo ofrece en ningún sitio. **Sin trial de RC** en ningún producto (el
+3. El **pago único del unlock ($8.89, `unlock_casa_v4`)** se vende en las tres
+   cajas (ver 3e y §5): IAP en Android y iOS, caja directa en web y escritorio.
+   Los ids anteriores (`unlock_casa_v3` a $6.99, `_v2`, `_v1`) se conservan en
+   RevenueCat y el webhook los sigue mapeando a `perfiles.unlock` + plan `trial`
+   de 30 días para honrar lo comprado antes, pero ya no se ofrecen. **Sin trial de RC** en ningún producto (el
    «primer mes» lo da el webhook al recibir la compra, sin tarjeta). Ojo: si se
    añadiera un trial de RC habría que excluir `period_type === 'TRIAL'` del
    `fue_pro: true` del webhook, o marcaría como pagador a quien no pagó.
@@ -218,7 +218,7 @@ Opcionales, todos con default y sin redeploy al cambiarlos:
    `nivel = 1` y el pool sigue siendo mensual.
 
    Los ids exactos importan en los seis productos vigentes (`pro_x1_v2`,
-   `pro_x2_v2`, `pro_x3_v2`, `pro_x1_anual`, `unlock_casa_v3`, `creditos_x1`):
+   `pro_x2_v2`, `pro_x3_v2`, `pro_x1_anual`, `unlock_casa_v4`, `creditos_x1`):
    tanto el webhook como el cliente los buscan por nombre. Un guion de más y la
    compra se cobra sin conceder nada.
 
@@ -250,9 +250,10 @@ Receta para el próximo cambio de precio:
 5. `functions deploy revenuecat-webhook --no-verify-jwt` + republicar los builds.
 
 Historial: el unlock pasó de $10.99 (`unlock_casa`) a $9.99 (`unlock_casa_v2`,
-18-ago) y a **$6.99 (`unlock_casa_v3`)** el mismo día, con el cambio de plan de
-negocio; los niveles pasaron de $5/$10/$15 (`pro_x1`…) a **$6/$12/$18**
-(`pro_x1_v2`…). Vigentes hoy: `unlock_casa_v3`, `pro_x1_v2`, `pro_x2_v2`,
+18-ago), a $6.99 (`unlock_casa_v3`) el mismo día con el cambio de plan de
+negocio y a **$8.89 (`unlock_casa_v4`)** el 20-ago, ya con la compra dentro de
+la app; los niveles pasaron de $5/$10/$15 (`pro_x1`…) a **$6/$12/$18**
+(`pro_x1_v2`…). Vigentes hoy: `unlock_casa_v4`, `pro_x1_v2`, `pro_x2_v2`,
 `pro_x3_v2` y `creditos_x1`; todo lo anterior, inactivo y fuera del offering.
 Textos de cara al cliente en **inglés** (el checkout es un solo idioma para todo
 el mundo).
@@ -403,10 +404,16 @@ Dos cambios que viajan juntos (ver `docs/COSTOS.md` § «Créditos proporcionale
   se agota exactamente al llegar al techo y el corte sale por `cuota`, no por
   `techo` con saldo a la vista.
 - **Preferencia de proveedor en modo Créditos**: los cuatro proxies aceptan
-  `prov` en el cuerpo y lo ponen delante de su cadena (`anthropic`/`gemini` en
-  el cerebro; `openai`/`gemini` en voz e imagen). `ia-tts` e `ia-voz` estrenan
-  el camino de Gemini (TTS preview con envoltura WAV y transcripción
+  `prov` en el cuerpo y lo ponen delante de su cadena (`anthropic`/`gemini`/
+  `openai` en el cerebro; `openai`/`gemini` en voz e imagen). `ia-tts` e `ia-voz`
+  estrenan el camino de Gemini (TTS preview con envoltura WAV y transcripción
   multimodal), así que ahora **también necesitan `GEMINI_API_KEY`**.
+- **Cerebro de OpenAI en `ia-chat`** (`gpt-5.6-luna`, 4–5× más barato que Haiku
+  4.5 — análisis en COSTOS.md § «El cerebro de OpenAI»). Usa la
+  `OPENAI_API_KEY` que ya estaba puesta para imagen/voz: **ningún secreto
+  nuevo**. Opcionales, sin redeploy: `OPENAI_TEXT_MODEL` (otro modelo; los
+  5.0/5.1 quieren `OPENAI_TEXT_EFFORT=minimal` en vez de `none`). Los PDF y el
+  perfil `calidad` nunca salen por ahí.
 
 1. `npx supabase db push` (aplica `20260820000002_creditos_proporcionales.sql`).
 2. `npx supabase functions deploy ia-chat ia-imagen ia-tts ia-voz`.
