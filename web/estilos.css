@@ -531,6 +531,75 @@ section h2 {
   padding: 2px 10px;
 }
 
+/* ─── IA: las dos vías, la nube y tu propia máquina ──────────────────────── */
+.ia-vias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.via {
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-tarjeta);
+  padding: 16px;
+}
+
+.via h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 6px;
+  font-size: 15px;
+}
+
+.via p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--tinta-2);
+}
+
+.via .letra-chica {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--tinta-3);
+}
+
+/* Tira de marcas: cada logo con su nombre, envolviendo sin desbordar. */
+.logos-ia {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0 0;
+  padding: 0;
+}
+
+.logos-ia li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--tinta-2);
+}
+
+.logo-ia {
+  flex: none;
+  width: 1.1em;
+  height: 1.1em;
+  fill: currentColor;
+}
+
+.logo-ia.grande {
+  width: 1.3em;
+  height: 1.3em;
+}
+
 /* ─── Cómo funciona: los tres pasos ───────────────────────────────────────── */
 .sub-seccion {
   max-width: 580px;

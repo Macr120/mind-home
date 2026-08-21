@@ -94,6 +94,30 @@ export const TEXTOS = {
     'The app is local-first: everything lives on your device first. If you cancel, you do not lose your data — you carry on in local mode.',
 
 
+  // La sección de IA (#ia): qué hace y con quién. OJO, no confundir con las
+  // claves `ia.t/p/precios/cta` de más abajo, que son la franja de PRECIOS.
+  'ia.h2': 'Your assistant, with or without the cloud',
+  'ia.sub':
+    'The AI in your house logs, plans and creates with you. And you decide what powers it: a cloud provider or your own computer.',
+  'ia.cap.1.t': 'Log it by talking',
+  'ia.cap.1.p':
+    'Tell it what you ate, spent or trained and it files it in the room it belongs to, with its fields and its date.',
+  'ia.cap.2.t': 'Plan your goals',
+  'ia.cap.2.p':
+    'Ask for a goal and it proposes the timeline: steps, dates and daily missions you can then edit by hand.',
+  'ia.cap.3.t': 'Create images and 3D objects',
+  'ia.cap.3.p':
+    'Illustrate your recipes, your clothes and your ideas, and build new furniture and objects for your house.',
+  'ia.cap.4.t': 'It talks, and it listens',
+  'ia.cap.4.p': 'Your assistants answer out loud, and dictation lets you log the day without typing a word.',
+  'ia.nube.t': 'In the cloud, with whoever you pick',
+  'ia.nube.p':
+    'Claude, Gemini or ChatGPT: you choose who thinks, who speaks and who draws. With the credits in your plan or with your own keys.',
+  'ia.local.t': 'Or on your machine, with Ollama',
+  'ia.local.p':
+    'Install Ollama and your house talks to the model running on your computer: no credits, no connection and nothing leaves it.',
+  'ia.local.nota': 'Voice and images still need a cloud provider, unless your local model can generate them.',
+
   'mani.h2': 'Your life, turned into a video game',
   'mani.p1':
     'MPH is your life rendered as a video game, played from the most comfortable place there is: your own house. Leveling up and earning ranks is not decoration — it is what you did out there, told in here.',

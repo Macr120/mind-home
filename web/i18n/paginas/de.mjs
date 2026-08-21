@@ -94,6 +94,32 @@ export const TEXTOS = {
     'Die App ist local-first: alles lebt zuerst auf deinem Gerät. Wenn du kündigst, verlierst du deine Daten nicht — du machst im lokalen Modus weiter.',
 
 
+  // La sección de IA (#ia): qué hace y con quién. OJO, no confundir con las
+  // claves `ia.t/p/precios/cta` de más abajo, que son la franja de PRECIOS.
+  'ia.h2': 'Dein Assistent, mit oder ohne Cloud',
+  'ia.sub':
+    'Die KI im Haus erfasst, plant und erschafft mit dir. Und du entscheidest, was sie antreibt: ein Anbieter in der Cloud oder dein eigener Rechner.',
+  'ia.cap.1.t': 'Erfassen, indem du redest',
+  'ia.cap.1.p':
+    'Erzähl ihr, was du gegessen, ausgegeben oder trainiert hast — sie trägt es im passenden Raum ein, mit Feldern und Datum.',
+  'ia.cap.2.t': 'Plane deine Ziele',
+  'ia.cap.2.p':
+    'Du nennst ein Ziel und sie schlägt den Zeitplan vor: Schritte, Termine und Tagesmissionen, die du danach von Hand änderst.',
+  'ia.cap.3.t': 'Erzeuge Bilder und 3D-Objekte',
+  'ia.cap.3.p':
+    'Illustriere deine Rezepte, deine Kleidung und deine Ideen, und baue neue Möbel und Objekte für dein Haus.',
+  'ia.cap.4.t': 'Sie spricht und hört dir zu',
+  'ia.cap.4.p':
+    'Deine Assistenten antworten mit Stimme, und das Diktat lässt dich den Tag festhalten, ohne ein Wort zu tippen.',
+  'ia.nube.t': 'In der Cloud, mit wem du willst',
+  'ia.nube.p':
+    'Claude, Gemini oder ChatGPT: Du wählst, wer denkt, wer spricht und wer zeichnet. Mit den Credits deines Plans oder mit deinen eigenen Schlüsseln.',
+  'ia.local.t': 'Oder auf deinem Rechner, mit Ollama',
+  'ia.local.p':
+    'Installiere Ollama und das Haus spricht mit dem Modell auf deinem Rechner: ohne Credits, ohne Verbindung und ohne dass etwas nach außen geht.',
+  'ia.local.nota':
+    'Stimme und Bilder brauchen weiterhin einen Anbieter in der Cloud, außer dein lokales Modell kann sie selbst erzeugen.',
+
   'mani.h2': 'Dein Leben, als Videospiel',
   'mani.p1':
     'MPH ist die Darstellung deines Lebens als Videospiel, gespielt vom bequemsten Ort, den es gibt: deinem eigenen Haus. Level und Ränge sind keine Deko — sie sind das, was du da draußen getan hast, hier drinnen erzählt.',

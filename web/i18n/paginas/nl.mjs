@@ -94,6 +94,30 @@ export const TEXTOS = {
     'De app is local-first: alles leeft eerst op je apparaat. Zeg je op, dan raak je je gegevens niet kwijt — je gaat verder in lokale modus.',
 
 
+  // La sección de IA (#ia): qué hace y con quién. OJO, no confundir con las
+  // claves `ia.t/p/precios/cta` de más abajo, que son la franja de PRECIOS.
+  'ia.h2': 'Je assistent, met of zonder cloud',
+  'ia.sub':
+    'De AI in huis legt vast, plant en maakt samen met je. En jij bepaalt wat hem aandrijft: een aanbieder in de cloud of je eigen computer.',
+  'ia.cap.1.t': 'Vastleggen door te praten',
+  'ia.cap.1.p':
+    'Vertel wat je hebt gegeten, uitgegeven of getraind: hij zet het in de juiste kamer, met velden en datum.',
+  'ia.cap.2.t': 'Plan je doelen',
+  'ia.cap.2.p':
+    'Je vraagt om een doel en hij stelt de planning voor: stappen, data en dagelijkse missies die je daarna met de hand aanpast.',
+  'ia.cap.3.t': 'Maak beelden en 3D-objecten',
+  'ia.cap.3.p': 'Illustreer je recepten, je kleren en je ideeën, en bouw nieuwe meubels en objecten voor je huis.',
+  'ia.cap.4.t': 'Hij praat en hij luistert',
+  'ia.cap.4.p': 'Je assistenten antwoorden met stem, en met dictee leg je je dag vast zonder een woord te typen.',
+  'ia.nube.t': 'In de cloud, met wie jij kiest',
+  'ia.nube.p':
+    'Claude, Gemini of ChatGPT: jij kiest wie denkt, wie de stem doet en wie tekent. Met de credits van je plan of met je eigen sleutels.',
+  'ia.local.t': 'Of op je eigen machine, met Ollama',
+  'ia.local.p':
+    'Installeer Ollama en het huis praat met het model dat op je computer draait: zonder credits, zonder verbinding en zonder dat er iets weggaat.',
+  'ia.local.nota':
+    'Stem en beelden hebben nog steeds een aanbieder in de cloud nodig, tenzij je lokale model ze zelf kan maken.',
+
   'mani.h2': 'Je leven, als videogame',
   'mani.p1':
     'MPH is je leven omgezet in een videogame, gespeeld vanaf de comfortabelste plek die er is: je eigen huis. Levels en rangen zijn geen versiering — het is wat je daarbuiten hebt gedaan, hierbinnen verteld.',

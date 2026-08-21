@@ -94,6 +94,30 @@ export const TEXTOS = {
     'Aplikacja jest local-first: wszystko żyje najpierw na twoim urządzeniu. Gdy zrezygnujesz, nie tracisz danych — działasz dalej w trybie lokalnym.',
 
 
+  // La sección de IA (#ia): qué hace y con quién. OJO, no confundir con las
+  // claves `ia.t/p/precios/cta` de más abajo, que son la franja de PRECIOS.
+  'ia.h2': 'Twój asystent, z chmurą albo bez',
+  'ia.sub':
+    'SI w domu zapisuje, planuje i tworzy razem z tobą. A ty decydujesz, co ją napędza: dostawca w chmurze albo twój własny komputer.',
+  'ia.cap.1.t': 'Zapisuj, mówiąc',
+  'ia.cap.1.p':
+    'Powiedz, co zjadłeś, wydałeś albo przećwiczyłeś, a ona zapisze to w odpowiednim pokoju, z polami i datą.',
+  'ia.cap.2.t': 'Planuj swoje cele',
+  'ia.cap.2.p':
+    'Prosisz o cel, a ona proponuje harmonogram: kroki, daty i codzienne misje, które potem poprawiasz ręcznie.',
+  'ia.cap.3.t': 'Twórz obrazy i obiekty 3D',
+  'ia.cap.3.p': 'Zilustruj swoje przepisy, ubrania i pomysły oraz zbuduj nowe meble i obiekty do domu.',
+  'ia.cap.4.t': 'Mówi i cię słucha',
+  'ia.cap.4.p':
+    'Twoi asystenci odpowiadają głosem, a dyktowanie pozwala zapisać cały dzień bez napisania jednego słowa.',
+  'ia.nube.t': 'W chmurze, z kim zechcesz',
+  'ia.nube.p':
+    'Claude, Gemini albo ChatGPT: wybierasz, kto myśli, kto mówi i kto rysuje. Za kredyty ze swojego planu albo z własnymi kluczami.',
+  'ia.local.t': 'Albo na swojej maszynie, z Ollamą',
+  'ia.local.p':
+    'Zainstaluj Ollamę, a dom porozmawia z modelem działającym na twoim komputerze: bez kredytów, bez połączenia i bez tego, żeby cokolwiek stąd wyszło.',
+  'ia.local.nota': 'Głos i obrazy nadal potrzebują dostawcy w chmurze, chyba że twój lokalny model potrafi je tworzyć.',
+
   'mani.h2': 'Twoje życie jako gra',
   'mani.p1':
     'MPH to twoje życie zamienione w grę wideo, w którą grasz z najwygodniejszego miejsca na świecie: z własnego domu. Poziomy i rangi nie są ozdobą — to twoje sprawy z zewnątrz, opowiedziane tutaj, w środku.',

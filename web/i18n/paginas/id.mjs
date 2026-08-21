@@ -94,6 +94,29 @@ export const TEXTOS = {
     'Aplikasinya local-first: semuanya hidup lebih dulu di perangkatmu. Kalau berhenti berlangganan, datamu tidak hilang — kamu lanjut di mode lokal.',
 
 
+  // La sección de IA (#ia): qué hace y con quién. OJO, no confundir con las
+  // claves `ia.t/p/precios/cta` de más abajo, que son la franja de PRECIOS.
+  'ia.h2': 'Asistenmu, dengan atau tanpa cloud',
+  'ia.sub':
+    'AI di rumah mencatat, merencanakan, dan berkarya bersamamu. Dan kamu yang menentukan penggeraknya: penyedia di cloud atau komputermu sendiri.',
+  'ia.cap.1.t': 'Catat sambil bicara',
+  'ia.cap.1.p':
+    'Ceritakan apa yang kamu makan, belanjakan, atau latih, dan ia mencatatnya di ruangan yang tepat, lengkap dengan kolom dan tanggalnya.',
+  'ia.cap.2.t': 'Rencanakan targetmu',
+  'ia.cap.2.p':
+    'Kamu minta sebuah target dan ia menawarkan linimasanya: langkah, tanggal, dan misi harian yang bisa kamu sunting sendiri.',
+  'ia.cap.3.t': 'Buat gambar dan objek 3D',
+  'ia.cap.3.p': 'Ilustrasikan resep, pakaian, dan idemu, lalu buat perabot serta objek baru untuk rumahmu.',
+  'ia.cap.4.t': 'Bicara dan mendengarkanmu',
+  'ia.cap.4.p': 'Asistenmu menjawab dengan suara, dan dikte membuatmu bisa mencatat hari tanpa mengetik satu kata pun.',
+  'ia.nube.t': 'Di cloud, dengan siapa pun pilihanmu',
+  'ia.nube.p':
+    'Claude, Gemini, atau ChatGPT: kamu pilih siapa yang berpikir, siapa yang bersuara, dan siapa yang menggambar. Dengan kredit dari paketmu atau dengan kuncimu sendiri.',
+  'ia.local.t': 'Atau di mesinmu, dengan Ollama',
+  'ia.local.p':
+    'Pasang Ollama dan rumah berbicara dengan model yang berjalan di komputermu: tanpa kredit, tanpa koneksi, dan tanpa ada yang keluar dari sana.',
+  'ia.local.nota': 'Suara dan gambar tetap butuh penyedia di cloud, kecuali model lokalmu bisa membuatnya sendiri.',
+
   'mani.h2': 'Hidupmu, dijadikan video game',
   'mani.p1':
     'MPH adalah hidupmu yang diubah menjadi video game, dimainkan dari tempat ternyaman yang ada: rumahmu sendiri. Naik level dan naik pangkat bukan hiasan — itu yang kamu lakukan di luar sana, diceritakan di dalam sini.',

@@ -94,6 +94,29 @@ export const TEXTOS = {
     'Uygulama local-first: her şey önce senin cihazında yaşar. İptal edersen verini kaybetmezsin — yerel modda devam edersin.',
 
 
+  // La sección de IA (#ia): qué hace y con quién. OJO, no confundir con las
+  // claves `ia.t/p/precios/cta` de más abajo, que son la franja de PRECIOS.
+  'ia.h2': 'Asistanın, bulutlu ya da bulutsuz',
+  'ia.sub':
+    'Evin yapay zekâsı seninle birlikte kaydeder, planlar ve üretir. Onu neyin çalıştıracağına da sen karar verirsin: bulutta bir sağlayıcı ya da kendi bilgisayarın.',
+  'ia.cap.1.t': 'Konuşarak kaydet',
+  'ia.cap.1.p':
+    'Ne yediğini, ne harcadığını ya da nasıl çalıştığını anlat; doğru odaya, alanlarıyla ve tarihiyle yazar.',
+  'ia.cap.2.t': 'Hedeflerini planla',
+  'ia.cap.2.p':
+    'Bir hedef istersin, o da zaman çizelgesini önerir: adımlar, tarihler ve sonradan elle düzenlediğin günlük görevler.',
+  'ia.cap.3.t': 'Görsel ve 3B nesne üret',
+  'ia.cap.3.p': 'Tariflerini, kıyafetlerini ve fikirlerini resimle; evin için yeni mobilyalar ve nesneler üret.',
+  'ia.cap.4.t': 'Konuşur ve seni dinler',
+  'ia.cap.4.p': 'Asistanların sesle yanıt verir, dikte ise günü tek kelime yazmadan kaydetmeni sağlar.',
+  'ia.nube.t': 'Bulutta, kimi seçersen',
+  'ia.nube.p':
+    'Claude, Gemini ya da ChatGPT: kimin düşüneceğine, kimin sesleneceğine ve kimin çizeceğine sen karar verirsin. Planındaki kredilerle ya da kendi anahtarlarınla.',
+  'ia.local.t': 'Ya da kendi makinende, Ollama ile',
+  'ia.local.p':
+    'Ollama’yı kur, ev bilgisayarında çalışan modelle konuşsun: kredisiz, bağlantısız ve hiçbir şey oradan çıkmadan.',
+  'ia.local.nota': 'Ses ve görseller yine de bulutta bir sağlayıcı ister; yerel modelin bunları üretebiliyorsa hariç.',
+
   'mani.h2': 'Hayatın, video oyununa dönüşmüş hâli',
   'mani.p1':
     'MPH, hayatının video oyununa dönüşmüş hâlidir; üstelik var olan en rahat yerden oynanır: kendi evinden. Seviye ve rütbe atlamak süs değildir — dışarıda yaptığın şeyin burada anlatılmasıdır.',

@@ -103,6 +103,32 @@ export const TEXTOS = {
     'La app es local-first: todo vive primero en tu dispositivo. Si cancelas, no pierdes tus datos — sigues en modo local.',
 
 
+  // La sección de IA (#ia): qué hace y con quién. OJO, no confundir con las
+  // claves `ia.t/p/precios/cta` de más abajo, que son la franja de PRECIOS.
+  'ia.h2': 'Tu asistente, con o sin nube',
+  'ia.sub':
+    'La IA de la casa registra, planea y crea contigo. Y tú decides quién la mueve: un proveedor de nube o tu propia computadora.',
+  'ia.cap.1.t': 'Registra hablando',
+  'ia.cap.1.p':
+    'Cuéntale lo que comiste, gastaste o entrenaste y lo apunta en el cuarto que le toca, con sus campos y su fecha.',
+  'ia.cap.2.t': 'Planea tus metas',
+  'ia.cap.2.p':
+    'Le pides una meta y te propone el cronograma: pasos, fechas y misiones diarias que después editas a mano.',
+  'ia.cap.3.t': 'Crea imágenes y objetos 3D',
+  'ia.cap.3.p':
+    'Ilustra tus recetas, tu ropa y tus ideas, y fabrica muebles y objetos nuevos para tu casa.',
+  'ia.cap.4.t': 'Habla y te escucha',
+  'ia.cap.4.p':
+    'Tus asistentes responden con voz, y el dictado te deja registrar el día sin escribir una palabra.',
+  'ia.nube.t': 'En la nube, con quien tú elijas',
+  'ia.nube.p':
+    'Claude, Gemini o ChatGPT: eliges quién piensa, quién pone la voz y quién dibuja. Con los créditos de tu plan o con tus propias claves.',
+  'ia.local.t': 'O en tu máquina, con Ollama',
+  'ia.local.p':
+    'Instala Ollama y la casa habla con el modelo que corre en tu computadora: sin créditos, sin conexión y sin que nada salga de ahí.',
+  'ia.local.nota':
+    'La voz y las imágenes siguen necesitando un proveedor de nube, salvo que tu modelo local sepa generarlas.',
+
   'mani.h2': 'Tu vida, hecha videojuego',
   'mani.p1':
     'MPH es la representación de tu vida convertida en videojuego, jugada desde el lugar más cómodo que existe: tu propia casa. Subir de nivel y ganar rangos no es un adorno — es lo que hiciste allá afuera, contado aquí dentro.',

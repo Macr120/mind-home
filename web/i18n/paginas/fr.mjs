@@ -95,6 +95,31 @@ export const TEXTOS = {
     'L’app est local-first : tout vit d’abord sur ton appareil. Si tu résilies, tu ne perds pas tes données — tu continues en mode local.',
 
 
+  // La sección de IA (#ia): qué hace y con quién. OJO, no confundir con las
+  // claves `ia.t/p/precios/cta` de más abajo, que son la franja de PRECIOS.
+  'ia.h2': 'Ton assistant, avec ou sans cloud',
+  'ia.sub':
+    'L’IA de la maison enregistre, planifie et crée avec toi. Et c’est toi qui décides ce qui la fait tourner : un fournisseur dans le cloud ou ton propre ordinateur.',
+  'ia.cap.1.t': 'Enregistre en parlant',
+  'ia.cap.1.p':
+    'Raconte-lui ce que tu as mangé, dépensé ou travaillé à l’entraînement : elle le note dans la bonne pièce, avec ses champs et sa date.',
+  'ia.cap.2.t': 'Planifie tes objectifs',
+  'ia.cap.2.p':
+    'Tu demandes un objectif et elle propose le planning : étapes, dates et missions du jour que tu retouches ensuite à la main.',
+  'ia.cap.3.t': 'Crée des images et des objets 3D',
+  'ia.cap.3.p':
+    'Illustre tes recettes, tes vêtements et tes idées, et fabrique de nouveaux meubles et objets pour ta maison.',
+  'ia.cap.4.t': 'Elle parle et elle t’écoute',
+  'ia.cap.4.p': 'Tes assistants répondent à voix haute, et la dictée te permet de noter ta journée sans écrire un mot.',
+  'ia.nube.t': 'Dans le cloud, avec qui tu veux',
+  'ia.nube.p':
+    'Claude, Gemini ou ChatGPT : tu choisis qui réfléchit, qui prête sa voix et qui dessine. Avec les crédits de ton offre ou avec tes propres clés.',
+  'ia.local.t': 'Ou sur ta machine, avec Ollama',
+  'ia.local.p':
+    'Installe Ollama et la maison parle au modèle qui tourne sur ton ordinateur : sans crédits, sans connexion et sans que rien n’en sorte.',
+  'ia.local.nota':
+    'La voix et les images demandent toujours un fournisseur dans le cloud, sauf si ton modèle local sait les générer.',
+
   'mani.h2': 'Ta vie, transformée en jeu vidéo',
   'mani.p1':
     'MPH, c’est la représentation de ta vie transformée en jeu vidéo, jouée depuis l’endroit le plus confortable qui soit : ta propre maison. Monter de niveau et gagner des rangs n’est pas un ornement — c’est ce que tu as fait dehors, raconté ici.',

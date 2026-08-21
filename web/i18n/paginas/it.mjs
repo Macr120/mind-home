@@ -94,6 +94,32 @@ export const TEXTOS = {
     'L’app è local-first: tutto vive prima sul tuo dispositivo. Se disdici, non perdi i tuoi dati — continui in modalità locale.',
 
 
+  // La sección de IA (#ia): qué hace y con quién. OJO, no confundir con las
+  // claves `ia.t/p/precios/cta` de más abajo, que son la franja de PRECIOS.
+  'ia.h2': 'Il tuo assistente, con o senza cloud',
+  'ia.sub':
+    'L’IA della casa registra, pianifica e crea con te. E sei tu a decidere chi la muove: un fornitore nel cloud o il tuo computer.',
+  'ia.cap.1.t': 'Registra parlando',
+  'ia.cap.1.p':
+    'Raccontagli cosa hai mangiato, speso o allenato: lo annota nella stanza giusta, con i suoi campi e la sua data.',
+  'ia.cap.2.t': 'Pianifica i tuoi obiettivi',
+  'ia.cap.2.p':
+    'Chiedi un obiettivo e ti propone il programma: passi, date e missioni del giorno che poi modifichi a mano.',
+  'ia.cap.3.t': 'Crea immagini e oggetti 3D',
+  'ia.cap.3.p':
+    'Illustra le tue ricette, i tuoi vestiti e le tue idee, e fabbrica mobili e oggetti nuovi per la tua casa.',
+  'ia.cap.4.t': 'Parla e ti ascolta',
+  'ia.cap.4.p':
+    'I tuoi assistenti rispondono a voce, e la dettatura ti fa registrare la giornata senza scrivere una parola.',
+  'ia.nube.t': 'Nel cloud, con chi vuoi tu',
+  'ia.nube.p':
+    'Claude, Gemini o ChatGPT: scegli chi pensa, chi mette la voce e chi disegna. Con i crediti del tuo piano o con le tue chiavi.',
+  'ia.local.t': 'O sulla tua macchina, con Ollama',
+  'ia.local.p':
+    'Installa Ollama e la casa parla con il modello che gira sul tuo computer: senza crediti, senza connessione e senza che nulla esca da lì.',
+  'ia.local.nota':
+    'La voce e le immagini hanno ancora bisogno di un fornitore nel cloud, a meno che il tuo modello locale sappia generarle.',
+
   'mani.h2': 'La tua vita, diventata videogioco',
   'mani.p1':
     'MPH è la rappresentazione della tua vita trasformata in videogioco, giocata dal posto più comodo che esista: casa tua. Salire di livello e guadagnare gradi non è un ornamento — è quello che hai fatto là fuori, raccontato qui dentro.',
