@@ -5102,6 +5102,7 @@ export const TR: Dict = {
   'chat.foto': 'Fotoğraf ekle (yemek, fiş…)',
   'chat.fotoLista': 'Fotoğraf gönderilmeye hazır',
   'chat.fotoSinIa': 'Fotoğraflar Yapay Zeka gerektirir: sağdaki düğmeden bir model seç',
+  'chat.enviando': 'Gönderildi, yanıt hazırlanıyor…',
   'chat.imagenFallo': 'Görseli oluşturamadım, tekrar dene.',
   'chat.imagenLista': 'Hazır! İşte görselin 🎨',
   'chat.manual': 'Kılavuz',
@@ -6551,6 +6552,7 @@ export const TR: Dict = {
   'ia.activar.sinActivar':
     'Yapay Zeka kapalı. Kredi kullanmak için giriş yap ya da aşağıya bir sağlayıcı anahtarı yapıştır.',
   'ia.activar.priv': 'Yalnızca bu cihazda saklanır ve {prov} dışında hiçbir yere gönderilmez.',
+  'ia.sinProveedorImagen': 'Anahtarlarının hiçbiri görsel üretmiyor. Yapay zekâ panelinden OpenAI ya da Gemini seç, ya da kredilerini kullan.',
   'ia.media.sinClave': 'Görsel üretmek ve yapay zeka sesini kullanmak için bir OpenAI veya Gemini anahtarı ekle.',
   'ia.panel.cerebro': 'Beyin',
   'ia.panel.claveOllama': 'Ollama anahtarı (yalnızca bulutu veya anahtar isteyen bir sunucu için)',

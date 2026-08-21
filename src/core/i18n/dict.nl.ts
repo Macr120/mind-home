@@ -5169,6 +5169,7 @@ export const NL: Dict = {
   'chat.foto': 'Foto toevoegen (eten, bonnetje…)',
   'chat.fotoLista': 'Foto klaar om te versturen',
   'chat.fotoSinIa': 'Foto\'s vereisen AI: kies een model met de knop rechts',
+  'chat.enviando': 'Verzonden, antwoord wordt voorbereid…',
   'chat.imagenFallo': 'Ik kon de afbeelding niet genereren, probeer het opnieuw.',
   'chat.imagenLista': 'Klaar! Hier is je afbeelding 🎨',
   'chat.manual': 'Handleiding',
@@ -6634,6 +6635,7 @@ export const NL: Dict = {
   'ia.activar.sinActivar':
     'De AI staat uit. Log in om credits te gebruiken, of plak hieronder de sleutel van een aanbieder.',
   'ia.activar.priv': 'Wordt alleen op dit apparaat bewaard en verlaat het nooit, behalve richting {prov}.',
+  'ia.sinProveedorImagen': 'Geen van je sleutels maakt afbeeldingen. Kies OpenAI of Gemini in het AI-paneel, of gebruik je credits.',
   'ia.media.sinClave':
     'Voeg een OpenAI- of Gemini-sleutel toe om afbeeldingen te genereren en de AI-stem te gebruiken.',
   'ia.panel.cerebro': 'Brein',

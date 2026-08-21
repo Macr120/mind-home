@@ -427,6 +427,7 @@ export async function ultimosMensajesAsistente(
   const rows = await db.mensajesChat.where('asistenteId').equals(asistenteId).toArray()
   rows.sort((a, b) => a.creado.localeCompare(b.creado))
   return rows
+    .filter((m) => !m.sistema) // los avisos de la app no son turnos del modelo
     .slice(-n)
     .map((m) => ({ rol: m.rol, texto: m.texto.length > 600 ? `${m.texto.slice(0, 600)}…` : m.texto }))
 }

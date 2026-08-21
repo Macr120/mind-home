@@ -5029,6 +5029,7 @@ export const AR: Dict = {
   'chat.foto': 'إرفاق صورة (طعام، إيصال…)',
   'chat.fotoLista': 'الصورة جاهزة للإرسال',
   'chat.fotoSinIa': 'الصور تتطلب الذكاء الاصطناعي: اختر نموذجا من الزر على اليمين',
+  'chat.enviando': 'أُرسل، يجري تحضير الرد…',
   'chat.imagenFallo': 'تعذّر توليد الصورة، حاول مرة أخرى.',
   'chat.imagenLista': 'جاهز! إليك صورتك 🎨',
   'chat.manual': 'الدليل',
@@ -6459,6 +6460,7 @@ export const AR: Dict = {
   'ia.activar.sinActivar':
     'الذكاء الاصطناعي متوقف. يمكن تسجيل الدخول لاستخدام الأرصدة، أو لصق مفتاح أحد المزوّدين أدناه.',
   'ia.activar.priv': 'يُحفظ على هذا الجهاز فقط ولا يغادره إلا باتجاه {prov}.',
+  'ia.sinProveedorImagen': 'لا يولّد أيٌّ من مفاتيحك الصور. اختر OpenAI أو Gemini في لوحة الذكاء الاصطناعي، أو استخدم أرصدتك.',
   'ia.media.sinClave': 'لإنشاء الصور واستخدام الصوت بالذكاء الاصطناعي أضف مفتاح OpenAI أو Gemini.',
   'ia.panel.cerebro': 'الدماغ',
   'ia.panel.claveOllama': 'مفتاح Ollama (فقط لسحابته أو خادم يطلب مفتاحًا)',

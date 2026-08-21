@@ -1616,6 +1616,13 @@ interface MensajeChat {
   destinos?: DestinoChat[]
   /** Legado: chip único de los mensajes guardados antes de `destinos`. */
   destino?: DestinoChat
+  /**
+   * Aviso que escribió la APP, no el modelo (sin cuota, imagen fallida…). Se ve
+   * en el hilo, pero NUNCA viaja en el historial a la IA: el modelo lo tomaba
+   * por respuesta suya y lo daba por cierto («ya agotaste tu cuota») durante los
+   * 12 turnos siguientes, aunque el servidor no hubiera denegado nada.
+   */
+  sistema?: boolean
   /** Imagen generada con IA en ese turno: se muestra dentro de la burbuja. */
   imagen?: Blob
 }

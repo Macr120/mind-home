@@ -5188,6 +5188,7 @@ export const FR: Dict = {
   'chat.foto': 'Joindre une photo (repas, ticket…)',
   'chat.fotoLista': 'Photo prête à envoyer',
   'chat.fotoSinIa': 'Les photos nécessitent l’IA : choisis un modèle avec le bouton à droite',
+  'chat.enviando': 'Envoyé, réponse en préparation…',
   'chat.imagenFallo': 'Je n’ai pas pu générer l’image, réessaie.',
   'chat.imagenLista': 'Voilà ! Voici ton image 🎨',
   'chat.manual': 'Manuel',
@@ -6662,6 +6663,7 @@ export const FR: Dict = {
   'ia.activar.sinActivar':
     'L’IA est désactivée. Connecte-toi pour utiliser des crédits, ou colle ci-dessous la clé d’un fournisseur.',
   'ia.activar.priv': 'Enregistrée uniquement sur cet appareil, elle n’en sort jamais sauf vers {prov}.',
+  'ia.sinProveedorImagen': 'Aucune de tes clés ne génère d’images. Choisis OpenAI ou Gemini dans le panneau IA, ou utilise tes crédits.',
   'ia.media.sinClave': 'Pour générer des images et utiliser la voix IA, ajoute une clé OpenAI ou Gemini.',
   'ia.panel.cerebro': 'Cerveau',
   'ia.panel.claveOllama': 'Clé Ollama (uniquement pour son cloud ou un serveur avec clé)',

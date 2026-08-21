@@ -27,6 +27,8 @@ import { EMOCION_POR_EVENTO } from './emociones'
 import { reaccionar } from '../state/emocionesStore'
 import { useAsistentes } from '../state/asistentesStore'
 import { ChatConversacion } from './ChatConversacion'
+import { sonar } from '../audio/sfx'
+import { vibrar } from '../audio/vibrar'
 // Paneles que solo existen tras pulsar su botón: fuera del arranque (18 KB gz).
 const AsistentesConfig = lazy(() =>
   import('./AsistentesConfig').then((m) => ({ default: m.AsistentesConfig })),
@@ -147,6 +149,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
   const abrirConversacion = useMascota((s) => s.abrirConversacion)
   const cerrarConversacion = useMascota((s) => s.cerrarConversacion)
   const setPensando = useMascota((s) => s.setPensando)
+  const pensando = useMascota((s) => s.pensando)
   const asistentes = useAsistentes((s) => s.lista)
   // Dictado por voz compartido (nativo o fallback Whisper): ver audio/useDictado.
   const {
@@ -392,6 +395,13 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
     useSugerenciaMapa.getState().descartar() // la oferta anterior caduca con el mensaje nuevo
     // Hilo de destino: el diálogo cara a cara manda; luego la conversación abierta; si no, el activo.
     const destinoId = useDialogo.getState().asistenteId ?? conversacion ?? mascotaId
+    // Acuse INMEDIATO de que el mensaje salió, antes de cualquier await: sonido,
+    // vibración, burbuja "pensando…" y caja vacía. Dictar y esperar en silencio
+    // varios segundos se sentía como que el envío no había ocurrido.
+    sonar('tick')
+    vibrar(10)
+    setPensando(true, destinoId)
+    setTexto('') // `interp` es del render actual: el resto de la función lo sigue viendo
     // Contexto para la IA: se lee ANTES de guardar el turno actual (evita duplicarlo).
     const historial = await ultimosMensajesAsistente(destinoId, 12)
     // El asistente activo se reubica al lugar desde donde le pediste algo.
@@ -500,8 +510,6 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
     // dispatcher determinista de abajo sin que el usuario pierda el mensaje.
     if (conIA) {
       try {
-        // Burbuja "pensando…" inmediata: feedback de que el Enter sí envió.
-        setPensando(true, destinoId)
         const textoMsg =
           interp.texto.trim() ||
           (adjunto?.tipo === 'pdf' ? 'Resume y registra lo que contenga el documento.' : 'Registra lo que muestra la imagen.')
@@ -518,7 +526,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
             setPensando(false)
             hablar(
               t('chat.pdfSinTexto', 'No pude leer texto en ese PDF (¿es escaneado?). Con Claude sí puedo verlo completo.'),
-              { asistenteId: destinoId },
+              { asistenteId: destinoId, sistema: true },
             )
             return
           }
@@ -540,7 +548,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
         else if (r.respuesta && r.imagenFallo) hablar(`${r.respuesta} ${t('chat.imagenFallo', 'No pude generar la imagen, inténtalo de nuevo.')}`, opts)
         else if (r.respuesta) hablar(r.respuesta, opts)
         else if (r.imagen) hablar(t('chat.imagenLista', '¡Listo! Aquí está tu imagen 🎨'), opts)
-        else if (r.imagenFallo) hablar(t('chat.imagenFallo', 'No pude generar la imagen, inténtalo de nuevo.'), opts)
+        else if (r.imagenFallo) hablar(t('chat.imagenFallo', 'No pude generar la imagen, inténtalo de nuevo.'), { ...opts, sistema: true })
         else if (r.rutinaCreada) hablar(t('chat.rutinaCreada', '⏰ Rutina «{n}» creada. La verás en el panel de rutinas.', { n: r.rutinaCreada }), opts)
         else if (r.ediciones.length) hablar(r.ediciones.join(' '), opts)
         else if (r.capturado) decir('capturado', r.roomIds.map(nombreCorto).join(' y '), undefined, r.destinos)
@@ -562,7 +570,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
             err.codigo === 'cuota-agotada'
               ? t('chat.cuotaAgotada', 'Agotaste tu cuota de IA de este mes. Revisa tu uso en Editor → Configuraciones → Cuenta.')
               : t('chat.sinPro', 'Tu cuenta no tiene la suscripción activa.'),
-            { asistenteId: destinoId },
+            { asistenteId: destinoId, sistema: true },
           )
           setTexto('')
           setAdjunto(null)
@@ -573,7 +581,10 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
         setAdjunto(null) // el dispatcher local no puede ver fotos ni PDFs
       }
     }
-    if (!interp.texto.trim()) return // solo había foto y la IA falló
+    if (!interp.texto.trim()) {
+      setPensando(false) // única salida que no habla: apagar la burbuja a mano
+      return // solo había foto y la IA falló
+    }
 
     // Guardar en bitácora (con el cuarto principal detectado)
     const id = await bitacoraRepo.add({
@@ -1354,9 +1365,11 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
           <button
             type="button"
             onClick={enviar}
-            disabled={!interp.texto.trim() && !adjunto}
-            className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-accent text-lg text-accent-ink transition hover:bg-accent disabled:opacity-30"
-            title={t('chat.registrar', 'Registrar')}
+            disabled={pensando || (!interp.texto.trim() && !adjunto)}
+            className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-accent text-lg text-accent-ink transition hover:bg-accent disabled:opacity-30 ${
+              pensando ? 'animate-pulse' : ''
+            }`}
+            title={pensando ? t('chat.enviando', 'Enviado, preparando la respuesta…') : t('chat.registrar', 'Registrar')}
           >
             <Icono nombre="enviar" />
           </button>

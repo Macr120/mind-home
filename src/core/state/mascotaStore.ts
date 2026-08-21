@@ -47,6 +47,8 @@ interface MascotaState {
       /** Chips "abrir X": uno por cada app donde el turno guardó algo. */
       destinos?: DestinoChat[]
       imagen?: Blob
+      /** Aviso de la app (no del modelo): se guarda, pero no se le cuenta a la IA. */
+      sistema?: boolean
     },
   ) => void
   /** Reprograma el ocultado de la burbuja (lo usa la voz para no cortar el habla). */
@@ -118,6 +120,7 @@ export const useMascota = create<MascotaState>((set, get) => ({
           ...(opts?.mapaId != null ? { mapaId: opts.mapaId } : {}),
           ...(opts?.destinos?.length ? { destinos: opts.destinos } : {}),
           ...(opts?.imagen ? { imagen: opts.imagen } : {}),
+          ...(opts?.sistema ? { sistema: true } : {}),
         })
         .catch(() => {})
     }

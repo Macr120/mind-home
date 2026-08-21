@@ -5126,6 +5126,7 @@ export const PT: Dict = {
   'chat.foto': 'Anexar foto (comida, recibo…)',
   'chat.fotoLista': 'Foto pronta para enviar',
   'chat.fotoSinIa': 'As fotos exigem IA: escolha um modelo no botão da direita',
+  'chat.enviando': 'Enviado, preparando a resposta…',
   'chat.imagenFallo': 'Não consegui gerar a imagem, tente de novo.',
   'chat.imagenLista': 'Pronto! Aqui está sua imagem 🎨',
   'chat.manual': 'Manual',
@@ -6574,6 +6575,7 @@ export const PT: Dict = {
   'ia.activar.sinActivar':
     'A IA está desligada. Entre na sua conta para usar créditos, ou cole abaixo a chave de um provedor.',
   'ia.activar.priv': 'Fica salva só neste dispositivo e nunca sai dele, a não ser para a {prov}.',
+  'ia.sinProveedorImagen': 'Nenhuma das suas chaves gera imagens. Escolha OpenAI ou Gemini no painel de IA, ou use seus créditos.',
   'ia.media.sinClave': 'Para gerar imagens e usar a voz com IA, adicione uma chave da OpenAI ou do Gemini.',
   'ia.panel.cerebro': 'Cérebro',
   'ia.panel.claveOllama': 'Chave do Ollama (só para a nuvem dele ou um servidor com chave)',

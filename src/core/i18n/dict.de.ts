@@ -5205,6 +5205,7 @@ export const DE: Dict = {
   'chat.foto': 'Foto anhängen (Essen, Beleg…)',
   'chat.fotoLista': 'Foto bereit zum Senden',
   'chat.fotoSinIa': 'Fotos benötigen KI: Wähle rechts ein Modell aus',
+  'chat.enviando': 'Gesendet, Antwort wird vorbereitet…',
   'chat.imagenFallo': 'Ich konnte das Bild nicht erstellen — versuch es noch mal.',
   'chat.imagenLista': 'Fertig! Hier ist dein Bild 🎨',
   'chat.manual': 'Handbuch',
@@ -6681,6 +6682,7 @@ export const DE: Dict = {
   'ia.activar.sinActivar':
     'Die KI ist ausgeschaltet. Melde dich an, um Credits zu nutzen, oder füge unten den Schlüssel eines Anbieters ein.',
   'ia.activar.priv': 'Wird nur auf diesem Gerät gespeichert und verlässt es nie, außer in Richtung {prov}.',
+  'ia.sinProveedorImagen': 'Keiner deiner Schlüssel erzeugt Bilder. Wähle OpenAI oder Gemini im KI-Panel, oder nutze deine Credits.',
   'ia.media.sinClave':
     'Um Bilder zu erzeugen und die KI-Stimme zu nutzen, füge einen OpenAI- oder Gemini-Schlüssel hinzu.',
   'ia.panel.cerebro': 'Gehirn',
