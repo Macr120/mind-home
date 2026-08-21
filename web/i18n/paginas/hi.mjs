@@ -110,6 +110,7 @@ export const TEXTOS = {
   'precio.demo.cta': 'डेमो आज़माएँ',
   'precio.demo.pie': 'पूरा ऐप, बिना किसी बंधन के जान लेने के लिए।',
   'precio.app.nombre': 'ऐप',
+  'precio.app.cifra': '8.89 USD',
   'precio.app.pagoUnico': 'एक बार का भुगतान',
   'precio.app.1': 'अपना घर, हमेशा के लिए: सारे ऐप, आपका डेटा आपके उपकरण में',
   'precio.app.2': 'पहला महीना शामिल: 700 AI क्रेडिट + सिंक, बिना कार्ड और बिना सदस्यता',
@@ -167,12 +168,12 @@ export const TEXTOS = {
 
   'legal.fecha': 'अंतिम अद्यतन: अगस्त 2026।',
   'legal.original':
-    'सौजन्य अनुवाद। किसी भी अंतर की स्थिति में <a href="/privacidad">स्पेनिश</a> संस्करण मान्य होगा।',
+    'सौजन्य अनुवाद। किसी भी अंतर की स्थिति में <a href="/original">स्पेनिश</a> संस्करण मान्य होगा।',
 
   'priv.titulo': 'गोपनीयता नीति',
   'priv.quienes.h': 'हम कौन हैं',
   'priv.quienes.p':
-    'Mind Planner Home («ऐप») व्यक्तिगत व्यवस्था का एक अनुप्रयोग है। संपर्क: <a href="mailto:macr120cme@gmail.com">macr120cme@gmail.com</a>।',
+    'Mind Planner Home («ऐप») व्यक्तिगत व्यवस्था का एक अनुप्रयोग है। संपर्क: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>।',
   'priv.datos.h': 'हम कौन-सा डेटा इकट्ठा करते हैं',
   'priv.datos.1':
     '<strong>खाता:</strong> आपका ईमेल और एक एन्क्रिप्टेड पासवर्ड, जिन्हें Supabase (हमारा बैकएंड प्रदाता) संभालता है।',
@@ -246,5 +247,5 @@ export const TEXTOS = {
     'हम ऐप और ये शर्तें बदल सकते हैं; कीमत के बदलाव पहले से बताए जाते हैं और पहले से भुगतान की गई अवधि पर पीछे की तारीख से कभी लागू नहीं होते।',
   'term.contacto.h': 'संपर्क',
   'term.contacto.p':
-    'सवाल और सहायता: <a href="mailto:macr120cme@gmail.com">macr120cme@gmail.com</a>।',
+    'सवाल और सहायता: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>।',
 }

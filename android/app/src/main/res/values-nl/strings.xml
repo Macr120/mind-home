@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="widget_hoy_label">Missies</string>
+    <string name="widget_hoy_desc">De missies van vandaag uit al je apps, hier direct af te vinken.</string>
+    <string name="widget_casa_label">Huis</string>
+    <string name="widget_casa_desc">Je huis en de datum van vandaag.</string>
+    <string name="widget_chat_label">Chat</string>
+    <string name="widget_chat_desc">Praat met je huis: chat, camera en spraakinvoer.</string>
+    <string name="widget_vacio">Open Mind Planner Home om deze widget te vullen.</string>
+    <string name="widget_palomear">Als klaar markeren</string>
+    <string name="widget_chat_abrir">Chat</string>
+    <string name="widget_chat_camara">Een foto sturen</string>
+    <string name="widget_chat_voz">Spraakinvoer</string>
+</resources>

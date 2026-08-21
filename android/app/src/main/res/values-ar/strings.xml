@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="widget_hoy_label">المهام</string>
+    <string name="widget_hoy_desc">مهام اليوم من كل تطبيقاتك، يمكنك تعليمها من هنا.</string>
+    <string name="widget_casa_label">البيت</string>
+    <string name="widget_casa_desc">بيتك وتاريخ اليوم.</string>
+    <string name="widget_chat_label">المحادثة</string>
+    <string name="widget_chat_desc">تحدّث مع بيتك: محادثة وكاميرا وإملاء.</string>
+    <string name="widget_vacio">افتح Mind Planner Home لملء هذه الأداة.</string>
+    <string name="widget_palomear">تحديد كمُنجز</string>
+    <string name="widget_chat_abrir">المحادثة</string>
+    <string name="widget_chat_camara">إرسال صورة</string>
+    <string name="widget_chat_voz">الإملاء</string>
+</resources>

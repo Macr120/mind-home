@@ -101,6 +101,7 @@ export const TEXTOS = {
   'precio.demo.cta': '试试 demo',
   'precio.demo.pie': '完整的应用，让你毫无负担地先认识它。',
   'precio.app.nombre': '应用',
+  'precio.app.cifra': '8.89 美元',
   'precio.app.pagoUnico': '一次性付款',
   'precio.app.1': '一座属于你的房子，永远：所有应用，数据都在你的设备上',
   'precio.app.2': '含首月：700 点 AI 额度 + 同步，不用银行卡，也不是订阅',
@@ -153,12 +154,12 @@ export const TEXTOS = {
 
   'legal.fecha': '最后更新：2026 年 8 月。',
   'legal.original':
-    '本译文仅供参考。如有出入，以<a href="/privacidad">西班牙语</a>版本为准。',
+    '本译文仅供参考。如有出入，以<a href="/original">西班牙语</a>版本为准。',
 
   'priv.titulo': '隐私政策',
   'priv.quienes.h': '我们是谁',
   'priv.quienes.p':
-    'Mind Planner Home（「本应用」）是一款个人整理应用。联系方式：<a href="mailto:macr120cme@gmail.com">macr120cme@gmail.com</a>。',
+    'Mind Planner Home（「本应用」）是一款个人整理应用。联系方式：<a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>。',
   'priv.datos.h': '我们收集哪些数据',
   'priv.datos.1':
     '<strong>账户：</strong>你的邮箱和一份加密的密码，由 Supabase（我们的后端服务商）管理。',
@@ -232,5 +233,5 @@ export const TEXTOS = {
     '我们可能更新应用和本条款；价格变动会提前告知，且绝不会追溯适用于已付费的周期。',
   'term.contacto.h': '联系',
   'term.contacto.p':
-    '疑问与支持：<a href="mailto:macr120cme@gmail.com">macr120cme@gmail.com</a>。',
+    '疑问与支持：<a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>。',
 }

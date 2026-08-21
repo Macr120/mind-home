@@ -110,6 +110,7 @@ export const TEXTOS = {
   'precio.demo.cta': 'Попробовать демо',
   'precio.demo.pie': 'Полное приложение, чтобы познакомиться без обязательств.',
   'precio.app.nombre': 'Приложение',
+  'precio.app.cifra': '8,89 USD',
   'precio.app.pagoUnico': 'разовая оплата',
   'precio.app.1': 'Свой собственный дом навсегда: все приложения, данные на твоём устройстве',
   'precio.app.2': 'Первый месяц включён: 700 кредитов ИИ + синхронизация, без карты и без подписки',
@@ -168,12 +169,12 @@ export const TEXTOS = {
 
   'legal.fecha': 'Последнее обновление: август 2026.',
   'legal.original':
-    'Перевод для удобства. При расхождениях действует версия на <a href="/privacidad">испанском</a>.',
+    'Перевод для удобства. При расхождениях действует версия на <a href="/original">испанском</a>.',
 
   'priv.titulo': 'Политика конфиденциальности',
   'priv.quienes.h': 'Кто мы',
   'priv.quienes.p':
-    'Mind Planner Home («приложение») — это приложение для личной организации. Контакт: <a href="mailto:macr120cme@gmail.com">macr120cme@gmail.com</a>.',
+    'Mind Planner Home («приложение») — это приложение для личной организации. Контакт: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
   'priv.datos.h': 'Какие данные мы собираем',
   'priv.datos.1':
     '<strong>Аккаунт:</strong> твой адрес почты и зашифрованный пароль, которыми управляет Supabase (наш бэкенд-провайдер).',
@@ -248,5 +249,5 @@ export const TEXTOS = {
     'Мы можем обновлять приложение и эти условия; изменения цены объявляются заранее и никогда не применяются задним числом к уже оплаченному периоду.',
   'term.contacto.h': 'Контакты',
   'term.contacto.p':
-    'Вопросы и поддержка: <a href="mailto:macr120cme@gmail.com">macr120cme@gmail.com</a>.',
+    'Вопросы и поддержка: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
 }

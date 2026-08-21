@@ -110,6 +110,7 @@ export const TEXTOS = {
   'precio.demo.cta': 'Coba demonya',
   'precio.demo.pie': 'Aplikasi lengkap, untuk mengenalnya tanpa terikat apa pun.',
   'precio.app.nombre': 'Aplikasinya',
+  'precio.app.cifra': '8,89 USD',
   'precio.app.pagoUnico': 'sekali bayar',
   'precio.app.1': 'Rumahmu sendiri, selamanya: semua aplikasi, datamu di perangkatmu',
   'precio.app.2':
@@ -169,12 +170,12 @@ export const TEXTOS = {
 
   'legal.fecha': 'Terakhir diperbarui: Agustus 2026.',
   'legal.original':
-    'Terjemahan sebagai layanan. Bila ada perbedaan, versi <a href="/privacidad">bahasa Spanyol</a> yang berlaku.',
+    'Terjemahan sebagai layanan. Bila ada perbedaan, versi <a href="/original">bahasa Spanyol</a> yang berlaku.',
 
   'priv.titulo': 'Kebijakan privasi',
   'priv.quienes.h': 'Siapa kami',
   'priv.quienes.p':
-    'Mind Planner Home («aplikasinya») adalah aplikasi penataan pribadi. Kontak: <a href="mailto:macr120cme@gmail.com">macr120cme@gmail.com</a>.',
+    'Mind Planner Home («aplikasinya») adalah aplikasi penataan pribadi. Kontak: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
   'priv.datos.h': 'Data apa yang kami kumpulkan',
   'priv.datos.1':
     '<strong>Akun:</strong> alamat emailmu dan kata sandi terenkripsi, dikelola oleh Supabase (penyedia backend kami).',
@@ -248,5 +249,5 @@ export const TEXTOS = {
     'Kami dapat memperbarui aplikasi dan ketentuan ini; perubahan harga diumumkan sebelumnya dan tidak pernah berlaku surut untuk periode yang sudah dibayar.',
   'term.contacto.h': 'Kontak',
   'term.contacto.p':
-    'Pertanyaan dan dukungan: <a href="mailto:macr120cme@gmail.com">macr120cme@gmail.com</a>.',
+    'Pertanyaan dan dukungan: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
 }

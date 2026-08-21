@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="widget_hoy_label">ミッション</string>
+    <string name="widget_hoy_desc">すべてのアプリの今日のミッション。ここからチェックできます。</string>
+    <string name="widget_casa_label">家</string>
+    <string name="widget_casa_desc">あなたの家と今日の日付。</string>
+    <string name="widget_chat_label">チャット</string>
+    <string name="widget_chat_desc">家と話す：チャット、カメラ、音声入力。</string>
+    <string name="widget_vacio">このウィジェットを使うには Mind Planner Home を開いてください。</string>
+    <string name="widget_palomear">完了にする</string>
+    <string name="widget_chat_abrir">チャット</string>
+    <string name="widget_chat_camara">写真を送る</string>
+    <string name="widget_chat_voz">音声入力</string>
+</resources>

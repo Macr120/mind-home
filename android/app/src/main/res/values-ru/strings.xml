@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="widget_hoy_label">Миссии</string>
+    <string name="widget_hoy_desc">Сегодняшние миссии из всех ваших приложений — отмечайте прямо здесь.</string>
+    <string name="widget_casa_label">Дом</string>
+    <string name="widget_casa_desc">Ваш дом и сегодняшняя дата.</string>
+    <string name="widget_chat_label">Чат</string>
+    <string name="widget_chat_desc">Поговорите с домом: чат, камера и диктовка.</string>
+    <string name="widget_vacio">Откройте Mind Planner Home, чтобы заполнить этот виджет.</string>
+    <string name="widget_palomear">Отметить как выполнено</string>
+    <string name="widget_chat_abrir">Чат</string>
+    <string name="widget_chat_camara">Отправить фото</string>
+    <string name="widget_chat_voz">Диктовка</string>
+</resources>

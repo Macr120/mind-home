@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="widget_hoy_label">Missions</string>
+    <string name="widget_hoy_desc">Les missions du jour de toutes vos apps, à cocher ici même.</string>
+    <string name="widget_casa_label">Maison</string>
+    <string name="widget_casa_desc">Votre maison et la date du jour.</string>
+    <string name="widget_chat_label">Chat</string>
+    <string name="widget_chat_desc">Parlez à votre maison : chat, caméra et dictée.</string>
+    <string name="widget_vacio">Ouvrez Mind Planner Home pour remplir ce widget.</string>
+    <string name="widget_palomear">Marquer comme fait</string>
+    <string name="widget_chat_abrir">Chat</string>
+    <string name="widget_chat_camara">Envoyer une photo</string>
+    <string name="widget_chat_voz">Dicter</string>
+</resources>

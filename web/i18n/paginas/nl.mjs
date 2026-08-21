@@ -110,6 +110,7 @@ export const TEXTOS = {
   'precio.demo.cta': 'De demo proberen',
   'precio.demo.pie': 'De volledige app, om haar vrijblijvend te leren kennen.',
   'precio.app.nombre': 'De app',
+  'precio.app.cifra': '8,89 USD',
   'precio.app.pagoUnico': 'eenmalige betaling',
   'precio.app.1': 'Je eigen huis, voor altijd: alle apps, je gegevens op je apparaat',
   'precio.app.2':
@@ -169,12 +170,12 @@ export const TEXTOS = {
 
   'legal.fecha': 'Laatst bijgewerkt: augustus 2026.',
   'legal.original':
-    'Vertaling uit service. Bij afwijkingen geldt de <a href="/privacidad">Spaanse</a> versie.',
+    'Vertaling uit service. Bij afwijkingen geldt de <a href="/original">Spaanse</a> versie.',
 
   'priv.titulo': 'Privacybeleid',
   'priv.quienes.h': 'Wie we zijn',
   'priv.quienes.p':
-    'Mind Planner Home («de app») is een applicatie voor persoonlijke organisatie. Contact: <a href="mailto:macr120cme@gmail.com">macr120cme@gmail.com</a>.',
+    'Mind Planner Home («de app») is een applicatie voor persoonlijke organisatie. Contact: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
   'priv.datos.h': 'Welke gegevens we verzamelen',
   'priv.datos.1':
     '<strong>Account:</strong> je e-mailadres en een versleuteld wachtwoord, beheerd door Supabase (onze backendleverancier).',
@@ -249,5 +250,5 @@ export const TEXTOS = {
     'We kunnen de app en deze voorwaarden bijwerken; prijswijzigingen kondigen we vooraf aan en gelden nooit met terugwerkende kracht voor een al betaalde periode.',
   'term.contacto.h': 'Contact',
   'term.contacto.p':
-    'Vragen en ondersteuning: <a href="mailto:macr120cme@gmail.com">macr120cme@gmail.com</a>.',
+    'Vragen en ondersteuning: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
 }

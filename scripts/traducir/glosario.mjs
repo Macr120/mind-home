@@ -22,7 +22,10 @@ REGLAS DURAS
    añadidas.
 2. Los marcadores entre llaves —{nombre}, {n}, {total}— se copian TAL CUAL,
    sin traducir, sin cambiar de nombre y sin añadir ni quitar ninguno.
-3. «Mind Planner Home» y «MPH» no se traducen nunca.
+3. «Mind Planner Home» y «MPH» no se traducen DENTRO de una frase. La ÚNICA
+   excepción es la clave «app.brand» (el rótulo de la barra), que lleva el
+   nombre de la marca ya localizado y debe decir lo MISMO que «marca.nombre»
+   de la web (web/i18n/paginas/<id>.mjs) — decidido el 20 ago 2026.
 4. No metas emojis. Si el original no lleva, la traducción tampoco.
 5. Respeta el marcado del manual de comandos: los corchetes [así] y las llaves
    {así} delimitan partes de la frase y deben seguir delimitando lo mismo.
@@ -709,6 +712,43 @@ export const DECISIONES = {
     hi:
       'Cifras OCCIDENTALES (0-9), no las devanagari (०१२३): es lo corriente en el uso digital ' +
       'indio y lo que devuelve Intl con hi-IN.',
+  },
+
+  /**
+   * (e) Misión «catálogos 2026» (ago 2026): el catálogo de ejercicio, los
+   * pilares de la biblioteca, la siembra de cocina/garaje, las cartas y el
+   * Ahorcado. Reglas del dominio, cerradas ANTES de traducir.
+   */
+  catalogos2026: {
+    ejercicio:
+      'Nombres de ejercicio con la TERMINOLOGÍA DE GIMNASIO ASENTADA de cada idioma, no ' +
+      'traducción literal: los préstamos universales se conservan (burpees, hip thrust, face ' +
+      'pull, HIIT, plank/plancha según el uso local, curl, squat/sentadilla según el uso local); ' +
+      'el CJK usa sus préstamos en katakana/hangul cuando son lo corriente en apps de fitness. ' +
+      'Las posturas de yoga usan el nombre con que se enseñan allí (Cat-Cow, saludo al sol, ' +
+      'Savasana queda). OJO tr: «kalça» es a la vez cadera y glúteo — para glúteos usa «kalça ' +
+      'kasları» o el término de gimnasio asentado, y desambigua por contexto. Los NOMBRES son ' +
+      'texto de BOTÓN/lista: cortos.',
+    cocina:
+      'El recetario de fábrica sigue el canon del recetario del demo (bitácora de TRADUCIR.md): ' +
+      'los platos con nombre propio NO se traducen, se adaptan a la grafía local (Tacos al ' +
+      'pastor queda; chilaquiles se translitera en ar); «bowl» se traduce en tr/id ' +
+      '(kâse/mangkuk) y queda como préstamo en el resto; ingredientes con el término de ' +
+      'supermercado local.',
+    ahorcado:
+      'Las 100 palabras del Ahorcado NO se traducen: se SUSTITUYEN por 100 palabras bonitas y ' +
+      'cotidianas de ESE idioma (concretas, ilustrables, sin marcas), en MAYÚSCULAS, de 3 a 12 ' +
+      'letras. Cada rama declara su alfabeto (el teclado del juego); los diacríticos que no ' +
+      'estén en el alfabeto deben plegarse a una tecla (Á→A). SOLO escrituras alfabéticas: ' +
+      'pt/fr/de/it/tr/id/pl/nl con latino (más las letras propias que declaren) y ru con ' +
+      'cirílico; ja/zh/ko/ar/hi NO llevan banco y caen al inglés a propósito.',
+    preguntas:
+      'Las preguntas de los mazos de cartas son de sobremesa entre amigos: naturales y de ' +
+      'registro hablado en cada idioma (con el tratamiento del glosario), nunca calco. Mismo ' +
+      'ORDEN e índice que el español.',
+    pilares:
+      'El índice enciclopédico usa la terminología académica corriente del idioma; los títulos ' +
+      'son frases nominales cortas.',
   },
 }
 

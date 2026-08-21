@@ -119,6 +119,7 @@ export const TEXTOS = {
   'precio.demo.cta': 'Probar la demo',
   'precio.demo.pie': 'La app completa, para conocerla sin compromiso.',
   'precio.app.nombre': 'La app',
+  'precio.app.cifra': '8.89 USD',
   'precio.app.pagoUnico': 'pago único',
   'precio.app.1': 'Tu propia casa, para siempre: todas las apps, tus datos en tu dispositivo',
   'precio.app.2':
@@ -184,7 +185,7 @@ export const TEXTOS = {
   'priv.titulo': 'Política de privacidad',
   'priv.quienes.h': 'Quiénes somos',
   'priv.quienes.p':
-    'Mind Planner Home («la app») es una aplicación de organización personal. Contacto: <a href="mailto:macr120cme@gmail.com">macr120cme@gmail.com</a>.',
+    'Mind Planner Home («la app») es una aplicación de organización personal. Contacto: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
   'priv.datos.h': 'Qué datos recopilamos',
   'priv.datos.1':
     '<strong>Cuenta:</strong> tu correo electrónico y una contraseña cifrada, gestionados por Supabase (nuestro proveedor de backend).',
@@ -259,5 +260,5 @@ export const TEXTOS = {
     'Podemos actualizar la app y estos términos; los cambios de precio se avisan con anticipación y nunca se aplican retroactivamente a un periodo ya pagado.',
   'term.contacto.h': 'Contacto',
   'term.contacto.p':
-    'Dudas y soporte: <a href="mailto:macr120cme@gmail.com">macr120cme@gmail.com</a>.',
+    'Dudas y soporte: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
 }

@@ -1,4 +1,5 @@
 import type { Asistente, MascotaId } from '../chat/mascotas'
+import { tGlobal } from '../i18n/useT'
 import { getPlantilla } from '../registry'
 
 /**
@@ -94,18 +95,24 @@ const SEMILLAS: Record<string, SemillaAsistente> = {
   },
 }
 
-/** Semilla (voz por defecto) del asistente de una plantilla. */
+/**
+ * Semilla (voz por defecto) del asistente de una plantilla.
+ *
+ * El `nombre` se traduce al vuelo porque SÍ se pinta: es la firma de la charla
+ * en la biblioteca y en el tutor de idiomas. `personalidad` y `saludo` no, que
+ * son material de prompt para la IA y viven en español.
+ */
 export function semillaAsistente(plantillaId: string): SemillaAsistente {
+  const s = SEMILLAS[plantillaId]
+  if (s) return { ...s, nombre: tGlobal(`asistente.${plantillaId}.nombre`, s.nombre) }
   const p = getPlantilla(plantillaId)
-  return (
-    SEMILLAS[plantillaId] ?? {
-      nombre: p?.nombre.split(' · ')[0] ?? plantillaId,
-      emoji: p?.icon ?? '✨',
-      forma: 'mago',
-      personalidad: '',
-      saludo: '¡Hola! Soy el asistente de esta app.',
-    }
-  )
+  return {
+    nombre: p?.nombre.split(' · ')[0] ?? plantillaId,
+    emoji: p?.icon ?? '✨',
+    forma: 'mago',
+    personalidad: '',
+    saludo: '¡Hola! Soy el asistente de esta app.',
+  }
 }
 
 /** Asistente (de tu lista) que atiende esta plantilla, si asignaste alguno. */

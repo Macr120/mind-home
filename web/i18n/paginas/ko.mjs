@@ -104,6 +104,7 @@ export const TEXTOS = {
   'precio.demo.cta': '데모 해보기',
   'precio.demo.pie': '완전한 앱을, 부담 없이 먼저 알아보세요.',
   'precio.app.nombre': '앱',
+  'precio.app.cifra': '8.89 USD',
   'precio.app.pagoUnico': '1회 결제',
   'precio.app.1': '당신만의 집을 영원히: 모든 앱, 데이터는 당신의 기기 안에',
   'precio.app.2': '첫 달 포함: AI 크레딧 700 + 동기화, 카드도 구독도 없이',
@@ -157,12 +158,12 @@ export const TEXTOS = {
 
   'legal.fecha': '최종 업데이트: 2026년 8월.',
   'legal.original':
-    '참고용 번역입니다. 내용이 다를 경우 <a href="/privacidad">스페인어</a> 판이 우선합니다.',
+    '참고용 번역입니다. 내용이 다를 경우 <a href="/original">스페인어</a> 판이 우선합니다.',
 
   'priv.titulo': '개인정보 처리방침',
   'priv.quienes.h': '운영자',
   'priv.quienes.p':
-    'Mind Planner Home(「본 앱」)은 개인 정리용 애플리케이션입니다. 연락처: <a href="mailto:macr120cme@gmail.com">macr120cme@gmail.com</a>.',
+    'Mind Planner Home(「본 앱」)은 개인 정리용 애플리케이션입니다. 연락처: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
   'priv.datos.h': '수집하는 데이터',
   'priv.datos.1':
     '<strong>계정:</strong> 이메일 주소와 암호화된 비밀번호로, 백엔드 제공사인 Supabase가 관리합니다.',
@@ -236,5 +237,5 @@ export const TEXTOS = {
     '앱과 본 약관은 갱신될 수 있습니다. 가격 변경은 미리 알리며, 이미 결제된 기간에 소급 적용되지 않습니다.',
   'term.contacto.h': '문의',
   'term.contacto.p':
-    '질문과 지원: <a href="mailto:macr120cme@gmail.com">macr120cme@gmail.com</a>.',
+    '질문과 지원: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
 }

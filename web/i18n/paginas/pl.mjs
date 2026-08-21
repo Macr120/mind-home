@@ -110,6 +110,7 @@ export const TEXTOS = {
   'precio.demo.cta': 'Wypróbuj demo',
   'precio.demo.pie': 'Pełna aplikacja, żeby poznać ją bez zobowiązań.',
   'precio.app.nombre': 'Aplikacja',
+  'precio.app.cifra': '8,89 USD',
   'precio.app.pagoUnico': 'jednorazowa płatność',
   'precio.app.1': 'Twój własny dom, na zawsze: wszystkie aplikacje, dane na twoim urządzeniu',
   'precio.app.2':
@@ -168,12 +169,12 @@ export const TEXTOS = {
 
   'legal.fecha': 'Ostatnia aktualizacja: sierpień 2026.',
   'legal.original':
-    'Tłumaczenie pomocnicze. W razie rozbieżności obowiązuje wersja <a href="/privacidad">hiszpańska</a>.',
+    'Tłumaczenie pomocnicze. W razie rozbieżności obowiązuje wersja <a href="/original">hiszpańska</a>.',
 
   'priv.titulo': 'Polityka prywatności',
   'priv.quienes.h': 'Kim jesteśmy',
   'priv.quienes.p':
-    'Mind Planner Home («aplikacja») to aplikacja do organizacji osobistej. Kontakt: <a href="mailto:macr120cme@gmail.com">macr120cme@gmail.com</a>.',
+    'Mind Planner Home («aplikacja») to aplikacja do organizacji osobistej. Kontakt: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
   'priv.datos.h': 'Jakie dane zbieramy',
   'priv.datos.1':
     '<strong>Konto:</strong> twój adres e-mail i zaszyfrowane hasło, zarządzane przez Supabase (naszego dostawcę backendu).',
@@ -247,5 +248,5 @@ export const TEXTOS = {
     'Możemy aktualizować aplikację i ten regulamin; zmiany cen zapowiadamy z wyprzedzeniem i nigdy nie stosujemy ich wstecz do już opłaconego okresu.',
   'term.contacto.h': 'Kontakt',
   'term.contacto.p':
-    'Pytania i wsparcie: <a href="mailto:macr120cme@gmail.com">macr120cme@gmail.com</a>.',
+    'Pytania i wsparcie: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
 }

@@ -71,15 +71,31 @@ function localizarEnlaces(html, id) {
   )
 }
 
+/**
+ * El enlace al ORIGINAL en español de las páginas legales («la versión española
+ * prevalece»). En el catálogo lleva la ruta abstracta `/original` por dos
+ * razones: así la MISMA frase sirve en privacidad y en términos, y así
+ * `localizarEnlaces` —que solo conoce las tres rutas reales— no lo mete dentro
+ * del idioma. Es el único enlace que debe SALIR de él.
+ */
+function enlaceOriginal(html, pagina) {
+  return html.replaceAll('href="/original"', `href="/${pagina.replace('.html', '')}"`)
+}
+
 /** El menú de idiomas, sin JavaScript: un `<details>` con un enlace por idioma. */
 function selector(idActual, pagina) {
   const actual = IDIOMAS.find((i) => i.id === idActual)
   const suelta = pagina === 'index.html' ? '' : `/${pagina.replace('.html', '')}`
+  // Elegir idioma GUARDA la elección. Sin esto, quien tuviera 'en' apuntado de
+  // antes no podía volver al español: el enlace lleva a `/`, y allí la
+  // autodetección leía el idioma viejo y lo devolvía a `/en/` — un bucle que
+  // dejaba el español inalcanzable desde el selector.
   const enlaces = DISPONIBLES.map(
     (i) =>
       `<a lang="${i.id}" href="${prefijo(i.id)}${suelta || '/'}"${
         i.id === idActual ? ' aria-current="true"' : ''
-      }><span>${i.flag}</span>${i.endonimo}</a>`,
+      } onclick="try{localStorage.setItem('mph.idioma','${i.id}')}catch(e){}"` +
+      `><span>${i.flag}</span>${i.endonimo}</a>`,
   ).join('')
   return (
     `<details class="idiomas"><summary title="Language"><span>${actual.flag}</span>` +
@@ -158,7 +174,7 @@ for (const { id } of DISPONIBLES) {
     const plantilla = PLANTILLAS.get(pagina)
     if (!plantilla) continue
     const sinTraducir = new Set()
-    let html = localizarEnlaces(traducir(plantilla, textos, sinTraducir), id)
+    let html = enlaceOriginal(localizarEnlaces(traducir(plantilla, textos, sinTraducir), id), pagina)
     html = html
       .replace('<html lang="es"', `<html lang="${id}"`)
       // El selector va DESPUÉS de localizar: sus enlaces salen a otros idiomas.

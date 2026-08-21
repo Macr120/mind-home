@@ -1,14 +1,14 @@
 {
   "name": "Mind Planner Home",
   "short_name": "MPH",
-  "description": "Tu casa: cada cuarto es una app de tu vida.",
+  "description": "Your life, in a 3D house: every room is an app.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#0f1115",
   "theme_color": "#0f1115",
   "orientation": "any",
-  "lang": "es",
+  "lang": "en",
   "icons": [
     {
       "src": "/icon.svg",

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="widget_hoy_label">मिशन</string>
+    <string name="widget_hoy_desc">आपके सभी ऐप्स के आज के मिशन, यहीं से पूरे करें।</string>
+    <string name="widget_casa_label">घर</string>
+    <string name="widget_casa_desc">आपका घर और आज की तारीख़।</string>
+    <string name="widget_chat_label">चैट</string>
+    <string name="widget_chat_desc">अपने घर से बात करें: चैट, कैमरा और डिक्टेशन।</string>
+    <string name="widget_vacio">यह विजेट भरने के लिए Mind Planner Home खोलें।</string>
+    <string name="widget_palomear">पूरा हुआ मार्क करें</string>
+    <string name="widget_chat_abrir">चैट</string>
+    <string name="widget_chat_camara">फ़ोटो भेजें</string>
+    <string name="widget_chat_voz">डिक्टेशन</string>
+</resources>

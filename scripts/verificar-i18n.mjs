@@ -70,6 +70,8 @@ const marcadores = (s) => (s.match(RE_MARCADOR) ?? []).slice().sort()
 
 const CADENA = String.raw`'(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*"|\`(?:[^\`\\]|\\.)*\``
 const RE_CLAVE = new RegExp(String.raw`\b(?:t|tGlobal|T)\(\s*(${CADENA})`, 'g')
+/** Solo los template con hueco: de ahí sale el prefijo de una familia dinámica. */
+const RE_FAMILIA = /\b(?:t|tGlobal|T)\(\s*`([^`\n]*\$\{[^`\n]*)`/g
 
 function* archivosFuente(dir) {
   for (const entrada of readdirSync(dir)) {
@@ -80,7 +82,7 @@ function* archivosFuente(dir) {
 }
 
 /** Claves literales de `t()/tGlobal()/T()` en src/, sin los propios diccionarios.
- *  Las dinámicas (template con `${…}`) no se pueden comprobar y se saltan. */
+ *  Las dinámicas (template con `${…}`) se miran aparte, por FAMILIA. */
 function clavesDelCodigo() {
   const claves = new Map() // clave → archivo donde aparece
   for (const archivo of archivosFuente(path.join(RAIZ, 'src'))) {
@@ -95,8 +97,63 @@ function clavesDelCodigo() {
   return claves
 }
 
+/**
+ * Prefijos de las claves DINÁMICAS: el trozo literal de una clave de plantilla.
+ *
+ * De la clave concreta no se sabe nada —el id sale de un catálogo en tiempo de
+ * ejecución— pero sí de la FAMILIA: si el inglés no tiene NI UNA clave con ese
+ * prefijo, el catálogo entero se pinta en español en los 16 idiomas. Es por
+ * donde se colaron los nombres de pisos, techos, fondos, temas y objetos, que
+ * el barrido de claves literales no ve.
+ */
+function familiasDelCodigo() {
+  const familias = new Map() // prefijo → archivo donde aparece
+  for (const archivo of archivosFuente(path.join(RAIZ, 'src'))) {
+    const rel = path.relative(RAIZ, archivo).replace(/\\/g, '/')
+    if (rel.startsWith('src/core/i18n/')) continue
+    for (const m of readFileSync(archivo, 'utf8').matchAll(RE_FAMILIA)) {
+      const prefijo = m[1].slice(0, m[1].indexOf('${'))
+      if (prefijo && !familias.has(prefijo)) familias.set(prefijo, rel)
+    }
+  }
+  return familias
+}
+
 let errores = 0
 let avisos = 0
+
+/**
+ * El portal `/cuenta` de la web pública, la única superficie traducida que NADIE
+ * comprueba: sus textos los pinta React en el navegador, así que el build no los
+ * mira (a diferencia de las páginas estáticas, que fallan en `web-i18n.mjs` si
+ * les falta una clave). Su referencia es el inglés; el español va en línea en
+ * `web/src/cuenta.tsx` y por eso no tiene archivo.
+ */
+async function portalCuenta() {
+  const dir = path.join(RAIZ, 'web', 'i18n', 'cuenta')
+  if (!existsSync(dir)) return
+  const textos = async (f) => (await import(pathToFileURL(path.join(dir, f)))).TEXTOS ?? {}
+  const ref = await textos('en.ts')
+  const claves = Object.keys(ref)
+  for (const f of readdirSync(dir).filter((f) => f.endsWith('.ts') && f !== 'en.ts')) {
+    const d = await textos(f)
+    const faltan = claves.filter((k) => d[k] == null)
+    const sobran = Object.keys(d).filter((k) => !(k in ref))
+    const vacias = claves.filter((k) => d[k] != null && !d[k].trim())
+    const grave = faltan.length + vacias.length
+    errores += grave
+    const problemas = [
+      faltan.length && `${faltan.length} sin traducir`,
+      sobran.length && `${sobran.length} que ya no existen en el inglés`,
+      vacias.length && `${vacias.length} vacías`,
+    ].filter(Boolean)
+    console.log(
+      `${grave ? '✗' : problemas.length ? '·' : '✓'} web/cuenta/${f}: ${Object.keys(d).length}/${claves.length}` +
+        (problemas.length ? ` — ${problemas.join(', ')}` : ''),
+    )
+    if (faltan.length && faltan.length <= 8) console.log(`    faltan: ${faltan.join(', ')}`)
+  }
+}
 
 async function main() {
   const { IDIOMAS, IDIOMA_BASE } = await import(pathToFileURL(path.join(I18N, 'idiomas.ts')))
@@ -114,6 +171,20 @@ async function main() {
     errores += sinIngles.length
   } else {
     console.log(`✓ código → inglés: ${usadas.size} claves literales cubiertas`)
+  }
+
+  // Familias dinámicas: basta con que el inglés tenga UNA clave del prefijo.
+  // No prueba que el catálogo esté completo —eso pide el catálogo en la mano—
+  // pero sí que no falte entero, que es el fallo que de verdad se ha dado.
+  const familias = familiasDelCodigo()
+  const clavesEn = Object.keys(en)
+  const sinFamilia = [...familias].filter(([p]) => !clavesEn.some((k) => k.startsWith(p)))
+  if (sinFamilia.length) {
+    console.log(`✗ familias dinámicas: ${sinFamilia.length} sin ninguna clave en el inglés`)
+    for (const [p, archivo] of sinFamilia) console.log(`    ${p}\${…}  (${archivo})`)
+    errores += sinFamilia.length
+  } else {
+    console.log(`✓ familias dinámicas: ${familias.size} prefijos cubiertos`)
   }
 
   for (const capa of CAPAS) {
@@ -172,6 +243,8 @@ async function main() {
       if (faltan.length && faltan.length <= 8) console.log(`    faltan: ${faltan.join(', ')}`)
     }
   }
+
+  await portalCuenta()
 
   console.log(`\n${errores ? `${errores} errores` : 'sin errores'}, ${avisos} avisos de longitud`)
   if (errores) process.exitCode = 1

@@ -37,6 +37,11 @@ const OBJETIVO: PorIdioma<{ codigo: string; nombre: string; bandera: string }> =
   ko: { codigo: 'en-US', nombre: '영어', bandera: '🇬🇧' },
   ru: { codigo: 'en-US', nombre: 'Английский', bandera: '🇬🇧' },
   hi: { codigo: 'en-US', nombre: 'अंग्रेज़ी', bandera: '🇬🇧' },
+  tr: { codigo: 'en-US', nombre: 'İngilizce', bandera: '🇬🇧' },
+  id: { codigo: 'en-US', nombre: 'Bahasa Inggris', bandera: '🇬🇧' },
+  pl: { codigo: 'en-US', nombre: 'Angielski', bandera: '🇬🇧' },
+  nl: { codigo: 'en-US', nombre: 'Engels', bandera: '🇬🇧' },
+  ar: { codigo: 'en-US', nombre: 'الإنجليزية', bandera: '🇬🇧' },
 }
 
 /**

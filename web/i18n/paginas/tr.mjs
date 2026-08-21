@@ -110,6 +110,7 @@ export const TEXTOS = {
   'precio.demo.cta': 'Demoyu dene',
   'precio.demo.pie': 'Eksiksiz uygulama, hiçbir yükümlülük olmadan tanımak için.',
   'precio.app.nombre': 'Uygulama',
+  'precio.app.cifra': '8,89 USD',
   'precio.app.pagoUnico': 'tek ödeme',
   'precio.app.1': 'Kendi evin, sonsuza dek: bütün uygulamalar, verin kendi cihazında',
   'precio.app.2': 'İlk ay dahil: 700 yapay zekâ kredisi + eşitleme, kartsız ve aboneliksiz',
@@ -166,12 +167,12 @@ export const TEXTOS = {
 
   'legal.fecha': 'Son güncelleme: Ağustos 2026.',
   'legal.original':
-    'Nezaket çevirisidir. Herhangi bir uyuşmazlıkta <a href="/privacidad">İspanyolca</a> sürüm geçerlidir.',
+    'Nezaket çevirisidir. Herhangi bir uyuşmazlıkta <a href="/original">İspanyolca</a> sürüm geçerlidir.',
 
   'priv.titulo': 'Gizlilik politikası',
   'priv.quienes.h': 'Biz kimiz',
   'priv.quienes.p':
-    'Mind Planner Home («uygulama») kişisel düzen için bir uygulamadır. İletişim: <a href="mailto:macr120cme@gmail.com">macr120cme@gmail.com</a>.',
+    'Mind Planner Home («uygulama») kişisel düzen için bir uygulamadır. İletişim: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
   'priv.datos.h': 'Hangi verileri topluyoruz',
   'priv.datos.1':
     '<strong>Hesap:</strong> e-posta adresin ve şifrelenmiş bir parola; bunları arka uç sağlayıcımız Supabase yönetir.',
@@ -246,5 +247,5 @@ export const TEXTOS = {
     'Uygulamayı ve bu koşulları güncelleyebiliriz; fiyat değişiklikleri önceden duyurulur ve hâlihazırda ödenmiş bir döneme asla geriye dönük uygulanmaz.',
   'term.contacto.h': 'İletişim',
   'term.contacto.p':
-    'Sorular ve destek: <a href="mailto:macr120cme@gmail.com">macr120cme@gmail.com</a>.',
+    'Sorular ve destek: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
 }
