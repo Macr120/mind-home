@@ -443,6 +443,7 @@ export const IT: Dict = {
   'notif.rutinas': 'Eventi e routine con orario',
   'notif.metas': 'Obiettivi del giorno non raggiunti',
   'notif.porApp': 'Per app',
+  'notif.denegadoApp': 'Gli avvisi sono bloccati per l’app: attivali nelle impostazioni di notifica del telefono. Nel frattempo te li dice il tuo assistente.',
   'notif.denegado':
     'Il browser ha bloccato le notifiche per questo sito: puoi sbloccarle solo dal suo lucchetto. Nel frattempo, gli avvisi ti arrivano tramite il tuo assistente.',
   'notif.noSoportado': 'Questo browser non ha notifiche; gli avvisi ti arrivano tramite il tuo assistente.',

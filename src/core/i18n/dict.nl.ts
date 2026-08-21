@@ -444,6 +444,7 @@ export const NL: Dict = {
   'notif.rutinas': 'Gebeurtenissen en routines met tijd',
   'notif.metas': 'Niet-behaalde dagdoelen',
   'notif.porApp': 'Per app',
+  'notif.denegadoApp': 'Meldingen zijn geblokkeerd voor de app: zet ze aan in de meldingsinstellingen van je telefoon. Tot dan vertelt je assistent het je.',
   'notif.denegado':
     'Je browser heeft meldingen voor deze site geblokkeerd: je kunt ze alleen zelf deblokkeren via het slotje. Tot die tijd krijg je herinneringen via je assistent.',
   'notif.noSoportado': 'Deze browser ondersteunt geen meldingen; je krijgt herinneringen via je assistent.',

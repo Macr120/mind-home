@@ -444,6 +444,7 @@ export const ID: Dict = {
   'notif.rutinas': 'Acara dan rutinitas berwaktu',
   'notif.metas': 'Target harian yang belum tercapai',
   'notif.porApp': 'Per aplikasi',
+  'notif.denegadoApp': 'Notifikasi untuk aplikasi ini diblokir: nyalakan di pengaturan notifikasi ponselmu. Sementara itu, asistenmu tetap memberi tahu.',
   'notif.denegado':
     'Browser kamu memblokir notifikasi untuk situs ini: hanya kamu yang bisa membukanya lewat ikon gembok di address bar. Sementara itu, asistenmu tetap mengirim pengingat untukmu.',
   'notif.noSoportado': 'Browser ini tidak punya notifikasi; pengingat akan dikirim lewat asistenmu.',

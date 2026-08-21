@@ -13,6 +13,7 @@ import { esDemo, sellarDerechos } from './core/edicion'
 import { conectarMotorSync } from './core/data/sync/motor'
 import { abrirApp } from './core/abrirApp'
 import { registrarActividad } from './core/rutinas'
+import { iniciarAvisosNativos, type DestinoAviso } from './core/notificaciones'
 // Publica las apps de código en el catálogo (`core/appContrato`) antes de que
 // nada las consulte: quien lee el catálogo ya no importa el registro, así que
 // esta es la importación que garantiza que se evalúe.
@@ -20,7 +21,7 @@ import './core/registry'
 import { useWrappedUi } from './core/state/wrappedUiStore'
 import type { TipoPeriodo } from './core/wrapped/periodo'
 
-const esTipoWrapped = (v: string | null): v is TipoPeriodo =>
+const esTipoWrapped = (v: string | null | undefined): v is TipoPeriodo =>
   v === 'semana' || v === 'mes' || v === 'anio'
 
 // Una sola vez al cargar (evita desmontajes de StrictMode que sueltan las teclas).
@@ -67,22 +68,36 @@ setTimeout(() => sessionStorage.removeItem('mh.reloadChunk'), 10_000)
  * existía, o por la query de la URL si el clic tuvo que abrirla. El botón
  * «Registrar» escribe el dato y se acabó; el resto abre el cuarto.
  */
+/** A dónde lleva tocar un aviso. Lo comparten el service worker y Android. */
+function seguirAviso(d: DestinoAviso): void {
+  if (d.accion === 'registrar' && d.rutinaId != null) {
+    void registrarActividad(d.rutinaId)
+  } else if (esTipoWrapped(d.wrapped)) {
+    // Antes que plantillaId: el aviso del wrapped no lleva app.
+    useWrappedUi.getState().abrir(d.wrapped)
+  } else if (d.plantillaId) {
+    // La casa tarda en montarse; sin esperar, `openRoom` se pierde en el vacío.
+    setTimeout(() => abrirApp(d.plantillaId!, d.seccion), 500)
+  }
+}
+
 if ('serviceWorker' in navigator) {
   void navigator.serviceWorker.register('/sw.js').catch((err) => {
     console.warn('[MPH] No se pudo registrar el service worker:', err)
   })
   navigator.serviceWorker.addEventListener('message', (e) => {
     if (e.data?.tipo !== 'abrir-app') return
-    if (e.data.accion === 'registrar' && e.data.rutinaId != null) {
-      void registrarActividad(e.data.rutinaId)
-    } else if (esTipoWrapped(e.data.wrapped)) {
-      // Antes que plantillaId: el aviso del wrapped no lleva app.
-      useWrappedUi.getState().abrir(e.data.wrapped)
-    } else if (e.data.plantillaId) {
+    // El SW ya tiene la ventana delante: abre sin el margen de arranque.
+    if (e.data.plantillaId && e.data.accion !== 'registrar' && !esTipoWrapped(e.data.wrapped)) {
       abrirApp(e.data.plantillaId, e.data.seccion)
+      return
     }
+    seguirAviso(e.data as DestinoAviso)
   })
 }
+
+// Android: el toque en la notificación del sistema entra por el plugin.
+void iniciarAvisosNativos(seguirAviso)
 
 const params = new URLSearchParams(location.search)
 const appPedida = params.get('app')

@@ -451,6 +451,7 @@ export const EN: Dict = {
   'notif.rutinas': 'Timed events and routines',
   'notif.metas': "Unmet daily goals",
   'notif.porApp': 'Per app',
+  'notif.denegadoApp': 'Notifications are blocked for the app: turn them on in your phone’s notification settings. Meanwhile, your assistant still tells you.',
   'notif.denegado':
     'Your browser has blocked notifications for this site: only you can unblock them from its padlock. Meanwhile, your assistant still delivers the reminders.',
   'notif.noSoportado': "This browser has no notifications; your assistant delivers the reminders instead.",

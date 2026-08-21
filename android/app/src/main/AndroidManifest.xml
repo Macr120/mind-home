@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:allowBackup="false"
@@ -89,6 +90,17 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <!-- Máscara AR (getUserMedia de video en el WebView; el Bridge pide el permiso runtime) -->
     <uses-permission android:name="android.permission.CAMERA" />
+
+    <!--
+      `@capacitor/local-notifications` fusiona SCHEDULE_EXACT_ALARM, otro permiso
+      que Play revisa con lupa (solo lo admite en relojes y calendarios). No hace
+      falta: los avisos se emiten en el momento, no se programan con antelación.
+      El día que se programen para una hora futura exacta, hay que quitar este
+      `remove` y justificar el permiso en la ficha.
+    -->
+    <uses-permission
+        android:name="android.permission.SCHEDULE_EXACT_ALARM"
+        tools:node="remove" />
 
     <!--
       Visibilidad de paquetes (Android 11+): sin esto el motor de texto a voz del

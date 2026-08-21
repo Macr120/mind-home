@@ -441,6 +441,7 @@ export const PL: Dict = {
   'notif.rutinas': 'Wydarzenia i rutyny z godziną',
   'notif.metas': 'Niezrealizowane cele dnia',
   'notif.porApp': 'Wg aplikacji',
+  'notif.denegadoApp': 'Powiadomienia dla aplikacji są zablokowane: włącz je w ustawieniach powiadomień telefonu. Do tego czasu mówi ci o nich asystent.',
   'notif.denegado':
     'Twoja przeglądarka zablokowała powiadomienia dla tej strony: odblokować je można tylko z jej kłódki. W międzyczasie przypomnienia i tak dostarczy twój asystent.',
   'notif.noSoportado': 'Ta przeglądarka nie obsługuje powiadomień; przypomnienia dostarcza twój asystent.',

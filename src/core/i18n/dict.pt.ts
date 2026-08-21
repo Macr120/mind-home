@@ -440,6 +440,7 @@ export const PT: Dict = {
   'notif.rutinas': 'Eventos e rotinas com hora',
   'notif.metas': 'Metas do dia não cumpridas',
   'notif.porApp': 'Por app',
+  'notif.denegadoApp': 'Os avisos estão bloqueados para o app: ligue-os nas configurações de notificação do seu telefone. Enquanto isso, seu assistente continua avisando.',
   'notif.denegado':
     'O navegador bloqueou as notificações deste site: só você pode desbloqueá-las no cadeado dele. Enquanto isso, os avisos chegam pelo seu assistente.',
   'notif.noSoportado': 'Este navegador não tem notificações; os avisos chegam pelo seu assistente.',

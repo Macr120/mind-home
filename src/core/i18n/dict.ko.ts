@@ -435,6 +435,7 @@ export const KO: Dict = {
   'notif.rutinas': '시간이 있는 일정과 루틴',
   'notif.metas': '오늘 못한 목표',
   'notif.porApp': '앱별',
+  'notif.denegadoApp': '앱 알림이 차단돼 있어요. 휴대폰의 알림 설정에서 켜 주세요. 그동안에는 어시스턴트가 알려드려요.',
   'notif.denegado': '브라우저가 이 사이트의 알림을 차단했어요. 주소창의 자물쇠 아이콘에서만 해제할 수 있어요. 그동안은 어시스턴트가 알려드려요.',
   'notif.noSoportado': '이 브라우저에는 알림 기능이 없어요. 대신 어시스턴트가 알려드려요.',
   'horario.agendar': '일정에 추가',

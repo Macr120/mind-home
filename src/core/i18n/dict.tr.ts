@@ -442,6 +442,7 @@ export const TR: Dict = {
   'notif.rutinas': 'Saatli etkinlikler ve rutinler',
   'notif.metas': 'Tamamlanmamış günlük hedefler',
   'notif.porApp': 'Uygulama başına',
+  'notif.denegadoApp': 'Uygulama için bildirimler kapalı: telefonunun bildirim ayarlarından aç. O zamana kadar asistanın söylemeye devam eder.',
   'notif.denegado':
     'Tarayıcın bu site için bildirimleri engellemiş: engeli yalnızca adres çubuğundaki kilit simgesinden kaldırabilirsin. Bu arada hatırlatmalar sana asistanın üzerinden ulaşmaya devam ediyor.',
   'notif.noSoportado': 'Bu tarayıcıda bildirim özelliği yok; hatırlatmalar sana asistanın aracılığıyla ulaşır.',

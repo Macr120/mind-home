@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { permisoNotificaciones, pedirPermiso } from '../../notificaciones'
+import { esAppNativa } from '../../plataforma'
 import { plantillasAgendables } from '../../registry'
 import { useAjustes } from '../../state/ajustesStore'
 import { useT } from '../../i18n/useT'
@@ -88,10 +89,15 @@ export function EditorNotificacionesSection({
         />
         {notif && permiso === 'denied' && (
           <p className="text-[10px] leading-snug text-amber-300/80">
-            {t(
-              'notif.denegado',
-              'El navegador tiene bloqueadas las notificaciones de este sitio: solo puedes desbloquearlas desde su candado. Mientras tanto, los avisos te llegan por tu asistente.',
-            )}
+            {esAppNativa()
+              ? t(
+                  'notif.denegadoApp',
+                  'Los avisos están bloqueados para la app: enciéndelos en los ajustes de notificaciones de tu teléfono. Mientras tanto, te llegan por tu asistente.',
+                )
+              : t(
+                  'notif.denegado',
+                  'El navegador tiene bloqueadas las notificaciones de este sitio: solo puedes desbloquearlas desde su candado. Mientras tanto, los avisos te llegan por tu asistente.',
+                )}
           </p>
         )}
         {notif && permiso === 'no-soportado' && (

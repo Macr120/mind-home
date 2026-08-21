@@ -435,6 +435,7 @@ export const ZH: Dict = {
   'notif.rutinas': '有时间的活动和日常安排',
   'notif.metas': '今日未完成的目标',
   'notif.porApp': '按应用',
+  'notif.denegadoApp': '这个应用的通知被关掉了：在手机的通知设置里打开。在那之前，你的助手还是会告诉你。',
   'notif.denegado': '浏览器已阻止此网站的通知，只能从地址栏的锁形图标解除。在此之前，提醒会由你的助手送达。',
   'notif.noSoportado': '此浏览器不支持通知，提醒会改由你的助手送达。',
   'horario.agendar': '加入日程',

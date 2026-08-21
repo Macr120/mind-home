@@ -445,6 +445,7 @@ export const DE: Dict = {
   'notif.rutinas': 'Ereignisse und Routinen mit Uhrzeit',
   'notif.metas': 'Nicht erfüllte Tagesziele',
   'notif.porApp': 'Pro App',
+  'notif.denegadoApp': 'Benachrichtigungen sind für die App blockiert: Schalte sie in den Benachrichtigungseinstellungen deines Handys ein. Solange sagt es dir dein Assistent.',
   'notif.denegado':
     'Dein Browser hat Benachrichtigungen für diese Seite blockiert: nur du kannst sie über das Schloss-Symbol freigeben. Bis dahin bekommst du die Hinweise über deinen Assistenten.',
   'notif.noSoportado':

@@ -1,18 +1,59 @@
 import { useMascota } from './state/mascotaStore'
+import { esAppNativa } from './plataforma'
 
 /**
- * La única puerta por la que sale un aviso. Hoy escribe en tres sitios (service
- * worker, Notification del navegador y la mascota); el día que la app corra en
- * Capacitor, `notificar` pasa a hablar con `@capacitor/local-notifications` y ni
- * las apps ni el reloj de avisos se enteran.
+ * La única puerta por la que sale un aviso. Escribe en cuatro sitios: la mascota
+ * siempre, y luego —según dónde corra— las notificaciones locales de Capacitor
+ * (Android), el service worker o el `Notification` del navegador.
  *
- * Lo que NO puede hacer, para que conste: avisar con la app cerrada. Un service
- * worker no puede programar timers (el navegador lo mata a los ~30 s de
+ * **En el WebView de Android la Notification API del navegador no existe**, así
+ * que sin la rama nativa la app publicada no daría un solo aviso: ni rutinas, ni
+ * misiones, ni citas.
+ *
+ * Lo que NO puede hacer en la web, para que conste: avisar con la app cerrada. Un
+ * service worker no puede programar timers (el navegador lo mata a los ~30 s de
  * inactividad), `Notification Triggers` se retiró de Chrome, y `Periodic
  * Background Sync` deja la cadencia a criterio del navegador (~horas). Con la
  * pestaña abierta —aunque esté en segundo plano o la ventana minimizada— el aviso
- * sí llega; con la app cerrada haría falta Web Push, o sea servidor.
+ * sí llega; con la app cerrada haría falta Web Push, o sea servidor. En Android
+ * nativo esa limitación desaparece en cuanto el aviso se PROGRAMA con antelación,
+ * que es el paso siguiente; hoy se emite en el momento, como en la web.
  */
+
+/** Datos que viajan con el aviso y deciden a dónde lleva el toque. */
+export interface DestinoAviso {
+  plantillaId?: string
+  seccion?: string
+  rutinaId?: number
+  wrapped?: 'semana' | 'mes' | 'anio'
+  accion?: 'registrar'
+}
+
+type PluginNotifs = typeof import('@capacitor/local-notifications')['LocalNotifications']
+
+/** El plugin, cargado bajo demanda: en web no debe entrar al bundle. */
+async function plugin(): Promise<PluginNotifs> {
+  const { LocalNotifications } = await import('@capacitor/local-notifications')
+  return LocalNotifications
+}
+
+/**
+ * Espejo síncrono del permiso nativo: `checkPermissions()` es asíncrono y
+ * `permisoNotificaciones()` no puede serlo sin tocar a todos sus llamadores.
+ * Lo refresca `iniciarAvisosNativos()` al arrancar y `pedirPermiso()` al conceder.
+ */
+let permisoNativo: NotificationPermission = 'default'
+
+/**
+ * Las notificaciones nativas se identifican por un entero, no por el `tag` de la
+ * web. El hash de la clave hace de dedupe: el mismo aviso del mismo día reemplaza
+ * al anterior en vez de apilarse.
+ */
+function idDeClave(clave: string): number {
+  let h = 5381
+  for (let i = 0; i < clave.length; i++) h = ((h << 5) + h + clave.charCodeAt(i)) | 0
+  return Math.abs(h) % 2147483647
+}
 
 export interface Aviso {
   /** Clave de deduplicación del día: `rutina:12|2026-07-15`, `meta:cocina|2026-07-15`. */
@@ -54,19 +95,49 @@ interface OpcionesConAcciones extends NotificationOptions {
 }
 
 export function permisoNotificaciones(): NotificationPermission | 'no-soportado' {
+  if (esAppNativa()) return permisoNativo
   if (!('Notification' in window)) return 'no-soportado'
   return Notification.permission
 }
 
 /**
- * Pide permiso al navegador. SOLO desde un gesto del usuario (un clic): pedirlo
- * desde el tick de un timer se ignora sin más.
+ * Pide permiso. SOLO desde un gesto del usuario (un clic): pedirlo desde el tick
+ * de un timer se ignora sin más, y en Android 13+ el diálogo de POST_NOTIFICATIONS
+ * solo se puede volver a mostrar un par de veces.
  */
 export async function pedirPermiso(): Promise<boolean> {
+  if (esAppNativa()) {
+    try {
+      const p = await plugin()
+      const r = await p.requestPermissions()
+      permisoNativo = r.display === 'granted' ? 'granted' : 'denied'
+      return permisoNativo === 'granted'
+    } catch {
+      return false
+    }
+  }
   if (!('Notification' in window)) return false
   if (Notification.permission === 'granted') return true
   if (Notification.permission === 'denied') return false
   return (await Notification.requestPermission()) === 'granted'
+}
+
+/**
+ * Arranca las notificaciones nativas: sincroniza el espejo del permiso y engancha
+ * el toque. `alTocar` es el MISMO manejador que usa el service worker en la web
+ * (main.tsx), para que un aviso lleve al mismo sitio en las dos plataformas.
+ */
+export async function iniciarAvisosNativos(alTocar: (d: DestinoAviso) => void): Promise<void> {
+  if (!esAppNativa()) return
+  try {
+    const p = await plugin()
+    permisoNativo = (await p.checkPermissions()).display === 'granted' ? 'granted' : 'default'
+    await p.addListener('localNotificationActionPerformed', (e) => {
+      alTocar((e.notification.extra ?? {}) as DestinoAviso)
+    })
+  } catch (err) {
+    console.warn('[MPH] No se pudieron iniciar las notificaciones nativas:', err)
+  }
 }
 
 /**
@@ -88,11 +159,26 @@ export async function notificar(a: Aviso): Promise<void> {
   useMascota.getState().decir(`${a.titulo} · ${a.cuerpo}`, { asistenteId: a.asistenteId })
 
   if (permisoNotificaciones() !== 'granted') return
-  const datos = {
+  const datos: DestinoAviso = {
     plantillaId: a.plantillaId,
     seccion: a.seccion,
     rutinaId: a.rutinaId,
     wrapped: a.wrapped,
+  }
+
+  // Android: notificación del sistema de verdad. Sin botones a propósito —
+  // exigen registrar `actionTypes` al arrancar y el toque ya abre la app en el
+  // sitio correcto, que es lo que importa para la v1.
+  if (esAppNativa()) {
+    try {
+      const p = await plugin()
+      await p.schedule({
+        notifications: [{ id: idDeClave(a.clave), title: a.titulo, body: a.cuerpo, extra: datos }],
+      })
+    } catch (err) {
+      console.warn('[MPH] No se pudo lanzar el aviso nativo:', err)
+    }
+    return
   }
   // Chrome pinta 2 como máximo; el orden importa porque el resto se descarta.
   const acciones = [
