@@ -52,7 +52,11 @@ const botonSecundario =
 
 function Marco({ children }: { children: React.ReactNode }) {
   return (
-    <div className="fixed inset-0 z-[80] flex items-center justify-center overflow-y-auto bg-[#0f1115] p-4">
+    // `ui-noche`: el fondo es oscuro FIJO, pero en base clara `temasUI` reescribe
+    // `--color-white` con la tinta del tema y los `text-white/X` de aquí salían
+    // casi negros — ilegibles. Una instalación nueva arranca en claro, así que
+    // esto lo veía TODO usuario nuevo.
+    <div className="ui-noche fixed inset-0 z-[80] flex items-center justify-center overflow-y-auto bg-[#0f1115] p-4">
       <div className="w-full max-w-sm space-y-3 rounded-2xl border border-white/10 bg-white/5 p-5">
         <h1 className="text-lg font-extrabold text-white/95">Mind Planner Home</h1>
         {children}
