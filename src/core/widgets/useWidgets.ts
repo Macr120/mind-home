@@ -9,12 +9,18 @@ import { useDiseño } from '../state/disenoStore'
 import { esAccionGlobal, lanzarAccionGlobal } from '../state/accionGlobal'
 import { Widgets } from './plugin'
 import { armarSnapshot } from './snapshot'
-import { fotoCasa, reducirFoto } from './CapturaCasa'
+import { encuadreCasa, fotoCasa, reducirFoto } from './CapturaCasa'
 import { aplicarAccionesPendientes } from './acciones'
 import type { SnapshotWidgets } from './tipos'
 
 /** Ancho al que se reduce la foto de la casa antes de mandarla al widget. */
 const ANCHO_FOTO = 640
+/**
+ * Forma del widget de la casa (`widget_casa_info.xml`: 250×110 dp). La foto se
+ * recorta así en la app, y no en Java: allí el `centerCrop` solo sabe del centro
+ * del canvas, que es donde está el JUGADOR, no la casa.
+ */
+const ASPECTO_WIDGET = 250 / 110
 
 /**
  * Mantiene vivos los widgets nativos de Android. Va montado una vez en App
@@ -129,7 +135,9 @@ async function publicarFotoCasa(): Promise<void> {
     if (!(await Widgets.hayWidgets()).casa) return
     const foto = fotoCasa()
     if (!foto) return
-    const base64 = await reducirFoto(foto, ANCHO_FOTO)
+    // El encuadre se toma con la MISMA cámara del render, así que hay que
+    // pedirlo pegado a la foto: si el jugador se mueve, deja de valer.
+    const base64 = await reducirFoto(foto, ANCHO_FOTO, encuadreCasa(ASPECTO_WIDGET))
     if (base64) await Widgets.publicarFotoCasa({ base64 })
   } catch (err) {
     console.warn('[Widgets] no se pudo publicar la foto de la casa:', err)

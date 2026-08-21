@@ -14,11 +14,15 @@
         android:contentDescription="@string/widget_casa_desc"
         android:scaleType="centerCrop" />
 
-    <!-- Velo bajo la fecha: sobre un cielo claro el texto blanco se perdía. -->
-    <View
+    <!-- Velo bajo la fecha: sobre un cielo claro el texto blanco se perdía.
+         ImageView y no View: RemoteViews solo infla una lista cerrada de clases
+         y `android.view.View` NO está en ella («Class not allowed to be
+         inflated»), así que el launcher no podía montar el widget entero. -->
+    <ImageView
         android:id="@+id/casa_velo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:contentDescription="@null"
         android:background="#59000000" />
 
     <LinearLayout
