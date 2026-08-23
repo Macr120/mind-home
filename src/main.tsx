@@ -9,7 +9,7 @@ import { aplicarSpawnDemo } from './demo/spawn'
 import { bindKeyboard } from './core/house/movement'
 import { bindAtajosPersonaje } from './core/house/atajosTeclado'
 import { escucharDeepLinkAuth, iniciarSesion } from './core/cuenta/sesionStore'
-import { esDemo, sellarDerechos } from './core/edicion'
+import { esDemo, esProbar, limpiarDerechosViejos } from './core/edicion'
 import { conectarMotorSync } from './core/data/sync/motor'
 import { abrirApp } from './core/abrirApp'
 import { registrarActividad } from './core/rutinas'
@@ -29,18 +29,18 @@ bindKeyboard()
 // Atajos del personaje: Espacio (saltar), Mayús (correr), 1/2 (manos).
 bindAtajosPersonaje()
 
-// Derechos adquiridos: las instalaciones anteriores a la cuenta obligatoria
-// entran sin registrarse. Antes de `iniciarSesion()` y del render, porque la
-// puerta lo pregunta en su primer pintado.
-sellarDerechos()
+// Fuera el unlock de dispositivo que sellaban las versiones anteriores: la casa
+// se abre con la compra (o un cupón) de la CUENTA, y nada más. Antes de
+// `iniciarSesion()` y del render, porque la puerta lo mira en su primer pintado.
+limpiarDerechosViejos()
 
 // Cuenta (Supabase): hidrata la sesión y el espejo del plan; sin backend no hace nada.
 iniciarSesion()
 
 // Motor de sincronización multi-dispositivo: arranca/para siguiendo la sesión.
-// En la casa demo NUNCA: con sesión Pro haría pull de la nube real a la BD
-// demo y push del contenido demo a la nube del usuario.
-if (!esDemo()) conectarMotorSync()
+// En las casas demo y probar NUNCA: con sesión Pro haría pull de la nube real a
+// la BD paralela y push de su contenido a la nube del usuario.
+if (!esDemo() && !esProbar()) conectarMotorSync()
 
 // Casa demo: el mapa se recorta a las zonas elegidas, así que el punto fijo de
 // aparición del motor caería en celdas distintas (incluso dentro de la casa).
@@ -124,11 +124,11 @@ if (import.meta.env.DEV) void import('./demo/exportarCasa')
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    {/* La puerta de la casa PROPIA, en dos pasos: cuenta (siempre) y compra
-        (solo en el navegador; en las tiendas la app ya se pagó al instalarla).
-        La demo sigue gratis y los builds sin backend ni las instalaciones
-        previas no ven puerta. Lo cobrable (créditos, sync) lo revalida además
-        el servidor. */}
+    {/* La puerta de la casa PROPIA, en dos pasos y en este orden: cuenta
+        (siempre) y compra, que desde ago 2026 se hace DENTRO de la app en las
+        tres plataformas, cada una por su caja. La demo sigue gratis y los
+        builds sin backend ni las instalaciones previas no ven puerta. Lo
+        cobrable (créditos, sync) lo revalida además el servidor. */}
     <DemoGate>
       {/* El idioma va ANTES que la puerta: lo primero que se pregunta, para que
           hasta la pantalla de cuenta se lea en el idioma del usuario. */}

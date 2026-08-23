@@ -97,6 +97,13 @@ const dentro = (m: Marco, wx: number, wz: number) => {
   return Math.abs(p.x) <= m.L && Math.abs(p.z) <= m.W
 }
 
+/**
+ * Margen alrededor de la cancha dentro del cual el partido sigue vivo: pisar
+ * fuera de la línea (perseguir un balón que salió rodando) no corta el juego,
+ * pero alejarse más allá sí lo termina solo.
+ */
+const MARGEN_ABANDONO = 10
+
 const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v))
 
 // ─── Estado auxiliar del juego (module-level, se resetea al empezar) ───
@@ -1255,6 +1262,26 @@ export function MinijuegosCanchas() {
       marcoRef.current = null
       return
     }
+    // Partido en curso: el marco queda anclado a la cancha activa y pisar fuera
+    // del área ya NO termina el juego — se sale con el botón «Salir» del
+    // marcador, o solo al alejarse de verdad (más de MARGEN_ABANDONO).
+    if (st.fase === 'jugando' && st.canchaId != null) {
+      const activa = useDiseño.getState().objetos.find((o) => o.id === st.canchaId && esObjetoMapa(o))
+      if (!activa || !esCancha(activa.tipo)) {
+        st.terminar() // la cancha se borró con el partido andando
+        marcoRef.current = null
+        return
+      }
+      const m = marcoDe(activa)
+      const p = aLocal(m, playerPos.x, playerPos.z)
+      if (Math.abs(p.x) > m.L + MARGEN_ABANDONO || Math.abs(p.z) > m.W + MARGEN_ABANDONO) {
+        st.terminar()
+        marcoRef.current = null
+        return
+      }
+      marcoRef.current = m
+      return
+    }
     const cancha = useDiseño
       .getState()
       .objetos.find(
@@ -1268,6 +1295,7 @@ export function MinijuegosCanchas() {
       // partido por cruzar el campo era el mismo problema que sentarse solo.
       if (st.canchaId !== cancha.id) st.setCerca({ canchaId: cancha.id, clase: m.clase })
     } else {
+      // Alejarse solo cancela el prompt de modo ('eligiendo'), nunca un partido.
       if (st.canchaId != null) st.terminar()
       if (st.cerca) st.setCerca(null)
       marcoRef.current = null

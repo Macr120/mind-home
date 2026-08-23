@@ -1,4 +1,5 @@
 import { useT } from '../i18n/useT'
+import { esProbar } from '../edicion'
 import { esencialDeApp, flujosDeApp, lanzarEsencial, lanzarFlujo } from './registro'
 import { Icono } from '../ui/iconos/Icono'
 
@@ -22,7 +23,8 @@ export function ListaToursApp({
 }) {
   const t = useT()
   const esencial = esencialDeApp(plantillaId)
-  const ejemplos = flujosDeApp(plantillaId)
+  // En modo probar la casa demo no se ofrece (es de la app con cuenta y pago).
+  const ejemplos = esProbar() ? [] : flujosDeApp(plantillaId)
 
   const claseBoton =
     'flex w-full items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-start text-xs font-semibold text-white/75 transition hover:bg-white/10'

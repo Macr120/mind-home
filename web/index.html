@@ -26,7 +26,7 @@
     <header class="barra-marco">
       <div class="contenedor barra">
         <a class="logo" href="/">
-          <img src="/favicon.svg?v=2" alt="" />
+          <svg class="logo-piezas" viewBox="0 0 357 100" aria-hidden="true"><rect y="3" width="94" height="94" rx="20" fill="#DA9425"/><path d="M137 0V100H237Z" fill="#C23A40"/><path d="M257 0H357V100A100 100 0 0 1 257 0Z" fill="#895AC6"/></svg>
           <span class="nombre">
             {{marca.nombre}}
             <small>{{marca.sub}}</small>
@@ -79,7 +79,7 @@
           <a class="boton principal grande ui-boton ui-accent-bg" href="/cuenta">
             {{hero.cta}}
           </a>
-          <a class="boton grande ui-boton" href="%VITE_URL_APP%/?demo=1">{{hero.demo}}</a>
+          <a class="boton grande ui-boton" href="%VITE_URL_APP%/?probar=1">{{hero.probar}}</a>
         </div>
         <p class="nota">{{hero.nota}}</p>
         <!-- TODO(usuario): sustituir por el video o capturas reales (web/public/). -->
@@ -97,7 +97,7 @@
 
       <section id="como">
         <h2>{{como.h2}}</h2>
-        <div class="piezas"></div>
+        <svg class="piezas" viewBox="0 0 357 100" aria-hidden="true"><rect y="3" width="94" height="94" rx="20" fill="#DA9425"/><path d="M137 0V100H237Z" fill="#C23A40"/><path d="M257 0H357V100A100 100 0 0 1 257 0Z" fill="#895AC6"/></svg>
         <p class="sub-seccion">{{como.sub}}</p>
         <!-- Los pasos van numerados porque SON una secuencia: sin casa no hay
              cuarto, y sin cuarto no hay app que asignarle. -->
@@ -119,7 +119,7 @@
 
       <section id="caracteristicas">
         <h2>{{car.h2}}</h2>
-        <div class="piezas"></div>
+        <svg class="piezas" viewBox="0 0 357 100" aria-hidden="true"><rect y="3" width="94" height="94" rx="20" fill="#DA9425"/><path d="M137 0V100H237Z" fill="#C23A40"/><path d="M257 0H357V100A100 100 0 0 1 257 0Z" fill="#895AC6"/></svg>
         <div class="tarjetas">
           <!-- Las tres primeras son el argumento de compra: una sola app, que se
                queda contigo y que sigue creciendo. -->
@@ -167,7 +167,7 @@
            comprobados uno a uno el 21-ago-2026: envejecen, revísalos al tocar. -->
       <section id="ia">
         <h2>{{ia.h2}}</h2>
-        <div class="piezas"></div>
+        <svg class="piezas" viewBox="0 0 357 100" aria-hidden="true"><rect y="3" width="94" height="94" rx="20" fill="#DA9425"/><path d="M137 0V100H237Z" fill="#C23A40"/><path d="M257 0H357V100A100 100 0 0 1 257 0Z" fill="#895AC6"/></svg>
         <p class="sub-seccion">{{ia.sub}}</p>
         <div class="tarjetas">
           <div class="tarjeta">
@@ -228,18 +228,18 @@
 
       <section id="precio">
         <h2>{{precio.h2}}</h2>
-        <div class="piezas"></div>
+        <svg class="piezas" viewBox="0 0 357 100" aria-hidden="true"><rect y="3" width="94" height="94" rx="20" fill="#DA9425"/><path d="M137 0V100H237Z" fill="#C23A40"/><path d="M257 0H357V100A100 100 0 0 1 257 0Z" fill="#895AC6"/></svg>
         <div class="planes">
           <div class="precio-caja">
-            <h3 class="plan-nombre">{{precio.demo.nombre}}</h3>
-            <div class="cifra">{{precio.demo.cifra}}</div>
+            <h3 class="plan-nombre">{{precio.probar.nombre}}</h3>
+            <div class="cifra">{{precio.probar.cifra}}</div>
             <ul>
-              <li>{{precio.demo.1}}</li>
-              <li>{{precio.demo.2}}</li>
-              <li>{{precio.demo.3}}</li>
+              <li>{{precio.probar.1}}</li>
+              <li>{{precio.probar.2}}</li>
+              <li>{{precio.probar.3}}</li>
             </ul>
-            <a class="boton grande ui-boton" href="%VITE_URL_APP%/?demo=1">{{precio.demo.cta}}</a>
-            <p class="letra-chica">{{precio.demo.pie}}</p>
+            <a class="boton grande ui-boton" href="%VITE_URL_APP%/?probar=1">{{precio.probar.cta}}</a>
+            <p class="letra-chica">{{precio.probar.pie}}</p>
           </div>
           <div class="precio-caja destacado">
             <h3 class="plan-nombre">{{precio.app.nombre}}</h3>
@@ -269,7 +269,7 @@
       <section id="descargas">
         <h2>{{desc.h2}}</h2>
         <p class="sub">{{desc.sub}}</p>
-        <div class="piezas"></div>
+        <svg class="piezas" viewBox="0 0 357 100" aria-hidden="true"><rect y="3" width="94" height="94" rx="20" fill="#DA9425"/><path d="M137 0V100H237Z" fill="#C23A40"/><path d="M257 0H357V100A100 100 0 0 1 257 0Z" fill="#895AC6"/></svg>
         <div class="tarjetas">
           <div class="tarjeta">
             <h3><svg class="logo-plat" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.4395 5.5586c-.675 1.1664-1.352 2.3318-2.0274 3.498-.0366-.0155-.0742-.0286-.1113-.043-1.8249-.6957-3.484-.8-4.42-.787-1.8551.0185-3.3544.4643-4.2597.8203-.084-.1494-1.7526-3.021-2.0215-3.4864a1.1451 1.1451 0 0 0-.1406-.1914c-.3312-.364-.9054-.4859-1.379-.203-.475.282-.7136.9361-.3886 1.5019 1.9466 3.3696-.0966-.2158 1.9473 3.3593.0172.031-.4946.2642-1.3926 1.0177C2.8987 12.176.452 14.772 0 18.9902h24c-.119-1.1108-.3686-2.099-.7461-3.0683-.7438-1.9118-1.8435-3.2928-2.7402-4.1836a12.1048 12.1048 0 0 0-2.1309-1.6875c.6594-1.122 1.312-2.2559 1.9649-3.3848.2077-.3615.1886-.7956-.0079-1.1191a1.1001 1.1001 0 0 0-.8515-.5332c-.5225-.0536-.9392.3128-1.0488.5449zm-.0391 8.461c.3944.5926.324 1.3306-.1563 1.6503-.4799.3197-1.188.0985-1.582-.4941-.3944-.5927-.324-1.3307.1563-1.6504.4727-.315 1.1812-.1086 1.582.4941zM7.207 13.5273c.4803.3197.5506 1.0577.1563 1.6504-.394.5926-1.1038.8138-1.584.4941-.48-.3197-.5503-1.0577-.1563-1.6504.4008-.6021 1.1087-.8106 1.584-.4941z" /></svg> Android</h3>
@@ -304,7 +304,7 @@
 
       <section id="faq">
         <h2>{{faq.h2}}</h2>
-        <div class="piezas"></div>
+        <svg class="piezas" viewBox="0 0 357 100" aria-hidden="true"><rect y="3" width="94" height="94" rx="20" fill="#DA9425"/><path d="M137 0V100H237Z" fill="#C23A40"/><path d="M257 0H357V100A100 100 0 0 1 257 0Z" fill="#895AC6"/></svg>
         <div class="faq">
           <details>
             <summary>{{faq.1.q}}</summary>
@@ -353,5 +353,40 @@
         <p>© 2026 Mind Planner Home</p>
       </footer>
     </div>
+    <!-- Dispara las entradas: marca lo animable y le pone `.entra` cuando asoma,
+         una sola vez. Va aquí y no en un módulo porque son doce líneas y la
+         landing no carga JavaScript propio. Si el navegador no trae
+         IntersectionObserver, o el sistema pide menos movimiento, no se toca
+         nada: la página se ve entera y quieta. -->
+    <script>
+      (function () {
+        var quieto = matchMedia('(prefers-reduced-motion: reduce)').matches
+        if (quieto || !('IntersectionObserver' in window)) return
+        document.documentElement.classList.add('js-anim')
+        var bloques = document.querySelectorAll(
+          '.recorrido > section, .recorrido h2, .piezas > *, .tarjeta, .pasos > li,' +
+            ' .faq > details, .via, .cifras li, .precio-caja, .franja-ia, .manifiesto p'
+        )
+        var ojo = new IntersectionObserver(
+          function (vistos) {
+            for (var i = 0; i < vistos.length; i++) {
+              var v = vistos[i]
+              // O está entrando, o ya quedó ARRIBA: un salto de scroll (un ancla,
+              // una rueda rápida) puede cruzar un bloque entero entre dos
+              // fotogramas, y sin esta segunda condición se quedaba invisible
+              // para siempre.
+              if (!v.isIntersecting && v.boundingClientRect.top > 0) continue
+              v.target.classList.add('entra')
+              ojo.unobserve(v.target)
+            }
+          },
+          { rootMargin: '0px 0px -8% 0px', threshold: 0.04 }
+        )
+        for (var i = 0; i < bloques.length; i++) {
+          bloques[i].classList.add('anim')
+          ojo.observe(bloques[i])
+        }
+      })()
+    </script>
   </body>
 </html>

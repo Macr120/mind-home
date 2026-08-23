@@ -195,6 +195,26 @@ function BarraTiempo() {
   )
 }
 
+/**
+ * Control compacto de la hora del día: el interruptor del paso del tiempo y la
+ * barra de 24 h, sin clima ni dimmers (la bienvenida no debe pedir ubicación
+ * en pleno onboarding). Lo monta el paso «apariencia» del wizard de bienvenida.
+ */
+export function HoraDiaMini() {
+  const t = useT()
+  return (
+    <div>
+      <div className="mb-1.5 flex items-center justify-between gap-2">
+        <p className="text-[10px] font-semibold uppercase tracking-wide text-white/40">
+          {t('ciclo.paso', 'Paso del tiempo')}
+        </p>
+        <PasoTiempoSwitch />
+      </div>
+      <BarraTiempo />
+    </div>
+  )
+}
+
 /** Clima real con ubicación del dispositivo (Open-Meteo). */
 function ClimaReal() {
   const t = useT()
@@ -293,8 +313,12 @@ function ClimaReal() {
   )
 }
 
-/** Contenido del menú de ciclo: paso del tiempo + dimmers + volver a hora real. */
-function MenuCiclo() {
+/**
+ * Contenido del menú de ciclo: paso del tiempo + dimmers + volver a hora real.
+ * Exportado: también se monta como bloque «Hora del día» en Configuraciones →
+ * Interfaz (EditorAjustesSection), además del popover del sol/luna del reloj.
+ */
+export function MenuCiclo() {
   const t = useT()
   const modo = useCiclo((s) => s.modo)
   const enVivo = useCiclo((s) => s.enVivo)
@@ -371,6 +395,7 @@ export function RelojWidget() {
         </button>
         <button
           type="button"
+          data-tut="reloj.fase"
           onClick={() => setAbierto((v) => !v)}
           title={t(`ciclo.fase.${cielo.fase}`, cielo.faseLabel)}
           className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-lg leading-none transition ${
@@ -384,7 +409,7 @@ export function RelojWidget() {
       {abierto && (
         <>
           <div className="fixed inset-0 z-40" onClick={() => setAbierto(false)} />
-          <div className="ui-panel-glass ui-pop absolute end-0 top-full z-50 mt-2 w-64 rounded-2xl border border-white/10 p-3 shadow-xl backdrop-blur-md">
+          <div data-tut="reloj.panel" className="ui-panel-glass ui-pop absolute end-0 top-full z-50 mt-2 w-64 rounded-2xl border border-white/10 p-3 shadow-xl backdrop-blur-md">
             <MenuCiclo />
           </div>
         </>

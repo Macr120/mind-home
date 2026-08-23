@@ -3,6 +3,7 @@ import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
 import { fotoEjemplo } from '../_shared/ejemplos/fotos'
 import {
   porIdioma,
+  retraducido,
   yaMaterializado,
   type PaqueteEjemplo,
   type PorIdioma,
@@ -464,5 +465,48 @@ export const ejemploIdiomas: PaqueteEjemplo = {
       })
     }
 
+  },
+
+  async retraducir() {
+    // El idioma que se estudia es «el otro»: al cambiar la interfaz, el ejemplo
+    // entero cambia de lengua objetivo (solo si sigue siendo el de fábrica).
+    for (const i of await idiomasRepo.list()) {
+      if (i.ejemploDe !== ID || i.id == null) continue
+      if (!Object.values(OBJETIVO).some((o) => o.codigo === i.codigo && o.nombre === i.nombre)) continue
+      const activo = porIdioma(OBJETIVO)
+      if (activo.codigo !== i.codigo || activo.nombre !== i.nombre) {
+        await idiomasRepo.update(i.id, { codigo: activo.codigo, nombre: activo.nombre, bandera: activo.bandera })
+      }
+    }
+    for (const t of await temasIdiomaRepo.list()) {
+      if (t.ejemploDe !== ID || t.id == null) continue
+      const titulo = retraducido(TEXTOS, t.titulo, 'tema1Titulo', 'tema2Titulo')
+      const descripcion = retraducido(TEXTOS, t.descripcion, 'tema1Desc', 'tema2Desc')
+      if (titulo || descripcion) {
+        await temasIdiomaRepo.update(t.id, { ...(titulo && { titulo }), ...(descripcion && { descripcion }) })
+      }
+    }
+    for (const c of await tarjetasIdiomaRepo.list()) {
+      if (c.ejemploDe !== ID || c.id == null) continue
+      const termino = retraducido(TEXTOS, c.termino, 'termino1', 'termino2', 'termino3', 'termino4', 'termino5', 'termino6')
+      const traduccion = retraducido(
+        TEXTOS,
+        c.traduccion,
+        'traduccion1',
+        'traduccion2',
+        'traduccion3',
+        'traduccion4',
+        'traduccion5',
+        'traduccion6',
+      )
+      const ejemplo = retraducido(TEXTOS, c.ejemplo, 'ejemplo1', 'ejemplo2', 'ejemplo3', 'ejemplo4', 'ejemplo5', 'ejemplo6')
+      if (termino || traduccion || ejemplo) {
+        await tarjetasIdiomaRepo.update(c.id, {
+          ...(termino && { termino }),
+          ...(traduccion && { traduccion }),
+          ...(ejemplo && { ejemplo }),
+        })
+      }
+    }
   },
 }

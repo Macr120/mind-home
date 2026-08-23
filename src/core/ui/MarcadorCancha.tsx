@@ -148,31 +148,40 @@ export function MarcadorCancha() {
   // En vertical el marcador baja bajo la fila de botones de arriba (casa / engrane).
   return (
     <div className="pointer-events-none absolute start-0 end-0 top-16 z-30 flex flex-col items-center gap-2 sm:top-3">
-      <div className="ui-hud flex items-center gap-2 rounded-full border border-white/10 px-4 py-1.5 text-sm font-black text-white">
-        <Icono emoji={CANCHAS[clase].icon} />
-        {tenisIA && pts ? (
-          <>
+      <div className="flex items-center gap-2">
+        <div className="ui-hud flex items-center gap-2 rounded-full border border-white/10 px-4 py-1.5 text-sm font-black text-white">
+          <Icono emoji={CANCHAS[clase].icon} />
+          {tenisIA && pts ? (
+            <>
+              <span>
+                {t('juego.tu', 'Tú')} {pts.yo} · {pts.rival} {rivalNombre ?? t('juego.rival', 'Rival')}
+              </span>
+              <span className="text-[10px] font-semibold text-white/50">
+                {t('juego.juegos', 'Juegos')} {juegosYo}–{juegosRival} · {t('juego.sets', 'Sets')} {setsYo}–{setsRival}
+              </span>
+            </>
+          ) : clase === 'tenis' ? (
             <span>
-              {t('juego.tu', 'Tú')} {pts.yo} · {pts.rival} {rivalNombre ?? t('juego.rival', 'Rival')}
+              {t('juego.peloteoActual', 'Peloteo')} {yo}
+              <span className="ms-2 text-[10px] font-semibold text-white/50">
+                {t('juego.record', 'Récord')} {mejorPeloteo}
+              </span>
             </span>
-            <span className="text-[10px] font-semibold text-white/50">
-              {t('juego.juegos', 'Juegos')} {juegosYo}–{juegosRival} · {t('juego.sets', 'Sets')} {setsYo}–{setsRival}
+          ) : (
+            <span>
+              {t('juego.tu', 'Tú')} {yo}
+              {modo === 'ia' && ` · ${rival} ${rivalNombre ?? t('juego.rival', 'Rival')}`}
             </span>
-          </>
-        ) : clase === 'tenis' ? (
-          <span>
-            {t('juego.peloteoActual', 'Peloteo')} {yo}
-            <span className="ms-2 text-[10px] font-semibold text-white/50">
-              {t('juego.record', 'Récord')} {mejorPeloteo}
-            </span>
-          </span>
-        ) : (
-          <span>
-            {t('juego.tu', 'Tú')} {yo}
-            {modo === 'ia' && ` · ${rival} ${rivalNombre ?? t('juego.rival', 'Rival')}`}
-          </span>
-        )}
-        <span className="text-[10px] font-semibold text-white/40">{t(nivel.clave, nivel.es)}</span>
+          )}
+          <span className="text-[10px] font-semibold text-white/40">{t(nivel.clave, nivel.es)}</span>
+        </div>
+        <button
+          type="button"
+          onClick={() => j.terminar()}
+          className="ui-hud pointer-events-auto rounded-full border border-white/10 px-3 py-1.5 text-xs font-bold text-white/80 transition hover:bg-white/20 active:scale-95"
+        >
+          {t('juego.salir', 'Salir')}
+        </button>
       </div>
       {mensaje && (
         <div className="ui-hud ui-pop rounded-xl border border-amber-300/40 px-5 py-2 text-xl font-black text-amber-300">

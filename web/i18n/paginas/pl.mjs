@@ -1,7 +1,7 @@
 /** Textos de las páginas estáticas en polaco. Traducción de `es.mjs`. */
 export const TEXTOS = {
   'marca.nombre': 'Mentalny Planer-Dom',
-  'marca.sub': 'Mind Planner Home',
+  'marca.sub': 'MPH',
   'nav.entrar': 'Zaloguj się',
   'nav.descargar': 'Pobierz',
   'pie.inicio': 'Start',
@@ -13,9 +13,9 @@ export const TEXTOS = {
 
   'meta.titulo': 'Mind Planner Home — Twój umysł w domu 3D',
   'meta.desc':
-    'Uporządkuj nawyki, cele, finanse, posiłki i więcej w izometrycznym domu 3D, w którym każdy pokój to aplikacja. Jedna płatność 8,89 USD, pierwszy miesiąc ze sztuczną inteligencją i synchronizacją w cenie; demo za darmo.',
+    'Uporządkuj nawyki, cele, finanse, posiłki i więcej w izometrycznym domu 3D, w którym każdy pokój to aplikacja. Jedna płatność 8,89 USD, pierwszy miesiąc ze sztuczną inteligencją i synchronizacją w cenie; wypróbuj ją za darmo.',
   'og.desc':
-    'Twoje życie w domu 3D: nawyki, cele, finanse, posiłki i więcej. Jedna płatność 8,89 USD, pierwszy miesiąc z SI w cenie; demo za darmo.',
+    'Twoje życie w domu 3D: nawyki, cele, finanse, posiłki i więcej. Jedna płatność 8,89 USD, pierwszy miesiąc z SI w cenie; wypróbuj ją za darmo.',
 
   'hero.h1': 'Twój umysł<br />w domu 3D',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -40,7 +40,7 @@ export const TEXTOS = {
   'hero.sub.4':
     'całkiem ręcznie albo z pomocą SI. Wszystkie łączy jeden kalendarz, system codziennych misji i twoje osobiste cele — zsynchronizowane w telefonie i na komputerze.',
   'hero.cta': 'Pobierz aplikację',
-  'hero.demo': 'Wypróbuj darmowe demo',
+  'hero.probar': 'Wypróbuj za darmo: zbuduj swój dom',
   'hero.nota':
     'Aplikacja jest darmowa i działa bez internetu; dom kupujesz raz — tutaj w sieci albo w aplikacji. SI i synchronizacja są opcjonalne — a jeśli z nich zrezygnujesz, nic nie tracisz.',
   'hero.video': 'Tutaj trafi twój film albo zrzuty ekranu domu',
@@ -126,13 +126,13 @@ export const TEXTOS = {
   'mani.cierre': 'Ta sama dopamina. Tym razem dla twojego prawdziwego życia.',
 
   'precio.h2': 'Jedna płatność w sklepie, dom na zawsze',
-  'precio.demo.nombre': 'Demo',
-  'precio.demo.cifra': 'Za darmo',
-  'precio.demo.1': 'Dom Pepa z całym rokiem życia w środku: wypróbuj wszystko',
-  'precio.demo.2': 'Bez konta, bez karty i bez internetu',
-  'precio.demo.3': 'Nic się nie zapisuje: po odświeżeniu dom zaczyna od nowa',
-  'precio.demo.cta': 'Wypróbuj demo',
-  'precio.demo.pie': 'Pełna aplikacja, żeby poznać ją bez zobowiązań.',
+  'precio.probar.nombre': 'Wypróbuj ją',
+  'precio.probar.cifra': 'Za darmo',
+  'precio.probar.1': 'Twój własny dom z menu powitalnym: wypróbuj wszystko',
+  'precio.probar.2': 'Bez konta, bez karty i bez internetu',
+  'precio.probar.3': 'Nic się nie zapisuje, dopóki nie masz konta: po zakupie odzyskujesz swoją próbę',
+  'precio.probar.cta': 'Wypróbuj aplikację',
+  'precio.probar.pie': 'Pełna aplikacja, żeby poznać ją bez zobowiązań.',
   'precio.app.nombre': 'Aplikacja',
   'precio.app.cifra': '8,89 USD',
   'precio.app.pagoUnico': 'jednorazowa płatność',
@@ -160,7 +160,7 @@ export const TEXTOS = {
   'desc.ios.t': 'iPhone i iPad',
   'desc.ios': 'Za darmo w App Store. Dom kupujesz w środku.',
   'desc.web.t': 'W twojej przeglądarce',
-  'desc.web': 'Bez instalowania: zaloguj się na swoje konto, a dom czeka. Bez konta możesz wypróbować demo.',
+  'desc.web': 'Bez instalowania: zaloguj się na swoje konto, a dom czeka. Bez konta możesz wypróbować aplikację.',
   'desc.web.cta': 'Otwórz aplikację',
   'desc.windows': 'Instalator dla Windows 10/11.',
   'desc.mac': 'Obraz .dmg dla Maca.',
@@ -171,7 +171,7 @@ export const TEXTOS = {
     'Gdzie wolisz: tutaj w przeglądarce, na <a href="/cuenta">swoim koncie</a>, albo w aplikacji na Androida i iPhone’a. To jednorazowa płatność zapisana na koncie, więc gdziekolwiek kupisz, dom pojawia się na wszystkich twoich urządzeniach.',
   'faq.2.q': 'Co obejmuje jednorazowa płatność?',
   'faq.2.a':
-    'Cały dom: wszystkie pokoje, wszystkie aplikacje i twoje dane na twoim urządzeniu, na zawsze i bez odnowień. Do tego pierwszy miesiąc ma w cenie 700 kredytów SI i synchronizację, bez karty. Przed zakupem możesz wypróbować pełne demo, które nie prosi o konto.',
+    'Cały dom: wszystkie pokoje, wszystkie aplikacje i twoje dane na twoim urządzeniu, na zawsze i bez odnowień. Do tego pierwszy miesiąc ma w cenie 700 kredytów SI i synchronizację, bez karty. Przed zakupem możesz wypróbować pełną aplikację, która nie prosi o konto.',
   'faq.3.q': 'Ile kosztuje SI po pierwszym miesiącu?',
   'faq.3.a':
     'Tyle, ile wybierzesz, albo nic. Abonament to 6 USD miesięcznie (700 kredytów i synchronizacja) lub 60 USD rocznie — dwa miesiące gratis. Jeśli to za mało, poziomy ×2 i ×3 dają 1400 albo 2100 kredytów za 12 lub 18 USD miesięcznie. A jeśli wolisz nie subskrybować, są pojedyncze doładowania: 6 USD za 700 kredytów, które nie tracą ważności i schodzą tylko wtedy, gdy o coś poprosisz. To płaci się tutaj, w <a href="/cuenta">twoim koncie</a>, i działa na wszystkich urządzeniach.',
@@ -236,13 +236,14 @@ export const TEXTOS = {
   'term.titulo': 'Regulamin usługi',
   'term.servicio.h': 'Usługa',
   'term.servicio.p':
-    'Mind Planner Home to aplikacja do organizacji osobistej. Demo jest darmowe i nie wymaga konta. Aplikację kupuje się jedną płatnością; funkcje cykliczne (kredyty SI i synchronizacja) wykupuje się wyłącznie na tej stronie; aplikacje desktopowe i sklepowe są klientami tego samego konta.',
+    'Mind Planner Home to aplikacja do organizacji osobistej. Wersja próbna jest darmowa i nie wymaga konta. Aplikację kupuje się jedną płatnością; funkcje cykliczne (kredyty SI i synchronizacja) wykupuje się wyłącznie na tej stronie; aplikacje desktopowe i sklepowe są klientami tego samego konta.',
   'term.app.h': 'Aplikacja (jednorazowa płatność)',
   'term.app.1':
     'Odblokowanie aplikacji: 8,89 USD, jednorazowo. Odblokowuje twój dom na zawsze na twoim koncie, bez odnowień.',
   'term.app.2':
     'Obejmuje pierwszy miesiąc: 30 dni z miesięcznymi 700 kredytami SI i synchronizacją, bez karty i bez abonamentu. Po jego zakończeniu zostaje ci aplikacja i dane; miesięczne kredyty i synchronizacja wymagają abonamentu.',
-  'term.app.3': 'Darmowe demo nic nie zapisuje: służy poznaniu aplikacji przed zakupem.',
+  'term.app.3':
+    'Darmowa wersja próbna nic nie zapisuje, dopóki nie założysz konta: służy poznaniu aplikacji przed zakupem.',
   'term.local.h': 'Tryb lokalny',
   'term.local.p':
     'Przy odblokowanej aplikacji wszystkie jej funkcje offline działają bez kosztów cyklicznych. Dane są przechowywane na twoim urządzeniu, a ich kopia zapasowa to twoja odpowiedzialność (Ustawienia → Kopia danych).',

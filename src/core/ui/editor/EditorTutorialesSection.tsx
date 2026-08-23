@@ -15,7 +15,7 @@ import {
 import { ListaToursApp } from '../../tutorial/ListaToursApp'
 import { hayNarracion } from '../../tutorial/narracion'
 import { plantillasCuarto, plantillasInfraestructura } from '../../registry'
-import { esDemo } from '../../edicion'
+import { esDemo, esProbar } from '../../edicion'
 import { entrarDemo } from '../../../demo/modo'
 import type { TutorialDef } from '../../tutorial/tipos'
 import { useT } from '../../i18n/useT'
@@ -163,8 +163,10 @@ export function EditorTutorialesSection({
               <Icono nombre="play" />
             </button>
           ))}
-          {Object.entries(FLUJOS_NUCLEO).flatMap(([clave, defs]) =>
-            defs.map((def) => (
+          {/* Los flujos corren sobre la casa de Pep@: en modo probar no se ofrecen. */}
+          {!esProbar() &&
+            Object.entries(FLUJOS_NUCLEO).flatMap(([clave, defs]) =>
+              defs.map((def) => (
               <button
                 key={def.id}
                 type="button"
@@ -177,8 +179,8 @@ export function EditorTutorialesSection({
                 <span className="min-w-0 flex-1 truncate">{t(def.titulo.clave, def.titulo.es)}</span>
                 <Icono nombre="play" />
               </button>
-            )),
-          )}
+              )),
+            )}
         </div>
       </div>
 
@@ -217,7 +219,9 @@ export function EditorTutorialesSection({
         )}
       </div>
 
-      {/* Infraestructura: se construye sobre el mapa, no ocupa cuarto */}
+      {/* Infraestructura: se construye sobre el mapa, no ocupa cuarto. Solo
+          tiene ejemplos (corren en la casa de Pep@): en probar el bloque sobra. */}
+      {!esProbar() && (
       <div className="space-y-1.5">
         <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
           {t('ajustes.tutoriales.infra', 'Las construcciones del mapa')}
@@ -244,10 +248,11 @@ export function EditorTutorialesSection({
           })}
         </div>
       </div>
+      )}
 
       {/* Casa demo: la casa de Pep@ con un año de vida (los flujos corren allí).
-          Dentro del demo sobra: ya se está ahí. */}
-      {!esDemo() && (
+          Dentro del demo sobra, y en probar es de la app con cuenta y pago. */}
+      {!esDemo() && !esProbar() && (
         <div className="space-y-1.5">
           <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
             {t('demo.barra.titulo', 'Casa demo')}

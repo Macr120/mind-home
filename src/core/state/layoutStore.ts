@@ -927,37 +927,11 @@ export const useLayout = create<LayoutState>((set, get) => ({
   },
 
   colocarCuartoNuevo: async (id) => {
-    const { placed, cells, footprints, niveles, gridCols, gridRows } = get()
+    const { placed, cells, footprints, niveles } = get()
     const fp = [...FOOTPRINT_DEFAULT]
-    // La casa crece en RECTÁNGULO, no en hilera: entre las celdas libres de la planta
-    // baja gana la que deja la planta más compacta (menor perímetro del rectángulo que
-    // la envuelve y, a igualdad, la más cuadrada). Así los cuartos conservan fachada
-    // al frente para su puerta en vez de alinearse en una fila larga.
-    const ocupadas: Cell[] = []
-    for (const r of losCuartos()) {
-      if (!placed[r.id] || !cells[r.id] || nivelDe(niveles, r.id) !== 0) continue
-      ocupadas.push(...footprintCells(cells[r.id], fpDe(footprints, r.id)))
-    }
-    let destino: Cell | null = null
-    let mejor = Infinity
-    for (let row = 0; row < gridRows; row++) {
-      for (let col = 0; col < gridCols; col++) {
-        const cell = { col, row }
-        if (!esFootprintLibre(placed, cells, footprints, niveles, id, cell, fp, 0)) continue
-        const todas = [...ocupadas, ...footprintCells(cell, fp)]
-        const cols = todas.map((c) => c.col)
-        const rows = todas.map((c) => c.row)
-        const w = Math.max(...cols) - Math.min(...cols) + 1
-        const h = Math.max(...rows) - Math.min(...rows) + 1
-        // Pesos escalonados: primero el perímetro, luego lo cuadrado, luego la cercanía al origen.
-        const puntaje = (w + h) * 1000 + Math.abs(w - h) * 40 + row + col
-        if (puntaje < mejor) {
-          mejor = puntaje
-          destino = cell
-        }
-      }
-    }
-    if (!destino) destino = { col: 0, row: 0 }
+    // La búsqueda vive en `sitioCuartoNuevo` (exportada): el tutorial la usa
+    // para previsualizar el sitio ANTES de crear, y aquí decide de verdad.
+    const destino = sitioCuartoNuevo(id) ?? { col: 0, row: 0 }
     // Cuarto nuevo: nace con UNA puerta exterior (después el usuario la mueve o agrega más).
     const muros = puertaInicialCuarto(destino, fp, get().ocupadoPorNivel.get(0) ?? SIN_OCUPACION)
     const newPlaced = { ...placed, [id]: true }
@@ -2055,6 +2029,47 @@ function tieneSoporte(lower: Set<string>, anchor: Cell, fp: Footprint): boolean 
     if (!apoyada) return false
   }
   return true
+}
+
+/**
+ * La celda donde nacería el PRÓXIMO cuarto de `colocarCuartoNuevo`. La casa
+ * crece en RECTÁNGULO, no en hilera: entre las celdas libres de la planta baja
+ * gana la que deja la planta más compacta (menor perímetro del rectángulo que
+ * la envuelve y, a igualdad, la más cuadrada). Así los cuartos conservan
+ * fachada al frente para su puerta en vez de alinearse en una fila larga.
+ *
+ * Exportada aparte para PREVISUALIZAR el sitio sin crear nada (el fantasma del
+ * tutorial de primeros pasos): es determinista, así que la creación inmediata
+ * aterriza exactamente donde se enseñó. `null` = no queda celda libre.
+ */
+export function sitioCuartoNuevo(id = ''): Cell | null {
+  const { placed, cells, footprints, niveles, gridCols, gridRows } = useLayout.getState()
+  const fp = [...FOOTPRINT_DEFAULT]
+  const ocupadas: Cell[] = []
+  for (const r of losCuartos()) {
+    if (!placed[r.id] || !cells[r.id] || nivelDe(niveles, r.id) !== 0) continue
+    ocupadas.push(...footprintCells(cells[r.id], fpDe(footprints, r.id)))
+  }
+  let destino: Cell | null = null
+  let mejor = Infinity
+  for (let row = 0; row < gridRows; row++) {
+    for (let col = 0; col < gridCols; col++) {
+      const cell = { col, row }
+      if (!esFootprintLibre(placed, cells, footprints, niveles, id, cell, fp, 0)) continue
+      const todas = [...ocupadas, ...footprintCells(cell, fp)]
+      const cols = todas.map((c) => c.col)
+      const rows = todas.map((c) => c.row)
+      const w = Math.max(...cols) - Math.min(...cols) + 1
+      const h = Math.max(...rows) - Math.min(...rows) + 1
+      // Pesos escalonados: primero el perímetro, luego lo cuadrado, luego la cercanía al origen.
+      const puntaje = (w + h) * 1000 + Math.abs(w - h) * 40 + row + col
+      if (puntaje < mejor) {
+        mejor = puntaje
+        destino = cell
+      }
+    }
+  }
+  return destino
 }
 
 /**

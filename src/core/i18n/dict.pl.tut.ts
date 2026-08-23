@@ -69,45 +69,78 @@ export const PL_TUT: Dict = {
     'Do Excela wychodzi prawdziwy plik .xlsx, z żywymi formułami i wykresami jako wykresy Excela. Do PDF idzie przez drukarkę przeglądarki.',
   'tut.casa.1.texto': 'To twój dom: każdy pokój przechowuje jedną aplikację. Pokażę ci podstawowe sterowanie.',
   'tut.casa.2.titulo': 'Menu główne',
-  'tut.casa.2.texto': 'Ten przycisk otwiera menu: twoje pokoje, katalog szablonów (aplikacji) i ekwipunek obiektów.',
+  'tut.casa.2.texto':
+    'Otwieram je, żeby pokazać: to menu główne, z twoimi pokojami i ich aplikacjami. Jego pozostałe zakładki przynoszą katalog szablonów (aplikacji) i ekwipunek obiektów.',
+  'tut.casa.2b.titulo': 'Katalog aplikacji',
+  'tut.casa.2b.texto':
+    'Jego druga zakładka: katalog szablonów — wszystkie aplikacje, jakie dom może pomieścić, każda gotowa, by przypisać ją do pokoju.',
+  'tut.casa.2c.titulo': 'Ekwipunek',
+  'tut.casa.2c.texto':
+    'I trzecia: ekwipunek — obiekty i części, które zachowujesz ze swoich pokoi, gotowe, by znów stanąć tam, gdzie zechcesz.',
   'tut.casa.3.titulo': 'Poruszanie się',
   'tut.casa.3.texto':
-    'Chodzisz joystickiem, klawiszami WASD albo strzałkami. Kiedy przechodzisz przez drzwi pokoju, wchodzisz do niego, a jego aplikacja otwiera się sama.',
+    'Chodzisz joystickiem, klawiszami WASD albo strzałkami: cały dom zwiedza się pieszo. Spacer nie otwiera aplikacji — żeby wejść, dotknij obiektu z unoszącą się kulą pokoju.',
   'tut.casa.4.titulo': 'Trzy sposoby patrzenia',
   'tut.casa.4.texto':
-    'Izometryczny, trzecia i pierwsza osoba (albo klawisz V). Dotknięcie Izo wyśrodkowuje też kamerę z powrotem na twojej postaci: szybki powrót, jeśli podczas zwiedzania zawędrujesz za daleko.',
+    'Przed chwilą przewinęły się na żywo: izometryczny, trzecia i pierwsza osoba (albo klawisz V). Dotknięcie Izo wyśrodkowuje też kamerę z powrotem na twojej postaci: szybki powrót, jeśli podczas zwiedzania zawędrujesz za daleko.',
   'tut.casa.5.titulo': 'Jedno miejsce, wielu właścicieli',
   'tut.casa.5.texto':
     'Ten róg to nie tylko kostka widoków: kiedy podchodzisz do czegoś, z czym da się wejść w interakcję — krzesła, pojazdu, boiska — zmienia się sam na to, co masz w pobliżu. Nic nie włącza się, dopóki nie podejdziesz.',
   'tut.casa.6.titulo': 'Koło narzędzi',
   'tut.casa.6.texto':
-    'Ruchy, zabawki, pojazdy i budowa, do 3 wyposażonych naraz. Otwiera się tutaj albo z tego samego rogu, kiedy masz wolne ręce.',
+    'Tutaj jest otwarte: ruchy, zabawki, pojazdy i budowa, do 3 wyposażonych naraz. Otwiera się przyciskiem obok joysticka albo z tego samego rogu, kiedy masz wolne ręce.',
   'tut.casa.7.titulo': 'Zegar',
   'tut.casa.7.texto':
-    'Godzina w domu: dotknij jej, a otworzy się pełny kalendarz z Misjami na dziś. Słońce albo księżyc obok sterują upływem czasu i światłem sceny.',
+    'Godzina w domu: dotknij jej, a otworzy się pełny kalendarz z Misjami na dziś. A słońce albo księżyc otwierają ten panel: upływ czasu i światło sceny.',
   'tut.casa.8.titulo': 'Muzyka domu',
   'tut.casa.8.texto':
-    'Każdy pokój może mieć swój własny motyw albo pozwolić grać ogólnemu tłu domu. Da się ją wyłączyć zupełnie, jeśli wolisz ciszę.',
+    'Dom startuje w ciszy: jeśli chcesz ścieżki dźwiękowej, włącz tutaj muzykę. Każdy pokój ma już wgrane utwory tematyczne, albo pozwól grać ogólnemu tłu domu.',
   'tut.casa.9.titulo': 'Czat',
   'tut.casa.9.texto':
-    'Czat architekta: opowiedz mu, co udało ci się zrobić, a zapisze to w odpowiedniej aplikacji, albo poproś go o zmiany w domu.',
+    'Czat architekta: opowiedz mu, co udało ci się zrobić, a zapisze to w odpowiedniej aplikacji; poproś go o zmiany w domu, obrazy, a nawet modele 3D do twoich pokoi — albo po prostu pogadaj z nim chwilę.',
+  'tut.casa.asistente.titulo': 'Twój asystent',
+  'tut.casa.asistente.texto':
+    'Ten przycisk to twój asystent: ten, kto odpowiada ci na czacie. Dotknij go, aby otworzyć jego menu i dopasować go do siebie — jego kształt, głos i osobowość.',
+  'tut.casa.mas.titulo': 'Menu +',
+  'tut.casa.mas.texto':
+    'Masz je tu otwarte, żeby rzucić okiem: plusem dołączasz rzeczy do czatu — prześlij obraz albo PDF, zrób zdjęcie, albo przejdź do Maski AR i Czatu AR twarzą w twarz.',
+  'tut.casa.editor.titulo': 'Edytor',
+  'tut.casa.editor.texto':
+    'Przycisk Edytor na górze otwiera właśnie to: pełną personalizację w czterech zakładkach — Mapa, Postacie, Obiekty i Ustawienia. Tutaj rysuje się i ubiera cały dom.',
   'tut.casa.10.texto':
-    'To podstawy. Przycisk Edytor na górze otwiera pełną personalizację, a każde menu i każda aplikacja mają własny przycisk ? ze swoim samouczkiem.',
-  'tut.primeros.1.texto': 'Na początek: jak buduje się dom. Wszystko zaczyna się w zakładce Pokoje.',
+    'To podstawy. Każde menu i każda aplikacja mają własny przycisk ? ze swoim samouczkiem: poproś o niego, kiedy coś ci nie gra.',
+  'tut.primeros.1.texto':
+    'Ten samouczek odpowiada na dwa pytania: jak WEJŚĆ do swoich aplikacji i jak STWORZYĆ nową. Obie odpowiedzi mieszkają tutaj, w zakładce Pokoje.',
+  'tut.primeros.entrar.titulo': 'Wejdź do swoich aplikacji',
+  'tut.primeros.entrar.texto':
+    'Każdy pokój niesie swoją aplikację, a ty masz troje drzwi: jego kartę tutaj w menu, obiekt z unoszącą się kulą na mapie i szybki dostęp z przycisku MPH u góry.',
+  'tut.primeros.entrar.vacio': 'Tu zamieszkają twoje pokoje, każdy ze swoją aplikacją, i będziesz mieć troje drzwi: kartę pokoju tutaj w menu, obiekt z unoszącą się kulą na mapie i szybki dostęp z przycisku MPH u góry. Stwórzmy pierwszy…',
+  'tut.primeros.prev.titulo': 'Tu stanie twój pokój',
+  'tut.primeros.prev.texto':
+    'To podgląd pędzla: zielony obrys ze ścianami wskazuje, gdzie stanie pokój. Przy ręcznym budowaniu zobaczysz go tak samo pod palcem, zanim oderwiesz go od ekranu.',
+  'tut.primeros.mat.titulo': 'Zbudowany!',
+  'tut.primeros.mat.texto':
+    'I oto on: pokój stanął dokładnie tam, gdzie wskazywał podgląd, z drzwiami od frontu. Aplikacji jeszcze nie ma — to następny krok.',
   'tut.primeros.2.titulo': 'Utwórz pokój',
   'tut.primeros.2.texto':
-    'Tym przyciskiem rysujesz nowe pokoje na mapie. Żeby pokazać ci resztę drogi, teraz stworzę ci jeden…',
+    'Tym przyciskiem rysujesz nowe pokoje na mapie, pole po polu. Patrz — pokażę ci, gdzie stanąłby twój…',
   'tut.primeros.3.titulo': 'Twój nowy pokój',
   'tut.primeros.3.texto':
     'Oto on! Świeżo utworzony pokój, jeszcze bez aplikacji: dlatego na jego karcie widnieje + Przypisz.',
+  'tut.primeros.apps.titulo': 'Dostępne aplikacje',
+  'tut.primeros.apps.texto':
+    'To otwiera + Przypisz: panel ze wszystkimi dostępnymi aplikacjami. Każda urządza swój pokój własnymi meblami i własną aplikacją. Jedną z nich daję twojemu…',
   'tut.primeros.4.titulo': 'Przypisz aplikację',
   'tut.primeros.4.texto':
     'Przyciskiem + Przypisz pokój dostał swoją aplikację: zobacz, jak przejął jej nazwę, ikonę i meble. Od teraz cała jego karta jest przyciskiem wejścia.',
   'tut.primeros.5.titulo': 'Wejdź',
   'tut.primeros.5.texto':
-    'Wchodzimy: to jest aplikacja pokoju. Podczas spaceru wchodzisz też, przekraczając jego drzwi, a wychodzisz przez ‹ Wróć do domu.',
+    'Wchodzimy: to jest aplikacja pokoju. Żeby wrócić później: jego karta w menu, obiekt z kulą na mapie albo szybki dostęp z przycisku MPH u góry.',
+  'tut.primeros.press.titulo': 'Przytrzymaj',
+  'tut.primeros.press.texto':
+    'Patrz, jak się trzęsie: przytrzymanie pokoju albo obiektu budzi go, razem z jego menu. Tak go przesuniesz, jeśli nie podoba ci się, gdzie stanął, albo go usuniesz.',
   'tut.primeros.6.texto':
-    'Pokój zostaje w twoim domu, z gotową aplikacją. Tak samo powstaje reszta: jeden pokój na każdą rzecz, którą chcesz tu prowadzić.',
+    'To wszystko: stworzyć pokój, dać mu aplikację, wejść i go ustawić. Ten był do ćwiczeń — zabiorę go na koniec, żeby twój dom powstał dokładnie po twojej myśli.',
   'tut.menu-cuartos.1.texto': 'Zakładka Pokoje wypisuje wszystkie pokoje twojego domu, pogrupowane według kategorii.',
   'tut.menu-cuartos.2.titulo': 'Twoje podsumowanie',
   'tut.menu-cuartos.2.texto':

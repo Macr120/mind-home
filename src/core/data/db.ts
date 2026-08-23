@@ -1,6 +1,7 @@
 import Dexie, { type Table } from 'dexie'
-import { esDemo, esDemoAutor } from '../edicion'
+import { esDemo, esDemoAutor, esProbar } from '../edicion'
 import { demoGuard } from './demoGuard'
+import { probarGuard } from './probarGuard'
 import { fechaLocalISO } from '../fechaLocal'
 import { nombreAleatorio } from '../house/nombresAnimales'
 import { syncMiddleware } from './sync/middleware'
@@ -3592,10 +3593,10 @@ class MindHomeDB extends Dexie {
   _pendientes!: Table<PendienteSync, number>
 
   constructor() {
-    // En modo demo se abre una BD PARALELA: la casa de Pep@ vive ahí completa
-    // (sin marcas de ejemplo) y la BD real del usuario queda intacta. Cambiar
-    // de modo siempre recarga la página (esDemo está congelado a la carga).
-    super(esDemo() ? 'mind-home-demo' : 'mind-home')
+    // En los modos demo y probar se abre una BD PARALELA: la casa de Pep@ (o la
+    // de prueba sin cuenta) vive ahí completa y la BD real del usuario queda
+    // intacta. Cambiar de modo siempre recarga la página (flags congelados a la carga).
+    super(esDemo() ? 'mind-home-demo' : esProbar() ? 'mind-home-probar' : 'mind-home')
     this.version(1).stores({
       transacciones: '++id, fecha, tipo, categoria',
       sueno: '++id, fecha',
@@ -5151,6 +5152,11 @@ if (esDemo() && !esDemoAutor()) {
   if (haySandboxDemoSucio()) {
     db.on('ready', (vip) => import('../../demo/sandbox').then((m) => m.restaurarBaseDemo(vip as Dexie)))
   }
+} else if (esProbar()) {
+  // En la casa de prueba también se escribe todo, y además PERSISTE en su BD
+  // paralela (es la casa que se ofrece recuperar al crear cuenta y pagar): el
+  // guard solo marca la prueba como sucia y avisa que inicie sesión.
+  db.use(probarGuard)
 }
 
 db.open().catch((err) => {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useT } from '../i18n/useT'
-import { useAvisoDemo, useAvisoRenovar, useCuotaAgotada } from '../state/avisosPlanStore'
+import { useAvisoDemo, useAvisoRenovar, useAvisoSesion, useCuotaAgotada } from '../state/avisosPlanStore'
 import { canalPago } from '../plataforma'
 import {
   hayPagos,
@@ -13,8 +13,9 @@ import {
 import { URL_WEB as urlWeb } from '../cuenta/urlWeb'
 import { haySesionProbable, useSesion } from '../cuenta/sesionStore'
 import { hayBackend } from '../cuenta/supabase'
-import { esPro, esTrial, fuePro } from '../edicion'
+import { esPro, esProbar, esTrial, fuePro } from '../edicion'
 import { salirDemo } from '../../demo/modo'
+import { salirProbar } from '../../probar/modo'
 import { FormularioAcceso } from './editor/EditorCuentaSection'
 
 /**
@@ -35,6 +36,7 @@ export function AvisosPlan() {
       <AvisoRenovar />
       <CuotaAgotada />
       <AvisoDemo />
+      <AvisoSesion />
     </>
   )
 }
@@ -133,6 +135,49 @@ function AvisoDemo() {
   )
 }
 
+/**
+ * El trato del modo probar, una sola vez por carga: lo abre el marcador
+ * (`data/probarGuard.ts`) en la primera edición del visitante. No bloquea nada
+ * — el cambio ya se aplicó en la casa de prueba; solo explica que para que sus
+ * cambios se guarden de verdad (y para la IA y la sync) hace falta una cuenta.
+ */
+function AvisoSesion() {
+  const t = useT()
+  const abierto = useAvisoSesion((s) => s.abierto)
+  const cerrar = useAvisoSesion((s) => s.cerrar)
+  if (!abierto) return null
+
+  return (
+    <Marco>
+      <h2 className="text-sm font-bold text-white/90">
+        {t('probar.aviso.titulo', 'Inicia sesión para que se guarden tus cambios')}
+      </h2>
+      <p className="text-xs leading-snug text-white/60">
+        {t(
+          'probar.aviso.cuerpo',
+          'Estás probando la app sin cuenta: puedes editarlo todo, pero nada cuenta como guardado. Con tu cuenta, tus cambios se guardan y podrás usar la IA y la sincronización — lo que hiciste en la prueba se recupera.',
+        )}
+      </p>
+      <div className="space-y-1.5 pt-1">
+        <button
+          type="button"
+          onClick={() => salirProbar()}
+          className="ui-accent-bg block w-full rounded-md px-2 py-1.5 text-center text-xs font-bold"
+        >
+          {t('probar.aviso.crear', 'Crear mi cuenta o iniciar sesión')}
+        </button>
+        <button
+          type="button"
+          onClick={cerrar}
+          className="w-full rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] font-semibold text-white/60 transition hover:bg-white/10"
+        >
+          {t('probar.aviso.seguir', 'Seguir probando')}
+        </button>
+      </div>
+    </Marco>
+  )
+}
+
 function CuotaAgotada() {
   const t = useT()
   const abierto = useCuotaAgotada((s) => s.abierto)
@@ -201,7 +246,19 @@ function CuotaAgotada() {
             'Los créditos del primer mes vienen con tu compra, pero se abonan a una cuenta: sin correo registrado no hay dónde ponerlos.',
           )}
         </p>
-        <FormularioAcceso inicial="registrar" />
+        {/* En el modo probar no se inicia sesión DENTRO (quedaría sesión viva
+            sobre la BD de prueba, con la sync apagada): se sale a la puerta. */}
+        {esProbar() ? (
+          <button
+            type="button"
+            onClick={() => salirProbar()}
+            className="ui-accent-bg block w-full rounded-md px-2 py-1.5 text-center text-xs font-bold"
+          >
+            {t('probar.aviso.crear', 'Crear mi cuenta o iniciar sesión')}
+          </button>
+        ) : (
+          <FormularioAcceso inicial="registrar" />
+        )}
         <button
           type="button"
           onClick={cerrar}

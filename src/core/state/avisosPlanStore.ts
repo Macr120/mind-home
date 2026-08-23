@@ -58,3 +58,17 @@ export const useAvisoDemo = create<AvisoState>((set) => ({
   },
   cerrar: () => set({ abierto: false }),
 }))
+
+// Mismo respaldo que el aviso demo, para el marcador de data/probarGuard.ts.
+let ultimoAvisoSesion = 0
+
+/** El trato del modo probar: edita lo que quieras, para guardarlo inicia sesión. */
+export const useAvisoSesion = create<AvisoState>((set) => ({
+  abierto: false,
+  abrir: () => {
+    if (Date.now() - ultimoAvisoSesion < 30_000) return
+    ultimoAvisoSesion = Date.now()
+    set({ abierto: true })
+  },
+  cerrar: () => set({ abierto: false }),
+}))

@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import { Shapes } from 'lucide-react'
 import { useAjustes, type EstiloIconos } from '../../state/ajustesStore'
 import { useT } from '../../i18n/useT'
+import { MenuCiclo } from '../CicloPanel'
 import { IDIOMAS } from '../../i18n/idiomas'
 import { TEMAS_UI, modoBase, type ModoUI } from '../temasUI'
 import { TIPOGRAFIAS } from '../tipografias'
@@ -110,6 +111,24 @@ export function EditorAjustesSection({ embed }: { embed?: boolean } = {}) {
             )
           })}
         </div>
+      </div>
+
+      {/* Hora del día: la luz de la escena 3D (el mismo panel del sol/luna del
+          reloj). Va junto a Apariencia: claro/oscuro viste el chrome, esto
+          ilumina la casa. */}
+      <div className="space-y-1.5">
+        <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
+          {t('ajustes.horaDia', 'Hora del día')}
+        </p>
+        <div className="rounded-md border border-white/10 bg-white/5 p-2.5">
+          <MenuCiclo />
+        </div>
+        <p className="text-[11px] leading-snug text-white/45">
+          {t(
+            'ajustes.horaDia.desc',
+            'La luz de la casa: mueve el sol, pausa el tiempo o vuelve a la hora real.',
+          )}
+        </p>
       </div>
 
       {/* Estilo de iconos: emojis (clásico) o SVG (profesional) */}

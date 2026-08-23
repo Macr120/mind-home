@@ -20,7 +20,7 @@ import { useEditorSeccionesConfig } from './editor/useEditorSecciones'
 import type { ConfigGrupoId } from './editor/configSecciones'
 import { useT } from '../i18n/useT'
 import { useNombreCuarto } from './roomDisplay'
-import { esDemo, esDemoAutor } from '../edicion'
+import { esDemo, esDemoAutor, esProbar } from '../edicion'
 import { Icono } from './iconos/Icono'
 import type { NombreIcono } from './iconos/catalogo'
 import { vivo } from './estilos'
@@ -117,10 +117,11 @@ export function EditPanel() {
     vigilar(editMode ? tab : null)
   }, [editMode, tab, vigilar])
 
-  // Casa demo: Configuraciones se abre entera salvo Cuenta y Respaldo, que son
-  // de la cuenta real y no de esta casa prestada. Idioma, tema de interfaz y
-  // demás preferencias son del dispositivo: se comparten con la casa real.
-  const sinCuenta = esDemo() && !esDemoAutor()
+  // Casas demo y probar: Configuraciones se abre entera salvo Cuenta y
+  // Respaldo, que son de la cuenta real y no de esta casa prestada (en probar,
+  // iniciar sesión pasa por salir a la puerta, no por aquí). Idioma, tema de
+  // interfaz y demás preferencias son del dispositivo: se comparten.
+  const sinCuenta = (esDemo() && !esDemoAutor()) || esProbar()
 
   const editar = (id: string | null) => editRoom(id)
 

@@ -4,7 +4,7 @@ import { esencialCalendario, FLUJOS_CALENDARIO } from './calendario.meta'
 import { FLUJOS_NUCLEO_NUEVOS } from './nucleo.meta'
 import { tutorialAppGenerica } from './appGenerica'
 import { esInfraestructura, getPlantilla } from '../registry'
-import { esDemo } from '../edicion'
+import { esDemo, esProbar } from '../edicion'
 import { appsConstruidas, entrarDemo } from '../../demo/modo'
 import { useMascota } from '../state/mascotaStore'
 import { tGlobal } from '../i18n/useT'
@@ -107,6 +107,9 @@ export async function lanzarFlujo(
   const esFlujoNuevo =
     !!getPlantilla(plantillaId)?.flujos?.some((f) => f.id === def.id) ||
     !!FLUJOS_NUCLEO[plantillaId]?.some((f) => f.id === def.id)
+  // En modo probar los flujos ni se ofrecen (la demo es de la app pagada);
+  // cinturón por si alguno llega por otro camino.
+  if (esFlujoNuevo && esProbar()) return
   if (esFlujoNuevo && !esDemo() && !EN_SITIO.has(def.id)) {
     entrarDemo({ app: plantillaId, tour: def.id })
     return

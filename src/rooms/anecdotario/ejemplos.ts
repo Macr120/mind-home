@@ -1,7 +1,7 @@
 import { anecdotasRepo } from '../../core/data/repository'
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
 import { fotoEjemplo } from '../_shared/ejemplos/fotos'
-import { porIdioma, yaMaterializado, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
+import { porIdioma, retraducido, yaMaterializado, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
 import { TEXTOS_ANECDOTARIO } from './ejemplos.data'
 
 /**
@@ -51,5 +51,16 @@ export const ejemploAnecdotario: PaqueteEjemplo = {
       animo: '😐',
       ejemploDe: ID,
     })
+  },
+
+  async retraducir() {
+    for (const a of await anecdotasRepo.list()) {
+      if (a.ejemploDe !== ID || a.id == null) continue
+      const titulo = retraducido(TEXTOS_ANECDOTARIO, a.titulo, 'tituloPaseo', 'tituloCena', 'tituloBache')
+      const contenido = retraducido(TEXTOS_ANECDOTARIO, a.contenido, 'textoPaseo', 'textoCena', 'textoBache')
+      if (titulo || contenido) {
+        await anecdotasRepo.update(a.id, { ...(titulo && { titulo }), ...(contenido && { contenido }) })
+      }
+    }
   },
 }

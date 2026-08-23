@@ -9,7 +9,7 @@ const T = (clave: string, es: string): TextoTut => ({ clave, es })
  */
 export const tutorialPrimerosPasos: TutorialDef = {
   id: 'primeros-pasos',
-  titulo: T('tut.primeros.titulo', 'Primeros pasos'),
-  resumen: T('tut.primeros.resumen', 'Crea un cuarto desde el menú, asígnale su app y entra a verla.'),
+  titulo: T('tut.primeros.titulo', 'Cómo abrir tus apps y crear más'),
+  resumen: T('tut.primeros.resumen', 'Cómo entrar a tus apps y cómo crear una nueva: el cuarto, su app y sus tres accesos.'),
   cargar: () => import('./primerosPasos').then((m) => m.cuerpoPrimerosPasos()),
 }

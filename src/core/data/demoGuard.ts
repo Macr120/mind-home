@@ -16,6 +16,7 @@ import type { DBCore, DBCoreMutateRequest, DBCoreMutateResponse, Middleware } fr
 import { claveLS, esDemo } from '../edicion'
 import { limpiarSandboxDemoSucio, marcarSandboxDemoSucio } from '../../demo/modo'
 import { useAvisoDemo } from '../state/avisosPlanStore'
+import { hayIntencionHumana, hayTutorialActivo } from './intencion'
 
 /** Tablas que el visitante escribió en esta carga (y en las anteriores sin reponer). */
 const LS_TABLAS = 'mh.sandbox.tablas'
@@ -82,28 +83,10 @@ export function setConstruyendoDemo(v: boolean): void {
   construyendo = v
 }
 
-// Un tutorial escribe por su cuenta —crea el dato de ejemplo y lo borra al
-// salir— y lo hace justo después del click en «Siguiente», así que el
-// heurístico de abajo lo tomaba por una edición del visitante: el aviso salía
-// solo y encima tapaba el spotlight (velo z-70 sobre overlay z-60). El trato se
-// cuenta cuando el visitante edita POR SU CUENTA. Las tablas se apuntan igual:
-// lo que el tour escribió también hay que reponerlo al recargar.
-let enTutorial = false
-export function setTutorialActivo(v: boolean): void {
-  enTutorial = v
-}
-
-// Los procesos de fondo también escriben: se apuntan igual, pero solo una
-// mutación cercana a un click/tecla del usuario explica el trato una vez.
-let ultimaInteraccion = 0
+// La heurística de intención (click/tecla reciente) y la marca de tutorial
+// viven en `intencion.ts`, compartidas con el guard del modo probar. Las tablas
+// de un tour se apuntan igual: lo que escribió también se repone al recargar.
 let avisado = false
-if (typeof window !== 'undefined' && esDemo()) {
-  const marcar = () => {
-    ultimaInteraccion = Date.now()
-  }
-  window.addEventListener('pointerdown', marcar, true)
-  window.addEventListener('keydown', marcar, true)
-}
 
 interface TransMarcada {
   __mhAplicandoPull?: boolean
@@ -118,8 +101,8 @@ function apuntar(nombre: string): void {
   // El aviso del trato solo sale si el cambio lo hizo el VISITANTE por su
   // cuenta: los procesos de fondo (racha de Sísifo, la edición del día del
   // diario…) también escriben y también se reponen, pero no son «sus cambios».
-  if (enTutorial || colector) return
-  if (Date.now() - ultimaInteraccion >= 3000) return
+  if (hayTutorialActivo() || colector) return
+  if (!hayIntencionHumana()) return
   if (!avisado) {
     avisado = true
     useAvisoDemo.getState().abrir()

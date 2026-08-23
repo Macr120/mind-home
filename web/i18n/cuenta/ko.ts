@@ -71,10 +71,19 @@ export const TEXTOS: Record<string, string> = {
   'mi.trialHasta': '포함된 한 달은 {f}에 끝나요.',
   'mi.estado.fuePro': '구독이 끝났어요. 앱은 기기에 로컬 모드로 남아 있어요. 다시 구독하면 월 크레딧과 동기화가 두고 간 그대로 돌아와요.',
   'mi.estado.trialVencido': '포함된 한 달이 끝났어요. 앱과 데이터는 영원히 당신 거예요. 월 크레딧과 동기화를 이어가려면 구독하거나 낱개 크레딧을 충전하세요.',
-  'mi.estado.local': '로컬 모드예요. 앱과 데이터는 돈을 내지 않아도 당신 거예요. AI는 쓴 만큼 내요 — 필요한 만큼 크레딧을 사거나, 구독해서 매달 받으세요.',
+  'mi.estado.local':
+    '집은 당신의 것이고 데이터는 기기에 남습니다. AI와 동기화는 따로 결제합니다. 필요한 만큼 크레딧을 사거나, 구독해 매달 받으세요.',
+  'mi.estado.sinCasa':
+    '이 계정에는 아직 집이 없습니다. 아래에서 구매하거나, 테스터라면 쿠폰을 사용하세요. 같은 이메일로 어느 기기에서든 열 수 있습니다.',
   'mi.disponibles': '사용 가능한 크레딧: {n}',
   'mi.abrirApp': '브라우저에서 앱 열기',
+  'mi.probarApp': '내 집 만들기 무료 체험',
   'mi.salir': '로그아웃',
+  'cupon.titulo': '쿠폰이 있어요',
+  'cupon.desc': '추천 링크',
+  'cupon.codigo': '쿠폰 코드',
+  'cupon.canjear': '사용하기',
+
   'pro.creditosMes': '이번 달 AI 크레딧',
   'pro.extra': '추가 크레딧(충전분, 만료 없음): {n}',
   'pro.gestionar': '구독 관리(해지, 결제 수단 변경)',

@@ -8,11 +8,13 @@
  * carga y la BD ya abrió con un nombre (ver core/edicion.ts y data/db.ts).
  *
  * Claves propias (no pasan por `claveLS`: ya son exclusivas del demo):
- * - `mh.demo.version`: versión del contenido construido; si no coincide con
- *   `DEMO_VERSION` del bundle, el DemoGate reconstruye.
+ * - `mh.demo.version`: versión e idioma del contenido construido (`33:en`); si
+ *   no coincide con `DEMO_VERSION` del bundle o con el idioma activo, el
+ *   DemoGate reconstruye.
  * - `mh.demo.intent`: tour pendiente al entrar desde la casa real (un solo uso).
  */
 import { claveLS, LS_DEMO, esDemo } from '../core/edicion'
+import { idiomaActual } from '../core/i18n/useT'
 
 /** Versión del CONTENIDO demo del bundle; subirla fuerza la reconstrucción. */
 // v26: la casa viaja como snapshot commiteado (`public/demo/casa.json`) y los
@@ -98,13 +100,20 @@ export function salirDemo(): void {
   location.reload()
 }
 
-/** ¿El contenido construido corresponde al de este bundle? */
+/**
+ * ¿El contenido construido corresponde al de este bundle Y al idioma activo?
+ *
+ * La marca guarda también el idioma (`33:en`) porque los builders materializan
+ * el año de Pep@ con `idiomaActual()`: un demo construido en español seguiría
+ * en español para siempre aunque la app pase a inglés. Con el idioma en la
+ * marca, reentrar al demo en otro idioma dispara la reconstrucción normal.
+ */
 export function demoConstruido(): boolean {
-  return localStorage.getItem(LS_VERSION) === String(DEMO_VERSION)
+  return localStorage.getItem(LS_VERSION) === `${DEMO_VERSION}:${idiomaActual()}`
 }
 
 export function marcarDemoConstruido(): void {
-  localStorage.setItem(LS_VERSION, String(DEMO_VERSION))
+  localStorage.setItem(LS_VERSION, `${DEMO_VERSION}:${idiomaActual()}`)
 }
 
 /** Borra la BD demo (jamás la real: exige `esDemo()`), sin recargar. */

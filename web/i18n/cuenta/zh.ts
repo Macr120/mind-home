@@ -71,10 +71,19 @@ export const TEXTOS: Record<string, string> = {
   'mi.trialHasta': '你的赠送月在 {f} 结束。',
   'mi.estado.fuePro': '你的订阅已结束：应用仍以本地模式留在你的设备上。续订后，每月额度和同步会按你离开时的样子回来。',
   'mi.estado.trialVencido': '你的赠送月已结束：应用和你的数据永远属于你。订阅可以继续拥有每月额度和同步，也可以单独充值额度。',
-  'mi.estado.local': '你在本地模式：应用和你的数据不花钱也属于你。AI 按用量付费——需要多少额度就买多少，或者订阅每月自动到账。',
+  'mi.estado.local':
+    '这个家是你的，数据留在你的设备上。AI 与同步单独付费：按需购买点数，或订阅后每月领取。',
+  'mi.estado.sinCasa':
+    '你的账户还没有这个家。可以在下面购买；如果你是测试者，也可以兑换优惠码。之后用同一个邮箱在任何设备上打开。',
   'mi.disponibles': '可用额度：{n}',
   'mi.abrirApp': '在浏览器里打开应用',
+  'mi.probarApp': '免费体验打造你的家',
   'mi.salir': '退出登录',
+  'cupon.titulo': '我有优惠码',
+  'cupon.desc': '推荐链接',
+  'cupon.codigo': '优惠码',
+  'cupon.canjear': '兑换',
+
   'pro.creditosMes': '本月 AI 额度',
   'pro.extra': '额外额度（充值，不过期）：{n}',
   'pro.gestionar': '管理订阅（取消、更改付款）',

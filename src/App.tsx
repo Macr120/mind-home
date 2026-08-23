@@ -31,8 +31,10 @@ import { useTutorial } from './core/tutorial/tutorialStore'
 import { SelectorTutorialOverlay } from './core/tutorial/SelectorTutorial'
 import { AvisosPlan } from './core/ui/AvisosPlan'
 import { BarraDemo } from './demo/BarraDemo'
+import { BarraProbar } from './probar/BarraProbar'
+import { RecuperarPrueba } from './core/bienvenida/RecuperarPrueba'
 import { VolverDemoDialog } from './demo/VolverDemoDialog'
-import { esDemo } from './core/edicion'
+import { esDemo, esProbar } from './core/edicion'
 import { useBienvenida } from './core/bienvenida/bienvenidaStore'
 import { PrimeraVezGate } from './core/bienvenida/PrimeraVezGate'
 import { useHouse } from './core/state/houseStore'
@@ -128,6 +130,7 @@ export default function App() {
   const previaAbierta = usePreviaPlantilla((s) => !!s.plantillaId)
   const calendarioAbierto = useRutinasUI((s) => s.calendario)
   const bienvenidaAbierta = useBienvenida((s) => s.abierto)
+  const recuperacionAbierta = useBienvenida((s) => s.recuperacion)
   const tourActivo = useTutorial((s) => !!s.def)
   // En diálogo cara a cara la caja RPG sustituye a la burbuja flotante.
   const dialogoActivo = useDialogo((s) => !!s.asistenteId)
@@ -242,6 +245,9 @@ export default function App() {
           <BienvenidaOverlay />
         </Suspense>
       )}
+      {/* Conversión del modo probar: ¿recuperar la casa de la prueba o hacer la
+          bienvenida? Solo se abre en la casa real vacía con prueba pendiente. */}
+      {recuperacionAbierta && <RecuperarPrueba />}
       {/* Único canvas oculto que rasteriza las miniaturas del catálogo/inventario: montado
           aquí (fuera de ambos paneles) para no duplicar el generador entre ellos. */}
       <GeneradorMiniaturas />
@@ -293,6 +299,8 @@ export default function App() {
       <AvisosPlan />
       {/* Píldora persistente de la casa demo: salir / suscribirse / reiniciar. */}
       {esDemo() && <BarraDemo />}
+      {/* Píldora persistente del modo probar: crear cuenta (la única salida). */}
+      {esProbar() && <BarraProbar />}
       {/* «¿Volver a tu casa?» al terminar el flujo que trajo al visitante. */}
       {esDemo() && <VolverDemoDialog />}
     </div>

@@ -1,5 +1,7 @@
 import type { CuerpoTutorial, TextoTut } from './tipos'
 import { clickTut, elTut, esperarTut, irAPestanaMenu } from './dom'
+import { useCam } from '../state/cameraStore'
+import { useHud } from '../state/hudStore'
 import { useLayout } from '../state/layoutStore'
 import { useEditorUi } from '../state/editorUiStore'
 import { abrirApp } from '../abrirApp'
@@ -30,6 +32,22 @@ const abrirSiFalta = (sel: string, boton: string) => {
   if (!elTut(sel)) clickTut(boton)
 }
 
+/**
+ * Cierra TODO lo que el tour de la casa pudo dejar abierto (menú lateral,
+ * rueda, panel del reloj, panel de música). Cada paso lo llama antes de abrir
+ * lo suyo: así navegar con Atrás/Siguiente nunca deja dos menús encimados.
+ * Todo es no-op sobre lo que ya está cerrado.
+ */
+const cerrarPanelesHud = () => {
+  clickTut('herr.fondo')
+  if (elTut('musica.panel')) clickTut('musica.boton')
+  if (elTut('reloj.panel')) clickTut('reloj.fase')
+  if (elTut('chat.adjuntar.menu')) clickTut('chat.foto')
+  clickTut('menu.retraer')
+  // El paso del editor del tour de la casa lo deja abierto: al navegar se cierra.
+  if (useLayout.getState().editMode) useLayout.getState().setEditMode(false)
+}
+
 /** Abre el editor en una pestaña concreta (preparar de los tours del editor). */
 const abrirEditorEn = (tab: 'mapa' | 'personajes' | 'objetos' | 'config') => () => {
   useEditorUi.getState().setTab(tab)
@@ -40,39 +58,92 @@ export const cuerpoCasa: CuerpoTutorial = {
   preparar: () => {
     clickTut('menu.retraer')
   },
+  // Los menús se ABREN de verdad, uno por uno, y se ven abiertos: cada paso
+  // cierra lo del anterior (cerrarPanelesHud) y despliega lo suyo.
   pasos: [
     {
+      alEntrar: () => cerrarPanelesHud(),
       texto: T(
         'tut.casa.1.texto',
         'Esta es tu casa: cada cuarto guarda una app. Te muestro los controles básicos.',
       ),
     },
     {
-      sel: 'menu.abrir',
+      sel: 'menu.cuartos.lista',
+      alEntrar: async () => {
+        cerrarPanelesHud()
+        useHud.getState().setPlegado('supIzq', false)
+        clickTut('menu.abrir')
+        await irAPestanaMenu('menu.tab.cuartos')
+      },
       titulo: T('tut.casa.2.titulo', 'El menú principal'),
       texto: T(
         'tut.casa.2.texto',
-        'Este botón abre el menú: tus cuartos, el catálogo de plantillas (apps) y el inventario de objetos.',
+        'Lo abrí para que lo veas: es el menú principal, con tus cuartos y sus apps. Sus otras pestañas traen el catálogo de plantillas (apps) y el inventario de objetos.',
+      ),
+    },
+    {
+      sel: 'menu.plantillas.catalogo',
+      alEntrar: async () => {
+        useHud.getState().setPlegado('supIzq', false)
+        clickTut('menu.abrir')
+        await irAPestanaMenu('menu.tab.plantillas')
+      },
+      titulo: T('tut.casa.2b.titulo', 'El catálogo de apps'),
+      texto: T(
+        'tut.casa.2b.texto',
+        'Su segunda pestaña: el catálogo de plantillas — todas las apps que puede llevar la casa, cada una lista para asignarse a un cuarto.',
+      ),
+    },
+    {
+      sel: 'menu.inv.catalogo',
+      alEntrar: async () => {
+        useHud.getState().setPlegado('supIzq', false)
+        clickTut('menu.abrir')
+        await irAPestanaMenu('menu.tab.inventario')
+      },
+      titulo: T('tut.casa.2c.titulo', 'El inventario'),
+      texto: T(
+        'tut.casa.2c.texto',
+        'Y la tercera: el inventario — los objetos y piezas que guardas de tus cuartos, listos para volver a colocarse donde quieras.',
       ),
     },
     {
       sel: 'nav.joystick',
+      alEntrar: () => {
+        cerrarPanelesHud()
+        useHud.getState().setPlegado('infIzq', false)
+      },
       titulo: T('tut.casa.3.titulo', 'Moverse'),
       texto: T(
         'tut.casa.3.texto',
-        'Camina con el joystick, con WASD o con las flechas del teclado. Al cruzar la puerta de un cuarto, entras y su app se abre sola.',
+        'Camina con el joystick, con WASD o con las flechas del teclado: la casa entera se recorre a pie. Pasear no abre las apps — para entrar, toca el objeto con la esfera flotante del cuarto.',
       ),
     },
     {
       sel: 'nav.vistas',
+      alEntrar: async () => {
+        cerrarPanelesHud()
+        useHud.getState().setPlegado('infDer', false)
+        // Recorrido EN VIVO: 3ª persona → 1ª → de vuelta a la isométrica.
+        useCam.getState().setVista('tercera')
+        await new Promise((r) => setTimeout(r, 900))
+        useCam.getState().setVista('primera')
+        await new Promise((r) => setTimeout(r, 900))
+        useCam.getState().setVista('iso')
+      },
       titulo: T('tut.casa.4.titulo', 'Tres formas de mirar'),
       texto: T(
         'tut.casa.4.texto',
-        'Isométrica, tercera y primera persona (o la tecla V). Tocar Iso también recentra la cámara sobre tu personaje: la salida rápida si te fuiste lejos explorando.',
+        'Te las acabo de enseñar en vivo: isométrica, tercera y primera persona (o la tecla V). Tocar Iso también recentra la cámara sobre tu personaje: la salida rápida si te fuiste lejos explorando.',
       ),
     },
     {
       sel: 'nav.hueco',
+      alEntrar: () => {
+        cerrarPanelesHud()
+        useHud.getState().setPlegado('infDer', false)
+      },
       titulo: T('tut.casa.5.titulo', 'Un hueco, varios dueños'),
       texto: T(
         'tut.casa.5.texto',
@@ -80,41 +151,118 @@ export const cuerpoCasa: CuerpoTutorial = {
       ),
     },
     {
-      sel: 'herr.boton',
+      sel: 'herr.rueda',
+      alEntrar: async () => {
+        cerrarPanelesHud()
+        // La rueda vive en la esquina inferior izquierda; en teléfono vertical
+        // el chat desplegado la desmonta entera.
+        useHud.getState().setPlegado('infIzq', false)
+        useHud.getState().setPlegado('chat', true)
+        if (!elTut('herr.rueda')) clickTut('herr.boton')
+        await esperarTut('herr.rueda', 2000)
+      },
       titulo: T('tut.casa.6.titulo', 'La rueda de herramientas'),
       texto: T(
         'tut.casa.6.texto',
-        'Movimientos, juguetes, vehículos y construcción, hasta 3 equipados a la vez. Se abre aquí o desde el mismo hueco de la esquina cuando vas con las manos libres.',
+        'Aquí está abierta: movimientos, juguetes, vehículos y construcción, hasta 3 equipados a la vez. Sale del botón junto al joystick, o del hueco de la esquina cuando vas con las manos libres.',
       ),
     },
     {
-      sel: 'reloj.widget',
+      sel: 'reloj.panel',
+      alEntrar: async () => {
+        cerrarPanelesHud()
+        useHud.getState().setPlegado('supDer', false)
+        abrirSiFalta('reloj.panel', 'reloj.fase')
+        await esperarTut('reloj.panel', 2000)
+      },
       titulo: T('tut.casa.7.titulo', 'El reloj'),
       texto: T(
         'tut.casa.7.texto',
-        'La hora de la casa: tócala y se abre el calendario completo, con sus Misiones del día. El sol o la luna de al lado controlan el paso del tiempo y la luz de la escena.',
+        'La hora de la casa: tocarla abre el calendario completo, con sus Misiones del día. Y el sol o la luna abren este panel: el paso del tiempo y la luz de la escena.',
       ),
     },
     {
-      sel: 'musica.boton',
+      sel: 'musica.panel',
+      alEntrar: async () => {
+        cerrarPanelesHud()
+        useHud.getState().setPlegado('supDer', false)
+        abrirSiFalta('musica.panel', 'musica.boton')
+        await esperarTut('musica.panel', 2000)
+      },
       titulo: T('tut.casa.8.titulo', 'La música de la casa'),
       texto: T(
         'tut.casa.8.texto',
-        'Cada cuarto puede tener su propio tema, o dejar que suene el ambiente general de la casa. Se apaga del todo si prefieres silencio.',
+        'La casa arranca en silencio: si quieres banda sonora, enciende aquí la música. Cada cuarto trae canciones temáticas precargadas, o deja sonar el ambiente general de la casa.',
       ),
     },
     {
+      sel: 'editor.tabs',
+      alEntrar: async () => {
+        cerrarPanelesHud()
+        useEditorUi.getState().setTab('mapa')
+        useLayout.getState().setEditMode(true)
+        await esperarTut('editor.tabs', 2000)
+      },
+      titulo: T('tut.casa.editor.titulo', 'El editor'),
+      texto: T(
+        'tut.casa.editor.texto',
+        'El botón Editor de arriba abre esto: la personalización completa en cuatro pestañas — Mapa, Personajes, Objetos y Configuraciones. Aquí se dibuja y se viste la casa entera.',
+      ),
+    },
+    // El bloque del chat cierra el tour (pedido del usuario): es la pieza con
+    // más miga y así queda fresca al soltar al visitante.
+    {
       sel: 'chat.caja',
+      sinMago: true,
+      alEntrar: () => {
+        cerrarPanelesHud()
+        // La rueda plegó el chat en vertical: aquí vuelve.
+        useHud.getState().setPlegado('chat', false)
+      },
       titulo: T('tut.casa.9.titulo', 'El chat'),
       texto: T(
         'tut.casa.9.texto',
-        'El chat del arquitecto: cuéntale qué hiciste y lo registra en la app correcta, o pídele cambios en la casa.',
+        'El chat del arquitecto: cuéntale qué hiciste y lo registra en la app correcta, pídele cambios en la casa, imágenes y hasta modelos 3D para tus cuartos — o simplemente platica un rato.',
       ),
     },
     {
+      sel: 'chat.asistente',
+      sinMago: true,
+      alEntrar: () => {
+        cerrarPanelesHud()
+        useHud.getState().setPlegado('chat', false)
+      },
+      titulo: T('tut.casa.asistente.titulo', 'Tu asistente'),
+      texto: T(
+        'tut.casa.asistente.texto',
+        'Este botón es tu asistente: quien te contesta en el chat. Tócalo para abrir su menú y personalizarlo — su forma, su voz y su personalidad.',
+      ),
+    },
+    {
+      sel: 'chat.adjuntar.menu',
+      sinMago: true,
+      alEntrar: async () => {
+        cerrarPanelesHud()
+        useHud.getState().setPlegado('chat', false)
+        abrirSiFalta('chat.adjuntar.menu', 'chat.foto')
+        await esperarTut('chat.adjuntar.menu', 2000)
+      },
+      titulo: T('tut.casa.mas.titulo', 'El menú +'),
+      texto: T(
+        'tut.casa.mas.texto',
+        'Lo abrí para que lo veas: con el + le adjuntas cosas al chat — sube una imagen o un PDF, toma una foto, o pasa a la Máscara AR y al Chat AR cara a cara.',
+      ),
+    },
+    {
+      alEntrar: () => {
+        cerrarPanelesHud()
+        // El paseo por vistas y editor deja la cámara donde cayó: el tour
+        // TERMINA con el mapa centrado y encuadrado, listo para explorar.
+        useCam.getState().reset()
+      },
       texto: T(
         'tut.casa.10.texto',
-        'Eso es lo básico. El botón Editor de arriba abre la personalización completa, y cada menú y cada app tienen su propio botón ? con su tutorial.',
+        'Eso es lo básico. Cada menú y cada app tienen su propio botón ? con su tutorial: pídelo cuando algo no te cuadre.',
       ),
     },
   ],

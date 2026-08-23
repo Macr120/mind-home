@@ -75,10 +75,18 @@ export const TEXTOS: Record<string, string> = {
   'mi.estado.trialVencido':
     'Bulan gratismu berakhir: aplikasi dan datamu milikmu selamanya. Berlanggananlah untuk melanjutkan kredit bulanan dan sinkronisasi, atau isi ulang kredit satuan.',
   'mi.estado.local':
-    'Kamu dalam mode lokal: aplikasi dan datamu jadi milikmu tanpa membayar apa pun. AI dibayar sesuai pemakaian — beli kredit seperlunya, atau berlangganan dan terima tiap bulan.',
+    'Rumahmu milikmu dan datamu tinggal di perangkatmu. AI dan sinkronisasi dibayar terpisah: beli kredit yang kamu perlukan, atau berlangganan dan terima setiap bulan.',
+  'mi.estado.sinCasa':
+    'Akunmu belum punya rumah. Beli di bawah ini —atau tukarkan kuponmu kalau kamu tester— lalu buka dengan email yang sama di perangkat mana pun.',
   'mi.disponibles': 'Kredit tersedia: {n}',
   'mi.abrirApp': 'Buka aplikasinya di browser',
+  'mi.probarApp': 'Coba bangun rumahmu gratis',
   'mi.salir': 'Keluar',
+  'cupon.titulo': 'Saya punya kupon',
+  'cupon.desc': 'Tautan rujukan',
+  'cupon.codigo': 'Kode kupon',
+  'cupon.canjear': 'Tukarkan',
+
   'pro.creditosMes': 'Kredit AI bulan ini',
   'pro.extra': 'Kredit ekstra (isi ulang, tidak kedaluwarsa): {n}',
   'pro.gestionar': 'Kelola langganan (berhenti, ubah pembayaran)',

@@ -1,7 +1,7 @@
 /** Textos de las páginas estáticas en italiano. Traducción de `es.mjs`. */
 export const TEXTOS = {
   'marca.nombre': 'Pianificatore Mentale-Casa',
-  'marca.sub': 'Mind Planner Home',
+  'marca.sub': 'MPH',
   'nav.entrar': 'Accedi',
   'nav.descargar': 'Scarica',
   'pie.inicio': 'Home',
@@ -13,9 +13,9 @@ export const TEXTOS = {
 
   'meta.titulo': 'Mind Planner Home — La tua mente, in una casa 3D',
   'meta.desc':
-    'Organizza abitudini, obiettivi, finanze, pasti e altro in una casa isometrica 3D dove ogni stanza è un’app. Un unico pagamento di 8,89 USD con il primo mese di IA e sincronizzazione incluso; demo gratis.',
+    'Organizza abitudini, obiettivi, finanze, pasti e altro in una casa isometrica 3D dove ogni stanza è un’app. Un unico pagamento di 8,89 USD con il primo mese di IA e sincronizzazione incluso; provala gratis.',
   'og.desc':
-    'La tua vita, in una casa 3D: abitudini, obiettivi, finanze, pasti e altro. Un pagamento di 8,89 USD con il primo mese di IA incluso; demo gratis.',
+    'La tua vita, in una casa 3D: abitudini, obiettivi, finanze, pasti e altro. Un pagamento di 8,89 USD con il primo mese di IA incluso; provala gratis.',
 
   'hero.h1': 'La tua mente,<br />in una casa 3D',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -40,7 +40,7 @@ export const TEXTOS = {
   'hero.sub.4':
     'del tutto a mano o con l’aiuto dell’IA. E tutte sono collegate a un calendario, a un sistema di missioni quotidiane e ai tuoi obiettivi personali, sincronizzati sul telefono e sul computer.',
   'hero.cta': 'Scarica l’app',
-  'hero.demo': 'Prova la demo gratis',
+  'hero.probar': 'Prova a creare la tua casa gratis',
   'hero.nota':
     'L’app è gratis e funziona offline; la casa si compra una volta — qui sul web o dentro l’app. IA e sincronizzazione sono opzionali — e se le lasci, non perdi niente.',
   'hero.video': 'Qui va il tuo video o le schermate della casa',
@@ -128,13 +128,13 @@ export const TEXTOS = {
   'mani.cierre': 'La stessa dopamina. Stavolta, per la tua vita vera.',
 
   'precio.h2': 'Un solo pagamento nello store, la tua casa per sempre',
-  'precio.demo.nombre': 'Demo',
-  'precio.demo.cifra': 'Gratis',
-  'precio.demo.1': 'La casa di Pep@ con un anno di vita dentro: prova tutto',
-  'precio.demo.2': 'Senza account, senza carta e senza connessione',
-  'precio.demo.3': 'Non si salva niente: al ricaricare, la casa riparte da zero',
-  'precio.demo.cta': 'Prova la demo',
-  'precio.demo.pie': 'L’app completa, per conoscerla senza impegno.',
+  'precio.probar.nombre': 'Provala',
+  'precio.probar.cifra': 'Gratis',
+  'precio.probar.1': 'La tua casa con il menu di benvenuto: prova tutto',
+  'precio.probar.2': 'Senza account, senza carta e senza connessione',
+  'precio.probar.3': 'Non si salva niente finché non hai un account: quando la compri, recuperi la tua prova',
+  'precio.probar.cta': 'Prova l’app',
+  'precio.probar.pie': 'L’app completa, per conoscerla senza impegno.',
   'precio.app.nombre': 'L’app',
   'precio.app.cifra': '8,89 USD',
   'precio.app.pagoUnico': 'pagamento unico',
@@ -163,7 +163,7 @@ export const TEXTOS = {
   'desc.ios': 'Gratis sull’App Store. La casa si compra dentro.',
   'desc.web.t': 'Nel tuo browser',
   'desc.web':
-    'Senza installare nulla: entra con il tuo account e la tua casa ti aspetta. Senza account puoi provare la demo.',
+    'Senza installare nulla: entra con il tuo account e la tua casa ti aspetta. Senza account puoi provare l’app.',
   'desc.web.cta': 'Apri l’app',
   'desc.windows': 'Installer per Windows 10/11.',
   'desc.mac': 'Immagine .dmg per Mac.',
@@ -174,7 +174,7 @@ export const TEXTOS = {
     'Dove preferisci: qui sul web, dal <a href="/cuenta">tuo account</a>, o dentro l’app per Android e iPhone. È un pagamento unico che resta nel tuo account, quindi ovunque tu la compri la tua casa appare su tutti i tuoi dispositivi.',
   'faq.2.q': 'Cosa include il pagamento unico?',
   'faq.2.a':
-    'La casa intera: tutte le stanze, tutte le app e i tuoi dati sul tuo dispositivo, per sempre e senza rinnovi. In più, il primo mese porta 700 crediti di IA e la sincronizzazione inclusi, senza carta. Prima di comprarla puoi provare la demo completa, che non chiede alcun account.',
+    'La casa intera: tutte le stanze, tutte le app e i tuoi dati sul tuo dispositivo, per sempre e senza rinnovi. In più, il primo mese porta 700 crediti di IA e la sincronizzazione inclusi, senza carta. Prima di comprarla puoi provare l’app completa, che non chiede alcun account.',
   'faq.3.q': 'Quanto costa l’IA dopo il primo mese?',
   'faq.3.a':
     'Quello che scegli, o niente. L’abbonamento è 6 USD al mese (700 crediti e sincronizzazione), o 60 USD all’anno — due mesi in regalo. Se ti sta stretto, i livelli ×2 e ×3 danno 1400 o 2100 crediti per 12 o 18 USD al mese. E se preferisci non abbonarti, ci sono ricariche singole: 6 USD per 700 crediti che non scadono e si usano solo quando chiedi qualcosa. Questo sì che si paga qui, nel <a href="/cuenta">tuo account</a>, e vale per tutti i tuoi dispositivi.',
@@ -239,14 +239,14 @@ export const TEXTOS = {
   'term.titulo': 'Termini del servizio',
   'term.servicio.h': 'Il servizio',
   'term.servicio.p':
-    'Mind Planner Home è un’app di organizzazione personale. La demo è gratuita e non richiede account. L’app si compra con un pagamento unico; le funzioni ricorrenti (crediti di IA e sincronizzazione) si sottoscrivono unicamente su questo sito web; le app desktop e da store sono client di quello stesso account.',
+    'Mind Planner Home è un’app di organizzazione personale. La prova è gratuita e non richiede account. L’app si compra con un pagamento unico; le funzioni ricorrenti (crediti di IA e sincronizzazione) si sottoscrivono unicamente su questo sito web; le app desktop e da store sono client di quello stesso account.',
   'term.app.h': 'L’app (pagamento unico)',
   'term.app.1':
     'Sblocco dell’app: 8,89 USD, pagamento unico. Sblocca la tua casa per sempre sul tuo account, senza rinnovi.',
   'term.app.2':
     'Include il primo mese: 30 giorni con i 700 crediti di IA mensili e la sincronizzazione, senza carta e senza abbonamento. Alla fine tieni l’app e i tuoi dati; i crediti mensili e la sincronizzazione richiedono l’abbonamento.',
   'term.app.3':
-    'La demo gratuita non salva nulla: serve a conoscere l’app prima di comprarla.',
+    'La prova gratuita non salva nulla finché non crei il tuo account: serve a conoscere l’app prima di comprarla.',
   'term.local.h': 'Modalità locale',
   'term.local.p':
     'Con l’app sbloccata, tutte le sue funzioni offline si usano senza costi ricorrenti. I dati restano sul tuo dispositivo, e il loro backup è responsabilità tua (Impostazioni → Backup dei dati).',

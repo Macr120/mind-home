@@ -23,6 +23,7 @@ import { aplicarPincelCuarto, aplicarPincelCuartoFino } from '../ui/comun/planoP
 import { geometriaLoseta3D, outlineCeldaXZ, type FormaLoseta } from './formasLoseta'
 import { filtrarSegmentosPorForma, perimetroFormaCelda } from './murosPerimetroLoseta'
 import { PINCELES_DEFAULT } from './murosPuertas'
+import { useZonaTut } from '../state/zonaTutStore'
 
 /** Resaltado de la celda (o cuadrante fino) bajo el cursor (Editar forma / Borrar / Pincel fino). */
 function HoverCelda3D({
@@ -180,6 +181,18 @@ function HoverFormaCelda3D({
       })}
     </group>
   )
+}
+
+/**
+ * Fantasma del TUTORIAL: el mismo preview del pincel, pero en una celda FIJA
+ * que declara el paso (campo `fantasma` de zonaTutStore) — enseña dónde nacerá
+ * el cuarto de primeros pasos antes de crearlo. Montado en House siempre (el
+ * tutorial corre fuera del modo edición); nulo sin fantasma activo.
+ */
+export function FantasmaCuartoTut() {
+  const celda = useZonaTut((s) => s.fantasma)
+  if (!celda) return null
+  return <HoverFormaCelda3D nivel={0} cell={celda} forma="cuadrado" rotacion={0} />
 }
 
 /**

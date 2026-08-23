@@ -87,7 +87,7 @@ import { MurosLibres3D } from './MurosLibres3D'
 import { PlanoPisosSeleccion3D } from './PlanoPisosSeleccion3D'
 import { CuadranteGhost3D } from './CuadranteGhost3D'
 import { DibujoCuadrante3D } from './DibujoCuadrante3D'
-import { PlanoCuartos3DController } from './PlanoCuartos3DController'
+import { FantasmaCuartoTut, PlanoCuartos3DController } from './PlanoCuartos3DController'
 import { PlanoPisos3DController } from './PlanoPisos3DController'
 import { PlanoMuros3DController } from './PlanoMuros3DController'
 import { PlanoParedes3DEditor } from './PlanoParedes3DEditor'
@@ -565,6 +565,8 @@ export function House() {
       {!aislarCuarto && <DespiertoAnchor />}
       {!aislarCuarto && <EtiquetasMapaProjector />}
       {!aislarCuarto && <ZonaTutProjector />}
+      {/* Fantasma del cuarto por construir (tutorial de primeros pasos). */}
+      {!aislarCuarto && <FantasmaCuartoTut />}
       {!aislarCuarto && <EditorAnchor />}
       {!aislarCuarto && (puedeArrastrarCuartos || cuartoDespiertoId != null || arrastrandoCuarto) && (
         <RoomDragController />

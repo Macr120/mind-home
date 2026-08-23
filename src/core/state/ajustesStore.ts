@@ -133,7 +133,8 @@ function leerIdioma(): Idioma {
   // puerta de entrada (`PuertaIdioma`) pregunta el idioma y tiene que pintarse
   // en algo neutro. Pero solo en una instalación NUEVA: a quien ya venía usando
   // la app no se le cambia el idioma por debajo — llevaba todo este tiempo en el
-  // base y nunca le preguntamos. La bandera es la de `bienvenidaStore`.
+  // base y nunca le preguntamos. La bandera es la de `bienvenidaStore`, CRUDA a
+  // propósito (sin claveLS): es señal de instalación veterana, no de casa.
   return localStorage.getItem('mh.bienvenida') === '1' ? IDIOMA_BASE : IDIOMA_DEFAULT
 }
 

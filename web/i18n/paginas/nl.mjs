@@ -1,7 +1,7 @@
 /** Textos de las páginas estáticas en neerlandés. Traducción de `es.mjs`. */
 export const TEXTOS = {
   'marca.nombre': 'Mentale Planner-Huis',
-  'marca.sub': 'Mind Planner Home',
+  'marca.sub': 'MPH',
   'nav.entrar': 'Inloggen',
   'nav.descargar': 'Downloaden',
   'pie.inicio': 'Start',
@@ -13,9 +13,9 @@ export const TEXTOS = {
 
   'meta.titulo': 'Mind Planner Home — Je geest, in een 3D-huis',
   'meta.desc':
-    'Breng je gewoontes, doelen, financiën, maaltijden en meer op orde in een isometrisch 3D-huis waarin elke kamer een app is. Eén betaling van 8,89 USD, met de eerste maand AI en synchronisatie erbij; demo gratis.',
+    'Breng je gewoontes, doelen, financiën, maaltijden en meer op orde in een isometrisch 3D-huis waarin elke kamer een app is. Eén betaling van 8,89 USD, met de eerste maand AI en synchronisatie erbij; probeer de app gratis.',
   'og.desc':
-    'Je leven in een 3D-huis: gewoontes, doelen, financiën, maaltijden en meer. Eén betaling van 8,89 USD, eerste maand AI erbij; demo gratis.',
+    'Je leven in een 3D-huis: gewoontes, doelen, financiën, maaltijden en meer. Eén betaling van 8,89 USD, eerste maand AI erbij; probeer de app gratis.',
 
   'hero.h1': 'Je geest,<br />in een 3D-huis',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -40,7 +40,7 @@ export const TEXTOS = {
   'hero.sub.4':
     'te bewaren, te plannen of te maken — helemaal met de hand of met hulp van de AI. En alle apps hangen aan één kalender, aan dagelijkse missies en aan je eigen doelen, gesynchroniseerd op je telefoon en je computer.',
   'hero.cta': 'De app downloaden',
-  'hero.demo': 'Probeer de gratis demo',
+  'hero.probar': 'Probeer gratis je huis te bouwen',
   'hero.nota':
     'De app is gratis en werkt offline; het huis koop je één keer — hier op het web of in de app. AI en synchronisatie zijn optioneel — en als je ze laat vallen, verlies je niets.',
   'hero.video': 'Hier komt je video of komen je schermafbeeldingen van het huis',
@@ -126,13 +126,13 @@ export const TEXTOS = {
   'mani.cierre': 'Dezelfde dopamine. Deze keer voor je echte leven.',
 
   'precio.h2': 'Eén betaling in de store, je huis voor altijd',
-  'precio.demo.nombre': 'Demo',
-  'precio.demo.cifra': 'Gratis',
-  'precio.demo.1': 'Het huis van Pep@ met een jaar leven erin: probeer alles',
-  'precio.demo.2': 'Zonder account, zonder kaart en zonder verbinding',
-  'precio.demo.3': 'Er wordt niets bewaard: bij herladen begint het huis opnieuw',
-  'precio.demo.cta': 'De demo proberen',
-  'precio.demo.pie': 'De volledige app, om haar vrijblijvend te leren kennen.',
+  'precio.probar.nombre': 'Probeer haar',
+  'precio.probar.cifra': 'Gratis',
+  'precio.probar.1': 'Je eigen huis met het welkomstmenu: probeer alles',
+  'precio.probar.2': 'Zonder account, zonder kaart en zonder verbinding',
+  'precio.probar.3': 'Er wordt niets bewaard tot je een account hebt: bij aankoop krijg je je proef terug',
+  'precio.probar.cta': 'De app proberen',
+  'precio.probar.pie': 'De volledige app, om haar vrijblijvend te leren kennen.',
   'precio.app.nombre': 'De app',
   'precio.app.cifra': '8,89 USD',
   'precio.app.pagoUnico': 'eenmalige betaling',
@@ -161,7 +161,7 @@ export const TEXTOS = {
   'desc.ios': 'Gratis in de App Store. Het huis koop je erin.',
   'desc.web.t': 'In je browser',
   'desc.web':
-    'Niets installeren: log in met je account en je huis wacht op je. Zonder account kun je de demo proberen.',
+    'Niets installeren: log in met je account en je huis wacht op je. Zonder account kun je de app proberen.',
   'desc.web.cta': 'De app openen',
   'desc.windows': 'Installatieprogramma voor Windows 10/11.',
   'desc.mac': '.dmg-image voor Mac.',
@@ -172,7 +172,7 @@ export const TEXTOS = {
     'Waar je wilt: hier op het web, in <a href="/cuenta">je account</a>, of in de app voor Android en iPhone. Het is een eenmalige betaling die in je account staat, dus waar je hem ook koopt, je huis verschijnt op al je apparaten.',
   'faq.2.q': 'Wat zit er in de eenmalige betaling?',
   'faq.2.a':
-    'Het hele huis: alle kamers, alle apps en je gegevens op je apparaat, voor altijd en zonder verlengingen. Daar bovenop brengt de eerste maand 700 AI-credits en synchronisatie mee, zonder kaart. Voor je koopt kun je de volledige demo proberen, die geen account vraagt.',
+    'Het hele huis: alle kamers, alle apps en je gegevens op je apparaat, voor altijd en zonder verlengingen. Daar bovenop brengt de eerste maand 700 AI-credits en synchronisatie mee, zonder kaart. Voor je koopt kun je de volledige app proberen, die geen account vraagt.',
   'faq.3.q': 'Wat kost AI na de eerste maand?',
   'faq.3.a':
     'Wat je zelf kiest, of niets. Het abonnement is 6 USD per maand (700 credits en synchronisatie), of 60 USD per jaar — twee maanden cadeau. Kom je tekort, dan geven de niveaus ×2 en ×3 1400 of 2100 credits voor 12 of 18 USD per maand. En als je liever niet abonneert: er zijn losse bundels van 6 USD voor 700 credits die niet verlopen en alleen opgaan wanneer je erom vraagt. Dít betaal je hier, in <a href="/cuenta">je account</a>, en het geldt voor al je apparaten.',
@@ -237,14 +237,14 @@ export const TEXTOS = {
   'term.titulo': 'Servicevoorwaarden',
   'term.servicio.h': 'De dienst',
   'term.servicio.p':
-    'Mind Planner Home is een app voor persoonlijke organisatie. De demo is gratis en vraagt geen account. De app koop je met een eenmalige betaling; de terugkerende functies (AI-credits en synchronisatie) sluit je uitsluitend op deze website af; de desktop- en store-apps zijn clients van datzelfde account.',
+    'Mind Planner Home is een app voor persoonlijke organisatie. De proefversie is gratis en vraagt geen account. De app koop je met een eenmalige betaling; de terugkerende functies (AI-credits en synchronisatie) sluit je uitsluitend op deze website af; de desktop- en store-apps zijn clients van datzelfde account.',
   'term.app.h': 'De app (eenmalige betaling)',
   'term.app.1':
     'Ontgrendelen van de app: 8,89 USD, eenmalig. Het ontgrendelt je huis voor altijd op je account, zonder verlengingen.',
   'term.app.2':
     'Inclusief de eerste maand: 30 dagen met de 700 maandelijkse AI-credits en de synchronisatie, zonder kaart en zonder abonnement. Daarna hou je de app en je gegevens; de maandcredits en de synchronisatie vragen om het abonnement.',
   'term.app.3':
-    'De gratis demo bewaart niets: ze is er om de app te leren kennen vóór je koopt.',
+    'De gratis proefversie bewaart niets tot je je account aanmaakt: ze is er om de app te leren kennen vóór je koopt.',
   'term.local.h': 'Lokale modus',
   'term.local.p':
     'Met de app ontgrendeld gebruik je al haar offlinefuncties zonder terugkerende kosten. De gegevens staan op je apparaat, en de back-up ervan is jouw verantwoordelijkheid (Instellingen → Back-up van gegevens).',

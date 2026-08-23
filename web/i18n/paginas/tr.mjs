@@ -1,7 +1,7 @@
 /** Textos de las páginas estáticas en turco. Traducción de `es.mjs`. */
 export const TEXTOS = {
   'marca.nombre': 'Zihinsel Planlayıcı-Ev',
-  'marca.sub': 'Mind Planner Home',
+  'marca.sub': 'MPH',
   'nav.entrar': 'Giriş yap',
   'nav.descargar': 'İndir',
   'pie.inicio': 'Ana sayfa',
@@ -13,9 +13,9 @@ export const TEXTOS = {
 
   'meta.titulo': 'Mind Planner Home — Zihnin, bir 3D evde',
   'meta.desc':
-    'Alışkanlıklarını, hedeflerini, finansını, öğünlerini ve daha fazlasını her odası bir uygulama olan izometrik bir 3D evde düzenle. Tek seferlik 8,89 USD, ilk ay yapay zekâ ve eşitleme dahil; demo ücretsiz.',
+    'Alışkanlıklarını, hedeflerini, finansını, öğünlerini ve daha fazlasını her odası bir uygulama olan izometrik bir 3D evde düzenle. Tek seferlik 8,89 USD, ilk ay yapay zekâ ve eşitleme dahil; ücretsiz dene.',
   'og.desc':
-    'Hayatın bir 3D evde: alışkanlıklar, hedefler, finans, öğünler ve dahası. 8,89 USD tek ödeme, ilk ay yapay zekâ dahil; demo ücretsiz.',
+    'Hayatın bir 3D evde: alışkanlıklar, hedefler, finans, öğünler ve dahası. 8,89 USD tek ödeme, ilk ay yapay zekâ dahil; ücretsiz dene.',
 
   'hero.h1': 'Zihnin,<br />bir 3D evde',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -40,7 +40,7 @@ export const TEXTOS = {
   'hero.sub.4':
     'arşivler, planlar ya da sıfırdan yaratırsın — tamamen elle ya da yapay zekânın yardımıyla. Hepsi tek bir takvime, günlük görevlere ve kişisel hedeflerine bağlı; telefonunda ve bilgisayarında eşitlenir.',
   'hero.cta': 'Uygulamayı indir',
-  'hero.demo': 'Ücretsiz demoyu dene',
+  'hero.probar': 'Evini kurmayı ücretsiz dene',
   'hero.nota':
     'Uygulama ücretsizdir ve çevrimdışı çalışır; ev bir kez satın alınır — burada webde ya da uygulamanın içinde. Yapay zekâ ve eşitleme isteğe bağlıdır — bırakırsan da hiçbir şey kaybetmezsin.',
   'hero.video': 'Buraya videon ya da evin ekran görüntüleri gelir',
@@ -125,13 +125,13 @@ export const TEXTOS = {
   'mani.cierre': 'Aynı dopamin. Bu kez gerçek hayatın için.',
 
   'precio.h2': 'Mağazada tek ödeme, evin sonsuza dek senin',
-  'precio.demo.nombre': 'Demo',
-  'precio.demo.cifra': 'Ücretsiz',
-  'precio.demo.1': 'İçinde bir yıllık hayat olan Pep’in evi: her şeyi dene',
-  'precio.demo.2': 'Hesapsız, kartsız ve bağlantısız',
-  'precio.demo.3': 'Hiçbir şey kaydedilmez: sayfayı yenileyince ev baştan başlar',
-  'precio.demo.cta': 'Demoyu dene',
-  'precio.demo.pie': 'Eksiksiz uygulama, hiçbir yükümlülük olmadan tanımak için.',
+  'precio.probar.nombre': 'Bir dene',
+  'precio.probar.cifra': 'Ücretsiz',
+  'precio.probar.1': 'Karşılama menüsüyle kendi evin: her şeyi dene',
+  'precio.probar.2': 'Hesapsız, kartsız ve bağlantısız',
+  'precio.probar.3': 'Hesabın olana kadar hiçbir şey kaydedilmez: satın aldığında denemen geri gelir',
+  'precio.probar.cta': 'Uygulamayı dene',
+  'precio.probar.pie': 'Eksiksiz uygulama, hiçbir yükümlülük olmadan tanımak için.',
   'precio.app.nombre': 'Uygulama',
   'precio.app.cifra': '8,89 USD',
   'precio.app.pagoUnico': 'tek ödeme',
@@ -157,7 +157,7 @@ export const TEXTOS = {
   'desc.ios.t': 'iPhone ve iPad',
   'desc.ios': 'App Store’da ücretsiz. Ev içeriden satın alınır.',
   'desc.web.t': 'Tarayıcında',
-  'desc.web': 'Hiçbir şey kurmadan: hesabınla gir, evin seni bekliyor. Hesabın yoksa demoyu deneyebilirsin.',
+  'desc.web': 'Hiçbir şey kurmadan: hesabınla gir, evin seni bekliyor. Hesabın yoksa uygulamayı deneyebilirsin.',
   'desc.web.cta': 'Uygulamayı aç',
   'desc.windows': 'Windows 10/11 için yükleyici.',
   'desc.mac': 'Mac için .dmg imajı.',
@@ -168,7 +168,7 @@ export const TEXTOS = {
     'Nereden istersen: buradan web’den, <a href="/cuenta">hesabından</a> ya da Android ve iPhone uygulamasının içinden. Hesabına kaydedilen tek seferlik bir ödemedir; nereden alırsan al, evin tüm cihazlarında görünür.',
   'faq.2.q': 'Tek ödeme neleri kapsıyor?',
   'faq.2.a':
-    'Evin tamamını: bütün odalar, bütün uygulamalar ve cihazındaki verilerin, sonsuza dek ve yenilemesiz. Üstelik ilk ay 700 yapay zekâ kredisi ve eşitleme dahil gelir, kartsız. Almadan önce hesap istemeyen eksiksiz demoyu deneyebilirsin.',
+    'Evin tamamını: bütün odalar, bütün uygulamalar ve cihazındaki verilerin, sonsuza dek ve yenilemesiz. Üstelik ilk ay 700 yapay zekâ kredisi ve eşitleme dahil gelir, kartsız. Almadan önce hesap istemeyen eksiksiz uygulamayı deneyebilirsin.',
   'faq.3.q': 'İlk aydan sonra yapay zekâ ne kadar?',
   'faq.3.a':
     'Ne seçersen o, ya da hiç. Abonelik ayda 6 USD (700 kredi ve eşitleme) ya da yılda 60 USD — iki ay hediye. Az gelirse ×2 ve ×3 katmanları ayda 12 veya 18 USD karşılığında 1400 ya da 2100 kredi verir. Abone olmak istemezsen tekil yüklemeler var: 6 USD’ye 700 kredi, süresi dolmaz ve yalnızca sen istediğinde harcanır. Bu kısım burada, <a href="/cuenta">hesabında</a> ödenir ve bütün cihazlarında geçerlidir.',
@@ -233,14 +233,14 @@ export const TEXTOS = {
   'term.titulo': 'Hizmet koşulları',
   'term.servicio.h': 'Hizmet',
   'term.servicio.p':
-    'Mind Planner Home kişisel düzen için bir uygulamadır. Demo ücretsizdir ve hesap gerektirmez. Uygulama tek ödemeyle alınır; yinelenen özellikler (yapay zekâ kredileri ve eşitleme) yalnızca bu web sitesinde alınır; masaüstü ve mağaza uygulamaları aynı hesabın istemcileridir.',
+    'Mind Planner Home kişisel düzen için bir uygulamadır. Deneme ücretsizdir ve hesap gerektirmez. Uygulama tek ödemeyle alınır; yinelenen özellikler (yapay zekâ kredileri ve eşitleme) yalnızca bu web sitesinde alınır; masaüstü ve mağaza uygulamaları aynı hesabın istemcileridir.',
   'term.app.h': 'Uygulama (tek ödeme)',
   'term.app.1':
     'Uygulamanın kilidinin açılması: 8,89 USD, tek ödeme. Hesabında evini sonsuza dek açar, yenileme yoktur.',
   'term.app.2':
     'İlk ayı içerir: 30 gün boyunca aylık 700 yapay zekâ kredisi ve eşitleme, kartsız ve aboneliksiz. Bittiğinde uygulama ve verilerin sende kalır; aylık krediler ve eşitleme abonelik gerektirir.',
   'term.app.3':
-    'Ücretsiz demo hiçbir şey saklamaz: uygulamayı almadan önce tanımak içindir.',
+    'Ücretsiz deneme, hesabını oluşturana kadar hiçbir şey saklamaz: uygulamayı almadan önce tanımak içindir.',
   'term.local.h': 'Yerel mod',
   'term.local.p':
     'Uygulamanın kilidi açıkken bütün çevrimdışı özellikleri yinelenen maliyet olmadan kullanılır. Veriler cihazında saklanır ve yedeklenmesi senin sorumluluğundadır (Ayarlar → Veri yedekleme).',

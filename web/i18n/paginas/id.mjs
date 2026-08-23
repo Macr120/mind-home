@@ -1,7 +1,7 @@
 /** Textos de las páginas estáticas en indonesio. Traducción de `es.mjs`. */
 export const TEXTOS = {
   'marca.nombre': 'Perencana Mental-Rumah',
-  'marca.sub': 'Mind Planner Home',
+  'marca.sub': 'MPH',
   'nav.entrar': 'Masuk',
   'nav.descargar': 'Unduh',
   'pie.inicio': 'Beranda',
@@ -13,9 +13,9 @@ export const TEXTOS = {
 
   'meta.titulo': 'Mind Planner Home — Pikiranmu, dalam sebuah rumah 3D',
   'meta.desc':
-    'Atur kebiasaan, target, keuangan, makanan, dan lainnya di rumah isometrik 3D tempat setiap ruangan adalah sebuah aplikasi. Sekali bayar 8,89 USD, bulan pertama sudah termasuk AI dan sinkronisasi; demo gratis.',
+    'Atur kebiasaan, target, keuangan, makanan, dan lainnya di rumah isometrik 3D tempat setiap ruangan adalah sebuah aplikasi. Sekali bayar 8,89 USD, bulan pertama sudah termasuk AI dan sinkronisasi; cobalah gratis.',
   'og.desc':
-    'Hidupmu dalam rumah 3D: kebiasaan, target, keuangan, makanan, dan lainnya. Sekali bayar 8,89 USD, bulan pertama termasuk AI; demo gratis.',
+    'Hidupmu dalam rumah 3D: kebiasaan, target, keuangan, makanan, dan lainnya. Sekali bayar 8,89 USD, bulan pertama termasuk AI; cobalah gratis.',
 
   'hero.h1': 'Pikiranmu,<br />dalam sebuah rumah 3D',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -40,7 +40,7 @@ export const TEXTOS = {
   'hero.sub.4':
     'sepenuhnya manual atau dibantu AI. Dan semuanya terhubung ke satu kalender, satu sistem misi harian, dan target pribadimu — tersinkron di ponsel dan komputermu.',
   'hero.cta': 'Unduh aplikasinya',
-  'hero.demo': 'Coba demo gratis',
+  'hero.probar': 'Coba bangun rumahmu gratis',
   'hero.nota':
     'Aplikasinya gratis dan jalan tanpa koneksi; rumahnya dibeli sekali — di web ini atau di dalam aplikasi. AI dan sinkronisasi bersifat opsional — kalau kamu tinggalkan pun, tidak ada yang hilang.',
   'hero.video': 'Di sini videomu atau tangkapan layar rumahnya',
@@ -125,13 +125,13 @@ export const TEXTOS = {
   'mani.cierre': 'Dopamin yang sama. Kali ini untuk hidupmu yang nyata.',
 
   'precio.h2': 'Sekali bayar di toko, rumahmu selamanya',
-  'precio.demo.nombre': 'Demo',
-  'precio.demo.cifra': 'Gratis',
-  'precio.demo.1': 'Rumah Pep@ dengan setahun kehidupan di dalamnya: coba semuanya',
-  'precio.demo.2': 'Tanpa akun, tanpa kartu, dan tanpa koneksi',
-  'precio.demo.3': 'Tidak ada yang disimpan: begitu dimuat ulang, rumahnya mulai lagi dari awal',
-  'precio.demo.cta': 'Coba demonya',
-  'precio.demo.pie': 'Aplikasi lengkap, untuk mengenalnya tanpa terikat apa pun.',
+  'precio.probar.nombre': 'Cobalah',
+  'precio.probar.cifra': 'Gratis',
+  'precio.probar.1': 'Rumahmu sendiri dengan menu sambutan: coba semuanya',
+  'precio.probar.2': 'Tanpa akun, tanpa kartu, dan tanpa koneksi',
+  'precio.probar.3': 'Tidak ada yang disimpan sampai punya akun: saat membelinya, percobaanmu kembali',
+  'precio.probar.cta': 'Coba aplikasinya',
+  'precio.probar.pie': 'Aplikasi lengkap, untuk mengenalnya tanpa terikat apa pun.',
   'precio.app.nombre': 'Aplikasinya',
   'precio.app.cifra': '8,89 USD',
   'precio.app.pagoUnico': 'sekali bayar',
@@ -160,7 +160,7 @@ export const TEXTOS = {
   'desc.ios': 'Gratis di App Store. Rumahnya dibeli di dalam.',
   'desc.web.t': 'Di browsermu',
   'desc.web':
-    'Tanpa memasang apa pun: masuk dengan akunmu dan rumahmu sudah menunggu. Tanpa akun kamu bisa mencoba demo.',
+    'Tanpa memasang apa pun: masuk dengan akunmu dan rumahmu sudah menunggu. Tanpa akun kamu bisa mencoba aplikasinya.',
   'desc.web.cta': 'Buka aplikasinya',
   'desc.windows': 'Penginstal untuk Windows 10/11.',
   'desc.mac': 'Image .dmg untuk Mac.',
@@ -171,7 +171,7 @@ export const TEXTOS = {
     'Di mana pun kamu mau: di sini di web, lewat <a href="/cuenta">akunmu</a>, atau di dalam aplikasi Android dan iPhone. Ini pembayaran sekali yang tersimpan di akunmu, jadi di mana pun membelinya, rumahmu muncul di semua perangkatmu.',
   'faq.2.q': 'Apa saja yang termasuk dalam sekali bayar?',
   'faq.2.a':
-    'Rumah seutuhnya: semua ruangan, semua aplikasi, dan datamu di perangkatmu, selamanya dan tanpa perpanjangan. Selain itu, bulan pertama membawa 700 kredit AI dan sinkronisasi, tanpa kartu. Sebelum membelinya kamu bisa mencoba demo lengkap yang tidak meminta akun.',
+    'Rumah seutuhnya: semua ruangan, semua aplikasi, dan datamu di perangkatmu, selamanya dan tanpa perpanjangan. Selain itu, bulan pertama membawa 700 kredit AI dan sinkronisasi, tanpa kartu. Sebelum membelinya kamu bisa mencoba aplikasi lengkap yang tidak meminta akun.',
   'faq.3.q': 'Berapa biaya AI setelah bulan pertama?',
   'faq.3.a':
     'Sebesar yang kamu pilih, atau nol. Langganannya 6 USD per bulan (700 kredit dan sinkronisasi), atau 60 USD per tahun — dua bulan gratis. Kalau kurang, tingkat ×2 dan ×3 memberi 1400 atau 2100 kredit seharga 12 atau 18 USD per bulan. Dan kalau kamu lebih suka tidak berlangganan, ada isi ulang satuan: 6 USD untuk 700 kredit yang tidak kedaluwarsa dan hanya terpakai saat kamu meminta. Yang ini memang dibayar di sini, di <a href="/cuenta">akunmu</a>, dan berlaku untuk semua perangkatmu.',
@@ -236,13 +236,14 @@ export const TEXTOS = {
   'term.titulo': 'Ketentuan layanan',
   'term.servicio.h': 'Layanannya',
   'term.servicio.p':
-    'Mind Planner Home adalah aplikasi penataan pribadi. Demonya gratis dan tidak memerlukan akun. Aplikasinya dibeli dengan sekali bayar; fitur berulang (kredit AI dan sinkronisasi) hanya diambil di situs web ini; aplikasi desktop dan toko adalah klien dari akun yang sama.',
+    'Mind Planner Home adalah aplikasi penataan pribadi. Uji cobanya gratis dan tidak memerlukan akun. Aplikasinya dibeli dengan sekali bayar; fitur berulang (kredit AI dan sinkronisasi) hanya diambil di situs web ini; aplikasi desktop dan toko adalah klien dari akun yang sama.',
   'term.app.h': 'Aplikasinya (sekali bayar)',
   'term.app.1':
     'Membuka aplikasinya: 8,89 USD, sekali bayar. Ini membuka rumahmu selamanya di akunmu, tanpa perpanjangan.',
   'term.app.2':
     'Termasuk bulan pertama: 30 hari dengan 700 kredit AI bulanan dan sinkronisasi, tanpa kartu dan tanpa langganan. Setelah selesai, aplikasi dan datamu tetap milikmu; kredit bulanan dan sinkronisasi memerlukan langganan.',
-  'term.app.3': 'Demo gratis tidak menyimpan apa pun: itu untuk mengenal aplikasinya sebelum membeli.',
+  'term.app.3':
+    'Uji coba gratis tidak menyimpan apa pun sampai kamu membuat akun: itu untuk mengenal aplikasinya sebelum membeli.',
   'term.local.h': 'Mode lokal',
   'term.local.p':
     'Dengan aplikasi yang sudah terbuka, semua fiturnya yang luring dipakai tanpa biaya berulang. Data disimpan di perangkatmu, dan pencadangannya adalah tanggung jawabmu (Pengaturan → Cadangan data).',

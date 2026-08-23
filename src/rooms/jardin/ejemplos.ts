@@ -1,6 +1,6 @@
 import { gratitudDiariaRepo, sesionesMindfulnessRepo } from '../../core/data/repository'
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
-import { porIdioma, yaMaterializado, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
+import { porIdioma, retraducido, yaMaterializado, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
 import { TEXTOS_JARDIN } from './ejemplos.data'
 
 /**
@@ -68,5 +68,31 @@ export const ejemploJardin: PaqueteEjemplo = {
       item3: T.graciasB3,
       ejemploDe: ID,
     })
+  },
+
+  async retraducir() {
+    for (const s of await sesionesMindfulnessRepo.list()) {
+      if (s.ejemploDe !== ID || s.id == null) continue
+      const nota = retraducido(TEXTOS_JARDIN, s.nota, 'sesionManana', 'sesionRespiracion', 'sesionNoche')
+      if (!nota) continue
+      // El título derivado se rehace solo si seguía siendo el recorte de la nota.
+      await sesionesMindfulnessRepo.update(
+        s.id,
+        s.titulo === s.nota?.slice(0, 60) ? { nota, titulo: nota.slice(0, 60) } : { nota },
+      )
+    }
+    for (const g of await gratitudDiariaRepo.list()) {
+      if (g.ejemploDe !== ID || g.id == null) continue
+      const item1 = retraducido(TEXTOS_JARDIN, g.item1, 'graciasA1', 'graciasB1')
+      const item2 = retraducido(TEXTOS_JARDIN, g.item2, 'graciasA2', 'graciasB2')
+      const item3 = retraducido(TEXTOS_JARDIN, g.item3, 'graciasA3', 'graciasB3')
+      if (item1 || item2 || item3) {
+        await gratitudDiariaRepo.update(g.id, {
+          ...(item1 && { item1 }),
+          ...(item2 && { item2 }),
+          ...(item3 && { item3 }),
+        })
+      }
+    }
   },
 }

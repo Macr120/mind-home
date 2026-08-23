@@ -8,8 +8,8 @@
  * el que se sirve en la raíz del dominio; los demás cuelgan de `/<id>/`.
  */
 export const IDIOMAS = [
-  { id: 'es', endonimo: 'Español', flag: '🇪🇸' },
-  { id: 'en', endonimo: 'English', flag: '🇬🇧' },
+  { id: 'es', endonimo: 'Español', flag: '🇪🇸🇲🇽' },
+  { id: 'en', endonimo: 'English', flag: '🇬🇧🇺🇸' },
   { id: 'pt', endonimo: 'Português', flag: '🇧🇷' },
   { id: 'fr', endonimo: 'Français', flag: '🇫🇷' },
   { id: 'de', endonimo: 'Deutsch', flag: '🇩🇪' },

@@ -13,9 +13,9 @@ export const TEXTOS = {
 
   'meta.titulo': 'Mind Planner Home — Your mind, in a 3D house',
   'meta.desc':
-    'Organise your habits, goals, finances, meals and more in an isometric 3D house where every room is an app. One payment of USD 8.89 with the first month of AI and sync included; free demo.',
+    'Organise your habits, goals, finances, meals and more in an isometric 3D house where every room is an app. One payment of USD 8.89 with the first month of AI and sync included; free trial.',
   'og.desc':
-    'Your life, in a 3D house: habits, goals, finances, meals and more. One payment of USD 8.89 with the first month of AI included; free demo.',
+    'Your life, in a 3D house: habits, goals, finances, meals and more. One payment of USD 8.89 with the first month of AI included; free trial.',
 
   'hero.h1': 'Your mind,<br />in a 3D house',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -40,7 +40,7 @@ export const TEXTOS = {
   'hero.sub.4':
     'either entirely by hand or with the AI helping. And they all run on one calendar, one daily mission list and your own personal goals, synced on your phone and your computer.',
   'hero.cta': 'Get the app',
-  'hero.demo': 'Try the free demo',
+  'hero.probar': 'Try building your house for free',
   'hero.nota':
     'The app is free and works offline; the house is bought once — right here on the web or inside the app. AI and sync are optional — and if you drop them, you lose nothing.',
   'hero.video': 'Your video or screenshots of the house go here',
@@ -126,13 +126,13 @@ export const TEXTOS = {
   'mani.cierre': 'The same dopamine. This time, for your real life.',
 
   'precio.h2': 'One payment in the store, your house forever',
-  'precio.demo.nombre': 'Demo',
-  'precio.demo.cifra': 'Free',
-  'precio.demo.1': 'Pep@’s house with a year of life inside: try everything',
-  'precio.demo.2': 'No account, no card and no connection',
-  'precio.demo.3': 'Nothing is saved: reload and the house starts over',
-  'precio.demo.cta': 'Try the demo',
-  'precio.demo.pie': 'The full app, to get to know it with no strings attached.',
+  'precio.probar.nombre': 'Try it',
+  'precio.probar.cifra': 'Free',
+  'precio.probar.1': 'Your own house with the welcome menu: try everything',
+  'precio.probar.2': 'No account, no card and no connection',
+  'precio.probar.3': 'Nothing is saved until you have an account: buy it and you get your trial back',
+  'precio.probar.cta': 'Try the app',
+  'precio.probar.pie': 'The full app, to get to know it with no strings attached.',
   'precio.app.nombre': 'The app',
   'precio.app.cifra': 'USD 8.89',
   'precio.app.pagoUnico': 'one-off payment',
@@ -160,7 +160,7 @@ export const TEXTOS = {
   'desc.ios': 'Free on the App Store. The house is bought inside.',
   'desc.web.t': 'In your browser',
   'desc.web':
-    'Nothing to install: sign in with your account and your house is waiting. Without an account you can try the demo.',
+    'Nothing to install: sign in with your account and your house is waiting. Without an account you can try the app.',
   'desc.web.cta': 'Open the app',
   'desc.windows': 'Installer for Windows 10/11.',
   'desc.mac': '.dmg image for Mac.',
@@ -171,7 +171,7 @@ export const TEXTOS = {
     'Wherever you prefer: here on the web, from <a href="/cuenta">your account</a>, or inside the Android and iPhone app. It is a one-off payment stored in your account, so wherever you buy it, your house shows up on all your devices.',
   'faq.2.q': 'What does the one-off payment include?',
   'faq.2.a':
-    'The whole house: every room, every app and your data on your device, forever and with no renewals. On top of that, the first month brings 700 AI credits and sync included, with no card. Before buying it you can try the full demo, which asks for no account.',
+    'The whole house: every room, every app and your data on your device, forever and with no renewals. On top of that, the first month brings 700 AI credits and sync included, with no card. Before buying it you can try the full app, which asks for no account.',
   'faq.3.q': 'How much does AI cost after the first month?',
   'faq.3.a':
     'Whatever you choose, or nothing. The subscription is USD 6 a month (700 credits and sync), or USD 60 a year — two months free. If that falls short, tiers ×2 and ×3 give 1400 or 2100 credits for USD 12 or 18 a month. And if you would rather not subscribe, there are one-off top-ups: USD 6 for 700 credits that never expire and are only spent when you ask. This part is paid here, in <a href="/cuenta">your account</a>, and it works on all your devices.',
@@ -236,13 +236,13 @@ export const TEXTOS = {
   'term.titulo': 'Terms of service',
   'term.servicio.h': 'The service',
   'term.servicio.p':
-    'Mind Planner Home is a personal organisation app. The demo is free and requires no account. The app is bought with a one-off payment; the recurring features (AI credits and sync) are taken out on this website only; the desktop and store apps are clients of that same account.',
+    'Mind Planner Home is a personal organisation app. The trial is free and requires no account. The app is bought with a one-off payment; the recurring features (AI credits and sync) are taken out on this website only; the desktop and store apps are clients of that same account.',
   'term.app.h': 'The app (one-off payment)',
   'term.app.1':
     'App unlock: USD 8.89, one-off payment. It unlocks your house forever on your account, with no renewals.',
   'term.app.2':
     'It includes the first month: 30 days with the 700 monthly AI credits and sync, with no card and no subscription. When it ends you keep the app and your data; the monthly credits and sync require the subscription.',
-  'term.app.3': 'The free demo saves nothing: it is there to get to know the app before buying it.',
+  'term.app.3': 'The free trial saves nothing until you create your account: it is there to get to know the app before buying it.',
   'term.local.h': 'Local mode',
   'term.local.p':
     'With the app unlocked, all of its offline features are used with no recurring costs. Data is kept on your device, and backing it up is your responsibility (Settings → Data backup).',

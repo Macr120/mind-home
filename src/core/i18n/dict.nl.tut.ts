@@ -70,45 +70,77 @@ export const NL_TUT: Dict = {
   'tut.casa.1.texto': 'Dit is jouw huis: elke kamer bevat een app. Ik laat je de basisbediening zien.',
   'tut.casa.2.titulo': 'Het hoofdmenu',
   'tut.casa.2.texto':
-    'Deze knop opent het menu: je kamers, de catalogus met sjablonen (apps) en de inventaris met objecten.',
+    'Ik heb het geopend zodat je het ziet: dit is het hoofdmenu, met je kamers en hun apps. De andere tabbladen brengen de catalogus met sjablonen (apps) en de inventaris met objecten.',
+  'tut.casa.2b.titulo': 'De app-catalogus',
+  'tut.casa.2b.texto':
+    'Zijn tweede tabblad: de catalogus met sjablonen — alle apps die het huis kan dragen, elk klaar om aan een kamer te worden toegewezen.',
+  'tut.casa.2c.titulo': 'De inventaris',
+  'tut.casa.2c.texto':
+    'En het derde: de inventaris — de objecten en onderdelen die je uit je kamers bewaart, klaar om weer neer te zetten waar je maar wilt.',
   'tut.casa.3.titulo': 'Rondlopen',
   'tut.casa.3.texto':
-    'Loop met de joystick, met WASD of met de pijltjestoetsen. Stap je door de deur van een kamer, dan ga je naar binnen en opent zijn app vanzelf.',
+    'Loop met de joystick, met WASD of met de pijltjestoetsen: het hele huis verken je te voet. Rondlopen opent de apps niet — om binnen te gaan, tik op het object met de zwevende bol van de kamer.',
   'tut.casa.4.titulo': 'Drie manieren om te kijken',
   'tut.casa.4.texto':
-    'Isometrisch, derde en eerste persoon (of de toets V). Op Iso tikken centreert de camera ook weer op je personage: de snelle uitweg als je ver weg was tijdens het verkennen.',
+    'Ik heb ze je net live laten zien: isometrisch, derde en eerste persoon (of de toets V). Op Iso tikken centreert de camera ook weer op je personage: de snelle uitweg als je ver weg was tijdens het verkennen.',
   'tut.casa.5.titulo': 'Eén hoekje, meerdere eigenaars',
   'tut.casa.5.texto':
     'Die hoek is niet alleen de weergavekubus: kom je dicht bij iets waarmee je iets kunt doen —een stoel, een voertuig, een veld— dan verandert hij vanzelf mee met wat er in de buurt is. Er gaat niets aan zonder dat je ernaartoe loopt.',
   'tut.casa.6.titulo': 'Het gereedschapswiel',
   'tut.casa.6.texto':
-    'Bewegingen, speelgoed, voertuigen en bouwen, tot 3 tegelijk uitgerust. Je opent het hier, of vanuit datzelfde hoekje wanneer je handen vrij zijn.',
+    'Hier staat het open: bewegingen, speelgoed, voertuigen en bouwen, tot 3 tegelijk uitgerust. Het opent via de knop naast de joystick, of via datzelfde hoekje wanneer je handen vrij zijn.',
   'tut.casa.7.titulo': 'De klok',
   'tut.casa.7.texto':
-    'De tijd van het huis: tik erop en de volledige kalender opent, met zijn Missies van de dag. De zon of de maan ernaast bestuurt het verstrijken van de tijd en het licht van de scène.',
+    'De tijd van het huis: erop tikken opent de volledige kalender, met zijn Missies van de dag. En de zon of de maan opent dit paneel: het verstrijken van de tijd en het licht van de scène.',
   'tut.casa.8.titulo': 'De muziek van het huis',
   'tut.casa.8.texto':
-    'Elke kamer kan zijn eigen thema hebben, of gewoon de sfeer van het huis laten spelen. Zet je het helemaal uit, dan blijft het stil.',
+    'Het huis start in stilte: wil je een soundtrack, zet dan hier de muziek aan. Elke kamer heeft vooraf geladen themanummers, of laat gewoon de algemene sfeer van het huis klinken.',
   'tut.casa.9.titulo': 'De chat',
   'tut.casa.9.texto':
-    'De chat van de architect: vertel hem wat je hebt gedaan en hij legt het vast in de juiste app, of vraag hem om iets in huis te veranderen.',
+    'De chat van de architect: vertel hem wat je hebt gedaan en hij legt het vast in de juiste app, vraag hem om veranderingen in het huis, afbeeldingen en zelfs 3D-modellen voor je kamers — of klets gewoon even wat.',
+  'tut.casa.asistente.titulo': 'Je assistent',
+  'tut.casa.asistente.texto':
+    'Deze knop is je assistent: degene die je antwoordt in de chat. Tik erop om zijn menu te openen en hem aan te passen — zijn vorm, zijn stem en zijn persoonlijkheid.',
+  'tut.casa.mas.titulo': 'Het +-menu',
+  'tut.casa.mas.texto':
+    'Ik heb het even geopend zodat je het ziet: met de + hang je dingen aan de chat — upload een afbeelding of een PDF, maak een foto, of stap over naar het AR-masker en de AR-chat, oog in oog.',
+  'tut.casa.editor.titulo': 'De editor',
+  'tut.casa.editor.texto':
+    'De knop Editor bovenaan opent dit: de volledige aanpassing in vier tabbladen — Kaart, Personages, Objecten en Instellingen. Hier wordt het hele huis getekend en aangekleed.',
   'tut.casa.10.texto':
-    'Dat is de basis. De knop Editor bovenaan opent de volledige aanpassing, en elk menu en elke app hebben hun eigen ?-knop met hun tutorial.',
-  'tut.primeros.1.texto': 'Eerst dit: hoe het huis in elkaar wordt gezet. Alles begint bij het tabblad Kamers.',
+    'Dat is de basis. Elk menu en elke app hebben hun eigen ?-knop met hun tutorial: vraag erom wanneer iets je niet duidelijk is.',
+  'tut.primeros.1.texto':
+    'Deze tutorial beantwoordt twee vragen: hoe je je apps BINNENGAAT en hoe je een nieuwe MAAKT. Allebei wonen ze hier, op het tabblad Kamers.',
+  'tut.primeros.entrar.titulo': 'Je apps binnengaan',
+  'tut.primeros.entrar.texto':
+    'Elke kamer draagt zijn app en je hebt drie deuren: zijn kaart hier in het menu, het object met de zwevende bol op de plattegrond, en de snelle toegang via de MPH-knop bovenaan.',
+  'tut.primeros.entrar.vacio': 'Hier komen je kamers te wonen, elk met zijn app, en je krijgt drie deuren: zijn kaart hier in het menu, het object met de zwevende bol op de plattegrond, en de snelle toegang via de MPH-knop bovenaan. Laten we de eerste maken…',
+  'tut.primeros.prev.titulo': 'Hier komt jouw kamer',
+  'tut.primeros.prev.texto':
+    'Dit is de preview van het penseel: het groene silhouet met zijn muren markeert waar de kamer komt te staan. Bouw je met de hand, dan zie je het net zo onder je vinger, nog vóór je de tik loslaat.',
+  'tut.primeros.mat.titulo': 'Gebouwd!',
+  'tut.primeros.mat.texto':
+    'En daar is-ie: de kamer verrees precies waar de preview het aangaf, met zijn deur aan de voorkant. Een app heeft hij nog niet — dat is wat nu volgt.',
   'tut.primeros.2.titulo': 'Kamer maken',
   'tut.primeros.2.texto':
-    'Met deze knop teken je nieuwe kamers op de kaart. Om je de rest van de weg te tonen, maak ik er nu eentje voor je…',
+    'Met deze knop teken je nieuwe kamers op de kaart, cel voor cel. Kijk — ik laat je zien waar de jouwe zou komen…',
   'tut.primeros.3.titulo': 'Jouw nieuwe kamer',
   'tut.primeros.3.texto':
     'Daar is-ie! Een gloednieuwe kamer, nog zonder app: daarom staat er + Toewijzen op zijn kaart.',
+  'tut.primeros.apps.titulo': 'De beschikbare apps',
+  'tut.primeros.apps.texto':
+    'Dit opent + Toewijzen: het paneel met alle beschikbare apps. Elk ervan bouwt zijn kamer op met zijn eigen meubels en zijn app. Ik geef er eentje aan de jouwe…',
   'tut.primeros.4.titulo': 'Een app toewijzen',
   'tut.primeros.4.texto':
     'Met + Toewijzen heb ik hem zijn app gegeven: kijk hoe de kamer haar naam, haar icoon en haar meubels heeft overgenomen. Vanaf nu is zijn hele kaart de knop om naar binnen te gaan.',
   'tut.primeros.5.titulo': 'Openen',
   'tut.primeros.5.texto':
-    'We zijn binnen: dit is de app van de kamer. Tijdens het rondlopen ga je ook naar binnen door zijn deur, en je gaat weer weg met ‹ Terug naar huis.',
+    'We zijn binnen: dit is de app van de kamer. Om straks terug te komen: zijn kaart in het menu, het object met de bol op de plattegrond, of de snelle toegang via de MPH-knop bovenaan.',
+  'tut.primeros.press.titulo': 'Houd ingedrukt',
+  'tut.primeros.press.texto':
+    'Kijk hoe hij trilt: een kamer of een object ingedrukt houden maakt hem wakker, met zijn menu erbij. Zo verplaats je hem als je niet blij bent met waar hij terechtkwam, of verwijder je hem.',
   'tut.primeros.6.texto':
-    'De kamer blijft in je huis staan, app en al. Zo bouw je de rest op: één kamer voor elk ding dat je hier wilt bijhouden.',
+    'Dat is alles: de kamer maken, hem zijn app geven, binnengaan en hem op zijn plek zetten. Deze was om te oefenen — ik neem hem aan het eind weer mee, zodat jij je huis naar eigen smaak opbouwt.',
   'tut.menu-cuartos.1.texto': 'Het tabblad Kamers toont alle kamers van je huis, gegroepeerd per categorie.',
   'tut.menu-cuartos.2.titulo': 'Jouw overzicht',
   'tut.menu-cuartos.2.texto':

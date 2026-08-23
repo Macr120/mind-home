@@ -1,7 +1,7 @@
 import { mediaArchivoRepo } from '../../core/data/repository'
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
 import { IMAGENES_EJEMPLO } from '../_shared/ejemplos/imagenes'
-import { porIdioma, yaMaterializado, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
+import { porIdioma, retraducido, yaMaterializado, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
 import { TEXTOS_ENTRETENIMIENTO } from './ejemplos.data'
 
 /**
@@ -75,5 +75,23 @@ export const ejemploEntretenimiento: PaqueteEjemplo = {
       creadoEn: cuando(0),
       ejemploDe: ID,
     })
+  },
+
+  async retraducir() {
+    for (const m of await mediaArchivoRepo.list()) {
+      if (m.ejemploDe !== ID || m.id == null) continue
+      const titulo = retraducido(TEXTOS_ENTRETENIMIENTO, m.titulo, 'peliTitulo', 'serieTitulo', 'libroTitulo', 'juegoTitulo')
+      const genero = retraducido(TEXTOS_ENTRETENIMIENTO, m.genero, 'peliGenero', 'serieGenero', 'libroGenero', 'juegoGenero')
+      const autor = retraducido(TEXTOS_ENTRETENIMIENTO, m.autor, 'peliAutor', 'libroAutor')
+      const resena = retraducido(TEXTOS_ENTRETENIMIENTO, m.resena, 'peliResena', 'serieResena', 'libroResena')
+      if (titulo || genero || autor || resena) {
+        await mediaArchivoRepo.update(m.id, {
+          ...(titulo && { titulo }),
+          ...(genero && { genero }),
+          ...(autor && { autor }),
+          ...(resena && { resena }),
+        })
+      }
+    }
   },
 }

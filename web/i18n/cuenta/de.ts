@@ -75,10 +75,18 @@ export const TEXTOS: Record<string, string> = {
   'mi.estado.trialVencido':
     'Dein inbegriffener Monat ist vorbei: die App und deine Daten gehören für immer dir. Abonniere, um mit den monatlichen Credits und der Sync weiterzumachen, oder lade einzelne Credits auf.',
   'mi.estado.local':
-    'Du bist im lokalen Modus: die App und deine Daten gehören dir, ohne etwas zu zahlen. KI wird nach Verbrauch bezahlt — kauf die Credits, die du brauchst, oder abonniere und bekomm sie jeden Monat.',
+    'Dein Haus gehört dir und deine Daten bleiben auf deinem Gerät. KI und Synchronisierung werden separat bezahlt: Kaufe die Credits, die du brauchst, oder abonniere und erhalte sie jeden Monat.',
+  'mi.estado.sinCasa':
+    'Dein Konto hat das Haus noch nicht. Kaufe es unten —oder löse deinen Gutschein ein, wenn du Tester bist— und öffne es mit derselben E-Mail auf jedem Gerät.',
   'mi.disponibles': 'Verfügbare Credits: {n}',
   'mi.abrirApp': 'Die App im Browser öffnen',
+  'mi.probarApp': 'Bau dein Haus – gratis ausprobieren',
   'mi.salir': 'Abmelden',
+  'cupon.titulo': 'Ich habe einen Gutschein',
+  'cupon.desc': 'Empfehlungslink',
+  'cupon.codigo': 'Gutscheincode',
+  'cupon.canjear': 'Einlösen',
+
   'pro.creditosMes': 'KI-Credits in diesem Monat',
   'pro.extra': 'Extra-Credits (Aufladungen, verfallen nicht): {n}',
   'pro.gestionar': 'Abo verwalten (kündigen, Zahlung ändern)',

@@ -70,45 +70,77 @@ export const IT_TUT: Dict = {
   'tut.casa.1.texto': 'Questa è la tua casa: ogni stanza contiene un\'app. Ti mostro i comandi di base.',
   'tut.casa.2.titulo': 'Il menu principale',
   'tut.casa.2.texto':
-    'Questo pulsante apre il menu: le tue stanze, il catalogo dei modelli (le app) e l\'inventario degli oggetti.',
+    'L\'ho aperto perché tu lo veda: è il menu principale, con le tue stanze e le loro app. Le sue altre schede portano il catalogo dei modelli (le app) e l\'inventario degli oggetti.',
+  'tut.casa.2b.titulo': 'Il catalogo delle app',
+  'tut.casa.2b.texto':
+    'La sua seconda scheda: il catalogo dei modelli — tutte le app che la casa può portare, ognuna pronta per essere assegnata a una stanza.',
+  'tut.casa.2c.titulo': 'L\'inventario',
+  'tut.casa.2c.texto':
+    'E la terza: l\'inventario — gli oggetti e i pezzi che conservi dalle tue stanze, pronti per essere ricollocati dove vuoi.',
   'tut.casa.3.titulo': 'Muoversi',
   'tut.casa.3.texto':
-    'Cammina con il joystick, con WASD o con le frecce della tastiera. Attraversa la porta di una stanza ed entri: la sua app si apre da sola.',
+    'Cammina con il joystick, con WASD o con le frecce della tastiera: tutta la casa si percorre a piedi. Passeggiare non apre le app — per entrare, tocca l\'oggetto con la sfera fluttuante della stanza.',
   'tut.casa.4.titulo': 'Tre modi di guardare',
   'tut.casa.4.texto':
-    'Isometrica, terza e prima persona (o il tasto V). Toccare Iso ricentra anche la telecamera sul tuo personaggio: l\'uscita rapida se l\'esplorazione ti ha portato lontano.',
+    'Te le ho appena mostrate dal vivo: isometrica, terza e prima persona (o il tasto V). Toccare Iso ricentra anche la telecamera sul tuo personaggio: l\'uscita rapida se l\'esplorazione ti ha portato lontano.',
   'tut.casa.5.titulo': 'Un angolo, tanti padroni',
   'tut.casa.5.texto':
     'Quell\'angolo non è solo il cubo delle viste: quando ti avvicini a qualcosa con cui si può interagire —una sedia, un veicolo, un campo— cambia da solo in base a ciò che hai vicino. Niente si attiva se non ti avvicini.',
   'tut.casa.6.titulo': 'La ruota degli strumenti',
   'tut.casa.6.texto':
-    'Movimenti, giocattoli, veicoli e costruzione, fino a 3 equipaggiati alla volta. Si apre da qui o dallo stesso angolo quando hai le mani libere.',
+    'Eccola aperta: movimenti, giocattoli, veicoli e costruzione, fino a 3 equipaggiati alla volta. Esce dal pulsante accanto al joystick, o dal riquadro nell\'angolo quando hai le mani libere.',
   'tut.casa.7.titulo': 'L\'orologio',
   'tut.casa.7.texto':
-    'L\'ora della casa: toccala e si apre il calendario completo, con le sue Missioni del giorno. Il sole o la luna lì accanto controllano lo scorrere del tempo e la luce della scena.',
+    'L\'ora della casa: toccarla apre il calendario completo, con le sue Missioni del giorno. E il sole o la luna aprono questo pannello: lo scorrere del tempo e la luce della scena.',
   'tut.casa.8.titulo': 'La musica della casa',
   'tut.casa.8.texto':
-    'Ogni stanza può avere il suo tema, oppure lasciar suonare l\'atmosfera generale della casa. Si spegne del tutto se preferisci il silenzio.',
+    'La casa parte in silenzio: se vuoi una colonna sonora, accendi qui la musica. Ogni stanza porta canzoni a tema precaricate, oppure lascia suonare l\'atmosfera generale della casa.',
   'tut.casa.9.titulo': 'La chat',
   'tut.casa.9.texto':
-    'La chat dell\'architetto: raccontagli cosa hai fatto e lo registra nell\'app giusta, oppure chiedigli modifiche alla casa.',
+    'La chat dell\'architetto: raccontagli cosa hai fatto e lo registra nell\'app giusta, chiedigli modifiche alla casa, immagini e perfino modelli 3D per le tue stanze — o semplicemente fai due chiacchiere.',
+  'tut.casa.asistente.titulo': 'Il tuo assistente',
+  'tut.casa.asistente.texto':
+    'Questo pulsante è il tuo assistente: chi ti risponde nella chat. Toccalo per aprire il suo menu e personalizzarlo — la sua forma, la sua voce e la sua personalità.',
+  'tut.casa.mas.titulo': 'Il menu +',
+  'tut.casa.mas.texto':
+    'L\'ho aperto perché tu lo veda: con il + alleghi cose alla chat — carica un\'immagine o un PDF, scatta una foto, o passa alla Maschera AR e alla Chat AR faccia a faccia.',
+  'tut.casa.editor.titulo': 'L\'editor',
+  'tut.casa.editor.texto':
+    'Il pulsante Editor in alto apre questo: la personalizzazione completa in quattro schede — Mappa, Personaggi, Oggetti e Impostazioni. Qui si disegna e si veste la casa intera.',
   'tut.casa.10.texto':
-    'Questo è l\'essenziale. Il pulsante Editor in alto apre la personalizzazione completa, e ogni menu e ogni app hanno il loro pulsante ? con il loro tutorial.',
-  'tut.primeros.1.texto': 'Prima di tutto: come si costruisce la casa. Tutto parte dalla scheda Stanze.',
+    'Questo è l\'essenziale. Ogni menu e ogni app hanno il loro pulsante ? con il loro tutorial: chiedilo quando qualcosa non ti torna.',
+  'tut.primeros.1.texto':
+    'Questo tutorial risponde a due domande: come ENTRARE nelle tue app e come CREARNE una nuova. Entrambe vivono qui, nella scheda Stanze.',
+  'tut.primeros.entrar.titulo': 'Entrare nelle tue app',
+  'tut.primeros.entrar.texto':
+    'Ogni stanza porta la sua app e hai tre porte: la sua scheda qui nel menu, l\'oggetto con la sfera fluttuante sulla mappa, e l\'accesso rapido del pulsante MPH in alto.',
+  'tut.primeros.entrar.vacio': 'Qui vivranno le tue stanze, ognuna con la sua app, e avrai tre porte: la sua scheda qui nel menu, l\'oggetto con la sfera fluttuante sulla mappa, e l\'accesso rapido del pulsante MPH in alto. Creiamo la prima…',
+  'tut.primeros.prev.titulo': 'Qui va la tua stanza',
+  'tut.primeros.prev.texto':
+    'Questa è l\'anteprima del pennello: la sagoma verde con i suoi muri segna dove sorgerà la stanza. Costruendo a mano la vedrai uguale sotto il dito, prima di rilasciare il tocco.',
+  'tut.primeros.mat.titulo': 'Costruita!',
+  'tut.primeros.mat.texto':
+    'Ed eccola: la stanza è sorta proprio dove segnava l\'anteprima, con la sua porta davanti. Non ha ancora un\'app — è quello che segue.',
   'tut.primeros.2.titulo': 'Crea stanza',
   'tut.primeros.2.texto':
-    'Con questo pulsante disegni nuove stanze sulla mappa. Per mostrarti il resto del percorso, ora te ne creo una…',
+    'Con questo pulsante disegni nuove stanze sulla mappa, cella per cella. Guarda — ti mostro dove finirebbe la tua…',
   'tut.primeros.3.titulo': 'La tua nuova stanza',
   'tut.primeros.3.texto':
     'Eccola! Una stanza appena creata, ancora senza app: per questo la sua scheda dice + Assegna.',
+  'tut.primeros.apps.titulo': 'Le app disponibili',
+  'tut.primeros.apps.texto':
+    'Questo apre + Assegna: il pannello con tutte le app disponibili. Ognuna monta la sua stanza con i suoi mobili e la sua app. Ne do una alla tua…',
   'tut.primeros.4.titulo': 'Assegnare un\'app',
   'tut.primeros.4.texto':
     'Con + Assegna le ho dato la sua app: guarda come la stanza ha preso il suo nome, la sua icona e i suoi mobili. Da adesso la sua scheda intera è il pulsante per entrare.',
   'tut.primeros.5.titulo': 'Entra',
   'tut.primeros.5.texto':
-    'Siamo dentro: questa è l\'app della stanza. Passeggiando entri anche attraversando la sua porta, ed esci con ‹ Torna a casa.',
+    'Siamo dentro: questa è l\'app della stanza. Per tornarci dopo: la sua scheda nel menu, l\'oggetto con la sfera sulla mappa, o l\'accesso rapido del pulsante MPH in alto.',
+  'tut.primeros.press.titulo': 'Tieni premuto',
+  'tut.primeros.press.texto':
+    'Guarda come trema: tenere premuto una stanza o un oggetto lo sveglia, con il suo menu. Così lo sposti se non ti piace dov\'è finito, o lo elimini.',
   'tut.primeros.6.texto':
-    'La stanza resta nella tua casa, con la sua app pronta. Il resto si costruisce così: una stanza per ogni cosa che vuoi tenere qui.',
+    'Questo è tutto: creare la stanza, darle la sua app, entrare e sistemarla. Questa era di prova — me la porto via alla fine, perché tu monti la tua casa a modo tuo.',
   'tut.menu-cuartos.1.texto': 'La scheda Stanze elenca tutte le stanze della tua casa, raggruppate per categoria.',
   'tut.menu-cuartos.2.titulo': 'Il tuo riepilogo',
   'tut.menu-cuartos.2.texto':

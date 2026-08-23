@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import type { CuerpoTutorial, PasoTutorial, TutorialCtx, TutorialDef } from './tipos'
-import { setTutorialActivo } from '../data/demoGuard'
+import { setTutorialActivo } from '../data/intencion'
 import { getPlantilla } from '../registry'
 import { useDiseño, esObjetoLibreria } from '../state/disenoStore'
 import { useMascota } from '../state/mascotaStore'
@@ -197,6 +197,7 @@ export const useTutorial = create<TutorialState>((set, get) => ({
     // explorando esa zona); solo se apagan los resaltes.
     useZonaTut.getState().setZona(null)
     useZonaTut.getState().setFoco(null)
+    useZonaTut.getState().setFantasma(null)
     alTerminar?.(completado)
     // La UI ya se cerró; borrar los datos de ejemplo puede tardar sin estorbar.
     await ctx?.limpiar()

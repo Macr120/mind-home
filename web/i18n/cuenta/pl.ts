@@ -75,10 +75,18 @@ export const TEXTOS: Record<string, string> = {
   'mi.estado.trialVencido':
     'Twój miesiąc w cenie się skończył: aplikacja i twoje dane są twoje na zawsze. Subskrybuj, żeby zostać przy miesięcznych kredytach i synchronizacji, albo doładuj pojedyncze kredyty.',
   'mi.estado.local':
-    'Jesteś w trybie lokalnym: aplikacja i twoje dane są twoje bez płacenia. SI płaci się za użycie — kup tyle kredytów, ile trzeba, albo subskrybuj i dostawaj je co miesiąc.',
+    'Twój dom jest twój, a dane zostają na twoim urządzeniu. Za SI i synchronizację płaci się osobno: kup potrzebne kredyty albo wykup subskrypcję i odbieraj je co miesiąc.',
+  'mi.estado.sinCasa':
+    'Twoje konto nie ma jeszcze domu. Kup go poniżej —albo zrealizuj kupon, jeśli jesteś testerem— i otwórz go tym samym adresem e-mail na dowolnym urządzeniu.',
   'mi.disponibles': 'Dostępne kredyty: {n}',
   'mi.abrirApp': 'Otwórz aplikację w przeglądarce',
+  'mi.probarApp': 'Wypróbuj za darmo: zbuduj swój dom',
   'mi.salir': 'Wyloguj się',
+  'cupon.titulo': 'Mam kupon',
+  'cupon.desc': 'Link polecający',
+  'cupon.codigo': 'Kod kuponu',
+  'cupon.canjear': 'Zrealizuj',
+
   'pro.creditosMes': 'Kredyty SI w tym miesiącu',
   'pro.extra': 'Kredyty dodatkowe (doładowania, nie tracą ważności): {n}',
   'pro.gestionar': 'Zarządzaj abonamentem (rezygnacja, zmiana płatności)',

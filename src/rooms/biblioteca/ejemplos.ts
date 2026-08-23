@@ -1,7 +1,7 @@
 import { entradasBiblioRepo, sesionesEstudioRepo } from '../../core/data/repository'
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
 import { fotoEjemplo } from '../_shared/ejemplos/fotos'
-import { porIdioma, yaMaterializado, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
+import { porIdioma, retraducido, yaMaterializado, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
 import { TEXTOS_BIBLIOTECA } from './ejemplos.data'
 
 /**
@@ -64,6 +64,31 @@ export const ejemploBiblioteca: PaqueteEjemplo = {
         nota: s.nota,
         ejemploDe: ID,
       })
+    }
+  },
+
+  async retraducir() {
+    const claves = ['entrada1Punto1', 'entrada1Punto2', 'entrada1Punto3', 'entrada2Punto1', 'entrada2Punto2'] as const
+    for (const e of await entradasBiblioRepo.list()) {
+      if (e.ejemploDe !== ID || e.id == null) continue
+      const titulo = retraducido(TEXTOS_BIBLIOTECA, e.titulo, 'entrada1Titulo', 'entrada2Titulo')
+      const resumen = retraducido(TEXTOS_BIBLIOTECA, e.resumen, 'entrada1Resumen', 'entrada2Resumen')
+      // Los puntos clave se guardan como lista: se retraduce punto a punto y los
+      // que el usuario añadió o retocó se quedan tal cual.
+      const puntos = (e.puntosClave ?? []).map((p) => retraducido(TEXTOS_BIBLIOTECA, p, ...claves) ?? p)
+      const puntosCambian = puntos.some((p, i) => p !== e.puntosClave?.[i])
+      if (titulo || resumen || puntosCambian) {
+        await entradasBiblioRepo.update(e.id, {
+          ...(titulo && { titulo }),
+          ...(resumen && { resumen }),
+          ...(puntosCambian && { puntosClave: puntos }),
+        })
+      }
+    }
+    for (const s of await sesionesEstudioRepo.list()) {
+      if (s.ejemploDe !== ID || s.id == null) continue
+      const nota = retraducido(TEXTOS_BIBLIOTECA, s.nota, 'notaEstudio1', 'notaEstudio2', 'notaEstudio3')
+      if (nota) await sesionesEstudioRepo.update(s.id, { nota })
     }
   },
 }

@@ -69,45 +69,78 @@ export const ID_TUT: Dict = {
     'Ke Excel keluar .xlsx sungguhan, dengan rumus yang hidup dan grafik sebagai grafik Excel asli. Ke PDF keluar lewat pencetak browser.',
   'tut.casa.1.texto': 'Ini rumahmu: setiap ruangan menyimpan satu aplikasi. Aku tunjukkan kontrol dasarnya.',
   'tut.casa.2.titulo': 'Menu utama',
-  'tut.casa.2.texto': 'Tombol ini membuka menu: ruanganmu, katalog templat (aplikasi), dan inventaris objek.',
+  'tut.casa.2.texto':
+    'Aku membukanya supaya kamu lihat: ini menu utama, dengan ruangan-ruanganmu dan aplikasinya. Tab-tab lainnya membawa katalog templat (aplikasi) dan inventaris objek.',
+  'tut.casa.2b.titulo': 'Katalog aplikasi',
+  'tut.casa.2b.texto':
+    'Tab keduanya: katalog templat — semua aplikasi yang bisa dibawa rumah ini, masing-masing siap ditetapkan ke sebuah ruangan.',
+  'tut.casa.2c.titulo': 'Inventaris',
+  'tut.casa.2c.texto':
+    'Dan yang ketiga: inventaris — objek dan bagian yang kamu simpan dari ruangan-ruanganmu, siap dipasang lagi di mana pun kamu mau.',
   'tut.casa.3.titulo': 'Bergerak',
   'tut.casa.3.texto':
-    'Berjalanlah dengan joystick, dengan WASD, atau dengan tombol panah di keyboard. Begitu melewati pintu sebuah ruangan, kamu masuk dan aplikasinya terbuka sendiri.',
+    'Berjalanlah dengan joystick, dengan WASD, atau dengan tombol panah di keyboard: seluruh rumah bisa dijelajahi dengan berjalan kaki. Berjalan-jalan tidak membuka aplikasi — untuk masuk, sentuh objek dengan bola melayang milik ruangan itu.',
   'tut.casa.4.titulo': 'Tiga cara melihat',
   'tut.casa.4.texto':
-    'Isometrik, orang ketiga, dan orang pertama (atau tombol V). Menyentuh Iso juga memusatkan lagi kamera ke karaktermu: jalan pulang cepat kalau kamu keburu jauh menjelajah.',
+    'Baru saja kutunjukkan langsung: isometrik, orang ketiga, dan orang pertama (atau tombol V). Menyentuh Iso juga memusatkan lagi kamera ke karaktermu: jalan pulang cepat kalau kamu keburu jauh menjelajah.',
   'tut.casa.5.titulo': 'Satu sudut, beberapa pemilik',
   'tut.casa.5.texto':
     'Sudut itu bukan cuma kubus tampilan: begitu kamu mendekati sesuatu yang bisa diajak berinteraksi —sebuah kursi, kendaraan, lapangan— sudut itu berubah sendiri mengikuti apa yang ada di dekatmu. Tidak ada yang menyala tanpa kamu dekati.',
   'tut.casa.6.titulo': 'Roda alat',
   'tut.casa.6.texto':
-    'Gerakan, Mainan, Kendaraan, dan Bangunan, sampai 3 terpasang sekaligus. Dibuka dari sini atau dari sudut yang sama itu saat tanganmu kosong.',
+    'Ini dia dalam keadaan terbuka: Gerakan, Mainan, Kendaraan, dan Bangunan, sampai 3 terpasang sekaligus. Keluar dari tombol di samping joystick, atau dari sudut yang sama itu saat tanganmu kosong.',
   'tut.casa.7.titulo': 'Jam',
   'tut.casa.7.texto':
-    'Waktu di rumah: sentuh dan kalender lengkap terbuka, dengan Misi hariannya. Matahari atau bulan di sebelahnya mengatur laju waktu dan cahaya pemandangannya.',
+    'Waktu di rumah: sentuh dan kalender lengkap terbuka, dengan Misi hariannya. Dan matahari atau bulan membuka panel ini: laju waktu dan cahaya pemandangannya.',
   'tut.casa.8.titulo': 'Musik rumah',
   'tut.casa.8.texto':
-    'Setiap ruangan bisa punya lagunya sendiri, atau membiarkan suasana umum rumah yang berbunyi. Bisa dimatikan sepenuhnya kalau kamu lebih suka sunyi.',
+    'Rumah dimulai dalam sunyi: kalau mau musik latar, nyalakan musiknya di sini. Setiap ruangan membawa lagu-lagu tematik yang sudah dimuat, atau biarkan suasana umum rumah yang berbunyi.',
   'tut.casa.9.titulo': 'Obrolan',
   'tut.casa.9.texto':
-    'Obrolan sang arsitek: ceritakan apa yang kamu lakukan dan dia mencatatnya di aplikasi yang tepat, atau minta perubahan di rumah.',
+    'Obrolan sang arsitek: ceritakan apa yang kamu lakukan dan dia mencatatnya di aplikasi yang tepat, minta perubahan di rumah, gambar, bahkan model 3D untuk ruanganmu — atau sekadar mengobrol santai.',
+  'tut.casa.asistente.titulo': 'Asistenmu',
+  'tut.casa.asistente.texto':
+    'Tombol ini asistenmu: dialah yang menjawabmu di obrolan. Sentuh untuk membuka menunya dan menyesuaikannya — bentuknya, suaranya, dan kepribadiannya.',
+  'tut.casa.mas.titulo': 'Menu +',
+  'tut.casa.mas.texto':
+    'Sudah kubuka supaya kamu bisa lihat: dengan + kamu melampirkan sesuatu ke obrolan — unggah gambar atau PDF, ambil foto, atau beralih ke Masker AR dan Obrolan AR bertatap muka.',
+  'tut.casa.editor.titulo': 'Editor',
+  'tut.casa.editor.texto':
+    'Tombol Editor di atas membuka ini: penyesuaian lengkap dalam empat tab — Peta, Karakter, Objek, dan Pengaturan. Di sinilah seluruh rumah digambar dan didandani.',
   'tut.casa.10.texto':
-    'Itu dasarnya. Tombol Editor di atas membuka penyesuaian lengkap, dan setiap menu dan setiap aplikasi punya tombol ? sendiri dengan tutorialnya.',
-  'tut.primeros.1.texto': 'Pertama-tama: bagaimana rumah ini dibangun. Semua dimulai dari tab Ruangan.',
+    'Itu dasarnya. Setiap menu dan setiap aplikasi punya tombol ? sendiri dengan tutorialnya: minta saja saat ada yang belum jelas buatmu.',
+  'tut.primeros.1.texto':
+    'Tutorial ini menjawab dua hal: cara MASUK ke aplikasimu dan cara MEMBUAT yang baru. Dua-duanya tinggal di sini, di tab Ruangan.',
+  'tut.primeros.entrar.titulo': 'Masuk ke aplikasimu',
+  'tut.primeros.entrar.texto':
+    'Setiap ruangan membawa aplikasinya dan kamu punya tiga pintu: kartunya di sini di menu, objek dengan bola melayang di peta, dan akses cepat tombol MPH di atas.',
+  'tut.primeros.entrar.vacio': 'Di sini kamar-kamarmu akan tinggal, masing-masing dengan aplikasinya, dan kamu akan punya tiga pintu: kartunya di sini di menu, objek dengan bola melayang di peta, dan akses cepat tombol MPH di atas. Ayo buat yang pertama…',
+  'tut.primeros.prev.titulo': 'Di sinilah ruanganmu',
+  'tut.primeros.prev.texto':
+    'Ini pratinjau kuasnya: siluet hijau dengan dindingnya menandai di mana ruangan akan berdiri. Saat membangun sendiri kamu akan melihatnya persis begitu di bawah jarimu, sebelum melepas sentuhan.',
+  'tut.primeros.mat.titulo': 'Selesai dibangun!',
+  'tut.primeros.mat.texto':
+    'Dan ini dia: ruangannya berdiri persis di tempat yang ditandai pratinjau, dengan pintunya di depan. Belum ada aplikasinya — itulah langkah berikutnya.',
   'tut.primeros.2.titulo': 'Buat ruangan',
   'tut.primeros.2.texto':
-    'Dengan tombol ini kamu menggambar ruangan baru di peta. Untuk menunjukkan sisa jalannya, sekarang aku buatkan satu…',
+    'Dengan tombol ini kamu menggambar ruangan baru di peta, sel demi sel. Lihat — aku tunjukkan di mana ruanganmu akan berdiri…',
   'tut.primeros.3.titulo': 'Ruangan barumu',
   'tut.primeros.3.texto':
     'Ini dia! Ruangan yang baru dibuat, masih tanpa aplikasi: makanya kartunya bertuliskan + Tetapkan.',
+  'tut.primeros.apps.titulo': 'Aplikasi yang tersedia',
+  'tut.primeros.apps.texto':
+    'Ini membuka + Tetapkan: panel dengan semua aplikasi yang tersedia. Masing-masing menata ruangannya dengan perabot dan aplikasinya sendiri. Aku beri satu untuk ruanganmu…',
   'tut.primeros.4.titulo': 'Menetapkan aplikasi',
   'tut.primeros.4.texto':
     'Dengan + Tetapkan aku memberinya aplikasi: lihat bagaimana ruangan itu mengambil nama, ikon, dan perabotnya. Mulai sekarang seluruh kartunya adalah tombol masuk.',
   'tut.primeros.5.titulo': 'Masuk',
   'tut.primeros.5.texto':
-    'Kita sudah di dalam: ini aplikasi ruangannya. Saat berjalan-jalan kamu juga masuk lewat pintunya, dan keluar dengan ‹ Kembali ke rumah.',
+    'Kita sudah di dalam: ini aplikasi ruangannya. Untuk kembali nanti: kartunya di menu, objek dengan bola di peta, atau akses cepat tombol MPH di atas.',
+  'tut.primeros.press.titulo': 'Tekan dan tahan',
+  'tut.primeros.press.texto':
+    'Lihat bagaimana ia bergetar: menekan lama sebuah ruangan atau objek akan membangunkannya, lengkap dengan menunya. Begitulah kamu memindahkannya kalau tidak suka letaknya, atau menghapusnya.',
   'tut.primeros.6.texto':
-    'Ruangan itu tetap ada di rumahmu, lengkap dengan aplikasinya. Begitulah sisanya dibangun: satu ruangan untuk setiap hal yang mau kamu simpan di sini.',
+    'Itu saja: membuat ruangan, memberinya aplikasi, masuk, dan menatanya. Yang ini untuk latihan — akan kubawa begitu selesai, supaya kamu menyusun rumahmu sesuai seleramu.',
   'tut.menu-cuartos.1.texto': 'Tab Ruangan menampilkan semua ruangan di rumahmu, dikelompokkan per kategori.',
   'tut.menu-cuartos.2.titulo': 'Ringkasanmu',
   'tut.menu-cuartos.2.texto':

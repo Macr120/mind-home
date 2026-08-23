@@ -1,5 +1,6 @@
 import { create } from 'zustand'
-import { esDemo } from '../edicion'
+import { claveLS, esDemo, esProbar } from '../edicion'
+import { borrarProbar, hayPruebaSucia } from '../../probar/modo'
 import { useDiseño, esObjetoLibreria } from '../state/disenoStore'
 
 /** '1' = la bienvenida ya se vio (o la casa ya estaba armada al llegar esta versión). */
@@ -12,7 +13,7 @@ export type PasoGuia = 'cuarto' | 'tour' | 'explorar'
 
 function leerHechos(): PasoGuia[] {
   try {
-    const raw = JSON.parse(localStorage.getItem(LS_PASOS) ?? '[]') as unknown
+    const raw = JSON.parse(localStorage.getItem(claveLS(LS_PASOS)) ?? '[]') as unknown
     return Array.isArray(raw) ? (raw as PasoGuia[]) : []
   } catch {
     return []
@@ -25,9 +26,12 @@ interface BienvenidaState {
   guia: boolean
   /** Pasos de la guía ya completados. */
   hechos: PasoGuia[]
+  /** true = ofrecer recuperar la casa del modo probar antes del wizard. */
+  recuperacion: boolean
   abrir: () => void
   /** Vuelve a la guía de 3 pasos (al terminar o salir de un tour). */
   abrirGuia: () => void
+  abrirRecuperacion: () => void
   cerrar: () => void
   completar: (paso: PasoGuia) => void
 }
@@ -36,13 +40,15 @@ export const useBienvenida = create<BienvenidaState>((set, get) => ({
   abierto: false,
   guia: false,
   hechos: leerHechos(),
-  abrir: () => set({ abierto: true, guia: false }),
+  recuperacion: false,
+  abrir: () => set({ abierto: true, guia: false, recuperacion: false }),
   abrirGuia: () => set({ abierto: true, guia: true }),
+  abrirRecuperacion: () => set({ recuperacion: true }),
   cerrar: () => set({ abierto: false }),
   completar: (paso) => {
     if (get().hechos.includes(paso)) return
     const hechos = [...get().hechos, paso]
-    localStorage.setItem(LS_PASOS, JSON.stringify(hechos))
+    localStorage.setItem(claveLS(LS_PASOS), JSON.stringify(hechos))
     set({ hechos })
   },
 }))
@@ -63,11 +69,21 @@ export function appsAsignadas(): Set<string> {
  */
 export function evaluarPrimeraVez(): void {
   // Casa demo: entra a una casa ya hecha, y además NUNCA debe escribir
-  // `mh.bienvenida` — le robaría la primera vez a la casa real.
+  // `mh.bienvenida` — le robaría la primera vez a la casa real. (En el modo
+  // probar SÍ corre: la bienvenida es justo su puerta de entrada, y sus marcas
+  // van con prefijo `probar:` vía claveLS.)
   if (esDemo()) return
-  if (localStorage.getItem(LS_BIENVENIDA) === '1') return
+  if (localStorage.getItem(claveLS(LS_BIENVENIDA)) === '1') return
   if (appsAsignadas().size > 0) {
-    localStorage.setItem(LS_BIENVENIDA, '1')
+    localStorage.setItem(claveLS(LS_BIENVENIDA), '1')
+    // Cuenta veterana con casa: una prueba pendiente ya no se ofrece — fuera.
+    if (!esProbar() && hayPruebaSucia()) void borrarProbar()
+    return
+  }
+  // Casa real vacía con una prueba pendiente (visitante que creó cuenta y
+  // pagó): antes del wizard se ofrece recuperar la casa de la prueba.
+  if (!esProbar() && hayPruebaSucia()) {
+    useBienvenida.getState().abrirRecuperacion()
     return
   }
   useBienvenida.getState().abrir()

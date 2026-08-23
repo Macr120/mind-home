@@ -75,10 +75,18 @@ export const TEXTOS: Record<string, string> = {
   'mi.estado.trialVencido':
     'Dahil olan ayın bitti: uygulama ve verilerin sonsuza dek senin. Aylık kredilerle ve eşitlemeyle devam etmek için abone ol ya da tekil kredi yükle.',
   'mi.estado.local':
-    'Yerel moddasın: uygulama ve verilerin hiçbir şey ödemeden senin. Yapay zekâ kullandıkça ödenir — ihtiyacın kadar kredi al ya da abone ol, her ay gelsin.',
+    'Evin senindir ve verilerin cihazında kalır. Yapay zekâ ile eşitleme ayrı ödenir: ihtiyacın kadar kredi al ya da abone ol ve her ay teslim al.',
+  'mi.estado.sinCasa':
+    'Hesabında henüz ev yok. Aşağıdan satın al —ya da test kullanıcısıysan kuponunu kullan— ve aynı e-postayla istediğin cihazda aç.',
   'mi.disponibles': 'Kullanılabilir kredi: {n}',
   'mi.abrirApp': 'Uygulamayı tarayıcıda aç',
+  'mi.probarApp': 'Evini kurmayı ücretsiz dene',
   'mi.salir': 'Çıkış yap',
+  'cupon.titulo': 'Kuponum var',
+  'cupon.desc': 'Davet bağlantısı',
+  'cupon.codigo': 'Kupon kodu',
+  'cupon.canjear': 'Kullan',
+
   'pro.creditosMes': 'Bu ayki yapay zekâ kredileri',
   'pro.extra': 'Ek krediler (yüklemeler, süresi dolmaz): {n}',
   'pro.gestionar': 'Aboneliği yönet (iptal, ödeme değişikliği)',

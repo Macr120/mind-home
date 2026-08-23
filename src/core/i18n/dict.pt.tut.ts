@@ -69,44 +69,77 @@ export const PT_TUT: Dict = {
     'Para Excel sai um .xlsx de verdade, com as fórmulas vivas e os gráficos como gráficos do Excel. Em PDF sai pela impressora do navegador.',
   'tut.casa.1.texto': 'Esta é a sua casa: cada cômodo guarda um app. Vou te mostrar os controles básicos.',
   'tut.casa.2.titulo': 'O menu principal',
-  'tut.casa.2.texto': 'Este botão abre o menu: seus cômodos, o catálogo de modelos (apps) e o inventário de objetos.',
+  'tut.casa.2.texto':
+    'Abri para você ver: é o menu principal, com seus cômodos e os apps deles. As outras abas trazem o catálogo de modelos (apps) e o inventário de objetos.',
+  'tut.casa.2b.titulo': 'O catálogo de apps',
+  'tut.casa.2b.texto':
+    'Sua segunda aba: o catálogo de modelos — todos os apps que a casa pode ter, cada um pronto para ser atribuído a um cômodo.',
+  'tut.casa.2c.titulo': 'O inventário',
+  'tut.casa.2c.texto':
+    'E a terceira: o inventário — os objetos e peças que você guarda dos seus cômodos, prontos para serem colocados de novo onde quiser.',
   'tut.casa.3.titulo': 'Mover-se',
   'tut.casa.3.texto':
-    'Ande com o joystick, com WASD ou com as setas do teclado. Ao cruzar a porta de um cômodo, você entra e o app dele abre sozinho.',
+    'Ande com o joystick, com WASD ou com as setas do teclado: a casa inteira se percorre a pé. Passear não abre os apps — para entrar, toque no objeto com a esfera flutuante do cômodo.',
   'tut.casa.4.titulo': 'Três formas de olhar',
   'tut.casa.4.texto':
-    'Isométrica, terceira e primeira pessoa (ou a tecla V). Tocar em Iso também centraliza a câmera de novo no seu personagem: a saída rápida se você foi longe demais explorando.',
+    'Acabei de mostrar as três ao vivo: isométrica, terceira e primeira pessoa (ou a tecla V). Tocar em Iso também centraliza a câmera de novo no seu personagem: a saída rápida se você foi longe demais explorando.',
   'tut.casa.5.titulo': 'Um canto, vários donos',
   'tut.casa.5.texto':
     'Esse canto não é só o cubo de vistas: ao chegar perto de algo com que dá para interagir — uma cadeira, um veículo, uma quadra — ele muda sozinho conforme o que está por perto. Nada é ativado sem você se aproximar.',
   'tut.casa.6.titulo': 'A roda de ferramentas',
   'tut.casa.6.texto':
-    'Movimentos, brinquedos, veículos e construção, até 3 equipados por vez. Abre aqui ou naquele mesmo canto quando você está de mãos livres.',
+    'Aqui está ela aberta: movimentos, brinquedos, veículos e construção, até 3 equipados por vez. Ela sai do botão ao lado do joystick, ou do espaço do canto quando você está de mãos livres.',
   'tut.casa.7.titulo': 'O relógio',
   'tut.casa.7.texto':
-    'A hora da casa: toque nela e o calendário completo se abre, com as Missões do dia. O sol ou a lua ao lado controlam a passagem do tempo e a luz da cena.',
+    'A hora da casa: tocar nela abre o calendário completo, com as Missões do dia. E o sol ou a lua abrem este painel: a passagem do tempo e a luz da cena.',
   'tut.casa.8.titulo': 'A música da casa',
   'tut.casa.8.texto':
-    'Cada cômodo pode ter seu próprio tema, ou deixar tocar o ambiente geral da casa. Dá para desligar tudo se você preferir silêncio.',
+    'A casa começa em silêncio: se quiser trilha sonora, ligue a música aqui. Cada cômodo traz canções temáticas pré-carregadas, ou deixe tocar o ambiente geral da casa.',
   'tut.casa.9.titulo': 'O chat',
   'tut.casa.9.texto':
-    'O chat do arquiteto: conte o que você fez e ele registra no app certo, ou peça mudanças na casa.',
+    'O chat do arquiteto: conte o que você fez e ele registra no app certo, peça mudanças na casa, imagens e até modelos 3D para os seus cômodos — ou simplesmente bata um papo.',
+  'tut.casa.asistente.titulo': 'Seu assistente',
+  'tut.casa.asistente.texto':
+    'Este botão é o seu assistente: quem responde a você no chat. Toque nele para abrir o menu e personalizá-lo — a forma, a voz e a personalidade dele.',
+  'tut.casa.mas.titulo': 'O menu +',
+  'tut.casa.mas.texto':
+    'Eu o abri para você ver: com o + você anexa coisas ao chat — envie uma imagem ou um PDF, tire uma foto, ou passe para a Máscara AR e o Chat AR cara a cara.',
+  'tut.casa.editor.titulo': 'O editor',
+  'tut.casa.editor.texto':
+    'O botão Editor lá em cima abre isto: a personalização completa em quatro abas — Mapa, Personagens, Objetos e Configurações. É aqui que a casa inteira se desenha e se veste.',
   'tut.casa.10.texto':
-    'Isso é o básico. O botão Editor lá em cima abre a personalização completa, e cada menu e cada app têm seu próprio botão ? com seu tutorial.',
-  'tut.primeros.1.texto': 'Primeiro: como a casa é montada. Tudo começa na aba Cômodos.',
+    'Isso é o básico. Cada menu e cada app têm seu próprio botão ? com seu tutorial: peça quando algo não fizer sentido.',
+  'tut.primeros.1.texto':
+    'Este tutorial responde duas coisas: como ENTRAR nos seus apps e como CRIAR um novo. As duas moram aqui, na aba Cômodos.',
+  'tut.primeros.entrar.titulo': 'Entrar nos seus apps',
+  'tut.primeros.entrar.texto':
+    'Cada cômodo carrega seu app e você tem três portas: o cartão dele aqui no menu, o objeto com a esfera flutuante no mapa, e o acesso rápido do botão MPH lá em cima.',
+  'tut.primeros.entrar.vacio': 'Aqui vão morar seus cômodos, cada um com seu app, e você terá três portas: o cartão dele aqui no menu, o objeto com a esfera flutuante no mapa, e o acesso rápido do botão MPH lá em cima. Vamos criar o primeiro…',
+  'tut.primeros.prev.titulo': 'Seu cômodo vai aqui',
+  'tut.primeros.prev.texto':
+    'Esta é a prévia do pincel: a silhueta verde com as paredes marca onde o cômodo vai se levantar. Construindo à mão você a verá igual embaixo do dedo, antes de soltar o toque.',
+  'tut.primeros.mat.titulo': 'Construído!',
+  'tut.primeros.mat.texto':
+    'E aqui está: o cômodo se levantou bem onde a prévia marcava, com a porta para a frente. Ainda não tem app — é isso que vem agora.',
   'tut.primeros.2.titulo': 'Criar cômodo',
   'tut.primeros.2.texto':
-    'Com este botão você desenha cômodos novos no mapa. Para mostrar o resto do caminho, vou criar um para você agora…',
+    'Com este botão você desenha cômodos novos no mapa, célula por célula. Olha — vou te mostrar onde ficaria o seu…',
   'tut.primeros.3.titulo': 'Seu cômodo novo',
   'tut.primeros.3.texto': 'Aqui está! Um cômodo recém-criado, ainda sem app: por isso o cartão dele diz + Atribuir.',
+  'tut.primeros.apps.titulo': 'Os apps disponíveis',
+  'tut.primeros.apps.texto':
+    'Isto abre o + Atribuir: o painel com todos os apps disponíveis. Cada um monta seu cômodo com seus móveis e seu app. Vou dar um ao seu…',
   'tut.primeros.4.titulo': 'Atribuir um app',
   'tut.primeros.4.texto':
     'Com + Atribuir eu dei o app a ele: veja como o cômodo assumiu seu nome, seu ícone e seus móveis. De agora em diante o cartão inteiro dele é o botão de entrar.',
   'tut.primeros.5.titulo': 'Entrar',
   'tut.primeros.5.texto':
-    'Entramos: este é o app do cômodo. Ao passear, você também entra atravessando a porta, e sai com ‹ Voltar para a casa.',
+    'Entramos: este é o app do cômodo. Para voltar depois: o cartão dele no menu, o objeto com a esfera no mapa, ou o acesso rápido do botão MPH lá em cima.',
+  'tut.primeros.press.titulo': 'Mantenha pressionado',
+  'tut.primeros.press.texto':
+    'Veja como treme: manter pressionado um cômodo ou um objeto o desperta, com seu menu. É assim que você o move se não gostou de onde ficou, ou o apaga.',
   'tut.primeros.6.texto':
-    'O cômodo fica na sua casa, com o app pronto. É assim que você monta o resto: um cômodo para cada coisa que quiser trazer.',
+    'Isso é tudo: criar o cômodo, dar o app a ele, entrar e arrumá-lo. Este era de prática — eu o levo embora ao terminar, para você montar sua casa do seu jeito.',
   'tut.menu-cuartos.1.texto': 'A aba Cômodos lista todos os cômodos da sua casa, agrupados por categoria.',
   'tut.menu-cuartos.2.titulo': 'Seu resumo',
   'tut.menu-cuartos.2.texto':

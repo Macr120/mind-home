@@ -1122,7 +1122,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
 
         {/* Menú del «+»: imagen/PDF/foto (piden IA) + máscara AR (sin IA) */}
         {menuAdjuntar && (
-          <div className="ui-panel-glass absolute bottom-full start-0 mb-2 w-60 rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
+          <div data-tut="chat.adjuntar.menu" className="ui-panel-glass absolute bottom-full start-0 mb-2 w-60 rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
             <div className="space-y-1">
               {(
                 [

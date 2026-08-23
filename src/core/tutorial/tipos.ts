@@ -5,7 +5,7 @@
  * menú/app) o desde el chat («tutorial de cocina»).
  */
 
-import type { RegionMapa } from '../state/zonaTutStore'
+import type { CeldaFantasma, RegionMapa } from '../state/zonaTutStore'
 
 /** Contexto vivo de UNA ejecución del tutorial (se crea en `iniciar`). */
 export interface TutorialCtx {
@@ -55,6 +55,17 @@ export interface PasoTutorial {
    * paso: sin `foco` el ámbar se apaga.
    */
   foco?: RegionMapa | ((ctx: TutorialCtx) => RegionMapa | null)
+  /**
+   * Fantasma de un cuarto POR CONSTRUIR en esa celda (la silueta verde del
+   * pincel con sus muros): previsualiza dónde nacerá antes de crearlo. Es por
+   * paso, como `foco`: sin declararlo, se apaga.
+   */
+  fantasma?: CeldaFantasma | ((ctx: TutorialCtx) => CeldaFantasma | null)
+  /**
+   * El paso ocupa la franja inferior entera (la caja del chat y sus menús): el
+   * mago no tiene esquina libre y se retira en vez de tapar lo señalado.
+   */
+  sinMago?: boolean
 }
 
 /**

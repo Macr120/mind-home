@@ -117,6 +117,9 @@ export async function aplicarZonaPaso(
   const foco = resolver(p?.foco, ctx)
   if (zona) Z.setZona(zona)
   Z.setFoco(foco)
+  // El fantasma del cuarto por construir es por paso, como el foco.
+  const fantasma = typeof p?.fantasma === 'function' ? (ctx ? p.fantasma(ctx) : null) : (p?.fantasma ?? null)
+  Z.setFantasma(fantasma)
   const destino = foco ?? zona
   if (destino) await enfocarRegion(destino)
 }

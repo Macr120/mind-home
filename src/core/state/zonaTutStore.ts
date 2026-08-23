@@ -51,15 +51,28 @@ export interface ProyeccionZona {
   poligono: Punto[]
 }
 
+/** Celda de la rejilla del mapa (misma forma que `Cell` de house/walls). */
+export interface CeldaFantasma {
+  col: number
+  row: number
+}
+
 interface ZonaTutState {
   /** El CUADRANTE de fondo: persiste entre pasos mientras no lo cambien. */
   zona: RegionMapa | null
   /** El OBJETO que se edita en este paso (se resalta en ámbar); es por paso. */
   foco: RegionMapa | null
+  /**
+   * Fantasma de un cuarto POR CONSTRUIR (la silueta verde del pincel, con sus
+   * muros): el tutorial de primeros pasos lo enciende para previsualizar dónde
+   * nacerá el cuarto antes de crearlo. Es por paso, como `foco`.
+   */
+  fantasma: CeldaFantasma | null
   /** Proyección de lo que recorta el velo (`foco ?? zona`); null si no se ve. */
   proyeccion: ProyeccionZona | null
   setZona: (r: RegionMapa | null) => void
   setFoco: (r: RegionMapa | null) => void
+  setFantasma: (c: CeldaFantasma | null) => void
   setProyeccion: (p: ProyeccionZona | null) => void
 }
 
@@ -80,9 +93,12 @@ const igual = (a: ProyeccionZona, b: ProyeccionZona) =>
 export const useZonaTut = create<ZonaTutState>((set, get) => ({
   zona: null,
   foco: null,
+  fantasma: null,
   proyeccion: null,
   setZona: (zona) => set({ zona, proyeccion: zona || get().foco ? get().proyeccion : null }),
   setFoco: (foco) => set({ foco, proyeccion: foco || get().zona ? get().proyeccion : null }),
+  setFantasma: (fantasma) =>
+    set((s) => (s.fantasma === fantasma || (s.fantasma && fantasma && s.fantasma.col === fantasma.col && s.fantasma.row === fantasma.row) ? {} : { fantasma })),
   // El proyector llama esto cada frame: sin el dedupe, el overlay se
   // re-renderizaría 60 veces por segundo aunque la cámara ya esté quieta.
   setProyeccion: (p) => {

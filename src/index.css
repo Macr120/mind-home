@@ -239,6 +239,19 @@ html[data-modo-ui] :is(.ui-app, .ui-panel, .ui-panel-glass) .ui-panel-glass {
     );
   }
 }
+/*
+ * Las pantallas de ANTES de la casa (idioma, cuenta, compra y el recorrido)
+ * visten el morado de la marca, el mismo que la web (`--marca-morado` en
+ * `web/estilos.css`). Ahí todavía no hay tema elegido por nadie, y el acento
+ * azul por defecto —que sí es de la casa, donde cada quien lo cambia— no es el
+ * color con el que MPH se presenta. Basta redefinir la variable: `.ui-accent-bg`,
+ * `text-accent` y compañía la leen.
+ */
+.ui-arranque {
+  --ui-accent: #895ac6;
+  --ui-accent-ink: #ffffff;
+}
+
 .ui-accent-bg {
   background: linear-gradient(
     180deg,
@@ -473,6 +486,107 @@ html[data-base-ui='claro'] .texto-vivo:where(:not(.ui-noche *)) {
   .wrapped-avance {
     animation: none;
     width: 100%;
+  }
+}
+
+/*
+ * Recorrido «¿Qué es Mind Planner Home?» (core/ui/queEs): es la carta de
+ * presentación de la app —lo primero que ve quien la acaba de instalar—, así
+ * que aquí las animaciones sí buscan impresionar. Todas mueven solo `transform`
+ * y `opacity` (salvo el desenfoque del título, que es UN elemento) para que el
+ * teléfono las lleve a 60 fps, y el escalonado de los hijos lo pone el
+ * componente con `animation-delay`.
+ */
+
+/* La lámina entera, con perspectiva: entra girando por el lado hacia el que se
+   navegó. El padre pone la `perspective`. */
+@keyframes queEs-lamina-fin {
+  from {
+    opacity: 0;
+    transform: translateX(34px) rotateY(-10deg) scale(0.95);
+  }
+}
+@keyframes queEs-lamina-inicio {
+  from {
+    opacity: 0;
+    transform: translateX(-34px) rotateY(10deg) scale(0.95);
+  }
+}
+.queEs-lamina-fin {
+  animation: queEs-lamina-fin 0.42s var(--ease-fluida) both;
+}
+.queEs-lamina-inicio {
+  animation: queEs-lamina-inicio 0.42s var(--ease-fluida) both;
+}
+
+/* Cada bloque de la lámina, en cascada detrás de ella. */
+@keyframes ui-cascada {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+}
+.ui-cascada {
+  animation: ui-cascada 0.44s var(--ease-fluida) both;
+}
+
+/* El título se enfoca al llegar. */
+@keyframes queEs-titulo {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(8px);
+  }
+}
+.queEs-titulo {
+  animation: queEs-titulo 0.55s var(--ease-fluida) both;
+}
+
+/* Las tres piezas de la marca caen girando, una detrás de otra. */
+@keyframes queEs-pieza {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) rotate(-40deg) scale(0.4);
+  }
+}
+.queEs-pieza {
+  animation: queEs-pieza 0.5s var(--ease-fluida) both;
+  transform-origin: center;
+}
+
+/* El icono de la app: flota y respira sobre su aura. */
+@keyframes queEs-flota {
+  50% {
+    transform: translateY(-7px);
+  }
+}
+.queEs-flota {
+  animation: queEs-flota 3.4s ease-in-out infinite;
+}
+@keyframes queEs-aura {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.12);
+  }
+}
+.queEs-aura {
+  animation: queEs-aura 3.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .queEs-lamina-fin,
+  .queEs-lamina-inicio,
+  .ui-cascada,
+  .queEs-titulo,
+  .queEs-pieza,
+  .queEs-flota,
+  .queEs-aura {
+    animation: none;
   }
 }
 

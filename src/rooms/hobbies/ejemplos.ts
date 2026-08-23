@@ -1,7 +1,7 @@
 import { hobbiesRepo, proyectosHobbyRepo, sesionesHobbyRepo } from '../../core/data/repository'
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
 import { fotoEjemplo } from '../_shared/ejemplos/fotos'
-import { porIdioma, yaMaterializado, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
+import { porIdioma, retraducido, yaMaterializado, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
 import { TEXTOS_HOBBIES } from './ejemplos.data'
 
 /**
@@ -67,6 +67,27 @@ export const ejemploHobbies: PaqueteEjemplo = {
         proyectoId: s.dias >= -12 ? proyectoId : undefined,
         ejemploDe: ID,
       })
+    }
+  },
+
+  async retraducir() {
+    for (const h of await hobbiesRepo.list()) {
+      if (h.ejemploDe !== ID || h.id == null) continue
+      const nombre = retraducido(TEXTOS_HOBBIES, h.nombre, 'hobby')
+      if (nombre) await hobbiesRepo.update(h.id, { nombre })
+    }
+    for (const p of await proyectosHobbyRepo.list()) {
+      if (p.ejemploDe !== ID || p.id == null) continue
+      const nombre = retraducido(TEXTOS_HOBBIES, p.nombre, 'proyecto')
+      const nota = retraducido(TEXTOS_HOBBIES, p.nota, 'notaProyecto')
+      if (nombre || nota) {
+        await proyectosHobbyRepo.update(p.id, { ...(nombre && { nombre }), ...(nota && { nota }) })
+      }
+    }
+    for (const s of await sesionesHobbyRepo.list()) {
+      if (s.ejemploDe !== ID || s.id == null) continue
+      const nota = retraducido(TEXTOS_HOBBIES, s.nota, 'sesionCorta', 'sesionLarga', 'sesionHoy')
+      if (nota) await sesionesHobbyRepo.update(s.id, { nota })
     }
   },
 }

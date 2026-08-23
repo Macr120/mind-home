@@ -62,10 +62,15 @@ function Marco({ children }: { children: React.ReactNode }) {
     <div className="mx-auto flex min-h-screen w-full max-w-md flex-col gap-3 px-4 py-8">
       <div className="barra flex items-center gap-2 !p-0">
         <a href={ruta('/')} className="flex flex-1 items-center gap-2 text-white/90">
-          <img src="/favicon.svg?v=2" alt="" className="h-9 w-9 rounded-lg" />
+          {/* Las tres piezas de la marca, como en la barra de la landing. */}
+          <svg viewBox="0 0 357 100" className="h-4 w-14 shrink-0" aria-hidden>
+            <rect y="3" width="94" height="94" rx="20" fill="#DA9425" />
+            <path d="M137 0V100H237Z" fill="#C23A40" />
+            <path d="M257 0H357V100A100 100 0 0 1 257 0Z" fill="#895AC6" />
+          </svg>
           <span className="flex flex-col leading-tight">
             <span className="text-lg font-extrabold">{t('marca.nombre', 'Planificador Mental-Casa')}</span>
-            <small className="text-[11px] font-semibold text-white/55">{t('marca.sub', 'Mind Planner Home')}</small>
+            <small className="text-[11px] font-semibold text-white/55">{t('marca.sub', 'MPH')}</small>
           </span>
         </a>
       </div>
@@ -675,10 +680,15 @@ function MiCuenta() {
                       'mi.estado.trialVencido',
                       'Tu mes incluido terminó: la app y tus datos son tuyos para siempre. Suscríbete para seguir con los créditos mensuales y la sincronización, o recarga créditos sueltos.',
                     )
-                  : t(
-                      'mi.estado.local',
-                      'Estás en modo local: la app y tus datos son tuyos sin pagar nada. La IA se paga por uso — compra los créditos que necesites, o suscríbete y recíbelos cada mes.',
-                    )}
+                  : unlock
+                    ? t(
+                        'mi.estado.local',
+                        'Tu casa es tuya y tus datos viven en tu dispositivo. La IA y la sincronización se pagan aparte: compra los créditos que necesites, o suscríbete y recíbelos cada mes.',
+                      )
+                    : t(
+                        'mi.estado.sinCasa',
+                        'Tu cuenta todavía no tiene la casa. Cómprala aquí abajo —o canjea tu cupón si eres tester— y ábrela con este mismo correo en cualquier dispositivo.',
+                      )}
             </p>
             {creditosExtra > 0 && (
               <p className="text-[11px] text-white/45">
@@ -686,8 +696,14 @@ function MiCuenta() {
               </p>
             )}
           </Panel>
-          {/* Sin la compra, lo primero es comprar la casa. */}
-          {!unlock && <ConseguirApp />}
+          {/* Sin la compra, lo primero es comprar la casa; y justo debajo, la
+              otra vía de entrar: el cupón de los testers. */}
+          {!unlock && (
+            <>
+              <ConseguirApp />
+              <Cupon />
+            </>
+          )}
           {verPlanes && (
             <>
               <Tarifas
@@ -702,18 +718,76 @@ function MiCuenta() {
       )}
 
       {/* Dos acciones y nada más: abrir la app y salir. Las descargas viven en
-          la landing (`/#descargas`), a la que ya lleva «Consigue la app». */}
+          la landing (`/#descargas`), a la que ya lleva «Consigue la app».
+          Sin la compra, la app pediría pagar nada más abrirla: lo que se ofrece
+          entonces es el modo probar, que sí se puede recorrer entero y gratis. */}
       <Panel>
-        {URL_APP && (
-          <a href={URL_APP} className={botonSecundario + ' block text-center'}>
-            {t('mi.abrirApp', 'Abrir la app en el navegador')}
-          </a>
-        )}
+        {URL_APP &&
+          (unlock ? (
+            <a href={URL_APP} className={botonSecundario + ' block text-center'}>
+              {t('mi.abrirApp', 'Abrir la app en el navegador')}
+            </a>
+          ) : (
+            <a href={`${URL_APP}/?probar=1`} className={botonSecundario + ' block text-center'}>
+              {t('mi.probarApp', 'Probar hacer tu casa gratis')}
+            </a>
+          ))}
         <button type="button" onClick={() => void salir()} className={botonSecundario}>
           {t('mi.salir', 'Cerrar sesión')}
         </button>
       </Panel>
     </>
+  )
+}
+
+/**
+ * Canje de cupones (testers y accesos regalados): la otra vía de conseguir la
+ * casa, y la única sin pagar. Exige sesión —la Edge Function `canjear-cupon`
+ * valida el JWT— y concede el MISMO unlock que la compra, en el perfil, así que
+ * al refrescar la página la cuenta ya aparece con su casa.
+ */
+function Cupon() {
+  const canjearCupon = useSesion((s) => s.canjearCupon)
+  const [codigo, setCodigo] = useState('')
+  const [ocupado, setOcupado] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  const alCanjear = async () => {
+    if (!codigo.trim() || ocupado) return
+    setOcupado(true)
+    setError(null)
+    const mensaje = await canjearCupon(codigo.trim())
+    setOcupado(false)
+    if (mensaje) setError(mensaje)
+  }
+
+  return (
+    <Panel>
+      <h2 className="text-sm font-bold text-white/90">{t('cupon.titulo', 'Tengo un cupón')}</h2>
+      <p className="text-[10px] font-bold uppercase tracking-wider text-white/45">
+        {t('cupon.desc', 'Link de referido')}
+      </p>
+      <div className="flex gap-2">
+        <input
+          value={codigo}
+          onChange={(e) => setCodigo(e.target.value.toUpperCase())}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') void alCanjear()
+          }}
+          placeholder={t('cupon.codigo', 'Código del cupón')}
+          className={inputCls}
+        />
+        <button
+          type="button"
+          onClick={() => void alCanjear()}
+          disabled={ocupado || !codigo.trim()}
+          className={botonPrincipal + ' w-auto shrink-0'}
+        >
+          {ocupado ? t('comun.procesando', 'Procesando…') : t('cupon.canjear', 'Canjear')}
+        </button>
+      </div>
+      {error && <p className="text-xs leading-snug text-red-400/90">{error}</p>}
+    </Panel>
   )
 }
 

@@ -19,7 +19,11 @@ export interface DatosIdioma {
   label: string
   /** Nombre del idioma EN su propio idioma (para el selector de bienvenida). */
   endonimo: string
-  /** Bandera: excepción deliberada a `<Icono>`, se muestra igual en ambos estilos. */
+  /**
+   * Bandera: excepción deliberada a `<Icono>`, se muestra igual en ambos
+   * estilos. El español y el inglés llevan DOS —España y México, Reino Unido y
+   * Estados Unidos— porque una sola dejaba fuera a la mitad de quienes lo hablan.
+   */
   flag: string
   /** BCP-47 para `toLocaleDateString`, `Intl`, `speechSynthesis` y el dictado. */
   locale: string
@@ -33,7 +37,7 @@ export const IDIOMAS = [
     clave: 'ajustes.idioma.es',
     label: 'Español',
     endonimo: 'Español',
-    flag: '🇪🇸',
+    flag: '🇪🇸🇲🇽',
     locale: 'es-MX',
     nombreIA: 'español',
   },
@@ -42,7 +46,7 @@ export const IDIOMAS = [
     clave: 'ajustes.idioma.en',
     label: 'Inglés',
     endonimo: 'English',
-    flag: '🇬🇧',
+    flag: '🇬🇧🇺🇸',
     locale: 'en-US',
     nombreIA: 'inglés',
   },

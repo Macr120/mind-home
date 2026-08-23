@@ -86,10 +86,18 @@ export const TEXTOS: Record<string, string> = {
   'mi.estado.trialVencido':
     'Your included month is over: the app and your data are yours forever. Subscribe to carry on with the monthly credits and sync, or top up one-off credits.',
   'mi.estado.local':
-    'You are in local mode: the app and your data are yours without paying anything. AI is pay-as-you-go — buy the credits you need, or subscribe and get them every month.',
+    'Your home is yours and your data lives on your device. AI and sync are paid separately: buy the credits you need, or subscribe and get them every month.',
+  'mi.estado.sinCasa':
+    'Your account doesn’t have the home yet. Buy it below —or redeem your coupon if you’re a tester— and open it with this same email on any device.',
   'mi.disponibles': 'Credits available: {n}',
   'mi.abrirApp': 'Open the app in the browser',
+  'mi.probarApp': 'Try building your house for free',
   'mi.salir': 'Sign out',
+
+  'cupon.titulo': 'I have a coupon',
+  'cupon.desc': 'Referral link',
+  'cupon.codigo': 'Coupon code',
+  'cupon.canjear': 'Redeem',
 
   'pro.creditosMes': 'AI credits this month',
   'pro.extra': 'Extra credits (top-ups, never expire): {n}',

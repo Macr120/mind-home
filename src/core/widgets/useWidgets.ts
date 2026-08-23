@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { esAppNativa } from '../plataforma'
-import { esDemo } from '../edicion'
+import { esDemo, esProbar } from '../edicion'
 import { abrirApp } from '../abrirApp'
 import { hoyISO } from '../rutinas'
 import { useHouse } from '../state/houseStore'
@@ -31,8 +31,8 @@ const ASPECTO_WIDGET = 250 / 110
  * usuario— no hace nada.
  */
 export function useWidgets(): void {
-  // Ambos son fijos por sesión: la demo y la plataforma se deciden al cargar.
-  const activo = esAppNativa() && !esDemo()
+  // Todos son fijos por sesión: el modo y la plataforma se deciden al cargar.
+  const activo = esAppNativa() && !esDemo() && !esProbar()
 
   // Reactivo: rastrea todas las tablas Dexie que lee armarSnapshot. Qué apps
   // tiene la casa sale además del DISEÑO, no de Dexie: sin esa dependencia el

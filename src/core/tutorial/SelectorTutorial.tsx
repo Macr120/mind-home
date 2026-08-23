@@ -14,7 +14,7 @@ import {
 import { ListaToursApp } from './ListaToursApp'
 import { tutorialCasa } from './menus.meta'
 import { getPlantilla, plantillasCuarto, plantillasInfraestructura } from '../registry'
-import { esDemo } from '../edicion'
+import { esDemo, esProbar } from '../edicion'
 import { entrarDemo } from '../../demo/modo'
 import { useAjustes } from '../state/ajustesStore'
 import { Carpeta } from '../ui/comun/Carpeta'
@@ -380,7 +380,7 @@ export function SelectorTutorialOverlay() {
                 >
                   {t('tut.selector.general', 'Tutorial general')}
                 </button>
-                {!esDemo() && (
+                {!esDemo() && !esProbar() && (
                   <button
                     type="button"
                     onClick={() => entrarDemo()}
@@ -470,8 +470,8 @@ export function SelectorTutorialOverlay() {
                           type="button"
                           onClick={() => {
                             // Con ejemplos, la lista de dos tipos; sin ellos
-                            // (plantillas propias) su esencial directo.
-                            if (flujosDeApp(p.id).length > 0) {
+                            // (plantillas propias, o en modo probar) su esencial directo.
+                            if (!esProbar() && flujosDeApp(p.id).length > 0) {
                               setAppFlujos(p.id)
                               return
                             }
@@ -488,7 +488,10 @@ export function SelectorTutorialOverlay() {
                     })}
                   </div>
                   {/* Infraestructura: no se asigna a cuartos, se construye sobre el mapa.
-                      Mismo trato que las apps: menú de flujos y salto a la casa demo. */}
+                      Mismo trato que las apps: menú de flujos y salto a la casa demo.
+                      Solo tiene ejemplos, así que en modo probar el bloque entero sobra. */}
+                  {!esProbar() && (
+                  <>
                   <p className="mt-3 border-t border-white/10 pt-2 text-[11px] font-semibold text-white/45">
                     {t('tut.selector.infra', 'O construir complementos en el mapa:')}
                   </p>
@@ -518,6 +521,8 @@ export function SelectorTutorialOverlay() {
                       )
                     })}
                   </div>
+                  </>
+                  )}
                 </>
               )}
             </>

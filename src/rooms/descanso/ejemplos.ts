@@ -1,6 +1,6 @@
 import { suenoRepo } from '../../core/data/repository'
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
-import { porIdioma, yaMaterializado, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
+import { porIdioma, retraducido, yaMaterializado, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
 import { TEXTOS_DESCANSO } from './ejemplos.data'
 
 /**
@@ -48,6 +48,14 @@ export const ejemploDescanso: PaqueteEjemplo = {
         interrupciones: n.interrupciones,
         ejemploDe: ID,
       })
+    }
+  },
+
+  async retraducir() {
+    for (const n of await suenoRepo.list()) {
+      if (n.ejemploDe !== ID || n.id == null) continue
+      const nota = retraducido(TEXTOS_DESCANSO, n.nota, 'notaBuena', 'notaRegular', 'notaMala', 'notaCorta', 'notaSiesta')
+      if (nota) await suenoRepo.update(n.id, { nota })
     }
   },
 }

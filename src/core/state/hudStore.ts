@@ -34,6 +34,20 @@ const TODO = (): Plegado => ({
   chat: true,
 })
 
+/**
+ * Lo MÁXIMO desplegable en teléfono vertical sin romper las reglas de
+ * exclusión de `setPlegado`: UN solo superior (el menú principal) y el chat
+ * (que excluye a las esquinas de abajo). Los tutoriales despliegan la zona que
+ * su paso necesita con `setPlegado`, y la regla pliega sola a la contraria.
+ */
+const DESPLEGADO_MOVIL = (): Plegado => ({
+  supIzq: false,
+  supDer: true,
+  infIzq: true,
+  infDer: true,
+  chat: false,
+})
+
 function leer(): Plegado {
   const p = NINGUNO()
   try {
@@ -131,8 +145,11 @@ export const useHud = create<HudState>((set, get) => ({
   setMenuAbierto: (v) => set({ menuAbierto: v }),
 
   desplegarTodo: () => {
-    if (!ZONAS.some((z) => get().plegado[z])) return
-    const plegado = NINGUNO()
+    // En teléfono vertical «todo» respeta las reglas de exclusión: desplegar
+    // ambos superiores (o chat + esquinas) los encimaría — REGLA: un solo menú
+    // superior abierto a la vez.
+    const plegado = get().movilVertical ? DESPLEGADO_MOVIL() : NINGUNO()
+    if (ZONAS.every((z) => plegado[z] === get().plegado[z])) return
     if (!get().movilVertical) guardar(plegado)
     set({ plegado })
   },
@@ -140,7 +157,8 @@ export const useHud = create<HudState>((set, get) => ({
   alternarTodo: () => {
     // Con cualquier zona a la vista se esconde todo; solo si ya estaba todo
     // plegado se vuelve a mostrar (así H siempre "limpia" la pantalla primero).
-    const plegado = ZONAS.some((z) => !get().plegado[z]) ? TODO() : NINGUNO()
+    const mostrar = get().movilVertical ? DESPLEGADO_MOVIL() : NINGUNO()
+    const plegado = ZONAS.some((z) => !get().plegado[z]) ? TODO() : mostrar
     if (!get().movilVertical) guardar(plegado)
     set({ plegado })
   },

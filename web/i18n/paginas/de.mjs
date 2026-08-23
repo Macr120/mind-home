@@ -1,7 +1,7 @@
 /** Textos de las páginas estáticas en alemán. Traducción de `es.mjs`. */
 export const TEXTOS = {
   'marca.nombre': 'Mentaler Planer-Haus',
-  'marca.sub': 'Mind Planner Home',
+  'marca.sub': 'MPH',
   'nav.entrar': 'Anmelden',
   'nav.descargar': 'Herunterladen',
   'pie.inicio': 'Start',
@@ -13,9 +13,9 @@ export const TEXTOS = {
 
   'meta.titulo': 'Mind Planner Home — Dein Geist, in einem 3D-Haus',
   'meta.desc':
-    'Ordne deine Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr in einem isometrischen 3D-Haus, in dem jeder Raum eine App ist. Eine einmalige Zahlung von 8,89 USD, erster Monat mit KI und Sync inklusive; kostenlose Demo.',
+    'Ordne deine Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr in einem isometrischen 3D-Haus, in dem jeder Raum eine App ist. Eine einmalige Zahlung von 8,89 USD, erster Monat mit KI und Sync inklusive; teste sie kostenlos.',
   'og.desc':
-    'Dein Leben, in einem 3D-Haus: Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr. Eine Zahlung von 8,89 USD, erster Monat mit KI inklusive; kostenlose Demo.',
+    'Dein Leben, in einem 3D-Haus: Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr. Eine Zahlung von 8,89 USD, erster Monat mit KI inklusive; teste sie kostenlos.',
 
   'hero.h1': 'Dein Geist,<br />in einem 3D-Haus',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -40,7 +40,7 @@ export const TEXTOS = {
   'hero.sub.4':
     'zu archivieren, zu planen oder neu zu erschaffen — ganz von Hand oder mit Hilfe der KI. Und alle hängen an einem Kalender, an täglichen Missionen und an deinen persönlichen Zielen, synchron auf Handy und Computer.',
   'hero.cta': 'App herunterladen',
-  'hero.demo': 'Kostenlose Demo testen',
+  'hero.probar': 'Bau dein Haus – gratis ausprobieren',
   'hero.nota':
     'Die App ist gratis und läuft offline; das Haus wird einmal gekauft — hier im Web oder in der App. KI und Sync sind optional — und wenn du sie sein lässt, verlierst du nichts.',
   'hero.video': 'Hier kommt dein Video oder deine Screenshots vom Haus hin',
@@ -128,13 +128,13 @@ export const TEXTOS = {
   'mani.cierre': 'Dasselbe Dopamin. Diesmal für dein echtes Leben.',
 
   'precio.h2': 'Eine Zahlung im Store, dein Haus für immer',
-  'precio.demo.nombre': 'Demo',
-  'precio.demo.cifra': 'Kostenlos',
-  'precio.demo.1': 'Pep@s Haus mit einem Jahr Leben darin: probier alles aus',
-  'precio.demo.2': 'Ohne Konto, ohne Karte und ohne Verbindung',
-  'precio.demo.3': 'Nichts wird gespeichert: beim Neuladen fängt das Haus von vorn an',
-  'precio.demo.cta': 'Demo testen',
-  'precio.demo.pie': 'Die komplette App, um sie unverbindlich kennenzulernen.',
+  'precio.probar.nombre': 'Probier sie aus',
+  'precio.probar.cifra': 'Kostenlos',
+  'precio.probar.1': 'Dein eigenes Haus mit dem Willkommensmenü: probier alles aus',
+  'precio.probar.2': 'Ohne Konto, ohne Karte und ohne Verbindung',
+  'precio.probar.3': 'Nichts wird gespeichert, bis du ein Konto hast: beim Kauf bekommst du deinen Test zurück',
+  'precio.probar.cta': 'App testen',
+  'precio.probar.pie': 'Die komplette App, um sie unverbindlich kennenzulernen.',
   'precio.app.nombre': 'Die App',
   'precio.app.cifra': '8,89 USD',
   'precio.app.pagoUnico': 'einmalige Zahlung',
@@ -162,7 +162,7 @@ export const TEXTOS = {
   'desc.ios': 'Gratis im App Store. Das Haus wird darin gekauft.',
   'desc.web.t': 'In deinem Browser',
   'desc.web':
-    'Nichts zu installieren: Melde dich mit deinem Konto an und dein Haus wartet. Ohne Konto kannst du die Demo ausprobieren.',
+    'Nichts zu installieren: Melde dich mit deinem Konto an und dein Haus wartet. Ohne Konto kannst du die App ausprobieren.',
   'desc.web.cta': 'App öffnen',
   'desc.windows': 'Installer für Windows 10/11.',
   'desc.mac': '.dmg-Image für Mac.',
@@ -173,7 +173,7 @@ export const TEXTOS = {
     'Wo du willst: hier im Web, in <a href="/cuenta">deinem Konto</a>, oder in der App für Android und iPhone. Es ist eine einmalige Zahlung, die in deinem Konto gespeichert wird — egal wo du kaufst, dein Haus erscheint auf allen deinen Geräten.',
   'faq.2.q': 'Was ist in der einmaligen Zahlung enthalten?',
   'faq.2.a':
-    'Das ganze Haus: alle Räume, alle Apps und deine Daten auf deinem Gerät, für immer und ohne Verlängerungen. Dazu bringt der erste Monat 700 KI-Credits und die Sync mit, ohne Karte. Vor dem Kauf kannst du die komplette Demo testen, die kein Konto verlangt.',
+    'Das ganze Haus: alle Räume, alle Apps und deine Daten auf deinem Gerät, für immer und ohne Verlängerungen. Dazu bringt der erste Monat 700 KI-Credits und die Sync mit, ohne Karte. Vor dem Kauf kannst du die komplette App testen, die kein Konto verlangt.',
   'faq.3.q': 'Was kostet die KI nach dem ersten Monat?',
   'faq.3.a':
     'Was du willst, oder nichts. Das Abo kostet 6 USD im Monat (700 Credits und Sync) oder 60 USD im Jahr — zwei Monate geschenkt. Wenn das zu knapp ist, geben die Stufen ×2 und ×3 1400 oder 2100 Credits für 12 oder 18 USD im Monat. Und wenn du lieber kein Abo willst, gibt es einzelne Aufladungen: 6 USD für 700 Credits, die nicht verfallen und nur dann verbraucht werden, wenn du etwas anforderst. Das wird hier bezahlt, in <a href="/cuenta">deinem Konto</a>, und gilt für alle deine Geräte.',
@@ -239,14 +239,14 @@ export const TEXTOS = {
   'term.titulo': 'Nutzungsbedingungen',
   'term.servicio.h': 'Der Dienst',
   'term.servicio.p':
-    'Mind Planner Home ist eine App zur persönlichen Organisation. Die Demo ist kostenlos und braucht kein Konto. Die App wird mit einer einmaligen Zahlung gekauft; die wiederkehrenden Funktionen (KI-Credits und Sync) werden ausschließlich auf dieser Website abgeschlossen; die Desktop- und Store-Apps sind Clients desselben Kontos.',
+    'Mind Planner Home ist eine App zur persönlichen Organisation. Die Testversion ist kostenlos und braucht kein Konto. Die App wird mit einer einmaligen Zahlung gekauft; die wiederkehrenden Funktionen (KI-Credits und Sync) werden ausschließlich auf dieser Website abgeschlossen; die Desktop- und Store-Apps sind Clients desselben Kontos.',
   'term.app.h': 'Die App (einmalige Zahlung)',
   'term.app.1':
     'Freischaltung der App: 8,89 USD, einmalige Zahlung. Sie schaltet dein Haus für immer in deinem Konto frei, ohne Verlängerungen.',
   'term.app.2':
     'Enthält den ersten Monat: 30 Tage mit den 700 monatlichen KI-Credits und der Sync, ohne Karte und ohne Abo. Danach behältst du die App und deine Daten; die monatlichen Credits und die Sync erfordern das Abo.',
   'term.app.3':
-    'Die kostenlose Demo speichert nichts: sie ist dazu da, die App vor dem Kauf kennenzulernen.',
+    'Die kostenlose Testversion speichert nichts, bis du dein Konto erstellst: sie ist dazu da, die App vor dem Kauf kennenzulernen.',
   'term.local.h': 'Lokaler Modus',
   'term.local.p':
     'Mit freigeschalteter App werden alle Offline-Funktionen ohne laufende Kosten genutzt. Die Daten liegen auf deinem Gerät, und ihre Sicherung liegt in deiner Verantwortung (Einstellungen → Datensicherung).',

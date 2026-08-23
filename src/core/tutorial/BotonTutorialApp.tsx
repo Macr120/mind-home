@@ -5,7 +5,7 @@ import { flujosDeApp, lanzarEsencial } from './registro'
 import { ListaToursApp } from './ListaToursApp'
 import type { Plantilla } from '../registry'
 import { Icono } from '../ui/iconos/Icono'
-import { esDemo } from '../edicion'
+import { esDemo, esProbar } from '../edicion'
 import { entrarDemo } from '../../demo/modo'
 import { BUILDERS_DEMO } from '../../demo/builders'
 
@@ -35,8 +35,10 @@ export function BotonTutorialApp({
   const t = useT()
   const tourActivo = useTutorial((s) => !!s.def)
   const [abierto, setAbierto] = useState(false)
-  const flujos = flujosDeApp(plantilla.id)
-  const conPep = !esDemo() && !!BUILDERS_DEMO[plantilla.id]
+  // La casa de Pep@ es de la app con cuenta y pago: en probar no se ofrece
+  // (sin flujos ni «año de Pep@», el «?» lanza «Lo esencial» directo).
+  const flujos = esProbar() ? [] : flujosDeApp(plantilla.id)
+  const conPep = !esDemo() && !esProbar() && !!BUILDERS_DEMO[plantilla.id]
 
   return (
     <div className="relative shrink-0">

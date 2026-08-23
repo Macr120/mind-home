@@ -48,6 +48,7 @@ function AsignarPlantillaInterior({ cuartoId }: { cuartoId: string }) {
       onClick={cerrar}
     >
       <div
+        data-tut="asignar.catalogo"
         className="ui-panel ui-pop flex max-h-[80vh] w-full max-w-lg flex-col overflow-hidden rounded-2xl border border-white/10 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >

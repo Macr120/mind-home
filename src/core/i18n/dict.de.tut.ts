@@ -70,45 +70,77 @@ export const DE_TUT: Dict = {
   'tut.casa.1.texto': 'Das ist dein Haus: Jeder Raum enthält eine App. Ich zeig dir die wichtigsten Bedienelemente.',
   'tut.casa.2.titulo': 'Das Hauptmenü',
   'tut.casa.2.texto':
-    'Dieser Button öffnet das Menü: deine Räume, den Katalog der Vorlagen (Apps) und das Inventar der Objekte.',
+    'Ich habe es geöffnet, damit du es siehst: Das ist das Hauptmenü, mit deinen Räumen und ihren Apps. Seine anderen Tabs bringen den Katalog der Vorlagen (Apps) und das Inventar der Objekte.',
+  'tut.casa.2b.titulo': 'Der Katalog der Apps',
+  'tut.casa.2b.texto':
+    'Sein zweiter Tab: der Katalog der Vorlagen – alle Apps, die das Haus tragen kann, jede bereit, einem Raum zugewiesen zu werden.',
+  'tut.casa.2c.titulo': 'Das Inventar',
+  'tut.casa.2c.texto':
+    'Und der dritte: das Inventar – die Objekte und Teile, die du aus deinen Räumen aufbewahrst, bereit, wieder aufgestellt zu werden, wo du willst.',
   'tut.casa.3.titulo': 'Sich bewegen',
   'tut.casa.3.texto':
-    'Lauf mit dem Joystick, mit WASD oder mit den Pfeiltasten. Gehst du durch die Tür eines Raums, betrittst du ihn und seine App öffnet sich von selbst.',
+    'Lauf mit dem Joystick, mit WASD oder mit den Pfeiltasten: Das ganze Haus lässt sich zu Fuß erkunden. Spazieren öffnet die Apps nicht – zum Betreten tippst du das Objekt mit der schwebenden Kugel des Raums an.',
   'tut.casa.4.titulo': 'Drei Arten zu schauen',
   'tut.casa.4.texto':
-    'Isometrisch, dritte und erste Person (oder die Taste V). Ein Tipp auf Iso zentriert die Kamera außerdem wieder auf deiner Figur: der schnelle Rückweg, wenn du dich beim Erkunden weit entfernt hast.',
+    'Ich habe sie dir gerade live gezeigt: isometrisch, dritte und erste Person (oder die Taste V). Ein Tipp auf Iso zentriert die Kamera außerdem wieder auf deiner Figur: der schnelle Rückweg, wenn du dich beim Erkunden weit entfernt hast.',
   'tut.casa.5.titulo': 'Ein Feld, mehrere Besitzer',
   'tut.casa.5.texto':
     'Diese Ecke ist nicht nur der Navigationswürfel: Kommst du etwas nahe, mit dem sich etwas anfangen lässt – einem Stuhl, einem Fahrzeug, einem Platz –, wechselt sie von selbst zu dem, was gerade in der Nähe ist. Nichts wird aktiv, ohne dass du hingehst.',
   'tut.casa.6.titulo': 'Das Werkzeugrad',
   'tut.casa.6.texto':
-    'Bewegungen, Spielzeug, Fahrzeuge und Bauen, bis zu 3 gleichzeitig ausgerüstet. Es öffnet sich hier oder über dasselbe Eckfeld, wenn du die Hände frei hast.',
+    'Hier ist es geöffnet: Bewegungen, Spielzeug, Fahrzeuge und Bauen, bis zu 3 gleichzeitig ausgerüstet. Es kommt aus dem Button neben dem Joystick oder aus dem Eckfeld, wenn du die Hände frei hast.',
   'tut.casa.7.titulo': 'Die Uhr',
   'tut.casa.7.texto':
-    'Die Uhrzeit des Hauses: Tipp sie an und der vollständige Kalender öffnet sich, mit seinen Missionen des Tages. Die Sonne oder der Mond daneben steuert den Lauf der Zeit und das Licht der Szene.',
+    'Die Uhrzeit des Hauses: Tipp sie an und der vollständige Kalender öffnet sich, mit seinen Missionen des Tages. Und die Sonne oder der Mond öffnen dieses Panel: den Lauf der Zeit und das Licht der Szene.',
   'tut.casa.8.titulo': 'Die Musik des Hauses',
   'tut.casa.8.texto':
-    'Jeder Raum kann sein eigenes Thema haben oder einfach die allgemeine Umgebungsmusik des Hauses laufen lassen. Sie lässt sich ganz abschalten, wenn du lieber Stille hast.',
+    'Das Haus startet in Stille: Wenn du einen Soundtrack willst, schalte hier die Musik ein. Jeder Raum bringt vorgeladene Themen-Songs mit – oder lass die allgemeine Umgebungsmusik des Hauses laufen.',
   'tut.casa.9.titulo': 'Der Chat',
   'tut.casa.9.texto':
-    'Der Chat des Architekten: Erzähl ihm, was du getan hast, und er trägt es in der richtigen App ein – oder bitte ihn um Änderungen am Haus.',
+    'Der Chat des Architekten: Erzähl ihm, was du getan hast, und er trägt es in der richtigen App ein; bitte ihn um Änderungen am Haus, um Bilder und sogar 3D-Modelle für deine Räume – oder plaudere einfach ein Weilchen.',
+  'tut.casa.asistente.titulo': 'Dein Assistent',
+  'tut.casa.asistente.texto':
+    'Dieser Button ist dein Assistent: der, der dir im Chat antwortet. Tipp ihn an, um sein Menü zu öffnen und ihn anzupassen – seine Gestalt, seine Stimme und seine Persönlichkeit.',
+  'tut.casa.mas.titulo': 'Das Menü +',
+  'tut.casa.mas.texto':
+    'Ich habe es geöffnet, damit du es siehst: Mit dem + hängst du Dinge an den Chat an – lade ein Bild oder ein PDF hoch, mach ein Foto oder wechsle zur AR-Maske und zum AR-Chat von Angesicht zu Angesicht.',
+  'tut.casa.editor.titulo': 'Der Editor',
+  'tut.casa.editor.texto':
+    'Der Button Editor oben öffnet das hier: die vollständige Anpassung in vier Tabs – Karte, Figuren, Objekte und Einstellungen. Hier wird das ganze Haus gezeichnet und eingekleidet.',
   'tut.casa.10.texto':
-    'Das war das Wichtigste. Der Button Editor oben öffnet die vollständige Anpassung, und jedes Menü und jede App haben ihren eigenen ?-Button mit ihrem Tutorial.',
-  'tut.primeros.1.texto': 'Zuerst das Wichtigste: wie das Haus entsteht. Alles beginnt im Tab Räume.',
+    'Das war das Wichtigste. Jedes Menü und jede App haben ihren eigenen ?-Button mit ihrem Tutorial: Frag danach, wenn dir etwas nicht einleuchtet.',
+  'tut.primeros.1.texto':
+    'Dieses Tutorial beantwortet zwei Fragen: wie du deine Apps BETRITTST und wie du eine neue ERSTELLST. Beides wohnt hier, im Tab Räume.',
+  'tut.primeros.entrar.titulo': 'Deine Apps betreten',
+  'tut.primeros.entrar.texto':
+    'Jeder Raum trägt seine App, und du hast drei Türen: seine Karte hier im Menü, draußen auf der Karte das Objekt mit der schwebenden Kugel und den Schnellzugriff des MPH-Buttons oben.',
+  'tut.primeros.entrar.vacio': 'Hier werden deine Räume wohnen, jeder mit seiner App, und du wirst drei Türen haben: seine Karte hier im Menü, draußen auf der Karte das Objekt mit der schwebenden Kugel und den Schnellzugriff des MPH-Buttons oben. Bauen wir den ersten…',
+  'tut.primeros.prev.titulo': 'Hier kommt dein Raum hin',
+  'tut.primeros.prev.texto':
+    'Das ist die Vorschau des Pinsels: Die grüne Silhouette mit ihren Wänden zeigt, wo der Raum entstehen wird. Beim Bauen von Hand siehst du sie genauso unter deinem Finger, bevor du loslässt.',
+  'tut.primeros.mat.titulo': 'Gebaut!',
+  'tut.primeros.mat.texto':
+    'Und da ist er: Der Raum ist genau dort entstanden, wo die Vorschau es zeigte, mit seiner Tür nach vorn. Eine App trägt er noch nicht – die kommt als Nächstes.',
   'tut.primeros.2.titulo': 'Raum erstellen',
   'tut.primeros.2.texto':
-    'Mit diesem Button zeichnest du neue Räume auf der Karte. Um dir den Rest des Wegs zu zeigen, erstelle ich jetzt einen für dich…',
+    'Mit diesem Button zeichnest du neue Räume auf der Karte, Zelle für Zelle. Schau – ich zeig dir, wo deiner stehen würde…',
   'tut.primeros.3.titulo': 'Dein neuer Raum',
   'tut.primeros.3.texto':
     'Da ist er! Ein frisch erstellter Raum, noch ohne App: Deshalb steht auf seiner Karte + Zuweisen.',
+  'tut.primeros.apps.titulo': 'Die verfügbaren Apps',
+  'tut.primeros.apps.texto':
+    'Das öffnet + Zuweisen: das Panel mit allen verfügbaren Apps. Jede richtet ihren Raum ein, mit ihren Möbeln und ihrer App. Ich gebe deinem eine…',
   'tut.primeros.4.titulo': 'Eine App zuweisen',
   'tut.primeros.4.texto':
     'Mit + Zuweisen habe ich ihm seine App gegeben: Sieh, wie der Raum ihren Namen, ihr Symbol und ihre Möbel übernommen hat. Von jetzt an ist seine ganze Karte der Button zum Betreten.',
   'tut.primeros.5.titulo': 'Betreten',
   'tut.primeros.5.texto':
-    'Wir sind drin: Das ist die App des Raums. Beim Herumlaufen betrittst du ihn auch einfach durch seine Tür, und mit ‹ Zurück zum Haus gehst du wieder hinaus.',
+    'Wir sind drin: Das ist die App des Raums. Um später zurückzukommen: seine Karte im Menü, das Objekt mit der Kugel auf der Karte oder der Schnellzugriff des MPH-Buttons oben.',
+  'tut.primeros.press.titulo': 'Halte gedrückt',
+  'tut.primeros.press.texto':
+    'Schau, wie es zittert: Einen Raum oder ein Objekt gedrückt zu halten weckt es auf, mit seinem Menü. So verschiebst du es, wenn dir nicht gefällt, wo es gelandet ist, oder löschst es.',
   'tut.primeros.6.texto':
-    'Der Raum bleibt in deinem Haus, mit seiner App bereit. So entsteht der Rest: ein Raum für jede Sache, die du hier festhalten willst.',
+    'Das ist alles: den Raum erstellen, ihm seine App geben, ihn betreten und einrichten. Dieser war zum Üben – ich nehme ihn am Ende mit, damit du dein Haus nach deinem Geschmack baust.',
   'tut.menu-cuartos.1.texto': 'Der Tab Räume listet alle Räume deines Hauses auf, nach Kategorie gruppiert.',
   'tut.menu-cuartos.2.titulo': 'Deine Übersicht',
   'tut.menu-cuartos.2.texto':

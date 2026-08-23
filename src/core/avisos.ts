@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { db } from './data/db'
-import { esDemo } from './edicion'
+import { esDemo, esProbar } from './edicion'
 import { fechaLocalISO, isoMasDias } from './fechaLocal'
 import type { Asistente } from './chat/mascotas'
 import { asistenteResponsable } from './gamificacion/asistentesPlantilla'
@@ -295,9 +295,9 @@ async function avisarWrapped() {
 
 export function useAvisos() {
   useEffect(() => {
-    // Casa demo: sin recordatorios (notificarían las rutinas de Pep@ y
-    // `sincronizarAgendaDeMeta` chocaría con el guard de solo lectura).
-    if (esDemo()) return
+    // Casas demo y probar: sin recordatorios (notificarían las rutinas de Pep@
+    // o de una casa de prueba efímera).
+    if (esDemo() || esProbar()) return
     // Una vez por dispositivo: el histórico aproximado de listas cumplidas.
     void sembrarListasHistoricas().catch((err) =>
       console.warn('[MPH] Falló la siembra de listas cumplidas:', err),

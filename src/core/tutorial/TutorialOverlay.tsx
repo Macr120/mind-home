@@ -28,6 +28,9 @@ const MAGO = MASCOTAS.find((m) => m.id === 'mago')!
 const igual = (a: Caja, b: Caja) =>
   a.left === b.left && a.top === b.top && a.width === b.width && a.height === b.height
 
+const intersecta = (a: Caja, b: Caja) =>
+  a.left < b.left + b.width && a.left + a.width > b.left && a.top < b.top + b.height && a.top + a.height > b.top
+
 /**
  * Overlay del tutorial activo: velo + spotlight sobre el objetivo del paso,
  * el mago presentando desde una esquina y la tarjeta con el texto y los
@@ -42,6 +45,12 @@ export function TutorialOverlay() {
   const [caja, setCaja] = useState<Caja | null>(null)
   const [posTarjeta, setPosTarjeta] = useState<{ left: number; top: number } | null>(null)
   const [magoDer, setMagoDer] = useState(false)
+  // El paso ocupa las DOS esquinas de abajo (o lo declara con `sinMago`): el
+  // mago se retira en vez de tapar lo señalado.
+  const [magoOculto, setMagoOculto] = useState(false)
+  // Pantalla angosta sin objetivo: la tarjeta va ENCIMA del mago (no a su lado)
+  // y el pico del bocadillo apunta hacia abajo en vez de hacia el costado.
+  const [sobreMago, setSobreMago] = useState(false)
   const tarjetaRef = useRef<HTMLDivElement>(null)
   // Resalte del MAPA 3D (pasos con `zona`/`foco`), que proyecta ZonaTutProjector.
   // El objetivo DOM manda: un paso puede volar la cámara y resaltar un botón.
@@ -55,7 +64,11 @@ export function TutorialOverlay() {
   const p = cuerpo?.pasos[paso]
 
   // Localiza el objetivo del paso y lo sigue (scroll, resize, re-renders).
-  useEffect(() => {
+  // `useLayoutEffect`: el borrado de la caja debe llegar ANTES del pintado —
+  // como efecto pasivo, el primer frame del paso nuevo se colocaba con la caja
+  // del paso ANTERIOR y la tarjeta aparecía traslapada un instante (visible
+  // sobre todo en los pasos finales, que no tienen objetivo).
+  useLayoutEffect(() => {
     // Cada paso vuelve a medir: se borra el recuadro anterior para no dejar el
     // spotlight sobre el objetivo del paso que acaba de pasar.
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -160,6 +173,8 @@ export function TutorialOverlay() {
 
     let pos: { left: number; top: number }
     let der = false
+    let arriba = false
+    let oculto = !!p?.sinMago
     if (cajaFinal) {
       const caja = cajaFinal
       const centroX = clampX(caja.left + caja.width / 2 - cw / 2)
@@ -174,21 +189,71 @@ export function TutorialOverlay() {
         p?.colocacion && p.colocacion !== 'auto'
           ? [p.colocacion, 'abajo', 'arriba', 'derecha', 'izquierda']
           : ['abajo', 'arriba', 'derecha', 'izquierda']
-      const lado = orden.map((l) => lados[l]).find((l) => l.cabe) ?? lados.abajo
+      let lado = orden.map((l) => lados[l]).find((l) => l.cabe)
+      if (!lado) {
+        // Ningún lado cabe entero (objetivo grande, pantalla baja): gana el de
+        // más aire. El viejo «abajo a la fuerza» + clamp aterrizaba la tarjeta
+        // encima del propio objetivo aunque arriba sobrara espacio.
+        const aire: Record<string, number> = {
+          abajo: vh - (caja.top + caja.height),
+          arriba: caja.top,
+          derecha: vw - (caja.left + caja.width),
+          izquierda: caja.left,
+        }
+        const mejor = Object.keys(aire).reduce((a, b) => (aire[a] >= aire[b] ? a : b))
+        lado = lados[mejor]
+      }
       pos = { left: clampX(lado.left), top: clampY(lado.top) }
 
-      // El mago cede su esquina si el objetivo o la tarjeta la ocupan.
-      const chocaIzq = (b: Caja) => b.left < MAGO_ANCHO + 160 && b.top + b.height > vh - MAGO_ALTO - 40
-      der = chocaIzq(caja) || chocaIzq({ ...pos, width: cw, height: ch })
-      // Un recuadro del mapa que abarque toda la pantalla dejaría al mago
-      // dentro del hueco: ahí no cede nada, se queda en su esquina.
-      if (caja.width > vw * 0.9 && caja.height > vh * 0.9) der = false
+      // El mago cede su esquina si el objetivo o la tarjeta la PISAN de verdad
+      // (intersección geométrica, con la holgura del spotlight incluida); si
+      // las dos esquinas están tomadas —la caja del chat cruza el pie entero—
+      // se retira en vez de tapar lo señalado.
+      if (!oculto) {
+        const tarjeta = { ...pos, width: cw, height: ch }
+        const objetivo = {
+          left: caja.left - HOLGURA,
+          top: caja.top - HOLGURA,
+          width: caja.width + HOLGURA * 2,
+          height: caja.height + HOLGURA * 2,
+        }
+        const rectMago = (aLaDer: boolean): Caja => ({
+          left: aLaDer ? vw - MAGO_ANCHO - MARGEN : MARGEN,
+          top: vh - MAGO_ALTO - MARGEN,
+          width: MAGO_ANCHO,
+          height: MAGO_ALTO,
+        })
+        const ocupada = (m: Caja) => intersecta(m, objetivo) || intersecta(m, tarjeta)
+        const izqOcupada = ocupada(rectMago(false))
+        const derOcupada = ocupada(rectMago(true))
+        der = izqOcupada && !derOcupada
+        if (izqOcupada && derOcupada) oculto = true
+        // Un recuadro del mapa que abarque toda la pantalla dejaría al mago
+        // dentro del hueco: ahí no cede nada, se queda en su esquina.
+        if (caja.width > vw * 0.9 && caja.height > vh * 0.9) {
+          der = false
+          oculto = false
+        }
+      }
+    } else if (oculto) {
+      // Sin objetivo y sin mago: la tarjeta baja sola a la esquina.
+      pos = { left: clampX(MARGEN), top: clampY(vh - ch - 24) }
     } else {
-      // Sin objetivo: bocadillo junto al mago (en su esquina por defecto).
-      pos = { left: clampX(MARGEN + MAGO_ANCHO + 10), top: clampY(vh - ch - 24) }
+      // Sin objetivo: bocadillo junto al mago… si cabe a su lado. En pantalla
+      // angosta el clamp lo empujaba DENTRO de la esquina del mago (los pasos
+      // finales se veían traslapados): ahí la tarjeta va encima de él.
+      const cabeAlLado = MARGEN + MAGO_ANCHO + 10 + cw <= vw - MARGEN
+      if (cabeAlLado) {
+        pos = { left: clampX(MARGEN + MAGO_ANCHO + 10), top: clampY(vh - ch - 24) }
+      } else {
+        arriba = true
+        pos = { left: clampX(MARGEN), top: clampY(vh - MAGO_ALTO - ch - 12) }
+      }
     }
     setPosTarjeta((prev) => (prev && prev.left === pos.left && prev.top === pos.top ? prev : pos))
     setMagoDer(der)
+    setMagoOculto(oculto)
+    setSobreMago(arriba)
     // `cuerpo` en las deps: sin él, este efecto corría con el overlay todavía
     // en null (la tarjeta sin montar → abortaba) y no volvía a correr al llegar
     // el cuerpo — la tarjeta se quedaba en su left:-9999 de arranque, y el tour
@@ -242,11 +307,12 @@ export function TutorialOverlay() {
         <div className="absolute inset-0 bg-black/60" />
       )}
 
-      {/* El mago presentador, en su esquina (cede el lado si el paso la ocupa). */}
+      {/* El mago presentador, en su esquina (cede el lado si el paso la ocupa,
+          y se retira del todo cuando el paso toma la franja inferior entera). */}
       <div
         className={`pointer-events-none absolute bottom-4 flex flex-col items-center gap-1.5 transition-all duration-300 ${
           magoDer ? 'end-4' : 'start-4'
-        }`}
+        } ${magoOculto ? 'translate-y-6 opacity-0' : 'opacity-100'}`}
       >
         <div
           className="tut-flote grid h-16 w-16 place-items-center rounded-full text-4xl shadow-2xl"
@@ -272,10 +338,11 @@ export function TutorialOverlay() {
         className="ui-panel-legible ui-pop pointer-events-auto absolute w-80 max-w-[calc(100vw-16px)] rounded-2xl border border-white/10 p-4 shadow-2xl"
         style={posTarjeta ? { left: posTarjeta.left, top: posTarjeta.top } : { left: -9999, top: 0 }}
       >
-        {/* Pico del bocadillo cuando la tarjeta habla desde el mago. */}
-        {!cajaFinal && !magoDer && (
+        {/* Pico del bocadillo cuando la tarjeta habla desde el mago: al costado
+            si está junto a él, hacia abajo si quedó encima (pantalla angosta). */}
+        {!cajaFinal && !magoDer && !magoOculto && (
           <div
-            className="absolute -start-1.5 bottom-6 h-3 w-3 rotate-45"
+            className={`absolute h-3 w-3 rotate-45 ${sobreMago ? 'start-8 -bottom-1.5' : '-start-1.5 bottom-6'}`}
             style={{ background: 'var(--ui-panel-solido, var(--ui-panel))' }}
           />
         )}

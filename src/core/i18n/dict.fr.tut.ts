@@ -70,45 +70,77 @@ export const FR_TUT: Dict = {
   'tut.casa.1.texto': 'Voici ta maison : chaque pièce garde une app. Je te montre les commandes de base.',
   'tut.casa.2.titulo': 'Le menu principal',
   'tut.casa.2.texto':
-    'Ce bouton ouvre le menu : tes pièces, le catalogue de modèles (les apps) et l’inventaire d’objets.',
+    'Je l’ai ouvert pour que tu le voies : c’est le menu principal, avec tes pièces et leurs apps. Ses autres onglets apportent le catalogue de modèles (les apps) et l’inventaire d’objets.',
+  'tut.casa.2b.titulo': 'Le catalogue des apps',
+  'tut.casa.2b.texto':
+    'Son deuxième onglet : le catalogue de modèles — toutes les apps que la maison peut porter, chacune prête à être assignée à une pièce.',
+  'tut.casa.2c.titulo': 'L’inventaire',
+  'tut.casa.2c.texto':
+    'Et le troisième : l’inventaire — les objets et les pièces 3D que tu gardes de tes pièces, prêts à être replacés où tu veux.',
   'tut.casa.3.titulo': 'Se déplacer',
   'tut.casa.3.texto':
-    'Marche avec le joystick, avec WASD ou avec les flèches du clavier. Franchis la porte d’une pièce et tu y entres : son app s’ouvre toute seule.',
+    'Marche avec le joystick, avec WASD ou avec les flèches du clavier : toute la maison se parcourt à pied. Se promener n’ouvre pas les apps — pour entrer, touche l’objet à la sphère flottante de la pièce.',
   'tut.casa.4.titulo': 'Trois façons de regarder',
   'tut.casa.4.texto':
-    'Isométrique, troisième et première personne (ou la touche V). Toucher Iso recentre aussi la caméra sur ton personnage : la sortie rapide si tu as filé trop loin en explorant.',
+    'Je viens de te les montrer en direct : isométrique, troisième et première personne (ou la touche V). Toucher Iso recentre aussi la caméra sur ton personnage : la sortie rapide si tu as filé trop loin en explorant.',
   'tut.casa.5.titulo': 'Un coin, plusieurs maîtres',
   'tut.casa.5.texto':
     'Ce coin n’est pas que le cube de vues : approche-toi de quelque chose avec quoi on peut interagir — une chaise, un véhicule, un terrain — et il se change tout seul en ce que tu as à côté. Rien ne s’active sans que tu t’approches.',
   'tut.casa.6.titulo': 'La roue d’outils',
   'tut.casa.6.texto':
-    'Mouvements, jouets, véhicules et construction, jusqu’à 3 équipés à la fois. Elle s’ouvre ici, ou depuis ce même coin quand tu as les mains libres.',
+    'La voici ouverte : mouvements, jouets, véhicules et construction, jusqu’à 3 équipés à la fois. Elle sort du bouton à côté du joystick, ou de la case du coin quand tu as les mains libres.',
   'tut.casa.7.titulo': 'L’horloge',
   'tut.casa.7.texto':
-    'L’heure de la maison : touche-la et le calendrier complet s’ouvre, avec ses Missions du jour. Le soleil ou la lune d’à côté contrôlent le passage du temps et la lumière de la scène.',
+    'L’heure de la maison : la toucher ouvre le calendrier complet, avec ses Missions du jour. Et le soleil ou la lune ouvrent ce panneau : le passage du temps et la lumière de la scène.',
   'tut.casa.8.titulo': 'La musique de la maison',
   'tut.casa.8.texto':
-    'Chaque pièce peut avoir son propre thème, ou laisser jouer l’ambiance générale de la maison. Elle s’éteint complètement si tu préfères le silence.',
+    'La maison démarre en silence : si tu veux une bande-son, allume la musique ici. Chaque pièce apporte des chansons thématiques préchargées, ou laisse jouer l’ambiance générale de la maison.',
   'tut.casa.9.titulo': 'Le chat',
   'tut.casa.9.texto':
-    'Le chat de l’architecte : raconte-lui ce que tu as fait et il l’enregistre dans la bonne app, ou demande-lui des changements dans la maison.',
+    'Le chat de l’architecte : raconte-lui ce que tu as fait et il l’enregistre dans la bonne app, demande-lui des changements dans la maison, des images et même des modèles 3D pour tes pièces — ou papote un moment, tout simplement.',
+  'tut.casa.asistente.titulo': 'Ton assistant',
+  'tut.casa.asistente.texto':
+    'Ce bouton est ton assistant : celui qui te répond dans le chat. Touche-le pour ouvrir son menu et le personnaliser — sa forme, sa voix et sa personnalité.',
+  'tut.casa.mas.titulo': 'Le menu +',
+  'tut.casa.mas.texto':
+    'Je l’ai ouvert pour que tu le voies : avec le +, tu joins des choses au chat — envoie une image ou un PDF, prends une photo, ou passe au Masque RA et au Chat RA en face à face.',
+  'tut.casa.editor.titulo': 'L’éditeur',
+  'tut.casa.editor.texto':
+    'Le bouton Éditeur en haut ouvre ceci : toute la personnalisation en quatre onglets — Plan, Personnages, Objets et Paramètres. C’est ici que toute la maison se dessine et s’habille.',
   'tut.casa.10.texto':
-    'Voilà pour l’essentiel. Le bouton Éditeur en haut ouvre toute la personnalisation, et chaque menu et chaque app ont leur propre bouton ? avec son tutoriel.',
-  'tut.primeros.1.texto': 'D’abord : comment la maison se monte. Tout commence dans l’onglet Pièces.',
+    'Voilà pour l’essentiel. Chaque menu et chaque app ont leur propre bouton ? avec son tutoriel : demande-le quand quelque chose te semble flou.',
+  'tut.primeros.1.texto':
+    'Ce tutoriel répond à deux questions : comment ENTRER dans tes apps et comment en CRÉER une nouvelle. Les deux vivent ici, dans l’onglet Pièces.',
+  'tut.primeros.entrar.titulo': 'Entrer dans tes apps',
+  'tut.primeros.entrar.texto':
+    'Chaque pièce porte son app et tu as trois portes : sa carte ici dans le menu, l’objet à la sphère flottante sur le plan, et l’accès rapide du bouton MPH en haut.',
+  'tut.primeros.entrar.vacio': 'Tes pièces vivront ici, chacune avec son appli, et tu auras trois portes : sa carte ici dans le menu, l’objet à la sphère flottante sur le plan, et l’accès rapide du bouton MPH en haut. Créons la première…',
+  'tut.primeros.prev.titulo': 'Ta pièce va ici',
+  'tut.primeros.prev.texto':
+    'Voici l’aperçu du pinceau : la silhouette verte avec ses murs marque où la pièce va se dresser. En construisant à la main, tu la verras pareil sous ton doigt, avant de relâcher le toucher.',
+  'tut.primeros.mat.titulo': 'Construite !',
+  'tut.primeros.mat.texto':
+    'Et la voilà : la pièce s’est dressée juste là où l’aperçu la marquait, avec sa porte devant. Elle ne porte pas encore d’app — c’est ce qui vient ensuite.',
   'tut.primeros.2.titulo': 'Créer une pièce',
   'tut.primeros.2.texto':
-    'Avec ce bouton, tu dessines de nouvelles pièces sur le plan. Pour te montrer la suite du chemin, je t’en crée une tout de suite…',
+    'Avec ce bouton, tu dessines de nouvelles pièces sur le plan, cellule par cellule. Regarde — je te montre où irait la tienne…',
   'tut.primeros.3.titulo': 'Ta nouvelle pièce',
   'tut.primeros.3.texto':
     'La voilà ! Une pièce toute neuve, encore sans app : c’est pour ça que sa carte dit + Assigner.',
+  'tut.primeros.apps.titulo': 'Les apps disponibles',
+  'tut.primeros.apps.texto':
+    'Ceci ouvre + Assigner : le panneau avec toutes les apps disponibles. Chacune monte sa pièce avec ses meubles et son app. J’en donne une à la tienne…',
   'tut.primeros.4.titulo': 'Assigner une app',
   'tut.primeros.4.texto':
     'Avec + Assigner, je lui ai donné son app : regarde comme la pièce a pris son nom, son icône et ses meubles. Désormais, sa carte entière est le bouton pour entrer.',
   'tut.primeros.5.titulo': 'Entrer',
   'tut.primeros.5.texto':
-    'Nous voilà dedans : c’est l’app de la pièce. En te promenant, tu y entres aussi en franchissant sa porte, et tu en sors avec ‹ Retour à la maison.',
+    'Nous voilà dedans : c’est l’app de la pièce. Pour y revenir plus tard : sa carte dans le menu, l’objet à la sphère sur le plan, ou l’accès rapide du bouton MPH en haut.',
+  'tut.primeros.press.titulo': 'Maintiens appuyé',
+  'tut.primeros.press.texto':
+    'Regarde comme elle tremble : rester appuyé sur une pièce ou un objet le réveille, avec son menu. C’est comme ça que tu le déplaces si tu n’aimes pas où il a fini, ou que tu le supprimes.',
   'tut.primeros.6.texto':
-    'La pièce reste dans ta maison, son app prête. C’est comme ça que se monte le reste : une pièce pour chaque chose que tu veux suivre.',
+    'C’est tout : créer la pièce, lui donner son app, entrer et l’installer. Celle-ci était pour s’entraîner — je l’emporte en terminant, pour que tu montes ta maison à ton goût.',
   'tut.menu-cuartos.1.texto': 'L’onglet Pièces liste toutes les pièces de ta maison, groupées par catégorie.',
   'tut.menu-cuartos.2.titulo': 'Ton résumé',
   'tut.menu-cuartos.2.texto':

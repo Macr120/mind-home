@@ -76,10 +76,18 @@ export const TEXTOS: Record<string, string> = {
   'mi.estado.trialVencido':
     'Je inbegrepen maand is voorbij: de app en je gegevens zijn voor altijd van jou. Abonneer je om door te gaan met de maandcredits en de synchronisatie, of vul losse credits bij.',
   'mi.estado.local':
-    'Je zit in lokale modus: de app en je gegevens zijn van jou zonder iets te betalen. AI betaal je per gebruik — koop de credits die je nodig hebt, of abonneer je en krijg ze elke maand.',
+    'Je huis is van jou en je gegevens blijven op je apparaat. AI en synchronisatie betaal je apart: koop de credits die je nodig hebt, of neem een abonnement en krijg ze elke maand.',
+  'mi.estado.sinCasa':
+    'Je account heeft het huis nog niet. Koop het hieronder —of verzilver je coupon als je tester bent— en open het met ditzelfde e-mailadres op elk apparaat.',
   'mi.disponibles': 'Beschikbare credits: {n}',
   'mi.abrirApp': 'De app in de browser openen',
+  'mi.probarApp': 'Probeer gratis je huis te bouwen',
   'mi.salir': 'Uitloggen',
+  'cupon.titulo': 'Ik heb een coupon',
+  'cupon.desc': 'Verwijzingslink',
+  'cupon.codigo': 'Couponcode',
+  'cupon.canjear': 'Verzilveren',
+
   'pro.creditosMes': 'AI-credits deze maand',
   'pro.extra': 'Extra credits (bijvullingen, verlopen niet): {n}',
   'pro.gestionar': 'Abonnement beheren (opzeggen, betaling wijzigen)',

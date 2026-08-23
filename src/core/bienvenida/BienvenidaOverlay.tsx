@@ -1,5 +1,8 @@
-import { useMemo, useState, type ReactNode } from 'react'
+import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Shapes } from 'lucide-react'
+import { claveLS } from '../edicion'
+import { setBienvenidaActiva } from '../data/intencion'
+import { HoraDiaMini } from '../ui/CicloPanel'
 import { useAjustes, type EstiloIconos } from '../state/ajustesStore'
 import { useT } from '../i18n/useT'
 import { TEMAS_UI, modoBase, type ModoUI } from '../ui/temasUI'
@@ -91,8 +94,8 @@ function GuiaPasos() {
   const pasos: { id: PasoGuia; titulo: string; desc: string; cta: string; accion: () => void }[] = [
     {
       id: 'cuarto',
-      titulo: t('bienvenida.guia.cuarto.titulo', 'Crea un cuarto'),
-      desc: t('bienvenida.guia.cuarto.desc', 'Te enseño a crear un cuarto y darle su app.'),
+      titulo: t('bienvenida.guia.cuarto.titulo', 'Cómo abrir tus apps y crear más'),
+      desc: t('bienvenida.guia.cuarto.desc', 'Te enseño a entrar a tus apps y a crear una nueva con su cuarto.'),
       cta: t('bienvenida.guia.empezar', 'Empezar'),
       accion: () => lanzar(tutorialPrimerosPasos, 'cuarto'),
     },
@@ -211,6 +214,14 @@ function Wizard() {
   const estiloIconos = useAjustes((s) => s.estiloIconos)
   const setEstiloIconos = useAjustes((s) => s.setEstiloIconos)
 
+  // En el modo probar el guard de la BD avisa «inicia sesión» en cada edición
+  // del usuario; los writes del wizard siguen a un click y lo dispararían
+  // encima del propio wizard — esta marca los excluye (ver data/intencion.ts).
+  useEffect(() => {
+    setBienvenidaActiva(true)
+    return () => setBienvenidaActiva(false)
+  }, [])
+
   const [paso, setPaso] = useState(0)
   const [seleccion, setSeleccion] = useState<Set<string>>(new Set())
   const [personajeSel, setPersonajeSel] = useState<string>('base')
@@ -225,7 +236,7 @@ function Wizard() {
 
   const cerrarSinCrear = () => {
     // Se marca como vista igualmente: si no, reaparecería en cada carga.
-    localStorage.setItem(LS_BIENVENIDA, '1')
+    localStorage.setItem(claveLS(LS_BIENVENIDA), '1')
     cerrar()
   }
 
@@ -252,7 +263,7 @@ function Wizard() {
         if (preset) await diseno.setAvatarCuerpoPreset(preset)
       }
       await useMascota.getState().setMascota(mascotaSel)
-      localStorage.setItem(LS_BIENVENIDA, '1')
+      localStorage.setItem(claveLS(LS_BIENVENIDA), '1')
       useBienvenida.getState().abrirGuia()
     } finally {
       setOcupado(false)
@@ -446,6 +457,17 @@ function Wizard() {
                     </button>
                   )
                 })}
+              </div>
+            </div>
+            {/* Al FINAL a propósito (pedido del usuario). La luz de la escena
+                3D, no del chrome: el fondo oscuro de la instalación nueva es
+                «de noche» y aquí se enciende el día. */}
+            <div className="space-y-1.5">
+              <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
+                {t('ajustes.horaDia', 'Hora del día')}
+              </p>
+              <div className="rounded-xl border border-white/10 bg-white/5 p-2.5">
+                <HoraDiaMini />
               </div>
             </div>
           </div>

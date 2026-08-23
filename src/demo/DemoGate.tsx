@@ -1,5 +1,6 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import { esDemo, esDemoAutor } from '../core/edicion'
+import { useAjustes } from '../core/state/ajustesStore'
 import { borrarDemoDb, demoConstruido, demoSucia } from './modo'
 import { ejecutarIntentDemo } from './intent'
 import { PantallaDemo } from './PantallaDemo'
@@ -58,6 +59,16 @@ function GateActivo({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (fase === 'listo') void ejecutarIntentDemo()
   }, [fase])
+
+  // El año de Pep@ quedó materializado en el idioma con el que se construyó
+  // (la marca lo guarda: ver `demoConstruido`). Si el visitante cambia de
+  // idioma DENTRO del demo, se recarga para que el gate lo reconstruya en el
+  // nuevo. En autoría jamás: la reconstrucción borraría lo editado a mano.
+  const idioma = useAjustes((s) => s.idioma)
+  useEffect(() => {
+    if (fase !== 'listo' || esDemoAutor()) return
+    if (!demoConstruido()) location.reload()
+  }, [fase, idioma])
 
   if (fase === 'listo') return <>{children}</>
   if (fase === 'construyendo') return <PantallaDemo />

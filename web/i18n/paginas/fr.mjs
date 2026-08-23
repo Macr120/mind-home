@@ -1,7 +1,7 @@
 /** Textos de las páginas estáticas en francés. Traducción de `es.mjs`. */
 export const TEXTOS = {
   'marca.nombre': 'Planificateur Mental-Maison',
-  'marca.sub': 'Mind Planner Home',
+  'marca.sub': 'MPH',
   'nav.entrar': 'Se connecter',
   'nav.descargar': 'Télécharger',
   'pie.inicio': 'Accueil',
@@ -13,9 +13,9 @@ export const TEXTOS = {
 
   'meta.titulo': 'Mind Planner Home — Ton esprit, dans une maison 3D',
   'meta.desc':
-    'Organise tes habitudes, tes objectifs, tes finances, tes repas et plus dans une maison isométrique 3D où chaque pièce est une app. Un seul paiement de 8,89 USD avec le premier mois d’IA et de synchronisation inclus ; démo gratuite.',
+    'Organise tes habitudes, tes objectifs, tes finances, tes repas et plus dans une maison isométrique 3D où chaque pièce est une app. Un seul paiement de 8,89 USD avec le premier mois d’IA et de synchronisation inclus ; essaie-la gratuitement.',
   'og.desc':
-    'Ta vie, dans une maison 3D : habitudes, objectifs, finances, repas et plus. Un paiement de 8,89 USD avec le premier mois d’IA inclus ; démo gratuite.',
+    'Ta vie, dans une maison 3D : habitudes, objectifs, finances, repas et plus. Un paiement de 8,89 USD avec le premier mois d’IA inclus ; essaie-la gratuitement.',
 
   'hero.h1': 'Ton esprit,<br />dans une maison 3D',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -40,7 +40,7 @@ export const TEXTOS = {
   'hero.sub.4':
     'entièrement à la main ou avec l’aide de l’IA. Et toutes sont reliées à un calendrier, à un système de missions quotidiennes et à tes objectifs personnels, synchronisés sur ton téléphone et ton ordinateur.',
   'hero.cta': 'Télécharger l’app',
-  'hero.demo': 'Essayer la démo gratuite',
+  'hero.probar': 'Essayer de créer ta maison gratuitement',
   'hero.nota':
     'L’app est gratuite et fonctionne hors ligne ; la maison s’achète une fois — ici sur le web ou dans l’app. L’IA et la synchronisation sont optionnelles — et si tu les laisses, tu ne perds rien.',
   'hero.video': 'Ta vidéo ou tes captures de la maison viennent ici',
@@ -128,13 +128,13 @@ export const TEXTOS = {
   'mani.cierre': 'La même dopamine. Cette fois, pour ta vraie vie.',
 
   'precio.h2': 'Un seul paiement sur la boutique, ta maison pour toujours',
-  'precio.demo.nombre': 'Démo',
-  'precio.demo.cifra': 'Gratuit',
-  'precio.demo.1': 'La maison de Pep@ avec une année de vie dedans : essaie tout',
-  'precio.demo.2': 'Sans compte, sans carte et sans connexion',
-  'precio.demo.3': 'Rien n’est gardé : au rechargement, la maison repart de zéro',
-  'precio.demo.cta': 'Essayer la démo',
-  'precio.demo.pie': 'L’app complète, pour la découvrir sans engagement.',
+  'precio.probar.nombre': 'Essaie-la',
+  'precio.probar.cifra': 'Gratuit',
+  'precio.probar.1': 'Ta propre maison avec le menu de bienvenue : essaie tout',
+  'precio.probar.2': 'Sans compte, sans carte et sans connexion',
+  'precio.probar.3': 'Rien n’est gardé tant que tu n’as pas de compte : à l’achat, tu retrouves ton essai',
+  'precio.probar.cta': 'Essayer l’app',
+  'precio.probar.pie': 'L’app complète, pour la découvrir sans engagement.',
   'precio.app.nombre': 'L’app',
   'precio.app.cifra': '8,89 USD',
   'precio.app.pagoUnico': 'paiement unique',
@@ -163,7 +163,7 @@ export const TEXTOS = {
   'desc.ios': 'Gratuit sur l’App Store. La maison s’achète à l’intérieur.',
   'desc.web.t': 'Dans ton navigateur',
   'desc.web':
-    'Rien à installer : connectez-vous avec votre compte et votre maison vous attend. Sans compte, vous pouvez essayer la démo.',
+    'Rien à installer : connectez-vous avec votre compte et votre maison vous attend. Sans compte, vous pouvez essayer l’app.',
   'desc.web.cta': 'Ouvrir l’app',
   'desc.windows': 'Installateur pour Windows 10/11.',
   'desc.mac': 'Image .dmg pour Mac.',
@@ -174,7 +174,7 @@ export const TEXTOS = {
     'Où vous voulez : ici sur le web, depuis <a href="/cuenta">votre compte</a>, ou dans l’application Android et iPhone. C’est un paiement unique enregistré sur votre compte : où que vous l’achetiez, votre maison apparaît sur tous vos appareils.',
   'faq.2.q': 'Que comprend le paiement unique ?',
   'faq.2.a':
-    'La maison entière : toutes les pièces, toutes les apps et tes données sur ton appareil, pour toujours et sans renouvellements. En plus, le premier mois apporte 700 crédits d’IA et la synchronisation inclus, sans carte. Avant de l’acheter tu peux essayer la démo complète, qui ne demande aucun compte.',
+    'La maison entière : toutes les pièces, toutes les apps et tes données sur ton appareil, pour toujours et sans renouvellements. En plus, le premier mois apporte 700 crédits d’IA et la synchronisation inclus, sans carte. Avant de l’acheter tu peux essayer l’app complète, qui ne demande aucun compte.',
   'faq.3.q': 'Combien coûte l’IA après le premier mois ?',
   'faq.3.a':
     'Ce que tu choisis, ou rien. L’abonnement est à 6 USD par mois (700 crédits et synchronisation), ou 60 USD par an — deux mois offerts. Si c’est trop juste, les niveaux ×2 et ×3 donnent 1400 ou 2100 crédits pour 12 ou 18 USD par mois. Et si tu préfères ne pas t’abonner, il y a des recharges à l’unité : 6 USD pour 700 crédits qui n’expirent pas et ne se dépensent que quand tu demandes. Ça, oui, ça se paie ici, dans <a href="/cuenta">ton compte</a>, et ça vaut pour tous tes appareils.',
@@ -240,14 +240,14 @@ export const TEXTOS = {
   'term.titulo': 'Conditions du service',
   'term.servicio.h': 'Le service',
   'term.servicio.p':
-    'Mind Planner Home est une app d’organisation personnelle. La démo est gratuite et ne demande aucun compte. L’app s’achète avec un paiement unique ; les fonctions récurrentes (crédits d’IA et synchronisation) se souscrivent uniquement sur ce site web ; les apps de bureau et de boutique sont des clients de ce même compte.',
+    'Mind Planner Home est une app d’organisation personnelle. L’essai est gratuit et ne demande aucun compte. L’app s’achète avec un paiement unique ; les fonctions récurrentes (crédits d’IA et synchronisation) se souscrivent uniquement sur ce site web ; les apps de bureau et de boutique sont des clients de ce même compte.',
   'term.app.h': 'L’app (paiement unique)',
   'term.app.1':
     'Déverrouillage de l’app : 8,89 USD, paiement unique. Il déverrouille ta maison pour toujours sur ton compte, sans renouvellements.',
   'term.app.2':
     'Il comprend le premier mois : 30 jours avec les 700 crédits d’IA mensuels et la synchronisation, sans carte et sans abonnement. À la fin, tu gardes l’app et tes données ; les crédits mensuels et la synchronisation demandent l’abonnement.',
   'term.app.3':
-    'La démo gratuite ne garde rien : elle sert à découvrir l’app avant de l’acheter.',
+    'L’essai gratuit ne garde rien tant que tu ne crées pas ton compte : il sert à découvrir l’app avant de l’acheter.',
   'term.local.h': 'Mode local',
   'term.local.p':
     'Avec l’app déverrouillée, toutes ses fonctions hors ligne s’utilisent sans coûts récurrents. Les données sont gardées sur ton appareil, et leur sauvegarde est de ta responsabilité (Réglages → Sauvegarde des données).',

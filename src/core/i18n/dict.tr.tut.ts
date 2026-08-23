@@ -69,44 +69,78 @@ export const TR_TUT: Dict = {
     'Excel’e gerçek bir .xlsx çıkar: formüller canlı, grafikler de Excel grafiği olarak. PDF ise tarayıcının yazıcısından geçer.',
   'tut.casa.1.texto': 'İşte evin: her oda bir uygulama barındırır. Sana temel kontrolleri göstereyim.',
   'tut.casa.2.titulo': 'Ana menü',
-  'tut.casa.2.texto': 'Bu düğme menüyü açar: odaların, şablon (uygulama) kataloğu ve nesne envanteri.',
+  'tut.casa.2.texto':
+    'Görmen için açtım: bu, ana menü — odaların ve onların uygulamaları burada. Diğer sekmeleri şablon (uygulama) kataloğunu ve nesne envanterini getirir.',
+  'tut.casa.2b.titulo': 'Uygulama kataloğu',
+  'tut.casa.2b.texto':
+    'İkinci sekmesi: şablon kataloğu — evin taşıyabileceği bütün uygulamalar, her biri bir odaya atanmaya hazır.',
+  'tut.casa.2c.titulo': 'Envanter',
+  'tut.casa.2c.texto':
+    'Ve üçüncüsü: envanter — odalarından sakladığın nesneler ve parçalar, istediğin yere yeniden yerleştirilmeye hazır.',
   'tut.casa.3.titulo': 'Hareket etmek',
   'tut.casa.3.texto':
-    'Joystick’le, WASD ile ya da klavyenin ok tuşlarıyla yürü. Bir odanın kapısından geçtiğinde içeri girersin ve uygulaması kendiliğinden açılır.',
+    'Joystick’le, WASD ile ya da klavyenin ok tuşlarıyla yürü: evin tamamı yürüyerek gezilir. Gezinmek uygulamaları açmaz — girmek için odanın havada süzülen küreli nesnesine dokun.',
   'tut.casa.4.titulo': 'Üç bakış biçimi',
   'tut.casa.4.texto':
-    'İzometrik, üçüncü ve birinci şahıs (ya da V tuşu). İzo’ya dokunmak ayrıca kamerayı karakterinin üzerine yeniden ortalar: keşfe dalıp uzaklaştıysan hızlı dönüş yolu.',
+    'Az önce sana canlı gösterdim: izometrik, üçüncü ve birinci şahıs (ya da V tuşu). İzo’ya dokunmak ayrıca kamerayı karakterinin üzerine yeniden ortalar: keşfe dalıp uzaklaştıysan hızlı dönüş yolu.',
   'tut.casa.5.titulo': 'Tek köşe, birkaç sahip',
   'tut.casa.5.texto':
     'O köşe sadece bakış küpü değil: etkileşime girebileceğin bir şeye yaklaştığında —bir sandalye, bir araç, bir saha— yakınında ne varsa ona göre kendiliğinden değişir. Sen yaklaşmadan hiçbir şey çalışmaz.',
   'tut.casa.6.titulo': 'Araç çarkı',
   'tut.casa.6.texto':
-    'Hareketler, Oyuncaklar, Araçlar ve İnşaat; aynı anda en fazla 3 tanesi kuşanılır. Buradan ya da elin boşken aynı köşedeki o yuvadan açılır.',
+    'İşte açık hali: Hareketler, Oyuncaklar, Araçlar ve İnşaat; aynı anda en fazla 3 tanesi kuşanılır. Joystick’in yanındaki düğmeden ya da elin boşken köşedeki o yuvadan çıkar.',
   'tut.casa.7.titulo': 'Saat',
   'tut.casa.7.texto':
-    'Evin saati: ona dokununca tam takvim açılır, günün Görevler paneli de içinde. Yanındaki güneş ya da ay, zamanın akışını ve sahnenin ışığını yönetir.',
+    'Evin saati: ona dokunmak tam takvimi açar, günün Görevleriyle birlikte. Güneş ya da ay ise bu paneli açar: zamanın akışı ve sahnenin ışığı.',
   'tut.casa.8.titulo': 'Evin müziği',
   'tut.casa.8.texto':
-    'Her odanın kendi parçası olabilir ya da evin genel atmosferi çalmaya devam edebilir. Sessizliği tercih edersen tamamen kapatılır.',
+    'Ev sessizlik içinde başlar: film müziği istersen müziği buradan aç. Her oda önceden yüklenmiş temalı şarkılarla gelir, ya da bırak evin genel atmosferi çalsın.',
   'tut.casa.9.titulo': 'Sohbet',
-  'tut.casa.9.texto': 'Mimarın sohbeti: ne yaptığını anlat, doğru uygulamaya kaydetsin; ya da evde değişiklik iste.',
+  'tut.casa.9.texto':
+    'Mimarın sohbeti: ne yaptığını anlat, doğru uygulamaya kaydetsin; evde değişiklikler, görseller, hatta odaların için 3D modeller iste — ya da sadece biraz sohbet et.',
+  'tut.casa.asistente.titulo': 'Asistanın',
+  'tut.casa.asistente.texto':
+    'Bu düğme senin asistanın: sohbette sana yanıt veren o. Dokununca menüsü açılır; oradan onu kişiselleştirirsin — şeklini, sesini ve kişiliğini.',
+  'tut.casa.mas.titulo': '+ menüsü',
+  'tut.casa.mas.texto':
+    'Görebilmen için açtım: + ile sohbete bir şeyler eklersin — bir görsel ya da PDF yükle, fotoğraf çek, ya da yüz yüze AR maskesine ve AR sohbetine geç.',
+  'tut.casa.editor.titulo': 'Düzenleyici',
+  'tut.casa.editor.texto':
+    'Yukarıdaki Düzenleyici düğmesi bunu açar: dört sekmede kişiselleştirmenin tamamı — Harita, Karakterler, Nesneler ve Ayarlar. Evin tamamı burada çizilir ve giydirilir.',
   'tut.casa.10.texto':
-    'Temeller bu kadar. Yukarıdaki Düzenleyici düğmesi kişiselleştirmenin tamamını açar; her menünün ve her uygulamanın da kendi ? düğmesi ve kendi eğitimi var.',
-  'tut.primeros.1.texto': 'İlk iş: ev nasıl kuruluyor. Her şey Odalar sekmesinde başlar.',
+    'Temeller bu kadar. Her menünün ve her uygulamanın kendi ? düğmesi ve kendi eğitimi var: bir şey kafana yatmadığında onu iste.',
+  'tut.primeros.1.texto':
+    'Bu eğitim iki soruyu yanıtlıyor: uygulamalarına nasıl GİRERSİN ve yenisini nasıl OLUŞTURURSUN. İkisi de burada, Odalar sekmesinde yaşıyor.',
+  'tut.primeros.entrar.titulo': 'Uygulamalarına gir',
+  'tut.primeros.entrar.texto':
+    'Her oda kendi uygulamasını taşır ve üç kapın var: burada menüdeki kartı, haritadaki havada süzülen küreli nesne ve üstteki MPH düğmesinin hızlı erişimi.',
+  'tut.primeros.entrar.vacio': 'Odaların burada yaşayacak, her biri kendi uygulamasıyla; üç kapın olacak: burada menüdeki kartı, haritadaki havada süzülen küreli nesne ve üstteki MPH düğmesinin hızlı erişimi. İlkini oluşturalım…',
+  'tut.primeros.prev.titulo': 'Odan buraya kurulacak',
+  'tut.primeros.prev.texto':
+    'Bu, fırçanın önizlemesi: duvarlarıyla birlikte yeşil siluet, odanın nereye kurulacağını gösterir. Elle inşa ederken de aynısını parmağının altında görürsün, dokunuşu bırakmadan önce.',
+  'tut.primeros.mat.titulo': 'İnşa edildi!',
+  'tut.primeros.mat.texto':
+    'Ve işte burada: oda tam önizlemenin gösterdiği yere kuruldu, kapısı önde. Henüz uygulaması yok — sıradaki adım bu.',
   'tut.primeros.2.titulo': 'Oda oluştur',
   'tut.primeros.2.texto':
-    'Bu düğmeyle haritaya yeni odalar çizersin. Yolun geri kalanını göstermek için şimdi sana bir tane oluşturuyorum…',
+    'Bu düğmeyle haritaya hücre hücre yeni odalar çizersin. Bak — seninkinin nereye kurulacağını göstereyim…',
   'tut.primeros.3.titulo': 'Yeni odan',
   'tut.primeros.3.texto':
     'İşte burada! Yeni oluşturulmuş bir oda, henüz uygulaması yok: bu yüzden kartında + Ata yazıyor.',
+  'tut.primeros.apps.titulo': 'Kullanılabilir uygulamalar',
+  'tut.primeros.apps.texto':
+    'Bu, + Ata’yı açar: tüm kullanılabilir uygulamaların olduğu panel. Her biri odasını kendi mobilyaları ve kendi uygulamasıyla kurar. Seninkine bir tane vereyim…',
   'tut.primeros.4.titulo': 'Bir uygulama ata',
   'tut.primeros.4.texto':
     '+ Ata ile uygulamasını verdim: bak, oda adını, simgesini ve mobilyalarını nasıl aldı. Artık kartının tamamı giriş düğmesi.',
   'tut.primeros.5.titulo': 'Gir',
   'tut.primeros.5.texto':
-    'İçerideyiz: bu, odanın uygulaması. Dolaşırken de kapısından geçerek girersin ve ‹ Eve dön ile çıkarsın.',
+    'İçerideyiz: bu, odanın uygulaması. Sonra geri dönmek için: menüdeki kartı, haritadaki küreli nesnesi ya da üstteki MPH düğmesinin hızlı erişimi.',
+  'tut.primeros.press.titulo': 'Basılı tut',
+  'tut.primeros.press.texto':
+    'Bak nasıl titriyor: bir odayı ya da nesneyi basılı tutmak onu uyandırır, menüsüyle birlikte. Böylece durduğu yeri beğenmediysen onu taşırsın, ya da silersin.',
   'tut.primeros.6.texto':
-    'Oda, uygulaması hazır halde evinde kalır. Gerisi de böyle kurulur: burada tutmak istediğin her şey için bir oda.',
+    'Hepsi bu: odayı oluşturmak, uygulamasını vermek, girmek ve yerleştirmek. Bu oda alıştırma içindi — bitirdiğimizde onu geri alıyorum, evini kendi zevkine göre kurasın diye.',
   'tut.menu-cuartos.1.texto': 'Odalar sekmesi, evindeki bütün odaları kategorilerine göre gruplayarak listeler.',
   'tut.menu-cuartos.2.titulo': 'Senin özetin',
   'tut.menu-cuartos.2.texto':

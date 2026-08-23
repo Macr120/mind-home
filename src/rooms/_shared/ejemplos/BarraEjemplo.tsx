@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useEjemplos, useEjemploEncendido } from '../../../core/data/ejemplos'
 import { esDemo } from '../../../core/edicion'
 import { useT } from '../../../core/i18n/useT'
+import { useAjustes } from '../../../core/state/ajustesStore'
 import { Icono } from '../../../core/ui/iconos/Icono'
 import type { PaqueteEjemplo } from './tipos'
 
@@ -19,6 +20,14 @@ export function BarraEjemplo({ paquete }: { paquete: PaqueteEjemplo }) {
   const [ocupado, setOcupado] = useState(false)
   const [impedimento, setImpedimento] = useState<string | null>(null)
 
+  // Las filas del ejemplo se crean UNA sola vez (materializar): si el idioma
+  // cambió desde entonces, lo que siga siendo texto de fábrica se reescribe al
+  // activo (retraducir); lo editado por el usuario se queda como está.
+  const idioma = useAjustes((s) => s.idioma)
+  useEffect(() => {
+    if (!esDemo() && useEjemplos.getState().encendidos.includes(paquete.id)) void paquete.retraducir?.()
+  }, [idioma, paquete])
+
   // Casa demo: el año de Pep@ YA es el ejemplo (y materializar está bloqueado).
   if (esDemo()) return null
 
@@ -35,6 +44,8 @@ export function BarraEjemplo({ paquete }: { paquete: PaqueteEjemplo }) {
       setImpedimento(razon)
       if (razon) return
       await paquete.materializar()
+      // Filas que quedaron guardadas de un idioma anterior: al idioma activo.
+      await paquete.retraducir?.()
       encender(paquete.id)
     } finally {
       setOcupado(false)

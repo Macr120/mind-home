@@ -1,7 +1,7 @@
 /** Textos de las páginas estáticas en chino simplificado. Traducción de `es.mjs`. */
 export const TEXTOS = {
   'marca.nombre': '心智规划师-家',
-  'marca.sub': 'Mind Planner Home',
+  'marca.sub': 'MPH',
   'nav.entrar': '登录',
   'nav.descargar': '下载',
   'pie.inicio': '首页',
@@ -13,9 +13,9 @@ export const TEXTOS = {
 
   'meta.titulo': 'Mind Planner Home — 你的心智，装进一座 3D 房子',
   'meta.desc':
-    '在一座等距 3D 房子里整理习惯、目标、财务、饮食等等，每个房间就是一个应用。一次性支付 8.89 美元，首月含 AI 和同步；demo 免费。',
+    '在一座等距 3D 房子里整理习惯、目标、财务、饮食等等，每个房间就是一个应用。一次性支付 8.89 美元，首月含 AI 和同步；免费试用。',
   'og.desc':
-    '把你的生活装进 3D 房子：习惯、目标、财务、饮食等等。一次支付 8.89 美元，首月含 AI；demo 免费。',
+    '把你的生活装进 3D 房子：习惯、目标、财务、饮食等等。一次支付 8.89 美元，首月含 AI；免费试用。',
 
   'hero.h1': '你的心智，<br />装进一座 3D 房子',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -39,7 +39,7 @@ export const TEXTOS = {
   'hero.sub.ej3.4': '冥想和感恩',
   'hero.sub.4': '，全部手动，或者让 AI 帮你。所有应用都接到同一个日历、每日任务和你的个人目标上，手机和电脑同步。',
   'hero.cta': '下载应用',
-  'hero.demo': '试试免费 demo',
+  'hero.probar': '免费体验打造你的家',
   'hero.nota':
     '应用免费，离线也能用；房子只买一次——就在这个网页上，或在应用里。AI 和同步是可选的——就算不要，你也不会失去什么。',
   'hero.video': '这里放你的视频或房子的截图',
@@ -111,13 +111,13 @@ export const TEXTOS = {
   'mani.cierre': '同样的多巴胺。这一次，给你真实的人生。',
 
   'precio.h2': '在商店付一次，房子永远是你的',
-  'precio.demo.nombre': 'Demo',
-  'precio.demo.cifra': '免费',
-  'precio.demo.1': '佩普的房子，里面装着一整年的生活：什么都能试',
-  'precio.demo.2': '不用账户、不用银行卡、不用联网',
-  'precio.demo.3': '什么都不保存：一刷新，房子就重新开始',
-  'precio.demo.cta': '试试 demo',
-  'precio.demo.pie': '完整的应用，让你毫无负担地先认识它。',
+  'precio.probar.nombre': '先试试',
+  'precio.probar.cifra': '免费',
+  'precio.probar.1': '你自己的房子，带着欢迎菜单：什么都能试',
+  'precio.probar.2': '不用账户、不用银行卡、不用联网',
+  'precio.probar.3': '有账户之前什么都不保存：购买后就能找回你试过的内容',
+  'precio.probar.cta': '试用应用',
+  'precio.probar.pie': '完整的应用，让你毫无负担地先认识它。',
   'precio.app.nombre': '应用',
   'precio.app.cifra': '8.89 美元',
   'precio.app.pagoUnico': '一次性付款',
@@ -139,7 +139,7 @@ export const TEXTOS = {
   'desc.ios.t': 'iPhone 和 iPad',
   'desc.ios': 'App Store 免费下载，家在应用内购买。',
   'desc.web.t': '在你的浏览器里',
-  'desc.web': '无需安装：用你的账号登录，你的家就在那里。没有账号也可以试用演示。',
+  'desc.web': '无需安装：用你的账号登录，你的家就在那里。没有账号也可以试用应用。',
   'desc.web.cta': '打开应用',
   'desc.windows': 'Windows 10/11 安装程序。',
   'desc.mac': 'Mac 用的 .dmg 镜像。',
@@ -150,7 +150,7 @@ export const TEXTOS = {
     '你想在哪买都行：在网页上通过<a href="/cuenta">你的账号</a>，或在 Android 和 iPhone 的 App 内。这是一次性付费，记录在你的账号里，所以无论在哪购买，你的家都会出现在所有设备上。',
   'faq.2.q': '一次性付款包含什么？',
   'faq.2.a':
-    '整座房子：所有房间、所有应用，以及存在你设备上的数据，永远有效，不用续费。另外，首月还带 700 点 AI 额度和同步，不用银行卡。购买前你可以试完整版 demo，它不要求账户。',
+    '整座房子：所有房间、所有应用，以及存在你设备上的数据，永远有效，不用续费。另外，首月还带 700 点 AI 额度和同步，不用银行卡。购买前你可以试完整的应用，它不要求账户。',
   'faq.3.q': '首月之后 AI 要多少钱？',
   'faq.3.a':
     '你说了算，也可以一分不花。订阅每月 6 美元（700 点额度和同步），或每年 60 美元——白送两个月。如果不够用，×2 和 ×3 档每月 12 或 18 美元，给 1400 或 2100 点。如果不想订阅，还有单独充值：6 美元 700 点，不会过期，只有你提出请求时才消耗。这部分确实在<a href="/cuenta">你的账户</a>里支付，对你所有设备都有效。',
@@ -215,13 +215,13 @@ export const TEXTOS = {
   'term.titulo': '服务条款',
   'term.servicio.h': '服务',
   'term.servicio.p':
-    'Mind Planner Home 是一款个人整理应用。demo 免费且不需要账户。应用以一次性付款购买；周期性功能（AI 额度和同步）仅在本网站订购；桌面版和商店版应用都是同一账户的客户端。',
+    'Mind Planner Home 是一款个人整理应用。试用免费且不需要账户。应用以一次性付款购买；周期性功能（AI 额度和同步）仅在本网站订购；桌面版和商店版应用都是同一账户的客户端。',
   'term.app.h': '应用（一次性付款）',
   'term.app.1':
     '解锁应用：8.89 美元，一次性付款。在你的账户上永久解锁你的房子，不需续费。',
   'term.app.2':
     '含首月：30 天，包含每月 700 点 AI 额度和同步，不用银行卡也不是订阅。结束后应用和数据仍归你；每月额度和同步需要订阅。',
-  'term.app.3': '免费 demo 什么都不保存：它是让你在购买前了解应用的。',
+  'term.app.3': '免费试用在你创建账户之前什么都不保存：它是让你在购买前了解应用的。',
   'term.local.h': '本地模式',
   'term.local.p':
     '解锁应用后，所有离线功能都可以使用，没有周期性费用。数据保存在你的设备上，备份由你自己负责（设置 → 数据备份）。',

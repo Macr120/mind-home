@@ -75,10 +75,18 @@ export const TEXTOS: Record<string, string> = {
   'mi.estado.trialVencido':
     'Il tuo mese incluso è finito: l’app e i tuoi dati sono tuoi per sempre. Abbonati per continuare con i crediti mensili e la sincronizzazione, oppure ricarica crediti singoli.',
   'mi.estado.local':
-    'Sei in modalità locale: l’app e i tuoi dati sono tuoi senza pagare nulla. L’IA si paga a consumo — compra i crediti che ti servono, o abbonati e ricevili ogni mese.',
+    'La tua casa è tua e i tuoi dati restano sul tuo dispositivo. L’IA e la sincronizzazione si pagano a parte: compra i crediti che ti servono, oppure abbonati e ricevili ogni mese.',
+  'mi.estado.sinCasa':
+    'Il tuo account non ha ancora la casa. Comprala qui sotto —o riscatta il tuo coupon se sei tester— e aprila con questa stessa email su qualsiasi dispositivo.',
   'mi.disponibles': 'Crediti disponibili: {n}',
   'mi.abrirApp': 'Apri l’app nel browser',
+  'mi.probarApp': 'Prova a creare la tua casa gratis',
   'mi.salir': 'Esci',
+  'cupon.titulo': 'Ho un coupon',
+  'cupon.desc': 'Link di invito',
+  'cupon.codigo': 'Codice del coupon',
+  'cupon.canjear': 'Riscatta',
+
   'pro.creditosMes': 'Crediti di IA questo mese',
   'pro.extra': 'Crediti extra (ricariche, non scadono): {n}',
   'pro.gestionar': 'Gestisci abbonamento (disdire, cambiare pagamento)',

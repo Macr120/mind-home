@@ -201,10 +201,13 @@ a:hover {
   text-decoration: none;
 }
 
-.barra .logo img {
-  width: 34px;
-  height: 34px;
-  border-radius: var(--radio-boton);
+/* El emblema de la barra son las tres piezas sueltas (las mismas de `.piezas`,
+   aquí en línea): el icono con fondo es el del lanzador de la app, no el de una
+   página que ya tiene el suyo. */
+.barra .logo .logo-piezas {
+  width: 52px;
+  height: 15px;
+  flex-shrink: 0;
 }
 
 /* El nombre en el idioma de la página manda, y la marca original se queda
@@ -466,11 +469,11 @@ section h2 {
 
 /* Separador: las tres piezas del icono, en pequeño. */
 .piezas {
+  display: block;
   width: 54px;
   height: 15px;
   margin: 0 auto 22px;
-  background: center / contain no-repeat
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 357 100'%3E%3Crect y='3' width='94' height='94' rx='20' fill='%23DA9425'/%3E%3Cpath d='M137 0V100H237Z' fill='%23C23A40'/%3E%3Cpath d='M257 0H357V100A100 100 0 0 1 257 0Z' fill='%23895AC6'/%3E%3C/svg%3E");
+  overflow: visible;
 }
 
 .tarjetas {
@@ -666,60 +669,45 @@ section h2 {
 /* ─── El recorrido: cada sección entra por un lado ────────────────────────── */
 /* La página deja de caer siempre hacia abajo: la primera sección llega desde la
    derecha, la siguiente desde abajo, la siguiente desde la izquierda, y así.
-   Va con `animation-timeline: view()` —el scroll manda, sin JavaScript— y todo
-   cuelga de un @supports: donde no exista, la página se ve quieta y entera, que
-   es exactamente lo que debe pasar. El hero nunca se anima: ya está en pantalla
-   al cargar. */
+   Quién las dispara y cuándo está más abajo, en «El movimiento del recorrido».
+   El hero no se anima: ya está en pantalla al cargar. */
 .recorrido {
   /* Las secciones se desplazan de lado: `clip` impide que eso abra una barra
      horizontal. No vale `hidden` aquí, que anularía el sticky de la barra. */
   overflow-x: clip;
 }
 
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .recorrido > section:not(.hero) {
-      animation: llegar-derecha linear both;
-      animation-timeline: view();
-      /* Sobre `cover` y no sobre `entry`: el recorrido avanza mientras la sección
-         cruza la pantalla, y se completa mucho antes de acabarse el scroll. Con
-         `entry`, la ÚLTIMA sección puede quedarse a medias —translúcida y
-         corrida— si la página ya no da más de sí. */
-      animation-range: cover 0% cover 30%;
-    }
-
-    .recorrido > section:nth-of-type(4n + 3) {
-      animation-name: llegar-abajo;
-    }
-
-    .recorrido > section:nth-of-type(4n + 4) {
-      animation-name: llegar-izquierda;
-    }
-
-    .recorrido > section:nth-of-type(4n + 5) {
-      animation-name: llegar-abajo;
-    }
-  }
-}
-
+/* Con perspectiva, como las láminas del recorrido de la app. */
 @keyframes llegar-derecha {
   from {
     opacity: 0;
-    transform: translateX(64px);
+    transform: perspective(1200px) translateX(44px) rotateY(-8deg) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
 @keyframes llegar-izquierda {
   from {
     opacity: 0;
-    transform: translateX(-64px);
+    transform: perspective(1200px) translateX(-44px) rotateY(8deg) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
 @keyframes llegar-abajo {
   from {
     opacity: 0;
-    transform: translateY(48px);
+    transform: perspective(1200px) translateY(38px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
@@ -1180,4 +1168,141 @@ footer a:hover {
 :lang(ar) :where(h1, h2, h3, h4, h5, h6, p, span, a, li, summary, small) {
   unicode-bidi: plaintext;
   text-align: start;
+}
+
+/* ─── El movimiento del recorrido ─────────────────────────────────────────── */
+/* Las mismas entradas que estrenó el arranque de la app (`.queEs-*`/`.ui-cascada`
+   en `src/index.css`): cada bloque asoma UNA vez, con su curva y su duración, en
+   vez de ir pegado al scroll —que las rebobinaba al subir y dejaba secciones a
+   medias—. Quien las dispara es el IntersectionObserver del final de la página,
+   que marca `.entra`; el CSS solo describe qué hace cada cosa.
+
+   `html.js-anim` es la llave: la pone ese mismo script. Sin JavaScript (o con
+   `prefers-reduced-motion`) nada se esconde y la página se ve entera y quieta. */
+.js-anim .anim {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-anim .anim {
+    opacity: 1;
+  }
+}
+
+/* Las secciones llegan de lado, alternando, con un punto de perspectiva. */
+.js-anim .recorrido > section.anim.entra {
+  animation: llegar-derecha 0.5s var(--ease-fluida) both;
+}
+.js-anim .recorrido > section.anim:nth-of-type(4n + 3).entra {
+  animation-name: llegar-abajo;
+}
+.js-anim .recorrido > section.anim:nth-of-type(4n + 4).entra {
+  animation-name: llegar-izquierda;
+}
+.js-anim .recorrido > section.anim:nth-of-type(4n + 5).entra {
+  animation-name: llegar-abajo;
+}
+
+/* El título se enfoca. */
+.js-anim h2.anim.entra {
+  animation: enfocar 0.55s var(--ease-fluida) both;
+}
+
+/* Las tres piezas caen girando, una detrás de otra. */
+.js-anim .piezas > .anim.entra {
+  animation: caer-pieza 0.5s var(--ease-fluida) both;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.js-anim .piezas > .anim:nth-child(2).entra {
+  animation-delay: 0.09s;
+}
+.js-anim .piezas > .anim:nth-child(3).entra {
+  animation-delay: 0.18s;
+}
+
+/* Tarjetas, pasos, preguntas y cajas de precio: cascada por columnas. */
+.js-anim .tarjeta.anim.entra,
+.js-anim .pasos > li.anim.entra,
+.js-anim .faq > details.anim.entra,
+.js-anim .via.anim.entra,
+.js-anim .precio-caja.anim.entra,
+.js-anim .franja-ia.anim.entra,
+.js-anim .manifiesto p.anim.entra {
+  animation: subir-bloque 0.44s var(--ease-fluida) both;
+}
+.js-anim .tarjeta.anim:nth-child(3n + 2).entra,
+.js-anim .pasos > li.anim:nth-child(3n + 2).entra,
+.js-anim .faq > details.anim:nth-child(2n).entra,
+.js-anim .precio-caja.anim:nth-child(2).entra,
+.js-anim .manifiesto p.anim:nth-child(2).entra {
+  animation-delay: 0.08s;
+}
+.js-anim .tarjeta.anim:nth-child(3n).entra,
+.js-anim .pasos > li.anim:nth-child(3n).entra,
+.js-anim .manifiesto p.anim:nth-child(3).entra {
+  animation-delay: 0.16s;
+}
+
+/* Las cifras de la portada saltan escalonadas. */
+.js-anim .cifras li.anim.entra {
+  animation: saltar-cifra 0.5s var(--ease-fluida) both;
+}
+.js-anim .cifras li.anim:nth-child(2).entra {
+  animation-delay: 0.08s;
+}
+.js-anim .cifras li.anim:nth-child(3).entra {
+  animation-delay: 0.16s;
+}
+.js-anim .cifras li.anim:nth-child(4).entra {
+  animation-delay: 0.24s;
+}
+.js-anim .cifras li.anim:nth-child(5).entra {
+  animation-delay: 0.32s;
+}
+
+@keyframes caer-pieza {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) rotate(-40deg) scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes enfocar {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes subir-bloque {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes saltar-cifra {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
