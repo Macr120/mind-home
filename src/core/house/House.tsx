@@ -476,7 +476,10 @@ export function House() {
         // near/far holgados: con la rejilla al máximo (20×20 de celdas de 12 m) las
         // esquinas del mapa quedaban fuera del volumen ortográfico y se recortaban.
         camera={{ position: [22, 22, 22], zoom: 17, near: -400, far: 800 }}
-        style={{ position: 'absolute', inset: 0 }}
+        // touchAction none: sin él, al arrastrar con el dedo (cuartos, objetos,
+        // personajes) el navegador reclama el gesto como scroll y dispara un
+        // pointercancel que suelta el arrastre nada más empezar.
+        style={{ position: 'absolute', inset: 0, touchAction: 'none' }}
         // Gama baja: rasterizar a dpr 1 (en una pantalla DPR 3, 1.5 son 2.25×
         // los píxeles de 1 — demasiado para su GPU).
         dpr={DPR}

@@ -9,6 +9,7 @@ import { confirmar } from '../state/confirmarStore'
 import { useAsignar } from '../state/asignarStore'
 import { usePlanos } from '../state/planosStore'
 import { useEditorUi } from '../state/editorUiStore'
+import { useHerramienta } from '../state/herramientaStore'
 import { tituloSubtituloCuarto, useNombreCuarto } from './roomDisplay'
 import { TechoToggleButton, ExplotarToggleButton } from './TechoToggleButton'
 import { ResumenJugador, ProgresoApp } from './ProgresoPanel'
@@ -486,15 +487,25 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
           )
         })}
 
-        {/* Crear cuarto: abre el editor de mapa en modo Cuartos con el pincel cuadrado. */}
+        {/* Crear cuarto: modo Cuartos con el pincel cuadrado. En teléfono entra al
+            modo constructor sobre el mapa (el atajo de la rueda, pantalla completa);
+            en el resto abre el editor de mapa. */}
         <button
           type="button"
           data-tut="menu.cuartos.crear"
           onClick={() => {
             usePlanos.getState().setModo('cuartos')
+            usePlanos.getState().setDetalleRejilla('celda')
             usePlanos.getState().setPincelForma('cuadrado')
-            useEditorUi.getState().setTab('mapa')
-            setEditMode(true)
+            if (useHud.getState().movilVertical) {
+              if (!useHerramienta.getState().equipadas.includes('construir'))
+                useHerramienta.getState().equipar('construir')
+              useHud.getState().setPlegado('infDer', false)
+              onToggle()
+            } else {
+              useEditorUi.getState().setTab('mapa')
+              setEditMode(true)
+            }
           }}
           className="mt-1 flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-white/15 py-2.5 text-sm font-semibold text-white/60 transition hover:border-white/30 hover:text-white/90"
         >

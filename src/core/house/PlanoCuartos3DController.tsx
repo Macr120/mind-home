@@ -13,9 +13,11 @@ import {
   cellToWorld,
   nivelBaseY,
   roomWallSegments,
+  worldToCeldaEntera,
   type Cell,
 } from './walls'
-import { trasladarCeldasZona, zonaEnCelda, cuartoIdEnTile } from './planoGeometria'
+import { trasladarCeldasZona, zonaEnCelda, cuartoIdEnTile, puedeColocarCuartoBasico } from './planoGeometria'
+import { playerPos } from '../state/playerPosition'
 import { celdaEnteraBajoCursor, celdaBajoCursor, cuadranteBajoCursor } from './arrastreCelda'
 import { finalizarArrastreZona } from '../ui/comun/planoZonaDrag'
 import { aplicarFormaEnPlano } from '../ui/comun/planoEditarForma'
@@ -249,6 +251,27 @@ export function PlanoCuartos3DController() {
   )
   const anchorDe = useCallback((id: string) => cells[id], [cells])
 
+  // Al activar el pincel, el fantasma nace solo en la celda colocable más cercana
+  // al personaje: en touch no hay hover, y sin él nada indicaba que ya se puede
+  // tocar el mapa para crear un cuarto. En cuanto hay hover (o se crea el cuarto,
+  // que limpia el pincel), este fantasma cede su lugar.
+  const celdaFantasmaAuto = useMemo(() => {
+    if (!pincel || pincelFino) return null
+    const base = worldToCeldaEntera(playerPos.x, playerPos.z)
+    const maxR = Math.max(gridCols, gridRows)
+    for (let r = 0; r <= maxR; r++) {
+      for (let dr = -r; dr <= r; dr++) {
+        for (let dc = -r; dc <= r; dc++) {
+          if (Math.max(Math.abs(dc), Math.abs(dr)) !== r) continue
+          const c = { col: base.col + dc, row: base.row + dr }
+          if (c.col < 0 || c.row < 0 || c.col > gridCols - 1 || c.row > gridRows - 1) continue
+          if (puedeColocarCuartoBasico(c, nivel, placed, cells, footprints, niveles, zonas)) return c
+        }
+      }
+    }
+    return null
+  }, [pincel, pincelFino, nivel, placed, cells, footprints, niveles, zonas, gridCols, gridRows])
+
   const proyectarAgregar = useCallback(
     (clientX: number, clientY: number) =>
       celdaEnteraBajoCursor(clientX, clientY, {
@@ -411,7 +434,8 @@ export function PlanoCuartos3DController() {
         celdaAlterna,
         setAviso,
         setSeleccion,
-        onCuartoCreado: () => usePlanos.getState().setHerramienta('expandir'),
+        // Recién creado, lo primero es acomodarlo: queda en Mover (arrastrable).
+        onCuartoCreado: () => usePlanos.getState().setHerramienta('mover'),
       })
     },
     [pincelForma, rotForma, detalleRejilla, proyectarCuadrante, proyectarPincel, proyectarPincelSuelo, nivel, placed, cells, footprints, niveles, zonas, idsCuartosNivel, setAviso, setSeleccion],
@@ -579,6 +603,10 @@ export function PlanoCuartos3DController() {
         !zonaEnCelda(zonas, nivel, hover.col, hover.row) && (
           <HoverFormaCelda3D nivel={nivel} cell={hover} forma={pincelForma} rotacion={pincelForma === 'cuadrado' ? 0 : rotForma} />
         )}
+      {/* Sin cursor encima todavía: el fantasma automático (ver `celdaFantasmaAuto`). */}
+      {pincel && !pincelFino && pincelForma && !hover && celdaFantasmaAuto && (
+        <HoverFormaCelda3D nivel={nivel} cell={celdaFantasmaAuto} forma={pincelForma} rotacion={pincelForma === 'cuadrado' ? 0 : rotForma} />
+      )}
       {!pincel && (editarForma || borrar) && hover && (
         <HoverCelda3D nivel={nivel} cell={hover} color={borrar ? '#f87171' : '#34d399'} />
       )}

@@ -496,7 +496,8 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
           idsCuartosNivel,
           setAviso,
           setSeleccion,
-          onCuartoCreado: () => usePlanos.getState().setHerramienta('expandir'),
+          // Recién creado, lo primero es acomodarlo: queda en Mover (arrastrable).
+          onCuartoCreado: () => usePlanos.getState().setHerramienta('mover'),
         })
         return
       }

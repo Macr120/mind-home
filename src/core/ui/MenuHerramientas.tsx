@@ -254,6 +254,9 @@ export function MenuHerramientas() {
   // constructor en el 3D y cierra la rueda para dejar toda la pantalla al mapa.
   const elegirModo = (m: ModoConstructor) => {
     if (!useHerramienta.getState().equipadas.includes('construir')) equipar('construir')
+    // Con construir ya equipada `equipar` no corre: desplegar aquí también la
+    // esquina del panel, para que elegir un modo siempre lo deje a la vista.
+    useHud.getState().setPlegado('infDer', false)
     usePlanos.getState().setModo(m)
     // Modo Cuartos: celda entera + pincel cuadrado listo para dibujar al primer toque.
     if (m === 'cuartos') {

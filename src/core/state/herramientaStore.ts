@@ -6,6 +6,7 @@ import { usePlanos } from './planosStore'
 import { miraFrame } from './miraFrame'
 import { useCam } from './cameraStore'
 import { useCargar } from './cargarStore'
+import { useHud } from './hudStore'
 
 /**
  * Herramientas de la rueda (estilo GTA) y acciones del personaje. Se pueden
@@ -199,6 +200,9 @@ export const useHerramienta = create<HerramientaState>((set, get) => {
       const nuevas = [...eq, h]
       if (nuevas.length > MAX_EQUIPADAS) apagar(nuevas.shift()!)
       set({ equipadas: nuevas })
+      // El panel de la herramienta vive en la esquina inferior derecha: si está
+      // plegada, el panel nacería oculto tras el tirador.
+      useHud.getState().setPlegado('infDer', false)
     },
     soltarTodo: () => {
       for (const h of get().equipadas) apagar(h)
