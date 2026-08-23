@@ -99,6 +99,9 @@ export const useGrafitis = create<GrafitiState>((set, get) => ({
 
   cargar: async () => {
     const filas = await db.grafitis.toArray()
+    // Recargable (el sync relee al traer grafitis): sin revocar, cada recarga
+    // fugaría los object URLs anteriores.
+    for (const url of Object.values(get().porMuro)) URL.revokeObjectURL(url)
     const porMuro: Record<string, string> = {}
     for (const f of filas) porMuro[f.superficie] = URL.createObjectURL(f.imagen)
     set({ porMuro })

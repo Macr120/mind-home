@@ -1,3 +1,4 @@
+import { create } from 'zustand'
 import { usarViaCuenta, iaTtsCuenta, ErrorIA } from '../cuenta/api'
 import { provCuentaEfectivo } from '../cuenta/provCuenta'
 import { getIaKey, proveedorVoz, type ProveedorMediaId } from '../chat/ia'
@@ -38,6 +39,13 @@ const MODELO_TTS_GEMINI = 'gemini-2.5-flash-preview-tts'
 
 let audioActual: HTMLAudioElement | null = null
 let hablaActual = 0
+
+/**
+ * true mientras se ESPERA el audio del proveedor (hay segundos de red entre
+ * pedirlo y oírlo): los botones de bocina lo leen para pulsar y deshabilitarse
+ * como acuse de que la petición sí salió.
+ */
+export const useVozGenerando = create<{ generando: boolean }>(() => ({ generando: false }))
 
 function duck(bajar: boolean) {
   const ctx = contextoAudio()
@@ -134,6 +142,7 @@ export async function hablarVozIA(texto: string, opts: OpcionesHablaIA = {}): Pr
   const voces = vocesIaDisponibles()
   const voz = opts.voz && voces.includes(opts.voz) ? opts.voz : voces[0]
   const id = ++hablaActual
+  useVozGenerando.setState({ generando: true })
   try {
     let blob: Blob
     if (usarViaCuenta()) {
@@ -147,8 +156,10 @@ export async function hablarVozIA(texto: string, opts: OpcionesHablaIA = {}): Pr
       const key = getIaKey(provId)
       blob = provId === 'chatgpt' ? await ttsOpenAI(limpio, voz, key) : await ttsGemini(limpio, voz, key)
     }
-    // Una lectura más nueva ya reemplazó a esta mientras esperábamos la red.
+    // Una lectura más nueva ya reemplazó a esta mientras esperábamos la red
+    // (el flag de "generando" ahora es suyo: no se toca).
     if (id !== hablaActual) return false
+    useVozGenerando.setState({ generando: false })
     const url = URL.createObjectURL(blob)
     callarVozIA()
     const audio = new Audio(url)
@@ -168,7 +179,10 @@ export async function hablarVozIA(texto: string, opts: OpcionesHablaIA = {}): Pr
     await audio.play()
     return true
   } catch (e) {
-    if (id === hablaActual) duck(false)
+    if (id === hablaActual) {
+      duck(false)
+      useVozGenerando.setState({ generando: false })
+    }
     if (!(e instanceof ErrorIA)) console.warn('[MPH] voz IA no disponible:', e)
     return false
   }

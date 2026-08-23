@@ -39,6 +39,8 @@ interface CuartosState {
   /** Cuarto con app asignada a la espera de que el usuario confirme su borrado (ver `EliminarCuartoDialog`). */
   eliminarPendiente: { id: string; nombre: string } | null
   cargar: () => Promise<void>
+  /** Relee de la BD aunque ya haya cargado (la usa el sync al traer cambios). */
+  recargar: () => Promise<void>
   /** Crea un cuarto vacío y lo coloca en una celda libre. Devuelve su id. */
   crear: (parcial?: Partial<Pick<Cuarto, 'nombre' | 'icon' | 'color' | 'categoria'>>) => Promise<string>
   /** Crea un cuarto con la forma dibujada (celdas absolutas) en un nivel. Devuelve su id. */
@@ -86,6 +88,10 @@ export const useCuartos = create<CuartosState>((set, get) => ({
 
   cargar: async () => {
     if (get().cargado) return
+    await get().recargar()
+  },
+
+  recargar: async () => {
     const filas = await db.cuartos.toArray()
     filas.sort((a, b) => a.orden - b.orden)
     set({ cuartos: filas, cargado: true })

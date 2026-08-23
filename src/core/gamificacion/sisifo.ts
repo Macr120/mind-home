@@ -61,6 +61,12 @@ async function reconciliarYGuardar(fechas: Set<string>, hoy: string): Promise<vo
     const nuevo = reconciliar(prev, fechas, hoy)
     if (!cambio(prev, nuevo)) return
     const fila = { ...prev, ...nuevo }
+    // Una instalación fresca NO materializa el singleton: la fila naciría con
+    // updatedAt de hoy y, al fusionar dispositivos, dedupeSingletons (gana la
+    // más nueva) la preferiría sobre el progreso REAL de la cuenta. Sin
+    // progreso que guardar no se guarda nada; la fila nace con el primer día
+    // de actividad o al ver una insignia — escrituras legítimamente nuevas.
+    if (fila.id == null && !fila.altura && !fila.estrellas && !fila.insigniasVistas) return
     // Conserva uid/updatedAt que sella el middleware de sync (prev los trae en
     // runtime aunque el tipo no los declare): así la fila sincroniza como una sola.
     if (fila.id != null) await db.estadoSisifo.update(fila.id, fila)

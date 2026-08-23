@@ -1,4 +1,5 @@
 import { useMascota } from '../state/mascotaStore'
+import { useHud } from '../state/hudStore'
 import { useAsistentes } from '../state/asistentesStore'
 import { limpiarMarkdown } from '../chat/texto'
 import { useT } from '../i18n/useT'
@@ -41,7 +42,13 @@ export function AsistenteBurbuja({ asistenteId }: { asistenteId: string }) {
       )}
       <button
         type="button"
-        onClick={() => abrirConversacion(m.id)}
+        onClick={() => {
+          // El hilo vive sobre la barra del chat: hay que desplegarla (en
+          // teléfono nace plegada y la conversación no se vería).
+          useHud.getState().setMenuAbierto(false)
+          useHud.getState().setPlegado('chat', false)
+          abrirConversacion(m.id)
+        }}
         title={t('chat.verConv', 'Ver la conversación completa')}
         className="ui-panel-glass pointer-events-auto relative max-w-[16rem] cursor-pointer rounded-2xl border border-white/10 px-3.5 py-2 text-start text-sm text-white/90 shadow-xl backdrop-blur-md transition hover:border-emerald-400/40"
       >

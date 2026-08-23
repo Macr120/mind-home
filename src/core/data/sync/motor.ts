@@ -14,11 +14,12 @@
  * debounce tras escrituras (aviso del middleware), intervalo, visibilidad y
  * el botón manual de la sección Cuenta.
  */
-import { esDemo } from '../../edicion'
+import { esDemo, esProbar } from '../../edicion'
 import { db, type EntradaOutbox, type ObjetoCuarto } from '../db'
 import { exportarRespaldo } from '../respaldo'
-import type { SupabaseClient } from '@supabase/supabase-js'
+import type { RealtimeChannel, SupabaseClient } from '@supabase/supabase-js'
 import { hayBackend, obtenerSupabase } from '../../cuenta/supabase'
+import { notificarRepintado } from './repintar'
 import { useSesion } from '../../cuenta/sesionStore'
 import { tGlobal } from '../../i18n/useT'
 import { conectarAvisoEscritura, marcarEscrituraSilenciosa } from './middleware'
@@ -27,10 +28,11 @@ import { borrarBlobsDeRegistro, extraerBlobs, rehidratarBlobs } from './blobs'
 
 const LOTE_PUSH = 200
 const LOTE_PULL = 500
-const DEBOUNCE_MS = 3000
-const INTERVALO_MS = 60_000
+const DEBOUNCE_MS = 500
+// Con el campanazo Realtime el intervalo pasa a ser red de seguridad.
+const INTERVALO_MS = 120_000
 const BACKOFF_BASE_MS = 5000
-const BACKOFF_MAX_MS = 300_000
+const BACKOFF_MAX_MS = 30_000
 
 interface RegistroRemoto {
   tabla: string
@@ -55,9 +57,10 @@ function keyPathDe(tabla: string): string {
 
 // ----- Push -----
 
-async function push(userId: string): Promise<void> {
+/** Devuelve el server_seq máximo asignado a lo subido (0 si no subió nada). */
+async function push(userId: string): Promise<number> {
   const cola = await db._outbox.orderBy('id').toArray()
-  if (!cola.length) return
+  if (!cola.length) return 0
 
   // Última operación por (tabla, uid); todos los ids drenados se limpian al confirmar.
   const ultimo = new Map<string, EntradaOutbox>()
@@ -118,6 +121,7 @@ async function push(userId: string): Promise<void> {
     })
   }
 
+  let maxSeq = 0
   for (let i = 0; i < cambios.length; i += LOTE_PUSH) {
     const lote = cambios.slice(i, i + LOTE_PUSH)
     const { data, error } = await cliente!.rpc('sync_push', {
@@ -127,12 +131,16 @@ async function push(userId: string): Promise<void> {
     if ((data as { error?: string } | null)?.error) {
       throw new Error(`sync_push: ${(data as { error: string }).error}`)
     }
+    // max_seq permite ignorar el campanazo del propio push (0 en servidor viejo).
+    const seq = (data as { max_seq?: number } | null)?.max_seq
+    if (typeof seq === 'number') maxSeq = Math.max(maxSeq, seq)
     const ids = lote.flatMap((c) => idsPorClave.get(`${c.entrada.tabla}|${c.entrada.uid}`) ?? [])
     await db._outbox.bulkDelete(ids)
     for (const c of lote) {
       if (c.cuerpo.deleted === true) void borrarBlobsDeRegistro(userId, c.entrada.tabla, c.entrada.uid)
     }
   }
+  return maxSeq
 }
 
 // ----- Pull -----
@@ -333,8 +341,11 @@ async function curarAppsDuplicadas(): Promise<void> {
   )
 }
 
-async function pull(vistos?: Map<string, Set<string>>): Promise<void> {
+/** Devuelve las tablas donde el pull pudo cambiar algo local (para repintar). */
+async function pull(vistos?: Map<string, Set<string>>): Promise<Set<string>> {
+  const tocadas = new Set<string>()
   let cursor = ((await db._syncMeta.get('cursor'))?.valor as number | undefined) ?? 0
+  cursorCache = Math.max(cursorCache, cursor)
   for (;;) {
     const { data, error } = await cliente!
       .from('registros')
@@ -346,18 +357,58 @@ async function pull(vistos?: Map<string, Set<string>>): Promise<void> {
     const pagina = (data ?? []) as unknown as RegistroRemoto[]
     if (!pagina.length) break
 
-    // Blobs FUERA de la transacción (una tx de IndexedDB muere si espera red).
-    for (const r of pagina) {
-      if (vistos) {
+    // `vistos` (bootstrap) registra la página COMPLETA: necesita todos los uids
+    // que el servidor conoce, también los que pierden el LWW.
+    if (vistos) {
+      for (const r of pagina) {
         const s = vistos.get(r.tabla) ?? new Set<string>()
         s.add(r.uid)
         vistos.set(r.tabla, s)
       }
-      if (!r.deleted && r.datos) r.datos = (await rehidratarBlobs(r.datos)) as Fila
+    }
+
+    // Prefiltro LWW en lote ANTES de descargar blobs: los ecos del propio push
+    // (empate de updatedAt) y los perdedores quedan fuera sin gastar red.
+    // `aplicarRegistro` repite el chequeo dentro de la tx como autoridad final.
+    const porTabla = new Map<string, RegistroRemoto[]>()
+    for (const r of pagina) {
+      if (!esTablaSync(r.tabla)) continue
+      const grupo = porTabla.get(r.tabla) ?? []
+      grupo.push(r)
+      porTabla.set(r.tabla, grupo)
+    }
+    const candidatos: RegistroRemoto[] = []
+    for (const [tabla, grupo] of porTabla) {
+      const locales = (await db
+        .table(tabla)
+        .where('uid')
+        .anyOf(grupo.map((r) => r.uid))
+        .toArray()) as Fila[]
+      const localPorUid = new Map<string, number>()
+      for (const f of locales) {
+        if (typeof f.uid === 'string') {
+          localPorUid.set(f.uid, typeof f.updatedAt === 'number' ? f.updatedAt : 0)
+        }
+      }
+      for (const r of grupo) {
+        const local = localPorUid.get(r.uid)
+        if (r.deleted || local == null || local < r.updated_at) candidatos.push(r)
+      }
+    }
+
+    // Blobs FUERA de la transacción (una tx de IndexedDB muere si espera red),
+    // en trozos de 4 en vez de uno a uno.
+    for (let i = 0; i < candidatos.length; i += 4) {
+      await Promise.all(
+        candidatos.slice(i, i + 4).map(async (r) => {
+          if (!r.deleted && r.datos) r.datos = (await rehidratarBlobs(r.datos)) as Fila
+        }),
+      )
     }
     // Padres antes que hijos (orden estable: dentro de una tabla, server_seq).
     const orden = (t: string) => ORDEN_TOPO.indexOf(t)
-    const aplicables = [...pagina].sort((a, b) => orden(a.tabla) - orden(b.tabla))
+    const aplicables = [...candidatos].sort((a, b) => orden(a.tabla) - orden(b.tabla))
+    // El cursor avanza sobre la página COMPLETA (crash-safe por página).
     cursor = pagina.reduce((m, r) => Math.max(m, r.server_seq), cursor)
 
     await db.transaction(
@@ -367,12 +418,23 @@ async function pull(vistos?: Map<string, Set<string>>): Promise<void> {
         marcarPull()
         for (const r of aplicables) await aplicarRegistro(r)
         await reintentarPendientes()
-        await dedupeSingletons()
         await db._syncMeta.put({ clave: 'cursor', valor: cursor })
       },
     )
+    for (const r of aplicables) tocadas.add(r.tabla)
+    cursorCache = Math.max(cursorCache, cursor)
     if (pagina.length < LOTE_PULL) break
   }
+
+  // Singletons duplicados: solo si el pull trajo filas de esas tablas (antes
+  // corría en cada página, con toArray() completo de las 7 tablas).
+  if ([...tocadas].some((t) => SINGLETONS.has(t))) {
+    await db.transaction('rw', [...[...SINGLETONS].map((t) => db.table(t)), db._outbox], async () => {
+      marcarPull()
+      await dedupeSingletons()
+    })
+  }
+  return tocadas
 }
 
 // ----- Bootstrap y cuenta -----
@@ -404,8 +466,13 @@ async function verificarUsuario(userId: string): Promise<void> {
   await db._syncMeta.put({ clave: 'usuario', valor: userId })
 }
 
-async function bootstrap(): Promise<void> {
-  if ((await db._syncMeta.get('bootstrap'))?.valor === true) return
+/**
+ * Devuelve las tablas que la nube conocía si el bootstrap corrió en ESTE ciclo
+ * (null si ya estaba hecho): su pull interno avanza el cursor, así que el pull
+ * normal del ciclo no las reporta y sin esto la casa bajada no se repintaba.
+ */
+async function bootstrap(): Promise<Set<string> | null> {
+  if ((await db._syncMeta.get('bootstrap'))?.valor === true) return null
 
   // Primera sincronización con una casa ya usada: ofrecer respaldo previo.
   if ((await db.objetosCuarto.count()) > 0) {
@@ -449,6 +516,7 @@ async function bootstrap(): Promise<void> {
     await db._outbox.bulkAdd(entradas.slice(i, i + 1000))
   }
   await db._syncMeta.put({ clave: 'bootstrap', valor: true })
+  return new Set(vistos.keys())
 }
 
 // ----- Ciclo y triggers -----
@@ -458,11 +526,20 @@ let falloSeguido = 0
 let proximoIntento = 0
 /** Cliente vivo del ciclo actual: lo fija `sincronizar()` antes de push/pull. */
 let cliente: SupabaseClient | null = null
+/** Último cursor conocido (espejo en memoria del `_syncMeta.cursor`). */
+let cursorCache = 0
+/** server_seq máximo de nuestro último push: su campanazo es eco y se ignora. */
+let ultimoSeqPropio = 0
+/** true tras el primer ciclo completo: el camino ligero no salta el bootstrap. */
+let bootstrapListo = false
+/** Un campanazo llegó con el lock tomado: quien termine re-dispara un pull. */
+let pullPendiente = false
 
 /** Ciclo completo push+pull. Seguro de llamar en cualquier momento. */
 export async function sincronizar(manual = false): Promise<void> {
-  // Cinturón además del candado de main.tsx: la BD demo jamás toca la nube.
-  if (esDemo()) return
+  // Cinturón además del candado de main.tsx: las BD demo y probar jamás tocan
+  // la nube (un usuario pagado que abra `?probar=1` subiría la casa de prueba).
+  if (esDemo() || esProbar()) return
   const { usuario, plan } = useSesion.getState()
   if (!hayBackend() || !usuario || sincronizando) return
   // El sync es parte de Pro y del mes trial del unlock: sin plan vigente ni se
@@ -482,15 +559,23 @@ export async function sincronizar(manual = false): Promise<void> {
     useSesion.setState({ estadoSync: 'sincronizando', errorSync: null })
     try {
       await verificarUsuario(usuario.id)
-      await bootstrap()
-      await push(usuario.id)
-      await pull()
+      const tablasBootstrap = await bootstrap()
+      const maxSeq = await push(usuario.id)
+      if (maxSeq > 0) ultimoSeqPropio = Math.max(ultimoSeqPropio, maxSeq)
+      const tocadas = await pull()
+      // Las tablas del bootstrap se suman: su pull interno ya avanzó el cursor
+      // y sin esto el repintado del primer login salía vacío (casa «desde 0»).
+      if (tablasBootstrap) for (const t of tablasBootstrap) tocadas.add(t)
       // Sana duplicados que dejó la fusión (sus tombstones viajan en el
       // siguiente ciclo): dos dispositivos que asignaron la misma app offline.
-      await curarAppsDuplicadas()
+      // Es un escaneo completo de objetosCuarto: solo cuando pudo hacer falta.
+      if (tablasBootstrap != null || tocadas.has('objetosCuarto')) await curarAppsDuplicadas()
       falloSeguido = 0
       proximoIntento = 0
+      bootstrapListo = true
       useSesion.setState({ estadoSync: 'inactivo', ultimaSync: Date.now(), errorSync: null })
+      // Incluso con set vacío: drena repintados que esperaron a que acabara una edición.
+      notificarRepintado(tocadas)
     } catch (e) {
       falloSeguido++
       proximoIntento = Date.now() + Math.min(BACKOFF_BASE_MS * 2 ** (falloSeguido - 1), BACKOFF_MAX_MS)
@@ -510,6 +595,98 @@ export async function sincronizar(manual = false): Promise<void> {
       sincronizando = false
     }
   })
+  if (pullPendiente) {
+    pullPendiente = false
+    void sincronizarPull()
+  }
+}
+
+/**
+ * Camino LIGERO de solo-pull: lo dispara el campanazo Realtime. Sin push, sin
+ * bootstrap ni verificación de cuenta (solo cambian en login, que pasa por
+ * `sincronizar()`), y sin tocar `estadoSync` (el chip de Cuenta no parpadea
+ * a cada campanazo). Errores silenciosos con el MISMO backoff compartido: el
+ * ciclo completo del intervalo es quien reporta en la UI.
+ */
+export async function sincronizarPull(): Promise<void> {
+  if (esDemo() || esProbar()) return
+  const { usuario, plan } = useSesion.getState()
+  if (!hayBackend() || !usuario) return
+  if (plan !== 'pro' && plan !== 'trial') return
+  if (!bootstrapListo) return void sincronizar() // primer ciclo completo primero
+  if (typeof navigator !== 'undefined' && navigator.onLine === false) return
+  if (Date.now() < proximoIntento) return
+  cliente = await obtenerSupabase()
+  if (!cliente) return
+
+  await navigator.locks.request('mh-sync', { ifAvailable: true }, async (lock) => {
+    if (!lock) {
+      // Hay un ciclo en vuelo: que él remate con un pull extra al soltar.
+      pullPendiente = true
+      return
+    }
+    sincronizando = true
+    try {
+      const tocadas = await pull()
+      if (tocadas.has('objetosCuarto')) await curarAppsDuplicadas()
+      falloSeguido = 0
+      proximoIntento = 0
+      useSesion.setState({ ultimaSync: Date.now() })
+      notificarRepintado(tocadas)
+    } catch {
+      falloSeguido++
+      proximoIntento = Date.now() + Math.min(BACKOFF_BASE_MS * 2 ** (falloSeguido - 1), BACKOFF_MAX_MS)
+    } finally {
+      sincronizando = false
+    }
+  })
+  if (pullPendiente) {
+    pullPendiente = false
+    void sincronizarPull()
+  }
+}
+
+// ----- Campanazo Realtime -----
+
+let canal: RealtimeChannel | null = null
+/** true entre iniciar() y detener(): corta la suscripción si llega tarde. */
+let motorActivo = false
+
+/**
+ * Se suscribe al canal privado `sync:<user_id>`: `sync_push` (servidor) emite
+ * ahí un `{seq}` cuando OTRO dispositivo aplica cambios, y este responde con
+ * un pull ligero al momento en vez de esperar el intervalo.
+ */
+async function suscribirCampanazo(): Promise<void> {
+  if (canal) return
+  const sb = await obtenerSupabase()
+  const { usuario } = useSesion.getState()
+  if (!sb || !usuario || !motorActivo) return // detener() ganó mientras cargaba el SDK
+  await sb.realtime.setAuth() // token de la sesión para el canal privado
+  canal = sb
+    .channel(`sync:${usuario.id}`, { config: { private: true } })
+    .on('broadcast', { event: 'cambio' }, ({ payload }) => {
+      const seq =
+        typeof (payload as { seq?: unknown } | null)?.seq === 'number'
+          ? (payload as { seq: number }).seq
+          : Infinity
+      // Ecos: nuestro propio push (el advisory lock del servidor garantiza que
+      // todo seq ajeno menor ya estaba confirmado antes) o algo ya pulleado.
+      if (seq <= cursorCache || seq <= ultimoSeqPropio) return
+      void sincronizarPull()
+    })
+    .subscribe((estado) => {
+      // Cada (re)SUBSCRIBED —incluye reconexiones tras perder red— se pone al
+      // día con un pull: lo emitido con el canal caído no se repite.
+      if (estado === 'SUBSCRIBED') void sincronizarPull()
+    })
+}
+
+function desuscribirCampanazo(): void {
+  if (canal) {
+    void canal.unsubscribe()
+    canal = null
+  }
 }
 
 let timerDebounce: ReturnType<typeof setTimeout> | null = null
@@ -527,22 +704,38 @@ function alVisible(): void {
   if (document.visibilityState === 'visible') void sincronizar()
 }
 
+function alOnline(): void {
+  void sincronizar()
+}
+
 function iniciar(): void {
+  motorActivo = true
   conectarAvisoEscritura(programarPush)
   document.addEventListener('visibilitychange', alVisible)
+  window.addEventListener('online', alOnline)
   if (timerInterval == null) {
     timerInterval = setInterval(() => void sincronizar(), INTERVALO_MS)
   }
+  void suscribirCampanazo()
   void sincronizar()
 }
 
 function detener(): void {
+  motorActivo = false
   conectarAvisoEscritura(null)
   document.removeEventListener('visibilitychange', alVisible)
+  window.removeEventListener('online', alOnline)
+  desuscribirCampanazo()
   if (timerInterval != null) clearInterval(timerInterval)
   if (timerDebounce != null) clearTimeout(timerDebounce)
   timerInterval = null
   timerDebounce = null
+  // Cambio de cuenta = detener → iniciar: sin resetear, un campanazo temprano
+  // de la cuenta nueva se ignoraría o se saltaría el bootstrap.
+  bootstrapListo = false
+  cursorCache = 0
+  ultimoSeqPropio = 0
+  pullPendiente = false
   useSesion.setState({ estadoSync: 'inactivo' })
 }
 

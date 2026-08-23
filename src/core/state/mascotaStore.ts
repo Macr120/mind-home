@@ -86,7 +86,9 @@ export const useMascota = create<MascotaState>((set, get) => ({
   hiloOculto: true,
   irA: (x, z) => set({ destino: { x, z } }),
   llegoADestino: () => set({ destino: null }),
-  abrirConversacion: (id) => set({ conversacion: id }),
+  // Abrir la conversación también des-aparta el hilo: sin esto, desde la
+  // burbuja 3D o el diálogo el panel nunca aparecía (hiloOculto nace true).
+  abrirConversacion: (id) => set({ conversacion: id, hiloOculto: false }),
   cerrarConversacion: () => set({ conversacion: null }),
   setHiloOculto: (hiloOculto) => set({ hiloOculto }),
   setMascota: async (id) => {

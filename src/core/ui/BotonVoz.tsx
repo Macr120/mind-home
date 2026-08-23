@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { callarComoAsistente, hablarComoAsistente, hayVoz } from '../audio/voz'
+import { useVozGenerando } from '../audio/vozIA'
+import { vibrar } from '../audio/vibrar'
 import { getAsistente, useAsistentes } from '../state/asistentesStore'
 import { limpiarMarkdown } from '../chat/texto'
 import { useT } from '../i18n/useT'
@@ -22,6 +24,9 @@ export function BotonVoz({
 }) {
   const t = useT()
   const [hablando, setHablando] = useState(false)
+  // Acuse de la voz IA: mientras el proveedor prepara el audio (segundos de
+  // red) el botón pulsa y se deshabilita, que se vea que la petición salió.
+  const generando = useVozGenerando((s) => s.generando)
   // Solo corta al desmontar si era ESTE botón el que sonaba.
   const hablandoRef = useRef(false)
   useEffect(() => {
@@ -43,6 +48,7 @@ export function BotonVoz({
       setHablando(false)
       return
     }
+    vibrar(10)
     // Se llama también si otra lectura cancela esta.
     const ok = await hablarComoAsistente(limpiarMarkdown(texto), a, () => setHablando(false))
     setHablando(ok)
@@ -52,10 +58,17 @@ export function BotonVoz({
     <button
       type="button"
       onClick={leer}
-      title={hablando ? t('voz.callar', 'Dejar de leer') : t('voz.escuchar', 'Escuchar')}
+      disabled={generando}
+      title={
+        hablando
+          ? t('voz.callar', 'Dejar de leer')
+          : generando
+            ? t('voz.generando', 'Generando la voz…')
+            : t('voz.escuchar', 'Escuchar')
+      }
       className={`shrink-0 rounded px-1 text-white/35 transition hover:bg-white/10 hover:text-white/80 ${
         hablando ? 'text-accent' : ''
-      } ${className}`}
+      } ${generando ? 'animate-pulse text-accent' : ''} ${className}`}
     >
       <Icono nombre={hablando ? 'pausa' : 'bocina'} />
     </button>

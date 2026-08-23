@@ -130,7 +130,13 @@ function DialogoActivo({ id }: { id: string }) {
           </span>
           <button
             type="button"
-            onClick={() => abrirConversacion(id)}
+            onClick={() => {
+              // El hilo vive sobre la barra del chat: desplegarla (en teléfono
+              // nace plegada y la conversación no se vería).
+              useHud.getState().setMenuAbierto(false)
+              useHud.getState().setPlegado('chat', false)
+              abrirConversacion(id)
+            }}
             className="rounded-full px-2 py-0.5 text-[12px] text-white/45 transition hover:bg-white/10 hover:text-white/85"
             title={t('chat.verConv', 'Ver la conversación completa')}
           >

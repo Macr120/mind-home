@@ -13,7 +13,9 @@ export function ReaccionEmoji({ asistenteId, altura }: { asistenteId: string; al
   if (!emocion) return null
   return (
     // zIndexRange tope 30 (capa "mapa"): que nunca tape los paneles del HUD.
-    <Html center position={[0, altura, 0]} distanceFactor={8} zIndexRange={[30, 0]}>
+    // Sin distanceFactor: con cámara ortográfica drei multiplica por el zoom
+    // crudo (17–46 aquí) y el emoji tapaba la pantalla entera.
+    <Html center position={[0, altura, 0]} zIndexRange={[30, 0]}>
       <div className="ui-pop ui-panel-glass pointer-events-none rounded-full border border-white/10 px-2 py-1 text-2xl shadow-lg">
         <Icono emoji={EMOCIONES[emocion].emoji} />
       </div>
