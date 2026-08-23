@@ -51,6 +51,30 @@ android {
     }
 }
 
+// Android Studio compila el proyecto Android tal cual está en disco: no corre
+// `npm run build` ni copia el resultado. Sin esto, generar el bundle desde el IDE
+// empaqueta el `dist` de la última vez —el AAB sale con la app de hace horas— y
+// no hay ninguna señal de que pasó. Se engancha SOLO en release, que es lo que
+// sube a la tienda; en debug estorbaría al iterar con live reload.
+// `cap copy` y no `cap sync`: copy mueve los assets web, mientras que sync además
+// reescribe `capacitor.build.gradle`, y tocar un .gradle a mitad de build es
+// justo lo que no se debe hacer. Si añades un plugin, corre `npx cap sync android`
+// a mano esa vez.
+def esWindows = System.getProperty('os.name').toLowerCase().contains('windows')
+tasks.register('construirWeb', Exec) {
+    description = 'Compila la web y la copia a los assets de Android (solo release).'
+    workingDir rootProject.projectDir.parentFile
+    if (esWindows) {
+        commandLine 'cmd', '/c', 'npm run build && npx cap copy android'
+    } else {
+        commandLine 'sh', '-c', 'npm run build && npx cap copy android'
+    }
+}
+
+afterEvaluate {
+    tasks.named('preReleaseBuild').configure { dependsOn 'construirWeb' }
+}
+
 repositories {
     flatDir{
         dirs '../capacitor-cordova-android-plugins/src/main/libs', 'libs'
