@@ -1,7 +1,7 @@
 import { create } from 'zustand'
-import { claveLS, esDemo, esProbar } from '../edicion'
+import { claveLS, esDemo, esProbar, LS_PLAN_REAL } from '../edicion'
 import { borrarProbar, hayPruebaSucia } from '../../probar/modo'
-import { haySesionProbable } from '../cuenta/sesionStore'
+import { haySesionProbable, useSesion } from '../cuenta/sesionStore'
 import { useDiseño, esObjetoLibreria } from '../state/disenoStore'
 
 /** '1' = la bienvenida ya se vio (o la casa ya estaba armada al llegar esta versión). */
@@ -75,11 +75,13 @@ export function evaluarPrimeraVez(): void {
   // van con prefijo `probar:` vía claveLS.)
   if (esDemo()) return
   if (localStorage.getItem(claveLS(LS_BIENVENIDA)) === '1') return
-  // Con sesión iniciada este dispositivo no es de un usuario nuevo: nada de
-  // wizard — la casa de la cuenta llega (o ya llegó) por el sync. En el modo
-  // probar no aplica: ahí no hay cuenta y la bienvenida es su puerta.
+  // Con sesión iniciada la decisión es de la CUENTA: si trae casa se entra
+  // directo (sin wizard); si la nube viene vacía es una cuenta nueva y el
+  // wizard sale como siempre. Como el primer sync tarda unos segundos, la
+  // decisión espera su resultado. En el modo probar no aplica: ahí no hay
+  // cuenta y la bienvenida es su puerta.
   if (!esProbar() && haySesionProbable()) {
-    localStorage.setItem(claveLS(LS_BIENVENIDA), '1')
+    esperarCasaDeCuenta()
     return
   }
   if (appsAsignadas().size > 0) {
@@ -88,6 +90,11 @@ export function evaluarPrimeraVez(): void {
     if (!esProbar() && hayPruebaSucia()) void borrarProbar()
     return
   }
+  abrirNormal()
+}
+
+/** El camino normal del wizard: recuperación de la prueba pendiente, o abrirlo. */
+function abrirNormal(): void {
   // Casa real vacía con una prueba pendiente (visitante que creó cuenta y
   // pagó): antes del wizard se ofrece recuperar la casa de la prueba.
   if (!esProbar() && hayPruebaSucia()) {
@@ -95,6 +102,49 @@ export function evaluarPrimeraVez(): void {
     return
   }
   useBienvenida.getState().abrir()
+}
+
+/**
+ * Con sesión al arrancar: espera el primer sync y decide. Llegan apps de la
+ * cuenta → entrar directo (bienvenida marcada vista); el ciclo termina con la
+ * nube vacía → cuenta nueva, wizard normal. Sin plan de sync (el espejo
+ * `mh.planReal` no es pro/trial) no hay nada que esperar: wizard de una vez.
+ */
+function esperarCasaDeCuenta(): void {
+  const plan = localStorage.getItem(LS_PLAN_REAL)
+  if (plan !== 'pro' && plan !== 'trial') {
+    abrirNormal()
+    return
+  }
+  let decidido = false
+  const decidir = (casaLlego: boolean) => {
+    if (decidido || localStorage.getItem(claveLS(LS_BIENVENIDA)) === '1') return
+    decidido = true
+    limpiar()
+    if (casaLlego || appsAsignadas().size > 0) {
+      localStorage.setItem(claveLS(LS_BIENVENIDA), '1')
+    } else {
+      abrirNormal()
+    }
+  }
+  // La casa de la cuenta llegó: directo, sin wizard.
+  const offDiseno = useDiseño.subscribe((s, prev) => {
+    if (s.objetos !== prev.objetos && appsAsignadas().size > 0) decidir(true)
+  })
+  // El primer ciclo terminó (o falló): margen breve para el repintado y decidir.
+  const ultimaSyncBase = useSesion.getState().ultimaSync
+  const offSesion = useSesion.subscribe((s) => {
+    if (s.ultimaSync !== ultimaSyncBase || s.estadoSync === 'error') {
+      setTimeout(() => decidir(false), 2000)
+    }
+  })
+  // Red de seguridad (sin red, sync mudo): que el arranque no espere por siempre.
+  const timer = setTimeout(() => decidir(false), 20_000)
+  const limpiar = () => {
+    offDiseno()
+    offSesion()
+    clearTimeout(timer)
+  }
 }
 
 // Dispositivo nuevo que inicia sesión con el wizard ya abierto: el primer sync
