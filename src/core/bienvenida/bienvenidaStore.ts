@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { claveLS, esDemo, esProbar } from '../edicion'
 import { borrarProbar, hayPruebaSucia } from '../../probar/modo'
+import { haySesionProbable } from '../cuenta/sesionStore'
 import { useDiseño, esObjetoLibreria } from '../state/disenoStore'
 
 /** '1' = la bienvenida ya se vio (o la casa ya estaba armada al llegar esta versión). */
@@ -74,6 +75,13 @@ export function evaluarPrimeraVez(): void {
   // van con prefijo `probar:` vía claveLS.)
   if (esDemo()) return
   if (localStorage.getItem(claveLS(LS_BIENVENIDA)) === '1') return
+  // Con sesión iniciada este dispositivo no es de un usuario nuevo: nada de
+  // wizard — la casa de la cuenta llega (o ya llegó) por el sync. En el modo
+  // probar no aplica: ahí no hay cuenta y la bienvenida es su puerta.
+  if (!esProbar() && haySesionProbable()) {
+    localStorage.setItem(claveLS(LS_BIENVENIDA), '1')
+    return
+  }
   if (appsAsignadas().size > 0) {
     localStorage.setItem(claveLS(LS_BIENVENIDA), '1')
     // Cuenta veterana con casa: una prueba pendiente ya no se ofrece — fuera.
@@ -88,3 +96,16 @@ export function evaluarPrimeraVez(): void {
   }
   useBienvenida.getState().abrir()
 }
+
+// Dispositivo nuevo que inicia sesión con el wizard ya abierto: el primer sync
+// baja la casa de la cuenta segundos después del login; en cuanto llegan apps
+// asignadas con sesión puesta, la bienvenida sobra y se cierra sola.
+useDiseño.subscribe((s, prev) => {
+  if (s.objetos === prev.objetos) return
+  const st = useBienvenida.getState()
+  if (!st.abierto && !st.recuperacion) return
+  if (esDemo() || esProbar() || !haySesionProbable()) return
+  if (appsAsignadas().size === 0) return
+  localStorage.setItem(claveLS(LS_BIENVENIDA), '1')
+  useBienvenida.setState({ abierto: false, guia: false, recuperacion: false })
+})
