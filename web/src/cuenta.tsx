@@ -763,10 +763,10 @@ function Cupon() {
 
   return (
     <Panel>
-      {/* Sin la etiqueta «Link de referido»: decía algo que no era —esto es un
-          código de cupón, no un enlace— y el título y el marcador del campo ya
-          lo cuentan. */}
       <h2 className="text-sm font-bold text-white/90">{t('cupon.titulo', 'Tengo un cupón')}</h2>
+      <p className="text-[10px] font-bold uppercase tracking-wider text-white/45">
+        {t('cupon.desc', 'Link de referido')}
+      </p>
       {/* Rejilla y no flex: `botonPrincipal` ya trae `w-full`, y añadirle
           `w-auto` no lo vence —entre dos utilidades de la misma propiedad manda
           el orden del CSS generado, no el del string—, así que el botón se comía
