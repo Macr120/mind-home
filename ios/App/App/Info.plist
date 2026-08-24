@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CAPACITOR_DEBUG</key>
+	<string>$(CAPACITOR_DEBUG)</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>Mind Planner Home</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+
+	<!--
+	  Los 16 idiomas de la app (`src/core/i18n/idiomas.ts`). iOS los usa para dos
+	  cosas: elegir el `<id>.lproj/InfoPlist.strings` con el que traduce los
+	  permisos de abajo, y listar los idiomas en la ficha del App Store. Sin esta
+	  lista, el sistema da por hecho que la app es solo inglesa y pide la cámara
+	  en inglés aunque el teléfono esté en español. Al añadir un idioma nuevo hay
+	  que tocar los tres sitios: `idiomas.ts`, aquí y su carpeta `.lproj`.
+	-->
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>es</string>
+		<string>pt</string>
+		<string>fr</string>
+		<string>de</string>
+		<string>it</string>
+		<string>ja</string>
+		<string>zh</string>
+		<string>ko</string>
+		<string>ru</string>
+		<string>hi</string>
+		<string>tr</string>
+		<string>id</string>
+		<string>pl</string>
+		<string>nl</string>
+		<string>ar</string>
+	</array>
+
+	<!--
+	  Vuelta del login con Google/Apple, igual que el `intent-filter` de
+	  `MainActivity` en Android: el flujo sale al navegador del sistema (Google
+	  rechaza el WebView) y vuelve a este esquema propio con el `code` de PKCE,
+	  que canjea `escucharDeepLinkAuth` (`src/core/cuenta/sesionStore.ts`). El
+	  esquema es el bundle id: nadie más puede reclamarlo. La MISMA URL
+	  (`com.macr120.mindhome://oauth`) tiene que estar en las Redirect URLs de
+	  Supabase, que ya la tiene desde Android.
+	-->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.macr120.mindhome</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.macr120.mindhome</string>
+			</array>
+		</dict>
+	</array>
+
+	<!--
+	  Permisos. iOS MATA la app si toca una de estas APIs sin su texto, así que
+	  no son opcionales. Van en inglés (la base, igual que `values/strings.xml`
+	  de Android) y traducidos en `<id>.lproj/InfoPlist.strings`.
+	-->
+	<!-- Chat AR (`core/chat/ChatArOverlay.tsx`) y las fotos del chat. -->
+	<key>NSCameraUsageDescription</key>
+	<string>To see your surroundings in AR chat and to take photos for your apps.</string>
+	<!-- Dictado por voz (`core/audio/dictado.ts`, `useDictado.ts`). -->
+	<key>NSMicrophoneUsageDescription</key>
+	<string>To dictate to your house instead of typing.</string>
+	<!-- Los <input type="file"> de fotos: anecdotario, viajes, texturas, chat. -->
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To pick photos for your memories, your rooms and the chat.</string>
+
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<!--
+	  arm64 y no el `armv7` de la plantilla de Capacitor: la app pide iOS 15, y
+	  ahí ya no queda ni un dispositivo de 32 bits. Declarar armv7 en 2026 solo
+	  sirve para confundir a quien lea la ficha.
+	-->
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>arm64</string>
+	</array>
+	<!--
+	  Las cuatro orientaciones, como el `screenOrientation="fullSensor"` de
+	  Android: la casa 3D se juega de pie o tumbado y el CSS ya distingue
+	  «pantalla holgada» por alto y ancho (ver `@custom-variant holgado`).
+	-->
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<!--
+	  La barra de estado la decide el tema de la app: `aplicarTemaUI`
+	  (`core/ui/temasUI.ts`) llama al plugin StatusBar en cada cambio, igual que
+	  ya actualizaba el `theme-color` de la web. Por eso manda el view controller
+	  y no una constante del plist.
+	-->
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
+	<!--
+	  La app solo usa HTTPS estándar (Supabase y el proxy de IA), que es cifrado
+	  exento. Declararlo aquí evita que App Store Connect pregunte por el
+	  cumplimiento de exportación en CADA subida a TestFlight.
+	-->
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+</dict>
+</plist>

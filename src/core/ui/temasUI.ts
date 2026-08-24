@@ -20,6 +20,8 @@
  * hereda el color de lo que tiene detrás (ver `baseSegunLuz`).
  */
 
+import { pintarBarraEstadoNativa } from './barraEstadoNativa'
+
 export type TemaUIId =
   | 'medianoche'
   | 'neon'
@@ -286,4 +288,6 @@ export function aplicarTemaUI(id: TemaUIId, modo: ModoUI, baseTransparente?: Mod
   root.dataset.baseUi = base
   // La barra de estado (Android/PWA) acompaña al fondo del tema activo.
   document.querySelector('meta[name="theme-color"]')?.setAttribute('content', vars['--ui-bg'])
+  // En iOS el `theme-color` no pinta nada: la barra la manda el sistema.
+  pintarBarraEstadoNativa(base)
 }

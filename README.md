@@ -12,7 +12,7 @@ y 5 de infraestructura que se construyen sobre el mapa.
 - **Tailwind CSS v4** — estilos de las apps 2D
 - **Dexie (IndexedDB)** — datos locales (v106); la app funciona 100 % sin cuenta
 - **Supabase** — capa opcional de nube: cuenta, IA con créditos, sincronización
-- **Capacitor** — Android empaquetado (`android/`); iOS pendiente, requiere Mac
+- **Capacitor** — Android empaquetado (`android/`) e iOS empaquetado (`ios/`, requiere Mac)
 
 ## Comandos
 

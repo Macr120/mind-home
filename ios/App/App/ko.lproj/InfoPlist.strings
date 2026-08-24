@@ -1,0 +1,4 @@
+/* Permisos que enseña iOS. El original vive en Info.plist (inglés). */
+"NSCameraUsageDescription" = "AR 채팅에서 주변을 보고 앱에 넣을 사진을 찍기 위해 사용합니다.";
+"NSMicrophoneUsageDescription" = "타이핑 대신 집에 말로 받아쓰기 위해 사용합니다.";
+"NSPhotoLibraryUsageDescription" = "추억, 방, 채팅에 쓸 사진을 고르기 위해 사용합니다.";

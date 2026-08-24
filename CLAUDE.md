@@ -1,8 +1,8 @@
 # Mind Planner Home (MPH)
 
 App de una **casa isométrica 3D estilo Roblox** donde cada cuarto es una mini-app 2D
-independiente pero interconectada (muchas apps en 1). Web (Vite + React), futuro móvil
-con Capacitor.
+independiente pero interconectada (muchas apps en 1). Web (Vite + React) y móvil
+con Capacitor (Android en `android/`, iOS en `ios/`).
 
 ## Organización por contexto
 
@@ -142,5 +142,9 @@ npm run build    # build de producción
 Los tres deben pasar sin errores antes de dar por hecho un cambio.
 
 ## Notas
-- iOS con Capacitor requiere Mac; desarrollo principal en Windows.
+- El proyecto iOS vive en `ios/` (Capacitor, requiere Mac): abrir con `npx cap open ios`,
+  Debug usa el `dist` ya copiado y Release recompila la web solo (fase «Compilar la web»,
+  espejo del `construirWeb` de Android). Iconos/splash: `npm run ios:iconos`. Permisos
+  traducidos en `ios/App/App/<id>.lproj/InfoPlist.strings` (los 16 idiomas, como los
+  widgets de Android).
 - Ver `README.md` para detalles y tabla completa.

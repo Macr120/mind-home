@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { esAppNativa } from '../plataforma'
+import { esAppNativa, nombrePlataforma } from '../plataforma'
 import { esDemo, esProbar } from '../edicion'
 import { abrirApp } from '../abrirApp'
 import { hoyISO } from '../rutinas'
@@ -32,7 +32,9 @@ const ASPECTO_WIDGET = 250 / 110
  */
 export function useWidgets(): void {
   // Todos son fijos por sesión: el modo y la plataforma se deciden al cargar.
-  const activo = esAppNativa() && !esDemo() && !esProbar()
+  // Solo Android: el plugin Widgets es Java propio y en iOS no existe, así que
+  // sin este corte cada snapshot acabaría en un warn del puente.
+  const activo = esAppNativa() && nombrePlataforma() === 'android' && !esDemo() && !esProbar()
 
   // Reactivo: rastrea todas las tablas Dexie que lee armarSnapshot. Qué apps
   // tiene la casa sale además del DISEÑO, no de Dexie: sin esa dependencia el

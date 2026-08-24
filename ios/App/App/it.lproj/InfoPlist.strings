@@ -1,0 +1,4 @@
+/* Permisos que enseña iOS. El original vive en Info.plist (inglés). */
+"NSCameraUsageDescription" = "Per vedere ciò che ti circonda nella chat AR e scattare foto per le tue app.";
+"NSMicrophoneUsageDescription" = "Per dettare alla tua casa invece di scrivere.";
+"NSPhotoLibraryUsageDescription" = "Per scegliere foto per i tuoi ricordi, le tue stanze e la chat.";

@@ -6,12 +6,13 @@ import tseslint from 'typescript-eslint'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  // `android/` es la plataforma nativa generada por Capacitor (incluye el
-  // `native-bridge.js` de sus builds): código de terceros, no se lintea.
+  // `android/` y `ios/` son las plataformas nativas generadas por Capacitor
+  // (incluyen el `native-bridge.js` y los checkouts de SPM de sus builds):
+  // código de terceros, no se lintea.
   // `.claude/` puede contener worktrees de sesiones con su propio tsconfig:
   // si ESLint entra ahí, ve dos tsconfigRootDir candidatos y deja de parsear
   // TODO el proyecto (1554 errores idénticos, 0 reglas evaluadas).
-  globalIgnores(['dist', 'dist-web', 'android', '.claude']),
+  globalIgnores(['dist', 'dist-web', 'android', 'ios', '.claude']),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [

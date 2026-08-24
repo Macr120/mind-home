@@ -40,6 +40,12 @@ marketing/video/*/tts/
 marketing/video/*/salida/
 marketing/publicaciones.log.json
 
+# iOS (Capacitor) — ios/.gitignore ya excluye Pods/build/public; esto remata
+# lo que Xcode deja fuera de esa carpeta
+ios/App/build
+ios/App/output
+ios/DerivedData
+
 # Android (Capacitor) — solo la config del proyecto nativo, no lo generado/local
 android/app/build
 android/build

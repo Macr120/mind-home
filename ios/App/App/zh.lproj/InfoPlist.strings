@@ -1,0 +1,4 @@
+/* Permisos que enseña iOS. El original vive en Info.plist (inglés). */
+"NSCameraUsageDescription" = "用于在 AR 聊天中查看你周围的环境，并为你的应用拍照。";
+"NSMicrophoneUsageDescription" = "用于对你的家口述，而不用打字。";
+"NSPhotoLibraryUsageDescription" = "用于为你的回忆、房间和聊天选择照片。";

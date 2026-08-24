@@ -75,6 +75,23 @@ reservas, RevenueCat (suscripción y recargas), sincronización solo-Pro y borra
 
 ---
 
+## Plataformas — Android ✅ · iOS ✅ (proyecto) · escritorio ✅
+
+- **Android** (`android/`): empaquetado con widgets, deep link OAuth y build de
+  release que recompila la web solo (`construirWeb`).
+- **iOS** (`ios/`, ago 2026, requiere Mac): proyecto Capacitor con los 5 plugins
+  (App, Browser, LocalNotifications, StatusBar, RevenueCat), deep link OAuth por
+  el mismo esquema `com.macr120.mindhome://oauth`, permisos de cámara/micrófono/
+  fotos traducidos a los 16 idiomas (`<id>.lproj/InfoPlist.strings`), icono y
+  splash desde los SVG de la marca (`npm run ios:iconos`) y fase de build que
+  recompila la web en Release (espejo del `construirWeb` de Android). La barra
+  de estado sigue al tema vía `pintarBarraEstadoNativa` (enganchada en
+  `aplicarTemaUI`). **Pendiente de tienda**: firmar con el equipo, crear la app
+  en App Store Connect, productos IAP (ver `BACKEND.md` §3e) y TestFlight. Sin
+  widgets: los de Android son Java propio y no viajan.
+
+---
+
 ## Casa demo — un año de Pep@ ✅
 
 Demo completa en una **BD paralela** (`mind-home-demo`, solo lectura salvo minijuegos) con un
