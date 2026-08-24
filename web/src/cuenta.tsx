@@ -767,7 +767,12 @@ function Cupon() {
       <p className="text-[10px] font-bold uppercase tracking-wider text-white/45">
         {t('cupon.desc', 'Link de referido')}
       </p>
-      <div className="flex gap-2">
+      {/* Rejilla y no flex: `botonPrincipal` ya trae `w-full`, y añadirle
+          `w-auto` no lo vence —entre dos utilidades de la misma propiedad manda
+          el orden del CSS generado, no el del string—, así que el botón se comía
+          la fila y dejaba el campo en nada. Con `1fr auto` cada `w-full` mide el
+          100 % de SU columna y no hay conflicto que resolver. */}
+      <div className="grid grid-cols-[1fr_auto] gap-2">
         <input
           value={codigo}
           onChange={(e) => setCodigo(e.target.value.toUpperCase())}
@@ -775,13 +780,13 @@ function Cupon() {
             if (e.key === 'Enter') void alCanjear()
           }}
           placeholder={t('cupon.codigo', 'Código del cupón')}
-          className={inputCls}
+          className={inputCls + ' min-w-0'}
         />
         <button
           type="button"
           onClick={() => void alCanjear()}
           disabled={ocupado || !codigo.trim()}
-          className={botonPrincipal + ' w-auto shrink-0'}
+          className={botonPrincipal}
         >
           {ocupado ? t('comun.procesando', 'Procesando…') : t('cupon.canjear', 'Canjear')}
         </button>
