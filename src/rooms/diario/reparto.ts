@@ -4,6 +4,7 @@ import { mensajesChatRepo } from '../../core/data/repository'
 import { useAsistentes } from '../../core/state/asistentesStore'
 import type { Asistente } from '../../core/chat/mascotas'
 import { conversarIA, iaOperativa } from '../../core/chat/ia'
+import { iaAutoDiario } from './autoIA'
 import { claveLS, esDemo } from '../../core/edicion'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { useAjustes } from '../../core/state/ajustesStore'
@@ -146,7 +147,7 @@ function contenidoSecciones(edicion: EdicionDiario, secciones: SeccionReparto[])
 /** Redacta el mensaje en la voz del asistente (plantilla fija si no hay IA o falla). */
 async function redactarMensaje(asistente: Asistente, contenido: string): Promise<string> {
   const plantilla = `${tGlobal('diario.reparto.plantillaTitulo', '🗞️ ¡Tu diario de hoy!')}\n${contenido}`
-  if (!iaOperativa()) return plantilla
+  if (!iaOperativa() || !iaAutoDiario()) return plantilla
   try {
     // Entrega autónoma (sin mensaje del usuario del que inferir idioma): se indica explícito.
     const idioma = datosIdioma(useAjustes.getState().idioma).nombreIA

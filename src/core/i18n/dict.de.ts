@@ -3815,6 +3815,9 @@ export const DE: Dict = {
   'diario.titulo': 'Die Zeitung von heute',
   'diario.tab.titulares': 'Schlagzeilen',
   'diario.tab.efemerides': 'An diesem Tag',
+  'diario.ia.titulo': 'Die KI die Zeitung schreiben lassen',
+  'diario.ia.desc':
+    'Aus: Die Einträge zu An diesem Tag stammen aus dem eingebauten Katalog und die Assistenten liefern mit ihrer Vorlage. An: Die KI schreibt sie täglich und verbraucht 4 Credits pro Tag.',
   'diario.actualizar': 'Aktualisieren',
   'diario.reintentar': 'Erneut versuchen',
   'diario.error': 'Die Quellen konnten nicht erreicht werden. Prüfe deine Internetverbindung und versuch es erneut.',

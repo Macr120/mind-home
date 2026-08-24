@@ -3745,6 +3745,9 @@ export const PT: Dict = {
   'diario.titulo': 'O jornal de hoje',
   'diario.tab.titulares': 'Manchetes de hoje',
   'diario.tab.efemerides': 'Neste dia',
+  'diario.ia.titulo': 'Deixar a IA escrever o jornal',
+  'diario.ia.desc':
+    'Desligado, as entradas de Neste dia vêm do catálogo integrado e os assistentes entregam com o seu modelo. Ligado, a IA escreve-as todos os dias e gasta 4 créditos por dia.',
   'diario.actualizar': 'Atualizar',
   'diario.reintentar': 'Tentar de novo',
   'diario.error': 'Não foi possível conectar com as fontes. Confira sua internet e tente de novo.',

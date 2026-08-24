@@ -1,6 +1,7 @@
 import type { Efemeride, TipoEfemeride } from '../../core/data/db'
 import { datosIdioma, type Idioma } from '../../core/i18n/idiomas'
 import { conversarIA, extraerJSON, iaOperativa } from '../../core/chat/ia'
+import { iaAutoDiario } from './autoIA'
 import { tGlobal } from '../../core/i18n/useT'
 import { fetchJson } from './fuentes'
 import { catalogoDelDia, imagenWikipedia } from './catalogo'
@@ -162,7 +163,9 @@ const ORDEN: TipoEfemeride[] = ['historia', 'arte', 'libro', 'personalidad', 'es
 export async function cargarEfemerides(fecha: string, idioma: Idioma): Promise<Efemeride[]> {
   const [wiki, extras] = await Promise.all([
     cargarWikipedia(fecha, idioma).catch(() => [] as Efemeride[]),
-    (async () => (iaOperativa() ? await extrasConIA(fecha, idioma) : null))(),
+    // `iaAutoDiario()` nace apagado: sin él esto gastaba 4 créditos al día sin
+    // que nadie los pidiera. Apagado, `extras` es null y se usa el catálogo local.
+    (async () => (iaOperativa() && iaAutoDiario() ? await extrasConIA(fecha, idioma) : null))(),
   ])
   const culturales =
     extras ??

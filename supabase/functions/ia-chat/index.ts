@@ -616,16 +616,27 @@ Deno.serve(async (req) => {
   // proveedor: así el techo no se queda corto por un corte a destiempo (M4). Se
   // agenda con EdgeRuntime.waitUntil (background garantizado); fallback a await
   // si el runtime no lo expone.
-  const registro = admin.rpc('registrar_uso_ia', {
-    p_uid: usuario.id,
-    p_entrada: salida.entrada,
-    p_salida: salida.salida,
-    p_cache_crear: salida.cacheCrear,
-    p_cache_leer: salida.cacheLeer,
-    p_proveedor: proveedor,
-    p_tipo: op,
-    p_usd: costoTokensUsd(modeloServido, salida),
-  })
+  //
+  // El `.then()` NO es decorativo: `admin.rpc()` devuelve un builder PEREZOSO y
+  // la petición no sale hasta que alguien se lo pide. Pasando el builder crudo a
+  // `waitUntil` la llamada nunca salía y la instancia moría al responder — así se
+  // perdieron 28 de 50 registros antes de detectarlo, y con ellos el costo real.
+  // Encadenarlo aquí la pone en vuelo y además saca el error al log, que antes se
+  // tragaba entero.
+  const registro = admin
+    .rpc('registrar_uso_ia', {
+      p_uid: usuario.id,
+      p_entrada: salida.entrada,
+      p_salida: salida.salida,
+      p_cache_crear: salida.cacheCrear,
+      p_cache_leer: salida.cacheLeer,
+      p_proveedor: proveedor,
+      p_tipo: op,
+      p_usd: costoTokensUsd(modeloServido, salida),
+    })
+    .then(({ error }) => {
+      if (error) console.error('ia-chat: registrar_uso_ia falló —', error.message)
+    })
   if (typeof EdgeRuntime !== 'undefined') EdgeRuntime.waitUntil(registro)
   else await registro
 

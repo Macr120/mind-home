@@ -224,16 +224,22 @@ Deno.serve(async (req) => {
   if (fallos.length) console.warn(`ia-tts: respaldo ${proveedor} tras ${fallos.join(' | ')}`)
 
   // Se completa aunque el cliente corte tras responder el proveedor (M4); fallback a await.
-  const registro = admin.rpc('registrar_uso_ia', {
-    p_uid: usuario.id,
-    p_entrada: 0,
-    p_salida: 0,
-    p_cache_crear: 0,
-    p_cache_leer: 0,
-    p_proveedor: proveedor,
-    p_tipo: 'tts',
-    p_usd: audio.usd,
-  })
+  // El `.then()` dispara la petición (el builder de `rpc` es perezoso) y saca el
+  // error al log; ver la nota larga en `ia-chat/index.ts`.
+  const registro = admin
+    .rpc('registrar_uso_ia', {
+      p_uid: usuario.id,
+      p_entrada: 0,
+      p_salida: 0,
+      p_cache_crear: 0,
+      p_cache_leer: 0,
+      p_proveedor: proveedor,
+      p_tipo: 'tts',
+      p_usd: audio.usd,
+    })
+    .then(({ error }) => {
+      if (error) console.error('ia-tts: registrar_uso_ia falló —', error.message)
+    })
   if (typeof EdgeRuntime !== 'undefined') EdgeRuntime.waitUntil(registro)
   else await registro
 

@@ -13,6 +13,7 @@ import {
   type Programacion,
   type SeccionReparto,
 } from './reparto'
+import { iaAutoDiario, setIaAutoDiario } from './autoIA'
 
 interface Chip {
   id: SeccionReparto
@@ -54,6 +55,13 @@ export function RepartoConfig({ onCerrar }: { onCerrar: () => void }) {
   const asistentes = useAsistentes((s) => s.lista)
   const [progs, setProgs] = useState<Programacion[]>(() => getProgramaciones())
   const [estado, setEstado] = useState(() => estadoReparto())
+  const [iaAuto, setIaAuto] = useState(() => iaAutoDiario())
+
+  const alternarIa = () => {
+    const nueva = !iaAuto
+    setIaAuto(nueva)
+    setIaAutoDiario(nueva)
+  }
 
   const guardar = (nuevas: Programacion[]) => {
     setProgs(nuevas)
@@ -103,6 +111,39 @@ export function RepartoConfig({ onCerrar }: { onCerrar: () => void }) {
             'Programa qué feeds te entrega cada asistente en su chat: a una hora fija o en un momento sorpresa del día (con la app abierta).',
           )}
         </p>
+
+        {/* El Diario es el único cuarto donde la IA corre sola, así que su gasto
+            se decide aquí y nace apagado. */}
+        <div className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-3">
+          <div className="min-w-0 flex-1">
+            <p className="text-xs font-bold">
+              {t('diario.ia.titulo', 'Que la IA escriba el diario')}
+            </p>
+            <p className="mt-1 text-[11px] leading-relaxed text-white/45">
+              {t(
+                'diario.ia.desc',
+                'Apagada, las efemérides salen del catálogo de la app y los asistentes entregan con su plantilla. Encendida, la IA las redacta cada día y gasta 4 créditos diarios.',
+              )}
+            </p>
+          </div>
+          <button
+            type="button"
+            role="switch"
+            aria-checked={iaAuto}
+            aria-label={t('diario.ia.titulo', 'Que la IA escriba el diario')}
+            onClick={alternarIa}
+            className={`ui-presion mt-0.5 flex h-6 w-11 shrink-0 items-center rounded-full border transition ${
+              iaAuto ? 'border-transparent' : 'border-white/20 bg-white/10'
+            }`}
+            style={iaAuto ? { background: COLOR } : undefined}
+          >
+            <span
+              className={`block h-4 w-4 rounded-full bg-white transition-transform ${
+                iaAuto ? 'translate-x-6' : 'translate-x-1'
+              }`}
+            />
+          </button>
+        </div>
 
         {progs.length === 0 && (
           <p className="rounded-xl border border-white/10 bg-white/5 p-3 text-center text-xs text-white/45">

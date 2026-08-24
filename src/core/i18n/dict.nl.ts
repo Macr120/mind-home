@@ -3782,6 +3782,9 @@ export const NL: Dict = {
   'diario.titulo': 'De krant van vandaag',
   'diario.tab.titulares': 'Koppen',
   'diario.tab.efemerides': 'Op deze dag',
+  'diario.ia.titulo': 'De AI de krant laten schrijven',
+  'diario.ia.desc':
+    'Uit: de items van Op deze dag komen uit de ingebouwde catalogus en assistenten bezorgen met hun sjabloon. Aan: de AI schrijft ze elke dag en verbruikt 4 credits per dag.',
   'diario.actualizar': 'Vernieuwen',
   'diario.reintentar': 'Opnieuw proberen',
   'diario.error': 'Kon geen verbinding maken met de bronnen. Controleer je internet en probeer het opnieuw.',

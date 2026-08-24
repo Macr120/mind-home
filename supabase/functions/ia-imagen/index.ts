@@ -270,18 +270,24 @@ Deno.serve(async (req) => {
   // el costo de Gemini del de OpenAI en `uso_ia_ops` (antes solo se podía
   // inferir del contador agregado `uso_ia.imagenes`).
   // Se completa aunque el cliente corte tras responder el proveedor (M4); fallback a await.
-  const registro = admin.rpc('registrar_uso_ia', {
-    p_uid: usuario.id,
-    p_entrada: 0,
-    p_salida: 0,
-    p_cache_crear: 0,
-    p_cache_leer: 0,
-    p_proveedor: proveedor,
-    p_tipo: op,
-    // Costo fijo por PROVEEDOR servido (no por calidad pedida): así el bucket
-    // acota también la rápida servida por Gemini a pérdida.
-    p_usd: proveedor === 'gemini' ? COSTO_FIJO.imagenGemini : COSTO_FIJO.imagenOpenai,
-  })
+  // El `.then()` dispara la petición (el builder de `rpc` es perezoso) y saca el
+  // error al log; ver la nota larga en `ia-chat/index.ts`.
+  const registro = admin
+    .rpc('registrar_uso_ia', {
+      p_uid: usuario.id,
+      p_entrada: 0,
+      p_salida: 0,
+      p_cache_crear: 0,
+      p_cache_leer: 0,
+      p_proveedor: proveedor,
+      p_tipo: op,
+      // Costo fijo por PROVEEDOR servido (no por calidad pedida): así el bucket
+      // acota también la rápida servida por Gemini a pérdida.
+      p_usd: proveedor === 'gemini' ? COSTO_FIJO.imagenGemini : COSTO_FIJO.imagenOpenai,
+    })
+    .then(({ error }) => {
+      if (error) console.error('ia-imagen: registrar_uso_ia falló —', error.message)
+    })
   if (typeof EdgeRuntime !== 'undefined') EdgeRuntime.waitUntil(registro)
   else await registro
 

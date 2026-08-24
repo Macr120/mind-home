@@ -3606,6 +3606,9 @@ export const KO: Dict = {
   'diario.titulo': '오늘의 신문',
   'diario.tab.titulares': '오늘의 헤드라인',
   'diario.tab.efemerides': '오늘의 역사',
+  'diario.ia.titulo': 'AI가 신문을 쓰게 하기',
+  'diario.ia.desc':
+    '꺼두면 「오늘의 역사」 항목은 앱 내장 목록에서 가져오고 어시스턴트는 기본 문구로 전달해요. 켜면 AI가 매일 작성하고 하루에 4크레딧을 사용해요.',
   'diario.actualizar': '새로고침',
   'diario.reintentar': '다시 시도',
   'diario.error': '뉴스 소스에 연결하지 못했어요. 인터넷을 확인하고 다시 시도해 주세요.',

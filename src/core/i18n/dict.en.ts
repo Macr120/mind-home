@@ -3764,6 +3764,9 @@ export const EN: Dict = {
   'diario.titulo': 'Today\'s paper',
   'diario.tab.titulares': 'Today\'s headlines',
   'diario.tab.efemerides': 'On this day',
+  'diario.ia.titulo': 'Let AI write the paper',
+  'diario.ia.desc':
+    'Off, the On this day entries come from the built-in catalogue and assistants deliver with their template. On, AI writes them every day and spends 4 credits daily.',
   'diario.actualizar': 'Refresh',
   'diario.reintentar': 'Retry',
   'diario.error': 'Could not reach the sources. Check your internet and try again.',

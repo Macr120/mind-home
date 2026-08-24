@@ -3769,6 +3769,9 @@ export const ID: Dict = {
   'diario.titulo': 'Koran hari ini',
   'diario.tab.titulares': 'Berita utama hari ini',
   'diario.tab.efemerides': 'Hari ini dalam sejarah',
+  'diario.ia.titulo': 'Biarkan AI menulis korannya',
+  'diario.ia.desc':
+    'Mati: entri Hari ini dalam sejarah diambil dari katalog bawaan dan asisten mengirim dengan templatnya. Nyala: AI menulisnya setiap hari dan menghabiskan 4 kredit per hari.',
   'diario.actualizar': 'Segarkan',
   'diario.reintentar': 'Coba lagi',
   'diario.error': 'Tidak bisa terhubung ke sumber berita. Periksa koneksi internetmu dan coba lagi.',

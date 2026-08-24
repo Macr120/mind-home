@@ -3603,6 +3603,9 @@ export const ZH: Dict = {
   'diario.titulo': '今日报刊',
   'diario.tab.titulares': '今日头条',
   'diario.tab.efemerides': '历史上的今天',
+  'diario.ia.titulo': '让 AI 撰写报纸',
+  'diario.ia.desc':
+    '关闭时，「历史上的今天」的内容来自应用内置目录，助手按固定模板送达。开启后，AI 每天撰写，每天消耗 4 个积分。',
   'diario.actualizar': '刷新',
   'diario.reintentar': '重试',
   'diario.error': '无法连接到新闻源。请检查网络后重试。',

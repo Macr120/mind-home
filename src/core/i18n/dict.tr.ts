@@ -3717,6 +3717,9 @@ export const TR: Dict = {
   'diario.titulo': 'Bugünün gazetesi',
   'diario.tab.titulares': 'Bugünün manşetleri',
   'diario.tab.efemerides': 'Bugün tarihte',
+  'diario.ia.titulo': 'Gazeteyi yapay zekâ yazsın',
+  'diario.ia.desc':
+    'Kapalıyken Bugün tarihte girdileri uygulamanın kendi kataloğundan gelir ve asistanlar kendi şablonuyla teslim eder. Açıkken yapay zekâ bunları her gün yazar ve günde 4 kredi harcar.',
   'diario.actualizar': 'Yenile',
   'diario.reintentar': 'Tekrar dene',
   'diario.error': 'Kaynaklara bağlanılamadı. İnternetini kontrol edip tekrar dene.',

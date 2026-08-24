@@ -3732,6 +3732,9 @@ export const PL: Dict = {
   'diario.titulo': 'Dzisiejsza gazeta',
   'diario.tab.titulares': 'Dzisiejsze nagłówki',
   'diario.tab.efemerides': 'W tym dniu',
+  'diario.ia.titulo': 'Niech AI pisze gazetę',
+  'diario.ia.desc':
+    'Wyłączone: wpisy W tym dniu pochodzą z wbudowanego katalogu, a asystenci dostarczają je według szablonu. Włączone: AI pisze je codziennie i zużywa 4 kredyty dziennie.',
   'diario.actualizar': 'Odśwież',
   'diario.reintentar': 'Spróbuj ponownie',
   'diario.error': 'Nie udało się połączyć ze źródłami. Sprawdź internet i spróbuj ponownie.',

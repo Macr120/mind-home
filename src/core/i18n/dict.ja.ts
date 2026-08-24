@@ -3603,6 +3603,9 @@ export const JA: Dict = {
   'diario.titulo': '今日の新聞',
   'diario.tab.titulares': '今日のニュース',
   'diario.tab.efemerides': '今日は何の日',
+  'diario.ia.titulo': 'AIに新聞を書かせる',
+  'diario.ia.desc':
+    'オフのときは「今日は何の日」はアプリ内蔵のカタログから表示され、アシスタントは定型文で届けます。オンにするとAIが毎日書き、1日あたり4クレジットを消費します。',
   'diario.actualizar': '更新',
   'diario.reintentar': '再試行',
   'diario.error': '情報源に接続できませんでした。インターネット接続を確認してもう一度お試しください。',

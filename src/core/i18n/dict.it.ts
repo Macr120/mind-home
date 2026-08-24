@@ -3779,6 +3779,9 @@ export const IT: Dict = {
   'diario.titulo': 'Il giornale di oggi',
   'diario.tab.titulares': 'Titoli di oggi',
   'diario.tab.efemerides': 'Accadde oggi',
+  'diario.ia.titulo': 'Far scrivere il giornale all’IA',
+  'diario.ia.desc':
+    'Spento, le voci di Accadde oggi vengono dal catalogo integrato e gli assistenti consegnano con il loro modello. Acceso, l’IA le scrive ogni giorno e consuma 4 crediti al giorno.',
   'diario.actualizar': 'Aggiorna',
   'diario.reintentar': 'Riprova',
   'diario.error': 'Non è stato possibile raggiungere le fonti. Controlla la tua connessione e riprova.',

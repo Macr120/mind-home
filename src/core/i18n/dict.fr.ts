@@ -3795,6 +3795,9 @@ export const FR: Dict = {
   'diario.titulo': 'Le journal du jour',
   'diario.tab.titulares': 'Titres du jour',
   'diario.tab.efemerides': 'Ce jour-là',
+  'diario.ia.titulo': 'Laisser l’IA écrire le journal',
+  'diario.ia.desc':
+    'Désactivé, les entrées de Ce jour-là viennent du catalogue intégré et les assistants livrent avec leur modèle. Activé, l’IA les rédige chaque jour et consomme 4 crédits par jour.',
   'diario.actualizar': 'Actualiser',
   'diario.reintentar': 'Réessayer',
   'diario.error': 'Impossible de joindre les sources. Vérifie ta connexion et réessaie.',
