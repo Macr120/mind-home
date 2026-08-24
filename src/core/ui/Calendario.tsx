@@ -51,7 +51,7 @@ import {
   columnasPorSemana,
   cumplidaEn,
   indexarEjecuciones,
-  SEMANA,
+  semanaCorta,
   type ColumnaRango,
   type IndiceEjecuciones,
 } from './calendario/metricas'
@@ -1111,7 +1111,7 @@ function RejillaTiempo({
           const esHoy = fechaISO(d) === hoy
           const contenido = (
             <>
-              <p className="text-[10px] uppercase text-white/40">{SEMANA[(d.getDay() + 6) % 7]}</p>
+              <p className="text-[10px] uppercase text-white/40">{semanaCorta()[(d.getDay() + 6) % 7]}</p>
               <p className={`mx-auto grid h-6 w-6 place-items-center rounded-full text-sm font-bold ${esHoy ? 'bg-emerald-600 texto-cta' : 'text-white/80'}`}>
                 {d.getDate()}
               </p>
@@ -1837,7 +1837,7 @@ function VistaAño({
               {primero.toLocaleDateString(locale, { month: 'long' })}
             </button>
             <div className="grid grid-cols-7 gap-px">
-              {SEMANA.map((d) => (
+              {semanaCorta().map((d) => (
                 <div key={d} className="text-center text-[8px] font-bold uppercase text-white/30">
                   {d[0]}
                 </div>
@@ -1939,7 +1939,7 @@ function VistaMes({
       onPointerDown={onPointerDown}
     >
       <div className="grid grid-cols-7 gap-px">
-        {SEMANA.map((d) => (
+        {semanaCorta().map((d) => (
           <div key={d} className="ui-panel px-2 py-1 text-center text-[10px] font-bold uppercase tracking-wider text-white/40">
             {d}
           </div>

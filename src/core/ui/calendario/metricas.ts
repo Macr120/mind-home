@@ -2,7 +2,7 @@ import type { EjecucionRutina, Rutina } from '../../data/db'
 import { fechaISO, tocaFechaHistorico } from '../../rutinas'
 import { esMeta, progresoPasos } from '../../metas'
 import { deIso, fechaLocalISO, inicioSemana } from '../../fechaLocal'
-import type { TFunc } from '../../i18n/useT'
+import { localeActual, type TFunc } from '../../i18n/useT'
 
 /**
  * Cumplimiento de las rutinas en un rango de fechas: lo que alimenta el panel de
@@ -53,11 +53,30 @@ export function naceEn(r: Rutina): string {
   return r.fechaInicio && r.fechaInicio > creada ? r.fechaInicio : creada
 }
 
-/** Iniciales de la semana, L→D — las mismas que la cabecera de días de la rejilla. */
-export const SEMANA = ['lun', 'mar', 'mié', 'jue', 'vie', 'sáb', 'dom']
+let cacheSemana: { locale: string; dias: string[] } | null = null
+
+/**
+ * Iniciales de la semana, L→D, en el idioma activo — las mismas que la cabecera
+ * de días de la rejilla. El 1 de enero de 2024 fue lunes, así que siete días
+ * seguidos desde ahí dan el orden L→D sin tablas a mano.
+ *
+ * `short` es lo normal, pero en árabe devuelve el nombre entero («الأربعاء») y
+ * reventaría la columna: cuando alguna sigla se pasa de larga se cae a `narrow`.
+ * Se memoriza por locale porque esto se llama dentro de un `map` de render.
+ */
+export function semanaCorta(): string[] {
+  const locale = localeActual()
+  if (cacheSemana?.locale === locale) return cacheSemana.dias
+  const sigla = (i: number, weekday: 'short' | 'narrow') =>
+    new Date(2024, 0, 1 + i).toLocaleDateString(locale, { weekday })
+  let dias = Array.from({ length: 7 }, (_, i) => sigla(i, 'short'))
+  if (dias.some((d) => d.length > 5)) dias = Array.from({ length: 7 }, (_, i) => sigla(i, 'narrow'))
+  cacheSemana = { locale, dias }
+  return dias
+}
 
 /** Día de la semana de una fecha ISO, con las mismas siglas que la rejilla de arriba. */
-export const diaSemanaCorta = (iso: string): string => SEMANA[(deIso(iso).getDay() + 6) % 7]
+export const diaSemanaCorta = (iso: string): string => semanaCorta()[(deIso(iso).getDay() + 6) % 7]
 
 /**
  * Una columna del panel. En Día/Semana es UN día (se palomea); en Mes es una
