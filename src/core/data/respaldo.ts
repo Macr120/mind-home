@@ -1,5 +1,6 @@
 import { db } from './db'
 import { fechaLocalISO } from '../fechaLocal'
+import { descargarArchivo } from '../descargarArchivo'
 
 /**
  * Export/estado del respaldo local. IndexedDB puede ser purgado por el navegador,
@@ -20,12 +21,7 @@ export async function exportarRespaldo() {
     datos[tabla.name] = await tabla.toArray()
   }
   const blob = new Blob([JSON.stringify(datos, null, 2)], { type: 'application/json' })
-  const url = URL.createObjectURL(blob)
-  const a = document.createElement('a')
-  a.href = url
-  a.download = `mind-home-backup-${fechaLocalISO()}.json`
-  a.click()
-  URL.revokeObjectURL(url)
+  await descargarArchivo(blob, `mind-home-backup-${fechaLocalISO()}.json`)
   localStorage.setItem(CLAVE_ULTIMO, fechaLocalISO())
 }
 

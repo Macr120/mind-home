@@ -11,6 +11,7 @@
  * El marco clona los `<style>`/`<link>` del documento para que Tailwind y el CSS
  * de KaTeX valgan dentro, y añade su propia hoja de impresión.
  */
+import { descargarArchivo } from '../../core/descargarArchivo'
 import type { HojaCalculo, VariableFormula } from '../../core/data/db'
 import { tGlobal } from '../../core/i18n/useT'
 import { COLORES_PASTEL } from './constantes'
@@ -234,10 +235,7 @@ function graficasXlsx(hoja: HojaCalculo, res: ReturnType<typeof recalcular>): Gr
 
 /** Blob → archivo en el disco (mismo baile que el respaldo de datos). */
 export function descargar(blob: Blob, nombre: string): void {
-  const url = URL.createObjectURL(blob)
-  const a = document.createElement('a')
-  a.href = url
-  a.download = nombre
-  a.click()
-  URL.revokeObjectURL(url)
+  // Sin `await`: los llamadores son manejadores de botón y no esperan promesa.
+  // En la app de tienda esto abre la hoja de compartir (ver descargarArchivo).
+  void descargarArchivo(blob, nombre)
 }

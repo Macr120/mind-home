@@ -86,9 +86,15 @@ reservas, RevenueCat (suscripción y recargas), sincronización solo-Pro y borra
   splash desde los SVG de la marca (`npm run ios:iconos`) y fase de build que
   recompila la web en Release (espejo del `construirWeb` de Android). La barra
   de estado sigue al tema vía `pintarBarraEstadoNativa` (enganchada en
-  `aplicarTemaUI`). **Pendiente de tienda**: firmar con el equipo, crear la app
-  en App Store Connect, productos IAP (ver `BACKEND.md` §3e) y TestFlight. Sin
-  widgets: los de Android son Java propio y no viajan.
+  `aplicarTemaUI`). Runbook completo en [`IOS.md`](IOS.md). **Pendiente de
+  tienda**: firmar con el equipo, crear la app en App Store Connect, productos
+  IAP (ver `BACKEND.md` §3e) y TestFlight. Sin widgets: los de Android son Java
+  propio y no viajan.
+- **Descargas** (`core/descargarArchivo.ts`, ago 2026): el `<a download>` no
+  funciona en el WebView de Capacitor —ni iOS ni Android registran gestor de
+  descargas—, así que respaldo, hojas de cálculo e imágenes salen por la hoja de
+  compartir (`@capacitor/filesystem` + `@capacitor/share`). En el navegador
+  sigue el enlace de siempre.
 
 ---
 

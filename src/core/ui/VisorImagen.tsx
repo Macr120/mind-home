@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { createPortal } from 'react-dom'
+import { descargarUrl } from '../descargarArchivo'
 import { fechaLocalISO } from '../fechaLocal'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
@@ -26,10 +27,7 @@ export function VisorImagen({ url, tipo, onCerrar }: { url: string; tipo: string
   }, [onCerrar])
 
   const descargar = () => {
-    const a = document.createElement('a')
-    a.href = url
-    a.download = `mph-imagen-${fechaLocalISO()}.${tipo.split('/')[1] || 'png'}`
-    a.click()
+    void descargarUrl(url, `mph-imagen-${fechaLocalISO()}.${tipo.split('/')[1] || 'png'}`)
   }
 
   return createPortal(

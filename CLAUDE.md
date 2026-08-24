@@ -8,6 +8,7 @@ con Capacitor (Android en `android/`, iOS en `ios/`).
 
 - **Estado del avance**: [`docs/AVANCE.md`](docs/AVANCE.md) — casa vs cada cuarto
 - **Cómo trabajar sin ruido**: [`docs/COMO-TRABAJAR.md`](docs/COMO-TRABAJAR.md)
+- **iOS (compilar, firmar, publicar)**: [`docs/IOS.md`](docs/IOS.md)
 - Etiquetas en prompts: `[CASA]`, `[DATOS]`, `[COCINA]`, …
 
 ## Stack

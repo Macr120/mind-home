@@ -90,6 +90,7 @@ sale con la píldora «Casa demo». No toca tus datos.
 - [`docs/AVANCE.md`](docs/AVANCE.md) — estado por área
 - [`docs/COMO-TRABAJAR.md`](docs/COMO-TRABAJAR.md) — cómo acotar tareas por contexto
 - [`docs/BACKEND.md`](docs/BACKEND.md) y [`docs/COSTOS.md`](docs/COSTOS.md) — nube y créditos
+- [`docs/IOS.md`](docs/IOS.md) — compilar, firmar y publicar la app de iPhone
 
 ```
 src/
