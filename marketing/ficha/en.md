@@ -11,17 +11,17 @@ Mind Planner Home
 
 Your mind, in a 3D house
 
-## Texto promocional (139/170)
+## Texto promocional (66/170)
 
-Your life, in a 3D house: habits, goals, finances, meals and more. One payment of USD 8.89 with the first month of AI included; free trial.
+Your life, in a 3D house: habits, goals, finances, meals and more.
 
 ## Palabras clave (88/100)
 
 habits,goals,planner,journal,budget,nutrition,workout,sleep,study,ai,assistant,organizer
 
-## Descripción (2992/4000)
+## Descripción (2899/4000)
 
-Organise your habits, goals, finances, meals and more in an isometric 3D house where every room is an app. One payment of USD 8.89 with the first month of AI and sync included; free trial.
+Organise your habits, goals, finances, meals and more in an isometric 3D house where every room is an app.
 
 HOW IT WORKS
 
@@ -50,7 +50,7 @@ The AI in your house logs, plans and creates with you. And you decide what power
 
 • Or on your machine, with Ollama: Install Ollama and your house talks to the model running on your computer: no credits, no connection and nothing leaves it.
 
-The app — USD 8.89
+THE APP
 • A house of your own, forever: every app, your data on your device
 • First month included: 700 AI credits + sync, no card and no subscription
 • When the month ends you keep the whole app and your data; the AI credits are optional

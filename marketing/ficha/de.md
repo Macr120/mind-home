@@ -11,17 +11,17 @@ Mind Planner Home
 
 Dein Geist, in einem 3D-Haus
 
-## Texto promocional (160/170)
+## Texto promocional (81/170)
 
-Dein Leben, in einem 3D-Haus: Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr. Eine Zahlung von 8,89 USD, erster Monat mit KI inklusive; teste sie kostenlos.
+Dein Leben, in einem 3D-Haus: Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr.
 
 ## Palabras clave (89/100)
 
 gewohnheiten,ziele,planer,tagebuch,finanzen,ernährung,training,schlaf,lernen,ki,assistent
 
-## Descripción (3171/4000)
+## Descripción (3062/4000)
 
-Ordne deine Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr in einem isometrischen 3D-Haus, in dem jeder Raum eine App ist. Eine einmalige Zahlung von 8,89 USD, erster Monat mit KI und Sync inklusive; teste sie kostenlos.
+Ordne deine Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr in einem isometrischen 3D-Haus, in dem jeder Raum eine App ist.
 
 SO FUNKTIONIERT ES
 
@@ -50,7 +50,7 @@ Die KI im Haus erfasst, plant und erschafft mit dir. Und du entscheidest, was si
 
 • Oder auf deinem Rechner, mit Ollama: Installiere Ollama und das Haus spricht mit dem Modell auf deinem Rechner: ohne Credits, ohne Verbindung und ohne dass etwas nach außen geht.
 
-Die App — 8,89 USD
+DIE APP
 • Dein eigenes Haus, für immer: alle Apps, deine Daten auf deinem Gerät
 • Erster Monat inklusive: 700 KI-Credits + Sync, ohne Karte und ohne Abo
 • Nach dem Monat behältst du die ganze App und deine Daten; die KI-Credits sind optional

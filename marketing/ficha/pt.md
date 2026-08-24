@@ -11,17 +11,17 @@ Mind Planner Home
 
 Sua mente, em uma casa 3D
 
-## Texto promocional (149/170)
+## Texto promocional (69/170)
 
-Sua vida, em uma casa 3D: hábitos, metas, finanças, refeições e mais. Um pagamento de 8,89 USD com o primeiro mês de IA incluído; experimente grátis.
+Sua vida, em uma casa 3D: hábitos, metas, finanças, refeições e mais.
 
 ## Palabras clave (88/100)
 
 hábitos,metas,agenda,diário,finanças,nutrição,treino,sono,estudo,ia,assistente,organizar
 
-## Descripción (3030/4000)
+## Descripción (2917/4000)
 
-Organize seus hábitos, metas, finanças, refeições e mais em uma casa isométrica 3D onde cada cômodo é um app. Um único pagamento de 8,89 USD com o primeiro mês de IA e sincronização incluído; experimente grátis.
+Organize seus hábitos, metas, finanças, refeições e mais em uma casa isométrica 3D onde cada cômodo é um app.
 
 COMO FUNCIONA
 
@@ -50,7 +50,7 @@ A IA da casa registra, planeja e cria com você. E você decide quem a move: um 
 
 • Ou na sua máquina, com o Ollama: Instale o Ollama e a casa conversa com o modelo que roda no seu computador: sem créditos, sem conexão e sem que nada saia dali.
 
-O app — 8,89 USD
+O APP
 • Sua própria casa, para sempre: todos os apps, seus dados no seu dispositivo
 • Primeiro mês incluído: 700 créditos de IA + sincronização, sem cartão e sem assinatura
 • Ao terminar o mês você fica com o app inteiro e seus dados; os créditos de IA são opcionais

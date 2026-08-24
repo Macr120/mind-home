@@ -11,17 +11,17 @@ Mind Planner Home
 
 Je geest, in een 3D-huis
 
-## Texto promocional (147/170)
+## Texto promocional (74/170)
 
-Je leven in een 3D-huis: gewoontes, doelen, financiën, maaltijden en meer. Eén betaling van 8,89 USD, eerste maand AI erbij; probeer de app gratis.
+Je leven in een 3D-huis: gewoontes, doelen, financiën, maaltijden en meer.
 
 ## Palabras clave (82/100)
 
 gewoontes,doelen,planner,dagboek,budget,voeding,training,slaap,studie,ai,assistent
 
-## Descripción (3066/4000)
+## Descripción (2957/4000)
 
-Breng je gewoontes, doelen, financiën, maaltijden en meer op orde in een isometrisch 3D-huis waarin elke kamer een app is. Eén betaling van 8,89 USD, met de eerste maand AI en synchronisatie erbij; probeer de app gratis.
+Breng je gewoontes, doelen, financiën, maaltijden en meer op orde in een isometrisch 3D-huis waarin elke kamer een app is.
 
 HOE HET WERKT
 
@@ -50,7 +50,7 @@ De AI in huis legt vast, plant en maakt samen met je. En jij bepaalt wat hem aan
 
 • Of op je eigen machine, met Ollama: Installeer Ollama en het huis praat met het model dat op je computer draait: zonder credits, zonder verbinding en zonder dat er iets weggaat.
 
-De app — 8,89 USD
+DE APP
 • Je eigen huis, voor altijd: alle apps, je gegevens op je apparaat
 • Eerste maand inbegrepen: 700 AI-credits + synchronisatie, zonder kaart en zonder abonnement
 • Als die maand voorbij is hou je de hele app en je gegevens; de AI-credits zijn optioneel

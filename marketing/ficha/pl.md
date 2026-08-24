@@ -11,17 +11,17 @@ Mind Planner Home
 
 Twój umysł w domu 3D
 
-## Texto promocional (141/170)
+## Texto promocional (63/170)
 
-Twoje życie w domu 3D: nawyki, cele, finanse, posiłki i więcej. Jedna płatność 8,89 USD, pierwszy miesiąc z SI w cenie; wypróbuj ją za darmo.
+Twoje życie w domu 3D: nawyki, cele, finanse, posiłki i więcej.
 
 ## Palabras clave (80/100)
 
 nawyki,cele,planer,dziennik,budżet,dieta,trening,sen,nauka,ai,asystent,organizer
 
-## Descripción (3087/4000)
+## Descripción (2961/4000)
 
-Uporządkuj nawyki, cele, finanse, posiłki i więcej w izometrycznym domu 3D, w którym każdy pokój to aplikacja. Jedna płatność 8,89 USD, pierwszy miesiąc ze sztuczną inteligencją i synchronizacją w cenie; wypróbuj ją za darmo.
+Uporządkuj nawyki, cele, finanse, posiłki i więcej w izometrycznym domu 3D, w którym każdy pokój to aplikacja.
 
 JAK TO DZIAŁA
 
@@ -50,7 +50,7 @@ SI w domu zapisuje, planuje i tworzy razem z tobą. A ty decydujesz, co ją nap�
 
 • Albo na swojej maszynie, z Ollamą: Zainstaluj Ollamę, a dom porozmawia z modelem działającym na twoim komputerze: bez kredytów, bez połączenia i bez tego, żeby cokolwiek stąd wyszło.
 
-Aplikacja — 8,89 USD
+APLIKACJA
 • Twój własny dom, na zawsze: wszystkie aplikacje, dane na twoim urządzeniu
 • Pierwszy miesiąc w cenie: 700 kredytów SI + synchronizacja, bez karty i bez abonamentu
 • Po tym miesiącu zostaje ci cała aplikacja i twoje dane; kredyty SI są opcjonalne

@@ -11,17 +11,17 @@ Mind Planner Home
 
 Zihnin, bir 3D evde
 
-## Texto promocional (132/170)
+## Texto promocional (72/170)
 
-Hayatın bir 3D evde: alışkanlıklar, hedefler, finans, öğünler ve dahası. 8,89 USD tek ödeme, ilk ay yapay zekâ dahil; ücretsiz dene.
+Hayatın bir 3D evde: alışkanlıklar, hedefler, finans, öğünler ve dahası.
 
 ## Palabras clave (86/100)
 
 alışkanlık,hedef,ajanda,günlük,bütçe,beslenme,egzersiz,uyku,çalışma,yapay zeka,asistan
 
-## Descripción (2948/4000)
+## Descripción (2862/4000)
 
-Alışkanlıklarını, hedeflerini, finansını, öğünlerini ve daha fazlasını her odası bir uygulama olan izometrik bir 3D evde düzenle. Tek seferlik 8,89 USD, ilk ay yapay zekâ ve eşitleme dahil; ücretsiz dene.
+Alışkanlıklarını, hedeflerini, finansını, öğünlerini ve daha fazlasını her odası bir uygulama olan izometrik bir 3D evde düzenle.
 
 NASIL ÇALIŞIYOR
 
@@ -50,7 +50,7 @@ Evin yapay zekâsı seninle birlikte kaydeder, planlar ve üretir. Onu neyin ça
 
 • Ya da kendi makinende, Ollama ile: Ollama’yı kur, ev bilgisayarında çalışan modelle konuşsun: kredisiz, bağlantısız ve hiçbir şey oradan çıkmadan.
 
-Uygulama — 8,89 USD
+UYGULAMA
 • Kendi evin, sonsuza dek: bütün uygulamalar, verin kendi cihazında
 • İlk ay dahil: 700 yapay zekâ kredisi + eşitleme, kartsız ve aboneliksiz
 • Ay bittiğinde uygulamanın tamamı ve verilerin sende kalır; yapay zekâ kredileri isteğe bağlı

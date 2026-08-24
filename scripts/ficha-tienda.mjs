@@ -70,9 +70,35 @@ const limpiar = (s) =>
     .replace(/\s+/g, ' ')
     .trim()
 
+/**
+ * Frases que llevan un precio dentro. La landing sí los dice; la ficha NO.
+ *
+ * Dos motivos. Uno: cambiar un precio obligaría a reescribir y reenviar los 16
+ * idiomas, y el precio ya cambió cuatro veces (ver el historial de BACKEND.md).
+ * Dos: el número sería mentira fuera de EE. UU. — Apple cobra en la moneda de
+ * cada una de las 175 tiendas, y la ficha se lee en todas. El precio de verdad
+ * lo pinta Apple solo, sacado de los productos de compra.
+ *
+ * Se corta por frases y no por palabras para no dejar el «Un solo pago de»
+ * colgando. OJO con el corte: el japonés y el chino NO ponen espacio tras el
+ * punto («。»), y el hindi cierra con danda («।»). Exigiendo espacio, esos tres
+ * idiomas eran UNA sola frase y el filtro se llevaba el texto entero — se vio:
+ * su promocional salió vacío.
+ */
+const CON_PRECIO = /\d+[.,]\d{2}|USD|\$|€/
+const quitarPrecio = (texto) =>
+  texto
+    .split(/(?<=[.!?])\s+|(?<=[。！？；।])/)
+    .filter((frase) => !CON_PRECIO.test(frase))
+    .join(' ')
+    // Al volver a unir no se cuela un espacio donde ese idioma no lo pone.
+    .replace(/([。！？；।])\s+/g, '$1')
+    .replace(/\s+/g, ' ')
+    .trim()
+
 function descripcion(t) {
   const bloques = [
-    limpiar(t['meta.desc']),
+    quitarPrecio(limpiar(t['meta.desc'])),
     // Cómo funciona: los tres pasos.
     [
       limpiar(t['como.h2']).toUpperCase(),
@@ -96,7 +122,8 @@ function descripcion(t) {
     // Qué cuesta. SOLO los tres puntos de `precio.app.*`: el pie de esa
     // sección manda a comprar en la web y eso aquí es 3.1.1 (ver cabecera).
     [
-      `${limpiar(t['precio.app.nombre'])} — ${limpiar(t['precio.app.cifra'])}`,
+      // El encabezado va SIN la cifra (ver quitarPrecio).
+      limpiar(t['precio.app.nombre']).toUpperCase(),
       `• ${limpiar(t['precio.app.1'])}`,
       `• ${limpiar(t['precio.app.2'])}`,
       `• ${limpiar(t['precio.app.3'])}`,
@@ -110,7 +137,7 @@ function campos(id, t) {
   return {
     nombre: NOMBRE,
     subtitulo: SUBTITULO_PROPIO[id] ?? limpiar(t['hero.h1']),
-    promocional: limpiar(t['og.desc']),
+    promocional: quitarPrecio(limpiar(t['og.desc'])),
     palabras: PALABRAS[id],
     descripcion: descripcion(t),
   }

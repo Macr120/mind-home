@@ -11,17 +11,17 @@ Mind Planner Home
 
 Pikiranmu, dalam rumah 3D
 
-## Texto promocional (140/170)
+## Texto promocional (74/170)
 
-Hidupmu dalam rumah 3D: kebiasaan, target, keuangan, makanan, dan lainnya. Sekali bayar 8,89 USD, bulan pertama termasuk AI; cobalah gratis.
+Hidupmu dalam rumah 3D: kebiasaan, target, keuangan, makanan, dan lainnya.
 
 ## Palabras clave (86/100)
 
 kebiasaan,tujuan,agenda,jurnal,anggaran,nutrisi,olahraga,tidur,belajar,ai,asisten,atur
 
-## Descripción (3184/4000)
+## Descripción (3084/4000)
 
-Atur kebiasaan, target, keuangan, makanan, dan lainnya di rumah isometrik 3D tempat setiap ruangan adalah sebuah aplikasi. Sekali bayar 8,89 USD, bulan pertama sudah termasuk AI dan sinkronisasi; cobalah gratis.
+Atur kebiasaan, target, keuangan, makanan, dan lainnya di rumah isometrik 3D tempat setiap ruangan adalah sebuah aplikasi.
 
 CARA KERJANYA
 
@@ -50,7 +50,7 @@ AI di rumah mencatat, merencanakan, dan berkarya bersamamu. Dan kamu yang menent
 
 • Atau di mesinmu, dengan Ollama: Pasang Ollama dan rumah berbicara dengan model yang berjalan di komputermu: tanpa kredit, tanpa koneksi, dan tanpa ada yang keluar dari sana.
 
-Aplikasinya — 8,89 USD
+APLIKASINYA
 • Rumahmu sendiri, selamanya: semua aplikasi, datamu di perangkatmu
 • Bulan pertama termasuk: 700 kredit AI + sinkronisasi, tanpa kartu dan tanpa langganan
 • Setelah bulan itu berakhir, seluruh aplikasi dan datamu tetap milikmu; kredit AI opsional
