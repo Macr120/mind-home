@@ -11,6 +11,7 @@
     "mascara:assets": "node scripts/copiar-mediapipe.mjs",
     "ios:iconos": "node scripts/iconos-ios.mjs",
     "ficha:tienda": "node scripts/ficha-tienda.mjs",
+    "asc:ficha": "node scripts/asc-ficha.mjs",
     "dev:web": "vite --config vite.config.web.ts",
     "build:web": "tsc -b && vite build --config vite.config.web.ts && node scripts/web-i18n.mjs",
     "dev:mascara": "vite --config vite.config.mascara.ts",
