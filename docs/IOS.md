@@ -75,6 +75,37 @@ Y en el código compartido, dos cosas que solo se notan aquí:
 en iOS harían falta una extensión WidgetKit y un App Group. `useWidgets` está
 acotado a Android a propósito.
 
+## 3b. Estado del alta (24-ago-2026)
+
+La app ya existe en App Store Connect: **id 6804840611**, bundle
+`com.macr120.mindhome`, SKU `mind-planner-home`, versión 1.0 (1), **solo iOS**
+(la plataforma macOS se creó por error y se borró: el Mac va por .dmg fuera de
+la tienda y por «Designed for iPad»).
+
+| Bloque | Estado |
+|---|---|
+| Clasificación por edad | ✅ **9+** (12+ Vietnam, A10 Brasil). Solo puntúa el paintball: violencia de fantasía y armas «Infrequent» |
+| Derechos de contenido | ✅ Sí (RSS del Diario, datos de Finnhub) |
+| App Privacy | ✅ 11 tipos, todos «App Functionality» y ligados a la identidad, **cero rastreo**. Falta pulsar «Publish» |
+| Ficha en inglés | ✅ textos + 4 capturas de iPhone 6,9" y 1 de iPad 13" |
+| Ficha en español | ✅ textos · ⬜ capturas |
+| Los otros 14 idiomas | ⬜ |
+| Productos de compra | ⬜ los seis de §3e de [`BACKEND.md`](BACKEND.md) |
+| Notas de revisión y build | ⬜ |
+
+**Dos cosas bloquean el envío** y solo las puede hacer el dueño: aceptar el
+*Apple Developer Program License Agreement* actualizado (el aviso sale en Apps) y
+poner el `.env.local` en el Mac antes de archivar.
+
+**Para el resto de idiomas, usa la API, no el navegador.** El formulario de Apple
+es React: `form_input` solo escribe en campos vacíos, no hay «seleccionar todo»
+(`cmd+A` se teclea como una letra) y al crear una localización Apple la rellena
+copiando el inglés, así que hay que vaciar a base de `Backspace`/`Delete` en
+tandas. Y las capturas se suben DE UNA EN UNA: en lote quedan en el orden en que
+terminan de subir, no en el que se mandan. `npm run asc:ficha` hace todo eso de
+una pasada; solo pide una clave con rol App Manager (Users and Access ›
+Integrations) y sus tres variables.
+
 ## 4. Subir a la tienda
 
 1. **App Store Connect** → nueva app: bundle id `com.macr120.mindhome`, nombre
