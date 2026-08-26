@@ -129,6 +129,13 @@ Tres cosas que solo pasan en iOS:
 - **Los textos NO se escriben a mano**: los once fijos salen de los
   `strings.xml` ya traducidos de Android con `npm run ios:textos-widgets`.
   Tenerlos dos veces significaría que una copia envejece.
+- **La galería enseña utilería, no un aviso.** El estado normal de un usuario
+  nuevo es galería sin datos (la app publica solo con un widget YA colocado),
+  así que ahí `EntradaWidget.ejemplo` pinta un mapa de mentira y filas
+  esqueleto — los títulos van `redacted` (barras grises) y por eso no
+  necesitan traducción; lo legible sale de `Localizable.strings` o lo localiza
+  el sistema (las fechas). Los tres archivos de widgets traen `PreviewProvider`
+  para verlos en el canvas de Xcode sin simulador.
 
 ## 3b. Estado del alta (24-ago-2026)
 

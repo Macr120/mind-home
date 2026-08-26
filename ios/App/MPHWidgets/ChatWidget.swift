@@ -69,3 +69,18 @@ private struct BotonRedondo: View {
     .accessibilityLabel(etiqueta)
   }
 }
+
+#if DEBUG
+struct ChatWidget_Previews: PreviewProvider {
+  static var previews: some View {
+    Group {
+      VistaChat()
+        .previewContext(WidgetPreviewContext(family: .systemSmall))
+        .previewDisplayName("Chico")
+      VistaChat()
+        .previewContext(WidgetPreviewContext(family: .systemMedium))
+        .previewDisplayName("Mediano")
+    }
+  }
+}
+#endif

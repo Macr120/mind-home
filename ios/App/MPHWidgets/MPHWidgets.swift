@@ -89,6 +89,8 @@ struct EntradaWidget: TimelineEntry {
   let snapshot: SnapshotWidgets?
   /// Foto de la casa (JPEG del App Group); solo la pide el widget de la casa.
   let foto: Data?
+  /// Utilería de la galería y el placeholder: los textos van redactados.
+  var esEjemplo = false
 }
 
 /**
@@ -101,12 +103,18 @@ struct ProveedorWidget: TimelineProvider {
   /// El de la casa carga además el JPEG; los otros dos se ahorran leerlo.
   var conFoto = false
 
-  func placeholder(in context: Context) -> EntradaWidget {
-    EntradaWidget(date: Date(), snapshot: nil, foto: nil)
-  }
+  func placeholder(in context: Context) -> EntradaWidget { .ejemplo }
 
   func getSnapshot(in context: Context, completion: @escaping (EntradaWidget) -> Void) {
-    completion(entrada())
+    let real = entrada()
+    // La galería antes del primer snapshot. Es el estado NORMAL de un usuario
+    // nuevo —la app solo publica cuando hay un widget colocado—, así que aquí
+    // se enseña el ejemplo, no un aviso de «abre la app» que no vende nada.
+    if context.isPreview, real.snapshot == nil {
+      completion(.ejemplo)
+    } else {
+      completion(real)
+    }
   }
 
   func getTimeline(in context: Context, completion: @escaping (Timeline<EntradaWidget>) -> Void) {
@@ -121,5 +129,47 @@ struct ProveedorWidget: TimelineProvider {
       date: Date(),
       snapshot: AlmacenWidgets.leerSnapshot(),
       foto: conFoto ? AlmacenWidgets.leerFotoCasa() : nil)
+  }
+}
+
+// MARK: - Utilería
+
+extension EntradaWidget {
+  /**
+   * Lo que pinta la galería (y el placeholder) mientras la app no ha publicado
+   * nada. Nada de esto necesita traducción a mano: lo legible sale de los
+   * `Localizable.strings` que ya vienen de Android o lo localiza el sistema
+   * (las fechas); los títulos de las filas se pintan REDACTADOS (barras
+   * grises), así que su texto es relleno que solo da el largo de cada barra.
+   */
+  static var ejemplo: EntradaWidget {
+    let ahora = Date()
+    let df = DateFormatter()
+    func fecha(_ plantilla: String) -> String {
+      df.setLocalizedDateFormatFromTemplate(plantilla)
+      return df.string(from: ahora)
+    }
+    let textos = [
+      "titulo": NSLocalizedString("widget_hoy_label", comment: ""),
+      "fechaLarga": fecha("EEEEdMMMM"),
+      "diaNumero": fecha("d"),
+      "diaSemana": fecha("EEEE"),
+      "mesAnio": fecha("MMMMy"),
+      "misiones": "2/6",
+    ]
+    let hoy = [
+      ItemHoy(id: "e1", tipo: "rutina", titulo: "Una misión", detalle: "Un cuarto", emoji: "💊", hora: "08:00", hecho: false, urgente: true),
+      ItemHoy(id: "e2", tipo: "objetivo", titulo: "Otra misión más larga", detalle: "Otro cuarto y su avance", emoji: "🍽️", hora: nil, hecho: false, urgente: nil),
+      ItemHoy(id: "e3", tipo: "meta", titulo: "Una tercera", detalle: "El mismo cuarto", emoji: "🏃", hora: "18:30", hecho: false, urgente: nil),
+      ItemHoy(id: "e4", tipo: "rutina", titulo: "La cuarta, algo más larga", detalle: "Aquel otro", emoji: "🪴", hora: "19:00", hecho: false, urgente: nil),
+      ItemHoy(id: "e5", tipo: "objetivo", titulo: "Una ya cumplida", detalle: "Un cuarto", emoji: "📖", hora: nil, hecho: true, urgente: nil),
+      ItemHoy(id: "e6", tipo: "rutina", titulo: "Y otra hecha", detalle: "Otro más", emoji: "🛏️", hora: "07:15", hecho: true, urgente: nil),
+    ]
+    return EntradaWidget(
+      date: ahora,
+      snapshot: SnapshotWidgets(
+        version: 1, fecha: ComunWidgets.hoy(), idioma: "en", textos: textos, hoy: hoy),
+      foto: nil,
+      esEjemplo: true)
   }
 }

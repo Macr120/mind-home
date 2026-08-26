@@ -62,7 +62,9 @@ struct VistaMisiones: View {
       } else {
         VStack(spacing: 0) {
           ForEach(lista.prefix(tope), id: \.id) { item in
-            FilaMision(item: item, fecha: snap?.fecha ?? ComunWidgets.hoy())
+            FilaMision(
+              item: item, fecha: snap?.fecha ?? ComunWidgets.hoy(),
+              redactada: entrada.esEjemplo)
           }
           Spacer(minLength: 0)
         }
@@ -109,6 +111,8 @@ private struct Cabecera: View {
 private struct FilaMision: View {
   let item: ItemHoy
   let fecha: String
+  /// Fila de utilería (galería): textos como barras grises y sin botón.
+  var redactada = false
 
   private var urgente: Bool { (item.urgente ?? false) && !item.hecho }
 
@@ -123,7 +127,10 @@ private struct FilaMision: View {
    * vista, que abre la app en la casa.
    */
   var body: some View {
-    if #available(iOS 17.0, *) {
+    if redactada {
+      // En la galería la fila es utilería: nada que encolar.
+      contenido
+    } else if #available(iOS 17.0, *) {
       Button(intent: MarcarMision(
         id: item.id, tipo: item.tipo, fecha: fecha, hecho: !item.hecho)
       ) {
@@ -154,6 +161,9 @@ private struct FilaMision: View {
             .lineLimit(1)
         }
       }
+      // Redactado = barras grises del largo del texto: el ejemplo se entiende
+      // en cualquier idioma sin traducir ni un título.
+      .redacted(reason: redactada ? .placeholder : [])
       Spacer(minLength: 4)
 
       if let hora = item.hora, !hora.isEmpty {
@@ -176,3 +186,21 @@ private struct FilaMision: View {
       .frame(width: 24, height: 24)
   }
 }
+
+#if DEBUG
+struct MisionesWidget_Previews: PreviewProvider {
+  static var previews: some View {
+    Group {
+      VistaMisiones(entrada: .ejemplo)
+        .previewContext(WidgetPreviewContext(family: .systemMedium))
+        .previewDisplayName("Galería (ejemplo)")
+      VistaMisiones(entrada: .ejemplo)
+        .previewContext(WidgetPreviewContext(family: .systemLarge))
+        .previewDisplayName("Grande (ejemplo)")
+      VistaMisiones(entrada: EntradaWidget(date: Date(), snapshot: nil, foto: nil))
+        .previewContext(WidgetPreviewContext(family: .systemMedium))
+        .previewDisplayName("Sin datos")
+    }
+  }
+}
+#endif
