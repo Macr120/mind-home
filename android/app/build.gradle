@@ -18,7 +18,7 @@ android {
         applicationId "com.macr120.mindhome"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
+        versionCode 5
         versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
@@ -42,7 +42,12 @@ android {
             // Sin `key.properties` no se asigna: Gradle fallaría al configurar
             // con un signingConfig a medio rellenar.
             if (archivoClaves.exists()) signingConfig signingConfigs.release
-            minifyEnabled false
+            // R8: Play exige/premia código minificado y con metadatos. El mapping de
+            // desofuscación viaja DENTRO del .aab (BUNDLE-METADATA), no se sube aparte.
+            // Los plugins sobreviven porque Capacitor y RevenueCat traen sus propias
+            // reglas de consumidor (keep de toda clase que extiende Plugin).
+            minifyEnabled true
+            shrinkResources true
             // `proguard-android.txt` desapareció en AGP 9 («no longer supported»);
             // la variante -optimize existe desde AGP 3 y es la recomendada, así
             // que vale para la 8.13 de hoy y para cuando se actualice.
