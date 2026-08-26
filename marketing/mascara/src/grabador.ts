@@ -58,12 +58,22 @@ function dibujar(
   ctx.restore()
 }
 
-export async function iniciarGrabacion(
+export interface Composicion {
+  canvas: HTMLCanvasElement
+  detener: () => void
+}
+
+/**
+ * Lienzo 1080×1920 que repinta por frame el video + la cabeza 3D con el mismo
+ * encuadre que se ve en pantalla. Lo comparten la grabación y la emisión del
+ * control remoto; `opciones` se lee POR FRAME para seguir el encuadre y el
+ * espejo vivos (en la emisión cambian al cambiar de cámara).
+ */
+export function crearComposicion(
   video: HTMLVideoElement,
   canvas3d: HTMLCanvasElement,
-  encuadre: Encuadre,
-  espejo: boolean,
-): Promise<Grabador> {
+  opciones: () => { encuadre: Encuadre; espejo: boolean },
+): Composicion {
   const comp = document.createElement('canvas')
   comp.width = ANCHO
   comp.height = ALTO
@@ -72,6 +82,7 @@ export async function iniciarGrabacion(
   let corriendo = true
   const pintar = () => {
     if (!corriendo) return
+    const { encuadre, espejo } = opciones()
     ctx.fillStyle = '#0f1115'
     ctx.fillRect(0, 0, ANCHO, ALTO)
     const listo = video.readyState >= 2
@@ -95,9 +106,31 @@ export async function iniciarGrabacion(
   }
   requestAnimationFrame(pintar)
 
+  return {
+    canvas: comp,
+    detener: () => {
+      corriendo = false
+    },
+  }
+}
+
+export async function iniciarGrabacion(
+  video: HTMLVideoElement,
+  canvas3d: HTMLCanvasElement,
+  encuadre: Encuadre,
+  espejo: boolean,
+): Promise<Grabador> {
+  const comp = crearComposicion(video, canvas3d, () => ({ encuadre, espejo }))
+
   // Micrófono aparte (el stream de cámara se pidió sin audio para no duplicar permisos al cargar).
-  const mic = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false } })
-  const stream = comp.captureStream(30)
+  let mic: MediaStream
+  try {
+    mic = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false } })
+  } catch (e) {
+    comp.detener()
+    throw e
+  }
+  const stream = comp.canvas.captureStream(30)
   for (const pista of mic.getAudioTracks()) stream.addTrack(pista)
 
   const mime = elegirMime()
@@ -116,7 +149,7 @@ export async function iniciarGrabacion(
     detener: () =>
       new Promise<Blob>((resolver) => {
         grabadora.onstop = () => {
-          corriendo = false
+          comp.detener()
           for (const pista of mic.getTracks()) pista.stop()
           resolver(new Blob(trozos, { type: mime || 'video/webm' }))
         }
@@ -125,11 +158,21 @@ export async function iniciarGrabacion(
   }
 }
 
-/** Comparte (Safari iOS → Fotos/Archivos) o descarga el archivo grabado. */
+/**
+ * Guarda la grabación como ARCHIVO LOCAL (en Descargas) directamente, con la
+ * fecha y hora en el nombre — clave con el control remoto: al detener desde el
+ * otro teléfono nadie sostiene el emisor para atender un diálogo. Solo
+ * iPhone/iPad mantiene el compartir primero (ahí es el camino natural a Fotos,
+ * como en el flujo de marketing), con la descarga de respaldo si se cancela.
+ */
 export async function guardarGrabacion(blob: Blob) {
   const ext = blob.type.includes('mp4') ? 'mp4' : 'webm'
-  const archivo = new File([blob], `mascara-mph.${ext}`, { type: blob.type })
-  if (navigator.canShare?.({ files: [archivo] })) {
+  const d = new Date()
+  const p = (n: number) => String(n).padStart(2, '0')
+  const marca = `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}${p(d.getSeconds())}`
+  const archivo = new File([blob], `mascara-mph-${marca}.${ext}`, { type: blob.type })
+  const esIOS = /iP(hone|ad|od)/.test(navigator.userAgent)
+  if (esIOS && navigator.canShare?.({ files: [archivo] })) {
     try {
       await navigator.share({ files: [archivo] })
       return

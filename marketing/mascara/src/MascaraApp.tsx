@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
+import { renderSVG } from 'uqr'
 import * as THREE from 'three'
 import type { Classifications, FaceLandmarker } from '@mediapipe/tasks-vision'
 import {
@@ -11,9 +12,22 @@ import {
 } from '../../../src/core/house/apariencia'
 import { CabezaAvatar } from './CabezaAvatar'
 import { useFaceLandmarker } from './useFaceLandmarker'
-import { iniciarGrabacion, guardarGrabacion, type Encuadre, type Grabador } from './grabador'
+import { crearComposicion, iniciarGrabacion, guardarGrabacion, type Composicion, type Encuadre, type Grabador } from './grabador'
 import { crearClasificador, nivelBoca, puntuaciones, senalesIniciales, type ModoCara, type SenalesCara } from './expresiones'
 import { MASCARAS, mascaraDe } from './mascaras'
+import {
+  controlar,
+  emitir,
+  generarCodigo,
+  type AccionRemota,
+  type ClaveAjuste,
+  type Controlador,
+  type CrearSenal,
+  type Emisor,
+  type EstadoConexion,
+  type EstadoEmisor,
+  type RolRemoto,
+} from './remoto'
 // Estilos del componente (acotados a `.mascara-ui`): así valen igual en el build
 // standalone y dentro de la app, que no carga el `estilos.css` global.
 import './mascara.css'
@@ -255,6 +269,20 @@ export interface TextosMascara {
   errorGrabar: (detalle: string) => string
   expresion: (id: ExpresionId, nombre: string) => string
   peinado: (id: PeinadoId, nombre: string) => string
+  remoto: string
+  remotoPermitir: string
+  remotoConectar: string
+  remotoCodigo: string
+  remotoEsperando: string
+  remotoConectando: string
+  remotoConectado: string
+  remotoCortado: string
+  remotoCortar: string
+  remotoReintentar: string
+  remotoAyuda: string
+  remotoQr: string
+  remotoVideo: string
+  remotoError: (detalle: string) => string
 }
 
 export const TEXTOS_ES: TextosMascara = {
@@ -295,10 +323,241 @@ export const TEXTOS_ES: TextosMascara = {
   errorGrabar: (detalle) => `No se pudo grabar: ${detalle}`,
   expresion: (_id, nombre) => nombre,
   peinado: (_id, nombre) => nombre,
+  remoto: 'Remoto',
+  remotoPermitir: 'Permitir control',
+  remotoConectar: 'Conectar',
+  remotoCodigo: 'Código',
+  remotoEsperando: 'Esperando al otro teléfono…',
+  remotoConectando: 'Conectando…',
+  remotoConectado: 'Conectado',
+  remotoCortado: 'Conexión cortada',
+  remotoCortar: 'Cortar',
+  remotoReintentar: 'Reintentar',
+  remotoAyuda: 'Abre la Máscara AR en el otro teléfono y escribe este código en su sección Remoto.',
+  remotoQr: 'O escanea el código QR con la cámara del otro teléfono.',
+  remotoVideo: 'Esperando el video…',
+  remotoError: (detalle) => `No se pudo conectar: ${detalle}`,
 }
 
-/** Standalone no pasa props; la app principal pasa `onSalir` (y sus textos traducidos). */
-export function MascaraApp({ onSalir, textos }: { onSalir?: () => void; textos?: Partial<TextosMascara> } = {}) {
+/** m:ss para el contador de grabación (local o el que difunde el emisor). */
+const formatoReloj = (segundos: number) => `${Math.floor(segundos / 60)}:${String(segundos % 60).padStart(2, '0')}`
+
+/**
+ * El panel de ajustes COMPLETO (máscara, cara, cámara, lente, zoom, encuadre,
+ * expresión, peinado, colores y sliders). Lo pintan los dos teléfonos: el
+ * emisor con su estado local y el controlador con el `EstadoEmisor` recibido —
+ * mismos controles a los dos lados, solo cambia a dónde van los cambios.
+ */
+function ControlesAjustes({
+  tx,
+  v,
+  onAjuste,
+  onZoom,
+  onLinterna,
+}: {
+  tx: TextosMascara
+  v: EstadoEmisor
+  onAjuste: (clave: ClaveAjuste, valor: string | number) => void
+  onZoom: (valor: number) => void
+  onLinterna: () => void
+}) {
+  // Cada máscara trae lo suyo horneado: solo la Base tiene piel/peinado editables,
+  // y solo Base y Princesa llevan el rostro dibujado encima.
+  const mascara = mascaraDe(v.mascaraId)
+  const esBase = mascara.piezas === null
+  return (
+    <>
+      <div className="flex items-center gap-1">
+        <span className="mr-1">{tx.mascara}</span>
+        <div className="flex flex-1 gap-1 overflow-x-auto pb-1">
+          {MASCARAS.map((m) => (
+            <button
+              key={m.id}
+              onClick={() => onAjuste('mascaraId', m.id)}
+              className={`shrink-0 rounded-full px-2 py-1 ${v.mascaraId === m.id ? 'bg-emerald-600' : 'bg-white/10'}`}
+            >
+              {m.emoji} {tx.mascaraNombre(m.id, m.nombre)}
+            </button>
+          ))}
+        </div>
+      </div>
+      {mascara.conRostro && (
+        <div className="flex items-center gap-1">
+          <span className="mr-1">{tx.cara}</span>
+          {(
+            [
+              ['estatico', tx.caraFija],
+              ['expresiones', tx.caraImita],
+              ['vivo', tx.caraViva],
+            ] as const
+          ).map(([id, nombre]) => (
+            <button
+              key={id}
+              onClick={() => onAjuste('modoCara', id)}
+              className={`rounded-full px-2 py-1 ${v.modoCara === id ? 'bg-emerald-600' : 'bg-white/10'}`}
+            >
+              {nombre}
+            </button>
+          ))}
+        </div>
+      )}
+      <div className="flex items-center gap-1">
+        <span className="mr-1">{tx.camara}</span>
+        {(
+          [
+            ['frontal', tx.frontal],
+            ['trasera', tx.trasera],
+          ] as const
+        ).map(([id, nombre]) => (
+          <button
+            key={id}
+            onClick={() => onAjuste('camara', id)}
+            className={`rounded-full px-2 py-1 ${v.camara === id ? 'bg-emerald-600' : 'bg-white/10'}`}
+          >
+            {nombre}
+          </button>
+        ))}
+        {v.linterna !== null && (
+          <button
+            onClick={onLinterna}
+            className={`ml-auto rounded-full px-2 py-1 ${v.linterna ? 'bg-amber-500 text-black' : 'bg-white/10'}`}
+          >
+            {tx.linterna}
+          </button>
+        )}
+      </div>
+      {v.lentes.length > 1 && (
+        <select
+          value={v.lenteId}
+          onChange={(e) => onAjuste('lenteId', e.target.value)}
+          className="w-full rounded bg-white/10 px-2 py-2"
+        >
+          <option value="">{tx.lenteAuto(v.camara === 'frontal' ? tx.frontal : tx.trasera)}</option>
+          {v.lentes.map((d, i) => (
+            <option key={d.id} value={d.id}>
+              {d.nombre || tx.camaraN(i + 1)}
+            </option>
+          ))}
+        </select>
+      )}
+      {v.zoom && (
+        <label className="block">
+          <span className="flex justify-between text-base">
+            <span>{tx.zoom}</span>
+            <span className="font-mono">{v.zoom.v.toFixed(1)}×</span>
+          </span>
+          <input
+            type="range"
+            min={v.zoom.min}
+            max={v.zoom.max}
+            step={v.zoom.step}
+            value={v.zoom.v}
+            onChange={(e) => onZoom(Number(e.target.value))}
+          />
+        </label>
+      )}
+      <div className="flex items-center gap-1">
+        <span className="mr-1">{tx.encuadre}</span>
+        {(
+          [
+            ['lleno', tx.vertical],
+            ['amplio', tx.amplio],
+          ] as const
+        ).map(([id, nombre]) => (
+          <button
+            key={id}
+            onClick={() => onAjuste('encuadre', id)}
+            className={`rounded-full px-2 py-1 ${v.encuadre === id ? 'bg-emerald-600' : 'bg-white/10'}`}
+          >
+            {nombre}
+          </button>
+        ))}
+      </div>
+      {mascara.conRostro && (
+        <div className="flex gap-1 overflow-x-auto pb-1">
+          {EXPRESIONES.map((e) => (
+            <button
+              key={e.id}
+              onClick={() => onAjuste('expresion', e.id)}
+              className={`shrink-0 rounded-full px-2 py-1 ${v.expresion === e.id ? 'bg-emerald-600' : 'bg-white/10'} ${
+                v.modoCara !== 'estatico' && v.expresionDetectada === e.id ? 'ring-2 ring-sky-400' : ''
+              }`}
+            >
+              {e.emoji} {tx.expresion(e.id, e.nombre)}
+            </button>
+          ))}
+        </div>
+      )}
+      {esBase && (
+        <div className="flex gap-1 overflow-x-auto pb-1">
+          {PEINADOS.map((p) => (
+            <button
+              key={p.id}
+              onClick={() => onAjuste('peinado', p.id)}
+              className={`shrink-0 rounded-full px-2 py-1 ${v.peinado === p.id ? 'bg-emerald-600' : 'bg-white/10'}`}
+            >
+              {p.emoji} {tx.peinado(p.id, p.nombre)}
+            </button>
+          ))}
+        </div>
+      )}
+      {esBase && (
+        <div className="flex items-center gap-4">
+          <label className="flex items-center gap-2">
+            {tx.piel}
+            <input type="color" value={v.piel} onChange={(e) => onAjuste('piel', e.target.value)} className="h-9 w-12" />
+          </label>
+          <label className="flex items-center gap-2">
+            {tx.pelo}
+            <input type="color" value={v.pelo} onChange={(e) => onAjuste('pelo', e.target.value)} className="h-9 w-12" />
+          </label>
+        </div>
+      )}
+      {(
+        [
+          { clave: 'escala', nombre: tx.tamano, min: 30, max: 80 },
+          { clave: 'altura', nombre: tx.altura, min: -10, max: 10 },
+          { clave: 'profundidad', nombre: tx.profundidad, min: -20, max: 5 },
+        ] as const
+      ).map((s) => (
+        <label key={s.clave} className="block">
+          <span className="flex justify-between text-base">
+            <span>{s.nombre}</span>
+            <span className="font-mono">{v[s.clave]}</span>
+          </span>
+          <input
+            type="range"
+            min={s.min}
+            max={s.max}
+            value={v[s.clave]}
+            onChange={(e) => onAjuste(s.clave, Number(e.target.value))}
+          />
+        </label>
+      ))}
+    </>
+  )
+}
+
+/**
+ * Standalone no pasa props; la app principal pasa `onSalir`, sus textos
+ * traducidos y `crearSenal` (la señalización del control remoto; sin ella la
+ * sección Remoto no aparece, como en el build standalone sin backend).
+ * `urlRemota` arma la URL que codifica el QR del emisor y `codigoInicial`
+ * (llega del propio QR, vía `?mascara=`) conecta como controlador al abrir.
+ */
+export function MascaraApp({
+  onSalir,
+  textos,
+  crearSenal,
+  urlRemota,
+  codigoInicial,
+}: {
+  onSalir?: () => void
+  textos?: Partial<TextosMascara>
+  crearSenal?: CrearSenal
+  urlRemota?: (codigo: string) => string
+  codigoInicial?: string
+} = {}) {
   const tx = { ...TEXTOS_ES, ...textos }
   const videoRef = useRef<HTMLVideoElement>(null)
   const fondoRef = useRef<HTMLVideoElement>(null)
@@ -322,11 +581,35 @@ export function MascaraApp({ onSalir, textos }: { onSalir?: () => void; textos?:
   const [capCamara, setCapCamara] = useState<CapacidadesCamara>({})
   const [zoom, setZoom] = useState<number | null>(null)
   const [linterna, setLinterna] = useState(false)
+  // Control remoto: rol de este teléfono, estado de la conexión y, en el
+  // controlador, el stream recibido y el estado que difunde el emisor.
+  const [remoto, setRemoto] = useState<{ rol: RolRemoto; codigo: string } | null>(null)
+  const [estadoRemoto, setEstadoRemoto] = useState<EstadoConexion>('esperando')
+  const [errorRemoto, setErrorRemoto] = useState<string | null>(null)
+  const [codigoEntrada, setCodigoEntrada] = useState('')
+  const [remotoPlegado, setRemotoPlegado] = useState(true)
+  // Llegó por el QR: la cámara local no se pide mientras la conexión automática siga en pie.
+  const [conectandoAuto, setConectandoAuto] = useState(!!codigoInicial)
+  const [videoRemoto, setVideoRemoto] = useState<MediaStream | null>(null)
+  const [estadoEmisor, setEstadoEmisor] = useState<EstadoEmisor | null>(null)
+  const videoRemotoRef = useRef<HTMLVideoElement>(null)
+  const emisorRef = useRef<Emisor | null>(null)
+  const controlRef = useRef<Controlador | null>(null)
+  const composicionRef = useRef<Composicion | null>(null)
+  const configRef = useRef(config)
   const espejo = config.camara === 'frontal'
+  const esControl = remoto?.rol === 'control'
+
+  useEffect(() => {
+    configRef.current = config
+  }, [config])
 
   // Cámara sin audio (el micrófono se pide al empezar a grabar). Se reabre al
-  // cambiar de cámara o de lente; el cleanup apaga el stream anterior.
+  // cambiar de cámara o de lente; el cleanup apaga el stream anterior. En modo
+  // controlador (o llegando por QR hacia él) la cámara local se apaga: el video
+  // llega del emisor y no hay que asustar con el permiso de cámara.
   useEffect(() => {
+    if (esControl || conectandoAuto) return
     let stream: MediaStream | null = null
     let vivo = true
     ;(async () => {
@@ -338,8 +621,13 @@ export function MascaraApp({ onSalir, textos }: { onSalir?: () => void; textos?:
             ...(config.lenteId
               ? { deviceId: { exact: config.lenteId } }
               : { facingMode: config.camara === 'frontal' ? 'user' : 'environment' }),
-            width: { ideal: 1920 },
-            height: { ideal: 1440 },
+            // Muy por encima de cualquier sensor: al ser `ideal`, el navegador
+            // entrega el modo MÁS GRANDE que tenga la cámara (su máxima
+            // resolución real); el aspectRatio inclina la elección al 4:3 del
+            // sensor completo para no perder campo visual por un 16:9 recortado.
+            width: { ideal: 4096 },
+            height: { ideal: 3072 },
+            aspectRatio: { ideal: 4 / 3 },
           },
         })
         if (!vivo) return
@@ -378,7 +666,7 @@ export function MascaraApp({ onSalir, textos }: { onSalir?: () => void; textos?:
       vivo = false
       for (const pista of stream?.getTracks() ?? []) pista.stop()
     }
-  }, [config.camara, config.lenteId])
+  }, [config.camara, config.lenteId, esControl, conectandoAuto])
 
   // El layout ancho (PC/tablet) mueve los controles a una columna lateral.
   useEffect(() => {
@@ -460,7 +748,7 @@ export function MascaraApp({ onSalir, textos }: { onSalir?: () => void; textos?:
   }
 
   const cambiar = <K extends keyof Config>(k: K, v: Config[K]) => setConfig((c) => ({ ...c, [k]: v }))
-  const reloj = `${Math.floor(segundos / 60)}:${String(segundos % 60).padStart(2, '0')}`
+  const reloj = formatoReloj(segundos)
   const cambiarCamara = (lado: Config['camara']) => setConfig((c) => ({ ...c, camara: lado, lenteId: '' }))
   const cambiarZoom = (v: number) => {
     setZoom(v)
@@ -472,10 +760,206 @@ export function MascaraApp({ onSalir, textos }: { onSalir?: () => void; textos?:
       return !v
     })
   }
-  // Cada máscara trae lo suyo horneado: solo la Base tiene piel/peinado editables,
-  // y solo Base y Princesa llevan el rostro dibujado encima.
-  const mascara = mascaraDe(config.mascaraId)
-  const esBase = mascara.piezas === null
+
+  // ——— Control remoto ———
+
+  /**
+   * Aplica un ajuste (propio o del controlador) validando el valor: las órdenes
+   * llegan por el DataChannel y no se confía en ellas a ciegas.
+   */
+  const aplicarAjuste = (clave: ClaveAjuste, valor: string | number) => {
+    switch (clave) {
+      case 'camara':
+        if (valor === 'frontal' || valor === 'trasera') cambiarCamara(valor)
+        break
+      case 'lenteId':
+        if (valor === '' || lentes.some((d) => d.deviceId === valor)) cambiar('lenteId', valor as string)
+        break
+      case 'mascaraId':
+        if (MASCARAS.some((m) => m.id === valor)) cambiar('mascaraId', valor as string)
+        break
+      case 'modoCara':
+        if (valor === 'estatico' || valor === 'expresiones' || valor === 'vivo') cambiar('modoCara', valor)
+        break
+      case 'encuadre':
+        if (valor === 'lleno' || valor === 'amplio') cambiar('encuadre', valor)
+        break
+      case 'expresion':
+        if (EXPRESIONES.some((e) => e.id === valor)) cambiar('expresion', valor as ExpresionId)
+        break
+      case 'peinado':
+        if (PEINADOS.some((p) => p.id === valor)) cambiar('peinado', valor as PeinadoId)
+        break
+      case 'piel':
+      case 'pelo':
+        if (typeof valor === 'string' && /^#[0-9a-f]{6}$/i.test(valor)) cambiar(clave, valor)
+        break
+      case 'escala':
+        if (typeof valor === 'number') cambiar('escala', Math.min(80, Math.max(30, valor)))
+        break
+      case 'altura':
+        if (typeof valor === 'number') cambiar('altura', Math.min(10, Math.max(-10, valor)))
+        break
+      case 'profundidad':
+        if (typeof valor === 'number') cambiar('profundidad', Math.min(5, Math.max(-20, valor)))
+        break
+    }
+  }
+
+  /** Ejecuta una orden del controlador con los mismos manejadores de la UI local. */
+  const manejarAccion = (orden: AccionRemota) => {
+    switch (orden.accion) {
+      case 'ajuste':
+        aplicarAjuste(orden.clave, orden.valor)
+        break
+      case 'zoom':
+        if (typeof orden.valor === 'number') cambiarZoom(orden.valor)
+        break
+      case 'linterna':
+        alternarLinterna()
+        break
+      case 'grabar':
+        void alternarGrabacion()
+        break
+    }
+  }
+  // Ref refrescado por render: el DataChannel vive fuera de React y necesita
+  // llegar siempre a los manejadores con el estado vigente.
+  const manejarAccionRef = useRef(manejarAccion)
+  useEffect(() => {
+    manejarAccionRef.current = manejarAccion
+  })
+
+  /** Este teléfono emite: compone cámara + máscara y espera al controlador con un código. */
+  const iniciarEmision = async () => {
+    if (!crearSenal || !videoRef.current || !canvas3dRef.current) return
+    setErrorRemoto(null)
+    try {
+      const codigo = generarCodigo()
+      const senal = await crearSenal(codigo)
+      const comp = crearComposicion(videoRef.current, canvas3dRef.current, () => ({
+        encuadre: configRef.current.encuadre,
+        espejo: configRef.current.camara === 'frontal',
+      }))
+      composicionRef.current = comp
+      emisorRef.current = emitir(senal, comp.canvas.captureStream(24), {
+        onEstado: setEstadoRemoto,
+        onAccion: (orden) => manejarAccionRef.current(orden),
+      })
+      setEstadoRemoto('esperando')
+      setRemoto({ rol: 'emisor', codigo })
+    } catch (e) {
+      setErrorRemoto(e instanceof Error ? e.message : String(e))
+    }
+  }
+
+  /** Este teléfono controla: se une al código del emisor (tecleado o del QR) y pasa a ver su streaming. */
+  const conectarControl = async (codigoDirecto?: string) => {
+    const codigo = (codigoDirecto ?? codigoEntrada).trim().toUpperCase()
+    if (!crearSenal || !codigo) return
+    setErrorRemoto(null)
+    try {
+      const senal = await crearSenal(codigo)
+      controlRef.current = controlar(senal, {
+        onEstado: setEstadoRemoto,
+        onVideo: setVideoRemoto,
+        onEstadoEmisor: setEstadoEmisor,
+      })
+      setEstadoRemoto('conectando')
+      setRemoto({ rol: 'control', codigo })
+    } catch (e) {
+      setErrorRemoto(e instanceof Error ? e.message : String(e))
+      setConectandoAuto(false)
+    }
+  }
+
+  // Abierto desde el QR (`?mascara=CODIGO`): conecta solo, sin teclear nada.
+  const autoConectado = useRef(false)
+  useEffect(() => {
+    if (autoConectado.current || !codigoInicial || !crearSenal) return
+    autoConectado.current = true
+    setCodigoEntrada(codigoInicial)
+    void conectarControl(codigoInicial)
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- solo al montar; conectarControl es del render
+  }, [])
+
+  const cortarRemoto = () => {
+    emisorRef.current?.cerrar()
+    controlRef.current?.cerrar()
+    composicionRef.current?.detener()
+    emisorRef.current = null
+    controlRef.current = null
+    composicionRef.current = null
+    setRemoto(null)
+    setVideoRemoto(null)
+    setEstadoEmisor(null)
+    setEstadoRemoto('esperando')
+    setConectandoAuto(false)
+  }
+
+  const mandar = (orden: AccionRemota) => controlRef.current?.enviarAccion(orden)
+
+  // Al desmontar (Salir de la máscara) se corta cualquier conexión viva.
+  useEffect(
+    () => () => {
+      emisorRef.current?.cerrar()
+      controlRef.current?.cerrar()
+      composicionRef.current?.detener()
+    },
+    [],
+  )
+
+  // El estado completo de este teléfono con la forma que pinta ControlesAjustes:
+  // alimenta el panel local Y es lo que se difunde al controlador — así el otro
+  // lado ve EXACTAMENTE los mismos controles.
+  const estadoActual: EstadoEmisor = {
+    camara: config.camara,
+    lenteId: config.lenteId,
+    lentes: lentes.map((d) => ({ id: d.deviceId, nombre: d.label ?? '' })),
+    mascaraId: config.mascaraId,
+    modoCara: config.modoCara,
+    encuadre: config.encuadre,
+    expresion: config.expresion,
+    expresionDetectada,
+    peinado: config.peinado,
+    piel: config.piel,
+    pelo: config.pelo,
+    escala: config.escala,
+    altura: config.altura,
+    profundidad: config.profundidad,
+    zoom:
+      zoom !== null && capCamara.zoom
+        ? { v: zoom, min: capCamara.zoom.min, max: capCamara.zoom.max, step: capCamara.zoom.step ?? 0.1 }
+        : null,
+    linterna: capCamara.torch ? linterna : null,
+    grabando,
+    segundos,
+    conCara,
+  }
+
+  // El emisor difunde su estado en cada cambio: el controlador pinta con él.
+  useEffect(() => {
+    if (remoto?.rol !== 'emisor') return
+    emisorRef.current?.enviarEstado(estadoActual)
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- estadoActual se rearma por render; disparan sus fuentes
+  }, [remoto, config, lentes, expresionDetectada, zoom, capCamara, linterna, grabando, segundos, conCara])
+
+  // El stream remoto se enchufa al <video> del controlador cuando llega.
+  useEffect(() => {
+    const v = videoRemotoRef.current
+    if (v && videoRemoto && v.srcObject !== videoRemoto) {
+      v.srcObject = videoRemoto
+      v.play().catch(() => {})
+    }
+  }, [videoRemoto, esControl, estadoRemoto])
+  // QR del emisor: codifica la URL que abre la app del otro teléfono conectando sola.
+  const urlQr = remoto?.rol === 'emisor' && urlRemota ? urlRemota(remoto.codigo) : null
+  const qr = useMemo(
+    () => (urlQr ? 'data:image/svg+xml;utf8,' + encodeURIComponent(renderSVG(urlQr, { border: 1 })) : null),
+    [urlQr],
+  )
+  // La sección Remoto nace plegada; se abre a mano, con una sesión viva o con un error que enseñar.
+  const remotoAbierto = !remotoPlegado || remoto !== null || !!errorRemoto
 
   /** La detectada manda en modos automáticos; el chip manual es la cara base/reposo. */
   const expresionEfectiva = config.modoCara !== 'estatico' && expresionDetectada ? expresionDetectada : config.expresion
@@ -502,175 +986,156 @@ export function MascaraApp({ onSalir, textos }: { onSalir?: () => void; textos?:
   // Los mismos controles se colocan superpuestos (móvil) o en la columna lateral (PC/tablet).
   const controles = (
     <>
-      <div className="flex items-center gap-1">
-        <span className="mr-1">{tx.mascara}</span>
-        <div className="flex flex-1 gap-1 overflow-x-auto pb-1">
-          {MASCARAS.map((m) => (
-            <button
-              key={m.id}
-              onClick={() => cambiar('mascaraId', m.id)}
-              className={`shrink-0 rounded-full px-2 py-1 ${config.mascaraId === m.id ? 'bg-emerald-600' : 'bg-white/10'}`}
-            >
-              {m.emoji} {tx.mascaraNombre(m.id, m.nombre)}
-            </button>
-          ))}
-        </div>
-      </div>
-      {mascara.conRostro && (
-        <div className="flex items-center gap-1">
-          <span className="mr-1">{tx.cara}</span>
-          {(
-            [
-              ['estatico', tx.caraFija],
-              ['expresiones', tx.caraImita],
-              ['vivo', tx.caraViva],
-            ] as const
-          ).map(([id, nombre]) => (
-            <button
-              key={id}
-              onClick={() => cambiar('modoCara', id)}
-              className={`rounded-full px-2 py-1 ${config.modoCara === id ? 'bg-emerald-600' : 'bg-white/10'}`}
-            >
-              {nombre}
-            </button>
-          ))}
-        </div>
-      )}
-      <div className="flex items-center gap-1">
-        <span className="mr-1">{tx.camara}</span>
-        {(
-          [
-            ['frontal', tx.frontal],
-            ['trasera', tx.trasera],
-          ] as const
-        ).map(([id, nombre]) => (
-          <button
-            key={id}
-            onClick={() => cambiarCamara(id)}
-            className={`rounded-full px-2 py-1 ${config.camara === id ? 'bg-emerald-600' : 'bg-white/10'}`}
-          >
-            {nombre}
+      <ControlesAjustes tx={tx} v={estadoActual} onAjuste={aplicarAjuste} onZoom={cambiarZoom} onLinterna={alternarLinterna} />
+      {crearSenal && (
+        <div className="space-y-2 rounded-lg bg-white/5 p-2">
+          <button className="flex w-full items-center justify-between" onClick={() => setRemotoPlegado((v) => !v)}>
+            <span>{tx.remoto}</span>
+            <span className="opacity-70">{remotoAbierto ? '▾' : '▸'}</span>
           </button>
-        ))}
-        {capCamara.torch && (
-          <button
-            onClick={alternarLinterna}
-            className={`ml-auto rounded-full px-2 py-1 ${linterna ? 'bg-amber-500 text-black' : 'bg-white/10'}`}
-          >
-            {tx.linterna}
-          </button>
-        )}
-      </div>
-      {lentes.length > 1 && (
-        <select
-          value={config.lenteId}
-          onChange={(e) => cambiar('lenteId', e.target.value)}
-          className="w-full rounded bg-white/10 px-2 py-2"
-        >
-          <option value="">{tx.lenteAuto(config.camara === 'frontal' ? tx.frontal : tx.trasera)}</option>
-          {lentes.map((d, i) => (
-            <option key={d.deviceId} value={d.deviceId}>
-              {d.label || tx.camaraN(i + 1)}
-            </option>
-          ))}
-        </select>
-      )}
-      {zoom !== null && capCamara.zoom && (
-        <label className="block">
-          <span className="flex justify-between text-base">
-            <span>{tx.zoom}</span>
-            <span className="font-mono">{zoom.toFixed(1)}×</span>
-          </span>
-          <input
-            type="range"
-            min={capCamara.zoom.min}
-            max={capCamara.zoom.max}
-            step={capCamara.zoom.step ?? 0.1}
-            value={zoom}
-            onChange={(e) => cambiarZoom(Number(e.target.value))}
-          />
-        </label>
-      )}
-      <div className="flex items-center gap-1">
-        <span className="mr-1">{tx.encuadre}</span>
-        {(
-          [
-            ['lleno', tx.vertical],
-            ['amplio', tx.amplio],
-          ] as const
-        ).map(([id, nombre]) => (
-          <button
-            key={id}
-            onClick={() => cambiar('encuadre', id)}
-            className={`rounded-full px-2 py-1 ${config.encuadre === id ? 'bg-emerald-600' : 'bg-white/10'}`}
-          >
-            {nombre}
-          </button>
-        ))}
-      </div>
-      {mascara.conRostro && (
-        <div className="flex gap-1 overflow-x-auto pb-1">
-          {EXPRESIONES.map((e) => (
-            <button
-              key={e.id}
-              onClick={() => cambiar('expresion', e.id)}
-              className={`shrink-0 rounded-full px-2 py-1 ${config.expresion === e.id ? 'bg-emerald-600' : 'bg-white/10'} ${
-                config.modoCara !== 'estatico' && expresionDetectada === e.id ? 'ring-2 ring-sky-400' : ''
-              }`}
-            >
-              {e.emoji} {tx.expresion(e.id, e.nombre)}
-            </button>
-          ))}
+          {remotoAbierto && (
+            <>
+              {!remoto ? (
+                <div className="flex flex-wrap items-center gap-1">
+                  <button onClick={() => void iniciarEmision()} className="rounded-full bg-white/10 px-2 py-1">
+                    {tx.remotoPermitir}
+                  </button>
+                  <input
+                    value={codigoEntrada}
+                    onChange={(e) => setCodigoEntrada(e.target.value.toUpperCase())}
+                    placeholder={tx.remotoCodigo}
+                    maxLength={6}
+                    className="w-28 rounded bg-white/10 px-2 py-1 text-center font-mono uppercase tracking-widest"
+                  />
+                  <button
+                    onClick={() => void conectarControl()}
+                    disabled={codigoEntrada.trim().length < 6}
+                    className="rounded-full bg-white/10 px-2 py-1 disabled:opacity-40"
+                  >
+                    {tx.remotoConectar}
+                  </button>
+                </div>
+              ) : (
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="rounded bg-black/40 px-2 py-1 font-mono text-lg tracking-widest">{remoto.codigo}</span>
+                    <span>
+                      {estadoRemoto === 'conectado'
+                        ? tx.remotoConectado
+                        : estadoRemoto === 'conectando'
+                          ? tx.remotoConectando
+                          : estadoRemoto === 'cortado'
+                            ? tx.remotoCortado
+                            : tx.remotoEsperando}
+                    </span>
+                    <button onClick={cortarRemoto} className="ml-auto shrink-0 rounded-full bg-white/10 px-2 py-1">
+                      {tx.remotoCortar}
+                    </button>
+                  </div>
+                  {estadoRemoto !== 'conectado' && (
+                    <div className="flex items-start gap-3 pt-1">
+                      {qr && <img src={qr} alt={tx.remotoCodigo} className="h-32 w-32 shrink-0 rounded" />}
+                      <p className="text-xs opacity-80">
+                        {tx.remotoAyuda}
+                        {qr && ` ${tx.remotoQr}`}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              )}
+              {errorRemoto && <p className="rounded bg-red-900/70 px-2 py-1 text-xs">{tx.remotoError(errorRemoto)}</p>}
+            </>
+          )}
         </div>
       )}
-      {esBase && (
-        <div className="flex gap-1 overflow-x-auto pb-1">
-          {PEINADOS.map((p) => (
-            <button
-              key={p.id}
-              onClick={() => cambiar('peinado', p.id)}
-              className={`shrink-0 rounded-full px-2 py-1 ${config.peinado === p.id ? 'bg-emerald-600' : 'bg-white/10'}`}
-            >
-              {p.emoji} {tx.peinado(p.id, p.nombre)}
-            </button>
-          ))}
-        </div>
-      )}
-      {esBase && (
-        <div className="flex items-center gap-4">
-          <label className="flex items-center gap-2">
-            {tx.piel}
-            <input type="color" value={config.piel} onChange={(e) => cambiar('piel', e.target.value)} className="h-9 w-12" />
-          </label>
-          <label className="flex items-center gap-2">
-            {tx.pelo}
-            <input type="color" value={config.pelo} onChange={(e) => cambiar('pelo', e.target.value)} className="h-9 w-12" />
-          </label>
-        </div>
-      )}
-      {(
-        [
-          { clave: 'escala', nombre: tx.tamano, min: 30, max: 80 },
-          { clave: 'altura', nombre: tx.altura, min: -10, max: 10 },
-          { clave: 'profundidad', nombre: tx.profundidad, min: -20, max: 5 },
-        ] as const
-      ).map((s) => (
-        <label key={s.clave} className="block">
-          <span className="flex justify-between text-base">
-            <span>{s.nombre}</span>
-            <span className="font-mono">{config[s.clave]}</span>
-          </span>
-          <input
-            type="range"
-            min={s.min}
-            max={s.max}
-            value={config[s.clave]}
-            onChange={(e) => cambiar(s.clave, Number(e.target.value))}
-          />
-        </label>
-      ))}
     </>
   )
+
+  // Modo controlador: nada de cámara ni MediaPipe locales; el streaming del
+  // emisor a pantalla completa y los controles que mandan órdenes por WebRTC.
+  if (esControl) {
+    const est = estadoEmisor
+    return (
+      <div className="mascara-ui flex h-full items-center justify-center bg-[#0f1115] text-white">
+        <div
+          className="relative h-full max-h-full w-auto max-w-full overflow-hidden"
+          style={{ aspectRatio: '9 / 16' }}
+        >
+          {/* El lienzo compuesto ya viene espejado desde el emisor: aquí no se voltea nada. */}
+          <video ref={videoRemotoRef} playsInline autoPlay muted className="absolute inset-0 h-full w-full object-contain" />
+          {(estadoRemoto !== 'conectado' || !videoRemoto) && (
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-4 text-center">
+              <p>
+                {estadoRemoto === 'cortado'
+                  ? tx.remotoCortado
+                  : estadoRemoto === 'conectado'
+                    ? tx.remotoVideo
+                    : tx.remotoConectando}
+              </p>
+              {estadoRemoto === 'cortado' && (
+                <button
+                  className="rounded bg-white/10 px-3 py-2"
+                  onClick={() => {
+                    setEstadoRemoto('conectando')
+                    controlRef.current?.reintentar()
+                  }}
+                >
+                  {tx.remotoReintentar}
+                </button>
+              )}
+            </div>
+          )}
+          <div className="absolute inset-x-0 top-0 flex items-center justify-between p-3 text-sm">
+            <button className="rounded bg-black/40 px-2 py-1 font-semibold" onClick={cortarRemoto}>
+              ✕ {tx.salir}
+            </button>
+            <span className="rounded bg-black/40 px-2 py-1">
+              {tx.remoto} ·{' '}
+              {estadoRemoto === 'conectado'
+                ? est?.conCara
+                  ? tx.caraDetectada
+                  : tx.buscandoCara
+                : estadoRemoto === 'cortado'
+                  ? tx.remotoCortado
+                  : tx.remotoConectando}
+            </span>
+          </div>
+          {est && estadoRemoto === 'conectado' && (
+            <div className="absolute inset-x-0 bottom-0 max-h-[75%] space-y-2 overflow-y-auto bg-gradient-to-t from-black/70 via-black/50 to-transparent p-3 text-sm">
+              <ControlesAjustes
+                tx={tx}
+                v={est}
+                onAjuste={(clave, valor) => {
+                  // Eco optimista: los controles no esperan el viaje de ida y vuelta.
+                  setEstadoEmisor((s) => (s ? { ...s, [clave]: valor } : s))
+                  mandar({ accion: 'ajuste', clave, valor })
+                }}
+                onZoom={(valor) => {
+                  setEstadoEmisor((s) => (s?.zoom ? { ...s, zoom: { ...s.zoom, v: valor } } : s))
+                  mandar({ accion: 'zoom', valor })
+                }}
+                onLinterna={() => mandar({ accion: 'linterna' })}
+              />
+              <div className="flex items-center justify-center gap-4 pb-2">
+                <button
+                  onClick={() => mandar({ accion: 'grabar' })}
+                  className={`flex h-16 w-16 items-center justify-center rounded-full border-4 border-white ${est.grabando ? 'bg-red-600' : 'bg-red-500'}`}
+                  aria-label={est.grabando ? tx.detener : tx.grabar}
+                >
+                  {est.grabando ? (
+                    <span className="h-6 w-6 rounded bg-white" />
+                  ) : (
+                    <span className="h-10 w-10 rounded-full bg-red-700" />
+                  )}
+                </button>
+                {est.grabando && <span className="font-mono text-lg">{formatoReloj(est.segundos)}</span>}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="mascara-ui flex h-full items-center justify-center bg-[#0f1115] text-white">
@@ -742,6 +1207,7 @@ export function MascaraApp({ onSalir, textos }: { onSalir?: () => void; textos?:
                       : conCara
                         ? tx.caraDetectada
                         : tx.buscandoCara}
+                {remoto?.rol === 'emisor' && estadoRemoto === 'conectado' && ` · ${tx.remoto}`}
               </span>
               <button className="rounded bg-black/40 px-2 py-1" onClick={() => setLimpio(true)}>
                 {tx.ocultar}
