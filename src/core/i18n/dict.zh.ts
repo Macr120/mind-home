@@ -3126,6 +3126,7 @@ export const ZH: Dict = {
   'ejercicio.catalogo.nuevoEjercicio': '＋添加动作到目录',
   'ejercicio.catalogo.destino': '添加到分组',
   'ejercicio.catalogo.sinGrupos': '这个分类在你的目录里还没有分组。用“＋新建分组”创建一个，再往里添加动作。',
+  'ejercicio.catalogo.sinEjercicios': '这些文件夹里还没有动作。用下面的“＋添加动作到目录”添加。',
   'ejercicio.catalogo.anadido': '✓ 已添加',
   'ejercicio.catalogo.yaEsta': '已在其中',
   'ejercicio.rutinaIA.boton': '用AI创建',

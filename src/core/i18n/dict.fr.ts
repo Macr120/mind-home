@@ -3301,6 +3301,7 @@ export const FR: Dict = {
   'ejercicio.catalogo.nuevoEjercicio': '+ Ajouter un exercice au catalogue',
   'ejercicio.catalogo.destino': 'Ajouter au groupe',
   'ejercicio.catalogo.sinGrupos': 'Ce focus n’a aucun groupe dans ton catalogue. Crée-en un avec « + Nouveau groupe » et ajoute-lui des exercices.',
+  'ejercicio.catalogo.sinEjercicios': 'Ces dossiers n’ont pas encore d’exercices. Ajoute-les ci-dessous avec « + Ajouter un exercice au catalogue ».',
   'ejercicio.catalogo.anadido': '✓ Ajouté',
   'ejercicio.catalogo.yaEsta': 'Déjà là',
   'ejercicio.rutinaIA.boton': 'Avec l’IA',

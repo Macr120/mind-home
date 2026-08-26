@@ -3227,6 +3227,7 @@ export const HI: Dict = {
   'ejercicio.catalogo.nuevoEjercicio': '+ कैटलॉग में व्यायाम जोड़ें',
   'ejercicio.catalogo.destino': 'समूह में जोड़ें',
   'ejercicio.catalogo.sinGrupos': 'इस फ़ोकस में आपके कैटलॉग का कोई समूह नहीं है। “+ नया समूह” से एक बनाएं और उसमें व्यायाम जोड़ें।',
+  'ejercicio.catalogo.sinEjercicios': 'इन फ़ोल्डरों में अभी कोई व्यायाम नहीं है। नीचे “+ कैटलॉग में व्यायाम जोड़ें” से जोड़ें।',
   'ejercicio.catalogo.anadido': '✓ जोड़ा गया',
   'ejercicio.catalogo.yaEsta': 'पहले से है',
   'ejercicio.rutinaIA.boton': 'एआई से',

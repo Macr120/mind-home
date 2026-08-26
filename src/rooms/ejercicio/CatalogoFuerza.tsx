@@ -56,11 +56,15 @@ export function CatalogoFuerza({
   // formulario: antes el alta simplemente no salía y el catálogo solo crecía
   // entrando grupo por grupo.
   const grupoDestino = gruposDelSplit.find((g) => g.grupoId === destinoId) ?? gruposDelSplit[0] ?? null
+  // Un enfoque sin un solo ejercicio no ofrece rutinas: si la única tarjeta con
+  // contenido es «Rutina sugerida», parece que el catálogo abre rutinas en vez
+  // de ejercicios. Con la lista vacía se dice qué falta y ya está.
+  const sinEjercicios = gruposDelSplit.every((g) => g.ejercicios.length === 0)
   const preguardadas =
-    split && gruposDelSplit.length > 0 ? RUTINAS.fuerza.filter((r) => r.splitId === split.id) : []
+    split && !sinEjercicios ? RUTINAS.fuerza.filter((r) => r.splitId === split.id) : []
   // Para un grupo muscular sin rutina preguardada se sugiere una con su catálogo
   const rutinas: RutinaPlantilla[] =
-    split && preguardadas.length === 0 && gruposDelSplit.length === 1
+    split && !sinEjercicios && preguardadas.length === 0 && gruposDelSplit.length === 1
       ? [
           {
             nombre: etiqueta(split),
@@ -205,12 +209,17 @@ export function CatalogoFuerza({
             <p className="mb-1.5 text-xs font-semibold text-white/50">
               {t('ejercicio.sugeridos', 'Ejercicios disponibles · toca para añadir')}
             </p>
-            {gruposDelSplit.length === 0 && (
+            {sinEjercicios && (
               <p className="text-xs text-white/40">
-                {t(
-                  'ejercicio.catalogo.sinGrupos',
-                  'Este enfoque no tiene grupos en tu catálogo. Crea uno con «+ Nuevo grupo» y añádele ejercicios.',
-                )}
+                {gruposDelSplit.length === 0
+                  ? t(
+                      'ejercicio.catalogo.sinGrupos',
+                      'Este enfoque no tiene grupos en tu catálogo. Crea uno con «+ Nuevo grupo» y añádele ejercicios.',
+                    )
+                  : t(
+                      'ejercicio.catalogo.sinEjercicios',
+                      'Estas carpetas todavía no tienen ejercicios. Añádelos abajo con «+ Añadir ejercicio al catálogo».',
+                    )}
               </p>
             )}
             <div className="space-y-2">

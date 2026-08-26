@@ -3129,6 +3129,7 @@ export const KO: Dict = {
   'ejercicio.catalogo.nuevoEjercicio': '＋카탈로그에 운동 추가',
   'ejercicio.catalogo.destino': '그룹에 추가',
   'ejercicio.catalogo.sinGrupos': '이 분류에는 카탈로그 그룹이 없어요. ‘＋새 그룹’으로 만들고 운동을 추가하세요.',
+  'ejercicio.catalogo.sinEjercicios': '이 폴더에는 아직 운동이 없어요. 아래의 ‘＋카탈로그에 운동 추가’로 넣으세요.',
   'ejercicio.catalogo.anadido': '✓ 추가됨',
   'ejercicio.catalogo.yaEsta': '이미 있음',
   'ejercicio.rutinaIA.boton': 'AI로 만들기',

@@ -3222,6 +3222,7 @@ export const RU: Dict = {
   'ejercicio.catalogo.nuevoEjercicio': '+ Добавить упражнение в каталог',
   'ejercicio.catalogo.destino': 'Добавить в группу',
   'ejercicio.catalogo.sinGrupos': 'В этом фокусе нет групп в твоём каталоге. Создай её через «+ Новая группа» и добавь упражнения.',
+  'ejercicio.catalogo.sinEjercicios': 'В этих папках пока нет упражнений. Добавь их ниже через «+ Добавить упражнение в каталог».',
   'ejercicio.catalogo.anadido': '✓ Добавлено',
   'ejercicio.catalogo.yaEsta': 'Уже есть',
   'ejercicio.rutinaIA.boton': 'С ИИ',

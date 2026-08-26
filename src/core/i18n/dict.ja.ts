@@ -3126,6 +3126,7 @@ export const JA: Dict = {
   'ejercicio.catalogo.nuevoEjercicio': '＋カタログに種目を追加',
   'ejercicio.catalogo.destino': 'グループに追加',
   'ejercicio.catalogo.sinGrupos': 'このカテゴリにはカタログのグループがありません。「＋新しいグループ」で作って種目を追加してください。',
+  'ejercicio.catalogo.sinEjercicios': 'このフォルダにはまだ種目がありません。下の「＋カタログに種目を追加」で追加してください。',
   'ejercicio.catalogo.anadido': '✓ 追加',
   'ejercicio.catalogo.yaEsta': '追加済み',
   'ejercicio.rutinaIA.boton': 'AIで作成',

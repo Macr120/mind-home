@@ -22,24 +22,79 @@ const FLAG_GRUPOS_FLEX = claveLS('mindhome:ejercicio:gruposFlexSembrados')
 const FLAG_GRUPOS_CARDIO = claveLS('mindhome:ejercicio:gruposCardioSembrados')
 const FLAG_RUTINAS_CARDIO = claveLS('mindhome:ejercicio:rutinasCardioSembradas')
 
+/** Un grupo del catálogo, en lo que las tres modalidades tienen en común. */
+interface GrupoCat {
+  id?: number
+  grupoId: string
+  label: string
+  orden: number
+  ejercicios: { nombre: string }[]
+}
+
+/** El repo de un catálogo, visto por lo que el rescate necesita de él. */
+interface RepoCat {
+  list: () => Promise<GrupoCat[]>
+  add: (item: Omit<GrupoCat, 'id'>) => Promise<number>
+  update: (id: number, cambios: { ejercicios: { nombre: string }[] }) => Promise<number>
+}
+
+/** Un grupo de la semilla (`CATALOGO_FUERZA` y compañía). */
+interface SemillaCat {
+  id: string
+  label: string
+  ejercicios: { nombre: string }[]
+}
+
+/**
+ * Repone un catálogo que se quedó SIN UN SOLO ejercicio. Rellena los grupos de
+ * fábrica que existen pero están huecos y añade los que faltan; lo que el
+ * usuario tenga con ejercicios dentro no se toca, y sus grupos propios tampoco.
+ *
+ * Escribe filas de USUARIO, no de semilla, y eso es lo que lo hace funcionar:
+ * una fila `seed-…` nace con `updatedAt: 1` y el sync la mata dos veces —el
+ * tombstone de la nube que vació la tabla gana el LWW por goleada, y el barrido
+ * de arranque borra las `seed-… updatedAt === 1` que el servidor no conoce
+ * (`motor.ts`)—. Con uid nuevo y fecha de hoy son datos normales: sobreviven al
+ * pull y suben a la nube.
+ */
+async function rescatarCatalogo(repo: RepoCat, semilla: SemillaCat[], filas: GrupoCat[]): Promise<void> {
+  const porId = new Map(filas.map((g) => [g.grupoId, g]))
+  let orden = filas.reduce((m, g) => Math.max(m, g.orden), -1)
+  for (const s of semilla) {
+    const existente = porId.get(s.id)
+    if (!existente) {
+      orden += 1
+      await repo.add({ grupoId: s.id, label: s.label, orden, ejercicios: s.ejercicios })
+    } else if (existente.id != null) {
+      await repo.update(existente.id, { ejercicios: s.ejercicios })
+    }
+  }
+}
+
 /**
  * Siembra un CATÁLOGO (los grupos con sus ejercicios). La bandera existe para
- * que borrar un grupo no lo reponga al recargar, pero un catálogo VACÍO no es
- * una elección: es una base que perdió sus filas. Ahí Ejercicio se queda sin un
- * solo ejercicio que ofrecer y sin sitio donde añadirlo —al elegir un enfoque
- * solo se ve «Rutina sugerida»—, así que con la tabla vacía se vuelve a sembrar.
+ * que borrar un grupo no lo reponga al recargar, pero un catálogo sin NINGÚN
+ * ejercicio no es una elección: es una base que perdió sus filas, o cuyos
+ * grupos se quedaron huecos. Ahí Ejercicio no tiene nada que ofrecer y al
+ * elegir un enfoque lo único que se ve es «Rutina sugerida», así que se repone.
  *
  * Las RUTINAS no llevan este rescate: quedarse sin ninguna sí es un estado
  * normal (se borran a mano) y no deja la app inservible.
  */
 async function sembrarCatalogo(
   flag: string,
-  repo: { list: () => Promise<unknown[]> },
+  repo: RepoCat,
+  semilla: SemillaCat[],
   sembrar: () => Promise<void>,
 ): Promise<void> {
-  if (localStorage.getItem(flag) && (await repo.list()).length > 0) return
-  localStorage.setItem(flag, '1')
-  await sembrar()
+  if (!localStorage.getItem(flag)) {
+    localStorage.setItem(flag, '1')
+    await sembrar()
+    return
+  }
+  const filas = await repo.list()
+  if (filas.some((g) => g.ejercicios.length > 0)) return
+  await rescatarCatalogo(repo, semilla, filas)
 }
 
 export async function sembrarEjercicio() {
@@ -84,7 +139,7 @@ export async function sembrarEjercicio() {
     )
   }
 
-  await sembrarCatalogo(FLAG_GRUPOS_FUERZA, gruposFuerzaRepo, () =>
+  await sembrarCatalogo(FLAG_GRUPOS_FUERZA, gruposFuerzaRepo, CATALOGO_FUERZA, () =>
     gruposFuerzaRepo.bulkAdd(
       filasSeed(
         'gruposFuerza',
@@ -94,7 +149,7 @@ export async function sembrarEjercicio() {
     ),
   )
 
-  await sembrarCatalogo(FLAG_GRUPOS_FLEX, gruposFlexRepo, () =>
+  await sembrarCatalogo(FLAG_GRUPOS_FLEX, gruposFlexRepo, CATALOGO_FLEX, () =>
     gruposFlexRepo.bulkAdd(
       filasSeed(
         'gruposFlex',
@@ -104,7 +159,7 @@ export async function sembrarEjercicio() {
     ),
   )
 
-  await sembrarCatalogo(FLAG_GRUPOS_CARDIO, gruposCardioRepo, sembrarGruposCardio)
+  await sembrarCatalogo(FLAG_GRUPOS_CARDIO, gruposCardioRepo, CATALOGO_CARDIO, sembrarGruposCardio)
 
   if (!localStorage.getItem(FLAG_RUTINAS_CARDIO)) {
     localStorage.setItem(FLAG_RUTINAS_CARDIO, '1')

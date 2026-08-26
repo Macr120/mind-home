@@ -3291,6 +3291,7 @@ export const NL: Dict = {
   'ejercicio.catalogo.nuevoEjercicio': '+ Oefening toevoegen aan catalogus',
   'ejercicio.catalogo.destino': 'Aan groep toevoegen',
   'ejercicio.catalogo.sinGrupos': 'Deze focus heeft geen groepen in je catalogus. Maak er een met “+ Nieuwe groep” en voeg er oefeningen aan toe.',
+  'ejercicio.catalogo.sinEjercicios': 'Deze mappen hebben nog geen oefeningen. Voeg ze hieronder toe met “+ Oefening toevoegen aan catalogus”.',
   'ejercicio.catalogo.anadido': '✓ Toegevoegd',
   'ejercicio.catalogo.yaEsta': 'Staat er al in',
   'ejercicio.rutinaIA.boton': 'Met AI',
