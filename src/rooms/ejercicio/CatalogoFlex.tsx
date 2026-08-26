@@ -11,6 +11,7 @@ import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { acento } from '../_shared/acento'
 import { C_FLEX } from './constantes'
+import { useAvisoAgregado } from './avisoAgregado'
 
 /**
  * Catálogo de flexibilidad estructurado como el de fuerza: se elige un enfoque
@@ -18,13 +19,19 @@ import { C_FLEX } from './constantes'
  * para tocar y añadirlas a la rutina que se está creando. Los grupos y sus
  * posturas son editables: agregar/borrar grupo, agregar/borrar postura.
  */
-export function CatalogoFlex({ onAgregar }: { onAgregar: (nombre: string, grupoLabel: string) => void }) {
+export function CatalogoFlex({
+  onAgregar,
+}: {
+  /** Devuelve false si la postura ya estaba en la rutina (para el acuse). */
+  onAgregar: (nombre: string, grupoLabel: string) => boolean
+}) {
   const [grupoId, setGrupoId] = useState<string | null>(null)
   const [agregandoGrupo, setAgregandoGrupo] = useState(false)
   const [nuevoGrupo, setNuevoGrupo] = useState('')
   const [agregandoEjercicio, setAgregandoEjercicio] = useState(false)
   const [nombreNuevoEj, setNombreNuevoEj] = useState('')
   const [descNuevoEj, setDescNuevoEj] = useState('')
+  const [aviso, avisar] = useAvisoAgregado()
   const t = useT()
 
   const grupos = gruposFlexRepo.useAll() ?? VACIO
@@ -152,7 +159,7 @@ export function CatalogoFlex({ onAgregar }: { onAgregar: (nombre: string, grupoL
                 />
                 <button
                   type="button"
-                  onClick={() => onAgregar(ej.nombre, grupo.label)}
+                  onClick={() => avisar(ej.nombre, onAgregar(ej.nombre, grupo.label))}
                   className="min-w-0 flex-1 text-start"
                 >
                   <div className="flex items-center gap-2">
@@ -162,7 +169,19 @@ export function CatalogoFlex({ onAgregar }: { onAgregar: (nombre: string, grupoL
                         {dificultadEjercicio(t, ej.dificultad)}
                       </span>
                     )}
-                    <span className="shrink-0 font-bold text-violet-400">+</span>
+                    {aviso?.nombre === ej.nombre ? (
+                      <span
+                        className={`shrink-0 text-[10px] font-bold ${
+                          aviso.nuevo ? 'text-emerald-400' : 'text-white/45'
+                        }`}
+                      >
+                        {aviso.nuevo
+                          ? t('ejercicio.catalogo.anadido', '✓ Añadido')
+                          : t('ejercicio.catalogo.yaEsta', 'Ya está')}
+                      </span>
+                    ) : (
+                      <span className="shrink-0 font-bold text-violet-400">+</span>
+                    )}
                   </div>
                   {ej.descripcion && (
                     <p className="mt-0.5 text-xs text-white/55">{descEjercicio(t, ej.nombre, ej.descripcion)}</p>

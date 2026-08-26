@@ -15,6 +15,7 @@ import { tGlobal } from '../../core/i18n/useT'
 import { agendaDelDia } from './agenda'
 import { nombreRutina } from './nombres'
 import { planMetasEjercicio } from './plan'
+import { CAMPOS_RUTINA, guardarRutinaEjercicio, normalizarRutinaIA } from './rutinaIA'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { esencialEjercicio, flujosEjercicio } from './tutorial.meta'
 import { OPERACIONES_IA } from './costosIA'
@@ -122,6 +123,19 @@ const esquemas: EsquemaCaptura[] = [
         rpe: rpe >= 1 && rpe <= 10 ? rpe : undefined,
         nota: vTexto(v.nota) || undefined,
       })
+    },
+  },
+  {
+    id: 'rutina',
+    // Una rutina de entrenamiento NO es una rutina del calendario: es la lista
+    // de ejercicios que se repite, y vive en la app junto a las que se arman a
+    // mano. Sin esta puerta el chat las mandaba a Misiones como evento.
+    descripcion:
+      'Una RUTINA de entrenamiento: la lista ordenada de ejercicios que se repite. Úsala cuando el usuario pida armar o inventar una rutina de gimnasio/pesas, de cardio o de estiramientos — NO uses crear_rutina para eso. Queda guardada en la app, lista para cargarla o agendarla.',
+    campos: CAMPOS_RUTINA,
+    guardar: async (v) => {
+      const rutina = normalizarRutinaIA(v, 'fuerza')
+      if (rutina) await guardarRutinaEjercicio(rutina)
     },
   },
 ]

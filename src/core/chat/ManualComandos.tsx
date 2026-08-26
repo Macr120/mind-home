@@ -135,7 +135,7 @@ const SECCIONES: Seccion[] = [
       {
         appId: 'ejercicio',
         id: 'ejercicio',
-        nota: 'Con IA: plan de entrenamiento en su Cronograma (botón ✨) e imágenes ilustrativas de los ejercicios dentro de la app.',
+        nota: 'Con IA: rutinas de entrenamiento (también con el ✨ de «Crear rutina»), plan de entrenamiento en su Cronograma e imágenes ilustrativas de los ejercicios dentro de la app.',
         grupos: [
           {
             id: 'registrar',
@@ -158,6 +158,8 @@ const SECCIONES: Seccion[] = [
             id: 'ia',
             ejemplos: [
               { frase: 'Registra mi sesión: {crossfit 40 min, intensidad alta}', en: 'Log my session: {crossfit 40 min, high intensity}' },
+              { frase: '[Arma una rutina] de {pecho y tríceps} de {45 min}', en: '[Build a routine] for {chest and triceps}, {45 min}' },
+              { frase: '[Arma una rutina] de {estiramientos} para {la espalda baja}', en: '[Build a routine] of {stretches} for {the lower back}' },
             ],
           },
         ],
