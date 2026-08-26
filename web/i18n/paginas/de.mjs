@@ -13,9 +13,9 @@ export const TEXTOS = {
 
   'meta.titulo': 'Mind Planner Home — Dein Geist, in einem 3D-Haus',
   'meta.desc':
-    'Ordne deine Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr in einem isometrischen 3D-Haus, in dem jeder Raum eine App ist. Eine einmalige Zahlung von 8,89 USD, erster Monat mit KI und Sync inklusive; teste sie kostenlos.',
+    'Ordne deine Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr in einem isometrischen 3D-Haus, in dem jeder Raum eine App ist. Eine einmalige Zahlung von 8,99 USD, erster Monat mit KI und Sync inklusive; teste sie kostenlos.',
   'og.desc':
-    'Dein Leben, in einem 3D-Haus: Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr. Eine Zahlung von 8,89 USD, erster Monat mit KI inklusive; teste sie kostenlos.',
+    'Dein Leben, in einem 3D-Haus: Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr. Eine Zahlung von 8,99 USD, erster Monat mit KI inklusive; teste sie kostenlos.',
 
   'hero.h1': 'Dein Geist,<br />in einem 3D-Haus',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -136,7 +136,7 @@ export const TEXTOS = {
   'precio.probar.cta': 'App testen',
   'precio.probar.pie': 'Die komplette App, um sie unverbindlich kennenzulernen.',
   'precio.app.nombre': 'Die App',
-  'precio.app.cifra': '8,89 USD',
+  'precio.app.cifra': '8,99 USD',
   'precio.app.pagoUnico': 'einmalige Zahlung',
   'precio.app.1': 'Dein eigenes Haus, für immer: alle Apps, deine Daten auf deinem Gerät',
   'precio.app.2': 'Erster Monat inklusive: 700 KI-Credits + Sync, ohne Karte und ohne Abo',
@@ -245,7 +245,7 @@ export const TEXTOS = {
     'Mind Planner Home ist eine App zur persönlichen Organisation. Die Testversion ist kostenlos und braucht kein Konto. Die App wird mit einer einmaligen Zahlung gekauft; die wiederkehrenden Funktionen (KI-Credits und Sync) werden ausschließlich auf dieser Website abgeschlossen; die Desktop- und Store-Apps sind Clients desselben Kontos.',
   'term.app.h': 'Die App (einmalige Zahlung)',
   'term.app.1':
-    'Freischaltung der App: 8,89 USD, einmalige Zahlung. Sie schaltet dein Haus für immer in deinem Konto frei, ohne Verlängerungen.',
+    'Freischaltung der App: 8,99 USD, einmalige Zahlung. Sie schaltet dein Haus für immer in deinem Konto frei, ohne Verlängerungen.',
   'term.app.2':
     'Enthält den ersten Monat: 30 Tage mit den 700 monatlichen KI-Credits und der Sync, ohne Karte und ohne Abo. Danach behältst du die App und deine Daten; die monatlichen Credits und die Sync erfordern das Abo.',
   'term.app.3':

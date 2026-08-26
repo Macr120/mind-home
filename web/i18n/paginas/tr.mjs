@@ -13,9 +13,9 @@ export const TEXTOS = {
 
   'meta.titulo': 'Mind Planner Home — Zihnin, bir 3D evde',
   'meta.desc':
-    'Alışkanlıklarını, hedeflerini, finansını, öğünlerini ve daha fazlasını her odası bir uygulama olan izometrik bir 3D evde düzenle. Tek seferlik 8,89 USD, ilk ay yapay zekâ ve eşitleme dahil; ücretsiz dene.',
+    'Alışkanlıklarını, hedeflerini, finansını, öğünlerini ve daha fazlasını her odası bir uygulama olan izometrik bir 3D evde düzenle. Tek seferlik 8,99 USD, ilk ay yapay zekâ ve eşitleme dahil; ücretsiz dene.',
   'og.desc':
-    'Hayatın bir 3D evde: alışkanlıklar, hedefler, finans, öğünler ve dahası. 8,89 USD tek ödeme, ilk ay yapay zekâ dahil; ücretsiz dene.',
+    'Hayatın bir 3D evde: alışkanlıklar, hedefler, finans, öğünler ve dahası. 8,99 USD tek ödeme, ilk ay yapay zekâ dahil; ücretsiz dene.',
 
   'hero.h1': 'Zihnin,<br />bir 3D evde',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -133,7 +133,7 @@ export const TEXTOS = {
   'precio.probar.cta': 'Uygulamayı dene',
   'precio.probar.pie': 'Eksiksiz uygulama, hiçbir yükümlülük olmadan tanımak için.',
   'precio.app.nombre': 'Uygulama',
-  'precio.app.cifra': '8,89 USD',
+  'precio.app.cifra': '8,99 USD',
   'precio.app.pagoUnico': 'tek ödeme',
   'precio.app.1': 'Kendi evin, sonsuza dek: bütün uygulamalar, verin kendi cihazında',
   'precio.app.2': 'İlk ay dahil: 700 yapay zekâ kredisi + eşitleme, kartsız ve aboneliksiz',
@@ -239,7 +239,7 @@ export const TEXTOS = {
     'Mind Planner Home kişisel düzen için bir uygulamadır. Deneme ücretsizdir ve hesap gerektirmez. Uygulama tek ödemeyle alınır; yinelenen özellikler (yapay zekâ kredileri ve eşitleme) yalnızca bu web sitesinde alınır; masaüstü ve mağaza uygulamaları aynı hesabın istemcileridir.',
   'term.app.h': 'Uygulama (tek ödeme)',
   'term.app.1':
-    'Uygulamanın kilidinin açılması: 8,89 USD, tek ödeme. Hesabında evini sonsuza dek açar, yenileme yoktur.',
+    'Uygulamanın kilidinin açılması: 8,99 USD, tek ödeme. Hesabında evini sonsuza dek açar, yenileme yoktur.',
   'term.app.2':
     'İlk ayı içerir: 30 gün boyunca aylık 700 yapay zekâ kredisi ve eşitleme, kartsız ve aboneliksiz. Bittiğinde uygulama ve verilerin sende kalır; aylık krediler ve eşitleme abonelik gerektirir.',
   'term.app.3':

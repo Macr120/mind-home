@@ -344,7 +344,7 @@ function ConseguirApp() {
       <h2 className="text-sm font-bold text-white/90">{t('app.titulo', 'Consigue la app')}</h2>
       <div className="space-y-2 rounded-xl border border-accent/50 bg-white/5 p-3">
         <p className="text-2xl font-extrabold text-white/95">
-          {oferta?.precio || '8.89 USD'}
+          {oferta?.precio || '8.99 USD'}
           <span className="text-sm font-semibold text-white/50">{' '}
             {t('app.pagoUnico', 'pago único')}
           </span>

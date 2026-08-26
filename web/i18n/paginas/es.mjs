@@ -22,9 +22,9 @@ export const TEXTOS = {
   // ─── Portada ─────────────────────────────────────────────────────────────
   'meta.titulo': 'Mind Planner Home — Tu mente, en una casa 3D',
   'meta.desc':
-    'Organiza tus hábitos, metas, finanzas, comidas y más en una casa isométrica 3D donde cada cuarto es una app. Un solo pago de 8.89 USD con el primer mes de IA y sincronización incluido; pruébala gratis.',
+    'Organiza tus hábitos, metas, finanzas, comidas y más en una casa isométrica 3D donde cada cuarto es una app. Un solo pago de 8.99 USD con el primer mes de IA y sincronización incluido; pruébala gratis.',
   'og.desc':
-    'Tu vida, en una casa 3D: hábitos, metas, finanzas, comidas y más. Un pago de 8.89 USD con el primer mes de IA incluido; pruébala gratis.',
+    'Tu vida, en una casa 3D: hábitos, metas, finanzas, comidas y más. Un pago de 8.99 USD con el primer mes de IA incluido; pruébala gratis.',
 
   'hero.h1': 'Tu mente,<br />en una casa 3D',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -145,7 +145,7 @@ export const TEXTOS = {
   'precio.probar.cta': 'Probar la app',
   'precio.probar.pie': 'La app completa, para conocerla sin compromiso.',
   'precio.app.nombre': 'La app',
-  'precio.app.cifra': '8.89 USD',
+  'precio.app.cifra': '8.99 USD',
   'precio.app.pagoUnico': 'pago único',
   'precio.app.1': 'Tu propia casa, para siempre: todas las apps, tus datos en tu dispositivo',
   'precio.app.2':
@@ -256,7 +256,7 @@ export const TEXTOS = {
     'Mind Planner Home es una app de organización personal. La prueba es gratuita y no requiere cuenta. La app se compra con un pago único; las funciones recurrentes (créditos de IA y sincronización) se contratan únicamente en esta página web; las apps de escritorio y de tienda son clientes de esa misma cuenta.',
   'term.app.h': 'La app (pago único)',
   'term.app.1':
-    'Desbloqueo de la app: 8.89 USD, pago único. Desbloquea tu casa para siempre en tu cuenta, sin renovaciones.',
+    'Desbloqueo de la app: 8.99 USD, pago único. Desbloquea tu casa para siempre en tu cuenta, sin renovaciones.',
   'term.app.2':
     'Incluye el primer mes: 30 días con los 700 créditos de IA mensuales y la sincronización, sin tarjeta y sin suscripción. Al terminar, conservas la app y tus datos; los créditos mensuales y la sincronización requieren la suscripción.',
   'term.app.3': 'La prueba gratuita no guarda nada hasta que creas tu cuenta: es para conocer la app antes de comprarla.',

@@ -13,9 +13,9 @@ export const TEXTOS = {
 
   'meta.titulo': 'Mind Planner Home — Your mind, in a 3D house',
   'meta.desc':
-    'Organise your habits, goals, finances, meals and more in an isometric 3D house where every room is an app. One payment of USD 8.89 with the first month of AI and sync included; free trial.',
+    'Organise your habits, goals, finances, meals and more in an isometric 3D house where every room is an app. One payment of USD 8.99 with the first month of AI and sync included; free trial.',
   'og.desc':
-    'Your life, in a 3D house: habits, goals, finances, meals and more. One payment of USD 8.89 with the first month of AI included; free trial.',
+    'Your life, in a 3D house: habits, goals, finances, meals and more. One payment of USD 8.99 with the first month of AI included; free trial.',
 
   'hero.h1': 'Your mind,<br />in a 3D house',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -134,7 +134,7 @@ export const TEXTOS = {
   'precio.probar.cta': 'Try the app',
   'precio.probar.pie': 'The full app, to get to know it with no strings attached.',
   'precio.app.nombre': 'The app',
-  'precio.app.cifra': 'USD 8.89',
+  'precio.app.cifra': 'USD 8.99',
   'precio.app.pagoUnico': 'one-off payment',
   'precio.app.1': 'A house of your own, forever: every app, your data on your device',
   'precio.app.2': 'First month included: 700 AI credits + sync, no card and no subscription',
@@ -242,7 +242,7 @@ export const TEXTOS = {
     'Mind Planner Home is a personal organisation app. The trial is free and requires no account. The app is bought with a one-off payment; the recurring features (AI credits and sync) are taken out on this website only; the desktop and store apps are clients of that same account.',
   'term.app.h': 'The app (one-off payment)',
   'term.app.1':
-    'App unlock: USD 8.89, one-off payment. It unlocks your house forever on your account, with no renewals.',
+    'App unlock: USD 8.99, one-off payment. It unlocks your house forever on your account, with no renewals.',
   'term.app.2':
     'It includes the first month: 30 days with the 700 monthly AI credits and sync, with no card and no subscription. When it ends you keep the app and your data; the monthly credits and sync require the subscription.',
   'term.app.3': 'The free trial saves nothing until you create your account: it is there to get to know the app before buying it.',

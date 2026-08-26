@@ -25,7 +25,7 @@ src/core/data/sync/ middleware.ts (DBCore)     · revenuecat-webhook · borrar-c
   sola regla: **6 USD = 700 créditos**, y de cada 6 USD la ganancia mínima son
   2 USD (por eso el bucket va a `techo_factor 1.00` = $3.50 de gasto real máximo
   por cada 700 créditos; ver COSTOS.md). La **demo** (no persistente) es el free
-  tier. La **casa** ($8.89 pago único, `unlock_casa_v4`) se vende en las tres
+  tier. La **casa** ($8.99 pago único, `unlock_casa_v5` en la web y `unlock_casa_v4` en las tiendas) se vende en las tres
   cajas e incluye el **primer mes** (plan `trial`: 30 días con pool de 700
   créditos + sync, sin tarjeta). **Pro** a 6 / 12 / 18 USD al mes según nivel
   —o **60 USD/año** (`pro_x1_anual`, el ×1 pagado de una vez)— con créditos
@@ -202,7 +202,7 @@ Opcionales, todos con default y sin redeploy al cambiarlos:
    `pro_x1_v2` ($6), `pro_x2_v2` ($12) y `pro_x3_v2` ($18). Deben ir en el MISMO
    grupo de suscripción para que cambiar de nivel sea un PRODUCT_CHANGE
    prorrateado y no dos suscripciones a la vez.
-3. El **pago único del unlock ($8.89, `unlock_casa_v4`)** se vende en las tres
+3. El **pago único del unlock ($8.99; `unlock_casa_v5` en la web, `unlock_casa_v4` en las tiendas)** se vende en las tres
    cajas (ver 3e y §5): IAP en Android y iOS, caja directa en web y escritorio.
    Los ids anteriores (`unlock_casa_v3` a $6.99, `_v2`, `_v1`) se conservan en
    RevenueCat y el webhook los sigue mapeando a `perfiles.unlock` + plan `trial`
@@ -218,7 +218,7 @@ Opcionales, todos con default y sin redeploy al cambiarlos:
    `nivel = 1` y el pool sigue siendo mensual.
 
    Los ids exactos importan en los seis productos vigentes (`pro_x1_v2`,
-   `pro_x2_v2`, `pro_x3_v2`, `pro_x1_anual`, `unlock_casa_v4`, `creditos_x1`):
+   `pro_x2_v2`, `pro_x3_v2`, `pro_x1_anual`, `unlock_casa_v5`/`unlock_casa_v4`, `creditos_x1`):
    tanto el webhook como el cliente los buscan por nombre. Un guion de más y la
    compra se cobra sin conceder nada.
 
@@ -251,10 +251,13 @@ Receta para el próximo cambio de precio:
 
 Historial: el unlock pasó de $10.99 (`unlock_casa`) a $9.99 (`unlock_casa_v2`,
 18-ago), a $6.99 (`unlock_casa_v3`) el mismo día con el cambio de plan de
-negocio y a **$8.89 (`unlock_casa_v4`)** el 20-ago, ya con la compra dentro de
-la app; los niveles pasaron de $5/$10/$15 (`pro_x1`…) a **$6/$12/$18**
-(`pro_x1_v2`…). Vigentes hoy: `unlock_casa_v4`, `pro_x1_v2`, `pro_x2_v2`,
-`pro_x3_v2` y `creditos_x1`; todo lo anterior, inactivo y fuera del offering.
+negocio, a **$8.89 (`unlock_casa_v4`)** el 20-ago con la compra dentro de la
+app y a **$8.99** el 25-ago (`unlock_casa_v5` en la web, porque el precio de
+RevenueCat es inmutable; en las tiendas sigue el `_v4`, ya reetiquetado);
+los niveles pasaron de $5/$10/$15 (`pro_x1`…) a **$6/$12/$18**
+(`pro_x1_v2`…). Vigentes hoy: `unlock_casa_v5` (web) y `unlock_casa_v4`
+(tiendas), `pro_x1_v2`, `pro_x2_v2`, `pro_x3_v2` y `creditos_x1`; todo lo
+anterior, inactivo y fuera del offering.
 Textos de cara al cliente en **inglés** (el checkout es un solo idioma para todo
 el mundo).
 
@@ -439,7 +442,7 @@ no requiere pasos manuales. (Desde jul 2026 la policy también exige Pro vigente
 ### 5. Web pública (landing + /cuenta) — YA DESPLEGADA (15-ago-2026)
 - Código en `web/` (segundo build de Vite): `npm run dev:web` (puerto 5174) y
   `npm run build:web` (→ `dist-web/`). Ligera a propósito: sin three ni dexie.
-- **Qué se vende aquí (20-ago-2026)**: TODO —la casa (8.89 USD, `unlock_casa_v4`),
+- **Qué se vende aquí (20-ago-2026)**: TODO —la casa (8.99 USD, `unlock_casa_v5`),
   la suscripción y las recargas—, por la caja directa y sin comisión de tienda.
   El CTA de la sección de precio lleva a `/cuenta`, y una cuenta sin unlock ve
   «Consigue la app» con su botón de compra (si el build no trae claves de pago,

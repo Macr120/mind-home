@@ -13,9 +13,9 @@ export const TEXTOS = {
 
   'meta.titulo': 'Mind Planner Home — Je geest, in een 3D-huis',
   'meta.desc':
-    'Breng je gewoontes, doelen, financiën, maaltijden en meer op orde in een isometrisch 3D-huis waarin elke kamer een app is. Eén betaling van 8,89 USD, met de eerste maand AI en synchronisatie erbij; probeer de app gratis.',
+    'Breng je gewoontes, doelen, financiën, maaltijden en meer op orde in een isometrisch 3D-huis waarin elke kamer een app is. Eén betaling van 8,99 USD, met de eerste maand AI en synchronisatie erbij; probeer de app gratis.',
   'og.desc':
-    'Je leven in een 3D-huis: gewoontes, doelen, financiën, maaltijden en meer. Eén betaling van 8,89 USD, eerste maand AI erbij; probeer de app gratis.',
+    'Je leven in een 3D-huis: gewoontes, doelen, financiën, maaltijden en meer. Eén betaling van 8,99 USD, eerste maand AI erbij; probeer de app gratis.',
 
   'hero.h1': 'Je geest,<br />in een 3D-huis',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -134,7 +134,7 @@ export const TEXTOS = {
   'precio.probar.cta': 'De app proberen',
   'precio.probar.pie': 'De volledige app, om haar vrijblijvend te leren kennen.',
   'precio.app.nombre': 'De app',
-  'precio.app.cifra': '8,89 USD',
+  'precio.app.cifra': '8,99 USD',
   'precio.app.pagoUnico': 'eenmalige betaling',
   'precio.app.1': 'Je eigen huis, voor altijd: alle apps, je gegevens op je apparaat',
   'precio.app.2':
@@ -243,7 +243,7 @@ export const TEXTOS = {
     'Mind Planner Home is een app voor persoonlijke organisatie. De proefversie is gratis en vraagt geen account. De app koop je met een eenmalige betaling; de terugkerende functies (AI-credits en synchronisatie) sluit je uitsluitend op deze website af; de desktop- en store-apps zijn clients van datzelfde account.',
   'term.app.h': 'De app (eenmalige betaling)',
   'term.app.1':
-    'Ontgrendelen van de app: 8,89 USD, eenmalig. Het ontgrendelt je huis voor altijd op je account, zonder verlengingen.',
+    'Ontgrendelen van de app: 8,99 USD, eenmalig. Het ontgrendelt je huis voor altijd op je account, zonder verlengingen.',
   'term.app.2':
     'Inclusief de eerste maand: 30 dagen met de 700 maandelijkse AI-credits en de synchronisatie, zonder kaart en zonder abonnement. Daarna hou je de app en je gegevens; de maandcredits en de synchronisatie vragen om het abonnement.',
   'term.app.3':

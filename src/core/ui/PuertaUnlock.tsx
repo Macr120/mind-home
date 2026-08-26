@@ -325,7 +325,7 @@ function PantallaTienda() {
  *
  * La CIFRA la manda SIEMPRE la tienda (`oferta.precio`, en la moneda de cada
  * quien): mientras llega se deja en puntos suspensivos, y nunca se rellena con
- * el «8.89 USD» del catálogo — verlo saltar de una cifra a otra parecía un
+ * el «8.99 USD» del catálogo — verlo saltar de una cifra a otra parecía un
  * cambio de precio, y en las tiendas ese importe fijo ni siquiera vale. Y el pie
  * de la web («cómprala aquí mismo, sin pasar por ninguna tienda…») no se pinta:
  * dentro de la app señalaría una caja de fuera, que es justo lo que las tiendas

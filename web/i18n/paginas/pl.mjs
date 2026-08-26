@@ -13,9 +13,9 @@ export const TEXTOS = {
 
   'meta.titulo': 'Mind Planner Home — Twój umysł w domu 3D',
   'meta.desc':
-    'Uporządkuj nawyki, cele, finanse, posiłki i więcej w izometrycznym domu 3D, w którym każdy pokój to aplikacja. Jedna płatność 8,89 USD, pierwszy miesiąc ze sztuczną inteligencją i synchronizacją w cenie; wypróbuj ją za darmo.',
+    'Uporządkuj nawyki, cele, finanse, posiłki i więcej w izometrycznym domu 3D, w którym każdy pokój to aplikacja. Jedna płatność 8,99 USD, pierwszy miesiąc ze sztuczną inteligencją i synchronizacją w cenie; wypróbuj ją za darmo.',
   'og.desc':
-    'Twoje życie w domu 3D: nawyki, cele, finanse, posiłki i więcej. Jedna płatność 8,89 USD, pierwszy miesiąc z SI w cenie; wypróbuj ją za darmo.',
+    'Twoje życie w domu 3D: nawyki, cele, finanse, posiłki i więcej. Jedna płatność 8,99 USD, pierwszy miesiąc z SI w cenie; wypróbuj ją za darmo.',
 
   'hero.h1': 'Twój umysł<br />w domu 3D',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -134,7 +134,7 @@ export const TEXTOS = {
   'precio.probar.cta': 'Wypróbuj aplikację',
   'precio.probar.pie': 'Pełna aplikacja, żeby poznać ją bez zobowiązań.',
   'precio.app.nombre': 'Aplikacja',
-  'precio.app.cifra': '8,89 USD',
+  'precio.app.cifra': '8,99 USD',
   'precio.app.pagoUnico': 'jednorazowa płatność',
   'precio.app.1': 'Twój własny dom, na zawsze: wszystkie aplikacje, dane na twoim urządzeniu',
   'precio.app.2':
@@ -242,7 +242,7 @@ export const TEXTOS = {
     'Mind Planner Home to aplikacja do organizacji osobistej. Wersja próbna jest darmowa i nie wymaga konta. Aplikację kupuje się jedną płatnością; funkcje cykliczne (kredyty SI i synchronizacja) wykupuje się wyłącznie na tej stronie; aplikacje desktopowe i sklepowe są klientami tego samego konta.',
   'term.app.h': 'Aplikacja (jednorazowa płatność)',
   'term.app.1':
-    'Odblokowanie aplikacji: 8,89 USD, jednorazowo. Odblokowuje twój dom na zawsze na twoim koncie, bez odnowień.',
+    'Odblokowanie aplikacji: 8,99 USD, jednorazowo. Odblokowuje twój dom na zawsze na twoim koncie, bez odnowień.',
   'term.app.2':
     'Obejmuje pierwszy miesiąc: 30 dni z miesięcznymi 700 kredytami SI i synchronizacją, bez karty i bez abonamentu. Po jego zakończeniu zostaje ci aplikacja i dane; miesięczne kredyty i synchronizacja wymagają abonamentu.',
   'term.app.3':

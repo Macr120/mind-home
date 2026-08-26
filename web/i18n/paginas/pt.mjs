@@ -13,9 +13,9 @@ export const TEXTOS = {
 
   'meta.titulo': 'Mind Planner Home — Sua mente, em uma casa 3D',
   'meta.desc':
-    'Organize seus hábitos, metas, finanças, refeições e mais em uma casa isométrica 3D onde cada cômodo é um app. Um único pagamento de 8,89 USD com o primeiro mês de IA e sincronização incluído; experimente grátis.',
+    'Organize seus hábitos, metas, finanças, refeições e mais em uma casa isométrica 3D onde cada cômodo é um app. Um único pagamento de 8,99 USD com o primeiro mês de IA e sincronização incluído; experimente grátis.',
   'og.desc':
-    'Sua vida, em uma casa 3D: hábitos, metas, finanças, refeições e mais. Um pagamento de 8,89 USD com o primeiro mês de IA incluído; experimente grátis.',
+    'Sua vida, em uma casa 3D: hábitos, metas, finanças, refeições e mais. Um pagamento de 8,99 USD com o primeiro mês de IA incluído; experimente grátis.',
 
   'hero.h1': 'Sua mente,<br />em uma casa 3D',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -133,7 +133,7 @@ export const TEXTOS = {
   'precio.probar.cta': 'Testar o app',
   'precio.probar.pie': 'O app completo, para conhecer sem compromisso.',
   'precio.app.nombre': 'O app',
-  'precio.app.cifra': '8,89 USD',
+  'precio.app.cifra': '8,99 USD',
   'precio.app.pagoUnico': 'pagamento único',
   'precio.app.1': 'Sua própria casa, para sempre: todos os apps, seus dados no seu dispositivo',
   'precio.app.2':
@@ -242,7 +242,7 @@ export const TEXTOS = {
     'Mind Planner Home é um app de organização pessoal. O teste é gratuito e não exige conta. O app se compra com um pagamento único; as funções recorrentes (créditos de IA e sincronização) contratam-se unicamente nesta página web; os apps de desktop e de loja são clientes dessa mesma conta.',
   'term.app.h': 'O app (pagamento único)',
   'term.app.1':
-    'Desbloqueio do app: 8,89 USD, pagamento único. Desbloqueia sua casa para sempre na sua conta, sem renovações.',
+    'Desbloqueio do app: 8,99 USD, pagamento único. Desbloqueia sua casa para sempre na sua conta, sem renovações.',
   'term.app.2':
     'Inclui o primeiro mês: 30 dias com os 700 créditos de IA mensais e a sincronização, sem cartão e sem assinatura. Ao terminar, você fica com o app e seus dados; os créditos mensais e a sincronização exigem a assinatura.',
   'term.app.3': 'O teste gratuito não guarda nada até você criar a sua conta: é para conhecer o app antes de comprá-lo.',
