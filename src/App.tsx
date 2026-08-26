@@ -162,7 +162,15 @@ export default function App() {
   useEffect(
     () =>
       useHouse.subscribe((s, prev) => {
-        if (s.activeRoom && !prev.activeRoom) setSidebarOpen(false)
+        // `!== prev`: también al SALTAR de una app a otra desde el menú (antes solo
+        // se cerraba viniendo del mapa, así que cambiar de cuarto lo dejaba abierto).
+        if (!s.activeRoom || s.activeRoom === prev.activeRoom) return
+        setSidebarOpen(false)
+        // Entrar a una app cierra el editor DE VERDAD (no solo lo oculta): si el cuarto
+        // siguiera en edición, al cerrarse el menú el efecto de abajo lo retomaría
+        // encima de la app recién abierta.
+        const { editMode, editingRoomId } = useLayout.getState()
+        if (editMode || editingRoomId) useLayout.getState().setEditMode(false)
       }),
     [setSidebarOpen],
   )
