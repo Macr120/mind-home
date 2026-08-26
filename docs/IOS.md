@@ -100,13 +100,19 @@ Tres cosas que solo pasan en iOS:
   entitlements no se validan contra un perfil, por eso compila y corre—, pero
   sin ellos no se firma para dispositivo ni para TestFlight. Con «Automatically
   manage signing» Xcode los crea al primer build para dispositivo.
-- **En el SIMULADOR de iOS 26.x no se pueden COLOCAR widgets** — de ninguna
-  app: al soltar el widget, SpringBoard revienta en `-[SBHRippleSimulation
-  clear]` (la onda «líquida» de iOS 26) y se reinicia sin colocar nada. Es un
-  bug de Apple, y no hay palanca que lo esquive: pasa igual con el botón
-  «Agregar widget» (sin arrastrar), con Reducir movimiento, con Reducir
-  transparencia y con Aumentar contraste, y en tres runtimes (crash reports del
-  25-ago-2026). Solo la COLOCACIÓN se pierde; todo lo demás se verifica ahí:
+- **En el simulador, los widgets se colocan por la VISTA HOY, no por la
+  pantalla de inicio.** Colocar en el grid de inicio revienta SpringBoard en
+  `-[SBHRippleSimulation clear]` — y NO es cosa de iOS 26: reprodujo idéntico
+  en el runtime de iOS 18.5 en esta Mac (Intel), pasa con el botón «Agregar
+  widget» sin arrastrar, con Reducir movimiento/transparencia/contraste, y
+  hasta el widget de Siri de Apple crashea solo (crash reports del
+  25-ago-2026). Es la simulación de la onda del grid en el simulador, no
+  nuestra app. La salida: deslizar a la **vista Hoy** (página izquierda),
+  mantener presionado → «Editar pantalla de inicio» → «Editar» → «Agregar
+  widget» — por ahí los tres widgets SE COLOCAN y viven normales, verificado
+  en iOS 18.5 y 26.5: la palomita encola desde el widget colocado (con su
+  repintado optimista), y los botones del chat abren la app. El resto de la
+  verificación, por piezas:
 
   | Qué | Cómo, en el simulador |
   |---|---|
@@ -119,8 +125,9 @@ Tres cosas que solo pasan en iOS:
   de leer lo vuelve fiable. Y `defaults write group.…` desde `simctl spawn` NO
   sirve: escribe fuera del contenedor del grupo, donde la extensión no mira.
 
-  Lo único que queda para un iPhone real o TestFlight: colocar el widget y
-  tocarlo ahí, y que la app drene la cola (pide sesión con casa y misiones).
+  Lo único que queda para un iPhone real o TestFlight: verlos en la pantalla
+  de inicio de verdad, y que la app drene la cola (pide sesión con casa y
+  misiones).
 - **Palomear desde la pantalla de inicio pide iOS 17.** Antes de esa versión un
   widget no puede ejecutar código al tocarlo, así que la fila se pinta igual
   pero el tap abre la app (`FilaMision`). El resto del widget funciona desde
