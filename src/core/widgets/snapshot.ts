@@ -1,4 +1,5 @@
 import { db } from '../data/db'
+import { useAjustes } from '../state/ajustesStore'
 import { useDiseño } from '../state/disenoStore'
 import { tGlobal, idiomaActual, localeActual } from '../i18n/useT'
 import { hoyISO } from '../rutinas'
@@ -78,6 +79,7 @@ export async function armarSnapshot(): Promise<SnapshotWidgets> {
     version: 1,
     fecha,
     idioma: idiomaActual(),
+    tema: useAjustes.getState().modoUI,
     textos: {
       titulo: tGlobal('hoy.titulo', 'Misiones'),
       fechaLarga: ahora.toLocaleDateString(localeActual(), { weekday: 'long', day: 'numeric', month: 'long' }),

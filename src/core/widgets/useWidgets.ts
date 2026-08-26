@@ -4,6 +4,7 @@ import { esAppNativa } from '../plataforma'
 import { esDemo, esProbar } from '../edicion'
 import { abrirApp } from '../abrirApp'
 import { hoyISO } from '../rutinas'
+import { useAjustes } from '../state/ajustesStore'
 import { useHouse } from '../state/houseStore'
 import { useDiseño } from '../state/disenoStore'
 import { esAccionGlobal, lanzarAccionGlobal } from '../state/accionGlobal'
@@ -43,7 +44,11 @@ export function useWidgets(): void {
     for (const o of s.objetos) if (o.plantillaId) ids.add(o.plantillaId)
     return [...ids].sort().join(',')
   })
-  const snapshot = useLiveQuery(() => (activo ? armarSnapshot() : undefined), [activo, apps])
+  // La apariencia viaja en el snapshot y tampoco sale de Dexie: sin esta
+  // dependencia, cambiar de claro a oscuro no repintaría los widgets hasta la
+  // siguiente escritura en la base.
+  const modoUI = useAjustes((s) => s.modoUI)
+  const snapshot = useLiveQuery(() => (activo ? armarSnapshot() : undefined), [activo, apps, modoUI])
 
   const timer = useRef<number | undefined>(undefined)
   const fechaPublicada = useRef('')

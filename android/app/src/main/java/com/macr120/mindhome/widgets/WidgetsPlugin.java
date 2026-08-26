@@ -119,9 +119,11 @@ public class WidgetsPlugin extends Plugin {
     AppWidgetManager mgr = AppWidgetManager.getInstance(ctx);
     boolean casa = ids(ctx, mgr, CasaWidgetProvider.class).length > 0;
     boolean hoy = ids(ctx, mgr, HoyWidgetProvider.class).length > 0;
+    boolean chat = ids(ctx, mgr, ChatWidgetProvider.class).length > 0;
     JSObject res = new JSObject();
-    // El de chat no cuenta: es un lanzador puro, no consume datos de la app.
-    res.put("hay", casa || hoy);
+    // El de chat cuenta desde que hay temas: sus textos son fijos, pero su
+    // apariencia sale del snapshot y sin publicar se quedaría en oscuro.
+    res.put("hay", casa || hoy || chat);
     res.put("casa", casa);
     call.resolve(res);
   }
@@ -153,5 +155,9 @@ public class WidgetsPlugin extends Plugin {
       HoyWidgetProvider.pintar(ctx, mgr, id);
     }
     mgr.notifyAppWidgetViewDataChanged(hoy, R.id.widget_hoy_lista);
+    // El de chat no vive del snapshot, pero sí su apariencia.
+    for (int id : ids(ctx, mgr, ChatWidgetProvider.class)) {
+      ChatWidgetProvider.pintar(ctx, mgr, id);
+    }
   }
 }

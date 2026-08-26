@@ -47,6 +47,7 @@ public class HoyWidgetService extends RemoteViewsService {
     private final Context ctx;
     private final List<Fila> filas = new ArrayList<>();
     private String fechaSnapshot = "";
+    private WidgetTema tema = WidgetTema.de(null);
 
     Factory(Context ctx) {
       this.ctx = ctx;
@@ -61,6 +62,7 @@ public class HoyWidgetService extends RemoteViewsService {
       filas.clear();
       fechaSnapshot = "";
       JSONObject snap = WidgetsComun.leerSnapshot(ctx);
+      tema = WidgetTema.de(snap);
       if (snap == null) return;
       fechaSnapshot = snap.optString("fecha");
 
@@ -116,9 +118,9 @@ public class HoyWidgetService extends RemoteViewsService {
       // La lista lleva juntos los pendientes y los cumplidos: lo hecho baja de tono
       // para que lo que falta siga leyéndose primero, y la hora de lo que ya se pasó
       // va en ámbar, como el globo de Misiones dentro de la app.
-      rv.setTextColor(R.id.item_titulo, f.hecho ? 0xFF6B7280 : 0xFFEDEDF2);
-      rv.setTextColor(R.id.item_detalle, f.hecho ? 0xFF565C66 : 0xFF9AA0AA);
-      rv.setTextColor(R.id.item_hora, f.urgente ? 0xFFFBBF24 : 0xFF9AA0AA);
+      rv.setTextColor(R.id.item_titulo, f.hecho ? tema.textoHecho : tema.texto);
+      rv.setTextColor(R.id.item_detalle, f.hecho ? tema.tenueHecho : tema.tenue);
+      rv.setTextColor(R.id.item_hora, f.urgente ? tema.urgente : tema.tenue);
       rv.setViewVisibility(R.id.item_hora, f.hora.isEmpty() ? View.GONE : View.VISIBLE);
       rv.setImageViewResource(
           R.id.item_check, f.hecho ? R.drawable.widget_check_on : R.drawable.widget_check_off);

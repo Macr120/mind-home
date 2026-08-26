@@ -40,6 +40,15 @@ public class CasaWidgetProvider extends AppWidgetProvider {
     JSONObject textos = WidgetsComun.textos(snap);
     Bitmap foto = leerFoto(ctx);
 
+    // Aquí el tema manda sobre el VELO y el marco, no sobre la fecha: encima de
+    // la foto de la casa la fecha va en blanco con sombra en los tres modos,
+    // porque es lo único que se lee igual sobre un tejado que sobre el césped
+    // (y `setShadowLayer` no es remotable, así que no hay sombra que invertir).
+    WidgetTema tema = WidgetTema.de(snap);
+    rv.setInt(R.id.widget_casa_raiz, "setBackgroundResource", tema.fondo);
+    rv.setInt(R.id.casa_velo, "setBackgroundColor", tema.velo);
+    rv.setTextColor(R.id.casa_vacio, tema.tenue);
+
     if (foto != null) rv.setImageViewBitmap(R.id.casa_foto, foto);
     rv.setViewVisibility(R.id.casa_foto, foto == null ? View.GONE : View.VISIBLE);
     rv.setViewVisibility(R.id.casa_velo, foto == null ? View.GONE : View.VISIBLE);

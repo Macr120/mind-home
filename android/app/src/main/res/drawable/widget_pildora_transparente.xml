@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Botón alargado del widget de chat, modo transparente: va MÁS oscuro que el
+     panel para que se despegue de él, como la píldora sólida en los otros modos. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="#59000000" />
+    <corners android:radius="999dp" />
+</shape>

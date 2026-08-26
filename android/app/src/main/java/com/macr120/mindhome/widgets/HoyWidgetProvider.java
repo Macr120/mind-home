@@ -36,6 +36,16 @@ public class HoyWidgetProvider extends AppWidgetProvider {
     JSONObject snap = WidgetsComun.leerSnapshot(ctx);
     JSONObject textos = WidgetsComun.textos(snap);
 
+    // Apariencia elegida en la app. Las filas de la lista las tiñe el Factory,
+    // que lee el mismo snapshot.
+    WidgetTema tema = WidgetTema.de(snap);
+    rv.setInt(R.id.widget_hoy_raiz, "setBackgroundResource", tema.fondo);
+    rv.setTextColor(R.id.widget_hoy_titulo, tema.texto);
+    rv.setTextColor(R.id.widget_hoy_fecha, tema.tenue);
+    rv.setTextColor(R.id.widget_hoy_cuenta, tema.cuenta);
+    rv.setTextColor(R.id.widget_hoy_desactualizado, tema.aviso);
+    rv.setTextColor(R.id.widget_hoy_vacio, tema.tenue);
+
     rv.setTextViewText(
         R.id.widget_hoy_titulo,
         snap != null ? textos.optString("titulo") : ctx.getString(R.string.app_name));

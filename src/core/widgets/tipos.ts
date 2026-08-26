@@ -9,6 +9,7 @@
  */
 import type { Idioma } from '../i18n/idiomas'
 import type { OrigenPaso } from '../hoy'
+import type { ModoUI } from '../ui/temasUI'
 
 /** Un renglón del widget «Misiones»: un `PasoHoy` de cualquier app de la casa. */
 export interface ItemHoy {
@@ -45,6 +46,12 @@ export interface SnapshotWidgets {
   /** hoyISO() al generarlo: el widget marca «desactualizado» si cambió el día. */
   fecha: string
   idioma: Idioma
+  /**
+   * La «Apariencia» de la app (Ajustes › Apariencia). El widget no tiene ajuste
+   * propio: se viste como la app, y `WidgetTema.java` traduce este modo a su
+   * paleta —en `transparente` el panel desaparece y se ve el fondo de pantalla—.
+   */
+  tema: ModoUI
   /**
    * Todo texto que el widget pinta tal cual, YA localizado y compuesto aquí
    * («🔥 5», «Nivel 3»…): Java no traduce ni concatena — y así ningún emoji
