@@ -217,7 +217,7 @@ export function NavControls() {
   // algo al alcance: plegado no habría forma de sentarse, subirse ni bajarse.
   if (plegado && !editMode && !moverObjetosRoomId && !conArmaDeTiro && !conContextual) {
     return (
-      <div ref={refTope} className={`absolute bottom-4 z-10 ${posControles}`}>
+      <div ref={refTope} className={`safe-inf safe-ini safe-fin absolute bottom-4 z-10 ${posControles}`}>
         <TiradorHud zona="infDer">
           <Icono nombre="cubo-vistas" />
         </TiradorHud>
@@ -230,7 +230,7 @@ export function NavControls() {
       ref={refTope}
       data-tut="nav.controles"
       data-tut-zona="navegacion"
-      className={`absolute bottom-4 z-10 flex flex-col items-stretch gap-1 ${posControles}`}
+      className={`safe-inf safe-ini safe-fin absolute bottom-4 z-10 flex flex-col items-stretch gap-1 ${posControles}`}
       style={ancho}
       aria-label={t('nav3d.aria', 'Controles de vista')}
     >

@@ -82,7 +82,7 @@ export function SisifoFestejo() {
 
   const msg = mensajeLogro(logro, t)
   return (
-    <div className="fixed inset-x-0 top-4 z-[65] flex justify-center px-4">
+    <div className="safe-sup fixed inset-x-0 top-4 z-[65] flex justify-center px-4">
       <div className="w-full max-w-sm">
         <BannerAviso
           icono={msg.icono}

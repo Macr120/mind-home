@@ -89,7 +89,7 @@ function Celebrando({ c }: { c: Celebracion }) {
 
   if (c.tipo === 'racha') {
     return (
-      <div className="pointer-events-none fixed inset-x-0 top-4 z-[70] flex justify-center px-4">
+      <div className="safe-sup pointer-events-none fixed inset-x-0 top-4 z-[70] flex justify-center px-4">
         <button
           type="button"
           onClick={avanzar}

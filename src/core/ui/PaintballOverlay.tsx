@@ -50,7 +50,7 @@ function PilaPaintball({ t }: { t: TFunc }) {
   const vista = useCam((s) => s.vista)
   const primera = vista === 'primera'
   return (
-    <div ref={refTope} className="pointer-events-none absolute bottom-4 end-4 z-30 flex flex-col items-center gap-2">
+    <div ref={refTope} className="safe-inf safe-fin pointer-events-none absolute bottom-4 end-4 z-30 flex flex-col items-center gap-2">
       <button
         type="button"
         onClick={() => usePaintball.getState().setVistaCombate(primera ? 'tercera' : 'primera')}

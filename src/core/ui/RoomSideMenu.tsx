@@ -137,7 +137,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
           vertical aquí ya no lo tapan.
           Con una app abierta estorbarían sobre su encabezado (ella trae el suyo). */}
       {!activeRoom && (
-        <div className="absolute start-[15.75rem] top-3 z-[35] flex flex-col items-center gap-2">
+        <div className="safe-sup safe-ini absolute start-[15.75rem] top-3 z-[35] flex flex-col items-center gap-2">
           <BotonTutoriales />
           <ExplotarToggleButton />
           <TechoToggleButton />
@@ -145,7 +145,10 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
       )}
       {/* z-30: sobre la app abierta (RoomOverlay z-20) y bajo los diálogos (z-40)
           y la previa de plantilla (z-50). La columna del «?» (z-[35]) solo existe
-          sin app abierta y debe quedar por encima. */}
+          sin app abierta y debe quedar por encima.
+          Zona segura como PADDING y no como margen: con los dos bordes verticales
+          puestos (`inset-y-0`) el margen no desplaza nada, y así el fondo del panel
+          sigue sangrando hasta el borde aunque su contenido no (igual que EditPanel). */}
       <aside
       data-tut-zona={
         menu === 'plantillas'
@@ -154,7 +157,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
             ? 'menu-inventario'
             : 'menu-cuartos'
       }
-      className="ui-panel ui-desliza-inicio absolute inset-y-0 start-0 z-30 flex h-full min-h-0 w-60 flex-col border-e border-white/10 shadow-2xl"
+      className="ui-panel ui-desliza-inicio absolute inset-y-0 start-0 z-30 flex h-full min-h-0 w-60 flex-col border-e border-white/10 pt-[var(--safe-top)] pb-[var(--safe-bottom)] ps-[var(--safe-left)] shadow-2xl"
       aria-label={t('nav.ariaMenu', 'Menú de cuartos')}
     >
       <div className="border-b border-white/10 px-4 py-4">
@@ -571,7 +574,7 @@ export function FloatingMenuButton({ onToggle }: { onToggle: () => void }) {
   // Plegado: queda solo la casa (con una app abierta se ignora, es el único acceso al menú).
   if (plegado && !appAbierta) {
     return (
-      <div className="absolute start-3 top-3 z-30">
+      <div className="safe-sup safe-ini absolute start-3 top-3 z-30">
         <TiradorHud zona="supIzq">
           <Icono nombre="casa" />
         </TiradorHud>
@@ -580,7 +583,7 @@ export function FloatingMenuButton({ onToggle }: { onToggle: () => void }) {
   }
 
   return (
-    <div className="absolute start-3 top-3 z-30 flex items-start gap-2">
+    <div className="safe-sup safe-ini absolute start-3 top-3 z-30 flex items-start gap-2">
       <div className="ui-hud flex items-center overflow-hidden rounded-lg border border-white/10">
         <button
           type="button"
