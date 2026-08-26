@@ -35,6 +35,7 @@ import { BarraProbar } from './probar/BarraProbar'
 import { RecuperarPrueba } from './core/bienvenida/RecuperarPrueba'
 import { VolverDemoDialog } from './demo/VolverDemoDialog'
 import { esDemo, esProbar } from './core/edicion'
+import { esModoFondo } from './core/plataforma'
 import { useBienvenida } from './core/bienvenida/bienvenidaStore'
 import { PrimeraVezGate } from './core/bienvenida/PrimeraVezGate'
 import { useHouse } from './core/state/houseStore'
@@ -189,6 +190,18 @@ export default function App() {
       useLayout.getState().setEditMode(true)
     }
   }, [sidebarOpen])
+
+  // Modo fondo (wallpaper del escritorio): la escena sola, sin UI encima — la
+  // ventana vive detrás de los iconos, no recibe foco y sus botones serían
+  // intocables. El shell reenvía el mouse global, así que el puntero espacial
+  // y el click-to-move del piso sí funcionan.
+  if (esModoFondo()) {
+    return (
+      <div className="relative h-full w-full overflow-hidden">
+        <House />
+      </div>
+    )
+  }
 
   // El fondo lo pinta `#root`: esta raíz no lleva `ui-app` para que el vidrio del
   // modo transparente afecte solo a las apps, no al contenedor de todo.

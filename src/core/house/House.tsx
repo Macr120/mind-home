@@ -32,6 +32,8 @@ import {
 import { celdaEnCuadrante, cuadrantePorId, cuartoEnCuadrante } from './cuadrantesMapa'
 import { useTemaActivo } from './useTema'
 import { CieloDiaNoche } from './CieloDiaNoche'
+import { PunteroFondo } from './PunteroFondo'
+import { esModoFondo } from '../plataforma'
 import { EfectosPost } from './EfectosPost'
 import { EntornoIBL } from './EntornoIBL'
 import { FondoEscena } from './FondoEscena'
@@ -588,6 +590,8 @@ export function House() {
       {!aislarCuarto && planosActivo && <TechoCeldaEditor />}
       {!aislarCuarto && <Character />}
       {!aislarCuarto && <Asistente3D />}
+      {/* Wallpaper de escritorio: el anillo que sigue al cursor reenviado. */}
+      {esModoFondo() && <PunteroFondo />}
 
       {/* Editor 3D: esfera de cielo invisible. Solo se toca cuando el clic no pega en
           nada más (cielo) → abre el modo Fondo. */}
@@ -616,10 +620,15 @@ export function House() {
       <HidratarMapaTablas />
       {/* Publica la celda del foco de cámara; de ahí sale el recorte de objetos. */}
       <SeguirFoco cols={gridCols} rows={gridRows} />
-      <NavControls />
-      <EditorMontaje />
-      <SalirCuartoFlotante />
-      <MenuDespierto />
+      {/* Modo fondo (wallpaper): sin HUD — sus botones serían intocables. */}
+      {!esModoFondo() && (
+        <>
+          <NavControls />
+          <EditorMontaje />
+          <SalirCuartoFlotante />
+          <MenuDespierto />
+        </>
+      )}
     </>
   )
 }

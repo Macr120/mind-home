@@ -11,6 +11,9 @@ node_modules
 dist
 dist-ssr
 dist-web
+# Escritorio (Electron): instaladores y el icono rasterizado
+dist-escritorio
+electron/build/icon.png
 *.local
 
 # Entorno (secretos locales; ver .env.example)

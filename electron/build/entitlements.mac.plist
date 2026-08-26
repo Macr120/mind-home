@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <!-- Sin JIT, V8 no arranca bajo hardened runtime. -->
+  <key>com.apple.security.cs.allow-jit</key>
+  <true/>
+  <!-- Chat AR (cámara) y dictado (micrófono): con hardened runtime y sin estas
+       dos, getUserMedia CRASHEA la app en vez de pedir permiso. Los textos del
+       diálogo van en extendInfo de electron-builder.yml. -->
+  <key>com.apple.security.device.camera</key>
+  <true/>
+  <key>com.apple.security.device.audio-input</key>
+  <true/>
+</dict>
+</plist>

@@ -191,8 +191,13 @@ export async function notificar(a: Aviso): Promise<void> {
   ].filter((x): x is AccionNotif => x != null)
 
   try {
-    const reg = await navigator.serviceWorker?.ready
-    if (reg) {
+    // `getRegistration()` y no `.ready`: bajo el protocolo `app://` del
+    // escritorio (Electron) `.ready` NUNCA resuelve —aunque el worker esté
+    // activo y controlando— y este await se quedaba colgado con el fallback
+    // inalcanzable: ni un aviso salía. `getRegistration()` responde en todas
+    // partes; si aún no hay worker activo, cae a la notificación simple.
+    const reg = await navigator.serviceWorker?.getRegistration()
+    if (reg?.active) {
       const opciones: OpcionesConAcciones = {
         body: a.cuerpo,
         tag: a.clave,

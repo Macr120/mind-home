@@ -1,8 +1,9 @@
 {
   "name": "mind-home",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "main": "electron/main.js",
   "scripts": {
     "predev": "node scripts/copiar-mediapipe.mjs",
     "dev": "vite",
@@ -28,7 +29,13 @@
     "traducir:contenido": "node scripts/traducir-contenido.mjs",
     "traducir:verificar": "node scripts/verificar-i18n.mjs",
     "demo:texto": "node scripts/generar-demo.mjs",
-    "demo:imagenes": "node scripts/generar-demo.mjs --imagenes"
+    "demo:imagenes": "node scripts/generar-demo.mjs --imagenes",
+    "escritorio:dev": "electron electron/main.js --dev",
+    "escritorio:fondo": "electron electron/main.js --fondo",
+    "escritorio:preview": "npm run build && electron electron/main.js",
+    "escritorio:icono": "node scripts/icono-escritorio.mjs",
+    "escritorio:win": "npm run build && node scripts/icono-escritorio.mjs && node scripts/escritorio-win.mjs",
+    "escritorio:mac": "npm run build && node scripts/icono-escritorio.mjs && electron-builder --mac"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.104.1",
@@ -36,6 +43,7 @@
     "@capacitor/app": "^8.1.1",
     "@capacitor/browser": "^8.0.4",
     "@capacitor/core": "^8.4.2",
+    "@capacitor/ios": "^8.5.0",
     "@capacitor/local-notifications": "^8.3.1",
     "@gltf-transform/core": "^4.4.1",
     "@gltf-transform/extensions": "^4.4.1",
@@ -60,6 +68,7 @@
     "react-dom": "^19.2.6",
     "tailwindcss": "^4.3.0",
     "three": "^0.184.0",
+    "uqr": "^0.1.3",
     "zustand": "^5.0.14"
   },
   "devDependencies": {
@@ -72,6 +81,8 @@
     "@types/react-dom": "^19.2.3",
     "@types/three": "^0.184.1",
     "@vitejs/plugin-react": "^6.0.1",
+    "electron": "^43.4.1",
+    "electron-builder": "^26.15.3",
     "eslint": "^10.3.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",

@@ -46,6 +46,19 @@ export function esEscritorio(): boolean {
   return typeof navigator !== 'undefined' && navigator.userAgent.includes(MARCA_ESCRITORIO)
 }
 
+/**
+ * ¿Corriendo como fondo de pantalla (la ventana wallpaper del shell)? El shell
+ * la lanza con `?fondo=1`: la app pinta SOLO la escena 3D (App.tsx) y monta el
+ * puntero espacial. La ventana vive detrás de los iconos del escritorio y el
+ * SO no le manda input; el shell le reenvía el mouse global (`sendInputEvent`).
+ * Acotado a `esEscritorio()`: un `?fondo=1` en el navegador no debe dejar la
+ * app sin UI.
+ */
+export function esModoFondo(): boolean {
+  if (!esEscritorio()) return false
+  return typeof location !== 'undefined' && new URLSearchParams(location.search).has('fondo')
+}
+
 /** Por qué caja cobra esta plataforma (ver `cuenta/paywall.ts`). */
 export type CanalPago = 'web' | 'escritorio' | 'iap'
 
