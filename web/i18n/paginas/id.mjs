@@ -212,6 +212,9 @@ export const TEXTOS = {
     '<strong>Kamera dan mikrofon:</strong> hanya saat kamu menyalakannya (masker AR, foto untuk chat, dikte suara). Masker diproses di perangkatmu; audio dikte dan foto yang kamu lampirkan ke chat dikirim ke penyedia AI semata untuk membuat jawaban itu.',
   'priv.datos.6':
     '<strong>Data kesehatan dan kesejahteraan:</strong> apa yang kamu catat tentang olahraga, makan, obat, janji medis, atau siklus disimpan untukmu seperti data aplikasi lainnya; tidak pernah dijual atau dipakai untuk iklan.',
+  'priv.salud.h': 'Cakupan fitur kesehatan',
+  'priv.salud.p':
+    'Mind Planner Home adalah agenda pribadi, bukan aplikasi medis. Fitur kesehatannya hanyalah catatan yang kamu tulis sendiri dan beberapa pengingat: aplikasi ini tidak mendiagnosis, tidak menafsirkan gejala, tidak menganjurkan dosis atau pengobatan, tidak memeriksa interaksi obat, dan tidak menggantikan konsultasi dengan tenaga kesehatan. Perkiraan siklus dihitung hanya dari data yang kamu masukkan dan bersifat perkiraan. Ini bukan produk kesehatan atau alat medis, dan tidak terhubung dengan rekam medis, perusahaan asuransi, atau penyedia layanan kesehatan.',
   'priv.uso.h': 'Untuk apa kami memakainya',
   'priv.uso.1': 'Memberimu akses ke akun, pembelian, dan langgananmu.',
   'priv.uso.2': 'Menyinkronkan datamu antar perangkat dan mencadangkannya.',

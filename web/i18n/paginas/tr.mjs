@@ -209,6 +209,9 @@ export const TEXTOS = {
     '<strong>Kamera ve mikrofon:</strong> yalnızca sen açtığında (AR maskesi, sohbete fotoğraf, sesle yazdırma). Maske cihazında işlenir; yazdırma sesi ve sohbete eklediğin fotoğraflar, yalnızca o yanıtı üretmek için yapay zekâ sağlayıcılarına gönderilir.',
   'priv.datos.6':
     '<strong>Sağlık ve esenlik verileri:</strong> egzersiz, beslenme, ilaçlar, doktor randevuları veya döngü hakkında kaydettiklerin, diğer uygulama verileri gibi senin için saklanır; asla satılmaz ve reklamda kullanılmaz.',
+  'priv.salud.h': 'Sağlık işlevlerinin kapsamı',
+  'priv.salud.p':
+    'Mind Planner Home kişisel bir ajandadır, tıbbi bir uygulama değil. Sağlık işlevleri, senin yazdığın kayıtlardan ve birkaç hatırlatmadan ibarettir: uygulama teşhis koymaz, belirtileri yorumlamaz, doz ya da tedavi önermez, ilaç etkileşimlerini denetlemez ve bir sağlık uzmanına danışmanın yerini tutmaz. Döngü tahminleri yalnızca senin girdiğin verilerden hesaplanır ve yol göstericidir. Bir sağlık ürünü ya da tıbbi cihaz değildir; hasta kayıtlarına, sigorta şirketlerine veya sağlık kuruluşlarına bağlanmaz.',
   'priv.uso.h': 'Bunları ne için kullanıyoruz',
   'priv.uso.1': 'Hesabına, satın almana ve aboneliğine erişim vermek için.',
   'priv.uso.2': 'Verilerini cihazlar arasında eşitlemek ve yedeklemek için.',

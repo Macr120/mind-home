@@ -1,6 +1,7 @@
 import type { MomentoComida } from '../../core/data/db'
 import type { CampoCaptura } from '../../core/appContrato'
 import { conversarIA, extraerJSON } from '../../core/chat/ia'
+import { CLAUSULA_SALUD } from '../../core/planIA'
 import { vLista, vNumero, vTexto } from '../../core/appContrato'
 import { vMomentos } from './momentos'
 
@@ -104,6 +105,7 @@ export async function crearRecetaIA(peticion: string): Promise<RecetaIA> {
 
 const SYSTEM_DIETA = [
   'Eres un nutriólogo que diseña planes de alimentación sensatos y sostenibles.',
+  CLAUSULA_SALUD,
   'Responde ÚNICAMENTE con un objeto JSON plano, sin texto ni markdown alrededor, con estas claves:',
   contrato(CAMPOS_DIETA),
   '"recetas": string[] — 3 o 4 platillos que compongan la dieta, solo sus nombres.',

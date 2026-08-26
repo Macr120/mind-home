@@ -213,6 +213,9 @@ export const TEXTOS = {
     '<strong>Camera en microfoon:</strong> alleen als je ze aanzet (AR-masker, foto voor de chat, spraakdictaat). Het masker wordt op je apparaat verwerkt; de audio van het dictaat en de foto’s die je aan de chat toevoegt gaan alleen naar de AI-leveranciers om dat antwoord te maken.',
   'priv.datos.6':
     '<strong>Gezondheids- en welzijnsgegevens:</strong> wat je noteert over beweging, maaltijden, medicijnen, doktersafspraken of cyclus wordt voor jou bewaard zoals alle andere app-gegevens; het wordt nooit verkocht of voor reclame gebruikt.',
+  'priv.salud.h': 'Reikwijdte van de gezondheidsfuncties',
+  'priv.salud.p':
+    'Mind Planner Home is een persoonlijke agenda, geen medische toepassing. De gezondheidsfuncties zijn een logboek dat je zelf bijhoudt en een paar herinneringen: de app stelt geen diagnose, duidt geen symptomen, beveelt geen doseringen of behandelingen aan, controleert geen wisselwerking tussen medicijnen en vervangt het consult van een zorgverlener niet. De cyclusvoorspelling volgt alleen uit de gegevens die je invoert en is indicatief. Het is geen gezondheidsproduct of medisch hulpmiddel en maakt geen verbinding met medische dossiers, verzekeraars of zorgaanbieders.',
   'priv.uso.h': 'Waarvoor we ze gebruiken',
   'priv.uso.1': 'Om je toegang te geven tot je account, je aankoop en je abonnement.',
   'priv.uso.2': 'Om je gegevens tussen apparaten te synchroniseren en er een back-up van te maken.',

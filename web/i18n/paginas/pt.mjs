@@ -212,6 +212,9 @@ export const TEXTOS = {
     '<strong>Câmera e microfone:</strong> só quando você os ativa (máscara AR, foto para o chat, ditado por voz). A máscara é processada no seu dispositivo; o áudio do ditado e as fotos que você anexa ao chat são enviados aos provedores de IA unicamente para gerar essa resposta.',
   'priv.datos.6':
     '<strong>Dados de saúde e bem-estar:</strong> o que você registra sobre exercício, alimentação, medicamentos, consultas médicas ou ciclo é guardado para você como qualquer outro dado do app; nunca é vendido nem usado para publicidade.',
+  'priv.salud.h': 'Alcance das funções de saúde',
+  'priv.salud.p':
+    'O Mind Planner Home é uma agenda pessoal, não um aplicativo médico. Suas funções de saúde são um registro que você mesmo escreve e alguns lembretes: o app não diagnostica, não interpreta sintomas, não recomenda doses nem tratamentos, não verifica interações entre medicamentos e não substitui a consulta com um profissional de saúde. As estimativas do ciclo saem apenas dos dados que você insere e são orientativas. Não é um produto de saúde nem um dispositivo médico, e não se conecta a prontuários, seguradoras ou prestadores de saúde.',
   'priv.uso.h': 'Para que os usamos',
   'priv.uso.1': 'Dar acesso à sua conta, à sua compra e à sua assinatura.',
   'priv.uso.2': 'Sincronizar seus dados entre dispositivos e fazer backup.',

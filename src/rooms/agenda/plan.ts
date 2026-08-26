@@ -1,7 +1,7 @@
 import { eventosAgendaRepo } from '../../core/data/repository'
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
 import { tGlobal } from '../../core/i18n/useT'
-import { CLAUSULA_RECHAZO, type ContextoPlanApp } from '../../core/planIA'
+import { CLAUSULA_RECHAZO, CLAUSULA_SALUD, type ContextoPlanApp } from '../../core/planIA'
 
 /**
  * Acotamiento del planificador ✨ en la Agenda: el plan es SIEMPRE de trabajo —
@@ -33,6 +33,7 @@ export async function planMetasAgenda(): Promise<ContextoPlanApp> {
       'Las fases son etapas del trabajo, en el orden en que hay que hacerlas, y la última reserva tiempo para cerrar y revisar — no dejes la entrega para el último día.',
       'Los hijos son entregables concretos («Reunir las diez fuentes», «Tres tandas de medidas»), no recordatorios.',
       'Respeta lo que la agenda ya tiene ocupado: no llenes los días que ya están llenos de citas.',
+      CLAUSULA_SALUD,
       CLAUSULA_RECHAZO('un proyecto, un compromiso o una gestión con fecha'),
     ],
     contexto,

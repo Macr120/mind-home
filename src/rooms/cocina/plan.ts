@@ -8,7 +8,7 @@ import {
 } from '../../core/data/repository'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { tGlobal } from '../../core/i18n/useT'
-import { CLAUSULA_RECHAZO, type ContextoPlanApp } from '../../core/planIA'
+import { CLAUSULA_RECHAZO, CLAUSULA_SALUD, type ContextoPlanApp } from '../../core/planIA'
 import { progresoMeta } from './peso'
 import { macrosPorDia, resumenAlimentacion } from './stats'
 
@@ -24,6 +24,7 @@ const GUIA = [
   'Los hijos son acciones de alimentación medibles («Cenar sin harinas 5 días por semana», «Llegar a 120 g de proteína al día», «Bajar a 82 kg»), no consejos sueltos.',
   'Nada de rutinas de gimnasio ni contenidos ajenos a la comida: si la meta menciona ejercicio, cúbrelo solo por su lado alimenticio.',
   'El plan sale con recetas CONCRETAS del recetario del usuario repartidas en sus momentos de comida; si una dieta guardada encaja con la meta, prefiere sus recetas.',
+  CLAUSULA_SALUD,
   CLAUSULA_RECHAZO('la alimentación, las dietas o el peso'),
 ]
 

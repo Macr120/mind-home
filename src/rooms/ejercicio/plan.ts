@@ -7,7 +7,7 @@ import {
   sesionesEjercicioRepo,
 } from '../../core/data/repository'
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
-import { CLAUSULA_RECHAZO, type ContextoPlanApp } from '../../core/planIA'
+import { CLAUSULA_RECHAZO, CLAUSULA_SALUD, type ContextoPlanApp } from '../../core/planIA'
 import { tGlobal } from '../../core/i18n/useT'
 
 /**
@@ -22,6 +22,7 @@ const GUIA = [
   'Las fases son mesociclos progresivos (adaptación, construcción, intensificación, pico o descarga).',
   'Los hijos son logros físicos medibles («Correr 5 km sin parar», «Sentadilla con 60 kg», «3 sesiones de fuerza por semana»).',
   'Progresa el volumen poco a poco y respeta días de descanso; nada de dietas ni temas ajenos al entrenamiento.',
+  CLAUSULA_SALUD,
   CLAUSULA_RECHAZO('el ejercicio o el entrenamiento físico'),
 ]
 
