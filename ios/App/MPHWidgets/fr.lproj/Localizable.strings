@@ -1,0 +1,13 @@
+/* Generado por scripts/widgets-ios-textos.mjs desde android/…/values-fr/strings.xml.
+   No editar a mano: se regenera. */
+"widget_hoy_label" = "Missions";
+"widget_hoy_desc" = "Les missions du jour de toutes vos apps, à cocher ici même.";
+"widget_casa_label" = "Maison";
+"widget_casa_desc" = "Votre maison et la date du jour.";
+"widget_chat_label" = "Chat";
+"widget_chat_desc" = "Parlez à votre maison : chat, caméra et dictée.";
+"widget_vacio" = "Ouvrez Mind Planner Home pour remplir ce widget.";
+"widget_palomear" = "Marquer comme fait";
+"widget_chat_abrir" = "Chat";
+"widget_chat_camara" = "Envoyer une photo";
+"widget_chat_voz" = "Dicter";

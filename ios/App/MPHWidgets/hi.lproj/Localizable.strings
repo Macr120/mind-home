@@ -1,0 +1,13 @@
+/* Generado por scripts/widgets-ios-textos.mjs desde android/…/values-hi/strings.xml.
+   No editar a mano: se regenera. */
+"widget_hoy_label" = "मिशन";
+"widget_hoy_desc" = "आपके सभी ऐप्स के आज के मिशन, यहीं से पूरे करें।";
+"widget_casa_label" = "घर";
+"widget_casa_desc" = "आपका घर और आज की तारीख़।";
+"widget_chat_label" = "चैट";
+"widget_chat_desc" = "अपने घर से बात करें: चैट, कैमरा और डिक्टेशन।";
+"widget_vacio" = "यह विजेट भरने के लिए Mind Planner Home खोलें।";
+"widget_palomear" = "पूरा हुआ मार्क करें";
+"widget_chat_abrir" = "चैट";
+"widget_chat_camara" = "फ़ोटो भेजें";
+"widget_chat_voz" = "डिक्टेशन";

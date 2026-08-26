@@ -71,9 +71,64 @@ Y en el código compartido, dos cosas que solo se notan aquí:
   WebView de Capacitor —ni en iOS ni en Android—, así que respaldo, hojas de
   cálculo e imágenes se guardan por la hoja de compartir.
 
-**Sin widgets.** Los tres de Android (`widgets/*.java`) son código nativo propio;
-en iOS harían falta una extensión WidgetKit y un App Group. `useWidgets` está
-acotado a Android a propósito.
+### Los tres widgets
+
+Los mismos que Android —casa, misiones y chat—, en el target de extensión
+**`MPHWidgets`** (`ios/App/MPHWidgets/`, WidgetKit + SwiftUI). El reparto es el
+de allá y no se toca: la app EMPUJA un snapshot ya localizado y el widget solo
+pinta; el widget ENCOLA acciones con estado destino y la app las aplica con la
+lógica real de `core/hoy.ts`. Por eso `useWidgets` ya no distingue plataforma.
+
+| Pieza | Android | iOS |
+|---|---|---|
+| Puente Capacitor | `widgets/WidgetsPlugin.java` | `App/WidgetsPlugin.swift` |
+| Almacén compartido | SharedPreferences `mph_widgets` | App Group `group.com.macr120.mindhome` |
+| Modelo + almacén | `WidgetsStore.java` | `Compartido/WidgetsCompartido.swift` (en LOS DOS targets) |
+| Tap → destino | extras del Intent | `com.macr120.mindhome://widget?...` → `AppDelegate` |
+| Palomear sin abrir | `WidgetAccionReceiver` (`exported="false"`) | `MarcarMision` (`AppIntent`, **iOS 17+**, `isDiscoverable = false`) |
+| Textos fijos | `values*/strings.xml` | `<idioma>.lproj/Localizable.strings`, generados con `npm run ios:textos-widgets` |
+
+Tres cosas que solo pasan en iOS:
+
+- **El App Group tiene que estar en los entitlements de LOS DOS targets.** Si
+  falta en uno, `UserDefaults(suiteName:)` devuelve nil y los widgets salen en
+  blanco sin ningún otro síntoma.
+- **Y registrados en la cuenta, no solo en el proyecto.** La extensión añade un
+  segundo App ID (`com.macr120.mindhome.widgets`) y un App Group
+  (`group.com.macr120.mindhome`) que deben existir en el portal de desarrollador
+  y estar habilitados en los DOS App IDs. En simulador no se nota —ahí los
+  entitlements no se validan contra un perfil, por eso compila y corre—, pero
+  sin ellos no se firma para dispositivo ni para TestFlight. Con «Automatically
+  manage signing» Xcode los crea al primer build para dispositivo.
+- **En el SIMULADOR de iOS 26.x no se pueden COLOCAR widgets** — de ninguna
+  app: al soltar el widget, SpringBoard revienta en `-[SBHRippleSimulation
+  clear]` (la onda «líquida» de iOS 26) y se reinicia sin colocar nada. Es un
+  bug de Apple, y no hay palanca que lo esquive: pasa igual con el botón
+  «Agregar widget» (sin arrastrar), con Reducir movimiento, con Reducir
+  transparencia y con Aumentar contraste, y en tres runtimes (crash reports del
+  25-ago-2026). Solo la COLOCACIÓN se pierde; todo lo demás se verifica ahí:
+
+  | Qué | Cómo, en el simulador |
+  |---|---|
+  | Los tres widgets con datos de verdad | Escribir el snapshot en `<contenedor del grupo>/Library/Preferences/group.com.macr120.mindhome.plist` (clave `snapshot`, JSON como cadena) y un `casa.jpg` en la raíz del contenedor; luego `killall cfprefsd` y abrir la galería |
+  | El toque que abre la app | `xcrun simctl openurl <sim> 'com.macr120.mindhome://widget?...'` con `accion=`, con `app=&seccion=` y con host `oauth` (este último NO debe escribir destino) |
+  | Palomear (`MarcarMision`) | Poner `isDiscoverable = true` a mano, buscar «Marcar misión» en **Atajos**, teclear los cuatro parámetros y correrlo: encola en el App Group igual que el botón del widget |
+
+  Ojo al leer el plist desde el Mac: `cfprefsd` cachea, así que lo que hay en
+  disco va un paso atrás. Un `xcrun simctl spawn <sim> killall cfprefsd` antes
+  de leer lo vuelve fiable. Y `defaults write group.…` desde `simctl spawn` NO
+  sirve: escribe fuera del contenedor del grupo, donde la extensión no mira.
+
+  Lo único que queda para un iPhone real o TestFlight: colocar el widget y
+  tocarlo ahí, y que la app drene la cola (pide sesión con casa y misiones).
+- **Palomear desde la pantalla de inicio pide iOS 17.** Antes de esa versión un
+  widget no puede ejecutar código al tocarlo, así que la fila se pinta igual
+  pero el tap abre la app (`FilaMision`). El resto del widget funciona desde
+  iOS 15. Palomea la FILA entera, como allá (`setOnClickFillInIntent` va sobre
+  `item_fila`): lo que abre la app es la cabecera.
+- **Los textos NO se escriben a mano**: los once fijos salen de los
+  `strings.xml` ya traducidos de Android con `npm run ios:textos-widgets`.
+  Tenerlos dos veces significaría que una copia envejece.
 
 ## 3b. Estado del alta (24-ago-2026)
 

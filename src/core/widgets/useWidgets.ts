@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
-import { esAppNativa, nombrePlataforma } from '../plataforma'
+import { esAppNativa } from '../plataforma'
 import { esDemo, esProbar } from '../edicion'
 import { abrirApp } from '../abrirApp'
 import { hoyISO } from '../rutinas'
@@ -23,7 +23,7 @@ const ANCHO_FOTO = 640
 const ASPECTO_WIDGET = 250 / 110
 
 /**
- * Mantiene vivos los widgets nativos de Android. Va montado una vez en App
+ * Mantiene vivos los widgets nativos (Android e iOS). Va montado una vez en App
  * (como useAvisos): publica el snapshot cuando cambian los datos (liveQuery +
  * debounce) y la foto de la casa cuando cambia el diseño, drena la cola de
  * acciones del widget al arrancar y al volver a la app, y re-publica al cambiar
@@ -31,10 +31,11 @@ const ASPECTO_WIDGET = 250 / 110
  * usuario— no hace nada.
  */
 export function useWidgets(): void {
-  // Todos son fijos por sesión: el modo y la plataforma se deciden al cargar.
-  // Solo Android: el plugin Widgets es Java propio y en iOS no existe, así que
-  // sin este corte cada snapshot acabaría en un warn del puente.
-  const activo = esAppNativa() && nombrePlataforma() === 'android' && !esDemo() && !esProbar()
+  // Fijo por sesión: el modo se decide al cargar. Las DOS plataformas nativas
+  // tienen su puente `Widgets` (Java en `android/…/widgets/`, Swift en
+  // `ios/App/App/WidgetsPlugin.swift`), así que aquí ya no se distingue; en web
+  // el plugin es el no-op de `plugin.ts` y no hay a quién publicarle.
+  const activo = esAppNativa() && !esDemo() && !esProbar()
 
   // Reactivo: rastrea todas las tablas Dexie que lee armarSnapshot. Qué apps
   // tiene la casa sale además del DISEÑO, no de Dexie: sin esa dependencia el

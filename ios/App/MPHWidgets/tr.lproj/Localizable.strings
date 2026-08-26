@@ -1,0 +1,13 @@
+/* Generado por scripts/widgets-ios-textos.mjs desde android/…/values-tr/strings.xml.
+   No editar a mano: se regenera. */
+"widget_hoy_label" = "Görevler";
+"widget_hoy_desc" = "Tüm uygulamalarındaki bugünkü görevler, buradan işaretlenebilir.";
+"widget_casa_label" = "Ev";
+"widget_casa_desc" = "Evin ve bugünün tarihi.";
+"widget_chat_label" = "Sohbet";
+"widget_chat_desc" = "Evinle konuş: sohbet, kamera ve dikte.";
+"widget_vacio" = "Bu widget'ı doldurmak için Mind Planner Home'u aç.";
+"widget_palomear" = "Tamamlandı olarak işaretle";
+"widget_chat_abrir" = "Sohbet";
+"widget_chat_camara" = "Fotoğraf gönder";
+"widget_chat_voz" = "Dikte";

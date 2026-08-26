@@ -1,11 +1,13 @@
 /**
- * Contratos del puente app ↔ widgets nativos de Android (home screen).
+ * Contratos del puente app ↔ widgets nativos de la pantalla de inicio, comunes
+ * a Android y iOS.
  *
  * La app EMPUJA un snapshot JSON ya localizado a SharedPreferences (el widget
  * solo pinta) y el widget ENCOLA acciones con estado destino que la app aplica
  * al abrirse con la lógica real (core/hoy.ts): Java nunca decide negocio. Los
- * mismos esquemas los parsea el lado Java (widgets/ del proyecto Android), así
- * que cualquier cambio aquí debe reflejarse allá.
+ * mismos esquemas los parsean el lado Java (`widgets/` del proyecto Android) y
+ * el lado Swift (`ios/App/Compartido/WidgetsCompartido.swift`), así que
+ * cualquier cambio aquí debe reflejarse en LOS DOS.
  */
 import type { Idioma } from '../i18n/idiomas'
 import type { OrigenPaso } from '../hoy'

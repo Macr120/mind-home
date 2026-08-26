@@ -10,6 +10,7 @@
     "build": "tsc -b && vite build",
     "mascara:assets": "node scripts/copiar-mediapipe.mjs",
     "ios:iconos": "node scripts/iconos-ios.mjs",
+    "ios:textos-widgets": "node scripts/widgets-ios-textos.mjs",
     "ficha:tienda": "node scripts/ficha-tienda.mjs",
     "asc:ficha": "node scripts/asc-ficha.mjs",
     "dev:web": "vite --config vite.config.web.ts",

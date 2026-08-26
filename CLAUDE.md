@@ -147,5 +147,6 @@ Los tres deben pasar sin errores antes de dar por hecho un cambio.
   Debug usa el `dist` ya copiado y Release recompila la web solo (fase «Compilar la web»,
   espejo del `construirWeb` de Android). Iconos/splash: `npm run ios:iconos`. Permisos
   traducidos en `ios/App/App/<id>.lproj/InfoPlist.strings` (los 16 idiomas, como los
-  widgets de Android).
+  widgets de Android). Los tres widgets viven en el target `MPHWidgets/` (WidgetKit);
+  sus textos salen de Android con `npm run ios:textos-widgets`.
 - Ver `README.md` para detalles y tabla completa.

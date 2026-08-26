@@ -1,0 +1,13 @@
+/* Generado por scripts/widgets-ios-textos.mjs desde android/…/values-ar/strings.xml.
+   No editar a mano: se regenera. */
+"widget_hoy_label" = "المهام";
+"widget_hoy_desc" = "مهام اليوم من كل تطبيقاتك، يمكنك تعليمها من هنا.";
+"widget_casa_label" = "البيت";
+"widget_casa_desc" = "بيتك وتاريخ اليوم.";
+"widget_chat_label" = "المحادثة";
+"widget_chat_desc" = "تحدّث مع بيتك: محادثة وكاميرا وإملاء.";
+"widget_vacio" = "افتح Mind Planner Home لملء هذه الأداة.";
+"widget_palomear" = "تحديد كمُنجز";
+"widget_chat_abrir" = "المحادثة";
+"widget_chat_camara" = "إرسال صورة";
+"widget_chat_voz" = "الإملاء";

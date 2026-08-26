@@ -1,0 +1,13 @@
+/* Generado por scripts/widgets-ios-textos.mjs desde android/…/values-ja/strings.xml.
+   No editar a mano: se regenera. */
+"widget_hoy_label" = "ミッション";
+"widget_hoy_desc" = "すべてのアプリの今日のミッション。ここからチェックできます。";
+"widget_casa_label" = "家";
+"widget_casa_desc" = "あなたの家と今日の日付。";
+"widget_chat_label" = "チャット";
+"widget_chat_desc" = "家と話す：チャット、カメラ、音声入力。";
+"widget_vacio" = "このウィジェットを使うには Mind Planner Home を開いてください。";
+"widget_palomear" = "完了にする";
+"widget_chat_abrir" = "チャット";
+"widget_chat_camara" = "写真を送る";
+"widget_chat_voz" = "音声入力";

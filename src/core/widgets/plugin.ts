@@ -2,9 +2,12 @@ import { registerPlugin } from '@capacitor/core'
 import type { AccionWidget } from './tipos'
 
 /**
- * Plugin Capacitor local «Widgets» (Java: android/…/widgets/WidgetsPlugin.java).
- * Puente único con los widgets nativos: publicar el snapshot y drenar la cola
- * de acciones que dejaron los taps en el launcher.
+ * Plugin Capacitor local «Widgets», con una implementación nativa por
+ * plataforma y el MISMO contrato en las dos:
+ *   - Android: `android/…/widgets/WidgetsPlugin.java`
+ *   - iOS:     `ios/App/App/WidgetsPlugin.swift`
+ * Puente único con los widgets: publicar el snapshot y drenar la cola de
+ * acciones que dejaron los taps en la pantalla de inicio.
  */
 export interface WidgetsNativo {
   /** Guarda el snapshot en SharedPreferences y repinta los widgets colocados. */
@@ -22,8 +25,8 @@ export interface WidgetsNativo {
   tomarDestinoPendiente(): Promise<{ appId?: string; seccion?: string; accion?: string }>
 }
 
-// Fuera de Android nadie llega a llamarlo (useWidgets corta con esAppNativa()),
-// pero el no-op evita que un registro sin implementación reviente en web.
+// En web nadie llega a llamarlo (useWidgets corta con esAppNativa()), pero el
+// no-op evita que un registro sin implementación reviente ahí.
 export const Widgets = registerPlugin<WidgetsNativo>('Widgets', {
   web: {
     async publicarSnapshot() {},

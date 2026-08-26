@@ -1,0 +1,13 @@
+/* Generado por scripts/widgets-ios-textos.mjs desde android/…/values-zh/strings.xml.
+   No editar a mano: se regenera. */
+"widget_hoy_label" = "任务";
+"widget_hoy_desc" = "所有应用的今日任务，可直接在这里勾选。";
+"widget_casa_label" = "家";
+"widget_casa_desc" = "你的家和今天的日期。";
+"widget_chat_label" = "聊天";
+"widget_chat_desc" = "和你的家对话：聊天、相机和语音输入。";
+"widget_vacio" = "打开 Mind Planner Home 来填充这个小组件。";
+"widget_palomear" = "标记为已完成";
+"widget_chat_abrir" = "聊天";
+"widget_chat_camara" = "发送照片";
+"widget_chat_voz" = "语音输入";

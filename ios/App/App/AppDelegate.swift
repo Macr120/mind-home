@@ -7,8 +7,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Arranque en frío desde el toque en un widget: la URL viene aquí, y
+        // `open url` llega DESPUÉS de que el WebView ya preguntó por el destino.
+        if let url = launchOptions?[.url] as? URL { AppDelegate.guardarDestinoDe(url) }
         return true
+    }
+
+    /**
+     * Convierte el toque en un widget en el «destino» que `useWidgets` recoge
+     * con `tomarDestinoPendiente`, igual que los extras del Intent en Android.
+     * Solo mira el host `widget`: el MISMO esquema lo usa OAuth (`://oauth`).
+     */
+    static func guardarDestinoDe(_ url: URL) {
+        guard url.scheme == "com.macr120.mindhome", url.host == "widget" else { return }
+        let partes = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems ?? []
+        var destino: [String: String] = [:]
+        for parte in partes {
+            guard let valor = parte.value, !valor.isEmpty else { continue }
+            switch parte.name {
+            case "app": destino["appId"] = valor
+            case "seccion": destino["seccion"] = valor
+            case "accion": destino["accion"] = valor
+            default: break
+            }
+        }
+        // Sin `app` ni `accion` no hay a dónde ir: el widget de la casa abre
+        // la casa a secas, que es lo que pasa al no guardar destino.
+        guard destino["appId"] != nil || destino["accion"] != nil else { return }
+        AlmacenWidgets.guardarDestino(destino)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -36,6 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         // Called when the app was launched with a url. Feel free to add additional processing here,
         // but if you want the App API to support tracking app url opens, make sure to keep this call
+        AppDelegate.guardarDestinoDe(url)
         return ApplicationDelegateProxy.shared.application(app, open: url, options: options)
     }
 

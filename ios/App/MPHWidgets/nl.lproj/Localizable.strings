@@ -1,0 +1,13 @@
+/* Generado por scripts/widgets-ios-textos.mjs desde android/…/values-nl/strings.xml.
+   No editar a mano: se regenera. */
+"widget_hoy_label" = "Missies";
+"widget_hoy_desc" = "De missies van vandaag uit al je apps, hier direct af te vinken.";
+"widget_casa_label" = "Huis";
+"widget_casa_desc" = "Je huis en de datum van vandaag.";
+"widget_chat_label" = "Chat";
+"widget_chat_desc" = "Praat met je huis: chat, camera en spraakinvoer.";
+"widget_vacio" = "Open Mind Planner Home om deze widget te vullen.";
+"widget_palomear" = "Als klaar markeren";
+"widget_chat_abrir" = "Chat";
+"widget_chat_camara" = "Een foto sturen";
+"widget_chat_voz" = "Spraakinvoer";
