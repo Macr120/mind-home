@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { esAppNativa } from '../plataforma'
+import { useAjustes } from '../state/ajustesStore'
+import { useBaseClara } from '../ui/useBaseUI'
 import { esDemo, esProbar } from '../edicion'
 import { abrirApp } from '../abrirApp'
 import { hoyISO } from '../rutinas'
@@ -46,7 +48,15 @@ export function useWidgets(): void {
     for (const o of s.objetos) if (o.plantillaId) ids.add(o.plantillaId)
     return [...ids].sort().join(',')
   })
-  const snapshot = useLiveQuery(() => (activo ? armarSnapshot() : undefined), [activo, apps])
+  // El tema también viaja en el snapshot: cambiar tema, modo o —en
+  // transparente— la base que dicta la luz de la casa debe repintar widgets.
+  const temaUI = useAjustes((s) => s.temaUI)
+  const modoUI = useAjustes((s) => s.modoUI)
+  const baseClara = useBaseClara()
+  const snapshot = useLiveQuery(
+    () => (activo ? armarSnapshot() : undefined),
+    [activo, apps, temaUI, modoUI, baseClara],
+  )
 
   const timer = useRef<number | undefined>(undefined)
   const fechaPublicada = useRef('')

@@ -51,10 +51,26 @@
         android:textSize="11sp"
         android:visibility="gone" />
 
-    <ImageView
-        android:id="@+id/item_check"
+    <!-- Palomita en dos capas para poder teñirla del tema: el círculo/aro
+         (item_check) del acento o tinta2, y la marca (item_check_marca) del
+         color del FONDO, que sobre el círculo parece recortada. -->
+    <FrameLayout
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginStart="10dp"
-        android:contentDescription="@string/widget_palomear" />
+        android:layout_marginStart="10dp">
+
+        <ImageView
+            android:id="@+id/item_check"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/widget_palomear" />
+
+        <ImageView
+            android:id="@+id/item_check_marca"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:src="@drawable/widget_check_marca"
+            android:visibility="gone" />
+    </FrameLayout>
 </LinearLayout>

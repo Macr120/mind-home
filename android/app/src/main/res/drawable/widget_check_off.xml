@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Palomita apagada: aro vacío. -->
+<!-- Palomita apagada: aro vacío, blanco teñible (tinta2 del tema). -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="24dp"
     android:height="24dp"
@@ -7,5 +7,5 @@
     android:viewportHeight="24">
     <path
         android:pathData="M12,3a9,9 0 1,0 0.001,0z M12,5.2a6.8,6.8 0 1,1 -0.001,0z"
-        android:fillColor="#4A5160" />
+        android:fillColor="#FFFFFF" />
 </vector>

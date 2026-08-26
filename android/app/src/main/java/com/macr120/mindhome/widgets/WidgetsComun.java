@@ -35,6 +35,44 @@ final class WidgetsComun {
     return textos == null ? new JSONObject() : textos;
   }
 
+  /** La paleta que empuja la app en el snapshot, o null si es de antes del tema. */
+  static JSONObject tema(JSONObject snapshot) {
+    return snapshot == null ? null : snapshot.optJSONObject("tema");
+  }
+
+  /**
+   * Color CSS del tema (#rrggbb o #rrggbbaa) como ARGB de Android, o el de
+   * siempre si falta o no se entiende: un snapshot viejo pinta la paleta
+   * oscura de toda la vida.
+   */
+  static int color(JSONObject tema, String clave, int porOmision) {
+    if (tema == null) return porOmision;
+    String hex = tema.optString(clave, "");
+    if (!hex.startsWith("#") || (hex.length() != 7 && hex.length() != 9)) return porOmision;
+    try {
+      long v = Long.parseLong(hex.substring(1), 16);
+      if (hex.length() == 7) return 0xFF000000 | (int) v;
+      // #rrggbbaa (CSS) -> AARRGGBB (Android).
+      return ((int) (v & 0xFF) << 24) | (int) (v >>> 8);
+    } catch (NumberFormatException e) {
+      return porOmision;
+    }
+  }
+
+  /** Modo transparente: el fondo del widget va translúcido. */
+  static boolean esVidrio(JSONObject tema) {
+    return tema != null && tema.optBoolean("vidrio");
+  }
+
+  /**
+   * Alfa del fondo: el sólido conserva el F2 que siempre tuvo widget_fondo.xml;
+   * el vidrio baja a ~55%, lo más cerca del panel translúcido de la app que se
+   * puede sin blur (RemoteViews no sabe desenfocar).
+   */
+  static int alfaFondo(JSONObject tema) {
+    return esVidrio(tema) ? 140 : 242;
+  }
+
   /** Fecha local yyyy-MM-dd del sistema (mismo formato que hoyISO() de la app). */
   static String hoy() {
     return new SimpleDateFormat("yyyy-MM-dd", Locale.US).format(new Date());

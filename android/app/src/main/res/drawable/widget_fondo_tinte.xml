@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fondo teñible de los widgets: blanco a propósito. Va como `src` de un
+     ImageView y el provider lo pinta con `setColorFilter` al color del tema
+     (los drawables de background no se pueden re-teñir por RemoteViews). -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="#FFFFFF" />
+    <corners android:radius="18dp" />
+</shape>

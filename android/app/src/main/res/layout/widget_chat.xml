@@ -1,67 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Widget «Chat»: lanzador puro (no lee el snapshot). Abre el chat de la casa,
-     o directo con la cámara o el dictado. -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- Widget «Chat»: lanzador puro (del snapshot solo toma la PALETA). Abre el
+     chat de la casa, o directo con la cámara o el dictado.
+
+     Los fondos (widget, píldora, círculos) van como ImageView y no como
+     background: RemoteViews solo puede re-teñir un `src` (setColorFilter), y
+     el color lo pone el tema que la app manda en el snapshot. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/widget_fondo"
-    android:orientation="vertical"
-    android:padding="10dp">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/chat_abrir"
+    <ImageView
+        android:id="@+id/chat_fondo"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@drawable/widget_pildora"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingStart="14dp"
-        android:paddingEnd="14dp">
-
-        <ImageView
-            android:layout_width="46dp"
-            android:layout_height="26dp"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/widget_logo" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="@string/widget_chat_abrir"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp" />
-    </LinearLayout>
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/widget_fondo_tinte" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-        <ImageView
-            android:id="@+id/chat_camara"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/widget_circulo"
-            android:contentDescription="@string/widget_chat_camara"
-            android:padding="18dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_widget_camara" />
+        <FrameLayout
+            android:id="@+id/chat_abrir"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-        <ImageView
-            android:id="@+id/chat_voz"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
+            <ImageView
+                android:id="@+id/chat_abrir_fondo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/widget_pildora" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp">
+
+                <ImageView
+                    android:layout_width="46dp"
+                    android:layout_height="26dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/widget_logo" />
+
+                <TextView
+                    android:id="@+id/chat_abrir_texto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/widget_chat_abrir"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:background="@drawable/widget_circulo"
-            android:contentDescription="@string/widget_chat_voz"
-            android:padding="18dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_widget_voz" />
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/chat_camara"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/chat_camara_fondo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/widget_circulo" />
+
+                <ImageView
+                    android:id="@+id/chat_camara_icono"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/widget_chat_camara"
+                    android:padding="18dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_widget_camara" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/chat_voz"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/chat_voz_fondo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/widget_circulo" />
+
+                <ImageView
+                    android:id="@+id/chat_voz_icono"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/widget_chat_voz"
+                    android:padding="18dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_widget_voz" />
+            </FrameLayout>
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</FrameLayout>

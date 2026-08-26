@@ -2,16 +2,16 @@ import SwiftUI
 import WidgetKit
 
 /**
- * Widget «Chat»: lanzador de los tres accesos al chat de la casa. No lee el
- * snapshot —sus textos son fijos— así que funciona desde el primer arranque,
- * igual que `ChatWidgetProvider.java`.
+ * Widget «Chat»: lanzador de los tres accesos al chat de la casa. Sus textos
+ * son fijos, así que funciona desde el primer arranque; del snapshot solo toma
+ * la PALETA (y sin snapshot pinta la oscura), igual que `ChatWidgetProvider.java`.
  *
  * Aquí cada botón es un `Link` propio (no `widgetURL`, que es uno por widget).
  */
 struct ChatWidget: Widget {
   var body: some WidgetConfiguration {
-    StaticConfiguration(kind: "MPHChat", provider: ProveedorWidget()) { _ in
-      VistaChat()
+    StaticConfiguration(kind: "MPHChat", provider: ProveedorWidget()) { entrada in
+      VistaChat(tema: entrada.tema)
     }
     .configurationDisplayName(NSLocalizedString("widget_chat_label", comment: ""))
     .description(NSLocalizedString("widget_chat_desc", comment: ""))
@@ -20,6 +20,8 @@ struct ChatWidget: Widget {
 }
 
 struct VistaChat: View {
+  var tema: TemaWidget = .oscuro
+
   var body: some View {
     VStack(spacing: 10) {
       Link(destination: EnlaceWidget.accion("chat")) {
@@ -30,26 +32,26 @@ struct VistaChat: View {
             .frame(width: 46, height: 26)
           Text(NSLocalizedString("widget_chat_abrir", comment: ""))
             .font(.system(size: 18, weight: .semibold))
-            .foregroundColor(.white)
+            .foregroundColor(tema.colorTinta)
             .lineLimit(1)
             .minimumScaleFactor(0.7)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Paleta.pildora)
+        .background(tema.colorPanel)
         .clipShape(Capsule())
       }
 
       HStack(spacing: 10) {
         BotonRedondo(icono: "camera.fill",
                      etiqueta: NSLocalizedString("widget_chat_camara", comment: ""),
-                     destino: EnlaceWidget.accion("chat-foto"))
+                     destino: EnlaceWidget.accion("chat-foto"), tema: tema)
         BotonRedondo(icono: "mic.fill",
                      etiqueta: NSLocalizedString("widget_chat_voz", comment: ""),
-                     destino: EnlaceWidget.accion("chat-voz"))
+                     destino: EnlaceWidget.accion("chat-voz"), tema: tema)
       }
     }
     .padding(10)
-    .fondoWidget()
+    .fondoWidget(tema)
   }
 }
 
@@ -100,14 +102,15 @@ private struct BotonRedondo: View {
   let icono: String
   let etiqueta: String
   let destino: URL
+  let tema: TemaWidget
 
   var body: some View {
     Link(destination: destino) {
       Image(systemName: icono)
         .font(.system(size: 20))
-        .foregroundColor(Paleta.tinta)
+        .foregroundColor(tema.colorTinta)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Paleta.pildora)
+        .background(tema.colorPanel)
         .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
     }
     .accessibilityLabel(etiqueta)

@@ -27,6 +27,25 @@ struct ItemHoy: Codable {
   let urgente: Bool?
 }
 
+/**
+ * La paleta que la app resolvió (tema × modo, y en transparente la base que
+ * dictó la luz de la casa) — espejo de `TemaWidgets` en tipos.ts. El widget no
+ * sabe de temas: pinta estos colores tal cual. CSS hex: #rrggbb o #rrggbbaa.
+ */
+struct TemaWidget: Codable {
+  let fondo: String
+  let panel: String
+  let tinta: String
+  let tinta2: String
+  let hecho: String
+  let hechoDetalle: String
+  let acento: String
+  let urgente: String
+  let alerta: String
+  /// Modo transparente: el fondo va de vidrio (material translúcido).
+  let vidrio: Bool
+}
+
 struct SnapshotWidgets: Codable {
   let version: Int
   /// `hoyISO()` al generarlo: si cambió el día, el widget avisa en vez de mentir.
@@ -34,6 +53,9 @@ struct SnapshotWidgets: Codable {
   let idioma: String
   /// Todo lo que el widget pinta tal cual, YA localizado y compuesto en la app.
   let textos: [String: String]
+  /// La paleta según el tema elegido en la app; nil en snapshots viejos (los
+  /// widgets caen entonces a su paleta oscura de siempre).
+  let tema: TemaWidget?
   let hoy: [ItemHoy]
 
   /// Nunca revienta por una clave que falte: el widget prefiere un hueco a no pintar.

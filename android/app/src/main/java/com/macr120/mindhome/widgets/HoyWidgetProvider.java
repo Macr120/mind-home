@@ -35,6 +35,16 @@ public class HoyWidgetProvider extends AppWidgetProvider {
     RemoteViews rv = new RemoteViews(ctx.getPackageName(), R.layout.widget_hoy);
     JSONObject snap = WidgetsComun.leerSnapshot(ctx);
     JSONObject textos = WidgetsComun.textos(snap);
+    JSONObject tema = WidgetsComun.tema(snap);
+
+    // La paleta la manda la app (tema × modo elegidos); esto solo la pinta.
+    rv.setInt(R.id.widget_hoy_fondo, "setColorFilter", WidgetsComun.color(tema, "fondo", 0xFF0F1115));
+    rv.setInt(R.id.widget_hoy_fondo, "setImageAlpha", WidgetsComun.alfaFondo(tema));
+    rv.setTextColor(R.id.widget_hoy_titulo, WidgetsComun.color(tema, "tinta", 0xFFEDEDF2));
+    rv.setTextColor(R.id.widget_hoy_fecha, WidgetsComun.color(tema, "tinta2", 0xFF9AA0AA));
+    rv.setTextColor(R.id.widget_hoy_cuenta, WidgetsComun.color(tema, "acento", 0xFF8BE9B6));
+    rv.setTextColor(R.id.widget_hoy_desactualizado, WidgetsComun.color(tema, "alerta", 0xFFF87171));
+    rv.setTextColor(R.id.widget_hoy_vacio, WidgetsComun.color(tema, "tinta2", 0xFF9AA0AA));
 
     rv.setTextViewText(
         R.id.widget_hoy_titulo,

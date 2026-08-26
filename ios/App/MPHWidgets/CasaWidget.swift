@@ -25,6 +25,16 @@ struct VistaCasa: View {
     return UIImage(data: foto)
   }
 
+  /// Sobre la FOTO (o el mapa de utilería) la fecha va en blanco con sombra;
+  /// sin foto queda sobre el fondo del tema, y ahí manda la tinta del tema.
+  private var tintaFecha: Color {
+    imagen != nil || entrada.esEjemplo ? .white : entrada.tema.colorTinta
+  }
+
+  private var tintaFecha2: Color {
+    imagen != nil || entrada.esEjemplo ? Color(white: 0.88) : entrada.tema.colorTinta2
+  }
+
   var body: some View {
     let snap = entrada.snapshot
     ZStack {
@@ -44,15 +54,15 @@ struct VistaCasa: View {
         HStack(alignment: .center, spacing: 10) {
           Text(snap.texto("diaNumero"))
             .font(.system(size: 42, weight: .bold))
-            .foregroundColor(.white)
+            .foregroundColor(tintaFecha)
           VStack(alignment: .leading, spacing: 1) {
             Text(snap.texto("diaSemana"))
               .font(.system(size: 14, weight: .bold))
-              .foregroundColor(.white)
+              .foregroundColor(tintaFecha)
               .lineLimit(1)
             Text(ComunWidgets.desactualizado(snap) ? snap.texto("desactualizado") : snap.texto("mesAnio"))
               .font(.system(size: 12))
-              .foregroundColor(ComunWidgets.desactualizado(snap) ? Paleta.alerta : Color(white: 0.88))
+              .foregroundColor(ComunWidgets.desactualizado(snap) ? entrada.tema.colorAlerta : tintaFecha2)
               .lineLimit(1)
           }
           Spacer(minLength: 0)
@@ -64,12 +74,12 @@ struct VistaCasa: View {
         // Sin foto NI fecha: el widget explica que hay que abrir la app una vez.
         Text(NSLocalizedString("widget_vacio", comment: ""))
           .font(.system(size: 12))
-          .foregroundColor(Paleta.tinta2)
+          .foregroundColor(entrada.tema.colorTinta2)
           .multilineTextAlignment(.center)
           .padding(16)
       }
     }
-    .fondoWidget()
+    .fondoWidget(entrada.tema)
     .widgetURL(EnlaceWidget.app())
   }
 }

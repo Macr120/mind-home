@@ -38,7 +38,12 @@ public class CasaWidgetProvider extends AppWidgetProvider {
     RemoteViews rv = new RemoteViews(ctx.getPackageName(), R.layout.widget_casa);
     JSONObject snap = WidgetsComun.leerSnapshot(ctx);
     JSONObject textos = WidgetsComun.textos(snap);
+    JSONObject tema = WidgetsComun.tema(snap);
     Bitmap foto = leerFoto(ctx);
+
+    // El fondo del tema (solo se ve mientras no hay foto).
+    rv.setInt(R.id.casa_fondo, "setColorFilter", WidgetsComun.color(tema, "fondo", 0xFF0F1115));
+    rv.setInt(R.id.casa_fondo, "setImageAlpha", WidgetsComun.alfaFondo(tema));
 
     if (foto != null) rv.setImageViewBitmap(R.id.casa_foto, foto);
     rv.setViewVisibility(R.id.casa_foto, foto == null ? View.GONE : View.VISIBLE);
@@ -49,14 +54,22 @@ public class CasaWidgetProvider extends AppWidgetProvider {
     boolean hayFecha = snap != null;
     rv.setViewVisibility(R.id.casa_fecha, hayFecha ? View.VISIBLE : View.GONE);
     rv.setViewVisibility(R.id.casa_vacio, foto == null && !hayFecha ? View.VISIBLE : View.GONE);
+    rv.setTextColor(R.id.casa_vacio, WidgetsComun.color(tema, "tinta2", 0xFF9AA0AA));
     if (hayFecha) {
+      // Sobre la FOTO la fecha va en blanco con sombra; sin foto queda sobre el
+      // fondo del tema y ahí manda su tinta (en claro, el blanco no se leía).
+      boolean viejo = WidgetsComun.desactualizado(snap);
+      int tinta = foto != null ? 0xFFFFFFFF : WidgetsComun.color(tema, "tinta", 0xFFFFFFFF);
+      int tinta2 = foto != null ? 0xFFE0E4EA : WidgetsComun.color(tema, "tinta2", 0xFFE0E4EA);
+      rv.setTextColor(R.id.casa_dia, tinta);
+      rv.setTextColor(R.id.casa_diasemana, tinta);
+      rv.setTextColor(
+          R.id.casa_mes, viejo ? WidgetsComun.color(tema, "alerta", 0xFFF87171) : tinta2);
       rv.setTextViewText(R.id.casa_dia, textos.optString("diaNumero"));
       rv.setTextViewText(R.id.casa_diasemana, textos.optString("diaSemana"));
       rv.setTextViewText(
           R.id.casa_mes,
-          WidgetsComun.desactualizado(snap)
-              ? textos.optString("desactualizado")
-              : textos.optString("mesAnio"));
+          viejo ? textos.optString("desactualizado") : textos.optString("mesAnio"));
     }
 
     rv.setOnClickPendingIntent(R.id.widget_casa_raiz, WidgetsComun.abrirApp(ctx));

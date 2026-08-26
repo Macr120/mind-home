@@ -87,6 +87,7 @@ lógica real de `core/hoy.ts`. Por eso `useWidgets` ya no distingue plataforma.
 | Tap → destino | extras del Intent | `com.macr120.mindhome://widget?...` → `AppDelegate` |
 | Palomear sin abrir | `WidgetAccionReceiver` (`exported="false"`) | `MarcarMision` (`AppIntent`, **iOS 17+**, `isDiscoverable = false`) |
 | Textos fijos | `values*/strings.xml` | `<idioma>.lproj/Localizable.strings`, generados con `npm run ios:textos-widgets` |
+| Tema (claro/oscuro/transparente) | colores del snapshot vía `setColorFilter`/`setTextColor` (los fondos son ImageView blancos teñibles) | `TemaWidget` del snapshot; transparente = `ultraThinMaterial` |
 
 Tres cosas que solo pasan en iOS:
 
@@ -136,6 +137,14 @@ Tres cosas que solo pasan en iOS:
 - **Los textos NO se escriben a mano**: los once fijos salen de los
   `strings.xml` ya traducidos de Android con `npm run ios:textos-widgets`.
   Tenerlos dos veces significaría que una copia envejece.
+- **El tema viaja RESUELTO en el snapshot.** Los widgets siguen el tema y modo
+  elegidos en la app (claro/oscuro/transparente), pero no saben de temas: la app
+  resuelve la paleta en `armarSnapshot` (`tema` en tipos.ts) — en transparente,
+  con la base que dictó la luz de la casa (`data-base-ui`) — y ambos lados solo
+  pintan esos colores; sin `tema` (snapshot viejo) cada lado cae a su paleta
+  oscura de siempre. `useWidgets` re-publica al cambiar tema, modo o base. El
+  transparente es vidrio: material translúcido en iOS, fondo con alfa en
+  Android (RemoteViews no sabe desenfocar).
 - **La galería enseña utilería, no un aviso.** El estado normal de un usuario
   nuevo es galería sin datos (la app publica solo con un widget YA colocado),
   así que ahí `EntradaWidget.ejemplo` pinta un mapa de mentira y filas

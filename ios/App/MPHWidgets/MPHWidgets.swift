@@ -19,19 +19,46 @@ struct MPHWidgets: WidgetBundle {
 
 // MARK: - Paleta
 
-/// El tema oscuro de la app, los mismos valores que `res/drawable/widget_fondo.xml`.
-enum Paleta {
-  static let fondo = Color(red: 0x0F / 255, green: 0x11 / 255, blue: 0x15 / 255)
-  static let pildora = Color(red: 0x1E / 255, green: 0x21 / 255, blue: 0x28 / 255)
-  static let tinta = Color(red: 0xED / 255, green: 0xED / 255, blue: 0xF2 / 255)
-  static let tinta2 = Color(red: 0x9A / 255, green: 0xA0 / 255, blue: 0xAA / 255)
-  /// Lo cumplido baja de tono para que lo que falta se lea primero.
-  static let tintaHecho = Color(red: 0x6B / 255, green: 0x72 / 255, blue: 0x80 / 255)
-  static let tintaHechoDetalle = Color(red: 0x56 / 255, green: 0x5C / 255, blue: 0x66 / 255)
-  static let cuenta = Color(red: 0x8B / 255, green: 0xE9 / 255, blue: 0xB6 / 255)
-  static let alerta = Color(red: 0xF8 / 255, green: 0x71 / 255, blue: 0x71 / 255)
-  /// La hora ya pasada, como el globo de Misiones dentro de la app.
-  static let urgente = Color(red: 0xFB / 255, green: 0xBF / 255, blue: 0x24 / 255)
+extension Color {
+  /// #rrggbb o #rrggbbaa (CSS). Un valor ilegible cae a gris, no revienta.
+  init(hexCSS: String) {
+    var hex = hexCSS.hasPrefix("#") ? String(hexCSS.dropFirst()) : hexCSS
+    if hex.count == 6 { hex += "ff" }
+    let v = UInt64(hex, radix: 16) ?? 0x8080_80ff
+    self.init(
+      .sRGB,
+      red: Double((v >> 24) & 0xFF) / 255,
+      green: Double((v >> 16) & 0xFF) / 255,
+      blue: Double((v >> 8) & 0xFF) / 255,
+      opacity: Double(v & 0xFF) / 255)
+  }
+}
+
+/**
+ * Los colores listos para pintar. La app manda el tema en el snapshot; sin
+ * snapshot (o con uno de antes de que el tema viajara) se cae a `.oscuro`,
+ * la paleta de siempre — los mismos valores que `res/drawable/widget_fondo.xml`.
+ */
+extension TemaWidget {
+  static let oscuro = TemaWidget(
+    fondo: "#0f1115", panel: "#1e2128", tinta: "#ededf2", tinta2: "#9aa0aa",
+    hecho: "#6b7280", hechoDetalle: "#565c66", acento: "#8be9b6",
+    urgente: "#fbbf24", alerta: "#f87171", vidrio: false)
+
+  var colorFondo: Color { Color(hexCSS: fondo) }
+  var colorPanel: Color { Color(hexCSS: panel) }
+  var colorTinta: Color { Color(hexCSS: tinta) }
+  var colorTinta2: Color { Color(hexCSS: tinta2) }
+  var colorHecho: Color { Color(hexCSS: hecho) }
+  var colorHechoDetalle: Color { Color(hexCSS: hechoDetalle) }
+  var colorAcento: Color { Color(hexCSS: acento) }
+  var colorUrgente: Color { Color(hexCSS: urgente) }
+  var colorAlerta: Color { Color(hexCSS: alerta) }
+}
+
+extension EntradaWidget {
+  /// La paleta a pintar en esta entrada.
+  var tema: TemaWidget { snapshot?.tema ?? .oscuro }
 }
 
 // MARK: - Enlaces a la app
@@ -65,20 +92,32 @@ enum EnlaceWidget {
 /**
  * En iOS 17 el fondo lo tiene que declarar el widget con `containerBackground`
  * o el sistema lo pinta él y deja un marco claro alrededor; antes de 17 ese
- * modificador no existe y el fondo va como capa normal.
+ * modificador no existe y el fondo va como capa normal. En modo transparente el
+ * fondo es vidrio del sistema (material translúcido), lo más cerca que WidgetKit
+ * deja llegar al panel de vidrio de la app.
  */
 struct FondoWidget: ViewModifier {
+  let tema: TemaWidget
+
   func body(content: Content) -> some View {
     if #available(iOS 17.0, *) {
-      content.containerBackground(Paleta.fondo, for: .widget)
+      if tema.vidrio {
+        content.containerBackground(for: .widget) { Rectangle().fill(.ultraThinMaterial) }
+      } else {
+        content.containerBackground(tema.colorFondo, for: .widget)
+      }
     } else {
-      content.background(Paleta.fondo)
+      if tema.vidrio {
+        content.background(.ultraThinMaterial)
+      } else {
+        content.background(tema.colorFondo)
+      }
     }
   }
 }
 
 extension View {
-  func fondoWidget() -> some View { modifier(FondoWidget()) }
+  func fondoWidget(_ tema: TemaWidget) -> some View { modifier(FondoWidget(tema: tema)) }
 }
 
 // MARK: - Timeline
@@ -168,7 +207,8 @@ extension EntradaWidget {
     return EntradaWidget(
       date: ahora,
       snapshot: SnapshotWidgets(
-        version: 1, fecha: ComunWidgets.hoy(), idioma: "en", textos: textos, hoy: hoy),
+        version: 1, fecha: ComunWidgets.hoy(), idioma: "en", textos: textos,
+        tema: nil, hoy: hoy),
       foto: nil,
       esEjemplo: true)
   }

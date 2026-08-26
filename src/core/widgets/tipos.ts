@@ -42,6 +42,34 @@ export interface ResumenWidget {
   misionesTotal: number
 }
 
+/**
+ * La paleta del widget, YA resuelta por la app (tema × modo, y en transparente
+ * la base que dictó la luz de la casa): los widgets no saben de temas, pintan
+ * estos colores tal cual. CSS hex: #rrggbb o #rrggbbaa.
+ */
+export interface TemaWidgets {
+  /** Fondo del widget. */
+  fondo: string
+  /** Fondo de la píldora y los botones del chat. */
+  panel: string
+  /** Tinta del texto base. */
+  tinta: string
+  /** Tinta secundaria (detalle, fecha, vacío). */
+  tinta2: string
+  /** Título de una misión cumplida. */
+  hecho: string
+  /** Detalle de una misión cumplida. */
+  hechoDetalle: string
+  /** Acento del tema: la cuenta 2/6 y la palomita encendida. */
+  acento: string
+  /** Hora ya pasada de una misión pendiente. */
+  urgente: string
+  /** Aviso de «desactualizado». */
+  alerta: string
+  /** Modo transparente: el fondo va translúcido (vidrio). */
+  vidrio: boolean
+}
+
 export interface SnapshotWidgets {
   version: 1
   /** hoyISO() al generarlo: el widget marca «desactualizado» si cambió el día. */
@@ -53,6 +81,9 @@ export interface SnapshotWidgets {
    * vive en fuentes .java, donde javac en Windows puede corromperlos.
    */
   textos: Record<string, string>
+  /** La paleta según el tema/modo elegidos en la app; sin ella (snapshot viejo)
+   *  los widgets caen a su paleta oscura de siempre. */
+  tema: TemaWidgets
   /** Las misiones del día: lo pendiente primero (lo atrasado arriba), lo hecho al final. */
   hoy: ItemHoy[]
   resumen: ResumenWidget

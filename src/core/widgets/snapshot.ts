@@ -1,13 +1,48 @@
 import { db } from '../data/db'
 import { useDiseño } from '../state/disenoStore'
+import { useAjustes } from '../state/ajustesStore'
+import { modoBase, TEMAS_UI, TEMA_UI_DEFAULT } from '../ui/temasUI'
 import { tGlobal, idiomaActual, localeActual } from '../i18n/useT'
 import { hoyISO } from '../rutinas'
 import { armarPasosDeTodas, repartirPasos } from '../hoy'
 import { progresoDeEnfoques, EMOJI_HUMOR } from '../gamificacion/actividad'
 import { estadoSisifoActual } from '../gamificacion/sisifo'
-import type { ItemHoy, SnapshotWidgets } from './tipos'
+import type { ItemHoy, SnapshotWidgets, TemaWidgets } from './tipos'
 
 const recortar = (s: string, n: number): string => (s.length > n ? `${s.slice(0, n - 1)}…` : s)
+
+/**
+ * La paleta del widget, resuelta desde el tema y modo elegidos en la app. En
+ * `transparente` la variante (clara u oscura) no está en el store: la decide la
+ * luz de la casa (`useVidrioSegunLuz`), y lo único siempre veraz es el
+ * `data-base-ui` que escribe `aplicarTemaUI` — el mismo criterio de `useBaseUI`.
+ */
+function armarTema(): TemaWidgets {
+  const { temaUI, modoUI } = useAjustes.getState()
+  const tema = TEMAS_UI.find((t) => t.id === temaUI) ?? TEMAS_UI.find((t) => t.id === TEMA_UI_DEFAULT)!
+  const base =
+    modoUI === 'transparente'
+      ? document.documentElement.dataset.baseUi === 'oscuro'
+        ? 'oscuro'
+        : 'claro'
+      : modoBase(modoUI)
+  const vars = tema.vars[base]
+  const tinta = vars['--ui-ink']
+  return {
+    fondo: vars['--ui-bg'],
+    panel: vars['--ui-panel-2'],
+    tinta,
+    // Derivados por alfa sobre la tinta: se atenúan igual en cualquier tema.
+    tinta2: `${tinta}a6`,
+    hecho: `${tinta}73`,
+    hechoDetalle: `${tinta}59`,
+    acento: vars['--ui-accent'],
+    // El ámbar/rojo de siempre no lee sobre fondo claro: variante por base.
+    urgente: base === 'claro' ? '#b45309' : '#fbbf24',
+    alerta: base === 'claro' ? '#dc2626' : '#f87171',
+    vidrio: modoUI === 'transparente',
+  }
+}
 
 /**
  * Arma el snapshot que pintan los widgets nativos. Función async pura (sin
@@ -101,6 +136,7 @@ export async function armarSnapshot(): Promise<SnapshotWidgets> {
       vacio: tGlobal('hoy.casa.vacio', 'Nada pendiente hoy en ninguna app.'),
       desactualizado: tGlobal('widgets.desactualizado', 'Toca para actualizar'),
     },
+    tema: armarTema(),
     hoy: items,
     resumen: {
       racha: progreso.racha,

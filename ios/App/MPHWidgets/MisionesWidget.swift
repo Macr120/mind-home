@@ -50,13 +50,13 @@ struct VistaMisiones: View {
     let snap = entrada.snapshot
     let lista = filas
     VStack(alignment: .leading, spacing: 6) {
-      Cabecera(snapshot: snap)
+      Cabecera(snapshot: snap, tema: entrada.tema)
 
       if lista.isEmpty {
         // Vacío: sin snapshot aún (abre la app) o con el día en blanco.
         Text(snap?.texto("vacio") ?? NSLocalizedString("widget_vacio", comment: ""))
           .font(.system(size: 12))
-          .foregroundColor(Paleta.tinta2)
+          .foregroundColor(entrada.tema.colorTinta2)
           .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
           .multilineTextAlignment(.center)
       } else {
@@ -64,14 +64,14 @@ struct VistaMisiones: View {
           ForEach(lista.prefix(tope), id: \.id) { item in
             FilaMision(
               item: item, fecha: snap?.fecha ?? ComunWidgets.hoy(),
-              redactada: entrada.esEjemplo)
+              tema: entrada.tema, redactada: entrada.esEjemplo)
           }
           Spacer(minLength: 0)
         }
       }
     }
     .padding(12)
-    .fondoWidget()
+    .fondoWidget(entrada.tema)
     // Toda la zona que no sea un botón de palomear abre la app.
     .widgetURL(EnlaceWidget.app())
   }
@@ -79,28 +79,29 @@ struct VistaMisiones: View {
 
 private struct Cabecera: View {
   let snapshot: SnapshotWidgets?
+  let tema: TemaWidget
 
   var body: some View {
     VStack(alignment: .leading, spacing: 1) {
       HStack(alignment: .firstTextBaseline) {
         Text(snapshot?.texto("titulo") ?? "Mind Planner Home")
           .font(.system(size: 14, weight: .semibold))
-          .foregroundColor(Paleta.tinta)
+          .foregroundColor(tema.colorTinta)
           .lineLimit(1)
         Spacer(minLength: 6)
         Text(snapshot?.texto("misiones") ?? "")
           .font(.system(size: 11))
-          .foregroundColor(Paleta.cuenta)
+          .foregroundColor(tema.colorAcento)
       }
       if ComunWidgets.desactualizado(snapshot) {
         Text(snapshot?.texto("desactualizado") ?? "")
           .font(.system(size: 10))
-          .foregroundColor(Paleta.alerta)
+          .foregroundColor(tema.colorAlerta)
           .lineLimit(1)
       } else {
         Text(snapshot?.texto("fechaLarga") ?? "")
           .font(.system(size: 11))
-          .foregroundColor(Paleta.tinta2)
+          .foregroundColor(tema.colorTinta2)
           .lineLimit(1)
       }
     }
@@ -111,6 +112,7 @@ private struct Cabecera: View {
 private struct FilaMision: View {
   let item: ItemHoy
   let fecha: String
+  let tema: TemaWidget
   /// Fila de utilería (galería): textos como barras grises y sin botón.
   var redactada = false
 
@@ -152,12 +154,12 @@ private struct FilaMision: View {
       VStack(alignment: .leading, spacing: 0) {
         Text(item.titulo)
           .font(.system(size: 13))
-          .foregroundColor(item.hecho ? Paleta.tintaHecho : Paleta.tinta)
+          .foregroundColor(item.hecho ? tema.colorHecho : tema.colorTinta)
           .lineLimit(1)
         if let detalle = item.detalle, !detalle.isEmpty {
           Text(detalle)
             .font(.system(size: 10))
-            .foregroundColor(item.hecho ? Paleta.tintaHechoDetalle : Paleta.tinta2)
+            .foregroundColor(item.hecho ? tema.colorHechoDetalle : tema.colorTinta2)
             .lineLimit(1)
         }
       }
@@ -169,7 +171,7 @@ private struct FilaMision: View {
       if let hora = item.hora, !hora.isEmpty {
         Text(hora)
           .font(.system(size: 11))
-          .foregroundColor(urgente ? Paleta.urgente : Paleta.tinta2)
+          .foregroundColor(urgente ? tema.colorUrgente : tema.colorTinta2)
       }
 
       icono
@@ -182,7 +184,7 @@ private struct FilaMision: View {
   private var icono: some View {
     Image(systemName: item.hecho ? "checkmark.circle.fill" : "circle")
       .font(.system(size: 20))
-      .foregroundColor(item.hecho ? Paleta.cuenta : Paleta.tinta2)
+      .foregroundColor(item.hecho ? tema.colorAcento : tema.colorTinta2)
       .frame(width: 24, height: 24)
   }
 }

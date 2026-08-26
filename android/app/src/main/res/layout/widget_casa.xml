@@ -7,6 +7,16 @@
     android:background="@drawable/widget_fondo"
     android:clipToOutline="true">
 
+    <!-- Capa del color del tema (solo se ve sin foto): el background de la
+         raíz no se puede re-teñir por RemoteViews, un `src` sí. -->
+    <ImageView
+        android:id="@+id/casa_fondo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/widget_fondo_tinte" />
+
     <ImageView
         android:id="@+id/casa_foto"
         android:layout_width="match_parent"

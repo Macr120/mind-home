@@ -47,6 +47,14 @@ public class HoyWidgetService extends RemoteViewsService {
     private final Context ctx;
     private final List<Fila> filas = new ArrayList<>();
     private String fechaSnapshot = "";
+    // La paleta del snapshot, leída junto con las filas (misma foto del estado).
+    private int colorTinta = 0xFFEDEDF2;
+    private int colorTinta2 = 0xFF9AA0AA;
+    private int colorHecho = 0xFF6B7280;
+    private int colorHechoDetalle = 0xFF565C66;
+    private int colorAcento = 0xFF8BE9B6;
+    private int colorUrgente = 0xFFFBBF24;
+    private int colorFondo = 0xFF0F1115;
 
     Factory(Context ctx) {
       this.ctx = ctx;
@@ -63,6 +71,15 @@ public class HoyWidgetService extends RemoteViewsService {
       JSONObject snap = WidgetsComun.leerSnapshot(ctx);
       if (snap == null) return;
       fechaSnapshot = snap.optString("fecha");
+
+      JSONObject tema = WidgetsComun.tema(snap);
+      colorTinta = WidgetsComun.color(tema, "tinta", 0xFFEDEDF2);
+      colorTinta2 = WidgetsComun.color(tema, "tinta2", 0xFF9AA0AA);
+      colorHecho = WidgetsComun.color(tema, "hecho", 0xFF6B7280);
+      colorHechoDetalle = WidgetsComun.color(tema, "hechoDetalle", 0xFF565C66);
+      colorAcento = WidgetsComun.color(tema, "acento", 0xFF8BE9B6);
+      colorUrgente = WidgetsComun.color(tema, "urgente", 0xFFFBBF24);
+      colorFondo = WidgetsComun.color(tema, "fondo", 0xFF0F1115);
 
       // Último optimista por ítem (gana el ts más alto): id -> hecho.
       Map<String, long[]> tsPorItem = new HashMap<>();
@@ -115,13 +132,19 @@ public class HoyWidgetService extends RemoteViewsService {
       rv.setTextViewText(R.id.item_hora, f.hora);
       // La lista lleva juntos los pendientes y los cumplidos: lo hecho baja de tono
       // para que lo que falta siga leyéndose primero, y la hora de lo que ya se pasó
-      // va en ámbar, como el globo de Misiones dentro de la app.
-      rv.setTextColor(R.id.item_titulo, f.hecho ? 0xFF6B7280 : 0xFFEDEDF2);
-      rv.setTextColor(R.id.item_detalle, f.hecho ? 0xFF565C66 : 0xFF9AA0AA);
-      rv.setTextColor(R.id.item_hora, f.urgente ? 0xFFFBBF24 : 0xFF9AA0AA);
+      // va en urgente, como el globo de Misiones dentro de la app. Los colores
+      // son la paleta que empujó la app (tema × modo elegidos).
+      rv.setTextColor(R.id.item_titulo, f.hecho ? colorHecho : colorTinta);
+      rv.setTextColor(R.id.item_detalle, f.hecho ? colorHechoDetalle : colorTinta2);
+      rv.setTextColor(R.id.item_hora, f.urgente ? colorUrgente : colorTinta2);
       rv.setViewVisibility(R.id.item_hora, f.hora.isEmpty() ? View.GONE : View.VISIBLE);
+      // Palomita en dos capas: círculo del acento (o aro de tinta2) y, encima,
+      // la marca teñida del color del fondo, que parece recortada.
       rv.setImageViewResource(
           R.id.item_check, f.hecho ? R.drawable.widget_check_on : R.drawable.widget_check_off);
+      rv.setInt(R.id.item_check, "setColorFilter", f.hecho ? colorAcento : colorTinta2);
+      rv.setViewVisibility(R.id.item_check_marca, f.hecho ? View.VISIBLE : View.GONE);
+      rv.setInt(R.id.item_check_marca, "setColorFilter", colorFondo);
 
       // El tap de la fila encola el estado DESTINO (lo contrario de lo pintado).
       Intent fillIn = new Intent();
