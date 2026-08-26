@@ -732,8 +732,8 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
       ref={raizRef}
       className={
         angostoMovil
-          ? 'absolute bottom-4 left-1/2 z-20 -translate-x-1/2 select-none'
-          : ['absolute bottom-4 z-20 min-w-0 select-none', anclajeChat(menuAbierto)].join(' ')
+          ? 'absolute bottom-[calc(1rem+var(--safe-bottom))] left-1/2 z-20 -translate-x-1/2 select-none'
+          : ['absolute bottom-[calc(1rem+var(--safe-bottom))] z-20 min-w-0 select-none', anclajeChat(menuAbierto)].join(' ')
       }
     >
       {/* Conversación con el asistente (estilo WhatsApp): siempre sobre la barra */}

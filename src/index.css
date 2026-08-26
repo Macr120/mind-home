@@ -75,9 +75,18 @@
 :root {
   /* Muescas del teléfono: 0 fuera de Capacitor (index.html lleva
      viewport-fit=cover). Las consumen SOLO los contenedores pegados a un borde
-     (cabecera de RoomOverlay, EditPanel): la escena 3D sangra a pantalla entera. */
+     (cabecera de RoomOverlay, EditPanel y las esquinas flotantes del HUD): la
+     escena 3D sangra a pantalla entera, pero sus CONTROLES no — sin esto el
+     botón de casa se monta sobre el reloj de iOS y el joystick sobre la barra
+     de inicio. El margen se suma al de cada esquina: `top-[calc(0.75rem+var(--safe-top))]`.
+     `start`/`end` son izquierda/derecha literales porque el layout es SIEMPRE
+     LTR, también en árabe (ver `setIdioma` en ajustesStore.ts); si esa decisión
+     se revierte hay que espejarlas bajo `[dir='rtl']`. Las laterales solo valen
+     de algo en apaisado, que es donde la muesca se va a un costado. */
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-start: env(safe-area-inset-left, 0px);
+  --safe-end: env(safe-area-inset-right, 0px);
   --ui-bg: #0f1115;
   --ui-panel: #12151c;
   --ui-panel-2: #171b24;

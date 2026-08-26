@@ -201,12 +201,12 @@ export function NavControls() {
 
   // En el editor 3D los controles van a la izquierda del panel (que ocupa la derecha).
   const posControles = editor3d
-    ? 'end-[21rem]'
+    ? 'end-[calc(21rem+var(--safe-end))]'
     : !editMode
-      ? 'end-4'
+      ? 'end-[calc(1rem+var(--safe-end))]'
       : planosActivo
-        ? 'end-[21rem]'
-        : 'start-4'
+        ? 'end-[calc(21rem+var(--safe-end))]'
+        : 'start-[calc(1rem+var(--safe-start))]'
   // El selector de vistas y el botón de editor 3D se ven en juego y en el editor 3D
   // (no en el editor iso, que usa su propio panel).
   const mostrarVistas = !editMode || editor3d
@@ -217,7 +217,7 @@ export function NavControls() {
   // algo al alcance: plegado no habría forma de sentarse, subirse ni bajarse.
   if (plegado && !editMode && !moverObjetosRoomId && !conArmaDeTiro && !conContextual) {
     return (
-      <div ref={refTope} className={`absolute bottom-4 z-10 ${posControles}`}>
+      <div ref={refTope} className={`absolute bottom-[calc(1rem+var(--safe-bottom))] z-10 ${posControles}`}>
         <TiradorHud zona="infDer">
           <Icono nombre="cubo-vistas" />
         </TiradorHud>
@@ -230,7 +230,7 @@ export function NavControls() {
       ref={refTope}
       data-tut="nav.controles"
       data-tut-zona="navegacion"
-      className={`absolute bottom-4 z-10 flex flex-col items-stretch gap-1 ${posControles}`}
+      className={`absolute bottom-[calc(1rem+var(--safe-bottom))] z-10 flex flex-col items-stretch gap-1 ${posControles}`}
       style={ancho}
       aria-label={t('nav3d.aria', 'Controles de vista')}
     >

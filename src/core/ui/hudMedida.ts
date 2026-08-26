@@ -11,11 +11,17 @@ import { useHud } from '../state/hudStore'
  * Anclaje horizontal de la barra del chat (offsets laterales, sin el `bottom`).
  * Lo comparte la caja del diálogo cara a cara, que se apoya justo encima del
  * chat y debe medir exactamente lo mismo.
- * start-44: margen al joystick (izq.); end-48: hueco del cubo y las flechas
- * de rotación (der.). Con el menú lateral abierto arranca tras sus 15rem.
+ * 11rem: margen al joystick (izq.); 12rem: hueco del cubo y las flechas de
+ * rotación (der.). Con el menú lateral abierto arranca tras sus 15rem.
+ * Todos los offsets llevan sumada la muesca porque los controles que esquivan
+ * también la llevan: sin eso, apaisado, el chat se les montaría encima.
+ * Las clases van ENTERAS y literales a propósito — Tailwind escanea el fuente
+ * en busca de nombres completos y no vería ninguno construido por interpolación.
  */
 export function anclajeChat(menuAbierto: boolean): string {
-  return menuAbierto ? 'start-60 end-4 sm:end-48' : 'start-4 end-4 sm:start-44 sm:end-48'
+  return menuAbierto
+    ? 'start-[calc(15rem+var(--safe-start))] end-[calc(1rem+var(--safe-end))] sm:end-[calc(12rem+var(--safe-end))]'
+    : 'start-[calc(1rem+var(--safe-start))] end-[calc(1rem+var(--safe-end))] sm:start-[calc(11rem+var(--safe-start))] sm:end-[calc(12rem+var(--safe-end))]'
 }
 
 export function useTopeHud(clave: string) {

@@ -37,7 +37,7 @@ export function MarcoEditorInfra({
 
   return (
     <div className="pointer-events-none absolute inset-0 z-40">
-      <div ref={refTope} className="absolute bottom-3 start-0 end-0 flex justify-center px-2">
+      <div ref={refTope} className="absolute bottom-[calc(0.75rem+var(--safe-bottom))] start-0 end-0 flex justify-center px-2">
         <div
           data-tut={`${tut}.barra`}
           data-tut-zona={`app:${tut}`}

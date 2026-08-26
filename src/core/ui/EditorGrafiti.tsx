@@ -68,7 +68,7 @@ export function EditorGrafiti() {
       </div>
 
       {/* Barra tipo Paint. */}
-      <div className="pointer-events-none absolute bottom-3 start-0 end-0 flex justify-center px-2">
+      <div className="pointer-events-none absolute bottom-[calc(0.75rem+var(--safe-bottom))] start-0 end-0 flex justify-center px-2">
         <div className="ui-hud ui-pop pointer-events-auto flex max-w-full flex-col gap-2 rounded-xl border border-white/10 p-2">
           <div className="flex flex-wrap items-center justify-center gap-1.5">
             {COLORES.map((c) => (

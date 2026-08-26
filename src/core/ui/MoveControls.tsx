@@ -89,7 +89,7 @@ export function MoveControls() {
   const ref = useTopeHud('joystick')
   if (plegado) return null
   return (
-    <div ref={ref} data-tut="nav.joystick" className="absolute bottom-4 start-4 z-10 flex items-start gap-1 select-none">
+    <div ref={ref} data-tut="nav.joystick" className="absolute bottom-[calc(1rem+var(--safe-bottom))] start-[calc(1rem+var(--safe-start))] z-10 flex items-start gap-1 select-none">
       <Joystick label={t('ui.mover', 'mover')} onChange={(x, y) => setPad(-y, x)} onEnd={() => setPad(0, 0)} />
       <BotonPlegarHud zona="infIzq" />
     </div>

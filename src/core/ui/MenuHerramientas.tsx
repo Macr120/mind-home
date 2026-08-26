@@ -274,7 +274,7 @@ export function MenuHerramientas() {
   return (
     <>
       {/* Con la esquina plegada el abanico baja al hueco del joystick, con su chevron al lado. */}
-      <div ref={refTope} className={`absolute start-4 z-10 flex items-center gap-1 ${plegado ? 'bottom-4' : 'bottom-32'}`}>
+      <div ref={refTope} className={`absolute start-[calc(1rem+var(--safe-start))] z-10 flex items-center gap-1 ${plegado ? 'bottom-[calc(1rem+var(--safe-bottom))]' : 'bottom-[calc(8rem+var(--safe-bottom))]'}`}>
         <button
           type="button"
           data-tut="herr.boton"
