@@ -3276,6 +3276,7 @@ export const ID: Dict = {
   'ejercicio.catalogo.guardar': 'Simpan',
   'ejercicio.catalogo.nuevoEjercicio': '+ Tambah gerakan ke katalog',
   'ejercicio.catalogo.destino': 'Tambahkan ke grup',
+  'ejercicio.catalogo.sinGrupos': 'Fokus ini belum punya grup di katalogmu. Buat satu lewat “+ Grup baru” lalu tambahkan gerakan.',
   'ejercicio.catalogo.anadido': '✓ Ditambahkan',
   'ejercicio.catalogo.yaEsta': 'Sudah ada',
   'ejercicio.rutinaIA.boton': 'Dengan AI',

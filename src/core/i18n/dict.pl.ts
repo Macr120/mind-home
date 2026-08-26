@@ -3239,6 +3239,7 @@ export const PL: Dict = {
   'ejercicio.catalogo.guardar': 'Zapisz',
   'ejercicio.catalogo.nuevoEjercicio': '+ Dodaj ćwiczenie do katalogu',
   'ejercicio.catalogo.destino': 'Dodaj do grupy',
+  'ejercicio.catalogo.sinGrupos': 'Ten obszar nie ma grup w twoim katalogu. Utwórz jedną przez „+ Nowa grupa” i dodaj do niej ćwiczenia.',
   'ejercicio.catalogo.anadido': '✓ Dodano',
   'ejercicio.catalogo.yaEsta': 'Już jest',
   'ejercicio.rutinaIA.boton': 'Z AI',

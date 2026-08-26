@@ -3323,6 +3323,7 @@ export const DE: Dict = {
   'ejercicio.catalogo.guardar': 'Speichern',
   'ejercicio.catalogo.nuevoEjercicio': '+ Übung zum Katalog hinzufügen',
   'ejercicio.catalogo.destino': 'Zur Gruppe hinzufügen',
+  'ejercicio.catalogo.sinGrupos': 'Dieser Fokus hat noch keine Gruppen in deinem Katalog. Lege eine mit „+ Neue Gruppe“ an und füge ihr Übungen hinzu.',
   'ejercicio.catalogo.anadido': '✓ Hinzugefügt',
   'ejercicio.catalogo.yaEsta': 'Schon drin',
   'ejercicio.rutinaIA.boton': 'Mit KI',

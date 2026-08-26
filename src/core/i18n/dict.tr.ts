@@ -3227,6 +3227,7 @@ export const TR: Dict = {
   'ejercicio.catalogo.guardar': 'Kaydet',
   'ejercicio.catalogo.nuevoEjercicio': '+ Kataloğa egzersiz ekle',
   'ejercicio.catalogo.destino': 'Gruba ekle',
+  'ejercicio.catalogo.sinGrupos': 'Bu odakta kataloğunda hiç grup yok. “+ Yeni grup” ile bir tane oluştur ve egzersiz ekle.',
   'ejercicio.catalogo.anadido': '✓ Eklendi',
   'ejercicio.catalogo.yaEsta': 'Zaten var',
   'ejercicio.rutinaIA.boton': 'Yapay zekâ ile',

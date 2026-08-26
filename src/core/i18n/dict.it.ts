@@ -3288,6 +3288,7 @@ export const IT: Dict = {
   'ejercicio.catalogo.guardar': 'Salva',
   'ejercicio.catalogo.nuevoEjercicio': '+ Aggiungi esercizio al catalogo',
   'ejercicio.catalogo.destino': 'Aggiungi al gruppo',
+  'ejercicio.catalogo.sinGrupos': 'Questo focus non ha gruppi nel tuo catalogo. Creane uno con “+ Nuovo gruppo” e aggiungici esercizi.',
   'ejercicio.catalogo.anadido': '✓ Aggiunto',
   'ejercicio.catalogo.yaEsta': 'Già presente',
   'ejercicio.rutinaIA.boton': 'Con IA',

@@ -3174,6 +3174,7 @@ export const AR: Dict = {
   'ejercicio.catalogo.guardar': 'حفظ',
   'ejercicio.catalogo.nuevoEjercicio': '+ إضافة تمرين إلى الكتالوج',
   'ejercicio.catalogo.destino': 'إضافة إلى المجموعة',
+  'ejercicio.catalogo.sinGrupos': 'لا توجد مجموعات لهذا التركيز في كتالوجك. أنشئ واحدة من «+ مجموعة جديدة» وأضف إليها تمارين.',
   'ejercicio.catalogo.anadido': '✓ تمت الإضافة',
   'ejercicio.catalogo.yaEsta': 'موجود مسبقًا',
   'ejercicio.rutinaIA.boton': 'بالذكاء الاصطناعي',

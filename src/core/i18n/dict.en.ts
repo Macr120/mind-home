@@ -3265,6 +3265,7 @@ export const EN: Dict = {
   'ejercicio.catalogo.guardar': 'Save',
   'ejercicio.catalogo.nuevoEjercicio': '+ Add exercise to catalog',
   'ejercicio.catalogo.destino': 'Add to group',
+  'ejercicio.catalogo.sinGrupos': 'This focus has no groups in your catalogue. Create one with “+ New group” and add exercises to it.',
   'ejercicio.catalogo.anadido': '✓ Added',
   'ejercicio.catalogo.yaEsta': 'Already in',
   'ejercicio.rutinaIA.boton': 'With AI',

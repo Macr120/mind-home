@@ -56,7 +56,8 @@ export function CatalogoFuerza({
   // formulario: antes el alta simplemente no salía y el catálogo solo crecía
   // entrando grupo por grupo.
   const grupoDestino = gruposDelSplit.find((g) => g.grupoId === destinoId) ?? gruposDelSplit[0] ?? null
-  const preguardadas = split ? RUTINAS.fuerza.filter((r) => r.splitId === split.id) : []
+  const preguardadas =
+    split && gruposDelSplit.length > 0 ? RUTINAS.fuerza.filter((r) => r.splitId === split.id) : []
   // Para un grupo muscular sin rutina preguardada se sugiere una con su catálogo
   const rutinas: RutinaPlantilla[] =
     split && preguardadas.length === 0 && gruposDelSplit.length === 1
@@ -204,6 +205,14 @@ export function CatalogoFuerza({
             <p className="mb-1.5 text-xs font-semibold text-white/50">
               {t('ejercicio.sugeridos', 'Ejercicios disponibles · toca para añadir')}
             </p>
+            {gruposDelSplit.length === 0 && (
+              <p className="text-xs text-white/40">
+                {t(
+                  'ejercicio.catalogo.sinGrupos',
+                  'Este enfoque no tiene grupos en tu catálogo. Crea uno con «+ Nuevo grupo» y añádele ejercicios.',
+                )}
+              </p>
+            )}
             <div className="space-y-2">
               {gruposDelSplit.map((g) => (
                 <div key={g.grupoId}>

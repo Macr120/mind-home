@@ -22,6 +22,26 @@ const FLAG_GRUPOS_FLEX = claveLS('mindhome:ejercicio:gruposFlexSembrados')
 const FLAG_GRUPOS_CARDIO = claveLS('mindhome:ejercicio:gruposCardioSembrados')
 const FLAG_RUTINAS_CARDIO = claveLS('mindhome:ejercicio:rutinasCardioSembradas')
 
+/**
+ * Siembra un CATÁLOGO (los grupos con sus ejercicios). La bandera existe para
+ * que borrar un grupo no lo reponga al recargar, pero un catálogo VACÍO no es
+ * una elección: es una base que perdió sus filas. Ahí Ejercicio se queda sin un
+ * solo ejercicio que ofrecer y sin sitio donde añadirlo —al elegir un enfoque
+ * solo se ve «Rutina sugerida»—, así que con la tabla vacía se vuelve a sembrar.
+ *
+ * Las RUTINAS no llevan este rescate: quedarse sin ninguna sí es un estado
+ * normal (se borran a mano) y no deja la app inservible.
+ */
+async function sembrarCatalogo(
+  flag: string,
+  repo: { list: () => Promise<unknown[]> },
+  sembrar: () => Promise<void>,
+): Promise<void> {
+  if (localStorage.getItem(flag) && (await repo.list()).length > 0) return
+  localStorage.setItem(flag, '1')
+  await sembrar()
+}
+
 export async function sembrarEjercicio() {
   if (sembrado) return
   sembrado = true
@@ -64,32 +84,27 @@ export async function sembrarEjercicio() {
     )
   }
 
-  if (!localStorage.getItem(FLAG_GRUPOS_FUERZA)) {
-    localStorage.setItem(FLAG_GRUPOS_FUERZA, '1')
-    await gruposFuerzaRepo.bulkAdd(
+  await sembrarCatalogo(FLAG_GRUPOS_FUERZA, gruposFuerzaRepo, () =>
+    gruposFuerzaRepo.bulkAdd(
       filasSeed(
         'gruposFuerza',
         CATALOGO_FUERZA.map((g, i) => ({ grupoId: g.id, label: g.label, orden: i, ejercicios: g.ejercicios })),
         (g) => g.grupoId,
       ),
-    )
-  }
+    ),
+  )
 
-  if (!localStorage.getItem(FLAG_GRUPOS_FLEX)) {
-    localStorage.setItem(FLAG_GRUPOS_FLEX, '1')
-    await gruposFlexRepo.bulkAdd(
+  await sembrarCatalogo(FLAG_GRUPOS_FLEX, gruposFlexRepo, () =>
+    gruposFlexRepo.bulkAdd(
       filasSeed(
         'gruposFlex',
         CATALOGO_FLEX.map((g, i) => ({ grupoId: g.id, label: g.label, orden: i, ejercicios: g.ejercicios })),
         (g) => g.grupoId,
       ),
-    )
-  }
+    ),
+  )
 
-  if (!localStorage.getItem(FLAG_GRUPOS_CARDIO)) {
-    localStorage.setItem(FLAG_GRUPOS_CARDIO, '1')
-    await sembrarGruposCardio()
-  }
+  await sembrarCatalogo(FLAG_GRUPOS_CARDIO, gruposCardioRepo, sembrarGruposCardio)
 
   if (!localStorage.getItem(FLAG_RUTINAS_CARDIO)) {
     localStorage.setItem(FLAG_RUTINAS_CARDIO, '1')
