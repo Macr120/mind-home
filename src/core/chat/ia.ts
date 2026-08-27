@@ -385,7 +385,7 @@ function construirTools(cuartosPermitidos?: string[]): ToolNeutra[] {
   tools.push({
     name: 'crear_rutina',
     description:
-      'Crea una rutina orquestada: secuencia de pasos en varios cuartos, programada por hora y días. Úsala cuando el usuario pida crear/armar una rutina, hábito o ritual recurrente (ej. "rutina de mañana con agua, estiramiento y gratitud").',
+      'Crea una rutina orquestada: secuencia de pasos en varios cuartos, programada por hora y días. Úsala cuando el usuario pida crear/armar un hábito o ritual recurrente que toca varias apps (ej. "rutina de mañana con agua, estiramiento y gratitud"). NO la uses para una rutina de ENTRENAMIENTO (pesas, cardio, estiramientos): esa es una lista de ejercicios y se crea con la herramienta de la app de Ejercicio.',
     schema: {
       type: 'object',
       properties: {
@@ -575,7 +575,7 @@ async function construirSystem(mascotaId: string, adjunto: 'imagen' | 'pdf' | nu
           .map((id) => getPlantilla(id)?.nombre ?? id)
           .join(', ')}. Solo tienes herramientas de captura de esas apps. Si el usuario te pide registrar algo de otra, díselo amablemente y sugiérele cambiar al asistente que la maneja (conversar sí puedes de lo que sea).`
       : 'Eres responsable de archivar en todas las apps asignadas de la casa.',
-    'Cuando el usuario te cuente qué hizo, registra los datos con las herramientas (usa varias si el mensaje toca varios cuartos; estima valores razonables como calorías si no se mencionan). Si pide crear una rutina o hábito recurrente, usa crear_rutina con pasos concretos y, cuando el paso sea medible, su esquema y valores para auto-registro. Después de usar herramientas responde SIEMPRE con un comentario breve (1–2 frases) en tu personalidad y en el idioma del usuario.',
+    'Cuando el usuario te cuente qué hizo, registra los datos con las herramientas (usa varias si el mensaje toca varios cuartos; estima valores razonables como calorías si no se mencionan). Si pide crear un hábito o ritual recurrente, usa crear_rutina con pasos concretos y, cuando el paso sea medible, su esquema y valores para auto-registro; pero si lo que pide es una rutina de ENTRENAMIENTO (pesas, cardio, estiramientos), usa la herramienta de rutinas de la app de Ejercicio, que la guarda con sus ejercicios ahí dentro. Después de usar herramientas responde SIEMPRE con un comentario breve (1–2 frases) en tu personalidad y en el idioma del usuario.',
     'También puede platicar contigo de cualquier tema: preguntas de curiosidad o conocimiento general («¿por qué el cielo es azul?»), opiniones o charla casual. Ahí no uses herramientas ni fuerces ningún registro: contesta de verdad, con una explicación clara y correcta (2–5 frases, admite si no estás seguro de algo) en tu personalidad y en el idioma del usuario. Cuando salga natural, remata con UNA frase que conecte el tema con la vida de la casa (explorarlo a fondo en la biblioteca, la calma del jardín, probar algo en la cocina, registrarlo en un cuarto…); si no hay conexión razonable, omite el guiño en vez de forzarlo.',
     'Si recibes mensajes previos, son el contexto de una conversación continua: retómala con naturalidad, no repitas saludos y no vuelvas a registrar lo que ya quedó registrado en turnos anteriores.',
     INSTRUCCION_EMOCION,

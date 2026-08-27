@@ -1,0 +1,61 @@
+# Empaquetado del shell de escritorio (npm run escritorio:win | escritorio:mac).
+#
+# Canales decididos en el master plan: Microsoft Store (.appx, canal principal
+# de Windows) + instalador NSIS sin firma y dmg/zip notarizados en GitHub
+# Releases (no caben en Cloudflare Pages: 25 MB/archivo).
+appId: com.macr120.mindhome
+productName: Mind Planner Home
+# Sin espacios en los artefactos: en GitHub Releases las URLs quedan limpias.
+artifactName: MindPlannerHome-${version}-${os}.${ext}
+directories:
+  output: dist-escritorio
+  buildResources: electron/build
+# Solo la web compilada y el main: main.js no importa ninguna dependencia y la
+# web ya viene empaquetada por Vite, así que node_modules sobra entero.
+files:
+  - dist/**/*
+  - electron/main.js
+  - electron/fondo.ps1
+  - electron/fondo-raton.ps1
+  - "!node_modules/**/*"
+# Sin asar: `net.fetch(file://…)` (con el que main.js sirve dist/) pasa por el
+# cargador de Chromium, que NO lee dentro de un .asar — empaquetado serviría
+# 404s aunque en dev funcione. Son archivos estáticos; no hay nada que ocultar.
+asar: false
+
+win:
+  target:
+    - nsis
+    - appx
+nsis:
+  oneClick: true
+  # Desinstalar NO borra los datos (IndexedDB): son la casa del usuario.
+  deleteAppDataOnUninstall: false
+appx:
+  backgroundColor: '#0f1115'
+  # Identidad que asignó Microsoft Store al reservar el nombre (26 ago 2026).
+  # Copiada TAL CUAL de Partner Center → producto → Product identity: si no
+  # coincide al carácter, la tienda rechaza el paquete. Store ID 9N893LFZHR0T
+  # (https://apps.microsoft.com/detail/9N893LFZHR0T).
+  identityName: MindPlannerHome.MindPlannerHome
+  publisher: CN=7F375BA0-7942-4F15-B517-65268E256FDE
+  publisherDisplayName: Mind Planner Home
+
+mac:
+  category: public.app-category.productivity
+  target:
+    - target: dmg
+      arch: universal
+    - target: zip
+      arch: universal
+  hardenedRuntime: true
+  entitlements: electron/build/entitlements.mac.plist
+  entitlementsInherit: electron/build/entitlements.mac.plist
+  # Notariza al compilar en el Mac. Credenciales por variables de entorno:
+  # APPLE_ID, APPLE_APP_SPECIFIC_PASSWORD y APPLE_TEAM_ID (9FA4Z58JF3).
+  notarize: true
+  extendInfo:
+    # En inglés como el idioma base de las fichas; sin estos textos macOS mata
+    # la app al pedir cámara (Chat AR) o micrófono (dictado).
+    NSCameraUsageDescription: The AR chat uses the camera to show your assistant in your room.
+    NSMicrophoneUsageDescription: The microphone lets you dictate messages to your assistant.

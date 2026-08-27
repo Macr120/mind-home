@@ -731,9 +731,11 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
     <div
       ref={raizRef}
       className={
+        // Plegado va centrado con `translate`, así que ahí no lleva los márgenes
+        // laterales de la zona segura: descentrarían la barra.
         angostoMovil
-          ? 'absolute bottom-[calc(1rem+var(--safe-bottom))] left-1/2 z-20 -translate-x-1/2 select-none'
-          : ['absolute bottom-[calc(1rem+var(--safe-bottom))] z-20 min-w-0 select-none', anclajeChat(menuAbierto)].join(' ')
+          ? 'safe-inf absolute bottom-4 left-1/2 z-20 -translate-x-1/2 select-none'
+          : ['safe-inf safe-ini safe-fin absolute bottom-4 z-20 min-w-0 select-none', anclajeChat(menuAbierto)].join(' ')
       }
     >
       {/* Conversación con el asistente (estilo WhatsApp): siempre sobre la barra */}

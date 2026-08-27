@@ -22,9 +22,9 @@ export const TEXTOS = {
   // ─── Portada ─────────────────────────────────────────────────────────────
   'meta.titulo': 'Mind Planner Home — Tu mente, en una casa 3D',
   'meta.desc':
-    'Organiza tus hábitos, metas, finanzas, comidas y más en una casa isométrica 3D donde cada cuarto es una app. Un solo pago de 8.89 USD con el primer mes de IA y sincronización incluido; pruébala gratis.',
+    'Organiza tus hábitos, metas, finanzas, comidas y más en una casa isométrica 3D donde cada cuarto es una app. Un solo pago de 8.99 USD con el primer mes de IA y sincronización incluido; pruébala gratis.',
   'og.desc':
-    'Tu vida, en una casa 3D: hábitos, metas, finanzas, comidas y más. Un pago de 8.89 USD con el primer mes de IA incluido; pruébala gratis.',
+    'Tu vida, en una casa 3D: hábitos, metas, finanzas, comidas y más. Un pago de 8.99 USD con el primer mes de IA incluido; pruébala gratis.',
 
   'hero.h1': 'Tu mente,<br />en una casa 3D',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -145,7 +145,7 @@ export const TEXTOS = {
   'precio.probar.cta': 'Probar la app',
   'precio.probar.pie': 'La app completa, para conocerla sin compromiso.',
   'precio.app.nombre': 'La app',
-  'precio.app.cifra': '8.89 USD',
+  'precio.app.cifra': '8.99 USD',
   'precio.app.pagoUnico': 'pago único',
   'precio.app.1': 'Tu propia casa, para siempre: todas las apps, tus datos en tu dispositivo',
   'precio.app.2':
@@ -225,6 +225,9 @@ export const TEXTOS = {
     '<strong>Cámara y micrófono:</strong> solo cuando los activas (máscara AR, foto para el chat, dictado por voz). La máscara se procesa en tu dispositivo; el audio del dictado y las fotos que adjuntas al chat se envían a los proveedores de IA únicamente para generar esa respuesta.',
   'priv.datos.6':
     '<strong>Datos de salud y bienestar:</strong> lo que registras sobre ejercicio, alimentación, medicamentos, citas médicas o ciclo se guarda para ti como cualquier otro dato de la app; nunca se vende ni se usa para publicidad.',
+  'priv.salud.h': 'Alcance de las funciones de salud',
+  'priv.salud.p':
+    'Mind Planner Home es una agenda personal, no una aplicación médica. Sus funciones de salud son un registro que escribes tú y unos recordatorios: la app no diagnostica, no interpreta síntomas, no recomienda dosis ni tratamientos, no comprueba interacciones entre medicamentos y no sustituye la consulta con un profesional sanitario. Las estimaciones del ciclo salen solo de los datos que introduces y son orientativas. No es un producto sanitario ni un dispositivo médico, y no se conecta con expedientes clínicos, aseguradoras ni proveedores de salud.',
   'priv.uso.h': 'Para qué los usamos',
   'priv.uso.1': 'Darte acceso a tu cuenta, a tu compra y a tu suscripción.',
   'priv.uso.2': 'Sincronizar tus datos entre dispositivos y respaldarlos.',
@@ -253,7 +256,7 @@ export const TEXTOS = {
     'Mind Planner Home es una app de organización personal. La prueba es gratuita y no requiere cuenta. La app se compra con un pago único; las funciones recurrentes (créditos de IA y sincronización) se contratan únicamente en esta página web; las apps de escritorio y de tienda son clientes de esa misma cuenta.',
   'term.app.h': 'La app (pago único)',
   'term.app.1':
-    'Desbloqueo de la app: 8.89 USD, pago único. Desbloquea tu casa para siempre en tu cuenta, sin renovaciones.',
+    'Desbloqueo de la app: 8.99 USD, pago único. Desbloquea tu casa para siempre en tu cuenta, sin renovaciones.',
   'term.app.2':
     'Incluye el primer mes: 30 días con los 700 créditos de IA mensuales y la sincronización, sin tarjeta y sin suscripción. Al terminar, conservas la app y tus datos; los créditos mensuales y la sincronización requieren la suscripción.',
   'term.app.3': 'La prueba gratuita no guarda nada hasta que creas tu cuenta: es para conocer la app antes de comprarla.',

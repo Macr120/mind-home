@@ -1,7 +1,7 @@
 import { perfilSuenoRepo, suenoRepo } from '../../core/data/repository'
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
 import { tGlobal } from '../../core/i18n/useT'
-import { CLAUSULA_RECHAZO, type ContextoPlanApp } from '../../core/planIA'
+import { CLAUSULA_RECHAZO, CLAUSULA_SALUD, type ContextoPlanApp } from '../../core/planIA'
 
 /**
  * Acotamiento del planificador ✨ en Descanso: aquí un plan es SIEMPRE de
@@ -35,6 +35,7 @@ export async function planMetasDescanso(): Promise<ContextoPlanApp> {
       'Las fases van de lo que más pesa a lo que menos: primero el horario, luego el entorno del cuarto y los hábitos de la tarde, y solo al final medir y ajustar.',
       'Los hijos son cambios concretos y verificables («Apagar pantallas 30 min antes», «Nada de cafeína después de las 16:00»), nunca consejos genéricos.',
       'No cambies varias cosas a la vez: cada fase toca un frente para poder saber cuál funcionó.',
+      CLAUSULA_SALUD,
       CLAUSULA_RECHAZO('el sueño y el descanso'),
     ],
     contexto,

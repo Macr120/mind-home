@@ -66,6 +66,9 @@
             android:textSize="10sp"
             android:visibility="gone" />
 
+        <!-- El divisor va en gris neutro con alfa: `setDivider` no es remotable,
+             así que es el único color de la lista que no cambia con el tema y
+             tiene que leerse igual sobre el panel claro y sobre el oscuro. -->
         <ListView
             android:id="@+id/widget_hoy_lista"
             android:layout_width="match_parent"

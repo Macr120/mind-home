@@ -63,7 +63,7 @@ const CREDITOS: Record<string, number> = {
  * para seguir honrando una compra en vuelo. Espejo de `UNLOCK_PRODUCTOS` en
  * src/core/cuenta/productos.ts.
  */
-const UNLOCK_PRODUCTOS = ['unlock_casa_v4', 'unlock_casa_v3', 'unlock_casa_v2', 'unlock_casa']
+const UNLOCK_PRODUCTOS = ['unlock_casa_v5', 'unlock_casa_v4', 'unlock_casa_v3', 'unlock_casa_v2', 'unlock_casa']
 const TRIAL_DIAS = 30
 
 /** En Apple el id de producto es único en TODO el App Store: lleva el bundle. */

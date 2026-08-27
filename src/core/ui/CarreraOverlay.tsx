@@ -64,7 +64,7 @@ function PilaCarrera({ t }: { t: (k: string, d: string) => string }) {
   const item = useCarrera((s) => s.item)
   const refTope = useTopeHud('carrera')
   return (
-    <div ref={refTope} className="pointer-events-none absolute bottom-[calc(1rem+var(--safe-bottom))] end-[calc(1rem+var(--safe-end))] z-30 flex flex-col items-center gap-2">
+    <div ref={refTope} className="safe-inf safe-fin pointer-events-none absolute bottom-4 end-4 z-30 flex flex-col items-center gap-2">
       <button
         type="button"
         onClick={() => useCarrera.getState().usarItem()}

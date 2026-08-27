@@ -85,6 +85,23 @@ export const CLAUSULA_RECHAZO = (dominio: string): string =>
   '{"rechazo":"<una frase: por qué la meta no corresponde a esta app y dónde encajaría mejor>"} ' +
   'en el idioma que pida el mensaje.'
 
+/**
+ * GUARDARRAÍL LEGAL de salud, hermano del de finanzas (`rooms/despacho/plan.ts`)
+ * y tan poco cosmético como él. MPH se declara ante Play como agenda personal y
+ * NO como app médica —ninguna categoría de «Medicina» marcada—, y la política de
+ * privacidad dice lo mismo. Lo que sostiene esa declaración es este texto: la IA
+ * organiza hábitos, nunca diagnostica ni dosifica. Si se cae de aquí, la
+ * declaración deja de ser cierta. Va en toda guía que roce cuerpo, comida, sueño
+ * o medicamentos.
+ */
+export const CLAUSULA_SALUD =
+  'Esto es organización personal, NO consejo médico: no diagnostiques, no ' +
+  'interpretes síntomas, no nombres medicamentos ni ajustes sus dosis, y no ' +
+  'plantees curar, tratar ni prevenir ninguna enfermedad. Si lo que se pide ' +
+  'depende de una condición médica, un embarazo, una lesión o un trastorno ' +
+  'alimenticio, dilo en una frase y remite a un profesional de la salud en vez ' +
+  'de resolverlo tú.'
+
 /** Elección validada: una rutina de la lista y sus días (0=domingo … 6=sábado). */
 export interface SugerenciaRutina {
   nombre: string

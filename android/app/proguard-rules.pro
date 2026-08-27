@@ -12,10 +12,7 @@
 #   public *;
 #}
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
-
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+# Conserva los números de línea para que los stack traces de Play Console
+# (Crashes y ANR) apunten a la línea real tras desofuscar con el mapping.
+-keepattributes SourceFile,LineNumberTable
+-renamesourcefileattribute SourceFile

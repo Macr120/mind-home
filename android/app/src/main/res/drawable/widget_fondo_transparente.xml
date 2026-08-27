@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fondo de los widgets en modo TRANSPARENTE: vidrio, no ausencia de panel.
+     El modo transparente de la app tampoco quita el panel, lo vuelve
+     translúcido (aplicarTemaUI en src/core/ui/temasUI.ts), y aquí además es lo
+     único que sostiene la lectura: con el fondo del todo transparente, sobre un
+     fondo de pantalla claro la línea secundaria del widget desaparecía.
+     El shape también da el outline con el que el widget de la casa recorta la
+     foto (`clipToOutline`). -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="#80000000" />
+    <stroke android:width="1dp" android:color="#26FFFFFF" />
+    <corners android:radius="18dp" />
+</shape>

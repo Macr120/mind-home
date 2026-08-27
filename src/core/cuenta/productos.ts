@@ -56,9 +56,11 @@ export const CREDITOS_BASE = 700
  */
 export const UNLOCK: Producto = {
   paquete: 'unlock',
-  // `_v4` es el precio único de 8.89 USD (20-ago-2026), el mismo en las tres
-  // cajas; los anteriores (6.99 y los suyos) siguen reconociéndose.
-  productos: ['unlock_casa_v4', 'unlock_casa_v3', 'unlock_casa_v2', 'unlock_casa'],
+  // 8.99 USD en las tres cajas (25-ago-2026). `_v5` es el de la web: en
+  // RevenueCat el precio es INMUTABLE y el `_v4` se quedó en 8.89, así que
+  // hubo que crear otro; en Play y en Apple el id sigue siendo `_v4`, ya con
+  // el precio nuevo. Los viejos se conservan para reconocer al que ya compró.
+  productos: ['unlock_casa_v5', 'unlock_casa_v4', 'unlock_casa_v3', 'unlock_casa_v2', 'unlock_casa'],
   clase: 'unlock',
   nivel: 0,
   creditos: 0,

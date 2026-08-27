@@ -13,9 +13,9 @@ export const TEXTOS = {
 
   'meta.titulo': 'Mind Planner Home — Dein Geist, in einem 3D-Haus',
   'meta.desc':
-    'Ordne deine Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr in einem isometrischen 3D-Haus, in dem jeder Raum eine App ist. Eine einmalige Zahlung von 8,89 USD, erster Monat mit KI und Sync inklusive; teste sie kostenlos.',
+    'Ordne deine Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr in einem isometrischen 3D-Haus, in dem jeder Raum eine App ist. Eine einmalige Zahlung von 8,99 USD, erster Monat mit KI und Sync inklusive; teste sie kostenlos.',
   'og.desc':
-    'Dein Leben, in einem 3D-Haus: Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr. Eine Zahlung von 8,89 USD, erster Monat mit KI inklusive; teste sie kostenlos.',
+    'Dein Leben, in einem 3D-Haus: Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr. Eine Zahlung von 8,99 USD, erster Monat mit KI inklusive; teste sie kostenlos.',
 
   'hero.h1': 'Dein Geist,<br />in einem 3D-Haus',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -136,7 +136,7 @@ export const TEXTOS = {
   'precio.probar.cta': 'App testen',
   'precio.probar.pie': 'Die komplette App, um sie unverbindlich kennenzulernen.',
   'precio.app.nombre': 'Die App',
-  'precio.app.cifra': '8,89 USD',
+  'precio.app.cifra': '8,99 USD',
   'precio.app.pagoUnico': 'einmalige Zahlung',
   'precio.app.1': 'Dein eigenes Haus, für immer: alle Apps, deine Daten auf deinem Gerät',
   'precio.app.2': 'Erster Monat inklusive: 700 KI-Credits + Sync, ohne Karte und ohne Abo',
@@ -214,6 +214,9 @@ export const TEXTOS = {
     '<strong>Kamera und Mikrofon:</strong> nur wenn du sie einschaltest (AR-Maske, Foto für den Chat, Sprachdiktat). Die Maske wird auf deinem Gerät verarbeitet; das Audio des Diktats und die Fotos, die du an den Chat anhängst, gehen nur zum Erzeugen dieser Antwort an die KI-Anbieter.',
   'priv.datos.6':
     '<strong>Gesundheits- und Wohlbefindensdaten:</strong> was du zu Bewegung, Ernährung, Medikamenten, Arztterminen oder Zyklus einträgst, wird für dich wie alle anderen App-Daten gespeichert; es wird nie verkauft oder für Werbung genutzt.',
+  'priv.salud.h': 'Umfang der Gesundheitsfunktionen',
+  'priv.salud.p':
+    'Mind Planner Home ist ein persönlicher Planer, keine medizinische Anwendung. Seine Gesundheitsfunktionen sind ein Protokoll, das du selbst schreibst, und ein paar Erinnerungen: Die App stellt keine Diagnosen, deutet keine Symptome, empfiehlt weder Dosierungen noch Behandlungen, prüft keine Wechselwirkungen zwischen Medikamenten und ersetzt nicht den Besuch bei einer medizinischen Fachkraft. Die Zyklusschätzungen ergeben sich nur aus den Daten, die du einträgst, und sind Richtwerte. Sie ist kein Gesundheitsprodukt und kein Medizinprodukt und verbindet sich nicht mit Patientenakten, Versicherungen oder Gesundheitsdienstleistern.',
   'priv.uso.h': 'Wofür wir sie nutzen',
   'priv.uso.1': 'Dir Zugang zu deinem Konto, deinem Kauf und deinem Abo zu geben.',
   'priv.uso.2': 'Deine Daten zwischen Geräten zu synchronisieren und zu sichern.',
@@ -242,7 +245,7 @@ export const TEXTOS = {
     'Mind Planner Home ist eine App zur persönlichen Organisation. Die Testversion ist kostenlos und braucht kein Konto. Die App wird mit einer einmaligen Zahlung gekauft; die wiederkehrenden Funktionen (KI-Credits und Sync) werden ausschließlich auf dieser Website abgeschlossen; die Desktop- und Store-Apps sind Clients desselben Kontos.',
   'term.app.h': 'Die App (einmalige Zahlung)',
   'term.app.1':
-    'Freischaltung der App: 8,89 USD, einmalige Zahlung. Sie schaltet dein Haus für immer in deinem Konto frei, ohne Verlängerungen.',
+    'Freischaltung der App: 8,99 USD, einmalige Zahlung. Sie schaltet dein Haus für immer in deinem Konto frei, ohne Verlängerungen.',
   'term.app.2':
     'Enthält den ersten Monat: 30 Tage mit den 700 monatlichen KI-Credits und der Sync, ohne Karte und ohne Abo. Danach behältst du die App und deine Daten; die monatlichen Credits und die Sync erfordern das Abo.',
   'term.app.3':

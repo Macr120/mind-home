@@ -46,7 +46,7 @@ export function BarraDemo() {
   // así que la píldora baja por debajo de ellos en vez de montárseles encima.
   return (
     <div
-      className={`pointer-events-auto fixed left-1/2 z-[45] -translate-x-1/2 ${
+      className={`safe-sup pointer-events-auto fixed left-1/2 z-[45] -translate-x-1/2 ${
         movilVertical ? 'top-20' : 'top-2'
       }`}
     >

@@ -7,12 +7,15 @@ import { create } from 'zustand'
  */
 interface MascaraUiState {
   abierto: boolean
-  abrir: () => void
+  /** Código del control remoto (llega por el QR `?mascara=`): la máscara abre conectándose como controlador. */
+  codigoRemoto: string | null
+  abrir: (codigoRemoto?: string) => void
   cerrar: () => void
 }
 
 export const useMascaraUi = create<MascaraUiState>((set) => ({
   abierto: false,
-  abrir: () => set({ abierto: true }),
-  cerrar: () => set({ abierto: false }),
+  codigoRemoto: null,
+  abrir: (codigoRemoto) => set({ abierto: true, codigoRemoto: codigoRemoto ?? null }),
+  cerrar: () => set({ abierto: false, codigoRemoto: null }),
 }))

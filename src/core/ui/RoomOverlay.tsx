@@ -150,9 +150,13 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
           <span className="hidden sm:inline">{t('ui.volverCasa', '‹ Volver a la casa')}</span>
         </button>
       </header>
+      {/* La zona segura va aquí y no en cada app: como margen del contenedor que
+          scrollea, el fondo del cuarto (`ui-app`, que sangra a pantalla completa)
+          sigue pintando detrás de la barra de gestos, pero ninguna app deja un
+          botón debajo de ella. */}
       <main
         data-tut-zona={activa ? `app:${activa.id}` : undefined}
-        className="min-h-0 flex-1 overflow-auto p-4 md:p-6"
+        className="safe-inf safe-ini safe-fin min-h-0 flex-1 overflow-auto p-4 md:p-6"
       >
         {apps.length === 0 ? (
           <div className="flex min-h-[40vh] flex-col items-center justify-center gap-2 text-center text-white/50">

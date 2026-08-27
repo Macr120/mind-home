@@ -19,6 +19,7 @@ import { iniciarAvisosNativos, type DestinoAviso } from './core/notificaciones'
 // esta es la importación que garantiza que se evalúe.
 import './core/registry'
 import { useWrappedUi } from './core/state/wrappedUiStore'
+import { useMascaraUi } from './core/state/mascaraUiStore'
 import type { TipoPeriodo } from './core/wrapped/periodo'
 
 const esTipoWrapped = (v: string | null | undefined): v is TipoPeriodo =>
@@ -116,6 +117,13 @@ if (params.get('accion') === 'registrar' && rutinaPedida) {
 } else if (appPedida) {
   // La casa tarda en montarse; sin esperar, `openRoom` se pierde en el vacío.
   setTimeout(() => abrirApp(appPedida, params.get('seccion') ?? undefined), 500)
+  history.replaceState(null, '', location.pathname)
+} else if (params.get('mascara')) {
+  // El QR del control remoto de la máscara: abre la Máscara AR conectándose
+  // como controlador con ese código. Se limpia de la URL para que un reload
+  // no reconecte a una sesión ya muerta.
+  const codigo = params.get('mascara')!
+  setTimeout(() => useMascaraUi.getState().abrir(codigo), 500)
   history.replaceState(null, '', location.pathname)
 }
 

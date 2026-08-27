@@ -73,20 +73,17 @@
 
 /* Variables del tema de interfaz (se sobreescriben en <html> desde temasUI.ts). */
 :root {
-  /* Muescas del teléfono: 0 fuera de Capacitor (index.html lleva
+  /* Muescas y barras del teléfono: 0 fuera de Capacitor (index.html lleva
      viewport-fit=cover). Las consumen SOLO los contenedores pegados a un borde
-     (cabecera de RoomOverlay, EditPanel y las esquinas flotantes del HUD): la
-     escena 3D sangra a pantalla entera, pero sus CONTROLES no — sin esto el
-     botón de casa se monta sobre el reloj de iOS y el joystick sobre la barra
-     de inicio. El margen se suma al de cada esquina: `top-[calc(0.75rem+var(--safe-top))]`.
-     `start`/`end` son izquierda/derecha literales porque el layout es SIEMPRE
-     LTR, también en árabe (ver `setIdioma` en ajustesStore.ts); si esa decisión
-     se revierte hay que espejarlas bajo `[dir='rtl']`. Las laterales solo valen
-     de algo en apaisado, que es donde la muesca se va a un costado. */
+     (cabecera de RoomOverlay, EditPanel, los cuadrantes del HUD): la escena 3D
+     sangra a pantalla entera, que es justo lo que se quiere detrás de la barra
+     de estado y de la de gestos.
+     Los laterales importan en HORIZONTAL, donde la barra de gestos y la muesca
+     se van a un costado. */
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
-  --safe-start: env(safe-area-inset-left, 0px);
-  --safe-end: env(safe-area-inset-right, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
   --ui-bg: #0f1115;
   --ui-panel: #12151c;
   --ui-panel-2: #171b24;
@@ -209,6 +206,30 @@ body {
     background-color: color-mix(in srgb, var(--ui-panel) var(--ui-vidrio-alfa, 92%), transparent);
     backdrop-filter: blur(var(--ui-vidrio-blur, 12px));
   }
+}
+
+/*
+ * ZONA SEGURA. Todo control anclado a un borde de la pantalla lleva la clase de
+ * su borde, o en el teléfono acaba debajo de la barra de estado (arriba) o de la
+ * barra de gestos (abajo). Es MARGEN y no un `top`/`bottom` calculado a propósito:
+ * así cada control conserva la separación que ya tenía (`top-3`, `bottom-4`…) y
+ * la clase solo le suma lo que ocupa el sistema, que fuera de Capacitor es 0.
+ * No las usa lo que sangra a pantalla completa (la escena 3D, los scrims) ni lo
+ * que se centra con `translate` en ese eje, que ahí el margen descentraría.
+ * Un contenedor con los DOS bordes puestos (`inset-y-0`) no puede usarlas: ese
+ * lleva padding (ver EditPanel y el menú lateral).
+ */
+.safe-sup {
+  margin-top: var(--safe-top);
+}
+.safe-inf {
+  margin-bottom: var(--safe-bottom);
+}
+.safe-ini {
+  margin-inline-start: var(--safe-left);
+}
+.safe-fin {
+  margin-inline-end: var(--safe-right);
 }
 
 /*

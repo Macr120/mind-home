@@ -13,9 +13,9 @@ export const TEXTOS = {
 
   'meta.titulo': 'Mind Planner Home — Je geest, in een 3D-huis',
   'meta.desc':
-    'Breng je gewoontes, doelen, financiën, maaltijden en meer op orde in een isometrisch 3D-huis waarin elke kamer een app is. Eén betaling van 8,89 USD, met de eerste maand AI en synchronisatie erbij; probeer de app gratis.',
+    'Breng je gewoontes, doelen, financiën, maaltijden en meer op orde in een isometrisch 3D-huis waarin elke kamer een app is. Eén betaling van 8,99 USD, met de eerste maand AI en synchronisatie erbij; probeer de app gratis.',
   'og.desc':
-    'Je leven in een 3D-huis: gewoontes, doelen, financiën, maaltijden en meer. Eén betaling van 8,89 USD, eerste maand AI erbij; probeer de app gratis.',
+    'Je leven in een 3D-huis: gewoontes, doelen, financiën, maaltijden en meer. Eén betaling van 8,99 USD, eerste maand AI erbij; probeer de app gratis.',
 
   'hero.h1': 'Je geest,<br />in een 3D-huis',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -134,7 +134,7 @@ export const TEXTOS = {
   'precio.probar.cta': 'De app proberen',
   'precio.probar.pie': 'De volledige app, om haar vrijblijvend te leren kennen.',
   'precio.app.nombre': 'De app',
-  'precio.app.cifra': '8,89 USD',
+  'precio.app.cifra': '8,99 USD',
   'precio.app.pagoUnico': 'eenmalige betaling',
   'precio.app.1': 'Je eigen huis, voor altijd: alle apps, je gegevens op je apparaat',
   'precio.app.2':
@@ -213,6 +213,9 @@ export const TEXTOS = {
     '<strong>Camera en microfoon:</strong> alleen als je ze aanzet (AR-masker, foto voor de chat, spraakdictaat). Het masker wordt op je apparaat verwerkt; de audio van het dictaat en de foto’s die je aan de chat toevoegt gaan alleen naar de AI-leveranciers om dat antwoord te maken.',
   'priv.datos.6':
     '<strong>Gezondheids- en welzijnsgegevens:</strong> wat je noteert over beweging, maaltijden, medicijnen, doktersafspraken of cyclus wordt voor jou bewaard zoals alle andere app-gegevens; het wordt nooit verkocht of voor reclame gebruikt.',
+  'priv.salud.h': 'Reikwijdte van de gezondheidsfuncties',
+  'priv.salud.p':
+    'Mind Planner Home is een persoonlijke agenda, geen medische toepassing. De gezondheidsfuncties zijn een logboek dat je zelf bijhoudt en een paar herinneringen: de app stelt geen diagnose, duidt geen symptomen, beveelt geen doseringen of behandelingen aan, controleert geen wisselwerking tussen medicijnen en vervangt het consult van een zorgverlener niet. De cyclusvoorspelling volgt alleen uit de gegevens die je invoert en is indicatief. Het is geen gezondheidsproduct of medisch hulpmiddel en maakt geen verbinding met medische dossiers, verzekeraars of zorgaanbieders.',
   'priv.uso.h': 'Waarvoor we ze gebruiken',
   'priv.uso.1': 'Om je toegang te geven tot je account, je aankoop en je abonnement.',
   'priv.uso.2': 'Om je gegevens tussen apparaten te synchroniseren en er een back-up van te maken.',
@@ -240,7 +243,7 @@ export const TEXTOS = {
     'Mind Planner Home is een app voor persoonlijke organisatie. De proefversie is gratis en vraagt geen account. De app koop je met een eenmalige betaling; de terugkerende functies (AI-credits en synchronisatie) sluit je uitsluitend op deze website af; de desktop- en store-apps zijn clients van datzelfde account.',
   'term.app.h': 'De app (eenmalige betaling)',
   'term.app.1':
-    'Ontgrendelen van de app: 8,89 USD, eenmalig. Het ontgrendelt je huis voor altijd op je account, zonder verlengingen.',
+    'Ontgrendelen van de app: 8,99 USD, eenmalig. Het ontgrendelt je huis voor altijd op je account, zonder verlengingen.',
   'term.app.2':
     'Inclusief de eerste maand: 30 dagen met de 700 maandelijkse AI-credits en de synchronisatie, zonder kaart en zonder abonnement. Daarna hou je de app en je gegevens; de maandcredits en de synchronisatie vragen om het abonnement.',
   'term.app.3':

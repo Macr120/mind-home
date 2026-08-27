@@ -8,7 +8,7 @@
 import { create } from 'zustand'
 import type { AuthError, User } from '@supabase/supabase-js'
 import { hayBackend, obtenerSupabase } from './supabase'
-import { esAppNativa } from '../plataforma'
+import { esAppNativa, esEscritorio } from '../plataforma'
 import { LS_FUE_PRO, LS_PLAN_EXPIRA, LS_PLAN_REAL, LS_UNLOCK, type Plan } from '../edicion'
 
 /**
@@ -95,10 +95,13 @@ interface SesionState {
 }
 
 /**
- * A dónde vuelve el navegador del sistema tras el login social en la app. Es un
- * esquema propio (el applicationId, que nadie más puede reclamar) y lo enruta el
- * `intent-filter` de `MainActivity`. Tiene que estar además en las Redirect URLs
- * del panel de Supabase, o el proveedor se niega a volver.
+ * A dónde vuelve el navegador del sistema tras el login social fuera de la web.
+ * Es un esquema propio (el applicationId, que nadie más puede reclamar) y lo
+ * enruta el `intent-filter` de `MainActivity` en Android, el `CFBundleURLTypes`
+ * en iOS y `app.setAsDefaultProtocolClient` en el escritorio. Tiene que estar
+ * además en las Redirect URLs del panel de Supabase, o el proveedor se niega a
+ * volver. Las tres plataformas comparten destino a propósito: una URL de alta
+ * menos que mantener.
  */
 const REDIRECT_NATIVO = 'com.macr120.mindhome://oauth'
 
@@ -166,9 +169,10 @@ export const useSesion = create<SesionState>((set, get) => ({
   entrarConProveedor: async (proveedor) => {
     const sb = await obtenerSupabase()
     if (!sb) return 'Sin backend'
-    if (esAppNativa()) {
+    if (esAppNativa() || esEscritorio()) {
       // Google RECHAZA el login dentro de un WebView (`disallowed_useragent`),
-      // así que se abre el navegador del sistema y se vuelve por deep link:
+      // y la ventana de Electron es tan ventana empotrada como la del teléfono:
+      // en las dos se abre el navegador del sistema y se vuelve por deep link.
       // `skipBrowserRedirect` deja que seamos nosotros quienes abrimos la URL.
       const { data, error } = await sb.auth.signInWithOAuth({
         provider: proveedor,
@@ -176,8 +180,14 @@ export const useSesion = create<SesionState>((set, get) => ({
       })
       if (error) return mensajeAuth(error)
       if (!data.url) return 'Sin backend'
-      const { Browser } = await import('@capacitor/browser')
-      await Browser.open({ url: data.url })
+      if (esAppNativa()) {
+        const { Browser } = await import('@capacitor/browser')
+        await Browser.open({ url: data.url })
+      } else {
+        // El shell no deja navegar fuera de `mph://app`: deniega la ventana y
+        // manda la URL al navegador del sistema (`escritorio/principal.js`).
+        window.open(data.url, '_blank', 'noopener')
+      }
       return null
     }
     // Redirige al proveedor y vuelve a la MISMA página (la app o /cuenta de la
@@ -425,26 +435,36 @@ export function iniciarSesion(): void {
 }
 
 /**
- * Cierra el círculo del login social nativo: el navegador vuelve a la app por
- * deep link con un `code` de PKCE y aquí se canjea por sesión (en la app no hay
- * URL de página que el SDK pueda mirar por su cuenta). Se llama UNA vez al
- * arrancar; `onAuthStateChange` hace el resto, igual que en la web.
+ * Cierra el círculo del login social fuera de la web: el navegador vuelve por
+ * deep link con un `code` de PKCE y aquí se canjea por sesión (ni la app de
+ * tienda ni el escritorio tienen una URL de página que el SDK pueda mirar por
+ * su cuenta). Se llama UNA vez al arrancar; `onAuthStateChange` hace el resto,
+ * igual que en la web.
+ *
+ * Quien avisa cambia según dónde estemos, y es lo ÚNICO que cambia: en el
+ * teléfono el plugin `App` de Capacitor, y en el escritorio un evento del DOM
+ * que emite el puente del shell (`escritorio/precarga.cjs`), para que esta capa
+ * no tenga que saber que Electron existe.
  */
 export async function escucharDeepLinkAuth(): Promise<void> {
-  if (!esAppNativa() || !hayBackend()) return
+  if (!hayBackend()) return
+
+  if (esEscritorio()) {
+    window.addEventListener('mph:enlace-profundo', (evento) => {
+      const url = (evento as CustomEvent<string>).detail
+      if (typeof url === 'string') void canjearCodigoDeepLink(url)
+    })
+    return
+  }
+
+  if (!esAppNativa()) return
   try {
     const { App } = await import('@capacitor/app')
     await App.addListener('appUrlOpen', ({ url }) => {
-      if (!url.startsWith(REDIRECT_NATIVO)) return
       void (async () => {
-        // El code se saca a mano: `new URL()` no es de fiar con esquemas propios.
-        const code = /[?&]code=([^&]+)/.exec(url)?.[1]
-        const sb = await obtenerSupabase()
-        if (code && sb) {
-          const { error } = await sb.auth.exchangeCodeForSession(decodeURIComponent(code))
-          if (error) console.warn('[MPH] El login social no se pudo completar:', error.message)
-        }
-        // La pestaña del navegador se queda encima si no se cierra a mano.
+        if (!(await canjearCodigoDeepLink(url))) return
+        // La pestaña del navegador se queda encima si no se cierra a mano. En
+        // el escritorio no hay equivalente: la abrió el navegador del sistema.
         const { Browser } = await import('@capacitor/browser')
         await Browser.close().catch(() => {})
       })()
@@ -452,4 +472,17 @@ export async function escucharDeepLinkAuth(): Promise<void> {
   } catch (err) {
     console.warn('[MPH] No se pudo escuchar el deep link de login:', err)
   }
+}
+
+/** Canjea por sesión el `code` que trae la vuelta; false si la URL no era nuestra. */
+async function canjearCodigoDeepLink(url: string): Promise<boolean> {
+  if (!url.startsWith(REDIRECT_NATIVO)) return false
+  // El code se saca a mano: `new URL()` no es de fiar con esquemas propios.
+  const code = /[?&]code=([^&]+)/.exec(url)?.[1]
+  const sb = await obtenerSupabase()
+  if (code && sb) {
+    const { error } = await sb.auth.exchangeCodeForSession(decodeURIComponent(code))
+    if (error) console.warn('[MPH] El login social no se pudo completar:', error.message)
+  }
+  return true
 }

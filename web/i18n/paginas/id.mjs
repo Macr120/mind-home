@@ -13,9 +13,9 @@ export const TEXTOS = {
 
   'meta.titulo': 'Mind Planner Home — Pikiranmu, dalam sebuah rumah 3D',
   'meta.desc':
-    'Atur kebiasaan, target, keuangan, makanan, dan lainnya di rumah isometrik 3D tempat setiap ruangan adalah sebuah aplikasi. Sekali bayar 8,89 USD, bulan pertama sudah termasuk AI dan sinkronisasi; cobalah gratis.',
+    'Atur kebiasaan, target, keuangan, makanan, dan lainnya di rumah isometrik 3D tempat setiap ruangan adalah sebuah aplikasi. Sekali bayar 8,99 USD, bulan pertama sudah termasuk AI dan sinkronisasi; cobalah gratis.',
   'og.desc':
-    'Hidupmu dalam rumah 3D: kebiasaan, target, keuangan, makanan, dan lainnya. Sekali bayar 8,89 USD, bulan pertama termasuk AI; cobalah gratis.',
+    'Hidupmu dalam rumah 3D: kebiasaan, target, keuangan, makanan, dan lainnya. Sekali bayar 8,99 USD, bulan pertama termasuk AI; cobalah gratis.',
 
   'hero.h1': 'Pikiranmu,<br />dalam sebuah rumah 3D',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -133,7 +133,7 @@ export const TEXTOS = {
   'precio.probar.cta': 'Coba aplikasinya',
   'precio.probar.pie': 'Aplikasi lengkap, untuk mengenalnya tanpa terikat apa pun.',
   'precio.app.nombre': 'Aplikasinya',
-  'precio.app.cifra': '8,89 USD',
+  'precio.app.cifra': '8,99 USD',
   'precio.app.pagoUnico': 'sekali bayar',
   'precio.app.1': 'Rumahmu sendiri, selamanya: semua aplikasi, datamu di perangkatmu',
   'precio.app.2':
@@ -212,6 +212,9 @@ export const TEXTOS = {
     '<strong>Kamera dan mikrofon:</strong> hanya saat kamu menyalakannya (masker AR, foto untuk chat, dikte suara). Masker diproses di perangkatmu; audio dikte dan foto yang kamu lampirkan ke chat dikirim ke penyedia AI semata untuk membuat jawaban itu.',
   'priv.datos.6':
     '<strong>Data kesehatan dan kesejahteraan:</strong> apa yang kamu catat tentang olahraga, makan, obat, janji medis, atau siklus disimpan untukmu seperti data aplikasi lainnya; tidak pernah dijual atau dipakai untuk iklan.',
+  'priv.salud.h': 'Cakupan fitur kesehatan',
+  'priv.salud.p':
+    'Mind Planner Home adalah agenda pribadi, bukan aplikasi medis. Fitur kesehatannya hanyalah catatan yang kamu tulis sendiri dan beberapa pengingat: aplikasi ini tidak mendiagnosis, tidak menafsirkan gejala, tidak menganjurkan dosis atau pengobatan, tidak memeriksa interaksi obat, dan tidak menggantikan konsultasi dengan tenaga kesehatan. Perkiraan siklus dihitung hanya dari data yang kamu masukkan dan bersifat perkiraan. Ini bukan produk kesehatan atau alat medis, dan tidak terhubung dengan rekam medis, perusahaan asuransi, atau penyedia layanan kesehatan.',
   'priv.uso.h': 'Untuk apa kami memakainya',
   'priv.uso.1': 'Memberimu akses ke akun, pembelian, dan langgananmu.',
   'priv.uso.2': 'Menyinkronkan datamu antar perangkat dan mencadangkannya.',
@@ -239,7 +242,7 @@ export const TEXTOS = {
     'Mind Planner Home adalah aplikasi penataan pribadi. Uji cobanya gratis dan tidak memerlukan akun. Aplikasinya dibeli dengan sekali bayar; fitur berulang (kredit AI dan sinkronisasi) hanya diambil di situs web ini; aplikasi desktop dan toko adalah klien dari akun yang sama.',
   'term.app.h': 'Aplikasinya (sekali bayar)',
   'term.app.1':
-    'Membuka aplikasinya: 8,89 USD, sekali bayar. Ini membuka rumahmu selamanya di akunmu, tanpa perpanjangan.',
+    'Membuka aplikasinya: 8,99 USD, sekali bayar. Ini membuka rumahmu selamanya di akunmu, tanpa perpanjangan.',
   'term.app.2':
     'Termasuk bulan pertama: 30 hari dengan 700 kredit AI bulanan dan sinkronisasi, tanpa kartu dan tanpa langganan. Setelah selesai, aplikasi dan datamu tetap milikmu; kredit bulanan dan sinkronisasi memerlukan langganan.',
   'term.app.3':

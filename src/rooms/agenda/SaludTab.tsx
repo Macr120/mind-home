@@ -157,6 +157,17 @@ export function SaludTab({
 
       {sub === 'yo' && (
         <>
+          {/* La app se declara ante Play como agenda personal y NO como app
+              médica. Este aviso es la cara visible de esa declaración, igual que
+              CLAUSULA_SALUD lo es dentro de los prompts: si se cae uno de los
+              dos, lo declarado deja de ser cierto. */}
+          <p className="text-xs text-white/40">
+            {t(
+              'agenda.salud.avisoMedico',
+              'Registro personal, no consejo médico: la app no diagnostica ni ajusta tratamientos. Ante cualquier duda, consulta a un profesional de la salud.',
+            )}
+          </p>
+
           <section className="space-y-2">
             <div className="flex items-center justify-between">
               <p className="text-sm font-bold">

@@ -6,7 +6,14 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   // Respeta el puerto asignado por el entorno (PORT); por defecto 5173.
-  server: { port: Number(process.env.PORT) || 5173 },
+  server: {
+    port: Number(process.env.PORT) || 5173,
+    // Con el servidor de desarrollo encendido, su vigilante mantenía abierto un
+    // handle sobre `dist-escritorio` y en Windows eso IMPIDE renombrar carpetas:
+    // electron-builder moría con `EPERM ... rename win-unpacked.tmp`. Vite ignora
+    // solo `dist` (su outDir), no la salida del empaquetado de escritorio.
+    watch: { ignored: ['**/dist-escritorio/**'] },
+  },
   build: {
     rollupOptions: {
       output: {

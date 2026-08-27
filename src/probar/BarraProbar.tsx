@@ -15,7 +15,7 @@ export function BarraProbar() {
   // superiores, igual que la píldora de la demo (ver BarraDemo).
   return (
     <div
-      className={`pointer-events-auto fixed left-1/2 z-[45] -translate-x-1/2 ${
+      className={`safe-sup pointer-events-auto fixed left-1/2 z-[45] -translate-x-1/2 ${
         movilVertical ? 'top-20' : 'top-2'
       }`}
     >

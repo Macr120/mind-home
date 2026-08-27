@@ -20,8 +20,8 @@ import { useHud } from '../state/hudStore'
  */
 export function anclajeChat(menuAbierto: boolean): string {
   return menuAbierto
-    ? 'start-[calc(15rem+var(--safe-start))] end-[calc(1rem+var(--safe-end))] sm:end-[calc(12rem+var(--safe-end))]'
-    : 'start-[calc(1rem+var(--safe-start))] end-[calc(1rem+var(--safe-end))] sm:start-[calc(11rem+var(--safe-start))] sm:end-[calc(12rem+var(--safe-end))]'
+    ? 'start-[calc(15rem+var(--safe-left))] end-[calc(1rem+var(--safe-right))] sm:end-[calc(12rem+var(--safe-right))]'
+    : 'start-[calc(1rem+var(--safe-left))] end-[calc(1rem+var(--safe-right))] sm:start-[calc(11rem+var(--safe-left))] sm:end-[calc(12rem+var(--safe-right))]'
 }
 
 export function useTopeHud(clave: string) {

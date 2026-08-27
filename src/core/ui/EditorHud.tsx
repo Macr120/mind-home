@@ -56,7 +56,7 @@ function ToolbarPermanente({ onEditar }: { onEditar: () => void }) {
   // Plegado: queda solo el engrane, que devuelve música + reloj + Editor.
   if (plegado) {
     return (
-      <div className="absolute end-[calc(1rem+var(--safe-end))] top-[calc(1rem+var(--safe-top))] z-20">
+      <div className="safe-sup safe-fin absolute end-4 top-4 z-20">
         <TiradorHud zona="supDer">
           <Icono nombre="ajustes" />
         </TiradorHud>
@@ -65,7 +65,7 @@ function ToolbarPermanente({ onEditar }: { onEditar: () => void }) {
   }
 
   return (
-    <div className="absolute end-[calc(1rem+var(--safe-end))] top-[calc(1rem+var(--safe-top))] z-20 flex items-start gap-2">
+    <div className="safe-sup safe-fin absolute end-4 top-4 z-20 flex items-start gap-2">
       <div className="flex flex-col items-center gap-1">
         {/* El botón de música puede apagarse en Configuraciones › Música. */}
         {hudMusica && (

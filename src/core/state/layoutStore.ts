@@ -434,7 +434,8 @@ interface LayoutState {
   previewEsquina: EsquinaKey | null
   cargado: boolean
   cargar: () => Promise<void>
-  /** `mantenerVista`: al cerrar (v=false), no resetea la cámara (p. ej. al abrir el side menu de MPH). */
+  /** `mantenerVista`: al cerrar (v=false) solo OCULTA el panel — sigue dentro del cuarto en
+   *  edición y conserva su vista, sea cual sea (p. ej. al abrir el side menu de MPH). */
   setEditMode: (v: boolean, opts?: { mantenerVista?: boolean }) => void
   editRoom: (id: string | null) => void
   /** Activa/desactiva "mover objetos" de un cuarto: cierra el editor, enfoca el cuarto y
@@ -846,9 +847,12 @@ export const useLayout = create<LayoutState>((set, get) => ({
         useCam.setState({ focus: mapFocusPos(), zoom: zoomEncuadre() })
       }
     } else if (!v) {
-      // Al salir, la vista en perspectiva se conserva (solo iso vuelve a su encuadre).
-      // `mantenerVista`: cerrar sin mover la cámara ni salir del cuarto.
-      if (!persp && !opts?.mantenerVista) useCam.getState().reset()
+      // Al salir, el mapa se queda TAL CUAL lo dejó el editor (foco, giro y zoom):
+      // reencuadrarlo devolvía la cámara a su sitio de siempre y perdía de vista justo
+      // lo que se acababa de construir. Solo se abandonan las vistas que únicamente
+      // existen dentro del editor (pared interior, grafiti, diálogo).
+      if (!persp && !opts?.mantenerVista && useCam.getState().vista !== 'iso')
+        useCam.setState({ vista: 'iso', interiorCenter: null, grafitiCam: null, dialogoCam: null })
       useEditorUi.getState().setEditor3d(false)
     }
   },

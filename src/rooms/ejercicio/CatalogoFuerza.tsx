@@ -12,19 +12,21 @@ import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { acento } from '../_shared/acento'
 import { C_FUERZA } from './constantes'
+import { useAvisoAgregado } from './avisoAgregado'
 
 /**
  * Pirámide de especificidad: al elegir un enfoque muestra sus ejercicios
  * (toca para añadir al entreno) y la rutina preguardada o sugerida. El
  * catálogo (grupos y ejercicios) es editable: se puede agregar o borrar un
- * grupo, y agregar o borrar ejercicios dentro de un grupo concreto (la fila
- * hoja de la pirámide, no en una vista agregada como "Empuje").
+ * grupo, y agregar o borrar ejercicios desde cualquier enfoque — cuando la
+ * selección cubre varios grupos ("Empuje"), el alta pregunta a cuál va.
  */
 export function CatalogoFuerza({
   onAgregar,
   onUsarRutina,
 }: {
-  onAgregar: (nombre: string) => void
+  /** Devuelve false si el ejercicio ya estaba en la rutina (para el acuse). */
+  onAgregar: (nombre: string) => boolean
   onUsarRutina: (rutina: RutinaPlantilla) => void
 }) {
   const [splitId, setSplitId] = useState<string | null>(null)
@@ -33,6 +35,8 @@ export function CatalogoFuerza({
   const [agregandoEjercicio, setAgregandoEjercicio] = useState(false)
   const [nombreNuevoEj, setNombreNuevoEj] = useState('')
   const [descNuevoEj, setDescNuevoEj] = useState('')
+  const [destinoId, setDestinoId] = useState('')
+  const [aviso, avisar] = useAvisoAgregado()
   const t = useT()
 
   const grupos = gruposFuerzaRepo.useAll() ?? VACIO
@@ -47,13 +51,20 @@ export function CatalogoFuerza({
 
   const split = piramide.flat().find((o) => o.id === splitId)
   const gruposDelSplit = split ? grupos.filter((g) => split.grupos.includes(g.grupoId)) : []
-  // Solo se editan ejercicios cuando la selección resuelve a UN grupo concreto
-  // (una vista agregada como "Empuje" cubre varios grupos: ambiguo a cuál añadir).
-  const grupoUnico = gruposDelSplit.length === 1 ? gruposDelSplit[0] : null
-  const preguardadas = split ? RUTINAS.fuerza.filter((r) => r.splitId === split.id) : []
+  // Grupo al que se añade lo nuevo. Con la selección en un enfoque agregado
+  // ("Empuje" cubre pecho, hombros y tríceps) el destino se elige en el propio
+  // formulario: antes el alta simplemente no salía y el catálogo solo crecía
+  // entrando grupo por grupo.
+  const grupoDestino = gruposDelSplit.find((g) => g.grupoId === destinoId) ?? gruposDelSplit[0] ?? null
+  // Un enfoque sin un solo ejercicio no ofrece rutinas: si la única tarjeta con
+  // contenido es «Rutina sugerida», parece que el catálogo abre rutinas en vez
+  // de ejercicios. Con la lista vacía se dice qué falta y ya está.
+  const sinEjercicios = gruposDelSplit.every((g) => g.ejercicios.length === 0)
+  const preguardadas =
+    split && !sinEjercicios ? RUTINAS.fuerza.filter((r) => r.splitId === split.id) : []
   // Para un grupo muscular sin rutina preguardada se sugiere una con su catálogo
   const rutinas: RutinaPlantilla[] =
-    split && preguardadas.length === 0 && gruposDelSplit.length === 1
+    split && !sinEjercicios && preguardadas.length === 0 && gruposDelSplit.length === 1
       ? [
           {
             nombre: etiqueta(split),
@@ -82,21 +93,21 @@ export function CatalogoFuerza({
   }
 
   const agregarEjercicioCatalogo = async () => {
-    if (!grupoUnico?.id) return
+    if (!grupoDestino?.id) return
     const nombre = nombreNuevoEj.trim()
     if (!nombre) return
-    await gruposFuerzaRepo.update(grupoUnico.id, {
-      ejercicios: [...grupoUnico.ejercicios, { nombre, descripcion: descNuevoEj.trim() || undefined }],
+    await gruposFuerzaRepo.update(grupoDestino.id, {
+      ejercicios: [...grupoDestino.ejercicios, { nombre, descripcion: descNuevoEj.trim() || undefined }],
     })
     setNombreNuevoEj('')
     setDescNuevoEj('')
     setAgregandoEjercicio(false)
   }
 
-  const borrarEjercicioCatalogo = async (nombreEj: string) => {
-    if (!grupoUnico?.id) return
-    await gruposFuerzaRepo.update(grupoUnico.id, {
-      ejercicios: grupoUnico.ejercicios.filter((e) => e.nombre !== nombreEj),
+  const borrarEjercicioCatalogo = async (g: GrupoFuerza, nombreEj: string) => {
+    if (!g.id) return
+    await gruposFuerzaRepo.update(g.id, {
+      ejercicios: g.ejercicios.filter((e) => e.nombre !== nombreEj),
     })
   }
 
@@ -198,6 +209,19 @@ export function CatalogoFuerza({
             <p className="mb-1.5 text-xs font-semibold text-white/50">
               {t('ejercicio.sugeridos', 'Ejercicios disponibles · toca para añadir')}
             </p>
+            {sinEjercicios && (
+              <p className="text-xs text-white/40">
+                {gruposDelSplit.length === 0
+                  ? t(
+                      'ejercicio.catalogo.sinGrupos',
+                      'Este enfoque no tiene grupos en tu catálogo. Crea uno con «+ Nuevo grupo» y añádele ejercicios.',
+                    )
+                  : t(
+                      'ejercicio.catalogo.sinEjercicios',
+                      'Estas carpetas todavía no tienen ejercicios. Añádelos abajo con «+ Añadir ejercicio al catálogo».',
+                    )}
+              </p>
+            )}
             <div className="space-y-2">
               {gruposDelSplit.map((g) => (
                 <div key={g.grupoId}>
@@ -220,29 +244,39 @@ export function CatalogoFuerza({
                         />
                         <button
                           type="button"
-                          onClick={() => onAgregar(ej.nombre)}
+                          onClick={() => avisar(ej.nombre, onAgregar(ej.nombre))}
                           className="min-w-0 flex-1 text-start"
                         >
                           <div className="flex items-center gap-2">
                             <span className="flex-1 text-sm font-semibold text-white/90">
                               {nombreEjercicio(t, ej.nombre)}
                             </span>
-                            <span className="shrink-0 font-bold text-orange-400">+</span>
+                            {aviso?.nombre === ej.nombre ? (
+                              <span
+                                className={`shrink-0 text-[10px] font-bold ${
+                                  aviso.nuevo ? 'text-emerald-400' : 'text-white/45'
+                                }`}
+                              >
+                                {aviso.nuevo
+                                  ? t('ejercicio.catalogo.anadido', '✓ Añadido')
+                                  : t('ejercicio.catalogo.yaEsta', 'Ya está')}
+                              </span>
+                            ) : (
+                              <span className="shrink-0 font-bold text-orange-400">+</span>
+                            )}
                           </div>
                           {ej.descripcion && (
                             <p className="mt-0.5 text-xs text-white/55">{descEjercicio(t, ej.nombre, ej.descripcion)}</p>
                           )}
                         </button>
-                        {grupoUnico && (
-                          <button
-                            type="button"
-                            onClick={() => void borrarEjercicioCatalogo(ej.nombre)}
-                            title={t('ejercicio.catalogo.borrarEjercicio', 'Borrar del catálogo')}
-                            className="shrink-0 text-white/25 hover:text-red-400"
-                          >
-                            ×
-                          </button>
-                        )}
+                        <button
+                          type="button"
+                          onClick={() => void borrarEjercicioCatalogo(g, ej.nombre)}
+                          title={t('ejercicio.catalogo.borrarEjercicio', 'Borrar del catálogo')}
+                          className="shrink-0 text-white/25 hover:text-red-400"
+                        >
+                          ×
+                        </button>
                       </div>
                     ))}
                   </div>
@@ -250,9 +284,25 @@ export function CatalogoFuerza({
               ))}
             </div>
 
-            {grupoUnico &&
+            {grupoDestino &&
               (agregandoEjercicio ? (
                 <div className="mt-2 space-y-1.5 rounded-lg bg-black/20 p-2">
+                  {gruposDelSplit.length > 1 && (
+                    <label className="block text-[10px] font-semibold uppercase tracking-wide text-white/40">
+                      {t('ejercicio.catalogo.destino', 'Añadir al grupo')}
+                      <select
+                        value={grupoDestino.grupoId}
+                        onChange={(e) => setDestinoId(e.target.value)}
+                        className="mt-0.5 w-full rounded-lg bg-black/30 px-2 py-1.5 text-xs font-normal normal-case tracking-normal text-white/85 border border-white/10 outline-none"
+                      >
+                        {gruposDelSplit.map((g) => (
+                          <option key={g.grupoId} value={g.grupoId} className="bg-neutral-900">
+                            {t(`ejercicio.grupo.${g.grupoId}`, g.label)}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  )}
                   <input
                     autoFocus
                     value={nombreNuevoEj}

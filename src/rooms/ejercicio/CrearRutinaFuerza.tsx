@@ -1,5 +1,7 @@
-import { useState } from 'react'
-import { rutinasFuerzaRepo } from '../../core/data/repository'
+import { useMemo, useState } from 'react'
+import { VACIO, gruposFuerzaRepo, rutinasFuerzaRepo } from '../../core/data/repository'
+import { BotonRutinaIA } from './BotonRutinaIA'
+import { aGrupoCatalogo } from './catalogo'
 import { CatalogoFuerza } from './CatalogoFuerza'
 import { useImagenesPorClave } from './imagenIA'
 import { MiniaturaEjercicio } from './MiniaturaEjercicio'
@@ -20,13 +22,14 @@ export function CrearRutinaFuerza() {
   const [duracion, setDuracion] = useState('45')
   const [ejercicios, setEjercicios] = useState<string[]>([])
   const imgPorClave = useImagenesPorClave()
+  const grupos = gruposFuerzaRepo.useAll() ?? VACIO
+  const catalogo = useMemo(() => aGrupoCatalogo(grupos), [grupos])
 
-  const agregar = (nombreEj: string) => {
-    setEjercicios((prev) =>
-      prev.some((e) => normalizarEjercicio(e) === normalizarEjercicio(nombreEj))
-        ? prev
-        : [...prev, nombreEj],
-    )
+  /** true = entró a la rutina; false = ya estaba (el catálogo lo acusa en la fila). */
+  const agregar = (nombreEj: string): boolean => {
+    const nuevo = !ejercicios.some((e) => normalizarEjercicio(e) === normalizarEjercicio(nombreEj))
+    if (nuevo) setEjercicios((prev) => [...prev, nombreEj])
+    return nuevo
   }
 
   const quitar = (i: number) => setEjercicios((prev) => prev.filter((_, idx) => idx !== i))
@@ -58,12 +61,23 @@ export function CrearRutinaFuerza() {
         <p className="text-base font-bold">
           <Icono nombre="lista" /> {t('ejercicio.crearRutina.titulo', 'Crear rutina')}
         </p>
-        <input
-          value={nombre}
-          onChange={(e) => setNombre(e.target.value)}
-          className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none"
-          placeholder={t('ejercicio.crearRutina.ph.nombre', 'Nombre de la rutina')}
-        />
+        <BotonRutinaIA
+          tipo="fuerza"
+          catalogo={catalogo}
+          color={C_FUERZA}
+          onGenerada={(r) => {
+            setNombre(r.nombre)
+            setDuracion(String(r.duracionMin))
+            setEjercicios(r.ejercicios)
+          }}
+        >
+          <input
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
+            className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none"
+            placeholder={t('ejercicio.crearRutina.ph.nombre', 'Nombre de la rutina')}
+          />
+        </BotonRutinaIA>
         <label className="block text-xs font-semibold text-white/70">
           {t('ejercicio.duracion', 'Duración (min)')}
           <input

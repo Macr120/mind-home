@@ -11,6 +11,7 @@ import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { acento } from '../_shared/acento'
 import { C_CARDIO } from './constantes'
+import { useAvisoAgregado } from './avisoAgregado'
 
 /**
  * Catálogo de resistencia con la misma estructura que fuerza y flexibilidad:
@@ -18,13 +19,19 @@ import { C_CARDIO } from './constantes'
  * imagen) para tocar y añadirlas a la rutina que se está creando. Las
  * categorías y sus actividades son editables.
  */
-export function CatalogoCardio({ onAgregar }: { onAgregar: (nombre: string) => void }) {
+export function CatalogoCardio({
+  onAgregar,
+}: {
+  /** Devuelve false si la actividad ya estaba en la rutina (para el acuse). */
+  onAgregar: (nombre: string) => boolean
+}) {
   const [grupoId, setGrupoId] = useState<string | null>(null)
   const [agregandoGrupo, setAgregandoGrupo] = useState(false)
   const [nuevoGrupo, setNuevoGrupo] = useState('')
   const [agregandoEjercicio, setAgregandoEjercicio] = useState(false)
   const [nombreNuevoEj, setNombreNuevoEj] = useState('')
   const [descNuevoEj, setDescNuevoEj] = useState('')
+  const [aviso, avisar] = useAvisoAgregado()
   const t = useT()
 
   const grupos = gruposCardioRepo.useAll() ?? VACIO
@@ -148,12 +155,24 @@ export function CatalogoCardio({ onAgregar }: { onAgregar: (nombre: string) => v
                 />
                 <button
                   type="button"
-                  onClick={() => onAgregar(ej.nombre)}
+                  onClick={() => avisar(ej.nombre, onAgregar(ej.nombre))}
                   className="min-w-0 flex-1 text-start"
                 >
                   <div className="flex items-center gap-2">
                     <span className="flex-1 text-sm font-semibold text-white/90">{nombreEjercicio(t, ej.nombre)}</span>
-                    <span className="shrink-0 font-bold text-sky-400">+</span>
+                    {aviso?.nombre === ej.nombre ? (
+                      <span
+                        className={`shrink-0 text-[10px] font-bold ${
+                          aviso.nuevo ? 'text-emerald-400' : 'text-white/45'
+                        }`}
+                      >
+                        {aviso.nuevo
+                          ? t('ejercicio.catalogo.anadido', '✓ Añadido')
+                          : t('ejercicio.catalogo.yaEsta', 'Ya está')}
+                      </span>
+                    ) : (
+                      <span className="shrink-0 font-bold text-sky-400">+</span>
+                    )}
                   </div>
                   {ej.descripcion && (
                     <p className="mt-0.5 text-xs text-white/55">{descEjercicio(t, ej.nombre, ej.descripcion)}</p>
