@@ -1,4 +1,10 @@
-# Capturas de tienda (Play Store · App Store)
+# Capturas de tienda (Play Store · App Store · Microsoft Store)
+
+> **Microsoft Store va aparte y NO usa estas láminas.** Su política prohíbe
+> «additional logos, icons, or marketing messages» en las capturas, así que el
+> marco de teléfono y el titular de color serían motivo de rechazo. Además pide
+> **escritorio apaisado** (1366×768 mínimo), no retrato de móvil. Todo lo suyo
+> está en la sección [Microsoft Store](#microsoft-store) del final.
 
 Cuatro láminas **en los 16 idiomas de la app**, hechas con capturas reales del
 modo demo (casa de Pep@), no con maquetas dibujadas. Fondo blanco con el halo de
@@ -101,3 +107,52 @@ node marketing/tienda/generador/resize.mjs   # ajustar el ancho/alto ahí dentro
 node marketing/tienda/generador/capturar-ipad.mjs
 node marketing/tienda/generador/exportar-ipad.mjs
 ```
+
+## Microsoft Store
+
+Aquí **no hay láminas**: la Store prohíbe adornos de marketing sobre la captura,
+así que va la app cruda, tal cual se ve en Windows. Y como no hay composición,
+tampoco hay paso intermedio: el script escribe directo en lo que se sube.
+
+```
+msstore/capturas/<idioma>/01-casa.png … 04-chat.png   1600×900 — escritorio
+msstore/textos/<idioma>.json                          ficha (descripción, corta, características)
+```
+
+```bash
+node marketing/tienda/generador/cdp.mjs arranca http://localhost:53378/
+node marketing/tienda/generador/capturar-windows.mjs        # los 16
+node marketing/tienda/generador/capturar-windows.mjs de ja  # solo esos
+node marketing/tienda/generador/ficha-msstore.mjs           # textos, imprime la tabla de límites
+```
+
+Las mismas cuatro escenas que las láminas de móvil, con tres diferencias:
+
+- **El HUD se deja a la vista.** En la lámina del iPad se esconde para que sea
+  una portada limpia; aquí la Store enseña la app real y el reloj, la rueda y el
+  chat son parte de ella. Lo único que se oculta es el chip de «salir de la
+  demo», que no existe en el producto.
+- **`gl.setPixelRatio(1)`, no 3.** El viewport ya es de 1600×900, así que el
+  lienzo sale nativo y se queda en 1,44 MP — debajo del techo de ~3 MP que
+  revienta la pestaña al capturar. Poner 3 aquí la mataría.
+- **Si la app no monta, sospecha del entorno antes que del script.** El síntoma
+  es un `<div id="root">` vacío para siempre —sin React, sin globales, sin
+  lienzo y sin un solo error en consola—, y aparece cuando el servidor de Vite
+  lleva horas encendido con ediciones encima. Reiniciar el dev server y el
+  piloto es lo primero. Las capturas de `es`/`en` que hay subidas salieron a
+  1920×1080 con el entorno fresco; más tarde, en la misma sesión, no montaba ni
+  a 1366×768 con el sitio recién borrado.
+- **El encuadre lo calcula `enfocarZona`**, no el zoom fijo de las capturas de
+  teléfono: ese está calibrado para 390×844 y en apaisado deja la casa
+  descentrada.
+
+`capturar-windows.mjs` agranda la ventana del piloto él solo (no hace falta
+`resize.mjs`): `fromSurface` no puede capturar más grande que la ventana real.
+
+Los textos salen de `web/i18n/paginas/`, la misma fuente que la ficha del App
+Store, así que **no hay nada que traducir aparte**. Lo que cambia son los
+límites y la forma (`generador/ficha-msstore.mjs`): la Store **sí admite el
+precio** —Apple no—, las características son un campo propio de hasta 20
+viñetas de 200 caracteres en vez de ir dentro de la descripción, ésta admite
+10 000 caracteres, la corta 1 000 (solo se ven los primeros 270) y no hay campo
+de palabras clave.

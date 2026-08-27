@@ -45,6 +45,8 @@ marketing/video/*/pantalla.mov
 marketing/video/*/tts/
 marketing/video/*/salida/
 marketing/publicaciones.log.json
+# Perfil del Chrome piloto de las capturas (lo crea generador/cdp.mjs; ~600 MB)
+marketing/tienda/generador/perfil-chrome/
 
 # iOS (Capacitor) — ios/.gitignore ya excluye Pods/build/public; esto remata
 # lo que Xcode deja fuera de esa carpeta
