@@ -15,6 +15,7 @@ directories:
 files:
   - dist/**/*
   - electron/main.js
+  - electron/precarga.cjs
   - electron/fondo.ps1
   - electron/fondo-raton.ps1
   - "!node_modules/**/*"
@@ -22,6 +23,16 @@ files:
 # cargador de Chromium, que NO lee dentro de un .asar — empaquetado serviría
 # 404s aunque en dev funcione. Son archivos estáticos; no hay nada que ocultar.
 asar: false
+
+# El esquema por el que vuelve el login social desde el navegador del sistema.
+# Es el MISMO que Android e iOS y ya está en las Redirect URLs de Supabase (ver
+# `ESQUEMA_PROFUNDO` en electron/main.js). En macOS esto se convierte en el
+# `CFBundleURLTypes` del bundle; en Windows lo registra el instalador NSIS y el
+# enlace entra como un argumento más en `second-instance`.
+protocols:
+  - name: Mind Planner Home
+    schemes:
+      - com.macr120.mindhome
 
 win:
   target:
@@ -40,9 +51,43 @@ appx:
   identityName: MindPlannerHome.MindPlannerHome
   publisher: CN=7F375BA0-7942-4F15-B517-65268E256FDE
   publisherDisplayName: Mind Planner Home
+  # Los 16 de `src/core/i18n/idiomas.ts`. Van aquí porque **Partner Center saca
+  # del PAQUETE los idiomas de la ficha**: sin declararlos, la tienda daría MPH
+  # por monolingüe. El primero es el de reserva.
+  languages:
+    - en-US
+    - es-MX
+    - pt-BR
+    - fr-FR
+    - de-DE
+    - it-IT
+    - ja-JP
+    - zh-CN
+    - ko-KR
+    - ru-RU
+    - hi-IN
+    - tr-TR
+    - id-ID
+    - pl-PL
+    - nl-NL
+    - ar-SA
 
 mac:
   category: public.app-category.productivity
+  # El icono de macOS NO es el cuadrado de Windows: Apple espera el squircle ya
+  # dibujado, con su margen (retícula de 824 en 1024). Lo genera
+  # scripts/icono-escritorio.mjs junto al cuadrado, que se queda para el .ico y
+  # los mosaicos de Store — ahí el redondeo sería un error.
+  icon: electron/build/icono-mac.png
+  # Los permisos, traducidos: macOS lee `<idioma>.lproj/InfoPlist.strings` de
+  # Resources igual que iOS, así que se reusan LOS MISMOS archivos del proyecto
+  # de iOS en vez de mantener una segunda copia. El original inglés sigue abajo,
+  # en extendInfo, como en el Info.plist del teléfono.
+  extraResources:
+    - from: ios/App/App
+      to: .
+      filter:
+        - "*.lproj/InfoPlist.strings"
   target:
     - target: dmg
       arch: universal

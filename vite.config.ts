@@ -12,7 +12,12 @@ export default defineConfig({
     // handle sobre `dist-escritorio` y en Windows eso IMPIDE renombrar carpetas:
     // electron-builder moría con `EPERM ... rename win-unpacked.tmp`. Vite ignora
     // solo `dist` (su outDir), no la salida del empaquetado de escritorio.
-    watch: { ignored: ['**/dist-escritorio/**'] },
+    // OJO: `ignored` SUSTITUYE la lista de serie, no se suma a ella. Dejando
+    // solo `dist-escritorio` el vigilante se come `node_modules` y el dev server
+    // entra en bucle de HMR sin llegar a montar la app.
+    watch: {
+      ignored: ['**/node_modules/**', '**/.git/**', '**/dist/**', '**/dist-escritorio/**'],
+    },
   },
   build: {
     rollupOptions: {

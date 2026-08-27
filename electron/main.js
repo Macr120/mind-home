@@ -2,14 +2,18 @@
  * Shell de escritorio de Mind Planner Home (Electron, Windows y macOS).
  *
  * Sirve la MISMA web compilada (`dist/`) bajo el protocolo propio `app://mph`,
- * sin preload y con los defaults de seguridad de Electron (contextIsolation,
- * sandbox, sin nodeIntegration): la app no necesita nada de Node, solo un
- * navegador con marco. Todo lo que sale del shell —el checkout de la web,
- * soporte, enlaces— se abre en el navegador del sistema.
+ * con los defaults de seguridad de Electron (contextIsolation, sandbox, sin
+ * nodeIntegration): la app no necesita nada de Node, solo un navegador con
+ * marco. Todo lo que sale del shell —el checkout de la web, soporte, enlaces—
+ * se abre en el navegador del sistema.
+ *
+ * El único puente es `precarga.cjs`, y existe por UNA cosa: devolverle a la app
+ * el enlace profundo con el que vuelve el login social. Nada más cruza.
  */
-import { app, BrowserWindow, dialog, net, protocol, screen, shell } from 'electron'
+import { app, BrowserWindow, dialog, Menu, net, protocol, screen, session, shell } from 'electron'
 import { execFile, spawn } from 'node:child_process'
 import fs from 'node:fs/promises'
+import { readFileSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
@@ -19,12 +23,26 @@ const ORIGEN = 'app://mph'
 // `--dev` (npm run escritorio:dev): carga el servidor de Vite en vez del build.
 const URL_DEV = process.argv.includes('--dev') ? 'http://localhost:5173' : null
 
+/**
+ * Por dónde vuelve el login social. Es el MISMO esquema que Android e iOS
+ * (`REDIRECT_NATIVO` en `core/cuenta/sesionStore.ts`), que ya está dado de alta
+ * en las Redirect URLs de Supabase: una URL menos que mantener, y las tres
+ * plataformas comparten el canje de PKCE.
+ */
+const ESQUEMA_PROFUNDO = 'com.macr120.mindhome'
+
+/** Enlaces que llegaron antes de que hubiera página a la que dárselos. */
+const enlacesPendientes = []
+
 // Dos instancias serían dos Chromium sobre el MISMO perfil: IndexedDB corrupta.
 if (!app.requestSingleInstanceLock()) app.quit()
 
 // `esEscritorio()` (src/core/plataforma.ts) busca esta marca en el user agent;
 // de ella cuelga `canalPago() === 'escritorio'` (el pago sale al navegador).
-app.userAgentFallback += ` MindPlannerHome/${app.getVersion()}`
+// Se limpia antes la que Electron deriva del nombre del producto, o viaja dos
+// veces; y se pone a propósito, sin confiar en esa: renombrar el producto en el
+// package.json se llevaría por delante la caja de pago sin que nada avise.
+app.userAgentFallback = `${app.userAgentFallback.replace(/ MindPlannerHome\/[\d.]+/g, '')} MindPlannerHome/${app.getVersion()}`
 // Sin el AppUserModelID los toasts de Windows salen como «electron.app.mind-home».
 app.setAppUserModelId('com.macr120.mindhome')
 
@@ -149,17 +167,31 @@ function crearVentanaFondo() {
 
 function crearVentana() {
   ventana = new BrowserWindow({
-    width: 1280,
-    height: 800,
+    ...medidaGuardada(),
     minWidth: 800,
     minHeight: 600,
     backgroundColor: '#0f1115',
     autoHideMenuBar: true,
     show: false,
+    webPreferences: {
+      preload: path.join(__dirname, 'precarga.cjs'),
+      // La versión por argumento: un preload en sandbox no puede leerla de
+      // ningún otro sitio sin abrirle a la página un canal que no necesita.
+      additionalArguments: [`--mph-version=${app.getVersion()}`],
+    },
   })
   ventana.once('ready-to-show', () => ventana.show())
+  ventana.on('close', () => guardarMedida())
   ventana.on('closed', () => {
     ventana = null
+  })
+
+  // Los enlaces que llegaron antes de tiempo se sueltan cuando la página ya
+  // corrió su JavaScript, NO cuando la ventana se ve: quien los escucha es la
+  // app (`escucharDeepLinkAuth`), y hasta que no arranca no hay nadie al otro
+  // lado. Abrir la app *desde* el enlace del login es justo ese caso.
+  ventana.webContents.on('did-finish-load', () => {
+    for (const url of enlacesPendientes.splice(0)) repartirEnlace(url)
   })
 
   // Cualquier salida es navegación de verdad: al navegador del sistema. Aquí
@@ -213,7 +245,170 @@ function esMayor(a, b) {
   return false
 }
 
+/**
+ * Tamaño y posición con los que se cerró. La posición solo se reusa si aquella
+ * pantalla sigue conectada: un portátil que se desconecta del monitor abriría
+ * la app fuera de cuadro, así que ahí se devuelve solo el tamaño y Electron
+ * centra. Que no se pueda recordar nunca es motivo para molestar a nadie.
+ */
+function archivoMedida() {
+  return path.join(app.getPath('userData'), 'ventana.json')
+}
+
+function medidaGuardada() {
+  const POR_DEFECTO = { width: 1280, height: 800 }
+  try {
+    const { x, y, width, height } = JSON.parse(readFileSync(archivoMedida(), 'utf8'))
+    if (!width || !height) return POR_DEFECTO
+    const visible = screen
+      .getAllDisplays()
+      .some(({ workArea: z }) => x >= z.x && y >= z.y && x < z.x + z.width && y < z.y + z.height)
+    return visible ? { x, y, width, height } : { width, height }
+  } catch {
+    return POR_DEFECTO
+  }
+}
+
+function guardarMedida() {
+  try {
+    if (!ventana || ventana.isDestroyed() || ventana.isFullScreen()) return
+    writeFileSync(archivoMedida(), JSON.stringify(ventana.getNormalBounds()), 'utf8')
+  } catch {
+    /* el tamaño no vale un aviso */
+  }
+}
+
+/**
+ * La vuelta del login social: el navegador del sistema termina en
+ * `com.macr120.mindhome://oauth?code=…` y el SO nos despierta con esa URL. Se
+ * la pasamos al precargador, que la reemite como evento del DOM para que la
+ * canjee `escucharDeepLinkAuth`. Si todavía no hay página cargada se encola:
+ * abrir la app DESDE el enlace es el caso normal, no el raro.
+ */
+function repartirEnlace(url) {
+  if (!ventana || ventana.webContents.isLoading()) {
+    enlacesPendientes.push(url)
+    if (!ventana) crearVentana()
+    return
+  }
+  if (ventana.isMinimized()) ventana.restore()
+  ventana.focus()
+  ventana.webContents.send('mph:enlace-profundo', url)
+}
+
+/** Deja que el sistema sepa que los `com.macr120.mindhome://…` son nuestros. */
+function registrarEsquemaProfundo() {
+  if (process.defaultApp && process.argv.length >= 2) {
+    // `electron electron/main.js` en desarrollo: hay que decirle al sistema qué
+    // ejecutar. Aun así, quien enruta de verdad es el registro del SO, y ahí
+    // solo entra la app YA INSTALADA: el enlace no se puede probar sin empaquetar.
+    app.setAsDefaultProtocolClient(ESQUEMA_PROFUNDO, process.execPath, [path.resolve(process.argv[1])])
+  } else {
+    app.setAsDefaultProtocolClient(ESQUEMA_PROFUNDO)
+  }
+}
+
+/**
+ * Cámara y micrófono sí (Chat AR y dictado) y notificaciones sí (los avisos);
+ * lo demás, no. Y solo para nuestro propio origen: con los permisos de serie,
+ * cualquier página que llegara a cargarse aquí podría pedirlos.
+ */
+function permisos() {
+  const CONCEDIDOS = new Set(['media', 'notifications', 'clipboard-sanitized-write', 'fullscreen'])
+  const nuestro = (url) => typeof url === 'string' && (url.startsWith(ORIGEN) || (URL_DEV && url.startsWith(URL_DEV)))
+
+  session.defaultSession.setPermissionRequestHandler((contenido, permiso, responder) => {
+    responder(CONCEDIDOS.has(permiso) && nuestro(contenido.getURL()))
+  })
+  session.defaultSession.setPermissionCheckHandler((_c, permiso, origen) => CONCEDIDOS.has(permiso) && nuestro(origen))
+}
+
+/**
+ * Menú en español. En Windows va oculto (`autoHideMenuBar`) y macOS siempre
+ * enseña el suyo, pero el motivo de que exista no es decorativo: sin un menú
+ * Editar con sus roles nativos, **⌘C y ⌘V no funcionan** en los campos de texto
+ * de la app. Electron los cablea desde el menú, no desde el sistema.
+ */
+function construirMenu() {
+  const esMac = process.platform === 'darwin'
+  return Menu.buildFromTemplate([
+    ...(esMac
+      ? [
+          {
+            label: app.getName(),
+            submenu: [
+              { role: 'about', label: 'Acerca de Mind Planner Home' },
+              { type: 'separator' },
+              { role: 'services', label: 'Servicios' },
+              { type: 'separator' },
+              { role: 'hide', label: 'Ocultar Mind Planner Home' },
+              { role: 'hideOthers', label: 'Ocultar otras' },
+              { role: 'unhide', label: 'Mostrar todas' },
+              { type: 'separator' },
+              { role: 'quit', label: 'Salir de Mind Planner Home' },
+            ],
+          },
+        ]
+      : []),
+    {
+      label: 'Editar',
+      submenu: [
+        { role: 'undo', label: 'Deshacer' },
+        { role: 'redo', label: 'Rehacer' },
+        { type: 'separator' },
+        { role: 'cut', label: 'Cortar' },
+        { role: 'copy', label: 'Copiar' },
+        { role: 'paste', label: 'Pegar' },
+        { role: 'selectAll', label: 'Seleccionar todo' },
+      ],
+    },
+    {
+      label: 'Ver',
+      submenu: [
+        { role: 'reload', label: 'Recargar' },
+        { role: 'resetZoom', label: 'Tamaño normal' },
+        { role: 'zoomIn', label: 'Acercar' },
+        { role: 'zoomOut', label: 'Alejar' },
+        { type: 'separator' },
+        { role: 'togglefullscreen', label: 'Pantalla completa' },
+        ...(app.isPackaged ? [] : [{ role: 'toggleDevTools', label: 'Herramientas de desarrollo' }]),
+      ],
+    },
+    {
+      label: 'Ventana',
+      submenu: [
+        { role: 'minimize', label: 'Minimizar' },
+        { role: 'zoom', label: 'Zoom' },
+        ...(esMac
+          ? [{ type: 'separator' }, { role: 'front', label: 'Traer todo al frente' }]
+          : [{ role: 'close', label: 'Cerrar' }]),
+      ],
+    },
+    {
+      label: 'Ayuda',
+      submenu: [
+        { label: 'Soporte', click: () => shell.openExternal('https://mindplannerhome.com/soporte') },
+        { label: 'Sitio web', click: () => shell.openExternal('https://mindplannerhome.com') },
+      ],
+    },
+  ])
+}
+
+// macOS: el enlace profundo llega por aquí, y puede llegar ANTES del ready.
+app.on('open-url', (evento, url) => {
+  evento.preventDefault()
+  repartirEnlace(url)
+})
+
 app.on('second-instance', (_e, argv) => {
+  // Windows y Linux no tienen `open-url`: el enlace profundo llega como UN
+  // ARGUMENTO más. Se busca por esquema y no con un `includes`, que no
+  // distinguiría la URL del flag `--fondo` que viene justo debajo.
+  const enlace = argv.find((a) => a.startsWith(`${ESQUEMA_PROFUNDO}://`))
+  if (enlace) {
+    repartirEnlace(enlace)
+    return
+  }
   // `--fondo` desde fuera: la ventana wallpaper se abre EN ESTE proceso (mismo
   // perfil; dos procesos sobre la misma IndexedDB es justo lo que el lock
   // impide). Y al revés: abrir la app normal con el fondo ya corriendo.
@@ -236,8 +431,14 @@ app.on('window-all-closed', () => {
 
 void app.whenReady().then(() => {
   protocol.handle('app', responder)
+  registrarEsquemaProfundo()
+  permisos()
+  Menu.setApplicationMenu(construirMenu())
   if (process.argv.includes('--fondo')) crearVentanaFondo()
   else crearVentana()
+  // Windows: si el SO nos arrancó POR el enlace, viene en nuestro propio argv.
+  const enlaceInicial = process.argv.find((a) => a.startsWith(`${ESQUEMA_PROFUNDO}://`))
+  if (enlaceInicial) repartirEnlace(enlaceInicial)
   if (app.isPackaged) void avisarVersionNueva()
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) crearVentana()
