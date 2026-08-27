@@ -29,6 +29,13 @@ const version = process.argv.find((a) => a.startsWith('--mph-version='))?.slice(
 contextBridge.exposeInMainWorld('mph', {
   escritorio: true,
   version: version ?? null,
+  /**
+   * ¿Este shell puede reenviarle CLICS al fondo de pantalla? Solo Windows: allí
+   * lo consigue `fondo-raton.ps1` enganchándose al ratón global. En macOS la
+   * ventana vive por debajo del escritorio y el sistema no le manda clics, así
+   * que el fondo mueve al personaje siguiendo el cursor en vez de esperarlos.
+   */
+  clicsEnFondo: process.platform === 'win32',
   /** Enciende o apaga la casa como fondo de pantalla; resuelve si queda encendida. */
   ponerDeFondo: () => ipcRenderer.invoke('mph:fondo'),
   /** Foto de cómo se ve el fondo AHORA (data URL), o null si no está puesto. */

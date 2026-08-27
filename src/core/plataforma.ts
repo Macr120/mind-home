@@ -92,6 +92,7 @@ export function canalPago(): CanalPago {
 interface PuenteEscritorio {
   escritorio: true
   version: string | null
+  clicsEnFondo?: boolean
   ponerDeFondo?: () => Promise<boolean>
   vistaFondo?: () => Promise<string | null>
   moverFondo?: (d: { fx?: number; fy?: number; zoom?: number }) => Promise<boolean>
@@ -137,4 +138,14 @@ export async function moverFondoEscritorio(d: { fx?: number; fy?: number; zoom?:
   } catch {
     /* el fondo no está puesto: no hay nada que mover */
   }
+}
+
+/**
+ * En el fondo de pantalla, ¿el personaje debe SEGUIR al cursor en vez de
+ * esperar un clic? Sí donde el shell no puede reenviar clics —macOS, donde la
+ * ventana vive por debajo del escritorio—: sin esto el fondo se quedaría quieto
+ * y el puntero sería un adorno. En Windows manda el clic, como en la app.
+ */
+export function elFondoSigueAlCursor(): boolean {
+  return esModoFondo() && window.mph?.clicsEnFondo === false
 }

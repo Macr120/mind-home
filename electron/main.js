@@ -107,6 +107,12 @@ function crearVentanaFondo() {
     webPreferences: {
       preload: path.join(__dirname, 'precarga.cjs'),
       additionalArguments: [`--mph-version=${app.getVersion()}`],
+      // Un fondo de pantalla está SIEMPRE tapado por otras ventanas, y Chromium
+      // congela lo que cree oculto para ahorrar batería: sin esto la casa deja
+      // de animarse en cuanto abres cualquier cosa encima y el fondo se queda
+      // en una foto fija. Medido: dos capturas con 8 s de diferencia salían
+      // idénticas al byte, ni el latido del puntero se movía.
+      backgroundThrottling: false,
     },
   })
   const win = ventanaFondo

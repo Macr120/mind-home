@@ -1157,6 +1157,10 @@ export const EN: Dict = {
   'ajustes.fondoEscritorio': 'Wallpaper',
   'ajustes.fondoPoner': 'Set the house as wallpaper',
   'ajustes.fondoQuitar': 'Remove the house from the desktop',
+  'ajustes.fondoArriba': 'Move up',
+  'ajustes.fondoAbajo': 'Move down',
+  'ajustes.fondoIzquierda': 'Move left',
+  'ajustes.fondoDerecha': 'Move right',
   'ajustes.fondoArrastra': 'Drag the preview to centre the house.',
   'ajustes.fondoNota':
     'Behind your windows you see only the map, no controls. It opens with your house exactly as it is now.',

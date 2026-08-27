@@ -7,6 +7,7 @@ import { IDIOMAS } from '../../i18n/idiomas'
 import { TEMAS_UI, modoBase, type ModoUI } from '../temasUI'
 import { TIPOGRAFIAS } from '../tipografias'
 import { Icono } from '../iconos/Icono'
+import type { NombreIcono } from '../iconos/catalogo'
 import {
   alternarFondoEscritorio,
   hayFondoEscritorio,
@@ -322,6 +323,22 @@ function FondoDeEscritorio() {
     }
   }
 
+  /** Un toque de flecha: la octava parte de la pantalla. */
+  const PASO = 0.125
+
+  /** Manda el movimiento al fondo y vuelve a fotografiarlo. */
+  const mover = async (d: { fx?: number; fy?: number; zoom?: number }) => {
+    if (ocupado) return
+    setOcupado(true)
+    try {
+      await moverFondoEscritorio(d)
+      await esperar(500)
+      await refrescar()
+    } finally {
+      setOcupado(false)
+    }
+  }
+
   /**
    * Arrastrar la vista previa mueve el encuadre del fondo. El arrastre viaja en
    * FRACCIÓN de la caja (−1..1) y no en píxeles: así el paso no depende de lo
@@ -368,6 +385,27 @@ function FondoDeEscritorio() {
           ) : (
             <div className="flex h-full w-full items-center justify-center text-[11px] text-white/40">…</div>
           )}
+
+          {/* Zoom, arriba a la derecha. */}
+          <div className="absolute right-1.5 top-1.5 flex flex-col gap-1">
+            <BotonFondo etiqueta={t('nav3d.acercar', 'Acercar')} icono="agregar" alPulsar={() => mover({ zoom: 1.18 })} />
+            <BotonFondo etiqueta={t('nav3d.alejar', 'Alejar')} icono="quitar" alPulsar={() => mover({ zoom: 0.85 })} />
+          </div>
+
+          {/* Cruceta para centrar, abajo a la derecha. La flecha mueve la CASA
+              hacia ese lado —lo mismo que arrastrar la vista previa en esa
+              dirección—, que es lo que uno espera mirando la foto. */}
+          <div className="absolute bottom-1.5 right-1.5 grid grid-cols-3 gap-0.5">
+            <span />
+            <BotonFondo etiqueta={t('ajustes.fondoArriba', 'Mover arriba')} icono="subir" alPulsar={() => mover({ fy: -PASO })} />
+            <span />
+            <BotonFondo etiqueta={t('ajustes.fondoIzquierda', 'Mover a la izquierda')} icono="izquierda" alPulsar={() => mover({ fx: -PASO })} />
+            <span />
+            <BotonFondo etiqueta={t('ajustes.fondoDerecha', 'Mover a la derecha')} icono="derecha" alPulsar={() => mover({ fx: PASO })} />
+            <span />
+            <BotonFondo etiqueta={t('ajustes.fondoAbajo', 'Mover abajo')} icono="bajar" alPulsar={() => mover({ fy: PASO })} />
+            <span />
+          </div>
         </div>
       )}
 
@@ -398,5 +436,31 @@ function FondoDeEscritorio() {
             )}
       </p>
     </div>
+  )
+}
+
+/** Un botón cuadrado de los que van SOBRE la vista previa del fondo. */
+function BotonFondo({
+  etiqueta,
+  icono,
+  alPulsar,
+}: {
+  etiqueta: string
+  icono: NombreIcono
+  alPulsar: () => void
+}) {
+  return (
+    <button
+      type="button"
+      aria-label={etiqueta}
+      title={etiqueta}
+      // El contenedor captura el puntero para el arrastre: sin esto, pulsar un
+      // botón contaría además como un arrastre de cero píxeles.
+      onPointerDown={(e) => e.stopPropagation()}
+      onClick={alPulsar}
+      className="flex h-6 w-6 items-center justify-center rounded border border-white/15 bg-black/45 text-white/80 backdrop-blur-sm transition hover:bg-black/70 hover:text-white"
+    >
+      <Icono nombre={icono} className="h-3.5 w-3.5" />
+    </button>
   )
 }
