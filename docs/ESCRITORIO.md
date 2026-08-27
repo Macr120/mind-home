@@ -152,8 +152,31 @@ spctl -a -vvv -t install "dist-escritorio/mac-universal/Mind Planner Home.app"
   lo puede ejecutar. La primera prueba en un Mac con Apple Silicon sigue
   pendiente.
 - **El enlace profundo solo se puede probar empaquetado**: quien enruta
-  `com.macr120.mindhome://` es el registro del sistema, y en desarrollo el que
-  queda registrado es el Electron genérico.
+  `com.macr120.mindhome://` es el registro del sistema.
+- **En macOS, `setAsDefaultProtocolClient` con `execPath` en desarrollo LE ROBA
+  el esquema a la app instalada.** Esa variante (con ejecutable y argumentos) es
+  un patrón de Windows; en macOS registra el BUNDLE dueño de ese ejecutable, que
+  en desarrollo es `node_modules/electron/dist/Electron.app`. A partir de ahí el
+  sistema le manda a él la vuelta del login: el navegador termina bien, no vuelve
+  nadie y no hay ni un error. Por eso en macOS solo se registra empaquetada — ahí
+  basta el `CFBundleURLTypes` del bundle. Para ver quién tiene el esquema:
+
+  ```swift
+  // swift esto.swift
+  import AppKit
+  print(NSWorkspace.shared.urlForApplication(
+    toOpen: URL(string: "com.macr120.mindhome://oauth")!)?.path ?? "ninguna")
+  ```
+
+  y para devolvérselo a la app instalada, `NSWorkspace.setDefaultApplication(at:
+  toOpenURLsWithScheme:)`. Ojo también con las copias viejas: cada `.app`
+  compilada que haya existido reclama el esquema, y las de iOS del simulador
+  también. Se dan de baja con `lsregister -u <ruta>` (el binario vive en
+  `CoreServices.framework/…/Support/lsregister`; `-kill` ya no existe).
+- **`APPLE_KEYCHAIN` con la ruta del llavero rompe la notarización**:
+  `notarytool` responde «No Keychain password item found for profile». Con solo
+  `--keychain-profile` sí lo encuentra, así que para notarizar desde el build hay
+  que usar las variables de Apple ID o hacerlo a mano después (§4).
 - **`watch.ignored` de Vite SUSTITUYE la lista de serie**, no se suma. Dejando
   solo `dist-escritorio` el vigilante se come `node_modules` y el dev server
   entra en bucle de HMR sin llegar a montar la app.
