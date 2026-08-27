@@ -1,4 +1,4 @@
-/* Permisos que enseña iOS. El original vive en Info.plist (inglés). */
+/* Permisos que enseñan iOS y el Mac (el escritorio reusa estos mismos archivos). El original vive en Info.plist (inglés). */
 "NSCameraUsageDescription" = "Um deine Umgebung im AR-Chat zu sehen und Fotos für deine Apps aufzunehmen.";
 "NSMicrophoneUsageDescription" = "Um deinem Haus zu diktieren, statt zu tippen.";
 "NSPhotoLibraryUsageDescription" = "Um Fotos für deine Erinnerungen, deine Räume und den Chat auszuwählen.";

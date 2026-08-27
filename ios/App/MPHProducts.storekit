@@ -1,0 +1,158 @@
+{
+  "identifier" : "A1B2C3D4-0000-4000-8000-MPH000000001",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "8.99",
+      "familyShareable" : false,
+      "internalID" : "6805263934",
+      "localizations" : [
+        {
+          "description" : "Every app and your data, on your device",
+          "displayName" : "The whole house, forever",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.macr120.mindhome.unlock_casa_v4",
+      "referenceName" : "Mind Planner Home - House (one-time purchase)",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "5.99",
+      "familyShareable" : false,
+      "internalID" : "6805264690",
+      "localizations" : [
+        {
+          "description" : "700 extra AI credits for this month",
+          "displayName" : "700 AI credits",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.macr120.mindhome.creditos_x1",
+      "referenceName" : "Mind Planner Home - 700 AI credits top-up",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6804840611",
+    "_developerTeamID" : "9FA4Z58JF3",
+    "_lastSynchronizedDate" : 0
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21500001",
+      "localizations" : [
+
+      ],
+      "name" : "Mind Planner Home Pro",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "5.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "21510001",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "700 AI credits every month and sync",
+              "displayName" : "Pro",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.macr120.mindhome.pro_x1_v2",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Pro x1 monthly",
+          "subscriptionGroupID" : "21500001",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "11.99",
+          "familyShareable" : false,
+          "groupNumber" : 2,
+          "internalID" : "21510002",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "1400 AI credits every month and sync",
+              "displayName" : "Pro x2",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.macr120.mindhome.pro_x2_v2",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Pro x2 monthly",
+          "subscriptionGroupID" : "21500001",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "17.99",
+          "familyShareable" : false,
+          "groupNumber" : 3,
+          "internalID" : "21510003",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "2100 AI credits every month and sync",
+              "displayName" : "Pro x3",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.macr120.mindhome.pro_x3_v2",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Pro x3 monthly",
+          "subscriptionGroupID" : "21500001",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "59.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "21510004",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "700 AI credits every month and sync, billed yearly",
+              "displayName" : "Pro yearly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.macr120.mindhome.pro_x1_anual",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Pro x1 yearly",
+          "subscriptionGroupID" : "21500001",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}

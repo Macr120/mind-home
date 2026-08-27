@@ -13,6 +13,9 @@ dist-ssr
 dist-web
 # Escritorio (Electron): instaladores y el icono rasterizado
 dist-escritorio
+# Lo que empaqueta electron-builder (el .dmg y el .app pesan cientos de MB:
+# GitHub rechaza cualquier archivo de más de 100).
+escritorio/salida
 electron/build/icon.png
 *.local
 
