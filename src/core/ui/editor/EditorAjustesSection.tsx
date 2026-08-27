@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { useRef, useState, type ReactNode } from 'react'
 import { Shapes } from 'lucide-react'
 import { useAjustes, type EstiloIconos } from '../../state/ajustesStore'
 import { useT } from '../../i18n/useT'
@@ -7,6 +7,12 @@ import { IDIOMAS } from '../../i18n/idiomas'
 import { TEMAS_UI, modoBase, type ModoUI } from '../temasUI'
 import { TIPOGRAFIAS } from '../tipografias'
 import { Icono } from '../iconos/Icono'
+import {
+  alternarFondoEscritorio,
+  hayFondoEscritorio,
+  moverFondoEscritorio,
+  vistaFondoEscritorio,
+} from '../../plataforma'
 
 /**
  * Sección del editor de mapa: ajustes de la interfaz (idioma, apariencia,
@@ -267,6 +273,130 @@ export function EditorAjustesSection({ embed }: { embed?: boolean } = {}) {
           })}
         </div>
       </div>
+
+      <FondoDeEscritorio />
+    </div>
+  )
+}
+
+/**
+ * La casa como fondo de pantalla, solo en el escritorio (Windows y macOS): en el
+ * navegador y en el teléfono `hayFondoEscritorio()` es falso y esto no existe.
+ *
+ * El fondo es una VENTANA APARTE que abre el shell, no una vista de esta: pinta
+ * solo el mapa —sin HUD ni controles, lo decide `esModoFondo()` en App.tsx— y
+ * nace con la casa tal y como está en el momento de encenderla.
+ */
+function FondoDeEscritorio() {
+  const t = useT()
+  const [puesto, setPuesto] = useState(false)
+  const [ocupado, setOcupado] = useState(false)
+  const [vista, setVista] = useState<string | null>(null)
+  const caja = useRef<HTMLDivElement>(null)
+  const inicio = useRef<{ x: number; y: number } | null>(null)
+
+  if (!hayFondoEscritorio()) return null
+
+  const esperar = (ms: number) => new Promise((r) => setTimeout(r, ms))
+  const refrescar = async () => setVista(await vistaFondoEscritorio())
+
+  const alternar = async () => {
+    if (ocupado) return
+    setOcupado(true)
+    try {
+      const ahora = await alternarFondoEscritorio()
+      setPuesto(ahora)
+      if (!ahora) {
+        setVista(null)
+        return
+      }
+      // La casa 3D tarda en montar: capturar antes daría una foto en negro.
+      // Dos tomas porque la primera suele pillarla a medio dibujar; la segunda
+      // ya es lo que se queda detrás de las ventanas.
+      await esperar(2500)
+      await refrescar()
+      await esperar(3500)
+      await refrescar()
+    } finally {
+      setOcupado(false)
+    }
+  }
+
+  /**
+   * Arrastrar la vista previa mueve el encuadre del fondo. El arrastre viaja en
+   * FRACCIÓN de la caja (−1..1) y no en píxeles: así el paso no depende de lo
+   * grande que sea la vista previa ni de la resolución de la pantalla.
+   */
+  const alSoltar = async (e: React.PointerEvent<HTMLDivElement>) => {
+    const desde = inicio.current
+    inicio.current = null
+    const r = caja.current?.getBoundingClientRect()
+    if (!desde || !r || ocupado) return
+    const fx = (e.clientX - desde.x) / Math.max(1, r.width)
+    const fy = (e.clientY - desde.y) / Math.max(1, r.height)
+    if (Math.abs(fx) < 0.01 && Math.abs(fy) < 0.01) return
+    setOcupado(true)
+    try {
+      await moverFondoEscritorio({ fx, fy })
+      await esperar(500)
+      await refrescar()
+    } finally {
+      setOcupado(false)
+    }
+  }
+
+  return (
+    <div className="space-y-1.5">
+      <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
+        {t('ajustes.fondoEscritorio', 'Fondo de pantalla')}
+      </p>
+
+      {puesto && (
+        <div
+          ref={caja}
+          onPointerDown={(e) => {
+            inicio.current = { x: e.clientX, y: e.clientY }
+            e.currentTarget.setPointerCapture(e.pointerId)
+          }}
+          onPointerUp={(e) => void alSoltar(e)}
+          className={`relative aspect-video w-full cursor-grab overflow-hidden rounded-md border border-white/10 bg-black/40 active:cursor-grabbing ${
+            ocupado ? 'opacity-60' : ''
+          }`}
+        >
+          {vista ? (
+            <img src={vista} alt="" draggable={false} className="h-full w-full select-none object-cover" />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center text-[11px] text-white/40">…</div>
+          )}
+        </div>
+      )}
+
+      <button
+        type="button"
+        onClick={() => void alternar()}
+        disabled={ocupado}
+        className={`flex w-full items-center justify-between gap-2 rounded-md border px-2.5 py-1.5 text-sm transition disabled:opacity-50 ${
+          puesto
+            ? 'border-accent bg-white/10 text-white'
+            : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
+        }`}
+      >
+        <span>
+          {puesto
+            ? t('ajustes.fondoQuitar', 'Quitar la casa del escritorio')
+            : t('ajustes.fondoPoner', 'Poner la casa de fondo')}
+        </span>
+        <Icono nombre="paleta" className="h-4 w-4 opacity-70" />
+      </button>
+
+      <p className="text-[11px] leading-snug text-white/45">
+        {puesto
+          ? t('ajustes.fondoArrastra', 'Arrastra la vista previa para centrar la casa.')
+          : t(
+              'ajustes.fondoNota',
+              'Detrás de tus ventanas se ve solo el mapa, sin controles. Se abre con tu casa tal y como está ahora.',
+            )}
+      </p>
     </div>
   )
 }

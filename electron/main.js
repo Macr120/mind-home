@@ -10,7 +10,7 @@
  * El único puente es `precarga.cjs`, y existe por UNA cosa: devolverle a la app
  * el enlace profundo con el que vuelve el login social. Nada más cruza.
  */
-import { app, BrowserWindow, dialog, Menu, net, protocol, screen, session, shell } from 'electron'
+import { app, BrowserWindow, dialog, ipcMain, Menu, net, protocol, screen, session, shell } from 'electron'
 import { execFile, spawn } from 'node:child_process'
 import fs from 'node:fs/promises'
 import { readFileSync, writeFileSync } from 'node:fs'
@@ -102,6 +102,12 @@ function crearVentanaFondo() {
     // ya colgada del WorkerW, para no ver la ventana suelta durante el arranque.
     show: process.platform === 'darwin',
     ...(process.platform === 'darwin' ? { type: 'desktop' } : {}),
+    // El mismo puente que la ventana normal: por aquí le llegan los arrastres
+    // de la vista previa de Configuraciones. Sin él, el fondo no se deja mover.
+    webPreferences: {
+      preload: path.join(__dirname, 'precarga.cjs'),
+      additionalArguments: [`--mph-version=${app.getVersion()}`],
+    },
   })
   const win = ventanaFondo
 
@@ -406,6 +412,47 @@ function construirMenu() {
     },
   ])
 }
+
+/**
+ * El interruptor del fondo de pantalla, que la app enciende desde
+ * Configuraciones › Interfaz. Crear ventanas es cosa del shell, así que la
+ * página solo pide y aquí se decide. Al encenderlo se crea una ventana NUEVA:
+ * así el fondo nace con la casa tal y como está ahora, sin depender de que algo
+ * le avise de los cambios. Devuelve si queda encendido, para que el botón sepa
+ * qué decir.
+ */
+ipcMain.handle('mph:fondo', () => {
+  if (ventanaFondo) {
+    ventanaFondo.close()
+    return false
+  }
+  crearVentanaFondo()
+  return true
+})
+
+/**
+ * La vista previa: una foto de la ventana del fondo tal y como está. Se captura
+ * de la ventana REAL en vez de dibujar una simulación, así lo que se ve en
+ * Configuraciones es exactamente lo que hay detrás de las ventanas. Devuelve
+ * null si el fondo no está puesto — no hay nada que enseñar.
+ */
+ipcMain.handle('mph:fondo-vista', async () => {
+  if (!ventanaFondo || ventanaFondo.isDestroyed()) return null
+  try {
+    const imagen = await ventanaFondo.webContents.capturePage()
+    // A la mitad: la vista previa es pequeña y así el data URL no engorda el IPC.
+    return imagen.resize({ width: Math.round(imagen.getSize().width / 2) }).toDataURL()
+  } catch {
+    return null
+  }
+})
+
+/** Mueve el encuadre del fondo. Lo aplica y lo guarda la propia ventana. */
+ipcMain.handle('mph:fondo-mover', (_e, d) => {
+  if (!ventanaFondo || ventanaFondo.isDestroyed()) return false
+  ventanaFondo.webContents.send('mph:fondo-mover', d ?? {})
+  return true
+})
 
 // macOS: el enlace profundo llega por aquí, y puede llegar ANTES del ready.
 app.on('open-url', (evento, url) => {

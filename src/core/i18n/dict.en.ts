@@ -1154,6 +1154,12 @@ export const EN: Dict = {
   'ajustes.iconos.emoji': 'Emojis',
   'ajustes.iconos.profesional': 'Professional',
   'ajustes.tipografia': 'Typography',
+  'ajustes.fondoEscritorio': 'Wallpaper',
+  'ajustes.fondoPoner': 'Set the house as wallpaper',
+  'ajustes.fondoQuitar': 'Remove the house from the desktop',
+  'ajustes.fondoArrastra': 'Drag the preview to centre the house.',
+  'ajustes.fondoNota':
+    'Behind your windows you see only the map, no controls. It opens with your house exactly as it is now.',
   'ajustes.abrir': 'Settings',
 
   // Tipografías
