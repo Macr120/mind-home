@@ -164,6 +164,7 @@ export const TEXTOS = {
   'desc.web.cta': 'Buka aplikasinya',
   'desc.windows': 'Penginstal untuk Windows 10/11.',
   'desc.mac': 'Image .dmg untuk Mac.',
+  'desc.mac.cta': 'Unduh untuk Mac',
 
   'faq.h2': 'Pertanyaan yang sering diajukan',
   'faq.1.q': 'Di mana aplikasinya dibeli?',

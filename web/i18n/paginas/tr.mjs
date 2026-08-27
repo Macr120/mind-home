@@ -161,6 +161,7 @@ export const TEXTOS = {
   'desc.web.cta': 'Uygulamayı aç',
   'desc.windows': 'Windows 10/11 için yükleyici.',
   'desc.mac': 'Mac için .dmg imajı.',
+  'desc.mac.cta': 'Mac için indir',
 
   'faq.h2': 'Sık sorulan sorular',
   'faq.1.q': 'Uygulama nereden alınır?',

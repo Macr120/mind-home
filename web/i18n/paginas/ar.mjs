@@ -158,6 +158,7 @@ export const TEXTOS = {
   'desc.web.cta': 'افتح التطبيق',
   'desc.windows': 'مثبّت لنظام Windows 10/11.',
   'desc.mac': 'صورة ‎.dmg‎ لأجهزة Mac.',
+  'desc.mac.cta': 'التنزيل لنظام Mac',
 
   'faq.h2': 'أسئلة شائعة',
   'faq.1.q': 'من أين يُشترى التطبيق؟',

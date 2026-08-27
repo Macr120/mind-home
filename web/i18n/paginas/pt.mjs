@@ -164,6 +164,7 @@ export const TEXTOS = {
   'desc.web.cta': 'Abrir o app',
   'desc.windows': 'Instalador para Windows 10/11.',
   'desc.mac': 'Imagem .dmg para Mac.',
+  'desc.mac.cta': 'Baixar para Mac',
 
   'faq.h2': 'Perguntas frequentes',
   'faq.1.q': 'Onde se compra o app?',
