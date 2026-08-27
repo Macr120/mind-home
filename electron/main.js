@@ -296,12 +296,25 @@ function repartirEnlace(url) {
   ventana.webContents.send('mph:enlace-profundo', url)
 }
 
-/** Deja que el sistema sepa que los `com.macr120.mindhome://…` son nuestros. */
+/**
+ * Deja que el sistema sepa que los `com.macr120.mindhome://…` son nuestros.
+ *
+ * ⚠️ En macOS **solo empaquetada**, y esto costó una tarde: ahí el esquema lo
+ * declara el propio bundle (`CFBundleURLTypes`, que escribe el `protocols:` del
+ * electron-builder.yml), así que pedirlo a mano no hace falta — y en desarrollo
+ * hace daño. La variante con `execPath` es un patrón de Windows: en macOS
+ * registra el BUNDLE dueño de ese ejecutable, que en desarrollo es el Electron
+ * genérico de `node_modules`, y desde ese momento el sistema le manda a él la
+ * vuelta del login en vez de a la app instalada. Silenciosamente: el navegador
+ * termina bien, no vuelve nadie, y no hay ni un error que mirar.
+ */
 function registrarEsquemaProfundo() {
+  if (process.platform === 'darwin') {
+    if (app.isPackaged) app.setAsDefaultProtocolClient(ESQUEMA_PROFUNDO)
+    return
+  }
   if (process.defaultApp && process.argv.length >= 2) {
-    // `electron electron/main.js` en desarrollo: hay que decirle al sistema qué
-    // ejecutar. Aun así, quien enruta de verdad es el registro del SO, y ahí
-    // solo entra la app YA INSTALADA: el enlace no se puede probar sin empaquetar.
+    // Windows en desarrollo: aquí sí hay que decirle al sistema qué ejecutar.
     app.setAsDefaultProtocolClient(ESQUEMA_PROFUNDO, process.execPath, [path.resolve(process.argv[1])])
   } else {
     app.setAsDefaultProtocolClient(ESQUEMA_PROFUNDO)

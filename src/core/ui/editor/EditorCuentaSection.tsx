@@ -15,7 +15,7 @@ import {
   urlGestion,
   type OfertaPro,
 } from '../../cuenta/paywall'
-import { canalPago, esEscritorio } from '../../plataforma'
+import { canalPago } from '../../plataforma'
 import { sincronizar } from '../../data/sync/motor'
 import { GastoByok } from '../GastoByok'
 import { LogoApple, LogoGoogle } from '../logosMarca'
@@ -131,22 +131,19 @@ export function FormularioAcceso({ inicial = 'entrar' }: { inicial?: 'entrar' | 
           'Tu cuenta guarda tu casa y tu compra: es lo que te las devuelve en cualquier dispositivo.',
         )}
       </p>
-      {/* También en la app: Google rechaza OAuth dentro del WebView
-          (`disallowed_useragent`), así que en nativo el flujo sale al navegador
-          del sistema y vuelve por deep link (ver `entrarConProveedor`). En el
-          ESCRITORIO no se pinta: Google también rechaza a Electron, y el deep
-          link de vuelta (`mph://`) queda para una versión posterior — quien se
-          registró con Google entra recuperando contraseña. */}
-      {!esEscritorio() && (
-        <>
-          <BotonesOAuth />
-          <div className="flex items-center gap-2 text-[10px] text-white/30">
-            <span className="h-px flex-1 bg-white/10" />
-            {t('cuenta.oCorreo', 'o con tu correo')}
-            <span className="h-px flex-1 bg-white/10" />
-          </div>
-        </>
-      )}
+      {/* En TODAS las plataformas. Google rechaza OAuth dentro de una ventana
+          empotrada (`disallowed_useragent`), así que fuera de la web el flujo
+          sale al navegador del SISTEMA y vuelve por deep link — ahí Google no
+          ve ni al WebView ni a Electron, solo a Safari o Chrome. El escritorio
+          estuvo sin estos botones mientras no existía esa vuelta; desde que
+          `electron/precarga.cjs` reemite el enlace y `escucharDeepLinkAuth` lo
+          canjea (ver `docs/ESCRITORIO.md` §3), no hay motivo para esconderlos. */}
+      <BotonesOAuth />
+      <div className="flex items-center gap-2 text-[10px] text-white/30">
+        <span className="h-px flex-1 bg-white/10" />
+        {t('cuenta.oCorreo', 'o con tu correo')}
+        <span className="h-px flex-1 bg-white/10" />
+      </div>
       <input
         type="email"
         value={email}
