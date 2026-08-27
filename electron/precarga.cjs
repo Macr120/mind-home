@@ -42,4 +42,8 @@ contextBridge.exposeInMainWorld('mph', {
   vistaFondo: () => ipcRenderer.invoke('mph:fondo-vista'),
   /** Mueve el encuadre del fondo: arrastre en fracción de pantalla, o zoom. */
   moverFondo: (d) => ipcRenderer.invoke('mph:fondo-mover', d),
+  /** CPU y memoria del sistema, para el panel del fondo. */
+  recursosSistema: () => ipcRenderer.invoke('mph:fondo-recursos'),
+  /** Qué suena en Música/Spotify (solo macOS); null si nada o sin permiso. */
+  musicaSistema: () => ipcRenderer.invoke('mph:fondo-musica'),
 })

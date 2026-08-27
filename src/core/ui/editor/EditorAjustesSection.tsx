@@ -14,6 +14,7 @@ import {
   moverFondoEscritorio,
   vistaFondoEscritorio,
 } from '../../plataforma'
+import { alternarExtraFondo, EXTRAS_FONDO, leerExtrasFondo, type ExtrasFondo } from '../../fondoExtras'
 
 /**
  * Sección del editor de mapa: ajustes de la interfaz (idioma, apariencia,
@@ -293,6 +294,7 @@ function FondoDeEscritorio() {
   const [puesto, setPuesto] = useState(false)
   const [ocupado, setOcupado] = useState(false)
   const [vista, setVista] = useState<string | null>(null)
+  const [extras, setExtras] = useState<ExtrasFondo>(() => leerExtrasFondo())
   const caja = useRef<HTMLDivElement>(null)
   const inicio = useRef<{ x: number; y: number } | null>(null)
 
@@ -426,6 +428,43 @@ function FondoDeEscritorio() {
         </span>
         <Icono nombre="paleta" className="h-4 w-4 opacity-70" />
       </button>
+
+      {/* Los paneles opcionales. Escribir en `fondoExtras` avisa solo a la
+          ventana del fondo (evento `storage` del origen compartido); aquí solo
+          queda refrescar la foto para que la vista previa lo enseñe. */}
+      <div className="space-y-1">
+        <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
+          {t('ajustes.fondoPaneles', 'Paneles sobre el fondo')}
+        </p>
+        <div className="grid grid-cols-2 gap-1.5">
+          {EXTRAS_FONDO.map((cual) => {
+            const activo = extras[cual]
+            const nombre = {
+              hora: t('fondo.p.hora', 'Hora'),
+              clima: t('fondo.p.clima', 'Clima'),
+              musica: t('fondo.p.musica', 'Música'),
+              recursos: t('fondo.p.recursos', 'Sistema'),
+            }[cual]
+            return (
+              <button
+                key={cual}
+                type="button"
+                onClick={() => {
+                  setExtras(alternarExtraFondo(cual))
+                  if (puesto) void esperar(900).then(refrescar)
+                }}
+                className={`rounded-md border px-2.5 py-1.5 text-sm transition ${
+                  activo
+                    ? 'border-accent bg-white/10 text-white'
+                    : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
+                }`}
+              >
+                {nombre}
+              </button>
+            )
+          })}
+        </div>
+      </div>
 
       <p className="text-[11px] leading-snug text-white/45">
         {puesto

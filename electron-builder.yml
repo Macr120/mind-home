@@ -104,3 +104,5 @@ mac:
     # la app al pedir cámara (Chat AR) o micrófono (dictado).
     NSCameraUsageDescription: The AR chat uses the camera to show your assistant in your room.
     NSMicrophoneUsageDescription: The microphone lets you dictate messages to your assistant.
+    # El panel de música del fondo pregunta a Música/Spotify qué suena.
+    NSAppleEventsUsageDescription: To show what's playing in Music or Spotify on your wallpaper.

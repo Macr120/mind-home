@@ -1162,6 +1162,11 @@ export const EN: Dict = {
   'ajustes.fondoIzquierda': 'Move left',
   'ajustes.fondoDerecha': 'Move right',
   'ajustes.fondoArrastra': 'Drag the preview to centre the house.',
+  'ajustes.fondoPaneles': 'Panels on the wallpaper',
+  'fondo.p.hora': 'Clock',
+  'fondo.p.clima': 'Weather',
+  'fondo.p.musica': 'Music',
+  'fondo.p.recursos': 'System',
   'ajustes.fondoNota':
     'Behind your windows you see only the map, no controls. It opens with your house exactly as it is now.',
   'ajustes.abrir': 'Settings',

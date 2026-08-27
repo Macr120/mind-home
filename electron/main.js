@@ -11,6 +11,7 @@
  * el enlace profundo con el que vuelve el login social. Nada más cruza.
  */
 import { app, BrowserWindow, dialog, ipcMain, Menu, net, protocol, screen, session, shell } from 'electron'
+import os from 'node:os'
 import { execFile, spawn } from 'node:child_process'
 import fs from 'node:fs/promises'
 import { readFileSync, writeFileSync } from 'node:fs'
@@ -458,6 +459,93 @@ ipcMain.handle('mph:fondo-mover', (_e, d) => {
   if (!ventanaFondo || ventanaFondo.isDestroyed()) return false
   ventanaFondo.webContents.send('mph:fondo-mover', d ?? {})
   return true
+})
+
+/**
+ * Recursos del sistema para el panel del fondo: CPU y memoria. La CPU se mide
+ * por DELTA entre esta llamada y la anterior (os.cpus() da acumulados desde el
+ * arranque; el primer valor sería la media histórica, que no dice nada del
+ * ahora). La memoria en macOS no puede salir de os.freemem(): ahí «free» son
+ * solo páginas vacías y el caché de archivos cuenta como usada, así que el
+ * número asustaría sin motivo — se pregunta a vm_stat y se descuentan las
+ * páginas inactivas y purgables, que el sistema suelta en cuanto alguien las
+ * necesita.
+ */
+let cpuAnterior = os.cpus().map((c) => c.times)
+ipcMain.handle('mph:fondo-recursos', async () => {
+  const ahora = os.cpus().map((c) => c.times)
+  let activo = 0
+  let total = 0
+  for (let i = 0; i < ahora.length; i++) {
+    const a = ahora[i]
+    const b = cpuAnterior[i] ?? a
+    const dTotal = a.user + a.nice + a.sys + a.idle + a.irq - (b.user + b.nice + b.sys + b.idle + b.irq)
+    const dIdle = a.idle - b.idle
+    total += dTotal
+    activo += dTotal - dIdle
+  }
+  cpuAnterior = ahora
+  const cpu = total > 0 ? Math.round((activo / total) * 100) : 0
+
+  const totalMem = os.totalmem()
+  let usada = totalMem - os.freemem()
+  if (process.platform === 'darwin') {
+    try {
+      const vm = await new Promise((res, rej) =>
+        execFile('/usr/bin/vm_stat', (err, out) => (err ? rej(err) : res(out))),
+      )
+      const pagina = Number(/page size of (\d+)/.exec(vm)?.[1] ?? 16384)
+      const paginas = (nombre) => Number(new RegExp(`${nombre}:\\s+(\\d+)`).exec(vm)?.[1] ?? 0)
+      const libres = (paginas('Pages free') + paginas('Pages inactive') + paginas('Pages purgeable')) * pagina
+      usada = totalMem - libres
+    } catch {
+      /* vm_stat no respondió: queda la cuenta simple */
+    }
+  }
+  return { cpu, memUsadaGB: usada / 1024 ** 3, memTotalGB: totalMem / 1024 ** 3 }
+})
+
+/**
+ * Qué suena en el SISTEMA (Música o Spotify), para el panel del fondo. Solo
+ * macOS: se les pregunta por AppleScript, y SIEMPRE tras comprobar con System
+ * Events que la app ya corre — un `tell` a una app cerrada la ABRIRÍA, y nadie
+ * quiere que su fondo de pantalla lance el Spotify solo. La primera vez macOS
+ * pedirá permiso de automatización; si el usuario lo niega, osascript falla y
+ * aquí se devuelve null: el panel simplemente no enseña nada.
+ * En Windows no hay equivalente accesible desde Electron (el SMTC pide módulo
+ * nativo): null, y el panel se oculta.
+ */
+const GUION_MUSICA = `
+set salida to ""
+tell application "System Events" to set hayMusic to exists (processes where name is "Music")
+if hayMusic then
+  tell application "Music"
+    if player state is playing then set salida to artist of current track & "\n" & name of current track
+  end tell
+end if
+if salida is "" then
+  tell application "System Events" to set haySpotify to exists (processes where name is "Spotify")
+  if haySpotify then
+    tell application "Spotify"
+      if player state is playing then set salida to artist of current track & "\n" & name of current track
+    end tell
+  end if
+end if
+return salida`
+ipcMain.handle('mph:fondo-musica', async () => {
+  if (process.platform !== 'darwin') return null
+  try {
+    const salida = await new Promise((res, rej) =>
+      execFile('/usr/bin/osascript', ['-e', GUION_MUSICA], { timeout: 4000 }, (err, out) =>
+        err ? rej(err) : res(String(out).trim()),
+      ),
+    )
+    if (!salida) return null
+    const [artista, ...titulo] = salida.split('\n')
+    return { artista, titulo: titulo.join(' ') }
+  } catch {
+    return null
+  }
 })
 
 // macOS: el enlace profundo llega por aquí, y puede llegar ANTES del ready.

@@ -37,6 +37,7 @@ import { VolverDemoDialog } from './demo/VolverDemoDialog'
 import { esDemo, esProbar } from './core/edicion'
 import { esModoFondo } from './core/plataforma'
 import { acercarEncuadre, aplicarEncuadre, moverEncuadre } from './core/fondoEncuadre'
+import { ExtrasFondo } from './core/ui/ExtrasFondo'
 import { useBienvenida } from './core/bienvenida/bienvenidaStore'
 import { PrimeraVezGate } from './core/bienvenida/PrimeraVezGate'
 import { useHouse } from './core/state/houseStore'
@@ -201,6 +202,7 @@ export default function App() {
       <div className="relative h-full w-full overflow-hidden">
         <EncuadreDelFondo />
         <House />
+        <ExtrasFondo />
       </div>
     )
   }

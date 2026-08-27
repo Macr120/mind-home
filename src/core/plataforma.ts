@@ -96,6 +96,8 @@ interface PuenteEscritorio {
   ponerDeFondo?: () => Promise<boolean>
   vistaFondo?: () => Promise<string | null>
   moverFondo?: (d: { fx?: number; fy?: number; zoom?: number }) => Promise<boolean>
+  recursosSistema?: () => Promise<{ cpu: number; memUsadaGB: number; memTotalGB: number } | null>
+  musicaSistema?: () => Promise<{ artista: string; titulo: string } | null>
 }
 
 declare global {
@@ -148,4 +150,22 @@ export async function moverFondoEscritorio(d: { fx?: number; fy?: number; zoom?:
  */
 export function elFondoSigueAlCursor(): boolean {
   return esModoFondo() && window.mph?.clicsEnFondo === false
+}
+
+/** CPU y memoria del sistema (los mide el shell); null fuera del escritorio. */
+export async function recursosSistema(): Promise<{ cpu: number; memUsadaGB: number; memTotalGB: number } | null> {
+  try {
+    return (await window.mph?.recursosSistema?.()) ?? null
+  } catch {
+    return null
+  }
+}
+
+/** Qué suena en Música/Spotify (solo macOS); null si nada, sin permiso o sin shell. */
+export async function musicaSistema(): Promise<{ artista: string; titulo: string } | null> {
+  try {
+    return (await window.mph?.musicaSistema?.()) ?? null
+  } catch {
+    return null
+  }
 }
