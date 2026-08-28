@@ -89,7 +89,14 @@ async function catalogarMomentos() {
  */
 async function sembrarDiaEjemplo(textos: TextosEjemplosCocina | null) {
   const fecha = sumarDias(hoyISO(), -1)
-  if (await db.registrosComida.where('fecha').equals(fecha).count()) return
+  // Idempotencia por UID y no por fecha. Los uid de la siembra son fijos
+  // (`seed-registrosComida-demo-N`) pero la fecha es AYER, que cambia cada día:
+  // preguntando por la fecha, al día siguiente parecía que no había nada sembrado
+  // y se volvía a intentar. El índice `&uid` rechazaba las filas repetidas y la
+  // transacción abortaba… y una transacción abortada deja las `liveQuery` de
+  // Dexie en un estado que revienta al leer («Cannot read properties of null»):
+  // la cocina dejaba de abrir entera, con todos sus datos intactos.
+  if (await db.registrosComida.where('uid').startsWith('seed-registrosComida-demo').count()) return
 
   const comidas: Omit<RegistroComida, 'id'>[] = DIA_EJEMPLO.map((c, i) => ({
     fecha,
@@ -103,7 +110,8 @@ async function sembrarDiaEjemplo(textos: TextosEjemplosCocina | null) {
   }))
   await db.registrosComida.bulkAdd(filasSeed('registrosComida-demo', comidas))
 
-  if (!(await db.registrosAgua.where('fecha').equals(fecha).count())) {
+  // Mismo motivo que arriba: por uid, que es lo que el índice único protege.
+  if (!(await db.registrosAgua.where('uid').startsWith('seed-registrosAgua-demo').count())) {
     await db.registrosAgua.bulkAdd(
       filasSeed('registrosAgua-demo', [
         { fecha, ml: 750 },
