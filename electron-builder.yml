@@ -18,6 +18,7 @@ files:
   - electron/precarga.cjs
   - electron/fondo.ps1
   - electron/fondo-raton.ps1
+  - electron/fondo-musica.ps1
   - "!node_modules/**/*"
 # Sin asar: `net.fetch(file://…)` (con el que main.js sirve dist/) pasa por el
 # cargador de Chromium, que NO lee dentro de un .asar — empaquetado serviría

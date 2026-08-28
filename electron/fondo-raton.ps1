@@ -1,7 +1,8 @@
 # Vigia del boton izquierdo global para el modo --fondo: emite por stdout
 # "down True|False" (el booleano = el cursor estaba sobre el escritorio) y
 # "up x" en cada transicion. Sin hooks de bajo nivel: sondeo de
-# GetAsyncKeyState a ~60 Hz, de sobra para un click-to-move.
+# GetAsyncKeyState a ~30 Hz, de sobra para un click-to-move -- y la mitad de CPU
+# que a 60, que en un proceso de PowerShell encendido todo el dia se nota.
 #
 # "Sobre el escritorio" = la ventana raiz bajo el cursor es Progman o WorkerW.
 # Como la ventana wallpaper es hija de esa capa, un clic sobre ella tambien
@@ -36,5 +37,5 @@ while ($true) {
     else { [Console]::Out.WriteLine('up x') }
     [Console]::Out.Flush()
   }
-  Start-Sleep -Milliseconds 16
+  Start-Sleep -Milliseconds 33
 }

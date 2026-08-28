@@ -36,14 +36,19 @@ contextBridge.exposeInMainWorld('mph', {
    * que el fondo mueve al personaje siguiendo el cursor en vez de esperarlos.
    */
   clicsEnFondo: process.platform === 'win32',
-  /** Enciende o apaga la casa como fondo de pantalla; resuelve si queda encendida. */
-  ponerDeFondo: () => ipcRenderer.invoke('mph:fondo'),
+  /**
+   * Enciende o apaga la casa como fondo de pantalla; resuelve si queda
+   * encendida. `pantalla` es el id de un monitor o 'todas'.
+   */
+  ponerDeFondo: (pantalla) => ipcRenderer.invoke('mph:fondo', pantalla),
+  /** Los monitores conectados, para elegir en cuál va el fondo. */
+  pantallas: () => ipcRenderer.invoke('mph:pantallas'),
   /** Foto de cómo se ve el fondo AHORA (data URL), o null si no está puesto. */
   vistaFondo: () => ipcRenderer.invoke('mph:fondo-vista'),
   /** Mueve el encuadre del fondo: arrastre en fracción de pantalla, o zoom. */
   moverFondo: (d) => ipcRenderer.invoke('mph:fondo-mover', d),
   /** CPU y memoria del sistema, para el panel del fondo. */
   recursosSistema: () => ipcRenderer.invoke('mph:fondo-recursos'),
-  /** Qué suena en Música/Spotify (solo macOS); null si nada o sin permiso. */
+  /** Qué suena en el sistema: SMTC en Windows, Música o Spotify en macOS. */
   musicaSistema: () => ipcRenderer.invoke('mph:fondo-musica'),
 })

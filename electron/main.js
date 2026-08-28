@@ -81,6 +81,57 @@ async function responder(req) {
 let ventana = null
 let ventanaFondo = null
 
+/** Lo último que dijo el vigía de la música (Windows); null si no suena nada. */
+let sonando = null
+
+/** Dónde se recuerda en qué pantalla va el fondo, para el arranque con `--fondo`. */
+function archivoFondo() {
+  return path.join(app.getPath('userData'), 'fondo.json')
+}
+
+function eleccionFondoGuardada() {
+  try {
+    return JSON.parse(readFileSync(archivoFondo(), 'utf8')).pantalla ?? 'todas'
+  } catch {
+    return 'todas'
+  }
+}
+
+function guardarEleccionFondo(pantalla) {
+  try {
+    writeFileSync(archivoFondo(), JSON.stringify({ pantalla: pantalla ?? 'todas' }), 'utf8')
+  } catch {
+    /* sin disco se pierde la preferencia, pero el fondo de esta vez vale */
+  }
+}
+
+/**
+ * El trozo de escritorio que va a ocupar el fondo. Con `todas` es el rectángulo
+ * que envuelve a todas las pantallas —el mismo que cubre el WorkerW—, y con una
+ * elegida, la suya. Se devuelve también el origen del escritorio virtual porque
+ * el helper coloca la ventana en coordenadas RELATIVAS a él: con un monitor a la
+ * izquierda del principal, ese origen es negativo y sin restarlo el fondo se
+ * iría media pantalla.
+ */
+function zonaFondo(eleccion) {
+  const pantallas = screen.getAllDisplays()
+  const virtualX = Math.min(...pantallas.map((p) => p.bounds.x))
+  const virtualY = Math.min(...pantallas.map((p) => p.bounds.y))
+  const elegida = eleccion && eleccion !== 'todas' ? pantallas.find((p) => String(p.id) === String(eleccion)) : null
+  if (elegida) return { ...elegida.bounds, todas: false, virtualX, virtualY }
+  const derecha = Math.max(...pantallas.map((p) => p.bounds.x + p.bounds.width))
+  const abajo = Math.max(...pantallas.map((p) => p.bounds.y + p.bounds.height))
+  return {
+    x: virtualX,
+    y: virtualY,
+    width: derecha - virtualX,
+    height: abajo - virtualY,
+    todas: true,
+    virtualX,
+    virtualY,
+  }
+}
+
 /**
  * Modo fondo (`--fondo`): la casa como wallpaper vivo. En Windows la ventana se
  * cuelga del WorkerW del escritorio (electron/fondo.ps1 — el truco de Wallpaper
@@ -91,13 +142,13 @@ let ventanaFondo = null
  * el escritorio, para que hacer clic dentro de otra app no mueva al personaje.
  * La app entra en este modo por la query `?fondo=1` (esModoFondo).
  */
-function crearVentanaFondo() {
-  const pantalla = screen.getPrimaryDisplay()
+function crearVentanaFondo(eleccion = eleccionFondoGuardada()) {
+  const zona = zonaFondo(eleccion)
   ventanaFondo = new BrowserWindow({
-    x: pantalla.bounds.x,
-    y: pantalla.bounds.y,
-    width: pantalla.bounds.width,
-    height: pantalla.bounds.height,
+    x: zona.x,
+    y: zona.y,
+    width: zona.width,
+    height: zona.height,
     frame: false,
     skipTaskbar: true,
     backgroundColor: '#0f1115',
@@ -120,12 +171,22 @@ function crearVentanaFondo() {
   })
   const win = ventanaFondo
 
-  // Cursor global → mousemove de la página, a ~30 Hz.
+  // Cursor global → mousemove de la página, a ~15 Hz. Mueve el puntero
+  // espacial de la casa, que es un adorno lento: a 30 Hz se pagaba el doble de
+  // IPC y de raycasts para que nadie viera la diferencia.
+  //
+  // Y si el cursor no se ha movido, no se manda nada. No es solo ahorrarse el
+  // IPC y el raycast: el fondo baja a un latido de reposo cuando lleva un rato
+  // sin `mousemove`, y mandándolos a ciegas quince veces por segundo esa siesta
+  // no llegaba nunca.
+  let anterior = { x: -1, y: -1 }
   const cursor = setInterval(() => {
     if (win.isDestroyed()) return
     const p = screen.getCursorScreenPoint()
-    win.webContents.sendInputEvent({ type: 'mouseMove', x: p.x - pantalla.bounds.x, y: p.y - pantalla.bounds.y })
-  }, 33)
+    if (p.x === anterior.x && p.y === anterior.y) return
+    anterior = p
+    win.webContents.sendInputEvent({ type: 'mouseMove', x: p.x - zona.x, y: p.y - zona.y })
+  }, 66)
 
   // Clic global (solo Windows): el helper emite «down True|False» y «up».
   let raton = null
@@ -143,7 +204,7 @@ function crearVentanaFondo() {
       for (const linea of String(buf).trim().split(/\r?\n/)) {
         const [tipo, sobreEscritorio] = linea.split(' ')
         const p = screen.getCursorScreenPoint()
-        const ev = { x: p.x - pantalla.bounds.x, y: p.y - pantalla.bounds.y, button: 'left', clickCount: 1 }
+        const ev = { x: p.x - zona.x, y: p.y - zona.y, button: 'left', clickCount: 1 }
         if (tipo === 'down' && sobreEscritorio === 'True') {
           bajado = true
           win.webContents.sendInputEvent({ type: 'mouseDown', ...ev })
@@ -157,24 +218,84 @@ function crearVentanaFondo() {
     })
   }
 
+  // Qué suena en el sistema, para el panel de música. Persistente, como el
+  // vigía del ratón: emite «artista|titulo» en cada cambio y línea vacía cuando
+  // no suena nada, y aquí solo se guarda lo último que dijo. En macOS no hace
+  // falta: allí se le pregunta a Música o Spotify por AppleScript cuando toca.
+  let musica = null
+  if (process.platform === 'win32') {
+    musica = spawn('powershell.exe', [
+      '-NoProfile',
+      '-ExecutionPolicy',
+      'Bypass',
+      '-File',
+      path.join(__dirname, 'fondo-musica.ps1'),
+    ])
+    musica.stdout.on('data', (buf) => {
+      // El `pop()` tira lo que viene DESPUÉS del último salto, que no es una
+      // línea todavía. Sin él, «artista|titulo\r\n» se parte en dos —el texto y
+      // una cadena vacía— y esa vacía, que aquí significa «no suena nada»,
+      // borraba de inmediato la canción recién leída: el panel no salía nunca.
+      const lineas = String(buf).split(/\r?\n/)
+      lineas.pop()
+      for (const linea of lineas) {
+        const corte = linea.indexOf('|')
+        sonando =
+          corte < 0
+            ? null
+            : { artista: linea.slice(0, corte).trim(), titulo: linea.slice(corte + 1).trim() }
+      }
+    })
+  }
+
   win.on('closed', () => {
     ventanaFondo = null
+    sonando = null
     clearInterval(cursor)
     raton?.kill()
+    musica?.kill()
   })
 
   void win.loadURL(`${ORIGEN}/?fondo=1`).then(() => {
     if (win.isDestroyed()) return
     if (process.platform !== 'win32') return
     const hwnd = win.getNativeWindowHandle().readBigUInt64LE(0).toString()
+    // Con una sola pantalla elegida hay que decirle al helper QUÉ trozo del
+    // escritorio ocupar; sin estos cuatro números estira la ventana sobre el
+    // WorkerW entero, que es justo lo que se quiere en «todas las pantallas».
+    const zonaArgs = zona.todas
+      ? []
+      : ['-X', String(zona.x - zona.virtualX), '-Y', String(zona.y - zona.virtualY), '-W', String(zona.width), '-H', String(zona.height)]
     execFile(
       'powershell.exe',
-      ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', path.join(__dirname, 'fondo.ps1'), '-Hwnd', hwnd],
+      ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', path.join(__dirname, 'fondo.ps1'), '-Hwnd', hwnd, ...zonaArgs],
       (err) => {
         if (win.isDestroyed()) return
         // Si el reparent falló (Windows raro), que al menos se vea la ventana.
         if (err) console.warn('[MPH] fondo.ps1 falló:', err)
-        if (!win.isVisible()) win.showInactive()
+        // Y ya colgada, mostrarla DESDE ELECTRON, siempre. `fondo.ps1` la enseña
+        // por Win32 (SWP_SHOWWINDOW) y con eso Windows ya dibuja la ventana,
+        // pero el compositor de Chromium sigue creyéndola oculta —nació con
+        // `show: false`— y no pinta NADA dentro: el escritorio se quedaba del
+        // color de fondo, sin casa ni paneles. Aquí estaba el guard
+        // `if (!win.isVisible())`, que no servía justo por eso: se lo pregunta a
+        // Win32, que ya la había mostrado, así que esto nunca se llamaba.
+        win.showInactive()
+        // Y el tamaño, otra vez: al mostrarla, Electron le devuelve las medidas
+        // que él recuerda, y con «todas las pantallas» vienen recortadas —Windows
+        // no deja nacer una ventana más alta que el monitor donde aparece—, así
+        // que el fondo se quedaba cubriendo solo la pantalla principal. Ya colgada
+        // del WorkerW, estas coordenadas son las del escritorio virtual. Sale unos
+        // seis píxeles pasado por cada lado —el borde invisible que Windows deja
+        // alrededor de una ventana sin marco, y que ni `setBounds` ni
+        // `setContentBounds` descuentan—; en un fondo de pantalla es preferible
+        // pasarse a dejar una franja sin pintar.
+        win.setContentBounds({
+          x: zona.x - zona.virtualX,
+          y: zona.y - zona.virtualY,
+          width: zona.width,
+          height: zona.height,
+        })
       },
     )
   })
@@ -450,13 +571,30 @@ function construirMenu() {
  * le avise de los cambios. Devuelve si queda encendido, para que el botón sepa
  * qué decir.
  */
-ipcMain.handle('mph:fondo', () => {
+ipcMain.handle('mph:fondo', (_e, eleccion) => {
   if (ventanaFondo) {
     ventanaFondo.close()
     return false
   }
-  crearVentanaFondo()
+  guardarEleccionFondo(eleccion)
+  crearVentanaFondo(eleccion)
   return true
+})
+
+/**
+ * Las pantallas, para que Configuraciones deje elegir. El nombre viene vacío en
+ * muchos equipos (depende del driver), así que la app numera las que no tengan
+ * nombre — y el orden es el del sistema, no el de conexión.
+ */
+ipcMain.handle('mph:pantallas', () => {
+  const principal = screen.getPrimaryDisplay().id
+  return screen.getAllDisplays().map((p) => ({
+    id: String(p.id),
+    nombre: p.label || '',
+    principal: p.id === principal,
+    ancho: p.bounds.width,
+    alto: p.bounds.height,
+  }))
 })
 
 /**
@@ -555,6 +693,7 @@ if salida is "" then
 end if
 return salida`
 ipcMain.handle('mph:fondo-musica', async () => {
+  if (process.platform === 'win32') return sonando
   if (process.platform !== 'darwin') return null
   try {
     const salida = await new Promise((res, rej) =>

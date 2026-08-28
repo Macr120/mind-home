@@ -93,7 +93,8 @@ interface PuenteEscritorio {
   escritorio: true
   version: string | null
   clicsEnFondo?: boolean
-  ponerDeFondo?: () => Promise<boolean>
+  ponerDeFondo?: (pantalla?: string) => Promise<boolean>
+  pantallas?: () => Promise<PantallaEscritorio[]>
   vistaFondo?: () => Promise<string | null>
   moverFondo?: (d: { fx?: number; fy?: number; zoom?: number }) => Promise<boolean>
   recursosSistema?: () => Promise<{ cpu: number; memUsadaGB: number; memTotalGB: number } | null>
@@ -106,17 +107,40 @@ declare global {
   }
 }
 
+/** Un monitor del sistema. `id` es lo que espera `alternarFondoEscritorio`. */
+export interface PantallaEscritorio {
+  id: string
+  nombre: string
+  principal: boolean
+  ancho: number
+  alto: number
+}
+
 /** ¿Este shell sabe poner la casa de fondo de pantalla? */
 export function hayFondoEscritorio(): boolean {
   return esEscritorio() && typeof window !== 'undefined' && typeof window.mph?.ponerDeFondo === 'function'
 }
 
-/** Enciende o apaga el fondo de pantalla; devuelve si queda encendido. */
-export async function alternarFondoEscritorio(): Promise<boolean> {
+/**
+ * Enciende o apaga el fondo de pantalla; devuelve si queda encendido.
+ * `pantalla` es el id de un monitor, o 'todas' para que ocupe el escritorio
+ * entero. El shell la recuerda, así que al arrancar en modo fondo sin decirle
+ * nada vuelve a la última elegida.
+ */
+export async function alternarFondoEscritorio(pantalla?: string): Promise<boolean> {
   try {
-    return (await window.mph?.ponerDeFondo?.()) ?? false
+    return (await window.mph?.ponerDeFondo?.(pantalla)) ?? false
   } catch {
     return false
+  }
+}
+
+/** Los monitores conectados; lista vacía fuera del escritorio. */
+export async function pantallasEscritorio(): Promise<PantallaEscritorio[]> {
+  try {
+    return (await window.mph?.pantallas?.()) ?? []
+  } catch {
+    return []
   }
 }
 
@@ -161,7 +185,7 @@ export async function recursosSistema(): Promise<{ cpu: number; memUsadaGB: numb
   }
 }
 
-/** Qué suena en Música/Spotify (solo macOS); null si nada, sin permiso o sin shell. */
+/** Qué suena en el sistema (SMTC en Windows, Música o Spotify en macOS); null si nada. */
 export async function musicaSistema(): Promise<{ artista: string; titulo: string } | null> {
   try {
     return (await window.mph?.musicaSistema?.()) ?? null

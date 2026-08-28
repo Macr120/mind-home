@@ -1,4 +1,7 @@
-param([long]$Hwnd)
+# -X -Y -W -H (opcionales, en coordenadas del escritorio virtual): el trozo que
+# debe ocupar la ventana. Sin ellos se estira sobre el WorkerW entero, que es lo
+# que se quiere cuando el fondo va en TODAS las pantallas.
+param([long]$Hwnd, [int]$X = 0, [int]$Y = 0, [int]$W = 0, [int]$H = 0)
 
 # Cuelga la ventana de la app en la capa del fondo del escritorio, DETRAS de
 # los iconos (modo --fondo del shell). Toda la logica Win32 va en C#: los
@@ -36,7 +39,7 @@ public static class Fondo {
 
   public static string Clase(IntPtr h) { var sb = new StringBuilder(256); GetClassName(h, sb, 256); return sb.ToString(); }
 
-  public static string Colgar(IntPtr app) {
+  public static string Colgar(IntPtr app, int px, int py, int pw, int ph) {
     IntPtr progman = FindWindow("Progman", null);
     IntPtr r;
     SendMessageTimeout(progman, 0x052C, (IntPtr)0xD, (IntPtr)0x1, 0, 1000, out r);
@@ -59,17 +62,20 @@ public static class Fondo {
     else { objetivo = progman; via = "progman-directo"; }
 
     SetParent(app, objetivo);
-    RECT cli; GetClientRect(objetivo, out cli);
-    int w = cli.R, h = cli.B;
-    if (w < 400 || h < 300) { RECT rw; GetWindowRect(objetivo, out rw); w = rw.R - rw.L; h = rw.B - rw.T; }
+    int x = px, y = py, w = pw, h = ph;
+    if (w <= 0 || h <= 0) {
+      RECT cli; GetClientRect(objetivo, out cli);
+      x = 0; y = 0; w = cli.R; h = cli.B;
+      if (w < 400 || h < 300) { RECT rw; GetWindowRect(objetivo, out rw); w = rw.R - rw.L; h = rw.B - rw.T; }
+    }
     // HWND_BOTTOM + SWP_NOACTIVATE|SWP_SHOWWINDOW: al fondo del Z-order del
     // padre y visible (la ventana nace oculta; la revela este ajuste).
-    SetWindowPos(app, (IntPtr)1, 0, 0, w, h, 0x0050);
+    SetWindowPos(app, (IntPtr)1, x, y, w, h, 0x0050);
 
     IntPtr padre = GetAncestor(app, 1);
-    return "via=" + via + " padre=" + padre + "(" + Clase(padre) + ") " + w + "x" + h;
+    return "via=" + via + " padre=" + padre + "(" + Clase(padre) + ") " + w + "x" + h + " en " + x + "," + y;
   }
 }
 '@
 
-Write-Output ([Fondo]::Colgar([IntPtr]$Hwnd))
+Write-Output ([Fondo]::Colgar([IntPtr]$Hwnd, $X, $Y, $W, $H))
