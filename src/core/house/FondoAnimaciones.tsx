@@ -9,6 +9,16 @@ import { mezclar } from './temas'
 import { getFondo, animacionesDeFondo, type FamiliaAnimId } from './fondos'
 import { SIZE } from './walls'
 
+/**
+ * Los actores se reparten y se mueven en los ejes del MUNDO, pero la cámara es
+ * isométrica: el eje X del mundo se proyecta en diagonal, así que un enjambre
+ * repartido «a lo ancho» salía en una banda de la esquina superior derecha y
+ * media pantalla se quedaba vacía. Girando el grupo 45° sobre Y, su X pasa a ser
+ * la horizontal de la pantalla y su Z la vertical, que es como se piensa un
+ * cielo. Es el mismo ángulo que la cámara, y por eso cuadra exactamente.
+ */
+const GIRO_PANTALLA = Math.PI / 4
+
 /** Área del cielo donde vuelan / caen las microanimaciones. */
 interface CieloExtent {
   x: number
@@ -41,17 +51,19 @@ function useCieloExtent(): CieloExtent {
     // que lo que hay que cubrir para no dejar huecos es su diagonal.
     const vista = (Math.abs(ancho) + Math.abs(alto)) * 0.72
     const span = Math.max(casa, vista)
+    // Con el enjambre girado 45° (ver `GIRO_PANTALLA`), `x` corre horizontal por
+    // la pantalla y `z` corre vertical: negativo arriba, positivo abajo. Por eso
+    // el rango de z ahora cruza el cero — antes era todo negativo, «detrás», y en
+    // isométrica eso amontonaba los elementos en la esquina de arriba a la
+    // derecha, que es justo lo que se veía.
     return {
-      // A lo ANCHO se estira hasta cubrir la pantalla…
       x: span,
-      // …pero la profundidad y la altura se quedan medidas por la casa. Son la
-      // banda de cielo que la cámara encuadra: estirarlas también mandaba a los
-      // pájaros y las hojas fuera de cuadro por arriba, y el cielo acababa más
-      // vacío que antes en vez de más lleno.
-      zMin: -casa * 1.1,
-      zMax: -casa * 0.15,
-      yMin: 7,
-      yMax: 24 + casa * 0.08,
+      zMin: -span * 0.85,
+      zMax: span * 0.45,
+      // Y la altura arranca más abajo: es el otro eje que empuja hacia arriba en
+      // pantalla, y con el mínimo alto la mitad inferior se quedaba vacía.
+      yMin: 3,
+      yMax: 22 + casa * 0.08,
       factor: span / casa,
     }
   }, [gridCols, gridRows, ancho, alto])
@@ -616,7 +628,7 @@ function Familia({
   })
 
   return (
-    <group ref={grupo} name={`anim-${id}`}>
+    <group ref={grupo} name={`anim-${id}`} rotation={[0, GIRO_PANTALLA, 0]}>
       {estados.map((st) => (
         <def.Actor key={st.seed} seed={st.seed} tinte={tinte} />
       ))}
