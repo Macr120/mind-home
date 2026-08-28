@@ -1,5 +1,5 @@
 import { useMemo, useRef, type ReactElement } from 'react'
-import { useFrame } from '@react-three/fiber'
+import { useFrame, useThree } from '@react-three/fiber'
 import { BoxGeometry, ConeGeometry, SphereGeometry } from 'three'
 import type { Group, Mesh, MeshBasicMaterial, Object3D } from 'three'
 import { useDiseño } from '../state/disenoStore'
@@ -16,6 +16,8 @@ interface CieloExtent {
   zMax: number
   yMin: number
   yMax: number
+  /** Cuánto se ha ensanchado respecto a la casa; reparte más elementos si crece. */
+  factor: number
 }
 
 /** Reparto uniforme y estable por `seed` (fract(sin)); `sal` cambia el eje. */
@@ -27,16 +29,32 @@ function hash01(seed: number, sal: number): number {
 function useCieloExtent(): CieloExtent {
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
+  // Lo que la cámara ve, en unidades de mundo. El cielo se medía SOLO por la
+  // casa, así que en una pantalla ancha —y sobre todo en el fondo de pantalla,
+  // que ocupa el monitor entero— los pájaros y las hojas se quedaban en un
+  // cuadrado alrededor del mapa y las esquinas de la pantalla salían vacías.
+  const ancho = useThree((s) => s.viewport.width)
+  const alto = useThree((s) => s.viewport.height)
   return useMemo(() => {
-    const span = Math.max(gridCols, gridRows) * SIZE + 14
+    const casa = Math.max(gridCols, gridRows) * SIZE + 14
+    // La cámara es isométrica: el rectángulo de la pantalla llega girado 45°, así
+    // que lo que hay que cubrir para no dejar huecos es su diagonal.
+    const vista = (Math.abs(ancho) + Math.abs(alto)) * 0.72
+    const span = Math.max(casa, vista)
     return {
+      // A lo ANCHO se estira hasta cubrir la pantalla…
       x: span,
-      zMin: -span * 1.1,
-      zMax: -span * 0.15,
+      // …pero la profundidad y la altura se quedan medidas por la casa. Son la
+      // banda de cielo que la cámara encuadra: estirarlas también mandaba a los
+      // pájaros y las hojas fuera de cuadro por arriba, y el cielo acababa más
+      // vacío que antes en vez de más lleno.
+      zMin: -casa * 1.1,
+      zMax: -casa * 0.15,
       yMin: 7,
-      yMax: 24 + span * 0.08,
+      yMax: 24 + casa * 0.08,
+      factor: span / casa,
     }
-  }, [gridCols, gridRows])
+  }, [gridCols, gridRows, ancho, alto])
 }
 
 /**
@@ -587,7 +605,10 @@ function Familia({
     const g = grupo.current
     if (!g) return
     // Acotado: al volver de una pestaña oculta `dt` es enorme y todo se teletransporta.
-    const d = Math.min(dt, 0.05)
+    // El tope tiene que ser MAYOR que el fotograma más lento de verdad: con 0,05
+    // y el fondo de pantalla a bajo ritmo, el cielo avanzaba a la cuarta parte de
+    // su velocidad y parecía muerto.
+    const d = Math.min(dt, 0.25)
     for (let i = 0; i < estados.length; i++) {
       const obj = g.children[i]
       if (obj) def.mover(obj, estados[i], d, ext)
@@ -640,7 +661,11 @@ export function FondoAnimaciones() {
             key={id}
             id={id}
             def={def}
-            cantidad={Math.max(1, Math.round(def.base * intensidad))}
+            // Con el cielo ensanchado, la cantidad de siempre lo dejaría desierto:
+            // sube en la MISMA proporción que el ancho —que es la única dimensión
+            // que ha crecido— para que la densidad quede igual que en una ventana
+            // pequeña. Con tope, que esto también corre en un fondo de pantalla.
+            cantidad={Math.max(1, Math.round(def.base * intensidad * Math.min(3, ext.factor)))}
             // Al bajar la intensidad los elementos también se hacen más discretos
             // (0.6 = la densidad y el tamaño de siempre).
             discrecion={0.55 + 0.75 * intensidad}

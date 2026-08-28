@@ -11,6 +11,7 @@ import { bindAtajosPersonaje } from './core/house/atajosTeclado'
 import { escucharDeepLinkAuth, iniciarSesion } from './core/cuenta/sesionStore'
 import { esDemo, esProbar, limpiarDerechosViejos } from './core/edicion'
 import { conectarMotorSync } from './core/data/sync/motor'
+import { esModoFondo } from './core/plataforma'
 import { abrirApp } from './core/abrirApp'
 import { registrarActividad } from './core/rutinas'
 import { iniciarAvisosNativos, type DestinoAviso } from './core/notificaciones'
@@ -101,6 +102,11 @@ if ('serviceWorker' in navigator) {
 void iniciarAvisosNativos(seguirAviso)
 // Y la vuelta del navegador tras el login con Google/Apple.
 void escucharDeepLinkAuth()
+
+// La casa de fondo de pantalla es OTRA ventana con sus propios stores: sin esto
+// se queda con la casa que había al encenderla. Solo escucha ella; la ventana
+// normal es la que edita.
+if (esModoFondo()) void import('./core/data/sync/ventanas').then((m) => m.escucharOtrasVentanas())
 
 const params = new URLSearchParams(location.search)
 const appPedida = params.get('app')

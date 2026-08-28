@@ -394,7 +394,57 @@ const RoomEnMapa = memo(function RoomEnMapa({
 })
 
 /** Resolución de render: fija por sesión (la gama del equipo no cambia en caliente). */
+/**
+ * El pulso del fondo de pantalla. Con `frameloop="demand"` el lienzo solo pinta
+ * cuando alguien se lo pide, y aquí se le pide FPS_FONDO veces por segundo: la
+ * casa sigue viva —el personaje anda, el cielo se mueve— por la mitad de trabajo
+ * de GPU que a 60.
+ *
+ * Y cuando el ratón lleva un rato quieto baja a FPS_REPOSO: nadie está mirando
+ * el escritorio de cerca, así que pintarlo treinta veces por segundo es quemar
+ * batería por gusto. El cursor llega igual que los clics, reenviado por el shell
+ * (`sendInputEvent`), así que basta con escuchar `mousemove`. Al desmontarse, el
+ * intervalo y el oyente se van con él.
+ */
+function LatidoFondo() {
+  const invalidate = useThree((s) => s.invalidate)
+  useEffect(() => {
+    let ultimoMovimiento = performance.now()
+    let pulso = 0
+    const despertar = () => {
+      ultimoMovimiento = performance.now()
+    }
+    window.addEventListener('mousemove', despertar)
+    const id = setInterval(() => {
+      pulso++
+      const quieto = performance.now() - ultimoMovimiento > REPOSO_MS
+      // En reposo se deja pasar uno de cada N latidos, que es como bajar los fps
+      // sin un segundo temporizador.
+      if (!quieto || pulso % Math.round(FPS_FONDO / FPS_REPOSO) === 0) invalidate()
+    }, 1000 / FPS_FONDO)
+    return () => {
+      clearInterval(id)
+      window.removeEventListener('mousemove', despertar)
+    }
+  }, [invalidate])
+  return null
+}
+
 const DPR: [number, number] = esGamaBaja() ? [1, 1] : [1, 1.5]
+
+
+/** Fotogramas por segundo del fondo de pantalla, con el ratón encima. */
+const FPS_FONDO = 30
+
+/**
+ * Y los de cuando nadie toca el ratón. No se baja más: por debajo de esto el
+ * cielo empieza a moverse a tirones, y un fondo a trompicones es peor que uno
+ * que gaste un poco más.
+ */
+const FPS_REPOSO = 15
+
+/** Cuánto silencio del ratón hace falta para bajar el ritmo. */
+const REPOSO_MS = 20_000
 
 export function House() {
   const { placed, niveles, gridCols, gridRows, tamCelda, editMode, cuadrantesPropios } = useLayout(
@@ -483,8 +533,15 @@ export function House() {
         // pointercancel que suelta el arrastre nada más empezar.
         style={{ position: 'absolute', inset: 0, touchAction: 'none' }}
         // Gama baja: rasterizar a dpr 1 (en una pantalla DPR 3, 1.5 son 2.25×
-        // los píxeles de 1 — demasiado para su GPU).
+        // los píxeles de 1 — demasiado para su GPU). El fondo de pantalla usa el
+        // MISMO: se probó a rasterizarlo a 1 para ahorrar y en una pantalla a 2×
+        // la casa salía con los bordes dentados. El ahorro sale de los fotogramas,
+        // que no se ven; de la resolución, sí.
         dpr={DPR}
+        // En el fondo el lienzo no corre solo: pinta cuando se le pide, y quien
+        // se lo pide es `LatidoFondo` a FPS_FONDO. Un wallpaper a 60 quema GPU
+        // todo el día para que nadie note la diferencia.
+        frameloop={esModoFondo() ? 'demand' : 'always'}
         gl={{ toneMapping: THREE.ACESFilmicToneMapping }}
         onCreated={({ gl }) => {
           // La casa es estática: renderiza la sombra UNA vez y congélala.
@@ -592,6 +649,7 @@ export function House() {
       {!aislarCuarto && <Asistente3D />}
       {/* Wallpaper de escritorio: el anillo que sigue al cursor reenviado. */}
       {esModoFondo() && <PunteroFondo />}
+      {esModoFondo() && <LatidoFondo />}
 
       {/* Editor 3D: esfera de cielo invisible. Solo se toca cuando el clic no pega en
           nada más (cielo) → abre el modo Fondo. */}

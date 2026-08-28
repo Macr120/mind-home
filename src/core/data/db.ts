@@ -5,6 +5,7 @@ import { probarGuard } from './probarGuard'
 import { fechaLocalISO } from '../fechaLocal'
 import { nombreAleatorio } from '../house/nombresAnimales'
 import { syncMiddleware } from './sync/middleware'
+import { ventanasMiddleware } from './sync/ventanas'
 import { TABLAS_SYNC, filaSeed } from './sync/syncables'
 import { haySandboxDemoSucio } from '../../demo/modo'
 import type { Idioma } from '../i18n/idiomas'
@@ -5138,6 +5139,8 @@ dbConTx._createTransaction = (mode, storeNames, dbschema, parentTransaction) => 
 
 // Sella uid/updatedAt y encola en _outbox en TODA mutación sincronizable.
 db.use(syncMiddleware)
+// Y avisa a la ventana del fondo de pantalla de lo que se toca aquí.
+db.use(ventanasMiddleware)
 
 // En la casa demo se puede escribir todo, pero nada persiste: el marcador
 // apunta qué tablas tocó el visitante (level 2, por fuera del sync). En modo
