@@ -146,6 +146,7 @@ export const TEXTOS = {
   'desc.web.cta': 'アプリを開く',
   'desc.windows': 'Windows 10/11用インストーラー。',
   'desc.mac': 'Mac用の.dmgイメージ。',
+  'desc.mac.cta': 'Mac版をダウンロード',
 
   'faq.h2': 'よくある質問',
   'faq.1.q': 'アプリはどこで買えますか？',

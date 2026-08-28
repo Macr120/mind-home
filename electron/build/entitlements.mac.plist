@@ -12,5 +12,9 @@
   <true/>
   <key>com.apple.security.device.audio-input</key>
   <true/>
-</dict>
+    <!-- Preguntar a Música/Spotify qué suena (panel del fondo de pantalla).
+         Sin esto, el hardened runtime bloquea los Apple Events en silencio. -->
+    <key>com.apple.security.automation.apple-events</key>
+    <true/>
+  </dict>
 </plist>

@@ -19,6 +19,31 @@ ipcRenderer.on('mph:enlace-profundo', (_evento, url) => {
   window.dispatchEvent(new CustomEvent('mph:enlace-profundo', { detail: url }))
 })
 
+// Solo llega a la ventana del fondo: la vista previa le manda hacia dónde moverse.
+ipcRenderer.on('mph:fondo-mover', (_evento, d) => {
+  window.dispatchEvent(new CustomEvent('mph:fondo-mover', { detail: d }))
+})
+
 const version = process.argv.find((a) => a.startsWith('--mph-version='))?.slice('--mph-version='.length)
 
-contextBridge.exposeInMainWorld('mph', { escritorio: true, version: version ?? null })
+contextBridge.exposeInMainWorld('mph', {
+  escritorio: true,
+  version: version ?? null,
+  /**
+   * ¿Este shell puede reenviarle CLICS al fondo de pantalla? Solo Windows: allí
+   * lo consigue `fondo-raton.ps1` enganchándose al ratón global. En macOS la
+   * ventana vive por debajo del escritorio y el sistema no le manda clics, así
+   * que el fondo mueve al personaje siguiendo el cursor en vez de esperarlos.
+   */
+  clicsEnFondo: process.platform === 'win32',
+  /** Enciende o apaga la casa como fondo de pantalla; resuelve si queda encendida. */
+  ponerDeFondo: () => ipcRenderer.invoke('mph:fondo'),
+  /** Foto de cómo se ve el fondo AHORA (data URL), o null si no está puesto. */
+  vistaFondo: () => ipcRenderer.invoke('mph:fondo-vista'),
+  /** Mueve el encuadre del fondo: arrastre en fracción de pantalla, o zoom. */
+  moverFondo: (d) => ipcRenderer.invoke('mph:fondo-mover', d),
+  /** CPU y memoria del sistema, para el panel del fondo. */
+  recursosSistema: () => ipcRenderer.invoke('mph:fondo-recursos'),
+  /** Qué suena en Música/Spotify (solo macOS); null si nada o sin permiso. */
+  musicaSistema: () => ipcRenderer.invoke('mph:fondo-musica'),
+})

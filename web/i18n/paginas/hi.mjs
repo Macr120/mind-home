@@ -162,6 +162,7 @@ export const TEXTOS = {
   'desc.web.cta': 'ऐप खोलें',
   'desc.windows': 'Windows 10/11 के लिए इंस्टॉलर।',
   'desc.mac': 'Mac के लिए .dmg इमेज।',
+  'desc.mac.cta': 'Mac के लिए डाउनलोड करें',
 
   'faq.h2': 'अक्सर पूछे जाने वाले सवाल',
   'faq.1.q': 'ऐप कहाँ से खरीदें?',

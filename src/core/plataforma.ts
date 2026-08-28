@@ -83,3 +83,89 @@ export function canalPago(): CanalPago {
   if (esAppNativa()) return 'iap'
   return esEscritorio() ? 'escritorio' : 'web'
 }
+
+/**
+ * El puente que expone el shell de escritorio (`electron/precarga.cjs`). Se tipa
+ * aquí y se envuelve en funciones para que la UI no tenga que saber que Electron
+ * existe: en el navegador y en el teléfono, `window.mph` simplemente no está.
+ */
+interface PuenteEscritorio {
+  escritorio: true
+  version: string | null
+  clicsEnFondo?: boolean
+  ponerDeFondo?: () => Promise<boolean>
+  vistaFondo?: () => Promise<string | null>
+  moverFondo?: (d: { fx?: number; fy?: number; zoom?: number }) => Promise<boolean>
+  recursosSistema?: () => Promise<{ cpu: number; memUsadaGB: number; memTotalGB: number } | null>
+  musicaSistema?: () => Promise<{ artista: string; titulo: string } | null>
+}
+
+declare global {
+  interface Window {
+    mph?: PuenteEscritorio
+  }
+}
+
+/** ¿Este shell sabe poner la casa de fondo de pantalla? */
+export function hayFondoEscritorio(): boolean {
+  return esEscritorio() && typeof window !== 'undefined' && typeof window.mph?.ponerDeFondo === 'function'
+}
+
+/** Enciende o apaga el fondo de pantalla; devuelve si queda encendido. */
+export async function alternarFondoEscritorio(): Promise<boolean> {
+  try {
+    return (await window.mph?.ponerDeFondo?.()) ?? false
+  } catch {
+    return false
+  }
+}
+
+/**
+ * Foto de cómo se ve el fondo AHORA, para la vista previa. Es una captura de la
+ * ventana real, no una simulación: lo que se ve aquí es lo que hay detrás.
+ * Devuelve null si el fondo no está puesto.
+ */
+export async function vistaFondoEscritorio(): Promise<string | null> {
+  try {
+    return (await window.mph?.vistaFondo?.()) ?? null
+  } catch {
+    return null
+  }
+}
+
+/** Mueve el encuadre del fondo: arrastre en fracción de pantalla (−1..1), o zoom. */
+export async function moverFondoEscritorio(d: { fx?: number; fy?: number; zoom?: number }): Promise<void> {
+  try {
+    await window.mph?.moverFondo?.(d)
+  } catch {
+    /* el fondo no está puesto: no hay nada que mover */
+  }
+}
+
+/**
+ * En el fondo de pantalla, ¿el personaje debe SEGUIR al cursor en vez de
+ * esperar un clic? Sí donde el shell no puede reenviar clics —macOS, donde la
+ * ventana vive por debajo del escritorio—: sin esto el fondo se quedaría quieto
+ * y el puntero sería un adorno. En Windows manda el clic, como en la app.
+ */
+export function elFondoSigueAlCursor(): boolean {
+  return esModoFondo() && window.mph?.clicsEnFondo === false
+}
+
+/** CPU y memoria del sistema (los mide el shell); null fuera del escritorio. */
+export async function recursosSistema(): Promise<{ cpu: number; memUsadaGB: number; memTotalGB: number } | null> {
+  try {
+    return (await window.mph?.recursosSistema?.()) ?? null
+  } catch {
+    return null
+  }
+}
+
+/** Qué suena en Música/Spotify (solo macOS); null si nada, sin permiso o sin shell. */
+export async function musicaSistema(): Promise<{ artista: string; titulo: string } | null> {
+  try {
+    return (await window.mph?.musicaSistema?.()) ?? null
+  } catch {
+    return null
+  }
+}

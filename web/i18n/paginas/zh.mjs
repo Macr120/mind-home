@@ -143,6 +143,7 @@ export const TEXTOS = {
   'desc.web.cta': '打开应用',
   'desc.windows': 'Windows 10/11 安装程序。',
   'desc.mac': 'Mac 用的 .dmg 镜像。',
+  'desc.mac.cta': '下载 Mac 版',
 
   'faq.h2': '常见问题',
   'faq.1.q': '在哪里买应用？',

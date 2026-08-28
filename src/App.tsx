@@ -36,6 +36,8 @@ import { RecuperarPrueba } from './core/bienvenida/RecuperarPrueba'
 import { VolverDemoDialog } from './demo/VolverDemoDialog'
 import { esDemo, esProbar } from './core/edicion'
 import { esModoFondo } from './core/plataforma'
+import { acercarEncuadre, aplicarEncuadre, moverEncuadre } from './core/fondoEncuadre'
+import { ExtrasFondo } from './core/ui/ExtrasFondo'
 import { useBienvenida } from './core/bienvenida/bienvenidaStore'
 import { PrimeraVezGate } from './core/bienvenida/PrimeraVezGate'
 import { useHouse } from './core/state/houseStore'
@@ -198,7 +200,9 @@ export default function App() {
   if (esModoFondo()) {
     return (
       <div className="relative h-full w-full overflow-hidden">
+        <EncuadreDelFondo />
         <House />
+        <ExtrasFondo />
       </div>
     )
   }
@@ -326,4 +330,27 @@ export default function App() {
       {esDemo() && <VolverDemoDialog />}
     </div>
   )
+}
+
+/**
+ * Solo en la ventana del fondo de pantalla: recupera el encuadre guardado y
+ * obedece a la vista previa de Configuraciones, que manda los arrastres por el
+ * puente del shell como eventos del DOM. No pinta nada.
+ */
+function EncuadreDelFondo() {
+  useEffect(() => {
+    // Tras un frame: el rig encuadra el mapa al montar y pisaría lo guardado.
+    const t = setTimeout(aplicarEncuadre, 300)
+    const mover = (e: Event) => {
+      const d = (e as CustomEvent<{ fx?: number; fy?: number; zoom?: number }>).detail ?? {}
+      if (d.zoom) acercarEncuadre(d.zoom)
+      else moverEncuadre(d.fx ?? 0, d.fy ?? 0)
+    }
+    window.addEventListener('mph:fondo-mover', mover)
+    return () => {
+      clearTimeout(t)
+      window.removeEventListener('mph:fondo-mover', mover)
+    }
+  }, [])
+  return null
 }

@@ -147,6 +147,7 @@ export const TEXTOS = {
   'desc.web.cta': '앱 열기',
   'desc.windows': 'Windows 10/11용 설치 프로그램.',
   'desc.mac': 'Mac용 .dmg 이미지.',
+  'desc.mac.cta': 'Mac용 다운로드',
 
   'faq.h2': '자주 묻는 질문',
   'faq.1.q': '앱은 어디서 사나요?',

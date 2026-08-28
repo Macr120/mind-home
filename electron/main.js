@@ -10,7 +10,8 @@
  * El único puente es `precarga.cjs`, y existe por UNA cosa: devolverle a la app
  * el enlace profundo con el que vuelve el login social. Nada más cruza.
  */
-import { app, BrowserWindow, dialog, Menu, net, protocol, screen, session, shell } from 'electron'
+import { app, BrowserWindow, dialog, ipcMain, Menu, net, protocol, screen, session, shell } from 'electron'
+import os from 'node:os'
 import { execFile, spawn } from 'node:child_process'
 import fs from 'node:fs/promises'
 import { readFileSync, writeFileSync } from 'node:fs'
@@ -104,6 +105,18 @@ function crearVentanaFondo() {
     // ya colgada del WorkerW, para no ver la ventana suelta durante el arranque.
     show: process.platform === 'darwin',
     ...(process.platform === 'darwin' ? { type: 'desktop' } : {}),
+    // El mismo puente que la ventana normal: por aquí le llegan los arrastres
+    // de la vista previa de Configuraciones. Sin él, el fondo no se deja mover.
+    webPreferences: {
+      preload: path.join(__dirname, 'precarga.cjs'),
+      additionalArguments: [`--mph-version=${app.getVersion()}`],
+      // Un fondo de pantalla está SIEMPRE tapado por otras ventanas, y Chromium
+      // congela lo que cree oculto para ahorrar batería: sin esto la casa deja
+      // de animarse en cuanto abres cualquier cosa encima y el fondo se queda
+      // en una foto fija. Medido: dos capturas con 8 s de diferencia salían
+      // idénticas al byte, ni el latido del puntero se movía.
+      backgroundThrottling: false,
+    },
   })
   const win = ventanaFondo
 
@@ -314,16 +327,29 @@ function repartirEnlace(url) {
   ventana.webContents.send('mph:enlace-profundo', url)
 }
 
-/** Deja que el sistema sepa que los `com.macr120.mindhome://…` son nuestros. */
+/**
+ * Deja que el sistema sepa que los `com.macr120.mindhome://…` son nuestros.
+ *
+ * ⚠️ En macOS **solo empaquetada**, y esto costó una tarde: ahí el esquema lo
+ * declara el propio bundle (`CFBundleURLTypes`, que escribe el `protocols:` del
+ * electron-builder.yml), así que pedirlo a mano no hace falta — y en desarrollo
+ * hace daño. La variante con `execPath` es un patrón de Windows: en macOS
+ * registra el BUNDLE dueño de ese ejecutable, que en desarrollo es el Electron
+ * genérico de `node_modules`, y desde ese momento el sistema le manda a él la
+ * vuelta del login en vez de a la app instalada. Silenciosamente: el navegador
+ * termina bien, no vuelve nadie, y no hay ni un error que mirar.
+ */
 function registrarEsquemaProfundo() {
+  if (process.platform === 'darwin') {
+    if (app.isPackaged) app.setAsDefaultProtocolClient(ESQUEMA_PROFUNDO)
+    return
+  }
   // En MSIX lo declara el manifiesto —el bloque `protocols:` del
   // electron-builder.yml, verificado dentro del .appx— y el registro de un
   // proceso empaquetado no sale de su contenedor: aquí no hay nada que hacer.
   if (process.windowsStore) return
   if (process.defaultApp && process.argv.length >= 2) {
-    // `electron electron/main.js` en desarrollo: hay que decirle al sistema qué
-    // ejecutar. Aun así, quien enruta de verdad es el registro del SO, y ahí
-    // solo entra la app YA INSTALADA: el enlace no se puede probar sin empaquetar.
+    // Windows en desarrollo: aquí sí hay que decirle al sistema qué ejecutar.
     app.setAsDefaultProtocolClient(ESQUEMA_PROFUNDO, process.execPath, [path.resolve(process.argv[1])])
   } else {
     app.setAsDefaultProtocolClient(ESQUEMA_PROFUNDO)
@@ -415,6 +441,134 @@ function construirMenu() {
     },
   ])
 }
+
+/**
+ * El interruptor del fondo de pantalla, que la app enciende desde
+ * Configuraciones › Interfaz. Crear ventanas es cosa del shell, así que la
+ * página solo pide y aquí se decide. Al encenderlo se crea una ventana NUEVA:
+ * así el fondo nace con la casa tal y como está ahora, sin depender de que algo
+ * le avise de los cambios. Devuelve si queda encendido, para que el botón sepa
+ * qué decir.
+ */
+ipcMain.handle('mph:fondo', () => {
+  if (ventanaFondo) {
+    ventanaFondo.close()
+    return false
+  }
+  crearVentanaFondo()
+  return true
+})
+
+/**
+ * La vista previa: una foto de la ventana del fondo tal y como está. Se captura
+ * de la ventana REAL en vez de dibujar una simulación, así lo que se ve en
+ * Configuraciones es exactamente lo que hay detrás de las ventanas. Devuelve
+ * null si el fondo no está puesto — no hay nada que enseñar.
+ */
+ipcMain.handle('mph:fondo-vista', async () => {
+  if (!ventanaFondo || ventanaFondo.isDestroyed()) return null
+  try {
+    const imagen = await ventanaFondo.webContents.capturePage()
+    // A la mitad: la vista previa es pequeña y así el data URL no engorda el IPC.
+    return imagen.resize({ width: Math.round(imagen.getSize().width / 2) }).toDataURL()
+  } catch {
+    return null
+  }
+})
+
+/** Mueve el encuadre del fondo. Lo aplica y lo guarda la propia ventana. */
+ipcMain.handle('mph:fondo-mover', (_e, d) => {
+  if (!ventanaFondo || ventanaFondo.isDestroyed()) return false
+  ventanaFondo.webContents.send('mph:fondo-mover', d ?? {})
+  return true
+})
+
+/**
+ * Recursos del sistema para el panel del fondo: CPU y memoria. La CPU se mide
+ * por DELTA entre esta llamada y la anterior (os.cpus() da acumulados desde el
+ * arranque; el primer valor sería la media histórica, que no dice nada del
+ * ahora). La memoria en macOS no puede salir de os.freemem(): ahí «free» son
+ * solo páginas vacías y el caché de archivos cuenta como usada, así que el
+ * número asustaría sin motivo — se pregunta a vm_stat y se descuentan las
+ * páginas inactivas y purgables, que el sistema suelta en cuanto alguien las
+ * necesita.
+ */
+let cpuAnterior = os.cpus().map((c) => c.times)
+ipcMain.handle('mph:fondo-recursos', async () => {
+  const ahora = os.cpus().map((c) => c.times)
+  let activo = 0
+  let total = 0
+  for (let i = 0; i < ahora.length; i++) {
+    const a = ahora[i]
+    const b = cpuAnterior[i] ?? a
+    const dTotal = a.user + a.nice + a.sys + a.idle + a.irq - (b.user + b.nice + b.sys + b.idle + b.irq)
+    const dIdle = a.idle - b.idle
+    total += dTotal
+    activo += dTotal - dIdle
+  }
+  cpuAnterior = ahora
+  const cpu = total > 0 ? Math.round((activo / total) * 100) : 0
+
+  const totalMem = os.totalmem()
+  let usada = totalMem - os.freemem()
+  if (process.platform === 'darwin') {
+    try {
+      const vm = await new Promise((res, rej) =>
+        execFile('/usr/bin/vm_stat', (err, out) => (err ? rej(err) : res(out))),
+      )
+      const pagina = Number(/page size of (\d+)/.exec(vm)?.[1] ?? 16384)
+      const paginas = (nombre) => Number(new RegExp(`${nombre}:\\s+(\\d+)`).exec(vm)?.[1] ?? 0)
+      const libres = (paginas('Pages free') + paginas('Pages inactive') + paginas('Pages purgeable')) * pagina
+      usada = totalMem - libres
+    } catch {
+      /* vm_stat no respondió: queda la cuenta simple */
+    }
+  }
+  return { cpu, memUsadaGB: usada / 1024 ** 3, memTotalGB: totalMem / 1024 ** 3 }
+})
+
+/**
+ * Qué suena en el SISTEMA (Música o Spotify), para el panel del fondo. Solo
+ * macOS: se les pregunta por AppleScript, y SIEMPRE tras comprobar con System
+ * Events que la app ya corre — un `tell` a una app cerrada la ABRIRÍA, y nadie
+ * quiere que su fondo de pantalla lance el Spotify solo. La primera vez macOS
+ * pedirá permiso de automatización; si el usuario lo niega, osascript falla y
+ * aquí se devuelve null: el panel simplemente no enseña nada.
+ * En Windows no hay equivalente accesible desde Electron (el SMTC pide módulo
+ * nativo): null, y el panel se oculta.
+ */
+const GUION_MUSICA = `
+set salida to ""
+tell application "System Events" to set hayMusic to exists (processes where name is "Music")
+if hayMusic then
+  tell application "Music"
+    if player state is playing then set salida to artist of current track & "\n" & name of current track
+  end tell
+end if
+if salida is "" then
+  tell application "System Events" to set haySpotify to exists (processes where name is "Spotify")
+  if haySpotify then
+    tell application "Spotify"
+      if player state is playing then set salida to artist of current track & "\n" & name of current track
+    end tell
+  end if
+end if
+return salida`
+ipcMain.handle('mph:fondo-musica', async () => {
+  if (process.platform !== 'darwin') return null
+  try {
+    const salida = await new Promise((res, rej) =>
+      execFile('/usr/bin/osascript', ['-e', GUION_MUSICA], { timeout: 4000 }, (err, out) =>
+        err ? rej(err) : res(String(out).trim()),
+      ),
+    )
+    if (!salida) return null
+    const [artista, ...titulo] = salida.split('\n')
+    return { artista, titulo: titulo.join(' ') }
+  } catch {
+    return null
+  }
+})
 
 // macOS: el enlace profundo llega por aquí, y puede llegar ANTES del ready.
 app.on('open-url', (evento, url) => {
