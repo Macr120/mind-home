@@ -2,7 +2,6 @@ import type { ReactNode } from 'react'
 import { Shapes } from 'lucide-react'
 import { useAjustes, type EstiloIconos } from '../../state/ajustesStore'
 import { useT } from '../../i18n/useT'
-import { IDIOMAS } from '../../i18n/idiomas'
 import { TEMAS_UI, modoBase, type ModoUI } from '../temasUI'
 import { TIPOGRAFIAS } from '../tipografias'
 import { Icono } from '../iconos/Icono'
@@ -14,8 +13,6 @@ import { Icono } from '../iconos/Icono'
  */
 export function EditorAjustesSection({ embed }: { embed?: boolean } = {}) {
   const t = useT()
-  const idioma = useAjustes((s) => s.idioma)
-  const setIdioma = useAjustes((s) => s.setIdioma)
   const temaUI = useAjustes((s) => s.temaUI)
   const setTemaUI = useAjustes((s) => s.setTemaUI)
   const modoUI = useAjustes((s) => s.modoUI)
@@ -28,9 +25,6 @@ export function EditorAjustesSection({ embed }: { embed?: boolean } = {}) {
   const setVidrioTransparencia = useAjustes((s) => s.setVidrioTransparencia)
   const vidrioIntensidad = useAjustes((s) => s.vidrioIntensidad)
   const setVidrioIntensidad = useAjustes((s) => s.setVidrioIntensidad)
-
-  // Banderas: excepción deliberada, se muestran igual en ambos estilos de iconos.
-  const idiomas = IDIOMAS.map((i) => ({ ...i, label: t(i.clave, i.label) }))
 
   const modos: { id: ModoUI; label: string; icono: 'dia' | 'noche' | 'burbujas' }[] = [
     { id: 'claro', label: t('ajustes.modo.claro', 'Claro'), icono: 'dia' },
@@ -56,32 +50,6 @@ export function EditorAjustesSection({ embed }: { embed?: boolean } = {}) {
     <div className={embed ? 'space-y-4' : 'rounded-xl border border-white/10 bg-white/5 p-3 space-y-4'}>
       {!embed && <p className="text-sm font-semibold">{t('ajustes.titulo', 'Ajustes')}</p>}
 
-      {/* Idioma */}
-      <div className="space-y-1.5">
-        <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
-          {t('ajustes.idioma', 'Idioma')}
-        </p>
-        <div className="grid grid-cols-2 gap-1.5">
-          {idiomas.map((it) => {
-            const activo = idioma === it.id
-            return (
-              <button
-                key={it.id}
-                type="button"
-                onClick={() => setIdioma(it.id)}
-                className={`flex items-center justify-center gap-1.5 rounded-md border px-2 py-1.5 text-xs font-semibold transition ${
-                  activo
-                    ? 'ui-accent-bg border-transparent'
-                    : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
-                }`}
-              >
-                <span>{it.flag}</span>
-                <span>{it.label}</span>
-              </button>
-            )
-          })}
-        </div>
-      </div>
 
       {/* Apariencia: modo claro / oscuro */}
       <div className="space-y-1.5">

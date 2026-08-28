@@ -9,6 +9,7 @@ import { EditorPersonajesSection } from './editor/EditorPersonajesSection'
 import { EditorObjetosSection } from './editor/EditorObjetosSection'
 import { EditorAjustesSection } from './editor/EditorAjustesSection'
 import { EditorFondoEscritorioSection } from './editor/EditorFondoEscritorioSection'
+import { EditorIdiomaSection } from './editor/EditorIdiomaSection'
 import { hayFondoEscritorio } from '../plataforma'
 import { EditorEstiloSection } from './editor/EditorEstiloSection'
 import { EditorMusicaSection } from './editor/EditorMusicaSection'
@@ -55,9 +56,14 @@ const GRUPOS_CONFIG: Record<
     titulo: (t) => t('ajustes.estiloMapa', 'Estilo visual del mapa'),
     Contenido: () => <EditorEstiloSection embed sinTitulo />,
   },
-  interfaz: {
+  idioma: {
     icono: 'idiomas',
-    titulo: (t) => t('config.grupo.interfaz', 'Interfaz e idioma'),
+    titulo: (t) => t('ajustes.idioma', 'Idioma'),
+    Contenido: () => <EditorIdiomaSection />,
+  },
+  interfaz: {
+    icono: 'pincel',
+    titulo: (t) => t('config.grupo.interfaz', 'Interfaz'),
     Contenido: () => <EditorAjustesSection embed />,
   },
   fondo: {

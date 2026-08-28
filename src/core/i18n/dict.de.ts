@@ -4304,7 +4304,7 @@ export const DE: Dict = {
   'editor.sec.expandir': '{titulo} ausklappen',
   'editor.sec.contraerMapa': 'Karte einklappen',
   'editor.sec.expandirMapa': 'Karte ausklappen',
-  'config.grupo.interfaz': 'Oberfläche und Sprache',
+  'config.grupo.interfaz': 'Oberfläche',
   'editor.forma.desc':
     'Nutze die Tasten + und − am Raum in der Szene, um ihn Zelle für Zelle zu erweitern oder zu verkleinern (er kann die ganze Karte bedecken oder L-Formen annehmen).',
   'editor.anim.titulo': 'Animation',

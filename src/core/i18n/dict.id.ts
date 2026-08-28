@@ -4255,7 +4255,7 @@ export const ID: Dict = {
   'editor.sec.expandir': 'Perluas {titulo}',
   'editor.sec.contraerMapa': 'Ciutkan Peta',
   'editor.sec.expandirMapa': 'Perluas Peta',
-  'config.grupo.interfaz': 'Antarmuka dan bahasa',
+  'config.grupo.interfaz': 'Antarmuka',
   'editor.forma.desc':
     'Gunakan tombol + dan − pada ruangan di adegan untuk memperluas atau memangkasnya sel demi sel (ruangan bisa membesar sampai menutupi seluruh peta atau membentuk huruf L).',
   'editor.anim.titulo': 'Animasi',

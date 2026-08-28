@@ -7,6 +7,7 @@
 export type ConfigGrupoId =
   | 'cuenta'
   | 'estilo'
+  | 'idioma'
   | 'interfaz'
   | 'fondo'
   | 'musica'
@@ -22,6 +23,7 @@ export type ConfigGrupoId =
 const ORDEN_CONFIG_DEFAULT: ConfigGrupoId[] = [
   'cuenta',
   'estilo',
+  'idioma',
   'interfaz',
   'fondo',
   'musica',

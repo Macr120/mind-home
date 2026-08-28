@@ -4081,7 +4081,7 @@ export const JA: Dict = {
   'editor.sec.expandir': '{titulo}を展開',
   'editor.sec.contraerMapa': 'マップを折りたたむ',
   'editor.sec.expandirMapa': 'マップを展開',
-  'config.grupo.interfaz': 'インターフェースと言語',
+  'config.grupo.interfaz': 'インターフェース',
   'editor.forma.desc': 'シーン内の部屋にある「+」「−」ボタンで、マスごとに拡張・削減できます（マップ全体を覆ったりL字形にしたりできます）。',
   'editor.anim.titulo': 'アニメーション',
   'editor.anim.preset': '動き',

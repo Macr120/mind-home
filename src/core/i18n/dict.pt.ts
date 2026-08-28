@@ -4231,7 +4231,7 @@ export const PT: Dict = {
   'editor.sec.expandir': 'Expandir {titulo}',
   'editor.sec.contraerMapa': 'Recolher Mapa',
   'editor.sec.expandirMapa': 'Expandir Mapa',
-  'config.grupo.interfaz': 'Interface e idioma',
+  'config.grupo.interfaz': 'Interface',
   'editor.forma.desc':
     'Use os botões + e − no cômodo da cena para ampliá-lo ou reduzi-lo célula por célula (pode crescer até cobrir o mapa ou assumir formas em L).',
   'editor.anim.titulo': 'Animação',

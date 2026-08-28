@@ -4283,7 +4283,7 @@ export const FR: Dict = {
   'editor.sec.expandir': 'Développer {titulo}',
   'editor.sec.contraerMapa': 'Réduire le plan',
   'editor.sec.expandirMapa': 'Développer le plan',
-  'config.grupo.interfaz': 'Interface et langue',
+  'config.grupo.interfaz': 'Interface',
   'editor.forma.desc':
     'Utilise les boutons + et − sur la pièce dans la scène pour l’agrandir ou la réduire case par case (elle peut s’étendre sur tout le plan ou prendre une forme en L).',
   'editor.anim.titulo': 'Animation',

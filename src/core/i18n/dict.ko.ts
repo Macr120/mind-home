@@ -4084,7 +4084,7 @@ export const KO: Dict = {
   'editor.sec.expandir': '{titulo} 펼치기',
   'editor.sec.contraerMapa': '지도 접기',
   'editor.sec.expandirMapa': '지도 펼치기',
-  'config.grupo.interfaz': '인터페이스와 언어',
+  'config.grupo.interfaz': '인터페이스',
   'editor.forma.desc': '장면 속 방에 있는 +와 − 버튼으로 칸 단위로 늘리거나 줄일 수 있어요(지도 전체를 덮거나 L자 모양으로 만들 수도 있어요).',
   'editor.anim.titulo': '애니메이션',
   'editor.anim.preset': '동작',

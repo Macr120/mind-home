@@ -4081,7 +4081,7 @@ export const ZH: Dict = {
   'editor.sec.expandir': '展开{titulo}',
   'editor.sec.contraerMapa': '收起地图',
   'editor.sec.expandirMapa': '展开地图',
-  'config.grupo.interfaz': '界面与语言',
+  'config.grupo.interfaz': '界面',
   'editor.forma.desc': '使用场景中房间上的“+”“−”按钮，按格子扩展或缩减房间（可以覆盖整个地图，也可以做成L形）。',
   'editor.anim.titulo': '动画',
   'editor.anim.preset': '动作',

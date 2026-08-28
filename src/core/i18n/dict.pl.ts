@@ -4217,7 +4217,7 @@ export const PL: Dict = {
   'editor.sec.expandir': 'Rozwiń {titulo}',
   'editor.sec.contraerMapa': 'Zwiń mapę',
   'editor.sec.expandirMapa': 'Rozwiń mapę',
-  'config.grupo.interfaz': 'Interfejs i język',
+  'config.grupo.interfaz': 'Interfejs',
   'editor.forma.desc':
     'Użyj przycisków + i − na pokoju w scenie, aby powiększać lub zmniejszać go komórka po komórce (może urosnąć na całą mapę albo przyjąć kształt litery L).',
   'editor.anim.titulo': 'Animacja',

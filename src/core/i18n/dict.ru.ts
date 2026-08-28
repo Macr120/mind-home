@@ -4199,7 +4199,7 @@ export const RU: Dict = {
   'editor.sec.expandir': 'Развернуть {titulo}',
   'editor.sec.contraerMapa': 'Свернуть карту',
   'editor.sec.expandirMapa': 'Развернуть карту',
-  'config.grupo.interfaz': 'Интерфейс и язык',
+  'config.grupo.interfaz': 'Интерфейс',
   'editor.forma.desc':
     'Используй кнопки + и − на комнате в сцене, чтобы расширять или обрезать её по клеткам (она может занять всю карту или принять Г-образную форму).',
   'editor.anim.titulo': 'Анимация',

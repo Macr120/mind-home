@@ -4204,7 +4204,7 @@ export const TR: Dict = {
   'editor.sec.expandir': '{titulo} bölümünü genişlet',
   'editor.sec.contraerMapa': 'Haritayı daralt',
   'editor.sec.expandirMapa': 'Haritayı genişlet',
-  'config.grupo.interfaz': 'Arayüz ve dil',
+  'config.grupo.interfaz': 'Arayüz',
   'editor.forma.desc':
     'Odayı hücre hücre genişletmek veya küçültmek için sahnedeki + ve − düğmelerini kullan (haritayı kaplayacak kadar büyüyebilir veya L şekli alabilir).',
   'editor.anim.titulo': 'Animasyon',

@@ -4147,7 +4147,7 @@ export const AR: Dict = {
   'editor.sec.expandir': 'توسيع {titulo}',
   'editor.sec.contraerMapa': 'طي الخريطة',
   'editor.sec.expandirMapa': 'توسيع الخريطة',
-  'config.grupo.interfaz': 'الواجهة واللغة',
+  'config.grupo.interfaz': 'الواجهة',
   'editor.forma.desc':
     'استخدم زرَّي + و− على الغرفة في المشهد لتوسيعها أو تقليصها خلية تلو الأخرى (يمكن أن تكبر لتغطي الخريطة أو تأخذ شكل حرف L).',
   'editor.anim.titulo': 'الحركة',

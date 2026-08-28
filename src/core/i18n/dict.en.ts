@@ -3846,7 +3846,15 @@ export const EN: Dict = {
   'respaldo.sinRespaldo': 'You haven\'t exported a backup yet.',
   'respaldo.total': 'Total records',
   'respaldo.exportar': 'Export all as JSON',
+  'respaldo.exportar.cifrado': 'Export encrypted as JSON',
   'respaldo.restaurar': 'Restore from backup',
+  'respaldo.cifrar.placeholder': 'Backup password (optional)',
+  'respaldo.cifrar.ayuda':
+    "If you set a password, the file is encrypted and you'll need it to restore. It can't be recovered if you forget it.",
+  'respaldo.cifrar.titulo': 'Encrypted backup',
+  'respaldo.cifrar.pedir': 'This backup is encrypted. Enter its password to restore it.',
+  'respaldo.cifrar.descifrar': 'Decrypt and continue',
+  'respaldo.cifrar.error': 'Wrong password or corrupted file.',
   'respaldo.confirm.titulo': 'Confirm restore',
   'respaldo.confirm.desc': '{nombre} contains {n} records. Restoring will replace all current data and leave the house as it was when exported.',
   'respaldo.confirm.omitir': 'Tables not known by this version will be skipped: {tablas}.',
@@ -4295,7 +4303,7 @@ export const EN: Dict = {
   'editor.sec.expandir': 'Expand {titulo}',
   'editor.sec.contraerMapa': 'Collapse Map',
   'editor.sec.expandirMapa': 'Expand Map',
-  'config.grupo.interfaz': 'Interface and language',
+  'config.grupo.interfaz': 'Interface',
 
   // ─── EditorPanelCuarto: forma ─────────────────────────────────────────────
   'editor.forma.desc': 'Use the + and − buttons on the room in the scene to extend or trim it cell by cell (it can grow to cover the map or take L shapes).',

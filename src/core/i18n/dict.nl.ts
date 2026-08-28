@@ -4267,7 +4267,7 @@ export const NL: Dict = {
   'editor.sec.expandir': '{titulo} uitklappen',
   'editor.sec.contraerMapa': 'Kaart inklappen',
   'editor.sec.expandirMapa': 'Kaart uitklappen',
-  'config.grupo.interfaz': 'Interface en taal',
+  'config.grupo.interfaz': 'Interface',
   'editor.forma.desc':
     'Gebruik de + en − knoppen op de kamer in de scène om deze cel voor cel te vergroten of te verkleinen (kan uitgroeien tot de hele kaart of L-vormen aannemen).',
   'editor.anim.titulo': 'Animatie',

@@ -4199,7 +4199,7 @@ export const HI: Dict = {
   'editor.sec.expandir': '{titulo} बड़ा करें',
   'editor.sec.contraerMapa': 'मैप छोटा करें',
   'editor.sec.expandirMapa': 'मैप बड़ा करें',
-  'config.grupo.interfaz': 'इंटरफ़ेस और भाषा',
+  'config.grupo.interfaz': 'इंटरफ़ेस',
   'editor.forma.desc':
     'सीन में कमरे पर + और − बटन का इस्तेमाल करके इसे सेल-दर-सेल बढ़ाएं या घटाएं (यह पूरे मैप को घेर सकता है या L आकार ले सकता है)।',
   'editor.anim.titulo': 'एनिमेशन',
