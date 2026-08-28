@@ -95,6 +95,7 @@ interface PuenteEscritorio {
   clicsEnFondo?: boolean
   ponerDeFondo?: (pantalla?: string) => Promise<boolean>
   pantallas?: () => Promise<PantallaEscritorio[]>
+  abrirEn?: (donde: string) => Promise<boolean>
   vistaFondo?: () => Promise<string | null>
   moverFondo?: (d: { fx?: number; fy?: number; zoom?: number }) => Promise<boolean>
   recursosSistema?: () => Promise<{ cpu: number; memUsadaGB: number; memTotalGB: number } | null>
@@ -132,6 +133,19 @@ export async function alternarFondoEscritorio(pantalla?: string): Promise<boolea
     return (await window.mph?.ponerDeFondo?.(pantalla)) ?? false
   } catch {
     return false
+  }
+}
+
+/**
+ * Pide al shell que abra la ventana normal en un sitio de la app. Lo usan los
+ * paneles del fondo de pantalla, que se pulsan pero no son la app: la ventana
+ * puede estar cerrada, minimizada o detrás de todo.
+ */
+export async function abrirVentanaEn(donde: string): Promise<void> {
+  try {
+    await window.mph?.abrirEn?.(donde)
+  } catch {
+    /* sin shell no hay ventana que abrir */
   }
 }
 

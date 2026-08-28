@@ -111,6 +111,7 @@ function FondoDeEscritorio() {
       clima: t('fondo.p.clima', 'Clima'),
       musica: t('fondo.p.musica', 'Música'),
       recursos: t('fondo.p.recursos', 'Sistema'),
+      misiones: t('hoy.titulo', 'Misiones'),
     })[cual]
 
   /** En qué tercio de la vista previa está el puntero; null si es el centro. */

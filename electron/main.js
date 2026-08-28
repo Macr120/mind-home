@@ -301,7 +301,7 @@ function crearVentanaFondo(eleccion = eleccionFondoGuardada()) {
   })
 }
 
-function crearVentana() {
+function crearVentana(query = '') {
   ventana = new BrowserWindow({
     ...medidaGuardada(),
     minWidth: 800,
@@ -343,7 +343,7 @@ function crearVentana() {
     if (/^https?:/.test(url)) void shell.openExternal(url)
   })
 
-  void ventana.loadURL(URL_DEV ?? `${ORIGEN}/`)
+  void ventana.loadURL(URL_DEV ? URL_DEV + query : `${ORIGEN}/${query}`)
 }
 
 /**
@@ -578,6 +578,25 @@ ipcMain.handle('mph:fondo', (_e, eleccion) => {
   }
   guardarEleccionFondo(eleccion)
   crearVentanaFondo(eleccion)
+  return true
+})
+
+/**
+ * Un panel del fondo pide abrir la app en un sitio (hoy, «misiones»). Si la
+ * ventana normal no existe se crea YA con el destino en la URL, que es lo que la
+ * app lee al arrancar; si existe, se despierta y se le manda por el puente. Dos
+ * caminos porque una ventana recién creada todavía no tiene a nadie escuchando.
+ */
+ipcMain.handle('mph:abrir-en', (_e, destino) => {
+  const donde = String(destino ?? '').replace(/[^a-z-]/gi, '').slice(0, 24)
+  if (!donde) return false
+  if (!ventana) {
+    crearVentana(`?abrir=${donde}`)
+    return true
+  }
+  if (ventana.isMinimized()) ventana.restore()
+  ventana.focus()
+  ventana.webContents.send('mph:abrir-en', donde)
   return true
 })
 

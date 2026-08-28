@@ -103,6 +103,18 @@ void iniciarAvisosNativos(seguirAviso)
 // Y la vuelta del navegador tras el login con Google/Apple.
 void escucharDeepLinkAuth()
 
+/** Los sitios a los que puede llevar un panel del fondo de pantalla. */
+function irA(donde: string): void {
+  if (donde === 'misiones') void import('./core/state/rutinasUiStore').then((m) => m.useRutinasUI.getState().abrirCalendario('objetivos'))
+}
+
+// Un panel del fondo pide abrir la app aquí. Llega por la URL cuando el clic
+// creó esta ventana, y por el puente cuando ya estaba abierta.
+window.addEventListener('mph:abrir-en', (e) => irA(String((e as CustomEvent).detail ?? '')))
+if (new URLSearchParams(location.search).get('abrir')) {
+  irA(new URLSearchParams(location.search).get('abrir') as string)
+}
+
 // La casa de fondo de pantalla es OTRA ventana con sus propios stores: sin esto
 // se queda con la casa que había al encenderla. Solo escucha ella; la ventana
 // normal es la que edita.

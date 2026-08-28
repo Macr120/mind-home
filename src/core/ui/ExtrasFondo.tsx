@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { obtenerClimaReal, type ClimaActual } from '../clima'
 import { musicaSistema, recursosSistema } from '../plataforma'
 import {
@@ -10,7 +10,9 @@ import {
   type PanelFondo,
   type SitioFondo,
 } from '../fondoExtras'
-import { localeActual } from '../i18n/useT'
+import { localeActual, useT } from '../i18n/useT'
+import { repartirPasos, usePasosDeTodas } from '../hoy'
+import { abrirVentanaEn } from '../plataforma'
 import { leerModoUI, LS_MODO_UI } from '../state/ajustesStore'
 import type { ModoUI } from './temasUI'
 
@@ -87,6 +89,7 @@ function Panel({ cual }: { cual: PanelFondo }) {
   if (cual === 'hora') return <PanelHora />
   if (cual === 'clima') return <PanelClima />
   if (cual === 'musica') return <PanelMusica />
+  if (cual === 'misiones') return <PanelMisiones />
   return <PanelRecursos />
 }
 
@@ -234,6 +237,49 @@ function PanelRecursos() {
       <Barra etiqueta="CPU" pct={datos.cpu} texto={`${datos.cpu}%`} />
       <Barra etiqueta="RAM" pct={memPct} texto={`${datos.memUsadaGB.toFixed(1)}/${Math.round(datos.memTotalGB)} GB`} />
     </div>
+  )
+}
+
+/**
+ * Lo que le queda al día. A diferencia de los demás, este panel SE PULSA: abre
+ * la app en Misiones, que es lo que uno quiere hacer justo después de leerlo.
+ * Por eso recupera los `pointer-events` que el grupo apaga — en el fondo los
+ * clics llegan reenviados por el shell, y solo los que caen sobre el escritorio.
+ */
+function PanelMisiones() {
+  const t = useT()
+  const porApp = usePasosDeTodas()
+  const pendientes = useMemo(() => {
+    const todos = (porApp ?? []).flatMap((g) => repartirPasos(g.pasos).pendientes)
+    // Lo urgente primero: si solo caben tres líneas, que sean las que corren.
+    return [...todos].sort((a, b) => Number(b.urgente ?? false) - Number(a.urgente ?? false))
+  }, [porApp])
+
+  // Sin nada pendiente el panel se va, como el de música cuando no suena nada:
+  // un fondo de pantalla no es sitio para un «no te queda nada» permanente.
+  if (pendientes.length === 0) return null
+
+  return (
+    <button
+      type="button"
+      onClick={() => void abrirVentanaEn('misiones')}
+      className={`pointer-events-auto ${VIDRIO} w-64 cursor-pointer space-y-1 text-left transition hover:brightness-110`}
+      style={VIDRIO_ESTILO}
+    >
+      <p className="flex items-baseline justify-between text-xs font-semibold">
+        <span>{t('hoy.titulo', 'Misiones')}</span>
+        <span className="tabular-nums opacity-60">{pendientes.length}</span>
+      </p>
+      {pendientes.slice(0, 3).map((p) => (
+        <p key={p.id} className="truncate text-[13px] leading-tight opacity-90">
+          {p.emoji ? `${p.emoji} ` : ''}
+          {p.titulo}
+        </p>
+      ))}
+      {pendientes.length > 3 && (
+        <p className="text-[11px] opacity-55">+{pendientes.length - 3}</p>
+      )}
+    </button>
   )
 }
 

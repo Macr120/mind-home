@@ -19,6 +19,11 @@ ipcRenderer.on('mph:enlace-profundo', (_evento, url) => {
   window.dispatchEvent(new CustomEvent('mph:enlace-profundo', { detail: url }))
 })
 
+// Y el aviso de «ábrete por aquí» que manda un panel del fondo de pantalla.
+ipcRenderer.on('mph:abrir-en', (_evento, donde) => {
+  window.dispatchEvent(new CustomEvent('mph:abrir-en', { detail: donde }))
+})
+
 // Solo llega a la ventana del fondo: la vista previa le manda hacia dónde moverse.
 ipcRenderer.on('mph:fondo-mover', (_evento, d) => {
   window.dispatchEvent(new CustomEvent('mph:fondo-mover', { detail: d }))
@@ -43,6 +48,8 @@ contextBridge.exposeInMainWorld('mph', {
   ponerDeFondo: (pantalla) => ipcRenderer.invoke('mph:fondo', pantalla),
   /** Los monitores conectados, para elegir en cuál va el fondo. */
   pantallas: () => ipcRenderer.invoke('mph:pantallas'),
+  /** Abre (o despierta) la ventana normal en un sitio concreto de la app. */
+  abrirEn: (donde) => ipcRenderer.invoke('mph:abrir-en', donde),
   /** Foto de cómo se ve el fondo AHORA (data URL), o null si no está puesto. */
   vistaFondo: () => ipcRenderer.invoke('mph:fondo-vista'),
   /** Mueve el encuadre del fondo: arrastre en fracción de pantalla, o zoom. */
