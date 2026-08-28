@@ -36,7 +36,7 @@ src/
     registry.ts contrato `Plantilla` + array `plantillas[]`
   rooms/<id>/   UNA CARPETA POR CUARTO (la mini-app 2D)
   demo/         casa demo de Pep@ (BD paralela `mind-home-demo`)
-web/            landing pública y /cuenta — SEGUNDO build de Vite (vite.config.web.ts)
+web/            landing pública y /cuenta — SEGUNDO build de Vite (web/vite.config.ts)
 ```
 
 ## Modelo de cuartos (importante: cambió)

@@ -1,4 +1,7 @@
 # Empaquetado del shell de escritorio (npm run escritorio:win | escritorio:mac).
+# Vive en electron/ (cada proyecto lleva su config), así que electron-builder se
+# invoca con `--config electron/electron-builder.yml`; las rutas de aquí dentro
+# siguen siendo relativas a la RAÍZ del repo, que es donde está package.json.
 #
 # Canales decididos en el master plan: Microsoft Store (.appx, canal principal
 # de Windows) + instalador NSIS sin firma y dmg/zip notarizados en GitHub
@@ -16,9 +19,9 @@ files:
   - dist/**/*
   - electron/main.js
   - electron/precarga.cjs
-  - electron/fondo.ps1
-  - electron/fondo-raton.ps1
-  - electron/fondo-musica.ps1
+  - electron/fondo/fondo.ps1
+  - electron/fondo/fondo-raton.ps1
+  - electron/fondo/fondo-musica.ps1
   - "!node_modules/**/*"
 # Sin asar: `net.fetch(file://…)` (con el que main.js sirve dist/) pasa por el
 # cargador de Chromium, que NO lee dentro de un .asar — empaquetado serviría

@@ -32,7 +32,7 @@ const IDIOMAS = ['es', 'en', 'pt', 'fr', 'de', 'it', 'ja', 'zh', 'ko', 'ru', 'hi
 
 /**
  * Código de idioma de Partner Center. Son los MISMOS que declara el paquete en
- * `electron-builder.yml` (appx.languages): la Store saca de ahí los idiomas que
+ * `electron/electron-builder.yml` (appx.languages): la Store saca de ahí los idiomas que
  * ofrece la ficha, así que las dos listas tienen que cuadrar.
  */
 const LOCALE = {

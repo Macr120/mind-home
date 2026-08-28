@@ -4,10 +4,12 @@ La app de escritorio (Windows y macOS) es un **shell de Electron** que corre
 EXACTAMENTE la misma web de `dist/`, igual que Capacitor en el teléfono. No hay
 un segundo frontend que mantener: si algo se ve mal aquí, se arregla en `src/`.
 
-Son cuatro archivos en [`electron/`](../electron) —`main.js`, `precarga.cjs` y
-los dos `.ps1` del modo fondo— más [`electron-builder.yml`](../electron-builder.yml)
-en la raíz. Electron y electron-builder viven en las devDependencies de la web:
-no hay un segundo `node_modules`.
+Todo el proyecto vive en [`electron/`](../electron): `main.js`, `precarga.cjs`,
+la carpeta `fondo/` con los tres `.ps1` del fondo de pantalla y su
+[`electron-builder.yml`](../electron/electron-builder.yml) (por eso los scripts
+lo invocan con `--config electron/electron-builder.yml`). Electron y
+electron-builder viven en las devDependencies de la web: no hay un segundo
+`node_modules`.
 
 **Ni el `.dmg` ni el `.exe` pasan por la Mac App Store**, y no es un descuido: el
 escritorio cobra directo por RevenueCat Web Billing —sin comisión— y la regla
@@ -53,7 +55,7 @@ empaqueta el NSIS ni el appx sin trampas; el script pasa por
 | **`app://mph`** | La web NO se sirve por `file://`: un `file://` no tiene origen, y sin origen no hay IndexedDB, ni localStorage, ni service worker — o sea, no hay app. El esquema propio se declara `standard`, `secure` y `allowServiceWorkers`, así que Chromium lo trata como un https: contexto seguro (`crypto.subtle`, `getUserMedia`) y `sw.js` registra. Y el origen no se cambia a la ligera: **IndexedDB va por origen**, así que tocarlo dejaría huérfanos los datos de quien ya abrió la app |
 | **Marca en el user agent** | `MindPlannerHome/<versión>` es lo que hace que `esEscritorio()` (`core/plataforma.ts`) responda que sí, y con ello que `canalPago()` devuelva `escritorio` y el pago se vaya al navegador. Se pone a propósito y se limpia la que Electron deriva del nombre del producto, o viaja dos veces |
 | **Nada navega fuera** | `setWindowOpenHandler` + `will-navigate`: cualquier `http(s)` se abre en el navegador del sistema y la ventana no se mueve de `app://mph`. Una ventana de Electron no es sitio para un formulario de pago |
-| **Modo fondo** (`--fondo`) | La casa como wallpaper vivo. En Windows la ventana se cuelga del WorkerW del escritorio (`fondo.ps1`, el truco de Wallpaper Engine) y el shell le reenvía el cursor y los clics con `sendInputEvent`; en macOS basta `type: 'desktop'`. La app entra por la query `?fondo=1` |
+| **Modo fondo** (`--fondo`) | La casa como wallpaper vivo. En Windows la ventana se cuelga del WorkerW del escritorio (`electron/fondo/fondo.ps1`, el truco de Wallpaper Engine) y el shell le reenvía el cursor y los clics con `sendInputEvent`; en macOS basta `type: 'desktop'`. La app entra por la query `?fondo=1` |
 | **Enlace profundo** | `com.macr120.mindhome://oauth`, el MISMO que Android e iOS. Lo declara `protocols:` del yml y lo reclama `setAsDefaultProtocolClient` |
 | **Permisos** | Cámara y micrófono (Chat AR y dictado) y notificaciones; lo demás se deniega, y solo para nuestro propio origen |
 | **Ventana** | Fondo `#0f1115` antes del primer frame (sin él se cuela un fogonazo blanco, igual que en el teléfono) y tamaño y posición recordados entre arranques |

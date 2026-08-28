@@ -24,7 +24,7 @@ const CATALOGOS = path.join(RAIZ, 'web', 'i18n', 'paginas')
 const PAGINAS = ['index.html', 'privacidad.html', 'terminos.html', 'soporte.html']
 
 if (!existsSync(DIST)) {
-  console.error('dist-web no existe: corre primero `vite build --config vite.config.web.ts`')
+  console.error('dist-web no existe: corre primero `vite build --config web/vite.config.ts`')
   process.exit(1)
 }
 
@@ -193,10 +193,13 @@ for (const { id } of DISPONIBLES) {
       faltan.set(id, previo)
     }
   }
-  // `cuenta.html` se copia sin tocar: sus textos los pone React en el navegador,
-  // pero necesita existir bajo cada idioma para que `/en/cuenta` no sea un 404.
-  if (id !== IDIOMA_ORIGEN && existsSync(path.join(DIST, 'cuenta.html'))) {
-    cpSync(path.join(DIST, 'cuenta.html'), path.join(destino, 'cuenta.html'))
+  // Las páginas React (`cuenta.html`, `mascara.html`) se copian sin tocar: sus
+  // textos los pone el propio bundle, pero necesitan existir bajo cada idioma
+  // para que `/en/cuenta` o `/en/mascara` no sean un 404.
+  for (const react of ['cuenta.html', 'mascara.html']) {
+    if (id !== IDIOMA_ORIGEN && existsSync(path.join(DIST, react))) {
+      cpSync(path.join(DIST, react), path.join(destino, react))
+    }
   }
 }
 

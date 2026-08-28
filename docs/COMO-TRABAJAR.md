@@ -16,7 +16,7 @@ Empieza el mensaje con una etiqueta. La IA y las reglas de Cursor la usan para a
 | `[COCINA]` … `[AGENDA]` | Solo esa mini-app | `src/rooms/<id>/**` |
 | `[EDITOR]` | Personalización de la casa (colores, avatar, objetos, planos) | `src/core/ui/editor/**`, `src/core/ui/planos/**`, `EditPanel.tsx` |
 | `[NUBE]` | Cuenta, créditos, IA de servidor, sync | `src/core/cuenta/**`, `src/core/data/sync/**`, `supabase/**` |
-| `[WEB]` | Landing pública y /cuenta | `web/**`, `vite.config.web.ts` |
+| `[WEB]` | Landing pública y /cuenta | `web/**` (su build vive en `web/vite.config.ts`) |
 
 Ejemplos:
 

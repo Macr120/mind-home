@@ -6,7 +6,8 @@ import tailwindcss from '@tailwindcss/vite'
 
 // Segundo build del repo: la WEB PÚBLICA (landing + /cuenta + legales), ligera
 // y sin three/dexie. Se despliega aparte de la app (dist-web → dominio raíz).
-const raiz = path.dirname(fileURLToPath(import.meta.url))
+const carpeta = path.dirname(fileURLToPath(import.meta.url)) // web/
+const raiz = path.resolve(carpeta, '..')
 
 /**
  * Cloudflare Pages sirve /cuenta → cuenta.html solo (clean URLs); el dev
@@ -15,7 +16,7 @@ const raiz = path.dirname(fileURLToPath(import.meta.url))
  * igual en local que en producción.
  */
 function urlsLimpias(): Plugin {
-  const paginas = new Set(['cuenta', 'privacidad', 'terminos', 'soporte'])
+  const paginas = new Set(['cuenta', 'privacidad', 'terminos', 'soporte', 'mascara'])
   return {
     name: 'mph-urls-limpias',
     configureServer(server) {
@@ -29,7 +30,7 @@ function urlsLimpias(): Plugin {
 }
 
 export default defineConfig({
-  root: path.resolve(raiz, 'web'),
+  root: carpeta,
   envDir: raiz, // comparte .env.local con la app (VITE_SUPABASE_*, VITE_REVENUECAT_WEB_KEY…)
   plugins: [react(), tailwindcss(), urlsLimpias()],
   server: { port: 5174 },
@@ -38,11 +39,12 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        index: path.resolve(raiz, 'web/index.html'),
-        cuenta: path.resolve(raiz, 'web/cuenta.html'),
-        privacidad: path.resolve(raiz, 'web/privacidad.html'),
-        terminos: path.resolve(raiz, 'web/terminos.html'),
-        soporte: path.resolve(raiz, 'web/soporte.html'),
+        index: path.resolve(carpeta, 'index.html'),
+        cuenta: path.resolve(carpeta, 'cuenta.html'),
+        privacidad: path.resolve(carpeta, 'privacidad.html'),
+        terminos: path.resolve(carpeta, 'terminos.html'),
+        soporte: path.resolve(carpeta, 'soporte.html'),
+        mascara: path.resolve(carpeta, 'mascara.html'),
       },
     },
   },

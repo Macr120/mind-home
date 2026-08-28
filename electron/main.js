@@ -134,7 +134,7 @@ function zonaFondo(eleccion) {
 
 /**
  * Modo fondo (`--fondo`): la casa como wallpaper vivo. En Windows la ventana se
- * cuelga del WorkerW del escritorio (electron/fondo.ps1 — el truco de Wallpaper
+ * cuelga del WorkerW del escritorio (electron/fondo/fondo.ps1 — el truco de Wallpaper
  * Engine/Lively) y queda DETRÁS de los iconos; en macOS basta `type: 'desktop'`.
  * Ahí el SO ya no le manda input, así que el shell reenvía el cursor global con
  * `sendInputEvent` (mueve el puntero espacial de la app) y fondo-raton.ps1
@@ -196,7 +196,7 @@ function crearVentanaFondo(eleccion = eleccionFondoGuardada()) {
       '-ExecutionPolicy',
       'Bypass',
       '-File',
-      path.join(__dirname, 'fondo-raton.ps1'),
+      path.join(__dirname, 'fondo', 'fondo-raton.ps1'),
     ])
     let bajado = false
     raton.stdout.on('data', (buf) => {
@@ -229,7 +229,7 @@ function crearVentanaFondo(eleccion = eleccionFondoGuardada()) {
       '-ExecutionPolicy',
       'Bypass',
       '-File',
-      path.join(__dirname, 'fondo-musica.ps1'),
+      path.join(__dirname, 'fondo', 'fondo-musica.ps1'),
     ])
     musica.stdout.on('data', (buf) => {
       // El `pop()` tira lo que viene DESPUÉS del último salto, que no es una
@@ -268,7 +268,7 @@ function crearVentanaFondo(eleccion = eleccionFondoGuardada()) {
       : ['-X', String(zona.x - zona.virtualX), '-Y', String(zona.y - zona.virtualY), '-W', String(zona.width), '-H', String(zona.height)]
     execFile(
       'powershell.exe',
-      ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', path.join(__dirname, 'fondo.ps1'), '-Hwnd', hwnd, ...zonaArgs],
+      ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', path.join(__dirname, 'fondo', 'fondo.ps1'), '-Hwnd', hwnd, ...zonaArgs],
       (err) => {
         if (win.isDestroyed()) return
         // Si el reparent falló (Windows raro), que al menos se vea la ventana.

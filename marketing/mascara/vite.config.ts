@@ -7,10 +7,11 @@ import tailwindcss from '@tailwindcss/vite'
 // Tercer build del repo: la MÁSCARA AR de marketing (grabarse con la cabeza del
 // avatar sobre la cara, vía MediaPipe). Se usa desde el iPhone a través de un
 // túnel HTTPS (npm run mascara:tunel), de ahí el allowedHosts.
-const raiz = path.dirname(fileURLToPath(import.meta.url))
+const carpeta = path.dirname(fileURLToPath(import.meta.url)) // marketing/mascara/
+const raiz = path.resolve(carpeta, '../..')
 
 export default defineConfig({
-  root: path.resolve(raiz, 'marketing/mascara'),
+  root: carpeta,
   envDir: raiz,
   plugins: [react(), tailwindcss()],
   server: { port: 5175, allowedHosts: ['.trycloudflare.com'] },

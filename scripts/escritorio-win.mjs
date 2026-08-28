@@ -41,7 +41,7 @@ if (!kit) {
 }
 console.log(`makeappx del SDK: ${kit}`)
 
-const r = spawnSync('npx', ['electron-builder', '--win', ...process.argv.slice(2)], {
+const r = spawnSync('npx', ['electron-builder', '--win', '--config', 'electron/electron-builder.yml', ...process.argv.slice(2)], {
   stdio: 'inherit',
   shell: true,
   env: { ...process.env, ELECTRON_BUILDER_WINDOWS_KITS_PATH: kit },

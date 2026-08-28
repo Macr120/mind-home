@@ -37,8 +37,9 @@ electron/build/icon.png
 
 # Marketing: masters y derivados pesados del video (los .json/.srt sí van al repo)
 dist-mascara
-# Copia de marketing/mascara/public/mediapipe (la hace scripts/copiar-mediapipe.mjs)
+# Copias de marketing/mascara/public/mediapipe (las hace scripts/copiar-mediapipe.mjs)
 /public/mediapipe/
+/web/public/mediapipe/
 marketing/video/*/original.mp4
 marketing/video/*/musica.mp3
 marketing/video/*/pantalla.mov

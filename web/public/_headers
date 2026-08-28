@@ -1,0 +1,33 @@
+# Cabeceras de seguridad de la WEB PÚBLICA (mindplannerhome.com: landing, /cuenta
+# y páginas legales). Formato Cloudflare Pages. Vite copia public/ a la raíz de
+# dist-web, y web-i18n.mjs multiplica las páginas por idioma DESPUÉS del build:
+# este archivo se sirve igual para /, /en/, /cuenta, etc.
+#
+# La landing y las páginas legales no cargan JS externo, pero SÍ llevan scripts
+# en línea y handlers `onclick` (selector de idioma, tema, autodetección) —por eso
+# `script-src` admite 'unsafe-inline' aquí—. Son páginas estáticas sin entrada de
+# datos, así que su superficie de XSS es mínima; /cuenta es React (bundle propio)
+# y escapa por defecto. `connect-src`/`frame-src` quedan en https: para no romper
+# el login de Supabase ni el checkout de RevenueCat/Stripe.
+/*
+  Content-Security-Policy: default-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https: wss:; frame-src 'self' https:; form-action 'self'
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), browsing-topics=()
+
+# /mascara (y sus copias por idioma) es la máscara AR: necesita cámara y
+# micrófono, WebAssembly (MediaPipe → 'wasm-unsafe-eval') y blob: para
+# reproducir/guardar la grabación. El `!` quita la cabecera heredada de /* antes
+# de poner la propia, para no servir dos valores.
+/mascara
+  ! Permissions-Policy
+  ! Content-Security-Policy
+  Permissions-Policy: camera=(self), microphone=(self), geolocation=(), browsing-topics=()
+  Content-Security-Policy: default-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' https: wss:; media-src 'self' blob:; worker-src 'self' blob:; form-action 'self'
+/:idioma/mascara
+  ! Permissions-Policy
+  ! Content-Security-Policy
+  Permissions-Policy: camera=(self), microphone=(self), geolocation=(), browsing-topics=()
+  Content-Security-Policy: default-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' https: wss:; media-src 'self' blob:; worker-src 'self' blob:; form-action 'self'
