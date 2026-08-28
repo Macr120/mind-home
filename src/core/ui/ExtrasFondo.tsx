@@ -1,8 +1,18 @@
 import { useEffect, useState } from 'react'
 import { obtenerClimaReal, type ClimaActual } from '../clima'
 import { musicaSistema, recursosSistema } from '../plataforma'
-import { CLAVE_EXTRAS_FONDO, leerExtrasFondo, type ExtrasFondo } from '../fondoExtras'
+import {
+  CLAVE_EXTRAS_FONDO,
+  EXTRAS_FONDO,
+  leerExtrasFondo,
+  SITIOS_FONDO,
+  type ExtrasFondo,
+  type PanelFondo,
+  type SitioFondo,
+} from '../fondoExtras'
 import { localeActual } from '../i18n/useT'
+import { leerModoUI, LS_MODO_UI } from '../state/ajustesStore'
+import type { ModoUI } from './temasUI'
 
 /**
  * Los paneles opcionales del fondo de pantalla: hora, clima, música y recursos.
@@ -19,40 +29,116 @@ import { localeActual } from '../i18n/useT'
 export function ExtrasFondo() {
   const [extras, setExtras] = useState<ExtrasFondo>(() => leerExtrasFondo())
 
+  // La apariencia se elige en la OTRA ventana, así que llega por el mismo
+  // camino que los paneles: el evento `storage` del origen compartido.
+  const [modo, setModo] = useState<ModoUI>(() => leerModoUI())
+
   useEffect(() => {
     const alCambiar = (e: StorageEvent) => {
       if (e.key === null || e.key === CLAVE_EXTRAS_FONDO) setExtras(leerExtrasFondo())
+      if (e.key === null || e.key === LS_MODO_UI) setModo(leerModoUI())
     }
     window.addEventListener('storage', alCambiar)
     return () => window.removeEventListener('storage', alCambiar)
   }, [])
 
-  const hayAlguno = extras.hora || extras.clima || extras.musica || extras.recursos
-  if (!hayAlguno) return null
+  // Un grupo por sitio ocupado: los que caen en el mismo se apilan en columna,
+  // en el orden de EXTRAS_FONDO, para que dos paneles vecinos no se tapen.
+  const grupos = SITIOS_FONDO.map((sitio) => ({
+    sitio,
+    paneles: EXTRAS_FONDO.filter((cual) => extras[cual] && extras.sitios[cual] === sitio),
+  })).filter((g) => g.paneles.length > 0)
+  if (grupos.length === 0) return null
 
   return (
-    <div className="pointer-events-none absolute left-5 top-5 z-10 flex select-none flex-col items-start gap-2">
-      {extras.hora && <PanelHora />}
-      {extras.clima && <PanelClima />}
-      {extras.musica && <PanelMusica />}
-      {extras.recursos && <PanelRecursos />}
-    </div>
+    <>
+      {grupos.map(({ sitio, paneles }) => (
+        <div
+          key={sitio}
+          style={VESTIDO[modo]}
+          className={`pointer-events-none absolute z-10 flex select-none flex-col gap-2 ${ANCLAJE[sitio]}`}
+        >
+          {paneles.map((cual) => (
+            <Panel key={cual} cual={cual} />
+          ))}
+        </div>
+      ))}
+    </>
   )
 }
 
 /**
- * El vidrio común: legible sobre cualquier casa, de día y de noche. Los colores
- * van FIJOS y no por clases `white`/`black` a propósito: el tema de la app
- * redefine esos tokens (así invierte el modo claro), y estos paneles flotan
- * sobre la escena, no sobre una superficie tematizada — en claro salían
- * blancos con texto oscuro, ilegibles sobre el cielo. Misma excepción
- * documentada que el color del anillo en `PunteroFondo`.
+ * Dónde se ancla cada sitio y hacia dónde crecen sus paneles. Los de la derecha
+ * se alinean a la derecha para que al aparecer y desaparecer —el de música se
+ * va cuando no suena nada— el borde común no baile.
+ */
+const ANCLAJE: Record<SitioFondo, string> = {
+  arribaIzq: 'left-5 top-5 items-start',
+  arriba: 'left-1/2 top-5 -translate-x-1/2 items-center',
+  arribaDer: 'right-5 top-5 items-end',
+  izq: 'left-5 top-1/2 -translate-y-1/2 items-start',
+  der: 'right-5 top-1/2 -translate-y-1/2 items-end',
+  abajoIzq: 'bottom-5 left-5 items-start',
+  abajo: 'bottom-5 left-1/2 -translate-x-1/2 items-center',
+  abajoDer: 'bottom-5 right-5 items-end',
+}
+
+function Panel({ cual }: { cual: PanelFondo }) {
+  if (cual === 'hora') return <PanelHora />
+  if (cual === 'clima') return <PanelClima />
+  if (cual === 'musica') return <PanelMusica />
+  return <PanelRecursos />
+}
+
+/**
+ * El vidrio común. Los colores NO salen de las clases `white`/`black` ni de los
+ * tokens del tema: estos paneles flotan sobre la escena y no sobre una
+ * superficie tematizada, así que aquí `bg-white` no es blanco y en claro salían
+ * ilegibles sobre el cielo. Lo que sí siguen es la APARIENCIA elegida —claro,
+ * oscuro o transparente—, con una paleta propia por modo: el grupo la pone como
+ * variables y cada panel la lee, así que un solo sitio decide y los cuatro
+ * obedecen.
  */
 const VIDRIO = 'rounded-xl border px-3.5 py-2 shadow-lg backdrop-blur-md'
 const VIDRIO_ESTILO: React.CSSProperties = {
-  backgroundColor: 'rgba(10, 13, 20, 0.52)',
-  borderColor: 'rgba(255, 255, 255, 0.14)',
-  color: 'rgba(246, 247, 250, 0.94)',
+  backgroundColor: 'var(--vf-fondo)',
+  borderColor: 'var(--vf-borde)',
+  color: 'var(--vf-texto)',
+  textShadow: 'var(--vf-sombra)',
+}
+
+/**
+ * Un juego de colores por apariencia. El transparente casi no pone panel —un
+ * velo y el texto con sombra—, que es lo que ese modo hace en el resto de la
+ * app: dejar ver lo que hay debajo.
+ */
+const VESTIDO: Record<ModoUI, React.CSSProperties> = {
+  oscuro: {
+    '--vf-fondo': 'rgba(10, 13, 20, 0.52)',
+    '--vf-borde': 'rgba(255, 255, 255, 0.14)',
+    '--vf-texto': 'rgba(246, 247, 250, 0.94)',
+    '--vf-sombra': 'none',
+    '--vf-barra': 'rgba(255, 255, 255, 0.75)',
+    '--vf-barra-fondo': 'rgba(255, 255, 255, 0.16)',
+  } as React.CSSProperties,
+  claro: {
+    '--vf-fondo': 'rgba(249, 250, 252, 0.78)',
+    '--vf-borde': 'rgba(15, 17, 21, 0.10)',
+    '--vf-texto': 'rgba(17, 20, 28, 0.92)',
+    '--vf-sombra': 'none',
+    '--vf-barra': 'rgba(17, 20, 28, 0.65)',
+    '--vf-barra-fondo': 'rgba(17, 20, 28, 0.14)',
+  } as React.CSSProperties,
+  transparente: {
+    '--vf-fondo': 'rgba(10, 13, 20, 0.18)',
+    '--vf-borde': 'rgba(255, 255, 255, 0.20)',
+    '--vf-texto': 'rgba(255, 255, 255, 0.96)',
+    // Sin panel que lo respalde, el texto necesita su propio contraste: sobre un
+    // cielo de mediodía el blanco solo se lee gracias a esta sombra.
+    '--vf-sombra': '0 1px 4px rgba(0, 0, 0, 0.55)',
+    '--vf-barra': 'rgba(255, 255, 255, 0.85)',
+    '--vf-barra-fondo': 'rgba(255, 255, 255, 0.22)',
+  } as React.CSSProperties,
 }
 
 function PanelHora() {
@@ -158,10 +244,10 @@ function Barra({ etiqueta, pct, texto }: { etiqueta: string; pct: number; texto:
         <span className="font-semibold opacity-70">{etiqueta}</span>
         <span className="tabular-nums opacity-60">{texto}</span>
       </div>
-      <div className="mt-0.5 h-1 overflow-hidden rounded-full" style={{ backgroundColor: 'rgba(255,255,255,0.16)' }}>
+      <div className="mt-0.5 h-1 overflow-hidden rounded-full" style={{ backgroundColor: 'var(--vf-barra-fondo)' }}>
         <div
           className="h-full rounded-full transition-all"
-          style={{ width: `${Math.min(100, pct)}%`, backgroundColor: 'rgba(255,255,255,0.75)' }}
+          style={{ width: `${Math.min(100, pct)}%`, backgroundColor: 'var(--vf-barra)' }}
         />
       </div>
     </div>

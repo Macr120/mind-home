@@ -1,4 +1,4 @@
-import { useRef, useState, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Shapes } from 'lucide-react'
 import { useAjustes, type EstiloIconos } from '../../state/ajustesStore'
 import { useT } from '../../i18n/useT'
@@ -12,9 +12,19 @@ import {
   alternarFondoEscritorio,
   hayFondoEscritorio,
   moverFondoEscritorio,
+  pantallasEscritorio,
   vistaFondoEscritorio,
+  type PantallaEscritorio,
 } from '../../plataforma'
-import { alternarExtraFondo, EXTRAS_FONDO, leerExtrasFondo, type ExtrasFondo } from '../../fondoExtras'
+import {
+  alternarExtraFondo,
+  EXTRAS_FONDO,
+  leerExtrasFondo,
+  moverExtraFondo,
+  type ExtrasFondo,
+  type PanelFondo,
+  type SitioFondo,
+} from '../../fondoExtras'
 
 /**
  * Sección del editor de mapa: ajustes de la interfaz (idioma, apariencia,
@@ -289,6 +299,45 @@ export function EditorAjustesSection({ embed }: { embed?: boolean } = {}) {
  * solo el mapa —sin HUD ni controles, lo decide `esModoFondo()` en App.tsx— y
  * nace con la casa tal y como está en el momento de encenderla.
  */
+/** Dónde se recuerda el monitor elegido para el fondo. */
+const CLAVE_PANTALLA = 'mph.fondoPantalla'
+
+/**
+ * Los ocho sitios, puestos en la rejilla de tres por tres de la vista previa.
+ * El centro se queda vacío a propósito: ahí está la casa.
+ */
+const SITIOS: SitioFondo[] = ['arribaIzq', 'arriba', 'arribaDer', 'izq', 'der', 'abajoIzq', 'abajo', 'abajoDer']
+
+const REJILLA: (SitioFondo | null)[][] = [
+  ['arribaIzq', 'arriba', 'arribaDer'],
+  ['izq', null, 'der'],
+  ['abajoIzq', 'abajo', 'abajoDer'],
+]
+
+/** Dónde se pega la pastilla de cada sitio dentro de la vista previa. */
+const MINI: Record<SitioFondo, string> = {
+  arribaIzq: 'left-1 top-1 items-start',
+  arriba: 'left-1/2 top-1 -translate-x-1/2 items-center',
+  arribaDer: 'right-1 top-1 items-end',
+  izq: 'left-1 top-1/2 -translate-y-1/2 items-start',
+  der: 'right-1 top-1/2 -translate-y-1/2 items-end',
+  abajoIzq: 'bottom-1 left-1 items-start',
+  abajo: 'bottom-1 left-1/2 -translate-x-1/2 items-center',
+  abajoDer: 'bottom-1 right-1 items-end',
+}
+
+/** El tercio que se resalta mientras se arrastra un panel hacia él. */
+const ZONA: Record<SitioFondo, string> = {
+  arribaIzq: 'left-0 top-0 h-1/3 w-1/3',
+  arriba: 'left-1/3 top-0 h-1/3 w-1/3',
+  arribaDer: 'right-0 top-0 h-1/3 w-1/3',
+  izq: 'left-0 top-1/3 h-1/3 w-1/3',
+  der: 'right-0 top-1/3 h-1/3 w-1/3',
+  abajoIzq: 'bottom-0 left-0 h-1/3 w-1/3',
+  abajo: 'bottom-0 left-1/3 h-1/3 w-1/3',
+  abajoDer: 'bottom-0 right-0 h-1/3 w-1/3',
+}
+
 function FondoDeEscritorio() {
   const t = useT()
   const [puesto, setPuesto] = useState(false)
@@ -297,6 +346,40 @@ function FondoDeEscritorio() {
   const [extras, setExtras] = useState<ExtrasFondo>(() => leerExtrasFondo())
   const caja = useRef<HTMLDivElement>(null)
   const inicio = useRef<{ x: number; y: number } | null>(null)
+  const [llevando, setLlevando] = useState<PanelFondo | null>(null)
+  const [destino, setDestino] = useState<SitioFondo | null>(null)
+  const [pantallas, setPantallas] = useState<PantallaEscritorio[]>([])
+  // En qué monitor va. Se guarda aquí, junto al resto de ajustes del fondo; el
+  // shell lo recuerda además por su cuenta, para cuando arranca en modo fondo
+  // sin que nadie se lo diga.
+  const [pantalla, setPantalla] = useState<string>(() => {
+    try {
+      return localStorage.getItem(CLAVE_PANTALLA) ?? 'todas'
+    } catch {
+      return 'todas'
+    }
+  })
+
+  useEffect(() => {
+    void pantallasEscritorio().then(setPantallas)
+  }, [])
+
+  const nombre = (cual: PanelFondo) =>
+    ({
+      hora: t('fondo.p.hora', 'Hora'),
+      clima: t('fondo.p.clima', 'Clima'),
+      musica: t('fondo.p.musica', 'Música'),
+      recursos: t('fondo.p.recursos', 'Sistema'),
+    })[cual]
+
+  /** En qué tercio de la vista previa está el puntero; null si es el centro. */
+  const zonaDe = (e: React.PointerEvent): SitioFondo | null => {
+    const r = caja.current?.getBoundingClientRect()
+    if (!r) return null
+    const col = Math.min(2, Math.max(0, Math.floor(((e.clientX - r.left) / r.width) * 3)))
+    const fil = Math.min(2, Math.max(0, Math.floor(((e.clientY - r.top) / r.height) * 3)))
+    return REJILLA[fil][col]
+  }
 
   if (!hayFondoEscritorio()) return null
 
@@ -307,7 +390,7 @@ function FondoDeEscritorio() {
     if (ocupado) return
     setOcupado(true)
     try {
-      const ahora = await alternarFondoEscritorio()
+      const ahora = await alternarFondoEscritorio(pantalla)
       setPuesto(ahora)
       if (!ahora) {
         setVista(null)
@@ -316,6 +399,34 @@ function FondoDeEscritorio() {
       // La casa 3D tarda en montar: capturar antes daría una foto en negro.
       // Dos tomas porque la primera suele pillarla a medio dibujar; la segunda
       // ya es lo que se queda detrás de las ventanas.
+      await esperar(2500)
+      await refrescar()
+      await esperar(3500)
+      await refrescar()
+    } finally {
+      setOcupado(false)
+    }
+  }
+
+  /**
+   * Cambiar de monitor obliga a rehacer la ventana: nace con el tamaño de su
+   * pantalla y el helper la cuelga ahí. Así que si el fondo está puesto, se
+   * apaga y se vuelve a encender en la nueva.
+   */
+  const elegirPantalla = async (id: string) => {
+    if (ocupado || id === pantalla) return
+    setPantalla(id)
+    try {
+      localStorage.setItem(CLAVE_PANTALLA, id)
+    } catch {
+      /* sin almacenamiento vale la elección de esta sesión */
+    }
+    if (!puesto) return
+    setOcupado(true)
+    try {
+      await alternarFondoEscritorio()
+      await esperar(400)
+      await alternarFondoEscritorio(id)
       await esperar(2500)
       await refrescar()
       await esperar(3500)
@@ -371,42 +482,124 @@ function FondoDeEscritorio() {
       </p>
 
       {puesto && (
-        <div
-          ref={caja}
-          onPointerDown={(e) => {
-            inicio.current = { x: e.clientX, y: e.clientY }
-            e.currentTarget.setPointerCapture(e.pointerId)
-          }}
-          onPointerUp={(e) => void alSoltar(e)}
-          className={`relative aspect-video w-full cursor-grab overflow-hidden rounded-md border border-white/10 bg-black/40 active:cursor-grabbing ${
-            ocupado ? 'opacity-60' : ''
-          }`}
-        >
-          {vista ? (
-            <img src={vista} alt="" draggable={false} className="h-full w-full select-none object-cover" />
-          ) : (
-            <div className="flex h-full w-full items-center justify-center text-[11px] text-white/40">…</div>
-          )}
+        <>
+          <div
+            ref={caja}
+            onPointerDown={(e) => {
+              inicio.current = { x: e.clientX, y: e.clientY }
+              e.currentTarget.setPointerCapture(e.pointerId)
+            }}
+            onPointerUp={(e) => void alSoltar(e)}
+            className={`relative aspect-video w-full cursor-grab overflow-hidden rounded-md border border-white/10 bg-black/40 active:cursor-grabbing ${
+              ocupado ? 'opacity-60' : ''
+            }`}
+          >
+            {vista ? (
+              <img src={vista} alt="" draggable={false} className="h-full w-full select-none object-cover" />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center text-[11px] text-white/40">…</div>
+            )}
 
-          {/* Zoom, arriba a la derecha. */}
-          <div className="absolute right-1.5 top-1.5 flex flex-col gap-1">
-            <BotonFondo etiqueta={t('nav3d.acercar', 'Acercar')} icono="agregar" alPulsar={() => mover({ zoom: 1.18 })} />
-            <BotonFondo etiqueta={t('nav3d.alejar', 'Alejar')} icono="quitar" alPulsar={() => mover({ zoom: 0.85 })} />
+            {/* La zona donde caería lo que se arrastra, debajo de las pastillas
+                para no taparlas. */}
+            {llevando && destino && (
+              <div className={`pointer-events-none absolute border border-accent/70 bg-accent/20 ${ZONA[destino]}`} />
+            )}
+
+            {/* Los paneles encendidos, cada uno en su sitio y arrastrable a
+                cualquiera de los otros siete. Es la MISMA rejilla que usa el
+                fondo, así que lo que se ve aquí es dónde van a salir. */}
+            {SITIOS.map((sitio) => {
+              const aqui = EXTRAS_FONDO.filter((cual) => extras[cual] && extras.sitios[cual] === sitio)
+              if (aqui.length === 0) return null
+              return (
+                <div key={sitio} className={`absolute flex flex-col gap-0.5 ${MINI[sitio]}`}>
+                  {aqui.map((cual) => (
+                    <button
+                      key={cual}
+                      type="button"
+                      title={t('ajustes.fondoPanelArrastra', 'Arrastra cada panel a la esquina o al lado donde lo quieras.')}
+                      // El stopPropagation es lo que separa los dos arrastres:
+                      // sin él la caja captura el puntero y mover una pastilla
+                      // movería además el encuadre de la casa.
+                      onPointerDown={(e) => {
+                        e.stopPropagation()
+                        e.currentTarget.setPointerCapture(e.pointerId)
+                        setLlevando(cual)
+                        setDestino(sitio)
+                      }}
+                      onPointerMove={(e) => {
+                        if (llevando !== cual) return
+                        setDestino(zonaDe(e))
+                      }}
+                      onPointerUp={(e) => {
+                        e.stopPropagation()
+                        const cae = zonaDe(e)
+                        setLlevando(null)
+                        setDestino(null)
+                        if (!cae || cae === sitio) return
+                        setExtras(moverExtraFondo(cual, cae))
+                        if (puesto) void esperar(900).then(refrescar)
+                      }}
+                      className={`cursor-grab rounded border px-1.5 py-0.5 text-[10px] leading-tight backdrop-blur-sm transition active:cursor-grabbing ${
+                        llevando === cual
+                          ? 'border-accent bg-accent/30 text-white'
+                          : 'border-white/25 bg-black/45 text-white/85 hover:border-white/50'
+                      }`}
+                    >
+                      {nombre(cual)}
+                    </button>
+                  ))}
+                </div>
+              )
+            })}
           </div>
 
-          {/* Cruceta para centrar, abajo a la derecha. La flecha mueve la CASA
-              hacia ese lado —lo mismo que arrastrar la vista previa en esa
-              dirección—, que es lo que uno espera mirando la foto. */}
-          <div className="absolute bottom-1.5 right-1.5 grid grid-cols-3 gap-0.5">
-            <span />
-            <BotonFondo etiqueta={t('ajustes.fondoArriba', 'Mover arriba')} icono="subir" alPulsar={() => mover({ fy: -PASO })} />
-            <span />
-            <BotonFondo etiqueta={t('ajustes.fondoIzquierda', 'Mover a la izquierda')} icono="izquierda" alPulsar={() => mover({ fx: -PASO })} />
-            <span />
-            <BotonFondo etiqueta={t('ajustes.fondoDerecha', 'Mover a la derecha')} icono="derecha" alPulsar={() => mover({ fx: PASO })} />
-            <span />
-            <BotonFondo etiqueta={t('ajustes.fondoAbajo', 'Mover abajo')} icono="bajar" alPulsar={() => mover({ fy: PASO })} />
-            <span />
+          {/* El encuadre, FUERA de la foto: dentro tapaba justo la casa, y ahora
+              además se pelearía con las pastillas de los paneles. */}
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex gap-1">
+              <BotonFondo etiqueta={t('nav3d.alejar', 'Alejar')} icono="quitar" alPulsar={() => mover({ zoom: 0.85 })} />
+              <BotonFondo etiqueta={t('nav3d.acercar', 'Acercar')} icono="agregar" alPulsar={() => mover({ zoom: 1.18 })} />
+            </div>
+            {/* La flecha mueve la CASA hacia ese lado, igual que arrastrar la
+                vista previa: es lo que uno espera mirando la foto. */}
+            <div className="flex gap-1">
+              <BotonFondo etiqueta={t('ajustes.fondoIzquierda', 'Mover a la izquierda')} icono="izquierda" alPulsar={() => mover({ fx: -PASO })} />
+              <BotonFondo etiqueta={t('ajustes.fondoArriba', 'Mover arriba')} icono="subir" alPulsar={() => mover({ fy: -PASO })} />
+              <BotonFondo etiqueta={t('ajustes.fondoAbajo', 'Mover abajo')} icono="bajar" alPulsar={() => mover({ fy: PASO })} />
+              <BotonFondo etiqueta={t('ajustes.fondoDerecha', 'Mover a la derecha')} icono="derecha" alPulsar={() => mover({ fx: PASO })} />
+            </div>
+          </div>
+        </>
+      )}
+
+      {pantallas.length > 1 && (
+        <div className="space-y-1">
+          <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
+            {t('ajustes.fondoDonde', 'En qué pantalla')}
+          </p>
+          <div className="grid grid-cols-2 gap-1.5">
+            {[{ id: 'todas', etiqueta: t('ajustes.fondoTodasPantallas', 'Todas') }].concat(
+              pantallas.map((p, i) => ({
+                id: p.id,
+                etiqueta: p.nombre || `${t('ajustes.fondoPantalla', 'Pantalla')} ${i + 1}`,
+              })),
+            ).map(({ id, etiqueta }) => (
+              <button
+                key={id}
+                type="button"
+                onClick={() => void elegirPantalla(id)}
+                disabled={ocupado}
+                className={`rounded-md border px-2.5 py-1.5 text-sm transition disabled:opacity-50 ${
+                  pantalla === id
+                    ? 'border-accent bg-white/10 text-white'
+                    : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
+                }`}
+              >
+                {etiqueta}
+              </button>
+            ))}
           </div>
         </div>
       )}
@@ -439,12 +632,6 @@ function FondoDeEscritorio() {
         <div className="grid grid-cols-2 gap-1.5">
           {EXTRAS_FONDO.map((cual) => {
             const activo = extras[cual]
-            const nombre = {
-              hora: t('fondo.p.hora', 'Hora'),
-              clima: t('fondo.p.clima', 'Clima'),
-              musica: t('fondo.p.musica', 'Música'),
-              recursos: t('fondo.p.recursos', 'Sistema'),
-            }[cual]
             return (
               <button
                 key={cual}
@@ -459,7 +646,7 @@ function FondoDeEscritorio() {
                     : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
                 }`}
               >
-                {nombre}
+                {nombre(cual)}
               </button>
             )
           })}
@@ -468,7 +655,10 @@ function FondoDeEscritorio() {
 
       <p className="text-[11px] leading-snug text-white/45">
         {puesto
-          ? t('ajustes.fondoArrastra', 'Arrastra la vista previa para centrar la casa.')
+          ? `${t('ajustes.fondoArrastra', 'Arrastra la vista previa para centrar la casa.')} ${t(
+              'ajustes.fondoPanelArrastra',
+              'Arrastra cada panel a la esquina o al lado donde lo quieras.',
+            )}`
           : t(
               'ajustes.fondoNota',
               'Detrás de tus ventanas se ve solo el mapa, sin controles. Se abre con tu casa tal y como está ahora.',

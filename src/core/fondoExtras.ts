@@ -1,7 +1,7 @@
 /**
  * Los paneles opcionales del fondo de pantalla: hora, clima, música y recursos
- * del sistema. Qué enseña cada instalación se decide en Configuraciones ›
- * Interfaz y se guarda aquí.
+ * del sistema. Cuáles se enseñan —y EN QUÉ SITIO— se decide en Configuraciones
+ * › Interfaz y se guarda aquí.
  *
  * Vive en `localStorage` por la misma razón que [[el encuadre]]
  * (`fondoEncuadre.ts`): el fondo es OTRA ventana y lo único que comparte con la
@@ -10,38 +10,98 @@
  * `storage` del navegador y se repinta sola, sin IPC ni sincronía a mano.
  */
 
+export type PanelFondo = 'hora' | 'clima' | 'musica' | 'recursos'
+
+/**
+ * Los ocho sitios del borde: las cuatro esquinas y la mitad de cada lado. El
+ * centro no es uno de ellos a propósito — ahí está la casa, que es lo que se
+ * ha venido a ver.
+ */
+export type SitioFondo =
+  | 'arribaIzq'
+  | 'arriba'
+  | 'arribaDer'
+  | 'izq'
+  | 'der'
+  | 'abajoIzq'
+  | 'abajo'
+  | 'abajoDer'
+
 export interface ExtrasFondo {
   hora: boolean
   clima: boolean
   musica: boolean
   recursos: boolean
+  sitios: Record<PanelFondo, SitioFondo>
 }
 
-export const EXTRAS_FONDO: (keyof ExtrasFondo)[] = ['hora', 'clima', 'musica', 'recursos']
+export const EXTRAS_FONDO: PanelFondo[] = ['hora', 'clima', 'musica', 'recursos']
+
+export const SITIOS_FONDO: SitioFondo[] = [
+  'arribaIzq',
+  'arriba',
+  'arribaDer',
+  'izq',
+  'der',
+  'abajoIzq',
+  'abajo',
+  'abajoDer',
+]
 
 const CLAVE = 'mph.fondoExtras'
 
-const APAGADOS: ExtrasFondo = { hora: false, clima: false, musica: false, recursos: false }
+// Todos arriba a la izquierda, que es la única esquina que existía antes de
+// poder moverlos: quien ya tuviera paneles no ve nada saltar de sitio al
+// actualizar.
+const SITIOS_INICIALES: Record<PanelFondo, SitioFondo> = {
+  hora: 'arribaIzq',
+  clima: 'arribaIzq',
+  musica: 'arribaIzq',
+  recursos: 'arribaIzq',
+}
+
+const APAGADOS: ExtrasFondo = {
+  hora: false,
+  clima: false,
+  musica: false,
+  recursos: false,
+  sitios: SITIOS_INICIALES,
+}
 
 export function leerExtrasFondo(): ExtrasFondo {
   try {
     const crudo = localStorage.getItem(CLAVE)
-    return crudo ? { ...APAGADOS, ...(JSON.parse(crudo) as Partial<ExtrasFondo>) } : { ...APAGADOS }
+    if (!crudo) return { ...APAGADOS, sitios: { ...SITIOS_INICIALES } }
+    // Los `sitios` se mezclan aparte porque lo guardado puede ser de antes de
+    // que existieran (v1.0.2): sin esto, un panel viejo se quedaría sin sitio.
+    const guardado = JSON.parse(crudo) as Partial<ExtrasFondo>
+    return { ...APAGADOS, ...guardado, sitios: { ...SITIOS_INICIALES, ...guardado.sitios } }
   } catch {
-    return { ...APAGADOS }
+    return { ...APAGADOS, sitios: { ...SITIOS_INICIALES } }
   }
 }
 
+function guardar(estado: ExtrasFondo): ExtrasFondo {
+  try {
+    localStorage.setItem(CLAVE, JSON.stringify(estado))
+  } catch {
+    /* sin almacenamiento no hay memoria, pero el cambio de esta sesión vale */
+  }
+  return estado
+}
+
 /** Enciende o apaga un panel; devuelve el estado completo resultante. */
-export function alternarExtraFondo(cual: keyof ExtrasFondo): ExtrasFondo {
+export function alternarExtraFondo(cual: PanelFondo): ExtrasFondo {
   const ahora = leerExtrasFondo()
   ahora[cual] = !ahora[cual]
-  try {
-    localStorage.setItem(CLAVE, JSON.stringify(ahora))
-  } catch {
-    /* sin almacenamiento no hay memoria, pero el toggle de esta sesión vale */
-  }
-  return ahora
+  return guardar(ahora)
+}
+
+/** Lleva un panel a uno de los ocho sitios del borde. */
+export function moverExtraFondo(cual: PanelFondo, sitio: SitioFondo): ExtrasFondo {
+  const ahora = leerExtrasFondo()
+  ahora.sitios = { ...ahora.sitios, [cual]: sitio }
+  return guardar(ahora)
 }
 
 /** La clave, expuesta para que la ventana del fondo filtre sus eventos `storage`. */

@@ -37,7 +37,7 @@ export type EstiloIconos = 'emoji' | 'profesional'
 
 const LS_IDIOMA = 'mh.idioma'
 const LS_TEMA_UI = 'mh.temaUI'
-const LS_MODO_UI = 'mh.modoUI'
+export const LS_MODO_UI = 'mh.modoUI'
 const LS_TIPOGRAFIA = 'mh.tipografia'
 const LS_ESTILO_ICONOS = 'mh.estiloIconos'
 const LS_VIDRIO_TRANSPARENCIA = 'mh.vidrio.transparencia'
@@ -142,7 +142,7 @@ function leerTemaUI(): TemaUIId {
   return (localStorage.getItem(LS_TEMA_UI) as TemaUIId) || TEMA_UI_DEFAULT
 }
 
-function leerModoUI(): ModoUI {
+export function leerModoUI(): ModoUI {
   const v = localStorage.getItem(LS_MODO_UI)
   // Los TRES valores explícitos (como en `leerEstiloIconos`): así cambiar el
   // default no le voltea el modo a quien sí lo eligió — con 'oscuro' cayendo al
