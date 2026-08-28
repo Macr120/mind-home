@@ -20,7 +20,7 @@ tienda, pero por la otra vía: «Designed for iPad» con la app de iOS (ver
 | Plataforma | Canal principal | Secundario |
 |---|---|---|
 | macOS | `.dmg` notarizado en **GitHub Releases**, enlazado desde la landing | `.zip` (mismo release) |
-| Windows | **Microsoft Store** (`.appx`, lo firma la tienda) | `.exe` NSIS **sin firmar** en el release, sin enlace destacado — SmartScreen avisaría de «editor desconocido» |
+| Windows | **Microsoft Store** (`.appx`, lo firma la tienda) — **aceptada en certificación el 27-ago-2026** | `.exe` NSIS **sin firmar** en el release, sin enlace destacado — SmartScreen avisaría de «editor desconocido» |
 
 Los instaladores no caben en Cloudflare Pages (25 MB por archivo contra 240 MB
 del `.dmg`), así que los bytes salen de GitHub y la web solo enlaza.
@@ -85,6 +85,44 @@ La cola de enlaces se vacía en `did-finish-load` y NO en `ready-to-show`: quien
 escucha es la app, y hasta que no corre su JavaScript no hay nadie al otro lado.
 Abrir la app *desde* el enlace del login es el caso normal, no el raro.
 
+## 3b. El fondo de pantalla y sus paneles
+
+Se enciende en **Configuraciones › Interfaz** (`EditorAjustesSection`), no por
+línea de comandos. El botón abre una VENTANA aparte (`crearVentanaFondo`) que
+pinta solo el mapa: lo decide `esModoFondo()` en `App.tsx`.
+
+| Pieza | Dónde | Nota |
+|---|---|---|
+| Vista previa | `capturePage()` de la ventana real | No es una simulación: es lo que hay detrás de las ventanas |
+| Encuadre (arrastre, cruceta, zoom) | `core/fondoEncuadre.ts` → `localStorage` | El fondo es OTRA ventana con su propia cámara; lo único común es el origen |
+| Paneles (hora, clima, música, sistema) | `core/ui/ExtrasFondo.tsx` + `core/fondoExtras.ts` | El interruptor viaja por el evento **`storage`**: mismo origen, cero IPC |
+| Música y recursos del sistema | `ipcMain` en `electron/main.js` | La página no ve el sistema; se lo pregunta al shell |
+
+**Cinco trampas, todas de las que fallan calladas:**
+
+- **`backgroundThrottling: false` es obligatorio** en la ventana del fondo.
+  Chromium congela lo que cree oculto, y un fondo está tapado por definición: sin
+  eso la casa se queda en una foto fija en cuanto abres algo encima. Se detectó
+  porque dos capturas con 8 s de diferencia salían **idénticas al byte**.
+- **Los colores de los paneles van fijos**, no por clases `white`/`black`: el
+  tema redefine esos tokens (así invierte el modo claro) y los paneles flotan
+  sobre la escena, no sobre una superficie tematizada. En claro salían blancos
+  sobre el cielo. Misma excepción que el anillo de `PunteroFondo`.
+- **El personaje se mueve por CLIC, y los clics al fondo solo los reenvía
+  Windows** (`fondo-raton.ps1`). En macOS la ventana vive por debajo del
+  escritorio y el sistema no le manda ninguno —el cursor sí llega—, así que allí
+  el anillo marca destino y el personaje camina hacia él. Lo decide el shell
+  (`clicsEnFondo` en el puente), no la app mirando el sistema operativo.
+- **La música necesita el entitlement
+  `com.apple.security.automation.apple-events`**; sin él el hardened runtime lo
+  bloquea en silencio. Y el AppleScript pregunta a System Events si la app CORRE
+  antes de hablarle: un `tell` a una app cerrada la ABRIRÍA, y nadie quiere que
+  su fondo de pantalla lance el Spotify solo.
+- **La RAM de macOS no puede salir de `os.freemem()`**: ahí el caché de archivos
+  cuenta como usada y el número asusta sin motivo. Se pregunta a `vm_stat` y se
+  descuentan las páginas inactivas y purgables. La CPU, por delta entre llamadas
+  (`os.cpus()` da acumulados desde el arranque).
+
 ## 4. Firmar y notarizar
 
 Son DOS cosas distintas y las dos hacen falta: sin firma Gatekeeper no abre el
@@ -131,6 +169,16 @@ Comprobar SIEMPRE antes de publicar — esto es lo que verá quien lo descargue:
 ```bash
 spctl -a -vvv -t install "dist-escritorio/mac-universal/Mind Planner Home.app"
 ```
+
+⚠️ **El perfil `MPH` del llavero se puede perder.** Pasó entre la 1.0.2 y la
+1.0.3, con el llavero desbloqueado y sin que nadie lo tocara: `notarytool`
+responde «No Keychain password item found for profile: MPH». Se rehace con el
+mismo `store-credentials` de arriba. Y ojo: **`APPLE_KEYCHAIN` con la ruta del
+llavero ROMPE la búsqueda** del perfil (mismo error), así que encadenar la
+notarización al build por esa vía no funciona — mejor a mano, después.
+
+El `.zip` que saca electron-builder se crea ANTES del ticket: hay que
+**regenerarlo con `ditto`** tras grapar la `.app`, o se distribuye sin notarizar.
 
 **Para probar sin nada de esto**: `CSC_IDENTITY_AUTO_DISCOVERY=false npm run escritorio:mac`.
 
