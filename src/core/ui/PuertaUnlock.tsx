@@ -11,6 +11,7 @@ import { Icono } from './iconos/Icono'
 import { LogoApple, LogoGoogle } from './logosMarca'
 import { Marca } from './Marca'
 import { cargarTextos } from '../../../web/i18n/paginas/index.mjs'
+import { prefijo } from '../../../web/i18n/idiomas.mjs'
 import { sinHtml } from './queEs/laminas'
 import { Pieza, Piezas } from './queEs/piezas'
 import { SelectorIdioma } from './PuertaIdioma'
@@ -203,7 +204,55 @@ function PantallaCuenta() {
           {t('puerta.probarNota', 'Entra a tu propia casa y pruébala sin cuenta. Para guardar tus cambios, usar la IA y sincronizar, crearás tu cuenta.')}
         </p>
       </div>
+      {canalPago() === 'web' && urlWeb && <PieWeb />}
     </Marco>
+  )
+}
+
+/**
+ * Los enlaces de páginas del sitio (privacidad, términos, soporte), SOLO en el
+ * navegador: desde que la raíz del dominio redirige a la app, esta puerta hace
+ * también de portada y esas páginas deben poder abrirse desde ella. En las apps
+ * de tienda y el escritorio no se pintan — ahí no hay sitio que recorrer. Los
+ * rótulos salen del catálogo traducido de la web (`pie.*`), el mismo puente de
+ * la tarjeta de precio, y el enlace lleva el prefijo del idioma en curso.
+ */
+function PieWeb() {
+  const [textos, setTextos] = useState<Record<string, string> | null>(null)
+
+  useEffect(() => {
+    let vivo = true
+    void cargarTextos(idiomaActual()).then((x) => {
+      if (vivo) setTextos(x)
+    })
+    return () => {
+      vivo = false
+    }
+  }, [])
+
+  const base = `${urlWeb}${prefijo(idiomaActual())}`
+  const paginas: [string, string][] = [
+    ['privacidad', textos?.['pie.privacidad'] ?? 'Privacidad'],
+    ['terminos', textos?.['pie.terminos'] ?? 'Términos'],
+    ['soporte', textos?.['pie.soporte'] ?? 'Soporte'],
+  ]
+  return (
+    <p
+      className="ui-cascada flex flex-wrap justify-center gap-x-4 gap-y-1 pt-1 text-[11px] text-white/40"
+      style={{ animationDelay: '340ms' }}
+    >
+      {paginas.map(([ruta, rotulo]) => (
+        <a
+          key={ruta}
+          href={`${base}/${ruta}`}
+          target="_blank"
+          rel="noreferrer"
+          className="transition hover:text-white/70"
+        >
+          {rotulo}
+        </a>
+      ))}
+    </p>
   )
 }
 

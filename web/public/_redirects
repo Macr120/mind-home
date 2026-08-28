@@ -1,0 +1,37 @@
+# La portada del dominio es la APP: mismo flujo que el teléfono y el escritorio
+# (idioma → entrar/probar → casa). La landing ya no se sirve — lo que contaba
+# vive en el recorrido «¿Qué es MPH?» dentro de la app — pero las PÁGINAS
+# (/privacidad, /terminos, /soporte, /cuenta, /mascara y sus copias por idioma)
+# siguen saliendo de este proyecto: las tiendas y la app enlazan a ellas.
+# Solo redirigen la raíz y las raíces por idioma, en 302 por si hay vuelta atrás.
+/ https://app.mindplannerhome.com/ 302
+/en https://app.mindplannerhome.com/ 302
+/en/ https://app.mindplannerhome.com/ 302
+/pt https://app.mindplannerhome.com/ 302
+/pt/ https://app.mindplannerhome.com/ 302
+/fr https://app.mindplannerhome.com/ 302
+/fr/ https://app.mindplannerhome.com/ 302
+/de https://app.mindplannerhome.com/ 302
+/de/ https://app.mindplannerhome.com/ 302
+/it https://app.mindplannerhome.com/ 302
+/it/ https://app.mindplannerhome.com/ 302
+/ja https://app.mindplannerhome.com/ 302
+/ja/ https://app.mindplannerhome.com/ 302
+/zh https://app.mindplannerhome.com/ 302
+/zh/ https://app.mindplannerhome.com/ 302
+/ko https://app.mindplannerhome.com/ 302
+/ko/ https://app.mindplannerhome.com/ 302
+/ru https://app.mindplannerhome.com/ 302
+/ru/ https://app.mindplannerhome.com/ 302
+/hi https://app.mindplannerhome.com/ 302
+/hi/ https://app.mindplannerhome.com/ 302
+/tr https://app.mindplannerhome.com/ 302
+/tr/ https://app.mindplannerhome.com/ 302
+/id https://app.mindplannerhome.com/ 302
+/id/ https://app.mindplannerhome.com/ 302
+/pl https://app.mindplannerhome.com/ 302
+/pl/ https://app.mindplannerhome.com/ 302
+/nl https://app.mindplannerhome.com/ 302
+/nl/ https://app.mindplannerhome.com/ 302
+/ar https://app.mindplannerhome.com/ 302
+/ar/ https://app.mindplannerhome.com/ 302
