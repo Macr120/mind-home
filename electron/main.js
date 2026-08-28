@@ -44,7 +44,9 @@ if (!app.requestSingleInstanceLock()) app.quit()
 // package.json se llevaría por delante la caja de pago sin que nada avise.
 app.userAgentFallback = `${app.userAgentFallback.replace(/ MindPlannerHome\/[\d.]+/g, '')} MindPlannerHome/${app.getVersion()}`
 // Sin el AppUserModelID los toasts de Windows salen como «electron.app.mind-home».
-app.setAppUserModelId('com.macr120.mindhome')
+// Empaquetada para Store NO se toca: en MSIX el identificador lo fija la
+// identidad del paquete y sobrescribirlo deja los avisos sin dueño.
+if (!process.windowsStore) app.setAppUserModelId('com.macr120.mindhome')
 
 // Antes del ready, obligatorio. `standard`+`secure` hacen de app://mph un
 // contexto seguro (crypto.subtle, getUserMedia); `allowServiceWorkers` es
@@ -222,6 +224,10 @@ async function avisarVersionNueva() {
     const release = await res.json()
     const remota = String(release.tag_name ?? '').replace(/^v/, '')
     if (!remota || !esMayor(remota, app.getVersion()) || !ventana) return
+    // El destino sale de la respuesta JSON de GitHub: se abre SOLO si es una URL
+    // https de github.com, no lo que venga en el campo (auditoría 26-ago-2026).
+    const destino = urlReleaseSegura(release.html_url)
+    if (!destino) return
     const { response } = await dialog.showMessageBox(ventana, {
       type: 'info',
       title: 'Mind Planner Home',
@@ -230,9 +236,21 @@ async function avisarVersionNueva() {
       buttons: ['Descargar', 'Ahora no'],
       cancelId: 1,
     })
-    if (response === 0) void shell.openExternal(release.html_url)
+    if (response === 0) void shell.openExternal(destino)
   } catch {
     /* sin red o sin releases: no se molesta */
+  }
+}
+
+/** Solo una URL https del propio repo en github.com; si no, null (no se abre). */
+function urlReleaseSegura(valor) {
+  try {
+    const u = new URL(String(valor))
+    return u.protocol === 'https:' && (u.hostname === 'github.com' || u.hostname.endsWith('.github.com'))
+      ? u.toString()
+      : null
+  } catch {
+    return null
   }
 }
 
@@ -298,6 +316,10 @@ function repartirEnlace(url) {
 
 /** Deja que el sistema sepa que los `com.macr120.mindhome://…` son nuestros. */
 function registrarEsquemaProfundo() {
+  // En MSIX lo declara el manifiesto —el bloque `protocols:` del
+  // electron-builder.yml, verificado dentro del .appx— y el registro de un
+  // proceso empaquetado no sale de su contenedor: aquí no hay nada que hacer.
+  if (process.windowsStore) return
   if (process.defaultApp && process.argv.length >= 2) {
     // `electron electron/main.js` en desarrollo: hay que decirle al sistema qué
     // ejecutar. Aun así, quien enruta de verdad es el registro del SO, y ahí
@@ -439,7 +461,9 @@ void app.whenReady().then(() => {
   // Windows: si el SO nos arrancó POR el enlace, viene en nuestro propio argv.
   const enlaceInicial = process.argv.find((a) => a.startsWith(`${ESQUEMA_PROFUNDO}://`))
   if (enlaceInicial) repartirEnlace(enlaceInicial)
-  if (app.isPackaged) void avisarVersionNueva()
+  // En Store no: actualiza la propia tienda, y mandar al usuario a descargar un
+  // instalador de fuera es justo lo que la certificación no quiere ver.
+  if (app.isPackaged && !process.windowsStore) void avisarVersionNueva()
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) crearVentana()
   })
