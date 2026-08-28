@@ -1,46 +1,68 @@
-import { useEffect } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
+import { useShallow } from 'zustand/react/shallow'
 import { Icono } from './iconos/Icono'
 import { getCuarto } from '../state/cuartosStore'
 import { useHouse } from '../state/houseStore'
 import { useLayout } from '../state/layoutStore'
-import { useDiseño, useRoomVisual } from '../state/disenoStore'
+import { useDiseño, useRoomVisual, objetoPorId, esObjetoMapa } from '../state/disenoStore'
 import { useNombreCuarto } from './roomDisplay'
 import { useInteractUi } from '../state/interactUiStore'
 import { usePendientesCasa } from '../state/pendientesStore'
 import { accionCuarto } from './roomInteract'
+import { abrirEnlace, hostDe, faviconDe } from '../enlaces'
+import { useT } from '../i18n/useT'
 import { BadgeMisiones } from './BadgeMisiones'
 
 /**
- * Diálogo 2D anclado al mueble principal (proyectado desde la escena 3D).
- * No usa Html de drei para no bloquear clics ni raycast del mapa.
+ * Diálogo 2D anclado al objeto seleccionado (proyectado desde la escena 3D):
+ * el mueble principal de un cuarto («Entrar» a su app) o un objeto con enlace
+ * web («Visitar» la página). No usa Html de drei para no bloquear clics ni
+ * raycast del mapa.
  */
 export function InteractOverlay() {
   const editMode = useLayout((s) => s.editMode)
   const activeRoom = useHouse((s) => s.activeRoom)
   const openRoom = useHouse((s) => s.openRoom)
   const roomId = useInteractUi((s) => s.focusRoomId)
+  const enlaceId = useInteractUi((s) => s.focusEnlaceId)
   const screenX = useInteractUi((s) => s.screenX)
   const screenY = useInteractUi((s) => s.screenY)
   const clear = useInteractUi((s) => s.clear)
+  const foco = roomId ?? enlaceId
 
   // Cerrar la etiqueta al hacer clic en cualquier otra cosa de la pantalla.
   // Se difiere con setTimeout para asegurar que el clic que abrió la burbuja
   // ya terminó de propagarse hasta window antes de registrar el listener;
   // en React 19 el flush puede ser síncrono dentro del handler de R3F.
   useEffect(() => {
-    if (!roomId) return
+    if (foco == null) return
     const handle = () => clear()
     const timer = setTimeout(() => window.addEventListener('click', handle), 0)
     return () => {
       clearTimeout(timer)
       window.removeEventListener('click', handle)
     }
-  }, [roomId, clear])
+  }, [foco, clear])
 
-  if (editMode || activeRoom || !roomId) return null
+  if (editMode || activeRoom || foco == null) return null
 
-  const room = getCuarto(roomId)
-  if (!room) return null
+  let burbuja: ReactNode = null
+  if (enlaceId != null) {
+    burbuja = <BurbujaEnlace objetoId={enlaceId} onAbierto={clear} />
+  } else if (roomId) {
+    const room = getCuarto(roomId)
+    if (!room) return null
+    burbuja = (
+      <Burbuja
+        roomId={roomId}
+        roomColor={room.color}
+        roomNombre={room.nombre}
+        roomIcon={room.icon}
+        onEntrar={() => openRoom(roomId)}
+      />
+    )
+  }
+  if (!burbuja) return null
 
   return (
     <div
@@ -55,13 +77,7 @@ export function InteractOverlay() {
           transform: 'translate(-50%, calc(-100% - 10px))',
         }}
       >
-        <Burbuja
-          roomId={roomId}
-          roomColor={room.color}
-          roomNombre={room.nombre}
-          roomIcon={room.icon}
-          onEntrar={() => openRoom(roomId)}
-        />
+        {burbuja}
       </div>
     </div>
   )
@@ -124,5 +140,85 @@ function Burbuja({
         aria-hidden
       />
     </div>
+  )
+}
+
+/** La burbuja «Visitar» de un objeto con enlace web: favicon, verbo y dominio. */
+function BurbujaEnlace({ objetoId, onAbierto }: { objetoId: number; onAbierto: () => void }) {
+  const t = useT()
+  const datos = useDiseño(
+    useShallow((s) => {
+      const o = objetoPorId(s.objetos, objetoId)
+      if (!o?.enlaceUrl) return null
+      return {
+        url: o.enlaceUrl,
+        nombre: o.nombre,
+        roomId: o.roomId,
+        colorObjeto: o.color,
+        esMapa: esObjetoMapa(o),
+      }
+    }),
+  )
+  if (!datos) return null
+
+  // El color del cuarto viste su burbuja; un objeto libre usa su propio color.
+  const color = (datos.esMapa ? undefined : getCuarto(datos.roomId)?.color) ?? datos.colorObjeto
+  const host = hostDe(datos.url)
+  const titulo = datos.nombre || host
+
+  return (
+    <div className="flex flex-col items-center select-none">
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation()
+          void abrirEnlace(datos.url, datos.nombre)
+          onAbierto()
+        }}
+        title={`${t('enlace.visitar', 'Visitar')} — ${titulo}`}
+        className="ui-panel-glass pointer-events-auto relative flex flex-col items-center gap-1 rounded-2xl border-2 px-4 py-2.5 shadow-xl backdrop-blur-md transition hover:scale-[1.04] active:scale-[0.97]"
+        style={{
+          borderColor: color,
+          boxShadow: `0 6px 28px ${color}55, 0 0 0 1px rgba(255,255,255,0.06)`,
+        }}
+      >
+        <FaviconEnlace key={datos.url} url={datos.url} />
+        <span className="text-sm font-black leading-tight" style={{ color }}>
+          {t('enlace.visitar', 'Visitar')}
+        </span>
+        {/* Siempre el dominio real: el usuario ve a dónde va, lleve el nombre que lleve. */}
+        <span className="max-w-[9rem] truncate text-[10px] font-medium text-white/45">
+          {datos.nombre ? `${datos.nombre} · ${host}` : host}
+        </span>
+      </button>
+      <span
+        className="pointer-events-none -mt-px h-0 w-0 border-x-[10px] border-t-[12px] border-x-transparent"
+        style={{ borderTopColor: color }}
+        aria-hidden
+      />
+    </div>
+  )
+}
+
+/** Favicon del dominio, con el icono genérico de enlace si no carga (o sin red). */
+function FaviconEnlace({ url }: { url: string }) {
+  const [fallo, setFallo] = useState(false)
+  const src = faviconDe(url)
+  if (!src || fallo) {
+    return (
+      <span className="text-lg leading-none">
+        <Icono nombre="vincular" />
+      </span>
+    )
+  }
+  return (
+    <img
+      src={src}
+      alt=""
+      aria-hidden
+      draggable={false}
+      className="h-5 w-5 rounded"
+      onError={() => setFallo(true)}
+    />
   )
 }

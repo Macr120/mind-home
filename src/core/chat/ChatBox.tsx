@@ -1,5 +1,6 @@
 import { lazy, Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { getPlantilla } from '../registry'
+import { abrirEnlace, hostDe, urlDeMensaje } from '../enlaces'
 import { getCuarto, useCuartos } from '../state/cuartosStore'
 import { bitacoraRepo, memoriasRepo, mensajesChatRepo, ultimosMensajesAsistente, useUltimosMensajes } from '../data/repository'
 import { useLayout, roomWorldPos } from '../state/layoutStore'
@@ -414,6 +415,17 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
       texto: interp.texto.trim() || '📷 Foto',
       creado: new Date().toISOString(),
     })
+
+    // Una página web tecleada (o «abre <url>»): se abre ahí mismo — navegador
+    // embebido en el escritorio, hoja in-app en el teléfono, pestaña en la web.
+    // Determinista y ANTES que el resto: una URL no es entrada de ninguna app.
+    const urlChat = urlDeMensaje(interp.texto)
+    if (urlChat) {
+      hablar(t('enlace.chatAbriendo', 'Abriendo {h}…', { h: hostDe(urlChat) }), { asistenteId: destinoId })
+      void abrirEnlace(urlChat)
+      setTexto('')
+      return
+    }
 
     // Ayuda: «¿cómo funciona X?» contesta con el resumen; «tutorial de X» lanza
     // el tour del mago en pantalla. Determinista: funciona con y sin IA.

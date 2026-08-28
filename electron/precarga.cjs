@@ -29,6 +29,13 @@ ipcRenderer.on('mph:fondo-mover', (_evento, d) => {
   window.dispatchEvent(new CustomEvent('mph:fondo-mover', { detail: d }))
 })
 
+// El navegador embebido avisa por dónde va (los oye `NavegadorEscritorio.tsx`).
+for (const canal of ['mph:nav-navego', 'mph:nav-titulo', 'mph:nav-cerrado']) {
+  ipcRenderer.on(canal, (_evento, datos) => {
+    window.dispatchEvent(new CustomEvent(canal, { detail: datos }))
+  })
+}
+
 const version = process.argv.find((a) => a.startsWith('--mph-version='))?.slice('--mph-version='.length)
 
 contextBridge.exposeInMainWorld('mph', {
@@ -58,4 +65,16 @@ contextBridge.exposeInMainWorld('mph', {
   recursosSistema: () => ipcRenderer.invoke('mph:fondo-recursos'),
   /** Qué suena en el sistema: SMTC en Windows, Música o Spotify en macOS. */
   musicaSistema: () => ipcRenderer.invoke('mph:fondo-musica'),
+  /**
+   * Navegador embebido (fase 2 de los enlaces web): el shell pinta la página en
+   * una vista nativa; la app pone la barra y decide los bounds.
+   */
+  navegador: {
+    abrir: (url, bounds) => ipcRenderer.invoke('mph:nav-abrir', url, bounds),
+    bounds: (b) => ipcRenderer.invoke('mph:nav-bounds', b),
+    atras: () => ipcRenderer.invoke('mph:nav-atras'),
+    adelante: () => ipcRenderer.invoke('mph:nav-adelante'),
+    recargar: () => ipcRenderer.invoke('mph:nav-recargar'),
+    cerrar: () => ipcRenderer.invoke('mph:nav-cerrar'),
+  },
 })

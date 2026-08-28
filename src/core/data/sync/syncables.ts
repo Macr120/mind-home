@@ -134,6 +134,7 @@ export const TABLAS_SYNC: string[] = [
   'ajustesSemilla',
   'carpetasIdea',
   'partidasEjercicio',
+  'visitasWeb',
   // Al final del array a propósito: `materialEntrada` apunta a entradasBiblio,
   // hojasCalculo, mapasIdeas e ideas, así que se aplica cuando todas ya están.
   'materialEntrada',

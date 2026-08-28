@@ -10,7 +10,7 @@
  * El único puente es `precarga.cjs`, y existe por UNA cosa: devolverle a la app
  * el enlace profundo con el que vuelve el login social. Nada más cruza.
  */
-import { app, BrowserWindow, dialog, ipcMain, Menu, net, protocol, screen, session, shell } from 'electron'
+import { app, BrowserWindow, dialog, ipcMain, Menu, net, protocol, screen, session, shell, WebContentsView } from 'electron'
 import os from 'node:os'
 import { execFile, spawn } from 'node:child_process'
 import fs from 'node:fs/promises'
@@ -320,6 +320,8 @@ function crearVentana(query = '') {
   ventana.on('close', () => guardarMedida())
   ventana.on('closed', () => {
     ventana = null
+    // La vista del navegador muere con su ventana: solo hay que soltar la referencia.
+    vistaNavegador = null
   })
 
   // Los enlaces que llegaron antes de tiempo se sueltan cuando la página ya
@@ -599,6 +601,101 @@ ipcMain.handle('mph:abrir-en', (_e, destino) => {
   ventana.webContents.send('mph:abrir-en', donde)
   return true
 })
+
+// ——— Navegador embebido (fase 2 de los enlaces web de los objetos) ———
+
+/** La vista del navegador dentro de la ventana; null mientras no está abierto. */
+let vistaNavegador = null
+
+/**
+ * Sesión PROPIA y persistente (`persist:navegador`): los logins del usuario en
+ * sus páginas sobreviven entre sesiones y quedan separados de la app. OJO: sin
+ * handler de permisos Electron los CONCEDE, y por aquí navega la web abierta —
+ * solo pantalla completa (video); cámara, micrófono y avisos, no. Las descargas
+ * se mandan al navegador del sistema: el shell no gestiona archivos.
+ */
+function sesionNavegador() {
+  const s = session.fromPartition('persist:navegador')
+  if (!s.mphNavLista) {
+    s.mphNavLista = true
+    s.setPermissionRequestHandler((_c, permiso, responder) => responder(permiso === 'fullscreen'))
+    s.setPermissionCheckHandler((_c, permiso) => permiso === 'fullscreen')
+    s.on('will-download', (e, item) => {
+      e.preventDefault()
+      const url = item.getURL()
+      if (/^https?:/.test(url)) void shell.openExternal(url)
+    })
+  }
+  return s
+}
+
+function avisarNavegador(canal, datos) {
+  if (ventana && !ventana.isDestroyed()) ventana.webContents.send(canal, datos)
+}
+
+/** Bounds saneados: enteros no negativos, por si llegara cualquier cosa por IPC. */
+function limitesVista(b) {
+  const n = (v) => Math.min(20000, Math.max(0, Math.round(Number(v) || 0)))
+  return { x: n(b?.x), y: n(b?.y), width: n(b?.width), height: n(b?.height) }
+}
+
+function cerrarNavegador() {
+  if (!vistaNavegador) return
+  const vista = vistaNavegador
+  vistaNavegador = null
+  if (ventana && !ventana.isDestroyed()) ventana.contentView.removeChildView(vista)
+  vista.webContents.close()
+}
+
+/**
+ * Abre (o reutiliza) la vista del navegador con la página pedida. La BARRA de
+ * navegación la pinta la app en su DOM (`NavegadorEscritorio.tsx`); la vista
+ * nativa vive debajo, en los `bounds` que la app calcula y renueva al
+ * redimensionar. El historial por dominio lo lleva la app oyendo
+ * `mph:nav-navego` — la BD es suya, aquí solo se navega.
+ */
+ipcMain.handle('mph:nav-abrir', (_e, url, bounds) => {
+  if (!ventana || !/^https?:/.test(String(url))) return false
+  if (!vistaNavegador) {
+    vistaNavegador = new WebContentsView({
+      webPreferences: { session: sesionNavegador(), sandbox: true },
+    })
+    const wc = vistaNavegador.webContents
+    // Dentro del navegador, un target="_blank" navega la MISMA vista: una sola
+    // página a la vez, sin ventanas emergentes.
+    wc.setWindowOpenHandler(({ url: destino }) => {
+      if (/^https?:/.test(destino)) void wc.loadURL(destino)
+      return { action: 'deny' }
+    })
+    wc.on('will-navigate', (ev, destino) => {
+      if (!/^https?:/.test(destino)) ev.preventDefault()
+    })
+    const navego = () =>
+      avisarNavegador('mph:nav-navego', {
+        url: wc.getURL(),
+        atras: wc.navigationHistory.canGoBack(),
+        adelante: wc.navigationHistory.canGoForward(),
+      })
+    wc.on('did-navigate', navego)
+    wc.on('did-navigate-in-page', navego)
+    wc.on('page-title-updated', (_ev, titulo) => avisarNavegador('mph:nav-titulo', titulo))
+    // Si el proceso de la página muere, mejor cerrar que una vista zombi tapando la app.
+    wc.on('render-process-gone', () => {
+      cerrarNavegador()
+      avisarNavegador('mph:nav-cerrado', null)
+    })
+    ventana.contentView.addChildView(vistaNavegador)
+  }
+  vistaNavegador.setBounds(limitesVista(bounds))
+  void vistaNavegador.webContents.loadURL(url)
+  return true
+})
+
+ipcMain.handle('mph:nav-bounds', (_e, b) => vistaNavegador?.setBounds(limitesVista(b)))
+ipcMain.handle('mph:nav-atras', () => vistaNavegador?.webContents.navigationHistory.goBack())
+ipcMain.handle('mph:nav-adelante', () => vistaNavegador?.webContents.navigationHistory.goForward())
+ipcMain.handle('mph:nav-recargar', () => vistaNavegador?.webContents.reload())
+ipcMain.handle('mph:nav-cerrar', () => cerrarNavegador())
 
 /**
  * Las pantallas, para que Configuraciones deje elegir. El nombre viene vacío en

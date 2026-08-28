@@ -100,6 +100,33 @@ interface PuenteEscritorio {
   moverFondo?: (d: { fx?: number; fy?: number; zoom?: number }) => Promise<boolean>
   recursosSistema?: () => Promise<{ cpu: number; memUsadaGB: number; memTotalGB: number } | null>
   musicaSistema?: () => Promise<{ artista: string; titulo: string } | null>
+  /** Navegador embebido de los enlaces web (fase 2); la barra la pinta la app. */
+  navegador?: {
+    abrir: (url: string, bounds: BoundsNavegador) => Promise<boolean>
+    bounds: (b: BoundsNavegador) => Promise<void>
+    atras: () => Promise<void>
+    adelante: () => Promise<void>
+    recargar: () => Promise<void>
+    cerrar: () => Promise<void>
+  }
+}
+
+/** Rectángulo (px CSS de la ventana) donde el shell coloca la vista del navegador. */
+export interface BoundsNavegador {
+  x: number
+  y: number
+  width: number
+  height: number
+}
+
+/** ¿Este shell trae el navegador embebido? (Nunca en el modo fondo de pantalla.) */
+export function hayNavegadorEscritorio(): boolean {
+  return (
+    esEscritorio() &&
+    !esModoFondo() &&
+    typeof window !== 'undefined' &&
+    typeof window.mph?.navegador?.abrir === 'function'
+  )
 }
 
 declare global {

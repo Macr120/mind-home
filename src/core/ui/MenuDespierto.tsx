@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { useShallow } from 'zustand/react/shallow'
 import { Icono } from './iconos/Icono'
 import type { NombreIcono } from './iconos/catalogo'
 import { useT } from '../i18n/useT'
@@ -9,6 +10,7 @@ import { useDiseño, objetoPorId, esObjetoMapa, objetosDeCuartoIdx } from '../st
 import { useEditorUi } from '../state/editorUiStore'
 import { useCanchas, esCancha } from '../state/canchasStore'
 import { useDespierto } from '../state/despiertoStore'
+import { useEnlaceObjeto } from '../state/enlaceObjetoStore'
 import { confirmar } from '../state/confirmarStore'
 
 /**
@@ -27,10 +29,15 @@ export function MenuDespierto() {
   const screenX = useDespierto((s) => s.screenX)
   const screenY = useDespierto((s) => s.screenY)
   const terminar = useDespierto((s) => s.terminar)
-  // Solo el TIPO del objeto (o null si ya no existe): suscribirse a `objetos`
-  // crudo repintaría este menú en CADA frame del arrastre (ver disenoStore).
-  const tipoObjeto = useDiseño((s) =>
-    sujeto?.tipo === 'objeto' ? (objetoPorId(s.objetos, sujeto.id)?.tipo ?? null) : null,
+  // Solo lo que decide el menú (o null si el objeto ya no existe): suscribirse a
+  // `objetos` crudo repintaría este menú en CADA frame del arrastre (ver disenoStore).
+  const objeto = useDiseño(
+    useShallow((s) => {
+      if (sujeto?.tipo !== 'objeto') return null
+      const o = objetoPorId(s.objetos, sujeto.id)
+      if (!o) return null
+      return { tipo: o.tipo, conApp: Boolean(o.plantillaId), principal: Boolean(o.permanente) }
+    }),
   )
   const existeCuarto = useCuartos((s) =>
     sujeto?.tipo === 'cuarto' ? s.cuartos.some((c) => c.id === sujeto.id) : false,
@@ -63,9 +70,9 @@ export function MenuDespierto() {
   }, [editMode, terminar])
 
   if (!sujeto || editMode || activeRoom) return null
-  if (sujeto.tipo === 'objeto' ? tipoObjeto == null : !existeCuarto) return null
+  if (sujeto.tipo === 'objeto' ? objeto == null : !existeCuarto) return null
 
-  const cancha = sujeto.tipo === 'objeto' && tipoObjeto != null && esCancha(tipoObjeto)
+  const cancha = sujeto.tipo === 'objeto' && objeto != null && esCancha(objeto.tipo)
 
   const borrar = async () => {
     if (sujeto.tipo === 'objeto') {
@@ -135,6 +142,18 @@ export function MenuDespierto() {
           <BotonMenu icono="basura" titulo={t('ui.borrar', 'Borrar')} onClick={() => void borrar()} peligro />
         )}
         <BotonMenu icono={iconoEditar} titulo={tituloEditar} onClick={editar} />
+        {/* Enlace web: no para canchas ni para objetos que ya llevan una app (la
+            burbuja tendría dos destinos; el principal entra por su cuarto). */}
+        {sujeto.tipo === 'objeto' && objeto != null && !cancha && !objeto.conApp && !objeto.principal && (
+          <BotonMenu
+            icono="vincular"
+            titulo={t('enlace.titulo', 'Enlace web')}
+            onClick={() => {
+              useEnlaceObjeto.getState().abrir(sujeto.id)
+              terminar()
+            }}
+          />
+        )}
         <BotonMenu icono="confirmar" titulo={t('mapa.listo', 'Listo')} onClick={terminar} />
       </div>
     </div>

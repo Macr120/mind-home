@@ -1238,6 +1238,12 @@ export interface ObjetoCuarto {
   grupoId?: string
   /** Plantilla (app) asignada a este objeto; vacío = objeto decorativo sin app. */
   plantillaId?: string
+  /**
+   * Enlace web asignado: tocarlo saca la burbuja «Visitar», que abre la página
+   * (ver `core/enlaces.ts`). Excluyente con `plantillaId`: la burbuja tiene un
+   * solo destino. Campo sin índice: no pide versión nueva de Dexie.
+   */
+  enlaceUrl?: string
   /** Solo objetos de biblioteca (roomId LIBRERIA): categoría/carpeta del inventario. */
   categoria?: string
   /** Solo objetos de biblioteca BASE: id del recurso del catálogo del que salió. */
@@ -1270,6 +1276,23 @@ export interface ObjetoCuarto {
    * — tienen su propio mecanismo dedicado. Ver `grupoAccionDe` en `house/catalogo.tsx`.
    */
   grupoAccion?: import('../state/accionCuartoStore').GrupoAccion
+}
+
+/**
+ * Visita a un enlace web abierto desde un objeto del mapa. Guarda la URL, no el
+ * id del objeto: las estadísticas sobreviven si el objeto se borra y no hay FK
+ * numérica que traducir en el sync. `duracionSeg` solo llega en las plataformas
+ * que avisan del cierre del navegador in-app (`browserFinished` de Capacitor);
+ * en web/escritorio la visita queda solo como apertura.
+ */
+export interface VisitaWeb {
+  id?: number
+  url: string
+  /** Nombre del objeto al abrir (para listar sin resolver la URL). */
+  nombre?: string
+  /** Instante de apertura (ISO completo, con hora). */
+  inicio: string
+  duracionSeg?: number
 }
 
 /**
@@ -3588,6 +3611,7 @@ class MindHomeDB extends Dexie {
   formulas!: Table<Formula, number>
   hojasCalculo!: Table<HojaCalculo, number>
   calculosComputo!: Table<CalculoComputo, number>
+  visitasWeb!: Table<VisitaWeb, number>
   // Internas de sincronización (prefijo `_`: ni respaldo ni sync ni UI).
   _outbox!: Table<EntradaOutbox, number>
   _syncMeta!: Table<SyncMeta, string>
@@ -5073,6 +5097,13 @@ class MindHomeDB extends Dexie {
         }
         await tabla.update(viva.id!, { miembros, uid })
       }
+    })
+
+    // v131: visitas a los enlaces web de los objetos del mapa (ver `VisitaWeb`).
+    // Índice por `url` (las estadísticas del diálogo del enlace consultan por
+    // ella) y por `inicio` (orden del repo). Nace vacía: sin `.upgrade()`.
+    this.version(131).stores({
+      visitasWeb: '++id, url, inicio, &uid',
     })
   }
 }

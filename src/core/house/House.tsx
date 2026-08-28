@@ -70,7 +70,8 @@ import { EditorMontaje, SalirCuartoFlotante } from '../ui/EditorHud'
 import { InteractAnchor } from './InteractAnchor'
 import { DespiertoAnchor } from './DespiertoAnchor'
 import { MenuDespierto } from '../ui/MenuDespierto'
-import { pulsacionLargaDespertar } from './pulsacionLarga'
+import { pulsacionLargaDespertar, pulsacionLargaReciente } from './pulsacionLarga'
+import { useInteractUi } from '../state/interactUiStore'
 import { useDespierto } from '../state/despiertoStore'
 import { EtiquetasMapaProjector } from './etiquetasMapa'
 import { ZonaTutProjector } from './ZonaTutProjector'
@@ -240,10 +241,22 @@ function ObjetoDelMapa({
       }
       // Despierto, el toque que lo arrastra no debe colarse al suelo de detrás
       // (que mandaría al personaje a caminar hasta ahí).
-      onClick={despierto ? (e) => e.stopPropagation() : undefined}
+      onClick={
+        despierto
+          ? (e) => e.stopPropagation()
+          : !arrastrable && o.enlaceUrl
+            ? (e) => {
+                // Objeto con enlace web: su burbuja «Visitar» (ver InteractOverlay).
+                e.stopPropagation()
+                if (pulsacionLargaReciente()) return
+                if (o.id != null) useInteractUi.getState().selectEnlace(o.id)
+              }
+            : undefined
+      }
       onPointerOver={(e) => {
         e.stopPropagation()
         if (arrastrable) document.body.style.cursor = 'grab'
+        else if (o.enlaceUrl) document.body.style.cursor = 'pointer'
       }}
       onPointerOut={() => {
         if (!useDiseño.getState().draggingObjeto) document.body.style.cursor = 'default'

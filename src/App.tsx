@@ -7,6 +7,7 @@ import { CarreraOverlay } from './core/ui/CarreraOverlay'
 import { PaintballOverlay } from './core/ui/PaintballOverlay'
 import { Mira } from './core/ui/Mira'
 import { AsignarPlantillaDialog } from './core/ui/AsignarPlantillaDialog'
+import { EnlaceObjetoDialog } from './core/ui/EnlaceObjetoDialog'
 import { AmueblarDialog } from './core/ui/AmueblarDialog'
 import { DestinoObjetoDialog } from './core/ui/DestinoObjetoDialog'
 import { AccesoNivelDialog } from './core/ui/AccesoNivelDialog'
@@ -35,7 +36,8 @@ import { BarraProbar } from './probar/BarraProbar'
 import { RecuperarPrueba } from './core/bienvenida/RecuperarPrueba'
 import { VolverDemoDialog } from './demo/VolverDemoDialog'
 import { esDemo, esProbar } from './core/edicion'
-import { esModoFondo } from './core/plataforma'
+import { esEscritorio, esModoFondo } from './core/plataforma'
+import { NavegadorEscritorio } from './core/ui/NavegadorEscritorio'
 import { acercarEncuadre, aplicarEncuadre, moverEncuadre } from './core/fondoEncuadre'
 import { ExtrasFondo } from './core/ui/ExtrasFondo'
 import { useBienvenida } from './core/bienvenida/bienvenidaStore'
@@ -256,6 +258,9 @@ export default function App() {
           ancho completo detrás; ver el cazaclics dentro del propio menú. */}
       {sidebarOpen && <RoomSideMenu onToggle={() => setSidebarOpen(false)} />}
       <AsignarPlantillaDialog />
+      <EnlaceObjetoDialog />
+      {/* La barra del navegador embebido (solo el shell de escritorio la usa). */}
+      {esEscritorio() && <NavegadorEscritorio />}
       <AmueblarDialog />
       <DestinoObjetoDialog />
       <AccesoNivelDialog />

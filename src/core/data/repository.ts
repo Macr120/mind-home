@@ -1140,3 +1140,14 @@ export async function anotarCalculo(fila: Omit<CalculoComputo, 'id'>): Promise<v
     .primaryKeys()
   for (const id of viejas) await db.calculosComputo.delete(id)
 }
+
+// Enlaces web · visitas abiertas desde los objetos del mapa (ver `core/enlaces.ts`)
+export const visitasWebRepo = createRepository(db.visitasWeb, 'inicio')
+
+/** Visitas de UNA URL (las estadísticas del diálogo del enlace), recientes primero. */
+export function useVisitasDeUrl(url: string | null) {
+  return useLiveQuery(
+    async () => (url == null ? [] : (await db.visitasWeb.where('url').equals(url).sortBy('inicio')).reverse()),
+    [url],
+  )
+}

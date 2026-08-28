@@ -379,12 +379,15 @@ const ObjetoEnCuarto = memo(function ObjetoEnCuarto({
   const startObjetoDrag = useDiseño((s) => s.startObjetoDrag)
   const arrastreElevado = useDiseño((s) => s.arrastreElevado)
   const selectMueble = useInteractUi((s) => s.selectMueble)
+  const selectEnlace = useInteractUi((s) => s.selectEnlace)
   // Posición por ranura de decoración (esquinas de la caja contenedora) si no tiene x/z.
   const gTemblor = useRef<THREE.Group>(null)
   const ox = o.x ?? (o.slot % 2 === 0 ? -1 : 1) * (W / 2 - 1.4)
   const oz = o.z ?? (o.slot < 2 ? -1 : 1) * (H / 2 - 1.4)
   const D = Math.PI / 180
   const esPrincipal = esMueblePrincipal(o)
+  // Objeto con enlace web: tocarlo saca la burbuja «Visitar», como el principal la de su app.
+  const esEnlace = !esPrincipal && Boolean(o.enlaceUrl)
   const alturaDrag = drag ? (arrastreElevado ? ALTURA_CARGA_OBJETO : 0.6) : 0.2
   return (
     <group
@@ -394,13 +397,14 @@ const ObjetoEnCuarto = memo(function ObjetoEnCuarto({
       onClick={
         // Con el atajo de construcción o el modo "mover objetos" activo, el objeto
         // principal no abre la app (se está arrastrando, no entrando).
-        puedeAbrirApp && esPrincipal
+        puedeAbrirApp && (esPrincipal || esEnlace)
           ? (e) => {
               e.stopPropagation()
               // Soltar tras una pulsación larga —o tocarlo ya despierto— no entra
               // en la app: ese toque era para moverlo o para su menú.
               if (despierto || pulsacionLargaReciente()) return
-              selectMueble(roomId)
+              if (esPrincipal) selectMueble(roomId)
+              else if (o.id != null) selectEnlace(o.id)
             }
           : // En "mover objetos" hay que frenar el clic aquí: si no, sigue de largo
             // hasta el piso (`onFloorClick`) y su deselección deshace la selección
@@ -442,7 +446,7 @@ const ObjetoEnCuarto = memo(function ObjetoEnCuarto({
       onPointerOver={(e) => {
         e.stopPropagation()
         if (editable || despierto) document.body.style.cursor = 'grab'
-        else if (!useLayout.getState().editMode && esPrincipal)
+        else if (!useLayout.getState().editMode && (esPrincipal || esEnlace))
           document.body.style.cursor = 'pointer'
       }}
       onPointerOut={() => {
