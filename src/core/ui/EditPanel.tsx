@@ -8,6 +8,8 @@ import { EditorPanelMapa } from './editor/EditorPanelMapa'
 import { EditorPersonajesSection } from './editor/EditorPersonajesSection'
 import { EditorObjetosSection } from './editor/EditorObjetosSection'
 import { EditorAjustesSection } from './editor/EditorAjustesSection'
+import { EditorFondoEscritorioSection } from './editor/EditorFondoEscritorioSection'
+import { hayFondoEscritorio } from '../plataforma'
 import { EditorEstiloSection } from './editor/EditorEstiloSection'
 import { EditorMusicaSection } from './editor/EditorMusicaSection'
 import { EditorTutorialesSection } from './editor/EditorTutorialesSection'
@@ -57,6 +59,11 @@ const GRUPOS_CONFIG: Record<
     icono: 'idiomas',
     titulo: (t) => t('config.grupo.interfaz', 'Interfaz e idioma'),
     Contenido: () => <EditorAjustesSection embed />,
+  },
+  fondo: {
+    icono: 'pantallas',
+    titulo: (t) => t('ajustes.fondoEscritorio', 'Fondo de pantalla'),
+    Contenido: () => <EditorFondoEscritorioSection />,
   },
   musica: {
     icono: 'musica',
@@ -238,6 +245,9 @@ export function EditPanel() {
                 orden: así conservan su sitio al volver de la casa demo. */}
             {secConfig.orden
               .filter((id) => !(sinCuenta && OCULTOS_SIN_CUENTA.has(id)))
+              // El fondo de pantalla solo existe en el escritorio: en la web y en
+              // el teléfono no hay ventana que colgar del escritorio.
+              .filter((id) => id !== 'fondo' || hayFondoEscritorio())
               .map((id) => {
                 const g = GRUPOS_CONFIG[id]
                 return (
