@@ -86,8 +86,17 @@ export interface MetaYouTube {
   categoryId: string
 }
 
-/** `videos.insert` resumable: devuelve la `upload_url` a la que el cliente hará los PUT. Cuesta 1600 unidades. */
-export async function iniciarSubidaYouTube(token: string, meta: MetaYouTube, tamano: number, mime: string): Promise<string> {
+/**
+ * `videos.insert` resumable: devuelve la `upload_url` a la que el cliente hará los PUT.
+ * Cuesta 1600 unidades.
+ *
+ * `origen` es el del NAVEGADOR que va a subir, y no es opcional de verdad: Google ata
+ * la sesión resumable al `Origin` con el que se abrió y solo a ese le devuelve
+ * cabeceras CORS en los PUT. Sin mandarlo aquí, el `fetch` del navegador ni siquiera
+ * llega a recibir respuesta —falla en el preflight— y la app lo ve como «se perdió la
+ * conexión durante la subida».
+ */
+export async function iniciarSubidaYouTube(token: string, meta: MetaYouTube, tamano: number, mime: string, origen?: string | null): Promise<string> {
   const resp = await fetch('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status', {
     method: 'POST',
     headers: {
@@ -95,6 +104,7 @@ export async function iniciarSubidaYouTube(token: string, meta: MetaYouTube, tam
       'Content-Type': 'application/json; charset=UTF-8',
       'X-Upload-Content-Type': mime,
       'X-Upload-Content-Length': String(tamano),
+      ...(origen ? { Origin: origen } : {}),
     },
     body: JSON.stringify({
       snippet: { title: meta.titulo, description: meta.descripcion, categoryId: meta.categoryId },

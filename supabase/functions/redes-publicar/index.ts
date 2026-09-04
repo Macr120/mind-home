@@ -1,11 +1,13 @@
 /**
  * Publicar un video del Studio en la cuenta conectada del usuario.
  *
- * YouTube sube DIRECTO desde el cliente (googleapis da CORS y los PUT no
- * gastan cuota): aquí solo se inicia la sesión resumable, que es la llamada
- * que cuesta 1600 unidades, tras contarla en el tope global de la app y en el
- * del usuario. TikTok y Meta no dan CORS a sus hosts de subida, así que el
- * cliente manda el archivo POR TROZOS a esta función y ella lo reenvía con el
+ * YouTube sube DIRECTO desde el cliente (los PUT no gastan cuota): aquí solo se
+ * inicia la sesión resumable, que es la llamada que cuesta 1600 unidades, tras
+ * contarla en el tope global de la app y en el del usuario. Googleapis da CORS,
+ * pero SOLO al origen con el que se abrió la sesión: por eso el `Origin` del
+ * navegador se reenvía a Google al iniciarla. TikTok y Meta no dan CORS a sus
+ * hosts de subida, así que el cliente manda el archivo POR TROZOS a esta
+ * función y ella lo reenvía con el
  * token del servidor (puro I/O: la CPU de 2 s no se toca).
  *
  * Acciones (POST con Bearer; JWT verificado por el gateway):
@@ -98,7 +100,7 @@ Deno.serve(async (req) => {
       case 'opciones':
         return json(await opciones(admin, usuario.id, cuerpo), 200, cors)
       case 'iniciar-publicacion':
-        return json(await iniciarPublicacion(admin, usuario.id, cuerpo), 200, cors)
+        return json(await iniciarPublicacion(admin, usuario.id, cuerpo, req.headers.get('Origin')), 200, cors)
       case 'finalizar':
         return json(await finalizar(admin, usuario.id, cuerpo), 200, cors)
       case 'estado-publicacion':
@@ -140,7 +142,7 @@ function texto(v: unknown, max: number): string {
   return typeof v === 'string' ? v.trim().slice(0, max) : ''
 }
 
-async function iniciarPublicacion(admin: SupabaseClient, uid: string, cuerpo: Record<string, unknown>): Promise<Record<string, unknown>> {
+async function iniciarPublicacion(admin: SupabaseClient, uid: string, cuerpo: Record<string, unknown>, origen?: string | null): Promise<Record<string, unknown>> {
   const plataforma = cuerpo.plataforma
   if (!esPlataforma(plataforma)) throw new ErrorRedes('plataforma', 'Red desconocida.')
   const tamano = Number(cuerpo.tamano)
@@ -179,7 +181,7 @@ async function iniciarPublicacion(admin: SupabaseClient, uid: string, cuerpo: Re
       paraNinos: yt.madeForKids === true,
       categoryId: /^\d{1,3}$/.test(String(yt.categoryId ?? '')) ? String(yt.categoryId) : '22',
     }
-    const upload_url = await iniciarSubidaYouTube(cuenta.access_token, m, tamano, mime)
+    const upload_url = await iniciarSubidaYouTube(cuenta.access_token, m, tamano, mime, origen)
     return { modo: 'directo', upload_url, access_token: cuenta.access_token, expira_en: cuenta.expira_en, trozo: TROZO_BYTES }
   }
 
