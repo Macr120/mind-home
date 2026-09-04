@@ -9,9 +9,11 @@ import { aplicarSpawnDemo } from './demo/spawn'
 import { bindKeyboard } from './core/house/movement'
 import { bindAtajosPersonaje } from './core/house/atajosTeclado'
 import { escucharDeepLinkAuth, iniciarSesion } from './core/cuenta/sesionStore'
+import { arrancarRedes } from './core/redes/redesStore'
 import { esDemo, esProbar, limpiarDerechosViejos } from './core/edicion'
 import { conectarMotorSync } from './core/data/sync/motor'
 import { esModoFondo } from './core/plataforma'
+import { esAccionGlobal, lanzarAccionGlobal } from './core/state/accionGlobal'
 import { abrirApp } from './core/abrirApp'
 import { registrarActividad } from './core/rutinas'
 import { iniciarAvisosNativos, type DestinoAviso } from './core/notificaciones'
@@ -71,6 +73,19 @@ setTimeout(() => sessionStorage.removeItem('mh.reloadChunk'), 10_000)
  * «Registrar» escribe el dato y se acabó; el resto abre el cuarto.
  */
 /** A dónde lleva tocar un aviso. Lo comparten el service worker y Android. */
+/** El payload del aviso viene de fuera (SW / plugin): se valida la forma antes de usarlo. */
+function payloadAvisoValido(d: unknown): d is DestinoAviso {
+  if (typeof d !== 'object' || d === null) return false
+  const o = d as Record<string, unknown>
+  return (
+    (o.plantillaId === undefined || typeof o.plantillaId === 'string') &&
+    (o.seccion === undefined || typeof o.seccion === 'string') &&
+    (o.rutinaId === undefined || typeof o.rutinaId === 'number') &&
+    (o.wrapped === undefined || typeof o.wrapped === 'string') &&
+    (o.accion === undefined || typeof o.accion === 'string')
+  )
+}
+
 function seguirAviso(d: DestinoAviso): void {
   if (d.accion === 'registrar' && d.rutinaId != null) {
     void registrarActividad(d.rutinaId)
@@ -88,13 +103,13 @@ if ('serviceWorker' in navigator) {
     console.warn('[MPH] No se pudo registrar el service worker:', err)
   })
   navigator.serviceWorker.addEventListener('message', (e) => {
-    if (e.data?.tipo !== 'abrir-app') return
+    if (e.data?.tipo !== 'abrir-app' || !payloadAvisoValido(e.data)) return
     // El SW ya tiene la ventana delante: abre sin el margen de arranque.
     if (e.data.plantillaId && e.data.accion !== 'registrar' && !esTipoWrapped(e.data.wrapped)) {
       abrirApp(e.data.plantillaId, e.data.seccion)
       return
     }
-    seguirAviso(e.data as DestinoAviso)
+    seguirAviso(e.data)
   })
 }
 
@@ -102,10 +117,15 @@ if ('serviceWorker' in navigator) {
 void iniciarAvisosNativos(seguirAviso)
 // Y la vuelta del navegador tras el login con Google/Apple.
 void escucharDeepLinkAuth()
+// La vuelta del OAuth de las redes del Studio de video (ventana emergente o `?redes=` en la web).
+arrancarRedes()
 
 /** Los sitios a los que puede llevar un panel del fondo de pantalla. */
 function irA(donde: string): void {
   if (donde === 'misiones') void import('./core/state/rutinasUiStore').then((m) => m.useRutinasUI.getState().abrirCalendario('objetivos'))
+  // Los tres botones del panel de chat: la misma acción global que lanza el
+  // widget de Android, y ChatBox la consume igual al montarse.
+  else if (esAccionGlobal(donde)) lanzarAccionGlobal(donde)
 }
 
 // Un panel del fondo pide abrir la app aquí. Llega por la URL cuando el clic
@@ -136,17 +156,20 @@ if (params.get('accion') === 'registrar' && rutinaPedida) {
   // La casa tarda en montarse; sin esperar, `openRoom` se pierde en el vacío.
   setTimeout(() => abrirApp(appPedida, params.get('seccion') ?? undefined), 500)
   history.replaceState(null, '', location.pathname)
-} else if (params.get('mascara')) {
+} else if (params.get('mascara') ?? new URLSearchParams(location.hash.slice(1)).get('mascara')) {
   // El QR del control remoto de la máscara: abre la Máscara AR conectándose
-  // como controlador con ese código. Se limpia de la URL para que un reload
-  // no reconecte a una sesión ya muerta.
-  const codigo = params.get('mascara')!
-  setTimeout(() => useMascaraUi.getState().abrir(codigo), 500)
+  // como controlador con ese código. El código llega en el FRAGMENTO (#mascara=),
+  // que no viaja al servidor; se acepta también en la query por compatibilidad.
+  // Se limpia de la URL para que un reload no reconecte a una sesión ya muerta.
+  const codigo = params.get('mascara') ?? new URLSearchParams(location.hash.slice(1)).get('mascara')!
+  setTimeout(() => useMascaraUi.getState().abrir(codigo!), 500)
   history.replaceState(null, '', location.pathname)
 }
 
 // Autoría del snapshot demo: window.mhExportarCasaDemo() solo en desarrollo.
 if (import.meta.env.DEV) void import('./demo/exportarCasa')
+// Hoja de contacto de las animaciones de ejercicio: window.mhHojaEjercicios() solo en desarrollo.
+if (import.meta.env.DEV) void import('./demo/hojaEjercicios')
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

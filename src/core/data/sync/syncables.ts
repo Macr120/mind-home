@@ -12,8 +12,13 @@
  * categoriasCardio, registroAnimo, perfilMindfulness, perfilUsuario), cachés
  * regenerables (imagenesEjercicio), efímeras del día (edicionesDiario), audio
  * pesado (pistasMusica — y con él sus carpetasPista, que sin las pistas del
- * dispositivo llegarían vacías) y el guardarropa a medida (prendasCustom,
- * atuendosGuardados — lo puesto viaja inline en disenoAvatar.ropaCustom).
+ * dispositivo llegarían vacías), los binarios del Studio de video (mediosVideo:
+ * clips que pueden pesar cientos de MB; el guion del proyecto SÍ viaja y en el
+ * otro dispositivo el `medioId` sin resolver se avisa en la UI), las tomas de
+ * micrófono del Studio de audio (grabacionesAudio: mismo criterio — el clip
+ * embebido en `proyectosAudio` viaja y sin su blob la UI lo avisa) y el
+ * guardarropa a medida (prendasCustom, atuendosGuardados — lo puesto viaja
+ * inline en disenoAvatar.ropaCustom).
  */
 export const TABLAS_SYNC: string[] = [
   'transacciones',
@@ -135,6 +140,13 @@ export const TABLAS_SYNC: string[] = [
   'carpetasIdea',
   'partidasEjercicio',
   'visitasWeb',
+  'dibujos',
+  'documentos',
+  'historias',
+  'relacionesLibro',
+  'proyectosAudio',
+  'proyectosVideo',
+  'canciones',
   // Al final del array a propósito: `materialEntrada` apunta a entradasBiblio,
   // hojasCalculo, mapasIdeas e ideas, así que se aplica cuando todas ya están.
   'materialEntrada',
@@ -229,6 +241,12 @@ export const FK: Record<string, Record<string, string>> = {
   },
   // El tema propio recuerda qué imagen de cielo llevaba puesta.
   temasPropios: { fondoImagenActivo: 'fondosImagen' },
+  // Libros del Studio de escritura. `actoId` es self-FK (la trama apunta
+  // a su acto, otro documento): los huérfanos reintentan vía `_pendientes`.
+  documentos: { historiaId: 'historias', actoId: 'documentos' },
+  // Aristas del diagrama de relaciones: los extremos son personajes y la nota
+  // de la conexión es otro documento (seccion 'relacion').
+  relacionesLibro: { historiaId: 'historias', aId: 'documentos', bId: 'documentos', docId: 'documentos' },
 }
 
 /**
@@ -289,6 +307,12 @@ export const ORDEN_TOPO: string[] = [
   // `fondosImagen` tampoco aparece antes (no tiene padres numéricos), así que ya
   // está aplicada cuando llega el tema propio que la referencia.
   'temasPropios',
+  // `historias` no aparece (sin padres numéricos → se aplica primero); los
+  // documentos van después porque la referencian (y se auto-referencian por
+  // `actoId`, reintento vía `_pendientes`), y las aristas del diagrama al final
+  // porque apuntan a ambos.
+  'documentos',
+  'relacionesLibro',
   // El último: apunta a entradasBiblio, hojasCalculo, mapasIdeas e ideas, y
   // `hojasCalculo`/`ideas` no aparecen antes porque no tienen padres numéricos
   // (las tablas ausentes de esta lista se aplican primero).

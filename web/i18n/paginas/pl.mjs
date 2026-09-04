@@ -162,7 +162,8 @@ export const TEXTOS = {
   'desc.web.t': 'W twojej przeglądarce',
   'desc.web': 'Bez instalowania: zaloguj się na swoje konto, a dom czeka. Bez konta możesz wypróbować aplikację.',
   'desc.web.cta': 'Otwórz aplikację',
-  'desc.windows': 'Instalator dla Windows 10/11.',
+  'desc.windows': 'Za darmo w Microsoft Store. Dom kupujesz w środku.',
+  'desc.windows.cta': 'Pobierz na Windows',
   'desc.mac': 'Obraz .dmg dla Maca.',
   'desc.mac.cta': 'Pobierz na Maca',
 
@@ -220,7 +221,12 @@ export const TEXTOS = {
   'priv.uso.1': 'Żeby dać ci dostęp do konta, zakupu i abonamentu.',
   'priv.uso.2': 'Żeby synchronizować twoje dane między urządzeniami i tworzyć kopie zapasowe.',
   'priv.uso.3': 'Żeby uruchamiać funkcje SI w ramach twojej puli kredytów.',
-  'priv.uso.4': 'Nie sprzedajemy twoich danych ani nie udostępniamy ich osobom trzecim w celach reklamowych.',
+  'priv.uso.4': 'Nie sprzedajemy twoich danych ani nie udostępniamy ich osobom trzecim w celach reklamowych.',  'priv.redes.h': 'Połączone konta w mediach społecznościowych',
+  'priv.redes.p':
+    'Jeśli połączysz swoje konto YouTube, TikTok, Facebook lub Instagram, przechowujemy tokeny dostępu przekazane przez ten serwis — zaszyfrowane na naszym serwerze — wraz z nazwą i zdjęciem wybranego konta lub Strony. Używamy ich wyłącznie po to, by w chwili naciśnięcia Opublikuj zamieścić na twoim własnym koncie filmy, które sam wybierzesz do publikacji w edytorze wideo. Nie czytamy twoich filmów, postów, komentarzy, wiadomości ani żadnych innych danych z tych kont i nigdy nie publikujemy niczego z własnej inicjatywy. Tokeny są przechowywane do momentu odłączenia konta w Ustawieniach → Połączone konta albo usunięcia twojego konta Mind Planner Home; dostęp możesz też cofnąć w ustawieniach bezpieczeństwa każdego serwisu (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
+  'priv.redes.youtube':
+    'W przypadku YouTube aplikacja korzysta z YouTube API Services; łącząc konto, akceptujesz <a href="https://www.youtube.com/t/terms">Warunki korzystania z YouTube</a>, a zastosowanie ma <a href="https://policies.google.com/privacy">Polityka prywatności Google</a>.',
+
   'priv.cancelas.h': 'Jeśli zrezygnujesz z abonamentu',
   'priv.cancelas.p':
     'Dane lokalne zostają na twoich urządzeniach. Dane zsynchronizowane pozostają przechowywane (niedostępne do czasu wznowienia) i możesz je trwale usunąć, kasując konto.',
@@ -292,6 +298,7 @@ export const TEXTOS = {
   'sop.faq.p': 'Najczęstsze pytania — ceny, urządzenia, SI i twoje dane — mają odpowiedzi na stronie głównej.',
   'sop.faq.enlace': 'Zobacz częste pytania',
   'sop.cuenta.h': 'Usunięcie konta',
-  'sop.cuenta.p': 'Konto i wszystkie dane w chmurze możesz usunąć z aplikacji (Edytor → Ustawienia → Konto) albo ze swojego konta w sieci.',
+  'sop.cuenta.p':
+    'Konto i wszystkie dane w chmurze możesz usunąć z aplikacji (Edytor → Ustawienia → Konto) albo ze swojego konta w sieci. Usunięcie kasuje też połączenia z mediami społecznościowymi (YouTube, TikTok, Facebook i Instagram): zapisane tokeny są niszczone i przestają działać.',
   'sop.cuenta.enlace': 'Przejdź do konta',
 }

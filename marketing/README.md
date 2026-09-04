@@ -78,6 +78,16 @@ npm run video:guion meter lanzamiento todos
 
 ## 3. Doblar y montar
 
+### Voz clonada (opcional): que los 15 doblajes suenen a TI
+
+OpenVoice V2 (MIT, instalado en `C:\Users\macr1\openvoice`: venv + checkpoints)
+convierte el timbre de la voz edge-tts al tuyo conservando la pronunciación
+nativa de cada idioma. Requiere **una sola vez** grabar
+`marketing/video/voz-referencia.wav|m4a|mp3`: ~1 min de tu voz hablando natural
+(sin música ni ruido; sirve leer el guion en español). Luego añade `--clonar` a
+cualquier `doblar` y la mezcla saldrá con tu voz. Si mudas el venv, apunta
+`OPENVOICE_PY` al python del venv nuevo.
+
 Piloto primero (el árabe estresa RTL/fuentes; el inglés se audita de oído):
 
 ```powershell

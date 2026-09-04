@@ -10,6 +10,7 @@ import type { AuthError, User } from '@supabase/supabase-js'
 import { hayBackend, obtenerSupabase } from './supabase'
 import { esAppNativa, esEscritorio } from '../plataforma'
 import { LS_FUE_PRO, LS_PLAN_EXPIRA, LS_PLAN_REAL, LS_UNLOCK, type Plan } from '../edicion'
+import { recibirRetornoRedes } from '../redes/retorno'
 
 /**
  * Traduce los errores de auth de Supabase a mensajes propios. Nunca se pinta
@@ -452,7 +453,9 @@ export async function escucharDeepLinkAuth(): Promise<void> {
   if (esEscritorio()) {
     window.addEventListener('mph:enlace-profundo', (evento) => {
       const url = (evento as CustomEvent<string>).detail
-      if (typeof url === 'string') void canjearCodigoDeepLink(url)
+      if (typeof url !== 'string') return
+      // La vuelta del OAuth de las redes (host `redes`) no es un login: la atiende el store de redes.
+      void canjearCodigoDeepLink(url).then((era) => era || recibirRetornoRedes(url))
     })
     return
   }
@@ -462,7 +465,7 @@ export async function escucharDeepLinkAuth(): Promise<void> {
     const { App } = await import('@capacitor/app')
     await App.addListener('appUrlOpen', ({ url }) => {
       void (async () => {
-        if (!(await canjearCodigoDeepLink(url))) return
+        if (!(await canjearCodigoDeepLink(url)) && !recibirRetornoRedes(url)) return
         // La pestaña del navegador se queda encima si no se cierra a mano. En
         // el escritorio no hay equivalente: la abrió el navegador del sistema.
         const { Browser } = await import('@capacitor/browser')
@@ -476,12 +479,18 @@ export async function escucharDeepLinkAuth(): Promise<void> {
 
 /** Canjea por sesión el `code` que trae la vuelta; false si la URL no era nuestra. */
 async function canjearCodigoDeepLink(url: string): Promise<boolean> {
-  if (!url.startsWith(REDIRECT_NATIVO)) return false
-  // El code se saca a mano: `new URL()` no es de fiar con esquemas propios.
-  const code = /[?&]code=([^&]+)/.exec(url)?.[1]
+  // El prefijo debe terminar EXACTAMENTE en el host `oauth`, seguido de un
+  // separador (`?`, `#`, `/`) o del final: `startsWith(REDIRECT_NATIVO)` a secas
+  // aceptaba `com.macr120.mindhome://oauthXX` de otra app (auditoría 26-ago-2026).
+  const resto = url.slice(REDIRECT_NATIVO.length)
+  if (!url.startsWith(REDIRECT_NATIVO) || (resto !== '' && !'?#/'.includes(resto[0]))) return false
+  // El code se lee con URLSearchParams (no una regex): `new URL()` no es de fiar
+  // con esquemas propios en todos los WebView, pero la query sí se parsea bien.
+  const query = url.split('#')[0].split('?')[1] ?? ''
+  const code = new URLSearchParams(query).get('code')
   const sb = await obtenerSupabase()
   if (code && sb) {
-    const { error } = await sb.auth.exchangeCodeForSession(decodeURIComponent(code))
+    const { error } = await sb.auth.exchangeCodeForSession(code)
     if (error) console.warn('[MPH] El login social no se pudo completar:', error.message)
   }
   return true

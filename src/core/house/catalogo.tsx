@@ -382,6 +382,12 @@ const COLISION_CAT: Record<string, [number, number]> = {
   libreta: [0.45, 0.28],
   'calendario-pared': [0.4, 0.1],
   'estacion-computo': [0.82, 0.4],
+  // Studio: el teclado y el escritorio son anchos; el caballete y el trípode
+  // ocupan poco en planta pero hay que rodearlos igual.
+  'teclado-midi': [0.78, 0.3],
+  'caballete-arte': [0.42, 0.3],
+  'escritorio-escritura': [0.78, 0.38],
+  'camara-video': [0.34, 0.34],
   // alfombra y libro: planos / menudos → se pueden pisar.
 }
 
@@ -404,6 +410,10 @@ const ALTO_ESPECIAL: Record<string, number> = {
   'calendario-pared': 2.15,
   'caja-fuerte': 1.3,
   'estacion-computo': 1.65,
+  'teclado-midi': 1.15,
+  'caballete-arte': 1.55,
+  'escritorio-escritura': 1.35,
+  'camara-video': 1.5,
 }
 
 /**

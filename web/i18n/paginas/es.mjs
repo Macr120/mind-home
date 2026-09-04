@@ -172,7 +172,8 @@ export const TEXTOS = {
   'desc.web.t': 'En tu navegador',
   'desc.web': 'Sin instalar nada: entra con tu cuenta y tu casa te espera. Sin cuenta puedes probar la app.',
   'desc.web.cta': 'Abrir la app',
-  'desc.windows': 'Instalador para Windows 10/11.',
+  'desc.windows': 'Gratis en Microsoft Store. La casa se compra dentro.',
+  'desc.windows.cta': 'Descargar para Windows',
   'desc.mac': 'Imagen .dmg para Mac.',
   'desc.mac.cta': 'Descargar para Mac',
 
@@ -233,7 +234,13 @@ export const TEXTOS = {
   'priv.uso.1': 'Darte acceso a tu cuenta, a tu compra y a tu suscripción.',
   'priv.uso.2': 'Sincronizar tus datos entre dispositivos y respaldarlos.',
   'priv.uso.3': 'Operar las funciones de IA con tu cuota de créditos.',
-  'priv.uso.4': 'No vendemos tus datos ni los compartimos con terceros para publicidad.',
+  'priv.uso.4': 'No vendemos tus datos ni los compartimos con terceros para publicidad.',  // ─── Cuentas de redes conectadas (lo exigen YouTube, TikTok y Meta) ──────
+  'priv.redes.h': 'Cuentas de redes sociales conectadas',
+  'priv.redes.p':
+    'Si conectas tu cuenta de YouTube, TikTok, Facebook o Instagram, guardamos cifrados en nuestro servidor los tokens de acceso que esa red nos entrega, junto con el nombre y la foto de la cuenta o Página que elijas. Los usamos únicamente para publicar en tu propia cuenta los videos que tú decides publicar desde el editor de video, en el momento en que pulsas Publicar. No leemos tus videos, publicaciones, comentarios, mensajes ni ningún otro dato de esas cuentas, y nunca publicamos nada por nuestra cuenta. Los tokens se conservan hasta que desconectas la cuenta en Configuraciones → Cuentas conectadas o eliminas tu cuenta de Mind Planner Home; también puedes revocar el acceso desde los ajustes de seguridad de cada red (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
+  'priv.redes.youtube':
+    'Para YouTube, la app utiliza YouTube API Services; al conectar tu cuenta aceptas los <a href="https://www.youtube.com/t/terms">Términos de servicio de YouTube</a> y se aplica la <a href="https://policies.google.com/privacy">Política de privacidad de Google</a>.',
+
   'priv.cancelas.h': 'Si cancelas tu suscripción',
   'priv.cancelas.p':
     'Tus datos locales siguen en tus dispositivos. Los datos sincronizados quedan almacenados (inaccesibles hasta que renueves) y puedes borrarlos definitivamente eliminando tu cuenta.',
@@ -305,6 +312,7 @@ export const TEXTOS = {
   'sop.faq.p': 'Las dudas más comunes — precios, dispositivos, IA y tus datos — están respondidas en la página principal.',
   'sop.faq.enlace': 'Ver preguntas frecuentes',
   'sop.cuenta.h': 'Eliminar tu cuenta',
-  'sop.cuenta.p': 'Puedes borrar tu cuenta y todos tus datos en la nube desde la app (Editor → Configuraciones → Cuenta) o desde tu cuenta en la web.',
+  'sop.cuenta.p':
+    'Puedes borrar tu cuenta y todos tus datos en la nube desde la app (Editor → Configuraciones → Cuenta) o desde tu cuenta en la web. Al eliminarla se borran también las conexiones con tus redes sociales (YouTube, TikTok, Facebook e Instagram): los tokens guardados se destruyen y dejan de ser válidos.',
   'sop.cuenta.enlace': 'Ir a tu cuenta',
 }

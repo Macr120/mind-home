@@ -84,24 +84,72 @@ let ventanaFondo = null
 /** Lo último que dijo el vigía de la música (Windows); null si no suena nada. */
 let sonando = null
 
-/** Dónde se recuerda en qué pantalla va el fondo, para el arranque con `--fondo`. */
+/**
+ * Dónde se recuerda el fondo entre sesiones: en qué pantalla va (`pantalla`,
+ * para el arranque con `--fondo`) y si quedó puesto (`activo`, para que vuelva
+ * solo al encender el equipo).
+ */
 function archivoFondo() {
   return path.join(app.getPath('userData'), 'fondo.json')
 }
 
-function eleccionFondoGuardada() {
+function estadoFondo() {
   try {
-    return JSON.parse(readFileSync(archivoFondo(), 'utf8')).pantalla ?? 'todas'
+    return JSON.parse(readFileSync(archivoFondo(), 'utf8'))
   } catch {
-    return 'todas'
+    return {}
   }
 }
 
-function guardarEleccionFondo(pantalla) {
+function eleccionFondoGuardada() {
+  return estadoFondo().pantalla ?? 'todas'
+}
+
+function guardarEstadoFondo(cambios) {
   try {
-    writeFileSync(archivoFondo(), JSON.stringify({ pantalla: pantalla ?? 'todas' }), 'utf8')
+    writeFileSync(archivoFondo(), JSON.stringify({ ...estadoFondo(), ...cambios }), 'utf8')
   } catch {
     /* sin disco se pierde la preferencia, pero el fondo de esta vez vale */
+  }
+}
+
+/**
+ * Con el fondo puesto, la app se apunta al arranque de la sesión para que el
+ * escritorio amanezca con la casa; al quitarlo, se borra de ahí. En Windows el
+ * elemento de arranque lleva `--fondo` (solo la ventana wallpaper, sin abrir la
+ * app); en macOS los elementos de inicio no admiten argumentos, así que allí
+ * arranca la app normal y es el `activo` guardado quien enciende el fondo.
+ *
+ * Solo empaquetada: en dev registraría el Electron genérico de node_modules
+ * (la misma trampa que el esquema profundo). En la build de Store (MSIX) no
+ * surte efecto sin declarar una startupTask en el manifiesto.
+ */
+function apuntarAlArranque(activo) {
+  if (!app.isPackaged) return
+  app.setLoginItemSettings({
+    openAtLogin: activo,
+    // El `name` NUNCA puede quedarse en el de por defecto (el AppUserModelId,
+    // com.macr120.mindhome): ese mismo texto es el ProgID del enlace profundo
+    // en HKCU\Software\Classes, y con esa colisión Windows 25H2 no trató la
+    // entrada como app de arranque — no salía en «Aplicaciones de inicio» y
+    // Explorer la omitió en dos reinicios seguidos, sin error ni rastro.
+    // `--fondo-auto` y no `--fondo`: el del arranque pasa por la guarda de
+    // `activo`, para que una entrada rezagada no plante el fondo que el usuario
+    // ya quitó — y es el MISMO argumento que manda la startupTask del MSIX.
+    ...(process.platform === 'win32' ? { name: 'MindPlannerHome', args: ['--fondo-auto'] } : {}),
+  })
+  // Y el marcador «habilitado» de StartupApproved —02 y once bytes a cero, el
+  // mismo que escribe el Administrador de tareas—, para que la entrada nazca
+  // catalogada y el primer reinicio ya la arranque. En MSIX no aplica: el
+  // arranque ahí sería una startupTask del manifiesto.
+  if (process.platform === 'win32' && !process.windowsStore) {
+    const clave = 'HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StartupApproved\\Run'
+    const argumentos = activo
+      ? ['add', clave, '/v', 'MindPlannerHome', '/t', 'REG_BINARY', '/d', '020000000000000000000000', '/f']
+      : ['delete', clave, '/v', 'MindPlannerHome', '/f']
+    execFile('reg.exe', argumentos, () => {
+      /* sin el marcador la entrada sigue existiendo; no vale un aviso */
+    })
   }
 }
 
@@ -480,18 +528,26 @@ function registrarEsquemaProfundo() {
 }
 
 /**
- * Cámara y micrófono sí (Chat AR y dictado) y notificaciones sí (los avisos);
- * lo demás, no. Y solo para nuestro propio origen: con los permisos de serie,
- * cualquier página que llegara a cargarse aquí podría pedirlos.
+ * Cámara y micrófono sí (Chat AR y dictado), notificaciones sí (los avisos) y
+ * captura de pantalla sí (grabar la app para el Studio de video); lo demás, no.
+ * Y solo para nuestro propio origen: con los permisos de serie, cualquier
+ * página que llegara a cargarse aquí podría pedirlos.
  */
 function permisos() {
-  const CONCEDIDOS = new Set(['media', 'notifications', 'clipboard-sanitized-write', 'fullscreen'])
+  const CONCEDIDOS = new Set(['media', 'notifications', 'clipboard-sanitized-write', 'fullscreen', 'display-capture'])
   const nuestro = (url) => typeof url === 'string' && (url.startsWith(ORIGEN) || (URL_DEV && url.startsWith(URL_DEV)))
 
   session.defaultSession.setPermissionRequestHandler((contenido, permiso, responder) => {
     responder(CONCEDIDOS.has(permiso) && nuestro(contenido.getURL()))
   })
   session.defaultSession.setPermissionCheckHandler((_c, permiso, origen) => CONCEDIDOS.has(permiso) && nuestro(origen))
+  // `getDisplayMedia` (grabar la app): la propia página, sin selector de
+  // pantallas, con su audio si lo pide. A otro origen no se le responde, que es
+  // como se deniega.
+  session.defaultSession.setDisplayMediaRequestHandler((peticion, responder) => {
+    if (!peticion.frame || !nuestro(peticion.securityOrigin)) return
+    responder(peticion.audioRequested ? { video: peticion.frame, audio: peticion.frame } : { video: peticion.frame })
+  })
 }
 
 /**
@@ -576,9 +632,12 @@ function construirMenu() {
 ipcMain.handle('mph:fondo', (_e, eleccion) => {
   if (ventanaFondo) {
     ventanaFondo.close()
+    guardarEstadoFondo({ activo: false })
+    apuntarAlArranque(false)
     return false
   }
-  guardarEleccionFondo(eleccion)
+  guardarEstadoFondo({ pantalla: eleccion ?? 'todas', activo: true })
+  apuntarAlArranque(true)
   crearVentanaFondo(eleccion)
   return true
 })
@@ -825,6 +884,67 @@ ipcMain.handle('mph:fondo-musica', async () => {
   }
 })
 
+/**
+ * La voz del dispositivo como archivo (narración gratis del Studio de video):
+ * SAPI por PowerShell en Windows y `say` en macOS. Devuelve el WAV en base64,
+ * o null si el sistema no pudo. El texto viaja en base64 y el nombre de la voz
+ * se sanea: nada del renderer llega a la shell sin envolver.
+ */
+ipcMain.handle('mph:voz-archivo', async (_e, texto, voz, lang) => {
+  if (typeof texto !== 'string' || !texto.trim()) return null
+  const idioma = String(lang || 'es').replace(/[^a-zA-Z-]/g, '') || 'es'
+  const ruta = path.join(app.getPath('temp'), `mph-voz-${process.pid}-${Date.now()}.wav`)
+  try {
+    if (process.platform === 'win32') {
+      // Chromium cuelga « - Idioma (País)» al nombre SAPI; SAPI quiere el corto.
+      const nombre = String(voz || '').split(' - ')[0].replace(/[^\p{L}\p{N} .()-]/gu, '').trim()
+      const ps = (s) => `'${s.replace(/'/g, "''")}'`
+      const guion = [
+        'Add-Type -AssemblyName System.Speech',
+        '$s = New-Object System.Speech.Synthesis.SpeechSynthesizer',
+        `$texto = [System.Text.Encoding]::UTF8.GetString([Convert]::FromBase64String(${ps(Buffer.from(texto, 'utf8').toString('base64'))}))`,
+        nombre ? `try { $s.SelectVoice(${ps(nombre)}) } catch { }` : '',
+        // Sin la voz pedida (o con la del sistema en otro idioma): la primera del idioma de la app.
+        `if ($s.Voice.Culture.TwoLetterISOLanguageName -ne ${ps(idioma.slice(0, 2).toLowerCase())}) { try { $s.SelectVoiceByHints([System.Speech.Synthesis.VoiceGender]::NotSet, [System.Speech.Synthesis.VoiceAge]::NotSet, 0, [System.Globalization.CultureInfo]::GetCultureInfo(${ps(idioma.slice(0, 2).toLowerCase())})) } catch { } }`,
+        `$s.SetOutputToWaveFile(${ps(ruta)})`,
+        '$s.Speak($texto)',
+        '$s.Dispose()',
+      ]
+        .filter(Boolean)
+        .join('; ')
+      await new Promise((res, rej) =>
+        execFile(
+          'powershell.exe',
+          ['-NoProfile', '-NonInteractive', '-ExecutionPolicy', 'Bypass', '-Command', guion],
+          { timeout: 90000, windowsHide: true },
+          (err) => (err ? rej(err) : res()),
+        ),
+      )
+    } else if (process.platform === 'darwin') {
+      const nombre = String(voz || '').replace(/[^\p{L}\p{N} .()-]/gu, '').trim()
+      const decir = (conVoz) =>
+        new Promise((res, rej) =>
+          execFile(
+            '/usr/bin/say',
+            [...(conVoz && nombre ? ['-v', nombre] : []), '-o', ruta, '--data-format=LEI16@22050', '--', texto],
+            { timeout: 90000 },
+            (err) => (err ? rej(err) : res()),
+          ),
+        )
+      try {
+        await decir(true)
+      } catch {
+        await decir(false) // la voz pedida no existe con ese nombre: la del sistema
+      }
+    } else return null
+    return (await fs.readFile(ruta)).toString('base64')
+  } catch {
+    return null
+  } finally {
+    fs.unlink(ruta).catch(() => {})
+  }
+})
+
 // macOS: el enlace profundo llega por aquí, y puede llegar ANTES del ready.
 app.on('open-url', (evento, url) => {
   evento.preventDefault()
@@ -847,6 +967,12 @@ app.on('second-instance', (_e, argv) => {
     if (!ventanaFondo) crearVentanaFondo()
     return
   }
+  // El del arranque con la app ya abierta (p. ej. cambio rápido de usuario):
+  // igual, pero con la guarda de `activo` y sin despertar la ventana normal.
+  if (argv.includes('--fondo-auto')) {
+    if (estadoFondo().activo && !ventanaFondo) crearVentanaFondo()
+    return
+  }
   if (!ventana) {
     crearVentana()
     return
@@ -866,7 +992,20 @@ void app.whenReady().then(() => {
   permisos()
   Menu.setApplicationMenu(construirMenu())
   if (process.argv.includes('--fondo')) crearVentanaFondo()
-  else crearVentana()
+  else if (process.argv.includes('--fondo-auto')) {
+    // El arranque de sesión: la clave Run del NSIS, o la startupTask del MSIX
+    // — que dispara en CADA inicio de sesión, sepa o no si el fondo quedó
+    // puesto. Solo la casa de fondo, y solo si sigue activa; si no, morir sin
+    // abrir nada. El `--fondo` a secas es la orden directa y no se cuestiona.
+    if (estadoFondo().activo) crearVentanaFondo()
+    else app.quit()
+  } else {
+    crearVentana()
+    // El fondo quedó puesto la última vez: vuelve solo con la app. Es el camino
+    // de macOS al iniciar sesión (su elemento de inicio no lleva argumentos) y
+    // de cualquier arranque a mano con el fondo aún activo.
+    if (estadoFondo().activo) crearVentanaFondo()
+  }
   // Windows: si el SO nos arrancó POR el enlace, viene en nuestro propio argv.
   const enlaceInicial = process.argv.find((a) => a.startsWith(`${ESQUEMA_PROFUNDO}://`))
   if (enlaceInicial) repartirEnlace(enlaceInicial)

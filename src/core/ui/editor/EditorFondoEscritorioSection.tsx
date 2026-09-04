@@ -112,6 +112,7 @@ function FondoDeEscritorio() {
       musica: t('fondo.p.musica', 'Música'),
       recursos: t('fondo.p.recursos', 'Sistema'),
       misiones: t('hoy.titulo', 'Misiones'),
+      chat: t('gastoByok.chat', 'Chat'),
     })[cual]
 
   /** En qué tercio de la vista previa está el puntero; null si es el centro. */

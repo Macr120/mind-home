@@ -11,6 +11,9 @@ import { IDIOMAS } from '../i18n/idiomas'
 import { useWrappedUi } from '../state/wrappedUiStore'
 import { useMascaraUi } from '../state/mascaraUiStore'
 import { useChatArUi } from '../state/chatArUiStore'
+import { useDemoEjercicio } from '../state/demoEjercicioStore'
+import { encontrarEjercicio, pareceDemoEjercicio } from '../../rooms/ejercicio/buscar'
+import { nombreEjercicio } from '../../rooms/ejercicio/nombres'
 import { useRutinasUI, type VistaCalendario } from '../state/rutinasUiStore'
 import { useCam } from '../state/cameraStore'
 import { useMontura } from '../state/monturaStore'
@@ -1029,6 +1032,22 @@ export async function ejecutarToolEditor(
       })
     }
 
+    // ── Demostración de un ejercicio: el avatar lo hace en 3D (overlay sobre la casa) ──
+    case 'editor_demo_ejercicio': {
+      const q = str(input, 'ejercicio')
+      if (!q) return null
+      const ej = await encontrarEjercicio(q)
+      if (!ej) {
+        return tGlobal('chat.ed.ejercicioNoHallado', 'No encontré «{q}» en el catálogo de Ejercicio.', { q })
+      }
+      // En el mapa lo hace el propio personaje donde está; dentro de un cuarto se abre el visor.
+      const enMapa = useHouse.getState().activeRoom == null
+      useDemoEjercicio.getState().abrir(ej.nombre, ej.descripcion, enMapa ? 'mapa' : 'overlay')
+      return tGlobal('chat.ed.demoEjercicio', 'Te enseño cómo se hace {ej}.', {
+        ej: nombreEjercicio(tGlobal, ej.nombre),
+      })
+    }
+
     // ── Abrir cuarto / app / sección / juego ──
     case 'editor_abrir_app': {
       const seccion = str(input, 'seccion')
@@ -1965,6 +1984,18 @@ export const TOOLS_EDITOR: ToolNeutra[] = [
     name: 'editor_desagrupar_objetos',
     description: 'Deshace la agrupación de los objetos de un cuarto.',
     schema: { type: 'object', properties: { cuarto: CUARTO_PROP }, required: ['cuarto'] },
+  },
+  {
+    name: 'editor_demo_ejercicio',
+    description:
+      'Muestra en 3D, con el avatar del usuario, cómo se hace un ejercicio del catálogo de Ejercicio (press banca, sentadilla, plancha, guerrero II, burpees…). Úsala cuando pida VER, aprender o que le enseñes cómo se hace un ejercicio. NO sirve para registrar una sesión ni para armar una rutina.',
+    schema: {
+      type: 'object',
+      properties: {
+        ejercicio: { type: 'string', description: 'Nombre del ejercicio tal como lo dijo el usuario' },
+      },
+      required: ['ejercicio'],
+    },
   },
   {
     name: 'editor_abrir_app',
@@ -3211,6 +3242,16 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
         dato: res.cmd.dato,
       })
     }
+  }
+
+  // 13b. Demostración de un ejercicio: "muéstrame cómo se hace el press banca",
+  //      "haz una sentadilla". Antes que «abrir»: `muéstrame` también es suyo.
+  const demo =
+    /^(?:muestrame|ensename|demuestra(?:me)?|haz(?:me)?|como se hace(?:n)?|como hacer)\b\s*(?:como se hace(?:n)?\s*)?(?:el|la|los|las|un|una|unos|unas)?\s*(.+)$/.exec(n)
+  if (demo && pareceDemoEjercicio(n)) {
+    return edicion(chip('💪', tGlobal('chat.ed.chip.demoEjercicio', 'Ver cómo se hace')), 'editor_demo_ejercicio', {
+      ejercicio: demo[1],
+    })
   }
 
   // 14. Abrir cuarto / app / sección: "abre la cocina", "abre el recetario",

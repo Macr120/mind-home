@@ -162,7 +162,8 @@ export const TEXTOS = {
   'desc.web':
     'Tanpa memasang apa pun: masuk dengan akunmu dan rumahmu sudah menunggu. Tanpa akun kamu bisa mencoba aplikasinya.',
   'desc.web.cta': 'Buka aplikasinya',
-  'desc.windows': 'Penginstal untuk Windows 10/11.',
+  'desc.windows': 'Gratis di Microsoft Store. Rumahnya dibeli di dalam.',
+  'desc.windows.cta': 'Unduh untuk Windows',
   'desc.mac': 'Image .dmg untuk Mac.',
   'desc.mac.cta': 'Unduh untuk Mac',
 
@@ -220,7 +221,12 @@ export const TEXTOS = {
   'priv.uso.1': 'Memberimu akses ke akun, pembelian, dan langgananmu.',
   'priv.uso.2': 'Menyinkronkan datamu antar perangkat dan mencadangkannya.',
   'priv.uso.3': 'Menjalankan fitur AI dengan kuota kreditmu.',
-  'priv.uso.4': 'Kami tidak menjual datamu maupun membagikannya ke pihak ketiga untuk iklan.',
+  'priv.uso.4': 'Kami tidak menjual datamu maupun membagikannya ke pihak ketiga untuk iklan.',  'priv.redes.h': 'Akun media sosial yang terhubung',
+  'priv.redes.p':
+    'Kalau kamu menghubungkan akun YouTube, TikTok, Facebook, atau Instagram, kami menyimpan token akses yang diberikan jaringan itu — terenkripsi di server kami — beserta nama dan foto akun atau Halaman yang kamu pilih. Token itu hanya kami pakai untuk mengunggah ke akunmu sendiri video yang kamu putuskan untuk diterbitkan dari editor video, tepat saat kamu menekan Terbitkan. Kami tidak membaca video, unggahan, komentar, pesan, atau data lain dari akun-akun itu, dan kami tidak pernah memposting apa pun atas inisiatif sendiri. Token disimpan sampai kamu memutuskan koneksi di Pengaturan → Akun terhubung atau menghapus akun Mind Planner Home-mu; kamu juga bisa mencabut akses lewat pengaturan keamanan tiap jaringan (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
+  'priv.redes.youtube':
+    'Untuk YouTube, aplikasi memakai YouTube API Services; dengan menghubungkan akunmu kamu menyetujui <a href="https://www.youtube.com/t/terms">Persyaratan Layanan YouTube</a>, dan <a href="https://policies.google.com/privacy">Kebijakan Privasi Google</a> berlaku.',
+
   'priv.cancelas.h': 'Kalau kamu berhenti berlangganan',
   'priv.cancelas.p':
     'Data lokalmu tetap di perangkatmu. Data yang tersinkron tetap tersimpan (tidak bisa diakses sampai kamu berlangganan lagi) dan bisa kamu hapus selamanya dengan menghapus akunmu.',
@@ -292,6 +298,7 @@ export const TEXTOS = {
   'sop.faq.p': 'Pertanyaan yang paling umum — harga, perangkat, AI, dan datamu — sudah dijawab di halaman utama.',
   'sop.faq.enlace': 'Lihat pertanyaan umum',
   'sop.cuenta.h': 'Menghapus akunmu',
-  'sop.cuenta.p': 'Kamu bisa menghapus akun dan semua datamu di cloud dari aplikasi (Editor → Pengaturan → Akun) atau dari akunmu di web.',
+  'sop.cuenta.p':
+    'Kamu bisa menghapus akun dan semua datamu di cloud dari aplikasi (Editor → Pengaturan → Akun) atau dari akunmu di web. Saat dihapus, koneksi ke media sosialmu (YouTube, TikTok, Facebook, dan Instagram) ikut hilang: token yang tersimpan dimusnahkan dan tidak berlaku lagi.',
   'sop.cuenta.enlace': 'Ke akunmu',
 }

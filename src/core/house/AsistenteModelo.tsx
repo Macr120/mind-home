@@ -7,6 +7,7 @@ import { Peinado } from './Peinado'
 import { GrupoAnimado } from './Animado'
 import { anclasDe, muestraRostro, soportaPeinado, type ExpresionId } from './apariencia'
 import type { AnimacionModelo } from './animacion'
+import type { BocaHabla } from './bocaHabla'
 import type { Asistente } from '../chat/mascotas'
 
 /**
@@ -19,6 +20,7 @@ export function AsistenteModelo({
   anim,
   brazoRef,
   expresion,
+  boca,
 }: {
   asistente: Asistente
   /** Animación ya pasada por `forzarSiempre` por el caller (undefined = quieto). */
@@ -26,6 +28,8 @@ export function AsistenteModelo({
   brazoRef?: RefObject<THREE.Group | null>
   /** Override efímero (emoción viva); ausente = la expresión guardada del asistente. */
   expresion?: ExpresionId
+  /** Boca hablante (Studio de video); ausente = rostro estático. */
+  boca?: RefObject<BocaHabla>
 }) {
   const brazoInterno = useRef<THREE.Group>(null)
   return (
@@ -44,7 +48,7 @@ export function AsistenteModelo({
         />
         <Prendas ropa={asistente.ropa} anclas={anclasDe(asistente)} />
         {muestraRostro(asistente) && (
-          <Rostro anclas={anclasDe(asistente)} expresion={expresion ?? asistente.expresion} rostro={asistente.rostro} />
+          <Rostro anclas={anclasDe(asistente)} expresion={expresion ?? asistente.expresion} rostro={asistente.rostro} boca={boca} />
         )}
         {soportaPeinado(asistente) && (
           <Peinado anclas={anclasDe(asistente)} peinado={asistente.peinado} color={asistente.peloColor} />

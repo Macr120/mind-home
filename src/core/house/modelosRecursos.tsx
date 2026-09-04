@@ -8,6 +8,7 @@ import {
   TIPO_CAMINADORA, TIPO_PERIODICO, TIPO_LAPTOP, TIPO_TAPETE,
   TIPO_GUITARRA, TIPO_PLANTA_REGAR, TIPO_SILLON, TIPO_CALENDARIO, TIPO_PIZARRA, TIPO_AGENDA,
   TIPO_CAJA_FUERTE, TIPO_ESTACION_COMPUTO, TIPO_LIBRETA, TIPO_DIANA_METAS,
+  TIPO_TECLADO_MIDI, TIPO_CABALLETE, TIPO_ESCRITORIO_ESCRITURA, TIPO_CAMARA_VIDEO,
 } from './especialesPlantillaMeta'
 
 /**
@@ -1498,5 +1499,47 @@ export const SIEMBRA: Record<string, Siembra[]> = {
     { recurso: 49, x: -2.2, z: 0.4, rotY: 90 },
     { recurso: 31, x: 2.45, z: 2.3 },
     { recurso: 104, x: -2.4, z: 2.4 },
+  ],
+  // ── Studio ────────────────────────────────────────────────────────────────
+  // Los cuatro principales van al INTERIOR y no pegados a un muro: son anchos
+  // (el teclado y el escritorio miden 1.5) y contra la fachada invadirían el
+  // vano de la puerta, que puede caer en cualquiera de las cuatro (ver el
+  // comentario de `anecdotario`) — y entonces pierden su colisión.
+  // El banco de trabajo (21) hace de mesa de equipo/materiales: mide 2 de ancho,
+  // así que gira 270° (frente al oeste) y se queda en la mitad este del cuarto.
+  audio: [
+    { tipo: TIPO_TECLADO_MIDI, x: -0.9, z: -1.5, rotY: 15, principal: true },
+    { recurso: 21, x: 1.35, z: 0.2, rotY: 270 },
+    { recurso: 22, x: 2.3, z: -2.35 },
+    { recurso: 66, x: 0.1, z: 1.7, rotY: 180 },
+    { recurso: 31, x: -2.4, z: 1.6 },
+    { recurso: 104, x: 2.4, z: 2.4 },
+  ],
+  arte: [
+    { tipo: TIPO_CABALLETE, x: -1.4, z: -1.5, rotY: 20, principal: true },
+    { recurso: 21, x: 1.4, z: -0.6, rotY: 270 },
+    { recurso: 22, x: 2.3, z: -2.35 },
+    { recurso: 49, x: 0.2, z: 0.9, rotY: 200 },
+    { recurso: 31, x: -2.4, z: -2.35 },
+    { recurso: 107, x: 2.4, z: 2.4 },
+    { recurso: 104, x: -2.4, z: 2.4 },
+  ],
+  escritura: [
+    { tipo: TIPO_ESCRITORIO_ESCRITURA, x: -1.1, z: -1.7, principal: true },
+    { recurso: 49, x: -1.1, z: -0.75, rotY: 180 },
+    { recurso: 30, x: 1.5, z: 1.1, rotY: 205 },
+    { recurso: 31, x: 2.4, z: 1.75 },
+    { recurso: 22, x: 2.3, z: -2.35 },
+    { recurso: 104, x: -2.4, z: 2.4 },
+  ],
+  // El monitor (50) no se sostiene solo: comparte posición con el escritorio (48).
+  video: [
+    { tipo: TIPO_CAMARA_VIDEO, x: -1.3, z: -1.3, rotY: 25, principal: true },
+    { recurso: 48, x: 0.9, z: -0.6 },
+    { recurso: 50, x: 0.9, z: -0.6 },
+    { recurso: 49, x: 0.9, z: 0.4, rotY: 180 },
+    { recurso: 22, x: 2.3, z: -2.35 },
+    { recurso: 89, x: -2.35, z: 2.35 },
+    { recurso: 31, x: 2.4, z: 1.7 },
   ],
 }

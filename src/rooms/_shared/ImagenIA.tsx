@@ -29,7 +29,7 @@ export function VistaBlob({
     return () => URL.revokeObjectURL(u)
   }, [blob])
   if (!url) return null
-  const img = <img src={url} alt="" className={`object-cover ${className}`} />
+  const img = <img src={url} alt="" draggable={false} className={`object-cover ${className}`} />
   if (!ampliable) return img
   return (
     <>

@@ -1,8 +1,9 @@
-import { Suspense, useRef } from 'react'
+import { Suspense, useRef, type RefObject } from 'react'
 import * as THREE from 'three'
 import { ModeloPiezas, ModeloGLB } from './modeloPersonalizado'
 import { GrupoAnimado, CuerpoDePiezas } from './Animado'
-import { marchaAvatar } from './animacion'
+import { marchaAvatar, type AnimacionModelo } from './animacion'
+import type { BocaHabla } from './bocaHabla'
 import { Agachado, CuerpoBase, MarchaBob } from './CuerpoBase'
 import { Prendas } from './Prendas'
 import { Rostro } from './Rostro'
@@ -57,13 +58,19 @@ export function AvatarModelo({
   casco = false,
   animar = false,
   caminar = false,
+  boca,
+  animOverride,
 }: {
   av: Avatar
   casco?: boolean
   animar?: boolean
   caminar?: boolean
+  /** Boca hablante (modo película): sin ella el rostro es el estático de siempre. */
+  boca?: RefObject<BocaHabla>
+  /** Preset que manda sobre `av.animacion` mientras dure (un clip de actor del modo película). */
+  animOverride?: AnimacionModelo
 }) {
-  const anim = animar ? av.animacion : undefined
+  const anim = animOverride ?? (animar ? av.animacion : undefined)
   const brazoForma = useRef<THREE.Group>(null)
   const categoria = categoriaMarcha(av)
   const anclas = anclasDe(av)
@@ -88,7 +95,7 @@ export function AvatarModelo({
               <>
                 <CuerpoDePiezas piezas={av.modelo3d} anim={anim} personaje={av} estado={marchaAvatar} />
                 {muestraRostro(av) && (
-                  <Rostro anclas={anclas} expresion={av.expresion} rostro={av.rostro} />
+                  <Rostro anclas={anclas} expresion={av.expresion} rostro={av.rostro} boca={boca} />
                 )}
                 {soportaPeinado(av) && (
                   <Peinado anclas={anclas} peinado={av.peinado} color={av.peloColor} />
@@ -106,7 +113,7 @@ export function AvatarModelo({
                 sinOjos={muestraRostro(av)}
               />
               {muestraRostro(av) && (
-                <Rostro anclas={anclas} expresion={av.expresion} rostro={av.rostro} />
+                <Rostro anclas={anclas} expresion={av.expresion} rostro={av.rostro} boca={boca} />
               )}
               <Prendas ropa={av.ropa} anclas={anclas} />
             </MarchaBob>
@@ -118,7 +125,7 @@ export function AvatarModelo({
                 colorPiernas={av.piernas}
                 caminar={caminar}
               />
-              <Rostro anclas={anclas} expresion={av.expresion} rostro={av.rostro} />
+              <Rostro anclas={anclas} expresion={av.expresion} rostro={av.rostro} boca={boca} />
               <Peinado anclas={anclas} peinado={av.peinado} color={av.peloColor} />
               <Prendas ropa={av.ropa} anclas={anclas} marcha={caminar} marchaEstado={marchaAvatar} />
             </>

@@ -1,7 +1,23 @@
-# Cabeceras de caché (formato Netlify / Cloudflare Pages; inerte en otros
-# hostings — si el deploy acaba en Vercel, portar a vercel.json con las mismas
-# rutas). Los assets de /assets/* llevan hash en el nombre: inmutables. El
-# resto de public/ NO lleva hash: max-age corto + stale-while-revalidate.
+# Cabeceras de seguridad de la APP (app.mindplannerhome.com; formato Netlify /
+# Cloudflare Pages; inerte en Capacitor y Electron, que sirven por su propio
+# esquema y no leen este archivo).
+#
+# La CSP fuerte de verdad es `script-src`: sin 'unsafe-inline' ni 'unsafe-eval',
+# un XSS no puede ejecutar el JS que robaría las claves BYOK y la sesión del
+# localStorage. `connect-src`/`img-src` van abiertos a https: a propósito: la app
+# habla con decenas de APIs (IA, clima, mercados, portadas, RSS) y enumerarlas
+# rompería una función cada vez que se añade una fuente. `wasm-unsafe-eval` lo
+# pide MediaPipe (máscara AR); `blob:` los workers de pdf.js y las imágenes.
+/*
+  Content-Security-Policy: default-src 'self'; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; script-src 'self' 'wasm-unsafe-eval' blob:; worker-src 'self' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; media-src 'self' blob: data: https:; connect-src 'self' https: wss: blob: data:; frame-src 'self' blob: https:; form-action 'self'
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(self), microphone=(self), geolocation=(), browsing-topics=()
+
+# Cabeceras de caché. Los assets de /assets/* llevan hash en el nombre:
+# inmutables. El resto de public/ NO lleva hash: max-age corto + swr.
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
@@ -13,6 +29,9 @@
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
 /cocina/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/sonidos/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
 /ejemplos/*

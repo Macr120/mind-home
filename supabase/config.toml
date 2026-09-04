@@ -418,3 +418,9 @@ enabled = true
 # header Authorization comparado contra el secreto RC_WEBHOOK_AUTH.
 [functions.revenuecat-webhook]
 verify_jwt = false
+
+# El callback del OAuth de las redes (YouTube/TikTok/Meta) llega por
+# redirección del navegador, sin JWT. Las demás acciones de la función validan
+# la sesión a mano (`usuarioDe`), igual que el resto de funciones.
+[functions.redes-oauth]
+verify_jwt = false

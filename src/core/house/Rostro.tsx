@@ -1,8 +1,9 @@
-import { Suspense, useEffect, useMemo, useState } from 'react'
-import { useLoader } from '@react-three/fiber'
+import { Suspense, useEffect, useMemo, useRef, useState, type RefObject } from 'react'
+import { useFrame, useLoader } from '@react-three/fiber'
 import * as THREE from 'three'
 import type { AnclasRopa, ExpresionId } from './apariencia'
 import { EXPRESION_DEFAULT } from './apariencia'
+import type { BocaHabla } from './bocaHabla'
 
 /**
  * Rostro del personaje sobre el frente de la cabeza (definido por sus `anclas`):
@@ -18,11 +19,14 @@ export function Rostro({
   anclas,
   expresion,
   rostro,
+  boca,
 }: {
   anclas: AnclasRopa
   expresion?: ExpresionId
   /** Imagen subida (gana a la expresión dibujada). */
   rostro?: Blob
+  /** Boca hablante (Studio de video): sin ella el rostro es el estático de siempre. */
+  boca?: RefObject<BocaHabla>
 }) {
   if (rostro) {
     return (
@@ -33,7 +37,37 @@ export function Rostro({
   }
   const exp = expresion ?? EXPRESION_DEFAULT
   if (exp === 'ninguno') return null
-  return <RostroDibujado anclas={anclas} exp={exp} />
+  return <RostroDibujado anclas={anclas} exp={exp} boca={boca} />
+}
+
+const BOCA_INTERIOR = '#5a2626'
+
+/**
+ * Boca estática (en un grupo) + esfera hablante: nunca se ven las dos, el frame
+ * conmuta `visible` en exclusiva y abre la esfera según el nivel suavizado que
+ * escribe el renderizador (misma geometría que la máscara AR).
+ */
+function BocaConHabla({ boca, exp, y, z, k }: { boca: RefObject<BocaHabla>; exp: ExpresionId; y: number; z: number; k: number }) {
+  const estatica = useRef<THREE.Group>(null)
+  const habla = useRef<THREE.Mesh>(null)
+  useFrame(() => {
+    const b = boca.current
+    if (!b || !estatica.current || !habla.current) return
+    estatica.current.visible = !b.hablando
+    habla.current.visible = b.hablando
+    habla.current.scale.set(0.9, 0.3 + 0.9 * b.nivel, 0.4)
+  })
+  return (
+    <>
+      <group ref={estatica}>
+        <Boca exp={exp} y={y} z={z} k={k} />
+      </group>
+      <mesh ref={habla} position={[0, y, z]} visible={false}>
+        <sphereGeometry args={[0.055 * k, 12, 12]} />
+        <meshStandardMaterial color={BOCA_INTERIOR} />
+      </mesh>
+    </>
+  )
 }
 
 /** Un ojo (esferita oscura). */
@@ -94,7 +128,7 @@ function Boca({ exp, y, z, k }: { exp: ExpresionId; y: number; z: number; k: num
 }
 
 /** Cara dibujada con primitivas, escalada al tamaño de la cabeza (`cabezaR`). */
-function RostroDibujado({ anclas, exp }: { anclas: AnclasRopa; exp: ExpresionId }) {
+function RostroDibujado({ anclas, exp, boca }: { anclas: AnclasRopa; exp: ExpresionId; boca?: RefObject<BocaHabla> }) {
   const k = anclas.cabezaR / 0.22 // escala respecto a la cabeza del avatar
   const z = anclas.caraZ - 0.006 // sobre la cara, por detrás de los lentes
   const eyesY = anclas.cabezaY + 0.03 * k
@@ -134,7 +168,7 @@ function RostroDibujado({ anclas, exp }: { anclas: AnclasRopa; exp: ExpresionId 
             <meshStandardMaterial color="#ff9db0" transparent opacity={0.75} />
           </mesh>
         ))}
-      <Boca exp={exp} y={mouthY} z={z} k={k} />
+      {boca ? <BocaConHabla boca={boca} exp={exp} y={mouthY} z={z} k={k} /> : <Boca exp={exp} y={mouthY} z={z} k={k} />}
     </group>
   )
 }

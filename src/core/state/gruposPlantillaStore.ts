@@ -27,6 +27,7 @@ const CLAVE_CARPETA: Record<string, string> = {
   'Administración': 'plantillas.carpeta.admin',
   'Pasatiempos': 'plantillas.carpeta.pasatiempos',
   'Memorias y salud mental': 'plantillas.carpeta.memorias',
+  'Studio': 'plantillas.carpeta.studio',
 }
 export function nombreCarpeta(t: TFunc, nombre: string): string {
   const clave = CLAVE_CARPETA[nombre]
@@ -132,7 +133,7 @@ export const useGruposPlantilla = create<GruposPlantillaState>((set, get) => ({
   },
 }))
 
-/** Carga las carpetas al arrancar; siembra las 5 iniciales la primera vez. */
+/** Carga las carpetas al arrancar; siembra las base la primera vez. */
 db.gruposPlantilla
   .orderBy('orden')
   .toArray()

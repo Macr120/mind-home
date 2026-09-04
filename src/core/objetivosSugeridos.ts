@@ -474,6 +474,25 @@ const CATALOGO: Record<string, ObjetivoSugerido[]> = {
     },
   ],
 
+  escritura: [
+    {
+      id: 'escribir',
+      clave: 'objetivos.sug.escritura.escribir',
+      etiquetaEs: 'Escribir 20 minutos',
+      emoji: '📝',
+      dias: TODOS,
+      seccion: 'libros',
+    },
+    {
+      id: 'historia',
+      clave: 'objetivos.sug.escritura.historia',
+      etiquetaEs: 'Avanzar mi historia',
+      emoji: '📖',
+      dias: ENTRE_SEMANA,
+      seccion: 'libros',
+    },
+  ],
+
   agenda: [
     {
       id: 'pendientes',

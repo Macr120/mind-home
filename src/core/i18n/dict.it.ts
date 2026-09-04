@@ -3860,7 +3860,15 @@ export const IT: Dict = {
   'respaldo.sinRespaldo': 'Non hai ancora esportato un backup.',
   'respaldo.total': 'Totale record',
   'respaldo.exportar': 'Esporta tutto come JSON',
+  'respaldo.exportar.cifrado': 'Esporta cifrato come JSON',
   'respaldo.restaurar': 'Ripristina da backup',
+  'respaldo.cifrar.placeholder': 'Password del backup (facoltativa)',
+  'respaldo.cifrar.ayuda':
+    'Se imposti una password, il file viene cifrato e ti servirà per ripristinarlo. Non si può recuperare se la dimentichi.',
+  'respaldo.cifrar.titulo': 'Backup cifrato',
+  'respaldo.cifrar.pedir': 'Questo backup è cifrato. Scrivi la sua password per ripristinarlo.',
+  'respaldo.cifrar.descifrar': 'Decifra e continua',
+  'respaldo.cifrar.error': 'Password errata o file danneggiato.',
   'respaldo.confirm.titulo': 'Conferma ripristino',
   'respaldo.confirm.desc':
     '{nombre} contiene {n} record. Il ripristino sostituirà tutti i dati attuali e riporterà la casa a come era al momento dell\'esportazione.',

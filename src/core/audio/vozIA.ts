@@ -125,6 +125,32 @@ function base64ABlob(b64: string, tipo: string): Blob {
   return new Blob([bytes], { type: tipo })
 }
 
+/** ¿Alguien puede servir voz IA ahora? (cuenta, o clave BYOK con proveedor de voz). */
+export function hayVozIA(): boolean {
+  return usarViaCuenta() || proveedorVoz() != null
+}
+
+/**
+ * Pide el audio al proveedor resuelto y devuelve el BLOB sin reproducirlo (la
+ * narración del Studio de video lo guarda como medio). Lanza si falla.
+ */
+export async function generarVozIA(texto: string, voz?: string): Promise<Blob> {
+  const limpio = quitarEmojis(texto).trim()
+  if (!limpio) throw new Error('sin texto')
+  const voces = vocesIaDisponibles()
+  const v = voz && voces.includes(voz) ? voz : voces[0]
+  if (usarViaCuenta()) {
+    // El mime lo dice el proxy: OpenAI devuelve mp3 y Gemini un WAV armado
+    // allá desde su PCM crudo. Fijarlo aquí dejaba mudo al respaldo.
+    const r = await iaTtsCuenta(limpio, v)
+    return base64ABlob(r.base64, r.mime || 'audio/mpeg')
+  }
+  const provId = proveedorVoz()
+  if (!provId) throw new Error('sin proveedor de voz')
+  const key = getIaKey(provId)
+  return provId === 'chatgpt' ? ttsOpenAI(limpio, v, key) : ttsGemini(limpio, v, key)
+}
+
 export interface OpcionesHablaIA {
   voz?: string
   volumen?: number
@@ -144,18 +170,7 @@ export async function hablarVozIA(texto: string, opts: OpcionesHablaIA = {}): Pr
   const id = ++hablaActual
   useVozGenerando.setState({ generando: true })
   try {
-    let blob: Blob
-    if (usarViaCuenta()) {
-      // El mime lo dice el proxy: OpenAI devuelve mp3 y Gemini un WAV armado
-      // allá desde su PCM crudo. Fijarlo aquí dejaba mudo al respaldo.
-      const r = await iaTtsCuenta(limpio, voz)
-      blob = base64ABlob(r.base64, r.mime || 'audio/mpeg')
-    } else {
-      const provId = proveedorVoz()
-      if (!provId) throw new Error('sin proveedor de voz')
-      const key = getIaKey(provId)
-      blob = provId === 'chatgpt' ? await ttsOpenAI(limpio, voz, key) : await ttsGemini(limpio, voz, key)
-    }
+    const blob = await generarVozIA(limpio, voz)
     // Una lectura más nueva ya reemplazó a esta mientras esperábamos la red
     // (el flag de "generando" ahora es suyo: no se toca).
     if (id !== hablaActual) return false

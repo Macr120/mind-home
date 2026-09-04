@@ -3850,7 +3850,15 @@ export const ID: Dict = {
   'respaldo.sinRespaldo': 'Kamu belum pernah mengekspor cadangan.',
   'respaldo.total': 'Total data',
   'respaldo.exportar': 'Ekspor semua sebagai JSON',
+  'respaldo.exportar.cifrado': 'Ekspor terenkripsi sebagai JSON',
   'respaldo.restaurar': 'Pulihkan dari cadangan',
+  'respaldo.cifrar.placeholder': 'Kata sandi cadangan (opsional)',
+  'respaldo.cifrar.ayuda':
+    'Kalau kamu mengisi kata sandi, filenya dienkripsi dan kamu butuh sandi itu untuk memulihkannya. Sandi yang lupa tidak bisa dipulihkan.',
+  'respaldo.cifrar.titulo': 'Cadangan terenkripsi',
+  'respaldo.cifrar.pedir': 'Cadangan ini terenkripsi. Tulis kata sandinya untuk memulihkan.',
+  'respaldo.cifrar.descifrar': 'Dekripsi dan lanjutkan',
+  'respaldo.cifrar.error': 'Kata sandi salah atau file rusak.',
   'respaldo.confirm.titulo': 'Konfirmasi pemulihan',
   'respaldo.confirm.desc':
     '{nombre} berisi {n} data. Memulihkan akan mengganti semua data saat ini dan mengembalikan rumah ke keadaan saat diekspor.',

@@ -15,6 +15,8 @@ import { anclasDe } from '../house/apariencia'
 import { forzarSiempre } from '../house/animacion'
 import { hablarComoAsistente, callarComoAsistente } from '../audio/voz'
 import { useDictado } from '../audio/useDictado'
+import { entregarTomaAlStudio } from '../grabacionPantalla'
+import { iniciarGrabacionAr, type GrabadorAr } from './grabarChatAr'
 import { mensajesChatRepo, ultimosMensajesAsistente } from '../data/repository'
 import { ErrorIA } from '../cuenta/api'
 import { OP_CHAT_AR } from '../cuenta/catalogoNucleo'
@@ -177,6 +179,46 @@ export default function ChatArOverlay() {
   const emocion = useEmocionActiva(asistente.id)
   const { videoRef, facing, error: errorCamara, voltear, reintentar } = useCamaraAr()
   const dictado = useDictado({ onTexto: setTexto, onError: (m) => setBurbuja(m) })
+  // Abierto desde el Studio de video: botón de grabar; la toma (cámara + personaje + micrófono) vuelve como clip.
+  const destino = useChatArUi((s) => s.destino)
+  const canvas3dRef = useRef<HTMLCanvasElement | null>(null)
+  const grabadorRef = useRef<GrabadorAr | null>(null)
+  const facingRef = useRef(facing)
+  useEffect(() => {
+    facingRef.current = facing
+  })
+  const [grabacion, setGrabacion] = useState<'no' | 'grabando' | 'guardando'>('no')
+  const [segGrabacion, setSegGrabacion] = useState(0)
+  useEffect(() => {
+    if (grabacion !== 'grabando') return
+    const inicio = performance.now()
+    const id = window.setInterval(() => setSegGrabacion(Math.floor((performance.now() - inicio) / 1000)), 500)
+    return () => window.clearInterval(id)
+  }, [grabacion])
+  // Cerrar el overlay con la toma andando la descarta.
+  useEffect(() => () => grabadorRef.current?.cancelar(), [])
+  const alternarGrabacion = async () => {
+    if (!destino) return
+    if (grabacion === 'grabando') {
+      const g = grabadorRef.current
+      grabadorRef.current = null
+      if (!g) return
+      setGrabacion('guardando')
+      const toma = await g.detener()
+      const h = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      await entregarTomaAlStudio(destino, { ...toma, nombre: t('video.medios.nombreChatAr', 'Chat AR · {h}', { h }) })
+      cerrar()
+      return
+    }
+    if (grabacion !== 'no' || !videoRef.current || !canvas3dRef.current) return
+    try {
+      grabadorRef.current = await iniciarGrabacionAr(videoRef.current, canvas3dRef.current, () => facingRef.current === 'user')
+      setSegGrabacion(0)
+      setGrabacion('grabando')
+    } catch (e) {
+      setBurbuja(t('chatAr.errorGrabar', 'No se pudo grabar: {detalle}', { detalle: e instanceof Error ? e.message : String(e) }))
+    }
+  }
   const detenerDictado = useRef(dictado.detener)
   useEffect(() => {
     detenerDictado.current = dictado.detener
@@ -340,7 +382,15 @@ export default function ChatArOverlay() {
             arrastre.current = { x: 0, y: 0 }
           }}
         >
-          <Canvas gl={{ alpha: true }} dpr={[1, 1.5]} camera={{ position: [0, 1.1, 5.2], fov: 35, near: 0.1, far: 100 }}>
+          <Canvas
+            // `preserveDrawingBuffer` solo para grabar (deja leer el lienzo al componer la toma).
+            gl={{ alpha: true, preserveDrawingBuffer: !!destino }}
+            dpr={[1, 1.5]}
+            camera={{ position: [0, 1.1, 5.2], fov: 35, near: 0.1, far: 100 }}
+            onCreated={({ gl }) => {
+              canvas3dRef.current = gl.domElement
+            }}
+          >
             <EscenaAr asistente={asistente} encuadre={encuadre} arrastre={arrastre} />
           </Canvas>
         </div>
@@ -420,6 +470,32 @@ export default function ChatArOverlay() {
               <span>{pensando ? <span className="animate-pulse">···</span> : burbuja}</span>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* Grabar para el Studio de video (solo abierto desde «Añadir»): botón rojo sobre la barra */}
+      {destino && !errorCamara && (
+        <div className="pointer-events-none absolute inset-x-0 bottom-[calc(env(safe-area-inset-bottom)+4.5rem)] flex flex-col items-center gap-1 px-4">
+          <button
+            type="button"
+            onClick={() => void alternarGrabacion()}
+            disabled={grabacion === 'guardando'}
+            className={`ui-boton pointer-events-auto flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-white shadow-lg transition disabled:opacity-60 ${
+              grabacion === 'grabando' ? 'bg-red-500 hover:bg-red-400' : 'bg-black/60 backdrop-blur hover:bg-black/70'
+            }`}
+          >
+            <Icono nombre={grabacion === 'grabando' ? 'detener' : 'grabar'} />
+            {grabacion === 'grabando'
+              ? `${t('chatAr.detenerGrabacion', 'Detener grabación')} · ${Math.floor(segGrabacion / 60)}:${String(segGrabacion % 60).padStart(2, '0')}`
+              : grabacion === 'guardando'
+                ? t('video.grabar.guardando', 'Guardando…')
+                : t('chatAr.grabar', 'Grabar')}
+          </button>
+          {grabacion === 'no' && (
+            <p className="rounded-full bg-black/50 px-3 py-1 text-center text-[11px] text-white/80 backdrop-blur">
+              {t('chatAr.grabarNota', 'Lo que ves entra en la toma; la voz del asistente solo entra por el micrófono')}
+            </p>
+          )}
         </div>
       )}
 

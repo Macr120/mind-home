@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import type { SesionEjercicio, SistemaUnidades, SplitCardio } from '../../core/data/db'
+import type { RutinaCardio, SesionEjercicio, SistemaUnidades, SplitCardio } from '../../core/data/db'
 import { VACIO,
   gruposCardioRepo,
   rutinasCardioRepo,
@@ -19,6 +19,7 @@ import { nombreEjercicio, nombreRutina } from './nombres'
 import { HeatmapMensual } from './HeatmapMensual'
 import { useImagenesPorClave } from './imagenIA'
 import { MiniaturaEjercicio } from './MiniaturaEjercicio'
+import { ReproductorRutina } from './ReproductorRutina'
 import { FiltroPeriodo } from './FiltroPeriodo'
 import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { acento } from '../_shared/acento'
@@ -95,6 +96,7 @@ export function ResistenciaTab({
   const [nota, setNota] = useState('')
   const [editandoId, setEditandoId] = useState<number | null>(null)
   const [rutinasAbierto, setRutinasAbierto] = useState(true)
+  const [rutinaActiva, setRutinaActiva] = useState<RutinaCardio | null>(null)
 
   const { refRegistro, irAlRegistro } = useFocoRegistro<HTMLFormElement>()
 
@@ -330,6 +332,7 @@ export function ResistenciaTab({
                     acento={{ color: C_CARDIO, hoverBorde: 'hover:border-sky-500/50' }}
                     imgPorClave={imgPorClave}
                     onUsar={() => aplicarRutina(r)}
+                    onIniciar={() => setRutinaActiva(r)}
                     onBorrar={() => r.id && rutinasCardioRepo.remove(r.id)}
                     hechoHoy={delDia.length > 0}
                   />
@@ -544,6 +547,15 @@ export function ResistenciaTab({
             />
           </div>
         </>
+      )}
+
+      {rutinaActiva && (
+        <ReproductorRutina
+          tipo="resistencia"
+          rutina={rutinaActiva}
+          imgPorClave={imgPorClave}
+          onCerrar={() => setRutinaActiva(null)}
+        />
       )}
     </div>
   )

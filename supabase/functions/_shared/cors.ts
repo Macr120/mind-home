@@ -28,6 +28,13 @@ function esLocal(origen: string): boolean {
   )
 }
 
+/** ¿Un origen al que la app puede volver tras el OAuth de las redes? (misma allowlist que el CORS). */
+export function origenPermitido(origen: string): boolean {
+  // Solo host[:puerto]: el origen acaba dentro de una URL de vuelta y de un script inline.
+  if (!/^https?:\/\/[a-z0-9.-]+(:\d+)?$/i.test(origen)) return false
+  return ORIGENES.length ? ORIGENES.includes(origen) : esLocal(origen)
+}
+
 /** Cabeceras CORS de la petición: eco del Origin solo si está permitido. */
 export function corsDe(req: Request): Record<string, string> {
   const origen = req.headers.get('Origin') ?? ''

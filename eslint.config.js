@@ -53,6 +53,16 @@ export default defineConfig([
     },
   },
   {
+    // Visor 3D de ejercicios (rig del avatar en useFrame): misma escena
+    // imperativa de R3F que `core/house`, mismos falsos positivos.
+    files: ['src/rooms/ejercicio/anim/**'],
+    rules: {
+      'react-hooks/immutability': 'off',
+      'react-hooks/refs': 'off',
+      'react-hooks/purity': 'off',
+    },
+  },
+  {
     // Juegos arcade con canvas: mutan su mundo (en un ref) dentro del bucle de
     // requestAnimationFrame, el mismo patrón imperativo que useFrame de R3F.
     files: ['src/rooms/entretenimiento/juegos/**'],

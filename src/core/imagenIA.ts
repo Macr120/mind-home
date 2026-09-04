@@ -125,7 +125,8 @@ export async function comprimirImagen(entrada: Blob, max = 512): Promise<Blob> {
   }
 }
 
-function base64ABlob(b64: string, tipo = 'image/png'): Blob {
+/** base64 pelado → Blob (lo usan la imagen y el TTS del Studio de video). */
+export function base64ABlob(b64: string, tipo = 'image/png'): Blob {
   const bin = atob(b64)
   const bytes = new Uint8Array(bin.length)
   for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i)

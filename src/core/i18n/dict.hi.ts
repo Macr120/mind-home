@@ -3794,7 +3794,15 @@ export const HI: Dict = {
   'respaldo.sinRespaldo': 'अभी तक कोई बैकअप एक्सपोर्ट नहीं हुआ है।',
   'respaldo.total': 'कुल रिकॉर्ड',
   'respaldo.exportar': 'सब कुछ JSON के रूप में एक्सपोर्ट करें',
+  'respaldo.exportar.cifrado': 'एन्क्रिप्टेड JSON के रूप में एक्सपोर्ट करें',
   'respaldo.restaurar': 'बैकअप से रीस्टोर करें',
+  'respaldo.cifrar.placeholder': 'बैकअप का पासवर्ड (वैकल्पिक)',
+  'respaldo.cifrar.ayuda':
+    'पासवर्ड सेट करने पर फ़ाइल एन्क्रिप्ट हो जाती है और रीस्टोर करने के लिए वही पासवर्ड चाहिए होगा। भूल जाने पर उसे वापस नहीं पाया जा सकता।',
+  'respaldo.cifrar.titulo': 'एन्क्रिप्टेड बैकअप',
+  'respaldo.cifrar.pedir': 'यह बैकअप एन्क्रिप्टेड है। रीस्टोर करने के लिए इसका पासवर्ड लिखें।',
+  'respaldo.cifrar.descifrar': 'डिक्रिप्ट करके जारी रखें',
+  'respaldo.cifrar.error': 'पासवर्ड गलत है या फ़ाइल खराब है।',
   'respaldo.confirm.titulo': 'रीस्टोर की पुष्टि करें',
   'respaldo.confirm.desc':
     '{nombre} में {n} रिकॉर्ड हैं। रीस्टोर करने से सारा मौजूदा डेटा बदल जाएगा और घर एक्सपोर्ट के समय जैसा हो जाएगा।',

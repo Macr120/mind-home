@@ -23,11 +23,86 @@ import { vibrar } from '../../audio/vibrar'
  */
 
 /** Milisegundos de pulsación que levantan la fila con el dedo. */
-const ESPERA_MS = 300
+export const ESPERA_MS = 300
 /** Píxeles que distinguen un toque quieto de un movimiento. */
-const UMBRAL_PX = 6
+export const UMBRAL_PX = 6
 /** Freno del scroll de Android mientras dura el arrastre (ver `activar`). */
 const frenarTouch = (e: TouchEvent) => e.preventDefault()
+
+/**
+ * `setPointerCapture` lanza si el puntero ya no está activo (dedo levantado en
+ * el mismo tick): sin captura el gesto sigue igual, así que no vale la pena que
+ * un fallo aquí tumbe el `pointerdown` entero.
+ */
+export function capturarPointer(el: Element, pointerId: number): void {
+  try {
+    el.setPointerCapture(pointerId)
+  } catch {
+    /* intencional: ver doc */
+  }
+}
+
+/**
+ * Frena el scroll de Android mientras dura un gesto ya confirmado (el
+ * `touch-action` no se puede cambiar a mitad del gesto). Devuelve el que lo suelta.
+ */
+export function frenarScrollTactil(): () => void {
+  document.addEventListener('touchmove', frenarTouch, { passive: false })
+  return () => document.removeEventListener('touchmove', frenarTouch)
+}
+
+/**
+ * Decide qué es un `pointerdown` SIN capturar nada todavía (los botones de
+ * dentro y el scroll siguen vivos): con el ratón, `iniciar` arranca al pasar
+ * UMBRAL_PX (o al instante con `ratonInmediato`); con el dedo, solo tras
+ * ESPERA_MS quieto — moverse antes es hacer scroll y soltar antes es un toque
+ * (`alTocar`). Quien inicia el gesto captura el puntero en ese momento.
+ */
+export function conPulsacionLarga(
+  e: React.PointerEvent,
+  iniciar: () => void,
+  alTocar?: () => void,
+  opciones?: { ratonInmediato?: boolean },
+): void {
+  const x0 = e.clientX
+  const y0 = e.clientY
+  const id = e.pointerId
+  const raton = e.pointerType === 'mouse'
+  if (raton && opciones?.ratonInmediato) {
+    iniciar()
+    return
+  }
+  let timer = 0
+  const limpiar = () => {
+    window.clearTimeout(timer)
+    window.removeEventListener('pointermove', mover)
+    window.removeEventListener('pointerup', soltar)
+    window.removeEventListener('pointercancel', cancelar)
+  }
+  const mover = (ev: PointerEvent) => {
+    if (ev.pointerId !== id || Math.hypot(ev.clientX - x0, ev.clientY - y0) <= UMBRAL_PX) return
+    limpiar()
+    // El dedo que se mueve antes de tiempo está haciendo scroll; el ratón, arrastrando.
+    if (raton) iniciar()
+  }
+  const soltar = (ev: PointerEvent) => {
+    if (ev.pointerId !== id) return
+    limpiar()
+    alTocar?.()
+  }
+  const cancelar = (ev: PointerEvent) => {
+    if (ev.pointerId === id) limpiar()
+  }
+  window.addEventListener('pointermove', mover)
+  window.addEventListener('pointerup', soltar)
+  window.addEventListener('pointercancel', cancelar)
+  if (!raton) {
+    timer = window.setTimeout(() => {
+      limpiar()
+      iniciar()
+    }, ESPERA_MS)
+  }
+}
 
 /** Fila que guarda su puesto manual: todas las tablas ordenables lo tienen. */
 export interface FilaOrdenable {

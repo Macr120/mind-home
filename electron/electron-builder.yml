@@ -75,6 +75,14 @@ appx:
     - pl-PL
     - nl-NL
     - ar-SA
+  # La casa vuelve al iniciar sesión también en la Store: MSIX no honra el Run
+  # de HKCU (queda virtualizado en el contenedor), así que va como startupTask
+  # del manifiesto. El XML vive aparte porque la opción integrada
+  # (addAutoLaunchExtension) mete un TaskId «SlackStartup» y sin argumentos.
+  customExtensionsPath: electron/build/appx-extensiones.xml
+  # uap10:Parameters (los argumentos de la startupTask) existe desde Windows 10
+  # 2004; Electron 43 de todos modos no corre en nada más viejo.
+  minVersion: 10.0.19041.0
 
 mac:
   category: public.app-category.productivity

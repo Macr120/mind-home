@@ -3812,7 +3812,15 @@ export const PL: Dict = {
   'respaldo.sinRespaldo': 'Jeszcze nie wyeksportowano kopii zapasowej.',
   'respaldo.total': 'Łączna liczba rekordów',
   'respaldo.exportar': 'Eksportuj wszystko jako JSON',
+  'respaldo.exportar.cifrado': 'Eksportuj zaszyfrowane jako JSON',
   'respaldo.restaurar': 'Przywróć z kopii zapasowej',
+  'respaldo.cifrar.placeholder': 'Hasło kopii zapasowej (opcjonalne)',
+  'respaldo.cifrar.ayuda':
+    'Jeśli ustawisz hasło, plik zostanie zaszyfrowany i będzie potrzebne do przywrócenia. Zapomnianego hasła nie da się odzyskać.',
+  'respaldo.cifrar.titulo': 'Zaszyfrowana kopia',
+  'respaldo.cifrar.pedir': 'Ta kopia zapasowa jest zaszyfrowana. Wpisz jej hasło, aby ją przywrócić.',
+  'respaldo.cifrar.descifrar': 'Odszyfruj i kontynuuj',
+  'respaldo.cifrar.error': 'Błędne hasło lub uszkodzony plik.',
   'respaldo.confirm.titulo': 'Potwierdź przywracanie',
   'respaldo.confirm.desc':
     '{nombre} zawiera {n} rekordów. Przywrócenie zastąpi wszystkie bieżące dane i przywróci dom do stanu z chwili eksportu.',

@@ -34,6 +34,18 @@ export function reaccionar(asistenteId: string, emocion: EmocionId | null, ms = 
   }, ms)
 }
 
+/** Corta la reacción ya (modo película: al salir del clip o al hacer scrub fuera de él). */
+export function cancelarReaccion(asistenteId: string) {
+  if (timers[asistenteId]) clearTimeout(timers[asistenteId])
+  delete timers[asistenteId]
+  if (!useEmociones.getState().porAsistente[asistenteId]) return
+  useEmociones.setState((s) => {
+    const resto = { ...s.porAsistente }
+    delete resto[asistenteId]
+    return { porAsistente: resto }
+  })
+}
+
 /** Emoción activa del asistente (null si no está reaccionando). */
 export function useEmocionActiva(asistenteId: string): EmocionId | null {
   return useEmociones((s) => s.porAsistente[asistenteId]?.emocion ?? null)

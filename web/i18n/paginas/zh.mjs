@@ -141,7 +141,8 @@ export const TEXTOS = {
   'desc.web.t': '在你的浏览器里',
   'desc.web': '无需安装：用你的账号登录，你的家就在那里。没有账号也可以试用应用。',
   'desc.web.cta': '打开应用',
-  'desc.windows': 'Windows 10/11 安装程序。',
+  'desc.windows': 'Microsoft Store 免费下载，家在应用内购买。',
+  'desc.windows.cta': '下载 Windows 版',
   'desc.mac': 'Mac 用的 .dmg 镜像。',
   'desc.mac.cta': '下载 Mac 版',
 
@@ -199,7 +200,12 @@ export const TEXTOS = {
   'priv.uso.1': '让你能访问自己的账户、购买和订阅。',
   'priv.uso.2': '在设备之间同步并备份你的数据。',
   'priv.uso.3': '用你的额度运行 AI 功能。',
-  'priv.uso.4': '我们不出售你的数据，也不为广告目的分享给第三方。',
+  'priv.uso.4': '我们不出售你的数据，也不为广告目的分享给第三方。',  'priv.redes.h': '已连接的社交媒体账号',
+  'priv.redes.p':
+    '如果你连接 YouTube、TikTok、Facebook 或 Instagram 账号，我们会把该平台交给我们的访问令牌加密保存在服务器上，同时保存你所选账号或主页的名称和头像。它们只用于在你点击发布的那一刻，把你在视频编辑器里决定发布的视频发到你自己的账号。我们不会读取你的视频、帖子、评论、私信或这些账号的任何其他数据，也绝不会自行发布任何内容。令牌会一直保存，直到你在设置 → 已连接账号里断开连接，或删除你的 Mind Planner Home 账号；你也可以在各平台的安全设置里撤销授权（Google：<a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>）。',
+  'priv.redes.youtube':
+    '就 YouTube 而言，本应用使用 YouTube API Services；连接账号即表示你接受 <a href="https://www.youtube.com/t/terms">YouTube 服务条款</a>，并适用 <a href="https://policies.google.com/privacy">Google 隐私权政策</a>。',
+
   'priv.cancelas.h': '如果你取消订阅',
   'priv.cancelas.p':
     '本地数据仍在你的设备上。已同步的数据会保留存储（在你续订前无法访问），你可以通过删除账户把它们彻底清除。',
@@ -270,6 +276,7 @@ export const TEXTOS = {
   'sop.faq.p': '最常见的问题——价格、设备、AI 和你的数据——都在主页上有解答。',
   'sop.faq.enlace': '查看常见问题',
   'sop.cuenta.h': '删除账号',
-  'sop.cuenta.p': '你可以在应用里（编辑器 → 设置 → 账号）或在网页的账号页面删除账号和云端的全部数据。',
+  'sop.cuenta.p':
+    '你可以在应用里（编辑器 → 设置 → 账号）或在网页的账号页面删除账号和云端的全部数据。删除时也会一并解除与社交媒体（YouTube、TikTok、Facebook、Instagram）的连接：保存的令牌会被销毁并失效。',
   'sop.cuenta.enlace': '前往你的账号',
 }

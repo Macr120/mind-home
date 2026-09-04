@@ -3862,7 +3862,15 @@ export const NL: Dict = {
   'respaldo.sinRespaldo': 'Je hebt nog geen back-up geëxporteerd.',
   'respaldo.total': 'Totaal records',
   'respaldo.exportar': 'Alles exporteren als JSON',
+  'respaldo.exportar.cifrado': 'Versleuteld exporteren als JSON',
   'respaldo.restaurar': 'Herstellen vanaf back-up',
+  'respaldo.cifrar.placeholder': 'Wachtwoord van de back-up (optioneel)',
+  'respaldo.cifrar.ayuda':
+    'Als je een wachtwoord instelt, wordt het bestand versleuteld en heb je het nodig om te herstellen. Vergeet je het, dan is het weg.',
+  'respaldo.cifrar.titulo': 'Versleutelde back-up',
+  'respaldo.cifrar.pedir': 'Deze back-up is versleuteld. Voer het wachtwoord in om te herstellen.',
+  'respaldo.cifrar.descifrar': 'Ontsleutelen en doorgaan',
+  'respaldo.cifrar.error': 'Verkeerd wachtwoord of beschadigd bestand.',
   'respaldo.confirm.titulo': 'Herstel bevestigen',
   'respaldo.confirm.desc':
     '{nombre} bevat {n} records. Herstellen vervangt alle huidige gegevens en zet het huis terug zoals het was bij het exporteren.',

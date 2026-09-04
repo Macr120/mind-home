@@ -37,6 +37,7 @@
  */
 import { preflight, json, corsDe } from '../_shared/cors.ts'
 import { clienteUsuario, clienteAdmin, usuarioDe } from '../_shared/auth.ts'
+import { dentroDeLimite } from '../_shared/limite.ts'
 import { costoTokensUsd } from '../_shared/costoUsd.ts'
 
 const MODELO = 'claude-haiku-4-5'
@@ -518,6 +519,12 @@ Deno.serve(async (req) => {
   // Las RPCs de cuota son exclusivas de service_role (20260803000001): se
   // llaman con el cliente admin pasando el uid ya validado por el JWT.
   const admin = clienteAdmin()
+
+  // Límite de tasa por usuario, ADEMÁS de la cuota de créditos (auditoría
+  // 26-ago-2026): frena la ráfaga, no el gasto. Falla abierto.
+  if (!(await dentroDeLimite(admin, usuario.id, 'chat', 45, 60))) {
+    return json({ error: 'limite', mensaje: 'Vas muy rápido con la IA. Espera unos segundos y reintenta.' }, 429, cors)
+  }
 
   let body: BodyIn
   try {

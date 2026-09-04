@@ -162,7 +162,8 @@ export const TEXTOS = {
   'desc.web':
     'Nothing to install: sign in with your account and your house is waiting. Without an account you can try the app.',
   'desc.web.cta': 'Open the app',
-  'desc.windows': 'Installer for Windows 10/11.',
+  'desc.windows': 'Free on Microsoft Store. The house is bought inside.',
+  'desc.windows.cta': 'Download for Windows',
   'desc.mac': '.dmg image for Mac.',
   'desc.mac.cta': 'Download for Mac',
 
@@ -220,7 +221,12 @@ export const TEXTOS = {
   'priv.uso.1': 'Giving you access to your account, your purchase and your subscription.',
   'priv.uso.2': 'Syncing your data between devices and backing it up.',
   'priv.uso.3': 'Running the AI features against your credit allowance.',
-  'priv.uso.4': 'We do not sell your data or share it with third parties for advertising.',
+  'priv.uso.4': 'We do not sell your data or share it with third parties for advertising.',  'priv.redes.h': 'Connected social media accounts',
+  'priv.redes.p':
+    'If you connect your YouTube, TikTok, Facebook or Instagram account, we store the access tokens that network gives us, encrypted on our server, together with the name and picture of the account or Page you choose. We use them only to publish to your own account the videos you decide to publish from the video editor, at the moment you tap Publish. We do not read your videos, posts, comments, messages or any other data from those accounts, and we never post anything on our own. The tokens are kept until you disconnect the account in Settings → Connected accounts or delete your Mind Planner Home account; you can also revoke access in each network’s security settings (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
+  'priv.redes.youtube':
+    'For YouTube, the app uses YouTube API Services; by connecting your account you agree to the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>, and the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> applies.',
+
   'priv.cancelas.h': 'If you cancel your subscription',
   'priv.cancelas.p':
     'Your local data stays on your devices. Synced data remains stored (inaccessible until you renew) and you can delete it for good by deleting your account.',
@@ -291,6 +297,7 @@ export const TEXTOS = {
   'sop.faq.p': 'The most common questions — pricing, devices, AI and your data — are answered on the main page.',
   'sop.faq.enlace': 'See the FAQ',
   'sop.cuenta.h': 'Delete your account',
-  'sop.cuenta.p': 'You can delete your account and all your cloud data from the app (Editor → Settings → Account) or from your account on the web.',
+  'sop.cuenta.p':
+    'You can delete your account and all your cloud data from the app (Editor → Settings → Account) or from your account on the web. Deleting it also removes the connections to your social media accounts (YouTube, TikTok, Facebook and Instagram): the stored tokens are destroyed and stop working.',
   'sop.cuenta.enlace': 'Go to your account',
 }

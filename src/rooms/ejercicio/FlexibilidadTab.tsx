@@ -17,7 +17,7 @@ import { nombreRutina } from './nombres'
 import { HeatmapMensual } from './HeatmapMensual'
 import { useImagenesPorClave } from './imagenIA'
 import { MiniaturaEjercicio } from './MiniaturaEjercicio'
-import { ReproductorFlex } from './ReproductorFlex'
+import { ReproductorRutina } from './ReproductorRutina'
 import { Timer } from './Timer'
 import { minutosTipo, normalizarEjercicio, sesionesTipo } from './stats'
 import { FiltroPeriodo } from './FiltroPeriodo'
@@ -469,7 +469,8 @@ export function FlexibilidadTab({
       )}
 
       {rutinaFlexActiva && (
-        <ReproductorFlex
+        <ReproductorRutina
+          tipo="flexibilidad"
           rutina={rutinaFlexActiva}
           imgPorClave={imgPorClave}
           onCerrar={() => setRutinaFlexActiva(null)}

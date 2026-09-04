@@ -16,6 +16,7 @@ import { EditorMusicaSection } from './editor/EditorMusicaSection'
 import { EditorTutorialesSection } from './editor/EditorTutorialesSection'
 import { EditorNotificacionesSection } from './editor/EditorNotificacionesSection'
 import { EditorCuentaSection } from './editor/EditorCuentaSection'
+import { EditorRedesSection } from './editor/EditorRedesSection'
 import { EditorIASection } from './editor/EditorIASection'
 import { EditorRespaldoSection } from './editor/EditorRespaldoSection'
 import { ConfigGrupo } from './editor/ConfigGrupo'
@@ -50,6 +51,11 @@ const GRUPOS_CONFIG: Record<
     icono: 'perfil',
     titulo: (t) => t('cuenta.titulo', 'Cuenta'),
     Contenido: () => <EditorCuentaSection embed sinTitulo />,
+  },
+  conectadas: {
+    icono: 'red',
+    titulo: (t) => t('video.publicar.cuentas.titulo', 'Cuentas conectadas'),
+    Contenido: () => <EditorRedesSection embed sinTitulo />,
   },
   estilo: {
     icono: 'paleta',
@@ -99,7 +105,7 @@ const GRUPOS_CONFIG: Record<
 }
 
 /** Grupos de la cuenta real: no salen en una casa demo prestada. */
-const OCULTOS_SIN_CUENTA = new Set<ConfigGrupoId>(['cuenta', 'respaldo'])
+const OCULTOS_SIN_CUENTA = new Set<ConfigGrupoId>(['cuenta', 'conectadas', 'respaldo'])
 
 /**
  * Modo edición. Panel "Editor" con pestañas (Mapa / Personajes / Objetos / Configuraciones).

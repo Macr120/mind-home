@@ -45,7 +45,7 @@ export function TarjetaRutina({
   acento: { color: string; hoverBorde: string }
   imgPorClave: Map<string, ImagenEjercicio>
   onUsar: () => void
-  /** Solo Flexibilidad: abre el reproductor guiado. Si falta, no hay botón. */
+  /** Abre el reproductor guiado (`ReproductorRutina`). Si falta, no hay botón. */
   onIniciar?: () => void
   onBorrar: () => void
   /** ¿Ya entrenaste esto hoy? Evita que «Registrar» duplique la sesión. */

@@ -80,9 +80,9 @@
 	<!-- Chat AR (`core/chat/ChatArOverlay.tsx`) y las fotos del chat. -->
 	<key>NSCameraUsageDescription</key>
 	<string>To see your surroundings in AR chat and to take photos for your apps.</string>
-	<!-- Dictado por voz (`core/audio/dictado.ts`, `useDictado.ts`). -->
+	<!-- Dictado por voz (`core/audio/dictado.ts`) y las tomas del Studio de audio (`rooms/audio/grabadorClip.ts`). -->
 	<key>NSMicrophoneUsageDescription</key>
-	<string>To dictate to your house instead of typing.</string>
+	<string>To dictate to your house and to record vocals or instruments in the audio studio.</string>
 	<!-- Los <input type="file"> de fotos: anecdotario, viajes, texturas, chat. -->
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>To pick photos for your memories, your rooms and the chat.</string>

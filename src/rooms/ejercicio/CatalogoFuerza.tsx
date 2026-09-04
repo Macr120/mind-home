@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { SelectorMiniaturas } from './anim/SelectorMiniaturas'
 import type { GrupoFuerza } from '../../core/data/db'
 import { VACIO, gruposFuerzaRepo } from '../../core/data/repository'
 import { piramideFuerza, slugGrupo, type OpcionSplit } from './catalogo'
@@ -113,7 +114,10 @@ export function CatalogoFuerza({
 
   return (
     <div className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-3">
-      <p className="text-base font-bold"><Icono nombre="techo" /> {t('ejercicio.piramide', 'Catálogo por enfoque')}</p>
+      <div className="flex items-center gap-2">
+        <p className="text-base font-bold"><Icono nombre="techo" /> {t('ejercicio.piramide', 'Catálogo por enfoque')}</p>
+        <SelectorMiniaturas color={C_FUERZA} />
+      </div>
       <div className="space-y-1.5">
         {piramide.map((fila, i) => {
           const esHoja = i === piramide.length - 1

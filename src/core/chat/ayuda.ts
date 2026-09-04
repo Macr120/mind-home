@@ -1,4 +1,5 @@
 import { normalizar } from './dispatcher'
+import { pareceDemoEjercicio } from '../../rooms/ejercicio/buscar'
 import { plantillasTodas } from '../registry'
 import { claveNucleoDe, tutorialDeApp, tutorialMenuPorId } from '../tutorial/registro'
 import { tutorialCasa } from '../tutorial/menus.meta'
@@ -114,6 +115,8 @@ function buscarPlantilla(norm: string): string | null {
 export function interpretarAyuda(texto: string): AyudaDetectada | null {
   // Sin acentos ni puntuación («¿cómo funciona la cocina?» → ' como funciona la cocina ').
   const norm = ` ${normalizar(texto).replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim()} `
+  // «Muéstrame cómo se hace el press banca» es una demostración de Ejercicio, no un tour.
+  if (pareceDemoEjercicio(norm.trim())) return null
   const tour = RE_TOUR.test(norm)
   const explicar = RE_EXPLICAR.test(norm)
   if (!tour && !explicar) return null

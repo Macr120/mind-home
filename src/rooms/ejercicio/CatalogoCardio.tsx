@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { SelectorMiniaturas } from './anim/SelectorMiniaturas'
 import type { GrupoCardio } from '../../core/data/db'
 import { VACIO, gruposCardioRepo } from '../../core/data/repository'
 import { slugGrupo } from './catalogo'
@@ -75,9 +76,12 @@ export function CatalogoCardio({
 
   return (
     <div className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-3">
-      <p className="text-base font-bold">
-        <Icono nombre="tab-cardio" /> {t('ejercicio.cardio.catalogo', 'Catálogo por categoría')}
-      </p>
+      <div className="flex items-center gap-2">
+        <p className="text-base font-bold">
+          <Icono nombre="tab-cardio" /> {t('ejercicio.cardio.catalogo', 'Catálogo por categoría')}
+        </p>
+        <SelectorMiniaturas color={C_CARDIO} />
+      </div>
       <div className="flex flex-wrap justify-center gap-1.5">
         {grupos.map((g) => (
           <div

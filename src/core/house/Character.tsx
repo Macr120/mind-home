@@ -1,4 +1,8 @@
-import { useEffect, useLayoutEffect, useRef, type ReactNode } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useRef, type ReactNode, lazy, Suspense } from 'react'
+import { useDemoEjercicio } from '../state/demoEjercicioStore'
+
+// «Muéstrame el press banca» en el mapa: el personaje lo hace con el rig del visor (lazy).
+const AvatarEjercicioMapa = lazy(() => import('./AvatarEjercicioMapa'))
 import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import { AvatarModelo } from './AvatarModelo'
@@ -12,6 +16,10 @@ import { useCam, camAnim } from '../state/cameraStore'
 import { useMontura, monturaFrame } from '../state/monturaStore'
 import { useTren, trenFrame, conducirTren } from '../state/trenStore'
 import { dialogoFrame } from '../state/dialogoStore'
+import { bocaDe, ES_JUGADOR, estadoActor, usePelicula } from '../state/peliculaStore'
+import { GestoEmocion } from './GestoEmocion'
+import { GestoHabla } from './pelicula/GestoHabla'
+import { ReaccionEmoji } from './ReaccionEmoji'
 import { TrenMontado } from './tren'
 import { RaquetaJugador, BateJugador } from './minijuegos'
 import { juegoFrame, poseBateo, ANCLA_GRACIA_MS } from '../state/juegoCanchaStore'
@@ -23,7 +31,7 @@ import { claveCeldaOff, formaEnCelda, subformasDeCelda, puntoDentroSilueta } fro
 import { footprintDeTipo, piezasDesdeObjeto, TIPO_PIEZAS } from './catalogo'
 import { moveInput, vectorCam } from './movement'
 import { dragChar } from './characterDrag'
-import { marchaAvatar } from './animacion'
+import { girarHacia, marchaAvatar, suave } from './animacion'
 import { sonar } from '../audio/sfx'
 import { defDeMontura, VehiculoMontado } from './vehiculos'
 import { FlotadorMontado } from './flotador'
@@ -765,7 +773,6 @@ function rumboJuego(dlx: number, dlz: number) {
 }
 
 const lin = THREE.MathUtils.lerp
-const suave = (q: number) => q * q * (3 - 2 * q)
 
 /**
  * Dona flotadora (sin botones): se pide bajarse en cuanto el jugador mueve el
@@ -1140,6 +1147,7 @@ export function Character() {
   const ref = useRef<THREE.Group>(null)
   useHouse((s) => s.navTick)
   const av = useDiseño((s) => s.avatar)
+  const demoEjercicio = useDemoEjercicio((s) => (s.modo === 'mapa' ? s.nombre : null))
   const camera = useThree((s) => s.camera)
   const scene = useThree((s) => s.scene)
   const get3f = useThree((s) => s.get)
@@ -1177,14 +1185,22 @@ export function Character() {
     donaId == null ? undefined : s.objetos.find((o) => o.id === donaId)?.color,
   )
   const equipadas = useHerramienta((s) => s.equipadas)
+  // Modo película: el Director puede mover al avatar como actor (boca, gesto de habla, emoción y preset).
+  const enPelicula = usePelicula((s) => s.proyectoId != null)
+  const presetJugador = usePelicula((s) => s.presets[ES_JUGADOR])
+  const animJugador = useMemo(
+    () => (presetJugador ? ({ activacion: 'siempre', preset: presetJugador } as const) : undefined),
+    [presetJugador],
+  )
 
-  // Entrar al editor con montura activa: bajarse (persistiendo la pose actual).
+  // Entrar al editor (o al modo película) con montura activa: bajarse (persistiendo la pose actual).
   useEffect(() => {
-    if (editMode && (useMontura.getState().instanciaId != null || useMontura.getState().prestado)) {
+    const forzar = editMode || enPelicula
+    if (forzar && (useMontura.getState().instanciaId != null || useMontura.getState().prestado)) {
       useMontura.getState().solicitarDesmontar()
     }
     // Con un juego de parque en uso: soltar en seco y volver al punto de partida.
-    if (editMode && useParque.getState().instanciaId != null) {
+    if (forzar && useParque.getState().instanciaId != null) {
       const { playerLevel, explotado } = useHouse.getState()
       const libre = puntoLibreCerca(parqueFrame.startX, parqueFrame.startZ, playerLevel, RADIO)
       useParque.getState().salirForzado()
@@ -1199,11 +1215,11 @@ export function Character() {
     }
     // Montado en el tren: bajarse. Si no, el jugador seguiría recorriendo la vía
     // bajo la UI del editor y esa vía se quedaría sin su tren para siempre.
-    if (editMode && useTren.getState().montado) useTren.getState().bajar()
+    if (forzar && useTren.getState().montado) useTren.getState().bajar()
     // Sentado en la dona de la alberca: bajarse (la dona se queda donde estaba).
-    if (editMode && useFlotador.getState().instanciaId != null) useFlotador.getState().salirForzado()
+    if (forzar && useFlotador.getState().instanciaId != null) useFlotador.getState().salirForzado()
     // Con una acción de cuarto en uso: soltar y volver al punto de partida.
-    if (editMode && useAccionCuarto.getState().instanciaId != null) {
+    if (forzar && useAccionCuarto.getState().instanciaId != null) {
       const { playerLevel, explotado } = useHouse.getState()
       const libre = puntoLibreCerca(accionCuartoFrame.startX, accionCuartoFrame.startZ, playerLevel, RADIO)
       useAccionCuarto.getState().salirForzado()
@@ -1216,7 +1232,7 @@ export function Character() {
         useHouse.getState().target.set(libre.x, 0, libre.z)
       }
     }
-  }, [editMode])
+  }, [editMode, enPelicula])
 
   // Posición inicial sin prop `position`: evita que re-renders reseteen el avatar mid-transición.
   useLayoutEffect(() => {
@@ -1248,6 +1264,17 @@ export function Character() {
       cur.set(dragChar.x, ySueloJugador(lvl, !expl, dragChar.x, dragChar.z), dragChar.z)
       playerPos.copy(cur)
       useHouse.getState().target.set(dragChar.x, 0, dragChar.z)
+      return
+    }
+    // Modo película: el Director manda posición y rumbo (función del tiempo del timeline).
+    const actor = estadoActor(ES_JUGADOR)
+    if (actor) {
+      const { playerLevel: lvl, explotado: expl } = useHouse.getState()
+      cur.set(actor.x, ySueloJugador(lvl, !expl, actor.x, actor.z), actor.z)
+      girarHacia(ref.current, actor.rumbo, actor.caminando ? 0.2 : 0.12)
+      playerPos.copy(cur)
+      // Que al salir del modo no «regrese» a un destino viejo.
+      useHouse.getState().target.set(actor.x, 0, actor.z)
       return
     }
     // Conversación cara a cara: quieto, girando suave hacia el asistente.
@@ -1675,7 +1702,26 @@ export function Character() {
       ) : (
         <NadoTilt escala={av.escala}>
           <FlipMortal escala={av.escala}>
-            <AvatarModelo av={av} casco={editor3d} animar caminar />
+            {/* Como actor del modo película: cabeceo de habla, gesto de la emoción, boca y preset del clip. */}
+            {demoEjercicio ? (
+              <Suspense fallback={<AvatarModelo av={av} casco={editor3d} animar caminar />}>
+                <AvatarEjercicioMapa av={av} nombre={demoEjercicio} />
+              </Suspense>
+            ) : (
+              <GestoHabla id={ES_JUGADOR}>
+                <GestoEmocion asistenteId={ES_JUGADOR}>
+                  <AvatarModelo
+                    av={av}
+                    casco={editor3d}
+                    animar
+                    caminar
+                    boca={enPelicula ? bocaDe(ES_JUGADOR) : undefined}
+                    animOverride={animJugador}
+                  />
+                </GestoEmocion>
+              </GestoHabla>
+            )}
+            {enPelicula && <ReaccionEmoji asistenteId={ES_JUGADOR} altura={1.9 * av.escala} />}
             <ExtrasHerramientas equipadas={equipadas} escala={av.escala} />
             <AccesorioAccion escala={av.escala} />
             <RaquetaJugador escala={av.escala} />

@@ -6,6 +6,7 @@ import { useHouse } from '../state/houseStore'
 import { useDiseño, objetosDeCuartoIdx } from '../state/disenoStore'
 import { useCam } from '../state/cameraStore'
 import { playerPos } from '../state/playerPosition'
+import { colocandoActor } from '../state/peliculaStore'
 import { useLayout } from '../state/layoutStore'
 import { puedeMoverCuartoRegistro } from './planoGeometria'
 import { usePlanos } from '../state/planosStore'
@@ -1107,8 +1108,8 @@ export function Room3D({
       return
     }
     // Con un modo de construcción activo (editor o atajo de la rueda), el tap construye,
-    // no mueve al personaje.
-    if (editMode || planosActivo || atenuado || preview) return
+    // no mueve al personaje. En el modo película, con un personaje seleccionado el toque lo coloca.
+    if (editMode || planosActivo || atenuado || preview || colocandoActor()) return
     // Soltar tras una pulsación larga (o tras mover el cuarto despierto) no es un
     // toque para caminar: el usuario mantuvo pulsado para otra cosa.
     if (despierto || pulsacionLargaReciente()) return

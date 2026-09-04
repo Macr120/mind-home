@@ -1,17 +1,9 @@
 /**
- * Exportar: PDF por impresión y .xlsx real.
- *
- * EL PDF SE IMPRIME EN UN IFRAME APARTE, no con un `@media print` sobre la app.
- * Motivo: `RoomOverlay` es `absolute inset-0` dentro de un contenedor de altura
- * fija con `overflow:hidden`, hermano del canvas de la casa. Imprimir eso sale
- * en blanco, y esconder `#root` con `display:none` colapsa el contenedor del
- * `<Canvas>`, cuyo ResizeObserver dispara un `setSize(0,0)` sobre el renderer —
- * con riesgo real de perder el contexto WebGL y volver a una casa negra.
- *
- * El marco clona los `<style>`/`<link>` del documento para que Tailwind y el CSS
- * de KaTeX valgan dentro, y añade su propia hoja de impresión.
+ * Exportar: PDF por impresión (el iframe de `core/imprimir.ts` con la hoja de
+ * estilos de la sala) y .xlsx real.
  */
 import { descargarArchivo } from '../../core/descargarArchivo'
+import { imprimir as imprimirHtml, puedeImprimir } from '../../core/imprimir'
 import type { HojaCalculo, VariableFormula } from '../../core/data/db'
 import { tGlobal } from '../../core/i18n/useT'
 import { COLORES_PASTEL } from './constantes'
@@ -21,8 +13,8 @@ import type { Motor } from './motor'
 import { construirXlsx, type CeldaXlsx } from './xlsx'
 import type { GraficaXlsx } from './xlsxChart'
 
-/** En Android/WebView `window.print()` no existe: hay que decirlo, no fallar. */
-export const puedeImprimir = () => typeof window !== 'undefined' && typeof window.print === 'function'
+// `MenuFormulario` lo importa de aquí desde antes de que viviera en core.
+export { puedeImprimir }
 
 const ESTILO_IMPRESION = `
 @page { size: A4; margin: 14mm; }
@@ -47,47 +39,9 @@ th { background: #f1f1f1 !important; font-weight: 600; }
 td.num { text-align: right; font-variant-numeric: tabular-nums; }
 `
 
-/** Abre el diálogo de impresión con ese HTML, sin tocar el documento de la app. */
+/** Abre el diálogo de impresión con ese HTML y la hoja de estilos de la sala. */
 export async function imprimir(html: string, titulo: string): Promise<void> {
-  if (!puedeImprimir()) {
-    throw new Error('sin-impresion')
-  }
-  const marco = document.createElement('iframe')
-  marco.setAttribute('aria-hidden', 'true')
-  marco.style.cssText = 'position:fixed;right:0;bottom:0;width:0;height:0;border:0;'
-  document.body.appendChild(marco)
-
-  const doc = marco.contentDocument
-  if (!doc) {
-    marco.remove()
-    throw new Error('sin-impresion')
-  }
-  doc.open()
-  doc.write('<!doctype html><html><head><meta charset="utf-8"></head><body></body></html>')
-  doc.close()
-  // El título es el nombre que propone el diálogo al guardar como PDF.
-  doc.title = titulo
-
-  for (const nodo of document.head.querySelectorAll('style, link[rel="stylesheet"]')) {
-    doc.head.appendChild(nodo.cloneNode(true))
-  }
-  const propio = doc.createElement('style')
-  propio.textContent = ESTILO_IMPRESION
-  doc.head.appendChild(propio)
-  doc.body.innerHTML = html
-
-  // Las fuentes de KaTeX se cargan bajo demanda: sin esperarlas, la fórmula se
-  // mide con la fuente equivocada y sale descuadrada.
-  try {
-    await (doc as Document & { fonts?: FontFaceSet }).fonts?.ready
-  } catch {
-    /* el navegador no expone document.fonts */
-  }
-
-  marco.contentWindow?.focus()
-  marco.contentWindow?.print()
-  // Safari necesita que el marco siga vivo un momento después de imprimir.
-  window.setTimeout(() => marco.remove(), 1000)
+  await imprimirHtml(html, titulo, ESTILO_IMPRESION)
 }
 
 const esc = (s: string) =>

@@ -144,7 +144,8 @@ export const TEXTOS = {
   'desc.web.t': 'ブラウザで',
   'desc.web': 'インストール不要。アカウントでログインすればあなたの家が待っています。アカウントがなくてもアプリを試せます。',
   'desc.web.cta': 'アプリを開く',
-  'desc.windows': 'Windows 10/11用インストーラー。',
+  'desc.windows': 'Microsoft Storeで無料。家はアプリ内で購入します。',
+  'desc.windows.cta': 'Windows版をダウンロード',
   'desc.mac': 'Mac用の.dmgイメージ。',
   'desc.mac.cta': 'Mac版をダウンロード',
 
@@ -202,7 +203,12 @@ export const TEXTOS = {
   'priv.uso.1': 'アカウント、購入、サブスクリプションへのアクセスを提供するため。',
   'priv.uso.2': '端末間でデータを同期し、バックアップするため。',
   'priv.uso.3': 'クレジットの範囲でAI機能を動かすため。',
-  'priv.uso.4': 'データの販売や、広告目的での第三者への提供は行いません。',
+  'priv.uso.4': 'データの販売や、広告目的での第三者への提供は行いません。',  'priv.redes.h': '連携したソーシャルメディアのアカウント',
+  'priv.redes.p':
+    'YouTube、TikTok、Facebook、Instagram のアカウントを連携すると、そのサービスから受け取るアクセストークンを、選んだアカウントやページの名前・写真とともに、暗号化してサーバーに保存します。使うのは、あなたが動画エディターで公開すると決めた動画を、公開ボタンを押したその瞬間にあなた自身のアカウントへ投稿するためだけです。あなたの動画、投稿、コメント、メッセージなど、それらのアカウントのほかのデータは読み取りませんし、こちらから勝手に投稿することもありません。トークンは、設定 → 連携アカウントで連携を解除するか、Mind Planner Home のアカウントを削除するまで保存されます。各サービスのセキュリティ設定から権限を取り消すこともできます（Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>）。',
+  'priv.redes.youtube':
+    'YouTube については、アプリは YouTube API Services を利用します。アカウントを連携すると <a href="https://www.youtube.com/t/terms">YouTube の利用規約</a>に同意したことになり、<a href="https://policies.google.com/privacy">Google のプライバシー ポリシー</a>が適用されます。',
+
   'priv.cancelas.h': 'サブスクリプションを解約した場合',
   'priv.cancelas.p':
     'ローカルのデータは端末に残ります。同期されたデータは保存されたまま（再開するまでアクセスできません）で、アカウントを削除すれば完全に消せます。',
@@ -273,6 +279,7 @@ export const TEXTOS = {
   'sop.faq.p': 'よくある質問（価格・対応端末・AI・データ）はメインページで回答しています。',
   'sop.faq.enlace': 'よくある質問を見る',
   'sop.cuenta.h': 'アカウントの削除',
-  'sop.cuenta.p': 'アカウントとクラウド上の全データは、アプリ内（エディター → 設定 → アカウント）またはウェブのアカウントページから削除できます。',
+  'sop.cuenta.p':
+    'アカウントとクラウド上の全データは、アプリ内（エディター → 設定 → アカウント）またはウェブのアカウントページから削除できます。削除すると、ソーシャルメディア（YouTube、TikTok、Facebook、Instagram）との連携も解除され、保存されていたトークンは破棄されて使えなくなります。',
   'sop.cuenta.enlace': 'アカウントページへ',
 }

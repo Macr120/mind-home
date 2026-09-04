@@ -165,7 +165,8 @@ export const TEXTOS = {
   'desc.web':
     'Senza installare nulla: entra con il tuo account e la tua casa ti aspetta. Senza account puoi provare l’app.',
   'desc.web.cta': 'Apri l’app',
-  'desc.windows': 'Installer per Windows 10/11.',
+  'desc.windows': 'Gratis su Microsoft Store. La casa si compra dentro.',
+  'desc.windows.cta': 'Scarica per Windows',
   'desc.mac': 'Immagine .dmg per Mac.',
   'desc.mac.cta': 'Scarica per Mac',
 
@@ -223,7 +224,12 @@ export const TEXTOS = {
   'priv.uso.1': 'Darti accesso al tuo account, al tuo acquisto e al tuo abbonamento.',
   'priv.uso.2': 'Sincronizzare i tuoi dati tra dispositivi e salvarne una copia.',
   'priv.uso.3': 'Far funzionare le funzioni di IA con la tua quota di crediti.',
-  'priv.uso.4': 'Non vendiamo i tuoi dati né li condividiamo con terzi per pubblicità.',
+  'priv.uso.4': 'Non vendiamo i tuoi dati né li condividiamo con terzi per pubblicità.',  'priv.redes.h': 'Account social collegati',
+  'priv.redes.p':
+    'Se colleghi il tuo account di YouTube, TikTok, Facebook o Instagram, conserviamo i token di accesso che quel social ci consegna, cifrati sul nostro server, insieme al nome e alla foto dell’account o della Pagina che scegli. Li usiamo solo per pubblicare sul tuo account i video che decidi di pubblicare dall’editor video, nel momento in cui tocchi Pubblica. Non leggiamo i tuoi video, post, commenti, messaggi né altri dati di quegli account, e non pubblichiamo mai nulla di nostra iniziativa. I token restano finché non scolleghi l’account da Impostazioni → Account collegati o elimini il tuo account Mind Planner Home; puoi anche revocare l’accesso dalle impostazioni di sicurezza di ogni social (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
+  'priv.redes.youtube':
+    'Per YouTube l’app usa YouTube API Services; collegando il tuo account accetti i <a href="https://www.youtube.com/t/terms">Termini di servizio di YouTube</a> e si applica l’<a href="https://policies.google.com/privacy">Informativa sulla privacy di Google</a>.',
+
   'priv.cancelas.h': 'Se disdici l’abbonamento',
   'priv.cancelas.p':
     'I tuoi dati locali restano sui tuoi dispositivi. I dati sincronizzati restano archiviati (inaccessibili finché non rinnovi) e puoi cancellarli definitivamente eliminando il tuo account.',
@@ -295,6 +301,7 @@ export const TEXTOS = {
   'sop.faq.p': 'Le domande più comuni — prezzi, dispositivi, IA e i tuoi dati — hanno risposta nella pagina principale.',
   'sop.faq.enlace': 'Vedi le domande frequenti',
   'sop.cuenta.h': 'Eliminare il tuo account',
-  'sop.cuenta.p': 'Puoi cancellare il tuo account e tutti i tuoi dati nel cloud dall’app (Editor → Impostazioni → Account) o dal tuo account sul web.',
+  'sop.cuenta.p':
+    'Puoi cancellare il tuo account e tutti i tuoi dati nel cloud dall’app (Editor → Impostazioni → Account) o dal tuo account sul web. Cancellandolo spariscono anche i collegamenti ai tuoi social (YouTube, TikTok, Facebook e Instagram): i token salvati vengono distrutti e smettono di valere.',
   'sop.cuenta.enlace': 'Vai al tuo account',
 }

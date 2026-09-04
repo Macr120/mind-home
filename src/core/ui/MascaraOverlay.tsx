@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { MascaraApp, type TextosMascara } from '../../../marketing/mascara/src/MascaraApp'
 import { hayBackend } from '../cuenta/supabase'
+import { entregarTomaAlStudio } from '../grabacionPantalla'
 import { useT } from '../i18n/useT'
 import { useMascaraUi } from '../state/mascaraUiStore'
 import { crearSenalMascara } from './mascaraSenal'
@@ -19,12 +20,15 @@ import { crearSenalMascara } from './mascaraSenal'
 /** URL que codifica el QR del emisor: al abrirla, la app conecta como controlador. */
 function urlRemota(codigo: string): string {
   const base = (import.meta.env.VITE_URL_APP as string | undefined) ?? window.location.origin
-  return `${base}/?mascara=${codigo}`
+  // El código va en el FRAGMENTO (#), no en la query: así NO viaja al servidor
+  // ni a los logs/Referer del hosting (auditoría 26-ago-2026).
+  return `${base}/#mascara=${codigo}`
 }
 
 export default function MascaraOverlay() {
   const cerrar = useMascaraUi((s) => s.cerrar)
   const codigoRemoto = useMascaraUi((s) => s.codigoRemoto)
+  const destino = useMascaraUi((s) => s.destino)
   const t = useT()
   const textos = useMemo<Partial<TextosMascara>>(
     () => ({
@@ -85,6 +89,19 @@ export default function MascaraOverlay() {
     }),
     [t],
   )
+  // Abierta desde el Studio de video: la grabación entra en Medios y vuelve al
+  // proyecto como clip (mismo canal que la grabación de la app); la máscara se cierra sola.
+  const onToma = destino
+    ? async (blob: Blob, duracion: number) => {
+        const h = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        await entregarTomaAlStudio(destino, {
+          blob,
+          duracion: Math.round(duracion * 100) / 100,
+          nombre: t('video.medios.nombreMascara', 'Máscara AR · {h}', { h }),
+        })
+        cerrar()
+      }
+    : undefined
   return (
     // `ui-noche`: el panel de la máscara flota sobre la cámara y está pensado en
     // oscuro, así que conserva la tinta blanca aunque la app esté en modo claro.
@@ -95,6 +112,7 @@ export default function MascaraOverlay() {
         crearSenal={hayBackend() ? crearSenalMascara : undefined}
         urlRemota={urlRemota}
         codigoInicial={codigoRemoto ?? undefined}
+        onToma={onToma}
       />
     </div>
   )

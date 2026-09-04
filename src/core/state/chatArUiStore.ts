@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import type { DestinoGrabacion } from '../grabacionPantalla'
 
 /**
  * Overlay del Chat AR (cámara del dispositivo + asistente 3D encima para
@@ -8,12 +9,17 @@ import { create } from 'zustand'
  */
 interface ChatArUiState {
   abierto: boolean
+  /** Abierto desde el Studio de video: aparece el botón de grabar y la toma vuelve como clip a este proyecto. */
+  destino: DestinoGrabacion | null
   abrir: () => void
+  abrirParaStudio: (destino: DestinoGrabacion) => void
   cerrar: () => void
 }
 
 export const useChatArUi = create<ChatArUiState>((set) => ({
   abierto: false,
-  abrir: () => set({ abierto: true }),
-  cerrar: () => set({ abierto: false }),
+  destino: null,
+  abrir: () => set({ abierto: true, destino: null }),
+  abrirParaStudio: (destino) => set({ abierto: true, destino }),
+  cerrar: () => set({ abierto: false, destino: null }),
 }))

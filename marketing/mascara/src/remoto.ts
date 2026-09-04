@@ -24,6 +24,18 @@ export interface MensajeSenal {
   tipo: 'hola' | 'oferta' | 'respuesta' | 'hielo' | 'adios'
   sdp?: string
   candidato?: RTCIceCandidateInit
+  /**
+   * Identidad efímera del CONTROLADOR (la genera `controlar`). El emisor se
+   * empareja con el primero que saluda y a partir de ahí ignora a cualquier otro
+   * mientras dure la conexión: sin esto, un tercero que conociera el código podía
+   * secuestrar la sesión viva con un `hola` (auditoría 26-ago-2026).
+   */
+  sesion?: string
+}
+
+/** Id aleatorio de sesión del controlador (16 hex de crypto). */
+function nuevaSesion(): string {
+  return Array.from(crypto.getRandomValues(new Uint8Array(8)), (n) => n.toString(16).padStart(2, '0')).join('')
 }
 
 /** Canal de señalización efímero (lo aporta la app anfitriona). */
@@ -114,6 +126,8 @@ export function emitir(
   let pendientes: RTCIceCandidateInit[] = []
   let ultimoEstado: EstadoEmisor | null = null
   let cerrado = false
+  // Controlador con el que estamos emparejados; null = libre para el primero.
+  let sesionActiva: string | null = null
 
   const colgar = () => {
     dc?.close()
@@ -125,9 +139,16 @@ export function emitir(
 
   senal.onMensaje((msj) => {
     if (cerrado || msj.de !== 'control') return
+    const sesion = msj.sesion ?? ''
+    // Primer control gana: emparejados con un controlador, se ignora a cualquier
+    // OTRO (distinto `sesion`) —incluidos sus `hola`, `respuesta` e `hielo`—
+    // mientras dure la conexión. El mismo controlador sí puede volver a llamar
+    // tras un corte (mismo `sesion`). Cierra el secuestro por `hola` ajeno.
+    if (sesionActiva !== null && sesion !== sesionActiva) return
     if (msj.tipo === 'hola') {
-      // Cada hola arranca una conexión limpia: así el mismo código sobrevive a
-      // un corte y a que el controlador vuelva a llamar.
+      // Cada hola del controlador emparejado arranca una conexión limpia: así el
+      // mismo código sobrevive a un corte y a que vuelva a llamar.
+      sesionActiva = sesion
       colgar()
       avisos.onEstado('conectando')
       const p = new RTCPeerConnection(CONFIG_ICE)
@@ -153,7 +174,12 @@ export function emitir(
       }
       p.onconnectionstatechange = () => {
         const st = p.connectionState
-        if (st === 'failed' || st === 'disconnected' || st === 'closed') avisos.onEstado('cortado')
+        if (st === 'failed' || st === 'disconnected' || st === 'closed') {
+          // El controlador se fue: liberar el emparejamiento para que otro pueda
+          // conectar, sin quedar clavado al `sesion` de quien ya no está.
+          if (p === pc) sesionActiva = null
+          avisos.onEstado('cortado')
+        }
       }
       void (async () => {
         const oferta = await p.createOffer()
@@ -171,6 +197,7 @@ export function emitir(
       if (pc?.remoteDescription) void pc.addIceCandidate(msj.candidato).catch(() => {})
       else pendientes.push(msj.candidato)
     } else if (msj.tipo === 'adios') {
+      sesionActiva = null
       colgar()
       avisos.onEstado('esperando')
     }
@@ -211,6 +238,9 @@ export function controlar(
   let pendientes: RTCIceCandidateInit[] = []
   let cerrado = false
   let toque: number | null = null
+  // Identidad de este controlador: viaja en todos sus mensajes para que el
+  // emisor pueda aplicar «primer control gana» y no dejarse secuestrar.
+  const sesion = nuevaSesion()
 
   // El hola se repite hasta que llegue la oferta: cubre un broadcast perdido y
   // el instante en que el emisor todavía no estaba suscrito.
@@ -222,8 +252,8 @@ export function controlar(
   }
   const llamar = () => {
     detenerToques()
-    senal.enviar({ de: 'control', tipo: 'hola' })
-    toque = window.setInterval(() => senal.enviar({ de: 'control', tipo: 'hola' }), 2000)
+    senal.enviar({ de: 'control', tipo: 'hola', sesion })
+    toque = window.setInterval(() => senal.enviar({ de: 'control', tipo: 'hola', sesion }), 2000)
   }
 
   senal.onMensaje((msj) => {
@@ -253,7 +283,7 @@ export function controlar(
         }
       }
       p.onicecandidate = (e) => {
-        if (e.candidate) senal.enviar({ de: 'control', tipo: 'hielo', candidato: e.candidate.toJSON() })
+        if (e.candidate) senal.enviar({ de: 'control', tipo: 'hielo', candidato: e.candidate.toJSON(), sesion })
       }
       p.onconnectionstatechange = () => {
         const st = p.connectionState
@@ -265,7 +295,7 @@ export function controlar(
         pendientes = []
         const respuesta = await p.createAnswer()
         await p.setLocalDescription(respuesta)
-        senal.enviar({ de: 'control', tipo: 'respuesta', sdp: respuesta.sdp })
+        senal.enviar({ de: 'control', tipo: 'respuesta', sdp: respuesta.sdp, sesion })
       })().catch(() => avisos.onEstado('cortado'))
     } else if (msj.tipo === 'hielo' && msj.candidato) {
       if (pc?.remoteDescription) void pc.addIceCandidate(msj.candidato).catch(() => {})
@@ -285,7 +315,7 @@ export function controlar(
     cerrar: () => {
       cerrado = true
       detenerToques()
-      senal.enviar({ de: 'control', tipo: 'adios' })
+      senal.enviar({ de: 'control', tipo: 'adios', sesion })
       dc?.close()
       pc?.close()
       senal.cerrar()

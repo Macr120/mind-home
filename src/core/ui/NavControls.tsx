@@ -26,7 +26,9 @@ import { usePaintball } from '../state/paintballStore'
 import { useJuegoCancha } from '../state/juegoCanchaStore'
 import { useHud } from '../state/hudStore'
 import { useConstruyendo } from '../state/construyendo'
+import { usePelicula } from '../state/peliculaStore'
 import { BotonPlegarHud, TiradorHud } from './HudPlegable'
+import { PreviewFilmacion } from './PreviewFilmacion'
 import { useTopeHud } from './hudMedida'
 
 /**
@@ -78,6 +80,8 @@ export function NavControls() {
   const movilVertical = useHud((s) => s.movilVertical)
   const chatPlegado = useHud((s) => s.plegado.chat)
   const construyendo = useConstruyendo()
+  // Modo película: el hueco del cubo (o del LookPad) muestra el monitor de la filmación.
+  const enPelicula = usePelicula((s) => s.proyectoId != null)
   // Mover objetos: las flechas ocupan el hueco del cubo, pero se pueden plegar para
   // recuperar el cubo y cambiar la perspectiva sin salir del modo.
   const [verCuboMoviendo, setVerCuboMoviendo] = useState(false)
@@ -317,6 +321,8 @@ export function NavControls() {
               </div>
             ) : moviendoObjeto && !verCuboMoviendo ? (
               <FlechasMoverObjeto />
+            ) : enPelicula ? (
+              <PreviewFilmacion ancho={VIEW_CUBE_PX} />
             ) : (
               <ViewCube />
             )}
@@ -344,6 +350,8 @@ export function NavControls() {
                 </div>
                 <ControlHerramienta />
               </div>
+            ) : enPelicula ? (
+              <PreviewFilmacion ancho={VIEW_CUBE_PX} />
             ) : (
               <LookPad />
             )}

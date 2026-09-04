@@ -21,7 +21,7 @@ import {
   TIPO_OLLA, TIPO_DESPERTADOR, TIPO_LIBRERO_LIBRO, TIPO_GLOBO, TIPO_ESTANTERIA_HERR, TIPO_REPISA_JUEGOS,
   TIPO_CAMINADORA, TIPO_PERIODICO, TIPO_LAPTOP, TIPO_TAPETE, TIPO_GUITARRA, TIPO_PLANTA_REGAR, TIPO_LIBRETA,
   TIPO_SILLON, TIPO_CALENDARIO, TIPO_PIZARRA, TIPO_AGENDA, TIPO_CAJA_FUERTE, TIPO_ESTACION_COMPUTO,
-  TIPO_DIANA_METAS,
+  TIPO_DIANA_METAS, TIPO_TECLADO_MIDI, TIPO_CABALLETE, TIPO_ESCRITORIO_ESCRITURA, TIPO_CAMARA_VIDEO,
 } from './especialesPlantillaMeta'
 
 export { esEspecialPlantilla } from './especialesPlantillaMeta'
@@ -1435,6 +1435,449 @@ export function EstacionComputo({ color }: UsableProps) {
   )
 }
 
+/**
+ * Teclado MIDI sobre soporte en X (Studio de audio): al acercarse, las teclas se
+ * hunden en cascada —como si el sinte tocara solo— y el panel parpadea.
+ */
+export function TecladoMidi({ color, simple = false, nivel = null, objetoId }: EspProps) {
+  const raiz = useRef<THREE.Group>(null!)
+  const teclas = useRef<THREE.Group>(null!)
+  const panel = useRef<THREE.Mesh>(null!)
+  const energia = useRef(0)
+  // 14 blancas de dos octavas; las negras cuelgan de la blanca que las precede.
+  const BLANCAS = useMemo(() => Array.from({ length: 14 }, (_, i) => -0.63 + i * 0.097), [])
+  const NEGRAS = useMemo(() => [0, 1, 3, 4, 5, 7, 8, 10, 11, 12], [])
+  useFrame(({ clock }) => {
+    if (simple || !raiz.current) return
+    const e = actualizarEnergia(raiz.current, PROX, nivel, energia, objetoId)
+    if (e === 0) return // en reposo no hay nada que animar
+    const t = clock.elapsedTime
+    if (teclas.current) {
+      teclas.current.children.forEach((tecla, i) => {
+        // Onda que recorre el teclado: cada tecla entra un poco después.
+        const fase = Math.sin(t * 6 - i * 0.55)
+        tecla.rotation.x = Math.max(0, fase) * 0.09 * e
+      })
+    }
+    if (panel.current) {
+      const mat = panel.current.material as THREE.MeshStandardMaterial
+      mat.emissiveIntensity = 0.5 + Math.abs(Math.sin(t * 3.5)) * 1.2 * e
+    }
+  })
+  return (
+    <group ref={raiz}>
+      {/* Soporte en X: dos travesaños cruzados por lado */}
+      {[-0.62, 0.62].map((x) => (
+        <group key={x} position={[x, 0, 0]}>
+          {[-1, 1].map((s) => (
+            <mesh key={s} position={[0, 0.42, 0]} rotation={[s * 0.42, 0, 0]} castShadow>
+              <boxGeometry args={[0.06, 0.9, 0.05]} />
+              <meshStandardMaterial color="#3f3f46" metalness={0.55} roughness={0.4} />
+            </mesh>
+          ))}
+        </group>
+      ))}
+      {/* Cuerpo del teclado */}
+      <mesh position={[0, 0.88, 0]} castShadow receiveShadow>
+        <boxGeometry args={[1.5, 0.1, 0.42]} />
+        <meshStandardMaterial color={color} roughness={0.45} metalness={0.25} />
+      </mesh>
+      {/* Panel de control: pantalla y potenciómetros */}
+      <mesh ref={panel} position={[-0.5, 0.945, -0.13]} rotation={[-0.25, 0, 0]}>
+        <boxGeometry args={[0.3, 0.002, 0.1]} />
+        <meshStandardMaterial color="#22d3ee" emissive="#22d3ee" emissiveIntensity={0.6} toneMapped={false} />
+      </mesh>
+      {[-0.16, -0.04, 0.08].map((x) => (
+        <mesh key={x} position={[x, 0.95, -0.13]} castShadow>
+          <cylinderGeometry args={[0.024, 0.024, 0.03, 10]} />
+          <meshStandardMaterial color="#e5e7eb" roughness={0.5} />
+        </mesh>
+      ))}
+      {/* Ruedas de pitch y modulación */}
+      {[0.42, 0.53].map((x) => (
+        <mesh key={x} position={[x, 0.95, -0.12]} rotation={[Math.PI / 2, 0, 0]} castShadow>
+          <cylinderGeometry args={[0.045, 0.045, 0.03, 12]} />
+          <meshStandardMaterial color="#111827" roughness={0.6} />
+        </mesh>
+      ))}
+      {/* Teclas blancas: giran desde su borde trasero (pivote en -Z) */}
+      <group ref={teclas} position={[0, 0.94, -0.06]}>
+        {BLANCAS.map((x) => (
+          <group key={x} position={[x, 0, 0]}>
+            <mesh position={[0, 0, 0.13]} castShadow>
+              <boxGeometry args={[0.088, 0.022, 0.26]} />
+              <meshStandardMaterial color="#f8fafc" roughness={0.35} />
+            </mesh>
+          </group>
+        ))}
+      </group>
+      {/* Teclas negras, encima y hacia el fondo */}
+      {NEGRAS.map((i) => (
+        <mesh key={i} position={[BLANCAS[i] + 0.048, 0.965, 0.02]} castShadow>
+          <boxGeometry args={[0.05, 0.026, 0.16]} />
+          <meshStandardMaterial color="#111827" roughness={0.4} />
+        </mesh>
+      ))}
+      {/* Banqueta */}
+      <mesh position={[0, 0.44, 0.72]} castShadow>
+        <boxGeometry args={[0.62, 0.08, 0.28]} />
+        <meshStandardMaterial color="#1f2937" roughness={0.75} />
+      </mesh>
+      {[
+        [-0.25, 0.62],
+        [0.25, 0.62],
+        [-0.25, 0.82],
+        [0.25, 0.82],
+      ].map(([x, z]) => (
+        <mesh key={`${x}-${z}`} position={[x, 0.2, z]} castShadow>
+          <cylinderGeometry args={[0.022, 0.022, 0.4, 8]} />
+          <meshStandardMaterial color="#3f3f46" metalness={0.5} />
+        </mesh>
+      ))}
+    </group>
+  )
+}
+
+/**
+ * Caballete con lienzo a medio pintar (Studio de arte): al acercarse, el pincel
+ * apoyado da brochazos y el lienzo se mece con el trazo.
+ */
+export function CaballeteArte({ color, simple = false, nivel = null, objetoId }: EspProps) {
+  const raiz = useRef<THREE.Group>(null!)
+  const lienzo = useRef<THREE.Group>(null!)
+  const pincel = useRef<THREE.Group>(null!)
+  const energia = useRef(0)
+  useFrame(({ clock }) => {
+    if (simple || !raiz.current) return
+    const e = actualizarEnergia(raiz.current, PROX, nivel, energia, objetoId)
+    if (e === 0) return // en reposo no hay nada que animar
+    const t = clock.elapsedTime
+    if (lienzo.current) lienzo.current.rotation.z = Math.sin(t * 7) * 0.012 * e
+    if (pincel.current) {
+      // Brochazo: sube y baja recorriendo el lienzo en diagonal.
+      pincel.current.position.x = 0.12 + Math.sin(t * 3.2) * 0.16 * e
+      pincel.current.position.y = 1.06 + Math.cos(t * 2.1) * 0.1 * e
+      pincel.current.rotation.z = -0.7 + Math.sin(t * 3.2) * 0.15 * e
+    }
+  })
+  // Manchas del cuadro: posición, tamaño y color (una obra abstracta a medias).
+  const MANCHAS: [number, number, number, number, string][] = [
+    [-0.13, 0.12, 0.3, 0.2, '#38bdf8'],
+    [0.14, -0.05, 0.26, 0.3, '#fbbf24'],
+    [-0.05, -0.24, 0.42, 0.14, '#4ade80'],
+    [0.2, 0.24, 0.16, 0.16, '#f472b6'],
+  ]
+  return (
+    <group ref={raiz}>
+      {/* Tres patas: dos delante y una atrás */}
+      {[-0.34, 0.34].map((x) => (
+        <mesh key={x} position={[x, 0.75, 0.06]} rotation={[0.06, 0, -x * 0.16]} castShadow>
+          <boxGeometry args={[0.055, 1.5, 0.055]} />
+          <meshStandardMaterial color={color} roughness={0.8} />
+        </mesh>
+      ))}
+      <mesh position={[0, 0.72, -0.42]} rotation={[-0.3, 0, 0]} castShadow>
+        <boxGeometry args={[0.055, 1.5, 0.055]} />
+        <meshStandardMaterial color={color} roughness={0.8} />
+      </mesh>
+      {/* Travesaño y bandeja del lienzo */}
+      <mesh position={[0, 0.62, 0.03]} castShadow>
+        <boxGeometry args={[0.78, 0.05, 0.14]} />
+        <meshStandardMaterial color={color} roughness={0.8} />
+      </mesh>
+      {/* Lienzo inclinado */}
+      <group ref={lienzo} position={[0, 1.06, 0.02]} rotation={[0.08, 0, 0]}>
+        <mesh castShadow receiveShadow>
+          <boxGeometry args={[0.78, 0.62, 0.035]} />
+          <meshStandardMaterial color="#f8fafc" roughness={0.95} />
+        </mesh>
+        {MANCHAS.map(([x, y, w, h, c]) => (
+          <mesh key={c} position={[x, y, 0.021]}>
+            <boxGeometry args={[w, h, 0.004]} />
+            <meshStandardMaterial color={c} roughness={0.85} />
+          </mesh>
+        ))}
+        {/* Marco de la tela */}
+        <mesh position={[0, 0, -0.02]}>
+          <boxGeometry args={[0.82, 0.66, 0.02]} />
+          <meshStandardMaterial color="#d4a373" roughness={0.85} />
+        </mesh>
+      </group>
+      {/* Pincel que pinta */}
+      <group ref={pincel} position={[0.12, 1.06, 0.1]} rotation={[0, 0, -0.7]}>
+        <mesh castShadow>
+          <cylinderGeometry args={[0.012, 0.012, 0.26, 8]} />
+          <meshStandardMaterial color="#92400e" roughness={0.7} />
+        </mesh>
+        <mesh position={[0, -0.16, 0]} castShadow>
+          <coneGeometry args={[0.026, 0.09, 8]} />
+          <meshStandardMaterial color="#e11d48" roughness={0.6} />
+        </mesh>
+      </group>
+      {/* Paleta apoyada en la bandeja */}
+      <mesh position={[-0.22, 0.665, 0.06]} rotation={[Math.PI / 2, 0, 0.2]} castShadow>
+        <cylinderGeometry args={[0.14, 0.14, 0.015, 16]} />
+        <meshStandardMaterial color="#c8a165" roughness={0.8} />
+      </mesh>
+      {[
+        [-0.29, '#ef4444'],
+        [-0.22, '#3b82f6'],
+        [-0.15, '#facc15'],
+      ].map(([x, c]) => (
+        <mesh key={c as string} position={[x as number, 0.677, 0.06]}>
+          <cylinderGeometry args={[0.025, 0.025, 0.008, 10]} />
+          <meshStandardMaterial color={c as string} roughness={0.6} />
+        </mesh>
+      ))}
+      {/* Botes de pintura en el suelo */}
+      {[
+        [-0.5, 0.4, '#22c55e'],
+        [-0.36, 0.5, '#8b5cf6'],
+      ].map(([x, z, c]) => (
+        <mesh key={c as string} position={[x as number, 0.09, z as number]} castShadow>
+          <cylinderGeometry args={[0.075, 0.07, 0.18, 12]} />
+          <meshStandardMaterial color={c as string} roughness={0.55} />
+        </mesh>
+      ))}
+    </group>
+  )
+}
+
+/**
+ * Escritorio con máquina de escribir (Studio de escritura): al acercarse teclea
+ * sola —dos varillas suben y bajan— y la hoja va saliendo del rodillo.
+ */
+export function EscritorioEscritura({ color, simple = false, nivel = null, objetoId }: EspProps) {
+  const raiz = useRef<THREE.Group>(null!)
+  const varillas = useRef<THREE.Group>(null!)
+  const hoja = useRef<THREE.Mesh>(null!)
+  const energia = useRef(0)
+  useFrame(({ clock }) => {
+    if (simple || !raiz.current) return
+    const e = actualizarEnergia(raiz.current, PROX, nivel, energia, objetoId)
+    if (e === 0) return // en reposo no hay nada que animar
+    const t = clock.elapsedTime
+    if (varillas.current) {
+      varillas.current.children.forEach((v, i) => {
+        v.rotation.x = -0.9 + Math.max(0, Math.sin(t * 11 + i * 2.1)) * 0.5 * e
+      })
+    }
+    // La hoja asoma y vuelve: el ciclo de una página escrita.
+    if (hoja.current) hoja.current.position.y = 1.07 + ((t * 0.12) % 0.12) * e
+  })
+  return (
+    <group ref={raiz}>
+      {/* Escritorio */}
+      <mesh position={[0, 0.76, 0]} castShadow receiveShadow>
+        <boxGeometry args={[1.5, 0.07, 0.7]} />
+        <meshStandardMaterial color={color} roughness={0.75} />
+      </mesh>
+      <Patas w={1.36} d={0.56} h={0.76} color="#5b3a1a" />
+      {/* Cajonera lateral */}
+      <mesh position={[-0.52, 0.38, -0.02]} castShadow>
+        <boxGeometry args={[0.42, 0.68, 0.6]} />
+        <meshStandardMaterial color={color} roughness={0.75} />
+      </mesh>
+      {[0.16, 0.4].map((y) => (
+        <mesh key={y} position={[-0.52, y, 0.29]}>
+          <boxGeometry args={[0.3, 0.03, 0.02]} />
+          <meshStandardMaterial color="#d6b98c" metalness={0.4} roughness={0.5} />
+        </mesh>
+      ))}
+      {/* Máquina de escribir: base, teclado escalonado y rodillo */}
+      <mesh position={[0.16, 0.85, 0.02]} castShadow>
+        <boxGeometry args={[0.56, 0.11, 0.42]} />
+        <meshStandardMaterial color="#1f2937" roughness={0.5} metalness={0.25} />
+      </mesh>
+      {[0, 1, 2].map((f) => (
+        <mesh key={f} position={[0.16, 0.915 + f * 0.018, 0.16 - f * 0.06]} castShadow>
+          <boxGeometry args={[0.5, 0.022, 0.055]} />
+          <meshStandardMaterial color="#e5e7eb" roughness={0.5} />
+        </mesh>
+      ))}
+      {/* Varillas que teclean */}
+      <group ref={varillas} position={[0.16, 0.93, -0.04]}>
+        {[-0.05, 0.05].map((x) => (
+          <mesh key={x} position={[x, 0.05, 0]} rotation={[-0.9, 0, 0]} castShadow>
+            <boxGeometry args={[0.012, 0.2, 0.012]} />
+            <meshStandardMaterial color="#9ca3af" metalness={0.7} roughness={0.3} />
+          </mesh>
+        ))}
+      </group>
+      {/* Rodillo y hoja */}
+      <mesh position={[0.16, 1.0, -0.14]} rotation={[0, 0, Math.PI / 2]} castShadow>
+        <cylinderGeometry args={[0.05, 0.05, 0.5, 12]} />
+        <meshStandardMaterial color="#111827" roughness={0.6} />
+      </mesh>
+      <mesh ref={hoja} position={[0.16, 1.07, -0.17]} rotation={[0.22, 0, 0]} castShadow>
+        <boxGeometry args={[0.34, 0.34, 0.004]} />
+        <meshStandardMaterial color="#f8fafc" roughness={0.95} />
+      </mesh>
+      {/* Pila de folios escritos y taza */}
+      {[0, 1, 2].map((i) => (
+        <mesh key={i} position={[0.66, 0.8 + i * 0.012, 0.16]} rotation={[0, 0.09 * i, 0]} castShadow>
+          <boxGeometry args={[0.28, 0.012, 0.36]} />
+          <meshStandardMaterial color="#f1f5f9" roughness={0.95} />
+        </mesh>
+      ))}
+      <mesh position={[-0.5, 0.84, 0.2]} castShadow>
+        <cylinderGeometry args={[0.06, 0.05, 0.1, 14]} />
+        <meshStandardMaterial color="#e5e7eb" roughness={0.4} />
+      </mesh>
+      <mesh position={[-0.5, 0.885, 0.2]}>
+        <cylinderGeometry args={[0.052, 0.052, 0.01, 14]} />
+        <meshStandardMaterial color="#6b4423" roughness={0.5} />
+      </mesh>
+      {/* Lápices en un bote */}
+      <mesh position={[0.66, 0.84, -0.18]} castShadow>
+        <cylinderGeometry args={[0.05, 0.05, 0.12, 12]} />
+        <meshStandardMaterial color="#475569" roughness={0.6} />
+      </mesh>
+      {[
+        [-0.02, 0.08, '#f59e0b'],
+        [0.02, -0.02, '#ef4444'],
+        [0.01, 0.03, '#3b82f6'],
+      ].map(([dx, dz, c], i) => (
+        <mesh
+          key={c as string}
+          position={[0.66 + (dx as number), 0.94, -0.18 + (dz as number)]}
+          rotation={[0.1 * i, 0, 0.08 * i - 0.08]}
+          castShadow
+        >
+          <cylinderGeometry args={[0.008, 0.008, 0.18, 6]} />
+          <meshStandardMaterial color={c as string} roughness={0.7} />
+        </mesh>
+      ))}
+    </group>
+  )
+}
+
+/**
+ * Cámara sobre trípode con claqueta y foco (Studio de video): al acercarse, el
+ * piloto de grabación parpadea, la cámara hace un paneo lento y la claqueta bate.
+ */
+export function CamaraVideo({ color, simple = false, nivel = null, objetoId }: EspProps) {
+  const raiz = useRef<THREE.Group>(null!)
+  const cabeza = useRef<THREE.Group>(null!)
+  const piloto = useRef<THREE.Mesh>(null!)
+  const claqueta = useRef<THREE.Group>(null!)
+  const energia = useRef(0)
+  useFrame(({ clock }) => {
+    if (simple || !raiz.current) return
+    const e = actualizarEnergia(raiz.current, PROX, nivel, energia, objetoId)
+    if (e === 0) return // en reposo no hay nada que animar
+    const t = clock.elapsedTime
+    if (cabeza.current) cabeza.current.rotation.y = Math.sin(t * 0.9) * 0.22 * e
+    if (piloto.current) {
+      const mat = piloto.current.material as THREE.MeshStandardMaterial
+      // Parpadeo de REC: encendido franco, apagado franco.
+      mat.emissiveIntensity = (Math.sin(t * 4) > 0 ? 2.2 : 0.15) * e
+    }
+    if (claqueta.current) claqueta.current.rotation.z = -Math.abs(Math.sin(t * 2.4)) * 0.5 * e
+  })
+  return (
+    <group ref={raiz}>
+      {/* Trípode: las tres patas cuelgan del ápice y se abren hacia abajo (cada
+          una en su propio grupo girado 120°, para que converjan de verdad arriba). */}
+      {[0, 1, 2].map((i) => (
+        <group key={i} rotation={[0, (i * Math.PI * 2) / 3, 0]}>
+          <group position={[0, 0.95, 0]} rotation={[0.28, 0, 0]}>
+            <mesh position={[0, -0.48, 0]} castShadow>
+              <boxGeometry args={[0.05, 0.96, 0.05]} />
+              <meshStandardMaterial color="#1f2937" metalness={0.5} roughness={0.45} />
+            </mesh>
+          </group>
+        </group>
+      ))}
+      <mesh position={[0, 0.95, 0]} castShadow>
+        <cylinderGeometry args={[0.045, 0.06, 0.16, 10]} />
+        <meshStandardMaterial color="#374151" metalness={0.55} roughness={0.4} />
+      </mesh>
+      {/* Cabeza: la cámara que panea */}
+      <group ref={cabeza} position={[0, 1.06, 0]}>
+        {/* Cuerpo */}
+        <mesh position={[0, 0.1, 0]} castShadow>
+          <boxGeometry args={[0.34, 0.24, 0.5]} />
+          <meshStandardMaterial color={color} metalness={0.4} roughness={0.4} />
+        </mesh>
+        {/* Lente */}
+        <mesh position={[0, 0.1, 0.3]} rotation={[Math.PI / 2, 0, 0]} castShadow>
+          <cylinderGeometry args={[0.1, 0.12, 0.2, 16]} />
+          <meshStandardMaterial color="#111827" metalness={0.6} roughness={0.3} />
+        </mesh>
+        <mesh position={[0, 0.1, 0.401]} rotation={[Math.PI / 2, 0, 0]}>
+          <cylinderGeometry args={[0.075, 0.075, 0.01, 16]} />
+          <meshStandardMaterial color="#0ea5e9" metalness={0.9} roughness={0.1} />
+        </mesh>
+        {/* Piloto de grabación */}
+        <mesh ref={piloto} position={[0.12, 0.22, 0.22]}>
+          <sphereGeometry args={[0.028, 10, 10]} />
+          <meshStandardMaterial color="#ef4444" emissive="#ef4444" emissiveIntensity={0.15} toneMapped={false} />
+        </mesh>
+        {/* Visor lateral abatible */}
+        <mesh position={[-0.21, 0.12, -0.02]} rotation={[0, 0.35, 0]} castShadow>
+          <boxGeometry args={[0.02, 0.16, 0.24]} />
+          <meshStandardMaterial color="#1f2937" roughness={0.5} />
+        </mesh>
+        <mesh position={[-0.225, 0.12, -0.02]} rotation={[0, 0.35, 0]}>
+          <boxGeometry args={[0.004, 0.13, 0.2]} />
+          <meshStandardMaterial color="#22d3ee" emissive="#22d3ee" emissiveIntensity={0.5} toneMapped={false} />
+        </mesh>
+        {/* Micrófono encima */}
+        <mesh position={[0, 0.26, 0.05]} rotation={[Math.PI / 2, 0, 0]} castShadow>
+          <cylinderGeometry args={[0.032, 0.032, 0.22, 10]} />
+          <meshStandardMaterial color="#111827" roughness={0.7} />
+        </mesh>
+      </group>
+      {/* Claqueta apoyada en el suelo */}
+      <group position={[0.62, 0.06, 0.34]} rotation={[0, -0.45, 0]}>
+        <mesh position={[0, 0.14, 0]} rotation={[0.18, 0, 0]} castShadow>
+          <boxGeometry args={[0.42, 0.3, 0.025]} />
+          <meshStandardMaterial color="#111827" roughness={0.6} />
+        </mesh>
+        {[-0.06, 0.02].map((y) => (
+          <mesh key={y} position={[0, 0.16 + y, 0.016]} rotation={[0.18, 0, 0]}>
+            <boxGeometry args={[0.34, 0.012, 0.004]} />
+            <meshStandardMaterial color="#f8fafc" />
+          </mesh>
+        ))}
+        {/* Brazo que bate: pivota desde su extremo izquierdo */}
+        <group ref={claqueta} position={[-0.21, 0.3, 0.01]}>
+          <mesh position={[0.21, 0.02, 0]} rotation={[0.18, 0, 0]} castShadow>
+            <boxGeometry args={[0.42, 0.06, 0.025]} />
+            <meshStandardMaterial color="#f8fafc" roughness={0.6} />
+          </mesh>
+          {[0.06, 0.18, 0.3, 0.42].map((x) => (
+            <mesh key={x} position={[x, 0.02, 0.014]} rotation={[0.18, 0, 0.35]}>
+              <boxGeometry args={[0.05, 0.062, 0.004]} />
+              <meshStandardMaterial color="#111827" />
+            </mesh>
+          ))}
+        </group>
+      </group>
+      {/* Foco de set con su pie */}
+      <group position={[-0.68, 0, 0.24]}>
+        <mesh position={[0, 0.03, 0]} castShadow>
+          <cylinderGeometry args={[0.16, 0.19, 0.06, 12]} />
+          <meshStandardMaterial color="#1f2937" roughness={0.8} />
+        </mesh>
+        <mesh position={[0, 0.5, 0]} castShadow>
+          <cylinderGeometry args={[0.03, 0.035, 0.94, 10]} />
+          <meshStandardMaterial color="#374151" metalness={0.5} roughness={0.45} />
+        </mesh>
+        <mesh position={[0, 1.02, 0.06]} rotation={[0.5, 0, 0]} castShadow>
+          <boxGeometry args={[0.34, 0.34, 0.1]} />
+          <meshStandardMaterial color="#1f2937" metalness={0.4} roughness={0.5} />
+        </mesh>
+        <mesh position={[0, 0.99, 0.13]} rotation={[0.5, 0, 0]}>
+          <boxGeometry args={[0.28, 0.28, 0.01]} />
+          <meshStandardMaterial color="#fef3c7" emissive="#fde68a" emissiveIntensity={0.8} toneMapped={false} />
+        </mesh>
+      </group>
+    </group>
+  )
+}
+
 interface EspProps {
   color: string
   simple?: boolean
@@ -1590,6 +2033,14 @@ export function EspecialPlantilla({
       return <DianaMetas color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
     case TIPO_ESTACION_COMPUTO:
       return <EstacionComputo color={color} />
+    case TIPO_TECLADO_MIDI:
+      return <TecladoMidi color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
+    case TIPO_CABALLETE:
+      return <CaballeteArte color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
+    case TIPO_ESCRITORIO_ESCRITURA:
+      return <EscritorioEscritura color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
+    case TIPO_CAMARA_VIDEO:
+      return <CamaraVideo color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
     default:
       return null
   }

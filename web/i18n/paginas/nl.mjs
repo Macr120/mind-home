@@ -163,7 +163,8 @@ export const TEXTOS = {
   'desc.web':
     'Niets installeren: log in met je account en je huis wacht op je. Zonder account kun je de app proberen.',
   'desc.web.cta': 'De app openen',
-  'desc.windows': 'Installatieprogramma voor Windows 10/11.',
+  'desc.windows': 'Gratis in Microsoft Store. Het huis koop je erin.',
+  'desc.windows.cta': 'Downloaden voor Windows',
   'desc.mac': '.dmg-image voor Mac.',
   'desc.mac.cta': 'Downloaden voor Mac',
 
@@ -221,7 +222,12 @@ export const TEXTOS = {
   'priv.uso.1': 'Om je toegang te geven tot je account, je aankoop en je abonnement.',
   'priv.uso.2': 'Om je gegevens tussen apparaten te synchroniseren en er een back-up van te maken.',
   'priv.uso.3': 'Om de AI-functies met jouw creditquotum te laten draaien.',
-  'priv.uso.4': 'We verkopen je gegevens niet en delen ze niet met derden voor reclame.',
+  'priv.uso.4': 'We verkopen je gegevens niet en delen ze niet met derden voor reclame.',  'priv.redes.h': 'Gekoppelde socialmedia-accounts',
+  'priv.redes.p':
+    'Als je je YouTube-, TikTok-, Facebook- of Instagram-account koppelt, bewaren we de toegangstokens die dat netwerk ons geeft versleuteld op onze server, samen met de naam en de foto van het gekozen account of de gekozen Pagina. We gebruiken ze alleen om op je eigen account de video’s te plaatsen die jij vanuit de video-editor wilt publiceren, op het moment dat je op Publiceren tikt. We lezen je video’s, berichten, reacties, chats of andere gegevens van die accounts niet, en we plaatsen nooit uit onszelf iets. De tokens blijven bewaard tot je het account loskoppelt bij Instellingen → Gekoppelde accounts of je Mind Planner Home-account verwijdert; je kunt de toegang ook intrekken in de beveiligingsinstellingen van elk netwerk (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
+  'priv.redes.youtube':
+    'Voor YouTube gebruikt de app YouTube API Services; door je account te koppelen ga je akkoord met de <a href="https://www.youtube.com/t/terms">Servicevoorwaarden van YouTube</a> en is het <a href="https://policies.google.com/privacy">Privacybeleid van Google</a> van toepassing.',
+
   'priv.cancelas.h': 'Als je je abonnement opzegt',
   'priv.cancelas.p':
     'Je lokale gegevens blijven op je apparaten staan. De gesynchroniseerde gegevens blijven opgeslagen (onbereikbaar tot je verlengt) en je kunt ze definitief wissen door je account te verwijderen.',
@@ -293,6 +299,7 @@ export const TEXTOS = {
   'sop.faq.p': 'De meest gestelde vragen — prijzen, apparaten, AI en je gegevens — worden beantwoord op de hoofdpagina.',
   'sop.faq.enlace': 'Bekijk de veelgestelde vragen',
   'sop.cuenta.h': 'Je account verwijderen',
-  'sop.cuenta.p': 'Je kunt je account en al je gegevens in de cloud verwijderen vanuit de app (Editor → Instellingen → Account) of via je account op het web.',
+  'sop.cuenta.p':
+    'Je kunt je account en al je gegevens in de cloud verwijderen vanuit de app (Editor → Instellingen → Account) of via je account op het web. Bij het verwijderen verdwijnen ook de koppelingen met je sociale netwerken (YouTube, TikTok, Facebook en Instagram): de bewaarde tokens worden vernietigd en werken niet meer.',
   'sop.cuenta.enlace': 'Naar je account',
 }

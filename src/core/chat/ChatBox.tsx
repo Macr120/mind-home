@@ -104,7 +104,14 @@ function cuartoMasCercano(): string | null {
  *   4. Retag manual: ✏️ en una entrada → selector de cuarto.
  *   5. Mascota: una "cara y voz" (mago/gato/perro…) que responde cada mensaje.
  */
-export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
+export function ChatBox({
+  menuAbierto = false,
+  encima = false,
+}: {
+  menuAbierto?: boolean
+  /** Modo película: por encima del dock del Studio (z-60), para que sus menús salgan delante de la timeline. */
+  encima?: boolean
+}) {
   const t = useT()
   const [texto, setTexto] = useState('')
   const [abierto, setAbierto] = useState(false)
@@ -746,8 +753,8 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
         // Plegado va centrado con `translate`, así que ahí no lleva los márgenes
         // laterales de la zona segura: descentrarían la barra.
         angostoMovil
-          ? 'safe-inf absolute bottom-4 left-1/2 z-20 -translate-x-1/2 select-none'
-          : ['safe-inf safe-ini safe-fin absolute bottom-4 z-20 min-w-0 select-none', anclajeChat(menuAbierto)].join(' ')
+          ? `safe-inf absolute bottom-4 left-1/2 ${encima ? 'z-[70]' : 'z-20'} -translate-x-1/2 select-none`
+          : ['safe-inf safe-ini safe-fin absolute bottom-4 min-w-0 select-none', encima ? 'z-[70]' : 'z-20', anclajeChat(menuAbierto)].join(' ')
       }
     >
       {/* Conversación con el asistente (estilo WhatsApp): siempre sobre la barra */}

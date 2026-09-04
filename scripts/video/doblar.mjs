@@ -6,7 +6,12 @@
  * lista para `montar.mjs`.
  *
  *   node scripts/video/doblar.mjs lanzamiento de
- *   node scripts/video/doblar.mjs lanzamiento --todos [--incluir-es] [--alterna]
+ *   node scripts/video/doblar.mjs lanzamiento --todos [--incluir-es] [--alterna] [--clonar]
+ *
+ * --clonar: convierte el timbre de cada segmento a la voz del usuario con
+ * OpenVoice V2 (convertir_voz.py, venv en OPENVOICE_PY) usando la referencia
+ * marketing/video/voz-referencia.(wav|m4a|mp3). edge-tts sigue poniendo la
+ * pronunciacion nativa; solo cambia el color de voz.
  */
 import { execFile } from 'node:child_process'
 import { promisify } from 'node:util'
@@ -21,6 +26,8 @@ const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '.
 const FFMPEG = process.env.FFMPEG || 'ffmpeg'
 const FFPROBE = process.env.FFPROBE || 'ffprobe'
 const EDGE_TTS = process.env.EDGE_TTS || 'edge-tts'
+const OPENVOICE_PY = process.env.OPENVOICE_PY || 'C:\\Users\\macr1\\openvoice\\venv\\Scripts\\python.exe'
+const CONVERTIR_VOZ = path.join(RAIZ, 'scripts', 'video', 'convertir_voz.py')
 /** Compresión máxima aceptable sin re-escribir la traducción. */
 const ATEMPO_MAX = 1.15
 const RATES = ['+0%', '+10%', '+20%', '+30%']
@@ -29,7 +36,7 @@ const args = process.argv.slice(2)
 const [slug] = args
 const flag = (n) => args.includes(`--${n}`)
 if (!slug) {
-  console.error('uso: doblar.mjs <slug> <idioma|--todos> [--incluir-es] [--alterna]')
+  console.error('uso: doblar.mjs <slug> <idioma|--todos> [--incluir-es] [--alterna] [--clonar]')
   process.exit(1)
 }
 const DIR = path.join(RAIZ, 'marketing', 'video', slug)
@@ -38,6 +45,13 @@ const ids = flag('todos')
   : args.filter((a) => !a.startsWith('--')).slice(1)
 if (!ids.length) {
   console.error('¿Qué idioma? (código o --todos)')
+  process.exit(1)
+}
+const VOZ_REF = ['wav', 'm4a', 'mp3']
+  .map((ext) => path.join(RAIZ, 'marketing', 'video', `voz-referencia.${ext}`))
+  .find(existsSync)
+if (flag('clonar') && !VOZ_REF) {
+  console.error('✗ --clonar necesita marketing/video/voz-referencia.(wav|m4a|mp3): graba ~1 min de tu voz')
   process.exit(1)
 }
 
@@ -75,6 +89,12 @@ async function doblarIdioma(id) {
     reporte.push({ n: s.n, inicio: s.inicio, hueco: +hueco.toFixed(2), dur: +dur.toFixed(2), rate, atempo: +Math.min(atempo, ATEMPO_MAX).toFixed(3), estado, ruta })
     console.log(`  #${String(s.n).padStart(2)} ${dur.toFixed(2)}s / ${hueco.toFixed(2)}s  rate ${rate}  ${estado === 'ok' ? '' : estado}`)
     if (estado === 'NO CABE') console.warn(`    → acorta la traducción del segmento ${s.n} en guion.${id}.json y repite (meter + doblar)`)
+  }
+
+  if (flag('clonar')) {
+    console.log(`  clonando timbre de ${reporte.length} segmentos…`)
+    await ejecutar(OPENVOICE_PY, [CONVERTIR_VOZ, '--ref', VOZ_REF, ...reporte.map((r) => r.ruta)], { maxBuffer: 10 * 1024 * 1024 })
+    for (const r of reporte) r.ruta = r.ruta.replace(/\.mp3$/, '.clon.wav')
   }
 
   // Mezcla: cada segmento retrasado a su `inicio` (adelay), todo sumado y normalizado.

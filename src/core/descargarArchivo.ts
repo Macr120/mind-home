@@ -62,8 +62,11 @@ function descargarPorEnlace(url: string, nombre: string, revocar: boolean): void
   const a = document.createElement('a')
   a.href = url
   a.download = nombre
+  document.body.appendChild(a)
   a.click()
-  if (revocar) URL.revokeObjectURL(url)
+  a.remove()
+  // Revocar en el mismo tick corta la descarga en algunos navegadores (archivo vacío).
+  if (revocar) window.setTimeout(() => URL.revokeObjectURL(url), 1000)
 }
 
 /** Blob → base64 pelado (sin la cabecera `data:…;base64,`), que es lo que pide Filesystem. */

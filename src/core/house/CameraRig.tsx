@@ -4,6 +4,8 @@ import * as THREE from 'three'
 import {
   useCam,
   camAnim,
+  camSalto,
+  lerpAngulo,
   EDIT_PANEL_PX,
   EDIT_FOCUS_PANEL_FRAC,
   CAM_BASE_AZ,
@@ -31,14 +33,6 @@ function publicarEncuadre(cam: THREE.OrthographicCamera, anchoCss: number, a: nu
   lienzoCam.fw = fw
   lienzoCam.fh = fh
   setZoomAjuste(zoomParaRect(gridCols * SPACING, gridRows * SPACING, fw, fh, a, e))
-}
-
-/** Interpola un ángulo tomando siempre el camino corto (maneja el salto en ±π). */
-function lerpAngulo(actual: number, objetivo: number, t: number) {
-  let d = objetivo - actual
-  while (d > Math.PI) d -= 2 * Math.PI
-  while (d < -Math.PI) d += 2 * Math.PI
-  return actual + d * t
 }
 
 /**
@@ -70,8 +64,10 @@ export function CameraRig() {
 
     if (cam.view) cam.clearViewOffset()
 
-    azRef.current = lerpAngulo(azRef.current, az, 0.14)
-    elRef.current += (el - elRef.current) * 0.14
+    // Corte del modo película: este frame se planta en el objetivo, sin easing.
+    const salto = camSalto.pendiente
+    azRef.current = salto ? az : lerpAngulo(azRef.current, az, 0.14)
+    elRef.current = salto ? el : elRef.current + (el - elRef.current) * 0.14
     const a = azRef.current
     const e = elRef.current
     // Publica la orientación animada para el cubo de navegación.
@@ -94,7 +90,8 @@ export function CameraRig() {
       tmp.current.z -= rightZ * shift
     }
 
-    focusRef.current.lerp(tmp.current, 0.12)
+    if (salto) focusRef.current.copy(tmp.current)
+    else focusRef.current.lerp(tmp.current, 0.12)
 
     const ce = Math.cos(e)
     const se = Math.sin(e)
@@ -105,11 +102,12 @@ export function CameraRig() {
     )
     cam.lookAt(focusRef.current)
 
-    const nz = THREE.MathUtils.lerp(cam.zoom, zoom, 0.15)
+    const nz = salto ? zoom : THREE.MathUtils.lerp(cam.zoom, zoom, 0.15)
     if (Math.abs(nz - cam.zoom) > 0.001) {
       cam.zoom = nz
       cam.updateProjectionMatrix()
     }
+    camSalto.pendiente = false
   })
 
   return null

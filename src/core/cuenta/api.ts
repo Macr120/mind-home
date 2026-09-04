@@ -24,6 +24,7 @@ export type CodigoErrorIA =
   | 'sin-pro'
   | 'cuota-agotada'
   | 'techo'
+  | 'limite'
   | 'proveedor'
   | 'peticion-invalida'
 
@@ -139,12 +140,18 @@ function refrescarMedidor(uso: UsoCuenta): void {
   })
 }
 
-async function llamarFuncion<T>(nombre: string, cuerpo: unknown): Promise<T> {
+/** El access token de la sesión, para llamar a una Edge Function; lanza 'sin-sesion' si no hay. */
+export async function tokenSesion(): Promise<string> {
   const sb = await obtenerSupabase()
   if (!sb) throw new ErrorIA('sin-sesion', 'Sin backend configurado.')
   const { data } = await sb.auth.getSession()
   const token = data.session?.access_token
   if (!token) throw new ErrorIA('sin-sesion', 'Inicia sesión para usar la IA.')
+  return token
+}
+
+async function llamarFuncion<T>(nombre: string, cuerpo: unknown): Promise<T> {
+  const token = await tokenSesion()
 
   let resp: Response
   try {

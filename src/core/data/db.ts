@@ -9,6 +9,8 @@ import { ventanasMiddleware } from './sync/ventanas'
 import { TABLAS_SYNC, filaSeed } from './sync/syncables'
 import { haySandboxDemoSucio } from '../../demo/modo'
 import type { Idioma } from '../i18n/idiomas'
+import type { EmocionId } from '../chat/emociones'
+import type { PresetAnimacionId } from '../house/animacion'
 
 /**
  * Capa de datos LOCAL (IndexedDB vía Dexie).
@@ -2601,6 +2603,7 @@ export const GRUPOS_PLANTILLA_BASE: { nombre: string; emoji: string; miembros: s
   { nombre: 'Administración', emoji: '🗂️', miembros: ['despacho', 'garage', 'agenda', 'metas'] },
   { nombre: 'Pasatiempos', emoji: '🎉', miembros: ['entretenimiento', 'diario', 'hobbies'] },
   { nombre: 'Memorias y salud mental', emoji: '🧠', miembros: ['anecdotario', 'sala', 'jardin'] },
+  { nombre: 'Studio', emoji: '🎬', miembros: ['audio', 'arte', 'escritura', 'video'] },
 ]
 
 /** Objeto del conjunto de una app: recurso 3D (o `tipo` especial), su posición y si es el principal. */
@@ -3475,6 +3478,588 @@ export interface EstadoSisifo {
   estrellaNueva: boolean
 }
 
+// ----- Studio · Arte, Escritura, Audio y Video -----
+
+/** Capa de un dibujo (orden del array = apilado, la 0 abajo). */
+export interface CapaDibujo {
+  /** Id estable dentro del dibujo (`ca-<epoch36>-<n>`, patrón `PistaAudio`). */
+  capaId: string
+  nombre: string
+  visible: boolean
+  /** 0..1 */
+  opacidad: number
+  /** PNG con alfa a la resolución del dibujo. */
+  imagen: Blob
+}
+
+/**
+ * Dibujo del Studio de arte. `imagen` es SIEMPRE la composición final aplanada
+ * (la leen galería, IA, export, sync y clientes viejos); `capas` guarda cada
+ * capa con alfa. Campos no indexados: no exigen versión de Dexie nueva.
+ */
+export interface Dibujo {
+  id?: number
+  nombre: string
+  /** PNG del lienzo completo (composición final). */
+  imagen: Blob
+  /** Miniatura jpg ~200 px para la galería (patrón `Anecdota`). */
+  miniatura?: Blob
+  /** Resolución real del lienzo en px (fija al crear). */
+  ancho: number
+  alto: number
+  /** Capas con alfa; ausente = dibujo plano v1 (se migra perezoso al abrir). */
+  capas?: CapaDibujo[]
+  /**
+   * Copia de `actualizadoEn` del último guardado CON capas: si difieren, un
+   * cliente sin capas editó `imagen` y esta manda (las capas se descartan).
+   */
+  capasEn?: string
+  creadoEn: string
+  actualizadoEn: string
+}
+
+/** Carpeta fija de un libro a la que pertenece un documento del Studio de escritura. */
+export type SeccionHistoria = 'capitulo' | 'personaje' | 'lugar' | 'acto' | 'trama' | 'relacion'
+
+/** Plantilla elegida al crear un libro: solo decide su icono en la estantería. */
+export type TipoLibro = 'blanco' | 'cuento' | 'guion' | 'teatro'
+
+/**
+ * Libro del Studio de escritura: agrupa Documentos por sección (ver
+ * `SeccionHistoria`). La tabla conserva el nombre `historias` de cuando el modo
+ * Historia era aparte; hoy TODO documento vive en un libro.
+ */
+export interface Historia {
+  id?: number
+  titulo: string
+  /** Sinopsis breve (la tarjeta de la lista). */
+  resumen?: string
+  /** Icono de la portada según la plantilla elegida al crear. NO se indexa. */
+  tipo?: TipoLibro
+  creadoEn: string
+  actualizadoEn: string
+}
+
+/** Documento del Studio de escritura. */
+export interface Documento {
+  id?: number
+  titulo: string
+  /**
+   * HTML SANEADO (lista blanca de `rooms/escritura/sanitizarHtml.ts`, aplicada
+   * al guardar Y al cargar): nunca se persiste HTML crudo del editor.
+   */
+  contenido: string
+  /** Conteo de palabras al guardar (la lista y la actividad no parsean HTML). */
+  palabras: number
+  /** Historia a la que pertenece (modo Historia); ausente = documento suelto. FK → `historias`. NO se indexa. */
+  historiaId?: number
+  /** Carpeta de su historia. NO se indexa. */
+  seccion?: SeccionHistoria
+  /** Solo tramas: el acto del que cuelgan (self-FK → `documentos`). NO se indexa. */
+  actoId?: number
+  /** Incluir el índice automático al imprimir/exportar PDF. */
+  conIndice?: boolean
+  /** Posición 0..1 del personaje en el diagrama de relaciones de su libro. NO se indexan. */
+  relX?: number
+  relY?: number
+  creadoEn: string
+  actualizadoEn: string
+}
+
+/** Arista del diagrama de relaciones de un libro: personaje A —texto→ personaje B. */
+export interface RelacionLibro {
+  id?: number
+  /** FK numérica → `historias` (traducida por el sync). */
+  historiaId: number
+  /** FK numérica → `documentos` (el personaje origen). */
+  aId: number
+  /** FK numérica → `documentos` (el personaje destino). */
+  bId: number
+  /** Etiqueta libre («hermanos», «rivales», «se deben dinero»…). */
+  texto: string
+  /** La nota de la conexión: FK → `documentos` (seccion 'relacion'). NO se indexa. */
+  docId?: number
+  creadoEn: string
+}
+
+/**
+ * Una nota del secuenciador: `[inicio, duracion, tono, velocidad]`.
+ * `inicio`/`duracion` en pasos de semicorchea (16 por compás de 4/4); la edición
+ * manual produce enteros y la grabación MIDI sin cuantizar múltiplos de 0.25.
+ * `tono` es nota MIDI 21..108 (batería: solo 36/38/42/46); `velocidad` 1..127.
+ */
+export type NotaAudio = [number, number, number, number]
+
+/** Ids de instrumento, agrupados por familia en la UI (teclados / cuerdas / vientos / baterías / voz). */
+export type InstrumentoAudio =
+  | 'piano'
+  | 'organo'
+  | 'campanas'
+  | 'pad'
+  | 'lead'
+  | 'guitarra'
+  | 'bajo'
+  | 'arpa'
+  | 'violines'
+  | 'pluck'
+  | 'flauta'
+  | 'trompeta'
+  | 'sax'
+  | 'bateria'
+  | 'bateria808'
+  | 'voz'
+  | 'coro'
+
+/** Niveles 0..1 de la cadena de efectos de una pista (send/wet). */
+export interface EfectosPista {
+  reverb: number
+  delay: number
+  chorus: number
+  dist: number
+}
+
+/** Ajustes de síntesis de una pista; lo ausente cae a la receta del instrumento. */
+export interface SintePista {
+  /** Ataque/liberación en segundos. */
+  ataque?: number
+  liberacion?: number
+  filtroHz?: number
+  resonancia?: number
+  /** Portamento en segundos entre notas consecutivas; 0/ausente = apagado. */
+  glide?: number
+  /** Profundidad de vibrato 0..1 (rate fija). */
+  vibrato?: number
+}
+
+export type PatronArp = 'sube' | 'baja' | 'subeBaja' | 'azar'
+export type TipoEscala = 'mayor' | 'menor' | 'pentaMayor' | 'pentaMenor' | 'blues'
+export type TipoAcorde = 'mayor' | 'menor' | 'septima' | 'diatonico'
+
+/**
+ * Ajustes de interpretación en vivo (teclado en pantalla y MIDI): lo grabado ya
+ * entra transformado, la reproducción del roll no los aplica.
+ */
+export interface AjustesVivo {
+  /** velocidad en pasos de semicorchea entre notas (1 = 1/16, 2 = 1/8). */
+  arp?: { patron: PatronArp; velocidad: 1 | 2 } | null
+  acorde?: TipoAcorde | null
+  /** tonica 0..11 (0 = C). */
+  escala?: { tonica: number; tipo: TipoEscala } | null
+}
+
+export interface PistaAudio {
+  /** Id estable dentro del proyecto ('pa-<epoch36>-<n>'), como `CarpetaIdea`. */
+  pistaId: string
+  nombre: string
+  instrumento: InstrumentoAudio
+  /** 0..1 */
+  volumen: number
+  silenciada?: boolean
+  solo?: boolean
+  efectos?: EfectosPista
+  sinte?: SintePista
+  notas: NotaAudio[]
+  /** 'audio' = pista de clips de micrófono (su `instrumento` no suena); ausente = pista de notas. */
+  tipo?: 'notas' | 'audio'
+  /** Clips de la pista de audio (viajan embebidos; el binario vive en `grabacionesAudio`). */
+  clips?: ClipAudio[]
+}
+
+/** Un clip de audio grabado con micrófono, dentro de una pista `tipo: 'audio'`. */
+export interface ClipAudio {
+  /** Id estable dentro del proyecto ('ca-<epoch36>-<n>'). */
+  clipId: string
+  /** Fila de `grabacionesAudio` (SOLO local: en otro dispositivo no resuelve y la UI lo avisa). */
+  grabacionId: number
+  /** `creadoEn` de la grabación al crear el clip: un id ajeno (BD de otro dispositivo) no coincide y se trata como hueco. */
+  sello: string
+  /** Paso de semicorchea donde arranca en el timeline (admite fracción). */
+  inicio: number
+  /** Segundos reproducibles del blob (ya sin el recorte). */
+  duracionSeg: number
+  /** Segundos del arranque del blob que se saltan (lo captado durante la cuenta de pre-roll). */
+  recorteSeg: number
+  nombre: string
+}
+
+/** Toma de micrófono del Studio de audio, SOLO LOCAL (blobs, como `MedioVideo`). */
+export interface GrabacionAudio {
+  id?: number
+  nombre: string
+  blob: Blob
+  /** Duración real por `decodeAudioData` (los webm de MediaRecorder no traen duración fiable). */
+  duracionSeg: number
+  /** Picos 0..1 (~200 cubetas) para pintar la onda sin re-decodificar. */
+  picos?: number[]
+  creadoEn: string
+}
+
+/** Canción de audio importada por el usuario para el mezclador, SOLO LOCAL (blobs, como `GrabacionAudio`). */
+export interface MusicaImportada {
+  id?: number
+  nombre: string
+  blob: Blob
+  duracionSeg: number
+  /** BPM detectado al importar (para el SYNC de los platos). */
+  bpm: number
+  creadoEn: string
+}
+
+/** Canción importada de un archivo .mid para la pestaña Aprender (notas JSON: sincroniza). */
+export interface CancionAudio {
+  id?: number
+  titulo: string
+  compositor?: string
+  /** 1 fácil · 2 media · 3 difícil. */
+  nivel: 1 | 2 | 3
+  bpm: number
+  /** Compases de 4/4 (puede superar los 32 del editor: solo se practica). */
+  compases: number
+  manoDer: NotaAudio[]
+  manoIzq: NotaAudio[]
+  creadoEn: string
+}
+
+/**
+ * Proyecto del Studio de audio. Las pistas viajan EMBEBIDAS (como las celdas de
+ * `HojaCalculo`): cientos de notas serían cientos de filas por proyecto en el
+ * sync; inline la fila pesa unos KB y el LWW resuelve por proyecto entero.
+ */
+export interface ProyectoAudio {
+  id?: number
+  nombre: string
+  /** 40..240 */
+  bpm: number
+  /** Compases de 4/4 (1..32). */
+  compases: number
+  /** Pulsaciones del metrónomo por compás (2 | 4 | 8 | 16, default 4). */
+  pulsos?: number
+  /** Swing/groove: % (0..60) que se retrasan las semicorcheas débiles al sonar. */
+  swing?: number
+  /** 0..1 (default 0.9). */
+  volumenMaestro?: number
+  vivo?: AjustesVivo
+  pistas: PistaAudio[]
+  /**
+   * Id de la canción de Aprender que originó el proyecto ('sem-…' de las
+   * semillas, 'mid-…' de un .mid importado): abre el MISMO proyecto al volver
+   * a tocarla en el banco. Ausente en proyectos normales.
+   */
+  cancion?: string
+  /**
+   * Carpeta «álbum» a la que el usuario guardó la canción. El NOMBRE es la
+   * identidad: viaja embebido con el proyecto (sin tabla aparte) y el álbum
+   * existe mientras alguna canción lo lleve.
+   */
+  album?: string
+  /**
+   * Canción de fábrica ('sem-…') borrada por el usuario: la fila queda como
+   * LÁPIDA (con `pistas: []`) para que la semilla no reaparezca prístina, ni
+   * aquí ni en los demás dispositivos (viaja por el sync normal).
+   */
+  oculto?: boolean
+  creadoEn: string
+  actualizadoEn: string
+}
+
+// ─── Studio de video · formato 1 (LEGADO: solo migración y contrato de la IA) ──
+
+/** Fondo de una escena de video: color plano, imagen o clip con punto de entrada. */
+export type FondoEscena =
+  | { tipo: 'color'; color: string }
+  | { tipo: 'imagen'; medioId: number }
+  | { tipo: 'video'; medioId: number; desde: number }
+
+export type FuenteTexto = 'sans' | 'serif' | 'mono' | 'display'
+export type AnimacionTexto = 'ninguna' | 'fundido' | 'subir' | 'maquina'
+
+export interface TextoEscena {
+  contenido: string
+  posicion: 'arriba' | 'centro' | 'abajo'
+  tamano: 'S' | 'M' | 'L'
+  color: string
+  /** Línea secundaria, más pequeña, bajo el título. */
+  subtitulo?: string
+  /** Ausente = 'sans' (render idéntico al de siempre). */
+  fuente?: FuenteTexto
+  /** Caja semitransparente detrás del bloque. */
+  caja?: boolean
+  /** Animación de ENTRADA; ausente = 'ninguna'. */
+  animacion?: AnimacionTexto
+  /** Ventana (segundos dentro de la escena) en que se ve; ausentes = toda la escena. */
+  desde?: number
+  hasta?: number
+}
+
+export type FiltroEscena = 'ninguno' | 'bn' | 'sepia' | 'calido' | 'frio' | 'oscuro'
+
+/** De dónde sale un efecto de sonido: la carpeta de fábrica (por clave, suena en cualquier dispositivo) o un audio importado. */
+export type FuenteSonido = { tipo: 'fabrica'; clave: string } | { tipo: 'medio'; medioId: number }
+
+/** Efecto de sonido puntual de una escena. Es una INSTANCIA: el mismo sonido puede ir varias veces. */
+export interface SonidoEscena {
+  /** Id de instancia ('son-<epoch36>-<n>'): clave del `<audio>` propio en el pool. */
+  id: string
+  fuente: FuenteSonido
+  /** Segundo, dentro de la escena, en que suena. */
+  en: number
+  /** 0–1. */
+  volumen: number
+}
+
+export interface EscenaVideo {
+  /** Id estable ('esc-<epoch36>-<n>'): identidad al reordenar y ancla de la narración. */
+  id: string
+  /** Segundos en el video final (0.5–60). */
+  duracion: number
+  fondo: FondoEscena
+  texto?: TextoEscena
+  /** `MedioVideo` tipo 'audio' (importado o TTS generado). */
+  narracionId?: number
+  /** Frase que la IA propone narrar (aún sin audio): el botón TTS parte de aquí. */
+  guionNarracion?: string
+  /** Voz IA fija de esta escena; ausente = la del proyecto (`vozNarrador`). */
+  voz?: string
+  /** Efectos de sonido (tope MAX_SONIDOS_ESCENA). */
+  sonidos?: SonidoEscena[]
+  /** Transición de ENTRADA de la escena (fundido por negro). */
+  transicion: 'corte' | 'fundido'
+  filtro: FiltroEscena
+  /** Volumen del audio propio del clip (0–1); solo aplica a fondo video. */
+  volumen: number
+}
+
+// ─── Studio de video · formato 2: timeline multipista ─────────────────────────
+
+export type PistaId = 'fondo' | 'video' | 'imagen' | 'texto' | 'voz' | 'musica' | 'sfx' | 'avatar'
+
+/** Cámara de un plano del modo película: instantánea de `useCam` (solo iso/tercera/primera). */
+export interface CamaraPelicula {
+  vista: 'iso' | 'tercera' | 'primera'
+  focus: [number, number, number]
+  az: number
+  el: number
+  zoom: number
+  yaw: number
+  pitch: number
+  dist3p: number
+  fov1p: number
+}
+
+/** Lo que se ve en un clip visual. El punto de entrada del video va en `ClipBase.desde`. */
+export type FuenteVisual =
+  | { tipo: 'color'; color: string }
+  | { tipo: 'imagen'; medioId: number }
+  | { tipo: 'video'; medioId: number }
+  /** Plano rodado en la casa 3D (modo película): `cam` al entrar; con `camFin` la cámara viaja hasta ahí durante el clip. */
+  | { tipo: 'escena3d'; cam: CamaraPelicula; camFin?: CamaraPelicula }
+
+export type TipoTransicion = 'corte' | 'fundido' | 'disolver' | 'deslizar' | 'barrido' | 'zoom' | 'desenfoque'
+export type DireccionTransicion = 'izq' | 'der' | 'arriba' | 'abajo'
+/** Transición de ENTRADA desde el clip anterior contiguo de la pista principal. */
+export interface Transicion {
+  tipo: TipoTransicion
+  /** Segundos; ausente = DUR_TRANSICION. Se acota a la mitad del clip más corto de los dos. */
+  duracion?: number
+  /** Solo deslizar/barrido; ausente = 'izq'. */
+  direccion?: DireccionTransicion
+}
+
+/** Rectángulo en FRACCIONES del lienzo (0–1): vale igual en 16:9 y 9:16. El contenido va «contain» dentro. */
+export interface Encuadre {
+  x: number
+  y: number
+  ancho: number
+  alto: number
+}
+
+/** Estilo del texto sin ventana: la ventana ES el clip (`inicio`/`duracion`). */
+export type EstiloTexto = Omit<TextoEscena, 'desde' | 'hasta'>
+
+export type EsquinaAvatar = 'supIzq' | 'supDer' | 'infIzq' | 'infDer' | 'centro'
+
+interface ClipBase {
+  /** 'clp-<epoch36>-<n>'; los migrados conservan el id de su escena/sonido. */
+  id: string
+  pista: PistaId
+  /** Segundos absolutos del proyecto, en centésimas. */
+  inicio: number
+  duracion: number
+  /** Punto de entrada dentro del MEDIO (video o audio); ausente = 0. Sin efecto en color/imagen. */
+  desde?: number
+}
+/** Pista principal: compacta y sin huecos (reordenar = intercambiar). */
+export interface ClipPrincipal extends ClipBase {
+  pista: 'video'
+  fuente: FuenteVisual
+  filtro: FiltroEscena
+  /** Audio propio del clip de video (0–1). */
+  volumen: number
+  /** 'cubrir' (cover, lo de siempre) o 'encajar' (contain: deja ver la pista fondo). Ausente = 'cubrir'. */
+  ajuste?: 'cubrir' | 'encajar'
+  /** Ausente = corte. En el primer clip solo tiene efecto 'fundido' (desde negro). */
+  transicion?: Transicion
+}
+/** Imagen o color a pantalla completa DEBAJO del video principal. */
+export interface ClipFondo extends ClipBase {
+  pista: 'fondo'
+  fuente: Exclude<FuenteVisual, { tipo: 'video' } | { tipo: 'escena3d' }>
+  filtro?: FiltroEscena
+}
+/** Imagen superpuesta (PIP) encima del video. */
+export interface ClipImagen extends ClipBase {
+  pista: 'imagen'
+  medioId: number
+  encuadre: Encuadre
+  /** 0–1. */
+  opacidad: number
+}
+export interface ClipTexto extends ClipBase {
+  pista: 'texto'
+  texto: EstiloTexto
+  /** Subtítulo generado desde una narración: se regenera en bloque (ver `deClipId`). */
+  origen?: 'narracion'
+  deClipId?: string
+}
+/**
+ * Quién habla en el video: una voz IA con personaje (sus líneas van a la pista
+ * avatar y aparece hablando) o en off (pista voz). Viven en `proyecto.narradores`.
+ */
+export interface NarradorVideo {
+  /** 'nar-<epoch36>-<n>'. */
+  id: string
+  /** Ausente = el nombre del personaje, o «Narrador». */
+  nombre?: string
+  /** Voz IA; ausente = `proyecto.vozNarrador` o la primera disponible. */
+  voz?: string
+  /** Personaje (asistente) que dice sus líneas; ausente = voz en off. */
+  asistenteId?: string
+}
+export interface ClipVoz extends ClipBase {
+  pista: 'voz'
+  /** Audio TTS o importado; ausente = solo guion (aún sin voz). */
+  medioId?: number
+  texto?: string
+  /** Voz IA; ausente = `proyecto.vozNarrador`. */
+  voz?: string
+  /** Quién lo dice (`proyecto.narradores`): su voz manda sobre `voz`. */
+  narradorId?: string
+  volumen: number
+}
+export interface ClipMusica extends ClipBase {
+  pista: 'musica'
+  medioId: number
+  volumen: number
+  bucle: boolean
+}
+export interface ClipSfx extends ClipBase {
+  pista: 'sfx'
+  fuente: FuenteSonido
+  volumen: number
+}
+/** Personaje 3D de la app que dice `texto` con la voz de su narrador (o, sin él, la del proyecto). */
+export interface ClipAvatar extends ClipBase {
+  pista: 'avatar'
+  asistenteId: string
+  /** Quién lo dice (`proyecto.narradores`): pone la voz y el personaje. */
+  narradorId?: string
+  esquina: EsquinaAvatar
+  tamano: 'S' | 'M' | 'L'
+  plano: 'busto' | 'cuerpo'
+  texto: string
+  /** Audio TTS generado (local); sin él el personaje está mudo y quieto. */
+  medioId?: number
+  /** Amplitud 0–1 del audio COMPLETO a `envolventeHz`, 2 decimales; se indexa con `desde`. Viaja con el proyecto. */
+  envolvente?: number[]
+  /** Ausente = 20; 10 si el audio pasa de 60 s. */
+  envolventeHz?: number
+  volumen: number
+  /** 'escena' = actor en la casa 3D (modo película); ausente = el PIP de siempre. */
+  modo?: 'escena'
+  /** Solo con `modo: 'escena'`: dónde está y qué hace el actor en el mapa. */
+  escena?: EscenaActor
+}
+/** Un actor del modo película en un clip: punto del mapa, hacia dónde mira y sus reacciones. */
+export interface EscenaActor {
+  x: number
+  z: number
+  /** Ausente = 'camara'. `rumbo` = hacia donde camina; `{ actor }` = hacia otro actor ('jugador' o asistenteId). */
+  mirar?: 'camara' | 'rumbo' | { actor: string }
+  /** Camina desde su punto anterior en vez de aparecer. */
+  llegar?: boolean
+  emocion?: EmocionId
+  /** Preset de conjunto durante el clip ('vida' pasea por su cuenta y se excluye). */
+  anim?: Exclude<PresetAnimacionId, 'vida'>
+}
+export type ClipVideo = ClipPrincipal | ClipFondo | ClipImagen | ClipTexto | ClipVoz | ClipMusica | ClipSfx | ClipAvatar
+export type ClipDe<P extends PistaId> = Extract<ClipVideo, { pista: P }>
+
+/**
+ * Proyecto del Studio de video: la composición declarativa viaja inline y
+ * sincroniza; los binarios que referencia (`mediosVideo`) son solo locales,
+ * así que en otro dispositivo un `medioId` puede no resolver (la UI lo avisa).
+ * Formato 2 = `clips`; el formato 1 (`escenas` + `musica`) se migra al abrir.
+ */
+export interface ProyectoVideo {
+  id?: number
+  nombre: string
+  aspecto: '16:9' | '9:16'
+  /** Formato 2. Ausente = formato 1: se migra al abrir en el Editor. */
+  clips?: ClipVideo[]
+  /** Pista muda (audio) u oculta (visual). Array y no Set: viaja en JSON. */
+  pistasSilenciadas?: PistaId[]
+  volumenPistas?: Partial<Record<PistaId, number>>
+  /** Última voz IA elegida en cualquier clip: la de los clips sin narrador ni voz propia. */
+  vozNarrador?: string
+  /** Quién habla: voces con o sin personaje (tope `MAX_NARRADORES`). */
+  narradores?: NarradorVideo[]
+  /** '3d' = animación filmada en el mapa («Modo película»); ausente = video normal. No se indexa. */
+  escenario?: '3d'
+  /** LEGADO formato 1: tras migrar queda SIEMPRE []. Con contenido junto a `clips` = lo escribió una app vieja → se anexa. */
+  escenas: EscenaVideo[]
+  /** LEGADO formato 1: música global; tras migrar, undefined. */
+  musica?: { medioId: number; volumen: number }
+  /** Subidas a redes desde el Studio. La escribe SOLO el trabajo de publicación (`core/redes/trabajos.ts`), nunca el Editor. */
+  publicaciones?: PublicacionVideo[]
+  creadoEn: string
+  actualizadoEn: string
+}
+
+/** Una subida del proyecto a una red social (viaja con el proyecto). */
+export interface PublicacionVideo {
+  id: string
+  plataforma: 'youtube' | 'tiktok' | 'facebook' | 'instagram'
+  fecha: string
+  titulo: string
+  idRemoto: string
+  url?: string
+  /** `privado` = la app aún no pasó la auditoría de esa red y el video quedó visible solo para el dueño. */
+  estado: 'publicado' | 'privado' | 'error'
+  error?: string
+  /** Canal, Página o @cuenta donde se publicó. */
+  destinoNombre?: string
+}
+
+/** Binario importado o generado del Studio de video, SOLO LOCAL (como `pistasMusica`). */
+export interface MedioVideo {
+  id?: number
+  tipo: 'video' | 'imagen' | 'audio'
+  nombre: string
+  blob: Blob
+  /** Segundos (video/audio); las imágenes no la llevan. */
+  duracion?: number
+  ancho?: number
+  alto?: number
+  /** JPG ~200 px para rejilla y timeline (audio no lleva). */
+  miniatura?: Blob
+  /** `grabacion` = toma de la propia app en uso (`core/grabacionPantalla.ts`). */
+  origen: 'importado' | 'ia' | 'tts' | 'studio' | 'grabacion'
+  /** Recurso de otra app del Studio del que se copió ('audio:proyecto:12'); con `fuenteEn` evita copias repetidas. NO se indexa. */
+  fuente?: string
+  fuenteEn?: string
+  creadoEn: string
+}
+
 class MindHomeDB extends Dexie {
   transacciones!: Table<Transaccion, number>
   sueno!: Table<RegistroSueno, number>
@@ -3612,6 +4197,16 @@ class MindHomeDB extends Dexie {
   hojasCalculo!: Table<HojaCalculo, number>
   calculosComputo!: Table<CalculoComputo, number>
   visitasWeb!: Table<VisitaWeb, number>
+  dibujos!: Table<Dibujo, number>
+  documentos!: Table<Documento, number>
+  historias!: Table<Historia, number>
+  relacionesLibro!: Table<RelacionLibro, number>
+  proyectosAudio!: Table<ProyectoAudio, number>
+  proyectosVideo!: Table<ProyectoVideo, number>
+  mediosVideo!: Table<MedioVideo, number>
+  grabacionesAudio!: Table<GrabacionAudio, number>
+  canciones!: Table<CancionAudio, number>
+  musicaImportada!: Table<MusicaImportada, number>
   // Internas de sincronización (prefijo `_`: ni respaldo ni sync ni UI).
   _outbox!: Table<EntradaOutbox, number>
   _syncMeta!: Table<SyncMeta, string>
@@ -5104,6 +5699,74 @@ class MindHomeDB extends Dexie {
     // ella) y por `inicio` (orden del repo). Nace vacía: sin `.upgrade()`.
     this.version(131).stores({
       visitasWeb: '++id, url, inicio, &uid',
+    })
+
+    // v132: la categoría «Studio» (Audio, Arte, Escritura y Video): sus tablas y
+    // la 6.ª carpeta base del catálogo. Los proyectos sincronizan (JSON inline o
+    // blobs acotados, como `anecdotas`/`grafitis`); `mediosVideo` NO viaja:
+    // binarios grandes del dispositivo, mismo criterio que `pistasMusica`.
+    this.version(132)
+      .stores({
+        dibujos: '++id, actualizadoEn, creadoEn, &uid',
+        documentos: '++id, actualizadoEn, creadoEn, &uid',
+        proyectosAudio: '++id, actualizadoEn, &uid',
+        proyectosVideo: '++id, creadoEn, &uid',
+        mediosVideo: '++id, tipo, creadoEn',
+      })
+      .upgrade(async (tx) => {
+        // La carpeta «Studio» para instalaciones existentes (en BD nueva la trae
+        // la siembra de `gruposPlantillaStore`). Como la v101: las carpetas base
+        // se identifican por POSICIÓN (el usuario pudo renombrarlas) y las
+        // propias se recorren detrás. El uid de SIEMBRA idéntico en todo
+        // dispositivo es obligatorio: sin él el sync sumaría un Studio por casa
+        // (lección de la v130).
+        const tabla = tx.table('gruposPlantilla')
+        const filas = (await tabla.toArray()) as GrupoPlantilla[]
+        if (filas.length === 0) return
+        const base = filas.filter((g) => g.esBase).sort((a, b) => a.orden - b.orden)
+        if (base.length >= GRUPOS_PLANTILLA_BASE.length) return
+        const propias = filas.filter((g) => !g.esBase).sort((a, b) => a.orden - b.orden)
+        for (let i = 0; i < propias.length; i++) {
+          if (propias[i].id == null) continue
+          await tabla.update(propias[i].id!, { orden: base.length + 1 + i })
+        }
+        const nueva = GRUPOS_PLANTILLA_BASE[GRUPOS_PLANTILLA_BASE.length - 1]
+        await tabla.add(
+          filaSeed(`gruposPlantilla-${base.length}`, {
+            nombre: nueva.nombre,
+            emoji: nueva.emoji,
+            orden: base.length,
+            miembros: [...nueva.miembros],
+            esBase: true,
+          }),
+        )
+      })
+
+    // v133: modo Historia del Studio de escritura (ver `Historia`). Sus
+    // documentos viven en `documentos` con `historiaId`/`seccion`/`actoId`
+    // (no indexados). Nace vacía: sin `.upgrade()`.
+    this.version(133).stores({
+      historias: '++id, actualizadoEn, &uid',
+    })
+
+    // v134: diagrama de relaciones entre los personajes de un libro (ver
+    // `RelacionLibro`). Nace vacía: sin `.upgrade()`.
+    this.version(134).stores({
+      relacionesLibro: '++id, creadoEn, &uid',
+    })
+
+    // v135: grabación con micrófono y pestaña Aprender del Studio de audio.
+    // `grabacionesAudio` NO viaja (tomas del dispositivo, mismo criterio que
+    // `mediosVideo`); `canciones` sí (notas JSON). Nacen vacías: sin `.upgrade()`.
+    this.version(135).stores({
+      grabacionesAudio: '++id, creadoEn',
+      canciones: '++id, creadoEn, &uid',
+    })
+
+    // v136: música importada por el usuario para el mezclador DJ. NO viaja
+    // (blobs del dispositivo, mismo criterio que `grabacionesAudio`).
+    this.version(136).stores({
+      musicaImportada: '++id, creadoEn',
     })
   }
 }

@@ -144,6 +144,22 @@ export const FUENTES: Record<string, () => Promise<string[]>> = {
       ]),
     ]),
   ],
+  // Los cuatro studios cuentan por DÍA de edición, como las hojas de cálculo
+  // (cien trazos o cien teclas no son cien actividades). Con `fechaLocalISO` y no
+  // `.slice(0, 10)`: ese corte da la fecha UTC y una sesión nocturna contaría
+  // mañana (mismo motivo que `metas`).
+  arte: async () => [
+    ...new Set((await filas(db.dibujos)).map((d) => fechaLocalISO(new Date(d.actualizadoEn)))),
+  ],
+  escritura: async () => [
+    ...new Set((await filas(db.documentos)).map((d) => fechaLocalISO(new Date(d.actualizadoEn)))),
+  ],
+  audio: async () => [
+    ...new Set((await filas(db.proyectosAudio)).map((p) => fechaLocalISO(new Date(p.actualizadoEn)))),
+  ],
+  video: async () => [
+    ...new Set((await filas(db.proyectosVideo)).map((p) => fechaLocalISO(new Date(p.actualizadoEn)))),
+  ],
 }
 
 /**

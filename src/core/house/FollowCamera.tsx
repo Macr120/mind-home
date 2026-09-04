@@ -4,6 +4,7 @@ import * as THREE from 'three'
 import {
   useCam,
   camAnim,
+  camSalto,
   INTERIOR_EYE,
   EDIT_PANEL_PX,
   EDIT_FOCUS_PANEL_FRAC,
@@ -213,6 +214,8 @@ export function FollowCamera() {
     const { yaw, pitch, dist3p, fov1p } = st
     const ce = Math.cos(pitch)
     const se = Math.sin(pitch)
+    // Corte del modo película: este frame la cámara se planta en su sitio, sin lerp.
+    const salto = camSalto.pendiente
 
     // El desplazamiento de viewport solo aplica en interior; en 1ª/3ª se limpia.
     if (st.vista !== 'interior' && cam.view?.enabled) cam.clearViewOffset()
@@ -290,19 +293,20 @@ export function FollowCamera() {
     if (st.vista === 'primera') {
       const fovObj = apuntando ? fov1p * 0.62 : fov1p
       if (Math.abs(cam.fov - fovObj) > 0.5) {
-        cam.fov = THREE.MathUtils.lerp(cam.fov, fovObj, 0.25)
+        cam.fov = salto ? fovObj : THREE.MathUtils.lerp(cam.fov, fovObj, 0.25)
         cam.updateProjectionMatrix()
       }
       // Cámara en la cabeza, mirando hacia adelante (pitch>0 = arriba).
       _head.set(playerPos.x, playerPos.y + ALTURA_OJOS, playerPos.z)
-      cam.position.lerp(_head, 0.5)
+      if (salto) cam.position.copy(_head)
+      else cam.position.lerp(_head, 0.5)
       _fwd.set(Math.sin(yaw) * ce, se, Math.cos(yaw) * ce)
       _look.copy(cam.position).add(_fwd)
       cam.lookAt(_look)
     } else {
       const fovObj = apuntando ? FOV_APUNTANDO : FOV_3P
       if (Math.abs(cam.fov - fovObj) > 0.5) {
-        cam.fov = THREE.MathUtils.lerp(cam.fov, fovObj, 0.25)
+        cam.fov = salto ? fovObj : THREE.MathUtils.lerp(cam.fov, fovObj, 0.25)
         cam.updateProjectionMatrix()
       }
       // Tercera persona: cámara orbitando la cabeza, ELEVADA (pitch>0 = por encima),
@@ -328,10 +332,12 @@ export function FollowCamera() {
         _head.y + dy * dist,
         _head.z + dz * dist + _lado.z,
       )
-      cam.position.lerp(_pos, 0.35)
+      if (salto) cam.position.copy(_pos)
+      else cam.position.lerp(_pos, 0.35)
       _look.set(_head.x + _lado.x, _head.y, _head.z + _lado.z)
       cam.lookAt(_look)
     }
+    camSalto.pendiente = false
     cam.updateMatrixWorld()
   })
 

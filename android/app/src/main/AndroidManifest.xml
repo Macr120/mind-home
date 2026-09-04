@@ -36,6 +36,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="com.macr120.mindhome" android:host="oauth" />
+                <!-- Vuelta del OAuth de las redes (YouTube/TikTok/Meta) del Studio de video. -->
+                <data android:scheme="com.macr120.mindhome" android:host="redes" />
             </intent-filter>
 
         </activity>

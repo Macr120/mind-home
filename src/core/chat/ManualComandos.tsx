@@ -155,6 +155,13 @@ const SECCIONES: Seccion[] = [
             ],
           },
           {
+            id: 'acciones',
+            ejemplos: [
+              { frase: '[Muéstrame] cómo se hace el {press banca}', en: '[Show me] how to do the {bench press}' },
+              { frase: '[Haz] una {sentadilla}', en: '[Do] a {squat}' },
+            ],
+          },
+          {
             id: 'ia',
             ejemplos: [
               { frase: 'Registra mi sesión: {crossfit 40 min, intensidad alta}', en: 'Log my session: {crossfit 40 min, high intensity}' },

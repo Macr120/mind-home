@@ -100,6 +100,8 @@ interface PuenteEscritorio {
   moverFondo?: (d: { fx?: number; fy?: number; zoom?: number }) => Promise<boolean>
   recursosSistema?: () => Promise<{ cpu: number; memUsadaGB: number; memTotalGB: number } | null>
   musicaSistema?: () => Promise<{ artista: string; titulo: string } | null>
+  /** La voz del sistema como WAV en base64 (narración gratis del Studio de video); null si no pudo. */
+  vozAArchivo?: (texto: string, voz: string, lang: string) => Promise<string | null>
   /** Navegador embebido de los enlaces web (fase 2); la barra la pinta la app. */
   navegador?: {
     abrir: (url: string, bounds: BoundsNavegador) => Promise<boolean>

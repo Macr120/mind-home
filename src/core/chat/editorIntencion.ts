@@ -1,4 +1,5 @@
 import { normalizar } from './dispatcher'
+import { RE_DEMO_EJERCICIO } from '../../rooms/ejercicio/buscar'
 
 /**
  * Capa LIGERA de la edición por chat: lo poco que la ruta caliente necesita de
@@ -24,7 +25,11 @@ const RE_EDITOR_TEMAS =
 
 export function hayIntencionEditor(textos: string[]): boolean {
   const n = normalizar(textos.join(' \n '))
-  return RE_EDITOR_VERBOS.test(n) || RE_EDITOR_TEMAS.test(n)
+  return (
+    RE_EDITOR_VERBOS.test(n) ||
+    RE_EDITOR_TEMAS.test(n) ||
+    textos.some((x) => RE_DEMO_EJERCICIO.test(normalizar(x).trim()))
+  )
 }
 
 /**

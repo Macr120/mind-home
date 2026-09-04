@@ -65,6 +65,8 @@ contextBridge.exposeInMainWorld('mph', {
   recursosSistema: () => ipcRenderer.invoke('mph:fondo-recursos'),
   /** Qué suena en el sistema: SMTC en Windows, Música o Spotify en macOS. */
   musicaSistema: () => ipcRenderer.invoke('mph:fondo-musica'),
+  /** La voz del sistema como WAV en base64 (narración gratis del Studio de video); null si no pudo. */
+  vozAArchivo: (texto, voz, lang) => ipcRenderer.invoke('mph:voz-archivo', texto, voz, lang),
   /**
    * Navegador embebido (fase 2 de los enlaces web): el shell pinta la página en
    * una vista nativa; la app pone la barra y decide los bounds.

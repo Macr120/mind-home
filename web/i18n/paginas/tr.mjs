@@ -159,7 +159,8 @@ export const TEXTOS = {
   'desc.web.t': 'Tarayıcında',
   'desc.web': 'Hiçbir şey kurmadan: hesabınla gir, evin seni bekliyor. Hesabın yoksa uygulamayı deneyebilirsin.',
   'desc.web.cta': 'Uygulamayı aç',
-  'desc.windows': 'Windows 10/11 için yükleyici.',
+  'desc.windows': 'Microsoft Store’da ücretsiz. Ev içeriden satın alınır.',
+  'desc.windows.cta': 'Windows için indir',
   'desc.mac': 'Mac için .dmg imajı.',
   'desc.mac.cta': 'Mac için indir',
 
@@ -217,7 +218,12 @@ export const TEXTOS = {
   'priv.uso.1': 'Hesabına, satın almana ve aboneliğine erişim vermek için.',
   'priv.uso.2': 'Verilerini cihazlar arasında eşitlemek ve yedeklemek için.',
   'priv.uso.3': 'Yapay zekâ özelliklerini kredi kotanla çalıştırmak için.',
-  'priv.uso.4': 'Verilerini satmıyoruz ve reklam amacıyla üçüncü taraflarla paylaşmıyoruz.',
+  'priv.uso.4': 'Verilerini satmıyoruz ve reklam amacıyla üçüncü taraflarla paylaşmıyoruz.',  'priv.redes.h': 'Bağlı sosyal medya hesapları',
+  'priv.redes.p':
+    'YouTube, TikTok, Facebook veya Instagram hesabını bağlarsan, o ağın bize verdiği erişim jetonlarını, seçtiğin hesabın ya da Sayfanın adı ve fotoğrafıyla birlikte sunucumuzda şifreli olarak saklarız. Bunları yalnızca, video düzenleyicide yayımlamaya karar verdiğin videoları Yayımla’ya dokunduğun anda kendi hesabında yayımlamak için kullanırız. Videolarını, gönderilerini, yorumlarını, mesajlarını ya da o hesaplardaki başka hiçbir veriyi okumayız ve kendiliğimizden asla bir şey paylaşmayız. Jetonlar, hesabı Ayarlar → Bağlı hesaplar bölümünden ayırana ya da Mind Planner Home hesabını silene kadar saklanır; erişimi her ağın güvenlik ayarlarından da iptal edebilirsin (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
+  'priv.redes.youtube':
+    'YouTube için uygulama YouTube API Services kullanır; hesabını bağladığında <a href="https://www.youtube.com/t/terms">YouTube Hizmet Şartları</a>’nı kabul etmiş olursun ve <a href="https://policies.google.com/privacy">Google Gizlilik Politikası</a> geçerlidir.',
+
   'priv.cancelas.h': 'Aboneliğini iptal edersen',
   'priv.cancelas.p':
     'Yerel verilerin cihazlarında kalır. Eşitlenen veriler saklanmaya devam eder (yenileyene kadar erişilemez) ve hesabını silerek onları kalıcı olarak kaldırabilirsin.',
@@ -289,6 +295,7 @@ export const TEXTOS = {
   'sop.faq.p': 'En sık sorulan sorular — fiyatlar, cihazlar, yapay zekâ ve verilerin — ana sayfada yanıtlı.',
   'sop.faq.enlace': 'Sık sorulan soruları gör',
   'sop.cuenta.h': 'Hesabını silme',
-  'sop.cuenta.p': 'Hesabını ve buluttaki tüm verilerini uygulamadan (Editör → Ayarlar → Hesap) ya da webdeki hesabından silebilirsin.',
+  'sop.cuenta.p':
+    'Hesabını ve buluttaki tüm verilerini uygulamadan (Editör → Ayarlar → Hesap) ya da webdeki hesabından silebilirsin. Silindiğinde sosyal medya bağlantıların (YouTube, TikTok, Facebook ve Instagram) da kaldırılır: saklanan jetonlar yok edilir ve geçersiz hale gelir.',
   'sop.cuenta.enlace': 'Hesabına git',
 }

@@ -49,6 +49,8 @@ interface MascotaState {
       imagen?: Blob
       /** Aviso de la app (no del modelo): se guarda, pero no se le cuenta a la IA. */
       sistema?: boolean
+      /** false = sin levantar la mano (líneas de un actor del modo película). */
+      saludar?: boolean
     },
   ) => void
   /** Reprograma el ocultado de la burbuja (lo usa la voz para no cortar el habla). */
@@ -104,10 +106,11 @@ export const useMascota = create<MascotaState>((set, get) => ({
   decir: (texto, opts) => {
     const asistenteId = opts?.asistenteId ?? get().mascota
     const persistido = opts?.persistir !== false
+    const saludar = opts?.saludar !== false
     set({
       mensaje: texto,
       mensajePersistido: persistido,
-      saludando: true,
+      saludando: saludar,
       pensando: false,
       hablanteId: asistenteId,
     })
@@ -127,7 +130,7 @@ export const useMascota = create<MascotaState>((set, get) => ({
         .catch(() => {})
     }
     if (tSaludo) clearTimeout(tSaludo)
-    tSaludo = setTimeout(() => set({ saludando: false }), 1100)
+    if (saludar) tSaludo = setTimeout(() => set({ saludando: false }), 1100)
     // Burbuja visible en proporción al largo del texto (leer toma tiempo).
     get().programarOcultar(Math.min(14000, Math.max(5200, 3000 + texto.length * 45)))
   },

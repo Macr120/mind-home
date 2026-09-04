@@ -12,6 +12,7 @@ import { useTren } from '../state/trenStore'
 import { useCuartoPisado } from '../state/useCuartoPisado'
 import { desbloquearAudio } from './motor'
 import { detenerMusica, iniciarMusica } from './musicaGenerada'
+import { useMusicaRutina } from './musicaRutina'
 import { usePaisaje } from './paisaje'
 import { detenerPista, iniciarPista, reproducirLista } from './pistas'
 import { temaAutoDeCuarto } from './temas'
@@ -27,6 +28,8 @@ import { temaAutoDeCuarto } from './temas'
  * juego (carrera/cancha/tren/montaña rusa) manda sobre el tema del cuarto
  * (el abierto, o el que pisa el personaje), y este sobre el ambiente global.
  * Con «Mis pistas» o «Sistema» no se interrumpe la música propia del usuario.
+ * Una rutina de Ejercicio en el reproductor manda sobre todo: enciende el tema
+ * «energía» aunque la ambiental esté apagada, o calla si el usuario la apagó ahí.
  */
 export function useMusicaAmbiental(): void {
   const ambiental = useAjustes((s) => s.musicaAmbiental)
@@ -38,6 +41,7 @@ export function useMusicaAmbiental(): void {
   // Un paisaje sonoro (meditación del jardín) manda: la música se calla y, al
   // terminar la sesión, este efecto re-corre y la ambiental vuelve sola.
   const paisajeSonando = usePaisaje((s) => s.activo != null)
+  const rutina = useMusicaRutina((s) => s.modo)
   const [desbloqueado, setDesbloqueado] = useState(false)
 
   // ¿Jugando? El tema del juego manda (solo aplica a la música generada).
@@ -70,7 +74,8 @@ export function useMusicaAmbiental(): void {
 
   // Solo la fuente generada cambia de tema; con pistas/sistema queda en null
   // para no reiniciar la música del usuario al pasear entre cuartos.
-  const efectivo = fuente === 'generada' ? (temaJuego ?? temaCuarto ?? mood) : null
+  const efectivo =
+    fuente === 'generada' ? (rutina === 'on' ? 'energia' : (temaJuego ?? temaCuarto ?? mood)) : null
 
   // Primer gesto de la sesión → el audio queda 'running' para siempre.
   useEffect(() => {
@@ -92,7 +97,9 @@ export function useMusicaAmbiental(): void {
       detenerPista()
       return
     }
-    if (!ambiental || !desbloqueado || paisajeSonando) {
+    // La rutina en curso manda: apagada desde el reproductor = silencio; encendida =
+    // suena aunque la ambiental esté apagada.
+    if ((!ambiental && rutina !== 'on') || rutina === 'off' || !desbloqueado || paisajeSonando) {
       detenerMusica()
       detenerPista()
       return
@@ -123,5 +130,5 @@ export function useMusicaAmbiental(): void {
       detenerMusica()
       detenerPista()
     }
-  }, [ambiental, desbloqueado, wrappedAbierto, paisajeSonando, fuente, efectivo, pistaId, carpetaId])
+  }, [ambiental, desbloqueado, wrappedAbierto, paisajeSonando, rutina, fuente, efectivo, pistaId, carpetaId])
 }

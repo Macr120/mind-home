@@ -10,6 +10,9 @@ con Capacitor (Android en `android/`, iOS en `ios/`).
 - **Cómo trabajar sin ruido**: [`docs/COMO-TRABAJAR.md`](docs/COMO-TRABAJAR.md)
 - **iOS (compilar, firmar, publicar)**: [`docs/IOS.md`](docs/IOS.md)
 - **Escritorio (Electron, `.dmg`)**: [`docs/ESCRITORIO.md`](docs/ESCRITORIO.md)
+- **Publicar en redes (altas en Google/TikTok/Meta y revisiones, paso a paso)**:
+  [`docs/TRAMITES-REDES.md`](docs/TRAMITES-REDES.md) — el usuario lo hace acompañado,
+  un paso a la vez; el código está en `docs/BACKEND.md` §6
 - Etiquetas en prompts: `[CASA]`, `[DATOS]`, `[COCINA]`, …
 
 ## Stack

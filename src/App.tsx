@@ -63,7 +63,11 @@ import { useHud } from './core/state/hudStore'
 import { useSisifoUi } from './core/state/sisifoUiStore'
 import { useMascaraUi } from './core/state/mascaraUiStore'
 import { useChatArUi } from './core/state/chatArUiStore'
+import { useDemoEjercicio } from './core/state/demoEjercicioStore'
 import { usePreviaPlantilla } from './core/state/previaPlantillaStore'
+import { usePelicula } from './core/state/peliculaStore'
+import { useGrabacionPantalla } from './core/grabacionPantalla'
+import { useRedes } from './core/redes/redesStore'
 import { useRutinasUI } from './core/state/rutinasUiStore'
 import { SisifoFestejo } from './core/gamificacion/SisifoFestejo'
 import { CelebracionesOverlay } from './core/gamificacion/CelebracionesOverlay'
@@ -76,9 +80,18 @@ const MontanaSisifoOverlay = lazy(() => import('./core/gamificacion/MontanaSisif
 const MascaraOverlay = lazy(() => import('./core/ui/MascaraOverlay'))
 // Chat AR (cámara + asistente 3D para conversar): lazy, se abre desde el menú «+» del chat.
 const ChatArOverlay = lazy(() => import('./core/chat/ChatArOverlay'))
+// «Así se hace»: el avatar haciendo un ejercicio (three + rig), lo abre el chat.
+const DemoEjercicioOverlay = lazy(() => import('./rooms/ejercicio/anim/DemoEjercicioOverlay'))
 // Previa de una app del catálogo («Entrar a la app»): en la raíz para que su
 // `fixed` no quede encajonado por el stacking context del menú lateral.
 const PlantillaPreviaOverlay = lazy(() => import('./core/ui/PlantillaPreviaOverlay'))
+// Píldora de «grabando la app» (Studio de video): lazy, solo mientras dura la toma.
+const GrabacionPantallaOverlay = lazy(() => import('./core/ui/GrabacionPantallaOverlay'))
+// Modo película del Studio de video: el editor como dock sobre el mapa. En la raíz
+// (fuera de la casa) por lo mismo que PlantillaPreviaOverlay: su `fixed` no debe
+// quedar encajonado, y el cuarto que lo abrió ya está cerrado.
+const PeliculaOverlay = lazy(() => import('./rooms/video/PeliculaOverlay'))
+const PublicacionOverlay = lazy(() => import('./core/ui/PublicacionOverlay'))
 // Calendario (y todo `ui/calendario` + el grueso de `ui/metas`): ~400 KB de
 // fuente que solo hacen falta al abrir el reloj del HUD — lazy.
 const Calendario = lazy(() => import('./core/ui/Calendario').then((m) => ({ default: m.Calendario })))
@@ -132,7 +145,13 @@ export default function App() {
   const sisifoAbierto = useSisifoUi((s) => s.abierto)
   const mascaraAbierta = useMascaraUi((s) => s.abierto)
   const chatArAbierto = useChatArUi((s) => s.abierto)
+  const demoEjercicioAbierta = useDemoEjercicio((s) => s.nombre !== null && s.modo === 'overlay')
   const previaAbierta = usePreviaPlantilla((s) => !!s.plantillaId)
+  // Modo película (animación 3D del Studio de video): el HUD de juego cede el sitio
+  // a los controles del editor, montados sobre el mapa.
+  const enPelicula = usePelicula((s) => s.proyectoId != null)
+  const grabandoApp = useGrabacionPantalla((s) => s.estado !== 'inactivo')
+  const publicandoRed = useRedes((s) => s.trabajo != null && (s.trabajo.estado === 'activo' || !s.trabajo.visto))
   const calendarioAbierto = useRutinasUI((s) => s.calendario)
   const bienvenidaAbierta = useBienvenida((s) => s.abierto)
   const recuperacionAbierta = useBienvenida((s) => s.recuperacion)
@@ -215,29 +234,32 @@ export default function App() {
     <div className="relative h-full w-full overflow-hidden">
       <div className="relative h-full w-full">
         <House />
-        {!sidebarOpen && (
+        {!sidebarOpen && !enPelicula && (
           // Abrir MPH solo OCULTA el editor si estaba abierto (un solo panel a la
           // vez); si se estaba editando un cuarto, se retoma tal cual al cerrar este menú.
           // Para salir de verdad del cuarto, usa el botón flotante sobre él (SalirCuartoFlotante).
           <FloatingMenuButton onToggle={() => setSidebarOpen(true)} />
         )}
-        {/* El joystick de movimiento sigue activo en el editor 3D (caminar mientras editas). */}
+        {/* El joystick de movimiento sigue activo en el editor 3D (caminar mientras editas) y en el modo película (camarógrafo). */}
         {(!editMode || editor3d) && !sidebarOpen && !pintando && !construyendo && !dialogoActivo && <MoveControls />}
         {/* Rueda de herramientas: solo en juego (los editores conservan el cubo). */}
         {!editMode && !sidebarOpen && !pintando && !construyendo && !enPaintball && <MenuHerramientas />}
-        {!editMode && <InteractOverlay />}
-        <EtiquetasMapaOverlay />
+        {/* En el modo película su «Entrar» abriría un cuarto bajo el dock. */}
+        {!editMode && !enPelicula && <InteractOverlay />}
+        {/* Rótulos DOM: no salen en el export y ensuciarían el encuadre de la película. */}
+        {!enPelicula && <EtiquetasMapaOverlay />}
         {/* La nube del asistente ya no vive aquí: sale de su cabeza en la escena 3D
             (`NubeAsistente`), y solo si el personaje está a la vista. */}
-        {!editMode && !activeRoom && !construyendo && <MarcadorCancha />}
-        {!editMode && !activeRoom && !construyendo && !dialogoActivo && !enPaintball && <AsistenteCercaOverlay />}
-        {!editMode && !activeRoom && !construyendo && <CarreraOverlay />}
-        {!editMode && !activeRoom && !construyendo && <PaintballOverlay />}
+        {!editMode && !activeRoom && !construyendo && !enPelicula && <MarcadorCancha />}
+        {!editMode && !activeRoom && !construyendo && !dialogoActivo && !enPaintball && !enPelicula && <AsistenteCercaOverlay />}
+        {!editMode && !activeRoom && !construyendo && !enPelicula && <CarreraOverlay />}
+        {!editMode && !activeRoom && !construyendo && !enPelicula && <PaintballOverlay />}
         {/* Mira central: con un arma equipada o en batalla, en vista de perspectiva. */}
         {!editMode && !activeRoom && !construyendo && !pintando && <Mira />}
-        {!editMode && !activeRoom && !construyendo && <DialogoOverlay />}
-        {!editMode && !activeRoom && !construyendo && !enCarrera && !enPaintball && <ChatBox menuAbierto={sidebarOpen} />}
-        {!editMode && !activeRoom && <AvisoRespaldo />}
+        {!editMode && !activeRoom && !construyendo && !enPelicula && <DialogoOverlay />}
+        {/* En el modo película el chat sigue (debajo de la timeline: el dock se apoya en su tope). */}
+        {!editMode && !activeRoom && !construyendo && !enCarrera && !enPaintball && <ChatBox menuAbierto={sidebarOpen} encima={enPelicula} />}
+        {!editMode && !activeRoom && !enPelicula && <AvisoRespaldo />}
         {/* Montaje condicional: su chunk (calendario + metas) solo se descarga al
             abrir el reloj; su propio `if (!abierto) return null` queda de red. */}
         {calendarioAbierto && (
@@ -256,7 +278,8 @@ export default function App() {
       </div>
       {/* Menú lateral SUPERPUESTO (nunca en flujo): la app y la casa conservan su
           ancho completo detrás; ver el cazaclics dentro del propio menú. */}
-      {sidebarOpen && <RoomSideMenu onToggle={() => setSidebarOpen(false)} />}
+      {/* En el modo película el menú lateral va cerrado (su botón tampoco está). */}
+      {sidebarOpen && !enPelicula && <RoomSideMenu onToggle={() => setSidebarOpen(false)} />}
       <AsignarPlantillaDialog />
       <EnlaceObjetoDialog />
       {/* La barra del navegador embebido (solo el shell de escritorio la usa). */}
@@ -287,6 +310,18 @@ export default function App() {
       {/* Celebraciones de racha, lista cumplida y nivel. Siempre montado (las encola
           la gamificación al otorgar, sin acción del usuario); nulo en reposo. */}
       <CelebracionesOverlay />
+      {/* Grabando la app para el Studio de video: reloj y botón de parar, por encima del HUD y los cuartos. */}
+      {grabandoApp && (
+        <Suspense fallback={null}>
+          <GrabacionPantallaOverlay />
+        </Suspense>
+      )}
+      {/* Subiendo un video del Studio a una red: progreso y resultado aunque el diálogo ya no esté. */}
+      {publicandoRed && (
+        <Suspense fallback={null}>
+          <PublicacionOverlay />
+        </Suspense>
+      )}
       {/* Wrapped: resumen del periodo a pantalla completa. */}
       {wrappedAbierto && (
         <Suspense fallback={null}>
@@ -311,10 +346,22 @@ export default function App() {
           <ChatArOverlay />
         </Suspense>
       )}
+      {/* Demostración de un ejercicio pedida por chat: el avatar lo hace en 3D sobre la casa. */}
+      {demoEjercicioAbierta && (
+        <Suspense fallback={null}>
+          <DemoEjercicioOverlay />
+        </Suspense>
+      )}
       {/* Previa de una app del catálogo, a pantalla completa sobre el menú. */}
       {previaAbierta && (
         <Suspense fallback={null}>
           <PlantillaPreviaOverlay />
+        </Suspense>
+      )}
+      {/* Modo película: el editor de video como dock sobre la casa, con los personajes de actores. */}
+      {enPelicula && (
+        <Suspense fallback={null}>
+          <PeliculaOverlay />
         </Suspense>
       )}
       {/* Tutorial guiado activo (spotlight + mago): por encima de todos los diálogos. */}

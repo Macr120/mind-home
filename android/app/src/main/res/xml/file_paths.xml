@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <paths xmlns:android="http://schemas.android.com/apk/res/android">
-    <external-path name="my_images" path="." />
+    <!-- Compartir un archivo (respaldo, hoja de cálculo, imagen) pasa por
+         Directory.Cache de Capacitor = caché INTERNA de la app (sandbox), no por
+         el almacenamiento externo: por eso basta cache-path. El external-path se
+         acota al directorio PROPIO de la app en el almacenamiento externo
+         (Android/data/<id>) en vez de a la raíz de la tarjeta, que era un alcance
+         excesivo del FileProvider (auditoría 26-ago-2026). -->
     <cache-path name="my_cache_images" path="." />
+    <external-path name="my_images" path="Android/data/com.macr120.mindhome/" />
 </paths>

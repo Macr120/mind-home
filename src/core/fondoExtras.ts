@@ -10,7 +10,7 @@
  * `storage` del navegador y se repinta sola, sin IPC ni sincronía a mano.
  */
 
-export type PanelFondo = 'hora' | 'clima' | 'musica' | 'recursos' | 'misiones'
+export type PanelFondo = 'hora' | 'clima' | 'musica' | 'recursos' | 'misiones' | 'chat'
 
 /**
  * Los ocho sitios del borde: las cuatro esquinas y la mitad de cada lado. El
@@ -33,10 +33,11 @@ export interface ExtrasFondo {
   musica: boolean
   recursos: boolean
   misiones: boolean
+  chat: boolean
   sitios: Record<PanelFondo, SitioFondo>
 }
 
-export const EXTRAS_FONDO: PanelFondo[] = ['hora', 'clima', 'musica', 'recursos', 'misiones']
+export const EXTRAS_FONDO: PanelFondo[] = ['hora', 'clima', 'musica', 'recursos', 'misiones', 'chat']
 
 export const SITIOS_FONDO: SitioFondo[] = [
   'arribaIzq',
@@ -62,6 +63,8 @@ const SITIOS_INICIALES: Record<PanelFondo, SitioFondo> = {
   // El de misiones nace a la derecha: es el más alto de todos y arriba a la
   // izquierda taparía al reloj, que es donde caen los demás por herencia.
   misiones: 'arribaDer',
+  // El lanzador del chat nace abajo al centro, como un dock.
+  chat: 'abajo',
 }
 
 const APAGADOS: ExtrasFondo = {
@@ -70,6 +73,7 @@ const APAGADOS: ExtrasFondo = {
   musica: false,
   recursos: false,
   misiones: false,
+  chat: false,
   sitios: SITIOS_INICIALES,
 }
 

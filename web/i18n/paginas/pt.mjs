@@ -162,7 +162,8 @@ export const TEXTOS = {
   'desc.web':
     'Sem instalar nada: entre com a sua conta e a sua casa está à espera. Sem conta você pode experimentar o app.',
   'desc.web.cta': 'Abrir o app',
-  'desc.windows': 'Instalador para Windows 10/11.',
+  'desc.windows': 'Grátis no Microsoft Store. A casa se compra dentro.',
+  'desc.windows.cta': 'Baixar para Windows',
   'desc.mac': 'Imagem .dmg para Mac.',
   'desc.mac.cta': 'Baixar para Mac',
 
@@ -220,7 +221,12 @@ export const TEXTOS = {
   'priv.uso.1': 'Dar acesso à sua conta, à sua compra e à sua assinatura.',
   'priv.uso.2': 'Sincronizar seus dados entre dispositivos e fazer backup.',
   'priv.uso.3': 'Operar as funções de IA com a sua cota de créditos.',
-  'priv.uso.4': 'Não vendemos seus dados nem os compartilhamos com terceiros para publicidade.',
+  'priv.uso.4': 'Não vendemos seus dados nem os compartilhamos com terceiros para publicidade.',  'priv.redes.h': 'Contas de redes sociais conectadas',
+  'priv.redes.p':
+    'Se você conectar sua conta do YouTube, TikTok, Facebook ou Instagram, guardamos os tokens de acesso que essa rede nos entrega, criptografados no nosso servidor, junto com o nome e a foto da conta ou Página escolhida. Nós os usamos apenas para publicar na sua própria conta os vídeos que você decide publicar pelo editor de vídeo, no momento em que você toca em Publicar. Não lemos seus vídeos, publicações, comentários, mensagens nem qualquer outro dado dessas contas, e nunca publicamos nada por conta própria. Os tokens ficam guardados até você desconectar a conta em Configurações → Contas conectadas ou apagar sua conta do Mind Planner Home; você também pode revogar o acesso nas configurações de segurança de cada rede (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
+  'priv.redes.youtube':
+    'No caso do YouTube, o app usa o YouTube API Services; ao conectar sua conta você aceita os <a href="https://www.youtube.com/t/terms">Termos de Serviço do YouTube</a> e se aplica a <a href="https://policies.google.com/privacy">Política de Privacidade do Google</a>.',
+
   'priv.cancelas.h': 'Se você cancelar sua assinatura',
   'priv.cancelas.p':
     'Seus dados locais continuam nos seus dispositivos. Os dados sincronizados ficam armazenados (inacessíveis até você renovar) e podem ser apagados definitivamente eliminando sua conta.',
@@ -291,6 +297,7 @@ export const TEXTOS = {
   'sop.faq.p': 'As dúvidas mais comuns — preços, dispositivos, IA e seus dados — estão respondidas na página principal.',
   'sop.faq.enlace': 'Ver perguntas frequentes',
   'sop.cuenta.h': 'Excluir sua conta',
-  'sop.cuenta.p': 'Você pode apagar sua conta e todos os seus dados na nuvem pelo app (Editor → Configurações → Conta) ou pela sua conta na web.',
+  'sop.cuenta.p':
+    'Você pode apagar sua conta e todos os seus dados na nuvem pelo app (Editor → Configurações → Conta) ou pela sua conta na web. Ao apagá-la, também são removidas as conexões com suas redes sociais (YouTube, TikTok, Facebook e Instagram): os tokens guardados são destruídos e deixam de valer.',
   'sop.cuenta.enlace': 'Ir para sua conta',
 }

@@ -191,7 +191,10 @@ export function escribiendoEnCampo() {
     (el.tagName === 'INPUT' ||
       el.tagName === 'TEXTAREA' ||
       el.tagName === 'SELECT' ||
-      el.isContentEditable)
+      el.isContentEditable ||
+      // Un overlay con teclado propio (el dock del modo película): con el foco en
+      // uno de sus clips o botones, sus flechas y letras no mueven al avatar.
+      !!el.closest('[data-teclado-propio]'))
   )
 }
 

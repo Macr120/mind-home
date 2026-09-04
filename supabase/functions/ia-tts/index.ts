@@ -18,6 +18,7 @@
  */
 import { preflight, json, corsDe } from '../_shared/cors.ts'
 import { clienteUsuario, clienteAdmin, usuarioDe } from '../_shared/auth.ts'
+import { dentroDeLimite } from '../_shared/limite.ts'
 import { COSTO_FIJO, costoTtsGeminiUsd } from '../_shared/costoUsd.ts'
 
 /** Corta el intento para que entre el respaldo en vez de colgarse esperando. */
@@ -169,6 +170,11 @@ Deno.serve(async (req) => {
   }
   // Las RPCs de cuota son exclusivas de service_role (20260803000001).
   const admin = clienteAdmin()
+
+  // Límite de tasa por usuario, además de la cuota (auditoría 26-ago-2026).
+  if (!(await dentroDeLimite(admin, usuario.id, 'tts', 30, 60))) {
+    return json({ error: 'limite', mensaje: 'Vas muy rápido con la IA. Espera unos segundos y reintenta.' }, 429, cors)
+  }
 
   let texto: string
   let voz = VOCES.openai[0]

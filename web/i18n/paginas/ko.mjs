@@ -145,7 +145,8 @@ export const TEXTOS = {
   'desc.web.t': '브라우저에서',
   'desc.web': '설치할 것 없이: 계정으로 로그인하면 집이 기다립니다. 계정이 없어도 앱을 써 볼 수 있어요.',
   'desc.web.cta': '앱 열기',
-  'desc.windows': 'Windows 10/11용 설치 프로그램.',
+  'desc.windows': 'Microsoft Store에서 무료. 집은 앱 안에서 구입합니다.',
+  'desc.windows.cta': 'Windows용 다운로드',
   'desc.mac': 'Mac용 .dmg 이미지.',
   'desc.mac.cta': 'Mac용 다운로드',
 
@@ -203,7 +204,12 @@ export const TEXTOS = {
   'priv.uso.1': '계정, 구매, 구독에 접근할 수 있게 하기 위해.',
   'priv.uso.2': '기기 사이에서 데이터를 동기화하고 백업하기 위해.',
   'priv.uso.3': '보유한 크레딧으로 AI 기능을 구동하기 위해.',
-  'priv.uso.4': '데이터를 판매하지 않으며, 광고 목적으로 제3자와 공유하지 않습니다.',
+  'priv.uso.4': '데이터를 판매하지 않으며, 광고 목적으로 제3자와 공유하지 않습니다.',  'priv.redes.h': '연결된 소셜 미디어 계정',
+  'priv.redes.p':
+    'YouTube, TikTok, Facebook, Instagram 계정을 연결하면 해당 서비스가 주는 액세스 토큰을 서버에 암호화해 보관하고, 선택한 계정이나 페이지의 이름과 사진도 함께 저장해요. 이 정보는 오직 당신이 동영상 편집기에서 게시하기로 한 영상을, 게시를 누르는 그 순간에 당신의 계정에 올리는 데만 씁니다. 당신의 영상, 게시물, 댓글, 메시지 등 그 계정의 다른 데이터는 읽지 않고, 저희 임의로 무언가를 올리는 일도 없어요. 토큰은 설정 → 연결된 계정에서 연결을 끊거나 Mind Planner Home 계정을 삭제할 때까지 보관되며, 각 서비스의 보안 설정에서 권한을 취소할 수도 있어요 (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
+  'priv.redes.youtube':
+    'YouTube의 경우 앱은 YouTube API Services를 사용해요. 계정을 연결하면 <a href="https://www.youtube.com/t/terms">YouTube 서비스 약관</a>에 동의하는 것이 되고, <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a>이 적용돼요.',
+
   'priv.cancelas.h': '구독을 해지하면',
   'priv.cancelas.p':
     '로컬 데이터는 기기에 그대로 남습니다. 동기화된 데이터는 보관되며(재구독 전까지 접근 불가), 계정을 삭제하면 완전히 지울 수 있습니다.',
@@ -274,6 +280,7 @@ export const TEXTOS = {
   'sop.faq.p': '가장 흔한 질문들 — 가격, 기기, AI, 데이터 — 은 메인 페이지에 답이 있어요.',
   'sop.faq.enlace': '자주 묻는 질문 보기',
   'sop.cuenta.h': '계정 삭제',
-  'sop.cuenta.p': '앱 안에서 (에디터 → 설정 → 계정) 또는 웹의 계정 페이지에서 계정과 클라우드의 모든 데이터를 삭제할 수 있어요.',
+  'sop.cuenta.p':
+    '앱 안에서 (에디터 → 설정 → 계정) 또는 웹의 계정 페이지에서 계정과 클라우드의 모든 데이터를 삭제할 수 있어요. 계정을 지우면 소셜 미디어(YouTube, TikTok, Facebook, Instagram) 연결도 함께 끊기고, 저장된 토큰은 파기되어 더는 쓸 수 없게 돼요.',
   'sop.cuenta.enlace': '내 계정으로 가기',
 }

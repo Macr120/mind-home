@@ -29,6 +29,12 @@ export const TIPO_SILLON = 'sillon-lectura'
 export const TIPO_CALENDARIO = 'calendario-pared'
 export const TIPO_ESTACION_COMPUTO = 'estacion-computo'
 
+// Fase 3 — los cuatro Studio (audio, arte, escritura y video): ambientales.
+export const TIPO_TECLADO_MIDI = 'teclado-midi'
+export const TIPO_CABALLETE = 'caballete-arte'
+export const TIPO_ESCRITORIO_ESCRITURA = 'escritorio-escritura'
+export const TIPO_CAMARA_VIDEO = 'camara-video'
+
 /** Nombre y color por defecto de cada objeto (siembra en biblioteca y color base). */
 export const META_ESPECIAL_PLANTILLA: Record<string, { nombre: string; color: string }> = {
   [TIPO_OLLA]: { nombre: 'Olla que hierve', color: '#b91c1c' },
@@ -51,6 +57,10 @@ export const META_ESPECIAL_PLANTILLA: Record<string, { nombre: string; color: st
   [TIPO_SILLON]: { nombre: 'Sillón de lectura', color: '#9ca3af' },
   [TIPO_CALENDARIO]: { nombre: 'Calendario de pared', color: '#dc2626' },
   [TIPO_ESTACION_COMPUTO]: { nombre: 'Estación de cómputo', color: '#334155' },
+  [TIPO_TECLADO_MIDI]: { nombre: 'Teclado MIDI', color: '#1e293b' },
+  [TIPO_CABALLETE]: { nombre: 'Caballete de pintura', color: '#b8763e' },
+  [TIPO_ESCRITORIO_ESCRITURA]: { nombre: 'Escritorio de escritura', color: '#6b4423' },
+  [TIPO_CAMARA_VIDEO]: { nombre: 'Cámara de video', color: '#334155' },
 }
 
 export const TIPOS_ESPECIALES_PLANTILLA = new Set(Object.keys(META_ESPECIAL_PLANTILLA))
@@ -78,6 +88,10 @@ export const TIPOS_AMBIENTALES_PLANTILLA = new Set([
   TIPO_PERIODICO,
   TIPO_GUITARRA,
   TIPO_PLANTA_REGAR,
+  TIPO_TECLADO_MIDI,
+  TIPO_CABALLETE,
+  TIPO_ESCRITORIO_ESCRITURA,
+  TIPO_CAMARA_VIDEO,
 ])
 
 export const esAmbientalPlantilla = (tipo: string) => TIPOS_AMBIENTALES_PLANTILLA.has(tipo)

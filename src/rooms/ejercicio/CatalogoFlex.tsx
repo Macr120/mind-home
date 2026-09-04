@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { SelectorMiniaturas } from './anim/SelectorMiniaturas'
 import type { GrupoFlex } from '../../core/data/db'
 import { VACIO, gruposFlexRepo } from '../../core/data/repository'
 import { slugGrupo } from './catalogo'
@@ -75,9 +76,12 @@ export function CatalogoFlex({
 
   return (
     <div className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-3">
-      <p className="text-base font-bold">
-        <Icono nombre="cuarto-jardin" /> {t('ejercicio.flex.catalogo', 'Catálogo por enfoque')}
-      </p>
+      <div className="flex items-center gap-2">
+        <p className="text-base font-bold">
+          <Icono nombre="cuarto-jardin" /> {t('ejercicio.flex.catalogo', 'Catálogo por enfoque')}
+        </p>
+        <SelectorMiniaturas color={C_FLEX} />
+      </div>
       <div className="flex flex-wrap justify-center gap-1.5">
         {grupos.map((g) => (
           <div

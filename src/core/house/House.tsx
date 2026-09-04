@@ -1,4 +1,4 @@
-import { memo, useEffect, useMemo, useRef } from 'react'
+import { lazy, memo, Suspense, useEffect, useMemo, useRef } from 'react'
 import * as THREE from 'three'
 import { Canvas, useThree } from '@react-three/fiber'
 import { useShallow } from 'zustand/react/shallow'
@@ -7,6 +7,7 @@ import { useHouse } from '../state/houseStore'
 import { useDiseño } from '../state/disenoStore'
 import { esGamaBaja } from '../gamaDispositivo'
 import { useLayout } from '../state/layoutStore'
+import { usePelicula } from '../state/peliculaStore'
 import { useCuartos } from '../state/cuartosStore'
 import { Character } from './Character'
 import { Asistente3D, AsistenteProximity } from './Asistente3D'
@@ -445,6 +446,9 @@ function LatidoFondo() {
 
 const DPR: [number, number] = esGamaBaja() ? [1, 1] : [1, 1.5]
 
+// Director y colocador del modo película: lazy, solo se descargan al entrar al modo.
+const EscenaPelicula = lazy(() => import('../../rooms/video/pelicula/EscenaPelicula'))
+
 
 /** Fotogramas por segundo del fondo de pantalla, con el ratón encima. */
 const FPS_FONDO = 30
@@ -472,6 +476,7 @@ export function House() {
     })),
   )
   const cuartos = useCuartos((s) => s.cuartos)
+  const enPelicula = usePelicula((s) => s.proyectoId != null)
   const { planosActivo, planosNivel, planosModo, planosCapa, planosHerr, dibujandoCuadrante } = usePlanos(
     useShallow((s) => ({
       planosActivo: s.activo,
@@ -566,6 +571,11 @@ export function House() {
         <CameraRig />
         <FollowCamera />
         <CameraControls />
+        {enPelicula && (
+          <Suspense fallback={null}>
+            <EscenaPelicula />
+          </Suspense>
+        )}
         <ShadowMode />
         <ShadowUpdater />
         {/* Foto de la casa para el widget de Android (solo cuando se le pide). */}
@@ -691,13 +701,15 @@ export function House() {
       <HidratarMapaTablas />
       {/* Publica la celda del foco de cámara; de ahí sale el recorte de objetos. */}
       <SeguirFoco cols={gridCols} rows={gridRows} />
-      {/* Modo fondo (wallpaper): sin HUD — sus botones serían intocables. */}
+      {/* Modo fondo (wallpaper): sin HUD — sus botones serían intocables. En el modo
+          película el dock del Studio sustituye al HUD (NavControls se retira solo:
+          conserva la tecla V para el camarógrafo). */}
       {!esModoFondo() && (
         <>
           <NavControls />
-          <EditorMontaje />
+          {!enPelicula && <EditorMontaje />}
           <SalirCuartoFlotante />
-          <MenuDespierto />
+          {!enPelicula && <MenuDespierto />}
         </>
       )}
     </>

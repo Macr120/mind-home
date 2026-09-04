@@ -1,6 +1,12 @@
 import { useState, useEffect } from 'react'
 import { db } from '../../data/db'
-import { exportarRespaldo, fechaUltimoRespaldo } from '../../data/respaldo'
+import {
+  descifrarRespaldo,
+  esRespaldoCifrado,
+  exportarRespaldo,
+  fechaUltimoRespaldo,
+  type RespaldoCifrado,
+} from '../../data/respaldo'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 
@@ -30,6 +36,11 @@ export function EditorRespaldoSection({
   const [avisoImport, setAvisoImport] = useState<string | null>(null)
   const [ultimo, setUltimo] = useState(fechaUltimoRespaldo)
   const [persistente, setPersistente] = useState<boolean | null>(null)
+  // Contraseña para CIFRAR al exportar (vacío = respaldo en claro, como siempre).
+  const [passExport, setPassExport] = useState('')
+  // Archivo cifrado leído, a la espera de su contraseña para descifrarlo.
+  const [cifrado, setCifrado] = useState<{ sobre: RespaldoCifrado; nombre: string } | null>(null)
+  const [passImport, setPassImport] = useState('')
 
   // Estado real del permiso de persistencia (pedido en main.tsx al arrancar).
   useEffect(() => {
@@ -50,20 +61,18 @@ export function EditorRespaldoSection({
   }, [borrado])
 
   const exportar = async () => {
-    await exportarRespaldo()
+    await exportarRespaldo(passExport)
+    setPassExport('')
     setUltimo(fechaUltimoRespaldo())
   }
 
   /**
-   * Lee y valida el archivo de respaldo SIN tocar la base de datos.
-   * Solo si el JSON tiene la forma esperada ({ tabla: [filas] }) se pasa a
+   * Valida el JSON ya descifrado y lo deja listo para confirmar, SIN tocar la
+   * base. Solo si tiene la forma esperada ({ tabla: [filas] }) se pasa a
    * confirmación; las tablas desconocidas se omiten (respaldo de otra versión).
    */
-  const leerArchivo = async (file: File) => {
-    setAvisoImport(null)
-    setPendiente(null)
+  const procesarJson = (json: unknown, nombre: string) => {
     try {
-      const json: unknown = JSON.parse(await file.text())
       if (typeof json !== 'object' || json === null || Array.isArray(json)) throw new Error()
       const tablasValidas = new Set(db.tables.map((tabla) => tabla.name))
       const datos: Record<string, unknown[]> = {}
@@ -82,9 +91,44 @@ export function EditorRespaldoSection({
         setAvisoImport(t('respaldo.sinRegistros', 'El archivo no contiene registros para restaurar.'))
         return
       }
-      setPendiente({ nombre: file.name, datos, filas, ignoradas })
+      setPendiente({ nombre, datos, filas, ignoradas })
     } catch {
       setAvisoImport(t('respaldo.archivoInvalido', 'El archivo no es un respaldo válido de Mind Planner Home.'))
+    }
+  }
+
+  /** Lee el archivo: si viene cifrado, pide la contraseña; si no, valida directo. */
+  const leerArchivo = async (file: File) => {
+    setAvisoImport(null)
+    setPendiente(null)
+    setCifrado(null)
+    setPassImport('')
+    let json: unknown
+    try {
+      json = JSON.parse(await file.text())
+    } catch {
+      setAvisoImport(t('respaldo.archivoInvalido', 'El archivo no es un respaldo válido de Mind Planner Home.'))
+      return
+    }
+    if (esRespaldoCifrado(json)) {
+      setCifrado({ sobre: json, nombre: file.name })
+      return
+    }
+    procesarJson(json, file.name)
+  }
+
+  /** Descifra el archivo con la contraseña tecleada y sigue el flujo normal. */
+  const descifrar = async () => {
+    if (!cifrado) return
+    setAvisoImport(null)
+    try {
+      const texto = await descifrarRespaldo(cifrado.sobre, passImport)
+      const nombre = cifrado.nombre
+      setCifrado(null)
+      setPassImport('')
+      procesarJson(JSON.parse(texto), nombre)
+    } catch {
+      setAvisoImport(t('respaldo.cifrar.error', 'Contraseña incorrecta o archivo dañado.'))
     }
   }
 
@@ -174,12 +218,32 @@ export function EditorRespaldoSection({
         </div>
       )}
 
+      <div className="space-y-1">
+        <input
+          type="password"
+          value={passExport}
+          onChange={(e) => setPassExport(e.target.value)}
+          placeholder={t('respaldo.cifrar.placeholder', 'Contraseña del respaldo (opcional)')}
+          autoComplete="new-password"
+          className="w-full rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-xs text-white/90 placeholder:text-white/30"
+        />
+        <p className="text-[11px] leading-relaxed text-white/40">
+          {t(
+            'respaldo.cifrar.ayuda',
+            'Si pones una contraseña, el archivo se cifra y la necesitarás para restaurarlo. No se puede recuperar si la olvidas.',
+          )}
+        </p>
+      </div>
+
       <button
         data-tut="respaldo.exportar"
         onClick={exportar}
         className="w-full rounded-lg bg-amber-600 py-2 text-sm font-bold texto-cta hover:brightness-110 transition"
       >
-        <Icono nombre="bajar" /> {t('respaldo.exportar', 'Exportar todo como JSON')}
+        <Icono nombre="bajar" />{' '}
+        {passExport.trim()
+          ? t('respaldo.exportar.cifrado', 'Exportar cifrado como JSON')
+          : t('respaldo.exportar', 'Exportar todo como JSON')}
       </button>
 
       <label data-tut="respaldo.restaurar" className="block w-full cursor-pointer rounded-lg border border-amber-500/40 bg-amber-500/10 py-2 text-center text-sm font-bold text-amber-400 hover:bg-amber-500/20 transition">
@@ -195,6 +259,45 @@ export function EditorRespaldoSection({
           }}
         />
       </label>
+
+      {cifrado && (
+        <div className="rounded-lg bg-white/5 p-3 border border-amber-500/30 space-y-2">
+          <p className="text-sm font-semibold text-amber-400">{t('respaldo.cifrar.titulo', 'Respaldo cifrado')}</p>
+          <p className="text-xs text-white/60 leading-relaxed">
+            {t('respaldo.cifrar.pedir', 'Este respaldo está cifrado. Escribe su contraseña para restaurarlo.')}
+          </p>
+          <input
+            type="password"
+            value={passImport}
+            onChange={(e) => setPassImport(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && passImport) void descifrar()
+            }}
+            placeholder={t('respaldo.cifrar.placeholder', 'Contraseña del respaldo (opcional)')}
+            autoComplete="off"
+            autoFocus
+            className="w-full rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-xs text-white/90 placeholder:text-white/30"
+          />
+          <div className="flex gap-2">
+            <button
+              onClick={() => {
+                setCifrado(null)
+                setPassImport('')
+              }}
+              className="flex-1 rounded-lg bg-white/10 py-1.5 text-xs font-semibold hover:bg-white/20 transition"
+            >
+              {t('respaldo.confirm.cancelar', 'Cancelar')}
+            </button>
+            <button
+              onClick={descifrar}
+              disabled={!passImport}
+              className="flex-1 rounded-lg bg-amber-600 py-1.5 text-xs font-bold texto-cta hover:brightness-110 transition disabled:opacity-40"
+            >
+              {t('respaldo.cifrar.descifrar', 'Descifrar y continuar')}
+            </button>
+          </div>
+        </div>
+      )}
 
       {pendiente && (
         <div className="rounded-lg bg-white/5 p-3 border border-amber-500/30 space-y-2">

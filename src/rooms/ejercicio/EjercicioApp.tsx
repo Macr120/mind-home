@@ -1,4 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, lazy, Suspense } from 'react'
+import { useMiniaturas } from './anim/miniaturasStore'
+
+// Poses estáticas de las miniaturas (un canvas oculto): solo en modo animación, lazy.
+const RenderizadorMiniaturas = lazy(() => import('./anim/RenderizadorMiniaturas'))
 import { VACIO,
   rutinasRepo,
   sesionesEjercicioRepo,
@@ -55,9 +59,15 @@ export function EjercicioApp() {
   useEffect(() => {
     void sembrarEjercicio()
   }, [])
+  const miniaturasAnimadas = useMiniaturas((st) => st.modo === 'animacion')
 
   return (
     <div className="mx-auto max-w-2xl space-y-4">
+      {miniaturasAnimadas && (
+        <Suspense fallback={null}>
+          <RenderizadorMiniaturas />
+        </Suspense>
+      )}
       <PestanasCarpeta
         items={TABS}
         activo={tab}

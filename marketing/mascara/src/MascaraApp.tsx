@@ -551,12 +551,15 @@ export function MascaraApp({
   crearSenal,
   urlRemota,
   codigoInicial,
+  onToma,
 }: {
   onSalir?: () => void
   textos?: Partial<TextosMascara>
   crearSenal?: CrearSenal
   urlRemota?: (codigo: string) => string
   codigoInicial?: string
+  /** Si viene, la grabación se entrega aquí (con su duración en s) en vez de descargarse: la app la manda al Studio de video. */
+  onToma?: (blob: Blob, duracion: number) => void | Promise<void>
 } = {}) {
   const tx = { ...TEXTOS_ES, ...textos }
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -571,6 +574,7 @@ export function MascaraApp({
   const [errorCamara, setErrorCamara] = useState<string | null>(null)
   const [grabando, setGrabando] = useState(false)
   const [segundos, setSegundos] = useState(0)
+  const inicioGrabacionRef = useRef(0)
   const [limpio, setLimpio] = useState(false)
   const [panel, setPanel] = useState(true)
   const [rect, setRect] = useState<{ left: number; top: number; width: number; height: number } | null>(null)
@@ -734,12 +738,15 @@ export function MascaraApp({
       setGrabando(false)
       const blob = await grabadorRef.current!.detener()
       grabadorRef.current = null
-      await guardarGrabacion(blob)
+      const duracion = (performance.now() - inicioGrabacionRef.current) / 1000
+      if (onToma) await onToma(blob, duracion)
+      else await guardarGrabacion(blob)
       return
     }
     if (!videoRef.current || !canvas3dRef.current) return
     try {
       grabadorRef.current = await iniciarGrabacion(videoRef.current, canvas3dRef.current, config.encuadre, espejo)
+      inicioGrabacionRef.current = performance.now()
       setSegundos(0)
       setGrabando(true)
     } catch (e) {

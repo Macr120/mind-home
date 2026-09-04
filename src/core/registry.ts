@@ -20,6 +20,10 @@ import ideas from '../rooms/ideas'
 import computo from '../rooms/computo'
 import agenda from '../rooms/agenda'
 import metas from '../rooms/metas'
+import escritura from '../rooms/escritura'
+import arte from '../rooms/arte'
+import audio from '../rooms/audio'
+import video from '../rooms/video'
 import { fijarPlantillasCustom, registrarPlantillasCodigo, type Plantilla } from './appContrato'
 
 /**
@@ -59,6 +63,10 @@ export const plantillas: Plantilla[] = [
   computo,
   agenda,
   metas,
+  escritura,
+  arte,
+  audio,
+  video,
 ]
 
 // Publica las apps de código en el catálogo hoja, de donde las leen todos.
@@ -89,6 +97,13 @@ export const DESCRIPCIONES: Record<string, string> = {
     'Sala de cómputo: una calculadora científica de la que cuelga tu formulario de fórmulas en carpetas (Matemáticas, Física y Química de fábrica, editables), con ocho modos —un graficador con cuatro tipos (2D, polar, paramétrica y superficie 3D), binario y hexadecimal, matrices, sistemas de ecuaciones, conversión de unidades, propina y regla de tres—; y hojas de cálculo que se exportan a Excel y a PDF.',
   agenda: 'Tu agenda: pendientes de trabajo con tablero Kanban; salud en tres partes (la tuya con citas por especialidad, medicamentos, cuidados que se repiten y seguimiento de ciclo; las personas a tu cuidado; y las mascotas), y la libreta de contactos con sus cumpleaños.',
   metas: 'Lo que te propusiste, de toda la casa: la lista de metas con sus sub-metas y pasos, los planes que la IA propone para cada una (fases con fecha que se vuelven sub-metas reales) y el cronograma donde todo ocupa su periodo sobre el eje del tiempo.',
+  escritura:
+    'Tu estudio de escritura: una estantería de libros, cada uno con sus carpetas de capítulos, personajes, lugares y actos con sus tramas; editor con formato, índice automático y una IA que redacta, corrige, resume y continúa por ti; exportación a TXT y PDF.',
+  arte: 'Tu estudio de dibujo y foto: lienzos con pincel, spray, formas, relleno y texto; abre una foto y edítala con filtros; y una IA que genera o reinterpreta lo que pintas.',
+  audio:
+    'Tu estudio musical: pistas con piano roll, instrumentos sintetizados, teclado MIDI o en pantalla, grabación con metrónomo, export a WAV y una IA que compone contigo.',
+  video:
+    'Tu editor de video por guion: escenas con clips, imágenes, títulos, filtros, narración con voz IA y música, vistas a la vez como guion y como línea de tiempo, con export a archivo de video.',
 }
 
 /**
@@ -114,6 +129,10 @@ export const CORTAS: Record<string, string> = {
   computo: 'Calculadora, gráficas y hojas',
   agenda: 'Pendientes, salud y personas',
   metas: 'Metas, planes y cronograma',
+  escritura: 'Libros, carpetas e IA',
+  arte: 'Lienzos, pinceles y fotos',
+  audio: 'Pistas, piano roll y MIDI',
+  video: 'Guion, escenas y export',
 }
 
 /** Ids personalizados publicados la última vez: sus descripciones se retiran al reemplazarlos. */

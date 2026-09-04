@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import type { CamaraPelicula } from '../data/db'
 import { miraFrame } from './miraFrame'
 import { playerPos } from './playerPosition'
 import { WALL_H } from '../house/walls'
@@ -443,6 +444,79 @@ export const useCam = create<CamState>((set, get) => ({
       ),
     })),
 }))
+
+// ─── Modo película: cámara determinista ──────────────────────────────────────
+
+/**
+ * Salto de cámara pendiente (corte de un plano): CameraRig/FollowCamera se
+ * plantan en el objetivo sin interpolar ese frame y lo apagan. Fuera de
+ * Zustand, como `camAnim`.
+ */
+export const camSalto = { pendiente: false }
+
+/** Interpola un ángulo tomando siempre el camino corto (maneja el salto en ±π). */
+export function lerpAngulo(actual: number, objetivo: number, t: number) {
+  let d = objetivo - actual
+  while (d > Math.PI) d -= 2 * Math.PI
+  while (d < -Math.PI) d += 2 * Math.PI
+  return actual + d * t
+}
+
+/** Instantánea de la cámara para un plano (las vistas fijas —interior, grafiti, diálogo— se ruedan como iso). */
+export function capturarCamara(): CamaraPelicula {
+  const s = useCam.getState()
+  const vista = s.vista === 'tercera' || s.vista === 'primera' ? s.vista : 'iso'
+  return {
+    vista,
+    focus: [s.focus[0], s.focus[1], s.focus[2]],
+    az: s.az,
+    el: s.el,
+    zoom: s.zoom,
+    yaw: s.yaw,
+    pitch: s.pitch,
+    dist3p: s.dist3p,
+    fov1p: s.fov1p,
+  }
+}
+
+/**
+ * Lleva la cámara a un plano. `setState` directo y no `setVista`: esta reinicia
+ * inclinación, distancia y FOV y recoloca el foco. `instantaneo` = corte, sin lerp.
+ */
+export function aplicarCamara(c: CamaraPelicula, instantaneo: boolean): void {
+  useCam.setState({
+    vista: c.vista,
+    focus: [c.focus[0], c.focus[1], c.focus[2]],
+    az: c.az,
+    el: c.el,
+    zoom: c.zoom,
+    yaw: c.yaw,
+    pitch: c.pitch,
+    dist3p: c.dist3p,
+    fov1p: c.fov1p,
+    interiorCenter: null,
+    grafitiCam: null,
+    dialogoCam: null,
+  })
+  if (instantaneo) camSalto.pendiente = true
+}
+
+/** Paneo entre dos cámaras (ángulos por el camino corto). Con vistas distintas se queda en `a` hasta el final: el paneo degenera en corte. */
+export function lerpCamara(a: CamaraPelicula, b: CamaraPelicula, q: number): CamaraPelicula {
+  if (a.vista !== b.vista) return q >= 1 ? b : a
+  const l = (x: number, y: number) => x + (y - x) * q
+  return {
+    vista: a.vista,
+    focus: [l(a.focus[0], b.focus[0]), l(a.focus[1], b.focus[1]), l(a.focus[2], b.focus[2])],
+    az: lerpAngulo(a.az, b.az, q),
+    el: l(a.el, b.el),
+    zoom: l(a.zoom, b.zoom),
+    yaw: lerpAngulo(a.yaw, b.yaw, q),
+    pitch: l(a.pitch, b.pitch),
+    dist3p: l(a.dist3p, b.dist3p),
+    fov1p: l(a.fov1p, b.fov1p),
+  }
+}
 
 if (import.meta.env.DEV) {
   ;(window as unknown as { useCam: typeof useCam }).useCam = useCam

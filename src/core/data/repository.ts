@@ -1151,3 +1151,20 @@ export function useVisitasDeUrl(url: string | null) {
     [url],
   )
 }
+
+// Studio · Arte, Escritura, Audio y Video
+export const dibujosRepo = createRepository(db.dibujos, 'actualizadoEn')
+export const documentosRepo = createRepository(db.documentos, 'actualizadoEn')
+export const historiasRepo = createRepository(db.historias, 'actualizadoEn')
+export const relacionesLibroRepo = createRepository(db.relacionesLibro, 'creadoEn')
+export const proyectosAudioRepo = createRepository(db.proyectosAudio, 'actualizadoEn')
+export const proyectosVideoRepo = createRepository(db.proyectosVideo, 'creadoEn')
+export const mediosVideoRepo = createRepository(db.mediosVideo, 'creadoEn')
+export const grabacionesAudioRepo = createRepository(db.grabacionesAudio, 'creadoEn')
+export const cancionesRepo = createRepository(db.canciones, 'creadoEn')
+export const musicaImportadaRepo = createRepository(db.musicaImportada, 'creadoEn')
+
+/** Una toma de micrófono por id, SIN materializar la tabla entera (los blobs pesan). */
+export async function leerGrabacionAudio(id: number) {
+  return (await db.grabacionesAudio.get(id)) ?? null
+}

@@ -15,6 +15,7 @@ import { repartirPasos, usePasosDeTodas } from '../hoy'
 import { abrirVentanaEn } from '../plataforma'
 import { leerModoUI, LS_MODO_UI } from '../state/ajustesStore'
 import type { ModoUI } from './temasUI'
+import { Icono } from './iconos/Icono'
 
 /**
  * Los paneles opcionales del fondo de pantalla: hora, clima, música y recursos.
@@ -90,6 +91,7 @@ function Panel({ cual }: { cual: PanelFondo }) {
   if (cual === 'clima') return <PanelClima />
   if (cual === 'musica') return <PanelMusica />
   if (cual === 'misiones') return <PanelMisiones />
+  if (cual === 'chat') return <PanelChat />
   return <PanelRecursos />
 }
 
@@ -280,6 +282,40 @@ function PanelMisiones() {
         <p className="text-[11px] opacity-55">+{pendientes.length - 3}</p>
       )}
     </button>
+  )
+}
+
+/**
+ * El lanzador del chat, como el widget de Android: tres botones —chat, foto y
+ * dictado— que abren la app con esa acción ya lanzada (la misma acción global
+ * que consume ChatBox). Como el de misiones, SE PULSA: recupera los
+ * `pointer-events` que el grupo apaga.
+ */
+function PanelChat() {
+  const t = useT()
+  const botones = [
+    { destino: 'chat', icono: 'chat', titulo: t('gastoByok.chat', 'Chat') },
+    { destino: 'chat-foto', icono: 'foto', titulo: t('chat.menu.foto', 'Tomar foto') },
+    { destino: 'chat-voz', icono: 'microfono', titulo: t('chat.voz', 'Dictar por voz') },
+  ] as const
+  return (
+    <div className={`${VIDRIO} pointer-events-auto flex items-center gap-1.5`} style={VIDRIO_ESTILO}>
+      {botones.map((b) => (
+        <button
+          key={b.destino}
+          type="button"
+          title={b.titulo}
+          aria-label={b.titulo}
+          onClick={() => void abrirVentanaEn(b.destino)}
+          // El botón va sobre el fondo de la barra para despegarse del vidrio,
+          // igual que en el widget de Android.
+          className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg text-lg transition hover:brightness-125"
+          style={{ backgroundColor: 'var(--vf-barra-fondo)' }}
+        >
+          <Icono nombre={b.icono} className="h-5 w-5" />
+        </button>
+      ))}
+    </div>
   )
 }
 

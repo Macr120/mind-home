@@ -10,6 +10,7 @@ public class MainActivity extends BridgeActivity {
   public void onCreate(Bundle savedInstanceState) {
     // Los plugins locales se registran ANTES de super.onCreate (arranca el bridge).
     registerPlugin(WidgetsPlugin.class);
+    registerPlugin(VozArchivoPlugin.class);
     super.onCreate(savedInstanceState);
   }
 }

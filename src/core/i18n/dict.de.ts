@@ -3895,7 +3895,15 @@ export const DE: Dict = {
   'respaldo.sinRespaldo': 'Du hast noch keine Sicherung exportiert.',
   'respaldo.total': 'Datensätze insgesamt',
   'respaldo.exportar': 'Alles als JSON exportieren',
+  'respaldo.exportar.cifrado': 'Verschlüsselt als JSON exportieren',
   'respaldo.restaurar': 'Aus Sicherung wiederherstellen',
+  'respaldo.cifrar.placeholder': 'Passwort der Sicherung (optional)',
+  'respaldo.cifrar.ayuda':
+    'Wenn du ein Passwort setzt, wird die Datei verschlüsselt und du brauchst es zum Wiederherstellen. Vergisst du es, ist es verloren.',
+  'respaldo.cifrar.titulo': 'Verschlüsselte Sicherung',
+  'respaldo.cifrar.pedir': 'Diese Sicherung ist verschlüsselt. Gib ihr Passwort ein, um sie wiederherzustellen.',
+  'respaldo.cifrar.descifrar': 'Entschlüsseln und fortfahren',
+  'respaldo.cifrar.error': 'Falsches Passwort oder beschädigte Datei.',
   'respaldo.confirm.titulo': 'Wiederherstellung bestätigen',
   'respaldo.confirm.desc':
     '{nombre} enthält {n} Datensätze. Die Wiederherstellung ersetzt alle aktuellen Daten und bringt das Haus in den Zustand beim Export zurück.',

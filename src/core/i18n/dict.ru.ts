@@ -3793,7 +3793,15 @@ export const RU: Dict = {
   'respaldo.sinRespaldo': 'Резервная копия ещё не экспортирована.',
   'respaldo.total': 'Всего записей',
   'respaldo.exportar': 'Экспортировать всё как JSON',
+  'respaldo.exportar.cifrado': 'Экспортировать зашифрованным как JSON',
   'respaldo.restaurar': 'Восстановить из резервной копии',
+  'respaldo.cifrar.placeholder': 'Пароль резервной копии (необязательно)',
+  'respaldo.cifrar.ayuda':
+    'Если задашь пароль, файл зашифруется и без него не восстановить. Забытый пароль вернуть нельзя.',
+  'respaldo.cifrar.titulo': 'Зашифрованная резервная копия',
+  'respaldo.cifrar.pedir': 'Эта резервная копия зашифрована. Введи её пароль, чтобы восстановить.',
+  'respaldo.cifrar.descifrar': 'Расшифровать и продолжить',
+  'respaldo.cifrar.error': 'Неверный пароль или повреждённый файл.',
   'respaldo.confirm.titulo': 'Подтвердить восстановление',
   'respaldo.confirm.desc':
     '{nombre} содержит {n} записей. Восстановление заменит все текущие данные и вернёт дом к состоянию на момент экспорта.',

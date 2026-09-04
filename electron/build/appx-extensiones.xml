@@ -1,0 +1,18 @@
+<!-- La casa como fondo de pantalla al iniciar sesion, en la version de
+     Microsoft Store. La startupTask del manifiesto es el UNICO autoarranque
+     que MSIX permite: el valor Run de HKCU que usa el NSIS queda virtualizado
+     dentro del contenedor y Explorer no lo ve. Esta tarea dispara en CADA
+     inicio de sesion con el argumento "fondo-auto" (con sus dos guiones), y es
+     main.js quien decide: si el fondo no quedo activo, muere sin abrir nada.
+     El usuario puede apagarla ademas en Configuracion > Aplicaciones > Inicio.
+     Sin acentos a proposito: electron-builder re-codifica el manifiesto y los
+     dejaba ilegibles. El Executable debe coincidir con el del elemento
+     Application (productName del package.json); uap10:Parameters pide
+     Windows 10 2004, de ahi el minVersion del electron-builder.yml. -->
+<desktop:Extension Category="windows.startupTask"
+    Executable="app\Mind Planner Home.exe"
+    EntryPoint="Windows.FullTrustApplication"
+    uap10:Parameters="--fondo-auto"
+    xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10">
+  <desktop:StartupTask TaskId="MPHFondo" Enabled="true" DisplayName="Mind Planner Home" />
+</desktop:Extension>

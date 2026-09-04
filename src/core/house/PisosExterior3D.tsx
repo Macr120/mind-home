@@ -3,6 +3,7 @@ import { type ThreeEvent } from '@react-three/fiber'
 import { useLayout } from '../state/layoutStore'
 import { useHouse } from '../state/houseStore'
 import { useCam } from '../state/cameraStore'
+import { colocandoActor } from '../state/peliculaStore'
 import { useInteractUi } from '../state/interactUiStore'
 import { useEditorUi } from '../state/editorUiStore'
 import { usePlanos } from '../state/planosStore'
@@ -52,8 +53,8 @@ export function PisosExterior3D() {
         return
       }
       // Con un modo de construcción activo (editor o atajo de la rueda) el tap
-      // construye, no mueve al personaje.
-      if (editMode || usePlanos.getState().activo) return
+      // construye, no mueve al personaje. En el modo película, con un personaje seleccionado el toque lo coloca.
+      if (editMode || usePlanos.getState().activo || colocandoActor()) return
       // Soltar tras una pulsación larga (despertar algo, abrir un editor) no es un
       // toque para caminar.
       if (pulsacionLargaReciente()) return

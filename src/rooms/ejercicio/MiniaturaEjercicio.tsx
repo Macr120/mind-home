@@ -1,5 +1,5 @@
 import { useT } from '../../core/i18n/useT'
-import { useRef, useState } from 'react'
+import { Suspense, useRef, useState } from 'react'
 import type { ImagenEjercicio } from '../../core/data/db'
 import { Icono } from '../../core/ui/iconos/Icono'
 import {
@@ -10,6 +10,8 @@ import {
   useUrlImagen,
 } from './imagenIA'
 import { urlImagenPreset } from './imagenesPreset'
+import { VisorEjercicio, tienePatron } from './anim'
+import { hayHover, useMiniaturas, usePoseMiniatura } from './anim/miniaturasStore'
 import { descEjercicio, nombreEjercicio } from './nombres'
 import { Creditos } from '../../core/ui/Creditos'
 import { OP_IMAGEN_EJERCICIO } from './costosIA'
@@ -24,7 +26,13 @@ import { C_FLEX } from './constantes'
  * provee el catálogo (que se suscribe una sola vez).
  *
  * Sin registro propio se cae a la ilustración que la app trae de fábrica
- * (`imagenesPreset`); la del usuario siempre manda sobre ella.
+ * (`imagenesPreset`); la del usuario siempre manda sobre ella. Si el ejercicio
+ * tiene animación, el diálogo abre con el avatar haciéndolo (pestaña Animación)
+ * y la ilustración queda en su propia pestaña, con sus botones.
+ *
+ * Con las miniaturas en modo animación (`useMiniaturas`), la miniatura es el
+ * avatar en la pose del ejercicio —una captura estática— y solo se anima con el
+ * cursor encima; igual el preview del diálogo (en táctil, sin hover, corre solo).
  */
 export function MiniaturaEjercicio({
   nombre,
@@ -45,21 +53,43 @@ export function MiniaturaEjercicio({
   const [abierto, setAbierto] = useState(false)
   const urlPropia = useUrlImagen(registro)
   const url = registro ? urlPropia : urlImagenPreset(nombre)
+  const animada = useMiniaturas((s) => s.modo) === 'animacion' && tienePatron(nombre)
+  const pose = usePoseMiniatura(nombre, animada)
+  // Con el cursor encima aparece una lupa con el avatar en movimiento (un solo Canvas vivo).
+  const [vivo, setVivo] = useState(false)
 
   return (
     <div className="relative shrink-0">
       <button
         type="button"
         onClick={() => setAbierto(true)}
-        title={url ? t('ejercicio.img.ver', 'Ver imagen') : t('ejercicio.img.anadir', 'Añadir imagen')}
+        onMouseEnter={() => animada && hayHover() && setVivo(true)}
+        onMouseLeave={() => setVivo(false)}
+        title={
+          animada
+            ? t('ejercicio.anim.ver', 'Ver animación')
+            : url
+              ? t('ejercicio.img.ver', 'Ver imagen')
+              : t('ejercicio.img.anadir', 'Añadir imagen')
+        }
         className={`flex items-center justify-center overflow-hidden rounded-lg border border-white/10 bg-black/30 text-white/30 transition ${tamano === 'sm' ? 'h-8 w-8' : 'h-12 w-12'} ${hoverBorde}`}
       >
-        {url ? (
+        {animada && pose ? (
+          <img src={pose} alt="" className="h-full w-full object-cover" />
+        ) : url ? (
           <img src={url} alt="" className="h-full w-full object-cover" />
         ) : (
           <Icono nombre="foto" />
         )}
       </button>
+      {/* Lupa viva sobre la miniatura (fuera del <button>: ahí el Canvas no consigue medirse). */}
+      {animada && vivo && (
+        <div className="pointer-events-none absolute start-0 top-0 z-20 overflow-hidden rounded-lg border border-white/10 bg-black/70 shadow-xl">
+          <Suspense fallback={null}>
+            <VisorEjercicio nombre={nombre} compacto className="h-28 w-28" />
+          </Suspense>
+        </div>
+      )}
       {abierto && (
         <DialogoImagen
           nombre={nombre}
@@ -70,6 +100,15 @@ export function MiniaturaEjercicio({
         />
       )}
     </div>
+  )
+}
+
+function Cargando({ texto }: { texto: string }) {
+  return (
+    <span className="flex flex-col items-center gap-2 py-8 text-xs text-white/45">
+      <span className="h-6 w-6 animate-spin rounded-full border-2 border-white/25 border-t-white/80" />
+      {texto}
+    </span>
   )
 }
 
@@ -94,6 +133,12 @@ function DialogoImagen({
   const inputRef = useRef<HTMLInputElement>(null)
   const [generando, setGenerando] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const conAnim = tienePatron(nombre)
+  const modo = useMiniaturas((s) => s.modo)
+  const [vista, setVista] = useState<'anim' | 'foto'>(conAnim && modo === 'animacion' ? 'anim' : 'foto')
+  const soloFoto = !conAnim || vista === 'foto'
+  // La animación corre con el cursor encima; sin hover (táctil) corre sola.
+  const [vivo, setVivo] = useState(false)
   // La clave vive en el chat: se relee al abrir por si se configuró mientras tanto.
   const puedeGenerar = imagenIaActiva()
 
@@ -144,12 +189,38 @@ function DialogoImagen({
           </button>
         </header>
 
-        <div className="mb-3 flex min-h-40 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-black/30">
-          {generando ? (
-            <span className="flex flex-col items-center gap-2 py-8 text-xs text-white/45">
-              <span className="h-6 w-6 animate-spin rounded-full border-2 border-white/25 border-t-white/80" />
-              {t('ejercicio.img.generando', 'Generando…')}
-            </span>
+        {conAnim && (
+          <div className="mb-2 flex gap-1 rounded-xl bg-black/20 p-1">
+            {(['anim', 'foto'] as const).map((v) => (
+              <button
+                key={v}
+                type="button"
+                onClick={() => setVista(v)}
+                className={`flex flex-1 items-center justify-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-bold transition ${
+                  vista === v ? 'ui-accent-bg' : 'text-white/55 hover:bg-white/10'
+                }`}
+                style={vista === v ? acento(C_FLEX) : undefined}
+              >
+                <Icono nombre={v === 'anim' ? 'persona' : 'imagen'} />
+                {v === 'anim'
+                  ? t('ejercicio.anim.pestana', 'Animación')
+                  : t('ejercicio.anim.ilustracion', 'Ilustración')}
+              </button>
+            ))}
+          </div>
+        )}
+
+        <div
+          className="mb-3 flex min-h-40 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-black/30"
+          onMouseEnter={() => setVivo(true)}
+          onMouseLeave={() => setVivo(false)}
+        >
+          {!soloFoto ? (
+            <Suspense fallback={<Cargando texto={t('ejercicio.anim.cargando', 'Cargando…')} />}>
+              <VisorEjercicio nombre={nombre} jugando={vivo || !hayHover()} className="h-64" />
+            </Suspense>
+          ) : generando ? (
+            <Cargando texto={t('ejercicio.img.generando', 'Generando…')} />
           ) : url ? (
             <img src={url} alt={nombreEjercicio(t, nombre)} className="max-h-[45vh] w-full object-contain" />
           ) : (
@@ -159,13 +230,14 @@ function DialogoImagen({
           )}
         </div>
 
-        {error && <p className="mb-2 text-xs text-red-400">{error}</p>}
-        {!puedeGenerar && (
+        {soloFoto && error && <p className="mb-2 text-xs text-red-400">{error}</p>}
+        {soloFoto && !puedeGenerar && (
           <p className="mb-2 text-[11px] text-white/40">
             {t('ejercicio.img.sinIa', 'Configura la IA en el chat para generar imágenes.')}
           </p>
         )}
 
+        {soloFoto && (
         <div className="flex gap-2">
           <button
             type="button"
@@ -190,6 +262,7 @@ function DialogoImagen({
             {t('ejercicio.img.subir', 'Subir foto')}
           </button>
         </div>
+        )}
 
         <input
           ref={inputRef}

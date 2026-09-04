@@ -3797,7 +3797,15 @@ export const TR: Dict = {
   'respaldo.sinRespaldo': 'Henüz bir yedek dışa aktarmadın.',
   'respaldo.total': 'Toplam kayıt',
   'respaldo.exportar': 'Her şeyi JSON olarak dışa aktar',
+  'respaldo.exportar.cifrado': 'Şifreli JSON olarak dışa aktar',
   'respaldo.restaurar': 'Yedekten geri yükle',
+  'respaldo.cifrar.placeholder': 'Yedeğin şifresi (isteğe bağlı)',
+  'respaldo.cifrar.ayuda':
+    'Bir şifre belirlersen dosya şifrelenir ve geri yüklemek için o şifre gerekir. Unutursan geri getirilemez.',
+  'respaldo.cifrar.titulo': 'Şifreli yedek',
+  'respaldo.cifrar.pedir': 'Bu yedek şifreli. Geri yüklemek için şifresini yaz.',
+  'respaldo.cifrar.descifrar': 'Şifreyi çöz ve devam et',
+  'respaldo.cifrar.error': 'Şifre yanlış veya dosya bozuk.',
   'respaldo.confirm.titulo': 'Geri yüklemeyi onayla',
   'respaldo.confirm.desc':
     '{nombre} {n} kayıt içeriyor. Geri yükleme, tüm güncel verilerin yerini alır ve evi dışa aktarıldığı haline döndürür.',

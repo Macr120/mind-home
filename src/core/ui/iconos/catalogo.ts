@@ -111,6 +111,9 @@ export const EMOJIS = {
   aspersor: '💦',
   regla: '📐',
   medida: '📏',
+  capas: '📑',
+  compas: '🧭',
+  fusionar: '⤵️',
   ropa: '👕',
   perfil: '👤',
   esfera: '⚪',
@@ -275,6 +278,7 @@ export const EMOJIS = {
   'tab-cardio': '🏃',
   hecho: '✅',
   lista: '📋',
+  indice: '📑',
   rejilla: '▦',
   tablero: '🗂️',
   ver: '👀',
@@ -327,6 +331,7 @@ export const EMOJIS = {
   play: '▶️',
   pausa: '⏸️',
   detener: '⏹️',
+  regresarInicio: '⏮️',
   cronometro: '⏱️',
   'reloj-arena': '⏳',
   alerta: '⚠️',
@@ -549,6 +554,29 @@ export const EMOJIS = {
   // — Sueltos que aún caían en emoji —
   hilo: '🧵',
   silencio: '🔇',
+
+  // — Studio (arte, escritura, audio y video) —
+  cursiva: '🅸',
+  subrayado: '🆄',
+  tachado: '🆂',
+  'lista-num': '🔢',
+  linea: '╱',
+  rectangulo: '▭',
+  elipse: '⬭',
+  // 💧 pertenece a 'humedad' en el mapa inverso; aquí solo se usa por nombre.
+  gotero: '💧',
+  letra: '🅰️',
+  grabar: '⏺️',
+  metronomo: '🎼',
+  piano: '🎹',
+  sintetizador: '🎛️',
+  vinilo: '💿',
+  iman: '🧲',
+  transicion: '🌗',
+  // 🔍 pertenece a 'lupa' en el mapa inverso; aquí solo se usa por nombre.
+  acercar: '🔍',
+  alejar: '🔎',
+  contraer: '⤡',
 } satisfies Record<string, string>
 
 export type NombreIcono = keyof typeof EMOJIS

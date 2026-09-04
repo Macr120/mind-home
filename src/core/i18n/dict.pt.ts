@@ -3826,7 +3826,15 @@ export const PT: Dict = {
   'respaldo.sinRespaldo': 'Você ainda não exportou um backup.',
   'respaldo.total': 'Total de registros',
   'respaldo.exportar': 'Exportar tudo como JSON',
+  'respaldo.exportar.cifrado': 'Exportar criptografado como JSON',
   'respaldo.restaurar': 'Restaurar de um backup',
+  'respaldo.cifrar.placeholder': 'Senha do backup (opcional)',
+  'respaldo.cifrar.ayuda':
+    'Se você definir uma senha, o arquivo é criptografado e você vai precisar dela para restaurar. Não dá para recuperá-la se esquecer.',
+  'respaldo.cifrar.titulo': 'Backup criptografado',
+  'respaldo.cifrar.pedir': 'Este backup está criptografado. Digite a senha dele para restaurar.',
+  'respaldo.cifrar.descifrar': 'Descriptografar e continuar',
+  'respaldo.cifrar.error': 'Senha incorreta ou arquivo danificado.',
   'respaldo.confirm.titulo': 'Confirmar restauração',
   'respaldo.confirm.desc':
     '{nombre} contém {n} registros. Restaurar vai substituir todos os dados atuais e deixar a casa como estava no momento da exportação.',

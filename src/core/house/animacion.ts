@@ -235,6 +235,9 @@ export function girarHacia(g: THREE.Object3D, objetivo: number, factor: number):
   g.rotation.y += Math.atan2(Math.sin(objetivo - g.rotation.y), Math.cos(objetivo - g.rotation.y)) * factor
 }
 
+/** Smoothstep: suaviza un avance 0..1 (arranque y frenado sin tirones). */
+export const suave = (q: number): number => q * q * (3 - 2 * q)
+
 /** Categoría de animación al caminar/pasear de un cuerpo (ver `cuerpos.ts`). */
 export type CategoriaMarcha = 'caminan' | 'manos' | 'flotan'
 

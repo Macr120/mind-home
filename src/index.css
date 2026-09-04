@@ -754,6 +754,18 @@ html[data-base-ui='claro']
   --color-white: #fff;
   color: #e7e9ee;
 }
+/* Isla oscura sobre el mapa (dock y paneles del modo película del Studio de
+   video): conserva la paleta nocturna entera —paneles incluidos— aunque la app
+   esté en modo claro. Encima de la escena 3D el vidrio oscuro es lo que se lee;
+   `.ui-noche` sola restaura el blanco pero deja los paneles claros, y el texto
+   blanco caía sobre la regla clara. Va junto a `.ui-noche`. */
+.ui-isla-oscura {
+  --ui-bg: #0f1115;
+  --ui-panel: #12151c;
+  --ui-panel-2: #171b24;
+  --ui-panel-solido: #12151c;
+  --ui-ink: #e7e9ee;
+}
 
 /*
  * Modo transparente: usa la paleta clara (las apps de los cuartos abren
@@ -1008,4 +1020,45 @@ html[data-modo-ui='transparente']
   .ui-boton {
     min-height: 2.75rem;
   }
+}
+
+/* Studio de escritura: el contenido del documento (contentEditable) recupera la
+   tipografía que el reset de Tailwind aplana; sin esto un H1 o una lista se ven
+   idénticos a un párrafo. Solo elementos de la lista blanca de sanitizarHtml. */
+.mph-doc {
+  line-height: 1.6;
+}
+.mph-doc h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0.6em 0 0.3em;
+}
+.mph-doc h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0.6em 0 0.3em;
+}
+.mph-doc h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0.5em 0 0.25em;
+}
+.mph-doc p {
+  margin: 0 0 0.5em;
+}
+.mph-doc ul {
+  list-style: disc;
+  padding-inline-start: 1.4em;
+  margin: 0 0 0.5em;
+}
+.mph-doc ol {
+  list-style: decimal;
+  padding-inline-start: 1.4em;
+  margin: 0 0 0.5em;
+}
+.mph-doc blockquote {
+  border-inline-start: 3px solid rgb(255 255 255 / 0.2);
+  padding-inline-start: 0.8em;
+  margin: 0 0 0.5em;
+  color: rgb(255 255 255 / 0.7);
 }

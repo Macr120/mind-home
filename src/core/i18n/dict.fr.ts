@@ -3876,7 +3876,15 @@ export const FR: Dict = {
   'respaldo.sinRespaldo': 'Tu n’as pas encore exporté de sauvegarde.',
   'respaldo.total': 'Total des enregistrements',
   'respaldo.exportar': 'Exporter tout en JSON',
+  'respaldo.exportar.cifrado': 'Exporter chiffré en JSON',
   'respaldo.restaurar': 'Restaurer depuis une sauvegarde',
+  'respaldo.cifrar.placeholder': 'Mot de passe de sauvegarde (facultatif)',
+  'respaldo.cifrar.ayuda':
+    'Si tu mets un mot de passe, le fichier est chiffré et il te faudra ce mot de passe pour le restaurer. Impossible de le récupérer si tu l’oublies.',
+  'respaldo.cifrar.titulo': 'Sauvegarde chiffrée',
+  'respaldo.cifrar.pedir': 'Cette sauvegarde est chiffrée. Saisis son mot de passe pour la restaurer.',
+  'respaldo.cifrar.descifrar': 'Déchiffrer et continuer',
+  'respaldo.cifrar.error': 'Mot de passe incorrect ou fichier endommagé.',
   'respaldo.confirm.titulo': 'Confirmer la restauration',
   'respaldo.confirm.desc':
     '{nombre} contient {n} enregistrements. La restauration remplacera toutes les données actuelles et laissera la maison telle qu’elle était lors de l’exportation.',

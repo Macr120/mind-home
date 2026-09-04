@@ -6,6 +6,7 @@
 
 export type ConfigGrupoId =
   | 'cuenta'
+  | 'conectadas'
   | 'estilo'
   | 'idioma'
   | 'interfaz'
@@ -22,6 +23,7 @@ export type ConfigGrupoId =
  */
 const ORDEN_CONFIG_DEFAULT: ConfigGrupoId[] = [
   'cuenta',
+  'conectadas',
   'estilo',
   'idioma',
   'interfaz',

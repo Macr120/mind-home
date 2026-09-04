@@ -165,7 +165,8 @@ export const TEXTOS = {
   'desc.web':
     'Rien à installer : connectez-vous avec votre compte et votre maison vous attend. Sans compte, vous pouvez essayer l’app.',
   'desc.web.cta': 'Ouvrir l’app',
-  'desc.windows': 'Installateur pour Windows 10/11.',
+  'desc.windows': 'Gratuit sur Microsoft Store. La maison s’achète à l’intérieur.',
+  'desc.windows.cta': 'Télécharger pour Windows',
   'desc.mac': 'Image .dmg pour Mac.',
   'desc.mac.cta': 'Télécharger pour Mac',
 
@@ -224,7 +225,12 @@ export const TEXTOS = {
   'priv.uso.2': 'Synchroniser tes données entre appareils et les sauvegarder.',
   'priv.uso.3': 'Faire tourner les fonctions d’IA sur ton quota de crédits.',
   'priv.uso.4':
-    'Nous ne vendons pas tes données et ne les partageons pas avec des tiers à des fins publicitaires.',
+    'Nous ne vendons pas tes données et ne les partageons pas avec des tiers à des fins publicitaires.',  'priv.redes.h': 'Comptes de réseaux sociaux connectés',
+  'priv.redes.p':
+    'Si tu connectes ton compte YouTube, TikTok, Facebook ou Instagram, nous conservons les jetons d’accès que ce réseau nous remet, chiffrés sur notre serveur, avec le nom et la photo du compte ou de la Page que tu choisis. Nous les utilisons uniquement pour publier sur ton propre compte les vidéos que tu décides de publier depuis l’éditeur vidéo, au moment où tu appuies sur Publier. Nous ne lisons pas tes vidéos, publications, commentaires, messages ni aucune autre donnée de ces comptes, et nous ne publions jamais rien de nous-mêmes. Les jetons sont conservés jusqu’à ce que tu déconnectes le compte dans Réglages → Comptes connectés ou que tu supprimes ton compte Mind Planner Home ; tu peux aussi révoquer l’accès depuis les réglages de sécurité de chaque réseau (Google : <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
+  'priv.redes.youtube':
+    'Pour YouTube, l’app utilise YouTube API Services ; en connectant ton compte, tu acceptes les <a href="https://www.youtube.com/t/terms">Conditions d’utilisation de YouTube</a> et la <a href="https://policies.google.com/privacy">Politique de confidentialité de Google</a> s’applique.',
+
   'priv.cancelas.h': 'Si tu résilies ton abonnement',
   'priv.cancelas.p':
     'Tes données locales restent sur tes appareils. Les données synchronisées restent stockées (inaccessibles jusqu’à ce que tu reprennes) et tu peux les effacer définitivement en supprimant ton compte.',
@@ -296,6 +302,7 @@ export const TEXTOS = {
   'sop.faq.p': 'Les questions les plus courantes — prix, appareils, IA et tes données — trouvent leur réponse sur la page principale.',
   'sop.faq.enlace': 'Voir les questions fréquentes',
   'sop.cuenta.h': 'Supprimer ton compte',
-  'sop.cuenta.p': 'Tu peux supprimer ton compte et toutes tes données dans le cloud depuis l’app (Éditeur → Réglages → Compte) ou depuis ton compte sur le web.',
+  'sop.cuenta.p':
+    'Tu peux supprimer ton compte et toutes tes données dans le cloud depuis l’app (Éditeur → Réglages → Compte) ou depuis ton compte sur le web. Sa suppression efface aussi les connexions à tes réseaux sociaux (YouTube, TikTok, Facebook et Instagram) : les jetons enregistrés sont détruits et cessent d’être valables.',
   'sop.cuenta.enlace': 'Aller à ton compte',
 }

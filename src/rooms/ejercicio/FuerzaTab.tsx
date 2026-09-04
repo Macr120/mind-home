@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import type {
   ImagenEjercicio,
+  RutinaFuerza,
   SesionEjercicio,
   SerieFuerza,
   SistemaUnidades,
@@ -23,6 +24,7 @@ import { GraficaProgreso } from './GraficaProgreso'
 import { HeatmapMensual } from './HeatmapMensual'
 import { useImagenesPorClave } from './imagenIA'
 import { MiniaturaEjercicio } from './MiniaturaEjercicio'
+import { ReproductorRutina } from './ReproductorRutina'
 import { StatCard } from './ResistenciaTab'
 import { FiltroPeriodo } from './FiltroPeriodo'
 import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
@@ -110,6 +112,7 @@ export function FuerzaTab({
   const [filas, setFilas] = useState<FilaEjercicio[]>([filaVacia(), filaVacia()])
   const [editandoId, setEditandoId] = useState<number | null>(null)
   const [ejercicioGrafica, setEjercicioGrafica] = useState('')
+  const [rutinaActiva, setRutinaActiva] = useState<RutinaFuerza | null>(null)
 
   const { refRegistro, irAlRegistro } = useFocoRegistro()
 
@@ -359,6 +362,7 @@ export function FuerzaTab({
                     acento={{ color: C_FUERZA, hoverBorde: 'hover:border-orange-500/50' }}
                     imgPorClave={imgPorClave}
                     onUsar={() => aplicarRutina(r)}
+                    onIniciar={() => setRutinaActiva(r)}
                     onBorrar={() => r.id && rutinasFuerzaRepo.remove(r.id)}
                     hechoHoy={delDia.length > 0}
                   />
@@ -514,6 +518,15 @@ export function FuerzaTab({
           </>
         )}
         </>
+      )}
+
+      {rutinaActiva && (
+        <ReproductorRutina
+          tipo="fuerza"
+          rutina={rutinaActiva}
+          imgPorClave={imgPorClave}
+          onCerrar={() => setRutinaActiva(null)}
+        />
       )}
     </div>
   )

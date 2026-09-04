@@ -477,6 +477,68 @@ no requiere pasos manuales. (Desde jul 2026 la policy también exige Pro vigente
 - Los instaladores de escritorio (fase Electron) NO caben en Pages (límite
   25 MB/archivo): servirlos desde GitHub Releases y enlazarlos en la landing.
 
+### 6. Publicar en redes desde el Studio de video (sep 2026)
+
+El Editor de video publica en la cuenta del USUARIO de YouTube, TikTok, Facebook
+(Páginas) e Instagram (cuenta profesional). Piezas: migración
+`20260903000001_redes_sociales.sql` (tres tablas con RLS sin políticas: solo
+service_role; tokens cifrados AES-GCM por la función), Edge Functions
+`redes-oauth` (OAuth: `iniciar`/`estado`/`elegir`/`desconectar` + el callback
+`GET …/redes-oauth/callback`, que llega SIN JWT → `verify_jwt = false` en
+`config.toml`; el resto de acciones validan la sesión a mano) y `redes-publicar`
+(`opciones`/`iniciar-publicacion`/`trozo`/`finalizar`/`estado-publicacion`/
+`token-youtube`). YouTube sube directo desde el cliente (la función inicia la
+sesión resumable, que es lo que gasta cuota); TikTok y Meta suben POR TROZOS de
+8 MiB a través de la función. Cliente en `src/core/redes/` y
+`src/rooms/video/publicar/`.
+
+**Secretos** (`npx supabase secrets set CLAVE=valor`):
+
+| Secreto | Qué es |
+|---|---|
+| `REDES_STATE_SECRET` | Firma HMAC del `state` del OAuth (≥ 32 bytes aleatorios) |
+| `REDES_CIFRADO_KEY` | Clave AES-GCM de 32 bytes en base64 (`openssl rand -base64 32`) |
+| `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET` | Cliente OAuth «Web application» del proyecto de YouTube (NO el del login) |
+| `TIKTOK_CLIENT_KEY`, `TIKTOK_CLIENT_SECRET` | App de TikTok for Developers (Login Kit + Content Posting API) |
+| `META_APP_ID`, `META_APP_SECRET` (+ `META_CONFIG_ID` opcional) | App de Meta for Developers (Facebook Login; `config_id` si es Facebook Login for Business) |
+| `REDES_CALLBACK_URL` (opcional) | Default `${SUPABASE_URL}/functions/v1/redes-oauth/callback` |
+| `REDES_YT_MAX_DIA` (default 5) | Tope global diario de `videos.insert` (10 000 u / 1600 u ≈ 6) |
+| `REDES_YT_AUDITADO`, `REDES_TIKTOK_AUDITADO`, `REDES_META_LIVE` (0/1, default 0) | Se ponen a 1 al pasar cada auditoría; sin redeploy. Mientras estén a 0 la UI avisa de que el video sale privado / «Solo yo» / solo testers |
+| `CORS_ORIGENES` (ya existe) | También valida los orígenes a los que puede volver el callback en la web |
+
+**Alta en las consolas** (la redirect URI es SIEMPRE
+`https://<ref>.supabase.co/functions/v1/redes-oauth/callback`; URLs de privacidad
+y términos: `https://mindplannerhome.com/privacidad` y `/terminos`, sin `noindex`):
+
+- **Google**: proyecto GCP aparte del login («MPH Studio») → habilitar YouTube Data
+  API v3 → pantalla de consentimiento con el scope `…/auth/youtube.upload`
+  **publicada en producción** (en «Testing» los refresh tokens caducan a los 7
+  días) → cliente OAuth «Web application» con la redirect URI. Sin verificación
+  de Google: pantalla «app no verificada» y tope de 100 usuarios; sin el
+  *compliance audit* de YouTube: todo video sube PRIVADO. Después: verificación
+  (video demo del flujo) + audit + ampliación de cuota.
+- **TikTok for Developers**: app con Login Kit + Content Posting API (Direct
+  Post), redirect URI, scopes `user.info.basic` y `video.publish`. Sin audit todo
+  sale `SELF_ONLY`; la pantalla de publicar cumple sus requisitos de UX
+  (nickname, privacidad sin default, toggles apagados, contenido comercial con
+  consentimientos) para poder pedirlo.
+- **Meta for Developers**: app tipo Business con Facebook Login (for Business) e
+  Instagram Graph API; «Valid OAuth Redirect URIs» = la redirect URI; añadir las
+  cuentas propias como admin/tester (modo desarrollo). Hace falta una Página de
+  Facebook y una cuenta profesional de Instagram vinculada. Después: App Review
+  de `pages_show_list`, `pages_read_engagement`, `pages_manage_posts`,
+  `instagram_basic`, `instagram_content_publish` + verificación de empresa.
+
+**Deploy**: `npx supabase db push` → `npx supabase functions deploy redes-oauth
+--no-verify-jwt` → `npx supabase functions deploy redes-publicar`. El callback
+solo se puede probar contra el proyecto en la nube (las redirect URIs son https
+públicas). La app nativa necesita el host `redes` en el `intent-filter` de
+`AndroidManifest.xml` (ya está) → `npx cap sync android` y APK nuevo.
+
+**Límites por usuario** (`rate_limits`): OAuth 10/h; publicaciones 3/día en
+YouTube y 10/día en el resto; trozos 200/10 min; contador global
+`youtube-global` con uid sentinela `00000000-…` que NO falla abierto.
+
 ## Comandos útiles
 
 ```bash
