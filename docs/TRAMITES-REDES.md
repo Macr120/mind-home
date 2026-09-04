@@ -376,8 +376,28 @@ id y usuario de la cuenta profesional · `instagram_content_publish` publicar el
 
 - [ ] Generar los dos secretos propios y guardarlos fuera del equipo (sin la clave de
       cifrado los tokens guardados no se pueden leer).
-- [ ] Subir secretos, migración y funciones (`redes-oauth` con `--no-verify-jwt`).
-- [ ] Desplegar la app web desde un worktree limpio (`docs/BACKEND.md` §5).
+- [x] Subir secretos — **Google hecho el 3-sep-2026**: `REDES_CIFRADO_KEY`,
+      `REDES_STATE_SECRET`, `GOOGLE_CLIENT_ID` y `GOOGLE_CLIENT_SECRET` registrados.
+      Faltan los de TikTok y Meta; `secrets set` es ADITIVO, se añaden sin tocar el resto,
+      y cada proveedor falla por separado (YouTube ya funciona sin los otros).
+      **Cómo meterlos sin que pasen por la terminal** (nos costó dos intentos): NO pegar
+      el `CLAVE=valor` en PowerShell —lo intenta ejecutar y además queda en el historial—
+      y no fiarse de Notepad, que puede no guardar. Lo que funcionó: `Read-Host` pide cada
+      valor (lo tecleado en un Read-Host NO entra en el historial) y escribe el archivo.
+      El archivo debe llamarse **`.env.redes`**: `redes.env` NO lo ignora `.gitignore`
+      (el patrón es `.env.*`) y se podría commitear por error.
+- [x] Migración y funciones (3-sep-2026). `npx supabase db push` aplicó las DOS
+      pendientes: `endurecer_auditoria` (26-ago) y `redes_sociales`. Comprobado antes de
+      lanzarlo que `sync_reset` —cuya firma cambia— **no se llama desde el cliente ni
+      desde las funciones**, solo a mano, así que el cambio no rompe la app.
+      Funciones desplegadas y verificadas: `redes-oauth` con **verify_jwt = false** y
+      `redes-publicar` con true.
+- [x] Desplegar la app web desde un worktree limpio (`docs/BACKEND.md` §5). Hecho el
+      3-sep-2026 desde el commit `b38d4bd`, que se creó justo para esto: **el código de
+      redes estaba sin commitear**, así que un worktree en HEAD habría publicado la app
+      SIN la función. Deployment `1097b530`; verificado que el dominio quedó inyectado en
+      `dist/assets`, que el bundle contiene `redes-oauth`, y que el chunk principal sirve
+      `application/javascript` (no el fallback HTML).
 - [ ] Android: `npx cap sync android` (el intent-filter ganó el host `redes`) y APK.
 
 ```bash

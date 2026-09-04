@@ -275,14 +275,16 @@ function respuestaVuelta(retorno: string, plataforma: Plataforma, ok: boolean, m
   if (motivo) q.set('error', motivo)
   if (retorno === 'app') return redirigir(`${ESQUEMA_APP}?${q}`)
   const sep = retorno.indexOf(':')
-  const tipo = retorno.slice(0, sep)
   const origen = retorno.slice(sep + 1)
-  if (tipo === 'pestana') {
-    const qp = new URLSearchParams({ redes: ok ? 'ok' : 'error', plataforma })
-    if (motivo) qp.set('motivo', motivo)
-    return redirigir(`${origen}/?${qp}`)
-  }
-  return paginaPopup(origen, plataforma, ok, motivo)
+  // Emergente y pestaña vuelven IGUAL, por 302 a la app. Se intentó devolver una
+  // página con `postMessage`, pero Supabase reescribe las cabeceras de las Edge
+  // Functions (`Content-Type: text/plain` + `nosniff` + CSP con `sandbox`) para
+  // que nadie sirva HTML desde `*.supabase.co`: el navegador pintaba el HTML como
+  // texto y el script no llegaba a ejecutarse nunca. El 302 no le afecta, y ya en
+  // nuestro origen la app sí puede avisar a quien abrió la emergente.
+  const qp = new URLSearchParams({ redes: ok ? 'ok' : 'error', plataforma })
+  if (motivo) qp.set('motivo', motivo)
+  return redirigir(`${origen}/?${qp}`)
 }
 
 function redirigir(destino: string): Response {
@@ -297,21 +299,6 @@ const CABECERAS_HTML = {
 }
 
 const ESTILO = 'body{margin:0;min-height:100vh;display:grid;place-items:center;font:15px system-ui,sans-serif;background:#0f1115;color:#eee;text-align:center}p{opacity:.7}'
-
-/** Ventana emergente: avisa a la app que la abrió y se cierra sola. */
-function paginaPopup(origen: string, plataforma: Plataforma, ok: boolean, motivo?: MotivoVuelta): Response {
-  // Todo lo que entra al script viene validado (origen por regex, plataforma y motivo por literal) y va por JSON.stringify.
-  const mensaje = JSON.stringify({ tipo: 'mph-redes', ok, plataforma, error: motivo ?? null })
-  const destino = JSON.stringify(`${origen}/?redes=${ok ? 'ok' : 'error'}&plataforma=${plataforma}${motivo ? `&motivo=${motivo}` : ''}`)
-  const html = `<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Mind Planner Home</title><style>${ESTILO}</style></head><body>
-<div><h1>${ok ? 'Cuenta conectada · Account connected' : 'No se pudo conectar · Could not connect'}</h1><p>Ya puedes volver a la app · You can go back to the app</p></div>
-<script>
-(function(){var m=${mensaje},o=${JSON.stringify(origen)};
-try{if(window.opener){window.opener.postMessage(m,o);window.close();return}}catch(e){}
-location.replace(${destino})})();
-</script></body></html>`
-  return new Response(html, { status: 200, headers: CABECERAS_HTML })
-}
 
 /** `state` inválido o caducado: no se sabe a dónde volver, así que solo se avisa. */
 function paginaError(): Response {

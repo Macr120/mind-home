@@ -148,15 +148,24 @@ export function arrancarRedes(): void {
   if (typeof window === 'undefined') return
   void (async () => {
     const { recibirMensajeRedes, recibirQueryRedes } = await import('./retorno')
+    // La vuelta del OAuth aterriza SIEMPRE aquí, en nuestro origen, por el 302 de
+    // `redes-oauth` (Supabase no deja servir HTML con script desde sus funciones).
+    // Si esta pestaña es la emergente, se lo pasa a quien la abrió y se cierra;
+    // si no, la procesa ella misma y limpia la URL.
+    const q = new URLSearchParams(window.location.search)
+    const redes = q.get('redes')
+    if (redes && window.opener && !window.opener.closed) {
+      const mensaje = { tipo: 'mph-redes', ok: redes === 'ok', plataforma: q.get('plataforma'), error: q.get('motivo') }
+      window.opener.postMessage(mensaje, window.location.origin)
+      window.close()
+      return
+    }
     if (recibirQueryRedes(window.location.search)) {
       const limpia = new URL(window.location.href)
       for (const k of ['redes', 'plataforma', 'motivo']) limpia.searchParams.delete(k)
       window.history.replaceState(null, '', limpia.toString())
     }
-    const url = import.meta.env.VITE_SUPABASE_URL as string | undefined
-    if (!url) return
-    const origen = new URL(url).origin
-    window.addEventListener('message', (e) => void recibirMensajeRedes(e, origen))
+    window.addEventListener('message', (e) => void recibirMensajeRedes(e, window.location.origin))
   })()
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState !== 'visible') return
