@@ -1,3 +1,11 @@
+# Vuelta del OAuth de redes, en NUESTRO dominio. Google exige poder verificar todos
+# los dominios autorizados del cliente OAuth, y `<ref>.supabase.co` es de Supabase:
+# mientras la redirect URI viviera allí, la pantalla de consentimiento enseñaba ese
+# host en vez de «Mind Planner Home» y la marca no se podía verificar. Aquí solo se
+# reenvía: el canje del código lo sigue haciendo la Edge Function, que es donde vive
+# el client secret. El 302 conserva `?code=…&state=…`.
+/oauth/redes https://bzwiexwvpimlellfprip.supabase.co/functions/v1/redes-oauth/callback 302
+
 # La portada del dominio es la APP: mismo flujo que el teléfono y el escritorio
 # (idioma → entrar/probar → casa). La landing ya no se sirve — lo que contaba
 # vive en el recorrido «¿Qué es MPH?» dentro de la app — pero las PÁGINAS
