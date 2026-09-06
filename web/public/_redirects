@@ -7,8 +7,11 @@
 /oauth/redes https://bzwiexwvpimlellfprip.supabase.co/functions/v1/redes-oauth/callback 302
 
 # La portada del dominio es la APP: mismo flujo que el teléfono y el escritorio
-# (idioma → entrar/probar → casa). La landing ya no se sirve — lo que contaba
-# vive en el recorrido «¿Qué es MPH?» dentro de la app — pero las PÁGINAS
+# (idioma → entrar/probar → casa). La landing ya no sale en la raíz —lo que
+# contaba vive en el recorrido «¿Qué es MPH?» dentro de la app— pero sigue
+# publicada en `/acerca` (y `/<id>/acerca`), que es la página que explica el
+# producto a quien no ha entrado: la piden Google para verificar la marca del
+# cliente OAuth y las tiendas como página del producto. Las demás PÁGINAS
 # (/privacidad, /terminos, /soporte, /cuenta, /mascara y sus copias por idioma)
 # siguen saliendo de este proyecto: las tiendas y la app enlazan a ellas.
 # Solo redirigen la raíz y las raíces por idioma, en 302 por si hay vuelta atrás.

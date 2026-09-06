@@ -20,13 +20,25 @@ const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const DIST = path.join(RAIZ, 'dist-web')
 const CATALOGOS = path.join(RAIZ, 'web', 'i18n', 'paginas')
 
+/**
+ * La landing sale ADEMÁS en `/acerca`. La raíz del dominio lleva a la app
+ * (`web/public/_redirects`), así que sin esta copia no queda ninguna página
+ * pública que explique qué es MPH: Google la exige para verificar la marca del
+ * cliente OAuth («tu página principal está protegida por una página de acceso»).
+ */
+const LANDING_PUBLICA = 'acerca.html'
+
 /** Las páginas sin JS que se multiplican. `cuenta.html` NO: es la app React. */
-const PAGINAS = ['index.html', 'privacidad.html', 'terminos.html', 'soporte.html']
+const PAGINAS = ['index.html', 'privacidad.html', 'terminos.html', 'soporte.html', LANDING_PUBLICA]
 
 if (!existsSync(DIST)) {
   console.error('dist-web no existe: corre primero `vite build --config web/vite.config.ts`')
   process.exit(1)
 }
+
+// La copia se hace ANTES de leer las plantillas: es la misma landing recién
+// construida, con sus marcas `{{clave}}` todavía sin sustituir.
+cpSync(path.join(DIST, 'index.html'), path.join(DIST, LANDING_PUBLICA))
 
 const catalogo = async (id) =>
   (await import(pathToFileURL(path.join(CATALOGOS, `${id}.mjs`)).href)).TEXTOS
@@ -186,6 +198,11 @@ for (const { id } of DISPONIBLES) {
         '<!--idioma-script-->',
         temaGuardado() + (id === IDIOMA_ORIGEN ? autodeteccion() : recordarEleccion()),
       )
+    // En /acerca el logotipo no puede llevar a la raíz del idioma: ahí empieza
+    // la app. Se queda en la propia landing.
+    if (pagina === LANDING_PUBLICA) {
+      html = html.replaceAll(`href="${prefijo(id)}/"`, `href="${prefijo(id)}/acerca"`)
+    }
     writeFileSync(path.join(destino, pagina), html, 'utf8')
     if (sinTraducir.size) {
       const previo = faltan.get(id) ?? new Set()
