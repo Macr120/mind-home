@@ -2,7 +2,7 @@ import { contextoAudio, desbloquearAudio } from '../../core/audio/motor'
 import type { MedioVideo } from '../../core/data/db'
 import { formatoGrabacion } from '../../core/grabacionPantalla'
 import { peliculaFrame } from '../../core/state/peliculaStore'
-import { FPS_EXPORT, RESOLUCIONES } from './constantes'
+import { BITRATE_AUDIO, BITRATE_VIDEO, FPS_EXPORT, RESOLUCIONES } from './constantes'
 import { crearPool } from './fuentes'
 import { duracionTotal, esClipAudio, type ProyectoAbierto } from './modelo'
 import { MotorVideo } from './motor'
@@ -31,6 +31,8 @@ export interface OpcionesExport {
   avatar?: RenderizadorAvatar | null
   /** Al publicar en redes: MP4 si el dispositivo lo graba (ver `formatoGrabacion`). */
   preferirMp4?: boolean
+  /** Al publicar en redes: velocidad CONSTANTE por WebCodecs (ver `grabarConCodecs`). */
+  codecs?: boolean
   /** Modo película: la escena 3D viva como fuente de los clips `escena3d` (ver `capturarEscena3d`). */
   fuente3d?: Fuente3D
   /** Cada tick del motor de export, antes de emitir el frame: el Director lleva la escena a ese segundo. */
@@ -82,8 +84,16 @@ export interface ExportListo {
   firma: string
 }
 
-/** Qué produce el mismo archivo: última edición, aspecto y contenedor. */
-export const firmaExport = (p: ProyectoAbierto, mime: string) => `${p.actualizadoEn}|${p.aspecto}|${mime}`
+/**
+ * Qué produce el mismo archivo: última edición, aspecto, contenedor y grabador.
+ * El grabador entra porque descargar y publicar pueden coincidir en contenedor y
+ * NO son el mismo archivo: el de publicar va a velocidad constante.
+ */
+export const firmaExport = (p: ProyectoAbierto, mime: string, codecs = false) =>
+  `${p.actualizadoEn}|${p.aspecto}|${mime}|${codecs ? 'cfr' : 'vfr'}`
+
+/** ¿Se puede grabar con WebCodecs? (Chromium y Safari 16.4+; si no, MediaRecorder.) */
+export const soportaCodecs = () => typeof VideoEncoder !== 'undefined' && typeof AudioEncoder !== 'undefined'
 
 /** Renderiza el proyecto entero y devuelve el archivo. Lanza `Error('sin-soporte')`, `Error('sin-clips')` o `Error('cancelado')`. */
 export async function exportarVideo(
@@ -137,18 +147,6 @@ export async function exportarVideo(
     nodos.push(nodo)
   }
 
-  // captureStream(0) + requestFrame(): el frame se emite cuando NOSOTROS lo
-  // decimos (uno por tick del motor). Con captureStream(fps) los frames los
-  // produce el compositor, que se congela con la pestaña tapada → webm vacío.
-  const streamCanvas = canvas.captureStream(0)
-  const trackVideo = streamCanvas.getVideoTracks()[0] as CanvasCaptureMediaStreamTrack
-  const mezcla = new MediaStream([trackVideo, ...destino.stream.getAudioTracks()])
-  const recorder = new MediaRecorder(mezcla, { mimeType: formato.mime, videoBitsPerSecond: 6_000_000 })
-  const chunks: Blob[] = []
-  recorder.ondataavailable = (e) => {
-    if (e.data.size > 0) chunks.push(e.data)
-  }
-
   // Best-effort: sin pantalla activa el rAF se congela y el stream deja de emitir.
   type NavegadorConWakeLock = Navigator & { wakeLock?: { request(tipo: 'screen'): Promise<{ release(): Promise<void> }> } }
   let wakeLock: { release(): Promise<void> } | null
@@ -169,56 +167,17 @@ export async function exportarVideo(
     avatar: opciones.avatar ?? null,
     fuente3d: opciones.fuente3d,
   })
+  const grabacion: Grabacion = {
+    canvas,
+    pistaAudio: destino.stream.getAudioTracks()[0] as MediaStreamAudioTrack,
+    motor,
+    total,
+    proyecto,
+    formato,
+    opciones,
+  }
   try {
-    return await new Promise<ExportListo>((resolver, rechazar) => {
-      let terminado = false
-      const abortar = () => {
-        if (terminado) return
-        terminado = true
-        motor.pausa()
-        try {
-          recorder.stop()
-        } catch {
-          /* ya parado */
-        }
-        rechazar(new Error('cancelado'))
-      }
-      opciones.senal?.addEventListener('abort', abortar, { once: true })
-      recorder.onerror = () => {
-        if (terminado) return
-        terminado = true
-        motor.pausa()
-        rechazar(new Error('grabacion'))
-      }
-      recorder.onstop = () => {
-        if (terminado) return
-        terminado = true
-        resolver({
-          blob: new Blob(chunks, { type: formato.mime }),
-          extension: formato.extension,
-          mime: formato.mime,
-          firma: firmaExport(proyecto, formato.mime),
-        })
-      }
-      motor.onTiempo = (t) => {
-        // El frame compuesto lleva el 3D del tick anterior (~un frame): aceptable.
-        opciones.onTiempo?.(t)
-        trackVideo.requestFrame()
-        opciones.onProgreso?.(Math.min(1, t / total))
-      }
-      motor.onFin = () => {
-        // Cola corta para que el último frame y el audio entren al contenedor.
-        window.setTimeout(() => {
-          try {
-            recorder.stop()
-          } catch {
-            /* ya parado */
-          }
-        }, 250)
-      }
-      recorder.start(1000)
-      motor.play()
-    })
+    return opciones.codecs && soportaCodecs() ? await grabarConCodecs(grabacion) : await grabarConMediaRecorder(grabacion)
   } finally {
     motor.destruir()
     silencio.stop()
@@ -228,4 +187,164 @@ export async function exportarVideo(
     pool.dispose()
     void wakeLock?.release().catch(() => {})
   }
+}
+
+/** El mismo montaje para los dos grabadores; lo que cambia es cómo se escribe el archivo. */
+interface Grabacion {
+  canvas: HTMLCanvasElement
+  /** `MediaStreamAudioTrack` es el tipo global del DOM: mediabunny exige la pista estrechada. */
+  pistaAudio: MediaStreamAudioTrack
+  motor: MotorVideo
+  /** Duración del proyecto en segundos. */
+  total: number
+  proyecto: ProyectoAbierto
+  formato: { mime: string; extension: 'webm' | 'mp4' }
+  opciones: OpcionesExport
+}
+
+/**
+ * Grabador de siempre. `captureStream(0)` + `requestFrame()`: el frame se emite
+ * cuando NOSOTROS lo decimos (uno por tick del motor), lo que sobrevive a la
+ * pestaña tapada — con `captureStream(fps)` los frames los produce el
+ * compositor, que ahí se congela y deja el webm vacío.
+ *
+ * A cambio, el archivo hereda la velocidad REAL del render: si un tick tarda más
+ * de 1/FPS salen menos fps de los pedidos (medido: 19 en vez de 30 con la
+ * máquina cargada). Para descargar da igual; para publicar no, y por eso existe
+ * `grabarConCodecs`.
+ */
+function grabarConMediaRecorder({ canvas, pistaAudio, motor, total, proyecto, formato, opciones }: Grabacion): Promise<ExportListo> {
+  const streamCanvas = canvas.captureStream(0)
+  const trackVideo = streamCanvas.getVideoTracks()[0] as CanvasCaptureMediaStreamTrack
+  const recorder = new MediaRecorder(new MediaStream([trackVideo, pistaAudio]), {
+    mimeType: formato.mime,
+    videoBitsPerSecond: BITRATE_VIDEO,
+  })
+  const chunks: Blob[] = []
+  recorder.ondataavailable = (e) => {
+    if (e.data.size > 0) chunks.push(e.data)
+  }
+  return new Promise<ExportListo>((resolver, rechazar) => {
+    let terminado = false
+    const abortar = () => {
+      if (terminado) return
+      terminado = true
+      motor.pausa()
+      try {
+        recorder.stop()
+      } catch {
+        /* ya parado */
+      }
+      rechazar(new Error('cancelado'))
+    }
+    opciones.senal?.addEventListener('abort', abortar, { once: true })
+    recorder.onerror = () => {
+      if (terminado) return
+      terminado = true
+      motor.pausa()
+      rechazar(new Error('grabacion'))
+    }
+    recorder.onstop = () => {
+      if (terminado) return
+      terminado = true
+      resolver({
+        blob: new Blob(chunks, { type: formato.mime }),
+        extension: formato.extension,
+        mime: formato.mime,
+        firma: firmaExport(proyecto, formato.mime),
+      })
+    }
+    motor.onTiempo = (t) => {
+      // El frame compuesto lleva el 3D del tick anterior (~un frame): aceptable.
+      opciones.onTiempo?.(t)
+      trackVideo.requestFrame()
+      opciones.onProgreso?.(Math.min(1, t / total))
+    }
+    motor.onFin = () => {
+      // Cola corta para que el último frame y el audio entren al contenedor.
+      window.setTimeout(() => {
+        try {
+          recorder.stop()
+        } catch {
+          /* ya parado */
+        }
+      }, 250)
+    }
+    recorder.start(1000)
+    motor.play()
+  })
+}
+
+/**
+ * Grabador para PUBLICAR: velocidad constante. La diferencia con MediaRecorder
+ * es que aquí el timestamp de cada fotograma sale de la LÍNEA DE TIEMPO, no del
+ * reloj, así que un render lento no baja los fps — repite el último lienzo hasta
+ * ponerse al día. Las redes lo exigen: TikTok rechaza por debajo de 23 fps con
+ * `frame_rate_check_failed`.
+ *
+ * No se desincroniza con el audio porque el motor ya lleva su reloj por tiempo
+ * real: cuando el render se retrasa no se queda atrás, se salta posiciones de la
+ * línea de tiempo, y los fotogramas repetidos rellenan justo esos huecos.
+ *
+ * `mediabunny` entra por `import()` para que no pese en el arranque.
+ */
+async function grabarConCodecs({ canvas, pistaAudio, motor, total, proyecto, formato, opciones }: Grabacion): Promise<ExportListo> {
+  const { Output, WebMOutputFormat, Mp4OutputFormat, BufferTarget, CanvasSource, MediaStreamAudioTrackSource } = await import('mediabunny')
+  const mp4 = formato.extension === 'mp4'
+  const salida = new Output({ format: mp4 ? new Mp4OutputFormat() : new WebMOutputFormat(), target: new BufferTarget() })
+  const video = new CanvasSource(canvas, { codec: mp4 ? 'avc' : 'vp9', bitrate: BITRATE_VIDEO, keyFrameInterval: 2 })
+  salida.addVideoTrack(video, { frameRate: FPS_EXPORT })
+  salida.addAudioTrack(new MediaStreamAudioTrackSource(pistaAudio, { codec: mp4 ? 'aac' : 'opus', bitrate: BITRATE_AUDIO }))
+  await salida.start()
+
+  const paso = 1 / FPS_EXPORT
+  let siguiente = 0
+  // `add()` captura el lienzo AL LLAMARLO, así que no se puede diferir: se llama
+  // en el acto y solo se espera la última promesa, que es la que sirve de freno.
+  let ultimo: Promise<void> = Promise.resolve()
+  return await new Promise<ExportListo>((resolver, rechazar) => {
+    let terminado = false
+    const parar = (e: Error) => {
+      if (terminado) return
+      terminado = true
+      motor.pausa()
+      void salida.cancel().catch(() => {})
+      rechazar(e)
+    }
+    opciones.senal?.addEventListener('abort', () => parar(new Error('cancelado')), { once: true })
+    motor.onTiempo = (t) => {
+      if (terminado) return
+      opciones.onTiempo?.(t)
+      // Todos los fotogramas de la línea de tiempo hasta `t`: si el render se
+      // retrasó, el mismo lienzo sale varias veces y la velocidad no baja.
+      while (siguiente * paso <= t) {
+        ultimo = video.add(siguiente * paso, paso)
+        siguiente++
+      }
+      opciones.onProgreso?.(Math.min(1, t / total))
+    }
+    motor.onFin = () => {
+      window.setTimeout(() => {
+        void (async () => {
+          if (terminado) return
+          try {
+            await ultimo
+            await salida.finalize()
+            const datos = salida.target.buffer
+            if (!datos) throw new Error('grabacion')
+            terminado = true
+            resolver({
+              blob: new Blob([datos], { type: formato.mime }),
+              extension: formato.extension,
+              mime: formato.mime,
+              firma: firmaExport(proyecto, formato.mime, true),
+            })
+          } catch (e) {
+            parar(e instanceof Error ? e : new Error('grabacion'))
+          }
+        })()
+      }, 250)
+    }
+    motor.play()
+  })
 }

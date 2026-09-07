@@ -24,6 +24,7 @@ type Paso = { tipo: 'cuenta' } | { tipo: 'formulario' } | { tipo: 'exportando'; 
 
 export type Renderizar = (o: {
   preferirMp4: boolean
+  codecs: boolean
   senal: AbortSignal
   onProgreso: (f: number) => void
   alEmpezar?: () => void
@@ -196,7 +197,14 @@ export function PublicarDialog({
     try {
       if (!archivo) {
         archivo = await renderizar({
-          preferirMp4: true,
+          // TikTok NO: acepta WebM/VP9 y exige 23 fps como mínimo, y el codificador
+          // H.264 de MediaRecorder no siempre sostiene esa velocidad grabando en
+          // tiempo real — medido con el mismo proyecto, 19 fps en MP4 contra 30 en
+          // WebM, y TikTok lo rechaza con `frame_rate_check_failed`. Las demás redes
+          // sí quieren MP4 (Instagram no admite otra cosa).
+          preferirMp4: plataforma !== 'tiktok',
+          // Publicar exige velocidad constante: ver `grabarConCodecs` en exportar.ts.
+          codecs: true,
           senal: abort.signal,
           alEmpezar: () => setPaso({ tipo: 'exportando', fraccion: 0 }),
           onProgreso: (f) => setPaso((p) => (p.tipo === 'exportando' ? { tipo: 'exportando', fraccion: f } : p)),
