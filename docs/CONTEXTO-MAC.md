@@ -1,95 +1,126 @@
-# Mind Planner Home — contexto para seguir en la Mac
+# Mind Planner Home — guion para el Mac (versión 1.0.4)
 
-Pásale este archivo a la sesión de Claude Code que abras en la Mac (basta con
-decirle «lee CONTEXTO-MAC.md y sigue»). Lo escribió la sesión de Windows que
-preparó el proyecto iOS el 25-ago-2026.
+Pásale este archivo a la sesión de Claude Code que abras en la Mac («lee
+`docs/CONTEXTO-MAC.md` y sigue»). Lo escribió la sesión de Windows del
+7-sep-2026, que dejó **todo commiteado y empujado** en `main` con el tag `v1.0.4`
+y construyó ya la web (desplegada), el `.appx`/`.exe` de Windows y el AAB de
+Android. En el Mac quedan dos cosas: el **`.dmg` notarizado** (y publicar la
+release, que Windows dejó en borrador con el `.exe`) y el **archive de iOS**
+para TestFlight. Los runbooks completos son [`ESCRITORIO.md`](ESCRITORIO.md) §4
+y [`IOS.md`](IOS.md) §2–§4; esto es el orden exacto para hoy.
 
-## Qué es esto
+## 0. Antes de nada: que el árbol sea EL MISMO que en Windows
 
-**Mind Planner Home (MPH)**: casa isométrica 3D donde cada cuarto es una
-mini-app (17 apps + infraestructura). Web con Vite + React + React Three Fiber,
-móvil con Capacitor 8, backend en Supabase, compras con RevenueCat. El
-desarrollo principal vive en Windows; la Mac es SOLO para compilar iOS.
-
-- Bundle id: `com.macr120.mindhome`
-- App Store Connect: Apple ID **6804840611**, versión **1.0**, estado
-  *Prepare for Submission*.
-- La ficha ya está COMPLETA en los 16 idiomas (textos + 4 capturas de iPhone
-  6.9" + 1 de iPad 13" cada uno). No hay que tocar nada de la ficha.
-
-## Lo único que falta: el build
-
-En la Mac hay una carpeta descomprimida del ZIP `MPH-ios-xcode.zip` con esta
-forma, y **es autocontenida**: no hace falta Node, ni npm, ni CocoaPods, ni el
-`.env` — la web ya viene compilada dentro.
-
-```
-MPH-ios/
-  LEEME.txt
-  ios/App/App.xcodeproj      <- esto es lo que se abre
-  ios/App/App/public/        <- la web ya compilada (57 MB)
-  node_modules/@capacitor/{app,browser,local-notifications}
-  node_modules/@revenuecat/purchases-capacitor
-```
-
-### Reglas que NO se pueden romper
-
-1. **`ios/` y `node_modules/` tienen que quedar hermanos.** `Package.swift`
-   apunta a `../../../node_modules`. Si mueves `ios/` solo, Xcode dirá
-   «Missing package product 'CapacitorApp'».
-2. **Se abre `App.xcodeproj`, NO un `.xcworkspace`.** Capacitor 8 usa Swift
-   Package Manager, no CocoaPods. No corras `pod install`.
-3. **No vuelvas a correr `npx cap sync ios` desde Windows** sin correr después
-   `node scripts/arreglar-package-swift.mjs`: en Windows escribe las rutas de
-   los plugins con barras invertidas y SPM no las resuelve en macOS.
-
-### Pasos
+Esta comprobación existe porque en agosto un `git pull` que «no traía nada»
+costó un día de trabajo duplicado (el shell de escritorio se construyó dos
+veces). Si algo de esto no cuadra, **no compiles**: pregunta.
 
 ```bash
-xattr -dr com.apple.quarantine ~/Downloads/MPH-ios   # ajusta la ruta
-open ~/Downloads/MPH-ios/ios/App/App.xcodeproj
+cd ~/mind-home                                   # ajusta la ruta del clon
+git fetch origin && git checkout main && git pull --ff-only origin main
+git status -sb                                   # «## main...origin/main», sin ahead/behind ni cambios
+git log -1 --oneline                             # debe ser el commit de docs de la 1.0.4 (o posterior)
+git rev-parse --short 'v1.0.4^{commit}'          # el commit «Versión 1.0.4», y debe estar en el historial de HEAD
+node -p "require('./package.json').version"      # 1.0.4
+grep -c 'path: "\.\./' ios/App/CapApp-SPM/Package.swift   # 8 (rutas POSIX; si sale 0, ver §3)
+ls .env.local .env.production                    # los dos existen (si falta .env.production, copiarlo de Windows)
+grep -E '^VITE_URL' .env.production              # app.mindplannerhome.com / mindplannerhome.com
+npm ci                                           # 3-5 min (trae mediabunny, nuevo en esta versión)
 ```
 
-1. Espera a que termine «Resolving Package Graph» (baja `capacitor-swift-pm`
-   8.5.0 de GitHub; necesita internet). Si se atora:
-   *File → Packages → Reset Package Caches*.
-2. **Simulador**: elige un iPhone arriba y ⌘R. Para simulador NO hace falta
-   Team ni firma. Comprobar: sale la pantalla de idioma, luego la casa 3D y el
-   HUD responde. Las compras NO funcionan en simulador (RevenueCat necesita
-   dispositivo real); el login con Google abre Safari y vuelve por el deep link
-   `com.macr120.mindhome://oauth`, eso sí debe funcionar.
-3. **Archivar**: target App → *Signing & Capabilities* → *Automatically manage
-   signing* + Team (Apple ID del usuario). Arriba elige **Any iOS Device
-   (arm64)** — con un simulador puesto, *Archive* sale en gris. Luego
-   *Product → Archive* → *Distribute App* → *App Store Connect* → *Upload*.
-4. La build tarda 5–30 min en aparecer en App Store Connect; llega un correo.
-   Después se elige en la sección *Build* de la versión 1.0.
+## 1. macOS: build firmado y notarización a mano
 
-## Ya configurado (no hay que volver a hacerlo)
+`electron-builder` firma con el *Developer ID Application: Marco Cabanillas
+(9FA4Z58JF3)* del llavero. La notarización se hace **después y a mano**:
+encadenarla por `APPLE_KEYCHAIN` rompe la búsqueda del perfil (ESCRITORIO.md §4).
 
-En `ios/App/App/Info.plist`: `CFBundleURLTypes` con el esquema
-`com.macr120.mindhome` (deep link del OAuth), las cuatro `NS*UsageDescription`
-(cámara, micrófono, fototeca, guardar en fototeca) y
-`ITSAppUsesNonExemptEncryption = false` (el único uso propio de cripto es un
-SHA-256 en `sync/blobs.ts`, que es hash, no cifrado).
-**Sin permiso de ubicación a propósito**, para no contradecir lo declarado en
-Play y en App Privacy.
+```bash
+security find-identity -v -p codesigning | grep "Developer ID Application"   # debe listar el de Marco
+# El perfil del llavero se pierde a veces; si el history falla, se rehace (pide la contraseña específica de app):
+xcrun notarytool history --keychain-profile MPH >/dev/null 2>&1 \
+  || xcrun notarytool store-credentials "MPH" --apple-id "macr120cme@gmail.com" --team-id 9FA4Z58JF3
 
-Iconos ya aplanados y **sin canal alfa** (Apple rechaza el icono con
-transparencia, ITMS-90717). Versión 1.0, build 1, iOS mínimo 15.0, iPhone +
-iPad.
+npm run escritorio:mac                           # 10-15 min → dist-escritorio/MindPlannerHome-1.0.4-mac.{dmg,zip}
 
-## Lo que sigue bloqueado y NO depende de la Mac
+xcrun notarytool submit dist-escritorio/MindPlannerHome-1.0.4-mac.dmg --keychain-profile MPH --wait   # «status: Accepted»
+xcrun stapler staple dist-escritorio/MindPlannerHome-1.0.4-mac.dmg
+xcrun stapler staple "dist-escritorio/mac-universal/Mind Planner Home.app"
+spctl -a -vvv -t install "dist-escritorio/mac-universal/Mind Planner Home.app"   # «accepted … source=Notarized Developer ID»
 
-Lo hace el usuario en App Store Connect, no Claude:
+# El .zip de electron-builder se creó ANTES del ticket: se regenera con la .app ya grapada.
+rm dist-escritorio/MindPlannerHome-1.0.4-mac.zip
+ditto -c -k --sequesterRsrc --keepParent "dist-escritorio/mac-universal/Mind Planner Home.app" dist-escritorio/MindPlannerHome-1.0.4-mac.zip
+ls -la dist-escritorio/MindPlannerHome-1.0.4-mac.*   # dmg ~245 MB, zip ~245 MB
+```
 
-- Aceptar el **Apple Developer Program License Agreement** actualizado (sin eso
-  no se pueden enviar apps).
-- **Teléfono** de contacto en App Review y la **contraseña** de la cuenta de
-  revisor `mindplannerhome@gmail.com`.
-- **Precio y países** (va Gratis con compras) y el *Paid Applications
-  Agreement*.
-- Revisar dos cosas: la clasificación por edad quedó en **9+** cuando en Google
-  Play, con el mismo contenido (ruleta y blackjack simulados, paintball), salió
-  *Teen*; y en **App Privacy** faltan **ubicación aproximada** y **contactos**
-  respecto a lo declarado en Play.
+Abrir la `.app` una vez: arranca sobre `app://mph`, pide cámara/micro cuando
+toca (no muere), y la casa persiste al reiniciar. Probar de paso lo nuevo de
+esta versión en el escritorio: pulsación larga en un objeto → 🔗 → «Enlace web»
+(en macOS no hay pestaña «Programa»: es solo de Windows).
+
+## 2. Publicar la release (Windows la dejó en BORRADOR con el `.exe`)
+
+```bash
+gh release view v1.0.4 --json isDraft,assets -q '{draft:.isDraft, assets:[.assets[].name]}'   # draft:true, el .exe dentro
+gh release upload v1.0.4 dist-escritorio/MindPlannerHome-1.0.4-mac.dmg dist-escritorio/MindPlannerHome-1.0.4-mac.zip --clobber
+gh release edit v1.0.4 --draft=false --latest
+gh release view v1.0.4 --json assets -q '.assets[] | .name + "  " + (.size|tostring)'   # 3 activos
+curl -sIL https://github.com/Macr120/mind-home/releases/download/v1.0.4/MindPlannerHome-1.0.4-mac.dmg | grep -i '^HTTP' | tail -1   # 200
+```
+
+Si el borrador no existiera (algo falló en Windows), se crea completo:
+`gh release create v1.0.4 --verify-tag --title "Mind Planner Home 1.0.4 — un clic en tu fondo de pantalla" --notes-file <notas> dist-escritorio/MindPlannerHome-1.0.4-mac.{dmg,zip}`.
+
+Al publicarla, **el aviso de versión nueva** del shell (`/releases/latest`) se
+enciende para quien tenga la 1.0.3 instalada por `.dmg`/NSIS (la Store se
+actualiza sola). Y queda un paso de vuelta en Windows: `web/index.html` enlaza el
+`.dmg` por nombre de archivo → cambiar `v1.0.3/MindPlannerHome-1.0.3-mac.dmg` por
+la 1.0.4, `npm run build:web` y desplegar `dist-web` (ver BACKEND.md, Cloudflare).
+
+## 3. iOS: archive → TestFlight
+
+El bump ya está hecho en el `.pbxproj` (`MARKETING_VERSION 1.0.4`,
+`CURRENT_PROJECT_VERSION 2`, en App y en MPHWidgets). Capacitor 8 usa SPM, **no**
+CocoaPods: se abre `App.xcodeproj`, nunca un workspace.
+
+```bash
+npm run build && npx cap sync ios                # copia dist/ a ios/App/App/public (ignorado) y regenera Package.swift
+git status --porcelain ios                       # vacío, o Package.swift sin cambios reales (en el Mac escribe rutas POSIX)
+grep -c 'MARKETING_VERSION = 1.0.4' ios/App/App.xcodeproj/project.pbxproj   # 4
+npx cap open ios
+```
+
+Si `Package.swift` apareciera con barras invertidas (solo pasa cuando el `cap
+sync` se corrió en Windows): `node scripts/arreglar-package-swift.mjs`.
+
+En Xcode: esquema **App** → destino **Any iOS Device (arm64)** (con un simulador
+elegido, *Archive* sale en gris) → *Signing & Capabilities* con firma automática
+y equipo **9FA4Z58JF3** en los DOS targets (App y MPHWidgets, comparten el App
+Group) → **Product ▸ Archive** (la fase «Compilar la web (solo Release)» vuelve
+a compilar la web sola; si dice que no encuentra `npm`, IOS.md §5) → *Distribute
+App ▸ App Store Connect ▸ Upload*. El build tarda 5–30 min en aparecer.
+
+## 4. Lo que solo puede hacer el usuario (no Claude)
+
+- **App Store Connect** (app 6804840611): aceptar el *Program License Agreement*
+  vigente; en la versión de la ficha cambiar **1.0 → 1.0.4** (si no, el build
+  «1.0.4 (2)» no aparece para elegir) y elegirlo; teléfono de contacto y
+  contraseña del revisor (`mindplannerhome@gmail.com`); precio/países y el
+  *Paid Applications Agreement*; probar en **TestFlight** con cuenta sandbox
+  (IOS.md §4.5) y enviar a revisión.
+- **Microsoft Store**: subir `MindPlannerHome-1.0.4-win.appx` (copia en
+  `C:\Users\macr1\mph-paquetes\`) como envío nuevo en Partner Center.
+- **Play Console**: subir `android/app/build/outputs/bundle/release/app-release.aab`
+  (`versionCode 6`, 1.0.4) a la pista que toque y escribir las notas.
+
+## Qué trae la 1.0.4 (para las notas de las tiendas)
+
+- **Un clic en el fondo de pantalla** (Windows): tocar un objeto de la casa abre
+  su página web, su app de MPH o un **programa del equipo** asignado (nuevo: en
+  el diálogo del enlace hay una pestaña «Programa» con el diálogo del sistema).
+- **Studio de video** con obra y guion, cámara con efectos, narración y
+  exportación a velocidad constante; **publicar en redes** (YouTube, TikTok, Meta).
+- **Construcción libre** (muros, pisos y recintos de vértices arbitrarios, techos
+  sobre recintos), **deshacer/rehacer** del mapa y **actuación del avatar**
+  (emotes, bailes, ejercicio de los asistentes).
+- Web: la landing vive en `/acerca`; cuenta del dueño con IA ilimitada.
