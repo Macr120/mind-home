@@ -10,6 +10,9 @@ import { useInteractUi } from '../state/interactUiStore'
 import { usePendientesCasa } from '../state/pendientesStore'
 import { accionCuarto } from './roomInteract'
 import { abrirEnlace, hostDe, faviconDe } from '../enlaces'
+import { abrirPrograma, nombreDePrograma } from '../plataforma'
+import { destinoExterno } from '../abrirObjeto'
+import { IconoPrograma } from './IconoPrograma'
 import { useT } from '../i18n/useT'
 import { BadgeMisiones } from './BadgeMisiones'
 
@@ -143,15 +146,19 @@ function Burbuja({
   )
 }
 
-/** La burbuja «Visitar» de un objeto con enlace web: favicon, verbo y dominio. */
+/**
+ * La burbuja de un objeto con enlace web («Visitar»: favicon, verbo y dominio)
+ * o con un programa del equipo («Abrir»: su icono y el nombre del ejecutable).
+ */
 function BurbujaEnlace({ objetoId, onAbierto }: { objetoId: number; onAbierto: () => void }) {
   const t = useT()
   const datos = useDiseño(
     useShallow((s) => {
       const o = objetoPorId(s.objetos, objetoId)
-      if (!o?.enlaceUrl) return null
+      if (!o || destinoExterno(o) == null) return null
       return {
         url: o.enlaceUrl,
+        programa: o.programa,
         nombre: o.nombre,
         roomId: o.roomId,
         colorObjeto: o.color,
@@ -163,8 +170,11 @@ function BurbujaEnlace({ objetoId, onAbierto }: { objetoId: number; onAbierto: (
 
   // El color del cuarto viste su burbuja; un objeto libre usa su propio color.
   const color = (datos.esMapa ? undefined : getCuarto(datos.roomId)?.color) ?? datos.colorObjeto
-  const host = hostDe(datos.url)
+  const esPrograma = !datos.url && Boolean(datos.programa)
+  // Siempre el destino real (dominio o ejecutable): el usuario ve a dónde va, lleve el nombre que lleve.
+  const host = esPrograma ? nombreDePrograma(datos.programa!) : hostDe(datos.url!)
   const titulo = datos.nombre || host
+  const verbo = esPrograma ? t('enlace.abrir', 'Abrir') : t('enlace.visitar', 'Visitar')
 
   return (
     <div className="flex flex-col items-center select-none">
@@ -172,21 +182,21 @@ function BurbujaEnlace({ objetoId, onAbierto }: { objetoId: number; onAbierto: (
         type="button"
         onClick={(e) => {
           e.stopPropagation()
-          void abrirEnlace(datos.url, datos.nombre)
+          if (esPrograma) void abrirPrograma(datos.programa!)
+          else void abrirEnlace(datos.url!, datos.nombre)
           onAbierto()
         }}
-        title={`${t('enlace.visitar', 'Visitar')} — ${titulo}`}
+        title={`${verbo} — ${titulo}`}
         className="ui-panel-glass pointer-events-auto relative flex flex-col items-center gap-1 rounded-2xl border-2 px-4 py-2.5 shadow-xl backdrop-blur-md transition hover:scale-[1.04] active:scale-[0.97]"
         style={{
           borderColor: color,
           boxShadow: `0 6px 28px ${color}55, 0 0 0 1px rgba(255,255,255,0.06)`,
         }}
       >
-        <FaviconEnlace key={datos.url} url={datos.url} />
+        {esPrograma ? <IconoPrograma ruta={datos.programa!} /> : <FaviconEnlace key={datos.url} url={datos.url!} />}
         <span className="text-sm font-black leading-tight" style={{ color }}>
-          {t('enlace.visitar', 'Visitar')}
+          {verbo}
         </span>
-        {/* Siempre el dominio real: el usuario ve a dónde va, lleve el nombre que lleve. */}
         <span className="max-w-[9rem] truncate text-[10px] font-medium text-white/45">
           {datos.nombre ? `${datos.nombre} · ${host}` : host}
         </span>

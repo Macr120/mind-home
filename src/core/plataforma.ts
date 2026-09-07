@@ -111,6 +111,12 @@ interface PuenteEscritorio {
     recargar: () => Promise<void>
     cerrar: () => Promise<void>
   }
+  /** Programas del equipo asignados a objetos (solo el shell de Windows los expone). */
+  programas?: {
+    elegir: () => Promise<{ ruta: string; nombre: string } | null>
+    abrir: (ruta: string) => Promise<boolean>
+    icono: (ruta: string) => Promise<string | null>
+  }
 }
 
 /** Rectángulo (px CSS de la ventana) donde el shell coloca la vista del navegador. */
@@ -129,6 +135,46 @@ export function hayNavegadorEscritorio(): boolean {
     typeof window !== 'undefined' &&
     typeof window.mph?.navegador?.abrir === 'function'
   )
+}
+
+/**
+ * ¿Este shell sabe abrir programas del equipo? También en el modo fondo de
+ * pantalla —al revés que el navegador embebido—: el fondo es justo quien los lanza.
+ */
+export function hayProgramasEscritorio(): boolean {
+  return esEscritorio() && typeof window !== 'undefined' && typeof window.mph?.programas?.abrir === 'function'
+}
+
+/** El diálogo del sistema para elegir un programa; null si se canceló o no hay shell. */
+export async function elegirPrograma(): Promise<{ ruta: string; nombre: string } | null> {
+  try {
+    return (await window.mph?.programas?.elegir()) ?? null
+  } catch {
+    return null
+  }
+}
+
+/** Lanza el programa asignado a un objeto; false si el shell no pudo (o no existe). */
+export async function abrirPrograma(ruta: string): Promise<boolean> {
+  try {
+    return (await window.mph?.programas?.abrir(ruta)) ?? false
+  } catch {
+    return false
+  }
+}
+
+/** Icono del programa como data URL, o null. */
+export async function iconoPrograma(ruta: string): Promise<string | null> {
+  try {
+    return (await window.mph?.programas?.icono(ruta)) ?? null
+  } catch {
+    return null
+  }
+}
+
+/** Nombre legible de la ruta de un programa («notepad» de C:\…\notepad.exe). */
+export function nombreDePrograma(ruta: string): string {
+  return (ruta.split(/[\\/]/).pop() ?? ruta).replace(/\.[^.]+$/, '')
 }
 
 declare global {

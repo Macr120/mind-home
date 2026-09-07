@@ -15,6 +15,7 @@ import { conectarMotorSync } from './core/data/sync/motor'
 import { esModoFondo } from './core/plataforma'
 import { esAccionGlobal, lanzarAccionGlobal } from './core/state/accionGlobal'
 import { abrirApp } from './core/abrirApp'
+import { abrirObjetoAlLlegar } from './core/abrirObjeto'
 import { registrarActividad } from './core/rutinas'
 import { iniciarAvisosNativos, type DestinoAviso } from './core/notificaciones'
 // Publica las apps de código en el catálogo (`core/appContrato`) antes de que
@@ -123,6 +124,8 @@ arrancarRedes()
 /** Los sitios a los que puede llevar un panel del fondo de pantalla. */
 function irA(donde: string): void {
   if (donde === 'misiones') void import('./core/state/rutinasUiStore').then((m) => m.useRutinasUI.getState().abrirCalendario('objetivos'))
+  // Un objeto pulsado en el fondo de pantalla: su app o su cuarto, en esta ventana.
+  else if (donde.startsWith('objeto-')) abrirObjetoAlLlegar(Number(donde.slice('objeto-'.length)))
   // Los tres botones del panel de chat: la misma acción global que lanza el
   // widget de Android, y ChatBox la consume igual al montarse.
   else if (esAccionGlobal(donde)) lanzarAccionGlobal(donde)

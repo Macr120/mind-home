@@ -1246,6 +1246,13 @@ export interface ObjetoCuarto {
    * solo destino. Campo sin índice: no pide versión nueva de Dexie.
    */
   enlaceUrl?: string
+  /**
+   * Programa del equipo asignado (ruta absoluta a un .exe/.lnk elegido con el
+   * diálogo del sistema; solo el shell de Windows lo abre, ver `core/abrirObjeto.ts`).
+   * Excluyente con `enlaceUrl` y `plantillaId`, como aquel. Viaja por el sync y
+   * en móvil queda inerte. Sin índice: no pide versión nueva de Dexie.
+   */
+  programa?: string
   /** Solo objetos de biblioteca (roomId LIBRERIA): categoría/carpeta del inventario. */
   categoria?: string
   /** Solo objetos de biblioteca BASE: id del recurso del catálogo del que salió. */

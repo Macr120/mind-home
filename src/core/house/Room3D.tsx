@@ -40,6 +40,8 @@ import {
 import { ObjetoView, altoDeTipo } from './catalogo'
 import { GrupoAnimado } from './Animado'
 import { esMueblePrincipal } from './muebles'
+import { esModoFondo } from '../plataforma'
+import { destinoExterno, abrirObjetoEnFondo } from '../abrirObjeto'
 import { colorConTema, mezclar } from './temas'
 import { useTemaActivo } from './useTema'
 import { TemaContext } from './primitivas'
@@ -340,6 +342,9 @@ function VanoFachada({
   )
 }
 
+/** Fondo de pantalla: se decide una vez (la query no cambia en la vida de la ventana). */
+const EN_FONDO = esModoFondo()
+
 /** Un objeto colocado en el cuarto. Memoizado: al arrastrar uno, los demás no se re-renderizan. */
 const ObjetoEnCuarto = memo(function ObjetoEnCuarto({
   o,
@@ -387,8 +392,12 @@ const ObjetoEnCuarto = memo(function ObjetoEnCuarto({
   const oz = o.z ?? (o.slot < 2 ? -1 : 1) * (H / 2 - 1.4)
   const D = Math.PI / 180
   const esPrincipal = esMueblePrincipal(o)
-  // Objeto con enlace web: tocarlo saca la burbuja «Visitar», como el principal la de su app.
-  const esEnlace = !esPrincipal && Boolean(o.enlaceUrl)
+  // Objeto con enlace web o programa: tocarlo saca la burbuja «Visitar»/«Abrir»,
+  // como el principal la de su app.
+  const esEnlace = !esPrincipal && destinoExterno(o) != null
+  // En el fondo de pantalla también responde un objeto con app aunque no sea el
+  // principal: un clic abre su app en la ventana normal.
+  const abreEnFondo = EN_FONDO && Boolean(o.plantillaId)
   const alturaDrag = drag ? (arrastreElevado ? ALTURA_CARGA_OBJETO : 0.6) : 0.2
   return (
     <group
@@ -398,12 +407,17 @@ const ObjetoEnCuarto = memo(function ObjetoEnCuarto({
       onClick={
         // Con el atajo de construcción o el modo "mover objetos" activo, el objeto
         // principal no abre la app (se está arrastrando, no entrando).
-        puedeAbrirApp && (esPrincipal || esEnlace)
+        puedeAbrirApp && (esPrincipal || esEnlace || abreEnFondo)
           ? (e) => {
               e.stopPropagation()
               // Soltar tras una pulsación larga —o tocarlo ya despierto— no entra
               // en la app: ese toque era para moverlo o para su menú.
               if (despierto || pulsacionLargaReciente()) return
+              // Fondo de pantalla: no hay burbuja que pulsar, un clic ya abre.
+              if (EN_FONDO) {
+                abrirObjetoEnFondo(o)
+                return
+              }
               if (esPrincipal) selectMueble(roomId)
               else if (o.id != null) selectEnlace(o.id)
             }
@@ -429,11 +443,12 @@ const ObjetoEnCuarto = memo(function ObjetoEnCuarto({
                 startObjetoDrag(o.id)
               }
             }
-          : puedeAbrirApp
+          : puedeAbrirApp && !EN_FONDO
             ? (e) => {
                 // Fuera de los editores, mantenerlo pulsado lo despierta: tiembla, se
                 // arrastra y saca su menú. Se frena aquí para que el piso del cuarto
-                // no cuente la misma pulsación como suya (ver `onFloorDown`).
+                // no cuente la misma pulsación como suya (ver `onFloorDown`). En el
+                // fondo de pantalla no: allí no se monta el menú que lo dormiría.
                 e.stopPropagation()
                 const id = o.id
                 if (id != null) {
@@ -447,7 +462,7 @@ const ObjetoEnCuarto = memo(function ObjetoEnCuarto({
       onPointerOver={(e) => {
         e.stopPropagation()
         if (editable || despierto) document.body.style.cursor = 'grab'
-        else if (!useLayout.getState().editMode && (esPrincipal || esEnlace))
+        else if (!useLayout.getState().editMode && (esPrincipal || esEnlace || abreEnFondo))
           document.body.style.cursor = 'pointer'
       }}
       onPointerOut={() => {

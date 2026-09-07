@@ -218,6 +218,8 @@ function crearVentanaFondo(eleccion = eleccionFondoGuardada()) {
     },
   })
   const win = ventanaFondo
+  // Un clic sobre un objeto con página web la abre en el navegador del sistema.
+  salidasAlSistema(win.webContents)
 
   // Cursor global → mousemove de la página, a ~15 Hz. Mueve el puntero
   // espacial de la casa, que es un adorno lento: a 30 Hz se pagaba el doble de
@@ -380,20 +382,28 @@ function crearVentana(query = '') {
     for (const url of enlacesPendientes.splice(0)) repartirEnlace(url)
   })
 
-  // Cualquier salida es navegación de verdad: al navegador del sistema. Aquí
-  // caen el checkout del escritorio (los enlaces a /cuenta de la web), soporte
-  // y cualquier target="_blank" de la app.
-  ventana.webContents.setWindowOpenHandler(({ url }) => {
+  salidasAlSistema(ventana.webContents)
+
+  void ventana.loadURL(URL_DEV ? URL_DEV + query : `${ORIGEN}/${query}`)
+}
+
+/**
+ * Cualquier salida de una ventana de la app es navegación de verdad: al
+ * navegador del sistema. Aquí caen el checkout del escritorio (los enlaces a
+ * /cuenta de la web), soporte, cualquier target="_blank" de la app y el enlace
+ * web de un objeto pulsado en el fondo de pantalla (allí no hay navegador
+ * embebido). Sin esto, Electron abriría una BrowserWindow suelta.
+ */
+function salidasAlSistema(wc) {
+  wc.setWindowOpenHandler(({ url }) => {
     if (/^https?:/.test(url)) void shell.openExternal(url)
     return { action: 'deny' }
   })
-  ventana.webContents.on('will-navigate', (e, url) => {
+  wc.on('will-navigate', (e, url) => {
     if (url.startsWith(ORIGEN) || (URL_DEV && url.startsWith(URL_DEV))) return
     e.preventDefault()
     if (/^https?:/.test(url)) void shell.openExternal(url)
   })
-
-  void ventana.loadURL(URL_DEV ? URL_DEV + query : `${ORIGEN}/${query}`)
 }
 
 /**
@@ -643,13 +653,14 @@ ipcMain.handle('mph:fondo', (_e, eleccion) => {
 })
 
 /**
- * Un panel del fondo pide abrir la app en un sitio (hoy, «misiones»). Si la
+ * Un panel del fondo pide abrir la app en un sitio («misiones», el chat, o
+ * `objeto-<id>` cuando se pulsa un objeto con app en el fondo de pantalla). Si la
  * ventana normal no existe se crea YA con el destino en la URL, que es lo que la
  * app lee al arrancar; si existe, se despierta y se le manda por el puente. Dos
  * caminos porque una ventana recién creada todavía no tiene a nadie escuchando.
  */
 ipcMain.handle('mph:abrir-en', (_e, destino) => {
-  const donde = String(destino ?? '').replace(/[^a-z-]/gi, '').slice(0, 24)
+  const donde = String(destino ?? '').replace(/[^a-z0-9-]/gi, '').slice(0, 32)
   if (!donde) return false
   if (!ventana) {
     crearVentana(`?abrir=${donde}`)
@@ -659,6 +670,62 @@ ipcMain.handle('mph:abrir-en', (_e, destino) => {
   ventana.focus()
   ventana.webContents.send('mph:abrir-en', donde)
   return true
+})
+
+// ——— Programas del equipo asignados a objetos (solo Windows) ———
+
+const EXT_PROGRAMA = new Set(['.exe', '.lnk', '.bat', '.cmd'])
+
+/**
+ * Ruta absoluta a un ejecutable que EXISTE, o null. Es lo único que se lanza, y
+ * nunca con argumentos: la ruta la manda el renderer (viaja por el sync), así
+ * que aquí se desconfía de ella aunque la haya elegido el propio usuario.
+ */
+async function rutaProgramaValida(v) {
+  if (typeof v !== 'string' || v.length > 1024 || v.includes('\0')) return null
+  const ruta = path.normalize(v)
+  if (!path.isAbsolute(ruta) || !EXT_PROGRAMA.has(path.extname(ruta).toLowerCase())) return null
+  try {
+    return (await fs.stat(ruta)).isFile() ? ruta : null
+  } catch {
+    return null
+  }
+}
+
+/** El diálogo del sistema para elegir el programa; devuelve ruta y nombre legible, o null. */
+ipcMain.handle('mph:programa-elegir', async (e) => {
+  if (process.platform !== 'win32') return null
+  const duena = BrowserWindow.fromWebContents(e.sender)
+  const opciones = {
+    title: 'Elegir programa',
+    properties: ['openFile'],
+    filters: [
+      { name: 'Programas', extensions: ['exe', 'lnk', 'bat', 'cmd'] },
+      { name: 'Todos los archivos', extensions: ['*'] },
+    ],
+  }
+  const { canceled, filePaths } = duena ? await dialog.showOpenDialog(duena, opciones) : await dialog.showOpenDialog(opciones)
+  const ruta = canceled ? null : await rutaProgramaValida(filePaths[0])
+  return ruta ? { ruta, nombre: path.basename(ruta, path.extname(ruta)) } : null
+})
+
+/** Lanza el programa; `openPath` devuelve '' si abrió y el error en texto si no. */
+ipcMain.handle('mph:programa-abrir', async (_e, v) => {
+  const ruta = await rutaProgramaValida(v)
+  if (!ruta) return false
+  return (await shell.openPath(ruta)) === ''
+})
+
+/** El icono del programa (data URL), para la burbuja y el diálogo; null si no hay. */
+ipcMain.handle('mph:programa-icono', async (_e, v) => {
+  const ruta = await rutaProgramaValida(v)
+  if (!ruta) return null
+  try {
+    const img = await app.getFileIcon(ruta, { size: 'normal' })
+    return img.isEmpty() ? null : img.toDataURL()
+  } catch {
+    return null
+  }
 })
 
 // ——— Navegador embebido (fase 2 de los enlaces web de los objetos) ———

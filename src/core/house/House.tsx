@@ -73,6 +73,7 @@ import { DespiertoAnchor } from './DespiertoAnchor'
 import { MenuDespierto } from '../ui/MenuDespierto'
 import { pulsacionLargaDespertar, pulsacionLargaReciente } from './pulsacionLarga'
 import { useInteractUi } from '../state/interactUiStore'
+import { destinoExterno, abrirObjetoEnFondo } from '../abrirObjeto'
 import { useDespierto } from '../state/despiertoStore'
 import { EtiquetasMapaProjector } from './etiquetasMapa'
 import { ZonaTutProjector } from './ZonaTutProjector'
@@ -181,6 +182,9 @@ function RejillaMapa({
   )
 }
 
+/** Fondo de pantalla: se decide una vez (la query no cambia en la vida de la ventana). */
+const EN_FONDO = esModoFondo()
+
 /**
  * Un objeto libre del mapa. Es un componente propio (y no JSX suelto dentro del
  * `map`) porque el temblor de la pulsación larga necesita un grupo con ref:
@@ -210,6 +214,8 @@ function ObjetoDelMapa({
   const gTemblor = useRef<THREE.Group>(null)
   const D = Math.PI / 180
   const arrastrable = arrastreEditor || despierto
+  // Enlace web o programa del equipo: tocarlo saca su burbuja (o abre directo en el fondo).
+  const externo = destinoExterno(o)
   // Las canchas siguen a la rejilla; el resto de objetos conserva su tamaño.
   const escala = esCancha(o.tipo) ? escalaCancha(o.escala) : (o.escala ?? 1)
   const alturaDrag = drag ? (elevado ? ALTURA_CARGA_OBJETO : 0.6) : 0.2
@@ -229,28 +235,36 @@ function ObjetoDelMapa({
               }
               useDiseño.getState().startObjetoDrag(o.id)
             }
-          : (e) => {
-              // Fuera de los editores, mantenerlo pulsado lo despierta: tiembla, se
-              // puede arrastrar y saca su menú (ver `MenuDespierto`). Un toque
-              // corto sigue sin hacer nada, así que no le roba el gesto a nadie.
-              const id = o.id
-              if (id != null) {
-                pulsacionLargaDespertar(e.nativeEvent, () =>
-                  useDespierto.getState().despertar({ tipo: 'objeto', id }),
-                )
+          : EN_FONDO
+            ? // En el fondo de pantalla no se monta el menú que lo dormiría: sin pulsación larga.
+              undefined
+            : (e) => {
+                // Fuera de los editores, mantenerlo pulsado lo despierta: tiembla, se
+                // puede arrastrar y saca su menú (ver `MenuDespierto`). Un toque
+                // corto sigue sin hacer nada, así que no le roba el gesto a nadie.
+                const id = o.id
+                if (id != null) {
+                  pulsacionLargaDespertar(e.nativeEvent, () =>
+                    useDespierto.getState().despertar({ tipo: 'objeto', id }),
+                  )
+                }
               }
-            }
       }
       // Despierto, el toque que lo arrastra no debe colarse al suelo de detrás
       // (que mandaría al personaje a caminar hasta ahí).
       onClick={
         despierto
           ? (e) => e.stopPropagation()
-          : !arrastrable && o.enlaceUrl
+          : !arrastrable && externo
             ? (e) => {
-                // Objeto con enlace web: su burbuja «Visitar» (ver InteractOverlay).
+                // Objeto con enlace o programa: su burbuja (ver InteractOverlay); en
+                // el fondo de pantalla no hay burbuja y un clic ya abre.
                 e.stopPropagation()
                 if (pulsacionLargaReciente()) return
+                if (EN_FONDO) {
+                  abrirObjetoEnFondo(o)
+                  return
+                }
                 if (o.id != null) useInteractUi.getState().selectEnlace(o.id)
               }
             : undefined

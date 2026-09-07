@@ -84,6 +84,8 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
   const guiasRef = useRef<HTMLCanvasElement>(null)
   const overlayRef = useRef<HTMLCanvasElement>(null)
   const lienzoRef = useRef<Lienzo | null>(null)
+  // El mismo lienzo como estado, para quien lo necesita al RENDERIZAR (el panel de capas).
+  const [lienzoListo, setLienzoListo] = useState<Lienzo | null>(null)
   const archivoRef = useRef<HTMLInputElement>(null)
   const dims = useRef({ ancho: 0, alto: 0 })
 
@@ -162,6 +164,7 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
       await lienzo.iniciar(d, tGlobal('arte.capa.fondo', 'Fondo'))
       if (!vivo) return
       lienzoRef.current = lienzo
+      setLienzoListo(lienzo)
       dims.current = { ancho: d.ancho, alto: d.alto }
       for (const c of [guiasRef.current, overlayRef.current]) {
         if (c) {
@@ -714,8 +717,8 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
             <Spinner etiqueta={t('arte.editor.cargando', 'Cargando el dibujo')} />
           </div>
         )}
-        {panelCapas && dibujo && lienzoRef.current && (
-          <PanelCapas lienzo={lienzoRef.current} alCambiar={marcar} alCerrar={() => setPanelCapas(false)} />
+        {panelCapas && dibujo && lienzoListo && (
+          <PanelCapas lienzo={lienzoListo} alCambiar={marcar} alCerrar={() => setPanelCapas(false)} />
         )}
       </div>
 

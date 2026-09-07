@@ -402,6 +402,8 @@ interface DisenoState {
   setObjetoPlantilla: (id: number, plantillaId: string | null) => Promise<void>
   /** Asigna (o quita, con null) el enlace web de un objeto; `nombre` renombra el objeto de paso. */
   setObjetoEnlace: (id: number, url: string | null, nombre?: string) => Promise<void>
+  /** Asigna (o quita, con null) el programa del equipo de un objeto; excluyente con el enlace web. */
+  setObjetoPrograma: (id: number, ruta: string | null, nombre?: string) => Promise<void>
   /** Agrega un objeto LIBRE sobre el mapa (editor de mapa, inventario completo). */
   addObjetoMapa: (tipo: string, color: string) => Promise<void>
   /** Alberca: siembra su dona flotadora al llenarla de agua y la retira al vaciarla. */
@@ -2291,8 +2293,22 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   },
 
   setObjetoEnlace: async (id, url, nombre) => {
+    // Un solo destino por objeto: poner (o quitar) el enlace limpia el programa.
     const cambios = {
       enlaceUrl: url ?? undefined,
+      programa: undefined,
+      ...(nombre !== undefined ? { nombre: nombre || undefined } : {}),
+    }
+    set((s) => ({
+      objetos: s.objetos.map((o) => (o.id === id ? { ...o, ...cambios } : o)),
+    }))
+    await db.objetosCuarto.update(id, cambios)
+  },
+
+  setObjetoPrograma: async (id, ruta, nombre) => {
+    const cambios = {
+      programa: ruta ?? undefined,
+      enlaceUrl: undefined,
       ...(nombre !== undefined ? { nombre: nombre || undefined } : {}),
     }
     set((s) => ({

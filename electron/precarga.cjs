@@ -79,4 +79,18 @@ contextBridge.exposeInMainWorld('mph', {
     recargar: () => ipcRenderer.invoke('mph:nav-recargar'),
     cerrar: () => ipcRenderer.invoke('mph:nav-cerrar'),
   },
+  /**
+   * Programas del equipo asignados a objetos (solo Windows, que es donde el
+   * fondo de pantalla recibe clics): elegir con el diálogo del sistema, lanzar
+   * y pedir su icono. Donde no existe, la app ni ofrece la opción.
+   */
+  ...(process.platform === 'win32'
+    ? {
+        programas: {
+          elegir: () => ipcRenderer.invoke('mph:programa-elegir'),
+          abrir: (ruta) => ipcRenderer.invoke('mph:programa-abrir', ruta),
+          icono: (ruta) => ipcRenderer.invoke('mph:programa-icono', ruta),
+        },
+      }
+    : {}),
 })

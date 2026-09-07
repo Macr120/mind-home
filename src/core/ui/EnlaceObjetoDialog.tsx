@@ -4,14 +4,19 @@ import { useEnlaceObjeto } from '../state/enlaceObjetoStore'
 import { useDiseño, objetoPorId } from '../state/disenoStore'
 import { useVisitasDeUrl } from '../data/repository'
 import { normalizarUrl, hostDe, faviconDe } from '../enlaces'
+import { elegirPrograma, hayProgramasEscritorio, nombreDePrograma } from '../plataforma'
 import { fechaLocalISO, addDias } from '../fechaLocal'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
+import { IconoPrograma } from './IconoPrograma'
 
 /**
  * Diálogo «Enlace web» de un objeto del mapa: pega la dirección, un nombre
  * opcional y listo — tocar el objeto sacará su burbuja «Visitar». Si el objeto
- * ya tenía enlace, muestra además sus estadísticas de visitas.
+ * ya tenía enlace, muestra además sus estadísticas de visitas. En el escritorio
+ * de Windows tiene una segunda pestaña, «Programa»: se elige un ejecutable con
+ * el diálogo del sistema y tocar el objeto lo abre (o un clic en el fondo de
+ * pantalla). Un solo destino por objeto: guardar uno quita el otro.
  *
  * Cáscara + interior (como `AsignarPlantillaDialog`): montado siempre en
  * App.tsx, el interior solo con el diálogo abierto. La `key` por objeto
@@ -23,16 +28,22 @@ export function EnlaceObjetoDialog() {
   return <EnlaceObjetoInterior key={objetoId} objetoId={objetoId} />
 }
 
+type Modo = 'web' | 'programa'
+
 function EnlaceObjetoInterior({ objetoId }: { objetoId: number }) {
   const t = useT()
   const cerrar = useEnlaceObjeto((s) => s.cerrar)
   const datos = useDiseño(
     useShallow((s) => {
       const o = objetoPorId(s.objetos, objetoId)
-      return o ? { url: o.enlaceUrl ?? '', nombre: o.nombre ?? '' } : null
+      return o ? { url: o.enlaceUrl ?? '', programa: o.programa ?? '', nombre: o.nombre ?? '' } : null
     }),
   )
+  // El diálogo nunca monta en el fondo de pantalla, así que esto es «¿estoy en el shell de Windows?».
+  const conProgramas = hayProgramasEscritorio()
+  const [modo, setModo] = useState<Modo>(conProgramas && datos?.programa ? 'programa' : 'web')
   const [url, setUrl] = useState(datos?.url ?? '')
+  const [programa, setPrograma] = useState(datos?.programa ?? '')
   const [nombre, setNombre] = useState(datos?.nombre ?? '')
   const [invalida, setInvalida] = useState(false)
 
@@ -53,8 +64,16 @@ function EnlaceObjetoInterior({ objetoId }: { objetoId: number }) {
   if (!datos) return null
 
   const normalizada = normalizarUrl(url)
+  const esPrograma = modo === 'programa'
+  const hayDestino = Boolean(datos.url || datos.programa)
 
   const guardar = async () => {
+    if (esPrograma) {
+      if (!programa) return
+      await useDiseño.getState().setObjetoPrograma(objetoId, programa, nombre.trim())
+      cerrar()
+      return
+    }
     if (!normalizada) {
       setInvalida(true)
       return
@@ -63,28 +82,52 @@ function EnlaceObjetoInterior({ objetoId }: { objetoId: number }) {
     cerrar()
   }
 
+  // Quitar el enlace limpia también el programa: el objeto vuelve a ser decorativo.
   const quitar = async () => {
     await useDiseño.getState().setObjetoEnlace(objetoId, null)
     cerrar()
   }
+
+  const elegir = async () => {
+    const r = await elegirPrograma()
+    if (!r) return
+    setPrograma(r.ruta)
+    if (!nombre.trim()) setNombre(r.nombre)
+  }
+
+  const pestana = (m: Modo, texto: string) => (
+    <button
+      type="button"
+      onClick={() => setModo(m)}
+      className={`flex-1 rounded-lg py-1.5 text-xs font-semibold transition ${
+        modo === m ? 'bg-white/15 text-white/90' : 'text-white/50 hover:bg-white/10 hover:text-white/80'
+      }`}
+    >
+      {texto}
+    </button>
+  )
 
   return (
     <div className="ui-scrim z-[70] flex items-center justify-center p-4" onClick={cerrar}>
       <div
         role="dialog"
         aria-modal="true"
-        aria-label={t('enlace.titulo', 'Enlace web')}
+        aria-label={esPrograma ? t('enlace.programa.titulo', 'Programa') : t('enlace.titulo', 'Enlace web')}
         className="ui-panel ui-pop w-full max-w-md rounded-2xl border border-white/10 p-5 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <header className="mb-4 flex items-center gap-3">
           <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10 text-xl">
-            <Icono nombre="vincular" />
+            <Icono nombre={esPrograma ? 'tecnologia' : 'vincular'} />
           </span>
           <div className="min-w-0">
-            <p className="text-base font-black">{t('enlace.titulo', 'Enlace web')}</p>
+            <p className="text-base font-black">
+              {esPrograma ? t('enlace.programa.titulo', 'Programa') : t('enlace.titulo', 'Enlace web')}
+            </p>
             <p className="text-[11px] text-white/45">
-              {t('enlace.explica', 'Tocar el objeto abrirá esta página')}
+              {esPrograma
+                ? t('enlace.programa.explica', 'Tocar el objeto abrirá este programa')
+                : t('enlace.explica', 'Tocar el objeto abrirá esta página')}
             </p>
           </div>
           <button
@@ -96,39 +139,67 @@ function EnlaceObjetoInterior({ objetoId }: { objetoId: number }) {
           </button>
         </header>
 
-        <label className="mb-1 block text-[11px] font-semibold text-white/55">
-          {t('enlace.url', 'Dirección de la página')}
-        </label>
-        <input
-          autoFocus
-          value={url}
-          inputMode="url"
-          autoCapitalize="off"
-          autoCorrect="off"
-          spellCheck={false}
-          placeholder="https://…"
-          onChange={(e) => {
-            setUrl(e.target.value)
-            setInvalida(false)
-          }}
-          onKeyDown={(e) => e.key === 'Enter' && void guardar()}
-          className={`mb-1 w-full rounded-xl border bg-black/30 px-3 py-2 text-sm text-white/90 outline-none focus:border-white/35 ${
-            invalida ? 'border-red-400/60' : 'border-white/15'
-          }`}
-        />
-        {invalida ? (
-          <p className="mb-3 text-[11px] font-medium text-red-400">
-            {t('enlace.invalida', 'Esa dirección no parece válida')}
-          </p>
+        {/* Solo el shell de Windows sabe lanzar programas: en el resto, el diálogo es el de siempre. */}
+        {conProgramas && (
+          <div className="mb-4 flex gap-1 rounded-xl border border-white/10 bg-black/20 p-1">
+            {pestana('web', t('enlace.paginaWeb', 'Página web'))}
+            {pestana('programa', t('enlace.programa.titulo', 'Programa'))}
+          </div>
+        )}
+
+        {esPrograma ? (
+          <div className="mb-3 flex items-center gap-3 rounded-xl border border-white/15 bg-black/30 px-3 py-2">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/10">
+              {programa ? <IconoPrograma ruta={programa} /> : <Icono nombre="tecnologia" />}
+            </span>
+            <p className={`min-w-0 flex-1 truncate text-sm ${programa ? 'text-white/90' : 'text-white/45'}`} title={programa}>
+              {programa ? nombreDePrograma(programa) : t('enlace.programa.ninguno', 'Aún no elegiste ningún programa')}
+            </p>
+            <button
+              type="button"
+              onClick={() => void elegir()}
+              className="shrink-0 rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold transition hover:bg-white/10"
+            >
+              {t('enlace.programa.elegir', 'Elegir programa…')}
+            </button>
+          </div>
         ) : (
-          <p className="mb-3 flex min-h-4 items-center gap-1.5 text-[11px] text-white/45">
-            {normalizada && (
-              <>
-                <FaviconMini key={normalizada} url={normalizada} />
-                {hostDe(normalizada)}
-              </>
+          <>
+            <label className="mb-1 block text-[11px] font-semibold text-white/55">
+              {t('enlace.url', 'Dirección de la página')}
+            </label>
+            <input
+              autoFocus
+              value={url}
+              inputMode="url"
+              autoCapitalize="off"
+              autoCorrect="off"
+              spellCheck={false}
+              placeholder="https://…"
+              onChange={(e) => {
+                setUrl(e.target.value)
+                setInvalida(false)
+              }}
+              onKeyDown={(e) => e.key === 'Enter' && void guardar()}
+              className={`mb-1 w-full rounded-xl border bg-black/30 px-3 py-2 text-sm text-white/90 outline-none focus:border-white/35 ${
+                invalida ? 'border-red-400/60' : 'border-white/15'
+              }`}
+            />
+            {invalida ? (
+              <p className="mb-3 text-[11px] font-medium text-red-400">
+                {t('enlace.invalida', 'Esa dirección no parece válida')}
+              </p>
+            ) : (
+              <p className="mb-3 flex min-h-4 items-center gap-1.5 text-[11px] text-white/45">
+                {normalizada && (
+                  <>
+                    <FaviconMini key={normalizada} url={normalizada} />
+                    {hostDe(normalizada)}
+                  </>
+                )}
+              </p>
             )}
-          </p>
+          </>
         )}
 
         <label className="mb-1 block text-[11px] font-semibold text-white/55">
@@ -141,15 +212,17 @@ function EnlaceObjetoInterior({ objetoId }: { objetoId: number }) {
           className="mb-4 w-full rounded-xl border border-white/15 bg-black/30 px-3 py-2 text-sm text-white/90 outline-none focus:border-white/35"
         />
 
-        {datos.url && <EstadisticasEnlace url={datos.url} />}
+        {!esPrograma && datos.url && <EstadisticasEnlace url={datos.url} />}
 
         <div className="flex gap-2">
-          {datos.url && (
+          {hayDestino && (
             <button
               onClick={() => void quitar()}
               className="flex-1 rounded-xl border border-red-400/30 bg-red-400/10 py-2 text-sm font-semibold text-red-400 transition hover:bg-red-400/20"
             >
-              {t('enlace.quitar', 'Quitar enlace')}
+              {datos.programa && !datos.url
+                ? t('enlace.programa.quitar', 'Quitar programa')
+                : t('enlace.quitar', 'Quitar enlace')}
             </button>
           )}
           <button
