@@ -7,7 +7,7 @@ import { Icono } from './iconos/Icono'
  * personalizada y la paleta para agregarlos. Lo comparten el editor del
  * catálogo y la edición en el sitio de la app genérica.
  */
-export const TIPOS: { tipo: TipoBloque; emoji: string; nombre: string }[] = [
+const TIPOS: { tipo: TipoBloque; emoji: string; nombre: string }[] = [
   { tipo: 'notas', emoji: '📝', nombre: 'Notas' },
   { tipo: 'checklist', emoji: '✅', nombre: 'Checklist' },
   { tipo: 'contador', emoji: '🔢', nombre: 'Contador' },

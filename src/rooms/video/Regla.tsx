@@ -4,7 +4,7 @@ import { capturarPointer } from '../../core/ui/comun/arrastre'
 import { ALTO_REGLA, COLA_SEG, MAX_ETIQUETAS_REGLA, NIVELES_ZOOM_VIDEO } from './constantes'
 
 /** `m:ss` para las etiquetas de la regla. */
-export const fmtRegla = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`
+const fmtRegla = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`
 
 /**
  * La regla de tiempo: etiquetas cada N segundos según el zoom (con tope de

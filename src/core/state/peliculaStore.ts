@@ -108,8 +108,6 @@ export const usePelicula = create<PeliculaState>((set, get) => ({
     ),
 }))
 
-/** Para handlers de la escena 3D fuera de React (como `construyendoAhora()`). */
-export const enPeliculaAhora = () => usePelicula.getState().proyectoId != null
 /** Tocar el suelo coloca a un actor (clip de personaje seleccionado); si no, el toque camina como siempre. */
 export const colocandoActor = () => peliculaFrame.activo && usePelicula.getState().colocando
 

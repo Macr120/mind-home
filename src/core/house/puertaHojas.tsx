@@ -49,7 +49,7 @@ function topeRemate(r: RemateHoja, un0: number, un1: number): [number, number][]
  * Geometría extruida de un panel x∈[x0,x1], y∈[0,alto], cuyo tope sigue el remate
  * del vano (arco/pico) para llenar el hueco sin dejar rendijas.
  */
-export function geoPanelRemate(
+function geoPanelRemate(
   x0: number,
   x1: number,
   alto: number,
@@ -180,6 +180,7 @@ export function MontanteVanoMesh({
     if (remate.forma === 'recta' || remate.extra < 0.02 || ancho < 0.3) return null
     return geoPanelRemate(-ancho / 2 + 0.02, ancho / 2 - 0.02, 0, remate, -1, 1)
   }, [ancho, remate])
+  useEffect(() => () => geo?.dispose(), [geo])
   if (!geo) return null
   return (
     <mesh geometry={geo} castShadow receiveShadow>
@@ -260,6 +261,7 @@ export function HojaPuertaMesh({
     if (!remate || remate.forma === 'recta' || remate.extra < 0.02) return null
     return geoPanelRemate(0.02, width - 0.02, Math.max(0.1, alto - PUERTA_BASE_Y), remate, un0, un1)
   }, [width, alto, remate, un0, un1])
+  useEffect(() => () => geo?.dispose(), [geo])
   const y = PUERTA_BASE_Y + alto / 2
   return (
     <group>

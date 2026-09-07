@@ -1,6 +1,8 @@
+import { EMOCIONES, type EmocionId } from '../../core/chat/emociones'
 import { conversarIA, extraerJSON } from '../../core/chat/ia'
 import type { ClipVideo, EscenaVideo, FiltroEscena, MedioVideo, NarradorVideo, TextoEscena } from '../../core/data/db'
-import { MAX_ESCENAS_IA, nuevaEscenaId, PALETA_VIDEO } from './constantes'
+import type { PresetAnimacionId } from '../../core/house/animacion'
+import { EN_OFF, MAX_ESCENAS_IA, MAX_LINEAS_OBRA, nuevaEscenaId, PALETA_VIDEO } from './constantes'
 import { asignarNarrador, clampDuracion, clipsDe, escenasAClips, serializarGuion, type ProyectoAbierto } from './modelo'
 
 /** Un narrador del proyecto con su nombre visible (la IA lo referencia por nombre). */
@@ -135,6 +137,73 @@ export async function generarGuion(
     }
   }
   throw ultimo instanceof Error ? ultimo : new Error('La IA no devolvió un guion usable')
+}
+
+// ─── La obra del estudio de cine ─────────────────────────────────────────────
+
+/** Una marioneta con su nombre visible (la IA la referencia por nombre). */
+export interface PersonajeIA {
+  id: string
+  nombre: string
+}
+
+/** Una línea de la obra tal como la devuelve la IA, ya validada: `personaje` es un id de actor o `EN_OFF`. */
+export interface LineaIA {
+  personaje: string
+  texto: string
+  emocion?: EmocionId
+  gesto?: Exclude<PresetAnimacionId, 'vida'>
+}
+
+const EMOCIONES_OK = new Set<string>(Object.keys(EMOCIONES))
+// Exhaustivo por el tipo (un preset nuevo obliga a decidir aquí), sin arrastrar `animacion.ts` (three) a la IA.
+const GESTOS_OK: Record<Exclude<PresetAnimacionId, 'vida'>, true> = { girar: true, flotar: true, pulsar: true, mecerse: true, rebotar: true, temblar: true }
+
+function systemObra(personajes: PersonajeIA[]): string {
+  return [
+    'Eres dramaturgo: escribes obras de teatro cortas para marionetas, con diálogos vivos, humor y un pequeño arco (planteamiento, giro y cierre).',
+    'Responde ÚNICAMENTE con un objeto JSON, sin texto ni markdown alrededor, con esta forma:',
+    '{"lineas":[{"personaje":"<nombre EXACTO de la lista, o \\"Narrador\\" para la voz en off>","texto":"<lo que dice>",' +
+      '"emocion":"felicidad|enojo|sorpresa|aprobacion|gusto|tristeza|","gesto":"girar|flotar|pulsar|mecerse|rebotar|temblar|"}]}',
+    `Máximo ${MAX_LINEAS_OBRA} líneas, de hasta 200 caracteres cada una; reparte las líneas como un diálogo; el narrador solo si hace falta.`,
+    `Personajes: ${personajes.map((p) => `"${p.nombre}"`).join(', ')}.`,
+    'Deja emocion y gesto vacíos cuando no aporten. Escribe en el idioma del usuario.',
+  ].join('\n')
+}
+
+/** Valida el JSON del modelo: nombre → id de actor (desconocido o «Narrador» → en off), emoción y gesto por catálogo. */
+function validarObra(obj: Record<string, unknown>, personajes: PersonajeIA[]): LineaIA[] {
+  const porNombre = new Map(personajes.map((p) => [p.nombre.trim().toLowerCase(), p.id]))
+  const crudas = Array.isArray(obj.lineas) ? (obj.lineas as unknown[]) : []
+  const lineas: LineaIA[] = []
+  for (const l of crudas.slice(0, MAX_LINEAS_OBRA)) {
+    if (!l || typeof l !== 'object') continue
+    const o = l as Record<string, unknown>
+    const texto = typeof o.texto === 'string' ? o.texto.trim().slice(0, 200) : ''
+    if (!texto) continue
+    const nombre = typeof o.personaje === 'string' ? o.personaje.trim().toLowerCase() : ''
+    const linea: LineaIA = { personaje: porNombre.get(nombre) ?? EN_OFF, texto }
+    if (typeof o.emocion === 'string' && EMOCIONES_OK.has(o.emocion)) linea.emocion = o.emocion as EmocionId
+    if (typeof o.gesto === 'string' && o.gesto in GESTOS_OK) linea.gesto = o.gesto as LineaIA['gesto']
+    lineas.push(linea)
+  }
+  if (lineas.length === 0) throw new Error('La IA no devolvió líneas')
+  return lineas
+}
+
+/** Escribe la obra desde una idea: las líneas, quién las dice y con qué emoción y gesto. Quien llama decide si reemplaza o añade. */
+export async function generarObra(idea: string, personajes: PersonajeIA[]): Promise<LineaIA[]> {
+  let ultimo: unknown = null
+  for (let intento = 0; intento < 2; intento++) {
+    const respuesta = await conversarIA(systemObra(personajes), [{ rol: 'usuario', texto: idea.trim() }], 3000)
+    try {
+      return validarObra(extraerJSON(respuesta), personajes)
+    } catch (e) {
+      ultimo = e
+      console.warn('[video] respuesta de IA no usable, reintentando:', respuesta.slice(0, 300))
+    }
+  }
+  throw ultimo instanceof Error ? ultimo : new Error('La IA no devolvió una obra usable')
 }
 
 /** Mejora los títulos (clips de texto escritos a mano, no los subtítulos generados) en una sola llamada. */

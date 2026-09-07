@@ -60,6 +60,7 @@ const DESTINO_POR_TOOL: Record<string, DestinoChat> = {
   editor_idioma: { tipo: 'editor', tab: 'config', grupo: 'interfaz' },
   editor_tema_interfaz: { tipo: 'editor', tab: 'config', grupo: 'interfaz' },
   editor_tipografia: { tipo: 'editor', tab: 'config', grupo: 'interfaz' },
+  editor_estilo_interfaz: { tipo: 'editor', tab: 'config', grupo: 'interfaz' },
   editor_apariencia: { tipo: 'editor', tab: 'config', grupo: 'interfaz' },
   editor_estilo_mapa: { tipo: 'editor', tab: 'config', grupo: 'estilo' },
   editor_notificaciones: { tipo: 'editor', tab: 'config', grupo: 'notificaciones' },

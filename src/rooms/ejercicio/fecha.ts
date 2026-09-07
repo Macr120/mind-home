@@ -16,10 +16,6 @@ export function inicioSemana(fecha: string): string {
   return fechaLocalISO(d)
 }
 
-export function diasSemana(desdeLunes: string): string[] {
-  return Array.from({ length: 7 }, (_, i) => sumarDias(desdeLunes, i))
-}
-
 export function nombreFecha(fecha: string): string {
   const d = new Date(`${fecha}T12:00:00`)
   return d.toLocaleDateString(localeActual(), {

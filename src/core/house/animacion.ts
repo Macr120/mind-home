@@ -24,7 +24,7 @@ export type PresetAnimacionId =
 export type ActivacionAnimacion = 'apagado' | 'siempre' | 'proximidad'
 
 /** Pos/rot de UNA pieza dentro de una pose (mismo formato que Pieza3D). */
-export interface PosePieza {
+interface PosePieza {
   pos: [number, number, number]
   rot?: [number, number, number]
 }
@@ -66,7 +66,7 @@ export const PRESETS_ANIMACION: { id: PresetAnimacionId; emoji: string; nombre: 
 ]
 
 /** Distancia al jugador que enciende una animación en modo 'proximidad'. */
-export const UMBRAL_PROXIMIDAD_ANIM = 3.5
+const UMBRAL_PROXIMIDAD_ANIM = 3.5
 
 /** Duración del refuerzo de «Interactuar» (ms): tiempo que el objeto se anima. */
 const MS_PULSO = 3000
@@ -74,7 +74,7 @@ const MS_PULSO = 3000
 const MS_PULSO_FUERTE = 700
 
 /** Objeto al que «Interactuar» le encendió la animación, y hasta cuándo. */
-export const pulsoAnim = { id: null as number | null, hasta: 0 }
+const pulsoAnim = { id: null as number | null, hasta: 0 }
 
 /**
  * Enciende la animación de un objeto un rato aunque el jugador esté lejos: es

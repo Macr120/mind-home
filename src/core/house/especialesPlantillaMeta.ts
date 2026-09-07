@@ -63,7 +63,7 @@ export const META_ESPECIAL_PLANTILLA: Record<string, { nombre: string; color: st
   [TIPO_CAMARA_VIDEO]: { nombre: 'Cámara de video', color: '#334155' },
 }
 
-export const TIPOS_ESPECIALES_PLANTILLA = new Set(Object.keys(META_ESPECIAL_PLANTILLA))
+const TIPOS_ESPECIALES_PLANTILLA = new Set(Object.keys(META_ESPECIAL_PLANTILLA))
 
 export const esEspecialPlantilla = (tipo: string) => TIPOS_ESPECIALES_PLANTILLA.has(tipo)
 
@@ -74,7 +74,7 @@ export const esEspecialPlantilla = (tipo: string) => TIPOS_ESPECIALES_PLANTILLA.
  * «Interactuar» tiene una animación que encender: en estos la animación no vive
  * en `ObjetoCuarto.animacion`, así que `tieneAnimacion()` no los ve.
  */
-export const TIPOS_AMBIENTALES_PLANTILLA = new Set([
+const TIPOS_AMBIENTALES_PLANTILLA = new Set([
   TIPO_OLLA,
   TIPO_PIZARRA,
   TIPO_DESPERTADOR,

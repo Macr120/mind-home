@@ -54,11 +54,8 @@ export function langVoz(): string {
  * narra un paso el habla espontánea de los asistentes se calla en vez de
  * pisarla. Se libera al terminar la lectura o con `callarVoz()`.
  */
-export type DuenioVoz = 'asistente' | 'tutorial'
+type DuenioVoz = 'asistente' | 'tutorial'
 let duenioVoz: DuenioVoz = 'asistente'
-
-/** ¿Hay otro dueño leyendo? (lo consulta el suscriptor de la burbuja). */
-export const vozTomadaPor = (): DuenioVoz => duenioVoz
 
 export interface OpcionesHabla {
   lang?: string

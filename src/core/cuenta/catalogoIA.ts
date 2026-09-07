@@ -20,7 +20,7 @@ import { leerCalidadImagen, type CalidadImagen } from './calidadImagen'
  */
 
 /** Una llamada al proxy dentro de una operación compuesta. */
-export interface ParteIA {
+interface ParteIA {
   /** Op primitiva. `imagen` es LÓGICA: se resuelve según la calidad elegida. */
   op: OpIA
   /** Veces que se llama. `'n'` = una por elemento del lote. Por defecto 1. */

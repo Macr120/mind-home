@@ -13,7 +13,7 @@ import { marcarEscrituraSilenciosa } from '../core/data/sync/middleware'
 import { esObjetoLibreria } from '../core/state/disenoStore'
 
 /** Tablas que definen la casa (hidratan los stores de casa + infra viva). */
-export const TABLAS_CASA = [
+const TABLAS_CASA = [
   // Identidad y plano
   'cuartos',
   'layout',
@@ -22,6 +22,7 @@ export const TABLAS_CASA = [
   'zonas',
   'pisosExterior',
   'murosLibres',
+  'formasLibres',
   // Diseño y objetos
   'disenoRooms',
   'disenoAvatar',

@@ -31,7 +31,7 @@ export type FormaArte = 'linea' | 'rect' | 'elipse' | 'compas'
 export type FiltroArte = 'brillo+' | 'brillo-' | 'contraste+' | 'contraste-' | 'grises' | 'desenfoque'
 
 /** Lo que la UI necesita saber de una capa (el bitmap vive en el motor). */
-export interface CapaInfo {
+interface CapaInfo {
   capaId: string
   nombre: string
   visible: boolean

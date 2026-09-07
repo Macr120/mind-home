@@ -6,7 +6,7 @@ import { LogoRed } from '../../../core/ui/logosMarca'
 import { Spinner, TARJETA } from '../../_shared/ui'
 
 /** Mismo botón que los de Google/Apple del login (`BotonesOAuth`). */
-export const BOTON_CONECTAR =
+const BOTON_CONECTAR =
   'flex w-full items-center justify-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-xs font-semibold text-white/75 transition hover:bg-white/10 disabled:opacity-50'
 
 /** Texto del motivo con el que volvió el OAuth. */
@@ -40,6 +40,8 @@ export function PasoCuenta({ plataforma, cuenta }: { plataforma: Plataforma; cue
   const [error, setError] = useState<string | null>(null)
   const red = NOMBRE_RED[plataforma]
   const esperando = pendiente?.plataforma === plataforma
+  // Facebook conectado pero sin Páginas en el listado: se pide a mano (solo ahí, no en Instagram).
+  const faltaPagina = useRedes((s) => s.avisos.falta_pagina === 'facebook') && plataforma === 'facebook' && !esperando
 
   const conectar = async () => {
     setError(null)
@@ -82,6 +84,67 @@ export function PasoCuenta({ plataforma, cuenta }: { plataforma: Plataforma; cue
         <p className="text-[11px] leading-snug text-red-400/90">{mensajeVuelta(t, vuelta.error, red)}</p>
       )}
       {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
+      {faltaPagina && <PaginaAMano />}
     </div>
   )
+}
+
+/**
+ * Facebook conectó pero no devolvió ninguna Página. Pasa siempre que la Página se
+ * administra desde un portafolio de negocio: `/me/accounts` no la lista aunque el
+ * acceso exista. Se pide su enlace y el servidor la resuelve por id.
+ */
+function PaginaAMano() {
+  const t = useT()
+  const [texto, setTexto] = useState('')
+  const [enviando, setEnviando] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  const enviar = async () => {
+    const ref = referenciaPagina(texto)
+    if (!ref) {
+      setError(t('video.publicar.fb.paginaInvalida', 'No reconozco esa dirección: copia el enlace de tu Página desde Facebook.'))
+      return
+    }
+    setError(null)
+    setEnviando(true)
+    const err = await useRedes.getState().elegirPagina('facebook', ref)
+    setEnviando(false)
+    if (err) setError(err)
+  }
+
+  return (
+    <div className="space-y-2 border-t border-white/10 pt-3 text-left">
+      <p className="text-[11px] leading-snug text-white/60">
+        {t(
+          'video.publicar.fb.pegarPagina',
+          'Si administras tu Página desde un portafolio de negocio, Facebook no nos la muestra en la lista. Pega aquí su enlace:',
+        )}
+      </p>
+      <input
+        value={texto}
+        onChange={(e) => setTexto(e.target.value)}
+        placeholder="https://www.facebook.com/MiPagina"
+        className="w-full rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-xs text-white/85 outline-none focus:border-white/25"
+      />
+      <button type="button" onClick={() => void enviar()} disabled={enviando || !texto.trim()} className={BOTON_CONECTAR}>
+        {enviando ? <Spinner pequeno /> : t('video.publicar.fb.usarPagina', 'Usar esta Página')}
+      </button>
+      {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
+    </div>
+  )
+}
+
+/**
+ * Saca de lo que pegue el usuario el tramo que la Graph API entiende: el id
+ * numérico de `profile.php?id=…` o el nombre de usuario de `facebook.com/loQueSea`.
+ */
+export function referenciaPagina(texto: string): string | null {
+  const limpio = texto.trim()
+  if (!limpio) return null
+  const porId = limpio.match(/[?&]id=(\d+)/)
+  if (porId) return porId[1]
+  const porRuta = limpio.match(/facebook\.com\/([A-Za-z0-9._-]{1,80})/i)
+  const bruto = porRuta ? porRuta[1] : limpio
+  return /^[A-Za-z0-9._-]{1,80}$/.test(bruto) ? bruto : null
 }

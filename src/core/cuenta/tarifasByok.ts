@@ -10,7 +10,7 @@
  */
 
 /** USD por 1M tokens. Ollama (local) no entra: es gratis. */
-export const TARIFA_TEXTO: Record<string, { entrada: number; salida: number }> = {
+const TARIFA_TEXTO: Record<string, { entrada: number; salida: number }> = {
   'claude-haiku-4-5': { entrada: 1.0, salida: 5.0 },
   'claude-sonnet-5': { entrada: 3.0, salida: 15.0 },
   // Alias "latest": aproximado a Gemini 2.5 Flash (ago 2026). Puede desactualizarse

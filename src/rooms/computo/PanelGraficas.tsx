@@ -16,7 +16,7 @@ import type { Celdas, ResultadoCelda } from './hoja'
  * hace que la gráfica del .xlsx exportado quede viva dentro de Excel.
  */
 
-export const TIPOS: { id: TipoGraficaHoja; icono: NombreIcono; es: string }[] = [
+const TIPOS: { id: TipoGraficaHoja; icono: NombreIcono; es: string }[] = [
   { id: 'barras', icono: 'grafica', es: 'Barras' },
   { id: 'lineas', icono: 'graficaLineas', es: 'Líneas' },
   { id: 'area', icono: 'graficaArea', es: 'Área' },

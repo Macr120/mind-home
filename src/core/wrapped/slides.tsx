@@ -14,7 +14,7 @@ import { RANGOS, nombreRango } from '../gamificacion/sisifoData'
  * dentro del overlay `.ui-noche`, por eso los text-white/X son válidos.
  */
 
-export interface PropsSlide {
+interface PropsSlide {
   resumen: ResumenWrapped
   previo?: ResumenWrapped
 }

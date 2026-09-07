@@ -86,7 +86,7 @@ function rachaDesde(fechas: Set<string>, hoy: string): number {
  * Devuelve el nuevo estado tras finalizar todos los días pasados hasta ayer.
  * Función pura (sin efectos) para poder testearla con estados sintéticos.
  */
-export function reconciliar(prev: EstadoSisifo, fechas: Set<string>, hoy: string): EstadoSisifo {
+function reconciliar(prev: EstadoSisifo, fechas: Set<string>, hoy: string): EstadoSisifo {
   let { altura, estrellas, ultimaFecha, graciasGastadas, mes, insigniasVistas, estrellaNueva } = prev
 
   // Sube un día; al coronar el año otorga una estrella y reinicia el ciclo.

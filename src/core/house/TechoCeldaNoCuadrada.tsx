@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import * as THREE from 'three'
 import type { CeldaFormaLoseta } from './formasLoseta'
 import {
@@ -71,6 +71,7 @@ export function TechoCeldaNoCuadrada({
     const cuantos = cf.params.aguas === 1 ? 1 : 2 // 1 pico o 2 picos
     return geoTechoVertices(verts, alturasPicos(alt, cuantos, cf.params.dir))
   }, [formaLoseta, cf, tile, subformas])
+  useEffect(() => () => geo.dispose(), [geo])
 
   const mat = colorTechoLoseta(tipo, colorCuarto)
   if (tinte) mat.color = mezclar(mat.color, tinte, 0.55)

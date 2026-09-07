@@ -56,7 +56,7 @@ const ALTO_BARRA = 1.0
 
 /** Olla sobre la barra (sin hornilla propia: se coloca en la misma posición que la
  *  barra/isla de la cocina): la tapa tabletea y sale vapor cuando el jugador se acerca. */
-export function Olla({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function Olla({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const tapa = useRef<THREE.Group>(null!)
   const vapor = useRef<THREE.Group>(null!)
@@ -128,7 +128,7 @@ const NOTAS_PIZARRA: { x: number; y: number; rot: number; c: string }[] = [
 /** Pizarra de ideas sobre caballete: notas adhesivas y un mini-mapa mental
  *  dibujado; al acercarse, el foco de arriba se enciende y la nota recién
  *  pegada oscila como si acabara de caer. */
-export function PizarraIdeas({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function PizarraIdeas({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const foco = useRef<THREE.MeshStandardMaterial>(null!)
   const nota = useRef<THREE.Group>(null!)
@@ -210,7 +210,7 @@ const RENGLONES = [0.06, 0.02, -0.02, -0.06]
  *  de pastillas, el portarretratos y la pluma de las tres secciones. Al acercarse,
  *  la página derecha se levanta como si alguien pasara la hoja y la lucecita del
  *  frasco (el recordatorio de la toma) empieza a latir. */
-export function AgendaEscritorio({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function AgendaEscritorio({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const hoja = useRef<THREE.Group>(null!)
   const aviso = useRef<THREE.MeshStandardMaterial>(null!)
@@ -305,7 +305,7 @@ const ALTO_BURO = 0.7
 
 /** Despertador de dos campanas: se coloca en la misma posición que un buró real
  *  (recurso:39) para quedar encima; vibra y golpea las campanas al acercarse. */
-export function Despertador({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function Despertador({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const reloj = useRef<THREE.Group>(null!)
   const martillo = useRef<THREE.Group>(null!)
@@ -370,7 +370,7 @@ export function Despertador({ color, simple = false, nivel = null, objetoId }: E
 }
 
 /** Librero: en el estante, un libro sale y se abre cuando el jugador se acerca. */
-export function LibreroLibro({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function LibreroLibro({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const libro = useRef<THREE.Group>(null!)
   const tapaIzq = useRef<THREE.Group>(null!)
@@ -446,7 +446,7 @@ export function LibreroLibro({ color, simple = false, nivel = null, objetoId }: 
 const ALTO_MESA_SALA = 0.32
 
 /** Globo terráqueo sobre la mesa de centro: gira solo cuando el personaje está cerca. */
-export function GloboTerraqueo({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function GloboTerraqueo({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const esfera = useRef<THREE.Group>(null!)
   const energia = useRef(0)
@@ -498,7 +498,7 @@ export function GloboTerraqueo({ color, simple = false, nivel = null, objetoId }
 }
 
 /** Estantería de herramientas: dos puertas que se abren y muestran las herramientas al acercarse. */
-export function EstanteriaHerramientas({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function EstanteriaHerramientas({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const puertaIzq = useRef<THREE.Group>(null!)
   const puertaDer = useRef<THREE.Group>(null!)
@@ -589,7 +589,7 @@ export function EstanteriaHerramientas({ color, simple = false, nivel = null, ob
 }
 
 /** Repisa con cajas de juegos: la caja de arriba se menea un poco al acercarse. */
-export function RepisaJuegos({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function RepisaJuegos({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const cima = useRef<THREE.Group>(null!)
   const energia = useRef(0)
@@ -752,7 +752,7 @@ function Patas({ w, d, h, color }: { w: number; d: number; h: number; color: str
 }
 
 /** Caminadora: el personaje sube a la banda y camina en el sitio (marchaAvatar). */
-export function Caminadora({ color }: UsableProps) {
+function Caminadora({ color }: UsableProps) {
   return (
     <group>
       {/* Base y banda */}
@@ -791,7 +791,7 @@ export function Caminadora({ color }: UsableProps) {
 }
 
 /** Sillón de lectura gris: el personaje se sienta encima a leer el periódico (accesorio en mano). */
-export function SillonLectura({ color }: UsableProps) {
+function SillonLectura({ color }: UsableProps) {
   return (
     <group>
       {/* Asiento (el personaje se sienta en el origen) */}
@@ -833,7 +833,7 @@ export function SillonLectura({ color }: UsableProps) {
 }
 
 /** Escritorio de noticias (con periódico): pulsa cuando el personaje pasa cerca (ambiental). */
-export function EscritorioNoticias({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function EscritorioNoticias({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const cuerpo = useRef<THREE.Group>(null!)
   const energia = useRef(0)
@@ -886,7 +886,7 @@ export function EscritorioNoticias({ color, simple = false, nivel = null, objeto
 }
 
 /** Escritorio con computadora y teclado: el personaje se sienta en la silla y teclea. */
-export function Laptop({ color }: UsableProps) {
+function Laptop({ color }: UsableProps) {
   return (
     <group>
       {/* Escritorio */}
@@ -933,7 +933,7 @@ export function Laptop({ color }: UsableProps) {
 }
 
 /** Tapete de yoga: el personaje se sienta encima a meditar. */
-export function TapeteYoga({ color }: UsableProps) {
+function TapeteYoga({ color }: UsableProps) {
   return (
     <group>
       <mesh position={[0, 0.02, 0]} castShadow receiveShadow>
@@ -954,7 +954,7 @@ export function TapeteYoga({ color }: UsableProps) {
 }
 
 /** Piano doméstico (vertical) con banco: tiembla cuando el personaje pasa cerca. */
-export function PianoObj({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function PianoObj({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const piano = useRef<THREE.Group>(null!)
   const energia = useRef(0)
@@ -1026,7 +1026,7 @@ export function PianoObj({ color, simple = false, nivel = null, objetoId }: EspP
 }
 
 /** Árbol en maceta: tiembla cuando el personaje pasa cerca (sin acción, solo ambiental). */
-export function Arbol({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function Arbol({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const planta = useRef<THREE.Group>(null!)
   const energia = useRef(0)
@@ -1070,7 +1070,7 @@ export function Arbol({ color, simple = false, nivel = null, objetoId }: EspProp
 }
 
 /** Libreta abierta en una mesa baja: el personaje se sienta y escribe. */
-export function Libreta({ color }: UsableProps) {
+function Libreta({ color }: UsableProps) {
   return (
     <group>
       {/* Mesa baja */}
@@ -1113,7 +1113,7 @@ const ALTO_AVATAR = 1.75
  * hoy marcado y, en la foto de arriba, TU personaje (el avatar de la casa, así
  * que sigue tus cambios de apariencia). Cuelga a la altura de la vista.
  */
-export function CalendarioPared({ color }: EspProps) {
+function CalendarioPared({ color }: EspProps) {
   const av = useDiseño((s) => s.avatar)
   useAjustes((s) => s.idioma) // suscripción: la hoja sigue al conmutador de idioma
   const locale = localeActual()
@@ -1230,7 +1230,7 @@ export function AccesorioAccion({ escala }: { escala: number }) {
  * conserva la laptop, que ya es usable, y dos «Usar» dentro del mismo radio se
  * pisan; además no hay pose de avatar que le pegue a abrir una caja fuerte.
  */
-export function CajaFuerte({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function CajaFuerte({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const puerta = useRef<THREE.Group>(null!)
   const dial = useRef<THREE.Group>(null!)
@@ -1335,7 +1335,7 @@ export function CajaFuerte({ color, simple = false, nivel = null, objetoId }: Es
  * personaje se sienta enfrente y teclea — misma pose que la laptop, así que no
  * hace falta ninguna nueva.
  */
-export function EstacionComputo({ color }: UsableProps) {
+function EstacionComputo({ color }: UsableProps) {
   const PANTALLA = '#22d3ee'
   return (
     <group>
@@ -1439,7 +1439,7 @@ export function EstacionComputo({ color }: UsableProps) {
  * Teclado MIDI sobre soporte en X (Studio de audio): al acercarse, las teclas se
  * hunden en cascada —como si el sinte tocara solo— y el panel parpadea.
  */
-export function TecladoMidi({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function TecladoMidi({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const teclas = useRef<THREE.Group>(null!)
   const panel = useRef<THREE.Mesh>(null!)
@@ -1542,7 +1542,7 @@ export function TecladoMidi({ color, simple = false, nivel = null, objetoId }: E
  * Caballete con lienzo a medio pintar (Studio de arte): al acercarse, el pincel
  * apoyado da brochazos y el lienzo se mece con el trazo.
  */
-export function CaballeteArte({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function CaballeteArte({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const lienzo = useRef<THREE.Group>(null!)
   const pincel = useRef<THREE.Group>(null!)
@@ -1647,7 +1647,7 @@ export function CaballeteArte({ color, simple = false, nivel = null, objetoId }:
  * Escritorio con máquina de escribir (Studio de escritura): al acercarse teclea
  * sola —dos varillas suben y bajan— y la hoja va saliendo del rodillo.
  */
-export function EscritorioEscritura({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function EscritorioEscritura({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const varillas = useRef<THREE.Group>(null!)
   const hoja = useRef<THREE.Mesh>(null!)
@@ -1756,7 +1756,7 @@ export function EscritorioEscritura({ color, simple = false, nivel = null, objet
  * Cámara sobre trípode con claqueta y foco (Studio de video): al acercarse, el
  * piloto de grabación parpadea, la cámara hace un paneo lento y la claqueta bate.
  */
-export function CamaraVideo({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function CamaraVideo({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const cabeza = useRef<THREE.Group>(null!)
   const piloto = useRef<THREE.Mesh>(null!)
@@ -1898,7 +1898,7 @@ type UsableProps = { color: string }
  * clavados. Al acercarse, el tablero gira despacio y el dardo del centro se
  * hunde un poco más — «apuntar y dar».
  */
-export function DianaMetas({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function DianaMetas({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const tablero = useRef<THREE.Group>(null!)
   const dardoCentro = useRef<THREE.Group>(null!)

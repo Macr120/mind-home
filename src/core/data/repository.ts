@@ -457,9 +457,6 @@ export function useMantenimientosVehiculo(vehiculoId: number | null) {
 export const rutinasRepo = createRepository(db.rutinas, 'creadoEn', false)
 export const ejecucionesRutinaRepo = createRepository(db.ejecucionesRutina, 'fecha')
 
-/** Palomitas manuales de la meta diaria. */
-export const metasDiariasManualRepo = createRepository(db.metasDiariasManual, 'fecha')
-
 /**
  * La fila del objetivo principal se guarda SIN clave (ver `MetaDiariaManual.clave`),
  * así que ausente y vacía son lo mismo.
@@ -587,6 +584,26 @@ export const cestaRepo = createRepository(db.cesta, 'id', false)
 export const marcadoresRepo = createRepository(db.marcadores, 'id', false)
 
 export const murosLibresRepo = createRepository(db.murosLibres, 'id', false)
+
+/** Formas de construcción libre (muros, pisos y recintos de vértices arbitrarios). */
+export const formasLibresRepo = createRepository(db.formasLibres, 'id', false)
+
+/**
+ * Al crecer o encoger la rejilla por el N/O el contenido se recorre una celda: las
+ * formas libres (vértices en unidades de celda) se desplazan igual que los cuartos.
+ */
+export async function desplazarFormasLibres(dc: number, dr: number): Promise<void> {
+  if (dc === 0 && dr === 0) return
+  const todas = await db.formasLibres.toArray()
+  for (const f of todas) {
+    if (f.id == null) continue
+    await db.formasLibres.update(f.id, {
+      puntos: (f.puntos ?? []).map((p) => ({ u: p.u + dc, v: p.v + dr })),
+      // `fecha` es la firma de identidad del render (FormasLibres3D): debe cambiar.
+      fecha: Date.now(),
+    })
+  }
+}
 
 /** Estilo por defecto de un muro libre nuevo. */
 const MURO_LIBRE_DEFECTO = { tipo: 'solido', color: '#8c8073', alto: 1 }
@@ -1127,7 +1144,7 @@ export async function borrarCarpetaFormula(carpetaId: string): Promise<void> {
 }
 
 /** Guarda el historial acotado: la calculadora no necesita memoria infinita. */
-export const TOPE_HISTORIAL_COMPUTO = 300
+const TOPE_HISTORIAL_COMPUTO = 300
 
 /** Añade un cálculo al historial y recorta las filas más viejas. */
 export async function anotarCalculo(fila: Omit<CalculoComputo, 'id'>): Promise<void> {
@@ -1142,8 +1159,6 @@ export async function anotarCalculo(fila: Omit<CalculoComputo, 'id'>): Promise<v
 }
 
 // Enlaces web · visitas abiertas desde los objetos del mapa (ver `core/enlaces.ts`)
-export const visitasWebRepo = createRepository(db.visitasWeb, 'inicio')
-
 /** Visitas de UNA URL (las estadísticas del diálogo del enlace), recientes primero. */
 export function useVisitasDeUrl(url: string | null) {
   return useLiveQuery(

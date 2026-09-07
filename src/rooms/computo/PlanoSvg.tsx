@@ -181,7 +181,7 @@ export function PlanoSvg({
 }
 
 /** Botón cuadrado de la columna de controles del plano. */
-export function BotonPlano({
+function BotonPlano({
   etiqueta: texto,
   titulo,
   onClick,

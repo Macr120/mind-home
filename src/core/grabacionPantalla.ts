@@ -29,7 +29,7 @@ import { usePreviaPlantilla } from './state/previaPlantillaStore'
 /** Tope de la toma (s): un webm a 4 Mb/s ronda los 150 MB a esta duración. */
 export const MAX_SEG_GRABACION = 300
 /** Cuenta regresiva (s) entre pedir la toma y empezar a rodar. */
-export const CUENTA_SEG_GRABACION = 3
+const CUENTA_SEG_GRABACION = 3
 
 export interface DestinoGrabacion {
   proyectoId: number

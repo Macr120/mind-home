@@ -38,10 +38,6 @@ export function configurar(arp: AjustesVivo['arp'] | undefined, bpmNuevo: number
   if (!ajustes) limpiar()
 }
 
-export function activo(): boolean {
-  return ajustes != null
-}
-
 /** El acorde ya expandido entra aquí (una tecla puede retener 3-4 tonos). */
 export function bajarTonos(tonos: number[], vel: number): void {
   if (!ajustes) return

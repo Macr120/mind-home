@@ -11,10 +11,10 @@ import type { CuadranteMapa } from '../data/db'
 /** Celdas por lado de un cuadrante automático (≈ la rejilla inicial 6×5). */
 export const TAM_BLOQUE = 6
 /** A partir de este lado de rejilla el mapa se divide en cuadrantes. */
-export const UMBRAL_CUADRANTES = 8
+const UMBRAL_CUADRANTES = 8
 
 /** Colores de las zonas dibujadas: se reparten en orden para distinguirlas de un vistazo. */
-export const COLORES_ZONA = [
+const COLORES_ZONA = [
   '#22c55e', '#3b82f6', '#f97316', '#a855f7',
   '#ef4444', '#14b8a6', '#eab308', '#ec4899',
 ] as const
@@ -86,7 +86,7 @@ export function cuadrantePorId(
 export const esBloqueAuto = (q: CuadranteMapa) => q.id.startsWith('auto-')
 
 /** Color de los bloques de referencia: uno solo, son la retícula del mapa. */
-export const COLOR_BLOQUE = '#0284c7'
+const COLOR_BLOQUE = '#0284c7'
 
 /**
  * Color con el que se pinta un cuadrante. Las zonas guardadas antes de que existiera la

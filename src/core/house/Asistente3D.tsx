@@ -1,4 +1,4 @@
-import { Suspense, useMemo, useRef, type RefObject } from 'react'
+import { Suspense, lazy, useMemo, useRef, type RefObject } from 'react'
 import { useFrame, type ThreeEvent } from '@react-three/fiber'
 import * as THREE from 'three'
 import { playerPos, useHouse } from '../state/houseStore'
@@ -27,8 +27,13 @@ import { GestoEmocion } from './GestoEmocion'
 import { ReaccionEmoji } from './ReaccionEmoji'
 import { NubeAsistente } from './NubeAsistente'
 import { useExpresionViva } from '../state/emocionesStore'
-import { anclasDe, muestraRostro, soportaPeinado } from './apariencia'
+import { anclasDe, muestraRostro, soportaPeinado, type ExpresionId } from './apariencia'
 import { dragChar } from './characterDrag'
+import { useActuacion } from '../state/actuacionStore'
+import type { BocaHabla } from './bocaHabla'
+
+// Baile o ejercicio pedido a un asistente: el rig del gym o el cuerpo libre (lazy).
+const AsistenteActuando = lazy(() => import('./AsistenteActuando'))
 
 /**
  * Los asistentes (mago/gato/perro/…) como personajes EN el mapa 3D.
@@ -245,6 +250,55 @@ function useAnimEfectiva(asistente: Asistente): AnimacionModelo | undefined {
   )
 }
 
+/**
+ * Cuerpo + ropa + rostro + peinado del asistente vivo del mapa. Lo comparten
+ * el activo, los compañeros y su actuación (`AsistenteActuando`, que le pasa
+ * su propia marcha y brazo para moverlo con el patrón).
+ */
+export function CuerpoAsistenteVivo({
+  asistente,
+  brazo,
+  marcha,
+  expresion,
+  boca,
+}: {
+  asistente: Asistente
+  brazo: RefObject<THREE.Group | null>
+  marcha: EstadoMarcha
+  expresion?: ExpresionId
+  boca?: RefObject<BocaHabla>
+}) {
+  const categoria = categoriaMarcha(asistente)
+  return (
+    <>
+      <ModeloMascota
+        forma={asistente.forma}
+        color={asistente.color}
+        modelo3d={asistente.modelo3d}
+        modeloGlb={asistente.modeloGlb}
+        cuerpoPresetId={asistente.cuerpoPresetId}
+        brazoRef={brazo}
+        anim={asistente.animacion}
+        estado={marcha}
+        sinOjos={muestraRostro(asistente)}
+      />
+      <Prendas
+        ropa={asistente.ropa}
+        anclas={anclasDe(asistente)}
+        marcha={categoria !== 'flotan'}
+        marchaEstado={marcha}
+        esJugador={false}
+      />
+      {muestraRostro(asistente) && (
+        <Rostro anclas={anclasDe(asistente)} expresion={expresion} rostro={asistente.rostro} boca={boca} />
+      )}
+      {soportaPeinado(asistente) && (
+        <Peinado anclas={anclasDe(asistente)} peinado={asistente.peinado} color={asistente.peloColor} />
+      )}
+    </>
+  )
+}
+
 function AsistenteActivo({ asistente }: { asistente: Asistente }) {
   const group = useRef<THREE.Group>(null)
   const brazo = useRef<THREE.Group>(null)
@@ -252,6 +306,10 @@ function AsistenteActivo({ asistente }: { asistente: Asistente }) {
   const expViva = useExpresionViva(asistente.id, asistente.expresion)
   const enPelicula = usePelicula((s) => s.proyectoId != null)
   const animEfectiva = useAnimEfectiva(asistente)
+  const actuacion = useActuacion((s) => s.porAsistente[asistente.id])
+  const enDialogoR = useDialogo((s) => s.asistenteId === asistente.id)
+  // Baile/ejercicio pedido: el Director de la película y el diálogo cara a cara mandan sobre él.
+  const actuando = actuacion && !enPelicula && !enDialogoR ? actuacion : undefined
   // Con un preset activo, el preset manda: se apaga el flote/marcha integrados (el saludo sigue).
   const presetOn = !!animEfectiva?.preset && animEfectiva.activacion !== 'apagado'
   const categoria = categoriaMarcha(asistente)
@@ -270,6 +328,7 @@ function AsistenteActivo({ asistente }: { asistente: Asistente }) {
     if (!g) return
     const t = state.clock.elapsedTime
     const st = useMascota.getState()
+    if (actuando && actuando.hasta < performance.now()) useActuacion.getState().parar(asistente.id)
 
     // Límites reales del mapa (media extensión de la cuadrícula menos margen).
     const halfW = (gridCols * SPACING) / 2 - 1.0
@@ -293,7 +352,7 @@ function AsistenteActivo({ asistente }: { asistente: Asistente }) {
     if (dragChar.id === asistente.id) {
       g.position.x = Math.max(-halfW, Math.min(halfW, dragChar.x))
       g.position.z = Math.max(-halfH, Math.min(halfH, dragChar.z))
-      g.position.y = presetOn ? ALTURA_FLOTE : categoria === 'flotan' ? alturaFlote(marcha.current, ALTURA_FLOTE, t) : ALTURA_FLOTE
+      g.position.y = presetOn || actuando ? ALTURA_FLOTE : categoria === 'flotan' ? alturaFlote(marcha.current, ALTURA_FLOTE, t) : ALTURA_FLOTE
       g.rotation.y = Math.atan2(playerPos.x - g.position.x, playerPos.z - g.position.z)
       prevPos.current = { x: g.position.x, z: g.position.z }
       return
@@ -323,7 +382,7 @@ function AsistenteActivo({ asistente }: { asistente: Asistente }) {
       if (Math.hypot(tx - g.position.x, tz - g.position.z) < 0.15) st.llegoADestino()
     } else {
       const pausado =
-        useLayout.getState().editMode || hablando || st.conversacion === asistente.id
+        useLayout.getState().editMode || hablando || st.conversacion === asistente.id || !!actuando
       if (!pausado) avance = tickPaseo(paseo.current, g, delta, t, halfW, halfH)
     }
 
@@ -332,13 +391,13 @@ function AsistenteActivo({ asistente }: { asistente: Asistente }) {
     avanzarMarcha(marcha.current, distancia, delta, VEL_PASEO)
     prevPos.current = { x: g.position.x, z: g.position.z }
 
-    g.position.y = presetOn ? ALTURA_FLOTE : categoria === 'flotan' ? alturaFlote(marcha.current, ALTURA_FLOTE, t) : ALTURA_FLOTE
+    g.position.y = presetOn || actuando ? ALTURA_FLOTE : categoria === 'flotan' ? alturaFlote(marcha.current, ALTURA_FLOTE, t) : ALTURA_FLOTE
 
     // Mirada: la que pide el Director; si no, al jugador si conversa contigo, está cerca, habla o va hacia ti.
     const cerca = Math.hypot(playerPos.x - g.position.x, playerPos.z - g.position.z) < 3
     if (actor) {
       girarHacia(g, actor.rumbo, actor.caminando ? 0.2 : 0.12)
-    } else if (enDialogo || cerca || hablando || st.saludando || dest) {
+    } else if (enDialogo || cerca || hablando || st.saludando || dest || actuando) {
       girarHacia(g, Math.atan2(playerPos.x - g.position.x, playerPos.z - g.position.z), 0.2)
     } else if (avance) {
       girarHacia(g, Math.atan2(avance.dx, avance.dz), 0.12)
@@ -358,38 +417,37 @@ function AsistenteActivo({ asistente }: { asistente: Asistente }) {
 
   return (
     <group ref={group} {...seleccionar}>
-      <GrupoAnimado anim={animEfectiva}>
+      <GrupoAnimado anim={actuando ? undefined : animEfectiva}>
         <group scale={asistente.escala ?? 1}>
           <GestoHabla id={asistente.id}>
             <GestoEmocion asistenteId={asistente.id}>
-              <ModeloMascota
-                forma={asistente.forma}
-                color={asistente.color}
-                modelo3d={asistente.modelo3d}
-                modeloGlb={asistente.modeloGlb}
-                cuerpoPresetId={asistente.cuerpoPresetId}
-                brazoRef={brazo}
-                anim={asistente.animacion}
-                estado={marcha.current}
-                sinOjos={muestraRostro(asistente)}
-              />
-              <Prendas
-                ropa={asistente.ropa}
-                anclas={anclasDe(asistente)}
-                marcha={categoria !== 'flotan'}
-                marchaEstado={marcha.current}
-                esJugador={false}
-              />
-              {muestraRostro(asistente) && (
-                <Rostro
-                  anclas={anclasDe(asistente)}
+              {actuando ? (
+                <Suspense
+                  fallback={
+                    <CuerpoAsistenteVivo
+                      asistente={asistente}
+                      brazo={brazo}
+                      marcha={marcha.current}
+                      expresion={expViva}
+                      boca={enPelicula ? bocaDe(asistente.id) : undefined}
+                    />
+                  }
+                >
+                  <AsistenteActuando
+                    asistente={asistente}
+                    actuacion={actuando}
+                    expresion={expViva}
+                    boca={enPelicula ? bocaDe(asistente.id) : undefined}
+                  />
+                </Suspense>
+              ) : (
+                <CuerpoAsistenteVivo
+                  asistente={asistente}
+                  brazo={brazo}
+                  marcha={marcha.current}
                   expresion={expViva}
-                  rostro={asistente.rostro}
                   boca={enPelicula ? bocaDe(asistente.id) : undefined}
                 />
-              )}
-              {soportaPeinado(asistente) && (
-                <Peinado anclas={anclasDe(asistente)} peinado={asistente.peinado} color={asistente.peloColor} />
               )}
             </GestoEmocion>
           </GestoHabla>
@@ -411,6 +469,10 @@ function Companero({ asistente }: { asistente: Asistente }) {
   const expViva = useExpresionViva(asistente.id, asistente.expresion)
   const enPelicula = usePelicula((s) => s.proyectoId != null)
   const animEfectiva = useAnimEfectiva(asistente)
+  const actuacion = useActuacion((s) => s.porAsistente[asistente.id])
+  const enDialogoR = useDialogo((s) => s.asistenteId === asistente.id)
+  // Baile/ejercicio pedido: el Director de la película y el diálogo cara a cara mandan sobre él.
+  const actuando = actuacion && !enPelicula && !enDialogoR ? actuacion : undefined
   const colocado = useRef(false)
   const paseo = useRef<Paseo>({ destino: null, descansaHasta: 0 })
   // Con un preset activo, el preset manda: se apaga el flote/marcha integrados.
@@ -439,6 +501,7 @@ function Companero({ asistente }: { asistente: Asistente }) {
     pos.z = g.position.z
 
     const st = useMascota.getState()
+    if (actuando && actuando.hasta < performance.now()) useActuacion.getState().parar(asistente.id)
     const arrastrado = dragChar.id === asistente.id
     // Arrastre en el editor: el compañero sigue al cursor y se queda donde se suelta.
     if (arrastrado) {
@@ -464,7 +527,7 @@ function Companero({ asistente }: { asistente: Asistente }) {
     // Paseo libre (pausado al hablar, en diálogo, con su conversación abierta, en el editor, arrastrado o actuando).
     const hablando = st.hablanteId === asistente.id && (!!st.mensaje || st.pensando)
     const pausado =
-      !!actor || arrastrado || hablando || enDialogo || useLayout.getState().editMode || st.conversacion === asistente.id
+      !!actor || arrastrado || hablando || enDialogo || useLayout.getState().editMode || st.conversacion === asistente.id || !!actuando
     const avance = pausado ? null : tickPaseo(paseo.current, g, delta, t, halfW, halfH)
 
     // Marcha: avanza según lo que realmente se desplazó este frame (piernas/manos/flote reactivo).
@@ -473,7 +536,7 @@ function Companero({ asistente }: { asistente: Asistente }) {
     prevPos.current = { x: g.position.x, z: g.position.z }
 
     // Desfase por posición para que no floten todos al unísono.
-    g.position.y = presetOn
+    g.position.y = presetOn || actuando
       ? ALTURA_FLOTE
       : categoria === 'flotan'
         ? alturaFlote(marcha.current, ALTURA_FLOTE, t, g.position.x)
@@ -483,7 +546,7 @@ function Companero({ asistente }: { asistente: Asistente }) {
     const cerca = Math.hypot(playerPos.x - g.position.x, playerPos.z - g.position.z) < 3
     if (actor) {
       girarHacia(g, actor.rumbo, actor.caminando ? 0.2 : 0.12)
-    } else if (enDialogo || cerca || hablando) {
+    } else if (enDialogo || cerca || hablando || actuando) {
       girarHacia(g, Math.atan2(playerPos.x - g.position.x, playerPos.z - g.position.z), 0.2)
     } else if (avance) {
       girarHacia(g, Math.atan2(avance.dx, avance.dz), 0.12)
@@ -492,38 +555,37 @@ function Companero({ asistente }: { asistente: Asistente }) {
 
   return (
     <group ref={group} {...seleccionar}>
-      <GrupoAnimado anim={animEfectiva}>
+      <GrupoAnimado anim={actuando ? undefined : animEfectiva}>
         <group scale={asistente.escala ?? 1}>
           <GestoHabla id={asistente.id}>
             <GestoEmocion asistenteId={asistente.id}>
-              <ModeloMascota
-                forma={asistente.forma}
-                color={asistente.color}
-                modelo3d={asistente.modelo3d}
-                modeloGlb={asistente.modeloGlb}
-                cuerpoPresetId={asistente.cuerpoPresetId}
-                brazoRef={brazo}
-                anim={asistente.animacion}
-                estado={marcha.current}
-                sinOjos={muestraRostro(asistente)}
-              />
-              <Prendas
-                ropa={asistente.ropa}
-                anclas={anclasDe(asistente)}
-                marcha={categoria !== 'flotan'}
-                marchaEstado={marcha.current}
-                esJugador={false}
-              />
-              {muestraRostro(asistente) && (
-                <Rostro
-                  anclas={anclasDe(asistente)}
+              {actuando ? (
+                <Suspense
+                  fallback={
+                    <CuerpoAsistenteVivo
+                      asistente={asistente}
+                      brazo={brazo}
+                      marcha={marcha.current}
+                      expresion={expViva}
+                      boca={enPelicula ? bocaDe(asistente.id) : undefined}
+                    />
+                  }
+                >
+                  <AsistenteActuando
+                    asistente={asistente}
+                    actuacion={actuando}
+                    expresion={expViva}
+                    boca={enPelicula ? bocaDe(asistente.id) : undefined}
+                  />
+                </Suspense>
+              ) : (
+                <CuerpoAsistenteVivo
+                  asistente={asistente}
+                  brazo={brazo}
+                  marcha={marcha.current}
                   expresion={expViva}
-                  rostro={asistente.rostro}
                   boca={enPelicula ? bocaDe(asistente.id) : undefined}
                 />
-              )}
-              {soportaPeinado(asistente) && (
-                <Peinado anclas={anclasDe(asistente)} peinado={asistente.peinado} color={asistente.peloColor} />
               )}
             </GestoEmocion>
           </GestoHabla>

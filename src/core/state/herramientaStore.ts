@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import type { TipoVehiculo } from '../house/vehiculos'
+import type { EmoteId } from '../house/emotes'
 import { sonar } from '../audio/sfx'
 import { useGrafitis } from './grafitiStore'
 import { usePlanos } from './planosStore'
@@ -30,18 +31,18 @@ export type Herramienta =
   | 'asiento-generico'
   | 'acostarse-generico'
 
-export const MAX_EQUIPADAS = 3
+const MAX_EQUIPADAS = 3
 
 export const DUR_SALTO = 600 // ms
-export const ALTURA_SALTO = 1.1
+const ALTURA_SALTO = 1.1
 export const LARGO_RAYO = 14 // alcance máximo del blaster (unidades de mundo)
 export const CORRER_MULT = 1.8
 /** Agachado: alto del cuerpo (escala Y) y freno de la velocidad a pie. */
 export const AGACHADO_ALTO = 0.6
 export const AGACHADO_MULT = 0.45
-export const PERIODO_CUERDA = 550 // ms por vuelta de la cuerda
-export const ALTURA_CUERDA = 0.28
-export const DUR_SALUDO = 1800 // ms
+const PERIODO_CUERDA = 550 // ms por vuelta de la cuerda
+const ALTURA_CUERDA = 0.28
+const DUR_SALUDO = 1800 // ms
 export const ANGULO_BRAZO_CUERDA = -0.6
 /** Brazos arriba, fijos (sin oscilar), cargando algo con las dos manos. */
 export const ANGULO_BRAZO_CARGAR = -2.8
@@ -51,6 +52,8 @@ export const accionFrame = {
   /** Agachado (tecla Ctrl): sostenido mientras se mantiene la tecla. */
   agachado: false,
   bailando: false,
+  /** Emote de la rueda (Bailar › 67, Floss…) en curso; excluyente con `bailando`. */
+  emote: null as EmoteId | null,
   cuerda: false,
   burbujas: false,
   /** Cargando un objeto/cuarto con la herramienta "mover" (no se cancela al caminar). */
@@ -130,6 +133,7 @@ interface HerramientaState {
   equipadas: Herramienta[]
   correr: boolean
   bailando: boolean
+  emote: EmoteId | null
   cuerda: boolean
   burbujas: boolean
   /** Espejo reactivo de `accionFrame.apuntando` (lo lee la mira del HUD). */
@@ -138,6 +142,7 @@ interface HerramientaState {
   soltarTodo: () => void
   setCorrer: (v: boolean) => void
   setBailando: (v: boolean) => void
+  setEmote: (id: EmoteId | null) => void
   setCuerda: (v: boolean) => void
   setBurbujas: (v: boolean) => void
   setCargando: (v: boolean) => void
@@ -164,7 +169,8 @@ export const useHerramienta = create<HerramientaState>((set, get) => {
       set({ correr: false })
     } else if (h === 'bailar') {
       accionFrame.bailando = false
-      set({ bailando: false })
+      accionFrame.emote = null
+      set({ bailando: false, emote: null })
     } else if (h === 'cuerda') {
       accionFrame.cuerda = false
       set({ cuerda: false })
@@ -186,6 +192,7 @@ export const useHerramienta = create<HerramientaState>((set, get) => {
     equipadas: [],
     correr: false,
     bailando: false,
+    emote: null,
     cuerda: false,
     burbujas: false,
     apuntando: false,
@@ -212,9 +219,17 @@ export const useHerramienta = create<HerramientaState>((set, get) => {
       accionFrame.correr = v
       set({ correr: v })
     },
+    // Baile clásico y emote son excluyentes: encender uno apaga el otro (así la
+    // tecla 3 y el festejo, que solo conocen el clásico, desplazan al emote).
     setBailando: (v) => {
       accionFrame.bailando = v
-      set({ bailando: v })
+      if (v) accionFrame.emote = null
+      set(v ? { bailando: true, emote: null } : { bailando: false })
+    },
+    setEmote: (id) => {
+      accionFrame.emote = id
+      if (id) accionFrame.bailando = false
+      set(id ? { emote: id, bailando: false } : { emote: null })
     },
     setCuerda: (v) => {
       accionFrame.cuerda = v

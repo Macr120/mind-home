@@ -12,7 +12,7 @@ import { BotonPrimario as BotonPrimarioBase, INPUT } from '../_shared/ui'
 /** Colores de datos de la app. Antes iban escritos a mano ~40 veces. */
 export const VERDE = '#34d399'
 export const ROJO = '#f87171'
-export const AZUL_FABRICA = '#60a5fa'
+const AZUL_FABRICA = '#60a5fa'
 /**
  * Con el que se pinta la app: el color del CUARTO abierto (lo baja `RoomOverlay` en
  * `--ui-app`) y, fuera de él, el de fábrica. Es una variable CSS, no un hex: para
@@ -20,12 +20,12 @@ export const AZUL_FABRICA = '#60a5fa'
  */
 export const AZUL = `var(--ui-app, ${AZUL_FABRICA})`
 
-export { INPUT, TARJETA, BotonSecundario, TituloSeccion as Seccion } from '../_shared/ui'
+export { INPUT, TARJETA, TituloSeccion as Seccion } from '../_shared/ui'
 
 // ----- Dinero con comas -----
 
 /** Deja dígitos y UN punto, con máximo dos decimales: '1,2a3.456' → '123.45'. */
-export function limpiar(texto: string): string {
+function limpiar(texto: string): string {
   const soloValidos = texto.replace(/[^\d.]/g, '')
   const punto = soloValidos.indexOf('.')
   if (punto < 0) return soloValidos
@@ -35,7 +35,7 @@ export function limpiar(texto: string): string {
 }
 
 /** Agrupa la parte entera con comas: '1234567.5' → '1,234,567.5'. */
-export function formatearMiles(crudo: string): string {
+function formatearMiles(crudo: string): string {
   if (!crudo) return ''
   const punto = crudo.indexOf('.')
   const entera = punto < 0 ? crudo : crudo.slice(0, punto)

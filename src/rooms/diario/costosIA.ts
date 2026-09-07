@@ -7,7 +7,7 @@ import type { OperacionIA } from '../../core/cuenta/catalogoIA'
  * Los titulares y las fotos vienen de El País y Wikipedia, sin coste.
  */
 
-export const OP_EFEMERIDES: OperacionIA = {
+const OP_EFEMERIDES: OperacionIA = {
   id: 'diario.efemerides',
   clave: 'ia.op.diario.efemerides',
   es: 'Efemérides culturales del día',
@@ -18,7 +18,7 @@ export const OP_EFEMERIDES: OperacionIA = {
   partes: [{ op: 'texto_largo' }],
 }
 
-export const OP_REPARTO: OperacionIA = {
+const OP_REPARTO: OperacionIA = {
   id: 'diario.reparto',
   clave: 'ia.op.diario.reparto',
   es: 'Reparto del diario por un asistente',

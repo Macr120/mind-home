@@ -49,7 +49,7 @@ export function setFuegoSostenido(v: boolean): void {
 }
 
 /** Botón grande de fuego, con barra de recarga que se rellena entre tiros. */
-export function BotonDisparar({ ancho = 'w-20' }: { ancho?: string }) {
+function BotonDisparar({ ancho = 'w-20' }: { ancho?: string }) {
   const t = useT()
   const barraRef = useRef<HTMLDivElement>(null)
 
@@ -118,7 +118,7 @@ export function BotonDisparar({ ancho = 'w-20' }: { ancho?: string }) {
  * Botón de apuntar: con el dedo es un interruptor (para poder mirar con la otra
  * mano); con el ratón se mantiene, como el clic derecho.
  */
-export function BotonApuntar() {
+function BotonApuntar() {
   const t = useT()
   const apuntando = useHerramienta((s) => s.apuntando)
   return (

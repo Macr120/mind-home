@@ -23,7 +23,7 @@ import { SPACING, WALL_H } from '../house/walls'
 let motor: { gl: THREE.WebGLRenderer; scene: THREE.Scene; camera: THREE.Camera } | null = null
 
 /** La foto del estado actual de la casa, o `null` si la escena no está montada. */
-export function fotoCasa(): string | null {
+function fotoCasa(): string | null {
   if (!motor) return null
   try {
     motor.gl.render(motor.scene, motor.camera)
@@ -53,7 +53,7 @@ export interface Encuadre {
  * Se proyectan las esquinas de los cuartos colocados con la MISMA cámara del
  * render, se toma su caja en pantalla y se estira al aspecto del widget.
  */
-export function encuadreCasa(aspecto: number, camera: THREE.Camera): Encuadre | null {
+function encuadreCasa(aspecto: number, camera: THREE.Camera): Encuadre | null {
   if (!motor) return null
   const { gl } = motor
   const colocados = useLayout.getState().placed

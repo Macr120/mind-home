@@ -21,8 +21,8 @@ import { sumarDias, sumarMin } from './fecha'
 
 const PLANTILLA = 'garage'
 
-export const ambitoTramite = (tramiteId: string) => `gaTr:${tramiteId}`
-export const ambitoAviso = (tramiteId: string) => `gaAv:${tramiteId}`
+const ambitoTramite = (tramiteId: string) => `gaTr:${tramiteId}`
+const ambitoAviso = (tramiteId: string) => `gaAv:${tramiteId}`
 
 /** Rutinas que mantiene el garaje (nunca toca las que el usuario creó a mano). */
 const esDeGarage = (r: Rutina) => r.plantillaId === PLANTILLA && !!r.ambitoId?.startsWith('ga')

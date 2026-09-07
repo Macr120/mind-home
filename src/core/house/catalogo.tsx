@@ -270,7 +270,7 @@ export function grupoAccionDe(tipo: string, explicito?: GrupoAccion): GrupoAccio
 }
 
 /** Giro extra (radianes) para que el avatar se siente mirando al frente del mueble. */
-export function giroAccionDe(tipo: string): number {
+function giroAccionDe(tipo: string): number {
   const rec = idRecurso(tipo)
   return (rec != null && GRUPO_ACCION_RECURSO[rec]?.giro) || 0
 }

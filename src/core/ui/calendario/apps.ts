@@ -20,7 +20,7 @@ export const CASA = 'casa'
 
 export const appDeRutina = (r: Rutina): ClaveApp => r.plantillaId ?? CASA
 
-export interface AppFiltrable {
+interface AppFiltrable {
   id: ClaveApp
   nombre: string
   icon: string

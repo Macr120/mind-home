@@ -31,7 +31,7 @@ if (import.meta.env.DEV) {
 }
 
 /** ¿La vista actual permite apuntar (perspectiva siguiendo al personaje)? */
-export function vistaConMira(): boolean {
+function vistaConMira(): boolean {
   const v = useCam.getState().vista
   return v === 'tercera' || v === 'primera'
 }

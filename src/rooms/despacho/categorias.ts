@@ -13,7 +13,7 @@ export interface Categoria {
   color: string
 }
 
-export const CATEGORIAS_GASTO: Categoria[] = [
+const CATEGORIAS_GASTO: Categoria[] = [
   { id: 'comida', nombre: 'Comida', icon: '🍔', color: '#f59e0b' },
   { id: 'transporte', nombre: 'Transporte', icon: '🚗', color: '#3b82f6' },
   { id: 'hogar', nombre: 'Hogar', icon: '🏠', color: '#10b981' },
@@ -37,7 +37,7 @@ export const CATEGORIA_ABONO = {
   deuda: 'pago_deuda',
 } as const
 
-export const CATEGORIAS_INGRESO: Categoria[] = [
+const CATEGORIAS_INGRESO: Categoria[] = [
   { id: 'salario', nombre: 'Salario', icon: '💼', color: '#22c55e' },
   { id: 'freelance', nombre: 'Freelance', icon: '💻', color: '#06b6d4' },
   { id: 'regalo', nombre: 'Regalo', icon: '🎁', color: '#f472b6' },

@@ -57,7 +57,7 @@ let componentes = new Map<string, CaminoCelda[]>()
 let viaDeCelda = new Map<string, string>()
 
 /** Id de la vía a la que pertenece una celda (null si ahí no hay riel). */
-export const viaDe = (col: number, row: number): string | null =>
+const viaDe = (col: number, row: number): string | null =>
   viaDeCelda.get(`${col},${row}`) ?? null
 
 const DIRS = [
@@ -127,7 +127,7 @@ export interface Recorrido {
 }
 
 /** El primer `extender()` encola el tránsito por la celda (centro + arista). */
-export const crearRecorrido = (col: number, row: number): Recorrido => ({
+const crearRecorrido = (col: number, row: number): Recorrido => ({
   cur: { col, row },
   prev: null,
   puntos: [],

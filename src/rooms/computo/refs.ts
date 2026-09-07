@@ -34,7 +34,7 @@ export interface Pos {
 }
 
 /** Una referencia tal cual está escrita, con sus anclajes `$`. */
-export interface RefEscrita {
+interface RefEscrita {
   fila: number
   col: number
   /** Lleva `$` delante del número. */
@@ -43,7 +43,7 @@ export interface RefEscrita {
   colFija: boolean
 }
 
-export type Transformacion = (r: RefEscrita) => RefEscrita | null
+type Transformacion = (r: RefEscrita) => RefEscrita | null
 
 export const rectDe = (a: Pos, b: Pos): Rect => ({
   f0: Math.min(a.fila, b.fila),
@@ -52,7 +52,7 @@ export const rectDe = (a: Pos, b: Pos): Rect => ({
   c1: Math.max(a.col, b.col),
 })
 
-export const dentroDe = (r: Rect, fila: number, col: number) =>
+const dentroDe = (r: Rect, fila: number, col: number) =>
   fila >= r.f0 && fila <= r.f1 && col >= r.c0 && col <= r.c1
 
 /** Las referencias A1 de un rectángulo, por filas. */
@@ -64,7 +64,7 @@ export function refsDe(r: Rect): string[] {
 
 const RE_ESCRITA = /^(\$?)([A-Z]{1,2})(\$?)([0-9]{1,3})$/
 
-export function leerRef(txt: string): RefEscrita | null {
+function leerRef(txt: string): RefEscrita | null {
   const m = RE_ESCRITA.exec(txt.toUpperCase())
   if (!m) return null
   return {
@@ -75,7 +75,7 @@ export function leerRef(txt: string): RefEscrita | null {
   }
 }
 
-export function escribirRef(r: RefEscrita | null): string {
+function escribirRef(r: RefEscrita | null): string {
   if (!r || r.fila < 0 || r.col < 0 || r.fila >= MAX_FILAS || r.col >= MAX_COLS) return '#REF!'
   return `${r.colFija ? '$' : ''}${nombreCol(r.col)}${r.filaFija ? '$' : ''}${r.fila + 1}`
 }
@@ -88,7 +88,7 @@ const RE_CADENA = /("(?:[^"\\]|\\.)*")/
  * transforman extremo a extremo; si un extremo muere, el rango entero queda
  * `#REF!`. El texto entre comillas se deja intacto.
  */
-export function reescribir(crudo: string, fn: Transformacion): string {
+function reescribir(crudo: string, fn: Transformacion): string {
   if (!crudo.startsWith('=')) return crudo
   const combinada = new RegExp(`${RE_RANGO.source}|${RE_REF.source}`, 'g')
 
@@ -119,7 +119,7 @@ export function reescribir(crudo: string, fn: Transformacion): string {
 // ── Las cuatro transformaciones ─────────────────────────────────────────────
 
 /** Copiar/pegar y relleno: lo que lleva `$` se queda donde está. */
-export const desplazar =
+const desplazar =
   (df: number, dc: number): Transformacion =>
   (r) => ({
     fila: r.filaFija ? r.fila : r.fila + df,
@@ -134,7 +134,7 @@ export const desplazar =
  * diferencia que casi todo el mundo implementa mal: una referencia absoluta
  * apunta a un CONTENIDO, y ese contenido se fue de sitio.
  */
-export const trasladar =
+const trasladar =
   (rango: Rect, df: number, dc: number): Transformacion =>
   (r) =>
     dentroDe(rango, r.fila, r.col)

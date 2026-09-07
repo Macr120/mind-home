@@ -259,6 +259,29 @@ export function Utiles({ ids, refs, escala }: { ids: UtilId[]; refs: RefsUtiles;
           <meshStandardMaterial color="#f97316" />
         </mesh>
       )}
+      {tiene('cana') && (
+        <>
+          <group ref={poner('cana')}>
+            {/* La caña prolonga el antebrazo más allá de la mano, algo inclinada hacia arriba. */}
+            <group rotation={[-0.5, 0, 0]}>
+              <mesh position={[0, -0.55, 0]} castShadow>
+                <cylinderGeometry args={[0.012, 0.02, 1.1, 8]} />
+                <meshStandardMaterial color="#7c3f12" />
+              </mesh>
+              {/* Carrete junto a la mano. */}
+              <mesh position={[0, -0.12, 0.04]} rotation={[0, 0, Math.PI / 2]} castShadow>
+                <cylinderGeometry args={[0.045, 0.045, 0.04, 12]} />
+                <meshStandardMaterial color={HIERRO} />
+              </mesh>
+              <group ref={poner('canaPunta')} position={[0, -1.1, 0]} />
+            </group>
+          </group>
+          {/* El sedal: de la punta de la caña al «agua», delante del personaje. */}
+          <group ref={poner('hilo')}>
+            <Tubo nombre="hiloTubo" radio={0.004} color="#e5e7eb" refs={refs} />
+          </group>
+        </>
+      )}
     </group>
   )
 }
@@ -266,6 +289,8 @@ export function Utiles({ ids, refs, escala }: { ids: UtilId[]; refs: RefsUtiles;
 const _a = new THREE.Vector3()
 const _b = new THREE.Vector3()
 const _d = new THREE.Vector3()
+const _punta = new THREE.Vector3()
+const _agua = new THREE.Vector3()
 const _q = new THREE.Quaternion()
 const _q2 = new THREE.Quaternion()
 const EJE_Y = new THREE.Vector3(0, 1, 0)
@@ -322,4 +347,14 @@ export function actualizarUtiles(r: RefsUtiles, m: Marcadores, fase: number): vo
   if (r.balonManos && manos) r.balonManos.position.copy(_a).add(_b).multiplyScalar(0.5)
   if (r.cuerda) r.cuerda.rotation.x = -fase * Math.PI * 2
   if (r.biela) r.biela.rotation.x = -fase * Math.PI * 2
+  // Caña en la mano derecha (como la mancuerna) y el sedal de su punta al agua.
+  if (r.cana && manos && m.codoD) {
+    r.cana.position.copy(_b)
+    orientar(raiz, m.codoD, r.cana)
+    if (r.canaPunta && r.hilo) {
+      // getWorldPosition actualiza la cadena de padres: ya ve la caña recién movida.
+      raiz.worldToLocal(r.canaPunta.getWorldPosition(_punta))
+      tender(r.hilo, r.hiloTubo, _punta, _agua.set(0, 0.03, 1.9), 0)
+    }
+  }
 }

@@ -114,13 +114,16 @@ function HoverFormaCelda3D({
   // `cell` es un prop que el padre puede recrear en cada render: se depende de sus
   // dos números y la celda se arma dentro (Cell es exactamente {col,row}).
   const { col: cellCol, row: cellRow } = cell
-  const { geoPiso, segs, diagonales, arcos } = useMemo(() => {
+  // La geometría no depende de la celda: separada, no se refabrica (ni se pierde)
+  // en cada celda que barre el pincel, y se libera al cambiar o desmontar.
+  const geoPiso = useMemo(() => geometriaLoseta3D({ forma, rotacion }, SIZE - 0.2, 'plano'), [forma, rotacion])
+  useEffect(() => () => geoPiso.dispose(), [geoPiso])
+  const { segs, diagonales, arcos } = useMemo(() => {
     const fc = { forma, rotacion }
     const formas = { '0,0': fc }
     const raw = roomWallSegments({ col: cellCol, row: cellRow }, [{ col: 0, row: 0 }], SIN_OCUPACION, undefined, undefined, PINCELES_DEFAULT, formas)
     const extras = perimetroFormaCelda(fc, 0, 0)?.extras ?? []
     return {
-      geoPiso: geometriaLoseta3D(fc, SIZE - 0.2, 'plano'),
       segs: filtrarSegmentosPorForma(raw, formas),
       diagonales: extras.filter((e) => e.tipo === 'diagonal'),
       arcos: extras.filter((e) => e.tipo === 'arco'),
@@ -489,7 +492,9 @@ export function PlanoCuartos3DController() {
         : pincel
           ? proyectarPincel(ev.clientX, ev.clientY)
           : proyectarAgregar(ev.clientX, ev.clientY)
-      setHover(c ? (pincel ? c : { col: Math.round(c.col), row: Math.round(c.row) }) : null)
+      const sig = c ? (pincel ? c : { col: Math.round(c.col), row: Math.round(c.row) }) : null
+      // Misma celda → misma referencia: el fantasma no se rearma en cada píxel.
+      setHover((prev) => (prev && sig && prev.col === sig.col && prev.row === sig.row ? prev : sig))
     }
     dom.addEventListener('pointermove', onMove)
     return () => {

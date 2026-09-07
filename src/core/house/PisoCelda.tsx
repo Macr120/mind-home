@@ -72,12 +72,12 @@ function GeometriaLoseta({
 /** Tipos de piso con patrón procedural (sin imagen). El patrón se genera en canvas. */
 const PROC_TIPOS = ['mosaico', 'ajedrez', 'grid_neon'] as const
 /** Período del patrón en unidades de mundo (para el tiling). */
-const PROC_PERIODO: Record<string, number> = { mosaico: 1.8, ajedrez: 3.6, grid_neon: 2 }
+export const PROC_PERIODO: Record<string, number> = { mosaico: 1.8, ajedrez: 3.6, grid_neon: 2 }
 
 const procCache: Record<string, Texture> = {}
 
 /** Genera (y cachea) la textura de canvas con el patrón base, en tonos neutros para teñir. */
-function texturaProc(tipo: string): Texture {
+export function texturaProc(tipo: string): Texture {
   if (procCache[tipo]) return procCache[tipo]
   const s = 128
   const cv = document.createElement('canvas')
@@ -148,6 +148,7 @@ function PisoCeldaProcedural({
     t.repeat.set(rep, rep)
     return t
   }, [tipo, tile])
+  useEffect(() => () => map.dispose(), [map])
 
   const esNeon = tipo === 'grid_neon'
   // Damero/mosaico: el color multiplica sobre el patrón (aclarado para que se lea).
@@ -234,10 +235,15 @@ function PisoCeldaTexturado({
     const rep = Math.max(1, tile / tileSize)
     ;[maps.map, maps.normalMap, maps.roughnessMap].forEach((t) => {
       if (!t) return
-      t.wrapS = RepeatWrapping
-      t.wrapT = RepeatWrapping
+      // useTexture comparte las tres texturas entre todas las losetas del mismo
+      // tipo: `needsUpdate` re-sube las imágenes a la GPU, así que solo la
+      // primera loseta (la que cambia el wrap) lo dispara. `repeat` no lo necesita.
+      if (t.wrapS !== RepeatWrapping || t.wrapT !== RepeatWrapping) {
+        t.wrapS = RepeatWrapping
+        t.wrapT = RepeatWrapping
+        t.needsUpdate = true
+      }
       t.repeat.set(rep, rep)
-      t.needsUpdate = true
     })
   }, [maps, tileSize, tile])
 
@@ -310,6 +316,7 @@ function PisoCeldaImagen({
     t.repeat.set(rep, rep)
     return t
   }, [base, ajuste])
+  useEffect(() => () => texture.dispose(), [texture])
   const meshProps = meshLosetaProps(lx, lz, formaLoseta, subformas, 'plano')
   return (
     <mesh

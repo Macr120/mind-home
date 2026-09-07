@@ -3,7 +3,7 @@ import { Icono } from '../../core/ui/iconos/Icono'
 
 /** Imagen desde un Blob. La URL nace y muere en el mismo efecto: así sobrevive
  * al doble montaje de StrictMode (el useMemo la reutilizaría ya revocada). */
-export function MiniaturaFoto({ foto, className = '' }: { foto: Blob; className?: string }) {
+function MiniaturaFoto({ foto, className = '' }: { foto: Blob; className?: string }) {
   const [url, setUrl] = useState<string>()
   useEffect(() => {
     const u = URL.createObjectURL(foto)

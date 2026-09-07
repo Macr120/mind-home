@@ -4,8 +4,8 @@ import { useHud } from '../state/hudStore'
 /**
  * Publica en el store cuánto ocupa un bloque de la banda INFERIOR del HUD (px
  * desde el borde de abajo hasta su parte superior). Devuelve el `ref` que hay
- * que poner en su contenedor. Lo consume `PilaPrompts` para colocar los prompts
- * contextuales encima de todos ellos, sin taparlos.
+ * que poner en su contenedor. Lo consumen los overlays que se apoyan sobre la
+ * banda inferior (diálogo, editor de video) para colocarse encima sin taparla.
  */
 /**
  * Anclaje horizontal de la barra del chat (offsets laterales, sin el `bottom`).

@@ -89,6 +89,7 @@ function BaseColor({ geometry, color }: { geometry: THREE.BufferGeometry; color:
     () => new THREE.MeshStandardMaterial({ color, roughness: 0.95, metalness: 0 }),
     [color],
   )
+  useEffect(() => () => material.dispose(), [material])
   return <PlanoBaseMesh geometry={geometry} material={material} />
 }
 
@@ -120,6 +121,7 @@ function BaseTextura({
       }),
     [tex, piso?.roughness, piso?.metalness],
   )
+  useEffect(() => () => material.dispose(), [material])
   return <PlanoBaseMesh geometry={geometry} material={material} />
 }
 
@@ -133,6 +135,7 @@ function BaseImagen({ geometry, url }: { geometry: THREE.BufferGeometry; url: st
     () => new THREE.MeshStandardMaterial({ map: tex, roughness: 0.92, metalness: 0 }),
     [tex],
   )
+  useEffect(() => () => material.dispose(), [material])
   return <PlanoBaseMesh geometry={geometry} material={material} />
 }
 

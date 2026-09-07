@@ -79,7 +79,7 @@ function ordenar(nodos: NodoIndice[]): NodoIndice[] {
 }
 
 /** Arma el índice resuelto. Determinista: mismas entradas, mismo árbol. */
-export function construirIndice(ajustes: AjusteSemilla[], propios: TemaArbol[]): Indice {
+function construirIndice(ajustes: AjusteSemilla[], propios: TemaArbol[]): Indice {
   const marca = marcaIdioma()
   if (ultimo && ultimo.ajustes === ajustes && ultimo.propios === propios && ultimo.marca === marca)
     return ultimo.indice
@@ -200,10 +200,6 @@ export async function cargarIndice(): Promise<Indice> {
 }
 
 // ----- Lecturas -----
-
-export function nodo(ix: Indice, id: string | undefined): NodoIndice | undefined {
-  return id ? ix.porId.get(id) : undefined
-}
 
 /** Los campos visibles (sustituye a `PILARES` en los selectores). */
 export function campos(ix: Indice): NodoIndice[] {
@@ -339,7 +335,7 @@ export function campoDe(id: string): { id: string; titulo: string; icon: string 
 // ----- Escrituras -----
 
 /** Id único para un nodo propio; comparte espacio con los ids de pilares.ts. */
-export function nuevoNodoId(): string {
+function nuevoNodoId(): string {
   return `din-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`
 }
 

@@ -88,6 +88,8 @@ import { SeguirFoco, cercaDelFoco, cercaDelFocoMundo, useCercania } from './cerc
 import { ZonasPlano3D } from './ZonasPlano3D'
 import { PisosExterior3D } from './PisosExterior3D'
 import { MurosLibres3D } from './MurosLibres3D'
+import { FormasLibres3D } from './FormasLibres3D'
+import { FormaLibre3DController } from './FormaLibre3DController'
 import { PlanoPisosSeleccion3D } from './PlanoPisosSeleccion3D'
 import { CuadranteGhost3D } from './CuadranteGhost3D'
 import { DibujoCuadrante3D } from './DibujoCuadrante3D'
@@ -148,7 +150,6 @@ function RejillaMapa({
   gridCols: number
   gridRows: number
   colorFuerte: string
-  colorSuave: string
 }) {
   const ocupadoPorNivel = useLayout((s) => s.ocupadoPorNivel)
   const geometry = useMemo(() => {
@@ -257,7 +258,7 @@ function ObjetoDelMapa({
       onPointerOver={(e) => {
         e.stopPropagation()
         if (arrastrable) document.body.style.cursor = 'grab'
-        else if (o.enlaceUrl) document.body.style.cursor = 'pointer'
+        else if (externo) document.body.style.cursor = 'pointer'
       }}
       onPointerOut={() => {
         if (!useDiseño.getState().draggingObjeto) document.body.style.cursor = 'default'
@@ -493,7 +494,6 @@ export function House() {
   // Editar un cuarto ya NO aísla la escena: se usa el editor de mapa COMPLETO para poder
   // seleccionar muros/puertas/ventanas/piso/techos en 3D. La cámara y el croquis se enfocan
   // en el cuarto y los DEMÁS cuartos se atenúan (ver `atenuadoEdicion`).
-  const aislarCuarto = false
   // El editor de mapa (planos) funciona también editando un cuarto y en perspectiva: los
   // controladores 3D de muros/pisos/techos editan igual desde iso, 3ª y 1ª persona.
   const modoPlanos = planosActivo && editMode
@@ -586,22 +586,22 @@ export function House() {
       <FondoEscena />
       <FondoAnimaciones />
 
-      {!aislarCuarto && <PisosExterior3D />}
+      <PisosExterior3D />
       {/* Infraestructura construida sobre el mapa (caminos, huerto y granja). */}
-      {!aislarCuarto && <Caminos3D />}
-      {!aislarCuarto && <PistaLibre3D />}
-      {!aislarCuarto && <MarcasDerrape />}
-      {!aislarCuarto && <Huerto3D />}
-      {!aislarCuarto && <Granja3D />}
+      <Caminos3D />
+      <PistaLibre3D />
+      <MarcasDerrape />
+      <Huerto3D />
+      <Granja3D />
       {/* Al editar un cuarto se mantienen el suelo y la rejilla del mapa como contexto. */}
       <MapaBase3D />
       <RejillaMapa
         gridCols={gridCols}
         gridRows={gridRows}
         colorFuerte={mapaSuperficie.rejillaFuerte}
-        colorSuave={mapaSuperficie.rejillaSuave}
       />
       <MurosLibres3D />
+      <FormasLibres3D />
 
       {cuartos
         .filter((room) => placed[room.id])
@@ -609,67 +609,65 @@ export function House() {
           <RoomEnMapa key={room.id} room={room} cuadranteVista={cuadranteVista} />
         ))}
 
-      {!aislarCuarto && <ZonasPlano3D />}
-      {!aislarCuarto && <PlanoPisosSeleccion3D />}
-      {!aislarCuarto && <CuadranteGhost3D />}
-      {!aislarCuarto && <DibujoCuadrante3D />}
+      <ZonasPlano3D />
+      <PlanoPisosSeleccion3D />
+      <CuadranteGhost3D />
+      <DibujoCuadrante3D />
 
-      {!aislarCuarto && <PlanoCuartos3DController />}
-      {!aislarCuarto && <PlanoPisos3DController />}
-      {!aislarCuarto && <PlanoMuros3DController />}
-      {!aislarCuarto && <PlanoParedes3DEditor />}
-      {!aislarCuarto && <PlanoMuroSelector3D />}
+      <PlanoCuartos3DController />
+      <PlanoPisos3DController />
+      <PlanoMuros3DController />
+      <PlanoParedes3DEditor />
+      <PlanoMuroSelector3D />
+      <FormaLibre3DController />
 
-      {!aislarCuarto && <FocosCasa />}
-      {!aislarCuarto && <Accesos />}
-      {!aislarCuarto && <AccesoProximity />}
-      {!aislarCuarto && <VehiculoProximity />}
-      {!aislarCuarto && <CarreraRuntime />}
-      {!aislarCuarto && <RivalCarrera />}
-      {!aislarCuarto && <ItemsCarreraRuntime />}
-      {!aislarCuarto && <ItemsCarrera3D />}
-      {!aislarCuarto && <TrenProximity />}
-      {!aislarCuarto && <TrenesAutonomos />}
-      {!aislarCuarto && <MinijuegosCanchas />}
-      {!aislarCuarto && <GranjaProximity />}
-      {!aislarCuarto && <AsistenteProximity />}
-      {!aislarCuarto && <ObjetosMapa cuadranteVista={cuadranteVista} />}
-      {!aislarCuarto && <RafagasLaser />}
-      {!aislarCuarto && <PaintballController />}
-      {!aislarCuarto && <Portales />}
-      {!aislarCuarto && <Fuegos />}
-      {!aislarCuarto && <Burbujas />}
-      {!aislarCuarto && <GrafitiController />}
-      {!aislarCuarto && <CaminosController />}
-      {!aislarCuarto && <TrazoLibreController />}
-      {!aislarCuarto && <CanchasController />}
-      {!aislarCuarto && <HuertoController />}
-      {!aislarCuarto && <GranjaController />}
-      {!aislarCuarto && <RoomProximity />}
-      {!aislarCuarto && <InteractAnchor />}
-      {!aislarCuarto && <DespiertoAnchor />}
-      {!aislarCuarto && <EtiquetasMapaProjector />}
-      {!aislarCuarto && <ZonaTutProjector />}
+      <FocosCasa />
+      <Accesos />
+      <AccesoProximity />
+      <VehiculoProximity />
+      <CarreraRuntime />
+      <RivalCarrera />
+      <ItemsCarreraRuntime />
+      <ItemsCarrera3D />
+      <TrenProximity />
+      <TrenesAutonomos />
+      <MinijuegosCanchas />
+      <GranjaProximity />
+      <AsistenteProximity />
+      <ObjetosMapa cuadranteVista={cuadranteVista} />
+      <RafagasLaser />
+      <PaintballController />
+      <Portales />
+      <Fuegos />
+      <Burbujas />
+      <GrafitiController />
+      <CaminosController />
+      <TrazoLibreController />
+      <CanchasController />
+      <HuertoController />
+      <GranjaController />
+      <RoomProximity />
+      <InteractAnchor />
+      <DespiertoAnchor />
+      <EtiquetasMapaProjector />
+      <ZonaTutProjector />
       {/* Fantasma del cuarto por construir (tutorial de primeros pasos). */}
-      {!aislarCuarto && <FantasmaCuartoTut />}
-      {!aislarCuarto && <EditorAnchor />}
-      {!aislarCuarto && (puedeArrastrarCuartos || cuartoDespiertoId != null || arrastrandoCuarto) && (
-        <RoomDragController />
-      )}
-      {!aislarCuarto && <AccesoDrag />}
+      <FantasmaCuartoTut />
+      <EditorAnchor />
+      {(puedeArrastrarCuartos || cuartoDespiertoId != null || arrastrandoCuarto) && <RoomDragController />}
+      <AccesoDrag />
       <ObjetoDragController />
-      {!aislarCuarto && <ContextoProximity />}
-      {!aislarCuarto && <CargaController />}
-      {!aislarCuarto && editMode && editorTab === 'personajes' && !editor3d && <CharacterDragController />}
+      <ContextoProximity />
+      <CargaController />
+      {editMode && editorTab === 'personajes' && !editor3d && <CharacterDragController />}
       {/* Grid: los botones +/− de tamaño del mapa. En el editor 3D se muestran siempre
           (en perspectiva) para redimensionar; en iso, solo fuera del modo planos. */}
       {tabMapa && (editor3d || !modoPlanos) && planosModo !== 'ascensos' && <GridResizer />}
-      {!aislarCuarto &&
-        cuartosExpandir.map((r) => <RoomCellEditor key={r.id} roomId={r.id} />)}
-      {!aislarCuarto && planosActivo && <PlanoTechos3DEditor />}
-      {!aislarCuarto && planosActivo && <TechoCeldaEditor />}
-      {!aislarCuarto && <Character />}
-      {!aislarCuarto && <Asistente3D />}
+      {cuartosExpandir.map((r) => <RoomCellEditor key={r.id} roomId={r.id} />)}
+      {planosActivo && <PlanoTechos3DEditor />}
+      {planosActivo && <TechoCeldaEditor />}
+      <Character />
+      <Asistente3D />
       {/* Wallpaper de escritorio: el anillo que sigue al cursor reenviado. */}
       {esModoFondo() && <PunteroFondo />}
       {esModoFondo() && <LatidoFondo />}

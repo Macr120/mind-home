@@ -45,7 +45,7 @@ export interface GrupoInventario {
 
 // ----- Sub-pestaña «Objetos» -----
 
-export const GRUPO_MOBILIARIO = 'mobiliario'
+const GRUPO_MOBILIARIO = 'mobiliario'
 export const GRUPO_CASA = 'casa'
 export const GRUPO_ROPA = 'ropa'
 export const GRUPO_ANIMALES = 'animales'

@@ -18,7 +18,7 @@ import { tomarUltimoMapa } from './editorIntencion'
  * Es a propósito conservador: mejor no ofrecer que ofrecer en cada mensaje.
  */
 
-export interface SugerenciaMapa {
+interface SugerenciaMapa {
   /** Tema ya limpio, listo para `editor_mapa_ideas`. */
   tema: string
   tipo: TipoMapa

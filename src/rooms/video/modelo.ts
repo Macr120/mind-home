@@ -22,7 +22,6 @@ import {
   MAX_ESCENA,
   MIN_CLIP,
   MIN_ESCENA,
-  nuevaEscenaId,
   nuevoClipId,
   ORDEN_PISTAS,
   TAMANOS_PIP,
@@ -58,11 +57,6 @@ export function finPrincipal(clips: ClipVideo[]): number {
   let m = 0
   for (const c of clips) if (c.pista === 'video') m = Math.max(m, fin(c))
   return redondear(m)
-}
-
-/** Duración de un proyecto en cualquier formato (migra en memoria si hace falta). */
-export function duracionProyecto(p: ProyectoVideo): number {
-  return duracionTotal(migrarProyecto(p, () => undefined).proyecto.clips)
 }
 
 export function clipsActivos(clips: ClipVideo[], t: number): ClipVideo[] {
@@ -271,7 +265,7 @@ export function principalEn(clips: ClipVideo[], t: number): PosPrincipal | null 
 }
 
 /** Compacta la pista principal desde 0 (las demás pistas NO se desplazan). */
-export function compactarPrincipal(clips: ClipVideo[]): ClipVideo[] {
+function compactarPrincipal(clips: ClipVideo[]): ClipVideo[] {
   const main = clipsDe(clips, 'video')
   let t = 0
   const nuevo = new Map<string, number>()
@@ -624,10 +618,6 @@ export function migrarProyecto(p: ProyectoVideo, durMedio: DuracionMedio): { pro
 
 export function clampDuracion(v: number): number {
   return Math.max(MIN_ESCENA, Math.min(MAX_ESCENA, Math.round(v * 10) / 10))
-}
-
-export function nuevaEscena(fondo: EscenaVideo['fondo'], duracion = 4): EscenaVideo {
-  return { id: nuevaEscenaId(), duracion: clampDuracion(duracion), fondo, transicion: 'corte', filtro: 'ninguno', volumen: 1 }
 }
 
 /** El guion como texto legible: SOLO contexto para «Rehacer con IA» (no hay parser de vuelta). `quien` nombra al narrador de cada línea. */

@@ -6,7 +6,10 @@ import { useMontura } from '../state/monturaStore'
 import { useAccionCuarto } from '../state/accionCuartoStore'
 import { playerPos } from '../state/playerPosition'
 import { useHerramienta, type Herramienta } from '../state/herramientaStore'
+import { EMOTES } from '../house/emotes'
 import { usePlanos, type ModoConstructor } from '../state/planosStore'
+import { useFormaLibre } from '../state/formaLibreStore'
+import { MIN_PUNTOS_CERRAR } from '../house/formasLibre'
 import { useLayout } from '../state/layoutStore'
 import { useCam } from '../state/cameraStore'
 import { useEditorUi } from '../state/editorUiStore'
@@ -147,6 +150,7 @@ const MODOS_CONSTRUIR: { id: ModoConstructor; emoji: string; labelEs: string }[]
   { id: 'piso-ext', emoji: '🌿', labelEs: 'Piso ext.' },
   { id: 'piso-int', emoji: '🟫', labelEs: 'Piso int.' },
   { id: 'techos', emoji: '🔺', labelEs: 'Techos' },
+  { id: 'libre', emoji: '🖋️', labelEs: 'Libre' },
 ]
 
 /** Chip pequeño del panel de construcción (sub-opciones y niveles). */
@@ -464,7 +468,78 @@ function VariantesConstruir() {
     )
   }
 
+  if (modo === 'libre') return <VariantesLibre />
+
   return null
+}
+
+/**
+ * Variantes del modo Libre en el atajo del HUD: herramienta, qué construir y, mientras se
+ * dibuja, los botones para terminar el borrador (en táctil no hay Intro ni Escape).
+ */
+function VariantesLibre() {
+  const t = useT()
+  const herr = usePlanos((s) => s.herramienta)
+  const tipoNuevo = useFormaLibre((s) => s.tipoNuevo)
+  const borrador = useFormaLibre((s) => s.borrador)
+  const n = borrador?.length ?? 0
+  const puedeTerminar = n >= (tipoNuevo === 'muro' ? 2 : MIN_PUNTOS_CERRAR)
+  const F = () => useFormaLibre.getState()
+  return (
+    <div className="space-y-1">
+      <div className="flex gap-1">
+        {(
+          [
+            ['trazar', 'Dibujar'],
+            ['seleccionar', 'Editar'],
+            ['borrar', 'Borrar'],
+          ] as const
+        ).map(([id, labelEs]) => (
+          <button key={id} type="button" onClick={() => usePlanos.getState().setHerramienta(id)} className={chipConstr(herr === id)}>
+            {t(`constructor.libre.herr.${id}`, labelEs)}
+          </button>
+        ))}
+      </div>
+      {herr === 'trazar' && (
+        <div className="flex gap-1">
+          {(
+            [
+              ['muro', 'Muro'],
+              ['piso', 'Piso'],
+              ['recinto', 'Recinto'],
+            ] as const
+          ).map(([id, labelEs]) => (
+            <button key={id} type="button" onClick={() => F().setTipoNuevo(id)} className={chipConstr(tipoNuevo === id)}>
+              {t(`constructor.libre.tipo.${id}`, labelEs)}
+            </button>
+          ))}
+        </div>
+      )}
+      {borrador && (
+        <div className="flex flex-wrap gap-1">
+          <button
+            type="button"
+            disabled={!puedeTerminar}
+            onClick={() => void F().terminarBorrador(tipoNuevo !== 'muro')}
+            className={`${chipConstr(true)} disabled:opacity-40`}
+          >
+            {t('constructor.libre.terminar', 'Terminar')}
+          </button>
+          {tipoNuevo === 'muro' && n >= MIN_PUNTOS_CERRAR && (
+            <button type="button" onClick={() => void F().terminarBorrador(true)} className={chipConstr(false)}>
+              {t('constructor.libre.cerrarTerminar', 'Cerrar y terminar')}
+            </button>
+          )}
+          <button type="button" onClick={() => F().quitarUltimoBorrador()} className={chipConstr(false)}>
+            {t('constructor.libre.quitarUltimo', 'Quitar último punto')}
+          </button>
+          <button type="button" onClick={() => F().cancelarBorrador()} className={chipConstr(false)}>
+            {t('constructor.libre.cancelar', 'Cancelar')}
+          </button>
+        </div>
+      )}
+    </div>
+  )
 }
 
 /**
@@ -702,6 +777,7 @@ function PanelHerramienta({
   const t = useT()
   const correr = useHerramienta((s) => s.correr)
   const bailando = useHerramienta((s) => s.bailando)
+  const emote = useHerramienta((s) => s.emote)
   const cuerda = useHerramienta((s) => s.cuerda)
   const burbujas = useHerramienta((s) => s.burbujas)
   const avisoGrafiti = useGrafitis((s) => s.aviso)
@@ -817,16 +893,36 @@ function PanelHerramienta({
         </button>
       )}
       {h === 'bailar' && (
-        <button
-          type="button"
-          onClick={() => useHerramienta.getState().setBailando(!bailando)}
-          className={bailando ? btnVerde : btnClaro}
-        >
-          <span className="text-2xl leading-none"><Icono emoji={f.emoji} /></span>
-          <span className="text-xs font-semibold">
-            {bailando ? t('herr.bailando', 'Bailando') : t('herr.bailar', 'Bailar')}
-          </span>
-        </button>
+        <>
+          <button
+            type="button"
+            onClick={() => useHerramienta.getState().setBailando(!bailando)}
+            className={bailando ? btnVerde : btnClaro}
+          >
+            <span className="text-2xl leading-none"><Icono emoji={f.emoji} /></span>
+            <span className="text-xs font-semibold">
+              {bailando ? t('herr.bailando', 'Bailando') : t('herr.bailar', 'Bailar')}
+            </span>
+          </button>
+          {/* Emotes (los mismos del tercer nivel de la rueda): tocar el activo lo apaga. */}
+          <div className="flex items-center gap-1.5 pt-0.5">
+            <span className="text-[8px] font-bold uppercase tracking-wide text-white/40">{t('herr.emotes', 'Emotes')}</span>
+            <span className="h-px flex-1 bg-white/10" />
+          </div>
+          <div className="flex flex-wrap gap-1">
+            {EMOTES.map((e) => (
+              <button
+                key={e.id}
+                type="button"
+                title={t(`herr.emote.${e.id}`, e.fallback)}
+                onClick={() => useHerramienta.getState().setEmote(emote === e.id ? null : e.id)}
+                className={`${btnVariante(emote === e.id)} min-w-[18%] text-base`}
+              >
+                <Icono emoji={e.emoji} />
+              </button>
+            ))}
+          </div>
+        </>
       )}
       {h === 'cuerda' && (
         <button

@@ -42,7 +42,7 @@ const KEY_ORDEN_CONFIG = 'mind-home-editor-orden-config'
  * agregar un grupo nuevo, a quien ya tenga un orden guardado le aparece abajo en
  * vez de desaparecer.
  */
-export function sanitizarOrdenConfig(orden: readonly string[]): ConfigGrupoId[] {
+function sanitizarOrdenConfig(orden: readonly string[]): ConfigGrupoId[] {
   const validos: ConfigGrupoId[] = []
   for (const id of orden) {
     if (ORDEN_CONFIG_DEFAULT.includes(id as ConfigGrupoId) && !validos.includes(id as ConfigGrupoId)) {

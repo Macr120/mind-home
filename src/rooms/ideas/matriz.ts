@@ -21,7 +21,7 @@ export const ZONA_CRITERIO = 'criterio'
 export const ZONA_OPCION = 'opcion'
 
 /** Puntaje de una celda sin tocar: ni suma ni resta frente a las demás. */
-export const PUNTAJE_NEUTRO = 3
+const PUNTAJE_NEUTRO = 3
 export const MAX_PUNTAJE = 5
 
 /** Del peor puntaje al mejor: la tabla se lee de un vistazo por el color. */

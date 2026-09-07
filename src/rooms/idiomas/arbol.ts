@@ -23,7 +23,7 @@ function normalizarTitulo(s: string): string {
 }
 
 /** Resuelve un temaId contra el temario VIVO del idioma (fábrica parcheada + propios). */
-export async function resolverTema(
+async function resolverTema(
   temaId: string,
   idiomaId: number,
 ): Promise<{ temaId: string; titulo: string; nivel: string } | null> {
@@ -32,7 +32,7 @@ export async function resolverTema(
 }
 
 /** Todos los temas vivos del idioma, para clasificar y para los selects. */
-export async function temasDelIdioma(idiomaId: number): Promise<{ id: string; titulo: string; nivel: string }[]> {
+async function temasDelIdioma(idiomaId: number): Promise<{ id: string; titulo: string; nivel: string }[]> {
   return todosVivos(await cargarTemario(idiomaId)).map((t) => ({ id: t.id, titulo: t.titulo, nivel: t.nivel }))
 }
 

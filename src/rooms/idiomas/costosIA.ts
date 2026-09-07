@@ -25,7 +25,7 @@ export const OP_CHARLA_NUEVA: OperacionIA = {
   partes: [{ op: 'texto', veces: 2 }],
 }
 
-export const OP_CLASIFICAR: OperacionIA = {
+const OP_CLASIFICAR: OperacionIA = {
   id: 'idiomas.clasificar',
   clave: 'ia.op.idiomas.clasificar',
   es: 'Clasificar una charla ✨',
@@ -52,7 +52,7 @@ export const OP_GENERAR_TARJETAS: OperacionIA = {
   partes: [{ op: 'texto' }],
 }
 
-export const OP_IMAGEN_TARJETA: OperacionIA = {
+const OP_IMAGEN_TARJETA: OperacionIA = {
   id: 'idiomas.imagenTarjeta',
   clave: 'ia.op.idiomas.imagenTarjeta',
   es: 'Imagen mnemotécnica de una tarjeta',

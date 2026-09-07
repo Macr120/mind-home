@@ -26,6 +26,7 @@ import { InfraNota } from './core/ui/InfraNota'
 import { ChatBox } from './core/chat/ChatBox'
 import { AvisoRespaldo } from './core/ui/AvisoRespaldo'
 import { AsistenteCercaOverlay } from './core/ui/AsistenteCercaOverlay'
+import { SelectorActuacion } from './core/ui/SelectorActuacion'
 import { DialogoOverlay } from './core/ui/DialogoOverlay'
 import { GeneradorMiniaturas } from './core/house/Miniatura'
 import { useTutorial } from './core/tutorial/tutorialStore'
@@ -252,6 +253,8 @@ export default function App() {
             (`NubeAsistente`), y solo si el personaje está a la vista. */}
         {!editMode && !activeRoom && !construyendo && !enPelicula && <MarcadorCancha />}
         {!editMode && !activeRoom && !construyendo && !dialogoActivo && !enPaintball && !enPelicula && <AsistenteCercaOverlay />}
+        {/* Qué baile / qué ejercicio hace el asistente (lo abre la burbuja de arriba). */}
+        {!editMode && !activeRoom && !construyendo && !enPelicula && <SelectorActuacion />}
         {!editMode && !activeRoom && !construyendo && !enPelicula && <CarreraOverlay />}
         {!editMode && !activeRoom && !construyendo && !enPelicula && <PaintballOverlay />}
         {/* Mira central: con un arma equipada o en batalla, en vista de perspectiva. */}

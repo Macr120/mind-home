@@ -7,7 +7,7 @@
  * Uso: `const ahora = useSyncExternalStore(relojVida.subscribe, relojVida.getSnapshot)`.
  * El intervalo arranca con el primer suscriptor y muere con el último.
  */
-export const MS_RELOJ_VIDA = 30_000
+const MS_RELOJ_VIDA = 30_000
 
 let ahora = Date.now()
 let timer: number | null = null

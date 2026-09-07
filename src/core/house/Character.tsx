@@ -3,6 +3,8 @@ import { useDemoEjercicio } from '../state/demoEjercicioStore'
 
 // «Muéstrame el press banca» en el mapa: el personaje lo hace con el rig del visor (lazy).
 const AvatarEjercicioMapa = lazy(() => import('./AvatarEjercicioMapa'))
+// Emote de la rueda (Bailar › 67, Floss…): el mismo rig, en bucle hasta moverse (lazy).
+const AvatarEmoteMapa = lazy(() => import('./AvatarEmoteMapa'))
 import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import { AvatarModelo } from './AvatarModelo'
@@ -195,7 +197,7 @@ export function objColliders(playerLevel: number): ObjCol[] {
  * muros a ras de suelo lo dejarían atrapado (mismo criterio que `objColliders`
  * con el objeto cargado). Sin carga devuelve el arreglo precomputado tal cual.
  */
-export function muroColliders(nivel: number): AABB[] {
+function muroColliders(nivel: number): AABB[] {
   const L = useLayout.getState()
   const todos = L.wallCollidersByLevel[nivel] ?? []
   const sujeto = useCargar.getState().sujeto
@@ -1148,6 +1150,14 @@ export function Character() {
   useHouse((s) => s.navTick)
   const av = useDiseño((s) => s.avatar)
   const demoEjercicio = useDemoEjercicio((s) => (s.modo === 'mapa' ? s.nombre : null))
+  const emote = useHerramienta((s) => s.emote)
+  const enAccionCuarto = useAccionCuarto((s) => s.instanciaId != null)
+  const enParque = useParque((s) => s.instanciaId != null)
+  // Sentado en un objeto o en un juego de parque el rig se pondría de pie encima
+  // (ahí el frame sale antes de la cancelación por movimiento): el emote espera.
+  // La demo de ejercicio tiene prioridad.
+  const emoteEnMapa = demoEjercicio || enAccionCuarto || enParque ? null : emote
+  const rigEnMapa = !!demoEjercicio || emoteEnMapa != null
   const camera = useThree((s) => s.camera)
   const scene = useThree((s) => s.scene)
   const get3f = useThree((s) => s.get)
@@ -1537,6 +1547,7 @@ export function Character() {
     const dtFactor = Math.min(delta, 0.3) * 60
     // Moverse (input directo o click-to-move) corta el baile y la cuerda.
     if (accionFrame.bailando && (hayInput || paso > 0.01)) useHerramienta.getState().setBailando(false)
+    if (accionFrame.emote && (hayInput || paso > 0.01)) useHerramienta.getState().setEmote(null)
     if (accionFrame.cuerda && (hayInput || paso > 0.01)) useHerramienta.getState().setCuerda(false)
 
     if (hayInput) {
@@ -1584,6 +1595,19 @@ export function Character() {
     } else {
       // Sin input — clic en la casa o menú lateral: deslizar hacia el destino.
       const { target, freeMove } = useHouse.getState()
+      // Moonwalk: el emote desliza al personaje hacia atrás sin girarlo, a paso lento y
+      // respetando muros, objetos y piso. El destino y `_prevMarcha` lo siguen para que
+      // ni el lerp lo devuelva ni el desplazamiento cuente como «moverse» (cancelaría el emote).
+      if (accionFrame.emote === 'moonwalk') {
+        const px = cur.x - playerForward.x * SPEED * 0.35 * dtFactor
+        const pz = cur.z - playerForward.z * SPEED * 0.35 * dtFactor
+        if (!chocado(px, pz, colliders) && !chocadoObjeto(px, pz, objCols) && !sinPiso(px, pz, piso)) {
+          cur.x = px
+          cur.z = pz
+          target.set(px, 0, pz)
+          _prevMarcha.set(px, 0, pz)
+        }
+      }
       const factorDeslizar = Math.min(1, 0.32 * dtFactor)
       const nx = THREE.MathUtils.lerp(cur.x, target.x, factorDeslizar)
       const nz = THREE.MathUtils.lerp(cur.z, target.z, factorDeslizar)
@@ -1707,6 +1731,10 @@ export function Character() {
               <Suspense fallback={<AvatarModelo av={av} casco={editor3d} animar caminar />}>
                 <AvatarEjercicioMapa av={av} nombre={demoEjercicio} />
               </Suspense>
+            ) : emoteEnMapa ? (
+              <Suspense fallback={<AvatarModelo av={av} casco={editor3d} animar caminar />}>
+                <AvatarEmoteMapa av={av} emote={emoteEnMapa} />
+              </Suspense>
             ) : (
               <GestoHabla id={ES_JUGADOR}>
                 <GestoEmocion asistenteId={ES_JUGADOR}>
@@ -1722,7 +1750,8 @@ export function Character() {
               </GestoHabla>
             )}
             {enPelicula && <ReaccionEmoji asistenteId={ES_JUGADOR} altura={1.9 * av.escala} />}
-            <ExtrasHerramientas equipadas={equipadas} escala={av.escala} />
+            {/* Pistola y cuerda van en la mano fija del box-man: con el rig puesto flotarían. */}
+            {!rigEnMapa && <ExtrasHerramientas equipadas={equipadas} escala={av.escala} />}
             <AccesorioAccion escala={av.escala} />
             <RaquetaJugador escala={av.escala} />
             <BateJugador escala={av.escala} />

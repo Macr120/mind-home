@@ -20,7 +20,7 @@ import type { TipoMeta } from './MetasTab'
  */
 
 /** Ámbitos del cronograma del despacho (ahorro e inversión comparten uno). */
-export type AmbitoPlan = 'ahorroInversion' | 'deuda'
+type AmbitoPlan = 'ahorroInversion' | 'deuda'
 
 const GUIA: Record<AmbitoPlan, string[]> = {
   ahorroInversion: [

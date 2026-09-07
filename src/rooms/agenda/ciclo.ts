@@ -30,8 +30,6 @@ export const SINTOMAS_CICLO: DefSintoma[] = [
   { id: 'irritable', emoji: '😤', icono: 'animo-enojado', clave: 'agenda.ciclo.sint.irritable', es: 'Irritabilidad' },
 ]
 
-export const getSintoma = (id: string): DefSintoma | undefined => SINTOMAS_CICLO.find((s) => s.id === id)
-
 /** Intensidades del sangrado, de menos a más. */
 export const NIVELES_SANGRADO = [
   { valor: 1, clave: 'agenda.ciclo.leve', es: 'Ligero', color: '#fca5a5' },
@@ -46,7 +44,7 @@ export const NIVELES_SANGRADO = [
  * periodo nuevo; se admite un hueco de un día para no partir un periodo por
  * haber olvidado marcarlo.
  */
-export function iniciosDePeriodo(dias: DiaCiclo[]): string[] {
+function iniciosDePeriodo(dias: DiaCiclo[]): string[] {
   const conSangre = dias
     .filter((d) => d.sangrado > 0)
     .map((d) => d.fecha)

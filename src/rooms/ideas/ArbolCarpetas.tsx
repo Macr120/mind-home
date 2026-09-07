@@ -16,7 +16,7 @@ interface NodoCarpeta {
 }
 
 /** Id estable de una carpeta; el mismo molde que `nod-…` de los mapas. */
-export function nuevaCarpetaId(): string {
+function nuevaCarpetaId(): string {
   return `cid-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`
 }
 

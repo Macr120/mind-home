@@ -15,7 +15,7 @@ import type { NombreIcono } from '../../core/ui/iconos/catalogo'
  * categorías y los comandos del chat, y ninguno debe arrastrar mathjs.
  */
 
-export interface Unidad {
+interface Unidad {
   /** Símbolo tal cual lo entiende mathjs. */
   u: string
   /** Trozo de clave i18n (los símbolos llevan `^` y `/`, que no valen). */

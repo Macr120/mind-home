@@ -11,7 +11,7 @@ import { BotonSecundario, Campo } from '../_shared/ui'
 import { esActorEscena, esJugador } from './actores'
 import { MIN_CLIP, PISTAS } from './constantes'
 import { BotonEscuchar } from './ListaSonidos'
-import { clipsDe, encuadrePorEsquina, fin, medioIdDe, narradorDe, redondear, vozEfectiva, type ProyectoAbierto } from './modelo'
+import { clipsDe, encuadrePorEsquina, narradorDe, vozEfectiva, type ProyectoAbierto } from './modelo'
 import { nombreNarrador } from './narradores'
 import { RejillaTransiciones } from './RejillaTransiciones'
 import { Chip, Deslizador, INPUT_CORTO, Pestana, SeccionFiltro, SeccionFuenteVisual, SeccionTexto, SeccionVoz } from './Secciones'
@@ -482,7 +482,3 @@ const ESQUINA_ES: Record<EsquinaAvatar, string> = {
   infDer: 'Abajo a la derecha',
   centro: 'Centro',
 }
-
-/** Fin del clip en segundos absolutos (para el campo de duración del panel). */
-export const finDe = (c: ClipVideo) => redondear(fin(c))
-export const medioDe = medioIdDe

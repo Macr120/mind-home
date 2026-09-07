@@ -12,7 +12,7 @@
 export type CalidadImagen = 'rapida' | 'buena'
 
 const LS_CALIDAD_IMAGEN = 'mh.calidadImagen'
-export const CALIDAD_IMAGEN_DEFAULT: CalidadImagen = 'rapida'
+const CALIDAD_IMAGEN_DEFAULT: CalidadImagen = 'rapida'
 
 export function leerCalidadImagen(): CalidadImagen {
   return localStorage.getItem(LS_CALIDAD_IMAGEN) === 'buena' ? 'buena' : CALIDAD_IMAGEN_DEFAULT

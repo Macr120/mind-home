@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 
 /** Lo que puede despertar una pulsación larga en el mapa. */
-export type Despierto =
+type Despierto =
   | { tipo: 'objeto'; id: number }
   | { tipo: 'cuarto'; id: string }
 
@@ -27,12 +27,9 @@ export const useDespierto = create<DespiertoState>((set) => ({
   screenY: 0,
   despertar: (sujeto) => set({ sujeto }),
   terminar: () => set({ sujeto: null }),
-  setScreen: (screenX, screenY) => set({ screenX, screenY }),
+  // Se escribe por frame desde la escena: si no cambió, no se notifica a nadie.
+  setScreen: (screenX, screenY) => set((s) => (s.screenX === screenX && s.screenY === screenY ? s : { screenX, screenY })),
 }))
-
-/** ¿Está despierto ESTE objeto? (selector para la lista de objetos del mapa). */
-export const objetoDespierto = (s: DespiertoState, id?: number) =>
-  id != null && s.sujeto?.tipo === 'objeto' && s.sujeto.id === id
 
 /** ¿Está despierto ESTE cuarto? */
 export const cuartoDespierto = (s: DespiertoState, id: string) =>

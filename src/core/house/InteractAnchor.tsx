@@ -2,11 +2,12 @@ import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import { getCuarto } from '../state/cuartosStore'
 import { useHouse } from '../state/houseStore'
-import { useDiseño, muebleDeCuarto, objetoPorId, esObjetoMapa } from '../state/disenoStore'
+import { useDiseño, objetosDeCuartoIdx, objetoPorId, esObjetoMapa } from '../state/disenoStore'
 import { useLayout, roomWorldPos } from '../state/layoutStore'
 import { useInteractUi } from '../state/interactUiStore'
 import { nivelBaseY } from './walls'
 import { altoDeTipo } from './catalogo'
+import { esMueblePrincipal } from './muebles'
 
 const _world = new THREE.Vector3()
 const ALTURA = 3.1
@@ -28,7 +29,9 @@ export function InteractAnchor() {
       if (!getCuarto(focusRoomId)) return
       const [rx, , rz] = roomWorldPos(focusRoomId)
       // Lectura en el frame (sin suscripción): mover objetos no re-renderiza este anchor.
-      const mueble = muebleDeCuarto(useDiseño.getState().objetos, focusRoomId)
+      // Por el índice memoizado: `muebleDeCuarto` filtraba todos los objetos de la casa por frame.
+      const delCuarto = objetosDeCuartoIdx(useDiseño.getState().objetos, focusRoomId)
+      const mueble = delCuarto.find(esMueblePrincipal) ?? delCuarto[0]
       const ox = mueble?.x ?? 0
       const oz = mueble?.z ?? 0
       // Altura del nivel del cuarto (la burbuja sigue al cuarto aunque esté elevado).

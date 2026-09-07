@@ -11,7 +11,7 @@ import { costoOperacion, type OperacionIA } from '../../core/cuenta/catalogoIA'
 /** Platillos que `SYSTEM_DIETA` pide como máximo (crearDietaIA los recorta a 4). */
 export const RECETAS_POR_DIETA = 4
 
-export const OP_RECETA: OperacionIA = {
+const OP_RECETA: OperacionIA = {
   id: 'cocina.receta',
   clave: 'ia.op.cocina.receta',
   es: 'Crear receta con IA',
@@ -20,7 +20,7 @@ export const OP_RECETA: OperacionIA = {
   partes: [{ op: 'texto' }, { op: 'imagen', soloConImagen: true }],
 }
 
-export const OP_DIETA: OperacionIA = {
+const OP_DIETA: OperacionIA = {
   id: 'cocina.dieta',
   clave: 'ia.op.cocina.dieta',
   es: 'Dieta completa o plan alimenticio',

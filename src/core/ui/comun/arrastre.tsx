@@ -23,9 +23,9 @@ import { vibrar } from '../../audio/vibrar'
  */
 
 /** Milisegundos de pulsación que levantan la fila con el dedo. */
-export const ESPERA_MS = 300
+const ESPERA_MS = 300
 /** Píxeles que distinguen un toque quieto de un movimiento. */
-export const UMBRAL_PX = 6
+const UMBRAL_PX = 6
 /** Freno del scroll de Android mientras dura el arrastre (ver `activar`). */
 const frenarTouch = (e: TouchEvent) => e.preventDefault()
 

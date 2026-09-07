@@ -136,9 +136,6 @@ export const A_OOXML: Record<string, string> = {
   HOY: 'TODAY',
 }
 
-/** Nombres tal cual los escribe el usuario (con punto), para el editor. */
-export const NOMBRES_HOJA = Object.keys(A_OOXML)
-
 /**
  * Los nombres con punto no valen como identificador en mathjs (los leería como
  * acceso a propiedad), así que se aplanan antes de evaluar.

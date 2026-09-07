@@ -51,7 +51,7 @@ const SIN_TEXTO =
   'La imagen no debe contener ninguna letra, palabra, rótulo, número, logotipo ni marca de agua.'
 
 /** Prompt de la textura. Con `conFoto` se le pide partir de la imagen adjunta. */
-export function promptTextura(
+function promptTextura(
   superficie: SuperficieTextura,
   descripcion: string,
   conFoto = false,

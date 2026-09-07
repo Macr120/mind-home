@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
 import { playerPos } from '../state/playerPosition'
@@ -724,6 +724,7 @@ function SplatsPaintball() {
     }
     return new THREE.CanvasTexture(c)
   }, [])
+  useEffect(() => () => textura.dispose(), [textura])
   useFrame(() => {
     const m = ref.current
     if (!m || versionPintada.current === splatsVersion) return

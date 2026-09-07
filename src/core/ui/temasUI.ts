@@ -22,12 +22,27 @@
 
 import { pintarBarraEstadoNativa } from './barraEstadoNativa'
 
+/** Colores que entintan toda la interfaz; su paleta se deriva del matiz (ver `COLORES_UI`). */
+type ColorUIId =
+  | 'rojo'
+  | 'coral'
+  | 'dorado'
+  | 'lima'
+  | 'menta'
+  | 'turquesa'
+  | 'cielo'
+  | 'indigo'
+  | 'lavanda'
+  | 'rosa'
+  | 'grafito'
+
 export type TemaUIId =
   | 'medianoche'
   | 'neon'
   | 'bosque'
   | 'ambar'
   | 'ciruela'
+  | ColorUIId
 
 export type ModoUI = 'oscuro' | 'claro' | 'transparente'
 /** Modos con paleta propia; `transparente` deriva de `claro`. */
@@ -90,12 +105,14 @@ export interface TemaUI {
   id: TemaUIId
   /** Etiqueta para el selector (se traduce por separado en el diccionario). */
   nombre: string
-  icon: string
+  /** Solo los temas dibujados a mano; los colores se reconocen por su muestra. */
+  icon?: string
   /** Variables CSS por modo, aplicadas a document.documentElement. */
   vars: Record<ModoVarsUI, VarsTemaUI>
 }
 
-export const TEMAS_UI: TemaUI[] = [
+/** Los cinco temas dibujados a mano. */
+export const TEMAS_UI_BASE: TemaUI[] = [
   {
     id: 'medianoche',
     nombre: 'Medianoche',
@@ -212,6 +229,78 @@ export const TEMAS_UI: TemaUI[] = [
     },
   },
 ]
+
+/** hsl(h, s %, l %) → #rrggbb. */
+function hsl(h: number, s: number, l: number): string {
+  const S = s / 100
+  const L = l / 100
+  const a = S * Math.min(L, 1 - L)
+  const canal = (n: number) => {
+    const k = (n + h / 30) % 12
+    const v = L - a * Math.max(-1, Math.min(k - 3, 9 - k, 1))
+    return Math.round(v * 255)
+      .toString(16)
+      .padStart(2, '0')
+  }
+  return `#${canal(0)}${canal(8)}${canal(4)}`
+}
+
+/**
+ * Tema entintado a partir de un matiz: fondo y paneles apenas teñidos, acento
+ * vivo y tinta del mismo tono. Las proporciones copian las de los temas a mano
+ * (medianoche ≈ matiz 220). `sat` 0 da un tema neutro (grafito). La tinta sobre
+ * el acento se decide por luminancia, como hace `tinta()` en las apps.
+ */
+function temaDesdeMatiz(id: TemaUIId, nombre: string, h: number, sat = 1): TemaUI {
+  const acentoOscuro = hsl(h, 85 * sat, 66)
+  const acentoClaro = hsl(h, 70 * sat, 44)
+  const tintaSobreAcento = (acento: string) =>
+    luminancia(acento) > 0.25 ? hsl(h, 60 * sat, 8) : '#ffffff'
+  return {
+    id,
+    nombre,
+    vars: {
+      oscuro: {
+        '--ui-bg': hsl(h, 22 * sat, 7),
+        '--ui-panel': hsl(h, 22 * sat, 10),
+        '--ui-panel-2': hsl(h, 20 * sat, 14),
+        '--ui-accent': acentoOscuro,
+        '--ui-accent-ink': tintaSobreAcento(acentoOscuro),
+        '--ui-ink': hsl(h, 12 * sat, 92),
+      },
+      claro: {
+        '--ui-bg': hsl(h, 38 * sat, 93),
+        '--ui-panel': hsl(h, 45 * sat, 98),
+        '--ui-panel-2': hsl(h, 38 * sat, 95),
+        '--ui-accent': acentoClaro,
+        '--ui-accent-ink': tintaSobreAcento(acentoClaro),
+        '--ui-ink': hsl(h, 28 * sat, 15),
+      },
+    },
+  }
+}
+
+const COLORES_BASE: { id: ColorUIId; nombre: string; matiz: number; sat?: number }[] = [
+  { id: 'rojo', nombre: 'Rojo', matiz: 0 },
+  { id: 'coral', nombre: 'Coral', matiz: 16 },
+  { id: 'dorado', nombre: 'Dorado', matiz: 42 },
+  { id: 'lima', nombre: 'Lima', matiz: 85 },
+  { id: 'menta', nombre: 'Menta', matiz: 150 },
+  { id: 'turquesa', nombre: 'Turquesa', matiz: 175 },
+  { id: 'cielo', nombre: 'Cielo', matiz: 200 },
+  { id: 'indigo', nombre: 'Índigo', matiz: 235 },
+  { id: 'lavanda', nombre: 'Lavanda', matiz: 265 },
+  { id: 'rosa', nombre: 'Rosa', matiz: 335 },
+  { id: 'grafito', nombre: 'Grafito', matiz: 220, sat: 0 },
+]
+
+/** Colores que entintan toda la interfaz (segunda columna del selector). */
+export const COLORES_UI: TemaUI[] = COLORES_BASE.map((c) =>
+  temaDesdeMatiz(c.id, c.nombre, c.matiz, c.sat),
+)
+
+/** Catálogo completo: lo que resuelven el chat, los widgets y `getTemaUI`. */
+export const TEMAS_UI: TemaUI[] = [...TEMAS_UI_BASE, ...COLORES_UI]
 
 export const TEMA_UI_DEFAULT: TemaUIId = 'medianoche'
 /** Con qué luz arranca una instalación nueva. Claro: es lo que espera quien abre

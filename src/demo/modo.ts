@@ -35,7 +35,7 @@ import { idiomaActual } from '../core/i18n/useT'
 // v33: fuera el archivero de idiomas (`casa.json` retocado a mano): la escalera
 // sube por la esquina NE y lo atravesaba. Sin subirla, la demo cacheada se
 // repone desde su foto vieja con el mueble adentro.
-export const DEMO_VERSION = 33
+const DEMO_VERSION = 33
 const LS_VERSION = 'mh.demo.version'
 const LS_INTENT = 'mh.demo.intent'
 

@@ -149,28 +149,6 @@ export async function renombrarNodoPlan(plan: PlanMeta, nodoId: number, nombre: 
 }
 
 /**
- * Mueve un nodo a otro periodo (días relativos al arranque). Una fase ya fechada
- * arrastra a su descendencia fechada con el mismo corrimiento de inicio, para que
- * siga dentro de ella; a un nodo que aún no tenía fechas solo se le ponen.
- */
-export async function moverNodoPlan(plan: PlanMeta, nodoId: number, ini: number, fin: number): Promise<void> {
-  if (plan.id == null) return
-  const objetivo = plan.nodos.find((n) => n.id === nodoId)
-  if (!objetivo) return
-  const ini2 = Math.max(0, Math.round(ini))
-  const fin2 = Math.max(ini2, Math.round(fin))
-  const delta = nodoFechado(objetivo) ? ini2 - objetivo.ini : 0
-  const abajo = descendientesPlan(plan.nodos, nodoId)
-  const nodos = plan.nodos.map((n) => {
-    if (n.id === nodoId) return { ...n, ini: ini2, fin: fin2 }
-    if (delta !== 0 && abajo.has(n.id) && nodoFechado(n))
-      return { ...n, ini: Math.max(0, n.ini + delta), fin: Math.max(0, n.fin + delta) }
-    return n
-  })
-  await planesMetaRepo.update(plan.id, { nodos })
-}
-
-/**
  * Le pone fechas de calendario a un nodo: es lo que escribe el trazo sobre el eje y
  * los dos inputs de la hoja. Los días se guardan relativos al arranque del plan.
  *

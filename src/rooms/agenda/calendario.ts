@@ -54,13 +54,13 @@ import { getCuidadoPersona } from './salud'
 
 const PLANTILLA = 'agenda'
 
-export const ambitoEvento = (evId: string) => `agEv:${evId}`
-export const ambitoMedicamento = (medId: string) => `agMed:${medId}`
-export const ambitoCumple = (contactoId: string) => `agCum:${contactoId}`
-export const ambitoCuidado = (cuidadoId: string) => `agCui:${cuidadoId}`
-export const ambitoCuidadoPersona = (cuidadoId: string) => `agCuiP:${cuidadoId}`
-export const AMBITO_CICLO = 'agCiclo:aviso'
-export const AMBITO_ANTICONCEPTIVO = 'agCiclo:pastilla'
+const ambitoEvento = (evId: string) => `agEv:${evId}`
+const ambitoMedicamento = (medId: string) => `agMed:${medId}`
+const ambitoCumple = (contactoId: string) => `agCum:${contactoId}`
+const ambitoCuidado = (cuidadoId: string) => `agCui:${cuidadoId}`
+const ambitoCuidadoPersona = (cuidadoId: string) => `agCuiP:${cuidadoId}`
+const AMBITO_CICLO = 'agCiclo:aviso'
+const AMBITO_ANTICONCEPTIVO = 'agCiclo:pastilla'
 
 /** Rutinas que mantiene la agenda (nunca toca las que el usuario creó a mano). */
 const esDeAgenda = (r: Rutina) => r.plantillaId === PLANTILLA && !!r.ambitoId?.startsWith('ag')

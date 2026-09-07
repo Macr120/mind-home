@@ -11,13 +11,13 @@ import type { SistemaUnidades } from '../../core/data/db'
 const LB_POR_KG = 2.20462
 const MI_POR_KM = 0.621371
 
-export const esIngles = (u: SistemaUnidades | undefined) => u === 'ingles'
+const esIngles = (u: SistemaUnidades | undefined) => u === 'ingles'
 
 export const unidadPeso = (u: SistemaUnidades | undefined) => (esIngles(u) ? 'lb' : 'kg')
 export const unidadDistancia = (u: SistemaUnidades | undefined) => (esIngles(u) ? 'mi' : 'km')
 
 /** kg guardados → número que se muestra. */
-export const pesoDesdeKg = (kg: number, u: SistemaUnidades | undefined) =>
+const pesoDesdeKg = (kg: number, u: SistemaUnidades | undefined) =>
   esIngles(u) ? kg * LB_POR_KG : kg
 
 /** Número escrito por el usuario → kg para guardar. */

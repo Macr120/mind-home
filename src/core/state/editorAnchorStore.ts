@@ -13,5 +13,6 @@ interface EditorAnchorState {
 export const useEditorAnchor = create<EditorAnchorState>((set) => ({
   screenX: 0,
   screenY: 0,
-  setScreen: (screenX, screenY) => set({ screenX, screenY }),
+  // Se escribe por frame desde la escena: si no cambió, no se notifica a nadie.
+  setScreen: (screenX, screenY) => set((s) => (s.screenX === screenX && s.screenY === screenY ? s : { screenX, screenY })),
 }))

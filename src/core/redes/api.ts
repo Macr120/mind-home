@@ -62,11 +62,6 @@ async function stub() {
 
 const base = () => `${import.meta.env.VITE_SUPABASE_URL}/functions/v1`
 
-/** Origen de las funciones: el único del que se acepta el `postMessage` de la ventana emergente. */
-export function origenFunciones(): string {
-  return new URL(String(import.meta.env.VITE_SUPABASE_URL)).origin
-}
-
 /** ¿Tiene sentido ofrecer las redes? Backend y sesión (probable: el espejo síncrono vale durante el arranque). */
 export function redesDisponibles(): boolean {
   if (import.meta.env.DEV && localStorage.getItem(LS_STUB) === '1') return true

@@ -20,7 +20,7 @@ export const OP_NARRACION: OperacionIA = {
   partes: [{ op: 'tts' }],
 }
 
-export const OP_FONDO: OperacionIA = {
+const OP_FONDO: OperacionIA = {
   id: 'video.fondo',
   clave: 'ia.op.video.fondo',
   es: 'Fondo de clip con imagen IA',

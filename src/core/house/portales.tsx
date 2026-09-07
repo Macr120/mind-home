@@ -10,7 +10,7 @@ import { sonar } from '../audio/sfx'
  * viven colliders y playerPos); aquí el estado y el render de los aros.
  * Runtime, NO persistido.
  */
-export interface Portal {
+interface Portal {
   x: number
   z: number
   color: 'azul' | 'naranja'

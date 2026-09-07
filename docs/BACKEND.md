@@ -435,6 +435,38 @@ cadena por defecto):
 Comprobado en vivo: las funciones responden 401 sin credenciales y el preflight
 NO devuelve `*` a un origen cualquiera. `GEMINI_API_KEY` ya estaba puesta.
 
+### 3g. Cuenta del dueño con IA ILIMITADA — 4-sep-2026
+La cuenta del dueño (`macr120cme@gmail.com`) no consume cuota: `perfiles.ilimitado`
+hace que `consumir_cuota_ia` permita siempre, sin mirar pool, deuda ni techo, y sin
+tocar `creditos_extra`. El uso SÍ se sigue registrando (`uso_ia`, `uso_ia_ops`, el
+USD real), así que las consultas de `docs/consultas-uso.sql` siguen diciendo lo que
+gasta. El medidor recibe `limite = -1` y la UI lo pinta como «∞».
+
+El padrón va por CORREO (tabla `cuentas_ilimitadas`), no por uuid: vale en cualquier
+base y sobrevive a que el dueño borre su cuenta y se registre otra vez —
+`handle_new_user` marca el perfil al nacer si el correo está en el padrón.
+
+1. `npx supabase db push` (aplica `20260904000001_cuenta_ilimitada.sql`; la propia
+   migración sincroniza el perfil que ya existía).
+2. Las Edge Functions NO cambian: el contrato de la RPC es el mismo y `limite`
+   viaja tal cual. Sí hay que **volver a desplegar la app y la web** para que la
+   barra entienda el `-1` (sin eso pintaría «1234/-1»).
+
+Para añadir otra cuenta (o quitarla), desde el SQL editor del Dashboard:
+
+```sql
+insert into cuentas_ilimitadas (correo, nota) values ('otro@correo.com', 'motivo');
+select sincronizar_cuentas_ilimitadas();   -- marca los perfiles que ya existen
+-- Quitarla: borrar del padrón Y apagar la bandera del perfil (no se apaga sola).
+delete from cuentas_ilimitadas where correo = 'otro@correo.com';
+update perfiles set ilimitado = false where user_id = (
+  select id from auth.users where lower(email) = 'otro@correo.com');
+```
+
+**OJO**: la bandera salta también el techo de gasto en USD — no hay red de
+seguridad y el costo real de los proveedores se paga igual. El límite de tasa
+(`consumir_rate_limit`) sí sigue aplicando: frena ráfagas, no créditos.
+
 ### 4. Storage (sync de blobs)
 La migración crea el bucket privado `sync-blobs` con acceso por carpeta de usuario;
 no requiere pasos manuales. (Desde jul 2026 la policy también exige Pro vigente.)

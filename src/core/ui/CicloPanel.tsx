@@ -315,10 +315,9 @@ function ClimaReal() {
 
 /**
  * Contenido del menú de ciclo: paso del tiempo + dimmers + volver a hora real.
- * Exportado: también se monta como bloque «Hora del día» en Configuraciones →
- * Interfaz (EditorAjustesSection), además del popover del sol/luna del reloj.
+ * Se monta en el popover del sol/luna del reloj (RelojWidget).
  */
-export function MenuCiclo() {
+function MenuCiclo() {
   const t = useT()
   const modo = useCiclo((s) => s.modo)
   const enVivo = useCiclo((s) => s.enVivo)

@@ -44,7 +44,7 @@ export interface BloqueFijo {
  * alrededor. Antes el turno empezaba a las 07:00 —a la misma hora a la que se
  * levantaba— y la carrera de las 06:30 caía dentro del sueño.
  */
-export const SEMANA_PEP: BloqueFijo[] = [
+const SEMANA_PEP: BloqueFijo[] = [
   // El sueño va primero porque cruza medianoche y ocupa las dos puntas del día.
   { clave: 'sueno', hora: '23:30', horaFin: '07:00', dias: [] },
   { clave: 'meditar', hora: '07:15', horaFin: '07:30', dias: [1, 3, 5] },

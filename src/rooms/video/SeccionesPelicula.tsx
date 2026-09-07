@@ -1,13 +1,15 @@
 import { EMOCIONES, type EmocionId } from '../../core/chat/emociones'
-import type { CamaraPelicula, EscenaActor } from '../../core/data/db'
+import type { EscenaActor } from '../../core/data/db'
 import { PRESETS_ANIMACION, type PresetAnimacionId } from '../../core/house/animacion'
 import { useT } from '../../core/i18n/useT'
+import { useAsistentes } from '../../core/state/asistentesStore'
 import { aplicarCamara, capturarCamara, useCam } from '../../core/state/cameraStore'
 import { ES_JUGADOR } from '../../core/state/peliculaStore'
 import { playerPos } from '../../core/state/playerPosition'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { BotonSecundario, Campo } from '../_shared/ui'
-import { nombreActor, puntoActor } from './actores'
+import { emojiActor, nombreActor, puntoActor } from './actores'
+import { conEfecto, EFECTOS_CAMARA, nombreEfecto, type FuenteEscena3d } from './pelicula/efectosCamara'
 import { Chip } from './Secciones'
 
 /**
@@ -16,25 +18,32 @@ import { Chip } from './Secciones'
  * con la casa (cámara, posición del avatar), no solo con el proyecto.
  */
 
-type FuenteEscena3d = { tipo: 'escena3d'; cam: CamaraPelicula; camFin?: CamaraPelicula }
-
-/** Cámara de un plano: capturar la actual, ir a ella, paneo hasta un final, vistas y giro (el cubo del HUD no está). */
+/** Cámara de un plano: capturar la actual, ir a ella, movimiento, paneo hasta un final, vistas y giro (el cubo del HUD no está). */
 export function SeccionCamara({ fuente, onCambiar }: { fuente: FuenteEscena3d; onCambiar: (f: FuenteEscena3d) => void }) {
   const t = useT()
   const vista = useCam((s) => s.vista)
   const setVista = useCam((s) => s.setVista)
   const rotar = useCam((s) => s.rotar)
   const centrarIso = useCam((s) => s.centrarIso)
+  const asistentes = useAsistentes((s) => s.lista)
   const vistas = [
     { id: 'iso', etiqueta: t('video.pelicula.vista.iso', 'Isométrica') },
     { id: 'tercera', etiqueta: t('video.pelicula.vista.tercera', 'Tercera persona') },
     { id: 'primera', etiqueta: t('video.pelicula.vista.primera', 'Primera persona') },
   ] as const
+  // Un paneo puesto a mano no lleva efecto; sin paneo, el plano es fijo.
+  const efectoActual = fuente.efecto ?? (fuente.camFin ? undefined : 'fijo')
   return (
     <>
       <Campo etiqueta={t('video.pelicula.camara', 'Cámara')}>
         <div className="flex flex-wrap gap-1.5">
-          <BotonSecundario pequeno onClick={() => onCambiar({ ...fuente, cam: capturarCamara() })}>
+          <BotonSecundario
+            pequeno
+            onClick={() =>
+              // Con un movimiento puesto, el final se recalcula desde la cámara nueva.
+              onCambiar(fuente.efecto && fuente.efecto !== 'seguir' ? conEfecto(capturarCamara(), fuente.efecto) : { ...fuente, cam: capturarCamara() })
+            }
+          >
             <Icono nombre="foto" /> {t('video.pelicula.usarCamara', 'Usar la cámara actual')}
           </BotonSecundario>
           <BotonSecundario pequeno onClick={() => aplicarCamara(fuente.cam, false)}>
@@ -42,11 +51,38 @@ export function SeccionCamara({ fuente, onCambiar }: { fuente: FuenteEscena3d; o
           </BotonSecundario>
         </div>
       </Campo>
+      <Campo etiqueta={t('video.pelicula.movimiento', 'Movimiento de cámara')}>
+        <div className="flex flex-wrap gap-1.5">
+          {EFECTOS_CAMARA.map((e) => (
+            <Chip key={e.id} activo={efectoActual === e.id} onClick={() => onCambiar(conEfecto(fuente.cam, e.id, fuente.seguir))}>
+              <Icono nombre={e.icono} /> {nombreEfecto(t, e.id)}
+            </Chip>
+          ))}
+        </div>
+        {fuente.efecto === 'seguir' && (
+          <>
+            <div className="mt-1.5 flex flex-wrap gap-1.5">
+              {[ES_JUGADOR, ...asistentes.map((a) => a.id)].map((id) => (
+                <Chip key={id} activo={fuente.seguir === id} onClick={() => onCambiar({ ...fuente, seguir: id })}>
+                  <Icono emoji={emojiActor(id)} /> {nombreActor(t, id)}
+                </Chip>
+              ))}
+            </div>
+            {fuente.cam.vista !== 'iso' && (
+              <p className="mt-1 text-[11px] text-white/45">
+                {t('video.pelicula.seguirSoloIso', 'Seguir solo funciona en la vista isométrica; en 1ª/3ª persona la cámara sigue a tu avatar')}
+              </p>
+            )}
+          </>
+        )}
+      </Campo>
       <Campo etiqueta={t('video.pelicula.paneo', 'Paneo: fin de plano')}>
         <div className="flex flex-wrap gap-1.5">
           <Chip
             activo={!!fuente.camFin}
-            onClick={() => onCambiar(fuente.camFin ? { tipo: 'escena3d', cam: fuente.cam } : { ...fuente, camFin: capturarCamara() })}
+            onClick={() =>
+              onCambiar(fuente.camFin ? { tipo: 'escena3d', cam: fuente.cam } : { tipo: 'escena3d', cam: fuente.cam, camFin: capturarCamara() })
+            }
           >
             {fuente.camFin ? t('video.pelicula.paneoQuitar', 'Quitar el paneo') : t('video.pelicula.paneoPoner', 'Terminar en la cámara actual')}
           </Chip>

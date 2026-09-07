@@ -1,4 +1,4 @@
-import { Suspense, useMemo } from 'react'
+import { Suspense, useEffect, useMemo } from 'react'
 import * as THREE from 'three'
 import { useLoader } from '@react-three/fiber'
 import type { TechoTipoId, TechoFormaId, TechoParams } from './techos'
@@ -151,6 +151,7 @@ function FormaImagen({
     t.repeat.set(rep, rep)
     return t
   }, [base, ajuste])
+  useEffect(() => () => map.dispose(), [map])
   return <>{children(map)}</>
 }
 
@@ -176,6 +177,7 @@ function FormaTextura({
     t.repeat.set(Math.max(1, Math.round(W / tileSize)), Math.max(1, Math.round(H / tileSize)))
     return t
   }, [base, tileSize, W, H])
+  useEffect(() => () => map.dispose(), [map])
   return <>{children(map)}</>
 }
 
@@ -218,6 +220,7 @@ function FormaTejas({
     t.repeat.set(Math.max(1, Math.round(W / 1.5)), Math.max(1, Math.round(H / 1.5)))
     return t
   }, [color, W, H])
+  useEffect(() => () => map.dispose(), [map])
   return <>{children(map)}</>
 }
 
@@ -323,6 +326,7 @@ function Faldones({
     () => construirAguas(W, H, alt, aguas, dir, ocultarHastialNeg, ocultarHastialPos),
     [W, H, alt, aguas, dir, ocultarHastialNeg, ocultarHastialPos],
   )
+  useEffect(() => () => geo.dispose(), [geo])
   return <PiezaGeo geo={geo} mat={mat} map={map} cristal={cristal} atenuado={atenuado} />
 }
 
@@ -463,6 +467,7 @@ function Abovedado({
     g.scale(1, 1 / span, 1)
     return g
   }, [curva])
+  useEffect(() => () => geo.dispose(), [geo])
 
   // span horizontal del arco = cos(thetaStart); escalamos para tocar los muros.
   const frac = Math.min(1, Math.max(0.35, curva))
@@ -494,6 +499,7 @@ function Abovedado({
     shape.closePath()
     return new THREE.ShapeGeometry(shape)
   }, [curva, alt, W, H, dir])
+  useEffect(() => () => hastialGeo.dispose(), [hastialGeo])
 
   return (
     <group>
@@ -560,6 +566,7 @@ function Cupula({
     () => new THREE.SphereGeometry(1, 28, 16, 0, Math.PI * 2, 0, Math.PI / 2),
     [],
   )
+  useEffect(() => () => geo.dispose(), [geo])
   const baseGeo = useMemo(() => {
     const hw = W / 2
     const hh = H / 2
@@ -581,6 +588,7 @@ function Cupula({
     shape.holes.push(hole)
     return new THREE.ShapeGeometry(shape)
   }, [W, H])
+  useEffect(() => () => baseGeo.dispose(), [baseGeo])
 
   return (
     <group>

@@ -179,7 +179,7 @@ export async function registrosDelDia(plantillaId: string, fecha: string): Promi
  * plantillas personalizadas no están ahí, lo suyo son las filas de
  * `itemsPlantilla`. Sirve para avisar de que una app sin cuarto no está vacía.
  */
-export async function tieneDatos(plantillaId: string): Promise<boolean> {
+async function tieneDatos(plantillaId: string): Promise<boolean> {
   const fuente = FUENTES[plantillaId]
   if (fuente) return (await fuente()).length > 0
   return (await db.itemsPlantilla.where('plantillaId').equals(plantillaId).count()) > 0
@@ -251,8 +251,8 @@ function nivelDeXp(xp: number): { nivel: number; avance: number } {
   return { nivel: 1 + Math.floor(xp / XP_POR_NIVEL), avance: (xp % XP_POR_NIVEL) / XP_POR_NIVEL }
 }
 
-async function progresoDePlantilla(plantillaId: string, listas: ListaCumplida[]): Promise<ProgresoPlantilla> {
-  const fechas = (await (FUENTES[plantillaId] ?? (async () => []))()).filter(Boolean)
+function progresoDePlantilla(plantillaId: string, fechasCrudas: string[], listas: ListaCumplida[]): ProgresoPlantilla {
+  const fechas = fechasCrudas.filter(Boolean)
   const setFechas = new Set(fechas)
   const hoy = hoyISO()
   const hace3 = restarDias(2)
@@ -300,7 +300,11 @@ export async function progresoDeEnfoques(ids: string[]): Promise<ProgresoJugador
     if (suyas) suyas.push(f)
     else porApp.set(f.plantillaId, [f])
   }
-  const enfoques = await Promise.all(ids.map((id) => progresoDePlantilla(id, porApp.get(id) ?? [])))
+  // Las fuentes de cada app se leen UNA vez: sirven para su progreso y para la
+  // racha global (antes cada enfoque recorría sus tablas enteras dos veces por
+  // cálculo, y esto corre dentro de un liveQuery que se rehace con cada escritura).
+  const fechasPorApp = await Promise.all(ids.map((id) => (FUENTES[id] ?? (async () => []))()))
+  const enfoques = ids.map((id, i) => progresoDePlantilla(id, fechasPorApp[i], porApp.get(id) ?? []))
   enfoques.sort((a, b) => b.xp - a.xp)
 
   const xp = enfoques.reduce((acc, e) => acc + e.xp, 0)
@@ -308,7 +312,7 @@ export async function progresoDeEnfoques(ids: string[]): Promise<ProgresoJugador
 
   // Fechas unificadas para la racha global.
   const todas = new Set<string>()
-  for (const id of ids) for (const f of await (FUENTES[id] ?? (async () => []))()) todas.add(f)
+  for (const fechas of fechasPorApp) for (const f of fechas) todas.add(f)
 
   const n = enfoques.length
   const salud = n === 0 ? 0 : enfoques.filter((e) => e.dias3 > 0).length / n

@@ -35,7 +35,7 @@ const DESCRIPTORES: Record<string, [clave: string, es: string]> = {
 }
 
 /** «onyx · grave»; una voz sin descriptor sale por su nombre. */
-export function etiquetaVoz(t: TFunc, voz: string): string {
+function etiquetaVoz(t: TFunc, voz: string): string {
   const d = DESCRIPTORES[voz]
   return d ? `${voz} · ${t(d[0], d[1])}` : voz
 }
@@ -47,7 +47,7 @@ export const nombreVozDispositivo = (voz: string): string | undefined => voz.sli
 /** Una voz IA sin nadie que la sirva (clave que ya no está) se lee con la del dispositivo. */
 export const usaDispositivo = (voz?: string): boolean => esVozDispositivo(voz) || !hayVozIA()
 
-export interface OpcionVoz {
+interface OpcionVoz {
   id: string
   etiqueta: string
 }
@@ -70,7 +70,7 @@ export function vocesElegibles(): string[] {
 }
 
 /** Etiqueta de cualquier voz, IA o del dispositivo. */
-export function etiquetaDeVoz(t: TFunc, voz: string): string {
+function etiquetaDeVoz(t: TFunc, voz: string): string {
   if (!esVozDispositivo(voz)) return etiquetaVoz(t, voz)
   return nombreVozDispositivo(voz) ?? t('video.voz.automatica', 'Automática (idioma de la app)')
 }

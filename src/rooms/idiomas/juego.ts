@@ -13,7 +13,7 @@ import type { ModoEjercicio } from './ejercicios'
  * la caja por presión de tiempo corrompería los intervalos de repaso.
  */
 
-export const PUNTOS_BASE = 10
+const PUNTOS_BASE = 10
 export const VIDAS_INICIALES = 3
 export const SEGUNDOS_CONTRARRELOJ = 60
 /** Bajo este tiempo por respuesta hay bonus de rapidez (solo contrarreloj). */
@@ -101,7 +101,7 @@ export function medallasDe(r: ResumenPartida): string[] {
 
 // ----- Misiones del día -----
 
-export type MedidaMision = 'respuestas' | 'aciertos' | 'combo' | 'partidas' | 'perfectas' | 'modos'
+type MedidaMision = 'respuestas' | 'aciertos' | 'combo' | 'partidas' | 'perfectas' | 'modos'
 
 export interface Mision {
   id: string

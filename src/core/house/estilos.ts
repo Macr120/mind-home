@@ -80,7 +80,7 @@ export interface EfectoEstado {
 export type EfectosConfig = Partial<Record<EfectoId, EfectoEstado>>
 
 /** Config de efectos que aplica cada estilo (atajo). Lo no listado queda apagado. */
-export const PRESETS: Record<EstiloVisualId, EfectosConfig> = {
+const PRESETS: Record<EstiloVisualId, EfectosConfig> = {
   normal: { oclusion: { on: true, val: 0.6 }, bloom: { on: true, val: 0.22 } },
   comic: { contornos: { on: true, val: 0.5 }, toon: { on: true, val: 0.7 } },
   miniatura: {

@@ -58,10 +58,6 @@ export const useEjemplos = create<EjemplosState>((set) => ({
     }),
 }))
 
-/** ¿El ejemplo de esta sección está encendido? (fuera de React). */
-export const ejemploEncendido = (seccion: string): boolean =>
-  useEjemplos.getState().encendidos.includes(seccion)
-
 /** Hook: ¿el ejemplo de esta sección está encendido? */
 export const useEjemploEncendido = (seccion: string): boolean =>
   useEjemplos((s) => s.encendidos.includes(seccion))

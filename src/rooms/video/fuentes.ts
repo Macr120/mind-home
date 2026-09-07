@@ -16,21 +16,21 @@ import { urlSonido } from './sonidos'
  * Los `<video>` sí van por medio: los decodificadores son el recurso escaso.
  */
 
-export interface FuenteVideo {
+interface FuenteVideo {
   tipo: 'video'
   el: HTMLVideoElement
   url: string
 }
-export interface FuenteAudio {
+interface FuenteAudio {
   tipo: 'audio'
   el: HTMLAudioElement
   url: string
 }
-export interface FuenteImagen {
+interface FuenteImagen {
   tipo: 'imagen'
   bitmap: ImageBitmap
 }
-export type Fuente = FuenteVideo | FuenteAudio | FuenteImagen
+type Fuente = FuenteVideo | FuenteAudio | FuenteImagen
 export type ClipAudio = ClipVoz | ClipMusica | ClipSfx | ClipAvatar
 
 export interface PoolFuentes {

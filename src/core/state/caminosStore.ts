@@ -15,7 +15,7 @@ export type HerramientaCamino = 'pintar' | 'borrar' | 'subir' | 'bajar' | 'meta'
  * La pista de carreras se queda en UN escalón: es para correr, no para volar;
  * las rampas altas la volvían inconducible. Riel y montaña rusa sí trepan.
  */
-export const ALTURA_MAX: Record<TipoCamino, number> = { pista: 1, riel: 6, coaster: 6 }
+const ALTURA_MAX: Record<TipoCamino, number> = { pista: 1, riel: 6, coaster: 6 }
 /** Metros de mundo que sube cada nivel de altura del riel. */
 export const ALTURA_NIVEL = 0.6
 

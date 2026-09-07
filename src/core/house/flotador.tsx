@@ -1,9 +1,6 @@
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
-import type { ObjetoCuarto } from '../data/db'
-import { esObjetoMapa } from '../state/disenoStore'
-import { roomWorldPos } from '../state/layoutStore'
 import { useFlotador } from '../state/flotadorStore'
 
 /**
@@ -26,7 +23,7 @@ const TUBO = 0.15
  * Offset local del avatar sentado en la dona: la cadera queda al ras de la
  * lámina (el aro le rodea la cintura) y las piernas cuelgan en el agua.
  */
-export const ASIENTO_FLOTADOR: [number, number, number] = [0, -0.6, 0]
+const ASIENTO_FLOTADOR: [number, number, number] = [0, -0.6, 0]
 
 /** Aro salvavidas: tubo de color con cuatro franjas blancas, apoyado en la lámina. */
 function FlotadorForma({ color }: { color: string }) {
@@ -84,13 +81,6 @@ export function FlotadorMontado({ color, children }: { color: string; children: 
       <group position={ASIENTO_FLOTADOR}>{children}</group>
     </group>
   )
-}
-
-/** Posición de mundo de una dona (vive dentro del cuarto-alberca, en coords locales). */
-export function posMundoFlotador(o: ObjetoCuarto): [number, number] {
-  if (esObjetoMapa(o)) return [o.x ?? 0, o.z ?? 0]
-  const [rx, , rz] = roomWorldPos(o.roomId)
-  return [rx + (o.x ?? 0), rz + (o.z ?? 0)]
 }
 
 // La dona ya NO se aborda sola al nadar hasta ella: el botón «Subirte» del hueco

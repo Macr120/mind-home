@@ -15,7 +15,7 @@ import { duracionAudio } from './importar'
 
 export type Traido = { tipo: 'medio'; medio: MedioConId } | { tipo: 'texto'; texto: string; nombre: string }
 
-export const fuenteDe = (app: AppStudio, r: RecursoStudio) => `${app}:${r.clave}`
+const fuenteDe = (app: AppStudio, r: RecursoStudio) => `${app}:${r.clave}`
 
 export async function traerRecurso(app: AppStudio, r: RecursoStudio): Promise<Traido | null> {
   const fuente = fuenteDe(app, r)

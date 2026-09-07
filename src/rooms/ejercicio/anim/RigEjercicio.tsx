@@ -38,7 +38,7 @@ const CABEZA_TOP = 1.72
 /** Brazo/antebrazo y muslo/pantorrilla: dos tramos de 0.3 (los 0.6 del box-man). */
 const TRAMO = 0.3
 
-export type NombreMarcador =
+type NombreMarcador =
   | 'manoI' | 'manoD' | 'pieI' | 'pieD' | 'codoI' | 'codoD' | 'rodillaI' | 'rodillaD'
   | 'gluteos' | 'espalda' | 'pecho' | 'hombros' | 'cabeza'
 export type Marcadores = Record<NombreMarcador, THREE.Object3D | null>

@@ -99,11 +99,6 @@ export function olvidarMotor() {
   promesa = null
 }
 
-/** El motor ya cargado, o null. Para código que no puede esperar (exportar). */
-export function motorCargado(): Promise<Motor> | null {
-  return promesa
-}
-
 function crearMotor(math: Math, katex: Katex): Motor {
   const compilados = new Map<string, { evaluate: (scope?: object) => unknown }>()
 

@@ -407,7 +407,13 @@ function HuertoControllerActivo() {
     }
     const onMove = (ev: PointerEvent) => {
       const c = celdaEnteraBajoCursor(ev.clientX, ev.clientY, opts)
-      setHover(c ? { col: Math.round(c.col), row: Math.round(c.row) } : null)
+      // Misma celda → misma referencia: no se repinta el controlador en cada píxel.
+      setHover((h) => {
+        if (!c) return null
+        const col = Math.round(c.col)
+        const row = Math.round(c.row)
+        return h && h.col === col && h.row === row ? h : { col, row }
+      })
       const a = arrastre.current
       if (!a || !c) return
       const col = Math.round(c.col)

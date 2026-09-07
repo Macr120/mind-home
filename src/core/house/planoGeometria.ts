@@ -12,6 +12,7 @@ import {
   type Footprint,
   type WallState,
   type WallOverrides,
+  SPACING,
 } from './walls'
 import { esFootprintLibre } from '../state/layoutStore'
 import { celdasTechoAbsolutas } from './techoCeldas'
@@ -67,6 +68,34 @@ export function celdaASvg(col: number, row: number): { x: number; y: number } {
     x: PLANO_PAD + col * PLANO_CELL_PX,
     y: PLANO_PAD + row * PLANO_CELL_PX,
   }
+}
+
+/**
+ * Punto SVG continuo → coordenadas de celda continuas (u,v) con origen en la esquina NO
+ * del papel (unidad = 1 celda). Es la coordenada en la que se guardan las formas libres.
+ */
+export function svgAUV(svgX: number, svgY: number): { u: number; v: number } {
+  return { u: (svgX - PLANO_PAD) / PLANO_CELL_PX, v: (svgY - PLANO_PAD) / PLANO_CELL_PX }
+}
+
+/** Inversa de `svgAUV`. */
+export function uvASvg(u: number, v: number): { x: number; y: number } {
+  return { x: PLANO_PAD + u * PLANO_CELL_PX, y: PLANO_PAD + v * PLANO_CELL_PX }
+}
+
+/**
+ * Punto SVG continuo → punto de MUNDO (x,z), sin enganche a la rejilla. Inversa de la
+ * fórmula de esquina de `murosLibre.ts` (x = (col − cols/2)·SPACING). `SPACING` se lee en
+ * cada llamada porque es mutable (tamaño de celda configurable).
+ */
+export function svgAMundo(svgX: number, svgY: number, cols: number, rows: number): { x: number; z: number } {
+  const { u, v } = svgAUV(svgX, svgY)
+  return { x: (u - cols / 2) * SPACING, z: (v - rows / 2) * SPACING }
+}
+
+/** Punto de MUNDO (x,z) → punto SVG continuo del croquis. */
+export function mundoASvg(x: number, z: number, cols: number, rows: number): { x: number; y: number } {
+  return uvASvg(x / SPACING + cols / 2, z / SPACING + rows / 2)
 }
 
 /** Centro de celda en SVG. */

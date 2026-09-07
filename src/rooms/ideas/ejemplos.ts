@@ -42,7 +42,7 @@ function cadena(pasos: NodoPropuesto[]): NodoPropuesto[] {
 
 const paso = (texto: string, forma?: NodoPropuesto['forma']): NodoPropuesto => ({ texto, hijos: [], forma })
 
-export const EJEMPLOS_PT: Record<TipoMapa, ContenidoEjemplo> = {
+const EJEMPLOS_PT: Record<TipoMapa, ContenidoEjemplo> = {
   mental: {
     titulo: 'Viagem ao Japão',
     propuesta: {
@@ -337,7 +337,7 @@ export const EJEMPLOS_PT: Record<TipoMapa, ContenidoEjemplo> = {
   },
 }
 
-export const EJEMPLOS_FR: Record<TipoMapa, ContenidoEjemplo> = {
+const EJEMPLOS_FR: Record<TipoMapa, ContenidoEjemplo> = {
   mental: {
     titulo: 'Voyage au Japon',
     propuesta: {
@@ -637,7 +637,7 @@ export const EJEMPLOS_FR: Record<TipoMapa, ContenidoEjemplo> = {
   },
 }
 
-export const EJEMPLOS_DE: Record<TipoMapa, ContenidoEjemplo> = {
+const EJEMPLOS_DE: Record<TipoMapa, ContenidoEjemplo> = {
   mental: {
     titulo: 'Japanreise',
     propuesta: {
@@ -937,7 +937,7 @@ export const EJEMPLOS_DE: Record<TipoMapa, ContenidoEjemplo> = {
   },
 }
 
-export const EJEMPLOS_IT: Record<TipoMapa, ContenidoEjemplo> = {
+const EJEMPLOS_IT: Record<TipoMapa, ContenidoEjemplo> = {
   mental: {
     titulo: 'Viaggio in Giappone',
     propuesta: {
@@ -1237,7 +1237,7 @@ export const EJEMPLOS_IT: Record<TipoMapa, ContenidoEjemplo> = {
   },
 }
 
-export const EJEMPLOS_JA: Record<TipoMapa, ContenidoEjemplo> = {
+const EJEMPLOS_JA: Record<TipoMapa, ContenidoEjemplo> = {
   mental: {
     titulo: 'メキシコ旅行',
     propuesta: {
@@ -1532,7 +1532,7 @@ export const EJEMPLOS_JA: Record<TipoMapa, ContenidoEjemplo> = {
   },
 }
 
-export const EJEMPLOS_ZH: Record<TipoMapa, ContenidoEjemplo> = {
+const EJEMPLOS_ZH: Record<TipoMapa, ContenidoEjemplo> = {
   mental: {
     titulo: '日本之旅',
     propuesta: {
@@ -1827,7 +1827,7 @@ export const EJEMPLOS_ZH: Record<TipoMapa, ContenidoEjemplo> = {
   },
 }
 
-export const EJEMPLOS_KO: Record<TipoMapa, ContenidoEjemplo> = {
+const EJEMPLOS_KO: Record<TipoMapa, ContenidoEjemplo> = {
   mental: {
     titulo: '일본 여행',
     propuesta: {
@@ -2122,7 +2122,7 @@ export const EJEMPLOS_KO: Record<TipoMapa, ContenidoEjemplo> = {
   },
 }
 
-export const EJEMPLOS_RU: Record<TipoMapa, ContenidoEjemplo> = {
+const EJEMPLOS_RU: Record<TipoMapa, ContenidoEjemplo> = {
   mental: {
     titulo: 'Поездка в Японию',
     propuesta: {
@@ -2417,7 +2417,7 @@ export const EJEMPLOS_RU: Record<TipoMapa, ContenidoEjemplo> = {
   },
 }
 
-export const EJEMPLOS_HI: Record<TipoMapa, ContenidoEjemplo> = {
+const EJEMPLOS_HI: Record<TipoMapa, ContenidoEjemplo> = {
   mental: {
     titulo: 'जापान की यात्रा',
     propuesta: {
@@ -2712,7 +2712,7 @@ export const EJEMPLOS_HI: Record<TipoMapa, ContenidoEjemplo> = {
   },
 }
 
-export const EJEMPLOS_TR: Record<TipoMapa, ContenidoEjemplo> = {
+const EJEMPLOS_TR: Record<TipoMapa, ContenidoEjemplo> = {
   mental: {
     titulo: 'Japonya gezisi',
     propuesta: {
@@ -3007,7 +3007,7 @@ export const EJEMPLOS_TR: Record<TipoMapa, ContenidoEjemplo> = {
   },
 }
 
-export const EJEMPLOS_ID: Record<TipoMapa, ContenidoEjemplo> = {
+const EJEMPLOS_ID: Record<TipoMapa, ContenidoEjemplo> = {
   mental: {
     titulo: 'Liburan ke Jepang',
     propuesta: {
@@ -3302,7 +3302,7 @@ export const EJEMPLOS_ID: Record<TipoMapa, ContenidoEjemplo> = {
   },
 }
 
-export const EJEMPLOS_PL: Record<TipoMapa, ContenidoEjemplo> = {
+const EJEMPLOS_PL: Record<TipoMapa, ContenidoEjemplo> = {
   mental: {
     titulo: 'Podróż do Japonii',
     propuesta: {
@@ -3602,7 +3602,7 @@ export const EJEMPLOS_PL: Record<TipoMapa, ContenidoEjemplo> = {
   },
 }
 
-export const EJEMPLOS_AR: Record<TipoMapa, ContenidoEjemplo> = {
+const EJEMPLOS_AR: Record<TipoMapa, ContenidoEjemplo> = {
   mental: {
     titulo: 'رحلة إلى اليابان',
     propuesta: {
@@ -3897,7 +3897,7 @@ export const EJEMPLOS_AR: Record<TipoMapa, ContenidoEjemplo> = {
   },
 }
 
-export const EJEMPLOS_NL: Record<TipoMapa, ContenidoEjemplo> = {
+const EJEMPLOS_NL: Record<TipoMapa, ContenidoEjemplo> = {
   mental: {
     titulo: 'Reis naar Japan',
     propuesta: {
@@ -4221,7 +4221,7 @@ export function ejemploDe(tipo: TipoMapa): EjemploMapa {
   return traducido ? { ...traducido, guiaEs: es.guiaEs } : es
 }
 
-export const EJEMPLOS: Record<TipoMapa, EjemploMapa> = {
+const EJEMPLOS: Record<TipoMapa, EjemploMapa> = {
   mental: {
     titulo: 'Viaje a Japón',
     guiaEs:

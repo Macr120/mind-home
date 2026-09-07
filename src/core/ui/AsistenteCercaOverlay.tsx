@@ -4,6 +4,7 @@ import { useAsistenteCerca } from '../state/asistenteCercaStore'
 import { useAsistentes } from '../state/asistentesStore'
 import { useMascota } from '../state/mascotaStore'
 import { useDialogo } from '../state/dialogoStore'
+import { useActuacion } from '../state/actuacionStore'
 import { posAsistentes } from '../state/posAsistentes'
 import { ALTURA_FLOTE } from '../house/Asistente3D'
 import { registrarAncla, quitarAncla, registrarDom, quitarDom } from '../house/etiquetasMapa'
@@ -32,10 +33,14 @@ export function AsistenteCercaOverlay() {
   return <Burbuja asistente={a} />
 }
 
+const btnMini =
+  'ui-panel-glass pointer-events-auto flex items-center gap-1 rounded-xl border border-white/15 px-2 py-1 text-[11px] font-semibold text-white shadow-xl backdrop-blur-md transition hover:bg-white/10 active:scale-95'
+
 function Burbuja({ asistente }: { asistente: Asistente }) {
   const t = useT()
   const id = asistente.id
   const ancla = useRef(new THREE.Vector3())
+  const actuando = useActuacion((s) => !!s.porAsistente[id])
 
   useEffect(() => {
     const anclaId = `hablar:${id}`
@@ -68,6 +73,23 @@ function Burbuja({ asistente }: { asistente: Asistente }) {
               {nombreAsistente(t, asistente)}
             </span>
           </button>
+          {/* Pedirle un baile o un ejercicio (o pararlo): lo hace aquí mismo, mirándote. */}
+          <div className="mt-1 flex gap-1">
+            {actuando ? (
+              <button type="button" onClick={() => useActuacion.getState().parar(id)} className={btnMini}>
+                <Icono nombre="detener" /> {t('dialogo.parar', 'Parar')}
+              </button>
+            ) : (
+              <>
+                <button type="button" onClick={() => useActuacion.getState().abrirSelector(id, 'emote')} className={btnMini}>
+                  <Icono nombre="bailar" /> {t('dialogo.bailar', 'Bailar')}
+                </button>
+                <button type="button" onClick={() => useActuacion.getState().abrirSelector(id, 'ejercicio')} className={btnMini}>
+                  <Icono nombre="tab-fuerza" /> {t('dialogo.ejercicio', 'Ejercicio')}
+                </button>
+              </>
+            )}
+          </div>
           <span
             className="pointer-events-none -mt-px h-0 w-0 border-x-[8px] border-t-[10px] border-x-transparent"
             style={{ borderTopColor: 'rgba(255,255,255,0.25)' }}

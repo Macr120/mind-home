@@ -16,7 +16,7 @@ import type { Cell } from '../../core/house/walls'
 import { CUADRANTES, mundo, rectZona } from './cuadrantes'
 
 /** Celdas del anillo: primera y última fila completas + los laterales. */
-export function celdasAnillo(cols: number, rows: number): Cell[] {
+function celdasAnillo(cols: number, rows: number): Cell[] {
   const ultimaCol = cols - 1
   const ultimaFila = rows - 1
   const out: Cell[] = []

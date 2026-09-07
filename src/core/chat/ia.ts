@@ -82,7 +82,7 @@ export const PROVEEDORES: Proveedor[] = [
  * esfuerzo alto. Se reserva para tareas raras donde la calidad manda y el
  * modelo pequeño se queda corto: la GEOMETRÍA de los modelos 3D.
  */
-export type PerfilIA = 'rapido' | 'calidad'
+type PerfilIA = 'rapido' | 'calidad'
 
 /** Modelo de Claude para el perfil `calidad` (el de `PROVEEDORES[0]` es el rápido). */
 const MODELO_CALIDAD = 'claude-sonnet-5'
@@ -167,7 +167,7 @@ export function setBase(prov: ProveedorId, url: string) {
 }
 
 /** Preferencia explícita del proveedor de voz (fila «Voz» del panel de IA). */
-export function getProvVoz(): ProveedorMediaId | null {
+function getProvVoz(): ProveedorMediaId | null {
   const id = localStorage.getItem(LS_PROV_VOZ)
   return id === 'chatgpt' || id === 'gemini' ? id : null
 }
@@ -595,7 +595,7 @@ async function construirSystem(mascotaId: string, adjunto: 'imagen' | 'pdf' | nu
       ? 'Fuera de los cuartos, el MAPA exterior se construye con las herramientas editor_infra_*: huerto, granja, caminos (pista de carreras, vías de tren, montaña rusa) y canchas deportivas. Regar, cosechar, alimentar, mimar, colocar una cancha, correr una carrera y montar el tren se hacen al vuelo; en cambio editor_infra_construir abre un editor a pantalla completa que cierra el chat, así que llámala SOLA. Para jugar paintball contra los asistentes (1 vs 1, 2 vs 2 o batalla campal, con la casa de campo de batalla) usa editor_paintball.'
       : '',
     conEditor
-      ? 'Si el usuario quiere VER cómo se hace un ejercicio del catálogo de Ejercicio («muéstrame el press banca», «haz una sentadilla»), usa editor_demo_ejercicio: su avatar lo hace en 3D. No es registrar una sesión ni armar una rutina.'
+      ? 'Si el usuario quiere VER cómo se hace un ejercicio del catálogo de Ejercicio («muéstrame el press banca», «haz una sentadilla»), usa editor_demo_ejercicio: su avatar lo hace en 3D. No es registrar una sesión ni armar una rutina. Para que un ASISTENTE (por su nombre) baile un emote o haga un ejercicio en el mapa —o para que el propio avatar baile («baila el floss»)— usa editor_asistente_actua.'
       : '',
     conEditor
       ? 'Cuando un tema se entienda mejor DIBUJADO —una explicación con pasos, tipos, partes o dos cosas comparadas— puedes llevarlo a la app Ideas con editor_mapa_ideas, que dibuja el mapa entero y lo abre. Hazlo cuando el usuario lo pida o acepte tu ofrecimiento; si no, basta con ofrecérselo en una frase al final de la explicación.'
@@ -831,7 +831,7 @@ export interface MensajeIA {
  * por el usuario): descarta vacíos, fusiona mensajes consecutivos del mismo
  * rol y quita un saludo inicial del asistente.
  */
-export function normalizarHistorial(mensajes: MensajeIA[]): MensajeIA[] {
+function normalizarHistorial(mensajes: MensajeIA[]): MensajeIA[] {
   const historial: MensajeIA[] = []
   for (const m of mensajes) {
     if (!m.texto.trim()) continue

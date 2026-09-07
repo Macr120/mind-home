@@ -81,7 +81,7 @@ interface CarpetaMetas {
  * propósito (ninguna cae el mismo día que otra): amontonadas, la vista de mes
  * del calendario se leería como un solo bloque.
  */
-export const METAS_PEP: Record<string, CarpetaMetas> = {
+const METAS_PEP: Record<string, CarpetaMetas> = {
   // ── Cocina · Nutrición ────────────────────────────────────────────────────
   cocina: {
     color: '#f59e0b',
@@ -1499,7 +1499,7 @@ export const METAS_PEP: Record<string, CarpetaMetas> = {
 }
 
 /** Ámbitos que la app resuelve al sembrar (`piano` → `hobby:3`). */
-export type AmbitosDemo = Record<string, string>
+type AmbitosDemo = Record<string, string>
 
 export interface OpcionesMetas {
   /**

@@ -2295,6 +2295,84 @@ export interface MuroLibre {
   ventCara?: 'interior' | 'exterior'
 }
 
+/**
+ * Vértice de una forma libre en UNIDADES DE CELDA continuas, con origen en la esquina
+ * NO del mapa (esquina de rejilla 0,0): mundo x = (u − gridCols/2)·SPACING,
+ * z = (v − gridRows/2)·SPACING. Así la forma sobrevive al cambio de tamaño de celda y,
+ * al crecer la rejilla por el N/O, se desplaza junto con los cuartos.
+ */
+export interface PuntoUV {
+  u: number
+  v: number
+}
+
+/** Qué construye una forma libre: solo muro, solo piso, o piso con muro perimetral. */
+export type TipoFormaLibre = 'muro' | 'piso' | 'recinto'
+/** Forma del techo de un recinto libre: losa plana, tienda (cono/pirámide al centro) o faldones. */
+export type TechoLibreId = 'plano' | 'tienda' | 'una_agua' | 'dos_aguas'
+
+/** Puerta o ventana abierta en el muro de una forma libre. */
+export interface VanoLibre {
+  /** Centro del vano a lo largo del contorno (0…1 de la longitud total). */
+  u: number
+  tipo: 'puerta' | 'ventana'
+  /** Ancho del vano en metros. */
+  ancho: number
+  color?: string
+  puertaTipo?: 'recta' | 'sin' | 'doble' | 'porton' | 'corredera'
+  /** Alto de la puerta, factor del alto del muro (0–1). */
+  puertaAlto?: number
+  /** Remate del vano de la puerta sobre la hoja. */
+  puertaForma?: 'recta' | 'arco' | 'triangulo'
+  /** Alto de la ventana, factor del alto del muro (0–1). */
+  ventAlto?: number
+  /** Centro vertical de la ventana, factor del alto (0–1). */
+  ventPosY?: number
+  ventForma?: 'cuadrado' | 'circulo' | 'triangulo'
+}
+
+/**
+ * Forma de construcción LIBRE (sin rejilla): polilínea o polígono de vértices arbitrarios,
+ * recta o suavizada (Catmull-Rom). Muros, pisos y recintos (piso + muro perimetral).
+ * Los vértices van embebidos en la fila (una entrada de sync por forma, no por vértice).
+ */
+export interface FormaLibre {
+  id?: number
+  nivel: number
+  tipo: TipoFormaLibre
+  puntos: PuntoUV[]
+  /** Contorno cerrado (piso y recinto siempre lo son; el muro puede quedar abierto). */
+  cerrada: boolean
+  /** Vértices unidos por curva suave en vez de rectas. */
+  suave: boolean
+  nombre?: string
+  /** Estilo del muro (TipoMuroId): solido, ladrillo, madera, vitraje… */
+  muroTipo?: string
+  muroColor?: string
+  /** Altura como factor de WALL_H (1 = altura normal). */
+  alto?: number
+  /** Silueta superior a lo largo del contorno: recta (default), arco o triángulo. */
+  silueta?: 'recta' | 'arco' | 'triangulo'
+  formaAlto?: number
+  formaAncho?: number
+  formaPosX?: number
+  vanos?: VanoLibre[]
+  /** Material del piso (PisoTipoId) o null = color liso. */
+  pisoTipo?: string | null
+  pisoColor?: string
+  /** Techo del recinto (solo formas cerradas con muro); ausente = sin techo. */
+  techo?: TechoLibreId
+  /** Material del techo (TechoTipoId), null = color liso; ausente = hereda el techo de la casa. */
+  techoTipo?: string | null
+  /** Color base del techo (por defecto el del muro). */
+  techoColor?: string
+  /** Altura relativa de tienda y faldones: 1 = la automática según el tamaño. */
+  techoAlto?: number
+  /** Orientación (0–3) del lado alto o del caballete de los faldones. */
+  techoDir?: number
+  fecha: number
+}
+
 /** Piso personalizado de una celda o sub-celda (¼) del plano. */
 export interface PisoExteriorCelda {
   id?: number
@@ -3516,6 +3594,8 @@ export interface Dibujo {
   capasEn?: string
   creadoEn: string
   actualizadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Carpeta fija de un libro a la que pertenece un documento del Studio de escritura. */
@@ -3538,6 +3618,8 @@ export interface Historia {
   tipo?: TipoLibro
   creadoEn: string
   actualizadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Documento del Studio de escritura. */
@@ -3564,6 +3646,8 @@ export interface Documento {
   relY?: number
   creadoEn: string
   actualizadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Arista del diagrama de relaciones de un libro: personaje A —texto→ personaje B. */
@@ -3580,6 +3664,8 @@ export interface RelacionLibro {
   /** La nota de la conexión: FK → `documentos` (seccion 'relacion'). NO se indexa. */
   docId?: number
   creadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /**
@@ -3760,6 +3846,8 @@ export interface ProyectoAudio {
   oculto?: boolean
   creadoEn: string
   actualizadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 // ─── Studio de video · formato 1 (LEGADO: solo migración y contrato de la IA) ──
@@ -3846,13 +3934,20 @@ export interface CamaraPelicula {
   fov1p: number
 }
 
+/** Movimiento de cámara de un plano del modo película; catálogo en `rooms/video/pelicula/efectosCamara.ts`. */
+export type EfectoCamaraId = 'fijo' | 'zoomIn' | 'zoomOut' | 'panIzq' | 'panDer' | 'orbita' | 'picado' | 'contrapicado' | 'seguir'
+
 /** Lo que se ve en un clip visual. El punto de entrada del video va en `ClipBase.desde`. */
 export type FuenteVisual =
   | { tipo: 'color'; color: string }
   | { tipo: 'imagen'; medioId: number }
   | { tipo: 'video'; medioId: number }
-  /** Plano rodado en la casa 3D (modo película): `cam` al entrar; con `camFin` la cámara viaja hasta ahí durante el clip. */
-  | { tipo: 'escena3d'; cam: CamaraPelicula; camFin?: CamaraPelicula }
+  /**
+   * Plano rodado en la casa 3D (modo película): `cam` al entrar; con `camFin` la cámara viaja hasta ahí
+   * durante el clip. `efecto` etiqueta el movimiento; con 'seguir', `seguir` es el actor ('jugador' o
+   * asistenteId) al que el foco persigue cada frame (solo en vista isométrica).
+   */
+  | { tipo: 'escena3d'; cam: CamaraPelicula; camFin?: CamaraPelicula; efecto?: EfectoCamaraId; seguir?: string }
 
 export type TipoTransicion = 'corte' | 'fundido' | 'disolver' | 'deslizar' | 'barrido' | 'zoom' | 'desenfoque'
 export type DireccionTransicion = 'izq' | 'der' | 'arriba' | 'abajo'
@@ -4023,6 +4118,8 @@ export interface ProyectoVideo {
   publicaciones?: PublicacionVideo[]
   creadoEn: string
   actualizadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Una subida del proyecto a una red social (viaja con el proyecto). */
@@ -4149,6 +4246,7 @@ class MindHomeDB extends Dexie {
   zonas!: Table<ZonaPlano, number>
   pisosExterior!: Table<PisoExteriorCelda, number>
   murosLibres!: Table<MuroLibre, number>
+  formasLibres!: Table<FormaLibre, number>
   cuartos!: Table<Cuarto, string>
   watchlist!: Table<AccionWatch, number>
   movimientosFijos!: Table<MovimientoFijo, number>
@@ -5767,6 +5865,12 @@ class MindHomeDB extends Dexie {
     // (blobs del dispositivo, mismo criterio que `grabacionesAudio`).
     this.version(136).stores({
       musicaImportada: '++id, creadoEn',
+    })
+
+    // v137: formas de construcción LIBRE del constructor de mapa (ver `FormaLibre`):
+    // muros, pisos y recintos con vértices arbitrarios. Nace vacía: sin `.upgrade()`.
+    this.version(137).stores({
+      formasLibres: '++id, nivel, &uid',
     })
   }
 }

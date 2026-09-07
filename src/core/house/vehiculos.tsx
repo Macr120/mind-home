@@ -191,7 +191,7 @@ function BicicletaForma({
   )
 }
 
-export function BicicletaModelo({ color, animado = false }: { color: string; animado?: boolean }) {
+function BicicletaModelo({ color, animado = false }: { color: string; animado?: boolean }) {
   const ruedas = useRef<(THREE.Group | null)[]>([])
   const pedales = useRef<THREE.Group>(null)
   useFrame(() => {
@@ -248,7 +248,7 @@ function MotoForma({ color, refRueda }: { color: string; refRueda?: (i: number, 
   )
 }
 
-export function MotoModelo({ color, animado = false }: { color: string; animado?: boolean }) {
+function MotoModelo({ color, animado = false }: { color: string; animado?: boolean }) {
   const ruedas = useRef<(THREE.Group | null)[]>([])
   useFrame(() => {
     if (!animado) return
@@ -303,7 +303,7 @@ function AutoForma({ color, refRueda }: { color: string; refRueda?: (i: number, 
   )
 }
 
-export function AutoModelo({ color, animado = false }: { color: string; animado?: boolean }) {
+function AutoModelo({ color, animado = false }: { color: string; animado?: boolean }) {
   const ruedas = useRef<(THREE.Group | null)[]>([])
   useFrame(() => {
     if (!animado) return
@@ -356,7 +356,7 @@ function OvniForma({
   )
 }
 
-export function OvniModelo({ color, animado = false }: { color: string; animado?: boolean }) {
+function OvniModelo({ color, animado = false }: { color: string; animado?: boolean }) {
   const disco = useRef<THREE.Group>(null)
   const cuerpo = useRef<THREE.Group>(null)
   useFrame((state) => {

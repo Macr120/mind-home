@@ -34,7 +34,7 @@ export async function generarAudioNarracion(
 }
 
 /** Guarda un audio como medio y mide lo que hace falta. */
-export async function registrarAudio(
+async function registrarAudio(
   blob: Blob,
   nombre: string,
   origen: 'tts' | 'importado',

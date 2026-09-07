@@ -21,7 +21,7 @@ export type HerramientaHuerto =
  * Cosecha una parcela lista: limpia el cultivo, suma su contador y manda la
  * cosecha a la cesta. La usan la herramienta del editor y la cosecha al caminar.
  */
-export async function cosecharParcela(previa: CultivoCelda): Promise<void> {
+async function cosecharParcela(previa: CultivoCelda): Promise<void> {
   if (previa.id == null || !previa.especie) return
   const esp = previa.especie
   await db.cultivos.update(previa.id, {

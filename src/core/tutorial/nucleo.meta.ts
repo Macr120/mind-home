@@ -20,7 +20,7 @@ const tour = (
   cargar: () => import('./nucleo').then((m) => m[cuerpo] as CuerpoTutorial),
 })
 
-export const tutorialHoy = tour(
+const tutorialHoy = tour(
   'hoy',
   T('tut.hoy.titulo', 'Misiones'),
   T(
@@ -30,7 +30,7 @@ export const tutorialHoy = tour(
   'cuerpoHoy',
 )
 
-export const tutorialProgreso = tour(
+const tutorialProgreso = tour(
   'progreso',
   T('tut.progreso.titulo', 'Tu progreso'),
   T(
@@ -40,7 +40,7 @@ export const tutorialProgreso = tour(
   'cuerpoProgreso',
 )
 
-export const tutorialWrapped = tour(
+const tutorialWrapped = tour(
   'wrapped',
   T('tut.wrapped.titulo', 'Wrapped: tu resumen'),
   T(

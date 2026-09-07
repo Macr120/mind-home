@@ -43,7 +43,7 @@ import { VistaCascada, type EntradaPractica } from './VistaCascada'
  * letra: sirve igual en el layout español) la fila A–L pone las notas y W/E/
  * T/Y/U las negras; Z/X bajan/suben la octava. Con batería, A S D F = pads.
  */
-export const SEMITONOS_FISICOS: Record<string, number> = {
+const SEMITONOS_FISICOS: Record<string, number> = {
   KeyA: 0, KeyW: 1, KeyS: 2, KeyE: 3, KeyD: 4, KeyF: 5, KeyT: 6, KeyG: 7,
   KeyY: 8, KeyH: 9, KeyU: 10, KeyJ: 11, KeyK: 12, KeyO: 13, KeyL: 14, KeyP: 15, Semicolon: 16,
 }

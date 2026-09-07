@@ -22,7 +22,7 @@ export const XP_POR_LISTA = 20
  * Solo celebra quien inserta: el índice único `&[plantillaId+fecha]` cierra la
  * carrera de dos paneles (o dos pestañas) viendo la misma lista completarse.
  */
-export async function otorgarListaCumplida(
+async function otorgarListaCumplida(
   plantillaId: string,
   fecha: string,
   celebrar = false,
@@ -71,7 +71,7 @@ export function useOtorgarListasCompletas(completas: string[] | undefined, fecha
  * vacío y no celebra en frío (recargas, o un registro hecho fuera del cuarto).
  * Montar con `key={plantillaId}` para que cambiar de cuarto reinicie el prev.
  */
-export function useCelebrarRachaApp(plantillaId: string) {
+function useCelebrarRachaApp(plantillaId: string) {
   const hoy = fechaLocalISO()
   const n = useLiveQuery(() => registrosDelDia(plantillaId, hoy), [plantillaId, hoy])
   const prev = useRef<number | undefined>(undefined)

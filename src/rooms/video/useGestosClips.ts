@@ -19,7 +19,7 @@ export type LadoAsa = 'ini' | 'fin'
 export const redondearDecima = (s: number) => Math.round(s * 10) / 10
 
 /** Hasta dónde puede ir cada asa (segundos absolutos). */
-export function limitesRecorte(
+function limitesRecorte(
   clips: ClipVideo[],
   clip: ClipVideo,
   lado: LadoAsa,

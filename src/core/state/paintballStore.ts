@@ -22,7 +22,7 @@ import { sonar } from '../audio/sfx'
  * objeto mutable `paintballFrame` (patrón carreraFrame).
  */
 
-export type FasePaintball = null | 'config' | 'cuenta' | 'jugando' | 'fin'
+type FasePaintball = null | 'config' | 'cuenta' | 'jugando' | 'fin'
 export type ModoPaintball = '1v1' | '2v2' | 'royale'
 
 /** Impactos que aguanta cada jugador antes de quedar fuera. */
@@ -138,7 +138,7 @@ export function dispararPinturaLibre(camera: THREE.Camera, nivel: number): void 
 }
 
 /** Mensaje transitorio del HUD: clave i18n + nombre opcional del afectado. */
-export interface MensajePaintball {
+interface MensajePaintball {
   clave: 'fuera' | 'teDieron' | 'nivel' | 'sinAsistentes' | 'faltan'
   nombre?: string
 }

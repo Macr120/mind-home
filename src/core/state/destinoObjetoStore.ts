@@ -25,7 +25,7 @@ export const useDestinoObjeto = create<DestinoObjetoState>((set, get) => ({
 }))
 
 /** Cuartos ya construidos: los destinos posibles además del mapa. */
-export function cuartosDestino() {
+function cuartosDestino() {
   const { placed } = useLayout.getState()
   return useCuartos.getState().cuartos.filter((c) => placed[c.id])
 }

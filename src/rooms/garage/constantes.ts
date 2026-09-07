@@ -6,7 +6,7 @@ import type {
 } from '../../core/data/db'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 
-export const COLOR_FABRICA = '#fbbf24'
+const COLOR_FABRICA = '#fbbf24'
 /**
  * Con el que se pinta la app: el color del CUARTO abierto (lo baja `RoomOverlay` en
  * `--ui-app`) y, fuera de él, el de fábrica. Es una variable CSS, no un hex: para
@@ -80,7 +80,7 @@ export type GrupoTramite = 'tramite' | 'documento'
  * ve los trámites libres. `emoji` es un DATO de la rutina que se proyecta en el
  * calendario, no un icono de UI.
  */
-export const TIPOS_TRAMITE: {
+const TIPOS_TRAMITE: {
   id: TipoTramite
   label: string
   emoji: string

@@ -3,8 +3,12 @@ import { Shapes } from 'lucide-react'
 import { useAjustes, type EstiloIconos } from '../../state/ajustesStore'
 import { useT } from '../../i18n/useT'
 import { TEMAS_UI, modoBase, type ModoUI } from '../temasUI'
+import { ESTILOS_UI } from '../estilosUI'
 import { TIPOGRAFIAS } from '../tipografias'
 import { Icono } from '../iconos/Icono'
+
+/** Temas por columna del selector (dos columnas parejas). */
+const MITAD_TEMAS = Math.ceil(TEMAS_UI.length / 2)
 
 /**
  * Sección del editor de mapa: ajustes de la interfaz (idioma, apariencia,
@@ -21,6 +25,8 @@ export function EditorAjustesSection({ embed }: { embed?: boolean } = {}) {
   const setTipografia = useAjustes((s) => s.setTipografia)
   const estiloIconos = useAjustes((s) => s.estiloIconos)
   const setEstiloIconos = useAjustes((s) => s.setEstiloIconos)
+  const estiloUI = useAjustes((s) => s.estiloUI)
+  const setEstiloUI = useAjustes((s) => s.setEstiloUI)
   const vidrioTransparencia = useAjustes((s) => s.vidrioTransparencia)
   const setVidrioTransparencia = useAjustes((s) => s.setVidrioTransparencia)
   const vidrioIntensidad = useAjustes((s) => s.vidrioIntensidad)
@@ -80,6 +86,49 @@ export function EditorAjustesSection({ embed }: { embed?: boolean } = {}) {
         </div>
       </div>
 
+      {/* Estilo de la interfaz: la forma de botones, tarjetas y paneles. Cada
+          tarjeta lleva su propio data-estilo-ui y se previsualiza a sí misma:
+          los bloques de index.css solo declaran variables, que heredan del
+          ancestro más cercano (mismo truco que la tipografía con fontFamily). */}
+      <div className="space-y-1.5">
+        <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
+          {t('ajustes.estilo', 'Estilo de la interfaz')}
+        </p>
+        <div className="grid grid-cols-2 gap-1.5">
+          {ESTILOS_UI.map((e, i) => {
+            const activo = estiloUI === e.id
+            return (
+              <button
+                key={e.id}
+                type="button"
+                data-estilo-ui={e.id}
+                onClick={() => setEstiloUI(e.id)}
+                className={`flex flex-col gap-1.5 rounded-lg border p-2 text-start text-xs font-semibold transition ${
+                  i === ESTILOS_UI.length - 1 ? 'col-span-2' : ''
+                } ${
+                  activo
+                    ? 'border-accent bg-white/10 text-white'
+                    : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
+                }`}
+              >
+                {/* Muestras: un botón de acento y una tarjeta con borde y sombra. */}
+                <span className="flex items-center gap-1.5" aria-hidden>
+                  <span className="ui-accent-bg rounded-lg px-2 py-0.5 text-[10px] font-bold">Aa</span>
+                  <span className="h-5 w-8 rounded-xl border border-white/15 bg-white/5 shadow-md" />
+                </span>
+                <span>{t(`estiloUI.${e.id}`, e.nombre)}</span>
+              </button>
+            )
+          })}
+        </div>
+        <p className="text-[11px] leading-snug text-white/45">
+          {t(
+            'ajustes.estilo.desc',
+            'La forma de botones, tarjetas y paneles: esquinas, bordes y sombras.',
+          )}
+        </p>
+      </div>
+
       {/* Estilo de iconos: emojis (clásico) o SVG (profesional) */}
       <div className="space-y-1.5">
         <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
@@ -107,44 +156,48 @@ export function EditorAjustesSection({ embed }: { embed?: boolean } = {}) {
         </div>
       </div>
 
-      {/* Tema de interfaz */}
+      {/* Tema de interfaz: los cinco temas a mano y los colores que entintan
+          toda la interfaz (paneles y acento), en dos columnas parejas que se
+          llenan de arriba abajo. Sin iconos: la muestra de color basta. */}
       <div className="space-y-1.5">
         <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
           {t('ajustes.tema', 'Tema de la interfaz')}
         </p>
-        <div className="grid grid-cols-1 gap-1.5">
-          {TEMAS_UI.map((tema) => {
-            const activo = temaUI === tema.id
-            return (
-              <button
-                key={tema.id}
-                type="button"
-                onClick={() => setTemaUI(tema.id)}
-                className={`flex items-center gap-2 rounded-md border px-2 py-1.5 text-xs font-semibold transition ${
-                  activo
-                    ? 'border-accent bg-white/10 text-white'
-                    : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
-                }`}
-              >
-                <span
-                  className="h-4 w-4 shrink-0 rounded-full border border-white/20"
-                  style={{ background: tema.vars[modoBase(modoUI)]['--ui-accent'] }}
-                />
-                <Icono emoji={tema.icon} />
-                <span className="flex-1 text-start">
-                  {t(`temaUI.${tema.id}`, tema.nombre)}
-                </span>
-                {activo && <span className="text-accent">●</span>}
-              </button>
-            )
-          })}
+        <div className="grid grid-cols-2 gap-1.5">
+          {[TEMAS_UI.slice(0, MITAD_TEMAS), TEMAS_UI.slice(MITAD_TEMAS)].map((lista, i) => (
+            <div key={i} className="space-y-1.5">
+              {lista.map((tema) => {
+                const activo = temaUI === tema.id
+                return (
+                  <button
+                    key={tema.id}
+                    type="button"
+                    onClick={() => setTemaUI(tema.id)}
+                    className={`flex w-full items-center gap-1.5 rounded-md border px-2 py-1.5 text-xs font-semibold transition ${
+                      activo
+                        ? 'border-accent bg-white/10 text-white'
+                        : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
+                    }`}
+                  >
+                    <span
+                      className="h-4 w-4 shrink-0 rounded-full border border-white/20"
+                      style={{ background: tema.vars[modoBase(modoUI)]['--ui-accent'] }}
+                    />
+                    <span className="min-w-0 flex-1 truncate text-start">
+                      {t(`temaUI.${tema.id}`, tema.nombre)}
+                    </span>
+                  </button>
+                )
+              })}
+            </div>
+          ))}
         </div>
       </div>
 
       {/* Vidrio de la interfaz: transparencia + desenfoque de paneles flotantes */}
       <div className="space-y-1.5">
         <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
-          {t('ajustes.vidrio', 'Estilo de la interfaz')}
+          {t('ajustes.vidrio.titulo', 'Vidrio')}
         </p>
         {(
           [

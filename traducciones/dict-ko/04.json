@@ -1,498 +1,707 @@
 [
   {
-    "clave": "ejercicio.ejDesc.estiramiento-de-gemelos",
-    "en": "Place your hands on the wall and stretch your calf with your back leg straight."
+    "clave": "video.lista.vacio3dSub",
+    "es": "Se filman en el mapa: tus asistentes y tu avatar actúan por planos, con diálogos y reacciones; expórtala o guárdala en Medios.",
+    "en": "Filmed on the map: your assistants and your avatar act shot by shot, with lines and reactions; export it or save it to Media."
   },
   {
-    "clave": "ejercicio.ejDesc.estiramiento-de-hombros",
-    "en": "Cross one arm in front of your chest and pull it in with the other."
+    "clave": "video.pelicula.modo",
+    "es": "Modo película",
+    "en": "Film mode"
   },
   {
-    "clave": "ejercicio.ejDesc.foam-roller",
-    "en": "Roll your muscles over the foam roller to release tension after training."
+    "clave": "video.pelicula.salirTitulo",
+    "es": "Salir del modo película y volver al Studio",
+    "en": "Leave film mode and go back to the Studio"
   },
   {
-    "clave": "ejercicio.ejDesc.estiramiento-de-triceps",
-    "en": "Bring your elbow behind your head and gently push with the other hand."
+    "clave": "video.pelicula.encuadre",
+    "es": "Encuadre del video",
+    "en": "Video frame"
   },
   {
-    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-de-cadera",
-    "en": "In a lunge, push your hip forward to stretch the front of the thigh."
+    "clave": "video.pelicula.previewFilmacion",
+    "es": "Vista previa de la película",
+    "en": "Film preview"
   },
   {
-    "clave": "ejercicio.ejDesc.piernas-en-la-pared",
-    "en": "Lying down, rest your legs up against the wall to relax and drain."
+    "clave": "video.pelicula.inicio",
+    "es": "Ir al principio",
+    "en": "Go to the start"
   },
   {
-    "clave": "ejercicio.ejDesc.savasana",
-    "en": "Lying on your back, relax your whole body while breathing slowly."
+    "clave": "video.pelicula.grabar",
+    "es": "Grabar la toma",
+    "en": "Record the take"
   },
   {
-    "clave": "ejercicio.ejDesc.postura-del-nino-apoyada",
-    "en": "Child's pose with support to relax for a longer time."
+    "clave": "video.pelicula.detenerToma",
+    "es": "Detener la grabación",
+    "en": "Stop recording"
   },
   {
-    "clave": "ejercicio.ejDesc.respiracion-profunda",
-    "en": "Breathe in and out slowly and deeply to calm the nervous system."
+    "clave": "video.pelicula.cuenta",
+    "es": "La grabación empieza en {n}. Toca para cancelar.",
+    "en": "Recording starts in {n}. Tap to cancel."
   },
   {
-    "clave": "ejercicio.ejDesc.mariposa-reclinada",
-    "en": "Lying down with soles together, let your knees drop and relax your hips."
+    "clave": "video.pelicula.tomaLista",
+    "es": "Toma grabada: usa Exportar para descargarla, guardarla en Medios o publicarla",
+    "en": "Take recorded: use Export to download it, save it to Media or publish it"
   },
   {
-    "clave": "ejercicio.ejDesc.torsion-reclinada",
-    "en": "Lying down, let your knees drop to one side, gently rotating your spine."
+    "clave": "video.pelicula.tomaCancelada",
+    "es": "Grabación cancelada",
+    "en": "Recording cancelled"
   },
   {
-    "clave": "ejercicio.ejDesc.liberacion-miofascial-con-pelota",
-    "en": "Roll a hard ball with controlled pressure from your heel to the balls of your feet."
+    "clave": "video.pelicula.escena3d",
+    "es": "Escena 3D",
+    "en": "3D scene"
   },
   {
-    "clave": "ejercicio.ejDesc.circulos-de-tobillo",
-    "en": "Lift one leg and move your ankle in wide circles in both directions."
+    "clave": "video.pelicula.sinCaptura",
+    "es": "Este navegador no puede capturar la escena 3D.",
+    "en": "This browser can’t capture the 3D scene."
   },
   {
-    "clave": "ejercicio.ejDesc.recogida-de-toalla-con-dedos",
-    "en": "Try to scrunch up and gather a towel on the floor using only your toes."
+    "clave": "video.pelicula.exportNota",
+    "es": "Deja esta pestaña a la vista: la escena 3D solo se dibuja mientras está en pantalla.",
+    "en": "Keep this tab visible: the 3D scene only draws while it is on screen."
   },
   {
-    "clave": "ejercicio.ejDesc.estiramiento-de-dorsiflexion",
-    "en": "Facing a wall, bend your front knee while keeping your heel flat on the floor to stretch."
+    "clave": "video.pelicula.guardarMedios",
+    "es": "Guardar en Medios",
+    "en": "Save to Media"
   },
   {
-    "clave": "ejercicio.ejDesc.elevacion-de-talones-unipodal",
-    "en": "Standing on one foot, raise your heel slowly and lower it with eccentric control."
+    "clave": "video.pelicula.guardarMediosSub",
+    "es": "Como clip para tus videos",
+    "en": "As a clip for your videos"
   },
   {
-    "clave": "ejercicio.ejDesc.flexion-y-extension-en-descarga",
-    "en": "Lying down, bend your knee bringing your heel to your glute, then extend without lifting your foot."
+    "clave": "video.pelicula.guardado",
+    "es": "Guardado en Medios: ya puedes usarlo en un video",
+    "en": "Saved to Media: you can use it in a video now"
   },
   {
-    "clave": "ejercicio.ejDesc.estiramiento-dinamico-de-isquiotibiales",
-    "en": "Place a heel in front of you and gently fold your trunk forward with the knee extended."
+    "clave": "video.pelicula.nombreMedio",
+    "es": "Animación 3D · {n}",
+    "en": "3D animation · {n}"
   },
   {
-    "clave": "ejercicio.ejDesc.sentadilla-isometrica-wall-squat",
-    "en": "Rest your back against the wall, lower to 90 degrees, and hold, making sure your knees don't cave in."
+    "clave": "video.pelicula.plano",
+    "en": "Shot"
   },
   {
-    "clave": "ejercicio.ejDesc.equilibrio-unipodal-single-leg-balance",
-    "en": "Balance on one leg with the knee slightly bent, without letting it cave inward."
+    "clave": "video.pelicula.planoN",
+    "es": "Plano {n}",
+    "en": "Shot {n}"
   },
   {
-    "clave": "ejercicio.ejDesc.sentadillas-del-arquero",
-    "en": "With legs apart, bend one knee, shifting your weight while keeping the other leg extended."
+    "clave": "video.pelicula.personaje",
+    "es": "Personaje",
+    "en": "Character"
   },
   {
-    "clave": "ejercicio.ejDesc.estocadas-lunges",
-    "en": "Step forward and lower your hip, forming a 90-degree angle with your front knee."
+    "clave": "video.pelicula.tu",
+    "es": "Tú",
+    "en": "You"
   },
   {
-    "clave": "ejercicio.ejDesc.movilidad-90-90",
-    "en": "Seated with legs at 90 degrees, rotate your trunk and legs from side to side."
+    "clave": "video.pelicula.pista.video",
+    "es": "Planos",
+    "en": "Shots"
   },
   {
-    "clave": "ejercicio.ejDesc.el-puente-glute-bridge",
-    "en": "Lying on your back, raise your pelvis, squeezing your glutes, until your shoulders, hips, and knees align."
+    "clave": "video.pelicula.pista.avatar",
+    "es": "Personajes",
+    "en": "Characters"
   },
   {
-    "clave": "ejercicio.ejDesc.estiramiento-de-flexores-en-estocada",
-    "en": "With one knee on the floor, push your pelvis forward with a straight back to stretch the psoas."
+    "clave": "video.pelicula.camara",
+    "es": "Cámara",
+    "en": "Camera"
   },
   {
-    "clave": "ejercicio.ejDesc.abduccion-lateral-de-cadera",
-    "en": "Lying on your side, raise your top leg while keeping your pelvis stable."
+    "clave": "video.pelicula.usarCamara",
+    "es": "Usar la cámara actual",
+    "en": "Use the current camera"
   },
   {
-    "clave": "ejercicio.ejDesc.sentadilla-profunda-con-apertura",
-    "en": "In a squat, push your knees outward with your elbows to open the hips."
+    "clave": "video.pelicula.irCamara",
+    "es": "Ir a esta cámara",
+    "en": "Go to this camera"
   },
   {
-    "clave": "ejercicio.ejDesc.balanceo-dinamico-de-piernas",
-    "en": "Standing, swing one leg forward, back, and side to side like a pendulum."
+    "clave": "video.pelicula.paneo",
+    "es": "Paneo: fin de plano",
+    "en": "Pan: end of shot"
   },
   {
-    "clave": "ejercicio.ejDesc.postura-gato-vaca",
-    "en": "On all fours, alternate between arching your back toward the ceiling and dropping your belly toward the floor."
+    "clave": "video.pelicula.paneoPoner",
+    "es": "Terminar en la cámara actual",
+    "en": "End at the current camera"
   },
   {
-    "clave": "ejercicio.ejDesc.torsiones-lumbares-suaves",
-    "en": "Lying on your back, let both knees drop together to one side and then the other."
+    "clave": "video.pelicula.paneoQuitar",
+    "es": "Quitar el paneo",
+    "en": "Remove the pan"
   },
   {
-    "clave": "ejercicio.ejDesc.pointer-bird-dog",
-    "en": "On all fours, extend opposite leg and arm while keeping your lower back flat."
+    "clave": "video.pelicula.usarCamaraFin",
+    "es": "Usar la actual como final",
+    "en": "Use the current one as the end"
   },
   {
-    "clave": "ejercicio.ejDesc.plancha-frontal-isometricos",
-    "en": "Hold a plank position resting on your forearms, forming a straight line."
+    "clave": "video.pelicula.irFin",
+    "es": "Ir al final",
+    "en": "Go to the end"
   },
   {
-    "clave": "ejercicio.ejDesc.roll-down-curl-jefferson",
-    "en": "Standing, slowly roll your spine down one vertebra at a time."
+    "clave": "video.pelicula.vistas",
+    "es": "Vista",
+    "en": "View"
   },
   {
-    "clave": "ejercicio.ejDesc.estiramiento-lumbar-boca-abajo",
-    "en": "Lying face down, lift your hips and then lower them, extending your back."
+    "clave": "video.pelicula.tocarMapaAyuda",
+    "es": "Toca el mapa para colocarlo ahí; camina en línea recta, atravesando muros.",
+    "en": "Tap the map to place them there; they walk in a straight line, through walls."
   },
   {
-    "clave": "ejercicio.ejDesc.rotacion-toracica",
-    "en": "On all fours, lift one arm out to the side and follow your hand with your gaze."
+    "clave": "video.pelicula.vista.iso",
+    "es": "Isométrica",
+    "en": "Isometric"
   },
   {
-    "clave": "ejercicio.ejDesc.retraccion-escapular",
-    "en": "Squeeze your shoulder blades back and down while keeping an upright posture."
+    "clave": "video.pelicula.vista.tercera",
+    "es": "Tercera persona",
+    "en": "Third person"
   },
   {
-    "clave": "ejercicio.ejDesc.angeles-de-pared-wall-angels",
-    "en": "Back against the wall, slide your arms up and down keeping your elbows in contact."
+    "clave": "video.pelicula.vista.primera",
+    "es": "Primera persona",
+    "en": "First person"
   },
   {
-    "clave": "ejercicio.ejDesc.lunge-con-apertura-de-pectoral",
-    "en": "In a lunge, clasp your hands behind your neck and open your elbows back."
+    "clave": "video.pelicula.centrar",
+    "es": "Centrar en el avatar",
+    "en": "Center on your avatar"
   },
   {
-    "clave": "ejercicio.ejDesc.estiramiento-dorsal-en-pared",
-    "en": "Place your hands on the wall and let your trunk drop with your knees straight."
+    "clave": "video.pelicula.sigueAvatar",
+    "es": "En 1ª/3ª persona la cámara sigue a tu avatar",
+    "en": "In first/third person the camera follows your avatar"
   },
   {
-    "clave": "ejercicio.ejDesc.el-gato-y-la-mesa",
-    "en": "On all fours, arch your back and then lower your chest."
+    "clave": "video.pelicula.posicion",
+    "es": "Posición",
+    "en": "Position"
   },
   {
-    "clave": "ejercicio.ejDesc.circulos-de-hombros",
-    "en": "Wide circular movements, favoring the path backward and down."
+    "clave": "video.pelicula.tocarMapa",
+    "es": "Tocar el mapa",
+    "en": "Tap the map"
   },
   {
-    "clave": "ejercicio.ejDesc.estiramiento-de-pecho-pectoral",
-    "en": "Clasp your hands behind your back and open your chest without straining your neck."
+    "clave": "video.pelicula.aqui",
+    "es": "Aquí",
+    "en": "Here"
   },
   {
-    "clave": "ejercicio.ejDesc.dislocaciones-con-goma-o-palo",
-    "en": "Pass a band overhead and behind your back with your elbows straight."
+    "clave": "video.pelicula.llegar",
+    "es": "Llegar caminando",
+    "en": "Walk in"
   },
   {
-    "clave": "ejercicio.ejDesc.rotacion-externa-con-banda",
-    "en": "With elbows at 90 degrees against your body, rotate your hands outward against resistance."
+    "clave": "video.pelicula.mirar",
+    "es": "Mirar a",
+    "en": "Look at"
   },
   {
-    "clave": "ejercicio.ejDesc.thread-the-needle-enhebrar-aguja",
-    "en": "On all fours, thread one arm underneath your body, resting your shoulder on the floor."
+    "clave": "video.pelicula.mirar.camara",
+    "es": "La cámara",
+    "en": "The camera"
   },
   {
-    "clave": "ejercicio.ejDesc.rotaciones-y-medios-circulos",
-    "en": "Chin to chest, trace wide, very slow circles without forcing through pain."
+    "clave": "video.pelicula.mirar.rumbo",
+    "es": "Hacia donde camina",
+    "en": "Where they walk"
   },
   {
-    "clave": "ejercicio.ejDesc.estiramiento-de-trapecio-superior",
-    "en": "Gently tilt your head, bringing your ear toward the opposite shoulder."
+    "clave": "video.pelicula.emocion",
+    "es": "Emoción",
+    "en": "Emotion"
   },
   {
-    "clave": "ejercicio.ejDesc.rotaciones-cervicales-con-nodding",
-    "en": "Turn your head and make small nodding movements (\"yes\")."
+    "clave": "video.pelicula.animacion",
+    "es": "Animación",
+    "en": "Animation"
   },
   {
-    "clave": "ejercicio.ejDesc.retracciones-de-barbilla-chin-tucks",
-    "en": "Draw your chin straight back, making a \"double chin,\" to align your neck."
+    "clave": "video.pelicula.preset.girar",
+    "en": "Spin"
   },
   {
-    "clave": "ejercicio.ejDesc.isometricos-cervicales",
-    "en": "Push your head against your hand, resisting the movement to avoid bending."
+    "clave": "video.pelicula.preset.flotar",
+    "en": "Float"
   },
   {
-    "clave": "ejercicio.ejDesc.flexion-y-extension-de-muneca",
-    "en": "With arms extended, flex your wrist toward the ceiling and then toward the floor."
+    "clave": "video.pelicula.preset.pulsar",
+    "en": "Pulse"
   },
   {
-    "clave": "ejercicio.ejDesc.circulos-de-munecas",
-    "en": "Rotate both wrists, making circles in both directions."
+    "clave": "video.pelicula.preset.mecerse",
+    "en": "Sway"
   },
   {
-    "clave": "ejercicio.ejDesc.estiramiento-de-flexores",
-    "en": "Palm facing up, use your other hand to push your fingers toward your body."
+    "clave": "video.pelicula.preset.rebotar",
+    "en": "Bounce"
   },
   {
-    "clave": "ejercicio.ejDesc.agarre-activo-y-pasivo",
-    "en": "Clench your fists tightly and then open them, relaxing completely."
+    "clave": "video.pelicula.preset.temblar",
+    "en": "Shake"
   },
   {
-    "clave": "ejercicio.ejDesc.plancha-de-munecas",
-    "en": "In a plank or kneeling position, rise up to rest on your fingertips only, then lower."
+    "clave": "video.pelicula.sinGlobo",
+    "es": "Los globos no salen en el archivo exportado: genera subtítulos",
+    "en": "Speech bubbles are not in the exported file: generate subtitles"
   },
   {
-    "clave": "ejercicio.ejTiempo.liberacion-miofascial-con-pelota",
-    "en": "1 to 2 minutes per foot (continuous movement)."
+    "clave": "video.pelicula.unGlobo",
+    "es": "Solo se muestra un globo a la vez",
+    "en": "Only one bubble shows at a time"
   },
   {
-    "clave": "ejercicio.ejTiempo.circulos-de-tobillo",
-    "en": "10 to 12 reps in each direction per ankle."
+    "clave": "video.pelicula.transicionesNota",
+    "es": "Entre dos planos las transiciones solo se ven en el archivo exportado",
+    "en": "Between two shots, transitions only show in the exported file"
   },
   {
-    "clave": "ejercicio.ejTiempo.recogida-de-toalla-con-dedos",
-    "en": "10 to 15 reps (scrunch and release) per foot."
+    "clave": "video.pelicula.atraviesan",
+    "es": "Los personajes caminan en línea recta, atravesando muros",
+    "en": "Characters walk in a straight line, through walls"
   },
   {
-    "clave": "ejercicio.ejTiempo.estiramiento-de-dorsiflexion",
-    "en": "Hold for 15 to 30 seconds per leg, do 2 to 4 sets."
+    "clave": "video.lista.nuevo",
+    "es": "Nuevo video",
+    "en": "New video"
   },
   {
-    "clave": "ejercicio.ejTiempo.elevacion-de-talones-unipodal",
-    "en": "10 to 15 reps per leg."
+    "clave": "video.lista.nuevoMsg",
+    "es": "Nombre del proyecto",
+    "en": "Project name"
   },
   {
-    "clave": "ejercicio.ejTiempo.flexion-y-extension-en-descarga",
-    "en": "8 to 10 reps per leg."
+    "clave": "video.lista.renombrar",
+    "es": "Renombrar video",
+    "en": "Rename video"
   },
   {
-    "clave": "ejercicio.ejTiempo.estiramiento-dinamico-de-isquiotibiales",
-    "en": "Hold for 20 seconds per leg."
+    "clave": "video.lista.vacio",
+    "es": "Aún no hay videos",
+    "en": "No videos yet"
   },
   {
-    "clave": "ejercicio.ejTiempo.sentadilla-isometrica-wall-squat",
-    "en": "Hold for 5 to 15 seconds, stand up, and repeat (3 to 5 times)."
+    "clave": "video.lista.vacioSub",
+    "es": "Escenas con clips, títulos y narración: el guion y la línea de tiempo son la misma cosa.",
+    "en": "Scenes with clips, titles and narration: the script and the timeline are the same thing."
   },
   {
-    "clave": "ejercicio.ejTiempo.equilibrio-unipodal-single-leg-balance",
-    "en": "Hold for 15 to 60 seconds per leg (repeat 2 to 3 times)."
+    "clave": "video.lista.meta",
+    "es": "{escenas} escenas · {seg} s · {aspecto}",
+    "en": "{escenas} scenes · {seg} s · {aspecto}"
   },
   {
-    "clave": "ejercicio.ejTiempo.sentadillas-del-arquero",
-    "en": "15 reps, alternating sides."
+    "clave": "video.medios.importar",
+    "es": "Importar",
+    "en": "Import"
   },
   {
-    "clave": "ejercicio.ejTiempo.estocadas-lunges",
-    "en": "8 to 12 reps per leg."
+    "clave": "video.medios.vacio",
+    "es": "Aún no hay medios",
+    "en": "No media yet"
   },
   {
-    "clave": "ejercicio.ejTiempo.movilidad-90-90",
-    "en": "8 to 12 reps per side (about 1-2 minutes)."
+    "clave": "video.medios.vacioSub",
+    "es": "Importa videos, imágenes y audios de tu dispositivo, o graba con la cámara o el micrófono (se guardan solo aquí).",
+    "en": "Import videos, images and audio from your device, or record with the camera or the microphone (stored only here)."
   },
   {
-    "clave": "ejercicio.ejTiempo.el-puente-glute-bridge",
-    "en": "15 reps (hold at the top for 2-3 seconds each)."
+    "clave": "video.medios.camaraBoton",
+    "es": "Cámara",
+    "en": "Camera"
   },
   {
-    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores-en-estocada",
-    "en": "Hold for 20 seconds per leg."
+    "clave": "video.medios.microfonoBoton",
+    "es": "Micrófono",
+    "en": "Microphone"
   },
   {
-    "clave": "ejercicio.ejTiempo.abduccion-lateral-de-cadera",
-    "en": "10 to 15 reps per side, holding a few seconds at the top."
+    "clave": "video.medios.camara",
+    "es": "Grabar con la cámara",
+    "en": "Record with the camera"
   },
   {
-    "clave": "ejercicio.ejTiempo.sentadilla-profunda-con-apertura",
-    "en": "15 opening reps."
+    "clave": "video.medios.microfono",
+    "es": "Grabar con el micrófono",
+    "en": "Record with the microphone"
   },
   {
-    "clave": "ejercicio.ejTiempo.balanceo-dinamico-de-piernas",
-    "en": "8 to 10 reps per leg."
+    "clave": "video.medios.grabar",
+    "es": "Grabar",
+    "en": "Record"
   },
   {
-    "clave": "ejercicio.ejTiempo.postura-gato-vaca",
-    "en": "1 minute continuous (or 10 to 15 breaths)."
+    "clave": "video.medios.pidiendo",
+    "es": "Pidiendo permiso…",
+    "en": "Asking for permission…"
   },
   {
-    "clave": "ejercicio.ejTiempo.torsiones-lumbares-suaves",
-    "en": "10 to 15 reps per side."
+    "clave": "video.medios.cambiarCamara",
+    "es": "Cambiar cámara",
+    "en": "Switch camera"
   },
   {
-    "clave": "ejercicio.ejTiempo.pointer-bird-dog",
-    "en": "Hold for 30 seconds on one side, then switch."
+    "clave": "video.medios.sinCamara",
+    "es": "No se pudo usar la cámara",
+    "en": "Couldn’t use the camera"
   },
   {
-    "clave": "ejercicio.ejTiempo.plancha-frontal-isometricos",
-    "en": "Hold for 15 to 60 seconds depending on ability."
+    "clave": "video.medios.sinCamaraMsg",
+    "es": "El navegador bloqueó la cámara. Actívala en el candado junto a la dirección.",
+    "en": "The browser blocked the camera. Enable it via the padlock next to the address bar."
   },
   {
-    "clave": "ejercicio.ejTiempo.roll-down-curl-jefferson",
-    "en": "15 slow reps."
+    "clave": "video.medios.sinEspacio",
+    "es": "No se pudo guardar la toma",
+    "en": "Couldn’t save the take"
   },
   {
-    "clave": "ejercicio.ejTiempo.estiramiento-lumbar-boca-abajo",
-    "en": "1 minute continuous."
+    "clave": "video.medios.sinEspacioMsg",
+    "es": "No queda espacio en este dispositivo.",
+    "en": "No space left on this device."
   },
   {
-    "clave": "ejercicio.ejTiempo.rotacion-toracica",
-    "en": "30 seconds per side."
+    "clave": "video.medios.nombreCamara",
+    "es": "Cámara · {h}",
+    "en": "Camera · {h}"
   },
   {
-    "clave": "ejercicio.ejTiempo.retraccion-escapular",
-    "en": "8 to 10 reps, holding the contraction for 5 to 10 seconds each time."
+    "clave": "video.medios.nombreMicrofono",
+    "es": "Micrófono · {h}",
+    "en": "Microphone · {h}"
   },
   {
-    "clave": "ejercicio.ejTiempo.angeles-de-pared-wall-angels",
-    "en": "10 to 15 slow reps."
+    "clave": "video.medios.nombreMascara",
+    "es": "Máscara AR · {h}",
+    "en": "AR mask · {h}"
   },
   {
-    "clave": "ejercicio.ejTiempo.lunge-con-apertura-de-pectoral",
-    "en": "15 reps on each side."
+    "clave": "video.medios.nombreChatAr",
+    "es": "Chat AR · {h}",
+    "en": "AR chat · {h}"
   },
   {
-    "clave": "ejercicio.ejTiempo.estiramiento-dorsal-en-pared",
-    "en": "Hold for 20 seconds."
+    "clave": "video.pelicula.estudio",
+    "es": "Estudio de cine",
+    "en": "Film studio"
   },
   {
-    "clave": "ejercicio.ejTiempo.el-gato-y-la-mesa",
-    "en": "15 reps coordinated with your breathing."
+    "clave": "video.pelicula.rodaje",
+    "es": "Rodaje",
+    "en": "Shooting"
   },
   {
-    "clave": "ejercicio.ejTiempo.circulos-de-hombros",
-    "en": "8 to 10 reps (forward and backward)."
+    "clave": "video.pelicula.montaje",
+    "es": "Montaje",
+    "en": "Editing"
   },
   {
-    "clave": "ejercicio.ejTiempo.estiramiento-de-pecho-pectoral",
-    "en": "Hold for 15 to 20 seconds."
+    "clave": "video.pelicula.guion",
+    "es": "Guion",
+    "en": "Script"
   },
   {
-    "clave": "ejercicio.ejTiempo.dislocaciones-con-goma-o-palo",
-    "en": "10 to 15 reps."
+    "clave": "video.pelicula.movimiento",
+    "es": "Movimiento de cámara",
+    "en": "Camera move"
   },
   {
-    "clave": "ejercicio.ejTiempo.rotacion-externa-con-banda",
-    "en": "8 to 12 reps."
+    "clave": "video.pelicula.efecto.fijo",
+    "en": "Static shot"
   },
   {
-    "clave": "ejercicio.ejTiempo.thread-the-needle-enhebrar-aguja",
-    "en": "Hold for 15 to 30 seconds per side (2-3 sets)."
+    "clave": "video.pelicula.efecto.zoomIn",
+    "en": "Zoom in"
   },
   {
-    "clave": "ejercicio.ejTiempo.rotaciones-y-medios-circulos",
-    "en": "8 to 10 reps per direction."
+    "clave": "video.pelicula.efecto.zoomOut",
+    "en": "Zoom out"
   },
   {
-    "clave": "ejercicio.ejTiempo.estiramiento-de-trapecio-superior",
-    "en": "Hold for 15 to 30 seconds per side."
+    "clave": "video.pelicula.efecto.panIzq",
+    "en": "Pan left"
   },
   {
-    "clave": "ejercicio.ejTiempo.rotaciones-cervicales-con-nodding",
-    "en": "8 to 12 reps per side."
+    "clave": "video.pelicula.efecto.panDer",
+    "en": "Pan right"
   },
   {
-    "clave": "ejercicio.ejTiempo.retracciones-de-barbilla-chin-tucks",
-    "en": "10 to 15 reps, holding the position for 5 to 10 seconds."
+    "clave": "video.pelicula.efecto.orbita",
+    "en": "Orbit"
   },
   {
-    "clave": "ejercicio.ejTiempo.isometricos-cervicales",
-    "en": "8 to 12 reps (holding tension for 5-10 sec)."
+    "clave": "video.pelicula.efecto.picado",
+    "en": "High angle"
   },
   {
-    "clave": "ejercicio.ejTiempo.flexion-y-extension-de-muneca",
-    "en": "10 to 12 reps."
+    "clave": "video.pelicula.efecto.contrapicado",
+    "en": "Low angle"
   },
   {
-    "clave": "ejercicio.ejTiempo.circulos-de-munecas",
-    "en": "10 to 15 circles per direction."
+    "clave": "video.pelicula.efecto.seguir",
+    "en": "Follow a character"
   },
   {
-    "clave": "ejercicio.ejTiempo.estiramiento-de-flexores",
-    "en": "Hold for 15 to 30 seconds."
+    "clave": "video.pelicula.seguirSoloIso",
+    "es": "Seguir solo funciona en la vista isométrica; en 1ª/3ª persona la cámara sigue a tu avatar",
+    "en": "Following only works in the isometric view; in first/third person the camera follows your avatar"
   },
   {
-    "clave": "ejercicio.ejTiempo.agarre-activo-y-pasivo",
-    "en": "10 to 15 reps."
+    "clave": "video.pelicula.emocion.felicidad",
+    "en": "Happiness"
   },
   {
-    "clave": "ejercicio.ejTiempo.plancha-de-munecas",
-    "en": "8 to 12 reps."
+    "clave": "video.pelicula.emocion.enojo",
+    "en": "Anger"
   },
   {
-    "clave": "ejercicio.dificultad.baja",
-    "en": "Low"
+    "clave": "video.pelicula.emocion.sorpresa",
+    "en": "Surprise"
   },
   {
-    "clave": "ejercicio.dificultad.media",
-    "en": "Medium"
+    "clave": "video.pelicula.emocion.aprobacion",
+    "en": "Approval"
   },
   {
-    "clave": "ejercicio.dificultad.alta",
-    "en": "High"
+    "clave": "video.pelicula.emocion.gusto",
+    "en": "Affection"
   },
   {
-    "clave": "ejercicio.dificultad.mediaAlta",
-    "en": "Medium / High"
+    "clave": "video.pelicula.emocion.tristeza",
+    "en": "Sadness"
   },
   {
-    "clave": "ejercicio.rut.full-body",
-    "en": "Full body"
+    "clave": "video.obra.titulo",
+    "es": "Guion de la obra",
+    "en": "Play script"
   },
   {
-    "clave": "ejercicio.rut.tren-superior",
-    "en": "Upper body"
+    "clave": "video.obra.n",
+    "es": "{n} líneas",
+    "en": "{n} lines"
   },
   {
-    "clave": "ejercicio.rut.tren-inferior",
-    "en": "Lower body"
+    "clave": "video.obra.anadirLinea",
+    "es": "Añadir línea",
+    "en": "Add a line"
   },
   {
-    "clave": "ejercicio.rut.push-pecho-y-triceps",
-    "en": "Push · Chest & triceps"
+    "clave": "video.obra.quien",
+    "es": "Quién habla",
+    "en": "Who speaks"
   },
   {
-    "clave": "ejercicio.rut.pull-espalda-y-biceps",
-    "en": "Pull · Back & biceps"
+    "clave": "video.obra.texto",
+    "es": "Línea",
+    "en": "Line"
   },
   {
-    "clave": "ejercicio.rut.legs-pierna-completa",
-    "en": "Legs · Full leg"
+    "clave": "video.obra.textoPh",
+    "es": "Lo que dice…",
+    "en": "What they say…"
   },
   {
-    "clave": "ejercicio.rut.hiit-20-min",
-    "en": "HIIT 20 min"
+    "clave": "video.obra.ir",
+    "es": "Ir a esta línea",
+    "en": "Go to this line"
   },
   {
-    "clave": "ejercicio.rut.carrera-continua",
-    "en": "Steady-state run"
+    "clave": "video.obra.sinLineas",
+    "es": "Aún no hay líneas: añade una o pide a la IA que escriba la obra",
+    "en": "No lines yet: add one or ask the AI to write the play"
   },
   {
-    "clave": "ejercicio.rut.caminata-inclinada",
-    "en": "Incline walk"
+    "clave": "video.obra.escuchar",
+    "es": "Escuchar la obra",
+    "en": "Listen to the play"
   },
   {
-    "clave": "ejercicio.rut.bike-tempo",
-    "en": "Bike tempo"
+    "clave": "video.obra.borrarLinea",
+    "es": "Borrar la línea",
+    "en": "Delete the line"
   },
   {
-    "clave": "ejercicio.rut.triatlon-sprint",
-    "en": "Sprint triathlon"
+    "clave": "video.obra.escenario",
+    "es": "Escenario (marionetas)",
+    "en": "Stage (puppets)"
   },
   {
-    "clave": "ejercicio.rut.movilidad-matutina",
-    "en": "Morning mobility"
+    "clave": "video.obra.sinPersonajes",
+    "es": "Añade líneas con personajes para acomodarlos en el escenario",
+    "en": "Add lines with characters to arrange them on stage"
   },
   {
-    "clave": "ejercicio.rut.yoga-flow",
-    "en": "Yoga flow"
+    "clave": "video.obra.colocando",
+    "es": "Toca el mapa para colocar a {n}",
+    "en": "Tap the map to place {n}"
   },
   {
-    "clave": "ejercicio.rut.cadera-y-piernas",
-    "en": "Hips & legs"
+    "clave": "video.obra.listo",
+    "es": "Listo",
+    "en": "Done"
   },
   {
-    "clave": "ejercicio.rut.estiramiento-post-entreno",
-    "en": "Post-workout stretch"
+    "clave": "video.obra.empujar.izq",
+    "en": "Nudge left"
   },
   {
-    "clave": "ejercicio.rut.espalda-y-hombros",
-    "en": "Back & shoulders"
+    "clave": "video.obra.empujar.der",
+    "en": "Nudge right"
   },
   {
-    "clave": "ejercicio.rut.cuello-y-oficina",
-    "en": "Neck & desk relief"
+    "clave": "video.obra.empujar.adelante",
+    "en": "Nudge away"
   },
   {
-    "clave": "ejercicio.rut.antes-de-dormir",
-    "en": "Before bed"
+    "clave": "video.obra.empujar.atras",
+    "en": "Nudge closer"
   },
   {
-    "clave": "ejercicio.rutDesc.full-body",
-    "en": "Full-body strength circuit."
+    "clave": "video.obra.formacion",
+    "es": "Formación",
+    "en": "Formation"
   },
   {
-    "clave": "ejercicio.rutDesc.tren-superior",
-    "en": "Chest, back, shoulders, and arms in one session."
+    "clave": "video.obra.formacion.fila",
+    "en": "Row"
   },
   {
-    "clave": "ejercicio.rutDesc.tren-inferior",
-    "en": "Complete legs and glutes."
+    "clave": "video.obra.formacion.semicirculo",
+    "en": "Semicircle"
+  },
+  {
+    "clave": "video.obra.formacion.frente",
+    "en": "Face to face"
+  },
+  {
+    "clave": "video.obra.formacion.circulo",
+    "en": "Circle"
+  },
+  {
+    "clave": "video.obra.tope",
+    "es": "No caben más voces: este personaje leerá con la voz del proyecto",
+    "en": "No room for more voices: this character will read with the project voice"
+  },
+  {
+    "clave": "video.obra.ia.titulo",
+    "es": "Pedir a la IA",
+    "en": "Ask the AI"
+  },
+  {
+    "clave": "video.obra.ia.ideaPh",
+    "es": "Una comedia corta donde los personajes discuten por quién se comió la última galleta…",
+    "en": "A short comedy where the characters argue over who ate the last cookie…"
+  },
+  {
+    "clave": "video.obra.ia.escribir",
+    "es": "Escribir la obra",
+    "en": "Write the play"
+  },
+  {
+    "clave": "video.obra.ia.reemplazar",
+    "es": "Reemplazar la obra",
+    "en": "Replace the play"
+  },
+  {
+    "clave": "video.obra.ia.reemplazarMsg",
+    "es": "Las líneas nuevas sustituyen a las actuales.",
+    "en": "The new lines replace the current ones."
+  },
+  {
+    "clave": "video.obra.ia.anadir",
+    "es": "Añadir al final",
+    "en": "Add at the end"
+  },
+  {
+    "clave": "video.anadir.grabarCamara",
+    "es": "Grabar con la cámara",
+    "en": "Record with the camera"
+  },
+  {
+    "clave": "video.anadir.grabarAudio",
+    "es": "Grabar audio",
+    "en": "Record audio"
+  },
+  {
+    "clave": "video.anadir.mascaraAr",
+    "es": "Máscara AR",
+    "en": "AR mask"
+  },
+  {
+    "clave": "video.anadir.chatAr",
+    "es": "Chat AR",
+    "en": "AR chat"
+  },
+  {
+    "clave": "video.grabar.cuenta",
+    "es": "La grabación empieza en {n}",
+    "en": "Recording starts in {n}"
+  },
+  {
+    "clave": "chatAr.grabar",
+    "es": "Grabar",
+    "en": "Record"
+  },
+  {
+    "clave": "chatAr.detenerGrabacion",
+    "es": "Detener grabación",
+    "en": "Stop recording"
+  },
+  {
+    "clave": "chatAr.errorGrabar",
+    "es": "No se pudo grabar: {detalle}",
+    "en": "Could not record: {detalle}"
+  },
+  {
+    "clave": "chatAr.grabarNota",
+    "es": "Lo que ves entra en la toma; la voz del asistente solo entra por el micrófono",
+    "en": "What you see goes into the take; the assistant’s voice comes in only through the microphone"
+  },
+  {
+    "clave": "video.medios.video",
+    "es": "Video",
+    "en": "Video"
+  },
+  {
+    "clave": "video.medios.imagen",
+    "es": "Imagen",
+    "en": "Image"
+  },
+  {
+    "clave": "video.medios.audio",
+    "es": "Audio",
+    "en": "Audio"
+  },
+  {
+    "clave": "video.medios.elegir",
+    "es": "Elegir un medio",
+    "en": "Pick a medium"
+  },
+  {
+    "clave": "video.medios.enUso",
+    "es": "El medio se usa en tus videos",
+    "en": "This medium is used in your videos"
   }
 ]

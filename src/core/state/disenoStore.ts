@@ -364,6 +364,8 @@ interface DisenoState {
   setRoomTechoParam: (roomId: string, patch: Partial<TechoParams>) => Promise<void>
   /** Fija (o limpia con null) la forma de techo de UNA celda del cuarto (fabricación por rejilla). */
   setRoomTechoCeldaForma: (roomId: string, offKey: string, forma: TechoCeldaForma | null) => Promise<void>
+  /** Repone colores, pisos y techos por cuarto de golpe (deshacer/rehacer de la pestaña Mapa). */
+  restaurarDisenoCuartos: (c: DisenoCuartos) => Promise<void>
   /**
    * Renumera las claves del techo por celda cuando el cuarto cambia de ancla o footprint
    * (crecer/encoger): van por offset igual que `formasCelda`, así que sin esto el techo se
@@ -785,6 +787,19 @@ export function muebleDeCuarto(objetos: ObjetoCuarto[], roomId: string) {
   const delCuarto = objetosDeCuarto(objetos, roomId)
   return delCuarto.find((o) => esMueblePrincipal(o)) ?? delCuarto[0]
 }
+
+/** Rebanada del diseño POR CUARTO que el historial de la pestaña Mapa guarda y repone. */
+export const CLAVES_DISENO_CUARTOS = [
+  'roomColors',
+  'roomPisoTipos',
+  'roomPisoColors',
+  'roomTechoTipos',
+  'roomTechoColors',
+  'roomTechoFormas',
+  'roomTechoParams',
+  'roomTechoFormasCelda',
+] as const
+export type DisenoCuartos = Pick<DisenoState, (typeof CLAVES_DISENO_CUARTOS)[number]>
 
 export const useDiseño = create<DisenoState>((set, get) => ({
   roomColors: {},
@@ -2016,6 +2031,38 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     else if (persistible) {
       const defaultColor = colorCuarto(roomId)
       await db.disenoRooms.add({ roomId, color: defaultColor, nombre: '', techoFormasCelda: persistible })
+    }
+  },
+
+  restaurarDisenoCuartos: async (c) => {
+    const antes = get()
+    set({ ...c })
+    // Fila de `disenoRooms` según la rebanada, con la codificación de los setters: '' = sin
+    // valor, '__color__' = techo de color liso, techoTipo ausente = heredar el de la casa.
+    const filaDe = (s: DisenoCuartos, id: string) => {
+      const tt = s.roomTechoTipos[id]
+      return {
+        color: s.roomColors[id] ?? colorCuarto(id),
+        pisoTipo: s.roomPisoTipos[id] ?? '',
+        pisoColor: s.roomPisoColors[id] ?? '',
+        techoTipo: tt === undefined ? undefined : tt === null ? '__color__' : tt,
+        techoColor: s.roomTechoColors[id] ?? '',
+        techoForma: s.roomTechoFormas[id],
+        techoParams: s.roomTechoParams[id],
+        techoFormasCelda: s.roomTechoFormasCelda[id],
+      }
+    }
+    const ids = new Set<string>()
+    for (const k of CLAVES_DISENO_CUARTOS) {
+      for (const id of Object.keys(antes[k])) ids.add(id)
+      for (const id of Object.keys(c[k])) ids.add(id)
+    }
+    for (const id of ids) {
+      const nueva = filaDe(c, id)
+      if (JSON.stringify(nueva) === JSON.stringify(filaDe(antes, id))) continue
+      const existing = await db.disenoRooms.where('roomId').equals(id).first()
+      if (existing?.id) await db.disenoRooms.update(existing.id, nueva)
+      else await db.disenoRooms.add({ roomId: id, nombre: '', ...nueva })
     }
   },
 

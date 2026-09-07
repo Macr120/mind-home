@@ -35,9 +35,6 @@ export const PALETA = [
 
 export const GROSORES = [4, 10, 22]
 
-/** Lado mayor de una foto importada (mismo tope que `comprimirFoto`). */
-export const LADO_MAX_FOTO = 1280
-
 /** Zoom del lienzo (rueda o pellizco). */
 export const ZOOM_MIN = 0.25
 export const ZOOM_MAX = 6

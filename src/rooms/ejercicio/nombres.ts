@@ -15,7 +15,7 @@ import { slugTexto } from './slug'
  * catálogo; el slug es `slugTexto`, compartido a propósito.
  */
 
-export function slugEjercicio(nombre: string): string {
+function slugEjercicio(nombre: string): string {
   return slugTexto(nombre)
 }
 
@@ -57,18 +57,4 @@ export function nombreRutina(t: TFunc, nombre: string): string {
 export function descRutina(t: TFunc, nombre: string, descripcion?: string): string | undefined {
   if (!descripcion) return descripcion
   return t(`ejercicio.rutDesc.${slugEjercicio(nombre)}`, descripcion)
-}
-
-/**
- * Enfoque de flexibilidad: la sesión guarda el LABEL español del grupo
- * (canónico); para pintarlo se busca el grupo vivo con ese label y se traduce
- * con su clave. Un enfoque escrito a mano por el usuario sale tal cual.
- */
-export function nombreEnfoque(
-  t: TFunc,
-  grupos: { grupoId: string; label: string }[],
-  label: string,
-): string {
-  const g = grupos.find((x) => x.label === label)
-  return g ? t(`ejercicio.grupo.${g.grupoId}`, label) : label
 }

@@ -51,7 +51,7 @@ export type AspectoImagen = '1:1' | '16:9' | '9:16' | '4:3' | '3:4'
 const LS_PROV_IMAGEN = 'mh.iaProvImagen'
 
 /** Preferencia explícita del proveedor de imagen (fila «Imagen» del panel de IA). */
-export function getProvImagen(): ProveedorImagenId | null {
+function getProvImagen(): ProveedorImagenId | null {
   const id = localStorage.getItem(LS_PROV_IMAGEN)
   return id === 'chatgpt' || id === 'gemini' || id === 'local' ? id : null
 }
@@ -125,8 +125,8 @@ export async function comprimirImagen(entrada: Blob, max = 512): Promise<Blob> {
   }
 }
 
-/** base64 pelado → Blob (lo usan la imagen y el TTS del Studio de video). */
-export function base64ABlob(b64: string, tipo = 'image/png'): Blob {
+/** base64 pelado → Blob (el TTS de `audio/vozIA.ts` lleva su propia copia). */
+function base64ABlob(b64: string, tipo = 'image/png'): Blob {
   const bin = atob(b64)
   const bytes = new Uint8Array(bin.length)
   for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i)

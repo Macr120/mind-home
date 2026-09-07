@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import type { ClipPrincipal, ClipVideo, FuenteSonido, MedioVideo, NarradorVideo, PistaId } from '../../core/data/db'
+import type { ClipPrincipal, ClipVideo, EfectoCamaraId, EscenaActor, FuenteSonido, MedioVideo, NarradorVideo, PistaId } from '../../core/data/db'
 import { mediosVideoRepo, proyectosVideoRepo, VACIO } from '../../core/data/repository'
 import { descargarArchivo } from '../../core/descargarArchivo'
 import {
@@ -21,7 +21,7 @@ import { playerPos } from '../../core/state/playerPosition'
 import { Creditos } from '../../core/ui/Creditos'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { BotonPrimario, BotonSecundario, Campo, INPUT, Modal, Spinner } from '../_shared/ui'
-import { esActorEscena, puntoActor } from './actores'
+import { esActorEscena, nombreActor, puntoActor } from './actores'
 import { AvatarLienzo } from './AvatarLienzo'
 import { BarraHerramientas } from './BarraHerramientas'
 import {
@@ -42,6 +42,7 @@ import {
   AVISO_DURACION_EXPORT,
   COLOR,
   DUR_DEFECTO,
+  EN_OFF,
   LS_ALTO_PELICULA,
   LS_PANEL_CLIP,
   LS_PANEL_MEDIOS,
@@ -60,11 +61,26 @@ import { capturarEscena3d, exportarVideo, firmaExport, mimeExport, type ExportLi
 import { crearPool, type PoolFuentes } from './fuentes'
 import { GrabarMedioModal, type TipoGrabacion } from './GrabarMedio'
 import { Guion } from './Guion'
-import { generarGuion, mejorarTitulos } from './ia'
+import { GuionObra } from './GuionObra'
+import { generarGuion, generarObra, mejorarTitulos } from './ia'
 import { completarGrabacion } from './importar'
 import { ListaSonidos } from './ListaSonidos'
 import { MediosPanel } from './MediosPanel'
 import { MenuAnadir, type OpcionAnadir } from './MenuAnadir'
+import { MenuCamara } from './MenuCamara'
+import {
+  aplicarMarca,
+  encadenarObra,
+  esLineaObra,
+  lineasObra,
+  marcaDe,
+  moverLineaObra,
+  narradorPara,
+  nuevaLineaObra,
+  quienDe,
+  type DuracionMedio,
+} from './obra'
+import { conEfecto, empujar, formacion, type FormacionId } from './pelicula/efectosCamara'
 import {
   actoresDe,
   asignarNarrador,
@@ -150,6 +166,12 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
   const grabando = useGrabacionPantalla((s) => s.estado !== 'inactivo')
   const resultadoGrabacion = useGrabacionPantalla((s) => s.resultado)
   const [menuAnadir, setMenuAnadir] = useState(false)
+  /** Estudio de cine: el menú de movimientos de cámara y el guion de la obra. */
+  const [menuCamara, setMenuCamara] = useState(false)
+  const [obraAbierta, setObraAbierta] = useState(false)
+  /** «Tocar el mapa» desde el guion de la obra: a quién se coloca y su marca (el anillo). */
+  const [colocandoObra, setColocandoObra] = useState<{ id: string; x: number; z: number } | null>(null)
+  const colocandoObraRef = useRef(colocandoObra)
   /** Grabar con la cámara o el micrófono del equipo desde «Añadir»: la toma entra en el cursor. */
   const [grabarMedio, setGrabarMedio] = useState<TipoGrabacion | null>(null)
   const [menuExportar, setMenuExportar] = useState(false)
@@ -214,7 +236,10 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
     proyectoRef.current = proyecto
     mediosRef.current = medios
     seleccionRef.current = seleccion
+    colocandoObraRef.current = colocandoObra
   })
+  /** La duración de un audio ya generado (la obra encadena sus líneas con ella). */
+  const durMedio: DuracionMedio = (medioId) => mediosRef.current.find((m) => m.id === medioId)?.duracion
 
   const { alto, colapsado, props: propsDivisor, altoMax } = useAltoPreview(
     cuerpoRef,
@@ -401,6 +426,14 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
     peliculaFrame.t = tiempoRef.current
     peliculaFrame.proyecto = proyectoRef.current
     registrarEjecutorColocar((x, z) => {
+      const obra = colocandoObraRef.current
+      if (obra) {
+        // Desde el guion de la obra: la marca de esa marioneta en todas sus líneas, y vuelta al guion.
+        mutarClips((clips) => aplicarMarca(clips, obra.id, { x, z }))
+        setColocandoObra(null)
+        setObraAbierta(true)
+        return
+      }
       const sel = proyectoRef.current?.clips.find((c) => c.id === seleccionRef.current)
       if (esActorEscena(sel)) cambiarClip(sel.id, { escena: { ...sel.escena, x, z } })
     })
@@ -423,8 +456,9 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
   // Con un actor seleccionado, tocar el mapa lo coloca; el anillo marca su punto.
   const clipSelPelicula = pelicula ? (proyecto?.clips.find((c) => c.id === seleccion) ?? null) : null
   const actorSel = esActorEscena(clipSelPelicula) ? clipSelPelicula : null
-  const marcadorX = actorSel?.escena.x
-  const marcadorZ = actorSel?.escena.z
+  // La marca de la obra («Tocar el mapa» desde el guion) manda sobre el actor seleccionado.
+  const marcadorX = colocandoObra?.x ?? actorSel?.escena.x
+  const marcadorZ = colocandoObra?.z ?? actorSel?.escena.z
   useEffect(() => {
     if (!pelicula) return
     const hay = marcadorX != null && marcadorZ != null
@@ -640,9 +674,11 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
         },
       })
     switch (opcion) {
-      case 'plano':
-        // La cámara tal como está ahora: el plano se retoca desde su panel.
-        insertarEnPrincipal(clipPlano(capturarCamara()))
+      case 'camara':
+        setMenuCamara(true)
+        break
+      case 'guion':
+        setObraAbierta(true)
         break
       case 'personaje': {
         const { inicio, duracion, alFinal } = colocar('avatar', DUR_DEFECTO.personaje)
@@ -781,6 +817,14 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
     }
   }
 
+  /** Un plano con el movimiento elegido desde la cámara tal como está ahora (menú «Cámara» del estudio). */
+  const anadirPlanoCon = (efecto: EfectoCamaraId, seguir?: string) => {
+    setMenuCamara(false)
+    if (!puedeAnadir('video')) return
+    const cam = capturarCamara()
+    insertarEnPrincipal({ ...clipPlano(cam), fuente: conEfecto(cam, efecto, seguir) })
+  }
+
   // ─── Voz, audio y subtítulos ─────────────────────────────────────────────
   const ponerAudio = (clipId: string, patch: Partial<ClipVideo>, duracionAudio: number | undefined) =>
     mutarClips((clips) => {
@@ -788,6 +832,8 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
       const c = lista.find((x) => x.id === clipId)
       if (!c || !duracionAudio) return normalizar(lista)
       const dur = Math.max(MIN_CLIP, Math.ceil(duracionAudio * 10) / 10)
+      // Modo película: la línea dura su audio y la obra se reencadena (en la pista voz `recortarClip` la acotaría al hueco).
+      if (pelicula) return encadenarObra(lista.map((k) => (k.id === clipId ? { ...k, duracion: dur } : k)), durMedio)
       return recortarClip(lista, clipId, 'fin', c.inicio + dur, duracionAudio)
     })
   const narrarClip = async (clipId: string) => {
@@ -876,6 +922,85 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
       setLineaSonando,
       () => mostrarAviso(t('video.lineas.fallo', 'No se pudo leer la línea')),
     )
+  }
+
+  // ─── Guion de la obra (estudio de cine) ──────────────────────────────────
+  const reencadenar = () => mutarClips((clips) => encadenarObra(clips, durMedio))
+  const anadirLineaObra = (quien: string, texto: string, tras?: string) => {
+    if (!puedeAnadir(quien === EN_OFF ? 'voz' : 'avatar')) return
+    mutar((p) => nuevaLineaObra(p, quien, texto, durMedio, { tras }).p)
+  }
+  const cambiarTextoObra = (clipId: string, texto: string) =>
+    mutarClips((clips) =>
+      encadenarObra(
+        clips.map((c) => (c.id === clipId ? ({ ...c, texto: c.pista === 'voz' ? texto || undefined : texto } as ClipVideo) : c)),
+        durMedio,
+      ),
+    )
+  /** Cambia quién dice la línea: su narrador (se crea si cabe) la lleva a la pista que toca y a la casa 3D. */
+  const cambiarQuienObra = (clipId: string, quien: string) => {
+    const p = proyectoRef.current
+    if (!p) return
+    const { p: conNarrador, narrador } = narradorPara(p, quien === EN_OFF ? undefined : quien)
+    if (!narrador) {
+      mostrarAviso(t('video.obra.tope', 'No caben más voces: este personaje leerá con la voz del proyecto'))
+      return
+    }
+    if (conNarrador !== p) mutar(() => conNarrador)
+    asignarNarradorA(clipId, narrador.id)
+    reencadenar()
+  }
+  const borrarLineaObra = async (clipId: string) => {
+    await borrarClip(clipId)
+    reencadenar()
+  }
+  const escenaObra = (clipId: string, patch: Partial<EscenaActor>) => {
+    const c = proyectoRef.current?.clips.find((x) => x.id === clipId)
+    if (esActorEscena(c)) cambiarClip(clipId, { escena: { ...c.escena, ...patch } })
+  }
+  const tocarMapaObra = (id: string) => {
+    // El modal cubre el mapa: se cierra, se coloca con el anillo y el ejecutor lo reabre.
+    setObraAbierta(false)
+    setColocandoObra({ id, ...marcaDe(proyectoRef.current?.clips ?? [], id) })
+  }
+  const formacionObra = (tipo: FormacionId) => {
+    const clips = proyectoRef.current?.clips ?? []
+    const ids = [...new Set(lineasObra(clips).filter((l) => l.pista === 'avatar').map(quienDe))]
+    const puestos = formacion(tipo, ids, capturarCamara())
+    mutarClips((cs) => {
+      let out = cs
+      for (const [id, p] of puestos) out = aplicarMarca(out, id, p, p.mirar)
+      return out
+    })
+  }
+  const correrObra = async (idea: string, reemplazar: boolean) => {
+    if (
+      reemplazar &&
+      !(await confirmar({
+        titulo: t('video.obra.ia.reemplazar', 'Reemplazar la obra'),
+        mensaje: t('video.obra.ia.reemplazarMsg', 'Las líneas nuevas sustituyen a las actuales.'),
+        peligro: true,
+      }))
+    )
+      return
+    setIaError('')
+    setIaOcupado(true)
+    try {
+      const personajes = [{ id: ES_JUGADOR, nombre: nombreActor(t, ES_JUGADOR) }, ...asistentes.map((a) => ({ id: a.id, nombre: a.nombre }))]
+      const lineas = await generarObra(idea, personajes)
+      mutar((prev) => {
+        let p = reemplazar ? { ...prev, clips: prev.clips.filter((c) => !esLineaObra(c)) } : prev
+        for (const l of lineas.slice(0, Math.max(0, MAX_CLIPS - p.clips.length))) {
+          p = nuevaLineaObra(p, l.personaje, l.texto, durMedio, { emocion: l.emocion, anim: l.gesto }).p
+        }
+        return p
+      })
+      seek(lineasObra(proyectoRef.current?.clips ?? [])[0]?.inicio ?? 0)
+    } catch (e) {
+      setIaError(e instanceof Error ? e.message : String(e))
+    } finally {
+      setIaOcupado(false)
+    }
   }
 
   // ─── IA de guion ─────────────────────────────────────────────────────────
@@ -979,6 +1104,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
    */
   const renderizarParaEntrega = async (o: {
     preferirMp4?: boolean
+    codecs?: boolean
     senal: AbortSignal
     onProgreso: (f: number) => void
     /** Los chequeos pasaron y el render va a empezar (para abrir la barra). */
@@ -997,7 +1123,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
     const previo = ultimoExportRef.current
     // En el modo película la toma recién grabada es lo que se entrega (descargar, guardar, publicar) mientras
     // el proyecto no cambie; un encuadre nuevo de cámara sin tocar clips pide volver a grabar.
-    if (previo && previo.firma === firmaExport(p, formato.mime)) {
+    if (previo && previo.firma === firmaExport(p, formato.mime, o.codecs)) {
       if (import.meta.env.DEV) console.info('[video] export reutilizado')
       return previo
     }
@@ -1046,6 +1172,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
         senal: o.senal,
         avatar: avatarRef.current,
         preferirMp4: o.preferirMp4,
+        codecs: o.codecs,
         onProgreso: o.onProgreso,
         fuente3d: escena?.fuente3d,
         onTiempo: pelicula
@@ -1320,6 +1447,23 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
                 {cuenta}
               </span>
             </button>
+          )}
+          {/* «Tocar el mapa» desde el guion de la obra: el modal está cerrado y el toque en el suelo coloca a la marioneta. */}
+          {colocandoObra && (
+            <div className="pointer-events-auto absolute inset-x-0 top-[calc(3.75rem+var(--safe-top))] z-40 flex justify-center px-2">
+              <div role="status" className="ui-hud flex items-center gap-2 rounded-lg border border-white/10 px-3 py-2 text-sm text-white/85">
+                <Icono nombre="mapa" /> {t('video.obra.colocando', 'Toca el mapa para colocar a {n}', { n: nombreActor(t, colocandoObra.id) })}
+                <BotonSecundario
+                  pequeno
+                  onClick={() => {
+                    setColocandoObra(null)
+                    setObraAbierta(true)
+                  }}
+                >
+                  {t('video.obra.listo', 'Listo')}
+                </BotonSecundario>
+              </div>
+            </div>
           )}
         </>
       ) : (
@@ -1604,6 +1748,37 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
 
       {/* Modales: `pointer-events` (y los tokens de la isla oscura) se heredan a través de `display: contents`. */}
       <div className={`contents${interactivo}${isla}`}>
+      {/* Estudio de cine: movimientos de cámara y el guion de la obra */}
+      {menuCamara && <MenuCamara onElegir={anadirPlanoCon} onCerrar={() => setMenuCamara(false)} />}
+      {obraAbierta && (
+        <GuionObra
+          proyecto={proyecto}
+          sonando={lineaSonando}
+          iaOcupado={iaOcupado}
+          iaError={iaError}
+          onCerrar={() => setObraAbierta(false)}
+          acciones={{
+            onAnadir: anadirLineaObra,
+            onTexto: cambiarTextoObra,
+            onQuien: cambiarQuienObra,
+            onEscena: escenaObra,
+            onMover: (clipId, delta) => mutarClips((clips) => moverLineaObra(clips, clipId, delta, durMedio)),
+            onBorrar: (clipId) => void borrarLineaObra(clipId),
+            onEscuchar: () => escucharLineas(),
+            onParar: () => pararLecturaRef.current?.(),
+            onIr: (clipId) => {
+              const c = proyectoRef.current?.clips.find((x) => x.id === clipId)
+              if (c) seek(c.inicio)
+            },
+            onMarca: (actorId, punto) => mutarClips((clips) => aplicarMarca(clips, actorId, punto)),
+            onTocarMapa: tocarMapaObra,
+            onEmpujar: (actorId, dir) => mutarClips((clips) => aplicarMarca(clips, actorId, empujar(marcaDe(clips, actorId), dir, capturarCamara()))),
+            onFormacion: formacionObra,
+            onIA: (idea, reemplazar) => void correrObra(idea, reemplazar),
+          }}
+        />
+      )}
+
       {/* Selector de medios (fondo, audio, imagen…) */}
       {selector && (
         <Modal titulo={t('video.medios.elegir', 'Elegir un medio')} onCerrar={() => setSelector(null)} ancho="max-w-2xl">

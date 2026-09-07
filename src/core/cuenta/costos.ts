@@ -40,7 +40,7 @@ export const CREDITOS: Record<OpIA, number> = {
 }
 
 /** Salida máxima de una op `texto`; pedir más la convierte en `texto_largo`. */
-export const TOPE_TEXTO = 1500
+const TOPE_TEXTO = 1500
 
 /** Créditos de una operación repetida `veces`. */
 export function costoOp(op: OpIA, veces = 1): number {

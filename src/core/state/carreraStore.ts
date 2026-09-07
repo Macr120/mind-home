@@ -247,7 +247,7 @@ export function ySueloJugador(nivel: number, apilado: boolean, x: number, z: num
   return nivelBaseY(nivel, apilado) + alturaSueloEn(x, z)
 }
 
-export type FaseCarrera = null | 'previa' | 'semaforo' | 'corriendo' | 'terminada'
+type FaseCarrera = null | 'previa' | 'semaforo' | 'corriendo' | 'terminada'
 
 interface CarreraState {
   fase: FaseCarrera

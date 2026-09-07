@@ -11,4 +11,4 @@ export {
   useArrastreFilas,
   Arrastrable,
 } from '../../core/ui/comun/arrastre'
-export type { PropsArrastre, FilaOrdenable, Arrastre } from '../../core/ui/comun/arrastre'
+export type { PropsArrastre } from '../../core/ui/comun/arrastre'

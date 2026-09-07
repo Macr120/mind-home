@@ -31,21 +31,12 @@ export function useResumenReal(periodo: Periodo = 'mes', ancla: string = hoyISO(
 }
 
 /**
- * Efectivo acumulado: todo lo que entró menos todo lo que salió desde el primer
- * movimiento registrado (las repeticiones cuentan sus vencimientos, y nunca a
- * futuro — de eso se encarga `totalEnRango`).
- *
- * A diferencia del balance de un periodo esto es un SALDO: no cambia al mirar el
- * mes o el año. Por eso es lo único que puede sumarse al patrimonio sin volverlo
- * un número que baila con el selector de fechas.
- */
-export function efectivoAcumulado(movimientos: Transaccion[]): number {
-  return efectivoHasta(movimientos, hoyISO())
-}
-
-/**
- * El mismo saldo, pero congelado en una fecha del pasado: es lo que dibuja el
- * tramo ya vivido de la gráfica de patrimonio. Nunca proyecta — `totalEnRango`
+ * Efectivo acumulado hasta `hasta`: todo lo que entró menos todo lo que salió
+ * desde el primer movimiento registrado (las repeticiones cuentan sus
+ * vencimientos). A diferencia del balance de un periodo es un SALDO: no cambia
+ * al mirar el mes o el año, por eso es lo único que puede sumarse al patrimonio
+ * sin volverlo un número que baila con el selector de fechas. Es lo que dibuja
+ * el tramo ya vivido de la gráfica de patrimonio. Nunca proyecta — `totalEnRango`
  * sin `proyectar` corta los fijos en su último vencimiento real.
  */
 export function efectivoHasta(movimientos: Transaccion[], hasta: string): number {

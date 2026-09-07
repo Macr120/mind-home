@@ -499,6 +499,7 @@ function ContornoCancha({ largo, ancho, color }: { largo: number; ancho: number;
       new THREE.Vector3(-hw, 0, hh),
     ])
   }, [largo, ancho])
+  useEffect(() => () => geo.dispose(), [geo])
   return (
     <lineLoop geometry={geo}>
       <lineBasicMaterial color={color} transparent opacity={0.9} depthTest={false} />

@@ -53,7 +53,7 @@ export interface Tema {
  * Ajustes de luz por tema. El ciclo día/noche sigue mandando: el tema solo
  * TIÑE los colores de las luces (mezcla) y ESCALA sus intensidades.
  */
-export interface TemaLuz {
+interface TemaLuz {
   /** Tinte que se mezcla sobre el color de la luz direccional (sol/luna de escena). */
   sol?: string
   /** Cuánto tiñe el sol (0..1). */
@@ -72,7 +72,7 @@ export interface TemaLuz {
   exposicion?: number
 }
 
-export interface TemaNiebla {
+interface TemaNiebla {
   color: string
   near: number
   far: number
@@ -82,7 +82,7 @@ export interface TemaNiebla {
 export const FUERZA_LUZ_DEFAULT = 0.35
 
 /** Colores del cascarón (muros/piso/techo) que reemplaza el tema (hoja 4). */
-export interface TemaShell {
+interface TemaShell {
   /** Muro interior (divisorio entre cuartos). */
   muroInt: string
   /** Muro exterior (fachada). */
@@ -237,7 +237,7 @@ export interface TemaOverride {
 }
 
 /** Fusiona un tema base con la personalización del usuario (o lo devuelve tal cual). */
-export function fusionarTema(base: Tema, ov: TemaOverride | undefined): Tema {
+function fusionarTema(base: Tema, ov: TemaOverride | undefined): Tema {
   if (!ov) return base
   const { shell, luz, niebla, ...rest } = ov
   const fusion: Tema = { ...base, ...rest, shell: { ...base.shell, ...shell } }

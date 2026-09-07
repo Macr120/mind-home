@@ -28,7 +28,7 @@ export const useAvisoRenovar = create<AvisoState>((set) => ({
 }))
 
 /** Por qué se abrió: sin créditos ('cuota') o techo de uso real del mes ('techo'). */
-export type MotivoCuota = 'cuota' | 'techo'
+type MotivoCuota = 'cuota' | 'techo'
 
 interface CuotaState {
   abierto: boolean

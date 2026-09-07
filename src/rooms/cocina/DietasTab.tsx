@@ -43,7 +43,7 @@ function tramosReparto(dieta: DietaGuardada, t: (clave: string, es: string) => s
 }
 
 /** Píldoras «25% proteína» — el reparto de un vistazo. */
-export function ChipsReparto({ dieta }: { dieta: DietaGuardada }) {
+function ChipsReparto({ dieta }: { dieta: DietaGuardada }) {
   const t = useT()
   const tramos = tramosReparto(dieta, t)
   if (!tramos) return null

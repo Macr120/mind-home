@@ -43,6 +43,7 @@ import { TECHOS, TECHO_FORMAS, type TechoTipoId, type TechoFormaId } from '../ho
 import { PRENDAS, PRENDA_COLOR_DEFAULT, ESCALA_MIN, ESCALA_MAX, type PrendaId } from '../house/apariencia'
 import { TEMAS_UI, type TemaUIId, type ModoUI } from '../ui/temasUI'
 import { TIPOGRAFIAS, type TipografiaId } from '../ui/tipografias'
+import { ESTILOS_UI } from '../ui/estilosUI'
 import { ESTILOS, type EstiloVisualId } from '../house/estilos'
 import { useEditorUi } from '../state/editorUiStore'
 import { useBienvenida } from '../bienvenida/bienvenidaStore'
@@ -64,6 +65,10 @@ import { usePistaLibreEditor } from '../state/pistaLibreStore'
 import { useCarrera } from '../state/carreraStore'
 import { useTren } from '../state/trenStore'
 import { useAsistentes } from '../state/asistentesStore'
+import { useActuacion } from '../state/actuacionStore'
+import { useHerramienta } from '../state/herramientaStore'
+import { EMOTES, buscarEmote } from '../house/emotes'
+import { nombreAsistente } from './mascotas'
 import { usePaintball, MAX_BOTS_ROYALE, VIDAS_PAINTBALL, type ModoPaintball } from '../state/paintballStore'
 import { TIPOS_MAPA } from '../../rooms/ideas/tiposMapa'
 import { ESPECIES } from '../house/cultivos'
@@ -246,6 +251,17 @@ const GRUPOS_CONFIG = [
 
 /** Modos de apariencia de la interfaz (ajustesStore.modoUI). */
 const MODOS_UI: ModoUI[] = ['claro', 'oscuro', 'transparente']
+
+// Sinónimos del estilo de la INTERFAZ (su forma), compartidos por la tool y el
+// atajo sin IA. Ojo: «pixel» y «cómic» a secas son del mapa 3D (regla C-4);
+// aquí solo llegan acompañados de un sustantivo de interfaz.
+const SINONIMOS_ESTILO_UI: Record<string, string[]> = {
+  suave: ['normal', 'clasico', 'por defecto', 'de siempre'],
+  plano: ['flat', 'minimalista', 'sin sombras', 'plana'],
+  redondo: ['redondeado', 'redondeada', 'pildora', 'ios'],
+  pixel: ['pixelado', 'pixeles', '8 bits', 'roblox', 'cuadrado'],
+  tinta: ['comic', 'vineta', 'caricatura', 'historieta', 'entintado'],
+}
 
 /** Ambientes de la música generada (mismo orden que ajustesStore.MOODS). */
 const MOODS_MUSICA: MoodMusica[] = [
@@ -682,6 +698,14 @@ export async function ejecutarToolEditor(
       useAjustes.getState().setTipografia(tipo.id as TipografiaId)
       return tGlobal('chat.ed.tipografia', 'Cambié la tipografía a {tipografia}.', {
         tipografia: tGlobal(`tipografia.${tipo.id}`, tipo.nombre),
+      })
+    }
+    case 'editor_estilo_interfaz': {
+      const est = resolverPorNombre(ESTILOS_UI, str(input, 'estilo') ?? '', SINONIMOS_ESTILO_UI)
+      if (!est) return null
+      useAjustes.getState().setEstiloUI(est.id)
+      return tGlobal('chat.ed.estiloUI', 'Cambié el estilo de la interfaz a {estilo}.', {
+        estilo: tGlobal(`estiloUI.${est.id}`, est.nombre),
       })
     }
     case 'editor_apariencia': {
@@ -1143,6 +1167,43 @@ export async function ejecutarToolEditor(
     }
 
     // ── Paintball: batalla contra los asistentes por toda la casa ──
+    case 'editor_asistente_actua': {
+      const que = str(input, 'que') ?? ''
+      const nom = str(input, 'asistente')
+      // Sin nombre (o «yo») es el avatar del usuario: la rueda y la demo de siempre.
+      const esJugador = !nom || /^(yo|mi avatar|mi personaje|tu)$/.test(normalizar(nom))
+      const asis = esJugador
+        ? undefined
+        : useAsistentes.getState().lista.find((a) => normalizar(a.nombre).startsWith(normalizar(nom)))
+      if (!esJugador && !asis) {
+        return tGlobal('chat.ed.asistenteNoHallado', 'No encontré al asistente «{q}».', { q: nom ?? '' })
+      }
+      if (str(input, 'accion') === 'bailar') {
+        const emote = buscarEmote(que, tGlobal)
+        if (!emote) return tGlobal('chat.ed.emoteNoHallado', 'No conozco el baile «{q}».', { q: que })
+        const etiqueta = tGlobal(`herr.emote.${emote}`, EMOTES.find((e) => e.id === emote)?.fallback ?? emote)
+        if (asis) {
+          useActuacion.getState().actuar(asis.id, { tipo: 'emote', emote })
+          return tGlobal('chat.ed.asistenteBaila', '{nombre} baila {que}.', { nombre: nombreAsistente(tGlobal, asis), que: etiqueta })
+        }
+        const h = useHerramienta.getState()
+        if (!h.equipadas.includes('bailar')) h.equipar('bailar')
+        h.setEmote(emote)
+        return tGlobal('chat.ed.bailas', 'A bailar {que}.', { que: etiqueta })
+      }
+      const ej = await encontrarEjercicio(que)
+      if (!ej) {
+        return tGlobal('chat.ed.ejercicioNoHallado', 'No encontré «{q}» en el catálogo de Ejercicio.', { q: que })
+      }
+      const nombreEj = nombreEjercicio(tGlobal, ej.nombre)
+      if (asis) {
+        useActuacion.getState().actuar(asis.id, { tipo: 'ejercicio', nombre: ej.nombre })
+        return tGlobal('chat.ed.asistenteEjercicio', '{nombre} hace {que}.', { nombre: nombreAsistente(tGlobal, asis), que: nombreEj })
+      }
+      const enMapa = useHouse.getState().activeRoom == null
+      useDemoEjercicio.getState().abrir(ej.nombre, ej.descripcion, enMapa ? 'mapa' : 'overlay')
+      return tGlobal('chat.ed.demoEjercicio', 'Te enseño cómo se hace {ej}.', { ej: nombreEj })
+    }
     case 'editor_paintball': {
       const pb = usePaintball.getState()
       if (bool(input, 'salir')) {
@@ -1804,6 +1865,15 @@ export const TOOLS_EDITOR: ToolNeutra[] = [
     },
   },
   {
+    name: 'editor_estilo_interfaz',
+    description: `Cambia el ESTILO de la interfaz: la forma de botones, tarjetas y paneles (esquinas, bordes, sombras). No es el color (editor_tema_interfaz) ni el estilo del mapa 3D (editor_estilo_mapa). Opciones: ${opciones(ESTILOS_UI)}.`,
+    schema: {
+      type: 'object',
+      properties: { estilo: { type: 'string', enum: enumIds(ESTILOS_UI) } },
+      required: ['estilo'],
+    },
+  },
+  {
     name: 'editor_apariencia',
     description:
       'Ajusta la apariencia de la interfaz: modo claro/oscuro/transparente, estilo de iconos (emojis o SVG profesionales) y el vidrio de los paneles flotantes (transparencia y desenfoque). Se pueden combinar varios campos.',
@@ -1995,6 +2065,20 @@ export const TOOLS_EDITOR: ToolNeutra[] = [
         ejercicio: { type: 'string', description: 'Nombre del ejercicio tal como lo dijo el usuario' },
       },
       required: ['ejercicio'],
+    },
+  },
+  {
+    name: 'editor_asistente_actua',
+    description:
+      'Pide a un ASISTENTE de la casa (por su nombre) que baile un emote (67, pescar, floss, griddy, dab, take the L, orange justice, dance moves, hype, robot, moonwalk, gangnam style, electro shuffle) o que haga un ejercicio del catálogo de Ejercicio, en 3D en el mapa. Sin "asistente" (o «yo») lo hace el propio avatar del usuario. Úsala cuando diga «que Pepa baile el floss», «dile a Leo que haga sentadillas», «baila el griddy».',
+    schema: {
+      type: 'object',
+      properties: {
+        asistente: { type: 'string', description: 'Nombre del asistente. Omitir para el avatar del propio usuario.' },
+        accion: { type: 'string', enum: ['bailar', 'ejercicio'] },
+        que: { type: 'string', description: 'El baile o el ejercicio, tal como lo dijo el usuario' },
+      },
+      required: ['accion', 'que'],
     },
   },
   {
@@ -2385,7 +2469,7 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
               ? 'notificaciones'
               : /\b(respaldo|backup|datos)\b/.test(n)
                 ? 'respaldo'
-                : /\b(interfaz|idioma|apariencia|tema|tipografia)\b/.test(n)
+                : /\b(interfaz|idioma|apariencia|tema|tipografia|botones|paneles)\b/.test(n)
                   ? 'interfaz'
                   : undefined
     return edicion(chip('⚙️', tGlobal('chat.ed.chip.abrirConfig', 'Abrir Configuraciones')), 'editor_ajustes_abrir', grupo ? { grupo } : {})
@@ -2459,6 +2543,26 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
           : chip('✏️', tGlobal('chat.ed.chip.transparencia', 'Transparencia al {pct}%', { pct: pctV })),
         'editor_apariencia',
         { [campo]: v },
+      )
+    }
+  }
+
+  // C-3b. Estilo de la INTERFAZ (su forma: esquinas, bordes, sombras). Exige
+  //       un sustantivo de interfaz y excluye el mapa, para no robarle «estilo
+  //       pixel» o «estilo cómic» a secas al render 3D (C-4): «botones estilo
+  //       pixel» o «menús estilo cómic» son esto.
+  if (
+    /\b(interfaz|botones?|menus?|paneles?|tarjetas?|esquinas|bordes|sombras)\b/.test(n) &&
+    !/\b(mapa|casa|escena|render|3d)\b/.test(n)
+  ) {
+    const est = resolverPorNombre(ESTILOS_UI, limpio, SINONIMOS_ESTILO_UI)
+    if (est) {
+      return edicion(
+        chip('✏️', tGlobal('chat.ed.chip.estiloUI', 'Interfaz: {estilo}', {
+          estilo: tGlobal(`estiloUI.${est.id}`, est.nombre),
+        })),
+        'editor_estilo_interfaz',
+        { estilo: est.id },
       )
     }
   }
@@ -3242,6 +3346,25 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
         dato: res.cmd.dato,
       })
     }
+  }
+
+  // 13a. Que un asistente baile o haga un ejercicio: «que Pepa baile el floss»,
+  //      «dile a Leo que haga sentadillas»; y «baila el griddy» para uno mismo.
+  const actua =
+    /^(?:que|dile a|pidele a|pide a)\s+(.+?)\s+(?:que\s+)?(baile|bailes|bailar|haga|hagas|hacer)\s+(?:el|la|los|las|un|una)?\s*(.+)$/.exec(n)
+  if (actua) {
+    return edicion(chip('💃', tGlobal('chat.ed.chip.actua', 'Que actúe')), 'editor_asistente_actua', {
+      asistente: actua[1],
+      accion: /^bail/.test(actua[2]) ? 'bailar' : 'ejercicio',
+      que: actua[3],
+    })
+  }
+  const bailaTu = /^(?:baila|bailar|bailemos)\s+(?:el|la|un|una)?\s*(.+)$/.exec(n)
+  if (bailaTu) {
+    return edicion(chip('💃', tGlobal('chat.ed.chip.bailar', 'Bailar')), 'editor_asistente_actua', {
+      accion: 'bailar',
+      que: bailaTu[1],
+    })
   }
 
   // 13b. Demostración de un ejercicio: "muéstrame cómo se hace el press banca",

@@ -3,6 +3,7 @@ import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { TARJETA } from '../_shared/ui'
 import { clipsDe, fin, type ProyectoAbierto } from './modelo'
+import { etiquetaEfecto } from './pelicula/efectosCamara'
 
 /**
  * El guion: una tarjeta por clip de la pista principal, con lo que solapa
@@ -39,7 +40,7 @@ export function Guion({
           c.fuente.tipo === 'color'
             ? t('video.guion.color', 'Color')
             : c.fuente.tipo === 'escena3d'
-              ? t('video.pelicula.planoN', 'Plano {n}', { n: i + 1 })
+              ? [t('video.pelicula.planoN', 'Plano {n}', { n: i + 1 }), etiquetaEfecto(t, c.fuente)].filter(Boolean).join(' · ')
               : (porId.get(c.fuente.medioId)?.nombre ?? t('video.medios.noDisponible', 'Medio no disponible en este dispositivo'))
         const solapa = proyecto.clips.filter((k) => k.inicio < fin(c) && fin(k) > c.inicio)
         const texto = solapa.find((k) => k.pista === 'texto')

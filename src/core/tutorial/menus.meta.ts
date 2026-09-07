@@ -35,7 +35,7 @@ export const tutorialCasa = tour(
   'cuerpoCasa',
 )
 
-export const tutorialMenuCuartos = tour(
+const tutorialMenuCuartos = tour(
   'menu-cuartos',
   T('tut.menu-cuartos.titulo', 'Menú · Cuartos'),
   T(
@@ -45,7 +45,7 @@ export const tutorialMenuCuartos = tour(
   'cuerpoMenuCuartos',
 )
 
-export const tutorialMenuPlantillas = tour(
+const tutorialMenuPlantillas = tour(
   'menu-plantillas',
   T('tut.menu-plantillas.titulo', 'Menú · Plantillas'),
   T(
@@ -55,7 +55,7 @@ export const tutorialMenuPlantillas = tour(
   'cuerpoMenuPlantillas',
 )
 
-export const tutorialPlantillasCustom = tour(
+const tutorialPlantillasCustom = tour(
   'plantillas-custom',
   T('tut.plantillas-custom.titulo', 'Tus propias plantillas'),
   T(
@@ -65,7 +65,7 @@ export const tutorialPlantillasCustom = tour(
   'cuerpoPlantillasCustom',
 )
 
-export const tutorialMenuInventario = tour(
+const tutorialMenuInventario = tour(
   'menu-inventario',
   T('tut.menu-inventario.titulo', 'Menú · Inventario'),
   T(
@@ -75,7 +75,7 @@ export const tutorialMenuInventario = tour(
   'cuerpoMenuInventario',
 )
 
-export const tutorialEditorMapa = tour(
+const tutorialEditorMapa = tour(
   'editor-mapa',
   T('tut.editor-mapa.titulo', 'El editor · Mapa'),
   T(
@@ -85,7 +85,7 @@ export const tutorialEditorMapa = tour(
   'cuerpoEditorMapa',
 )
 
-export const tutorialEditorPersonajes = tour(
+const tutorialEditorPersonajes = tour(
   'editor-personajes',
   T('tut.editor-personajes.titulo', 'El editor · Personajes'),
   T(
@@ -95,7 +95,7 @@ export const tutorialEditorPersonajes = tour(
   'cuerpoEditorPersonajes',
 )
 
-export const tutorialEditorObjetos = tour(
+const tutorialEditorObjetos = tour(
   'editor-objetos',
   T('tut.editor-objetos.titulo', 'El editor · Objetos'),
   T(
@@ -105,7 +105,7 @@ export const tutorialEditorObjetos = tour(
   'cuerpoEditorObjetos',
 )
 
-export const tutorialEditorConfig = tour(
+const tutorialEditorConfig = tour(
   'editor-config',
   T('tut.editor-config.titulo', 'El editor · Configuraciones'),
   T(
@@ -115,7 +115,7 @@ export const tutorialEditorConfig = tour(
   'cuerpoEditorConfig',
 )
 
-export const tutorialRespaldo = tour(
+const tutorialRespaldo = tour(
   'respaldo',
   T('tut.respaldo.titulo', 'Respaldo de datos'),
   T(
@@ -125,7 +125,7 @@ export const tutorialRespaldo = tour(
   'cuerpoRespaldo',
 )
 
-export const tutorialEditorCuarto = tour(
+const tutorialEditorCuarto = tour(
   'editor-cuarto',
   T('tut.editor-cuarto.titulo', 'Editar un cuarto'),
   T(
@@ -135,7 +135,7 @@ export const tutorialEditorCuarto = tour(
   'cuerpoEditorCuarto',
 )
 
-export const tutorialInicio = tour(
+const tutorialInicio = tour(
   'inicio',
   T('tut.inicio.titulo', 'Pantalla de inicio'),
   T(
@@ -145,7 +145,7 @@ export const tutorialInicio = tour(
   'cuerpoInicio',
 )
 
-export const tutorialHerramientas = tour(
+const tutorialHerramientas = tour(
   'herramientas',
   T('tut.herramientas.titulo', 'Rueda de herramientas'),
   T(
@@ -155,7 +155,7 @@ export const tutorialHerramientas = tour(
   'cuerpoHerramientas',
 )
 
-export const tutorialNavegacion = tour(
+const tutorialNavegacion = tour(
   'navegacion',
   T('tut.navegacion.titulo', 'Cámara y movimiento'),
   T(
@@ -165,7 +165,7 @@ export const tutorialNavegacion = tour(
   'cuerpoNavegacion',
 )
 
-export const tutorialChat = tour(
+const tutorialChat = tour(
   'chat',
   T('tut.chat.titulo', 'El chat del arquitecto'),
   T(
@@ -175,7 +175,7 @@ export const tutorialChat = tour(
   'cuerpoChat',
 )
 
-export const tutorialChatRegistros = tour(
+const tutorialChatRegistros = tour(
   'chat-registros',
   T('tut.chat-registros.titulo', 'Chat · Registros y memorias'),
   T(
@@ -185,7 +185,7 @@ export const tutorialChatRegistros = tour(
   'cuerpoChatRegistros',
 )
 
-export const tutorialMusica = tour(
+const tutorialMusica = tour(
   'musica',
   T('tut.musica.titulo', 'La música de la casa'),
   T(
@@ -195,7 +195,7 @@ export const tutorialMusica = tour(
   'cuerpoMusica',
 )
 
-export const tutorialCuentaIA = tour(
+const tutorialCuentaIA = tour(
   'cuenta-ia',
   T('tut.cuenta-ia.titulo', 'La IA y tu cuenta'),
   T(
@@ -205,7 +205,7 @@ export const tutorialCuentaIA = tour(
   'cuerpoCuentaIA',
 )
 
-export const tutorialEjemplos = tour(
+const tutorialEjemplos = tour(
   'ejemplos',
   T('tut.ejemplos.titulo', 'Empezar con un ejemplo'),
   T(

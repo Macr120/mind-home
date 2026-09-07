@@ -69,3 +69,6 @@ android/.cxx
 !debug.keystore
 # Credenciales de firma de release (el keystore vive fuera del repo)
 android/key.properties
+
+# Caché local de wrangler (pages deploy / dev)
+.wrangler/

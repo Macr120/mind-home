@@ -828,7 +828,7 @@ function ProActivo({
             <div className="flex items-center gap-2 text-xs text-white/60">
               <span className="flex-1">{t('pro.creditosMes', 'Créditos de IA este mes')}</span>
               <span className="tabular-nums text-white/40">
-                {usoIA.creditos}/{usoIA.limiteCreditos}
+                {usoIA.creditos}/{usoIA.limiteCreditos < 0 ? '∞' : usoIA.limiteCreditos}
               </span>
             </div>
             <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-white/10">

@@ -255,7 +255,7 @@ export async function reactivarCuidadoPersona(c: Cuidado, nombreDueno: string | 
 
 // ----- Ciclo -----
 
-export const AJUSTES_CICLO_INICIALES: Omit<AjustesCiclo, 'id'> = {
+const AJUSTES_CICLO_INICIALES: Omit<AjustesCiclo, 'id'> = {
   activo: false,
   duracionCicloMedia: 28,
   duracionPeriodoMedia: 5,
@@ -264,7 +264,7 @@ export const AJUSTES_CICLO_INICIALES: Omit<AjustesCiclo, 'id'> = {
 }
 
 /** Lee la única fila de ajustes, creándola la primera vez. */
-export async function obtenerAjustesCiclo(): Promise<AjustesCiclo> {
+async function obtenerAjustesCiclo(): Promise<AjustesCiclo> {
   const filas = await ajustesCicloRepo.list()
   if (filas[0]) return filas[0]
   const id = await ajustesCicloRepo.add({ ...AJUSTES_CICLO_INICIALES })

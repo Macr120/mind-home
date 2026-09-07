@@ -40,11 +40,12 @@ function mensajeAuth(error: AuthError): string {
   }
 }
 
-export type EstadoSync = 'inactivo' | 'sincronizando' | 'error'
+type EstadoSync = 'inactivo' | 'sincronizando' | 'error'
 
 /** Pool único de créditos de IA del mes (chat = 1 crédito, imagen = 10). */
-export interface UsoIA {
+interface UsoIA {
   creditos: number
+  /** Tope del mes, o -1 si la cuenta es ilimitada (misma señal que el servidor). */
   limiteCreditos: number
 }
 
@@ -75,6 +76,8 @@ interface SesionState {
   unlock: boolean
   /** Nivel de la suscripción (1, 2 o 3): multiplica el pool mensual. */
   nivel: number
+  /** Cuenta del dueño (perfiles.ilimitado): la IA no consume cuota ni tiene tope. */
+  ilimitado: boolean
   /** Saldo suelto que quede de las recargas viejas (perfiles.creditos_extra). */
   creditosExtra: number
   usoIA: UsoIA | null
@@ -145,6 +148,7 @@ export const useSesion = create<SesionState>((set, get) => ({
   fuePro: false,
   unlock: false,
   nivel: 1,
+  ilimitado: false,
   creditosExtra: 0,
   usoIA: null,
   estadoSync: 'inactivo',
@@ -261,7 +265,7 @@ export const useSesion = create<SesionState>((set, get) => ({
     if (!sb || !usuario) return
     const { data } = await sb
       .from('perfiles')
-      .select('plan, plan_expira, fue_pro, creditos_extra, unlock, nivel')
+      .select('plan, plan_expira, fue_pro, creditos_extra, unlock, nivel, ilimitado')
       .eq('user_id', usuario.id)
       .maybeSingle()
     if (!data) return
@@ -276,6 +280,7 @@ export const useSesion = create<SesionState>((set, get) => ({
       fuePro,
       unlock,
       nivel: (data.nivel as number | null) ?? 1,
+      ilimitado: data.ilimitado === true,
       creditosExtra: (data.creditos_extra as number | null) ?? 0,
     })
   },
@@ -297,6 +302,13 @@ export const useSesion = create<SesionState>((set, get) => ({
       const vigente = !expira || Date.parse(expira) > Date.now()
       const planActual = vigente ? get().plan : 'local'
       const multiplicador = planActual === 'pro' ? get().nivel : 1
+      // Cuenta ilimitada: solo se cuenta lo gastado; el tope es -1 (∞), la
+      // misma señal que devuelve `consumir_cuota_ia` tras cada llamada.
+      if (get().ilimitado) {
+        const { data } = await sb.from('uso_ia').select('creditos').eq('periodo', periodo).maybeSingle()
+        set({ usoIA: { creditos: data?.creditos ?? 0, limiteCreditos: -1 } })
+        return
+      }
       const [uso, limites] = await Promise.all([
         sb.from('uso_ia').select('creditos, usd').eq('periodo', periodo).maybeSingle(),
         sb.from('limites_plan').select('creditos_mes').eq('plan', planActual).maybeSingle(),
@@ -411,6 +423,7 @@ export function iniciarSesion(): void {
           fuePro: false,
           unlock: false,
           nivel: 1,
+          ilimitado: false,
           creditosExtra: 0,
           usoIA: null,
         })

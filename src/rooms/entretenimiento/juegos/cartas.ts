@@ -1,5 +1,5 @@
 // Baraja inglesa compartida por Solitario y Blackjack.
-export type Palo = '♠' | '♥' | '♦' | '♣'
+type Palo = '♠' | '♥' | '♦' | '♣'
 
 export interface Carta {
   palo: Palo

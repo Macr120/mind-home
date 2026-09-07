@@ -47,14 +47,14 @@ export interface Producto {
 const BUNDLE = 'com.macr120.mindhome.'
 
 /** Créditos mensuales del nivel base; los demás son múltiplos exactos. */
-export const CREDITOS_BASE = 700
+const CREDITOS_BASE = 700
 
 /**
  * El pago único de la app. Incluye el primer mes (plan `trial`: 30 días con el
  * pool de 700 créditos + sync, sin tarjeta), lo concede el webhook.
  * No consumible en Apple, compra única en Play.
  */
-export const UNLOCK: Producto = {
+const UNLOCK: Producto = {
   paquete: 'unlock',
   // 8.99 USD en las tres cajas (25-ago-2026). `_v5` es el de la web: en
   // RevenueCat el precio es INMUTABLE y el `_v4` se quedó en 8.89, así que
@@ -68,7 +68,7 @@ export const UNLOCK: Producto = {
 }
 
 /** Los tres niveles de la suscripción: el mismo plan multiplicado. */
-export const NIVELES: Producto[] = [1, 2, 3].map((n) => ({
+const NIVELES: Producto[] = [1, 2, 3].map((n) => ({
   paquete: `nivel_${n}`,
   productos: [`pro_x${n}_v2`, `pro_x${n}`],
   clase: 'nivel' as const,
@@ -81,7 +81,7 @@ export const NIVELES: Producto[] = [1, 2, 3].map((n) => ({
  * Anualidad: el nivel ×1 pagado de una vez ($60/año). Va aparte de `NIVELES`
  * porque no es un escalón más de la escalera, es otra forma de pagar el ×1.
  */
-export const ANUAL: Producto = {
+const ANUAL: Producto = {
   paquete: 'anual',
   productos: ['pro_x1_anual'],
   clase: 'nivel',
@@ -95,7 +95,7 @@ export const ANUAL: Producto = {
  * `perfiles.creditos_extra`, no caduca y funciona sin plan. Mismo precio por
  * crédito que un nivel.
  */
-export const CREDITOS: Producto = {
+const CREDITOS: Producto = {
   paquete: 'creditos',
   productos: ['creditos_x1'],
   clase: 'creditos',
@@ -111,7 +111,7 @@ export const CATALOGO: Producto[] = [UNLOCK, ...NIVELES, ANUAL, CREDITOS]
  * - Apple antepone el bundle (`com.macr120.mindhome.pro_x1_v2`).
  * - Google Play cuelga el plan base de la suscripción (`pro_x1_v2:mensual`).
  */
-export function idBase(id: string): string {
+function idBase(id: string): string {
   const sinPlan = id.split(':')[0]
   return sinPlan.startsWith(BUNDLE) ? sinPlan.slice(BUNDLE.length) : sinPlan
 }

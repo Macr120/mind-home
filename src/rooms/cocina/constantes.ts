@@ -1,6 +1,6 @@
 import type { MomentoComida, PerfilNutricion } from '../../core/data/db'
 
-export const COLOR_FABRICA = '#f59e0b'
+const COLOR_FABRICA = '#f59e0b'
 /**
  * Con el que se pinta la app: el color del CUARTO abierto (lo baja `RoomOverlay` en
  * `--ui-app`) y, fuera de él, el de fábrica. Es una variable CSS, no un hex: para

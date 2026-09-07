@@ -45,7 +45,7 @@ import {
  */
 
 /** Una entrada del catálogo: la pieza y cuántas hay. */
-export interface PiezaCasa {
+interface PiezaCasa {
   /** Id estable dentro de su sección (`solido`, `cupula`, `escalera`…). */
   id: string
   nombre: string

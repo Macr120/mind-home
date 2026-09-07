@@ -11,7 +11,7 @@ export const PERIODOS: { id: Periodo; labelEs: string }[] = [
 ]
 
 /** Primer día del periodo en curso; `null` en «todo». */
-export function inicioPeriodo(p: Periodo, ref = hoyISO()): string | null {
+function inicioPeriodo(p: Periodo, ref = hoyISO()): string | null {
   if (p === 'semana') return inicioSemana(ref)
   if (p === 'mes') return `${ref.slice(0, 7)}-01`
   if (p === 'anio') return `${ref.slice(0, 4)}-01-01`

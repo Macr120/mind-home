@@ -31,7 +31,7 @@ export interface RegionMapa {
 }
 
 /** Recuadro en píxeles del viewport (mismo contrato que la caja del overlay). */
-export interface CajaPantalla {
+interface CajaPantalla {
   left: number
   top: number
   width: number

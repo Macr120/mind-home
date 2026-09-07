@@ -25,7 +25,7 @@ import { idiomaActual } from '../../core/i18n/useT'
 import { CARGADORES_CATALOGO, type TraduccionCatalogo } from './catalogoI18n'
 import type { AreaFabrica } from './constantes'
 
-export interface FormulaCatalogo {
+interface FormulaCatalogo {
   /** Slug estable: se vuelve `formulaId = 'cat-<area>-<slug>'` al copiar. */
   slug: string
   nombre: string

@@ -48,7 +48,7 @@ export function cumplidaEn(r: Rutina, iso: string, idx: IndiceEjecuciones): bool
  * hundiría el porcentaje de todos los meses anteriores con días "no hechos" que
  * nunca existieron.
  */
-export function naceEn(r: Rutina): string {
+function naceEn(r: Rutina): string {
   const creada = r.creadoEn.slice(0, 10)
   return r.fechaInicio && r.fechaInicio > creada ? r.fechaInicio : creada
 }
@@ -126,14 +126,14 @@ export function columnasPorMes(anio: number, locale: string): ColumnaRango[] {
 }
 
 /** Cuántas ocurrencias tocaban en esa columna y cuántas se cumplieron. */
-export interface Celda {
+interface Celda {
   tocan: number
   hechas: number
   /** Ocurrencias que aún no llegan: se dibujan, pero no puntúan. */
   futuras: number
 }
 
-export interface FilaHabito {
+interface FilaHabito {
   rutina: Rutina
   /** Alineado 1:1 con `columnas`. */
   celdas: Celda[]
@@ -141,7 +141,7 @@ export interface FilaHabito {
   hechas: number
 }
 
-export interface ColumnaMetrica {
+interface ColumnaMetrica {
   columna: ColumnaRango
   total: number
   hechas: number

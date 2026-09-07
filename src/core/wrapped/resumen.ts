@@ -26,7 +26,7 @@ export type TipoHito =
   | 'mantenimientos'
   | 'rutinasCompletadas'
 
-export interface Hito {
+interface Hito {
   tipo: TipoHito
   n: number
 }

@@ -1,5 +1,6 @@
 import { create } from 'zustand'
-import { db, type Acceso, type Cuarto, type CuadranteMapa } from '../data/db'
+import { db, type Acceso, type Cuarto, type CuadranteMapa, type FormaLibre } from '../data/db'
+import { colisionFormaLibre, contornoPiso, subCeldasDePoligono, tieneMuro, tienePiso } from '../house/formasLibre'
 import { claveLS, esDemo } from '../edicion'
 import { useCuartos } from './cuartosStore'
 import { useCam, zoomEncuadre } from './cameraStore'
@@ -127,6 +128,10 @@ interface RecomputeIn {
   pinceles?: PincelesPorCuarto
   formasCelda?: FormasCeldaPorCuarto
   conAgua?: Record<string, boolean>
+  /** Formas de construcción libre: sus muros colisionan y sus pisos altos son caminables. */
+  formasLibres?: FormaLibre[]
+  gridCols?: number
+  gridRows?: number
 }
 
 /**
@@ -134,7 +139,7 @@ interface RecomputeIn {
  * colocados. Dos cuartos solo compiten por una celda si están en el MISMO nivel, así
  * que un cuarto de arriba puede apilarse sobre el footprint de otro de abajo.
  */
-function recompute({ placed, cells, footprints, niveles, wallOverrides = {}, edgeStyles = {}, pinceles = {}, formasCelda = {}, conAgua = {} }: RecomputeIn) {
+function recompute({ placed, cells, footprints, niveles, wallOverrides = {}, edgeStyles = {}, pinceles = {}, formasCelda = {}, conAgua = {}, formasLibres = [], gridCols = COLS, gridRows = ROWS }: RecomputeIn) {
   const colocados = losCuartos().filter((r) => placed[r.id] && cells[r.id])
   const sizes: Sizes = {}
   const ocupadoPorNivel = new Map<number, Set<string>>()
@@ -204,6 +209,18 @@ function recompute({ placed, cells, footprints, niveles, wallOverrides = {}, edg
       )
     }
   }
+  // Formas de construcción libre: el muro colisiona (con el vano de cada puerta abierto y
+  // su zona publicada) igual que las curvas de los cuartos. Misma geometría que el render
+  // (`formasLibre.ts` es la única fuente).
+  for (const f of formasLibres) {
+    if (!tieneMuro(f.tipo)) continue
+    const c = colisionFormaLibre(f, gridCols, gridRows)
+    if (!c.muros.length) continue
+    ;(wallCollidersByLevel[f.nivel] ?? (wallCollidersByLevel[f.nivel] = [])).push(...c.muros)
+    let pArr = puertasPorNivel.get(f.nivel)
+    if (!pArr) puertasPorNivel.set(f.nivel, (pArr = []))
+    pArr.push(...c.puertas)
+  }
   // Piso caminable por nivel: los cuartos de ese nivel MÁS los techos del nivel inferior
   // (terraza). Así en un piso alto se camina por todo el techo de la planta de abajo.
   const pisoPorNivel = new Map<number, Set<string>>()
@@ -212,6 +229,15 @@ function recompute({ placed, cells, footprints, niveles, wallOverrides = {}, edg
     const abajo = ocupadoPorNivel.get(lvl - 1)
     if (abajo) for (const k of abajo) piso.add(k)
     pisoPorNivel.set(lvl, piso)
+  }
+  // Los pisos libres de los niveles altos también se pisan (en planta baja hay suelo en todo).
+  for (const f of formasLibres) {
+    if (f.nivel <= 0 || !tienePiso(f.tipo)) continue
+    const subs = subCeldasDePoligono(contornoPiso(f, gridCols, gridRows))
+    if (!subs.length) continue
+    let piso = pisoPorNivel.get(f.nivel)
+    if (!piso) pisoPorNivel.set(f.nivel, (piso = new Set()))
+    for (const k of subs) piso.add(k)
   }
   return {
     sizes,
@@ -420,6 +446,14 @@ interface LayoutState {
   sinMuros: Record<string, boolean>
   /** Albercas (sótanos): cuartos llenos de agua animada, siempre destapados. */
   conAgua: Record<string, boolean>
+  /**
+   * Formas de construcción libre (copia de la tabla `formasLibres`, la sincroniza
+   * `FormasLibres3D`): solo para colisión y piso caminable; el render lee el repo.
+   */
+  formasLibres: FormaLibre[]
+  setFormasLibres: (filas: FormaLibre[]) => void
+  /** Repone la rebanada de construcción entera (deshacer/rehacer de la pestaña Mapa). */
+  restaurarConstruccion: (c: Construccion) => Promise<void>
   draggingId: string | null
   previewCell: Cell | null
   /** Celda ancla al iniciar el arrastre (para validar zonas bajo el origen). */
@@ -554,6 +588,21 @@ interface LayoutState {
   eliminarCuadrante: (id: string) => Promise<void>
 }
 
+/** Rebanada de la construcción de rejilla que el historial de la pestaña Mapa guarda y repone. */
+export const CLAVES_CONSTRUCCION = [
+  'placed',
+  'cells',
+  'footprints',
+  'niveles',
+  'wallOverrides',
+  'edgeStyles',
+  'pinceles',
+  'formasCelda',
+  'sinMuros',
+  'conAgua',
+] as const
+export type Construccion = Pick<LayoutState, (typeof CLAVES_CONSTRUCCION)[number]>
+
 export const useLayout = create<LayoutState>((set, get) => ({
   placed: todos(true),
   cells: celdasDefault(),
@@ -573,6 +622,35 @@ export const useLayout = create<LayoutState>((set, get) => ({
   formasCelda: {},
   sinMuros: {},
   conAgua: {},
+  formasLibres: [],
+  setFormasLibres: (filas) => {
+    // Misma lista (re-emisión inocua del repo): no recalcular la colisión en balde.
+    if (filas === get().formasLibres) return
+    set({ formasLibres: filas, ...recompute({ ...get(), formasLibres: filas }) })
+  },
+  restaurarConstruccion: async (c) => {
+    const antes = get()
+    set({ ...c, ...recompute({ ...antes, ...c }) })
+    // Persiste solo los cuartos cuya fila de `layout` cambia entre ambas rebanadas.
+    const filaDe = (s: Construccion, id: string) => ({
+      placed: s.placed[id] ?? true,
+      col: s.cells[id]?.col,
+      row: s.cells[id]?.row,
+      footprint: s.footprints[id],
+      nivel: s.niveles[id] ?? 0,
+      muros: s.wallOverrides[id] ?? {},
+      estilos: s.edgeStyles[id] ?? {},
+      pinceles: s.pinceles[id],
+      formasCelda: s.formasCelda[id] ?? {},
+      sinMuros: !!s.sinMuros[id],
+      agua: !!s.conAgua[id],
+    })
+    for (const r of losCuartos()) {
+      const nueva = filaDe(c, r.id)
+      if (JSON.stringify(nueva) === JSON.stringify(filaDe(antes, r.id))) continue
+      await upsert(r.id, nueva)
+    }
+  },
   draggingId: null,
   previewCell: null,
   dragOriginCell: null,
@@ -596,6 +674,7 @@ export const useLayout = create<LayoutState>((set, get) => ({
     const filas = await db.layout.toArray()
     const configArr = await db.mapaConfig.toArray()
     const accesos = await db.accesos.toArray()
+    const formasLibres = await db.formasLibres.toArray()
     const gridCols = configArr[0]?.cols ?? COLS
     const gridRows = configArr[0]?.rows ?? ROWS
     const tamCelda = configArr[0]?.celda ?? TAM_CELDA_BASE
@@ -780,7 +859,8 @@ export const useLayout = create<LayoutState>((set, get) => ({
       formasCelda,
       sinMuros,
       conAgua,
-      ...recompute({ placed, cells, footprints, niveles, wallOverrides, edgeStyles, pinceles, formasCelda, conAgua }),
+      formasLibres,
+      ...recompute({ placed, cells, footprints, niveles, wallOverrides, edgeStyles, pinceles, formasCelda, conAgua, formasLibres, gridCols, gridRows }),
       cargado: true,
     })
 
@@ -1044,7 +1124,9 @@ export const useLayout = create<LayoutState>((set, get) => ({
       formasCelda,
       conAgua,
       editingRoomId: st.editingRoomId === id ? null : st.editingRoomId,
-      ...recompute({ placed, cells, footprints, niveles, wallOverrides, edgeStyles, pinceles, formasCelda, conAgua }),
+      // `...st` conserva formasLibres/gridCols/gridRows: si no, la colisión de las formas
+      // libres desaparecería hasta el siguiente recompute.
+      ...recompute({ ...st, placed, cells, footprints, niveles, wallOverrides, edgeStyles, pinceles, formasCelda, conAgua }),
     })
     const fila = await db.layout.where('roomId').equals(id).first()
     if (fila?.id) await db.layout.delete(fila.id)
@@ -1843,7 +1925,7 @@ export const useLayout = create<LayoutState>((set, get) => ({
     // La cámara sigue el ½ celda que el contenido se recorre al recentrar la rejilla,
     // para que el borde pulsado crezca en SU dirección y el contenido no salte.
     nudgeFocoPorBorde(dir, +1)
-    const { desplazarPisoExteriorTodo, rellenarBordePisoExterior } = await import('../data/repository')
+    const { desplazarPisoExteriorTodo, rellenarBordePisoExterior, desplazarFormasLibres } = await import('../data/repository')
     if (dir === 'O' || dir === 'N') {
       const dc = dir === 'O' ? 1 : 0
       const dr = dir === 'N' ? 1 : 0
@@ -1851,6 +1933,8 @@ export const useLayout = create<LayoutState>((set, get) => ({
       await useDiseño.getState().desplazarTechoExtra(dc, dr)
       // El piso exterior sigue al contenido recentrado para no desalinearse.
       await desplazarPisoExteriorTodo(dc, dr)
+      // Las formas libres (vértices en unidades de celda) se recorren con los cuartos.
+      await desplazarFormasLibres(dc, dr)
     }
     // Las celdas nuevas heredan el piso exterior de la celda contigua (jardín continuo).
     await rellenarBordePisoExterior(dir, newCols, newRows)
@@ -1913,8 +1997,9 @@ export const useLayout = create<LayoutState>((set, get) => ({
     if (dir === 'O' || dir === 'N') {
       await useDiseño.getState().ajustarTechoEnContraccion(dir)
       // El piso exterior sigue al contenido recentrado (igual que al crecer).
-      const { desplazarPisoExteriorTodo } = await import('../data/repository')
+      const { desplazarPisoExteriorTodo, desplazarFormasLibres } = await import('../data/repository')
       await desplazarPisoExteriorTodo(dir === 'O' ? -1 : 0, dir === 'N' ? -1 : 0)
+      await desplazarFormasLibres(dir === 'O' ? -1 : 0, dir === 'N' ? -1 : 0)
     } else {
       await useDiseño.getState().podarTechoExtra(newCols, newRows)
     }

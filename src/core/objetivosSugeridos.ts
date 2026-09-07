@@ -555,7 +555,7 @@ export const idActividadSugerencia = (plantillaId: string, id: string): string =
   actividadId('objetivo', `${plantillaId}:${id}`)
 
 /** El nombre visible: la etiqueta y, si la lleva, su cantidad («Beber agua · 500 ml»). */
-export function nombreSugerencia(s: ObjetivoSugerido, cantidad?: number): string {
+function nombreSugerencia(s: ObjetivoSugerido, cantidad?: number): string {
   const etiqueta = tGlobal(s.clave, s.etiquetaEs)
   return s.cantidad && cantidad ? `${etiqueta} · ${cantidad} ${s.cantidad.unidad}` : etiqueta
 }

@@ -32,6 +32,8 @@ export interface AvisosRedes {
   youtube?: 'privado'
   tiktok?: 'solo-yo'
   meta?: 'modo-desarrollo'
+  /** Se conectó Facebook pero su listado de Páginas vino vacío: hay que indicarla a mano. */
+  falta_pagina?: 'facebook'
 }
 
 export interface EstadoRedes {
@@ -80,7 +82,7 @@ export interface ResultadoPublicacion {
   privado: boolean
 }
 
-export type FaseTrabajo = 'subiendo' | 'publicando'
+type FaseTrabajo = 'subiendo' | 'publicando'
 
 /** La subida en curso (una a la vez); vive en el store para sobrevivir al diálogo y al cuarto. */
 export interface TrabajoPublicacion {

@@ -775,12 +775,3 @@ function alineacion(celda: CeldaHoja | undefined, valor: number | string | undef
   if (puesta === 'izq') return 'text-start'
   return typeof valor === 'number' ? 'text-end' : 'text-start'
 }
-
-/** Una celda vacía, para quien necesite el molde. */
-export const CELDA_VACIA: CeldaHoja = { crudo: '' }
-
-/** Comprueba que una referencia escrita a mano exista dentro de la hoja. */
-export const refValida = (ref: string, hoja: HojaCalculo): boolean => {
-  const p = deRef(ref)
-  return !!p && p.fila < hoja.filas && p.col < hoja.cols
-}

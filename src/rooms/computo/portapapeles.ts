@@ -12,7 +12,7 @@
  * donde el usuario pega a mano. Sin eso, el pegado externo no existiría en la
  * plataforma objetivo.
  */
-import { deRef, esFormula, pintar, refA1, type Celdas, type ResultadoCelda } from './hoja'
+import { deRef, pintar, refA1, type Celdas, type ResultadoCelda } from './hoja'
 import type { Rect } from './refs'
 
 export interface Recorte {
@@ -125,6 +125,3 @@ export function recortar(celdas: Celdas, rect: Rect, cortado: boolean): Recorte 
   }
   return { rect, celdas: dentro, cortado }
 }
-
-/** ¿El recorte trae alguna fórmula? (decide si merece la pena avisar al pegar) */
-export const traeFormulas = (r: Recorte) => Object.values(r.celdas).some(esFormula)

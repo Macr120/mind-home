@@ -26,7 +26,7 @@ export const svgStore = {
   getSnapshot: () => version,
 }
 
-export function cargarSvgs(): Promise<void> {
+function cargarSvgs(): Promise<void> {
   cargando ??= import('./catalogo.svg').then(
     (m) => {
       svgs = m.SVGS

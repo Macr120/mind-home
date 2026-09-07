@@ -2,7 +2,7 @@ import type { OperacionIA } from '../../core/cuenta/catalogoIA'
 
 /** Lo que cuesta la IA en el Studio de arte. */
 
-export const OP_GENERAR: OperacionIA = {
+const OP_GENERAR: OperacionIA = {
   id: 'arte.generar',
   clave: 'ia.op.arte.generar',
   es: 'Generar un dibujo desde una descripción',
@@ -11,7 +11,7 @@ export const OP_GENERAR: OperacionIA = {
   partes: [{ op: 'imagen' }],
 }
 
-export const OP_REINTERPRETAR: OperacionIA = {
+const OP_REINTERPRETAR: OperacionIA = {
   id: 'arte.reinterpretar',
   clave: 'ia.op.arte.reinterpretar',
   es: 'Reinterpretar el lienzo (tu dibujo como referencia)',

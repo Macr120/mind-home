@@ -1,1010 +1,906 @@
 [
   {
-    "clave": "biblioteca.nodoDesc.idi-asiaticas",
-    "en": "Japanese, Chinese, Korean, and their writing systems."
+    "clave": "arte.capa.subir",
+    "es": "Subir la capa",
+    "en": "Move the layer up"
   },
   {
-    "clave": "biblioteca.nodo.idi-practica",
-    "en": "Practice and culture"
+    "clave": "arte.capa.bajar",
+    "es": "Bajar la capa",
+    "en": "Move the layer down"
   },
   {
-    "clave": "biblioteca.nodo.idi-conversacion",
-    "en": "Conversation"
+    "clave": "arte.capa.fusionar",
+    "es": "Fusionar hacia abajo",
+    "en": "Merge down"
   },
   {
-    "clave": "biblioteca.nodoDesc.idi-conversacion",
-    "en": "Fluency, expressions, and everyday situations."
+    "clave": "arte.capa.fusionarMsg",
+    "es": "La capa se mezcla con la de abajo y no se puede deshacer.",
+    "en": "The layer blends into the one below and cannot be undone."
   },
   {
-    "clave": "biblioteca.nodo.idi-lectura",
-    "en": "Reading and writing"
+    "clave": "arte.capa.borrar",
+    "es": "Borrar la capa",
+    "en": "Delete the layer"
   },
   {
-    "clave": "biblioteca.nodoDesc.idi-lectura",
-    "en": "Graded texts, composition, and spelling."
+    "clave": "arte.capa.borrarMsg",
+    "es": "Se pierde lo dibujado en ella.",
+    "en": "Whatever is drawn on it will be lost."
   },
   {
-    "clave": "biblioteca.nodo.idi-inmersion",
-    "en": "Culture and immersion"
+    "clave": "arte.capa.nueva",
+    "es": "Capa {n}",
+    "en": "Layer {n}"
   },
   {
-    "clave": "biblioteca.nodoDesc.idi-inmersion",
-    "en": "Customs, media, and travel for learning."
+    "clave": "arte.capa.agregar",
+    "es": "Añadir capa",
+    "en": "Add layer"
   },
   {
-    "clave": "biblioteca.nodo.artes",
-    "en": "Arts and expression"
+    "clave": "arte.apoyo.titulo",
+    "es": "Ayudas de dibujo",
+    "en": "Drawing aids"
   },
   {
-    "clave": "biblioteca.nodoDesc.artes",
-    "en": "Aesthetic creation, artistic perception, and visual and sound culture."
+    "clave": "arte.apoyo.regla",
+    "es": "Regla",
+    "en": "Ruler"
   },
   {
-    "clave": "biblioteca.nodo.art-visuales",
-    "en": "Visual arts"
+    "clave": "arte.apoyo.rejilla",
+    "es": "Rejilla con imán",
+    "en": "Snap grid"
   },
   {
-    "clave": "biblioteca.nodo.art-pintura",
-    "en": "Painting and drawing"
+    "clave": "arte.apoyo.espejoV",
+    "es": "Espejo vertical",
+    "en": "Vertical mirror"
   },
   {
-    "clave": "biblioteca.nodoDesc.art-pintura",
-    "en": "Techniques, composition, and color."
+    "clave": "arte.apoyo.espejoH",
+    "es": "Espejo horizontal",
+    "en": "Horizontal mirror"
   },
   {
-    "clave": "biblioteca.nodo.art-escultura",
-    "en": "Sculpture and architecture"
+    "clave": "arte.apoyo.nota",
+    "es": "La regla se coloca arrastrando sobre el lienzo y los trazos libres se pegan a ella. El espejo refleja lo que dibujas y la rejilla imanta los extremos de las formas.",
+    "en": "Place the ruler by dragging on the canvas and freehand strokes will stick to it. The mirror reflects what you draw and the grid snaps shape endpoints."
   },
   {
-    "clave": "biblioteca.nodoDesc.art-escultura",
-    "en": "Space, form, and design."
+    "clave": "arte.filtro.brilloMas",
+    "en": "Brighter"
   },
   {
-    "clave": "biblioteca.nodo.art-fotografia",
-    "en": "Photography"
+    "clave": "arte.filtro.brilloMenos",
+    "en": "Darker"
   },
   {
-    "clave": "biblioteca.nodoDesc.art-fotografia",
-    "en": "Light, framing, and visual narrative."
+    "clave": "arte.filtro.contrasteMas",
+    "en": "More contrast"
   },
   {
-    "clave": "biblioteca.nodo.art-musica",
-    "en": "Music"
+    "clave": "arte.filtro.contrasteMenos",
+    "en": "Less contrast"
   },
   {
-    "clave": "biblioteca.nodo.art-teoria-mus",
-    "en": "Music theory"
+    "clave": "arte.filtro.grises",
+    "en": "Grayscale"
   },
   {
-    "clave": "biblioteca.nodoDesc.art-teoria-mus",
-    "en": "Harmony, rhythm, and notation."
+    "clave": "arte.filtro.desenfoque",
+    "en": "Blur"
   },
   {
-    "clave": "biblioteca.nodo.art-historia-mus",
-    "en": "History of music"
+    "clave": "arte.filtro.nota",
+    "es": "Cada filtro se aplica a la capa activa y se puede deshacer.",
+    "en": "Each filter applies to the active layer and can be undone."
   },
   {
-    "clave": "biblioteca.nodoDesc.art-historia-mus",
-    "en": "Styles, eras, and composers."
+    "clave": "arte.ia.boton",
+    "es": "IA",
+    "en": "AI"
   },
   {
-    "clave": "biblioteca.nodo.art-escenicas",
-    "en": "Performing arts and film"
+    "clave": "arte.ia.titulo",
+    "es": "Pintar con IA",
+    "en": "Paint with AI"
   },
   {
-    "clave": "biblioteca.nodo.art-teatro",
-    "en": "Theater and performance"
+    "clave": "arte.ia.prompt",
+    "es": "Qué quieres ver",
+    "en": "What you want to see"
   },
   {
-    "clave": "biblioteca.nodoDesc.art-teatro",
-    "en": "Dramaturgy, acting, and staging."
+    "clave": "arte.ia.promptPh",
+    "es": "Un faro en la tormenta, estilo acuarela…",
+    "en": "A lighthouse in a storm, watercolor style…"
   },
   {
-    "clave": "biblioteca.nodo.art-cine",
-    "en": "Film and audiovisual media"
+    "clave": "arte.ia.generar",
+    "es": "Generar dibujo",
+    "en": "Generate drawing"
   },
   {
-    "clave": "biblioteca.nodoDesc.art-cine",
-    "en": "Screenwriting, editing, and film language."
+    "clave": "arte.ia.reinterpretar",
+    "es": "Reinterpretar mi lienzo",
+    "en": "Reinterpret my canvas"
   },
   {
-    "clave": "biblioteca.nodo.tecnologia",
-    "en": "Technology and engineering"
+    "clave": "arte.ia.nota",
+    "es": "El resultado cubre la capa activa (se puede deshacer). Al reinterpretar, tu dibujo compuesto viaja como referencia.",
+    "en": "The result covers the active layer (you can undo). When reinterpreting, your composed drawing travels as the reference."
   },
   {
-    "clave": "biblioteca.nodoDesc.tecnologia",
-    "en": "Applying knowledge to solve problems and transform the world."
+    "clave": "ia.op.arte.generar",
+    "en": "Generate a drawing from a description"
   },
   {
-    "clave": "biblioteca.nodo.tec-informatica",
-    "en": "Computer science"
+    "clave": "ia.op.arte.reinterpretar",
+    "en": "Reinterpret the canvas (your drawing as reference)"
   },
   {
-    "clave": "biblioteca.nodo.tec-algoritmos",
-    "en": "Algorithms and data structures"
+    "clave": "ia.op.arte.reinterpretar.nota",
+    "en": "Your canvas travels as the reference image (img2img)."
   },
   {
-    "clave": "biblioteca.nodoDesc.tec-algoritmos",
-    "en": "Efficiency, data, and design."
+    "clave": "ia.donde.arte.editor",
+    "en": "Gallery · Editor · ✨ button"
   },
   {
-    "clave": "biblioteca.nodo.tec-ia",
-    "en": "Artificial intelligence"
+    "clave": "room.audio.nombre",
+    "en": "Audio"
   },
   {
-    "clave": "biblioteca.nodoDesc.tec-ia",
-    "en": "Machine learning and AI ethics."
+    "clave": "room.audio.sub",
+    "en": "Music studio"
   },
   {
-    "clave": "biblioteca.nodo.tec-redes",
-    "en": "Networks and systems"
+    "clave": "room.audio.desc",
+    "en": "Your music studio: tracks with a piano roll, synth instruments, a MIDI or on-screen keyboard, recording with a metronome, WAV export and an AI that composes with you."
   },
   {
-    "clave": "biblioteca.nodoDesc.tec-redes",
-    "en": "Internet, security, and distribution."
+    "clave": "room.audio.corta",
+    "en": "Tracks, piano roll & MIDI"
   },
   {
-    "clave": "biblioteca.nodo.tec-ingenieria",
-    "en": "Engineering"
+    "clave": "room.audio.cmd.canciones",
+    "en": "Songs"
   },
   {
-    "clave": "biblioteca.nodo.tec-mecanica",
-    "en": "Mechanical engineering"
+    "clave": "room.audio.cmd.mezclar",
+    "en": "DJ mixer"
   },
   {
-    "clave": "biblioteca.nodoDesc.tec-mecanica",
-    "en": "Machines, materials, and manufacturing."
+    "clave": "audio.lista.nuevo",
+    "es": "Nuevo proyecto",
+    "en": "New project"
   },
   {
-    "clave": "biblioteca.nodo.tec-electrica",
-    "en": "Electrical engineering"
+    "clave": "audio.lista.nuevoMsg",
+    "es": "Nombre del proyecto",
+    "en": "Project name"
   },
   {
-    "clave": "biblioteca.nodoDesc.tec-electrica",
-    "en": "Circuits, power, and electronics."
+    "clave": "audio.lista.meta",
+    "es": "{bpm} BPM · {pistas} pistas",
+    "en": "{bpm} BPM · {pistas} tracks"
   },
   {
-    "clave": "biblioteca.nodo.tec-civil",
-    "en": "Civil engineering"
+    "clave": "audio.lista.guardarAlbum",
+    "es": "Guardar en álbum",
+    "en": "Save to album"
   },
   {
-    "clave": "biblioteca.nodoDesc.tec-civil",
-    "en": "Infrastructure, hydraulics, and structures."
+    "clave": "audio.lista.nCanciones",
+    "es": "{n} canciones",
+    "en": "{n} songs"
   },
   {
-    "clave": "biblioteca.nodo.tec-energia",
-    "en": "Energy and sustainability"
+    "clave": "audio.lista.borrarFabricaMsg",
+    "es": "La canción de fábrica se quita de la lista.",
+    "en": "The built-in song is removed from the list."
   },
   {
-    "clave": "biblioteca.nodo.tec-renovables",
-    "en": "Renewable energy"
+    "clave": "audio.lista.nuevoAlbum",
+    "es": "Nuevo álbum",
+    "en": "New album"
   },
   {
-    "clave": "biblioteca.nodoDesc.tec-renovables",
-    "en": "Solar, wind, and hydrogen."
+    "clave": "audio.lista.nuevoAlbumMsg",
+    "es": "Nombre del álbum",
+    "en": "Album name"
   },
   {
-    "clave": "biblioteca.nodo.tec-ambiental",
-    "en": "Environmental engineering"
+    "clave": "audio.lista.quitarAlbum",
+    "es": "Quitar del álbum",
+    "en": "Remove from album"
   },
   {
-    "clave": "biblioteca.nodoDesc.tec-ambiental",
-    "en": "Waste, water, and ecological footprint."
+    "clave": "audio.lista.renombrarAlbum",
+    "es": "Renombrar álbum",
+    "en": "Rename album"
   },
   {
-    "clave": "biblioteca.nodo.salud",
-    "en": "Health and medicine"
+    "clave": "audio.lista.disolverAlbum",
+    "es": "Disolver el álbum",
+    "en": "Dissolve the album"
   },
   {
-    "clave": "biblioteca.nodoDesc.salud",
-    "en": "The human body, disease, prevention, and care systems."
+    "clave": "audio.lista.disolverAlbumMsg",
+    "es": "Las canciones no se borran: vuelven a Todas.",
+    "en": "The songs aren’t deleted: they go back to All."
   },
   {
-    "clave": "biblioteca.nodo.sal-anatomia",
-    "en": "Anatomy and physiology"
+    "clave": "audio.lista.albumVacio",
+    "es": "Este álbum está vacío: guarda canciones con el botón de la carpeta.",
+    "en": "This album is empty: save songs into it with the folder button."
   },
   {
-    "clave": "biblioteca.nodo.sal-cuerpo",
-    "en": "Body systems"
+    "clave": "audio.lista.escuchar",
+    "es": "Escuchar",
+    "en": "Listen"
   },
   {
-    "clave": "biblioteca.nodoDesc.sal-cuerpo",
-    "en": "Organs, homeostasis, and integration."
+    "clave": "audio.lista.parar",
+    "es": "Parar",
+    "en": "Stop"
   },
   {
-    "clave": "biblioteca.nodo.sal-neuro",
-    "en": "Medical neuroscience"
+    "clave": "audio.lista.abrirEditor",
+    "es": "Abrir en el editor",
+    "en": "Open in the editor"
   },
   {
-    "clave": "biblioteca.nodoDesc.sal-neuro",
-    "en": "Brain, senses, and movement."
+    "clave": "audio.lista.borrar",
+    "es": "Borrar el proyecto",
+    "en": "Delete the project"
   },
   {
-    "clave": "biblioteca.nodo.sal-clinica",
-    "en": "Clinical medicine"
+    "clave": "audio.lista.borrarMsg",
+    "es": "Se pierden sus pistas y sus notas; las tomas de micrófono siguen en Grabaciones.",
+    "en": "Its tracks and notes are lost; microphone takes stay in Recordings."
   },
   {
-    "clave": "biblioteca.nodo.sal-patologia",
-    "en": "Pathology"
+    "clave": "audio.editor.volver",
+    "es": "Volver a los proyectos",
+    "en": "Back to projects"
   },
   {
-    "clave": "biblioteca.nodoDesc.sal-patologia",
-    "en": "Disease, diagnosis, and causes."
+    "clave": "audio.editor.cargando",
+    "es": "Cargando el proyecto",
+    "en": "Loading the project"
   },
   {
-    "clave": "biblioteca.nodo.sal-farmacologia",
-    "en": "Pharmacology"
+    "clave": "audio.transporte.play",
+    "es": "Reproducir",
+    "en": "Play"
   },
   {
-    "clave": "biblioteca.nodoDesc.sal-farmacologia",
-    "en": "Drugs, dosage, and effects."
+    "clave": "audio.transporte.pausa",
+    "es": "Pausar",
+    "en": "Pause"
   },
   {
-    "clave": "biblioteca.nodo.sal-salud-pub",
-    "en": "Public health"
+    "clave": "audio.transporte.stop",
+    "es": "Detener",
+    "en": "Stop"
   },
   {
-    "clave": "biblioteca.nodoDesc.sal-salud-pub",
-    "en": "Epidemiology, vaccines, and policy."
+    "clave": "audio.transporte.grabar",
+    "es": "Grabar (con un compás de cuenta)",
+    "en": "Record (with a one-bar count-in)"
   },
   {
-    "clave": "biblioteca.nodo.sal-bienestar",
-    "en": "Well-being and nutrition"
+    "clave": "audio.transporte.metronomo",
+    "es": "Metrónomo",
+    "en": "Metronome"
   },
   {
-    "clave": "biblioteca.nodo.sal-nutricion",
-    "en": "Clinical nutrition"
+    "clave": "audio.transporte.loop",
+    "es": "Bucle (arrástralo en la regla)",
+    "en": "Loop (drag it on the ruler)"
   },
   {
-    "clave": "biblioteca.nodoDesc.sal-nutricion",
-    "en": "Diets, metabolism, and micronutrients."
+    "clave": "audio.transporte.cuantizar",
+    "es": "Cuantizar la grabación (las notas caen exactas en la rejilla)",
+    "en": "Quantize the recording (notes snap to the grid)"
   },
   {
-    "clave": "biblioteca.nodo.sal-prevencion",
-    "en": "Preventive medicine"
+    "clave": "audio.transporte.bpm",
+    "es": "BPM",
+    "en": "BPM"
   },
   {
-    "clave": "biblioteca.nodoDesc.sal-prevencion",
-    "en": "Habits, screening, and longevity."
+    "clave": "audio.transporte.compases",
+    "es": "Compases",
+    "en": "Bars"
   },
   {
-    "clave": "ejercicio.ej.press-banca",
-    "en": "Bench press"
+    "clave": "audio.pistas.pista",
+    "es": "Pista",
+    "en": "Track"
   },
   {
-    "clave": "ejercicio.ej.press-inclinado",
-    "en": "Incline press"
+    "clave": "audio.pistas.renombrar",
+    "es": "Renombrar pista",
+    "en": "Rename track"
   },
   {
-    "clave": "ejercicio.ej.press-con-mancuernas",
-    "en": "Dumbbell press"
+    "clave": "audio.pistas.instrumento",
+    "es": "Instrumento",
+    "en": "Instrument"
   },
   {
-    "clave": "ejercicio.ej.aperturas-con-mancuernas",
-    "en": "Dumbbell flys"
+    "clave": "audio.pistas.volumen",
+    "es": "Volumen",
+    "en": "Volume"
   },
   {
-    "clave": "ejercicio.ej.cruce-en-polea",
-    "en": "Cable crossover"
+    "clave": "audio.pistas.mute",
+    "es": "Silenciar",
+    "en": "Mute"
   },
   {
-    "clave": "ejercicio.ej.fondos-en-paralelas",
-    "en": "Dips"
+    "clave": "audio.pistas.solo",
+    "es": "Solo",
+    "en": "Solo"
   },
   {
-    "clave": "ejercicio.ej.flexiones",
-    "en": "Push-ups"
+    "clave": "audio.pistas.borrar",
+    "es": "Borrar la pista",
+    "en": "Delete the track"
   },
   {
-    "clave": "ejercicio.ej.dominadas",
-    "en": "Pull-ups"
+    "clave": "audio.pistas.borrarMsg",
+    "es": "Se pierden sus notas.",
+    "en": "Its notes will be lost."
   },
   {
-    "clave": "ejercicio.ej.jalon-al-pecho",
-    "en": "Lat pulldown"
+    "clave": "audio.pistas.agregar",
+    "es": "Añadir pista",
+    "en": "Add track"
   },
   {
-    "clave": "ejercicio.ej.remo-con-barra",
-    "en": "Barbell row"
+    "clave": "audio.instr.piano",
+    "es": "Piano eléctrico",
+    "en": "Electric piano"
   },
   {
-    "clave": "ejercicio.ej.remo-con-mancuerna",
-    "en": "Dumbbell row"
+    "clave": "audio.instr.bajo",
+    "es": "Bajo",
+    "en": "Bass"
   },
   {
-    "clave": "ejercicio.ej.remo-en-polea-baja",
-    "en": "Seated cable row"
+    "clave": "audio.instr.pad",
+    "es": "Pad",
+    "en": "Pad"
   },
   {
-    "clave": "ejercicio.ej.pull-over",
-    "en": "Pullover"
+    "clave": "audio.instr.pluck",
+    "es": "Cuerda pulsada",
+    "en": "Plucked string"
   },
   {
-    "clave": "ejercicio.ej.face-pull",
-    "en": "Face pull"
+    "clave": "audio.instr.lead",
+    "es": "Lead chiptune",
+    "en": "Chiptune lead"
   },
   {
-    "clave": "ejercicio.ej.hiperextensiones",
-    "en": "Hyperextensions"
+    "clave": "audio.instr.bateria",
+    "es": "Batería",
+    "en": "Drums"
   },
   {
-    "clave": "ejercicio.ej.press-militar",
-    "en": "Military press"
+    "clave": "audio.roll.zoomMas",
+    "es": "Acercar",
+    "en": "Zoom in"
   },
   {
-    "clave": "ejercicio.ej.press-arnold",
-    "en": "Arnold press"
+    "clave": "audio.roll.zoomMenos",
+    "es": "Alejar",
+    "en": "Zoom out"
   },
   {
-    "clave": "ejercicio.ej.elevaciones-laterales",
-    "en": "Lateral raises"
+    "clave": "audio.teclado.octavaMenos",
+    "es": "Octava abajo",
+    "en": "Octave down"
   },
   {
-    "clave": "ejercicio.ej.elevaciones-frontales",
-    "en": "Front raises"
+    "clave": "audio.teclado.octavaMas",
+    "es": "Octava arriba",
+    "en": "Octave up"
   },
   {
-    "clave": "ejercicio.ej.pajaros",
-    "en": "Reverse flys"
+    "clave": "audio.roll.expandir",
+    "es": "Expandir el timeline",
+    "en": "Expand the timeline"
   },
   {
-    "clave": "ejercicio.ej.encogimientos",
-    "en": "Shrugs"
+    "clave": "audio.roll.contraer",
+    "es": "Contraer el timeline",
+    "en": "Collapse the timeline"
   },
   {
-    "clave": "ejercicio.ej.curl-con-barra",
-    "en": "Barbell curl"
+    "clave": "audio.roll.verPartitura",
+    "es": "Ver la partitura",
+    "en": "Show standard notation"
   },
   {
-    "clave": "ejercicio.ej.curl-con-mancuernas",
-    "en": "Dumbbell curl"
+    "clave": "audio.roll.verRoll",
+    "es": "Ver el piano roll",
+    "en": "Show the piano roll"
   },
   {
-    "clave": "ejercicio.ej.curl-martillo",
-    "en": "Hammer curl"
+    "clave": "audio.transporte.grupoRitmo",
+    "es": "Ritmo",
+    "en": "Rhythm"
   },
   {
-    "clave": "ejercicio.ej.curl-predicador",
-    "en": "Preacher curl"
+    "clave": "audio.transporte.grupoExtras",
+    "es": "Extras",
+    "en": "Extras"
   },
   {
-    "clave": "ejercicio.ej.curl-concentrado",
-    "en": "Concentration curl"
+    "clave": "audio.transporte.regresar",
+    "es": "Regresar al inicio",
+    "en": "Back to the start"
   },
   {
-    "clave": "ejercicio.ej.extension-triceps-en-polea",
-    "en": "Triceps pushdown"
+    "clave": "audio.transporte.previa",
+    "es": "Escuchar el ritmo (solo el metrónomo)",
+    "en": "Hear the rhythm (metronome only)"
   },
   {
-    "clave": "ejercicio.ej.press-frances",
-    "en": "Skull crusher"
+    "clave": "audio.transporte.pulsos",
+    "es": "Pulsos",
+    "en": "Beats"
   },
   {
-    "clave": "ejercicio.ej.fondos-entre-bancos",
-    "en": "Bench dips"
+    "clave": "audio.transporte.pulsosLargo",
+    "es": "Pulsaciones por compás",
+    "en": "Beats per bar"
   },
   {
-    "clave": "ejercicio.ej.extension-sobre-cabeza",
-    "en": "Overhead extension"
+    "clave": "audio.transporte.tiempo",
+    "es": "Compás.pulso · tiempo",
+    "en": "Bar.beat · time"
   },
   {
-    "clave": "ejercicio.ej.patada-de-triceps",
-    "en": "Triceps kickback"
+    "clave": "audio.transporte.compasTradicional",
+    "es": "Compás en notación tradicional",
+    "en": "Time signature"
   },
   {
-    "clave": "ejercicio.ej.sentadilla",
-    "en": "Squat"
+    "clave": "audio.instr.organo",
+    "es": "Órgano",
+    "en": "Organ"
   },
   {
-    "clave": "ejercicio.ej.sentadilla-frontal",
-    "en": "Front squat"
+    "clave": "audio.instr.campanas",
+    "es": "Campanas",
+    "en": "Bells"
   },
   {
-    "clave": "ejercicio.ej.sentadilla-bulgara",
-    "en": "Bulgarian split squat"
+    "clave": "audio.instr.guitarra",
+    "es": "Guitarra",
+    "en": "Guitar"
   },
   {
-    "clave": "ejercicio.ej.prensa-de-pierna",
-    "en": "Leg press"
+    "clave": "audio.instr.arpa",
+    "es": "Arpa",
+    "en": "Harp"
   },
   {
-    "clave": "ejercicio.ej.zancadas",
-    "en": "Lunges"
+    "clave": "audio.instr.violines",
+    "es": "Violines",
+    "en": "Strings"
   },
   {
-    "clave": "ejercicio.ej.peso-muerto",
-    "en": "Deadlift"
+    "clave": "audio.instr.bateria808",
+    "es": "Batería electrónica",
+    "en": "Electronic drums"
   },
   {
-    "clave": "ejercicio.ej.peso-muerto-rumano",
-    "en": "Romanian deadlift"
+    "clave": "audio.carpeta.teclados",
+    "es": "Teclados",
+    "en": "Keyboards"
   },
   {
-    "clave": "ejercicio.ej.curl-femoral",
-    "en": "Leg curl"
+    "clave": "audio.carpeta.cuerdas",
+    "es": "Cuerdas",
+    "en": "Strings"
   },
   {
-    "clave": "ejercicio.ej.extension-de-cuadriceps",
-    "en": "Leg extension"
+    "clave": "audio.carpeta.vientos",
+    "es": "Vientos",
+    "en": "Winds"
   },
   {
-    "clave": "ejercicio.ej.elevacion-de-talones",
-    "en": "Calf raises"
+    "clave": "audio.carpeta.baterias",
+    "es": "Baterías",
+    "en": "Drums"
   },
   {
-    "clave": "ejercicio.ej.hip-thrust",
-    "en": "Hip thrust"
+    "clave": "audio.carpeta.voz",
+    "es": "Voz",
+    "en": "Voice"
   },
   {
-    "clave": "ejercicio.ej.puente-de-gluteo",
-    "en": "Glute bridge"
+    "clave": "audio.instr.flauta",
+    "es": "Flauta",
+    "en": "Flute"
   },
   {
-    "clave": "ejercicio.ej.patada-de-gluteo-en-polea",
-    "en": "Cable glute kickback"
+    "clave": "audio.instr.trompeta",
+    "es": "Trompeta",
+    "en": "Trumpet"
   },
   {
-    "clave": "ejercicio.ej.abduccion-de-cadera",
-    "en": "Hip abduction"
+    "clave": "audio.instr.sax",
+    "es": "Sax",
+    "en": "Sax"
   },
   {
-    "clave": "ejercicio.ej.plancha",
-    "en": "Plank"
+    "clave": "audio.instr.voz",
+    "es": "Voz solista",
+    "en": "Lead voice"
   },
   {
-    "clave": "ejercicio.ej.plancha-lateral",
-    "en": "Side plank"
+    "clave": "audio.instr.coro",
+    "es": "Coro",
+    "en": "Choir"
   },
   {
-    "clave": "ejercicio.ej.crunch-abdominal",
-    "en": "Abdominal crunch"
+    "clave": "audio.sinte.variante",
+    "es": "Variante del instrumento",
+    "en": "Instrument variant"
   },
   {
-    "clave": "ejercicio.ej.elevacion-de-piernas",
-    "en": "Leg raises"
+    "clave": "audio.sinte.titulo",
+    "es": "Sintetizador",
+    "en": "Synthesizer"
   },
   {
-    "clave": "ejercicio.ej.russian-twist",
-    "en": "Russian twist"
+    "clave": "audio.sinte.octava",
+    "es": "Octava del teclado",
+    "en": "Keyboard octave"
   },
   {
-    "clave": "ejercicio.ej.rueda-abdominal",
-    "en": "Ab wheel rollout"
+    "clave": "audio.sinte.efectos",
+    "es": "Efectos",
+    "en": "Effects"
   },
   {
-    "clave": "ejercicio.ej.escaladores",
-    "en": "Mountain climbers"
+    "clave": "audio.sinte.sonido",
+    "es": "Sonido",
+    "en": "Sound"
   },
   {
-    "clave": "ejercicio.ej.carrera",
-    "en": "Running"
+    "clave": "audio.sinte.ataque",
+    "es": "Ataque",
+    "en": "Attack"
   },
   {
-    "clave": "ejercicio.ej.trote-suave",
-    "en": "Easy jog"
+    "clave": "audio.sinte.liberacion",
+    "es": "Liberación",
+    "en": "Release"
   },
   {
-    "clave": "ejercicio.ej.caminata-rapida",
-    "en": "Brisk walk"
+    "clave": "audio.sinte.corte",
+    "es": "Corte",
+    "en": "Cutoff"
   },
   {
-    "clave": "ejercicio.ej.ciclismo",
-    "en": "Cycling"
+    "clave": "audio.sinte.resonancia",
+    "es": "Resonancia",
+    "en": "Resonance"
   },
   {
-    "clave": "ejercicio.ej.senderismo",
-    "en": "Hiking"
+    "clave": "audio.sinte.glide",
+    "es": "Glide",
+    "en": "Glide"
   },
   {
-    "clave": "ejercicio.ej.trail-running",
-    "en": "Trail running"
+    "clave": "audio.sinte.vibrato",
+    "es": "Vibrato",
+    "en": "Vibrato"
   },
   {
-    "clave": "ejercicio.ej.caminadora",
-    "en": "Treadmill"
+    "clave": "audio.fx.reverb",
+    "es": "Reverb",
+    "en": "Reverb"
   },
   {
-    "clave": "ejercicio.ej.caminata-inclinada",
-    "en": "Incline walk"
+    "clave": "audio.fx.delay",
+    "es": "Delay",
+    "en": "Delay"
   },
   {
-    "clave": "ejercicio.ej.eliptica",
-    "en": "Elliptical"
+    "clave": "audio.fx.chorus",
+    "es": "Chorus",
+    "en": "Chorus"
   },
   {
-    "clave": "ejercicio.ej.bicicleta-estatica",
-    "en": "Stationary bike"
+    "clave": "audio.fx.dist",
+    "es": "Distorsión",
+    "en": "Distortion"
   },
   {
-    "clave": "ejercicio.ej.escaladora",
-    "en": "Stair climber"
+    "clave": "audio.fx.maestro",
+    "es": "Maestro",
+    "en": "Master"
   },
   {
-    "clave": "ejercicio.ej.remo-maquina",
-    "en": "Rowing (machine)"
+    "clave": "audio.arp.boton",
+    "es": "Arpegio",
+    "en": "Arpeggio"
   },
   {
-    "clave": "ejercicio.ej.hiit",
-    "en": "HIIT"
+    "clave": "audio.arp.titulo",
+    "es": "Arpegiador",
+    "en": "Arpeggiator"
   },
   {
-    "clave": "ejercicio.ej.sprints",
-    "en": "Sprints"
+    "clave": "audio.arp.patron",
+    "es": "Patrón",
+    "en": "Pattern"
   },
   {
-    "clave": "ejercicio.ej.saltar-cuerda",
-    "en": "Jump rope"
+    "clave": "audio.arp.apagado",
+    "es": "Apagado",
+    "en": "Off"
   },
   {
-    "clave": "ejercicio.ej.burpees",
-    "en": "Burpees"
+    "clave": "audio.arp.sube",
+    "es": "Arriba",
+    "en": "Up"
   },
   {
-    "clave": "ejercicio.ej.circuito-metabolico",
-    "en": "Metabolic circuit"
+    "clave": "audio.arp.baja",
+    "es": "Abajo",
+    "en": "Down"
   },
   {
-    "clave": "ejercicio.ej.natacion",
-    "en": "Swimming"
+    "clave": "audio.arp.subeBaja",
+    "es": "Ida y vuelta",
+    "en": "Up and down"
   },
   {
-    "clave": "ejercicio.ej.aqua-aerobicos",
-    "en": "Water aerobics"
+    "clave": "audio.arp.azar",
+    "es": "Al azar",
+    "en": "Random"
   },
   {
-    "clave": "ejercicio.ej.caminata",
-    "en": "Walking"
+    "clave": "audio.arp.vel",
+    "es": "Velocidad",
+    "en": "Rate"
   },
   {
-    "clave": "ejercicio.ej.futbol",
-    "en": "Soccer"
+    "clave": "audio.arp.nota",
+    "es": "Mantén una o varias teclas y el arpegio las recorre al ritmo del BPM; al grabar, las notas entran ya arpegiadas.",
+    "en": "Hold one or more keys and the arpeggio cycles through them at the BPM; when recording, notes land already arpeggiated."
   },
   {
-    "clave": "ejercicio.ej.basquetbol",
-    "en": "Basketball"
+    "clave": "audio.acorde.boton",
+    "es": "Acordes",
+    "en": "Chords"
   },
   {
-    "clave": "ejercicio.ej.tenis",
-    "en": "Tennis"
+    "clave": "audio.acorde.titulo",
+    "es": "Modo de acordes",
+    "en": "Chord mode"
   },
   {
-    "clave": "ejercicio.ej.padel",
-    "en": "Padel"
+    "clave": "audio.acorde.apagado",
+    "es": "Apagado",
+    "en": "Off"
   },
   {
-    "clave": "ejercicio.ej.boxeo",
-    "en": "Boxing"
+    "clave": "audio.acorde.mayor",
+    "es": "Mayor",
+    "en": "Major"
   },
   {
-    "clave": "ejercicio.ej.baile",
-    "en": "Dance"
+    "clave": "audio.acorde.menor",
+    "es": "Menor",
+    "en": "Minor"
   },
   {
-    "clave": "ejercicio.ej.movilidad-matutina",
-    "en": "Morning mobility"
+    "clave": "audio.acorde.septima",
+    "es": "Séptima",
+    "en": "Seventh"
   },
   {
-    "clave": "ejercicio.ej.yoga-flow",
-    "en": "Yoga flow"
+    "clave": "audio.acorde.diatonico",
+    "es": "Diatónico",
+    "en": "Diatonic"
   },
   {
-    "clave": "ejercicio.ej.saludo-al-sol",
-    "en": "Sun salutation"
+    "clave": "audio.acorde.nota",
+    "es": "Cada tecla suena como un acorde completo. Con una escala activa se desbloquea el modo diatónico.",
+    "en": "Each key plays a full chord. With a scale active, diatonic mode unlocks."
   },
   {
-    "clave": "ejercicio.ej.estiramiento-general",
-    "en": "General stretch"
+    "clave": "audio.acorde.notaDiatonico",
+    "es": "Cada tecla suena como acorde; el diatónico apila terceras de la escala elegida.",
+    "en": "Each key plays a chord; diatonic stacks thirds from the chosen scale."
   },
   {
-    "clave": "ejercicio.ej.guerrero-i",
-    "en": "Warrior I"
+    "clave": "audio.escala.boton",
+    "es": "Escala",
+    "en": "Scale"
   },
   {
-    "clave": "ejercicio.ej.guerrero-ii",
-    "en": "Warrior II"
+    "clave": "audio.escala.titulo",
+    "es": "Escala",
+    "en": "Scale"
   },
   {
-    "clave": "ejercicio.ej.triangulo",
-    "en": "Triangle pose"
+    "clave": "audio.escala.apagado",
+    "es": "Apagada",
+    "en": "Off"
   },
   {
-    "clave": "ejercicio.ej.flexion-de-pie",
-    "en": "Standing forward fold"
+    "clave": "audio.escala.tonica",
+    "es": "Tónica",
+    "en": "Root"
   },
   {
-    "clave": "ejercicio.ej.apertura-de-cadera",
-    "en": "Hip opener"
+    "clave": "audio.escala.tipo",
+    "es": "Tipo",
+    "en": "Type"
   },
   {
-    "clave": "ejercicio.ej.postura-de-la-paloma",
-    "en": "Pigeon pose"
+    "clave": "audio.escala.mayor",
+    "es": "Mayor",
+    "en": "Major"
   },
   {
-    "clave": "ejercicio.ej.mariposa",
-    "en": "Butterfly stretch"
+    "clave": "audio.escala.menor",
+    "es": "Menor",
+    "en": "Minor"
   },
   {
-    "clave": "ejercicio.ej.estiramiento-de-isquiotibiales",
-    "en": "Hamstring stretch"
+    "clave": "audio.escala.pentaMayor",
+    "es": "Penta mayor",
+    "en": "Major pentatonic"
   },
   {
-    "clave": "ejercicio.ej.zancada-baja",
-    "en": "Low lunge"
+    "clave": "audio.escala.pentaMenor",
+    "es": "Penta menor",
+    "en": "Minor pentatonic"
   },
   {
-    "clave": "ejercicio.ej.postura-de-la-guirnalda",
-    "en": "Garland pose"
+    "clave": "audio.escala.blues",
+    "es": "Blues",
+    "en": "Blues"
   },
   {
-    "clave": "ejercicio.ej.figura-4",
-    "en": "Figure 4 stretch"
+    "clave": "audio.escala.nota",
+    "es": "Las teclas fuera de la escala se atenúan en el teclado (siguen sonando).",
+    "en": "Keys outside the scale dim on the keyboard (they still play)."
   },
   {
-    "clave": "ejercicio.ej.estiramiento-de-aductores",
-    "en": "Adductor stretch"
+    "clave": "audio.teclado.tecla",
+    "es": "Tecla",
+    "en": "Key"
   },
   {
-    "clave": "ejercicio.ej.rana",
-    "en": "Frog pose"
+    "clave": "audio.teclado.negra",
+    "es": "Tecla negra",
+    "en": "Black key"
   },
   {
-    "clave": "ejercicio.ej.perro-boca-abajo",
-    "en": "Downward dog"
+    "clave": "audio.teclado.bombo",
+    "es": "Bombo",
+    "en": "Kick"
   },
   {
-    "clave": "ejercicio.ej.torsion-espinal",
-    "en": "Spinal twist"
+    "clave": "audio.teclado.caja",
+    "es": "Caja",
+    "en": "Snare"
   },
   {
-    "clave": "ejercicio.ej.postura-del-nino",
-    "en": "Child's pose"
+    "clave": "audio.teclado.hat",
+    "es": "Hi-hat",
+    "en": "Hi-hat"
   },
   {
-    "clave": "ejercicio.ej.apertura-de-pecho",
-    "en": "Chest opener"
+    "clave": "audio.teclado.hatAbierto",
+    "es": "Hat abierto",
+    "en": "Open hat"
   },
   {
-    "clave": "ejercicio.ej.esfinge",
-    "en": "Sphinx pose"
+    "clave": "audio.bateria.fuerza",
+    "es": "Fuerza",
+    "en": "Velocity"
   },
   {
-    "clave": "ejercicio.ej.hilo-y-aguja",
-    "en": "Thread the needle"
+    "clave": "audio.bateria.fuerzaLargo",
+    "es": "Fuerza de los golpes que tocas o pintas",
+    "en": "Velocity of the hits you play or paint"
   },
   {
-    "clave": "ejercicio.ej.estiramiento-de-dorsales",
-    "en": "Lat stretch"
+    "clave": "audio.bateria.suave",
+    "es": "Suave",
+    "en": "Soft"
   },
   {
-    "clave": "ejercicio.ej.movilidad-cervical",
-    "en": "Neck mobility"
+    "clave": "audio.bateria.media",
+    "es": "Media",
+    "en": "Medium"
   },
   {
-    "clave": "ejercicio.ej.rotaciones-de-columna",
-    "en": "Spine rotations"
+    "clave": "audio.bateria.fuerte",
+    "es": "Fuerte",
+    "en": "Hard"
   },
   {
-    "clave": "ejercicio.ej.postura-de-la-cobra",
-    "en": "Cobra pose"
+    "clave": "audio.bateria.relleno",
+    "es": "Relleno",
+    "en": "Fill"
   },
   {
-    "clave": "ejercicio.ej.inclinacion-lateral-de-cuello",
-    "en": "Lateral neck tilt"
+    "clave": "audio.bateria.golpe",
+    "es": "Golpe",
+    "en": "Drum"
   },
   {
-    "clave": "ejercicio.ej.estiramiento-de-cuadriceps",
-    "en": "Quad stretch"
+    "clave": "audio.bateria.cada",
+    "es": "Pintar la fila cada…",
+    "en": "Paint the row every…"
   },
   {
-    "clave": "ejercicio.ej.estiramiento-de-gemelos",
-    "en": "Calf stretch"
+    "clave": "audio.bateria.limpiarFila",
+    "es": "Limpiar la fila",
+    "en": "Clear the row"
   },
   {
-    "clave": "ejercicio.ej.estiramiento-de-hombros",
-    "en": "Shoulder stretch"
+    "clave": "audio.bateria.limpiarTodo",
+    "es": "Vaciar la pista",
+    "en": "Empty the track"
   },
   {
-    "clave": "ejercicio.ej.foam-roller",
-    "en": "Foam rolling"
+    "clave": "audio.bateria.limpiarTodoMsg",
+    "es": "Se borran todos los golpes.",
+    "en": "All hits are deleted."
   },
   {
-    "clave": "ejercicio.ej.estiramiento-de-triceps",
-    "en": "Triceps stretch"
+    "clave": "audio.bateria.rellenoNota",
+    "es": "El relleno usa la Fuerza actual y sustituye solo la fila de ese golpe.",
+    "en": "The fill uses the current Velocity and only replaces that drum’s row."
   },
   {
-    "clave": "ejercicio.ej.estiramiento-de-flexores-de-cadera",
-    "en": "Hip flexor stretch"
+    "clave": "audio.bateria.patrones",
+    "es": "Patrones",
+    "en": "Patterns"
   },
   {
-    "clave": "ejercicio.ej.piernas-en-la-pared",
-    "en": "Legs up the wall"
+    "clave": "audio.bateria.rock",
+    "es": "Rock",
+    "en": "Rock"
   },
   {
-    "clave": "ejercicio.ej.savasana",
-    "en": "Savasana"
+    "clave": "audio.bateria.house",
+    "es": "House",
+    "en": "House"
   },
   {
-    "clave": "ejercicio.ej.postura-del-nino-apoyada",
-    "en": "Supported child's pose"
+    "clave": "audio.bateria.trap",
+    "es": "Trap",
+    "en": "Trap"
   },
   {
-    "clave": "ejercicio.ej.respiracion-profunda",
-    "en": "Deep breathing"
+    "clave": "audio.bateria.dembow",
+    "es": "Reggaetón",
+    "en": "Reggaeton"
   },
   {
-    "clave": "ejercicio.ej.mariposa-reclinada",
-    "en": "Reclined butterfly"
-  },
-  {
-    "clave": "ejercicio.ej.torsion-reclinada",
-    "en": "Reclined twist"
-  },
-  {
-    "clave": "ejercicio.ej.liberacion-miofascial-con-pelota",
-    "en": "Myofascial Release with Ball"
-  },
-  {
-    "clave": "ejercicio.ej.circulos-de-tobillo",
-    "en": "Ankle Circles"
-  },
-  {
-    "clave": "ejercicio.ej.recogida-de-toalla-con-dedos",
-    "en": "Towel Scrunches with Toes"
-  },
-  {
-    "clave": "ejercicio.ej.estiramiento-de-dorsiflexion",
-    "en": "Dorsiflexion Stretch"
-  },
-  {
-    "clave": "ejercicio.ej.elevacion-de-talones-unipodal",
-    "en": "Single-Leg Calf Raise"
-  },
-  {
-    "clave": "ejercicio.ej.flexion-y-extension-en-descarga",
-    "en": "Unloaded Flexion and Extension"
-  },
-  {
-    "clave": "ejercicio.ej.estiramiento-dinamico-de-isquiotibiales",
-    "en": "Dynamic Hamstring Stretch"
-  },
-  {
-    "clave": "ejercicio.ej.sentadilla-isometrica-wall-squat",
-    "en": "Isometric Squat (Wall Squat)"
-  },
-  {
-    "clave": "ejercicio.ej.equilibrio-unipodal-single-leg-balance",
-    "en": "Single-Leg Balance"
-  },
-  {
-    "clave": "ejercicio.ej.sentadillas-del-arquero",
-    "en": "Archer Squats"
-  },
-  {
-    "clave": "ejercicio.ej.estocadas-lunges",
-    "en": "Lunges"
-  },
-  {
-    "clave": "ejercicio.ej.movilidad-90-90",
-    "en": "90/90 Mobility"
-  },
-  {
-    "clave": "ejercicio.ej.el-puente-glute-bridge",
-    "en": "Glute Bridge"
-  },
-  {
-    "clave": "ejercicio.ej.estiramiento-de-flexores-en-estocada",
-    "en": "Lunge Hip Flexor Stretch"
-  },
-  {
-    "clave": "ejercicio.ej.abduccion-lateral-de-cadera",
-    "en": "Lateral Hip Abduction"
-  },
-  {
-    "clave": "ejercicio.ej.sentadilla-profunda-con-apertura",
-    "en": "Deep Squat with Knee Opening"
-  },
-  {
-    "clave": "ejercicio.ej.balanceo-dinamico-de-piernas",
-    "en": "Dynamic Leg Swings"
-  },
-  {
-    "clave": "ejercicio.ej.postura-gato-vaca",
-    "en": "Cat-Cow Pose"
-  },
-  {
-    "clave": "ejercicio.ej.torsiones-lumbares-suaves",
-    "en": "Gentle Lumbar Twists"
-  },
-  {
-    "clave": "ejercicio.ej.pointer-bird-dog",
-    "en": "Bird Dog"
-  },
-  {
-    "clave": "ejercicio.ej.plancha-frontal-isometricos",
-    "en": "Front Plank (Isometric)"
-  },
-  {
-    "clave": "ejercicio.ej.roll-down-curl-jefferson",
-    "en": "Roll Down (Jefferson Curl)"
-  },
-  {
-    "clave": "ejercicio.ej.estiramiento-lumbar-boca-abajo",
-    "en": "Lower Back Stretch (Prone)"
-  },
-  {
-    "clave": "ejercicio.ej.rotacion-toracica",
-    "en": "Thoracic Rotation"
-  },
-  {
-    "clave": "ejercicio.ej.retraccion-escapular",
-    "en": "Scapular Retraction"
-  },
-  {
-    "clave": "ejercicio.ej.angeles-de-pared-wall-angels",
-    "en": "Wall Angels"
-  },
-  {
-    "clave": "ejercicio.ej.lunge-con-apertura-de-pectoral",
-    "en": "Lunge with Chest Opener"
-  },
-  {
-    "clave": "ejercicio.ej.estiramiento-dorsal-en-pared",
-    "en": "Wall Lat Stretch"
-  },
-  {
-    "clave": "ejercicio.ej.el-gato-y-la-mesa",
-    "en": "Cat and Table"
-  },
-  {
-    "clave": "ejercicio.ej.circulos-de-hombros",
-    "en": "Shoulder Circles"
-  },
-  {
-    "clave": "ejercicio.ej.estiramiento-de-pecho-pectoral",
-    "en": "Chest/Pectoral Stretch"
-  },
-  {
-    "clave": "ejercicio.ej.dislocaciones-con-goma-o-palo",
-    "en": "Shoulder Dislocates (Band or Stick)"
-  },
-  {
-    "clave": "ejercicio.ej.rotacion-externa-con-banda",
-    "en": "External Rotation with Band"
-  },
-  {
-    "clave": "ejercicio.ej.thread-the-needle-enhebrar-aguja",
-    "en": "Thread the Needle"
-  },
-  {
-    "clave": "ejercicio.ej.rotaciones-y-medios-circulos",
-    "en": "Rotations and Half Circles"
-  },
-  {
-    "clave": "ejercicio.ej.estiramiento-de-trapecio-superior",
-    "en": "Upper Trapezius Stretch"
-  },
-  {
-    "clave": "ejercicio.ej.rotaciones-cervicales-con-nodding",
-    "en": "Neck Rotations with Nodding"
-  },
-  {
-    "clave": "ejercicio.ej.retracciones-de-barbilla-chin-tucks",
-    "en": "Chin Tucks"
-  },
-  {
-    "clave": "ejercicio.ej.isometricos-cervicales",
-    "en": "Neck Isometrics"
-  },
-  {
-    "clave": "ejercicio.ej.flexion-y-extension-de-muneca",
-    "en": "Wrist Flexion and Extension"
-  },
-  {
-    "clave": "ejercicio.ej.circulos-de-munecas",
-    "en": "Wrist Circles"
-  },
-  {
-    "clave": "ejercicio.ej.estiramiento-de-flexores",
-    "en": "Flexor Stretch"
-  },
-  {
-    "clave": "ejercicio.ej.agarre-activo-y-pasivo",
-    "en": "Active and Passive Grip"
-  },
-  {
-    "clave": "ejercicio.ej.plancha-de-munecas",
-    "en": "Wrist Plank"
-  },
-  {
-    "clave": "ejercicio.ejDesc.press-banca",
-    "en": "Lying on a bench, lower the bar to your chest and press up until your elbows extend."
-  },
-  {
-    "clave": "ejercicio.ejDesc.press-inclinado",
-    "en": "On an incline bench, press the bar or dumbbells to emphasize the upper chest."
-  },
-  {
-    "clave": "ejercicio.ejDesc.press-con-mancuernas",
-    "en": "Lying down, press two dumbbells upward with a greater range of motion than a barbell."
-  },
-  {
-    "clave": "ejercicio.ejDesc.aperturas-con-mancuernas",
-    "en": "Lying down, open your arms in an arc and bring them together with elbows slightly bent."
-  },
-  {
-    "clave": "ejercicio.ejDesc.cruce-en-polea",
-    "en": "Standing between high pulleys, bring your hands together in front while squeezing your chest."
-  },
-  {
-    "clave": "ejercicio.ejDesc.fondos-en-paralelas",
-    "en": "Suspended on parallel bars, lower yourself by bending your elbows with your torso leaning forward, then press back up."
-  },
-  {
-    "clave": "ejercicio.ejDesc.flexiones",
-    "en": "Face down, lower your chest to the floor keeping your body straight, then push back up."
-  },
-  {
-    "clave": "ejercicio.ejDesc.dominadas",
-    "en": "Hanging from the bar, pull your body up until your chin clears the bar."
-  },
-  {
-    "clave": "ejercicio.ejDesc.jalon-al-pecho",
-    "en": "Seated at a high pulley, pull the bar to your chest, driving your elbows down."
-  },
-  {
-    "clave": "ejercicio.ejDesc.remo-con-barra",
-    "en": "Bent over with a straight back, pull the bar to your abdomen, squeezing your back."
-  },
-  {
-    "clave": "ejercicio.ejDesc.remo-con-mancuerna",
-    "en": "Supported on a bench, pull a dumbbell to your side without twisting your torso."
-  },
-  {
-    "clave": "ejercicio.ejDesc.remo-en-polea-baja",
-    "en": "Seated, pull the handle to your abdomen while keeping your back upright."
-  },
-  {
-    "clave": "ejercicio.ejDesc.pull-over",
-    "en": "Lying down, lower a dumbbell behind your head, then bring it back over your chest."
-  },
-  {
-    "clave": "ejercicio.ejDesc.face-pull",
-    "en": "At a face-height pulley, pull the rope toward your forehead, flaring your elbows out."
-  },
-  {
-    "clave": "ejercicio.ejDesc.hiperextensiones",
-    "en": "On the bench, lower your torso and raise it back up, extending your lower back."
-  },
-  {
-    "clave": "ejercicio.ejDesc.press-militar",
-    "en": "Standing, press the bar from your shoulders up overhead."
-  },
-  {
-    "clave": "ejercicio.ejDesc.press-arnold",
-    "en": "Seated, press the dumbbells overhead while rotating your palms from facing in to facing out."
-  },
-  {
-    "clave": "ejercicio.ejDesc.elevaciones-laterales",
-    "en": "Standing, raise the dumbbells out to the sides up to shoulder height."
-  },
-  {
-    "clave": "ejercicio.ejDesc.elevaciones-frontales",
-    "en": "Standing, raise the dumbbell in front of you up to eye level."
-  },
-  {
-    "clave": "ejercicio.ejDesc.pajaros",
-    "en": "Bent over, open your arms out to the sides to work the rear shoulder."
-  },
-  {
-    "clave": "ejercicio.ejDesc.encogimientos",
-    "en": "Standing with weight, raise your shoulders toward your ears and lower with control."
-  },
-  {
-    "clave": "ejercicio.ejDesc.curl-con-barra",
-    "en": "Standing, bend your elbows to curl the bar up without swinging your torso."
-  },
-  {
-    "clave": "ejercicio.ejDesc.curl-con-mancuernas",
-    "en": "Standing or seated, curl the dumbbells up by bending your elbows, alternating or together."
+    "clave": "audio.bateria.duplicar",
+    "es": "Duplicar el compás 1 al resto",
+    "en": "Copy bar 1 to the rest"
   }
 ]

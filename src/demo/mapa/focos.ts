@@ -72,7 +72,7 @@ export function focoMeta(color?: string): RegionMapa | null {
 // objeto aunque el terreno se haya movido.
 
 /** Región a partir de un rect ya medido en metros (complementa `regionCeldas`). */
-export function focoRect(
+function focoRect(
   x: number,
   z: number,
   ancho: number,

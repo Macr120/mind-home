@@ -261,8 +261,12 @@ function PistaCurva({
   const R = H
   const geo = useMemo(
     () => (plano ? sectorAnular(arco, R - 1.3, R + 1.3, 0.06) : null),
-    [arco, plano, R],
+    // `arco` nace nuevo en cada render (esquinaDe): la clave real son sus campos.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [arco.cx, arco.cz, arco.a0, arco.i, arco.j, plano, R],
   )
+  // R3F solo libera lo que crea en JSX: la geometría por prop se suelta a mano.
+  useEffect(() => () => geo?.dispose(), [geo])
   const medio = puntoArco(arco, R, 0.5)
   const SEG = 12
   const ds = ((Math.PI / 2) * R) / SEG
@@ -349,7 +353,15 @@ function RielCurva({
       }
       return new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 24, 0.06, 8, false)
     })
-  }, [arco, plano, yb, yJ, yI, R])
+    // `arco` nace nuevo en cada render (esquinaDe): la clave real son sus campos.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [arco.cx, arco.cz, arco.a0, arco.i, arco.j, plano, yb, yJ, yI, R])
+  useEffect(
+    () => () => {
+      for (const g of rieles) g.dispose()
+    },
+    [rieles],
+  )
   const medio = puntoArco(arco, R, 0.5)
   return (
     <group>
@@ -406,7 +418,15 @@ function CoasterCurva({
         }
         return new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 24, 0.06, 8, false)
       }),
-    [arco, y0, yJ, yI, R],
+    // `arco` nace nuevo en cada render (esquinaDe): la clave real son sus campos.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [arco.cx, arco.cz, arco.a0, arco.i, arco.j, y0, yJ, yI, R],
+  )
+  useEffect(
+    () => () => {
+      for (const g of tubos) g.dispose()
+    },
+    [tubos],
   )
   const medio = puntoArco(arco, R, 0.5)
   const yMedio = alturaArco(yJ, y0, yI, 0.5)
@@ -590,7 +610,13 @@ function CaminosControllerActivo() {
     }
     const onMove = (ev: PointerEvent) => {
       const c = celdaEnteraBajoCursor(ev.clientX, ev.clientY, opts)
-      setHover(c ? { col: Math.round(c.col), row: Math.round(c.row) } : null)
+      // Misma celda → misma referencia: el fantasma no se rearma en cada píxel.
+      setHover((h) => {
+        if (!c) return null
+        const col = Math.round(c.col)
+        const row = Math.round(c.row)
+        return h && h.col === col && h.row === row ? h : { col, row }
+      })
     }
     const onLeave = () => setHover(null)
     const onKey = (ev: KeyboardEvent) => {
@@ -705,6 +731,7 @@ export function ContornoCelda({
       new THREE.Vector3(-h, 0, v),
     ])
   }, [lado, largo])
+  useEffect(() => () => geo.dispose(), [geo])
   return (
     <lineLoop position={[cx, y, cz]} geometry={geo}>
       <lineBasicMaterial color={color} transparent opacity={0.9} depthTest={false} />

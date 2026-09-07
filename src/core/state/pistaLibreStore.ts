@@ -20,7 +20,7 @@ import { db, type PistaLibre } from '../data/db'
 export type HerramientaTrazo = 'punto' | 'mover'
 
 /** Medio ancho de la cinta de asfalto (ancho total 2.6, como la pista de celdas). */
-export const ANCHO_MEDIO_LIBRE = 1.3
+const ANCHO_MEDIO_LIBRE = 1.3
 
 interface PistaLibreEditorState {
   /** Sub-modo de trazo libre activo (dentro del editor de Caminos). */
@@ -195,7 +195,7 @@ export function metaLibre(): { x: number; z: number; tx: number; tz: number } | 
 }
 
 /** Distancia del punto a la línea central de la cinta (Infinity sin pista cerca). */
-export function distanciaAPistaLibre(x: number, z: number): number {
+function distanciaAPistaLibre(x: number, z: number): number {
   if (!habilitada) return Infinity
   const cx = Math.floor(x / CELDA_HASH)
   const cz = Math.floor(z / CELDA_HASH)

@@ -1,7 +1,7 @@
 let ctx: AudioContext | undefined
 
 /** Do5: el tono de siempre, el que marca el fin de un tramo de trabajo. */
-export const CAMPANA_TRABAJO = 523.25
+const CAMPANA_TRABAJO = 523.25
 /** Sol4, una cuarta abajo: el descanso suena distinto sin sonar a error. */
 export const CAMPANA_DESCANSO = 392
 

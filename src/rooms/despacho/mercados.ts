@@ -35,7 +35,7 @@ export interface Cripto {
 }
 
 /** Cotización simple; la usan la watchlist, los índices y las materias primas. */
-export interface Accion {
+interface Accion {
   simbolo: string
   precio: number
   cambioPct: number // % vs cierre anterior

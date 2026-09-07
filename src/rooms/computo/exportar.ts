@@ -40,7 +40,7 @@ td.num { text-align: right; font-variant-numeric: tabular-nums; }
 `
 
 /** Abre el diálogo de impresión con ese HTML y la hoja de estilos de la sala. */
-export async function imprimir(html: string, titulo: string): Promise<void> {
+async function imprimir(html: string, titulo: string): Promise<void> {
   await imprimirHtml(html, titulo, ESTILO_IMPRESION)
 }
 
@@ -188,7 +188,7 @@ function graficasXlsx(hoja: HojaCalculo, res: ReturnType<typeof recalcular>): Gr
 }
 
 /** Blob → archivo en el disco (mismo baile que el respaldo de datos). */
-export function descargar(blob: Blob, nombre: string): void {
+function descargar(blob: Blob, nombre: string): void {
   // Sin `await`: los llamadores son manejadores de botón y no esperan promesa.
   // En la app de tienda esto abre la hoja de compartir (ver descargarArchivo).
   void descargarArchivo(blob, nombre)

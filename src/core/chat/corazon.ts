@@ -26,7 +26,7 @@ import type { Asistente, MascotaId } from './mascotas'
  * hilo: son comentarios de ambiente, no conversación.
  */
 
-export interface ContextoCorazon {
+interface ContextoCorazon {
   /** Hora local 0–23. */
   hora: number
   /** Rutina de hoy que empieza en ≤45 min (si hay). */
@@ -37,7 +37,7 @@ export interface ContextoCorazon {
  * Milisegundos hasta el próximo latido según el corazón (0..1) del asistente:
  * 0 → nunca; el resto interpola de ~18 min (0+) a ~2.5 min (1), con jitter ±40%.
  */
-export function intervaloLatido(corazon: number): number | null {
+function intervaloLatido(corazon: number): number | null {
   if (corazon <= 0) return null
   const minutos = 18 - 15.5 * Math.min(1, corazon)
   return minutos * 60_000 * (0.6 + Math.random() * 0.8)
@@ -85,7 +85,7 @@ const FRASES_CORAZON: Record<MascotaId, Record<CatFrase, string[]>> = {
 }
 
 /** Frase local determinista por forma y contexto. SIEMPRE disponible sin IA. */
-export function fraseLocal(a: Asistente, ctx: ContextoCorazon): string {
+function fraseLocal(a: Asistente, ctx: ContextoCorazon): string {
   const cat: CatFrase =
     ctx.rutina && Math.random() < 0.6
       ? 'rutina'

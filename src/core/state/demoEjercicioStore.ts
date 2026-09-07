@@ -7,7 +7,7 @@ import { create } from 'zustand'
  * (`Character` cambia su cuerpo por el rig, ver `AvatarEjercicioMapa`); dentro
  * de un cuarto se abre el visor en la raíz (App.tsx), como el Chat AR.
  */
-export type ModoDemoEjercicio = 'overlay' | 'mapa'
+type ModoDemoEjercicio = 'overlay' | 'mapa'
 
 interface DemoEjercicioState {
   /** Nombre canónico (español) del ejercicio en curso; null = nada. */

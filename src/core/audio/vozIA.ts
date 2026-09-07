@@ -18,7 +18,7 @@ import { contextoAudio, gainMaestro } from './motor'
  */
 
 /** Voces prefabricadas por proveedor (la de la ficha se valida contra esta lista). */
-export const VOCES_IA: Record<ProveedorMediaId, readonly string[]> = {
+const VOCES_IA: Record<ProveedorMediaId, readonly string[]> = {
   chatgpt: ['alloy', 'echo', 'fable', 'onyx', 'nova', 'shimmer'],
   gemini: ['Zephyr', 'Puck', 'Charon', 'Kore', 'Fenrir', 'Leda', 'Orus', 'Aoede'],
 }
@@ -38,6 +38,8 @@ export function vocesIaDisponibles(): readonly string[] {
 const MODELO_TTS_GEMINI = 'gemini-2.5-flash-preview-tts'
 
 let audioActual: HTMLAudioElement | null = null
+/** objectURL del audio en curso: se revoca al callar (`pause()` no dispara `onended`). */
+let urlActual: string | null = null
 let hablaActual = 0
 
 /**
@@ -184,12 +186,14 @@ export async function hablarVozIA(texto: string, opts: OpcionesHablaIA = {}): Pr
       if (terminado) return
       terminado = true
       URL.revokeObjectURL(url)
+      if (urlActual === url) urlActual = null
       if (id === hablaActual) duck(false)
       opts.onFin?.()
     }
     audio.onended = fin
     audio.onerror = fin
     audioActual = audio
+    urlActual = url
     duck(true)
     await audio.play()
     return true
@@ -208,5 +212,10 @@ export function callarVozIA(): void {
   if (audioActual) {
     audioActual.pause()
     audioActual = null
+  }
+  // Un audio interrumpido no llega a `onended`: sin esto el blob quedaba vivo toda la sesión.
+  if (urlActual) {
+    URL.revokeObjectURL(urlActual)
+    urlActual = null
   }
 }

@@ -12,7 +12,7 @@
  * El `tex` de cada una es solo la muestra del botón (`\square` = hueco).
  */
 
-export interface Notacion {
+interface Notacion {
   /** Lo que se escribe. `$0` marca dónde queda el cursor al insertarla. */
   escribe: string
   /** Muestra en LaTeX del botón. */

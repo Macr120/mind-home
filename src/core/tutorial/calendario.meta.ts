@@ -23,7 +23,7 @@ const tour = (
   cargar: () => import('./calendario').then((m) => m[cuerpo] as CuerpoTutorial),
 })
 
-export const tutorialCalendario = tour(
+const tutorialCalendario = tour(
   'calendario',
   T('tut.calendario.titulo', 'Calendario'),
   T(
@@ -33,7 +33,7 @@ export const tutorialCalendario = tour(
   'cuerpoCalendario',
 )
 
-export const tutorialMetas = tour(
+const tutorialMetas = tour(
   'metas',
   T('tut.metas.titulo', 'Metas'),
   T(
@@ -43,7 +43,7 @@ export const tutorialMetas = tour(
   'cuerpoMetas',
 )
 
-export const tutorialEnlaces = tour(
+const tutorialEnlaces = tour(
   'enlaces',
   T('tut.enlaces.titulo', 'Los chips de cada paso'),
   T(

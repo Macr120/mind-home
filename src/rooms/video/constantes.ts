@@ -13,12 +13,14 @@ export const COLOR = `var(--ui-app, ${COLOR_FABRICA})`
 export const DUR_FUNDIDO = 0.4
 export const MIN_ESCENA = 0.5
 export const MAX_ESCENA = 60
-export const MAX_ESCENAS = 40
 export const MAX_ESCENAS_IA = 12
 /** Importación de medios: aviso y tope duro (MB). */
 export const AVISO_MB = 100
 export const TOPE_MB = 300
 export const FPS_EXPORT = 30
+/** Calidad del export, la misma con MediaRecorder y con WebCodecs. */
+export const BITRATE_VIDEO = 6_000_000
+export const BITRATE_AUDIO = 128_000
 /** Aviso previo si el export durará más de esto (s): render en tiempo real. */
 export const AVISO_DURACION_EXPORT = 600
 
@@ -72,8 +74,6 @@ export const DURACIONES_TRANSICION = [0.3, 0.5, 1] as const
 export const MIN_CLIP = 0.2
 export const MAX_CLIPS_PRINCIPAL = 40
 export const MAX_CLIPS = 240
-/** Tope de reproductores `<audio>` simultáneos (Chrome móvil limita los reproductores por página). */
-export const MAX_CLIPS_AUDIO = 48
 export const ENVOLVENTE_HZ = 20
 /** Deriva tolerada entre el reloj del motor y `currentTime` antes de re-seekar (el seek es caro en WebView). */
 export const UMBRAL_DERIVA = 0.25
@@ -156,10 +156,12 @@ export const PALETA_VIDEO = [
   '#2dd4bf', '#38bdf8', '#818cf8', '#c084fc', '#f472b6', '#94a3b8',
 ]
 
-/** Píxeles por segundo de la timeline (a zoom fijo; mínimo táctil por bloque aparte). */
-export const PX_POR_SEG = 14
-export const ANCHO_MIN_BLOQUE = 44
-
 let correlativo = 0
 /** Id estable de escena (identidad al reordenar y ancla de su narración). */
 export const nuevaEscenaId = () => `esc-${Date.now().toString(36)}-${(correlativo++).toString(36)}`
+
+// ─── Guion de la obra (estudio de cine) ─────────────────────────────────────
+/** «Quién» de una línea en off en el guion de la obra (no es un id de actor). */
+export const EN_OFF = 'narrador'
+/** Líneas que la IA escribe como máximo para una obra. */
+export const MAX_LINEAS_OBRA = 24

@@ -3,8 +3,10 @@ import { proyectosVideoRepo, VACIO } from '../../core/data/repository'
 import { localeActual, useT } from '../../core/i18n/useT'
 import { pedirTexto } from '../../core/state/confirmarStore'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { BotonBorrar, BotonPrimario, FILA_INTERACTIVA, TARJETA, Vacio } from '../_shared/ui'
 import { COLOR } from './constantes'
+import { ejemploVideo } from './ejemplos'
 import { clipsDe, duracionTotal, migrarProyecto } from './modelo'
 import { InsigniasPublicacion } from './publicar/InsigniasPublicacion'
 
@@ -58,6 +60,8 @@ export function ProyectosTab({ escenario, onAbrir }: { escenario: 'video' | '3d'
           }
           cta={{ texto: nuevo, onClick: () => void crear() }}
         />
+        {/* El ejemplo es un video normal: la animación 3D se rueda en el mapa. */}
+        {!es3d && <BarraEjemplo paquete={ejemploVideo} />}
       </div>
     )
   }
@@ -110,6 +114,7 @@ export function ProyectosTab({ escenario, onAbrir }: { escenario: 'video' | '3d'
           )
         })}
       </ul>
+      {!es3d && <BarraEjemplo paquete={ejemploVideo} />}
     </div>
   )
 }

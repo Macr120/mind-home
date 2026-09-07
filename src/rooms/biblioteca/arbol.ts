@@ -30,7 +30,7 @@ function normalizarTitulo(s: string): string {
 }
 
 /** Resuelve un temaId contra el índice vivo (fábrica parcheada + propios). */
-export async function resolverTema(
+async function resolverTema(
   temaId: string,
 ): Promise<{ temaId: string; pilarId: string; titulo: string } | null> {
   const n = (await cargarIndice()).porId.get(temaId)
@@ -105,7 +105,7 @@ async function crearNodoCharla(datos: {
  * profunda con la IA). Ya NO genera subtemas: eso lo decide el usuario con el
  * panel 🌿. Fire-and-forget: nunca lanza; las charlas ancladas no se re-ubican.
  */
-export async function ubicarCharla(conversacionId: number, mensajes: MensajeIA[]): Promise<void> {
+async function ubicarCharla(conversacionId: number, mensajes: MensajeIA[]): Promise<void> {
   try {
     const conv = (await conversacionesBiblioRepo.list()).find((c) => c.id === conversacionId)
     if (!conv) return

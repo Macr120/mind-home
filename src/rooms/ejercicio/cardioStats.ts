@@ -27,7 +27,7 @@ export function distanciaM(a: PuntoRuta, b: PuntoRuta) {
 }
 
 /** Un parcial (km o milla completados) con su tiempo y su desnivel. */
-export interface Parcial {
+interface Parcial {
   /** 1 = primer parcial. */
   n: number
   /** Distancia real del parcial en la unidad del usuario (el último suele ser < 1). */
@@ -43,7 +43,7 @@ export interface Parcial {
 }
 
 /** Punto de las gráficas: distancia acumulada + ritmo suavizado y altitud. */
-export interface PuntoSerie {
+interface PuntoSerie {
   dist: number
   ritmo: number
   altM?: number

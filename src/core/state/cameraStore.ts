@@ -127,7 +127,7 @@ export const camAnim = { az: CAM_BASE_AZ, el: ISO_EL }
 export type Vista = 'iso' | 'tercera' | 'primera' | 'interior' | 'grafiti' | 'dialogo'
 
 /** Encuadre del modo grafiti: cara del muro (centro/orientación/tamaño en mundo). */
-export interface GrafitiCam {
+interface GrafitiCam {
   centro: [number, number, number]
   /** Rotación Y del plano de la cara (normal = [sin(rotY), 0, cos(rotY)]). */
   rotY: number
@@ -136,7 +136,7 @@ export interface GrafitiCam {
 }
 
 /** Encuadre del modo diálogo: cabeza del NPC con el que se conversa. */
-export interface DialogoCam {
+interface DialogoCam {
   npc: [number, number, number]
 }
 
@@ -182,6 +182,17 @@ const FOV_INTERIOR = 100
 /** Límites de elevación manual en vista iso (clic derecho arriba/abajo). */
 const EL_ISO_MIN = SIDE_EL
 const EL_ISO_MAX = TOP_EL
+/** Topes de la cámara para los movimientos del modo película (`efectosCamara.ts`); el mínimo de zoom sigue siendo `zoomMin()`. */
+export const LIMITES_CAMARA = {
+  zoomMax: ZOOM_MAX,
+  elMin: EL_ISO_MIN,
+  elMax: EL_ISO_MAX,
+  dist3pMin: DIST_3P_MIN,
+  fov1pMin: FOV_1P_MIN,
+  fov1pMax: FOV_1P_MAX,
+  pitch1p: PITCH_1P,
+  pitch3p: PITCH_3P_LIBRE,
+} as const
 
 /** Desplaza el foco de la cámara según arrastre en pantalla (pan). */
 export function panFocusByPixels(

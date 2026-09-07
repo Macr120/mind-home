@@ -188,7 +188,7 @@ export const ANCLAS_AVATAR: AnclasRopa = {
  * avatar y con la cabeza más grande respecto al cuerpo, así que la ropa se baja y
  * se ensancha, y el pantalón/tenis usan una sola pieza centrada.
  */
-export const ANCLAS_FORMA: Record<MascotaId, AnclasRopa> = {
+const ANCLAS_FORMA: Record<MascotaId, AnclasRopa> = {
   mago: {
     cabezaY: 1.1, cabezaTop: 1.34, cabezaR: 0.24, caraZ: 0.22,
     torsoY: 0.55, torsoW: 0.5, torsoH: 0.66, torsoD: 0.44, brazoX: 0.3,
@@ -261,7 +261,7 @@ export function soportaRostro(p: CuerpoActual): boolean {
 }
 
 /** ¿El usuario le eligió cara (foto o expresión)? Distinto de «admite rostro». */
-export function rostroElegido(p: CuerpoActual): boolean {
+function rostroElegido(p: CuerpoActual): boolean {
   return !!p.rostro || p.expresion != null
 }
 

@@ -608,7 +608,7 @@ export async function sincronizar(manual = false): Promise<void> {
  * a cada campanazo). Errores silenciosos con el MISMO backoff compartido: el
  * ciclo completo del intervalo es quien reporta en la UI.
  */
-export async function sincronizarPull(): Promise<void> {
+async function sincronizarPull(): Promise<void> {
   if (esDemo() || esProbar()) return
   const { usuario, plan } = useSesion.getState()
   if (!hayBackend() || !usuario) return

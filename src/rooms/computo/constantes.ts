@@ -71,8 +71,7 @@ export const MAX_CELDAS_IA = 300
 
 // ── Formulario ──────────────────────────────────────────────────────────────
 /** Ids de las tres áreas del catálogo de fábrica. */
-export const AREAS_FABRICA = ['matematicas', 'fisica', 'quimica'] as const
-export type AreaFabrica = (typeof AREAS_FABRICA)[number]
+export type AreaFabrica = 'matematicas' | 'fisica' | 'quimica'
 /** Variables que mathjs ya usa: no se pueden declarar en una fórmula. */
 export const SIMBOLOS_RESERVADOS = new Set(['e', 'i', 'pi', 'tau', 'phi', 'Infinity', 'NaN', 'null', 'true', 'false'])
 

@@ -27,7 +27,7 @@ const ordenar = (a: CarpetaFormula, b: CarpetaFormula) =>
   a.orden - b.orden || a.creadoEn.localeCompare(b.creadoEn)
 
 /** Carpetas hijas directas de una (o las raíces con `padreId = null`). */
-export const hijasDe = (carpetas: CarpetaFormula[], padreId: string | null): CarpetaFormula[] =>
+const hijasDe = (carpetas: CarpetaFormula[], padreId: string | null): CarpetaFormula[] =>
   carpetas.filter((c) => (c.padreId ?? null) === padreId).sort(ordenar)
 
 /**
@@ -68,7 +68,7 @@ export function totalFormulas(
 }
 
 /** Todas las carpetas que cuelgan de una (sin incluirla). */
-export function descendientes(carpetas: CarpetaFormula[], carpetaId: string): Set<string> {
+function descendientes(carpetas: CarpetaFormula[], carpetaId: string): Set<string> {
   const dentro = new Set<string>()
   const bajar = (id: string) => {
     for (const c of carpetas) {

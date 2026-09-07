@@ -61,6 +61,7 @@ export const TABLAS_SYNC: string[] = [
   'pisosExterior',
   'cuartos',
   'murosLibres',
+  'formasLibres',
   'recetas',
   'itemsCompra',
   'registrosPeso',

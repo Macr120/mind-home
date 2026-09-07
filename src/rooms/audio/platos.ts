@@ -24,10 +24,10 @@ import { calcularPicos } from './grabadorClip'
  */
 
 export type LadoPlato = 'a' | 'b'
-export type EstadoPlato = 'vacio' | 'cargando' | 'pausado' | 'sonando'
+type EstadoPlato = 'vacio' | 'cargando' | 'pausado' | 'sonando'
 export type BandaEq = 'grave' | 'medio' | 'agudo'
 
-export interface CancionPlato {
+interface CancionPlato {
   titulo: string
   /** BPM base del proyecto (el efectivo es `bpm × rate`). */
   bpm: number

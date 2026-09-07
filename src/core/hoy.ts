@@ -43,7 +43,7 @@ export type OrigenPaso = 'objetivo' | 'rutina' | 'meta'
  * actúa (`togglePaso`, `toggleMeta`…) la necesita, y volver a leerla abriría una
  * ventana en la que el usuario ya la cambió.
  */
-export type AccionPaso =
+type AccionPaso =
   | {
       tipo: 'objetivo'
       plantillaId: string

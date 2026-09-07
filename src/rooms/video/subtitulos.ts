@@ -8,12 +8,12 @@ import { fin, normalizar, redondear } from './modelo'
  * caracteres a lo largo de su audio.
  */
 
-export const MIN_SUBTITULO = 0.8
-export const MAX_CARACTERES_SUBTITULO = 40
-export const SUBTITULO_DEFECTO: EstiloTexto = { contenido: '', posicion: 'abajo', tamano: 'S', color: '#ffffff', caja: true }
+const MIN_SUBTITULO = 0.8
+const MAX_CARACTERES_SUBTITULO = 40
+const SUBTITULO_DEFECTO: EstiloTexto = { contenido: '', posicion: 'abajo', tamano: 'S', color: '#ffffff', caja: true }
 
 /** Frases cortas: por puntuación y, si siguen largas, por palabras (nunca parte una palabra). */
-export function partirFrases(texto: string, max = MAX_CARACTERES_SUBTITULO): string[] {
+function partirFrases(texto: string, max = MAX_CARACTERES_SUBTITULO): string[] {
   const limpio = texto.replace(/\s+/g, ' ').trim()
   if (!limpio) return []
   // Escaneo manual (sin lookbehind: en WKWebView viejas el literal rompe el módulo entero).
@@ -54,7 +54,7 @@ export function partirFrases(texto: string, max = MAX_CARACTERES_SUBTITULO): str
 }
 
 /** Reparte `duracion` proporcional a los caracteres; fusiona los trozos que quedarían por debajo de `minimo`. */
-export function repartirTiempos(
+function repartirTiempos(
   segmentos: string[],
   duracion: number,
   minimo = MIN_SUBTITULO,

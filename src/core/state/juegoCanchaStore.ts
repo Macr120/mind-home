@@ -13,7 +13,7 @@ import type { ClaseCancha } from './canchasStore'
  * LOCALES de la cancha); este store guarda lo reactivo (HUD).
  */
 
-export type ModoJuego = 'solo' | 'ia'
+type ModoJuego = 'solo' | 'ia'
 /** Perspectiva con la que se juega el partido (se elige en el prompt de modo). */
 export type VistaJuego = 'iso' | 'tercera'
 

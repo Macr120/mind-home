@@ -27,11 +27,6 @@ export const guiaStore = {
   getSnapshot: (): ReadonlyMap<number, EstadoGuia> => actual,
 }
 
-export function marcarGuia(tono: number, estado: EstadoGuia): void {
-  estados.set(tono, estado)
-  emitir()
-}
-
 /** Acierto/fallo fugaz: pinta y se apaga solo (o vuelve a 'esperada' si sigue vigente). */
 export function marcarGuiaTemporal(tono: number, estado: EstadoGuia, durMs: number): void {
   estados.set(tono, estado)

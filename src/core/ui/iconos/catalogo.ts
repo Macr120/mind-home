@@ -143,6 +143,10 @@ export const EMOJIS = {
   elevador: '🛗',
   resbaladilla: '💨',
   niveles: '🪜',
+  // Modo de construcción libre (dibujo a mano alzada, curvas y polígonos).
+  pluma: '🖋️',
+  curva: '〰️',
+  poligono: '⬠',
 
   // — Cuartos (mismo emoji que la plantilla en src/rooms/<id>/index.tsx) —
   'cuarto-cocina': '🍳',
@@ -406,6 +410,15 @@ export const EMOJIS = {
   'cubo-vistas': '🧊',
   atras: '←',
   ovni: '🛸',
+  // Emotes de «Bailar» (los demás resuelven por emojis ya catalogados: ⚖️ 🧵 🕶️ 🏀 🤖).
+  pescar: '🎣',
+  dab: '🕺',
+  'take-the-l': '👎',
+  'orange-justice': '🍊',
+  'bola-disco': '🪩',
+  moonwalk: '🌙',
+  gangnam: '🎤',
+  'electro-shuffle': '🔀',
 
   // — Objetos del catálogo de muebles (chips de creación del chat) —
   guitarra: '🎸',

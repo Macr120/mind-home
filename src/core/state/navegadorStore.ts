@@ -15,7 +15,7 @@ import { hayNavegadorEscritorio, type BoundsNavegador } from '../plataforma'
  */
 
 /** Alto de la barra de navegación (px CSS); la vista nativa empieza debajo. */
-export const BARRA_NAVEGADOR = 48
+const BARRA_NAVEGADOR = 48
 
 /** Tope de una visita sin cierre: no apuntar un día entero por una ventana olvidada. */
 const TOPE_VISITA_SEG = 4 * 3600

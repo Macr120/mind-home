@@ -2,7 +2,7 @@ import type { AjustesVivo, TipoAcorde, TipoEscala } from '../../core/data/db'
 
 /** Teoría musical del sintetizador: escalas, acordes y nombres de nota (puro). */
 
-export const ESCALAS: Record<TipoEscala, number[]> = {
+const ESCALAS: Record<TipoEscala, number[]> = {
   mayor: [0, 2, 4, 5, 7, 9, 11],
   menor: [0, 2, 3, 5, 7, 8, 10],
   pentaMayor: [0, 2, 4, 7, 9],

@@ -19,7 +19,7 @@ const GROSOR = 0.12
 const lado = () => SIZE - 0.12
 
 /** Canvas procedural para patrones de teja (tejas_rojas, tejas_oscuras, teja_castillo). */
-function texturaCanvasTeja(color: string): CanvasTexture {
+export function texturaCanvasTeja(color: string): CanvasTexture {
   const s = 128
   const cv = document.createElement('canvas')
   cv.width = cv.height = s

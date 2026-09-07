@@ -200,13 +200,3 @@ export function idiomaValido(v: unknown): Idioma {
 export function datosIdioma(id: Idioma): DatosIdioma {
   return IDIOMAS.find((i) => i.id === id) ?? IDIOMAS[0]
 }
-
-/**
- * Idiomas que se leen de derecha a izquierda. OJO: ya NO gobiernan el `dir` de
- * `<html>` — por pedido del usuario (ago 2026) la interfaz no se espeja y solo
- * el texto se ordena RTL (`unicode-bidi: plaintext` en index.css). Queda para
- * quien necesite saber la dirección de LECTURA (p. ej. gestos o narración).
- */
-export function esRTL(id: string): boolean {
-  return id === 'ar'
-}

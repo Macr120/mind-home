@@ -160,7 +160,7 @@ function EnlaceObjetoInterior({ objetoId }: { objetoId: number }) {
           </button>
           <button
             onClick={() => void guardar()}
-            disabled={!url.trim()}
+            disabled={esPrograma ? !programa : !url.trim()}
             className="flex-1 rounded-xl border border-emerald-400/30 bg-emerald-400/10 py-2 text-sm font-semibold text-emerald-300 transition hover:bg-emerald-400/20 disabled:opacity-40"
           >
             {t('ui.guardar', 'Guardar')}

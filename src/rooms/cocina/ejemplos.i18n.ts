@@ -13,7 +13,7 @@ import type { Idioma } from '../../core/i18n/idiomas'
  * (ver `retraducirCocina` en `seed.ts`).
  */
 
-export interface TextosReceta {
+interface TextosReceta {
   nombre: string
   carpeta: string
   etiquetas: string[]
@@ -21,7 +21,7 @@ export interface TextosReceta {
   pasos: string[]
 }
 
-export interface TextosDieta {
+interface TextosDieta {
   nombre: string
   descripcion: string
 }

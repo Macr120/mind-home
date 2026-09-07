@@ -1,338 +1,699 @@
 [
   {
-    "clave": "ejercicio.ejDesc.curl-martillo",
-    "en": "With a neutral grip (palms facing each other), curl the dumbbells up to work the forearm."
+    "clave": "audio.bateria.patronesNota",
+    "es": "El patrón llena todos los compases; luego edítalo golpe a golpe en el secuenciador.",
+    "en": "The pattern fills every bar; then tweak it hit by hit in the sequencer."
   },
   {
-    "clave": "ejercicio.ejDesc.curl-predicador",
-    "en": "With your arm resting on the bench, bend your elbow to isolate the biceps."
+    "clave": "audio.bateria.reemplazar",
+    "es": "Sustituir los golpes",
+    "en": "Replace the hits"
   },
   {
-    "clave": "ejercicio.ejDesc.curl-concentrado",
-    "en": "Seated, rest your elbow on your thigh and curl the dumbbell up, focusing on the contraction."
+    "clave": "audio.bateria.reemplazarMsg",
+    "es": "El patrón reemplaza lo que hay en la pista.",
+    "en": "The pattern replaces what’s on the track."
   },
   {
-    "clave": "ejercicio.ejDesc.extension-triceps-en-polea",
-    "en": "Standing at a high pulley, push the bar down, extending your elbows."
+    "clave": "audio.bateria.swing",
+    "es": "Swing",
+    "en": "Swing"
   },
   {
-    "clave": "ejercicio.ejDesc.press-frances",
-    "en": "Lying down, lower the bar toward your forehead and extend your elbows without moving them."
+    "clave": "audio.bateria.swingLargo",
+    "es": "Swing: retrasa las semicorcheas débiles",
+    "en": "Swing: delays the weak sixteenths"
   },
   {
-    "clave": "ejercicio.ejDesc.fondos-entre-bancos",
-    "en": "With your hands on a bench, lower your body by bending your elbows, then push back up."
+    "clave": "audio.teclado.palmada",
+    "es": "Palmada",
+    "en": "Clap"
   },
   {
-    "clave": "ejercicio.ejDesc.extension-sobre-cabeza",
-    "en": "Raise a dumbbell behind your head and extend your elbows upward."
+    "clave": "audio.teclado.tomGrave",
+    "es": "Tom grave",
+    "en": "Low tom"
   },
   {
-    "clave": "ejercicio.ejDesc.patada-de-triceps",
-    "en": "Bent over with your elbow high, extend your forearm backward."
+    "clave": "audio.teclado.tomAgudo",
+    "es": "Tom agudo",
+    "en": "High tom"
   },
   {
-    "clave": "ejercicio.ejDesc.sentadilla",
-    "en": "With the bar on your back, lower your hips until your thighs are parallel and stand back up."
+    "clave": "audio.teclado.platillo",
+    "es": "Platillo",
+    "en": "Crash"
   },
   {
-    "clave": "ejercicio.ejDesc.sentadilla-frontal",
-    "en": "With the bar in front, squat down while keeping your torso upright."
+    "clave": "audio.midi.conectar",
+    "es": "Conectar MIDI",
+    "en": "Connect MIDI"
   },
   {
-    "clave": "ejercicio.ejDesc.sentadilla-bulgara",
-    "en": "With one foot elevated behind you, lower your front leg to 90 degrees."
+    "clave": "audio.midi.sinAcceso",
+    "es": "No se pudo conectar el MIDI",
+    "en": "Could not connect MIDI"
   },
   {
-    "clave": "ejercicio.ejDesc.prensa-de-pierna",
-    "en": "On the machine, push the platform by extending your legs without locking your knees."
+    "clave": "audio.midi.sinAccesoMsg",
+    "es": "Revisa el permiso del navegador y que el teclado esté enchufado.",
+    "en": "Check the browser permission and that the keyboard is plugged in."
   },
   {
-    "clave": "ejercicio.ejDesc.zancadas",
-    "en": "Step forward and lower your back knee almost to the floor, alternating sides."
+    "clave": "audio.export.wav",
+    "es": "WAV",
+    "en": "WAV"
   },
   {
-    "clave": "ejercicio.ejDesc.peso-muerto",
-    "en": "With a straight back, lift the bar off the floor by extending your hips and knees."
+    "clave": "audio.ia.boton",
+    "es": "IA",
+    "en": "AI"
   },
   {
-    "clave": "ejercicio.ejDesc.peso-muerto-rumano",
-    "en": "Lower the bar close to your legs by hinging at the hips, with knees nearly straight."
+    "clave": "audio.ia.titulo",
+    "es": "Componer con IA",
+    "en": "Compose with AI"
   },
   {
-    "clave": "ejercicio.ejDesc.curl-femoral",
-    "en": "On the machine, bend your knees, bringing your heels toward your glutes."
+    "clave": "audio.ia.desc",
+    "es": "Qué quieres oír (en la pista activa)",
+    "en": "What you want to hear (on the active track)"
   },
   {
-    "clave": "ejercicio.ejDesc.extension-de-cuadriceps",
-    "en": "Seated on the machine, extend your knees, raising the weight with control."
+    "clave": "audio.ia.descPh",
+    "es": "Un bajo funk tranquilo… / una melodía triste…",
+    "en": "A mellow funk bass… / a sad melody…"
   },
   {
-    "clave": "ejercicio.ejDesc.elevacion-de-talones",
-    "en": "Standing with weight, raise your heels, contracting your calves."
+    "clave": "audio.ia.compases",
+    "es": "Compases a componer",
+    "en": "Bars to compose"
   },
   {
-    "clave": "ejercicio.ejDesc.hip-thrust",
-    "en": "With your upper back on the bench, drive your hips up, squeezing your glutes."
+    "clave": "audio.ia.generar",
+    "es": "Componer",
+    "en": "Compose"
   },
   {
-    "clave": "ejercicio.ejDesc.puente-de-gluteo",
-    "en": "Lying down, raise your hips until your shoulders, hips, and knees are aligned."
+    "clave": "audio.ia.continuar",
+    "es": "Continuar",
+    "en": "Continue"
   },
   {
-    "clave": "ejercicio.ejDesc.patada-de-gluteo-en-polea",
-    "en": "On all fours or standing, kick your leg back, squeezing your glute."
+    "clave": "audio.ia.reemplazar",
+    "es": "Reemplazar las notas de la pista",
+    "en": "Replace the track’s notes"
   },
   {
-    "clave": "ejercicio.ejDesc.abduccion-de-cadera",
-    "en": "Seated or lying on your side, open your legs against resistance."
+    "clave": "audio.ia.reemplazarMsg",
+    "es": "La toma nueva sustituye lo que hay en la pista activa.",
+    "en": "The new take replaces what’s on the active track."
   },
   {
-    "clave": "ejercicio.ejDesc.plancha",
-    "en": "Resting on your forearms, keep your body straight without letting your hips sag."
+    "clave": "audio.ia.aplicada",
+    "es": "Toma aplicada a la pista. ¿No convence?",
+    "en": "Take applied to the track. Not convinced?"
   },
   {
-    "clave": "ejercicio.ejDesc.plancha-lateral",
-    "en": "On your side resting on one forearm, keep your hips raised and aligned."
+    "clave": "audio.ia.deshacer",
+    "en": "Undo the AI take"
   },
   {
-    "clave": "ejercicio.ejDesc.crunch-abdominal",
-    "en": "Lying down, raise your shoulders by contracting your abs without pulling on your neck."
+    "clave": "audio.ia.deshacerCorto",
+    "es": "Deshacer",
+    "en": "Undo"
   },
   {
-    "clave": "ejercicio.ejDesc.elevacion-de-piernas",
-    "en": "Lying down or hanging, raise your straight legs, controlling the descent."
+    "clave": "audio.ia.nota",
+    "es": "La IA compone para el instrumento de la pista activa; dale play para escucharla.",
+    "en": "The AI composes for the active track’s instrument; press play to hear it."
   },
   {
-    "clave": "ejercicio.ejDesc.russian-twist",
-    "en": "Seated with your torso leaning back, rotate your trunk from side to side."
+    "clave": "audio.tab.canciones",
+    "es": "Canciones",
+    "en": "Songs"
   },
   {
-    "clave": "ejercicio.ejDesc.rueda-abdominal",
-    "en": "Kneeling, roll forward without arching your back, then return."
+    "clave": "audio.tab.mezclar",
+    "en": "Mix"
   },
   {
-    "clave": "ejercicio.ejDesc.escaladores",
-    "en": "In plank position, drive your knees to your chest, alternating quickly."
+    "clave": "audio.lista.grabaciones",
+    "es": "Grabaciones",
+    "en": "Recordings"
   },
   {
-    "clave": "ejercicio.ejDesc.carrera",
-    "en": "Steady pace in zone 2-3, light footstrike and upright posture."
+    "clave": "audio.mezclar.elegir",
+    "es": "Elige una canción",
+    "en": "Pick a song"
   },
   {
-    "clave": "ejercicio.ejDesc.trote-suave",
-    "en": "A comfortable pace where you can hold a conversation; ideal for long runs."
+    "clave": "audio.mezclar.cargar",
+    "es": "Cargar canción",
+    "en": "Load song"
   },
   {
-    "clave": "ejercicio.ejDesc.caminata-rapida",
-    "en": "Brisk pace with active arm swing, without breaking into a jog."
+    "clave": "audio.mezclar.quitar",
+    "es": "Quitar del plato",
+    "en": "Remove from deck"
   },
   {
-    "clave": "ejercicio.ejDesc.ciclismo",
-    "en": "Pedal with a high cadence and moderate resistance, keeping your back relaxed."
+    "clave": "audio.mezclar.vacio",
+    "es": "Plato vacío",
+    "en": "Empty deck"
   },
   {
-    "clave": "ejercicio.ejDesc.senderismo",
-    "en": "Walk on natural terrain with elevation changes; let the incline set the pace."
+    "clave": "audio.mezclar.vacioSub",
+    "es": "Carga una canción para mezclarla.",
+    "en": "Load a song to mix it."
   },
   {
-    "clave": "ejercicio.ejDesc.trail-running",
-    "en": "Running on mountain or uneven terrain; shorten your stride on the climbs."
+    "clave": "audio.mezclar.cargando",
+    "es": "Preparando la canción…",
+    "en": "Preparing the song…"
   },
   {
-    "clave": "ejercicio.ejDesc.caminadora",
-    "en": "Walk or run on the treadmill without holding onto the handrails."
+    "clave": "audio.mezclar.error",
+    "es": "No se pudo cargar la canción",
+    "en": "Couldn’t load the song"
   },
   {
-    "clave": "ejercicio.ejDesc.caminata-inclinada",
-    "en": "Treadmill with an incline at a moderate pace: steady burn, low impact."
+    "clave": "audio.mezclar.errorMsg",
+    "es": "Vuelve a intentarlo.",
+    "en": "Try again."
   },
   {
-    "clave": "ejercicio.ejDesc.eliptica",
-    "en": "Smooth motion, pushing with your arms too, with no impact on your knees."
+    "clave": "audio.mezclar.platoA",
+    "es": "Plato A",
+    "en": "Deck A"
   },
   {
-    "clave": "ejercicio.ejDesc.bicicleta-estatica",
-    "en": "Adjust the seat to hip height and pedal at a steady cadence."
+    "clave": "audio.mezclar.platoB",
+    "es": "Plato B",
+    "en": "Deck B"
   },
   {
-    "clave": "ejercicio.ejDesc.escaladora",
-    "en": "Climb steps at a steady pace, placing your whole foot down."
+    "clave": "audio.mezclar.play",
+    "es": "Reproducir",
+    "en": "Play"
   },
   {
-    "clave": "ejercicio.ejDesc.remo-maquina",
-    "en": "Push with your legs, then pull with your back, and finish with your arms."
+    "clave": "audio.mezclar.pausa",
+    "es": "Pausa",
+    "en": "Pause"
   },
   {
-    "clave": "ejercicio.ejDesc.hiit",
-    "en": "Short, all-out intervals alternated with brief rest periods."
+    "clave": "audio.mezclar.cue",
+    "es": "Cue",
+    "en": "Cue"
   },
   {
-    "clave": "ejercicio.ejDesc.sprints",
-    "en": "Sets at maximum speed with full recovery between reps."
+    "clave": "audio.mezclar.sync",
+    "es": "SYNC",
+    "en": "SYNC"
   },
   {
-    "clave": "ejercicio.ejDesc.saltar-cuerda",
-    "en": "Low jumps, turning the rope with your wrists, not your arms."
+    "clave": "audio.mezclar.pitch",
+    "es": "Pitch",
+    "en": "Pitch"
   },
   {
-    "clave": "ejercicio.ejDesc.burpees",
-    "en": "From standing to plank, do a push-up, jump your feet in, and jump up with arms overhead."
+    "clave": "audio.mezclar.volumen",
+    "es": "Volumen",
+    "en": "Volume"
   },
   {
-    "clave": "ejercicio.ejDesc.circuito-metabolico",
-    "en": "Chain several exercises together without rest to keep your heart rate up."
+    "clave": "audio.mezclar.eqGrave",
+    "es": "Graves",
+    "en": "Low"
   },
   {
-    "clave": "ejercicio.ejDesc.natacion",
-    "en": "Swim at a steady pace, coordinating your breathing with your stroke."
+    "clave": "audio.mezclar.eqMedio",
+    "es": "Medios",
+    "en": "Mid"
   },
   {
-    "clave": "ejercicio.ejDesc.aqua-aerobicos",
-    "en": "Exercise in the water: resistance works your muscles without stressing your joints."
+    "clave": "audio.mezclar.eqAgudo",
+    "es": "Agudos",
+    "en": "High"
   },
   {
-    "clave": "ejercicio.ejDesc.caminata",
-    "en": "A calm, continuous pace; the base of your aerobic volume."
+    "clave": "audio.mezclar.bpm",
+    "es": "{bpm} BPM",
+    "en": "{bpm} BPM"
   },
   {
-    "clave": "ejercicio.ejDesc.futbol",
-    "en": "Intermittent running with changes of pace and direction."
+    "clave": "audio.mezclar.tuMusica",
+    "es": "Tu música",
+    "en": "Your music"
   },
   {
-    "clave": "ejercicio.ejDesc.basquetbol",
-    "en": "Short sprints, jumps, and constant lateral movement."
+    "clave": "audio.mezclar.importar",
+    "es": "Importar audio",
+    "en": "Import audio"
   },
   {
-    "clave": "ejercicio.ejDesc.tenis",
-    "en": "Explosive bursts with pauses; heavy lower-body work."
+    "clave": "audio.mezclar.sinMusica",
+    "es": "Importa canciones de tu dispositivo (mp3, m4a, wav…) para mezclarlas.",
+    "en": "Import songs from your device (mp3, m4a, wav…) to mix them."
   },
   {
-    "clave": "ejercicio.ejDesc.padel",
-    "en": "Short, intense points on a small court, with lots of changes of direction."
+    "clave": "audio.mezclar.borrarPista",
+    "es": "Borrar de tu música",
+    "en": "Remove from your music"
   },
   {
-    "clave": "ejercicio.ejDesc.boxeo",
-    "en": "Combinations and footwork while keeping your guard up."
+    "clave": "audio.mezclar.borrarPistaMsg",
+    "es": "El archivo se elimina de este dispositivo.",
+    "en": "The file is removed from this device."
   },
   {
-    "clave": "ejercicio.ejDesc.baile",
-    "en": "Continuous movement to the rhythm of the music; cardio that doesn't feel like a workout."
+    "clave": "audio.mezclar.buscarItunes",
+    "es": "Buscar en iTunes",
+    "en": "Search iTunes"
   },
   {
-    "clave": "ejercicio.ejDesc.movilidad-matutina",
-    "en": "A gentle sequence to wake up the body and loosen the joints first thing in the day."
+    "clave": "audio.mezclar.buscarPh",
+    "es": "Canción o artista…",
+    "en": "Song or artist…"
   },
   {
-    "clave": "ejercicio.ejDesc.yoga-flow",
-    "en": "Link poses with your breath in a continuous full-body flow."
+    "clave": "audio.mezclar.buscar",
+    "es": "Buscar",
+    "en": "Search"
   },
   {
-    "clave": "ejercicio.ejDesc.saludo-al-sol",
-    "en": "A classic yoga series that stretches and activates the whole body in sequence."
+    "clave": "audio.mezclar.previews30",
+    "es": "Muestras de 30 segundos del catálogo de Apple.",
+    "en": "30-second samples from the Apple catalog."
   },
   {
-    "clave": "ejercicio.ejDesc.estiramiento-general",
-    "en": "Work through the major muscle groups with gentle, sustained stretches."
+    "clave": "audio.mezclar.sinResultados",
+    "es": "Sin resultados.",
+    "en": "No results."
   },
   {
-    "clave": "ejercicio.ejDesc.guerrero-i",
-    "en": "In a lunge, raise your arms and open your chest while keeping your hips forward."
+    "clave": "audio.mezclar.errorBuscar",
+    "es": "No se pudo buscar",
+    "en": "Search failed"
   },
   {
-    "clave": "ejercicio.ejDesc.guerrero-ii",
-    "en": "In a wide lunge, extend your arms and gaze forward while bending your front knee."
+    "clave": "audio.mezclar.delEstudio",
+    "es": "Canciones del estudio",
+    "en": "Studio songs"
   },
   {
-    "clave": "ejercicio.ejDesc.triangulo",
-    "en": "With legs apart, tilt your torso and lower one hand toward your ankle."
+    "clave": "audio.mezclar.onda",
+    "es": "Onda: toca para mover la aguja",
+    "en": "Waveform: tap to move the needle"
   },
   {
-    "clave": "ejercicio.ejDesc.flexion-de-pie",
-    "en": "Standing, fold your torso over your legs, releasing your neck and back."
+    "clave": "audio.mezclar.disco",
+    "es": "Disco: arrastra para hacer scratch",
+    "en": "Platter: drag to scratch"
   },
   {
-    "clave": "ejercicio.ejDesc.apertura-de-cadera",
-    "en": "Mobility work to release the hips and gain range of motion in the legs."
+    "clave": "audio.mezclar.crossfader",
+    "es": "Crossfader",
+    "en": "Crossfader"
   },
   {
-    "clave": "ejercicio.ejDesc.postura-de-la-paloma",
-    "en": "With one leg bent in front, lower your torso to open up the glute."
+    "clave": "audio.pistas.plegar",
+    "es": "Plegar las pistas",
+    "en": "Collapse the tracks"
   },
   {
-    "clave": "ejercicio.ejDesc.mariposa",
-    "en": "Seated, bring the soles of your feet together and let your knees drop out to the sides."
+    "clave": "audio.pistas.mostrar",
+    "es": "Mostrar las pistas",
+    "en": "Show the tracks"
   },
   {
-    "clave": "ejercicio.ejDesc.estiramiento-de-isquiotibiales",
-    "en": "Stretch the back of the thigh with the knee extended."
+    "clave": "audio.sinte.plegar",
+    "es": "Plegar los ajustes",
+    "en": "Collapse the controls"
   },
   {
-    "clave": "ejercicio.ejDesc.zancada-baja",
-    "en": "With one knee on the floor, push your hip forward to stretch the flexor."
+    "clave": "audio.sinte.mostrar",
+    "es": "Mostrar los ajustes",
+    "en": "Show the controls"
   },
   {
-    "clave": "ejercicio.ejDesc.postura-de-la-guirnalda",
-    "en": "In a deep squat, push your knees open with your elbows to release the hips."
+    "clave": "audio.practica.verCascada",
+    "es": "Ver la cascada",
+    "en": "Waterfall view"
   },
   {
-    "clave": "ejercicio.ejDesc.figura-4",
-    "en": "Cross your ankle over the opposite knee and pull your thigh in to stretch the glute."
+    "clave": "audio.grab.agregarPista",
+    "es": "Pista de audio (micrófono)",
+    "en": "Audio track (microphone)"
   },
   {
-    "clave": "ejercicio.ejDesc.estiramiento-de-aductores",
-    "en": "Open your legs and lower your torso to stretch the inner thigh."
+    "clave": "audio.grab.audio",
+    "es": "Audio",
+    "en": "Audio"
   },
   {
-    "clave": "ejercicio.ejDesc.rana",
-    "en": "On all fours with knees spread wide, rock your hips back."
+    "clave": "audio.grab.toma",
+    "es": "Toma {n}",
+    "en": "Take {n}"
   },
   {
-    "clave": "ejercicio.ejDesc.perro-boca-abajo",
-    "en": "In an inverted V, push your hips up, stretching your back and legs."
+    "clave": "audio.grab.sinClips",
+    "es": "Sin tomas: pulsa el botón de grabar.",
+    "en": "No takes yet: press the record button."
   },
   {
-    "clave": "ejercicio.ejDesc.torsion-espinal",
-    "en": "Seated or lying down, gently rotate your trunk to mobilize the spine."
+    "clave": "audio.grab.quitarClip",
+    "es": "Quitar la toma de la pista",
+    "en": "Remove the take from the track"
   },
   {
-    "clave": "ejercicio.ejDesc.postura-del-nino",
-    "en": "Sitting back on your heels, extend your arms forward, relaxing your back."
+    "clave": "audio.grab.quitarClipMsg2",
+    "es": "La grabación sigue disponible en la sección Grabaciones de la pestaña Canciones.",
+    "en": "The recording stays available in the Recordings section of the Songs tab."
   },
   {
-    "clave": "ejercicio.ejDesc.apertura-de-pecho",
-    "en": "Bring your arms back to open your chest and counter a hunched posture."
+    "clave": "audio.grab.consejo",
+    "es": "Pulsa el botón de grabar para cantar o tocar con el micrófono mientras suenan las demás pistas (hay un compás de cuenta). Usa audífonos: sin ellos el metrónomo se cuela en la toma.",
+    "en": "Press the record button to sing or play into the microphone while the other tracks play (there’s a one-bar count-in). Use headphones: without them the metronome bleeds into the take."
   },
   {
-    "clave": "ejercicio.ejDesc.esfinge",
-    "en": "Face down resting on your forearms, lift your chest, extending your lower back."
+    "clave": "audio.grab.llena",
+    "es": "La pista está llena",
+    "en": "The track is full"
   },
   {
-    "clave": "ejercicio.ejDesc.hilo-y-aguja",
-    "en": "On all fours, thread one arm under your body to stretch the shoulder."
+    "clave": "audio.grab.llenaMsg",
+    "es": "Una pista de audio admite {n} tomas; quita alguna para grabar otra.",
+    "en": "An audio track holds {n} takes; remove one to record another."
   },
   {
-    "clave": "ejercicio.ejDesc.estiramiento-de-dorsales",
-    "en": "Stretch your sides by raising your arms up and slightly to the side."
+    "clave": "audio.grab.sinMicTitulo",
+    "es": "No se pudo usar el micrófono",
+    "en": "Couldn’t use the microphone"
   },
   {
-    "clave": "ejercicio.ejDesc.movilidad-cervical",
-    "en": "Slow neck movements in all directions to release tension."
+    "clave": "audio.grab.vacio",
+    "es": "Aún no hay grabaciones",
+    "en": "No recordings yet"
   },
   {
-    "clave": "ejercicio.ejDesc.rotaciones-de-columna",
-    "en": "Gently rotate the spine segment by segment to mobilize it."
+    "clave": "audio.grab.vacioSub",
+    "es": "Crea una pista de audio en un proyecto y graba tu voz o tu instrumento encima de las demás pistas.",
+    "en": "Create an audio track in a project and record your voice or instrument over the other tracks."
   },
   {
-    "clave": "ejercicio.ejDesc.postura-de-la-cobra",
-    "en": "Face down, lift your chest with your hands, extending your back."
+    "clave": "audio.grab.pausar",
+    "es": "Pausar",
+    "en": "Pause"
   },
   {
-    "clave": "ejercicio.ejDesc.inclinacion-lateral-de-cuello",
-    "en": "Bring your ear toward your shoulder to stretch the side of your neck."
+    "clave": "audio.grab.escuchar",
+    "es": "Escuchar",
+    "en": "Listen"
   },
   {
-    "clave": "ejercicio.ejDesc.estiramiento-de-cuadriceps",
-    "en": "Standing, bring your heel to your glute, holding your foot to stretch the thigh."
+    "clave": "audio.grab.renombrar",
+    "es": "Renombrar grabación",
+    "en": "Rename recording"
+  },
+  {
+    "clave": "audio.grab.descargar",
+    "es": "Descargar",
+    "en": "Download"
+  },
+  {
+    "clave": "audio.grab.borrar",
+    "es": "Borrar la grabación",
+    "en": "Delete the recording"
+  },
+  {
+    "clave": "audio.grab.borrarEnUso",
+    "es": "Se usa en {n} proyecto(s): esos clips quedarán en silencio.",
+    "en": "It’s used in {n} project(s): those clips will go silent."
+  },
+  {
+    "clave": "audio.grab.borrarMsg",
+    "es": "La toma se elimina de este dispositivo.",
+    "en": "The take is removed from this device."
+  },
+  {
+    "clave": "audio.aprender.importar",
+    "es": "Importar .mid",
+    "en": "Import .mid"
+  },
+  {
+    "clave": "audio.aprender.errorMidi",
+    "es": "No se pudo importar el archivo",
+    "en": "Couldn’t import the file"
+  },
+  {
+    "clave": "audio.aprender.errorSmpte",
+    "es": "Ese MIDI usa tiempo SMPTE; exporta con división musical (ticks por negra).",
+    "en": "That MIDI uses SMPTE timing; export it with musical division (ticks per quarter note)."
+  },
+  {
+    "clave": "audio.aprender.errorVacio",
+    "es": "El archivo no trae notas melódicas.",
+    "en": "The file has no melodic notes."
+  },
+  {
+    "clave": "audio.aprender.errorFormato",
+    "es": "No parece un archivo MIDI válido (.mid de formato 0 o 1).",
+    "en": "That doesn’t look like a valid MIDI file (.mid, format 0 or 1)."
+  },
+  {
+    "clave": "audio.aprender.recortadaTitulo",
+    "es": "Canción recortada",
+    "en": "Song trimmed"
+  },
+  {
+    "clave": "audio.aprender.recortada",
+    "es": "Supera el tope del editor: se importaron los primeros {n} compases.",
+    "en": "It exceeds the editor’s limit: the first {n} bars were imported."
+  },
+  {
+    "clave": "audio.aprender.melodia",
+    "es": "Melodía",
+    "en": "Melody"
+  },
+  {
+    "clave": "audio.aprender.dosManos",
+    "en": "two hands"
+  },
+  {
+    "clave": "audio.aprender.tradicional",
+    "es": "Tradicional",
+    "en": "Traditional"
+  },
+  {
+    "clave": "audio.cancion.estrellita",
+    "en": "Twinkle, Twinkle, Little Star"
+  },
+  {
+    "clave": "audio.cancion.martinillo",
+    "en": "Frère Jacques"
+  },
+  {
+    "clave": "audio.cancion.corderito",
+    "en": "Mary Had a Little Lamb"
+  },
+  {
+    "clave": "audio.cancion.cumpleanos",
+    "en": "Happy Birthday"
+  },
+  {
+    "clave": "audio.cancion.himno-alegria",
+    "en": "Ode to Joy"
+  },
+  {
+    "clave": "audio.cancion.cucaracha",
+    "en": "La Cucaracha"
+  },
+  {
+    "clave": "audio.cancion.santos",
+    "en": "When the Saints Go Marching In"
+  },
+  {
+    "clave": "audio.cancion.greensleeves",
+    "en": "Greensleeves"
+  },
+  {
+    "clave": "audio.cancion.noche-paz",
+    "en": "Silent Night"
+  },
+  {
+    "clave": "audio.cancion.jingle-bells",
+    "en": "Jingle Bells"
+  },
+  {
+    "clave": "audio.cancion.minueto",
+    "en": "Minuet in G"
+  },
+  {
+    "clave": "audio.cancion.para-elisa",
+    "en": "Für Elise (excerpt)"
+  },
+  {
+    "clave": "audio.cancion.canon",
+    "en": "Pachelbel’s Canon"
+  },
+  {
+    "clave": "audio.practica.midi",
+    "es": "MIDI",
+    "en": "MIDI"
+  },
+  {
+    "clave": "audio.practica.parar",
+    "es": "Parar",
+    "en": "Stop"
+  },
+  {
+    "clave": "audio.practica.empezar",
+    "es": "Empezar",
+    "en": "Start"
+  },
+  {
+    "clave": "audio.practica.escuchar",
+    "es": "Escuchar",
+    "en": "Listen"
+  },
+  {
+    "clave": "audio.practica.ritmo",
+    "es": "Ritmo",
+    "en": "Rhythm"
+  },
+  {
+    "clave": "audio.practica.espera",
+    "es": "Espera",
+    "en": "Wait"
+  },
+  {
+    "clave": "audio.practica.derecha",
+    "es": "Derecha",
+    "en": "Right"
+  },
+  {
+    "clave": "audio.practica.izquierda",
+    "es": "Izquierda",
+    "en": "Left"
+  },
+  {
+    "clave": "audio.practica.tocas",
+    "es": "Tocas tú",
+    "en": "You play"
+  },
+  {
+    "clave": "audio.practica.volver",
+    "es": "Al estudio",
+    "en": "To the studio"
+  },
+  {
+    "clave": "audio.practica.sinNotas",
+    "es": "Este proyecto aún no tiene notas melódicas que practicar.",
+    "en": "This project has no melodic notes to practice yet."
+  },
+  {
+    "clave": "audio.practica.velocidad",
+    "es": "Velocidad",
+    "en": "Speed"
+  },
+  {
+    "clave": "audio.roll.verCascada",
+    "es": "Practicar en cascada",
+    "en": "Practice waterfall view"
+  },
+  {
+    "clave": "audio.practica.resumen",
+    "es": "Resumen de la práctica",
+    "en": "Practice summary"
+  },
+  {
+    "clave": "audio.practica.aciertos",
+    "es": "Aciertos",
+    "en": "Hits"
+  },
+  {
+    "clave": "audio.practica.precision",
+    "es": "Precisión",
+    "en": "Accuracy"
+  },
+  {
+    "clave": "audio.practica.perdidas",
+    "es": "Notas perdidas",
+    "en": "Missed notes"
+  },
+  {
+    "clave": "audio.practica.extras",
+    "es": "Notas de más",
+    "en": "Extra notes"
+  },
+  {
+    "clave": "audio.practica.cerrar",
+    "es": "Cerrar",
+    "en": "Close"
+  },
+  {
+    "clave": "audio.practica.repetir",
+    "es": "Repetir",
+    "en": "Repeat"
+  },
+  {
+    "clave": "ia.op.audio.generar",
+    "en": "Compose a track from a description"
+  },
+  {
+    "clave": "ia.op.audio.generar.nota",
+    "en": "If the notes aren’t usable on the first try, it retries once and costs double."
+  },
+  {
+    "clave": "ia.op.audio.continuar",
+    "en": "Continue the current track"
+  },
+  {
+    "clave": "ia.donde.audio.editor",
+    "en": "Music studio · Editor · ✨ button"
+  },
+  {
+    "clave": "room.video.nombre",
+    "en": "Video"
+  },
+  {
+    "clave": "room.video.sub",
+    "en": "Script editor"
+  },
+  {
+    "clave": "room.video.desc",
+    "en": "Your script-based video editor: scenes with clips, images, titles, filters, AI voice narration and music, seen at once as a script and as a timeline, with export to a video file."
+  },
+  {
+    "clave": "room.video.corta",
+    "en": "Script, scenes & export"
+  },
+  {
+    "clave": "room.video.cmd.videos",
+    "en": "Videos"
+  },
+  {
+    "clave": "room.video.cmd.animacion3d",
+    "en": "3D animation"
+  },
+  {
+    "clave": "video.tab.videos",
+    "en": "Videos"
+  },
+  {
+    "clave": "video.tab.animacion3d",
+    "en": "3D animation"
+  },
+  {
+    "clave": "video.lista.nuevo3d",
+    "es": "Nueva animación 3D",
+    "en": "New 3D animation"
+  },
+  {
+    "clave": "video.lista.vacio3d",
+    "es": "Aún no hay animaciones 3D",
+    "en": "No 3D animations yet"
   }
 ]

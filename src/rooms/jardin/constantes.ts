@@ -1,4 +1,4 @@
-export const COLOR_FABRICA = '#4ade80'
+const COLOR_FABRICA = '#4ade80'
 /**
  * Con el que se pinta la app: el color del CUARTO abierto (lo baja `RoomOverlay` en
  * `--ui-app`) y, fuera de él, el de fábrica. Es una variable CSS, no un hex: para

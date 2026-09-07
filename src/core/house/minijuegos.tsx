@@ -1307,7 +1307,7 @@ export function MinijuegosCanchas() {
 }
 
 /** Raqueta de tenis procedural (mango + aro + cuerdas). */
-export function RaquetaModelo({ escala = 1 }: { escala?: number }) {
+function RaquetaModelo({ escala = 1 }: { escala?: number }) {
   return (
     <group scale={escala}>
       <mesh position={[0, 0.14, 0]}>
@@ -1327,7 +1327,7 @@ export function RaquetaModelo({ escala = 1 }: { escala?: number }) {
 }
 
 /** Bate de béisbol procedural (barril de madera + grip + perilla). */
-export function BateModelo({ escala = 1 }: { escala?: number }) {
+function BateModelo({ escala = 1 }: { escala?: number }) {
   return (
     <group scale={escala}>
       <mesh position={[0, 0.42, 0]}>

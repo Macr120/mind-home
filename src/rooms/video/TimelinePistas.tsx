@@ -18,6 +18,7 @@ import {
   PISTAS,
 } from './constantes'
 import { clipsDe, duracionTotal, finPrincipal, imantar, medioIdDe, pistasConClips, puntosIman, silenciada, type ProyectoAbierto } from './modelo'
+import { etiquetaEfecto } from './pelicula/efectosCamara'
 import { Regla } from './Regla'
 import { nombreFuenteSonido } from './sonidos'
 import { redondearDecima, useGestosClips, type LadoAsa } from './useGestosClips'
@@ -275,7 +276,8 @@ export function TimelinePistas({
           // Plano del modo película: su número en la principal y la vista de su cámara.
           const n = clipsDe(proyecto.clips, 'video').findIndex((k) => k.id === c.id) + 1
           const vista = t(`video.pelicula.vista.${c.fuente.cam.vista}`, c.fuente.cam.vista)
-          return { nombre: `${t('video.pelicula.planoN', 'Plano {n}', { n })} · ${vista}`, ausente: false }
+          const movimiento = etiquetaEfecto(t, c.fuente)
+          return { nombre: `${t('video.pelicula.planoN', 'Plano {n}', { n })} · ${vista}${movimiento ? ` · ${movimiento}` : ''}`, ausente: false }
         }
         return { nombre: c.fuente.tipo === 'color' ? t('video.guion.color', 'Color') : (medio?.nombre ?? noDisponible), ausente }
       case 'imagen':

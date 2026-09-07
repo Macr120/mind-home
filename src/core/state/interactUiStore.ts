@@ -30,7 +30,8 @@ export const useInteractUi = create<InteractUiState>((set, get) => ({
       focusEnlaceId: get().focusEnlaceId === objetoId ? null : objetoId,
       focusRoomId: null,
     }),
-  setScreen: (screenX, screenY) => set({ screenX, screenY }),
+  // Se escribe por frame desde la escena: si no cambió, no se notifica a nadie.
+  setScreen: (screenX, screenY) => set((s) => (s.screenX === screenX && s.screenY === screenY ? s : { screenX, screenY })),
   clear: () => set({ focusRoomId: null, focusEnlaceId: null }),
 }))
 

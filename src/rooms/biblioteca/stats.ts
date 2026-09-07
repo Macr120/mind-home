@@ -4,7 +4,7 @@ import { hoyISO } from './fecha'
 
 // Helpers de fecha del cuarto (mismo criterio que hobbies/stats.ts; los
 // rooms no se importan entre sí).
-export function sumarDias(fecha: string, delta: number): string {
+function sumarDias(fecha: string, delta: number): string {
   const d = new Date(`${fecha}T12:00:00`)
   d.setDate(d.getDate() + delta)
   return fechaLocalISO(d)
@@ -16,10 +16,6 @@ export function inicioSemana(fecha: string): string {
   const ajuste = dia === 0 ? -6 : 1 - dia
   d.setDate(d.getDate() + ajuste)
   return fechaLocalISO(d)
-}
-
-export function diasSemana(desdeLunes: string): string[] {
-  return Array.from({ length: 7 }, (_, i) => sumarDias(desdeLunes, i))
 }
 
 // La conversión "#rrggbb" + alfa ahora vive una sola vez en el heatmap compartido.

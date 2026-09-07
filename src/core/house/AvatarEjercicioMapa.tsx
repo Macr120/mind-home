@@ -6,6 +6,10 @@ import { playerPos } from '../state/houseStore'
 import { useDemoEjercicio } from '../state/demoEjercicioStore'
 import { RigEjercicio } from '../../rooms/ejercicio/anim/RigEjercicio'
 import { patronDe } from '../../rooms/ejercicio/anim/resolver'
+import type { EstadoMarcha } from './animacion'
+import { AvatarModelo } from './AvatarModelo'
+import { CuerpoLibre } from './CuerpoLibre'
+import { esHumanoideAvatar } from './actuacion'
 
 /** Cuánto dura la demostración en el mapa si el jugador no se mueve antes. */
 const DURACION_MS = 15000
@@ -14,14 +18,18 @@ const DISTANCIA_SALIR = 0.35
 
 /**
  * «Muéstrame el press banca» pedido desde el MAPA: el propio personaje hace el
- * ejercicio donde está (con su banco, barra…), en vez de abrir el visor. Sustituye
- * a `AvatarModelo` en `Character` mientras dura; termina sola a los 15 s o en
- * cuanto el jugador se mueve. Lazy: arrastra el rig y los patrones.
+ * ejercicio donde está (con su banco, barra…), en vez de abrir el visor. Con el
+ * cuerpo de cubos usa el rig del gym; con una mascota, piezas o .glb se mueve
+ * entero (`CuerpoLibre`). Sustituye a `AvatarModelo` en `Character` mientras
+ * dura; termina sola a los 15 s o en cuanto el jugador se mueve. Lazy: arrastra
+ * el rig y los patrones.
  */
 export default function AvatarEjercicioMapa({ av, nombre }: { av: Avatar; nombre: string }) {
   const cerrar = useDemoEjercicio((s) => s.cerrar)
   const patron = useMemo(() => patronDe(nombre), [nombre])
   const origen = useRef<THREE.Vector3 | null>(null)
+  const marcha = useRef<EstadoMarcha>({ velocidad: 0, fase: 0 }).current
+  const brazo = useRef<THREE.Group>(null)
 
   useEffect(() => {
     if (!patron) {
@@ -38,5 +46,10 @@ export default function AvatarEjercicioMapa({ av, nombre }: { av: Avatar; nombre
   })
 
   if (!patron) return null
-  return <RigEjercicio av={av} patron={patron} jugando />
+  if (esHumanoideAvatar(av)) return <RigEjercicio av={av} patron={patron} jugando />
+  return (
+    <CuerpoLibre patron={patron} estado={marcha} brazoRef={brazo} escala={av.escala}>
+      <AvatarModelo av={av} marchaEstado={marcha} brazoRef={brazo} />
+    </CuerpoLibre>
+  )
 }

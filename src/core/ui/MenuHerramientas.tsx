@@ -1,5 +1,6 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import { useHerramienta, type Herramienta } from '../state/herramientaStore'
+import { EMOTES, type EmoteId } from '../house/emotes'
 import { usePlanos, type ModoConstructor } from '../state/planosStore'
 import { esVehiculo, VEHICULOS_JUGABLES, type TipoVehiculo } from '../house/vehiculos'
 import { invocarVehiculo } from './ControlHerramienta'
@@ -57,11 +58,19 @@ function Sector({
   emoji: string
   etiqueta: string
   activo: boolean
-  /** Anclaje del tutorial (`herr.cat.*` en categorías, `herr.item.*` dentro de una). */
+  /** Anclaje del tutorial (`herr.cat.*` en categorías, `herr.item.*` dentro de una, `herr.emote.*` en los bailes). */
   tut?: string
   onSelect: () => void
 }) {
   const c = centroSector(i, n)
+  // Con muchos gajos (los emotes) el arco es estrecho: letra menor y la etiqueta
+  // larga se parte en dos líneas por el espacio más cercano a su centro.
+  const compacto = n > 8
+  const lineas = [etiqueta]
+  if (compacto && etiqueta.length > 9) {
+    const corte = etiqueta.lastIndexOf(' ', Math.ceil(etiqueta.length / 2))
+    if (corte > 0) lineas.splice(0, 1, etiqueta.slice(0, corte), etiqueta.slice(corte + 1))
+  }
   return (
     <g data-tut={tut} className="cursor-pointer" onClick={onSelect}>
       <path
@@ -74,8 +83,12 @@ function Sector({
           <Icono emoji={emoji} />
         </div>
       </foreignObject>
-      <text x={c.x} y={c.y + 18} textAnchor="middle" fontSize={10} className="pointer-events-none fill-white/70 font-semibold">
-        {etiqueta}
+      <text x={c.x} y={c.y + 18} textAnchor="middle" fontSize={n > 12 ? 8 : compacto ? 9 : 10} className="pointer-events-none fill-white/70 font-semibold">
+        {lineas.map((l, k) => (
+          <tspan key={k} x={c.x} dy={k === 0 ? 0 : 10}>
+            {l}
+          </tspan>
+        ))}
       </text>
     </g>
   )
@@ -132,14 +145,18 @@ interface Categoria {
  * Botón sobre el joystick que abre la rueda de herramientas (estilo GTA), en
  * dos niveles: primero categoría (Movimientos / Juguetes / Vehículos) y luego
  * la herramienta dentro de ella. Así cada categoría puede sumar más entradas
- * sin amontonar un solo anillo. La herramienta elegida sustituye el cubo de
- * vistas en `NavControls` por su control (`ControlHerramienta`).
+ * sin amontonar un solo anillo. «Bailar» abre un tercer nivel con el baile
+ * clásico y los emotes. La herramienta elegida sustituye el cubo de vistas en
+ * `NavControls` por su control (`ControlHerramienta`).
  */
 export function MenuHerramientas() {
   const t = useT()
   const [abierta, setAbierta] = useState(false)
   const [catAbierta, setCatAbierta] = useState<string | null>(null)
+  const [emotesAbiertos, setEmotesAbiertos] = useState(false)
   const equipadas = useHerramienta((s) => s.equipadas)
+  const bailando = useHerramienta((s) => s.bailando)
+  const emote = useHerramienta((s) => s.emote)
   const equipar = useHerramienta((s) => s.equipar)
   const soltarTodo = useHerramienta((s) => s.soltarTodo)
   const planosModo = usePlanos((s) => s.modo)
@@ -152,19 +169,21 @@ export function MenuHerramientas() {
   const cerrar = () => {
     setAbierta(false)
     setCatAbierta(null)
+    setEmotesAbiertos(false)
   }
 
   useEffect(() => {
     if (!abierta) return
-    // Escape retrocede un nivel si hay una categoría abierta; si no, cierra.
+    // Escape retrocede un nivel (emotes → categoría → cerrar).
     const onKey = (e: KeyboardEvent) => {
       if (e.key !== 'Escape') return
-      if (catAbierta) setCatAbierta(null)
+      if (emotesAbiertos) setEmotesAbiertos(false)
+      else if (catAbierta) setCatAbierta(null)
       else setAbierta(false)
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [abierta, catAbierta])
+  }, [abierta, catAbierta, emotesAbiertos])
 
   // Q abre y cierra la rueda (el estado es local, por eso el atajo vive aquí y
   // no en `atajosTeclado`). Mismas guardas: nada mientras se escribe o con un
@@ -176,6 +195,7 @@ export function MenuHerramientas() {
       e.preventDefault()
       // Siempre al nivel raíz: al abrir se ven las categorías, al cerrar se limpia.
       setCatAbierta(null)
+      setEmotesAbiertos(false)
       setAbierta((v) => !v)
     }
     window.addEventListener('keydown', onKey)
@@ -266,7 +286,30 @@ export function MenuHerramientas() {
     cerrar()
   }
 
+  // «Bailar» abre el tercer nivel (clásico + emotes) y precarga el rig que los baila.
+  const abrirEmotes = () => {
+    void import('../house/AvatarEmoteMapa')
+    setEmotesAbiertos(true)
+  }
+
+  // Elegir un baile equipa la herramienta (si falta), lo enciende (o lo apaga si
+  // ya sonaba) y cierra la rueda: tapa al personaje y lo que se quiere es verlo.
+  const elegirBaile = (id: EmoteId | 'clasico') => {
+    const h = useHerramienta.getState()
+    if (!h.equipadas.includes('bailar')) equipar('bailar')
+    useHud.getState().setPlegado('infDer', false)
+    if (id === 'clasico') h.setBailando(!h.bailando)
+    else h.setEmote(h.emote === id ? null : id)
+    cerrar()
+  }
+
   const categoriaActual = catAbierta ? categorias.find((c) => c.id === catAbierta) : undefined
+
+  // Tercer nivel: el baile clásico y los emotes (ver `house/emotes.ts`).
+  const bailes: { id: EmoteId | 'clasico'; emoji: string; etiqueta: string }[] = [
+    { id: 'clasico', emoji: '💃', etiqueta: t('herr.emote.clasico', 'Clásico') },
+    ...EMOTES.map((e) => ({ id: e.id, emoji: e.emoji, etiqueta: t(`herr.emote.${e.id}`, e.fallback) })),
+  ]
 
   // Teléfono vertical con el chat abierto: el abanico cede el bajo (chat ⊕ esquinas).
   if (movilVertical && !chatPlegado) return null
@@ -304,11 +347,38 @@ export function MenuHerramientas() {
             width={288}
             height={288}
             role="menu"
-            aria-label={categoriaActual ? categoriaActual.etiqueta : t('herr.rueda', 'Rueda de herramientas')}
+            aria-label={
+              emotesAbiertos
+                ? t('herr.bailar', 'Bailar')
+                : categoriaActual
+                  ? categoriaActual.etiqueta
+                  : t('herr.rueda', 'Rueda de herramientas')
+            }
             className="ui-pop touch-none select-none"
             onClick={(e) => e.stopPropagation()}
           >
-            {categoriaActual ? (
+            {emotesAbiertos ? (
+              <>
+                {bailes.map((b, i) => (
+                  <Sector
+                    key={b.id}
+                    i={i}
+                    n={bailes.length}
+                    emoji={b.emoji}
+                    etiqueta={b.etiqueta}
+                    activo={b.id === 'clasico' ? bailando : emote === b.id}
+                    tut={`herr.emote.${b.id}`}
+                    onSelect={() => elegirBaile(b.id)}
+                  />
+                ))}
+                <Centro
+                  icono={<Icono nombre="atras" />}
+                  etiqueta={t('herr.atras', 'Atrás')}
+                  activo={false}
+                  onSelect={() => setEmotesAbiertos(false)}
+                />
+              </>
+            ) : categoriaActual ? (
               <>
                 {categoriaActual.entradas.map((en, i) => (
                   <Sector
@@ -323,7 +393,9 @@ export function MenuHerramientas() {
                         : equipadas.includes(en.herramienta)
                     }
                     tut={`herr.item.${en.modo ?? en.herramienta}`}
-                    onSelect={() => (en.modo ? elegirModo(en.modo) : elegir(en.herramienta))}
+                    onSelect={() =>
+                      en.modo ? elegirModo(en.modo) : en.herramienta === 'bailar' ? abrirEmotes() : elegir(en.herramienta)
+                    }
                   />
                 ))}
                 <Centro

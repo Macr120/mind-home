@@ -1,908 +1,842 @@
 [
   {
-    "clave": "hoy.casa.personales",
-    "es": "Personales",
-    "en": "Personal"
+    "clave": "ejercicio.reproductor.segundosEjercicio",
+    "es": "Segundos por ejercicio",
+    "en": "Seconds per exercise"
   },
   {
-    "clave": "hoy.irApp",
-    "es": "Ir a la app a registrarlo",
-    "en": "Log it in the app"
+    "clave": "ejercicio.reproductor.segundosTramo",
+    "es": "Segundos por tramo",
+    "en": "Seconds per segment"
   },
   {
-    "clave": "hoy.nada",
-    "es": "Aún no te has propuesto nada en esta app.",
-    "en": "You haven't committed to anything in this app yet."
+    "clave": "ejercicio.reproductor.verFoto",
+    "es": "Ver la ilustración",
+    "en": "Show the illustration"
   },
   {
-    "clave": "hoy.metas.titulo",
-    "es": "Metas",
-    "en": "Goals"
+    "clave": "ejercicio.reproductor.verAnim",
+    "es": "Ver la animación",
+    "en": "Show the animation"
   },
   {
-    "clave": "hoy.metas.vencida",
-    "es": "vencida",
-    "en": "overdue"
+    "clave": "ejercicio.reproductor.musicaOn",
+    "es": "Música de ejercicio encendida · tocar para apagar",
+    "en": "Workout music on · tap to turn it off"
   },
   {
-    "clave": "hoy.metas.faltan",
-    "es": "{n} d",
-    "en": "{n} d"
+    "clave": "ejercicio.reproductor.musicaOff",
+    "es": "Música de ejercicio apagada · tocar para encender",
+    "en": "Workout music off · tap to turn it on"
   },
   {
-    "clave": "objetivos.anadir",
-    "es": "Añadir misión",
-    "en": "Add mission"
+    "clave": "ejercicio.anim.pestana",
+    "es": "Animación",
+    "en": "Animation"
   },
   {
-    "clave": "objetivos.responsable",
-    "es": "{quien} te recuerda lo de aquí",
-    "en": "{quien} reminds you about what lives here"
+    "clave": "ejercicio.anim.ilustracion",
+    "es": "Ilustración",
+    "en": "Illustration"
   },
   {
-    "clave": "objetivos.nuevo.deQueApp",
-    "es": "¿De qué es la misión?",
-    "en": "What is the mission about?"
+    "clave": "ejercicio.anim.cargando",
+    "es": "Cargando…",
+    "en": "Loading…"
   },
   {
-    "clave": "objetivos.nuevo.responsable",
-    "es": "Yo te recuerdo lo de aquí. ¿Qué te propones?",
-    "en": "I'll remind you about this. What do you commit to?"
+    "clave": "ejercicio.anim.imagen",
+    "es": "Imagen",
+    "en": "Image"
   },
   {
-    "clave": "objetivos.nuevo.personal",
-    "es": "Misión personal, de ninguna app.",
-    "en": "Personal mission, not tied to any app."
+    "clave": "ejercicio.anim.modo",
+    "es": "Qué muestran las miniaturas",
+    "en": "What the thumbnails show"
   },
   {
-    "clave": "objetivos.nuevo.personales",
-    "es": "Personales",
-    "en": "Personal"
+    "clave": "ejercicio.anim.ver",
+    "es": "Ver animación",
+    "en": "View animation"
   },
   {
-    "clave": "objetivos.nuevo.poner",
-    "es": "＋",
-    "en": "＋"
+    "clave": "plantillas.carpeta.studio",
+    "en": "Studio"
   },
   {
-    "clave": "objetivos.nuevo.todos",
-    "es": "Ya te propusiste todo lo de esta app.",
-    "en": "You've already committed to everything in this app."
+    "clave": "chat.ed.demoEjercicio",
+    "es": "Te enseño cómo se hace {ej}.",
+    "en": "Here is how to do {ej}."
   },
   {
-    "clave": "objetivos.nuevo.otro",
-    "es": "Otra misión…",
-    "en": "Another mission…"
+    "clave": "chat.ed.ejercicioNoHallado",
+    "es": "No encontré «{q}» en el catálogo de Ejercicio.",
+    "en": "I could not find “{q}” in the Exercise catalog."
   },
   {
-    "clave": "objetivos.nuevo.otroPlaceholder",
-    "es": "¿Qué te propones?",
-    "en": "What do you commit to?"
+    "clave": "chat.ed.chip.demoEjercicio",
+    "es": "Ver cómo se hace",
+    "en": "See how it is done"
   },
   {
-    "clave": "objetivos.nuevo.checklist",
-    "es": "¿Necesitas varios pasos? Nueva checklist",
-    "en": "Need several steps? New checklist"
+    "clave": "room.escritura.nombre",
+    "en": "Writing"
   },
   {
-    "clave": "objetivos.nuevo.dias",
-    "es": "¿Qué días?",
-    "en": "Which days?"
+    "clave": "room.escritura.sub",
+    "en": "Books"
   },
   {
-    "clave": "objetivos.nuevo.faltanDias",
-    "es": "Marca al menos un día.",
-    "en": "Pick at least one day."
+    "clave": "room.escritura.desc",
+    "en": "Your writing studio: a shelf of books, each with its folders of chapters, characters, places and acts with their plots; an editor with formatting, an automatic index and an AI that drafts, fixes, summarizes and continues for you; TXT and PDF export."
   },
   {
-    "clave": "objetivos.nuevo.cantidad",
-    "es": "¿Cuánto?",
-    "en": "How much?"
+    "clave": "room.escritura.corta",
+    "en": "Books, folders & AI"
   },
   {
-    "clave": "objetivos.nuevo.meta",
-    "es": "¿Para qué meta?",
-    "en": "For which goal?"
+    "clave": "room.escritura.cmd.libros",
+    "en": "Books"
   },
   {
-    "clave": "objetivos.nuevo.sinMeta",
-    "es": "Ninguna (suelto)",
-    "en": "None (standalone)"
+    "clave": "escritura.lista.palabras",
+    "es": "{n} palabras",
+    "en": "{n} words"
   },
   {
-    "clave": "objetivos.nuevo.mientrasDure",
-    "es": "Solo del {ini} al {fin}, mientras dure la meta.",
-    "en": "Only from {ini} to {fin}, while the goal lasts."
+    "clave": "escritura.editor.volver",
+    "es": "Volver",
+    "en": "Back"
   },
   {
-    "clave": "objetivos.nuevo.hora",
-    "es": "¿A una hora?",
-    "en": "At a set time?"
+    "clave": "escritura.editor.borrar",
+    "es": "Borrar este texto",
+    "en": "Delete this text"
   },
   {
-    "clave": "objetivos.nuevo.sinHora",
-    "es": "Sin hora",
-    "en": "No time"
+    "clave": "escritura.editor.borrarMsg",
+    "es": "Se borrará junto con su contenido.",
+    "en": "It will be deleted along with its content."
   },
   {
-    "clave": "objetivos.nuevo.anadir",
-    "es": "Añadir",
-    "en": "Add"
+    "clave": "escritura.editor.tituloPh",
+    "es": "Título del documento",
+    "en": "Document title"
   },
   {
-    "clave": "objetivos.nuevo.cancelar",
-    "es": "Cancelar",
-    "en": "Cancel"
+    "clave": "escritura.editor.deshacer",
+    "es": "Deshacer",
+    "en": "Undo"
   },
   {
-    "clave": "objetivos.nuevo.cambiar",
-    "es": "Cambiar de asistente",
-    "en": "Switch assistant"
+    "clave": "escritura.editor.rehacer",
+    "es": "Rehacer",
+    "en": "Redo"
   },
   {
-    "clave": "objetivos.nuevo.nadie",
-    "es": "Sin asistente",
-    "en": "No assistant"
+    "clave": "escritura.editor.bloque",
+    "es": "Tipo de bloque",
+    "en": "Block type"
   },
   {
-    "clave": "avisos.objetivos",
-    "es": "Te faltan {n} misiones en {app}.",
-    "en": "You have {n} missions left in {app}."
+    "clave": "escritura.editor.parrafo",
+    "es": "Párrafo",
+    "en": "Paragraph"
   },
   {
-    "clave": "biblioteca.nodo.filosofia",
-    "en": "Philosophy and thought"
+    "clave": "escritura.editor.titulo1",
+    "es": "Título 1",
+    "en": "Heading 1"
   },
   {
-    "clave": "biblioteca.nodoDesc.filosofia",
-    "en": "Fundamental questions about reality, knowledge, mind, and conduct."
+    "clave": "escritura.editor.titulo2",
+    "es": "Título 2",
+    "en": "Heading 2"
   },
   {
-    "clave": "biblioteca.nodo.fil-metafisica",
-    "en": "Metaphysics and ontology"
+    "clave": "escritura.editor.titulo3",
+    "es": "Título 3",
+    "en": "Heading 3"
   },
   {
-    "clave": "biblioteca.nodo.fil-ser",
-    "en": "Being and existence"
+    "clave": "escritura.editor.cita",
+    "es": "Cita",
+    "en": "Quote"
   },
   {
-    "clave": "biblioteca.nodoDesc.fil-ser",
-    "en": "What it means for something to exist."
+    "clave": "escritura.editor.negrita",
+    "es": "Negrita",
+    "en": "Bold"
   },
   {
-    "clave": "biblioteca.nodo.fil-mente",
-    "en": "Mind and consciousness"
+    "clave": "escritura.editor.cursiva",
+    "es": "Cursiva",
+    "en": "Italic"
   },
   {
-    "clave": "biblioteca.nodoDesc.fil-mente",
-    "en": "The mind-body problem and phenomenology."
+    "clave": "escritura.editor.subrayado",
+    "es": "Subrayado",
+    "en": "Underline"
   },
   {
-    "clave": "biblioteca.nodo.fil-libre",
-    "en": "Freedom and determinism"
+    "clave": "escritura.editor.tachado",
+    "es": "Tachado",
+    "en": "Strikethrough"
   },
   {
-    "clave": "biblioteca.nodoDesc.fil-libre",
-    "en": "Are we free, or is everything caused?"
+    "clave": "escritura.editor.lista",
+    "es": "Lista con viñetas",
+    "en": "Bulleted list"
   },
   {
-    "clave": "biblioteca.nodo.fil-epistemologia",
-    "en": "Epistemology"
+    "clave": "escritura.editor.listaNum",
+    "es": "Lista numerada",
+    "en": "Numbered list"
   },
   {
-    "clave": "biblioteca.nodo.fil-conocimiento",
-    "en": "Theory of knowledge"
+    "clave": "escritura.editor.alinearIzq",
+    "es": "Alinear a la izquierda",
+    "en": "Align left"
   },
   {
-    "clave": "biblioteca.nodoDesc.fil-conocimiento",
-    "en": "Justification, truth, and belief."
+    "clave": "escritura.editor.alinearCentro",
+    "es": "Centrar",
+    "en": "Center"
   },
   {
-    "clave": "biblioteca.nodo.fil-ciencia-fil",
-    "en": "Philosophy of science"
+    "clave": "escritura.editor.alinearDer",
+    "es": "Alinear a la derecha",
+    "en": "Align right"
   },
   {
-    "clave": "biblioteca.nodoDesc.fil-ciencia-fil",
-    "en": "Method, paradigms, and demarcation."
+    "clave": "escritura.editor.color",
+    "es": "Color del texto",
+    "en": "Text color"
   },
   {
-    "clave": "biblioteca.nodo.fil-escepticismo",
-    "en": "Skepticism"
+    "clave": "escritura.editor.area",
+    "es": "Contenido del documento",
+    "en": "Document content"
   },
   {
-    "clave": "biblioteca.nodoDesc.fil-escepticismo",
-    "en": "The limits of what we can know."
+    "clave": "escritura.editor.grande",
+    "es": "El documento es demasiado grande y no se está guardando: recórtalo un poco.",
+    "en": "The document is too large and is not being saved: trim it a bit."
   },
   {
-    "clave": "biblioteca.nodo.fil-etica",
-    "en": "Ethics and political philosophy"
+    "clave": "escritura.export.txt",
+    "es": "Descargar TXT",
+    "en": "Download TXT"
   },
   {
-    "clave": "biblioteca.nodo.fil-moral",
-    "en": "Moral theories"
+    "clave": "escritura.export.pdf",
+    "es": "Imprimir o guardar en PDF",
+    "en": "Print or save as PDF"
   },
   {
-    "clave": "biblioteca.nodoDesc.fil-moral",
-    "en": "Deontology, utilitarianism, virtue."
+    "clave": "escritura.ia.boton",
+    "es": "IA",
+    "en": "AI"
   },
   {
-    "clave": "biblioteca.nodo.fil-justicia",
-    "en": "Social justice"
+    "clave": "escritura.ia.titulo",
+    "es": "Escribir con IA",
+    "en": "Write with AI"
   },
   {
-    "clave": "biblioteca.nodoDesc.fil-justicia",
-    "en": "Equity, rights, and the common good."
+    "clave": "escritura.ia.instruccion",
+    "es": "Qué quieres (para redactar o mejorar)",
+    "en": "What you want (to draft or improve)"
   },
   {
-    "clave": "biblioteca.nodo.fil-bioetica",
-    "en": "Bioethics"
+    "clave": "escritura.ia.instruccionPh",
+    "es": "Una carta para… / un ensayo sobre…",
+    "en": "A letter for… / an essay about…"
   },
   {
-    "clave": "biblioteca.nodoDesc.fil-bioetica",
-    "en": "Life, medicine, and applied technology."
+    "clave": "escritura.ia.redactar",
+    "es": "Redactar",
+    "en": "Draft"
   },
   {
-    "clave": "biblioteca.nodo.matematicas",
-    "en": "Mathematics and logic"
+    "clave": "escritura.ia.mejorar",
+    "es": "Mejorar selección",
+    "en": "Improve selection"
   },
   {
-    "clave": "biblioteca.nodoDesc.matematicas",
-    "en": "Abstract structures, formal reasoning, and quantitative models."
+    "clave": "escritura.ia.continuar",
+    "es": "Continuar el texto",
+    "en": "Continue the text"
   },
   {
-    "clave": "biblioteca.nodo.mat-puras",
-    "en": "Pure mathematics"
+    "clave": "escritura.ia.resumir",
+    "es": "Resumir",
+    "en": "Summarize"
   },
   {
-    "clave": "biblioteca.nodo.mat-algebra",
-    "en": "Algebra"
+    "clave": "escritura.ia.copiar",
+    "es": "Copiar",
+    "en": "Copy"
   },
   {
-    "clave": "biblioteca.nodoDesc.mat-algebra",
-    "en": "Structures, equations, and symmetries."
+    "clave": "escritura.ia.insertar",
+    "es": "Insertar al final",
+    "en": "Insert at the end"
   },
   {
-    "clave": "biblioteca.nodo.mat-analisis",
-    "en": "Analysis"
+    "clave": "escritura.ia.sinSeleccion",
+    "es": "Para «mejorar», selecciona antes el texto en el documento.",
+    "en": "To “improve”, select the text in the document first."
   },
   {
-    "clave": "biblioteca.nodoDesc.mat-analisis",
-    "en": "Limits, continuity, and calculus."
+    "clave": "ia.op.escritura.redactar",
+    "en": "Draft a document from an instruction"
   },
   {
-    "clave": "biblioteca.nodo.mat-geometria",
-    "en": "Geometry and topology"
+    "clave": "ia.op.escritura.mejorar",
+    "en": "Improve or fix the selection"
   },
   {
-    "clave": "biblioteca.nodoDesc.mat-geometria",
-    "en": "Shapes, spaces, and transformations."
+    "clave": "ia.op.escritura.resumir",
+    "en": "Summarize the document"
   },
   {
-    "clave": "biblioteca.nodo.mat-aplicadas",
-    "en": "Applied mathematics"
+    "clave": "ia.op.escritura.continuar",
+    "en": "Continue writing where you are"
   },
   {
-    "clave": "biblioteca.nodo.mat-prob",
-    "en": "Probability"
+    "clave": "ia.donde.escritura.editor",
+    "en": "Documents · Editor · ✨ button"
   },
   {
-    "clave": "biblioteca.nodoDesc.mat-prob",
-    "en": "Uncertainty and random events."
+    "clave": "escritura.editor.paginas",
+    "es": "~{n} págs.",
+    "en": "~{n} pages"
   },
   {
-    "clave": "biblioteca.nodo.mat-stats",
-    "en": "Statistics"
+    "clave": "escritura.indice.boton",
+    "es": "Índice del documento",
+    "en": "Document index"
   },
   {
-    "clave": "biblioteca.nodoDesc.mat-stats",
-    "en": "Data, inference, and models."
+    "clave": "escritura.indice.titulo",
+    "es": "Índice",
+    "en": "Index"
   },
   {
-    "clave": "biblioteca.nodo.mat-discreta",
-    "en": "Discrete mathematics"
+    "clave": "escritura.indice.cerrar",
+    "es": "Cerrar el índice",
+    "en": "Close the index"
   },
   {
-    "clave": "biblioteca.nodoDesc.mat-discreta",
-    "en": "Combinatorics, graphs, and recursion."
+    "clave": "escritura.indice.vacio",
+    "es": "Aún no hay títulos: marca líneas como Título 1, 2 o 3 y aparecerán aquí.",
+    "en": "No headings yet: mark lines as Heading 1, 2 or 3 and they will show up here."
   },
   {
-    "clave": "biblioteca.nodo.mat-logica",
-    "en": "Logic"
+    "clave": "escritura.indice.sinTitulo",
+    "es": "(sin título)",
+    "en": "(untitled)"
   },
   {
-    "clave": "biblioteca.nodo.mat-log-formal",
-    "en": "Formal logic"
+    "clave": "escritura.indice.incluirPdf",
+    "es": "Incluir en la primera página al imprimir",
+    "en": "Include on the first page when printing"
   },
   {
-    "clave": "biblioteca.nodoDesc.mat-log-formal",
-    "en": "Propositions, predicates, and proof."
+    "clave": "escritura.indice.insertar",
+    "es": "Insertar al inicio",
+    "en": "Insert at the top"
   },
   {
-    "clave": "biblioteca.nodo.mat-log-comput",
-    "en": "Computational logic"
+    "clave": "escritura.indice.insertarMsg",
+    "es": "El índice se inserta como texto normal: si luego cambias los títulos, no se actualiza solo.",
+    "en": "The index is inserted as regular text: if you change the headings later, it will not update by itself."
   },
   {
-    "clave": "biblioteca.nodoDesc.mat-log-comput",
-    "en": "Algorithms, complexity, and verification."
+    "clave": "escritura.indice.encabezado",
+    "es": "Índice",
+    "en": "Index"
   },
   {
-    "clave": "biblioteca.nodo.naturales",
-    "en": "Natural sciences"
+    "clave": "escritura.plantilla.titulo",
+    "es": "¿Qué vas a escribir?",
+    "en": "What are you going to write?"
   },
   {
-    "clave": "biblioteca.nodoDesc.naturales",
-    "en": "Laws of the physical universe, matter, energy, and living systems."
+    "clave": "escritura.plantilla.blanco",
+    "en": "Blank"
   },
   {
-    "clave": "biblioteca.nodo.nat-fisica",
-    "en": "Physics"
+    "clave": "escritura.plantilla.cuento",
+    "en": "Short story"
   },
   {
-    "clave": "biblioteca.nodo.nat-mecanica",
-    "en": "Classical mechanics"
+    "clave": "escritura.plantilla.guionNombre",
+    "en": "Screenplay"
   },
   {
-    "clave": "biblioteca.nodoDesc.nat-mecanica",
-    "en": "Motion, forces, and energy."
+    "clave": "escritura.plantilla.teatroNombre",
+    "en": "Stage play"
   },
   {
-    "clave": "biblioteca.nodo.nat-cuantica",
-    "en": "Quantum physics"
+    "clave": "escritura.libros.nuevo",
+    "es": "Nuevo libro",
+    "en": "New book"
   },
   {
-    "clave": "biblioteca.nodoDesc.nat-cuantica",
-    "en": "Particles, waves, and probability."
+    "clave": "escritura.libros.nuevoMsg",
+    "es": "Título del libro",
+    "en": "Book title"
   },
   {
-    "clave": "biblioteca.nodo.nat-relatividad",
-    "en": "Relativity"
+    "clave": "escritura.libros.renombrar",
+    "es": "Renombrar libro",
+    "en": "Rename book"
   },
   {
-    "clave": "biblioteca.nodoDesc.nat-relatividad",
-    "en": "Spacetime and cosmology."
+    "clave": "escritura.libros.vacio",
+    "es": "Aún no hay libros",
+    "en": "No books yet"
   },
   {
-    "clave": "biblioteca.nodo.nat-termodinamica",
-    "en": "Thermodynamics"
+    "clave": "escritura.libros.vacioSub",
+    "es": "Cada libro trae sus carpetas de capítulos, personajes, lugares y actos con sus tramas.",
+    "en": "Each book holds its folders of chapters, characters, places and acts with their plots."
   },
   {
-    "clave": "biblioteca.nodoDesc.nat-termodinamica",
-    "en": "Heat, entropy, and equilibrium."
+    "clave": "escritura.libros.volver",
+    "es": "Volver a los libros",
+    "en": "Back to the books"
   },
   {
-    "clave": "biblioteca.nodo.nat-quimica",
-    "en": "Chemistry"
+    "clave": "escritura.libros.borrar",
+    "es": "Borrar libro",
+    "en": "Delete book"
   },
   {
-    "clave": "biblioteca.nodo.nat-org",
-    "en": "Organic chemistry"
+    "clave": "escritura.libros.borrarMsg",
+    "es": "También se borrarán sus {n} textos (capítulos, personajes, actos…).",
+    "en": "Its {n} texts (chapters, characters, acts…) will be deleted too."
   },
   {
-    "clave": "biblioteca.nodoDesc.nat-org",
-    "en": "Carbon, biomolecules, and reactions."
+    "clave": "escritura.libros.capitulo1",
+    "es": "Capítulo 1",
+    "en": "Chapter 1"
   },
   {
-    "clave": "biblioteca.nodo.nat-inorg",
-    "en": "Inorganic chemistry"
+    "clave": "escritura.relaciones.boton",
+    "es": "Relaciones entre personajes",
+    "en": "Character relationships"
   },
   {
-    "clave": "biblioteca.nodoDesc.nat-inorg",
-    "en": "Elements, bonds, and materials."
+    "clave": "escritura.relaciones.titulo",
+    "es": "Relaciones",
+    "en": "Relationships"
   },
   {
-    "clave": "biblioteca.nodo.nat-fisicoquim",
-    "en": "Physical chemistry"
+    "clave": "escritura.relaciones.ayuda",
+    "es": "Arrastra a los personajes para acomodarlos; toca uno y luego otro para unirlos.",
+    "en": "Drag the characters to arrange them; tap one and then another to link them."
   },
   {
-    "clave": "biblioteca.nodoDesc.nat-fisicoquim",
-    "en": "Energy in reactions and equilibrium."
+    "clave": "escritura.relaciones.etiqueta",
+    "es": "¿Qué relación tienen?",
+    "en": "What is their relationship?"
   },
   {
-    "clave": "biblioteca.nodo.nat-biologia",
-    "en": "Biology"
+    "clave": "escritura.relaciones.etiquetaMsg",
+    "es": "Hermanos, rivales, se deben dinero…",
+    "en": "Siblings, rivals, they owe each other money…"
   },
   {
-    "clave": "biblioteca.nodo.nat-celula",
-    "en": "Cell biology"
+    "clave": "escritura.relaciones.renombrar",
+    "es": "Cambiar la relación",
+    "en": "Edit the relationship"
   },
   {
-    "clave": "biblioteca.nodoDesc.nat-celula",
-    "en": "Cells, metabolism, and signaling."
+    "clave": "escritura.relaciones.borrar",
+    "es": "Borrar relación",
+    "en": "Delete relationship"
   },
   {
-    "clave": "biblioteca.nodo.nat-genetica",
-    "en": "Genetics and evolution"
+    "clave": "escritura.relaciones.borrarMsg",
+    "es": "Su nota también se borra.",
+    "en": "Its note is deleted too."
   },
   {
-    "clave": "biblioteca.nodoDesc.nat-genetica",
-    "en": "DNA, selection, and phylogeny."
+    "clave": "escritura.relaciones.eligeOtro",
+    "es": "Ahora toca al otro personaje para unirlos.",
+    "en": "Now tap the other character to link them."
   },
   {
-    "clave": "biblioteca.nodo.nat-ecologia",
-    "en": "Ecology"
+    "clave": "escritura.relaciones.abrirHoja",
+    "es": "Abrir en la hoja",
+    "en": "Open on the sheet"
   },
   {
-    "clave": "biblioteca.nodoDesc.nat-ecologia",
-    "en": "Ecosystems, biodiversity, and cycles."
+    "clave": "escritura.relaciones.sinNota",
+    "es": "Sin nota aún: ábrela en la hoja y escríbela.",
+    "en": "No note yet: open it on the sheet and write it."
   },
   {
-    "clave": "biblioteca.nodo.tierra",
-    "en": "Earth sciences"
+    "clave": "escritura.relaciones.abrirFicha",
+    "es": "Abrir ficha",
+    "en": "Open their sheet"
   },
   {
-    "clave": "biblioteca.nodoDesc.tierra",
-    "en": "The planet, atmosphere, oceans, and geological processes."
+    "clave": "escritura.relaciones.vacio",
+    "es": "Aún no hay personajes",
+    "en": "No characters yet"
   },
   {
-    "clave": "biblioteca.nodo.tie-geologia",
-    "en": "Geology and geophysics"
+    "clave": "escritura.relaciones.vacioSub",
+    "es": "Crea personajes en las carpetas del libro y aquí dibujas cómo se relacionan.",
+    "en": "Create characters in the book folders and draw how they relate here."
   },
   {
-    "clave": "biblioteca.nodo.tie-placas",
-    "en": "Plate tectonics"
+    "clave": "escritura.historias.boton",
+    "es": "Carpetas de la historia",
+    "en": "Story folders"
   },
   {
-    "clave": "biblioteca.nodoDesc.tie-placas",
-    "en": "Landform formation and earthquakes."
+    "clave": "escritura.historias.cerrarPanel",
+    "es": "Cerrar las carpetas",
+    "en": "Close the folders"
   },
   {
-    "clave": "biblioteca.nodo.tie-minerales",
-    "en": "Mineralogy"
+    "clave": "escritura.historias.borrarActoMsg",
+    "es": "También se borrarán sus {n} tramas.",
+    "en": "Its {n} plots will be deleted too."
   },
   {
-    "clave": "biblioteca.nodoDesc.tie-minerales",
-    "en": "Rocks, minerals, and resources."
+    "clave": "escritura.historias.textos",
+    "es": "{n} textos",
+    "en": "{n} texts"
   },
   {
-    "clave": "biblioteca.nodo.tie-paleont",
-    "en": "Paleontology"
+    "clave": "escritura.historias.capitulos",
+    "en": "Chapters"
   },
   {
-    "clave": "biblioteca.nodoDesc.tie-paleont",
-    "en": "Fossils and the history of life."
+    "clave": "escritura.historias.personajes",
+    "en": "Characters"
   },
   {
-    "clave": "biblioteca.nodo.tie-clima",
-    "en": "Climate and atmosphere"
+    "clave": "escritura.historias.lugares",
+    "en": "Places"
   },
   {
-    "clave": "biblioteca.nodo.tie-meteorologia",
-    "en": "Meteorology"
+    "clave": "escritura.historias.actos",
+    "en": "Acts"
   },
   {
-    "clave": "biblioteca.nodoDesc.tie-meteorologia",
-    "en": "Weather, pressure, and precipitation."
+    "clave": "escritura.historias.nuevoCapitulo",
+    "en": "New chapter"
   },
   {
-    "clave": "biblioteca.nodo.tie-climatologia",
-    "en": "Climatology"
+    "clave": "escritura.historias.nuevoPersonaje",
+    "en": "New character"
   },
   {
-    "clave": "biblioteca.nodoDesc.tie-climatologia",
-    "en": "Long-term patterns and climate change."
+    "clave": "escritura.historias.nuevoLugar",
+    "en": "New place"
   },
   {
-    "clave": "biblioteca.nodo.tie-oceanos",
-    "en": "Oceanography"
+    "clave": "escritura.historias.nuevoActo",
+    "en": "New act"
   },
   {
-    "clave": "biblioteca.nodoDesc.tie-oceanos",
-    "en": "Currents, seas, and coasts."
+    "clave": "escritura.historias.nuevaTrama",
+    "es": "Nueva trama",
+    "en": "New plot"
   },
   {
-    "clave": "biblioteca.nodo.tie-espacial",
-    "en": "Geography and space"
+    "clave": "escritura.semilla.personaje.apariencia",
+    "es": "Apariencia",
+    "en": "Appearance"
   },
   {
-    "clave": "biblioteca.nodo.tie-cartografia",
-    "en": "Cartography"
-  },
-  {
-    "clave": "biblioteca.nodoDesc.tie-cartografia",
-    "en": "Maps, coordinates, and GIS."
-  },
-  {
-    "clave": "biblioteca.nodo.tie-geomorf",
-    "en": "Geomorphology"
-  },
-  {
-    "clave": "biblioteca.nodoDesc.tie-geomorf",
-    "en": "Landscapes and erosion."
-  },
-  {
-    "clave": "biblioteca.nodo.sociales",
-    "en": "Social sciences"
-  },
-  {
-    "clave": "biblioteca.nodoDesc.sociales",
-    "en": "Societies, economies, institutions, and collective human behavior."
-  },
-  {
-    "clave": "biblioteca.nodo.soc-sociologia",
-    "en": "Sociology and anthropology"
-  },
-  {
-    "clave": "biblioteca.nodo.soc-estructura",
-    "en": "Social structure"
-  },
-  {
-    "clave": "biblioteca.nodoDesc.soc-estructura",
-    "en": "Classes, networks, and inequality."
-  },
-  {
-    "clave": "biblioteca.nodo.soc-cultura",
-    "en": "Cultural anthropology"
-  },
-  {
-    "clave": "biblioteca.nodoDesc.soc-cultura",
-    "en": "Rituals, identity, and symbols."
-  },
-  {
-    "clave": "biblioteca.nodo.soc-urbano",
-    "en": "Urban studies"
-  },
-  {
-    "clave": "biblioteca.nodoDesc.soc-urbano",
-    "en": "City, migration, and territory."
-  },
-  {
-    "clave": "biblioteca.nodo.soc-economia",
-    "en": "Economics"
-  },
-  {
-    "clave": "biblioteca.nodo.soc-micro",
-    "en": "Microeconomics"
-  },
-  {
-    "clave": "biblioteca.nodoDesc.soc-micro",
-    "en": "Supply, demand, and decisions."
-  },
-  {
-    "clave": "biblioteca.nodo.soc-macro",
-    "en": "Macroeconomics"
-  },
-  {
-    "clave": "biblioteca.nodoDesc.soc-macro",
-    "en": "GDP, inflation, and fiscal policy."
-  },
-  {
-    "clave": "biblioteca.nodo.soc-comercio",
-    "en": "International trade"
-  },
-  {
-    "clave": "biblioteca.nodoDesc.soc-comercio",
-    "en": "Globalization and value chains."
-  },
-  {
-    "clave": "biblioteca.nodo.soc-politica",
-    "en": "Political science"
-  },
-  {
-    "clave": "biblioteca.nodo.soc-estado",
-    "en": "State and government"
-  },
-  {
-    "clave": "biblioteca.nodoDesc.soc-estado",
-    "en": "Power, laws, and democracy."
-  },
-  {
-    "clave": "biblioteca.nodo.soc-derechos",
-    "en": "Human rights"
-  },
-  {
-    "clave": "biblioteca.nodoDesc.soc-derechos",
-    "en": "Freedoms, justice, and citizenship."
-  },
-  {
-    "clave": "biblioteca.nodo.soc-relaciones",
-    "en": "International relations"
-  },
-  {
-    "clave": "biblioteca.nodoDesc.soc-relaciones",
-    "en": "Diplomacy, conflict, and cooperation."
-  },
-  {
-    "clave": "biblioteca.nodo.psicologia",
-    "en": "Psychology and the human mind"
-  },
-  {
-    "clave": "biblioteca.nodoDesc.psicologia",
-    "en": "Cognition, emotion, development, and psychological well-being."
-  },
-  {
-    "clave": "biblioteca.nodo.psi-cognitiva",
-    "en": "Cognitive psychology"
-  },
-  {
-    "clave": "biblioteca.nodo.psi-percepcion",
-    "en": "Perception and attention"
-  },
-  {
-    "clave": "biblioteca.nodoDesc.psi-percepcion",
-    "en": "How we process stimuli."
-  },
-  {
-    "clave": "biblioteca.nodo.psi-memoria",
-    "en": "Memory and learning"
-  },
-  {
-    "clave": "biblioteca.nodoDesc.psi-memoria",
-    "en": "Encoding, recall, and forgetting."
-  },
-  {
-    "clave": "biblioteca.nodo.psi-lenguaje-psi",
-    "en": "Psycholinguistics"
-  },
-  {
-    "clave": "biblioteca.nodoDesc.psi-lenguaje-psi",
-    "en": "Language acquisition and processing."
-  },
-  {
-    "clave": "biblioteca.nodo.psi-desarrollo",
-    "en": "Development and personality"
-  },
-  {
-    "clave": "biblioteca.nodo.psi-infancia",
-    "en": "Child development"
-  },
-  {
-    "clave": "biblioteca.nodoDesc.psi-infancia",
-    "en": "Cognitive and social milestones."
-  },
-  {
-    "clave": "biblioteca.nodo.psi-personalidad",
+    "clave": "escritura.semilla.personaje.personalidad",
+    "es": "Personalidad",
     "en": "Personality"
   },
   {
-    "clave": "biblioteca.nodoDesc.psi-personalidad",
-    "en": "Traits, temperaments, and models."
+    "clave": "escritura.semilla.personaje.quiere",
+    "es": "Qué quiere",
+    "en": "What they want"
   },
   {
-    "clave": "biblioteca.nodo.psi-social-psi",
-    "en": "Social psychology"
+    "clave": "escritura.semilla.personaje.historia",
+    "es": "Historia",
+    "en": "Backstory"
   },
   {
-    "clave": "biblioteca.nodoDesc.psi-social-psi",
-    "en": "Groups, attitudes, and conformity."
+    "clave": "escritura.semilla.lugar.descripcion",
+    "es": "Descripción",
+    "en": "Description"
   },
   {
-    "clave": "biblioteca.nodo.psi-clinica",
-    "en": "Mental health"
+    "clave": "escritura.semilla.lugar.atmosfera",
+    "es": "Atmósfera",
+    "en": "Atmosphere"
   },
   {
-    "clave": "biblioteca.nodo.psi-clinica-gen",
-    "en": "Clinical psychology"
+    "clave": "escritura.semilla.lugar.ocurre",
+    "es": "Qué pasa aquí",
+    "en": "What happens here"
   },
   {
-    "clave": "biblioteca.nodoDesc.psi-clinica-gen",
-    "en": "Disorders, diagnosis, and therapy."
+    "clave": "escritura.semilla.acto.resumen",
+    "es": "Resumen",
+    "en": "Summary"
   },
   {
-    "clave": "biblioteca.nodo.psi-neuropsi",
-    "en": "Neuropsychology"
+    "clave": "escritura.semilla.acto.escenas",
+    "es": "Escenas",
+    "en": "Scenes"
   },
   {
-    "clave": "biblioteca.nodoDesc.psi-neuropsi",
-    "en": "Brain, injury, and rehabilitation."
+    "clave": "escritura.semilla.trama.planteamiento",
+    "es": "Planteamiento",
+    "en": "Setup"
   },
   {
-    "clave": "biblioteca.nodo.humanidades",
-    "en": "Humanities and history"
+    "clave": "escritura.semilla.trama.nudo",
+    "es": "Nudo",
+    "en": "Conflict"
   },
   {
-    "clave": "biblioteca.nodoDesc.humanidades",
-    "en": "Human experience across time, thought, and cultural heritage."
+    "clave": "escritura.semilla.trama.desenlace",
+    "es": "Desenlace",
+    "en": "Resolution"
   },
   {
-    "clave": "biblioteca.nodo.hum-historia",
-    "en": "History"
+    "clave": "objetivos.sug.escritura.escribir",
+    "en": "Write for 20 minutes"
   },
   {
-    "clave": "biblioteca.nodo.hum-antigua",
-    "en": "Ancient history"
+    "clave": "objetivos.sug.escritura.historia",
+    "en": "Move my story forward"
   },
   {
-    "clave": "biblioteca.nodoDesc.hum-antigua",
-    "en": "Classical civilizations and origins."
+    "clave": "room.arte.nombre",
+    "en": "Art"
   },
   {
-    "clave": "biblioteca.nodo.hum-moderna",
-    "en": "Modern and contemporary history"
+    "clave": "room.arte.sub",
+    "en": "Drawing, painting & photos"
   },
   {
-    "clave": "biblioteca.nodoDesc.hum-moderna",
-    "en": "Revolutions, states, and globalization."
+    "clave": "room.arte.desc",
+    "en": "Your drawing and photo studio: canvases with brush, spray, shapes, fill and text; open a photo and edit it with filters; and an AI that generates or reinterprets what you paint."
   },
   {
-    "clave": "biblioteca.nodo.hum-metodo",
-    "en": "Historiography"
+    "clave": "room.arte.corta",
+    "en": "Canvases, brushes & photos"
   },
   {
-    "clave": "biblioteca.nodoDesc.hum-metodo",
-    "en": "Sources, interpretation, and debate."
+    "clave": "room.arte.cmd.galeria",
+    "en": "Gallery"
   },
   {
-    "clave": "biblioteca.nodo.hum-religion",
-    "en": "Religion and mythology"
+    "clave": "arte.lista.nuevo",
+    "es": "Nuevo dibujo",
+    "en": "New drawing"
   },
   {
-    "clave": "biblioteca.nodo.hum-comparada",
-    "en": "Comparative religion"
+    "clave": "arte.lista.nombre",
+    "es": "Nombre",
+    "en": "Name"
   },
   {
-    "clave": "biblioteca.nodoDesc.hum-comparada",
-    "en": "Traditions, texts, and practices."
+    "clave": "arte.lista.sinNombre",
+    "es": "Dibujo",
+    "en": "Drawing"
   },
   {
-    "clave": "biblioteca.nodo.hum-mito",
-    "en": "Mythology"
+    "clave": "arte.lista.tamano",
+    "es": "Tamaño del lienzo",
+    "en": "Canvas size"
   },
   {
-    "clave": "biblioteca.nodoDesc.hum-mito",
-    "en": "Foundational narratives and archetypes."
+    "clave": "arte.lista.crear",
+    "es": "Crear",
+    "en": "Create"
   },
   {
-    "clave": "biblioteca.nodo.hum-patrimonio",
-    "en": "Heritage and cultural studies"
+    "clave": "arte.lista.desdeFoto",
+    "es": "Desde una foto",
+    "en": "From a photo"
   },
   {
-    "clave": "biblioteca.nodo.hum-museos",
-    "en": "Material heritage"
+    "clave": "arte.lista.renombrar",
+    "es": "Renombrar dibujo",
+    "en": "Rename drawing"
   },
   {
-    "clave": "biblioteca.nodoDesc.hum-museos",
-    "en": "Museums, conservation, and artifacts."
+    "clave": "arte.lista.vacio",
+    "es": "Aún no hay dibujos",
+    "en": "No drawings yet"
   },
   {
-    "clave": "biblioteca.nodo.hum-memoria",
-    "en": "Collective memory"
+    "clave": "arte.lista.vacioSub",
+    "es": "Pinta desde cero, edita una foto o deja que la IA imagine contigo.",
+    "en": "Paint from scratch, edit a photo or let the AI imagine with you."
   },
   {
-    "clave": "biblioteca.nodoDesc.hum-memoria",
-    "en": "Testimony, archives, and forgetting."
+    "clave": "arte.editor.volver",
+    "es": "Volver a la galería",
+    "en": "Back to the gallery"
   },
   {
-    "clave": "biblioteca.nodo.lengua",
-    "en": "Language and literature"
+    "clave": "arte.editor.filtros",
+    "es": "Filtros",
+    "en": "Filters"
   },
   {
-    "clave": "biblioteca.nodoDesc.lengua",
-    "en": "Communication, texts, linguistic analysis, and written tradition."
+    "clave": "arte.editor.foto",
+    "es": "Insertar foto",
+    "en": "Insert photo"
   },
   {
-    "clave": "biblioteca.nodo.len-linguistica",
-    "en": "Linguistics"
+    "clave": "arte.editor.png",
+    "es": "PNG",
+    "en": "PNG"
   },
   {
-    "clave": "biblioteca.nodo.len-fonetica",
-    "en": "Phonetics and phonology"
+    "clave": "arte.editor.grosor",
+    "es": "Grosor",
+    "en": "Thickness"
   },
   {
-    "clave": "biblioteca.nodoDesc.len-fonetica",
-    "en": "Sounds and phonological systems."
+    "clave": "arte.editor.color",
+    "es": "Color",
+    "en": "Color"
   },
   {
-    "clave": "biblioteca.nodo.len-sintaxis",
-    "en": "Syntax and morphology"
+    "clave": "arte.editor.deshacer",
+    "es": "Deshacer",
+    "en": "Undo"
   },
   {
-    "clave": "biblioteca.nodoDesc.len-sintaxis",
-    "en": "Sentence and word structure."
+    "clave": "arte.editor.rehacer",
+    "es": "Rehacer",
+    "en": "Redo"
   },
   {
-    "clave": "biblioteca.nodo.len-semantica",
-    "en": "Semantics and pragmatics"
+    "clave": "arte.editor.limpiarCapa",
+    "es": "Limpiar la capa",
+    "en": "Clear the layer"
   },
   {
-    "clave": "biblioteca.nodoDesc.len-semantica",
-    "en": "Meaning in context."
+    "clave": "arte.editor.colorLibre",
+    "es": "Otro color",
+    "en": "Custom color"
   },
   {
-    "clave": "biblioteca.nodo.len-literatura",
-    "en": "Literature"
+    "clave": "arte.editor.texto",
+    "es": "Texto en el lienzo",
+    "en": "Text on the canvas"
   },
   {
-    "clave": "biblioteca.nodo.len-generos",
-    "en": "Literary genres"
+    "clave": "arte.editor.cargando",
+    "es": "Cargando el dibujo",
+    "en": "Loading the drawing"
   },
   {
-    "clave": "biblioteca.nodoDesc.len-generos",
-    "en": "Novel, poetry, drama, and essay."
+    "clave": "arte.herr.pincel",
+    "es": "Pincel",
+    "en": "Brush"
   },
   {
-    "clave": "biblioteca.nodo.len-teoria-lit",
-    "en": "Literary theory"
+    "clave": "arte.herr.spray",
+    "es": "Spray",
+    "en": "Spray"
   },
   {
-    "clave": "biblioteca.nodoDesc.len-teoria-lit",
-    "en": "Criticism, narratology, and canons."
+    "clave": "arte.herr.borrador",
+    "es": "Borrador",
+    "en": "Eraser"
   },
   {
-    "clave": "biblioteca.nodo.len-mundo",
-    "en": "World literatures"
+    "clave": "arte.herr.linea",
+    "es": "Línea",
+    "en": "Line"
   },
   {
-    "clave": "biblioteca.nodoDesc.len-mundo",
-    "en": "Regional traditions and translation."
+    "clave": "arte.herr.rect",
+    "es": "Rectángulo",
+    "en": "Rectangle"
   },
   {
-    "clave": "biblioteca.nodo.len-comunicacion",
-    "en": "Communication"
+    "clave": "arte.herr.elipse",
+    "es": "Elipse",
+    "en": "Ellipse"
   },
   {
-    "clave": "biblioteca.nodo.len-periodismo",
-    "en": "Journalism"
+    "clave": "arte.herr.compas",
+    "es": "Compás",
+    "en": "Compass"
   },
   {
-    "clave": "biblioteca.nodoDesc.len-periodismo",
-    "en": "News, fact-checking, and opinion."
+    "clave": "arte.herr.relleno",
+    "es": "Rellenar",
+    "en": "Fill"
   },
   {
-    "clave": "biblioteca.nodo.len-retorica",
-    "en": "Rhetoric and argumentation"
+    "clave": "arte.herr.gotero",
+    "es": "Tomar color",
+    "en": "Pick color"
   },
   {
-    "clave": "biblioteca.nodoDesc.len-retorica",
-    "en": "Persuasion and public debate."
+    "clave": "arte.herr.texto",
+    "es": "Texto",
+    "en": "Text"
   },
   {
-    "clave": "biblioteca.nodo.idiomas",
-    "en": "Languages"
+    "clave": "arte.capa.titulo",
+    "es": "Capas",
+    "en": "Layers"
   },
   {
-    "clave": "biblioteca.nodoDesc.idiomas",
-    "en": "Learning foreign languages: vocabulary, grammar, pronunciation, and practice."
+    "clave": "arte.capa.fondo",
+    "es": "Fondo",
+    "en": "Background"
   },
   {
-    "clave": "biblioteca.nodo.idi-aprendizaje",
-    "en": "Learning fundamentals"
+    "clave": "arte.capa.cerrar",
+    "es": "Cerrar el panel",
+    "en": "Close the panel"
   },
   {
-    "clave": "biblioteca.nodo.idi-vocabulario",
-    "en": "Vocabulary"
+    "clave": "arte.capa.ocultar",
+    "es": "Ocultar la capa",
+    "en": "Hide the layer"
   },
   {
-    "clave": "biblioteca.nodoDesc.idi-vocabulario",
-    "en": "Acquisition and review of useful words and phrases."
+    "clave": "arte.capa.mostrar",
+    "es": "Mostrar la capa",
+    "en": "Show the layer"
   },
   {
-    "clave": "biblioteca.nodo.idi-gramatica",
-    "en": "Grammar"
+    "clave": "arte.capa.opacidad",
+    "es": "Opacidad",
+    "en": "Opacity"
   },
   {
-    "clave": "biblioteca.nodoDesc.idi-gramatica",
-    "en": "Structures, verb tenses, and comparative syntax."
+    "clave": "arte.capa.renombrar",
+    "es": "Renombrar la capa",
+    "en": "Rename the layer"
   },
   {
-    "clave": "biblioteca.nodo.idi-pronunciacion",
-    "en": "Pronunciation and listening"
+    "clave": "arte.capa.duplicar",
+    "es": "Duplicar la capa",
+    "en": "Duplicate the layer"
   },
   {
-    "clave": "biblioteca.nodoDesc.idi-pronunciacion",
-    "en": "Phonetics, accent, and listening comprehension."
-  },
-  {
-    "clave": "biblioteca.nodo.idi-lenguas",
-    "en": "Languages of the world"
-  },
-  {
-    "clave": "biblioteca.nodo.idi-ingles",
-    "en": "English"
-  },
-  {
-    "clave": "biblioteca.nodoDesc.idi-ingles",
-    "en": "The global lingua franca."
-  },
-  {
-    "clave": "biblioteca.nodo.idi-romances",
-    "en": "Romance languages"
-  },
-  {
-    "clave": "biblioteca.nodoDesc.idi-romances",
-    "en": "French, Italian, Portuguese, and their kinships."
-  },
-  {
-    "clave": "biblioteca.nodo.idi-asiaticas",
-    "en": "Asian languages"
+    "clave": "arte.capa.copiaDe",
+    "es": "{nombre} (copia)",
+    "en": "{nombre} (copy)"
   }
 ]

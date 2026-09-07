@@ -733,13 +733,14 @@ function Niveles() {
 }
 
 function BarraUso({ label, usadas, limite }: { label: string; usadas: number; limite: number }) {
+  // limite < 0 = cuenta ilimitada: se enseña lo gastado y la barra queda vacía.
   const pct = limite > 0 ? Math.min(100, Math.round((usadas / limite) * 100)) : 0
   return (
     <div>
       <div className="flex items-center gap-2">
         <span className="flex-1 truncate text-[11px] text-white/60">{label}</span>
         <span className="text-[10px] tabular-nums text-white/40">
-          {usadas}/{limite}
+          {usadas}/{limite < 0 ? '∞' : limite}
         </span>
       </div>
       <div className="mt-0.5 h-1.5 overflow-hidden rounded-full bg-white/10">

@@ -53,7 +53,7 @@ export function ctxTutorial(): TutorialCtx | null {
 }
 
 /** Ajustes de UNA ejecución; los pone quien lanza el tour, no su definición. */
-export interface OpcionesTour {
+interface OpcionesTour {
   /** La pantalla ya está montada: no vuelvas a abrirla (previa del catálogo, demo). */
   sinPreparar?: boolean
   /** Al cerrarse el tour, con `true` si se llegó al final. */

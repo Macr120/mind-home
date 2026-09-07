@@ -69,7 +69,7 @@ const MOOD_CATEGORIA: Record<string, MoodMusica> = {
   config: 'calma',
 }
 
-export function moodDePlantilla(plantillaId: string): MoodMusica | null {
+function moodDePlantilla(plantillaId: string): MoodMusica | null {
   const fijo = MOOD_PLANTILLA[plantillaId]
   if (fijo) return fijo
   const p = getPlantilla(plantillaId)

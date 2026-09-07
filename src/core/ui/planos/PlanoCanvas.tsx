@@ -16,7 +16,20 @@ import {
   type Cell,
   type EdgeInfo,
   type SideKey,
+  SPACING,
 } from '../../house/walls'
+import { CapaFormasLibresSvg } from './CapaFormasLibresSvg'
+import {
+  UMBRAL_ARRASTRE_PX,
+  gestoCancelar,
+  gestoDown,
+  gestoMove,
+  gestoUp,
+  trazoEnCurso,
+  type CtxGesto,
+} from '../../state/formaLibreGesto'
+import type { PuntoXZ } from '../../house/formasLibre'
+import { celdaEnCuadrante } from '../../house/cuadrantesMapa'
 import {
   PLANO_CELL_PX,
   PLANO_SUB_PX,
@@ -48,6 +61,8 @@ import {
   PLANO_GRID_SUAVE,
   PLANO_PAPEL_BORDE,
   aristaMasCercanaEnPlano,
+  svgAUV,
+  svgAMundo,
 } from '../../house/planoGeometria'
 import { objetivoMuroArista, objetivoMuroForma } from '../../house/murosLibre'
 import {
@@ -224,6 +239,10 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
   const dibujandoCuadrante = usePlanos((s) => s.dibujandoCuadrante)
   const setDibujandoCuadrante = usePlanos((s) => s.setDibujandoCuadrante)
   const [rectCuadrante, setRectCuadrante] = useState<{ a: Cell; b: Cell } | null>(null)
+  // Modo Libre: trazo a mano alzada en curso (mundo) y punto de pantalla del último down.
+  const [trazoLibre, setTrazoLibre] = useState<PuntoXZ[] | null>(null)
+  const libreDownRef = useRef<{ x: number; y: number } | null>(null)
+  const libreHoverRef = useRef(0)
 
   /** Contornos a dibujar: en Grid todos, en el resto de modos solo el activo (sin ruido). */
   const cuadrantesVisibles = useMemo(() => {
@@ -897,6 +916,67 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
     setRectCuadrante(null)
     setDibujandoCuadrante(false)
     void agregarCuadrante(q)
+  }
+
+  // ── Modo Libre: el rect de captura traduce el puntero a mundo y delega en los gestos
+  //    compartidos con el mapa 3D (formaLibreGesto). ─────────────────────────────────
+  const ctxLibre = (): CtxGesto => {
+    // 12 px de pantalla en metros al zoom actual (SPACING es mutable: se lee aquí). El
+    // croquis gira por CSS con la cámara: la escala es la magnitud de la columna (a,b),
+    // no `a` a secas (que se anula a 90°/270° y se invierte a 180°).
+    const m = svgRef.current?.getScreenCTM()
+    const escalaPx = m ? Math.hypot(m.a, m.b) || 1 : 1
+    const escala = (escalaPx * PLANO_CELL_PX) / SPACING
+    const radioVert = Math.max(0.15, Math.min(1.5, 12 / escala))
+    return { gridCols, gridRows, nivel, radioVert }
+  }
+  const mundoLibre = (e: React.PointerEvent): PuntoXZ | null => {
+    const p = svgPoint(e.clientX, e.clientY)
+    return p ? svgAMundo(p.x, p.y, gridCols, gridRows) : null
+  }
+  const fueArrastreLibre = (e: React.PointerEvent) => {
+    const d = libreDownRef.current
+    return !!d && Math.hypot(e.clientX - d.x, e.clientY - d.y) > UMBRAL_ARRASTRE_PX
+  }
+  const libreDown = (e: React.PointerEvent) => {
+    const p = svgPoint(e.clientX, e.clientY)
+    if (!p) return
+    if (zonaEdicion) {
+      const { u, v } = svgAUV(p.x, p.y)
+      if (!celdaEnCuadrante(Math.floor(u), Math.floor(v), zonaEdicion)) return
+    }
+    libreDownRef.current = { x: e.clientX, y: e.clientY }
+    gestoDown(svgAMundo(p.x, p.y, gridCols, gridRows), ctxLibre())
+    // Captura SIEMPRE: así el pointerup llega aunque el dedo salga del croquis y el
+    // gesto no se queda «pegado» (sin captura, un up fuera nunca cerraría el down).
+    try {
+      ;(e.currentTarget as Element).setPointerCapture(e.pointerId)
+    } catch {
+      /* puntero no capturable */
+    }
+    e.stopPropagation()
+  }
+  const libreMove = (e: React.PointerEvent) => {
+    if (!libreDownRef.current) {
+      // Hover sin botón: mismo throttle que el mapa 3D (el hit-test recorre todas las formas).
+      const ahora = performance.now()
+      if (ahora - libreHoverRef.current < 45) return
+      libreHoverRef.current = ahora
+    }
+    gestoMove(mundoLibre(e), ctxLibre(), !libreDownRef.current || fueArrastreLibre(e))
+    // El fantasma del trazo solo se refresca cuando crece (evita re-renders en balde).
+    const tz = trazoEnCurso()
+    setTrazoLibre((prev) => (tz ? (prev && prev.length === tz.length ? prev : tz.slice()) : prev ? null : prev))
+  }
+  const libreUp = (e: React.PointerEvent) => {
+    gestoUp(mundoLibre(e), ctxLibre(), fueArrastreLibre(e))
+    libreDownRef.current = null
+    setTrazoLibre(null)
+  }
+  const libreCancel = () => {
+    gestoCancelar()
+    libreDownRef.current = null
+    setTrazoLibre(null)
   }
 
   const manejarClickPlano = (e: React.PointerEvent) => {
@@ -2008,6 +2088,9 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
           </>
         )}
 
+        {/* Formas de construcción LIBRE del nivel (pisos, muros, recintos, borrador). */}
+        <CapaFormasLibresSvg nivel={nivel} gridCols={gridCols} gridRows={gridRows} trazo={trazoLibre} />
+
         {/* Cuadrantes del mapa. Los bloques de referencia (A1…) son solo BORDE; las zonas
             dibujadas se pintan como ÁREA de su color, más opaca la que está activa. */}
         {cuadrantesVisibles.map((q) => {
@@ -2105,6 +2188,22 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
               onPointerCancel={() => setRectCuadrante(null)}
             />
           </>
+        )}
+        {/* Modo Libre: capa de captura encima de todo (incluido el velo, que valida la zona
+            por su cuenta en libreDown). Los gestos viven en formaLibreGesto. */}
+        {modo === 'libre' && (
+          <rect
+            x={PLANO_PAD}
+            y={PLANO_PAD}
+            width={areaPx.ancho}
+            height={areaPx.alto}
+            fill="transparent"
+            style={{ cursor: herramienta === 'trazar' ? 'crosshair' : 'default' }}
+            onPointerDown={libreDown}
+            onPointerMove={libreMove}
+            onPointerUp={libreUp}
+            onPointerCancel={libreCancel}
+          />
         )}
       </svg>
       </div>

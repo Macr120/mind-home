@@ -9,7 +9,7 @@ import type { PropsArrastreItem } from './useArrastreMedio'
 /** Un solo reproductor de muestra para todo el módulo: escuchar otro corta al anterior. */
 let muestra: HTMLAudioElement | null = null
 let urlMuestra = ''
-export function pararMuestra() {
+function pararMuestra() {
   if (muestra) {
     muestra.pause()
     muestra = null
@@ -20,7 +20,7 @@ export function pararMuestra() {
   }
 }
 /** Reproduce `src` (revocando `url` al acabar, si la hay); `alTerminar` se llama al acabar o fallar. */
-export function reproducirMuestra(src: string, url: string, alTerminar: () => void) {
+function reproducirMuestra(src: string, url: string, alTerminar: () => void) {
   pararMuestra()
   urlMuestra = url
   const audio = new Audio(src)
@@ -36,7 +36,7 @@ export function reproducirMuestra(src: string, url: string, alTerminar: () => vo
 }
 
 /** Fuente de un sonido → src reproducible (y la object URL a revocar, si es un medio). */
-export function srcDeSonido(fuente: FuenteSonido, porId: Map<number, MedioVideo>): { src: string; url: string } | null {
+function srcDeSonido(fuente: FuenteSonido, porId: Map<number, MedioVideo>): { src: string; url: string } | null {
   if (fuente.tipo === 'fabrica') {
     const src = urlSonido(fuente.clave)
     return src ? { src, url: '' } : null

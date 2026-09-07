@@ -5,13 +5,13 @@ import { sumarMacros } from './macros'
 import { sumarDias } from './fecha'
 
 /** Un kilo de grasa corporal ≈ 7700 kcal (equivalencia clásica de nutrición). */
-export const KCAL_POR_KG = 7700
+const KCAL_POR_KG = 7700
 
 /** Suelo de seguridad: por debajo de esto una dieta deja de ser sana. */
 export const PISO_KCAL = 1000
 
 /** Más rápido que esto no se sostiene y hace daño; solo se avisa, no se bloquea. */
-export const RITMO_MAX_KG_SEMANA = 1
+const RITMO_MAX_KG_SEMANA = 1
 
 /** Días mínimos con comidas registradas para que el balance signifique algo. */
 export const DIAS_MINIMOS = 5
@@ -114,7 +114,7 @@ export interface DatosTdee {
 }
 
 /** Gasto energético diario (Mifflin-St Jeor × factor de actividad). */
-export function tdeeDe({ pesoKg, alturaCm, edad, sexo, actividad }: DatosTdee): number {
+function tdeeDe({ pesoKg, alturaCm, edad, sexo, actividad }: DatosTdee): number {
   const peso = pesoKg || 70
   const altura = alturaCm || 170
   const anios = edad || 30

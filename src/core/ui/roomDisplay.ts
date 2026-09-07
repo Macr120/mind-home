@@ -54,7 +54,7 @@ export function tituloSubtituloCuarto(
  * - Si el cuarto se renombró por otra vía (chat), su texto ya no coincide con el
  *   de la plantilla y también se deja como está.
  */
-export function nombreCuartoResuelto(
+function nombreCuartoResuelto(
   room: { id: string; nombre: string },
   roomNames: Record<string, string>,
   appId: string | undefined,

@@ -211,7 +211,7 @@ export const tiposDe = (familia: 'mapas' | 'diagramas'): DefTipoMapa[] =>
   TIPOS_MAPA.filter((t) => t.familia === familia)
 
 /** Zonas de un Venn de 2 o 3 conjuntos, en el orden en que se listan al elegir. */
-export const zonasVenn = (nConjuntos: number): string[] =>
+const zonasVenn = (nConjuntos: number): string[] =>
   nConjuntos >= 3 ? ['a', 'b', 'c', 'ab', 'ac', 'bc', 'abc'] : ['a', 'b', 'ab']
 
 /**

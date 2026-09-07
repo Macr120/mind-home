@@ -20,9 +20,9 @@ import Dexie, {
 import { esDemo } from '../../edicion'
 import { esTablaSync } from './syncables'
 
-export type OpOutbox = 'upsert' | 'delete'
+type OpOutbox = 'upsert' | 'delete'
 
-export interface EntradaOutbox {
+interface EntradaOutbox {
   id?: number
   tabla: string
   uid: string

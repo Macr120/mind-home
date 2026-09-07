@@ -3,9 +3,11 @@ import { dibujosRepo, VACIO } from '../../core/data/repository'
 import { localeActual, useT } from '../../core/i18n/useT'
 import { pedirTexto } from '../../core/state/confirmarStore'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { Foto, comprimirFoto, miniaturaFoto } from '../_shared/fotos'
 import { BotonBorrar, BotonPrimario, BotonSecundario, Campo, INPUT, Modal, TARJETA, Vacio } from '../_shared/ui'
 import { COLOR, PRESETS_LIENZO } from './constantes'
+import { ejemploArte } from './ejemplos'
 
 /** PNG blanco del tamaño pedido: el punto de partida de todo dibujo. */
 function lienzoBlanco(ancho: number, alto: number): Promise<Blob> {
@@ -134,6 +136,8 @@ export function GaleriaDibujos({ onAbrir }: { onAbrir: (id: number) => void }) {
           </ul>
         </>
       )}
+
+      <BarraEjemplo paquete={ejemploArte} />
 
       <input
         ref={archivoRef}

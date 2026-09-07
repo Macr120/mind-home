@@ -5,7 +5,7 @@ import { setBienvenidaActiva } from '../data/intencion'
 import { HoraDiaMini } from '../ui/CicloPanel'
 import { useAjustes, type EstiloIconos } from '../state/ajustesStore'
 import { useT } from '../i18n/useT'
-import { TEMAS_UI, modoBase, type ModoUI } from '../ui/temasUI'
+import { TEMAS_UI_BASE, modoBase, type ModoUI } from '../ui/temasUI'
 import { Icono } from '../ui/iconos/Icono'
 import { MASCOTAS, type MascotaId } from '../chat/mascotas'
 import { useMascota } from '../state/mascotaStore'
@@ -433,8 +433,10 @@ function Wizard() {
               <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
                 {t('ajustes.tema', 'Tema de la interfaz')}
               </p>
+              {/* Solo los temas dibujados a mano: los colores entintados se
+                  descubren en Configuraciones, aquí alargarían el paso. */}
               <div className="grid gap-1.5">
-                {TEMAS_UI.map((tema) => {
+                {TEMAS_UI_BASE.map((tema) => {
                   const activo = temaUI === tema.id
                   return (
                     <button
@@ -451,7 +453,7 @@ function Wizard() {
                         className="h-4 w-4 shrink-0 rounded-full border border-white/20"
                         style={{ background: tema.vars[modoBase(modoUI)]['--ui-accent'] }}
                       />
-                      <Icono emoji={tema.icon} />
+                      {tema.icon && <Icono emoji={tema.icon} />}
                       <span className="flex-1 text-start">{t(`temaUI.${tema.id}`, tema.nombre)}</span>
                       {activo && <span className="text-accent">●</span>}
                     </button>

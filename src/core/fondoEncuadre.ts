@@ -15,13 +15,13 @@ import { lienzoCam, panFocusByPixels, useCam } from './state/cameraStore'
 
 const CLAVE = 'mph.fondoEncuadre'
 
-export interface EncuadreFondo {
+interface EncuadreFondo {
   /** Punto al que mira la cámara, en unidades de mundo. */
   focus: [number, number, number]
   zoom: number
 }
 
-export function leerEncuadre(): EncuadreFondo | null {
+function leerEncuadre(): EncuadreFondo | null {
   try {
     const crudo = localStorage.getItem(CLAVE)
     if (!crudo) return null

@@ -45,7 +45,3 @@ export function nombreFuenteSonido(t: TFunc, f: FuenteSonido, porId: Map<number,
   }
   return porId.get(f.medioId)?.nombre ?? t('video.medios.noDisponible', 'Medio no disponible en este dispositivo')
 }
-
-let correlativo = 0
-/** Id de instancia: identidad del `<audio>` propio en el pool. */
-export const nuevoSonidoId = () => `son-${Date.now().toString(36)}-${(correlativo++).toString(36)}`

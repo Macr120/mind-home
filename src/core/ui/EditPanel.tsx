@@ -130,10 +130,12 @@ export function EditPanel() {
   const vigilar = useHistorialEditor((s) => s.vigilar)
 
   // El historial es POR PESTAÑA: cambiar de pestaña (o salir del editor) lo
-  // vacía. El componente sigue montado fuera del modo edición (el `return null`
-  // va después de los hooks), así que el efecto también dispara al salir.
+  // vacía. `EditorHud` desmonta este panel al salir del modo edición, así que la
+  // limpieza del efecto es la que suelta la escucha: sin ella seguiría apilando
+  // los cambios hechos fuera del editor y reaparecerían al volver a abrirlo.
   useEffect(() => {
     vigilar(editMode ? tab : null)
+    return () => vigilar(null)
   }, [editMode, tab, vigilar])
 
   // Casas demo y probar: Configuraciones se abre entera salvo Cuenta y

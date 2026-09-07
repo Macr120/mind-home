@@ -25,7 +25,7 @@ let limpiar: (() => void) | null = null
 let cumplidaEn = 0
 
 /** Corta el gesto en curso (soltar, deslizar o empezar otro). */
-export function cancelarPulsacionLarga(): void {
+function cancelarPulsacionLarga(): void {
   if (temporizador) window.clearTimeout(temporizador)
   temporizador = 0
   limpiar?.()
@@ -42,7 +42,7 @@ export function pulsacionLargaReciente(): boolean {
 }
 
 /** Arranca el conteo desde un `pointerdown`; `alCumplirse` corre si no se movió ni se soltó. */
-export function iniciarPulsacionLarga(e: PointerEvent, alCumplirse: () => void): void {
+function iniciarPulsacionLarga(e: PointerEvent, alCumplirse: () => void): void {
   cancelarPulsacionLarga()
   const x0 = e.clientX
   const y0 = e.clientY

@@ -90,8 +90,6 @@ export function claveDeMeta(m: Rutina): string {
   return cat ? PREFIJO_CAT + cat : (m.plantillaId ?? CASA)
 }
 
-export const carpetaDeMeta = (m: Rutina, t: TFunc): CarpetaMeta => carpetaDeClave(claveDeMeta(m), t)
-
 /**
  * Nombre corto de la carpeta: solo la primera parte del nombre de la app
  * («Agenda · Trabajo, salud y personas» → «Agenda»). Para etiquetas estrechas,

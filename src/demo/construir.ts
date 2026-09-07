@@ -83,7 +83,7 @@ const CATALOGOS_APP: Record<string, () => Promise<() => Promise<void>>> = {
  * solo la de ese tour —las demás se construyen al abrirlas (`construirAppDemo`)
  * y así el tour empieza en segundos—; si viene a explorar, todas.
  */
-export function appsIniciales(): string[] {
+function appsIniciales(): string[] {
   const intent = leerIntent()
   if (!intent) return Object.keys(BUILDERS_DEMO)
   if (APPS_DE_TOUR[intent.app]) return APPS_DE_TOUR[intent.app]

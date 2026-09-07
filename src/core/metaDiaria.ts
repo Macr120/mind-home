@@ -1,11 +1,6 @@
 import { useLiveQuery } from 'dexie-react-hooks'
 import { db, type EjecucionRutina, type Rutina } from './data/db'
-import {
-  borrarMetaDiariaManual,
-  fijarMetaDiariaManual,
-  metasDiariasManualRepo,
-  rutinasRepo,
-} from './data/repository'
+import { borrarMetaDiariaManual, fijarMetaDiariaManual, rutinasRepo } from './data/repository'
 import { DIA_MS, fechaLocalISO } from './fechaLocal'
 import { esMeta, rangoDe, vigenteEn } from './metas'
 import { getPlantilla, type ObjetivoDia } from './registry'
@@ -48,7 +43,7 @@ export function metaDiariaDe(plantillaId: string): ObjetivoDia | null {
 }
 
 /** Uno de los objetivos de una app, por su clave. */
-export function objetivoDia(plantillaId: string, clave: string): ObjetivoDia | undefined {
+function objetivoDia(plantillaId: string, clave: string): ObjetivoDia | undefined {
   return objetivosDiaDe(plantillaId).find((o) => o.clave === clave)
 }
 
@@ -173,8 +168,10 @@ export async function estadoObjetivoDia(
   // deja que el núcleo arme la fracción con la cifra que de verdad manda.
   const avance = deMeta ? { hecho: propio.hecho, objetivo } : propio
   const claveFila = claveManual(plantillaId, clave)
-  const fila = (await metasDiariasManualRepo.list()).find(
-    (m) => m.plantillaId === plantillaId && m.fecha === dia && (m.clave ?? '') === (claveFila ?? ''),
+  // Por el índice compuesto: esto corre por objetivo × app × cada liveQuery de los
+  // pasos del día, y leer la tabla entera crecía con cada palomita manual.
+  const fila = (await db.metasDiariasManual.where('[plantillaId+fecha]').equals([plantillaId, dia]).toArray()).find(
+    (m) => (m.clave ?? '') === (claveFila ?? ''),
   )
   // Sin objetivo (0) está apagado: no se cumple solo ni se avisa.
   const cumplidaAuto = avance.objetivo > 0 && avance.hecho >= avance.objetivo

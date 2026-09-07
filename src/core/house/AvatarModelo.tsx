@@ -2,7 +2,7 @@ import { Suspense, useRef, type RefObject } from 'react'
 import * as THREE from 'three'
 import { ModeloPiezas, ModeloGLB } from './modeloPersonalizado'
 import { GrupoAnimado, CuerpoDePiezas } from './Animado'
-import { marchaAvatar, type AnimacionModelo } from './animacion'
+import { marchaAvatar, type AnimacionModelo, type EstadoMarcha } from './animacion'
 import type { BocaHabla } from './bocaHabla'
 import { Agachado, CuerpoBase, MarchaBob } from './CuerpoBase'
 import { Prendas } from './Prendas'
@@ -60,6 +60,8 @@ export function AvatarModelo({
   caminar = false,
   boca,
   animOverride,
+  marchaEstado = marchaAvatar,
+  brazoRef,
 }: {
   av: Avatar
   casco?: boolean
@@ -69,6 +71,10 @@ export function AvatarModelo({
   boca?: RefObject<BocaHabla>
   /** Preset que manda sobre `av.animacion` mientras dure (un clip de actor del modo película). */
   animOverride?: AnimacionModelo
+  /** Marcha que balancea extremidades y ropa (por defecto la del jugador; `CuerpoLibre` pasa la suya). */
+  marchaEstado?: EstadoMarcha
+  /** Brazo articulado de la forma integrada, para moverlo desde fuera (bailes de `CuerpoLibre`). */
+  brazoRef?: RefObject<THREE.Group | null>
 }) {
   const anim = animOverride ?? (animar ? av.animacion : undefined)
   const brazoForma = useRef<THREE.Group>(null)
@@ -79,7 +85,7 @@ export function AvatarModelo({
       <Agachado activo={caminar}>
         <GrupoAnimado anim={anim}>
           {av.modeloGlb ? (
-            <MarchaBob activo={caminar}>
+            <MarchaBob activo={caminar} marchaEstado={marchaEstado}>
               <Suspense fallback={null}>
                 <ModeloGLB blob={av.modeloGlb} />
               </Suspense>
@@ -87,29 +93,29 @@ export function AvatarModelo({
             </MarchaBob>
           ) : av.modelo3d && av.modelo3d.length > 0 ? (
             categoria === 'flotan' ? (
-              <MarchaBob activo={caminar}>
-                <CuerpoDePiezas piezas={av.modelo3d} anim={anim} personaje={av} estado={marchaAvatar} />
+              <MarchaBob activo={caminar} marchaEstado={marchaEstado}>
+                <CuerpoDePiezas piezas={av.modelo3d} anim={anim} personaje={av} estado={marchaEstado} />
                 <Prendas ropa={av.ropa} anclas={anclas} />
               </MarchaBob>
             ) : (
               <>
-                <CuerpoDePiezas piezas={av.modelo3d} anim={anim} personaje={av} estado={marchaAvatar} />
+                <CuerpoDePiezas piezas={av.modelo3d} anim={anim} personaje={av} estado={marchaEstado} />
                 {muestraRostro(av) && (
                   <Rostro anclas={anclas} expresion={av.expresion} rostro={av.rostro} boca={boca} />
                 )}
                 {soportaPeinado(av) && (
                   <Peinado anclas={anclas} peinado={av.peinado} color={av.peloColor} />
                 )}
-                <Prendas ropa={av.ropa} anclas={anclas} marcha={caminar} marchaEstado={marchaAvatar} />
+                <Prendas ropa={av.ropa} anclas={anclas} marcha={caminar} marchaEstado={marchaEstado} />
               </>
             )
           ) : av.forma ? (
-            <MarchaBob activo={caminar}>
+            <MarchaBob activo={caminar} marchaEstado={marchaEstado}>
               <ModeloMascota
                 forma={av.forma}
                 color={av.formaColor ?? COLOR_FORMA[av.forma]}
-                brazoRef={brazoForma}
-                estado={marchaAvatar}
+                brazoRef={brazoRef ?? brazoForma}
+                estado={marchaEstado}
                 sinOjos={muestraRostro(av)}
               />
               {muestraRostro(av) && (
@@ -127,7 +133,7 @@ export function AvatarModelo({
               />
               <Rostro anclas={anclas} expresion={av.expresion} rostro={av.rostro} boca={boca} />
               <Peinado anclas={anclas} peinado={av.peinado} color={av.peloColor} />
-              <Prendas ropa={av.ropa} anclas={anclas} marcha={caminar} marchaEstado={marchaAvatar} />
+              <Prendas ropa={av.ropa} anclas={anclas} marcha={caminar} marchaEstado={marchaEstado} />
             </>
           )}
           {av.ropaCustom?.map((g, i) => (

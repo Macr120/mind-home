@@ -51,7 +51,7 @@ export function deRef(ref: string): { fila: number; col: number } | null {
 }
 
 /** Normaliza quitando los `$`: la identidad de una celda no depende de ellos. */
-export const sinDolares = (ref: string) => ref.replace(/\$/g, '').toUpperCase()
+const sinDolares = (ref: string) => ref.replace(/\$/g, '').toUpperCase()
 
 /**
  * Una referencia suelta. El lookbehind y el lookahead son lo que evita que
@@ -79,7 +79,7 @@ export function celdasDeRango(desde: string, hasta: string): string[] {
 export const esFormula = (celda?: CeldaHoja) => !!celda?.crudo.startsWith('=')
 
 /** Referencias de las que depende una celda (ya sin `$`). */
-export function dependenciasDe(crudo: string): string[] {
+function dependenciasDe(crudo: string): string[] {
   if (!crudo.startsWith('=')) return []
   const cuerpo = crudo.slice(1)
   const refs = new Set<string>()

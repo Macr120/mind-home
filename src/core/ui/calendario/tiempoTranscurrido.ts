@@ -20,7 +20,7 @@ import { fechaLocalISO } from '../../fechaLocal'
  * tema tiñe su calendario con su propio color y el degradado se aprecia claro
  * sobre paneles claros y oscuros. Aquí se ajusta la intensidad, en un solo sitio.
  */
-export const SOMBRA_TIEMPO = 'color-mix(in srgb, var(--ui-accent) 30%, transparent)'
+const SOMBRA_TIEMPO = 'color-mix(in srgb, var(--ui-accent) 30%, transparent)'
 
 /** Trazo lleno de las marcas de Día/Semana (barra de avance y línea de la hora). */
 export const COLOR_TIEMPO = 'var(--ui-accent)'

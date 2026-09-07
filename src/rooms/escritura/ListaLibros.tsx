@@ -5,8 +5,10 @@ import { useT } from '../../core/i18n/useT'
 import { confirmar, pedirTexto } from '../../core/state/confirmarStore'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { BotonBorrar, BotonPrimario, Modal, TARJETA, FILA_INTERACTIVA, Vacio } from '../_shared/ui'
 import { COLOR } from './constantes'
+import { ejemploEscritura } from './ejemplos'
 
 /** La plantilla solo decide el icono de la portada. */
 const ICONO_TIPO: Record<TipoLibro, NombreIcono> = {
@@ -113,6 +115,7 @@ export function ListaLibros({ onAbrir }: { onAbrir: (id: number) => void }) {
           )}
           cta={{ texto: t('escritura.libros.nuevo', 'Nuevo libro'), onClick: () => setEligiendo(true) }}
         />
+        <BarraEjemplo paquete={ejemploEscritura} />
         {modalPlantillas}
       </div>
     )
@@ -224,6 +227,7 @@ export function ListaLibros({ onAbrir }: { onAbrir: (id: number) => void }) {
           </li>
         ))}
       </ul>
+      <BarraEjemplo paquete={ejemploEscritura} />
       {modalPlantillas}
     </div>
   )

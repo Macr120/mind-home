@@ -43,7 +43,7 @@ export interface RutinaParaPlan {
 }
 
 /** Una pieza del material propio de la app (una receta, un mazo…) ofrecida al plan. */
-export interface MaterialParaPlan {
+interface MaterialParaPlan {
   nombre: string
   /** Una línea que ayuda a elegir («420 kcal · P32 C40 G12»). */
   detalle?: string
@@ -103,7 +103,7 @@ export const CLAUSULA_SALUD =
   'de resolverlo tú.'
 
 /** Elección validada: una rutina de la lista y sus días (0=domingo … 6=sábado). */
-export interface SugerenciaRutina {
+interface SugerenciaRutina {
   nombre: string
   dias: number[]
 }
@@ -369,7 +369,7 @@ const CLAVES_TIPO: [string, RegExp][] = [
  * propone las primeras rutinas de ese tipo. Es el fallback cuando la IA no eligió
  * ninguna — y lo que hace útil la sugerencia aunque el modelo se la salte.
  */
-export function sugerirRutinasPorNombre(
+function sugerirRutinasPorNombre(
   nombreMeta: string,
   disponibles: RutinaParaPlan[],
 ): SugerenciaRutina[] {

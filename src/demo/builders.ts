@@ -27,7 +27,7 @@ import { idiomaActual } from '../core/i18n/useT'
  * línea sino un CARGADOR `() => import('./demo.data.i18n.<idioma>')`: así solo
  * se descarga el idioma activo. `textos()` entiende ambos formatos.
  */
-export type ExtraIdiomas = Partial<Record<Idioma, unknown>>
+type ExtraIdiomas = Partial<Record<Idioma, unknown>>
 
 export interface CtxDemo {
   /** Fecha local de hoy (yyyy-mm-dd): el día 0 del año demo. */

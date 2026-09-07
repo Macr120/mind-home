@@ -19,7 +19,7 @@ import type { Herramienta } from './herramientaStore'
  * Tipos como literales/importados de otros stores para no depender de `house/`
  * (evita ciclos, mismo criterio que `accionCuartoStore`).
  */
-export type TipoContextual =
+type TipoContextual =
   /** Encender su animación y/o entrar a la app que tiene asignada. */
   | 'interactuar'
   /** Anuncio (espectacular, letrero de Vegas, neón): abre el editor en su texto. */

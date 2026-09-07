@@ -126,6 +126,11 @@ export function PlanoPisos3DController() {
       toggleCeldaExterior({ col: Math.round(c.col), row: Math.round(c.row) })
     }
 
+    // Misma celda/cuadrante → misma referencia: no se repinta el controlador en cada píxel.
+    const ponerHover = (sig: { cell: Cell; fino: boolean } | null) =>
+      setHover((prev) =>
+        prev && sig && prev.fino === sig.fino && prev.cell.col === sig.cell.col && prev.cell.row === sig.cell.row ? prev : sig,
+      )
     // Fantasma: celda bajo el cursor (cuarto en piso-int; exterior en piso-ext).
     const onMove = (ev: PointerEvent) => {
       const rect = dom.getBoundingClientRect()
@@ -156,7 +161,7 @@ export function PlanoPisos3DController() {
       // Piso exterior · rejilla fina: el fantasma sigue al cuadrante bajo el cursor.
       if (detalle === 'subcelda') {
         const q = cuadranteBajoCursor(ev.clientX, ev.clientY, { canvas: dom, camera, nivel, apilado })
-        setHover(q ? { cell: q, fino: true } : null)
+        ponerHover(q ? { cell: q, fino: true } : null)
         return
       }
       const c = celdaEnteraBajoCursor(ev.clientX, ev.clientY, {
@@ -171,7 +176,7 @@ export function PlanoPisos3DController() {
         setHover(null)
         return
       }
-      setHover({ cell: { col: Math.round(c.col), row: Math.round(c.row) }, fino: false })
+      ponerHover({ cell: { col: Math.round(c.col), row: Math.round(c.row) }, fino: false })
     }
     const onLeave = () => {
       setHover(null)

@@ -18,8 +18,8 @@ import { suave } from '../../../core/house/animacion'
  * `…I`/`…D` (izquierda/derecha REALES del avatar, que mira a +Z) lo sustituyen.
  */
 
-export type Ang = number | [number, number, number]
-export type Orientacion = 'pie' | 'supino' | 'prono' | 'ladoI' | 'ladoD' | [number, number]
+type Ang = number | [number, number, number]
+type Orientacion = 'pie' | 'supino' | 'prono' | 'ladoI' | 'ladoD' | [number, number]
 export type Lado = 'I' | 'D'
 
 export interface Pose {
@@ -70,6 +70,8 @@ export type UtilId =
   | 'barra' | 'mancuernas' | 'banda' | 'balonManos'
   | 'banco' | 'bancoAtras' | 'tapete' | 'barraFija' | 'paralelas' | 'polea' | 'poleaBaja'
   | 'asiento' | 'caja' | 'pared' | 'paredFrente' | 'paredPies' | 'agua' | 'balon' | 'pelota' | 'rodillo' | 'cuerda' | 'bici'
+  /** Caña de pescar en la mano derecha (emote «Pescar» de la rueda). */
+  | 'cana'
 
 export type Camara = 'frente' | 'tresCuartos' | 'lado'
 
@@ -184,7 +186,7 @@ function lado3(base: Ang | undefined, propio: Ang | undefined): [number, number,
 }
 
 /** Convierte una `Pose` a canales numéricos (simetría y valores por defecto resueltos). */
-export function resolverPose(p: Pose, out: PoseNum = new Float32Array(N_CANALES)): PoseNum {
+function resolverPose(p: Pose, out: PoseNum = new Float32Array(N_CANALES)): PoseNum {
   out.fill(0)
   const [rx, rz] =
     p.raiz === undefined ? ORIENTACION.pie : typeof p.raiz === 'string' ? ORIENTACION[p.raiz] : p.raiz
@@ -216,7 +218,7 @@ const NEGADOS = [J.troncoY, J.troncoZ, J.cuelloY, J.cuelloZ, J.giro, J.raizZ]
 const LADO_I = [J.hombroIF, J.hombroIA, J.hombroIR, J.codoI, J.caderaIF, J.caderaIA, J.caderaIR, J.rodillaI]
 
 /** Intercambia izquierda↔derecha (vale con `out === p`). */
-export function espejo(p: PoseNum, out: PoseNum): PoseNum {
+function espejo(p: PoseNum, out: PoseNum): PoseNum {
   if (out !== p) out.set(p)
   for (const [a, b] of PARES) {
     const t = out[a]

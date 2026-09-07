@@ -227,7 +227,7 @@ const suavizar = (p: number) => 1 - (1 - p) ** 3
  * Un clip de texto en su tiempo relativo: animación de entrada, caja,
  * tipografía, subtítulo y fundido de salida (la ventana es el clip entero).
  */
-export function pintarTexto(
+function pintarTexto(
   ctx: CanvasRenderingContext2D,
   texto: EstiloTexto,
   tRel: number,

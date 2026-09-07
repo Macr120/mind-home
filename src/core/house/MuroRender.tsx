@@ -120,6 +120,7 @@ function FotoVano({
     tex.needsUpdate = true
     return tex
   }, [base, forma, ww, wh, bw])
+  useEffect(() => () => map.dispose(), [map])
   return (
     <LunaVano forma={forma} ww={ww} wh={wh} bw={bw} z={z}>
       <meshStandardMaterial map={map} roughness={0.85} metalness={0} />
@@ -689,6 +690,7 @@ function MuroTextura({
     tex.repeat.set(rep, rep)
     return tex
   }, [base, ajuste])
+  useEffect(() => () => map.dispose(), [map])
   return <>{children(map)}</>
 }
 

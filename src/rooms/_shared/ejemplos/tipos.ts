@@ -1,7 +1,7 @@
 // El catálogo por idioma vive en `core/i18n` (lo comparten el demo, Sísifo y el
 // diario); se re-exporta aquí porque los ejemplos fueron su primer usuario.
 import { porIdioma, type PorIdioma } from '../../../core/i18n/porIdioma'
-export { porIdioma, enIdioma, type PorIdioma } from '../../../core/i18n/porIdioma'
+export { porIdioma, type PorIdioma } from '../../../core/i18n/porIdioma'
 
 /**
  * Contrato de un ejemplo de fábrica.

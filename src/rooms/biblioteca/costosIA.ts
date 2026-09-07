@@ -27,7 +27,7 @@ export const OP_CHARLA_NUEVA: OperacionIA = {
   partes: [{ op: 'texto', veces: 3 }],
 }
 
-export const OP_CLASIFICAR: OperacionIA = {
+const OP_CLASIFICAR: OperacionIA = {
   id: 'biblioteca.clasificar',
   clave: 'ia.op.biblioteca.clasificar',
   es: 'Clasificar y destilar una charla ✨',
@@ -45,7 +45,7 @@ export const OP_RAMIFICAR: OperacionIA = {
   partes: [{ op: 'texto' }],
 }
 
-export const OP_DESTILAR: OperacionIA = {
+const OP_DESTILAR: OperacionIA = {
   id: 'biblioteca.destilar',
   clave: 'ia.op.biblioteca.destilar',
   es: 'Actualizar la entrada al salir de la charla',
@@ -65,7 +65,7 @@ export const OP_MATERIAL: OperacionIA = {
   partes: [{ op: 'texto' }],
 }
 
-export const OP_ILUSTRAR: OperacionIA = {
+const OP_ILUSTRAR: OperacionIA = {
   id: 'biblioteca.ilustrar',
   clave: 'ia.op.biblioteca.ilustrar',
   es: 'Ilustrar una entrada',

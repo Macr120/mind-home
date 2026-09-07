@@ -432,21 +432,3 @@ export const PILARES: PilarConocimiento[] = [
     ],
   },
 ]
-
-export function contarIndice() {
-  let ramas = 0
-  let temas = 0
-  for (const p of PILARES) {
-    ramas += p.ramas.length
-    for (const r of p.ramas) temas += r.temas.length
-  }
-  return { pilares: PILARES.length, ramas, temas }
-}
-
-export function todosLosTemas() {
-  return PILARES.flatMap((p) =>
-    p.ramas.flatMap((r) =>
-      r.temas.map((t) => ({ ...t, pilarId: p.id, pilarTitulo: p.titulo, ramaId: r.id })),
-    ),
-  )
-}

@@ -384,9 +384,9 @@ export const SIDE_KEYS: SideKey[] = ['N', 'S', 'E', 'O']
 /**
  * Dirección (offset unitario en XZ y rotación Y) de la estructura de acceso
  * según la pared del cuarto a la que se ancla. El frente local (+Z) mira al cuarto.
- * Fuente única: la usan Accesos.tsx, Character.tsx y AccesoProximity.
+ * Fuente única: la consumen `ascensoXZ`, `dirAscenso` y `rotAscenso` de aquí mismo.
  */
-export const LADO_DIR: Record<SideKey, { dx: number; dz: number; rotY: number }> = {
+const LADO_DIR: Record<SideKey, { dx: number; dz: number; rotY: number }> = {
   N: { dx: 0, dz: -1, rotY: 0 },
   S: { dx: 0, dz: 1, rotY: Math.PI },
   E: { dx: 1, dz: 0, rotY: -Math.PI / 2 },
@@ -394,7 +394,7 @@ export const LADO_DIR: Record<SideKey, { dx: number; dz: number; rotY: number }>
 }
 
 /** Pared de una celda que mira al centro de la casa (lado por defecto de un ascenso). */
-export function ladoAlCentro(col: number, row: number): SideKey {
+function ladoAlCentro(col: number, row: number): SideKey {
   const [cx, , cz] = cellToWorld(col, row)
   const { axis, sign } = doorFor([cx, 0, cz])
   return axis === 'x' ? (sign < 0 ? 'O' : 'E') : sign < 0 ? 'N' : 'S'
@@ -404,7 +404,7 @@ export function ladoAlCentro(col: number, row: number): SideKey {
 export type EsquinaKey = 'NO' | 'NE' | 'SO' | 'SE'
 
 /** Signo (x,z) de cada esquina respecto al centro de la celda. */
-export const ESQUINA_DIR: Record<EsquinaKey, { sx: -1 | 1; sz: -1 | 1 }> = {
+const ESQUINA_DIR: Record<EsquinaKey, { sx: -1 | 1; sz: -1 | 1 }> = {
   NO: { sx: -1, sz: -1 },
   NE: { sx: 1, sz: -1 },
   SO: { sx: -1, sz: 1 },

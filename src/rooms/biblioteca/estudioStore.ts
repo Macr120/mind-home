@@ -40,7 +40,7 @@ export interface SesionActiva {
 }
 
 /** Qué pasó al vencer una fase, para que la UI toque campana y repinte. */
-export interface CambioFase {
+interface CambioFase {
   cerro: FasePomodoro
   /** Fase que arranca, o null si la sesión terminó. */
   siguiente: FasePomodoro | null

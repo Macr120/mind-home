@@ -41,7 +41,7 @@ export interface DatosGrafica {
 }
 
 /** 'C7:A2' → rectángulo normalizado; null si el rango no es válido. */
-export function cajaDeRango(rango: string): { f0: number; f1: number; c0: number; c1: number } | null {
+function cajaDeRango(rango: string): { f0: number; f1: number; c0: number; c1: number } | null {
   const [a, b = a] = rango.split(':')
   const p = deRef(a ?? '')
   const q = deRef(b ?? '')

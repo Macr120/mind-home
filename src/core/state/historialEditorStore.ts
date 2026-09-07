@@ -5,6 +5,7 @@ import { useEditorUi, type EditorTab } from './editorUiStore'
 import type { Asistente } from '../chat/mascotas'
 import type { ObjetoCuarto } from '../data/db'
 import type { Avatar } from './disenoStore'
+import { escucharMapa } from './historialMapa'
 
 /**
  * Deshacer y rehacer del panel Editor. La pila es POR PESTAÑA: se vacía al
@@ -17,8 +18,11 @@ import type { Avatar } from './disenoStore'
  * paso guarda la entidad ENTERA antes y después, así un solo mecanismo deshace
  * cualquier campo, incluidos los Blobs (foto de rostro, .glb).
  *
- * Fuera de alcance: la pestaña Mapa (paredes, cuartos, temas), y crear o
- * eliminar personajes y objetos (habría que resucitar la fila con su id).
+ * La pestaña Mapa tiene su propia escucha en `historialMapa.ts` (construcción de
+ * rejilla, diseño por cuarto, formas libres y muros libres).
+ *
+ * Fuera de alcance: crear o eliminar personajes y objetos (habría que resucitar
+ * la fila con su id).
  */
 
 export interface PasoHistorial {
@@ -36,22 +40,66 @@ interface HistorialEditorState {
   rehechos: PasoHistorial[]
   /** Verdadero mientras se aplica un deshacer/rehacer: la escucha no re-apila. */
   aplicando: boolean
+  /** Pasos acumulados mientras dura un `agrupar` (null = sin grupo abierto). */
+  grupo: PasoHistorial[] | null
   registrar: (p: PasoHistorial) => void
+  /**
+   * Ejecuta `fn` apilando todo lo que registre como UN solo paso (se deshace en orden
+   * inverso). Para gestos que escriben en varios sitios, como «liberar un cuarto».
+   */
+  agrupar: <T>(fn: () => Promise<T>) => Promise<T>
   deshacer: () => Promise<void>
   rehacer: () => Promise<void>
   /** Fija el ámbito y vacía las pilas si cambió. */
   vigilar: (ambito: EditorTab | null) => void
 }
 
+/**
+ * Espera a que las fuentes ASÍNCRONAS del ámbito activo (las tablas vigiladas por
+ * `liveQuery` en Mapa) hayan emitido todo lo escrito; la fija `escuchar`.
+ */
+let alDia: (() => Promise<void>) | null = null
+
 export const useHistorialEditor = create<HistorialEditorState>((set, get) => ({
   ambito: null,
   pasos: [],
   rehechos: [],
   aplicando: false,
+  grupo: null,
 
   registrar: (p) => {
     if (get().aplicando) return
+    const g = get().grupo
+    if (g) {
+      g.push(p)
+      return
+    }
     set((s) => ({ pasos: [...s.pasos, p].slice(-MAX_PASOS), rehechos: [] }))
+  },
+
+  agrupar: async (fn) => {
+    // Grupos anidados: se funden en el exterior.
+    if (get().grupo) return fn()
+    const grupo: PasoHistorial[] = []
+    set({ grupo })
+    try {
+      return await fn()
+    } finally {
+      // Las tablas emiten DESPUÉS de escribir: el grupo espera su eco antes de cerrarse.
+      await alDia?.()
+      set({ grupo: null })
+      if (grupo.length === 1) get().registrar(grupo[0])
+      else if (grupo.length > 1) {
+        get().registrar({
+          deshacer: async () => {
+            for (const p of [...grupo].reverse()) await p.deshacer()
+          },
+          rehacer: async () => {
+            for (const p of grupo) await p.rehacer()
+          },
+        })
+      }
+    }
   },
 
   deshacer: async () => {
@@ -126,6 +174,15 @@ function escuchar(ambito: EditorTab | null) {
         })
       }),
     )
+  }
+
+  if (ambito === 'mapa') {
+    const vaciar = () => useHistorialEditor.setState({ pasos: [], rehechos: [] })
+    const mapa = escucharMapa(registrar, vaciar)
+    alDia = mapa.alDia
+    cancelar.push(...mapa.fuera, () => {
+      alDia = null
+    })
   }
 
   if (ambito === 'objetos') {

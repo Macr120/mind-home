@@ -114,7 +114,7 @@ export interface ToolCuenta {
 }
 
 /** Medidor que devuelve el proxy tras cobrar: pool del mes + recargas. */
-export interface UsoCuenta {
+interface UsoCuenta {
   usadas: number
   limite: number
   /** Créditos de recarga que quedan (los que no caducan). */

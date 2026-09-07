@@ -9,7 +9,7 @@
 import type { VariableFormula } from '../../core/data/db'
 import type { Celdas } from './hoja'
 
-export interface FormulaDemo {
+interface FormulaDemo {
   /** `formulaId` fijo; con prefijo `cat-` si es una copia real del catálogo. */
   id: string
   nombre: string
@@ -22,7 +22,7 @@ export interface FormulaDemo {
   dia: number
 }
 
-export interface CarpetaDemo {
+interface CarpetaDemo {
   id: string
   nombre: string
   emoji?: string
@@ -31,7 +31,7 @@ export interface CarpetaDemo {
   formulas: FormulaDemo[]
 }
 
-export interface HojaDemo {
+interface HojaDemo {
   nombre: string
   celdas: Celdas
   filas: number

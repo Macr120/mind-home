@@ -1,5 +1,5 @@
 /** Nombres simpáticos para los animales de la granja (se asignan al azar al colocar). */
-export const NOMBRES_ANIMAL = [
+const NOMBRES_ANIMAL = [
   'Pepa', 'Lola', 'Coco', 'Canela', 'Nube', 'Motas', 'Trufa', 'Bruno',
   'Rosita', 'Pancho', 'Manchas', 'Luna', 'Copito', 'Greta', 'Olivo', 'Pipa',
   'Turrón', 'Bombón', 'Chispa', 'Nieve', 'Caramelo', 'Frijol', 'Mora', 'Paco',

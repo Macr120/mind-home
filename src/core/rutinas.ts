@@ -444,20 +444,10 @@ export function pasosHechosHoy(rutina: Rutina, ejecuciones: EjecucionRutina[] | 
   return new Set(e?.pasosHechos ?? [])
 }
 
-/** ¿La rutina ya pasó de su hora y aún tiene pasos sin completar? */
-export function estaPendiente(rutina: Rutina, ejecuciones: EjecucionRutina[] | undefined): boolean {
-  if (rutina.pasos.length === 0) return false
-  if (!tocaHoy(rutina) || !rutina.hora) return false
-  const ahora = new Date()
-  const horaActual = `${String(ahora.getHours()).padStart(2, '0')}:${String(ahora.getMinutes()).padStart(2, '0')}`
-  if (horaActual < rutina.hora) return false
-  return pasosHechosHoy(rutina, ejecuciones).size < rutina.pasos.length
-}
-
 /**
  * ¿Toca avisar de esta rutina hoy? Es lo que mira el reloj de avisos, y a
- * propósito NO es `estaPendiente`, que además de pintar el panel exige que la
- * rutina tenga pasos.
+ * propósito NO exige que la rutina tenga pasos (el viejo criterio de
+ * «pendiente» del panel sí lo hacía).
  *
  * Esa exigencia era el silenciador del bloque de sueño (nace sin pasos justo para
  * no anunciarse, ver rooms/descanso/rutinaSueno.ts). Pero "no tener pasos" nunca

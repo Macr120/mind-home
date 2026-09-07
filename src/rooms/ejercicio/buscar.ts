@@ -64,13 +64,17 @@ export async function encontrarEjercicio(texto: string): Promise<EjercicioHallad
     ejercicios = [...c.CATALOGO_FUERZA, ...c.CATALOGO_CARDIO, ...c.CATALOGO_FLEX].flatMap((g) => g.ejercicios)
   }
   const s = acotar(texto)
+  // Plural y singular valen en las dos direcciones: «sentadillas» ↔ «Sentadilla», «flexión» ↔ «Flexiones».
+  const singular = (x: string) => x.replace(/(?:es|s)$/, '')
+  const s2 = acotar(texto.replace(/(?:es|s)(?=\s|$)/g, ''))
   let mejor: EjercicioHallado | null = null
   let largo = 0
   for (const e of ejercicios) {
     const slug = slugTexto(e.nombre)
     if (!slug) continue
     const tr = slugTraducido(slug)
-    if (s.includes(`-${slug}-`) || (tr && s.includes(`-${tr}-`))) {
+    const formas = [slug, singular(slug), tr, tr && singular(tr)].filter(Boolean)
+    if (formas.some((f) => s.includes(`-${f}-`) || s2.includes(`-${f}-`))) {
       if (slug.length > largo) {
         mejor = { nombre: e.nombre, descripcion: e.descripcion }
         largo = slug.length

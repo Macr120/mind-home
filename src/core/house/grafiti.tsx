@@ -22,7 +22,7 @@ const _ray = new THREE.Raycaster()
  * Grafiti guardado sobre una cara de muro: plano PNG transparente delante de la
  * cara (los padres —Room3D/MurosLibres3D— lo posicionan en su marco local).
  */
-export function GrafitiDecal({
+function GrafitiDecal({
   url,
   ancho,
   alto,

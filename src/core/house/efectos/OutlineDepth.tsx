@@ -1,4 +1,4 @@
-import { forwardRef, useMemo } from 'react'
+import { forwardRef, useEffect, useMemo } from 'react'
 import { BlendFunction, Effect, EffectAttribute } from 'postprocessing'
 import { Color, Uniform } from 'three'
 
@@ -48,5 +48,6 @@ export const OutlineDepth = forwardRef<
     () => new OutlineDepthEffect({ color, umbral, grosor }),
     [color, umbral, grosor],
   )
+  useEffect(() => () => effect.dispose(), [effect])
   return <primitive ref={ref} object={effect} />
 })

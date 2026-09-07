@@ -47,16 +47,16 @@ export const estaHambriento = (a: AnimalGranja, ahora: number): boolean =>
  * Ventanas de hambre seguidas sin comer tras las cuales el animal ENFERMA: la
  * barra de comida se vacía en una, así que enfermar es llevar dos más en cero.
  */
-export const FACTOR_ENFERMO = 3
+const FACTOR_ENFERMO = 3
 
 export const estaEnfermo = (a: AnimalGranja, ahora: number): boolean =>
   ahora - a.alimentadoEn > ANIMALES[a.tipo].horasHambre * FACTOR_ENFERMO * 3600_000
 
 /** Días que aguanta un animal enfermo antes de morir (desde que la app lo detecta). */
-export const DIAS_MUERTE = 7
+const DIAS_MUERTE = 7
 
 /** Días sin limpiar el corral a partir de los cuales se ensucia. */
-export const DIAS_LIMPIEZA = 7
+const DIAS_LIMPIEZA = 7
 
 const DIA_MS = 86_400_000
 
@@ -65,7 +65,7 @@ export const corralSucio = (c: Corral, ahora: number): boolean =>
   ahora - (c.limpiadoEn ?? 0) > DIAS_LIMPIEZA * DIA_MS
 
 /** Horas sin mimos (caricias, baño o juego) a partir de las cuales se aburre. */
-export const HORAS_ABURRIDO = 6
+const HORAS_ABURRIDO = 6
 
 /**
  * Ventana de aburrimiento; en un corral sucio se parte a la mitad (el ánimo cae
@@ -203,7 +203,7 @@ export async function mimarAnimal(animalId: number): Promise<void> {
  * Cura a un animal: se le va la enfermedad y vuelve a comer. `enfermoDesde` en
  * `undefined` borra la propiedad en Dexie, que es lo que apaga el plazo de muerte.
  */
-export async function curarAnimal(animalId: number): Promise<void> {
+async function curarAnimal(animalId: number): Promise<void> {
   await db.animales.update(animalId, { alimentadoEn: Date.now(), enfermoDesde: undefined })
 }
 

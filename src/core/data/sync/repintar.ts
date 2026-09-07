@@ -20,7 +20,7 @@ const GRUPOS: { tablas: string[]; recargar: () => Promise<void> }[] = [
     recargar: async () => (await import('../../state/cuartosStore')).useCuartos.getState().recargar(),
   },
   {
-    tablas: ['layout', 'mapaConfig', 'accesos', 'zonas'],
+    tablas: ['layout', 'mapaConfig', 'accesos', 'zonas', 'formasLibres'],
     recargar: async () => (await import('../../state/layoutStore')).useLayout.getState().cargar(),
   },
   {

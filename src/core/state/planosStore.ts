@@ -5,7 +5,8 @@ import type { VentanaContenidoId, TipoPuertaId } from '../house/murosPuertas'
 import type { CuadranteMapa } from '../data/db'
 import { useLayout } from './layoutStore'
 
-type CapaPlano = 'cuartos' | 'paredes' | 'pisos' | 'techos'
+/** `libre`: modo de construcción libre; ningún controlador de rejilla la reconoce (quedan inertes). */
+type CapaPlano = 'cuartos' | 'paredes' | 'pisos' | 'techos' | 'libre'
 /** Resolución del croquis: celda entera o 4 sub-celdas por celda (paso ½). */
 export type DetalleRejillaPlano = 'celda' | 'subcelda'
 export type HerramientaPlano =
@@ -19,6 +20,8 @@ export type HerramientaPlano =
   | 'muro'
   | 'puerta'
   | 'ventana'
+  /** Modo Libre: dibujar una forma nueva (clics = vértices; arrastre = mano alzada). */
+  | 'trazar'
 
 export type SeleccionPlano =
   | { tipo: 'cuarto'; roomId: string }
@@ -50,6 +53,8 @@ export type ModoConstructor =
   | 'techos'
   /** Nivel ≥ 1: mover el ascenso y cambiar su tipo (sustituye a piso-ext en pisos altos). */
   | 'ascensos'
+  /** Construcción libre: formas de vértices arbitrarios (muros, pisos, recintos). */
+  | 'libre'
 
 const MODO_CONFIG: Record<
   ModoConstructor,
@@ -67,6 +72,9 @@ const MODO_CONFIG: Record<
   techos: { activo: true, capa: 'techos', herramienta: 'seleccionar' },
   // Ascensos: no usa el motor 3D de planos; el arrastre del ascenso vive en Accesos.tsx.
   ascensos: { activo: false, capa: 'cuartos', herramienta: 'seleccionar' },
+  // Libre: capa propia para que los controladores de rejilla (muros, pisos, cuartos,
+  // techos) no reaccionen; el motor 3D lo lleva FormaLibre3DController.
+  libre: { activo: true, capa: 'libre', herramienta: 'trazar' },
 }
 
 interface PlanosState {
@@ -106,6 +114,8 @@ interface PlanosState {
   tipoPuerta: TipoPuertaId
   /** Muro libre seleccionado (id) para editar textura/color/altura. */
   muroLibreSel: number | null
+  /** Forma de construcción libre seleccionada (id de `formasLibres`), modo Libre. */
+  formaLibreSel: number | null
   /** Visibilidad del previsualizador 3D del muro/pared seleccionado (toggle del ojo). */
   previewVisible: boolean
   /** Visibilidad del croquis 2D en el editor de mapa (selector Croquis/3D; ambos pueden estar activos). */
@@ -162,6 +172,7 @@ interface PlanosState {
   setVentCara: (c: 'interior' | 'exterior') => void
   setTipoPuerta: (t: TipoPuertaId) => void
   setMuroLibreSel: (id: number | null) => void
+  setFormaLibreSel: (id: number | null) => void
   setPreviewVisible: (v: boolean) => void
   setCroquisVisible: (v: boolean) => void
   setMuroHover: (h: PlanosState['muroHover']) => void
@@ -203,6 +214,7 @@ export const usePlanos = create<PlanosState>((set) => ({
   ventCara: 'interior',
   tipoPuerta: 'recta',
   muroLibreSel: null,
+  formaLibreSel: null,
   previewVisible: false,
   croquisVisible: true,
   muroHover: null,
@@ -243,6 +255,7 @@ export const usePlanos = create<PlanosState>((set) => ({
       formaLoseta: 'cuadrado',
       pincelForma: st.modo === m ? st.pincelForma : null,
       muroLibreSel: st.modo === m ? st.muroLibreSel : null,
+      formaLibreSel: st.modo === m ? st.formaLibreSel : null,
       muroHover: null,
       // El dibujo de cuadrantes solo vive en el modo Grid: salir de él lo cancela.
       dibujandoCuadrante: false,
@@ -252,7 +265,7 @@ export const usePlanos = create<PlanosState>((set) => ({
     })),
   setNivel: (n) =>
     set((st) => {
-      const base = { nivel: n, seleccion: null, pendienteNombre: null, pincelForma: null }
+      const base = { nivel: n, seleccion: null, pendienteNombre: null, pincelForma: null, formaLibreSel: null }
       // El espacio del slot alterna Piso ext. (planta baja) / Ascensos (pisos altos y sótano):
       // mantén el modo coherente con el nivel elegido en ese selector.
       if (st.modo === 'ascensos' && n === 0) return { ...base, ...MODO_CONFIG['piso-ext'], modo: 'piso-ext' as const }
@@ -291,9 +304,29 @@ export const usePlanos = create<PlanosState>((set) => ({
   setTipoPuerta: (t) => set({ tipoPuerta: t }),
   // Cada nueva selección abre el previsualizador en su sitio; el usuario lo cierra con el ojo.
   setMuroLibreSel: (id) => set({ muroLibreSel: id, previewVisible: true }),
+  setFormaLibreSel: (id) => set({ formaLibreSel: id }),
   setPreviewVisible: (v) => set({ previewVisible: v }),
   setCroquisVisible: (v) => set({ croquisVisible: v }),
-  setMuroHover: (h) => set({ muroHover: h }),
+  // Llega en cada pointermove de la capa Muros: el mismo objetivo no notifica al
+  // croquis ni a los muros libres (ambos se repintaban por cada píxel).
+  setMuroHover: (h) =>
+    set((s) => {
+      const a = s.muroHover
+      if (a === h) return s
+      if (
+        a &&
+        h &&
+        a.clase === h.clase &&
+        a.orient === h.orient &&
+        a.col === h.col &&
+        a.row === h.row &&
+        a.forma === h.forma &&
+        a.rotacion === h.rotacion &&
+        a.borra === h.borra
+      )
+        return s
+      return { muroHover: h }
+    }),
   setMuroSelHover: (h) => set({ muroSelHover: h }),
   setCuadranteActivo: (id) => set({ cuadranteActivo: id }),
   setCuadranteVista: (id) => set({ cuadranteVista: id }),

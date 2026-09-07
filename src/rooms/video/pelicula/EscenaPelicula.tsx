@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
-import type { ClipAvatar, EscenaActor } from '../../../core/data/db'
+import type { CamaraPelicula, ClipAvatar, EscenaActor } from '../../../core/data/db'
 import { suave } from '../../../core/house/animacion'
 import { puntoSueloBajoCursor } from '../../../core/house/arrastreCelda'
 import { VEL_PASEO } from '../../../core/house/Asistente3D'
@@ -94,17 +94,21 @@ function Director() {
       disparados.current.clear()
     }
 
-    // 1. Cámara del plano activo. Sin plano, la cámara queda libre.
+    // 1. Cámara del plano activo. Sin plano, la cámara queda libre. Un plano que sigue a un
+    //    personaje se resuelve en 2b, cuando los actores ya están en su punto de este frame.
     const pos = principalEn(p.clips, t)
     const f = pos?.clip.fuente
+    let seguir: { id: string; cam: CamaraPelicula } | null = null
     if (pos && f?.tipo === 'escena3d') {
       const entra = planoActual.current !== pos.clip.id || seekeado
-      if (f.camFin) {
-        // Paneo: función exacta del tiempo mientras corre; en pausa solo al entrar (deja encuadrar a mano).
-        if (peliculaFrame.reproduciendo || entra) {
-          aplicarCamara(lerpCamara(f.cam, f.camFin, suave(clamp01(pos.tLocal / pos.clip.duracion))), true)
-        }
-      } else if (entra) aplicarCamara(f.cam, true)
+      // Los movimientos son función exacta del tiempo mientras corre; en pausa solo al entrar (deja encuadrar a mano).
+      const viaja = peliculaFrame.reproduciendo || entra
+      const base = f.camFin && viaja ? lerpCamara(f.cam, f.camFin, suave(clamp01(pos.tLocal / pos.clip.duracion))) : f.cam
+      if (f.seguir && f.cam.vista === 'iso') {
+        if (viaja) seguir = { id: f.seguir, cam: base }
+      } else if (f.camFin) {
+        if (viaja) aplicarCamara(base, true)
+      } else if (entra) aplicarCamara(base, true)
       planoActual.current = pos.clip.id
     } else planoActual.current = null
 
@@ -199,6 +203,12 @@ function Director() {
         e.boca.current.hablando = false
         delete actoresFrame[id]
       }
+    }
+
+    // 2b. Cámara que sigue a un personaje: el foco va a su punto de este frame, sin suavizado (como el paneo).
+    if (seguir) {
+      const q = puntoDe(seguir.id)
+      aplicarCamara({ ...seguir.cam, focus: [q.x, seguir.cam.focus[1], q.z] }, true)
     }
 
     // 3. Rumbo: caminando mira adonde va; parado, a la cámara, a otro actor o adonde iba.

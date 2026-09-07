@@ -57,7 +57,7 @@ export interface Columna {
 }
 
 /** Días enteros de `a` a `b`. */
-export const diasEntre = (a: Date, b: Date) => Math.round((b.getTime() - a.getTime()) / DIA_MS)
+const diasEntre = (a: Date, b: Date) => Math.round((b.getTime() - a.getTime()) / DIA_MS)
 
 /**
  * Primer lunes que pertenece de verdad al mes de `d` (para `mesSemana`, la

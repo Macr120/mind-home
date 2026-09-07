@@ -142,6 +142,9 @@ import {
   Shell,
   SquareArrowUp,
   ArrowUpDown,
+  PenTool,
+  Spline,
+  Pentagon,
   Rainbow,
   Image,
   FileText,
@@ -376,6 +379,7 @@ import {
   ZoomIn,
   ZoomOut,
   Minimize2,
+  ThumbsDown,
   type LucideIcon,
 } from 'lucide-react'
 import type { NombreIcono } from './catalogo'
@@ -518,6 +522,9 @@ export const SVGS: Record<NombreIcono, LucideIcon> = {
   elevador: SquareArrowUp,
   resbaladilla: Wind,
   niveles: ArrowUpDown,
+  pluma: PenTool,
+  curva: Spline,
+  poligono: Pentagon,
 
   // — Cuartos (mismo emoji que la plantilla en src/rooms/<id>/index.tsx) —
   'cuarto-cocina': ChefHat,
@@ -781,6 +788,15 @@ export const SVGS: Record<NombreIcono, LucideIcon> = {
   'cubo-vistas': Box,
   atras: ArrowLeft,
   ovni: Satellite,
+  // Emotes de «Bailar»
+  pescar: Fish,
+  dab: PersonStanding,
+  'take-the-l': ThumbsDown,
+  'orange-justice': Citrus,
+  'bola-disco': Disc3,
+  moonwalk: Moon,
+  gangnam: Mic,
+  'electro-shuffle': Shuffle,
 
   // — Objetos del catálogo de muebles (chips de creación del chat) —
   guitarra: Guitar,

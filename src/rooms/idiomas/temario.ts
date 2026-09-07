@@ -13,7 +13,7 @@
 /** Área del temario a la que pertenece un tema. */
 export type AreaTemario = 'temas' | 'pronunciacion' | 'gramatica'
 
-export interface TemaTemario {
+interface TemaTemario {
   id: string
   titulo: string
   descripcion: string
@@ -237,15 +237,4 @@ export const AREAS: { id: AreaTemario; labelEs: string; catalogo: NivelTemario[]
 
 export function catalogoArea(area: AreaTemario): NivelTemario[] {
   return AREAS.find((a) => a.id === area)?.catalogo ?? TEMARIO
-}
-
-/** Todos los temas estáticos de las tres áreas, aplanados con su nivel. */
-export function todosLosTemas(): (TemaTemario & { nivel: string; area: AreaTemario })[] {
-  return AREAS.flatMap((a) =>
-    a.catalogo.flatMap((n) => n.temas.map((t) => ({ ...t, nivel: n.nivel, area: a.id }))),
-  )
-}
-
-export function getTema(id: string): (TemaTemario & { nivel: string; area: AreaTemario }) | undefined {
-  return todosLosTemas().find((t) => t.id === id)
 }

@@ -15,6 +15,7 @@ import {
   TIPOGRAFIA_DEFAULT,
   type TipografiaId,
 } from '../ui/tipografias'
+import { aplicarEstiloUI, ESTILO_UI_DEFAULT, esEstiloUI, type EstiloUIId } from '../ui/estilosUI'
 import { colorFondo, estadoCielo } from '../house/cielo'
 import { IDIOMA_BASE, IDIOMA_DEFAULT, IDIOMAS, idiomaValido, type Idioma } from '../i18n/idiomas'
 import {
@@ -40,6 +41,7 @@ const LS_TEMA_UI = 'mh.temaUI'
 export const LS_MODO_UI = 'mh.modoUI'
 const LS_TIPOGRAFIA = 'mh.tipografia'
 const LS_ESTILO_ICONOS = 'mh.estiloIconos'
+const LS_ESTILO_UI = 'mh.estiloUI'
 const LS_VIDRIO_TRANSPARENCIA = 'mh.vidrio.transparencia'
 const LS_VIDRIO_INTENSIDAD = 'mh.vidrio.intensidad'
 const LS_NOTIF = 'mh.notif'
@@ -157,6 +159,11 @@ function leerEstiloIconos(): EstiloIconos {
   return v === 'profesional' || v === 'emoji' ? v : ESTILO_ICONOS_DEFAULT
 }
 
+function leerEstiloUI(): EstiloUIId {
+  const v = localStorage.getItem(LS_ESTILO_UI)
+  return esEstiloUI(v) ? v : ESTILO_UI_DEFAULT
+}
+
 function leerTipografia(): TipografiaId {
   return (localStorage.getItem(LS_TIPOGRAFIA) as TipografiaId) || TIPOGRAFIA_DEFAULT
 }
@@ -199,6 +206,8 @@ interface AjustesState {
   modoUI: ModoUI
   tipografia: TipografiaId
   estiloIconos: EstiloIconos
+  /** Forma del chrome (esquinas, bordes, sombras); ortogonal al tema y al modo. */
+  estiloUI: EstiloUIId
   /** Calidad de las imágenes que genera la IA: decide el proveedor y el precio. */
   calidadImagen: CalidadImagen
   /** Vidrio de la interfaz (0..1): qué tanto se transparentan los paneles flotantes. */
@@ -245,6 +254,7 @@ interface AjustesState {
   setModoUI: (modo: ModoUI) => void
   setTipografia: (tipografia: TipografiaId) => void
   setEstiloIconos: (estilo: EstiloIconos) => void
+  setEstiloUI: (estilo: EstiloUIId) => void
   setCalidadImagen: (calidad: CalidadImagen) => void
   setVidrioTransparencia: (v: number) => void
   setVidrioIntensidad: (v: number) => void
@@ -274,6 +284,7 @@ export const useAjustes = create<AjustesState>((set, get) => ({
   modoUI: leerModoUI(),
   tipografia: leerTipografia(),
   estiloIconos: leerEstiloIconos(),
+  estiloUI: leerEstiloUI(),
   calidadImagen: leerCalidadImagen(),
   vidrioTransparencia: leer01(LS_VIDRIO_TRANSPARENCIA, VIDRIO_TRANSPARENCIA_DEFAULT),
   vidrioIntensidad: leer01(LS_VIDRIO_INTENSIDAD, VIDRIO_INTENSIDAD_DEFAULT),
@@ -344,6 +355,12 @@ export const useAjustes = create<AjustesState>((set, get) => ({
     localStorage.setItem(LS_ESTILO_ICONOS, estilo)
     document.documentElement.dataset.estiloIconos = estilo
     set({ estiloIconos: estilo })
+  },
+
+  setEstiloUI: (estilo) => {
+    localStorage.setItem(LS_ESTILO_UI, estilo)
+    aplicarEstiloUI(estilo)
+    set({ estiloUI: estilo })
   },
 
   // El espejo en el store es lo que hace que los precios de la UI se
@@ -490,3 +507,4 @@ aplicarTipografia(useAjustes.getState().tipografia, useAjustes.getState().idioma
 document.documentElement.lang = useAjustes.getState().idioma
 document.documentElement.dir = 'ltr'
 document.documentElement.dataset.estiloIconos = useAjustes.getState().estiloIconos
+aplicarEstiloUI(useAjustes.getState().estiloUI)

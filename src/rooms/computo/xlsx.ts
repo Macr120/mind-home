@@ -46,7 +46,7 @@ export interface HojaXlsx {
 }
 
 /** Traduce los nombres de función al canónico de OOXML. */
-export function formulaOoxml(formula: string): string {
+function formulaOoxml(formula: string): string {
   let salida = formula
   // Los de punto primero: `CONTAR.SI` contiene `CONTAR`, y al revés se rompería.
   for (const es of Object.keys(A_OOXML).sort((a, b) => b.length - a.length)) {

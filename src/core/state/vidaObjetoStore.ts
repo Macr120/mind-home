@@ -15,9 +15,9 @@ import type { ObjetoCuarto } from '../data/db'
 const H = 3_600_000
 
 /** Horas sin comer tras las que se planta con cara de hambre. */
-export const HORAS_HAMBRE_VIDA = 8
+const HORAS_HAMBRE_VIDA = 8
 /** Horas sin mimos tras las que se aburre y anda a media marcha. */
-export const HORAS_ANIMO_VIDA = 6
+const HORAS_ANIMO_VIDA = 6
 
 /** Nivel 0–1 que decae desde una marca a lo largo de `horas`. */
 function nivel(desde: number | undefined, horas: number, ahora: number): number {

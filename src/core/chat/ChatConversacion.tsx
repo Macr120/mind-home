@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { memo, useEffect, useRef } from 'react'
 import { useMascota } from '../state/mascotaStore'
 import { useAsistentes } from '../state/asistentesStore'
 import { useMensajesAsistente, limpiarConversacion } from '../data/repository'
@@ -22,7 +22,7 @@ import type { DestinoChat } from '../data/db'
  * elijas otro hilo), y la sustituyen la bitácora, el manual o la configuración
  * cuando se abren. Se responde desde la barra de abajo (llega en vivo).
  */
-export function ChatConversacion({ onCerrar }: { onCerrar: () => void }) {
+function ChatConversacionInterno({ onCerrar }: { onCerrar: () => void }) {
   const t = useT()
   // Sin hilo elegido, el de siempre es el del asistente activo.
   const hiloId = useMascota((s) => s.conversacion ?? s.mascota)
@@ -283,3 +283,10 @@ function ChipDestino({ destino }: { destino: DestinoChat }) {
     </button>
   )
 }
+
+/**
+ * Memoizado: ChatBox se re-renderiza en cada tecla del textarea y arrastraba el
+ * hilo entero (Intl por mensaje, blobs, minimapas). Sus datos llegan por hooks
+ * propios, así que solo `onCerrar` (estable en ChatBox) decide el repintado.
+ */
+export const ChatConversacion = memo(ChatConversacionInterno)

@@ -25,6 +25,7 @@ import type { FormaLoseta } from '../../house/formasLoseta'
 import { EditorMapaSuperficieSection } from './EditorMapaSuperficieSection'
 import { EditorCuadrantesSection } from './EditorCuadrantesSection'
 import { EditorFondoSection } from '../editor/EditorFondoSection'
+import { EditorFormaLibreSection } from './EditorFormaLibreSection'
 import { footprintCells, FOOTPRINT_DEFAULT, MAX_GRID, type Footprint, type Cell, type TipoAcceso } from '../../house/walls'
 import { pintarCuarto } from '../../state/pintarCuarto'
 import type { DirGrid } from '../../state/layoutStore'
@@ -56,11 +57,13 @@ function Chip({
   onClick,
   children,
   accent,
+  className,
 }: {
   activo: boolean
   onClick: () => void
   children: ReactNode
   accent?: string
+  className?: string
 }) {
   // Color de marca del chip (acento propio o verde por defecto). Con `texto-vivo`
   // el texto usa ese color en oscuro y una versión entintada legible en claro.
@@ -70,7 +73,7 @@ function Chip({
     <button
       type="button"
       onClick={onClick}
-      className={`rounded-lg px-2.5 py-1.5 text-[11px] font-semibold transition${conColor ? ' texto-vivo' : ''}`}
+      className={`rounded-lg px-2.5 py-1.5 text-[11px] font-semibold transition${conColor ? ' texto-vivo' : ''}${className ? ` ${className}` : ''}`}
       style={
         activo
           ? {
@@ -899,6 +902,12 @@ export function ConstructorMapa() {
             </Chip>
           )
         })}
+        {/* Construcción libre (formas de vértices arbitrarios): fila completa bajo el 3×3. */}
+        <div className="col-span-3">
+          <Chip activo={modo === 'libre'} onClick={() => setModo('libre')} accent="#e879f9" className="w-full">
+            <Icono nombre="pluma" /> {t('constructor.modo.libre', 'Libre')}
+          </Chip>
+        </div>
       </div>
 
       {/* Fondo de cielo: ocupa el lugar del croquis con su configuración. */}
@@ -1107,8 +1116,10 @@ export function ConstructorMapa() {
               <EditorMuroLibre muroId={muroLibreSel} />
             )}
 
-            {/* Edición por selección (cuartos, paredes, pisos, techos) o ascensos. */}
-            {modo === 'cuartos' ? (
+            {/* Edición por selección (cuartos, paredes, pisos, techos), ascensos o formas libres. */}
+            {modo === 'libre' ? (
+              <EditorFormaLibreSection />
+            ) : modo === 'cuartos' ? (
               <CuartosPanel />
             ) : modo === 'ascensos' ? (
               <AscensosPanel />

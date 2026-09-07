@@ -22,7 +22,7 @@
 import { esc, refHoja } from './ooxml'
 import type { TipoGraficaHoja } from '../../core/data/db'
 
-export interface SerieXlsx {
+interface SerieXlsx {
   nombre: string
   /** Celda A1 del rótulo ('B1'), si sale de una cabecera de la hoja. */
   refNombre?: string

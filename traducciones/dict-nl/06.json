@@ -1,0 +1,693 @@
+[
+  {
+    "clave": "video.publicar.resultado.privado",
+    "es": "Se subió como privado: la app aún está en revisión de {red}. Puedes hacerlo público desde la propia app de {red}.",
+    "en": "It was uploaded as private: the app is still under review by {red}. You can make it public from the {red} app itself."
+  },
+  {
+    "clave": "video.publicar.resultado.reintentar",
+    "es": "Reintentar",
+    "en": "Retry"
+  },
+  {
+    "clave": "video.publicar.resultado.ver",
+    "es": "Ver en {red}",
+    "en": "View on {red}"
+  },
+  {
+    "clave": "video.publicar.titulo",
+    "es": "Publicar en {red}",
+    "en": "Publish on {red}"
+  },
+  {
+    "clave": "video.publicar.trabajo.cancelado",
+    "es": "Subida cancelada",
+    "en": "Upload cancelled"
+  },
+  {
+    "clave": "video.publicar.trabajo.cancelar",
+    "es": "Cancelar",
+    "en": "Cancel"
+  },
+  {
+    "clave": "video.publicar.trabajo.cancelarMsg",
+    "es": "¿Cancelar la subida a {red}? El archivo exportado se conserva para reintentar.",
+    "en": "Cancel the upload to {red}? The exported file is kept so you can retry."
+  },
+  {
+    "clave": "video.publicar.trabajo.noCierres",
+    "es": "No cierres la app ni bloquees la pantalla hasta que termine la subida.",
+    "en": "Don’t close the app or lock the screen until the upload finishes."
+  },
+  {
+    "clave": "video.publicar.trabajo.pildora",
+    "es": "Subiendo a {red} · {pct} %",
+    "en": "Uploading to {red} · {pct} %"
+  },
+  {
+    "clave": "video.publicar.trabajo.pildoraPublicando",
+    "es": "Publicando en {red}…",
+    "en": "Publishing on {red}…"
+  },
+  {
+    "clave": "video.publicar.trabajo.procesando",
+    "es": "La red procesa el video al llegar; puede tardar unos minutos.",
+    "en": "The network processes the video once it arrives; it can take a few minutes."
+  },
+  {
+    "clave": "video.publicar.trabajo.segundoPlano",
+    "es": "Seguir editando",
+    "en": "Keep editing"
+  },
+  {
+    "clave": "video.publicar.tt.auditoria",
+    "es": "Esta app aún está en revisión de TikTok: el video se publica como «Solo yo».",
+    "en": "This app is still under review by TikTok: the video is posted as “Only me”."
+  },
+  {
+    "clave": "video.publicar.tt.cargandoCreador",
+    "es": "Consultando tu cuenta de TikTok…",
+    "en": "Checking your TikTok account…"
+  },
+  {
+    "clave": "video.publicar.tt.comentarios",
+    "es": "Comentarios",
+    "en": "Comments"
+  },
+  {
+    "clave": "video.publicar.tt.comercial",
+    "es": "Contenido comercial",
+    "en": "Commercial content"
+  },
+  {
+    "clave": "video.publicar.tt.comercialNota",
+    "es": "Este video promociona una marca, un producto o un servicio",
+    "en": "This video promotes a brand, a product or a service"
+  },
+  {
+    "clave": "video.publicar.tt.comercialSinCasilla",
+    "es": "Marca al menos una opción para indicar qué tipo de contenido comercial es.",
+    "en": "Tick at least one option to say what kind of commercial content it is."
+  },
+  {
+    "clave": "video.publicar.tt.consentimiento",
+    "es": "Al publicar, aceptas la {musica} de TikTok.",
+    "en": "By posting, you agree to TikTok’s {musica}."
+  },
+  {
+    "clave": "video.publicar.tt.consentimientoMarca",
+    "es": "Al publicar, aceptas la {politica} y la {musica} de TikTok.",
+    "en": "By posting, you agree to TikTok’s {politica} and {musica}."
+  },
+  {
+    "clave": "video.publicar.tt.contenidoMarca",
+    "es": "Contenido de marca",
+    "en": "Branded content"
+  },
+  {
+    "clave": "video.publicar.tt.contenidoMarcaNota",
+    "es": "Promocionas a otra marca o a un tercero. El video se etiquetará como «Colaboración pagada».",
+    "en": "You promote another brand or a third party. The video will be labeled “Paid partnership”."
+  },
+  {
+    "clave": "video.publicar.tt.creador",
+    "es": "Se publicará en la cuenta de {nick}",
+    "en": "It will be posted to {nick}’s account"
+  },
+  {
+    "clave": "video.publicar.tt.desactivadoCreador",
+    "es": "Desactivado en tu cuenta de TikTok",
+    "en": "Disabled in your TikTok account"
+  },
+  {
+    "clave": "video.publicar.tt.duo",
+    "es": "Dúo",
+    "en": "Duet"
+  },
+  {
+    "clave": "video.publicar.tt.enlaceMusica",
+    "es": "Confirmación de uso de música",
+    "en": "Music Usage Confirmation"
+  },
+  {
+    "clave": "video.publicar.tt.enlacePolitica",
+    "es": "Política de contenido de marca",
+    "en": "Branded Content Policy"
+  },
+  {
+    "clave": "video.publicar.tt.errorCreador",
+    "es": "TikTok no respondió: {e}",
+    "en": "TikTok didn’t respond: {e}"
+  },
+  {
+    "clave": "video.publicar.tt.esIA",
+    "es": "Marcar como contenido generado con IA",
+    "en": "Label as AI-generated content"
+  },
+  {
+    "clave": "video.publicar.tt.interaccion",
+    "es": "Permitir a los demás",
+    "en": "Allow others to"
+  },
+  {
+    "clave": "video.publicar.tt.marcaNoPrivado",
+    "es": "El contenido de marca no puede publicarse como «Solo yo».",
+    "en": "Branded content can’t be posted as “Only me”."
+  },
+  {
+    "clave": "video.publicar.tt.privacidad.FOLLOWER_OF_CREATOR",
+    "es": "Seguidores",
+    "en": "Followers"
+  },
+  {
+    "clave": "video.publicar.tt.privacidad.MUTUAL_FOLLOW_FRIENDS",
+    "es": "Amigos",
+    "en": "Friends"
+  },
+  {
+    "clave": "video.publicar.tt.privacidad.PUBLIC_TO_EVERYONE",
+    "es": "Todos",
+    "en": "Everyone"
+  },
+  {
+    "clave": "video.publicar.tt.privacidad.SELF_ONLY",
+    "es": "Solo yo",
+    "en": "Only me"
+  },
+  {
+    "clave": "video.publicar.tt.procesando",
+    "es": "El video tardará unos minutos en procesarse y aparecer en tu perfil.",
+    "en": "The video will take a few minutes to process and show up on your profile."
+  },
+  {
+    "clave": "video.publicar.tt.reintentar",
+    "es": "Reintentar",
+    "en": "Retry"
+  },
+  {
+    "clave": "video.publicar.tt.stitch",
+    "es": "Stitch",
+    "en": "Stitch"
+  },
+  {
+    "clave": "video.publicar.tt.tuMarca",
+    "es": "Tu marca",
+    "en": "Your brand"
+  },
+  {
+    "clave": "video.publicar.tt.tuMarcaNota",
+    "es": "Promocionas tu propio negocio. El video se etiquetará como «Contenido promocional».",
+    "en": "You promote your own business. The video will be labeled “Promotional content”."
+  },
+  {
+    "clave": "video.publicar.yt.auditoria",
+    "es": "Esta app aún está en revisión de Google: el video se sube como privado; puedes hacerlo público desde YouTube Studio.",
+    "en": "This app is still under Google’s review: the video is uploaded as private; you can make it public from YouTube Studio."
+  },
+  {
+    "clave": "video.publicar.yt.ninos",
+    "es": "¿Está hecho para niños?",
+    "en": "Is it made for kids?"
+  },
+  {
+    "clave": "video.publicar.yt.ninosElegir",
+    "es": "Indica si el video está hecho para niños.",
+    "en": "Say whether the video is made for kids."
+  },
+  {
+    "clave": "video.publicar.yt.ninosNo",
+    "es": "No, no es para niños",
+    "en": "No, it’s not for kids"
+  },
+  {
+    "clave": "video.publicar.yt.ninosNota",
+    "es": "YouTube obliga a declararlo (ley COPPA), sea cual sea tu país.",
+    "en": "YouTube requires this declaration (COPPA), whatever your country."
+  },
+  {
+    "clave": "video.publicar.yt.ninosSi",
+    "es": "Sí, es para niños",
+    "en": "Yes, it’s for kids"
+  },
+  {
+    "clave": "video.publicar.yt.noListado",
+    "es": "No listado",
+    "en": "Unlisted"
+  },
+  {
+    "clave": "video.publicar.yt.privado",
+    "es": "Privado",
+    "en": "Private"
+  },
+  {
+    "clave": "video.publicar.yt.publico",
+    "es": "Público",
+    "en": "Public"
+  },
+  {
+    "clave": "video.publicar.yt.restantes",
+    "es": "Quedan {n} subidas a YouTube hoy en la app.",
+    "en": "{n} YouTube uploads left today in the app."
+  },
+  {
+    "clave": "video.ia.boton",
+    "es": "IA",
+    "en": "AI"
+  },
+  {
+    "clave": "video.ia.titulo",
+    "es": "Guion con IA",
+    "en": "Script with AI"
+  },
+  {
+    "clave": "video.ia.desc",
+    "es": "De qué va el video",
+    "en": "What the video is about"
+  },
+  {
+    "clave": "video.ia.descPh",
+    "es": "Un video corto sobre mi viaje a la playa, con tono alegre…",
+    "en": "A short video about my beach trip, upbeat tone…"
+  },
+  {
+    "clave": "video.ia.generar",
+    "es": "Generar el guion",
+    "en": "Generate the script"
+  },
+  {
+    "clave": "video.ia.rehacer",
+    "es": "Rehacer el guion",
+    "en": "Redo the script"
+  },
+  {
+    "clave": "video.ia.titulos",
+    "es": "Mejorar los títulos",
+    "en": "Improve the titles"
+  },
+  {
+    "clave": "video.ia.reemplazar",
+    "es": "Reemplazar el guion",
+    "en": "Replace the script"
+  },
+  {
+    "clave": "video.ia.reemplazarMsg",
+    "es": "El guion nuevo sustituye a las escenas actuales.",
+    "en": "The new script replaces the current scenes."
+  },
+  {
+    "clave": "video.ia.nota",
+    "es": "La IA usa tus medios importados por su nombre; luego ajusta escenas a mano o pide narración por escena.",
+    "en": "The AI uses your imported media by name; then tweak scenes by hand or ask for narration per scene."
+  },
+  {
+    "clave": "video.sonidos.boton",
+    "en": "Sounds"
+  },
+  {
+    "clave": "video.sonidos.titulo",
+    "es": "Sonidos",
+    "en": "Sounds"
+  },
+  {
+    "clave": "video.sonidos.vacio",
+    "en": "No sounds in this scene yet"
+  },
+  {
+    "clave": "video.sonidos.fabrica",
+    "es": "De fábrica",
+    "en": "Built-in"
+  },
+  {
+    "clave": "video.sonidos.importado",
+    "es": "Audio importado",
+    "en": "Imported audio"
+  },
+  {
+    "clave": "video.sonidos.escuchar",
+    "es": "Escuchar",
+    "en": "Listen"
+  },
+  {
+    "clave": "video.sonidos.parar",
+    "es": "Parar",
+    "en": "Stop"
+  },
+  {
+    "clave": "video.sonidos.agregar",
+    "es": "Añadir",
+    "en": "Add"
+  },
+  {
+    "clave": "video.sonidos.en",
+    "en": "Plays at (s)"
+  },
+  {
+    "clave": "video.sonidos.volumen",
+    "es": "Volumen",
+    "en": "Volume"
+  },
+  {
+    "clave": "video.sonidos.tope",
+    "en": "Up to {n} sounds per scene"
+  },
+  {
+    "clave": "video.sonidos.uno",
+    "en": "1 sound"
+  },
+  {
+    "clave": "video.sonidos.n",
+    "en": "{n} sounds"
+  },
+  {
+    "clave": "video.sonido.aaa",
+    "en": "AAA"
+  },
+  {
+    "clave": "video.sonido.bruh",
+    "en": "Bruh"
+  },
+  {
+    "clave": "video.sonido.click",
+    "en": "Click"
+  },
+  {
+    "clave": "video.sonido.faa",
+    "en": "FAA"
+  },
+  {
+    "clave": "video.sonido.golpe",
+    "en": "Thud"
+  },
+  {
+    "clave": "video.sonido.jejeBoy",
+    "en": "Jeje boy"
+  },
+  {
+    "clave": "video.sonido.sus",
+    "en": "Sus"
+  },
+  {
+    "clave": "video.texto.subtitulo",
+    "es": "Subtítulo",
+    "en": "Subtitle"
+  },
+  {
+    "clave": "video.texto.subtituloPh",
+    "es": "Una línea secundaria…",
+    "en": "A secondary line…"
+  },
+  {
+    "clave": "video.texto.fuente",
+    "es": "Tipografía",
+    "en": "Typeface"
+  },
+  {
+    "clave": "video.texto.fuente.sans",
+    "es": "Sans",
+    "en": "Sans"
+  },
+  {
+    "clave": "video.texto.fuente.serif",
+    "es": "Serif",
+    "en": "Serif"
+  },
+  {
+    "clave": "video.texto.fuente.mono",
+    "es": "Mono",
+    "en": "Mono"
+  },
+  {
+    "clave": "video.texto.fuente.display",
+    "es": "Display",
+    "en": "Display"
+  },
+  {
+    "clave": "video.texto.caja",
+    "es": "Caja detrás del texto",
+    "en": "Box behind the text"
+  },
+  {
+    "clave": "video.texto.animacion",
+    "es": "Animación de entrada",
+    "en": "Intro animation"
+  },
+  {
+    "clave": "video.texto.anim.ninguna",
+    "es": "Ninguna",
+    "en": "None"
+  },
+  {
+    "clave": "video.texto.anim.fundido",
+    "es": "Fundido",
+    "en": "Fade"
+  },
+  {
+    "clave": "video.texto.anim.subir",
+    "es": "Subir",
+    "en": "Rise"
+  },
+  {
+    "clave": "video.texto.anim.maquina",
+    "es": "Máquina de escribir",
+    "en": "Typewriter"
+  },
+  {
+    "clave": "video.texto.desde",
+    "en": "Shows at (s)"
+  },
+  {
+    "clave": "video.texto.hasta",
+    "en": "Hides at (s)"
+  },
+  {
+    "clave": "video.guion.portada",
+    "es": "Portada",
+    "en": "Cover"
+  },
+  {
+    "clave": "video.guion.creditos",
+    "es": "Créditos",
+    "en": "Credits"
+  },
+  {
+    "clave": "video.guion.graciasPorVer",
+    "es": "Gracias por ver",
+    "en": "Thanks for watching"
+  },
+  {
+    "clave": "video.voz.titulo",
+    "es": "Voz del narrador",
+    "en": "Narrator voice"
+  },
+  {
+    "clave": "video.voz.muestra",
+    "es": "Oír muestra",
+    "en": "Hear a sample"
+  },
+  {
+    "clave": "video.voz.fraseMuestra",
+    "es": "Hola, así sonará la narración de tu video.",
+    "en": "Hi, this is how your video narration will sound."
+  },
+  {
+    "clave": "video.voz.muestraFallo",
+    "es": "No se pudo reproducir la muestra",
+    "en": "The sample could not be played"
+  },
+  {
+    "clave": "video.voz.desc.alloy",
+    "en": "neutral"
+  },
+  {
+    "clave": "video.voz.desc.echo",
+    "en": "male, clear"
+  },
+  {
+    "clave": "video.voz.desc.fable",
+    "en": "expressive, British accent"
+  },
+  {
+    "clave": "video.voz.desc.onyx",
+    "en": "deep"
+  },
+  {
+    "clave": "video.voz.desc.nova",
+    "en": "female, warm"
+  },
+  {
+    "clave": "video.voz.desc.shimmer",
+    "en": "female, bright"
+  },
+  {
+    "clave": "video.voz.desc.zephyr",
+    "en": "bright"
+  },
+  {
+    "clave": "video.voz.desc.puck",
+    "en": "upbeat"
+  },
+  {
+    "clave": "video.voz.desc.charon",
+    "en": "informative"
+  },
+  {
+    "clave": "video.voz.desc.kore",
+    "en": "firm"
+  },
+  {
+    "clave": "video.voz.desc.fenrir",
+    "en": "excitable"
+  },
+  {
+    "clave": "video.voz.desc.leda",
+    "en": "youthful"
+  },
+  {
+    "clave": "video.voz.desc.orus",
+    "en": "firm, deep"
+  },
+  {
+    "clave": "video.voz.desc.aoede",
+    "en": "breezy"
+  },
+  {
+    "clave": "video.voz.fallo",
+    "es": "No se pudo generar la voz",
+    "en": "The voice could not be generated"
+  },
+  {
+    "clave": "video.barra.titulo",
+    "es": "Herramientas del editor",
+    "en": "Editor tools"
+  },
+  {
+    "clave": "video.barra.anadir",
+    "es": "Añadir",
+    "en": "Add"
+  },
+  {
+    "clave": "video.barra.dividir",
+    "es": "Dividir en el cursor",
+    "en": "Split at playhead"
+  },
+  {
+    "clave": "video.barra.borrar",
+    "es": "Borrar el clip",
+    "en": "Delete clip"
+  },
+  {
+    "clave": "video.barra.tiempo",
+    "es": "Tiempo actual y duración total",
+    "en": "Current time and total duration"
+  },
+  {
+    "clave": "video.barra.iman",
+    "es": "Imán: pegar a bordes y cursor",
+    "en": "Snap: stick to edges and playhead"
+  },
+  {
+    "clave": "video.barra.acercar",
+    "es": "Acercar",
+    "en": "Zoom in"
+  },
+  {
+    "clave": "video.barra.alejar",
+    "es": "Alejar",
+    "en": "Zoom out"
+  },
+  {
+    "clave": "video.barra.pantallaCompleta",
+    "es": "Pantalla completa",
+    "en": "Full screen"
+  },
+  {
+    "clave": "video.barra.salirPantalla",
+    "es": "Salir de pantalla completa",
+    "en": "Exit full screen"
+  },
+  {
+    "clave": "video.divisor.titulo",
+    "es": "Arrastra para cambiar el tamaño del visor; doble toque para restaurar",
+    "en": "Drag to resize the preview; double-tap to restore"
+  },
+  {
+    "clave": "video.divisor.mostrar",
+    "es": "Mostrar el visor",
+    "en": "Show the preview"
+  },
+  {
+    "clave": "video.pista.texto",
+    "es": "Texto",
+    "en": "Text"
+  },
+  {
+    "clave": "video.pista.imagen",
+    "es": "Imagen superpuesta",
+    "en": "Overlay image"
+  },
+  {
+    "clave": "video.pista.avatar",
+    "es": "Avatar",
+    "en": "Avatar"
+  },
+  {
+    "clave": "video.pista.video",
+    "es": "Pista principal",
+    "en": "Main track"
+  },
+  {
+    "clave": "video.pista.fondo",
+    "es": "Fondo",
+    "en": "Background"
+  },
+  {
+    "clave": "video.pista.voz",
+    "es": "Narración",
+    "en": "Voice-over"
+  },
+  {
+    "clave": "video.pista.musica",
+    "es": "Música",
+    "en": "Music"
+  },
+  {
+    "clave": "video.pista.sfx",
+    "es": "Sonidos",
+    "en": "Sound effects"
+  },
+  {
+    "clave": "video.pista.silenciar",
+    "es": "Silenciar la pista {pista}",
+    "en": "Mute the {pista} track"
+  },
+  {
+    "clave": "video.pista.sonar",
+    "es": "Activar el sonido de la pista {pista}",
+    "en": "Unmute the {pista} track"
+  },
+  {
+    "clave": "video.pista.ocultar",
+    "es": "Ocultar la pista {pista}",
+    "en": "Hide the {pista} track"
+  },
+  {
+    "clave": "video.pista.mostrar",
+    "es": "Mostrar la pista {pista}",
+    "en": "Show the {pista} track"
+  },
+  {
+    "clave": "video.timeline.regla",
+    "es": "Línea de tiempo: arrastra para mover el cursor",
+    "en": "Timeline ruler: drag to move the playhead"
+  },
+  {
+    "clave": "video.timeline.vaciaClip",
+    "es": "Toca «Añadir» para poner el primer clip",
+    "en": "Tap \"Add\" to place the first clip"
+  },
+  {
+    "clave": "video.timeline.asaIni",
+    "es": "Recortar el inicio",
+    "en": "Trim the start"
+  }
+]

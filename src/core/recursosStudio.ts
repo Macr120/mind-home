@@ -9,7 +9,7 @@
  */
 
 export type AppStudio = 'audio' | 'arte' | 'escritura'
-export type TipoRecurso = 'audio' | 'imagen' | 'texto'
+type TipoRecurso = 'audio' | 'imagen' | 'texto'
 
 export interface RecursoStudio {
   /** Única dentro de su app ('proyecto:12', 'grab:3', 'dibujo:7', 'doc:9'…). */

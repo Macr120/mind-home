@@ -1,0 +1,564 @@
+[
+  {
+    "clave": "video.timeline.asaFin",
+    "es": "Recortar el final",
+    "en": "Trim the end"
+  },
+  {
+    "clave": "video.timeline.clip",
+    "es": "Clip {n}",
+    "en": "Clip {n}"
+  },
+  {
+    "clave": "video.clip.sinAudio",
+    "es": "Sin audio todavía",
+    "en": "No audio yet"
+  },
+  {
+    "clave": "video.clip.transicionMarca",
+    "es": "Transición: {nombre}",
+    "en": "Transition: {nombre}"
+  },
+  {
+    "clave": "video.anadir.titulo",
+    "es": "Añadir al video",
+    "en": "Add to the video"
+  },
+  {
+    "clave": "video.anadir.fondo",
+    "es": "Fondo",
+    "en": "Background"
+  },
+  {
+    "clave": "video.anadir.imagen",
+    "es": "Imagen superpuesta",
+    "en": "Overlay image"
+  },
+  {
+    "clave": "video.anadir.texto",
+    "es": "Texto",
+    "en": "Text"
+  },
+  {
+    "clave": "video.anadir.narracion",
+    "es": "Narración",
+    "en": "Voice-over"
+  },
+  {
+    "clave": "video.anadir.musica",
+    "es": "Música",
+    "en": "Music"
+  },
+  {
+    "clave": "video.anadir.sonido",
+    "es": "Sonido",
+    "en": "Sound effect"
+  },
+  {
+    "clave": "video.anadir.avatar",
+    "es": "Avatar",
+    "en": "Avatar"
+  },
+  {
+    "clave": "video.anadir.textoDefecto",
+    "es": "Tu texto",
+    "en": "Your text"
+  },
+  {
+    "clave": "video.anadir.tope",
+    "es": "No caben más clips",
+    "en": "No room for more clips"
+  },
+  {
+    "clave": "video.panel.clip",
+    "es": "Clip",
+    "en": "Clip"
+  },
+  {
+    "clave": "video.panel.cerrar",
+    "es": "Cerrar el panel",
+    "en": "Close the panel"
+  },
+  {
+    "clave": "video.panel.inicio",
+    "es": "Empieza en (s)",
+    "en": "Starts at (s)"
+  },
+  {
+    "clave": "video.panel.medio",
+    "es": "Medio",
+    "en": "Media"
+  },
+  {
+    "clave": "video.panel.cambiar",
+    "es": "Cambiar",
+    "en": "Change"
+  },
+  {
+    "clave": "video.panel.encuadre",
+    "es": "Encuadre",
+    "en": "Framing"
+  },
+  {
+    "clave": "video.panel.elegirImagen",
+    "es": "Elegir imagen",
+    "en": "Pick an image"
+  },
+  {
+    "clave": "video.panel.opacidad",
+    "es": "Opacidad",
+    "en": "Opacity"
+  },
+  {
+    "clave": "video.panel.bucle",
+    "es": "Repetir en bucle",
+    "en": "Loop"
+  },
+  {
+    "clave": "video.encuadre.cubrir",
+    "es": "Cubrir",
+    "en": "Fill"
+  },
+  {
+    "clave": "video.encuadre.encajar",
+    "es": "Encajar",
+    "en": "Fit"
+  },
+  {
+    "clave": "video.avatar.asistente",
+    "es": "Asistente",
+    "en": "Assistant"
+  },
+  {
+    "clave": "video.avatar.esquina",
+    "es": "Esquina",
+    "en": "Corner"
+  },
+  {
+    "clave": "video.avatar.tamano",
+    "es": "Tamaño",
+    "en": "Size"
+  },
+  {
+    "clave": "video.avatar.plano",
+    "es": "Plano",
+    "en": "Shot"
+  },
+  {
+    "clave": "video.avatar.busto",
+    "es": "Busto",
+    "en": "Bust"
+  },
+  {
+    "clave": "video.avatar.cuerpo",
+    "es": "Cuerpo entero",
+    "en": "Full body"
+  },
+  {
+    "clave": "video.avatar.sinRostro",
+    "es": "Este personaje no tiene boca dibujada: hablará solo con el cuerpo.",
+    "en": "This character has no drawn mouth: it will speak with its body only."
+  },
+  {
+    "clave": "video.esquina.supIzq",
+    "en": "Top left"
+  },
+  {
+    "clave": "video.esquina.supDer",
+    "en": "Top right"
+  },
+  {
+    "clave": "video.esquina.infIzq",
+    "en": "Bottom left"
+  },
+  {
+    "clave": "video.esquina.infDer",
+    "en": "Bottom right"
+  },
+  {
+    "clave": "video.esquina.centro",
+    "en": "Center"
+  },
+  {
+    "clave": "video.transicion.disolver",
+    "es": "Disolver",
+    "en": "Dissolve"
+  },
+  {
+    "clave": "video.transicion.deslizar",
+    "es": "Deslizar",
+    "en": "Slide"
+  },
+  {
+    "clave": "video.transicion.barrido",
+    "es": "Barrido",
+    "en": "Wipe"
+  },
+  {
+    "clave": "video.transicion.zoom",
+    "es": "Zoom",
+    "en": "Zoom"
+  },
+  {
+    "clave": "video.transicion.desenfoque",
+    "es": "Desenfoque",
+    "en": "Blur"
+  },
+  {
+    "clave": "video.direccion.izq",
+    "es": "Izquierda",
+    "en": "Left"
+  },
+  {
+    "clave": "video.direccion.der",
+    "es": "Derecha",
+    "en": "Right"
+  },
+  {
+    "clave": "video.subtitulos.generar",
+    "es": "Generar subtítulos",
+    "en": "Generate captions"
+  },
+  {
+    "clave": "video.subtitulos.generarTodos",
+    "es": "Generar subtítulos de todas las narraciones",
+    "en": "Generate captions for every voice-over"
+  },
+  {
+    "clave": "video.subtitulos.generado",
+    "es": "Subtítulo generado desde la narración: se rehace al volver a generar.",
+    "en": "Caption generated from the voice-over: it is rebuilt when you generate again."
+  },
+  {
+    "clave": "video.guion.vacio",
+    "es": "El guion está vacío",
+    "en": "The script is empty"
+  },
+  {
+    "clave": "video.guion.tirador",
+    "en": "Script · {n} clips"
+  },
+  {
+    "clave": "video.aviso.noCabe",
+    "es": "No cabe aquí: el clip se puso al final de la pista",
+    "en": "No room here: the clip went to the end of the track"
+  },
+  {
+    "clave": "video.aviso.dividir",
+    "es": "Coloca el cursor dentro del clip para dividirlo",
+    "en": "Place the playhead inside the clip to split it"
+  },
+  {
+    "clave": "video.lateral.medios",
+    "es": "Medios",
+    "en": "Media"
+  },
+  {
+    "clave": "video.lateral.editor",
+    "es": "Editor",
+    "en": "Editor"
+  },
+  {
+    "clave": "video.lateral.abrirMedios",
+    "es": "Mostrar los medios",
+    "en": "Show media"
+  },
+  {
+    "clave": "video.lateral.plegarMedios",
+    "es": "Plegar los medios",
+    "en": "Collapse media"
+  },
+  {
+    "clave": "video.lateral.abrirEditor",
+    "es": "Mostrar el editor del clip",
+    "en": "Show the clip editor"
+  },
+  {
+    "clave": "video.lateral.plegarEditor",
+    "es": "Plegar el editor",
+    "en": "Collapse the editor"
+  },
+  {
+    "clave": "video.lateral.ayuda",
+    "es": "Toca para añadir en el cursor; arrastra a una pista",
+    "en": "Tap to add at the playhead; drag onto a track"
+  },
+  {
+    "clave": "video.lateral.sueltaAqui",
+    "es": "Suelta aquí: {pista}",
+    "en": "Drop here: {pista}"
+  },
+  {
+    "clave": "video.medios.anadirCursor",
+    "es": "Añadir «{n}» en el cursor",
+    "en": "Add «{n}» at the playhead"
+  },
+  {
+    "clave": "video.barra.medios",
+    "es": "Medios",
+    "en": "Media"
+  },
+  {
+    "clave": "video.barra.editor",
+    "es": "Editor del clip",
+    "en": "Clip editor"
+  },
+  {
+    "clave": "video.lateral.studio",
+    "es": "Studio",
+    "en": "Studio"
+  },
+  {
+    "clave": "video.studio.audio",
+    "es": "Audio",
+    "en": "Audio"
+  },
+  {
+    "clave": "video.studio.arte",
+    "es": "Arte",
+    "en": "Art"
+  },
+  {
+    "clave": "video.studio.escritura",
+    "es": "Escritura",
+    "en": "Writing"
+  },
+  {
+    "clave": "video.studio.vacio",
+    "es": "Aún no hay nada en esta app",
+    "en": "Nothing in this app yet"
+  },
+  {
+    "clave": "video.studio.trayendo",
+    "es": "Trayendo «{n}»…",
+    "en": "Bringing «{n}»…"
+  },
+  {
+    "clave": "video.studio.noDisponible",
+    "es": "Ese recurso ya no está disponible",
+    "en": "That resource is no longer available"
+  },
+  {
+    "clave": "video.grabar.boton",
+    "es": "Grabar dentro de la app",
+    "en": "Record inside the app"
+  },
+  {
+    "clave": "video.grabar.titulo",
+    "es": "Grabar dentro de la app: ve a la casa, haz lo que quieras y vuelve con la toma como clip",
+    "en": "Record inside the app: go to the house, do anything, and come back with the take as a clip"
+  },
+  {
+    "clave": "video.grabar.detener",
+    "es": "Detener",
+    "en": "Stop"
+  },
+  {
+    "clave": "video.grabar.descartar",
+    "es": "Descartar la toma",
+    "en": "Discard the take"
+  },
+  {
+    "clave": "video.grabar.guardando",
+    "es": "Guardando…",
+    "en": "Saving…"
+  },
+  {
+    "clave": "video.grabar.estado",
+    "es": "Grabando la app",
+    "en": "Recording the app"
+  },
+  {
+    "clave": "video.grabar.pista",
+    "es": "Haz lo que quieras en la app; al detener vuelves al Studio con la toma como clip",
+    "en": "Do anything in the app; when you stop you’ll be back in the Studio with the take as a clip"
+  },
+  {
+    "clave": "video.grabar.nombreMedio",
+    "es": "Grabación de la app · {h}",
+    "en": "App recording · {h}"
+  },
+  {
+    "clave": "video.narradores.titulo",
+    "es": "Voces",
+    "en": "Voices"
+  },
+  {
+    "clave": "video.narradores.enOff",
+    "es": "Narrador",
+    "en": "Narrator"
+  },
+  {
+    "clave": "video.narradores.anadir",
+    "es": "Añadir una voz",
+    "en": "Add a voice"
+  },
+  {
+    "clave": "video.narradores.editar",
+    "es": "Editar las voces",
+    "en": "Edit the voices"
+  },
+  {
+    "clave": "video.narradores.quienHabla",
+    "es": "Quién habla",
+    "en": "Who speaks"
+  },
+  {
+    "clave": "video.narradores.sinPersonaje",
+    "es": "Sin personaje (voz en off)",
+    "en": "No character (voice-over)"
+  },
+  {
+    "clave": "video.narradores.conPersonaje",
+    "es": "O un personaje:",
+    "en": "Or a character:"
+  },
+  {
+    "clave": "video.narradores.nombre",
+    "es": "Nombre de la voz",
+    "en": "Voice name"
+  },
+  {
+    "clave": "video.narradores.quitar",
+    "es": "Quitar esta voz",
+    "en": "Remove this voice"
+  },
+  {
+    "clave": "video.narradores.vozDe",
+    "es": "Voz de {n}",
+    "en": "Voice of {n}"
+  },
+  {
+    "clave": "video.narradores.vacio",
+    "es": "Aún no hay voces: define quién narra, con personaje o sin él.",
+    "en": "No voices yet: define who narrates, with or without a character."
+  },
+  {
+    "clave": "video.narradores.sinIA",
+    "en": "Turn on an AI voice in the AI panel to pick voices."
+  },
+  {
+    "clave": "video.narradores.nota",
+    "es": "Con personaje, aparece en pantalla mientras habla; sin él, es voz en off.",
+    "en": "With a character, it appears on screen while it speaks; without one, it’s a voice-over."
+  },
+  {
+    "clave": "video.lineas.titulo",
+    "es": "Narración",
+    "en": "Narration"
+  },
+  {
+    "clave": "video.lineas.escucharTodo",
+    "es": "Escuchar el guion",
+    "en": "Listen to the script"
+  },
+  {
+    "clave": "video.lineas.escuchar",
+    "es": "Escuchar esta línea",
+    "en": "Listen to this line"
+  },
+  {
+    "clave": "video.lineas.parar",
+    "es": "Parar",
+    "en": "Stop"
+  },
+  {
+    "clave": "video.lineas.vacio",
+    "es": "Aún no hay narración: escribe lo que se dice en un clip de voz o de avatar.",
+    "en": "No narration yet: write what is said in a voice or avatar clip."
+  },
+  {
+    "clave": "video.lineas.nota",
+    "es": "Las líneas sin audio se leen con su voz",
+    "en": "Lines with no audio are read with their voice"
+  },
+  {
+    "clave": "video.lineas.fallo",
+    "es": "No se pudo leer la línea",
+    "en": "The line could not be read"
+  },
+  {
+    "clave": "video.narradores.sinVoces",
+    "es": "Este dispositivo no tiene voces: activa una voz IA en el panel de IA.",
+    "en": "This device has no voices: turn on an AI voice in the AI panel."
+  },
+  {
+    "clave": "video.voz.grupoIA",
+    "es": "Voz IA (créditos)",
+    "en": "AI voice (credits)"
+  },
+  {
+    "clave": "video.voz.grupoDispositivo",
+    "es": "Voz del dispositivo (gratis)",
+    "en": "Device voice (free)"
+  },
+  {
+    "clave": "video.voz.automatica",
+    "es": "Automática (idioma de la app)",
+    "en": "Automatic (app language)"
+  },
+  {
+    "clave": "video.voz.narrarGratis",
+    "es": "Narrar (gratis)",
+    "en": "Narrate (free)"
+  },
+  {
+    "clave": "video.voz.enVivo",
+    "es": "La voz del dispositivo suena en la vista previa, pero no queda en el archivo exportado: para exportar con voz, usa una voz IA, graba con el micrófono o elige un audio.",
+    "en": "The device voice plays in the preview but isn’t saved into the exported file: to export with voice, use an AI voice, record with the microphone or pick an audio."
+  },
+  {
+    "clave": "video.export.sinAudio",
+    "es": "Narraciones sin audio",
+    "en": "Narrations without audio"
+  },
+  {
+    "clave": "video.export.sinAudioMsg",
+    "es": "{n} líneas del guion no tienen audio generado y no sonarán en el archivo. ¿Exportar igual?",
+    "en": "{n} script lines have no generated audio and won’t be heard in the file. Export anyway?"
+  },
+  {
+    "clave": "audio.recursos.canciones",
+    "es": "Canciones",
+    "en": "Songs"
+  },
+  {
+    "clave": "audio.recursos.grabaciones",
+    "es": "Grabaciones",
+    "en": "Recordings"
+  },
+  {
+    "clave": "audio.recursos.musica",
+    "es": "Tu música",
+    "en": "Your music"
+  },
+  {
+    "clave": "escritura.recursos.palabras",
+    "es": "palabras",
+    "en": "words"
+  },
+  {
+    "clave": "ia.op.video.guion",
+    "en": "Generate or redo the script from a description"
+  },
+  {
+    "clave": "ia.op.video.narracion",
+    "en": "AI voice narration (per scene)"
+  },
+  {
+    "clave": "ia.op.video.fondo",
+    "en": "Scene background with AI image"
+  },
+  {
+    "clave": "ia.op.video.titulos",
+    "en": "Improve the titles of all scenes"
+  },
+  {
+    "clave": "ia.donde.video.editor",
+    "en": "Video editor · ✨ button"
+  },
+  {
+    "clave": "ia.donde.video.escena",
+    "en": "Video editor · Scene panel"
+  }
+]

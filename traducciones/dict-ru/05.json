@@ -1,367 +1,638 @@
 [
   {
-    "clave": "ejercicio.rutDesc.push-pecho-y-triceps",
-    "en": "Bench press, military press, dips, extensions."
+    "clave": "video.medios.enUsoMsg",
+    "es": "Aparece en {n} proyecto(s); esas escenas quedarán sin él.",
+    "en": "It appears in {n} project(s); those scenes will lose it."
   },
   {
-    "clave": "ejercicio.rutDesc.pull-espalda-y-biceps",
-    "en": "Pull-ups, rows, curls. Progressive overload."
+    "clave": "video.medios.grande",
+    "es": "Archivo demasiado grande",
+    "en": "File too large"
   },
   {
-    "clave": "ejercicio.rutDesc.legs-pierna-completa",
-    "en": "Squats, Romanian deadlifts, lunges."
+    "clave": "video.medios.grandeMsg",
+    "es": "El tope es {n} MB.",
+    "en": "The limit is {n} MB."
   },
   {
-    "clave": "ejercicio.rutDesc.hiit-20-min",
-    "en": "40s work / 20s rest intervals."
+    "clave": "video.medios.pesado",
+    "es": "Archivo pesado",
+    "en": "Heavy file"
   },
   {
-    "clave": "ejercicio.rutDesc.carrera-continua",
-    "en": "Moderate pace, zone 2-3."
+    "clave": "video.medios.pesadoMsg",
+    "es": "Pesa {n} MB y se guarda en este dispositivo. ¿Importarlo?",
+    "en": "It weighs {n} MB and is stored on this device. Import it?"
   },
   {
-    "clave": "ejercicio.rutDesc.caminata-inclinada",
-    "en": "Low impact, steady burn."
+    "clave": "video.medios.noDisponible",
+    "es": "Medio no disponible en este dispositivo",
+    "en": "Medium not available on this device"
   },
   {
-    "clave": "ejercicio.rutDesc.bike-tempo",
-    "en": "Steady-pace bike ride."
+    "clave": "video.editor.volver",
+    "es": "Volver",
+    "en": "Back"
   },
   {
-    "clave": "ejercicio.rutDesc.triatlon-sprint",
-    "en": "Swim, bike, and run linked together, each leg at its own pace."
+    "clave": "video.editor.cargando",
+    "es": "Cargando el proyecto",
+    "en": "Loading the project"
   },
   {
-    "clave": "ejercicio.rutDesc.movilidad-matutina",
-    "en": "Wake up joints and spine."
+    "clave": "video.preview.play",
+    "es": "Reproducir",
+    "en": "Play"
   },
   {
-    "clave": "ejercicio.rutDesc.yoga-flow",
-    "en": "Gentle vinyasa sequence."
+    "clave": "video.preview.pausa",
+    "es": "Pausar",
+    "en": "Pause"
   },
   {
-    "clave": "ejercicio.rutDesc.cadera-y-piernas",
-    "en": "Hip and hamstring opener."
+    "clave": "video.timeline.vacia",
+    "en": "Add a scene to get started"
   },
   {
-    "clave": "ejercicio.rutDesc.estiramiento-post-entreno",
-    "en": "Cooldown and recovery."
+    "clave": "video.timeline.asaDur",
+    "en": "Scene duration"
   },
   {
-    "clave": "ejercicio.rutDesc.espalda-y-hombros",
-    "en": "Relief for back and shoulders."
+    "clave": "video.timeline.asaDesde",
+    "en": "Clip in-point"
   },
   {
-    "clave": "ejercicio.rutDesc.cuello-y-oficina",
-    "en": "Active break for neck and spine."
+    "clave": "video.guion.titulo",
+    "es": "Guion",
+    "en": "Script"
   },
   {
-    "clave": "ejercicio.rutDesc.antes-de-dormir",
-    "en": "Restorative relaxation to help you fall asleep."
+    "clave": "video.guion.desdeMedio",
+    "es": "Clip o imagen",
+    "en": "Clip or image"
   },
   {
-    "clave": "cal.logros",
-    "es": "Logros",
-    "en": "Achievements"
+    "clave": "video.guion.color",
+    "es": "Color",
+    "en": "Color"
   },
   {
-    "clave": "cal.logros.vacio",
-    "es": "Todavía no has cumplido nada hoy.",
-    "en": "Nothing completed yet today."
+    "clave": "video.guion.subir",
+    "es": "Subir",
+    "en": "Move up"
   },
   {
-    "clave": "cal.objetivos",
-    "es": "Misiones",
-    "en": "Missions"
+    "clave": "video.guion.bajar",
+    "es": "Bajar",
+    "en": "Move down"
   },
   {
-    "clave": "cal.objetivo.nuevo",
-    "es": "Misión",
-    "en": "Mission"
+    "clave": "video.guion.duplicar",
+    "es": "Duplicar",
+    "en": "Duplicate"
   },
   {
-    "clave": "cal.irApp",
-    "es": "Ir a la app a registrarlo",
-    "en": "Log it in the app"
+    "clave": "video.escena.borrar",
+    "es": "Borrar la escena",
+    "en": "Delete the scene"
   },
   {
-    "clave": "chat.vistaCal.objetivos",
-    "en": "Missions"
+    "clave": "video.escena.elige",
+    "en": "Tap a scene in the script or the timeline to edit it."
   },
   {
-    "clave": "chat.vistaCal.dia",
-    "en": "Today's agenda"
+    "clave": "video.escena.duracion",
+    "es": "Duración (s)",
+    "en": "Duration (s)"
   },
   {
-    "clave": "chat.vistaCal.semana",
-    "en": "Week"
+    "clave": "video.escena.transicion",
+    "es": "Transición de entrada",
+    "en": "Intro transition"
   },
   {
-    "clave": "chat.vistaCal.mes",
-    "en": "Month"
+    "clave": "video.escena.corte",
+    "es": "Corte",
+    "en": "Cut"
   },
   {
-    "clave": "chat.vistaCal.anio",
-    "en": "Year"
+    "clave": "video.escena.fundido",
+    "es": "Fundido",
+    "en": "Fade"
   },
   {
-    "clave": "chat.vistaCal.calendario",
-    "en": "Calendar"
+    "clave": "video.escena.volumen",
+    "es": "Volumen del clip",
+    "en": "Clip volume"
   },
   {
-    "clave": "room.agenda.cmd.trabajo",
-    "en": "Work"
+    "clave": "video.escena.filtro",
+    "es": "Filtro",
+    "en": "Filter"
   },
   {
-    "clave": "room.agenda.cmd.salud",
-    "en": "Health"
+    "clave": "video.escena.fondo",
+    "es": "Fondo",
+    "en": "Background"
   },
   {
-    "clave": "room.agenda.cmd.personas",
-    "en": "People"
+    "clave": "video.escena.elegirMedio",
+    "es": "Clip o imagen",
+    "en": "Clip or image"
   },
   {
-    "clave": "room.anecdotario.cmd.anecdotas",
-    "en": "Journal"
+    "clave": "video.escena.fondoColor",
+    "es": "Fondo de color",
+    "en": "Color background"
   },
   {
-    "clave": "room.biblioteca.cmd.charlas",
-    "en": "Chats"
+    "clave": "video.escena.fondoIaPh",
+    "es": "Fondo con IA: un atardecer en la playa…",
+    "en": "AI background: a sunset at the beach…"
   },
   {
-    "clave": "room.biblioteca.cmd.enciclopedia",
-    "en": "Encyclopedia"
+    "clave": "video.escena.texto",
+    "es": "Texto en pantalla",
+    "en": "On-screen text"
   },
   {
-    "clave": "room.biblioteca.cmd.estudio",
-    "en": "Study"
+    "clave": "video.escena.textoPh",
+    "es": "Un título breve…",
+    "en": "A short title…"
   },
   {
-    "clave": "room.biblioteca.cmd.resumen",
-    "en": "Overview"
+    "clave": "video.escena.arriba",
+    "es": "Arriba",
+    "en": "Top"
   },
   {
-    "clave": "room.cocina.cmd.metas",
-    "en": "Goals"
+    "clave": "video.escena.centro",
+    "es": "Centro",
+    "en": "Center"
   },
   {
-    "clave": "room.cocina.cmd.diario",
-    "en": "Log"
+    "clave": "video.escena.abajo",
+    "es": "Abajo",
+    "en": "Bottom"
   },
   {
-    "clave": "room.cocina.cmd.progreso",
-    "en": "Progress"
+    "clave": "video.escena.colorTexto",
+    "es": "Color del texto",
+    "en": "Text color"
   },
   {
-    "clave": "room.cocina.cmd.plan",
-    "en": "Diet"
+    "clave": "video.escena.narracionTitulo",
+    "es": "Narración",
+    "en": "Narration"
   },
   {
-    "clave": "room.cocina.cmd.recetas",
-    "en": "Recipes"
+    "clave": "video.escena.narracion",
+    "es": "Narración",
+    "en": "Narration"
   },
   {
-    "clave": "room.cocina.cmd.compras",
-    "en": "Groceries"
+    "clave": "video.escena.narracionPh",
+    "es": "Lo que la voz dirá en esta escena…",
+    "en": "What the voice will say in this scene…"
   },
   {
-    "clave": "room.computo.cmd.formulario",
-    "en": "Formulas"
+    "clave": "video.escena.narrarIA",
+    "es": "Narrar con IA",
+    "en": "Narrate with AI"
   },
   {
-    "clave": "room.computo.cmd.calculadora",
-    "en": "Calculator"
+    "clave": "video.escena.elegirAudio",
+    "es": "Elegir audio",
+    "en": "Pick audio"
   },
   {
-    "clave": "room.computo.cmd.grafica",
-    "en": "Grapher"
+    "clave": "video.escena.quitar",
+    "es": "Quitar",
+    "en": "Remove"
   },
   {
-    "clave": "room.computo.cmd.ecuacion",
-    "en": "Equation solver"
+    "clave": "video.escena.narracionLarga",
+    "en": "The narration doesn’t fit"
   },
   {
-    "clave": "room.computo.cmd.hojas",
-    "en": "Spreadsheets"
+    "clave": "video.escena.narracionLargaMsg",
+    "en": "It lasts {n} s. Lengthen the scene so it fits?"
   },
   {
-    "clave": "room.computo.cmd.bases",
-    "en": "Bases (binary & hex)"
+    "clave": "video.filtro.ninguno",
+    "es": "Sin filtro",
+    "en": "No filter"
   },
   {
-    "clave": "room.computo.cmd.matrices",
-    "en": "Matrices"
+    "clave": "video.filtro.bn",
+    "es": "B/N",
+    "en": "B&W"
   },
   {
-    "clave": "room.computo.cmd.sistemas",
-    "en": "Equation systems"
+    "clave": "video.filtro.sepia",
+    "es": "Sepia",
+    "en": "Sepia"
   },
   {
-    "clave": "room.computo.cmd.unidades",
-    "en": "Unit conversion"
+    "clave": "video.filtro.calido",
+    "es": "Cálido",
+    "en": "Warm"
   },
   {
-    "clave": "room.computo.cmd.propina",
-    "en": "Tip calculator"
+    "clave": "video.filtro.frio",
+    "es": "Frío",
+    "en": "Cool"
   },
   {
-    "clave": "room.computo.cmd.regla3",
-    "en": "Rule of three"
+    "clave": "video.filtro.oscuro",
+    "es": "Oscuro",
+    "en": "Dark"
   },
   {
-    "clave": "room.descanso.cmd.sueno",
-    "en": "Sleep"
+    "clave": "video.musica.boton",
+    "en": "Music"
   },
   {
-    "clave": "room.despacho.cmd.balance",
-    "en": "Cash flow"
+    "clave": "video.musica.titulo",
+    "en": "Background music"
   },
   {
-    "clave": "room.despacho.cmd.patrimonio",
-    "en": "Net worth"
+    "clave": "video.musica.volumen",
+    "es": "Volumen",
+    "en": "Volume"
   },
   {
-    "clave": "room.despacho.cmd.gastos",
-    "en": "Expenses"
+    "clave": "video.musica.elegir",
+    "en": "Pick an imported audio"
   },
   {
-    "clave": "room.despacho.cmd.ingresos",
-    "en": "Income"
+    "clave": "video.export.boton",
+    "es": "Exportar",
+    "en": "Export"
   },
   {
-    "clave": "room.despacho.cmd.metas",
-    "en": "Savings & investing"
+    "clave": "video.export.titulo",
+    "es": "Exportando video",
+    "en": "Exporting video"
   },
   {
-    "clave": "room.despacho.cmd.financieras",
-    "en": "Financial calculators"
+    "clave": "video.export.nota",
+    "es": "El export dura lo que dura el video: no bloquees la pantalla ni cambies de app.",
+    "en": "The export takes as long as the video: don’t lock the screen or switch apps."
   },
   {
-    "clave": "room.despacho.cmd.deuda",
-    "en": "Debt goals"
+    "clave": "video.export.cancelar",
+    "es": "Cancelar",
+    "en": "Cancel"
   },
   {
-    "clave": "room.despacho.cmd.simuladores",
-    "en": "Simulators"
+    "clave": "video.export.sinSoporte",
+    "es": "Este navegador no puede grabar video",
+    "en": "This browser can’t record video"
   },
   {
-    "clave": "room.despacho.cmd.simulacion",
-    "en": "Net worth forecast"
+    "clave": "video.export.sinSoporteMsg",
+    "es": "Prueba en Chrome o en la app de escritorio.",
+    "en": "Try Chrome or the desktop app."
   },
   {
-    "clave": "room.despacho.cmd.divisas",
-    "en": "Forex"
+    "clave": "video.export.largo",
+    "es": "Export largo",
+    "en": "Long export"
   },
   {
-    "clave": "room.despacho.cmd.criptos",
-    "en": "Crypto"
+    "clave": "video.export.largoMsg",
+    "es": "El export dura lo que dura el video ({m} min). ¿Seguir?",
+    "en": "The export takes as long as the video ({m} min). Continue?"
   },
   {
-    "clave": "room.despacho.cmd.acciones",
-    "en": "Stocks"
+    "clave": "video.export.fallo",
+    "es": "El export falló",
+    "en": "The export failed"
   },
   {
-    "clave": "room.despacho.cmd.commodities",
-    "en": "Commodities"
+    "clave": "video.publicar.boton",
+    "es": "Publicar",
+    "en": "Publish"
   },
   {
-    "clave": "room.diario.cmd.titulares",
-    "en": "Headlines"
+    "clave": "video.publicar.campo.caption",
+    "es": "Texto de la publicación",
+    "en": "Caption"
   },
   {
-    "clave": "room.diario.cmd.efemerides",
-    "en": "On this day"
+    "clave": "video.publicar.campo.descripcion",
+    "es": "Descripción",
+    "en": "Description"
   },
   {
-    "clave": "room.ejercicio.cmd.metas",
-    "en": "Goals"
+    "clave": "video.publicar.campo.largo",
+    "es": "Demasiado largo: máximo {max} caracteres.",
+    "en": "Too long: {max} characters max."
   },
   {
-    "clave": "room.ejercicio.cmd.fuerza",
-    "en": "Strength"
+    "clave": "video.publicar.campo.obligatorio",
+    "es": "El título es obligatorio.",
+    "en": "The title is required."
   },
   {
-    "clave": "room.ejercicio.cmd.resistencia",
-    "en": "Endurance"
+    "clave": "video.publicar.campo.titulo",
+    "es": "Título",
+    "en": "Title"
   },
   {
-    "clave": "room.ejercicio.cmd.flexibilidad",
-    "en": "Flexibility"
+    "clave": "video.publicar.cuenta.caducado",
+    "es": "El acceso caducó: vuelve a conectar la cuenta.",
+    "en": "Access expired: connect the account again."
   },
   {
-    "clave": "room.entretenimiento.cmd.archivo",
-    "en": "Archive"
+    "clave": "video.publicar.cuenta.cancelar",
+    "es": "Cancelar",
+    "en": "Cancel"
   },
   {
-    "clave": "room.entretenimiento.cmd.mesa",
-    "en": "Board games"
+    "clave": "video.publicar.cuenta.cargando",
+    "es": "Buscando tus cuentas…",
+    "en": "Looking for your accounts…"
   },
   {
-    "clave": "room.garage.cmd.resumen",
-    "en": "Overview"
+    "clave": "video.publicar.cuenta.conectar",
+    "es": "Conectar {red}",
+    "en": "Connect {red}"
   },
   {
-    "clave": "room.garage.cmd.vehiculos",
-    "en": "Vehicles"
+    "clave": "video.publicar.cuenta.configuracion",
+    "es": "Esta red aún no está configurada en el servidor.",
+    "en": "This network isn’t set up on the server yet."
   },
   {
-    "clave": "room.hobbies.cmd.hobbies",
-    "en": "Hobbies"
+    "clave": "video.publicar.cuenta.denegado",
+    "es": "No diste permiso a la app en {red}.",
+    "en": "You didn’t grant the app access on {red}."
   },
   {
-    "clave": "room.ideas.cmd.diario",
-    "en": "Idea journal"
+    "clave": "video.publicar.cuenta.desconectar",
+    "es": "Desconectar",
+    "en": "Disconnect"
   },
   {
-    "clave": "room.ideas.cmd.mapas",
-    "en": "Maps"
+    "clave": "video.publicar.cuenta.desconectarMsg",
+    "es": "¿Quitar el acceso de esta app a tu cuenta de {red}? Podrás conectarla de nuevo cuando quieras.",
+    "en": "Remove this app’s access to your {red} account? You can connect it again any time."
   },
   {
-    "clave": "room.ideas.cmd.diagramas",
-    "en": "Diagrams"
+    "clave": "video.publicar.cuenta.error",
+    "es": "No se pudo conectar la cuenta: {e}",
+    "en": "The account couldn’t be connected: {e}"
   },
   {
-    "clave": "room.idiomas.cmd.charlas",
-    "en": "Tutor"
+    "clave": "video.publicar.cuenta.esperando",
+    "es": "Esperando a que vuelvas de {red}…",
+    "en": "Waiting for you to come back from {red}…"
   },
   {
-    "clave": "room.idiomas.cmd.repaso",
-    "en": "Review"
+    "clave": "video.publicar.cuenta.ninguna",
+    "es": "Aún no has conectado {red}.",
+    "en": "You haven’t connected {red} yet."
   },
   {
-    "clave": "room.idiomas.cmd.temario",
-    "en": "Syllabus"
+    "clave": "video.publicar.cuenta.permisos",
+    "es": "Falta el permiso para publicar: vuelve a conectar y acepta todos los permisos.",
+    "en": "The publishing permission is missing: connect again and accept every permission."
   },
   {
-    "clave": "room.idiomas.cmd.progreso",
-    "en": "Progress"
+    "clave": "video.publicar.cuenta.publicaComo",
+    "es": "Se publicará como {nombre}",
+    "en": "It will be published as {nombre}"
   },
   {
-    "clave": "room.jardin.cmd.meditacion",
-    "en": "Meditation"
+    "clave": "video.publicar.cuenta.reconectar",
+    "es": "Reconectar {red}",
+    "en": "Reconnect {red}"
   },
   {
-    "clave": "room.jardin.cmd.respiracion",
-    "en": "Breathing"
+    "clave": "video.publicar.cuenta.reconectarCorto",
+    "es": "Reconectar",
+    "en": "Reconnect"
   },
   {
-    "clave": "room.jardin.cmd.gratitud",
-    "en": "Gratitude"
+    "clave": "video.publicar.cuentas.conectadaComo",
+    "es": "{nombre} · {destino}",
+    "en": "{nombre} · {destino}"
   },
   {
-    "clave": "room.sala.cmd.mapa",
-    "en": "World map"
+    "clave": "video.publicar.cuentas.noConectada",
+    "es": "No conectada",
+    "en": "Not connected"
   },
   {
-    "clave": "room.sala.cmd.porConocer",
-    "en": "Itinerary"
+    "clave": "video.publicar.cuentas.nota",
+    "es": "Solo se usan para publicar los videos del Studio cuando tú lo pides.",
+    "en": "They’re only used to publish Studio videos when you ask for it."
   },
   {
-    "clave": "room.sala.cmd.rutas",
-    "en": "Routes"
+    "clave": "video.publicar.cuentas.sinBackend",
+    "es": "Esta instalación no tiene backend: no se pueden conectar redes.",
+    "en": "This install has no backend: networks can’t be connected."
   },
   {
-    "clave": "room.sala.cmd.bitacora",
-    "en": "Journal"
+    "clave": "video.publicar.cuentas.sinSesion",
+    "es": "Inicia sesión en Cuenta para conectar tus redes.",
+    "en": "Sign in under Account to connect your networks."
+  },
+  {
+    "clave": "video.publicar.cuentas.titulo",
+    "es": "Cuentas conectadas",
+    "en": "Connected accounts"
+  },
+  {
+    "clave": "video.publicar.duracionTope",
+    "es": "El video dura {seg} s y {red} admite hasta {max} s.",
+    "en": "The video lasts {seg} s and {red} allows up to {max} s."
+  },
+  {
+    "clave": "video.publicar.fase.exportando",
+    "es": "Exportando",
+    "en": "Exporting"
+  },
+  {
+    "clave": "video.publicar.fase.publicando",
+    "es": "Publicando",
+    "en": "Publishing"
+  },
+  {
+    "clave": "video.publicar.fase.subiendo",
+    "es": "Subiendo",
+    "en": "Uploading"
+  },
+  {
+    "clave": "video.publicar.fb.modoDesarrollo",
+    "es": "La app de Meta aún está en revisión: solo pueden publicar las cuentas de prueba registradas en ella.",
+    "en": "The Meta app is still under review: only the test accounts registered in it can publish."
+  },
+  {
+    "clave": "video.publicar.fb.pagina",
+    "es": "Página",
+    "en": "Page"
+  },
+  {
+    "clave": "video.publicar.fb.reel",
+    "es": "Se publicará como Reel (formato 9:16).",
+    "en": "It will be published as a Reel (9:16)."
+  },
+  {
+    "clave": "video.publicar.fb.sinPaginas",
+    "es": "Tu cuenta no administra ninguna Página. Facebook solo permite publicar videos en Páginas, no en perfiles personales.",
+    "en": "Your account doesn’t manage any Page. Facebook only allows publishing videos to Pages, not to personal profiles."
+  },
+  {
+    "clave": "video.publicar.fb.video",
+    "es": "Se publicará como video normal (formato 16:9).",
+    "en": "It will be published as a regular video (16:9)."
+  },
+  {
+    "clave": "video.publicar.historial",
+    "es": "Ya publicado en {red} el {f}",
+    "en": "Already published on {red} on {f}"
+  },
+  {
+    "clave": "video.publicar.historial.ver",
+    "es": "Ver",
+    "en": "View"
+  },
+  {
+    "clave": "video.publicar.ig.cuenta",
+    "es": "Cuenta",
+    "en": "Account"
+  },
+  {
+    "clave": "video.publicar.ig.reel",
+    "es": "Se publicará como Reel.",
+    "en": "It will be published as a Reel."
+  },
+  {
+    "clave": "video.publicar.ig.requisitos",
+    "es": "Instagram necesita una cuenta profesional vinculada a una Página de Facebook, video 9:16 y archivo MP4.",
+    "en": "Instagram needs a professional account linked to a Facebook Page, a 9:16 video and an MP4 file."
+  },
+  {
+    "clave": "video.publicar.ig.sinCuentas",
+    "es": "No hay ninguna cuenta profesional de Instagram vinculada a tus Páginas.",
+    "en": "There’s no professional Instagram account linked to your Pages."
+  },
+  {
+    "clave": "video.publicar.insignia",
+    "es": "Publicado en {red} · {f}",
+    "en": "Published on {red} · {f}"
+  },
+  {
+    "clave": "video.publicar.menu.compartir",
+    "es": "Compartir con…",
+    "en": "Share with…"
+  },
+  {
+    "clave": "video.publicar.menu.conectado",
+    "es": "Conectado",
+    "en": "Connected"
+  },
+  {
+    "clave": "video.publicar.menu.conectar",
+    "es": "Conectar",
+    "en": "Connect"
+  },
+  {
+    "clave": "video.publicar.menu.descargar",
+    "es": "Descargar",
+    "en": "Download"
+  },
+  {
+    "clave": "video.publicar.menu.enCurso",
+    "es": "Hay una publicación en curso",
+    "en": "A publication is in progress"
+  },
+  {
+    "clave": "video.publicar.menu.sinBackend",
+    "es": "Publicar en redes necesita la cuenta en la nube; aquí puedes descargar o compartir el archivo.",
+    "en": "Publishing to networks needs the cloud account; here you can download or share the file."
+  },
+  {
+    "clave": "video.publicar.menu.sinMp4",
+    "es": "Necesita MP4: este dispositivo solo graba WebM",
+    "en": "Needs MP4: this device only records WebM"
+  },
+  {
+    "clave": "video.publicar.menu.sinSesion",
+    "es": "Inicia sesión en Configuraciones → Cuenta para conectar tus redes.",
+    "en": "Sign in under Settings → Account to connect your networks."
+  },
+  {
+    "clave": "video.publicar.menu.solo916",
+    "es": "Solo en formato 9:16",
+    "en": "Only in 9:16 format"
+  },
+  {
+    "clave": "video.publicar.menu.titulo",
+    "es": "Exportar o publicar",
+    "en": "Export or publish"
+  },
+  {
+    "clave": "video.publicar.menu.yaPublicado",
+    "es": "Ya publicado",
+    "en": "Already published"
+  },
+  {
+    "clave": "video.publicar.notif.error",
+    "es": "Falló la publicación en {red}",
+    "en": "Publishing on {red} failed"
+  },
+  {
+    "clave": "video.publicar.notif.titulo",
+    "es": "Publicado en {red}",
+    "en": "Published on {red}"
+  },
+  {
+    "clave": "video.publicar.previa.meta",
+    "es": "{seg} s · {aspecto} · {formato}",
+    "en": "{seg} s · {aspecto} · {formato}"
+  },
+  {
+    "clave": "video.publicar.previa.pendiente",
+    "es": "Se exportará al publicar (720p).",
+    "en": "It will be exported when you publish (720p)."
+  },
+  {
+    "clave": "video.publicar.privacidad",
+    "es": "Privacidad",
+    "en": "Privacy"
+  },
+  {
+    "clave": "video.publicar.privacidad.elegir",
+    "es": "Elige quién puede verlo.",
+    "en": "Choose who can see it."
+  },
+  {
+    "clave": "video.publicar.resultado.cerrar",
+    "es": "Listo",
+    "en": "Done"
+  },
+  {
+    "clave": "video.publicar.resultado.compartir",
+    "es": "Compartir enlace",
+    "en": "Share link"
+  },
+  {
+    "clave": "video.publicar.resultado.editar",
+    "es": "Editar datos",
+    "en": "Edit details"
+  },
+  {
+    "clave": "video.publicar.resultado.error",
+    "es": "No se pudo publicar en {red}",
+    "en": "Couldn’t publish on {red}"
+  },
+  {
+    "clave": "video.publicar.resultado.ok",
+    "es": "Publicado en {red}",
+    "en": "Published on {red}"
   }
 ]

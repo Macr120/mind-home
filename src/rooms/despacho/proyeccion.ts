@@ -15,7 +15,7 @@ import { sumarPeriodo } from './mes'
 const DIAS_MES = 30.4375
 
 /** Tope de la amortización, el mismo que el simulador de crédito: 50 años. */
-export const TOPE_MESES = 600
+const TOPE_MESES = 600
 
 /**
  * Un activo se revalúa con tasa EFECTIVA anual: quien escribe «mi casa sube 6 %
@@ -31,12 +31,12 @@ export const tasaMesActivo = (anual: number) => Math.pow(1 + Math.max(-99.9, anu
 export const tasaMesPasivo = (anual: number) => anual / 100 / 12
 
 /** Meses (con decimales) entre dos fechas ISO; negativo si `hasta` es anterior. */
-export function mesesEntre(desde: string, hasta: string): number {
+function mesesEntre(desde: string, hasta: string): number {
   return (deIso(hasta).getTime() - deIso(desde).getTime()) / (DIA_MS * DIAS_MES)
 }
 
 /** El día 1 del mes que queda a `delta` meses de `ancla`. */
-export const mesISO = (ancla: string, delta: number) => sumarPeriodo(`${ancla.slice(0, 7)}-01`, 'mes', delta)
+const mesISO = (ancla: string, delta: number) => sumarPeriodo(`${ancla.slice(0, 7)}-01`, 'mes', delta)
 
 // ----- Créditos -----
 
@@ -84,7 +84,7 @@ export function tablaAmortizacion(capital: number, iMes: number, pago: number, t
  * `capital`, pagando `pago` cada mes. Fórmula cerrada, así que acepta meses con
  * decimales y sirve igual para dibujar el pasado que para proyectar el futuro.
  */
-export function saldoTras(capital: number, iMes: number, pago: number, meses: number): number {
+function saldoTras(capital: number, iMes: number, pago: number, meses: number): number {
   if (iMes === 0) return Math.max(0, capital - pago * meses)
   const factor = Math.pow(1 + iMes, meses)
   return Math.max(0, capital * factor - (pago * (factor - 1)) / iMes)
@@ -189,7 +189,7 @@ export function valorEn(f: FilaProyectable, fecha: string): number {
 }
 
 /** Descuenta la inflación. NUNCA toca lo guardado: solo lo que se pinta. */
-export const aDineroDeHoy = (valor: number, inflacionAnual: number, meses: number) =>
+const aDineroDeHoy = (valor: number, inflacionAnual: number, meses: number) =>
   inflacionAnual === 0 ? valor : valor / Math.pow(1 + inflacionAnual / 100, meses / 12)
 
 /**
@@ -236,7 +236,7 @@ export interface FlujoMensual {
 }
 
 /** Lo que sobra el mes `k` (0 = el que viene), con los crecimientos aplicados. */
-export function flujoDelMes(f: FlujoMensual, k: number, pagosDeuda: number): number {
+function flujoDelMes(f: FlujoMensual, k: number, pagosDeuda: number): number {
   const gI = Math.pow(1 + f.crecIngresoAnual / 100, 1 / 12) - 1
   const gG = Math.pow(1 + f.crecGastoAnual / 100, 1 / 12) - 1
   const ingreso = f.ingresoMes * Math.pow(1 + gI, k)

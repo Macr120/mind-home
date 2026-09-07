@@ -145,7 +145,9 @@ export function ChatBox({
   const [medida, setMedida] = useState(0)
   // Barra del chat: publica su alto para que los prompts se apilen encima de ella.
   const refTope = useTopeHud('chat')
-  const entradas = bitacoraRepo.useAll()
+  // Solo se pintan las 15 más recientes: acotar la consulta al índice evita
+  // materializar la bitácora entera en cada mensaje enviado.
+  const entradas = bitacoraRepo.useAll({ limit: 15 })
   const memorias = memoriasRepo.useAll()
   const addRoomGround = useLayout((s) => s.addRoomGround)
   const placed = useLayout((s) => s.placed)
@@ -181,6 +183,8 @@ export function ChatBox({
   // medidor se refresca solo tras cada llamada (api.ts::refrescarMedidor).
   const usoIA = useSesion((s) => s.usoIA)
   const creditosExtra = useSesion((s) => s.creditosExtra)
+  // Tope -1 = cuenta ilimitada: no hay resta que hacer, el chip dice ∞.
+  const creditosIlimitados = !!usoIA && usoIA.limiteCreditos < 0
   const creditosRestantes =
     Math.max(0, usoIA ? usoIA.limiteCreditos - usoIA.creditos : 0) + creditosExtra
   const addObjeto = useDiseño((s) => s.addObjeto)
@@ -698,6 +702,11 @@ export function ChatBox({
     cerrarConversacion()
     setHiloOculto(true)
   }, [cerrarConversacion, setHiloOculto])
+  /** Cierra solo el hilo: estable para que `ChatConversacion` (memo) no se repinte por cada tecla. */
+  const cerrarHilo = useCallback(() => {
+    cerrarConversacion()
+    setHiloOculto(true)
+  }, [cerrarConversacion, setHiloOculto])
 
   /**
    * Tocar fuera del chat cierra sus paneles (y Escape hace lo mismo). El
@@ -758,14 +767,7 @@ export function ChatBox({
       }
     >
       {/* Conversación con el asistente (estilo WhatsApp): siempre sobre la barra */}
-      {hiloVisible && (
-        <ChatConversacion
-          onCerrar={() => {
-            cerrarConversacion()
-            setHiloOculto(true)
-          }}
-        />
-      )}
+      {hiloVisible && <ChatConversacion onCerrar={cerrarHilo} />}
 
       {/* Configuración de asistentes (crear, eliminar, personalizar, mapa) */}
       {configAbierto && (
@@ -1399,10 +1401,13 @@ export function ChatBox({
       </div>
       {/* Contador de créditos de IA, bajo la caja y a la derecha. Solo si la IA
           sale por créditos (no BYOK) y de verdad queda algo que gastar. */}
-      {usarViaCuenta() && creditosRestantes > 0 && (
+      {usarViaCuenta() && (creditosIlimitados || creditosRestantes > 0) && (
         <div className="mt-1 flex justify-end">
           <span className="ui-panel-glass rounded-lg border border-white/10 px-2 py-0.5 text-[10px] font-semibold text-white/50 shadow-xl backdrop-blur-md">
-            <Icono nombre="brillo" /> {t('chat.creditos', 'Créditos: {n}', { n: creditosRestantes })}
+            <Icono nombre="brillo" />{' '}
+            {t('chat.creditos', 'Créditos: {n}', {
+              n: creditosIlimitados ? '∞' : creditosRestantes,
+            })}
           </span>
         </div>
       )}

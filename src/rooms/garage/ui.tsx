@@ -15,7 +15,7 @@ import { BotonPrimario as BotonPrimarioBase, BotonSecundario } from '../_shared/
  */
 export const TINTA_CTA = '#1c1503'
 
-export { INPUT, Campo, BotonSecundario, BotonBorrar, TituloSeccion as Cabecera } from '../_shared/ui'
+export { INPUT, Campo, BotonBorrar, TituloSeccion as Cabecera } from '../_shared/ui'
 
 /** Tarjeta del canon SIN el padding: aquí cada tarjeta pone el suyo (p-4 en
     formularios, p-6 en vacíos) y el p-4 del kit chocaría con esos p-*. */

@@ -11,7 +11,7 @@ import { PLATAFORMAS, type MotivoVuelta, type Plataforma } from './tipos'
 const PREFIJO = 'com.macr120.mindhome://redes'
 
 /** ¿Es nuestra vuelta? Mismo criterio que el login: el host EXACTO seguido de separador o fin. */
-export function esRetornoRedes(url: string): boolean {
+function esRetornoRedes(url: string): boolean {
   if (!url.startsWith(PREFIJO)) return false
   const resto = url.slice(PREFIJO.length)
   return resto === '' || '?#/'.includes(resto[0])
