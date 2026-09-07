@@ -30,7 +30,7 @@ import { corsDe, json, origenPermitido, preflight } from '../_shared/cors.ts'
 import { dentroDeLimite } from '../_shared/limite.ts'
 import { ErrorRedes, respuestaError } from '../_shared/redes/errores.ts'
 import { canjearGoogle, perfilGoogle, revocarGoogle, urlAutorizacionGoogle } from '../_shared/redes/google.ts'
-import { canjearMeta, paginasMeta, urlAutorizacionMeta, type PaginaMeta } from '../_shared/redes/meta.ts'
+import { canjearMeta, paginaMetaPorId, paginasMeta, urlAutorizacionMeta, type PaginaMeta } from '../_shared/redes/meta.ts'
 import { esPlataforma, proveedorDe, type Plataforma, type Proveedor } from '../_shared/redes/plataformas.ts'
 import { firmarState, idAleatorio, retoPkceTikTok, verificarState } from '../_shared/redes/state.ts'
 import { canjearTikTok, perfilTikTok, revocarTikTok, urlAutorizacionTikTok } from '../_shared/redes/tiktok.ts'
@@ -212,7 +212,26 @@ async function conectarTikTok(admin: SupabaseClient, uid: string, code: string, 
 async function conectarMeta(admin: SupabaseClient, uid: string, code: string, redirect: string, pedida: Plataforma): Promise<MotivoVuelta | null> {
   const { token, expira_en } = await canjearMeta(code, redirect)
   const paginas = await paginasMeta(token)
-  if (paginas.length === 0) return 'sin-pagina'
+  if (paginas.length === 0) {
+    // `/me/accounts` no ve las Páginas que se administran desde un portafolio de
+    // negocio, así que el token se guarda igual: con él, «elegir» puede resolver
+    // por id la Página que el usuario indique a mano (ver `paginaMetaPorId`).
+    await guardarCuenta(admin, {
+      user_id: uid,
+      plataforma: 'facebook',
+      cuenta_id: '',
+      nombre: '',
+      avatar: null,
+      access_token: token,
+      refresh_token: null,
+      token_padre: token,
+      expira_en,
+      refresh_expira_en: null,
+      scopes: '',
+      extra: { falta_pagina: true, paginas: [] },
+    })
+    return 'sin-pagina'
+  }
   // Para Instagram conviene la primera Página con cuenta vinculada; si no, la primera.
   const elegida = (pedida === 'instagram' ? paginas.find((p) => p.instagram) : null) ?? paginas[0]
   await guardarFilasMeta(admin, uid, token, expira_en, paginas, elegida)
@@ -310,8 +329,12 @@ function paginaError(): Response {
 // ─── estado / elegir / desconectar ───────────────────────────────────────────
 
 async function estado(admin: SupabaseClient, uid: string) {
-  const cuentas = await listarCuentasPublicas(admin, uid)
+  const todas = await listarCuentasPublicas(admin, uid)
+  // La fila «a la espera de Página» solo guarda el token: no es una cuenta usable,
+  // así que no se lista; el aviso es lo que hace a la app pedir la Página.
+  const cuentas = todas.filter((c) => !c.extra.falta_pagina)
   const avisos: Record<string, string> = {}
+  if (todas.some((c) => c.extra.falta_pagina)) avisos.falta_pagina = 'facebook'
   if (!bandera('REDES_YT_AUDITADO')) avisos.youtube = 'privado'
   if (!bandera('REDES_TIKTOK_AUDITADO')) avisos.tiktok = 'solo-yo'
   if (!bandera('REDES_META_LIVE')) avisos.meta = 'modo-desarrollo'
@@ -330,16 +353,21 @@ async function estado(admin: SupabaseClient, uid: string) {
 async function elegir(admin: SupabaseClient, uid: string, cuerpo: Record<string, unknown>): Promise<{ ok: true }> {
   const plataforma = cuerpo.plataforma
   const pageId = typeof cuerpo.page_id === 'string' ? cuerpo.page_id : ''
-  if ((plataforma !== 'facebook' && plataforma !== 'instagram') || !/^\d{1,40}$/.test(pageId)) {
+  // Del listado siempre llega un id numérico; a mano se admite el nombre de usuario
+  // de la Página, que la Graph API también resuelve. Sin `/` ni `?`: es un tramo de ruta.
+  if ((plataforma !== 'facebook' && plataforma !== 'instagram') || !/^[A-Za-z0-9._-]{1,80}$/.test(pageId)) {
     throw new ErrorRedes('peticion-invalida', 'Elige una Página válida.')
   }
   const cuenta = (await leerCuenta(admin, uid, 'facebook')) ?? (await leerCuenta(admin, uid, 'instagram'))
   if (!cuenta?.token_padre) throw new ErrorRedes('sin-cuenta', 'Conecta Facebook antes de elegir una Página.')
   // Los tokens de Página no se guardan todos: se vuelven a pedir con el token de usuario.
   const paginas = await paginasMeta(cuenta.token_padre)
-  const elegida = paginas.find((p) => p.id === pageId)
+  // Si no está en el listado puede seguir siendo suya: las Páginas de un portafolio
+  // de negocio no salen en `/me/accounts`, pero sí responden por id.
+  const elegida = paginas.find((p) => p.id === pageId) ?? (await paginaMetaPorId(cuenta.token_padre, pageId))
   if (!elegida) throw new ErrorRedes('peticion-invalida', 'Esa Página ya no está en tu cuenta.')
-  await guardarFilasMeta(admin, uid, cuenta.token_padre, cuenta.expira_en, paginas, elegida)
+  const todas = paginas.some((p) => p.id === elegida.id) ? paginas : [...paginas, elegida]
+  await guardarFilasMeta(admin, uid, cuenta.token_padre, cuenta.expira_en, todas, elegida)
   return { ok: true }
 }
 

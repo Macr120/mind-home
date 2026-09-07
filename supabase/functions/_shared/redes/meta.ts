@@ -92,27 +92,44 @@ export async function canjearMeta(code: string, redirect: string): Promise<{ tok
 
 /** Las Páginas que administra el usuario, con su token y su cuenta de Instagram vinculada. */
 export async function paginasMeta(tokenUsuario: string): Promise<PaginaMeta[]> {
-  const d = await graph(
-    '/me/accounts?limit=100&fields=id,name,access_token,picture{url},instagram_business_account{id,username,profile_picture_url}',
-    tokenUsuario,
-  )
+  const d = await graph(`/me/accounts?limit=100&fields=${CAMPOS_PAGINA}`, tokenUsuario)
   const filas = Array.isArray(d.data) ? (d.data as Record<string, unknown>[]) : []
-  return filas
-    .filter((p) => typeof p.id === 'string' && typeof p.access_token === 'string')
-    .map((p) => {
-      const ig = p.instagram_business_account as Record<string, unknown> | undefined
-      const foto = (p.picture as { data?: { url?: string } } | undefined)?.data?.url
-      return {
-        id: String(p.id),
-        nombre: String(p.name ?? ''),
-        avatar: typeof foto === 'string' ? foto : null,
-        token: String(p.access_token),
-        instagram:
-          ig && typeof ig.id === 'string'
-            ? { id: ig.id, username: String(ig.username ?? ''), avatar: typeof ig.profile_picture_url === 'string' ? ig.profile_picture_url : null }
-            : null,
-      }
-    })
+  return filas.map(dePagina).filter((p): p is PaginaMeta => p !== null)
+}
+
+/**
+ * Una Página por su id. Hace falta porque `/me/accounts` NO lista las Páginas que
+ * el usuario administra a través de un portafolio de negocio (New Pages
+ * Experience): devuelve una lista vacía aunque el token sí pueda operar sobre
+ * ellas. Pedirla por id sí funciona, así que quien no aparezca en el listado
+ * puede indicarla a mano.
+ */
+export async function paginaMetaPorId(tokenUsuario: string, pageId: string): Promise<PaginaMeta | null> {
+  try {
+    return dePagina(await graph(`/${pageId}?fields=${CAMPOS_PAGINA}`, tokenUsuario))
+  } catch {
+    // Id inexistente o sin acceso: para quien lo escribe es el mismo caso.
+    return null
+  }
+}
+
+const CAMPOS_PAGINA = 'id,name,access_token,picture{url},instagram_business_account{id,username,profile_picture_url}'
+
+/** Sin `access_token` la Página no sirve: no se podría publicar en ella. */
+function dePagina(p: Record<string, unknown>): PaginaMeta | null {
+  if (typeof p.id !== 'string' || typeof p.access_token !== 'string') return null
+  const ig = p.instagram_business_account as Record<string, unknown> | undefined
+  const foto = (p.picture as { data?: { url?: string } } | undefined)?.data?.url
+  return {
+    id: p.id,
+    nombre: String(p.name ?? ''),
+    avatar: typeof foto === 'string' ? foto : null,
+    token: p.access_token,
+    instagram:
+      ig && typeof ig.id === 'string'
+        ? { id: ig.id, username: String(ig.username ?? ''), avatar: typeof ig.profile_picture_url === 'string' ? ig.profile_picture_url : null }
+        : null,
+  }
 }
 
 /** Un trozo a `rupload.facebook.com` (Reels de FB e IG): `offset` = bytes ya recibidos. */
@@ -196,11 +213,24 @@ export interface EstadoMeta {
 }
 
 export async function estadoVideoFB(videoId: string, tokenPagina: string): Promise<EstadoMeta> {
-  const d = await graph(`/${videoId}?fields=status,permalink_url`, tokenPagina)
-  const s = (d.status as { video_status?: string } | undefined)?.video_status
+  // Los subcampos de `status` hay que pedirlos uno a uno: `fields=status` a secas
+  // no trae los errores, y sin ellos el aviso al usuario no dice nada.
+  const d = await graph(
+    `/${videoId}?fields=permalink_url,status{video_status,uploading_phase{status,errors},processing_phase{status,errors},publishing_phase{status,errors}}`,
+    tokenPagina,
+  )
+  type Fase = { status?: string; errors?: { message?: string; error_message?: string }[] }
+  const estado = d.status as { video_status?: string; uploading_phase?: Fase; processing_phase?: Fase; publishing_phase?: Fase } | undefined
   const permalink = typeof d.permalink_url === 'string' ? `https://www.facebook.com${d.permalink_url}` : undefined
-  if (s === 'ready') return { estado: 'publicado', url: permalink }
-  if (s === 'error') return { estado: 'fallo', motivo: 'Facebook no pudo procesar el video.' }
+  if (estado?.video_status === 'ready') return { estado: 'publicado', url: permalink }
+  if (estado?.video_status === 'error') {
+    const detalle = [estado.uploading_phase, estado.processing_phase, estado.publishing_phase]
+      .flatMap((f) => f?.errors ?? [])
+      .map((e) => e.message ?? e.error_message)
+      .filter(Boolean)
+      .join(' · ')
+    return { estado: 'fallo', motivo: detalle ? `Facebook rechazó el video: ${detalle}` : `Facebook no pudo procesar el video (${videoId}).` }
+  }
   return { estado: 'procesando', url: permalink }
 }
 
