@@ -20,7 +20,7 @@ cd ~/mind-home                                   # ajusta la ruta del clon
 git fetch origin && git checkout main && git pull --ff-only origin main
 git status -sb                                   # «## main...origin/main», sin ahead/behind ni cambios
 git log -1 --oneline                             # debe ser el commit de docs de la 1.0.4 (o posterior)
-git rev-parse --short 'v1.0.4^{commit}'          # el commit «Versión 1.0.4», y debe estar en el historial de HEAD
+git rev-parse --short 'v1.0.4^{commit}'          # 5a45cb8 (el tag se movió al commit de la paleta nueva), y debe estar en el historial de HEAD
 node -p "require('./package.json').version"      # 1.0.4
 grep -c 'path: "\.\./' ios/App/CapApp-SPM/Package.swift   # 8 (rutas POSIX; si sale 0, ver §3)
 ls .env.local .env.production                    # los dos existen (si falta .env.production, copiarlo de Windows)
