@@ -40,7 +40,7 @@ const TAP_MS = 250
  * el recorrido avance también de color. Son colores de MARCA, no del tema: van
  * fijos, como en la web.
  */
-const MARCA = ['#DA9425', '#C23A40', '#895AC6'] as const
+const MARCA = ['#FFB319', '#FF505F', '#C07DFE'] as const
 
 function duracion(l: Lamina): number {
   const texto =

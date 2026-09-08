@@ -14,9 +14,9 @@ interface Forma {
 
 /** Cada forma, en el orden de la web y con su color de marca. */
 const FORMAS: Forma[] = [
-  { d: 'M0 3H94V97H0Z', rx: 20, color: '#DA9425' },
-  { d: 'M137 0V100H237Z', color: '#C23A40' },
-  { d: 'M257 0H357V100A100 100 0 0 1 257 0Z', color: '#895AC6' },
+  { d: 'M0 3H94V97H0Z', rx: 20, color: '#FFB319' },
+  { d: 'M137 0V100H237Z', color: '#FF505F' },
+  { d: 'M257 0H357V100A100 100 0 0 1 257 0Z', color: '#C07DFE' },
 ]
 
 /** El trío completo, cayendo una forma detrás de otra. */

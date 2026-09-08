@@ -20,10 +20,10 @@
   --ui-accent-ink: #ffffff;
 
   /* Los tres colores de las piezas del icono. */
-  --marca-naranja: #da9425;
-  --marca-rojo: #c23a40;
-  --marca-morado: #895ac6;
-  --marca-oliva: #576748;
+  --marca-naranja: #ffb319;
+  --marca-rojo: #ff505f;
+  --marca-morado: #c07dfe;
+  --marca-oliva: #52630e;
 
   /* Derivados de la tinta: valen igual en claro y en oscuro, así el modo claro
      solo redefine los colores base de arriba. */
@@ -925,7 +925,7 @@ section h2 {
   width: 11px;
   height: 11px;
   background: center / contain no-repeat
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23DA9425'/%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23FFB319'/%3E%3C/svg%3E");
 }
 
 .precio-caja li:nth-child(3n + 2)::before {

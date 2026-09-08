@@ -64,9 +64,9 @@ function Marco({ children }: { children: React.ReactNode }) {
         <a href={ruta('/')} className="flex flex-1 items-center gap-2 text-white/90">
           {/* Las tres piezas de la marca, como en la barra de la landing. */}
           <svg viewBox="0 0 357 100" className="h-4 w-14 shrink-0" aria-hidden>
-            <rect y="3" width="94" height="94" rx="20" fill="#DA9425" />
-            <path d="M137 0V100H237Z" fill="#C23A40" />
-            <path d="M257 0H357V100A100 100 0 0 1 257 0Z" fill="#895AC6" />
+            <rect y="3" width="94" height="94" rx="20" fill="#FFB319" />
+            <path d="M137 0V100H237Z" fill="#FF505F" />
+            <path d="M257 0H357V100A100 100 0 0 1 257 0Z" fill="#C07DFE" />
           </svg>
           <span className="flex flex-col leading-tight">
             <span className="text-lg font-extrabold">{t('marca.nombre', 'Planificador Mental-Casa')}</span>
