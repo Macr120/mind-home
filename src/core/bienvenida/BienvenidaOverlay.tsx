@@ -6,6 +6,7 @@ import { HoraDiaMini } from '../ui/CicloPanel'
 import { useAjustes, type EstiloIconos } from '../state/ajustesStore'
 import { useT } from '../i18n/useT'
 import { TEMAS_UI_BASE, modoBase, type ModoUI } from '../ui/temasUI'
+import { ESTILOS_UI } from '../ui/estilosUI'
 import { Icono } from '../ui/iconos/Icono'
 import { MASCOTAS, type MascotaId } from '../chat/mascotas'
 import { useMascota } from '../state/mascotaStore'
@@ -213,6 +214,8 @@ function Wizard() {
   const setModoUI = useAjustes((s) => s.setModoUI)
   const estiloIconos = useAjustes((s) => s.estiloIconos)
   const setEstiloIconos = useAjustes((s) => s.setEstiloIconos)
+  const estiloUI = useAjustes((s) => s.estiloUI)
+  const setEstiloUI = useAjustes((s) => s.setEstiloUI)
 
   // En el modo probar el guard de la BD avisa «inicia sesión» en cada edición
   // del usuario; los writes del wizard siguen a un click y lo dispararían
@@ -399,6 +402,37 @@ function Wizard() {
                     >
                       <Icono nombre={m.icono} />
                       <span>{m.label}</span>
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+            {/* La forma de la interfaz. Cada tarjeta lleva su propio
+                data-estilo-ui y se previsualiza a sí misma (ver EditorAjustesSection). */}
+            <div className="space-y-1.5">
+              <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
+                {t('ajustes.estilo', 'Estilo de la interfaz')}
+              </p>
+              <div className="grid grid-cols-2 gap-2">
+                {ESTILOS_UI.map((e) => {
+                  const activo = estiloUI === e.id
+                  return (
+                    <button
+                      key={e.id}
+                      type="button"
+                      data-estilo-ui={e.id}
+                      onClick={() => setEstiloUI(e.id)}
+                      className={`flex flex-col gap-1.5 rounded-xl border p-2.5 text-start text-sm font-semibold transition ${
+                        activo
+                          ? 'border-accent bg-white/10 text-white'
+                          : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
+                      }`}
+                    >
+                      <span className="flex items-center gap-1.5" aria-hidden>
+                        <span className="ui-accent-bg rounded-lg px-2 py-0.5 text-[10px] font-bold">Aa</span>
+                        <span className="h-5 w-8 rounded-xl border border-white/15 bg-white/5 shadow-md" />
+                      </span>
+                      <span>{t(`estiloUI.${e.id}`, e.nombre)}</span>
                     </button>
                   )
                 })}

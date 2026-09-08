@@ -839,7 +839,7 @@ const SECCIONES: Seccion[] = [
         icon: '⚙️',
         id: 'configuraciones',
         titulo: 'Configuraciones',
-        nota: 'Lo mismo que la pestaña Configuraciones del editor: idioma, apariencia (claro, oscuro, transparente), estilo de la interfaz (suave, plano, redondo, pixel, tinta), estilo de iconos, tema y tipografía de la interfaz, vidrio de los paneles, estilo visual del mapa (normal, cómic, miniatura, retro, neón) con sus efectos, avisos y respaldo.',
+        nota: 'Lo mismo que la pestaña Configuraciones del editor: idioma, apariencia (claro, oscuro, transparente), estilo de la interfaz (plano, redondo, pixel, tinta), estilo de iconos, tema y tipografía de la interfaz, vidrio de los paneles, estilo visual del mapa (normal, cómic, miniatura, retro, neón) con sus efectos, avisos y respaldo.',
         aviso: 'Iniciar sesión, restaurar un respaldo y borrar los datos NO se hacen por chat: el asistente te abre esa sección para que lo confirmes tú.',
         grupos: [
           {

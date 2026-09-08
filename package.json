@@ -39,6 +39,7 @@
     "escritorio:win": "npm run build && node scripts/icono-escritorio.mjs && node scripts/escritorio-win.mjs",
     "escritorio:mac": "npm run build && node scripts/icono-escritorio.mjs && electron-builder --mac --config electron/electron-builder.yml",
     "ios:iconos": "node scripts/iconos-ios.mjs",
+    "app:iconos": "node scripts/iconos-app.mjs",
     "ios:textos-widgets": "node scripts/widgets-ios-textos.mjs",
     "ficha:tienda": "node scripts/ficha-tienda.mjs",
     "asc:ficha": "node scripts/asc-ficha.mjs"

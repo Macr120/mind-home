@@ -1,14 +1,11 @@
-import type { ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
 import { Shapes } from 'lucide-react'
 import { useAjustes, type EstiloIconos } from '../../state/ajustesStore'
 import { useT } from '../../i18n/useT'
-import { TEMAS_UI, modoBase, type ModoUI } from '../temasUI'
+import { COLORES_UI, TEMAS_UI, TEMAS_UI_BASE, modoBase, type ModoUI } from '../temasUI'
 import { ESTILOS_UI } from '../estilosUI'
 import { TIPOGRAFIAS } from '../tipografias'
 import { Icono } from '../iconos/Icono'
-
-/** Temas por columna del selector (dos columnas parejas). */
-const MITAD_TEMAS = Math.ceil(TEMAS_UI.length / 2)
 
 /**
  * Sección del editor de mapa: ajustes de la interfaz (idioma, apariencia,
@@ -27,10 +24,16 @@ export function EditorAjustesSection({ embed }: { embed?: boolean } = {}) {
   const setEstiloIconos = useAjustes((s) => s.setEstiloIconos)
   const estiloUI = useAjustes((s) => s.estiloUI)
   const setEstiloUI = useAjustes((s) => s.setEstiloUI)
+  const tinteUI = useAjustes((s) => s.tinteUI)
+  const setTinteUI = useAjustes((s) => s.setTinteUI)
   const vidrioTransparencia = useAjustes((s) => s.vidrioTransparencia)
   const setVidrioTransparencia = useAjustes((s) => s.setVidrioTransparencia)
   const vidrioIntensidad = useAjustes((s) => s.vidrioIntensidad)
   const setVidrioIntensidad = useAjustes((s) => s.setVidrioIntensidad)
+  // Los colores entintados van plegados; abiertos de entrada si el activo es uno de ellos.
+  const [masColores, setMasColores] = useState(() => COLORES_UI.some((c) => c.id === temaUI))
+  const temas = masColores ? TEMAS_UI : TEMAS_UI_BASE
+  const mitad = Math.ceil(temas.length / 2)
 
   const modos: { id: ModoUI; label: string; icono: 'dia' | 'noche' | 'burbujas' }[] = [
     { id: 'claro', label: t('ajustes.modo.claro', 'Claro'), icono: 'dia' },
@@ -95,7 +98,7 @@ export function EditorAjustesSection({ embed }: { embed?: boolean } = {}) {
           {t('ajustes.estilo', 'Estilo de la interfaz')}
         </p>
         <div className="grid grid-cols-2 gap-1.5">
-          {ESTILOS_UI.map((e, i) => {
+          {ESTILOS_UI.map((e) => {
             const activo = estiloUI === e.id
             return (
               <button
@@ -104,8 +107,6 @@ export function EditorAjustesSection({ embed }: { embed?: boolean } = {}) {
                 data-estilo-ui={e.id}
                 onClick={() => setEstiloUI(e.id)}
                 className={`flex flex-col gap-1.5 rounded-lg border p-2 text-start text-xs font-semibold transition ${
-                  i === ESTILOS_UI.length - 1 ? 'col-span-2' : ''
-                } ${
                   activo
                     ? 'border-accent bg-white/10 text-white'
                     : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
@@ -156,15 +157,17 @@ export function EditorAjustesSection({ embed }: { embed?: boolean } = {}) {
         </div>
       </div>
 
-      {/* Tema de interfaz: los cinco temas a mano y los colores que entintan
-          toda la interfaz (paneles y acento), en dos columnas parejas que se
-          llenan de arriba abajo. Sin iconos: la muestra de color basta. */}
+      {/* Tema de interfaz: los cinco temas a mano siempre a la vista y, tras
+          «Más colores», los que entintan toda la interfaz (paneles y acento);
+          dos columnas parejas que se llenan de arriba abajo. Sin iconos: la
+          muestra de color basta. Debajo, la barra de tinte: cuánto del acento
+          entra en fondo y paneles, además de en los botones. */}
       <div className="space-y-1.5">
         <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
           {t('ajustes.tema', 'Tema de la interfaz')}
         </p>
         <div className="grid grid-cols-2 gap-1.5">
-          {[TEMAS_UI.slice(0, MITAD_TEMAS), TEMAS_UI.slice(MITAD_TEMAS)].map((lista, i) => (
+          {[temas.slice(0, mitad), temas.slice(mitad)].map((lista, i) => (
             <div key={i} className="space-y-1.5">
               {lista.map((tema) => {
                 const activo = temaUI === tema.id
@@ -192,6 +195,40 @@ export function EditorAjustesSection({ embed }: { embed?: boolean } = {}) {
             </div>
           ))}
         </div>
+        <button
+          type="button"
+          onClick={() => setMasColores((v) => !v)}
+          className="flex w-full items-center justify-center gap-1 rounded-md border border-white/10 bg-white/5 px-2 py-1 text-[11px] font-semibold text-white/60 transition hover:bg-white/10"
+        >
+          <Icono nombre={masColores ? 'desplegado' : 'plegado'} />
+          <span>
+            {masColores
+              ? t('ajustes.tema.menosColores', 'Menos colores')
+              : t('ajustes.tema.masColores', 'Más colores')}
+          </span>
+        </button>
+        <div className="rounded-md border border-white/10 bg-white/5 px-2 py-1.5">
+          <div className="flex items-center gap-2">
+            <span className="flex-1 truncate text-xs text-white/75">{t('ajustes.tema.tinte', 'Tinte')}</span>
+            <span className="text-[10px] tabular-nums text-white/40">{Math.round(tinteUI * 100)}%</span>
+          </div>
+          <input
+            type="range"
+            min={0}
+            max={1}
+            step={0.05}
+            value={tinteUI}
+            onChange={(e) => setTinteUI(parseFloat(e.target.value))}
+            className="mt-1.5 w-full"
+            style={{ accentColor: 'var(--ui-accent)' }}
+          />
+        </div>
+        <p className="text-[11px] leading-snug text-white/45">
+          {t(
+            'ajustes.tema.tinte.desc',
+            'Cuánto se tiñe toda la interfaz con el color del tema, además de los botones.',
+          )}
+        </p>
       </div>
 
       {/* Vidrio de la interfaz: transparencia + desenfoque de paneles flotantes */}

@@ -19,8 +19,8 @@ const splashDir = join(raiz, 'ios/App/App/Assets.xcassets/Splash.imageset')
 
 /** Fondo del tema oscuro (`--ui-bg`, y `background_color` del manifest). */
 const FONDO = '#0f1115'
-/** Verde del icono (el `<rect>` de icon.svg). */
-const VERDE = '#576748'
+/** Verde del borde del fondo de icon.svg (degradado radial), por si quedara alfa. */
+const VERDE = '#4e600d'
 /** Cuánto del lienzo cuadrado ocupa el logo del arranque (ver abajo). */
 const PROPORCION_LOGO = 0.22
 

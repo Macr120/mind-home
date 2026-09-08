@@ -256,9 +256,9 @@ const MODOS_UI: ModoUI[] = ['claro', 'oscuro', 'transparente']
 // atajo sin IA. Ojo: «pixel» y «cómic» a secas son del mapa 3D (regla C-4);
 // aquí solo llegan acompañados de un sustantivo de interfaz.
 const SINONIMOS_ESTILO_UI: Record<string, string[]> = {
-  suave: ['normal', 'clasico', 'por defecto', 'de siempre'],
   plano: ['flat', 'minimalista', 'sin sombras', 'plana'],
-  redondo: ['redondeado', 'redondeada', 'pildora', 'ios'],
+  // «normal»/«por defecto» = redondo, el de fábrica desde que se retiró «suave».
+  redondo: ['redondeado', 'redondeada', 'pildora', 'ios', 'normal', 'clasico', 'por defecto', 'de siempre'],
   pixel: ['pixelado', 'pixeles', '8 bits', 'roblox', 'cuadrado'],
   tinta: ['comic', 'vineta', 'caricatura', 'historieta', 'entintado'],
 }

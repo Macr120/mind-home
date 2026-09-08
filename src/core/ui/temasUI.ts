@@ -21,6 +21,7 @@
  */
 
 import { pintarBarraEstadoNativa } from './barraEstadoNativa'
+import { mezclar } from '../house/temas'
 
 /** Colores que entintan toda la interfaz; su paleta se deriva del matiz (ver `COLORES_UI`). */
 type ColorUIId =
@@ -322,6 +323,40 @@ export function aplicarVidrioUI(transparencia: number, intensidad: number): void
   root.style.setProperty('--ui-vidrio-blur', `${Math.round(intensidad * 20)}px`)
 }
 
+/** Tinte de fábrica: la paleta del tema tal cual. */
+export const TINTE_UI_DEFAULT = 0
+
+// Cuánto acento entra en el fondo y en los paneles con el tinte al máximo: más,
+// y la tinta del texto (y los rótulos `text-white/35`) dejan de leerse.
+const TINTE_FONDO_MAX = 0.45
+const TINTE_PANEL_MAX = 0.38
+
+let tinteUI = TINTE_UI_DEFAULT
+/** Lo último aplicado, para rehacerlo con la misma base cuando solo cambia el tinte. */
+let ultimoAplicado: { id: TemaUIId; modo: ModoUI; base?: ModoVarsUI } | null = null
+
+/** Fondo y paneles teñidos con el acento; con 0 la paleta vuelve intacta. */
+function entintar(vars: VarsTemaUI, tinte: number): VarsTemaUI {
+  if (tinte <= 0) return vars
+  const acento = vars['--ui-accent']
+  return {
+    ...vars,
+    '--ui-bg': mezclar(vars['--ui-bg'], acento, tinte * TINTE_FONDO_MAX),
+    '--ui-panel': mezclar(vars['--ui-panel'], acento, tinte * TINTE_PANEL_MAX),
+    '--ui-panel-2': mezclar(vars['--ui-panel-2'], acento, tinte * TINTE_PANEL_MAX),
+  }
+}
+
+/**
+ * Tinte de la interfaz (0..1, la barra de Configuraciones): cuánto se tiñen
+ * fondo y paneles con el acento del tema, además de los botones. Reaplica el
+ * tema en curso con la misma base, para que el vidrio no pierda la suya.
+ */
+export function aplicarTinteUI(tinte: number): void {
+  tinteUI = tinte
+  if (ultimoAplicado) aplicarTemaUI(ultimoAplicado.id, ultimoAplicado.modo, ultimoAplicado.base)
+}
+
 function getTemaUI(id: TemaUIId): TemaUI {
   return TEMAS_UI.find((t) => t.id === id) ?? TEMAS_UI[0]
 }
@@ -335,7 +370,8 @@ export function aplicarTemaUI(id: TemaUIId, modo: ModoUI, baseTransparente?: Mod
   const tema = getTemaUI(id)
   const root = document.documentElement
   const base = modo === 'transparente' ? (baseTransparente ?? modoBase(modo)) : modoBase(modo)
-  const vars = tema.vars[base] ?? tema.vars.oscuro
+  ultimoAplicado = { id, modo, base: baseTransparente }
+  const vars = entintar(tema.vars[base] ?? tema.vars.oscuro, tinteUI)
   for (const [prop, valor] of Object.entries(vars)) {
     root.style.setProperty(prop, valor)
   }

@@ -1157,6 +1157,10 @@ export const EN: Dict = {
   'ajustes.idioma.pl': 'Polish',
   'ajustes.idioma.nl': 'Dutch',
   'ajustes.tema': 'Interface theme',
+  'ajustes.tema.masColores': 'More colors',
+  'ajustes.tema.menosColores': 'Fewer colors',
+  'ajustes.tema.tinte': 'Tint',
+  'ajustes.tema.tinte.desc': 'How much the whole interface takes on the theme color, not just the buttons.',
   'ajustes.modo': 'Appearance',
   'ajustes.estilo': 'Interface style',
   'ajustes.estilo.desc': 'The shape of buttons, cards and panels: corners, borders and shadows.',
@@ -1217,7 +1221,6 @@ export const EN: Dict = {
   'temaUI.grafito': 'Graphite',
 
   // Estilos de la interfaz (forma)
-  'estiloUI.suave': 'Soft',
   'estiloUI.plano': 'Flat',
   'estiloUI.redondo': 'Round',
   'estiloUI.pixel': 'Pixel',

@@ -283,8 +283,8 @@ html[data-modo-ui] :is(.ui-app, .ui-panel, .ui-panel-glass) .ui-panel-glass {
 }
 
 /* El material (fondo y relieve) lo decide el ESTILO de la interfaz (bloque
-   «ESTILO DE LA INTERFAZ», más abajo). Los respaldos de var() son el valor de
-   siempre: sin estilo, o en «suave», no cambia nada. */
+   «ESTILO DE LA INTERFAZ», más abajo). Los respaldos de var() son el aspecto
+   de antes («suave», retirado): sin atributo no cambia nada. */
 .ui-accent-bg {
   background: var(
     --ui-acento-fondo,
@@ -881,8 +881,9 @@ html[data-modo-ui='transparente']
 /*
  * ESTILO DE LA INTERFAZ (data-estilo-ui, desde estilosUI.ts): la FORMA del
  * chrome —esquinas, bordes, sombras y material del acento—, un eje aparte del
- * tema de color y del modo de luz. Cinco estilos: suave (el de siempre),
- * plano, redondo, pixel y tinta.
+ * tema de color y del modo de luz. Cuatro estilos: plano, redondo (el de
+ * fábrica), pixel y tinta. El respaldo de cada var() es el aspecto de antes
+ * («suave», retirado el 7 sep 2026 por quedar demasiado cerca de redondo).
  *
  * Cada bloque declara ÚNICAMENTE variables, nunca reglas sobre descendientes,
  * por dos motivos:
@@ -906,32 +907,6 @@ html[data-modo-ui='transparente']
    aplicarTemaUI escribe --ui-ink: sigue al tema y a la base clara/oscura. */
 :root {
   --ui-sombra-dura-color: color-mix(in srgb, var(--ui-ink) 45%, transparent);
-}
-
-/* suave = el aspecto actual. Declara los valores de fábrica de Tailwind y
-   `initial` en las propias (= su respaldo) solo para que una tarjeta «suave»
-   anidada bajo otro estilo se resetee; en el <html> es como no tener nada. */
-[data-estilo-ui='suave'] {
-  --radius-xs: 0.125rem;
-  --radius-sm: 0.25rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
-  --radius-2xl: 1rem;
-  --radius-3xl: 1.5rem;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-  --escala-presion: 0.96;
-  --ui-radio-base: initial;
-  --ui-borde-ancho: initial;
-  --ui-borde-tinta-alfa: initial;
-  --ui-sombra-sm: initial;
-  --ui-sombra-md: initial;
-  --ui-sombra-lg: initial;
-  --ui-sombra-xl: initial;
-  --ui-sombra-2xl: initial;
-  --ui-acento-fondo: initial;
-  --ui-acento-sombra: initial;
 }
 
 /* plano: sin sombras ni relieve, acento sólido, esquinas un punto más cerradas. */

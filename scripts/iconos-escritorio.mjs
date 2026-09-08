@@ -26,7 +26,7 @@ const origen = readFileSync(join(raiz, 'public/icon.svg'))
 const destino = join(raiz, 'escritorio/recursos')
 
 /** Verde del icono (el `<rect>` de icon.svg), por si el SVG dejara alfa. */
-const VERDE = '#576748'
+const VERDE = '#4e600d'
 /** La retícula de Apple: arte de 824 en un lienzo de 1024, radio 185,4. */
 const LIENZO = 1024
 const ARTE = 824

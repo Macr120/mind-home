@@ -18,8 +18,8 @@ import sharp from 'sharp'
 
 // El SVG declara 512px: density 144 (el doble de 72) lo rasteriza a 1024 nativos.
 const ICONO = { density: 144 }
-// El mismo verde del fondo de icon.svg: el mosaico ancho se rellena con él.
-const FONDO = '#576748'
+// Verde del borde del fondo de icon.svg (degradado radial): el mosaico ancho se rellena con él.
+const FONDO = '#4e600d'
 
 await mkdir('electron/build/appx', { recursive: true })
 

@@ -1,9 +1,11 @@
 import { create } from 'zustand'
 import {
   aplicarTemaUI,
+  aplicarTinteUI,
   aplicarVidrioUI,
   baseSegunLuz,
   TEMA_UI_DEFAULT,
+  TINTE_UI_DEFAULT,
   MODO_UI_DEFAULT,
   VIDRIO_TRANSPARENCIA_DEFAULT,
   VIDRIO_INTENSIDAD_DEFAULT,
@@ -42,6 +44,7 @@ export const LS_MODO_UI = 'mh.modoUI'
 const LS_TIPOGRAFIA = 'mh.tipografia'
 const LS_ESTILO_ICONOS = 'mh.estiloIconos'
 const LS_ESTILO_UI = 'mh.estiloUI'
+const LS_TINTE_UI = 'mh.tinteUI'
 const LS_VIDRIO_TRANSPARENCIA = 'mh.vidrio.transparencia'
 const LS_VIDRIO_INTENSIDAD = 'mh.vidrio.intensidad'
 const LS_NOTIF = 'mh.notif'
@@ -208,6 +211,8 @@ interface AjustesState {
   estiloIconos: EstiloIconos
   /** Forma del chrome (esquinas, bordes, sombras); ortogonal al tema y al modo. */
   estiloUI: EstiloUIId
+  /** Tinte de la interfaz (0..1): cuánto se tiñen fondo y paneles con el acento del tema. */
+  tinteUI: number
   /** Calidad de las imágenes que genera la IA: decide el proveedor y el precio. */
   calidadImagen: CalidadImagen
   /** Vidrio de la interfaz (0..1): qué tanto se transparentan los paneles flotantes. */
@@ -255,6 +260,7 @@ interface AjustesState {
   setTipografia: (tipografia: TipografiaId) => void
   setEstiloIconos: (estilo: EstiloIconos) => void
   setEstiloUI: (estilo: EstiloUIId) => void
+  setTinteUI: (v: number) => void
   setCalidadImagen: (calidad: CalidadImagen) => void
   setVidrioTransparencia: (v: number) => void
   setVidrioIntensidad: (v: number) => void
@@ -285,6 +291,7 @@ export const useAjustes = create<AjustesState>((set, get) => ({
   tipografia: leerTipografia(),
   estiloIconos: leerEstiloIconos(),
   estiloUI: leerEstiloUI(),
+  tinteUI: leer01(LS_TINTE_UI, TINTE_UI_DEFAULT),
   calidadImagen: leerCalidadImagen(),
   vidrioTransparencia: leer01(LS_VIDRIO_TRANSPARENCIA, VIDRIO_TRANSPARENCIA_DEFAULT),
   vidrioIntensidad: leer01(LS_VIDRIO_INTENSIDAD, VIDRIO_INTENSIDAD_DEFAULT),
@@ -361,6 +368,12 @@ export const useAjustes = create<AjustesState>((set, get) => ({
     localStorage.setItem(LS_ESTILO_UI, estilo)
     aplicarEstiloUI(estilo)
     set({ estiloUI: estilo })
+  },
+
+  setTinteUI: (v) => {
+    localStorage.setItem(LS_TINTE_UI, String(v))
+    aplicarTinteUI(v)
+    set({ tinteUI: v })
   },
 
   // El espejo en el store es lo que hace que los precios de la UI se
@@ -496,6 +509,8 @@ export const avisoActivo = (plantillaId?: string): boolean => {
 // En modo transparente la base sale de la hora del sistema (el fondo de la casa
 // aún no se ha leído de IndexedDB): así, abriendo de noche, no hay un fogonazo
 // de paleta clara antes de que `useVidrioSegunLuz` ajuste con el fondo real.
+// El tinte va antes: la primera aplicación del tema ya lo lleva puesto.
+aplicarTinteUI(useAjustes.getState().tinteUI)
 {
   const { temaUI, modoUI } = useAjustes.getState()
   const ahora = new Date()
