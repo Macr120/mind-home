@@ -221,7 +221,12 @@ export const TEXTOS = {
   'priv.uso.1': 'Żeby dać ci dostęp do konta, zakupu i abonamentu.',
   'priv.uso.2': 'Żeby synchronizować twoje dane między urządzeniami i tworzyć kopie zapasowe.',
   'priv.uso.3': 'Żeby uruchamiać funkcje SI w ramach twojej puli kredytów.',
-  'priv.uso.4': 'Nie sprzedajemy twoich danych ani nie udostępniamy ich osobom trzecim w celach reklamowych.',  'priv.redes.h': 'Połączone konta w mediach społecznościowych',
+  'priv.uso.4': 'Nie sprzedajemy twoich danych ani nie udostępniamy ich osobom trzecim w celach reklamowych.',  'priv.dispositivo.h': 'Przechowywanie na twoim urządzeniu',
+  'priv.dispositivo.p':
+    'Aplikacja zapisuje informacje na twoim własnym urządzeniu i odczytuje je, aby działać: lokalna baza danych (IndexedDB) z danymi twojego domu i twoimi plikami oraz lokalny magazyn przeglądarki z twoimi ustawieniami — język, motyw, stan powitania — i z tokenem sesji, który utrzymuje cię zalogowanym. Nie używamy własnych plików cookie ani podobnych technologii do reklam, analityki czy śledzenia. Wszystko to możesz usunąć w ustawieniach przeglądarki albo odinstalowując aplikację.',
+  'priv.dispositivo.terceros':
+    'Usługi, które integrujemy, mogą zapisywać lub odczytywać informacje na twoim urządzeniu, gdy z nich korzystasz: Google przy logowaniu i przy autoryzacji YouTube API Services (zobacz <a href="https://policies.google.com/technologies/cookies">politykę plików cookie Google</a>), tak samo TikTok i Meta przy łączeniu tych kont. Tymi informacjami zarządzają one zgodnie z własnymi politykami.',
+  'priv.redes.h': 'Połączone konta w mediach społecznościowych',
   'priv.redes.p':
     'Jeśli połączysz swoje konto YouTube, TikTok, Facebook lub Instagram, przechowujemy tokeny dostępu przekazane przez ten serwis — zaszyfrowane na naszym serwerze — wraz z nazwą i zdjęciem wybranego konta lub Strony. Używamy ich wyłącznie po to, by w chwili naciśnięcia Opublikuj zamieścić na twoim własnym koncie filmy, które sam wybierzesz do publikacji w edytorze wideo. Nie czytamy twoich filmów, postów, komentarzy, wiadomości ani żadnych innych danych z tych kont i nigdy nie publikujemy niczego z własnej inicjatywy. Tokeny są przechowywane do momentu odłączenia konta w Ustawieniach → Połączone konta albo usunięcia twojego konta Mind Planner Home; dostęp możesz też cofnąć w ustawieniach bezpieczeństwa każdego serwisu (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
   'priv.redes.youtube':

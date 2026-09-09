@@ -224,7 +224,12 @@ export const TEXTOS = {
   'priv.uso.1': 'Darti accesso al tuo account, al tuo acquisto e al tuo abbonamento.',
   'priv.uso.2': 'Sincronizzare i tuoi dati tra dispositivi e salvarne una copia.',
   'priv.uso.3': 'Far funzionare le funzioni di IA con la tua quota di crediti.',
-  'priv.uso.4': 'Non vendiamo i tuoi dati né li condividiamo con terzi per pubblicità.',  'priv.redes.h': 'Account social collegati',
+  'priv.uso.4': 'Non vendiamo i tuoi dati né li condividiamo con terzi per pubblicità.',  'priv.dispositivo.h': 'Archiviazione sul tuo dispositivo',
+  'priv.dispositivo.p':
+    'L’app salva informazioni sul tuo dispositivo e le legge per funzionare: un database locale (IndexedDB) con i dati della tua casa e i tuoi file, e l’archiviazione locale del browser con le tue preferenze — lingua, tema, stato del benvenuto — e con il token di sessione che ti tiene collegato. Non usiamo cookie nostri né tecnologie simili per pubblicità, analisi o tracciamento. Puoi cancellare tutto dalle impostazioni del browser o disinstallando l’app.',
+  'priv.dispositivo.terceros':
+    'I servizi che integriamo possono salvare o leggere informazioni sul tuo dispositivo quando li usi: Google quando accedi e quando autorizzi YouTube API Services (vedi l’<a href="https://policies.google.com/technologies/cookies">informativa sui cookie di Google</a>), e lo stesso vale per TikTok e Meta quando colleghi quegli account. Quelle informazioni sono gestite da loro secondo le loro politiche.',
+  'priv.redes.h': 'Account social collegati',
   'priv.redes.p':
     'Se colleghi il tuo account di YouTube, TikTok, Facebook o Instagram, conserviamo i token di accesso che quel social ci consegna, cifrati sul nostro server, insieme al nome e alla foto dell’account o della Pagina che scegli. Li usiamo solo per pubblicare sul tuo account i video che decidi di pubblicare dall’editor video, nel momento in cui tocchi Pubblica. Non leggiamo i tuoi video, post, commenti, messaggi né altri dati di quegli account, e non pubblichiamo mai nulla di nostra iniziativa. I token restano finché non scolleghi l’account da Impostazioni → Account collegati o elimini il tuo account Mind Planner Home; puoi anche revocare l’accesso dalle impostazioni di sicurezza di ogni social (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
   'priv.redes.youtube':

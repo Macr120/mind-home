@@ -218,7 +218,12 @@ export const TEXTOS = {
   'priv.uso.1': 'Hesabına, satın almana ve aboneliğine erişim vermek için.',
   'priv.uso.2': 'Verilerini cihazlar arasında eşitlemek ve yedeklemek için.',
   'priv.uso.3': 'Yapay zekâ özelliklerini kredi kotanla çalıştırmak için.',
-  'priv.uso.4': 'Verilerini satmıyoruz ve reklam amacıyla üçüncü taraflarla paylaşmıyoruz.',  'priv.redes.h': 'Bağlı sosyal medya hesapları',
+  'priv.uso.4': 'Verilerini satmıyoruz ve reklam amacıyla üçüncü taraflarla paylaşmıyoruz.',  'priv.dispositivo.h': 'Cihazında saklanan bilgiler',
+  'priv.dispositivo.p':
+    'Uygulama çalışabilmek için kendi cihazına bilgi kaydeder ve okur: evinin verilerini ve dosyalarını tutan yerel bir veritabanı (IndexedDB) ile tercihlerini — dil, tema, karşılama ekranının durumu — ve oturumunu açık tutan oturum jetonunu tutan tarayıcı yerel depolaması. Reklam, analiz veya izleme için kendi çerezlerimizi ya da benzer teknolojileri kullanmıyoruz. Hepsini tarayıcı ayarlarından silebilir veya uygulamayı kaldırabilirsin.',
+  'priv.dispositivo.terceros':
+    'Entegre ettiğimiz hizmetler, onları kullandığında cihazında bilgi saklayabilir veya okuyabilir: giriş yaparken ve YouTube API Services yetkisi verirken Google (bkz. <a href="https://policies.google.com/technologies/cookies">Google çerez politikası</a>), aynı şekilde o hesapları bağlarken TikTok ve Meta. Bu bilgileri kendi politikalarına göre onlar yönetir.',
+  'priv.redes.h': 'Bağlı sosyal medya hesapları',
   'priv.redes.p':
     'YouTube, TikTok, Facebook veya Instagram hesabını bağlarsan, o ağın bize verdiği erişim jetonlarını, seçtiğin hesabın ya da Sayfanın adı ve fotoğrafıyla birlikte sunucumuzda şifreli olarak saklarız. Bunları yalnızca, video düzenleyicide yayımlamaya karar verdiğin videoları Yayımla’ya dokunduğun anda kendi hesabında yayımlamak için kullanırız. Videolarını, gönderilerini, yorumlarını, mesajlarını ya da o hesaplardaki başka hiçbir veriyi okumayız ve kendiliğimizden asla bir şey paylaşmayız. Jetonlar, hesabı Ayarlar → Bağlı hesaplar bölümünden ayırana ya da Mind Planner Home hesabını silene kadar saklanır; erişimi her ağın güvenlik ayarlarından da iptal edebilirsin (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
   'priv.redes.youtube':

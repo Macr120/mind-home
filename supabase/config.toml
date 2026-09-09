@@ -424,3 +424,9 @@ verify_jwt = false
 # la sesión a mano (`usuarioDe`), igual que el resto de funciones.
 [functions.redes-oauth]
 verify_jwt = false
+
+# La poda de conexiones inactivas la dispara el cron de la base (pg_cron +
+# pg_net), que llama sin JWT: se autentica con el header Authorization contra
+# REDES_MANTENIMIENTO_AUTH, igual que el webhook de RevenueCat.
+[functions.redes-mantenimiento]
+verify_jwt = false

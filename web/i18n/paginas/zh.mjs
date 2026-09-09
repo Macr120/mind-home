@@ -200,7 +200,12 @@ export const TEXTOS = {
   'priv.uso.1': '让你能访问自己的账户、购买和订阅。',
   'priv.uso.2': '在设备之间同步并备份你的数据。',
   'priv.uso.3': '用你的额度运行 AI 功能。',
-  'priv.uso.4': '我们不出售你的数据，也不为广告目的分享给第三方。',  'priv.redes.h': '已连接的社交媒体账号',
+  'priv.uso.4': '我们不出售你的数据，也不为广告目的分享给第三方。',  'priv.dispositivo.h': '在你设备上的存储',
+  'priv.dispositivo.p':
+    '应用会在你自己的设备上保存信息并读取它来运行：本地数据库（IndexedDB）存放你家的数据和文件，浏览器本地存储存放你的偏好设置——语言、主题、欢迎页状态——以及保持登录状态的会话令牌。我们不使用自有 Cookie 或类似技术进行广告、分析或追踪。你可以在浏览器设置中清除全部内容，或卸载应用。',
+  'priv.dispositivo.terceros':
+    '我们集成的服务在你使用时可能会在你的设备上保存或读取信息：登录以及授权 YouTube API Services 时的 Google（参见 <a href="https://policies.google.com/technologies/cookies">Google Cookie 政策</a>），连接相应账号时的 TikTok 和 Meta 也是如此。这些信息由它们按照各自的政策管理。',
+  'priv.redes.h': '已连接的社交媒体账号',
   'priv.redes.p':
     '如果你连接 YouTube、TikTok、Facebook 或 Instagram 账号，我们会把该平台交给我们的访问令牌加密保存在服务器上，同时保存你所选账号或主页的名称和头像。它们只用于在你点击发布的那一刻，把你在视频编辑器里决定发布的视频发到你自己的账号。我们不会读取你的视频、帖子、评论、私信或这些账号的任何其他数据，也绝不会自行发布任何内容。令牌会一直保存，直到你在设置 → 已连接账号里断开连接，或删除你的 Mind Planner Home 账号；你也可以在各平台的安全设置里撤销授权（Google：<a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>）。',
   'priv.redes.youtube':

@@ -221,7 +221,12 @@ export const TEXTOS = {
   'priv.uso.1': 'Memberimu akses ke akun, pembelian, dan langgananmu.',
   'priv.uso.2': 'Menyinkronkan datamu antar perangkat dan mencadangkannya.',
   'priv.uso.3': 'Menjalankan fitur AI dengan kuota kreditmu.',
-  'priv.uso.4': 'Kami tidak menjual datamu maupun membagikannya ke pihak ketiga untuk iklan.',  'priv.redes.h': 'Akun media sosial yang terhubung',
+  'priv.uso.4': 'Kami tidak menjual datamu maupun membagikannya ke pihak ketiga untuk iklan.',  'priv.dispositivo.h': 'Penyimpanan di perangkatmu',
+  'priv.dispositivo.p':
+    'Aplikasi menyimpan informasi di perangkatmu sendiri dan membacanya agar bisa bekerja: basis data lokal (IndexedDB) berisi data rumahmu dan berkasmu, serta penyimpanan lokal peramban berisi preferensimu — bahasa, tema, status layar sambutan — dan token sesi yang membuatmu tetap masuk. Kami tidak memakai cookie sendiri maupun teknologi serupa untuk iklan, analitik, atau pelacakan. Kamu bisa menghapus semuanya dari pengaturan peramban atau dengan mencopot aplikasi.',
+  'priv.dispositivo.terceros':
+    'Layanan yang kami integrasikan dapat menyimpan atau membaca informasi di perangkatmu saat kamu memakainya: Google ketika kamu masuk dan ketika memberi izin YouTube API Services (lihat <a href="https://policies.google.com/technologies/cookies">kebijakan cookie Google</a>), begitu juga TikTok dan Meta saat kamu menghubungkan akun-akun itu. Informasi tersebut dikelola oleh mereka menurut kebijakan masing-masing.',
+  'priv.redes.h': 'Akun media sosial yang terhubung',
   'priv.redes.p':
     'Kalau kamu menghubungkan akun YouTube, TikTok, Facebook, atau Instagram, kami menyimpan token akses yang diberikan jaringan itu — terenkripsi di server kami — beserta nama dan foto akun atau Halaman yang kamu pilih. Token itu hanya kami pakai untuk mengunggah ke akunmu sendiri video yang kamu putuskan untuk diterbitkan dari editor video, tepat saat kamu menekan Terbitkan. Kami tidak membaca video, unggahan, komentar, pesan, atau data lain dari akun-akun itu, dan kami tidak pernah memposting apa pun atas inisiatif sendiri. Token disimpan sampai kamu memutuskan koneksi di Pengaturan → Akun terhubung atau menghapus akun Mind Planner Home-mu; kamu juga bisa mencabut akses lewat pengaturan keamanan tiap jaringan (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
   'priv.redes.youtube':

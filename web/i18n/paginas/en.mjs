@@ -221,7 +221,12 @@ export const TEXTOS = {
   'priv.uso.1': 'Giving you access to your account, your purchase and your subscription.',
   'priv.uso.2': 'Syncing your data between devices and backing it up.',
   'priv.uso.3': 'Running the AI features against your credit allowance.',
-  'priv.uso.4': 'We do not sell your data or share it with third parties for advertising.',  'priv.redes.h': 'Connected social media accounts',
+  'priv.uso.4': 'We do not sell your data or share it with third parties for advertising.',  'priv.dispositivo.h': 'Storage on your device',
+  'priv.dispositivo.p':
+    'The app stores information on your own device and reads it to work: a local database (IndexedDB) with your house data and your files, and the local storage of your browser with your preferences — language, theme, welcome state — and the session token that keeps you signed in. We do not use our own cookies or similar technologies for advertising, analytics or tracking. You can erase all of it from your browser settings or by uninstalling the app.',
+  'priv.dispositivo.terceros':
+    'The services we integrate may store or read information on your device when you use them: Google when you sign in and when you authorise YouTube API Services (see the <a href="https://policies.google.com/technologies/cookies">Google cookie policy</a>), and likewise TikTok and Meta when you connect those accounts. That information is handled by them under their own policies.',
+  'priv.redes.h': 'Connected social media accounts',
   'priv.redes.p':
     'If you connect your YouTube, TikTok, Facebook or Instagram account, we store the access tokens that network gives us, encrypted on our server, together with the name and picture of the account or Page you choose. We use them only to publish to your own account the videos you decide to publish from the video editor, at the moment you tap Publish. We do not read your videos, posts, comments, messages or any other data from those accounts, and we never post anything on our own. The tokens are kept until you disconnect the account in Settings → Connected accounts or delete your Mind Planner Home account; you can also revoke access in each network’s security settings (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
   'priv.redes.youtube':

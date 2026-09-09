@@ -222,7 +222,12 @@ export const TEXTOS = {
   'priv.uso.1': 'Om je toegang te geven tot je account, je aankoop en je abonnement.',
   'priv.uso.2': 'Om je gegevens tussen apparaten te synchroniseren en er een back-up van te maken.',
   'priv.uso.3': 'Om de AI-functies met jouw creditquotum te laten draaien.',
-  'priv.uso.4': 'We verkopen je gegevens niet en delen ze niet met derden voor reclame.',  'priv.redes.h': 'Gekoppelde socialmedia-accounts',
+  'priv.uso.4': 'We verkopen je gegevens niet en delen ze niet met derden voor reclame.',  'priv.dispositivo.h': 'Opslag op je apparaat',
+  'priv.dispositivo.p':
+    'De app bewaart informatie op je eigen apparaat en leest die om te werken: een lokale database (IndexedDB) met de gegevens van je huis en je bestanden, en de lokale opslag van de browser met je voorkeuren — taal, thema, status van het welkomstscherm — en met het sessietoken dat je ingelogd houdt. We gebruiken geen eigen cookies of vergelijkbare technologieën voor advertenties, analyse of tracking. Je kunt alles wissen via de instellingen van je browser of door de app te verwijderen.',
+  'priv.dispositivo.terceros':
+    'De diensten die we integreren kunnen informatie op je apparaat bewaren of lezen wanneer je ze gebruikt: Google bij het inloggen en bij het autoriseren van YouTube API Services (zie het <a href="https://policies.google.com/technologies/cookies">cookiebeleid van Google</a>), en net zo TikTok en Meta wanneer je die accounts koppelt. Die informatie beheren zij volgens hun eigen beleid.',
+  'priv.redes.h': 'Gekoppelde socialmedia-accounts',
   'priv.redes.p':
     'Als je je YouTube-, TikTok-, Facebook- of Instagram-account koppelt, bewaren we de toegangstokens die dat netwerk ons geeft versleuteld op onze server, samen met de naam en de foto van het gekozen account of de gekozen Pagina. We gebruiken ze alleen om op je eigen account de video’s te plaatsen die jij vanuit de video-editor wilt publiceren, op het moment dat je op Publiceren tikt. We lezen je video’s, berichten, reacties, chats of andere gegevens van die accounts niet, en we plaatsen nooit uit onszelf iets. De tokens blijven bewaard tot je het account loskoppelt bij Instellingen → Gekoppelde accounts of je Mind Planner Home-account verwijdert; je kunt de toegang ook intrekken in de beveiligingsinstellingen van elk netwerk (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
   'priv.redes.youtube':

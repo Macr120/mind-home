@@ -225,7 +225,12 @@ export const TEXTOS = {
   'priv.uso.2': 'Synchroniser tes données entre appareils et les sauvegarder.',
   'priv.uso.3': 'Faire tourner les fonctions d’IA sur ton quota de crédits.',
   'priv.uso.4':
-    'Nous ne vendons pas tes données et ne les partageons pas avec des tiers à des fins publicitaires.',  'priv.redes.h': 'Comptes de réseaux sociaux connectés',
+    'Nous ne vendons pas tes données et ne les partageons pas avec des tiers à des fins publicitaires.',  'priv.dispositivo.h': 'Stockage sur ton appareil',
+  'priv.dispositivo.p':
+    'L’app enregistre des informations sur ton propre appareil et les lit pour fonctionner : une base de données locale (IndexedDB) avec les données de ta maison et tes fichiers, et le stockage local du navigateur avec tes préférences — langue, thème, état de l’accueil — ainsi que le jeton de session qui te garde connecté. Nous n’utilisons pas de cookies propres ni de technologies similaires à des fins publicitaires, d’analyse ou de suivi. Tu peux tout effacer depuis les réglages de ton navigateur ou en désinstallant l’app.',
+  'priv.dispositivo.terceros':
+    'Les services que nous intégrons peuvent enregistrer ou lire des informations sur ton appareil quand tu les utilises : Google lors de la connexion et de l’autorisation de YouTube API Services (voir la <a href="https://policies.google.com/technologies/cookies">politique relative aux cookies de Google</a>), et de même TikTok et Meta lorsque tu connectes ces comptes. Ces informations sont gérées par eux selon leurs propres politiques.',
+  'priv.redes.h': 'Comptes de réseaux sociaux connectés',
   'priv.redes.p':
     'Si tu connectes ton compte YouTube, TikTok, Facebook ou Instagram, nous conservons les jetons d’accès que ce réseau nous remet, chiffrés sur notre serveur, avec le nom et la photo du compte ou de la Page que tu choisis. Nous les utilisons uniquement pour publier sur ton propre compte les vidéos que tu décides de publier depuis l’éditeur vidéo, au moment où tu appuies sur Publier. Nous ne lisons pas tes vidéos, publications, commentaires, messages ni aucune autre donnée de ces comptes, et nous ne publions jamais rien de nous-mêmes. Les jetons sont conservés jusqu’à ce que tu déconnectes le compte dans Réglages → Comptes connectés ou que tu supprimes ton compte Mind Planner Home ; tu peux aussi révoquer l’accès depuis les réglages de sécurité de chaque réseau (Google : <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
   'priv.redes.youtube':

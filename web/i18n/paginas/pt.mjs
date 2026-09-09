@@ -221,7 +221,12 @@ export const TEXTOS = {
   'priv.uso.1': 'Dar acesso à sua conta, à sua compra e à sua assinatura.',
   'priv.uso.2': 'Sincronizar seus dados entre dispositivos e fazer backup.',
   'priv.uso.3': 'Operar as funções de IA com a sua cota de créditos.',
-  'priv.uso.4': 'Não vendemos seus dados nem os compartilhamos com terceiros para publicidade.',  'priv.redes.h': 'Contas de redes sociais conectadas',
+  'priv.uso.4': 'Não vendemos seus dados nem os compartilhamos com terceiros para publicidade.',  'priv.dispositivo.h': 'Armazenamento no seu dispositivo',
+  'priv.dispositivo.p':
+    'O app guarda informações no seu próprio dispositivo e as lê para funcionar: um banco de dados local (IndexedDB) com os dados da sua casa e seus arquivos, e o armazenamento local do navegador com suas preferências — idioma, tema, estado das boas-vindas — e com o token de sessão que mantém sua conta conectada. Não usamos cookies próprios nem tecnologias semelhantes para publicidade, análise ou rastreamento. Você pode apagar tudo nas configurações do navegador ou desinstalando o app.',
+  'priv.dispositivo.terceros':
+    'Os serviços que integramos podem guardar ou ler informações no seu dispositivo quando você os usa: o Google ao entrar e ao autorizar o YouTube API Services (veja a <a href="https://policies.google.com/technologies/cookies">política de cookies do Google</a>), e o mesmo vale para TikTok e Meta ao conectar essas contas. Essas informações são geridas por eles conforme suas próprias políticas.',
+  'priv.redes.h': 'Contas de redes sociais conectadas',
   'priv.redes.p':
     'Se você conectar sua conta do YouTube, TikTok, Facebook ou Instagram, guardamos os tokens de acesso que essa rede nos entrega, criptografados no nosso servidor, junto com o nome e a foto da conta ou Página escolhida. Nós os usamos apenas para publicar na sua própria conta os vídeos que você decide publicar pelo editor de vídeo, no momento em que você toca em Publicar. Não lemos seus vídeos, publicações, comentários, mensagens nem qualquer outro dado dessas contas, e nunca publicamos nada por conta própria. Os tokens ficam guardados até você desconectar a conta em Configurações → Contas conectadas ou apagar sua conta do Mind Planner Home; você também pode revogar o acesso nas configurações de segurança de cada rede (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
   'priv.redes.youtube':

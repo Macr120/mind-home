@@ -204,7 +204,12 @@ export const TEXTOS = {
   'priv.uso.1': '계정, 구매, 구독에 접근할 수 있게 하기 위해.',
   'priv.uso.2': '기기 사이에서 데이터를 동기화하고 백업하기 위해.',
   'priv.uso.3': '보유한 크레딧으로 AI 기능을 구동하기 위해.',
-  'priv.uso.4': '데이터를 판매하지 않으며, 광고 목적으로 제3자와 공유하지 않습니다.',  'priv.redes.h': '연결된 소셜 미디어 계정',
+  'priv.uso.4': '데이터를 판매하지 않으며, 광고 목적으로 제3자와 공유하지 않습니다.',  'priv.dispositivo.h': '기기에 저장되는 정보',
+  'priv.dispositivo.p':
+    '앱은 작동을 위해 사용자의 기기에 정보를 저장하고 읽습니다. 로컬 데이터베이스(IndexedDB)에는 집 데이터와 파일이, 브라우저 로컬 저장소에는 언어·테마·시작 화면 상태 같은 설정과 로그인 상태를 유지하는 세션 토큰이 저장됩니다. 광고, 분석, 추적을 위한 자체 쿠키나 유사 기술은 사용하지 않습니다. 브라우저 설정에서 모두 삭제하거나 앱을 삭제하면 됩니다.',
+  'priv.dispositivo.terceros':
+    '연동된 서비스는 사용자가 이용할 때 기기에 정보를 저장하거나 읽을 수 있습니다. 로그인 및 YouTube API Services 승인 시의 Google(<a href="https://policies.google.com/technologies/cookies">Google 쿠키 정책</a> 참고), 해당 계정을 연결할 때의 TikTok과 Meta가 그렇습니다. 해당 정보는 각 사가 자체 정책에 따라 관리합니다.',
+  'priv.redes.h': '연결된 소셜 미디어 계정',
   'priv.redes.p':
     'YouTube, TikTok, Facebook, Instagram 계정을 연결하면 해당 서비스가 주는 액세스 토큰을 서버에 암호화해 보관하고, 선택한 계정이나 페이지의 이름과 사진도 함께 저장해요. 이 정보는 오직 당신이 동영상 편집기에서 게시하기로 한 영상을, 게시를 누르는 그 순간에 당신의 계정에 올리는 데만 씁니다. 당신의 영상, 게시물, 댓글, 메시지 등 그 계정의 다른 데이터는 읽지 않고, 저희 임의로 무언가를 올리는 일도 없어요. 토큰은 설정 → 연결된 계정에서 연결을 끊거나 Mind Planner Home 계정을 삭제할 때까지 보관되며, 각 서비스의 보안 설정에서 권한을 취소할 수도 있어요 (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
   'priv.redes.youtube':

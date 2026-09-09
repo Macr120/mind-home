@@ -235,6 +235,11 @@ export const TEXTOS = {
   'priv.uso.2': 'Sincronizar tus datos entre dispositivos y respaldarlos.',
   'priv.uso.3': 'Operar las funciones de IA con tu cuota de créditos.',
   'priv.uso.4': 'No vendemos tus datos ni los compartimos con terceros para publicidad.',  // ─── Cuentas de redes conectadas (lo exigen YouTube, TikTok y Meta) ──────
+  'priv.dispositivo.h': 'Almacenamiento en tu dispositivo',
+  'priv.dispositivo.p':
+    'La app guarda información en tu propio dispositivo y la lee para funcionar: una base de datos local (IndexedDB) con los datos de tu casa y tus archivos, y el almacenamiento local del navegador con tus preferencias —idioma, tema, estado de la bienvenida— y con el testigo de sesión que mantiene tu cuenta abierta. No usamos cookies propias ni tecnologías similares para publicidad, analítica ni seguimiento. Puedes borrarlo todo desde los ajustes de tu navegador o desinstalando la app.',
+  'priv.dispositivo.terceros':
+    'Los servicios que integramos pueden guardar o leer información en tu dispositivo cuando los usas: Google al iniciar sesión y al autorizar YouTube API Services (ver la <a href="https://policies.google.com/technologies/cookies">política de cookies de Google</a>), y lo mismo TikTok y Meta al conectar esas cuentas. Esa información la gestionan ellos conforme a sus propias políticas.',
   'priv.redes.h': 'Cuentas de redes sociales conectadas',
   'priv.redes.p':
     'Si conectas tu cuenta de YouTube, TikTok, Facebook o Instagram, guardamos cifrados en nuestro servidor los tokens de acceso que esa red nos entrega, junto con el nombre y la foto de la cuenta o Página que elijas. Los usamos únicamente para publicar en tu propia cuenta los videos que tú decides publicar desde el editor de video, en el momento en que pulsas Publicar. No leemos tus videos, publicaciones, comentarios, mensajes ni ningún otro dato de esas cuentas, y nunca publicamos nada por nuestra cuenta. Los tokens se conservan hasta que desconectas la cuenta en Configuraciones → Cuentas conectadas o eliminas tu cuenta de Mind Planner Home; también puedes revocar el acceso desde los ajustes de seguridad de cada red (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',

@@ -224,7 +224,12 @@ export const TEXTOS = {
   'priv.uso.2': 'Deine Daten zwischen Geräten zu synchronisieren und zu sichern.',
   'priv.uso.3': 'Die KI-Funktionen mit deinem Credit-Kontingent zu betreiben.',
   'priv.uso.4':
-    'Wir verkaufen deine Daten nicht und geben sie nicht zu Werbezwecken an Dritte weiter.',  'priv.redes.h': 'Verbundene Social-Media-Konten',
+    'Wir verkaufen deine Daten nicht und geben sie nicht zu Werbezwecken an Dritte weiter.',  'priv.dispositivo.h': 'Speicherung auf deinem Gerät',
+  'priv.dispositivo.p':
+    'Die App speichert Informationen auf deinem eigenen Gerät und liest sie, um zu funktionieren: eine lokale Datenbank (IndexedDB) mit den Daten deines Hauses und deinen Dateien sowie den lokalen Speicher des Browsers mit deinen Einstellungen — Sprache, Design, Status der Begrüßung — und dem Sitzungstoken, das dich angemeldet hält. Wir verwenden keine eigenen Cookies oder ähnliche Technologien für Werbung, Analyse oder Tracking. Du kannst alles über die Einstellungen deines Browsers oder durch Deinstallieren der App löschen.',
+  'priv.dispositivo.terceros':
+    'Die von uns eingebundenen Dienste können Informationen auf deinem Gerät speichern oder lesen, wenn du sie nutzt: Google beim Anmelden und beim Autorisieren von YouTube API Services (siehe die <a href="https://policies.google.com/technologies/cookies">Cookie-Richtlinie von Google</a>), ebenso TikTok und Meta, wenn du diese Konten verbindest. Diese Informationen werden von ihnen nach ihren eigenen Richtlinien verwaltet.',
+  'priv.redes.h': 'Verbundene Social-Media-Konten',
   'priv.redes.p':
     'Wenn du dein YouTube-, TikTok-, Facebook- oder Instagram-Konto verbindest, speichern wir die Zugriffstokens, die uns dieses Netzwerk übergibt, verschlüsselt auf unserem Server, zusammen mit dem Namen und dem Bild des gewählten Kontos bzw. der gewählten Seite. Wir verwenden sie ausschließlich dafür, die Videos, die du im Videoeditor zur Veröffentlichung auswählst, in dem Moment, in dem du auf Veröffentlichen tippst, in deinem eigenen Konto zu veröffentlichen. Wir lesen weder deine Videos, Beiträge, Kommentare und Nachrichten noch sonstige Daten dieser Konten, und wir veröffentlichen nie etwas von uns aus. Die Tokens bleiben gespeichert, bis du das Konto unter Einstellungen → Verbundene Konten trennst oder dein Mind-Planner-Home-Konto löschst; du kannst den Zugriff auch in den Sicherheitseinstellungen des jeweiligen Netzwerks widerrufen (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
   'priv.redes.youtube':
