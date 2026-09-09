@@ -4,7 +4,14 @@ import { esDemo, esProbar, tieneUnlock } from '../edicion'
 import { useSesion } from '../cuenta/sesionStore'
 import { canalPago } from '../plataforma'
 import { hayBackend } from '../cuenta/supabase'
-import { comprarUnlock, hayPagos, obtenerUnlock, type OfertaPro } from '../cuenta/paywall'
+import {
+  comprarUnlock,
+  hayPagos,
+  obtenerUnlock,
+  restaurarCompras,
+  textoDeFallo,
+  type OfertaPro,
+} from '../cuenta/paywall'
 import { URL_WEB as urlWeb } from '../cuenta/urlWeb'
 import { entrarProbar } from '../../probar/modo'
 import { Icono } from './iconos/Icono'
@@ -284,12 +291,17 @@ function PantallaTienda() {
 
   // La oferta de la tienda. Se pide al entrar y se puede volver a pedir desde
   // el propio botón si no llegó (red caída, catálogo aún propagándose).
-  const pedirOferta = async () => {
+  // DEVUELVE lo que encontró, además de guardarlo: así el botón encadena
+  // «no tengo → la pido → la compro» en un solo toque, sin obligar a un segundo.
+  const pedirOferta = async (): Promise<OfertaPro | null> => {
     setCargando(true)
     try {
-      setOferta(await obtenerUnlock())
+      const nueva = await obtenerUnlock()
+      setOferta(nueva)
+      return nueva
     } catch {
       setOferta(null)
+      return null
     } finally {
       setCargando(false)
     }
@@ -316,21 +328,30 @@ function PantallaTienda() {
 
   const alComprar = async () => {
     if (ocupado) return
-    // Sin oferta no hay nada que cobrar: el botón sirve para reintentar.
-    if (!oferta) {
-      await pedirOferta()
-      if (!useSesion.getState().unlock) {
-        setError(t('puerta.sinOferta', 'La tienda no respondió. Revisa tu conexión y vuelve a intentarlo.'))
-      }
-      return
-    }
     setOcupado(true)
     setError(null)
     try {
-      const ok = await comprarUnlock(oferta.paquete)
-      if (!ok) setError(t('puerta.compraFallo', 'La compra no se completó. Vuelve a intentarlo.'))
+      // La oferta puede faltar por dos motivos, y ninguno debe dejar el toque
+      // en nada: o la primera consulta sigue en el aire, o no trajo catálogo.
+      // Se vuelve a pedir AQUÍ y, si llega, se compra sin soltar el botón.
+      const aCobrar = oferta ?? (await pedirOferta())
+      if (!aCobrar) {
+        // La casa pudo llegar por otra vía mientras se esperaba (un cupón, la
+        // compra hecha en otro dispositivo): entonces no hay nada que avisar,
+        // que la puerta se abre sola.
+        if (!useSesion.getState().unlock) {
+          setError(t('puerta.sinOferta', 'La tienda no respondió. Revisa tu conexión y vuelve a intentarlo.'))
+        }
+        return
+      }
+      const ok = await comprarUnlock(aCobrar.paquete)
+      if (!ok) {
+        setError(
+          t('puerta.compraFallo', 'La compra no se completó. Si ya pagaste, prueba «Restaurar compras».'),
+        )
+      }
     } catch (e) {
-      setError(e instanceof Error ? e.message : String(e))
+      setError(textoDeFallo(e, t))
     } finally {
       setOcupado(false)
     }
@@ -355,7 +376,14 @@ function PantallaTienda() {
         </a>
       )}
 
-      {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
+      {/* El aviso es la ÚNICA respuesta visible cuando la compra no sale, así
+          que se lee al tamaño del texto normal y no al de una nota al pie: a
+          11 px pasaba por decoración y el botón parecía no hacer nada. */}
+      {error && <p className="text-xs leading-snug text-red-400/90">{error}</p>}
+
+      {/* Quien ya pagó tiene que poder entrar sin volver a pagar, y esto es
+          además lo que salva la pantalla si la tienda no contesta. */}
+      <FilaRestaurar />
 
       {/* El cupón es la ÚNICA vía de entrar sin pagar (ya no hay atajo local),
           así que va aquí arriba con la compra y no escondido al pie. */}
@@ -415,7 +443,11 @@ function TarjetaPrecio({
         {x('precio.app.nombre', 'La app')}
       </p>
       <p className="text-2xl font-black leading-none text-white/95">
-        {precio ?? <span className="text-white/30">···</span>}
+        {/* Sin cifra hay dos estados distintos y conviene no confundirlos: los
+            puntos son «viene en camino», la raya es «la tienda no la dio» —y
+            entonces el aviso de abajo explica qué hacer. La cifra NUNCA se
+            rellena desde el catálogo de la web: la manda la tienda. */}
+        {precio ?? <span className="text-white/30">{cargando ? '···' : '—'}</span>}
         <small className="ml-1.5 text-xs font-semibold text-white/50">
           {x('precio.app.pagoUnico', 'pago único')}
         </small>
@@ -428,15 +460,100 @@ function TarjetaPrecio({
           </li>
         ))}
       </ul>
-      <button
-        type="button"
-        onClick={alComprar}
-        disabled={ocupado || cargando}
-        className={botonPrincipal}
-      >
+      {/* Deshabilitado SOLO mientras hay una compra en marcha. Que el catálogo
+          aún no haya llegado no puede apagar el botón: mientras se esperaba a
+          la tienda quedaba muerto al tacto, y si la tienda no contestaba nunca,
+          muerto para siempre. Es lo que vio App Review el 9-sep-2026. Ahora un
+          toque durante la carga vale como intento: `alComprar` reintenta el
+          catálogo y compra en cuanto lo tiene. */}
+      <button type="button" onClick={alComprar} disabled={ocupado} className={botonPrincipal}>
         <Icono nombre="casa" />
         {ocupado ? t('puerta.comprando', 'Procesando…') : x('precio.app.cta', 'Comprar la casa')}
       </button>
+    </div>
+  )
+}
+
+/**
+ * Las dos salidas de quien YA pagó y aun así está mirando esta puerta:
+ *
+ * - **Restaurar compras**: relee lo comprado en ESTA tienda. Apple lo EXIGE en
+ *   cualquier app con compra in-app (3.1.1), y sirve a quien reinstala o
+ *   estrena teléfono.
+ * - **Ya la compré**: no toca la tienda, solo vuelve a leer el perfil. Es el
+ *   caso de quien compró en otra plataforma o acaba de canjear un cupón.
+ *
+ * Vivían las dos en `Configuraciones › Cuenta`, o sea DETRÁS de esta puerta:
+ * quien reinstalaba se quedaba fuera con la casa pagada y sin ningún botón que
+ * tocar. Aquí delante son, además, lo único que deja entrar si la tienda no
+ * contesta —que es exactamente el callejón sin salida que encontró App Review
+ * el 9-sep-2026—. Los textos ya estaban traducidos en los dieciséis idiomas
+ * (`puerta.restaurar`, `puerta.yaCompre`, `puerta.sinRestaurar`); lo que
+ * faltaba era pintarlos.
+ */
+function FilaRestaurar() {
+  const t = useT()
+  const refrescarPerfil = useSesion((s) => s.refrescarPerfil)
+  const [ocupado, setOcupado] = useState<'tienda' | 'cuenta' | null>(null)
+  const [aviso, setAviso] = useState<string | null>(null)
+  // Restaurar es cosa de las tiendas: en la web la compra ya cuelga de la cuenta.
+  const enTienda = canalPago() === 'iap' && hayPagos()
+
+  const alRestaurar = async () => {
+    if (ocupado) return
+    setOcupado('tienda')
+    setAviso(null)
+    try {
+      if (!(await restaurarCompras())) {
+        setAviso(t('puerta.sinRestaurar', 'No encontramos compras de esta cuenta.'))
+      }
+    } catch (e) {
+      setAviso(textoDeFallo(e, t))
+    } finally {
+      setOcupado(null)
+    }
+  }
+
+  const alComprobar = async () => {
+    if (ocupado) return
+    setOcupado('cuenta')
+    setAviso(null)
+    try {
+      await refrescarPerfil()
+      // Si el unlock llegó, la puerta de arriba se abre sola: está suscrita.
+      if (!useSesion.getState().unlock) {
+        setAviso(t('puerta.sinRestaurar', 'No encontramos compras de esta cuenta.'))
+      }
+    } catch (e) {
+      setAviso(textoDeFallo(e, t))
+    } finally {
+      setOcupado(null)
+    }
+  }
+
+  return (
+    <div className="space-y-1.5">
+      {enTienda && (
+        <button
+          type="button"
+          onClick={() => void alRestaurar()}
+          disabled={!!ocupado}
+          className={`${botonSecundario} disabled:opacity-50`}
+        >
+          <Icono nombre="restaurar" />
+          {ocupado === 'tienda' ? '…' : t('puerta.restaurar', 'Restaurar compras')}
+        </button>
+      )}
+      <button
+        type="button"
+        onClick={() => void alComprobar()}
+        disabled={!!ocupado}
+        className={`${botonSecundario} disabled:opacity-50`}
+      >
+        <Icono nombre="sincronizar" />
+        {ocupado === 'cuenta' ? '…' : t('puerta.yaCompre', 'Ya la compré: comprobar de nuevo')}
+      </button>
+      {aviso && <p className="text-[11px] leading-snug text-white/45">{aviso}</p>}
     </div>
   )
 }

@@ -12,6 +12,7 @@
  * fuente de verdad. Comprar en una plataforma se ve en las demás porque las
  * dos cajas usan el MISMO `appUserId`: el user.id de Supabase.
  */
+import type { TFunc } from '../i18n/useT'
 import type { Caja, OfertaCruda } from './caja'
 import { cajaNativa } from './paywallNativo'
 import { cajaWeb } from './paywallWeb'
@@ -22,6 +23,53 @@ import { useSesion } from './sesionStore'
 /** La caja de esta plataforma. La nativa carga su SDK sola, y solo si se usa. */
 function caja(): Caja {
   return esAppNativa() ? cajaNativa : cajaWeb
+}
+
+/**
+ * Techo de espera para lo que se le PREGUNTA a la tienda (el catálogo y la
+ * restauración). No lo lleva la compra en sí: ahí la hoja de pago es del
+ * sistema y tarda lo que tarde la persona.
+ *
+ * Existe porque una promesa de la tienda puede no volver NUNCA —ni resolver ni
+ * fallar—: `getOfferings()` acaba en la consulta de productos de StoreKit, y
+ * esa se ha visto colgada en dispositivo. Sin techo, la pantalla de compra se
+ * quedaba «cargando» para siempre y con ella su botón deshabilitado: es el
+ * fallo por el que Apple rechazó la 1.0 el 9-sep-2026 («2.1(a) — Buy the house
+ * button was unresponsive»). Con techo, la espera SIEMPRE termina y la UI
+ * puede contarlo y reintentar.
+ */
+const ESPERA_TIENDA = 12_000
+
+/**
+ * Se agotó el techo. Va como TIPO y no como texto porque quien lo enseña es la
+ * UI, que tiene el idioma: un `Error` con su mensaje dentro salía en español en
+ * una app en inglés (visto en el iPad al probar «Restaurar compras»).
+ */
+export class TiendaSinRespuesta extends Error {
+  constructor() {
+    super('tienda: sin respuesta')
+    this.name = 'TiendaSinRespuesta'
+  }
+}
+
+function conTecho<T>(promesa: Promise<T>, ms = ESPERA_TIENDA): Promise<T> {
+  return new Promise<T>((resolver, rechazar) => {
+    const reloj = setTimeout(() => rechazar(new TiendaSinRespuesta()), ms)
+    promesa.then(resolver, rechazar).finally(() => clearTimeout(reloj))
+  })
+}
+
+/**
+ * Un fallo de la tienda, dicho en el idioma de quien mira. Vive aquí y no en la
+ * UI porque lo enseñan dos pantallas —la puerta y Configuraciones › Cuenta— y
+ * una de ellas ya importa de la otra. El techo es la única excepción que
+ * sabemos nombrar; del resto, que vienen de RevenueCat, se enseña su mensaje.
+ */
+export function textoDeFallo(e: unknown, t: TFunc): string {
+  if (e instanceof TiendaSinRespuesta) {
+    return t('puerta.sinOferta', 'La tienda no respondió. Revisa tu conexión y vuelve a intentarlo.')
+  }
+  return e instanceof Error ? e.message : String(e)
 }
 
 /** ¿El build trae pagos configurados? (clave de RevenueCat de esta plataforma) */
@@ -54,7 +102,7 @@ export interface OfertaPro {
 async function ofertas(): Promise<OfertaPro[]> {
   const usuario = useSesion.getState().usuario
   if (!usuario || !hayPagos()) return []
-  const crudas = await caja().ofertas(usuario.id)
+  const crudas = await conTecho(caja().ofertas(usuario.id))
   const lista: { oferta: OfertaPro; rango: number }[] = []
   for (const cruda of crudas) {
     const producto = productoDe(cruda.id, cruda.producto)
@@ -187,7 +235,7 @@ export async function comprarUnlock(paquete: unknown): Promise<boolean> {
 export async function restaurarCompras(): Promise<boolean> {
   const usuario = useSesion.getState().usuario
   if (!usuario || !hayPagos()) return false
-  await caja().restaurar(usuario.id)
+  await conTecho(caja().restaurar(usuario.id))
   return esperarPerfil(() => useSesion.getState().unlock || useSesion.getState().plan !== 'local')
 }
 

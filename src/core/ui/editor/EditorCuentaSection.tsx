@@ -12,6 +12,7 @@ import {
   cambiarNivel,
   comprarCreditos,
   restaurarCompras,
+  textoDeFallo,
   urlGestion,
   type OfertaPro,
 } from '../../cuenta/paywall'
@@ -545,7 +546,7 @@ function Restaurar() {
       const ok = await restaurarCompras()
       if (!ok) setAviso(t('cuenta.pago.sinRestaurar', 'No encontramos compras de esta cuenta.'))
     } catch (e) {
-      setAviso(e instanceof Error ? e.message : String(e))
+      setAviso(textoDeFallo(e, t))
     } finally {
       setOcupado(false)
     }
