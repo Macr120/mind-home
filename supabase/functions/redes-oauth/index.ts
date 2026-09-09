@@ -186,16 +186,29 @@ async function conectarGoogle(admin: SupabaseClient, uid: string, code: string, 
     scopes: t.scope,
     extra: {},
   })
+  // Conectar otra cuenta SOBRESCRIBE la fila (PK `user_id,plataforma`), así que
+  // la credencial anterior se quedaba viva en Google sin que nadie pudiera ya
+  // revocarla desde la app: solo lo hacía «Desconectar». Se revoca aquí, DESPUÉS
+  // de guardar, para no quedarnos sin credencial si la revocación falla.
+  //
+  // Solo si de verdad es OTRA cuenta: el revoke de Google tumba el GRANT entero,
+  // no ese token suelto, así que reconectar la MISMA cuenta —lo normal para
+  // cambiar de canal— y revocar la anterior mataría el token recién guardado.
+  if (previa && previa.cuenta_id !== perfil.sub) {
+    await revocarGoogle(previa.refresh_token ?? previa.access_token)
+  }
 }
 
 async function conectarTikTok(admin: SupabaseClient, uid: string, code: string, redirect: string, verifier: string): Promise<void> {
   const t = await canjearTikTok(code, redirect, verifier)
   const perfil = await perfilTikTok(t.access_token)
   const ahora = Date.now()
+  const cuentaId = t.open_id || perfil.open_id
+  const previa = await leerCuenta(admin, uid, 'tiktok')
   await guardarCuenta(admin, {
     user_id: uid,
     plataforma: 'tiktok',
-    cuenta_id: t.open_id || perfil.open_id,
+    cuenta_id: cuentaId,
     nombre: perfil.nombre,
     avatar: perfil.avatar,
     access_token: t.access_token,
@@ -206,6 +219,12 @@ async function conectarTikTok(admin: SupabaseClient, uid: string, code: string, 
     scopes: t.scope,
     extra: {},
   })
+  // Mismo caso que en `conectarGoogle`: la fila se sobrescribe y la credencial
+  // anterior se quedaría viva en TikTok. Se revoca solo si es OTRA cuenta,
+  // porque el revoke retira la autorización de la app para ese usuario y
+  // reconectar la misma se quedaría sin acceso. Con el `access_token`, igual
+  // que hace `desconectar`.
+  if (previa && previa.cuenta_id !== cuentaId) await revocarTikTok(previa.access_token)
 }
 
 /** Guarda `facebook` (y `instagram` si la Página elegida tiene cuenta vinculada). Devuelve el motivo si no se pudo lo pedido. */
