@@ -8977,6 +8977,7 @@ export const HI: Dict = {
   'video.timeline.asaIni': 'शुरुआत काटें',
   'video.timeline.asaFin': 'अंत काटें',
   'video.timeline.clip': 'क्लिप {n}',
+  'video.calidad.etiqueta': 'गुणवत्ता',
   'video.clip.sinAudio': 'अभी कोई ऑडियो नहीं',
   'video.clip.transicionMarca': 'ट्रांज़िशन: {nombre}',
   'video.anadir.titulo': 'वीडियो में जोड़ें',

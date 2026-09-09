@@ -8993,6 +8993,7 @@ export const TR: Dict = {
   'video.timeline.asaIni': 'Başı kırp',
   'video.timeline.asaFin': 'Sonu kırp',
   'video.timeline.clip': 'Klip {n}',
+  'video.calidad.etiqueta': 'Kalite',
   'video.clip.sinAudio': 'Henüz ses yok',
   'video.clip.transicionMarca': 'Geçiş: {nombre}',
   'video.anadir.titulo': 'Videoya ekle',

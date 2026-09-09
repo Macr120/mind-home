@@ -8982,6 +8982,7 @@ export const RU: Dict = {
   'video.timeline.asaIni': 'Обрезать начало',
   'video.timeline.asaFin': 'Обрезать конец',
   'video.timeline.clip': 'Клип {n}',
+  'video.calidad.etiqueta': 'Качество',
   'video.clip.sinAudio': 'Звука пока нет',
   'video.clip.transicionMarca': 'Переход: {nombre}',
   'video.anadir.titulo': 'Добавить в видео',

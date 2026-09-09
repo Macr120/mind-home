@@ -8661,6 +8661,7 @@ export const JA: Dict = {
   'video.timeline.asaIni': '開始をトリム',
   'video.timeline.asaFin': '終了をトリム',
   'video.timeline.clip': 'クリップ{n}',
+  'video.calidad.etiqueta': '画質',
   'video.clip.sinAudio': 'まだ音声はありません',
   'video.clip.transicionMarca': 'トランジション：{nombre}',
   'video.anadir.titulo': '動画に追加',

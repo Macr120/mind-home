@@ -47,13 +47,17 @@ import {
   LS_PANEL_CLIP,
   LS_PANEL_MEDIOS,
   MAX_CLIPS,
+  CALIDAD_DEFECTO,
+  CALIDADES,
+  type CalidadVideo,
+  ETIQUETA_CALIDAD,
   MAX_CLIPS_PRINCIPAL,
   MAX_NARRADORES,
   MEDIA_ANCHO_SM,
   MEDIA_LATERALES_ANCHOS,
   MIN_CLIP,
   nuevoClipId,
-  RESOLUCIONES,
+  resolucionDe,
   TAMANOS_AVATAR,
 } from './constantes'
 import { OP_GUION, OP_TITULOS } from './costosIA'
@@ -367,10 +371,11 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
   const firmaMedios = medios.map((m) => m.id).join(',')
   const cargado = proyecto != null
   const aspecto = proyecto?.aspecto ?? '16:9'
-  // El lienzo de la composición: 720p por aspecto o, en el modo película, la pantalla (encuadres del PIP y avatar incluidos).
+  const calidad = proyecto?.calidad ?? CALIDAD_DEFECTO
+  // El lienzo de la composición: la calidad elegida con el aspecto, o en el modo película la pantalla (encuadres del PIP y avatar incluidos).
   const lienzo = useMemo(
-    () => (pelicula && tamPantalla ? resolucionPantalla(tamPantalla.w, tamPantalla.h) : RESOLUCIONES[aspecto]),
-    [pelicula, tamPantalla, aspecto],
+    () => (pelicula && tamPantalla ? resolucionPantalla(tamPantalla.w, tamPantalla.h) : resolucionDe(aspecto, calidad)),
+    [pelicula, tamPantalla, aspecto, calidad],
   )
   // Modo película: la resolución sigue a la pantalla (rehace el motor si el lienzo cambia de tamaño).
   const firmaResolucion = pelicula ? firmaPantalla : ''
@@ -1371,6 +1376,24 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
       ))}
     </div>
   )
+  // La calidad manda en el lienzo y en el bitrate del export. En modo película
+  // no se ofrece: allí la resolución la fija la pantalla, no el proyecto.
+  const botonesCalidad = (
+    <label className="flex items-center gap-1 text-xs text-white/60">
+      <span className="hidden sm:inline">{t('video.calidad.etiqueta', 'Calidad')}</span>
+      <select
+        value={calidad}
+        onChange={(e) => mutar((p) => ({ ...p, calidad: e.target.value as CalidadVideo }))}
+        className="ui-boton rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-xs text-white/85"
+      >
+        {(Object.keys(CALIDADES) as CalidadVideo[]).map((c) => (
+          <option key={c} value={c}>
+            {ETIQUETA_CALIDAD[c]}
+          </option>
+        ))}
+      </select>
+    </label>
+  )
   const abrirExportar = () => {
     setCajon(null)
     setMenuExportar(true)
@@ -1486,6 +1509,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
             </span>
           </BotonSecundario>
           {botonesAspecto}
+          {!pelicula && botonesCalidad}
           <BotonSecundario pequeno onClick={abrirExportar} disabled={proyecto.clips.length === 0 || progresoExport != null}>
             <Icono nombre="compartir" /> <span className="hidden sm:inline">{t('video.export.boton', 'Exportar')}</span>
           </BotonSecundario>

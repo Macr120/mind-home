@@ -4106,6 +4106,12 @@ export interface ProyectoVideo {
   id?: number
   nombre: string
   aspecto: '16:9' | '9:16'
+  /**
+   * Resolución del export (ver `CALIDADES` en `rooms/video/constantes`). La
+   * unión va en línea, como `aspecto`, para que la capa de datos no dependa de
+   * la del cuarto. Ausente = proyecto anterior al selector: se exporta en HD.
+   */
+  calidad?: '720p' | '1080p' | '1440p' | '2160p'
   /** Formato 2. Ausente = formato 1: se migra al abrir en el Editor. */
   clips?: ClipVideo[]
   /** Pista muda (audio) u oculta (visual). Array y no Set: viaja en JSON. */

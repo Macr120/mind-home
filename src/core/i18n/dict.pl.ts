@@ -9009,6 +9009,7 @@ export const PL: Dict = {
   'video.timeline.asaIni': 'Przytnij początek',
   'video.timeline.asaFin': 'Przytnij koniec',
   'video.timeline.clip': 'Klip {n}',
+  'video.calidad.etiqueta': 'Jakość',
   'video.clip.sinAudio': 'Jeszcze bez dźwięku',
   'video.clip.transicionMarca': 'Przejście: {nombre}',
   'video.anadir.titulo': 'Dodaj do filmu',

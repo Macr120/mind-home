@@ -18,16 +18,48 @@ export const MAX_ESCENAS_IA = 12
 export const AVISO_MB = 100
 export const TOPE_MB = 300
 export const FPS_EXPORT = 30
-/** Calidad del export, la misma con MediaRecorder y con WebCodecs. */
-export const BITRATE_VIDEO = 6_000_000
 export const BITRATE_AUDIO = 128_000
 /** Aviso previo si el export durará más de esto (s): render en tiempo real. */
 export const AVISO_DURACION_EXPORT = 600
 
-/** Resolución interna del lienzo por aspecto (720p). */
-export const RESOLUCIONES: Record<'16:9' | '9:16', { ancho: number; alto: number }> = {
-  '16:9': { ancho: 1280, alto: 720 },
-  '9:16': { ancho: 720, alto: 1280 },
+/**
+ * Calidad del export: resolución del lienzo y bitrate, el mismo con
+ * MediaRecorder y con WebCodecs.
+ *
+ * Subir de 720p vale la pena porque el render es INDEPENDIENTE de la
+ * resolución: los tamaños de texto, avatar y PIP son fracciones de la altura o
+ * la anchura (`TAMANOS_*`) y los encuadres van normalizados 0-1, así que un
+ * lienzo mayor da nitidez de verdad, no un reescalado. Lo que NO gana detalle
+ * es el material que trajo el usuario: un video de móvil a 720p sigue siendo
+ * 720p por mucho que el lienzo sea 4K.
+ *
+ * El bitrate sube con los píxeles (referencia de YouTube para SDR a 30 fps):
+ * dejarlo en 6 Mbps haría que 2160p se viera PEOR que 720p bien codificado.
+ */
+export type CalidadVideo = '720p' | '1080p' | '1440p' | '2160p'
+
+/** HD por defecto: el salto que más se nota y aún pesa poco. */
+export const CALIDAD_DEFECTO: CalidadVideo = '1080p'
+
+export const CALIDADES: Record<CalidadVideo, { largo: number; corto: number; bitrate: number }> = {
+  '720p': { largo: 1280, corto: 720, bitrate: 6_000_000 },
+  '1080p': { largo: 1920, corto: 1080, bitrate: 8_000_000 },
+  '1440p': { largo: 2560, corto: 1440, bitrate: 16_000_000 },
+  '2160p': { largo: 3840, corto: 2160, bitrate: 45_000_000 },
+}
+
+/** Rótulos del selector. NO se traducen: «HD», «2K» y «4K» son iguales en los 16 idiomas. */
+export const ETIQUETA_CALIDAD: Record<CalidadVideo, string> = {
+  '720p': '720p',
+  '1080p': 'HD · 1080p',
+  '1440p': '2K · 1440p',
+  '2160p': '4K · 2160p',
+}
+
+/** El lienzo: el lado largo va donde lo pida el aspecto. */
+export function resolucionDe(aspecto: '16:9' | '9:16', calidad: CalidadVideo = CALIDAD_DEFECTO): { ancho: number; alto: number } {
+  const { largo, corto } = CALIDADES[calidad] ?? CALIDADES[CALIDAD_DEFECTO]
+  return aspecto === '16:9' ? { ancho: largo, alto: corto } : { ancho: corto, alto: largo }
 }
 
 /**

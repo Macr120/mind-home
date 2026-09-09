@@ -9152,6 +9152,7 @@ export const DE: Dict = {
   'video.timeline.asaIni': 'Anfang kürzen',
   'video.timeline.asaFin': 'Ende kürzen',
   'video.timeline.clip': 'Clip {n}',
+  'video.calidad.etiqueta': 'Qualität',
   'video.clip.sinAudio': 'Noch kein Audio',
   'video.clip.transicionMarca': 'Übergang: {nombre}',
   'video.anadir.titulo': 'Zum Video hinzufügen',

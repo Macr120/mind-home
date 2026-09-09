@@ -9082,6 +9082,7 @@ export const IT: Dict = {
   'video.timeline.asaIni': 'Taglia l\'inizio',
   'video.timeline.asaFin': 'Taglia la fine',
   'video.timeline.clip': 'Clip {n}',
+  'video.calidad.etiqueta': 'Qualità',
   'video.clip.sinAudio': 'Ancora nessun audio',
   'video.clip.transicionMarca': 'Transizione: {nombre}',
   'video.anadir.titulo': 'Aggiungi al video',

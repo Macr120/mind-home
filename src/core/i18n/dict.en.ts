@@ -9150,6 +9150,7 @@ export const EN: Dict = {
   'video.timeline.asaIni': 'Trim the start',
   'video.timeline.asaFin': 'Trim the end',
   'video.timeline.clip': 'Clip {n}',
+  'video.calidad.etiqueta': 'Quality',
   'video.clip.sinAudio': 'No audio yet',
   'video.clip.transicionMarca': 'Transition: {nombre}',
   'video.anadir.titulo': 'Add to the video',

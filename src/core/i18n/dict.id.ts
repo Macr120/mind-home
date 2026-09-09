@@ -9057,6 +9057,7 @@ export const ID: Dict = {
   'video.timeline.asaIni': 'Pangkas awal',
   'video.timeline.asaFin': 'Pangkas akhir',
   'video.timeline.clip': 'Klip {n}',
+  'video.calidad.etiqueta': 'Kualitas',
   'video.clip.sinAudio': 'Belum ada audio',
   'video.clip.transicionMarca': 'Transisi: {nombre}',
   'video.anadir.titulo': 'Tambahkan ke video',

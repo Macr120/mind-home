@@ -2,7 +2,7 @@ import { contextoAudio, desbloquearAudio } from '../../core/audio/motor'
 import type { MedioVideo } from '../../core/data/db'
 import { formatoGrabacion } from '../../core/grabacionPantalla'
 import { peliculaFrame } from '../../core/state/peliculaStore'
-import { BITRATE_AUDIO, BITRATE_VIDEO, FPS_EXPORT, RESOLUCIONES } from './constantes'
+import { BITRATE_AUDIO, CALIDAD_DEFECTO, CALIDADES, FPS_EXPORT, resolucionDe } from './constantes'
 import { crearPool } from './fuentes'
 import { duracionTotal, esClipAudio, type ProyectoAbierto } from './modelo'
 import { MotorVideo } from './motor'
@@ -37,7 +37,7 @@ export interface OpcionesExport {
   fuente3d?: Fuente3D
   /** Cada tick del motor de export, antes de emitir el frame: el Director lleva la escena a ese segundo. */
   onTiempo?: (seg: number) => void
-  /** Modo película: la resolución sigue al aspecto de la pantalla (ausente = `RESOLUCIONES[aspecto]`). */
+  /** Modo película: la resolución sigue al aspecto de la pantalla (ausente = la de `calidad`). */
   resolucion?: { ancho: number; alto: number }
   /** El canvas de la composición del export, nada más nacer: el monitor del HUD lo enseña mientras se graba. */
   onLienzo?: (canvas: HTMLCanvasElement) => void
@@ -110,7 +110,7 @@ export async function exportarVideo(
   const total = duracionTotal(proyecto.clips)
   if (total <= 0) throw new Error('sin-clips')
 
-  const { ancho, alto } = opciones.resolucion ?? RESOLUCIONES[proyecto.aspecto]
+  const { ancho, alto } = opciones.resolucion ?? resolucionDe(proyecto.aspecto, proyecto.calidad)
   // OffscreenCanvas no tiene captureStream: canvas normal fuera del DOM.
   const canvas = document.createElement('canvas')
   canvas.width = ancho
@@ -190,6 +190,9 @@ export async function exportarVideo(
 }
 
 /** El mismo montaje para los dos grabadores; lo que cambia es cómo se escribe el archivo. */
+/** El bitrate de la calidad del proyecto; los de antes del selector van en HD. */
+const bitrateDe = (p: ProyectoAbierto) => (CALIDADES[p.calidad ?? CALIDAD_DEFECTO] ?? CALIDADES[CALIDAD_DEFECTO]).bitrate
+
 interface Grabacion {
   canvas: HTMLCanvasElement
   /** `MediaStreamAudioTrack` es el tipo global del DOM: mediabunny exige la pista estrechada. */
@@ -218,7 +221,7 @@ function grabarConMediaRecorder({ canvas, pistaAudio, motor, total, proyecto, fo
   const trackVideo = streamCanvas.getVideoTracks()[0] as CanvasCaptureMediaStreamTrack
   const recorder = new MediaRecorder(new MediaStream([trackVideo, pistaAudio]), {
     mimeType: formato.mime,
-    videoBitsPerSecond: BITRATE_VIDEO,
+    videoBitsPerSecond: bitrateDe(proyecto),
   })
   const chunks: Blob[] = []
   recorder.ondataavailable = (e) => {
@@ -292,7 +295,7 @@ async function grabarConCodecs({ canvas, pistaAudio, motor, total, proyecto, for
   const { Output, WebMOutputFormat, Mp4OutputFormat, BufferTarget, CanvasSource, MediaStreamAudioTrackSource } = await import('mediabunny')
   const mp4 = formato.extension === 'mp4'
   const salida = new Output({ format: mp4 ? new Mp4OutputFormat() : new WebMOutputFormat(), target: new BufferTarget() })
-  const video = new CanvasSource(canvas, { codec: mp4 ? 'avc' : 'vp9', bitrate: BITRATE_VIDEO, keyFrameInterval: 2 })
+  const video = new CanvasSource(canvas, { codec: mp4 ? 'avc' : 'vp9', bitrate: bitrateDe(proyecto), keyFrameInterval: 2 })
   salida.addVideoTrack(video, { frameRate: FPS_EXPORT })
   salida.addAudioTrack(new MediaStreamAudioTrackSource(pistaAudio, { codec: mp4 ? 'aac' : 'opus', bitrate: BITRATE_AUDIO }))
   await salida.start()

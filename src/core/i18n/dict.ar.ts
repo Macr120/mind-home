@@ -8876,6 +8876,7 @@ export const AR: Dict = {
   'video.timeline.asaIni': 'قص البداية',
   'video.timeline.asaFin': 'قص النهاية',
   'video.timeline.clip': 'مقطع {n}',
+  'video.calidad.etiqueta': 'الجودة',
   'video.clip.sinAudio': 'لا صوت بعد',
   'video.clip.transicionMarca': 'انتقال: {nombre}',
   'video.anadir.titulo': 'إضافة إلى الفيديو',

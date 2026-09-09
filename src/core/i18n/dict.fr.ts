@@ -9120,6 +9120,7 @@ export const FR: Dict = {
   'video.timeline.asaIni': 'Rogner le début',
   'video.timeline.asaFin': 'Rogner la fin',
   'video.timeline.clip': 'Clip {n}',
+  'video.calidad.etiqueta': 'Qualité',
   'video.clip.sinAudio': 'Pas encore d’audio',
   'video.clip.transicionMarca': 'Transition : {nombre}',
   'video.anadir.titulo': 'Ajouter à la vidéo',

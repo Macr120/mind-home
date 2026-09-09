@@ -9091,6 +9091,7 @@ export const NL: Dict = {
   'video.timeline.asaIni': 'Begin inkorten',
   'video.timeline.asaFin': 'Einde inkorten',
   'video.timeline.clip': 'Clip {n}',
+  'video.calidad.etiqueta': 'Kwaliteit',
   'video.clip.sinAudio': 'Nog geen audio',
   'video.clip.transicionMarca': 'Overgang: {nombre}',
   'video.anadir.titulo': 'Aan de video toevoegen',

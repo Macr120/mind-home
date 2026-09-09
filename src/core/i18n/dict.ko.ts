@@ -8681,6 +8681,7 @@ export const KO: Dict = {
   'video.timeline.asaIni': '시작 지점 자르기',
   'video.timeline.asaFin': '끝 지점 자르기',
   'video.timeline.clip': '클립 {n}',
+  'video.calidad.etiqueta': '화질',
   'video.clip.sinAudio': '아직 오디오가 없어요',
   'video.clip.transicionMarca': '전환: {nombre}',
   'video.anadir.titulo': '영상에 추가',

@@ -8617,6 +8617,7 @@ export const ZH: Dict = {
   'video.timeline.asaIni': '裁剪开头',
   'video.timeline.asaFin': '裁剪结尾',
   'video.timeline.clip': '片段{n}',
+  'video.calidad.etiqueta': '画质',
   'video.clip.sinAudio': '还没有音频',
   'video.clip.transicionMarca': '转场：{nombre}',
   'video.anadir.titulo': '添加到视频',
