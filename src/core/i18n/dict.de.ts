@@ -1125,7 +1125,7 @@ export const DE: Dict = {
   'ajustes.tema.masColores': 'Mehr Farben',
   'ajustes.tema.menosColores': 'Weniger Farben',
   'ajustes.tema.tinte': 'Tönung',
-  'ajustes.tema.tinte.desc': 'Wie stark die ganze Oberfläche die Farbe des Designs annimmt, nicht nur die Buttons.',
+  'ajustes.tema.tinte.desc': 'Wie stark Menüs und Panels die Farbe des Designs annehmen, nicht nur die Buttons. Die Apps der Räume behalten ihre Farben.',
   'ajustes.modo': 'Erscheinungsbild',
   'ajustes.estilo': 'Stil der Oberfläche',
   'ajustes.estilo.desc': 'Die Form von Buttons, Karten und Panels: Ecken, Ränder und Schatten.',

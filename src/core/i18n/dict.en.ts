@@ -1160,7 +1160,7 @@ export const EN: Dict = {
   'ajustes.tema.masColores': 'More colors',
   'ajustes.tema.menosColores': 'Fewer colors',
   'ajustes.tema.tinte': 'Tint',
-  'ajustes.tema.tinte.desc': 'How much the whole interface takes on the theme color, not just the buttons.',
+  'ajustes.tema.tinte.desc': 'How much menus and panels take on the theme color, not just the buttons. Room apps keep their own colors.',
   'ajustes.modo': 'Appearance',
   'ajustes.estilo': 'Interface style',
   'ajustes.estilo.desc': 'The shape of buttons, cards and panels: corners, borders and shadows.',

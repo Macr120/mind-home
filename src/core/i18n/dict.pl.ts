@@ -1117,7 +1117,7 @@ export const PL: Dict = {
   'ajustes.tema.masColores': 'Więcej kolorów',
   'ajustes.tema.menosColores': 'Mniej kolorów',
   'ajustes.tema.tinte': 'Odcień',
-  'ajustes.tema.tinte.desc': 'Jak mocno cały interfejs przejmuje kolor motywu, nie tylko przyciski.',
+  'ajustes.tema.tinte.desc': 'Jak mocno menu i panele przejmują kolor motywu, nie tylko przyciski. Aplikacje pokoi zachowują swoje kolory.',
   'ajustes.modo': 'Wygląd',
   'ajustes.estilo': 'Styl interfejsu',
   'ajustes.estilo.desc': 'Kształt przycisków, kart i paneli: narożniki, obramowania i cienie.',

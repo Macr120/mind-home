@@ -1104,7 +1104,7 @@ export const KO: Dict = {
   'ajustes.tema.masColores': '색상 더 보기',
   'ajustes.tema.menosColores': '색상 접기',
   'ajustes.tema.tinte': '색조',
-  'ajustes.tema.tinte.desc': '버튼뿐 아니라 인터페이스 전체에 테마 색을 얼마나 입힐지.',
+  'ajustes.tema.tinte.desc': '버튼뿐 아니라 메뉴와 패널에 테마 색을 얼마나 입힐지. 방의 앱은 원래 색을 유지합니다.',
   'ajustes.modo': '모양',
   'ajustes.estilo': '인터페이스 스타일',
   'ajustes.estilo.desc': '버튼, 카드, 패널의 모양: 모서리, 테두리, 그림자.',

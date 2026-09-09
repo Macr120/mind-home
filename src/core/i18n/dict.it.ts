@@ -1120,7 +1120,7 @@ export const IT: Dict = {
   'ajustes.tema.masColores': 'Più colori',
   'ajustes.tema.menosColores': 'Meno colori',
   'ajustes.tema.tinte': 'Tinta',
-  'ajustes.tema.tinte.desc': 'Quanto tutta l\'interfaccia prende il colore del tema, non solo i pulsanti.',
+  'ajustes.tema.tinte.desc': 'Quanto menu e pannelli prendono il colore del tema, non solo i pulsanti. Le app delle stanze mantengono i loro colori.',
   'ajustes.modo': 'Aspetto',
   'ajustes.estilo': 'Stile dell\'interfaccia',
   'ajustes.estilo.desc': 'La forma di pulsanti, schede e pannelli: angoli, bordi e ombre.',

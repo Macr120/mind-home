@@ -1120,7 +1120,7 @@ export const TR: Dict = {
   'ajustes.tema.masColores': 'Daha fazla renk',
   'ajustes.tema.menosColores': 'Daha az renk',
   'ajustes.tema.tinte': 'Ton',
-  'ajustes.tema.tinte.desc': 'Yalnızca düğmeler değil, tüm arayüzün tema rengini ne kadar aldığı.',
+  'ajustes.tema.tinte.desc': 'Menülerin ve panellerin tema rengini ne kadar aldığı, yalnızca düğmeler değil. Oda uygulamaları kendi renklerini korur.',
   'ajustes.modo': 'Görünüm',
   'ajustes.estilo': 'Arayüz stili',
   'ajustes.estilo.desc': 'Düğmelerin, kartların ve panellerin biçimi: köşeler, kenarlar ve gölgeler.',

@@ -1123,7 +1123,7 @@ export const NL: Dict = {
   'ajustes.tema.masColores': 'Meer kleuren',
   'ajustes.tema.menosColores': 'Minder kleuren',
   'ajustes.tema.tinte': 'Tint',
-  'ajustes.tema.tinte.desc': 'Hoe sterk de hele interface de kleur van het thema overneemt, niet alleen de knoppen.',
+  'ajustes.tema.tinte.desc': 'Hoe sterk menu’s en panelen de kleur van het thema overnemen, niet alleen de knoppen. De apps van de kamers houden hun eigen kleuren.',
   'ajustes.modo': 'Weergave',
   'ajustes.estilo': 'Stijl van de interface',
   'ajustes.estilo.desc': 'De vorm van knoppen, kaarten en panelen: hoeken, randen en schaduwen.',

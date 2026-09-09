@@ -1118,7 +1118,7 @@ export const RU: Dict = {
   'ajustes.tema.masColores': 'Больше цветов',
   'ajustes.tema.menosColores': 'Меньше цветов',
   'ajustes.tema.tinte': 'Оттенок',
-  'ajustes.tema.tinte.desc': 'Насколько весь интерфейс окрашивается в цвет темы, а не только кнопки.',
+  'ajustes.tema.tinte.desc': 'Насколько меню и панели окрашиваются в цвет темы, а не только кнопки. Приложения комнат сохраняют свои цвета.',
   'ajustes.modo': 'Оформление',
   'ajustes.estilo': 'Стиль интерфейса',
   'ajustes.estilo.desc': 'Форма кнопок, карточек и панелей: углы, границы и тени.',

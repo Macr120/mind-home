@@ -226,7 +226,7 @@ export function EditorAjustesSection({ embed }: { embed?: boolean } = {}) {
         <p className="text-[11px] leading-snug text-white/45">
           {t(
             'ajustes.tema.tinte.desc',
-            'Cuánto se tiñe toda la interfaz con el color del tema, además de los botones.',
+            'Cuánto se tiñen menús y paneles con el color del tema, además de los botones. Las apps de los cuartos conservan sus colores.',
           )}
         </p>
       </div>

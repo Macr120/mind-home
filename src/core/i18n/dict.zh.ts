@@ -1104,7 +1104,7 @@ export const ZH: Dict = {
   'ajustes.tema.masColores': '更多颜色',
   'ajustes.tema.menosColores': '收起颜色',
   'ajustes.tema.tinte': '色调',
-  'ajustes.tema.tinte.desc': '整个界面染上主题颜色的程度，而不只是按钮。',
+  'ajustes.tema.tinte.desc': '菜单和面板染上主题颜色的程度，而不只是按钮。房间里的应用保留自己的颜色。',
   'ajustes.modo': '外观',
   'ajustes.estilo': '界面风格',
   'ajustes.estilo.desc': '按钮、卡片和面板的样子：圆角、边框和阴影。',

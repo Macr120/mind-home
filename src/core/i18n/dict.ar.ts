@@ -1113,7 +1113,7 @@ export const AR: Dict = {
   'ajustes.tema.masColores': 'ألوان أكثر',
   'ajustes.tema.menosColores': 'ألوان أقل',
   'ajustes.tema.tinte': 'تلوين',
-  'ajustes.tema.tinte.desc': 'إلى أي حد تأخذ الواجهة كلها لون السمة، لا الأزرار فقط.',
+  'ajustes.tema.tinte.desc': 'إلى أي حد تأخذ القوائم واللوحات لون السمة، لا الأزرار فقط. تحتفظ تطبيقات الغرف بألوانها.',
   'ajustes.modo': 'المظهر',
   'ajustes.estilo': 'نمط الواجهة',
   'ajustes.estilo.desc': 'شكل الأزرار والبطاقات واللوحات: الزوايا والحدود والظلال.',

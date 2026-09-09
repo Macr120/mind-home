@@ -1121,7 +1121,7 @@ export const HI: Dict = {
   'ajustes.tema.masColores': 'और रंग',
   'ajustes.tema.menosColores': 'कम रंग',
   'ajustes.tema.tinte': 'रंगत',
-  'ajustes.tema.tinte.desc': 'बटन ही नहीं, पूरा इंटरफ़ेस थीम का रंग कितना लेता है।',
+  'ajustes.tema.tinte.desc': 'बटन ही नहीं, मेनू और पैनल थीम का रंग कितना लेते हैं। कमरों के ऐप अपने रंग बनाए रखते हैं।',
   'ajustes.modo': 'स्वरूप',
   'ajustes.estilo': 'इंटरफ़ेस की शैली',
   'ajustes.estilo.desc': 'बटन, कार्ड और पैनल की बनावट: कोने, किनारे और छाया।',

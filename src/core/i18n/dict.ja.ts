@@ -1104,7 +1104,7 @@ export const JA: Dict = {
   'ajustes.tema.masColores': '色をもっと見る',
   'ajustes.tema.menosColores': '色を減らす',
   'ajustes.tema.tinte': '色合い',
-  'ajustes.tema.tinte.desc': 'ボタンだけでなく、画面全体にテーマの色をどれだけ乗せるか。',
+  'ajustes.tema.tinte.desc': 'ボタンだけでなく、メニューやパネルにテーマの色をどれだけ乗せるか。部屋のアプリは元の色のままです。',
   'ajustes.modo': '外観',
   'ajustes.estilo': 'インターフェースのスタイル',
   'ajustes.estilo.desc': 'ボタン・カード・パネルの形。角、枠線、影を決めます。',

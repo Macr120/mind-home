@@ -1124,7 +1124,7 @@ export const FR: Dict = {
   'ajustes.tema.masColores': 'Plus de couleurs',
   'ajustes.tema.menosColores': 'Moins de couleurs',
   'ajustes.tema.tinte': 'Teinte',
-  'ajustes.tema.tinte.desc': 'À quel point toute l’interface prend la couleur du thème, pas seulement les boutons.',
+  'ajustes.tema.tinte.desc': 'À quel point les menus et les panneaux prennent la couleur du thème, pas seulement les boutons. Les apps des pièces gardent leurs couleurs.',
   'ajustes.modo': 'Apparence',
   'ajustes.estilo': 'Style de l’interface',
   'ajustes.estilo.desc': 'La forme des boutons, des cartes et des panneaux : coins, bordures et ombres.',

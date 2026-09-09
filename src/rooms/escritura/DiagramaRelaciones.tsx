@@ -189,7 +189,7 @@ export function DiagramaRelaciones({
                       y1={`${a.y * 100}%`}
                       x2={`${b.x * 100}%`}
                       y2={`${b.y * 100}%`}
-                      stroke={activa ? 'var(--color-accent)' : 'rgba(255,255,255,0.3)'}
+                      stroke={activa ? 'var(--ui-accent)' : 'rgba(255,255,255,0.3)'}
                       strokeWidth={activa ? 2.5 : 1.5}
                     />
                     <text

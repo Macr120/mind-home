@@ -349,8 +349,9 @@ function entintar(vars: VarsTemaUI, tinte: number): VarsTemaUI {
 
 /**
  * Tinte de la interfaz (0..1, la barra de Configuraciones): cuánto se tiñen
- * fondo y paneles con el acento del tema, además de los botones. Reaplica el
- * tema en curso con la misma base, para que el vidrio no pierda la suya.
+ * fondo y paneles del CHROME con el acento del tema, además de los botones; las
+ * apps de los cuartos quedan fuera (`.ui-app`). Reaplica el tema en curso con
+ * la misma base, para que el vidrio no pierda la suya.
  */
 export function aplicarTinteUI(tinte: number): void {
   tinteUI = tinte
@@ -371,10 +372,16 @@ export function aplicarTemaUI(id: TemaUIId, modo: ModoUI, baseTransparente?: Mod
   const root = document.documentElement
   const base = modo === 'transparente' ? (baseTransparente ?? modoBase(modo)) : modoBase(modo)
   ultimoAplicado = { id, modo, base: baseTransparente }
-  const vars = entintar(tema.vars[base] ?? tema.vars.oscuro, tinteUI)
+  const puro = tema.vars[base] ?? tema.vars.oscuro
+  const vars = entintar(puro, tinteUI)
   for (const [prop, valor] of Object.entries(vars)) {
     root.style.setProperty(prop, valor)
   }
+  // Las apps de los cuartos NO se tiñen: traen sus colores y las entinta el
+  // color del cuarto. `.ui-app` (index.css) vuelve a esta paleta pura.
+  root.style.setProperty('--ui-bg-puro', puro['--ui-bg'])
+  root.style.setProperty('--ui-panel-puro', puro['--ui-panel'])
+  root.style.setProperty('--ui-panel-2-puro', puro['--ui-panel-2'])
   // Panel del tema SIN el rebaje del modo transparente: lo usan las superficies
   // que deben leerse sí o sí sobre la escena (tarjeta del tutorial, `.ui-panel-legible`).
   root.style.setProperty('--ui-panel-solido', vars['--ui-panel'])
@@ -388,14 +395,12 @@ export function aplicarTemaUI(id: TemaUIId, modo: ModoUI, baseTransparente?: Mod
   // El mínimo evita que con el slider a tope el texto quede sobre la escena
   // desnuda.
   if (modo === 'transparente') {
-    root.style.setProperty(
-      '--ui-panel',
-      `color-mix(in srgb, ${vars['--ui-panel']} max(26%, calc(var(--ui-vidrio-alfa, 92%) * 0.42)), transparent)`,
-    )
-    root.style.setProperty(
-      '--ui-panel-2',
-      `color-mix(in srgb, ${vars['--ui-panel-2']} max(32%, calc(var(--ui-vidrio-alfa, 92%) * 0.5)), transparent)`,
-    )
+    const vidrio = (color: string, minimo: number, factor: number) =>
+      `color-mix(in srgb, ${color} max(${minimo}%, calc(var(--ui-vidrio-alfa, 92%) * ${factor})), transparent)`
+    root.style.setProperty('--ui-panel', vidrio(vars['--ui-panel'], 26, 0.42))
+    root.style.setProperty('--ui-panel-2', vidrio(vars['--ui-panel-2'], 32, 0.5))
+    root.style.setProperty('--ui-panel-puro', vidrio(puro['--ui-panel'], 26, 0.42))
+    root.style.setProperty('--ui-panel-2-puro', vidrio(puro['--ui-panel-2'], 32, 0.5))
   }
   // Con base clara, el `white` de Tailwind pasa a ser la tinta oscura del tema:
   // texto, bordes y hovers `*-white/X` de toda la app se invierten solos.

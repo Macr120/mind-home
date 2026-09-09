@@ -1123,7 +1123,7 @@ export const ID: Dict = {
   'ajustes.tema.masColores': 'Lebih banyak warna',
   'ajustes.tema.menosColores': 'Lebih sedikit warna',
   'ajustes.tema.tinte': 'Rona',
-  'ajustes.tema.tinte.desc': 'Seberapa kuat seluruh antarmuka mengambil warna tema, bukan hanya tombol.',
+  'ajustes.tema.tinte.desc': 'Seberapa kuat menu dan panel mengambil warna tema, bukan hanya tombol. Aplikasi ruangan mempertahankan warnanya sendiri.',
   'ajustes.modo': 'Tampilan',
   'ajustes.estilo': 'Gaya antarmuka',
   'ajustes.estilo.desc': 'Bentuk tombol, kartu, dan panel: sudut, garis tepi, dan bayangan.',

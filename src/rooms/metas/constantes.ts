@@ -13,8 +13,10 @@ export const COLOR = `var(--ui-app, ${COLOR_FABRICA})`
  * violeta fijo repetido en nueve archivos, así que era la única parte de la app
  * que no se enteraba si repintabas el cuarto.
  *
- * La MEZCLA vive en `index.css` (`--color-plan`, dentro de `@theme`) para que
- * Tailwind genere también `text-plan/80`, `bg-plan/15` y compañía; aquí solo se
- * lee, y así no hay dos definiciones que se puedan separar.
+ * La misma receta que `--color-plan` en `index.css` (`@theme inline`, que
+ * genera `text-plan/80`, `bg-plan/15` y compañía). Va escrita aquí y no como
+ * `var(--color-plan)` porque esa variable se resolvería en `:root`, donde no
+ * hay `--ui-app`, y saldría siempre el color de fábrica; así se resuelve en el
+ * elemento, con el color del cuarto. Si cambia una, cambiar la otra.
  */
-export const COLOR_PLAN = 'var(--color-plan)'
+export const COLOR_PLAN = 'color-mix(in srgb, var(--ui-app, #ef4444) 55%, white)'
