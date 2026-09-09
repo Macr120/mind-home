@@ -8473,6 +8473,7 @@ export const KO: Dict = {
   'video.publicar.campo.obligatorio': '제목은 필수예요.',
   'video.publicar.campo.titulo': '제목',
   'video.publicar.cuenta.caducado': '접근 권한이 만료됐어요. 계정을 다시 연결해 주세요.',
+  'video.publicar.cuenta.canalYoutube': 'Google 계정에 채널이 여러 개면 Google 화면에서 사용할 채널을 고르세요. 바꾸려면 다시 연결하면 됩니다.',
   'video.publicar.cuenta.cancelar': '취소',
   'video.publicar.cuenta.cargando': '계정을 찾는 중…',
   'video.publicar.cuenta.conectar': '{red} 연결',

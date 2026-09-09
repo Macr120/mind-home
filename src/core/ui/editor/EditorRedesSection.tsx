@@ -104,6 +104,17 @@ function FilaRed({ plataforma, cuenta, cargando }: { plataforma: Plataforma; cue
         <p className="font-semibold text-white/85">{red}</p>
         <p className={`truncate text-[11px] ${cuenta?.estado === 'caducada' ? 'text-amber-300/80' : 'text-white/50'}`}>{estado}</p>
         {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
+        {/* El canal lo elige Google en SU pantalla de consentimiento y la app no
+            puede saber cuál salió: con el scope `youtube.upload` no se pueden
+            leer los canales, y ampliarlo dispararía otra auditoría. */}
+        {plataforma === 'youtube' && (
+          <p className="text-[11px] leading-snug text-white/40">
+            {t(
+              'video.publicar.cuenta.canalYoutube',
+              'Si tu cuenta de Google tiene varios canales, elige cuál usar en la pantalla de Google. Para cambiarlo, vuelve a conectar.',
+            )}
+          </p>
+        )}
       </div>
       {cuenta && cuenta.estado === 'ok' ? (
         <button

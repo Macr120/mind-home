@@ -8409,6 +8409,7 @@ export const ZH: Dict = {
   'video.publicar.campo.obligatorio': '标题必填。',
   'video.publicar.campo.titulo': '标题',
   'video.publicar.cuenta.caducado': '授权已过期：请重新连接账号。',
+  'video.publicar.cuenta.canalYoutube': '如果你的 Google 账号有多个频道，请在 Google 的页面上选择要使用的频道。要更换，请重新连接。',
   'video.publicar.cuenta.cancelar': '取消',
   'video.publicar.cuenta.cargando': '正在查找你的账号……',
   'video.publicar.cuenta.conectar': '连接 {red}',

@@ -8664,6 +8664,7 @@ export const AR: Dict = {
   'video.publicar.campo.obligatorio': 'العنوان مطلوب.',
   'video.publicar.campo.titulo': 'العنوان',
   'video.publicar.cuenta.caducado': 'انتهت صلاحية الوصول: أعد ربط الحساب.',
+  'video.publicar.cuenta.canalYoutube': 'إذا كان حسابك على Google يضم عدة قنوات، فاختر القناة التي تريد استخدامها في شاشة Google. ولتغييرها، أعد الاتصال.',
   'video.publicar.cuenta.cancelar': 'إلغاء',
   'video.publicar.cuenta.cargando': 'جارٍ البحث عن حساباتك…',
   'video.publicar.cuenta.conectar': 'ربط {red}',

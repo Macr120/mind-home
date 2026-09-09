@@ -8763,6 +8763,7 @@ export const RU: Dict = {
   'video.publicar.campo.obligatorio': 'Заголовок обязателен.',
   'video.publicar.campo.titulo': 'Заголовок',
   'video.publicar.cuenta.caducado': 'Доступ истёк: подключи аккаунт заново.',
+  'video.publicar.cuenta.canalYoutube': 'Если в твоём аккаунте Google несколько каналов, выбери нужный на экране Google. Чтобы сменить его, подключись заново.',
   'video.publicar.cuenta.cancelar': 'Отмена',
   'video.publicar.cuenta.cargando': 'Ищем твои аккаунты…',
   'video.publicar.cuenta.conectar': 'Подключить {red}',

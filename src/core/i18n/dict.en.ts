@@ -8941,6 +8941,7 @@ export const EN: Dict = {
   'video.publicar.campo.obligatorio': 'The title is required.',
   'video.publicar.campo.titulo': 'Title',
   'video.publicar.cuenta.caducado': 'Access expired: connect the account again.',
+  'video.publicar.cuenta.canalYoutube': 'If your Google account has several channels, pick the one to use on the Google screen. To change it, connect again.',
   'video.publicar.cuenta.cancelar': 'Cancel',
   'video.publicar.cuenta.cargando': 'Looking for your accounts…',
   'video.publicar.cuenta.conectar': 'Connect {red}',

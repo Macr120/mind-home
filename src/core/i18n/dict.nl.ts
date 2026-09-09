@@ -8867,6 +8867,7 @@ export const NL: Dict = {
   'video.publicar.campo.obligatorio': 'De titel is verplicht.',
   'video.publicar.campo.titulo': 'Titel',
   'video.publicar.cuenta.caducado': 'De toegang is verlopen: verbind het account opnieuw.',
+  'video.publicar.cuenta.canalYoutube': 'Als je Google-account meerdere kanalen heeft, kies je op het Google-scherm welk kanaal je gebruikt. Verbind opnieuw om te wisselen.',
   'video.publicar.cuenta.cancelar': 'Annuleren',
   'video.publicar.cuenta.cargando': 'Je accounts zoeken…',
   'video.publicar.cuenta.conectar': '{red} verbinden',

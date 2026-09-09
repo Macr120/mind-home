@@ -8758,6 +8758,7 @@ export const HI: Dict = {
   'video.publicar.campo.obligatorio': 'शीर्षक ज़रूरी है।',
   'video.publicar.campo.titulo': 'शीर्षक',
   'video.publicar.cuenta.caducado': 'पहुँच खत्म हो गई: खाता दोबारा जोड़ें।',
+  'video.publicar.cuenta.canalYoutube': 'अगर आपके Google खाते में कई चैनल हैं, तो Google की स्क्रीन पर चुनें कि किसे इस्तेमाल करना है। बदलने के लिए फिर से कनेक्ट करें।',
   'video.publicar.cuenta.cancelar': 'रद्द करें',
   'video.publicar.cuenta.cargando': 'आपके खाते खोजे जा रहे हैं…',
   'video.publicar.cuenta.conectar': '{red} जोड़ें',

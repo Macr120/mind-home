@@ -8860,6 +8860,7 @@ export const IT: Dict = {
   'video.publicar.campo.obligatorio': 'Il titolo è obbligatorio.',
   'video.publicar.campo.titulo': 'Titolo',
   'video.publicar.cuenta.caducado': 'L\'accesso è scaduto: ricollega l\'account.',
+  'video.publicar.cuenta.canalYoutube': 'Se il tuo account Google ha più canali, scegli quale usare nella schermata di Google. Per cambiarlo, collegati di nuovo.',
   'video.publicar.cuenta.cancelar': 'Annulla',
   'video.publicar.cuenta.cargando': 'Sto cercando i tuoi account…',
   'video.publicar.cuenta.conectar': 'Collega {red}',

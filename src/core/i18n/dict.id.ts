@@ -8838,6 +8838,7 @@ export const ID: Dict = {
   'video.publicar.campo.obligatorio': 'Judul wajib diisi.',
   'video.publicar.campo.titulo': 'Judul',
   'video.publicar.cuenta.caducado': 'Akses kedaluwarsa: hubungkan lagi akunnya.',
+  'video.publicar.cuenta.canalYoutube': 'Kalau akun Google-mu punya beberapa channel, pilih yang mau dipakai di layar Google. Untuk menggantinya, hubungkan lagi.',
   'video.publicar.cuenta.cancelar': 'Batal',
   'video.publicar.cuenta.cargando': 'Mencari akunmu…',
   'video.publicar.cuenta.conectar': 'Hubungkan {red}',

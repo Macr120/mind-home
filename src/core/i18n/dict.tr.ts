@@ -8773,6 +8773,7 @@ export const TR: Dict = {
   'video.publicar.campo.obligatorio': 'Başlık zorunlu.',
   'video.publicar.campo.titulo': 'Başlık',
   'video.publicar.cuenta.caducado': 'Erişim süresi doldu: hesabı yeniden bağla.',
+  'video.publicar.cuenta.canalYoutube': 'Google hesabında birden fazla kanal varsa, hangisini kullanacağını Google ekranında seç. Değiştirmek için yeniden bağlan.',
   'video.publicar.cuenta.cancelar': 'İptal',
   'video.publicar.cuenta.cargando': 'Hesapların aranıyor…',
   'video.publicar.cuenta.conectar': '{red} bağla',

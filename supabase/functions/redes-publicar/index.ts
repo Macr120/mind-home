@@ -58,7 +58,15 @@ const TOPE_TAMANO: Record<Plataforma, number> = {
 /** Una sesión de subida vive 2 h (el upload_url de TikTok caduca a la hora, pero se reanuda dentro). */
 const VIDA_SESION_MS = 2 * 3_600_000
 const UID_GLOBAL = '00000000-0000-0000-0000-000000000000'
-const MAX_YT_DIA = Number(Deno.env.get('REDES_YT_MAX_DIA') ?? 5)
+/**
+ * Techos de subidas a YouTube, con el de la app por encima del de cada usuario.
+ * Sep 2026: YouTube cambió el cálculo de cuota —antes `videos.insert` costaba
+ * 1600 de 10 000 al día, o sea 6 subidas; ahora son 100 llamadas al día y cada
+ * una cuesta 1—, así que el 5 global se quedó absurdamente bajo. Se sube a 60,
+ * que deja 40 de colchón bajo el techo del proyecto.
+ */
+const MAX_YT_DIA = Number(Deno.env.get('REDES_YT_MAX_DIA') ?? 60)
+const MAX_YT_DIA_USUARIO = Number(Deno.env.get('REDES_YT_MAX_DIA_USUARIO') ?? 5)
 const bandera = (nombre: string) => (Deno.env.get(nombre) ?? '0') === '1'
 
 const PRIVACIDAD_YT = new Set(['public', 'unlisted', 'private'])
@@ -156,7 +164,7 @@ async function iniciarPublicacion(admin: SupabaseClient, uid: string, cuerpo: Re
   const titulo = texto(meta.titulo, 2200)
   const descripcion = texto(meta.descripcion, 5000)
 
-  if (!(await dentroDeLimite(admin, uid, `redes-pub-${plataforma}`, plataforma === 'youtube' ? 3 : 10, 86_400))) {
+  if (!(await dentroDeLimite(admin, uid, `redes-pub-${plataforma}`, plataforma === 'youtube' ? MAX_YT_DIA_USUARIO : 10, 86_400))) {
     throw new ErrorRedes('limite', 'Ya publicaste varias veces hoy en esa red; inténtalo mañana.')
   }
   // Limpieza oportunista de sesiones viejas del propio usuario.

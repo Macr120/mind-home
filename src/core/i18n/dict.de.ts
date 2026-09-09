@@ -8926,6 +8926,7 @@ export const DE: Dict = {
   'video.publicar.campo.obligatorio': 'Der Titel ist Pflicht.',
   'video.publicar.campo.titulo': 'Titel',
   'video.publicar.cuenta.caducado': 'Der Zugang ist abgelaufen: verbinde das Konto erneut.',
+  'video.publicar.cuenta.canalYoutube': 'Wenn dein Google-Konto mehrere Kanäle hat, wähle auf dem Google-Bildschirm den gewünschten aus. Zum Wechseln erneut verbinden.',
   'video.publicar.cuenta.cancelar': 'Abbrechen',
   'video.publicar.cuenta.cargando': 'Deine Konten werden gesucht …',
   'video.publicar.cuenta.conectar': '{red} verbinden',

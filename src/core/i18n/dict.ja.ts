@@ -8453,6 +8453,7 @@ export const JA: Dict = {
   'video.publicar.campo.obligatorio': 'タイトルは必須です。',
   'video.publicar.campo.titulo': 'タイトル',
   'video.publicar.cuenta.caducado': 'アクセス権の期限が切れました：アカウントを接続し直してください。',
+  'video.publicar.cuenta.canalYoutube': 'Googleアカウントに複数のチャンネルがある場合は、Googleの画面で使うチャンネルを選んでください。変更するには接続し直します。',
   'video.publicar.cuenta.cancelar': 'キャンセル',
   'video.publicar.cuenta.cargando': 'アカウントを探しています…',
   'video.publicar.cuenta.conectar': '{red}に接続',
