@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useT } from '../../i18n/useT'
+import { idiomaActual, useT } from '../../i18n/useT'
 import { hayBackend } from '../../cuenta/supabase'
 import { useSesion } from '../../cuenta/sesionStore'
 import {
@@ -20,6 +20,8 @@ import { canalPago } from '../../plataforma'
 import { sincronizar } from '../../data/sync/motor'
 import { GastoByok } from '../GastoByok'
 import { LogoApple, LogoGoogle } from '../logosMarca'
+import { cargarTextos } from '../../../../web/i18n/paginas/index.mjs'
+import { prefijo } from '../../../../web/i18n/idiomas.mjs'
 
 const URL_WEB = import.meta.env.VITE_URL_WEB as string | undefined
 
@@ -487,6 +489,7 @@ function BloquePaywall() {
             {t('cuenta.pago.gestionar', 'Gestionar mi suscripción')}
           </a>
         )}
+        <EnlacesLegales />
       </div>
     )
   }
@@ -522,7 +525,50 @@ function BloquePaywall() {
       <Creditos />
       <Restaurar />
       {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
+      <EnlacesLegales />
     </div>
+  )
+}
+
+/**
+ * Términos y privacidad al pie de la oferta: la guía 3.1.2 de Apple los exige
+ * DENTRO de la app, en la misma pantalla donde se venden las suscripciones (el
+ * enlace de la ficha del App Store no basta). Los rótulos y el prefijo de idioma
+ * salen del catálogo de la web, igual que el pie de `PuertaUnlock`.
+ */
+function EnlacesLegales() {
+  const [textos, setTextos] = useState<Record<string, string> | null>(null)
+
+  useEffect(() => {
+    let vivo = true
+    void cargarTextos(idiomaActual()).then((x) => {
+      if (vivo) setTextos(x)
+    })
+    return () => {
+      vivo = false
+    }
+  }, [])
+
+  if (!URL_WEB) return null
+  const base = `${URL_WEB}${prefijo(idiomaActual())}`
+  const paginas: [string, string][] = [
+    ['terminos', textos?.['pie.terminos'] ?? 'Términos'],
+    ['privacidad', textos?.['pie.privacidad'] ?? 'Privacidad'],
+  ]
+  return (
+    <p className="flex flex-wrap justify-center gap-x-3 gap-y-1 pt-0.5 text-[10px] text-white/35">
+      {paginas.map(([ruta, rotulo]) => (
+        <a
+          key={ruta}
+          href={`${base}/${ruta}`}
+          target="_blank"
+          rel="noreferrer"
+          className="transition hover:text-white/60"
+        >
+          {rotulo}
+        </a>
+      ))}
+    </p>
   )
 }
 
