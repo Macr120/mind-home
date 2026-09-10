@@ -1530,6 +1530,8 @@ interface DisenoAvatar {
   animacion?: string
   /** Prendas a medida puestas: JSON de {refId, nombre, piezas} (guardarropa). */
   ropaCustom?: string
+  /** Ropa que llevaba antes del tema de la casa (JSON de Ropa; '' = sin respaldo). */
+  ropaSinTema?: string
 }
 
 /**
@@ -1682,6 +1684,8 @@ export interface AsistenteGuardado {
   escala?: number
   /** Ropa puesta: JSON de prendas (Ropa de house/apariencia). */
   ropa?: string
+  /** Ropa previa al tema de la casa (JSON de Ropa; '' = sin respaldo). */
+  ropaSinTema?: string
   /** Qué preset de CUERPOS_PRESET (o 'base') originó `modelo3d` ('' = ninguno/editado). */
   cuerpoPresetId?: string
   /** Expresión del rostro dibujado (ExpresionId de house/apariencia; '' = por defecto). Solo Base/Princesa. */

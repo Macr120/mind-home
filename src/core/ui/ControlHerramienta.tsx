@@ -150,7 +150,7 @@ const MODOS_CONSTRUIR: { id: ModoConstructor; emoji: string; labelEs: string }[]
   { id: 'piso-ext', emoji: '🌿', labelEs: 'Piso ext.' },
   { id: 'piso-int', emoji: '🟫', labelEs: 'Piso int.' },
   { id: 'techos', emoji: '🔺', labelEs: 'Techos' },
-  { id: 'libre', emoji: '🖋️', labelEs: 'Libre' },
+  { id: 'libre', emoji: '🖋️', labelEs: 'Sketch' },
 ]
 
 /** Chip pequeño del panel de construcción (sub-opciones y niveles). */

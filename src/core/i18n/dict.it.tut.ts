@@ -202,7 +202,7 @@ export const IT_TUT: Dict = {
     'Per spostare, dipingere o eliminare quello che hai già messo, usa l\'Editor (scheda Oggetti) — questo menu serve solo a portare cose nuove in scena.',
   'tut.editor-mapa.1.texto':
     'L\'editor della casa ha 4 schede: Mappa, Personaggi, Oggetti e Impostazioni. Questo tour è quello di Mappa; gli altri tre hanno il loro.',
-  'tut.editor-mapa.2.titulo': 'Lo schizzo',
+  'tut.editor-mapa.2.titulo': 'La pianta',
   'tut.editor-mapa.2.texto':
     'Disegni su una griglia vista dall\'alto: stanze, muri, porte, finestre e pavimenti, con le modalità e i pennelli della barra in alto. Quello che tracci compare subito nel 3D, senza ricaricare nulla.',
   'tut.editor-mapa.3.texto':
@@ -262,7 +262,7 @@ export const IT_TUT: Dict = {
   'tut.respaldo.4.texto':
     'Conviene fare un backup prima di cambiare dispositivo o browser, o anche solo ogni tanto: senza account è l\'unica copia che hai.',
   'tut.editor-cuarto.1.texto':
-    'Stai modificando una stanza precisa: lo schizzo e la telecamera si concentrano su di essa, non su tutta la casa.',
+    'Stai modificando una stanza precisa: la pianta e la telecamera si concentrano su di essa, non su tutta la casa.',
   'tut.editor-cuarto.2.titulo': 'Cosa puoi modificare',
   'tut.editor-cuarto.2.texto':
     'Forma, pavimento, muri, porte, colore e nome della stanza, e i suoi oggetti. Anche l\'app assegnata si cambia da qui: è ciò che porta più gente in questo pannello.',
@@ -293,7 +293,7 @@ export const IT_TUT: Dict = {
     'Prima scegli la categoria, poi lo strumento preciso al suo interno. Puoi equipaggiare fino a 3 strumenti alla volta, della stessa categoria o di categorie diverse.',
   'tut.herramientas.3.titulo': 'La quarta categoria',
   'tut.herramientas.3.texto':
-    'Costruzione non equipaggia un giocattolo: attiva la modalità di disegno della mappa (stanze, muri, porte, finestre, pavimenti, tetti) senza passare dall\'editor completo. È lo stesso schizzo, solo che ci arrivi prima.',
+    'Costruzione non equipaggia un giocattolo: attiva la modalità di disegno della mappa (stanze, muri, porte, finestre, pavimenti, tetti) senza passare dall\'editor completo. È la stessa pianta, solo che ci arrivi prima.',
   'tut.herramientas.4.titulo': 'Il centro',
   'tut.herramientas.4.texto':
     'Il centro lascia tutto ciò che hai equipaggiato e riporta l\'angolo al suo stato normale (il cubo delle viste o un altro comando contestuale, secondo quello che hai vicino).',

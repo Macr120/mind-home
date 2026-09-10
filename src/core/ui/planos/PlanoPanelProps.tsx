@@ -131,7 +131,7 @@ export function PlanoPanelProps() {
       <div className="space-y-3">
         <WallEditor roomId={seleccion.roomId} sinCroquis />
         <p className="text-[11px] text-white/45">
-          {t('planos.props.paredes', 'Edita la arista seleccionada en el croquis.')}
+          {t('planos.props.paredes', 'Edita la arista seleccionada en el plano.')}
         </p>
       </div>
     )
@@ -377,7 +377,7 @@ export function PlanoPanelProps() {
           : capa === 'paredes'
             ? t(
                 'planos.paredesHint',
-                'Toca una pared en el croquis o en el mapa 3D para ponerle muro, puerta o ventana.',
+                'Toca una pared en el plano o en el mapa 3D para ponerle muro, puerta o ventana.',
               )
             : t(
                 'planos.ayuda',

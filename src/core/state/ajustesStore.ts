@@ -9,9 +9,12 @@ import {
   MODO_UI_DEFAULT,
   VIDRIO_TRANSPARENCIA_DEFAULT,
   VIDRIO_INTENSIDAD_DEFAULT,
+  TEMAS_UI,
   type TemaUIId,
   type ModoUI,
 } from '../ui/temasUI'
+import { UI_POR_TEMA, type AparienciaUI } from '../ui/temaCasaUI'
+import type { TemaId } from '../house/temas'
 import {
   aplicarTipografia,
   TIPOGRAFIA_DEFAULT,
@@ -45,6 +48,8 @@ const LS_TIPOGRAFIA = 'mh.tipografia'
 const LS_ESTILO_ICONOS = 'mh.estiloIconos'
 const LS_ESTILO_UI = 'mh.estiloUI'
 const LS_TINTE_UI = 'mh.tinteUI'
+/** Apariencia puesta por el tema de la casa y la que había antes (cruda, como el resto de prefs de la persona). */
+const LS_UI_DE_TEMA = 'mh.ui.deTema'
 const LS_VIDRIO_TRANSPARENCIA = 'mh.vidrio.transparencia'
 const LS_VIDRIO_INTENSIDAD = 'mh.vidrio.intensidad'
 const LS_NOTIF = 'mh.notif'
@@ -177,6 +182,27 @@ function leer01(clave: string, def: number): number {
   return Number.isFinite(v) ? Math.min(1, Math.max(0, v)) : def
 }
 
+interface MarcadorUiDeTema {
+  tema: TemaId
+  previa: AparienciaUI
+}
+
+/** «La apariencia actual la puso este tema; esto había antes». Ausente o inválido → null. */
+function leerMarcadorUiDeTema(): MarcadorUiDeTema | null {
+  try {
+    const m = JSON.parse(localStorage.getItem(LS_UI_DE_TEMA) ?? 'null') as MarcadorUiDeTema | null
+    const p = m?.previa
+    if (!m?.tema || !p) return null
+    if (!TEMAS_UI.some((t) => t.id === p.temaUI)) return null
+    if (p.modoUI !== 'claro' && p.modoUI !== 'oscuro' && p.modoUI !== 'transparente') return null
+    if (!esEstiloUI(p.estiloUI)) return null
+    const tinte = Number(p.tinteUI)
+    return { tema: m.tema, previa: { ...p, tinteUI: Number.isFinite(tinte) ? Math.min(1, Math.max(0, tinte)) : 0 } }
+  } catch {
+    return null
+  }
+}
+
 /** Los avisos nacen apagados: encenderlos es lo que pide permiso al navegador. */
 const leerSiNo = (clave: string, def: boolean) => {
   const v = localStorage.getItem(clave)
@@ -261,6 +287,8 @@ interface AjustesState {
   setEstiloIconos: (estilo: EstiloIconos) => void
   setEstiloUI: (estilo: EstiloUIId) => void
   setTinteUI: (v: number) => void
+  /** El tema de la casa viste la interfaz; null = tema quitado, repone lo que había antes. */
+  aplicarAparienciaDeTema: (tema: TemaId | null) => void
   setCalidadImagen: (calidad: CalidadImagen) => void
   setVidrioTransparencia: (v: number) => void
   setVidrioIntensidad: (v: number) => void
@@ -374,6 +402,30 @@ export const useAjustes = create<AjustesState>((set, get) => ({
     localStorage.setItem(LS_TINTE_UI, String(v))
     aplicarTinteUI(v)
     set({ tinteUI: v })
+  },
+
+  aplicarAparienciaDeTema: (tema) => {
+    const marcador = leerMarcadorUiDeTema()
+    const aplicar = (a: AparienciaUI) => {
+      const s = get()
+      if (s.tinteUI !== a.tinteUI) s.setTinteUI(a.tinteUI)
+      if (s.estiloUI !== a.estiloUI) s.setEstiloUI(a.estiloUI)
+      if (s.temaUI !== a.temaUI) s.setTemaUI(a.temaUI)
+      if (s.modoUI !== a.modoUI) s.setModoUI(a.modoUI)
+    }
+    if (tema == null) {
+      if (!marcador) return
+      aplicar(marcador.previa)
+      localStorage.removeItem(LS_UI_DE_TEMA)
+      return
+    }
+    // Ya vestida por este tema (arranque, re-clic o repintado tras un pull): nada que hacer.
+    if (marcador?.tema === tema) return
+    const { temaUI, modoUI, estiloUI, tinteUI } = get()
+    // Lo de antes se guarda una sola vez: cambiar de un tema a otro conserva el original.
+    const nuevo: MarcadorUiDeTema = { tema, previa: marcador?.previa ?? { temaUI, modoUI, estiloUI, tinteUI } }
+    aplicar(UI_POR_TEMA[tema])
+    localStorage.setItem(LS_UI_DE_TEMA, JSON.stringify(nuevo))
   },
 
   // El espejo en el store es lo que hace que los precios de la UI se

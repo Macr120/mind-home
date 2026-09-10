@@ -45,9 +45,12 @@ import { useFlotador, TIPO_FLOTADOR, NOMBRE_FLOTADOR, COLOR_FLOTADOR } from './f
 import type { AjusteFondoImagen } from '../house/fondosImagen'
 import { AJUSTE_FONDO_DEFAULT, ajusteADb, medirImagen } from '../house/fondosImagen'
 import { useCuartos } from './cuartosStore'
+import { useAjustes } from './ajustesStore'
+import { useAsistentes } from './asistentesStore'
 import type { Pieza3D, MascotaId } from '../chat/mascotas'
 import type { AnimacionModelo } from '../house/animacion'
 import { aplicarCuerpoPreset, type CuerpoPreset } from '../house/cuerpos'
+import { ATUENDO_POR_TEMA } from '../house/atuendos'
 import {
   ESCALA_DEFAULT,
   parseRopa,
@@ -137,6 +140,8 @@ export interface Avatar {
   ropa: Ropa
   /** Prendas a medida puestas (del guardarropa). */
   ropaCustom?: PrendaCustomPuesta[]
+  /** Ropa que llevaba antes de que el tema de la casa lo vistiera (se repone al quitar el tema). */
+  ropaSinTema?: Ropa
   /** Expresión del rostro dibujado (ojos + boca) del cuerpo base. */
   expresion?: ExpresionId
   /** Imagen de rostro subida por el usuario (tapa el frente de la cabeza). */
@@ -700,6 +705,8 @@ async function guardarAvatar(av: DisenoState['avatar']) {
     escala: av.escala,
     ropa: serializarRopa(av.ropa),
     ropaCustom: av.ropaCustom?.length ? JSON.stringify(av.ropaCustom) : '',
+    // No usa serializarRopa: devuelve '' para {} y se confundiría con «sin respaldo».
+    ropaSinTema: av.ropaSinTema ? JSON.stringify(av.ropaSinTema) : '',
     expresion: av.expresion ?? '',
     rostro: av.rostro,
     peinado: av.peinado ?? '',
@@ -1333,6 +1340,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
             escala: av.escala ?? ESCALA_DEFAULT,
             ropa: parseRopa(av.ropa),
             ropaCustom: avRopaCustom,
+            ropaSinTema: av.ropaSinTema ? parseRopa(av.ropaSinTema) : undefined,
             expresion: (av.expresion as ExpresionId) || undefined,
             rostro: av.rostro,
             peinado: (av.peinado as PeinadoId) || undefined,
@@ -1347,6 +1355,9 @@ export const useDiseño = create<DisenoState>((set, get) => ({
         : { ...AVATAR_INICIAL },
       cargado: true,
     })
+    // Una casa que ya venía con tema (arranque, otro dispositivo, vuelta del demo) viste
+    // la interfaz igual; el marcador de ajustesStore lo hace idempotente.
+    useAjustes.getState().aplicarAparienciaDeTema(temaGlobal)
   },
 
   setTechoTipo: async (tipo) => {
@@ -1357,6 +1368,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   },
 
   setTemaGlobal: async (tema) => {
+    const prev = get().temaGlobal
     const fondoPorTema = fondoSugeridoPorTema(tema)
     const techoPorTema = techoSugeridoPorTema(tema)
     // Al cambiar de tema se aplica su estilo/efectos (el guardado o el sugerido).
@@ -1367,6 +1379,18 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       get().efectosSinTema,
       get().efectosConfigSinTema,
     )
+    // El tema también viste al personaje: al pasar de «sin tema» a un tema se respalda
+    // la ropa (el respaldo sobrevive a cambiar de un tema a otro) y al quitarlo se repone.
+    // Va en el mismo set() que la escena para que casa y avatar cambien a la vez.
+    let avatar = get().avatar
+    if (tema !== prev) {
+      if (tema) {
+        avatar = { ...avatar, ropa: ATUENDO_POR_TEMA[tema], ropaSinTema: prev ? avatar.ropaSinTema : avatar.ropa }
+      } else if (avatar.ropaSinTema) {
+        avatar = { ...avatar, ropa: avatar.ropaSinTema, ropaSinTema: undefined }
+      }
+    }
+    const ropaCambio = avatar !== get().avatar
     set({
       temaGlobal: tema,
       fondoId: fondoPorTema,
@@ -1375,7 +1399,12 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       estiloVisual: estilo,
       efectosVisuales: efectos,
       efectosConfig: config,
+      avatar,
     })
+    // La interfaz (color, luz, forma y tinte) sigue al tema; síncrono, vive en localStorage.
+    useAjustes.getState().aplicarAparienciaDeTema(tema)
+    // Los asistentes también se visten (y se desvisten) con el tema.
+    const asistentesListos = useAsistentes.getState().vestirPorTema(tema, prev)
     const existing = await db.disenoRooms.where('roomId').equals(TEMA_ROW).first()
     if (existing?.id) await db.disenoRooms.update(existing.id, { nombre: tema ?? '' })
     else await db.disenoRooms.add({ roomId: TEMA_ROW, color: '', nombre: tema ?? '' })
@@ -1391,6 +1420,8 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       null,
       get().fondoColorFijo,
     )
+    if (ropaCambio) await guardarAvatar(get().avatar)
+    await asistentesListos
   },
 
   setTemaOverride: async (tema, patch) => {

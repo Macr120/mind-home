@@ -58,12 +58,14 @@ function Chip({
   children,
   accent,
   className,
+  disabled,
 }: {
   activo: boolean
   onClick: () => void
   children: ReactNode
   accent?: string
   className?: string
+  disabled?: boolean
 }) {
   // Color de marca del chip (acento propio o verde por defecto). Con `texto-vivo`
   // el texto usa ese color en oscuro y una versión entintada legible en claro.
@@ -73,7 +75,8 @@ function Chip({
     <button
       type="button"
       onClick={onClick}
-      className={`rounded-lg px-2.5 py-1.5 text-[11px] font-semibold transition${conColor ? ' texto-vivo' : ''}${className ? ` ${className}` : ''}`}
+      disabled={disabled}
+      className={`rounded-lg px-2 py-1.5 text-[11px] font-semibold whitespace-nowrap transition disabled:cursor-default disabled:opacity-40${conColor ? ' texto-vivo' : ''}${className ? ` ${className}` : ''}`}
       style={
         activo
           ? {
@@ -902,10 +905,21 @@ export function ConstructorMapa() {
             </Chip>
           )
         })}
-        {/* Construcción libre (formas de vértices arbitrarios): fila completa bajo el 3×3. */}
-        <div className="col-span-3">
-          <Chip activo={modo === 'libre'} onClick={() => setModo('libre')} accent="#e879f9" className="w-full">
-            <Icono nombre="pluma" /> {t('constructor.modo.libre', 'Libre')}
+        {/* Cuarta fila: las vistas de trabajo (plano 2D y/o modelo 3D editable; pueden estar
+            ambas activas a la vez y apagar la última conmuta a la otra) y, a la derecha, la
+            construcción Sketch (formas de vértices arbitrarios). En los modos sin modelo 3D
+            las vistas van atenuadas: el plano sigue a la vista (salvo en Fondo) y el 3D no aplica.
+            Va en flex, no en las 3 columnas: cada chip toma el ancho de su rótulo y «Modelo 3D»
+            no se parte en dos líneas en ningún idioma. */}
+        <div className="col-span-3 flex gap-1.5">
+          <Chip activo={con3d ? croquisVisible : modo !== 'fondo'} onClick={toggleCroquis} disabled={!con3d} className="flex-auto">
+            <Icono emoji="🗺️" /> {t('constructor.vista.croquis', 'Plano')}
+          </Chip>
+          <Chip activo={con3d && previewVisible} onClick={toggle3d} disabled={!con3d} className="flex-auto">
+            <Icono emoji="🧊" /> {t('constructor.vista.modelo3d', 'Modelo 3D')}
+          </Chip>
+          <Chip activo={modo === 'libre'} onClick={() => setModo('libre')} accent="#e879f9" className="flex-auto">
+            <Icono nombre="pluma" /> {t('constructor.modo.libre', 'Sketch')}
           </Chip>
         </div>
       </div>
@@ -917,19 +931,6 @@ export function ConstructorMapa() {
         </div>
       ) : (
         <>
-      {/* Selector de vista de trabajo: croquis 2D y/o modelo 3D editable (pueden estar
-          ambos activos a la vez; apagar el último conmuta al otro). */}
-      {con3d && (
-        <div className="grid grid-cols-2 gap-1.5">
-          <Chip activo={croquisVisible} onClick={toggleCroquis}>
-            <Icono emoji="🗺️" /> {t('constructor.vista.croquis', 'Croquis')}
-          </Chip>
-          <Chip activo={previewVisible} onClick={toggle3d}>
-            <Icono emoji="🧊" /> {t('constructor.vista.modelo3d', 'Modelo 3D')}
-          </Chip>
-        </div>
-      )}
-
       {/* Croquis 2D compartido. En los bordes/esquinas, overlays según el modo:
           Grid → +/- de tamaño; resto → nivel (sup. izq.) y detalle fino/normal (sup. der.). */}
       {(!con3d || croquisVisible) && (
@@ -1000,7 +1001,7 @@ export function ConstructorMapa() {
           <p className="rounded-xl border border-dashed border-white/15 px-3 py-5 text-center text-[11px] leading-snug text-white/40">
             {t(
               'constructor.vista.hint3d',
-              'Toca un elemento en el croquis o en el mapa 3D para verlo y editarlo aquí.',
+              'Toca un elemento en el plano o en el mapa 3D para verlo y editarlo aquí.',
             )}
           </p>
         ))}
@@ -1105,7 +1106,7 @@ export function ConstructorMapa() {
                 <p className="text-[10px] leading-snug text-white/35">
                   {t(
                     'constructor.piso.hint',
-                    'O toca celdas en el croquis o en el mapa 3D para elegir una o varias.',
+                    'O toca celdas en el plano o en el mapa 3D para elegir una o varias.',
                   )}
                 </p>
               </div>

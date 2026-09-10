@@ -1809,7 +1809,7 @@ export const TOOLS_EDITOR: ToolNeutra[] = [
   },
   {
     name: 'editor_tema',
-    description: `Aplica un tema estacional global a toda la casa (o "ninguno" para quitarlo). Temas: ${opciones(TEMAS)}.`,
+    description: `Aplica un tema estacional global a toda la casa (o "ninguno" para quitarlo). También cambia la apariencia de la interfaz y el atuendo del personaje; "ninguno" repone los de antes. Temas: ${opciones(TEMAS)}.`,
     schema: {
       type: 'object',
       properties: { tema: { type: 'string', enum: [...enumIds(TEMAS), 'ninguno'] } },

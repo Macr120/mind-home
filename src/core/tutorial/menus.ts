@@ -516,7 +516,7 @@ export const cuerpoEditorMapa: CuerpoTutorial = {
     },
     {
       sel: 'editor.contenido',
-      titulo: T('tut.editor-mapa.2.titulo', 'El croquis'),
+      titulo: T('tut.editor-mapa.2.titulo', 'El plano'),
       texto: T(
         'tut.editor-mapa.2.texto',
         'Dibujas sobre una rejilla vista desde arriba: cuartos, muros, puertas, ventanas y pisos, con los modos y pinceles de la barra superior. Lo que trazas aparece al momento en el 3D, sin recargar nada.',
@@ -733,7 +733,7 @@ export const cuerpoEditorCuarto: CuerpoTutorial = {
     {
       texto: T(
         'tut.editor-cuarto.1.texto',
-        'Estás editando un cuarto concreto: el croquis y la cámara se enfocan en él, no en toda la casa.',
+        'Estás editando un cuarto concreto: el plano y la cámara se enfocan en él, no en toda la casa.',
       ),
     },
     {
@@ -789,7 +789,7 @@ export const cuerpoHerramientas: CuerpoTutorial = {
       titulo: T('tut.herramientas.3.titulo', 'La cuarta categoría'),
       texto: T(
         'tut.herramientas.3.texto',
-        'Construcción no equipa un juguete: activa el modo de dibujo del mapa (cuartos, muros, puertas, ventanas, pisos, techos) sin pasar por el editor completo. Es el mismo croquis, solo que se llega más rápido.',
+        'Construcción no equipa un juguete: activa el modo de dibujo del mapa (cuartos, muros, puertas, ventanas, pisos, techos) sin pasar por el editor completo. Es el mismo plano, solo que se llega más rápido.',
       ),
     },
     {

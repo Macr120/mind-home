@@ -80,7 +80,7 @@ const tutorialEditorMapa = tour(
   T('tut.editor-mapa.titulo', 'El editor · Mapa'),
   T(
     'tut.editor-mapa.resumen',
-    'El editor personaliza toda la casa en 4 pestañas: Mapa, Personajes, Objetos y Configuraciones — cada una con su propio tutorial. La de Mapa dibuja cuartos, muros, puertas, ventanas, pisos y techos en un croquis que se ve en 3D al instante, y también da niveles: pisos apilables y un sótano.',
+    'El editor personaliza toda la casa en 4 pestañas: Mapa, Personajes, Objetos y Configuraciones — cada una con su propio tutorial. La de Mapa dibuja cuartos, muros, puertas, ventanas, pisos y techos en un plano que se ve en 3D al instante, y también da niveles: pisos apilables y un sótano.',
   ),
   'cuerpoEditorMapa',
 )
@@ -130,7 +130,7 @@ const tutorialEditorCuarto = tour(
   T('tut.editor-cuarto.titulo', 'Editar un cuarto'),
   T(
     'tut.editor-cuarto.resumen',
-    'Al editar un cuarto concreto, el croquis se enfoca en él: forma, piso, muros, color, nombre y —lo que más se usa aquí— qué app tiene asignada o si conviene cambiarla. La flecha del panel vuelve al mapa completo, y el botón flotante sobre el cuarto sale de él.',
+    'Al editar un cuarto concreto, el plano se enfoca en él: forma, piso, muros, color, nombre y —lo que más se usa aquí— qué app tiene asignada o si conviene cambiarla. La flecha del panel vuelve al mapa completo, y el botón flotante sobre el cuarto sale de él.',
   ),
   'cuerpoEditorCuarto',
 )

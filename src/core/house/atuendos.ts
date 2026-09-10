@@ -1,4 +1,5 @@
 import type { Ropa } from './apariencia'
+import { TEMAS, type TemaId } from './temas'
 
 /**
  * Atuendos sugeridos para el personaje principal: combinaciones de prendas
@@ -132,3 +133,69 @@ export const ATUENDOS_PRESET: Atuendo[] = [
     },
   },
 ]
+
+/**
+ * Atuendo con el que el tema de la casa viste al personaje (lo aplica
+ * `setTemaGlobal`; al quitar el tema vuelve la ropa que llevaba antes).
+ */
+export const ATUENDO_POR_TEMA: Record<TemaId, Ropa> = {
+  medieval: {
+    capa: { color: '#7f1d1d' },
+    camisa: { color: '#d6c7a1' },
+    pantalon: { color: '#4a3728' },
+    botas: { color: '#3b2a14' },
+    guantes: { color: '#6b4f2a' },
+  },
+  espacio: {
+    lentes: { color: '#22d3ee' },
+    camisa: { color: '#e2e8f0' },
+    pantalon: { color: '#cbd5e1' },
+    botas: { color: '#64748b' },
+    guantes: { color: '#f1f5f9' },
+    mochila: { color: '#475569' },
+  },
+  terror: {
+    sombrero: { color: '#0b0b0f' },
+    capa: { color: '#111827' },
+    camisa: { color: '#1f2937' },
+    pantalon: { color: '#0f172a' },
+    botas: { color: '#000000' },
+  },
+  barbie: {
+    lentes: { color: '#c084fc' },
+    vestido: { color: '#ff5fa2' },
+    tenis: { color: '#fde68a' },
+  },
+  vaquero: {
+    sombrero: { color: '#7c4a1d' },
+    bufanda: { color: '#b91c1c' },
+    camisa: { color: '#c2853f' },
+    chamarra: { color: '#5c3a1e' },
+    pantalon: { color: '#1e3a8a' },
+    botas: { color: '#5b3a1a' },
+  },
+  cyberpunk: {
+    lentes: { color: '#22d3ee' },
+    chamarra: { color: '#1a1030' },
+    playera: { color: '#d946ef' },
+    pantalon: { color: '#0f172a' },
+    botas: { color: '#22d3ee' },
+    guantes: { color: '#7c3aed' },
+  },
+  navidad: {
+    gorra: { color: '#dc2626' },
+    bufanda: { color: '#f8fafc' },
+    chamarra: { color: '#b91c1c' },
+    pantalon: { color: '#166534' },
+    botas: { color: '#111827' },
+    guantes: { color: '#f8fafc' },
+  },
+}
+
+/** Los mismos atuendos como lista (nombre e icono del tema) para la categoría «Atuendos». */
+export const ATUENDOS_TEMA: Atuendo[] = TEMAS.map((tema) => ({
+  id: tema.id,
+  nombre: tema.nombre,
+  emoji: tema.icon,
+  ropa: ATUENDO_POR_TEMA[tema.id],
+}))

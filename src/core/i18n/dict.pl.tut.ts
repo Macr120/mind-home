@@ -203,7 +203,7 @@ export const PL_TUT: Dict = {
     'Żeby przesuwać, malować albo usuwać to, co już stoi, użyj Edytora (zakładka Obiekty) — to menu służy tylko do wnoszenia nowych rzeczy na scenę.',
   'tut.editor-mapa.1.texto':
     'Edytor domu ma 4 zakładki: Mapa, Postacie, Obiekty i Ustawienia. Ten samouczek dotyczy Mapy; pozostałe trzy mają swoje własne.',
-  'tut.editor-mapa.2.titulo': 'Szkic',
+  'tut.editor-mapa.2.titulo': 'Rzut',
   'tut.editor-mapa.2.texto':
     'Rysujesz na siatce widzianej z góry: pokoje, ściany, drzwi, okna i podłogi, trybami i pędzlami z górnego paska. To, co narysujesz, od razu pojawia się w 3D, bez przeładowywania.',
   'tut.editor-mapa.3.texto':
@@ -262,7 +262,7 @@ export const PL_TUT: Dict = {
     'Przywracanie ZASTĘPUJE wszystkie obecne dane danymi z pliku — najpierw prosi o potwierdzenie i pokazuje, ile rekordów zawiera, więc nie ma niespodzianek.',
   'tut.respaldo.4.texto':
     'Warto zrobić kopię przed zmianą urządzenia, przeglądarki albo po prostu co jakiś czas: bez konta to jedyna kopia, jaką masz.',
-  'tut.editor-cuarto.1.texto': 'Edytujesz konkretny pokój: szkic i kamera skupiają się na nim, a nie na całym domu.',
+  'tut.editor-cuarto.1.texto': 'Edytujesz konkretny pokój: rzut i kamera skupiają się na nim, a nie na całym domu.',
   'tut.editor-cuarto.2.titulo': 'Co można edytować',
   'tut.editor-cuarto.2.texto':
     'Kształt, podłoga, ściany, drzwi, kolor i nazwa pokoju oraz jego obiekty. Przypisaną aplikację też zmieniasz tutaj: po nią najczęściej się tu zagląda.',
@@ -293,7 +293,7 @@ export const PL_TUT: Dict = {
     'Najpierw wybierasz kategorię, a potem konkretne narzędzie w jej środku. Możesz wyposażyć do 3 narzędzi naraz, z różnych kategorii albo z tej samej.',
   'tut.herramientas.3.titulo': 'Czwarta kategoria',
   'tut.herramientas.3.texto':
-    'Budowa nie wyposaża w zabawkę: włącza tryb rysowania mapy (pokoje, ściany, drzwi, okna, podłogi, dachy) bez wchodzenia do pełnego edytora. To ten sam szkic, tylko szybciej dostępny.',
+    'Budowa nie wyposaża w zabawkę: włącza tryb rysowania mapy (pokoje, ściany, drzwi, okna, podłogi, dachy) bez wchodzenia do pełnego edytora. To ten sam rzut, tylko szybciej dostępny.',
   'tut.herramientas.4.titulo': 'Środek',
   'tut.herramientas.4.texto':
     'Środek odkłada wszystko, co masz wyposażone, i przywraca róg do normalnego stanu (kostka widoków albo inny przycisk kontekstowy, zależnie od tego, co masz w pobliżu).',

@@ -203,7 +203,7 @@ export const FR_TUT: Dict = {
     'Pour déplacer, peindre ou supprimer ce qui est déjà posé, passe par l’Éditeur (onglet Objets) — ce menu ne sert qu’à faire entrer du neuf en scène.',
   'tut.editor-mapa.1.texto':
     'L’éditeur de la maison a 4 onglets : Plan, Personnages, Objets et Paramètres. Ce tour est celui de Plan ; les trois autres ont le leur.',
-  'tut.editor-mapa.2.titulo': 'Le croquis',
+  'tut.editor-mapa.2.titulo': 'Le plan',
   'tut.editor-mapa.2.texto':
     'Tu dessines sur une grille vue d’en haut : pièces, murs, portes, fenêtres et sols, avec les modes et les pinceaux de la barre du haut. Ce que tu traces apparaît aussitôt en 3D, sans rien recharger.',
   'tut.editor-mapa.3.texto':
@@ -263,7 +263,7 @@ export const FR_TUT: Dict = {
   'tut.respaldo.4.texto':
     'Mieux vaut sauvegarder avant de changer d’appareil, de navigateur, ou juste de temps en temps : sans compte, c’est la seule copie que tu as.',
   'tut.editor-cuarto.1.texto':
-    'Tu modifies une pièce précise : le croquis et la caméra se concentrent dessus, pas sur toute la maison.',
+    'Tu modifies une pièce précise : le plan et la caméra se concentrent dessus, pas sur toute la maison.',
   'tut.editor-cuarto.2.titulo': 'Ce que tu peux modifier',
   'tut.editor-cuarto.2.texto':
     'Forme, sol, murs, portes, couleur et nom de la pièce, et ses objets. L’app affectée se change aussi depuis ici : c’est ce qui amène le plus de monde dans ce panneau.',
@@ -294,7 +294,7 @@ export const FR_TUT: Dict = {
     'D’abord la catégorie, ensuite l’outil précis à l’intérieur. Tu peux équiper jusqu’à 3 outils à la fois, de catégories différentes ou de la même.',
   'tut.herramientas.3.titulo': 'La quatrième catégorie',
   'tut.herramientas.3.texto':
-    'Construction n’équipe pas un jouet : elle active le mode dessin du plan (pièces, murs, portes, fenêtres, sols, toits) sans passer par l’éditeur complet. C’est le même croquis, on y arrive juste plus vite.',
+    'Construction n’équipe pas un jouet : elle active le mode dessin du plan (pièces, murs, portes, fenêtres, sols, toits) sans passer par l’éditeur complet. C’est le même plan, on y arrive juste plus vite.',
   'tut.herramientas.4.titulo': 'Le centre',
   'tut.herramientas.4.texto':
     'Le centre lâche tout ce que tu as équipé et rend au coin son état normal (le cube de vues ou un autre contrôle contextuel, selon ce que tu as à proximité).',

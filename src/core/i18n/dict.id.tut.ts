@@ -202,7 +202,7 @@ export const ID_TUT: Dict = {
     'Untuk memindahkan, mewarnai, atau menghapus yang sudah ditaruh, pakai Editor (tab Objek) — menu ini hanya untuk membawa barang baru ke dalam adegan.',
   'tut.editor-mapa.1.texto':
     'Editor rumah punya 4 tab: Peta, Karakter, Objek, dan Pengaturan. Tur ini tur Peta; tiga tab lainnya punya turnya sendiri.',
-  'tut.editor-mapa.2.titulo': 'Sketsa',
+  'tut.editor-mapa.2.titulo': 'Denah',
   'tut.editor-mapa.2.texto':
     'Kamu menggambar di atas kisi-kisi dari pandangan atas: ruangan, dinding, pintu, jendela, dan lantai, dengan mode dan kuas di bilah atas. Yang kamu gambar langsung muncul di 3D, tanpa perlu memuat ulang apa pun.',
   'tut.editor-mapa.3.texto':

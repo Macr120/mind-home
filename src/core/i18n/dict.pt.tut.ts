@@ -202,7 +202,7 @@ export const PT_TUT: Dict = {
     'Para mover, pintar ou apagar o que já está colocado, use o Editor (aba Objetos) — este menu serve só para trazer coisas novas para a cena.',
   'tut.editor-mapa.1.texto':
     'O editor da casa tem 4 abas: Mapa, Personagens, Objetos e Configurações. Este tour é o do Mapa; os outros três têm o seu.',
-  'tut.editor-mapa.2.titulo': 'O croqui',
+  'tut.editor-mapa.2.titulo': 'A planta',
   'tut.editor-mapa.2.texto':
     'Você desenha sobre uma grade vista de cima: cômodos, paredes, portas, janelas e pisos, com os modos e pincéis da barra de cima. O que você traça aparece na hora no 3D, sem recarregar nada.',
   'tut.editor-mapa.3.texto':

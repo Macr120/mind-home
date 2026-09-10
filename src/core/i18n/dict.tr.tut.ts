@@ -202,7 +202,7 @@ export const TR_TUT: Dict = {
     'Yerleştirdiklerini taşımak, boyamak ya da silmek için Düzenleyici’yi kullan (Nesneler sekmesi) — bu menü yalnızca sahneye yeni şeyler getirmek içindir.',
   'tut.editor-mapa.1.texto':
     'Ev düzenleyicisinin 4 sekmesi var: Harita, Karakterler, Nesneler ve Ayarlar. Bu tur Harita’nınki; diğer üçünün de kendi turu var.',
-  'tut.editor-mapa.2.titulo': 'Kroki',
+  'tut.editor-mapa.2.titulo': 'Plan',
   'tut.editor-mapa.2.texto':
     'Yukarıdan görünen bir ızgaranın üstüne çizersin: odalar, duvarlar, kapılar, pencereler ve zeminler; üst çubuktaki modlar ve fırçalarla. Çizdiğin şey hiçbir şey yeniden yüklenmeden anında 3D’de belirir.',
   'tut.editor-mapa.3.texto':

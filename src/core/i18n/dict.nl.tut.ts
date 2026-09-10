@@ -202,7 +202,7 @@ export const NL_TUT: Dict = {
     'Wil je verplaatsen, verven of verwijderen wat er al staat, gebruik dan de Editor (tabblad Objecten) — dit menu is er alleen om nieuwe dingen de scène in te halen.',
   'tut.editor-mapa.1.texto':
     'De editor van het huis heeft 4 tabbladen: Kaart, Personages, Objecten en Instellingen. Deze rondleiding gaat over Kaart; de andere drie hebben hun eigen rondleiding.',
-  'tut.editor-mapa.2.titulo': 'De schets',
+  'tut.editor-mapa.2.titulo': 'De plattegrond',
   'tut.editor-mapa.2.texto':
     'Je tekent op een raster van bovenaf gezien: kamers, muren, deuren, ramen en vloeren, met de modi en penselen uit de bovenste balk. Wat je tekent verschijnt meteen in 3D, zonder iets opnieuw te laden.',
   'tut.editor-mapa.3.texto':
@@ -262,7 +262,7 @@ export const NL_TUT: Dict = {
   'tut.respaldo.4.texto':
     'Maak een back-up voordat je van apparaat of browser wisselt, of gewoon af en toe: zonder account is dit je enige kopie.',
   'tut.editor-cuarto.1.texto':
-    'Je bewerkt één bepaalde kamer: de schets en de camera richten zich op die kamer, niet op het hele huis.',
+    'Je bewerkt één bepaalde kamer: de plattegrond en de camera richten zich op die kamer, niet op het hele huis.',
   'tut.editor-cuarto.2.titulo': 'Wat je kunt bewerken',
   'tut.editor-cuarto.2.texto':
     'Vorm, vloer, muren, deuren, kleur en naam van de kamer, plus haar objecten. Ook de toegewezen app wissel je hier: daarvoor komen de meeste mensen naar dit paneel.',
@@ -293,7 +293,7 @@ export const NL_TUT: Dict = {
     'Eerst kies je een categorie, daarna het gereedschap zelf. Je kunt er 3 tegelijk uitrusten, uit dezelfde categorie of uit verschillende.',
   'tut.herramientas.3.titulo': 'De vierde categorie',
   'tut.herramientas.3.texto':
-    'Bouwen rust geen speelgoed uit: het zet de tekenmodus van de kaart aan (kamers, muren, deuren, ramen, vloeren, daken) zonder langs de hele editor te gaan. Dezelfde schets, alleen sneller bereikt.',
+    'Bouwen rust geen speelgoed uit: het zet de tekenmodus van de kaart aan (kamers, muren, deuren, ramen, vloeren, daken) zonder langs de hele editor te gaan. Dezelfde plattegrond, alleen sneller bereikt.',
   'tut.herramientas.4.titulo': 'Het midden',
   'tut.herramientas.4.texto':
     'Het midden legt alles weg wat je hebt uitgerust en zet de hoekknop terug in zijn normale staat (de weergavekubus of een andere knop, afhankelijk van wat er in de buurt is).',

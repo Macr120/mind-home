@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useDiseño } from '../../state/disenoStore'
 import { atuendosGuardadosRepo } from '../../data/repository'
-import { ATUENDOS_PRESET } from '../../house/atuendos'
+import { ATUENDOS_PRESET, ATUENDOS_TEMA } from '../../house/atuendos'
 import type { Ropa } from '../../house/apariencia'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
@@ -117,6 +117,23 @@ export function AtuendosEditor() {
             disabled={!hayPuesto}
             onClick={() => void desnudar()}
           />
+        </div>
+      </div>
+
+      {/* Con los que cada tema de la casa viste al personaje (también se pueden poner a mano) */}
+      <div className="space-y-1.5">
+        <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40">
+          {t('editor.pers.atuendosTema', 'Temas de la casa')}
+        </p>
+        <div className="grid grid-cols-4 gap-1.5">
+          {ATUENDOS_TEMA.map((a) => (
+            <AtuendoBtn
+              key={a.id}
+              emoji={a.emoji}
+              label={t(`tema.${a.id}`, a.nombre)}
+              onClick={() => void aplicar(a.ropa)}
+            />
+          ))}
         </div>
       </div>
 

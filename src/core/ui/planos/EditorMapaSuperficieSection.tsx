@@ -194,7 +194,7 @@ export function EditorMapaSuperficieSection({ embed }: { embed?: boolean } = {})
           </div>
         ) : (
           <p className="text-[10px] text-white/35">
-            {t('planos.superficie.sinFoto', 'Sube una imagen para el papel del croquis y la base 3D.')}
+            {t('planos.superficie.sinFoto', 'Sube una imagen para el papel del plano y la base 3D.')}
           </p>
         )}
       </div>

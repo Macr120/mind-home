@@ -180,7 +180,7 @@ export function EditorCuadrantesSection() {
         <p className="text-[10px] leading-snug text-white/45">
           {t(
             'constructor.cuadrantes.ayuda',
-            'Arrastra sobre el croquis o sobre el mapa 3D el área que quieres poder enfocar.',
+            'Arrastra sobre el plano o sobre el mapa 3D el área que quieres poder enfocar.',
           )}
         </p>
       )}

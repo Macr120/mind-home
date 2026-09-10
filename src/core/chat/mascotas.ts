@@ -94,6 +94,8 @@ export interface Asistente {
   escala?: number
   /** Ropa que lleva puesta (mismas prendas que el personaje principal). */
   ropa?: Ropa
+  /** Ropa que llevaba antes de que el tema de la casa lo vistiera (se repone al quitar el tema). */
+  ropaSinTema?: Ropa
   /** Modelo 3D generado por IA a partir de una descripción (gana a `forma`). */
   modelo3d?: Pieza3D[]
   /** Modelo .glb subido por el usuario (gana a `modelo3d` y `forma`). */

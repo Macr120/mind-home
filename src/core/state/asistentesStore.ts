@@ -10,6 +10,8 @@ import {
 } from '../chat/mascotas'
 import type { AnimacionModelo } from '../house/animacion'
 import { parseRopa, serializarRopa, type ExpresionId, type PeinadoId } from '../house/apariencia'
+import { ATUENDO_POR_TEMA } from '../house/atuendos'
+import type { TemaId } from '../house/temas'
 
 /**
  * Asistentes del arquitecto: los 5 integrados (plantillas de `mascotas.ts`)
@@ -29,6 +31,8 @@ interface AsistentesState {
   /** Elimina: integrado → se oculta (restaurable); custom → se borra. */
   eliminar: (id: string) => Promise<void>
   restaurar: (id: string) => Promise<void>
+  /** El tema de la casa viste a todos los asistentes; sin tema (null) les repone su ropa. */
+  vestirPorTema: (tema: TemaId | null, previo: TemaId | null) => Promise<void>
 }
 
 function aAsistente(row: AsistenteGuardado): Asistente {
@@ -60,6 +64,7 @@ function aAsistente(row: AsistenteGuardado): Asistente {
     color: row.color || undefined,
     escala: row.escala,
     ropa: parseRopa(row.ropa),
+    ropaSinTema: row.ropaSinTema ? parseRopa(row.ropaSinTema) : undefined,
     cuerpoPresetId: row.cuerpoPresetId || undefined,
     expresion: (row.expresion as ExpresionId) || undefined,
     rostro: row.rostro,
@@ -112,6 +117,8 @@ async function persistir(a: Asistente, oculto = false) {
     color: a.color ?? '',
     escala: a.escala,
     ropa: serializarRopa(a.ropa),
+    // No usa serializarRopa: '' significa «sin respaldo» y {} se perdería.
+    ropaSinTema: a.ropaSinTema ? JSON.stringify(a.ropaSinTema) : '',
     cuerpoPresetId: a.cuerpoPresetId ?? '',
     expresion: a.expresion ?? '',
     rostro: a.rostro,
@@ -177,6 +184,20 @@ export const useAsistentes = create<AsistentesState>((set, get) => ({
       ocultos: s.ocultos.filter((x) => x.id !== id),
     }))
     await persistir(a, false)
+  },
+  vestirPorTema: async (tema, previo) => {
+    if (tema === previo) return
+    // Mismo trato que el avatar: el respaldo se toma al pasar de «sin tema» a un tema,
+    // sobrevive al cambio entre temas y se repone al quitarlo.
+    const vestir = (a: Asistente): Asistente => {
+      if (tema) return { ...a, ropa: ATUENDO_POR_TEMA[tema], ropaSinTema: previo ? a.ropaSinTema : (a.ropa ?? {}) }
+      if (!a.ropaSinTema) return a
+      return { ...a, ropa: a.ropaSinTema, ropaSinTema: undefined }
+    }
+    const antes = get().lista
+    const lista = antes.map(vestir)
+    set({ lista })
+    await Promise.all(lista.filter((a, i) => a !== antes[i]).map((a) => persistir(a)))
   },
 }))
 
