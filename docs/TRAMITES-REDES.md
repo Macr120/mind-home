@@ -891,7 +891,26 @@ una Página: hacen falta para probar (la app se lo explica al usuario que no las
       desbloqueó fue subir los documentos (constancia como «Constancia de Situación Fiscal
       SAT», que Meta ofrece ya como tipo en México) en el paso «Upload documents», no la
       vía del dominio. Detalle abajo por si hay que repetirlo.
-- [ ] ⚠️ **RECHAZADA (visto el 6-sep-2026).** En Security Center → Business Verification:
+- [ ] ⚠️⚠️ **RECHAZADA DOS VECES por el mismo motivo, y la causa era la URL** (9-sep-2026).
+      Meta repite: *«We can't verify your business website is associated with the business
+      Marco Antonio Cabanillas Ramirez because your legal business name must be present on
+      the website»* — aunque el 6-sep se publicó el nombre legal en el pie.
+      **El texto estaba bien; lo que fallaba era DÓNDE mira Meta.** El portafolio declaraba
+      `https://mindplannerhome.com/`, y esa raíz responde **302 a `app.mindplannerhome.com`**
+      (la SPA), donde el nombre no aparece. El pie con el nombre vive en `/acerca`.
+      Comprobado con `curl`: la raíz redirige y no contiene «Cabanillas Ramirez»; `/acerca`
+      sí. **Arreglo (9-sep): el sitio web del portafolio pasa a
+      `https://mindplannerhome.com/acerca`**, que es la landing pública hecha justo para
+      esto y la que Google ya aceptó para la verificación de marca.
+      REGLA para no repetirlo: el dato que una consola verifica hay que comprobarlo en la
+      URL EXACTA que se le declaró, siguiendo las redirecciones — no en la página donde uno
+      cree que está.
+      **REENVIADA el 9-sep-2026 → «In review»** («Your business verification application is
+      being reviewed by Meta»). Comprobado antes de enviar, tal como lo ve Meta:
+      `curl -L https://mindplannerhome.com/acerca` → **200, 0 redirecciones**, y el nombre
+      legal aparece en el HTML. Es la tercera vuelta: si vuelve a caer, tocará la otra vía
+      que ofrece el propio diálogo, subir un documento oficial.
+- [ ] Rechazo anterior (visto el 6-sep-2026). En Security Center → Business Verification:
       *«Verification for <nombre legal> · Submitted on Sep 03, 2026 · **We weren't able to
       verify your business using the information provided** · Needs more information»*, y en
       Configuración → Información: **Business verification status = Unverified**,
