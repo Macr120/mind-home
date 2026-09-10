@@ -60,6 +60,34 @@ const SUBTITULO = {
   id: 'Pikiranmu dalam rumah 3D',
 }
 
+/**
+ * Apple rechaza la ficha si ofrece suscripciones auto-renovables y la página de
+ * producto no lleva un enlace funcional a los Términos de uso (EULA). Se usa el
+ * EULA estándar de Apple, que es el que su propio aviso propone; los Terms of
+ * service de la web siguen valiendo para el servicio (sync, IA, créditos).
+ * Se deja «(EULA)» sin traducir en los 16 idiomas para que el revisor lo
+ * reconozca de un vistazo.
+ */
+const EULA = 'https://www.apple.com/legal/internet-services/itunes/dev/stdeula/'
+const TERMINOS = {
+  es: 'Términos de uso (EULA)',
+  en: 'Terms of Use (EULA)',
+  pt: 'Termos de uso (EULA)',
+  fr: 'Conditions d’utilisation (EULA)',
+  de: 'Nutzungsbedingungen (EULA)',
+  it: 'Termini d’uso (EULA)',
+  ja: '利用規約（EULA）',
+  zh: '使用条款（EULA）',
+  ko: '이용 약관(EULA)',
+  ru: 'Условия использования (EULA)',
+  hi: 'उपयोग की शर्तें (EULA)',
+  tr: 'Kullanım Koşulları (EULA)',
+  id: 'Ketentuan Penggunaan (EULA)',
+  pl: 'Warunki korzystania (EULA)',
+  nl: 'Gebruiksvoorwaarden (EULA)',
+  ar: 'شروط الاستخدام (EULA)',
+}
+
 /** Quita etiquetas HTML y deja el texto plano de una sola línea. */
 const plano = (s) =>
   String(s || '')
@@ -128,6 +156,8 @@ for (const id of IDIOMAS) {
     `• ${plano(t['precio.app.3'])}`,
     '',
     plano(t['mani.cierre']),
+    '',
+    `${TERMINOS[id]}: ${EULA}`,
   ].join('\n')
 
   textos[id] = {
