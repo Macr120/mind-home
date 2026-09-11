@@ -145,6 +145,11 @@ function leerIdioma(): Idioma {
   // la app no se le cambia el idioma por debajo — llevaba todo este tiempo en el
   // base y nunca le preguntamos. La bandera es la de `bienvenidaStore`, CRUDA a
   // propósito (sin claveLS): es señal de instalación veterana, no de casa.
+  // Pero `mh.bienvenida` NO basta como señal de veterana: el sync también la
+  // pone al bajar la casa de la cuenta en un dispositivo recién estrenado. Si
+  // la puerta de idioma ya se contestó, la instalación es nueva y manda el
+  // default.
+  if (localStorage.getItem('mh.idioma.elegido') === '1') return IDIOMA_DEFAULT
   return localStorage.getItem('mh.bienvenida') === '1' ? IDIOMA_BASE : IDIOMA_DEFAULT
 }
 

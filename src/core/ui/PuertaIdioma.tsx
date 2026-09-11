@@ -63,8 +63,14 @@ export function SelectorIdioma({
   const setIdioma = useAjustes((s) => s.setIdioma)
 
   const confirmar = () => {
-    // `setIdioma` ya escribió `mh.idioma`; esta bandera es la que dice que la
-    // PREGUNTA está contestada, para no repetirla a quien solo miró y siguió.
+    // Tocar una bandera llama a `setIdioma`, que escribe `mh.idioma`; quien
+    // acepta el que ya viene marcado no toca nada, así que se guarda aquí. Sin
+    // esto el idioma quedaba SIN escribir y lo decidía `leerIdioma()` por su
+    // cuenta en el arranque siguiente — que es como un dispositivo nuevo con
+    // casa en la cuenta amanecía en español.
+    setIdioma(idioma)
+    // Esta bandera es la que dice que la PREGUNTA está contestada, para no
+    // repetirla a quien solo miró y siguió.
     localStorage.setItem(LS_ELEGIDO, '1')
     alListo()
   }
