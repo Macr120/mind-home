@@ -590,6 +590,12 @@ no hace nada. Hay que tenerla al frente y teclear con eventos de teclado de verd
       que es lo que permite publicar sin auditar.
       Lo más probable que pregunten: `video.upload`. Respuesta: viene atado al producto, no
       se puede quitar, y la app no lo usa porque no hay borradores, solo Direct Post.
+      **Seguimiento 10-sep-2026 (día 4): sigue «In review»** — la app abre en
+      `/app/7681343089528604690/**pending**`, con el aviso *«This version of Mind Planner
+      Home is in review. There may be a delay in the app review process due to a high
+      volume of requests»*. Sin comentarios del revisor («Review comments» vacío) y con los
+      tres videos demo en su sitio. No hay nada que hacer más que esperar; recordatorio:
+      no tocar la app y dejar la cuenta de TikTok en privado.
 - [ ] Con la app aprobada, pedir desde el producto Content Posting API el **audit** que
       quita el «Solo yo».
 - [ ] Al aprobar: `REDES_TIKTOK_AUDITADO=1`.
@@ -883,6 +889,37 @@ una Página: hacen falta para probar (la app se lo explica al usuario que no las
       verificación de negocio → Tech Provider → App Review, que es justo lo que está en
       curso; al poner la app en Live (`REDES_META_LIVE=1`) hay que **reintentar la
       publicación de vídeo** y confirmarlo.
+      **10-sep-2026: la app YA está en Live** (ver fase 3 C) y resultó que no hacía falta
+      la App Review para publicarla.
+      **CONFIRMADO ESE MISMO DÍA: con la app en Live, el vídeo SE PUBLICA.** Prueba hecha
+      contra la Graph API con el token de Página (Explorer → `1332592089931251?fields=
+      access_token`, que sigue siendo la única forma de llegar a la Página porque
+      `/me/accounts` continúa devolviendo `{"data":[]}`), subiendo un clip generado al
+      vuelo con `MediaRecorder` sobre un lienzo:
+
+      | Fase | 6-sep (app *Unpublished*) | 10-sep (app *Live*) |
+      |---|---|---|
+      | `uploading_phase` | complete | complete |
+      | `processing_phase` | complete | complete |
+      | `publishing_phase` | **not_started** | **published · complete** |
+      | `video_status` | error | **ready** |
+
+      O sea que la causa era el **estado de la app**, no el archivo, ni el método, ni los
+      permisos — y bastaba con publicarla, sin App Review. El vídeo de prueba se borró
+      (`success: true`); en la Página solo queda el «Video Test» que se subió A MANO el
+      7-sep.
+      **Matiz honesto**: el que se probó fue el upload **multipart** (`source`), no la
+      subida resumible que usa el backend, porque desde el navegador el `Authorization:
+      OAuth` de la resumible dispara CORS. Falta comprobar esa vía con la app real, y es
+      justo lo que hará la toma C del screencast. Y ojo: **`file_url` sigue fallando** con
+      `(#389) 1363057 Unable to fetch video file from URL`, igual que el 6-sep, o sea que
+      ese endpoint tiene un problema propio que no tiene que ver con el estado de la app.
+
+      **Trampas al probar la Graph API desde el navegador** (por si hay que repetirlo):
+      la consola de `developers.facebook.com` tiene **CSP**, así que no se puede descargar
+      un MP4 de fuera (hay que generarlo en el propio lienzo), y el token **no puede ir en
+      la query string** —la petición se bloquea sin llegar a salir—: va en el cuerpo, junto
+      con `method: 'GET'` o `'DELETE'` cuando haga falta.
       La Página quedó limpia: se borraron el post de texto y el vídeo fallido.
 
 ### C · Verificación y App Review
@@ -910,6 +947,69 @@ una Página: hacen falta para probar (la app se lo explica al usuario que no las
       `curl -L https://mindplannerhome.com/acerca` → **200, 0 redirecciones**, y el nombre
       legal aparece en el HTML. Es la tercera vuelta: si vuelve a caer, tocará la otra vía
       que ofrece el propio diálogo, subir un documento oficial.
+- [ ] ⚠️⚠️⚠️ **RECHAZADA UNA TERCERA VEZ, con el MISMO texto** (visto el 10-sep-2026 en
+      Security Center): *«Verification for Marco Antonio Cabanillas Ramirez · Submitted on
+      Sep 09, 2026 · We weren't able to verify your business using the information provided
+      · Needs more information»*, y en «Details & next steps» otra vez *«We can't verify
+      your business website is associated with the business … because your legal business
+      name must be present on the website»*.
+      **Lo que esto demuestra: cambiar el campo Website del portafolio a `/acerca` NO
+      cambia dónde mira Meta.** Comprobado el 10-sep: el portafolio declara
+      `https://mindplannerhome.com/acerca` (Business info) y `curl` lo da como **200 sin
+      redirecciones y con el nombre legal**; la que sigue sin nombre es la **raíz**
+      (`https://mindplannerhome.com/` → **302** a `app.mindplannerhome.com`, la SPA).
+      O sea que la verificación por sitio web comprueba el **dominio verificado del
+      portafolio** (su raíz), no la URL con ruta del campo Website.
+      **CAUSA REAL, encontrada el 10-sep abriendo el asistente** («Learn more» → «Continue»
+      → Get started → México → Sole Proprietorship → Registered → Add business details):
+      **el formulario guarda SU PROPIA copia de la URL y no se entera de lo que cambies en
+      Business info.** En el paso «Contact information» el campo *Website* seguía trayendo
+      **`https://mindplannerhome.com/`** — la raíz que redirige. O sea que el envío del
+      9-sep mandó a Meta otra vez a la página sin el nombre legal, y la teoría de que Meta
+      mire la raíz por diseño es **falsa**: mira lo que hay en ESE campo.
+      Es la misma trampa que ya se apuntó el 3-sep («la URL parece quedar congelada en el
+      borrador») y que entonces se atribuyó a otra cosa.
+      **Arreglo: corregir el campo DENTRO del asistente**, no en Business info. Hecho el
+      10-sep: `https://mindplannerhome.com/acerca`.
+      De paso, dos avisos del propio asistente: **se reabre desde cero** (país, tipo de
+      negocio, «Registered»… todo hay que volver a elegirlo; los datos de nombre, dirección
+      y teléfono sí vienen precargados), y el teléfono que trae (**5513635499**) NO es el
+      de Business info (`+525510132542`) — es al primero al que llega el código de
+      «Confirm your connection».
+      **Tras «Contact information» sale un CAPTCHA** («Help us confirm it's you»), que lo
+      marca Marco a mano: ningún agente puede resolverlo.
+      Plan B si esto vuelve a caer: la segunda opción del propio diálogo, **subir un
+      documento** que asocie el negocio con el sitio (factura del dominio o del hosting a
+      nombre de la persona).
+- [x] **CUARTA VUELTA ENVIADA el 10-sep-2026 → «In review»** («Thank you for submitting
+      your information. It should take about 2 business days…»). Esta vez con la URL
+      corregida DENTRO del asistente y con la conexión confirmada por **correo del propio
+      dominio**, que es la vía que Meta marca como *Recommended* y la única que no depende
+      de la web: las de teléfono/SMS/WhatsApp piden un documento donde salga el número
+      (imposible con el SAT o el CFE) y la del dominio es la que ya falló tres veces.
+      Los **documentos siguen guardados** en el expediente y no hubo que volver a subirlos:
+      `csf.pdf` como *Constancia de Situación Fiscal SAT* (nombre legal) y un PDF como
+      *Utility Bill* (dirección).
+      **`marco@mindplannerhome.com` montado de cero** para esto (Cloudflare → Email →
+      Email Routing de la zona): destino `macr120cme@gmail.com` —**Verified al instante**,
+      por ser la misma cuenta de Cloudflare, sin correo de confirmación—, regla
+      `marco@` → Gmail, y «Add missing records» publica los 3 MX (`route1/2/3.mx
+      .cloudflare.net`), el SPF y el DKIM, que quedan **Locked**. El dominio no tenía
+      NINGÚN MX antes, así que no se pisó nada. Comprobado con `nslookup` contra 8.8.8.8
+      antes de pedir el código, y el servicio en **Enabled** (pasa por «Syncing» un rato).
+      Trampas de esta tanda:
+      - **El diálogo «Send email» se cuelga**: se queda con el esqueleto gris para siempre
+        aunque el correo SÍ salga. Al recargar, Chrome avisa de «cambios sin guardar» y
+        hay que descartarlos; el expediente se conserva en el servidor —pasa a
+        *«Started on <hoy> · Pending submission»* con un botón **Continue**— pero **el
+        borrador local se pierde y el campo Website vuelve a la raíz**: hay que corregirlo
+        OTRA VEZ antes de seguir.
+      - **Cada «Send email» invalida el código anterior.** El primero (el del intento que
+        se colgó) da «The confirmation code you entered is incorrect»; vale el último.
+      - **Validar el código ES el envío**: no hay pantalla de repaso ni botón «Submit»
+        aparte. En cuanto Meta acepta los 6 dígitos sale «Information submitted».
+      - El CAPTCHA («Help us confirm it's you») salió solo en el primer recorrido, no en
+        el segundo. Lo marca Marco: ningún agente puede resolverlo.
 - [ ] Rechazo anterior (visto el 6-sep-2026). En Security Center → Business Verification:
       *«Verification for <nombre legal> · Submitted on Sep 03, 2026 · **We weren't able to
       verify your business using the information provided** · Needs more information»*, y en
@@ -1001,17 +1101,36 @@ una Página: hacen falta para probar (la app se lo explica al usuario que no las
       la primera: `facebook-domain-verification=idbe03kah17azy5zoj53qoqj08tbw8`.
       **Los tres TXT de verificación conviven en la raíz sin pisarse** (Google, TikTok y
       Meta) — comprobado en el DNS público.
-- [ ] Screencast (uno por solicitud, inglés o subtítulos): entrar, Conectar Facebook,
+- [x] Screencast (uno por solicitud, inglés o subtítulos): entrar, Conectar Facebook,
       diálogo de permisos con los cinco, elegir Página, publicar desde el Studio, ver el
       video en la Página y el Reel en Instagram, Desconectar en Cuentas conectadas.
+      **Rodado y montado el 10-sep-2026**: ocho tomas (A–H) desde la app instalada, 4:50,
+      narración TTS en inglés y subtítulos quemados, en
+      `Videos/Grabaciones de pantalla/screencast-meta-app-review.mp4` (9,4 MB) con su
+      `.srt` al lado. El guion, las tomas y dónde quedó cada una, más abajo en
+      «Guion del screencast de Meta».
 - [ ] App Review → Permissions and features → Request advanced access para los cinco:
-      descripción de uso (abajo), screencast e **instrucciones con credenciales** (la
-      cuenta revisora `mindplannerhome@gmail.com` ya entra a la app; añadir un test user
-      de Facebook con Página e Instagram vinculados en App roles → Test users).
+      descripción de uso (abajo), screencast e **instrucciones con credenciales**. La
+      cuenta revisora es `mindplannerhome+meta@gmail.com` — propia, porque la compartida
+      con Apple y Play no vale (ver abajo) — y no basta con que entre: hay que dejarle casa,
+      cuarto del Studio y dos proyectos de demostración, porque los binarios del Studio no
+      viajan por el sync y Instagram solo acepta 9:16. **Ya está lista**: receta y estado en
+      «Cuenta del revisor de Meta» (abajo).
 - [ ] Enviar y contestar (3–7 días hábiles). Rechazo típico: el revisor no pudo entrar o
       el screencast no enseña el permiso en uso.
-- [ ] Pasar la app a **Live** (interruptor App Mode) y `REDES_META_LIVE=1`. Cada año:
-      Data Use Checkup.
+- [x] Pasar la app a **Live** (interruptor App Mode). **HECHO el 10-sep-2026**, y antes de
+      lo previsto: se hizo para poder grabar el screencast, porque la App Review pide ver
+      `pages_manage_posts` e `instagram_content_publish` funcionando y con la app
+      *Unpublished* el vídeo no se publicaba. La ruta es el menú **Publish** de la app;
+      decía *«All required app settings are complete»* y el botón **Publish** estaba
+      disponible **sin App Review**. Resultado: *«Your app was successfully published»*,
+      Publish Status = **Published**, y el botón pasa a **Unpublish** (reversible). La
+      única alerta que llegó es el propio cambio de modo.
+      Ojo: en Live los permisos siguen en **acceso estándar**, o sea que solo funcionan
+      para quien tenga rol en la app. Por eso **`REDES_META_LIVE` se queda a 0**: pasarla a
+      1 solo apaga los avisos de la interfaz («modo desarrollo», «solo testers»), y para
+      un usuario cualquiera esos avisos SIGUEN siendo ciertos hasta que pase la App Review.
+      Se pone a 1 al aprobarse, no ahora. Cada año: Data Use Checkup.
 
 Mientras no está aprobada: solo admins/desarrolladores/testers conectan (los demás ven
 «app no disponible»); para ellos publica de verdad. El token caduca a los 60 días y la
@@ -1180,6 +1299,333 @@ mensaje que sale —«Ya publicaste varias veces hoy en esa red»— no dice que
 móvil desde la primera. Solo el global es configurable por variable de entorno; el de 3 por
 usuario está en el código. Al planificar el rodaje: **grabar la toma del publicado ANTES de
 gastar intentos probando**.
+### Guion del screencast de Meta (10-sep-2026)
+
+Sale del esqueleto de arriba cambiando B, C y D; lo que Meta quiere ver es **cada uno de
+los cinco permisos en uso**, y por eso hay dos publicaciones: el 16:9 a la Página y el
+Reel 9:16 a Instagram.
+
+| Permiso | Dónde se demuestra en el video |
+|---|---|
+| `pages_show_list` | la app enseña las Páginas donde puede publicar y se elige una |
+| `pages_read_engagement` | la tarjeta con el nombre y la foto de la Página y su Instagram vinculado |
+| `pages_manage_posts` | el vídeo 16:9 apareciendo en la Página |
+| `instagram_basic` | el usuario de la cuenta profesional en el formulario |
+| `instagram_content_publish` | el Reel apareciendo en `@mindplannerhome` |
+
+**PASO 0 — HECHO el 10-sep-2026: el vídeo YA se publica**, y no solo por la API: **también
+desde la app entera**, con su backend y su subida resumible. Con la app en Live,
+`publishing_phase` pasa de `not_started` a `published · complete` (tabla y matices en la
+fase 3 B), y esa misma tarde el Studio publicó «Demo clip» en la Página **Mind Planner
+Home** de punta a punta: `Exporting → Uploading 100 % → Publishing` y el diálogo final
+*«Published on Facebook — It was uploaded as private as the app is still under review by
+Facebook»*. Ya no queda nada por despejar antes de rodar.
+
+**Cómo se llega a la Página (importante para el guion).** Al conceder solo la Página de
+MPH —sin marcar la otra Página de la cuenta, «RALLY CDMX PASS», que es la única que
+`/me/accounts` sí lista— la app avisa en rojo: *«Your account doesn't manage any Page»*.
+No es un fallo: es el caso `sin-pagina` de siempre. La salida está en el **diálogo de
+publicar** (no en Configuraciones): ahí sale *«If you manage your Page from a business
+portfolio, Facebook doesn't show it to us in the list. Paste its link here»* con un campo
+y el botón **«Use this Page»**. Pegando `https://www.facebook.com/1332592089931251` el
+diálogo pasa a decir **«It will be published as Mind Planner Home»** y ya publica.
+Esto conviene ENSEÑARLO en el screencast: explica por qué la app no pide
+`business_management`.
+
+Antes de la primera toma:
+
+- [ ] App **en inglés** (las voces `sys:` se filtran por el idioma de la app).
+- [ ] Rodar desde la app de **escritorio (Electron)**: en navegador el grabador solo captura
+      el lienzo 3D, sin interfaz ni diálogos.
+- [ ] **Desconectar Facebook antes de empezar.** Si la cuenta ya está vinculada, el diálogo
+      abre con *«You've previously linked Mind Planner Home…»* y el botón «Continue» revalida
+      ajustes viejos y muere en `/business/cancel/`. Hay que entrar por **Edit settings**, y
+      en el vídeo queda mucho mejor un consentimiento limpio.
+- [ ] **Zoom del navegador al 75 %** para el diálogo de Facebook: a tamaño normal, en un
+      monitor de 720 de alto, los botones «Back» y «Continue» caen por debajo del borde y la
+      pantalla parece muerta.
+- [ ] Dos clips exportados y listos en «Demo clip»: uno **16:9** para la Página y uno
+      **9:16** para el Reel (Instagram exige MP4 9:16).
+- [ ] Píldora de grabación y su aviso con `opacity: 0` una vez empezada la toma (siguen
+      recibiendo clics; con `visibility:hidden` no).
+- [ ] Los trozos que se graban fuera, con la Herramienta de Recortes, **en MKV**: el proceso
+      de `ffmpeg` muere al terminar la llamada y un MP4 sin cerrar no tiene `moov`.
+- [ ] Ventana **TOPMOST** (`scratchpad/encima.ps1`) y coreografía en UNA sola llamada, o el
+      foco vuelve a la ventana de Claude a mitad de toma.
+- [ ] Cuidado con los topes: **10 publicaciones por red y 24 h** (`redes-pub-facebook`,
+      `redes-pub-instagram`), ventana móvil desde la primera y **los fallos también cuentan**.
+      Se vacía con `delete from rate_limits where bucket = '…'`.
+
+| Toma | Cómo | Qué tiene que verse | Narración (inglés) |
+|---|---|---|---|
+| **A** | grabador de la app | La casa, entrar al cuarto de vídeo, el Studio con el clip montado, Exportar → Facebook, el botón Conectar | «Mind Planner Home is a personal planner where each room of a 3D house is a different app. This is its video Studio, where I just edited a short video, and I want to publish it to my own Facebook Page.» |
+| **B** | Recortes, fuera | El diálogo de Facebook Login for Business con **la barra de direcciones legible**, los cinco permisos, la elección de Página y la de cuenta de Instagram | «Facebook asks which Page I want the app to access, and for permission to publish on it and on the Instagram account linked to it.» |
+| **C** | grabador de la app | La cuenta ya conectada: nombre y foto de la Página, el Instagram vinculado, el formulario 16:9, Publicar, el progreso y el resultado con su enlace | «The app shows the Page it will publish to and its linked Instagram account. It never reads posts, messages or insights: it only publishes the video I just made.» |
+| **D** | Recortes, fuera | El vídeo ya en la Página, en `facebook.com` | «Here it is, on my Page.» |
+| **E** | grabador de la app | Segunda publicación desde el mismo Studio, ahora el 9:16 a Instagram: el usuario de la cuenta, Publicar, progreso, resultado | «The same video Studio publishes a vertical cut as an Instagram Reel, to the professional account linked to that Page.» |
+| **F** | Recortes, fuera | El Reel en el perfil `@mindplannerhome` | «And here is the Reel.» |
+| **G** | grabador de la app | Configuraciones → Cuentas conectadas → Desconectar | «I can disconnect the account at any time from Settings, and the stored token is deleted.» |
+| **H** | Recortes, fuera | `mindplannerhome.com/privacidad#cuentas-redes` | «The privacy policy explains exactly what we store and why.» |
+
+Montaje: A…H en la pista principal, narrador `sys:` en inglés o subtítulos, y **el archivo
+se sube al formulario de App Review**, no a ninguna red.
+
+**RODADO el 10-sep-2026 por la noche.** Dónde está cada toma:
+
+| Toma | Dónde | Qué tiene |
+|---|---|---|
+| **A** | clip dentro del proyecto **«Review demo»** (Studio) | casa → cuarto de Vídeo → «Demo clip» → reproducir → Export → Facebook → botón Connect |
+| **B, C, D** | `Vídeos\Grabaciones de pantalla\…191406.mp4` (731 MB, 10:58) | consentimiento limpio con elección de Página e Instagram · el aviso de que Facebook no lista la Página · pegar su enlace y «Use this Page» · el formulario con «It will be published as Mind Planner Home» · `Exporting → Uploading → Publishing` · «Published on Facebook» · y el vídeo ya en la Página, visto en Business Suite → Content |
+| **E, G** | `…192510.mp4` (2,4 GB) | el Reel 9:16 publicado en `@mindplannerhome` de principio a fin, y después Ajustes → Cuentas conectadas → Desconectar con su diálogo |
+| **F, H** | tercera grabación de esa carpeta | el Reel ya procesado en `instagram.com/reel/DdIPCotgHRW/` —vertical, rosa, publicado por `mindplannerhome`— y la sección **«Connected social media accounts»** de `mindplannerhome.com/en/privacidad` |
+| — | `…184618.mp4` (143 MB) | intento fallido, se tira |
+
+Los vídeos de prueba de la Página se borraron todos al terminar (la Página queda en cero);
+el Reel de Instagram se dejó, porque es el que sale en la toma F.
+
+**MONTAJE (10-sep-2026): `Vídeos\Grabaciones de pantalla\screencast-meta-app-review.mp4`**
+— 2:08, 3,5 MB, subtítulos en inglés quemados (el `.srt` queda al lado por si hay que
+retocarlos). Se montó con **ffmpeg**, no con el Studio: las grabaciones suman 3 GB y 47
+minutos y meterlas en IndexedDB para recortarlas a mano era pedir problemas. Tramos:
+
+| Tramo | Origen | Qué demuestra |
+|---|---|---|
+| 0:00–0:38 | `…191406.mp4` 0-38 s | consentimiento entero: Páginas, cuenta de Instagram y la pantalla de permisos |
+| 0:38–1:58 | `…191406.mp4` 92-172 s | Export → Facebook, pegar el enlace de la Página, el formulario y la publicación completa |
+| 1:58–2:08 | `…192510.mp4` 1057-1067 s | el vídeo ya en la Página |
+
+**VERSIÓN DEFINITIVA (10-sep-2026, 20:30): 4:50, 9,4 MB, con NARRACIÓN EN VOZ además de
+los subtítulos.** Cubre los cinco permisos. Las siete partes:
+
+| Tramo | Origen | Qué demuestra |
+|---|---|---|
+| 0:00–0:38 | `…191406.mp4` 0-38 s | consentimiento: Páginas, Instagram y la pantalla de permisos |
+| 0:38–1:58 | `…191406.mp4` 92-172 s | pegar el enlace de la Página, el formulario y la publicación |
+| 1:58–2:08 | `…192510.mp4` 1057-1067 s | el vídeo en la Página |
+| 2:08–3:28 | `…202248.mp4` 5-85 s | el **Reel a Instagram**: diálogo, subida y «Published on Instagram» |
+| 3:28–3:53 | `Vídeos\Grabación …201538.mp4` 25-50 s | el Reel en el perfil `@mindplannerhome` |
+| 3:53–4:23 | `…202248.mp4` 132-162 s | desconectar la cuenta en Ajustes |
+| 4:23–4:50 | `…201538.mp4` 58-85 s | la sección «Connected social media accounts» de la privacidad |
+
+**La voz se generó con `edge-tts`** (`en-US-AndrewNeural`, `--rate=+8%`): una frase por
+subtítulo, cada `mp3` colocado en su segundo con `adelay` y mezclado con `amix`, para que
+la narración caiga sincronizada con la imagen. El `.srt` queda al lado por si hay que
+retocar el texto y rehacer.
+
+**Trampa que casi cuesta el material**: la Herramienta de Recortes cortó una grabación con
+*«Se produjo un error y se detuvo la grabación. Se guardó el progreso»*, y ese archivo
+**no llega solo al disco**: se queda en su reproductor y hay que pulsar el **disquete**
+para guardarlo. Ahí estaban las tomas F y H, que se dieron por perdidas.
+
+Lo que se aprendió rodando, y que conviene tener presente al montar y al narrar:
+
+- **Los dos vídeos salen PRIVADOS** mientras la app esté en revisión, y la propia app lo
+  dice al terminar. En la Página pública no se ven: hay que enseñarlos desde **Business
+  Suite → Content** (ahí aparece «Demo clip · Mind Planner Home») y decirlo en la
+  narración, o el revisor pensará que no se publicó.
+- Facebook clasificó como **Reel** el vídeo 16:9 que subimos a la Página.
+- **«View on Facebook» no sirve para la toma D**: abre el enlace en una vista incrustada
+  de la propia app, sin sesión, y pide iniciar sesión. Hay que verlo en el navegador.
+- El **selector 16:9 / 9:16** del editor basta para preparar las dos publicaciones desde
+  el mismo proyecto; con 16:9, Instagram aparece atenuado en «Export or publish».
+- Al desconectar Facebook, **Instagram cae con él** (va atado a la Página). Correcto, y
+  queda bien en la toma G.
+- La **barra de grabación de la Herramienta de Recortes se oculta sola** y no se alcanza
+  por automatización: el botón de detener lo pulsa Marco.
+
+**Ojo con `sin-pagina` durante el rodaje**: si `/me/accounts` devuelve la lista vacía —le
+pasa a cualquiera con la Página en un portafolio de negocio—, la app pide pegar el enlace
+de la Página. No hay que esconderlo: es parte del producto y explica por qué NO se pide
+`business_management`. Si sale, narrarlo: «If Facebook doesn't list the Page, I just paste
+its link, so the app never needs access to my whole business portfolio.»
+
+### Instrucciones para el revisor de Meta (inglés, se pegan en App Review)
+
+El revisor tiene que poder reproducir el flujo él mismo; si no puede entrar, rechazo
+seguro. La contraseña se pega directamente en el formulario de Meta: **no se guarda en
+este repo**. Cómo se dejó lista la cuenta, en «Cuenta del revisor» (justo debajo).
+
+```
+Mind Planner Home is a personal planner where each room of a 3D house is a different
+app. One of them is a video Studio. This integration lets a user publish a video they
+made in that Studio to their OWN Facebook Page and to the Instagram professional
+account linked to it. The app never reads posts, messages, comments or insights.
+
+Test account (already set up: it has a house, a video Studio and two demo projects):
+   https://app.mindplannerhome.com
+   email: mindplannerhome+meta@gmail.com
+   password: <…>
+
+The first screen asks which language you want the app in. English is already
+selected: just press Next. Then sign in with the credentials above.
+
+After signing in you land on the 3D house. Open the rooms button in the top bar
+("Quick access to your rooms"), choose the Studio room and click the desk to open the
+video editor. Shortcut: once signed in, https://app.mindplannerhome.com/?app=video
+opens the editor directly.
+
+How to test — publishing to a Facebook Page:
+1. In the project list, open "Demo video (Facebook)". It is a 12-second video.
+2. Press the export button at the top right and choose Facebook.
+3. Press Connect and log in with a Facebook account that administers a Page. The Page
+   must have an Instagram professional account linked to it.
+4. Facebook asks which Page the app may access and which permissions to grant. The
+   five permissions in this request are the only ones the app asks for.
+5. If Facebook does not list the Page — this happens when the Page belongs to a
+   business portfolio and /me/accounts comes back empty — the app asks you to paste
+   the Page link instead. We do it this way on purpose, so the app never has to
+   request business_management.
+6. The app shows the Page it will publish to, with a title and a description you can
+   edit. Press Publish: the video is rendered, uploaded and published on that Page.
+   While the app is under review it is published as private.
+
+How to test — publishing an Instagram Reel:
+7. Go back to the project list and open "Demo Reel (Instagram)": the same idea in 9:16,
+   because Instagram only accepts vertical video.
+8. Export → Instagram → Publish. It is posted as a Reel on the Instagram professional
+   account linked to that Page, also as private while the app is under review.
+
+Removing the connection:
+9. Open the house editor (the pencil in the top bar) → Settings → Connected accounts →
+   Disconnect. Removing Facebook also removes the linked Instagram account, and the
+   stored tokens are deleted from our server.
+
+Permissions:
+- pages_show_list: list the Pages the user can publish to, so they can pick one.
+- pages_read_engagement: read the Page name, picture and its linked Instagram
+  account, to show them before publishing.
+- pages_manage_posts: publish the video on the Page the user chose.
+- instagram_basic: read the id and username of the linked professional account.
+- instagram_content_publish: publish the Reel on that account.
+```
+
+### Cuenta del revisor de Meta: cómo se dejó lista
+
+Meta pide **credenciales de prueba**, a diferencia de Google, donde bastó el cupón para que
+el revisor se creara su propia cuenta (§Fase 3). Hecha el **10-sep-2026**.
+
+**Cuenta propia, no la compartida.** `mindplannerhome@gmail.com` ya es la cuenta de prueba
+que usan los revisores de **Apple** y de **Play**, y compartirla habría sido un problema de
+verdad, no una incomodidad: la casa de MPH es UNA y se sincroniza, así que (1) el revisor de
+Meta conecta SU Facebook a esa cuenta y el token queda guardado en el servidor bajo ese
+usuario, o sea que los revisores de Apple o Play verían en «Cuentas conectadas» la Página de
+un tercero y podrían publicar en ella o desconectarla; (2) cualquiera de los tres puede
+borrar un cuarto o un proyecto y romperle el flujo a los otros, y lo que Meta tiene que
+encontrar sí o sí son los dos proyectos de demostración; (3) la contraseña es una sola y
+quien la resetee deja fuera a los demás. Por eso la cuenta de Meta es
+**`mindplannerhome+meta@gmail.com`**: Supabase la trata como cuenta distinta y Gmail entrega
+el correo en la misma bandeja de siempre, sin tocar Cloudflare.
+
+Por qué hay que prepararla entera y no basta con crearla:
+
+- **Sin `unlock` no pasa de la puerta.** `PuertaUnlock` va antes que la app (main.tsx):
+  idioma → cuenta → compra. La cuenta del revisor necesita el unlock por **cupón**
+  (`canjear_cupon`), igual que los testers.
+- **Sin plan `pro`/`trial` no hay sync, y sin sync no hay casa.** `motor.ts:548` y `:615`
+  cortan la sincronización con plan `local`, así que nada de lo preparado aquí le llegaría.
+  El cupón concede `trial` (`trial_dias`), que es justo lo que enciende el sync.
+- **Los binarios del Studio NO viajan.** `mediosVideo` está fuera de `TABLAS_SYNC` a
+  propósito (clips de cientos de MB); solo viaja el guion (`proyectosVideo`). Un proyecto con
+  un vídeo importado le llegaría al revisor con el `medioId` sin resolver. Por eso los dos
+  proyectos de demostración no tienen **ningún binario**: planos de color y rótulos, que se
+  renderizan en cualquier dispositivo. El ejemplo de fábrica del Studio
+  (`rooms/video/ejemplos.ts`) está hecho con ese mismo criterio y lo dice en su cabecera.
+- **Instagram exige 9:16** (`MenuExportar.tsx:91`), así que hacen falta DOS proyectos: uno
+  16:9 para la Página y otro 9:16 para el Reel.
+- **Y los proyectos NO pueden ser el ejemplo de fábrica.** Esta es la trampa fina: el
+  interruptor de los ejemplos vive en **localStorage** (`mh.ejemplos`, `core/data/ejemplos.ts`)
+  y el filtro está en `useAll()` del repositorio, así que una fila con `ejemploDe` se ESCONDE
+  en cualquier dispositivo que no tenga el ejemplo encendido — y el navegador del revisor no
+  lo tendrá. Encender el ejemplo aquí y renombrarlo parece que funciona y al revisor no le
+  llega nada. Los dos proyectos se hacen a mano, con el menú «+ Add → Color / Text».
+- **Desde un navegador LIMPIO.** Cerrar sesión no borra la base local, y entrar con la
+  cuenta del revisor en un navegador con otra casa dispara `verificarUsuario` (motor.ts:443),
+  que pregunta si unir lo local a la cuenta nueva: decir que sí le habría subido esa casa al
+  revisor. Se hizo en un Chrome sin sesión previa (la base `mind-home` estaba vacía).
+
+Lo que quedó hecho:
+
+- [x] **Cuenta creada y confirmada**: `mindplannerhome+meta@gmail.com`. Supabase pide
+      confirmar el correo antes de entrar; el enlace llega a la bandeja de
+      `mindplannerhome@gmail.com` y **caduca en cuanto se usa** (si se vuelve a pulsar sale
+      `otp_expired`, que es normal y no rompe nada).
+- [x] **Cupón emitido y canjeado**: uno nuevo de **1 uso y 365 días**, creado en el editor
+      SQL del panel (el código NO se escribe aquí, como los otros). Resultado comprobado en
+      `perfiles`: `unlock = true`, `plan = trial`, `plan_expira = 11-sep-2027`. Con eso el
+      sync quedó encendido y la cuenta tiene 700 créditos de IA.
+- [x] **Casa con el cuarto del Studio**: asistente de bienvenida → interés **Video ·
+      Editor de guion**. Queda un cuarto llamado «Video» con el objeto `camara-video` y el
+      grupo «Studio».
+- [x] **Idioma en inglés** (la app se puso sola en `en`, que es lo que queremos: el revisor
+      lee inglés y el ejemplo de fábrica se materializa en el idioma activo).
+- [x] **«Demo video (Facebook)»** — hecho a mano: **16:9**, tres planos de color (morado,
+      turquesa y naranja, 4 s cada uno) y un rótulo centrado «Made in the Studio / Mind
+      Planner Home». 12 s. Primero se probó con el ejemplo de fábrica renombrado y se
+      DESCARTÓ por lo del párrafo anterior: la fila llevaba `ejemploDe` y habría llegado
+      invisible. El de fábrica quedó borrado (lápida en `registros`) y la barra «Ejemplo»,
+      apagada.
+- [x] **«Demo Reel (Instagram)»** — creado a mano: aspecto **9:16**, dos planos de color
+      (4 s + 4 s) y un rótulo «Made in the Studio / Mind Planner Home». 8 s. Comprobado en
+      el menú Exportar que **Instagram sale habilitado**, o sea que el 9:16 está bien puesto.
+- [x] **Sync comprobado en la nube**: `select … from registros where tabla='proyectosVideo'`
+      devuelve los dos proyectos con su aspecto, sus clips, `deleted = false` y —lo que
+      importa— **`ejemploDe` a NULL** en los dos.
+- [x] **El enlace directo funciona**: `https://app.mindplannerhome.com/?app=video` abre el
+      Studio sin pasar por la casa. **Ojo**: `abrirApp` se dispara 500 ms después de cargar
+      (main.tsx:159), así que en el PRIMER arranque de un navegador limpio la casa todavía
+      no ha bajado y el enlace no encuentra el objeto. En las instrucciones va como atajo
+      **después** de iniciar sesión, no como punto de entrada.
+
+- [x] **Probada la entrada tal cual la hará el revisor** (10-sep-2026). Se simuló un
+      dispositivo nuevo borrando en Chrome la base `mind-home` y las claves de
+      localStorage de la cuenta real (respetando las de `probar:` y `demo:`), y se
+      comprobó el punto de partida: 0 cuartos, 0 objetos, 0 proyectos y sin sesión.
+      Resultado: puerta de idioma → puerta de cuenta → **entra directo a la casa, SIN
+      asistente de bienvenida** (`esperarCasaDeCuenta` espera el primer sync, ve que la
+      cuenta trae casa y marca la bienvenida como vista), con el cuarto del Studio, los 7
+      objetos y los DOS proyectos con su aspecto correcto. El atajo `?app=video` funciona
+      en el segundo arranque.
+
+**Y salió un fallo de la app que habría costado la revisión: se pone en ESPAÑOL.** No es
+de la cuenta —el idioma es de dispositivo, `mh.idioma` en localStorage, no viaja por el
+sync—: es que **pulsar «Next» en la puerta de idioma sin tocar la bandera NO escribe
+`mh.idioma`**. `PuertaIdioma.confirmar()` solo marca `mh.idioma.elegido` (su comentario
+dice «`setIdioma` ya escribió `mh.idioma`», y eso solo es cierto si tocaste una bandera).
+Entonces, al iniciar sesión, el sync baja la casa y pone `mh.bienvenida = '1'`; en la
+recarga siguiente `leerIdioma()` (`ajustesStore.ts:139`) no encuentra `mh.idioma`, ve esa
+bandera, la interpreta como «instalación veterana» y devuelve **`IDIOMA_BASE` (español)**
+en vez del default inglés. Comprobado en vivo: `mh.idioma` inexistente, `elegido = 1`,
+`bienvenida = 1`, app en español; escribiendo `mh.idioma = 'en'` vuelve a inglés.
+
+No afecta solo al revisor: le pasa a **cualquiera que estrene dispositivo, acepte el
+inglés que ya viene marcado sin tocarlo y tenga casa en la cuenta**. La app le amanece en
+español.
+
+**ARREGLADO Y DESPLEGADO el 10-sep-2026**, las dos mitades:
+
+1. `PuertaIdioma.confirmar()` ahora llama a `setIdioma(idioma)` antes de marcar la bandera,
+   así que confirmar la puerta SIEMPRE escribe `mh.idioma` — aunque no se toque ninguna
+   bandera. Arregla el origen.
+2. `leerIdioma()` (`ajustesStore.ts`) solo trata `mh.bienvenida === '1'` como «instalación
+   veterana» si `mh.idioma.elegido !== '1'`: un dispositivo que acaba de contestar la puerta
+   de idioma es nuevo, no veterano. Rescata además a quien ya estuviera en ese estado.
+
+`tsc -b` en verde, `npm run build` y `wrangler pages deploy dist --project-name
+mindplannerhome-app` (deployment `404d1a8c`). Comprobado EN PRODUCCIÓN después de desplegar, las dos mitades por separado: (1) con
+`mh.idioma` borrado, `elegido=1` y `bienvenida=1` —el estado exacto que daba español— la
+app arranca en inglés; (2) pulsar «Next» en la puerta sin tocar bandera escribe
+`mh.idioma='en'`. El parche de «toca la bandera» se quitó de las instrucciones: ya no hace
+falta y una instrucción de más al revisor solo confunde.
+
+Decidido y pendiente:
+
+- [x] **Arreglado el idioma en el código y desplegado** (detalle arriba). Sin commit: los
+      cambios están en el árbol de trabajo, `--commit-dirty=true`.
+- [x] **La contraseña es igual que el correo**, a propósito: se planteó cambiarla —la cuenta
+      va a tener conectada la Página de Facebook de un revisor— y Marco decidió dejarla así
+      el 10-sep-2026. Ventaja: no hay nada que anotar ni que se pueda perder antes de
+      rellenar el formulario de Meta.
+
 ### Justificaciones por scope (inglés)
 
 - **Google · youtube.upload** — Mind Planner Home includes a video editor (the Studio).
