@@ -790,6 +790,8 @@ export const TR: Dict = {
   'celebra.racha.titulo': '{n} günlük seri!',
   'celebra.racha.titulo1': '1 günlük seri!',
   'celebra.racha.cuerpo': '{app} içinde böyle devam et 🔥',
+  'celebra.racha.titulo0': 'Serine bugün başla',
+  'celebra.racha.cuerpo0': '{app} içinde bir şey kaydet ve başla 🔥',
   'celebra.lista.titulo': 'Günün görevleri tamam!',
   'celebra.lista.cuerpo': '{app} listesini tamamladın',
   'celebra.lista.xp': '+{xp} XP',
@@ -1120,7 +1122,8 @@ export const TR: Dict = {
   'ajustes.tema.masColores': 'Daha fazla renk',
   'ajustes.tema.menosColores': 'Daha az renk',
   'ajustes.tema.tinte': 'Ton',
-  'ajustes.tema.tinte.desc': 'Menülerin ve panellerin tema rengini ne kadar aldığı, yalnızca düğmeler değil. Oda uygulamaları kendi renklerini korur.',
+  'ajustes.tema.tinte.desc':
+    'Menülerin ve panellerin tema rengini ne kadar aldığı, yalnızca düğmeler değil. Oda uygulamaları kendi renklerini korur.',
   'ajustes.modo': 'Görünüm',
   'ajustes.estilo': 'Arayüz stili',
   'ajustes.estilo.desc': 'Düğmelerin, kartların ve panellerin biçimi: köşeler, kenarlar ve gölgeler.',
@@ -1184,7 +1187,7 @@ export const TR: Dict = {
   'room.recamara.nombre': 'Yatak Odası',
   'room.descanso.nombre': 'Yatak · Dinlenme',
   'room.anecdotario.nombre': 'Masa · Anı Defteri',
-  'room.despacho.nombre': 'Çalışma Odası',
+  'room.despacho.nombre': 'Finans',
   'room.biblioteca.nombre': 'Kütüphane',
   'room.entretenimiento.nombre': 'Eğlence',
   'room.sala.nombre': 'Oturma Odası',
@@ -1206,7 +1209,7 @@ export const TR: Dict = {
   'room.recamara.sub': 'Uyku ve anılar',
   'room.descanso.sub': 'Uyku ve alarm',
   'room.anecdotario.sub': 'Kişisel anı defteri',
-  'room.despacho.sub': 'Finans',
+  'room.despacho.sub': 'Bütçe, hedefler ve piyasalar',
   'room.biblioteca.sub': 'Öğrenme',
   'room.entretenimiento.sub': 'Arşiv ve masa oyunları',
   'room.sala.sub': 'Seyahatler',
@@ -2686,9 +2689,9 @@ export const TR: Dict = {
   'cocina.comp.cuenta': 'Market hesabı',
   'cocina.comp.cuentaAyuda': 'Her ürünün fiyatını yaz, hesap kendiliğinden toplanır.',
   'cocina.comp.cuentaConPrecio': '{n} üründen {c} tanesinin fiyatı girildi',
-  'cocina.comp.registrarGasto': 'Çalışma odasında gider olarak kaydet',
-  'cocina.comp.actualizarGasto': 'Çalışma odasındaki gideri güncelle',
-  'cocina.comp.gastoAlDia': '✓ Çalışma odasında kaydedildi',
+  'cocina.comp.registrarGasto': 'Finans\'ta gider olarak kaydet',
+  'cocina.comp.actualizarGasto': 'Finans\'taki gideri güncelle',
+  'cocina.comp.gastoAlDia': '✓ Finans\'a kaydedildi',
   'cocina.comp.notaGasto': 'Market',
   'cocina.comp.listaDefecto': 'Liste',
   'cocina.comp.listasVacio': 'Kaydedilmiş listen yok. "Liste oluştur"dan bir tane hazırla ya da bir tariften oluştur.',
@@ -3573,7 +3576,7 @@ export const TR: Dict = {
   'sala.hoja.total': 'Toplam',
   'sala.hoja.agregarDia': 'Gün',
   'sala.hoja.sync':
-    'Tarihli günler evin takviminde görünür, toplam ise çalışma odasında bir birikim hedefine dönüşür. Yeri ziyaret etsen bile plan kalmaya devam eder; yalnızca sen silersen kaybolur.',
+    'Tarihi olan günler evin takviminde görünür ve toplam, Finans\'ta bir birikim hedefine dönüşür. Yeri gezdikten sonra da plan kalır; yalnızca silersen kaybolur.',
   'sala.hoja.compartir': 'Paylaş',
   'sala.hoja.copiado': 'Kopyalandı',
   'sala.hoja.guardar': 'Kaydet',
@@ -6772,7 +6775,7 @@ export const TR: Dict = {
   'ia.donde.editorCuarto': 'Düzenleyici › Zemin, Duvarlar, Tavan, Kapılar ve Izgara',
   'ia.donde.editorFondo': 'Gökyüzü arka planı',
   'ia.donde.asistentes': 'Asistanlar',
-  'ia.donde.metas': 'Mutfak, Spor Salonu, Kütüphane, Diller, Oturma Odası, Hobiler, Çalışma Odası ve Eğlence',
+  'ia.donde.metas': 'Mutfak, Egzersiz, Kütüphane, Diller, Oturma odası, Hobiler, Finans ve Eğlence',
   'ia.op.chat.mensaje': 'Asistanına mesaj',
   'ia.op.chat.modelo3d': 'Sohbette «3 boyutlu bir şey yap…»',
   'ia.op.chat.modelo3d.nota': 'İki çağrı: isteği okuyan tur ve üretimin kendisi.',
@@ -6930,7 +6933,7 @@ export const TR: Dict = {
   'tut.app-descanso--esencial.resumen':
     'Dinlenme, nasıl uyuduğunu tek bir ekranda gösterir: son gecenin puanı, hatırlatıcılarıyla programın, günlük kayıt ve yıl, ay ve haftaya göre tam geçmiş.',
   'tut.app-despacho--esencial.resumen':
-    'Çalışma Odası, paranı dört bölümde düzenler. Net değer, sahip olduğun ve borçlu olduğun şeyleri projeksiyonuyla tutar; Nakit akışı, dönemin giderlerini, gelirlerini ve bakiyesini bütçe ve kategorilerle birlikte tutar; Hedefler, tasarruf, yatırım ve borcu bir araya getirir, ayrıca bir tutar öneren hesaplayıcılarla. Piyasalar sadece görüntülemek için canlı fiyat panosudur.',
+    'Finans, paranı dört menüde düzenler. Varlık, elindekini ve borcunu projeksiyonuyla tutar; Akış, giderleri, gelirleri ve dönemin dengesini bütçe ve kategorilerle izler; Hedefler, birikimi, yatırımı ve borcu bir tutar sunan hesap makineleriyle birlikte toplar. Piyasalar ise canlı bir kur panosudur, yalnızca bilgi için.',
   'tut.app-diario--esencial.resumen':
     'Günlük Haberler, geçici bir gazetedir: kategoriye göre gerçek basın manşetleri ve gece yarısı kendiliğinden yenilenen «Bugün tarihte». Teslimat bölümünden bir asistanın bunu kendi sohbetinde sana getirmesini ayarlayabilirsin.',
   'tut.app-ejercicio--esencial.resumen':
@@ -7100,7 +7103,7 @@ export const TR: Dict = {
     'Seyir defteri, anılarını ülkeye ve yere göre fotoğraflarıyla saklar; her gezi de konaklama, ulaşım ve bütçesiyle gün gün planını korur.',
   'tut.app-sala--proximo.titulo': 'Sıradaki gezi',
   'tut.app-sala--proximo.resumen':
-    'Görülecek yerlerin kendi gün gün planı vardır, ve bütçelerinin toplamı çalışma odasında bir tasarruf hedefine dönüşür.',
+    'Gezmek istediğin yerlerin gün gün kendi plan sayfası olur ve bütçelerinin toplamı Finans\'ta bir birikim hedefine dönüşür.',
   'tut.app-entretenimiento--archivo.titulo': 'Bir bilim kurgu yılı',
   'tut.app-entretenimiento--archivo.resumen':
     'Arşiv; izlediğin, okuduğun ve oynadığın her şeyi saklar: her kayıt durumu, yıldızları ve yorumunla birlikte. Tarihe göre yıl ve ay klasörlerinde ya da türe göre grupla.',
@@ -8776,7 +8779,8 @@ export const TR: Dict = {
   'video.publicar.campo.obligatorio': 'Başlık zorunlu.',
   'video.publicar.campo.titulo': 'Başlık',
   'video.publicar.cuenta.caducado': 'Erişim süresi doldu: hesabı yeniden bağla.',
-  'video.publicar.cuenta.canalYoutube': 'Google hesabında birden fazla kanal varsa, hangisini kullanacağını Google ekranında seç. Değiştirmek için yeniden bağlan.',
+  'video.publicar.cuenta.canalYoutube':
+    'Google hesabında birden fazla kanal varsa, hangisini kullanacağını Google ekranında seç. Değiştirmek için yeniden bağlan.',
   'video.publicar.cuenta.cancelar': 'İptal',
   'video.publicar.cuenta.cargando': 'Hesapların aranıyor…',
   'video.publicar.cuenta.conectar': '{red} bağla',

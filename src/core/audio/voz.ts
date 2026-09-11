@@ -66,8 +66,12 @@ export interface OpcionesHabla {
   vozNombre?: string
   /** Quién habla; por defecto un asistente. Ver `DuenioVoz`. */
   duenio?: DuenioVoz
-  /** Se llama SIEMPRE una sola vez al terminar (fin, error o cancelación). */
-  onFin?: () => void
+  /**
+   * Se llama SIEMPRE una sola vez al terminar (fin, error o cancelación).
+   * `natural` es false cuando la cortó una lectura MÁS NUEVA (el 🔊 de la nube,
+   * otro mensaje): quien reaccione al fin no debe pisar a la que sigue sonando.
+   */
+  onFin?: (natural?: boolean) => void
 }
 
 // Ducking: la música baja al 25% mientras un asistente habla.
@@ -117,7 +121,7 @@ export function hablarVoz(texto: string, opts: OpcionesHabla = {}): boolean {
         duck(false)
         duenioVoz = 'asistente'
       }
-      opts.onFin?.()
+      opts.onFin?.(id === hablaActual)
     }
     u.onend = fin
     u.onerror = fin
@@ -176,10 +180,11 @@ export function useVozAsistente(): void {
       if (!a.vozIA && !hayVoz()) return
       // decir() reprograma el ocultado justo después de este suscriptor: la red
       // de seguridad (por si onend nunca llega) se aplica cuando resuelve la promesa.
-      void hablarComoAsistente(limpiarMarkdown(s.mensaje), a, () =>
-        // La burbuja se despide 0.9 s después de que la voz termina.
-        useMascota.getState().programarOcultar(900),
-      ).then((ok) => {
+      void hablarComoAsistente(limpiarMarkdown(s.mensaje), a, (natural) => {
+        // La burbuja se despide 0.9 s después de que la voz termina. Si la
+        // cortó otra lectura (el 🔊 de la nube), esa decide cuándo se va.
+        if (natural !== false) useMascota.getState().programarOcultar(900)
+      }).then((ok) => {
         if (ok) useMascota.getState().programarOcultar(30000)
       })
     })
@@ -198,7 +203,11 @@ export function useVozAsistente(): void {
  * el fallback tras un `false` de `hablarVozIA` arriesga doble voz, porque ese
  * `false` también significa «una lectura más nueva me reemplazó».
  */
-export async function hablarComoAsistente(texto: string, a: Asistente, onFin?: () => void): Promise<boolean> {
+export async function hablarComoAsistente(
+  texto: string,
+  a: Asistente,
+  onFin?: (natural?: boolean) => void,
+): Promise<boolean> {
   const v = vozDeAsistente(a)
   if (a.vozIA && (usarViaCuenta() || proveedorVoz()))
     return hablarVozIA(texto, { voz: a.vozIaVoz, volumen: v.volumen, onFin })

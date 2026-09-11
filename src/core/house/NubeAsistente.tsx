@@ -58,9 +58,12 @@ export function NubeAsistente({ asistenteId, altura }: { asistenteId: string; al
       {habla && aLaVista && (
         // zIndexRange tope 30 (capa "mapa"): que nunca tape los paneles del HUD.
         // El pico de la nube queda EN el punto del ancla (de ahí el -100%).
+        // `width: max-content`: el div de drei es absoluto dentro de un
+        // contenedor de ancho 0, y sin esto la nube se encogía a la palabra
+        // más larga (una palabra por línea).
         <Html
           zIndexRange={[30, 0]}
-          style={{ transform: 'translate(-50%,-100%)', pointerEvents: 'none' }}
+          style={{ transform: 'translate(-50%,-100%)', pointerEvents: 'none', width: 'max-content' }}
         >
           <AsistenteBurbuja asistenteId={asistenteId} />
         </Html>

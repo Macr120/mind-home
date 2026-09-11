@@ -1,12 +1,12 @@
 import type { Dict } from './dict'
 
 /**
- * Textos de PASO de los tutoriales en ko. Capa aparte porque solo hacen
- * falta con un tour corriendo.
+ * Textos de PASO de los tutoriales en Coreano. Capa aparte porque solo hacen
+ * falta con un tour corriendo. Los títulos y resúmenes NO están aquí: los pinta
+ * el selector sin abrir nada.
  *
- * Lo monta `traducir-a-mano.mjs meter-dict` — no lo edites a mano.
+ * GENERADO por `npm run traducir:i18n` — no lo edites a mano.
  */
-
 export const KO_TUT: Dict = {
   'tut.app-computo--formulario.1.titulo': '계산기에 매달려 있어요',
   'tut.app-computo--formulario.1.texto':
@@ -64,14 +64,11 @@ export const KO_TUT: Dict = {
   'tut.app-computo--hojas.5.texto': '엑셀로는 진짜 .xlsx가 나와요. 수식은 살아 있고 차트도 진짜 엑셀 차트예요. PDF는 브라우저 인쇄 기능으로 나와요.',
   'tut.casa.1.texto': '여기가 집이에요. 방마다 앱이 하나씩 들어 있어요. 기본 조작을 알려드릴게요.',
   'tut.casa.2.titulo': '메인 메뉴',
-  'tut.casa.2.texto':
-    '보시라고 열어 뒀어요. 이게 메인 메뉴예요. 당신의 방과 그 앱들이 있죠. 나머지 탭에는 템플릿(앱) 목록과 오브젝트 인벤토리가 있어요.',
+  'tut.casa.2.texto': '보시라고 열어 뒀어요. 이게 메인 메뉴예요. 당신의 방과 그 앱들이 있죠. 나머지 탭에는 템플릿(앱) 목록과 오브젝트 인벤토리가 있어요.',
   'tut.casa.2b.titulo': '앱 목록',
-  'tut.casa.2b.texto':
-    '두 번째 탭이에요. 템플릿 목록이죠. 이 집에 들일 수 있는 모든 앱이 있고, 저마다 방에 배정될 준비가 돼 있어요.',
+  'tut.casa.2b.texto': '두 번째 탭이에요. 템플릿 목록이죠. 이 집에 들일 수 있는 모든 앱이 있고, 저마다 방에 배정될 준비가 돼 있어요.',
   'tut.casa.2c.titulo': '인벤토리',
-  'tut.casa.2c.texto':
-    '그리고 세 번째, 인벤토리예요. 방에서 거둬 둔 오브젝트와 부품이 모여 있고, 원하는 곳에 언제든 다시 놓을 수 있어요.',
+  'tut.casa.2c.texto': '그리고 세 번째, 인벤토리예요. 방에서 거둬 둔 오브젝트와 부품이 모여 있고, 원하는 곳에 언제든 다시 놓을 수 있어요.',
   'tut.casa.3.titulo': '이동하기',
   'tut.casa.3.texto':
     '조이스틱, WASD, 방향키로 걸어요. 집 전체를 걸어서 돌아다닐 수 있어요. 그런데 걷는 것만으로는 앱이 열리지 않아요 — 들어가려면 방의 오브가 떠 있는 오브젝트를 누르세요.',
@@ -82,56 +79,43 @@ export const KO_TUT: Dict = {
   'tut.casa.5.texto':
     '그 구석은 시점 큐브만이 아니에요. 의자, 탈것, 코트처럼 만질 수 있는 것에 가까이 가면 근처에 있는 것에 맞춰 저절로 바뀌어요. 다가가지 않으면 아무것도 켜지지 않아요.',
   'tut.casa.6.titulo': '도구 휠',
-  'tut.casa.6.texto':
-    '여기 열려 있어요. 동작, 장난감, 탈것, 건축이 있고 한 번에 3개까지 장착할 수 있어요. 조이스틱 옆 버튼에서 열리고, 맨손일 때는 구석의 그 자리에서도 열려요.',
+  'tut.casa.6.texto': '여기 열려 있어요. 동작, 장난감, 탈것, 건축이 있고 한 번에 3개까지 장착할 수 있어요. 조이스틱 옆 버튼에서 열리고, 맨손일 때는 구석의 그 자리에서도 열려요.',
   'tut.casa.7.titulo': '시계',
-  'tut.casa.7.texto':
-    '집의 시간이에요. 누르면 전체 캘린더가 열리고, 오늘의 \'미션\'도 거기에 있어요. 그리고 해나 달을 누르면 이 패널이 열려요. 시간의 흐름과 장면의 빛이에요.',
+  'tut.casa.7.texto': '집의 시간이에요. 누르면 전체 캘린더가 열리고, 오늘의 \'미션\'도 거기에 있어요. 그리고 해나 달을 누르면 이 패널이 열려요. 시간의 흐름과 장면의 빛이에요.',
   'tut.casa.8.titulo': '집의 음악',
-  'tut.casa.8.texto':
-    '집은 조용한 상태로 시작해요. 배경 음악을 원하면 여기서 음악을 켜세요. 방마다 테마 곡이 미리 담겨 있고, 집의 전체 분위기를 그대로 틀어 둘 수도 있어요.',
+  'tut.casa.8.texto': '집은 조용한 상태로 시작해요. 배경 음악을 원하면 여기서 음악을 켜세요. 방마다 테마 곡이 미리 담겨 있고, 집의 전체 분위기를 그대로 틀어 둘 수도 있어요.',
   'tut.casa.9.titulo': '채팅',
   'tut.casa.9.texto':
     '아키텍트 채팅이에요. 무엇을 했는지 말하면 알맞은 앱에 기록해 주고, 집을 바꿔 달라거나 이미지, 심지어 방에 놓을 3D 모델까지 부탁할 수 있어요. 그냥 잠시 수다를 떨어도 좋고요.',
   'tut.casa.asistente.titulo': '내 어시스턴트',
-  'tut.casa.asistente.texto':
-    '이 버튼이 내 어시스턴트예요. 채팅에서 대답해 주는 게 바로 이 친구죠. 눌러서 메뉴를 열면 모습, 목소리, 성격을 취향대로 바꿀 수 있어요.',
+  'tut.casa.asistente.texto': '이 버튼이 내 어시스턴트예요. 채팅에서 대답해 주는 게 바로 이 친구죠. 눌러서 메뉴를 열면 모습, 목소리, 성격을 취향대로 바꿀 수 있어요.',
   'tut.casa.mas.titulo': '+ 메뉴',
   'tut.casa.mas.texto':
     '보이도록 열어 뒀어요. +로는 채팅에 이것저것 붙일 수 있어요. 이미지나 PDF 올리기, 사진 찍기, 그리고 얼굴을 마주 보는 AR 마스크와 AR 채팅으로 넘어가기까지요.',
   'tut.casa.editor.titulo': '편집기',
-  'tut.casa.editor.texto':
-    '위쪽 \'편집기\' 버튼이 여는 게 바로 여기예요. 지도, 캐릭터, 오브젝트, 설정, 네 탭으로 된 전체 꾸미기죠. 집 전체를 여기서 그리고 입혀요.',
-  'tut.casa.10.texto':
-    '기본은 여기까지예요. 메뉴와 앱마다 각자의 \'?\' 버튼과 튜토리얼이 있어요. 뭔가 알쏭달쏭할 때 눌러서 물어보세요.',
-  'tut.primeros.1.texto':
-    '이 튜토리얼은 두 가지에 답해요. 내 앱에 어떻게 들어가고, 새 앱을 어떻게 만드는지요. 둘 다 여기 \'방\' 탭에 살아요.',
+  'tut.casa.editor.texto': '위쪽 \'편집기\' 버튼이 여는 게 바로 여기예요. 지도, 캐릭터, 오브젝트, 설정, 네 탭으로 된 전체 꾸미기죠. 집 전체를 여기서 그리고 입혀요.',
+  'tut.casa.10.texto': '기본은 여기까지예요. 메뉴와 앱마다 각자의 \'?\' 버튼과 튜토리얼이 있어요. 뭔가 알쏭달쏭할 때 눌러서 물어보세요.',
+  'tut.primeros.1.texto': '이 튜토리얼은 두 가지에 답해요. 내 앱에 어떻게 들어가고, 새 앱을 어떻게 만드는지요. 둘 다 여기 \'방\' 탭에 살아요.',
   'tut.primeros.entrar.titulo': '내 앱에 들어가기',
-  'tut.primeros.entrar.texto':
-    '방마다 자기 앱이 있고, 문은 셋이에요. 여기 메뉴의 그 카드, 지도에서 오브가 떠 있는 오브젝트, 그리고 위쪽 MPH 버튼의 바로가기예요.',
+  'tut.primeros.entrar.texto': '방마다 자기 앱이 있고, 문은 셋이에요. 여기 메뉴의 그 카드, 지도에서 오브가 떠 있는 오브젝트, 그리고 위쪽 MPH 버튼의 바로가기예요.',
   'tut.primeros.entrar.vacio':
     '여기에 방들이 살게 돼요. 방마다 앱이 하나씩 있고, 문은 셋이 될 거예요. 여기 메뉴의 그 카드, 맵에서 오브가 떠 있는 오브젝트, 그리고 위쪽 MPH 버튼의 바로가기. 첫 방을 만들어 볼까요…',
   'tut.primeros.prev.titulo': '여기가 당신 방 자리예요',
-  'tut.primeros.prev.texto':
-    '이게 브러시의 미리보기예요. 벽이 달린 초록 실루엣이 방이 세워질 자리를 알려줘요. 직접 지을 때도 손가락을 떼기 전에 손끝 아래에서 똑같이 보여요.',
+  'tut.primeros.prev.texto': '이게 브러시의 미리보기예요. 벽이 달린 초록 실루엣이 방이 세워질 자리를 알려줘요. 직접 지을 때도 손가락을 떼기 전에 손끝 아래에서 똑같이 보여요.',
   'tut.primeros.mat.titulo': '다 지었어요!',
-  'tut.primeros.mat.texto':
-    '여기 있네요. 미리보기가 가리키던 바로 그 자리에, 문을 앞으로 하고 방이 세워졌어요. 아직 앱은 없어요 — 그게 다음 차례예요.',
+  'tut.primeros.mat.texto': '여기 있네요. 미리보기가 가리키던 바로 그 자리에, 문을 앞으로 하고 방이 세워졌어요. 아직 앱은 없어요 — 그게 다음 차례예요.',
   'tut.primeros.2.titulo': '방 만들기',
   'tut.primeros.2.texto': '이 버튼으로 지도에 새 방을 한 칸씩 그릴 수 있어요. 보세요 — 당신의 방이 어디에 생길지 보여드릴게요…',
   'tut.primeros.3.titulo': '새로 생긴 방',
   'tut.primeros.3.texto': '여기 있어요! 방금 만든 방이라 아직 앱이 없어요. 그래서 카드에 \'+ 배정\'이라고 쓰여 있죠.',
   'tut.primeros.apps.titulo': '쓸 수 있는 앱들',
-  'tut.primeros.apps.texto':
-    '이게 \'+ 배정\'을 열어요. 쓸 수 있는 앱이 전부 모인 패널이죠. 앱마다 자기 가구와 앱으로 방 하나를 차려 줘요. 당신 방에도 하나 넣어 볼게요…',
+  'tut.primeros.apps.texto': '이게 \'+ 배정\'을 열어요. 쓸 수 있는 앱이 전부 모인 패널이죠. 앱마다 자기 가구와 앱으로 방 하나를 차려 줘요. 당신 방에도 하나 넣어 볼게요…',
   'tut.primeros.4.titulo': '앱 배정하기',
   'tut.primeros.4.texto': '\'+ 배정\'으로 앱을 넣었어요. 방이 이름과 아이콘, 가구를 갖게 된 게 보이죠. 이제부터는 카드 전체가 들어가는 버튼이에요.',
   'tut.primeros.5.titulo': '입장',
-  'tut.primeros.5.texto':
-    '들어왔어요. 이게 방의 앱이에요. 나중에 돌아올 때는 메뉴의 그 카드, 지도에서 오브가 떠 있는 오브젝트, 아니면 위쪽 MPH 버튼의 바로가기로요.',
+  'tut.primeros.5.texto': '들어왔어요. 이게 방의 앱이에요. 나중에 돌아올 때는 메뉴의 그 카드, 지도에서 오브가 떠 있는 오브젝트, 아니면 위쪽 MPH 버튼의 바로가기로요.',
   'tut.primeros.press.titulo': '길게 누르기',
-  'tut.primeros.press.texto':
-    '떨리는 게 보이죠? 방이나 오브젝트를 길게 누르면 깨어나면서 메뉴가 함께 나와요. 자리가 마음에 안 들면 이렇게 옮기고, 지울 수도 있어요.',
+  'tut.primeros.press.texto': '떨리는 게 보이죠? 방이나 오브젝트를 길게 누르면 깨어나면서 메뉴가 함께 나와요. 자리가 마음에 안 들면 이렇게 옮기고, 지울 수도 있어요.',
   'tut.primeros.6.texto':
     '이게 전부예요. 방을 만들고, 앱을 주고, 들어가서, 자리를 잡아 주면 돼요. 이 방은 연습용이었어요 — 끝나면 제가 거둬 갈게요. 집은 당신 마음대로 꾸미시라고요.',
   'tut.menu-cuartos.1.texto': '\'방\' 탭에는 집에 있는 모든 방이 카테고리별로 나와요.',
@@ -532,7 +516,7 @@ export const KO_TUT: Dict = {
     '움푹 팬 두 곳은 진짜예요. 7개월째의 무릎 부상, 그리고 일본에서 보낸 3주. 며칠 빠졌다고 진행이 지워지지는 않아요. 이 패널은 있어야 했던 한 해가 아니라 실제로 지나온 한 해를 보여줘요. 그리고 루틴은 만든 날부터만 계산돼요.',
   'tut.metas.0.titulo': '목표의 중심',
   'tut.metas.0.texto':
-    '이 방은 자기 기록을 두지 않아요. 목표는 다른 앱에서 생겨요 — 헬스장에서 달리기, 도서관에서 학위, 서재에서 저축 — 그리고 여기에 전부 모여요. 어느 방에서 왔든 한눈에 볼 수 있는, 집에서 유일한 자리예요.',
+    '이 방은 자기 것을 따로 두지 않아요. 목표는 다른 앱에서 태어나요. 달리기는 운동에서, 학위는 도서관에서, 저축은 금융에서요. 그리고 여기에서 전부 모여요. 어느 방에서 왔든 한눈에 함께 볼 수 있는 곳은 집에서 여기뿐이에요.',
   'tut.metas.1.titulo': '목표마다 맡은 앱이 있어요',
   'tut.metas.1.texto':
     '폴더는 장식이 아니에요. 하나하나가 그 목표를 맡은 앱이고, 달성 여부를 아는 것도 그 앱이에요. 기록이 거기서 일어나니까요. 「집」은 앱이 아니에요 — 부엌 공사를 위해 펩이 직접 만든 분류예요.',
@@ -698,7 +682,7 @@ export const KO_TUT: Dict = {
   'tut.app-descanso--esencial.5.titulo': '기록 보관',
   'tut.app-descanso--esencial.5.texto': '기록한 밤은 모두 여기에 남아 연·월·주로 정리되니, 오랜 흐름 속에서 잠을 되돌아볼 수 있어요.',
   'tut.app-despacho--esencial.1.titulo': '나의 재정',
-  'tut.app-despacho--esencial.1.texto': '서재는 돈을 네 가지 메뉴로 정리해요. 가진 것, 드나드는 돈, 나의 목표, 그리고 시장이에요. 각 메뉴 아래로 고유한 섹션이 열려요.',
+  'tut.app-despacho--esencial.1.texto': '금융은 돈을 네 가지 메뉴로 정리해요. 가진 것, 들어오고 나가는 것, 목표, 그리고 시장이에요. 각 메뉴는 아래에 자기 항목을 펼쳐요.',
   'tut.app-despacho--esencial.2.titulo': '순자산',
   'tut.app-despacho--esencial.2.texto': '가진 것과 갚을 것을 자산과 부채, 두 개의 목록으로 담아요. 세 번째 섹션은 항목마다 정한 이율로 그 상태를 앞으로 예측해 줘요.',
   'tut.app-despacho--esencial.3.titulo': '현금 흐름',
@@ -918,7 +902,7 @@ export const KO_TUT: Dict = {
   'tut.app-cocina--recetario.4.texto':
     '\'목록 만들기\'는 여러 레시피에서 빠진 것을 한 번의 장보기로 모아 줘요. 재료마다 분류(과일 및 채소, 유제품…)를 알아서 짐작하고, 고칠 수도 있어요.',
   'tut.app-cocina--recetario.5.titulo': '저장된 목록',
-  'tut.app-cocina--recetario.5.texto': '목록마다 아직 살 것과 이미 집에 있는 것이 함께 저장돼요. 가격을 넣으면 그 금액을 서재의 지출로 보낼 수 있어요.',
+  'tut.app-cocina--recetario.5.texto': '목록마다 아직 사야 할 것과 이미 있는 것을 함께 저장해요. 가격을 적으면 합계를 금융의 지출로 보낼 수 있어요.',
   'tut.app-cocina--cronograma.1.titulo': '단계로 나눈 체중 목표',
   'tut.app-cocina--cronograma.1.texto':
     '헤더의 “미션” 버튼을 누르면 오늘의 체크리스트가 열려요. 물, 식사, 그리고 목표에서 내려온 단계들이요. 목표 자체는—AI가 제안하는 계획과 함께—“목표” 방에 있고, 목표를 맡은 앱별로 묶여 있어요.',
@@ -1038,7 +1022,7 @@ export const KO_TUT: Dict = {
   'tut.app-sala--proximo.1.texto': '적어둔 꿈이 셋이에요. 서울은 날짜와 계획이 있고, 파타고니아와 아이슬란드는 아직 생각뿐이에요. 날짜가 있는 것들은 캘린더에 나타나요.',
   'tut.app-sala--proximo.2.titulo': '계획표에서 목표로',
   'tut.app-sala--proximo.2.texto':
-    '한국에서 보낼 여드레를 더하면 여행에 들 돈이 나와요. 그 합계는 서재에 저축 목표로 저장돼요. 저기서 자라는 걸 보는 게, 여기서 가까워지는 걸 보는 거예요.',
+    '일본에서 보내는 여드레가 여행에 들 비용으로 더해지고, 그 합계는 금융에 저축 목표로 저장돼요. 거기서 자라는 걸 보는 일이 여기서 가까워지는 걸 보는 일이에요.',
   'tut.app-sala--proximo.3.titulo': '경로',
   'tut.app-sala--proximo.3.texto': '경로는 장소를 순서대로 이어서 지도에 그려줘요. 일본 경로는 이미 다녀온 길이고, 한국 경로는 가고 싶은 길이에요.',
   'tut.app-entretenimiento--archivo.1.titulo': '서른 편, 한 해',

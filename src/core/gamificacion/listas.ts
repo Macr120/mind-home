@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { db, type ListaCumplida } from '../data/db'
+import { claveLS } from '../edicion'
 import { fechaLocalISO } from '../fechaLocal'
 import { armarPasosHoy, repartirPasos } from '../hoy'
 import { useCelebracion } from '../state/celebracionStore'
@@ -90,6 +91,45 @@ function useCelebrarRachaApp(plantillaId: string) {
 /** El vigía de racha del cuarto abierto. Montarlo con `key={plantillaId}`. */
 export function VigiaRachaApp({ plantillaId }: { plantillaId: string }) {
   useCelebrarRachaApp(plantillaId)
+  return null
+}
+
+const LS_BIENVENIDA = claveLS('mh.racha.bienvenida')
+
+/** A qué apps ya se les dio la bienvenida HOY (rollover de medianoche, como `avisos.ts`). */
+function bienvenidasHoy(): { fecha: string; apps: string[] } {
+  const hoy = fechaLocalISO()
+  try {
+    const previo = JSON.parse(localStorage.getItem(LS_BIENVENIDA) ?? 'null') as { fecha: string; apps: string[] } | null
+    if (previo?.fecha === hoy && Array.isArray(previo.apps)) return previo
+  } catch {
+    /* json corrupto: se regenera */
+  }
+  return { fecha: hoy, apps: [] }
+}
+
+/**
+ * Recibe al abrir una app con su racha, UNA vez por app y día (la celebración
+ * del primer registro, `VigiaRachaApp`, sigue aparte: la cola las encadena).
+ * Con racha 0 el toast invita a empezarla. Montar con `key={plantillaId}` y,
+ * en el demo, DENTRO del `GateAppDemo`: antes de construir el año de Pep@ la
+ * racha valdría 0.
+ */
+export function BienvenidaRachaApp({ plantillaId }: { plantillaId: string }) {
+  useEffect(() => {
+    const estado = bienvenidasHoy()
+    if (estado.apps.includes(plantillaId)) return
+    estado.apps.push(plantillaId)
+    try {
+      localStorage.setItem(LS_BIENVENIDA, JSON.stringify(estado))
+    } catch {
+      /* quota / modo privado */
+    }
+    void (async () => {
+      const fechas = new Set(await (FUENTES[plantillaId] ?? (async () => []))())
+      useCelebracion.getState().encolar({ tipo: 'racha', plantillaId, racha: racha(fechas) })
+    })()
+  }, [plantillaId])
   return null
 }
 

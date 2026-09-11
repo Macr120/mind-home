@@ -792,6 +792,8 @@ export const ID: Dict = {
   'celebra.racha.titulo': 'Runtunan {n} hari!',
   'celebra.racha.titulo1': 'Runtunan 1 hari!',
   'celebra.racha.cuerpo': 'Teruskan di {app} 🔥',
+  'celebra.racha.titulo0': 'Mulai runtunanmu hari ini',
+  'celebra.racha.cuerpo0': 'Catat sesuatu di {app} dan mulai 🔥',
   'celebra.lista.titulo': 'Misi hari ini tuntas!',
   'celebra.lista.cuerpo': 'Kamu menuntaskan daftar {app}',
   'celebra.lista.xp': '+{xp} XP',
@@ -1123,7 +1125,8 @@ export const ID: Dict = {
   'ajustes.tema.masColores': 'Lebih banyak warna',
   'ajustes.tema.menosColores': 'Lebih sedikit warna',
   'ajustes.tema.tinte': 'Rona',
-  'ajustes.tema.tinte.desc': 'Seberapa kuat menu dan panel mengambil warna tema, bukan hanya tombol. Aplikasi ruangan mempertahankan warnanya sendiri.',
+  'ajustes.tema.tinte.desc':
+    'Seberapa kuat menu dan panel mengambil warna tema, bukan hanya tombol. Aplikasi ruangan mempertahankan warnanya sendiri.',
   'ajustes.modo': 'Tampilan',
   'ajustes.estilo': 'Gaya antarmuka',
   'ajustes.estilo.desc': 'Bentuk tombol, kartu, dan panel: sudut, garis tepi, dan bayangan.',
@@ -1187,7 +1190,7 @@ export const ID: Dict = {
   'room.recamara.nombre': 'Kamar Tidur',
   'room.descanso.nombre': 'Tempat Tidur · Istirahat',
   'room.anecdotario.nombre': 'Meja · Buku Kenangan',
-  'room.despacho.nombre': 'Ruang Kerja',
+  'room.despacho.nombre': 'Keuangan',
   'room.biblioteca.nombre': 'Perpustakaan',
   'room.entretenimiento.nombre': 'Hiburan',
   'room.sala.nombre': 'Ruang Tamu',
@@ -1209,7 +1212,7 @@ export const ID: Dict = {
   'room.recamara.sub': 'Tidur & kenangan',
   'room.descanso.sub': 'Tidur & alarm',
   'room.anecdotario.sub': 'Buku kenangan pribadi',
-  'room.despacho.sub': 'Keuangan',
+  'room.despacho.sub': 'Anggaran, target, dan pasar',
   'room.biblioteca.sub': 'Pembelajaran',
   'room.entretenimiento.sub': 'Arsip & permainan papan',
   'room.sala.sub': 'Perjalanan',
@@ -2695,9 +2698,9 @@ export const ID: Dict = {
   'cocina.comp.cuenta': 'Total belanja',
   'cocina.comp.cuentaAyuda': 'Tulis harga tiap barang, totalnya akan terjumlah otomatis.',
   'cocina.comp.cuentaConPrecio': '{c} dari {n} barang sudah diberi harga',
-  'cocina.comp.registrarGasto': 'Catat sebagai pengeluaran di Ruang Kerja',
-  'cocina.comp.actualizarGasto': 'Perbarui pengeluaran di Ruang Kerja',
-  'cocina.comp.gastoAlDia': '✓ Tercatat di Ruang Kerja',
+  'cocina.comp.registrarGasto': 'Catat sebagai pengeluaran di Keuangan',
+  'cocina.comp.actualizarGasto': 'Perbarui pengeluaran di Keuangan',
+  'cocina.comp.gastoAlDia': '✓ Tercatat di Keuangan',
   'cocina.comp.notaGasto': 'Belanja',
   'cocina.comp.listaDefecto': 'Daftar',
   'cocina.comp.listasVacio': 'Kamu belum punya daftar tersimpan. Buat satu lewat "Buat daftar" atau buat dari resep.',
@@ -3624,7 +3627,7 @@ export const ID: Dict = {
   'sala.hoja.total': 'Total',
   'sala.hoja.agregarDia': 'Hari',
   'sala.hoja.sync':
-    'Hari-hari yang punya tanggal muncul di kalender rumah dan totalnya menjadi target tabungan di ruang kerja. Rencana tetap ada meski kamu sudah mengunjungi tempatnya; hanya hilang jika kamu menghapusnya.',
+    'Hari yang bertanggal muncul di kalender rumah dan totalnya menjadi target tabungan di Keuangan. Rencananya tetap tersimpan walau kamu sudah mengunjungi tempatnya; hanya hilang kalau kamu hapus.',
   'sala.hoja.compartir': 'Bagikan',
   'sala.hoja.copiado': 'Disalin',
   'sala.hoja.guardar': 'Simpan',
@@ -4228,7 +4231,8 @@ export const ID: Dict = {
   'editor.avatar.usandoGlb': 'Menggunakan model .glb kamu sendiri. Warna tidak berlaku untuk model ini.',
   'editor.avatar.usandoIa': 'Menggunakan bentuk buatan AI. Warna tidak berlaku untuk bentuk ini.',
   'editor.tema.titulo': 'Tema rumah',
-  'editor.tema.desc': 'Menerapkan gaya pada ruangan, latar, lantai, dan atap, mendandani antarmuka dan karaktermu, serta mengaktifkan animasi mikro di langit.',
+  'editor.tema.desc':
+    'Menerapkan gaya pada ruangan, latar, lantai, dan atap, mendandani antarmuka dan karaktermu, serta mengaktifkan animasi mikro di langit.',
   'editor.tema.sin': 'Tanpa tema',
   'editor.tema.misTemas': 'Tema saya',
   'editor.tema.guardar': '+ Simpan yang sekarang',
@@ -6836,7 +6840,7 @@ export const ID: Dict = {
   'ia.donde.editorCuarto': 'Editor › Lantai, Dinding, Langit-langit, Pintu, dan Grid',
   'ia.donde.editorFondo': 'Latar langit',
   'ia.donde.asistentes': 'Asisten',
-  'ia.donde.metas': 'Dapur, Gym, Perpustakaan, Bahasa, Ruang Tamu, Hobi, Ruang Kerja, dan Hiburan',
+  'ia.donde.metas': 'Dapur, Olahraga, Perpustakaan, Bahasa, Ruang keluarga, Hobi, Keuangan, dan Hiburan',
   'ia.op.chat.mensaje': 'Pesan ke asistenmu',
   'ia.op.chat.modelo3d': '“Buat 3D…” dari chat',
   'ia.op.chat.modelo3d.nota': 'Dua panggilan: giliran yang membaca perintah dan proses pembuatannya sendiri.',
@@ -6996,7 +7000,7 @@ export const ID: Dict = {
   'tut.app-descanso--esencial.resumen':
     'Istirahat mencatat cara tidurmu dalam satu layar: skor malam terakhir, jadwalmu dengan pengingatnya, catatan harian, dan riwayat lengkap per tahun, bulan, dan minggu.',
   'tut.app-despacho--esencial.resumen':
-    'Ruang Kerja mengatur uangmu dalam empat menu. Kekayaan bersih menyimpan yang kamu punya dan yang kamu utang, dengan proyeksinya; Arus kas mencatat pengeluaran, pemasukan, dan saldo periode, dengan anggaran dan kategorinya; Target menggabungkan tabungan, investasi, dan utang, plus kalkulator yang mengusulkan jumlah tertentu. Pasar adalah papan kutipan langsung, hanya untuk referensi.',
+    'Keuangan menata uangmu dalam empat menu. Kekayaan menyimpan apa yang kamu miliki dan apa yang kamu utang, beserta proyeksinya; Arus mencatat pengeluaran, pendapatan, dan saldo periode, lengkap dengan anggaran dan kategori; Target menyatukan tabungan, investasi, dan utang, plus kalkulator yang mengusulkan jumlahnya. Pasar adalah papan harga langsung, hanya untuk dilihat.',
   'tut.app-diario--esencial.resumen':
     'Berita Harian adalah koran yang sementara: berita utama pers asli menurut kategori dan «Hari ini dalam sejarah», yang memperbarui diri sendiri tengah malam. Dari Pengiriman kamu bisa atur asisten membawakannya untukmu di obrolannya sendiri.',
   'tut.app-ejercicio--esencial.resumen':
@@ -7166,7 +7170,7 @@ export const ID: Dict = {
     'Jurnal perjalanan menyimpan kenanganmu berdasarkan negara dan tempat, lengkap dengan fotonya; dan setiap perjalanan menyimpan rencana hari-per-harinya, dengan penginapan, transportasi, dan anggaran.',
   'tut.app-sala--proximo.titulo': 'Perjalanan berikutnya',
   'tut.app-sala--proximo.resumen':
-    'Tempat-tempat yang ingin dikunjungi punya rencana hari-per-harinya sendiri, dan jumlah anggarannya menjadi target tabungan di ruang kerja.',
+    'Tempat yang ingin kamu kunjungi punya lembar rencana harian sendiri, dan jumlah anggarannya menjadi target tabungan di Keuangan.',
   'tut.app-entretenimiento--archivo.titulo': 'Setahun fiksi ilmiah',
   'tut.app-entretenimiento--archivo.resumen':
     'Arsip menyimpan yang kamu tonton, baca, dan mainkan: setiap entri dengan statusnya, bintangnya, dan ulasanmu. Kelompokkan berdasarkan tanggal ke folder tahun dan bulan, atau berdasarkan genre.',
@@ -8841,7 +8845,8 @@ export const ID: Dict = {
   'video.publicar.campo.obligatorio': 'Judul wajib diisi.',
   'video.publicar.campo.titulo': 'Judul',
   'video.publicar.cuenta.caducado': 'Akses kedaluwarsa: hubungkan lagi akunnya.',
-  'video.publicar.cuenta.canalYoutube': 'Kalau akun Google-mu punya beberapa channel, pilih yang mau dipakai di layar Google. Untuk menggantinya, hubungkan lagi.',
+  'video.publicar.cuenta.canalYoutube':
+    'Kalau akun Google-mu punya beberapa channel, pilih yang mau dipakai di layar Google. Untuk menggantinya, hubungkan lagi.',
   'video.publicar.cuenta.cancelar': 'Batal',
   'video.publicar.cuenta.cargando': 'Mencari akunmu…',
   'video.publicar.cuenta.conectar': 'Hubungkan {red}',

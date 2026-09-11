@@ -48,7 +48,7 @@ const flujoProximo = tour(
   T('tut.app-sala--proximo.titulo', 'El viaje que viene'),
   T(
     'tut.app-sala--proximo.resumen',
-    'Los lugares por conocer tienen su propia hoja de plan día a día, y la suma de sus presupuestos se convierte en una meta de ahorro en el despacho.',
+    'Los lugares por conocer tienen su propia hoja de plan día a día, y la suma de sus presupuestos se convierte en una meta de ahorro en Finanzas.',
   ),
   'cuerpoProximo',
 )

@@ -184,6 +184,8 @@ export const useHerramienta = create<HerramientaState>((set, get) => {
       useGrafitis.getState().salir()
     } else if (h === 'construir') {
       usePlanos.getState().setActivo(false)
+      // Cerrar el constructor con un cuarto recién creado abre su «Asignar app».
+      void import('../ui/comun/planoPincelCuarto').then((m) => m.ofrecerAsignarCuartoNuevo())
     } else if (h === 'mover') {
       useCargar.getState().soltar()
     }

@@ -788,6 +788,8 @@ export const PT: Dict = {
   'celebra.racha.titulo': 'Sequência de {n} dias!',
   'celebra.racha.titulo1': 'Sequência de 1 dia!',
   'celebra.racha.cuerpo': 'Continue assim em {app} 🔥',
+  'celebra.racha.titulo0': 'Comece sua sequência hoje',
+  'celebra.racha.cuerpo0': 'Registre algo em {app} e comece 🔥',
   'celebra.lista.titulo': 'Missões do dia!',
   'celebra.lista.cuerpo': 'Você concluiu a lista de {app}',
   'celebra.lista.xp': '+{xp} XP',
@@ -1117,7 +1119,8 @@ export const PT: Dict = {
   'ajustes.tema.masColores': 'Mais cores',
   'ajustes.tema.menosColores': 'Menos cores',
   'ajustes.tema.tinte': 'Tom',
-  'ajustes.tema.tinte.desc': 'O quanto menus e painéis ganham a cor do tema, não só os botões. Os apps dos cômodos mantêm suas cores.',
+  'ajustes.tema.tinte.desc':
+    'O quanto menus e painéis ganham a cor do tema, não só os botões. Os apps dos cômodos mantêm suas cores.',
   'ajustes.modo': 'Aparência',
   'ajustes.estilo': 'Estilo da interface',
   'ajustes.estilo.desc': 'O formato de botões, cartões e painéis: cantos, bordas e sombras.',
@@ -1181,7 +1184,7 @@ export const PT: Dict = {
   'room.recamara.nombre': 'Quarto',
   'room.descanso.nombre': 'Cama · Descanso',
   'room.anecdotario.nombre': 'Mesa · Diário',
-  'room.despacho.nombre': 'Escritório',
+  'room.despacho.nombre': 'Finanças',
   'room.biblioteca.nombre': 'Biblioteca',
   'room.entretenimiento.nombre': 'Entretenimento',
   'room.sala.nombre': 'Sala',
@@ -1203,7 +1206,7 @@ export const PT: Dict = {
   'room.recamara.sub': 'Sono e memórias',
   'room.descanso.sub': 'Sono e alarme',
   'room.anecdotario.sub': 'Diário pessoal',
-  'room.despacho.sub': 'Finanças',
+  'room.despacho.sub': 'Orçamento, metas e mercados',
   'room.biblioteca.sub': 'Aprendizado',
   'room.entretenimiento.sub': 'Arquivo e jogos de tabuleiro',
   'room.sala.sub': 'Viagens',
@@ -2684,9 +2687,9 @@ export const PT: Dict = {
   'cocina.comp.cuenta': 'Conta do mercado',
   'cocina.comp.cuentaAyuda': 'Digite o preço de cada item e a conta vai se somando sozinha.',
   'cocina.comp.cuentaConPrecio': '{c} de {n} itens com preço',
-  'cocina.comp.registrarGasto': 'Registrar como gasto no Escritório',
-  'cocina.comp.actualizarGasto': 'Atualizar o gasto do Escritório',
-  'cocina.comp.gastoAlDia': '✓ Registrado no Escritório',
+  'cocina.comp.registrarGasto': 'Registrar como gasto em Finanças',
+  'cocina.comp.actualizarGasto': 'Atualizar o gasto em Finanças',
+  'cocina.comp.gastoAlDia': '✓ Registrado em Finanças',
   'cocina.comp.notaGasto': 'Mercado',
   'cocina.comp.listaDefecto': 'Lista',
   'cocina.comp.listasVacio': 'Você não tem listas salvas. Monte uma em "Criar lista" ou gere a partir de uma receita.',
@@ -3601,7 +3604,7 @@ export const PT: Dict = {
   'sala.hoja.total': 'Total',
   'sala.hoja.agregarDia': 'Dia',
   'sala.hoja.sync':
-    'Os dias com data aparecem no calendário da casa e o total se torna uma meta de poupança no escritório. O plano fica salvo mesmo depois de visitar o lugar; só desaparece se você apagar.',
+    'Os dias com data aparecem no calendário da casa e o total se transforma em uma meta de poupança em Finanças. O plano fica salvo mesmo depois de você visitar o lugar; só desaparece se você apagá-lo.',
   'sala.hoja.compartir': 'Compartilhar',
   'sala.hoja.copiado': 'Copiado',
   'sala.hoja.guardar': 'Salvar',
@@ -4204,7 +4207,8 @@ export const PT: Dict = {
   'editor.avatar.usandoGlb': 'Usando seu próprio modelo .glb. As cores não se aplicam a este modelo.',
   'editor.avatar.usandoIa': 'Usando uma forma criada com IA. As cores não se aplicam a esta forma.',
   'editor.tema.titulo': 'Tema da casa',
-  'editor.tema.desc': 'Aplica estilo aos cômodos, fundo, piso e teto, veste a interface e o personagem, e ativa microanimações no céu.',
+  'editor.tema.desc':
+    'Aplica estilo aos cômodos, fundo, piso e teto, veste a interface e o personagem, e ativa microanimações no céu.',
   'editor.tema.sin': 'Sem tema',
   'editor.tema.misTemas': 'Meus temas',
   'editor.tema.guardar': '+ Salvar o atual',
@@ -6796,7 +6800,7 @@ export const PT: Dict = {
   'ia.donde.editorCuarto': 'Editor › Piso, Paredes, Teto, Portas e Grade',
   'ia.donde.editorFondo': 'Fundo de céu',
   'ia.donde.asistentes': 'Assistentes',
-  'ia.donde.metas': 'Cozinha, Exercício, Biblioteca, Idiomas, Sala, Hobbies, Escritório e Entretenimento',
+  'ia.donde.metas': 'Cozinha, Exercício, Biblioteca, Idiomas, Sala, Hobbies, Finanças e Entretenimento',
   'ia.op.chat.mensaje': 'Mensagem para o seu assistente',
   'ia.op.chat.modelo3d': '“Faça um 3D…” pelo chat',
   'ia.op.chat.modelo3d.nota': 'Duas chamadas: o turno que lê o pedido e a geração em si.',
@@ -6952,7 +6956,7 @@ export const PT: Dict = {
   'tut.app-descanso--esencial.resumen':
     'Descanso registra como você dorme em uma única tela: a pontuação da última noite, seu horário com seus avisos, o registro diário e o histórico completo por ano, mês e semana.',
   'tut.app-despacho--esencial.resumen':
-    'O escritório organiza seu dinheiro em quatro menus. Patrimônio guarda o que você tem e o que deve, com sua projeção; Fluxo cuida de gastos, receitas e o balanço do período, com orçamento e categorias; Metas junta poupança, investimento e dívida, além das calculadoras que propõem um valor. Mercados é um painel de cotações ao vivo, só de consulta.',
+    'Finanças organiza seu dinheiro em quatro menus. Patrimônio guarda o que você tem e o que você deve, com sua projeção; Fluxo acompanha gastos, receitas e o saldo do período, com orçamento e categorias; Metas reúne poupança, investimento e dívida, além das calculadoras que sugerem um valor. Mercados é um painel de cotações ao vivo, só para consulta.',
   'tut.app-diario--esencial.resumen':
     'O jornal é um periódico efêmero: manchetes de imprensa real por categoria e efemérides do dia, que se renova sozinho à meia-noite. Na entrega, você programa que um assistente o traga até você no próprio chat dele.',
   'tut.app-ejercicio--esencial.resumen':
@@ -7121,7 +7125,7 @@ export const PT: Dict = {
     'O diário de bordo guarda as lembranças por país e por lugar, com suas fotos; e cada viagem conserva sua folha de plano dia a dia, com hospedagem, transporte e orçamento.',
   'tut.app-sala--proximo.titulo': 'A próxima viagem',
   'tut.app-sala--proximo.resumen':
-    'Os lugares por conhecer têm sua própria folha de plano dia a dia, e a soma dos orçamentos se transforma em uma meta de poupança no escritório.',
+    'Os lugares que você quer conhecer têm sua própria folha de plano dia a dia, e a soma dos seus orçamentos se transforma em uma meta de poupança em Finanças.',
   'tut.app-entretenimiento--archivo.titulo': 'Um ano de ficção científica',
   'tut.app-entretenimiento--archivo.resumen':
     'O arquivo guarda o que você vê, lê e joga: cada ficha com seu estado, suas estrelas e sua resenha. Agrupa-se por data em pastas de ano e mês, ou por gênero.',
@@ -8796,7 +8800,8 @@ export const PT: Dict = {
   'video.publicar.campo.obligatorio': 'O título é obrigatório.',
   'video.publicar.campo.titulo': 'Título',
   'video.publicar.cuenta.caducado': 'O acesso expirou: conecte a conta de novo.',
-  'video.publicar.cuenta.canalYoutube': 'Se a sua conta do Google tiver vários canais, escolha qual usar na tela do Google. Para mudar, conecte novamente.',
+  'video.publicar.cuenta.canalYoutube':
+    'Se a sua conta do Google tiver vários canais, escolha qual usar na tela do Google. Para mudar, conecte novamente.',
   'video.publicar.cuenta.cancelar': 'Cancelar',
   'video.publicar.cuenta.cargando': 'Procurando suas contas…',
   'video.publicar.cuenta.conectar': 'Conectar {red}',

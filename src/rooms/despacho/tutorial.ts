@@ -224,7 +224,7 @@ export const cuerpoEsencial: CuerpoTutorial = {
       titulo: T('tut.app-despacho--esencial.1.titulo', 'Tus finanzas'),
       texto: T(
         'tut.app-despacho--esencial.1.texto',
-        'El despacho ordena tu dinero en cuatro menús: lo que tienes, lo que entra y sale, tus metas y los mercados. Cada uno abre sus propias secciones debajo.',
+        'Finanzas ordena tu dinero en cuatro menús: lo que tienes, lo que entra y sale, tus metas y los mercados. Cada uno abre sus propias secciones debajo.',
       ),
     },
     {

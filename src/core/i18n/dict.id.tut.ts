@@ -1,12 +1,12 @@
 import type { Dict } from './dict'
 
 /**
- * Textos de PASO de los tutoriales en id. Capa aparte porque solo hacen
- * falta con un tour corriendo.
+ * Textos de PASO de los tutoriales en Indonesio. Capa aparte porque solo hacen
+ * falta con un tour corriendo. Los títulos y resúmenes NO están aquí: los pinta
+ * el selector sin abrir nada.
  *
- * Lo monta `traducir-a-mano.mjs meter-dict` — no lo edites a mano.
+ * GENERADO por `npm run traducir:i18n` — no lo edites a mano.
  */
-
 export const ID_TUT: Dict = {
   'tut.app-computo--formulario.1.titulo': 'Menempel di kalkulator',
   'tut.app-computo--formulario.1.texto':
@@ -114,7 +114,8 @@ export const ID_TUT: Dict = {
   'tut.primeros.entrar.titulo': 'Masuk ke aplikasimu',
   'tut.primeros.entrar.texto':
     'Setiap ruangan membawa aplikasinya dan kamu punya tiga pintu: kartunya di sini di menu, objek dengan bola melayang di peta, dan akses cepat tombol MPH di atas.',
-  'tut.primeros.entrar.vacio': 'Di sini kamar-kamarmu akan tinggal, masing-masing dengan aplikasinya, dan kamu akan punya tiga pintu: kartunya di sini di menu, objek dengan bola melayang di peta, dan akses cepat tombol MPH di atas. Ayo buat yang pertama…',
+  'tut.primeros.entrar.vacio':
+    'Di sini kamar-kamarmu akan tinggal, masing-masing dengan aplikasinya, dan kamu akan punya tiga pintu: kartunya di sini di menu, objek dengan bola melayang di peta, dan akses cepat tombol MPH di atas. Ayo buat yang pertama…',
   'tut.primeros.prev.titulo': 'Di sinilah ruanganmu',
   'tut.primeros.prev.texto':
     'Ini pratinjau kuasnya: siluet hijau dengan dindingnya menandai di mana ruangan akan berdiri. Saat membangun sendiri kamu akan melihatnya persis begitu di bawah jarimu, sebelum melepas sentuhan.',
@@ -702,7 +703,7 @@ export const ID_TUT: Dict = {
     'Kedua lubang itu nyata: cedera lutut di bulan ke-7 dan tiga minggu di Jepang. Bolong tidak menghapus kemajuanmu — panel ini menampilkan tahun itu apa adanya, bukan seharusnya. Dan satu rutinitas baru dihitung sejak hari kamu membuatnya.',
   'tut.metas.0.titulo': 'Pusat target kamu',
   'tut.metas.0.texto':
-    'Ruangan ini tidak menyimpan apa pun miliknya. Target lahir di aplikasi lain — lari di Gym, kuliah di Perpustakaan, menabung di Ruang Kerja — dan di sini SEMUANYA berkumpul: satu-satunya tempat di rumah yang memperlihatkan semuanya sekaligus, dari ruangan mana pun asalnya.',
+    'Ruangan ini tidak menyimpan apa pun miliknya sendiri. Target lahir di app lain — lari di Olahraga, kuliah di Perpustakaan, menabung di Keuangan — dan di sini SEMUA target berkumpul: cuma di tempat ini kamu bisa melihatnya sekaligus, dari ruangan mana pun asalnya.',
   'tut.metas.1.titulo': 'Tiap target punya aplikasinya',
   'tut.metas.1.texto':
     'Foldernya bukan hiasan: tiap folder adalah aplikasi yang memegang target-target itu, dan aplikasi itulah yang tahu apakah tercapai, karena di sanalah kamu mencatat. «Rumah» bukan aplikasi — kategori itu dibuat sendiri oleh Pep untuk renovasi dapur.',
@@ -896,7 +897,7 @@ export const ID_TUT: Dict = {
     'Semua malam yang kamu catat tetap ada di sini, disusun per tahun, bulan, dan minggu — supaya kamu bisa meninjau tidurmu dari waktu ke waktu.',
   'tut.app-despacho--esencial.1.titulo': 'Keuanganmu',
   'tut.app-despacho--esencial.1.texto':
-    'Ruang Kerja mengatur uangmu dalam empat menu: yang kamu punya, yang masuk dan keluar, targetmu, dan pasar. Masing-masing membuka bagiannya sendiri di bawah.',
+    'Keuangan menata uangmu dalam empat menu: apa yang kamu miliki, uang masuk dan keluar, targetmu, dan pasar. Masing-masing membuka bagiannya sendiri di bawah.',
   'tut.app-despacho--esencial.2.titulo': 'Kekayaan bersih',
   'tut.app-despacho--esencial.2.texto':
     'Yang kamu punya dan yang kamu utang, dalam dua daftar: aset dan kewajiban. Bagian ketiga memproyeksikan gambaran ini ke depan dengan tingkat yang kamu tetapkan untuk setiap barisnya.',
@@ -1143,7 +1144,7 @@ export const ID_TUT: Dict = {
     'Buat daftar mengumpulkan yang kurang dari beberapa resep menjadi satu kali belanja: tiap bahan menebak kategorinya sendiri (sayur, olahan susu…) dan bisa kamu ubah.',
   'tut.app-cocina--recetario.5.titulo': 'Daftar tersimpan',
   'tut.app-cocina--recetario.5.texto':
-    'Tiap daftar tersimpan lengkap dengan yang belum dibeli dan yang sudah ada di dapur. Kalau kamu mengisi harganya, totalnya bisa dikirim ke pengeluaran di Ruang Kerja.',
+    'Setiap daftar menyimpan apa yang belum dibeli dan apa yang sudah ada di dapur. Kalau kamu isi harganya, totalnya bisa dikirim ke pengeluaran di Keuangan.',
   'tut.app-cocina--cronograma.1.titulo': 'Yang diminta Dapur darimu hari ini',
   'tut.app-cocina--cronograma.1.texto':
     'Tombol Misi di header membuka checklist hari itu: air minum, makanan, dan langkah-langkah yang datang dari targetmu. Targetnya sendiri —dengan rencana yang diusulkan AI— ada di ruangan Target, dikelompokkan menurut aplikasi yang memegangnya.',
@@ -1291,7 +1292,7 @@ export const ID_TUT: Dict = {
     'Tiga mimpi yang sudah dicatat. Seoul sudah punya tanggal dan rencana; Patagonia dan Islandia masih sebatas ide. Yang punya tanggal akan muncul di kalendermu.',
   'tut.app-sala--proximo.2.titulo': 'Dari lembar ke target',
   'tut.app-sala--proximo.2.texto':
-    'Delapan hari di Korea menjumlahkan berapa biaya perjalanannya, dan jumlah itu tersimpan sebagai target tabungan di Ruang Kerja: melihatnya tumbuh di sana berarti melihatnya mendekat di sini.',
+    'Delapan hari di Korea menjumlahkan biaya perjalanannya, dan jumlah itu disimpan sebagai target tabungan di Keuangan: melihatnya tumbuh di sana berarti melihatnya makin dekat di sini.',
   'tut.app-sala--proximo.3.titulo': 'Rute',
   'tut.app-sala--proximo.3.texto':
     'Sebuah rute merangkai tempat-tempat secara berurutan dan menggambarnya di peta. Rute Jepang adalah perjalanan yang sudah dia tempuh; rute Korea, yang ingin dia tempuh.',

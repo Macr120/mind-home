@@ -1,11 +1,11 @@
 import { db } from '../../core/data/db'
 import type { DietaGuardada, RegistroComida } from '../../core/data/db'
-import { DIETAS_EJEMPLO, RECETAS_EJEMPLO } from './ejemplos'
+import { DIETAS_CASA, DIETAS_EJEMPLO, RECETAS_EJEMPLO } from './ejemplos'
 import { textosEjemplosCocina, type TextosEjemplosCocina } from './ejemplos.i18n'
 import { PERFIL_DEFECTO } from './constantes'
 import { adivinarCategoria } from './categoriasCompra'
 import { hoyISO, sumarDias } from './fecha'
-import { claveLS } from '../../core/edicion'
+import { claveLS, esDemo } from '../../core/edicion'
 import { esSeedIntacta, filaSeed, filasSeed } from '../../core/data/sync/syncables'
 import { idiomaActual } from '../../core/i18n/useT'
 
@@ -13,7 +13,10 @@ let sembrado = false
 
 /** Bandera persistente versionada: al subir la versión se añaden los ejemplos nuevos. */
 const LS_EJEMPLOS = claveLS('cocina.ejemplosSembrados')
-const VERSION_EJEMPLOS = '4'
+const VERSION_EJEMPLOS = '5'
+
+/** Las dietas de fábrica de ESTA casa: las siete en el demo, tres en la real. */
+const dietasDeFabrica = () => (esDemo() ? DIETAS_EJEMPLO : DIETAS_EJEMPLO.filter((d) => DIETAS_CASA.includes(d.clave)))
 
 /** El español base del día de ejemplo y la lista, compartido por siembra y retraducción. */
 const DIA_EJEMPLO: { momento: RegistroComida['momento']; nombre: string; nota?: string; kcal: [number, number, number, number] }[] = [
@@ -171,14 +174,35 @@ async function sembrarEjemplos(textos: TextosEjemplosCocina | null) {
     idPorClave.set(clave, id)
   }
 
-  const clavesExistentes = new Set(
-    (await db.dietasGuardadas.toArray()).map((d) => claveDeUid(d.uid, 'dietasGuardadas')).filter(Boolean),
-  )
-  const faltantes = DIETAS_EJEMPLO.filter((d) => !clavesExistentes.has(d.clave))
+  const fabrica = dietasDeFabrica()
+  const idsDe = (recetas: string[]) => recetas.map((c) => idPorClave.get(c)).filter((id): id is number => id != null)
+
+  // Las dietas sembradas que nadie tocó se REPARAN: las que ya no son de
+  // fábrica en esta casa se van, y a las demás se les vuelven a colgar sus
+  // recetas por clave (`recetaIds` son ids locales que el sync no traduce: en
+  // otro dispositivo apuntaban a recetas equivocadas). El `update` crudo
+  // conserva `updatedAt: 1`, así la fila sigue siendo de siembra.
+  const porClave = new Map(fabrica.map((d) => [d.clave, d]))
+  const clavesExistentes = new Set<string>()
+  for (const d of await db.dietasGuardadas.toArray()) {
+    const clave = claveDeUid(d.uid, 'dietasGuardadas')
+    if (!clave) continue
+    clavesExistentes.add(clave)
+    if (d.id == null || !esSeedIntacta(d)) continue
+    const base = porClave.get(clave)
+    if (!base) {
+      await db.dietasGuardadas.delete(d.id)
+      continue
+    }
+    const recetaIds = idsDe(base.recetas)
+    if (recetaIds.join() !== d.recetaIds.join()) await db.dietasGuardadas.update(d.id, { recetaIds })
+  }
+
+  const faltantes = fabrica.filter((d) => !clavesExistentes.has(d.clave))
   const dietas: Omit<DietaGuardada, 'id'>[] = faltantes.map(({ clave, recetas, ...d }) => ({
     ...d,
     ...textos?.dietas[clave],
-    recetaIds: recetas.map((c) => idPorClave.get(c)).filter((id): id is number => id != null),
+    recetaIds: idsDe(recetas),
     creadoEn: creadaEn,
   }))
   const nuevas = filasSeed('dietasGuardadas', dietas, (_, i) => faltantes[i].clave)

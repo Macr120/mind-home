@@ -157,7 +157,7 @@ export const cuerpoMetas: CuerpoTutorial = {
       titulo: T('tut.metas.0.titulo', 'El centro de tus metas'),
       texto: T(
         'tut.metas.0.texto',
-        'Este cuarto no guarda nada suyo. Las metas nacen en las demás apps —correr en Ejercicio, la carrera en Biblioteca, ahorrar en el Despacho— y aquí se juntan TODAS: es el único sitio de la casa donde se ven a la vez, vengan del cuarto que vengan.',
+        'Este cuarto no guarda nada suyo. Las metas nacen en las demás apps —correr en Ejercicio, la carrera en Biblioteca, ahorrar en Finanzas— y aquí se juntan TODAS: es el único sitio de la casa donde se ven a la vez, vengan del cuarto que vengan.',
       ),
     },
     {

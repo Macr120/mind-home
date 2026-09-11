@@ -33,7 +33,6 @@ export function RecetasTab({
 }) {
   const t = useT()
   const [busqueda, setBusqueda] = useState('')
-  // null = todas · '__sin__' = sin carpeta · otro = nombre de carpeta
   /** Id de la dieta por la que se filtra; null = todas las recetas. */
   const [dietaSel, setDietaSel] = useState<number | null>(null)
   const [seleccionadaId, setSeleccionadaId] = useState<number | null>(null)
@@ -85,17 +84,6 @@ export function RecetasTab({
         (r.carpeta ? normalizar(r.carpeta).includes(q) : false),
     )
   }, [recetas, busqueda, dietas, dietaSel])
-
-  const grupos = useMemo(() => {
-    const sinCarpeta = (r: Receta) => !r.carpeta?.trim()
-    const gs: { carpeta: string | null; items: Receta[] }[] = carpetas.map((c) => ({
-      carpeta: c,
-      items: filtradas.filter((r) => r.carpeta?.trim() === c),
-    }))
-    const sin = filtradas.filter(sinCarpeta)
-    if (sin.length) gs.push({ carpeta: null, items: sin })
-    return gs.filter((g) => g.items.length > 0)
-  }, [filtradas, carpetas])
 
   // La IA vive DENTRO del alta (opción visible siempre; deshabilitada sin clave):
   // el camino corto para tener receta y foto de una vez, ahora como parte de «Nueva».
@@ -173,7 +161,7 @@ export function RecetasTab({
     )
   }
 
-  const totalVisibles = grupos.reduce((s, g) => s + g.items.length, 0)
+  const totalVisibles = filtradas.length
 
   return (
     <div data-tut="cocina.recetas.lista" className="space-y-4">
@@ -194,8 +182,8 @@ export function RecetasTab({
         </button>
       </div>
 
-      {/* Dos filtros que se cruzan: la dieta dice QUÉ recetas, la carpeta cómo se
-          agrupan. Las dietas van primero porque recortan mucho más. */}
+      {/* La dieta es el único filtro: dice QUÉ recetas se ven (la carpeta de la
+          receta es solo un dato suyo, ya no agrupa). */}
       {dietas.length > 0 && (
         <div className="flex gap-1.5 overflow-x-auto pb-1">
           <ChipCarpeta activo={dietaSel === null} onClick={() => setDietaSel(null)} label={t('cocina.rec.todasDietas', 'Todas las dietas')} />
@@ -230,16 +218,11 @@ export function RecetasTab({
         )
       )}
 
-      {grupos.map((g) => (
-        <div key={g.carpeta ?? '__sin__'} className="space-y-2">
-          <p className="px-1 text-xs font-semibold text-white/50">
-            {g.carpeta ?? t('cocina.rec.sinCarpeta', 'Sin carpeta')}
-          </p>
-          {g.items.map((r) => (
-            <TarjetaReceta key={r.id} receta={r} onClick={() => setSeleccionadaId(r.id ?? null)} />
-          ))}
-        </div>
-      ))}
+      <div className="space-y-2">
+        {filtradas.map((r) => (
+          <TarjetaReceta key={r.id} receta={r} onClick={() => setSeleccionadaId(r.id ?? null)} />
+        ))}
+      </div>
     </div>
   )
 }

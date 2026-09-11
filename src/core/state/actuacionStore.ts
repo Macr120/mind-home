@@ -12,22 +12,17 @@ const DURACION_EJERCICIO_MS = 15000
 interface ActuacionState {
   /** Actuación en curso por asistente (id → qué y hasta cuándo, en `performance.now()`). */
   porAsistente: Record<string, ActuacionActiva>
-  /** Selector abierto desde la burbuja de cercanía (qué baile / qué ejercicio). */
-  selector: { asistenteId: string; tipo: Actuacion['tipo'] } | null
   actuar: (asistenteId: string, actuacion: Actuacion) => void
   parar: (asistenteId: string) => void
-  abrirSelector: (asistenteId: string, tipo: Actuacion['tipo']) => void
-  cerrarSelector: () => void
 }
 
 /**
- * Bailes y ejercicios de los asistentes (ver `house/AsistenteActuando`). No se
- * persiste: una actuación dura un rato (o hasta que el jugador se aleja) y el
- * asistente vuelve a su paseo.
+ * Bailes y ejercicios de los asistentes a petición del chat (ver
+ * `house/AsistenteActuando`). No se persiste: una actuación dura un rato (o
+ * hasta que el jugador se aleja) y el asistente vuelve a su paseo.
  */
 export const useActuacion = create<ActuacionState>((set, get) => ({
   porAsistente: {},
-  selector: null,
   actuar: (asistenteId, actuacion) =>
     set((s) => ({
       porAsistente: {
@@ -37,7 +32,6 @@ export const useActuacion = create<ActuacionState>((set, get) => ({
           hasta: performance.now() + (actuacion.tipo === 'emote' ? DURACION_EMOTE_MS : DURACION_EJERCICIO_MS),
         },
       },
-      selector: null,
     })),
   parar: (asistenteId) => {
     if (!get().porAsistente[asistenteId]) return
@@ -47,8 +41,6 @@ export const useActuacion = create<ActuacionState>((set, get) => ({
       return { porAsistente }
     })
   },
-  abrirSelector: (asistenteId, tipo) => set({ selector: { asistenteId, tipo } }),
-  cerrarSelector: () => set({ selector: null }),
 }))
 
 // Alejarse del asistente corta su actuación: «un rato, o hasta que te alejes».

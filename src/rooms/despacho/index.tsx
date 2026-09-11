@@ -95,7 +95,7 @@ const FinanzasApp = lazy(() => import('./FinanzasApp').then((m) => ({ default: m
 
 const despacho: Plantilla = {
   id: 'despacho',
-  nombre: 'Finanzas · Despacho',
+  nombre: 'Finanzas',
   icon: '💰',
   categoria: 'mente',
   color: '#60a5fa',

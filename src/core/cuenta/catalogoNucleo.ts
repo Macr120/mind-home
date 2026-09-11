@@ -152,7 +152,7 @@ export const OP_PLAN_IA: OperacionIA = {
   clave: 'ia.op.metas.plan',
   es: 'Plan ✨ con IA de una meta',
   dondeClave: 'ia.donde.metas',
-  dondeEs: 'Cocina, Ejercicio, Biblioteca, Idiomas, Sala, Hobbies, Despacho y Entretenimiento',
+  dondeEs: 'Cocina, Ejercicio, Biblioteca, Idiomas, Sala, Hobbies, Finanzas y Entretenimiento',
   notaClave: 'ia.op.metas.plan.nota',
   notaEs: 'Cronogramas, itinerarios de viaje, planes de estudio y planes financieros.',
   partes: [{ op: 'texto_largo' }],

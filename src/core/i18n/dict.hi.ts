@@ -791,6 +791,8 @@ export const HI: Dict = {
   'celebra.racha.titulo': '{n} दिन का सिलसिला!',
   'celebra.racha.titulo1': '1 दिन का सिलसिला!',
   'celebra.racha.cuerpo': '{app} में ऐसे ही जारी रखें 🔥',
+  'celebra.racha.titulo0': 'अपना सिलसिला आज शुरू करें',
+  'celebra.racha.cuerpo0': '{app} में कुछ दर्ज करें और शुरुआत हो जाए 🔥',
   'celebra.lista.titulo': 'आज के मिशन पूरे!',
   'celebra.lista.cuerpo': 'आपने {app} की सूची पूरी कर ली',
   'celebra.lista.xp': '+{xp} XP',
@@ -1185,7 +1187,7 @@ export const HI: Dict = {
   'room.recamara.nombre': 'शयनकक्ष',
   'room.descanso.nombre': 'बिस्तर · आराम',
   'room.anecdotario.nombre': 'मेज़ · डायरी',
-  'room.despacho.nombre': 'कार्यकक्ष',
+  'room.despacho.nombre': 'वित्त',
   'room.biblioteca.nombre': 'पुस्तकालय',
   'room.entretenimiento.nombre': 'मनोरंजन',
   'room.sala.nombre': 'बैठक',
@@ -1207,7 +1209,7 @@ export const HI: Dict = {
   'room.recamara.sub': 'नींद और यादें',
   'room.descanso.sub': 'नींद और अलार्म',
   'room.anecdotario.sub': 'व्यक्तिगत डायरी',
-  'room.despacho.sub': 'वित्त',
+  'room.despacho.sub': 'बजट, लक्ष्य और बाज़ार',
   'room.biblioteca.sub': 'सीखना',
   'room.entretenimiento.sub': 'संग्रह और बोर्ड गेम',
   'room.sala.sub': 'यात्राएं',
@@ -2682,9 +2684,9 @@ export const HI: Dict = {
   'cocina.comp.cuenta': 'किराने का बिल',
   'cocina.comp.cuentaAyuda': 'हर आइटम की कीमत लिखें, बिल अपने आप जुड़ता जाएगा।',
   'cocina.comp.cuentaConPrecio': '{n} में से {c} आइटम की कीमत डली',
-  'cocina.comp.registrarGasto': 'कार्यकक्ष में खर्च के रूप में दर्ज करें',
-  'cocina.comp.actualizarGasto': 'कार्यकक्ष में खर्च अपडेट करें',
-  'cocina.comp.gastoAlDia': '✓ कार्यकक्ष में दर्ज हुआ',
+  'cocina.comp.registrarGasto': 'फ़ाइनेंस में ख़र्च के रूप में दर्ज करें',
+  'cocina.comp.actualizarGasto': 'फ़ाइनेंस में ख़र्च अपडेट करें',
+  'cocina.comp.gastoAlDia': '✓ फ़ाइनेंस में दर्ज हो गया',
   'cocina.comp.notaGasto': 'किराना',
   'cocina.comp.listaDefecto': 'लिस्ट',
   'cocina.comp.listasVacio':
@@ -3571,7 +3573,7 @@ export const HI: Dict = {
   'sala.hoja.total': 'कुल',
   'sala.hoja.agregarDia': 'दिन',
   'sala.hoja.sync':
-    'तारीख़ वाले दिन घर के कैलेंडर में दिखते हैं, और कुल राशि कार्यकक्ष में एक बचत लक्ष्य बन जाती है। जगह देख लेने के बाद भी योजना बनी रहती है — मिटाने पर ही गायब होती है।',
+    'तारीख़ वाले दिन घर के कैलेंडर में दिखते हैं और कुल रकम फ़ाइनेंस में बचत का लक्ष्य बन जाती है। जगह घूम आने के बाद भी योजना बनी रहती है; मिटाने पर ही हटती है।',
   'sala.hoja.compartir': 'साझा करें',
   'sala.hoja.copiado': 'कॉपी हो गया',
   'sala.hoja.guardar': 'सहेजें',
@@ -4172,7 +4174,8 @@ export const HI: Dict = {
   'editor.avatar.usandoGlb': 'आपकी अपनी .glb मॉडल इस्तेमाल हो रही है। इस मॉडल पर रंग लागू नहीं होते।',
   'editor.avatar.usandoIa': 'AI से बना आकार इस्तेमाल हो रहा है। इस आकार पर रंग लागू नहीं होते।',
   'editor.tema.titulo': 'घर की थीम',
-  'editor.tema.desc': 'कमरों, बैकग्राउंड, फ़र्श और छत पर स्टाइल लागू करता है, इंटरफ़ेस और किरदार को भी उसी के हिसाब से सजाता है, और आसमान में माइक्रोएनिमेशन चालू करता है।',
+  'editor.tema.desc':
+    'कमरों, बैकग्राउंड, फ़र्श और छत पर स्टाइल लागू करता है, इंटरफ़ेस और किरदार को भी उसी के हिसाब से सजाता है, और आसमान में माइक्रोएनिमेशन चालू करता है।',
   'editor.tema.sin': 'बिना थीम',
   'editor.tema.misTemas': 'मेरी थीम्स',
   'editor.tema.guardar': '+ मौजूदा सेव करें',
@@ -6761,7 +6764,7 @@ export const HI: Dict = {
   'ia.donde.editorCuarto': 'एडिटर › फ़र्श, दीवारें, छत, दरवाज़े और ग्रिड',
   'ia.donde.editorFondo': 'आसमान का बैकग्राउंड',
   'ia.donde.asistentes': 'सहायक',
-  'ia.donde.metas': 'रसोई, जिम, पुस्तकालय, भाषाएं, बैठक, शौक, कार्यकक्ष और मनोरंजन',
+  'ia.donde.metas': 'रसोई, व्यायाम, लाइब्रेरी, भाषाएँ, बैठक, शौक, फ़ाइनेंस और मनोरंजन',
   'ia.op.chat.mensaje': 'आपके सहायक को मैसेज',
   'ia.op.chat.modelo3d': 'चैट से «3D बनाओ…»',
   'ia.op.chat.modelo3d.nota': 'दो कॉल: जो टर्न ऑर्डर पढ़ता है, और खुद जनरेशन।',
@@ -6917,7 +6920,7 @@ export const HI: Dict = {
   'tut.app-descanso--esencial.resumen':
     'आराम एक ही स्क्रीन पर दिखाता है कि आप कैसे सोए: पिछली रात का स्कोर, रिमाइंडर के साथ आपकी समय-सारणी, रोज़ की डायरी और साल, महीने और हफ़्ते के हिसाब से पूरी हिस्ट्री।',
   'tut.app-despacho--esencial.resumen':
-    'कार्यकक्ष आपके पैसों को चार सेक्शन में व्यवस्थित करता है। पूंजी में वह रहता है जो आपके पास है और जो आप पर बकाया है, प्रोजेक्शन के साथ; नकदी प्रवाह में खर्च, आमदनी और उस अवधि का बैलेंस रहता है, बजट और कैटेगरी के साथ; लक्ष्य में बचत, निवेश और कर्ज़ इकट्ठा होते हैं, साथ ही ऐसे कैलकुलेटर जो एक रकम सुझाते हैं। बाज़ार सिर्फ़ देखने के लिए लाइव भाव का बोर्ड है।',
+    'फ़ाइनेंस आपके पैसे को चार मेन्यू में सहेजता है। संपत्ति में जो आपके पास है और जो आप पर बाक़ी है, उसके अनुमान के साथ; प्रवाह में ख़र्च, आमदनी और अवधि का हिसाब, बजट और श्रेणियों के साथ; लक्ष्य में बचत, निवेश और कर्ज़ एक जगह, साथ में रकम सुझाने वाले कैलकुलेटर। बाज़ार लाइव भावों का बोर्ड है, बस देखने के लिए।',
   'tut.app-diario--esencial.resumen':
     'दैनिक समाचार एक क्षणभंगुर अख़बार है: कैटेगरी के हिसाब से असली प्रेस की सुर्खियां और «इतिहास में आज», जो आधी रात को अपने आप रीन्यू हो जाता है। डिलीवरी सेक्शन से आप तय कर सकते हैं कि कोई सहायक इसे आपके अपने चैट में लाए।',
   'tut.app-ejercicio--esencial.resumen':
@@ -7086,7 +7089,7 @@ export const HI: Dict = {
     'सफ़रनामा हर देश और जगह की यादों को उनकी फ़ोटो के साथ सहेजता है; और हर यात्रा का अपना दिन-प्रतिदिन प्लान होता है, जिसमें ठहरने की जगह, यातायात और बजट शामिल हैं।',
   'tut.app-sala--proximo.titulo': 'अगली यात्रा',
   'tut.app-sala--proximo.resumen':
-    'जिन जगहों पर आप जाना चाहते हैं उनका अपना दिन-प्रतिदिन प्लान होता है, और उनके बजट का जोड़ कार्यकक्ष में एक बचत लक्ष्य बन जाता है।',
+    'जिन जगहों को देखना है, उनकी अपनी दिन-ब-दिन की योजना बनती है, और उनके बजट का जोड़ फ़ाइनेंस में बचत का लक्ष्य बन जाता है।',
   'tut.app-entretenimiento--archivo.titulo': 'साइंस फ़िक्शन का एक साल',
   'tut.app-entretenimiento--archivo.resumen':
     'आर्काइव वह सब कुछ रखता है जो आप देखते, पढ़ते और खेलते हैं: हर एंट्री के साथ उसकी स्थिति, स्टार रेटिंग और आपकी समीक्षा। इसे तारीख़ के हिसाब से साल और महीने के फ़ोल्डर में, या शैली के हिसाब से समूहित करें।',
@@ -8761,7 +8764,8 @@ export const HI: Dict = {
   'video.publicar.campo.obligatorio': 'शीर्षक ज़रूरी है।',
   'video.publicar.campo.titulo': 'शीर्षक',
   'video.publicar.cuenta.caducado': 'पहुँच खत्म हो गई: खाता दोबारा जोड़ें।',
-  'video.publicar.cuenta.canalYoutube': 'अगर आपके Google खाते में कई चैनल हैं, तो Google की स्क्रीन पर चुनें कि किसे इस्तेमाल करना है। बदलने के लिए फिर से कनेक्ट करें।',
+  'video.publicar.cuenta.canalYoutube':
+    'अगर आपके Google खाते में कई चैनल हैं, तो Google की स्क्रीन पर चुनें कि किसे इस्तेमाल करना है। बदलने के लिए फिर से कनेक्ट करें।',
   'video.publicar.cuenta.cancelar': 'रद्द करें',
   'video.publicar.cuenta.cargando': 'आपके खाते खोजे जा रहे हैं…',
   'video.publicar.cuenta.conectar': '{red} जोड़ें',

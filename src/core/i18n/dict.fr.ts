@@ -794,6 +794,8 @@ export const FR: Dict = {
   'celebra.racha.titulo': 'Série de {n} jours !',
   'celebra.racha.titulo1': 'Série de 1 jour !',
   'celebra.racha.cuerpo': 'Continue comme ça dans {app} 🔥',
+  'celebra.racha.titulo0': 'Commence ta série aujourd’hui',
+  'celebra.racha.cuerpo0': 'Note quelque chose dans {app} et c’est parti 🔥',
   'celebra.lista.titulo': 'Missions du jour !',
   'celebra.lista.cuerpo': 'Tu as terminé la liste de {app}',
   'celebra.lista.xp': '+{xp} XP',
@@ -1124,7 +1126,8 @@ export const FR: Dict = {
   'ajustes.tema.masColores': 'Plus de couleurs',
   'ajustes.tema.menosColores': 'Moins de couleurs',
   'ajustes.tema.tinte': 'Teinte',
-  'ajustes.tema.tinte.desc': 'À quel point les menus et les panneaux prennent la couleur du thème, pas seulement les boutons. Les apps des pièces gardent leurs couleurs.',
+  'ajustes.tema.tinte.desc':
+    'À quel point les menus et les panneaux prennent la couleur du thème, pas seulement les boutons. Les apps des pièces gardent leurs couleurs.',
   'ajustes.modo': 'Apparence',
   'ajustes.estilo': 'Style de l’interface',
   'ajustes.estilo.desc': 'La forme des boutons, des cartes et des panneaux : coins, bordures et ombres.',
@@ -1189,7 +1192,7 @@ export const FR: Dict = {
   'room.recamara.nombre': 'Chambre',
   'room.descanso.nombre': 'Lit · Repos',
   'room.anecdotario.nombre': 'Secrétaire · Journal',
-  'room.despacho.nombre': 'Bureau',
+  'room.despacho.nombre': 'Finances',
   'room.biblioteca.nombre': 'Bibliothèque',
   'room.entretenimiento.nombre': 'Divertissement',
   'room.sala.nombre': 'Salon',
@@ -1211,7 +1214,7 @@ export const FR: Dict = {
   'room.recamara.sub': 'Sommeil et anecdotes',
   'room.descanso.sub': 'Sommeil et alarme',
   'room.anecdotario.sub': 'Journal personnel',
-  'room.despacho.sub': 'Finances',
+  'room.despacho.sub': 'Budget, objectifs et marchés',
   'room.biblioteca.sub': 'Apprentissage',
   'room.entretenimiento.sub': 'Archives et jeux de société',
   'room.sala.sub': 'Voyages',
@@ -2702,9 +2705,9 @@ export const FR: Dict = {
   'cocina.comp.cuenta': 'Total des courses',
   'cocina.comp.cuentaAyuda': 'Indique le prix de chaque article et le total se calcule tout seul.',
   'cocina.comp.cuentaConPrecio': '{c} sur {n} articles avec un prix',
-  'cocina.comp.registrarGasto': 'Enregistrer comme dépense dans le Bureau',
-  'cocina.comp.actualizarGasto': 'Mettre à jour la dépense du Bureau',
-  'cocina.comp.gastoAlDia': '✓ Enregistré dans le Bureau',
+  'cocina.comp.registrarGasto': 'Enregistrer comme dépense dans Finances',
+  'cocina.comp.actualizarGasto': 'Mettre à jour la dépense dans Finances',
+  'cocina.comp.gastoAlDia': '✓ Enregistré dans Finances',
   'cocina.comp.notaGasto': 'Courses',
   'cocina.comp.listaDefecto': 'Liste',
   'cocina.comp.listasVacio':
@@ -3648,7 +3651,7 @@ export const FR: Dict = {
   'sala.hoja.total': 'Total',
   'sala.hoja.agregarDia': 'Jour',
   'sala.hoja.sync':
-    'Les jours datés apparaissent dans le calendrier de la maison et le total devient un objectif d’épargne dans le Bureau. Le plan reste même après avoir visité le lieu ; il ne disparaît que si tu le supprimes.',
+    'Les jours datés apparaissent dans le calendrier de la maison et le total devient un objectif d’épargne dans Finances. Le plan est conservé même après ta visite ; il ne disparaît que si tu le supprimes.',
   'sala.hoja.compartir': 'Partager',
   'sala.hoja.copiado': 'Copié',
   'sala.hoja.guardar': 'Enregistrer',
@@ -6887,7 +6890,7 @@ export const FR: Dict = {
   'ia.donde.editorCuarto': 'Éditeur › Sol, murs, plafond, portes et grille',
   'ia.donde.editorFondo': 'Fond de ciel',
   'ia.donde.asistentes': 'Assistants',
-  'ia.donde.metas': 'Cuisine, Exercice, Bibliothèque, Langues, Salon, Hobbies, Bureau et Divertissement',
+  'ia.donde.metas': 'Cuisine, Exercice, Bibliothèque, Langues, Salon, Loisirs, Finances et Divertissement',
   'ia.op.chat.mensaje': 'Message à ton assistant',
   'ia.op.chat.modelo3d': '« Fais un modèle 3D de… » depuis le chat',
   'ia.op.chat.modelo3d.nota': 'Deux appels : le tour qui lit la demande et la génération elle-même.',
@@ -7046,7 +7049,7 @@ export const FR: Dict = {
   'tut.app-descanso--esencial.resumen':
     'Sommeil enregistre comment tu dors sur un seul écran : le score de la dernière nuit, ton horaire avec ses rappels, le journal quotidien et l’historique complet par année, mois et semaine.',
   'tut.app-despacho--esencial.resumen':
-    'Le bureau organise ton argent en quatre menus. Patrimoine net garde ce que tu as et ce que tu dois, avec sa projection ; Trésorerie suit les dépenses, les revenus et le solde de la période, avec son budget et ses catégories ; Objectifs réunit épargne, investissement et dette, plus les calculatrices qui proposent un montant. Marchés est un tableau de cotations en direct, pour consultation seulement.',
+    'Finances range ton argent en quatre menus. Patrimoine garde ce que tu possèdes et ce que tu dois, avec sa projection ; Flux suit les dépenses, les revenus et le solde de la période, avec budget et catégories ; Objectifs réunit épargne, investissement et dette, plus les calculatrices qui proposent un montant. Marchés est un tableau de cotations en direct, à consulter seulement.',
   'tut.app-diario--esencial.resumen':
     'Le journal est un quotidien éphémère : des titres de presse réelle par catégorie et les éphémérides du jour, qui se renouvelle tout seul à minuit. Depuis la livraison, programme un assistant pour qu’il te l’apporte dans son propre chat.',
   'tut.app-ejercicio--esencial.resumen':
@@ -7215,7 +7218,7 @@ export const FR: Dict = {
     'Le journal de bord garde tes souvenirs par pays et par lieu, avec leurs photos ; et chaque voyage conserve sa feuille de route jour par jour, avec hébergement, transport et budget.',
   'tut.app-sala--proximo.titulo': 'Le prochain voyage',
   'tut.app-sala--proximo.resumen':
-    'Les lieux à découvrir ont leur propre feuille de route jour par jour, et la somme de leurs budgets devient un objectif d’épargne dans le bureau.',
+    'Les lieux à découvrir ont leur propre feuille de plan jour par jour, et la somme de leurs budgets devient un objectif d’épargne dans Finances.',
   'tut.app-entretenimiento--archivo.titulo': 'Une année de science-fiction',
   'tut.app-entretenimiento--archivo.resumen':
     'Les archives gardent ce que tu regardes, lis et joues : chaque fiche avec son statut, ses étoiles et ton avis. Classe-les par date en dossiers d’année et de mois, ou par genre.',
@@ -8901,7 +8904,8 @@ export const FR: Dict = {
   'video.publicar.campo.obligatorio': 'Le titre est obligatoire.',
   'video.publicar.campo.titulo': 'Titre',
   'video.publicar.cuenta.caducado': 'L’accès a expiré : reconnecte le compte.',
-  'video.publicar.cuenta.canalYoutube': 'Si ton compte Google a plusieurs chaînes, choisis celle à utiliser sur l’écran de Google. Pour en changer, reconnecte-toi.',
+  'video.publicar.cuenta.canalYoutube':
+    'Si ton compte Google a plusieurs chaînes, choisis celle à utiliser sur l’écran de Google. Pour en changer, reconnecte-toi.',
   'video.publicar.cuenta.cancelar': 'Annuler',
   'video.publicar.cuenta.cargando': 'Recherche de tes comptes…',
   'video.publicar.cuenta.conectar': 'Connecter {red}',

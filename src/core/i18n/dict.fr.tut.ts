@@ -1,12 +1,12 @@
 import type { Dict } from './dict'
 
 /**
- * Textos de PASO de los tutoriales en fr. Capa aparte porque solo hacen
- * falta con un tour corriendo.
+ * Textos de PASO de los tutoriales en Francés. Capa aparte porque solo hacen
+ * falta con un tour corriendo. Los títulos y resúmenes NO están aquí: los pinta
+ * el selector sin abrir nada.
  *
- * Lo monta `traducir-a-mano.mjs meter-dict` — no lo edites a mano.
+ * GENERADO por `npm run traducir:i18n` — no lo edites a mano.
  */
-
 export const FR_TUT: Dict = {
   'tut.app-computo--formulario.1.titulo': 'Accroché à la calculatrice',
   'tut.app-computo--formulario.1.texto':
@@ -114,7 +114,8 @@ export const FR_TUT: Dict = {
   'tut.primeros.entrar.titulo': 'Entrer dans tes apps',
   'tut.primeros.entrar.texto':
     'Chaque pièce porte son app et tu as trois portes : sa carte ici dans le menu, l’objet à la sphère flottante sur le plan, et l’accès rapide du bouton MPH en haut.',
-  'tut.primeros.entrar.vacio': 'Tes pièces vivront ici, chacune avec son appli, et tu auras trois portes : sa carte ici dans le menu, l’objet à la sphère flottante sur le plan, et l’accès rapide du bouton MPH en haut. Créons la première…',
+  'tut.primeros.entrar.vacio':
+    'Tes pièces vivront ici, chacune avec son appli, et tu auras trois portes : sa carte ici dans le menu, l’objet à la sphère flottante sur le plan, et l’accès rapide du bouton MPH en haut. Créons la première…',
   'tut.primeros.prev.titulo': 'Ta pièce va ici',
   'tut.primeros.prev.texto':
     'Voici l’aperçu du pinceau : la silhouette verte avec ses murs marque où la pièce va se dresser. En construisant à la main, tu la verras pareil sous ton doigt, avant de relâcher le toucher.',
@@ -703,7 +704,7 @@ export const FR_TUT: Dict = {
     'Les deux trous sont réels : la blessure au genou du mois 7 et les trois semaines au Japon. Rater des jours n’efface pas les progrès — le panneau montre l’année telle qu’elle a été, pas telle qu’elle aurait dû être. Et une routine ne compte qu’à partir du jour où tu l’as créée.',
   'tut.metas.0.titulo': 'Le cœur de tes objectifs',
   'tut.metas.0.texto':
-    'Cette pièce ne garde rien en propre. Les objectifs naissent dans les autres apps — courir dans Gym, les études dans Bibliothèque, épargner dans Bureau — et ici ils se réunissent TOUS : c’est le seul endroit de la maison où on les voit d’un coup, quelle que soit la pièce d’origine.',
+    'Cette pièce ne garde rien à elle. Les objectifs naissent dans les autres apps — courir dans Exercice, le diplôme dans Bibliothèque, épargner dans Finances — et ici ils se retrouvent TOUS : c\'est le seul endroit de la maison où tu les vois en même temps, quelle que soit la pièce d\'où ils viennent.',
   'tut.metas.1.titulo': 'Chaque objectif, avec son app',
   'tut.metas.1.texto':
     'Les dossiers ne sont pas un décor : chacun est l’app qui porte ces objectifs, et c’est elle qui sait s’ils sont tenus, parce que c’est là que tu enregistres. « Maison » n’est aucune app — cette catégorie, Pep@ l’a inventée pour les travaux de la cuisine.',
@@ -897,7 +898,7 @@ export const FR_TUT: Dict = {
     'Toutes les nuits que tu enregistres se retrouvent ici, classées par année, mois et semaine, pour revoir ton sommeil dans la durée.',
   'tut.app-despacho--esencial.1.titulo': 'Tes finances',
   'tut.app-despacho--esencial.1.texto':
-    'Le bureau organise ton argent en quatre menus : ce que tu as, ce qui entre et sort, tes objectifs et les marchés. Chacun ouvre ses propres sections en dessous.',
+    'Finances met ton argent en ordre dans quatre menus : ce que tu as, ce qui entre et ce qui sort, tes objectifs et les marchés. Chacun ouvre ses propres sections en dessous.',
   'tut.app-despacho--esencial.2.titulo': 'Patrimoine net',
   'tut.app-despacho--esencial.2.texto':
     'Ce que tu possèdes et ce que tu dois, en deux listes : actifs et passifs. La troisième section projette cette photo dans le temps avec le taux que tu attribues à chaque ligne.',
@@ -1143,7 +1144,7 @@ export const FR_TUT: Dict = {
     '« Créer une liste » réunit ce qui manque dans plusieurs recettes en une seule course : chaque ingrédient devine sa catégorie (légumes, produits laitiers…) et tu peux la corriger.',
   'tut.app-cocina--recetario.5.titulo': 'Les listes enregistrées',
   'tut.app-cocina--recetario.5.texto':
-    'Chaque liste garde ce qu’il reste à acheter et ce qui est déjà dans les placards. Si tu mets les prix, le total peut partir dans les dépenses du Bureau.',
+    'Chaque liste garde ce qu\'il reste à acheter et ce qui est déjà dans le placard. Si tu mets les prix, le total peut partir dans les dépenses de Finances.',
   'tut.app-cocina--cronograma.1.titulo': 'L’objectif de poids, par phases',
   'tut.app-cocina--cronograma.1.texto':
     'Le bouton Missions de l\'en-tête ouvre la checklist du jour : l\'eau, les repas et les étapes qui viennent de tes objectifs. Les objectifs eux-mêmes — avec le plan que l\'IA leur propose — vivent dans la pièce Objectifs, groupés par l\'app qui les porte.',
@@ -1291,7 +1292,7 @@ export const FR_TUT: Dict = {
     'Trois rêves notés. Séoul a déjà une date et un plan ; la Patagonie et l’Islande n’en sont qu’à l’idée. Ceux qui ont une date apparaissent dans ton calendrier.',
   'tut.app-sala--proximo.2.titulo': 'De la feuille à l’objectif',
   'tut.app-sala--proximo.2.texto':
-    'Les huit jours en Corée additionnent ce que coûterait le voyage, et ce total est enregistré comme objectif d’épargne dans le Bureau : le voir grandir là-bas, c’est le voir se rapprocher ici.',
+    'Les huit jours en Corée additionnent ce que coûterait le voyage, et ce total est enregistré comme objectif d\'épargne dans Finances : le voir grandir là-bas, c\'est le voir se rapprocher ici.',
   'tut.app-sala--proximo.3.titulo': 'Parcours',
   'tut.app-sala--proximo.3.texto':
     'Un parcours enchaîne des lieux dans l’ordre et les dessine sur la carte. Celui du Japon, c’est le trajet déjà fait ; celui de la Corée, celui qui reste à faire.',

@@ -787,6 +787,8 @@ export const AR: Dict = {
   'celebra.racha.titulo': 'سلسلة {n} أيام!',
   'celebra.racha.titulo1': 'سلسلة يوم واحد!',
   'celebra.racha.cuerpo': 'واصل هكذا في {app} 🔥',
+  'celebra.racha.titulo0': 'ابدأ سلسلتك اليوم',
+  'celebra.racha.cuerpo0': 'سجّل شيئًا في {app} وانطلق 🔥',
   'celebra.lista.titulo': 'مهام اليوم مكتملة!',
   'celebra.lista.cuerpo': 'أكملت قائمة {app}',
   'celebra.lista.xp': '+{xp} XP',
@@ -1176,7 +1178,7 @@ export const AR: Dict = {
   'room.recamara.nombre': 'غرفة النوم',
   'room.descanso.nombre': 'السرير · الراحة',
   'room.anecdotario.nombre': 'الطاولة · دفتر الذكريات',
-  'room.despacho.nombre': 'المكتب',
+  'room.despacho.nombre': 'المالية',
   'room.biblioteca.nombre': 'المكتبة',
   'room.entretenimiento.nombre': 'الترفيه',
   'room.sala.nombre': 'غرفة المعيشة',
@@ -1198,7 +1200,7 @@ export const AR: Dict = {
   'room.recamara.sub': 'النوم والذكريات',
   'room.descanso.sub': 'النوم والمنبه',
   'room.anecdotario.sub': 'دفتر الذكريات الشخصي',
-  'room.despacho.sub': 'المالية',
+  'room.despacho.sub': 'ميزانية وأهداف وأسواق',
   'room.biblioteca.sub': 'التعلم',
   'room.entretenimiento.sub': 'الأرشيف وألعاب الطاولة',
   'room.sala.sub': 'الرحلات',
@@ -2659,9 +2661,9 @@ export const AR: Dict = {
   'cocina.comp.cuenta': 'فاتورة التسوق',
   'cocina.comp.cuentaAyuda': 'أدخل سعر كل عنصر وستُجمع الفاتورة تلقائيًا.',
   'cocina.comp.cuentaConPrecio': 'تم تسعير {c} من {n} عنصر',
-  'cocina.comp.registrarGasto': 'تسجيل كمصروف في المكتب',
-  'cocina.comp.actualizarGasto': 'تحديث المصروف في المكتب',
-  'cocina.comp.gastoAlDia': '✓ تم التسجيل في المكتب',
+  'cocina.comp.registrarGasto': 'تسجيله كمصروف في المالية',
+  'cocina.comp.actualizarGasto': 'تحديث المصروف في المالية',
+  'cocina.comp.gastoAlDia': '✓ مُسجَّل في المالية',
   'cocina.comp.notaGasto': 'المشتريات',
   'cocina.comp.listaDefecto': 'القائمة',
   'cocina.comp.listasVacio': 'لا توجد لديك قوائم محفوظة. أنشئ واحدة من «إنشاء قائمة» أو ولّدها من وصفة.',
@@ -3518,7 +3520,7 @@ export const AR: Dict = {
   'sala.hoja.total': 'الإجمالي',
   'sala.hoja.agregarDia': 'يوم',
   'sala.hoja.sync':
-    'تظهر الأيام ذات التاريخ في تقويم البيت، ويتحول الإجمالي إلى هدف ادخار في المكتب. تبقى الخطة محفوظة حتى بعد زيارة المكان، ولا تختفي إلا عند حذفها.',
+    'الأيام المحدَّدة بتاريخ تظهر في تقويم البيت، ويتحول المجموع إلى هدف توفير في المالية. تبقى الخطة محفوظة حتى بعد زيارة المكان؛ ولا تختفي إلا إذا حذفتها.',
   'sala.hoja.compartir': 'مشاركة',
   'sala.hoja.copiado': 'تم النسخ',
   'sala.hoja.guardar': 'حفظ',
@@ -4118,7 +4120,8 @@ export const AR: Dict = {
   'editor.avatar.usandoGlb': 'أنت تستخدم نموذج .glb خاصًا بك. الألوان لا تنطبق على هذا النموذج.',
   'editor.avatar.usandoIa': 'أنت تستخدم شكلًا أنشأه الذكاء الاصطناعي. الألوان لا تنطبق على هذا الشكل.',
   'editor.tema.titulo': 'مظهر البيت',
-  'editor.tema.desc': 'يطبّق نمطًا على الغرف والخلفية والأرضية والسقف، ويكسو الواجهة والشخصية بما يناسبه، ويفعّل الحركات الدقيقة في السماء.',
+  'editor.tema.desc':
+    'يطبّق نمطًا على الغرف والخلفية والأرضية والسقف، ويكسو الواجهة والشخصية بما يناسبه، ويفعّل الحركات الدقيقة في السماء.',
   'editor.tema.sin': 'بلا مظهر',
   'editor.tema.misTemas': 'مظاهري',
   'editor.tema.guardar': '+ حفظ الحالي',
@@ -6677,7 +6680,7 @@ export const AR: Dict = {
   'ia.donde.editorCuarto': 'المحرر ‹ الأرضية، الجدران، السقف، الأبواب والشبكة',
   'ia.donde.editorFondo': 'خلفية السماء',
   'ia.donde.asistentes': 'المساعدون',
-  'ia.donde.metas': 'المطبخ، صالة الرياضة، المكتبة، اللغات، غرفة المعيشة، الهوايات، المكتب والترفيه',
+  'ia.donde.metas': 'المطبخ، التمارين، المكتبة، اللغات، غرفة الجلوس، الهوايات، المالية والترفيه',
   'ia.op.chat.mensaje': 'رسالة إلى المساعد',
   'ia.op.chat.modelo3d': '«اصنع لي نموذجًا ثلاثي الأبعاد…» من المحادثة',
   'ia.op.chat.modelo3d.nota': 'طلبان: الدور الذي يقرأ الطلب، والتوليد نفسه.',
@@ -6834,7 +6837,7 @@ export const AR: Dict = {
   'tut.app-descanso--esencial.resumen':
     'الراحة تسجّل كيف تنام في شاشة واحدة: تقييم الليلة الأخيرة، وجدولك بتذكيراته، وسجل اليوم، والسجل الكامل حسب السنة والشهر والأسبوع.',
   'tut.app-despacho--esencial.resumen':
-    'المكتب يرتّب مالك في أربع قوائم. صافي الثروة يحفظ ما تملكه وما عليك، مع توقّعه؛ والتدفق النقدي يتابع المصروفات والدخل ورصيد الفترة، بميزانيته وفئاته؛ والأهداف تجمع الادخار والاستثمار والدين، مع الحاسبات التي تقترح مبلغًا. أما الأسواق فلوحة أسعار مباشرة، للاطلاع فقط.',
+    'تنظّم المالية أموالك في أربع قوائم. صافي الثروة يحفظ ما تملكه وما تدين به، مع توقعاته؛ التدفق يتابع المصروفات والمداخيل ورصيد الفترة، مع الميزانية والفئات؛ الأهداف تجمع التوفير والاستثمار والدين، إضافة إلى الحاسبات التي تقترح مبلغًا. الأسواق لوحة أسعار حيّة، للاطلاع فقط.',
   'tut.app-diario--esencial.resumen':
     'الصحيفة جريدة عابرة: عناوين من صحافة حقيقية حسب الفئة، ووقائع «حدث في مثل هذا اليوم»، تتجدد وحدها عند منتصف الليل. ومن التوصيل تجدول أن يسلّمك إياها مساعد في محادثته الخاصة.',
   'tut.app-ejercicio--esencial.resumen':
@@ -7000,7 +7003,7 @@ export const AR: Dict = {
     'يوميات الرحلة تحفظ الذكريات حسب الدولة والمكان، مع صورها؛ وتحتفظ كل رحلة بخطتها يوم بيوم، بالإقامة والتنقل والميزانية.',
   'tut.app-sala--proximo.titulo': 'الرحلة القادمة',
   'tut.app-sala--proximo.resumen':
-    'الأماكن التي للزيارة لها خطتها الخاصة يوم بيوم، ومجموع ميزانياتها يتحوّل إلى هدف ادخاري في المكتب.',
+    'الأماكن التي تريد زيارتها لها خطة خاصة يومًا بيوم، ومجموع ميزانياتها يتحول إلى هدف توفير في المالية.',
   'tut.app-entretenimiento--archivo.titulo': 'سنة من الخيال العلمي',
   'tut.app-entretenimiento--archivo.resumen':
     'يحفظ الأرشيف ما تشاهده وتقرأه وتلعبه: لكل عنصر حالته ونجومه ومراجعتك. رتّبه حسب التاريخ في مجلدات السنة والشهر، أو حسب النوع.',
@@ -8667,7 +8670,8 @@ export const AR: Dict = {
   'video.publicar.campo.obligatorio': 'العنوان مطلوب.',
   'video.publicar.campo.titulo': 'العنوان',
   'video.publicar.cuenta.caducado': 'انتهت صلاحية الوصول: أعد ربط الحساب.',
-  'video.publicar.cuenta.canalYoutube': 'إذا كان حسابك على Google يضم عدة قنوات، فاختر القناة التي تريد استخدامها في شاشة Google. ولتغييرها، أعد الاتصال.',
+  'video.publicar.cuenta.canalYoutube':
+    'إذا كان حسابك على Google يضم عدة قنوات، فاختر القناة التي تريد استخدامها في شاشة Google. ولتغييرها، أعد الاتصال.',
   'video.publicar.cuenta.cancelar': 'إلغاء',
   'video.publicar.cuenta.cargando': 'جارٍ البحث عن حساباتك…',
   'video.publicar.cuenta.conectar': 'ربط {red}',

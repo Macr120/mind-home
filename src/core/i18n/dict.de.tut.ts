@@ -1,12 +1,12 @@
 import type { Dict } from './dict'
 
 /**
- * Textos de PASO de los tutoriales en de. Capa aparte porque solo hacen
- * falta con un tour corriendo.
+ * Textos de PASO de los tutoriales en Alemán. Capa aparte porque solo hacen
+ * falta con un tour corriendo. Los títulos y resúmenes NO están aquí: los pinta
+ * el selector sin abrir nada.
  *
- * Lo monta `traducir-a-mano.mjs meter-dict` — no lo edites a mano.
+ * GENERADO por `npm run traducir:i18n` — no lo edites a mano.
  */
-
 export const DE_TUT: Dict = {
   'tut.app-computo--formulario.1.titulo': 'Es hängt am Rechner',
   'tut.app-computo--formulario.1.texto':
@@ -114,7 +114,8 @@ export const DE_TUT: Dict = {
   'tut.primeros.entrar.titulo': 'Deine Apps betreten',
   'tut.primeros.entrar.texto':
     'Jeder Raum trägt seine App, und du hast drei Türen: seine Karte hier im Menü, draußen auf der Karte das Objekt mit der schwebenden Kugel und den Schnellzugriff des MPH-Buttons oben.',
-  'tut.primeros.entrar.vacio': 'Hier werden deine Räume wohnen, jeder mit seiner App, und du wirst drei Türen haben: seine Karte hier im Menü, draußen auf der Karte das Objekt mit der schwebenden Kugel und den Schnellzugriff des MPH-Buttons oben. Bauen wir den ersten…',
+  'tut.primeros.entrar.vacio':
+    'Hier werden deine Räume wohnen, jeder mit seiner App, und du wirst drei Türen haben: seine Karte hier im Menü, draußen auf der Karte das Objekt mit der schwebenden Kugel und den Schnellzugriff des MPH-Buttons oben. Bauen wir den ersten…',
   'tut.primeros.prev.titulo': 'Hier kommt dein Raum hin',
   'tut.primeros.prev.texto':
     'Das ist die Vorschau des Pinsels: Die grüne Silhouette mit ihren Wänden zeigt, wo der Raum entstehen wird. Beim Bauen von Hand siehst du sie genauso unter deinem Finger, bevor du loslässt.',
@@ -703,7 +704,7 @@ export const DE_TUT: Dict = {
     'Beide Löcher sind echt: die Knieverletzung in Monat 7 und die drei Wochen in Japan. Aussetzen löscht den Fortschritt nicht – das Panel zeigt das Jahr, wie es war, nicht wie es hätte sein sollen. Und eine Routine zählt erst ab dem Tag, an dem du sie angelegt hast.',
   'tut.metas.0.titulo': 'Das Herz deiner Ziele',
   'tut.metas.0.texto':
-    'Dieser Raum speichert nichts Eigenes. Ziele entstehen in den anderen Apps — Laufen im Fitness, das Studium in der Bibliothek, Sparen im Arbeitszimmer — und hier kommen sie ALLE zusammen: der einzige Ort im Haus, an dem man sie auf einmal sieht, aus welchem Raum sie auch stammen.',
+    'Dieser Raum speichert nichts Eigenes. Ziele entstehen in den anderen Apps – Laufen in Fitness, das Studium in der Bibliothek, Sparen in Finanzen – und hier kommen ALLE zusammen: der einzige Ort im Haus, an dem du sie gleichzeitig siehst, aus welchem Raum sie auch stammen.',
   'tut.metas.1.titulo': 'Jedes Ziel mit seiner App',
   'tut.metas.1.texto':
     'Die Ordner sind keine Zierde: jeder ist die App, die diese Ziele trägt, und sie ist es, die weiß, ob sie erfüllt sind, denn dort trägst du ein. «Haus» ist keine App — diese Kategorie hat sich Pep@ für den Küchenumbau ausgedacht.',
@@ -897,7 +898,7 @@ export const DE_TUT: Dict = {
     'Alle Nächte, die du erfasst, landen hier, geordnet nach Jahr, Monat und Woche, damit du deinen Schlaf im Lauf der Zeit überprüfen kannst.',
   'tut.app-despacho--esencial.1.titulo': 'Deine Finanzen',
   'tut.app-despacho--esencial.1.texto':
-    'Das Arbeitszimmer ordnet dein Geld in vier Tabs: was du hast, was rein- und rausgeht, deine Ziele und die Märkte. Jeder öffnet darunter seine eigenen Bereiche.',
+    'Finanzen ordnet dein Geld in vier Menüs: was du hast, was rein- und rausgeht, deine Ziele und die Märkte. Jedes öffnet darunter seine eigenen Bereiche.',
   'tut.app-despacho--esencial.2.titulo': 'Vermögen',
   'tut.app-despacho--esencial.2.texto':
     'Was du besitzt und was du schuldest, in zwei Listen: Aktiva und Passiva. Der dritte Bereich projiziert diese Momentaufnahme in die Zukunft, mit der Rate, die du jeder Zeile gibst.',
@@ -1143,7 +1144,7 @@ export const DE_TUT: Dict = {
     '„Liste erstellen“ sammelt, was aus mehreren Rezepten fehlt, in einem einzigen Einkauf: Jede Zutat errät ihre Kategorie (Gemüse, Milchprodukte …) und lässt sich ändern.',
   'tut.app-cocina--recetario.5.titulo': 'Die gespeicherten Listen',
   'tut.app-cocina--recetario.5.texto':
-    'Jede Liste hält fest, was noch zu kaufen ist und was schon im Vorrat steht. Trägst du Preise ein, lässt sich die Rechnung an die Ausgaben im Arbeitszimmer schicken.',
+    'Jede Liste speichert, was noch fehlt und was schon in der Vorratskammer liegt. Trägst du Preise ein, lässt sich die Summe an die Ausgaben in Finanzen schicken.',
   'tut.app-cocina--cronograma.1.titulo': 'Das Gewichtsziel, in Phasen',
   'tut.app-cocina--cronograma.1.texto':
     'Der Missionen-Button im Kopfbereich öffnet die Checkliste des Tages: das Wasser, die Mahlzeiten und die Schritte, die aus deinen Zielen kommen. Die Ziele selbst – mit dem Plan, den die KI ihnen vorschlägt – leben im Ziele-Raum, gruppiert nach der App, die sie führt.',
@@ -1291,7 +1292,7 @@ export const DE_TUT: Dict = {
     'Drei notierte Träume. Seoul hat schon Datum und Plan; Patagonien und Island sind noch eine Idee. Was ein Datum hat, taucht in deinem Kalender auf.',
   'tut.app-sala--proximo.2.titulo': 'Vom Reiseblatt zum Ziel',
   'tut.app-sala--proximo.2.texto':
-    'Die acht Tage in Korea ergeben zusammen, was die Reise kosten würde, und diese Summe wird im Arbeitszimmer als Sparziel gespeichert: Sie dort wachsen zu sehen heißt, sie hier näher kommen zu sehen.',
+    'Die acht Tage in Korea ergeben zusammen, was die Reise kosten würde, und diese Summe wird als Sparziel in Finanzen gespeichert: sie dort wachsen zu sehen heißt, sie hier näher kommen zu sehen.',
   'tut.app-sala--proximo.3.titulo': 'Routen',
   'tut.app-sala--proximo.3.texto':
     'Eine Route reiht Orte der Reihe nach auf und zeichnet sie auf die Karte. Die japanische ist der Weg, der schon zurückgelegt wurde; die koreanische der, der noch kommen soll.',

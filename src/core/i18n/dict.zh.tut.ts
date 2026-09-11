@@ -1,12 +1,12 @@
 import type { Dict } from './dict'
 
 /**
- * Textos de PASO de los tutoriales en zh. Capa aparte porque solo hacen
- * falta con un tour corriendo.
+ * Textos de PASO de los tutoriales en Chino. Capa aparte porque solo hacen
+ * falta con un tour corriendo. Los títulos y resúmenes NO están aquí: los pinta
+ * el selector sin abrir nada.
  *
- * Lo monta `traducir-a-mano.mjs meter-dict` — no lo edites a mano.
+ * GENERADO por `npm run traducir:i18n` — no lo edites a mano.
  */
-
 export const ZH_TUT: Dict = {
   'tut.app-computo--formulario.1.titulo': '它挂在计算器上',
   'tut.app-computo--formulario.1.texto':
@@ -62,15 +62,13 @@ export const ZH_TUT: Dict = {
   'tut.casa.5.titulo': '一个角落，多个主人',
   'tut.casa.5.texto': '那个角落不只是视角方块：靠近可以互动的东西——椅子、载具、球场——它就会按你附近的东西自动切换。不靠近，就什么都不会启动。',
   'tut.casa.6.titulo': '工具轮盘',
-  'tut.casa.6.texto':
-    '这里是打开的样子：动作、玩具、载具和建造，最多同时装备3个。它从摇杆旁边的按钮打开，两手空着的时候也能从角落的那个位置打开。',
+  'tut.casa.6.texto': '这里是打开的样子：动作、玩具、载具和建造，最多同时装备3个。它从摇杆旁边的按钮打开，两手空着的时候也能从角落的那个位置打开。',
   'tut.casa.7.titulo': '时钟',
   'tut.casa.7.texto': '家里的时间：点一下会打开完整的日历，里面还有当天的“任务”。而太阳或月亮会打开这个面板：时间的流逝和场景的光线。',
   'tut.casa.8.titulo': '家里的音乐',
   'tut.casa.8.texto': '家一开始是安静的：想要配乐，就在这里打开音乐。每个房间都预装了主题歌曲，也可以让家的整体氛围一直放着。',
   'tut.casa.9.titulo': '聊天',
-  'tut.casa.9.texto':
-    '建筑师的聊天：告诉它你做了什么，它会记到对应的应用里；也可以让它改动房子、生成图片，甚至给你的房间做3D模型——或者干脆闲聊一会儿。',
+  'tut.casa.9.texto': '建筑师的聊天：告诉它你做了什么，它会记到对应的应用里；也可以让它改动房子、生成图片，甚至给你的房间做3D模型——或者干脆闲聊一会儿。',
   'tut.casa.asistente.titulo': '你的助手',
   'tut.casa.asistente.texto': '这个按钮就是你的助手：在聊天里回复你的就是它。点一下打开它的菜单来自定义——它的形象、声音和性格。',
   'tut.casa.mas.titulo': '“+”菜单',
@@ -80,13 +78,10 @@ export const ZH_TUT: Dict = {
   'tut.casa.10.texto': '基础就这些。每个菜单和每个应用都有自己的“?”按钮和教程：哪里没弄明白，就点它问问。',
   'tut.primeros.1.texto': '这个教程回答两件事：怎么进入你的应用，怎么创建一个新的。两件事都住在这里，“房间”标签页里。',
   'tut.primeros.entrar.titulo': '进入你的应用',
-  'tut.primeros.entrar.texto':
-    '每个房间都带着自己的应用，你有三扇门：这里菜单中它的卡片、地图上带悬浮光球的物件，还有上方MPH按钮的快捷入口。',
-  'tut.primeros.entrar.vacio':
-    '你的房间将住在这里，每间都带一个应用，你会有三扇门：这里菜单中它的卡片、地图上带悬浮光球的物件，还有上方MPH按钮的快捷入口。我们来创建第一间吧…',
+  'tut.primeros.entrar.texto': '每个房间都带着自己的应用，你有三扇门：这里菜单中它的卡片、地图上带悬浮光球的物件，还有上方MPH按钮的快捷入口。',
+  'tut.primeros.entrar.vacio': '你的房间将住在这里，每间都带一个应用，你会有三扇门：这里菜单中它的卡片、地图上带悬浮光球的物件，还有上方MPH按钮的快捷入口。我们来创建第一间吧…',
   'tut.primeros.prev.titulo': '你的房间就在这里',
-  'tut.primeros.prev.texto':
-    '这是画笔的预览：带墙的绿色轮廓标出房间会建在哪里。自己动手建的时候，松开手指之前也会在指尖下看到同样的轮廓。',
+  'tut.primeros.prev.texto': '这是画笔的预览：带墙的绿色轮廓标出房间会建在哪里。自己动手建的时候，松开手指之前也会在指尖下看到同样的轮廓。',
   'tut.primeros.mat.titulo': '建好了！',
   'tut.primeros.mat.texto': '就在这里：房间在预览标出的位置立了起来，门朝前。它还没有应用——那就是接下来的事。',
   'tut.primeros.2.titulo': '创建房间',
@@ -453,7 +448,7 @@ export const ZH_TUT: Dict = {
   'tut.calendario.8.titulo': '低谷也算数',
   'tut.calendario.8.texto': '两个凹陷都是真的：第 7 个月的膝伤，还有在日本的三周。漏掉几天不会抹掉进度——面板显示的是这一年真实的样子，不是它应该的样子。而且日常安排只从你创建它的那天开始计数。',
   'tut.metas.0.titulo': '目标的中心',
-  'tut.metas.0.texto': '这个房间不保存自己的数据。目标诞生在别的应用里——在健身房跑步，在图书馆读学位，在书房存钱——到了这里全都汇在一起：不管来自哪个房间，这是家里唯一能一次看全的地方。',
+  'tut.metas.0.texto': '这个房间不存放自己的东西。目标诞生在其他应用里——跑步在健身房，学位在图书馆，储蓄在财务——而在这里全部汇集：这是家里唯一能同时看到它们的地方，不管它们来自哪个房间。',
   'tut.metas.1.titulo': '每个目标都有它的应用',
   'tut.metas.1.texto': '这些文件夹不是摆设：每一个都是负责那些目标的应用，而知道目标有没有完成的正是它，因为记录就发生在那儿。「家」不是应用——那是佩普为厨房改造自己造的一个分类。',
   'tut.metas.2.titulo': '同一张卡片，两边都能开',
@@ -583,7 +578,7 @@ export const ZH_TUT: Dict = {
   'tut.app-descanso--esencial.5.titulo': '历史记录',
   'tut.app-descanso--esencial.5.texto': '你记录下的每一夜都留在这里，按年、月、周整理，方便回头看看这段时间睡得怎么样。',
   'tut.app-despacho--esencial.1.titulo': '你的财务',
-  'tut.app-despacho--esencial.1.texto': '书房把你的钱分成四个菜单来打理：你拥有的、进出的、你的目标，还有市场。每一个下面都会展开各自的板块。',
+  'tut.app-despacho--esencial.1.texto': '财务把你的钱分成四个菜单：你拥有的、进出的、你的目标和市场。每个都会在下面展开自己的板块。',
   'tut.app-despacho--esencial.2.titulo': '净资产',
   'tut.app-despacho--esencial.2.texto': '你拥有的和你欠下的，分成两张清单：资产和负债。第三个板块会按你给每一行设定的利率，把这张快照往后推演。',
   'tut.app-despacho--esencial.3.titulo': '现金流',
@@ -747,7 +742,7 @@ export const ZH_TUT: Dict = {
   'tut.app-cocina--recetario.4.titulo': '从食谱到购物清单',
   'tut.app-cocina--recetario.4.texto': '“创建清单”会把好几份食谱里缺的东西凑成一次采购：每样食材都会自己猜出分类（果蔬、乳制品……），也可以改。',
   'tut.app-cocina--recetario.5.titulo': '保存的清单',
-  'tut.app-cocina--recetario.5.texto': '每份清单都会记下还要买的和家里已经有的。填上价格之后，这笔账单就能送到书房的支出里。',
+  'tut.app-cocina--recetario.5.texto': '每份清单都会记下还没买的和已经在储物柜里的东西。写上价格，总额就能发送到财务的支出里。',
   'tut.app-cocina--cronograma.1.titulo': '分阶段的体重目标',
   'tut.app-cocina--cronograma.1.texto': '顶部的“任务”按钮打开当天的清单：喝水、三餐，还有从你的目标里来的步骤。目标本身——连同AI为它们提出的计划——住在“目标”房间里，按负责它们的应用分组。',
   'tut.app-cocina--cronograma.2.texto': '这是AI功能：在编辑器 › 设置 › 账户中开启。不开也一样能建立和编辑目标，只是要手动来。',
@@ -844,7 +839,7 @@ export const ZH_TUT: Dict = {
   'tut.app-sala--proximo.1.titulo': '还没去的',
   'tut.app-sala--proximo.1.texto': '记下了三个梦。首尔已经有日期和计划，巴塔哥尼亚和冰岛还只是个念头。有日期的会出现在你的日历里。',
   'tut.app-sala--proximo.2.titulo': '从计划表到目标',
-  'tut.app-sala--proximo.2.texto': '韩国那八天加起来就是这趟旅行的花费，这个总数会作为储蓄目标存进书房：在那边看它涨，就是在这边看它靠近。',
+  'tut.app-sala--proximo.2.texto': '韩国的八天加起来就是这趟旅行的花费，这个总额会存成财务里的储蓄目标：在那边看它长大，就是在这边看它靠近。',
   'tut.app-sala--proximo.3.titulo': '路线',
   'tut.app-sala--proximo.3.texto': '一条路线把地点按顺序串起来，并画在地图上。日本那条是已经走过的路，韩国那条是想走的路。',
   'tut.app-entretenimiento--archivo.1.titulo': '三十部作品，一年',

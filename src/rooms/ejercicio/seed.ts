@@ -29,13 +29,48 @@ interface GrupoCat {
   label: string
   orden: number
   ejercicios: { nombre: string }[]
+  /** Lo sella el middleware de sync (no va en el tipo de la tabla). */
+  updatedAt?: number
 }
 
-/** El repo de un catálogo, visto por lo que el rescate necesita de él. */
+/** El repo de un catálogo, visto por lo que el rescate y la cura necesitan de él. */
 interface RepoCat {
   list: () => Promise<GrupoCat[]>
   add: (item: Omit<GrupoCat, 'id'>) => Promise<number>
   update: (id: number, cambios: { ejercicios: { nombre: string }[] }) => Promise<number>
+  remove: (id: number) => Promise<void>
+}
+
+/**
+ * Deja UNA fila por `grupoId`. Las tablas de grupos no tienen índice ni clave
+ * de merge por `grupoId` (`CLAVES_UNICAS`), así que una bandera de siembra
+ * perdida o la fusión de dos dispositivos dejaba «Pecho» dos veces y el
+ * catálogo pintaba cada grupo repetido. Gana la fila con más ejercicios (luego
+ * la más reciente, luego la más vieja por id); lo que las perdedoras tuvieran
+ * de más se funde en ella y se borran (el middleware las tombstonea para el sync).
+ */
+async function curarGruposDuplicados(repo: RepoCat): Promise<void> {
+  const porGrupo = new Map<string, GrupoCat[]>()
+  for (const g of await repo.list()) porGrupo.set(g.grupoId, [...(porGrupo.get(g.grupoId) ?? []), g])
+  for (const grupo of porGrupo.values()) {
+    if (grupo.length <= 1) continue
+    grupo.sort(
+      (a, b) =>
+        b.ejercicios.length - a.ejercicios.length ||
+        (b.updatedAt ?? 0) - (a.updatedAt ?? 0) ||
+        (a.id ?? 0) - (b.id ?? 0),
+    )
+    const [gana, ...pierden] = grupo
+    const nombres = new Set(gana.ejercicios.map((e) => e.nombre))
+    const extra: { nombre: string }[] = []
+    for (const e of pierden.flatMap((p) => p.ejercicios)) {
+      if (nombres.has(e.nombre)) continue
+      nombres.add(e.nombre)
+      extra.push(e)
+    }
+    if (extra.length && gana.id != null) await repo.update(gana.id, { ejercicios: [...gana.ejercicios, ...extra] })
+    for (const p of pierden) if (p.id != null) await repo.remove(p.id)
+  }
 }
 
 /** Un grupo de la semilla (`CATALOGO_FUERZA` y compañía). */
@@ -57,7 +92,13 @@ interface SemillaCat {
  * (`motor.ts`)—. Con uid nuevo y fecha de hoy son datos normales: sobreviven al
  * pull y suben a la nube.
  */
-async function rescatarCatalogo(repo: RepoCat, semilla: SemillaCat[], filas: GrupoCat[]): Promise<void> {
+async function rescatarCatalogo(
+  repo: RepoCat,
+  semilla: SemillaCat[],
+  filas: GrupoCat[],
+  /** Solo añadir los grupos que falten, sin rellenar los que existen. */
+  soloFaltantes = false,
+): Promise<void> {
   const porId = new Map(filas.map((g) => [g.grupoId, g]))
   let orden = filas.reduce((m, g) => Math.max(m, g.orden), -1)
   for (const s of semilla) {
@@ -65,7 +106,7 @@ async function rescatarCatalogo(repo: RepoCat, semilla: SemillaCat[], filas: Gru
     if (!existente) {
       orden += 1
       await repo.add({ grupoId: s.id, label: s.label, orden, ejercicios: s.ejercicios })
-    } else if (existente.id != null) {
+    } else if (!soloFaltantes && existente.id != null) {
       await repo.update(existente.id, { ejercicios: s.ejercicios })
     }
   }
@@ -87,12 +128,17 @@ async function sembrarCatalogo(
   semilla: SemillaCat[],
   sembrar: () => Promise<void>,
 ): Promise<void> {
+  // Con duplicados, «falta / no falta» miente: se cura antes de mirar nada.
+  await curarGruposDuplicados(repo)
+  const filas = await repo.list()
   if (!localStorage.getItem(flag)) {
     localStorage.setItem(flag, '1')
-    await sembrar()
+    // Bandera perdida con la tabla ya poblada (limpieza del navegador, sync):
+    // volver a sembrar duplicaba cada grupo. Solo se añade lo que falte.
+    if (filas.length) await rescatarCatalogo(repo, semilla, filas, true)
+    else await sembrar()
     return
   }
-  const filas = await repo.list()
   if (filas.some((g) => g.ejercicios.length > 0)) return
   await rescatarCatalogo(repo, semilla, filas)
 }

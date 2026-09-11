@@ -86,7 +86,7 @@ export const esencialDespacho: TutorialDef = fichaEsencial(
   'despacho',
   T(
     'tut.app-despacho--esencial.resumen',
-    'El despacho ordena tu dinero en cuatro menús. Patrimonio guarda lo que tienes y lo que debes, con su proyección; Flujo lleva gastos, ingresos y el balance del periodo, con presupuesto y categorías; Metas junta ahorro, inversión y deuda, más las calculadoras que proponen un monto. Mercados es un tablero de cotizaciones en vivo, solo de consulta.',
+    'Finanzas ordena tu dinero en cuatro menús. Patrimonio guarda lo que tienes y lo que debes, con su proyección; Flujo lleva gastos, ingresos y el balance del periodo, con presupuesto y categorías; Metas junta ahorro, inversión y deuda, más las calculadoras que proponen un monto. Mercados es un tablero de cotizaciones en vivo, solo de consulta.',
   ),
   () => import('./tutorial').then((m) => m.cuerpoEsencial as CuerpoTutorial),
 )

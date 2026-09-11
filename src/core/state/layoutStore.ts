@@ -901,6 +901,10 @@ export const useLayout = create<LayoutState>((set, get) => ({
     } else {
       usePlanos.getState().setActivo(false)
       usePlanos.getState().setCuadranteVista(null)
+      // Un cuarto recién creado sale del editor con su «Asignar app» abierto.
+      // Import dinámico a propósito: planoPincelCuarto importa este store.
+      if (!opts?.mantenerVista)
+        void import('../ui/comun/planoPincelCuarto').then((m) => m.ofrecerAsignarCuartoNuevo())
     }
     const editingAntes = get().editingRoomId
     set({

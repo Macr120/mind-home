@@ -794,6 +794,8 @@ export const DE: Dict = {
   'celebra.racha.titulo': '{n}-Tage-Serie!',
   'celebra.racha.titulo1': 'Serie von 1 Tag!',
   'celebra.racha.cuerpo': 'Weiter so in {app} 🔥',
+  'celebra.racha.titulo0': 'Starte heute deine Serie',
+  'celebra.racha.cuerpo0': 'Trag etwas in {app} ein und leg los 🔥',
   'celebra.lista.titulo': 'Tagesmissionen geschafft!',
   'celebra.lista.cuerpo': 'Du hast die Liste von {app} abgeschlossen',
   'celebra.lista.xp': '+{xp} XP',
@@ -1125,7 +1127,8 @@ export const DE: Dict = {
   'ajustes.tema.masColores': 'Mehr Farben',
   'ajustes.tema.menosColores': 'Weniger Farben',
   'ajustes.tema.tinte': 'Tönung',
-  'ajustes.tema.tinte.desc': 'Wie stark Menüs und Panels die Farbe des Designs annehmen, nicht nur die Buttons. Die Apps der Räume behalten ihre Farben.',
+  'ajustes.tema.tinte.desc':
+    'Wie stark Menüs und Panels die Farbe des Designs annehmen, nicht nur die Buttons. Die Apps der Räume behalten ihre Farben.',
   'ajustes.modo': 'Erscheinungsbild',
   'ajustes.estilo': 'Stil der Oberfläche',
   'ajustes.estilo.desc': 'Die Form von Buttons, Karten und Panels: Ecken, Ränder und Schatten.',
@@ -1190,7 +1193,7 @@ export const DE: Dict = {
   'room.recamara.nombre': 'Schlafzimmer',
   'room.descanso.nombre': 'Bett · Ruhe',
   'room.anecdotario.nombre': 'Schreibtisch · Erinnerungsbuch',
-  'room.despacho.nombre': 'Arbeitszimmer',
+  'room.despacho.nombre': 'Finanzen',
   'room.biblioteca.nombre': 'Bibliothek',
   'room.entretenimiento.nombre': 'Unterhaltung',
   'room.sala.nombre': 'Wohnzimmer',
@@ -1212,7 +1215,7 @@ export const DE: Dict = {
   'room.recamara.sub': 'Schlaf & Erinnerungen',
   'room.descanso.sub': 'Schlaf & Wecker',
   'room.anecdotario.sub': 'Persönliches Erinnerungsbuch',
-  'room.despacho.sub': 'Finanzen',
+  'room.despacho.sub': 'Budget, Ziele und Märkte',
   'room.biblioteca.sub': 'Lernen',
   'room.entretenimiento.sub': 'Archiv & Brettspiele',
   'room.sala.sub': 'Reisen',
@@ -2709,9 +2712,9 @@ export const DE: Dict = {
   'cocina.comp.cuenta': 'Einkaufsrechnung',
   'cocina.comp.cuentaAyuda': 'Gib den Preis jedes Artikels ein, die Rechnung summiert sich von selbst.',
   'cocina.comp.cuentaConPrecio': '{c} von {n} Artikeln mit Preis',
-  'cocina.comp.registrarGasto': 'Als Ausgabe im Arbeitszimmer eintragen',
-  'cocina.comp.actualizarGasto': 'Ausgabe im Arbeitszimmer aktualisieren',
-  'cocina.comp.gastoAlDia': '✓ Im Arbeitszimmer eingetragen',
+  'cocina.comp.registrarGasto': 'Als Ausgabe in Finanzen eintragen',
+  'cocina.comp.actualizarGasto': 'Ausgabe in Finanzen aktualisieren',
+  'cocina.comp.gastoAlDia': '✓ In Finanzen eingetragen',
   'cocina.comp.notaGasto': 'Einkauf',
   'cocina.comp.listaDefecto': 'Liste',
   'cocina.comp.listasVacio':
@@ -3671,7 +3674,7 @@ export const DE: Dict = {
   'sala.hoja.total': 'Gesamt',
   'sala.hoja.agregarDia': 'Tag',
   'sala.hoja.sync':
-    'Tage mit Datum erscheinen im Kalender des Hauses, und die Summe wird zu einem Sparziel im Arbeitszimmer. Der Plan bleibt erhalten, auch wenn du den Ort schon besucht hast; er verschwindet nur, wenn du ihn löschst.',
+    'Tage mit Datum erscheinen im Kalender des Hauses, und die Summe wird zu einem Sparziel in Finanzen. Der Plan bleibt erhalten, auch wenn du den Ort schon besucht hast; er verschwindet nur, wenn du ihn löschst.',
   'sala.hoja.compartir': 'Teilen',
   'sala.hoja.copiado': 'Kopiert',
   'sala.hoja.guardar': 'Speichern',
@@ -6907,7 +6910,7 @@ export const DE: Dict = {
   'ia.donde.editorCuarto': 'Editor › Boden, Wände, Decke, Türen und Raster',
   'ia.donde.editorFondo': 'Himmelshintergrund',
   'ia.donde.asistentes': 'Assistenten',
-  'ia.donde.metas': 'Küche, Sport, Bibliothek, Sprachen, Wohnzimmer, Hobbys, Arbeitszimmer und Unterhaltung',
+  'ia.donde.metas': 'Küche, Sport, Bibliothek, Sprachen, Wohnzimmer, Hobbys, Finanzen und Unterhaltung',
   'ia.op.chat.mensaje': 'Nachricht an deinen Assistenten',
   'ia.op.chat.modelo3d': '„Erstelle ein 3D …“ im Chat',
   'ia.op.chat.modelo3d.nota': 'Zwei Aufrufe: die Runde, die die Anfrage liest, und die Generierung selbst.',
@@ -7067,7 +7070,7 @@ export const DE: Dict = {
   'tut.app-descanso--esencial.resumen':
     'Schlaf erfasst, wie du schläfst, auf einem einzigen Bildschirm: die Bewertung der letzten Nacht, deinen Zeitplan mit seinen Erinnerungen, das Tagesprotokoll und den vollständigen Verlauf nach Jahr, Monat und Woche.',
   'tut.app-despacho--esencial.resumen':
-    'Das Arbeitszimmer ordnet dein Geld in vier Tabs. Vermögen bewahrt, was du hast und was du schuldest, mit seiner Hochrechnung; Cashflow führt Ausgaben, Einnahmen und den Saldo der Periode, mit Budget und Kategorien; Ziele vereint Sparen, Investieren und Schulden, dazu die Rechner, die einen Betrag vorschlagen. Märkte ist ein Kursbrett in Echtzeit, nur zur Ansicht.',
+    'Finanzen ordnet dein Geld in vier Menüs. Vermögen führt, was du hast und was du schuldest, samt Prognose; Fluss verfolgt Ausgaben, Einnahmen und den Saldo des Zeitraums, mit Budget und Kategorien; Ziele bündelt Sparen, Investieren und Schulden, dazu die Rechner, die dir einen Betrag vorschlagen. Märkte ist eine Kurstafel in Echtzeit, nur zum Nachschauen.',
   'tut.app-diario--esencial.resumen':
     'Die Tagesnachrichten sind eine flüchtige Zeitung: Schlagzeilen echter Presse nach Kategorie und die Ereignisse dieses Tages, die sich jede Mitternacht von selbst erneuert. Über die Zustellung richtest du ein, dass ein Assistent sie dir in seinem eigenen Chat bringt.',
   'tut.app-ejercicio--esencial.resumen':
@@ -7237,7 +7240,7 @@ export const DE: Dict = {
     'Das Logbuch bewahrt deine Erinnerungen nach Land und Ort auf, mit ihren Fotos; und jede Reise behält ihren Tag-für-Tag-Plan mit Unterkunft, Transport und Budget.',
   'tut.app-sala--proximo.titulo': 'Die nächste Reise',
   'tut.app-sala--proximo.resumen':
-    'Orte, die du noch entdecken willst, bekommen ihren eigenen Tag-für-Tag-Plan, und die Summe ihrer Budgets wird im Arbeitszimmer zu einem Sparziel.',
+    'Orte, die du noch entdecken willst, haben ihren eigenen Plan Tag für Tag, und die Summe ihrer Budgets wird zu einem Sparziel in Finanzen.',
   'tut.app-entretenimiento--archivo.titulo': 'Ein Jahr Science-Fiction',
   'tut.app-entretenimiento--archivo.resumen':
     'Das Archiv sammelt, was du schaust, liest und spielst: jeder Eintrag mit Status, Sternen und deiner Rezension. Gruppiere es nach Datum in Jahres- und Monatsordnern oder nach Genre.',
@@ -8929,7 +8932,8 @@ export const DE: Dict = {
   'video.publicar.campo.obligatorio': 'Der Titel ist Pflicht.',
   'video.publicar.campo.titulo': 'Titel',
   'video.publicar.cuenta.caducado': 'Der Zugang ist abgelaufen: verbinde das Konto erneut.',
-  'video.publicar.cuenta.canalYoutube': 'Wenn dein Google-Konto mehrere Kanäle hat, wähle auf dem Google-Bildschirm den gewünschten aus. Zum Wechseln erneut verbinden.',
+  'video.publicar.cuenta.canalYoutube':
+    'Wenn dein Google-Konto mehrere Kanäle hat, wähle auf dem Google-Bildschirm den gewünschten aus. Zum Wechseln erneut verbinden.',
   'video.publicar.cuenta.cancelar': 'Abbrechen',
   'video.publicar.cuenta.cargando': 'Deine Konten werden gesucht …',
   'video.publicar.cuenta.conectar': '{red} verbinden',

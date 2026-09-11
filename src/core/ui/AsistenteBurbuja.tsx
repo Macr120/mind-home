@@ -29,14 +29,22 @@ export function AsistenteBurbuja({ asistenteId }: { asistenteId: string }) {
   const m = lista.find((a) => a.id === asistenteId)
   if (!m) return null
   const texto = mensaje ? limpiarMarkdown(mensaje) : null
+  // Un mensaje corto se lee entero; solo se recorta lo que pasa de un párrafo.
+  const largo = !!texto && (/\n\s*\n/.test(texto) || texto.length > 320)
+  // Los toques en la nube no deben llegar al Canvas 3D: el DOM de `Html` cuelga
+  // del div donde R3F escucha, y un clic que se cuela ahí mueve al avatar (o
+  // abre un cuarto) y la nube se va a media lectura.
+  const frenar = (e: { stopPropagation: () => void }) => e.stopPropagation()
 
   return (
-    <div className="relative flex flex-col items-center">
-      {/* Escuchar lo que acaba de decir (fuera del botón: no se anidan botones). */}
+    <div className="relative flex flex-col items-center" onPointerDown={frenar} onPointerUp={frenar} onClick={frenar}>
+      {/* Escuchar lo que acaba de decir (fuera del botón: no se anidan botones).
+          Mientras lee, la nube se queda; al terminar se despide poco después. */}
       {texto && (
         <BotonVoz
           texto={texto}
           asistenteId={m.id}
+          onCambio={(hablando) => useMascota.getState().programarOcultar(hablando ? 120_000 : 1_500)}
           className="ui-panel-glass pointer-events-auto absolute -end-2 -top-2 z-10 rounded-full border border-white/10 py-0.5 shadow-lg backdrop-blur-md"
         />
       )}
@@ -50,15 +58,15 @@ export function AsistenteBurbuja({ asistenteId }: { asistenteId: string }) {
           abrirConversacion(m.id)
         }}
         title={t('chat.verConv', 'Ver la conversación completa')}
-        className="ui-panel-glass pointer-events-auto relative max-w-[16rem] cursor-pointer rounded-2xl border border-white/10 px-3.5 py-2 text-start text-sm text-white/90 shadow-xl backdrop-blur-md transition hover:border-emerald-400/40"
+        className="ui-panel-glass pointer-events-auto relative max-w-[20rem] cursor-pointer rounded-2xl border border-white/10 px-3.5 py-2 text-start text-sm text-white/90 shadow-xl backdrop-blur-md transition hover:border-emerald-400/40"
       >
         {texto ? (
           <>
-            <span className="line-clamp-4 whitespace-pre-line">
+            <span className={`whitespace-pre-line ${largo ? 'line-clamp-6' : ''}`}>
               <span className="me-1"><Icono emoji={m.emoji} /></span>
               {texto}
             </span>
-            {texto.length > 150 && (
+            {largo && (
               <span className="mt-0.5 block text-[10px] text-white/40">
                 {t('chat.burbuja.ver', 'Toca para leer todo')}
               </span>

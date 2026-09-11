@@ -1,5 +1,8 @@
-import { useCuartos } from '../../state/cuartosStore'
+import { getCuarto, useCuartos } from '../../state/cuartosStore'
 import { useLayout } from '../../state/layoutStore'
+import { useDiseño } from '../../state/disenoStore'
+import { useAsignar } from '../../state/asignarStore'
+import { hayTutorialActivo } from '../../data/intencion'
 import type { ZonaPlano } from '../../data/db'
 import {
   claveCeldaOff,
@@ -42,6 +45,23 @@ function celdaConSoporteCercana(
 // IDs de cuartos creados por este pincel en la sesión actual.
 // Determina si el ciclo de triángulo/círculo debe borrar (creado aquí) o resetear a cuadrado.
 const _creadosPorPincel = new Set<string>()
+
+// Cuartos creados por el pincel desde que se abrió el constructor, en orden.
+const _creadosSinApp: string[] = []
+
+/**
+ * Al cerrar el constructor (Listo en escritorio, ✕ del panel en móvil), si el
+ * último cuarto creado sigue sin app se abre «Asignar app» para él: crear un
+ * cuarto y darle su app son un solo gesto. El tutorial de primeros pasos abre
+ * el diálogo por su cuenta, así que ahí no se interfiere.
+ */
+export function ofrecerAsignarCuartoNuevo(): void {
+  const creados = _creadosSinApp.splice(0).reverse()
+  if (hayTutorialActivo()) return
+  const objetos = useDiseño.getState().objetos
+  const id = creados.find((rid) => getCuarto(rid) && !objetos.some((o) => o.roomId === rid && o.plantillaId))
+  if (id) useAsignar.getState().abrir(id)
+}
 
 interface ContextoColocar {
   nivel: number
@@ -88,6 +108,7 @@ async function crearCuartoEnCeldaLibre(celdaClic: Cell, ctx: ContextoColocar): P
   const n = useCuartos.getState().cuartos.length + 1
   // Los muros del color del cuarto y la puerta inicial los pone `crearEnCeldas`.
   const id = await useCuartos.getState().crearEnCeldas({ nombre: `Cuarto ${n}` }, [celda], nivel)
+  _creadosSinApp.push(id)
   // Primer cuarto de un nivel nuevo: pide elegir el tipo de ascenso (uno por nivel).
   if (nivel >= 1) {
     const anchor = useLayout.getState().cells[id] ?? celda

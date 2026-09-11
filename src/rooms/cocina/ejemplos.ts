@@ -99,7 +99,7 @@ export const DIETAS_EJEMPLO: DietaEjemplo[] = [
   {
     clave: 'alta-en-prote-na', nombre: 'Alta en proteína', descripcion: 'Prioriza proteína para recomposición corporal y saciedad.',
     calorias: 2200, proteinas: 180, carbohidratos: 170, grasas: 70,
-    recetas: ['salm-n-al-horno', 'tacos-al-pastor', 'chilaquiles-verdes'],
+    recetas: ['salm-n-al-horno', 'pollo-a-la-parrilla', 'tacos-al-pastor', 'chilaquiles-verdes'],
   },
   {
     clave: 'keto', nombre: 'Keto', descripcion: 'Baja en carbohidratos y alta en grasas saludables.',
@@ -109,7 +109,7 @@ export const DIETAS_EJEMPLO: DietaEjemplo[] = [
   {
     clave: 'vegetariana', nombre: 'Vegetariana', descripcion: 'Sin carne, basada en vegetales, legumbres y cereales integrales.',
     calorias: 2000, proteinas: 90, carbohidratos: 250, grasas: 65,
-    recetas: ['ensalada-mediterr-nea', 'pasta-al-pesto', 'bowl-de-quinoa', 'avena-overnight'],
+    recetas: ['ensalada-mediterr-nea', 'pasta-al-pesto', 'pizza-margarita', 'bowl-de-quinoa', 'avena-overnight'],
   },
   {
     clave: 'ganancia-muscular', nombre: 'Ganancia muscular', descripcion: 'Superávit calórico con proteína alta para ganar masa muscular.',
@@ -127,6 +127,12 @@ export const DIETAS_EJEMPLO: DietaEjemplo[] = [
     recetas: ['tacos-al-pastor', 'chilaquiles-verdes', 'salm-n-al-horno', 'ensalada-mediterr-nea', 'pollo-a-la-parrilla'],
   },
 ]
+
+/**
+ * Las dietas de fábrica de la CASA REAL (claves de `DIETAS_EJEMPLO`): tres y
+ * ya. Las siete completas solo las trae la casa demo.
+ */
+export const DIETAS_CASA = ['vegetariana', 'mediterr-nea', 'alta-en-prote-na']
 
 /** Nombre de archivo ASCII y estable para la imagen de una receta o dieta. */
 export function slugCocina(nombre: string): string {

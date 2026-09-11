@@ -16,6 +16,20 @@ import { PINCELES_DEFAULT } from '../house/murosPuertas'
 
 const COLORES_DEFAULT = ['#f59e0b', '#ef4444', '#8b5cf6', '#06b6d4', '#10b981', '#ec4899', '#3b82f6', '#eab308']
 
+/**
+ * La app de finanzas se llamó «Despacho»: el cuarto que heredó ese nombre al
+ * asignarla pasa a «Finanzas». Solo el nombre exacto de entonces y solo si el
+ * cuarto sigue llevando esa app; un nombre puesto a mano no se toca.
+ */
+async function renombrarDespachoViejo(): Promise<void> {
+  const viejos = await db.cuartos.filter((c) => c.nombre === 'Despacho').primaryKeys()
+  if (!viejos.length) return
+  const conFinanzas = new Set(
+    (await db.objetosCuarto.filter((o) => o.plantillaId === 'despacho').toArray()).map((o) => o.roomId),
+  )
+  for (const id of viejos) if (conFinanzas.has(id)) await db.cuartos.update(id, { nombre: 'Finanzas' })
+}
+
 /** Genera un id estable para un cuarto nuevo (referido por layout/diseño/objetos). */
 function nuevoId(): string {
   return `cuarto-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`
@@ -88,6 +102,7 @@ export const useCuartos = create<CuartosState>((set, get) => ({
 
   cargar: async () => {
     if (get().cargado) return
+    await renombrarDespachoViejo()
     await get().recargar()
   },
 

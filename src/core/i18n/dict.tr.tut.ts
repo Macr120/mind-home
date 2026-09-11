@@ -1,12 +1,12 @@
 import type { Dict } from './dict'
 
 /**
- * Textos de PASO de los tutoriales en tr. Capa aparte porque solo hacen
- * falta con un tour corriendo.
+ * Textos de PASO de los tutoriales en Turco. Capa aparte porque solo hacen
+ * falta con un tour corriendo. Los títulos y resúmenes NO están aquí: los pinta
+ * el selector sin abrir nada.
  *
- * Lo monta `traducir-a-mano.mjs meter-dict` — no lo edites a mano.
+ * GENERADO por `npm run traducir:i18n` — no lo edites a mano.
  */
-
 export const TR_TUT: Dict = {
   'tut.app-computo--formulario.1.titulo': 'Hesap makinesinden açılır',
   'tut.app-computo--formulario.1.texto':
@@ -114,7 +114,8 @@ export const TR_TUT: Dict = {
   'tut.primeros.entrar.titulo': 'Uygulamalarına gir',
   'tut.primeros.entrar.texto':
     'Her oda kendi uygulamasını taşır ve üç kapın var: burada menüdeki kartı, haritadaki havada süzülen küreli nesne ve üstteki MPH düğmesinin hızlı erişimi.',
-  'tut.primeros.entrar.vacio': 'Odaların burada yaşayacak, her biri kendi uygulamasıyla; üç kapın olacak: burada menüdeki kartı, haritadaki havada süzülen küreli nesne ve üstteki MPH düğmesinin hızlı erişimi. İlkini oluşturalım…',
+  'tut.primeros.entrar.vacio':
+    'Odaların burada yaşayacak, her biri kendi uygulamasıyla; üç kapın olacak: burada menüdeki kartı, haritadaki havada süzülen küreli nesne ve üstteki MPH düğmesinin hızlı erişimi. İlkini oluşturalım…',
   'tut.primeros.prev.titulo': 'Odan buraya kurulacak',
   'tut.primeros.prev.texto':
     'Bu, fırçanın önizlemesi: duvarlarıyla birlikte yeşil siluet, odanın nereye kurulacağını gösterir. Elle inşa ederken de aynısını parmağının altında görürsün, dokunuşu bırakmadan önce.',
@@ -697,7 +698,7 @@ export const TR_TUT: Dict = {
     'İki çukur da gerçek: 7. aydaki diz sakatlığı ve Japonya’daki üç hafta. Aksatmak ilerlemeyi silmez — panel yılı olması gerektiği gibi değil, olduğu gibi gösterir. Ve bir rutin ancak onu oluşturduğun günden itibaren sayılır.',
   'tut.metas.0.titulo': 'Hedeflerinin merkezi',
   'tut.metas.0.texto':
-    'Bu oda kendine ait bir şey tutmaz. Hedefler diğer uygulamalarda doğar — Spor Salonu’nda koşu, Kütüphane’de bölüm, Çalışma Odası’nda birikim — ve burada HEPSİ bir araya gelir: hangi odadan gelirse gelsin hepsini bir bakışta gördüğün tek yer burasıdır.',
+    'Bu oda kendine ait hiçbir şey tutmaz. Hedefler diğer uygulamalarda doğar — koşu Spor\'da, diploma Kütüphane\'de, birikim Finans\'ta — ve burada HEPSİ bir araya gelir: evde hepsini aynı anda gördüğün tek yer, hangi odadan gelirlerse gelsin.',
   'tut.metas.1.titulo': 'Her hedefin bir uygulaması var',
   'tut.metas.1.texto':
     'Klasörler süs değil: her biri o hedefleri taşıyan uygulamadır ve tutulup tutulmadığını bilen de odur, çünkü kayıt orada yapılır. «Ev» hiçbir uygulama değil — o kategoriyi mutfak tadilatı için Pep uydurdu.',
@@ -891,7 +892,7 @@ export const TR_TUT: Dict = {
     'Kaydettiğin tüm geceler burada kalır, yıl, ay ve haftaya göre düzenlenmiş — böylece uykunu zaman içinde gözden geçirebilirsin.',
   'tut.app-despacho--esencial.1.titulo': 'Finansların',
   'tut.app-despacho--esencial.1.texto':
-    'Çalışma Odası, paranı dört bölümde düzenler: sahip olduğun, giren ve çıkan, hedeflerin ve piyasalar. Her birinin altında kendi bölümleri açılır.',
+    'Finans paranı dört menüde düzenler: neye sahip olduğun, ne girip ne çıktığı, hedeflerin ve piyasalar. Her biri altında kendi bölümlerini açar.',
   'tut.app-despacho--esencial.2.titulo': 'Net değer',
   'tut.app-despacho--esencial.2.texto':
     'Sahip olduğun ve borçlu olduğun şeyler, iki listede: varlıklar ve borçlar. Üçüncü bölüm, her satıra koyduğun oranla bu görüntüyü ileriye doğru projekte eder.',
@@ -1136,7 +1137,7 @@ export const TR_TUT: Dict = {
     'Liste oluştur, birkaç tarifte eksik olanları tek bir alışverişte toplar: her malzeme kendi kategorisini tahmin eder (sebze, süt ürünü…) ve düzenlenebilir.',
   'tut.app-cocina--recetario.5.titulo': 'Kaydedilmiş listeler',
   'tut.app-cocina--recetario.5.texto':
-    'Her liste, alınacaklarla kilerde olanları birlikte saklar. Fiyat girersen market hesabı Çalışma Odası’ndaki giderlere gönderilebilir.',
+    'Her liste, alınacakları ve kilerde olanları birlikte saklar. Fiyat eklersen, toplam Finans\'taki giderlere gönderilebilir.',
   'tut.app-cocina--cronograma.1.titulo': 'Mutfağın bugün senden istedikleri',
   'tut.app-cocina--cronograma.1.texto':
     'Başlıktaki Görevler düğmesi günün kontrol listesini açar: su, öğünler ve hedeflerinden gelen adımlar. Hedeflerin kendisi —yapay zekanın onlara önerdiği planla birlikte— Hedefler odasında, onları taşıyan uygulamaya göre gruplanmış olarak yaşar.',
@@ -1284,7 +1285,7 @@ export const TR_TUT: Dict = {
     'Not edilmiş üç hayal. Seul’ün tarihi ve planı hazır; Patagonya ile İzlanda henüz bir fikir. Tarihi olanlar takviminde beliriyor.',
   'tut.app-sala--proximo.2.titulo': 'Çizelgeden hedefe',
   'tut.app-sala--proximo.2.texto':
-    'Kore’nin sekiz günü seyahatin maliyetini toplar ve bu toplam Çalışma Odası’nda bir tasarruf hedefi olarak saklanır: orada büyüdüğünü görmek, burada yaklaştığını görmektir.',
+    'Kore\'deki sekiz gün yolculuğun maliyetini toplar ve bu toplam Finans\'ta birikim hedefi olarak kaydedilir: orada büyüdüğünü görmek, burada yaklaştığını görmektir.',
   'tut.app-sala--proximo.3.titulo': 'Rotalar',
   'tut.app-sala--proximo.3.texto':
     'Bir rota, yerleri sırayla birbirine bağlar ve haritaya çizer. Japonya rotası çoktan yaptığı yolculuk; Kore rotası ise yapmak istediği.',

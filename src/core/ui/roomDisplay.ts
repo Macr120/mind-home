@@ -4,6 +4,7 @@ import { useDiseño } from '../state/disenoStore'
 import { tGlobal, useT, type TFunc } from '../i18n/useT'
 
 const SUBTITULO_FALLBACK: Record<string, string> = {
+  despacho: 'Presupuesto, metas y mercados',
   recamara: 'Sueño y anécdotas',
   entretenimiento: 'Archivo y juegos de mesa',
   hobbies: 'Pasatiempos y proyectos',

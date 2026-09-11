@@ -101,12 +101,16 @@ function Celebrando({ c }: { c: Celebracion }) {
           </span>
           <div className="min-w-0 flex-1">
             <p className="texto-vivo text-sm font-bold" style={vivo(color)}>
-              {c.racha === 1
-                ? t('celebra.racha.titulo1', '¡Racha de 1 día!')
-                : t('celebra.racha.titulo', '¡Racha de {n} días!', { n: c.racha })}
+              {c.racha === 0
+                ? t('celebra.racha.titulo0', 'Empieza tu racha hoy')
+                : c.racha === 1
+                  ? t('celebra.racha.titulo1', '¡Racha de 1 día!')
+                  : t('celebra.racha.titulo', '¡Racha de {n} días!', { n: c.racha })}
             </p>
             <p className="text-xs text-white/60">
-              {t('celebra.racha.cuerpo', 'Sigue así en {app} 🔥', { app: nombre })}
+              {c.racha === 0
+                ? t('celebra.racha.cuerpo0', 'Registra algo en {app} y arranca 🔥', { app: nombre })
+                : t('celebra.racha.cuerpo', 'Sigue así en {app} 🔥', { app: nombre })}
             </p>
           </div>
         </button>

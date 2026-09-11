@@ -791,6 +791,8 @@ export const IT: Dict = {
   'celebra.racha.titulo': 'Serie di {n} giorni!',
   'celebra.racha.titulo1': 'Serie di 1 giorno!',
   'celebra.racha.cuerpo': 'Continua così in {app} 🔥',
+  'celebra.racha.titulo0': 'Inizia la tua serie oggi',
+  'celebra.racha.cuerpo0': 'Registra qualcosa in {app} e parti 🔥',
   'celebra.lista.titulo': 'Missioni del giorno!',
   'celebra.lista.cuerpo': 'Hai completato la lista di {app}',
   'celebra.lista.xp': '+{xp} XP',
@@ -1120,7 +1122,8 @@ export const IT: Dict = {
   'ajustes.tema.masColores': 'Più colori',
   'ajustes.tema.menosColores': 'Meno colori',
   'ajustes.tema.tinte': 'Tinta',
-  'ajustes.tema.tinte.desc': 'Quanto menu e pannelli prendono il colore del tema, non solo i pulsanti. Le app delle stanze mantengono i loro colori.',
+  'ajustes.tema.tinte.desc':
+    'Quanto menu e pannelli prendono il colore del tema, non solo i pulsanti. Le app delle stanze mantengono i loro colori.',
   'ajustes.modo': 'Aspetto',
   'ajustes.estilo': 'Stile dell\'interfaccia',
   'ajustes.estilo.desc': 'La forma di pulsanti, schede e pannelli: angoli, bordi e ombre.',
@@ -1184,7 +1187,7 @@ export const IT: Dict = {
   'room.recamara.nombre': 'Camera da letto',
   'room.descanso.nombre': 'Letto · Riposo',
   'room.anecdotario.nombre': 'Scrivania · Diario',
-  'room.despacho.nombre': 'Studio',
+  'room.despacho.nombre': 'Finanze',
   'room.biblioteca.nombre': 'Biblioteca',
   'room.entretenimiento.nombre': 'Intrattenimento',
   'room.sala.nombre': 'Soggiorno',
@@ -1206,7 +1209,7 @@ export const IT: Dict = {
   'room.recamara.sub': 'Sonno e ricordi',
   'room.descanso.sub': 'Sonno e sveglia',
   'room.anecdotario.sub': 'Diario personale',
-  'room.despacho.sub': 'Finanze',
+  'room.despacho.sub': 'Budget, obiettivi e mercati',
   'room.biblioteca.sub': 'Apprendimento',
   'room.entretenimiento.sub': 'Archivio e giochi da tavolo',
   'room.sala.sub': 'Viaggi',
@@ -2694,9 +2697,9 @@ export const IT: Dict = {
   'cocina.comp.cuenta': 'Conto della spesa',
   'cocina.comp.cuentaAyuda': 'Scrivi il prezzo di ogni articolo e il conto si somma da solo.',
   'cocina.comp.cuentaConPrecio': '{c} di {n} articoli con prezzo',
-  'cocina.comp.registrarGasto': 'Registra come spesa nello Studio',
-  'cocina.comp.actualizarGasto': 'Aggiorna la spesa nello Studio',
-  'cocina.comp.gastoAlDia': '✓ Registrato nello Studio',
+  'cocina.comp.registrarGasto': 'Registra come spesa in Finanze',
+  'cocina.comp.actualizarGasto': 'Aggiorna la spesa in Finanze',
+  'cocina.comp.gastoAlDia': '✓ Registrato in Finanze',
   'cocina.comp.notaGasto': 'Spesa',
   'cocina.comp.listaDefecto': 'Lista',
   'cocina.comp.listasVacio': 'Non hai liste salvate. Creane una in "Crea lista" oppure generala da una ricetta.',
@@ -3635,7 +3638,7 @@ export const IT: Dict = {
   'sala.hoja.total': 'Totale',
   'sala.hoja.agregarDia': 'Giorno',
   'sala.hoja.sync':
-    'I giorni con data compaiono nel calendario della casa e il totale diventa un obiettivo di risparmio nello studio. Il piano resta anche se visiti già il posto: scompare solo se lo elimini.',
+    'I giorni con data compaiono nel calendario della casa e il totale diventa un obiettivo di risparmio in Finanze. Il piano resta anche dopo che visiti il posto; scompare solo se lo cancelli.',
   'sala.hoja.compartir': 'Condividi',
   'sala.hoja.copiado': 'Copiato',
   'sala.hoja.guardar': 'Salva',
@@ -4240,7 +4243,8 @@ export const IT: Dict = {
   'editor.avatar.usandoGlb': 'Stai usando il tuo modello .glb. I colori non si applicano a questo modello.',
   'editor.avatar.usandoIa': 'Stai usando una forma creata dall\'IA. I colori non si applicano a questa forma.',
   'editor.tema.titulo': 'Tema della casa',
-  'editor.tema.desc': 'Applica lo stile a stanze, sfondo, pavimento e tetto, veste l\'interfaccia e il personaggio e attiva le microanimazioni nel cielo.',
+  'editor.tema.desc':
+    'Applica lo stile a stanze, sfondo, pavimento e tetto, veste l\'interfaccia e il personaggio e attiva le microanimazioni nel cielo.',
   'editor.tema.sin': 'Nessun tema',
   'editor.tema.misTemas': 'I miei temi',
   'editor.tema.guardar': '+ Salva quello attuale',
@@ -6855,7 +6859,7 @@ export const IT: Dict = {
   'ia.donde.editorCuarto': 'Editor › Pavimento, pareti, soffitto, porte e griglia',
   'ia.donde.editorFondo': 'Sfondo del cielo',
   'ia.donde.asistentes': 'Assistenti',
-  'ia.donde.metas': 'Cucina, Esercizio, Biblioteca, Lingue, Soggiorno, Hobby, Studio e Intrattenimento',
+  'ia.donde.metas': 'Cucina, Esercizio, Biblioteca, Lingue, Soggiorno, Passatempi, Finanze e Intrattenimento',
   'ia.op.chat.mensaje': 'Messaggio al tuo assistente',
   'ia.op.chat.modelo3d': '«Crea un 3D…» dalla chat',
   'ia.op.chat.modelo3d.nota': 'Due chiamate: il turno che legge l\'ordine e la generazione vera e propria.',
@@ -7013,7 +7017,7 @@ export const IT: Dict = {
   'tut.app-descanso--esencial.resumen':
     'Riposo registra come dormi in un’unica schermata: il punteggio dell’ultima notte, il tuo orario con i suoi avvisi, il diario quotidiano e la cronologia completa per anno, mese e settimana.',
   'tut.app-despacho--esencial.resumen':
-    'Lo studio ordina i tuoi soldi in quattro schede. Patrimonio netto custodisce quello che hai e quello che devi, con la sua proiezione; Flusso di cassa tiene spese, entrate e il saldo del periodo, con budget e categorie; Obiettivi riunisce risparmio, investimento e debito, più le calcolatrici che propongono un importo. Mercati è una bacheca di quotazioni in tempo reale, solo di consultazione.',
+    'Finanze mette in ordine i tuoi soldi in quattro menu. Patrimonio raccoglie ciò che hai e ciò che devi, con la sua proiezione; Flusso segue spese, entrate e il bilancio del periodo, con budget e categorie; Obiettivi unisce risparmio, investimento e debito, più le calcolatrici che propongono un importo. Mercati è un quadro di quotazioni in tempo reale, solo da consultare.',
   'tut.app-diario--esencial.resumen':
     'Il giornale è un quotidiano effimero: titoli di stampa reale per categoria e gli avvenimenti di oggi, che si rinnova da solo a mezzanotte. Dalla consegna programmi che un assistente te lo porti nella sua chat.',
   'tut.app-ejercicio--esencial.resumen':
@@ -7183,7 +7187,7 @@ export const IT: Dict = {
     'Il diario di bordo conserva i ricordi per paese e per luogo, con le loro foto; e ogni viaggio mantiene la sua scheda di piano giorno per giorno, con alloggio, trasporto e budget.',
   'tut.app-sala--proximo.titulo': 'Il prossimo viaggio',
   'tut.app-sala--proximo.resumen':
-    'I luoghi ancora da scoprire hanno la propria scheda di piano giorno per giorno, e la somma dei loro budget diventa un obiettivo di risparmio nello studio.',
+    'I posti da scoprire hanno il loro foglio di piano giorno per giorno, e la somma dei loro budget diventa un obiettivo di risparmio in Finanze.',
   'tut.app-entretenimiento--archivo.titulo': 'Un anno di fantascienza',
   'tut.app-entretenimiento--archivo.resumen':
     'L\'archivio conserva quello che guardi, leggi e giochi: ogni scheda con il suo stato, le sue stelle e la tua recensione. Raggruppalo per data in cartelle di anno e mese, oppure per genere.',
@@ -8863,7 +8867,8 @@ export const IT: Dict = {
   'video.publicar.campo.obligatorio': 'Il titolo è obbligatorio.',
   'video.publicar.campo.titulo': 'Titolo',
   'video.publicar.cuenta.caducado': 'L\'accesso è scaduto: ricollega l\'account.',
-  'video.publicar.cuenta.canalYoutube': 'Se il tuo account Google ha più canali, scegli quale usare nella schermata di Google. Per cambiarlo, collegati di nuovo.',
+  'video.publicar.cuenta.canalYoutube':
+    'Se il tuo account Google ha più canali, scegli quale usare nella schermata di Google. Per cambiarlo, collegati di nuovo.',
   'video.publicar.cuenta.cancelar': 'Annulla',
   'video.publicar.cuenta.cargando': 'Sto cercando i tuoi account…',
   'video.publicar.cuenta.conectar': 'Collega {red}',

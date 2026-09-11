@@ -9,7 +9,7 @@ import { useDiseño, useRoomVisual } from '../state/disenoStore'
 import { ErrorBoundary } from './ErrorBoundary'
 import { ListaHoy } from './hoy/ListaHoy'
 import { useNombreCuarto } from './roomDisplay'
-import { VigiaRachaApp } from '../gamificacion/listas'
+import { BienvenidaRachaApp, VigiaRachaApp } from '../gamificacion/listas'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
 import { BotonTutorialApp } from '../tutorial/BotonTutorialApp'
@@ -178,6 +178,9 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
               }
             >
               <GateAppDemo plantillaId={activa.id}>
+                {/* Recibe con la racha de la app (una vez por app y día). Dentro
+                    del gate: en el demo espera a que el año de Pep@ exista. */}
+                <BienvenidaRachaApp key={activa.id} plantillaId={activa.id} />
                 <App />
               </GateAppDemo>
             </Suspense>

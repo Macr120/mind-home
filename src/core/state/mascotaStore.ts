@@ -131,8 +131,9 @@ export const useMascota = create<MascotaState>((set, get) => ({
     }
     if (tSaludo) clearTimeout(tSaludo)
     if (saludar) tSaludo = setTimeout(() => set({ saludando: false }), 1100)
-    // Burbuja visible en proporción al largo del texto (leer toma tiempo).
-    get().programarOcultar(Math.min(14000, Math.max(5200, 3000 + texto.length * 45)))
+    // Burbuja visible en proporción al largo del texto (leer toma tiempo):
+    // entre 9 y 30 s, a 70 ms por carácter.
+    get().programarOcultar(Math.min(30_000, Math.max(9_000, 4_000 + texto.length * 70)))
   },
   programarOcultar: (ms) => {
     if (tMensaje) clearTimeout(tMensaje)

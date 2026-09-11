@@ -246,7 +246,7 @@ export function HojaItinerario({ lugar }: { lugar: LugarViaje }) {
             </button>
           ))}
         <p className="w-full text-[10px] leading-tight text-white/35">
-          {t('sala.hoja.sync', 'Los días con fecha aparecen en el calendario de la casa y el total se vuelve una meta de ahorro en el despacho. El plan se conserva aunque ya visites el lugar; solo desaparece si lo borras.')}
+          {t('sala.hoja.sync', 'Los días con fecha aparecen en el calendario de la casa y el total se vuelve una meta de ahorro en Finanzas. El plan se conserva aunque ya visites el lugar; solo desaparece si lo borras.')}
         </p>
       </div>
     </div>

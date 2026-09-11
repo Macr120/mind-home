@@ -563,7 +563,7 @@ export const EN_TUT: Dict = {
     'Both holes are real: the knee injury in month 7 and the three weeks in Japan. Missing days does not erase progress — the panel shows the year as it was, not as it should have been. And a routine only counts from the day you created it.',
   'tut.metas.0.titulo': 'The heart of your goals',
   'tut.metas.0.texto':
-    'This room keeps nothing of its own. Goals are born in the other apps — running in the Gym, the degree in the Library, saving in the Office — and here ALL of them come together: it is the only place in the house where you see them at once, whatever room they came from.',
+    'This room keeps nothing of its own. Goals are born in the other apps — running in the Gym, the degree in the Library, saving in Finance — and here ALL of them come together: it is the only place in the house where you see them at once, whatever room they came from.',
   'tut.metas.1.titulo': 'Every goal, with its app',
   'tut.metas.1.texto':
     'The folders are not decoration: each one is the app that owns those goals, and it is that app that knows whether they are met, because that is where you log. “Home” is no app — Pep@ made that category up for the kitchen build.',
@@ -757,7 +757,7 @@ export const EN_TUT: Dict = {
     'Every night you log stays here, organized by year, month, and week, so you can review your sleep over time.',
   'tut.app-despacho--esencial.1.titulo': 'Your finances',
   'tut.app-despacho--esencial.1.texto':
-    'The study organizes your money in four menus: what you own, what comes in and goes out, your goals, and the markets. Each one opens its own sections below.',
+    'Finance organizes your money in four menus: what you own, what comes in and goes out, your goals, and the markets. Each one opens its own sections below.',
   'tut.app-despacho--esencial.2.titulo': 'Net worth',
   'tut.app-despacho--esencial.2.texto':
     'What you own and what you owe, in two lists: assets and liabilities. The third section projects that snapshot forward using the rate you set on each line.',
@@ -1003,7 +1003,7 @@ export const EN_TUT: Dict = {
     'Create list gathers what\'s missing from several recipes into one trip: every ingredient guesses its category (produce, dairy…) and can be edited.',
   'tut.app-cocina--recetario.5.titulo': 'The saved lists',
   'tut.app-cocina--recetario.5.texto':
-    'Each list keeps what is still missing and what is already in the cupboard. Add prices and the total can be sent to your expenses in Study.',
+    'Each list keeps what is still missing and what is already in the cupboard. Add prices and the total can be sent to your expenses in Finance.',
   'tut.app-cocina--cronograma.1.titulo': 'What Kitchen asks of you today',
   'tut.app-cocina--cronograma.1.texto':
     'The Missions button in the header opens the checklist of the day: the water, the meals and any steps coming from your goals. The goals themselves —with the plan the AI suggests for them— live in the Goals room, grouped by the app that owns them.',
@@ -1151,7 +1151,7 @@ export const EN_TUT: Dict = {
     'Three dreams written down. Seoul already has a date and a plan; Patagonia and Iceland are still just an idea. The ones with a date show up in your calendar.',
   'tut.app-sala--proximo.2.titulo': 'From the sheet to the goal',
   'tut.app-sala--proximo.2.texto':
-    'The eight days in Korea add up to what the trip would cost, and that total is saved as a savings goal in the study: watching it grow there is watching it get closer here.',
+    'The eight days in Korea add up to what the trip would cost, and that total is saved as a savings goal in Finance: watching it grow there is watching it get closer here.',
   'tut.app-sala--proximo.3.titulo': 'Routes',
   'tut.app-sala--proximo.3.texto':
     'A route chains places in order and draws them on the map. The Japan one is the journey already made; the Korea one is the journey they want.',

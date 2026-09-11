@@ -1,12 +1,12 @@
 import type { Dict } from './dict'
 
 /**
- * Textos de PASO de los tutoriales en pl. Capa aparte porque solo hacen
- * falta con un tour corriendo.
+ * Textos de PASO de los tutoriales en Polaco. Capa aparte porque solo hacen
+ * falta con un tour corriendo. Los títulos y resúmenes NO están aquí: los pinta
+ * el selector sin abrir nada.
  *
- * Lo monta `traducir-a-mano.mjs meter-dict` — no lo edites a mano.
+ * GENERADO por `npm run traducir:i18n` — no lo edites a mano.
  */
-
 export const PL_TUT: Dict = {
   'tut.app-computo--formulario.1.titulo': 'Doczepiony do kalkulatora',
   'tut.app-computo--formulario.1.texto':
@@ -114,7 +114,8 @@ export const PL_TUT: Dict = {
   'tut.primeros.entrar.titulo': 'Wejdź do swoich aplikacji',
   'tut.primeros.entrar.texto':
     'Każdy pokój niesie swoją aplikację, a ty masz troje drzwi: jego kartę tutaj w menu, obiekt z unoszącą się kulą na mapie i szybki dostęp z przycisku MPH u góry.',
-  'tut.primeros.entrar.vacio': 'Tu zamieszkają twoje pokoje, każdy ze swoją aplikacją, i będziesz mieć troje drzwi: kartę pokoju tutaj w menu, obiekt z unoszącą się kulą na mapie i szybki dostęp z przycisku MPH u góry. Stwórzmy pierwszy…',
+  'tut.primeros.entrar.vacio':
+    'Tu zamieszkają twoje pokoje, każdy ze swoją aplikacją, i będziesz mieć troje drzwi: kartę pokoju tutaj w menu, obiekt z unoszącą się kulą na mapie i szybki dostęp z przycisku MPH u góry. Stwórzmy pierwszy…',
   'tut.primeros.prev.titulo': 'Tu stanie twój pokój',
   'tut.primeros.prev.texto':
     'To podgląd pędzla: zielony obrys ze ścianami wskazuje, gdzie stanie pokój. Przy ręcznym budowaniu zobaczysz go tak samo pod palcem, zanim oderwiesz go od ekranu.',
@@ -700,7 +701,7 @@ export const PL_TUT: Dict = {
     'Obie dziury są prawdziwe: kontuzja kolana w siódmym miesiącu i trzy tygodnie w Japonii. Potknięcie nie kasuje postępu — panel pokazuje rok takim, jaki był, a nie takim, jaki miał być. A rutyna liczy się dopiero od dnia, w którym powstała.',
   'tut.metas.0.titulo': 'Serce twoich celów',
   'tut.metas.0.texto':
-    'Ten pokój nie trzyma nic własnego. Cele rodzą się w innych aplikacjach — bieganie na Siłowni, studia w Bibliotece, oszczędzanie w Gabinecie — a tutaj zbierają się WSZYSTKIE: to jedyne miejsce w domu, gdzie widać je naraz, z dowolnego pokoju.',
+    'Ten pokój nie przechowuje nic własnego. Cele rodzą się w innych aplikacjach — bieganie w Ćwiczeniach, studia w Bibliotece, oszczędzanie w Finansach — a tutaj zbierają się WSZYSTKIE: to jedyne miejsce w domu, gdzie widzisz je razem, z któregokolwiek pokoju pochodzą.',
   'tut.metas.1.titulo': 'Każdy cel ze swoją aplikacją',
   'tut.metas.1.texto':
     'Foldery to nie ozdoba: każdy z nich to aplikacja, która prowadzi te cele, i to ona wie, czy zostały spełnione, bo tam właśnie zapisujesz. «Dom» to żadna aplikacja — tę kategorię Pep wymyślił na remont kuchni.',
@@ -894,7 +895,7 @@ export const PL_TUT: Dict = {
     'Każda zarejestrowana noc zostaje tutaj, uporządkowana według roku, miesiąca i tygodnia, żebyś mógł przejrzeć swój odpoczynek w czasie.',
   'tut.app-despacho--esencial.1.titulo': 'Twoje finanse',
   'tut.app-despacho--esencial.1.texto':
-    'Gabinet porządkuje twoje pieniądze w czterech podmenu: to, co masz, to, co wchodzi i wychodzi, twoje cele i rynki. Każde otwiera własne sekcje poniżej.',
+    'Finanse porządkują twoje pieniądze w czterech menu: co masz, co wchodzi i wychodzi, twoje cele i rynki. Każde otwiera poniżej własne sekcje.',
   'tut.app-despacho--esencial.2.titulo': 'Majątek netto',
   'tut.app-despacho--esencial.2.texto':
     'To, co masz, i to, co jesteś winien, w dwóch listach: aktywa i pasywa. Trzecia sekcja przekłada ten obraz na przyszłość według stopy, którą ustawisz w każdej linii.',
@@ -1140,7 +1141,7 @@ export const PL_TUT: Dict = {
     '„Utwórz listę” zbiera to, czego brakuje z kilku przepisów, w jedne zakupy: każdy składnik sam zgaduje swoją kategorię (warzywa, nabiał…) i można ją zmienić.',
   'tut.app-cocina--recetario.5.titulo': 'Zapisane listy',
   'tut.app-cocina--recetario.5.texto':
-    'Każda lista zapisuje to, co zostało do kupienia, i to, co już kupione. Jeśli dopiszesz ceny, rachunek można zarejestrować jako wydatek w Gabinecie.',
+    'Każda lista zapisuje to, czego jeszcze brakuje, i to, co już jest w spiżarni. Dodaj ceny, a sumę można wysłać do wydatków w Finansach.',
   'tut.app-cocina--cronograma.1.titulo': 'Cel wagowy w etapach',
   'tut.app-cocina--cronograma.1.texto':
     'Przycisk Misje w nagłówku otwiera checklistę dnia: woda, posiłki i kroki, które biorą się z twoich celów. Same cele — wraz z planem, który proponuje im AI — żyją w pokoju Cele, pogrupowane według aplikacji, która je prowadzi.',
@@ -1288,7 +1289,7 @@ export const PL_TUT: Dict = {
     'Trzy zapisane marzenia. Seul ma już datę i plan; Patagonia i Islandia są jeszcze pomysłem. Te z datą pojawiają się w twoim kalendarzu.',
   'tut.app-sala--proximo.2.titulo': 'Z kartki w cel',
   'tut.app-sala--proximo.2.texto':
-    'Osiem dni w Korei sumuje się w koszt całej podróży, a ta suma zapisuje się jako cel oszczędnościowy w Gabinecie: patrzeć, jak rośnie tam, to patrzeć, jak zbliża się tutaj.',
+    'Osiem dni w Korei daje w sumie koszt wyjazdu, a ta suma zapisuje się jako cel oszczędnościowy w Finansach: patrzeć, jak rośnie tam, to patrzeć, jak zbliża się tutaj.',
   'tut.app-sala--proximo.3.titulo': 'Trasy',
   'tut.app-sala--proximo.3.texto':
     'Trasa łączy miejsca po kolei i rysuje je na mapie. Ta japońska to przebyta droga; koreańska — ta, która dopiero czeka.',

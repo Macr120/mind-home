@@ -123,7 +123,7 @@ export const cuerpoProximo: CuerpoTutorial = {
       titulo: T('tut.app-sala--proximo.2.titulo', 'De la hoja a la meta'),
       texto: T(
         'tut.app-sala--proximo.2.texto',
-        'Los ocho días de Corea suman lo que costaría el viaje, y esa suma se guarda como meta de ahorro en el despacho: verla crecer allá es verla acercarse acá.',
+        'Los ocho días de Corea suman lo que costaría el viaje, y esa suma se guarda como meta de ahorro en Finanzas: verla crecer allá es verla acercarse acá.',
       ),
     },
     {

@@ -17,10 +17,13 @@ export function BotonVoz({
   texto,
   asistenteId,
   className = '',
+  onCambio,
 }: {
   texto: string
   asistenteId: string
   className?: string
+  /** Avisa cuando ESTE botón empieza o deja de leer (la nube 3D se queda mientras tanto). */
+  onCambio?: (hablando: boolean) => void
 }) {
   const t = useT()
   const [hablando, setHablando] = useState(false)
@@ -42,16 +45,24 @@ export function BotonVoz({
   const a = getAsistente(asistenteId)
   if ((!hayVoz() && !a.vozIA) || !texto.trim()) return null
 
+  const cambiar = (v: boolean) => {
+    setHablando(v)
+    onCambio?.(v)
+  }
   const leer = async () => {
     if (hablando) {
       callarComoAsistente()
-      setHablando(false)
+      cambiar(false)
       return
     }
     vibrar(10)
-    // Se llama también si otra lectura cancela esta.
-    const ok = await hablarComoAsistente(limpiarMarkdown(texto), a, () => setHablando(false))
-    setHablando(ok)
+    // Se llama también si otra lectura cancela esta (`natural` false): ahí el
+    // botón se apaga, pero no se avisa fuera, que esa otra lectura ya manda.
+    const ok = await hablarComoAsistente(limpiarMarkdown(texto), a, (natural) => {
+      if (natural === false) setHablando(false)
+      else cambiar(false)
+    })
+    cambiar(ok)
   }
 
   return (

@@ -792,6 +792,8 @@ export const NL: Dict = {
   'celebra.racha.titulo': 'Reeks van {n} dagen!',
   'celebra.racha.titulo1': 'Reeks van 1 dag!',
   'celebra.racha.cuerpo': 'Ga zo door in {app} 🔥',
+  'celebra.racha.titulo0': 'Begin vandaag je reeks',
+  'celebra.racha.cuerpo0': 'Noteer iets in {app} en ga van start 🔥',
   'celebra.lista.titulo': 'Missies van vandaag gehaald!',
   'celebra.lista.cuerpo': 'Je hebt de lijst van {app} voltooid',
   'celebra.lista.xp': '+{xp} XP',
@@ -1123,7 +1125,8 @@ export const NL: Dict = {
   'ajustes.tema.masColores': 'Meer kleuren',
   'ajustes.tema.menosColores': 'Minder kleuren',
   'ajustes.tema.tinte': 'Tint',
-  'ajustes.tema.tinte.desc': 'Hoe sterk menu’s en panelen de kleur van het thema overnemen, niet alleen de knoppen. De apps van de kamers houden hun eigen kleuren.',
+  'ajustes.tema.tinte.desc':
+    'Hoe sterk menu’s en panelen de kleur van het thema overnemen, niet alleen de knoppen. De apps van de kamers houden hun eigen kleuren.',
   'ajustes.modo': 'Weergave',
   'ajustes.estilo': 'Stijl van de interface',
   'ajustes.estilo.desc': 'De vorm van knoppen, kaarten en panelen: hoeken, randen en schaduwen.',
@@ -1187,7 +1190,7 @@ export const NL: Dict = {
   'room.recamara.nombre': 'Slaapkamer',
   'room.descanso.nombre': 'Bed · Rust',
   'room.anecdotario.nombre': 'Bureau · Dagboek',
-  'room.despacho.nombre': 'Werkkamer',
+  'room.despacho.nombre': 'Financiën',
   'room.biblioteca.nombre': 'Bibliotheek',
   'room.entretenimiento.nombre': 'Vermaak',
   'room.sala.nombre': 'Woonkamer',
@@ -1209,7 +1212,7 @@ export const NL: Dict = {
   'room.recamara.sub': 'Slaap & anekdotes',
   'room.descanso.sub': 'Slaap & wekker',
   'room.anecdotario.sub': 'Persoonlijk dagboek',
-  'room.despacho.sub': 'Financiën',
+  'room.despacho.sub': 'Budget, doelen en markten',
   'room.biblioteca.sub': 'Leren',
   'room.entretenimiento.sub': 'Archief & bordspellen',
   'room.sala.sub': 'Reizen',
@@ -2700,9 +2703,9 @@ export const NL: Dict = {
   'cocina.comp.cuenta': 'Boodschappenrekening',
   'cocina.comp.cuentaAyuda': 'Vul de prijs van elk artikel in en de rekening telt zichzelf op.',
   'cocina.comp.cuentaConPrecio': '{c} van {n} items geprijsd',
-  'cocina.comp.registrarGasto': 'Registreren als uitgave in de Werkkamer',
-  'cocina.comp.actualizarGasto': 'Uitgave in de Werkkamer bijwerken',
-  'cocina.comp.gastoAlDia': '✓ Geregistreerd in de Werkkamer',
+  'cocina.comp.registrarGasto': 'Als uitgave noteren in Financiën',
+  'cocina.comp.actualizarGasto': 'De uitgave bijwerken in Financiën',
+  'cocina.comp.gastoAlDia': '✓ Genoteerd in Financiën',
   'cocina.comp.notaGasto': 'Boodschappen',
   'cocina.comp.listaDefecto': 'Lijst',
   'cocina.comp.listasVacio':
@@ -3637,7 +3640,7 @@ export const NL: Dict = {
   'sala.hoja.total': 'Totaal',
   'sala.hoja.agregarDia': 'Dag',
   'sala.hoja.sync':
-    'Dagen met een datum verschijnen in de huiskalender en het totaal wordt een spaardoel in de werkkamer. Het plan blijft bewaard, ook als je de plek al bezoekt; het verdwijnt alleen als je het verwijdert.',
+    'Dagen met datum verschijnen in de kalender van het huis en het totaal wordt een spaardoel in Financiën. Het plan blijft bewaard, ook als je de plek al bezoekt; het verdwijnt alleen als je het verwijdert.',
   'sala.hoja.compartir': 'Delen',
   'sala.hoja.copiado': 'Gekopieerd',
   'sala.hoja.guardar': 'Opslaan',
@@ -4240,7 +4243,8 @@ export const NL: Dict = {
   'editor.avatar.usandoGlb': 'Je gebruikt je eigen .glb-model. Kleuren gelden niet voor dit model.',
   'editor.avatar.usandoIa': 'Je gebruikt een door AI gemaakte vorm. Kleuren gelden niet voor deze vorm.',
   'editor.tema.titulo': 'Huisthema',
-  'editor.tema.desc': 'Past stijl toe op kamers, achtergrond, vloer en dak, kleedt de interface en je personage aan en activeert micro-animaties in de lucht.',
+  'editor.tema.desc':
+    'Past stijl toe op kamers, achtergrond, vloer en dak, kleedt de interface en je personage aan en activeert micro-animaties in de lucht.',
   'editor.tema.sin': 'Geen thema',
   'editor.tema.misTemas': 'Mijn thema\'s',
   'editor.tema.guardar': '+ Huidige opslaan',
@@ -6858,7 +6862,7 @@ export const NL: Dict = {
   'ia.donde.editorCuarto': 'Editor › Vloer, muren, plafond, deuren en raster',
   'ia.donde.editorFondo': 'Luchtachtergrond',
   'ia.donde.asistentes': 'Assistenten',
-  'ia.donde.metas': 'Keuken, Gym, Bibliotheek, Talen, Woonkamer, Hobbies, Werkkamer en Vermaak',
+  'ia.donde.metas': 'Keuken, Beweging, Bibliotheek, Talen, Woonkamer, Hobby\'s, Financiën en Entertainment',
   'ia.op.chat.mensaje': 'Bericht aan je assistent',
   'ia.op.chat.modelo3d': '“Maak een 3D…” vanuit de chat',
   'ia.op.chat.modelo3d.nota': 'Twee aanroepen: de beurt die de opdracht leest en de generatie zelf.',
@@ -7016,7 +7020,7 @@ export const NL: Dict = {
   'tut.app-descanso--esencial.resumen':
     'Rust registreert hoe je slaapt op één scherm: de score van de afgelopen nacht, je schema met zijn herinneringen, het dagregister en de volledige geschiedenis per jaar, maand en week.',
   'tut.app-despacho--esencial.resumen':
-    'De werkkamer ordent je geld in vier menu\'s. Vermogen bewaart wat je hebt en wat je schuldig bent, met de projectie ervan; Kasstroom houdt uitgaven, inkomsten en het saldo van de periode bij, met budget en categorieën; Doelen brengt sparen, beleggen en schulden samen, plus de rekenmachines die een bedrag voorstellen. Markten is een bord met live koersen, alleen ter info.',
+    'Financiën ordent je geld in vier menu\'s. Vermogen bewaart wat je hebt en wat je schuldig bent, met de prognose erbij; Stroom houdt uitgaven, inkomsten en het saldo van de periode bij, met budget en categorieën; Doelen brengt sparen, beleggen en schuld samen, plus de rekenhulpen die een bedrag voorstellen. Markten is een bord met live koersen, alleen om te bekijken.',
   'tut.app-diario--esencial.resumen':
     'Het dagelijkse nieuws is een vluchtige krant: koppen uit echte pers per categorie en de rubriek \'op deze dag\', die zichzelf om middernacht vernieuwt. Bij de bezorging plan je in dat een assistent hem in zijn eigen chat aflevert.',
   'tut.app-ejercicio--esencial.resumen':
@@ -7186,7 +7190,7 @@ export const NL: Dict = {
     'Het logboek bewaart je herinneringen per land en per plek, met foto\'s erbij; en elke reis heeft zijn eigen reisplan, dag voor dag, met verblijf, vervoer en budget.',
   'tut.app-sala--proximo.titulo': 'De volgende reis',
   'tut.app-sala--proximo.resumen':
-    'Plekken die je nog wilt bezoeken krijgen hun eigen reisplan, dag voor dag, en de som van hun budgetten wordt een spaardoel in de werkkamer.',
+    'Plekken die je nog wilt zien krijgen hun eigen plan per dag, en de som van hun budgetten wordt een spaardoel in Financiën.',
   'tut.app-entretenimiento--archivo.titulo': 'Een jaar sciencefiction',
   'tut.app-entretenimiento--archivo.resumen':
     'Het archief bewaart wat je bekijkt, leest en speelt: elke titel met zijn status, sterren en jouw recensie. Groepeer op datum in jaar- en maandmappen, of op genre.',
@@ -8870,7 +8874,8 @@ export const NL: Dict = {
   'video.publicar.campo.obligatorio': 'De titel is verplicht.',
   'video.publicar.campo.titulo': 'Titel',
   'video.publicar.cuenta.caducado': 'De toegang is verlopen: verbind het account opnieuw.',
-  'video.publicar.cuenta.canalYoutube': 'Als je Google-account meerdere kanalen heeft, kies je op het Google-scherm welk kanaal je gebruikt. Verbind opnieuw om te wisselen.',
+  'video.publicar.cuenta.canalYoutube':
+    'Als je Google-account meerdere kanalen heeft, kies je op het Google-scherm welk kanaal je gebruikt. Verbind opnieuw om te wisselen.',
   'video.publicar.cuenta.cancelar': 'Annuleren',
   'video.publicar.cuenta.cargando': 'Je accounts zoeken…',
   'video.publicar.cuenta.conectar': '{red} verbinden',

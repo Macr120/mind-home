@@ -1,12 +1,12 @@
 import type { Dict } from './dict'
 
 /**
- * Textos de PASO de los tutoriales en nl. Capa aparte porque solo hacen
- * falta con un tour corriendo.
+ * Textos de PASO de los tutoriales en Neerlandés. Capa aparte porque solo hacen
+ * falta con un tour corriendo. Los títulos y resúmenes NO están aquí: los pinta
+ * el selector sin abrir nada.
  *
- * Lo monta `traducir-a-mano.mjs meter-dict` — no lo edites a mano.
+ * GENERADO por `npm run traducir:i18n` — no lo edites a mano.
  */
-
 export const NL_TUT: Dict = {
   'tut.app-computo--formulario.1.titulo': 'Het hangt aan de rekenmachine',
   'tut.app-computo--formulario.1.texto':
@@ -114,7 +114,8 @@ export const NL_TUT: Dict = {
   'tut.primeros.entrar.titulo': 'Je apps binnengaan',
   'tut.primeros.entrar.texto':
     'Elke kamer draagt zijn app en je hebt drie deuren: zijn kaart hier in het menu, het object met de zwevende bol op de plattegrond, en de snelle toegang via de MPH-knop bovenaan.',
-  'tut.primeros.entrar.vacio': 'Hier komen je kamers te wonen, elk met zijn app, en je krijgt drie deuren: zijn kaart hier in het menu, het object met de zwevende bol op de plattegrond, en de snelle toegang via de MPH-knop bovenaan. Laten we de eerste maken…',
+  'tut.primeros.entrar.vacio':
+    'Hier komen je kamers te wonen, elk met zijn app, en je krijgt drie deuren: zijn kaart hier in het menu, het object met de zwevende bol op de plattegrond, en de snelle toegang via de MPH-knop bovenaan. Laten we de eerste maken…',
   'tut.primeros.prev.titulo': 'Hier komt jouw kamer',
   'tut.primeros.prev.texto':
     'Dit is de preview van het penseel: het groene silhouet met zijn muren markeert waar de kamer komt te staan. Bouw je met de hand, dan zie je het net zo onder je vinger, nog vóór je de tik loslaat.',
@@ -702,7 +703,7 @@ export const NL_TUT: Dict = {
     'Die twee gaten zijn echt: de knieblessure in maand 7 en de drie weken in Japan. Missen wist je voortgang niet uit — het paneel toont het jaar zoals het was, niet zoals het had moeten zijn. En een routine telt pas mee vanaf de dag dat je hem aanmaakte.',
   'tut.metas.0.titulo': 'Het hart van je doelen',
   'tut.metas.0.texto':
-    'Deze kamer bewaart niets van zichzelf. Doelen ontstaan in de andere apps — hardlopen in de Gym, de studie in de Bibliotheek, sparen in de Werkkamer — en hier komen ze ALLEMAAL samen: de enige plek in huis waar je ze in één keer ziet, uit welke kamer ze ook komen.',
+    'Deze kamer bewaart niets van zichzelf. Doelen ontstaan in de andere apps — hardlopen in Sport, je studie in de Bibliotheek, sparen in Financiën — en hier komen ze ALLEMAAL samen: het is de enige plek in huis waar je ze tegelijk ziet, uit welke kamer ze ook komen.',
   'tut.metas.1.titulo': 'Elk doel met zijn app',
   'tut.metas.1.texto':
     'De mappen zijn geen versiering: elke map is de app die die doelen draagt, en die app weet of ze gehaald worden, want daar leg je vast. «Huis» is geen app — die categorie verzon Pep@ voor de keukenverbouwing.',
@@ -896,7 +897,7 @@ export const NL_TUT: Dict = {
     'Elke nacht die je registreert, blijft hier bewaard, gesorteerd per jaar, maand en week, zodat je je rust in de loop van de tijd kunt bekijken.',
   'tut.app-despacho--esencial.1.titulo': 'Jouw financiën',
   'tut.app-despacho--esencial.1.texto':
-    'De werkkamer ordent je geld in vier menu\'s: wat je hebt, wat er binnenkomt en uitgaat, je doelen en de markten. Elk opent zijn eigen secties eronder.',
+    'Financiën ordent je geld in vier menu\'s: wat je hebt, wat er in- en uitgaat, je doelen en de markten. Elk menu opent daaronder zijn eigen secties.',
   'tut.app-despacho--esencial.2.titulo': 'Vermogen',
   'tut.app-despacho--esencial.2.texto':
     'Wat je hebt en wat je schuldig bent, in twee lijsten: bezittingen en schulden. De derde sectie projecteert die momentopname vooruit met het rentepercentage dat je op elke regel instelt.',
@@ -1142,7 +1143,7 @@ export const NL_TUT: Dict = {
     'Lijst maken bundelt wat er van meerdere recepten ontbreekt tot één boodschappenronde: elk ingrediënt raadt zijn categorie (groente, zuivel…) en je kunt die aanpassen.',
   'tut.app-cocina--recetario.5.titulo': 'De opgeslagen lijsten',
   'tut.app-cocina--recetario.5.texto':
-    'Elke lijst bewaart wat er nog gekocht moet worden en wat al in huis is. Zet je er prijzen bij, dan kun je de rekening doorsturen naar de uitgaven in de Werkkamer.',
+    'Elke lijst bewaart wat je nog moet kopen en wat al in de voorraadkast staat. Zet je er prijzen bij, dan kun je het totaal naar je uitgaven in Financiën sturen.',
   'tut.app-cocina--cronograma.1.titulo': 'Het gewichtsdoel, in fases',
   'tut.app-cocina--cronograma.1.texto':
     'De knop Missies in de header opent de checklist van de dag: het water, de maaltijden en de stappen die uit je doelen komen. De doelen zelf — met het plan dat de AI ervoor voorstelt — leven in de kamer Doelen, gegroepeerd per app die ze bijhoudt.',
@@ -1290,7 +1291,7 @@ export const NL_TUT: Dict = {
     'Drie dromen genoteerd. Seoel heeft al een datum en een plan; Patagonië en IJsland zijn nog een idee. Wat een datum heeft, verschijnt in je kalender.',
   'tut.app-sala--proximo.2.titulo': 'Van het blad naar het doel',
   'tut.app-sala--proximo.2.texto':
-    'De acht dagen Korea tellen op tot wat de reis zou kosten, en die som wordt een spaardoel in de werkkamer: daar zie je hem groeien, hier zie je hem dichterbij komen.',
+    'De acht dagen in Korea tellen op tot wat de reis zou kosten, en dat bedrag wordt bewaard als spaardoel in Financiën: het daar zien groeien is het hier dichterbij zien komen.',
   'tut.app-sala--proximo.3.titulo': 'Routes',
   'tut.app-sala--proximo.3.texto':
     'Een route rijgt plekken op volgorde aan elkaar en tekent ze op de kaart. Die van Japan is de tocht die al gemaakt is; die van Korea, de tocht die nog wacht.',

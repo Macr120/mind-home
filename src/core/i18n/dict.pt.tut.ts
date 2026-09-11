@@ -1,12 +1,12 @@
 import type { Dict } from './dict'
 
 /**
- * Textos de PASO de los tutoriales en pt. Capa aparte porque solo hacen
- * falta con un tour corriendo.
+ * Textos de PASO de los tutoriales en Portugués. Capa aparte porque solo hacen
+ * falta con un tour corriendo. Los títulos y resúmenes NO están aquí: los pinta
+ * el selector sin abrir nada.
  *
- * Lo monta `traducir-a-mano.mjs meter-dict` — no lo edites a mano.
+ * GENERADO por `npm run traducir:i18n` — no lo edites a mano.
  */
-
 export const PT_TUT: Dict = {
   'tut.app-computo--formulario.1.titulo': 'Fica pendurado na calculadora',
   'tut.app-computo--formulario.1.texto':
@@ -114,7 +114,8 @@ export const PT_TUT: Dict = {
   'tut.primeros.entrar.titulo': 'Entrar nos seus apps',
   'tut.primeros.entrar.texto':
     'Cada cômodo carrega seu app e você tem três portas: o cartão dele aqui no menu, o objeto com a esfera flutuante no mapa, e o acesso rápido do botão MPH lá em cima.',
-  'tut.primeros.entrar.vacio': 'Aqui vão morar seus cômodos, cada um com seu app, e você terá três portas: o cartão dele aqui no menu, o objeto com a esfera flutuante no mapa, e o acesso rápido do botão MPH lá em cima. Vamos criar o primeiro…',
+  'tut.primeros.entrar.vacio':
+    'Aqui vão morar seus cômodos, cada um com seu app, e você terá três portas: o cartão dele aqui no menu, o objeto com a esfera flutuante no mapa, e o acesso rápido do botão MPH lá em cima. Vamos criar o primeiro…',
   'tut.primeros.prev.titulo': 'Seu cômodo vai aqui',
   'tut.primeros.prev.texto':
     'Esta é a prévia do pincel: a silhueta verde com as paredes marca onde o cômodo vai se levantar. Construindo à mão você a verá igual embaixo do dedo, antes de soltar o toque.',
@@ -698,7 +699,7 @@ export const PT_TUT: Dict = {
     'Os dois buracos são reais: a lesão no joelho do mês 7 e as três semanas no Japão. Falhar não apaga o progresso — o painel mostra o ano como ele foi, não como devia ter sido. E uma rotina só conta a partir do dia em que você a criou.',
   'tut.metas.0.titulo': 'O centro das suas metas',
   'tut.metas.0.texto':
-    'Este cômodo não guarda nada próprio. As metas nascem nos outros apps — correr na Academia, a faculdade na Biblioteca, poupar no Escritório — e aqui se juntam TODAS: é o único lugar da casa onde se veem de uma vez, venham do cômodo que vierem.',
+    'Este cômodo não guarda nada próprio. As metas nascem nos outros apps — correr na Academia, a faculdade na Biblioteca, poupar em Finanças — e aqui se juntam TODAS: é o único lugar da casa onde você as vê ao mesmo tempo, venham do cômodo que vierem.',
   'tut.metas.1.titulo': 'Cada meta, com o seu app',
   'tut.metas.1.texto':
     'As pastas não são enfeite: cada uma é o app que cuida daquelas metas, e é ele que sabe se elas se cumprem, porque é onde você registra. «Casa» não é app nenhum — essa categoria Pep@ inventou para a obra da cozinha.',
@@ -892,7 +893,7 @@ export const PT_TUT: Dict = {
     'Todas as noites que você for registrando ficam aqui, organizadas por ano, mês e semana, para você revisar seu descanso ao longo do tempo.',
   'tut.app-despacho--esencial.1.titulo': 'Suas finanças',
   'tut.app-despacho--esencial.1.texto':
-    'O escritório organiza seu dinheiro em quatro menus: o que você tem, o que entra e sai, suas metas e os mercados. Cada um abre suas próprias seções embaixo.',
+    'Finanças organiza seu dinheiro em quatro menus: o que você tem, o que entra e sai, suas metas e os mercados. Cada um abre suas próprias seções embaixo.',
   'tut.app-despacho--esencial.2.titulo': 'Patrimônio',
   'tut.app-despacho--esencial.2.texto':
     'O que você tem e o que deve, em duas listas: ativos e passivos. A terceira seção projeta essa foto para o futuro com a taxa que você definir em cada linha.',
@@ -1138,7 +1139,7 @@ export const PT_TUT: Dict = {
     'Criar lista junta o que falta de várias receitas em uma só compra: cada ingrediente adivinha sua categoria (verdura, laticínio…) e pode ser editado.',
   'tut.app-cocina--recetario.5.titulo': 'As listas salvas',
   'tut.app-cocina--recetario.5.texto':
-    'Cada lista guarda o que ainda falta comprar e o que já está na despensa. Se você colocar preços, o total pode ir para os gastos do Escritório.',
+    'Cada lista guarda o que falta comprar e o que já está na despensa. Se você colocar preços, a conta pode ser enviada para os gastos de Finanças.',
   'tut.app-cocina--cronograma.1.titulo': 'O que a Cozinha pede de você hoje',
   'tut.app-cocina--cronograma.1.texto':
     'O botão Missões do cabeçalho abre o checklist do dia: a água, as refeições e os passos que vierem das suas metas. As metas em si —com o plano que a IA propõe para elas— ficam no cômodo Metas, agrupadas pelo app que cuida delas.',
@@ -1286,7 +1287,7 @@ export const PT_TUT: Dict = {
     'Três sonhos anotados. Seul já tem data e plano; a Patagônia e a Islândia ainda são só uma ideia. Os que têm data aparecem no seu calendário.',
   'tut.app-sala--proximo.2.titulo': 'Da planilha à meta',
   'tut.app-sala--proximo.2.texto':
-    'Os oito dias na Coreia somam quanto custaria a viagem, e essa soma fica salva como meta de poupança no escritório: ver crescer lá é ver chegar mais perto aqui.',
+    'Os oito dias na Coreia somam quanto custaria a viagem, e essa soma fica salva como meta de poupança em Finanças: vê-la crescer lá é vê-la se aproximar aqui.',
   'tut.app-sala--proximo.3.titulo': 'Rotas',
   'tut.app-sala--proximo.3.texto':
     'Uma rota encadeia lugares em ordem e os desenha no mapa. A do Japão é o trajeto que já fez; a da Coreia, o que quer fazer.',

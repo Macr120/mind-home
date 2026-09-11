@@ -111,7 +111,7 @@ export const cuerpoRecetario: CuerpoTutorial = {
       titulo: T('tut.app-cocina--recetario.5.titulo', 'Las listas guardadas'),
       texto: T(
         'tut.app-cocina--recetario.5.texto',
-        'Cada lista se guarda con lo que falta por comprar y lo que ya está en la despensa. Si les pones precio, la cuenta se puede mandar a los gastos del Despacho.',
+        'Cada lista se guarda con lo que falta por comprar y lo que ya está en la despensa. Si les pones precio, la cuenta se puede mandar a los gastos de Finanzas.',
       ),
       alEntrar: async () => {
         await esperarTut('cocina.compras.sub.listas', 3000)

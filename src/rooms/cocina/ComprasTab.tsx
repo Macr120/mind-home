@@ -457,10 +457,10 @@ function CuentaLista({ lista, items }: { lista: ListaCompra; items: ItemCompra[]
         className="ui-accent-bg w-full rounded-xl py-2.5 text-sm font-bold hover:brightness-110 disabled:opacity-40"
       >
         {alDia
-          ? t('cocina.comp.gastoAlDia', '✓ Registrado en el Despacho')
+          ? t('cocina.comp.gastoAlDia', '✓ Registrado en Finanzas')
           : gasto
-          ? t('cocina.comp.actualizarGasto', 'Actualizar el gasto del Despacho')
-          : t('cocina.comp.registrarGasto', 'Registrar como gasto en el Despacho')}
+          ? t('cocina.comp.actualizarGasto', 'Actualizar el gasto en Finanzas')
+          : t('cocina.comp.registrarGasto', 'Registrar como gasto en Finanzas')}
       </button>
     </div>
   )

@@ -73,23 +73,15 @@ function Burbuja({ asistente }: { asistente: Asistente }) {
               {nombreAsistente(t, asistente)}
             </span>
           </button>
-          {/* Pedirle un baile o un ejercicio (o pararlo): lo hace aquí mismo, mirándote. */}
-          <div className="mt-1 flex gap-1">
-            {actuando ? (
+          {/* Solo «Hablar». Si el chat lo puso a bailar o a hacer ejercicio, aquí
+              mismo se le para; en reposo no se le pide nada más. */}
+          {actuando && (
+            <div className="mt-1 flex gap-1">
               <button type="button" onClick={() => useActuacion.getState().parar(id)} className={btnMini}>
                 <Icono nombre="detener" /> {t('dialogo.parar', 'Parar')}
               </button>
-            ) : (
-              <>
-                <button type="button" onClick={() => useActuacion.getState().abrirSelector(id, 'emote')} className={btnMini}>
-                  <Icono nombre="bailar" /> {t('dialogo.bailar', 'Bailar')}
-                </button>
-                <button type="button" onClick={() => useActuacion.getState().abrirSelector(id, 'ejercicio')} className={btnMini}>
-                  <Icono nombre="tab-fuerza" /> {t('dialogo.ejercicio', 'Ejercicio')}
-                </button>
-              </>
-            )}
-          </div>
+            </div>
+          )}
           <span
             className="pointer-events-none -mt-px h-0 w-0 border-x-[8px] border-t-[10px] border-x-transparent"
             style={{ borderTopColor: 'rgba(255,255,255,0.25)' }}
