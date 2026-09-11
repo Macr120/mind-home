@@ -69,7 +69,8 @@ export function EditorProyecto({
   const t = useT()
   const [proyecto, setProyecto] = useState<ProyectoAudio | null>(null)
   // Tercera vista del timeline: la cascada de práctica ocupa el editor entero.
-  const [vistaCascada, setVistaCascada] = useState(!!cascadaInicial)
+  // 'partitura' = entrar por «Practicar»: la partitura desplazándose y modo Ritmo.
+  const [vistaCascada, setVistaCascada] = useState<false | 'cascada' | 'partitura'>(cascadaInicial ? 'cascada' : false)
   const [pistaActivaId, setPistaActivaId] = useState('')
   const [version, setVersion] = useState(0)
   const [posInicio, setPosInicio] = useState(0)
@@ -81,6 +82,9 @@ export function EditorProyecto({
   const [exportando, setExportando] = useState(false)
   const [octava, setOctava] = useState(60) // C4
   const [rollExpandido, setRollExpandido] = useState(false)
+  // El panel del sinte plegado desaparece del todo: su botón de volver se cuela
+  // sobre la flecha izquierda del teclado (no ocupa un renglón).
+  const [sintePlegado, setSintePlegado] = useState(false)
   // Velocidad de lo que se toca/pinta en la BATERÍA (chip «Fuerza»: 60/100/127).
   const [fuerza, setFuerza] = useState(100)
   const [panelIA, setPanelIA] = useState(false)
@@ -553,6 +557,7 @@ export function EditorProyecto({
     return (
       <VistaCascada
         proyecto={proyecto}
+        partituraInicial={vistaCascada === 'partitura'}
         octava={octava}
         onOctava={setOctava}
         midiNombre={midiNombre}
@@ -624,6 +629,7 @@ export function EditorProyecto({
           setPanelIA(true)
         }}
         onDeshacerIA={iaAplicada ? deshacerIA : null}
+        onPracticar={() => setVistaCascada('partitura')}
       />
 
       {/* El timeline integra las pistas: una sola tarjeta con la columna de pistas a la IZQUIERDA y el roll a la derecha.
@@ -681,7 +687,7 @@ export function EditorProyecto({
           expandido={rollExpandido}
           velocidadNueva={velToque}
           onExpandir={() => setRollExpandido((v) => !v)}
-          onCascada={() => setVistaCascada(true)}
+          onCascada={() => setVistaCascada('cascada')}
           onActiva={setPistaActivaId}
           onNotas={cambiarNotas}
           onClips={cambiarClips}
@@ -707,7 +713,7 @@ export function EditorProyecto({
         <>
           {/* El panel del sinte va pegado ARRIBA del teclado: controla lo que se toca ahí.
               Expandido se pliega el sinte, pero el INSTRUMENTO (teclado) se queda: sigues tocando. */}
-          {!rollExpandido && (
+          {!rollExpandido && !sintePlegado && (
             <PanelSinte
               pista={pista}
               vivo={proyecto.vivo}
@@ -734,6 +740,7 @@ export function EditorProyecto({
               onVivo={(v) => mutar((p) => ({ ...p, vivo: v }))}
               onOctava={setOctava}
               onMaestro={(v) => mutar((p) => ({ ...p, volumenMaestro: v }))}
+              onPlegar={() => setSintePlegado(true)}
             />
           )}
           <TecladoPantalla
@@ -744,6 +751,19 @@ export function EditorProyecto({
             velocidad={velToque}
             onNota={(tono, vel) => notaEnVivo(tono, vel, performance.now())}
             onFin={(tono) => finEnVivo(tono, performance.now())}
+            esquina={
+              !rollExpandido && sintePlegado ? (
+                <button
+                  type="button"
+                  onClick={() => setSintePlegado(false)}
+                  aria-label={t('audio.sinte.mostrar', 'Mostrar los ajustes')}
+                  title={t('audio.sinte.mostrar', 'Mostrar los ajustes')}
+                  className="ui-presion grid h-8 w-8 place-items-center rounded-lg border border-white/10 bg-white/10 text-white/70 transition hover:bg-white/20"
+                >
+                  <Icono nombre="sintetizador" />
+                </button>
+              ) : undefined
+            }
           />
         </>
       )}

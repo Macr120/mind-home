@@ -88,6 +88,7 @@ export function PanelSinte({
   onNotas,
   onInstrumento,
   onMaestro,
+  onPlegar,
 }: {
   pista: PistaAudio
   vivo: AjustesVivo | undefined
@@ -109,11 +110,11 @@ export function PanelSinte({
   /** Cambia la VARIANTE dentro de la familia elegida en la pista. */
   onInstrumento: (i: InstrumentoAudio) => void
   onMaestro: (v: number) => void
+  /** Plegar el panel entero: el editor lo quita y deja el botón de volver sobre la flecha del teclado. */
+  onPlegar: () => void
 }) {
   const t = useT()
   const [abierto, setAbierto] = useState(true)
-  // Plegado, el panel entero queda en una barrita (más espacio; el teclado sigue).
-  const [plegado, setPlegado] = useState(false)
   const [pestana, setPestana] = useState<'fx' | 'sonido'>('fx')
   const [modal, setModal] = useState<'arp' | 'acorde' | 'escala' | 'relleno' | 'patrones' | null>(null)
   const [golpeSel, setGolpeSel] = useState<number>(42) // hi-hat: el relleno más común
@@ -284,22 +285,6 @@ export function PanelSinte({
   const arp = vivo?.arp ?? null
   const escala = vivo?.escala ?? null
 
-  if (plegado) {
-    return (
-      <div className="shrink-0 rounded-xl border border-white/10 bg-white/5 px-2 py-0.5">
-        <button
-          type="button"
-          onClick={() => setPlegado(false)}
-          aria-label={t('audio.sinte.mostrar', 'Mostrar los ajustes')}
-          title={t('audio.sinte.mostrar', 'Mostrar los ajustes')}
-          className="flex w-full items-center justify-center gap-1 py-0.5 text-white/40 transition hover:text-white/80"
-        >
-          <Icono nombre="plegado" />
-        </button>
-      </div>
-    )
-  }
-
   return (
     <div className="shrink-0 space-y-1.5 rounded-xl border border-white/10 bg-white/5 px-2 py-1.5">
       <div className="flex flex-wrap items-center gap-1.5">
@@ -402,7 +387,7 @@ export function PanelSinte({
         )}
         <button
           type="button"
-          onClick={() => setPlegado(true)}
+          onClick={onPlegar}
           aria-label={t('audio.sinte.plegar', 'Plegar los ajustes')}
           title={t('audio.sinte.plegar', 'Plegar los ajustes')}
           className="grid h-8 w-8 place-items-center rounded-lg text-white/40 transition hover:bg-white/10 hover:text-white/80"

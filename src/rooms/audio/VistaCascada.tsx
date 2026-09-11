@@ -48,6 +48,7 @@ export interface EntradaPractica {
 
 export function VistaCascada({
   proyecto,
+  partituraInicial,
   octava,
   onOctava,
   midiNombre,
@@ -56,6 +57,8 @@ export function VistaCascada({
   alVolver,
 }: {
   proyecto: ProyectoAudio
+  /** Entrar por «Practicar»: la partitura desplazándose y en modo Ritmo (te escucha tocar). */
+  partituraInicial?: boolean
   octava: number
   onOctava: (v: number) => void
   midiNombre: string | null
@@ -65,9 +68,9 @@ export function VistaCascada({
   alVolver: () => void
 }) {
   const t = useT()
-  const [modo, setModo] = useState<ModoPractica>('escuchar')
+  const [modo, setModo] = useState<ModoPractica>(partituraInicial ? 'ritmo' : 'escuchar')
   /** La práctica también se lee en partitura (misma lógica, otro lienzo). */
-  const [conPartitura, setConPartitura] = useState(false)
+  const [conPartitura, setConPartitura] = useState(!!partituraInicial)
   /** % de velocidad (deslizador con topes cada 25). */
   const [velocidad, setVelocidad] = useState(100)
   const [fase, setFase] = useState<'listo' | 'sonando' | 'resumen'>('listo')

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import type { NotaAudio } from '../../core/data/db'
 import type { CarrilCascada } from './Cascada'
+import { dibujarVoz, type Entrada, figurasDe, lineasAdicionalesDe, radioCabeza } from './notacion'
 
 /**
  * Partitura de práctica: el pentagrama doble (sol y fa) con las notas
@@ -98,37 +99,47 @@ export function PartituraPractica({
 
       const pintar = (notas: NotaAudio[], color: string, alpha: number) => {
         ctx.globalAlpha = alpha
+        ctx.fillStyle = color
+        ctx.strokeStyle = color
+        const rx = radioCabeza(MEDIO)
+        // Un pulso de margen: las barras de corcheas no lo cruzan, así que un
+        // grupo cortado por el borde se pinta entero.
+        const margen = 4 * pxPaso
+        const entradas: Entrada[] = []
+        const sostenidos: { x: number; y: number }[] = []
         for (const nota of notas) {
-          if (nota[0] + nota[1] < ahora - NOW_X / pxPaso || nota[0] > ahora + pasosVisibles) continue
+          if (nota[0] + nota[1] < ahora - (NOW_X + margen) / pxPaso || nota[0] > ahora + pasosVisibles + 4) continue
           const g = diatDe(nota[2])
           const x = xDe(nota[0])
           const y = yDe(g)
-          if (x + nota[1] * pxPaso < 40) continue
-          ctx.fillStyle = color
-          ctx.strokeStyle = color
-          // Barra de duración + cabeza; ♯ pequeño si el tono es sostenido.
+          if (x + nota[1] * pxPaso < 40 - margen) continue
+          // Banda tenue con la duración real; encima, las figuras (ligadas si son
+          // varias), con la cabeza centrada en su instante: cruza «ahora» al sonar.
+          ctx.globalAlpha = alpha * 0.25
           ctx.fillRect(x, y - 1, Math.max(3, nota[1] * pxPaso - 2), 2)
-          ctx.beginPath()
-          ctx.ellipse(x + MEDIO * 0.2, y, MEDIO * 0.95, MEDIO * 0.75, -0.3, 0, Math.PI * 2)
-          ctx.fill()
-          if (ES_SOSTENIDO[((nota[2] % 12) + 12) % 12]) {
-            ctx.font = `${Math.round(MEDIO * 2.2)}px system-ui`
-            ctx.fillText('♯', x - MEDIO * 2.1, y + MEDIO * 0.8)
+          const adicionales = lineasAdicionalesDe(g)
+          let xAnterior: number | undefined
+          for (const tramo of figurasDe(nota[0], nota[1])) {
+            const xt = xDe(tramo.paso) + MEDIO * 0.2
+            if (xt - rx > W + margen) break
+            // Líneas adicionales: grados impares entre el pentagrama y la nota (C4 incluido).
+            ctx.globalAlpha = alpha * 0.7
+            for (const l of adicionales) {
+              const yl = yDe(l)
+              ctx.beginPath()
+              ctx.moveTo(xt - rx - MEDIO * 0.6, yl + 0.5)
+              ctx.lineTo(xt + rx + MEDIO * 0.6, yl + 0.5)
+              ctx.stroke()
+            }
+            entradas.push({ paso: tramo.paso, figura: tramo.figura, x: xt, y, diat: g, xAnterior })
+            xAnterior = xt
           }
-          // Líneas adicionales: grados impares entre el pentagrama y la nota (C4 incluido).
-          ctx.globalAlpha = alpha * 0.7
-          const rayita = (grado: number) => {
-            const yl = yDe(grado)
-            ctx.beginPath()
-            ctx.moveTo(x - MEDIO * 1.4, yl + 0.5)
-            ctx.lineTo(x + MEDIO * 1.8, yl + 0.5)
-            ctx.stroke()
-          }
-          if (g > 45) for (let l = 47; l <= g; l += 2) rayita(l)
-          else if (g < 25) for (let l = 23; l >= g; l -= 2) rayita(l)
-          else if (g > 33 && g < 37) rayita(35)
-          ctx.globalAlpha = alpha
+          if (ES_SOSTENIDO[((nota[2] % 12) + 12) % 12]) sostenidos.push({ x: x - MEDIO * 2.1, y: y + MEDIO * 0.8 })
         }
+        ctx.globalAlpha = alpha
+        dibujarVoz(ctx, entradas, MEDIO)
+        ctx.font = `${Math.round(MEDIO * 2.2)}px system-ui`
+        for (const s of sostenidos) ctx.fillText('♯', s.x, s.y)
         ctx.globalAlpha = 1
       }
       // El acompañamiento primero (fantasma) y encima lo que tocas tú.

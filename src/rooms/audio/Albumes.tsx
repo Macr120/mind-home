@@ -4,10 +4,8 @@ import { cancionesRepo, proyectosAudioRepo, VACIO } from '../../core/data/reposi
 import { useT } from '../../core/i18n/useT'
 import { confirmar, pedirTexto } from '../../core/state/confirmarStore'
 import { Icono } from '../../core/ui/iconos/Icono'
-import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { BotonPrimario, BotonSecundario, Modal, TituloSeccion } from '../_shared/ui'
 import { SEMILLAS_CANCIONES, type SemillaCancion } from './canciones'
-import { ejemploAudio } from './ejemplos'
 import {
   COLOR,
   MAX_COMPASES,
@@ -525,8 +523,6 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
           </ul>
         )}
       </section>
-
-      {albumActivo == null && <BarraEjemplo paquete={ejemploAudio} />}
 
       <section className="space-y-2">
         <button

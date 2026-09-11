@@ -17,6 +17,17 @@ import {
   segPorPaso,
 } from './constantes'
 import { posicion, transporteStore } from './motor'
+import {
+  CENTRO_FA,
+  CENTRO_SOL,
+  dibujarSilencio,
+  dibujarVoz,
+  type Entrada,
+  figurasDe,
+  lineasAdicionalesDe,
+  radioCabeza,
+  silenciosDe,
+} from './notacion'
 
 /**
  * El timeline: UN canvas 2D (divs por nota o SVG no aguantan 512×61 celdas
@@ -381,10 +392,19 @@ export function PianoRoll({
         ctx.fillText(txt, x + anchoPastilla / 2 - txt.length * 2.5, y)
       }
     }
-    // Partitura: cabeza de nota en su grado + barra fina de duración; con
-    // armadura, sus alteraciones se OMITEN en la nota (y el «extraño» lleva
-    // ♮/♯/♭); línea adicional corta cuando cae en línea fuera del pentagrama.
-    const pintarPartitura = (notas: NotaAudio[], color: string, alpha: number) => {
+    // Partitura: cada nota se escribe con sus figuras (redonda, blanca, negra,
+    // corchea, semicorchea; con puntillo; ligadas si no cabe en una o cruza el
+    // compás) y una banda tenue marca hasta dónde llega (y desde dónde se
+    // estira). Con armadura, sus alteraciones se OMITEN en la nota (y el
+    // «extraño» lleva ♮/♯/♭); líneas adicionales fuera de los pentagramas.
+    // Los silencios, solo en la pista activa: los huecos de UNA voz.
+    const pintarPartitura = (notas: NotaAudio[], color: string, alpha: number, conSilencios: boolean) => {
+      const rx = radioCabeza(medioDiat)
+      // Un pulso de margen a cada lado: las barras de corcheas no lo cruzan, así
+      // que un grupo cortado por el borde se pinta entero.
+      const margen = 4 * anchoPaso
+      const entradas: Entrada[] = []
+      const simbolos: { x: number; y: number; texto: string }[] = []
       ctx.globalAlpha = alpha
       for (const nota of notas) {
         const sost = ES_SOSTENIDO[((nota[2] % 12) + 12) % 12]
@@ -397,22 +417,49 @@ export function PianoRoll({
         const y = yDiat(diat)
         const x = G + nota[0] * anchoPaso - sx
         const w = Math.max(3, nota[1] * anchoPaso - 1)
-        if (x + w < G || x > W || y < topeRoll + 3 || y > H) continue
-        if (diat % 2 === 1 && !LINEAS_PENTAGRAMA.includes(diat)) {
-          ctx.strokeStyle = 'rgba(255,255,255,0.4)'
-          ctx.beginPath()
-          ctx.moveTo(x - 4, y + 0.5)
-          ctx.lineTo(x + 13, y + 0.5)
-          ctx.stroke()
-        }
+        // Las plicas asoman hasta 7 grados por encima o por debajo de la cabeza.
+        if (x + w < G - margen || x > W + margen || y < topeRoll - medioDiat * 7 || y > H + medioDiat * 7) continue
+        ctx.globalAlpha = alpha * 0.22
         ctx.fillStyle = color
-        ctx.fillRect(x + 4, y - 1, Math.max(2, w - 4), 2)
-        ctx.beginPath()
-        ctx.ellipse(x + 4.5, y, 4.5 * zoom, 3.2 * zoom, -0.35, 0, Math.PI * 2)
-        ctx.fill()
-        if (simbolo) {
-          ctx.font = '10px system-ui'
-          ctx.fillText(simbolo, x - 4, y)
+        ctx.fillRect(x, y - 1, w, 2)
+        ctx.globalAlpha = alpha
+        const adicionales = lineasAdicionalesDe(diat)
+        ctx.strokeStyle = 'rgba(255,255,255,0.4)'
+        let xAnterior: number | undefined
+        for (const tramo of figurasDe(nota[0], nota[1])) {
+          const xt = G + tramo.paso * anchoPaso - sx + rx
+          if (xt - rx > W + margen) break
+          for (const l of adicionales) {
+            const yl = yDiat(l)
+            ctx.beginPath()
+            ctx.moveTo(xt - rx - medioDiat * 0.6, yl + 0.5)
+            ctx.lineTo(xt + rx + medioDiat * 0.6, yl + 0.5)
+            ctx.stroke()
+          }
+          entradas.push({ paso: tramo.paso, figura: tramo.figura, x: xt, y, diat, xAnterior })
+          xAnterior = xt
+        }
+        if (simbolo) simbolos.push({ x: x - medioDiat * 1.4, y, texto: simbolo })
+      }
+      ctx.fillStyle = color
+      ctx.strokeStyle = color
+      dibujarVoz(ctx, entradas, medioDiat)
+      ctx.font = `${Math.round(7 + 3 * zoom)}px system-ui`
+      for (const s of simbolos) ctx.fillText(s.texto, s.x, s.y)
+      if (conSilencios) {
+        const desde = Math.floor(pasoIni / PASOS_POR_COMPAS) * PASOS_POR_COMPAS
+        const hasta = Math.min(totalPasos, Math.ceil(pasoFin / PASOS_POR_COMPAS) * PASOS_POR_COMPAS)
+        ctx.globalAlpha = alpha * 0.8
+        ctx.fillStyle = color
+        for (const s of silenciosDe(notas, desde, hasta)) {
+          const x = G + s.paso * anchoPaso - sx + 2
+          if (x < G - 24 || x > W) continue
+          // En el pentagrama donde vive la voz en ese compás (el de sol si hay duda).
+          const c0 = Math.floor(s.paso / PASOS_POR_COMPAS) * PASOS_POR_COMPAS
+          const enCompas = notas.filter((n) => n[0] < c0 + PASOS_POR_COMPAS && n[0] + n[1] > c0)
+          const centro = enCompas.length > 0 && enCompas.every((n) => diatDe(n[2]) < 35) ? CENTRO_FA : CENTRO_SOL
+          // Redonda y blanca cuelgan/reposan en el espacio de encima de la línea central.
+          dibujarSilencio(ctx, x, yDiat(s.pasos >= 8 ? centro + 1 : centro), medioDiat, s.glifo)
         }
       }
       ctx.globalAlpha = 1
@@ -464,13 +511,13 @@ export function PianoRoll({
         const otra = proyecto.pistas[i]
         // Solo las pistas del mismo mundo: melódicas entre sí, batería con batería.
         if (otra.pistaId === pista.pistaId || esInstrumentoBateria(otra.instrumento) !== esBateria) continue
-        if (modoPartitura) pintarPartitura(otra.notas, PALETA_PISTAS[i % PALETA_PISTAS.length], 0.28)
+        if (modoPartitura) pintarPartitura(otra.notas, PALETA_PISTAS[i % PALETA_PISTAS.length], 0.28, false)
         else pintarNotas(otra.notas, PALETA_PISTAS[i % PALETA_PISTAS.length], 0.28, true)
       }
     }
     const activas = trabajo.current ?? pista.notas
     if (esAudio) pintarClips()
-    else if (modoPartitura) pintarPartitura(activas, PALETA_PISTAS[colorIdx % PALETA_PISTAS.length], 1)
+    else if (modoPartitura) pintarPartitura(activas, PALETA_PISTAS[colorIdx % PALETA_PISTAS.length], 1, true)
     else if (modoTab) pintarTab(activas, PALETA_PISTAS[colorIdx % PALETA_PISTAS.length])
     else pintarNotas(activas, PALETA_PISTAS[colorIdx % PALETA_PISTAS.length], 1, false)
 

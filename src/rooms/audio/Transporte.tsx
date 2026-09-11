@@ -6,9 +6,10 @@ import { BPM_MAX, BPM_MIN, COLOR, MAX_COMPASES, PASOS_POR_COMPAS, segPorPaso } f
 import { alternarPreviaMetronomo, posicion, previaStore, transporteStore } from './motor'
 
 /**
- * Barra de transporte: play/stop/grabar siempre a la vista y el resto en dos
- * grupos plegables — «Ritmo» (metrónomo, bucle, cuantizar, BPM, compases) y
- * «Extras» (MIDI, WAV, IA) — para que en angosto la barra no se desborde.
+ * Barra de transporte: el play/pausa siempre a la vista y el resto en tres
+ * grupos plegables — «Transporte» (regresar, stop, grabar, contador), «Ritmo»
+ * (metrónomo, bucle, cuantizar, BPM, compases) y «Extras» (practicar, MIDI,
+ * WAV, IA) — para que en angosto la barra no se desborde.
  */
 export function Transporte({
   nombre,
@@ -37,6 +38,7 @@ export function Transporte({
   exportando,
   onIA,
   onDeshacerIA,
+  onPracticar,
 }: {
   /** Nombre del proyecto: es el botón de volver a la lista (ahorra el encabezado). */
   nombre: string
@@ -69,12 +71,15 @@ export function Transporte({
   onIA: () => void
   /** Presente solo con una toma IA aplicada pendiente de deshacer. */
   onDeshacerIA?: (() => void) | null
+  /** Abre la práctica con la partitura desplazándose (te escucha tocar la pieza). */
+  onPracticar: () => void
 }) {
   const t = useT()
   const estado = useSyncExternalStore(transporteStore.subscribe, transporteStore.getSnapshot)
   const previa = useSyncExternalStore(previaStore.subscribe, previaStore.getSnapshot)
   const sonando = estado !== 'parado'
   const grabando = estado === 'cuenta' || estado === 'grabando'
+  const [transporteAbierto, setTransporteAbierto] = useState(true)
   const [ritmoAbierto, setRitmoAbierto] = useState(true)
   const [extrasAbierto, setExtrasAbierto] = useState(true)
 
@@ -120,15 +125,7 @@ export function Transporte({
         <Icono nombre="volver" />
         <span className="truncate text-xs font-semibold">{nombre}</span>
       </button>
-      <button
-        type="button"
-        onClick={onRegresar}
-        aria-label={t('audio.transporte.regresar', 'Regresar al inicio')}
-        title={t('audio.transporte.regresar', 'Regresar al inicio')}
-        className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/10 transition hover:bg-white/20 active:scale-90"
-      >
-        <Icono nombre="regresarInicio" />
-      </button>
+      {/* El play/pausa es el botón principal: queda fuera del grupo, siempre a la vista. */}
       <button
         type="button"
         onClick={onPlay}
@@ -139,28 +136,51 @@ export function Transporte({
       >
         <Icono nombre={sonando ? 'pausa' : 'play'} />
       </button>
-      <button
-        type="button"
-        onClick={onDetener}
-        aria-label={t('audio.transporte.stop', 'Detener')}
-        title={t('audio.transporte.stop', 'Detener')}
-        className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/10 transition hover:bg-white/20 active:scale-90"
-      >
-        <Icono nombre="detener" />
-      </button>
-      <button
-        type="button"
-        onClick={onGrabar}
-        aria-label={t('audio.transporte.grabar', 'Grabar (con un compás de cuenta)')}
-        title={t('audio.transporte.grabar', 'Grabar (con un compás de cuenta)')}
-        aria-pressed={grabando}
-        className={`grid h-9 w-9 place-items-center rounded-lg border transition active:scale-90 ${
-          grabando ? 'border-red-400/60 bg-red-500/30 text-red-300' : 'border-white/10 bg-white/10 text-red-400 hover:bg-white/20'
-        }`}
-      >
-        <Icono nombre="grabar" />
-      </button>
-      <Indicador bpm={bpm} posInicio={posInicio} />
+      <div className="flex flex-wrap items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] p-0.5">
+        {grupo(
+          transporteAbierto,
+          () => setTransporteAbierto((v) => !v),
+          'cronometro',
+          t('audio.transporte.grupoTransporte', 'Transporte'),
+        )}
+        {transporteAbierto && (
+          <>
+            <button
+              type="button"
+              onClick={onRegresar}
+              aria-label={t('audio.transporte.regresar', 'Regresar al inicio')}
+              title={t('audio.transporte.regresar', 'Regresar al inicio')}
+              className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/10 transition hover:bg-white/20 active:scale-90"
+            >
+              <Icono nombre="regresarInicio" />
+            </button>
+            <button
+              type="button"
+              onClick={onDetener}
+              aria-label={t('audio.transporte.stop', 'Detener')}
+              title={t('audio.transporte.stop', 'Detener')}
+              className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/10 transition hover:bg-white/20 active:scale-90"
+            >
+              <Icono nombre="detener" />
+            </button>
+            <button
+              type="button"
+              onClick={onGrabar}
+              aria-label={t('audio.transporte.grabar', 'Grabar (con un compás de cuenta)')}
+              title={t('audio.transporte.grabar', 'Grabar (con un compás de cuenta)')}
+              aria-pressed={grabando}
+              className={`grid h-9 w-9 place-items-center rounded-lg border transition active:scale-90 ${
+                grabando
+                  ? 'border-red-400/60 bg-red-500/30 text-red-300'
+                  : 'border-white/10 bg-white/10 text-red-400 hover:bg-white/20'
+              }`}
+            >
+              <Icono nombre="grabar" />
+            </button>
+            <Indicador bpm={bpm} posInicio={posInicio} />
+          </>
+        )}
+      </div>
       <div className="flex flex-wrap items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] p-0.5">
         {grupo(ritmoAbierto, () => setRitmoAbierto((v) => !v), 'metronomo', t('audio.transporte.grupoRitmo', 'Ritmo'))}
         {ritmoAbierto && (
@@ -236,6 +256,13 @@ export function Transporte({
         {grupo(extrasAbierto, () => setExtrasAbierto((v) => !v), 'ajustes', t('audio.transporte.grupoExtras', 'Extras'))}
         {extrasAbierto && (
           <>
+            <button
+              type="button"
+              onClick={onPracticar}
+              className="flex items-center gap-1 rounded-lg border border-white/10 bg-white/10 px-2.5 py-1.5 text-xs font-semibold transition hover:bg-white/20"
+            >
+              <Icono nombre="musica" /> {t('audio.transporte.practicar', 'Practicar')}
+            </button>
             {haySoporte && (
               <button
                 type="button"
