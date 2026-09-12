@@ -9,7 +9,8 @@ import {
   type Pieza3D,
 } from '../chat/mascotas'
 import type { AnimacionModelo } from '../house/animacion'
-import { parseRopa, serializarRopa, type ExpresionId, type PeinadoId } from '../house/apariencia'
+import { EXPRESION_DEFAULT, parseRopa, serializarRopa, type ExpresionId, type PeinadoId } from '../house/apariencia'
+import { aplicarCuerpoPreset, CUERPOS_PRESET, piezasBase } from '../house/cuerpos'
 import { ATUENDO_POR_TEMA, esAtuendoDeTema } from '../house/atuendos'
 import type { TemaId } from '../house/temas'
 
@@ -204,8 +205,57 @@ export const useAsistentes = create<AsistentesState>((set, get) => ({
   },
 }))
 
-/** Asistente por id con fallback seguro (plantilla integrada o el primero). */
+// ─── Modelos como personajes ─────────────────────────────────────────────────
+
+/**
+ * Los 12 modelos del editor de personajes como personajes «de fábrica» sin
+ * cuenta propia (id `modelo:<id>`): el cuerpo Humano, las 5 formas y los 6
+ * cuerpos prediseñados. Los usa el Studio de video (avatar, actores de película
+ * y voces) para elegir cualquier personaje, no solo los asistentes de la casa.
+ */
+export const PREFIJO_MODELO = 'modelo:'
+export const esModelo = (id: string) => id.startsWith(PREFIJO_MODELO)
+export interface ModeloPersonaje {
+  id: string
+  emoji: string
+  /** Nombre traducible: la misma clave y español que en el editor de personajes. */
+  claveNombre: string
+  es: string
+}
+const PRINCESA = CUERPOS_PRESET.find((c) => c.id === 'princesa')
+export const MODELOS_PERSONAJE: readonly ModeloPersonaje[] = [
+  { id: `${PREFIJO_MODELO}base`, emoji: '🧍', claveNombre: 'editor.pers.modeloBase', es: 'Humano' },
+  ...(PRINCESA ? [{ id: `${PREFIJO_MODELO}${PRINCESA.id}`, emoji: PRINCESA.emoji, claveNombre: `editor.pers.cuerpo.${PRINCESA.id}`, es: PRINCESA.nombre }] : []),
+  ...MASCOTAS.map((m) => ({ id: `${PREFIJO_MODELO}${m.id}`, emoji: m.emoji, claveNombre: `mascota.${m.id}.nombre`, es: m.nombre })),
+  ...CUERPOS_PRESET.filter((c) => c.id !== 'princesa').map((c) => ({ id: `${PREFIJO_MODELO}${c.id}`, emoji: c.emoji, claveNombre: `editor.pers.cuerpo.${c.id}`, es: c.nombre })),
+]
+const modelosCache = new Map<string, Asistente>()
+/** Asistente sintético de un modelo; la MISMA referencia en cada llamada (los memos del 3D dependen de ella). */
+function asistenteDeModelo(id: string): Asistente | undefined {
+  const cacheado = modelosCache.get(id)
+  if (cacheado) return cacheado
+  const clave = id.slice(PREFIJO_MODELO.length)
+  const vacio = { historia: '', personalidad: '', saludo: '', cuartos: [] as string[] }
+  const forma = MASCOTAS.find((m) => m.id === clave)
+  let a: Asistente
+  if (forma) a = { ...asistenteDesdePlantilla(forma), ...vacio, id }
+  else if (clave === 'base') {
+    a = { ...asistenteDesdePlantilla(MASCOTAS[0]), ...vacio, id, nombre: 'Humano', emoji: '🧍', modelo3d: piezasBase('#3b82f6'), cuerpoPresetId: 'base', expresion: EXPRESION_DEFAULT }
+  } else {
+    const preset = CUERPOS_PRESET.find((c) => c.id === clave)
+    if (!preset) return undefined
+    a = { ...asistenteDesdePlantilla(MASCOTAS[0]), ...vacio, id, nombre: preset.nombre, emoji: preset.emoji, ...aplicarCuerpoPreset(preset), expresion: preset.id === 'princesa' ? EXPRESION_DEFAULT : undefined }
+  }
+  modelosCache.set(id, a)
+  return a
+}
+
+/** Asistente por id con fallback seguro (un modelo `modelo:<id>`, la plantilla integrada o el primero). */
 export function getAsistente(id: string): Asistente {
+  if (esModelo(id)) {
+    const m = asistenteDeModelo(id)
+    if (m) return m
+  }
   const { lista, ocultos } = useAsistentes.getState()
   return (
     lista.find((a) => a.id === id) ??

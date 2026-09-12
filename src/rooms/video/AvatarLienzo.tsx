@@ -6,14 +6,17 @@ import type { Asistente } from '../../core/chat/mascotas'
 import { forzarSiempre, type AnimacionModelo } from '../../core/house/animacion'
 import { anclasDe } from '../../core/house/apariencia'
 import { AsistenteModelo } from '../../core/house/AsistenteModelo'
+import { AvatarModelo } from '../../core/house/AvatarModelo'
 import { nuevaBocaHabla, type BocaHabla } from '../../core/house/bocaHabla'
 import { getAsistente, useAsistentes } from '../../core/state/asistentesStore'
+import { useDiseño, type Avatar } from '../../core/state/disenoStore'
+import { esJugador } from './actores'
 import type { RenderizadorAvatar } from './render'
 
 /**
  * El canvas WebGL oculto que pinta al avatar del video: UN `<Canvas>` con
- * `frameloop="never"` (patrón `Miniatura.tsx`) y TODOS los asistentes del
- * proyecto montados a la vez en grupos invisibles. Cambiar de asistente es un
+ * `frameloop="never"` (patrón `Miniatura.tsx`) y TODOS los personajes del
+ * proyecto (asistentes y tu avatar, `ES_JUGADOR`) montados a la vez en grupos invisibles. Cambiar de asistente es un
  * `visible` síncrono y dos avatares solapados son dos renders en el mismo tick;
  * remontar por clip dejaría frames en blanco en el export. Cada `pintar` fija
  * la boca y el gesto, encuadra la cámara y llama `advance(t)`: con
@@ -31,8 +34,8 @@ interface Entrada {
 
 const FLOTE: AnimacionModelo = { activacion: 'siempre', preset: 'flotar', velocidad: 0.6, intensidad: 0.35 }
 
-/** La animación guardada del asistente forzada a 'siempre'; `girar` (da la espalda) y `vida` (deambula) caen al flote. */
-function animDe(a: Asistente): AnimacionModelo {
+/** La animación guardada del personaje forzada a 'siempre'; `girar` (da la espalda) y `vida` (deambula) caen al flote. */
+function animDe(a: Pick<Asistente, 'animacion'>): AnimacionModelo {
   const anim = forzarSiempre(a.animacion)
   if (!anim || anim.preset === 'girar' || anim.preset === 'vida') return FLOTE
   return anim
@@ -48,7 +51,7 @@ const AIRE_ANIMACION = 0.15
  */
 function encuadrar(
   cam: THREE.PerspectiveCamera,
-  a: Asistente,
+  a: Asistente | Avatar,
   plano: 'busto' | 'cuerpo',
   caja: { minY: number; maxY: number } | null,
 ) {
@@ -81,9 +84,15 @@ function Escena({ asistenteIds, onListo }: { asistenteIds: string[]; onListo: (r
   const perdido = useRef(false)
   // Un objeto de boca estable por asistente (lo lee el useFrame del rostro; lo escribe `pintar`).
   const bocas = useMemo(() => new Map(asistenteIds.map((id) => [id, { current: nuevaBocaHabla() } as RefObject<BocaHabla>])), [asistenteIds])
-  const asistentes = useMemo(() => {
+  // Tu avatar (`ES_JUGADOR`) va aparte: `getAsistente('jugador')` caería en el primer asistente.
+  const avatar = useDiseño((s) => s.avatar)
+  const avatarRef = useRef(avatar)
+  useEffect(() => {
+    avatarRef.current = avatar
+  })
+  const cuerpos = useMemo(() => {
     void lista // el asistente se relee cuando cambia la lista (renombrar, cambiar de forma…)
-    return asistenteIds.map((id) => getAsistente(id))
+    return asistenteIds.map((id) => ({ id, asistente: esJugador(id) ? null : getAsistente(id) }))
   }, [asistenteIds, lista])
 
   useEffect(() => {
@@ -121,7 +130,7 @@ function Escena({ asistenteIds, onListo }: { asistenteIds: string[]; onListo: (r
           e.gesto.rotation.z = 0.03 * Math.sin(tClip * 1.3) * k
           e.gesto.rotation.y = 0.05 * Math.sin(tClip * 0.7) * k
         }
-        encuadrar(cam, getAsistente(clip.asistenteId), clip.plano, e.caja)
+        encuadrar(cam, esJugador(clip.asistenteId) ? avatarRef.current : getAsistente(clip.asistenteId), clip.plano, e.caja)
         advance(t, false)
         return true
       },
@@ -164,20 +173,24 @@ function Escena({ asistenteIds, onListo }: { asistenteIds: string[]; onListo: (r
       <ambientLight intensity={0.85} />
       <directionalLight position={[4, 8, 5]} intensity={1.1} />
       <directionalLight position={[-4, 3, -3]} intensity={0.35} />
-      {asistentes.map((a) => (
+      {cuerpos.map(({ id, asistente }) => (
         <group
-          key={a.id}
+          key={id}
           visible={false}
           ref={(g) => {
-            entradaDe(a.id).grupo = g
+            entradaDe(id).grupo = g
           }}
         >
           <group
             ref={(g) => {
-              entradaDe(a.id).gesto = g
+              entradaDe(id).gesto = g
             }}
           >
-            <AsistenteModelo asistente={a} anim={animDe(a)} boca={bocas.get(a.id)} />
+            {asistente ? (
+              <AsistenteModelo asistente={asistente} anim={animDe(asistente)} boca={bocas.get(id)} />
+            ) : (
+              <AvatarModelo av={avatar} animOverride={animDe(avatar)} boca={bocas.get(id)} />
+            )}
           </group>
         </group>
       ))}

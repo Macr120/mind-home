@@ -203,13 +203,14 @@ export async function iniciarGrabacionPantalla(destino: DestinoGrabacion): Promi
 }
 
 /**
- * Una toma hecha en otro sitio (máscara AR, chat AR) para el proyecto que la
- * pidió: se guarda en Medios y queda esperando al Editor, que sigue montado
- * debajo del overlay y la mete en la principal como la grabación de la app.
+ * Una toma hecha en otro sitio (máscara AR, chat AR, una animación 3D) para el
+ * proyecto que la pidió: se guarda en Medios y queda esperando al Editor, que
+ * la mete en la principal como la grabación de la app. `fuente` ('pelicula:12')
+ * deja reutilizar la toma de esa animación sin volver a rodarla.
  */
 export async function entregarTomaAlStudio(
   destino: DestinoGrabacion,
-  toma: { blob: Blob; duracion: number; nombre: string },
+  toma: { blob: Blob; duracion: number; nombre: string; fuente?: string },
 ): Promise<boolean> {
   try {
     const medioId = await mediosVideoRepo.add({
@@ -218,6 +219,7 @@ export async function entregarTomaAlStudio(
       blob: toma.blob,
       duracion: toma.duracion,
       origen: 'grabacion',
+      ...(toma.fuente ? { fuente: toma.fuente } : {}),
       creadoEn: new Date().toISOString(),
     })
     useGrabacionPantalla.setState({ resultado: { ...destino, medioId } })

@@ -1,8 +1,9 @@
-import { desbloquearAudio } from '../../core/audio/motor'
+import { contextoAudio, desbloquearAudio } from '../../core/audio/motor'
 import { callarVoz, hablarVoz } from '../../core/audio/voz'
-import type { MedioVideo } from '../../core/data/db'
+import type { FiltroVoz, MedioVideo } from '../../core/data/db'
 import { PRECALENTAR_S, UMBRAL_DERIVA } from './constantes'
 import type { ClipAudio, PoolFuentes } from './fuentes'
+import { crearFiltroVoz, type CadenaVoz } from './filtrosVoz'
 import {
   duracionTotal,
   esClipAudio,
@@ -63,6 +64,9 @@ export class MotorVideo {
   private estadosAvatar = new Map<string, EstadoClipAvatar>()
   /** Preview: las narraciones sin audio las lee la voz del dispositivo al pasar (nunca en el export). */
   private vozEnVivo = false
+  /** Filtros de voz en el preview: el `<audio>` del clip pasa por WebAudio (el export monta su propio grafo). */
+  private filtrosVoz = false
+  private filtros = new Map<string, { fuente: MediaElementAudioSourceNode; cadena: CadenaVoz | null; id: FiltroVoz | undefined }>()
   private vivo: { id: string; inicio: number; fin: number } | null = null
   /** Clips ya leídos en esta pasada (la voz no se puede posicionar: cada uno se lee una vez por play/seek). */
   private leidos = new Set<string>()
@@ -79,6 +83,7 @@ export class MotorVideo {
       intervaloMs?: number
       avatar?: RenderizadorAvatar | null
       vozEnVivo?: boolean
+      filtrosVoz?: boolean
       transparente?: boolean
       fuente3d?: Fuente3D
     },
@@ -93,6 +98,7 @@ export class MotorVideo {
     this.intervaloMs = opts?.intervaloMs ?? 0
     this.avatar = opts?.avatar ?? null
     this.vozEnVivo = opts?.vozEnVivo ?? false
+    this.filtrosVoz = opts?.filtrosVoz ?? false
     this.render = { transparente: opts?.transparente, fuente3d: opts?.fuente3d }
   }
 
@@ -166,6 +172,11 @@ export class MotorVideo {
 
   destruir() {
     this.pausa()
+    for (const f of this.filtros.values()) {
+      f.cadena?.desconectar()
+      f.fuente.disconnect()
+    }
+    this.filtros.clear()
     window.clearTimeout(this.repintaId)
     this.onTiempo = null
     this.onFin = null
@@ -208,6 +219,7 @@ export class MotorVideo {
         this.sonando.delete(c.id)
         continue
       }
+      this.aplicarFiltroVoz(c, el)
       const durMedio = this.duracionMedioDe(c, el)
       const local = (c.desde ?? 0) + (t - c.inicio)
       const bucle = c.pista === 'musica' && c.bucle
@@ -231,6 +243,43 @@ export class MotorVideo {
         if (el.readyState >= 1 && Math.abs(el.currentTime - objetivo) > UMBRAL_DERIVA) el.currentTime = objetivo
       }
     }
+  }
+
+  /**
+   * Filtro de voz del clip (narración o avatar) en el preview: la primera vez
+   * que lo necesita, su `<audio>` pasa a WebAudio (queda atado a ese elemento,
+   * que es del pool de este motor) y la cadena se rehace al cambiar de filtro.
+   * Sin filtro nunca, el elemento sigue plano, como siempre.
+   */
+  private aplicarFiltroVoz(c: ClipAudio, el: HTMLAudioElement) {
+    if (!this.filtrosVoz) return
+    const deseado = c.pista === 'voz' || c.pista === 'avatar' ? c.filtroVoz : undefined
+    let entrada = this.filtros.get(c.id)
+    if (!entrada) {
+      if (!deseado) return
+      const ctx = contextoAudio()
+      if (!ctx) return
+      desbloquearAudio()
+      try {
+        entrada = { fuente: ctx.createMediaElementSource(el), cadena: null, id: undefined }
+      } catch {
+        return // el elemento ya estaba atado a otro grafo: sin filtro
+      }
+      this.filtros.set(c.id, entrada)
+    } else if (entrada.id === deseado) return
+    const ctx = entrada.fuente.context
+    entrada.cadena?.desconectar()
+    entrada.fuente.disconnect()
+    if (deseado) {
+      const cadena = crearFiltroVoz(ctx, deseado)
+      entrada.fuente.connect(cadena.entrada)
+      cadena.salida.connect(ctx.destination)
+      entrada.cadena = cadena
+    } else {
+      entrada.fuente.connect(ctx.destination)
+      entrada.cadena = null
+    }
+    entrada.id = deseado
   }
 
   /**

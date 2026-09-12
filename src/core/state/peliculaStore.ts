@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { abrirApp } from '../abrirApp'
 import type { ClipVideo, ProyectoVideo } from '../data/db'
+import type { DestinoGrabacion } from '../grabacionPantalla'
 import type { PresetAnimacionId } from '../house/animacion'
 import { nuevaBocaHabla, type BocaHabla } from '../house/bocaHabla'
 import { useDialogo } from './dialogoStore'
@@ -32,6 +33,8 @@ interface PeliculaState {
   /** Proyecto 3D abierto sobre el mapa; null = modo apagado. */
   proyectoId: number | null
   origen: Origen | null
+  /** El video que pidió la animación como clip (se entró por su «Animación 3D»): la toma vuelve a él y salir lo reabre. */
+  destino: DestinoGrabacion | null
   /** Asistentes que actúan (ids): `Asistente3D` los monta aunque no estén `enMapa`. Lo publica el Editor al mutar. */
   actores: string[]
   /** Preset efectivo por actor mientras un clip lo pide (lo escribe el Director al entrar y salir del clip). */
@@ -39,9 +42,12 @@ interface PeliculaState {
   /** Tocar el mapa coloca al actor del clip seleccionado; `marcador` = su punto (anillo en el suelo). */
   colocando: boolean
   marcador: { x: number; z: number } | null
-  entrar: (proyectoId: number) => void
-  /** `volver: false` = solo apagar el modo (un cuarto abierto por el chat manda; no se reabre el Studio). */
-  salir: (opts?: { volver?: boolean }) => void
+  entrar: (proyectoId: number, destino?: DestinoGrabacion) => void
+  /**
+   * `volver: false` = solo apagar el modo (un cuarto abierto por el chat manda; no se reabre el Studio).
+   * `aVideo` = reabrir el Studio en ese video (la toma ya espera en `grabacionPantalla.resultado`).
+   */
+  salir: (opts?: { volver?: boolean; aVideo?: number }) => void
   setActores: (ids: string[]) => void
   setPreset: (id: string, preset?: PresetAnimacionId) => void
   setColocando: (v: boolean, marcador?: { x: number; z: number } | null) => void
@@ -50,11 +56,12 @@ interface PeliculaState {
 export const usePelicula = create<PeliculaState>((set, get) => ({
   proyectoId: null,
   origen: null,
+  destino: null,
   actores: [],
   presets: {},
   colocando: false,
   marcador: null,
-  entrar: (proyectoId) => {
+  entrar: (proyectoId, destino) => {
     if (get().proyectoId != null) return
     // El origen se lee ANTES de cerrar nada.
     const previa = usePreviaPlantilla.getState().plantillaId === 'video'
@@ -68,10 +75,10 @@ export const usePelicula = create<PeliculaState>((set, get) => ({
     useDialogo.getState().salir()
     // El menú lateral (se entra desde su catálogo) taparía el mapa: en el modo película va cerrado.
     useHud.getState().setMenuAbierto(false)
-    set({ proyectoId, origen })
+    set({ proyectoId, origen, destino: destino ?? null })
   },
   salir: (opts) => {
-    const { origen, actores, presets } = get()
+    const { origen, destino, actores, presets } = get()
     if (get().proyectoId == null) return
     peliculaFrame.activo = false
     peliculaFrame.reproduciendo = false
@@ -85,13 +92,16 @@ export const usePelicula = create<PeliculaState>((set, get) => ({
     useMascota.getState().programarOcultar(0)
     // Que el avatar no «regrese» a un destino viejo: se queda donde lo dejó el Director.
     useHouse.getState().target.set(playerPos.x, 0, playerPos.z)
-    set({ proyectoId: null, origen: null, actores: [], presets: {}, colocando: false, marcador: null })
+    set({ proyectoId: null, origen: null, destino: null, actores: [], presets: {}, colocando: false, marcador: null })
     if (opts?.volver === false) return
-    // Vuelta al Studio, en «Animación 3D» (como `volverAlStudio` de grabacionPantalla).
-    lanzarIntencionApp({ appId: 'video', seccion: 'animacion3d' })
+    // Vuelta al Studio (como `volverAlStudio` de grabacionPantalla): al video que espera la toma, o a «Animación 3D».
+    const aVideo = opts?.aVideo ?? destino?.proyectoId
+    const seccion = aVideo != null ? 'videos' : 'animacion3d'
+    const dato = aVideo != null ? `proyecto:${aVideo}` : undefined
+    lanzarIntencionApp({ appId: 'video', seccion, dato })
     if (origen?.tipo === 'previa') usePreviaPlantilla.getState().abrir('video')
     else if (origen?.tipo === 'cuarto') useHouse.getState().openRoom(origen.roomId)
-    else if (!abrirApp('video', 'animacion3d')) usePreviaPlantilla.getState().abrir('video')
+    else if (!abrirApp('video', seccion, dato)) usePreviaPlantilla.getState().abrir('video')
   },
   setActores: (ids) => set((s) => (s.actores.join(',') === ids.join(',') ? s : { actores: ids })),
   setPreset: (id, preset) =>

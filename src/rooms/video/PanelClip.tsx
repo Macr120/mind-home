@@ -3,8 +3,7 @@ import type { ClipAvatar, ClipVideo, ClipVoz, EsquinaAvatar, MedioVideo } from '
 import { muestraRostro } from '../../core/house/apariencia'
 import { useT } from '../../core/i18n/useT'
 import { getAsistente } from '../../core/state/asistentesStore'
-import { ES_JUGADOR, usePelicula } from '../../core/state/peliculaStore'
-import { SelectorAsistente } from '../../core/ui/comun/SelectorAsistente'
+import { usePelicula } from '../../core/state/peliculaStore'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 import { BotonSecundario, Campo } from '../_shared/ui'
@@ -14,7 +13,7 @@ import { BotonEscuchar } from './ListaSonidos'
 import { clipsDe, encuadrePorEsquina, narradorDe, vozEfectiva, type ProyectoAbierto } from './modelo'
 import { nombreNarrador } from './narradores'
 import { RejillaTransiciones } from './RejillaTransiciones'
-import { Chip, Deslizador, INPUT_CORTO, SeccionFiltro, SeccionFuenteVisual, SeccionTexto, SeccionVoz } from './Secciones'
+import { Chip, Deslizador, INPUT_CORTO, SeccionFiltro, SeccionFiltroVoz, SeccionFuenteVisual, SeccionTexto, SeccionVoz, SelectorPersonaje } from './Secciones'
 import { SeccionCamara, SeccionEscena } from './SeccionesPelicula'
 import { nombreFuenteSonido } from './sonidos'
 import { QuienHabla } from './VocesGuion'
@@ -34,6 +33,8 @@ export interface AccionesPanel {
   onNarrar: () => void
   onElegirAudio: () => void
   onSubtitulos: () => void
+  /** Traducir el texto del clip (narración, avatar o rótulo) a otro idioma. */
+  onTraducir: () => void
   onDuplicar: () => void
   onDividir: () => void
   onBorrar: () => void
@@ -247,7 +248,7 @@ export function PanelClip({
             {clip.origen === 'narracion' && (
               <p className="text-[11px] text-white/45">{t('video.subtitulos.generado', 'Subtítulo generado desde la narración: se rehace al volver a generar.')}</p>
             )}
-            <SeccionTexto texto={clip.texto} onCambiar={(patch) => acciones.onCambiar({ texto: { ...clip.texto, ...patch } })} />
+            <SeccionTexto texto={clip.texto} onCambiar={(patch) => acciones.onCambiar({ texto: { ...clip.texto, ...patch } })} onTraducir={acciones.onTraducir} />
           </>
         )
         break
@@ -268,7 +269,9 @@ export function PanelClip({
               onElegirAudio={acciones.onElegirAudio}
               onQuitarAudio={() => acciones.onCambiar({ medioId: undefined, desde: undefined })}
               onSubtitulos={acciones.onSubtitulos}
+              onTraducir={acciones.onTraducir}
             />
+            <SeccionFiltroVoz filtro={clip.filtroVoz} onCambiar={(filtroVoz) => acciones.onCambiar({ filtroVoz })} />
             <Deslizador etiqueta={t('video.sonidos.volumen', 'Volumen')} valor={clip.volumen} onCambiar={(volumen) => acciones.onCambiar({ volumen })} />
           </>
         )
@@ -289,6 +292,7 @@ export function PanelClip({
             onElegirAudio={acciones.onElegirAudio}
             onQuitarAudio={() => acciones.onCambiar({ medioId: undefined, envolvente: undefined, envolventeHz: undefined, desde: undefined })}
             onSubtitulos={acciones.onSubtitulos}
+            onTraducir={acciones.onTraducir}
           />
         )
         const jugador = esJugador(clip.asistenteId)
@@ -300,16 +304,7 @@ export function PanelClip({
           secciones = (
             <>
               <QuienHabla proyecto={proyecto} clip={clip} onElegir={acciones.onAsignarNarrador} onEditar={onEditarNarradores} />
-              {!n && (
-                <>
-                  <Campo etiqueta={t('video.pelicula.personaje', 'Personaje')}>
-                    <Chip activo={jugador} onClick={() => acciones.onCambiar({ asistenteId: ES_JUGADOR })}>
-                      <Icono nombre="persona" /> {t('video.pelicula.tu', 'Tú')}
-                    </Chip>
-                  </Campo>
-                  <SelectorAsistente titulo={t('video.avatar.asistente', 'Asistente')} elegidoId={clip.asistenteId} onElegir={(as) => acciones.onCambiar({ asistenteId: as.id })} />
-                </>
-              )}
+              {!n && <SelectorPersonaje elegidoId={clip.asistenteId} onElegir={(asistenteId) => acciones.onCambiar({ asistenteId })} />}
               {sinRostro}
               <SeccionEscena
                 asistenteId={clip.asistenteId}
@@ -318,6 +313,7 @@ export function PanelClip({
                 onCambiar={(patch) => acciones.onCambiar({ escena: { ...clip.escena, ...patch } })}
               />
               {seccionVoz}
+              <SeccionFiltroVoz filtro={clip.filtroVoz} onCambiar={(filtroVoz) => acciones.onCambiar({ filtroVoz })} />
               <Deslizador etiqueta={t('video.sonidos.volumen', 'Volumen')} valor={clip.volumen} onCambiar={(volumen) => acciones.onCambiar({ volumen })} />
             </>
           )
@@ -326,10 +322,8 @@ export function PanelClip({
         secciones = (
           <>
             <QuienHabla proyecto={proyecto} clip={clip} onElegir={acciones.onAsignarNarrador} onEditar={onEditarNarradores} />
-            {/* Con narrador, el personaje lo pone él; sin narrador (clips de antes), se elige aquí. */}
-            {!n && (
-              <SelectorAsistente titulo={t('video.avatar.asistente', 'Asistente')} elegidoId={clip.asistenteId} onElegir={(as) => acciones.onCambiar({ asistenteId: as.id })} />
-            )}
+            {/* Con narrador, el personaje lo pone él; sin narrador (clips de antes), se elige aquí: tú o un asistente. */}
+            {!n && <SelectorPersonaje elegidoId={clip.asistenteId} onElegir={(asistenteId) => acciones.onCambiar({ asistenteId })} />}
             {sinRostro}
             <Campo etiqueta={t('video.avatar.esquina', 'Esquina')}>
               <div className="flex flex-wrap gap-1.5">
@@ -362,6 +356,7 @@ export function PanelClip({
               </Campo>
             </div>
             {seccionVoz}
+            <SeccionFiltroVoz filtro={clip.filtroVoz} onCambiar={(filtroVoz) => acciones.onCambiar({ filtroVoz })} />
             <Deslizador etiqueta={t('video.sonidos.volumen', 'Volumen')} valor={clip.volumen} onCambiar={(volumen) => acciones.onCambiar({ volumen })} />
           </>
         )

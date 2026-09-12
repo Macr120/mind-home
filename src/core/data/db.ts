@@ -4056,6 +4056,8 @@ export interface NarradorVideo {
   /** Personaje (asistente) que dice sus líneas; ausente = voz en off. */
   asistenteId?: string
 }
+/** Filtro de voz de una narración o de un avatar (los efectos viven en `rooms/video/filtrosVoz`); la unión va en línea, como `aspecto`. */
+export type FiltroVoz = 'ardilla' | 'grave' | 'robot' | 'eco' | 'radio' | 'cueva'
 export interface ClipVoz extends ClipBase {
   pista: 'voz'
   /** Audio TTS o importado; ausente = solo guion (aún sin voz). */
@@ -4065,6 +4067,8 @@ export interface ClipVoz extends ClipBase {
   voz?: string
   /** Quién lo dice (`proyecto.narradores`): su voz manda sobre `voz`. */
   narradorId?: string
+  /** Efecto sobre el audio del clip (grabado, importado o TTS); la lectura en vivo del preview no lo lleva. */
+  filtroVoz?: FiltroVoz
   volumen: number
 }
 export interface ClipMusica extends ClipBase {
@@ -4095,6 +4099,8 @@ export interface ClipAvatar extends ClipBase {
   /** Ausente = 20; 10 si el audio pasa de 60 s. */
   envolventeHz?: number
   volumen: number
+  /** Efecto sobre el audio del clip (TTS generado); como en `ClipVoz`. */
+  filtroVoz?: FiltroVoz
   /** 'escena' = actor en la casa 3D (modo película); ausente = el PIP de siempre. */
   modo?: 'escena'
   /** Solo con `modo: 'escena'`: dónde está y qué hace el actor en el mapa. */

@@ -13,12 +13,12 @@ import { Modal } from '../../_shared/ui'
 import type { AspectoVideo } from '../constantes'
 import { soportaMp4 } from '../exportar'
 
-export type OpcionExportar = 'archivo' | 'medios' | Plataforma
+export type OpcionExportar = 'archivo' | 'proyecto' | 'medios' | Plataforma
 
 /**
  * El menú al pulsar «Exportar»: descargar (o compartir con la hoja del sistema
- * en la app de tienda), guardar en Medios (modo película: la animación como
- * clip para un video) y las cuatro redes, cada una con su estado. Un solo
+ * en la app de tienda), en el modo película llevar la animación a un proyecto
+ * de video como clip o guardarla en Medios, y las cuatro redes, cada una con su estado. Un solo
  * botón en la cabecera, como CapCut: en móvil no cabe otro control.
  */
 export function MenuExportar({
@@ -73,6 +73,14 @@ export function MenuExportar({
           null,
           { onClick: () => onElegir('archivo') },
         )}
+        {conMedios &&
+          loseta(
+            'proyecto',
+            <Icono nombre="pelicula" />,
+            t('video.pelicula.aProyecto', 'A un proyecto de video'),
+            t('video.pelicula.aProyectoSub', 'Como clip en tu video'),
+            { onClick: () => onElegir('proyecto') },
+          )}
         {conMedios &&
           loseta(
             'medios',

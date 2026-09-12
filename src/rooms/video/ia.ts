@@ -227,3 +227,17 @@ export async function mejorarTitulos(clips: ClipVideo[]): Promise<Map<string, st
   if (salida.size === 0) throw new Error('La IA no devolvió títulos usables')
   return salida
 }
+
+/** Traduce textos del video (una narración o un rótulo con su subtítulo) a un idioma, en una llamada: mismo orden y cantidad. */
+export async function traducirTextos(textos: string[], idioma: string): Promise<string[]> {
+  const sys = [
+    `Eres traductor profesional. Traduce cada texto al idioma «${idioma}» conservando el tono, los saltos de línea y los emojis, sin añadir ni quitar nada.`,
+    'Responde ÚNICAMENTE con JSON: {"textos":["<texto 1>","<texto 2>",...]} en el MISMO orden y cantidad; un texto vacío se devuelve vacío.',
+  ].join('\n')
+  const cuerpo = textos.map((x, i) => `${i + 1}. ${x}`).join('\n')
+  const respuesta = await conversarIA(sys, [{ rol: 'usuario', texto: cuerpo }], 1200)
+  const obj = extraerJSON(respuesta)
+  const salida = Array.isArray(obj.textos) ? (obj.textos as unknown[]) : []
+  if (salida.length !== textos.length || !salida.every((x) => typeof x === 'string')) throw new Error('La IA no devolvió la traducción completa')
+  return (salida as string[]).map((x) => x.trim())
+}

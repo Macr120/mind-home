@@ -1,10 +1,11 @@
 import { contextoAudio, desbloquearAudio } from '../../core/audio/motor'
-import type { MedioVideo } from '../../core/data/db'
+import type { FiltroVoz, MedioVideo } from '../../core/data/db'
 import { formatoGrabacion } from '../../core/grabacionPantalla'
 import { peliculaFrame } from '../../core/state/peliculaStore'
 import { BITRATE_AUDIO, CALIDAD_DEFECTO, CALIDADES, FPS_EXPORT, resolucionDe } from './constantes'
 import { crearPool } from './fuentes'
 import { duracionTotal, esClipAudio, type ProyectoAbierto } from './modelo'
+import { crearFiltroVoz, type CadenaVoz } from './filtrosVoz'
 import { MotorVideo } from './motor'
 import type { Fuente3D, RenderizadorAvatar } from './render'
 
@@ -129,21 +130,34 @@ export async function exportarVideo(
   silencio.connect(destino)
   silencio.start()
   const nodos: AudioNode[] = []
+  const cadenas: CadenaVoz[] = []
   // Un Set: conectar dos veces el mismo elemento lanza InvalidStateError.
   const elementos = new Set<HTMLMediaElement>()
+  // Filtro de voz por elemento (cada clip de narración o de avatar tiene el suyo).
+  const filtroDe = new Map<HTMLMediaElement, FiltroVoz>()
   for (const c of proyecto.clips) {
     if (c.pista === 'video' && c.fuente.tipo === 'video') {
       const f = pool.de(c.fuente.medioId)
       if (f?.tipo === 'video') elementos.add(f.el)
     } else if (esClipAudio(c)) {
       const el = pool.audioDe(c)
-      if (el) elementos.add(el)
+      if (!el) continue
+      elementos.add(el)
+      if ((c.pista === 'voz' || c.pista === 'avatar') && c.filtroVoz) filtroDe.set(el, c.filtroVoz)
     }
   }
   for (const el of elementos) {
     const nodo = ctxAudio.createMediaElementSource(el)
-    nodo.connect(destino)
-    nodo.connect(ctxAudio.destination)
+    const filtro = filtroDe.get(el)
+    let salida: AudioNode = nodo
+    if (filtro) {
+      const cadena = crearFiltroVoz(ctxAudio, filtro)
+      nodo.connect(cadena.entrada)
+      cadenas.push(cadena)
+      salida = cadena.salida
+    }
+    salida.connect(destino)
+    salida.connect(ctxAudio.destination)
     nodos.push(nodo)
   }
 
@@ -183,6 +197,7 @@ export async function exportarVideo(
     silencio.stop()
     silencio.disconnect()
     for (const n of nodos) n.disconnect()
+    for (const c of cadenas) c.desconectar()
     destino.disconnect()
     pool.dispose()
     void wakeLock?.release().catch(() => {})

@@ -4,20 +4,22 @@ import type { NarradorVideo } from '../../core/data/db'
 import { useT } from '../../core/i18n/useT'
 import { useAsistentes } from '../../core/state/asistentesStore'
 import { Creditos } from '../../core/ui/Creditos'
-import { SelectorAsistente } from '../../core/ui/comun/SelectorAsistente'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { BotonSecundario, Campo, INPUT, TARJETA } from '../_shared/ui'
 import { MAX_NARRADORES } from './constantes'
 import { OP_NARRACION } from './costosIA'
-import type { ClipNarracion, ProyectoAbierto } from './modelo'
+import { emojiActor, nombreActor } from './actores'
+import { lineasNarracion, narradorDe, vozEfectiva, type ClipNarracion, type ProyectoAbierto } from './modelo'
 import { emojiNarrador, nombreNarrador } from './narradores'
-import { Chip, SelectorVoz } from './Secciones'
+import { Chip, SelectorPersonaje, SelectorVoz } from './Secciones'
+import { fmtSeg } from './TimelinePistas'
 import { gruposVoz, hablarConVoz, usaDispositivo, vozValida } from './voces'
 
 /**
  * Las voces del proyecto: el bloque «Voces» (alta con o sin personaje, voz IA de
- * cada narrador, muestra y baja) y los chips de «Quién habla» del panel de un
- * clip. Las reglas sobre los clips están en `modelo.ts` (`asignarNarrador`).
+ * cada narrador, muestra y baja), las «líneas» del guion con quién las dice y
+ * el reproductor (modal «Guion» de la barra), y los chips de «Quién habla» del
+ * panel de un clip. Las reglas sobre los clips están en `modelo.ts`.
  */
 
 function IconoNarrador({ n }: { n: NarradorVideo }) {
@@ -108,7 +110,7 @@ export function PanelNarradores({
           <Chip activo={false} onClick={() => anadir()}>
             <Icono nombre="microfono" /> {t('video.narradores.sinPersonaje', 'Sin personaje (voz en off)')}
           </Chip>
-          <SelectorAsistente titulo={t('video.narradores.conPersonaje', 'O un personaje:')} onElegir={(a) => anadir(a.id)} />
+          <SelectorPersonaje etiqueta={t('video.narradores.conPersonaje', 'O un personaje:')} onElegir={anadir} />
         </div>
       )}
       {narradores.map((n) => (
@@ -168,6 +170,94 @@ export function PanelNarradores({
       {narradores.length > 0 && (
         <p className="text-[11px] text-white/35">
           {t('video.narradores.nota', 'Con personaje, aparece en pantalla mientras habla; sin él, es voz en off.')}
+        </p>
+      )}
+    </section>
+  )
+}
+
+/** Las líneas del guion (clips de voz y de avatar con texto) en orden, con quién las dice, y el reproductor. */
+export function LineasGuion({
+  proyecto,
+  sonando,
+  onEscuchar,
+  onParar,
+  onSeleccion,
+}: {
+  proyecto: ProyectoAbierto
+  /** Id de la línea que suena, o null. */
+  sonando: string | null
+  /** Sin id: todas en orden. */
+  onEscuchar: (clipId?: string) => void
+  onParar: () => void
+  onSeleccion: (clipId: string) => void
+}) {
+  const t = useT()
+  useAsistentes((s) => s.lista)
+  const generando = useVozGenerando((s) => s.generando)
+  const lineas = lineasNarracion(proyecto.clips)
+  const quienDe = (c: ClipNarracion): { nombre: string; emoji?: string } => {
+    const n = narradorDe(proyecto, c)
+    if (n) return { nombre: nombreNarrador(t, n), emoji: emojiNarrador(n) }
+    if (c.pista === 'avatar') return { nombre: nombreActor(t, c.asistenteId), emoji: emojiActor(c.asistenteId) }
+    return { nombre: t('video.narradores.enOff', 'Narrador') }
+  }
+  return (
+    <section className="space-y-1.5">
+      <div className="flex items-center gap-2">
+        <p className="min-w-0 flex-1 truncate text-[11px] font-semibold text-white/60">
+          {t('video.lineas.titulo', 'Narración')} · {lineas.length}
+        </p>
+        {sonando ? (
+          <BotonSecundario pequeno onClick={onParar}>
+            <Icono nombre="detener" /> {t('video.lineas.parar', 'Parar')}
+          </BotonSecundario>
+        ) : (
+          <BotonSecundario pequeno disabled={lineas.length === 0 || generando} onClick={() => onEscuchar()}>
+            <Icono nombre="play" /> {t('video.lineas.escucharTodo', 'Escuchar el guion')}
+          </BotonSecundario>
+        )}
+      </div>
+      {lineas.length === 0 ? (
+        <p className="text-[11px] text-white/40">
+          {t('video.lineas.vacio', 'Aún no hay narración: escribe lo que se dice en un clip de voz o de avatar.')}
+        </p>
+      ) : (
+        lineas.map((c) => {
+          const quien = quienDe(c)
+          const suena = sonando === c.id
+          return (
+            <div key={c.id} className={`${TARJETA} flex items-center gap-2 p-2 ${suena ? 'border-white/50' : ''}`}>
+              <button type="button" onClick={() => onSeleccion(c.id)} className="min-w-0 flex-1 text-left">
+                <p className="truncate text-[11px] font-semibold text-white/80">
+                  {quien.emoji ? <Icono emoji={quien.emoji} /> : <Icono nombre="microfono" />} {quien.nombre} · {fmtSeg(c.inicio)}
+                  {c.medioId == null && <span className="text-white/40"> · {t('video.clip.sinAudio', 'Sin audio todavía')}</span>}
+                </p>
+                <p className="line-clamp-2 text-[11px] text-white/60">«{c.texto}»</p>
+              </button>
+              <button
+                type="button"
+                onClick={() => (suena ? onParar() : onEscuchar(c.id))}
+                disabled={generando && !suena}
+                aria-label={suena ? t('video.lineas.parar', 'Parar') : t('video.lineas.escuchar', 'Escuchar esta línea')}
+                title={suena ? t('video.lineas.parar', 'Parar') : t('video.lineas.escuchar', 'Escuchar esta línea')}
+                className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-white/10 transition hover:bg-white/20 disabled:opacity-40"
+              >
+                <Icono nombre={suena ? 'detener' : 'play'} />
+              </button>
+            </div>
+          )
+        })
+      )}
+      {lineas.some((c) => c.medioId == null) && (
+        <p className="text-[11px] text-white/35">
+          {t('video.lineas.nota', 'Las líneas sin audio se leen con su voz')}
+          {lineas.some((c) => c.medioId == null && !usaDispositivo(vozEfectiva(proyecto, c))) && (
+            <>
+              {' '}
+              <Creditos op={OP_NARRACION} />
+            </>
+          )}
         </p>
       )}
     </section>

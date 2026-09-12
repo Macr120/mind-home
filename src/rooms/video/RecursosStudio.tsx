@@ -19,9 +19,13 @@ const ICONO_TIPO: Record<RecursoStudio['tipo'], NombreIcono> = { audio: 'musica'
 export function RecursosStudio({
   onElegir,
   propsArrastre,
+  tipos,
 }: {
   onElegir: (app: AppStudio, recurso: RecursoStudio) => void
-  propsArrastre: (app: AppStudio, recurso: RecursoStudio) => PropsArrastreItem
+  /** Gesto de arrastre a la timeline (panel lateral); en un selector modal no hay. */
+  propsArrastre?: (app: AppStudio, recurso: RecursoStudio) => PropsArrastreItem
+  /** Solo estos tipos (imágenes para un fondo o un PIP, audio para música y sonidos); ausente = todo. */
+  tipos?: RecursoStudio['tipo'][]
 }) {
   const t = useT()
   const nombreApp: Record<AppStudio, string> = {
@@ -32,7 +36,7 @@ export function RecursosStudio({
   return (
     <div className="space-y-2">
       {APPS_STUDIO.filter((app) => proveedorRecursos(app)).map((app) => (
-        <Seccion key={app} app={app} titulo={nombreApp[app]} onElegir={onElegir} propsArrastre={propsArrastre} />
+        <Seccion key={app} app={app} titulo={nombreApp[app]} tipos={tipos} onElegir={onElegir} propsArrastre={propsArrastre} />
       ))}
     </div>
   )
@@ -41,13 +45,15 @@ export function RecursosStudio({
 function Seccion({
   app,
   titulo,
+  tipos,
   onElegir,
   propsArrastre,
 }: {
   app: AppStudio
   titulo: string
+  tipos?: RecursoStudio['tipo'][]
   onElegir: (app: AppStudio, recurso: RecursoStudio) => void
-  propsArrastre: (app: AppStudio, recurso: RecursoStudio) => PropsArrastreItem
+  propsArrastre?: (app: AppStudio, recurso: RecursoStudio) => PropsArrastreItem
 }) {
   const t = useT()
   const [abierta, setAbierta] = useState(true)
@@ -68,16 +74,19 @@ function Seccion({
     }
   }, [app, abierta])
 
+  // Con filtro de tipos, una app que no tiene nada de eso no aparece (en cuanto se conoce su lista).
+  const visibles = lista && tipos ? lista.filter((r) => tipos.includes(r.tipo)) : lista
+  if (tipos && visibles && visibles.length === 0) return null
   let cuerpo: ReactNode = null
   if (abierta) {
-    if (lista == null) cuerpo = <p className="px-1 text-[11px] text-white/40">…</p>
-    else if (lista.length === 0) cuerpo = <p className="px-1 text-[11px] text-white/40">{t('video.studio.vacio', 'Aún no hay nada en esta app')}</p>
+    if (visibles == null) cuerpo = <p className="px-1 text-[11px] text-white/40">…</p>
+    else if (visibles.length === 0) cuerpo = <p className="px-1 text-[11px] text-white/40">{t('video.studio.vacio', 'Aún no hay nada en esta app')}</p>
     else {
-      const rejilla = lista.every((r) => r.tipo === 'imagen')
+      const rejilla = visibles.every((r) => r.tipo === 'imagen')
       cuerpo = (
         <ul className={`grid gap-1.5 ${rejilla ? 'grid-cols-2' : 'grid-cols-1'}`}>
-          {lista.map((r, i) => {
-            const nuevoGrupo = i === 0 || lista[i - 1].grupo !== r.grupo
+          {visibles.map((r, i) => {
+            const nuevoGrupo = i === 0 || visibles[i - 1].grupo !== r.grupo
             return (
               <Recurso key={r.clave} app={app} recurso={r} grupo={nuevoGrupo ? r.grupo : undefined} rejilla={rejilla} onElegir={onElegir} propsArrastre={propsArrastre} />
             )
@@ -117,14 +126,14 @@ function Recurso({
   grupo?: string
   rejilla: boolean
   onElegir: (app: AppStudio, recurso: RecursoStudio) => void
-  propsArrastre: (app: AppStudio, recurso: RecursoStudio) => PropsArrastreItem
+  propsArrastre?: (app: AppStudio, recurso: RecursoStudio) => PropsArrastreItem
 }) {
   const t = useT()
   const etiqueta = t('video.medios.anadirCursor', 'Añadir «{n}» en el cursor', { n: recurso.nombre })
   return (
     <>
       {grupo && <li className="col-span-full pt-1 text-[10px] tracking-wide text-white/40 uppercase">{grupo}</li>}
-      <li className={`${TARJETA} ${rejilla ? 'space-y-1 p-1.5' : 'flex items-center gap-2 p-2'} select-none [-webkit-touch-callout:none]`} {...propsArrastre(app, recurso)}>
+      <li className={`${TARJETA} ${rejilla ? 'space-y-1 p-1.5' : 'flex items-center gap-2 p-2'} select-none [-webkit-touch-callout:none]`} {...propsArrastre?.(app, recurso)}>
         <button
           type="button"
           onClick={() => onElegir(app, recurso)}

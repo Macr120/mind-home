@@ -3,7 +3,7 @@ import { useFrame, type ThreeEvent } from '@react-three/fiber'
 import * as THREE from 'three'
 import { playerPos, useHouse } from '../state/houseStore'
 import { useMascota } from '../state/mascotaStore'
-import { useAsistentes } from '../state/asistentesStore'
+import { esModelo, getAsistente, useAsistentes } from '../state/asistentesStore'
 import { useLayout } from '../state/layoutStore'
 import { useEditorUi } from '../state/editorUiStore'
 import { useDialogo } from '../state/dialogoStore'
@@ -191,6 +191,10 @@ export function Asistente3D() {
         .map((a) => (
           <Companero key={a.id} asistente={a} />
         ))}
+      {/* Actores que son modelos del editor (`modelo:<id>`), sin cuenta de asistente: solo mientras dura la película. */}
+      {actores.filter(esModelo).map((id) => (
+        <Companero key={id} asistente={getAsistente(id)} />
+      ))}
     </>
   )
 }

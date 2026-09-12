@@ -73,6 +73,8 @@ export function GuionObra({
   iaError,
   onCerrar,
   acciones,
+  enPanel = false,
+  iconoCerrar = 'cerrar',
 }: {
   proyecto: ProyectoAbierto
   /** Línea que suena en «Escuchar la obra», o null. */
@@ -81,6 +83,10 @@ export function GuionObra({
   iaError: string
   onCerrar: () => void
   acciones: AccionesObra
+  /** Como herramienta del lateral del editor (cabecera propia) en vez de modal. */
+  enPanel?: boolean
+  /** Icono del botón de la cabecera del lateral: plegar (columna) o cerrar (cajón). */
+  iconoCerrar?: NombreIcono
 }) {
   const t = useT()
   const asistentes = useAsistentes((s) => s.lista)
@@ -102,188 +108,216 @@ export function GuionObra({
     </BotonSecundario>
   )
 
-  return (
-    <Modal titulo={t('video.obra.titulo', 'Guion de la obra')} onCerrar={onCerrar} ancho="max-w-2xl">
-      <div className="flex flex-wrap items-center gap-2">
-        <span className="text-xs text-white/50">{t('video.obra.n', '{n} líneas', { n: lineas.length })}</span>
-        <span className="flex-1" />
-        {sonando ? (
-          <BotonSecundario pequeno onClick={acciones.onParar}>
-            <Icono nombre="detener" /> {t('video.lineas.parar', 'Parar')}
-          </BotonSecundario>
-        ) : (
-          <BotonSecundario pequeno disabled={lineas.length === 0} onClick={acciones.onEscuchar}>
-            <Icono nombre="play" /> {t('video.obra.escuchar', 'Escuchar la obra')}
-          </BotonSecundario>
-        )}
-        <BotonPrimario type="button" pequeno app={COLOR} onClick={() => acciones.onAnadir(siguienteQuien(), '')}>
-          <Icono nombre="agregar" /> {t('video.obra.anadirLinea', 'Añadir línea')}
-        </BotonPrimario>
-      </div>
+  const cuerpo = (
+    <>
+    <div className="flex flex-wrap items-center gap-2">
+      <span className="text-xs text-white/50">{t('video.obra.n', '{n} líneas', { n: lineas.length })}</span>
+      <span className="flex-1" />
+      {sonando ? (
+        <BotonSecundario pequeno onClick={acciones.onParar}>
+          <Icono nombre="detener" /> {t('video.lineas.parar', 'Parar')}
+        </BotonSecundario>
+      ) : (
+        <BotonSecundario pequeno disabled={lineas.length === 0} onClick={acciones.onEscuchar}>
+          <Icono nombre="play" /> {t('video.obra.escuchar', 'Escuchar la obra')}
+        </BotonSecundario>
+      )}
+      <BotonPrimario type="button" pequeno app={COLOR} onClick={() => acciones.onAnadir(siguienteQuien(), '')}>
+        <Icono nombre="agregar" /> {t('video.obra.anadirLinea', 'Añadir línea')}
+      </BotonPrimario>
+    </div>
 
-      {lineas.length === 0 ? (
-        <p className="px-2 py-3 text-center text-xs text-white/40">
-          {t('video.obra.sinLineas', 'Aún no hay líneas: añade una o pide a la IA que escriba la obra')}
-        </p>
+    {lineas.length === 0 ? (
+      <p className="px-2 py-3 text-center text-xs text-white/40">
+        {t('video.obra.sinLineas', 'Aún no hay líneas: añade una o pide a la IA que escriba la obra')}
+      </p>
+    ) : (
+      <div className="space-y-1.5">
+        {lineas.map((l, i) => {
+          const quien = quienDe(l)
+          return (
+            <div key={l.id} className={`${TARJETA} space-y-1.5 p-2 ${l.id === sonando ? 'border-white/40' : ''}`}>
+              <div className="flex flex-wrap items-center gap-1.5">
+                <span className="w-5 text-center text-[11px] text-white/40">{i + 1}</span>
+                <select
+                  value={quien}
+                  onChange={(e) => acciones.onQuien(l.id, e.target.value)}
+                  aria-label={t('video.obra.quien', 'Quién habla')}
+                  className={`${SELECTOR} py-1 text-xs`}
+                >
+                  {[...quienes, EN_OFF].map((id) => (
+                    <option key={id} value={id}>
+                      {id === EN_OFF ? '' : `${emojiActor(id)} `}
+                      {nombreDe(id)}
+                    </option>
+                  ))}
+                </select>
+                {/* El texto se confirma al salir del campo (o con Enter): cada cambio reencadena la obra. */}
+                <input
+                  key={`${l.id}:${l.texto ?? ''}`}
+                  defaultValue={l.texto ?? ''}
+                  placeholder={t('video.obra.textoPh', 'Lo que dice…')}
+                  aria-label={t('video.obra.texto', 'Línea')}
+                  onBlur={(e) => {
+                    if (e.target.value !== (l.texto ?? '')) acciones.onTexto(l.id, e.target.value)
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') e.currentTarget.blur()
+                  }}
+                  className={`${CAMPO_LINEA} py-1 text-xs`}
+                />
+                <span className="font-mono text-[10px] tabular-nums text-white/40">{fmtSeg(l.inicio)}</span>
+                <BotonSecundario
+                  pequeno
+                  disabled={i === 0}
+                  onClick={() => acciones.onMover(l.id, -1)}
+                  aria-label={t('video.guion.subir', 'Subir')}
+                  title={t('video.guion.subir', 'Subir')}
+                >
+                  <Icono nombre="subir" />
+                </BotonSecundario>
+                <BotonSecundario
+                  pequeno
+                  disabled={i === lineas.length - 1}
+                  onClick={() => acciones.onMover(l.id, 1)}
+                  aria-label={t('video.guion.bajar', 'Bajar')}
+                  title={t('video.guion.bajar', 'Bajar')}
+                >
+                  <Icono nombre="bajar" />
+                </BotonSecundario>
+                <BotonSecundario
+                  pequeno
+                  onClick={() => acciones.onIr(l.id)}
+                  aria-label={t('video.obra.ir', 'Ir a esta línea')}
+                  title={t('video.obra.ir', 'Ir a esta línea')}
+                >
+                  <Icono nombre="play" />
+                </BotonSecundario>
+                <BotonSecundario
+                  pequeno
+                  onClick={() => acciones.onBorrar(l.id)}
+                  aria-label={t('video.obra.borrarLinea', 'Borrar la línea')}
+                  title={t('video.obra.borrarLinea', 'Borrar la línea')}
+                >
+                  <Icono nombre="basura" />
+                </BotonSecundario>
+              </div>
+              {l.pista === 'avatar' && (
+                <div className="flex flex-wrap items-center gap-1.5">
+                  {(Object.keys(EMOCIONES) as EmocionId[]).map((e) => (
+                    <Chip key={e} activo={l.escena.emocion === e} onClick={() => acciones.onEscena(l.id, { emocion: l.escena.emocion === e ? undefined : e })}>
+                      <span title={t(`video.pelicula.emocion.${e}`, EMOCION_ES[e])}>
+                        <Icono emoji={EMOCIONES[e].emoji} />
+                      </span>
+                    </Chip>
+                  ))}
+                  <span className="mx-1 h-4 w-px bg-white/15" aria-hidden />
+                  {PRESETS_ANIMACION.filter((p) => p.id !== 'vida').map((p) => {
+                    const id = p.id as Exclude<PresetAnimacionId, 'vida'>
+                    return (
+                      <Chip key={id} activo={l.escena.anim === id} onClick={() => acciones.onEscena(l.id, { anim: l.escena.anim === id ? undefined : id })}>
+                        <Icono emoji={p.emoji} /> {t(`video.pelicula.preset.${id}`, p.nombre)}
+                      </Chip>
+                    )
+                  })}
+                </div>
+              )}
+            </div>
+          )
+        })}
+      </div>
+    )}
+
+    <Campo etiqueta={t('video.obra.escenario', 'Escenario (marionetas)')}>
+      {marionetas.length === 0 ? (
+        <p className="text-[11px] text-white/45">{t('video.obra.sinPersonajes', 'Añade líneas con personajes para acomodarlos en el escenario')}</p>
       ) : (
         <div className="space-y-1.5">
-          {lineas.map((l, i) => {
-            const quien = quienDe(l)
+          {marionetas.map((id) => {
+            const m = marcaDe(proyecto.clips, id)
             return (
-              <div key={l.id} className={`${TARJETA} space-y-1.5 p-2 ${l.id === sonando ? 'border-white/40' : ''}`}>
-                <div className="flex flex-wrap items-center gap-1.5">
-                  <span className="w-5 text-center text-[11px] text-white/40">{i + 1}</span>
-                  <select
-                    value={quien}
-                    onChange={(e) => acciones.onQuien(l.id, e.target.value)}
-                    aria-label={t('video.obra.quien', 'Quién habla')}
-                    className={`${SELECTOR} py-1 text-xs`}
-                  >
-                    {[...quienes, EN_OFF].map((id) => (
-                      <option key={id} value={id}>
-                        {id === EN_OFF ? '' : `${emojiActor(id)} `}
-                        {nombreDe(id)}
-                      </option>
-                    ))}
-                  </select>
-                  {/* El texto se confirma al salir del campo (o con Enter): cada cambio reencadena la obra. */}
-                  <input
-                    key={`${l.id}:${l.texto ?? ''}`}
-                    defaultValue={l.texto ?? ''}
-                    placeholder={t('video.obra.textoPh', 'Lo que dice…')}
-                    aria-label={t('video.obra.texto', 'Línea')}
-                    onBlur={(e) => {
-                      if (e.target.value !== (l.texto ?? '')) acciones.onTexto(l.id, e.target.value)
-                    }}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter') e.currentTarget.blur()
-                    }}
-                    className={`${CAMPO_LINEA} py-1 text-xs`}
-                  />
-                  <span className="font-mono text-[10px] tabular-nums text-white/40">{fmtSeg(l.inicio)}</span>
-                  <BotonSecundario
-                    pequeno
-                    disabled={i === 0}
-                    onClick={() => acciones.onMover(l.id, -1)}
-                    aria-label={t('video.guion.subir', 'Subir')}
-                    title={t('video.guion.subir', 'Subir')}
-                  >
-                    <Icono nombre="subir" />
+              <div key={id} className="flex flex-wrap items-center gap-1.5 text-xs">
+                <span className="min-w-24 font-semibold">
+                  <Icono emoji={emojiActor(id)} /> {nombreActor(t, id)}
+                </span>
+                <span className="font-mono text-[11px] tabular-nums text-white/60">
+                  {m.x.toFixed(1)}, {m.z.toFixed(1)}
+                </span>
+                <BotonSecundario pequeno onClick={() => acciones.onMarca(id, puntoActor(id))}>
+                  <Icono nombre="ubicacion" /> {t('video.pelicula.aqui', 'Aquí')}
+                </BotonSecundario>
+                <BotonSecundario pequeno onClick={() => acciones.onTocarMapa(id)}>
+                  <Icono nombre="mapa" /> {t('video.pelicula.tocarMapa', 'Tocar el mapa')}
+                </BotonSecundario>
+                {EMPUJES.map((e) => (
+                  <BotonSecundario key={e.dir} pequeno onClick={() => acciones.onEmpujar(id, e.dir)} aria-label={t(e.clave, e.es)} title={t(e.clave, e.es)}>
+                    <Icono nombre={e.icono} />
                   </BotonSecundario>
-                  <BotonSecundario
-                    pequeno
-                    disabled={i === lineas.length - 1}
-                    onClick={() => acciones.onMover(l.id, 1)}
-                    aria-label={t('video.guion.bajar', 'Bajar')}
-                    title={t('video.guion.bajar', 'Bajar')}
-                  >
-                    <Icono nombre="bajar" />
-                  </BotonSecundario>
-                  <BotonSecundario
-                    pequeno
-                    onClick={() => acciones.onIr(l.id)}
-                    aria-label={t('video.obra.ir', 'Ir a esta línea')}
-                    title={t('video.obra.ir', 'Ir a esta línea')}
-                  >
-                    <Icono nombre="play" />
-                  </BotonSecundario>
-                  <BotonSecundario
-                    pequeno
-                    onClick={() => acciones.onBorrar(l.id)}
-                    aria-label={t('video.obra.borrarLinea', 'Borrar la línea')}
-                    title={t('video.obra.borrarLinea', 'Borrar la línea')}
-                  >
-                    <Icono nombre="basura" />
-                  </BotonSecundario>
-                </div>
-                {l.pista === 'avatar' && (
-                  <div className="flex flex-wrap items-center gap-1.5">
-                    {(Object.keys(EMOCIONES) as EmocionId[]).map((e) => (
-                      <Chip key={e} activo={l.escena.emocion === e} onClick={() => acciones.onEscena(l.id, { emocion: l.escena.emocion === e ? undefined : e })}>
-                        <span title={t(`video.pelicula.emocion.${e}`, EMOCION_ES[e])}>
-                          <Icono emoji={EMOCIONES[e].emoji} />
-                        </span>
-                      </Chip>
-                    ))}
-                    <span className="mx-1 h-4 w-px bg-white/15" aria-hidden />
-                    {PRESETS_ANIMACION.filter((p) => p.id !== 'vida').map((p) => {
-                      const id = p.id as Exclude<PresetAnimacionId, 'vida'>
-                      return (
-                        <Chip key={id} activo={l.escena.anim === id} onClick={() => acciones.onEscena(l.id, { anim: l.escena.anim === id ? undefined : id })}>
-                          <Icono emoji={p.emoji} /> {t(`video.pelicula.preset.${id}`, p.nombre)}
-                        </Chip>
-                      )
-                    })}
-                  </div>
-                )}
+                ))}
               </div>
             )
           })}
+          <div className="flex flex-wrap items-center gap-1.5">
+            <span className="text-[11px] text-white/50">{t('video.obra.formacion', 'Formación')}</span>
+            {FORMACIONES.map((f) => (
+              <Chip key={f.id} activo={false} onClick={() => acciones.onFormacion(f.id)}>
+                {t(`video.obra.formacion.${f.id}`, f.es)}
+              </Chip>
+            ))}
+          </div>
+          <p className="text-[11px] text-white/45">{t('video.pelicula.atraviesan', 'Los personajes caminan en línea recta, atravesando muros')}</p>
         </div>
       )}
+    </Campo>
 
-      <Campo etiqueta={t('video.obra.escenario', 'Escenario (marionetas)')}>
-        {marionetas.length === 0 ? (
-          <p className="text-[11px] text-white/45">{t('video.obra.sinPersonajes', 'Añade líneas con personajes para acomodarlos en el escenario')}</p>
+    <Campo etiqueta={t('video.obra.ia.titulo', 'Pedir a la IA')}>
+      <textarea
+        value={idea}
+        onChange={(e) => setIdea(e.target.value)}
+        rows={2}
+        placeholder={t('video.obra.ia.ideaPh', 'Una comedia corta donde los personajes discuten por quién se comió la última galleta…')}
+        className={INPUT}
+      />
+      {iaError && <p className="mt-1 text-xs text-red-400">{iaError}</p>}
+      <div className="mt-2 flex flex-wrap gap-2">
+        {lineas.length === 0 ? (
+          botonIA(t('video.obra.ia.escribir', 'Escribir la obra'), false)
         ) : (
-          <div className="space-y-1.5">
-            {marionetas.map((id) => {
-              const m = marcaDe(proyecto.clips, id)
-              return (
-                <div key={id} className="flex flex-wrap items-center gap-1.5 text-xs">
-                  <span className="min-w-24 font-semibold">
-                    <Icono emoji={emojiActor(id)} /> {nombreActor(t, id)}
-                  </span>
-                  <span className="font-mono text-[11px] tabular-nums text-white/60">
-                    {m.x.toFixed(1)}, {m.z.toFixed(1)}
-                  </span>
-                  <BotonSecundario pequeno onClick={() => acciones.onMarca(id, puntoActor(id))}>
-                    <Icono nombre="ubicacion" /> {t('video.pelicula.aqui', 'Aquí')}
-                  </BotonSecundario>
-                  <BotonSecundario pequeno onClick={() => acciones.onTocarMapa(id)}>
-                    <Icono nombre="mapa" /> {t('video.pelicula.tocarMapa', 'Tocar el mapa')}
-                  </BotonSecundario>
-                  {EMPUJES.map((e) => (
-                    <BotonSecundario key={e.dir} pequeno onClick={() => acciones.onEmpujar(id, e.dir)} aria-label={t(e.clave, e.es)} title={t(e.clave, e.es)}>
-                      <Icono nombre={e.icono} />
-                    </BotonSecundario>
-                  ))}
-                </div>
-              )
-            })}
-            <div className="flex flex-wrap items-center gap-1.5">
-              <span className="text-[11px] text-white/50">{t('video.obra.formacion', 'Formación')}</span>
-              {FORMACIONES.map((f) => (
-                <Chip key={f.id} activo={false} onClick={() => acciones.onFormacion(f.id)}>
-                  {t(`video.obra.formacion.${f.id}`, f.es)}
-                </Chip>
-              ))}
-            </div>
-            <p className="text-[11px] text-white/45">{t('video.pelicula.atraviesan', 'Los personajes caminan en línea recta, atravesando muros')}</p>
-          </div>
+          <>
+            {botonIA(t('video.obra.ia.reemplazar', 'Reemplazar la obra'), true)}
+            {botonIA(t('video.obra.ia.anadir', 'Añadir al final'), false)}
+          </>
         )}
-      </Campo>
-
-      <Campo etiqueta={t('video.obra.ia.titulo', 'Pedir a la IA')}>
-        <textarea
-          value={idea}
-          onChange={(e) => setIdea(e.target.value)}
-          rows={2}
-          placeholder={t('video.obra.ia.ideaPh', 'Una comedia corta donde los personajes discuten por quién se comió la última galleta…')}
-          className={INPUT}
-        />
-        {iaError && <p className="mt-1 text-xs text-red-400">{iaError}</p>}
-        <div className="mt-2 flex flex-wrap gap-2">
-          {lineas.length === 0 ? (
-            botonIA(t('video.obra.ia.escribir', 'Escribir la obra'), false)
-          ) : (
-            <>
-              {botonIA(t('video.obra.ia.reemplazar', 'Reemplazar la obra'), true)}
-              {botonIA(t('video.obra.ia.anadir', 'Añadir al final'), false)}
-            </>
-          )}
-        </div>
-      </Campo>
-    </Modal>
+      </div>
+    </Campo>
+    </>
+  )
+  if (!enPanel) {
+    return (
+      <Modal titulo={t('video.obra.titulo', 'Guion de la obra')} onCerrar={onCerrar} ancho="max-w-2xl">
+        {cuerpo}
+      </Modal>
+    )
+  }
+  const etiquetaCerrar = iconoCerrar === 'cerrar' ? t('video.panel.cerrar', 'Cerrar el panel') : t('video.lateral.plegarEditor', 'Plegar el editor')
+  return (
+    <div className="flex h-full min-h-0 flex-col">
+      <div className="flex shrink-0 items-center gap-1 border-b border-white/10 px-2 py-1.5">
+        <span className="text-sm">
+          <Icono nombre="rol" />
+        </span>
+        <p className="min-w-0 flex-1 truncate text-xs font-semibold">{t('video.obra.titulo', 'Guion de la obra')}</p>
+        <button
+          type="button"
+          onClick={onCerrar}
+          aria-label={etiquetaCerrar}
+          title={etiquetaCerrar}
+          className="grid h-6 w-6 place-items-center rounded text-white/50 hover:bg-white/10"
+        >
+          <Icono nombre={iconoCerrar} />
+        </button>
+      </div>
+      <div className="min-h-0 flex-1 space-y-3 overflow-y-auto p-2">{cuerpo}</div>
+    </div>
   )
 }

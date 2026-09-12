@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import type { FuenteSonido, MedioVideo } from '../../core/data/db'
 import { useT } from '../../core/i18n/useT'
+import type { AppStudio, RecursoStudio } from '../../core/recursosStudio'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { BotonBorrar, BotonSecundario, TARJETA } from '../_shared/ui'
 import type { ItemArrastre, MedioConId } from './clipsNuevos'
+import { RecursosStudio } from './RecursosStudio'
 import { guardarSonidosOcultos, leerSonidosOcultos, SONIDOS_FABRICA, urlSonido } from './sonidos'
 import type { PropsArrastreItem } from './useArrastreMedio'
 
@@ -146,6 +148,7 @@ export function ListaSonidos({
   medios,
   onElegir,
   onImportado,
+  onRecurso,
   compacto = false,
   propsArrastre,
 }: {
@@ -153,6 +156,8 @@ export function ListaSonidos({
   onElegir: (fuente: FuenteSonido) => void
   /** Pasar a la biblioteca de audios importados; sin él no se ofrece (el panel lateral ya los lista). */
   onImportado?: () => void
+  /** Traer un audio del Studio de audio (canciones, grabaciones, tu música); sin él no se ofrece (el panel lateral tiene su pestaña Studio). */
+  onRecurso?: (app: AppStudio, recurso: RecursoStudio) => void
   /** Una sola columna: la versión del panel lateral del editor. */
   compacto?: boolean
   /** Gesto de arrastre a la timeline (panel lateral); el botón «Añadir» sigue siendo el toque. */
@@ -261,6 +266,12 @@ export function ListaSonidos({
           </button>
         )}
       </div>
+      {onRecurso && (
+        <div>
+          <p className="mb-1 text-xs text-white/50">{t('video.lateral.studio', 'Studio')}</p>
+          <RecursosStudio tipos={['audio']} onElegir={onRecurso} />
+        </div>
+      )}
       {onImportado && (
         <BotonSecundario pequeno onClick={onImportado}>
           <Icono nombre="musica" /> {t('video.sonidos.importado', 'Audio importado')}

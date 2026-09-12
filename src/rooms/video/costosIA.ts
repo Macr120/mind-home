@@ -38,4 +38,13 @@ export const OP_TITULOS: OperacionIA = {
   partes: [{ op: 'texto' }],
 }
 
-export const OPERACIONES_IA: OperacionIA[] = [OP_GUION, OP_NARRACION, OP_FONDO, OP_TITULOS]
+export const OP_TRADUCIR: OperacionIA = {
+  id: 'video.traducir',
+  clave: 'ia.op.video.traducir',
+  es: 'Traducir una narración o un texto a otro idioma',
+  dondeClave: 'ia.donde.video.escena',
+  dondeEs: 'Editor de video · Panel del clip',
+  partes: [{ op: 'texto' }],
+}
+
+export const OPERACIONES_IA: OperacionIA[] = [OP_GUION, OP_NARRACION, OP_FONDO, OP_TITULOS, OP_TRADUCIR]

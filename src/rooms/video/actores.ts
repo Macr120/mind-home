@@ -1,22 +1,24 @@
 import type { ClipAvatar, ClipVideo, EscenaActor } from '../../core/data/db'
 import type { TFunc } from '../../core/i18n/useT'
-import { getAsistente } from '../../core/state/asistentesStore'
+import { esModelo, getAsistente, MODELOS_PERSONAJE } from '../../core/state/asistentesStore'
 import { ES_JUGADOR } from '../../core/state/peliculaStore'
 import { playerPos } from '../../core/state/playerPosition'
 import { posAsistentes } from '../../core/state/posAsistentes'
 import { EMOJIS } from '../../core/ui/iconos/catalogo'
 
 /**
- * Quién es un actor del modo película: un asistente (por su id) o tu avatar
- * (`ES_JUGADOR`). Único sitio del editor que traduce un id a nombre, emoji y
- * punto del mapa: `getAsistente('jugador')` caería en silencio al primer
- * asistente de la lista.
+ * Quién es un personaje del Studio: un asistente (por su id), un modelo del
+ * editor de personajes (`modelo:<id>`) o tu avatar (`ES_JUGADOR`). Único sitio
+ * del editor que traduce un id a nombre, emoji y punto del mapa:
+ * `getAsistente('jugador')` caería en silencio al primer asistente de la lista.
  */
 
 export const esJugador = (id: string) => id === ES_JUGADOR
 
 export function nombreActor(t: TFunc, id: string): string {
-  return esJugador(id) ? t('video.pelicula.tu', 'Tú') : getAsistente(id).nombre
+  if (esJugador(id)) return t('video.pelicula.tu', 'Tú')
+  const modelo = esModelo(id) ? MODELOS_PERSONAJE.find((m) => m.id === id) : undefined
+  return modelo ? t(modelo.claveNombre, modelo.es) : getAsistente(id).nombre
 }
 
 export function emojiActor(id: string): string {

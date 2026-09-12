@@ -19,6 +19,8 @@ export type OpcionAnadir =
   | 'grabarAudio'
   | 'mascaraAr'
   | 'personajeAr'
+  | 'transiciones'
+  | 'animacion3d'
 
 interface Opcion {
   id: OpcionAnadir
@@ -29,8 +31,12 @@ interface Opcion {
 
 /** Lo que hace de este menú un estudio de cine: el rodaje (cámara, marionetas y guion) aparte del montaje. */
 const RODAJE = new Set<OpcionAnadir>(['camara', 'personaje', 'guion'])
-/** Sin sentido bajo el mapa (fondo, avatar PIP) o fuera de lugar en un rodaje (grabar con la cámara, overlays AR). */
-const SIN_PELICULA = new Set<OpcionAnadir>(['fondo', 'avatar', 'grabarCamara', 'mascaraAr', 'personajeAr'])
+/** Sin mapa no hay cámara ni marionetas; el guion (voces y líneas) sí existe en un video. */
+const SOLO_PELICULA = new Set<OpcionAnadir>(['camara', 'personaje'])
+/** Herramientas que no añaden clips. */
+const SIN_CLIP = new Set<OpcionAnadir>(['guion', 'transiciones'])
+/** Sin sentido bajo el mapa (fondo, avatar PIP, una animación dentro de otra) o fuera de lugar en un rodaje (grabar con la cámara, overlays AR). */
+const SIN_PELICULA = new Set<OpcionAnadir>(['fondo', 'avatar', 'animacion3d', 'grabarCamara', 'mascaraAr', 'personajeAr'])
 const CON_DISPOSITIVOS = new Set<OpcionAnadir>(['grabarCamara', 'grabarAudio', 'mascaraAr', 'personajeAr'])
 
 /**
@@ -57,8 +63,8 @@ export function MenuAnadir({
   const todas: Opcion[] = [
     { id: 'camara', icono: 'foto', etiqueta: t('video.pelicula.camara', 'Cámara'), principal: true },
     { id: 'personaje', icono: 'persona', etiqueta: t('video.pelicula.personaje', 'Personaje') },
-    { id: 'guion', icono: 'rol', etiqueta: t('video.pelicula.guion', 'Guion') },
     { id: 'clip', icono: 'pelicula', etiqueta: t('video.guion.desdeMedio', 'Clip o imagen'), principal: true },
+    { id: 'animacion3d', icono: 'cubo-vistas', etiqueta: t('video.tab.animacion3d', 'Animación 3D'), principal: true },
     { id: 'grabarCamara', icono: 'foto', etiqueta: t('video.anadir.grabarCamara', 'Grabar con la cámara'), principal: true },
     { id: 'grabarAudio', icono: 'microfono', etiqueta: t('video.anadir.grabarAudio', 'Grabar audio') },
     { id: 'mascaraAr', icono: 'mascara', etiqueta: t('video.anadir.mascaraAr', 'Máscara AR'), principal: true },
@@ -70,17 +76,20 @@ export function MenuAnadir({
     { id: 'musica', icono: 'musica', etiqueta: t('video.anadir.musica', 'Música') },
     { id: 'sfx', icono: 'bocina', etiqueta: t('video.anadir.sonido', 'Sonido') },
     { id: 'avatar', icono: 'persona', etiqueta: t('video.anadir.avatar', 'Avatar') },
+    { id: 'guion', icono: 'rol', etiqueta: t('video.pelicula.guion', 'Guion') },
+    { id: 'transiciones', icono: 'transicion', etiqueta: t('video.anadir.transiciones', 'Transiciones') },
   ]
   // Cámara y micrófono del equipo (y los overlays AR) solo donde existen.
   const conDispositivos = typeof navigator !== 'undefined' && typeof navigator.mediaDevices?.getUserMedia === 'function'
   const opciones = todas.filter((o) => {
     if (CON_DISPOSITIVOS.has(o.id) && !conDispositivos) return false
-    return pelicula ? !SIN_PELICULA.has(o.id) : !RODAJE.has(o.id)
+    return pelicula ? !SIN_PELICULA.has(o.id) : !SOLO_PELICULA.has(o.id)
   })
   const rejilla = (lista: Opcion[]) => (
     <div className="grid grid-cols-3 gap-2 sm:grid-cols-4">
       {lista.map((o) => {
-        const bloqueada = tope || (o.principal && topePrincipal)
+        // Guion y transiciones editan lo que ya hay: no les afecta el tope de clips.
+        const bloqueada = !SIN_CLIP.has(o.id) && (tope || (o.principal && topePrincipal))
         return (
           <button
             key={o.id}
@@ -101,7 +110,7 @@ export function MenuAnadir({
   )
   return (
     <Modal
-      titulo={pelicula ? t('video.pelicula.estudio', 'Estudio de cine') : t('video.anadir.titulo', 'Añadir al video')}
+      titulo={pelicula ? t('video.pelicula.estudio', 'Estudio de cine') : t('video.anadir.titulo', 'Añadir y editar')}
       onCerrar={onCerrar}
       ancho="max-w-lg"
     >

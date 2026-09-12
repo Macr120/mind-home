@@ -1,16 +1,19 @@
 import { useState, type ReactNode } from 'react'
 import { useVozGenerando } from '../../core/audio/vozIA'
 import { CREDITOS, opImagen } from '../../core/cuenta/costos'
-import type { AnimacionTexto, EstiloTexto, FiltroEscena, FuenteTexto, FuenteVisual, MedioVideo } from '../../core/data/db'
+import type { AnimacionTexto, EstiloTexto, FiltroEscena, FiltroVoz, FuenteTexto, FuenteVisual, MedioVideo } from '../../core/data/db'
 import { mediosVideoRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { generarImagen, imagenIaActiva } from '../../core/imagenIA'
 import { useAjustes } from '../../core/state/ajustesStore'
+import { MODELOS_PERSONAJE, useAsistentes } from '../../core/state/asistentesStore'
+import { ES_JUGADOR } from '../../core/state/peliculaStore'
 import { Creditos } from '../../core/ui/Creditos'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { BotonSecundario, Campo, INPUT, Spinner } from '../_shared/ui'
 import { type AspectoVideo, PALETA_VIDEO } from './constantes'
-import { OP_NARRACION } from './costosIA'
+import { OP_NARRACION, OP_TRADUCIR } from './costosIA'
+import { FILTROS_VOZ } from './filtrosVoz'
 import { gruposVoz, hablarConVoz, usaDispositivo, vozDejaArchivo, vozValida, type GrupoVoces } from './voces'
 
 /** Trozos del panel del clip compartidos por varias pistas (vienen del panel de escena anterior). */
@@ -93,6 +96,65 @@ export function SeccionFiltro({ filtro, onCambiar }: { filtro: FiltroEscena; onC
           </Chip>
         ))}
       </div>
+    </Campo>
+  )
+}
+
+/** Todos los personajes: tú (`ES_JUGADOR`), cada asistente de la casa y los 12 modelos del editor. Lo usan el clip de avatar, el actor de película y el alta de voces. */
+export function SelectorPersonaje({
+  elegidoId,
+  onElegir,
+  etiqueta,
+}: {
+  elegidoId?: string | null
+  onElegir: (asistenteId: string) => void
+  /** Ausente = «Personaje». */
+  etiqueta?: string
+}) {
+  const t = useT()
+  const asistentes = useAsistentes((s) => s.lista)
+  return (
+    <Campo etiqueta={etiqueta ?? t('video.pelicula.personaje', 'Personaje')}>
+      <div className="flex flex-wrap gap-1.5">
+        <Chip activo={elegidoId === ES_JUGADOR} onClick={() => onElegir(ES_JUGADOR)}>
+          <Icono nombre="persona" /> {t('video.pelicula.tu', 'Tú')}
+        </Chip>
+        {asistentes.map((a) => (
+          <Chip key={a.id} activo={elegidoId === a.id} onClick={() => onElegir(a.id)}>
+            <Icono emoji={a.emoji} /> {a.nombre}
+          </Chip>
+        ))}
+      </div>
+      <p className="mt-2 mb-1 text-[10px] font-semibold tracking-wider text-white/40 uppercase">{t('editor.pers.modelos', 'Modelos')}</p>
+      <div className="flex flex-wrap gap-1.5">
+        {MODELOS_PERSONAJE.map((m) => (
+          <Chip key={m.id} activo={elegidoId === m.id} onClick={() => onElegir(m.id)}>
+            <Icono emoji={m.emoji} /> {t(m.claveNombre, m.es)}
+          </Chip>
+        ))}
+      </div>
+    </Campo>
+  )
+}
+
+/** Filtro de voz de una narración o de un avatar (los seis efectos de `filtrosVoz.ts`); también lo usa el modal de grabar. */
+export function SeccionFiltroVoz({ filtro, onCambiar }: { filtro?: FiltroVoz; onCambiar: (f: FiltroVoz | undefined) => void }) {
+  const t = useT()
+  return (
+    <Campo etiqueta={t('video.filtroVoz.titulo', 'Filtro de voz')}>
+      <div className="flex flex-wrap gap-1.5">
+        <Chip activo={!filtro} onClick={() => onCambiar(undefined)}>
+          {t('video.filtro.ninguno', 'Sin filtro')}
+        </Chip>
+        {FILTROS_VOZ.map((f) => (
+          <Chip key={f.id} activo={filtro === f.id} onClick={() => onCambiar(f.id)}>
+            {t(f.claveNombre, f.es)}
+          </Chip>
+        ))}
+      </div>
+      <p className="mt-1 text-[11px] text-white/40">
+        {t('video.filtroVoz.nota', 'Suena en el audio grabado, importado o generado; la lectura en vivo del preview va sin filtro.')}
+      </p>
     </Campo>
   )
 }
@@ -193,10 +255,13 @@ export function SeccionTexto({
   texto,
   onCambiar,
   autoFocus,
+  onTraducir,
 }: {
   texto: EstiloTexto
   onCambiar: (patch: Partial<EstiloTexto>) => void
   autoFocus?: boolean
+  /** Traducir el rótulo (y su subtítulo) a otro idioma (IA); sin él no se ofrece. */
+  onTraducir?: () => void
 }) {
   const t = useT()
   const etiquetaFuente: Record<FuenteTexto, string> = {
@@ -279,6 +344,13 @@ export function SeccionTexto({
           </Chip>
         ))}
       </div>
+      {onTraducir && (
+        <div className="mt-1.5">
+          <BotonSecundario pequeno disabled={!texto.contenido.trim()} onClick={onTraducir}>
+            <Icono nombre="idiomas" /> {t('video.traducir.boton', 'Traducciones')} <Creditos op={OP_TRADUCIR} />
+          </BotonSecundario>
+        </div>
+      )}
     </Campo>
   )
 }
@@ -324,6 +396,7 @@ export function SeccionVoz({
   onElegirAudio,
   onQuitarAudio,
   onSubtitulos,
+  onTraducir,
 }: {
   texto: string
   vozEfectiva: string | undefined
@@ -338,6 +411,8 @@ export function SeccionVoz({
   onElegirAudio: () => void
   onQuitarAudio: () => void
   onSubtitulos: () => void
+  /** Traducir el texto a otro idioma (IA); sin él no se ofrece. */
+  onTraducir?: () => void
 }) {
   const t = useT()
   const generandoMuestra = useVozGenerando((s) => s.generando)
@@ -411,6 +486,11 @@ export function SeccionVoz({
         <BotonSecundario pequeno disabled={!texto.trim()} onClick={onSubtitulos}>
           <Icono nombre="letra" /> {t('video.subtitulos.generar', 'Generar subtítulos')}
         </BotonSecundario>
+        {onTraducir && (
+          <BotonSecundario pequeno disabled={!texto.trim()} onClick={onTraducir}>
+            <Icono nombre="idiomas" /> {t('video.traducir.boton', 'Traducciones')} <Creditos op={OP_TRADUCIR} />
+          </BotonSecundario>
+        )}
       </div>
       {gratis && !dejaArchivo && !audioNombre && (
         <p className="mt-1 text-[11px] text-white/45">

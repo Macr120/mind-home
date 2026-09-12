@@ -1,15 +1,19 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import type { ClipPrincipal, ClipVideo, EfectoCamaraId, EscenaActor, FuenteSonido, MedioVideo, NarradorVideo, PistaId } from '../../core/data/db'
+import type { ClipPrincipal, ClipVideo, EfectoCamaraId, EscenaActor, FuenteSonido, MedioVideo, NarradorVideo, PistaId, Transicion } from '../../core/data/db'
 import { mediosVideoRepo, proyectosVideoRepo, VACIO } from '../../core/data/repository'
 import { descargarArchivo } from '../../core/descargarArchivo'
 import {
   detenerGrabacionPantalla,
+  entregarTomaAlStudio,
   iniciarGrabacionPantalla,
   tomarResultadoGrabacion,
   useGrabacionPantalla,
+  type DestinoGrabacion,
 } from '../../core/grabacionPantalla'
 import { useT } from '../../core/i18n/useT'
 import type { Plataforma } from '../../core/redes/tipos'
+import type { RecursoStudio } from '../../core/recursosStudio'
+import { IDIOMAS } from '../../core/i18n/idiomas'
 import { useAsistentes } from '../../core/state/asistentesStore'
 import { capturarCamara } from '../../core/state/cameraStore'
 import { useChatArUi } from '../../core/state/chatArUiStore'
@@ -40,6 +44,7 @@ import {
 import {
   ALTO_PELICULA_FRACCION,
   ASPECTOS,
+  type AspectoVideo,
   AVISO_DURACION_EXPORT,
   COLOR,
   DUR_DEFECTO,
@@ -61,15 +66,18 @@ import {
   resolucionDe,
   TAMANOS_AVATAR,
 } from './constantes'
-import { OP_GUION, OP_TITULOS } from './costosIA'
+import { OP_GUION, OP_TITULOS, OP_TRADUCIR } from './costosIA'
 import { capturarEscena3d, exportarVideo, firmaExport, mimeExport, type ExportListo } from './exportar'
 import { crearPool, type PoolFuentes } from './fuentes'
 import { GrabarMedioModal, type TipoGrabacion } from './GrabarMedio'
 import { GuionObra } from './GuionObra'
-import { generarGuion, generarObra, mejorarTitulos } from './ia'
+import { generarGuion, generarObra, mejorarTitulos, traducirTextos } from './ia'
 import { completarGrabacion } from './importar'
 import { ListaSonidos } from './ListaSonidos'
 import { MediosPanel } from './MediosPanel'
+import { RecursosStudio } from './RecursosStudio'
+import { SelectorProyecto } from './SelectorProyecto'
+import { Chip } from './Secciones'
 import { MenuAnadir, type OpcionAnadir } from './MenuAnadir'
 import { MenuCamara } from './MenuCamara'
 import {
@@ -113,8 +121,10 @@ import { MotorVideo } from './motor'
 import { envolventeDe, generarAudioNarracion } from './narracion'
 import { nombreNarrador, nuevoNarrador, reproducirLineas } from './narradores'
 import { PanelClip, tituloPista } from './PanelClip'
+import { PanelGuion } from './PanelGuion'
 import { PanelLateral } from './PanelLateral'
 import { PanelMedios, type TabMedios } from './PanelMedios'
+import { PanelTransiciones } from './PanelTransiciones'
 import { PeliculaEncuadre, resolucionPantalla } from './PeliculaEncuadre'
 import { MenuExportar } from './publicar/MenuExportar'
 import { PublicarDialog } from './publicar/PublicarDialog'
@@ -130,6 +140,22 @@ import { useArrastreMedio } from './useArrastreMedio'
 import type { LadoAsa } from './useGestosClips'
 import { usePreferenciaPanel } from './usePreferenciaPanel'
 import { PanelNarradores } from './VocesGuion'
+
+/** Qué presta el Studio para un selector de medios: dibujos para imágenes, canciones y grabaciones para audio (videos no presta nadie). */
+const tiposRecursoDe = (tipos: MedioVideo['tipo'][]): RecursoStudio['tipo'][] => tipos.filter((x): x is 'imagen' | 'audio' => x !== 'video')
+
+/** La transición de entrada que comparten los clips de la principal a partir del segundo (panel «Transiciones»); undefined si difieren o es corte. */
+const transicionComun = (principales: ClipPrincipal[]): Transicion | undefined => {
+  const [, ...resto] = principales
+  const firma = (tr: Transicion | undefined) => JSON.stringify(tr ?? null)
+  return resto.length > 0 && resto.every((c) => firma(c.transicion) === firma(resto[0].transicion)) ? resto[0].transicion : undefined
+}
+
+/** La última toma guardada de una animación 3D (medio con `fuente` 'pelicula:<id>'), o undefined. */
+const ultimaToma = (medios: MedioVideo[], id3d: number): MedioConId | undefined => {
+  const fuente = `pelicula:${id3d}`
+  return [...medios].reverse().find((m): m is MedioConId => m.fuente === fuente && m.id != null)
+}
 
 const fmtTotal = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(Math.max(0, s) % 60)).padStart(2, '0')}`
 
@@ -161,6 +187,15 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
   const [selector, setSelector] = useState<{ tipos: MedioVideo['tipo'][]; alElegir: (m: MedioVideo) => void } | null>(null)
   const [listaSonidos, setListaSonidos] = useState<{ alElegir: (f: FuenteSonido) => void } | null>(null)
   const [narradoresAbierto, setNarradoresAbierto] = useState(false)
+  /** Qué muestra el lateral del editor: el clip seleccionado, el guion (voces y líneas) o las transiciones, como herramientas. */
+  const [vistaLateral, setVistaLateral] = useState<'clip' | 'guion' | 'transiciones'>('clip')
+  /** Selector de proyectos: una animación 3D que rodar como clip (video) o el video al que va la toma (película). */
+  const [selectorProyecto, setSelectorProyecto] = useState<'3d' | 'video' | null>(null)
+  /** Clip cuya transición de entrada edita el panel «Transiciones» (ficha del renglón de la timeline); null = elegir una para todos. */
+  const [transicionSel, setTransicionSel] = useState<string | null>(null)
+  const [formatoAbierto, setFormatoAbierto] = useState(false)
+  /** Id del clip cuyo texto se va a traducir (modal de idiomas). */
+  const [traducir, setTraducir] = useState<string | null>(null)
   const [progresoExport, setProgresoExport] = useState<number | null>(null)
   // Modo película: cuenta regresiva (3, 2, 1) sobre el mapa antes de rodar la toma.
   const [cuenta, setCuenta] = useState<number | null>(null)
@@ -172,7 +207,6 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
   const [menuAnadir, setMenuAnadir] = useState(false)
   /** Estudio de cine: el menú de movimientos de cámara y el guion de la obra. */
   const [menuCamara, setMenuCamara] = useState(false)
-  const [obraAbierta, setObraAbierta] = useState(false)
   /** «Tocar el mapa» desde el guion de la obra: a quién se coloca y su marca (el anillo). */
   const [colocandoObra, setColocandoObra] = useState<{ id: string; x: number; z: number } | null>(null)
   const colocandoObraRef = useRef(colocandoObra)
@@ -386,7 +420,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
     canvas.width = ancho
     canvas.height = altoLienzo
     const pool = crearPool(medios)
-    const motor = new MotorVideo(canvas, p, pool, medios, { avatar: avatarRef.current, vozEnVivo: true, transparente: pelicula })
+    const motor = new MotorVideo(canvas, p, pool, medios, { avatar: avatarRef.current, vozEnVivo: true, filtrosVoz: true, transparente: pelicula })
     motor.onTiempo = notificarTiempo
     motor.onFin = () => setReproduciendo(false)
     poolRef.current = pool
@@ -435,7 +469,9 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
         // Desde el guion de la obra: la marca de esa marioneta en todas sus líneas, y vuelta al guion.
         mutarClips((clips) => aplicarMarca(clips, obra.id, { x, z }))
         setColocandoObra(null)
-        setObraAbierta(true)
+        // Vuelta al guion en el lateral (en móvil, el cajón se había cerrado para tocar el mapa).
+        setVistaLateral('guion')
+        setCajon('clip')
         return
       }
       const sel = proyectoRef.current?.clips.find((c) => c.id === seleccionRef.current)
@@ -497,6 +533,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
   const seek = (seg: number) => {
     motorRef.current?.seek(seg)
     // El Director rearma sus one-shots (globo, emoción) en cada salto.
+    // eslint-disable-next-line react-hooks/immutability -- estado por frame fuera de React: el Director lo lee en su useFrame
     if (pelicula) peliculaFrame.seekTick++
   }
 
@@ -505,7 +542,10 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
     const repetido = clipId != null && seleccionRef.current === clipId
     setSeleccionEstado(clipId)
     seleccionRef.current = clipId
-    if (clipId && abrirPanel && !amplio && repetido) setCajon('clip')
+    if (clipId) {
+      setVistaLateral('clip')
+      if (abrirPanel && !amplio && repetido) setCajon('clip')
+    }
   }
 
   // ─── Clips ───────────────────────────────────────────────────────────────
@@ -677,7 +717,13 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
         setMenuCamara(true)
         break
       case 'guion':
-        setObraAbierta(true)
+        abrirLateral('guion')
+        break
+      case 'transiciones':
+        abrirTransiciones(null)
+        break
+      case 'animacion3d':
+        if (puedeAnadir('video')) setSelectorProyecto('3d')
         break
       case 'personaje': {
         const { inicio, duracion, alFinal } = colocar('avatar', DUR_DEFECTO.personaje)
@@ -917,8 +963,8 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
     if (esActorEscena(c)) cambiarClip(clipId, { escena: { ...c.escena, ...patch } })
   }
   const tocarMapaObra = (id: string) => {
-    // El modal cubre el mapa: se cierra, se coloca con el anillo y el ejecutor lo reabre.
-    setObraAbierta(false)
+    // En móvil el cajón tapa el mapa: se cierra, se coloca con el anillo y el ejecutor lo reabre.
+    setCajon(null)
     setColocandoObra({ id, ...marcaDe(proyectoRef.current?.clips ?? [], id) })
   }
   const formacionObra = (tipo: FormacionId) => {
@@ -995,6 +1041,31 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
       setPanelIA(false)
     } catch (e) {
       setIaError(e instanceof Error ? e.message : String(e))
+    } finally {
+      setIaOcupado(false)
+    }
+  }
+  /** Traduce el texto del clip (narración, avatar o rótulo) al idioma elegido; una voz IA ya generada se suelta para rehacerse. */
+  const traducirClip = async (clipId: string, idioma: (typeof IDIOMAS)[number]) => {
+    const c = proyectoRef.current?.clips.find((x) => x.id === clipId)
+    if (!c || iaOcupado) return
+    const textos = c.pista === 'texto' ? [c.texto.contenido, c.texto.subtitulo ?? ''] : c.pista === 'voz' || c.pista === 'avatar' ? [c.texto ?? ''] : []
+    if (!textos[0]?.trim()) return
+    setIaOcupado(true)
+    mostrarAviso(t('video.traducir.traduciendo', 'Traduciendo…'))
+    try {
+      const salida = await traducirTextos(textos, idioma.nombreIA)
+      if (c.pista === 'texto') {
+        cambiarClip(c.id, { texto: { ...c.texto, contenido: salida[0], subtitulo: c.texto.subtitulo ? salida[1] : undefined } })
+      } else if (c.pista === 'voz' || c.pista === 'avatar') {
+        // Un audio TTS ya no dice esto: se suelta (el medio sigue en Medios); uno grabado o importado se queda.
+        const medio = c.medioId != null ? mediosRef.current.find((m) => m.id === c.medioId) : undefined
+        const sinTts = medio?.origen === 'tts' ? { medioId: undefined, desde: undefined, envolvente: undefined, envolventeHz: undefined } : {}
+        cambiarClip(c.id, { texto: salida[0], ...sinTts })
+      }
+      setAviso('')
+    } catch (e) {
+      mostrarAviso(e instanceof Error ? e.message : t('video.traducir.error', 'No se pudo traducir'))
     } finally {
       setIaOcupado(false)
     }
@@ -1205,12 +1276,40 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
         // Los webm de MediaRecorder no traen duración: la del proyecto.
         duracion: duracionTotal(p.clips),
         origen: 'grabacion' as const,
+        fuente: `pelicula:${id}`,
         creadoEn: new Date().toISOString(),
       }
       const medioId = await mediosVideoRepo.add(fila)
       void completarGrabacion({ ...fila, id: medioId }) // miniatura y dimensiones en segundo plano
       mostrarAviso(t('video.pelicula.guardado', 'Guardado en Medios: ya puedes usarlo en un video'))
     })
+  /** «A un proyecto de video» (modo película): la toma se guarda en Medios y el Studio vuelve a ese video con ella como clip. */
+  const llevarAVideo = (destino: DestinoGrabacion) =>
+    entregar(async (listo, p) => {
+      const ok = await entregarTomaAlStudio(destino, {
+        blob: listo.blob,
+        duracion: duracionTotal(p.clips),
+        nombre: t('video.pelicula.nombreMedio', 'Animación 3D · {n}', { n: p.nombre }),
+        fuente: `pelicula:${id}`,
+      })
+      if (!ok) {
+        mostrarAviso(t('video.export.fallo', 'El export falló'))
+        return
+      }
+      usePelicula.getState().salir({ aVideo: destino.proyectoId })
+    })
+  /** «Animación 3D» (Añadir y editar): se rueda en el mapa y, al exportarla «a un proyecto de video», vuelve aquí como clip en el cursor. */
+  const rodarAnimacion = async (id3d: number) => {
+    motorRef.current?.pausa()
+    setReproduciendo(false)
+    await guardarRef.current()
+    usePelicula.getState().entrar(id3d, { proyectoId: id, cursor: tiempoRef.current })
+  }
+  /** La toma ya guardada de una animación 3D, como clip en el cursor. */
+  const usarToma = (toma: MedioConId) => {
+    if (!puedeAnadir('video')) return
+    insertarEnPrincipal({ ...clipPrincipalDe(toma), duracion: Math.max(MIN_CLIP, toma.duracion ?? DUR_DEFECTO.imagen) })
+  }
   const cancelarCuenta = () => {
     window.clearInterval(cuentaTimer.current)
     cuentaTimer.current = 0
@@ -1260,7 +1359,9 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
   }
 
   const clipSel = proyecto.clips.find((c) => c.id === seleccion) ?? null
-  const nPrincipales = clipsDe(proyecto.clips, 'video').length
+  const principales = clipsDe(proyecto.clips, 'video')
+  const nPrincipales = principales.length
+  const clipTransicion = transicionSel ? (principales.find((c) => c.id === transicionSel) ?? null) : null
   // Para la etiqueta «generado con IA» de TikTok: imágenes IA o voces sintéticas en el proyecto.
   const usaMediosIA = proyecto.clips.some((c) => {
     const id = medioIdDe(c)
@@ -1280,6 +1381,18 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
   const alternarClip = () => {
     if (amplio) setClipAbierto(!clipAbierto)
     else setCajon((c) => (c === 'clip' ? null : 'clip'))
+  }
+  /** Una herramienta en el lateral del editor: el guion (voces y líneas en un video, el guion de la obra en película) o las transiciones. */
+  const abrirLateral = (vista: 'guion' | 'transiciones') => {
+    setVistaLateral(vista)
+    if (amplio) setClipAbierto(true)
+    else setCajon('clip')
+  }
+  /** El panel «Transiciones»: la unión de un clip (ficha del renglón de la timeline) o, sin clip, elegir una para todos. */
+  const abrirTransiciones = (clipId: string | null) => {
+    setTransicionSel(clipId)
+    if (clipId) seleccionar(clipId, false)
+    abrirLateral('transiciones')
   }
   const etiquetaMedios = mediosVisible
     ? amplio
@@ -1309,41 +1422,19 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
   const isla = pelicula ? ' ui-noche ui-isla-oscura' : ''
   // Botones de las esquinas del modo película: el mismo vidrio (y la misma tinta) que el HUD de la casa.
   const CLASE_HUD = 'ui-hud ui-boton flex items-center gap-1.5 rounded-lg border border-white/10 px-3 py-2 text-sm text-white/85 transition hover:bg-white/15 disabled:opacity-40'
-  const botonesAspecto = (
-    <div className="flex items-center gap-1">
-      {ASPECTOS.map((a) => (
-        <button
-          key={a}
-          type="button"
-          onClick={() => mutar((p) => ({ ...p, aspecto: a }))}
-          aria-pressed={proyecto.aspecto === a}
-          className={`rounded-full border px-2 py-0.5 text-xs transition ${
-            proyecto.aspecto === a ? 'border-white/60 bg-white/20 font-semibold' : 'border-white/10 bg-white/5'
-          }`}
-        >
-          {a}
-        </button>
-      ))}
-    </div>
+  // Formato y calidad en UN control (tres chips y un select no caben en móvil): el botón «16:9 · 1080p»
+  // abre el modal. La calidad manda en el lienzo y en el bitrate del export; en modo película no hay
+  // cabecera: allí la resolución la fija la pantalla, no el proyecto.
+  const botonFormato = (
+    <BotonSecundario pequeno onClick={() => setFormatoAbierto(true)} title={t('video.formato.titulo', 'Formato y calidad')}>
+      {proyecto.aspecto} · {calidad}
+    </BotonSecundario>
   )
-  // La calidad manda en el lienzo y en el bitrate del export. En modo película
-  // no se ofrece: allí la resolución la fija la pantalla, no el proyecto.
-  const botonesCalidad = (
-    <label className="flex items-center gap-1 text-xs text-white/60">
-      <span className="hidden sm:inline">{t('video.calidad.etiqueta', 'Calidad')}</span>
-      <select
-        value={calidad}
-        onChange={(e) => mutar((p) => ({ ...p, calidad: e.target.value as CalidadVideo }))}
-        className="ui-boton rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-xs text-white/85"
-      >
-        {(Object.keys(CALIDADES) as CalidadVideo[]).map((c) => (
-          <option key={c} value={c}>
-            {ETIQUETA_CALIDAD[c]}
-          </option>
-        ))}
-      </select>
-    </label>
-  )
+  const nombreAspecto: Record<AspectoVideo, string> = {
+    '16:9': t('video.formato.horizontal', 'Horizontal'),
+    '9:16': t('video.formato.vertical', 'Vertical'),
+    '1:1': t('video.formato.cuadrado', 'Cuadrado'),
+  }
   const abrirExportar = () => {
     setCajon(null)
     setMenuExportar(true)
@@ -1430,7 +1521,8 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
                   pequeno
                   onClick={() => {
                     setColocandoObra(null)
-                    setObraAbierta(true)
+                    setVistaLateral('guion')
+                    setCajon('clip')
                   }}
                 >
                   {t('video.obra.listo', 'Listo')}
@@ -1458,8 +1550,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
               {grabando ? t('video.grabar.detener', 'Detener') : t('video.grabar.boton', 'Grabar dentro de la app')}
             </span>
           </BotonSecundario>
-          {botonesAspecto}
-          {!pelicula && botonesCalidad}
+          {botonFormato}
           <BotonSecundario pequeno onClick={abrirExportar} disabled={proyecto.clips.length === 0 || progresoExport != null}>
             <Icono nombre="compartir" /> <span className="hidden sm:inline">{t('video.export.boton', 'Exportar')}</span>
           </BotonSecundario>
@@ -1601,7 +1692,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
             onSilenciar={onSilenciar}
             onBorrar={(clipId) => void borrarClip(clipId)}
             onDividir={(clipId) => dividir(clipId)}
-            onTransicion={(clipId) => seleccionar(clipId)}
+            onTransicion={abrirTransiciones}
           />
           </div>
         </div>
@@ -1610,84 +1701,162 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
           amplio={amplio}
           abierto={clipVisible}
           onCerrar={cerrarClip}
-          titulo={clipSel ? tituloPista(t, clipSel.pista, pelicula) : t('video.lateral.editor', 'Editor')}
+          titulo={
+            vistaLateral === 'transiciones'
+              ? t('video.anadir.transiciones', 'Transiciones')
+              : vistaLateral === 'guion'
+                ? pelicula
+                  ? t('video.obra.titulo', 'Guion de la obra')
+                  : t('video.pelicula.guion', 'Guion')
+                : clipSel
+                  ? tituloPista(t, clipSel.pista, pelicula)
+                  : t('video.lateral.editor', 'Editor')
+          }
           anchoClase="w-72"
           arriba={pelicula ? 'top-[calc(3.75rem+var(--safe-top))]' : undefined}
         >
-          <PanelClip
-            clip={clipSel}
-            proyecto={proyecto}
-            lienzo={lienzo}
-            medios={medios}
-            onCerrar={cerrarClip}
-            iconoCerrar={amplio ? 'siguiente' : 'cerrar'}
-            narrando={narrandoId != null && narrandoId === clipSel?.id}
-            onEditarNarradores={() => setNarradoresAbierto(true)}
-            acciones={{
-              onCambiar: (patch) => {
-                if (clipSel) cambiarClip(clipSel.id, patch)
-              },
-              onInicio: (seg) => {
-                if (clipSel) onMover(clipSel.id, seg)
-              },
-              onDuracion: (seg) => {
-                if (clipSel) onRecortar(clipSel.id, 'fin', clipSel.inicio + seg)
-              },
-              onCambiarVoz: (voz) =>
-                mutar((p) => {
-                  const c = p.clips.find((k) => k.id === clipSel?.id)
-                  const n = c && (c.pista === 'voz' || c.pista === 'avatar') ? narradorDe(p, c) : undefined
-                  // Con narrador la voz es suya (cambia en todas sus líneas); sin él, la del clip y la del proyecto, como antes.
-                  if (n) return { ...p, narradores: (p.narradores ?? []).map((x) => (x.id === n.id ? { ...x, voz } : x)) }
-                  return {
-                    ...p,
-                    vozNarrador: voz,
-                    clips: p.clips.map((k) => (k.id === clipSel?.id && k.pista === 'voz' ? { ...k, voz } : k)),
-                  }
-                }),
-              onAsignarNarrador: (narradorId) => {
-                if (clipSel) asignarNarradorA(clipSel.id, narradorId)
-              },
-              onElegirMedio: (tipos, alElegir) =>
-                setSelector({
-                  tipos,
-                  alElegir: (m) => {
-                    setSelector(null)
-                    alElegir(m)
-                  },
-                }),
-              onElegirSonido: () =>
-                setListaSonidos({
-                  alElegir: (fuente) => {
-                    setListaSonidos(null)
-                    if (!clipSel) return
-                    const dur =
-                      fuente.tipo === 'fabrica'
-                        ? (sonidoFabrica(fuente.clave)?.duracion ?? clipSel.duracion)
-                        : (mediosRef.current.find((m) => m.id === fuente.medioId)?.duracion ?? clipSel.duracion)
-                    cambiarClip(clipSel.id, { fuente, duracion: Math.max(MIN_CLIP, Math.round(dur * 10) / 10), desde: 0 })
-                  },
-                }),
-              onNarrar: () => {
-                if (clipSel) void narrarClip(clipSel.id)
-              },
-              onElegirAudio: () => {
-                if (clipSel) elegirAudioPara(clipSel.id)
-              },
-              onSubtitulos: () => {
-                if (clipSel) subtitulosDe(clipSel.id)
-              },
-              onDuplicar: () => {
-                if (clipSel) duplicar(clipSel.id)
-              },
-              onDividir: () => {
-                if (clipSel) dividir(clipSel.id)
-              },
-              onBorrar: () => {
-                if (clipSel) void borrarClip(clipSel.id)
-              },
-            }}
-          />
+          {vistaLateral === 'transiciones' ? (
+            <PanelTransiciones
+              clip={clipTransicion}
+              posicion={clipTransicion ? principales.indexOf(clipTransicion) + 1 : 0}
+              inicial={transicionComun(principales)}
+              nPrincipales={nPrincipales}
+              iconoCerrar={amplio ? 'siguiente' : 'cerrar'}
+              onCerrar={cerrarClip}
+              onCambiar={(transicion) => {
+                if (clipTransicion) cambiarClip(clipTransicion.id, { transicion })
+              }}
+              onAplicarTodos={(transicion) => {
+                const primero = principales[0]?.id
+                mutarClips((clips) => clips.map((c) => (c.pista === 'video' && c.id !== primero ? { ...c, transicion } : c)))
+                mostrarAviso(t('video.transiciones.aplicada', 'Transición aplicada entre todos los clips'))
+              }}
+            />
+          ) : vistaLateral === 'guion' && pelicula ? (
+            <GuionObra
+              enPanel
+              iconoCerrar={amplio ? 'siguiente' : 'cerrar'}
+              proyecto={proyecto}
+              sonando={lineaSonando}
+              iaOcupado={iaOcupado}
+              iaError={iaError}
+              onCerrar={cerrarClip}
+              acciones={{
+                onAnadir: anadirLineaObra,
+                onTexto: cambiarTextoObra,
+                onQuien: cambiarQuienObra,
+                onEscena: escenaObra,
+                onMover: (clipId, delta) => mutarClips((clips) => moverLineaObra(clips, clipId, delta, durMedio)),
+                onBorrar: (clipId) => void borrarLineaObra(clipId),
+                onEscuchar: () => escucharLineas(),
+                onParar: () => pararLecturaRef.current?.(),
+                onIr: (clipId) => {
+                  const c = proyectoRef.current?.clips.find((x) => x.id === clipId)
+                  if (c) seek(c.inicio)
+                },
+                onMarca: (actorId, punto) => mutarClips((clips) => aplicarMarca(clips, actorId, punto)),
+                onTocarMapa: tocarMapaObra,
+                onEmpujar: (actorId, dir) => mutarClips((clips) => aplicarMarca(clips, actorId, empujar(marcaDe(clips, actorId), dir, capturarCamara()))),
+                onFormacion: formacionObra,
+                onIA: (idea, reemplazar) => void correrObra(idea, reemplazar),
+              }}
+            />
+          ) : vistaLateral === 'guion' ? (
+            <PanelGuion
+              proyecto={proyecto}
+              iconoCerrar={amplio ? 'siguiente' : 'cerrar'}
+              onCerrar={cerrarClip}
+              sonando={lineaSonando}
+              onEscuchar={escucharLineas}
+              onParar={() => pararLecturaRef.current?.()}
+              onSeleccion={(clipId) => {
+                seleccionar(clipId)
+                const c = proyectoRef.current?.clips.find((x) => x.id === clipId)
+                if (c) seek(c.inicio)
+              }}
+              onAnadirNarrador={anadirNarrador}
+              onCambiarNarrador={cambiarNarrador}
+              onQuitarNarrador={quitarNarrador}
+            />
+          ) : (
+            <PanelClip
+              clip={clipSel}
+              proyecto={proyecto}
+              lienzo={lienzo}
+              medios={medios}
+              onCerrar={cerrarClip}
+              iconoCerrar={amplio ? 'siguiente' : 'cerrar'}
+              narrando={narrandoId != null && narrandoId === clipSel?.id}
+              onEditarNarradores={() => setNarradoresAbierto(true)}
+              acciones={{
+                onCambiar: (patch) => {
+                  if (clipSel) cambiarClip(clipSel.id, patch)
+                },
+                onInicio: (seg) => {
+                  if (clipSel) onMover(clipSel.id, seg)
+                },
+                onDuracion: (seg) => {
+                  if (clipSel) onRecortar(clipSel.id, 'fin', clipSel.inicio + seg)
+                },
+                onCambiarVoz: (voz) =>
+                  mutar((p) => {
+                    const c = p.clips.find((k) => k.id === clipSel?.id)
+                    const n = c && (c.pista === 'voz' || c.pista === 'avatar') ? narradorDe(p, c) : undefined
+                    // Con narrador la voz es suya (cambia en todas sus líneas); sin él, la del clip y la del proyecto, como antes.
+                    if (n) return { ...p, narradores: (p.narradores ?? []).map((x) => (x.id === n.id ? { ...x, voz } : x)) }
+                    return {
+                      ...p,
+                      vozNarrador: voz,
+                      clips: p.clips.map((k) => (k.id === clipSel?.id && k.pista === 'voz' ? { ...k, voz } : k)),
+                    }
+                  }),
+                onAsignarNarrador: (narradorId) => {
+                  if (clipSel) asignarNarradorA(clipSel.id, narradorId)
+                },
+                onElegirMedio: (tipos, alElegir) =>
+                  setSelector({
+                    tipos,
+                    alElegir: (m) => {
+                      setSelector(null)
+                      alElegir(m)
+                    },
+                  }),
+                onElegirSonido: () =>
+                  setListaSonidos({
+                    alElegir: (fuente) => {
+                      setListaSonidos(null)
+                      if (!clipSel) return
+                      const dur =
+                        fuente.tipo === 'fabrica'
+                          ? (sonidoFabrica(fuente.clave)?.duracion ?? clipSel.duracion)
+                          : (mediosRef.current.find((m) => m.id === fuente.medioId)?.duracion ?? clipSel.duracion)
+                      cambiarClip(clipSel.id, { fuente, duracion: Math.max(MIN_CLIP, Math.round(dur * 10) / 10), desde: 0 })
+                    },
+                  }),
+                onNarrar: () => {
+                  if (clipSel) void narrarClip(clipSel.id)
+                },
+                onElegirAudio: () => {
+                  if (clipSel) elegirAudioPara(clipSel.id)
+                },
+                onSubtitulos: () => {
+                  if (clipSel) subtitulosDe(clipSel.id)
+                },
+                onTraducir: () => {
+                  if (clipSel) setTraducir(clipSel.id)
+                },
+                onDuplicar: () => {
+                  if (clipSel) duplicar(clipSel.id)
+                },
+                onDividir: () => {
+                  if (clipSel) dividir(clipSel.id)
+                },
+                onBorrar: () => {
+                  if (clipSel) void borrarClip(clipSel.id)
+                },
+              }}
+            />
+          )}
         </PanelLateral>
       </div>
 
@@ -1695,41 +1864,27 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
 
       {/* Modales: `pointer-events` (y los tokens de la isla oscura) se heredan a través de `display: contents`. */}
       <div className={`contents${interactivo}${isla}`}>
-      {/* Estudio de cine: movimientos de cámara y el guion de la obra */}
+      {/* Estudio de cine: movimientos de cámara (el guion de la obra vive en el lateral) */}
       {menuCamara && <MenuCamara onElegir={anadirPlanoCon} onCerrar={() => setMenuCamara(false)} />}
-      {obraAbierta && (
-        <GuionObra
-          proyecto={proyecto}
-          sonando={lineaSonando}
-          iaOcupado={iaOcupado}
-          iaError={iaError}
-          onCerrar={() => setObraAbierta(false)}
-          acciones={{
-            onAnadir: anadirLineaObra,
-            onTexto: cambiarTextoObra,
-            onQuien: cambiarQuienObra,
-            onEscena: escenaObra,
-            onMover: (clipId, delta) => mutarClips((clips) => moverLineaObra(clips, clipId, delta, durMedio)),
-            onBorrar: (clipId) => void borrarLineaObra(clipId),
-            onEscuchar: () => escucharLineas(),
-            onParar: () => pararLecturaRef.current?.(),
-            onIr: (clipId) => {
-              const c = proyectoRef.current?.clips.find((x) => x.id === clipId)
-              if (c) seek(c.inicio)
-            },
-            onMarca: (actorId, punto) => mutarClips((clips) => aplicarMarca(clips, actorId, punto)),
-            onTocarMapa: tocarMapaObra,
-            onEmpujar: (actorId, dir) => mutarClips((clips) => aplicarMarca(clips, actorId, empujar(marcaDe(clips, actorId), dir, capturarCamara()))),
-            onFormacion: formacionObra,
-            onIA: (idea, reemplazar) => void correrObra(idea, reemplazar),
-          }}
-        />
-      )}
 
       {/* Selector de medios (fondo, audio, imagen…) */}
       {selector && (
         <Modal titulo={t('video.medios.elegir', 'Elegir un medio')} onCerrar={() => setSelector(null)} ancho="max-w-2xl">
           <MediosPanel tipos={selector.tipos} onElegir={selector.alElegir} />
+          {/* Lo que prestan las otras apps del Studio: dibujos para imágenes, canciones y grabaciones para audio. */}
+          {tiposRecursoDe(selector.tipos).length > 0 && (
+            <div className="mt-3 space-y-2 border-t border-white/10 pt-3">
+              <p className="text-xs text-white/50">{t('video.lateral.studio', 'Studio')}</p>
+              <RecursosStudio
+                tipos={tiposRecursoDe(selector.tipos)}
+                onElegir={(app, recurso) => {
+                  const alElegir = selector.alElegir
+                  setSelector(null)
+                  traer({ tipo: 'recurso', app, recurso }, (m) => alElegir(m), () => {})
+                }}
+              />
+            </div>
+          )}
         </Modal>
       )}
 
@@ -1738,14 +1893,41 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
         <GrabarMedioModal
           tipo={grabarMedio}
           onCerrar={() => setGrabarMedio(null)}
-          onGuardado={(m) => {
+          onGuardado={(m, filtroVoz) => {
             if (m.tipo === 'video') {
               insertarEnPrincipal({ ...clipPrincipalDe(m), duracion: Math.max(MIN_CLIP, m.duracion ?? DUR_DEFECTO.imagen) })
             } else {
               soltar({ tipo: 'medio', medio: m }, { pista: 'voz', seg: Math.max(0, Math.round(tiempoRef.current * 10) / 10) })
+              // El filtro elegido al grabar viaja al clip recién creado (el único con ese medio y aún sin filtro).
+              if (filtroVoz) mutarClips((clips) => clips.map((c) => (c.pista === 'voz' && c.medioId === m.id && !c.filtroVoz ? { ...c, filtroVoz } : c)))
             }
           }}
         />
+      )}
+
+      {/* Traducciones: el texto del clip a otro idioma con IA (desde Narración, Avatar o Texto) */}
+      {traducir && (
+        <Modal titulo={t('video.traducir.titulo', 'Traducir a…')} onCerrar={() => setTraducir(null)} ancho="max-w-md">
+          <p className="mb-2 text-xs text-white/50">
+            {t('video.traducir.nota', 'La traducción reemplaza el texto del clip; una voz IA ya generada se rehace en el nuevo idioma.')} <Creditos op={OP_TRADUCIR} />
+          </p>
+          <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-3">
+            {IDIOMAS.map((i) => (
+              <BotonSecundario
+                key={i.id}
+                pequeno
+                disabled={iaOcupado}
+                onClick={() => {
+                  const clipId = traducir
+                  setTraducir(null)
+                  void traducirClip(clipId, i)
+                }}
+              >
+                <span aria-hidden>{i.flag}</span> {t(i.clave, i.label)}
+              </BotonSecundario>
+            ))}
+          </div>
+        </Modal>
       )}
 
       {/* Voces del proyecto (narradores): desde «Quién habla» del panel del clip */}
@@ -1773,8 +1955,75 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
                 },
               })
             }}
+            onRecurso={(app, recurso) => {
+              const alElegir = listaSonidos.alElegir
+              setListaSonidos(null)
+              traer({ tipo: 'recurso', app, recurso }, (m) => alElegir({ tipo: 'medio', medioId: m.id }), () => {})
+            }}
           />
         </Modal>
+      )}
+
+      {/* Formato y calidad del proyecto (un solo control en la cabecera) */}
+      {formatoAbierto && (
+        <Modal titulo={t('video.formato.titulo', 'Formato y calidad')} onCerrar={() => setFormatoAbierto(false)}>
+          <Campo etiqueta={t('video.formato.etiqueta', 'Formato')}>
+            <div className="flex flex-wrap gap-1.5">
+              {ASPECTOS.map((a) => (
+                <Chip key={a} activo={proyecto.aspecto === a} onClick={() => mutar((p) => ({ ...p, aspecto: a }))}>
+                  {a} · {nombreAspecto[a]}
+                </Chip>
+              ))}
+            </div>
+          </Campo>
+          <Campo etiqueta={t('video.calidad.etiqueta', 'Calidad')}>
+            <div className="flex flex-wrap gap-1.5">
+              {(Object.keys(CALIDADES) as CalidadVideo[]).map((c) => (
+                <Chip key={c} activo={calidad === c} onClick={() => mutar((p) => ({ ...p, calidad: c }))}>
+                  {ETIQUETA_CALIDAD[c]}
+                </Chip>
+              ))}
+            </div>
+          </Campo>
+        </Modal>
+      )}
+
+      {/* Elegir un proyecto: una animación 3D que rodar como clip (video) o el video al que va la toma (película) */}
+      {selectorProyecto === '3d' && (
+        <SelectorProyecto
+          escenario="3d"
+          intro={t('video.animacion3d.intro', 'Elige una animación: se rueda en el mapa y la toma vuelve aquí como clip.')}
+          onCerrar={() => setSelectorProyecto(null)}
+          onElegir={(id3d) => {
+            setSelectorProyecto(null)
+            void rodarAnimacion(id3d)
+          }}
+          extra={(p) => {
+            const toma = ultimaToma(medios, p.id)
+            return toma ? (
+              <BotonSecundario
+                pequeno
+                onClick={() => {
+                  setSelectorProyecto(null)
+                  usarToma(toma)
+                }}
+              >
+                <Icono nombre="pelicula" /> {t('video.animacion3d.usarToma', 'Usar la toma guardada')}
+              </BotonSecundario>
+            ) : null
+          }}
+        />
+      )}
+      {selectorProyecto === 'video' && (
+        <SelectorProyecto
+          escenario="video"
+          intro={t('video.pelicula.aProyectoIntro', 'La toma entra como clip al final de la pista principal del video que elijas.')}
+          onCerrar={() => setSelectorProyecto(null)}
+          onElegir={(proyectoId, fin) => {
+            setSelectorProyecto(null)
+            void llevarAVideo({ proyectoId, cursor: fin })
+          }}
+        />
       )}
 
       {menuAnadir && (
@@ -1841,6 +2090,13 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
             setMenuExportar(false)
             if (opcion === 'archivo') {
               void exportar()
+              return
+            }
+            if (opcion === 'proyecto') {
+              // Si se entró desde un video (su «Animación 3D»), la toma vuelve a ese video; si no, se elige uno.
+              const destino = usePelicula.getState().destino
+              if (destino) void llevarAVideo(destino)
+              else setSelectorProyecto('video')
               return
             }
             if (opcion === 'medios') {

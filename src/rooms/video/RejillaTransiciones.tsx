@@ -69,6 +69,26 @@ function TransicionMuestra({ tipo, dir }: { tipo: TipoTransicion; dir: Direccion
   )
 }
 
+/** Nombre traducido de cada tipo de transición (rejilla, panel y renglón «Transiciones» de la timeline). */
+export function nombreTransicion(t: (clave: string, es: string) => string, tipo: TipoTransicion): string {
+  switch (tipo) {
+    case 'corte':
+      return t('video.escena.corte', 'Corte')
+    case 'fundido':
+      return t('video.escena.fundido', 'Fundido')
+    case 'disolver':
+      return t('video.transicion.disolver', 'Disolver')
+    case 'deslizar':
+      return t('video.transicion.deslizar', 'Deslizar')
+    case 'barrido':
+      return t('video.transicion.barrido', 'Barrido')
+    case 'zoom':
+      return t('video.transicion.zoom', 'Zoom')
+    case 'desenfoque':
+      return t('video.transicion.desenfoque', 'Desenfoque')
+  }
+}
+
 /** La biblioteca básica de transiciones de entrada del clip principal. */
 export function RejillaTransiciones({
   valor,
@@ -81,15 +101,7 @@ export function RejillaTransiciones({
   onCambiar: (tr: Transicion | undefined) => void
 }) {
   const t = useT()
-  const nombre: Record<TipoTransicion, string> = {
-    corte: t('video.escena.corte', 'Corte'),
-    fundido: t('video.escena.fundido', 'Fundido'),
-    disolver: t('video.transicion.disolver', 'Disolver'),
-    deslizar: t('video.transicion.deslizar', 'Deslizar'),
-    barrido: t('video.transicion.barrido', 'Barrido'),
-    zoom: t('video.transicion.zoom', 'Zoom'),
-    desenfoque: t('video.transicion.desenfoque', 'Desenfoque'),
-  }
+  const nombre = Object.fromEntries(TIPOS.map((x) => [x, nombreTransicion(t, x)])) as Record<TipoTransicion, string>
   const nombreDir: Record<DireccionTransicion, string> = {
     izq: t('video.direccion.izq', 'Izquierda'),
     der: t('video.direccion.der', 'Derecha'),

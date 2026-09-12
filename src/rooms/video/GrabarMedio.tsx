@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import type { FiltroVoz } from '../../core/data/db'
 import { mediosVideoRepo } from '../../core/data/repository'
 import { formatoGrabacion, MAX_SEG_GRABACION } from '../../core/grabacionPantalla'
 import { useT } from '../../core/i18n/useT'
@@ -8,6 +9,7 @@ import { BotonPrimario, BotonSecundario, Modal } from '../_shared/ui'
 import type { MedioConId } from './clipsNuevos'
 import { COLOR } from './constantes'
 import { completarGrabacion } from './importar'
+import { SeccionFiltroVoz } from './Secciones'
 
 /**
  * Grabar un medio nuevo desde el dispositivo, para la biblioteca de Medios:
@@ -34,14 +36,15 @@ export function GrabarMedioModal({
 }: {
   tipo: TipoGrabacion
   onCerrar: () => void
-  /** La toma ya está en Medios (el menú «Añadir» la mete en la timeline). */
-  onGuardado?: (medio: MedioConId) => void
+  /** La toma ya está en Medios (el menú «Añadir» la mete en la timeline), con el filtro de voz elegido al grabar con el micrófono. */
+  onGuardado?: (medio: MedioConId, filtroVoz?: FiltroVoz) => void
 }) {
   const t = useT()
   const [stream, setStream] = useState<MediaStream | null>(null)
   const [frontal, setFrontal] = useState(true)
   const [estado, setEstado] = useState<'listo' | 'grabando' | 'guardando'>('listo')
   const [seg, setSeg] = useState(0)
+  const [filtroVoz, setFiltroVoz] = useState<FiltroVoz | undefined>()
   const videoRef = useRef<HTMLVideoElement>(null)
   const nivelRef = useRef<HTMLDivElement>(null)
   const recRef = useRef<MediaRecorder | null>(null)
@@ -170,7 +173,7 @@ export function GrabarMedioModal({
     try {
       const id = await mediosVideoRepo.add(fila)
       if (fila.tipo === 'video') void completarGrabacion({ ...fila, id }) // miniatura y dimensiones en segundo plano
-      onGuardado?.({ ...fila, id })
+      onGuardado?.({ ...fila, id }, camara ? undefined : filtroVoz)
     } catch {
       await confirmar({
         titulo: t('video.medios.sinEspacio', 'No se pudo guardar la toma'),
@@ -263,6 +266,7 @@ export function GrabarMedioModal({
           <p className="text-sm font-semibold tabular-nums">{stream ? reloj(seg) : t('video.medios.pidiendo', 'Pidiendo permiso…')}</p>
         </div>
       )}
+      {!camara && onGuardado && <SeccionFiltroVoz filtro={filtroVoz} onCambiar={setFiltroVoz} />}
       <div className="flex items-center justify-between gap-2">
         {camara ? (
           <BotonSecundario pequeno disabled={grabando || !stream} onClick={() => setFrontal((v) => !v)}>

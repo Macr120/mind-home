@@ -1,5 +1,5 @@
-import { useEffect, useImperativeHandle, useLayoutEffect, useRef, useState, type Ref, type RefObject } from 'react'
-import type { ClipVideo, MedioVideo, PistaId } from '../../core/data/db'
+import { Fragment, useEffect, useImperativeHandle, useLayoutEffect, useRef, useState, type Ref, type RefObject } from 'react'
+import type { ClipPrincipal, ClipVideo, MedioVideo, PistaId } from '../../core/data/db'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { emojiActor, nombreActor } from './actores'
@@ -20,6 +20,7 @@ import {
 import { clipsDe, duracionTotal, finPrincipal, imantar, medioIdDe, pistasConClips, puntosIman, silenciada, type ProyectoAbierto } from './modelo'
 import { etiquetaEfecto } from './pelicula/efectosCamara'
 import { Regla } from './Regla'
+import { nombreTransicion } from './RejillaTransiciones'
 import { nombreFuenteSonido } from './sonidos'
 import { redondearDecima, useGestosClips, type LadoAsa } from './useGestosClips'
 import { useMiniaturas } from './useMiniaturas'
@@ -36,6 +37,63 @@ export interface TimelineHandle {
   destinoEn: (clientX: number, clientY: number, acepta: PistaId[], dur: number) => DestinoArrastre | null
   /** Resalta la fila destino y pinta la guía y la sombra del clip futuro; `null` lo limpia. */
   pintarDestino: (destino: (DestinoArrastre & { dur: number }) | null) => void
+}
+
+/**
+ * El renglón «Transiciones» bajo la pista principal: una ficha por unión entre
+ * clips (a partir del segundo) con el nombre de su transición de entrada («Corte»
+ * en punteado = no hay); tocarla abre el panel de transiciones de ese clip.
+ */
+function FilaTransiciones({
+  principales,
+  pxPorSeg,
+  ancho,
+  onElegir,
+}: {
+  principales: ClipPrincipal[]
+  pxPorSeg: number
+  ancho: number
+  onElegir: (clipId: string) => void
+}) {
+  const t = useT()
+  const etiqueta = t('video.anadir.transiciones', 'Transiciones')
+  return (
+    <div className="flex border-b border-white/5" style={{ height: ALTO_PISTA }}>
+      <div
+        className="ui-panel-2 sticky start-0 z-20 flex shrink-0 items-center justify-center border-e border-white/10 text-sm text-white/60"
+        style={{ width: ANCHO_CABECERA }}
+        title={etiqueta}
+      >
+        <Icono nombre="transicion" title={etiqueta} />
+      </div>
+      <div className="relative" style={{ width: ancho }}>
+        {principales.slice(1).map((c) => {
+          const tipo = c.transicion?.tipo ?? 'corte'
+          const nombre = nombreTransicion(t, tipo)
+          const corte = tipo === 'corte'
+          // Con poco sitio (clips cortos o zoom bajo) la ficha se queda en el icono.
+          const compacta = c.duracion * pxPorSeg < 72
+          const rotulo = t('video.clip.transicionMarca', 'Transición: {nombre}', { nombre })
+          return (
+            <button
+              key={c.id}
+              type="button"
+              onClick={() => onElegir(c.id)}
+              aria-label={rotulo}
+              title={rotulo}
+              style={{ left: c.inicio * pxPorSeg }}
+              className={`absolute top-1/2 z-[1] flex h-6 max-w-24 -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full border px-2 text-[10px] transition ${
+                corte ? 'border-dashed border-white/25 text-white/45 hover:bg-white/10' : 'border-white/40 bg-white/15 font-semibold text-white hover:bg-white/25'
+              }`}
+            >
+              <Icono nombre="transicion" />
+              {!compacta && <span className="truncate">{nombre}</span>}
+            </button>
+          )
+        })}
+      </div>
+    </div>
+  )
 }
 
 export const fmtSeg = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}.${Math.floor((s % 1) * 10)}`
@@ -103,6 +161,7 @@ export function TimelinePistas({
   const conClips = new Set(pistasConClips(clips))
   const extra = new Set(pistasExtra ?? [])
   const pistas = ORDEN_PISTAS.filter((p) => p === 'video' || conClips.has(p) || extra.has(p))
+  const principales = clipsDe(clips, 'video')
   const porId = new Map(medios.filter((m) => m.id != null).map((m) => [m.id!, m]))
   const urlDe = useMiniaturas(medios)
   const marcarInteraccion = () => {
@@ -348,7 +407,8 @@ export function TimelinePistas({
           const alto = p === 'video' ? ALTO_PISTA_VIDEO : ALTO_PISTA
           const lista = clipsDe(clips, p)
           return (
-            <div key={p} className="flex border-b border-white/5" style={{ height: alto }}>
+            <Fragment key={p}>
+            <div className="flex border-b border-white/5" style={{ height: alto }}>
               <div
                 className="ui-panel-2 sticky start-0 z-20 flex shrink-0 flex-col items-center justify-center gap-0.5 border-e border-white/10"
                 style={{ width: ANCHO_CABECERA }}
@@ -416,6 +476,11 @@ export function TimelinePistas({
                 })}
               </div>
             </div>
+            {/* Las transiciones, como otro renglón bajo la principal (con una sola no hay uniones) */}
+            {p === 'video' && principales.length >= 2 && (
+              <FilaTransiciones principales={principales} pxPorSeg={pxPorSeg} ancho={anchoContenido} onElegir={onTransicion} />
+            )}
+            </Fragment>
           )
         })}
         <div
