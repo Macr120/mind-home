@@ -1604,7 +1604,7 @@ function CaballeteArte({ color, simple = false, nivel = null, objetoId }: EspPro
         </mesh>
       </group>
       {/* Pincel que pinta */}
-      <group ref={pincel} position={[0.12, 1.06, 0.1]} rotation={[0, 0, -0.7]}>
+      <group ref={pincel} position={[0.12, 1.06, 0.055]} rotation={[0, 0, -0.7]}>
         <mesh castShadow>
           <cylinderGeometry args={[0.012, 0.012, 0.26, 8]} />
           <meshStandardMaterial color="#92400e" roughness={0.7} />
@@ -1662,8 +1662,9 @@ function EscritorioEscritura({ color, simple = false, nivel = null, objetoId }: 
         v.rotation.x = -0.9 + Math.max(0, Math.sin(t * 11 + i * 2.1)) * 0.5 * e
       })
     }
-    // La hoja asoma y vuelve: el ciclo de una página escrita.
-    if (hoja.current) hoja.current.position.y = 1.07 + ((t * 0.12) % 0.12) * e
+    // La hoja asoma y vuelve: el ciclo de una página escrita. Con coseno, no con
+    // el resto de una división, que al cerrar el ciclo la devolvía de un tirón.
+    if (hoja.current) hoja.current.position.y = 1.07 + ((1 - Math.cos(t * 0.9)) / 2) * 0.12 * e
   })
   return (
     <group ref={raiz}>
