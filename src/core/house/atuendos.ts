@@ -192,6 +192,24 @@ export const ATUENDO_POR_TEMA: Record<TemaId, Ropa> = {
   },
 }
 
+const firmaRopa = (r: Ropa) =>
+  JSON.stringify(
+    Object.keys(r)
+      .sort()
+      .map((k) => [k, (r as Record<string, unknown>)[k]]),
+  )
+
+/**
+ * ¿Esta ropa es, tal cual, el atuendo de algún tema? Sirve para desvestir al
+ * quitar el tema cuando no hay respaldo `ropaSinTema` (el tema se puso con una
+ * versión anterior, o la fila llegó por sync sin esa columna).
+ */
+export function esAtuendoDeTema(ropa: Ropa | undefined): boolean {
+  if (!ropa || !Object.keys(ropa).length) return false
+  const firma = firmaRopa(ropa)
+  return Object.values(ATUENDO_POR_TEMA).some((a) => firmaRopa(a) === firma)
+}
+
 /** Los mismos atuendos como lista (nombre e icono del tema) para la categoría «Atuendos». */
 export const ATUENDOS_TEMA: Atuendo[] = TEMAS.map((tema) => ({
   id: tema.id,

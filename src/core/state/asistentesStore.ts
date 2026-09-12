@@ -10,7 +10,7 @@ import {
 } from '../chat/mascotas'
 import type { AnimacionModelo } from '../house/animacion'
 import { parseRopa, serializarRopa, type ExpresionId, type PeinadoId } from '../house/apariencia'
-import { ATUENDO_POR_TEMA } from '../house/atuendos'
+import { ATUENDO_POR_TEMA, esAtuendoDeTema } from '../house/atuendos'
 import type { TemaId } from '../house/temas'
 
 /**
@@ -186,13 +186,16 @@ export const useAsistentes = create<AsistentesState>((set, get) => ({
     await persistir(a, false)
   },
   vestirPorTema: async (tema, previo) => {
-    if (tema === previo) return
+    if (tema && tema === previo) return
     // Mismo trato que el avatar: el respaldo se toma al pasar de «sin tema» a un tema,
-    // sobrevive al cambio entre temas y se repone al quitarlo.
+    // sobrevive al cambio entre temas y se repone al quitarlo. «Sin tema» desviste
+    // aunque el tema ya estuviera en null, y si no hay respaldo pero la ropa es tal
+    // cual el atuendo de un tema (versión anterior, fila del sync), se quita.
     const vestir = (a: Asistente): Asistente => {
       if (tema) return { ...a, ropa: ATUENDO_POR_TEMA[tema], ropaSinTema: previo ? a.ropaSinTema : (a.ropa ?? {}) }
-      if (!a.ropaSinTema) return a
-      return { ...a, ropa: a.ropaSinTema, ropaSinTema: undefined }
+      if (a.ropaSinTema) return { ...a, ropa: a.ropaSinTema, ropaSinTema: undefined }
+      if (esAtuendoDeTema(a.ropa)) return { ...a, ropa: {} }
+      return a
     }
     const antes = get().lista
     const lista = antes.map(vestir)

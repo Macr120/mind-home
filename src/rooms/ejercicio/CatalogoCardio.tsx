@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { curarGruposDuplicados, hayGruposRepetidos } from './seed'
 import { SelectorMiniaturas } from './anim/SelectorMiniaturas'
 import type { GrupoCardio } from '../../core/data/db'
 import { VACIO, gruposCardioRepo } from '../../core/data/repository'
@@ -36,6 +37,10 @@ export function CatalogoCardio({
   const t = useT()
 
   const grupos = gruposCardioRepo.useAll() ?? VACIO
+  // Red de seguridad: si un grupo llega repetido a mitad de sesión (sync), se cura al verlo.
+  useEffect(() => {
+    if (hayGruposRepetidos(grupos)) void curarGruposDuplicados(gruposCardioRepo)
+  }, [grupos])
   const grupo = grupos.find((g) => g.grupoId === grupoId)
   const imgPorClave = useImagenesPorClave()
 

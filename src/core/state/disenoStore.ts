@@ -50,7 +50,7 @@ import { useAsistentes } from './asistentesStore'
 import type { Pieza3D, MascotaId } from '../chat/mascotas'
 import type { AnimacionModelo } from '../house/animacion'
 import { aplicarCuerpoPreset, type CuerpoPreset } from '../house/cuerpos'
-import { ATUENDO_POR_TEMA } from '../house/atuendos'
+import { ATUENDO_POR_TEMA, esAtuendoDeTema } from '../house/atuendos'
 import {
   ESCALA_DEFAULT,
   parseRopa,
@@ -1383,12 +1383,17 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     // la ropa (el respaldo sobrevive a cambiar de un tema a otro) y al quitarlo se repone.
     // Va en el mismo set() que la escena para que casa y avatar cambien a la vez.
     let avatar = get().avatar
-    if (tema !== prev) {
-      if (tema) {
+    if (tema) {
+      if (tema !== prev)
         avatar = { ...avatar, ropa: ATUENDO_POR_TEMA[tema], ropaSinTema: prev ? avatar.ropaSinTema : avatar.ropa }
-      } else if (avatar.ropaSinTema) {
-        avatar = { ...avatar, ropa: avatar.ropaSinTema, ropaSinTema: undefined }
-      }
+    } else if (avatar.ropaSinTema) {
+      // «Sin tema» desviste aunque el tema ya estuviera en null (el tema pudo
+      // irse por sync o por otra vía sin pasar por aquí, y la ropa quedarse).
+      avatar = { ...avatar, ropa: avatar.ropaSinTema, ropaSinTema: undefined }
+    } else if (esAtuendoDeTema(avatar.ropa)) {
+      // Sin respaldo (tema puesto por una versión anterior o fila venida del
+      // sync sin la columna): si lleva tal cual el atuendo de un tema, se quita.
+      avatar = { ...avatar, ropa: {} }
     }
     const ropaCambio = avatar !== get().avatar
     set({

@@ -1,4 +1,5 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { curarGruposDuplicados, hayGruposRepetidos } from './seed'
 import { SelectorMiniaturas } from './anim/SelectorMiniaturas'
 import type { GrupoFuerza } from '../../core/data/db'
 import { VACIO, gruposFuerzaRepo } from '../../core/data/repository'
@@ -41,6 +42,10 @@ export function CatalogoFuerza({
   const t = useT()
 
   const grupos = gruposFuerzaRepo.useAll() ?? VACIO
+  // Red de seguridad: si un grupo llega repetido a mitad de sesión (sync), se cura al verlo.
+  useEffect(() => {
+    if (hayGruposRepetidos(grupos)) void curarGruposDuplicados(gruposFuerzaRepo)
+  }, [grupos])
   const imgPorClave = useImagenesPorClave()
   const piramide = useMemo(() => piramideFuerza(grupos), [grupos])
 

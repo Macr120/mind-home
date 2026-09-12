@@ -143,8 +143,9 @@ export const TEMAS: Tema[] = [
     niebla: { color: '#1a2420', near: 26, far: 62 },
   },
   {
+    // El id se queda por compatibilidad con lo guardado; el nombre visible evita la marca.
     id: 'barbie',
-    nombre: 'Barbie',
+    nombre: 'Princesas',
     icon: '💖',
     paleta: ['#ff5fa2', '#ff7ab8', '#c084fc', '#fde68a'],
     tinte: '#ff5fa2',

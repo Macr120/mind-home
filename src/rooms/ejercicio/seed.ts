@@ -49,7 +49,24 @@ interface RepoCat {
  * la más reciente, luego la más vieja por id); lo que las perdedoras tuvieran
  * de más se funde en ella y se borran (el middleware las tombstonea para el sync).
  */
-async function curarGruposDuplicados(repo: RepoCat): Promise<void> {
+export function hayGruposRepetidos(grupos: { grupoId: string }[]): boolean {
+  return new Set(grupos.map((g) => g.grupoId)).size < grupos.length
+}
+
+// Una cura a la vez por catálogo: el liveQuery repinta con cada borrado y volvería a pedirla.
+const curando = new WeakSet<RepoCat>()
+
+export async function curarGruposDuplicados(repo: RepoCat): Promise<void> {
+  if (curando.has(repo)) return
+  curando.add(repo)
+  try {
+    await curarDuplicadosDe(repo)
+  } finally {
+    curando.delete(repo)
+  }
+}
+
+async function curarDuplicadosDe(repo: RepoCat): Promise<void> {
   const porGrupo = new Map<string, GrupoCat[]>()
   for (const g of await repo.list()) porGrupo.set(g.grupoId, [...(porGrupo.get(g.grupoId) ?? []), g])
   for (const grupo of porGrupo.values()) {
