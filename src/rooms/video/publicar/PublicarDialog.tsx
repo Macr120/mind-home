@@ -8,7 +8,7 @@ import { NOMBRE_RED, type AvisosRedes, type CuentaRed, type MetaPublicacion, typ
 import { cancelarTrabajo, descartarTrabajo, lanzarTrabajo, marcarVisto } from '../../../core/redes/trabajos'
 import { confirmar } from '../../../core/state/confirmarStore'
 import { BotonPrimario, Modal } from '../../_shared/ui'
-import { COLOR } from '../constantes'
+import { type AspectoVideo, COLOR } from '../constantes'
 import { soportaMp4, type ExportListo } from '../exportar'
 import { duracionTotal, type ProyectoAbierto } from '../modelo'
 import { FormularioFacebook, FormularioInstagram, validarFacebook, validarInstagram } from './FormularioMeta'
@@ -31,7 +31,7 @@ export type Renderizar = (o: {
 }) => Promise<ExportListo | null>
 
 /** Lo que va al servidor, en los valores nativos de cada red. */
-function construirMeta(form: MetaFormulario, cuenta: CuentaRed | null, aspecto: '16:9' | '9:16', duracion: number): MetaPublicacion {
+function construirMeta(form: MetaFormulario, cuenta: CuentaRed | null, aspecto: AspectoVideo, duracion: number): MetaPublicacion {
   const base = { aspecto, duracion_seg: Math.round(duracion) }
   switch (form.plataforma) {
     case 'youtube': {

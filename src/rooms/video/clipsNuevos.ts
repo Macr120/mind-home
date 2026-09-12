@@ -22,12 +22,14 @@ export type MedioConId = MedioVideo & { id: number }
 export type ItemArrastre =
   | { tipo: 'medio'; medio: MedioConId }
   | { tipo: 'sonido'; clave: string }
+  /** Sonido del usuario (audio de la carpeta «Sonidos»): a la pista de efectos, como los de fábrica. */
+  | { tipo: 'efecto'; medio: MedioConId }
   /** Recurso de otra app del Studio: se materializa (copia o texto) al soltarlo o tocarlo. */
   | { tipo: 'recurso'; app: AppStudio; recurso: RecursoStudio }
 
 /** Qué clase de contenido es el ítem, sin materializarlo. */
 const tipoDe = (item: ItemArrastre): 'video' | 'imagen' | 'audio' | 'texto' | 'sonido' =>
-  item.tipo === 'sonido' ? 'sonido' : item.tipo === 'recurso' ? item.recurso.tipo : item.medio.tipo
+  item.tipo === 'sonido' || item.tipo === 'efecto' ? 'sonido' : item.tipo === 'recurso' ? item.recurso.tipo : item.medio.tipo
 
 /** La pista donde cae un ítem al TOCARLO (sin arrastrar). */
 export function pistaPorDefecto(item: ItemArrastre): PistaId {
@@ -68,6 +70,7 @@ export function pistasQueAceptan(item: ItemArrastre, topePrincipal: boolean): Pi
 /** Duración con la que nace el clip en cada pista (la misma que en el menú «Añadir»). */
 export function duracionPorDefecto(item: ItemArrastre, pista: PistaId): number {
   if (item.tipo === 'sonido') return sonidoFabrica(item.clave)?.duracion ?? 1
+  if (item.tipo === 'efecto') return item.medio.duracion || 1
   if (item.tipo === 'recurso') {
     const r = item.recurso
     if (r.tipo === 'texto') return r.duracion ?? DUR_DEFECTO.voz
@@ -118,6 +121,9 @@ export function clipLibreDe(
   const id = nuevoClipId()
   if (item.tipo === 'sonido') {
     return pista === 'sfx' ? { id, pista: 'sfx', inicio, duracion, fuente: { tipo: 'fabrica', clave: item.clave }, volumen: 1 } : null
+  }
+  if (item.tipo === 'efecto') {
+    return pista === 'sfx' ? { id, pista: 'sfx', inicio, duracion, fuente: { tipo: 'medio', medioId: item.medio.id }, volumen: 1 } : null
   }
   if (item.tipo === 'recurso') return null // se materializa antes (ver `traerRecurso`)
   const m = item.medio

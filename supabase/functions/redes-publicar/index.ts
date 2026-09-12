@@ -159,7 +159,7 @@ async function iniciarPublicacion(admin: SupabaseClient, uid: string, cuerpo: Re
   const mime = mimeNormalizado(cuerpo.mime)
   if (!mime) throw new ErrorRedes('formato', 'Solo se publican archivos MP4 o WebM.')
   const meta = (cuerpo.meta ?? {}) as Record<string, unknown>
-  const aspecto = meta.aspecto === '9:16' ? '9:16' : '16:9'
+  const aspecto = meta.aspecto === '9:16' ? '9:16' : meta.aspecto === '1:1' ? '1:1' : '16:9'
   const duracion = Number(meta.duracion_seg ?? 0)
   const titulo = texto(meta.titulo, 2200)
   const descripcion = texto(meta.descripcion, 5000)

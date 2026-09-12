@@ -1,9 +1,10 @@
 import type { MedioVideo } from '../../core/data/db'
-import { mediosVideoRepo } from '../../core/data/repository'
+import { mediosVideoRepo, proyectosVideoRepo } from '../../core/data/repository'
 import { tGlobal } from '../../core/i18n/useT'
 import { confirmar } from '../../core/state/confirmarStore'
 import { comprimirFoto, miniaturaFoto } from '../_shared/fotos'
 import { AVISO_MB, TOPE_MB } from './constantes'
+import { mediosUsados } from './modelo'
 
 /**
  * Importación de medios del Studio de video: límites de tamaño, metadatos
@@ -73,9 +74,10 @@ export function duracionAudio(blob: Blob): Promise<number> {
 
 /**
  * Importa un archivo del dispositivo como medio. Devuelve el id, o null si el
- * usuario canceló o el archivo no pasó los límites (ya avisado aquí).
+ * usuario canceló o el archivo no pasó los límites (ya avisado aquí). Con
+ * `sonido`, un audio entra como efecto de la carpeta «Sonidos».
  */
-export async function importarMedio(archivo: File): Promise<number | null> {
+export async function importarMedio(archivo: File, opciones?: { sonido?: boolean }): Promise<number | null> {
   const mb = archivo.size / (1024 * 1024)
   if (mb > TOPE_MB) {
     await confirmar({
@@ -102,6 +104,7 @@ export async function importarMedio(archivo: File): Promise<number | null> {
     fila = { tipo: 'video', nombre, blob: archivo, ...meta, origen: 'importado', creadoEn: ahora }
   } else if (archivo.type.startsWith('audio/')) {
     fila = { tipo: 'audio', nombre, blob: archivo, duracion: await duracionAudio(archivo), origen: 'importado', creadoEn: ahora }
+    if (opciones?.sonido) fila.sonido = true
   } else if (archivo.type.startsWith('image/')) {
     // Comprimida a 1280 px: al lienzo de 720p le sobra.
     const blob = await comprimirFoto(archivo)
@@ -115,6 +118,25 @@ export async function importarMedio(archivo: File): Promise<number | null> {
     return null
   }
   return mediosVideoRepo.add(fila)
+}
+
+/**
+ * Borra un medio de la biblioteca; si algún proyecto lo usa, pide confirmación
+ * (sus clips quedan sin él). Lo comparten Medios y la carpeta de sonidos.
+ */
+export async function borrarMedio(medio: MedioVideo): Promise<void> {
+  if (medio.id == null) return
+  const proyectos = await proyectosVideoRepo.list()
+  const usos = proyectos.filter((p) => mediosUsados(p).has(medio.id!)).length
+  if (usos > 0) {
+    const si = await confirmar({
+      titulo: tGlobal('video.medios.enUso', 'El medio se usa en tus videos'),
+      mensaje: tGlobal('video.medios.enUsoMsg', 'Aparece en {n} proyecto(s); esas escenas quedarán sin él.', { n: usos }),
+      peligro: true,
+    })
+    if (!si) return
+  }
+  await mediosVideoRepo.remove(medio.id)
 }
 
 /**

@@ -3629,13 +3629,13 @@ export interface Historia {
   resumen?: string
   /** Icono de la portada según la plantilla elegida al crear. NO se indexa. */
   tipo?: TipoLibro
-  creadoEn: string
-  actualizadoEn: string
   /**
    * Color con el que se marcan en el texto las menciones de cada carpeta de
    * fichas (personajes, lugares, actos); ausente = color de fábrica. NO se indexa.
    */
   coloresRef?: Partial<Record<'personaje' | 'lugar' | 'acto', string>>
+  creadoEn: string
+  actualizadoEn: string
   /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
   ejemploDe?: string
 }
@@ -3662,8 +3662,6 @@ export interface Documento {
   /** Posición 0..1 del personaje en el diagrama de relaciones de su libro. NO se indexan. */
   relX?: number
   relY?: number
-  creadoEn: string
-  actualizadoEn: string
   /** Solo fichas (personaje/lugar/acto): resumen de una o dos líneas. NO se indexa. */
   descripcion?: string
   /** Solo fichas: otros nombres con los que se la menciona en el texto, separados por comas. NO se indexa. */
@@ -3672,6 +3670,8 @@ export interface Documento {
   imagen?: Blob
   /** Solo fichas: color propio de sus menciones en el texto; ausente = el de su carpeta. NO se indexa. */
   color?: string
+  creadoEn: string
+  actualizadoEn: string
   /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
   ejemploDe?: string
 }
@@ -4124,7 +4124,7 @@ export type ClipDe<P extends PistaId> = Extract<ClipVideo, { pista: P }>
 export interface ProyectoVideo {
   id?: number
   nombre: string
-  aspecto: '16:9' | '9:16'
+  aspecto: '16:9' | '9:16' | '1:1'
   /**
    * Resolución del export (ver `CALIDADES` en `rooms/video/constantes`). La
    * unión va en línea, como `aspecto`, para que la capa de datos no dependa de
@@ -4183,6 +4183,8 @@ export interface MedioVideo {
   miniatura?: Blob
   /** `grabacion` = toma de la propia app en uso (`core/grabacionPantalla.ts`). */
   origen: 'importado' | 'ia' | 'tts' | 'studio' | 'grabacion'
+  /** Efecto de sonido del usuario: se lista en la carpeta «Sonidos» del Studio de video, no en Medios. NO se indexa. */
+  sonido?: true
   /** Recurso de otra app del Studio del que se copió ('audio:proyecto:12'); con `fuenteEn` evita copias repetidas. NO se indexa. */
   fuente?: string
   fuenteEn?: string

@@ -1,4 +1,4 @@
-import type { FiltroEscena, FuenteTexto, PistaId } from '../../core/data/db'
+import type { FiltroEscena, FuenteTexto, PistaId, ProyectoVideo } from '../../core/data/db'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 
 /** Color de la app (rojo cine). */
@@ -56,9 +56,14 @@ export const ETIQUETA_CALIDAD: Record<CalidadVideo, string> = {
   '2160p': '4K · 2160p',
 }
 
-/** El lienzo: el lado largo va donde lo pida el aspecto. */
-export function resolucionDe(aspecto: '16:9' | '9:16', calidad: CalidadVideo = CALIDAD_DEFECTO): { ancho: number; alto: number } {
+/** Formatos del proyecto (`ProyectoVideo.aspecto`), en el orden de los botones. */
+export type AspectoVideo = ProyectoVideo['aspecto']
+export const ASPECTOS: readonly AspectoVideo[] = ['16:9', '9:16', '1:1']
+
+/** El lienzo: el lado largo va donde lo pida el aspecto; el 1:1 es un cuadrado del lado corto. */
+export function resolucionDe(aspecto: AspectoVideo, calidad: CalidadVideo = CALIDAD_DEFECTO): { ancho: number; alto: number } {
   const { largo, corto } = CALIDADES[calidad] ?? CALIDADES[CALIDAD_DEFECTO]
+  if (aspecto === '1:1') return { ancho: corto, alto: corto }
   return aspecto === '16:9' ? { ancho: largo, alto: corto } : { ancho: corto, alto: largo }
 }
 
@@ -149,6 +154,8 @@ export const MEDIA_AMPLIO = '(min-width: 48rem) and (min-height: 34rem)'
 export const MEDIA_LATERALES_ANCHOS = '(min-width: 64rem)'
 export const LS_PANEL_MEDIOS = 'mh.video.panelMedios'
 export const LS_PANEL_CLIP = 'mh.video.panelClip'
+/** Sonidos de fábrica borrados de la carpeta «Sonidos» (claves, JSON). */
+export const LS_SONIDOS_OCULTOS = 'mh.video.sonidosOcultos'
 export const ALTO_PREVIEW_PLIEGUE = 48
 export const ALTO_PREVIEW_FRACCION = 0.4
 /** Lo que la timeline necesita como mínimo: barra + regla + pista principal + una pista + divisor. */
@@ -161,7 +168,7 @@ export const MAX_AVATARES_SIMULTANEOS = 2
 /** Tamaños de la imagen superpuesta como fracción del ANCHO del lienzo. */
 export const TAMANOS_PIP: Record<'S' | 'M' | 'L', number> = { S: 0.22, M: 0.32, L: 0.45 }
 /** Duraciones por defecto de los clips nuevos (s). */
-export const DUR_DEFECTO = { imagen: 4, color: 4, texto: 3, voz: 3, avatar: 4, pip: 4, fondo: 4, plano: 5, personaje: 4 } as const
+export const DUR_DEFECTO = { imagen: 4, texto: 3, voz: 3, avatar: 4, pip: 4, fondo: 4, plano: 5, personaje: 4 } as const
 
 // ─── Modo película (animación 3D en el mapa) ─────────────────────────────────
 

@@ -1,15 +1,13 @@
 import { useRef, useState } from 'react'
 import type { MedioVideo } from '../../core/data/db'
-import { mediosVideoRepo, proyectosVideoRepo, VACIO } from '../../core/data/repository'
+import { mediosVideoRepo, VACIO } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
-import { confirmar } from '../../core/state/confirmarStore'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { VistaBlob } from '../_shared/ImagenIA'
 import { BotonBorrar, BotonPrimario, BotonSecundario, TARJETA, Vacio } from '../_shared/ui'
 import type { MedioConId } from './clipsNuevos'
 import { COLOR } from './constantes'
 import { GrabarMedioModal, type TipoGrabacion } from './GrabarMedio'
-import { mediosUsados } from './modelo'
 import type { PropsArrastreItem } from './useArrastreMedio'
 
 const seg = (n?: number) => (n && n > 0 ? `${Math.round(n)}s` : '')
@@ -34,7 +32,8 @@ export function MediosPanel({
 }) {
   const t = useT()
   const todos = mediosVideoRepo.useAll() ?? VACIO
-  const medios = tipos ? todos.filter((m) => tipos.includes(m.tipo)) : todos
+  // Los efectos importados a la carpeta «Sonidos» viven allí, no aquí.
+  const medios = (tipos ? todos.filter((m) => tipos.includes(m.tipo)) : todos).filter((m) => !m.sonido)
   const [borrando, setBorrando] = useState<number | null>(null)
   const [importando, setImportando] = useState(false)
   const [grabando, setGrabando] = useState<TipoGrabacion | null>(null)
@@ -60,18 +59,8 @@ export function MediosPanel({
 
   const borrar = async (medio: MedioVideo) => {
     setBorrando(null)
-    if (medio.id == null) return
-    const proyectos = await proyectosVideoRepo.list()
-    const usos = proyectos.filter((p) => mediosUsados(p).has(medio.id!)).length
-    if (usos > 0) {
-      const si = await confirmar({
-        titulo: t('video.medios.enUso', 'El medio se usa en tus videos'),
-        mensaje: t('video.medios.enUsoMsg', 'Aparece en {n} proyecto(s); esas escenas quedarán sin él.', { n: usos }),
-        peligro: true,
-      })
-      if (!si) return
-    }
-    await mediosVideoRepo.remove(medio.id)
+    const { borrarMedio } = await import('./importar')
+    await borrarMedio(medio)
   }
 
   const botones = (

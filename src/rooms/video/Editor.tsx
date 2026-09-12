@@ -39,6 +39,7 @@ import {
 } from './clipsNuevos'
 import {
   ALTO_PELICULA_FRACCION,
+  ASPECTOS,
   AVISO_DURACION_EXPORT,
   COLOR,
   DUR_DEFECTO,
@@ -64,7 +65,6 @@ import { OP_GUION, OP_TITULOS } from './costosIA'
 import { capturarEscena3d, exportarVideo, firmaExport, mimeExport, type ExportListo } from './exportar'
 import { crearPool, type PoolFuentes } from './fuentes'
 import { GrabarMedioModal, type TipoGrabacion } from './GrabarMedio'
-import { Guion } from './Guion'
 import { GuionObra } from './GuionObra'
 import { generarGuion, generarObra, mejorarTitulos } from './ia'
 import { completarGrabacion } from './importar'
@@ -100,7 +100,6 @@ import {
   medioIdDe,
   migrarProyecto,
   moverClip,
-  moverPrincipalEnOrden,
   narradorDe,
   normalizar,
   permiteSolape,
@@ -130,7 +129,7 @@ import { useAmplio, useMediaQuery } from './useAmplio'
 import { useArrastreMedio } from './useArrastreMedio'
 import type { LadoAsa } from './useGestosClips'
 import { usePreferenciaPanel } from './usePreferenciaPanel'
-import { LineasGuion, PanelNarradores } from './VocesGuion'
+import { PanelNarradores } from './VocesGuion'
 
 const fmtTotal = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(Math.max(0, s) % 60)).padStart(2, '0')}`
 
@@ -161,6 +160,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
   const [iaError, setIaError] = useState('')
   const [selector, setSelector] = useState<{ tipos: MedioVideo['tipo'][]; alElegir: (m: MedioVideo) => void } | null>(null)
   const [listaSonidos, setListaSonidos] = useState<{ alElegir: (f: FuenteSonido) => void } | null>(null)
+  const [narradoresAbierto, setNarradoresAbierto] = useState(false)
   const [progresoExport, setProgresoExport] = useState<number | null>(null)
   // Modo película: cuenta regresiva (3, 2, 1) sobre el mapa antes de rodar la toma.
   const [cuenta, setCuenta] = useState<number | null>(null)
@@ -182,7 +182,6 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
   const [publicando, setPublicando] = useState<{ plataforma: Plataforma; poster: string | null } | null>(null)
   const [pantallaCompleta, setPantallaCompleta] = useState(false)
   const [iman, setIman] = useState(true)
-  const [tabPanel, setTabPanel] = useState<'clip' | 'guion'>('guion')
   const [tabMedios, setTabMedios] = useState<TabMedios>('medios')
   // Laterales: columnas plegables (preferencia recordada) en pantallas anchas; cajones (estado transitorio) en móvil.
   // En el modo película siempre cajones: una columna taparía el mapa.
@@ -506,10 +505,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
     const repetido = clipId != null && seleccionRef.current === clipId
     setSeleccionEstado(clipId)
     seleccionRef.current = clipId
-    if (clipId) {
-      setTabPanel('clip')
-      if (abrirPanel && !amplio && repetido) setCajon('clip')
-    }
+    if (clipId && abrirPanel && !amplio && repetido) setCajon('clip')
   }
 
   // ─── Clips ───────────────────────────────────────────────────────────────
@@ -629,6 +625,12 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
     } else soltar(item, { pista, seg: t0 })
     if (!amplio) setCajon(null)
   }
+  /** Un sonido de la carpeta (de fábrica o del usuario) como ítem de la timeline; null si el medio ya no está. */
+  const itemDeSonido = (fuente: FuenteSonido): ItemArrastre | null => {
+    if (fuente.tipo === 'fabrica') return { tipo: 'sonido', clave: fuente.clave }
+    const medio = mediosRef.current.find((m) => m.id === fuente.medioId)
+    return medio?.id != null ? { tipo: 'efecto', medio: medio as MedioConId } : null
+  }
   const { propsDe } = useArrastreMedio({
     timelineRef,
     aceptaDe: (item) => {
@@ -640,6 +642,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
     etiquetaDe: (item) => {
       if (item.tipo === 'medio') return item.medio.nombre
       if (item.tipo === 'recurso') return item.recurso.nombre
+      if (item.tipo === 'efecto') return item.medio.nombre
       const s = sonidoFabrica(item.clave)
       return s ? t(s.claveNombre, s.es) : item.clave
     },
@@ -653,15 +656,6 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
       setArrastrando(false)
       if (soltado && !amplio) setCajon(null)
     },
-  })
-  const clipColor = (): ClipPrincipal => ({
-    id: nuevoClipId(),
-    pista: 'video',
-    inicio: 0,
-    duracion: DUR_DEFECTO.color,
-    fuente: { tipo: 'color', color: '#0f1115' },
-    filtro: 'ninguno',
-    volumen: 1,
   })
 
   const anadir = (opcion: OpcionAnadir) => {
@@ -704,8 +698,8 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
         if (puedeAnadir('voz')) setGrabarMedio('microfono')
         break
       case 'mascaraAr':
-      case 'chatAr': {
-        // El overlay AR se abre ENCIMA del Studio; su toma vuelve por el mismo canal que la grabación de la app.
+      case 'personajeAr': {
+        // El overlay AR (máscara o personaje sobre la cámara) se abre ENCIMA del Studio; su toma vuelve por el mismo canal que la grabación de la app.
         if (!puedeAnadir('video')) break
         motorRef.current?.pausa()
         setReproduciendo(false)
@@ -714,12 +708,12 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
         else useChatArUi.getState().abrirParaStudio(destino)
         break
       }
-      case 'color':
-        insertarEnPrincipal(clipColor())
+      case 'fondo': {
+        // Nace de color; en el panel se cambia por otro color de la paleta, una imagen o un fondo con IA.
+        const { inicio, duracion, alFinal } = colocar('fondo', DUR_DEFECTO.fondo)
+        meterLibre({ id: nuevoClipId(), pista: 'fondo', inicio, duracion, fuente: { tipo: 'color', color: '#0f1115' } }, alFinal)
         break
-      case 'fondo':
-        elegir(['imagen'], (m) => soltar({ tipo: 'medio', medio: m }, { pista: 'fondo', seg: t0 }))
-        break
+      }
       case 'imagen':
         elegir(['imagen'], (m) => soltar({ tipo: 'medio', medio: m }, { pista: 'imagen', seg: t0 }))
         break
@@ -751,9 +745,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
         setListaSonidos({
           alElegir: (fuente) => {
             setListaSonidos(null)
-            const medio = fuente.tipo === 'medio' ? mediosRef.current.find((m) => m.id === fuente.medioId) : undefined
-            const item: ItemArrastre | null =
-              fuente.tipo === 'fabrica' ? { tipo: 'sonido', clave: fuente.clave } : medio?.id != null ? { tipo: 'medio', medio: medio as MedioConId } : null
+            const item = itemDeSonido(fuente)
             if (item) soltar(item, { pista: 'sfx', seg: t0 })
           },
         })
@@ -778,45 +770,6 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
           },
           alFinal,
         )
-        break
-      }
-      case 'portada': {
-        const principal: ClipPrincipal = { ...clipColor(), transicion: { tipo: 'fundido' } }
-        const { inicio, duracion } = colocarEnHueco(clipsDe(p.clips, 'texto'), 0, DUR_DEFECTO.color, false)
-        mutarClips((clips) =>
-          normalizar([
-            ...insertarPrincipal(clips, principal, 0),
-            {
-              id: nuevoClipId(),
-              pista: 'texto',
-              inicio,
-              duracion,
-              texto: { contenido: p.nombre, posicion: 'centro', tamano: 'L', color: '#ffffff', fuente: 'display', animacion: 'fundido' },
-            },
-          ]),
-        )
-        seleccionar(principal.id)
-        seek(0)
-        break
-      }
-      case 'creditos': {
-        const principal: ClipPrincipal = { ...clipColor(), transicion: { tipo: 'fundido' } }
-        const inicioFinal = finPrincipal(p.clips)
-        const { inicio, duracion } = colocarEnHueco(clipsDe(p.clips, 'texto'), inicioFinal, DUR_DEFECTO.color, false)
-        mutarClips((clips) =>
-          normalizar([
-            ...insertarPrincipal(clips, principal, clipsDe(clips, 'video').length),
-            {
-              id: nuevoClipId(),
-              pista: 'texto',
-              inicio,
-              duracion,
-              texto: { contenido: t('video.guion.graciasPorVer', 'Gracias por ver'), subtitulo: p.nombre, posicion: 'centro', tamano: 'M', color: '#ffffff', animacion: 'subir' },
-            },
-          ]),
-        )
-        seleccionar(principal.id)
-        seek(inicioFinal)
         break
       }
     }
@@ -1326,10 +1279,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
   const alternarMedios = () => (amplio ? setMediosAbierto(!mediosAbierto) : setCajon((c) => (c === 'medios' ? null : 'medios')))
   const alternarClip = () => {
     if (amplio) setClipAbierto(!clipAbierto)
-    else {
-      setTabPanel(clipSel ? 'clip' : 'guion')
-      setCajon((c) => (c === 'clip' ? null : 'clip'))
-    }
+    else setCajon((c) => (c === 'clip' ? null : 'clip'))
   }
   const etiquetaMedios = mediosVisible
     ? amplio
@@ -1361,7 +1311,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
   const CLASE_HUD = 'ui-hud ui-boton flex items-center gap-1.5 rounded-lg border border-white/10 px-3 py-2 text-sm text-white/85 transition hover:bg-white/15 disabled:opacity-40'
   const botonesAspecto = (
     <div className="flex items-center gap-1">
-      {(['16:9', '9:16'] as const).map((a) => (
+      {ASPECTOS.map((a) => (
         <button
           key={a}
           type="button"
@@ -1545,10 +1495,13 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
             iconoCerrar={amplio ? 'volver' : 'cerrar'}
             onCerrar={cerrarMedios}
             onElegirMedio={(m) => tocar({ tipo: 'medio', medio: m })}
-            onElegirSonido={(clave) => tocar({ tipo: 'sonido', clave })}
+            onElegirSonido={(f) => {
+              const item = itemDeSonido(f)
+              if (item) tocar(item)
+            }}
             onElegirRecurso={(app, recurso) => tocar({ tipo: 'recurso', app, recurso })}
             propsMedio={(m) => propsDe({ tipo: 'medio', medio: m })}
-            propsSonido={(clave) => propsDe({ tipo: 'sonido', clave })}
+            propsSonido={propsDe}
             propsRecurso={(app, recurso) => propsDe({ tipo: 'recurso', app, recurso })}
           />
         </PanelLateral>
@@ -1666,40 +1619,10 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
             proyecto={proyecto}
             lienzo={lienzo}
             medios={medios}
-            tab={clipSel ? tabPanel : 'guion'}
-            onTab={setTabPanel}
             onCerrar={cerrarClip}
             iconoCerrar={amplio ? 'siguiente' : 'cerrar'}
             narrando={narrandoId != null && narrandoId === clipSel?.id}
-            guion={
-              <>
-                <PanelNarradores proyecto={proyecto} onAnadir={anadirNarrador} onCambiar={cambiarNarrador} onQuitar={quitarNarrador} />
-                <LineasGuion
-                  proyecto={proyecto}
-                  sonando={lineaSonando}
-                  onEscuchar={escucharLineas}
-                  onParar={() => pararLecturaRef.current?.()}
-                  onSeleccion={(clipId) => {
-                    seleccionar(clipId)
-                    const c = proyectoRef.current?.clips.find((x) => x.id === clipId)
-                    if (c) seek(c.inicio)
-                  }}
-                />
-                <Guion
-                  proyecto={proyecto}
-                  medios={medios}
-                  seleccion={seleccion}
-                  onSeleccion={(clipId) => {
-                    seleccionar(clipId)
-                    const c = proyectoRef.current?.clips.find((x) => x.id === clipId)
-                    if (c) seek(c.inicio)
-                  }}
-                  onMover={(clipId, delta) => mutarClips((clips) => moverPrincipalEnOrden(clips, clipId, delta))}
-                  onDuplicar={duplicar}
-                  onBorrar={(clipId) => void borrarClip(clipId)}
-                />
-              </>
-            }
+            onEditarNarradores={() => setNarradoresAbierto(true)}
             acciones={{
               onCambiar: (patch) => {
                 if (clipSel) cambiarClip(clipSel.id, patch)
@@ -1823,6 +1746,13 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
             }
           }}
         />
+      )}
+
+      {/* Voces del proyecto (narradores): desde «Quién habla» del panel del clip */}
+      {narradoresAbierto && (
+        <Modal titulo={t('video.narradores.editar', 'Editar las voces')} onCerrar={() => setNarradoresAbierto(false)} ancho="max-w-lg">
+          <PanelNarradores proyecto={proyecto} onAnadir={anadirNarrador} onCambiar={cambiarNarrador} onQuitar={quitarNarrador} />
+        </Modal>
       )}
 
       {/* Carpeta de sonidos */}

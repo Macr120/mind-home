@@ -1,10 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { FuenteSonido, MedioVideo } from '../../core/data/db'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
-import { BotonSecundario, TARJETA } from '../_shared/ui'
-import { SONIDOS_FABRICA, urlSonido } from './sonidos'
+import { BotonBorrar, BotonSecundario, TARJETA } from '../_shared/ui'
+import type { ItemArrastre, MedioConId } from './clipsNuevos'
+import { guardarSonidosOcultos, leerSonidosOcultos, SONIDOS_FABRICA, urlSonido } from './sonidos'
 import type { PropsArrastreItem } from './useArrastreMedio'
+
+/** Lo que se arrastra desde la carpeta: un sonido de fábrica o uno del usuario. */
+export type ItemSonido = Extract<ItemArrastre, { tipo: 'sonido' | 'efecto' }>
 
 /** Un solo reproductor de muestra para todo el módulo: escuchar otro corta al anterior. */
 let muestra: HTMLAudioElement | null = null
@@ -84,7 +88,60 @@ export function BotonEscuchar({
   )
 }
 
-/** La carpeta «sonidos» de fábrica para elegir uno (o pasar a la biblioteca de audios importados). */
+/** Una fila de la carpeta: escuchar, nombre, duración, añadir y borrar. */
+function FilaSonido({
+  fuente,
+  item,
+  nombre,
+  duracion,
+  porId,
+  sonando,
+  onSonando,
+  confirmando,
+  onPedirBorrar,
+  onBorrar,
+  onCancelarBorrar,
+  onElegir,
+  propsArrastre,
+}: {
+  fuente: FuenteSonido
+  item: ItemSonido
+  nombre: string
+  duracion: number
+  porId: Map<number, MedioVideo>
+  sonando: boolean
+  onSonando: (v: boolean) => void
+  confirmando: boolean
+  onPedirBorrar: () => void
+  onBorrar: () => void
+  onCancelarBorrar: () => void
+  onElegir: (fuente: FuenteSonido) => void
+  propsArrastre?: (item: ItemSonido) => PropsArrastreItem
+}) {
+  const t = useT()
+  return (
+    <li
+      className={`${TARJETA} flex items-center gap-2 p-2${propsArrastre ? ' select-none [-webkit-touch-callout:none]' : ''}`}
+      {...propsArrastre?.(item)}
+    >
+      <BotonEscuchar fuente={fuente} porId={porId} sonando={sonando} onSonando={onSonando} />
+      <span className="min-w-0 flex-1 truncate text-xs font-semibold">{nombre}</span>
+      {duracion > 0 && <span className="shrink-0 text-[10px] text-white/40">{Math.round(duracion * 10) / 10}s</span>}
+      <BotonSecundario pequeno data-no-arrastre onClick={() => onElegir(fuente)}>
+        <Icono nombre="agregar" /> {t('video.sonidos.agregar', 'Añadir')}
+      </BotonSecundario>
+      <span data-no-arrastre className="contents">
+        <BotonBorrar confirmando={confirmando} onPedir={onPedirBorrar} onConfirmar={onBorrar} onCancelar={onCancelarBorrar} />
+      </span>
+    </li>
+  )
+}
+
+/**
+ * La carpeta «Sonidos»: los efectos de fábrica (se pueden borrar de la lista y
+ * restaurar) y los del usuario (audios importados aquí, que se borran de la
+ * biblioteca), para elegir uno o pasar a la biblioteca de audios importados.
+ */
 export function ListaSonidos({
   medios,
   onElegir,
@@ -99,41 +156,127 @@ export function ListaSonidos({
   /** Una sola columna: la versión del panel lateral del editor. */
   compacto?: boolean
   /** Gesto de arrastre a la timeline (panel lateral); el botón «Añadir» sigue siendo el toque. */
-  propsArrastre?: (clave: string) => PropsArrastreItem
+  propsArrastre?: (item: ItemSonido) => PropsArrastreItem
 }) {
   const t = useT()
   const [sonando, setSonando] = useState<string | null>(null)
+  const [borrando, setBorrando] = useState<string | null>(null)
+  const [ocultos, setOcultos] = useState(() => leerSonidosOcultos())
+  const [importando, setImportando] = useState(false)
+  const archivoRef = useRef<HTMLInputElement>(null)
   const porId = new Map(medios.filter((m) => m.id != null).map((m) => [m.id!, m]))
+  const tuyos = medios.filter((m): m is MedioConId => m.tipo === 'audio' && m.sonido === true && m.id != null)
+  const fabrica = SONIDOS_FABRICA.filter((f) => !ocultos.has(f.clave))
   useEffect(() => () => pararMuestra(), [])
+
+  // Borrar uno de fábrica solo lo quita de la lista: los clips que ya lo usan siguen sonando.
+  const ocultar = (clave: string) => {
+    const s = new Set(ocultos)
+    s.add(clave)
+    setOcultos(s)
+    guardarSonidosOcultos(s)
+    setBorrando(null)
+  }
+  const restaurar = () => {
+    const s = new Set<string>()
+    setOcultos(s)
+    guardarSonidosOcultos(s)
+  }
+  const importar = async (archivo: File) => {
+    setImportando(true)
+    try {
+      const { importarMedio } = await import('./importar')
+      await importarMedio(archivo, { sonido: true })
+    } finally {
+      setImportando(false)
+    }
+  }
+  const borrarTuyo = async (m: MedioConId) => {
+    setBorrando(null)
+    const { borrarMedio } = await import('./importar')
+    await borrarMedio(m)
+  }
+  const lista = `grid grid-cols-1 gap-1.5 ${compacto ? '' : 'sm:grid-cols-2'}`
+
   return (
     <div className="space-y-3">
+      <BotonSecundario pequeno disabled={importando} onClick={() => archivoRef.current?.click()} className={compacto ? 'w-full' : undefined}>
+        <Icono nombre="agregar" /> {t('video.sonidos.anadirSonido', 'Añadir sonido')}
+      </BotonSecundario>
+      {tuyos.length > 0 && (
+        <div>
+          <p className="mb-1 text-xs text-white/50">{t('video.sonidos.tuyos', 'Tus sonidos')}</p>
+          <ul className={lista}>
+            {tuyos.map((m) => {
+              const clave = `m:${m.id}`
+              return (
+                <FilaSonido
+                  key={clave}
+                  fuente={{ tipo: 'medio', medioId: m.id }}
+                  item={{ tipo: 'efecto', medio: m }}
+                  nombre={m.nombre}
+                  duracion={m.duracion ?? 0}
+                  porId={porId}
+                  sonando={sonando === clave}
+                  onSonando={(v) => setSonando(v ? clave : null)}
+                  confirmando={borrando === clave}
+                  onPedirBorrar={() => setBorrando(clave)}
+                  onBorrar={() => void borrarTuyo(m)}
+                  onCancelarBorrar={() => setBorrando(null)}
+                  onElegir={onElegir}
+                  propsArrastre={propsArrastre}
+                />
+              )
+            })}
+          </ul>
+        </div>
+      )}
       <div>
         <p className="mb-1 text-xs text-white/50">{t('video.sonidos.fabrica', 'De fábrica')}</p>
-        <ul className={`grid grid-cols-1 gap-1.5 ${compacto ? '' : 'sm:grid-cols-2'}`}>
-          {SONIDOS_FABRICA.map((f) => {
-            const fuente: FuenteSonido = { tipo: 'fabrica', clave: f.clave }
-            return (
-              <li
+        {fabrica.length > 0 && (
+          <ul className={lista}>
+            {fabrica.map((f) => (
+              <FilaSonido
                 key={f.clave}
-                className={`${TARJETA} flex items-center gap-2 p-2${propsArrastre ? ' select-none [-webkit-touch-callout:none]' : ''}`}
-                {...propsArrastre?.(f.clave)}
-              >
-                <BotonEscuchar fuente={fuente} porId={porId} sonando={sonando === f.clave} onSonando={(v) => setSonando(v ? f.clave : null)} />
-                <span className="min-w-0 flex-1 truncate text-xs font-semibold">{t(f.claveNombre, f.es)}</span>
-                <span className="shrink-0 text-[10px] text-white/40">{f.duracion}s</span>
-                <BotonSecundario pequeno data-no-arrastre onClick={() => onElegir(fuente)}>
-                  <Icono nombre="agregar" /> {t('video.sonidos.agregar', 'Añadir')}
-                </BotonSecundario>
-              </li>
-            )
-          })}
-        </ul>
+                fuente={{ tipo: 'fabrica', clave: f.clave }}
+                item={{ tipo: 'sonido', clave: f.clave }}
+                nombre={t(f.claveNombre, f.es)}
+                duracion={f.duracion}
+                porId={porId}
+                sonando={sonando === f.clave}
+                onSonando={(v) => setSonando(v ? f.clave : null)}
+                confirmando={borrando === f.clave}
+                onPedirBorrar={() => setBorrando(f.clave)}
+                onBorrar={() => ocultar(f.clave)}
+                onCancelarBorrar={() => setBorrando(null)}
+                onElegir={onElegir}
+                propsArrastre={propsArrastre}
+              />
+            ))}
+          </ul>
+        )}
+        {ocultos.size > 0 && (
+          <button type="button" onClick={restaurar} className="mt-1.5 text-xs text-white/50 underline-offset-2 hover:text-white/80 hover:underline">
+            {t('video.sonidos.restaurar', 'Restaurar los de fábrica')}
+          </button>
+        )}
       </div>
       {onImportado && (
         <BotonSecundario pequeno onClick={onImportado}>
           <Icono nombre="musica" /> {t('video.sonidos.importado', 'Audio importado')}
         </BotonSecundario>
       )}
+      <input
+        ref={archivoRef}
+        type="file"
+        accept="audio/*"
+        hidden
+        onChange={(e) => {
+          const archivo = e.target.files?.[0]
+          if (archivo) void importar(archivo)
+          e.target.value = ''
+        }}
+      />
     </div>
   )
 }

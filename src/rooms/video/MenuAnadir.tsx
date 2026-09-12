@@ -5,7 +5,6 @@ import { Modal } from '../_shared/ui'
 
 export type OpcionAnadir =
   | 'clip'
-  | 'color'
   | 'fondo'
   | 'imagen'
   | 'texto'
@@ -13,15 +12,13 @@ export type OpcionAnadir =
   | 'musica'
   | 'sfx'
   | 'avatar'
-  | 'portada'
-  | 'creditos'
   | 'camara'
   | 'personaje'
   | 'guion'
   | 'grabarCamara'
   | 'grabarAudio'
   | 'mascaraAr'
-  | 'chatAr'
+  | 'personajeAr'
 
 interface Opcion {
   id: OpcionAnadir
@@ -32,9 +29,9 @@ interface Opcion {
 
 /** Lo que hace de este menú un estudio de cine: el rodaje (cámara, marionetas y guion) aparte del montaje. */
 const RODAJE = new Set<OpcionAnadir>(['camara', 'personaje', 'guion'])
-/** Sin sentido bajo el mapa (fondo, avatar PIP), ya cubierto por la cámara (color) o fuera de lugar en un rodaje (grabar con la cámara, overlays AR). */
-const SIN_PELICULA = new Set<OpcionAnadir>(['fondo', 'avatar', 'color', 'grabarCamara', 'mascaraAr', 'chatAr'])
-const CON_DISPOSITIVOS = new Set<OpcionAnadir>(['grabarCamara', 'grabarAudio', 'mascaraAr', 'chatAr'])
+/** Sin sentido bajo el mapa (fondo, avatar PIP) o fuera de lugar en un rodaje (grabar con la cámara, overlays AR). */
+const SIN_PELICULA = new Set<OpcionAnadir>(['fondo', 'avatar', 'grabarCamara', 'mascaraAr', 'personajeAr'])
+const CON_DISPOSITIVOS = new Set<OpcionAnadir>(['grabarCamara', 'grabarAudio', 'mascaraAr', 'personajeAr'])
 
 /**
  * El menú «Añadir»: cada opción crea un clip en el cursor, en su pista. En el
@@ -65,8 +62,7 @@ export function MenuAnadir({
     { id: 'grabarCamara', icono: 'foto', etiqueta: t('video.anadir.grabarCamara', 'Grabar con la cámara'), principal: true },
     { id: 'grabarAudio', icono: 'microfono', etiqueta: t('video.anadir.grabarAudio', 'Grabar audio') },
     { id: 'mascaraAr', icono: 'mascara', etiqueta: t('video.anadir.mascaraAr', 'Máscara AR'), principal: true },
-    { id: 'chatAr', icono: 'chat-ar', etiqueta: t('video.anadir.chatAr', 'Chat AR'), principal: true },
-    { id: 'color', icono: 'paleta', etiqueta: t('video.guion.color', 'Color'), principal: true },
+    { id: 'personajeAr', icono: 'chat-ar', etiqueta: t('video.anadir.personajeAr', 'Personaje AR'), principal: true },
     { id: 'fondo', icono: 'imagen', etiqueta: t('video.anadir.fondo', 'Fondo') },
     { id: 'imagen', icono: 'foto', etiqueta: t('video.anadir.imagen', 'Imagen superpuesta') },
     { id: 'texto', icono: 'letra', etiqueta: t('video.anadir.texto', 'Texto') },
@@ -74,8 +70,6 @@ export function MenuAnadir({
     { id: 'musica', icono: 'musica', etiqueta: t('video.anadir.musica', 'Música') },
     { id: 'sfx', icono: 'bocina', etiqueta: t('video.anadir.sonido', 'Sonido') },
     { id: 'avatar', icono: 'persona', etiqueta: t('video.anadir.avatar', 'Avatar') },
-    { id: 'portada', icono: 'letra', etiqueta: t('video.guion.portada', 'Portada'), principal: true },
-    { id: 'creditos', icono: 'lista', etiqueta: t('video.guion.creditos', 'Créditos'), principal: true },
   ]
   // Cámara y micrófono del equipo (y los overlays AR) solo donde existen.
   const conDispositivos = typeof navigator !== 'undefined' && typeof navigator.mediaDevices?.getUserMedia === 'function'

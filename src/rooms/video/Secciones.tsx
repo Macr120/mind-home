@@ -9,7 +9,7 @@ import { useAjustes } from '../../core/state/ajustesStore'
 import { Creditos } from '../../core/ui/Creditos'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { BotonSecundario, Campo, INPUT, Spinner } from '../_shared/ui'
-import { PALETA_VIDEO } from './constantes'
+import { type AspectoVideo, PALETA_VIDEO } from './constantes'
 import { OP_NARRACION } from './costosIA'
 import { gruposVoz, hablarConVoz, usaDispositivo, vozDejaArchivo, vozValida, type GrupoVoces } from './voces'
 
@@ -106,7 +106,7 @@ export function SeccionFuenteVisual({
   onCambiar,
 }: {
   fuente: FuenteVisual
-  aspecto: '16:9' | '9:16'
+  aspecto: AspectoVideo
   permiteVideo: boolean
   onElegirMedio: (tipos: MedioVideo['tipo'][], alElegir: (m: MedioVideo) => void) => void
   onCambiar: (fuente: FuenteVisual) => void

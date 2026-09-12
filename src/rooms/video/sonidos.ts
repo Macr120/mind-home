@@ -1,5 +1,6 @@
 import type { FuenteSonido, MedioVideo } from '../../core/data/db'
 import type { TFunc } from '../../core/i18n/useT'
+import { LS_SONIDOS_OCULTOS } from './constantes'
 
 /**
  * La carpeta «sonidos» de fábrica del Studio de video: efectos cortos en
@@ -25,6 +26,8 @@ export const SONIDOS_FABRICA: readonly SonidoFabrica[] = [
   { clave: 'golpe', archivo: 'golpe.mp3', claveNombre: 'video.sonido.golpe', es: 'Golpe', duracion: 3.1 },
   { clave: 'jeje-boy', archivo: 'jeje-boy.mp3', claveNombre: 'video.sonido.jejeBoy', es: 'Jeje boy', duracion: 1.9 },
   { clave: 'sus', archivo: 'sus.mp3', claveNombre: 'video.sonido.sus', es: 'Sus', duracion: 2.9 },
+  { clave: 'wow', archivo: 'wow.mp3', claveNombre: 'video.sonido.wow', es: 'Wow', duracion: 1.9 },
+  { clave: 'nice', archivo: 'nice.mp3', claveNombre: 'video.sonido.nice', es: 'Nice', duracion: 3.1 },
 ]
 
 export function sonidoFabrica(clave: string): SonidoFabrica | null {
@@ -44,4 +47,23 @@ export function nombreFuenteSonido(t: TFunc, f: FuenteSonido, porId: Map<number,
     return s ? t(s.claveNombre, s.es) : f.clave
   }
   return porId.get(f.medioId)?.nombre ?? t('video.medios.noDisponible', 'Medio no disponible en este dispositivo')
+}
+
+/** Sonidos de fábrica que el usuario borró de la carpeta (claves). Solo se ocultan de la lista: los clips que ya los usan siguen sonando. */
+export function leerSonidosOcultos(): Set<string> {
+  try {
+    const v: unknown = JSON.parse(localStorage.getItem(LS_SONIDOS_OCULTOS) ?? '[]')
+    return new Set(Array.isArray(v) ? v.filter((x): x is string => typeof x === 'string') : [])
+  } catch {
+    return new Set()
+  }
+}
+
+export function guardarSonidosOcultos(ocultos: Set<string>): void {
+  try {
+    if (ocultos.size) localStorage.setItem(LS_SONIDOS_OCULTOS, JSON.stringify([...ocultos]))
+    else localStorage.removeItem(LS_SONIDOS_OCULTOS)
+  } catch {
+    /* almacenamiento bloqueado */
+  }
 }

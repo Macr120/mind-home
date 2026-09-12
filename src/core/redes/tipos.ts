@@ -59,7 +59,7 @@ export interface MetaPublicacion {
   titulo: string
   descripcion?: string
   privacidad?: string
-  aspecto: '16:9' | '9:16'
+  aspecto: '16:9' | '9:16' | '1:1'
   duracion_seg: number
   youtube?: { categoryId?: string; madeForKids: boolean }
   tiktok?: {

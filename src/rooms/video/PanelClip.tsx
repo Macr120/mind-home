@@ -14,7 +14,7 @@ import { BotonEscuchar } from './ListaSonidos'
 import { clipsDe, encuadrePorEsquina, narradorDe, vozEfectiva, type ProyectoAbierto } from './modelo'
 import { nombreNarrador } from './narradores'
 import { RejillaTransiciones } from './RejillaTransiciones'
-import { Chip, Deslizador, INPUT_CORTO, Pestana, SeccionFiltro, SeccionFuenteVisual, SeccionTexto, SeccionVoz } from './Secciones'
+import { Chip, Deslizador, INPUT_CORTO, SeccionFiltro, SeccionFuenteVisual, SeccionTexto, SeccionVoz } from './Secciones'
 import { SeccionCamara, SeccionEscena } from './SeccionesPelicula'
 import { nombreFuenteSonido } from './sonidos'
 import { QuienHabla } from './VocesGuion'
@@ -40,7 +40,7 @@ export interface AccionesPanel {
 }
 
 /**
- * El panel de propiedades del clip seleccionado (o el guion): hoja inferior
+ * El panel de propiedades del clip seleccionado: hoja inferior
  * en móvil, columna a la derecha en pantallas amplias. Secciones por pista,
  * heredadas del panel de escena anterior.
  */
@@ -49,12 +49,10 @@ export function PanelClip({
   proyecto,
   lienzo,
   medios,
-  tab,
-  onTab,
   onCerrar,
   iconoCerrar,
   narrando,
-  guion,
+  onEditarNarradores,
   acciones,
 }: {
   clip: ClipVideo | null
@@ -62,13 +60,12 @@ export function PanelClip({
   /** El lienzo de la composición (720p por aspecto, o la pantalla en el modo película): proporción del PIP. */
   lienzo: { ancho: number; alto: number }
   medios: MedioVideo[]
-  tab: 'clip' | 'guion'
-  onTab: (tab: 'clip' | 'guion') => void
   onCerrar: () => void
   /** Icono del botón de la cabecera: plegar (columna) o cerrar (cajón). */
   iconoCerrar: NombreIcono
   narrando: boolean
-  guion: ReactNode
+  /** Abre las voces del proyecto (narradores) desde «Quién habla». */
+  onEditarNarradores: () => void
   acciones: AccionesPanel
 }) {
   const t = useT()
@@ -88,7 +85,7 @@ export function PanelClip({
   // Modo película: la principal son los planos y la pista de avatar, los personajes (actores en la casa).
   const pelicula = proyecto.escenario === '3d'
   const actores = usePelicula((s) => s.actores)
-  const titulo = clip ? tituloPista(t, clip.pista, pelicula) : t('video.guion.titulo', 'Guion')
+  const titulo = clip ? tituloPista(t, clip.pista, pelicula) : t('video.lateral.editor', 'Editor')
 
   const cabecera = clip && (
     <div className="flex flex-wrap items-end gap-2">
@@ -258,7 +255,7 @@ export function PanelClip({
         const n = narradorDe(proyecto, clip)
         secciones = (
           <>
-            <QuienHabla proyecto={proyecto} clip={clip} onElegir={acciones.onAsignarNarrador} onEditar={() => onTab('guion')} />
+            <QuienHabla proyecto={proyecto} clip={clip} onElegir={acciones.onAsignarNarrador} onEditar={onEditarNarradores} />
             <SeccionVoz
               texto={clip.texto ?? ''}
               vozEfectiva={vozEfectiva(proyecto, clip)}
@@ -302,7 +299,7 @@ export function PanelClip({
           // Un actor en la casa (modo película): quién es, dónde está y qué hace; la voz como siempre.
           secciones = (
             <>
-              <QuienHabla proyecto={proyecto} clip={clip} onElegir={acciones.onAsignarNarrador} onEditar={() => onTab('guion')} />
+              <QuienHabla proyecto={proyecto} clip={clip} onElegir={acciones.onAsignarNarrador} onEditar={onEditarNarradores} />
               {!n && (
                 <>
                   <Campo etiqueta={t('video.pelicula.personaje', 'Personaje')}>
@@ -328,7 +325,7 @@ export function PanelClip({
         }
         secciones = (
           <>
-            <QuienHabla proyecto={proyecto} clip={clip} onElegir={acciones.onAsignarNarrador} onEditar={() => onTab('guion')} />
+            <QuienHabla proyecto={proyecto} clip={clip} onElegir={acciones.onAsignarNarrador} onEditar={onEditarNarradores} />
             {/* Con narrador, el personaje lo pone él; sin narrador (clips de antes), se elige aquí. */}
             {!n && (
               <SelectorAsistente titulo={t('video.avatar.asistente', 'Asistente')} elegidoId={clip.asistenteId} onElegir={(as) => acciones.onCambiar({ asistenteId: as.id })} />
@@ -427,14 +424,6 @@ export function PanelClip({
           </span>
         )}
         <p className="min-w-0 flex-1 truncate text-xs font-semibold">{titulo}</p>
-        {clip && (
-          <Pestana activa={tab === 'clip'} onClick={() => onTab('clip')}>
-            {t('video.panel.clip', 'Clip')}
-          </Pestana>
-        )}
-        <Pestana activa={tab === 'guion'} onClick={() => onTab('guion')}>
-          {t('video.guion.titulo', 'Guion')}
-        </Pestana>
         <button
           type="button"
           onClick={onCerrar}
@@ -446,13 +435,13 @@ export function PanelClip({
         </button>
       </div>
       <div className="min-h-0 flex-1 space-y-3 overflow-y-auto p-2">
-        {tab === 'clip' && clip ? (
+        {clip ? (
           <>
             {cabecera}
             {secciones}
           </>
         ) : (
-          guion
+          <p className="text-[11px] text-white/45">{t('video.panel.sinClip', 'Toca un clip en la línea de tiempo para editarlo')}</p>
         )}
       </div>
     </div>

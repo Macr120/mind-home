@@ -2,6 +2,7 @@ import { useT, type TFunc } from '../../../core/i18n/useT'
 import { useRedes } from '../../../core/redes/redesStore'
 import type { AvisosRedes, CuentaRed } from '../../../core/redes/tipos'
 import { Campo, INPUT } from '../../_shared/ui'
+import type { AspectoVideo } from '../constantes'
 import { Chip } from '../Secciones'
 import { LIMITES, type MetaFacebook, type MetaInstagram } from './tipos'
 
@@ -17,7 +18,7 @@ export function validarFacebook(meta: MetaFacebook, cuenta: CuentaRed | null, t:
   return null
 }
 
-export function validarInstagram(meta: MetaInstagram, cuenta: CuentaRed | null, aspecto: '16:9' | '9:16', mp4: boolean, t: TFunc): string | null {
+export function validarInstagram(meta: MetaInstagram, cuenta: CuentaRed | null, aspecto: AspectoVideo, mp4: boolean, t: TFunc): string | null {
   if (!cuenta) return t('video.publicar.ig.sinCuentas', 'No hay ninguna cuenta profesional de Instagram vinculada a tus Páginas.')
   if (!mp4) return t('video.publicar.menu.sinMp4', 'Necesita MP4: este dispositivo solo graba WebM')
   if (aspecto !== '9:16') return t('video.publicar.menu.solo916', 'Solo en formato 9:16')
@@ -75,7 +76,7 @@ export function FormularioFacebook({
   meta: MetaFacebook
   onCambio: (m: MetaFacebook) => void
   cuenta: CuentaRed | null
-  aspecto: '16:9' | '9:16'
+  aspecto: AspectoVideo
   avisos: AvisosRedes
 }) {
   const t = useT()
@@ -97,7 +98,11 @@ export function FormularioFacebook({
         <textarea value={meta.descripcion} maxLength={LIMITES.facebook.descripcion} rows={3} onChange={(e) => onCambio({ ...meta, descripcion: e.target.value })} className={INPUT} />
       </Campo>
       <p className="text-[11px] text-white/40">
-        {aspecto === '9:16' ? t('video.publicar.fb.reel', 'Se publicará como Reel (formato 9:16).') : t('video.publicar.fb.video', 'Se publicará como video normal (formato 16:9).')}
+        {aspecto === '9:16'
+          ? t('video.publicar.fb.reel', 'Se publicará como Reel (formato 9:16).')
+          : aspecto === '1:1'
+            ? t('video.publicar.fb.videoCuadrado', 'Se publicará como video normal (formato 1:1).')
+            : t('video.publicar.fb.video', 'Se publicará como video normal (formato 16:9).')}
       </p>
       <AvisoModoDesarrollo avisos={avisos} />
     </div>
@@ -115,7 +120,7 @@ export function FormularioInstagram({
   meta: MetaInstagram
   onCambio: (m: MetaInstagram) => void
   cuenta: CuentaRed | null
-  aspecto: '16:9' | '9:16'
+  aspecto: AspectoVideo
   mp4: boolean
   avisos: AvisosRedes
 }) {

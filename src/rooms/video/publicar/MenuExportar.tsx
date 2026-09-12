@@ -10,6 +10,7 @@ import { NOMBRE_RED, PLATAFORMAS, type Plataforma } from '../../../core/redes/ti
 import { Icono } from '../../../core/ui/iconos/Icono'
 import { LogoRed } from '../../../core/ui/logosMarca'
 import { Modal } from '../../_shared/ui'
+import type { AspectoVideo } from '../constantes'
 import { soportaMp4 } from '../exportar'
 
 export type OpcionExportar = 'archivo' | 'medios' | Plataforma
@@ -29,7 +30,7 @@ export function MenuExportar({
 }: {
   onElegir: (opcion: OpcionExportar) => void
   onCerrar: () => void
-  aspecto: '16:9' | '9:16'
+  aspecto: AspectoVideo
   publicaciones: PublicacionVideo[]
   conMedios?: boolean
 }) {

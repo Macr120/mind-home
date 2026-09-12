@@ -29,7 +29,9 @@ import { useT } from '../i18n/useT'
  * cara, para conversar por micrófono o texto con respuesta hablada. Comparte el
  * hilo del chat normal (mensajesChat) y las reacciones emocionales de la casa.
  * Se monta lazy desde App.tsx (patrón MascaraOverlay); sin MediaPipe: el
- * personaje no se ancla a la cara, la cámara es solo el fondo.
+ * personaje no se ancla a la cara, la cámara es solo el fondo. Desde el Studio
+ * de video se abre en modo «personaje»: solo el asistente sobre la cámara,
+ * arrastrable, con el botón de grabar y sin chat ni voz.
  */
 
 type Encuadre = 'cuerpo' | 'busto'
@@ -168,6 +170,7 @@ function EscenaAr({
 export default function ChatArOverlay() {
   const t = useT()
   const cerrar = useChatArUi((s) => s.cerrar)
+  const soloPersonaje = useChatArUi((s) => s.modo) === 'personaje'
   const asistentes = useAsistentes((s) => s.lista)
   const [asistenteId, setAsistenteId] = useState(() => useMascota.getState().mascota)
   const asistente = asistentes.find((a) => a.id === asistenteId) ?? asistentes[0]
@@ -206,7 +209,8 @@ export default function ChatArOverlay() {
       setGrabacion('guardando')
       const toma = await g.detener()
       const h = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-      await entregarTomaAlStudio(destino, { ...toma, nombre: t('video.medios.nombreChatAr', 'Chat AR · {h}', { h }) })
+      const nombre = soloPersonaje ? t('video.medios.nombrePersonajeAr', 'Personaje AR · {h}', { h }) : t('video.medios.nombreChatAr', 'Chat AR · {h}', { h })
+      await entregarTomaAlStudio(destino, { ...toma, nombre })
       cerrar()
       return
     }
@@ -227,8 +231,9 @@ export default function ChatArOverlay() {
   // por frame y arrastrar no debe re-renderizar el overlay.
   const arrastre = useRef<Punto>({ x: 0, y: 0 })
 
-  // Saludo al abrir y al cambiar de asistente (hablado: abrir el overlay ya fue un gesto).
+  // Saludo al abrir y al cambiar de asistente (hablado: abrir el overlay ya fue un gesto). En modo personaje no habla.
   useEffect(() => {
+    if (soloPersonaje) return
     const saludo = saludoAsistente(t, asistente)
     // eslint-disable-next-line react-hooks/set-state-in-effect -- saludo inicial al abrir o cambiar de asistente
     setBurbuja(saludo)
@@ -413,9 +418,11 @@ export default function ChatArOverlay() {
             </button>
           </>
         )}
-        <button type="button" onClick={callarComoAsistente} className={botonTop} title={t('chatAr.callar', 'Silenciar la voz')}>
-          <Icono nombre="silencio" />
-        </button>
+        {!soloPersonaje && (
+          <button type="button" onClick={callarComoAsistente} className={botonTop} title={t('chatAr.callar', 'Silenciar la voz')}>
+            <Icono nombre="silencio" />
+          </button>
+        )}
         <button type="button" onClick={cerrar} className={botonTop} title={t('chatAr.salir', 'Salir')}>
           <Icono nombre="cerrar" />
         </button>
@@ -458,7 +465,7 @@ export default function ChatArOverlay() {
       </div>
 
       {/* Burbuja de la respuesta + reacción */}
-      {(burbuja || pensando) && (
+      {!soloPersonaje && (burbuja || pensando) && (
         <div className="pointer-events-none absolute inset-x-0 bottom-24 flex justify-center px-4">
           <div className="ui-panel-glass ui-pop max-w-md rounded-2xl border border-white/10 px-4 py-3 text-sm text-white/90 shadow-xl">
             <div className="flex items-start gap-2">
@@ -473,9 +480,13 @@ export default function ChatArOverlay() {
         </div>
       )}
 
-      {/* Grabar para el Studio de video (solo abierto desde «Añadir»): botón rojo sobre la barra */}
+      {/* Grabar para el Studio de video (solo abierto desde «Añadir»): botón rojo al pie (sobre la barra si hay chat) */}
       {destino && !errorCamara && (
-        <div className="pointer-events-none absolute inset-x-0 bottom-[calc(env(safe-area-inset-bottom)+4.5rem)] flex flex-col items-center gap-1 px-4">
+        <div
+          className={`pointer-events-none absolute inset-x-0 flex flex-col items-center gap-1 px-4 ${
+            soloPersonaje ? 'bottom-[calc(env(safe-area-inset-bottom)+1rem)]' : 'bottom-[calc(env(safe-area-inset-bottom)+4.5rem)]'
+          }`}
+        >
           <button
             type="button"
             onClick={() => void alternarGrabacion()}
@@ -493,59 +504,63 @@ export default function ChatArOverlay() {
           </button>
           {grabacion === 'no' && (
             <p className="rounded-full bg-black/50 px-3 py-1 text-center text-[11px] text-white/80 backdrop-blur">
-              {t('chatAr.grabarNota', 'Lo que ves entra en la toma; la voz del asistente solo entra por el micrófono')}
+              {soloPersonaje
+                ? t('chatAr.notaPersonaje', 'Arrastra al personaje para moverlo (doble toque lo centra); tu voz entra por el micrófono')
+                : t('chatAr.grabarNota', 'Lo que ves entra en la toma; la voz del asistente solo entra por el micrófono')}
             </p>
           )}
         </div>
       )}
 
-      {/* Barra inferior: texto + mic + enviar */}
-      <div
-        className="absolute inset-x-0 bottom-0 flex items-center gap-2 p-3"
-        style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 0.75rem)' }}
-      >
-        <input
-          value={texto}
-          onChange={(e) => setTexto(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') void enviarAr()
-          }}
-          placeholder={t('chatAr.placeholder', 'Háblale o escríbele…')}
-          className="ui-panel-glass h-11 min-w-0 flex-1 rounded-xl border border-white/10 px-3 text-sm text-white outline-none placeholder:text-white/40"
-        />
-        {dictado.soportado && (
+      {/* Barra inferior: texto + mic + enviar (en modo personaje no hay chat) */}
+      {!soloPersonaje && (
+        <div
+          className="absolute inset-x-0 bottom-0 flex items-center gap-2 p-3"
+          style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 0.75rem)' }}
+        >
+          <input
+            value={texto}
+            onChange={(e) => setTexto(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') void enviarAr()
+            }}
+            placeholder={t('chatAr.placeholder', 'Háblale o escríbele…')}
+            className="ui-panel-glass h-11 min-w-0 flex-1 rounded-xl border border-white/10 px-3 text-sm text-white outline-none placeholder:text-white/40"
+          />
+          {dictado.soportado && (
+            <button
+              type="button"
+              onClick={() => {
+                callarComoAsistente() // que el micrófono no transcriba al propio asistente
+                dictado.toggle()
+              }}
+              disabled={dictado.transcribiendo}
+              className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-white/10 text-lg transition ${
+                dictado.grabando
+                  ? 'animate-pulse bg-red-500/25 text-red-400'
+                  : dictado.transcribiendo
+                    ? 'ui-panel-glass animate-pulse text-white/45'
+                    : 'ui-panel-glass text-white/80 hover:bg-white/10'
+              }`}
+              title={dictado.grabando ? t('chat.vozParar', 'Detener dictado') : t('chat.voz', 'Dictar por voz')}
+            >
+              <Icono nombre="microfono" />
+            </button>
+          )}
           <button
             type="button"
-            onClick={() => {
-              callarComoAsistente() // que el micrófono no transcriba al propio asistente
-              dictado.toggle()
-            }}
-            disabled={dictado.transcribiendo}
-            className={`grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-white/10 text-lg transition ${
-              dictado.grabando
-                ? 'animate-pulse bg-red-500/25 text-red-400'
-                : dictado.transcribiendo
-                  ? 'ui-panel-glass animate-pulse text-white/45'
-                  : 'ui-panel-glass text-white/80 hover:bg-white/10'
-            }`}
-            title={dictado.grabando ? t('chat.vozParar', 'Detener dictado') : t('chat.voz', 'Dictar por voz')}
+            onClick={() => void enviarAr()}
+            disabled={pensando || !texto.trim()}
+            className="ui-panel-glass relative grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-white/10 text-lg text-white/80 transition enabled:hover:bg-white/10 disabled:opacity-50"
+            title={t('chatAr.enviar', 'Enviar')}
           >
-            <Icono nombre="microfono" />
+            <Icono nombre="enviar" />
+            <span className="absolute -end-1 -top-1">
+              <Creditos op={OP_CHAT_AR} />
+            </span>
           </button>
-        )}
-        <button
-          type="button"
-          onClick={() => void enviarAr()}
-          disabled={pensando || !texto.trim()}
-          className="ui-panel-glass relative grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-white/10 text-lg text-white/80 transition enabled:hover:bg-white/10 disabled:opacity-50"
-          title={t('chatAr.enviar', 'Enviar')}
-        >
-          <Icono nombre="enviar" />
-          <span className="absolute -end-1 -top-1">
-            <Creditos op={OP_CHAT_AR} />
-          </span>
-        </button>
-      </div>
+        </div>
+      )}
     </div>
   )
 }

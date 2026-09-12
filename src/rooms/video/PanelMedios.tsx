@@ -1,10 +1,10 @@
-import type { MedioVideo } from '../../core/data/db'
+import type { FuenteSonido, MedioVideo } from '../../core/data/db'
 import { useT } from '../../core/i18n/useT'
 import type { AppStudio, RecursoStudio } from '../../core/recursosStudio'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 import type { MedioConId } from './clipsNuevos'
-import { ListaSonidos } from './ListaSonidos'
+import { ListaSonidos, type ItemSonido } from './ListaSonidos'
 import { MediosPanel } from './MediosPanel'
 import { RecursosStudio } from './RecursosStudio'
 import { Pestana } from './Secciones'
@@ -14,7 +14,7 @@ export type TabMedios = 'medios' | 'sonidos' | 'studio'
 
 /**
  * El menú lateral de multimedia: la biblioteca de medios y la carpeta de
- * sonidos de fábrica, para tocar (añadir en el cursor) o arrastrar a una pista.
+ * sonidos (de fábrica y del usuario), para tocar (añadir en el cursor) o arrastrar a una pista.
  * Misma cabecera que el panel del clip; el botón de la derecha pliega la
  * columna o cierra el cajón según el modo.
  */
@@ -38,11 +38,11 @@ export function PanelMedios({
   iconoCerrar: NombreIcono
   onCerrar: () => void
   onElegirMedio: (m: MedioConId) => void
-  onElegirSonido: (clave: string) => void
+  onElegirSonido: (fuente: FuenteSonido) => void
   /** Recurso de otra app del Studio (audio, arte, escritura). */
   onElegirRecurso: (app: AppStudio, recurso: RecursoStudio) => void
   propsMedio: (m: MedioConId) => PropsArrastreItem
-  propsSonido: (clave: string) => PropsArrastreItem
+  propsSonido: (item: ItemSonido) => PropsArrastreItem
   propsRecurso: (app: AppStudio, recurso: RecursoStudio) => PropsArrastreItem
 }) {
   const t = useT()
@@ -92,14 +92,7 @@ export function PanelMedios({
             propsArrastre={propsMedio}
           />
         ) : tab === 'sonidos' ? (
-          <ListaSonidos
-            compacto
-            medios={medios}
-            onElegir={(f) => {
-              if (f.tipo === 'fabrica') onElegirSonido(f.clave)
-            }}
-            propsArrastre={propsSonido}
-          />
+          <ListaSonidos compacto medios={medios} onElegir={onElegirSonido} propsArrastre={propsSonido} />
         ) : (
           <RecursosStudio onElegir={onElegirRecurso} propsArrastre={propsRecurso} />
         )}

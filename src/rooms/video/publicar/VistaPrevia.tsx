@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from 'react'
 import { useT } from '../../../core/i18n/useT'
+import type { AspectoVideo } from '../constantes'
 
 /**
  * Lo que se va a publicar: el frame del visor mientras no hay export, y el
@@ -15,7 +16,7 @@ export function VistaPrevia({
 }: {
   poster: string | null
   blob: Blob | null
-  aspecto: '16:9' | '9:16'
+  aspecto: AspectoVideo
   duracion: number
   formato: 'MP4' | 'WebM'
 }) {
@@ -28,7 +29,7 @@ export function VistaPrevia({
     },
     [url],
   )
-  const caja = aspecto === '9:16' ? 'aspect-[9/16] max-h-56' : 'aspect-video max-h-48'
+  const caja = aspecto === '9:16' ? 'aspect-[9/16] max-h-56' : aspecto === '1:1' ? 'aspect-square max-h-56' : 'aspect-video max-h-48'
   return (
     <div className="space-y-1">
       <div className={`${caja} mx-auto overflow-hidden rounded-lg bg-black`}>
