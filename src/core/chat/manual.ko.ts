@@ -8,6 +8,20 @@ import type { ManualTraducido } from './manualI18n'
  */
 export const MANUAL_KO: ManualTraducido = {
   frases: {
+    '[Corrí] {5 km} en {30 min}': '{5 km}를 {30분}에 [뛰었어요]',
+    '[@]{cocina} [comí] {una ensalada}': '[@]{cocina} {샐러드} [먹었어요]',
+    '[Abre] el {estudio de audio}': '{오디오 스튜디오} [열어줘]',
+    '[Abre] mis {canciones}': '내 {노래} [열어줘]',
+    '[Abre] el {mezclador DJ}': '{DJ 믹서} [열어줘]',
+    '[Abre] la {galería de arte}': '{아트 갤러리} [열어줘]',
+    '[Abre] mis {dibujos}': '내 {그림} [열어줘]',
+    '[Abre] mis {libros}': '내 {책} [열어줘]',
+    '[Abre] el {estudio de escritura}': '{글쓰기 스튜디오} [열어줘]',
+    '[Escribe un cuento] sobre {un faro en invierno} y [guárdalo en mis libros]': '{겨울의 등대}에 대한 [짧은 이야기를 써서] [내 책에 저장해줘]',
+    '[Guarda en mis libros] este texto: {Querido diario, hoy…}': '이 글을 [내 책에 저장해줘]: {사랑하는 일기장아, 오늘은…}',
+    '[Abre] el {editor de video}': '{영상 편집기} [열어줘]',
+    '[Abre] mis {videos}': '내 {영상} [열어줘]',
+    '[Abre] la {animación 3D}': '{3D 애니메이션} [열어줘]',
     '[Tomé] {2 vasos} de [agua]': '[물] {2잔} [마셨어요]',
     '[Me pesé]: {74 kg}': '[몸무게 쟀어요]: {74 kg}',
     '[Abre] el {recetario}': '{레시피 북} [열어줘]',

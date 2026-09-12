@@ -8,6 +8,20 @@ import type { ManualTraducido } from './manualI18n'
  */
 export const MANUAL_DE: ManualTraducido = {
   frases: {
+    '[Corrí] {5 km} en {30 min}': '[Ich bin] {5 km} in {30 min} [gelaufen]',
+    '[@]{cocina} [comí] {una ensalada}': '[@]{cocina} [ich habe] {einen Salat} [gegessen]',
+    '[Abre] el {estudio de audio}': '[Öffne] das {Audiostudio}',
+    '[Abre] mis {canciones}': '[Öffne] meine {Songs}',
+    '[Abre] el {mezclador DJ}': '[Öffne] das {DJ-Mischpult}',
+    '[Abre] la {galería de arte}': '[Öffne] die {Kunstgalerie}',
+    '[Abre] mis {dibujos}': '[Öffne] meine {Zeichnungen}',
+    '[Abre] mis {libros}': '[Öffne] meine {Bücher}',
+    '[Abre] el {estudio de escritura}': '[Öffne] das {Schreibstudio}',
+    '[Escribe un cuento] sobre {un faro en invierno} y [guárdalo en mis libros]': '[Schreib eine Kurzgeschichte] über {einen Leuchtturm im Winter} und [speicher sie in meinen Büchern]',
+    '[Guarda en mis libros] este texto: {Querido diario, hoy…}': '[Speicher in meinen Büchern] diesen Text: {Liebes Tagebuch, heute…}',
+    '[Abre] el {editor de video}': '[Öffne] den {Videoeditor}',
+    '[Abre] mis {videos}': '[Öffne] meine {Videos}',
+    '[Abre] la {animación 3D}': '[Öffne] die {3D-Animation}',
     '[Tomé] {2 vasos} de [agua]': '[Ich habe] {2 Gläser} [Wasser] [getrunken]',
     '[Me pesé]: {74 kg}': '[Ich habe mich gewogen]: {74 kg}',
     '[Abre] el {diario de comidas}': '[Öffne] das {Ernährungstagebuch}',

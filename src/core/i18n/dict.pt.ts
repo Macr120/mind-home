@@ -5290,11 +5290,10 @@ export const PT: Dict = {
     'Com IA: um plano de treino no seu Cronograma (botão ✨) e imagens ilustrativas dos exercícios dentro do app.',
   'chat.manual.nota.entretenimiento':
     'Jogos de mesa: snake, tetris, xadrez, damas, sudoku, memória, pong, hóquei, simon, lig 4, espaço, dino…',
-  'chat.manual.nota.garage':
-    'Os veículos que você pilota (bicicleta, moto, carro, OVNI) estão em "Personagem e veículos".',
+  'chat.manual.nota.garage': 'Os veículos que você monta (bicicleta, moto, carro, OVNI) estão em «Personagem e passeios». As manutenções e os trâmites são anotados dentro do app: pelo chat só se abrem as suas seções.',
   'chat.manual.nota.granja':
     'Animais: galinha, porco, cabra, ovelha, vaca e cavalo. Eles comem o que você colhe em Comida.',
-  'chat.manual.nota.hobbies': 'No seu Cronograma você pode pedir um plano com IA (✨) para fazer um projeto avançar.',
+  'chat.manual.nota.hobbies': 'Pelo chat você registra uma sessão citando um hobby que já criou. Cada hobby e cada projeto têm seu próprio cronograma de metas, com plano por IA (✨) e fotos de progresso.',
   'chat.manual.nota.huerto': 'Cultivos: cenoura, alface, girassol, tomate, milho e abóbora.',
   'chat.manual.nota.idiomas':
     'Dentro moram o tutor conversacional por nível, os cartões do chat e os cartões por tema (IA).',
@@ -5323,6 +5322,14 @@ export const PT: Dict = {
   'chat.manual.seccion.asistente': 'Assistente e ajuda',
   'chat.manual.seccion.casa': 'Casa e editor',
   'chat.manual.seccion.mapa': 'Mapa externo',
+  'chat.manual.seccion.studio': 'Studio',
+  'chat.manual.notaSeccion.studio': 'Os quatro estúdios criam dentro do seu app e, pelo chat, abrem pelo nome. O que geram com IA (compor, desenhar, redigir, roteiro e narração) fica no botão ✨ de cada editor e é cobrado conforme a tabela de preços.',
+  'chat.manual.nota.audio': 'Músicas com piano roll, instrumentos, teclado MIDI e gravação; o mixer DJ mixa a sua música. Com IA dentro do editor: compor uma faixa a partir de uma descrição ou continuar a atual (✨).',
+  'chat.manual.nota.arte': 'Telas com várias camadas, pincel, formas, filtros e fotos. Com IA dentro do editor: gerar um desenho a partir de uma descrição ou reinterpretar a sua tela (✨). A imagem que você pedir pelo chat fica na conversa (veja «Objetos»).',
+  'chat.manual.nota.escritura': 'Uma estante de livros com pastas de capítulos, personagens, lugares e atos. Com IA dentro do editor: redigir, melhorar, resumir e continuar (✨). Pelo chat, um texto que você ditar ou pedir para redigir é salvo como livro novo.',
+  'chat.manual.nota.video': 'Editor multipista com clipes, imagens, títulos, legendas, narração e música, além da animação 3D dos assistentes. Com IA dentro do editor: roteiro a partir de uma descrição, narração com voz, fundos com imagem, títulos e tradução (✨).',
+  'chat.manual.nota.agenda': 'Três seções: Trabalho (pendências e quadro), Saúde (consultas médicas e medicamentos) e Pessoas (sua agenda com aniversários). O que tem data aparece sozinho no calendário; com hora, também avisa. Anotá-los pelo chat exige IA.',
+  'chat.manual.nota.ideas': 'Dentro do app: 7 formatos (mental, árvore, chaves, círculo, fluxo, Venn e comparação). «Faça um mapa mental de…» funciona sem IA: cria o mapa em branco com o seu tema raiz; com IA desenha tudo e, dentro do app, amplia o nó ou a região que você escolher.',
   'chat.manual.seccion.precios': 'Quanto custa a IA',
   'chat.manual.preciosCargando': 'Carregando a tabela…',
   'chat.vistaCal.objetivos': 'Missões',

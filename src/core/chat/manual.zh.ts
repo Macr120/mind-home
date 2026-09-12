@@ -8,6 +8,20 @@ import type { ManualTraducido } from './manualI18n'
  */
 export const MANUAL_ZH: ManualTraducido = {
   frases: {
+    '[Corrí] {5 km} en {30 min}': '[我跑了]{5公里}，用时{30分钟}',
+    '[@]{cocina} [comí] {una ensalada}': '[@]{cocina} [我吃了]{一份沙拉}',
+    '[Abre] el {estudio de audio}': '[打开]{音频工作室}',
+    '[Abre] mis {canciones}': '[打开]我的{歌曲}',
+    '[Abre] el {mezclador DJ}': '[打开]{DJ混音台}',
+    '[Abre] la {galería de arte}': '[打开]{艺术画廊}',
+    '[Abre] mis {dibujos}': '[打开]我的{画作}',
+    '[Abre] mis {libros}': '[打开]我的{书}',
+    '[Abre] el {estudio de escritura}': '[打开]{写作工作室}',
+    '[Escribe un cuento] sobre {un faro en invierno} y [guárdalo en mis libros]': '[写一篇短篇故事]，关于{冬天的灯塔}，并[保存到我的书里]',
+    '[Guarda en mis libros] este texto: {Querido diario, hoy…}': '[把这段文字保存到我的书里]：{亲爱的日记，今天…}',
+    '[Abre] el {editor de video}': '[打开]{视频编辑器}',
+    '[Abre] mis {videos}': '[打开]我的{视频}',
+    '[Abre] la {animación 3D}': '[打开]{3D动画}',
     '[Tomé] {2 vasos} de [agua]': '[我喝了]{2杯}[水]',
     '[Me pesé]: {74 kg}': '[我称了体重]：{74公斤}',
     '[Abre] el {recetario}': '[打开]{食谱本}',

@@ -8,6 +8,20 @@ import type { ManualTraducido } from './manualI18n'
  */
 export const MANUAL_ID: ManualTraducido = {
   frases: {
+    '[Corrí] {5 km} en {30 min}': '[Aku lari] {5 km} dalam {30 menit}',
+    '[@]{cocina} [comí] {una ensalada}': '[@]{cocina} [aku makan] {salad}',
+    '[Abre] el {estudio de audio}': '[Buka] {studio audio}',
+    '[Abre] mis {canciones}': '[Buka] {laguku}',
+    '[Abre] el {mezclador DJ}': '[Buka] {mixer DJ}',
+    '[Abre] la {galería de arte}': '[Buka] {galeri seni}',
+    '[Abre] mis {dibujos}': '[Buka] {gambarku}',
+    '[Abre] mis {libros}': '[Buka] {bukuku}',
+    '[Abre] el {estudio de escritura}': '[Buka] {studio tulis}',
+    '[Escribe un cuento] sobre {un faro en invierno} y [guárdalo en mis libros]': '[Tulis cerpen] tentang {mercusuar di musim dingin} dan [simpan di bukuku]',
+    '[Guarda en mis libros] este texto: {Querido diario, hoy…}': '[Simpan di bukuku] teks ini: {Diary sayang, hari ini…}',
+    '[Abre] el {editor de video}': '[Buka] {editor video}',
+    '[Abre] mis {videos}': '[Buka] {videoku}',
+    '[Abre] la {animación 3D}': '[Buka] {animasi 3D}',
     '[Tomé] {2 vasos} de [agua]': '[Aku minum] {2 gelas} [air]',
     '[Me pesé]: {74 kg}': '[Aku timbang badan]: {74 kg}',
     '[Abre] el {recetario}': '[Buka] {buku resep}',

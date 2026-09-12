@@ -8,6 +8,20 @@ import type { ManualTraducido } from './manualI18n'
  */
 export const MANUAL_AR: ManualTraducido = {
   frases: {
+    '[Corrí] {5 km} en {30 min}': '[ركضت] {5 كم} في {30 دقيقة}',
+    '[@]{cocina} [comí] {una ensalada}': '[@]{cocina} [أكلت] {سلطة}',
+    '[Abre] el {estudio de audio}': '[افتح] {استوديو الصوت}',
+    '[Abre] mis {canciones}': '[افتح] {أغانيّ}',
+    '[Abre] el {mezclador DJ}': '[افتح] {خلّاط الدي جي}',
+    '[Abre] la {galería de arte}': '[افتح] {معرض الفن}',
+    '[Abre] mis {dibujos}': '[افتح] {رسوماتي}',
+    '[Abre] mis {libros}': '[افتح] {كتبي}',
+    '[Abre] el {estudio de escritura}': '[افتح] {استوديو الكتابة}',
+    '[Escribe un cuento] sobre {un faro en invierno} y [guárdalo en mis libros]': '[اكتب قصة قصيرة] عن {منارة في الشتاء} و[احفظها في كتبي]',
+    '[Guarda en mis libros] este texto: {Querido diario, hoy…}': '[احفظ في كتبي] هذا النص: {عزيزتي المذكرات، اليوم…}',
+    '[Abre] el {editor de video}': '[افتح] {محرّر الفيديو}',
+    '[Abre] mis {videos}': '[افتح] {فيديوهاتي}',
+    '[Abre] la {animación 3D}': '[افتح] {الرسوم المتحركة ثلاثية الأبعاد}',
     '[Tomé] {2 vasos} de [agua]': '[شربت] {كوبين} من [الماء]',
     '[Me pesé]: {74 kg}': '[وزنت نفسي]: {74 كغ}',
     '[Abre] el {recetario}': '[افتح] {كتاب الوصفات}',

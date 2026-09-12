@@ -8,6 +8,20 @@ import type { ManualTraducido } from './manualI18n'
  */
 export const MANUAL_HI: ManualTraducido = {
   frases: {
+    '[Corrí] {5 km} en {30 min}': '{5 किमी} {30 मिनट} में [दौड़ा]',
+    '[@]{cocina} [comí] {una ensalada}': '[@]{cocina} {एक सलाद} [खाया]',
+    '[Abre] el {estudio de audio}': '{ऑडियो स्टूडियो} [खोलो]',
+    '[Abre] mis {canciones}': 'मेरे {गाने} [खोलो]',
+    '[Abre] el {mezclador DJ}': '{DJ मिक्सर} [खोलो]',
+    '[Abre] la {galería de arte}': '{आर्ट गैलरी} [खोलो]',
+    '[Abre] mis {dibujos}': 'मेरे {चित्र} [खोलो]',
+    '[Abre] mis {libros}': 'मेरी {किताबें} [खोलो]',
+    '[Abre] el {estudio de escritura}': '{लेखन स्टूडियो} [खोलो]',
+    '[Escribe un cuento] sobre {un faro en invierno} y [guárdalo en mis libros]': '{सर्दियों के एक लाइटहाउस} पर [एक छोटी कहानी लिखो] और [मेरी किताबों में सहेजो]',
+    '[Guarda en mis libros] este texto: {Querido diario, hoy…}': 'यह पाठ [मेरी किताबों में सहेजो]: {प्यारी डायरी, आज…}',
+    '[Abre] el {editor de video}': '{वीडियो संपादक} [खोलो]',
+    '[Abre] mis {videos}': 'मेरे {वीडियो} [खोलो]',
+    '[Abre] la {animación 3D}': '{3D एनिमेशन} [खोलो]',
     '[Tomé] {2 vasos} de [agua]': '[पिया] {2 गिलास} [पानी]',
     '[Me pesé]: {74 kg}': '[वज़न किया]: {74 किलो}',
     '[Abre] el {recetario}': '{रेसिपी बुक} [खोलो]',

@@ -8,6 +8,20 @@ import type { ManualTraducido } from './manualI18n'
  */
 export const MANUAL_TR: ManualTraducido = {
   frases: {
+    '[Corrí] {5 km} en {30 min}': '{5 km} {30 dakikada} [koştum]',
+    '[@]{cocina} [comí] {una ensalada}': '[@]{cocina} {bir salata} [yedim]',
+    '[Abre] el {estudio de audio}': '{Ses stüdyosunu} [aç]',
+    '[Abre] mis {canciones}': '{Şarkılarımı} [aç]',
+    '[Abre] el {mezclador DJ}': '{DJ mikserini} [aç]',
+    '[Abre] la {galería de arte}': '{Sanat galerisini} [aç]',
+    '[Abre] mis {dibujos}': '{Çizimlerimi} [aç]',
+    '[Abre] mis {libros}': '{Kitaplarımı} [aç]',
+    '[Abre] el {estudio de escritura}': '{Yazı stüdyosunu} [aç]',
+    '[Escribe un cuento] sobre {un faro en invierno} y [guárdalo en mis libros]': '{Kışın bir deniz feneri} hakkında [bir öykü yaz] ve [kitaplarıma kaydet]',
+    '[Guarda en mis libros] este texto: {Querido diario, hoy…}': 'Bu metni [kitaplarıma kaydet]: {Sevgili günlük, bugün…}',
+    '[Abre] el {editor de video}': '{Video editörünü} [aç]',
+    '[Abre] mis {videos}': '{Videolarımı} [aç]',
+    '[Abre] la {animación 3D}': '{3D animasyonu} [aç]',
     '[Tomé] {2 vasos} de [agua]': '{2 bardak} [su] [içtim]',
     '[Me pesé]: {74 kg}': '[Tartıldım]: {74 kg}',
     '[Abre] el {recetario}': '{Tarif defterini} [aç]',

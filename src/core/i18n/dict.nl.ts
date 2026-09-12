@@ -5334,10 +5334,9 @@ export const NL: Dict = {
     'Met AI: een trainingsplan in de Planning (✨-knop) en illustratieve oefenafbeeldingen in de app.',
   'chat.manual.nota.entretenimiento':
     'Bordspellen: snake, tetris, schaken, dammen, sudoku, memory, pong, hockey, simon, vier op een rij, space, dino…',
-  'chat.manual.nota.garage':
-    'De voertuigen waarop je rijdt (fiets, motor, auto, ufo) staan onder “Personage en voertuigen”.',
+  'chat.manual.nota.garage': 'De voertuigen waarop je stapt (fiets, motor, auto, ufo) staan onder „Personage en ritjes”. Onderhoud en papierwerk noteer je in de app: via de chat open je alleen de onderdelen ervan.',
   'chat.manual.nota.granja': 'Dieren: kip, varken, geit, schaap, koe en paard. Ze eten wat je oogst bij Eten.',
-  'chat.manual.nota.hobbies': 'In de Planning kun je om een AI-plan vragen (✨) om een project vooruit te helpen.',
+  'chat.manual.nota.hobbies': "In de chat log je een sessie door een hobby te noemen die je al hebt aangemaakt. Elke hobby en elk project heeft zijn eigen doelenplanning, met AI-plan (✨) en voortgangsfoto's.",
   'chat.manual.nota.huerto': 'Gewassen: wortel, sla, zonnebloem, tomaat, maïs en pompoen.',
   'chat.manual.nota.idiomas':
     'Hierbinnen leven de gesprekstutor per niveau, kaarten uit de chat en kaarten per onderwerp (AI).',
@@ -5366,6 +5365,14 @@ export const NL: Dict = {
   'chat.manual.seccion.asistente': 'Assistent en hulp',
   'chat.manual.seccion.casa': 'Huis en editor',
   'chat.manual.seccion.mapa': 'Buitenkaart',
+  'chat.manual.seccion.studio': 'Studio',
+  'chat.manual.notaSeccion.studio': "De vier studio's maken alles in hun eigen app en openen in de chat op naam. Wat ze met AI maken (componeren, tekenen, schrijven, script en voice-over) zit in de ✨-knop van elke editor en wordt volgens de prijstabel gerekend.",
+  'chat.manual.nota.audio': 'Nummers met piano roll, instrumenten, MIDI-keyboard en opname; de DJ-mixer mixt je muziek. Met AI in de editor: een track componeren uit een beschrijving of de huidige voortzetten (✨).',
+  'chat.manual.nota.arte': "Canvassen met meerdere lagen, penseel, vormen, filters en foto's. Met AI in de editor: een tekening maken uit een beschrijving of je canvas herinterpreteren (✨). De afbeelding die je in de chat vraagt, blijft in het gesprek (zie „Objecten”).",
+  'chat.manual.nota.escritura': 'Een boekenkast met mappen voor hoofdstukken, personages, plekken en aktes. Met AI in de editor: schrijven, verbeteren, samenvatten en verdergaan (✨). In de chat wordt een tekst die je dicteert of aanvraagt als nieuw boek opgeslagen.',
+  'chat.manual.nota.video': 'Multitrack-editor met clips, afbeeldingen, titels, ondertitels, voice-over en muziek, plus de 3D-animatie van de assistenten. Met AI in de editor: script uit een beschrijving, ingesproken stem, achtergronden met afbeelding, titels en vertaling (✨).',
+  'chat.manual.nota.agenda': 'Drie onderdelen: Werk (taken en bord), Gezondheid (doktersafspraken en medicijnen) en Mensen (je adresboek met verjaardagen). Alles met een datum verschijnt vanzelf in de kalender; met een tijd word je ook gewaarschuwd. Ze via de chat noteren vraagt AI.',
+  'chat.manual.nota.ideas': 'In de app: 7 formaten (mindmap, boom, accolades, cirkel, stroom, Venn en vergelijking). „Maak een mindmap van …” werkt zonder AI: de lege kaart ontstaat met je hoofdthema; met AI wordt hij helemaal getekend en in de app breid je de knoop of het gebied uit dat je kiest.',
   'chat.manual.seccion.precios': 'Wat AI kost',
   'chat.manual.preciosCargando': 'Tabel wordt geladen…',
   'chat.vistaCal.objetivos': 'Missies',

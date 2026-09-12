@@ -8,6 +8,20 @@ import type { ManualTraducido } from './manualI18n'
  */
 export const MANUAL_FR: ManualTraducido = {
   frases: {
+    '[Corrí] {5 km} en {30 min}': "[J'ai couru] {5 km} en {30 min}",
+    '[@]{cocina} [comí] {una ensalada}': "[@]{cocina} [j'ai mangé] {une salade}",
+    '[Abre] el {estudio de audio}': '[Ouvre] le {studio audio}',
+    '[Abre] mis {canciones}': '[Ouvre] mes {morceaux}',
+    '[Abre] el {mezclador DJ}': '[Ouvre] la {table de mixage DJ}',
+    '[Abre] la {galería de arte}': "[Ouvre] la {galerie d'art}",
+    '[Abre] mis {dibujos}': '[Ouvre] mes {dessins}',
+    '[Abre] mis {libros}': '[Ouvre] mes {livres}',
+    '[Abre] el {estudio de escritura}': "[Ouvre] le {studio d'écriture}",
+    '[Escribe un cuento] sobre {un faro en invierno} y [guárdalo en mis libros]': '[Écris une nouvelle] sur {un phare en hiver} et [enregistre-la dans mes livres]',
+    '[Guarda en mis libros] este texto: {Querido diario, hoy…}': "[Enregistre dans mes livres] ce texte : {Cher journal, aujourd'hui…}",
+    '[Abre] el {editor de video}': "[Ouvre] l'{éditeur vidéo}",
+    '[Abre] mis {videos}': '[Ouvre] mes {vidéos}',
+    '[Abre] la {animación 3D}': "[Ouvre] l'{animation 3D}",
     '[Tomé] {2 vasos} de [agua]': '[J\'ai bu] {2 verres} d\'[eau]',
     '[Me pesé]: {74 kg}': '[Je me suis pesé] : {74 kg}',
     '[Abre] el {recetario}': '[Ouvre] le {livre de recettes}',

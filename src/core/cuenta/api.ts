@@ -189,6 +189,12 @@ async function llamarFuncion<T>(nombre: string, cuerpo: unknown): Promise<T> {
 /** Chat/tools/visión vía `ia-chat`. Refresca el medidor local con el uso devuelto. */
 export async function iaChatCuenta(cuerpo: {
   system: string
+  /**
+   * Índice (en chars) donde termina la parte ESTABLE del system: el proxy la
+   * cachea como bloque aparte, así que cambiar la cola (fecha, memorias,
+   * asistente) no vuelve a escribir el prefijo. Sin él, un solo bloque.
+   */
+  systemCorte?: number
   mensajes: MensajeCuenta[]
   tools?: ToolCuenta[]
   maxTokens?: number

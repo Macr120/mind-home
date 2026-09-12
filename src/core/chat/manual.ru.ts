@@ -8,6 +8,20 @@ import type { ManualTraducido } from './manualI18n'
  */
 export const MANUAL_RU: ManualTraducido = {
   frases: {
+    '[Corrí] {5 km} en {30 min}': '[Пробежал] {5 км} за {30 мин}',
+    '[@]{cocina} [comí] {una ensalada}': '[@]{cocina} [съел] {салат}',
+    '[Abre] el {estudio de audio}': '[Открой] {аудиостудию}',
+    '[Abre] mis {canciones}': '[Открой] мои {песни}',
+    '[Abre] el {mezclador DJ}': '[Открой] {DJ-микшер}',
+    '[Abre] la {galería de arte}': '[Открой] {галерею}',
+    '[Abre] mis {dibujos}': '[Открой] мои {рисунки}',
+    '[Abre] mis {libros}': '[Открой] мои {книги}',
+    '[Abre] el {estudio de escritura}': '[Открой] {студию письма}',
+    '[Escribe un cuento] sobre {un faro en invierno} y [guárdalo en mis libros]': '[Напиши рассказ] о {маяке зимой} и [сохрани его в мои книги]',
+    '[Guarda en mis libros] este texto: {Querido diario, hoy…}': '[Сохрани в мои книги] этот текст: {Дорогой дневник, сегодня…}',
+    '[Abre] el {editor de video}': '[Открой] {видеоредактор}',
+    '[Abre] mis {videos}': '[Открой] мои {видео}',
+    '[Abre] la {animación 3D}': '[Открой] {3D-анимацию}',
     '[Tomé] {2 vasos} de [agua]': '[Выпил] {2 стакана} [воды]',
     '[Me pesé]: {74 kg}': '[Взвесился]: {74 кг}',
     '[Abre] el {recetario}': '[Открой] {книгу рецептов}',

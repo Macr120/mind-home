@@ -68,7 +68,9 @@ const PALABRAS: Record<string, string[]> = {
   jardin: ['medite', 'meditacion', 'respiracion', 'gratitud', 'animo', 'mindfulness'],
   garage: ['coche', 'auto', 'moto', 'bici', 'bicicleta', 'mantenimiento', 'aceite', 'servicio', 'taller', 'odometro', 'tenencia', 'verificacion', 'poliza', 'aseguradora', 'placas'],
   diario: ['noticia', 'noticias', 'briefing'],
-  hobbies: ['hobby', 'pasatiempo', 'manualidad', 'proyecto'],
+  // 'practique' también es de idiomas: las dos apps lo reciben y captura la que
+  // reconozca el hobby por su nombre («practiqué guitarra 25 min»).
+  hobbies: ['hobby', 'pasatiempo', 'manualidad', 'proyecto', 'practique'],
   idiomas: ['idioma', 'idiomas', 'vocabulario', 'ingles', 'frances', 'aleman', 'japones', 'italiano', 'portugues', 'repase', 'repasar', 'practique', 'tarjetas'],
   // sin 'tema' (choca con biblioteca) ni 'idea' suelta (era de la lluvia, ya retirada).
   ideas: ['mapa mental', 'mapas mentales', 'mapa conceptual', 'diagrama', 'venn', 'diagrama de flujo'],
@@ -78,6 +80,14 @@ const PALABRAS: Record<string, string[]> = {
   // sin 'tabla' (la agenda tiene su tablero) ni 'calcular' a secas (aparece en
   // medio de frases de otras apps: «calcular cuánto gasté»).
   computo: ['formula', 'formulas', 'formulario', 'calculadora', 'grafica', 'graficar', 'graficador', 'ecuacion', 'ecuaciones', 'derivada', 'integral', 'despeja', 'despejar', 'hoja de calculo', 'hojas de calculo', 'binario', 'hexadecimal', 'matriz', 'matrices', 'determinante', 'convertir unidades', 'conversor', 'propina', 'regla de tres'],
+  // Studio: sin captura determinista (crean dentro de su app); las palabras
+  // etiquetan la bitácora y relacionan las memorias. Solo tokens sueltos: la
+  // comparación es por palabra. Sin 'piano' ni 'guitarra' (son hobbies), sin
+  // 'libro' (es lo que se lee en Entretenimiento) ni 'vi' (idem).
+  audio: ['cancion', 'canciones', 'compuse', 'componer', 'melodia', 'midi', 'beat', 'beats', 'mezcla', 'dj', 'partitura', 'acorde', 'acordes'],
+  arte: ['dibuje', 'dibujo', 'dibujos', 'pinte', 'boceto', 'ilustracion', 'lienzo'],
+  escritura: ['escribi', 'escritura', 'novela', 'cuento', 'guion', 'poema', 'manuscrito', 'borrador', 'redacte'],
+  video: ['video', 'videos', 'clip', 'clips', 'montaje', 'grabe', 'cortometraje'],
 }
 
 /**

@@ -5321,10 +5321,10 @@ export const ID: Dict = {
     'Dengan AI: rencana latihan di linimasanya (tombol ✨) dan gambar ilustrasi olahraga di dalam aplikasi.',
   'chat.manual.nota.entretenimiento':
     'Permainan meja: ular, tetris, catur, dam, sudoku, memori, pong, hoki, simon, susun empat, luar angkasa, dino…',
-  'chat.manual.nota.garage': 'Kendaraan yang kamu naiki (sepeda, motor, mobil, UFO) ada di “Karakter & kendaraan”.',
+  'chat.manual.nota.garage': 'Kendaraan yang kamu naiki (sepeda, motor, mobil, UFO) ada di “Karakter & kendaraan”. Perawatan dan urusan surat dicatat di dalam aplikasi: lewat chat hanya bagian-bagiannya yang bisa dibuka.',
   'chat.manual.nota.granja':
     'Hewan: ayam, babi, kambing, domba, sapi, dan kuda. Mereka makan apa yang kamu panen di Dapur.',
-  'chat.manual.nota.hobbies': 'Di linimasanya kamu bisa meminta rencana AI (✨) untuk memajukan sebuah proyek.',
+  'chat.manual.nota.hobbies': 'Lewat chat kamu mencatat sesi dengan menyebut hobi yang sudah kamu buat. Tiap hobi dan proyek punya linimasa target sendiri, dengan rencana AI (✨) dan foto kemajuan.',
   'chat.manual.nota.huerto': 'Tanaman: wortel, selada, bunga matahari, tomat, jagung, dan labu.',
   'chat.manual.nota.idiomas':
     'Di dalamnya ada tutor percakapan sesuai level, kartu dari obrolan, dan kartu berdasarkan topik (AI).',
@@ -5353,6 +5353,14 @@ export const ID: Dict = {
   'chat.manual.seccion.asistente': 'Asisten & bantuan',
   'chat.manual.seccion.casa': 'Rumah & editor',
   'chat.manual.seccion.mapa': 'Peta luar ruangan',
+  'chat.manual.seccion.studio': 'Studio',
+  'chat.manual.notaSeccion.studio': 'Keempat studio membuat karya di dalam aplikasinya dan dibuka lewat chat dengan menyebut namanya. Yang mereka hasilkan dengan AI (menggubah, menggambar, menulis, naskah, dan narasi) ada di tombol ✨ tiap editor dan ditagih sesuai tabel harga.',
+  'chat.manual.nota.audio': 'Lagu dengan piano roll, instrumen, keyboard MIDI, dan rekaman; mixer DJ meracik musikmu. Dengan AI di dalam editor: menggubah trek dari deskripsi atau melanjutkan trek yang ada (✨).',
+  'chat.manual.nota.arte': 'Kanvas berlapis dengan kuas, bentuk, filter, dan foto. Dengan AI di dalam editor: membuat gambar dari deskripsi atau menafsirkan ulang kanvasmu (✨). Gambar yang kamu minta lewat chat tetap ada di percakapan (lihat “Objek”).',
+  'chat.manual.nota.escritura': 'Rak buku dengan folder bab, tokoh, tempat, dan babak. Dengan AI di dalam editor: menulis, memperbaiki, meringkas, dan melanjutkan (✨). Lewat chat, teks yang kamu diktekan atau minta akan disimpan sebagai buku baru.',
+  'chat.manual.nota.video': 'Editor multitrek dengan klip, gambar, judul, subtitel, narasi, dan musik, ditambah animasi 3D para asisten. Dengan AI di dalam editor: naskah dari deskripsi, narasi bersuara, latar bergambar, judul, dan terjemahan (✨).',
+  'chat.manual.nota.agenda': 'Tiga bagian: Kerja (tugas dan papan), Kesehatan (janji dokter dan obat), dan Orang (buku alamatmu dengan ulang tahun). Yang bertanggal muncul sendiri di kalender; kalau ada jamnya, juga mengingatkan. Mencatatnya lewat chat butuh AI.',
+  'chat.manual.nota.ideas': 'Di dalam aplikasi: 7 format (pikiran, pohon, kurung, lingkaran, alur, Venn, dan perbandingan). “Buatkan peta pikiran tentang…” jalan tanpa AI: membuat peta kosong dengan topik akarmu; dengan AI digambar seluruhnya, dan di dalam aplikasi memperluas simpul atau area yang kamu pilih.',
   'chat.manual.seccion.precios': 'Biaya AI',
   'chat.manual.preciosCargando': 'Memuat tabel…',
   'chat.vistaCal.objetivos': 'Misi',

@@ -335,6 +335,12 @@ const ALIAS_APPS: Record<string, string[]> = {
   diario: ['periodico', 'noticias'],
   hobbies: ['pasatiempos'],
   anecdotario: ['album', 'recuerdos'],
+  // Studio: sus secciones ya son pedibles por `comandos`; estos alias cubren el
+  // nombre del estudio entero cuando la IA o el usuario lo piden así.
+  audio: ['estudio de audio', 'estudio musical', 'estudio de musica'],
+  arte: ['galeria', 'estudio de arte', 'estudio de dibujo'],
+  escritura: ['libros', 'estudio de escritura'],
+  video: ['editor de video', 'estudio de video'],
 }
 
 /** ¿El nombre pedible aparece en el texto? (multi-palabra por inclusión, simple por token). */
@@ -2091,13 +2097,13 @@ export const TOOLS_EDITOR: ToolNeutra[] = [
         app: {
           type: 'string',
           description:
-            'App a abrir: su id o nombre (cocina, ejercicio, descanso, despacho, biblioteca, entretenimiento, sala, jardin, garage, diario, hobbies, anecdotario, idiomas…).',
+            'App a abrir: su id o nombre (cocina, ejercicio, descanso, despacho, biblioteca, entretenimiento, sala, jardin, garage, diario, hobbies, anecdotario, idiomas, ideas, agenda, computo, metas; el Studio: audio, arte, escritura, video…).',
         },
         cuarto: CUARTO_PROP,
         seccion: {
           type: 'string',
           description:
-            'Pestaña interna de la app (p. ej. recetas, compras, mercados, plan, mesa, repaso…).',
+            'Pestaña interna de la app (p. ej. recetas, compras, mercados, plan, mesa, repaso; en el Studio: canciones o mezclar en audio, videos o animacion3d en video…).',
         },
         dato: {
           type: 'string',
@@ -3419,6 +3425,26 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
         app: app.id,
       })
     }
+  }
+
+  // 15. La sección a secas, sin verbo: «propina», «regla de tres», «mezclador dj».
+  //     Solo cuando el mensaje ENTERO es un nombre pedible: así nunca se lleva un
+  //     registro («la propina fue de 50» no entra aquí).
+  const seco = n.replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim()
+  const nominal = resolverComandoApp(seco)
+  if (nominal && nominal.cmd.nombres.some((nombre) => normalizar(nombre) === seco)) {
+    return edicion(
+      chip('🚪', tGlobal('chat.ed.chip.abrirSeccion', 'Abrir {seccion} · {app}', {
+        seccion: etiquetaComando(nominal.app.id, nominal.cmd),
+        app: nombreApp(nominal.app),
+      })),
+      'editor_abrir_app',
+      {
+        app: nominal.app.id,
+        seccion: nominal.cmd.seccion,
+        ...(nominal.cmd.dato ? { dato: nominal.cmd.dato } : {}),
+      },
+    )
   }
 
   return null

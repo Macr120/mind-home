@@ -76,7 +76,7 @@ interface Carpeta {
 
 interface Seccion {
   /** Clave chat.manual.seccion.<id>. */
-  id: 'apps' | 'mapa' | 'casa' | 'asistente'
+  id: 'apps' | 'studio' | 'mapa' | 'casa' | 'asistente'
   titulo: string
   nota?: string
   carpetas: Carpeta[]
@@ -141,7 +141,8 @@ const SECCIONES: Seccion[] = [
             id: 'registrar',
             ejemplos: [
               { frase: '[Entrené] {pierna} {45 min}', en: '[I trained] {legs} {45 min}' },
-              { frase: '[Corrí] {5 km}', en: '[I ran] {5 km}' },
+              // Sin IA, el registro necesita la duración: los km solos no bastan.
+              { frase: '[Corrí] {5 km} en {30 min}', en: '[I ran] {5 km} in {30 min}' },
             ],
           },
           {
@@ -199,13 +200,8 @@ const SECCIONES: Seccion[] = [
       {
         appId: 'anecdotario',
         id: 'anecdotario',
+        // Sin captura determinista: las anécdotas se anotan con IA (texto libre).
         grupos: [
-          {
-            id: 'registrar',
-            ejemplos: [
-              { frase: '[Recuerdo]: {tarde de juegos con mi hermana}', en: '[Memory]: {board-game evening with my sister}' },
-            ],
-          },
           {
             id: 'abrir',
             ejemplos: [
@@ -216,6 +212,7 @@ const SECCIONES: Seccion[] = [
           {
             id: 'ia',
             ejemplos: [
+              { frase: '[Recuerdo]: {tarde de juegos con mi hermana}', en: '[Memory]: {board-game evening with my sister}' },
               { frase: 'Anota esta anécdota: {hoy celebramos el cumple de mamá}', en: "Save this memory: {we celebrated mom's birthday today}" },
             ],
           },
@@ -285,13 +282,8 @@ const SECCIONES: Seccion[] = [
         appId: 'biblioteca',
         id: 'biblioteca',
         nota: 'Dentro viven el Sabio (charlas con IA), el destilado a entradas wiki y los subtemas del árbol.',
+        // Sin captura determinista: las sesiones y los apuntes se registran con IA.
         grupos: [
-          {
-            id: 'registrar',
-            ejemplos: [
-              { frase: '[Estudié] {historia romana} {30 min}', en: '[I studied] {Roman history} {30 min}' },
-            ],
-          },
           {
             id: 'abrir',
             ejemplos: [
@@ -304,6 +296,7 @@ const SECCIONES: Seccion[] = [
           {
             id: 'ia',
             ejemplos: [
+              { frase: '[Estudié] {historia romana} {30 min}', en: '[I studied] {Roman history} {30 min}' },
               { frase: 'Apunta que aprendí: {los ríos de Europa}', en: 'Note what I learned: {the rivers of Europe}' },
             ],
           },
@@ -392,14 +385,9 @@ const SECCIONES: Seccion[] = [
       {
         appId: 'garage',
         id: 'garage',
-        nota: 'Los vehículos que se montan (bici, moto, auto, OVNI) están en «Personaje y paseos».',
+        nota: 'Los vehículos que se montan (bici, moto, auto, OVNI) están en «Personaje y paseos». Los mantenimientos y trámites se anotan dentro de la app: por chat solo se abren sus secciones.',
+        // Sin captura ni esquemas: el garage no registra nada por chat, ni con IA.
         grupos: [
-          {
-            id: 'registrar',
-            ejemplos: [
-              { frase: 'Cambié el [aceite] del {auto}', en: 'Changed the [oil] on the {car}' },
-            ],
-          },
           {
             id: 'abrir',
             ejemplos: [
@@ -426,7 +414,7 @@ const SECCIONES: Seccion[] = [
       {
         appId: 'hobbies',
         id: 'hobbies',
-        nota: 'Cada hobby y cada proyecto tienen su propio cronograma de metas, con plan por IA (✨) y fotos de avance.',
+        nota: 'Por chat se registra una sesión nombrando un hobby que ya tengas creado. Cada hobby y cada proyecto tienen su propio cronograma de metas, con plan por IA (✨) y fotos de avance.',
         grupos: [
           {
             id: 'registrar',
@@ -446,7 +434,7 @@ const SECCIONES: Seccion[] = [
       {
         appId: 'ideas',
         id: 'ideas',
-        nota: 'Dentro de la app: 7 formatos (mental, árbol, llaves, círculo, flujo, Venn y comparación). La IA dibuja el mapa entero desde un tema o amplía el nodo o la región que elijas. Sin IA, el chat crea el mapa en blanco con tu tema de raíz.',
+        nota: 'Dentro de la app: 7 formatos (mental, árbol, llaves, círculo, flujo, Venn y comparación). «Hazme un mapa mental de…» funciona sin IA: crea el mapa en blanco con tu tema de raíz; con IA lo dibuja entero, y dentro de la app amplía el nodo o la región que elijas.',
         grupos: [
           {
             id: 'abrir',
@@ -456,10 +444,17 @@ const SECCIONES: Seccion[] = [
             ],
           },
           {
-            id: 'ia',
+            // El parser crea estos dos en blanco (regla `soloSinIA`): con IA
+            // el modelo los dibuja enteros, pero no la necesitan.
+            id: 'acciones',
             ejemplos: [
               { frase: '[Hazme un mapa mental] de {la fotosíntesis}', en: '[Make me a mind map] of {photosynthesis}' },
               { frase: '[Dibuja un diagrama de flujo] de {cómo hacer pan}', en: '[Draw a flowchart] of {how to bake bread}' },
+            ],
+          },
+          {
+            id: 'ia',
+            ejemplos: [
               { frase: '[Compara] {café} y {té} en un mapa', en: '[Compare] {coffee} and {tea} in a map' },
               { frase: '[Haz un esquema] de {lo que me acabas de explicar}', en: '[Make a diagram] of {what you just explained}' },
             ],
@@ -469,10 +464,12 @@ const SECCIONES: Seccion[] = [
       {
         appId: 'agenda',
         id: 'agenda',
-        nota: 'Tres secciones: Trabajo (pendientes y tablero), Salud (citas médicas y medicamentos) y Personas (tu libreta con cumpleaños). Lo que lleva fecha aparece solo en el calendario; con hora, además te avisa.',
+        nota: 'Tres secciones: Trabajo (pendientes y tablero), Salud (citas médicas y medicamentos) y Personas (tu libreta con cumpleaños). Lo que lleva fecha aparece solo en el calendario; con hora, además te avisa. Apuntarlos por chat requiere IA.',
+        // Sin captura determinista: pendientes, citas, medicamentos y contactos
+        // entran por sus esquemas de IA.
         grupos: [
           {
-            id: 'registrar',
+            id: 'ia',
             ejemplos: [
               { frase: '[Agenda] una {junta con el cliente} el {martes a las 10}', en: '[Schedule] a {meeting with the client} on {Tuesday at 10}' },
               { frase: '[Apunta el pendiente] {mandar la cotización}', en: '[Add the to-do] {send the quote}' },
@@ -500,7 +497,6 @@ const SECCIONES: Seccion[] = [
             id: 'registrar',
             ejemplos: [
               { frase: '[Vocab] {inglés}: {dog} = {perro}', en: '[Vocab] {spanish}: {perro} = {dog}' },
-              { frase: '[Repasé] {francés} {15 min}', en: '[I reviewed] {french} {15 min}' },
             ],
           },
           {
@@ -515,7 +511,81 @@ const SECCIONES: Seccion[] = [
           {
             id: 'ia',
             ejemplos: [
+              // Sin IA solo entra el formato «Vocab idioma: a = b»; el repaso libre no.
+              { frase: '[Repasé] {francés} {15 min}', en: '[I reviewed] {french} {15 min}' },
               { frase: 'Aprendí en {alemán}: {Hund} = {perro}', en: 'I learned in {german}: {Hund} = {dog}' },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'studio',
+    titulo: 'Studio',
+    nota: 'Los cuatro estudios crean dentro de su app y por chat se abren por su nombre. Lo que generan con IA (componer, dibujar, redactar, guion y narración) vive en el botón ✨ de cada editor y se cobra según la tabla de precios.',
+    carpetas: [
+      {
+        appId: 'audio',
+        id: 'audio',
+        nota: 'Canciones con piano roll, instrumentos, teclado MIDI y grabación; el mezclador DJ mezcla tu música. Con IA dentro del editor: componer una pista desde una descripción o continuar la actual (✨).',
+        grupos: [
+          {
+            id: 'abrir',
+            ejemplos: [
+              { frase: '[Abre] el {estudio de audio}', en: '[Open] the {audio studio}' },
+              { frase: '[Abre] mis {canciones}', en: '[Open] my {songs}' },
+              { frase: '[Abre] el {mezclador DJ}', en: '[Open] the {DJ mixer}' },
+            ],
+          },
+        ],
+      },
+      {
+        appId: 'arte',
+        id: 'arte',
+        nota: 'Lienzos multicapa con pincel, formas, filtros y fotos. Con IA dentro del editor: generar un dibujo desde una descripción o reinterpretar tu lienzo (✨). La imagen que pidas por chat se queda en la conversación (ver «Objetos»).',
+        grupos: [
+          {
+            id: 'abrir',
+            ejemplos: [
+              { frase: '[Abre] la {galería de arte}', en: '[Open] the {art gallery}' },
+              { frase: '[Abre] mis {dibujos}', en: '[Open] my {drawings}' },
+            ],
+          },
+        ],
+      },
+      {
+        appId: 'escritura',
+        id: 'escritura',
+        nota: 'Una estantería de libros con carpetas de capítulos, personajes, lugares y actos. Con IA dentro del editor: redactar, mejorar, resumir y continuar (✨). Por chat, un texto que dictes o pidas redactar se guarda como libro nuevo.',
+        grupos: [
+          {
+            id: 'abrir',
+            ejemplos: [
+              { frase: '[Abre] mis {libros}', en: '[Open] my {books}' },
+              { frase: '[Abre] el {estudio de escritura}', en: '[Open] the {writing studio}' },
+            ],
+          },
+          {
+            id: 'ia',
+            ejemplos: [
+              { frase: '[Escribe un cuento] sobre {un faro en invierno} y [guárdalo en mis libros]', en: '[Write a short story] about {a lighthouse in winter} and [save it to my books]' },
+              { frase: '[Guarda en mis libros] este texto: {Querido diario, hoy…}', en: '[Save to my books] this text: {Dear diary, today…}' },
+            ],
+          },
+        ],
+      },
+      {
+        appId: 'video',
+        id: 'video',
+        nota: 'Editor multipista con clips, imágenes, títulos, subtítulos, narración y música, más la animación 3D de los asistentes. Con IA dentro del editor: guion desde una descripción, narración con voz, fondos con imagen, títulos y traducción (✨).',
+        grupos: [
+          {
+            id: 'abrir',
+            ejemplos: [
+              { frase: '[Abre] el {editor de video}', en: '[Open] the {video editor}' },
+              { frase: '[Abre] mis {videos}', en: '[Open] my {videos}' },
+              { frase: '[Abre] la {animación 3D}', en: '[Open] the {3D animation}' },
             ],
           },
         ],
@@ -882,7 +952,8 @@ const SECCIONES: Seccion[] = [
             id: 'acciones',
             ejemplos: [
               { frase: '[Recuerda que] {soy vegetariano}', en: '[Remember that] {I am vegetarian}' },
-              { frase: '[@]{cocina} {ensalada de la comida}', en: '[@]{cocina} {salad for lunch}' },
+              // Con un verbo: sin él, el parser de Cocina no da la comida por hecha.
+              { frase: '[@]{cocina} [comí] {una ensalada}', en: '[@]{cocina} [I ate] {a salad}' },
             ],
           },
         ],

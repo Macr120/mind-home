@@ -303,7 +303,8 @@ Chat de la casa (`interpretarIA`):
 |---|---|---|
 | TOOLS_EDITOR (56 tools) | ~5 500 | Solo con intención de edición; PRIMERO en el arreglo y con breakpoint → prefijo cacheado compartido entre TODOS los usuarios |
 | Tools de captura + recordar + crear_rutina + crear_modelo_3d | ~2 100–3 900 | Siempre (varía por apps asignadas) |
-| System (personalidad + memorias + fecha) | ~1 100 base; +750 con párrafos de editor | Párrafos de editor solo con intención |
+| System: cabecera estable (instrucciones, iguales para todos) | ~900 base; +900 con párrafos de editor y Studio | Párrafos de editor solo con intención; breakpoint propio (`systemCorte`) |
+| System: cola volátil (asistente, apps a su cargo, cuartos, fecha, memorias) | ~150–400 | Siempre; es lo único que se reescribe al cambiar de día, de asistente o al guardar una memoria |
 | Historial (12 mensajes × ≤600 chars) | ~0–1 800 | Crece hasta saturar la ventana |
 | Imagen adjunta | ~1 600 (1024px) | Opcional |
 
@@ -318,7 +319,12 @@ con/sin edición crea dos prefijos que conviven sin invalidarse.
 
 ## Palancas de ahorro implementadas
 
-1. **Prompt caching** en `ia-chat` (3 breakpoints; escritura 1.25×, lectura 0.10×).
+1. **Prompt caching** en `ia-chat` (4 breakpoints: fin de TOOLS_EDITOR, cabecera del
+   system, cola del system y último mensaje; escritura 1.25×, lectura 0.10×). La vía
+   BYOK de Claude marca los mismos cuatro desde el cliente. El system va partido en
+   `construirSystem` (`src/core/chat/ia.ts`): lo estable primero y `systemCorte`
+   le dice al proxy dónde termina, así una memoria nueva o el cambio de día no
+   reescriben tools+cabecera.
 2. **Gating de TOOLS_EDITOR**: las 56 herramientas del editor (~5.5k tokens) y sus
    párrafos del system solo viajan si el mensaje (o los 2 turnos previos) huele a
    edición (`hayIntencionEditor` en `src/core/chat/editorAcciones.ts`).

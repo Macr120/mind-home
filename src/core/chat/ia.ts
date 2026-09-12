@@ -561,20 +561,35 @@ async function lineasContexto(): Promise<string[]> {
   ]
 }
 
-async function construirSystem(mascotaId: string, adjunto: 'imagen' | 'pdf' | null, conEditor: boolean): Promise<string> {
+/**
+ * El system del chat de la casa, partido en dos para el prompt caching:
+ *
+ * - La CABECERA es idéntica para todos los usuarios y todos los días: solo
+ *   depende de flags fijos por build o por configuración (`conEditor`, imagen
+ *   IA). Va primero y termina en `corte`.
+ * - La COLA lleva lo que cambia por usuario o por turno: el asistente y su
+ *   personalidad, las apps a su cargo, los cuartos, el adjunto, la fecha y las
+ *   memorias. Va al final, después del último breakpoint que comparte turnos.
+ *
+ * El proxy ancla cada parte con su `cache_control` (ver `ia-chat`): así una
+ * memoria nueva, el cambio de día o de asistente reescriben solo la cola en vez
+ * de tools+system enteros. Los proveedores compatibles con OpenAI y Gemini
+ * cachean por prefijo, así que el orden estable→volátil también les sirve.
+ * El mínimo cacheable manda (4096 tokens en Haiku 4.5): sin editor, tools +
+ * cabecera pueden quedar por debajo y entonces el marcador es un no-op gratis.
+ */
+async function construirSystem(
+  mascotaId: string,
+  adjunto: 'imagen' | 'pdf' | null,
+  conEditor: boolean,
+): Promise<SystemDividido> {
   const mascota = getAsistente(mascotaId)
   // El párrafo de arquitecto necesita los ids de los cuartos, que viven en el
   // módulo diferido (para entonces `interpretarIA` ya lo está descargando).
   const descCuartos = conEditor ? (await cargarEditor()).descripcionCuartos() : ''
-  return [
+  const cabecera = [
     reglaIdioma(),
-    `Eres ${mascota.nombre} ${mascota.emoji}, el asistente-arquitecto de Mind Planner Home: una casa virtual donde cada cuarto registra una parte de la vida del usuario.`,
-    ...lineasPersonaje(mascota),
-    mascota.cuartos.length
-      ? `Eres responsable de archivar SOLO estas apps: ${mascota.cuartos
-          .map((id) => getPlantilla(id)?.nombre ?? id)
-          .join(', ')}. Solo tienes herramientas de captura de esas apps. Si el usuario te pide registrar algo de otra, díselo amablemente y sugiérele cambiar al asistente que la maneja (conversar sí puedes de lo que sea).`
-      : 'Eres responsable de archivar en todas las apps asignadas de la casa.',
+    'Eres el asistente-arquitecto de Mind Planner Home: una casa virtual donde cada cuarto registra una parte de la vida del usuario. Tu nombre, tu personalidad y las apps que archivas vienen al final de estas instrucciones.',
     'Cuando el usuario te cuente qué hizo, registra los datos con las herramientas (usa varias si el mensaje toca varios cuartos; estima valores razonables como calorías si no se mencionan). Si pide crear un hábito o ritual recurrente, usa crear_rutina con pasos concretos y, cuando el paso sea medible, su esquema y valores para auto-registro; pero si lo que pide es una rutina de ENTRENAMIENTO (pesas, cardio, estiramientos), usa la herramienta de rutinas de la app de Ejercicio, que la guarda con sus ejercicios ahí dentro. Después de usar herramientas responde SIEMPRE con un comentario breve (1–2 frases) en tu personalidad y en el idioma del usuario.',
     'También puede platicar contigo de cualquier tema: preguntas de curiosidad o conocimiento general («¿por qué el cielo es azul?»), opiniones o charla casual. Ahí no uses herramientas ni fuerces ningún registro: contesta de verdad, con una explicación clara y correcta (2–5 frases, admite si no estás seguro de algo) en tu personalidad y en el idioma del usuario. Cuando salga natural, remata con UNA frase que conecte el tema con la vida de la casa (explorarlo a fondo en la biblioteca, la calma del jardín, probar algo en la cocina, registrarlo en un cuarto…); si no hay conexión razonable, omite el guiño en vez de forzarlo.',
     'Si recibes mensajes previos, son el contexto de una conversación continua: retómala con naturalidad, no repitas saludos y no vuelvas a registrar lo que ya quedó registrado en turnos anteriores.',
@@ -586,7 +601,7 @@ async function construirSystem(mascotaId: string, adjunto: 'imagen' | 'pdf' | nu
     // Párrafos de arquitecto: solo cuando el mensaje trae las TOOLS_EDITOR
     // (gating por intención — ahorra ~5.5k tokens en la plática normal).
     conEditor
-      ? `También eres el arquitecto de la casa: cuando el usuario pida MODIFICAR la casa (pintar/crear/renombrar/eliminar cuartos, pisos, techos, objetos, vestir o redimensionar al personaje, tema estacional, fondo de cielo) o controlar la experiencia (música ambiental, vista de cámara, montar un vehículo, abrir su resumen Wrapped) usa las herramientas editor_* (puedes usar varias en un mismo mensaje). Para apuntar a un cuarto, usa su id. ${descCuartos}`
+      ? 'También eres el arquitecto de la casa: cuando el usuario pida MODIFICAR la casa (pintar/crear/renombrar/eliminar cuartos, pisos, techos, objetos, vestir o redimensionar al personaje, tema estacional, fondo de cielo) o controlar la experiencia (música ambiental, vista de cámara, montar un vehículo, abrir su resumen Wrapped) usa las herramientas editor_* (puedes usar varias en un mismo mensaje). Para apuntar a un cuarto, usa su id (la lista de cuartos va al final).'
       : '',
     conEditor
       ? 'Las CONFIGURACIONES de la app también son tuyas: idioma, tema y tipografía de la interfaz, apariencia (claro/oscuro/transparente), estilo de iconos y vidrio de los paneles, estilo visual del mapa y sus efectos, avisos y respaldo. Aplica el cambio con su herramienta en vez de explicar dónde está el menú. Lo que NO puedes hacer por chat —iniciar sesión, restaurar un respaldo, borrar los datos— ábrelo con editor_ajustes_abrir en su grupo para que el usuario lo confirme.'
@@ -600,6 +615,22 @@ async function construirSystem(mascotaId: string, adjunto: 'imagen' | 'pdf' | nu
     conEditor
       ? 'Cuando un tema se entienda mejor DIBUJADO —una explicación con pasos, tipos, partes o dos cosas comparadas— puedes llevarlo a la app Ideas con editor_mapa_ideas, que dibuja el mapa entero y lo abre. Hazlo cuando el usuario lo pida o acepte tu ofrecimiento; si no, basta con ofrecérselo en una frase al final de la explicación.'
       : '',
+    conEditor
+      ? 'El Studio son cuatro apps creativas: Audio (estudio musical con piano roll y un mezclador DJ; secciones canciones y mezclar), Arte (galería de dibujos y fotos con lienzo), Escritura (estantería de libros con capítulos, personajes y lugares) y Video (editor por guion con clips, narración y animación 3D de los asistentes; secciones videos y animacion3d). Cuando el usuario quiera componer, dibujar, escribir o montar un video, ábrele la app con editor_abrir_app: lo que se genera con IA (componer una pista, generar un dibujo, redactar, hacer el guion o la narración) vive en el botón ✨ de cada editor, no aquí. La excepción es Escritura: un texto que te dicte o te pida redactar lo guardas tú como libro nuevo con su herramienta de captura, si la tienes.'
+      : '',
+  ]
+    .filter(Boolean)
+    .join('\n\n')
+
+  const cola = [
+    `Te llamas ${mascota.nombre} ${mascota.emoji}.`,
+    ...lineasPersonaje(mascota),
+    mascota.cuartos.length
+      ? `Eres responsable de archivar SOLO estas apps: ${mascota.cuartos
+          .map((id) => getPlantilla(id)?.nombre ?? id)
+          .join(', ')}. Solo tienes herramientas de captura de esas apps. Si el usuario te pide registrar algo de otra, díselo amablemente y sugiérele cambiar al asistente que la maneja (conversar sí puedes de lo que sea).`
+      : 'Eres responsable de archivar en todas las apps asignadas de la casa.',
+    descCuartos,
     adjunto === 'imagen'
       ? 'El mensaje incluye una imagen: interprétala y registra lo que muestre (ej. foto de un platillo → registra la comida estimando macros; un ticket → registra el gasto).'
       : '',
@@ -613,19 +644,35 @@ async function construirSystem(mascotaId: string, adjunto: 'imagen' | 'pdf' | nu
   ]
     .filter(Boolean)
     .join('\n\n')
+
+  return { texto: `${cabecera}\n\n${cola}`, corte: cabecera.length }
 }
+
+/** System partido en cabecera estable + cola volátil (ver `construirSystem`). */
+interface SystemDividido {
+  texto: string
+  /** Chars de la cabecera; 0 = sin partir. */
+  corte: number
+}
+/** Los transportes aceptan el system entero (string) o partido. */
+type SystemChat = string | SystemDividido
+const partesSystem = (s: SystemChat): SystemDividido => (typeof s === 'string' ? { texto: s, corte: 0 } : s)
+/** Breakpoint de caché en la vía BYOK de Claude (el proxy pone los suyos). */
+const CACHE_BYOK = { type: 'ephemeral' as const }
 
 /** Transporte de la cuenta (Pro): Edge Function `ia-chat`, clave del servidor + cuota. */
 async function llamarCuenta(
-  system: string,
+  system: SystemChat,
   texto: string,
   imagen: ImagenAdjunta | null,
   tools: ToolNeutra[],
   historial: MensajeIA[] = [],
   perfil: PerfilIA = 'rapido',
 ): Promise<{ respuesta: string | null; llamadas: LlamadaTool[] }> {
+  const sys = partesSystem(system)
   const r = await iaChatCuenta({
-    system,
+    system: sys.texto,
+    systemCorte: sys.corte > 0 ? sys.corte : undefined,
     mensajes: [...historial, { rol: 'usuario', texto, imagen: imagen ?? undefined }],
     tools: tools.length ? tools : undefined,
     // El razonamiento del perfil `calidad` también sale de max_tokens. El 2048
@@ -641,9 +688,13 @@ async function llamarCuenta(
   return { respuesta: r.texto?.trim() || null, llamadas: r.llamadas }
 }
 
-/** Transporte Claude (SDK oficial). */
+/**
+ * Transporte Claude (SDK oficial, clave propia). Marca los mismos breakpoints
+ * de caché que el proxy: fin de TOOLS_EDITOR, cabecera y cola del system, y el
+ * último mensaje en multi-turno. Con la clave del usuario el ahorro es suyo.
+ */
 async function llamarClaude(
-  system: string,
+  system: SystemChat,
   texto: string,
   imagen: ImagenAdjunta | null,
   tools: ToolNeutra[],
@@ -671,7 +722,18 @@ async function llamarClaude(
           },
     )
   }
-  contenido.push({ type: 'text', text: texto })
+  // Multi-turno: el último bloque ancla el hilo para releerlo del caché en el
+  // siguiente turno (un one-shot pagaría la prima de escritura por nada).
+  contenido.push({ type: 'text', text: texto, ...(historial.length ? { cache_control: CACHE_BYOK } : {}) })
+
+  const sys = partesSystem(system)
+  const bloquesSystem: Anthropic.TextBlockParam[] =
+    sys.corte > 0 && sys.corte < sys.texto.length
+      ? [
+          { type: 'text', text: sys.texto.slice(0, sys.corte), cache_control: CACHE_BYOK },
+          { type: 'text', text: sys.texto.slice(sys.corte), cache_control: CACHE_BYOK },
+        ]
+      : [{ type: 'text', text: sys.texto, cache_control: CACHE_BYOK }]
 
   const calidad = perfil === 'calidad'
   const res = await client.messages.create({
@@ -688,13 +750,14 @@ async function llamarClaude(
     ...(calidad
       ? { thinking: { type: 'adaptive' as const }, output_config: { effort: 'low' as const } }
       : {}),
-    system,
+    system: bloquesSystem,
     ...(tools.length
       ? {
           tools: tools.map((t) => ({
             name: t.name,
             description: t.description,
             input_schema: t.schema as Anthropic.Tool['input_schema'],
+            ...(t.cache ? { cache_control: CACHE_BYOK } : {}),
           })),
         }
       : {}),
@@ -742,7 +805,7 @@ function paramTokens(prov: Proveedor, n: number): Record<string, number> {
 /** Transporte compatible-OpenAI: Gemini, ChatGPT y Ollama local. */
 async function llamarOpenAICompat(
   prov: Proveedor,
-  system: string,
+  system: SystemChat,
   texto: string,
   imagen: ImagenAdjunta | null,
   tools: ToolNeutra[],
@@ -770,7 +833,8 @@ async function llamarOpenAICompat(
       model: modelo,
       ...paramTokens(prov, 4096),
       messages: [
-        { role: 'system', content: system },
+        // Caché automática por prefijo: basta con que el system vaya entero y primero.
+        { role: 'system', content: partesSystem(system).texto },
         ...historial.map((m) => ({ role: m.rol === 'usuario' ? 'user' : 'assistant', content: m.texto })),
         { role: 'user', content: contenidoUsuario },
       ],

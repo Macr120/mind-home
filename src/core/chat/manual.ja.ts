@@ -8,6 +8,20 @@ import type { ManualTraducido } from './manualI18n'
  */
 export const MANUAL_JA: ManualTraducido = {
   frases: {
+    '[Corrí] {5 km} en {30 min}': '{5 km}を{30分}で[走りました]',
+    '[@]{cocina} [comí] {una ensalada}': '[@]{cocina} {サラダ}を[食べました]',
+    '[Abre] el {estudio de audio}': '{オーディオスタジオ}を[開いて]',
+    '[Abre] mis {canciones}': '{曲}を[開いて]',
+    '[Abre] el {mezclador DJ}': '{DJミキサー}を[開いて]',
+    '[Abre] la {galería de arte}': '{アートギャラリー}を[開いて]',
+    '[Abre] mis {dibujos}': '{絵}を[開いて]',
+    '[Abre] mis {libros}': '{本}を[開いて]',
+    '[Abre] el {estudio de escritura}': '{執筆スタジオ}を[開いて]',
+    '[Escribe un cuento] sobre {un faro en invierno} y [guárdalo en mis libros]': '{冬の灯台}についての[短編を書いて]、[本に保存して]',
+    '[Guarda en mis libros] este texto: {Querido diario, hoy…}': 'この文章を[本に保存して]：{日記さん、今日は…}',
+    '[Abre] el {editor de video}': '{動画エディタ}を[開いて]',
+    '[Abre] mis {videos}': '{動画}を[開いて]',
+    '[Abre] la {animación 3D}': '{3Dアニメーション}を[開いて]',
     '[Tomé] {2 vasos} de [agua]': '[水]を{2杯}[飲みました]',
     '[Me pesé]: {74 kg}': '[体重を測りました]：{74 kg}',
     '[Abre] el {recetario}': '{レシピ帳}を[開いて]',

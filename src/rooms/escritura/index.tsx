@@ -1,8 +1,53 @@
 import { lazy } from 'react'
-import type { Plantilla } from '../../core/appContrato'
+import { vTexto, type EsquemaCaptura, type Plantilla } from '../../core/appContrato'
+import { documentosRepo, historiasRepo } from '../../core/data/repository'
+import type { TipoLibro } from '../../core/data/db'
 import { registrarProveedorRecursos } from '../../core/recursosStudio'
 import { COLOR_FABRICA } from './constantes'
 import { OPERACIONES_IA } from './costosIA'
+
+const TIPOS_LIBRO: TipoLibro[] = ['blanco', 'cuento', 'guion', 'teatro']
+
+/**
+ * Lo único que el chat guarda aquí: un texto que el usuario dicta o que pide
+ * redactar («escribe un cuento sobre… y guárdalo en mis libros»). Nace como un
+ * libro nuevo con ese texto de primer capítulo, igual que el botón «Nuevo libro»
+ * y como los documentos sueltos que la estantería envuelve.
+ */
+const esquemas: EsquemaCaptura[] = [
+  {
+    id: 'texto',
+    descripcion:
+      'Un texto para guardar como libro nuevo en el Studio de escritura: una nota, un poema, un cuento, una carta o un guion que el usuario dicta o te pide redactar. Si te pide redactarlo, escribe tú el texto completo.',
+    campos: [
+      { campo: 'titulo', tipo: 'texto', descripcion: 'Título del libro', requerido: true },
+      { campo: 'texto', tipo: 'texto', descripcion: 'El texto completo, en párrafos separados por una línea en blanco', requerido: true },
+      { campo: 'tipo', tipo: 'opcion', opciones: TIPOS_LIBRO, descripcion: 'Portada: blanco (notas, cartas, poemas), cuento, guion o teatro' },
+    ],
+    guardar: async (v) => {
+      const { contarPalabras, parrafosHtml } = await import('./sanitizarHtml')
+      const texto = vTexto(v.texto)
+      const titulo = vTexto(v.titulo, texto.split('\n')[0].slice(0, 60))
+      const tipoPedido = vTexto(v.tipo) as TipoLibro
+      const ahora = new Date().toISOString()
+      const historiaId = await historiasRepo.add({
+        titulo,
+        tipo: TIPOS_LIBRO.includes(tipoPedido) ? tipoPedido : 'blanco',
+        creadoEn: ahora,
+        actualizadoEn: ahora,
+      })
+      await documentosRepo.add({
+        titulo,
+        contenido: parrafosHtml(texto),
+        palabras: contarPalabras(texto),
+        historiaId,
+        seccion: 'capitulo',
+        creadoEn: ahora,
+        actualizadoEn: ahora,
+      })
+    },
+  },
+]
 
 // El Studio de video trae los textos como guion de narración (registro eager, datos con import()).
 registrarProveedorRecursos({
@@ -22,6 +67,7 @@ const escritura: Plantilla = {
   categoria: 'mente',
   color: COLOR_FABRICA,
   App: EscrituraApp,
+  esquemas,
   operacionesIA: OPERACIONES_IA,
   comandos: [
     {

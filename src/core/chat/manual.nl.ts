@@ -8,6 +8,20 @@ import type { ManualTraducido } from './manualI18n'
  */
 export const MANUAL_NL: ManualTraducido = {
   frases: {
+    '[Corrí] {5 km} en {30 min}': '[Ik liep] {5 km} in {30 min}',
+    '[@]{cocina} [comí] {una ensalada}': '[@]{cocina} [ik at] {een salade}',
+    '[Abre] el {estudio de audio}': '[Open] de {audiostudio}',
+    '[Abre] mis {canciones}': '[Open] mijn {nummers}',
+    '[Abre] el {mezclador DJ}': '[Open] de {DJ-mixer}',
+    '[Abre] la {galería de arte}': '[Open] de {kunstgalerie}',
+    '[Abre] mis {dibujos}': '[Open] mijn {tekeningen}',
+    '[Abre] mis {libros}': '[Open] mijn {boeken}',
+    '[Abre] el {estudio de escritura}': '[Open] de {schrijfstudio}',
+    '[Escribe un cuento] sobre {un faro en invierno} y [guárdalo en mis libros]': '[Schrijf een kort verhaal] over {een vuurtoren in de winter} en [sla het op in mijn boeken]',
+    '[Guarda en mis libros] este texto: {Querido diario, hoy…}': '[Sla op in mijn boeken] deze tekst: {Lief dagboek, vandaag…}',
+    '[Abre] el {editor de video}': '[Open] de {video-editor}',
+    '[Abre] mis {videos}': "[Open] mijn {video's}",
+    '[Abre] la {animación 3D}': '[Open] de {3D-animatie}',
     '[Tomé] {2 vasos} de [agua]': '[Ik dronk] {2 glazen} [water]',
     '[Me pesé]: {74 kg}': '[Ik heb me gewogen]: {74 kg}',
     'Inventa una [receta] {ligera con atún}': 'Bedenk een [recept] {licht, met tonijn}',

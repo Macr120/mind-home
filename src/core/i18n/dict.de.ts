@@ -5372,11 +5372,10 @@ export const DE: Dict = {
     'Mit KI: ein Trainingsplan in seinem Zeitplan (✨-Taste) und veranschaulichende Übungsbilder in der App.',
   'chat.manual.nota.entretenimiento':
     'Tischspiele: Snake, Tetris, Schach, Dame, Sudoku, Memory, Pong, Hockey, Simon, Vier gewinnt, Space, Dino…',
-  'chat.manual.nota.garage':
-    'Die Fahrzeuge, die du fährst (Fahrrad, Motorrad, Auto, UFO), findest du unter „Charakter & Fahrzeuge“.',
+  'chat.manual.nota.garage': 'Die Fahrzeuge, auf die du steigst (Rad, Motorrad, Auto, UFO), findest du unter „Figur und Ausflüge“. Wartungen und Behördengänge trägst du in der App ein: Über den Chat öffnen sich nur ihre Bereiche.',
   'chat.manual.nota.granja':
     'Tiere: Huhn, Schwein, Ziege, Schaf, Kuh und Pferd. Sie fressen, was du in Ernährung erntest.',
-  'chat.manual.nota.hobbies': 'In seinem Zeitplan kannst du einen KI-Plan (✨) anfragen, um ein Projekt voranzubringen.',
+  'chat.manual.nota.hobbies': 'Im Chat trägst du eine Sitzung ein, indem du ein bereits angelegtes Hobby nennst. Jedes Hobby und jedes Projekt hat seinen eigenen Zielplan, mit KI-Plan (✨) und Fortschrittsfotos.',
   'chat.manual.nota.huerto': 'Pflanzen: Karotte, Salat, Sonnenblume, Tomate, Mais und Kürbis.',
   'chat.manual.nota.idiomas':
     'Darin leben der Konversationstutor nach Niveau, Karten aus dem Chat und Karten nach Thema (KI).',
@@ -5407,6 +5406,14 @@ export const DE: Dict = {
   'chat.manual.seccion.asistente': 'Assistent & Hilfe',
   'chat.manual.seccion.casa': 'Haus & Editor',
   'chat.manual.seccion.mapa': 'Außenkarte',
+  'chat.manual.seccion.studio': 'Studio',
+  'chat.manual.notaSeccion.studio': 'Die vier Studios erstellen alles in ihrer App und öffnen sich im Chat über ihren Namen. Was sie mit KI erzeugen (komponieren, zeichnen, schreiben, Drehbuch und Erzählung), liegt im ✨-Button jedes Editors und wird laut Preistabelle berechnet.',
+  'chat.manual.nota.audio': 'Songs mit Piano Roll, Instrumenten, MIDI-Keyboard und Aufnahme; das DJ-Mischpult mixt deine Musik. Mit KI im Editor: eine Spur aus einer Beschreibung komponieren oder die aktuelle fortsetzen (✨).',
+  'chat.manual.nota.arte': 'Leinwände mit mehreren Ebenen, Pinsel, Formen, Filtern und Fotos. Mit KI im Editor: eine Zeichnung aus einer Beschreibung erzeugen oder deine Leinwand neu interpretieren (✨). Das Bild, das du im Chat bestellst, bleibt in der Unterhaltung (siehe „Objekte“).',
+  'chat.manual.nota.escritura': 'Ein Bücherregal mit Ordnern für Kapitel, Figuren, Orte und Akte. Mit KI im Editor: schreiben, verbessern, zusammenfassen und fortsetzen (✨). Im Chat wird ein Text, den du diktierst oder anforderst, als neues Buch gespeichert.',
+  'chat.manual.nota.video': 'Ein Mehrspur-Editor mit Clips, Bildern, Titeln, Untertiteln, Erzählung und Musik, dazu die 3D-Animation der Assistenten. Mit KI im Editor: Drehbuch aus einer Beschreibung, Sprecherstimme, Bildhintergründe, Titel und Übersetzung (✨).',
+  'chat.manual.nota.agenda': 'Drei Bereiche: Arbeit (Aufgaben und Board), Gesundheit (Arzttermine und Medikamente) und Personen (dein Adressbuch mit Geburtstagen). Alles mit Datum erscheint von selbst im Kalender; mit Uhrzeit erinnert es dich auch. Über den Chat einzutragen braucht KI.',
+  'chat.manual.nota.ideas': 'In der App: 7 Formate (Mindmap, Baum, Klammern, Kreis, Fluss, Venn und Vergleich). „Mach mir eine Mindmap zu …“ geht ohne KI: Die leere Karte entsteht mit deinem Wurzelthema; mit KI wird sie ganz gezeichnet, und in der App erweiterst du den Knoten oder Bereich deiner Wahl.',
   'chat.manual.seccion.precios': 'Was die KI kostet',
   'chat.manual.preciosCargando': 'Tabelle wird geladen…',
   'chat.vistaCal.objetivos': 'Missionen',

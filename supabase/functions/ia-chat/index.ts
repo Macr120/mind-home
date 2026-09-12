@@ -25,12 +25,14 @@
  * Gemini solo actúa como respaldo. El perfil `calidad` nunca se muestrea: su
  * geometría 3D depende del razonamiento afinado de Anthropic.
  *
- * Caching de Anthropic (GA, sin header beta): hasta 3 breakpoints
+ * Caching de Anthropic (GA, sin header beta): hasta 4 breakpoints
  * `cache_control` — la tool que el cliente marque con `cache: true` (fin del
  * bloque estático TOOLS_EDITOR, prefijo compartido entre TODOS los usuarios),
- * el system (tools+system por usuario) y el último mensaje (conversación
- * incremental). Bajo el mínimo cacheable del modelo el marcador es un no-op
- * sin costo. Gemini no lo replica: cachea de forma implícita, así que un
+ * la cabecera estable del system (`systemCorte`: instrucciones idénticas para
+ * todos los usuarios), la cola del system (asistente, cuartos, fecha y
+ * memorias: lo que cambia por usuario o por día, sin arrastrar la cabecera) y
+ * el último mensaje (conversación incremental). Bajo el mínimo cacheable del
+ * modelo (4096 tokens en Haiku 4.5) el marcador es un no-op sin costo. Gemini no lo replica: cachea de forma implícita, así que un
  * respaldo prolongado sale más caro de lo que modela docs/COSTOS.md. OpenAI
  * cachea automático desde 1024 tokens de prefijo, con TTL de 30 min y SIN
  * prima de escritura: ahí no hay breakpoints que marcar, solo prefijo estable.
@@ -76,6 +78,20 @@ const CACHE = { type: 'ephemeral' } as const
  */
 const CACHE_TOOLS =
   Deno.env.get('IA_CHAT_TTL_TOOLS') === '1h' ? ({ type: 'ephemeral', ttl: '1h' } as const) : CACHE
+
+/**
+ * El system partido por `systemCorte` en cabecera estable + cola volátil, cada
+ * una con su breakpoint. Un corte inválido (ausente, fuera de rango) deja el
+ * bloque único de siempre: el cliente viejo sigue funcionando igual.
+ */
+function bloquesSystem(system: string, corte: number | undefined): Record<string, unknown>[] {
+  const valido = typeof corte === 'number' && Number.isInteger(corte) && corte > 0 && corte < system.length
+  if (!valido) return [{ type: 'text', text: system, cache_control: CACHE }]
+  return [
+    { type: 'text', text: system.slice(0, corte), cache_control: CACHE },
+    { type: 'text', text: system.slice(corte), cache_control: CACHE },
+  ]
+}
 
 /**
  * Tope de `max_tokens` por operación: es lo que hace honesta a la tabla de
@@ -168,6 +184,8 @@ type ProvTexto = 'anthropic' | 'gemini' | 'openai'
 
 interface BodyIn {
   system?: string
+  /** Índice (chars) donde acaba la cabecera estable del system; ver caching arriba. */
+  systemCorte?: number
   mensajes?: MensajeIn[]
   tools?: ToolIn[]
   maxTokens?: number
@@ -235,8 +253,9 @@ async function porAnthropic(
     // contra ~19s de `high` (hasta 40s) con la misma silueta y sin piezas
     // hundidas. El detalle extra se pide con el estilo 'detallado'.
     ...(calidad ? { thinking: { type: 'adaptive' }, output_config: { effort: 'low' } } : {}),
-    // System como bloque para poder anclarlo: cachea tools+system juntos.
-    system: body.system ? [{ type: 'text', text: body.system, cache_control: CACHE }] : undefined,
+    // System como bloques para poder anclarlo: el primero cachea tools+cabecera
+    // (estable entre turnos y días); el segundo, la cola que cambia por usuario.
+    system: body.system ? bloquesSystem(body.system, body.systemCorte) : undefined,
     messages,
     tools: body.tools?.length
       ? body.tools.map((t) => ({
