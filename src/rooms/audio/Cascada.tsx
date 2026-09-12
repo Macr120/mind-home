@@ -1,12 +1,14 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useSyncExternalStore } from 'react'
 import type { NotaAudio } from '../../core/data/db'
+import { tecladoVistaStore } from './tecladoVista'
 
 /**
  * Cascada de práctica: las notas caen hacia el teclado y tocan el borde
  * inferior EXACTAMENTE en su instante. Va montada pegada ENCIMA de
  * `TecladoPantalla` y replica su geometría (si cambia el layout del teclado —
- * insets de los botones ‹ ›, gap de teclas, 15 blancas — hay que actualizar
- * estas constantes; hay un comentario espejo allá).
+ * insets de los botones ‹ ›, gap de teclas — hay que actualizar estas
+ * constantes; hay un comentario espejo allá). Las blancas visibles salen de
+ * `tecladoVista`, el mismo dato que usa el teclado.
  */
 
 /** Un carril de la cascada: las notas de una pista con su color del proyecto. */
@@ -41,9 +43,10 @@ export function Cascada({
 }) {
   const contRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const props = useRef({ carriles, octava, spb, pos })
+  const blancas = useSyncExternalStore(tecladoVistaStore.subscribe, tecladoVistaStore.getSnapshot)
+  const props = useRef({ carriles, octava, spb, pos, blancas })
   useEffect(() => {
-    props.current = { carriles, octava, spb, pos }
+    props.current = { carriles, octava, spb, pos, blancas }
   })
 
   useEffect(() => {
@@ -64,24 +67,24 @@ export function Cascada({
       if (!ctx) return
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
       ctx.clearRect(0, 0, W, H)
-      const { carriles, octava, spb, pos } = props.current
+      const { carriles, octava, spb, pos, blancas: n } = props.current
 
-      // Geometría replicada de TecladoPantalla: 15 blancas flex con gap de 1 px.
-      const wb = (W - INSET * 2 - 14) / 15
+      // Geometría replicada de TecladoPantalla: n blancas flex con gap de 1 px.
+      const wb = (W - INSET * 2 - (n - 1)) / n
       const xBlanca = (j: number) => INSET + j * (wb + 1)
       const xDe = (tono: number): { x: number; w: number } | null => {
         const rel = tono - octava
-        if (rel < 0 || rel > 24) return null
+        if (rel < 0 || rel > ((n - 1) / 7) * 12) return null
         const oct = Math.floor(rel / 12)
         const sem = rel - oct * 12
         const iBlanca = BLANCAS.indexOf(sem)
         if (iBlanca >= 0) {
           const j = oct * 7 + iBlanca
-          if (j > 14) return null
+          if (j > n - 1) return null
           return { x: xBlanca(j), w: wb }
         }
         const j = oct * 7 + BLANCAS.indexOf(ANFITRIONA[sem])
-        if (j >= 14) return null // la negra cuelga del borde derecho de su blanca
+        if (j >= n - 1) return null // la negra cuelga del borde derecho de su blanca
         return { x: xBlanca(j) + wb * 0.7, w: wb * 0.6 }
       }
 

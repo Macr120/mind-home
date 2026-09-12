@@ -7,7 +7,7 @@ import { alternarPreviaMetronomo, posicion, previaStore, transporteStore } from 
 
 /**
  * Barra de transporte en tres grupos plegables — «Transporte» (regresar, stop,
- * grabar, contador), «Ritmo» (previa, bucle, cuantizar, BPM, compases) y
+ * grabar, contador), «Ritmo» (bucle, cuantizar, BPM, compases, pulsos) y
  * «Extras» (practicar, MIDI, WAV, IA) — para que en angosto la barra no se
  * desborde. Los dos primeros arrancan con su botón principal SIEMPRE a la
  * vista (play/pausa y metrónomo) y, aparte, el chevron que los despliega.
@@ -192,17 +192,22 @@ export function Transporte({
         )}
       </div>
       <div className="flex flex-wrap items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] p-0.5">
-        {/* El metrónomo encabeza el grupo «Ritmo»: se enciende sin desplegarlo. */}
-        {chip(metronomo, onMetronomo, 'metronomo', t('audio.transporte.metronomo', 'Metrónomo'))}
+        {/* El metrónomo encabeza el grupo «Ritmo» y SUENA al pulsarlo: parado, arranca o
+            para el clic suelto (y deja la marca para el play); en reproducción enciende o
+            apaga el clic del transporte en caliente. */}
+        {chip(
+          previa || metronomo,
+          () => {
+            if (sonando) return onMetronomo()
+            alternarPreviaMetronomo()
+            if (metronomo === previa) onMetronomo() // la marca sigue al sonido
+          },
+          'metronomo',
+          t('audio.transporte.metronomo', 'Metrónomo'),
+        )}
         {desplegar(ritmoAbierto, () => setRitmoAbierto((v) => !v), t('audio.transporte.grupoRitmo', 'Ritmo'))}
         {ritmoAbierto && (
           <>
-            {chip(
-              previa,
-              alternarPreviaMetronomo,
-              previa ? 'detener' : 'play',
-              t('audio.transporte.previa', 'Escuchar el ritmo (solo el metrónomo)'),
-            )}
             {chip(loopActivo, onLoopActivo, 'repetir', t('audio.transporte.loop', 'Bucle (arrástralo en la regla)'))}
             {chip(
               cuantizar,

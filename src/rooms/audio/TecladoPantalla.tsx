@@ -1,4 +1,4 @@
-import { useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
 import type { AjustesVivo, InstrumentoAudio } from '../../core/data/db'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
@@ -6,6 +6,7 @@ import { COLOR, TONOS_BATERIA, esInstrumentoBateria } from './constantes'
 import { guiaStore } from './guia'
 import { clasesDeEscala } from './musica'
 import { sonandoStore } from './sonando'
+import { ciclarBlancas, octavaMaxima, siguientesBlancas, tecladoVistaStore } from './tecladoVista'
 
 // Colores de la guía de práctica (Aprender): esperada / acierto / fallo.
 const GUIA_BLANCA = { esperada: 'bg-sky-300', acierto: 'bg-emerald-300', fallo: 'bg-red-300' } as const
@@ -20,18 +21,8 @@ const GUIA_NEGRA = { esperada: 'bg-sky-600', acierto: 'bg-emerald-600', fallo: '
 /** Blancas de una octava (semitonos sobre C) y la negra que cuelga de cada una. */
 const BLANCAS = [0, 2, 4, 5, 7, 9, 11]
 const NEGRA_TRAS: Record<number, number | undefined> = { 0: 1, 2: 3, 5: 6, 7: 8, 9: 10 }
-/** Blancas en pantalla: dos octavas y la tónica siguiente (`Cascada` replica esta geometría). */
-const VISIBLES = 15
-/** La tira lleva una octava más por cada lado: al cambiar de octava el piano se DESLIZA hasta ella. */
+/** La tira lleva una octava más por cada lado de las blancas visibles: al cambiar de octava el piano se DESLIZA hasta ella. */
 const MARGEN = 7
-const TIRA = VISIBLES + 2 * MARGEN
-/** Desplazamiento de reposo de la tira (% de su propio ancho): oculta la octava de la izquierda. */
-const REPOSO = -(MARGEN / TIRA) * 100
-/** Tamaños del piano (alto de las teclas): el botón sobre la flecha › los cicla en este orden y se recuerda. */
-const TAMANOS = ['normal', 'grande', 'chico'] as const
-type Tamano = (typeof TAMANOS)[number]
-const ALTO: Record<Tamano, string> = { chico: 'h-16', normal: 'h-24', grande: 'h-36' }
-const LS_TAM = 'mh.audio.tecladoTam'
 
 export function TecladoPantalla({
   instrumento,
@@ -59,36 +50,30 @@ export function TecladoPantalla({
   const [pulsadas, setPulsadas] = useState<Set<number>>(new Set)
   const tiraRef = useRef<HTMLDivElement>(null)
   const octavaPrev = useRef(octava)
-  const [tam, setTam] = useState<Tamano>(() => {
-    try {
-      const v = localStorage.getItem(LS_TAM) as Tamano | null
-      return v && TAMANOS.includes(v) ? v : 'normal'
-    } catch {
-      return 'normal'
-    }
-  })
-  const ciclarTam = () => {
-    const sig = TAMANOS[(TAMANOS.indexOf(tam) + 1) % TAMANOS.length]
-    setTam(sig)
-    try {
-      localStorage.setItem(LS_TAM, sig)
-    } catch {
-      // sin almacenamiento: el tamaño dura la sesión
-    }
-  }
+  // Blancas visibles (2, 3 o 1 octavas): las cicla el botón sobre la flecha ›.
+  const visibles = useSyncExternalStore(tecladoVistaStore.subscribe, tecladoVistaStore.getSnapshot)
+  const tira = visibles + 2 * MARGEN
+  /** Desplazamiento de reposo de la tira (% de su propio ancho): oculta la octava de la izquierda. */
+  const reposo = -(MARGEN / tira) * 100
+  const octavaTope = octavaMaxima(visibles)
+  // Con más octavas a la vista, la más alta cabe menos arriba: se recorta (la octava es del editor).
+  useEffect(() => {
+    if (octava > octavaTope) onOctava(octavaTope)
+  }, [octava, octavaTope, onOctava])
   // La tira ya está pintada para la octava nueva: arranca desplazada donde
   // quedaba la vieja y se desliza hasta su reposo (solo en saltos de UNA octava;
   // otro salto —la práctica fija la suya al entrar— se planta sin animar).
   useLayoutEffect(() => {
     const salto = octava - octavaPrev.current
     octavaPrev.current = octava
-    const tira = tiraRef.current
-    if (!tira || Math.abs(salto) !== 12 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    tira.style.transition = 'none'
-    tira.style.transform = `translateX(${REPOSO + (salto / 12) * (MARGEN / TIRA) * 100}%)`
-    void tira.offsetWidth
-    tira.style.transition = 'transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1)'
-    tira.style.transform = `translateX(${REPOSO}%)`
+    const el = tiraRef.current
+    if (!el || Math.abs(salto) !== 12 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    el.style.transition = 'none'
+    el.style.transform = `translateX(${reposo + (salto / 12) * (MARGEN / tira) * 100}%)`
+    void el.offsetWidth
+    el.style.transition = 'transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1)'
+    el.style.transform = `translateX(${reposo}%)`
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- solo el salto de octava anima
   }, [octava])
   // Tonos que SUENAN (acorde expandido, notas del arpegio): ilumina esas teclas.
   const sonando = useSyncExternalStore(sonandoStore.subscribe, sonandoStore.getSnapshot)
@@ -158,9 +143,9 @@ export function TecladoPantalla({
     )
   }
 
-  // La tira entera: una octava oculta a cada lado de las 15 blancas visibles.
+  // La tira entera: una octava oculta a cada lado de las blancas visibles.
   const base = octava - 12
-  const blancas = [...Array.from({ length: 4 }, (_, o) => BLANCAS.map((s) => base + o * 12 + s)).flat(), base + 48]
+  const blancas = Array.from({ length: tira }, (_, i) => base + Math.floor(i / 7) * 12 + BLANCAS[i % 7])
   return (
     <div className="flex shrink-0 items-stretch gap-1.5" style={{ touchAction: 'none' }}>
       <div className="flex w-8 shrink-0 flex-col gap-1">
@@ -175,11 +160,11 @@ export function TecladoPantalla({
           <Icono nombre="volver" />
         </button>
       </div>
-      <div className={`relative ${ALTO[tam]} min-w-0 flex-1 overflow-hidden`}>
+      <div className="relative h-24 min-w-0 flex-1 overflow-hidden">
         <div
           ref={tiraRef}
           className="absolute inset-y-0 left-0 will-change-transform"
-          style={{ width: `${(TIRA / VISIBLES) * 100}%`, transform: `translateX(${REPOSO}%)` }}
+          style={{ width: `${(tira / visibles) * 100}%`, transform: `translateX(${reposo}%)` }}
         >
           <div className="flex h-full gap-px">
             {blancas.map((tono) => (
@@ -225,19 +210,19 @@ export function TecladoPantalla({
         </div>
       </div>
       <div className="flex w-8 shrink-0 flex-col gap-1">
-        {/* Un solo botón cíclico: normal → grande → chico; el icono anuncia si el siguiente es mayor o menor. */}
+        {/* Un solo botón cíclico: 2 → 3 → 1 octavas; el icono anuncia si vienen más o menos teclas. */}
         <button
           type="button"
-          onClick={ciclarTam}
+          onClick={ciclarBlancas}
           aria-label={t('audio.teclado.tamano', 'Tamaño del piano')}
           title={t('audio.teclado.tamano', 'Tamaño del piano')}
           className="ui-presion grid h-8 w-8 place-items-center rounded-lg border border-white/10 bg-white/10 text-white/70 transition hover:bg-white/20"
         >
-          <Icono nombre={tam === 'grande' ? 'alejar' : 'acercar'} />
+          <Icono nombre={siguientesBlancas(visibles) > visibles ? 'acercar' : 'alejar'} />
         </button>
         <button
           type="button"
-          onClick={() => onOctava(Math.min(84, octava + 12))}
+          onClick={() => onOctava(Math.min(octavaTope, octava + 12))}
           aria-label={t('audio.teclado.octavaMas', 'Octava arriba')}
           title={t('audio.teclado.octavaMas', 'Octava arriba')}
           className="min-h-0 flex-1 rounded-lg border border-white/10 bg-white/10 text-white/70 transition hover:bg-white/20"
