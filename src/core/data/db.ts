@@ -3607,6 +3607,8 @@ export interface Dibujo {
   actualizadoEn: string
   /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
   ejemploDe?: string
+  /** Identidad de sync (la sella el middleware); `seed-…` = fila de siembra. */
+  uid?: string
 }
 
 /** Carpeta fija de un libro a la que pertenece un documento del Studio de escritura. */

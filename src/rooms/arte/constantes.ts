@@ -15,6 +15,13 @@ export const PRESETS_LIENZO = [
 ] as const
 
 /**
+ * Lado de un lienzo a medida (el tope es el mismo 1280 de los presets: la pila
+ * de deshacer y las capas van en `ImageData` a resolución real).
+ */
+export const LADO_MIN = 64
+export const LADO_MAX = 1280
+
+/**
  * Pila de deshacer/rehacer en `ImageData` (a 1280×720 son ~3.7 MB por
  * snapshot): 10 pasos ≈ 37 MB, asumible con el precedente del grafiti (12).
  * Con capas se guarda SOLO la capa tocada, así que el techo no cambia.

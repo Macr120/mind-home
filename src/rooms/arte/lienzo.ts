@@ -25,10 +25,19 @@ export type HerramientaArte =
   | 'relleno'
   | 'gotero'
   | 'texto'
+  | 'mover'
 
 export type FormaArte = 'linea' | 'rect' | 'elipse' | 'compas'
 
 export type FiltroArte = 'brillo+' | 'brillo-' | 'contraste+' | 'contraste-' | 'grises' | 'desenfoque'
+
+/** Rectángulo en px del bitmap. */
+export interface Caja {
+  x: number
+  y: number
+  w: number
+  h: number
+}
 
 /** Lo que la UI necesita saber de una capa (el bitmap vive en el motor). */
 interface CapaInfo {
@@ -41,6 +50,23 @@ interface CapaInfo {
 const BLANCO = '#ffffff'
 /** Tolerancia del bote por canal (los bordes antialiased no cortan el relleno). */
 const TOLERANCIA = 32
+/** Alfa mínimo para que un píxel cuente como «pintado» (caja de la capa, objetos). */
+const ALFA_PINTADO = 8
+/**
+ * Al separar en objetos: cuánto se ensancha cada mancha antes de agrupar (dos
+ * trozos a menos de esta distancia son el mismo objeto: el antialiasing y los
+ * trazos finos parten un dibujo en migas) y el tamaño mínimo de un objeto como
+ * fracción del lienzo (lo menor se queda en la capa original).
+ */
+const RADIO_UNION = 2
+const FRACCION_MIN_OBJETO = 0.0002
+/**
+ * Fondo de una imagen opaca (foto, IA): distancia RGB máxima al color de borde
+ * dominante para inundarlo desde los bordes, y qué parte del lienzo tiene que
+ * cubrir para creerse fondo (menos es un borde casual, no un fondo).
+ */
+const DISTANCIA_FONDO = 60
+const FRACCION_MIN_FONDO = 0.05
 
 let correlativoCapa = 0
 const nuevaCapaId = () => `ca-${Date.now().toString(36)}-${(correlativoCapa++).toString(36)}`
@@ -65,6 +91,39 @@ export interface Lienzo {
   filtrar(filtro: FiltroArte): void
   /** Pinta una imagen cubriendo la capa activa (foto importada o resultado de la IA). */
   pintarImagen(blob: Blob): Promise<void>
+  /**
+   * Inserta una imagen como OBJETO: en una capa nueva (si hay sitio; si no, en
+   * la activa), entera y centrada, conservando su proporción. `true` si nació
+   * capa propia. Después se mueve y se escala con la herramienta «mover».
+   */
+  insertarImagen(blob: Blob, nombreCapa: string): Promise<boolean>
+  /** Caja de lo pintado en la capa activa (px del bitmap); `null` si está vacía. */
+  cajaActiva(): Caja | null
+  /**
+   * Mover/escalar la capa activa como un objeto: `empezar` congela su bitmap y
+   * devuelve su caja (o `null` si está vacía), cada `transformar` repinta ese
+   * bitmap en la caja destino y `terminar` cierra el gesto (con `cambio` en
+   * false el snapshot de deshacer se retira: un tap no es una acción).
+   */
+  empezarTransformar(): Caja | null
+  transformar(destino: Caja): void
+  terminarTransformar(cambio: boolean): void
+  /** Cancela el gesto de transformar restaurando el snapshot (entró un 2.º dedo). */
+  cancelarTransformar(): void
+  /**
+   * Parte la capa activa en objetos, cada uno a una capa propia encima de ella
+   * (`nombreDe(n)` los bautiza): las manchas sueltas de una capa dibujada, o en
+   * una imagen opaca lo que no sea su fondo liso (ese se queda en la capa).
+   * La mancha mayor de una capa sin fondo se queda donde está. Devuelve cuántas
+   * capas nacieron (0 = no había nada suelto). No es deshacible. Respeta el tope.
+   */
+  separarObjetos(nombreDe: (n: number) => string): number
+  /**
+   * Cambia la resolución del lienzo: con `escalar` el dibujo se estira al tamaño
+   * nuevo; sin él, cada capa conserva sus píxeles centrados (se recorta o se
+   * amplía el lienzo). Vacía el historial (cambio estructural).
+   */
+  redimensionar(ancho: number, alto: number, escalar: boolean): void
   /** Vacía la capa activa (queda transparente). */
   limpiar(): void
   deshacer(): boolean
@@ -169,7 +228,137 @@ interface Pluma {
   my: number
 }
 
-export function crearLienzo(host: HTMLDivElement, ancho: number, alto: number): Lienzo {
+/** Ensancha una máscara binaria `r` píxeles (ventana cuadrada, en dos pasadas separables). */
+function dilatar(mascara: Uint8Array, ancho: number, alto: number, r: number): Uint8Array {
+  const horizontal = new Uint8Array(mascara.length)
+  for (let y = 0; y < alto; y++) {
+    const base = y * ancho
+    for (let x = 0; x < ancho; x++) {
+      if (!mascara[base + x]) continue
+      const x1 = Math.min(ancho - 1, x + r)
+      for (let i = Math.max(0, x - r); i <= x1; i++) horizontal[base + i] = 1
+    }
+  }
+  const res = new Uint8Array(mascara.length)
+  for (let y = 0; y < alto; y++) {
+    const base = y * ancho
+    for (let x = 0; x < ancho; x++) {
+      if (!horizontal[base + x]) continue
+      const y1 = Math.min(alto - 1, y + r)
+      for (let j = Math.max(0, y - r); j <= y1; j++) res[j * ancho + x] = 1
+    }
+  }
+  return res
+}
+
+/**
+ * Componentes conexas (8 vecinos) de una máscara: la etiqueta de cada píxel
+ * (0 = fuera) y cuántos píxeles tiene cada etiqueta. Con pila explícita en un
+ * `Int32Array` —cada píxel entra una sola vez— y no recursión (reventaría).
+ */
+function etiquetar(mascara: Uint8Array, ancho: number, alto: number): { etiqueta: Int32Array; tamanos: number[] } {
+  const n = ancho * alto
+  const etiqueta = new Int32Array(n)
+  const pila = new Int32Array(n)
+  const tamanos: number[] = [0]
+  for (let semilla = 0; semilla < n; semilla++) {
+    if (!mascara[semilla] || etiqueta[semilla]) continue
+    const L = tamanos.length
+    let tam = 0
+    let tope = 0
+    pila[tope++] = semilla
+    etiqueta[semilla] = L
+    while (tope > 0) {
+      const i = pila[--tope]
+      tam++
+      const x = i % ancho
+      const y = (i - x) / ancho
+      for (let dy = -1; dy <= 1; dy++) {
+        const yy = y + dy
+        if (yy < 0 || yy >= alto) continue
+        for (let dx = -1; dx <= 1; dx++) {
+          const xx = x + dx
+          if (xx < 0 || xx >= ancho) continue
+          const j = yy * ancho + xx
+          if (mascara[j] && !etiqueta[j]) {
+            etiqueta[j] = L
+            pila[tope++] = j
+          }
+        }
+      }
+    }
+    tamanos.push(tam)
+  }
+  return { etiqueta, tamanos }
+}
+
+/**
+ * Máscara del fondo liso de una imagen opaca: el color dominante de sus bordes,
+ * inundado desde ellos por los píxeles parecidos a ESE color (no al vecino: un
+ * degradado suave no se lo lleva todo). `null` si lo que cubre no da para fondo.
+ */
+function fondoDe(d: Uint8ClampedArray, ancho: number, alto: number): Uint8Array | null {
+  const bordes: number[] = []
+  for (let x = 0; x < ancho; x++) bordes.push(x, (alto - 1) * ancho + x)
+  for (let y = 1; y < alto - 1; y++) bordes.push(y * ancho, y * ancho + ancho - 1)
+  // Color de borde dominante: cuantizado a 32 niveles por canal y promediado.
+  const cubos = new Map<number, [number, number, number, number]>()
+  for (const i of bordes) {
+    const k = i * 4
+    const clave = ((d[k] >> 3) << 10) | ((d[k + 1] >> 3) << 5) | (d[k + 2] >> 3)
+    const acc = cubos.get(clave) ?? [0, 0, 0, 0]
+    acc[0] += d[k]
+    acc[1] += d[k + 1]
+    acc[2] += d[k + 2]
+    acc[3]++
+    cubos.set(clave, acc)
+  }
+  let mejor: [number, number, number, number] | null = null
+  for (const acc of cubos.values()) if (!mejor || acc[3] > mejor[3]) mejor = acc
+  if (!mejor) return null
+  const rr = mejor[0] / mejor[3]
+  const gg = mejor[1] / mejor[3]
+  const bb = mejor[2] / mejor[3]
+  const tope2 = DISTANCIA_FONDO * DISTANCIA_FONDO
+  const parecido = (i: number) => {
+    const k = i * 4
+    const dr = d[k] - rr
+    const dg = d[k + 1] - gg
+    const db = d[k + 2] - bb
+    return dr * dr + dg * dg + db * db <= tope2
+  }
+  const n = ancho * alto
+  const fondo = new Uint8Array(n)
+  const pila = new Int32Array(n)
+  let tope = 0
+  for (const i of bordes) {
+    if (!fondo[i] && parecido(i)) {
+      fondo[i] = 1
+      pila[tope++] = i
+    }
+  }
+  let cubierto = tope
+  const visitar = (j: number) => {
+    if (fondo[j] || !parecido(j)) return
+    fondo[j] = 1
+    pila[tope++] = j
+    cubierto++
+  }
+  while (tope > 0) {
+    const i = pila[--tope]
+    const x = i % ancho
+    if (x > 0) visitar(i - 1)
+    if (x < ancho - 1) visitar(i + 1)
+    if (i >= ancho) visitar(i - ancho)
+    if (i + ancho < n) visitar(i + ancho)
+  }
+  return cubierto >= n * FRACCION_MIN_FONDO ? fondo : null
+}
+
+export function crearLienzo(host: HTMLDivElement, anchoInicial: number, altoInicial: number): Lienzo {
+  // Mutables: `redimensionar` los cambia (todo lo demás los lee al vuelo).
+  let ancho = anchoInicial
+  let alto = altoInicial
   host.style.width = `${ancho}px`
   host.style.height = `${alto}px`
 
@@ -180,6 +369,8 @@ export function crearLienzo(host: HTMLDivElement, ancho: number, alto: number): 
 
   let pila: { capaId: string; img: ImageData }[] = []
   let rehacerPila: { capaId: string; img: ImageData }[] = []
+  // Gesto de mover/escalar en curso: bitmap congelado de la capa y su caja.
+  let transf: { capaId: string; copia: HTMLCanvasElement; caja: Caja; img: ImageData } | null = null
   // Plumas del trazo en curso (el espejo se congela al empezar el trazo).
   let plumas: Pluma[] = []
   let espejoTrazoV = false
@@ -211,6 +402,26 @@ export function crearLienzo(host: HTMLDivElement, ancho: number, alto: number): 
   }
 
   const foto = (c: CapaViva) => c.ctx.getImageData(0, 0, ancho, alto)
+
+  /** Caja de los píxeles pintados de la capa; `null` si está vacía. */
+  const cajaDe = (c: CapaViva): Caja | null => {
+    const d = foto(c).data
+    let x0 = ancho
+    let y0 = alto
+    let x1 = -1
+    let y1 = -1
+    for (let y = 0; y < alto; y++) {
+      const base = y * ancho
+      for (let x = 0; x < ancho; x++) {
+        if (d[(base + x) * 4 + 3] <= ALFA_PINTADO) continue
+        if (x < x0) x0 = x
+        if (x > x1) x1 = x
+        if (y < y0) y0 = y
+        if (y > y1) y1 = y
+      }
+    }
+    return x1 < 0 ? null : { x: x0, y: y0, w: x1 - x0 + 1, h: y1 - y0 + 1 }
+  }
 
   /** Snapshot de ESA capa para deshacer; toda acción nueva vacía la pila de rehacer. */
   const snapshot = (c: CapaViva) => {
@@ -514,6 +725,178 @@ export function crearLienzo(host: HTMLDivElement, ancho: number, alto: number): 
       const bmp = await createImageBitmap(blob)
       c.ctx.drawImage(bmp, 0, 0, ancho, alto)
       bmp.close()
+    },
+
+    async insertarImagen(blob, nombreCapa) {
+      const bmp = await createImageBitmap(blob)
+      // Encaje «contain» centrado: entra entera y a la mayor escala que quepa.
+      const esc = Math.min(ancho / bmp.width, alto / bmp.height)
+      const w = Math.max(1, Math.round(bmp.width * esc))
+      const h = Math.max(1, Math.round(bmp.height * esc))
+      const x = Math.round((ancho - w) / 2)
+      const y = Math.round((alto - h) / 2)
+      let c: CapaViva
+      const nueva = capas.length < MAX_CAPAS
+      if (nueva) {
+        // Capa propia: nace encima de todas y activa (como `agregarCapa`).
+        c = crearCapa(nombreCapa)
+        c.sucia = true
+        capas.push(c)
+        ordenarDom()
+        activaId = c.capaId
+      } else {
+        c = paraPintar()
+        snapshot(c)
+      }
+      c.ctx.drawImage(bmp, x, y, w, h)
+      bmp.close()
+      return nueva
+    },
+
+    cajaActiva: () => cajaDe(activa()),
+
+    empezarTransformar() {
+      const c = paraPintar()
+      const caja = cajaDe(c)
+      if (!caja) return null
+      const copia = document.createElement('canvas')
+      copia.width = ancho
+      copia.height = alto
+      copia.getContext('2d')!.drawImage(c.canvas, 0, 0)
+      // El snapshot de deshacer se guarda aparte: solo entra en la pila si el
+      // gesto cambió algo (un tap sobre el objeto no es una acción).
+      transf = { capaId: c.capaId, copia, caja, img: foto(c) }
+      return caja
+    },
+
+    transformar(destino) {
+      if (!transf) return
+      const c = porId(transf.capaId)
+      if (!c) return
+      const { copia, caja } = transf
+      c.ctx.clearRect(0, 0, ancho, alto)
+      c.ctx.drawImage(
+        copia,
+        caja.x,
+        caja.y,
+        caja.w,
+        caja.h,
+        destino.x,
+        destino.y,
+        Math.max(1, destino.w),
+        Math.max(1, destino.h),
+      )
+    },
+
+    terminarTransformar(cambio) {
+      if (!transf) return
+      const { capaId, img } = transf
+      transf = null
+      if (!cambio) return
+      pila.push({ capaId, img })
+      if (pila.length > MAX_DESHACER) pila.shift()
+      rehacerPila = []
+      const c = porId(capaId)
+      if (c) c.sucia = true
+    },
+
+    cancelarTransformar() {
+      if (!transf) return
+      const { capaId, img } = transf
+      transf = null
+      porId(capaId)?.ctx.putImageData(img, 0, 0)
+    },
+
+    separarObjetos(nombreDe) {
+      const c = activa()
+      const libres = MAX_CAPAS - capas.length
+      if (libres <= 0) return 0
+      const img = foto(c)
+      const d = img.data
+      const n = ancho * alto
+      const pintado = new Uint8Array(n)
+      let opacos = 0
+      for (let i = 0; i < n; i++) {
+        if (d[i * 4 + 3] > ALFA_PINTADO) {
+          pintado[i] = 1
+          opacos++
+        }
+      }
+      if (!opacos) return 0
+      // Imagen opaca (foto, IA): su fondo liso se queda en la capa; lo demás son objetos.
+      let conFondo = false
+      if (opacos >= n * 0.97) {
+        const fondo = fondoDe(d, ancho, alto)
+        if (fondo) {
+          conFondo = true
+          for (let i = 0; i < n; i++) if (fondo[i]) pintado[i] = 0
+        }
+      }
+      const { etiqueta, tamanos } = etiquetar(dilatar(pintado, ancho, alto, RADIO_UNION), ancho, alto)
+      // Tamaño REAL de cada mancha (sin el ensanche), de mayor a menor.
+      const reales = new Array<number>(tamanos.length).fill(0)
+      for (let i = 0; i < n; i++) if (pintado[i]) reales[etiqueta[i]]++
+      const orden = reales
+        .map((tam, L) => ({ L, tam }))
+        .filter((o) => o.L > 0 && o.tam >= n * FRACCION_MIN_OBJETO)
+        .sort((a, b) => b.tam - a.tam)
+      // Sin fondo, la mancha mayor se queda en la capa original.
+      const sueltas = (conFondo ? orden : orden.slice(1)).slice(0, libres)
+      if (!sueltas.length) return 0
+      const i0 = capas.indexOf(c)
+      sueltas.forEach(({ L }, k) => {
+        const nueva = crearCapa(nombreDe(k + 1))
+        nueva.visible = c.visible
+        nueva.opacidad = c.opacidad
+        aplicarEstilo(nueva)
+        const datos = nueva.ctx.createImageData(ancho, alto)
+        const nd = datos.data
+        for (let i = 0; i < n; i++) {
+          if (!pintado[i] || etiqueta[i] !== L) continue
+          const p = i * 4
+          nd[p] = d[p]
+          nd[p + 1] = d[p + 1]
+          nd[p + 2] = d[p + 2]
+          nd[p + 3] = d[p + 3]
+          d[p + 3] = 0
+        }
+        nueva.ctx.putImageData(datos, 0, 0)
+        nueva.sucia = true
+        // La mayor queda justo encima de la original; las demás, en escalera.
+        capas.splice(i0 + 1 + k, 0, nueva)
+      })
+      c.ctx.putImageData(img, 0, 0)
+      c.sucia = true
+      ordenarDom()
+      activaId = capas[i0 + 1].capaId
+      // Partir la capa no es deshacible: sus snapshots quedan rancios.
+      pila = pila.filter((e) => e.capaId !== c.capaId)
+      rehacerPila = rehacerPila.filter((e) => e.capaId !== c.capaId)
+      return sueltas.length
+    },
+
+    redimensionar(nuevoAncho, nuevoAlto, escalar) {
+      const viejoAncho = ancho
+      const viejoAlto = alto
+      ancho = nuevoAncho
+      alto = nuevoAlto
+      host.style.width = `${ancho}px`
+      host.style.height = `${alto}px`
+      for (const c of capas) {
+        const copia = document.createElement('canvas')
+        copia.width = viejoAncho
+        copia.height = viejoAlto
+        copia.getContext('2d')!.drawImage(c.canvas, 0, 0)
+        // Cambiar el tamaño del canvas lo vacía: se repinta desde la copia.
+        c.canvas.width = ancho
+        c.canvas.height = alto
+        if (escalar) c.ctx.drawImage(copia, 0, 0, viejoAncho, viejoAlto, 0, 0, ancho, alto)
+        else c.ctx.drawImage(copia, Math.round((ancho - viejoAncho) / 2), Math.round((alto - viejoAlto) / 2))
+        c.sucia = true
+      }
+      pila = []
+      rehacerPila = []
+      transf = null
     },
 
     limpiar() {

@@ -148,8 +148,11 @@ export const FUENTES: Record<string, () => Promise<string[]>> = {
   // (cien trazos o cien teclas no son cien actividades). Con `fechaLocalISO` y no
   // `.slice(0, 10)`: ese corte da la fecha UTC y una sesión nocturna contaría
   // mañana (mismo motivo que `metas`).
+  // `esSeedIntacta`: los dos dibujos de fábrica no cuentan hasta que se editan.
   arte: async () => [
-    ...new Set((await filas(db.dibujos)).map((d) => fechaLocalISO(new Date(d.actualizadoEn)))),
+    ...new Set(
+      (await filas(db.dibujos)).filter((d) => !esSeedIntacta(d)).map((d) => fechaLocalISO(new Date(d.actualizadoEn))),
+    ),
   ],
   escritura: async () => [
     ...new Set((await filas(db.documentos)).map((d) => fechaLocalISO(new Date(d.actualizadoEn)))),
