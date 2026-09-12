@@ -96,24 +96,25 @@ en `/acerca`; `/cuenta`, términos, privacidad y soporte, todo en 16 idiomas (80
 
 ## Plataformas — web ✅ · Windows ✅ · macOS ✅ · Android ✅ · iOS ✅ (proyecto, sin build)
 
-Versión **1.0.4** en las tres fuentes (`package.json`, `versionCode 6` / `1.0.4` en Android,
-`MARKETING_VERSION 1.0.4` build 2 en iOS). Estado por canal (sep 2026):
+Versión **1.1.0** en las tres fuentes (`package.json`, `versionCode 7` / `1.1.0` en Android,
+`MARKETING_VERSION 1.1.0` build 3 en iOS). Estado por canal (12-sep-2026):
 
 - **Web**: dos proyectos de Cloudflare Pages por subida manual con wrangler
-  (`mindplannerhome-app` ← `dist`, `mindplannerhome` ← `dist-web`). Desplegada con la 1.0.4.
+  (`mindplannerhome-app` ← `dist`, `mindplannerhome` ← `dist-web`). Las dos desplegadas con
+  la 1.1.0; la Edge Function `ia-chat` también (system partido para el caché).
 - **Windows** (`electron/`): Microsoft Store **aceptada el 27-ago-2026** (Store ID
-  `9N893LFZHR0T`, 1.0.0 publicada); el `.appx` 1.0.4 está construido y copiado en
+  `9N893LFZHR0T`, 1.0.0 publicada); el `.appx` 1.1.0 (202 MB) está construido y copiado en
   `C:\Users\macr1\mph-paquetes\` a falta de subirlo a Partner Center. El `.exe` NSIS (sin
-  firmar) va en GitHub Releases desde la 1.0.4. Modo fondo de pantalla con paneles y clic en
-  los objetos. Runbook en [`ESCRITORIO.md`](ESCRITORIO.md).
+  firmar, 146 MB) está en la release **v1.1.0 publicada** en GitHub. Modo fondo de pantalla
+  con paneles y clic en los objetos. Runbook en [`ESCRITORIO.md`](ESCRITORIO.md).
 - **macOS**: `.dmg`/`.zip` universales notarizados en GitHub Releases (v1.0.0–v1.0.3 del
-  27-ago); la 1.0.4 se construye en el Mac con el guion de
-  [`CONTEXTO-MAC.md`](CONTEXTO-MAC.md). La landing enlaza el `.dmg` por nombre: cambiar en
-  cada versión.
+  27-ago); la 1.1.0 se construye en el Mac con el guion de
+  [`CONTEXTO-MAC.md`](CONTEXTO-MAC.md) y se sube a la release ya publicada. La landing
+  enlaza el `.dmg` por nombre: cambiar en cada versión.
 - **Android** (`android/`): empaquetado con widgets, deep link OAuth y build de release que
-  recompila la web solo (`construirWeb`). AAB 1.0.4 (`versionCode 6`) construido y firmado con
-  el keystore de subida; a falta de subirlo a Play Console (el 5 nunca se construyó; Play
-  tiene el 4).
+  recompila la web solo (`construirWeb`). AAB 1.1.0 (`versionCode 7`, 51 MB) construido y
+  firmado con el keystore de subida, copia en `mph-paquetes\`; a falta de subirlo a Play
+  Console (Play tiene el 4; el 6 de la 1.0.4 nunca se subió).
 - **iOS** (`ios/`, requiere Mac): proyecto Capacitor con los 8 plugins, deep link OAuth por el
   mismo esquema `com.macr120.mindhome://oauth`, permisos traducidos a los 16 idiomas
   (`<id>.lproj/InfoPlist.strings`), icono y splash desde los SVG de la marca
