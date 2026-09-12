@@ -40,6 +40,10 @@ export function Transporte({
   onIA,
   onDeshacerIA,
   onPracticar,
+  onDeshacer,
+  onRehacer,
+  puedeDeshacer,
+  puedeRehacer,
 }: {
   /** Nombre del proyecto: es el botón de volver a la lista (ahorra el encabezado). */
   nombre: string
@@ -74,6 +78,11 @@ export function Transporte({
   onDeshacerIA?: (() => void) | null
   /** Abre la práctica con la partitura desplazándose (te escucha tocar la pieza). */
   onPracticar: () => void
+  /** Historial del proyecto (también Ctrl+Z / Ctrl+Y). */
+  onDeshacer: () => void
+  onRehacer: () => void
+  puedeDeshacer: boolean
+  puedeRehacer: boolean
 }) {
   const t = useT()
   const estado = useSyncExternalStore(transporteStore.subscribe, transporteStore.getSnapshot)
@@ -272,6 +281,26 @@ export function Transporte({
         {grupo(extrasAbierto, () => setExtrasAbierto((v) => !v), 'ajustes', t('audio.transporte.grupoExtras', 'Extras'))}
         {extrasAbierto && (
           <>
+            <button
+              type="button"
+              onClick={onDeshacer}
+              disabled={!puedeDeshacer}
+              aria-label={t('editor.hist.deshacer', 'Deshacer')}
+              title={`${t('editor.hist.deshacer', 'Deshacer')} (Ctrl+Z)`}
+              className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/10 transition hover:bg-white/20 active:scale-90 disabled:opacity-40"
+            >
+              <Icono nombre="deshacer" />
+            </button>
+            <button
+              type="button"
+              onClick={onRehacer}
+              disabled={!puedeRehacer}
+              aria-label={t('editor.hist.rehacer', 'Rehacer')}
+              title={`${t('editor.hist.rehacer', 'Rehacer')} (Ctrl+Y)`}
+              className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/10 transition hover:bg-white/20 active:scale-90 disabled:opacity-40"
+            >
+              <Icono nombre="rehacer" />
+            </button>
             <button
               type="button"
               onClick={onPracticar}

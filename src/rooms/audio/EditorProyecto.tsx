@@ -142,19 +142,83 @@ export function EditorProyecto({
     })
   })
 
-  const mutar = (fn: (p: ProyectoAudio) => ProyectoAudio) => {
-    setProyecto((prev) => {
-      if (!prev) return prev
-      const nuevo = fn(prev)
-      proyectoRef.current = nuevo
-      motor.fijarProyecto(nuevo)
-      return nuevo
-    })
+  // ─── Deshacer / rehacer ──────────────────────────────────────────────────
+  // Una foto del proyecto por mutación; las seguidas en menos de medio segundo
+  // (un knob, teclear el BPM) se funden en un solo paso. Las pilas viven en un
+  // ref y `pasos` solo refleja sus tamaños (habilita los botones de Extras).
+  const historial = useRef<{ atras: ProyectoAudio[]; adelante: ProyectoAudio[]; ultimo: number }>({
+    atras: [],
+    adelante: [],
+    ultimo: 0,
+  })
+  const [pasos, setPasos] = useState({ atras: 0, adelante: 0 })
+  const anotarPasos = () =>
+    setPasos({ atras: historial.current.atras.length, adelante: historial.current.adelante.length })
+
+  /** Adopta un borrador nuevo: el motor lo toca, se redibuja y se guarda con debounce. */
+  const adoptar = (nuevo: ProyectoAudio) => {
+    proyectoRef.current = nuevo
+    motor.fijarProyecto(nuevo)
+    setProyecto(nuevo)
     setVersion((v) => v + 1)
     sucio.current = true
     window.clearTimeout(timer.current)
     timer.current = window.setTimeout(() => void guardarRef.current(), 600)
   }
+  // Parte del ref y no del updater de React: en StrictMode los updaters corren
+  // dos veces y la foto de deshacer se duplicaría.
+  const mutar = (fn: (p: ProyectoAudio) => ProyectoAudio) => {
+    const prev = proyectoRef.current
+    if (!prev) return
+    const h = historial.current
+    const ahora = performance.now()
+    if (ahora - h.ultimo > 500) h.atras.push(prev)
+    if (h.atras.length > 100) h.atras.shift()
+    h.ultimo = ahora
+    h.adelante = []
+    adoptar(fn(prev))
+    anotarPasos()
+  }
+  const deshacer = () => {
+    const h = historial.current
+    const previo = h.atras.pop()
+    if (!previo || !proyectoRef.current) return
+    h.adelante.push(proyectoRef.current)
+    h.ultimo = 0
+    setIaAplicada(null) // la toma IA deja de ser «lo último»: su deshacer aparte ya no aplica
+    adoptar(previo)
+    anotarPasos()
+  }
+  const rehacer = () => {
+    const h = historial.current
+    const siguiente = h.adelante.pop()
+    if (!siguiente || !proyectoRef.current) return
+    h.atras.push(proyectoRef.current)
+    h.ultimo = 0
+    setIaAplicada(null)
+    adoptar(siguiente)
+    anotarPasos()
+  }
+  const deshacerRef = useRef(deshacer)
+  const rehacerRef = useRef(rehacer)
+  useEffect(() => {
+    deshacerRef.current = deshacer
+    rehacerRef.current = rehacer
+  })
+  // Ctrl+Z / Ctrl+Shift+Z / Ctrl+Y, fuera de campos de texto y modales.
+  useEffect(() => {
+    const alTecla = (e: KeyboardEvent) => {
+      if (!(e.ctrlKey || e.metaKey) || e.altKey || (e.code !== 'KeyZ' && e.code !== 'KeyY')) return
+      const el = e.target
+      if (el instanceof HTMLElement && el.closest('input, textarea, select, [contenteditable="true"]')) return
+      if (document.querySelector('[role="dialog"]')) return
+      e.preventDefault()
+      if (e.code === 'KeyY' || e.shiftKey) rehacerRef.current()
+      else deshacerRef.current()
+    }
+    window.addEventListener('keydown', alTecla)
+    return () => window.removeEventListener('keydown', alTecla)
+  }, [])
 
   // Carga única + limpieza total al salir.
   useEffect(() => {
@@ -630,6 +694,10 @@ export function EditorProyecto({
         }}
         onDeshacerIA={iaAplicada ? deshacerIA : null}
         onPracticar={() => setVistaCascada('partitura')}
+        onDeshacer={deshacer}
+        onRehacer={rehacer}
+        puedeDeshacer={pasos.atras > 0}
+        puedeRehacer={pasos.adelante > 0}
       />
 
       {/* El timeline integra las pistas: una sola tarjeta con la columna de pistas a la IZQUIERDA y el roll a la derecha.
