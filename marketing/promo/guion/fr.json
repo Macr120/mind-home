@@ -1,0 +1,34 @@
+{
+  "idioma": "fr",
+  "lineas": {
+    "gancho": "Et si le Tamagotchi… c'était toi ?",
+    "casa": "MPH est une maison 3D où chaque pièce est une app : cuisine, sport, finances, objectifs, musique…",
+    "disena": "Conçois ta maison et choisis quelle app va dans chaque pièce : ton centre de divertissement, d'étude, de créativité et de bien-être.",
+    "metas": "Ton agenda, ton calendrier, ton journal de bord et un assistant personnel pour atteindre tes objectifs dans la vraie vie.",
+    "ia": "Discute avec tes assistants comme avec ChatGPT, Gemini ou Claude : ils notent ta journée et créent des images, des ressources et des modèles 3D.",
+    "cerebro": "Les réseaux sociaux fragmentent ton attention et la technologie pense à ta place. MPH est la façon la plus complète et la plus amusante d'utiliser ton cerveau et de voir progresser les habitudes que tu choisis.",
+    "idiomas": "En 16 langues. Web, ordinateur et mobile. Avec des crédits d'IA, avec des modèles locaux gratuits… ou sans IA.",
+    "cta": "Essaie-la gratuitement. Ou fais-la tienne en un seul paiement.",
+    "eslogan": "Construis ton personnage en construisant tes habitudes. Conçois ta maison en concevant ton avenir."
+  },
+  "titulares": {
+    "gancho": "Et si le Tamagotchi, c'était toi ?",
+    "apps": "21 apps · 1 maison",
+    "disena": "Ta maison, tes apps",
+    "metas": "De vrais objectifs",
+    "ia": "IA en option",
+    "progreso": "Tes progrès, visibles",
+    "idiomas": "16 langues",
+    "plataformas": "Web · PC · Mobile",
+    "conSinIa": "Avec IA… ou sans"
+  },
+  "cierre": [
+    "Construis ton personnage, en construisant tes habitudes.",
+    "Conçois ta maison, en concevant ton avenir.",
+    "Conquiers les objectifs de chaque pièce, en venant à bout de tes tâches."
+  ],
+  "cta": {
+    "gratis": "Essayer gratuitement",
+    "tiendas": "Web · Windows · macOS · Android · iOS"
+  }
+}

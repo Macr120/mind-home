@@ -21,5 +21,8 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "web", "marketing"]
+  "include": ["src", "web", "marketing"],
+  // `marketing/promo` es un proyecto Remotion aparte, con sus propias dependencias
+  // y su propio tsconfig: aquí no compilaría (no hay `remotion` en la raíz).
+  "exclude": ["node_modules", "marketing/promo"]
 }

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-16 -16 389 138" width="389" height="138">
+  <!-- Logo de Mind Planner Home: solo las tres figuras, sin fondo (la marca),
+       con el mismo relieve que el icono de la app (icon.svg, que sí necesita
+       fondo opaco porque Android e iOS enmascaran la transparencia). El
+       viewBox deja margen para la sombra: las piezas ocupan 357×100 desde (0,0). -->
+  <defs>
+    <linearGradient id="naranja" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffc53f"/>
+      <stop offset="1" stop-color="#f6a413"/>
+    </linearGradient>
+    <linearGradient id="rojo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff6573"/>
+      <stop offset="1" stop-color="#f53b4b"/>
+    </linearGradient>
+    <linearGradient id="morado" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d199ff"/>
+      <stop offset="1" stop-color="#b36bfb"/>
+    </linearGradient>
+    <linearGradient id="brillo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".6"/>
+      <stop offset=".55" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="sombra" x="-30%" y="-40%" width="160%" height="220%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="7"/>
+      <feOffset dx="1" dy="7" result="desplazada"/>
+      <feFlood flood-color="#000" flood-opacity=".65"/>
+      <feComposite in2="desplazada" operator="in"/>
+    </filter>
+  </defs>
+  <g filter="url(#sombra)" transform="translate(3 3)">
+    <rect y="3" width="94" height="94" rx="20"/>
+    <path d="M137 0V100H237Z"/>
+    <path d="M257 0H357V100A100 100 0 0 1 257 0Z"/>
+  </g>
+  <g transform="translate(3 3)">
+    <rect y="3" width="94" height="94" rx="20" fill="#c14a05"/>
+    <path d="M137 0V100H237Z" fill="#8e0a24"/>
+    <path d="M257 0H357V100A100 100 0 0 1 257 0Z" fill="#8935d8"/>
+  </g>
+  <rect y="3" width="94" height="94" rx="20" fill="url(#naranja)"/>
+  <path d="M137 0V100H237Z" fill="url(#rojo)"/>
+  <path d="M257 0H357V100A100 100 0 0 1 257 0Z" fill="url(#morado)"/>
+  <g fill="none" stroke="url(#brillo)" stroke-width="1.5">
+    <rect y="3" width="94" height="94" rx="20"/>
+    <path d="M137 0V100H237Z"/>
+    <path d="M257 0H357V100A100 100 0 0 1 257 0Z"/>
+  </g>
+</svg>

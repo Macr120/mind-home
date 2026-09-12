@@ -1,0 +1,34 @@
+{
+  "idioma": "tr",
+  "lineas": {
+    "gancho": "Ya o Tamagotchi… sen olsaydın?",
+    "casa": "MPH, her odası bir uygulama olan 3D bir ev: mutfak, egzersiz, finans, hedefler, müzik…",
+    "disena": "Evini tasarla ve her odaya hangi uygulamanın gireceğine karar ver: eğlence, ders, yaratıcılık ve kendine bakım merkezin.",
+    "metas": "Ajandan, takvimin, seyir defterin ve gerçek hayattaki hedeflerine ulaşman için kişisel bir asistan.",
+    "ia": "Asistanlarınla ChatGPT, Gemini ya da Claude ile konuşur gibi konuş: gününü kaydeder; görseller, kaynaklar ve 3D modeller üretir.",
+    "cerebro": "Sosyal medya dikkatini parçalıyor, teknoloji senin yerine düşünüyor. MPH, beynini kullanmanın ve kendi seçtiğin alışkanlıkların büyüdüğünü görmenin en eksiksiz ve en eğlenceli yolu.",
+    "idiomas": "16 dilde. Web, masaüstü ve mobil. Yapay zekâ kredisiyle, ücretsiz yerel modellerle… ya da hiç yapay zekâ olmadan.",
+    "cta": "Ücretsiz dene. Ya da tek ödemeyle senin olsun.",
+    "eslogan": "Alışkanlıklarını kurarak karakterini kur. Evini tasarlarken geleceğini tasarla."
+  },
+  "titulares": {
+    "gancho": "Ya Tamagotchi sen olsaydın?",
+    "apps": "21 uygulama · 1 ev",
+    "disena": "Senin evin, senin uygulamaların",
+    "metas": "Gerçek hedefler",
+    "ia": "Yapay zekâ isteğe bağlı",
+    "progreso": "İlerlemen, görünür",
+    "idiomas": "16 dil",
+    "plataformas": "Web · PC · Mobil",
+    "conSinIa": "Yapay zekâ ile… ya da onsuz"
+  },
+  "cierre": [
+    "Alışkanlıklarını kurarak, karakterini kur.",
+    "Evini tasarlarken, geleceğini tasarla.",
+    "Odaların hedeflerini fethederken, yapılacaklarını bitir."
+  ],
+  "cta": {
+    "gratis": "Ücretsiz dene",
+    "tiendas": "Web · Windows · macOS · Android · iOS"
+  }
+}

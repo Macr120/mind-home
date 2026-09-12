@@ -1,0 +1,34 @@
+{
+  "idioma": "en",
+  "lineas": {
+    "gancho": "What if the Tamagotchi… were you?",
+    "casa": "MPH is a 3D house where every room is an app: kitchen, workouts, finances, goals, music…",
+    "disena": "Design your house and choose which app goes in each room: your hub for entertainment, study, creativity and self-care.",
+    "metas": "Your agenda, your calendar, your journal and a personal assistant to hit your goals in real life.",
+    "ia": "Talk to your assistants like you would with ChatGPT, Gemini or Claude: they log your day and create images, resources and 3D models.",
+    "cerebro": "Social media fragments your attention and technology thinks for you. MPH is the most complete and fun way to use your brain and watch the habits you choose grow.",
+    "idiomas": "In 16 languages. Web, desktop and mobile. With AI credits, with free local models… or with no AI at all.",
+    "cta": "Try it for free. Or make it yours with a single payment.",
+    "eslogan": "Build your character by building your habits. Design your house, designing your future."
+  },
+  "titulares": {
+    "gancho": "What if the Tamagotchi were you?",
+    "apps": "21 apps · 1 house",
+    "disena": "Your house, your apps",
+    "metas": "Real goals",
+    "ia": "Optional AI",
+    "progreso": "Your progress, visible",
+    "idiomas": "16 languages",
+    "plataformas": "Web · PC · Mobile",
+    "conSinIa": "With AI… or without"
+  },
+  "cierre": [
+    "Build your character, building your habits.",
+    "Design your house, designing your future.",
+    "Conquer the goals of each room, conquering your to-dos."
+  ],
+  "cta": {
+    "gratis": "Try it for free",
+    "tiendas": "Web · Windows · macOS · Android · iOS"
+  }
+}

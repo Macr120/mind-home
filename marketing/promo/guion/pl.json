@@ -1,0 +1,34 @@
+{
+  "idioma": "pl",
+  "lineas": {
+    "gancho": "A gdyby tamagotchi… było tobą?",
+    "casa": "MPH to dom 3D, w którym każdy pokój jest aplikacją: kuchnia, trening, finanse, cele, muzyka…",
+    "disena": "Zaprojektuj swój dom i zdecyduj, która aplikacja trafi do którego pokoju: twoje centrum rozrywki, nauki, kreatywności i dbania o siebie.",
+    "metas": "Twój terminarz, kalendarz, dziennik pokładowy i osobisty asystent, żebyś realizował swoje cele w prawdziwym życiu.",
+    "ia": "Rozmawiaj z asystentami jak z ChatGPT, Gemini czy Claude: zapisują twój dzień i tworzą obrazy, materiały i modele 3D.",
+    "cerebro": "Media społecznościowe rozpraszają twoją uwagę, a technologia myśli za ciebie. MPH to najpełniejszy i najfajniejszy sposób, żeby używać mózgu i widzieć, jak rosną nawyki, które sam wybierasz.",
+    "idiomas": "W 16 językach. Web, komputer i telefon. Z kredytami AI, z darmowymi modelami lokalnymi… albo zupełnie bez AI.",
+    "cta": "Wypróbuj za darmo. Albo zdobądź na własność za jedną opłatą.",
+    "eslogan": "Buduj postać, budując nawyki. Projektuj dom, projektując swoją przyszłość."
+  },
+  "titulares": {
+    "gancho": "A gdyby tamagotchi było tobą?",
+    "apps": "21 aplikacji · 1 dom",
+    "disena": "Twój dom, twoje aplikacje",
+    "metas": "Prawdziwe cele",
+    "ia": "AI opcjonalnie",
+    "progreso": "Twoje postępy, na widoku",
+    "idiomas": "16 języków",
+    "plataformas": "Web · PC · Telefon",
+    "conSinIa": "Z AI… albo bez"
+  },
+  "cierre": [
+    "Buduj postać, budując nawyki.",
+    "Projektuj dom, projektując przyszłość.",
+    "Zdobywaj cele pokoi, rozprawiając się z zadaniami."
+  ],
+  "cta": {
+    "gratis": "Wypróbuj za darmo",
+    "tiendas": "Web · Windows · macOS · Android · iOS"
+  }
+}

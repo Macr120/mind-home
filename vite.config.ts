@@ -16,7 +16,8 @@ export default defineConfig({
     // solo `dist-escritorio` el vigilante se come `node_modules` y el dev server
     // entra en bucle de HMR sin llegar a montar la app.
     watch: {
-      ignored: ['**/node_modules/**', '**/.git/**', '**/dist/**', '**/dist-escritorio/**'],
+      // `marketing/promo/` guarda los clips y renders del anuncio (cientos de MB).
+      ignored: ['**/node_modules/**', '**/.git/**', '**/dist/**', '**/dist-escritorio/**', '**/marketing/promo/**'],
     },
   },
   build: {

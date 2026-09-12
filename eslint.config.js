@@ -12,7 +12,8 @@ export default defineConfig([
   // `.claude/` puede contener worktrees de sesiones con su propio tsconfig:
   // si ESLint entra ahí, ve dos tsconfigRootDir candidatos y deja de parsear
   // TODO el proyecto (1554 errores idénticos, 0 reglas evaluadas).
-  globalIgnores(['dist', 'dist-web', 'android', 'ios', '.claude']),
+  // `marketing/promo/` es el proyecto Remotion del anuncio: deps y tsconfig propios.
+  globalIgnores(['dist', 'dist-web', 'android', 'ios', '.claude', 'marketing/promo']),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [

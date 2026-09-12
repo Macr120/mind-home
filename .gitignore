@@ -72,3 +72,13 @@ android/key.properties
 
 # Caché local de wrangler (pages deploy / dev)
 .wrangler/
+
+# Anuncio (Remotion, marketing/promo): clips grabados, voces, fuentes copiadas, renders
+# y el perfil del Chrome grabador; el guion (guion/*.json) y el codigo SI van.
+marketing/promo/out/
+marketing/promo/public/clips/
+marketing/promo/public/voz/
+marketing/promo/public/fuentes/
+marketing/promo/public/musica.mp3
+marketing/promo/src/generado/
+marketing/promo/perfil-chrome/
