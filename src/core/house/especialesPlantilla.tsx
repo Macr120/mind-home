@@ -1576,7 +1576,7 @@ function CaballeteArte({ color, simple = false, nivel = null, objetoId }: EspPro
           <meshStandardMaterial color={color} roughness={0.8} />
         </mesh>
       ))}
-      <mesh position={[0, 0.72, -0.42]} rotation={[-0.3, 0, 0]} castShadow>
+      <mesh position={[0, 0.72, -0.28]} rotation={[0.3, 0, 0]} castShadow>
         <boxGeometry args={[0.055, 1.5, 0.055]} />
         <meshStandardMaterial color={color} roughness={0.8} />
       </mesh>
@@ -1773,7 +1773,7 @@ function CamaraVideo({ color, simple = false, nivel = null, objetoId }: EspProps
       // Parpadeo de REC: encendido franco, apagado franco.
       mat.emissiveIntensity = (Math.sin(t * 4) > 0 ? 2.2 : 0.15) * e
     }
-    if (claqueta.current) claqueta.current.rotation.z = -Math.abs(Math.sin(t * 2.4)) * 0.5 * e
+    if (claqueta.current) claqueta.current.rotation.z = Math.abs(Math.sin(t * 2.4)) * 0.5 * e
   })
   return (
     <group ref={raiz}>

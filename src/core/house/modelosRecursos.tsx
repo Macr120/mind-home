@@ -1511,7 +1511,7 @@ export const SIEMBRA: Record<string, Siembra[]> = {
     { tipo: TIPO_TECLADO_MIDI, x: -0.9, z: -1.5, rotY: 15, principal: true },
     { recurso: 21, x: 1.35, z: 0.2, rotY: 270 },
     { recurso: 22, x: 2.3, z: -2.35 },
-    { recurso: 66, x: 0.1, z: 1.7, rotY: 180 },
+    { recurso: 66, x: 0.1, z: 1.7 },
     { recurso: 31, x: -2.4, z: 1.6 },
     { recurso: 104, x: 2.4, z: 2.4 },
   ],

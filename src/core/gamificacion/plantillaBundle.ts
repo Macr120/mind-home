@@ -1,9 +1,28 @@
 import { useDiseño, objetosDeCuarto } from '../state/disenoStore'
+import type { ObjetoCuarto, SiembraGuardada } from '../data/db'
 import { useCuartos } from '../state/cuartosStore'
 import { tipoYColor } from '../house/modelosRecursos'
 import { objetosDe } from '../state/objetosPlantillaStore'
 import { getPlantilla } from '../registry'
 import type { SideKey } from '../house/walls'
+
+/**
+ * La pareja de `s` que ya está en el cuarto. Dos objetos de la siembra que
+ * comparten x/z son un mueble y lo que va ENCIMA (el escritorio y su monitor,
+ * ver los comentarios de `SIEMBRA`). Si uno de los dos ya estaba en el cuarto
+ * —y por eso no se vuelve a sembrar—, el otro se coloca donde él esté y no en el
+ * hueco de la siembra: sin su mesa debajo, el monitor se queda flotando.
+ */
+function parejaExistente(
+  s: SiembraGuardada,
+  conjunto: SiembraGuardada[],
+  existentes: ObjetoCuarto[],
+): ObjetoCuarto | undefined {
+  const pareja = conjunto.find((o) => o !== s && o.x === s.x && o.z === s.z)
+  if (!pareja) return undefined
+  const { tipo } = tipoYColor(pareja)
+  return existentes.find((o) => o.tipo === tipo)
+}
 
 /** Objeto 3D por defecto que encarna una app cuando su plantilla no tiene conjunto. */
 const TIPO_OBJETO_APP = 'mesa'
@@ -81,14 +100,16 @@ export async function asignarPlantillaACuarto(
         }
         continue
       }
+      const apoyo = parejaExistente(s, siembra, existentes)
       const id = await addObjeto(
         cuartoId,
         tipo,
         color,
         esPrincipal ? plantillaId : undefined,
-        { x: s.x, z: s.z },
+        { x: apoyo?.x ?? s.x, z: apoyo?.z ?? s.z },
       )
-      if (s.rotY) await setObjetoRotacion(id, s.rotY)
+      const giro = apoyo?.rotY ?? s.rotY
+      if (giro) await setObjetoRotacion(id, giro)
       if (s.escala) await setObjetoEscala(id, s.escala)
       if (esPrincipal) idApp = id
     }
@@ -137,11 +158,14 @@ export async function asignarPlantillaAObjeto(
 
   const existentes = objetosDeCuarto(useDiseño.getState().objetos, cuartoId)
   const tiposPrevios = new Set(existentes.map((o) => o.tipo))
-  for (const s of soloPrincipal ? [] : objetosDe(plantillaId)) {
+  const conjunto = soloPrincipal ? [] : objetosDe(plantillaId)
+  for (const s of conjunto) {
     const { tipo, color } = tipoYColor(s)
     if (tiposPrevios.has(tipo)) continue
-    const id = await addObjeto(cuartoId, tipo, color, undefined, { x: s.x, z: s.z })
-    if (s.rotY) await setObjetoRotacion(id, s.rotY)
+    const apoyo = parejaExistente(s, conjunto, existentes)
+    const id = await addObjeto(cuartoId, tipo, color, undefined, { x: apoyo?.x ?? s.x, z: apoyo?.z ?? s.z })
+    const giro = apoyo?.rotY ?? s.rotY
+    if (giro) await setObjetoRotacion(id, giro)
     if (s.escala) await setObjetoEscala(id, s.escala)
   }
 
