@@ -16,16 +16,25 @@ type Seleccion = { tipo: 'nodo'; id: number } | { tipo: 'arista'; id: number } |
  * y estrena la NOTA de la conexión (un documento que se lee en pequeño en la
  * tarjeta de abajo o en grande en la hoja). Las posiciones viven en el propio
  * personaje (`Documento.relX/relY`) y las aristas en `relacionesLibro`.
+ *
+ * Es «otra carpeta» del libro: en grande ocupa la hoja del editor y en
+ * `compacto` vive dentro del panel (lienzo bajo, sin cabecera ni ayudas).
  */
 export function DiagramaRelaciones({
   historiaId,
-  alCerrar,
   onAbrirDoc,
+  compacto,
+  onGrande,
+  onPequeno,
 }: {
   historiaId: number
-  alCerrar: () => void
   /** Abrir en la hoja: la ficha del personaje o la nota de una conexión. */
   onAbrirDoc: (id: number) => void
+  /** Dentro del panel: lienzo bajo, sin cabecera, con «Ver en grande». */
+  compacto?: boolean
+  onGrande?: () => void
+  /** En grande: «Ver en pequeño en el panel». */
+  onPequeno?: () => void
 }) {
   const t = useT()
   const libro = (historiasRepo.useAll() ?? VACIO).find((h) => h.id === historiaId)
@@ -120,169 +129,205 @@ export function DiagramaRelaciones({
 
   const notaSel = arSel ? textoPlano(docsLibro.find((d) => d.id === arSel.docId)?.contenido ?? '') : ''
 
-  return (
-    <div className="mx-auto flex h-full w-full max-w-3xl flex-col gap-2">
-      <div className="flex shrink-0 flex-wrap items-center gap-2">
-        <BotonSecundario pequeno onClick={alCerrar} aria-label={t('escritura.editor.volver', 'Volver')}>
-          <Icono nombre="volver" /> {t('escritura.editor.volver', 'Volver')}
+  const cabecera = !compacto && (
+    <div className="flex shrink-0 flex-wrap items-center gap-2">
+      <p className="min-w-0 flex-1 truncate text-sm font-semibold">
+        {t('escritura.relaciones.titulo', 'Relaciones')}
+        {libro ? ` · ${libro.titulo}` : ''}
+      </p>
+      {sel?.tipo === 'nodo' && (
+        <BotonSecundario pequeno onClick={() => onAbrirDoc(sel.id)}>
+          <Icono nombre="editar" /> {t('escritura.relaciones.abrirFicha', 'Abrir ficha')}
         </BotonSecundario>
-        <p className="min-w-0 flex-1 truncate text-sm font-semibold">
-          {t('escritura.relaciones.titulo', 'Relaciones')}
-          {libro ? ` · ${libro.titulo}` : ''}
-        </p>
-        {sel?.tipo === 'nodo' && (
-          <BotonSecundario pequeno onClick={() => onAbrirDoc(sel.id)}>
-            <Icono nombre="editar" /> {t('escritura.relaciones.abrirFicha', 'Abrir ficha')}
-          </BotonSecundario>
+      )}
+      {onPequeno && (
+        <BotonSecundario pequeno onClick={onPequeno}>
+          <Icono nombre="carpeta" /> {t('escritura.relaciones.enPanel', 'Ver en pequeño en el panel')}
+        </BotonSecundario>
+      )}
+    </div>
+  )
+
+  const raiz = compacto ? 'space-y-1.5' : 'flex h-full min-h-0 w-full flex-col gap-2'
+
+  if (personajes.length === 0) {
+    return (
+      <div className={raiz}>
+        {cabecera}
+        {compacto ? (
+          <p className="px-2 py-1 text-[11px] text-white/40">
+            {t('escritura.relaciones.vacioSub', 'Crea personajes en las carpetas del libro y aquí dibujas cómo se relacionan.')}
+          </p>
+        ) : (
+          <Vacio
+            icono="vinculo"
+            titulo={t('escritura.relaciones.vacio', 'Aún no hay personajes')}
+            sub={t(
+              'escritura.relaciones.vacioSub',
+              'Crea personajes en las carpetas del libro y aquí dibujas cómo se relacionan.',
+            )}
+          />
         )}
       </div>
+    )
+  }
 
-      {personajes.length === 0 ? (
-        <Vacio
-          icono="vinculo"
-          titulo={t('escritura.relaciones.vacio', 'Aún no hay personajes')}
-          sub={t(
-            'escritura.relaciones.vacioSub',
-            'Crea personajes en las carpetas del libro y aquí dibujas cómo se relacionan.',
-          )}
-        />
-      ) : (
-        <>
-          <p className="shrink-0 text-xs text-white/45">
-            {sel?.tipo === 'nodo'
-              ? t('escritura.relaciones.eligeOtro', 'Ahora toca al otro personaje para unirlos.')
-              : t(
-                  'escritura.relaciones.ayuda',
-                  'Arrastra a los personajes para acomodarlos; toca uno y luego otro para unirlos.',
-                )}
-          </p>
-          <div
-            ref={lienzoRef}
-            className="relative min-h-0 flex-1 overflow-hidden rounded-xl border border-white/10 bg-black/20"
-            style={{ touchAction: 'none' }}
-          >
-            <svg className="absolute inset-0 h-full w-full">
-              {aristas.map((r) => {
-                const ia = personajes.findIndex((d) => d.id === r.aId)
-                const ib = personajes.findIndex((d) => d.id === r.bId)
-                if (ia < 0 || ib < 0) return null
-                const a = posDe(personajes[ia], ia)
-                const b = posDe(personajes[ib], ib)
-                const activa = sel?.tipo === 'arista' && sel.id === r.id
-                return (
-                  <g
-                    key={r.id}
-                    onClick={() => r.id != null && setSel(activa ? null : { tipo: 'arista', id: r.id })}
-                    className="cursor-pointer"
-                  >
-                    {/* Trazo ancho invisible: sin él la línea es imposible de tocar en móvil. */}
-                    <line
-                      x1={`${a.x * 100}%`}
-                      y1={`${a.y * 100}%`}
-                      x2={`${b.x * 100}%`}
-                      y2={`${b.y * 100}%`}
-                      stroke="transparent"
-                      strokeWidth={16}
-                    />
-                    <line
-                      x1={`${a.x * 100}%`}
-                      y1={`${a.y * 100}%`}
-                      x2={`${b.x * 100}%`}
-                      y2={`${b.y * 100}%`}
-                      stroke={activa ? 'var(--ui-accent)' : 'rgba(255,255,255,0.3)'}
-                      strokeWidth={activa ? 2.5 : 1.5}
-                    />
-                    <text
-                      x={`${((a.x + b.x) / 2) * 100}%`}
-                      y={`${((a.y + b.y) / 2) * 100}%`}
-                      dy={-5}
-                      textAnchor="middle"
-                      className="select-none"
-                      fill={activa ? 'rgba(255,255,255,0.95)' : 'rgba(255,255,255,0.6)'}
-                      fontSize={11}
-                    >
-                      {r.texto}
-                    </text>
-                  </g>
-                )
-              })}
-            </svg>
-            {personajes.map((d, i) => {
-              const p = posDe(d, i)
-              const activo = sel?.tipo === 'nodo' && sel.id === d.id
-              return (
-                <button
-                  key={d.id}
-                  type="button"
-                  onPointerDown={(e) => {
-                    if (d.id == null) return
-                    gestoRef.current = { id: d.id, x0: e.clientX, y0: e.clientY, movio: false }
-                    // El capture mantiene el arrastre aunque el dedo salga del chip; si el
-                    // puntero ya no está activo (clic automatizado) el tap sigue valiendo.
-                    try {
-                      e.currentTarget.setPointerCapture(e.pointerId)
-                    } catch {
-                      /* sin capture */
-                    }
-                  }}
-                  onPointerMove={(e) => {
-                    const g = gestoRef.current
-                    if (!g || g.id !== d.id) return
-                    if (!g.movio && Math.hypot(e.clientX - g.x0, e.clientY - g.y0) < 6) return
-                    g.movio = true
-                    const rel = relDeEvento(e)
-                    if (rel) setEnMano({ id: g.id, ...rel })
-                  }}
-                  onPointerUp={() => {
-                    const g = gestoRef.current
-                    gestoRef.current = null
-                    if (!g || g.id !== d.id) return
-                    if (g.movio && enMano && enMano.id === d.id) {
-                      // Sin tocar `actualizadoEn`: acomodar el diagrama no reordena nada.
-                      void documentosRepo.update(d.id!, { relX: enMano.x, relY: enMano.y })
-                      setEnMano(null)
-                    } else {
-                      setEnMano(null)
-                      tocarNodo(d)
-                    }
-                  }}
-                  className={`absolute max-w-36 -translate-x-1/2 -translate-y-1/2 cursor-grab truncate rounded-full border px-2.5 py-1 text-xs transition-colors ${
-                    activo
-                      ? 'border-accent bg-accent/25 font-semibold text-white'
-                      : 'border-white/20 bg-white/10 text-white/80 hover:bg-white/15'
-                  }`}
-                  style={{ left: `${p.x * 100}%`, top: `${p.y * 100}%` }}
+  return (
+    <div className={raiz}>
+      {cabecera}
+      {/* En pequeño solo se guía el segundo toque: el resto del espacio es para el lienzo. */}
+      {(!compacto || sel?.tipo === 'nodo') && (
+        <p className={`shrink-0 text-white/45 ${compacto ? 'px-1 text-[11px]' : 'text-xs'}`}>
+          {sel?.tipo === 'nodo'
+            ? t('escritura.relaciones.eligeOtro', 'Ahora toca al otro personaje para unirlos.')
+            : t(
+                'escritura.relaciones.ayuda',
+                'Arrastra a los personajes para acomodarlos; toca uno y luego otro para unirlos.',
+              )}
+        </p>
+      )}
+      <div
+        ref={lienzoRef}
+        className={`relative overflow-hidden rounded-xl border border-white/10 bg-black/20 ${
+          compacto ? 'h-44 shrink-0' : 'min-h-0 flex-1'
+        }`}
+        style={{ touchAction: 'none' }}
+      >
+        <svg className="absolute inset-0 h-full w-full">
+          {aristas.map((r) => {
+            const ia = personajes.findIndex((d) => d.id === r.aId)
+            const ib = personajes.findIndex((d) => d.id === r.bId)
+            if (ia < 0 || ib < 0) return null
+            const a = posDe(personajes[ia], ia)
+            const b = posDe(personajes[ib], ib)
+            const activa = sel?.tipo === 'arista' && sel.id === r.id
+            return (
+              <g
+                key={r.id}
+                onClick={() => r.id != null && setSel(activa ? null : { tipo: 'arista', id: r.id })}
+                className="cursor-pointer"
+              >
+                {/* Trazo ancho invisible: sin él la línea es imposible de tocar en móvil. */}
+                <line
+                  x1={`${a.x * 100}%`}
+                  y1={`${a.y * 100}%`}
+                  x2={`${b.x * 100}%`}
+                  y2={`${b.y * 100}%`}
+                  stroke="transparent"
+                  strokeWidth={16}
+                />
+                <line
+                  x1={`${a.x * 100}%`}
+                  y1={`${a.y * 100}%`}
+                  x2={`${b.x * 100}%`}
+                  y2={`${b.y * 100}%`}
+                  stroke={activa ? 'var(--ui-accent)' : 'color-mix(in srgb, var(--ui-ink) 35%, transparent)'}
+                  strokeWidth={activa ? 2.5 : 1.5}
+                />
+                <text
+                  x={`${((a.x + b.x) / 2) * 100}%`}
+                  y={`${((a.y + b.y) / 2) * 100}%`}
+                  dy={-5}
+                  textAnchor="middle"
+                  className="select-none"
+                  // Tinta del tema (no blanco fijo): en claro el blanco desaparecía sobre el lienzo.
+                  fill={activa ? 'var(--ui-ink)' : 'color-mix(in srgb, var(--ui-ink) 70%, transparent)'}
+                  fontSize={compacto ? 9 : 11}
                 >
-                  {d.titulo}
-                </button>
-              )
-            })}
-          </div>
+                  {r.texto}
+                </text>
+              </g>
+            )
+          })}
+        </svg>
+        {personajes.map((d, i) => {
+          const p = posDe(d, i)
+          const activo = sel?.tipo === 'nodo' && sel.id === d.id
+          return (
+            <button
+              key={d.id}
+              type="button"
+              onPointerDown={(e) => {
+                if (d.id == null) return
+                gestoRef.current = { id: d.id, x0: e.clientX, y0: e.clientY, movio: false }
+                // El capture mantiene el arrastre aunque el dedo salga del chip; si el
+                // puntero ya no está activo (clic automatizado) el tap sigue valiendo.
+                try {
+                  e.currentTarget.setPointerCapture(e.pointerId)
+                } catch {
+                  /* sin capture */
+                }
+              }}
+              onPointerMove={(e) => {
+                const g = gestoRef.current
+                if (!g || g.id !== d.id) return
+                if (!g.movio && Math.hypot(e.clientX - g.x0, e.clientY - g.y0) < 6) return
+                g.movio = true
+                const rel = relDeEvento(e)
+                if (rel) setEnMano({ id: g.id, ...rel })
+              }}
+              onPointerUp={() => {
+                const g = gestoRef.current
+                gestoRef.current = null
+                if (!g || g.id !== d.id) return
+                if (g.movio && enMano && enMano.id === d.id) {
+                  // Sin tocar `actualizadoEn`: acomodar el diagrama no reordena nada.
+                  void documentosRepo.update(d.id!, { relX: enMano.x, relY: enMano.y })
+                  setEnMano(null)
+                } else {
+                  setEnMano(null)
+                  tocarNodo(d)
+                }
+              }}
+              className={`absolute -translate-x-1/2 -translate-y-1/2 cursor-grab truncate rounded-full border transition-colors ${
+                compacto ? 'max-w-24 px-1.5 py-0.5 text-[10px]' : 'max-w-36 px-2.5 py-1 text-xs'
+              } ${
+                activo
+                  ? 'border-accent bg-accent/25 font-semibold text-white'
+                  : 'border-white/20 bg-white/10 text-white/80 hover:bg-white/15'
+              }`}
+              style={{ left: `${p.x * 100}%`, top: `${p.y * 100}%` }}
+            >
+              {d.titulo}
+            </button>
+          )
+        })}
+      </div>
 
-          {/* La nota de la conexión seleccionada, en pequeño aquí mismo. */}
-          {arSel && (
-            <div className="shrink-0 space-y-2 rounded-xl border border-white/10 bg-white/5 p-3">
-              <p className="truncate text-sm font-semibold">
-                {nombreDe(arSel.aId)} ↔ {nombreDe(arSel.bId)}
-                <span className="font-normal text-white/50"> · {arSel.texto}</span>
-              </p>
-              <p className="line-clamp-3 whitespace-pre-wrap text-xs text-white/60">
-                {notaSel || t('escritura.relaciones.sinNota', 'Sin nota aún: ábrela en la hoja y escríbela.')}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <BotonSecundario pequeno onClick={() => void abrirNota()}>
-                  <Icono nombre="expandir" /> {t('escritura.relaciones.abrirHoja', 'Abrir en la hoja')}
-                </BotonSecundario>
-                <BotonSecundario pequeno onClick={() => void renombrarArista()}>
-                  <Icono nombre="editar" /> {t('escritura.relaciones.renombrar', 'Cambiar la relación')}
-                </BotonSecundario>
-                <BotonPeligro pequeno onClick={() => void borrarArista()}>
-                  <Icono nombre="basura" /> {t('escritura.relaciones.borrar', 'Borrar relación')}
-                </BotonPeligro>
-              </div>
-            </div>
-          )}
-        </>
+      {compacto && sel?.tipo === 'nodo' && (
+        <BotonSecundario pequeno onClick={() => onAbrirDoc(sel.id)} className="w-full">
+          <Icono nombre="editar" /> {t('escritura.relaciones.abrirFicha', 'Abrir ficha')}
+        </BotonSecundario>
+      )}
+
+      {/* La nota de la conexión seleccionada, en pequeño aquí mismo. */}
+      {arSel && (
+        <div className={`shrink-0 space-y-2 rounded-xl border border-white/10 bg-white/5 ${compacto ? 'p-2' : 'p-3'}`}>
+          <p className={`truncate font-semibold ${compacto ? 'text-xs' : 'text-sm'}`}>
+            {nombreDe(arSel.aId)} ↔ {nombreDe(arSel.bId)}
+            <span className="font-normal text-white/50"> · {arSel.texto}</span>
+          </p>
+          <p className={`line-clamp-3 whitespace-pre-wrap text-white/60 ${compacto ? 'text-[11px]' : 'text-xs'}`}>
+            {notaSel || t('escritura.relaciones.sinNota', 'Sin nota aún: ábrela en la hoja y escríbela.')}
+          </p>
+          <div className={`flex flex-wrap ${compacto ? 'gap-1' : 'gap-2'}`}>
+            <BotonSecundario pequeno onClick={() => void abrirNota()}>
+              <Icono nombre="expandir" /> {t('escritura.relaciones.abrirHoja', 'Abrir en la hoja')}
+            </BotonSecundario>
+            <BotonSecundario pequeno onClick={() => void renombrarArista()}>
+              <Icono nombre="editar" /> {t('escritura.relaciones.renombrar', 'Cambiar la relación')}
+            </BotonSecundario>
+            <BotonPeligro pequeno onClick={() => void borrarArista()}>
+              <Icono nombre="basura" /> {t('escritura.relaciones.borrar', 'Borrar relación')}
+            </BotonPeligro>
+          </div>
+        </div>
+      )}
+
+      {compacto && onGrande && (
+        <BotonSecundario pequeno onClick={onGrande} className="w-full">
+          <Icono nombre="expandir" /> {t('escritura.ref.enGrande', 'Ver en grande')}
+        </BotonSecundario>
       )}
     </div>
   )

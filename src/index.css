@@ -1231,6 +1231,17 @@ html[data-modo-ui='transparente']
   margin: 0 0 0.5em;
   color: rgb(255 255 255 / 0.7);
 }
+/* La ficha en pequeño dentro de la barra del Studio de escritura: los mismos
+   bloques, con los títulos a escala del texto chico. */
+.mph-doc-mini h1 {
+  font-size: 1rem;
+}
+.mph-doc-mini h2 {
+  font-size: 0.9rem;
+}
+.mph-doc-mini h3 {
+  font-size: 0.85rem;
+}
 
 /*
  * Reglas CONSUMIDORAS del estilo de la interfaz (ver «ESTILO DE LA INTERFAZ»).

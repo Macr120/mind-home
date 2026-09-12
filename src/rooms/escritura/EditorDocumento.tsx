@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { Documento } from '../../core/data/db'
-import { documentosRepo, relacionesLibroRepo } from '../../core/data/repository'
+import { documentosRepo, historiasRepo, relacionesLibroRepo, VACIO } from '../../core/data/repository'
 import { descargarArchivo } from '../../core/descargarArchivo'
 import { useT } from '../../core/i18n/useT'
 import { imprimir, puedeImprimir } from '../../core/imprimir'
@@ -11,10 +11,22 @@ import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 import { BotonPrimario, BotonSecundario, Campo, INPUT, Modal, Spinner } from '../_shared/ui'
 import { COLOR, MAX_HTML, PALETA_TEXTO } from './constantes'
 import { OP_CONTINUAR, OP_MEJORAR, OP_REDACTAR, OP_RESUMIR } from './costosIA'
+import { DiagramaRelaciones } from './DiagramaRelaciones'
 import { continuar, mejorar, redactar, resumir } from './ia'
 import { IndiceDocumento } from './IndiceDocumento'
 import { extraerIndice, htmlIndice, irAEncabezado, type EntradaIndice } from './indice'
+import {
+  borrarPintado,
+  buscarMenciones,
+  cssMenciones,
+  esTipoRef,
+  fichasDe,
+  mencionEn,
+  pintarMenciones,
+  puntoBajo,
+} from './menciones'
 import { PanelHistoria } from './PanelHistoria'
+import { CabeceraFicha, GloboReferencia } from './Referencias'
 import { contarPalabras, escaparHtml, parrafosHtml, sanitizarHtml } from './sanitizarHtml'
 
 /** Hoja de impresión del documento (papel limpio tipo A4, serif). */
@@ -71,14 +83,11 @@ export function EditorDocumento({
   id,
   alCerrar,
   onIrADoc,
-  onRelaciones,
 }: {
   id: number
   alCerrar: () => void
   /** Cambia el documento abierto (las carpetas del libro dentro del editor). */
   onIrADoc?: (id: number) => void
-  /** Abre el diagrama de relaciones del libro del documento. */
-  onRelaciones?: (historiaId: number) => void
 }) {
   const t = useT()
   const editorRef = useRef<HTMLDivElement>(null)
@@ -94,6 +103,43 @@ export function EditorDocumento({
   // Las carpetas del libro viven aquí dentro: en escritorio arrancan abiertas
   // como columna; en móvil son un pop-up que se pide con el botón de la barra.
   const [panelHistoria, setPanelHistoria] = useState(() => window.matchMedia('(min-width: 768px)').matches)
+
+  // Qué ocupa la hoja: el documento o el diagrama de relaciones (otra «carpeta»
+  // del libro, en grande aquí o en pequeño dentro del panel). El documento
+  // sigue montado y oculto: el contentEditable guarda su HTML en el DOM.
+  const [vista, setVista] = useState<'hoja' | 'relaciones'>('hoja')
+  const [relacionesEnPanel, setRelacionesEnPanel] = useState(false)
+
+  // Referencias del libro: los nombres de sus fichas se marcan en el texto y
+  // llevan a su ficha (ver `menciones.ts`). Se pintan sobre el DOM vivo, sin
+  // tocar el HTML: el documento guardado no cambia.
+  const documentos = documentosRepo.useAll() ?? VACIO
+  const historias = historiasRepo.useAll() ?? VACIO
+  const docVivo = documentos.find((d) => d.id === id)
+  const historiaId = doc?.historiaId
+  const historia = historias.find((h) => h.id === historiaId)
+  const fichas = useMemo(
+    () => (historiaId != null ? fichasDe(documentos, historiaId, historia, id) : []),
+    [documentos, historia, historiaId, id],
+  )
+  // Solo lo que se pinta: así el autosave (que muta `documentos`) no repinta cada vez.
+  const firmaFichas = fichas.map((f) => `${f.id}|${f.nombres.join(',')}|${f.color}`).join('\n')
+  const fichasRef = useRef(fichas)
+  const mencionesRef = useRef<Map<number, Range[]>>(new Map())
+  const timerPintarRef = useRef(0)
+  const papelRef = useRef<HTMLDivElement>(null)
+  /** El globo bajo la mención donde está el caret (`docId` lo invalida al cambiar de hoja). */
+  const [globo, setGlobo] = useState<{ docId: number; id: number; top: number; left: number } | null>(null)
+  const fichaGlobo = globo && globo.docId === id ? fichas.find((f) => f.id === globo.id) : undefined
+
+  /** Busca las menciones en el texto vivo y las pinta. */
+  const repintar = () => {
+    const el = editorRef.current
+    if (!el) return
+    mencionesRef.current = buscarMenciones(el, fichasRef.current)
+    pintarMenciones(mencionesRef.current)
+  }
+  const repintarRef = useRef(repintar)
 
   // Panel de IA
   const [panelIA, setPanelIA] = useState(false)
@@ -133,11 +179,22 @@ export function EditorDocumento({
   useEffect(() => {
     tituloRef.current = titulo
     guardarRef.current = guardar
+    fichasRef.current = fichas
+    repintarRef.current = repintar
   })
+
+  // Repintar cuando cambian las fichas (nueva, renombrada, otro color); el
+  // efecto de arriba ya sincronizó `fichasRef` porque va antes en el orden.
+  useEffect(() => {
+    repintarRef.current()
+  }, [firmaFichas])
 
   /** Marca sucio, recuenta y reprograma el autosave (~1.5 s tras la última tecla). */
   const alInput = () => {
     sucioRef.current = true
+    // Las menciones se repintan antes que el guardado: que un nombre recién escrito se vea pronto.
+    window.clearTimeout(timerPintarRef.current)
+    timerPintarRef.current = window.setTimeout(() => repintarRef.current(), 400)
     window.clearTimeout(timerRef.current)
     timerRef.current = window.setTimeout(() => {
       setPalabras(editorRef.current ? contarPalabras(editorRef.current.innerText) : 0)
@@ -159,6 +216,7 @@ export function EditorDocumento({
       if (el) {
         el.innerHTML = sanitizarHtml(d.contenido)
         setEntradas(extraerIndice(el))
+        repintarRef.current()
       }
       // Que la negrita salga como <b> y no como span con estilo (lista blanca corta).
       document.execCommand('styleWithCSS', false, 'false')
@@ -171,8 +229,33 @@ export function EditorDocumento({
       vivo = false
       document.removeEventListener('visibilitychange', alOcultar)
       window.clearTimeout(timerRef.current)
+      window.clearTimeout(timerPintarRef.current)
+      mencionesRef.current = new Map()
+      borrarPintado()
       void guardarRef.current()
     }
+  }, [id])
+
+  // El globo de la mención: aparece cuando el caret (colapsado) entra en un nombre marcado.
+  useEffect(() => {
+    const alCambiar = () => {
+      const el = editorRef.current
+      const papel = papelRef.current
+      const sel = window.getSelection()
+      const nodo = sel && sel.rangeCount > 0 && sel.isCollapsed ? sel.anchorNode : null
+      const m = el && papel && nodo && el.contains(nodo) ? mencionEn(mencionesRef.current, nodo, sel!.anchorOffset) : null
+      if (!m || !papel) {
+        setGlobo((g) => (g ? null : g))
+        return
+      }
+      const r = m.rango.getBoundingClientRect()
+      const c = papel.getBoundingClientRect()
+      const top = Math.round(r.bottom - c.top + papel.scrollTop + 6)
+      const left = Math.round(Math.max(0, Math.min(r.left - c.left + papel.scrollLeft, papel.clientWidth - 264)))
+      setGlobo((g) => (g && g.docId === id && g.id === m.id && g.top === top && g.left === left ? g : { docId: id, id: m.id, top, left }))
+    }
+    document.addEventListener('selectionchange', alCambiar)
+    return () => document.removeEventListener('selectionchange', alCambiar)
   }, [id])
 
   // ─── Barra de formato ────────────────────────────────────────────────────
@@ -199,8 +282,66 @@ export function EditorDocumento({
 
   /** Cambia de ficha desde las carpetas (el efecto de carga guarda la actual antes). */
   const irAFicha = (nuevo: number) => {
+    setVista('hoja')
     if (nuevo !== id) onIrADoc?.(nuevo)
     if (!window.matchMedia('(min-width: 768px)').matches) setPanelHistoria(false)
+  }
+
+  /** «Ver en grande»: el diagrama de relaciones ocupa la hoja. */
+  const abrirRelacionesGrande = () => {
+    setVista('relaciones')
+    if (!window.matchMedia('(min-width: 768px)').matches) setPanelHistoria(false)
+  }
+
+  /** «Ver en pequeño en el panel»: vuelve el documento y el diagrama se despliega en su carpeta. */
+  const pasarRelacionesAlPanel = () => {
+    setVista('hoja')
+    setRelacionesEnPanel(true)
+    setPanelHistoria(true)
+  }
+
+  // Fichas desplegadas en pequeño dentro de la barra. Viven aquí y no en el
+  // panel para sobrevivir al cambio de hoja (y al cierre del panel en móvil).
+  const [fichasAbiertas, setFichasAbiertas] = useState<Set<number>>(new Set())
+  const alternarFicha = (ficha: number) =>
+    setFichasAbiertas((prev) => {
+      const sig = new Set(prev)
+      if (sig.has(ficha)) sig.delete(ficha)
+      else sig.add(ficha)
+      return sig
+    })
+
+  // La hoja anterior: a ella se vuelve al pasar una ficha «a pequeño en la barra».
+  const anteriorRef = useRef<number | null>(null)
+  useEffect(
+    () => () => {
+      anteriorRef.current = id
+    },
+    [id],
+  )
+
+  /**
+   * «Ver en pequeño en la barra»: la ficha se despliega en el panel y la hoja
+   * vuelve al texto anterior (o al más reciente del libro si se entró directo).
+   */
+  const pasarABarra = () => {
+    setFichasAbiertas((prev) => new Set(prev).add(id))
+    setPanelHistoria(true)
+    const delLibro = (x: Documento) => x.historiaId === historiaId && x.id !== id
+    let destino = anteriorRef.current
+    if (destino == null || !documentos.some((x) => x.id === destino && delLibro(x))) {
+      // `documentos` viene por `actualizadoEn` descendente: el primero es el más reciente.
+      destino = documentos.find(delLibro)?.id ?? null
+    }
+    if (destino != null) onIrADoc?.(destino)
+  }
+
+  /** Ctrl/⌘ + clic sobre una mención abre su ficha directo (el clic normal solo mueve el caret). */
+  const alClick = (e: React.MouseEvent) => {
+    if (!(e.ctrlKey || e.metaKey)) return
+    const p = puntoBajo(e.clientX, e.clientY)
+    const m = p && mencionEn(mencionesRef.current, p.nodo, p.offset)
+    if (m) irAFicha(m.id)
   }
 
   /** Borra la ficha abierta (un acto arrastra sus tramas) y vuelve a la estantería. */
@@ -365,6 +506,23 @@ export function EditorDocumento({
 
   return (
     <div className={`mx-auto flex h-full w-full ${anchoMax} flex-col gap-2`}>
+      {vista === 'relaciones' ? (
+        // El diagrama en grande: solo volver y (en móvil) las carpetas
+        <div className="flex shrink-0 items-center gap-2">
+          <BotonSecundario pequeno onClick={alCerrar} aria-label={t('escritura.libros.volver', 'Volver a los libros')}>
+            <Icono nombre="volver" /> {t('escritura.libros.volver', 'Volver a los libros')}
+          </BotonSecundario>
+          <span className="flex-1" />
+          {doc?.historiaId != null && onIrADoc && (
+            <BotonBarra
+              icono="carpeta"
+              etiqueta={t('escritura.historias.boton', 'Carpetas de la historia')}
+              onUsar={() => setPanelHistoria((v) => !v)}
+            />
+          )}
+        </div>
+      ) : (
+        <>
       {/* Cabecera: volver + título + contador */}
       <div className="flex shrink-0 items-center gap-2">
         <BotonSecundario pequeno onClick={alCerrar} aria-label={t('escritura.libros.volver', 'Volver a los libros')}>
@@ -492,6 +650,8 @@ export function EditorDocumento({
           <Icono nombre="brillo" /> {t('escritura.ia.boton', 'IA')}
         </BotonPrimario>
       </div>
+        </>
+      )}
 
       {grande && (
         <p className="shrink-0 rounded-lg border border-amber-400/30 bg-amber-400/10 px-3 py-1.5 text-xs text-amber-300">
@@ -507,10 +667,35 @@ export function EditorDocumento({
             docId={id}
             onIr={irAFicha}
             onCerrar={() => setPanelHistoria(false)}
-            onRelaciones={onRelaciones && (() => doc?.historiaId != null && onRelaciones(doc.historiaId))}
+            relacionesEnPanel={relacionesEnPanel}
+            relacionesEnHoja={vista === 'relaciones'}
+            onAlternarRelaciones={() => setRelacionesEnPanel((v) => !v)}
+            onRelacionesGrande={abrirRelacionesGrande}
+            abiertas={fichasAbiertas}
+            onAlternarFicha={alternarFicha}
           />
         )}
-        <div className="min-h-0 flex-1 overflow-y-auto rounded-xl border border-white/10 bg-black/20">
+        {vista === 'relaciones' && historiaId != null && (
+          <div className="min-h-0 flex-1">
+            <DiagramaRelaciones historiaId={historiaId} onAbrirDoc={irAFicha} onPequeno={pasarRelacionesAlPanel} />
+          </div>
+        )}
+        {/* Oculto (no desmontado) mientras el diagrama ocupa la hoja: el HTML vive en el DOM */}
+        <div
+          ref={papelRef}
+          hidden={vista !== 'hoja'}
+          className="relative flex min-h-0 flex-1 flex-col overflow-y-auto rounded-xl border border-white/10 bg-black/20"
+        >
+          {/* Una ficha lleva arriba su imagen, descripción y color de menciones */}
+          {docVivo && esTipoRef(docVivo.seccion) && (
+            <CabeceraFicha
+              key={docVivo.id}
+              doc={docVivo}
+              tipo={docVivo.seccion}
+              historia={historia}
+              onPequeno={historiaId != null && onIrADoc ? pasarABarra : undefined}
+            />
+          )}
           <div
             ref={editorRef}
             contentEditable={doc != null}
@@ -518,10 +703,16 @@ export function EditorDocumento({
             aria-multiline="true"
             aria-label={t('escritura.editor.area', 'Contenido del documento')}
             onInput={alInput}
-            className="mph-doc min-h-full px-5 py-4 text-[15px] outline-none"
+            onClick={alClick}
+            className="mph-doc flex-1 px-5 py-4 text-[15px] outline-none"
           />
+          {fichaGlobo && globo && (
+            <GloboReferencia ficha={fichaGlobo} top={globo.top} left={globo.left} onAbrir={() => irAFicha(globo.id)} />
+          )}
         </div>
-        {panelIndice && (
+        {/* El color de cada ficha en su capa de menciones (solo hex, ver menciones.ts) */}
+        {fichas.length > 0 && <style>{cssMenciones(fichas)}</style>}
+        {panelIndice && vista === 'hoja' && (
           <IndiceDocumento
             entradas={entradas}
             onIr={irA}

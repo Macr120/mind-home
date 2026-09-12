@@ -1,11 +1,136 @@
 import { useState, type ReactNode } from 'react'
-import type { Documento, RelacionLibro } from '../../core/data/db'
+import type { Documento, Historia, RelacionLibro } from '../../core/data/db'
 import { documentosRepo, historiasRepo, relacionesLibroRepo, VACIO } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
+import { VistaBlob } from '../_shared/ImagenIA'
+import { DiagramaRelaciones } from './DiagramaRelaciones'
 import { crearFicha, notaDeRelacion, CARPETAS, type CarpetaHistoria } from './fichas'
+import { colorDeCarpeta, colorDeFicha, esTipoRef, type TipoRef } from './menciones'
+import { FichaCompacta, PaletaColor } from './Referencias'
 import { textoPlano } from './sanitizarHtml'
+
+/**
+ * Una hoja en la lista; las fichas de referencia llevan su miniatura o su punto
+ * de color y, con el ojo, se despliegan en pequeño aquí mismo (leer y editar
+ * sin salir de la hoja abierta).
+ */
+function FilaDoc({
+  d,
+  activa,
+  historia,
+  sangrada,
+  onIr,
+  expandida,
+  onExpandir,
+}: {
+  d: Documento
+  activa: boolean
+  historia?: Historia
+  sangrada?: boolean
+  onIr: (id: number) => void
+  /** La ficha en pequeño está desplegada bajo la fila. */
+  expandida?: boolean
+  /** Solo fichas de referencia que no están abiertas en la hoja. */
+  onExpandir?: () => void
+}) {
+  const t = useT()
+  const tipo = esTipoRef(d.seccion) ? d.seccion : null
+  const color = tipo ? colorDeFicha(d, tipo, historia) : undefined
+  return (
+    <li className={sangrada ? 'ms-4' : ''}>
+      <div className="flex items-center">
+        <button
+          type="button"
+          onClick={() => d.id != null && onIr(d.id)}
+          title={d.descripcion}
+          className={`flex min-w-0 flex-1 items-center gap-1.5 rounded-lg px-2 py-1 text-left text-xs transition hover:bg-white/10 ${
+            activa ? 'bg-white/10 font-semibold text-white' : 'text-white/65'
+          }`}
+        >
+          {color &&
+            (d.imagen ? (
+              <VistaBlob blob={d.imagen} className="h-4 w-4 shrink-0 rounded" />
+            ) : (
+              <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: color }} />
+            ))}
+          <span className="min-w-0 flex-1 truncate">{d.titulo}</span>
+        </button>
+        {onExpandir && (
+          <button
+            type="button"
+            onClick={onExpandir}
+            aria-expanded={!!expandida}
+            aria-label={
+              expandida ? t('escritura.ref.ocultarFicha', 'Ocultar la ficha') : t('escritura.ref.verFicha', 'Ver la ficha aquí')
+            }
+            title={
+              expandida ? t('escritura.ref.ocultarFicha', 'Ocultar la ficha') : t('escritura.ref.verFicha', 'Ver la ficha aquí')
+            }
+            className="shrink-0 rounded-lg px-1 py-1 text-white/35 transition hover:bg-white/10 hover:text-white/80"
+          >
+            <Icono nombre={expandida ? 'ocultar' : 'ver'} />
+          </button>
+        )}
+      </div>
+      {expandida && tipo && (
+        <FichaCompacta doc={d} tipo={tipo} historia={historia} onGrande={() => d.id != null && onIr(d.id)} />
+      )}
+    </li>
+  )
+}
+
+/** Cabecera plegable de una carpeta (chevron + icono + conteo) y lo que cuelga de ella. */
+function Plegable({
+  abierta,
+  onAlternar,
+  icono,
+  titulo,
+  conteo,
+  activa,
+  extra,
+  bajoCabecera,
+  children,
+}: {
+  abierta: boolean
+  onAlternar: () => void
+  icono?: NombreIcono
+  titulo: string
+  conteo?: number
+  /** La carpeta está abierta en grande en la hoja (se resalta como una fila activa). */
+  activa?: boolean
+  /** Control a la derecha de la cabecera (el punto de color de la carpeta). */
+  extra?: ReactNode
+  /** Fila bajo la cabecera, visible aunque esté plegada (la paleta). */
+  bajoCabecera?: ReactNode
+  children: ReactNode
+}) {
+  return (
+    <div>
+      <div className="flex items-center">
+        <button
+          type="button"
+          onClick={onAlternar}
+          aria-expanded={abierta}
+          className={`flex min-w-0 flex-1 items-center gap-1.5 rounded-lg px-2 py-1 text-left text-[10px] font-semibold uppercase tracking-wide transition hover:bg-white/10 ${
+            activa ? 'bg-white/10 text-white' : 'text-white/45'
+          }`}
+        >
+          <span className="text-white/35">
+            <Icono nombre={abierta ? 'desplegado' : 'plegado'} />
+          </span>
+          {icono && <Icono nombre={icono} />}
+          <span className="min-w-0 flex-1 truncate">{titulo}</span>
+          {conteo != null && conteo > 0 && <span className="text-[10px] text-white/35">{conteo}</span>}
+        </button>
+        {extra}
+      </div>
+      {bajoCabecera}
+      {abierta && <div className="ms-3 space-y-0.5">{children}</div>}
+    </div>
+  )
+}
 
 /**
  * Las carpetas del libro DENTRO del editor: un árbol plegable por sección, con
@@ -18,15 +143,26 @@ export function PanelHistoria({
   docId,
   onIr,
   onCerrar,
-  onRelaciones,
+  relacionesEnPanel,
+  relacionesEnHoja,
+  onAlternarRelaciones,
+  onRelacionesGrande,
+  abiertas,
+  onAlternarFicha,
 }: {
   historiaId: number
   /** El documento abierto en el editor (se resalta en la lista). */
   docId: number
   onIr: (id: number) => void
   onCerrar: () => void
-  /** Abre el diagrama de relaciones entre personajes del libro. */
-  onRelaciones?: () => void
+  /** La carpeta «Relaciones»: desplegada en pequeño aquí, o abierta en grande en la hoja. */
+  relacionesEnPanel: boolean
+  relacionesEnHoja: boolean
+  onAlternarRelaciones: () => void
+  onRelacionesGrande: () => void
+  /** Fichas desplegadas en pequeño dentro de la barra (viven en el editor: sobreviven al cambio de hoja). */
+  abiertas: Set<number>
+  onAlternarFicha: (id: number) => void
 }) {
   const t = useT()
   const historia = (historiasRepo.useAll() ?? VACIO).find((h) => h.id === historiaId)
@@ -38,6 +174,8 @@ export function PanelHistoria({
   // Dexie no dejan todo cerrado al montar.
   const [tocadas, setTocadas] = useState<Set<string>>(new Set())
   const [notaAbierta, setNotaAbierta] = useState<number | null>(null)
+  /** La carpeta cuya paleta de color está desplegada. */
+  const [paleta, setPaleta] = useState<TipoRef | null>(null)
 
   const docActual = documentos.find((d) => d.id === docId)
   const porDefecto = new Set<string>()
@@ -74,50 +212,25 @@ export function PanelHistoria({
     onIr(await notaDeRelacion(r, `${nombreDe(r.aId)} ↔ ${nombreDe(r.bId)}`))
   }
 
-  const Fila = ({ d, sangrada }: { d: Documento; sangrada?: boolean }) => (
-    <li className={sangrada ? 'ms-4' : ''}>
-      <button
-        type="button"
-        onClick={() => d.id != null && onIr(d.id)}
-        className={`flex w-full items-center gap-1.5 rounded-lg px-2 py-1 text-left text-xs transition hover:bg-white/10 ${
-          d.id === docId ? 'bg-white/10 font-semibold text-white' : 'text-white/65'
-        }`}
-      >
-        <span className="min-w-0 flex-1 truncate">{d.titulo}</span>
-      </button>
-    </li>
-  )
+  /** El color de las menciones de toda una carpeta (sin tocar `actualizadoEn`: no reordena la estantería). */
+  const cambiarColorCarpeta = (tipo: TipoRef, color: string | undefined) => {
+    if (historia?.id == null) return
+    void historiasRepo.update(historia.id, { coloresRef: { ...historia.coloresRef, [tipo]: color } })
+  }
 
-  /** Cabecera plegable de una carpeta de sección (chevron + icono + conteo). */
-  const Plegable = ({
-    k,
-    icono,
-    titulo,
-    conteo,
-    children,
-  }: {
-    k: string
-    icono?: NombreIcono
-    titulo: string
-    conteo?: number
-    children: ReactNode
-  }) => (
-    <div>
-      <button
-        type="button"
-        onClick={() => alternar(k)}
-        aria-expanded={abierta(k)}
-        className="flex w-full items-center gap-1.5 rounded-lg px-2 py-1 text-left text-[10px] font-semibold uppercase tracking-wide text-white/45 transition hover:bg-white/10"
-      >
-        <span className="text-white/35">
-          <Icono nombre={abierta(k) ? 'desplegado' : 'plegado'} />
-        </span>
-        {icono && <Icono nombre={icono} />}
-        <span className="min-w-0 flex-1 truncate">{titulo}</span>
-        {conteo != null && conteo > 0 && <span className="text-[10px] text-white/35">{conteo}</span>}
-      </button>
-      {abierta(k) && <div className="ms-3 space-y-0.5">{children}</div>}
-    </div>
+  // La ficha abierta en la hoja no se despliega en pequeño: ya está en grande
+  // (y dos editores del mismo documento se pisarían).
+  const fila = (d: Documento, sangrada?: boolean) => (
+    <FilaDoc
+      key={d.id}
+      d={d}
+      activa={d.id === docId}
+      historia={historia}
+      sangrada={sangrada}
+      onIr={onIr}
+      expandida={d.id != null && d.id !== docId && abiertas.has(d.id)}
+      onExpandir={esTipoRef(d.seccion) && d.id != null && d.id !== docId ? () => onAlternarFicha(d.id!) : undefined}
+    />
   )
 
   return (
@@ -137,21 +250,45 @@ export function PanelHistoria({
         </button>
       </div>
 
-      {onRelaciones && (
-        <button
-          type="button"
-          onClick={onRelaciones}
-          className="mx-2 mt-1 flex shrink-0 items-center gap-1.5 rounded-lg px-2 py-1 text-start text-xs text-white/65 transition hover:bg-white/10 hover:text-white"
-        >
-          <Icono nombre="vinculo" /> {t('escritura.relaciones.boton', 'Relaciones entre personajes')}
-        </button>
-      )}
-
       <div className="min-h-0 flex-1 space-y-1 overflow-y-auto px-2 py-2">
         {CARPETAS.map((c) => {
           const propios = documentos.filter((d) => d.seccion === c.seccion)
+          // Las carpetas de fichas llevan el punto de color de sus menciones en el texto.
+          const tipo = esTipoRef(c.seccion) ? c.seccion : null
           return (
-            <Plegable key={c.seccion} k={c.seccion} icono={c.icono} titulo={t(c.clave, c.labelEs)} conteo={propios.length}>
+            <Plegable
+              key={c.seccion}
+              abierta={abierta(c.seccion)}
+              onAlternar={() => alternar(c.seccion)}
+              icono={c.icono}
+              titulo={t(c.clave, c.labelEs)}
+              conteo={propios.length}
+              extra={
+                tipo && (
+                  <button
+                    type="button"
+                    onClick={() => setPaleta((p) => (p === tipo ? null : tipo))}
+                    aria-expanded={paleta === tipo}
+                    aria-label={t('escritura.ref.colorCarpeta', 'Color de las menciones de esta carpeta')}
+                    title={t('escritura.ref.colorCarpeta', 'Color de las menciones de esta carpeta')}
+                    className="me-1 h-3 w-3 shrink-0 rounded-full border border-white/30 transition hover:scale-125"
+                    style={{ background: colorDeCarpeta(tipo, historia) }}
+                  />
+                )
+              }
+              bajoCabecera={
+                tipo &&
+                paleta === tipo && (
+                  <div className="my-1 ms-6">
+                    <PaletaColor
+                      valor={colorDeCarpeta(tipo, historia)}
+                      etiqueta={t('escritura.ref.colorCarpeta', 'Color de las menciones de esta carpeta')}
+                      onElegir={(color) => cambiarColorCarpeta(tipo, color)}
+                    />
+                  </div>
+                )
+              }
+            >
               {c.seccion === 'personaje' ? (
                 // Cada personaje es una subcarpeta con sus conexiones dentro.
                 propios.map((p) => {
@@ -168,9 +305,7 @@ export function PanelHistoria({
                         >
                           <Icono nombre={abierta(`p${p.id}`) ? 'desplegado' : 'plegado'} />
                         </button>
-                        <ul className="min-w-0 flex-1">
-                          <Fila d={p} />
-                        </ul>
+                        <ul className="min-w-0 flex-1">{fila(p)}</ul>
                       </div>
                       {abierta(`p${p.id}`) && (
                         <ul className="ms-5 space-y-0.5">
@@ -226,17 +361,11 @@ export function PanelHistoria({
                       >
                         <Icono nombre={abierta(`a${acto.id}`) ? 'desplegado' : 'plegado'} />
                       </button>
-                      <ul className="min-w-0 flex-1">
-                        <Fila d={acto} />
-                      </ul>
+                      <ul className="min-w-0 flex-1">{fila(acto)}</ul>
                     </div>
                     {abierta(`a${acto.id}`) && (
                       <ul className="ms-5 space-y-0.5">
-                        {documentos
-                          .filter((d) => d.actoId === acto.id)
-                          .map((tr) => (
-                            <Fila key={tr.id} d={tr} />
-                          ))}
+                        {documentos.filter((d) => d.actoId === acto.id).map((tr) => fila(tr))}
                         <li>
                           <BotonNuevo
                             onClick={() => void crear(c, acto.id)}
@@ -248,16 +377,30 @@ export function PanelHistoria({
                   </div>
                 ))
               ) : (
-                <ul className="space-y-0.5">
-                  {propios.map((d) => (
-                    <Fila key={d.id} d={d} />
-                  ))}
-                </ul>
+                <ul className="space-y-0.5">{propios.map((d) => fila(d))}</ul>
               )}
               <BotonNuevo onClick={() => void crear(c)} texto={t(c.claveNuevo, c.nuevoEs)} />
             </Plegable>
           )
         })}
+
+        {/* Las relaciones entre personajes son otra carpeta: el diagrama en pequeño aquí, o en grande en la hoja */}
+        <Plegable
+          abierta={relacionesEnPanel}
+          onAlternar={onAlternarRelaciones}
+          icono="vinculo"
+          titulo={t('escritura.relaciones.titulo', 'Relaciones')}
+          conteo={relaciones.length}
+          activa={relacionesEnHoja}
+        >
+          {relacionesEnHoja ? (
+            <p className="px-2 py-1 text-[11px] text-white/40">
+              {t('escritura.relaciones.enHoja', 'Abiertas en grande en la hoja.')}
+            </p>
+          ) : (
+            <DiagramaRelaciones historiaId={historiaId} compacto onAbrirDoc={onIr} onGrande={onRelacionesGrande} />
+          )}
+        </Plegable>
       </div>
     </div>
   )

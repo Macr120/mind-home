@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { documentosRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
-import { DiagramaRelaciones } from './DiagramaRelaciones'
 import { EditorDocumento } from './EditorDocumento'
 import { ListaLibros } from './ListaLibros'
 
@@ -13,7 +12,6 @@ import { ListaLibros } from './ListaLibros'
 export function EscrituraApp() {
   const t = useT()
   const [docAbierto, setDocAbierto] = useState<number | null>(null)
-  const [relacionesDe, setRelacionesDe] = useState<number | null>(null)
 
   /** Abre el texto más reciente del libro; un libro vacío estrena su primer capítulo. */
   const abrirLibro = async (id: number) => {
@@ -35,27 +33,8 @@ export function EscrituraApp() {
     setDocAbierto(docId)
   }
 
-  if (relacionesDe != null) {
-    return (
-      <DiagramaRelaciones
-        historiaId={relacionesDe}
-        alCerrar={() => setRelacionesDe(null)}
-        onAbrirDoc={(id) => {
-          setRelacionesDe(null)
-          setDocAbierto(id)
-        }}
-      />
-    )
-  }
   if (docAbierto != null) {
-    return (
-      <EditorDocumento
-        id={docAbierto}
-        alCerrar={() => setDocAbierto(null)}
-        onIrADoc={setDocAbierto}
-        onRelaciones={setRelacionesDe}
-      />
-    )
+    return <EditorDocumento id={docAbierto} alCerrar={() => setDocAbierto(null)} onIrADoc={setDocAbierto} />
   }
   return <ListaLibros onAbrir={(id) => void abrirLibro(id)} />
 }

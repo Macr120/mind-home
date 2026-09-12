@@ -3629,6 +3629,11 @@ export interface Historia {
   tipo?: TipoLibro
   creadoEn: string
   actualizadoEn: string
+  /**
+   * Color con el que se marcan en el texto las menciones de cada carpeta de
+   * fichas (personajes, lugares, actos); ausente = color de fábrica. NO se indexa.
+   */
+  coloresRef?: Partial<Record<'personaje' | 'lugar' | 'acto', string>>
   /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
   ejemploDe?: string
 }
@@ -3657,6 +3662,14 @@ export interface Documento {
   relY?: number
   creadoEn: string
   actualizadoEn: string
+  /** Solo fichas (personaje/lugar/acto): resumen de una o dos líneas. NO se indexa. */
+  descripcion?: string
+  /** Solo fichas: otros nombres con los que se la menciona en el texto, separados por comas. NO se indexa. */
+  alias?: string
+  /** Solo fichas: retrato o ilustración (subida o generada con IA). Sin índice; el sync la lleva sola. */
+  imagen?: Blob
+  /** Solo fichas: color propio de sus menciones en el texto; ausente = el de su carpeta. NO se indexa. */
+  color?: string
   /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
   ejemploDe?: string
 }
