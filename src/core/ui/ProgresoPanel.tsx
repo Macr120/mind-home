@@ -1,8 +1,9 @@
-import { useState } from 'react'
-import { Canvas } from '@react-three/fiber'
+import { useEffect, useRef, useState } from 'react'
+import { Canvas, useFrame } from '@react-three/fiber'
+import * as THREE from 'three'
 import { useShallow } from 'zustand/react/shallow'
 import { AvatarModelo } from '../house/AvatarModelo'
-import { useDiseño } from '../state/disenoStore'
+import { useDiseño, type Avatar } from '../state/disenoStore'
 import { useCuartos } from '../state/cuartosStore'
 import {
   EMOJI_HUMOR,
@@ -107,6 +108,45 @@ function RadarCuartos({ enfoques }: { enfoques: ProgresoPlantilla[] }) {
   )
 }
 
+/** Dirección de cámara del render compacto; a esa distancia encuadra al cuerpo Base. */
+const CAMARA_MINI = new THREE.Vector3(1.5, 1.3, 3)
+/** Altura (unidades de la escena) que esa cámara encuadra con holgura. */
+const ALTO_ENCUADRE_MINI = 1.75
+const _cajaMini = new THREE.Box3()
+
+/**
+ * Avatar centrado en el origen y encuadrado según su caja real: los presets de
+ * cabeza grande, la escala del personaje o un GLB propio desbordaban la cámara
+ * fija y salían cortados. Mide durante unos frames tras cada cambio del avatar
+ * (los GLB aterrizan por Suspense) y luego deja la cámara quieta.
+ */
+function AvatarEncuadrado({ av }: { av: Avatar }) {
+  const grupo = useRef<THREE.Group>(null)
+  const restantes = useRef(0)
+  useEffect(() => {
+    restantes.current = 90
+  }, [av])
+  useFrame(({ camera, viewport }) => {
+    const g = grupo.current
+    if (!g || restantes.current <= 0) return
+    restantes.current--
+    _cajaMini.setFromObject(g)
+    if (_cajaMini.isEmpty()) return
+    const alto = _cajaMini.max.y - _cajaMini.min.y
+    const ancho = Math.hypot(_cajaMini.max.x - _cajaMini.min.x, _cajaMini.max.z - _cajaMini.min.z)
+    // La caja va en coordenadas de mundo: restar su centro deja el modelo en el origen.
+    g.position.y -= (_cajaMini.max.y + _cajaMini.min.y) / 2
+    const factor = Math.max(1, alto / ALTO_ENCUADRE_MINI, ancho / (ALTO_ENCUADRE_MINI * viewport.aspect))
+    camera.position.copy(CAMARA_MINI).multiplyScalar(factor)
+    camera.lookAt(0, 0, 0)
+  })
+  return (
+    <group ref={grupo} position={[0, -0.85, 0]}>
+      <AvatarModelo av={av} />
+    </group>
+  )
+}
+
 /** Render 3D compacto del avatar del jugador (el mismo modelo que en la casa).
  * Exportado: la portada del Wrapped también lo muestra. */
 export function AvatarMini() {
@@ -116,10 +156,7 @@ export function AvatarMini() {
       <ambientLight intensity={0.9} />
       <directionalLight position={[4, 8, 5]} intensity={1.1} />
       <directionalLight position={[-4, 3, -3]} intensity={0.35} />
-      {/* Centra el avatar en el origen (la cámara mira ahí por defecto). */}
-      <group position={[0, -0.85, 0]}>
-        <AvatarModelo av={avatar} />
-      </group>
+      <AvatarEncuadrado av={avatar} />
     </Canvas>
   )
 }

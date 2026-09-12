@@ -586,6 +586,8 @@ export const EMOJIS = {
   vinilo: '💿',
   iman: '🧲',
   transicion: '🌗',
+  // Icono de la app Video.
+  fotogramas: '🎞️',
   // 🔍 pertenece a 'lupa' en el mapa inverso; aquí solo se usa por nombre.
   acercar: '🔍',
   alejar: '🔎',

@@ -963,6 +963,7 @@ export const SVGS: Record<NombreIcono, LucideIcon> = {
   vinilo: Disc3,
   iman: Magnet,
   transicion: Blend,
+  fotogramas: Film,
   acercar: ZoomIn,
   alejar: ZoomOut,
   contraer: Minimize2,
