@@ -5912,6 +5912,54 @@ class MindHomeDB extends Dexie {
     this.version(137).stores({
       formasLibres: '++id, nivel, &uid',
     })
+
+    // v138: la misma fila, dos veces. `disenoRooms` tiene una fila por `roomId`
+    // (el cielo, el tema, cada cuarto) y `asistentes` una por `asistenteId`,
+    // pero ninguna de las dos claves era índice ÚNICO: dos dispositivos que
+    // crearan la fila por su cuenta la subían con uid distinto y el pull la
+    // sumaba en vez de fundirla. La casa quedaba pegada, porque la app ESCRIBE
+    // en la primera copia (`.first()`) y LEE la última: «Sin tema» no quitaba
+    // ni el cielo del tema ni el atuendo de los asistentes por más veces que se
+    // pulsara. Se funden por LWW —gana el `updatedAt` mayor, el mismo criterio
+    // que el sync— y las copias que sobran las tombstonea el middleware al
+    // borrarlas, así que la nube y los demás dispositivos convergen.
+    this.version(138).upgrade(async (tx) => {
+      await fundirPorClave(tx.table('disenoRooms'), 'roomId')
+      await fundirPorClave(tx.table('asistentes'), 'asistenteId')
+    })
+
+    // v139: y de aquí en adelante la clave lógica es única, así que un registro
+    // remoto que choque con la fila local se resuelve por LWW en `motor.ts`
+    // (`CLAVES_UNICAS`) en vez de multiplicarse. Va en su propia versión: el
+    // índice se construye DESPUÉS del fundido de la v138.
+    this.version(139).stores({
+      disenoRooms: '++id, &roomId, &uid',
+      asistentes: '++id, &asistenteId, &uid',
+    })
+  }
+}
+
+/**
+ * Deja una sola fila por clave lógica: gana el `updatedAt` mayor (LWW, como el
+ * sync) y, en empate, la más antigua. Para los upgrades que estrenan un índice
+ * único sobre una tabla que ya acumuló copias.
+ */
+async function fundirPorClave(tabla: Table<unknown, number>, clave: string): Promise<void> {
+  const filas = (await tabla.toArray()) as Record<string, unknown>[]
+  const porClave = new Map<unknown, Record<string, unknown>[]>()
+  for (const f of filas) {
+    if (f[clave] == null || f.id == null) continue
+    const copias = porClave.get(f[clave])
+    if (copias) copias.push(f)
+    else porClave.set(f[clave], [f])
+  }
+  for (const copias of porClave.values()) {
+    if (copias.length <= 1) continue
+    copias.sort(
+      (a, b) =>
+        (Number(b.updatedAt) || 0) - (Number(a.updatedAt) || 0) || Number(a.id) - Number(b.id),
+    )
+    for (const sobra of copias.slice(1)) await tabla.delete(sobra.id as number)
   }
 }
 

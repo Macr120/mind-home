@@ -417,4 +417,11 @@ export const CLAVES_UNICAS: Record<string, string[]> = {
   // crearían dos filas en vez de converger en una.
   carpetasFormula: ['carpetaId'],
   formulas: ['formulaId'],
+  // El diseño de la casa va por `roomId` —una fila por cuarto y una por ajuste
+  // global (`__fondo__`, `__tema__`, `__techo_tipo__`…)— y los asistentes por
+  // `asistenteId`: sin esto, la casa que ya tenía la fila y el dispositivo que
+  // la creaba de nuevo acababan con dos, y la app leía una y escribía la otra
+  // (v138/v139 de `db.ts`).
+  disenoRooms: ['roomId'],
+  asistentes: ['asistenteId'],
 }
