@@ -12,7 +12,7 @@
     "eslogan": "Build your character by building your habits. Design your house, designing your future."
   },
   "titulares": {
-    "gancho": "What if the Tamagotchi were you?",
+    "gancho": "What if you were a Tamagotchi?",
     "apps": "21 apps · 1 house",
     "disena": "Your house, your apps",
     "metas": "Real goals",
@@ -20,7 +20,8 @@
     "progreso": "Your progress, visible",
     "idiomas": "16 languages",
     "plataformas": "Web · PC · Mobile",
-    "conSinIa": "With AI… or without"
+    "conSinIa": "With AI… or without",
+    "personaliza": "Customize your house"
   },
   "cierre": [
     "Build your character, building your habits.",

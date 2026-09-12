@@ -12,7 +12,7 @@
     "eslogan": "Bangun karaktermu dengan membangun kebiasaanmu. Rancang rumahmu, rancang masa depanmu."
   },
   "titulares": {
-    "gancho": "Kalau Tamagotchi itu kamu?",
+    "gancho": "Bagaimana kalau kamu adalah Tamagotchi?",
     "apps": "21 aplikasi · 1 rumah",
     "disena": "Rumahmu, aplikasimu",
     "metas": "Target nyata",
@@ -20,7 +20,8 @@
     "progreso": "Kemajuanmu, terlihat",
     "idiomas": "16 bahasa",
     "plataformas": "Web · PC · Ponsel",
-    "conSinIa": "Dengan AI… atau tanpa"
+    "conSinIa": "Dengan AI… atau tanpa",
+    "personaliza": "Sesuaikan rumahmu"
   },
   "cierre": [
     "Bangun karaktermu, dengan membangun kebiasaanmu.",

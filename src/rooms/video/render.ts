@@ -187,9 +187,26 @@ function pintarFuente(
 
 // ─── Texto ───────────────────────────────────────────────────────────────────
 
+/** Trozos de una palabra que no cabe sola en una línea (japonés, chino…: escrituras sin espacios), por caracteres. */
+function partirPalabra(ctx: CanvasRenderingContext2D, palabra: string, maxAncho: number): string[] {
+  if (ctx.measureText(palabra).width <= maxAncho) return [palabra]
+  const trozos: string[] = []
+  let trozo = ''
+  for (const c of palabra) {
+    if (trozo && ctx.measureText(trozo + c).width > maxAncho) {
+      trozos.push(trozo)
+      trozo = c
+    } else {
+      trozo += c
+    }
+  }
+  if (trozo) trozos.push(trozo)
+  return trozos
+}
+
 /** Wrap por palabras con la fuente YA puesta en `ctx`; lo que no cabe en `maxLineas` se pierde. */
 function partirLineas(ctx: CanvasRenderingContext2D, texto: string, maxAncho: number, maxLineas: number): string[] {
-  const palabras = texto.split(/\s+/)
+  const palabras = texto.split(/\s+/).flatMap((p) => partirPalabra(ctx, p, maxAncho))
   const lineas: string[] = []
   let linea = ''
   for (const palabra of palabras) {

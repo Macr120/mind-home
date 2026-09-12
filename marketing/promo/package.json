@@ -10,6 +10,7 @@
     "voz": "node voz.mjs",
     "grabar": "node grabar/grabar.mjs",
     "render": "node render-todos.mjs",
+    "app": "node empaquetar-studio.mjs",
     "tipos": "tsc --noEmit"
   },
   "dependencies": {

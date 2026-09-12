@@ -14,11 +14,12 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { ESCENAS } from './escenas.mjs'
 import { codigoGrabar } from './grabador-pagina.mjs'
-import { ajustarVentana, arrancarChrome, conNavegador, conSesion, dormir, esperarDemo, gpu, intacto, AYUDAS } from './sesion.mjs'
+import { ajustarVentana, arrancarChrome, conNavegador, conSesion, dormir, esperarDemo, gpu, intacto, AYUDAS, PERFIL } from './sesion.mjs'
 
 const RAIZ = path.dirname(fileURLToPath(import.meta.url))
 const CLIPS = path.join(RAIZ, '..', 'public', 'clips')
-const DESCARGAS = path.join(RAIZ, '..', 'perfil-chrome', 'descargas')
+// Dentro del perfil de la instancia: dos grabadores en paralelo no se pisan las descargas.
+const DESCARGAS = path.join(PERFIL, 'descargas')
 const FFMPEG = process.env.FFMPEG || 'ffmpeg'
 const FFPROBE = process.env.FFPROBE || 'ffprobe'
 const IDIOMAS = ['es', 'en', 'pt', 'fr', 'de', 'it', 'ja', 'zh', 'ko', 'ru', 'hi', 'tr', 'id', 'pl', 'nl', 'ar']

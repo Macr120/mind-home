@@ -24,9 +24,34 @@ node render-todos.mjs            # 4. out/<id>.mp4 (o `es en` para unos pocos)
 Desde la raíz del repo: `npm run promo:voz`, `promo:grabar`, `promo:preparar`,
 `promo:studio`, `promo:render` (aceptan idiomas sueltos tras `--`).
 
+## El anuncio dentro de la app (contenido de fábrica del Studio de video)
+
+```bash
+node empaquetar-studio.mjs               # o, desde la raíz, npm run promo:app
+node empaquetar-studio.mjs --sin-medios  # solo el montaje (reusa public/promo/)
+```
+
+Deja el anuncio como **proyecto de fábrica del Studio de video** de la app: las
+tomas en la pista principal (recortadas a lo que usa el montaje, H.264 crf 28,
+≈7 MB por set), la captura de escritorio, los rótulos, la voz en off línea a
+línea (48 kb/s mono, ≈0,4 MB por idioma, con los silencios de edge-tts
+recortados: 0,05 s delante, pausas de 0,4 s y 0,2 s detrás), los efectos de la
+carpeta de sonidos de fábrica (`sfx` por toma con el corte, `tras` por escena
+DESPUÉS de su línea de voz, en `ESCENAS` del empaquetador) y el cierre.
+Escribe `public/promo/` de la app (clips `es` y `en` —el español ve los suyos,
+los demás idiomas los ingleses—, el calendario de cada idioma grabado para la
+ráfaga «16 idiomas», voces de los 16 y `musica.mp3` si existe) y el montaje
+resuelto por idioma en `src/rooms/video/promo.data.ts`. La app lo siembra desde
+`src/rooms/video/promo.ts` al abrir el Studio (casa real y demo); es un proyecto
+normal, se edita y se borra. Repetir tras cambiar guion, voces o clips.
+
 Todo acepta idiomas sueltos (`node grabar/grabar.mjs es ja ar`). `voz.mjs`
 admite `--solo=gancho,cta` y `--rate=+10%`; `grabar.mjs` admite
 `--escena=02-casa-gira,07-baile` y `--spike` (deja el crudo del navegador).
+Varias grabaciones EN PARALELO (idiomas repartidos): cada instancia con su
+puerto CDP y su perfil, `GRABAR_PUERTO=9335 GRABAR_PERFIL=perfil-chrome-2 node
+grabar/grabar.mjs id pl` (las descargas van dentro de ese perfil). Tres a la
+vez van bien en la RTX 5070 Ti.
 
 ## Qué es cada cosa
 

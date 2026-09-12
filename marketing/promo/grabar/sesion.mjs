@@ -7,7 +7,9 @@ import { mkdirSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-export const PORT = 9334
+// Varias instancias en paralelo (idiomas repartidos): cada una con su puerto CDP
+// y su perfil de Chrome, p. ej. GRABAR_PUERTO=9335 GRABAR_PERFIL=perfil-chrome-2.
+export const PORT = Number(process.env.GRABAR_PUERTO || 9334)
 export const CHROME = process.env.CHROME || 'C:/Program Files/Google/Chrome/Application/chrome.exe'
 export const APP = process.env.MPH_APP || 'http://localhost:53378/'
 /** Viewport CSS del teléfono; a escala 3 da exactamente 1080×1920 (2,07 MP: bajo el techo que revienta WebGL). */
@@ -15,7 +17,7 @@ export const W = 360
 export const H = 640
 export const DSF = 3
 const RAIZ = path.dirname(fileURLToPath(import.meta.url))
-export const PERFIL = path.join(RAIZ, '..', 'perfil-chrome')
+export const PERFIL = process.env.GRABAR_PERFIL ? path.resolve(RAIZ, '..', process.env.GRABAR_PERFIL) : path.join(RAIZ, '..', 'perfil-chrome')
 
 export const dormir = (ms) => new Promise((r) => setTimeout(r, ms))
 export const lista = async () => (await fetch(`http://127.0.0.1:${PORT}/json/list`)).json()

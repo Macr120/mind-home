@@ -12,7 +12,7 @@
     "eslogan": "Buduj postać, budując nawyki. Projektuj dom, projektując swoją przyszłość."
   },
   "titulares": {
-    "gancho": "A gdyby tamagotchi było tobą?",
+    "gancho": "A gdybyś to ty był tamagotchi?",
     "apps": "21 aplikacji · 1 dom",
     "disena": "Twój dom, twoje aplikacje",
     "metas": "Prawdziwe cele",
@@ -20,7 +20,8 @@
     "progreso": "Twoje postępy, na widoku",
     "idiomas": "16 języków",
     "plataformas": "Web · PC · Telefon",
-    "conSinIa": "Z AI… albo bez"
+    "conSinIa": "Z AI… albo bez",
+    "personaliza": "Urządź swój dom"
   },
   "cierre": [
     "Buduj postać, budując nawyki.",

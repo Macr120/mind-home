@@ -12,7 +12,7 @@
     "eslogan": "Construis ton personnage en construisant tes habitudes. Conçois ta maison en concevant ton avenir."
   },
   "titulares": {
-    "gancho": "Et si le Tamagotchi, c'était toi ?",
+    "gancho": "Et si tu étais un Tamagotchi ?",
     "apps": "21 apps · 1 maison",
     "disena": "Ta maison, tes apps",
     "metas": "De vrais objectifs",
@@ -20,7 +20,8 @@
     "progreso": "Tes progrès, visibles",
     "idiomas": "16 langues",
     "plataformas": "Web · PC · Mobile",
-    "conSinIa": "Avec IA… ou sans"
+    "conSinIa": "Avec IA… ou sans",
+    "personaliza": "Personnalise ta maison"
   },
   "cierre": [
     "Construis ton personnage, en construisant tes habitudes.",

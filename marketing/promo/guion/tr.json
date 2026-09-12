@@ -12,7 +12,7 @@
     "eslogan": "Alışkanlıklarını kurarak karakterini kur. Evini tasarlarken geleceğini tasarla."
   },
   "titulares": {
-    "gancho": "Ya Tamagotchi sen olsaydın?",
+    "gancho": "Ya sen bir Tamagotchi olsaydın?",
     "apps": "21 uygulama · 1 ev",
     "disena": "Senin evin, senin uygulamaların",
     "metas": "Gerçek hedefler",
@@ -20,7 +20,8 @@
     "progreso": "İlerlemen, görünür",
     "idiomas": "16 dil",
     "plataformas": "Web · PC · Mobil",
-    "conSinIa": "Yapay zekâ ile… ya da onsuz"
+    "conSinIa": "Yapay zekâ ile… ya da onsuz",
+    "personaliza": "Evini kişiselleştir"
   },
   "cierre": [
     "Alışkanlıklarını kurarak, karakterini kur.",

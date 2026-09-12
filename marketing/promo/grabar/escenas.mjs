@@ -248,6 +248,92 @@ export const ESCENAS = [
     limpiar: `useHouse.getState().closeRoom()`,
   },
   {
+    // «…recursos…»: un diagrama de decisión del año de Pep@ (FODA, Eisenhower…) en Ideas.
+    nombre: '06-diagrama',
+    seg: 3.5,
+    preparar: `
+      await limpiarTodo()
+      const rep = await modulo('/src/core/data/repository.ts')
+      const { defTipo } = await modulo('/src/rooms/ideas/tiposMapa.ts')
+      const mapas = (await rep.mapasIdeasRepo.list()).filter((m) => defTipo(m.tipo).familia === 'diagramas')
+      const mapa = ['foda', 'eisenhower', 'matriz', 'proscontras'].map((t) => mapas.find((m) => m.tipo === t)).find(Boolean) ?? mapas[0]
+      if (!mapa) throw new Error('el demo no tiene diagramas')
+      ;(await modulo('/src/core/abrirApp.ts')).abrirApp('ideas', 'diagramas', String(mapa.id))
+      await sleep(2000)
+      // La paleta flotante de «añadir elemento» tapa los nodos de abajo: fuera durante la toma.
+      const paleta = document.querySelector('[data-tut="ideas.mapa.hijo"]')?.parentElement
+      if (paleta) paleta.style.display = 'none'
+      return 'ok'
+    `,
+    animar: `
+      // Dos pasos de acercamiento con la rueda sobre el lienzo (su manejador hace el zoom).
+      const el = document.querySelector('.cursor-grab')
+      if (!el) return
+      const r = el.getBoundingClientRect()
+      for (let i = 0; i < 2; i++) {
+        await sleep(i === 0 ? 900 : 700)
+        el.dispatchEvent(new WheelEvent('wheel', { deltaY: -100, clientX: r.left + r.width / 2, clientY: r.top + r.height * 0.4, bubbles: true, cancelable: true }))
+      }
+    `,
+    limpiar: `useHouse.getState().closeRoom()`,
+  },
+  {
+    // La sala de cómputo no está en la casa demo: se abre en la previa con su año construido.
+    nombre: '06-formulas',
+    seg: 3.5,
+    preparar: `
+      await limpiarTodo()
+      await (await modulo('/src/demo/construir.ts')).construirAppDemo('computo')
+      ;(await modulo('/src/core/state/intencionApp.ts')).lanzarIntencionApp({ appId: 'computo', seccion: 'formulario' })
+      ;(await modulo('/src/core/state/previaPlantillaStore.ts')).usePreviaPlantilla.getState().abrir('computo')
+      await sleep(2600)
+      return 'ok'
+    `,
+    animar: `await sleep(400); await desplazar(260, 2800)`,
+    limpiar: `(await modulo('/src/core/state/previaPlantillaStore.ts')).usePreviaPlantilla.getState().cerrar()`,
+  },
+  {
+    // La misma sala en modo gráfica: la superficie 3D de fábrica girando.
+    nombre: '06-grafica',
+    seg: 3.5,
+    preparar: `
+      await limpiarTodo()
+      await (await modulo('/src/demo/construir.ts')).construirAppDemo('computo')
+      ;(await modulo('/src/core/state/intencionApp.ts')).lanzarIntencionApp({ appId: 'computo', seccion: 'grafica' })
+      ;(await modulo('/src/core/state/previaPlantillaStore.ts')).usePreviaPlantilla.getState().abrir('computo')
+      await sleep(1600)
+      document.querySelector('[data-tut="computo.graf.tipo.3d"]')?.click()
+      await sleep(2000)
+      return 'ok'
+    `,
+    animar: `
+      // Arrastre sintético sobre el lienzo: OrbitControls captura el puntero y con
+      // un puntero inventado setPointerCapture lanza NotFoundError, así que se anula.
+      const c = document.querySelector('[data-tut="computo.calc.grafica"] canvas')
+      if (!c) return
+      c.setPointerCapture = () => {}
+      c.releasePointerCapture = () => {}
+      const r = c.getBoundingClientRect()
+      const x0 = r.left + r.width / 2
+      const y0 = r.top + r.height / 2
+      const ev = (tipo, x, y) =>
+        c.dispatchEvent(new PointerEvent(tipo, { clientX: x, clientY: y, pointerId: 7, pointerType: 'mouse', button: 0, buttons: tipo === 'pointerup' ? 0 : 1, bubbles: true, isPrimary: true }))
+      await sleep(300)
+      ev('pointerdown', x0, y0)
+      const t0 = performance.now()
+      await new Promise((res) => {
+        const paso = () => {
+          const q = Math.min(1, (performance.now() - t0) / (SEG * 1000 - 700))
+          ev('pointermove', x0 + 220 * ease(q), y0 - 30 * Math.sin(q * Math.PI))
+          if (q < 1) requestAnimationFrame(paso); else res()
+        }
+        paso()
+      })
+      ev('pointerup', x0 + 220, y0)
+    `,
+    limpiar: `(await modulo('/src/core/state/previaPlantillaStore.ts')).usePreviaPlantilla.getState().cerrar()`,
+  },
+  {
     nombre: '07-sisifo',
     seg: 4.5,
     preparar: `

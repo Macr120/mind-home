@@ -44,7 +44,7 @@ export type EscenaDef = { id: string; tomas: Toma[]; lineas: string[]; titulares
 export const ESCENAS: EscenaDef[] = [
   {
     id: 'gancho',
-    tomas: [{ tipo: 'clip', clip: '01-avatar', seg: 3.2, flash: 1.5 }],
+    tomas: [{ tipo: 'clip', clip: '01-avatar', seg: 3.0, flash: 1.5 }],
     lineas: ['gancho'],
     titulares: [{ clave: 'gancho', desde: 0.25 }],
   },
@@ -64,33 +64,38 @@ export const ESCENAS: EscenaDef[] = [
   {
     id: 'disena',
     tomas: [
-      { tipo: 'clip', clip: '04-mosaico', seg: 2.2 },
-      { tipo: 'clip', clip: '04-editor', seg: 2.6 },
-      { tipo: 'clip', clip: '04-temas', seg: 3.2 },
+      { tipo: 'clip', clip: '04-mosaico', seg: 2.0 },
+      { tipo: 'clip', clip: '04-editor', seg: 2.2 },
+      { tipo: 'clip', clip: '04-temas', seg: 3.0 },
     ],
     lineas: ['disena'],
-    titulares: [{ clave: 'disena', desde: 0.3, hasta: 4.6 }],
+    titulares: [
+      { clave: 'disena', desde: 0.3, hasta: 4.0 },
+      { clave: 'personaliza', desde: 4.4 },
+    ],
   },
   {
     id: 'metas',
     tomas: [
-      { tipo: 'clip', clip: '05-calendario', seg: 2.0 },
-      { tipo: 'clip', clip: '05-misiones', seg: 2.0 },
-      { tipo: 'clip', clip: '05-cronograma', seg: 2.2 },
-      { tipo: 'clip', clip: '06-avatar-asistente', seg: 2.0 },
+      { tipo: 'clip', clip: '05-calendario', seg: 1.7 },
+      { tipo: 'clip', clip: '05-misiones', seg: 1.7 },
+      { tipo: 'clip', clip: '05-cronograma', seg: 1.8 },
+      { tipo: 'clip', clip: '06-avatar-asistente', seg: 1.7 },
     ],
     lineas: ['metas'],
-    titulares: [{ clave: 'metas', desde: 0.3, hasta: 6.0 }],
+    titulares: [{ clave: 'metas', desde: 0.3, hasta: 5.2 }],
   },
   {
     id: 'ia',
     tomas: [
-      { tipo: 'clip', clip: '06-chat', seg: 3.0 },
-      { tipo: 'clip', clip: '06-fotos', seg: 2.4 },
-      { tipo: 'clip', clip: '06-ideas', seg: 2.4 },
+      { tipo: 'clip', clip: '06-chat', seg: 2.0 },
+      { tipo: 'clip', clip: '06-fotos', seg: 1.5 },
+      { tipo: 'clip', clip: '06-diagrama', seg: 2.0 },
+      { tipo: 'clip', clip: '06-formulas', seg: 1.8 },
+      { tipo: 'clip', clip: '06-grafica', seg: 2.0 },
     ],
     lineas: ['ia'],
-    titulares: [{ clave: 'ia', desde: 0.3, hasta: 5.2 }],
+    titulares: [{ clave: 'ia', desde: 0.3, hasta: 4.8 }],
   },
   {
     id: 'cerebro',
@@ -132,16 +137,16 @@ export const ESCENAS: EscenaDef[] = [
   // y el corte no se nota.
   {
     id: 'loop',
-    tomas: [{ tipo: 'clip', clip: '01-avatar', seg: 1.0 }],
+    tomas: [{ tipo: 'clip', clip: '01-avatar', seg: 0.8 }],
     lineas: [],
     titulares: [],
   },
 ]
 
 /** Silencios alrededor de la voz (segundos). */
-const PAUSA_INICIO = 0.15
-const PAUSA_ENTRE = 0.35
-const PAUSA_FIN = 0.25
+const PAUSA_INICIO = 0.1
+const PAUSA_ENTRE = 0.25
+const PAUSA_FIN = 0.15
 
 export type TomaPlan = Toma & { desde: number; frames: number }
 export type TitularPlan = { texto: string; desde: number; hasta: number }

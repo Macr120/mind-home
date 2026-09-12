@@ -160,8 +160,11 @@ export const FUENTES: Record<string, () => Promise<string[]>> = {
   audio: async () => [
     ...new Set((await filas(db.proyectosAudio)).map((p) => fechaLocalISO(new Date(p.actualizadoEn)))),
   ],
+  // `esSeedIntacta`: el anuncio de fábrica no cuenta hasta que se edita.
   video: async () => [
-    ...new Set((await filas(db.proyectosVideo)).map((p) => fechaLocalISO(new Date(p.actualizadoEn)))),
+    ...new Set(
+      (await filas(db.proyectosVideo)).filter((p) => !esSeedIntacta(p)).map((p) => fechaLocalISO(new Date(p.actualizadoEn))),
+    ),
   ],
 }
 

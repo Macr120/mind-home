@@ -26,6 +26,7 @@
     "promo:grabar": "npm -C marketing/promo run grabar --",
     "promo:preparar": "npm -C marketing/promo run preparar",
     "promo:render": "npm -C marketing/promo run render --",
+    "promo:app": "npm -C marketing/promo run app --",
     "lint": "eslint .",
     "preview": "vite preview",
     "imagenes:ejercicio": "node scripts/generar-imagenes-ejercicios.mjs",

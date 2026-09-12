@@ -1,9 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useAjustes } from '../../core/state/ajustesStore'
 import { intencionApp, tabInicial } from '../../core/state/intencionApp'
 import { usePelicula } from '../../core/state/peliculaStore'
 import { PestanasCarpeta, type ItemPestana } from '../_shared/PestanasCarpeta'
 import { COLOR } from './constantes'
 import { Editor } from './Editor'
+import { sembrarPromo } from './promo'
 import { ProyectosTab } from './ProyectosTab'
 
 type Tab = 'videos' | 'animacion3d'
@@ -32,6 +34,12 @@ export function VideoApp() {
     const m = /^proyecto:(\d+)$/.exec(intencionApp('video')?.dato ?? '')
     return m ? Number(m[1]) : null
   })
+
+  // El anuncio de fábrica sale en el idioma activo; si cambia y nadie lo tocó, se rehace en el nuevo.
+  const idioma = useAjustes((s) => s.idioma)
+  useEffect(() => {
+    void sembrarPromo()
+  }, [idioma])
 
   if (abierto != null) {
     return <Editor id={abierto} alCerrar={() => setAbierto(null)} />
