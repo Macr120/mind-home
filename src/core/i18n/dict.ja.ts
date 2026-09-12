@@ -8072,6 +8072,7 @@ export const JA: Dict = {
   'audio.escala.blues': 'ブルース',
   'audio.escala.nota': 'スケール外の鍵盤は薄く表示されます（音は鳴ります）。',
   'audio.teclado.tamano': 'ピアノのサイズ',
+  'audio.teclado.tamano': 'ピアノのサイズ',
   'audio.teclado.tecla': '鍵盤',
   'audio.teclado.negra': '黒鍵',
   'audio.teclado.bombo': 'キック',

@@ -8555,6 +8555,7 @@ export const EN: Dict = {
   'audio.escala.blues': 'Blues',
   'audio.escala.nota': 'Keys outside the scale dim on the keyboard (they still play).',
   'audio.teclado.tamano': 'Piano size',
+  'audio.teclado.tamano': 'Piano size',
   'audio.teclado.tecla': 'Key',
   'audio.teclado.negra': 'Black key',
   'audio.teclado.bombo': 'Kick',

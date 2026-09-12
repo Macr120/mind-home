@@ -27,6 +27,11 @@ const MARGEN = 7
 const TIRA = VISIBLES + 2 * MARGEN
 /** Desplazamiento de reposo de la tira (% de su propio ancho): oculta la octava de la izquierda. */
 const REPOSO = -(MARGEN / TIRA) * 100
+/** Tamaños del piano (alto de las teclas): el botón sobre la flecha › los cicla en este orden y se recuerda. */
+const TAMANOS = ['normal', 'grande', 'chico'] as const
+type Tamano = (typeof TAMANOS)[number]
+const ALTO: Record<Tamano, string> = { chico: 'h-16', normal: 'h-24', grande: 'h-36' }
+const LS_TAM = 'mh.audio.tecladoTam'
 
 export function TecladoPantalla({
   instrumento,
@@ -54,6 +59,23 @@ export function TecladoPantalla({
   const [pulsadas, setPulsadas] = useState<Set<number>>(new Set)
   const tiraRef = useRef<HTMLDivElement>(null)
   const octavaPrev = useRef(octava)
+  const [tam, setTam] = useState<Tamano>(() => {
+    try {
+      const v = localStorage.getItem(LS_TAM) as Tamano | null
+      return v && TAMANOS.includes(v) ? v : 'normal'
+    } catch {
+      return 'normal'
+    }
+  })
+  const ciclarTam = () => {
+    const sig = TAMANOS[(TAMANOS.indexOf(tam) + 1) % TAMANOS.length]
+    setTam(sig)
+    try {
+      localStorage.setItem(LS_TAM, sig)
+    } catch {
+      // sin almacenamiento: el tamaño dura la sesión
+    }
+  }
   // La tira ya está pintada para la octava nueva: arranca desplazada donde
   // quedaba la vieja y se desliza hasta su reposo (solo en saltos de UNA octava;
   // otro salto —la práctica fija la suya al entrar— se planta sin animar).
@@ -153,7 +175,7 @@ export function TecladoPantalla({
           <Icono nombre="volver" />
         </button>
       </div>
-      <div className="relative h-24 min-w-0 flex-1 overflow-hidden">
+      <div className={`relative ${ALTO[tam]} min-w-0 flex-1 overflow-hidden`}>
         <div
           ref={tiraRef}
           className="absolute inset-y-0 left-0 will-change-transform"
@@ -202,15 +224,27 @@ export function TecladoPantalla({
           </div>
         </div>
       </div>
-      <button
-        type="button"
-        onClick={() => onOctava(Math.min(84, octava + 12))}
-        aria-label={t('audio.teclado.octavaMas', 'Octava arriba')}
-        title={t('audio.teclado.octavaMas', 'Octava arriba')}
-        className="w-8 rounded-lg border border-white/10 bg-white/10 text-white/70 transition hover:bg-white/20"
-      >
-        <Icono nombre="siguiente" />
-      </button>
+      <div className="flex w-8 shrink-0 flex-col gap-1">
+        {/* Un solo botón cíclico: normal → grande → chico; el icono anuncia si el siguiente es mayor o menor. */}
+        <button
+          type="button"
+          onClick={ciclarTam}
+          aria-label={t('audio.teclado.tamano', 'Tamaño del piano')}
+          title={t('audio.teclado.tamano', 'Tamaño del piano')}
+          className="ui-presion grid h-8 w-8 place-items-center rounded-lg border border-white/10 bg-white/10 text-white/70 transition hover:bg-white/20"
+        >
+          <Icono nombre={tam === 'grande' ? 'alejar' : 'acercar'} />
+        </button>
+        <button
+          type="button"
+          onClick={() => onOctava(Math.min(84, octava + 12))}
+          aria-label={t('audio.teclado.octavaMas', 'Octava arriba')}
+          title={t('audio.teclado.octavaMas', 'Octava arriba')}
+          className="min-h-0 flex-1 rounded-lg border border-white/10 bg-white/10 text-white/70 transition hover:bg-white/20"
+        >
+          <Icono nombre="siguiente" />
+        </button>
+      </div>
     </div>
   )
 }

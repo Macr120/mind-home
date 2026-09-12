@@ -8504,6 +8504,7 @@ export const FR: Dict = {
   'audio.escala.blues': 'Blues',
   'audio.escala.nota': 'Les touches hors de la gamme s’atténuent sur le clavier (elles sonnent toujours).',
   'audio.teclado.tamano': 'Taille du piano',
+  'audio.teclado.tamano': 'Taille du piano',
   'audio.teclado.tecla': 'Touche',
   'audio.teclado.negra': 'Touche noire',
   'audio.teclado.bombo': 'Grosse caisse',

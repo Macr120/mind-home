@@ -6,10 +6,11 @@ import { BPM_MAX, BPM_MIN, COLOR, MAX_COMPASES, PASOS_POR_COMPAS, segPorPaso } f
 import { alternarPreviaMetronomo, posicion, previaStore, transporteStore } from './motor'
 
 /**
- * Barra de transporte: el play/pausa siempre a la vista y el resto en tres
- * grupos plegables — «Transporte» (regresar, stop, grabar, contador), «Ritmo»
- * (metrónomo, bucle, cuantizar, BPM, compases) y «Extras» (practicar, MIDI,
- * WAV, IA) — para que en angosto la barra no se desborde.
+ * Barra de transporte en tres grupos plegables — «Transporte» (regresar, stop,
+ * grabar, contador), «Ritmo» (previa, bucle, cuantizar, BPM, compases) y
+ * «Extras» (practicar, MIDI, WAV, IA) — para que en angosto la barra no se
+ * desborde. Los dos primeros arrancan con su botón principal SIEMPRE a la
+ * vista (play/pausa y metrónomo) y, aparte, el chevron que los despliega.
  */
 export function Transporte({
   nombre,
@@ -83,7 +84,21 @@ export function Transporte({
   const [ritmoAbierto, setRitmoAbierto] = useState(true)
   const [extrasAbierto, setExtrasAbierto] = useState(true)
 
-  /** Cabecera de un grupo plegable: icono del grupo + chevron. */
+  /** Chevron que pliega/despliega un grupo (va junto a su botón principal). */
+  const desplegar = (abierto: boolean, onClick: () => void, etiqueta: string) => (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-expanded={abierto}
+      aria-label={etiqueta}
+      title={etiqueta}
+      className="grid h-9 w-6 shrink-0 place-items-center rounded-lg text-white/60 transition hover:bg-white/10 active:scale-95"
+    >
+      <Icono nombre={abierto ? 'desplegado' : 'plegado'} />
+    </button>
+  )
+
+  /** Cabecera de un grupo sin botón principal: icono del grupo + chevron. */
   const grupo = (abierto: boolean, onClick: () => void, icono: Parameters<typeof Icono>[0]['nombre'], etiqueta: string) => (
     <button
       type="button"
@@ -125,24 +140,19 @@ export function Transporte({
         <Icono nombre="volver" />
         <span className="truncate text-xs font-semibold">{nombre}</span>
       </button>
-      {/* El play/pausa es el botón principal: queda fuera del grupo, siempre a la vista. */}
-      <button
-        type="button"
-        onClick={onPlay}
-        aria-label={sonando ? t('audio.transporte.pausa', 'Pausar') : t('audio.transporte.play', 'Reproducir')}
-        title={sonando ? t('audio.transporte.pausa', 'Pausar') : t('audio.transporte.play', 'Reproducir')}
-        className="grid h-9 w-9 place-items-center rounded-lg text-black transition active:scale-90"
-        style={{ background: COLOR }}
-      >
-        <Icono nombre={sonando ? 'pausa' : 'play'} />
-      </button>
+      {/* El play/pausa encabeza su grupo: se acciona sin desplegarlo. */}
       <div className="flex flex-wrap items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] p-0.5">
-        {grupo(
-          transporteAbierto,
-          () => setTransporteAbierto((v) => !v),
-          'cronometro',
-          t('audio.transporte.grupoTransporte', 'Transporte'),
-        )}
+        <button
+          type="button"
+          onClick={onPlay}
+          aria-label={sonando ? t('audio.transporte.pausa', 'Pausar') : t('audio.transporte.play', 'Reproducir')}
+          title={sonando ? t('audio.transporte.pausa', 'Pausar') : t('audio.transporte.play', 'Reproducir')}
+          className="grid h-9 w-9 place-items-center rounded-lg text-black transition active:scale-90"
+          style={{ background: COLOR }}
+        >
+          <Icono nombre={sonando ? 'pausa' : 'play'} />
+        </button>
+        {desplegar(transporteAbierto, () => setTransporteAbierto((v) => !v), t('audio.transporte.grupoTransporte', 'Transporte'))}
         {transporteAbierto && (
           <>
             <button
@@ -182,7 +192,9 @@ export function Transporte({
         )}
       </div>
       <div className="flex flex-wrap items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] p-0.5">
-        {grupo(ritmoAbierto, () => setRitmoAbierto((v) => !v), 'metronomo', t('audio.transporte.grupoRitmo', 'Ritmo'))}
+        {/* El metrónomo encabeza el grupo «Ritmo»: se enciende sin desplegarlo. */}
+        {chip(metronomo, onMetronomo, 'metronomo', t('audio.transporte.metronomo', 'Metrónomo'))}
+        {desplegar(ritmoAbierto, () => setRitmoAbierto((v) => !v), t('audio.transporte.grupoRitmo', 'Ritmo'))}
         {ritmoAbierto && (
           <>
             {chip(
@@ -191,7 +203,6 @@ export function Transporte({
               previa ? 'detener' : 'play',
               t('audio.transporte.previa', 'Escuchar el ritmo (solo el metrónomo)'),
             )}
-            {chip(metronomo, onMetronomo, 'metronomo', t('audio.transporte.metronomo', 'Metrónomo'))}
             {chip(loopActivo, onLoopActivo, 'repetir', t('audio.transporte.loop', 'Bucle (arrástralo en la regla)'))}
             {chip(
               cuantizar,

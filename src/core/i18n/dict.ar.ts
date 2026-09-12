@@ -8279,6 +8279,7 @@ export const AR: Dict = {
   'audio.escala.blues': 'بلوز',
   'audio.escala.nota': 'المفاتيح خارج السلّم تخفت على لوحة المفاتيح (وتبقى تصدر صوتًا).',
   'audio.teclado.tamano': 'حجم البيانو',
+  'audio.teclado.tamano': 'حجم البيانو',
   'audio.teclado.tecla': 'مفتاح',
   'audio.teclado.negra': 'مفتاح أسود',
   'audio.teclado.bombo': 'طبل كبير',

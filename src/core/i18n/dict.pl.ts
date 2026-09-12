@@ -8402,6 +8402,7 @@ export const PL: Dict = {
   'audio.escala.blues': 'Bluesowa',
   'audio.escala.nota': 'Klawisze spoza skali są przygaszone na klawiaturze (nadal grają).',
   'audio.teclado.tamano': 'Rozmiar pianina',
+  'audio.teclado.tamano': 'Rozmiar pianina',
   'audio.teclado.tecla': 'Klawisz',
   'audio.teclado.negra': 'Czarny klawisz',
   'audio.teclado.bombo': 'Stopa',

@@ -8532,6 +8532,7 @@ export const DE: Dict = {
   'audio.escala.blues': 'Blues',
   'audio.escala.nota': 'Tasten außerhalb der Skala werden auf der Tastatur abgedunkelt (sie klingen weiter).',
   'audio.teclado.tamano': 'Klaviergröße',
+  'audio.teclado.tamano': 'Klaviergröße',
   'audio.teclado.tecla': 'Taste',
   'audio.teclado.negra': 'Schwarze Taste',
   'audio.teclado.bombo': 'Kick',
