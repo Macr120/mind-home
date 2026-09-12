@@ -8091,7 +8091,6 @@ export const KO: Dict = {
   'audio.escala.blues': '블루스',
   'audio.escala.nota': '스케일 밖의 건반은 흐리게 보여요 (소리는 나요).',
   'audio.teclado.tamano': '피아노 크기',
-  'audio.teclado.tamano': '피아노 크기',
   'audio.teclado.tecla': '건반',
   'audio.teclado.negra': '검은건반',
   'audio.teclado.bombo': '킥',

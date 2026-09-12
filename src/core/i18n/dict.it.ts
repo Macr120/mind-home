@@ -8474,7 +8474,6 @@ export const IT: Dict = {
   'audio.escala.blues': 'Blues',
   'audio.escala.nota': 'I tasti fuori dalla scala si attenuano sulla tastiera (suonano comunque).',
   'audio.teclado.tamano': 'Dimensione del piano',
-  'audio.teclado.tamano': 'Dimensione del piano',
   'audio.teclado.tecla': 'Tasto',
   'audio.teclado.negra': 'Tasto nero',
   'audio.teclado.bombo': 'Cassa',

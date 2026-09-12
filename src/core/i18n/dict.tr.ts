@@ -8384,7 +8384,6 @@ export const TR: Dict = {
   'audio.escala.blues': 'Blues',
   'audio.escala.nota': 'Dizi dışındaki tuşlar klavyede soluklaşır (yine de çalarlar).',
   'audio.teclado.tamano': 'Piyano boyutu',
-  'audio.teclado.tamano': 'Piyano boyutu',
   'audio.teclado.tecla': 'Tuş',
   'audio.teclado.negra': 'Siyah tuş',
   'audio.teclado.bombo': 'Kick',

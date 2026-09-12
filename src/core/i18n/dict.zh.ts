@@ -8028,7 +8028,6 @@ export const ZH: Dict = {
   'audio.escala.blues': '布鲁斯',
   'audio.escala.nota': '音阶之外的琴键在键盘上变暗（仍然能弹响）。',
   'audio.teclado.tamano': '钢琴大小',
-  'audio.teclado.tamano': '钢琴大小',
   'audio.teclado.tecla': '琴键',
   'audio.teclado.negra': '黑键',
   'audio.teclado.bombo': '底鼓',

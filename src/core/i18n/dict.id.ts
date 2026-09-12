@@ -8451,7 +8451,6 @@ export const ID: Dict = {
   'audio.escala.blues': 'Blues',
   'audio.escala.nota': 'Tuts di luar skala tampil redup di keyboard (tetap berbunyi).',
   'audio.teclado.tamano': 'Ukuran piano',
-  'audio.teclado.tamano': 'Ukuran piano',
   'audio.teclado.tecla': 'Tuts',
   'audio.teclado.negra': 'Tuts hitam',
   'audio.teclado.bombo': 'Kick',

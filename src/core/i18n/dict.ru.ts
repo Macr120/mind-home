@@ -8378,7 +8378,6 @@ export const RU: Dict = {
   'audio.escala.blues': 'Блюз',
   'audio.escala.nota': 'Клавиши вне гаммы приглушаются на клавиатуре (но звучат).',
   'audio.teclado.tamano': 'Размер пианино',
-  'audio.teclado.tamano': 'Размер пианино',
   'audio.teclado.tecla': 'Клавиша',
   'audio.teclado.negra': 'Чёрная клавиша',
   'audio.teclado.bombo': 'Бочка',

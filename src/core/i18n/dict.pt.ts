@@ -8408,7 +8408,6 @@ export const PT: Dict = {
   'audio.escala.blues': 'Blues',
   'audio.escala.nota': 'As teclas fora da escala ficam apagadas no teclado (continuam tocando).',
   'audio.teclado.tamano': 'Tamanho do piano',
-  'audio.teclado.tamano': 'Tamanho do piano',
   'audio.teclado.tecla': 'Tecla',
   'audio.teclado.negra': 'Tecla preta',
   'audio.teclado.bombo': 'Bumbo',

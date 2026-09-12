@@ -8370,7 +8370,6 @@ export const HI: Dict = {
   'audio.escala.blues': 'ब्लूज़',
   'audio.escala.nota': 'स्केल से बाहर की कुंजियाँ कीबोर्ड पर धुँधली दिखती हैं (बजती फिर भी हैं)।',
   'audio.teclado.tamano': 'पियानो का आकार',
-  'audio.teclado.tamano': 'पियानो का आकार',
   'audio.teclado.tecla': 'कुंजी',
   'audio.teclado.negra': 'काली कुंजी',
   'audio.teclado.bombo': 'किक',
