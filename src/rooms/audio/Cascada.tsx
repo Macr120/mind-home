@@ -11,6 +11,19 @@ import { tecladoVistaStore } from './tecladoVista'
  * `tecladoVista`, el mismo dato que usa el teclado.
  */
 
+/** Fondo de la zona de las notas en la práctica (cascada y partitura), aparte del tema de la app. */
+export type FondoPractica = 'claro' | 'oscuro'
+/** Componentes RGB de la tinta (líneas, claves) según el fondo. */
+export const tintaDe = (fondo: FondoPractica) => (fondo === 'claro' ? '0,0,0' : '255,255,255')
+/** Papel del fondo claro: color fijo por style (el `white` de Tailwind lo secuestra el tema). */
+export const PAPEL_CLARO = '#f3eee3'
+/** Resultado de una nota en Ritmo: la pieza la pinta verde (acierto) o roja (fallo de tecla o de tiempo). */
+export type ResultadoNota = 'acierto' | 'fallo'
+export const COLOR_ACIERTO = '#4ade80'
+export const COLOR_FALLO = '#f87171'
+export const colorResultado = (res: ResultadoNota | undefined, base: string) =>
+  res === 'acierto' ? COLOR_ACIERTO : res === 'fallo' ? COLOR_FALLO : base
+
 /** Un carril de la cascada: las notas de una pista con su color del proyecto. */
 export interface CarrilCascada {
   notas: NotaAudio[]
@@ -32,21 +45,29 @@ export function Cascada({
   octava,
   spb,
   pos,
+  zoom = 1,
+  fondo = 'oscuro',
+  resultadoDe,
 }: {
   carriles: CarrilCascada[]
-  /** Tono MIDI de la primera tecla visible (2 octavas + 1 en pantalla). */
+  /** Tono MIDI de la primera tecla visible. */
   octava: number
   /** Segundos por paso EFECTIVOS (ya escalados por la velocidad elegida). */
   spb: number
-  /** Posición actual en pasos (el playhead del motor o la virtual de Espera). */
+  /** Posición actual en pasos (el playhead del motor). */
   pos: () => number
+  /** Tamaño: menos segundos a la vista = notas más altas. */
+  zoom?: number
+  fondo?: FondoPractica
+  /** Ritmo: acierto/fallo de cada nota tuya (se lee en cada cuadro). */
+  resultadoDe?: (nota: NotaAudio) => ResultadoNota | undefined
 }) {
   const contRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const blancas = useSyncExternalStore(tecladoVistaStore.subscribe, tecladoVistaStore.getSnapshot)
-  const props = useRef({ carriles, octava, spb, pos, blancas })
+  const props = useRef({ carriles, octava, spb, pos, blancas, zoom, fondo, resultadoDe })
   useEffect(() => {
-    props.current = { carriles, octava, spb, pos, blancas }
+    props.current = { carriles, octava, spb, pos, blancas, zoom, fondo, resultadoDe }
   })
 
   useEffect(() => {
@@ -67,7 +88,8 @@ export function Cascada({
       if (!ctx) return
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
       ctx.clearRect(0, 0, W, H)
-      const { carriles, octava, spb, pos, blancas: n } = props.current
+      const { carriles, octava, spb, pos, blancas: n, zoom, fondo, resultadoDe } = props.current
+      const tinta = tintaDe(fondo)
 
       // Geometría replicada de TecladoPantalla: n blancas flex con gap de 1 px.
       const wb = (W - INSET * 2 - (n - 1)) / n
@@ -89,10 +111,10 @@ export function Cascada({
       }
 
       const ahora = pos()
-      const pasosVisibles = VISTA_S / spb
+      const pasosVisibles = VISTA_S / zoom / spb
 
       // Líneas de negra (cada 4 pasos) como referencia rítmica tenue.
-      ctx.strokeStyle = 'rgba(255,255,255,0.07)'
+      ctx.strokeStyle = `rgba(${tinta},0.08)`
       const primera = Math.ceil(ahora / 4) * 4
       for (let p = primera; p <= ahora + pasosVisibles; p += 4) {
         const y = H - ((p - ahora) / pasosVisibles) * H
@@ -113,6 +135,7 @@ export function Cascada({
           const alto = Math.max(4, (nota[1] / pasosVisibles) * H)
           const y = Math.max(-alto, yFin - alto)
           if (y > H) continue
+          ctx.fillStyle = colorResultado(resultadoDe?.(nota), color)
           ctx.beginPath()
           ctx.roundRect(geo.x, y, geo.w, Math.min(alto, H - y), 3)
           ctx.fill()
@@ -123,19 +146,29 @@ export function Cascada({
       for (const carril of carriles) if (!carril.tuya) pintar(carril.notas, carril.color, 0.3)
       for (const carril of carriles) if (carril.tuya) pintar(carril.notas, carril.color, 0.95)
 
-      // Línea de llegada: el borde del teclado.
-      ctx.strokeStyle = 'rgba(255,255,255,0.35)'
+      // Línea de llegada (el borde del teclado), bien marcada: banda tenue + trazo fuerte.
+      ctx.fillStyle = `rgba(${tinta},0.12)`
+      ctx.fillRect(INSET, H - 7, W - INSET * 2, 7)
+      ctx.strokeStyle = `rgba(${tinta},0.9)`
+      ctx.lineWidth = 2.5
       ctx.beginPath()
-      ctx.moveTo(INSET, H - 0.5)
-      ctx.lineTo(W - INSET, H - 0.5)
+      ctx.moveTo(INSET, H - 1.5)
+      ctx.lineTo(W - INSET, H - 1.5)
       ctx.stroke()
+      ctx.lineWidth = 1
     }
     id = window.requestAnimationFrame(dibujar)
     return () => window.cancelAnimationFrame(id)
   }, [])
 
   return (
-    <div ref={contRef} className="relative min-h-0 flex-1 overflow-hidden rounded-t-xl border border-b-0 border-white/10 bg-black/40">
+    <div
+      ref={contRef}
+      className={`relative min-h-0 flex-1 overflow-hidden rounded-t-xl border border-b-0 border-white/10 ${
+        fondo === 'claro' ? '' : 'bg-black/40'
+      }`}
+      style={fondo === 'claro' ? { background: PAPEL_CLARO } : undefined}
+    >
       <canvas ref={canvasRef} className="h-full w-full" />
     </div>
   )

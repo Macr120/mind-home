@@ -37,6 +37,13 @@
       "autoPort": true
     },
     {
+      "name": "mind-home-pruebas-5",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 53382,
+      "autoPort": true
+    },
+    {
       "name": "mind-home-web",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev:web"],

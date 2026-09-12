@@ -216,7 +216,8 @@ function agendarClips(ctx: AudioContext, desdePaso: number, tDe: number) {
   if (!proyecto) return
   const spb = spbEfectivo()
   for (const pista of proyecto.pistas) {
-    if (pista.tipo !== 'audio' || !sonable(pista)) continue
+    // Las pistas omitidas (la práctica en Ritmo) tampoco suenan por sus clips.
+    if (pista.tipo !== 'audio' || !sonable(pista) || pistasOmitidas.has(pista.pistaId)) continue
     const g = gainsPista.get(pista.pistaId)
     if (!g) continue
     for (const clip of pista.clips ?? []) {

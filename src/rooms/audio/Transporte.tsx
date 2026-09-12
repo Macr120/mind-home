@@ -1,5 +1,7 @@
-import { useEffect, useState, useSyncExternalStore } from 'react'
+import { useEffect, useState, useSyncExternalStore, type ReactNode } from 'react'
 import { useT } from '../../core/i18n/useT'
+import { useArrastre } from '../../core/ui/comun/arrastre'
+import { reordenar } from '../../core/ui/editor/editorSecciones'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { BotonPrimario, Spinner } from '../_shared/ui'
 import { BPM_MAX, BPM_MIN, COLOR, MAX_COMPASES, PASOS_POR_COMPAS, segPorPaso } from './constantes'
@@ -8,10 +10,33 @@ import { alternarPreviaMetronomo, posicion, previaStore, transporteStore } from 
 /**
  * Barra de transporte en tres grupos plegables — «Transporte» (regresar, stop,
  * grabar, contador), «Ritmo» (bucle, cuantizar, BPM, compases, pulsos) y
- * «Extras» (practicar, MIDI, WAV, IA) — para que en angosto la barra no se
- * desborde. Los dos primeros arrancan con su botón principal SIEMPRE a la
- * vista (play/pausa y metrónomo) y, aparte, el chevron que los despliega.
+ * «Extras» (deshacer/rehacer, practicar, MIDI, WAV, IA) — para que en angosto
+ * la barra no se desborde. Los dos primeros arrancan con su botón principal
+ * SIEMPRE a la vista (play/pausa y metrónomo) y, aparte, el chevron que los
+ * despliega. Los grupos van juntos y se reordenan arrastrándolos (el gesto
+ * compartido de la casa: pulsación larga con el dedo, mover con el ratón); el
+ * orden se recuerda.
  */
+
+type Grupo = 'transporte' | 'ritmo' | 'extras'
+const GRUPOS: Grupo[] = ['transporte', 'ritmo', 'extras']
+const LS_ORDEN = 'mh.audio.transporteOrden'
+
+function leerOrden(): Grupo[] {
+  try {
+    const v: unknown = JSON.parse(localStorage.getItem(LS_ORDEN) ?? '[]')
+    if (Array.isArray(v) && v.length === GRUPOS.length && GRUPOS.every((g) => v.includes(g))) return v as Grupo[]
+  } catch {
+    // sin almacenamiento o valor roto: el orden de fábrica
+  }
+  return GRUPOS
+}
+
+/** Qué grupo hay bajo el puntero (el que va en la mano se soltará delante de él). */
+const grupoBajo = (e: { clientX: number; clientY: number }): Grupo | null =>
+  (document.elementFromPoint(e.clientX, e.clientY)?.closest('[data-grupo]')?.getAttribute('data-grupo') ??
+    null) as Grupo | null
+
 export function Transporte({
   nombre,
   onCerrar,
@@ -93,6 +118,37 @@ export function Transporte({
   const [ritmoAbierto, setRitmoAbierto] = useState(true)
   const [extrasAbierto, setExtrasAbierto] = useState(true)
 
+  // Orden de los grupos: se arrastra la caja entera y se suelta delante de otra.
+  const [orden, setOrden] = useState<Grupo[]>(leerOrden)
+  const { props: gesto, enMano, destino } = useArrastre<Grupo>(
+    (e, mano) => {
+      const g = grupoBajo(e)
+      return g && g !== mano ? g : null
+    },
+    (mano, dest) => {
+      setOrden((prev) => {
+        const next = reordenar(prev, mano as Grupo, dest)
+        try {
+          localStorage.setItem(LS_ORDEN, JSON.stringify(next))
+        } catch {
+          // sin almacenamiento: el orden dura la sesión
+        }
+        return next
+      })
+    },
+  )
+  /** El gesto sobre la caja entera, salvo en los campos (escribir o seleccionar no arrastra). */
+  const gestoDe = (id: Grupo) => {
+    const p = gesto(id)
+    return {
+      ...p,
+      onPointerDown: (e: React.PointerEvent) => {
+        if ((e.target as HTMLElement).closest('input, select')) return
+        p.onPointerDown(e)
+      },
+    }
+  }
+
   /** Chevron que pliega/despliega un grupo (va junto a su botón principal). */
   const desplegar = (abierto: boolean, onClick: () => void, etiqueta: string) => (
     <button
@@ -137,20 +193,10 @@ export function Transporte({
     </button>
   )
 
-  return (
-    <div className="flex shrink-0 flex-wrap items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 px-2 py-1.5">
-      <button
-        type="button"
-        onClick={onCerrar}
-        aria-label={t('audio.editor.volver', 'Volver a los proyectos')}
-        title={t('audio.editor.volver', 'Volver a los proyectos')}
-        className="flex h-9 max-w-36 items-center gap-0.5 rounded-lg border border-white/10 bg-white/10 px-2 transition hover:bg-white/20 active:scale-95"
-      >
-        <Icono nombre="volver" />
-        <span className="truncate text-xs font-semibold">{nombre}</span>
-      </button>
-      {/* El play/pausa encabeza su grupo: se acciona sin desplegarlo. */}
-      <div className="flex flex-wrap items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] p-0.5">
+  const contenido: Record<Grupo, ReactNode> = {
+    // El play/pausa encabeza su grupo: se acciona sin desplegarlo.
+    transporte: (
+      <>
         <button
           type="button"
           onClick={onPlay}
@@ -199,11 +245,13 @@ export function Transporte({
             <Indicador bpm={bpm} posInicio={posInicio} />
           </>
         )}
-      </div>
-      <div className="flex flex-wrap items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] p-0.5">
-        {/* El metrónomo encabeza el grupo «Ritmo» y SUENA al pulsarlo: parado, arranca o
-            para el clic suelto (y deja la marca para el play); en reproducción enciende o
-            apaga el clic del transporte en caliente. */}
+      </>
+    ),
+    // El metrónomo encabeza el grupo «Ritmo» y SUENA al pulsarlo: parado, arranca o
+    // para el clic suelto (y deja la marca para el play); en reproducción enciende o
+    // apaga el clic del transporte en caliente.
+    ritmo: (
+      <>
         {chip(
           previa || metronomo,
           () => {
@@ -275,9 +323,10 @@ export function Transporte({
             </span>
           </>
         )}
-      </div>
-      <span className="flex-1" />
-      <div className="flex flex-wrap items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] p-0.5">
+      </>
+    ),
+    extras: (
+      <>
         {grupo(extrasAbierto, () => setExtrasAbierto((v) => !v), 'ajustes', t('audio.transporte.grupoExtras', 'Extras'))}
         {extrasAbierto && (
           <>
@@ -344,7 +393,34 @@ export function Transporte({
             )}
           </>
         )}
-      </div>
+      </>
+    ),
+  }
+
+  return (
+    <div className="flex shrink-0 flex-wrap items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 px-2 py-1.5">
+      <button
+        type="button"
+        onClick={onCerrar}
+        aria-label={t('audio.editor.volver', 'Volver a los proyectos')}
+        title={t('audio.editor.volver', 'Volver a los proyectos')}
+        className="flex h-9 max-w-36 items-center gap-0.5 rounded-lg border border-white/10 bg-white/10 px-2 transition hover:bg-white/20 active:scale-95"
+      >
+        <Icono nombre="volver" />
+        <span className="truncate text-xs font-semibold">{nombre}</span>
+      </button>
+      {orden.map((id) => (
+        <div
+          key={id}
+          data-grupo={id}
+          {...gestoDe(id)}
+          className={`flex cursor-grab flex-wrap items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] p-0.5 transition ${
+            destino === id ? 'border-s-2 border-s-accent' : ''
+          } ${enMano === id ? 'opacity-40' : ''}`}
+        >
+          {contenido[id]}
+        </div>
+      ))}
     </div>
   )
 }

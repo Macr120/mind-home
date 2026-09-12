@@ -5,8 +5,15 @@ import { Icono } from '../../core/ui/iconos/Icono'
 import { COLOR, TONOS_BATERIA, esInstrumentoBateria } from './constantes'
 import { guiaStore } from './guia'
 import { clasesDeEscala } from './musica'
-import { sonandoStore } from './sonando'
-import { ciclarBlancas, octavaMaxima, siguientesBlancas, tecladoVistaStore } from './tecladoVista'
+import { cancionStore, sonandoStore } from './sonando'
+import {
+  ciclarBlancas,
+  coloresTeclasStore,
+  octavaMaxima,
+  paletaTeclas,
+  siguientesBlancas,
+  tecladoVistaStore,
+} from './tecladoVista'
 
 // Colores de la guía de práctica (Aprender): esperada / acierto / fallo.
 const GUIA_BLANCA = { esperada: 'bg-sky-300', acierto: 'bg-emerald-300', fallo: 'bg-red-300' } as const
@@ -75,25 +82,37 @@ export function TecladoPantalla({
     el.style.transform = `translateX(${reposo}%)`
     // eslint-disable-next-line react-hooks/exhaustive-deps -- solo el salto de octava anima
   }, [octava])
-  // Tonos que SUENAN (acorde expandido, notas del arpegio): ilumina esas teclas.
+  // Tonos que SUENAN (acorde expandido, notas del arpegio, MIDI): ilumina esas teclas.
   const sonando = useSyncExternalStore(sonandoStore.subscribe, sonandoStore.getSnapshot)
+  // Notas de la canción en la práctica «Escuchar»: se iluminan de OTRO color.
+  const cancion = useSyncExternalStore(cancionStore.subscribe, cancionStore.getSnapshot)
   // Guía de práctica (vacía fuera de Aprender): esperada/acierto/fallo por tono.
   const guia = useSyncExternalStore(guiaStore.subscribe, guiaStore.getSnapshot)
   const clases = useMemo(() => (escala ? clasesDeEscala(escala) : null), [escala])
   const fuera = (tono: number) => clases != null && !clases.has(((tono % 12) + 12) % 12)
   const esTonica = (tono: number) => escala != null && ((tono % 12) + 12) % 12 === escala.tonica
   const activa = (tono: number) => pulsadas.has(tono) || sonando.has(tono)
+  // Color de reposo de las teclas (claro, oscuro o personalizado): va en el
+  // style; los estados (pulsada, guía de práctica) siguen siendo clases encima.
+  const paleta = paletaTeclas(useSyncExternalStore(coloresTeclasStore.subscribe, coloresTeclasStore.getSnapshot))
   const claseBlanca = (tono: number) => {
     if (activa(tono)) return 'bg-amber-200'
+    if (cancion.has(tono)) return 'bg-violet-300'
     const g = guia.get(tono)
-    if (g) return GUIA_BLANCA[g]
-    return fuera(tono) ? 'bg-white/40' : 'bg-white'
+    return g ? GUIA_BLANCA[g] : ''
   }
+  const estiloBlanca = (tono: number) =>
+    activa(tono) || cancion.has(tono) || guia.get(tono)
+      ? undefined
+      : { background: fuera(tono) ? `color-mix(in srgb, ${paleta.blancas} 40%, transparent)` : paleta.blancas }
   const claseNegra = (tono: number) => {
     if (activa(tono)) return 'bg-zinc-500'
+    if (cancion.has(tono)) return 'bg-violet-600'
     const g = guia.get(tono)
-    return g ? GUIA_NEGRA[g] : 'bg-zinc-900'
+    return g ? GUIA_NEGRA[g] : ''
   }
+  const estiloNegra = (tono: number) =>
+    activa(tono) || cancion.has(tono) || guia.get(tono) ? undefined : { background: paleta.negras }
 
   const bajar = (tono: number) => (e: React.PointerEvent) => {
     e.currentTarget.setPointerCapture(e.pointerId)
@@ -176,6 +195,7 @@ export function TecladoPantalla({
                 onPointerUp={soltar(tono)}
                 onPointerCancel={soltar(tono)}
                 className={`relative min-w-0 flex-1 rounded-b-md border border-black/40 transition ${claseBlanca(tono)}`}
+                style={estiloBlanca(tono)}
               >
                 {esTonica(tono) && (
                   <span
@@ -201,6 +221,7 @@ export function TecladoPantalla({
                       onPointerUp={soltar(tonoNegra)}
                       onPointerCancel={soltar(tonoNegra)}
                       className={`pointer-events-auto absolute -right-[30%] top-0 z-10 h-full w-[60%] rounded-b-md border border-black/60 transition ${claseNegra(tonoNegra)} ${fuera(tonoNegra) ? 'opacity-40' : ''}`}
+                      style={estiloNegra(tonoNegra)}
                     />
                   )}
                 </div>

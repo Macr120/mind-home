@@ -4,7 +4,7 @@ import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { BotonPrimario, BotonSecundario, Modal } from '../_shared/ui'
 import { contextoAudio } from '../../core/audio/motor'
-import { Cascada } from './Cascada'
+import { Cascada, type FondoPractica, type ResultadoNota } from './Cascada'
 import { PartituraPractica } from './PartituraPractica'
 import { COLOR, PALETA_PISTAS, esInstrumentoBateria, segPorPaso } from './constantes'
 import * as guia from './guia'
@@ -16,29 +16,67 @@ import { TecladoPantalla } from './TecladoPantalla'
 /**
  * La tercera vista del editor (piano roll → partitura → CASCADA): práctica
  * sobre el proyecto VIVO. Eliges qué pistas tocas tú; el resto acompaña
- * (batería y clips de micrófono incluidos). Tres modos:
- * - Escuchar: suena todo y las teclas se iluminan (sin puntuación).
- * - Ritmo: el transporte corre a la velocidad elegida; el motor OMITE tus
- *   pistas (sin silenciarlas: tu entrada en vivo suena por su instrumento) y
- *   puntúa por ventana de tiempo.
- * - Espera: sin transporte — avanza acorde a acorde cuando tocas las teclas
- *   correctas; el acompañamiento melódico se dispara al cruzarlo.
+ * (batería y clips de micrófono incluidos). Dos modos:
+ * - Escuchar: elegirlo reproduce la pieza al momento; las teclas de la canción
+ *   se iluminan de OTRO color que las tuyas (sin puntuación).
+ * - Ritmo: el transporte corre a la velocidad elegida con el metrónomo, pero la
+ *   canción NO suena (el motor omite todas las pistas: la tocas tú, y tu entrada
+ *   en vivo suena por su instrumento). Cada nota tuya se juzga por ventana de
+ *   tiempo y la pieza la pinta verde (acierto) o roja (fallo de tecla o de
+ *   tiempo).
  *
  * La entrada llega por DOS caminos: el teclado en pantalla propio y el
- * registro en el editor (`registrar`), que intercepta QWERTY y MIDI.
+ * registro en el editor (`registrar`), que intercepta QWERTY y MIDI; por los
+ * dos se iluminan las teclas que tocas.
  */
 
-type ModoPractica = 'escuchar' | 'ritmo' | 'espera'
+type ModoPractica = 'escuchar' | 'ritmo'
 
 /** Ventana de acierto del modo Ritmo, en segundos hacia cada lado. */
 const VENTANA_S = 0.25
 /** Antelación con la que una tecla se marca «esperada» en Ritmo (segundos). */
 const AVISO_S = 0.5
+/** Tamaños de la partitura/cascada: el botón bajo la pila de vistas los cicla; se recuerda. */
+const ZOOMS = [1, 1.4, 0.75]
+const LS_ZOOM = 'mh.audio.practicaZoom'
+function leerZoom(): number {
+  try {
+    const v = Number(localStorage.getItem(LS_ZOOM))
+    return ZOOMS.includes(v) ? v : 1
+  } catch {
+    return 1
+  }
+}
+/** Fondo de la zona de las notas (claro u oscuro), aparte del tema de la app; se recuerda. */
+const LS_FONDO = 'mh.audio.practicaFondo'
+function leerFondo(): FondoPractica {
+  try {
+    return localStorage.getItem(LS_FONDO) === 'claro' ? 'claro' : 'oscuro'
+  } catch {
+    return 'oscuro'
+  }
+}
 
 interface Stats {
   aciertos: number
   perdidas: number
   extras: number
+}
+
+/** Chip de modo/pista (a nivel de módulo: como JSX, sus `onClick` son manejadores de verdad). */
+function Chip({ activo, onClick, children }: { activo: boolean; onClick: () => void; children: ReactNode }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={activo}
+      className={`ui-presion rounded-full border px-2.5 py-1 text-xs font-semibold transition ${
+        activo ? 'border-white/50 bg-white/20 text-white' : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10'
+      }`}
+    >
+      {children}
+    </button>
+  )
 }
 
 export interface EntradaPractica {
@@ -71,6 +109,26 @@ export function VistaCascada({
   const [modo, setModo] = useState<ModoPractica>(partituraInicial ? 'ritmo' : 'escuchar')
   /** La práctica también se lee en partitura (misma lógica, otro lienzo). */
   const [conPartitura, setConPartitura] = useState(!!partituraInicial)
+  const [zoom, setZoom] = useState(leerZoom)
+  const siguienteZoom = ZOOMS[(ZOOMS.indexOf(zoom) + 1) % ZOOMS.length]
+  const ciclarZoom = () => {
+    setZoom(siguienteZoom)
+    try {
+      localStorage.setItem(LS_ZOOM, String(siguienteZoom))
+    } catch {
+      // sin almacenamiento: dura la sesión
+    }
+  }
+  const [fondo, setFondo] = useState<FondoPractica>(leerFondo)
+  const alternarFondo = () => {
+    const sig: FondoPractica = fondo === 'claro' ? 'oscuro' : 'claro'
+    setFondo(sig)
+    try {
+      localStorage.setItem(LS_FONDO, sig)
+    } catch {
+      // sin almacenamiento: dura la sesión
+    }
+  }
   /** % de velocidad (deslizador con topes cada 25). */
   const [velocidad, setVelocidad] = useState(100)
   const [fase, setFase] = useState<'listo' | 'sonando' | 'resumen'>('listo')
@@ -116,15 +174,6 @@ export function VistaCascada({
     const lista = melodicas.filter((p) => tocadas.has(p.pistaId)).flatMap((p) => p.notas)
     return [...lista].sort((a, b) => a[0] - b[0] || a[2] - b[2])
   }, [melodicas, tocadas])
-  /** El acompañamiento melódico (para el disparo cruzado de Espera). */
-  const acomp = useMemo(
-    () =>
-      melodicas
-        .filter((p) => !tocadas.has(p.pistaId))
-        .flatMap((p) => p.notas.map((nota) => ({ nota, pistaId: p.pistaId, instrumento: p.instrumento })))
-        .sort((a, b) => a.nota[0] - b.nota[0]),
-    [melodicas, tocadas],
-  )
 
   // Octava: la del EDITOR (Z/X del QWERTY ya la mueven); al entrar o cambiar
   // de pistas se centra en la mediana de lo que tocas.
@@ -141,16 +190,12 @@ export function VistaCascada({
   // ─── Estado imperativo de la sesión (fuera de React: lo consume el rAF) ──
   const statsRef = useRef<Stats>({ aciertos: 0, perdidas: 0, extras: 0 })
   const consumidasRef = useRef(new Set<number>())
+  /** Veredicto de cada nota tuya (por identidad de la nota): lo leen los lienzos en cada cuadro. */
+  const resultadosRef = useRef(new Map<NotaAudio, ResultadoNota>())
+  const resultadoDe = (nota: NotaAudio) => resultadosRef.current.get(nota)
   const anclaRef = useRef<motor.AnclaGrabacion | null>(null)
   const destelloRef = useRef(0) // puntero sobre TODAS las notas (modo Escuchar)
   const todasRef = useRef<NotaAudio[]>([])
-  const esperaRef = useRef<{
-    acordes: { inicio: number; tonos: number[] }[]
-    i: number
-    pendientes: Set<number>
-    iAcomp: number
-  } | null>(null)
-  const posVirtualRef = useRef(0)
   const vocesRef = useRef(new Map<number, { soltar(): void }>())
   const modoRef = useRef(modo)
   const faseRef = useRef(fase)
@@ -163,6 +208,7 @@ export function VistaCascada({
     motor.detener()
     motor.fijarPistasOmitidas(new Set())
     guia.limpiarGuia()
+    sonando.apagarTodo()
     for (const voz of vocesRef.current.values()) voz.soltar()
     vocesRef.current.clear()
   }
@@ -189,9 +235,9 @@ export function VistaCascada({
   )
 
   // Cualquier camino que pare el transporte (fin natural, stop, pestaña oculta)
-  // cierra la sesión de Escuchar/Ritmo; Espera no usa el transporte.
+  // cierra la sesión de Escuchar/Ritmo.
   useEffect(() => {
-    if (fase === 'sonando' && modo !== 'espera' && estado === 'parado') {
+    if (fase === 'sonando' && estado === 'parado') {
       terminar(modo === 'ritmo')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps -- reacciona solo al transporte
@@ -201,63 +247,25 @@ export function VistaCascada({
   useEffect(() => {
     if (faseRef.current === 'sonando') {
       detenerTodo()
-      esperaRef.current = null
       setFase('listo')
     }
   }, [modo, tocadas])
 
-  const arrancar = () => {
+  const arrancar = (m: ModoPractica) => {
     detenerTodo()
     statsRef.current = { aciertos: 0, perdidas: 0, extras: 0 }
     consumidasRef.current = new Set()
+    resultadosRef.current = new Map()
     destelloRef.current = 0
     setResumen(null)
     motor.fijarVelocidad(velocidad / 100)
-    if (modo === 'espera') {
-      // Acordes = notas tuyas agrupadas por inicio (tolerancia de 1/100 de paso).
-      const acordes: { inicio: number; tonos: number[] }[] = []
-      for (const nota of notasTuya) {
-        const ultimo = acordes[acordes.length - 1]
-        if (ultimo && Math.abs(ultimo.inicio - nota[0]) < 0.01) {
-          if (!ultimo.tonos.includes(nota[2])) ultimo.tonos.push(nota[2])
-        } else {
-          acordes.push({ inicio: nota[0], tonos: [nota[2]] })
-        }
-      }
-      if (acordes.length === 0) return
-      esperaRef.current = { acordes, i: -1, pendientes: new Set(), iAcomp: 0 }
-      setFase('sonando')
-      avanzarEspera()
-      return
-    }
-    // En Ritmo el motor OMITE tus pistas (no las silencia: tu vivo debe sonar).
-    motor.fijarPistasOmitidas(modo === 'ritmo' ? tocadas : new Set())
-    motor.reproducir({ metronomo: modo === 'ritmo' })
+    // En Ritmo la canción no suena: el motor omite TODAS las pistas (solo queda el
+    // metrónomo) y lo que suena es tu entrada en vivo.
+    motor.fijarPistasOmitidas(m === 'ritmo' ? new Set(proyecto.pistas.map((p) => p.pistaId)) : new Set())
+    motor.reproducir({ metronomo: m === 'ritmo' })
     anclaRef.current = motor.anclaGrabacion()
     todasRef.current = melodicas.flatMap((p) => p.notas).sort((a, b) => a[0] - b[0])
     setFase('sonando')
-  }
-
-  /** Espera: entra al siguiente acorde disparando el acompañamiento cruzado. */
-  const avanzarEspera = () => {
-    const e = esperaRef.current
-    if (!e) return
-    e.i++
-    if (e.i >= e.acordes.length) {
-      esperaRef.current = null
-      terminar(true)
-      return
-    }
-    const acorde = e.acordes[e.i]
-    const ctx = contextoAudio()
-    while (e.iAcomp < acomp.length && acomp[e.iAcomp].nota[0] <= acorde.inicio) {
-      const { nota, pistaId, instrumento } = acomp[e.iAcomp]
-      if (ctx) motor.tocarNotaEnPista(pistaId, instrumento, nota[2], nota[3], ctx.currentTime, Math.max(0.1, nota[1] * spbEf))
-      e.iAcomp++
-    }
-    e.pendientes = new Set(acorde.tonos)
-    posVirtualRef.current = acorde.inicio
-    guia.fijarEsperadas(e.pendientes)
   }
 
   // Empezar pasa por una cuenta regresiva de 3 s (tiempo de poner las manos);
@@ -274,42 +282,49 @@ export function VistaCascada({
         setCuenta(cuenta - 1)
       } else {
         setCuenta(null)
-        arrancar()
+        arrancar(modo)
       }
     }, 1000)
     return () => window.clearTimeout(id)
     // eslint-disable-next-line react-hooks/exhaustive-deps -- solo el tick de la cuenta
   }, [cuenta])
 
+  // Elegir «Escuchar» reproduce la pieza al momento, sin cuenta regresiva. Si hay
+  // que cambiar de modo, arranca en un efecto posterior al que corta la sesión
+  // anterior (un ref, no estado: evita un setState dentro del efecto).
+  const arranquePendiente = useRef<ModoPractica | null>(null)
+  const escuchar = () => {
+    setCuenta(null)
+    if (modo === 'escuchar') {
+      if (fase === 'sonando') motor.detener()
+      else arrancar('escuchar')
+      return
+    }
+    arranquePendiente.current = 'escuchar'
+    setModo('escuchar')
+  }
+  useEffect(() => {
+    if (arranquePendiente.current !== modo) return
+    arranquePendiente.current = null
+    arrancar(modo)
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- arranca una vez por elección
+  }, [modo])
+
   // ─── Entrada del usuario (teclado en pantalla + QWERTY/MIDI del editor) ──
   const entrada = (tono: number, vel: number) => {
-    // Suena por la primera pista que tocas tú (su instrumento).
+    // Suena por la primera pista que tocas tú (su instrumento) y la tecla se
+    // ilumina venga de donde venga (pantalla, QWERTY o MIDI).
     const pistaSonido = melodicas.find((p) => tocadas.has(p.pistaId)) ?? melodicas[0]
     if (pistaSonido) {
       const voz = motor.tocarEnVivo(pistaSonido.pistaId, pistaSonido.instrumento, tono, vel)
       if (voz) {
-        vocesRef.current.get(tono)?.soltar()
+        if (vocesRef.current.has(tono)) vocesRef.current.get(tono)?.soltar()
+        else sonando.encender(tono)
         vocesRef.current.set(tono, voz)
       }
     }
     if (faseRef.current !== 'sonando') return
-    const m = modoRef.current
-    if (m === 'espera') {
-      const e = esperaRef.current
-      if (!e) return
-      if (e.pendientes.has(tono)) {
-        e.pendientes.delete(tono)
-        statsRef.current.aciertos++
-        guia.marcarGuiaTemporal(tono, 'acierto', 250)
-        guia.fijarEsperadas(e.pendientes)
-        if (e.pendientes.size === 0) avanzarEspera()
-      } else {
-        statsRef.current.extras++
-        guia.marcarGuiaTemporal(tono, 'fallo', 250)
-      }
-      return
-    }
-    if (m === 'ritmo') {
+    if (modoRef.current === 'ritmo') {
       const ancla = anclaRef.current
       if (!ancla) return
       const paso = ancla.anclaPaso + (ancla.ctxRef + (performance.now() - ancla.perfRef) / 1000 - ancla.anclaT) / ancla.spb
@@ -327,17 +342,38 @@ export function VistaCascada({
       }
       if (mejor >= 0) {
         consumidasRef.current.add(mejor)
+        resultadosRef.current.set(notasTuya[mejor], 'acierto')
         statsRef.current.aciertos++
         guia.marcarGuiaTemporal(tono, 'acierto', 250)
       } else {
+        // Tecla equivocada: la nota pendiente más cercana dentro de la ventana se da
+        // por fallada (era la que tocaba); si no hay ninguna, fue una nota de más.
+        let cerca = -1
+        let cercaDist = Infinity
+        for (let i = 0; i < notasTuya.length; i++) {
+          if (consumidasRef.current.has(i)) continue
+          const dist = Math.abs(notasTuya[i][0] - paso)
+          if (dist <= ventana && dist < cercaDist) {
+            cerca = i
+            cercaDist = dist
+          }
+          if (notasTuya[i][0] > paso + ventana) break
+        }
+        if (cerca >= 0) {
+          consumidasRef.current.add(cerca)
+          resultadosRef.current.set(notasTuya[cerca], 'fallo')
+        }
         statsRef.current.extras++
         guia.marcarGuiaTemporal(tono, 'fallo', 250)
       }
     }
   }
   const finEntrada = (tono: number) => {
-    vocesRef.current.get(tono)?.soltar()
+    const voz = vocesRef.current.get(tono)
+    if (!voz) return
+    voz.soltar()
     vocesRef.current.delete(tono)
+    sonando.apagar(tono)
   }
   const entradaRef = useRef(entrada)
   const finEntradaRef = useRef(finEntrada)
@@ -355,18 +391,21 @@ export function VistaCascada({
 
   // rAF de la sesión: destellos de Escuchar, esperadas/perdidas de Ritmo.
   useEffect(() => {
-    if (fase !== 'sonando' || modo === 'espera') return
+    if (fase !== 'sonando') return
     let id = 0
     const tick = () => {
       id = window.requestAnimationFrame(tick)
       const pos = motor.posicion()
       if (modo === 'escuchar') {
+        // Las notas de la canción se iluminan de otro color que las tuyas.
         const ctx = contextoAudio()
         const todas = todasRef.current
         const margen = 0.35 / spbEf // agenda el destello un pelín antes de sonar
         while (destelloRef.current < todas.length && todas[destelloRef.current][0] <= pos + margen) {
           const [inicio, dur, tono] = todas[destelloRef.current]
-          if (ctx) sonando.destello(tono, Math.max(0, (inicio - pos) * spbEf * 1000), Math.max(120, dur * spbEf * 1000))
+          if (ctx) {
+            sonando.destello(tono, Math.max(0, (inicio - pos) * spbEf * 1000), Math.max(120, dur * spbEf * 1000), 'cancion')
+          }
           destelloRef.current++
         }
         return
@@ -380,7 +419,9 @@ export function VistaCascada({
         if (nota[0] > pos + aviso) break
         if (consumidasRef.current.has(i)) continue
         if (nota[0] + ventana < pos) {
+          // Pasó de largo sin tocarse: fallo de tiempo.
           consumidasRef.current.add(i)
+          resultadosRef.current.set(nota, 'fallo')
           statsRef.current.perdidas++
           guia.marcarGuiaTemporal(nota[2], 'fallo', 300)
         } else if (nota[0] >= pos - ventana) {
@@ -392,20 +433,6 @@ export function VistaCascada({
     id = window.requestAnimationFrame(tick)
     return () => window.cancelAnimationFrame(id)
   }, [fase, modo, notasTuya, spbEf])
-
-  const chip = (activo: boolean, onClick: () => void, contenido: ReactNode, titulo?: string) => (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-pressed={activo}
-      title={titulo}
-      className={`ui-presion rounded-full border px-2.5 py-1 text-xs font-semibold transition ${
-        activo ? 'border-white/50 bg-white/20 text-white' : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10'
-      }`}
-    >
-      {contenido}
-    </button>
-  )
 
   const sonandoAhora = fase === 'sonando'
   const precision = (s: Stats) => Math.round((100 * s.aciertos) / Math.max(1, s.aciertos + s.perdidas + s.extras))
@@ -447,7 +474,7 @@ export function VistaCascada({
           <BotonPrimario
             pequeno
             app={COLOR}
-            onClick={() => (cuenta != null ? setCuenta(null) : modo === 'espera' ? terminar(true) : motor.detener())}
+            onClick={() => (cuenta != null ? setCuenta(null) : motor.detener())}
           >
             <Icono nombre="detener" /> {t('audio.practica.parar', 'Parar')}
           </BotonPrimario>
@@ -460,9 +487,12 @@ export function VistaCascada({
 
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
         <div className="flex items-center gap-1">
-          {chip(modo === 'escuchar', () => setModo('escuchar'), t('audio.practica.escuchar', 'Escuchar'))}
-          {chip(modo === 'ritmo', () => setModo('ritmo'), t('audio.practica.ritmo', 'Ritmo'))}
-          {chip(modo === 'espera', () => setModo('espera'), t('audio.practica.espera', 'Espera'))}
+          <Chip activo={modo === 'escuchar'} onClick={escuchar}>
+            {t('audio.practica.escuchar', 'Escuchar')}
+          </Chip>
+          <Chip activo={modo === 'ritmo'} onClick={() => setModo('ritmo')}>
+            {t('audio.practica.ritmo', 'Ritmo')}
+          </Chip>
         </div>
         {melodicas.length > 1 && modo !== 'escuchar' && (
           <div className="flex items-center gap-1">
@@ -470,19 +500,13 @@ export function VistaCascada({
             {melodicas.map((p) => {
               const idx = proyecto.pistas.findIndex((x) => x.pistaId === p.pistaId)
               return (
-                <span key={p.pistaId}>
-                  {chip(
-                    tocadas.has(p.pistaId),
-                    () => alternarTocada(p.pistaId),
-                    <>
-                      <span
-                        className="me-1 inline-block h-2 w-2 rounded-full align-middle"
-                        style={{ background: PALETA_PISTAS[idx % PALETA_PISTAS.length] }}
-                      />
-                      {p.nombre}
-                    </>,
-                  )}
-                </span>
+                <Chip key={p.pistaId} activo={tocadas.has(p.pistaId)} onClick={() => alternarTocada(p.pistaId)}>
+                  <span
+                    className="me-1 inline-block h-2 w-2 rounded-full align-middle"
+                    style={{ background: PALETA_PISTAS[idx % PALETA_PISTAS.length] }}
+                  />
+                  {p.nombre}
+                </Chip>
               )
             })}
           </div>
@@ -518,11 +542,25 @@ export function VistaCascada({
               tuya: modo === 'escuchar' || tocadas.has(p.pistaId),
             }
           })
-          const reloj = () => (modoRef.current === 'espera' ? posVirtualRef.current : motor.posicion())
           return conPartitura ? (
-            <PartituraPractica carriles={carriles} spb={spbEf} pos={reloj} />
+            <PartituraPractica
+              carriles={carriles}
+              spb={spbEf}
+              pos={motor.posicion}
+              zoom={zoom}
+              fondo={fondo}
+              resultadoDe={resultadoDe}
+            />
           ) : (
-            <Cascada carriles={carriles} octava={octava} spb={spbEf} pos={reloj} />
+            <Cascada
+              carriles={carriles}
+              octava={octava}
+              spb={spbEf}
+              pos={motor.posicion}
+              zoom={zoom}
+              fondo={fondo}
+              resultadoDe={resultadoDe}
+            />
           )
         })()}
         {cuenta != null && cuenta > 0 && (
@@ -559,6 +597,26 @@ export function VistaCascada({
             }`}
           >
             <Icono nombre={conPartitura ? 'bajar' : 'metronomo'} />
+          </button>
+          {/* Tamaño de la partitura/cascada: un solo botón cíclico (normal → grande → chico). */}
+          <button
+            type="button"
+            onClick={ciclarZoom}
+            aria-label={siguienteZoom > zoom ? t('audio.roll.zoomMas', 'Acercar') : t('audio.roll.zoomMenos', 'Alejar')}
+            title={siguienteZoom > zoom ? t('audio.roll.zoomMas', 'Acercar') : t('audio.roll.zoomMenos', 'Alejar')}
+            className="grid h-8 w-8 place-items-center rounded-lg border border-white/10 bg-black/50 text-white/70 transition hover:bg-black/70"
+          >
+            <Icono nombre={siguienteZoom > zoom ? 'acercar' : 'alejar'} />
+          </button>
+          {/* Fondo de la zona de las notas: claro u oscuro (el icono anuncia el que viene). */}
+          <button
+            type="button"
+            onClick={alternarFondo}
+            aria-label={fondo === 'claro' ? t('ajustes.modo.oscuro', 'Oscuro') : t('ajustes.modo.claro', 'Claro')}
+            title={fondo === 'claro' ? t('ajustes.modo.oscuro', 'Oscuro') : t('ajustes.modo.claro', 'Claro')}
+            className="grid h-8 w-8 place-items-center rounded-lg border border-white/10 bg-black/50 text-white/70 transition hover:bg-black/70"
+          >
+            <Icono nombre={fondo === 'claro' ? 'noche' : 'dia'} />
           </button>
         </div>
       </div>

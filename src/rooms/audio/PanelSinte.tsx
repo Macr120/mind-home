@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useSyncExternalStore } from 'react'
 import type {
   AjustesVivo,
   EfectosPista,
@@ -28,6 +28,7 @@ import { sinteBase } from './instrumentos'
 import { Knob } from './Knob'
 import * as motor from './motor'
 import { nombreClase, nombreNota } from './musica'
+import { coloresTeclasStore, fijarColoresTeclas } from './tecladoVista'
 
 /** Símbolo corto de cada patrón de arpegio (glifos, no emojis). */
 const GLIFO_ARP: Record<PatronArp, string> = { sube: '↑', baja: '↓', subeBaja: '↑↓', azar: '?' }
@@ -115,6 +116,8 @@ export function PanelSinte({
 }) {
   const t = useT()
   const [abierto, setAbierto] = useState(true)
+  // Color de las teclas del piano (claro, oscuro o el tuyo): se elige bajo el octavador.
+  const colores = useSyncExternalStore(coloresTeclasStore.subscribe, coloresTeclasStore.getSnapshot)
   const [pestana, setPestana] = useState<'fx' | 'sonido'>('fx')
   const [modal, setModal] = useState<'arp' | 'acorde' | 'escala' | 'relleno' | 'patrones' | null>(null)
   const [golpeSel, setGolpeSel] = useState<number>(42) // hi-hat: el relleno más común
@@ -357,31 +360,82 @@ export function PanelSinte({
               t('audio.escala.boton', 'Escala'),
               escala ? `${nombreClase(escala.tonica)} ${NOMBRE_ESCALA[escala.tipo]}` : null,
             )}
-            <div className="ms-auto flex items-center gap-1">
-              <button
-                type="button"
-                onClick={() => onOctava(Math.max(24, octava - 12))}
-                aria-label={t('audio.teclado.octavaMenos', 'Octava abajo')}
-                title={t('audio.teclado.octavaMenos', 'Octava abajo')}
-                className="ui-presion grid h-8 w-8 place-items-center rounded-lg border border-white/10 bg-white/10 text-white/70 transition hover:bg-white/20"
+            <div className="ms-auto flex flex-col items-end gap-1">
+              <div className="flex items-center gap-1">
+                <button
+                  type="button"
+                  onClick={() => onOctava(Math.max(24, octava - 12))}
+                  aria-label={t('audio.teclado.octavaMenos', 'Octava abajo')}
+                  title={t('audio.teclado.octavaMenos', 'Octava abajo')}
+                  className="ui-presion grid h-8 w-8 place-items-center rounded-lg border border-white/10 bg-white/10 text-white/70 transition hover:bg-white/20"
+                >
+                  <Icono nombre="quitar" />
+                </button>
+                <span
+                  className="w-9 text-center font-mono text-xs font-semibold text-white/80"
+                  title={t('audio.sinte.octava', 'Octava del teclado')}
+                >
+                  {nombreNota(octava)}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => onOctava(Math.min(84, octava + 12))}
+                  aria-label={t('audio.teclado.octavaMas', 'Octava arriba')}
+                  title={t('audio.teclado.octavaMas', 'Octava arriba')}
+                  className="ui-presion grid h-8 w-8 place-items-center rounded-lg border border-white/10 bg-white/10 text-white/70 transition hover:bg-white/20"
+                >
+                  <Icono nombre="agregar" />
+                </button>
+              </div>
+              {/* Bajo el octavador: el color de las teclas del piano (claro, oscuro o el tuyo). */}
+              <div
+                role="group"
+                aria-label={t('audio.teclado.colores', 'Color de las teclas')}
+                title={t('audio.teclado.colores', 'Color de las teclas')}
+                className="flex items-center gap-1"
               >
-                <Icono nombre="quitar" />
-              </button>
-              <span
-                className="w-9 text-center font-mono text-xs font-semibold text-white/80"
-                title={t('audio.sinte.octava', 'Octava del teclado')}
-              >
-                {nombreNota(octava)}
-              </span>
-              <button
-                type="button"
-                onClick={() => onOctava(Math.min(84, octava + 12))}
-                aria-label={t('audio.teclado.octavaMas', 'Octava arriba')}
-                title={t('audio.teclado.octavaMas', 'Octava arriba')}
-                className="ui-presion grid h-8 w-8 place-items-center rounded-lg border border-white/10 bg-white/10 text-white/70 transition hover:bg-white/20"
-              >
-                <Icono nombre="agregar" />
-              </button>
+                {(
+                  [
+                    ['claro', t('ajustes.modo.claro', 'Claro')],
+                    ['oscuro', t('ajustes.modo.oscuro', 'Oscuro')],
+                    ['personalizado', t('audio.teclado.personalizado', 'Personalizado')],
+                  ] as const
+                ).map(([modo, nombre]) => (
+                  <button
+                    key={modo}
+                    type="button"
+                    aria-pressed={colores.modo === modo}
+                    onClick={() => fijarColoresTeclas({ modo })}
+                    className={`ui-presion rounded-full border px-2 py-0.5 text-[10px] font-semibold transition ${
+                      colores.modo === modo
+                        ? 'border-white/50 bg-white/20 text-white'
+                        : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10'
+                    }`}
+                  >
+                    {nombre}
+                  </button>
+                ))}
+                {colores.modo === 'personalizado' && (
+                  <>
+                    <input
+                      type="color"
+                      value={colores.blancas}
+                      aria-label={t('audio.teclado.blancas', 'Teclas blancas')}
+                      title={t('audio.teclado.blancas', 'Teclas blancas')}
+                      onChange={(e) => fijarColoresTeclas({ blancas: e.target.value })}
+                      className="h-6 w-7 cursor-pointer rounded border border-white/10 bg-transparent p-0"
+                    />
+                    <input
+                      type="color"
+                      value={colores.negras}
+                      aria-label={t('audio.teclado.negras', 'Teclas negras')}
+                      title={t('audio.teclado.negras', 'Teclas negras')}
+                      onChange={(e) => fijarColoresTeclas({ negras: e.target.value })}
+                      className="h-6 w-7 cursor-pointer rounded border border-white/10 bg-transparent p-0"
+                    />
+                  </>
+                )}
+              </div>
             </div>
           </>
         )}

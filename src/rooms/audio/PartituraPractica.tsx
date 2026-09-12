@@ -1,6 +1,13 @@
 import { useEffect, useRef } from 'react'
 import type { NotaAudio } from '../../core/data/db'
-import type { CarrilCascada } from './Cascada'
+import {
+  colorResultado,
+  PAPEL_CLARO,
+  tintaDe,
+  type CarrilCascada,
+  type FondoPractica,
+  type ResultadoNota,
+} from './Cascada'
 import { dibujarVoz, type Entrada, figurasDe, lineasAdicionalesDe, radioCabeza } from './notacion'
 
 /**
@@ -29,18 +36,26 @@ export function PartituraPractica({
   carriles,
   spb,
   pos,
+  zoom = 1,
+  fondo = 'oscuro',
+  resultadoDe,
 }: {
   carriles: CarrilCascada[]
   /** Segundos por paso EFECTIVOS (ya escalados por la velocidad elegida). */
   spb: number
-  /** Posición actual en pasos (el playhead del motor o la virtual de Espera). */
+  /** Posición actual en pasos (el playhead del motor). */
   pos: () => number
+  /** Tamaño de la partitura: agranda el pentagrama y acerca el tiempo (menos segundos a la vista). */
+  zoom?: number
+  fondo?: FondoPractica
+  /** Ritmo: acierto/fallo de cada nota tuya (se lee en cada cuadro). */
+  resultadoDe?: (nota: NotaAudio) => ResultadoNota | undefined
 }) {
   const contRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const props = useRef({ carriles, spb, pos })
+  const props = useRef({ carriles, spb, pos, zoom, fondo, resultadoDe })
   useEffect(() => {
-    props.current = { carriles, spb, pos }
+    props.current = { carriles, spb, pos, zoom, fondo, resultadoDe }
   })
 
   useEffect(() => {
@@ -61,18 +76,19 @@ export function PartituraPractica({
       if (!ctx) return
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
       ctx.clearRect(0, 0, W, H)
-      const { carriles, spb, pos } = props.current
+      const { carriles, spb, pos, zoom, fondo, resultadoDe } = props.current
+      const tinta = tintaDe(fondo)
 
-      // Medio-espacio por grado, adaptado al alto (el rango 25..45 debe caber holgado).
-      const MEDIO = Math.max(4.5, Math.min(9, H / 34))
+      // Medio-espacio por grado, adaptado al alto (el rango 25..45 debe caber holgado) y al zoom.
+      const MEDIO = Math.max(4.5, Math.min(9, H / 34)) * zoom
       const yDe = (g: number) => H / 2 + (35 - g) * MEDIO
       const ahora = pos()
-      const pasosVisibles = VISTA_S / spb
+      const pasosVisibles = VISTA_S / zoom / spb
       const pxPaso = (W - NOW_X) / pasosVisibles
       const xDe = (paso: number) => NOW_X + (paso - ahora) * pxPaso
 
       // Líneas de negra (cada 4 pasos) como referencia rítmica tenue.
-      ctx.strokeStyle = 'rgba(255,255,255,0.07)'
+      ctx.strokeStyle = `rgba(${tinta},0.08)`
       for (let p = Math.ceil((ahora - NOW_X / pxPaso) / 4) * 4; p <= ahora + pasosVisibles; p += 4) {
         const x = xDe(p)
         if (x < 8) continue
@@ -83,7 +99,7 @@ export function PartituraPractica({
       }
 
       // Los dos pentagramas, de lado a lado (cruzan la zona de las claves).
-      ctx.strokeStyle = 'rgba(255,255,255,0.4)'
+      ctx.strokeStyle = `rgba(${tinta},0.4)`
       for (const linea of LINEAS_PENTAGRAMA) {
         const y = yDe(linea)
         ctx.beginPath()
@@ -91,7 +107,7 @@ export function PartituraPractica({
         ctx.lineTo(W, y + 0.5)
         ctx.stroke()
       }
-      ctx.fillStyle = 'rgba(255,255,255,0.85)'
+      ctx.fillStyle = `rgba(${tinta},0.85)`
       ctx.font = `${Math.round(MEDIO * 7.3)}px serif`
       ctx.fillText('𝄞', 10, yDe(41))
       ctx.font = `${Math.round(MEDIO * 6)}px serif`
@@ -113,10 +129,15 @@ export function PartituraPractica({
           const x = xDe(nota[0])
           const y = yDe(g)
           if (x + nota[1] * pxPaso < 40 - margen) continue
+          // En Ritmo, la nota ya juzgada va en verde o en rojo (cabeza, plica y banda).
+          const res = resultadoDe?.(nota)
+          const colorNota = colorResultado(res, color)
           // Banda tenue con la duración real; encima, las figuras (ligadas si son
           // varias), con la cabeza centrada en su instante: cruza «ahora» al sonar.
           ctx.globalAlpha = alpha * 0.25
+          ctx.fillStyle = colorNota
           ctx.fillRect(x, y - 1, Math.max(3, nota[1] * pxPaso - 2), 2)
+          ctx.fillStyle = color
           const adicionales = lineasAdicionalesDe(g)
           let xAnterior: number | undefined
           for (const tramo of figurasDe(nota[0], nota[1])) {
@@ -131,7 +152,7 @@ export function PartituraPractica({
               ctx.lineTo(xt + rx + MEDIO * 0.6, yl + 0.5)
               ctx.stroke()
             }
-            entradas.push({ paso: tramo.paso, figura: tramo.figura, x: xt, y, diat: g, xAnterior })
+            entradas.push({ paso: tramo.paso, figura: tramo.figura, x: xt, y, diat: g, xAnterior, color: res && colorNota })
             xAnterior = xt
           }
           if (ES_SOSTENIDO[((nota[2] % 12) + 12) % 12]) sostenidos.push({ x: x - MEDIO * 2.1, y: y + MEDIO * 0.8 })
@@ -146,12 +167,16 @@ export function PartituraPractica({
       for (const carril of carriles) if (!carril.tuya) pintar(carril.notas, carril.color, 0.3)
       for (const carril of carriles) if (carril.tuya) pintar(carril.notas, carril.color, 0.95)
 
-      // La línea de «ahora»: la nota se toca al cruzarla.
-      ctx.strokeStyle = 'rgba(255,255,255,0.35)'
+      // La línea de «ahora» (la nota se toca al cruzarla), bien marcada: banda tenue + trazo fuerte.
+      ctx.fillStyle = `rgba(${tinta},0.12)`
+      ctx.fillRect(NOW_X - 4, yDe(48), 9, yDe(22) - yDe(48))
+      ctx.strokeStyle = `rgba(${tinta},0.9)`
+      ctx.lineWidth = 2.5
       ctx.beginPath()
-      ctx.moveTo(NOW_X + 0.5, yDe(47))
-      ctx.lineTo(NOW_X + 0.5, yDe(23))
+      ctx.moveTo(NOW_X + 0.5, yDe(48))
+      ctx.lineTo(NOW_X + 0.5, yDe(22))
       ctx.stroke()
+      ctx.lineWidth = 1
     }
     id = window.requestAnimationFrame(dibujar)
     return () => window.cancelAnimationFrame(id)
@@ -160,7 +185,10 @@ export function PartituraPractica({
   return (
     <div
       ref={contRef}
-      className="relative min-h-0 flex-1 overflow-hidden rounded-t-xl border border-b-0 border-white/10 bg-black/40"
+      className={`relative min-h-0 flex-1 overflow-hidden rounded-t-xl border border-b-0 border-white/10 ${
+        fondo === 'claro' ? '' : 'bg-black/40'
+      }`}
+      style={fondo === 'claro' ? { background: PAPEL_CLARO } : undefined}
     >
       <canvas ref={canvasRef} className="h-full w-full" />
     </div>

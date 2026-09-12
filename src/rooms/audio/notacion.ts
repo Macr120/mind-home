@@ -115,9 +115,19 @@ export const radioCabeza = (medio: number) => medio * 0.8
 
 /**
  * Una cabeza que dibujar: su tramo (figura y paso), dónde va y, si continúa la
- * misma nota, la x de la cabeza anterior (se unen con ligadura).
+ * misma nota, la x de la cabeza anterior (se unen con ligadura). `color`
+ * (opcional) la pinta distinta del resto de la voz —cabeza, puntillo, ligadura
+ * y plica—; las barras compartidas se quedan con el color de la voz.
  */
-export type Entrada = { paso: number; figura: Figura; x: number; y: number; diat: number; xAnterior?: number }
+export type Entrada = {
+  paso: number
+  figura: Figura
+  x: number
+  y: number
+  diat: number
+  xAnterior?: number
+  color?: string
+}
 
 /** Un acorde (o nota sola): las cabezas del mismo paso, figura y pentagrama comparten plica. */
 type Evento = { paso: number; figura: Figura; x: number; sol: boolean; cabezas: Entrada[]; arriba: boolean }
@@ -194,9 +204,16 @@ export function dibujarVoz(ctx: CanvasRenderingContext2D, entradas: Entrada[], m
     for (const ev of grupo) ev.arriba = arriba
   }
 
+  const base = { fill: ctx.fillStyle, stroke: ctx.strokeStyle }
+  const pintarCon = (color: string | undefined) => {
+    ctx.fillStyle = color ?? base.fill
+    ctx.strokeStyle = color ?? base.stroke
+  }
+
   // Cabezas, puntillos y ligaduras (la ligadura va del lado contrario a la plica).
   for (const ev of eventos) {
     for (const c of ev.cabezas) {
+      pintarCon(c.color)
       ctx.beginPath()
       ctx.ellipse(c.x, c.y, rx, ry, -0.35, 0, Math.PI * 2)
       if (ev.figura.hueca) {
@@ -214,11 +231,12 @@ export function dibujarVoz(ctx: CanvasRenderingContext2D, entradas: Entrada[], m
       if (c.xAnterior != null) dibujarLigadura(ctx, c.xAnterior, c.x, c.y, medio, ev.arriba)
     }
   }
+  pintarCon(undefined)
 
   /** X de la plica (a la derecha de la cabeza si sube, a la izquierda si baja). */
   const xPlica = (ev: Evento) => (ev.arriba ? ev.x + rx - 0.5 : ev.x - rx + 0.5)
   /** Donde arranca la plica (la cabeza más alejada del extremo) y la que marca su largo. */
-  const base = (ev: Evento) =>
+  const arranque = (ev: Evento) =>
     ev.arriba ? Math.max(...ev.cabezas.map((c) => c.y)) : Math.min(...ev.cabezas.map((c) => c.y))
   const extremo = (ev: Evento) =>
     ev.arriba ? Math.min(...ev.cabezas.map((c) => c.y)) : Math.max(...ev.cabezas.map((c) => c.y))
@@ -229,11 +247,12 @@ export function dibujarVoz(ctx: CanvasRenderingContext2D, entradas: Entrada[], m
     if (grupo.length === 1) {
       const ev = grupo[0]
       if (!ev.figura.plica) continue
+      pintarCon(ev.cabezas.find((c) => c.color)?.color)
       const xp = xPlica(ev)
       const yFin = extremo(ev) + s * largo
       ctx.lineWidth = Math.max(1, medio * 0.16)
       ctx.beginPath()
-      ctx.moveTo(xp, base(ev))
+      ctx.moveTo(xp, arranque(ev))
       ctx.lineTo(xp, yFin)
       ctx.stroke()
       // Corchetes: una curva por cada uno, del extremo de la plica hacia la cabeza.
@@ -245,6 +264,7 @@ export function dibujarVoz(ctx: CanvasRenderingContext2D, entradas: Entrada[], m
         ctx.bezierCurveTo(xp, y0 - s * medio * 1.6, xp + medio * 1.9, y0 - s * medio * 1.9, xp + medio * 1.1, y0 - s * medio * 3.4)
         ctx.stroke()
       }
+      pintarCon(undefined)
       continue
     }
 
@@ -266,12 +286,14 @@ export function dibujarVoz(ctx: CanvasRenderingContext2D, entradas: Entrada[], m
 
     ctx.lineWidth = Math.max(1, medio * 0.16)
     for (const ev of grupo) {
+      pintarCon(ev.cabezas.find((c) => c.color)?.color)
       const xp = xPlica(ev)
       ctx.beginPath()
-      ctx.moveTo(xp, base(ev))
+      ctx.moveTo(xp, arranque(ev))
       ctx.lineTo(xp, yBarra(xp))
       ctx.stroke()
     }
+    pintarCon(undefined)
     /** Un trozo de barra entre dos x, en el nivel 0 (principal) o 1 (secundaria, hacia las cabezas). */
     const barra = (xa: number, xb: number, nivel: number) => {
       const off = -s * nivel * medio * 0.75
