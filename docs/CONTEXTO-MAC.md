@@ -102,17 +102,19 @@ App ▸ App Store Connect ▸ Upload*. El build tarda 5–30 min en aparecer.
 ## 4. Lo que solo puede hacer el usuario (no Claude)
 
 - **App Store Connect** (app 6804840611): aceptar el *Program License Agreement*
-  vigente; en la versión de la ficha cambiar **1.0 → 1.1.0** (si no, el build
-  «1.1.0 (3)» no aparece para elegir) y elegirlo; teléfono de contacto y
+  vigente; en la versión de la ficha cambiar **1.0 → 1.1.1** (si no, el build
+  «1.1.1 (4)» no aparece para elegir) y elegirlo; teléfono de contacto y
   contraseña del revisor (`mindplannerhome@gmail.com`); precio/países y el
   *Paid Applications Agreement*; probar en **TestFlight** con cuenta sandbox
   (IOS.md §4.5) y enviar a revisión.
-- **Microsoft Store**: subir `MindPlannerHome-1.1.0-win.appx` (copia en
+- **Microsoft Store**: subir `MindPlannerHome-1.1.1-win.appx` (copia en
   `C:\Users\macr1\mph-paquetes\`) como envío nuevo en Partner Center.
-- **Play Console**: subir `android/app/build/outputs/bundle/release/app-release.aab`
-  (`versionCode 7`, 1.1.0) a la pista que toque y escribir las notas.
+- **Play Console**: subir `MindPlannerHome-1.1.1-versionCode8.aab` (copia en
+  `C:\Users\macr1\mph-paquetes\`, original en
+  `android/app/build/outputs/bundle/release/app-release.aab`) a la pista que toque
+  y escribir las notas.
 
-## Qué trae la 1.1.0 (para las notas de las tiendas)
+## Qué trae la 1.1.1 (para las notas de las tiendas)
 
 - **El Studio completo**, cuatro apps creativas en su carpeta de la casa: **Audio**
   (piano roll, instrumentos, MIDI, grabación, práctica y mezclador DJ), **Arte**
@@ -128,5 +130,9 @@ App ▸ App Store Connect ▸ Upload*. El build tarda 5–30 min en aparecer.
   Studio y el violeta reservado a lo que de verdad necesita IA.
 - **Más**: el despacho se llama «Finanzas», los temas de la casa visten la interfaz
   y el avatar (tema «Princesas»), racha al abrir la app, dietas nuevas.
+- **Arreglos de la 1.1.1**: la casa ya no se queda «pegada» al tema anterior al
+  elegir «Sin tema» (el sync fundía mal las filas duplicadas de `disenoRooms` y
+  `asistentes`), y cuatro objetos del Studio quedaron bien puestos (claqueta,
+  caballete, sofá de audio y el monitor que flotaba sin su escritorio).
 - Lo que ya traía la 1.0.4 (un clic en el fondo, construcción libre, actuación del
   avatar, `/acerca`) sigue sin cambios.
