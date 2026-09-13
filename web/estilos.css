@@ -476,18 +476,47 @@ section h2 {
   overflow: visible;
 }
 
+/* Flex y NO grid a propósito: con `auto-fit` una última fila incompleta deja el
+   hueco a la derecha, y las tarjetas de características son diez (no múltiplo de
+   tres ni de cuatro). Aquí cada fila reparte el sobrante entre las tarjetas que
+   le tocaron, así que ninguna se queda sola con un agujero al lado. */
 .tarjetas {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 12px;
 }
 
 .tarjeta {
+  flex: 1 1 230px;
   background: var(--tarjeta);
   border: 1px solid var(--borde);
   border-radius: var(--radio-tarjeta);
   padding: 16px;
   transition: background-color 0.18s var(--ease-fluida);
+}
+
+/* De 900 para arriba: la del Studio vale por dos, y así las diez tarjetas de
+   características caen 3+2+3+2; las cuatro capacidades de la IA entran en una
+   sola fila (con el mínimo de 230 la cuarta se iba sola a la siguiente). */
+@media (min-width: 900px) {
+  .tarjeta.doble {
+    flex-basis: 472px;
+    flex-grow: 2;
+  }
+
+  #ia .tarjeta {
+    flex-basis: 200px;
+  }
+}
+
+/* En tablet, dos columnas EXACTAS: las diez de características caen en cinco
+   filas limpias y las cuatro de la IA en dos. Por debajo de 560 el mínimo de
+   230 ya deja una sola columna. */
+@media (min-width: 560px) and (max-width: 899px) {
+  #caracteristicas .tarjeta,
+  #ia .tarjeta {
+    flex-basis: calc(50% - 6px);
+  }
 }
 
 .tarjeta:hover {
