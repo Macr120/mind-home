@@ -19,7 +19,7 @@ Je leven in een 3D-huis: gewoontes, doelen, financiën, maaltijden en meer.
 
 gewoontes,doelen,planner,dagboek,budget,voeding,training,slaap,studie,ai,assistent
 
-## Descripción (2957/4000)
+## Descripción (3338/4000)
 
 Breng je gewoontes, doelen, financiën, maaltijden en meer op orde in een isometrisch 3D-huis waarin elke kamer een app is.
 
@@ -29,15 +29,16 @@ HOE HET WERKT
 Je plaatst kamers, verdiepingen en zelfs een kelder, en eromheen alles wat je buiten bouwt: moestuin, boerderij, sportvelden, racecircuits. Muren, kleuren, meubels en je avatar kies je zelf.
 
 2. Elke kamer is een complete app
-Je wijst er een van de 17 apps aan toe — voeding, sport, slaap, financiën, bibliotheek, talen, ideeën, planner, reizen, hobby’s, doelen… — of je maakt je eigen app. Daarmee archiveer je wat je al hebt meegemaakt, plan je wat eraan komt en maak je wat er nog niet is: routines, recepten, budgetten, aantekeningen, mindmaps en planningen. Met de hand, of met de AI naast je.
+Je wijst er een van de 17 apps aan toe — voeding, sport, slaap, financiën, bibliotheek, talen, ideeën, planner, reizen, hobby’s, doelen… —, een van de vier uit de Studio — audio, kunst, schrijven en video — of je maakt je eigen app. Daarmee archiveer je wat je al hebt meegemaakt, plan je wat eraan komt en maak je wat er nog niet is: routines, recepten, budgetten, aantekeningen, mindmaps, planningen, liedjes en boeken. Met de hand, of met de AI naast je.
 
 3. Alles komt op dezelfde plek terecht
-De 17 apps delen één kalender, één lijst met dagelijkse missies en je eigen doelen. En je hele huis gaat met je mee van telefoon naar computer.
+De 17 apps en de vier uit de Studio delen één kalender, één lijst met dagelijkse missies en je eigen doelen. En je hele huis gaat met je mee van telefoon naar computer.
 
 EÉN HUIS, VEEL APPS
 • Echt alles in één: Eén app in plaats van twintig: eten, geld, slaap, studie, gewoontes en doelen onder hetzelfde dak — en met elkaar verbonden, wat losse apps nooit kunnen.
 • Vervalt niet als je stopt met betalen: Je koopt hem één keer en hij is van jou. Abonnementsapps gaan uit zodra je stopt met betalen; hier houd je het hele huis en al je gegevens op je apparaat, ook als je de AI laat vallen.
 • Kamers die apps zijn: Sport, keuken, financiën, slaap, bibliotheek, talen, reizen, hobby’s, mindfulness en meer: in elke kamer zit een complete mini-app.
+• Een Studio om te maken: Vier aparte apps: Audio, Kunst, Schrijven en Video. Je componeert met een piano roll en een MIDI-keyboard, schildert en bewerkt foto’s, schrijft boeken hoofdstuk voor hoofdstuk en monteert video’s vanuit een script — en exporteert wat je maakt.
 • Assistent met AI: Chat met je assistent: leg maaltijden vast, maak routines, plan doelen, genereer beelden en 3D-modellen. Je eerste maand komt met 700 credits; daarna is AI optioneel.
 • Alles gesynchroniseerd: Je huis gaat met je mee naar je telefoon, je tablet en je computer. Alles versleuteld onderweg en geback-upt in de cloud.
 • Het voelt als een spel: Je personage leeft van je echte activiteit: reeksen, badges, de Berg van Sisyphus, voertuigen, races en minigames.

@@ -47,6 +47,7 @@ export const TEXTOS = {
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
   'cifras.apps': 'apps',
+  'cifras.studio': 'do Estúdio',
   'cifras.infra': 'infraestruturas',
   'cifras.ra': 'apps de RA',
   'cifras.calendario': 'calendário',
@@ -59,10 +60,10 @@ export const TEXTOS = {
     'Você insere cômodos, andares e até um porão, e ao redor tudo o que se constrói ao ar livre: horta, fazenda, quadras, circuitos de corrida. As paredes, as cores, os móveis e seu avatar são escolha sua.',
   'como.2.t': 'Cada cômodo é um app completo',
   'como.2.p':
-    'Você atribui a ele um dos 17 apps — nutrição, exercício, descanso, finanças, biblioteca, idiomas, ideias, agenda, viagens, hobbies, metas… — ou fabrica o seu. Com eles você arquiva o que já viveu, planeja o que vem e cria o que ainda não existe: rotinas, receitas, orçamentos, anotações, mapas mentais e cronogramas. Tudo à mão, ou com a IA do seu lado.',
+    'Você atribui a ele um dos 17 apps — nutrição, exercício, descanso, finanças, biblioteca, idiomas, ideias, agenda, viagens, hobbies, metas… —, um dos quatro do Estúdio — áudio, arte, escrita e vídeo — ou fabrica o seu. Com eles você arquiva o que já viveu, planeja o que vem e cria o que ainda não existe: rotinas, receitas, orçamentos, anotações, mapas mentais, cronogramas, músicas e livros. Tudo à mão, ou com a IA do seu lado.',
   'como.3.t': 'Tudo cai no mesmo lugar',
   'como.3.p':
-    'Os 17 apps compartilham um calendário, uma lista de missões diárias e as suas metas pessoais. E sua casa inteira acompanha você do celular ao computador.',
+    'Os 17 apps e os quatro do Estúdio compartilham um calendário, uma lista de missões diárias e as suas metas pessoais. E sua casa inteira acompanha você do celular ao computador.',
 
   'car.h2': 'Uma casa, muitos apps',
   // Las tres primeras tarjetas: el argumento de compra.
@@ -77,6 +78,9 @@ export const TEXTOS = {
   'car.1.t': 'Cômodos que são apps',
   'car.1.p':
     'Exercício, cozinha, finanças, descanso, biblioteca, idiomas, viagens, hobbies, mindfulness e mais: cada cômodo guarda um mini-app completo.',
+  'car.studio.t': 'Um Estúdio para criar',
+  'car.studio.p':
+    'Quatro apps à parte: Áudio, Arte, Escrita e Vídeo. Você compõe com piano roll e teclado MIDI, pinta e retoca fotos, escreve livros por capítulos e monta vídeos por roteiro — e exporta o que fizer.',
   'car.2.t': 'Assistente com IA',
   'car.2.p':
     'Converse com seu assistente: registre refeições, crie rotinas, planeje metas, gere imagens e modelos 3D. Seu primeiro mês traz 700 créditos incluídos; depois a IA é opcional.',

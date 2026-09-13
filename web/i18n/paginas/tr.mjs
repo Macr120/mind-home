@@ -47,6 +47,7 @@ export const TEXTOS = {
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
   'cifras.apps': 'uygulama',
+  'cifras.studio': 'Stüdyo uygulaması',
   'cifras.infra': 'açık hava yapısı',
   'cifras.ra': 'AR uygulaması',
   'cifras.calendario': 'takvim',
@@ -59,10 +60,10 @@ export const TEXTOS = {
     'Odalar, katlar, hatta bir bodrum eklersin; etrafına da açık havada kurulanları: bostan, çiftlik, sahalar, yarış pistleri. Duvarlar, renkler, mobilyalar ve avatarın — hepsini sen seçersin.',
   'como.2.t': 'Her oda eksiksiz bir uygulama',
   'como.2.p':
-    'Odaya 17 uygulamadan birini atarsın — beslenme, egzersiz, uyku, finans, kütüphane, diller, fikirler, ajanda, seyahat, hobiler, hedefler… — ya da kendi uygulamanı yaparsın. Onlarla yaşadıklarını arşivler, geleni planlar ve henüz olmayanı yaratırsın: rutinler, tarifler, bütçeler, notlar, zihin haritaları ve zaman çizelgeleri. Elle ya da yapay zekâ yanındayken.',
+    'Odaya 17 uygulamadan birini atarsın — beslenme, egzersiz, uyku, finans, kütüphane, diller, fikirler, ajanda, seyahat, hobiler, hedefler… —, Stüdyo’daki dörtten birini — ses, sanat, yazı ve video — ya da kendi uygulamanı yaparsın. Onlarla yaşadıklarını arşivler, geleni planlar ve henüz olmayanı yaratırsın: rutinler, tarifler, bütçeler, notlar, zihin haritaları, zaman çizelgeleri, şarkılar ve kitaplar. Elle ya da yapay zekâ yanındayken.',
   'como.3.t': 'Her şey aynı yere düşer',
   'como.3.p':
-    '17 uygulama tek bir takvimi, günlük görevlerden oluşan tek bir listeyi ve kişisel hedeflerini paylaşır. Evinin tamamı da telefondan bilgisayara seni takip eder.',
+    '17 uygulama ve Stüdyo’daki dördü tek bir takvimi, günlük görevlerden oluşan tek bir listeyi ve kişisel hedeflerini paylaşır. Evinin tamamı da telefondan bilgisayara seni takip eder.',
 
   'car.h2': 'Bir ev, bir sürü uygulama',
   // Las tres primeras tarjetas: el argumento de compra.
@@ -77,6 +78,9 @@ export const TEXTOS = {
   'car.1.t': 'Uygulama olan odalar',
   'car.1.p':
     'Egzersiz, mutfak, finans, uyku, kütüphane, diller, seyahat, hobiler, farkındalık ve dahası: her oda eksiksiz bir mini uygulama barındırır.',
+  'car.studio.t': 'Üretmek için bir Stüdyo',
+  'car.studio.p':
+    'Ayrı dört uygulama: Ses, Sanat, Yazı ve Video. Piano roll ve MIDI klavyeyle beste yapar, resim çizip fotoğraf rötuşlar, kitapları bölüm bölüm yazar ve videoları senaryodan kurgularsın — yaptığını da dışa aktarırsın.',
   'car.2.t': 'Yapay zekâ asistanı',
   'car.2.p':
     'Asistanınla konuş: öğünleri kaydet, rutinler kur, hedefler planla, görseller ve 3B modeller üret. İlk ayın 700 kredi dahil gelir; sonrası isteğe bağlı.',

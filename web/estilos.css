@@ -1260,6 +1260,9 @@ footer a:hover {
 .js-anim .cifras li.anim:nth-child(5).entra {
   animation-delay: 0.32s;
 }
+.js-anim .cifras li.anim:nth-child(6).entra {
+  animation-delay: 0.4s;
+}
 
 @keyframes caer-pieza {
   from {

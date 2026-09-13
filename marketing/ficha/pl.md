@@ -19,7 +19,7 @@ Twoje życie w domu 3D: nawyki, cele, finanse, posiłki i więcej.
 
 nawyki,cele,planer,dziennik,budżet,dieta,trening,sen,nauka,ai,asystent,organizer
 
-## Descripción (2961/4000)
+## Descripción (3320/4000)
 
 Uporządkuj nawyki, cele, finanse, posiłki i więcej w izometrycznym domu 3D, w którym każdy pokój to aplikacja.
 
@@ -29,15 +29,16 @@ JAK TO DZIAŁA
 Wstawiasz pokoje, piętra, a nawet piwnicę, a wokół wszystko, co buduje się na zewnątrz: ogródek, farmę, boiska, tory wyścigowe. Ściany, kolory, meble i twój awatar — wszystko to twój wybór.
 
 2. Każdy pokój to kompletna aplikacja
-Przypisujesz mu jedną z 17 aplikacji — odżywianie, ćwiczenia, sen, finanse, biblioteka, języki, pomysły, terminarz, podróże, hobby, cele… — albo tworzysz własną. Dzięki nim archiwizujesz to, co już przeżyte, planujesz to, co nadchodzi, i tworzysz to, czego jeszcze nie ma: rutyny, przepisy, budżety, notatki, mapy myśli i harmonogramy. Ręcznie albo z SI u boku.
+Przypisujesz mu jedną z 17 aplikacji — odżywianie, ćwiczenia, sen, finanse, biblioteka, języki, pomysły, terminarz, podróże, hobby, cele… —, jedną z czterech ze Studia — dźwięk, sztuka, pisanie i wideo — albo tworzysz własną. Dzięki nim archiwizujesz to, co już przeżyte, planujesz to, co nadchodzi, i tworzysz to, czego jeszcze nie ma: rutyny, przepisy, budżety, notatki, mapy myśli, harmonogramy, piosenki i książki. Ręcznie albo z SI u boku.
 
 3. Wszystko trafia w to samo miejsce
-17 aplikacje dzielą jeden kalendarz, jedną listę codziennych misji i twoje osobiste cele. A cały dom idzie z tobą z telefonu na komputer.
+17 aplikacji i cztery ze Studia dzielą jeden kalendarz, jedną listę codziennych misji i twoje osobiste cele. A cały dom idzie z tobą z telefonu na komputer.
 
 JEDEN DOM, WIELE APLIKACJI
 • Naprawdę wszystko w jednym: Jedna aplikacja zamiast dwudziestu: jedzenie, pieniądze, sen, nauka, nawyki i cele pod jednym dachem — i połączone ze sobą, czego osobne aplikacje nie potrafią.
 • Nie wygasa, gdy przestaniesz płacić: Kupujesz raz i jest twoja. Aplikacje abonamentowe gasną, gdy tylko przestaniesz płacić; tutaj, nawet jeśli zrezygnujesz z SI, zostaje ci cały dom i wszystkie dane na urządzeniu.
 • Pokoje, które są aplikacjami: Ćwiczenia, kuchnia, finanse, sen, biblioteka, języki, podróże, hobby, uważność i więcej: w każdym pokoju mieszka kompletna mini-aplikacja.
+• Studio do tworzenia: Cztery osobne aplikacje: Dźwięk, Sztuka, Pisanie i Wideo. Komponujesz na piano rollu i klawiaturze MIDI, malujesz i poprawiasz zdjęcia, piszesz książki rozdział po rozdziale i montujesz filmy ze scenariusza — a wszystko eksportujesz.
 • Asystent ze sztuczną inteligencją: Rozmawiaj z asystentem: zapisuj posiłki, twórz rutyny, planuj cele, generuj obrazy i modele 3D. Pierwszy miesiąc ma w cenie 700 kredytów; potem SI jest opcjonalna.
 • Pełna synchronizacja: Dom idzie z tobą na telefon, tablet i komputer. Wszystko szyfrowane w przesyle i backupowane w chmurze.
 • Czuć w tym grę: Twoja postać żyje twoją prawdziwą aktywnością: serie, odznaki, Góra Syzyfa, pojazdy, wyścigi i minigry.

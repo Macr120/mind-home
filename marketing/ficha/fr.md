@@ -19,7 +19,7 @@ Ta vie, dans une maison 3D : habitudes, objectifs, finances, repas et plus.
 
 habitudes,objectifs,agenda,journal,budget,nutrition,sport,sommeil,étude,ia,assistant
 
-## Descripción (3209/4000)
+## Descripción (3589/4000)
 
 Organise tes habitudes, tes objectifs, tes finances, tes repas et plus dans une maison isométrique 3D où chaque pièce est une app.
 
@@ -29,15 +29,16 @@ COMMENT ÇA MARCHE
 Tu insères des pièces, des étages et même un sous-sol, et tout autour ce qui se construit dehors : potager, ferme, terrains de sport, circuits de course. Les murs, les couleurs, les meubles et ton avatar, c’est toi qui les choisis.
 
 2. Chaque pièce est une app complète
-Tu lui attribues l’une des 17 apps — nutrition, sport, sommeil, finances, bibliothèque, langues, idées, agenda, voyages, loisirs, objectifs… — ou tu fabriques la tienne. Avec elles tu archives ce que tu as déjà vécu, tu planifies ce qui arrive et tu crées ce qui n’existe pas encore : routines, recettes, budgets, notes, cartes mentales et rétroplannings. À la main, ou avec l’IA à tes côtés.
+Tu lui attribues l’une des 17 apps — nutrition, sport, sommeil, finances, bibliothèque, langues, idées, agenda, voyages, loisirs, objectifs… —, l’une des quatre du Studio — audio, art, écriture et vidéo — ou tu fabriques la tienne. Avec elles tu archives ce que tu as déjà vécu, tu planifies ce qui arrive et tu crées ce qui n’existe pas encore : routines, recettes, budgets, notes, cartes mentales, rétroplannings, morceaux et livres. À la main, ou avec l’IA à tes côtés.
 
 3. Tout atterrit au même endroit
-Les 17 apps partagent un calendrier, une liste de missions quotidiennes et tes objectifs personnels. Et ta maison entière te suit du téléphone à l’ordinateur.
+Les 17 apps et les quatre du Studio partagent un calendrier, une liste de missions quotidiennes et tes objectifs personnels. Et ta maison entière te suit du téléphone à l’ordinateur.
 
 UNE MAISON, PLEIN D’APPS
 • Tout-en-un, pour de vrai: Une seule app au lieu de vingt : repas, argent, sommeil, études, habitudes et objectifs sous le même toit — et qui se parlent entre elles, ce qu’aucune app isolée ne sait faire.
 • Elle n’expire pas si tu arrêtes de payer: Tu l’achètes une fois et elle est à toi. Les apps par abonnement s’éteignent dès que tu arrêtes de payer ; ici, si tu laisses l’IA, tu gardes la maison entière et toutes tes données sur ton appareil.
 • Des pièces qui sont des apps: Sport, cuisine, finances, sommeil, bibliothèque, langues, voyages, loisirs, méditation et plus : chaque pièce abrite une mini-app complète.
+• Un Studio pour créer: Quatre apps à part : Audio, Art, Écriture et Vidéo. Tu composes au piano roll et au clavier MIDI, tu peins et retouches des photos, tu écris des livres chapitre par chapitre et tu montes des vidéos à partir d’un script — et tu exportes ce que tu fais.
 • Assistant avec IA: Discute avec ton assistant : enregistre tes repas, crée des routines, planifie tes objectifs, génère des images et des modèles 3D. Ton premier mois arrive avec 700 crédits inclus ; ensuite, l’IA est optionnelle.
 • Synchronisation totale: Ta maison te suit sur le téléphone, la tablette et l’ordinateur. Tout est chiffré en transit et sauvegardé dans le cloud.
 • Ça se joue comme un jeu: Ton personnage vit de ton activité réelle : séries, badges, la Montagne de Sisyphe, véhicules, courses et mini-jeux.

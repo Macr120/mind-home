@@ -19,7 +19,7 @@ Your life, in a 3D house: habits, goals, finances, meals and more.
 
 habits,goals,planner,journal,budget,nutrition,workout,sleep,study,ai,assistant,organizer
 
-## Descripción (2899/4000)
+## Descripción (3254/4000)
 
 Organise your habits, goals, finances, meals and more in an isometric 3D house where every room is an app.
 
@@ -29,15 +29,16 @@ HOW IT WORKS
 You drop in rooms, floors, even a basement, and around them everything you build outdoors: vegetable patch, farm, sports courts, race tracks. The walls, the colors, the furniture and your avatar are all your call.
 
 2. Every room is a complete app
-You assign it one of the 17 apps — nutrition, exercise, sleep, finances, library, languages, ideas, planner, travel, hobbies, goals… — or you build your own. With them you file what you have already lived, plan what is coming and create what does not exist yet: routines, recipes, budgets, notes, mind maps and schedules. All by hand, or with the AI beside you.
+You assign it one of the 17 apps — nutrition, exercise, sleep, finances, library, languages, ideas, planner, travel, hobbies, goals… —, one of the four in the Studio — audio, art, writing and video — or you build your own. With them you file what you have already lived, plan what is coming and create what does not exist yet: routines, recipes, budgets, notes, mind maps, schedules, songs and books. All by hand, or with the AI beside you.
 
 3. It all lands in the same place
-The 17 apps share one calendar, one list of daily missions and your own personal goals. And your whole house follows you from phone to computer.
+The 17 apps and the four in the Studio share one calendar, one list of daily missions and your own personal goals. And your whole house follows you from phone to computer.
 
 ONE HOUSE, MANY APPS
 • All in one, for real: One app instead of twenty: food, money, sleep, study, habits and goals under the same roof — and talking to each other, which is exactly what no separate app can do.
 • It doesn’t expire when you stop paying: You buy it once and it’s yours. Subscription apps switch off the moment you stop paying; here, if you drop the AI, you keep the whole house and all your data on your device.
 • Rooms that are apps: Exercise, kitchen, finances, sleep, library, languages, travel, hobbies, mindfulness and more: every room holds a complete mini-app.
+• A Studio for creating: Four apps of their own: Audio, Art, Writing and Video. You compose with a piano roll and a MIDI keyboard, paint and retouch photos, write books chapter by chapter and cut videos from a script — and export whatever you make.
 • AI assistant: Chat with your assistant: log meals, create routines, plan goals, generate images and 3D models. Your first month comes with 700 credits included; after that, AI is optional.
 • Sync across everything: Your house follows you to your phone, your tablet and your computer. All encrypted in transit and backed up in the cloud.
 • It feels like a game: Your character lives off your real activity: streaks, badges, the Mountain of Sisyphus, vehicles, races and mini-games.

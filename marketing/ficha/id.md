@@ -19,7 +19,7 @@ Hidupmu dalam rumah 3D: kebiasaan, target, keuangan, makanan, dan lainnya.
 
 kebiasaan,tujuan,agenda,jurnal,anggaran,nutrisi,olahraga,tidur,belajar,ai,asisten,atur
 
-## Descripción (3084/4000)
+## Descripción (3455/4000)
 
 Atur kebiasaan, target, keuangan, makanan, dan lainnya di rumah isometrik 3D tempat setiap ruangan adalah sebuah aplikasi.
 
@@ -29,15 +29,16 @@ CARA KERJANYA
 Kamu menyisipkan ruangan, lantai, bahkan ruang bawah tanah, dan di sekelilingnya apa pun yang dibangun di luar: kebun, peternakan, lapangan, sirkuit balap. Dinding, warna, perabot, dan avatarmu — semuanya kamu yang pilih.
 
 2. Setiap ruangan adalah satu aplikasi utuh
-Kamu menugaskan salah satu dari 17 aplikasi — nutrisi, olahraga, tidur, keuangan, perpustakaan, bahasa, ide, agenda, perjalanan, hobi, target… — atau membuat aplikasimu sendiri. Dengannya kamu mengarsipkan yang sudah kamu jalani, merencanakan yang akan datang, dan menciptakan yang belum ada: rutinitas, resep, anggaran, catatan, peta pikiran, dan jadwal. Semuanya manual, atau ditemani AI.
+Kamu menugaskan salah satu dari 17 aplikasi — nutrisi, olahraga, tidur, keuangan, perpustakaan, bahasa, ide, agenda, perjalanan, hobi, target… —, salah satu dari empat aplikasi Studio — audio, seni, menulis, dan video — atau membuat aplikasimu sendiri. Dengannya kamu mengarsipkan yang sudah kamu jalani, merencanakan yang akan datang, dan menciptakan yang belum ada: rutinitas, resep, anggaran, catatan, peta pikiran, jadwal, lagu, dan buku. Semuanya manual, atau ditemani AI.
 
 3. Semuanya jatuh di tempat yang sama
-17 aplikasi itu berbagi satu kalender, satu daftar misi harian, dan target pribadimu. Dan seluruh rumahmu mengikutimu dari ponsel ke komputer.
+17 aplikasi itu dan empat aplikasi Studio berbagi satu kalender, satu daftar misi harian, dan target pribadimu. Dan seluruh rumahmu mengikutimu dari ponsel ke komputer.
 
 SATU RUMAH, BANYAK APLIKASI
 • Benar-benar semua dalam satu: Satu aplikasi, bukan dua puluh: makan, uang, tidur, belajar, kebiasaan, dan target di bawah satu atap — dan saling terhubung, hal yang tak bisa dilakukan aplikasi terpisah.
 • Tidak mati saat kamu berhenti bayar: Beli sekali, jadi milikmu. Aplikasi langganan mati begitu kamu berhenti membayar; di sini, kalau kamu tinggalkan AI-nya, seluruh rumah dan semua datamu tetap ada di perangkatmu.
 • Ruangan yang berupa aplikasi: Olahraga, dapur, keuangan, tidur, perpustakaan, bahasa, perjalanan, hobi, mindfulness, dan lainnya: setiap ruangan menyimpan satu mini-aplikasi yang utuh.
+• Studio untuk berkarya: Empat aplikasi tersendiri: Audio, Seni, Menulis, dan Video. Kamu menggubah lagu dengan piano roll dan keyboard MIDI, melukis dan menyunting foto, menulis buku bab demi bab, dan merangkai video dari naskah — lalu mengekspor hasilnya.
 • Asisten dengan AI: Mengobrollah dengan asistenmu: catat makanan, buat rutinitas, rencanakan target, hasilkan gambar dan model 3D. Bulan pertamamu membawa 700 kredit; setelah itu AI opsional.
 • Sinkronisasi menyeluruh: Rumahmu ikut ke ponsel, tablet, dan komputer. Semuanya terenkripsi saat dikirim dan dicadangkan di cloud.
 • Rasanya seperti sebuah game: Karaktermu hidup dari aktivitas nyatamu: rentetan, lencana, Gunung Sisifus, kendaraan, balapan, dan mini-game.

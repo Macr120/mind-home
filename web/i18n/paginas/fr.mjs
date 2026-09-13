@@ -47,6 +47,7 @@ export const TEXTOS = {
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
   'cifras.apps': 'apps',
+  'cifras.studio': 'apps du Studio',
   'cifras.infra': 'aménagements',
   'cifras.ra': 'apps en RA',
   'cifras.calendario': 'calendrier',
@@ -59,10 +60,10 @@ export const TEXTOS = {
     'Tu insères des pièces, des étages et même un sous-sol, et tout autour ce qui se construit dehors : potager, ferme, terrains de sport, circuits de course. Les murs, les couleurs, les meubles et ton avatar, c’est toi qui les choisis.',
   'como.2.t': 'Chaque pièce est une app complète',
   'como.2.p':
-    'Tu lui attribues l’une des 17 apps — nutrition, sport, sommeil, finances, bibliothèque, langues, idées, agenda, voyages, loisirs, objectifs… — ou tu fabriques la tienne. Avec elles tu archives ce que tu as déjà vécu, tu planifies ce qui arrive et tu crées ce qui n’existe pas encore : routines, recettes, budgets, notes, cartes mentales et rétroplannings. À la main, ou avec l’IA à tes côtés.',
+    'Tu lui attribues l’une des 17 apps — nutrition, sport, sommeil, finances, bibliothèque, langues, idées, agenda, voyages, loisirs, objectifs… —, l’une des quatre du Studio — audio, art, écriture et vidéo — ou tu fabriques la tienne. Avec elles tu archives ce que tu as déjà vécu, tu planifies ce qui arrive et tu crées ce qui n’existe pas encore : routines, recettes, budgets, notes, cartes mentales, rétroplannings, morceaux et livres. À la main, ou avec l’IA à tes côtés.',
   'como.3.t': 'Tout atterrit au même endroit',
   'como.3.p':
-    'Les 17 apps partagent un calendrier, une liste de missions quotidiennes et tes objectifs personnels. Et ta maison entière te suit du téléphone à l’ordinateur.',
+    'Les 17 apps et les quatre du Studio partagent un calendrier, une liste de missions quotidiennes et tes objectifs personnels. Et ta maison entière te suit du téléphone à l’ordinateur.',
 
   'car.h2': 'Une maison, plein d’apps',
   // Las tres primeras tarjetas: el argumento de compra.
@@ -78,6 +79,9 @@ export const TEXTOS = {
   'car.1.t': 'Des pièces qui sont des apps',
   'car.1.p':
     'Sport, cuisine, finances, sommeil, bibliothèque, langues, voyages, loisirs, méditation et plus : chaque pièce abrite une mini-app complète.',
+  'car.studio.t': 'Un Studio pour créer',
+  'car.studio.p':
+    'Quatre apps à part : Audio, Art, Écriture et Vidéo. Tu composes au piano roll et au clavier MIDI, tu peins et retouches des photos, tu écris des livres chapitre par chapitre et tu montes des vidéos à partir d’un script — et tu exportes ce que tu fais.',
   'car.2.t': 'Assistant avec IA',
   'car.2.p':
     'Discute avec ton assistant : enregistre tes repas, crée des routines, planifie tes objectifs, génère des images et des modèles 3D. Ton premier mois arrive avec 700 crédits inclus ; ensuite, l’IA est optionnelle.',

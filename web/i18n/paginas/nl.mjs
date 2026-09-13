@@ -47,6 +47,7 @@ export const TEXTOS = {
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
   'cifras.apps': 'apps',
+  'cifras.studio': 'Studio-apps',
   'cifras.infra': 'buitenbouwsels',
   'cifras.ra': 'AR-apps',
   'cifras.calendario': 'kalender',
@@ -59,10 +60,10 @@ export const TEXTOS = {
     'Je plaatst kamers, verdiepingen en zelfs een kelder, en eromheen alles wat je buiten bouwt: moestuin, boerderij, sportvelden, racecircuits. Muren, kleuren, meubels en je avatar kies je zelf.',
   'como.2.t': 'Elke kamer is een complete app',
   'como.2.p':
-    'Je wijst er een van de 17 apps aan toe — voeding, sport, slaap, financiën, bibliotheek, talen, ideeën, planner, reizen, hobby’s, doelen… — of je maakt je eigen app. Daarmee archiveer je wat je al hebt meegemaakt, plan je wat eraan komt en maak je wat er nog niet is: routines, recepten, budgetten, aantekeningen, mindmaps en planningen. Met de hand, of met de AI naast je.',
+    'Je wijst er een van de 17 apps aan toe — voeding, sport, slaap, financiën, bibliotheek, talen, ideeën, planner, reizen, hobby’s, doelen… —, een van de vier uit de Studio — audio, kunst, schrijven en video — of je maakt je eigen app. Daarmee archiveer je wat je al hebt meegemaakt, plan je wat eraan komt en maak je wat er nog niet is: routines, recepten, budgetten, aantekeningen, mindmaps, planningen, liedjes en boeken. Met de hand, of met de AI naast je.',
   'como.3.t': 'Alles komt op dezelfde plek terecht',
   'como.3.p':
-    'De 17 apps delen één kalender, één lijst met dagelijkse missies en je eigen doelen. En je hele huis gaat met je mee van telefoon naar computer.',
+    'De 17 apps en de vier uit de Studio delen één kalender, één lijst met dagelijkse missies en je eigen doelen. En je hele huis gaat met je mee van telefoon naar computer.',
 
   'car.h2': 'Eén huis, veel apps',
   // Las tres primeras tarjetas: el argumento de compra.
@@ -77,6 +78,9 @@ export const TEXTOS = {
   'car.1.t': 'Kamers die apps zijn',
   'car.1.p':
     'Sport, keuken, financiën, slaap, bibliotheek, talen, reizen, hobby’s, mindfulness en meer: in elke kamer zit een complete mini-app.',
+  'car.studio.t': 'Een Studio om te maken',
+  'car.studio.p':
+    'Vier aparte apps: Audio, Kunst, Schrijven en Video. Je componeert met een piano roll en een MIDI-keyboard, schildert en bewerkt foto’s, schrijft boeken hoofdstuk voor hoofdstuk en monteert video’s vanuit een script — en exporteert wat je maakt.',
   'car.2.t': 'Assistent met AI',
   'car.2.p':
     'Chat met je assistent: leg maaltijden vast, maak routines, plan doelen, genereer beelden en 3D-modellen. Je eerste maand komt met 700 credits; daarna is AI optioneel.',

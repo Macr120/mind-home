@@ -106,10 +106,10 @@ function descripcion(t) {
       `2. ${limpiar(t['como.2.t'])}\n${limpiar(t['como.2.p'])}`,
       `3. ${limpiar(t['como.3.t'])}\n${limpiar(t['como.3.p'])}`,
     ].join('\n\n'),
-    // Qué trae: las seis tarjetas más las dos de cabecera.
+    // Qué trae: las siete tarjetas más las dos de cabecera.
     [
       limpiar(t['car.h2']).toUpperCase(),
-      ...['todo', 'nocaduca', '1', '2', '3', '4', '5', '6'].map(
+      ...['todo', 'nocaduca', '1', 'studio', '2', '3', '4', '5', '6'].map(
         (n) => `• ${limpiar(t[`car.${n}.t`])}: ${limpiar(t[`car.${n}.p`])}`,
       ),
     ].join('\n'),

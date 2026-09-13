@@ -19,7 +19,7 @@ Sua vida, em uma casa 3D: hábitos, metas, finanças, refeições e mais.
 
 hábitos,metas,agenda,diário,finanças,nutrição,treino,sono,estudo,ia,assistente,organizar
 
-## Descripción (2917/4000)
+## Descripción (3238/4000)
 
 Organize seus hábitos, metas, finanças, refeições e mais em uma casa isométrica 3D onde cada cômodo é um app.
 
@@ -29,15 +29,16 @@ COMO FUNCIONA
 Você insere cômodos, andares e até um porão, e ao redor tudo o que se constrói ao ar livre: horta, fazenda, quadras, circuitos de corrida. As paredes, as cores, os móveis e seu avatar são escolha sua.
 
 2. Cada cômodo é um app completo
-Você atribui a ele um dos 17 apps — nutrição, exercício, descanso, finanças, biblioteca, idiomas, ideias, agenda, viagens, hobbies, metas… — ou fabrica o seu. Com eles você arquiva o que já viveu, planeja o que vem e cria o que ainda não existe: rotinas, receitas, orçamentos, anotações, mapas mentais e cronogramas. Tudo à mão, ou com a IA do seu lado.
+Você atribui a ele um dos 17 apps — nutrição, exercício, descanso, finanças, biblioteca, idiomas, ideias, agenda, viagens, hobbies, metas… —, um dos quatro do Estúdio — áudio, arte, escrita e vídeo — ou fabrica o seu. Com eles você arquiva o que já viveu, planeja o que vem e cria o que ainda não existe: rotinas, receitas, orçamentos, anotações, mapas mentais, cronogramas, músicas e livros. Tudo à mão, ou com a IA do seu lado.
 
 3. Tudo cai no mesmo lugar
-Os 17 apps compartilham um calendário, uma lista de missões diárias e as suas metas pessoais. E sua casa inteira acompanha você do celular ao computador.
+Os 17 apps e os quatro do Estúdio compartilham um calendário, uma lista de missões diárias e as suas metas pessoais. E sua casa inteira acompanha você do celular ao computador.
 
 UMA CASA, MUITOS APPS
 • Tudo em um, de verdade: Um app em vez de vinte: comida, dinheiro, descanso, estudo, hábitos e metas sob o mesmo teto — e conversando entre si, que é justamente o que nenhum app solto consegue fazer.
 • Não caduca se você parar de pagar: Você compra uma vez e é seu. Os apps de assinatura desligam assim que você para de pagar; aqui, se largar a IA, fica com a casa inteira e todos os seus dados no seu dispositivo.
 • Cômodos que são apps: Exercício, cozinha, finanças, descanso, biblioteca, idiomas, viagens, hobbies, mindfulness e mais: cada cômodo guarda um mini-app completo.
+• Um Estúdio para criar: Quatro apps à parte: Áudio, Arte, Escrita e Vídeo. Você compõe com piano roll e teclado MIDI, pinta e retoca fotos, escreve livros por capítulos e monta vídeos por roteiro — e exporta o que fizer.
 • Assistente com IA: Converse com seu assistente: registre refeições, crie rotinas, planeje metas, gere imagens e modelos 3D. Seu primeiro mês traz 700 créditos incluídos; depois a IA é opcional.
 • Sincronização total: Sua casa acompanha você no celular, no tablet e no computador. Tudo criptografado em trânsito e com backup na nuvem.
 • Parece um jogo: Seu personagem vive da sua atividade real: sequências, emblemas, a Montanha de Sísifo, veículos, corridas e minijogos.

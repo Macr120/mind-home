@@ -19,7 +19,7 @@ Dein Leben, in einem 3D-Haus: Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr
 
 gewohnheiten,ziele,planer,tagebuch,finanzen,ernährung,training,schlaf,lernen,ki,assistent
 
-## Descripción (3062/4000)
+## Descripción (3440/4000)
 
 Ordne deine Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr in einem isometrischen 3D-Haus, in dem jeder Raum eine App ist.
 
@@ -29,15 +29,16 @@ SO FUNKTIONIERT ES
 Du setzt Räume, Stockwerke und sogar einen Keller ein, und drumherum alles, was draußen gebaut wird: Gemüsegarten, Bauernhof, Sportplätze, Rennstrecken. Wände, Farben, Möbel und deinen Avatar wählst du selbst.
 
 2. Jeder Raum ist eine vollständige App
-Du weist ihm eine der 17 Apps zu — Ernährung, Sport, Schlaf, Finanzen, Bibliothek, Sprachen, Ideen, Agenda, Reisen, Hobbys, Ziele… — oder du baust dir deine eigene. Damit archivierst du, was du schon erlebt hast, planst, was kommt, und erschaffst, was es noch nicht gibt: Routinen, Rezepte, Budgets, Notizen, Mindmaps und Zeitpläne. Alles von Hand — oder mit der KI an deiner Seite.
+Du weist ihm eine der 17 Apps zu — Ernährung, Sport, Schlaf, Finanzen, Bibliothek, Sprachen, Ideen, Agenda, Reisen, Hobbys, Ziele… —, eine der vier aus dem Studio — Audio, Kunst, Schreiben und Video — oder du baust dir deine eigene. Damit archivierst du, was du schon erlebt hast, planst, was kommt, und erschaffst, was es noch nicht gibt: Routinen, Rezepte, Budgets, Notizen, Mindmaps, Zeitpläne, Songs und Bücher. Alles von Hand — oder mit der KI an deiner Seite.
 
 3. Alles landet am selben Ort
-Die 17 Apps teilen sich einen Kalender, eine Liste täglicher Missionen und deine persönlichen Ziele. Und dein ganzes Haus folgt dir vom Handy zum Computer.
+Die 17 Apps und die vier aus dem Studio teilen sich einen Kalender, eine Liste täglicher Missionen und deine persönlichen Ziele. Und dein ganzes Haus folgt dir vom Handy zum Computer.
 
 EIN HAUS, VIELE APPS
 • Alles in einem, wirklich: Eine App statt zwanzig: Essen, Geld, Schlaf, Lernen, Gewohnheiten und Ziele unter einem Dach — und miteinander verbunden, was genau das ist, was keine einzelne App kann.
 • Läuft nicht ab, wenn du aufhörst zu zahlen: Einmal gekauft, dann gehört sie dir. Abo-Apps gehen aus, sobald du nicht mehr zahlst; hier behältst du das ganze Haus und alle Daten auf deinem Gerät, auch wenn du die KI sein lässt.
 • Räume, die Apps sind: Sport, Küche, Finanzen, Schlaf, Bibliothek, Sprachen, Reisen, Hobbys, Achtsamkeit und mehr: jeder Raum beherbergt eine vollständige Mini-App.
+• Ein Studio zum Erschaffen: Vier eigene Apps: Audio, Kunst, Schreiben und Video. Du komponierst mit Piano Roll und MIDI-Keyboard, malst und bearbeitest Fotos, schreibst Bücher Kapitel für Kapitel und schneidest Videos nach Drehbuch — und exportierst, was du machst.
 • Assistent mit KI: Sprich mit deinem Assistenten: erfasse Mahlzeiten, lege Routinen an, plane Ziele, erzeuge Bilder und 3D-Modelle. Dein erster Monat bringt 700 Credits mit; danach ist die KI optional.
 • Sync über alles hinweg: Dein Haus folgt dir aufs Handy, aufs Tablet und an den Rechner. Alles verschlüsselt unterwegs und in der Cloud gesichert.
 • Es fühlt sich an wie ein Spiel: Deine Figur lebt von deiner echten Aktivität: Serien, Abzeichen, der Sisyphosberg, Fahrzeuge, Rennen und Minispiele.

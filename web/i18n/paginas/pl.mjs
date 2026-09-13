@@ -47,6 +47,7 @@ export const TEXTOS = {
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
   'cifras.apps': 'aplikacji',
+  'cifras.studio': 'aplikacje ze Studia',
   'cifras.infra': 'budowli',
   'cifras.ra': 'aplikacje AR',
   'cifras.calendario': 'kalendarz',
@@ -59,10 +60,10 @@ export const TEXTOS = {
     'Wstawiasz pokoje, piętra, a nawet piwnicę, a wokół wszystko, co buduje się na zewnątrz: ogródek, farmę, boiska, tory wyścigowe. Ściany, kolory, meble i twój awatar — wszystko to twój wybór.',
   'como.2.t': 'Każdy pokój to kompletna aplikacja',
   'como.2.p':
-    'Przypisujesz mu jedną z 17 aplikacji — odżywianie, ćwiczenia, sen, finanse, biblioteka, języki, pomysły, terminarz, podróże, hobby, cele… — albo tworzysz własną. Dzięki nim archiwizujesz to, co już przeżyte, planujesz to, co nadchodzi, i tworzysz to, czego jeszcze nie ma: rutyny, przepisy, budżety, notatki, mapy myśli i harmonogramy. Ręcznie albo z SI u boku.',
+    'Przypisujesz mu jedną z 17 aplikacji — odżywianie, ćwiczenia, sen, finanse, biblioteka, języki, pomysły, terminarz, podróże, hobby, cele… —, jedną z czterech ze Studia — dźwięk, sztuka, pisanie i wideo — albo tworzysz własną. Dzięki nim archiwizujesz to, co już przeżyte, planujesz to, co nadchodzi, i tworzysz to, czego jeszcze nie ma: rutyny, przepisy, budżety, notatki, mapy myśli, harmonogramy, piosenki i książki. Ręcznie albo z SI u boku.',
   'como.3.t': 'Wszystko trafia w to samo miejsce',
   'como.3.p':
-    '17 aplikacje dzielą jeden kalendarz, jedną listę codziennych misji i twoje osobiste cele. A cały dom idzie z tobą z telefonu na komputer.',
+    '17 aplikacji i cztery ze Studia dzielą jeden kalendarz, jedną listę codziennych misji i twoje osobiste cele. A cały dom idzie z tobą z telefonu na komputer.',
 
   'car.h2': 'Jeden dom, wiele aplikacji',
   // Las tres primeras tarjetas: el argumento de compra.
@@ -77,6 +78,9 @@ export const TEXTOS = {
   'car.1.t': 'Pokoje, które są aplikacjami',
   'car.1.p':
     'Ćwiczenia, kuchnia, finanse, sen, biblioteka, języki, podróże, hobby, uważność i więcej: w każdym pokoju mieszka kompletna mini-aplikacja.',
+  'car.studio.t': 'Studio do tworzenia',
+  'car.studio.p':
+    'Cztery osobne aplikacje: Dźwięk, Sztuka, Pisanie i Wideo. Komponujesz na piano rollu i klawiaturze MIDI, malujesz i poprawiasz zdjęcia, piszesz książki rozdział po rozdziale i montujesz filmy ze scenariusza — a wszystko eksportujesz.',
   'car.2.t': 'Asystent ze sztuczną inteligencją',
   'car.2.p':
     'Rozmawiaj z asystentem: zapisuj posiłki, twórz rutyny, planuj cele, generuj obrazy i modele 3D. Pierwszy miesiąc ma w cenie 700 kredytów; potem SI jest opcjonalna.',

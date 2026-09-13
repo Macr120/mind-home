@@ -1,8 +1,9 @@
 # 🏠 Mind Planner Home (MPH)
 
 Casa isométrica 3D navegable donde cada cuarto es una mini-app 2D independiente pero
-interconectada (organización, hábitos, finanzas, aprendizaje…). **21 apps en 1**: 16 de cuarto
-y 5 de infraestructura que se construyen sobre el mapa.
+interconectada (organización, hábitos, finanzas, aprendizaje…). **26 apps en 1**: 17 de cuarto,
+4 del Studio (crear: audio, arte, escritura y video) y 5 de infraestructura que se construyen
+sobre el mapa.
 
 ## Stack
 
@@ -66,6 +67,11 @@ no ocupa un cuarto — se **asigna a un objeto**, y tocar ese objeto la abre.
 | Ideas | Diario de ideas, mapas conceptuales y diagramas de decisión |
 | Agenda | Trabajo (kanban), Salud (citas, medicamentos, mascotas) y Personas |
 | Sala de cómputo | Formulario de fórmulas, calculadora con graficador y hojas de cálculo |
+| Metas | El planificador de toda la casa: metas, planes de la IA y cronograma |
+
+**Studio** (las cuatro de crear, la otra categoría de cuarto): Audio (pistas, piano roll, MIDI
+y export a WAV), Arte (lienzos, pinceles y edición de fotos), Escritura (libros por capítulos
+con índice y export a PDF) y Video (editor por guion con narración IA y export de video).
 
 **Infraestructura** (se construye directo en el mapa, no ocupa cuarto): Caminos (pistas,
 rieles, montañas rusas), Canchas, Huerto, Granja y Paintball.
@@ -101,7 +107,7 @@ src/
 │   ├── cuenta/        sesión, créditos, paywall
 │   ├── i18n/          useT + diccionarios (EN en carga diferida)
 │   ├── ui/            menú, overlay, HUD, editor y planos
-│   └── registry.ts    contrato `Plantilla` + lista de las 21 apps
+│   └── registry.ts    contrato `Plantilla` + lista de las 26 apps
 ├── rooms/<id>/        una carpeta por app (solo 2D + repos)
 └── demo/              casa demo (BD paralela)
 web/                   landing pública y /cuenta (segundo build de Vite)

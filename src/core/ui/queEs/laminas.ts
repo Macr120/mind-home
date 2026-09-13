@@ -84,12 +84,13 @@ export function sinHtml(s: string): string {
     .trim()
 }
 
-/** Las nueve tarjetas de «Una casa, muchas apps», con el emoji del HTML. */
+/** Las diez tarjetas de «Una casa, muchas apps», con el emoji del HTML. */
 const TARJETAS: { clave: string; emoji: string }[] = [
   { clave: 'car.todo', emoji: '🧩' },
   { clave: 'car.nocaduca', emoji: '🎁' },
   { clave: 'car.nuevas', emoji: '🚀' },
   { clave: 'car.1', emoji: '🏠' },
+  { clave: 'car.studio', emoji: '🎬' },
   { clave: 'car.2', emoji: '✨' },
   { clave: 'car.3', emoji: '🔄' },
   { clave: 'car.4', emoji: '🎮' },
@@ -108,6 +109,7 @@ const CAPACIDADES: { clave: string; emoji: string }[] = [
 /** Lo que trae la casa en cifras: los números viven en el HTML de la web. */
 const CIFRAS: { n: string; clave: string }[] = [
   { n: '17', clave: 'cifras.apps' },
+  { n: '4', clave: 'cifras.studio' },
   { n: '5', clave: 'cifras.infra' },
   { n: '2', clave: 'cifras.ra' },
   { n: '1', clave: 'cifras.calendario' },

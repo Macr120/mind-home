@@ -47,6 +47,7 @@ export const TEXTOS = {
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
   'cifras.apps': 'aplikasi',
+  'cifras.studio': 'aplikasi Studio',
   'cifras.infra': 'bangunan luar',
   'cifras.ra': 'aplikasi AR',
   'cifras.calendario': 'kalender',
@@ -59,10 +60,10 @@ export const TEXTOS = {
     'Kamu menyisipkan ruangan, lantai, bahkan ruang bawah tanah, dan di sekelilingnya apa pun yang dibangun di luar: kebun, peternakan, lapangan, sirkuit balap. Dinding, warna, perabot, dan avatarmu — semuanya kamu yang pilih.',
   'como.2.t': 'Setiap ruangan adalah satu aplikasi utuh',
   'como.2.p':
-    'Kamu menugaskan salah satu dari 17 aplikasi — nutrisi, olahraga, tidur, keuangan, perpustakaan, bahasa, ide, agenda, perjalanan, hobi, target… — atau membuat aplikasimu sendiri. Dengannya kamu mengarsipkan yang sudah kamu jalani, merencanakan yang akan datang, dan menciptakan yang belum ada: rutinitas, resep, anggaran, catatan, peta pikiran, dan jadwal. Semuanya manual, atau ditemani AI.',
+    'Kamu menugaskan salah satu dari 17 aplikasi — nutrisi, olahraga, tidur, keuangan, perpustakaan, bahasa, ide, agenda, perjalanan, hobi, target… —, salah satu dari empat aplikasi Studio — audio, seni, menulis, dan video — atau membuat aplikasimu sendiri. Dengannya kamu mengarsipkan yang sudah kamu jalani, merencanakan yang akan datang, dan menciptakan yang belum ada: rutinitas, resep, anggaran, catatan, peta pikiran, jadwal, lagu, dan buku. Semuanya manual, atau ditemani AI.',
   'como.3.t': 'Semuanya jatuh di tempat yang sama',
   'como.3.p':
-    '17 aplikasi itu berbagi satu kalender, satu daftar misi harian, dan target pribadimu. Dan seluruh rumahmu mengikutimu dari ponsel ke komputer.',
+    '17 aplikasi itu dan empat aplikasi Studio berbagi satu kalender, satu daftar misi harian, dan target pribadimu. Dan seluruh rumahmu mengikutimu dari ponsel ke komputer.',
 
   'car.h2': 'Satu rumah, banyak aplikasi',
   // Las tres primeras tarjetas: el argumento de compra.
@@ -77,6 +78,9 @@ export const TEXTOS = {
   'car.1.t': 'Ruangan yang berupa aplikasi',
   'car.1.p':
     'Olahraga, dapur, keuangan, tidur, perpustakaan, bahasa, perjalanan, hobi, mindfulness, dan lainnya: setiap ruangan menyimpan satu mini-aplikasi yang utuh.',
+  'car.studio.t': 'Studio untuk berkarya',
+  'car.studio.p':
+    'Empat aplikasi tersendiri: Audio, Seni, Menulis, dan Video. Kamu menggubah lagu dengan piano roll dan keyboard MIDI, melukis dan menyunting foto, menulis buku bab demi bab, dan merangkai video dari naskah — lalu mengekspor hasilnya.',
   'car.2.t': 'Asisten dengan AI',
   'car.2.p':
     'Mengobrollah dengan asistenmu: catat makanan, buat rutinitas, rencanakan target, hasilkan gambar dan model 3D. Bulan pertamamu membawa 700 kredit; setelah itu AI opsional.',
