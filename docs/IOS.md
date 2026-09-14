@@ -82,6 +82,7 @@ lógica real de `core/hoy.ts`. Por eso `useWidgets` ya no distingue plataforma.
 | Pieza | Android | iOS |
 |---|---|---|
 | Puente Capacitor | `widgets/WidgetsPlugin.java` | `App/WidgetsPlugin.swift` |
+| Registro del plugin | `registerPlugin()` en `MainActivity` | `registerPluginInstance()` en `App/MainViewController.swift` |
 | Almacén compartido | SharedPreferences `mph_widgets` | App Group `group.com.macr120.mindhome` |
 | Modelo + almacén | `WidgetsStore.java` | `Compartido/WidgetsCompartido.swift` (en LOS DOS targets) |
 | Tap → destino | extras del Intent | `com.macr120.mindhome://widget?...` → `AppDelegate` |
@@ -89,8 +90,21 @@ lógica real de `core/hoy.ts`. Por eso `useWidgets` ya no distingue plataforma.
 | Textos fijos | `values*/strings.xml` | `<idioma>.lproj/Localizable.strings`, generados con `npm run ios:textos-widgets` |
 | Tema (claro/oscuro/transparente) | colores del snapshot vía `setColorFilter`/`setTextColor` (los fondos son ImageView blancos teñibles) | `TemaWidget` del snapshot; transparente = `ultraThinMaterial` |
 
-Tres cosas que solo pasan en iOS:
+Cuatro cosas que solo pasan en iOS:
 
+- **El plugin local hay que registrarlo A MANO, en `App/MainViewController.swift`.**
+  Es el equivalente del `registerPlugin(...)` de `MainActivity`, y sin él los
+  cinco métodos contestan `UNIMPLEMENTED` y los widgets nunca reciben datos.
+  Desde Capacitor 6 el puente ya no busca plugins por el runtime de Objective-C:
+  `CapacitorBridge.registerPlugins()` solo instancia los built-in y las clases
+  del `packageClassList` de `capacitor.config.json`, lista que `cap sync`
+  reescribe recorriendo ÚNICAMENTE los paquetes de `node_modules`. Un plugin que
+  vive en el target de la app no entra ahí jamás, por muy bien que declare
+  `@objc(...)`, `CAPBridgedPlugin`, `jsName` y sus `pluginMethods`. Cuidado con
+  `registerPluginType(_:)`, que es lo que uno prueba primero: empieza con
+  `if autoRegisterPlugins { return }` y `autoRegisterPlugins` es true por
+  defecto, así que no hace nada y no avisa. El bueno es
+  `registerPluginInstance(_:)` dentro de `capacitorDidLoad()`.
 - **El App Group tiene que estar en los entitlements de LOS DOS targets.** Si
   falta en uno, `UserDefaults(suiteName:)` devuelve nil y los widgets salen en
   blanco sin ningún otro síntoma.

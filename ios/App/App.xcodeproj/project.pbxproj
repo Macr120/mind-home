@@ -24,6 +24,7 @@
 		0F111500000000000000001D /* WidgetsCompartido.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F111500000000000000001C /* WidgetsCompartido.swift */; };
 		0F111500000000000000001E /* WidgetsCompartido.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F111500000000000000001C /* WidgetsCompartido.swift */; };
 		0F1115000000000000000020 /* WidgetsPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F111500000000000000001F /* WidgetsPlugin.swift */; };
+		0F1115000000000000000043 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1115000000000000000042 /* MainViewController.swift */; };
 		0F1115000000000000000022 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0F1115000000000000000021 /* Localizable.strings */; };
 		0F111500000000000000000E /* MPHWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0F1115000000000000000002 /* MPHWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -67,6 +68,7 @@
 		0F111500000000000000001B /* App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = App.entitlements; sourceTree = "<group>"; };
 		0F111500000000000000001C /* WidgetsCompartido.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsCompartido.swift; sourceTree = "<group>"; };
 		0F111500000000000000001F /* WidgetsPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsPlugin.swift; sourceTree = "<group>"; };
+		0F1115000000000000000042 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0F1115000000000000000023 /* en */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0F1115000000000000000024 /* es */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0F1115000000000000000025 /* pt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				50379B222058CBB4000EE86E /* capacitor.config.json */,
 				504EC3071FED79650016851F /* AppDelegate.swift */,
 				0F111500000000000000001F /* WidgetsPlugin.swift */,
+				0F1115000000000000000042 /* MainViewController.swift */,
 				0F111500000000000000001B /* App.entitlements */,
 				504EC30B1FED79650016851F /* Main.storyboard */,
 				504EC30E1FED79650016851F /* Assets.xcassets */,
@@ -344,6 +347,7 @@
 			files = (
 				504EC3081FED79650016851F /* AppDelegate.swift in Sources */,
 				0F1115000000000000000020 /* WidgetsPlugin.swift in Sources */,
+				0F1115000000000000000043 /* MainViewController.swift in Sources */,
 				0F111500000000000000001E /* WidgetsCompartido.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
