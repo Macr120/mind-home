@@ -336,9 +336,15 @@ function PantallaTienda() {
           además lo que salva la pantalla si la tienda no contesta. */}
       <FilaRestaurar />
 
-      {/* El cupón es la ÚNICA vía de entrar sin pagar (ya no hay atajo local),
-          así que va aquí arriba con la compra y no escondido al pie. */}
-      <FilaCupon />
+      {/* El cupón NO puede vivir en las apps de TIENDA. Conceder el unlock y un
+          plan a cambio de un código es, en palabras de Apple, «unlock or enable
+          additional functionality with mechanisms other than In-App Purchase»:
+          es por lo que rechazaron la 1.0 el 13-sep-2026 (3.1.1), y la misma
+          regla rige en Google Play Payments. Donde se cobra directo —web y
+          escritorio— sigue siendo legal y se queda. Para regalar accesos en las
+          tiendas el sitio son los Offer Codes, que se canjean por la hoja del
+          sistema y pasan por la caja de la tienda. */}
+      {canal !== 'iap' && <FilaCupon />}
 
     </Marco>
   )
