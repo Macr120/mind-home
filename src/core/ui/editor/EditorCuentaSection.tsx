@@ -4,11 +4,9 @@ import { hayBackend } from '../../cuenta/supabase'
 import { useSesion } from '../../cuenta/sesionStore'
 import {
   hayPagos,
-  obtenerOferta,
   obtenerNiveles,
   obtenerCreditos,
   obtenerAnual,
-  comprar,
   cambiarNivel,
   comprarCreditos,
   restaurarCompras,
@@ -422,27 +420,16 @@ function FilaSync() {
 function BloquePaywall() {
   const t = useT()
   const plan = useSesion((s) => s.plan)
-  const fuePro = useSesion((s) => s.fuePro)
-  const [oferta, setOferta] = useState<OfertaPro | null>(null)
   const [urlG, setUrlG] = useState<string | null>(null)
-  const [error, setError] = useState<string | null>(null)
-  const [ocupado, setOcupado] = useState(false)
   const escritorio = canalPago() === 'escritorio'
 
   useEffect(() => {
     if (escritorio || !hayPagos()) return
+    if (plan !== 'pro') return
     let vivo = true
-    if (plan === 'pro') {
-      void urlGestion().then((u) => {
-        if (vivo) setUrlG(u)
-      })
-    } else {
-      obtenerOferta()
-        .then((o) => {
-          if (vivo) setOferta(o)
-        })
-        .catch(() => {})
-    }
+    void urlGestion().then((u) => {
+      if (vivo) setUrlG(u)
+    })
     return () => {
       vivo = false
     }
@@ -471,57 +458,36 @@ function BloquePaywall() {
 
   if (!hayPagos()) return null
 
-  if (plan === 'pro') {
-    return (
-      <div className="space-y-1.5">
-        <Niveles />
-        <Creditos />
-        <Restaurar />
-        {urlG && (
-          <a
-            href={urlG}
-            target="_blank"
-            rel="noreferrer"
-            className="block w-full rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-center text-[11px] font-semibold text-white/60 transition hover:bg-white/10"
-          >
-            {t('cuenta.pago.gestionar', 'Gestionar mi suscripción')}
-          </a>
-        )}
-      </div>
-    )
-  }
-
-  const alComprar = async () => {
-    if (!oferta || ocupado) return
-    setOcupado(true)
-    setError(null)
-    try {
-      const ok = await comprar(oferta.paquete)
-      if (!ok) setError(t('cuenta.pago.cancelado', 'La compra no se completó.'))
-    } catch (e) {
-      setError(e instanceof Error ? e.message : String(e))
-    } finally {
-      setOcupado(false)
-    }
-  }
-
+  /*
+   * La escalera de niveles se pinta SIEMPRE, esté o no suscrito quien mira.
+   * Vivía detrás de `plan === 'pro'`, y eso dejaba el ×2, el ×3 y el anual
+   * INALCANZABLES para quien aún no se había suscrito: ni se veían ni había
+   * forma de comprarlos, porque el único botón ofrecía el ×1 y nada más. Para
+   * App Review era peor todavía: los cuatro productos de suscripción viajan
+   * DENTRO del envío y las notas dicen que están en «Settings › Account», pero
+   * el revisor, que llega sin suscripción, no habría encontrado más que un
+   * «Hazte Pro». Ahora la lista los enseña los cuatro con su precio de tienda.
+   *
+   * Y por eso ya no hay botón suelto de «Hazte Pro — {precio}/mes»: era el
+   * mismo ×1 que encabeza la lista, con otro rótulo y a dos dedos de distancia.
+   * Quien vuelve tras caducar tampoco lo echa en falta: la lista le deja
+   * reengancharse en el nivel que quiera, no solo en el que tenía.
+   */
   return (
     <div className="space-y-1.5">
-      <button
-        type="button"
-        onClick={() => void alComprar()}
-        disabled={!oferta || ocupado}
-        className="ui-accent-bg w-full rounded-md px-2 py-1.5 text-xs font-bold transition disabled:opacity-50"
-      >
-        {oferta?.precio
-          ? fuePro
-            ? t('cuenta.pago.renovar', 'Renovar suscripción — {p}/mes', { p: oferta.precio })
-            : t('cuenta.pago.comprarPrecio', 'Hazte Pro — {p}/mes', { p: oferta.precio })
-          : t('cuenta.pago.comprar', 'Hazte Pro')}
-      </button>
+      <Niveles />
       <Creditos />
       <Restaurar />
-      {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
+      {plan === 'pro' && urlG && (
+        <a
+          href={urlG}
+          target="_blank"
+          rel="noreferrer"
+          className="block w-full rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-center text-[11px] font-semibold text-white/60 transition hover:bg-white/10"
+        >
+          {t('cuenta.pago.gestionar', 'Gestionar mi suscripción')}
+        </a>
+      )}
     </div>
   )
 }
@@ -634,6 +600,7 @@ function Creditos() {
 function Niveles() {
   const t = useT()
   const nivelActual = useSesion((s) => s.nivel)
+  const plan = useSesion((s) => s.plan)
   const [niveles, setNiveles] = useState<OfertaPro[]>([])
   const [anual, setAnual] = useState<OfertaPro | null>(null)
   const [ocupado, setOcupado] = useState(false)
@@ -676,8 +643,14 @@ function Niveles() {
 
   return (
     <div className="space-y-1">
+      {/* «Tu nivel» solo tiene sentido para quien ya tiene uno. A quien todavía
+          no se ha suscrito la lista le sirve de escaparate, así que la encabeza
+          la invitación. Se reutiliza `cuenta.pago.comprar`, que ya venía
+          traducida a los dieciséis idiomas, en vez de estrenar una clave. */}
       <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
-        {t('cuenta.nivel.titulo', 'Tu nivel')}
+        {plan === 'pro'
+          ? t('cuenta.nivel.titulo', 'Tu nivel')
+          : t('cuenta.pago.comprar', 'Hazte Pro')}
       </p>
       {niveles.map((n) => {
         const actual = n.nivel === nivelActual
