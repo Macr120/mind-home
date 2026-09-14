@@ -32,14 +32,37 @@ let sdk: SDK | null = null
 let configurado = false
 let usuarioActual: string | null = null
 
-/** SDK configurado y con la sesión de Supabase atada (idempotente). */
-async function rc(userId: string): Promise<SDK> {
+/**
+ * Deja el SDK cargado y con la sesión atada. **No devuelve el SDK, y eso es lo
+ * importante**: el objeto que da `registerPlugin` es un Proxy que responde a
+ * CUALQUIER propiedad (su `get` acaba en `default: createPluginMethodWrapper(prop)`),
+ * así que también responde a `then`. Eso lo convierte en un «thenable» a ojos de
+ * JavaScript: devolverlo desde una función `async` —o hacerle `await`— dispara el
+ * protocolo de promesas, que llama a `sdk.then(resolve, reject)`. Capacitor no
+ * encuentra ningún método nativo llamado `then`, lanza por dentro, y NUNCA llama
+ * ni a `resolve` ni a `reject`. La promesa se queda colgada para siempre.
+ *
+ * Es el fallo por el que Apple rechazó la 1.0 DOS veces por 2.1(a): `getOfferings`
+ * no llegaba a llamarse jamás, saltaba el techo de 12 s de `paywall.ts` y el
+ * paywall decía «la tienda no respondió». No era la tienda, ni StoreKit, ni la
+ * ficha de App Store Connect: era este `await`. Y se llevaba por delante la caja
+ * entera —comprar, restaurar y el portal de gestión colgaban igual—, que es por
+ * qué en RevenueCat nunca hubo ni una compra de sandbox mientras el cliente sí
+ * aparecía registrado: `configure` es nativo y sí corría.
+ *
+ * Verificado en un iPhone 15 real (iOS 26.6) el 13-sep-2026, con trazas en el
+ * puente de Capacitor.
+ *
+ * REGLA para quien toque esto: el SDK se usa SIEMPRE como `plugin().metodo()`.
+ * Nunca se mete en un `await` ni se devuelve desde una función `async`.
+ */
+async function preparar(userId: string): Promise<void> {
   if (!sdk) sdk = (await import('@revenuecat/purchases-capacitor')).Purchases
   if (!configurado) {
     await sdk.configure({ apiKey: clave()!, appUserID: userId })
     configurado = true
     usuarioActual = userId
-    return sdk
+    return
   }
   if (usuarioActual !== userId) {
     // Cambio de cuenta (o compra anónima que ahora se registra): RevenueCat
@@ -47,6 +70,11 @@ async function rc(userId: string): Promise<SDK> {
     await sdk.logIn({ appUserID: userId })
     usuarioActual = userId
   }
+}
+
+/** El SDK ya preparado. Se llama justo después de `await preparar(...)`. */
+function plugin(): SDK {
+  if (!sdk) throw new Error('paywall nativo: el SDK no está preparado')
   return sdk
 }
 
@@ -60,7 +88,8 @@ export const cajaNativa: Caja = {
   disponible: () => !!clave(),
 
   async ofertas(userId) {
-    const { all } = await (await rc(userId)).getOfferings()
+    await preparar(userId)
+    const { all } = await plugin().getOfferings()
     const paquetes = Object.values(all).flatMap((o) => o.availablePackages)
     return paquetes.map((p): OfertaCruda => {
       const periodo = p.product.subscriptionPeriod
@@ -76,7 +105,8 @@ export const cajaNativa: Caja = {
 
   async comprar(userId, ref) {
     try {
-      await (await rc(userId)).purchasePackage({ aPackage: ref as PurchasesPackage })
+      await preparar(userId)
+      await plugin().purchasePackage({ aPackage: ref as PurchasesPackage })
       return true
     } catch (e) {
       if (cancelada(e)) return false
@@ -85,13 +115,15 @@ export const cajaNativa: Caja = {
   },
 
   async restaurar(userId) {
-    await (await rc(userId)).restorePurchases()
+    await preparar(userId)
+    await plugin().restorePurchases()
     return true
   },
 
   async urlGestion(userId) {
     try {
-      const { customerInfo } = await (await rc(userId)).getCustomerInfo()
+      await preparar(userId)
+      const { customerInfo } = await plugin().getCustomerInfo()
       return customerInfo.managementURL ?? null
     } catch {
       return null
