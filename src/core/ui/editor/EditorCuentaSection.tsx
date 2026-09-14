@@ -653,7 +653,13 @@ function Niveles() {
           : t('cuenta.pago.comprar', 'Hazte Pro')}
       </p>
       {niveles.map((n) => {
-        const actual = n.nivel === nivelActual
+        // Solo hay «nivel actual» si de verdad hay SUSCRIPCIÓN. El mes que
+        // regala la compra de la casa deja `nivel = 1` en el perfil sin que
+        // nadie se haya suscrito, y comparar a secas marcaba el ×1 como
+        // «Actual» y lo DESHABILITABA: quien estaba en su primer mes no podía
+        // comprar el ×1. Al revisor de Apple le pasaría igual nada más comprar
+        // la casa, y el ×1 va dentro del envío.
+        const actual = plan === 'pro' && n.nivel === nivelActual
         return (
           <button
             key={n.id}
