@@ -80,7 +80,7 @@ export const TEXTOS = {
     'Egzersiz, mutfak, finans, uyku, kütüphane, diller, seyahat, hobiler, farkındalık ve dahası: her oda eksiksiz bir mini uygulama barındırır.',
   'car.studio.t': 'Üretmek için bir Stüdyo',
   'car.studio.p':
-    'Ayrı dört uygulama: Ses, Sanat, Yazı ve Video. Piano roll ve MIDI klavyeyle beste yapar, resim çizip fotoğraf rötuşlar, kitapları bölüm bölüm yazar ve videoları senaryodan kurgularsın — yaptığını da dışa aktarırsın.',
+    'Ayrı dört uygulama: Ses, Sanat, Yazı ve Video. Piano roll ve MIDI klavyeyle beste yapar, resim çizip fotoğraf rötuşlar, kitapları bölüm bölüm yazar ve videoları senaryodan kurgularsın — yaptığını da dışa aktarırsın ya da bir videoyu doğrudan kendi YouTube, TikTok, Facebook veya Instagram hesabında yayımlarsın.',
   'car.2.t': 'Yapay zekâ asistanı',
   'car.2.p':
     'Asistanınla konuş: öğünleri kaydet, rutinler kur, hedefler planla, görseller ve 3B modeller üret. İlk ayın 700 kredi dahil gelir; sonrası isteğe bağlı.',

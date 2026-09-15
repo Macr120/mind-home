@@ -80,7 +80,7 @@ export const TEXTOS = {
     'Exercise, kitchen, finances, sleep, library, languages, travel, hobbies, mindfulness and more: every room holds a complete mini-app.',
   'car.studio.t': 'A Studio for creating',
   'car.studio.p':
-    'Four apps of their own: Audio, Art, Writing and Video. You compose with a piano roll and a MIDI keyboard, paint and retouch photos, write books chapter by chapter and cut videos from a script — and export whatever you make.',
+    'Four apps of their own: Audio, Art, Writing and Video. You compose with a piano roll and a MIDI keyboard, paint and retouch photos, write books chapter by chapter and cut videos from a script — and export whatever you make, or publish a video straight to your own YouTube, TikTok, Facebook or Instagram account.',
   'car.2.t': 'AI assistant',
   'car.2.p':
     'Chat with your assistant: log meals, create routines, plan goals, generate images and 3D models. Your first month comes with 700 credits included; after that, AI is optional.',
