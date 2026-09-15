@@ -149,6 +149,89 @@ Cómo quedó el envío:
   campos **no aceptan escritura sintética**: hubo que asignar el valor con el setter
   nativo y disparar `input`/`change` para que Angular se enterara.
 
+⚠️ **Seguimiento 14-sep-2026 (día 8): la revisión NO está simplemente esperando — hay un
+problema que resolver.** El Centro de verificación da «Branding status: se verificó la
+información de tu marca y se muestra a los usuarios» y «Data access status: en proceso de
+revisión», pero dentro de **«Ver progreso de la verificación»** la lista de etapas tiene
+cuatro en verde y **una en rojo**:
+
+| Etapa | Estado | Última revisión |
+|---|---|---|
+| Requisitos de la página principal | ✅ | 10 sept 2026 |
+| Funciones de la app | ✅ | 7 sept 2026 |
+| Lineamientos de desarrollo de la marca | ✅ | 10 sept 2026 |
+| Solicita los permisos mínimos | ✅ | 7 sept 2026 |
+| **Requisitos de la política de privacidad** | ❌ | 10 sept 2026 |
+
+> «Tu aplicación no cumplió con requisitos de la política de privacidad. Resuelve los
+> siguientes problemas: **Tu política de privacidad no especifica ningún mecanismo de
+> protección de datos sensibles.**»
+
+Y arriba del panel: *«Resuelve todos los problemas que se indican a continuación. Responde
+al hilo de correos electrónicos con el equipo de Confianza y Seguridad después de que hayas
+resuelto los problemas.»* O sea que **el reloj no corre solo**: hasta que no se arregle la
+web y se conteste ese correo, la revisión no avanza.
+
+**Qué falta exactamente.** La política tiene «Qué datos recopilamos», «Para qué los usamos»,
+«Almacenamiento en tu dispositivo», «Cuentas de redes sociales conectadas», «Cómo borrar tu
+cuenta» y «Proveedores» — pero **ninguna sección de seguridad**. Google pide que diga *cómo*
+se protegen los datos del scope sensible. Arreglo: una sección nueva (`priv.seguridad.*`)
+en los **16 catálogos** `web/i18n/paginas/<idioma>.mjs` + su bloque en `web/privacidad.html`,
+diciendo al menos: tráfico por HTTPS/TLS, tokens de redes **cifrados** en la base de datos
+con una clave que solo tiene el servidor, acceso restringido por usuario, que los tokens no
+se comparten ni se venden, y el borrado al desconectar o eliminar la cuenta. Desplegar y
+**después** contestar el hilo de correo del revisor.
+
+**ESCRITO el 14-sep-2026.** Sección nueva **«Cómo protegemos tus datos»** con dos párrafos:
+uno general (HTTPS/TLS en tránsito, cifrado en reposo en Supabase, la contraseña solo como
+hash, aislamiento por fila, acceso administrativo limitado, nada de venta/publicidad/
+entrenamiento de IA) y otro **específico de los tokens**, que es lo que Google pide de los
+datos del permiso sensible. Claves `priv.seguridad.h` / `.p` / `.tokens` en los **16**
+catálogos `web/i18n/paginas/<idioma>.mjs` (217 claves cada uno, paridad comprobada) y
+`<section id="seguridad">` en `web/privacidad.html`, **justo debajo de `#cuentas-redes`**:
+así el revisor que entra por el ancla que declaran las consolas lo lee a continuación.
+
+Cada afirmación se contrastó contra el código antes de escribirla, que en una política es lo
+único que vale:
+
+| Lo que dice la política | De dónde sale |
+|---|---|
+| AES-GCM 256 bits | `_shared/redes/cifrado.ts` (`crypto.subtle`, formato `v1.<iv>.<ct>`) |
+| La clave solo existe como secreto del servidor | `REDES_CIFRADO_KEY` en `supabase secrets`, nunca en el bundle |
+| Aislamiento por fila, solo funciones del servidor | migración `20260903000001`: RLS activada y **sin políticas**; solo `service_role` con el uid validado |
+| La app nunca recibe un token | `CuentaRed` en `src/core/redes/tipos.ts` no tiene campo de token |
+| Un proceso diario poda lo inactivo | cron `redes-mantenimiento-diario`, migración `20260908000001` |
+
+Comprobado con `npm run build:web`: **80 páginas en 16 idiomas**, la sección presente en las
+16 `privacidad.html` y ningún `{{…}}` sin sustituir.
+
+- [x] **DESPLEGADO el 14-sep-2026** (`wrangler pages deploy dist-web --project-name
+      mindplannerhome`, 159 archivos nuevos). Verificado **como lo ve el revisor**, con
+      `curl -sL` y contando redirecciones:
+
+      | URL | |
+      |---|---|
+      | `https://mindplannerhome.com/privacidad` | 200 · 0 redirecciones · ancla y texto presentes |
+      | `https://mindplannerhome.com/en/privacidad` | 200 · 0 redirecciones · ancla y texto presentes |
+
+- [x] **HILO CONTESTADO el 14-sep-2026, 13:44.** El correo del revisor es del **7-sep**,
+      de `api-oauth-dev-verification-reply+13q79tu0ev0kf1d@google.com`, asunto *«[Action
+      Needed] OAuth Verification Request Acknowledgement»*, y dice literal: *«Once you have
+      addressed the issues above, **reply directly to this email** to confirm. You must
+      reply to this email after fixing the highlighted issues to continue with the app
+      verification process.»* La respuesta salió desde `macr120cme@gmail.com` con las dos
+      URLs (inglés primero, que la declarada sirve español) y el detalle de los mecanismos.
+      El correo pedía también *«update and resubmit your app in Cloud Console»*, pero eso
+      solo aplica **si cambia el enlace**: la URL declarada es la misma y ahora sirve el
+      contenido nuevo, y el Centro de verificación no ofrece ningún botón de reenvío —
+      sigue en «El acceso a los datos de tu app está en proceso de revisión». No hay nada
+      más que tocar ahí.
+      Defecto menor del envío: el saludo salió **duplicado** («Hello,» dos veces). Se dejó
+      así a propósito: mandar un segundo correo a un hilo de revisión para corregir un
+      saludo hace más ruido que el propio fallo.
+- [ ] Esperar la vuelta del revisor (3–5 días hábiles por vuelta; la revisión completa,
+      4–6 semanas desde que se reanuda).
+
 
 **Estado real de la consola (5-sep-2026), tras revisarla a fondo.** El proyecto es
 `mph-studio` y la consola nueva es «Google Auth Platform», con 7 secciones.
@@ -596,9 +679,164 @@ no hace nada. Hay que tenerla al frente y teclear con eventos de teclado de verd
       volume of requests»*. Sin comentarios del revisor («Review comments» vacío) y con los
       tres videos demo en su sitio. No hay nada que hacer más que esperar; recordatorio:
       no tocar la app y dejar la cuenta de TikTok en privado.
+      ✅ **APROBADA el 14-sep-2026, 6:06.** Correo «Your app is approved!» y en el
+      changelog: *«Updated Status from Under review to Live in production — By TikTok
+      Admin»*. La consola abre ahora en `/app/7681343089528604690/**live**` con
+      «This version of Mind Planner Home has been live since Sep 14, 2026 6:06 AM».
+      Nueve días de revisión, sin una sola pregunta del revisor.
+- [ ] ⚠️ **Poner las credenciales de PRODUCCIÓN en Supabase.** Los secretos que hay puestos
+      son los del sandbox «MPH pruebas» (fase B), y con ellos solo conectan los target
+      users. Se leen en Production → App details → Credentials (salen en texto plano) y se
+      pegan sin pasar por el chat:
+      `npx supabase secrets set TIKTOK_CLIENT_KEY=… TIKTOK_CLIENT_SECRET=…`
+      (`secrets set` es aditivo; no hace falta redesplegar las funciones). Comprobar
+      después conectando desde la app: la pantalla de permiso debe decir «Mind Planner
+      Home», **sin** «(Sandbox)».
 - [ ] Con la app aprobada, pedir desde el producto Content Posting API el **audit** que
-      quita el «Solo yo».
-- [ ] Al aprobar: `REDES_TIKTOK_AUDITADO=1`.
+      quita el «Solo yo». Está en Production → Products → Content Posting API →
+      **Direct Post**, en el botón **Apply** de *«Posted content will be subject to
+      restrictions outlined in Direct Post API - Developer Guidelines. To lift these
+      restrictions, apply for an audit.»* Hasta que pase, todo lo publicado sale «Solo yo»
+      aunque el usuario elija «Público».
+- [x] ✅ **AUDIT ENVIADO el 14-sep-2026 → «Your Application to request access to Content
+      Posting API has been submitted!»**, con el aviso *«You will hear back from us in
+      **2-4 weeks**. Refresh your Manage apps page to check your application status.»*
+- [ ] Al aprobar el audit: `REDES_TIKTOK_AUDITADO=1`.
+- [ ] Al quitar el «Solo yo», **devolver la cuenta `mindplannerhome` a pública** (se puso
+      privada para poder publicar sin auditar) y borrar los videos de prueba.
+
+**Formulario del audit, empezado el 14-sep-2026 (pasos 1 y 2 completos, parado en el 3).**
+Se abre desde Production → Products → Content Posting API → Direct Post → **Apply**, y sale
+en una PESTAÑA NUEVA: `developers.tiktok.com/application/content-posting-api`. Son 4 pasos.
+
+| Paso | Campo | Respuesta |
+|---|---|---|
+| 1 General | Full Name | Marco Antonio Cabanillas Ramirez |
+| 1 | Organization name | Mind Planner Home |
+| 1 | Organization website | `https://mindplannerhome.com/en/acerca` |
+| 1 | Describe your organization's work as it relates to TikTok | El Studio de video y el Direct Post desde la app |
+| 1 | TikTok representative email | vacío (no hay contacto interno) |
+| 2 API client | App ID | `7681343089528604690` |
+| 2 | Goal of your application / benefit | Cerrar el círculo: hoy hay que exportar y subir a mano |
+| 2 | Daily publishing users | **Less than 100** |
+| 2 | How you determined the estimate | App recién lanzada, uso real cero, preferimos pedir ampliación con números que inflarla |
+| 3 Docs | API response data fields saved in your database | Lista por endpoint (abajo) |
+| 3 | **Screen recording** | ⛔ BLOQUEADO |
+
+⚠️ **El desplegable de usuarios diarios FIJA UN TOPE.** Las opciones son «Less than 100»,
+«101-300», «301-500», «501-1,000», «1,001-3,000»… y el aviso dice que sin estimación ponen
+100 por defecto. Se eligió **Less than 100**: es lo cierto con la app recién lanzada y da el
+mismo tope que el que pondrían igualmente. Al elegirlo **aparece una pregunta nueva y
+obligatoria**, «Explain how you determined the daily usage estimate», que no se ve antes.
+
+Lo que se declaró que guardamos, sacado del código y no de memoria (`_shared/redes/tiktok.ts`
+y la migración `20260903000001`): de `/v2/oauth/token/` los dos tokens (cifrados), `expires_in`,
+`refresh_expires_in`, `scope` y `open_id`; de `/v2/user/info/` `open_id`, `display_name` y
+`avatar_url`; de `/v2/post/publish/video/init/` `publish_id`, `upload_url` y el offset ya
+enviado, para reanudar; de `/v2/post/publish/status/fetch/` el estado y el id del post. De
+`creator_info` **nada**: se pide al abrir el formulario y solo se enseña.
+
+⛔ **BLOQUEANTE: los tres videos demo se perdieron.** El paso 3 exige *«a screen recording of
+the Post to TikTok user experience»*, y `1-publicar.mp4`, `2-conectar.mp4` y `3-en-tiktok.mp4`
+**ya no existen en disco** (vivían en el scratchpad de la sesión del 6-sep, que se limpió) y
+**la consola de TikTok no los deja descargar**: en la lista de la App Review el único botón
+de cada archivo es la **«×» de ELIMINAR**, no una descarga, y el HTML no expone ninguna URL
+al `.mp4` (comprobado buscando `https?://…\.mp4` en todo el `innerHTML`: cero).
+⚠️ Y una advertencia para quien repita esto: **pulsar esa «×» borraría el archivo del envío.**
+Aquí se pulsaron las tres creyendo que descargaban y no pasó nada solo porque la consola de
+TikTok ignora los clics con su pestaña de fondo. Comprobado recargando la página entera: los
+tres siguen en su sitio. Mirar QUÉ es el botón antes de pulsarlo.
+
+**Además el límite de tamaño aquí es distinto**: el texto de la pregunta dice «up to 3 MP4
+files no more than 50MB each» pero el widget de subida dice **«Maximum 5 files, up to 5MB
+each»**, que es el que manda. Formatos: mov, mp4, jpeg, jpg, png, txt, pdf.
+
+Plan para desbloquearlo, en este orden:
+
+- [ ] 1) Credenciales de **producción** en Supabase (abajo). Sin esto, cualquier grabación
+      nueva volvería a salir con el rótulo «(Sandbox)».
+- [ ] 2) Comprobar conectando desde la app: la pantalla de permiso debe decir «Mind Planner
+      Home» **sin** «(Sandbox)».
+- [ ] 3) Regrabar las tres tomas que pide el formulario: (a) la autorización de TikTok, (b)
+      el formulario de publicar dentro de la app, (c) lo que pasa después de pulsar Publicar.
+      Valen las trampas ya aprendidas: grabar en **MKV** (un MP4 sin cerrar no tiene `moov`),
+      ventana **TOPMOST**, y coreografía en UNA sola llamada. Comprimir cada una por debajo
+      de **5 MB**.
+- [ ] 4) Subirlas y enviar el formulario.
+
+**Intento de grabación del 14-sep-2026: credenciales OK, publicación NO.** Lo que se
+aprendió, para que la siguiente toma salga a la primera:
+
+- ✅ **Las credenciales de producción funcionan de punta a punta.** La pantalla de
+  consentimiento dice **«Mind Planner Home wants to access your TikTok account»**, ya
+  **SIN «(Sandbox)»**, con sus dos permisos. Y tras aceptar, el formulario de publicar
+  abre con «It will be posted to Marco Cabanillas's account».
+- ✅ **El consentimiento SÍ se puede repetir**: basta con `desconectar` (que llama a
+  `/oauth/revoke/`); TikTok vuelve a enseñar la pantalla. No hace falta revocar a mano.
+- ❌ **La publicación falla con el error genérico** *«TikTok: Please review our integration
+  guidelines…»*. Causa confirmada llamando a `opciones`: `privacidad` devuelve
+  **`PUBLIC_TO_EVERYONE`**, o sea que la cuenta `mindplannerhome` **volvió a ser pública**.
+  Con el cliente sin auditar hay que tenerla en **privado**; elegir `SELF_ONLY` en el
+  formulario NO basta. Es exactamente lo mismo que pasó el 6-sep.
+
+Trampas de la grabación en esta máquina, que costaron una toma:
+
+- **Capturar solo la ventana de Chrome NO sirve**: `gdigrab -i title=…` devuelve NEGRO
+  (comprobado: `signalstats` da YAVG=16 constante en todos los fotogramas). Chrome compone
+  por GPU. Hay que capturar `-i desktop`.
+- **El escritorio son DOS monitores apilados**: `-i desktop` sale 3440×2880 y mete el
+  segundo monitor —con la ventana de Claude y la conversación— en el metraje. Hay que
+  **recortar la mitad superior** (`crop=iw:ih/2:0:0`) o dejar limpio el otro monitor.
+- **Sale la barra «Claude started debugging this browser»** en la pestaña que se conduce
+  por CDP. Para un vídeo de revisión conviene que NO aparezca: se graba una pestaña normal
+  (fuera del grupo MCP) y la conduce Marco a mano; el agente solo lanza `ffmpeg`.
+- **MKV aguanta el `Stop-Process`**: el archivo quedó legible (1856 fotogramas a 12 fps
+  ≈ 155 s) aunque `ffprobe` avise «File ended prematurely» y dé la duración del `-t`.
+- ⚠️ **Antes de grabar el escritorio, mirar QUÉ hay en pantalla.** En la prueba salía el
+  terminal con un `TIKTOK_CLIENT_SECRET=` en texto plano; por eso se reseteó el secreto en
+  la consola y se volvió a poner (14-sep 21:55).
+- **El secreto se mete desde el portapapeles**, nunca pegándolo en la línea de comandos:
+  dos intentos dejaron el valor VACÍO sin avisar (se detecta porque el hash de
+  `secrets list` es el SHA-256 de la cadena vacía,
+  `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`).
+  `$s=(Get-Clipboard -Raw).Trim()` y luego `secrets set "TIKTOK_CLIENT_SECRET=$s"`.
+
+**LA TOMA BUENA, 14-sep-2026.** `1-publicar-en-tiktok.mp4`, **1280×536, 99 s, 444 KB**.
+Receta que funcionó, y que conviene repetir tal cual:
+
+```bash
+ffmpeg -f gdigrab -framerate 12 -i desktop   -vf "crop=3440:1440:0:0,scale=1280:-2"   -c:v libx264 -preset veryfast -crf 25 -pix_fmt yuv420p -t 600 toma.mkv
+# parar con Stop-Process; luego recortar la entrada muerta y pasar a MP4:
+ffmpeg -ss 20 -i toma.mkv -c:v libx264 -preset slow -crf 26   -pix_fmt yuv420p -movflags +faststart -an 1-publicar-en-tiktok.mp4
+```
+
+- El `crop=3440:1440:0:0` deja **solo el monitor principal**; el segundo (donde vive la
+  ventana de Claude) se queda fuera.
+- **La conduce Marco a mano**, en una pestaña normal: así no sale la barra «Claude started
+  debugging this browser» y la interacción es real, que es lo que pide la guía.
+- Para saber dónde recortar la entrada: `select='gt(scene,0.02)'` da el primer cambio real
+  (aquí, el segundo 21,4).
+
+⚠️ **CAUSA REAL del fallo de publicación, y no era la que parecía.** La cuenta que quedó
+conectada al pulsar «Continue» era **«Marco Cabanillas» (la personal)**, no
+`mindplannerhome`: TikTok tenía esa sesión abierta y el consentimiento enlaza la cuenta
+ACTIVA. Por eso `creator_info` seguía devolviendo `PUBLIC_TO_EVERYONE` aunque
+`mindplannerhome` ya estuviera en privado — estaba mirando otra cuenta. Se ve con
+`estado` (`nombre`) y con `opciones` (`nickname`). **Antes de conectar, cambiar la sesión
+de tiktok.com a la cuenta correcta**, o usar «Switch account» en el consentimiento.
+
+⚠️ **El formulario del audit NO guarda borrador.** Al cerrar la pestaña se pierde todo y
+hay que rellenar los cuatro pasos de nuevo (a diferencia del de Meta, que dice «Draft
+saved»). Los textos están en este documento para poder repetirlo.
+
+⚠️ **La consola de TikTok solo acepta escritura si su pestaña está ACTIVA en Chrome.** Con
+la ventana al frente pero otra pestaña activa, los `type` no llegan al estado de React y
+los campos quedan vacíos **sin error**. Se arregla con un `navigate` a la misma URL (activa
+la pestaña) y se comprueba leyendo `document.hasFocus()` y las longitudes de los campos:
+`[...document.querySelectorAll('input[type=text],textarea')].map(e=>e.value.length)`.
+
+⚠️ **Las tres casillas de «Declaration» las marca Marco**: son aceptación de términos y una
+declaración de veracidad. Ningún agente las marca por él.
 
 Mientras no está aprobada: solo los target users del sandbox pueden conectar; posts
 «Solo yo»; 15 posts/día por cuenta y 6 llamadas/min (la app los respeta). Rechazos
@@ -981,6 +1219,16 @@ una Página: hacen falta para probar (la app se lo explica al usuario que no las
       Plan B si esto vuelve a caer: la segunda opción del propio diálogo, **subir un
       documento** que asocie el negocio con el sitio (factura del dominio o del hosting a
       nombre de la persona).
+- [x] ✅ **VERIFICADO el 11-sep-2026, a la cuarta.** Configuración → Información del
+      portafolio: **«Business verification status: Verified · Sep 11, 2026»**. Lo que lo
+      sacó adelante fue confirmar la conexión por **correo del propio dominio**
+      (`marco@mindplannerhome.com`), no la web: las tres vueltas anteriores cayeron todas
+      por la URL. Queda un aviso menor al lado, «WhatsApp needs more information», que no
+      afecta a nada de esto.
+      ⚠️ Ojo para futuras revisiones: en Business info el campo **Website sigue siendo
+      `https://mindplannerhome.com/`** (la raíz que redirige). Si otro trámite vuelve a
+      comprobar la web, hay que apuntarlo a `/acerca` **dentro del formulario de ese
+      trámite**, no aquí.
 - [x] **CUARTA VUELTA ENVIADA el 10-sep-2026 → «In review»** («Thank you for submitting
       your information. It should take about 2 business days…»). Esta vez con la URL
       corregida DENTRO del asistente y con la conexión confirmada por **correo del propio
@@ -1047,6 +1295,60 @@ una Página: hacen falta para probar (la app se lo explica al usuario que no las
       **Con fecha límite**: *«To avoid restrictions to 1 app, this must be completed by
       11/5/2026»* — 5 de noviembre de 2026 leyendo el formato de Meta (M/D/Y). Hay margen,
       pero pasada esa fecha la app se restringe.
+      🔓 **DESBLOQUEADO el 14-sep-2026**, en cuanto el negocio quedó verificado: la página
+      ya no pide requisitos previos, solo dice *«Answer the following questions so we can
+      verify that your business is a Tech Provider… Click Start verification to open the
+      access verification form»* con el botón **Start verification** activo. Y la fecha
+      límite se movió sola: ahora *«To avoid restrictions to 1 app, this must be completed
+      by **11/13/2026**»* (13 de noviembre). **Es el siguiente paso de Meta** y el que
+      abre la App Review, que ya tiene listos el screencast (10-sep) y la cuenta del
+      revisor.
+      **Formulario relleno el 14-sep-2026 (borrador guardado en el servidor, SIN enviar).**
+      Son cuatro preguntas y ninguna pide datos personales:
+
+      | Pregunta | Respuesta |
+      |---|---|
+      | Which options best describe your business? | **SaaS Platform** (ni agencia, ni freelance, ni consultoría: es un producto que usa quien lo compra) |
+      | How will your business use Platform Data…? | Texto abajo |
+      | Does your business manage multiple business portfolios? | **No** |
+      | Provide a link to your website | `https://mindplannerhome.com/en/acerca` |
+
+      ⚠️ **La pregunta 4 es la misma trampa que tumbó tres veces la verificación de
+      negocio**, y esta vez se vio ANTES de enviar: pide *«a valid URL to a complete website
+      showing **the service you described above**»*, y `/acerca` **no mencionaba publicar en
+      redes por ningún lado** — `curl` daba 0 apariciones de YouTube, TikTok, Facebook,
+      Instagram y «publish». Describir el servicio en la respuesta y que la web no lo
+      enseñara era exactamente el desajuste que Meta rechaza.
+      **Arreglo**: la tarjeta del Studio de la landing (`car.studio.p`) pasa de terminar en
+      «y exportas lo que hagas» a «…, o publicas un video directo en tu propia cuenta de
+      YouTube, TikTok, Facebook o Instagram», en los **16 idiomas**. Una frase, y cierta.
+      Desplegado y comprobado como lo ve Meta: `https://mindplannerhome.com/en/acerca` →
+      **200, 0 redirecciones**, con las cuatro redes, «publish» y el nombre legal en el pie.
+      Se da la URL **en inglés** a propósito: la declarada (`/acerca` a secas) sirve español.
+
+      Texto de la pregunta 2 (corto y sin jerga, como pide el propio formulario):
+
+      > We are a personal planner app. Our clients are the people who buy and use the app
+      > themselves.
+      >
+      > One of the rooms in the app is a video Studio, where a user edits their own short
+      > videos. When a user wants to publish one, they connect their own Facebook Page or
+      > Instagram professional account and press Publish, and we post that video to their
+      > own account for them.
+      >
+      > We use Platform Data only for that. We read the list of Pages the user manages, so
+      > they can choose where to post, and the Page name and picture, so they can confirm
+      > they picked the right one. We use the access token only to post the video they asked
+      > us to post. We do not read their posts, comments, messages or followers, we do not
+      > share their data with anyone else, and we never post anything they did not ask for.
+
+- [x] ✅ **ENVIADO el 14-sep-2026 → «In review».** La página cambia a una barra de
+      progreso **Submitted → In review → Verified**, parada en la segunda, con el aviso
+      *«We're reviewing your submission and will reach out within 5 days if we need more
+      information»*. No pidió captcha, ni documentos, ni datos personales, y el borrador
+      que se había guardado antes llegó entero: esta vez el formulario NO perdió nada.
+- [ ] Esperar los 5 días. Al quedar **Verified** se desbloquea la **App Review**, que ya
+      tiene listos el screencast (10-sep) y la cuenta del revisor.
 - [ ] Business verification: App settings → Basic → Verification → conectar el Business
       → Security Center → Start verification (nombre legal, dirección, teléfono,
       documentos oficiales; como persona física con actividad empresarial suelen valer
