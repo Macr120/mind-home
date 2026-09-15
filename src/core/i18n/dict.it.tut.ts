@@ -69,14 +69,12 @@ export const IT_TUT: Dict = {
     'In Excel esce un .xlsx vero, con le formule vive e i grafici come grafici di Excel. In PDF esce dalla stampa del browser.',
   'tut.casa.1.texto': 'Questa è la tua casa: ogni stanza contiene un\'app. Ti mostro i comandi di base.',
   'tut.casa.2.titulo': 'Il menu principale',
-  'tut.casa.2.texto':
-    'L\'ho aperto perché tu lo veda: è il menu principale, con le tue stanze e le loro app. Le sue altre schede portano il catalogo dei modelli (le app) e l\'inventario degli oggetti.',
+  'tut.casa.2.texto': 'L\'ho aperto perché tu lo veda: è il menu principale, con le tue stanze e le loro app. Le altre schede portano gli Interni (il catalogo di app) e gli Esterni, ciò che si costruisce sul terreno.',
   'tut.casa.2b.titulo': 'Il catalogo delle app',
   'tut.casa.2b.texto':
     'La sua seconda scheda: il catalogo dei modelli — tutte le app che la casa può portare, ognuna pronta per essere assegnata a una stanza.',
-  'tut.casa.2c.titulo': 'L\'inventario',
-  'tut.casa.2c.texto':
-    'E la terza: l\'inventario — gli oggetti e i pezzi che conservi dalle tue stanze, pronti per essere ricollocati dove vuoi.',
+  'tut.casa.2c.titulo': 'Gli esterni',
+  'tut.casa.2c.texto': 'E la terza: gli Esterni — piste da corsa, campi, orto, santuario e paintball, che non occupano una stanza ma si costruiscono sul terreno.',
   'tut.casa.3.titulo': 'Muoversi',
   'tut.casa.3.texto':
     'Cammina con il joystick, con WASD o con le frecce della tastiera: tutta la casa si percorre a piedi. Passeggiare non apre le app — per entrare, tocca l\'oggetto con la sfera fluttuante della stanza.',
@@ -109,8 +107,7 @@ export const IT_TUT: Dict = {
     'Il pulsante Editor in alto apre questo: la personalizzazione completa in quattro schede — Mappa, Personaggi, Oggetti e Impostazioni. Qui si disegna e si veste la casa intera.',
   'tut.casa.10.texto':
     'Questo è l\'essenziale. Ogni menu e ogni app hanno il loro pulsante ? con il loro tutorial: chiedilo quando qualcosa non ti torna.',
-  'tut.primeros.1.texto':
-    'Questo tutorial risponde a due domande: come ENTRARE nelle tue app e come CREARNE una nuova. Entrambe vivono qui, nella scheda Stanze.',
+  'tut.primeros.1.texto': 'Questo tutorial risponde a due cose: come ENTRARE nelle tue app e come CREARNE una nuova. Entrambe vivono qui, nella scheda Casa.',
   'tut.primeros.entrar.titulo': 'Entrare nelle tue app',
   'tut.primeros.entrar.texto':
     'Ogni stanza porta la sua app e hai tre porte: la sua scheda qui nel menu, l\'oggetto con la sfera fluttuante sulla mappa, e l\'accesso rapido del pulsante MPH in alto.',
@@ -142,7 +139,7 @@ export const IT_TUT: Dict = {
     'Guarda come trema: tenere premuto una stanza o un oggetto lo sveglia, con il suo menu. Così lo sposti se non ti piace dov\'è finito, o lo elimini.',
   'tut.primeros.6.texto':
     'Questo è tutto: creare la stanza, darle la sua app, entrare e sistemarla. Questa era di prova — me la porto via alla fine, perché tu monti la tua casa a modo tuo.',
-  'tut.menu-cuartos.1.texto': 'La scheda Stanze elenca tutte le stanze della tua casa, raggruppate per categoria.',
+  'tut.menu-cuartos.1.texto': 'La scheda Casa elenca tutte le stanze della tua casa, raggruppate per categoria.',
   'tut.menu-cuartos.2.titulo': 'Il tuo riepilogo',
   'tut.menu-cuartos.2.texto':
     'Il tuo personaggio vive della tua attività reale: qui vedi il suo umore, il suo livello e la sua serie. Registra qualcosa in una qualsiasi app e lo vedrai contento; qualche giorno senza niente e diventa triste — non riparte mai da zero e non ti punisce.',
@@ -163,11 +160,9 @@ export const IT_TUT: Dict = {
   'tut.menu-plantillas.1.texto':
     'Un modello è un\'app (Cucina, Palestra, Finanze…). Si assegna a un oggetto di una stanza e si apre quando entri.',
   'tut.menu-plantillas.2.titulo': 'Due viste',
-  'tut.menu-plantillas.2.texto':
-    'Stanze sono le app di sempre, ognuna nel suo oggetto. Extra è un\'altra cosa: circuiti, campi, orto, fattoria o paintball si costruiscono direttamente sul terreno, senza occupare una stanza.',
+  'tut.menu-plantillas.2.texto': 'Produttività sono le app di lavoro e vita quotidiana; Creatività è lo Studio: audio, arte, scrittura e video. Tutte si assegnano allo stesso modo, a un oggetto di una stanza.',
   'tut.menu-plantillas.3.titulo': 'Il catalogo',
-  'tut.menu-plantillas.3.texto':
-    'Le app di serie e le tue, organizzate in gruppi. Tocca una per assegnarla a una stanza oppure, in Extra, per costruirla sulla mappa.',
+  'tut.menu-plantillas.3.texto': 'Le app di serie e le tue, organizzate in gruppi. Toccane una per assegnarla a una stanza.',
   'tut.menu-plantillas.4.titulo': 'I tuoi modelli',
   'tut.menu-plantillas.4.texto':
     'Crea modelli tuoi assemblandoli con blocchi: note, checklist, contatori, abitudini, gallerie… Questo pulsante apre il suo editor, con il suo tutorial.',
@@ -190,17 +185,13 @@ export const IT_TUT: Dict = {
   'tut.plantillas-custom.6.texto':
     'Puoi rimetterci mano quando vuoi: i suoi blocchi e i suoi dati restano al loro posto, cambia solo quello che modifichi.',
   'tut.menu-inventario.1.texto': 'L\'inventario: tutti gli oggetti che puoi mettere in casa, pronti da trascinare.',
-  'tut.menu-inventario.2.titulo': 'Oggetti',
-  'tut.menu-inventario.2.texto':
-    'La tua libreria di oggetti, per categorie e cartelle. Puoi rinominarli e organizzarli per ritrovarli in fretta la prossima volta.',
-  'tut.menu-inventario.3.titulo': 'Oggetti speciali',
-  'tut.menu-inventario.3.texto':
-    'Quelli che fanno qualcosa, non solo decorano: veicoli cavalcabili, pistole giocattolo, fontane, giochi da parco e luci.',
+  'tut.menu-inventario.2.titulo': 'Mappa',
+  'tut.menu-inventario.2.texto': 'Quello che è GIÀ posizionato, stanza per stanza: tocca una miniatura per modificare quell\'oggetto.',
+  'tut.menu-inventario.3.titulo': 'Catalogo',
+  'tut.menu-inventario.3.texto': 'Tutti gli oggetti che esistono, in due cartelle: quelli normali e quelli speciali — quelli che fanno qualcosa, come veicoli guidabili, fontane, giochi da parco e luci.',
   'tut.menu-inventario.4.titulo': 'Posizionare',
-  'tut.menu-inventario.4.texto':
-    'Con questo menu aperto, trascina una miniatura direttamente nella scena 3D per posizionarla dove vuoi.',
-  'tut.menu-inventario.5.texto':
-    'Per spostare, dipingere o eliminare quello che hai già messo, usa l\'Editor (scheda Oggetti) — questo menu serve solo a portare cose nuove in scena.',
+  'tut.menu-inventario.4.texto': 'Con il catalogo aperto, trascina una miniatura dritta nella scena 3D per metterla dove vuoi.',
+  'tut.menu-inventario.5.texto': 'L\'altro ramo, Crea, serve a fare oggetti nuovi a pezzi o con l\'IA, e a modificare quello che hai selezionato.',
   'tut.editor-mapa.1.texto':
     'L\'editor della casa ha 4 schede: Mappa, Personaggi, Oggetti e Impostazioni. Questo tour è quello di Mappa; gli altri tre hanno il loro.',
   'tut.editor-mapa.2.titulo': 'La pianta',

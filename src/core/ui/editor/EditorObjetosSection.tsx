@@ -8,7 +8,16 @@ import { OP_OBJETO_3D } from '../../cuenta/catalogoNucleo'
 import { useCuartos } from '../../state/cuartosStore'
 import { useDiseño, MAPA_ROOM, esObjetoLibreria } from '../../state/disenoStore'
 import { pedirDestinoObjeto } from '../../state/destinoObjetoStore'
-import { useEditorUi } from '../../state/editorUiStore'
+import {
+  useEditorUi,
+  type ObjRaiz,
+  type ObjCrear,
+  type ObjInv,
+} from '../../state/editorUiStore'
+import { PestanasCarpeta, type ItemPestana } from '../../../rooms/_shared/PestanasCarpeta'
+import { Carpeta } from '../comun/Carpeta'
+import { ObjetosCatalogo, BotonRestaurarObjetos } from '../ObjetosCatalogo'
+import { CATS_ESPECIALES } from '../inventarioGrupos'
 import { getTema } from '../../house/temas'
 import { MiniaturaModelo } from '../../house/Miniatura'
 import { RECURSOS } from '../../house/recursos'
@@ -29,7 +38,6 @@ import { EditorAnimacion } from './EditorAnimacion'
 import { SliderProp } from '../comun/SliderProp'
 import { useT, type TFunc } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
-import type { NombreIcono } from '../iconos/catalogo'
 
 const ESCALA_MIN = 0.3
 const ESCALA_MAX = 3
@@ -77,14 +85,15 @@ interface Ubicacion {
   objetos: ObjetoCuarto[]
 }
 
-/** Submenú activo de la pestaña Objetos: crear, ubicar en el mapa o editar. */
-type ObjTab = 'crear' | 'mapa' | 'editar'
-
 /**
- * Editor de objetos (pestaña Objetos), en 3 submenús: Crear (con IA/manual/.glb),
- * Mapa (elegir uno entre los ya colocados, por cuarto o sueltos) y Editar (preview
- * 3D + propiedades del seleccionado). Crear o tocar una miniatura en Mapa saltan
- * directo a Editar.
+ * Editor de objetos (pestaña Objetos), en dos ramas:
+ *
+ *   Crear ─── Crear (con IA/manual/.glb) · Editar (preview 3D + propiedades)
+ *   Inventario ─ Mapa (los ya colocados, por cuarto o sueltos) · Catálogo (la
+ *                biblioteca entera, en dos carpetas: normales y especiales)
+ *
+ * Elegir un objeto —aquí, en la escena 3D, en la rueda o en el catálogo— lleva
+ * siempre a Crear > Editar; de eso se encarga `setObjetoSel` del store.
  */
 export function EditorObjetosSection() {
   const t = useT()
@@ -113,10 +122,21 @@ export function EditorObjetosSection() {
   // Engrane ⚙️ del preview: con piezas y abierto se edita la Forma; cerrado (o sin
   // piezas) se editan las propiedades del objeto completo (Tamaño/Posición/Rotación).
   const piezasControles = useEditorUi((s) => s.piezasControles)
+  const objRaiz = useEditorUi((s) => s.objRaiz)
+  const setObjRaiz = useEditorUi((s) => s.setObjRaiz)
+  const objCrear = useEditorUi((s) => s.objCrear)
+  const setObjCrear = useEditorUi((s) => s.setObjCrear)
+  const objInv = useEditorUi((s) => s.objInv)
+  const setObjInv = useEditorUi((s) => s.setObjInv)
+  const setInventarioObjetosActivo = useEditorUi((s) => s.setInventarioObjetosActivo)
+  // Carpeta abierta del catálogo; solo una a la vez (el panel es estrecho).
+  const [catAbierto, setCatAbierto] = useState<'objetos' | 'especiales' | null>('objetos')
   const tema = getTema(temaId)
 
   const seleccionado = objetos.find((o) => o.id === objetoSel) ?? null
-  // Editando un objeto de la biblioteca (desde el inventario): se muestra solo su editor, sin la lista.
+  // Objeto de la biblioteca (elegido en el catálogo): su editor ofrece además
+  // rehacerlo con IA. Ya NO oculta los submenús: con el catálogo aquí dentro,
+  // esconder las pestañas dejaba al usuario sin manera de volver.
   const editandoBiblioteca = !!seleccionado && esObjetoLibreria(seleccionado)
 
   // Ubicaciones con objetos: cada cuarto que tenga objetos + el mapa.
@@ -132,8 +152,13 @@ export function EditorObjetosSection() {
     return arr
   }, [cuartos, objetos, t])
 
-  // Submenú activo: Crear, Mapa (ubicación) o Editar (propiedades del seleccionado).
-  const [tab, setTab] = useState<ObjTab>(() => (ubicaciones.length === 0 ? 'crear' : 'editar'))
+  // Con el catálogo del inventario abierto, los objetos ya colocados se pueden
+  // arrastrar en la escena aunque se esté editando un cuarto concreto: es lo que
+  // hacía el inventario cuando vivía en el menú lateral.
+  useEffect(() => {
+    setInventarioObjetosActivo(objRaiz === 'inventario')
+  }, [objRaiz, setInventarioObjetosActivo])
+  useEffect(() => () => setInventarioObjetosActivo(false), [setInventarioObjetosActivo])
 
   // Crea un objeto de geometría básica en el destino elegido y lo abre para editar.
   const crearObjetoPiezas = async () => {
@@ -141,15 +166,15 @@ export function EditorObjetosSection() {
     if (!destino) return
     const id = await addObjetoPiezas(plantillaObjetoPiezas(), '#f59e0b', destino)
     setObjetoSel(id)
-    setTab('editar')
   }
 
   // Selecciona el primer objeto al entrar (o si el seleccionado dejó de existir).
+  // Solo en la rama Crear: en el inventario elegir uno saltaría al editor solo.
   useEffect(() => {
-    if (seleccionado || ubicaciones.length === 0) return
+    if (objRaiz !== 'crear' || seleccionado || ubicaciones.length === 0) return
     const primero = ubicaciones[0].objetos[0]
     if (primero?.id != null) setObjetoSel(primero.id)
-  }, [seleccionado, ubicaciones, setObjetoSel])
+  }, [objRaiz, seleccionado, ubicaciones, setObjetoSel])
 
   const botonCrear = (
     <button
@@ -175,14 +200,12 @@ export function EditorObjetosSection() {
           grupo && grupo !== 'ninguno' ? grupo : undefined,
         )
         setObjetoSel(id)
-        setTab('editar')
       }}
       onCrearGlb={async (glb) => {
         const destino = await pedirDestinoObjeto()
         if (!destino) return
         const id = await addObjetoGlb(glb, '#f59e0b', destino)
         setObjetoSel(id)
-        setTab('editar')
       }}
     />
   )
@@ -194,43 +217,47 @@ export function EditorObjetosSection() {
   // Efecto ajustable del especial seleccionado (agua/luz/juego); null = sin slider.
   const fxGrupo = seleccionado ? grupoFx(seleccionado.tipo) : null
 
-  const tabs: { id: ObjTab; label: string; icono: NombreIcono }[] = [
-    { id: 'crear', label: t('editor.obj.tabCrear', 'Crear'), icono: 'agregar' },
-    { id: 'mapa', label: t('editor.obj.mapa', 'Mapa'), icono: 'mapa' },
-    { id: 'editar', label: t('editor.obj.tabEditar', 'Editar'), icono: 'editar' },
+  const tabsRaiz: ItemPestana<ObjRaiz>[] = [
+    { id: 'crear', clave: 'editor.obj.tabCrear', labelEs: 'Crear', icono: 'agregar' },
+    { id: 'inventario', clave: 'nav.menu.inventarios', labelEs: 'Inventario', icono: 'inventario' },
+  ]
+  const tabsCrear: ItemPestana<ObjCrear>[] = [
+    { id: 'crear', clave: 'editor.obj.tabCrear', labelEs: 'Crear', icono: 'agregar' },
+    { id: 'editar', clave: 'editor.obj.tabEditar', labelEs: 'Editar', icono: 'editar' },
+  ]
+  const tabsInv: ItemPestana<ObjInv>[] = [
+    { id: 'mapa', clave: 'editor.obj.mapa', labelEs: 'Mapa', icono: 'mapa' },
+    { id: 'catalogo', clave: 'editor.obj.catalogo', labelEs: 'Catálogo', icono: 'carpeta' },
   ]
 
   return (
     <div className="space-y-3">
-      {!editandoBiblioteca && (
-      <>
-      {/* Submenús: crear objetos, verlos por ubicación en el mapa, editar el seleccionado */}
-      <div className="grid grid-cols-3 gap-1 rounded-lg border border-white/10 bg-black/30 p-1">
-        {tabs.map((tb) => (
-          <button
-            key={tb.id}
-            type="button"
-            onClick={() => setTab(tb.id)}
-            className={`flex h-9 items-center justify-center gap-1 whitespace-nowrap rounded-md px-1 text-[11px] font-semibold transition ${
-              tab === tb.id
-                ? 'bg-white/15 text-white'
-                : 'text-white/50 hover:bg-white/8 hover:text-white/75'
-            }`}
-          >
-            <Icono nombre={tb.icono} />
-            {tb.label}
-          </button>
-        ))}
-      </div>
+      {/* Dos ramas: hacer objetos nuevos (y editarlos) o traerlos del inventario */}
+      <PestanasCarpeta
+        items={tabsRaiz}
+        activo={objRaiz}
+        onCambio={setObjRaiz}
+        prefijoTut="editor.obj.raiz"
+        variante="raiz"
+      />
+      <PestanasCarpeta
+        items={objRaiz === 'crear' ? tabsCrear : tabsInv}
+        activo={objRaiz === 'crear' ? objCrear : objInv}
+        onCambio={(id) =>
+          objRaiz === 'crear' ? setObjCrear(id as ObjCrear) : setObjInv(id as ObjInv)
+        }
+        prefijoTut={objRaiz === 'crear' ? 'editor.obj.sub' : 'editor.obj.inv'}
+        variante="sub"
+      />
 
-      {tab === 'crear' && (
+      {objRaiz === 'crear' && objCrear === 'crear' && (
         <div className="space-y-2">
           {botonCrear}
           {generadorIA}
         </div>
       )}
 
-      {tab === 'mapa' && (
+      {objRaiz === 'inventario' && objInv === 'mapa' && (
         ubicaciones.length === 0 ? (
           <p className="text-xs text-white/40">
             {t('editor.obj.sinObjetos', 'Aún no hay objetos. Créalos en la pestaña Crear.')}
@@ -273,7 +300,6 @@ export function EditorObjetosSection() {
                 type="button"
                 onClick={() => {
                   if (o.id != null) setObjetoSel(o.id)
-                  setTab('editar')
                 }}
                 title={nombreObjeto(o, t)}
                 className={`flex items-center justify-center rounded-lg border p-1.5 transition ${
@@ -301,16 +327,41 @@ export function EditorObjetosSection() {
         )
       )}
 
-      {tab === 'editar' && !seleccionado && (
+      {/* El catálogo entero, partido en dos carpetas: lo normal y lo que hace algo */}
+      {objRaiz === 'inventario' && objInv === 'catalogo' && (
+        <div data-tut="editor.obj.catalogo" className="flex flex-col gap-1.5">
+          <Carpeta
+            nivel={0}
+            titulo={t('inv.subObjetos', 'Objetos')}
+            icono="sofa"
+            conteo={0}
+            abierta={catAbierto === 'objetos'}
+            onAlternar={() => setCatAbierto(catAbierto === 'objetos' ? null : 'objetos')}
+          >
+            <ObjetosCatalogo anidado />
+          </Carpeta>
+          <Carpeta
+            nivel={0}
+            titulo={t('inv.subEspeciales', 'Objetos especiales')}
+            icono="auto"
+            conteo={0}
+            abierta={catAbierto === 'especiales'}
+            onAlternar={() => setCatAbierto(catAbierto === 'especiales' ? null : 'especiales')}
+          >
+            <ObjetosCatalogo anidado soloCategorias={CATS_ESPECIALES} />
+          </Carpeta>
+          <BotonRestaurarObjetos />
+        </div>
+      )}
+
+      {objRaiz === 'crear' && objCrear === 'editar' && !seleccionado && (
         <p className="text-xs text-white/40">
           {t('editor.obj.editarVacio', 'Elige un objeto en la pestaña Mapa, o crea uno nuevo.')}
         </p>
       )}
-      </>
-      )}
 
       {/* Vista previa 3D + propiedades del objeto seleccionado */}
-      {seleccionado && (editandoBiblioteca || tab === 'editar') && (
+      {seleccionado && objRaiz === 'crear' && objCrear === 'editar' && (
         <>
           <PreviewObjeto3D
             key={seleccionado.id}

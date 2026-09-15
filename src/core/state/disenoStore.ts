@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { db, type DisenoRoom, type FondoImagen, type ObjetoCuarto, type TemaPropio } from '../data/db'
-import { claveLS, esDemo } from '../edicion'
+import { claveLS, esDemo, esDemoAutor } from '../edicion'
 import { esAppNativa } from '../plataforma'
 import { esGamaBaja } from '../gamaDispositivo'
 import { filaSeed } from '../data/sync/syncables'
@@ -108,6 +108,13 @@ export const esObjetoMapa = (o: ObjetoCuarto) => o.roomId === MAPA_ROOM
 const LIBRERIA_ROOM = '__libreria__'
 /** ¿El objeto pertenece a la biblioteca del inventario (no está en la casa)? */
 export const esObjetoLibreria = (o: ObjetoCuarto) => o.roomId === LIBRERIA_ROOM
+
+/**
+ * «La biblioteca ya se sembró». La versión del sufijo la sube la propia siembra
+ * cuando cambia el catálogo base (v14 retiró las carpetas anticuadas); la siembra
+ * deduplica y migra lo previo, así que subirla es seguro.
+ */
+export const SEED_LIBRERIA = claveLS('mh_libreria_seeded_v14')
 
 /**
  * Colores del avatar por defecto (estilo Roblox).
@@ -3195,5 +3202,26 @@ if (import.meta.env.DEV) {
   ;(window as unknown as { useDiseño: typeof useDiseño }).useDiseño = useDiseño
 }
 
-/** Carga el diseño una vez al arrancar la app. */
-useDiseño.getState().cargar()
+/**
+ * Carga el diseño una vez al arrancar la app y, en cuanto está, siembra la
+ * biblioteca de objetos si aún no existe. La siembra vivía en el catálogo del
+ * inventario, pero ese ya no se monta solo: desde que se mudó al editor, quien
+ * nunca lo abriera se quedaba sin biblioteca —y sin la migración de carpetas que
+ * la siembra trae consigo.
+ *
+ * El flag se marca ANTES de sembrar para no duplicar con el doble montaje de
+ * StrictMode. Auto-reparación: si el flag quedó puesto pero la biblioteca está
+ * vacía (la siembra se interrumpió, p. ej. por una recarga), se reintenta.
+ */
+void useDiseño
+  .getState()
+  .cargar()
+  .then(async () => {
+    // Casa demo: su biblioteca se siembra al construirla (demo/sandbox.ts), ya
+    // dentro de la foto del original. Resembrarla aquí solo la ensuciaría.
+    if (esDemo() && !esDemoAutor()) return
+    const st = useDiseño.getState()
+    if (localStorage.getItem(SEED_LIBRERIA) && st.objetos.some(esObjetoLibreria)) return
+    localStorage.setItem(SEED_LIBRERIA, '1')
+    await st.sembrarLibreriaBase()
+  })

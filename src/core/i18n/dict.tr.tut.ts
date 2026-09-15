@@ -69,14 +69,12 @@ export const TR_TUT: Dict = {
     'Excel’e gerçek bir .xlsx çıkar: formüller canlı, grafikler de Excel grafiği olarak. PDF ise tarayıcının yazıcısından geçer.',
   'tut.casa.1.texto': 'İşte evin: her oda bir uygulama barındırır. Sana temel kontrolleri göstereyim.',
   'tut.casa.2.titulo': 'Ana menü',
-  'tut.casa.2.texto':
-    'Görmen için açtım: bu, ana menü — odaların ve onların uygulamaları burada. Diğer sekmeleri şablon (uygulama) kataloğunu ve nesne envanterini getirir.',
+  'tut.casa.2.texto': 'Görebilesin diye açtım: bu ana menü, odaların ve uygulamalarıyla. Diğer sekmeleri İç mekânı (uygulama kataloğunu) ve araziye inşa edilen Dış mekânı getirir.',
   'tut.casa.2b.titulo': 'Uygulama kataloğu',
   'tut.casa.2b.texto':
     'İkinci sekmesi: şablon kataloğu — evin taşıyabileceği bütün uygulamalar, her biri bir odaya atanmaya hazır.',
-  'tut.casa.2c.titulo': 'Envanter',
-  'tut.casa.2c.texto':
-    'Ve üçüncüsü: envanter — odalarından sakladığın nesneler ve parçalar, istediğin yere yeniden yerleştirilmeye hazır.',
+  'tut.casa.2c.titulo': 'Dış mekân',
+  'tut.casa.2c.texto': 'Ve üçüncüsü: Dış mekân — yarış pistleri, sahalar, bostan, sığınak ve paintball. Bir oda kaplamazlar, doğrudan araziye inşa edilirler.',
   'tut.casa.3.titulo': 'Hareket etmek',
   'tut.casa.3.texto':
     'Joystick’le, WASD ile ya da klavyenin ok tuşlarıyla yürü: evin tamamı yürüyerek gezilir. Gezinmek uygulamaları açmaz — girmek için odanın havada süzülen küreli nesnesine dokun.',
@@ -109,8 +107,7 @@ export const TR_TUT: Dict = {
     'Yukarıdaki Düzenleyici düğmesi bunu açar: dört sekmede kişiselleştirmenin tamamı — Harita, Karakterler, Nesneler ve Ayarlar. Evin tamamı burada çizilir ve giydirilir.',
   'tut.casa.10.texto':
     'Temeller bu kadar. Her menünün ve her uygulamanın kendi ? düğmesi ve kendi eğitimi var: bir şey kafana yatmadığında onu iste.',
-  'tut.primeros.1.texto':
-    'Bu eğitim iki soruyu yanıtlıyor: uygulamalarına nasıl GİRERSİN ve yenisini nasıl OLUŞTURURSUN. İkisi de burada, Odalar sekmesinde yaşıyor.',
+  'tut.primeros.1.texto': 'Bu eğitim iki şeyi yanıtlar: uygulamalarına nasıl GİRİLİR ve yenisi nasıl OLUŞTURULUR. İkisi de burada, Ev sekmesinde.',
   'tut.primeros.entrar.titulo': 'Uygulamalarına gir',
   'tut.primeros.entrar.texto':
     'Her oda kendi uygulamasını taşır ve üç kapın var: burada menüdeki kartı, haritadaki havada süzülen küreli nesne ve üstteki MPH düğmesinin hızlı erişimi.',
@@ -142,7 +139,7 @@ export const TR_TUT: Dict = {
     'Bak nasıl titriyor: bir odayı ya da nesneyi basılı tutmak onu uyandırır, menüsüyle birlikte. Böylece durduğu yeri beğenmediysen onu taşırsın, ya da silersin.',
   'tut.primeros.6.texto':
     'Hepsi bu: odayı oluşturmak, uygulamasını vermek, girmek ve yerleştirmek. Bu oda alıştırma içindi — bitirdiğimizde onu geri alıyorum, evini kendi zevkine göre kurasın diye.',
-  'tut.menu-cuartos.1.texto': 'Odalar sekmesi, evindeki bütün odaları kategorilerine göre gruplayarak listeler.',
+  'tut.menu-cuartos.1.texto': 'Ev sekmesi evindeki bütün odaları kategoriye göre gruplayarak listeler.',
   'tut.menu-cuartos.2.titulo': 'Senin özetin',
   'tut.menu-cuartos.2.texto':
     'Karakterin senin gerçek etkinliğinden beslenir: burada keyfini, seviyesini ve serisini görürsün. Herhangi bir uygulamaya bir şey kaydet, keyiflendiğini fark edersin; birkaç gün hiçbir şey olmazsa üzülür — ama seni asla cezalandırmaz, hiçbir şey sıfırlanmaz.',
@@ -163,11 +160,9 @@ export const TR_TUT: Dict = {
   'tut.menu-plantillas.1.texto':
     'Şablon bir uygulamadır (Mutfak, Spor Salonu, Finans…). Bir odadaki nesneye atanır ve içeri girdiğinde açılır.',
   'tut.menu-plantillas.2.titulo': 'İki görünüm',
-  'tut.menu-plantillas.2.texto':
-    'Odalar, bildiğin uygulamalar; her biri kendi nesnesinde. Ekler ise başka bir şey: parkurlar, sahalar, sebze bahçesi, çiftlik ya da paintball bir oda kaplamadan doğrudan arazinin üstüne kurulur.',
+  'tut.menu-plantillas.2.texto': 'Üretkenlik iş ve günlük yaşam uygulamalarıdır; Yaratıcılık ise Studio: ses, sanat, yazı ve video. Hepsi aynı şekilde, bir odadaki nesneye atanır.',
   'tut.menu-plantillas.3.titulo': 'Katalog',
-  'tut.menu-plantillas.3.texto':
-    'Hazır uygulamalar ve kendi uygulamaların, gruplara ayrılmış. Bir odaya atamak için birine dokun; Ekler’deysen haritaya kurmak için.',
+  'tut.menu-plantillas.3.texto': 'Hazır gelen uygulamalar ve seninkiler, gruplar hâlinde. Bir odaya atamak için birine dokun.',
   'tut.menu-plantillas.4.titulo': 'Kendi şablonların',
   'tut.menu-plantillas.4.texto':
     'Kendi şablonlarını bloklarla kurarak oluştur: notlar, kontrol listeleri, sayaçlar, alışkanlıklar, galeriler… Bu düğme, kendi öğreticisi olan ayrı bir düzenleyici açar.',
@@ -190,17 +185,13 @@ export const TR_TUT: Dict = {
   'tut.plantillas-custom.6.texto':
     'İstediğin zaman yeniden düzenleyebilirsin: blokları ve verileri yerinde kalır, sadece değiştirdiğin şey değişir.',
   'tut.menu-inventario.1.texto': 'Envanter: evine yerleştirebileceğin bütün nesneler, sürüklenmeye hazır.',
-  'tut.menu-inventario.2.titulo': 'Nesneler',
-  'tut.menu-inventario.2.texto':
-    'Kategorilere ve klasörlere ayrılmış nesne kitaplığın. Bir dahakine hızlı bulmak için adlarını değiştirebilir ve düzenleyebilirsin.',
-  'tut.menu-inventario.3.titulo': 'Özel nesneler',
-  'tut.menu-inventario.3.texto':
-    'Sadece süslemekle kalmayıp bir şey yapanlar: binilebilir araçlar, oyuncak tabancalar, fıskiyeler, park oyuncakları ve ışıklar.',
+  'tut.menu-inventario.2.titulo': 'Harita',
+  'tut.menu-inventario.2.texto': 'ZATEN yerleştirilmiş olanlar, oda oda: bir küçük resme dokunarak o nesneyi düzenle.',
+  'tut.menu-inventario.3.titulo': 'Katalog',
+  'tut.menu-inventario.3.texto': 'Var olan bütün nesneler iki klasörde: sıradan olanlar ve özel olanlar — sürülebilen araçlar, çeşmeler, park oyuncakları ve ışıklar gibi bir şey yapanlar.',
   'tut.menu-inventario.4.titulo': 'Yerleştirme',
-  'tut.menu-inventario.4.texto':
-    'Bu menü açıkken küçük görsellerden birini doğrudan 3D sahneye sürükle ve istediğin yere bırak.',
-  'tut.menu-inventario.5.texto':
-    'Yerleştirdiklerini taşımak, boyamak ya da silmek için Düzenleyici’yi kullan (Nesneler sekmesi) — bu menü yalnızca sahneye yeni şeyler getirmek içindir.',
+  'tut.menu-inventario.4.texto': 'Katalog açıkken bir küçük resmi doğrudan 3B sahneye sürükle ve istediğin yere bırak.',
+  'tut.menu-inventario.5.texto': 'Diğer dal olan Oluştur, parçalardan ya da yapay zekâyla yeni nesneler yapmak ve seçtiğini düzenlemek içindir.',
   'tut.editor-mapa.1.texto':
     'Ev düzenleyicisinin 4 sekmesi var: Harita, Karakterler, Nesneler ve Ayarlar. Bu tur Harita’nınki; diğer üçünün de kendi turu var.',
   'tut.editor-mapa.2.titulo': 'Plan',

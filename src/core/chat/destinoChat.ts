@@ -5,7 +5,6 @@ import { useLayout } from '../state/layoutStore'
 import { useEditorUi } from '../state/editorUiStore'
 import { useRutinasUI } from '../state/rutinasUiStore'
 import { irAPestanaMenu } from '../tutorial/dom'
-import { clickTut, esperarTut } from '../tutorial/dom'
 
 /**
  * Chips "abrir X" de los mensajes del asistente: cuando el chat guarda o cambia
@@ -22,13 +21,17 @@ export function navegarDestino(d: DestinoChat): void {
       abrirApp(d.appId, d.seccion, d.dato)
       return
     case 'menu':
+      // El inventario se mudó del side menu al editor; los mensajes viejos siguen
+      // guardando este destino, así que se redirige (abrir el menú lateral APAGA
+      // el editor, por eso ni se toca `menuAbierto` en este caso).
+      if (d.tab === 'inventario') {
+        useLayout.getState().setEditMode(true)
+        useEditorUi.getState().abrirInventarioObjetos()
+        return
+      }
       useHud.getState().setMenuAbierto(true)
       // Las pestañas del side menu son estado local: se pulsan por su anclaje data-tut.
-      void irAPestanaMenu(`menu.tab.${d.tab}`).then(async () => {
-        if (d.tab !== 'inventario') return
-        await esperarTut('menu.inv.sub.objetos', 2000)
-        clickTut('menu.inv.sub.objetos') // el usuario pudo dejar la sub-pestaña en Especiales
-      })
+      void irAPestanaMenu(`menu.tab.${d.tab}`)
       return
     case 'editor':
       useLayout.getState().setEditMode(true)
@@ -48,6 +51,8 @@ export function navegarDestino(d: DestinoChat): void {
  * grupos de Configuraciones son los de GRUPOS_CONFIG (editorAcciones).
  */
 const DESTINO_POR_TOOL: Record<string, DestinoChat> = {
+  // El modelo generado queda en la biblioteca: 'inventario' ya no es una pestaña
+  // del side menu, `navegarDestino` lo resuelve al catálogo del editor.
   crear_modelo_3d: { tipo: 'menu', tab: 'inventario' },
   crear_rutina: { tipo: 'rutinas' },
   editor_crear_cuarto: { tipo: 'menu', tab: 'cuartos' },

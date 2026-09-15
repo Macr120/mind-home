@@ -69,14 +69,12 @@ export const PL_TUT: Dict = {
     'Do Excela wychodzi prawdziwy plik .xlsx, z żywymi formułami i wykresami jako wykresy Excela. Do PDF idzie przez drukarkę przeglądarki.',
   'tut.casa.1.texto': 'To twój dom: każdy pokój przechowuje jedną aplikację. Pokażę ci podstawowe sterowanie.',
   'tut.casa.2.titulo': 'Menu główne',
-  'tut.casa.2.texto':
-    'Otwieram je, żeby pokazać: to menu główne, z twoimi pokojami i ich aplikacjami. Jego pozostałe zakładki przynoszą katalog szablonów (aplikacji) i ekwipunek obiektów.',
+  'tut.casa.2.texto': 'Otworzyłem je, żebyś zobaczył: to menu główne, z twoimi pokojami i ich aplikacjami. Pozostałe zakładki przynoszą Wnętrze (katalog aplikacji) i Na zewnątrz, czyli to, co buduje się na terenie.',
   'tut.casa.2b.titulo': 'Katalog aplikacji',
   'tut.casa.2b.texto':
     'Jego druga zakładka: katalog szablonów — wszystkie aplikacje, jakie dom może pomieścić, każda gotowa, by przypisać ją do pokoju.',
-  'tut.casa.2c.titulo': 'Ekwipunek',
-  'tut.casa.2c.texto':
-    'I trzecia: ekwipunek — obiekty i części, które zachowujesz ze swoich pokoi, gotowe, by znów stanąć tam, gdzie zechcesz.',
+  'tut.casa.2c.titulo': 'Na zewnątrz',
+  'tut.casa.2c.texto': 'I trzecia: Na zewnątrz — tory wyścigowe, boiska, warzywnik, sanktuarium i paintball, które nie zajmują pokoju, tylko buduje się je na terenie.',
   'tut.casa.3.titulo': 'Poruszanie się',
   'tut.casa.3.texto':
     'Chodzisz joystickiem, klawiszami WASD albo strzałkami: cały dom zwiedza się pieszo. Spacer nie otwiera aplikacji — żeby wejść, dotknij obiektu z unoszącą się kulą pokoju.',
@@ -109,8 +107,7 @@ export const PL_TUT: Dict = {
     'Przycisk Edytor na górze otwiera właśnie to: pełną personalizację w czterech zakładkach — Mapa, Postacie, Obiekty i Ustawienia. Tutaj rysuje się i ubiera cały dom.',
   'tut.casa.10.texto':
     'To podstawy. Każde menu i każda aplikacja mają własny przycisk ? ze swoim samouczkiem: poproś o niego, kiedy coś ci nie gra.',
-  'tut.primeros.1.texto':
-    'Ten samouczek odpowiada na dwa pytania: jak WEJŚĆ do swoich aplikacji i jak STWORZYĆ nową. Obie odpowiedzi mieszkają tutaj, w zakładce Pokoje.',
+  'tut.primeros.1.texto': 'Ten samouczek odpowiada na dwie rzeczy: jak WEJŚĆ do swoich aplikacji i jak STWORZYĆ nową. Obie mieszkają tutaj, w zakładce Dom.',
   'tut.primeros.entrar.titulo': 'Wejdź do swoich aplikacji',
   'tut.primeros.entrar.texto':
     'Każdy pokój niesie swoją aplikację, a ty masz troje drzwi: jego kartę tutaj w menu, obiekt z unoszącą się kulą na mapie i szybki dostęp z przycisku MPH u góry.',
@@ -142,7 +139,7 @@ export const PL_TUT: Dict = {
     'Patrz, jak się trzęsie: przytrzymanie pokoju albo obiektu budzi go, razem z jego menu. Tak go przesuniesz, jeśli nie podoba ci się, gdzie stanął, albo go usuniesz.',
   'tut.primeros.6.texto':
     'To wszystko: stworzyć pokój, dać mu aplikację, wejść i go ustawić. Ten był do ćwiczeń — zabiorę go na koniec, żeby twój dom powstał dokładnie po twojej myśli.',
-  'tut.menu-cuartos.1.texto': 'Zakładka Pokoje wypisuje wszystkie pokoje twojego domu, pogrupowane według kategorii.',
+  'tut.menu-cuartos.1.texto': 'Zakładka Dom wypisuje wszystkie pokoje twojego domu, pogrupowane według kategorii.',
   'tut.menu-cuartos.2.titulo': 'Twoje podsumowanie',
   'tut.menu-cuartos.2.texto':
     'Twoja postać żyje z twojej prawdziwej aktywności: tutaj widzisz jej nastrój, poziom i serię. Zapisz coś w dowolnej aplikacji, a zobaczysz ją zadowoloną; kilka dni bez niczego i robi się smutna — nigdy nie karze i nigdy się nie zeruje.',
@@ -163,11 +160,9 @@ export const PL_TUT: Dict = {
   'tut.menu-plantillas.1.texto':
     'Szablon to aplikacja (Kuchnia, Siłownia, Gabinet…). Przypisujesz go do obiektu w pokoju i otwiera się przy wejściu.',
   'tut.menu-plantillas.2.titulo': 'Dwa widoki',
-  'tut.menu-plantillas.2.texto':
-    'Pokoje to zwykłe aplikacje, każda w swoim obiekcie. Dodatki działają inaczej: Trasy, Boiska, Jedzenie, Farma czy Paintball buduje się wprost na terenie, bez zajmowania pokoju.',
+  'tut.menu-plantillas.2.texto': 'Produktywność to aplikacje do pracy i codzienności; Kreatywność to Studio: audio, sztuka, pisanie i wideo. Wszystkie przypisuje się tak samo — do przedmiotu w pokoju.',
   'tut.menu-plantillas.3.titulo': 'Katalog',
-  'tut.menu-plantillas.3.texto':
-    'Aplikacje wbudowane i twoje własne, uporządkowane w grupy. Dotknij jednej, żeby przypisać ją do pokoju albo, w Dodatkach, żeby zbudować ją na mapie.',
+  'tut.menu-plantillas.3.texto': 'Aplikacje wbudowane i twoje własne, uporządkowane w grupy. Dotknij jednej, żeby przypisać ją do pokoju.',
   'tut.menu-plantillas.4.titulo': 'Własne szablony',
   'tut.menu-plantillas.4.texto':
     'Twórz własne szablony, składając je z bloków: notatki, listy kontrolne, liczniki, nawyki, galerie… Ten przycisk otwiera własny edytor z własnym samouczkiem.',
@@ -191,17 +186,13 @@ export const PL_TUT: Dict = {
     'Możesz ją edytować ponownie, kiedy zechcesz: jej bloki i dane zostają nietknięte, zmienia się tylko to, co zmienisz.',
   'tut.menu-inventario.1.texto':
     'Ekwipunek: wszystkie obiekty, które możesz postawić w domu, gotowe do przeciągnięcia.',
-  'tut.menu-inventario.2.titulo': 'Obiekty',
-  'tut.menu-inventario.2.texto':
-    'Twoja biblioteka obiektów w kategoriach i folderach. Możesz zmieniać ich nazwy i porządkować je, żeby następnym razem szybko je znaleźć.',
-  'tut.menu-inventario.3.titulo': 'Obiekty specjalne',
-  'tut.menu-inventario.3.texto':
-    'Te, które coś robią, a nie tylko zdobią: pojazdy do jeżdżenia, pistolety-zabawki, fontanny, urządzenia z placu zabaw i światła.',
+  'tut.menu-inventario.2.titulo': 'Mapa',
+  'tut.menu-inventario.2.texto': 'To, co JUŻ stoi, pokój po pokoju: dotknij miniatury, żeby edytować ten obiekt.',
+  'tut.menu-inventario.3.titulo': 'Katalog',
+  'tut.menu-inventario.3.texto': 'Wszystkie obiekty, jakie są, w dwóch folderach: zwykłe i specjalne — te, które coś robią, jak pojazdy do jeżdżenia, fontanny, zabawki parkowe i światła.',
   'tut.menu-inventario.4.titulo': 'Stawianie',
-  'tut.menu-inventario.4.texto':
-    'Przy otwartym menu przeciągnij miniaturę wprost na scenę 3D, żeby postawić ją tam, gdzie chcesz.',
-  'tut.menu-inventario.5.texto':
-    'Żeby przesuwać, malować albo usuwać to, co już stoi, użyj Edytora (zakładka Obiekty) — to menu służy tylko do wnoszenia nowych rzeczy na scenę.',
+  'tut.menu-inventario.4.texto': 'Przy otwartym katalogu przeciągnij miniaturę prosto na scenę 3D, żeby postawić ją, gdzie chcesz.',
+  'tut.menu-inventario.5.texto': 'Druga gałąź, Utwórz, służy do robienia nowych obiektów z części albo z AI i do edycji tego, który masz zaznaczony.',
   'tut.editor-mapa.1.texto':
     'Edytor domu ma 4 zakładki: Mapa, Postacie, Obiekty i Ustawienia. Ten samouczek dotyczy Mapy; pozostałe trzy mają swoje własne.',
   'tut.editor-mapa.2.titulo': 'Rzut',

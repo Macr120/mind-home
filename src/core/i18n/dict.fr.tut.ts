@@ -69,14 +69,12 @@ export const FR_TUT: Dict = {
     'Vers Excel, il sort un vrai .xlsx, avec les formules vivantes et les graphiques en vrais graphiques Excel. Vers PDF, ça passe par l’impression du navigateur.',
   'tut.casa.1.texto': 'Voici ta maison : chaque pièce garde une app. Je te montre les commandes de base.',
   'tut.casa.2.titulo': 'Le menu principal',
-  'tut.casa.2.texto':
-    'Je l’ai ouvert pour que tu le voies : c’est le menu principal, avec tes pièces et leurs apps. Ses autres onglets apportent le catalogue de modèles (les apps) et l’inventaire d’objets.',
+  'tut.casa.2.texto': 'Je l’ai ouvert pour que tu le voies : c’est le menu principal, avec tes pièces et leurs apps. Ses autres onglets apportent l’Intérieur (le catalogue d’apps) et l’Extérieur, ce qui se construit sur le terrain.',
   'tut.casa.2b.titulo': 'Le catalogue des apps',
   'tut.casa.2b.texto':
     'Son deuxième onglet : le catalogue de modèles — toutes les apps que la maison peut porter, chacune prête à être assignée à une pièce.',
-  'tut.casa.2c.titulo': 'L’inventaire',
-  'tut.casa.2c.texto':
-    'Et le troisième : l’inventaire — les objets et les pièces 3D que tu gardes de tes pièces, prêts à être replacés où tu veux.',
+  'tut.casa.2c.titulo': 'L’extérieur',
+  'tut.casa.2c.texto': 'Et le troisième : l’Extérieur — pistes de course, terrains, potager, sanctuaire et paintball, qui n’occupent pas une pièce mais se construisent sur le terrain.',
   'tut.casa.3.titulo': 'Se déplacer',
   'tut.casa.3.texto':
     'Marche avec le joystick, avec WASD ou avec les flèches du clavier : toute la maison se parcourt à pied. Se promener n’ouvre pas les apps — pour entrer, touche l’objet à la sphère flottante de la pièce.',
@@ -109,8 +107,7 @@ export const FR_TUT: Dict = {
     'Le bouton Éditeur en haut ouvre ceci : toute la personnalisation en quatre onglets — Plan, Personnages, Objets et Paramètres. C’est ici que toute la maison se dessine et s’habille.',
   'tut.casa.10.texto':
     'Voilà pour l’essentiel. Chaque menu et chaque app ont leur propre bouton ? avec son tutoriel : demande-le quand quelque chose te semble flou.',
-  'tut.primeros.1.texto':
-    'Ce tutoriel répond à deux questions : comment ENTRER dans tes apps et comment en CRÉER une nouvelle. Les deux vivent ici, dans l’onglet Pièces.',
+  'tut.primeros.1.texto': 'Ce tutoriel répond à deux questions : comment ENTRER dans tes apps et comment en CRÉER une. Les deux vivent ici, dans l’onglet Maison.',
   'tut.primeros.entrar.titulo': 'Entrer dans tes apps',
   'tut.primeros.entrar.texto':
     'Chaque pièce porte son app et tu as trois portes : sa carte ici dans le menu, l’objet à la sphère flottante sur le plan, et l’accès rapide du bouton MPH en haut.',
@@ -142,7 +139,7 @@ export const FR_TUT: Dict = {
     'Regarde comme elle tremble : rester appuyé sur une pièce ou un objet le réveille, avec son menu. C’est comme ça que tu le déplaces si tu n’aimes pas où il a fini, ou que tu le supprimes.',
   'tut.primeros.6.texto':
     'C’est tout : créer la pièce, lui donner son app, entrer et l’installer. Celle-ci était pour s’entraîner — je l’emporte en terminant, pour que tu montes ta maison à ton goût.',
-  'tut.menu-cuartos.1.texto': 'L’onglet Pièces liste toutes les pièces de ta maison, groupées par catégorie.',
+  'tut.menu-cuartos.1.texto': 'L’onglet Maison liste toutes les pièces de ta maison, groupées par catégorie.',
   'tut.menu-cuartos.2.titulo': 'Ton résumé',
   'tut.menu-cuartos.2.texto':
     'Ton personnage vit de ton activité réelle : ici tu vois son humeur, son niveau et sa série. Enregistre quelque chose dans n’importe quelle app et tu le verras content ; quelques jours sans rien et il devient triste — jamais de punition, jamais de remise à zéro.',
@@ -163,11 +160,9 @@ export const FR_TUT: Dict = {
   'tut.menu-plantillas.1.texto':
     'Un modèle, c’est une app (Cuisine, Gym, Finances…). Tu l’affectes à un objet d’une pièce et elle s’ouvre quand tu entres.',
   'tut.menu-plantillas.2.titulo': 'Deux vues',
-  'tut.menu-plantillas.2.texto':
-    'Pièces, ce sont les apps habituelles, chacune dans son objet. Extras, c’est autre chose : circuits, terrains, potager, ferme ou paintball se construisent directement sur le terrain, sans occuper de pièce.',
+  'tut.menu-plantillas.2.texto': 'Productivité, ce sont les apps de travail et du quotidien ; Créativité, c’est le Studio : audio, art, écriture et vidéo. Toutes s’assignent pareil, à un objet d’une pièce.',
   'tut.menu-plantillas.3.titulo': 'Le catalogue',
-  'tut.menu-plantillas.3.texto':
-    'Les apps d’origine et les tiennes, rangées par groupes. Touche-en une pour l’affecter à une pièce ou, dans Extras, pour la construire sur le plan.',
+  'tut.menu-plantillas.3.texto': 'Les apps d’origine et les tiennes, rangées en groupes. Touche-en une pour l’assigner à une pièce.',
   'tut.menu-plantillas.4.titulo': 'Tes propres modèles',
   'tut.menu-plantillas.4.texto':
     'Crée tes propres modèles en les montant avec des blocs : notes, listes à cocher, compteurs, habitudes, galeries… Ce bouton ouvre son éditeur, avec son propre tutoriel.',
@@ -191,17 +186,13 @@ export const FR_TUT: Dict = {
     'Tu peux la modifier à nouveau quand tu veux : ses blocs et ses données restent en place, seul ce que tu changes change.',
   'tut.menu-inventario.1.texto':
     'L’inventaire : tous les objets que tu peux poser dans ta maison, prêts à être glissés.',
-  'tut.menu-inventario.2.titulo': 'Objets',
-  'tut.menu-inventario.2.texto':
-    'Ta bibliothèque d’objets, par catégories et dossiers. Tu peux les renommer et les ranger pour les retrouver vite la prochaine fois.',
-  'tut.menu-inventario.3.titulo': 'Objets spéciaux',
-  'tut.menu-inventario.3.texto':
-    'Ceux qui font quelque chose, pas seulement de la décoration : véhicules à monter, pistolets jouets, fontaines, jeux de parc et lumières.',
+  'tut.menu-inventario.2.titulo': 'Plan',
+  'tut.menu-inventario.2.texto': 'Ce qui est DÉJÀ posé, pièce par pièce : touche une vignette pour modifier cet objet.',
+  'tut.menu-inventario.3.titulo': 'Catalogue',
+  'tut.menu-inventario.3.texto': 'Tous les objets qui existent, en deux dossiers : les normaux et les spéciaux — ceux qui font quelque chose, comme les véhicules qu’on conduit, les fontaines, les jeux de parc et les lumières.',
   'tut.menu-inventario.4.titulo': 'Poser',
-  'tut.menu-inventario.4.texto':
-    'Ce menu ouvert, fais glisser une vignette directement dans la scène 3D pour la poser où tu veux.',
-  'tut.menu-inventario.5.texto':
-    'Pour déplacer, peindre ou supprimer ce qui est déjà posé, passe par l’Éditeur (onglet Objets) — ce menu ne sert qu’à faire entrer du neuf en scène.',
+  'tut.menu-inventario.4.texto': 'Le catalogue ouvert, glisse une vignette directement dans la scène 3D pour la poser où tu veux.',
+  'tut.menu-inventario.5.texto': 'L’autre branche, Créer, sert à fabriquer de nouveaux objets par pièces ou avec l’IA, et à modifier celui que tu as sélectionné.',
   'tut.editor-mapa.1.texto':
     'L’éditeur de la maison a 4 onglets : Plan, Personnages, Objets et Paramètres. Ce tour est celui de Plan ; les trois autres ont le leur.',
   'tut.editor-mapa.2.titulo': 'Le plan',

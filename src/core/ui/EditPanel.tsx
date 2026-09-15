@@ -36,6 +36,14 @@ const TABS: { id: EditorTab; labelEs: string }[] = [
   { id: 'config', labelEs: 'Configuraciones' },
 ]
 
+/** Tour que ofrece el «?» sobre el panel: uno por pestaña, no el del mapa siempre. */
+const ZONA_TUT: Record<EditorTab, string> = {
+  mapa: 'editor-mapa',
+  personajes: 'editor-personajes',
+  objetos: 'editor-objetos',
+  config: 'editor-config',
+}
+
 /** Traductor del hook `useT` (el registro de grupos pide el título ya traducido). */
 type Traducir = ReturnType<typeof useT>
 
@@ -155,7 +163,7 @@ export function EditPanel() {
   const tituloHeader = room ? nombreCuarto(room) : t('editor.titulo', 'Editor')
 
   return (
-    <div data-tut-zona="editor-mapa" className="ui-panel-glass ui-desliza-fin absolute end-0 top-0 z-[35] flex h-full w-80 flex-col border-s border-white/10 pt-[var(--safe-top)] pb-[var(--safe-bottom)] pe-[var(--safe-right)] backdrop-blur-md">
+    <div data-tut-zona={ZONA_TUT[tab]} className="ui-panel-glass ui-desliza-fin absolute end-0 top-0 z-[35] flex h-full w-80 flex-col border-s border-white/10 pt-[var(--safe-top)] pb-[var(--safe-bottom)] pe-[var(--safe-right)] backdrop-blur-md">
       <header className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
         {/* Editando un cuarto: botón para SALIR del cuarto y volver al editor de mapa completo. */}
         {room && (

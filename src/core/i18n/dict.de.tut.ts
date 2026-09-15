@@ -69,14 +69,12 @@ export const DE_TUT: Dict = {
     'Nach Excel kommt eine echte .xlsx heraus, mit lebendigen Formeln und den Diagrammen als richtige Excel-Diagramme. Als PDF geht es über den Drucker des Browsers.',
   'tut.casa.1.texto': 'Das ist dein Haus: Jeder Raum enthält eine App. Ich zeig dir die wichtigsten Bedienelemente.',
   'tut.casa.2.titulo': 'Das Hauptmenü',
-  'tut.casa.2.texto':
-    'Ich habe es geöffnet, damit du es siehst: Das ist das Hauptmenü, mit deinen Räumen und ihren Apps. Seine anderen Tabs bringen den Katalog der Vorlagen (Apps) und das Inventar der Objekte.',
+  'tut.casa.2.texto': 'Ich hab es geöffnet, damit du es siehst: das Hauptmenü, mit deinen Räumen und ihren Apps. Seine anderen Tabs bringen Innen (den App-Katalog) und Außen, das, was auf dem Gelände gebaut wird.',
   'tut.casa.2b.titulo': 'Der Katalog der Apps',
   'tut.casa.2b.texto':
     'Sein zweiter Tab: der Katalog der Vorlagen – alle Apps, die das Haus tragen kann, jede bereit, einem Raum zugewiesen zu werden.',
-  'tut.casa.2c.titulo': 'Das Inventar',
-  'tut.casa.2c.texto':
-    'Und der dritte: das Inventar – die Objekte und Teile, die du aus deinen Räumen aufbewahrst, bereit, wieder aufgestellt zu werden, wo du willst.',
+  'tut.casa.2c.titulo': 'Der Außenbereich',
+  'tut.casa.2c.texto': 'Und der dritte: Außen — Rennstrecken, Spielfelder, Gemüsegarten, Refugium und Paintball, die keinen Raum belegen, sondern direkt auf dem Gelände gebaut werden.',
   'tut.casa.3.titulo': 'Sich bewegen',
   'tut.casa.3.texto':
     'Lauf mit dem Joystick, mit WASD oder mit den Pfeiltasten: Das ganze Haus lässt sich zu Fuß erkunden. Spazieren öffnet die Apps nicht – zum Betreten tippst du das Objekt mit der schwebenden Kugel des Raums an.',
@@ -109,8 +107,7 @@ export const DE_TUT: Dict = {
     'Der Button Editor oben öffnet das hier: die vollständige Anpassung in vier Tabs – Karte, Figuren, Objekte und Einstellungen. Hier wird das ganze Haus gezeichnet und eingekleidet.',
   'tut.casa.10.texto':
     'Das war das Wichtigste. Jedes Menü und jede App haben ihren eigenen ?-Button mit ihrem Tutorial: Frag danach, wenn dir etwas nicht einleuchtet.',
-  'tut.primeros.1.texto':
-    'Dieses Tutorial beantwortet zwei Fragen: wie du deine Apps BETRITTST und wie du eine neue ERSTELLST. Beides wohnt hier, im Tab Räume.',
+  'tut.primeros.1.texto': 'Dieses Tutorial beantwortet zwei Dinge: wie du deine Apps ÖFFNEST und wie du eine neue ERSTELLST. Beides wohnt hier, im Tab Zuhause.',
   'tut.primeros.entrar.titulo': 'Deine Apps betreten',
   'tut.primeros.entrar.texto':
     'Jeder Raum trägt seine App, und du hast drei Türen: seine Karte hier im Menü, draußen auf der Karte das Objekt mit der schwebenden Kugel und den Schnellzugriff des MPH-Buttons oben.',
@@ -142,7 +139,7 @@ export const DE_TUT: Dict = {
     'Schau, wie es zittert: Einen Raum oder ein Objekt gedrückt zu halten weckt es auf, mit seinem Menü. So verschiebst du es, wenn dir nicht gefällt, wo es gelandet ist, oder löschst es.',
   'tut.primeros.6.texto':
     'Das ist alles: den Raum erstellen, ihm seine App geben, ihn betreten und einrichten. Dieser war zum Üben – ich nehme ihn am Ende mit, damit du dein Haus nach deinem Geschmack baust.',
-  'tut.menu-cuartos.1.texto': 'Der Tab Räume listet alle Räume deines Hauses auf, nach Kategorie gruppiert.',
+  'tut.menu-cuartos.1.texto': 'Der Tab Zuhause listet alle Räume deines Hauses, nach Kategorie gruppiert.',
   'tut.menu-cuartos.2.titulo': 'Deine Übersicht',
   'tut.menu-cuartos.2.texto':
     'Deine Figur lebt von deiner echten Aktivität: Hier siehst du ihre Laune, ihr Level und ihre Serie. Trag etwas in irgendeiner App ein, und sie freut sich; ein paar Tage ohne alles, und sie wird traurig – bestraft oder zurückgesetzt wird nie etwas.',
@@ -163,11 +160,9 @@ export const DE_TUT: Dict = {
   'tut.menu-plantillas.1.texto':
     'Eine Vorlage ist eine App (Küche, Fitness, Finanzen…). Sie wird einem Objekt in einem Raum zugewiesen und öffnet sich, wenn du hineingehst.',
   'tut.menu-plantillas.2.titulo': 'Zwei Ansichten',
-  'tut.menu-plantillas.2.texto':
-    'Räume sind die gewohnten Apps, jede in ihrem Objekt. Bei Extras läuft es anders: Strecken, Plätze, Gemüsegarten, Bauernhof oder Paintball baust du direkt aufs Gelände, ohne dass sie einen Raum belegen.',
+  'tut.menu-plantillas.2.texto': 'Produktivität sind die Apps für Arbeit und Alltag; Kreativität ist das Studio: Audio, Kunst, Schreiben und Video. Alle werden gleich zugewiesen, einem Objekt in einem Raum.',
   'tut.menu-plantillas.3.titulo': 'Der Katalog',
-  'tut.menu-plantillas.3.texto':
-    'Die mitgelieferten Apps und deine eigenen, nach Gruppen sortiert. Tippe eine an, um sie einem Raum zuzuweisen – oder unter Extras, um sie auf der Karte zu bauen.',
+  'tut.menu-plantillas.3.texto': 'Die mitgelieferten Apps und deine eigenen, in Gruppen sortiert. Tippe eine an, um sie einem Raum zuzuweisen.',
   'tut.menu-plantillas.4.titulo': 'Eigene Vorlagen',
   'tut.menu-plantillas.4.texto':
     'Bau dir eigene Vorlagen aus Bausteinen: Notizen, Checklisten, Zähler, Gewohnheiten, Galerien… Dieser Button öffnet seinen eigenen Editor mit eigenem Tutorial.',
@@ -191,17 +186,13 @@ export const DE_TUT: Dict = {
     'Du kannst sie jederzeit wieder bearbeiten: Ihre Bausteine und ihre Daten bleiben unangetastet, es ändert sich nur, was du änderst.',
   'tut.menu-inventario.1.texto':
     'Das Inventar: alle Objekte, die du in deinem Haus platzieren kannst, bereit zum Ziehen.',
-  'tut.menu-inventario.2.titulo': 'Objekte',
-  'tut.menu-inventario.2.texto':
-    'Deine Objektbibliothek nach Kategorien und Ordnern. Du kannst sie umbenennen und ordnen, damit du sie beim nächsten Mal schnell findest.',
-  'tut.menu-inventario.3.titulo': 'Spezialobjekte',
-  'tut.menu-inventario.3.texto':
-    'Die, die etwas tun und nicht nur schmücken: Fahrzeuge zum Aufsteigen, Spielzeugpistolen, Brunnen, Spielplatzgeräte und Lichter.',
+  'tut.menu-inventario.2.titulo': 'Karte',
+  'tut.menu-inventario.2.texto': 'Was SCHON steht, Raum für Raum: Tippe ein Vorschaubild an, um dieses Objekt zu bearbeiten.',
+  'tut.menu-inventario.3.titulo': 'Katalog',
+  'tut.menu-inventario.3.texto': 'Alle Objekte, die es gibt, in zwei Ordnern: die normalen und die besonderen — die, die etwas tun, wie fahrbare Fahrzeuge, Brunnen, Spielgeräte und Lichter.',
   'tut.menu-inventario.4.titulo': 'Platzieren',
-  'tut.menu-inventario.4.texto':
-    'Bei geöffnetem Menü ziehst du ein Vorschaubild direkt in die 3D-Szene und setzt es ab, wo du willst.',
-  'tut.menu-inventario.5.texto':
-    'Zum Bewegen, Umfärben oder Löschen von schon Platziertem nimmst du den Editor (Tab Objekte) – dieses Menü bringt nur neue Dinge in die Szene.',
+  'tut.menu-inventario.4.texto': 'Mit offenem Katalog ziehst du ein Vorschaubild direkt in die 3D-Szene und setzt es, wohin du willst.',
+  'tut.menu-inventario.5.texto': 'Der andere Zweig, Erstellen, ist zum Bauen neuer Objekte aus Teilen oder mit KI — und zum Bearbeiten des gerade ausgewählten.',
   'tut.editor-mapa.1.texto':
     'Der Hauseditor hat 4 Tabs: Karte, Figuren, Objekte und Einstellungen. Diese Tour ist die von Karte; die anderen drei haben ihre eigene.',
   'tut.editor-mapa.2.titulo': 'Der Grundriss',

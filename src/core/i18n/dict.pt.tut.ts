@@ -69,14 +69,12 @@ export const PT_TUT: Dict = {
     'Para Excel sai um .xlsx de verdade, com as fórmulas vivas e os gráficos como gráficos do Excel. Em PDF sai pela impressora do navegador.',
   'tut.casa.1.texto': 'Esta é a sua casa: cada cômodo guarda um app. Vou te mostrar os controles básicos.',
   'tut.casa.2.titulo': 'O menu principal',
-  'tut.casa.2.texto':
-    'Abri para você ver: é o menu principal, com seus cômodos e os apps deles. As outras abas trazem o catálogo de modelos (apps) e o inventário de objetos.',
+  'tut.casa.2.texto': 'Abri para você ver: é o menu principal, com seus cômodos e seus apps. As outras abas trazem o Interior (o catálogo de apps) e o Exterior, o que se constrói no terreno.',
   'tut.casa.2b.titulo': 'O catálogo de apps',
   'tut.casa.2b.texto':
     'Sua segunda aba: o catálogo de modelos — todos os apps que a casa pode ter, cada um pronto para ser atribuído a um cômodo.',
-  'tut.casa.2c.titulo': 'O inventário',
-  'tut.casa.2c.texto':
-    'E a terceira: o inventário — os objetos e peças que você guarda dos seus cômodos, prontos para serem colocados de novo onde quiser.',
+  'tut.casa.2c.titulo': 'O exterior',
+  'tut.casa.2c.texto': 'E a terceira: o Exterior — pistas de corrida, quadras, horta, santuário e paintball, que não ocupam um cômodo e sim se constroem no terreno.',
   'tut.casa.3.titulo': 'Mover-se',
   'tut.casa.3.texto':
     'Ande com o joystick, com WASD ou com as setas do teclado: a casa inteira se percorre a pé. Passear não abre os apps — para entrar, toque no objeto com a esfera flutuante do cômodo.',
@@ -109,8 +107,7 @@ export const PT_TUT: Dict = {
     'O botão Editor lá em cima abre isto: a personalização completa em quatro abas — Mapa, Personagens, Objetos e Configurações. É aqui que a casa inteira se desenha e se veste.',
   'tut.casa.10.texto':
     'Isso é o básico. Cada menu e cada app têm seu próprio botão ? com seu tutorial: peça quando algo não fizer sentido.',
-  'tut.primeros.1.texto':
-    'Este tutorial responde duas coisas: como ENTRAR nos seus apps e como CRIAR um novo. As duas moram aqui, na aba Cômodos.',
+  'tut.primeros.1.texto': 'Este tutorial responde duas coisas: como ENTRAR nos seus apps e como CRIAR um novo. As duas vivem aqui, na aba Casa.',
   'tut.primeros.entrar.titulo': 'Entrar nos seus apps',
   'tut.primeros.entrar.texto':
     'Cada cômodo carrega seu app e você tem três portas: o cartão dele aqui no menu, o objeto com a esfera flutuante no mapa, e o acesso rápido do botão MPH lá em cima.',
@@ -141,7 +138,7 @@ export const PT_TUT: Dict = {
     'Veja como treme: manter pressionado um cômodo ou um objeto o desperta, com seu menu. É assim que você o move se não gostou de onde ficou, ou o apaga.',
   'tut.primeros.6.texto':
     'Isso é tudo: criar o cômodo, dar o app a ele, entrar e arrumá-lo. Este era de prática — eu o levo embora ao terminar, para você montar sua casa do seu jeito.',
-  'tut.menu-cuartos.1.texto': 'A aba Cômodos lista todos os cômodos da sua casa, agrupados por categoria.',
+  'tut.menu-cuartos.1.texto': 'A aba Casa lista todos os cômodos da sua casa, agrupados por categoria.',
   'tut.menu-cuartos.2.titulo': 'Seu resumo',
   'tut.menu-cuartos.2.texto':
     'Seu personagem vive da sua atividade real: aqui você vê o humor, o nível e a sequência dele. Registre algo em qualquer app e ele fica contente; alguns dias sem nada e ele fica triste — nunca se castiga nem se reinicia.',
@@ -162,11 +159,9 @@ export const PT_TUT: Dict = {
   'tut.menu-plantillas.1.texto':
     'Um modelo é um app (Cozinha, Exercício, Finanças…). Ele é atribuído a um objeto de um cômodo e abre quando você entra.',
   'tut.menu-plantillas.2.titulo': 'Duas vistas',
-  'tut.menu-plantillas.2.texto':
-    'Cômodos são os apps de sempre, cada um no seu objeto. Infraestrutura é diferente: pistas, quadras, horta, fazenda ou paintball se constroem direto no terreno, sem ocupar um cômodo.',
+  'tut.menu-plantillas.2.texto': 'Produtividade são os apps de trabalho e do dia a dia; Criatividade é o Studio: áudio, arte, escrita e vídeo. Todos se atribuem igual, a um objeto de um cômodo.',
   'tut.menu-plantillas.3.titulo': 'O catálogo',
-  'tut.menu-plantillas.3.texto':
-    'Os apps que já vêm prontos e os seus, organizados por grupos. Toque em um para atribuí-lo a um cômodo ou, em Infraestrutura, para construí-lo no mapa.',
+  'tut.menu-plantillas.3.texto': 'Os apps de fábrica e os seus, organizados em grupos. Toque em um para atribuí-lo a um cômodo.',
   'tut.menu-plantillas.4.titulo': 'Modelos próprios',
   'tut.menu-plantillas.4.texto':
     'Crie modelos próprios montando-os com blocos: notas, checklists, contadores, hábitos, galerias… Este botão abre o editor dele, com o próprio tutorial.',
@@ -190,17 +185,13 @@ export const PT_TUT: Dict = {
     'Você pode editar de novo quando quiser: os blocos e os dados ficam no lugar, só muda o que você editar.',
   'tut.menu-inventario.1.texto':
     'O inventário: todos os objetos que você pode colocar na sua casa, prontos para arrastar.',
-  'tut.menu-inventario.2.titulo': 'Objetos',
-  'tut.menu-inventario.2.texto':
-    'Sua biblioteca de objetos por categorias e pastas. Você pode renomear e organizar para achar rápido na próxima vez.',
-  'tut.menu-inventario.3.titulo': 'Objetos especiais',
-  'tut.menu-inventario.3.texto':
-    'Os que fazem algo, não só decoram: veículos para andar, pistolas de brinquedo, fontes, brinquedos de parquinho e luzes.',
+  'tut.menu-inventario.2.titulo': 'Mapa',
+  'tut.menu-inventario.2.texto': 'O que JÁ está colocado, cômodo a cômodo: toque em uma miniatura para editar esse objeto.',
+  'tut.menu-inventario.3.titulo': 'Catálogo',
+  'tut.menu-inventario.3.texto': 'Todos os objetos que existem, em duas pastas: os normais e os especiais — os que fazem algo, como veículos que se dirigem, fontes, brinquedos de parque e luzes.',
   'tut.menu-inventario.4.titulo': 'Colocar',
-  'tut.menu-inventario.4.texto':
-    'Com este menu aberto, arraste uma miniatura direto para a cena 3D e coloque onde quiser.',
-  'tut.menu-inventario.5.texto':
-    'Para mover, pintar ou apagar o que já está colocado, use o Editor (aba Objetos) — este menu serve só para trazer coisas novas para a cena.',
+  'tut.menu-inventario.4.texto': 'Com o catálogo aberto, arraste uma miniatura direto para a cena 3D e coloque onde quiser.',
+  'tut.menu-inventario.5.texto': 'O outro ramo, Criar, é para fazer objetos novos por peças ou com IA, e para editar o que você tiver selecionado.',
   'tut.editor-mapa.1.texto':
     'O editor da casa tem 4 abas: Mapa, Personagens, Objetos e Configurações. Este tour é o do Mapa; os outros três têm o seu.',
   'tut.editor-mapa.2.titulo': 'A planta',

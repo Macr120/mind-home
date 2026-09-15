@@ -37,10 +37,10 @@ export const tutorialCasa = tour(
 
 const tutorialMenuCuartos = tour(
   'menu-cuartos',
-  T('tut.menu-cuartos.titulo', 'Menú · Cuartos'),
+  T('tut.menu-cuartos.titulo', 'Menú · Hogar'),
   T(
     'tut.menu-cuartos.resumen',
-    'La pestaña Cuartos lista los cuartos de tu casa por categoría, con su progreso. La tarjeta entera entra a la app —o dice + Asignar si aún no tiene—, y su engrane despliega las opciones: moverla en la lista, borrar el cuarto o editarlo. Arriba vive tu resumen: humor, rango y racha; abajo puedes crear cuartos nuevos.',
+    'La pestaña Hogar lista los cuartos de tu casa por categoría, con su progreso. La tarjeta entera entra a la app —o dice + Asignar si aún no tiene—, y su engrane despliega las opciones: moverla en la lista, borrar el cuarto o editarlo. Arriba vive tu resumen: humor, rango y racha; abajo puedes crear cuartos nuevos.',
   ),
   'cuerpoMenuCuartos',
 )
@@ -50,7 +50,7 @@ const tutorialMenuPlantillas = tour(
   T('tut.menu-plantillas.titulo', 'Menú · Plantillas'),
   T(
     'tut.menu-plantillas.resumen',
-    'Las plantillas son las apps de la casa: se asignan a un objeto de un cuarto. Esta pestaña tiene dos vistas —Cuartos (las apps de siempre) e Infraestructura (lo que se construye directo en el mapa)— y el catálogo incluye las plantillas que tú mismo armas con bloques.',
+    'Las plantillas son las apps de la casa: se asignan a un objeto de un cuarto. Esta pestaña tiene dos vistas —Productividad (las apps de trabajo y vida diaria) y Creatividad (el Studio: audio, arte, escritura y video)— y el catálogo incluye las plantillas que tú mismo armas con bloques.',
   ),
   'cuerpoMenuPlantillas',
 )
@@ -67,10 +67,10 @@ const tutorialPlantillasCustom = tour(
 
 const tutorialMenuInventario = tour(
   'menu-inventario',
-  T('tut.menu-inventario.titulo', 'Menú · Inventario'),
+  T('tut.menu-inventario.titulo', 'El editor · Inventario'),
   T(
     'tut.menu-inventario.resumen',
-    'El inventario guarda los objetos para decorar la casa: la biblioteca por categorías y los objetos especiales (vehículos, fuentes, juegos de parque, luces). Con el menú abierto puedes arrastrarlos directo a la escena.',
+    'El inventario guarda los objetos para decorar la casa: la biblioteca por categorías y los objetos especiales (vehículos, fuentes, juegos de parque, luces). Vive en el editor, dentro de Objetos, y desde ahí se arrastran directo a la escena.',
   ),
   'cuerpoMenuInventario',
 )

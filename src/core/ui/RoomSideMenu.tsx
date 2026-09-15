@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { useShallow } from 'zustand/react/shallow'
 import type { Cuarto } from '../data/db'
 import { useHouse } from '../state/houseStore'
@@ -15,8 +15,6 @@ import { TechoToggleButton, ExplotarToggleButton } from './TechoToggleButton'
 import { ResumenJugador, ProgresoApp } from './ProgresoPanel'
 import { PlantillasCatalogo } from './PlantillasCatalogo'
 import { InfraestructuraCatalogo } from './InfraestructuraCatalogo'
-import { ObjetosCatalogo } from './ObjetosCatalogo'
-import { CATS_ESPECIALES } from './inventarioGrupos'
 import { useProgreso } from '../gamificacion/actividad'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
@@ -69,12 +67,11 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
   const abrirAsignar = useAsignar((s) => s.abrir)
   // Cuarto con la fila de opciones desplegada (el engrane); solo una a la vez.
   const [ajustesCuarto, setAjustesCuarto] = useState<string | null>(null)
-  const [menu, setMenu] = useState<'cuartos' | 'plantillas' | 'objetos'>('cuartos')
-  // Inventario tiene dos sub-pestañas: Objetos (biblioteca) y Objetos especiales (vehículos).
-  const [invSub, setInvSub] = useState<'objetos' | 'especiales'>('objetos')
-  // Plantillas tiene dos sub-pestañas: de cuarto (apps) y de infraestructura (se construyen en el mapa).
-  const [plantSub, setPlantSub] = useState<'cuartos' | 'infra'>('cuartos')
-  const setInventarioObjetosActivo = useEditorUi((s) => s.setInventarioObjetosActivo)
+  // Tres menús: Hogar (los cuartos), Plantillas (las apps) y Extras (lo que se
+  // construye sobre el terreno). El inventario de objetos se mudó al editor.
+  const [menu, setMenu] = useState<'cuartos' | 'plantillas' | 'extras'>('cuartos')
+  // Plantillas tiene dos sub-pestañas: las apps de trabajo y vida, y las del Studio.
+  const [plantSub, setPlantSub] = useState<'productividad' | 'creatividad'>('productividad')
   const progreso = useProgreso()
   // Una sola consulta para las dos cifras que faltaban en la lista de cuartos:
   // lo que queda por hacer hoy y las metas cumplidas de cada app.
@@ -103,13 +100,6 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
     }
     await eliminarCuarto(id)
   }
-
-  // Con Inventarios abierto, los objetos del mapa/cuartos se pueden arrastrar
-  // directo en la escena 3D sin entrar al editor. Se limpia al salir.
-  useEffect(() => {
-    setInventarioObjetosActivo(menu === 'objetos')
-  }, [menu, setInventarioObjetosActivo])
-  useEffect(() => () => setInventarioObjetosActivo(false), [setInventarioObjetosActivo])
 
   /** App (plantilla) asignada a algún objeto del cuarto, si la hay. */
   const appDe = (id: string) => appPorCuarto[id]
@@ -149,13 +139,11 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
           Zona segura como PADDING y no como margen: con los dos bordes verticales
           puestos (`inset-y-0`) el margen no desplaza nada, y así el fondo del panel
           sigue sangrando hasta el borde aunque su contenido no (igual que EditPanel). */}
+      {/* Extras comparte tour con Plantillas: su tutorial ya explica lo que se
+          construye sobre el terreno, y una zona sin tour propio no se pintaría. */}
       <aside
       data-tut-zona={
-        menu === 'plantillas'
-          ? 'menu-plantillas'
-          : menu === 'objetos'
-            ? 'menu-inventario'
-            : 'menu-cuartos'
+        menu === 'plantillas' || menu === 'extras' ? 'menu-plantillas' : 'menu-cuartos'
       }
       className="ui-panel ui-desliza-inicio absolute inset-y-0 start-0 z-30 flex h-full min-h-0 w-60 flex-col border-e border-white/10 pt-[var(--safe-top)] pb-[var(--safe-bottom)] ps-[var(--safe-left)] shadow-2xl"
       aria-label={t('nav.ariaMenu', 'Menú de cuartos')}
@@ -224,7 +212,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
                 : 'text-white/50 hover:bg-white/8 hover:text-white/75'
             }`}
           >
-            <Icono nombre="cuartos" /> {t('nav.menu.cuartos', 'Cuartos')}
+            <Icono nombre="casa" /> {t('nav.menu.cuartos', 'Hogar')}
           </button>
           <button
             type="button"
@@ -236,19 +224,23 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
                 : 'text-white/50 hover:bg-white/8 hover:text-white/75'
             }`}
           >
-            {t('inv.plantillas', 'Plantillas')}
+            {/* «Interior»: las apps que viven DENTRO de un cuarto, frente a las
+                del Exterior, que se construyen sobre el terreno. */}
+            <Icono nombre="cuartos" /> {t('inv.plantillas', 'Interior')}
           </button>
           <button
             type="button"
-            data-tut="menu.tab.inventario"
-            onClick={() => setMenu('objetos')}
+            data-tut="menu.tab.extras"
+            onClick={() => setMenu('extras')}
             className={`h-8 flex-1 whitespace-nowrap text-[11px] font-semibold transition ${
-              menu === 'objetos'
+              menu === 'extras'
                 ? 'bg-white/15 text-white'
                 : 'text-white/50 hover:bg-white/8 hover:text-white/75'
             }`}
           >
-            <Icono nombre="inventario" /> {t('nav.menu.inventarios', 'Inventario')}
+            {/* Clave reciclada: su nombre dice «sub de Plantillas» porque ahí
+                vivía esta sección antes de subir a menú propio. */}
+            <Icono nombre="construir" /> {t('inv.subPlantInfra', 'Exterior')}
           </button>
         </div>
       </div>
@@ -260,84 +252,40 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
               <button
                 type="button"
                 data-tut="menu.plant.sub.cuartos"
-                onClick={() => setPlantSub('cuartos')}
+                onClick={() => setPlantSub('productividad')}
                 className={`h-7 flex-1 text-[11px] font-semibold transition ${
-                  plantSub === 'cuartos'
+                  plantSub === 'productividad'
                     ? 'bg-white/12 text-white'
                     : 'text-white/45 hover:bg-white/6 hover:text-white/70'
                 }`}
               >
-                {t('inv.subPlantCuartos', 'Cuartos')}
+                <Icono nombre="maletin" /> {t('inv.subPlantCuartos', 'Productividad')}
               </button>
               <button
                 type="button"
-                data-tut="menu.plant.sub.infra"
-                onClick={() => setPlantSub('infra')}
+                data-tut="menu.plant.sub.creatividad"
+                onClick={() => setPlantSub('creatividad')}
                 className={`h-7 flex-1 text-[11px] font-semibold transition ${
-                  plantSub === 'infra'
+                  plantSub === 'creatividad'
                     ? 'bg-white/12 text-white'
                     : 'text-white/45 hover:bg-white/6 hover:text-white/70'
                 }`}
               >
-                <Icono nombre="construir" /> {t('inv.subPlantInfra', 'Complementos')}
+                <Icono nombre="paleta" /> {t('inv.subPlantCreativa', 'Creatividad')}
               </button>
             </div>
-            {plantSub === 'infra' ? (
-              <InfraestructuraCatalogo alConstruir={onToggle} />
-            ) : (
-              <div data-tut="menu.plantillas.catalogo">
-                <PlantillasCatalogo />
-              </div>
-            )}
-          </>
-        ) : menu === 'objetos' ? (
-          <>
-            <div className="mb-2 flex overflow-hidden rounded-lg border border-white/10 bg-black/20">
-              <button
-                type="button"
-                data-tut="menu.inv.sub.objetos"
-                onClick={() => setInvSub('objetos')}
-                className={`h-7 flex-1 text-[11px] font-semibold transition ${
-                  invSub === 'objetos'
-                    ? 'bg-white/12 text-white'
-                    : 'text-white/45 hover:bg-white/6 hover:text-white/70'
-                }`}
-              >
-                {t('inv.subObjetos', 'Objetos')}
-              </button>
-              <button
-                type="button"
-                data-tut="menu.inv.sub.especiales"
-                onClick={() => setInvSub('especiales')}
-                className={`h-7 flex-1 text-[11px] font-semibold transition ${
-                  invSub === 'especiales'
-                    ? 'bg-white/12 text-white'
-                    : 'text-white/45 hover:bg-white/6 hover:text-white/70'
-                }`}
-              >
-                <Icono emoji="🚗" /> {t('inv.subEspeciales', 'Objetos especiales')}
-              </button>
-            </div>
-            <div data-tut="menu.inv.catalogo">
-              {invSub === 'especiales' ? (
-                <ObjetosCatalogo soloCategorias={CATS_ESPECIALES} />
-              ) : (
-                <ObjetosCatalogo />
-              )}
+            <div data-tut="menu.plantillas.catalogo">
+              <PlantillasCatalogo creativa={plantSub === 'creatividad'} />
             </div>
           </>
+        ) : menu === 'extras' ? (
+          <InfraestructuraCatalogo alConstruir={onToggle} />
         ) : (
           <>
         {/* Resumen del jugador (tamagotchi + nivel global); el Wrapped vive dentro. */}
         <div data-tut="menu.resumen">
           <ResumenJugador progreso={progreso} />
         </div>
-        <p className="mb-3 px-2 text-[11px] leading-snug text-white/45">
-          {t(
-            'nav.ayuda.tarjetaTexto',
-            'Toca un cuarto para abrir su app; el engrane abre sus opciones (moverlo, borrarlo, editarlo).',
-          )}
-        </p>
         {cuartos.length === 0 && (
           <p className="px-2 py-6 text-center text-xs leading-relaxed text-white/40">
             {t('nav.sinCuartos', 'Aún no hay cuartos. Crea el primero abajo.')}
@@ -514,6 +462,14 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
         >
           <Icono nombre="agregar" /> {t('nav.crearCuarto', 'Crear cuarto')}
         </button>
+        {/* La ayuda va al PIE, como en los otros menús: arriba separaba el resumen
+            del jugador de su lista de cuartos. */}
+        <p className="mt-3 border-t border-white/10 px-2 pt-3 text-[11px] leading-snug text-white/45">
+          {t(
+            'nav.ayuda.tarjetaTexto',
+            'Toca un cuarto para abrir su app; el engrane abre sus opciones (moverlo, borrarlo, editarlo).',
+          )}
+        </p>
           </>
         )}
       </div>

@@ -2689,9 +2689,9 @@ export interface GrupoPlantilla {
 export const GRUPOS_PLANTILLA_BASE: { nombre: string; emoji: string; miembros: string[] }[] = [
   { nombre: 'Cuerpo', emoji: '💪', miembros: ['ejercicio', 'cocina', 'descanso'] },
   { nombre: 'Estudio', emoji: '📚', miembros: ['biblioteca', 'idiomas', 'ideas', 'computo'] },
-  { nombre: 'Administración', emoji: '🗂️', miembros: ['despacho', 'garage', 'agenda', 'metas'] },
+  { nombre: 'Administración', emoji: '🗂️', miembros: ['despacho', 'garage', 'agenda', 'sala'] },
   { nombre: 'Pasatiempos', emoji: '🎉', miembros: ['entretenimiento', 'diario', 'hobbies'] },
-  { nombre: 'Memorias y salud mental', emoji: '🧠', miembros: ['anecdotario', 'sala', 'jardin'] },
+  { nombre: 'Salud mental', emoji: '🧠', miembros: ['anecdotario', 'jardin', 'metas'] },
   { nombre: 'Studio', emoji: '🎬', miembros: ['audio', 'arte', 'escritura', 'video'] },
 ]
 
@@ -5935,6 +5935,32 @@ class MindHomeDB extends Dexie {
     this.version(139).stores({
       disenoRooms: '++id, &roomId, &uid',
       asistentes: '++id, &asistenteId, &uid',
+    })
+    // v140: el catálogo se parte en Interior (Productividad/Creatividad) y Exterior,
+    // y de paso se retoca el reparto de dos carpetas base: Viajes pasa a
+    // Administración, Metas a «Salud mental» (que además se acorta de nombre).
+    // Solo se tocan las apps que CAMBIAN de carpeta: si el usuario movió otras a
+    // mano, se respetan donde las dejó.
+    this.version(140).upgrade(async (tx) => {
+      const tabla = tx.table('gruposPlantilla')
+      const filas = (await tabla.toArray()) as GrupoPlantilla[]
+      if (filas.length === 0) return
+      const base = filas.filter((g) => g.esBase).sort((a, b) => a.orden - b.orden)
+      // Las base se reconocen por su posición, no por el nombre: el usuario pudo
+      // renombrarlas (y entonces `nombreCarpeta` ya no las traduce).
+      const admin = base[2]
+      const mental = base[4]
+      if (!admin || !mental) return
+      const mover = async (fila: GrupoPlantilla, quitar: string, poner: string) => {
+        const miembros = fila.miembros.filter((m) => m !== quitar)
+        if (!miembros.includes(poner)) miembros.push(poner)
+        if (fila.id != null) await tabla.update(fila.id, { miembros })
+      }
+      await mover(admin, 'metas', 'sala')
+      await mover(mental, 'sala', 'metas')
+      if (mental.id != null && mental.nombre === 'Memorias y salud mental') {
+        await tabla.update(mental.id, { nombre: 'Salud mental' })
+      }
     })
   }
 }

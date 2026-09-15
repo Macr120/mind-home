@@ -26,7 +26,7 @@ const CLAVE_CARPETA: Record<string, string> = {
   'Estudio': 'plantillas.carpeta.estudio',
   'Administración': 'plantillas.carpeta.admin',
   'Pasatiempos': 'plantillas.carpeta.pasatiempos',
-  'Memorias y salud mental': 'plantillas.carpeta.memorias',
+  'Salud mental': 'plantillas.carpeta.memorias',
   'Studio': 'plantillas.carpeta.studio',
 }
 export function nombreCarpeta(t: TFunc, nombre: string): string {

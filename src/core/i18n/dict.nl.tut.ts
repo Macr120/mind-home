@@ -69,14 +69,12 @@ export const NL_TUT: Dict = {
     'Naar Excel gaat een echte .xlsx, met levende formules en de diagrammen als echte Excel-diagrammen. Naar PDF gaat het via de printer van de browser.',
   'tut.casa.1.texto': 'Dit is jouw huis: elke kamer bevat een app. Ik laat je de basisbediening zien.',
   'tut.casa.2.titulo': 'Het hoofdmenu',
-  'tut.casa.2.texto':
-    'Ik heb het geopend zodat je het ziet: dit is het hoofdmenu, met je kamers en hun apps. De andere tabbladen brengen de catalogus met sjablonen (apps) en de inventaris met objecten.',
+  'tut.casa.2.texto': 'Ik heb het geopend zodat je het ziet: dit is het hoofdmenu, met je kamers en hun apps. De andere tabbladen brengen Binnen (de app-catalogus) en Buiten, wat je op het terrein bouwt.',
   'tut.casa.2b.titulo': 'De app-catalogus',
   'tut.casa.2b.texto':
     'Zijn tweede tabblad: de catalogus met sjablonen — alle apps die het huis kan dragen, elk klaar om aan een kamer te worden toegewezen.',
-  'tut.casa.2c.titulo': 'De inventaris',
-  'tut.casa.2c.texto':
-    'En het derde: de inventaris — de objecten en onderdelen die je uit je kamers bewaart, klaar om weer neer te zetten waar je maar wilt.',
+  'tut.casa.2c.titulo': 'Buiten',
+  'tut.casa.2c.texto': 'En de derde: Buiten — racebanen, velden, moestuin, opvang en paintball, die geen kamer innemen maar direct op het terrein worden gebouwd.',
   'tut.casa.3.titulo': 'Rondlopen',
   'tut.casa.3.texto':
     'Loop met de joystick, met WASD of met de pijltjestoetsen: het hele huis verken je te voet. Rondlopen opent de apps niet — om binnen te gaan, tik op het object met de zwevende bol van de kamer.',
@@ -109,8 +107,7 @@ export const NL_TUT: Dict = {
     'De knop Editor bovenaan opent dit: de volledige aanpassing in vier tabbladen — Kaart, Personages, Objecten en Instellingen. Hier wordt het hele huis getekend en aangekleed.',
   'tut.casa.10.texto':
     'Dat is de basis. Elk menu en elke app hebben hun eigen ?-knop met hun tutorial: vraag erom wanneer iets je niet duidelijk is.',
-  'tut.primeros.1.texto':
-    'Deze tutorial beantwoordt twee vragen: hoe je je apps BINNENGAAT en hoe je een nieuwe MAAKT. Allebei wonen ze hier, op het tabblad Kamers.',
+  'tut.primeros.1.texto': 'Deze rondleiding beantwoordt twee dingen: hoe je je apps OPENT en hoe je er een NIEUWE maakt. Allebei wonen ze hier, in het tabblad Thuis.',
   'tut.primeros.entrar.titulo': 'Je apps binnengaan',
   'tut.primeros.entrar.texto':
     'Elke kamer draagt zijn app en je hebt drie deuren: zijn kaart hier in het menu, het object met de zwevende bol op de plattegrond, en de snelle toegang via de MPH-knop bovenaan.',
@@ -142,7 +139,7 @@ export const NL_TUT: Dict = {
     'Kijk hoe hij trilt: een kamer of een object ingedrukt houden maakt hem wakker, met zijn menu erbij. Zo verplaats je hem als je niet blij bent met waar hij terechtkwam, of verwijder je hem.',
   'tut.primeros.6.texto':
     'Dat is alles: de kamer maken, hem zijn app geven, binnengaan en hem op zijn plek zetten. Deze was om te oefenen — ik neem hem aan het eind weer mee, zodat jij je huis naar eigen smaak opbouwt.',
-  'tut.menu-cuartos.1.texto': 'Het tabblad Kamers toont alle kamers van je huis, gegroepeerd per categorie.',
+  'tut.menu-cuartos.1.texto': 'Het tabblad Thuis toont alle kamers van je huis, gegroepeerd per categorie.',
   'tut.menu-cuartos.2.titulo': 'Jouw overzicht',
   'tut.menu-cuartos.2.texto':
     'Jouw personage leeft van je echte activiteit: hier zie je zijn stemming, zijn niveau en zijn reeks. Leg iets vast in welke app dan ook en je ziet hem opfleuren; een paar dagen niets en hij wordt verdrietig — er wordt nooit gestraft en nooit op nul gezet.',
@@ -163,11 +160,9 @@ export const NL_TUT: Dict = {
   'tut.menu-plantillas.1.texto':
     'Een sjabloon is een app (Keuken, Gym, Financiën…). Je wijst het toe aan een object in een kamer en het opent zodra je binnenkomt.',
   'tut.menu-plantillas.2.titulo': 'Twee weergaven',
-  'tut.menu-plantillas.2.texto':
-    'Kamers zijn de gewone apps, elk in zijn eigen object. Extra\'s is iets anders: banen, velden, moestuin, boerderij of paintball bouw je rechtstreeks op de grond, zonder dat ze een kamer innemen.',
+  'tut.menu-plantillas.2.texto': 'Productiviteit zijn de apps voor werk en dagelijks leven; Creativiteit is de Studio: audio, kunst, schrijven en video. Ze worden allemaal op dezelfde manier toegewezen, aan een object in een kamer.',
   'tut.menu-plantillas.3.titulo': 'De catalogus',
-  'tut.menu-plantillas.3.texto':
-    'De standaard-apps en die van jou, in groepen geordend. Tik er een aan om hem aan een kamer toe te wijzen of, bij Extra\'s, om hem op de kaart te bouwen.',
+  'tut.menu-plantillas.3.texto': 'De standaard-apps en die van jou, geordend in groepen. Tik er een aan om hem aan een kamer toe te wijzen.',
   'tut.menu-plantillas.4.titulo': 'Je eigen sjablonen',
   'tut.menu-plantillas.4.texto':
     'Maak je eigen sjablonen door ze met blokken op te bouwen: notities, checklists, tellers, gewoontes, galerijen… Deze knop opent hun eigen editor met een eigen tutorial.',
@@ -190,17 +185,13 @@ export const NL_TUT: Dict = {
   'tut.plantillas-custom.6.texto':
     'Je kunt hem altijd opnieuw bewerken: zijn blokken en zijn gegevens blijven staan, alleen wat je aanpast verandert.',
   'tut.menu-inventario.1.texto': 'De inventaris: alle objecten die je in je huis kunt zetten, klaar om te slepen.',
-  'tut.menu-inventario.2.titulo': 'Objecten',
-  'tut.menu-inventario.2.texto':
-    'Jouw objectenbibliotheek, per categorie en per map. Je kunt ze hernoemen en ordenen zodat je ze de volgende keer snel terugvindt.',
-  'tut.menu-inventario.3.titulo': 'Speciale objecten',
-  'tut.menu-inventario.3.texto':
-    'Die écht iets doen en niet alleen versieren: bestuurbare voertuigen, speelgoedpistolen, fonteinen, speeltoestellen en lampen.',
+  'tut.menu-inventario.2.titulo': 'Kaart',
+  'tut.menu-inventario.2.texto': 'Wat er AL staat, kamer voor kamer: tik op een miniatuur om dat object te bewerken.',
+  'tut.menu-inventario.3.titulo': 'Catalogus',
+  'tut.menu-inventario.3.texto': 'Alle objecten die er zijn, in twee mappen: de gewone en de speciale — die iets doen, zoals berijdbare voertuigen, fonteinen, speeltoestellen en lampen.',
   'tut.menu-inventario.4.titulo': 'Plaatsen',
-  'tut.menu-inventario.4.texto':
-    'Met dit menu open sleep je een miniatuur rechtstreeks de 3D-scène in om hem neer te zetten waar je maar wilt.',
-  'tut.menu-inventario.5.texto':
-    'Wil je verplaatsen, verven of verwijderen wat er al staat, gebruik dan de Editor (tabblad Objecten) — dit menu is er alleen om nieuwe dingen de scène in te halen.',
+  'tut.menu-inventario.4.texto': 'Met de catalogus open sleep je een miniatuur rechtstreeks de 3D-scène in om hem neer te zetten waar je wilt.',
+  'tut.menu-inventario.5.texto': 'De andere tak, Maken, is om nieuwe objecten uit onderdelen of met AI te bouwen, en om het geselecteerde object te bewerken.',
   'tut.editor-mapa.1.texto':
     'De editor van het huis heeft 4 tabbladen: Kaart, Personages, Objecten en Instellingen. Deze rondleiding gaat over Kaart; de andere drie hebben hun eigen rondleiding.',
   'tut.editor-mapa.2.titulo': 'De plattegrond',

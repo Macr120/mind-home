@@ -2733,10 +2733,11 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
   // («coseché zanahorias» es bitácora, no una orden).
 
   const nHuerto = /\b(huerto|cultivos?|parcelas?|siembra|sembrado|hortaliza|aspersor(es)?)\b/.test(n)
-  // 'mascotas' es el nombre nuevo de la granja; 'comida' NO entra como sinónimo
-  // del huerto porque se lo robaría a los registros de la cocina.
+  // 'santuario' es el nombre que lleva hoy en pantalla (el id sigue siendo granja);
+  // 'comida' NO entra como sinónimo del huerto porque se lo robaría a los
+  // registros de la cocina.
   const nGranja =
-    /\b(granja|mascotas?|corral(es)?|animal(es)?|gallinas?|cerdos?|cabras?|ovejas?|vacas?|caballos?|yeguas?|establo)\b/.test(n)
+    /\b(granja|santuario|mascotas?|corral(es)?|animal(es)?|gallinas?|cerdos?|cabras?|ovejas?|vacas?|caballos?|yeguas?|establo)\b/.test(n)
   const nVia = /\b(pista|pistas|caminos?|riel(es)?|vias?|tren|montana rusa|coaster|circuito|carrito)\b/.test(n)
 
   // I-A. Paintball. Solo la frase pelada («juguemos paintball», con modo opcional):
@@ -2913,7 +2914,7 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
           { obra: 'granja', animal: an.id },
         )
       const herramienta = /\b(corral|establo|cerca)\b/.test(n) ? 'corral' : 'animal'
-      return edicion(chip('🐄', tGlobal('chat.ed.chip.construirGranja', 'Construir la granja')), 'editor_infra_construir', {
+      return edicion(chip('🐄', tGlobal('chat.ed.chip.construirGranja', 'Construir el santuario')), 'editor_infra_construir', {
         obra: 'granja',
         herramienta,
       })

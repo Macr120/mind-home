@@ -68,7 +68,7 @@ export function EditorGranja() {
   return (
     <MarcoEditorInfra
       icono="granja"
-      titulo={t('room.granja.nombre', 'Granja')}
+      titulo={t('room.granja.nombre', 'Santuario')}
       tut="granja"
       onSalir={() => g.salir()}
       ancho="max-w-full"

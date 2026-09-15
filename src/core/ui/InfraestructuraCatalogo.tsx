@@ -142,9 +142,6 @@ export function InfraestructuraCatalogo({ alConstruir }: { alConstruir: () => vo
 
   return (
     <div className="space-y-2 px-1">
-      <p className="px-1 text-[11px] leading-snug text-white/45">
-        {t('infra.ayuda', 'Estas plantillas no viven en un cuarto: se construyen sobre el mapa 3D con su propio editor.')}
-      </p>
       {lista.map((p) => {
         const subOpciones = subOpcionesDe(p.id, t)
         const abierta = abiertas.has(p.id)
@@ -224,6 +221,11 @@ export function InfraestructuraCatalogo({ alConstruir }: { alConstruir: () => vo
           </section>
         )
       })}
+      {/* La ayuda va al PIE (como la del editor): arriba empujaba el catálogo
+          hacia abajo y se leía antes de tener nada a lo que aplicarla. */}
+      <p className="mt-3 border-t border-white/10 px-1 pt-3 text-[11px] leading-snug text-white/45">
+        {t('infra.ayuda', 'Estas plantillas no viven en un cuarto: se construyen sobre el mapa 3D con su propio editor.')}
+      </p>
     </div>
   )
 }

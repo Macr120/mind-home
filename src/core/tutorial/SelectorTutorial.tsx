@@ -51,13 +51,13 @@ const GRUPOS_MENU: { clave: string; es: string; icono: NombreIcono; ids: string[
     clave: 'tut.selector.gMenu',
     es: 'El menú',
     icono: 'cuartos',
-    ids: ['menu-cuartos', 'menu-plantillas', 'plantillas-custom', 'menu-inventario'],
+    ids: ['menu-cuartos', 'menu-plantillas', 'plantillas-custom'],
   },
   {
     clave: 'tut.selector.gEditor',
     es: 'El editor',
     icono: 'editar',
-    ids: ['editor-mapa', 'editor-personajes', 'editor-objetos', 'editor-cuarto'],
+    ids: ['editor-mapa', 'editor-personajes', 'editor-objetos', 'menu-inventario', 'editor-cuarto'],
   },
   {
     clave: 'tut.selector.gConfig',

@@ -6,7 +6,9 @@ import { flujosGranja } from './tutorial.meta'
 /** Plantilla de infraestructura: se construye en el mapa 3D, no se asigna a cuartos. */
 const granja: Plantilla = {
   id: 'granja',
-  nombre: 'Granja',
+  // El id sigue diciendo «granja» (como `despacho` para Finanzas): renombrarlo
+  // obligaría a migrar los datos ya guardados.
+  nombre: 'Santuario',
   icon: '🐄',
   categoria: 'complemento',
   color: '#ca8a04',

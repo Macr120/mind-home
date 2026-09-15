@@ -69,14 +69,12 @@ export const ID_TUT: Dict = {
     'Ke Excel keluar .xlsx sungguhan, dengan rumus yang hidup dan grafik sebagai grafik Excel asli. Ke PDF keluar lewat pencetak browser.',
   'tut.casa.1.texto': 'Ini rumahmu: setiap ruangan menyimpan satu aplikasi. Aku tunjukkan kontrol dasarnya.',
   'tut.casa.2.titulo': 'Menu utama',
-  'tut.casa.2.texto':
-    'Aku membukanya supaya kamu lihat: ini menu utama, dengan ruangan-ruanganmu dan aplikasinya. Tab-tab lainnya membawa katalog templat (aplikasi) dan inventaris objek.',
+  'tut.casa.2.texto': 'Aku buka supaya kamu lihat: ini menu utama, berisi ruanganmu dan aplikasinya. Tab lainnya membawa Dalam (katalog aplikasi) dan Luar, yang dibangun di atas lahan.',
   'tut.casa.2b.titulo': 'Katalog aplikasi',
   'tut.casa.2b.texto':
     'Tab keduanya: katalog templat — semua aplikasi yang bisa dibawa rumah ini, masing-masing siap ditetapkan ke sebuah ruangan.',
-  'tut.casa.2c.titulo': 'Inventaris',
-  'tut.casa.2c.texto':
-    'Dan yang ketiga: inventaris — objek dan bagian yang kamu simpan dari ruangan-ruanganmu, siap dipasang lagi di mana pun kamu mau.',
+  'tut.casa.2c.titulo': 'Luar',
+  'tut.casa.2c.texto': 'Dan yang ketiga: Luar — lintasan balap, lapangan, kebun sayur, suaka, dan paintball, yang tidak memakai ruangan tapi dibangun langsung di atas lahan.',
   'tut.casa.3.titulo': 'Bergerak',
   'tut.casa.3.texto':
     'Berjalanlah dengan joystick, dengan WASD, atau dengan tombol panah di keyboard: seluruh rumah bisa dijelajahi dengan berjalan kaki. Berjalan-jalan tidak membuka aplikasi — untuk masuk, sentuh objek dengan bola melayang milik ruangan itu.',
@@ -109,8 +107,7 @@ export const ID_TUT: Dict = {
     'Tombol Editor di atas membuka ini: penyesuaian lengkap dalam empat tab — Peta, Karakter, Objek, dan Pengaturan. Di sinilah seluruh rumah digambar dan didandani.',
   'tut.casa.10.texto':
     'Itu dasarnya. Setiap menu dan setiap aplikasi punya tombol ? sendiri dengan tutorialnya: minta saja saat ada yang belum jelas buatmu.',
-  'tut.primeros.1.texto':
-    'Tutorial ini menjawab dua hal: cara MASUK ke aplikasimu dan cara MEMBUAT yang baru. Dua-duanya tinggal di sini, di tab Ruangan.',
+  'tut.primeros.1.texto': 'Tutorial ini menjawab dua hal: cara MASUK ke aplikasimu dan cara MEMBUAT yang baru. Keduanya ada di sini, di tab Rumah.',
   'tut.primeros.entrar.titulo': 'Masuk ke aplikasimu',
   'tut.primeros.entrar.texto':
     'Setiap ruangan membawa aplikasinya dan kamu punya tiga pintu: kartunya di sini di menu, objek dengan bola melayang di peta, dan akses cepat tombol MPH di atas.',
@@ -142,7 +139,7 @@ export const ID_TUT: Dict = {
     'Lihat bagaimana ia bergetar: menekan lama sebuah ruangan atau objek akan membangunkannya, lengkap dengan menunya. Begitulah kamu memindahkannya kalau tidak suka letaknya, atau menghapusnya.',
   'tut.primeros.6.texto':
     'Itu saja: membuat ruangan, memberinya aplikasi, masuk, dan menatanya. Yang ini untuk latihan — akan kubawa begitu selesai, supaya kamu menyusun rumahmu sesuai seleramu.',
-  'tut.menu-cuartos.1.texto': 'Tab Ruangan menampilkan semua ruangan di rumahmu, dikelompokkan per kategori.',
+  'tut.menu-cuartos.1.texto': 'Tab Rumah mendaftar semua ruangan rumahmu, dikelompokkan per kategori.',
   'tut.menu-cuartos.2.titulo': 'Ringkasanmu',
   'tut.menu-cuartos.2.texto':
     'Karaktermu hidup dari aktivitas nyatamu: di sini kamu lihat suasana hatinya, levelnya, dan runtunannya. Catat sesuatu di aplikasi mana pun dan dia akan ceria; beberapa hari tanpa apa-apa dan dia jadi sedih — dia tidak pernah menghukummu atau mengulang dari nol.',
@@ -163,11 +160,9 @@ export const ID_TUT: Dict = {
   'tut.menu-plantillas.1.texto':
     'Templat itu sebuah aplikasi (Dapur, Gym, Keuangan…). Templat ditetapkan ke sebuah objek di dalam ruangan dan terbuka saat kamu masuk.',
   'tut.menu-plantillas.2.titulo': 'Dua tampilan',
-  'tut.menu-plantillas.2.texto':
-    'Ruangan berisi aplikasi seperti biasa, masing-masing di objeknya sendiri. Ekstra beda lagi: sirkuit, lapangan, kebun sayur, peternakan, atau paintball dibangun langsung di atas lahan, tanpa memakai satu ruangan pun.',
+  'tut.menu-plantillas.2.texto': 'Produktivitas berisi aplikasi kerja dan keseharian; Kreativitas adalah Studio: audio, seni, tulisan, dan video. Semuanya dipasang dengan cara yang sama, ke sebuah objek di ruangan.',
   'tut.menu-plantillas.3.titulo': 'Katalog',
-  'tut.menu-plantillas.3.texto':
-    'Aplikasi bawaan dan aplikasi buatanmu, tersusun dalam grup. Ketuk salah satu untuk menetapkannya ke sebuah ruangan atau, di Ekstra, untuk membangunnya di peta.',
+  'tut.menu-plantillas.3.texto': 'Aplikasi bawaan dan buatanmu, tertata dalam grup. Ketuk salah satu untuk memasangnya ke ruangan.',
   'tut.menu-plantillas.4.titulo': 'Templat buatanmu',
   'tut.menu-plantillas.4.texto':
     'Buat templatmu sendiri dengan menyusunnya dari blok: catatan, daftar periksa, penghitung, kebiasaan, galeri… Tombol ini membuka editornya sendiri, lengkap dengan tutorialnya sendiri.',
@@ -190,17 +185,13 @@ export const ID_TUT: Dict = {
   'tut.plantillas-custom.6.texto':
     'Kamu bisa mengeditnya lagi kapan saja: blok dan datanya tetap utuh, yang berubah hanya yang kamu ubah.',
   'tut.menu-inventario.1.texto': 'Inventaris: semua objek yang bisa kamu taruh di rumahmu, siap diseret.',
-  'tut.menu-inventario.2.titulo': 'Objek',
-  'tut.menu-inventario.2.texto':
-    'Pustaka objekmu, tersusun dalam kategori dan folder. Kamu bisa mengganti namanya dan merapikannya supaya cepat ketemu lain kali.',
-  'tut.menu-inventario.3.titulo': 'Objek spesial',
-  'tut.menu-inventario.3.texto':
-    'Yang benar-benar melakukan sesuatu, bukan cuma hiasan: kendaraan yang bisa dinaiki, pistol mainan, air mancur, wahana taman, dan lampu.',
+  'tut.menu-inventario.2.titulo': 'Peta',
+  'tut.menu-inventario.2.texto': 'Yang SUDAH terpasang, ruangan demi ruangan: ketuk sebuah gambar kecil untuk mengedit objek itu.',
+  'tut.menu-inventario.3.titulo': 'Katalog',
+  'tut.menu-inventario.3.texto': 'Semua objek yang ada, dalam dua folder: yang biasa dan yang spesial — yang melakukan sesuatu, seperti kendaraan yang bisa dikendarai, air mancur, wahana taman, dan lampu.',
   'tut.menu-inventario.4.titulo': 'Menempatkan',
-  'tut.menu-inventario.4.texto':
-    'Selagi menu ini terbuka, seret sebuah gambar kecil langsung ke adegan 3D untuk menaruhnya di mana pun kamu mau.',
-  'tut.menu-inventario.5.texto':
-    'Untuk memindahkan, mewarnai, atau menghapus yang sudah ditaruh, pakai Editor (tab Objek) — menu ini hanya untuk membawa barang baru ke dalam adegan.',
+  'tut.menu-inventario.4.texto': 'Dengan katalog terbuka, seret sebuah gambar kecil langsung ke scene 3D untuk menaruhnya di mana pun kamu mau.',
+  'tut.menu-inventario.5.texto': 'Cabang satunya, Buat, untuk membuat objek baru dari potongan atau dengan AI, dan untuk mengedit yang sedang kamu pilih.',
   'tut.editor-mapa.1.texto':
     'Editor rumah punya 4 tab: Peta, Karakter, Objek, dan Pengaturan. Tur ini tur Peta; tiga tab lainnya punya turnya sendiri.',
   'tut.editor-mapa.2.titulo': 'Denah',

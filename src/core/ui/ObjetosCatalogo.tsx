@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useMemo, useState, type ReactNode } from 'react'
+import { Fragment, useMemo, useState, type ReactNode } from 'react'
 import type { ObjetoCuarto } from '../data/db'
 import { RECURSOS } from '../house/recursos'
 import { useShallow } from 'zustand/react/shallow'
@@ -16,7 +16,6 @@ import { META_ESPECIAL_PLANTILLA } from '../house/especialesPlantillaMeta'
 import { TIPO_FLOTADOR, NOMBRE_FLOTADOR } from '../state/flotadorStore'
 import { tieneAnimacion } from '../house/animacion'
 import { plantillaObjetoPiezas } from './comun/EditorPiezas'
-import { claveLS, esDemo, esDemoAutor } from '../edicion'
 import { ANCLAS_AVATAR, CATEGORIAS_PRENDA, PRENDAS } from '../house/apariencia'
 import { ANIMALES, useGranja } from '../state/granjaStore'
 import type { TipoAnimal } from '../data/db'
@@ -39,14 +38,6 @@ import {
   grupoDeCategoriaEspecial,
 } from './inventarioGrupos'
 
-/** Marca en localStorage de que la biblioteca ya se sembró una vez.
- *  v6: orquídea. v7: principales ambientales. v8: principales usables. v9: luces (antorcha/farol/etc).
- *  v10: separa 'Especiales' en 'Cuadro y espejo' + 'Fuentes'. v11: la carpeta de luces pasa de
- *  'Iluminación' (colisionaba con la categoría de lámparas de RECURSOS) a 'Luces'.
- *  v13: anuncios (espectacular/Las Vegas/neón). v14: retira las carpetas anticuadas
- *  (Estructural, Estructural / Deco, Terreno) — ver `CATS_RETIRADAS`.
- *  La siembra deduplica/migra lo previo. */
-const SEED_FLAG = claveLS('mh_libreria_seeded_v14')
 /** Orden manual de carpetas (drag & drop), persistido en localStorage. */
 const ORDEN_CATS_KEY = 'mh_libreria_orden_categorias'
 /** Carpetas superiores plegadas (una lista por sub-pestaña). */
@@ -138,17 +129,23 @@ const SIN_OCUPACION: Set<string> = new Set()
  * reordenarlos (o mover un objeto a otra carpeta). "Restaurar objetos base"
  * repone los borrados.
  *
- * `soloCategorias`: si se da, solo se listan esas carpetas (pestaña "Objetos
+ * `soloCategorias`: si se da, solo se listan esas carpetas (carpeta "Objetos
  * especiales" — Pistolas/Vehículos); si no, se listan todas MENOS esas.
+ *
+ * `anidado`: va dentro de una carpeta del editor, así que sus grupos bajan un
+ * nivel y se callan la ayuda y el botón de restaurar (los pone el padre una vez
+ * para las dos mitades del catálogo).
  */
-export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] } = {}) {
+export function ObjetosCatalogo({
+  soloCategorias,
+  anidado = false,
+}: { soloCategorias?: string[]; anidado?: boolean } = {}) {
   const t = useT()
   // Solo biblioteca + instancias colocadas de biblioteca (useShallow): con
   // `s.objetos` crudo, mover CUALQUIER mueble de la casa repintaba el inventario.
   const objetos = useDiseño(
     useShallow((s) => s.objetos.filter((o) => esObjetoLibreria(o) || o.libreriaId != null)),
   )
-  const sembrarLibreriaBase = useDiseño((s) => s.sembrarLibreriaBase)
   const addObjetoLibreria = useDiseño((s) => s.addObjetoLibreria)
   const instanciarEnMapa = useDiseño((s) => s.instanciarObjetoEnMapa)
   const removeObjeto = useDiseño((s) => s.removeObjeto)
@@ -165,19 +162,9 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
   const [ordenCategorias, setOrdenCategorias] = useState<string[]>(leerOrdenCategorias)
   const [gruposPlegados, setGruposPlegados] = useState<Set<string>>(() => new Set(leerGruposPlegados()))
 
-  // Siembra inicial (una sola vez): crea la biblioteca con el catálogo base.
-  // El flag se marca ANTES de sembrar para no duplicar con el doble montaje de StrictMode.
-  // Auto-reparación: si el flag quedó puesto pero la biblioteca está vacía (la
-  // siembra se interrumpió a medias, p. ej. por una recarga), se reintenta.
-  useEffect(() => {
-    // Casa demo: su biblioteca se siembra al construirla (demo/sandbox.ts), ya
-    // dentro de la foto del original. Resembrarla aquí solo la ensuciaría.
-    if (esDemo() && !esDemoAutor()) return
-    if (localStorage.getItem(SEED_FLAG) && objetos.some(esObjetoLibreria)) return
-    localStorage.setItem(SEED_FLAG, '1')
-    void sembrarLibreriaBase()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sembrarLibreriaBase])
+  // La siembra inicial de la biblioteca ya NO vive aquí: corre al arrancar la app
+  // (`disenoStore`), porque este catálogo solo se monta dentro del editor y quien
+  // nunca lo abriera se quedaba sin biblioteca.
 
   const libreria = objetos.filter(esObjetoLibreria).filter((o) => {
     const cat = o.categoria || 'Otros'
@@ -286,15 +273,6 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
     if (!window.confirm(msg)) return
     await removeObjeto(o.id)
     setObjetoSel(null)
-  }
-
-  const restaurar = async () => {
-    const msg = t(
-      'objetos.restaurarConfirm',
-      'Se volverán a añadir los objetos base del catálogo que hayas borrado. ¿Continuar?',
-    )
-    if (!window.confirm(msg)) return
-    await sembrarLibreriaBase()
   }
 
   const togglePlegada = (cat: string) =>
@@ -639,11 +617,13 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
 
   return (
     <section className="flex flex-col gap-1.5">
-      <p className="mb-1 px-2 text-[11px] leading-snug text-white/45">
-        {esEspeciales
-          ? t('objetos.ayudaEspeciales', 'Los objetos con efecto, agrupados por lo que hacen. Ábrelos para ver sus carpetas.')
-          : t('objetos.ayuda', 'Todos los objetos que existen, por categoría. Crea los tuyos, edítalos o bórralos.')}
-      </p>
+      {!anidado && (
+        <p className="mb-1 px-2 text-[11px] leading-snug text-white/45">
+          {esEspeciales
+            ? t('objetos.ayudaEspeciales', 'Los objetos con efecto, agrupados por lo que hacen. Ábrelos para ver sus carpetas.')
+            : t('objetos.ayuda', 'Todos los objetos que existen, por categoría. Crea los tuyos, edítalos o bórralos.')}
+        </p>
+      )}
 
       {definiciones.map((g) => {
         const cats = catsPorGrupo.get(g.id) ?? []
@@ -662,7 +642,7 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
         return (
           <Carpeta
             key={g.id}
-            nivel={0}
+            nivel={anidado ? 1 : 0}
             titulo={t(`inv.grupo.${g.id}`, g.nombre)}
             icono={g.icono}
             conteo={conteo}
@@ -682,15 +662,34 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
         )
       })}
 
-      {/* Restaurar los objetos base del catálogo que se hayan borrado */}
-      <button
-        type="button"
-        onClick={restaurar}
-        className="mt-2 flex w-full items-center justify-center gap-1.5 rounded-lg border border-dashed border-white/15 py-2 text-xs font-semibold text-white/55 transition hover:border-white/30 hover:text-white/85"
-      >
-        <Icono nombre="restaurar" /> {t('objetos.restaurar', 'Restaurar objetos base')}
-      </button>
+      {/* Restaurar los objetos base del catálogo que se hayan borrado. Anidado no:
+          lo pone el editor una sola vez, bajo las dos mitades del catálogo. */}
+      {!anidado && <BotonRestaurarObjetos />}
     </section>
+  )
+}
+
+/** Repone los objetos de fábrica que se hayan borrado. Fuera del catálogo porque
+ *  el editor lo pinta una sola vez para sus dos carpetas. */
+export function BotonRestaurarObjetos() {
+  const t = useT()
+  const sembrarLibreriaBase = useDiseño((s) => s.sembrarLibreriaBase)
+  const restaurar = async () => {
+    const msg = t(
+      'objetos.restaurarConfirm',
+      'Se volverán a añadir los objetos base del catálogo que hayas borrado. ¿Continuar?',
+    )
+    if (!window.confirm(msg)) return
+    await sembrarLibreriaBase()
+  }
+  return (
+    <button
+      type="button"
+      onClick={restaurar}
+      className="mt-2 flex w-full items-center justify-center gap-1.5 rounded-lg border border-dashed border-white/15 py-2 text-xs font-semibold text-white/55 transition hover:border-white/30 hover:text-white/85"
+    >
+      <Icono nombre="restaurar" /> {t('objetos.restaurar', 'Restaurar objetos base')}
+    </button>
   )
 }
 
@@ -968,8 +967,12 @@ function CarpetaRopa({ tema }: { tema: Tema | null }) {
  */
 function CarpetaAnimales({ tema }: { tema: Tema | null }) {
   const t = useT()
+  const setEditMode = useLayout((s) => s.setEditMode)
 
   const alaGranja = (tipo: TipoAnimal) => {
+    // El editor de la granja solo se monta con el editor de mapa CERRADO (App.tsx),
+    // y este catálogo vive dentro de él: sin esto el botón no abriría nada.
+    setEditMode(false)
     useGranja.getState().iniciar()
     useGranja.setState({ tipo, herramienta: 'animal' })
   }
@@ -982,7 +985,7 @@ function CarpetaAnimales({ tema }: { tema: Tema | null }) {
         {t('inv.animales.ayuda', 'Los animales viven en los corrales de la granja. Toca uno para ir a construir su corral.')}
       </p>
       {/* Una sola carpeta: todas las especies son de granja. */}
-      <CarpetaFija titulo={t('room.granja.nombre', 'Granja')} conteo={animales.length}>
+      <CarpetaFija titulo={t('room.granja.nombre', 'Santuario')} conteo={animales.length}>
         {animales.map(([tipo, def]) => (
           <FilaPieza
             key={tipo}

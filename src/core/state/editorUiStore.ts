@@ -3,6 +3,13 @@ import { create } from 'zustand'
 /** Pestaña activa del panel Editor (sin cuarto seleccionado). */
 export type EditorTab = 'mapa' | 'personajes' | 'objetos' | 'config'
 
+/** Las dos ramas de la pestaña Objetos: hacer objetos nuevos o traerlos del inventario. */
+export type ObjRaiz = 'crear' | 'inventario'
+/** Dentro de «Crear». */
+export type ObjCrear = 'crear' | 'editar'
+/** Dentro de «Inventario»: lo ya colocado en la casa o el catálogo entero. */
+export type ObjInv = 'mapa' | 'catalogo'
+
 /** Id del personaje principal en el editor de personajes. */
 export const PERSONAJE_AVATAR = 'avatar'
 
@@ -22,6 +29,20 @@ interface EditorUiState {
   /** Objeto en edición (id) en la pestaña Objetos; null = ninguno. */
   objetoSel: number | null
   setObjetoSel: (id: number | null) => void
+  /**
+   * Sub-menús de la pestaña Objetos. Viven aquí —y no como estado local del
+   * panel— porque el chat y los tutoriales necesitan poder llevar al usuario a
+   * una rama concreta, y porque elegir un objeto desde la escena 3D, la rueda o
+   * el menú despierto tiene que aterrizar en el editor.
+   */
+  objRaiz: ObjRaiz
+  setObjRaiz: (v: ObjRaiz) => void
+  objCrear: ObjCrear
+  setObjCrear: (v: ObjCrear) => void
+  objInv: ObjInv
+  setObjInv: (v: ObjInv) => void
+  /** Abre la pestaña Objetos en el catálogo del inventario (chat, atajos). */
+  abrirInventarioObjetos: () => void
   /**
    * Pieza seleccionada (índice) del modelo de piezas en edición. Compartida entre
    * el panel (EditorPiezas) y el preview 3D para poder elegirla tocando el modelo.
@@ -99,8 +120,23 @@ export const useEditorUi = create<EditorUiState>((set) => ({
   setPersonajeSel: (personajeSel) => set({ personajeSel, animPreview: false }),
   editarPersonaje: (id) => set({ personajeSel: id, tab: 'personajes' }),
   objetoSel: null,
-  // Al cambiar de objeto se detiene la reproducción del preview.
-  setObjetoSel: (objetoSel) => set({ objetoSel, animPreview: false }),
+  // Al cambiar de objeto se detiene la reproducción del preview. Y elegir uno
+  // —desde la escena, la rueda, el menú despierto o el catálogo— lleva SIEMPRE a
+  // Crear > Editar: si no, el panel abriría en otra rama y parecería roto.
+  setObjetoSel: (objetoSel) =>
+    set({
+      objetoSel,
+      animPreview: false,
+      ...(objetoSel != null && { objRaiz: 'crear' as const, objCrear: 'editar' as const }),
+    }),
+  objRaiz: 'crear',
+  setObjRaiz: (objRaiz) => set({ objRaiz }),
+  objCrear: 'editar',
+  setObjCrear: (objCrear) => set({ objCrear }),
+  objInv: 'catalogo',
+  setObjInv: (objInv) => set({ objInv }),
+  abrirInventarioObjetos: () =>
+    set({ tab: 'objetos', objRaiz: 'inventario', objInv: 'catalogo' }),
   piezaSel: 0,
   setPiezaSel: (piezaSel) => set({ piezaSel }),
   piezasControles: false,

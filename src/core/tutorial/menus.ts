@@ -79,7 +79,7 @@ export const cuerpoCasa: CuerpoTutorial = {
       titulo: T('tut.casa.2.titulo', 'El menú principal'),
       texto: T(
         'tut.casa.2.texto',
-        'Lo abrí para que lo veas: es el menú principal, con tus cuartos y sus apps. Sus otras pestañas traen el catálogo de plantillas (apps) y el inventario de objetos.',
+        'Lo abrí para que lo veas: es el menú principal, con tus cuartos y sus apps. Sus otras pestañas traen el Interior (el catálogo de apps) y el Exterior, lo que se construye sobre el terreno.',
       ),
     },
     {
@@ -96,16 +96,16 @@ export const cuerpoCasa: CuerpoTutorial = {
       ),
     },
     {
-      sel: 'menu.inv.catalogo',
+      sel: 'menu.tab.extras',
       alEntrar: async () => {
         useHud.getState().setPlegado('supIzq', false)
         clickTut('menu.abrir')
-        await irAPestanaMenu('menu.tab.inventario')
+        await irAPestanaMenu('menu.tab.extras')
       },
-      titulo: T('tut.casa.2c.titulo', 'El inventario'),
+      titulo: T('tut.casa.2c.titulo', 'El exterior'),
       texto: T(
         'tut.casa.2c.texto',
-        'Y la tercera: el inventario — los objetos y piezas que guardas de tus cuartos, listos para volver a colocarse donde quieras.',
+        'Y la tercera: el Exterior — pistas de carreras, canchas, huerto, santuario y paintball, que no ocupan un cuarto sino que se construyen sobre el terreno.',
       ),
     },
     {
@@ -278,7 +278,7 @@ export const cuerpoMenuCuartos: CuerpoTutorial = {
       alEntrar: () => irAPestanaMenu('menu.tab.cuartos'),
       texto: T(
         'tut.menu-cuartos.1.texto',
-        'La pestaña Cuartos lista todos los cuartos de tu casa, agrupados por categoría.',
+        'La pestaña Hogar lista todos los cuartos de tu casa, agrupados por categoría.',
       ),
     },
     {
@@ -358,7 +358,7 @@ export const cuerpoMenuPlantillas: CuerpoTutorial = {
       titulo: T('tut.menu-plantillas.2.titulo', 'Dos vistas'),
       texto: T(
         'tut.menu-plantillas.2.texto',
-        'Cuartos son las apps de siempre, cada una en su objeto. Infraestructura es distinta: pistas, canchas, huerto, granja o paintball se construyen directo sobre el terreno, sin ocupar un cuarto.',
+        'Productividad son las apps de trabajo y vida diaria; Creatividad, el Studio: audio, arte, escritura y video. Todas se asignan igual a un objeto de un cuarto.',
       ),
     },
     {
@@ -366,7 +366,7 @@ export const cuerpoMenuPlantillas: CuerpoTutorial = {
       titulo: T('tut.menu-plantillas.3.titulo', 'El catálogo'),
       texto: T(
         'tut.menu-plantillas.3.texto',
-        'Las apps de serie y las tuyas, organizadas por grupos. Toca una para asignarla a un cuarto o, en Infraestructura, para construirla en el mapa.',
+        'Las apps de serie y las tuyas, organizadas por grupos. Toca una para asignarla a un cuarto.',
       ),
     },
     {
@@ -451,54 +451,54 @@ export const cuerpoPlantillasCustom: CuerpoTutorial = {
   ],
 }
 
+/** El inventario vive dentro del editor (Objetos › Inventario), no en el side menu. */
 export const cuerpoMenuInventario: CuerpoTutorial = {
-  preparar: () => {
-    clickTut('menu.abrir')
-  },
+  preparar: abrirEditorEn('objetos'),
   pasos: [
     {
-      sel: 'menu.tab.inventario',
-      alEntrar: () => irAPestanaMenu('menu.tab.inventario'),
+      sel: 'editor.obj.raiz.inventario',
+      alEntrar: () => {
+        clickTut('editor.obj.raiz.inventario')
+      },
       texto: T(
         'tut.menu-inventario.1.texto',
         'El inventario: todos los objetos que puedes colocar en tu casa, listos para arrastrar.',
       ),
     },
     {
-      sel: 'menu.inv.sub.objetos',
-      alEntrar: async () => {
-        await irAPestanaMenu('menu.tab.inventario')
-        clickTut('menu.inv.sub.objetos')
+      sel: 'editor.obj.inv.mapa',
+      alEntrar: () => {
+        clickTut('editor.obj.inv.mapa')
       },
-      titulo: T('tut.menu-inventario.2.titulo', 'Objetos'),
+      titulo: T('tut.menu-inventario.2.titulo', 'Mapa'),
       texto: T(
         'tut.menu-inventario.2.texto',
-        'Tu biblioteca de objetos por categorías y carpetas. Puedes renombrarlos y organizarlos para encontrarlos rápido la próxima vez.',
+        'Lo que YA está colocado, cuarto por cuarto: toca una miniatura para editar ese objeto.',
       ),
     },
     {
-      sel: 'menu.inv.sub.especiales',
+      sel: 'editor.obj.inv.catalogo',
       alEntrar: () => {
-        clickTut('menu.inv.sub.especiales')
+        clickTut('editor.obj.inv.catalogo')
       },
-      titulo: T('tut.menu-inventario.3.titulo', 'Objetos especiales'),
+      titulo: T('tut.menu-inventario.3.titulo', 'Catálogo'),
       texto: T(
         'tut.menu-inventario.3.texto',
-        'Los que hacen algo, no solo decoran: vehículos montables, pistolas de juguete, fuentes, juegos de parque y luces.',
+        'Todos los objetos que existen, en dos carpetas: los normales y los especiales —los que hacen algo, como vehículos montables, fuentes, juegos de parque y luces.',
       ),
     },
     {
-      sel: 'menu.inv.catalogo',
+      sel: 'editor.obj.catalogo',
       titulo: T('tut.menu-inventario.4.titulo', 'Colocar'),
       texto: T(
         'tut.menu-inventario.4.texto',
-        'Con este menú abierto, arrastra una miniatura directo a la escena 3D para colocarla donde quieras.',
+        'Con el catálogo abierto, arrastra una miniatura directo a la escena 3D para colocarla donde quieras.',
       ),
     },
     {
       texto: T(
         'tut.menu-inventario.5.texto',
-        'Para mover, pintar o borrar lo ya colocado, usa el Editor (pestaña Objetos) — este menú es solo para traer cosas nuevas a escena.',
+        'La otra rama, Crear, es para hacer objetos nuevos por piezas o con IA, y para editar el que tengas elegido.',
       ),
     },
   ],

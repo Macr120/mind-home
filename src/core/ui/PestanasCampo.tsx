@@ -43,7 +43,7 @@ export function PestanasCampo({ activa }: { activa: CampoId }) {
   return (
     <div data-tut="infra.campos" className="flex min-w-0 flex-1 items-center gap-1.5">
       {pestana('huerto', 'sembrar', t('room.huerto.nombre', 'Comida'))}
-      {pestana('granja', 'granja', t('room.granja.nombre', 'Granja'))}
+      {pestana('granja', 'granja', t('room.granja.nombre', 'Santuario'))}
     </div>
   )
 }

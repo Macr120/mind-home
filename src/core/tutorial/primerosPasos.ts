@@ -90,7 +90,7 @@ const PASO_TAB_CUARTOS: PasoTutorial = {
   },
   texto: T(
     'tut.primeros.1.texto',
-    'Este tutorial contesta dos cosas: cómo ENTRAR a tus apps y cómo CREAR una nueva. Las dos viven aquí, en la pestaña Cuartos.',
+    'Este tutorial contesta dos cosas: cómo ENTRAR a tus apps y cómo CREAR una nueva. Las dos viven aquí, en la pestaña Hogar.',
   ),
 }
 

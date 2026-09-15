@@ -34,7 +34,7 @@ export function Resumen() {
   return (
     <div className="mx-auto flex h-full max-w-md flex-col gap-3 p-4">
       <p className="text-sm text-white/60">
-        {t('infra.resumen.ayuda', 'Esta plantilla se construye en el mapa 3D: menú → Plantillas → Complementos → Construir.')}
+        {t('infra.resumen.ayuda', 'Esta plantilla se construye en el mapa 3D: menú → Exterior → Construir.')}
       </p>
       <div className="grid grid-cols-3 gap-2">
         {tipos.map((a) => (

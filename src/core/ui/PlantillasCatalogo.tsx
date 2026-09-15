@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react'
 import type { PlantillaCustom } from '../data/db'
-import { getPlantilla, plantillasCuarto, DESCRIPCIONES, type Plantilla } from '../registry'
+import {
+  getPlantilla,
+  plantillasCuarto,
+  esCreatividad,
+  DESCRIPCIONES,
+  type Plantilla,
+} from '../registry'
 import { usePreviaPlantilla } from '../state/previaPlantillaStore'
 import { useShallow } from 'zustand/react/shallow'
 import { useDiseño, idsPlantillasAsignadas } from '../state/disenoStore'
@@ -35,8 +41,12 @@ const nombreRecurso = (id: number): string =>
  * ellas). Las apps del sistema se ocultan al asignarse a un cuarto; las
  * plantillas personalizadas permanecen visibles (con editar/borrar) en su
  * carpeta aunque estén en uso.
+ *
+ * `creativa` elige la mitad que se pinta: las 4 apps del Studio o todas las
+ * demás. Las carpetas del usuario son un eje aparte, así que cada una aparece
+ * en la mitad (o en las dos) donde tenga miembros.
  */
-export function PlantillasCatalogo() {
+export function PlantillasCatalogo({ creativa = false }: { creativa?: boolean } = {}) {
   const t = useT()
   // Solo «qué apps están en uso»: jamás `s.objetos` crudo (re-render a 60 Hz).
   const idsAsignadas = useDiseño(useShallow((s) => idsPlantillasAsignadas(s.objetos)))
@@ -336,19 +346,20 @@ export function PlantillasCatalogo() {
 
   return (
     <section>
-      <p className="mb-2 px-2 text-[11px] leading-snug text-white/45">
-        {t(
-          'plantillas.ayuda',
-          'Arrastra una plantilla a otra carpeta; toca el icono para probar la app y el nombre de la carpeta para renombrarla.',
-        )}
-      </p>
-
       <div className="flex flex-col gap-3">
         {grupos.map((g) => {
-          const visibles = g.miembros
-            .map((id) => getPlantilla(id))
-            .filter((p): p is Plantilla => !!p)
+          const suyas = g.miembros.map((id) => getPlantilla(id)).filter((p): p is Plantilla => !!p)
+          const visibles = suyas
             .filter((p) => idsCustom.has(p.id) || !asignadas.has(p.id))
+            .filter((p) => esCreatividad(p) === creativa)
+          // Una carpeta de la otra familia no pinta aquí: la del Studio saldría
+          // siempre hueca en Productividad, y las cinco de productividad saldrían
+          // huecas en Creatividad. Una carpeta VACÍA de verdad sí se pinta (solo en
+          // Productividad): su hueco es el blanco de soltado que hace descubrible el
+          // arrastre, y ahí es donde el usuario crea las suyas.
+          const deLaOtraFamilia =
+            suyas.length > 0 && suyas.every((p) => esCreatividad(p) !== creativa)
+          if (deLaOtraFamilia || (creativa && visibles.length === 0)) return null
           return (
             <section
               key={g.id}
@@ -448,23 +459,37 @@ export function PlantillasCatalogo() {
         })}
       </div>
 
-      <div className="mt-3 flex flex-col gap-1.5">
-        <button
-          type="button"
-          onClick={() => void crear(t('plantillaCustom.nuevoGrupoNombre', 'Nuevo grupo'))}
-          className="w-full rounded-xl border border-dashed border-white/15 px-3 py-2 text-center text-xs font-semibold text-white/55 transition hover:bg-white/5 hover:text-white/80"
-        >
-          ＋ {t('plantillaCustom.nuevoGrupo', 'Nuevo grupo')}
-        </button>
-        <button
-          type="button"
-          data-tut="menu.plantillas.crear"
-          onClick={() => setEditor('nueva')}
-          className="w-full rounded-xl border border-dashed border-white/15 px-3 py-2.5 text-center text-xs font-semibold text-white/60 transition hover:bg-white/5 hover:text-white/85"
-        >
-          ＋ {t('plantillaCustom.crear', 'Crear plantilla')}
-        </button>
-      </div>
+      {/* Solo en Productividad: una plantilla propia nace productiva (desaparecería
+          de la pestaña donde se creó) y una carpeta nueva nace vacía, que aquí
+          no se pinta. */}
+      {!creativa && (
+        <div className="mt-3 flex flex-col gap-1.5">
+          <button
+            type="button"
+            onClick={() => void crear(t('plantillaCustom.nuevoGrupoNombre', 'Nuevo grupo'))}
+            className="w-full rounded-xl border border-dashed border-white/15 px-3 py-2 text-center text-xs font-semibold text-white/55 transition hover:bg-white/5 hover:text-white/80"
+          >
+            ＋ {t('plantillaCustom.nuevoGrupo', 'Nuevo grupo')}
+          </button>
+          <button
+            type="button"
+            data-tut="menu.plantillas.crear"
+            onClick={() => setEditor('nueva')}
+            className="w-full rounded-xl border border-dashed border-white/15 px-3 py-2.5 text-center text-xs font-semibold text-white/60 transition hover:bg-white/5 hover:text-white/85"
+          >
+            ＋ {t('plantillaCustom.crear', 'Crear plantilla')}
+          </button>
+        </div>
+      )}
+
+      {/* La ayuda va al PIE (como la del editor): arriba empujaba el catálogo
+          hacia abajo y se leía antes de tener nada a lo que aplicarla. */}
+      <p className="mt-3 border-t border-white/10 px-2 pt-3 text-[11px] leading-snug text-white/45">
+        {t(
+          'plantillas.ayuda',
+          'Arrastra una plantilla a otra carpeta; toca el icono para probar la app y el nombre de la carpeta para renombrarla.',
+        )}
+      </p>
 
       {editor && (
         <PlantillaCustomEditor

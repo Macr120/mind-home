@@ -308,6 +308,17 @@ export const plantillasCuarto = (): Plantilla[] =>
 export const plantillasInfraestructura = (): Plantilla[] => codigo.filter(esInfraestructura)
 
 /**
+ * Apps del Studio creativo: las que el catálogo lista bajo «Creatividad» (el
+ * resto va en «Productividad»). La lista es FIJA a propósito: la carpeta
+ * «Studio» del catálogo vive en Dexie y es del usuario —puede renombrarla o
+ * sacarle apps—, así que no puede gobernar una pestaña. Las plantillas propias
+ * del usuario no están aquí: nacen productivas.
+ */
+const IDS_CREATIVIDAD = new Set(['audio', 'arte', 'escritura', 'video'])
+
+export const esCreatividad = (p: Plantilla) => IDS_CREATIVIDAD.has(p.id)
+
+/**
  * Apps que se pueden agendar en el calendario. Coincide con las que tienen meta
  * diaria, y por eso se filtra por la misma bandera: las excluidas (el garage) no
  * son hábitos ni tienen nada suyo que ocurra a una hora.
