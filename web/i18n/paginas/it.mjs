@@ -239,6 +239,12 @@ export const TEXTOS = {
   'priv.redes.youtube':
     'Per YouTube l’app usa YouTube API Services; collegando il tuo account accetti i <a href="https://www.youtube.com/t/terms">Termini di servizio di YouTube</a> e si applica l’<a href="https://policies.google.com/privacy">Informativa sulla privacy di Google</a>.',
 
+  'priv.seguridad.h': 'Come proteggiamo i tuoi dati',
+  'priv.seguridad.p':
+    'Tutto ciò che viaggia tra l’app e i nostri server è cifrato in transito con HTTPS/TLS e i dati che sincronizzi restano cifrati a riposo sull’infrastruttura di Supabase. La tua password non viene mai conservata in chiaro: Supabase Auth ne memorizza solo l’hash. Ogni account è isolato dagli altri — le tabelle hanno l’isolamento per riga attivo e solo le funzioni del server, dopo aver verificato la tua sessione, possono leggere o scrivere ciò che è tuo —, l’accesso amministrativo è limitato alle persone che gestiscono il servizio e nessuno esamina il contenuto della tua casa. I tuoi dati non si vendono, non si usano per pubblicità e non servono ad addestrare modelli di IA.',
+  'priv.seguridad.tokens':
+    'I token degli account social che colleghi ricevono una protezione aggiuntiva perché sono dati sensibili: prima di essere salvati vengono cifrati con AES-GCM a 256 bit usando una chiave che esiste solo come segreto del server, non è nel codice, non arriva mai al tuo dispositivo e non si può leggere dal database. L’app non riceve mai un token: quando chiede i tuoi account collegati ottiene solo il nome, la foto e la data di scadenza. Il token viene decifrato dentro il server, nell’istante in cui si pubblica il video che hai chiesto tu, e non serve a nient’altro. Viene cancellato appena scolleghi l’account o elimini il tuo, e un processo quotidiano controlla le connessioni inattive e rimuove quelle che non sono più valide.',
+
   'priv.cancelas.h': 'Se disdici l’abbonamento',
   'priv.cancelas.p':
     'I tuoi dati locali restano sui tuoi dispositivi. I dati sincronizzati restano archiviati (inaccessibili finché non rinnovi) e puoi cancellarli definitivamente eliminando il tuo account.',

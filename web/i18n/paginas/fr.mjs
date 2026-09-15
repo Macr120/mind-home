@@ -240,6 +240,12 @@ export const TEXTOS = {
   'priv.redes.youtube':
     'Pour YouTube, l’app utilise YouTube API Services ; en connectant ton compte, tu acceptes les <a href="https://www.youtube.com/t/terms">Conditions d’utilisation de YouTube</a> et la <a href="https://policies.google.com/privacy">Politique de confidentialité de Google</a> s’applique.',
 
+  'priv.seguridad.h': 'Comment nous protégeons tes données',
+  'priv.seguridad.p':
+    'Tout ce qui circule entre l’application et nos serveurs est chiffré en transit avec HTTPS/TLS, et les données que tu synchronises restent chiffrées au repos sur l’infrastructure de Supabase. Ton mot de passe n’est jamais conservé en clair : Supabase Auth n’en garde que l’empreinte. Chaque compte est isolé des autres — les tables ont l’isolation par ligne activée et seules les fonctions du serveur, après avoir vérifié ta session, peuvent lire ou écrire ce qui t’appartient —, l’accès administratif est limité aux personnes qui exploitent le service et personne ne consulte le contenu de ta maison. Tes données ne sont pas vendues, ne servent pas à la publicité et ne servent pas à entraîner des modèles d’IA.',
+  'priv.seguridad.tokens':
+    'Les jetons des comptes de réseaux sociaux que tu connectes bénéficient d’une protection supplémentaire parce qu’il s’agit de données sensibles : avant d’être stockés, ils sont chiffrés en AES-GCM 256 bits avec une clé qui n’existe que comme secret du serveur, qui ne figure pas dans le code, qui ne part jamais vers ton appareil et qui ne peut pas être lue depuis la base de données. L’application ne reçoit jamais de jeton : quand elle demande tes comptes connectés, elle n’obtient que le nom, la photo et la date d’expiration. Le jeton est déchiffré à l’intérieur du serveur, au moment de publier la vidéo que tu as demandée, et ne sert à rien d’autre. Il est effacé dès que tu déconnectes le compte ou que tu supprimes le tien, et un processus quotidien examine les connexions inactives et supprime celles qui ne sont plus valides.',
+
   'priv.cancelas.h': 'Si tu résilies ton abonnement',
   'priv.cancelas.p':
     'Tes données locales restent sur tes appareils. Les données synchronisées restent stockées (inaccessibles jusqu’à ce que tu reprennes) et tu peux les effacer définitivement en supprimant ton compte.',

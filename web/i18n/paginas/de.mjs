@@ -239,6 +239,12 @@ export const TEXTOS = {
   'priv.redes.youtube':
     'Für YouTube nutzt die App YouTube API Services; mit dem Verbinden deines Kontos akzeptierst du die <a href="https://www.youtube.com/t/terms">YouTube-Nutzungsbedingungen</a>, und es gilt die <a href="https://policies.google.com/privacy">Datenschutzerklärung von Google</a>.',
 
+  'priv.seguridad.h': 'Wie wir deine Daten schützen',
+  'priv.seguridad.p':
+    'Alles, was zwischen der App und unseren Servern läuft, wird bei der Übertragung mit HTTPS/TLS verschlüsselt, und die Daten, die du synchronisierst, liegen verschlüsselt auf der Infrastruktur von Supabase. Dein Passwort wird nie im Klartext gespeichert: Supabase Auth bewahrt nur seinen Hash auf. Jedes Konto ist von den übrigen getrennt — für die Tabellen ist die Isolation auf Zeilenebene aktiviert, und nur die Serverfunktionen dürfen, nachdem sie deine Sitzung geprüft haben, deine Daten lesen oder schreiben —, der administrative Zugriff bleibt auf die Personen beschränkt, die den Dienst betreiben, und niemand sieht sich den Inhalt deines Hauses an. Deine Daten werden nicht verkauft, nicht für Werbung genutzt und nicht zum Training von KI-Modellen verwendet.',
+  'priv.seguridad.tokens':
+    'Die Tokens der sozialen Konten, die du verbindest, bekommen zusätzlichen Schutz, weil sie sensible Daten sind: Vor dem Speichern werden sie mit AES-GCM 256 Bit verschlüsselt, mit einem Schlüssel, der nur als Servergeheimnis existiert, nicht im Code steht, nie auf dein Gerät gelangt und sich nicht aus der Datenbank auslesen lässt. Die App erhält nie ein Token: Wenn sie deine verbundenen Konten abfragt, bekommt sie nur den Namen, das Foto und das Ablaufdatum. Das Token wird im Server entschlüsselt, genau in dem Moment, in dem das von dir gewünschte Video veröffentlicht wird, und für nichts anderes verwendet. Es wird gelöscht, sobald du das Konto trennst oder deines löschst, und ein täglicher Prozess prüft ungenutzte Verbindungen und entfernt die, die nicht mehr gültig sind.',
+
   'priv.cancelas.h': 'Wenn du dein Abo kündigst',
   'priv.cancelas.p':
     'Deine lokalen Daten bleiben auf deinen Geräten. Die synchronisierten Daten bleiben gespeichert (unzugänglich, bis du erneuerst) und du kannst sie endgültig löschen, indem du dein Konto löschst.',

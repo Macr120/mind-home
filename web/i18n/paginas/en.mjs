@@ -236,6 +236,12 @@ export const TEXTOS = {
   'priv.redes.youtube':
     'For YouTube, the app uses YouTube API Services; by connecting your account you agree to the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>, and the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> applies.',
 
+  'priv.seguridad.h': 'How we protect your data',
+  'priv.seguridad.p':
+    'Everything that travels between the app and our servers is encrypted in transit with HTTPS/TLS, and the data you sync is encrypted at rest on the Supabase infrastructure. Your password is never stored in the clear: Supabase Auth keeps only its hash. Every account is isolated from the rest — the tables have row-level isolation enabled and only the server functions, after checking your session, can read or write what is yours — administrative access is limited to the people who operate the service, and nobody reviews the contents of your house. Your data is not sold, is not used for advertising and is not used to train AI models.',
+  'priv.seguridad.tokens':
+    'The tokens of the social accounts you connect get extra protection because they are sensitive data: before being stored they are encrypted with 256-bit AES-GCM using a key that exists only as a server secret, is not in the code, never travels to your device and cannot be read from the database. The app never receives a token: when it asks for your connected accounts it only gets the name, the picture and the expiry date. The token is decrypted inside the server, at the moment of publishing the video you asked for, and is used for nothing else. It is deleted as soon as you disconnect the account or delete yours, and a daily process reviews idle connections and removes the ones that are no longer valid.',
+
   'priv.cancelas.h': 'If you cancel your subscription',
   'priv.cancelas.p':
     'Your local data stays on your devices. Synced data remains stored (inaccessible until you renew) and you can delete it for good by deleting your account.',

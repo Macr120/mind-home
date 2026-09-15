@@ -236,6 +236,12 @@ export const TEXTOS = {
   'priv.redes.youtube':
     'No caso do YouTube, o app usa o YouTube API Services; ao conectar sua conta você aceita os <a href="https://www.youtube.com/t/terms">Termos de Serviço do YouTube</a> e se aplica a <a href="https://policies.google.com/privacy">Política de Privacidade do Google</a>.',
 
+  'priv.seguridad.h': 'Como protegemos seus dados',
+  'priv.seguridad.p':
+    'Tudo o que trafega entre o app e nossos servidores vai criptografado em trânsito com HTTPS/TLS, e os dados que você sincroniza ficam criptografados em repouso na infraestrutura da Supabase. Sua senha nunca é guardada em texto claro: o Supabase Auth armazena apenas o hash dela. Cada conta fica isolada das demais — as tabelas têm o isolamento por linha ativado e só as funções do servidor, depois de verificar sua sessão, podem ler ou gravar o que é seu —, o acesso administrativo está limitado às pessoas que operam o serviço e ninguém revisa o conteúdo da sua casa. Seus dados não são vendidos, não são usados para publicidade nem para treinar modelos de IA.',
+  'priv.seguridad.tokens':
+    'Os tokens das contas de redes sociais que você conecta recebem proteção adicional por serem dados sensíveis: antes de serem guardados, são criptografados com AES-GCM de 256 bits usando uma chave que existe somente como segredo do servidor, não está no código, não vai para o seu dispositivo e não pode ser lida no banco de dados. O app nunca recebe um token: ao consultar suas contas conectadas ele só recebe o nome, a foto e a data de validade. O token é descriptografado dentro do servidor, no momento de publicar o vídeo que você pediu, e não é usado para mais nada. Ele é apagado assim que você desconecta a conta ou exclui a sua, e um processo diário revisa as conexões inativas e remove as que já não são válidas.',
+
   'priv.cancelas.h': 'Se você cancelar sua assinatura',
   'priv.cancelas.p':
     'Seus dados locais continuam nos seus dispositivos. Os dados sincronizados ficam armazenados (inacessíveis até você renovar) e podem ser apagados definitivamente eliminando sua conta.',

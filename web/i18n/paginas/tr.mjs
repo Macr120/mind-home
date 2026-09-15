@@ -233,6 +233,12 @@ export const TEXTOS = {
   'priv.redes.youtube':
     'YouTube için uygulama YouTube API Services kullanır; hesabını bağladığında <a href="https://www.youtube.com/t/terms">YouTube Hizmet Şartları</a>’nı kabul etmiş olursun ve <a href="https://policies.google.com/privacy">Google Gizlilik Politikası</a> geçerlidir.',
 
+  'priv.seguridad.h': 'Verilerini nasıl koruyoruz',
+  'priv.seguridad.p':
+    'Uygulamayla sunucularımız arasında giden her şey aktarım sırasında HTTPS/TLS ile şifrelenir, eşitlediğin veriler de Supabase altyapısında şifreli olarak durur. Parolan hiçbir zaman açık metin olarak saklanmaz: Supabase Auth yalnızca özetini tutar. Her hesap diğerlerinden yalıtılmıştır — tablolarda satır bazlı yalıtım açıktır ve sana ait olanı yalnızca sunucu işlevleri, oturumunu doğruladıktan sonra okuyup yazabilir —, yönetimsel erişim hizmeti işleten kişilerle sınırlıdır ve evinin içeriğine kimse bakmaz. Verilerin satılmaz, reklam için kullanılmaz ve yapay zekâ modellerini eğitmek için kullanılmaz.',
+  'priv.seguridad.tokens':
+    'Bağladığın sosyal hesapların jetonları hassas veri olduğu için ek koruma görür: kaydedilmeden önce 256 bitlik AES-GCM ile şifrelenir; anahtar yalnızca sunucu sırrı olarak vardır, kodun içinde değildir, cihazına hiç gitmez ve veritabanından okunamaz. Uygulama hiçbir zaman jeton almaz: bağlı hesaplarını sorduğunda yalnızca adı, fotoğrafı ve son kullanma tarihini alır. Jeton sunucunun içinde, senin istediğin videonun yayımlandığı anda çözülür ve başka hiçbir şey için kullanılmaz. Hesabın bağlantısını kestiğin ya da hesabını sildiğin anda silinir; günlük çalışan bir işlem de atıl bağlantıları gözden geçirip artık geçerli olmayanları kaldırır.',
+
   'priv.cancelas.h': 'Aboneliğini iptal edersen',
   'priv.cancelas.p':
     'Yerel verilerin cihazlarında kalır. Eşitlenen veriler saklanmaya devam eder (yenileyene kadar erişilemez) ve hesabını silerek onları kalıcı olarak kaldırabilirsin.',

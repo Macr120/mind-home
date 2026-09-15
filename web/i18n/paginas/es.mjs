@@ -250,6 +250,12 @@ export const TEXTOS = {
   'priv.redes.youtube':
     'Para YouTube, la app utiliza YouTube API Services; al conectar tu cuenta aceptas los <a href="https://www.youtube.com/t/terms">Términos de servicio de YouTube</a> y se aplica la <a href="https://policies.google.com/privacy">Política de privacidad de Google</a>.',
 
+  'priv.seguridad.h': 'Cómo protegemos tus datos',
+  'priv.seguridad.p':
+    'Todo lo que viaja entre la app y nuestros servidores va cifrado en tránsito con HTTPS/TLS, y los datos que sincronizas quedan cifrados en reposo en la infraestructura de Supabase. Tu contraseña nunca se guarda en claro: Supabase Auth almacena solo su hash. Cada cuenta está aislada de las demás —las tablas llevan activado el aislamiento por fila y solo las funciones del servidor, tras comprobar tu sesión, pueden leer o escribir lo tuyo—, el acceso administrativo se limita a las personas que operan el servicio y nadie revisa el contenido de tu casa. Tus datos no se venden, no se usan para publicidad ni se emplean para entrenar modelos de IA.',
+  'priv.seguridad.tokens':
+    'Los tokens de las cuentas de redes sociales que conectas reciben una protección adicional por ser datos sensibles: antes de guardarse se cifran con AES-GCM de 256 bits mediante una clave que existe únicamente como secreto del servidor, no está en el código, no viaja a tu dispositivo y no puede leerse desde la base de datos. La app nunca recibe un token: al consultar tus cuentas conectadas solo le llegan el nombre, la foto y la fecha de caducidad. El token se descifra dentro del servidor, en el instante de publicar el video que tú pediste, y no se usa para nada más. Se borra en cuanto desconectas la cuenta o eliminas la tuya, y un proceso diario revisa las conexiones inactivas y elimina las que ya no son válidas.',
+
   'priv.cancelas.h': 'Si cancelas tu suscripción',
   'priv.cancelas.p':
     'Tus datos locales siguen en tus dispositivos. Los datos sincronizados quedan almacenados (inaccesibles hasta que renueves) y puedes borrarlos definitivamente eliminando tu cuenta.',

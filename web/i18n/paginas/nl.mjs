@@ -237,6 +237,12 @@ export const TEXTOS = {
   'priv.redes.youtube':
     'Voor YouTube gebruikt de app YouTube API Services; door je account te koppelen ga je akkoord met de <a href="https://www.youtube.com/t/terms">Servicevoorwaarden van YouTube</a> en is het <a href="https://policies.google.com/privacy">Privacybeleid van Google</a> van toepassing.',
 
+  'priv.seguridad.h': 'Hoe we je gegevens beschermen',
+  'priv.seguridad.p':
+    'Alles wat tussen de app en onze servers gaat, wordt onderweg versleuteld met HTTPS/TLS, en de gegevens die je synchroniseert staan versleuteld op de infrastructuur van Supabase. Je wachtwoord wordt nooit leesbaar opgeslagen: Supabase Auth bewaart alleen de hash ervan. Elk account staat los van de rest — de tabellen hebben isolatie per rij aanstaan en alleen de serverfuncties mogen, nadat ze je sessie hebben gecontroleerd, lezen of schrijven wat van jou is —, beheerderstoegang blijft beperkt tot de mensen die de dienst draaien en niemand bekijkt de inhoud van je huis. Je gegevens worden niet verkocht, niet voor advertenties gebruikt en niet gebruikt om AI-modellen te trainen.',
+  'priv.seguridad.tokens':
+    'De tokens van de sociale accounts die je koppelt krijgen extra bescherming omdat het gevoelige gegevens zijn: voordat ze worden opgeslagen versleutelen we ze met 256-bits AES-GCM, met een sleutel die alleen als servergeheim bestaat, niet in de code staat, nooit naar je apparaat gaat en niet uit de database te lezen is. De app krijgt nooit een token: als die om je gekoppelde accounts vraagt, krijgt hij alleen de naam, de foto en de vervaldatum. Het token wordt binnen de server ontsleuteld, op het moment dat de video die jij vroeg gepubliceerd wordt, en wordt verder nergens voor gebruikt. Het wordt gewist zodra je het account loskoppelt of het jouwe verwijdert, en een dagelijks proces bekijkt ongebruikte koppelingen en haalt weg wat niet meer geldig is.',
+
   'priv.cancelas.h': 'Als je je abonnement opzegt',
   'priv.cancelas.p':
     'Je lokale gegevens blijven op je apparaten staan. De gesynchroniseerde gegevens blijven opgeslagen (onbereikbaar tot je verlengt) en je kunt ze definitief wissen door je account te verwijderen.',

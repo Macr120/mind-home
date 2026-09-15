@@ -236,6 +236,12 @@ export const TEXTOS = {
   'priv.redes.youtube':
     'Untuk YouTube, aplikasi memakai YouTube API Services; dengan menghubungkan akunmu kamu menyetujui <a href="https://www.youtube.com/t/terms">Persyaratan Layanan YouTube</a>, dan <a href="https://policies.google.com/privacy">Kebijakan Privasi Google</a> berlaku.',
 
+  'priv.seguridad.h': 'Cara kami melindungi datamu',
+  'priv.seguridad.p':
+    'Semua yang berjalan antara aplikasi dan server kami dienkripsi saat transit dengan HTTPS/TLS, dan data yang kamu sinkronkan tersimpan terenkripsi di infrastruktur Supabase. Kata sandimu tidak pernah disimpan dalam bentuk terbaca: Supabase Auth hanya menyimpan hash-nya. Setiap akun terpisah dari yang lain — tabelnya mengaktifkan isolasi per baris dan hanya fungsi server, setelah memeriksa sesimu, yang dapat membaca atau menulis milikmu —, akses administratif terbatas pada orang-orang yang mengoperasikan layanan, dan tidak ada yang menengok isi rumahmu. Datamu tidak dijual, tidak dipakai untuk iklan, dan tidak dipakai untuk melatih model AI.',
+  'priv.seguridad.tokens':
+    'Token akun media sosial yang kamu hubungkan mendapat perlindungan tambahan karena termasuk data sensitif: sebelum disimpan, token dienkripsi dengan AES-GCM 256 bit memakai kunci yang hanya ada sebagai rahasia server, tidak berada di dalam kode, tidak pernah dikirim ke perangkatmu, dan tidak bisa dibaca dari basis data. Aplikasi tidak pernah menerima token: saat menanyakan akun yang terhubung, yang diterimanya hanya nama, foto, dan tanggal kedaluwarsa. Token didekripsi di dalam server, tepat pada saat video yang kamu minta diterbitkan, dan tidak dipakai untuk hal lain. Token dihapus begitu kamu memutuskan akun itu atau menghapus akunmu, dan sebuah proses harian memeriksa koneksi yang menganggur lalu menghapus yang sudah tidak berlaku.',
+
   'priv.cancelas.h': 'Kalau kamu berhenti berlangganan',
   'priv.cancelas.p':
     'Data lokalmu tetap di perangkatmu. Data yang tersinkron tetap tersimpan (tidak bisa diakses sampai kamu berlangganan lagi) dan bisa kamu hapus selamanya dengan menghapus akunmu.',

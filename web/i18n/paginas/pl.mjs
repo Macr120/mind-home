@@ -236,6 +236,12 @@ export const TEXTOS = {
   'priv.redes.youtube':
     'W przypadku YouTube aplikacja korzysta z YouTube API Services; łącząc konto, akceptujesz <a href="https://www.youtube.com/t/terms">Warunki korzystania z YouTube</a>, a zastosowanie ma <a href="https://policies.google.com/privacy">Polityka prywatności Google</a>.',
 
+  'priv.seguridad.h': 'Jak chronimy twoje dane',
+  'priv.seguridad.p':
+    'Wszystko, co przechodzi między aplikacją a naszymi serwerami, jest szyfrowane w tranzycie przez HTTPS/TLS, a dane, które synchronizujesz, leżą zaszyfrowane w infrastrukturze Supabase. Twoje hasło nigdy nie jest przechowywane jawnie: Supabase Auth trzyma wyłącznie jego skrót. Każde konto jest odizolowane od pozostałych — tabele mają włączoną izolację na poziomie wiersza i tylko funkcje serwera, po sprawdzeniu twojej sesji, mogą czytać i zapisywać to, co twoje —, dostęp administracyjny mają wyłącznie osoby obsługujące serwis i nikt nie przegląda zawartości twojego domu. Twoich danych nie sprzedajemy, nie używamy do reklam ani do trenowania modeli SI.',
+  'priv.seguridad.tokens':
+    'Tokeny kont społecznościowych, które podłączasz, są chronione dodatkowo, bo to dane wrażliwe: przed zapisaniem szyfruje się je 256-bitowym AES-GCM kluczem, który istnieje wyłącznie jako sekret serwera — nie ma go w kodzie, nigdy nie trafia na twoje urządzenie i nie da się go odczytać z bazy danych. Aplikacja nigdy nie dostaje tokenu: pytając o podłączone konta, otrzymuje tylko nazwę, zdjęcie i datę wygaśnięcia. Token jest odszyfrowywany wewnątrz serwera, w chwili publikowania filmu, o który poprosiłeś, i do niczego innego nie służy. Znika, gdy tylko odłączysz konto albo usuniesz swoje, a codzienny proces sprawdza nieużywane połączenia i kasuje te, które przestały być ważne.',
+
   'priv.cancelas.h': 'Jeśli zrezygnujesz z abonamentu',
   'priv.cancelas.p':
     'Dane lokalne zostają na twoich urządzeniach. Dane zsynchronizowane pozostają przechowywane (niedostępne do czasu wznowienia) i możesz je trwale usunąć, kasując konto.',
