@@ -6647,6 +6647,8 @@ export const TR: Dict = {
   'cuenta.nivel.n': 'Seviye ×{n} — ayda {c} kredi',
   'cuenta.nivel.actual': 'Mevcut',
   'cuenta.nivel.nota': 'İstediğin zaman seviye yükseltip düşürebilirsin; fark orantılı hesaplanır.',
+  'cuenta.legal.renovacion.apple': 'Ödeme, satın almayı onayladığında Apple Kimliğine yansıtılır. Mevcut dönem bitmeden en az 24 saat önce kapatmazsan abonelik kendiliğinden yenilenir ve yenileme ücreti o 24 saat içinde tahsil edilir. Aboneliği Apple Kimliği ayarlarından yönetebilir veya iptal edebilirsin.',
+  'cuenta.legal.renovacion.google': 'Ödeme, satın almayı onayladığında Google Play hesabına yansıtılır. Mevcut dönem bitmeden iptal etmezsen abonelik kendiliğinden yenilenir. Aboneliği Google Play aboneliklerinden yönetebilir veya iptal edebilirsin.',
   'cuenta.nivel.subir': '×{n} seviyesine çık — {p} karşılığında ayda {c} kredi',
   'cuenta.nivel.contratar': 'Seviye ×{n} — ayda {c} kredi, {p}',
   'cuenta.nivel.anual': '×1 seviyesinden bir yıl — ayda {c} kredi',

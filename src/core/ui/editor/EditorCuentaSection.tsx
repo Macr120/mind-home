@@ -14,7 +14,7 @@ import {
   urlGestion,
   type OfertaPro,
 } from '../../cuenta/paywall'
-import { canalPago } from '../../plataforma'
+import { canalPago, nombrePlataforma } from '../../plataforma'
 import { sincronizar } from '../../data/sync/motor'
 import { GastoByok } from '../GastoByok'
 import { LogoApple, LogoGoogle } from '../logosMarca'
@@ -490,8 +490,37 @@ function BloquePaywall() {
           {t('cuenta.pago.gestionar', 'Gestionar mi suscripción')}
         </a>
       )}
+      <AvisoRenovacion />
       <EnlacesLegales />
     </div>
+  )
+}
+
+/**
+ * La OTRA mitad de lo que pide la guía 3.1.2, que faltaba junto a los enlaces:
+ * el aviso de que la suscripción se cobra sola y dónde se cancela. Apple lo
+ * quiere en la misma pantalla donde se vende, no solo en la ficha de la tienda,
+ * y es de los motivos de rechazo más repetidos.
+ *
+ * Solo con `canalPago() === 'iap'`: en la web y el escritorio no hay renovación
+ * de tienda que advertir, y el texto cambia de Apple a Google Play porque cada
+ * una manda cancelar en su sitio.
+ */
+function AvisoRenovacion() {
+  const t = useT()
+  if (canalPago() !== 'iap') return null
+  return (
+    <p className="text-[10px] leading-snug text-white/35">
+      {nombrePlataforma() === 'ios'
+        ? t(
+            'cuenta.legal.renovacion.apple',
+            'El pago se carga a tu ID de Apple al confirmar la compra. La suscripción se renueva sola salvo que la desactives al menos 24 horas antes de que acabe el periodo en curso, y el cobro de la renovación se hace dentro de esas 24 horas. Puedes gestionarla o cancelarla en los Ajustes de tu ID de Apple.',
+          )
+        : t(
+            'cuenta.legal.renovacion.google',
+            'El pago se carga a tu cuenta de Google Play al confirmar la compra. La suscripción se renueva sola salvo que la canceles antes de que acabe el periodo en curso. Puedes gestionarla o cancelarla en las suscripciones de Google Play.',
+          )}
+    </p>
   )
 }
 
