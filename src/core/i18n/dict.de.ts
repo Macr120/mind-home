@@ -6796,6 +6796,8 @@ export const DE: Dict = {
   'cuenta.nivel.n': 'Level ×{n} — {c} Credits pro Monat',
   'cuenta.nivel.actual': 'Aktuell',
   'cuenta.nivel.nota': 'Du kannst jederzeit ein Level hoch oder runter; die Änderung wird anteilig berechnet.',
+  'cuenta.legal.renovacion.apple': 'Die Zahlung wird bei Bestätigung des Kaufs deiner Apple-ID belastet. Das Abo verlängert sich automatisch, sofern du es nicht mindestens 24 Stunden vor Ende des laufenden Zeitraums deaktivierst; die Verlängerung wird innerhalb dieser 24 Stunden abgerechnet. Verwalten oder kündigen kannst du es in den Einstellungen deiner Apple-ID.',
+  'cuenta.legal.renovacion.google': 'Die Zahlung wird bei Bestätigung des Kaufs deinem Google-Play-Konto belastet. Das Abo verlängert sich automatisch, sofern du es nicht vor Ende des laufenden Zeitraums kündigst. Verwalten oder kündigen kannst du es in deinen Google-Play-Abos.',
   'cuenta.nivel.subir': 'Auf ×{n} hochstufen — {c} Credits im Monat für {p}',
   'cuenta.nivel.contratar': 'Stufe ×{n} — {c} Credits pro Monat für {p}',
   'cuenta.nivel.anual': 'Ein Jahr Level ×1 — {c} Credits im Monat',

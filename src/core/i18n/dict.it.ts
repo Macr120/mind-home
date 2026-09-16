@@ -6748,6 +6748,8 @@ export const IT: Dict = {
   'cuenta.nivel.n': 'Livello ×{n} — {c} crediti al mese',
   'cuenta.nivel.actual': 'Attuale',
   'cuenta.nivel.nota': 'Puoi salire o scendere di livello quando vuoi; il cambio è addebitato in proporzione.',
+  'cuenta.legal.renovacion.apple': 'Il pagamento viene addebitato sul tuo ID Apple alla conferma dell’acquisto. L’abbonamento si rinnova automaticamente a meno che tu non lo disattivi almeno 24 ore prima della fine del periodo in corso; il rinnovo viene addebitato entro quelle 24 ore. Puoi gestirlo o annullarlo nelle impostazioni del tuo ID Apple.',
+  'cuenta.legal.renovacion.google': 'Il pagamento viene addebitato sul tuo account Google Play alla conferma dell’acquisto. L’abbonamento si rinnova automaticamente a meno che tu non lo annulli prima della fine del periodo in corso. Puoi gestirlo o annullarlo negli abbonamenti di Google Play.',
   'cuenta.nivel.subir': 'Passa a ×{n} — {c} crediti al mese per {p}',
   'cuenta.nivel.contratar': 'Livello ×{n} — {c} crediti al mese per {p}',
   'cuenta.nivel.anual': 'Un anno di livello ×1 — {c} crediti al mese',

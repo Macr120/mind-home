@@ -6435,6 +6435,8 @@ export const KO: Dict = {
   'cuenta.nivel.n': '등급 ×{n} — 월 {c} 크레딧',
   'cuenta.nivel.actual': '현재',
   'cuenta.nivel.nota': '언제든 등급을 올리거나 내릴 수 있어요. 차액은 일할 계산돼요.',
+  'cuenta.legal.renovacion.apple': '구매를 확인하면 Apple ID로 요금이 청구됩니다. 현재 기간이 끝나기 최소 24시간 전에 자동 갱신을 끄지 않으면 구독이 자동으로 갱신되며, 갱신 요금은 그 24시간 이내에 청구됩니다. Apple ID 설정에서 관리하거나 해지할 수 있습니다.',
+  'cuenta.legal.renovacion.google': '구매를 확인하면 Google Play 계정으로 요금이 청구됩니다. 현재 기간이 끝나기 전에 해지하지 않으면 구독이 자동으로 갱신됩니다. Google Play 구독에서 관리하거나 해지할 수 있습니다.',
   'cuenta.nivel.subir': '×{n}로 올리기 — 월 {c} 크레딧, {p}',
   'cuenta.nivel.contratar': '레벨 ×{n} — 매월 {c} 크레딧, {p}',
   'cuenta.nivel.anual': '×1 등급 1년 — 매달 크레딧 {c}개',
