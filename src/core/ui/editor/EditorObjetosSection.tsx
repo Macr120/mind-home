@@ -14,6 +14,7 @@ import {
   type ObjCrear,
   type ObjInv,
 } from '../../state/editorUiStore'
+import { useTallerMuebles } from '../../state/tallerMueblesStore'
 import { PestanasCarpeta, type ItemPestana } from '../../../rooms/_shared/PestanasCarpeta'
 import { Carpeta } from '../comun/Carpeta'
 import { ObjetosCatalogo, BotonRestaurarObjetos } from '../ObjetosCatalogo'
@@ -34,10 +35,12 @@ import { ColorPicker } from '../comun/ColorPicker'
 import { PropiedadGrupo } from './PropiedadGrupo'
 import { PreviewObjeto3D } from './PreviewObjeto3D'
 import { EditorPiezas, plantillaObjetoPiezas } from '../comun/EditorPiezas'
-import { EditorAnimacion } from './EditorAnimacion'
+import { AjustesVida, EditorAnimacion } from './EditorAnimacion'
+import { conPresetVida, esVida } from '../../house/animacion'
 import { SliderProp } from '../comun/SliderProp'
 import { useT, type TFunc } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
+import type { NombreIcono } from '../iconos/catalogo'
 
 const ESCALA_MIN = 0.3
 const ESCALA_MAX = 3
@@ -95,6 +98,9 @@ interface Ubicacion {
  * Elegir un objeto —aquí, en la escena 3D, en la rueda o en el catálogo— lleva
  * siempre a Crear > Editar; de eso se encarga `setObjetoSel` del store.
  */
+/** Valor del select de «Función especial»: un grupo de acción, «vida» o nada. */
+type FuncionEspecial = GrupoAccion | 'vida' | ''
+
 export function EditorObjetosSection() {
   const t = useT()
   const cuartos = useCuartos((s) => s.cuartos)
@@ -125,6 +131,8 @@ export function EditorObjetosSection() {
   const objRaiz = useEditorUi((s) => s.objRaiz)
   const setObjRaiz = useEditorUi((s) => s.setObjRaiz)
   const objCrear = useEditorUi((s) => s.objCrear)
+  // Solo de esta sesión del panel: el bloque de IA nace plegado cada vez.
+  const [iaAbierta, setIaAbierta] = useState(false)
   const setObjCrear = useEditorUi((s) => s.setObjCrear)
   const objInv = useEditorUi((s) => s.objInv)
   const setObjInv = useEditorUi((s) => s.setObjInv)
@@ -176,31 +184,52 @@ export function EditorObjetosSection() {
     if (primero?.id != null) setObjetoSel(primero.id)
   }, [objRaiz, seleccionado, ubicaciones, setObjetoSel])
 
-  const botonCrear = (
-    <button
-      type="button"
-      onClick={crearObjetoPiezas}
-      className="flex w-full items-center justify-center gap-1.5 rounded-lg border border-accent/30 bg-accent/10 px-2.5 py-2 text-xs font-semibold text-accent transition hover:bg-accent/20"
-    >
-      <Icono nombre="muro" /> {t('editor.obj.crearPiezas', 'Crear objeto con piezas 3D')}
-    </button>
+  // El taller es el propio editor a pantalla completa: los muebles se diseñan
+  // por medidas (mm) y no pieza a pieza, así que no cabe en el panel angosto.
+  const botonTaller = (
+    <BotonTaller icono="taller" onClick={() => useTallerMuebles.getState().abrirNuevo()}>
+      {t('editor.obj.taller', 'Taller de muebles')}
+    </BotonTaller>
   )
 
-  // Generar un objeto o pieza arquitectónica con IA (o subir un .glb) y abrirlo para
-  // editar, en el destino que elija el usuario (mapa o cuarto).
-  const generadorIA = (
-    <GenerarObjetoIA
-      onCrear={async (piezas, grupo) => {
-        const destino = await pedirDestinoObjeto()
-        if (!destino) return
-        const id = await addObjetoPiezas(
-          piezas,
-          piezas[0]?.color ?? '#f59e0b',
-          destino,
-          grupo && grupo !== 'ninguno' ? grupo : undefined,
-        )
-        setObjetoSel(id)
-      }}
+  const botonCrear = (
+    <BotonTaller icono="muro" onClick={crearObjetoPiezas}>
+      {t('editor.obj.tallerPiezas', 'Taller con piezas 3D')}
+    </BotonTaller>
+  )
+
+  // Generar un objeto o una pieza arquitectónica con IA y abrirlo para editar, en
+  // el destino que elija el usuario (mapa o cuarto). Va plegado: es el bloque más
+  // alto de los cuatro y así los talleres se leen como una lista de opciones.
+  const generadorIA = iaHabilitada() && (
+    <div className="space-y-1.5">
+      <BotonTaller
+        icono="brillo"
+        onClick={() => setIaAbierta(!iaAbierta)}
+        chevron={iaAbierta ? 'desplegado' : 'plegado'}
+      >
+        {t('editor.obj.construirIA', 'Construir con IA')}
+      </BotonTaller>
+      {iaAbierta && (
+        <GenerarObjetoIA
+          onCrear={async (piezas, grupo) => {
+            const destino = await pedirDestinoObjeto()
+            if (!destino) return
+            const id = await addObjetoPiezas(
+              piezas,
+              piezas[0]?.color ?? '#f59e0b',
+              destino,
+              grupo && grupo !== 'ninguno' ? grupo : undefined,
+            )
+            setObjetoSel(id)
+          }}
+        />
+      )}
+    </div>
+  )
+
+  const subirGlb = (
+    <SubirGlb
       onCrearGlb={async (glb) => {
         const destino = await pedirDestinoObjeto()
         if (!destino) return
@@ -209,6 +238,36 @@ export function EditorObjetosSection() {
       }}
     />
   )
+
+  /** Lo que ofrece «Función especial»: un grupo de acción o «Dale vida». */
+  const funcionEspecial: FuncionEspecial = esVida(seleccionado?.animacion)
+    ? 'vida'
+    : seleccionado
+      ? (grupoAccionDe(seleccionado.tipo, seleccionado.grupoAccion) ?? '')
+      : ''
+
+  /**
+   * Las funciones son EXCLUYENTES: sentarse ancla al avatar en la posición
+   * guardada del objeto y «Dale vida» lo mueve por su cuenta. Se limpia primero
+   * y se asigna después, así que a medio camino nunca hay dos.
+   *
+   * «Dale vida» se escribe por `setObjetoAnimacion` a propósito: esa acción sella
+   * el hambre y los mimos al estrenar el preset; sin ese sellado el objeto nace
+   * hambriento y aburrido.
+   */
+  const cambiarFuncion = async (v: FuncionEspecial) => {
+    const id = seleccionado?.id
+    if (id == null) return
+    if (funcionEspecial === 'vida' && v !== 'vida') {
+      await setObjetoAnimacion(id, conPresetVida(seleccionado?.animacion, false))
+    }
+    if (v === 'vida') {
+      if (seleccionado?.grupoAccion) await setObjetoGrupoAccion(id, null)
+      await setObjetoAnimacion(id, conPresetVida(seleccionado?.animacion, true))
+    } else {
+      await setObjetoGrupoAccion(id, v ? (v as GrupoAccion) : null)
+    }
+  }
 
   const ubicActiva = seleccionado
     ? ubicaciones.find((u) => u.id === seleccionado.roomId) ?? ubicaciones[0]
@@ -222,7 +281,9 @@ export function EditorObjetosSection() {
     { id: 'inventario', clave: 'nav.menu.inventarios', labelEs: 'Inventario', icono: 'inventario' },
   ]
   const tabsCrear: ItemPestana<ObjCrear>[] = [
-    { id: 'crear', clave: 'editor.obj.tabCrear', labelEs: 'Crear', icono: 'agregar' },
+    // El id sigue siendo 'crear' (lo guarda el store y lo usan las anclas de
+    // tutorial); solo cambia el rótulo, que ahora agrupa los cuatro talleres.
+    { id: 'crear', clave: 'editor.obj.tabTalleres', labelEs: 'Talleres', icono: 'taller' },
     { id: 'editar', clave: 'editor.obj.tabEditar', labelEs: 'Editar', icono: 'editar' },
   ]
   const tabsInv: ItemPestana<ObjInv>[] = [
@@ -252,8 +313,10 @@ export function EditorObjetosSection() {
 
       {objRaiz === 'crear' && objCrear === 'crear' && (
         <div className="space-y-2">
+          {botonTaller}
           {botonCrear}
           {generadorIA}
+          {subirGlb}
         </div>
       )}
 
@@ -425,6 +488,22 @@ export function EditorObjetosSection() {
             </div>
           ) : (
             <p className="text-sm font-semibold text-white/85">{nombreObjeto(seleccionado, t)}</p>
+          )}
+
+          {/* Salió del taller: se reabre ahí para ajustarle las medidas en vez
+              de tener que moverle las piezas a mano. */}
+          {seleccionado.mueble && seleccionado.id != null && (
+            <button
+              type="button"
+              onClick={() =>
+                seleccionado.id != null &&
+                seleccionado.mueble &&
+                useTallerMuebles.getState().abrirDeObjeto(seleccionado.id, seleccionado.mueble)
+              }
+              className="flex w-full items-center justify-center gap-1.5 rounded-lg border border-accent/30 bg-accent/10 px-2.5 py-2 text-xs font-semibold text-accent transition hover:bg-accent/20"
+            >
+              <Icono nombre="taller" /> {t('editor.obj.tallerEditar', 'Editar en el taller')}
+            </button>
           )}
 
           {/* Biblioteca: generar con IA o subir un .glb para ESTE objeto (queda en su carpeta). */}
@@ -634,11 +713,12 @@ export function EditorObjetosSection() {
                     ? (p) => setObjetoPiezas(seleccionado.id!, p)
                     : undefined
                 }
-                conVida
               />
-              {/* Función especial (sentarse/acostarse/conducir): la IA lo clasifica al crear
-                  el objeto, aquí se corrige a mano. Oculto en tipos con mecanismo propio
-                  (especiales de plantilla y los 4 vehículos) y en .glb (sin bounding box fiable). */}
+              {/* Función especial (sentarse/acostarse/conducir/darle vida): la IA
+                  clasifica las tres primeras al crear el objeto y aquí se corrigen
+                  a mano; «Dale vida» siempre se elige aquí. Oculto en tipos con
+                  mecanismo propio (especiales de plantilla y los 4 vehículos) y en
+                  .glb (sin bounding box fiable). */}
               {seleccionado.tipo !== TIPO_GLB &&
                 !esTipoEspecial(seleccionado.tipo) &&
                 !esVehiculo(seleccionado.tipo) &&
@@ -648,21 +728,24 @@ export function EditorObjetosSection() {
                       {t('editor.obj.grupoAccion', 'Función especial')}
                     </p>
                     <select
-                      value={grupoAccionDe(seleccionado.tipo, seleccionado.grupoAccion) ?? ''}
-                      onChange={(e) =>
-                        seleccionado.id != null &&
-                        setObjetoGrupoAccion(
-                          seleccionado.id,
-                          e.target.value ? (e.target.value as GrupoAccion) : null,
-                        )
-                      }
+                      value={funcionEspecial}
+                      onChange={(e) => void cambiarFuncion(e.target.value as FuncionEspecial)}
                       className="w-full cursor-pointer rounded-md border border-white/10 bg-white/5 px-1.5 py-1 text-[11px] text-white/85 focus:outline-none [&>option]:bg-[var(--ui-panel)]"
                     >
                       <option value="">{t('editor.obj.grupoNinguno', '— (ninguno)')}</option>
                       <option value="asiento">{t('editor.obj.grupoAsiento', 'Sentarse')}</option>
                       <option value="acostarse">{t('editor.obj.grupoAcostarse', 'Acostarse')}</option>
                       <option value="vehiculo">{t('editor.obj.grupoVehiculo', 'Conducir')}</option>
+                      <option value="vida">{t('editor.obj.grupoVida', 'Dale vida')}</option>
                     </select>
+                    {funcionEspecial === 'vida' && (
+                      <AjustesVida
+                        anim={seleccionado.animacion}
+                        onChange={(a) =>
+                          seleccionado.id != null && setObjetoAnimacion(seleccionado.id, a)
+                        }
+                      />
+                    )}
                   </div>
                 )}
             </PropiedadGrupo>
@@ -707,6 +790,7 @@ function GenerarObjetoIA({
   onCrearGlb,
 }: {
   onCrear: (piezas: Pieza3D[], grupo: GrupoAccion | 'ninguno' | null) => void
+  /** Con él, la subida de .glb va dentro (la biblioteca la quiere junta). */
   onCrearGlb?: (glb: Blob) => void
 }) {
   const t = useT()
@@ -714,7 +798,6 @@ function GenerarObjetoIA({
   const [tipo, setTipo] = useState<'objeto' | 'arquitectura'>('objeto')
   const [estilo, setEstilo] = useState<EstiloModelo3D>('normal')
   const [generando, setGenerando] = useState(false)
-  const [optimizando, setOptimizando] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   const generar = async () => {
@@ -806,43 +889,97 @@ function GenerarObjetoIA({
       )}
       {error && <p className="px-1 text-[10px] text-red-400/80">{error}</p>}
 
-      {onCrearGlb && (
-        <label
-          className={`block rounded-md border border-white/10 bg-white/5 px-2 py-1 text-center text-[11px] text-white/60 transition ${
-            optimizando ? 'cursor-wait opacity-60' : 'cursor-pointer hover:bg-white/15'
-          }`}
-        >
-          {optimizando ? (
-            <span className="animate-pulse">{t('editor.obj.optimizando', 'Optimizando modelo…')}</span>
-          ) : (
-            <>
-              <Icono nombre="cuarto-bodega" /> {t('editor.obj.subirGlb', 'Subir modelo .glb')}
-            </>
-          )}
-          <input
-            type="file"
-            accept=".glb,.gltf,model/gltf-binary"
-            className="hidden"
-            disabled={optimizando}
-            onChange={async (e) => {
-              const f = e.target.files?.[0]
-              e.target.value = ''
-              if (!f) return
-              setOptimizando(true)
-              setError(null)
-              try {
-                const { optimizarGlb } = await import('../../house/optimizarGlb')
-                onCrearGlb(await optimizarGlb(f))
-              } catch (err) {
-                console.warn('[MPH] No se pudo optimizar el .glb:', err)
-                setError(t('editor.obj.glbError', 'No pude procesar ese modelo .glb. ¿Es un archivo válido?'))
-              } finally {
-                setOptimizando(false)
-              }
-            }}
-          />
-        </label>
-      )}
+      {onCrearGlb && <SubirGlb onCrearGlb={onCrearGlb} compacto />}
     </div>
+  )
+}
+
+/**
+ * Una de las cuatro entradas de «Talleres»: todas con el mismo aspecto para que
+ * se lean como una lista de opciones y no como botones sueltos.
+ */
+function BotonTaller({
+  icono,
+  onClick,
+  chevron,
+  children,
+}: {
+  icono: NombreIcono
+  onClick: () => void
+  /** Flecha de plegado a la derecha (solo el bloque de IA la usa). */
+  chevron?: NombreIcono
+  children: ReactNode
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-expanded={chevron ? chevron === 'desplegado' : undefined}
+      className="flex w-full items-center justify-center gap-1.5 rounded-lg border border-accent/30 bg-accent/10 px-2.5 py-2 text-xs font-semibold text-accent transition hover:bg-accent/20"
+    >
+      <Icono nombre={icono} /> {children}
+      {chevron && <Icono nombre={chevron} />}
+    </button>
+  )
+}
+
+/**
+ * Subir un modelo `.glb` propio: se optimiza/decima al vuelo (`optimizarGlb`) y
+ * entra como cualquier otro objeto. Es gratis — no pasa por la IA —, por eso vive
+ * fuera del bloque de «Construir con IA».
+ */
+function SubirGlb({
+  onCrearGlb,
+  compacto = false,
+}: {
+  onCrearGlb: (glb: Blob) => void
+  /** Dentro del generador de la biblioteca, donde va como una línea más. */
+  compacto?: boolean
+}) {
+  const t = useT()
+  const [optimizando, setOptimizando] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const clases = compacto
+    ? `block rounded-md border border-white/10 bg-white/5 px-2 py-1 text-center text-[11px] text-white/60 transition ${
+        optimizando ? 'cursor-wait opacity-60' : 'cursor-pointer hover:bg-white/15'
+      }`
+    : `flex w-full items-center justify-center gap-1.5 rounded-lg border border-accent/30 bg-accent/10 px-2.5 py-2 text-xs font-semibold text-accent transition ${
+        optimizando ? 'cursor-wait opacity-60' : 'cursor-pointer hover:bg-accent/20'
+      }`
+  return (
+    <>
+      <label className={clases}>
+        {optimizando ? (
+          <span className="animate-pulse">{t('editor.obj.optimizando', 'Optimizando modelo…')}</span>
+        ) : (
+          <>
+            <Icono nombre="cuarto-bodega" /> {t('editor.obj.subirGlb', 'Subir modelo .glb')}
+          </>
+        )}
+        <input
+          type="file"
+          accept=".glb,.gltf,model/gltf-binary"
+          className="hidden"
+          disabled={optimizando}
+          onChange={async (e) => {
+            const f = e.target.files?.[0]
+            e.target.value = ''
+            if (!f) return
+            setOptimizando(true)
+            setError(null)
+            try {
+              const { optimizarGlb } = await import('../../house/optimizarGlb')
+              onCrearGlb(await optimizarGlb(f))
+            } catch (err) {
+              console.warn('[MPH] No se pudo optimizar el .glb:', err)
+              setError(t('editor.obj.glbError', 'No pude procesar ese modelo .glb. ¿Es un archivo válido?'))
+            } finally {
+              setOptimizando(false)
+            }
+          }}
+        />
+      </label>
+      {error && <p className="px-1 text-[10px] text-red-400/80">{error}</p>}
+    </>
   )
 }

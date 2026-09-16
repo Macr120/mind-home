@@ -20,6 +20,7 @@ import { EditorRedesSection } from './editor/EditorRedesSection'
 import { EditorIASection } from './editor/EditorIASection'
 import { EditorRespaldoSection } from './editor/EditorRespaldoSection'
 import { ConfigGrupo } from './editor/ConfigGrupo'
+import { useDosColumnas, useZonaPreview } from './editor/zonaPreview'
 import { useEditorSeccionesConfig } from './editor/useEditorSecciones'
 import type { ConfigGrupoId } from './editor/configSecciones'
 import { useT } from '../i18n/useT'
@@ -130,6 +131,11 @@ export function EditPanel() {
   const nombreCuarto = useNombreCuarto()
   const tab = useEditorUi((s) => s.tab)
   const setTab = useEditorUi((s) => s.setTab)
+  const expandido = useEditorUi((s) => s.expandido)
+  const setExpandido = useEditorUi((s) => s.setExpandido)
+  const dosColumnas = useDosColumnas()
+  const setZona = useZonaPreview((s) => s.setNodo)
+  const previewsEnZona = useZonaPreview((s) => s.cuenta)
   const secConfig = useEditorSeccionesConfig()
   const pasos = useHistorialEditor((s) => s.pasos.length)
   const rehechos = useHistorialEditor((s) => s.rehechos.length)
@@ -161,9 +167,19 @@ export function EditPanel() {
   const room = editingRoomId ? getCuarto(editingRoomId) : null
   const color = room ? roomColors[room.id] ?? room.color : '#94a3b8'
   const tituloHeader = room ? nombreCuarto(room) : t('editor.titulo', 'Editor')
+  // Pantalla partida: solo a pantalla completa, con sitio de sobra y en una
+  // pestaña que tenga qué previsualizar (Configuraciones no tiene).
+  const partido = expandido && dosColumnas && tab !== 'config'
 
   return (
-    <div data-tut-zona={ZONA_TUT[tab]} className="ui-panel-glass ui-desliza-fin absolute end-0 top-0 z-[35] flex h-full w-80 flex-col border-s border-white/10 pt-[var(--safe-top)] pb-[var(--safe-bottom)] pe-[var(--safe-right)] backdrop-blur-md">
+    <div
+      data-tut-zona={ZONA_TUT[tab]}
+      className={`ui-panel-glass ui-desliza-fin absolute top-0 z-[35] flex h-full flex-col pt-[var(--safe-top)] pb-[var(--safe-bottom)] pe-[var(--safe-right)] backdrop-blur-md ${
+        expandido
+          ? 'inset-0 w-full ps-[var(--safe-left)]'
+          : 'end-0 w-80 border-s border-white/10'
+      }`}
+    >
       <header className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
         {/* Editando un cuarto: botón para SALIR del cuarto y volver al editor de mapa completo. */}
         {room && (
@@ -180,6 +196,26 @@ export function EditPanel() {
         <span className="texto-vivo truncate text-base font-black" style={vivo(color)}>
           <Icono nombre="editar" /> {tituloHeader}
         </span>
+        {/* Pantalla completa: la flecha señala hacia dónde crece el panel (y de
+            vuelta, hacia su costado). */}
+        <button
+          type="button"
+          onClick={() => setExpandido(!expandido)}
+          title={
+            expandido
+              ? t('editor.contraer', 'Volver al panel lateral')
+              : t('editor.expandir', 'Ver a pantalla completa')
+          }
+          aria-label={
+            expandido
+              ? t('editor.contraer', 'Volver al panel lateral')
+              : t('editor.expandir', 'Ver a pantalla completa')
+          }
+          aria-pressed={expandido}
+          className="grid h-7 w-7 shrink-0 place-items-center rounded-md text-white/70 transition hover:bg-white/10 hover:text-white"
+        >
+          <Icono nombre={expandido ? 'derecha' : 'izquierda'} />
+        </button>
         <div className="ms-auto flex items-center gap-1">
           <button
             type="button"
@@ -230,66 +266,94 @@ export function EditPanel() {
         </div>
       </div>
 
-      {/* Sin padding-top en el contenedor de scroll: el hueco superior lo pone el
-          `pt-3` de adentro (contenido que sí se desplaza). Así el preview `sticky`
-          se ancla a ras del borde superior, sin dejar una franja de contenido
-          asomando por el padding. */}
-      <div data-tut="editor.contenido" className="min-h-0 flex-1 overflow-y-auto px-3 pb-3">
-        {tab === 'mapa' ? (
-          <div className="pt-3">
-            <EditorPanelMapa />
-            <AyudaPie>
-              {t('editor.ayuda.mapa.a', 'Elige un')} <b className="text-white/65">{t('editor.ayuda.mapa.b', 'modo')}</b>{' '}
-              {t('editor.ayuda.mapa.c', 'arriba y edita en el')}{' '}
-              <b className="text-white/65">{t('editor.ayuda.mapa.d', 'plano')}</b>{' '}
-              {t('editor.ayuda.mapa.e', 'o en el mapa 3D. Más abajo, personaliza la casa.')}
-            </AyudaPie>
-          </div>
-        ) : tab === 'personajes' ? (
-          <div className="pt-3">
-            <EditorPersonajesSection />
-            <AyudaPie>
-              {t('editor.ayuda.pers.a', 'Elige un')} <b className="text-white/65">{t('editor.ayuda.pers.b', 'personaje')}</b>{' '}
-              {t('editor.ayuda.pers.c', 'y edita su')} <b className="text-white/65">{t('editor.ayuda.pers.d', 'nombre, cuerpo y avatar 3D')}</b>.
-            </AyudaPie>
-          </div>
-        ) : tab === 'objetos' ? (
-          <div className="pt-3">
-            <EditorObjetosSection />
-            <AyudaPie>
-              {t('editor.ayuda.obj.a', 'Elige un')} <b className="text-white/65">{t('editor.ayuda.obj.b', 'objeto')}</b>{' '}
-              {t('editor.ayuda.obj.c', 'y edita su')} <b className="text-white/65">{t('editor.ayuda.obj.d', 'color, tamaño y rotación')}</b>.
-            </AyudaPie>
-          </div>
-        ) : (
-          <div className="space-y-2 pt-3">
-            {/* Los grupos de la cuenta se filtran AL PINTAR, nunca al guardar el
-                orden: así conservan su sitio al volver de la casa demo. */}
-            {secConfig.orden
-              .filter((id) => !(sinCuenta && OCULTOS_SIN_CUENTA.has(id)))
-              // El fondo de pantalla solo existe en el escritorio: en la web y en
-              // el teléfono no hay ventana que colgar del escritorio.
-              .filter((id) => id !== 'fondo' || hayFondoEscritorio())
-              .map((id) => {
-                const g = GRUPOS_CONFIG[id]
-                return (
-                  <ConfigGrupo
-                    key={id}
-                    id={id}
-                    icono={g.icono}
-                    titulo={g.titulo(t)}
-                    gesto={secConfig.arrastre(id)}
-                    esObjetivo={secConfig.objetivo === id && secConfig.arrastrando !== id}
-                    esArrastrado={secConfig.arrastrando === id}
-                  >
-                    <g.Contenido />
-                  </ConfigGrupo>
-                )
-              })}
-            <AyudaPie>
-              {t('editor.ayuda.conf.a', 'El')} <b className="text-white/65">{t('editor.ayuda.conf.b', 'estilo visual del mapa')}</b>
-              {t('editor.ayuda.conf.c', ', idioma e')} <b className="text-white/65">{t('editor.ayuda.conf.d', 'interfaz')}</b>.
-            </AyudaPie>
+      {/* A pantalla completa con sitio de sobra: controles a la izquierda y la
+          columna de preview a la derecha (los previews se teletransportan solos,
+          ver `zonaPreview`). Si no, una sola columna como siempre. */}
+      <div className={`flex min-h-0 flex-1 ${partido ? 'flex-row' : 'flex-col'}`}>
+        {/* Sin padding-top en el contenedor de scroll: el hueco superior lo pone el
+            `pt-3` de adentro (contenido que sí se desplaza). Así el preview `sticky`
+            se ancla a ras del borde superior, sin dejar una franja de contenido
+            asomando por el padding. */}
+        <div
+          data-tut="editor.contenido"
+          className={`min-h-0 overflow-y-auto px-3 pb-3 ${
+            partido
+              ? 'w-80 shrink-0'
+              : expandido
+                ? 'mx-auto w-full max-w-2xl flex-1'
+                : 'flex-1'
+          }`}
+        >
+          {tab === 'mapa' ? (
+            <div className="pt-3">
+              <EditorPanelMapa />
+              <AyudaPie>
+                {t('editor.ayuda.mapa.a', 'Elige un')} <b className="text-white/65">{t('editor.ayuda.mapa.b', 'modo')}</b>{' '}
+                {t('editor.ayuda.mapa.c', 'arriba y edita en el')}{' '}
+                <b className="text-white/65">{t('editor.ayuda.mapa.d', 'plano')}</b>{' '}
+                {t('editor.ayuda.mapa.e', 'o en el mapa 3D. Más abajo, personaliza la casa.')}
+              </AyudaPie>
+            </div>
+          ) : tab === 'personajes' ? (
+            <div className="pt-3">
+              <EditorPersonajesSection />
+              <AyudaPie>
+                {t('editor.ayuda.pers.a', 'Elige un')} <b className="text-white/65">{t('editor.ayuda.pers.b', 'personaje')}</b>{' '}
+                {t('editor.ayuda.pers.c', 'y edita su')} <b className="text-white/65">{t('editor.ayuda.pers.d', 'nombre, cuerpo y avatar 3D')}</b>.
+              </AyudaPie>
+            </div>
+          ) : tab === 'objetos' ? (
+            <div className="pt-3">
+              <EditorObjetosSection />
+              <AyudaPie>
+                {t('editor.ayuda.obj.a', 'Elige un')} <b className="text-white/65">{t('editor.ayuda.obj.b', 'objeto')}</b>{' '}
+                {t('editor.ayuda.obj.c', 'y edita su')} <b className="text-white/65">{t('editor.ayuda.obj.d', 'color, tamaño y rotación')}</b>.
+              </AyudaPie>
+            </div>
+          ) : (
+            <div className="space-y-2 pt-3">
+              {/* Los grupos de la cuenta se filtran AL PINTAR, nunca al guardar el
+                  orden: así conservan su sitio al volver de la casa demo. */}
+              {secConfig.orden
+                .filter((id) => !(sinCuenta && OCULTOS_SIN_CUENTA.has(id)))
+                // El fondo de pantalla solo existe en el escritorio: en la web y en
+                // el teléfono no hay ventana que colgar del escritorio.
+                .filter((id) => id !== 'fondo' || hayFondoEscritorio())
+                .map((id) => {
+                  const g = GRUPOS_CONFIG[id]
+                  return (
+                    <ConfigGrupo
+                      key={id}
+                      id={id}
+                      icono={g.icono}
+                      titulo={g.titulo(t)}
+                      gesto={secConfig.arrastre(id)}
+                      esObjetivo={secConfig.objetivo === id && secConfig.arrastrando !== id}
+                      esArrastrado={secConfig.arrastrando === id}
+                    >
+                      <g.Contenido />
+                    </ConfigGrupo>
+                  )
+                })}
+              <AyudaPie>
+                {t('editor.ayuda.conf.a', 'El')} <b className="text-white/65">{t('editor.ayuda.conf.b', 'estilo visual del mapa')}</b>
+                {t('editor.ayuda.conf.c', ', idioma e')} <b className="text-white/65">{t('editor.ayuda.conf.d', 'interfaz')}</b>.
+              </AyudaPie>
+            </div>
+          )}
+        </div>
+
+        {/* Columna de preview. El contenedor del portal va VACÍO de hijos de React
+            (la pista es hermana suya): mezclar hijos propios y portales en el mismo
+            nodo deja a React peleando por el orden del DOM. */}
+        {partido && (
+          <div className="relative flex min-h-0 flex-1 flex-col">
+            {previewsEnZona === 0 && (
+              <p className="absolute inset-0 grid place-items-center px-8 text-center text-xs leading-snug text-white/35">
+                {t('editor.zonaPreview', 'Aquí se ve lo que estás editando.')}
+              </p>
+            )}
+            <div ref={setZona} className="flex min-h-0 flex-1 flex-col gap-2 p-3 ps-0" />
           </div>
         )}
       </div>

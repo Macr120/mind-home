@@ -283,8 +283,15 @@ function giroAccionDe(tipo: string): number {
 export function funcionEspecialDe(o: {
   tipo: string
   grupoAccion?: GrupoAccion
+  animacion?: AnimacionModelo
 }): { clave: string; texto: string } | null {
   const { tipo } = o
+  // «Dale vida» primero: es SIEMPRE una elección explícita del usuario, mientras
+  // que el grupo de acción puede venir heredado del catálogo (una silla es
+  // 'asiento' sin que nadie lo haya elegido).
+  if (o.animacion?.preset === 'vida') {
+    return { clave: 'objetos.funcion.vida', texto: 'Tiene vida: pasea, come y se aburre' }
+  }
   const grupo = grupoAccionDe(tipo, o.grupoAccion)
   if (esVehiculo(tipo) || grupo === 'vehiculo') {
     return { clave: 'objetos.funcion.vehiculo', texto: 'Se puede conducir' }

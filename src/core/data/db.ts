@@ -1285,6 +1285,12 @@ export interface ObjetoCuarto {
    * — tienen su propio mecanismo dedicado. Ver `grupoAccionDe` en `house/catalogo.tsx`.
    */
   grupoAccion?: import('../state/accionCuartoStore').GrupoAccion
+  /**
+   * Mueble del taller: la receta paramétrica con la que se generaron sus
+   * `piezas`. Su presencia es lo que habilita reabrirlo en el taller. Campos sin
+   * índice: NO piden versión nueva de Dexie (igual que `enlaceUrl`/`programa`).
+   */
+  mueble?: import('../muebles/tipos').Mueble
 }
 
 /**
@@ -4197,6 +4203,120 @@ export interface MedioVideo {
   creadoEn: string
 }
 
+/** Diseño de mueble del taller: la receta, no el objeto colocado. */
+export interface DisenoMueble {
+  id?: number
+  /** Clave lógica estable (índice ÚNICO; el middleware la sella sola). */
+  uid?: string
+  nombre: string
+  mueble: import('../muebles/tipos').Mueble
+  /** Miniatura del visor para la lista. NO se indexa. */
+  miniatura?: Blob
+  creadoEn: string
+  actualizadoEn: string
+}
+
+/** Familia de un renglón del catálogo de precios del taller. */
+export type TipoMaterialTaller = 'tablero' | 'canto' | 'tubo' | 'herraje' | 'servicio'
+
+/** Unidad en la que se compra un material (y por tanto en la que se cotiza). */
+export type UnidadPrecio = 'hoja' | 'm2' | 'ml' | 'pz' | 'par' | 'juego' | 'hora'
+
+/**
+ * Renglón del catálogo de precios del taller, editable por el usuario. Es una
+ * sola tabla polimórfica a propósito: la UI es UNA pantalla con filtro por tipo,
+ * el cotizador resuelve todo por (tipo, clave) en una pasada, y añadir una
+ * familia nueva (pintura, tornillería a granel) no toca el esquema.
+ */
+export interface MaterialTaller {
+  id?: number
+  /** Clave lógica única y estable entre dispositivos, con prefijo por familia. */
+  clave: string
+  tipo: TipoMaterialTaller
+  /** Texto libre del usuario: NUNCA pasa por t(). */
+  nombre: string
+  proveedor?: string
+  orden: number
+  activo: boolean
+  precio: number
+  unidad: UnidadPrecio
+  /** Tablero: a qué material del despiece empata, y de qué hoja viene. */
+  materialId?: import('../muebles/tipos').MaterialTableroId
+  grosor?: number
+  hojaAncho?: number
+  hojaAlto?: number
+  /** Canto: ancho de la cinta en mm. */
+  cintaMm?: number
+  /** Tubo: perfil, sección (array plano: [d] o [a,b]), pared y largo comercial. */
+  tuboId?: import('../muebles/tipos').MaterialTuboId
+  perfil?: import('../muebles/tipos').PerfilTubo
+  seccion?: number[]
+  pared?: number
+  largoComercial?: number
+  /** Herraje: empata con `Herraje.id` del despiece. */
+  herrajeClave?: string
+  nota?: string
+  uid?: string
+  creadoEn: string
+}
+
+/** Ajustes del cotizador: una sola fila (singleton). */
+export interface AjustesCotizacion {
+  id?: number
+  moneda: string
+  /** Vacío = el idioma activo de la app. */
+  localeMoneda?: string
+  decimales: number
+  impuestoNombre: string
+  impuestoPct: number
+  impuestoIncluido: boolean
+  /** Cómo se cobra el tablero: hojas enteras (lo que de verdad se compra) o m². */
+  modoTablero: 'hoja' | 'm2' | 'm2-con-merma'
+  mermaPct: number
+  desperdicioCantoPct: number
+  modoTubo: 'ml' | 'tramo'
+  desperdicioTuboPct: number
+  manoObraActiva: boolean
+  manoObraModo: 'hora' | 'pct' | 'pieza'
+  manoObraValor: number
+  horasPorM2: number
+  cobrarCorte: boolean
+  extras: { nombre: string; monto: number }[]
+  descuentoPct: number
+  uid?: string
+  creadoEn: string
+}
+
+/** Renglón de un presupuesto ya guardado (importes CONGELADOS, ver `PresupuestoMueble`). */
+export interface RenglonPresupuestoGuardado {
+  grupo: string
+  concepto: string
+  detalle?: string
+  cantidad: number
+  unidad: string
+  unitario: number
+  subtotal: number
+}
+
+/**
+ * Presupuesto entregado. Guarda IMPORTES, no referencias vivas: si mañana sube
+ * la melamina, el presupuesto que ya diste no puede cambiar solo.
+ */
+export interface PresupuestoMueble {
+  id?: number
+  muebleId?: number
+  nombre: string
+  moneda: string
+  renglones: RenglonPresupuestoGuardado[]
+  subtotal: number
+  impuesto: number
+  total: number
+  nota?: string
+  uid?: string
+  creadoEn: string
+  actualizadoEn: string
+}
+
 class MindHomeDB extends Dexie {
   transacciones!: Table<Transaccion, number>
   sueno!: Table<RegistroSueno, number>
@@ -4345,6 +4465,11 @@ class MindHomeDB extends Dexie {
   grabacionesAudio!: Table<GrabacionAudio, number>
   canciones!: Table<CancionAudio, number>
   musicaImportada!: Table<MusicaImportada, number>
+  // Taller de muebles
+  muebles!: Table<DisenoMueble, number>
+  materialesTaller!: Table<MaterialTaller, number>
+  ajustesCotizacion!: Table<AjustesCotizacion, number>
+  presupuestosMueble!: Table<PresupuestoMueble, number>
   // Internas de sincronización (prefijo `_`: ni respaldo ni sync ni UI).
   _outbox!: Table<EntradaOutbox, number>
   _syncMeta!: Table<SyncMeta, string>
@@ -5961,6 +6086,16 @@ class MindHomeDB extends Dexie {
       if (mental.id != null && mental.nombre === 'Memorias y salud mental') {
         await tabla.update(mental.id, { nombre: 'Salud mental' })
       }
+    })
+    // v141: taller de muebles (recetas, catálogo de precios y presupuestos).
+    // Las cuatro nacen vacías, así que NO llevan `.upgrade()`: un upgrade no
+    // corre en una BD nueva y la siembra del catálogo es de runtime e
+    // idempotente (ver `muebles/catalogoSiembra.ts`).
+    this.version(141).stores({
+      muebles: '++id, actualizadoEn, &uid',
+      materialesTaller: '++id, tipo, orden, &clave, &uid',
+      ajustesCotizacion: '++id, &uid',
+      presupuestosMueble: '++id, muebleId, actualizadoEn, &uid',
     })
   }
 }

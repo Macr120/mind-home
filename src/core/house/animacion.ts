@@ -110,6 +110,27 @@ export function tieneAnimacion(a?: AnimacionModelo | null): a is AnimacionModelo
   return !!a && a.activacion !== 'apagado' && (!!a.preset || (a.poses?.length ?? 0) >= 2)
 }
 
+/**
+ * ¿Este objeto está «vivo»? Único criterio del proyecto: lo comparten el select
+ * de «Función especial» del editor y los ajustes de paseo.
+ */
+export const esVida = (a?: AnimacionModelo | null): boolean => a?.preset === 'vida'
+
+/**
+ * Pone o quita «Dale vida» conservando el resto de la animación (radio,
+ * velocidad, activación, poses). Al quitarlo, si no queda ni preset ni poses,
+ * devuelve `undefined` — la misma normalización que hace el editor.
+ */
+export function conPresetVida(
+  a: AnimacionModelo | undefined,
+  vivo: boolean,
+): AnimacionModelo | undefined {
+  if (vivo) return { ...(a ?? { activacion: 'siempre' }), preset: 'vida' }
+  if (!a || a.preset !== 'vida') return a
+  const { preset: _preset, ...resto } = a
+  return (resto.poses?.length ?? 0) > 0 ? resto : undefined
+}
+
 /** Copia con activación 'siempre' para el botón ▶ de los previews (undefined si no hay nada que reproducir). */
 export function forzarSiempre(a?: AnimacionModelo): AnimacionModelo | undefined {
   if (!a || (!a.preset && (a.poses?.length ?? 0) < 2)) return undefined

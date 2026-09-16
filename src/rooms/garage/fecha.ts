@@ -1,4 +1,5 @@
 import { localeActual, tGlobal } from '../../core/i18n/useT'
+import { dinero as fmtDinero } from '../../core/moneda'
 import { fechaLocalISO } from '../../core/fechaLocal'
 export const hoyISO = () => fechaLocalISO()
 
@@ -66,9 +67,5 @@ export function formatearFecha(fecha: string) {
   })
 }
 
-export const dinero = (n: number) =>
-  n.toLocaleString('es-MX', {
-    style: 'currency',
-    currency: 'MXN',
-    maximumFractionDigits: 0,
-  })
+// Igual que Finanzas: moneda fija, formateo compartido (`core/moneda.ts`).
+export const dinero = (n: number) => fmtDinero(n, { moneda: 'MXN', locale: 'es-MX', decimales: 0 })

@@ -11,11 +11,12 @@ import { forzarSiempre, type AnimacionModelo } from '../../house/animacion'
 import { GrupoAnimado } from '../../house/Animado'
 import { ControlesPiezasOverlay, EngraneActivarPiezas, BotonOverlay } from '../comun/EditorPiezas'
 import { BotonPreviewClaro, claseFondoPreview } from '../comun/BotonPreviewClaro'
+import { EnZonaPreview, useEnZonaPreview } from './zonaPreview'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 
 /** Half-extents (x,y,z) de una pieza según su tipo, para medir su caja. */
-function medioPieza(p: Pieza3D): [number, number, number] {
+export function medioPieza(p: Pieza3D): [number, number, number] {
   const [a = 0.3, b = 0.3, c = 0.3] = p.tam
   switch (p.tipo) {
     case 'esfera':
@@ -39,7 +40,7 @@ function medioPieza(p: Pieza3D): [number, number, number] {
  * arco ancho caben completos y el zoom out llega lo suficientemente lejos. Para
  * objetos del catálogo (sin piezas) se usa un encuadre fijo generoso.
  */
-function encuadrar(piezas: Pieza3D[] | undefined, escala: number) {
+export function encuadrar(piezas: Pieza3D[] | undefined, escala: number) {
   if (!piezas || piezas.length === 0) {
     return { pos: [2.6, 2.2, 2.6] as [number, number, number], targetY: 0.6, maxDist: 12, pisoR: 2.4 }
   }
@@ -125,6 +126,7 @@ export function PreviewObjeto3D({
   const play = useEditorUi((s) => s.animPreview)
   const setPlay = useEditorUi((s) => s.setAnimPreview)
   const claro = useEditorUi((s) => s.previewClaro)
+  const enZona = useEnZonaPreview()
   const D = Math.PI / 180
   const enc = useMemo(() => encuadrar(piezas, escala), [piezas, escala])
   // Reproducción en el visor: fuerza 'siempre' (undefined si no hay nada que
@@ -141,74 +143,76 @@ export function PreviewObjeto3D({
     : null
 
   return (
-    <div
-      className={`sticky top-0 z-10 overflow-hidden rounded-xl border border-white/10 ${claseFondoPreview(claro)}`}
-    >
-      <div className="h-56 w-full">
-        <Canvas
-          shadows
-          dpr={[1, 1.5]}
-          camera={{ position: enc.pos, fov: 32, near: 0.1, far: 100 }}
-        >
-          <ambientLight intensity={0.85} />
-          <directionalLight position={[4, 8, 5]} intensity={1.1} castShadow />
-          <directionalLight position={[-4, 3, -3]} intensity={0.35} />
-          <TemaContext.Provider value={getTema(temaId)}>
-            <PiezasSeleccionContext.Provider value={seleccion}>
-              <group
-                scale={escala}
-                rotation={[rotX * D, rotY * D, rotZ * D]}
-                position={[0, alturaY, 0]}
-              >
-                <GrupoAnimado anim={animPlay}>
-                  <ObjetoView tipo={tipo} color={color} piezas={piezas} modeloGlb={modeloGlb} foto={foto} texto={texto} anim={animPlay} fx={fx} />
-                </GrupoAnimado>
-              </group>
-            </PiezasSeleccionContext.Provider>
-          </TemaContext.Provider>
-          {/* Piso de apoyo para la sombra */}
-          <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]} receiveShadow>
-            <circleGeometry args={[enc.pisoR, 48]} />
-            <meshStandardMaterial color={claro ? '#e5e7eb' : '#1a1d25'} />
-          </mesh>
-          <OrbitControls
-            enablePan={false}
-            enableDamping
-            target={[0, enc.targetY, 0]}
-            minDistance={0.8}
-            maxDistance={enc.maxDist}
-          />
-        </Canvas>
-      </div>
-      {edicion ? (
-        <ControlesPiezasOverlay piezas={piezas} onChange={onPiezasChange} />
-      ) : (
-        <>
-          {!animPlay && onActivarPiezas && <EngraneActivarPiezas onActivar={onActivarPiezas} />}
-          <div className="absolute start-1.5 top-1.5">
-            <BotonPreviewClaro />
-          </div>
-          <span
-            className={`pointer-events-none absolute bottom-1.5 start-0 end-0 text-center text-[10px] ${
-              claro ? 'text-black/45' : 'text-[#ffffff]/35'
-            }`}
+    <EnZonaPreview>
+      <div
+        className={`${enZona ? 'relative h-full' : 'sticky top-0 z-10'} overflow-hidden rounded-xl border border-white/10 ${claseFondoPreview(claro)}`}
+      >
+        <div className={enZona ? 'h-full w-full' : 'h-56 w-full'}>
+          <Canvas
+            shadows
+            dpr={[1, 1.5]}
+            camera={{ position: enc.pos, fov: 32, near: 0.1, far: 100 }}
           >
-            {t('preview.girar', 'Arrastra para girar · rueda para acercar')}
-          </span>
-        </>
-      )}
-      {/* ▶/⏸: previsualiza la animación del objeto (oculta la edición mientras reproduce). */}
-      {animable && (
-        <div className="absolute bottom-1.5 end-1.5">
-          <BotonOverlay
-            title={play ? t('editor.anim.pausar', 'Pausar animación') : t('editor.anim.reproducir', 'Reproducir animación')}
-            onClick={() => setPlay(!play)}
-            activo={play}
-          >
-            {play ? <Icono nombre="pausa" /> : <Icono nombre="play" />}
-          </BotonOverlay>
+            <ambientLight intensity={0.85} />
+            <directionalLight position={[4, 8, 5]} intensity={1.1} castShadow />
+            <directionalLight position={[-4, 3, -3]} intensity={0.35} />
+            <TemaContext.Provider value={getTema(temaId)}>
+              <PiezasSeleccionContext.Provider value={seleccion}>
+                <group
+                  scale={escala}
+                  rotation={[rotX * D, rotY * D, rotZ * D]}
+                  position={[0, alturaY, 0]}
+                >
+                  <GrupoAnimado anim={animPlay}>
+                    <ObjetoView tipo={tipo} color={color} piezas={piezas} modeloGlb={modeloGlb} foto={foto} texto={texto} anim={animPlay} fx={fx} />
+                  </GrupoAnimado>
+                </group>
+              </PiezasSeleccionContext.Provider>
+            </TemaContext.Provider>
+            {/* Piso de apoyo para la sombra */}
+            <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]} receiveShadow>
+              <circleGeometry args={[enc.pisoR, 48]} />
+              <meshStandardMaterial color={claro ? '#e5e7eb' : '#1a1d25'} />
+            </mesh>
+            <OrbitControls
+              enablePan={false}
+              enableDamping
+              target={[0, enc.targetY, 0]}
+              minDistance={0.8}
+              maxDistance={enc.maxDist}
+            />
+          </Canvas>
         </div>
-      )}
-    </div>
+        {edicion ? (
+          <ControlesPiezasOverlay piezas={piezas} onChange={onPiezasChange} />
+        ) : (
+          <>
+            {!animPlay && onActivarPiezas && <EngraneActivarPiezas onActivar={onActivarPiezas} />}
+            <div className="absolute start-1.5 top-1.5">
+              <BotonPreviewClaro />
+            </div>
+            <span
+              className={`pointer-events-none absolute bottom-1.5 start-0 end-0 text-center text-[10px] ${
+                claro ? 'text-black/45' : 'text-[#ffffff]/35'
+              }`}
+            >
+              {t('preview.girar', 'Arrastra para girar · rueda para acercar')}
+            </span>
+          </>
+        )}
+        {/* ▶/⏸: previsualiza la animación del objeto (oculta la edición mientras reproduce). */}
+        {animable && (
+          <div className="absolute bottom-1.5 end-1.5">
+            <BotonOverlay
+              title={play ? t('editor.anim.pausar', 'Pausar animación') : t('editor.anim.reproducir', 'Reproducir animación')}
+              onClick={() => setPlay(!play)}
+              activo={play}
+            >
+              {play ? <Icono nombre="pausa" /> : <Icono nombre="play" />}
+            </BotonOverlay>
+          </div>
+        )}
+      </div>
+    </EnZonaPreview>
   )
 }

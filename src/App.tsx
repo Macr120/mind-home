@@ -65,6 +65,7 @@ import { useMascaraUi } from './core/state/mascaraUiStore'
 import { useChatArUi } from './core/state/chatArUiStore'
 import { useDemoEjercicio } from './core/state/demoEjercicioStore'
 import { usePreviaPlantilla } from './core/state/previaPlantillaStore'
+import { useTallerMuebles } from './core/state/tallerMueblesStore'
 import { usePelicula } from './core/state/peliculaStore'
 import { useGrabacionPantalla } from './core/grabacionPantalla'
 import { useRedes } from './core/redes/redesStore'
@@ -85,6 +86,7 @@ const DemoEjercicioOverlay = lazy(() => import('./rooms/ejercicio/anim/DemoEjerc
 // Previa de una app del catálogo («Entrar a la app»): en la raíz para que su
 // `fixed` no quede encajonado por el stacking context del menú lateral.
 const PlantillaPreviaOverlay = lazy(() => import('./core/ui/PlantillaPreviaOverlay'))
+const TallerMueblesOverlay = lazy(() => import('./core/ui/muebles/TallerMueblesOverlay'))
 // Píldora de «grabando la app» (Studio de video): lazy, solo mientras dura la toma.
 const GrabacionPantallaOverlay = lazy(() => import('./core/ui/GrabacionPantallaOverlay'))
 // Modo película del Studio de video: el editor como dock sobre el mapa. En la raíz
@@ -147,6 +149,7 @@ export default function App() {
   const chatArAbierto = useChatArUi((s) => s.abierto)
   const demoEjercicioAbierta = useDemoEjercicio((s) => s.nombre !== null && s.modo === 'overlay')
   const previaAbierta = usePreviaPlantilla((s) => !!s.plantillaId)
+  const tallerAbierto = useTallerMuebles((s) => s.abierto)
   // Modo película (animación 3D del Studio de video): el HUD de juego cede el sitio
   // a los controles del editor, montados sobre el mapa.
   const enPelicula = usePelicula((s) => s.proyectoId != null)
@@ -281,6 +284,14 @@ export default function App() {
           ancho completo detrás; ver el cazaclics dentro del propio menú. */}
       {/* En el modo película el menú lateral va cerrado (su botón tampoco está). */}
       {sidebarOpen && !enPelicula && <RoomSideMenu onToggle={() => setSidebarOpen(false)} />}
+      {/* Taller de muebles: el editor de objetos a pantalla completa. Va antes de
+          los diálogos porque comparte z-50 con `DestinoObjetoDialog`, que tiene
+          que poder pintarse ENCIMA al preguntar dónde se coloca el mueble. */}
+      {tallerAbierto && (
+        <Suspense fallback={null}>
+          <TallerMueblesOverlay />
+        </Suspense>
+      )}
       <AsignarPlantillaDialog />
       <EnlaceObjetoDialog />
       {/* La barra del navegador embebido (solo el shell de escritorio la usa). */}

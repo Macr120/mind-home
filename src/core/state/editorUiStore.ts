@@ -21,6 +21,13 @@ export const PERSONAJE_AVATAR = 'avatar'
 interface EditorUiState {
   tab: EditorTab
   setTab: (tab: EditorTab) => void
+  /**
+   * Panel a pantalla completa (la flechita junto al título). Con sitio de sobra
+   * se parte en dos columnas —controles a la izquierda, preview a la derecha— y en
+   * teléfono vertical ocupa la pantalla entera en una sola columna.
+   */
+  expandido: boolean
+  setExpandido: (v: boolean) => void
   /** Personaje en edición: 'avatar' (principal) o id de asistente. */
   personajeSel: string
   setPersonajeSel: (id: string) => void
@@ -86,6 +93,7 @@ interface EditorUiState {
 
 const LS_CONFIG_ABIERTOS = 'mind-home-config-abiertos'
 const LS_PREVIEW_CLARO = 'mind-home-preview-claro'
+const LS_EXPANDIDO = 'mind-home-editor-expandido'
 
 function leerConfigAbiertos(): Record<string, boolean> {
   try {
@@ -112,9 +120,26 @@ function leerPreviewClaro(): boolean {
   }
 }
 
+function leerExpandido(): boolean {
+  try {
+    return localStorage.getItem(LS_EXPANDIDO) === '1'
+  } catch {
+    return false
+  }
+}
+
 export const useEditorUi = create<EditorUiState>((set) => ({
   tab: 'mapa',
   setTab: (tab) => set({ tab }),
+  expandido: leerExpandido(),
+  setExpandido: (expandido) => {
+    try {
+      localStorage.setItem(LS_EXPANDIDO, expandido ? '1' : '0')
+    } catch {
+      /* quota / modo privado */
+    }
+    set({ expandido })
+  },
   personajeSel: PERSONAJE_AVATAR,
   // Al cambiar de personaje se detiene la reproducción del preview.
   setPersonajeSel: (personajeSel) => set({ personajeSel, animPreview: false }),

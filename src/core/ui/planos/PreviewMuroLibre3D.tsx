@@ -7,6 +7,7 @@ import { MuroLibre3DItem } from '../../house/MurosLibres3D'
 import { segmentosMundoMuroLibre } from '../../house/murosLibre'
 import { IconoOjo } from '../editor/IconoOjo'
 import { BotonPreviewClaro, claseOverlayBtn, claseFondoPreview } from '../comun/BotonPreviewClaro'
+import { EnZonaPreview, useEnZonaPreview } from '../editor/zonaPreview'
 import { useT } from '../../i18n/useT'
 
 /**
@@ -28,6 +29,7 @@ export function PreviewMuroLibre3D({
   const t = useT()
   const muros = murosLibresRepo.useAll() ?? VACIO
   const claro = useEditorUi((s) => s.previewClaro)
+  const enZona = useEnZonaPreview()
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
   const m = muros.find((x) => x.id === muroId)
@@ -49,60 +51,64 @@ export function PreviewMuroLibre3D({
   }
 
   return (
-    <div
-      // Sin `sticky` hace falta `relative`: los botones de la esquina (ojo y claro/oscuro)
-      // son `absolute` y cuelgan directo de este contenedor.
-      className={`${fijo ? 'sticky top-0 z-10' : 'relative'} overflow-hidden rounded-xl border border-white/10 ${claseFondoPreview(claro)}`}
-    >
-      <div className="absolute start-2 top-2 z-10 flex flex-col gap-1">
-        {onOcultar && (
-          <button
-            type="button"
-            onClick={onOcultar}
-            title={t('planos.preview.ocultar', 'Ocultar previsualización 3D')}
-            className={`rounded-lg border p-1.5 transition ${claseOverlayBtn(claro)}`}
-          >
-            <IconoOjo off />
-          </button>
-        )}
-        <BotonPreviewClaro />
-      </div>
-      <div className="h-56 w-full">
-        <Canvas
-          key={muroId}
-          shadows
-          dpr={[1, 1.5]}
-          camera={{ position: [5, 4, 5], fov: 32, near: 0.1, far: 100 }}
-        >
-          <ambientLight intensity={0.85} />
-          <directionalLight position={[4, 8, 5]} intensity={1.1} castShadow />
-          <directionalLight position={[-4, 3, -3]} intensity={0.35} />
-          <Bounds fit clip observe margin={1.3}>
-            <group position={[-cx, 0, -cz]}>
-              <MuroLibre3DItem m={m} gridCols={gridCols} gridRows={gridRows} yBase={0} preview />
-            </group>
-          </Bounds>
-          {/* Piso de apoyo para la sombra */}
-          <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]} receiveShadow>
-            <circleGeometry args={[5, 48]} />
-            <meshStandardMaterial color={claro ? '#e5e7eb' : '#1a1d25'} />
-          </mesh>
-          <OrbitControls
-            makeDefault
-            enablePan={false}
-            enableDamping
-            minDistance={2}
-            maxDistance={16}
-          />
-        </Canvas>
-      </div>
-      <span
-        className={`pointer-events-none absolute bottom-1.5 start-0 end-0 text-center text-[10px] ${
-          claro ? 'text-black/45' : 'text-[#ffffff]/35'
-        }`}
+    <EnZonaPreview>
+      <div
+        // Sin `sticky` hace falta `relative`: los botones de la esquina (ojo y claro/oscuro)
+        // son `absolute` y cuelgan directo de este contenedor.
+        className={`${
+          enZona ? 'relative h-full' : fijo ? 'sticky top-0 z-10' : 'relative'
+        } overflow-hidden rounded-xl border border-white/10 ${claseFondoPreview(claro)}`}
       >
-        {t('preview.girar', 'Arrastra para girar · rueda para acercar')}
-      </span>
-    </div>
+        <div className="absolute start-2 top-2 z-10 flex flex-col gap-1">
+          {onOcultar && (
+            <button
+              type="button"
+              onClick={onOcultar}
+              title={t('planos.preview.ocultar', 'Ocultar previsualización 3D')}
+              className={`rounded-lg border p-1.5 transition ${claseOverlayBtn(claro)}`}
+            >
+              <IconoOjo off />
+            </button>
+          )}
+          <BotonPreviewClaro />
+        </div>
+        <div className={enZona ? 'h-full w-full' : 'h-56 w-full'}>
+          <Canvas
+            key={muroId}
+            shadows
+            dpr={[1, 1.5]}
+            camera={{ position: [5, 4, 5], fov: 32, near: 0.1, far: 100 }}
+          >
+            <ambientLight intensity={0.85} />
+            <directionalLight position={[4, 8, 5]} intensity={1.1} castShadow />
+            <directionalLight position={[-4, 3, -3]} intensity={0.35} />
+            <Bounds fit clip observe margin={1.3}>
+              <group position={[-cx, 0, -cz]}>
+                <MuroLibre3DItem m={m} gridCols={gridCols} gridRows={gridRows} yBase={0} preview />
+              </group>
+            </Bounds>
+            {/* Piso de apoyo para la sombra */}
+            <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]} receiveShadow>
+              <circleGeometry args={[5, 48]} />
+              <meshStandardMaterial color={claro ? '#e5e7eb' : '#1a1d25'} />
+            </mesh>
+            <OrbitControls
+              makeDefault
+              enablePan={false}
+              enableDamping
+              minDistance={2}
+              maxDistance={16}
+            />
+          </Canvas>
+        </div>
+        <span
+          className={`pointer-events-none absolute bottom-1.5 start-0 end-0 text-center text-[10px] ${
+            claro ? 'text-black/45' : 'text-[#ffffff]/35'
+          }`}
+        >
+          {t('preview.girar', 'Arrastra para girar · rueda para acercar')}
+        </span>
+      </div>
+    </EnZonaPreview>
   )
 }

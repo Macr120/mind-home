@@ -48,6 +48,7 @@ import { useCuartos } from './cuartosStore'
 import { useAjustes } from './ajustesStore'
 import { useAsistentes } from './asistentesStore'
 import type { Pieza3D, MascotaId } from '../chat/mascotas'
+import type { Mueble } from '../muebles/tipos'
 import type { AnimacionModelo } from '../house/animacion'
 import { aplicarCuerpoPreset, type CuerpoPreset } from '../house/cuerpos'
 import { ATUENDO_POR_TEMA, esAtuendoDeTema } from '../house/atuendos'
@@ -474,6 +475,12 @@ interface DisenoState {
   setObjetoGrupoAccion: (id: number, grupo: GrupoAccion | null) => Promise<void>
   /** Pone el nombre personalizado de un objeto (vacío = quitarlo). */
   setObjetoNombre: (id: number, nombre: string) => Promise<void>
+  /**
+   * Guarda junto al objeto la receta del taller de muebles con la que se
+   * generaron sus piezas. Es lo que permite reabrirlo y volver a ajustar sus
+   * medidas en vez de tener que rehacerlo.
+   */
+  setObjetoMueble: (id: number, mueble: Mueble | undefined) => Promise<void>
   toggleSeleccion: (id: number) => void
   clearSeleccion: () => void
   /** Agrupa los objetos en `seleccion` (deben ser del mismo roomId). */
@@ -2643,6 +2650,9 @@ export const useDiseño = create<DisenoState>((set, get) => ({
         ? { animacion: JSON.parse(JSON.stringify(lib.animacion)) as AnimacionModelo }
         : {}),
       ...(lib.grupoAccion ? { grupoAccion: lib.grupoAccion } : {}),
+      // La receta del taller viaja con la copia: si no, la instancia colocada
+      // no se puede reabrir para ajustarle las medidas.
+      ...(lib.mueble ? { mueble: JSON.parse(JSON.stringify(lib.mueble)) as Mueble } : {}),
     }
     const id = await db.objetosCuarto.add(item)
     set((s) => ({ objetos: [...s.objetos, { id, ...item }] }))
@@ -2722,6 +2732,11 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       objetos: s.objetos.map((x) => (x.id === id ? { ...x, nombre: limpio } : x)),
     }))
     await db.objetosCuarto.update(id, { nombre: limpio })
+  },
+
+  setObjetoMueble: async (id, mueble) => {
+    set((s) => ({ objetos: s.objetos.map((x) => (x.id === id ? { ...x, mueble } : x)) }))
+    await db.objetosCuarto.update(id, { mueble })
   },
 
   setObjetoRotacion: async (id, rotY) => {

@@ -2,6 +2,7 @@ import { useLiveQuery } from 'dexie-react-hooks'
 import { useMemo } from 'react'
 import {
   db,
+  type AjustesCotizacion,
   type CalculoComputo,
   type EventoAgenda,
   type Medicamento,
@@ -1178,6 +1179,57 @@ export const mediosVideoRepo = createRepository(db.mediosVideo, 'creadoEn')
 export const grabacionesAudioRepo = createRepository(db.grabacionesAudio, 'creadoEn')
 export const cancionesRepo = createRepository(db.canciones, 'creadoEn')
 export const musicaImportadaRepo = createRepository(db.musicaImportada, 'creadoEn')
+
+// Taller de muebles
+export const mueblesRepo = createRepository(db.muebles, 'actualizadoEn')
+/** El catálogo de precios se ordena como lo dejó el usuario, no por fecha. */
+export const materialesTallerRepo = createRepository(db.materialesTaller, 'orden', false)
+export const presupuestosMuebleRepo = createRepository(db.presupuestosMueble, 'actualizadoEn')
+
+/**
+ * Ajustes del cotizador, con sus valores de fábrica cuando la tabla aún está
+ * vacía (es lo normal: la fila se escribe la primera vez que el usuario toca un
+ * ajuste). Devuelve siempre un objeto usable, así que la UI no tiene que
+ * defenderse de `undefined`.
+ */
+export const AJUSTES_COTIZACION_DEFECTO: AjustesCotizacion = {
+  moneda: 'MXN',
+  decimales: 2,
+  impuestoNombre: 'IVA',
+  impuestoPct: 0,
+  impuestoIncluido: false,
+  modoTablero: 'hoja',
+  mermaPct: 15,
+  desperdicioCantoPct: 10,
+  modoTubo: 'ml',
+  desperdicioTuboPct: 8,
+  manoObraActiva: false,
+  manoObraModo: 'hora',
+  manoObraValor: 180,
+  horasPorM2: 1.2,
+  cobrarCorte: false,
+  extras: [],
+  descuentoPct: 0,
+  creadoEn: '',
+}
+
+export function useAjustesCotizacion(): AjustesCotizacion {
+  const fila = useLiveQuery(() => db.ajustesCotizacion.toCollection().first(), [])
+  return fila ?? AJUSTES_COTIZACION_DEFECTO
+}
+
+/** Guarda los ajustes del cotizador (crea la fila única la primera vez). */
+export async function guardarAjustesCotizacion(parcial: Partial<AjustesCotizacion>): Promise<void> {
+  const fila = await db.ajustesCotizacion.toCollection().first()
+  if (fila?.id != null) await db.ajustesCotizacion.update(fila.id, parcial)
+  else {
+    await db.ajustesCotizacion.add({
+      ...AJUSTES_COTIZACION_DEFECTO,
+      ...parcial,
+      creadoEn: new Date().toISOString(),
+    })
+  }
+}
 
 /** Una toma de micrófono por id, SIN materializar la tabla entera (los blobs pesan). */
 export async function leerGrabacionAudio(id: number) {

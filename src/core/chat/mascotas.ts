@@ -66,6 +66,12 @@ export interface Pieza3D {
   color: string
   /** Rotación opcional en radianes [x, y, z]. */
   rot?: [number, number, number]
+  /**
+   * Acabado del material. Sin `mat` el mesh queda mate, exactamente como
+   * siempre, así que ningún modelo previo cambia de aspecto. Lo escribe el
+   * taller de muebles (el metal tiene que verse metal); la IA no lo genera.
+   */
+  mat?: 'metal' | 'vidrio' | 'brillante'
 }
 
 /**

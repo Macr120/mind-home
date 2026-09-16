@@ -36,6 +36,18 @@ function escalaPieza(p: Pieza3D): [number, number, number] | undefined {
   return [1, (p.tam[1] || r) / r, (p.tam[2] || r) / r]
 }
 
+/**
+ * Acabado del material según `Pieza3D.mat`. Sin `mat` devuelve `{}`: el
+ * material queda con los defaults de three de siempre (mate, sin metalidad), de
+ * modo que los modelos que no lo usan se ven exactamente igual que antes.
+ */
+function acabado(mat?: Pieza3D['mat']) {
+  if (mat === 'metal') return { metalness: 0.85, roughness: 0.3 }
+  if (mat === 'vidrio') return { metalness: 0, roughness: 0.05, transparent: true, opacity: 0.35 }
+  if (mat === 'brillante') return { metalness: 0.15, roughness: 0.25 }
+  return {}
+}
+
 /** Una pieza como `<mesh>` (geometría según `p.tipo` + resaltado si está seleccionada en el editor). */
 function PiezaMesh({
   p,
@@ -87,6 +99,7 @@ function PiezaMesh({
       )}
       <meshStandardMaterial
         color={p.color}
+        {...acabado(p.mat)}
         emissive={sel ? '#34d399' : '#000000'}
         emissiveIntensity={sel ? 0.45 : 0}
         side={p.tipo === 'plano' ? THREE.DoubleSide : THREE.FrontSide}

@@ -129,6 +129,17 @@ claves y los archivos siguen diciendo `objetivos`.
 
 **Personalización de la casa** (colores, avatar, objetos, perfil): modo **✏️ Editar mapa** → panel derecho (`EditPanel`).
 
+**Taller de muebles** (Editor → Objetos → Talleres → «Taller de muebles»): el editor a
+pantalla completa para diseñar muebles modulares por medidas en **milímetros**. Son
+**cuatro** modelos paramétricos, no un catálogo de muebles: módulo de madera (hace armario,
+librero, cajonera, clóset y zapatera según lo que lleve dentro), estructura metálica,
+mesa/escritorio y silla, con tableros y postes de tubo,
+**diagrama de cortes** optimizado y **presupuesto** con precios que edita el usuario. El
+núcleo puro vive en `core/muebles/` y la UI en `core/ui/muebles/`; el overlay se monta en
+la raíz de `App.tsx`. La receta (`Mueble`) es lo único que se guarda: el 3D, el despiece y
+la cotización se regeneran siempre desde ella, y el `Cuerpo` en mm es la única geometría
+(`piezas3d.ts` es el único sitio que pasa de milímetros a unidades de la escena).
+
 **Respaldo de datos** (exportar/restaurar/borrar): Editor → pestaña Configuraciones →
 sección «Respaldo de datos» (`EditorRespaldoSection`). Antes vivía en el cuarto Bodega,
 eliminado en jul 2026.

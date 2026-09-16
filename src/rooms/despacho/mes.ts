@@ -1,6 +1,7 @@
 import { DIA_MS, deIso, fechaLocalISO, inicioSemana } from '../../core/fechaLocal'
 import type { PeriodoMovimiento, Transaccion } from '../../core/data/db'
 import { localeActual } from '../../core/i18n/useT'
+import { dinero } from '../../core/moneda'
 /** Utilidades de fecha y de periodo para Finanzas. */
 
 export const hoyISO = () => fechaLocalISO()
@@ -10,15 +11,11 @@ function mesCorto(mes: string): string {
   return deIso(`${mes}-01`).toLocaleDateString(localeActual(), { month: 'short' })
 }
 
-export const money = (n: number) =>
-  n.toLocaleString('es-MX', {
-    style: 'currency',
-    currency: 'MXN',
-    maximumFractionDigits: 0,
-  })
+// Finanzas fija su moneda a propósito: cambiar lo que el usuario ya ve aquí
+// sería otra decisión. El formateo lo pone `core/moneda.ts`.
+export const money = (n: number) => dinero(n, { moneda: 'MXN', locale: 'es-MX', decimales: 0 })
 
-export const money2 = (n: number) =>
-  n.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })
+export const money2 = (n: number) => dinero(n, { moneda: 'MXN', locale: 'es-MX' })
 
 // ----- Periodos (el filtro del Balance y el plazo de cada movimiento) -----
 

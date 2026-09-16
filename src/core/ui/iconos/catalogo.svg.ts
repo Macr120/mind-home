@@ -801,6 +801,7 @@ export const SVGS: Record<NombreIcono, LucideIcon> = {
   // — Objetos del catálogo de muebles (chips de creación del chat) —
   guitarra: Guitar,
   madera: Axe,
+  mesa: Table,
   'caja-herramientas': Drill,
   libro: Book,
   maceta: Amphora,

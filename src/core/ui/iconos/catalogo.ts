@@ -423,6 +423,8 @@ export const EMOJIS = {
   // — Objetos del catálogo de muebles (chips de creación del chat) —
   guitarra: '🎸',
   madera: '🪵',
+  // Unicode no tiene mesa: el cubierto puesto es lo que se lee como tal.
+  mesa: '🍽️',
   'caja-herramientas': '🧰',
   libro: '📕',
   maceta: '🪴',

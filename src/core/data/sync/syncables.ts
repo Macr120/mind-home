@@ -148,6 +148,12 @@ export const TABLAS_SYNC: string[] = [
   'proyectosAudio',
   'proyectosVideo',
   'canciones',
+  // Taller de muebles: las recetas, el catálogo de precios del usuario y los
+  // presupuestos ya entregados.
+  'muebles',
+  'materialesTaller',
+  'ajustesCotizacion',
+  'presupuestosMueble',
   // Al final del array a propósito: `materialEntrada` apunta a entradasBiblio,
   // hojasCalculo, mapasIdeas e ideas, así que se aplica cuando todas ya están.
   'materialEntrada',
@@ -248,6 +254,8 @@ export const FK: Record<string, Record<string, string>> = {
   // Aristas del diagrama de relaciones: los extremos son personajes y la nota
   // de la conexión es otro documento (seccion 'relacion').
   relacionesLibro: { historiaId: 'historias', aId: 'documentos', bId: 'documentos', docId: 'documentos' },
+  // El presupuesto apunta al diseño del taller del que salió.
+  presupuestosMueble: { muebleId: 'muebles' },
 }
 
 /**
@@ -314,6 +322,9 @@ export const ORDEN_TOPO: string[] = [
   // porque apuntan a ambos.
   'documentos',
   'relacionesLibro',
+  // `muebles` no aparece (sin padres numéricos → se aplica primero); el
+  // presupuesto va después porque lo referencia.
+  'presupuestosMueble',
   // El último: apunta a entradasBiblio, hojasCalculo, mapasIdeas e ideas, y
   // `hojasCalculo`/`ideas` no aparecen antes porque no tienen padres numéricos
   // (las tablas ausentes de esta lista se aplican primero).
@@ -322,6 +333,7 @@ export const ORDEN_TOPO: string[] = [
 
 /** Tablas de UNA sola fila: si el merge deja más de una, gana la más nueva. */
 export const SINGLETONS = new Set<string>([
+  'ajustesCotizacion',
   'perfilNutricion',
   'perfilEjercicio',
   'perfilSueno',
@@ -365,6 +377,10 @@ export function esSeedIntacta(fila: unknown): boolean {
 }
 
 export const CLAVES_UNICAS: Record<string, string[]> = {
+  // El catálogo de precios del taller nace vacío, pero la clave va desde el
+  // primer día: sin ella, dos dispositivos que siembren el mismo material lo
+  // duplican en vez de fundirlo (es lo que pasó en las v138/v139).
+  materialesTaller: ['clave'],
   portadasViaje: ['pais'],
   portadasLugar: ['lugarId'],
   temasArbol: ['temaId'],

@@ -29,6 +29,7 @@ import { EditorFormaLibreSection } from './EditorFormaLibreSection'
 import { footprintCells, FOOTPRINT_DEFAULT, MAX_GRID, type Footprint, type Cell, type TipoAcceso } from '../../house/walls'
 import { pintarCuarto } from '../../state/pintarCuarto'
 import type { DirGrid } from '../../state/layoutStore'
+import { EnZonaPreview, useEnZonaPreview } from '../editor/zonaPreview'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 import { vivo } from '../estilos'
@@ -885,6 +886,9 @@ export function ConstructorMapa() {
   // las dos vistas: si el croquis está visible el sitio es suyo y el preview 3D se
   // desplaza debajo; con el croquis apagado, el que se pega es el preview.
   const croquisFijo = modo !== 'ascensos'
+  // A pantalla completa partida el croquis se va a la columna de la derecha y ahí
+  // llena el alto: ni `sticky` ni alto fijo tienen sentido.
+  const enZona = useEnZonaPreview()
 
   return (
     <div className="space-y-3">
@@ -934,36 +938,38 @@ export function ConstructorMapa() {
       {/* Croquis 2D compartido. En los bordes/esquinas, overlays según el modo:
           Grid → +/- de tamaño; resto → nivel (sup. izq.) y detalle fino/normal (sup. der.). */}
       {(!con3d || croquisVisible) && (
-      <div
-        className={`relative h-64 w-full overflow-hidden rounded-xl border border-white/10 bg-stone-200 ${
-          croquisFijo ? 'sticky top-0 z-10' : ''
-        }`}
-      >
-        <PlanosEditor compacto />
-        {modo === 'grid' && <ResizeBordesCroquis />}
-        {modo !== 'grid' && (
-          <NivelOverlay
-            nivel={nivel}
-            minNivel={minNivel}
-            maxNivel={maxNivel}
-            nuevoNivel={nuevoNivel}
-            nuevoSotano={nuevoSotano}
-            setNivel={setNivel}
-          />
-        )}
-        {/* La rejilla fina aplica al piso exterior y al modo Cuartos (esquinas finas con
-            el pincel); el piso interior solo selecciona el cuarto. */}
-        {(modo === 'piso-ext' || modo === 'cuartos') && (
-          <DetalleOverlay detalle={detalleRejilla} setDetalle={setDetalleRejilla} />
-        )}
-        {/* El selector de forma solo aplica al CREAR (no al seleccionar). */}
-        {modo === 'muros' && herramienta === 'muro' && (
-          <FormaMuroOverlay forma={formaMuro} setForma={setFormaMuro} />
-        )}
-        {modo === 'cuartos' && (
-          <FormaCuartoOverlay forma={pincelForma} setForma={setPincelForma} />
-        )}
-      </div>
+      <EnZonaPreview>
+        <div
+          className={`relative w-full overflow-hidden rounded-xl border border-white/10 bg-stone-200 ${
+            enZona ? 'h-full' : croquisFijo ? 'h-64 sticky top-0 z-10' : 'h-64'
+          }`}
+        >
+          <PlanosEditor compacto />
+          {modo === 'grid' && <ResizeBordesCroquis />}
+          {modo !== 'grid' && (
+            <NivelOverlay
+              nivel={nivel}
+              minNivel={minNivel}
+              maxNivel={maxNivel}
+              nuevoNivel={nuevoNivel}
+              nuevoSotano={nuevoSotano}
+              setNivel={setNivel}
+            />
+          )}
+          {/* La rejilla fina aplica al piso exterior y al modo Cuartos (esquinas finas con
+              el pincel); el piso interior solo selecciona el cuarto. */}
+          {(modo === 'piso-ext' || modo === 'cuartos') && (
+            <DetalleOverlay detalle={detalleRejilla} setDetalle={setDetalleRejilla} />
+          )}
+          {/* El selector de forma solo aplica al CREAR (no al seleccionar). */}
+          {modo === 'muros' && herramienta === 'muro' && (
+            <FormaMuroOverlay forma={formaMuro} setForma={setFormaMuro} />
+          )}
+          {modo === 'cuartos' && (
+            <FormaCuartoOverlay forma={pincelForma} setForma={setPincelForma} />
+          )}
+        </div>
+      </EnZonaPreview>
       )}
 
       {/* Modelo 3D editable del elemento seleccionado (se abre solo al seleccionar; se
