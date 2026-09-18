@@ -8,8 +8,7 @@
  */
 export const TEXTOS = {
   // ─── Cabecera y pie, comunes a las tres páginas ──────────────────────────
-  'marca.nombre': 'Planificador Mental-Casa',
-  'marca.sub': 'MPH',
+  'marca.nombre': 'MindHaOS',
   'nav.entrar': 'Entrar',
   'nav.descargar': 'Descargar',
   'pie.inicio': 'Inicio',
@@ -20,7 +19,7 @@ export const TEXTOS = {
   'tema.boton': 'Modo claro u oscuro',
 
   // ─── Portada ─────────────────────────────────────────────────────────────
-  'meta.titulo': 'Mind Planner Home — Tu mente, en una casa 3D',
+  'meta.titulo': 'MindHaOS — Tu mente, en una casa 3D',
   'meta.desc':
     'Organiza tus hábitos, metas, finanzas, comidas y más en una casa isométrica 3D donde cada cuarto es una app. Un solo pago de 8.99 USD con el primer mes de IA y sincronización incluido; pruébala gratis.',
   'og.desc':
@@ -135,7 +134,7 @@ export const TEXTOS = {
 
   'mani.h2': 'Tu vida, hecha videojuego',
   'mani.p1':
-    'MPH es la representación de tu vida convertida en videojuego, jugada desde el lugar más cómodo que existe: tu propia casa. Subir de nivel y ganar rangos no es un adorno — es lo que hiciste allá afuera, contado aquí dentro.',
+    'MindHaOS es la representación de tu vida convertida en videojuego, jugada desde el lugar más cómodo que existe: tu propia casa. Subir de nivel y ganar rangos no es un adorno — es lo que hiciste allá afuera, contado aquí dentro.',
   'mani.p2':
     'Aquí expandes habilidades nuevas, llevas el control de tus recursos y pones la tecnología a tu favor. Contra el consumismo inconsciente del formato corto. Contra el deterioro cognitivo que dejan los hábitos de consumo que imponen las grandes corporaciones.',
   'mani.cierre': 'La misma dopamina. Esta vez, para tu vida real.',
@@ -217,7 +216,7 @@ export const TEXTOS = {
   'priv.titulo': 'Política de privacidad',
   'priv.quienes.h': 'Quiénes somos',
   'priv.quienes.p':
-    'Mind Planner Home («la app») es una aplicación de organización personal. Contacto: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+    'MindHaOS («la app») es una aplicación de organización personal. Contacto: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
   'priv.datos.h': 'Qué datos recopilamos',
   'priv.datos.1':
     '<strong>Cuenta:</strong> tu correo electrónico y una contraseña cifrada, gestionados por Supabase (nuestro proveedor de backend).',
@@ -233,7 +232,7 @@ export const TEXTOS = {
     '<strong>Datos de salud y bienestar:</strong> lo que registras sobre ejercicio, alimentación, medicamentos, citas médicas o ciclo se guarda para ti como cualquier otro dato de la app; nunca se vende ni se usa para publicidad.',
   'priv.salud.h': 'Alcance de las funciones de salud',
   'priv.salud.p':
-    'Mind Planner Home es una agenda personal, no una aplicación médica. Sus funciones de salud son un registro que escribes tú y unos recordatorios: la app no diagnostica, no interpreta síntomas, no recomienda dosis ni tratamientos, no comprueba interacciones entre medicamentos y no sustituye la consulta con un profesional sanitario. Las estimaciones del ciclo salen solo de los datos que introduces y son orientativas. No es un producto sanitario ni un dispositivo médico, y no se conecta con expedientes clínicos, aseguradoras ni proveedores de salud.',
+    'MindHaOS es una agenda personal, no una aplicación médica. Sus funciones de salud son un registro que escribes tú y unos recordatorios: la app no diagnostica, no interpreta síntomas, no recomienda dosis ni tratamientos, no comprueba interacciones entre medicamentos y no sustituye la consulta con un profesional sanitario. Las estimaciones del ciclo salen solo de los datos que introduces y son orientativas. No es un producto sanitario ni un dispositivo médico, y no se conecta con expedientes clínicos, aseguradoras ni proveedores de salud.',
   'priv.uso.h': 'Para qué los usamos',
   'priv.uso.1': 'Darte acceso a tu cuenta, a tu compra y a tu suscripción.',
   'priv.uso.2': 'Sincronizar tus datos entre dispositivos y respaldarlos.',
@@ -246,7 +245,7 @@ export const TEXTOS = {
     'Los servicios que integramos pueden guardar o leer información en tu dispositivo cuando los usas: Google al iniciar sesión y al autorizar YouTube API Services (ver la <a href="https://policies.google.com/technologies/cookies">política de cookies de Google</a>), y lo mismo TikTok y Meta al conectar esas cuentas. Esa información la gestionan ellos conforme a sus propias políticas.',
   'priv.redes.h': 'Cuentas de redes sociales conectadas',
   'priv.redes.p':
-    'Si conectas tu cuenta de YouTube, TikTok, Facebook o Instagram, guardamos cifrados en nuestro servidor los tokens de acceso que esa red nos entrega, junto con el nombre y la foto de la cuenta o Página que elijas. Los usamos únicamente para publicar en tu propia cuenta los videos que tú decides publicar desde el editor de video, en el momento en que pulsas Publicar. No leemos tus videos, publicaciones, comentarios, mensajes ni ningún otro dato de esas cuentas, y nunca publicamos nada por nuestra cuenta. Los tokens se conservan hasta que desconectas la cuenta en Configuraciones → Cuentas conectadas o eliminas tu cuenta de Mind Planner Home; también puedes revocar el acceso desde los ajustes de seguridad de cada red (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
+    'Si conectas tu cuenta de YouTube, TikTok, Facebook o Instagram, guardamos cifrados en nuestro servidor los tokens de acceso que esa red nos entrega, junto con el nombre y la foto de la cuenta o Página que elijas. Los usamos únicamente para publicar en tu propia cuenta los videos que tú decides publicar desde el editor de video, en el momento en que pulsas Publicar. No leemos tus videos, publicaciones, comentarios, mensajes ni ningún otro dato de esas cuentas, y nunca publicamos nada por nuestra cuenta. Los tokens se conservan hasta que desconectas la cuenta en Configuraciones → Cuentas conectadas o eliminas tu cuenta de MindHaOS; también puedes revocar el acceso desde los ajustes de seguridad de cada red (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
   'priv.redes.youtube':
     'Para YouTube, la app utiliza YouTube API Services; al conectar tu cuenta aceptas los <a href="https://www.youtube.com/t/terms">Términos de servicio de YouTube</a> y se aplica la <a href="https://policies.google.com/privacy">Política de privacidad de Google</a>.',
 
@@ -276,7 +275,7 @@ export const TEXTOS = {
   'term.titulo': 'Términos del servicio',
   'term.servicio.h': 'El servicio',
   'term.servicio.p':
-    'Mind Planner Home es una app de organización personal. La prueba es gratuita y no requiere cuenta. La app se compra con un pago único; las funciones recurrentes (créditos de IA y sincronización) se contratan únicamente en esta página web; las apps de escritorio y de tienda son clientes de esa misma cuenta.',
+    'MindHaOS es una app de organización personal. La prueba es gratuita y no requiere cuenta. La app se compra con un pago único; las funciones recurrentes (créditos de IA y sincronización) se contratan únicamente en esta página web; las apps de escritorio y de tienda son clientes de esa misma cuenta.',
   'term.app.h': 'La app (pago único)',
   'term.app.1':
     'Desbloqueo de la app: 8.99 USD, pago único. Desbloquea tu casa para siempre en tu cuenta, sin renovaciones.',

@@ -3,6 +3,7 @@ import { vTexto, type EsquemaCaptura, type Plantilla } from '../../core/appContr
 import { documentosRepo, historiasRepo } from '../../core/data/repository'
 import type { TipoLibro } from '../../core/data/db'
 import { registrarProveedorRecursos } from '../../core/recursosStudio'
+import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
 import { COLOR_FABRICA } from './constantes'
 import { OPERACIONES_IA } from './costosIA'
 
@@ -59,6 +60,21 @@ registrarProveedorRecursos({
 // La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
 // montaje ya envuelven en Suspense).
 const EscrituraApp = lazy(() => import('./EscrituraApp').then((m) => ({ default: m.EscrituraApp })))
+
+// Los documentos se pueden mandar a otra persona por el buzón (registro eager, datos con import()).
+registrarProveedorCompartible({
+  app: 'escritura',
+  tipos: [
+    {
+      tipo: 'documento',
+      icono: 'libro',
+      etiqueta: (t) => t('buzon.compartible.documento', 'Documento'),
+      listar: async () => (await import('./compartible')).listarDocumentos(),
+      empaquetar: async (clave) => (await import('./compartible')).empaquetarDocumentoPorClave(clave),
+      importar: async (p) => (await import('./compartible')).importarDocumento(p),
+    },
+  ],
+})
 
 const escritura: Plantilla = {
   id: 'escritura',

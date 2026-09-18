@@ -12,7 +12,7 @@ import { create } from 'zustand'
  * dispararse minutos después, cuando el usuario vuelva a la casa.
  */
 
-export type AccionGlobal = 'chat' | 'chat-foto' | 'chat-voz'
+export type AccionGlobal = 'chat' | 'chat-foto' | 'chat-voz' | 'buzon'
 
 const VIGENCIA_MS = 15_000
 
@@ -37,7 +37,7 @@ export const useAccionGlobal = create<AccionGlobalState>((set, get) => ({
 }))
 
 export const esAccionGlobal = (v: string): v is AccionGlobal =>
-  v === 'chat' || v === 'chat-foto' || v === 'chat-voz'
+  v === 'chat' || v === 'chat-foto' || v === 'chat-voz' || v === 'buzon'
 
 /** Lanza la acción desde fuera de React (el puente de los widgets). */
 export const lanzarAccionGlobal = (accion: AccionGlobal) => useAccionGlobal.getState().lanzar(accion)

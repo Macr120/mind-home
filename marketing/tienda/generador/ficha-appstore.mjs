@@ -162,17 +162,17 @@ for (const id of IDIOMAS) {
 
   textos[id] = {
     locale: LOCALE[id],
-    // El nombre NO se traduce: el icono del teléfono dice «Mind Planner Home»
+    // El nombre NO se traduce: el icono del teléfono dice «MindHaOS»
     // en los 16 idiomas (`app_name` de Android no está localizado) y Apple pide
     // que la ficha coincida con el nombre instalado.
-    nombre: 'Mind Planner Home',
+    nombre: 'MindHaOS',
     subtitulo: SUBTITULO[id] || plano(t['hero.h1']),
     promocional: sinPrecio(t['og.desc']),
     descripcion,
     claves: CLAVES[id],
-    soporte: `https://mindplannerhome.com/${id === 'es' ? '' : id + '/'}soporte`,
-    marketing: `https://mindplannerhome.com/${id === 'es' ? '' : id + '/'}`,
-    privacidad: `https://mindplannerhome.com/${id === 'es' ? '' : id + '/'}privacidad`,
+    soporte: `https://mindhaos.com/${id === 'es' ? '' : id + '/'}soporte`,
+    marketing: `https://mindhaos.com/${id === 'es' ? '' : id + '/'}`,
+    privacidad: `https://mindhaos.com/${id === 'es' ? '' : id + '/'}privacidad`,
   }
 }
 

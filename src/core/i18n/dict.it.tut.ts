@@ -110,9 +110,9 @@ export const IT_TUT: Dict = {
   'tut.primeros.1.texto': 'Questo tutorial risponde a due cose: come ENTRARE nelle tue app e come CREARNE una nuova. Entrambe vivono qui, nella scheda Casa.',
   'tut.primeros.entrar.titulo': 'Entrare nelle tue app',
   'tut.primeros.entrar.texto':
-    'Ogni stanza porta la sua app e hai tre porte: la sua scheda qui nel menu, l\'oggetto con la sfera fluttuante sulla mappa, e l\'accesso rapido del pulsante MPH in alto.',
+    'Ogni stanza porta la sua app e hai tre porte: la sua scheda qui nel menu, l\'oggetto con la sfera fluttuante sulla mappa, e l\'accesso rapido del pulsante MindHaOS in alto.',
   'tut.primeros.entrar.vacio':
-    'Qui vivranno le tue stanze, ognuna con la sua app, e avrai tre porte: la sua scheda qui nel menu, l\'oggetto con la sfera fluttuante sulla mappa, e l\'accesso rapido del pulsante MPH in alto. Creiamo la prima…',
+    'Qui vivranno le tue stanze, ognuna con la sua app, e avrai tre porte: la sua scheda qui nel menu, l\'oggetto con la sfera fluttuante sulla mappa, e l\'accesso rapido del pulsante MindHaOS in alto. Creiamo la prima…',
   'tut.primeros.prev.titulo': 'Qui va la tua stanza',
   'tut.primeros.prev.texto':
     'Questa è l\'anteprima del pennello: la sagoma verde con i suoi muri segna dove sorgerà la stanza. Costruendo a mano la vedrai uguale sotto il dito, prima di rilasciare il tocco.',
@@ -133,7 +133,7 @@ export const IT_TUT: Dict = {
     'Con + Assegna le ho dato la sua app: guarda come la stanza ha preso il suo nome, la sua icona e i suoi mobili. Da adesso la sua scheda intera è il pulsante per entrare.',
   'tut.primeros.5.titulo': 'Entra',
   'tut.primeros.5.texto':
-    'Siamo dentro: questa è l\'app della stanza. Per tornarci dopo: la sua scheda nel menu, l\'oggetto con la sfera sulla mappa, o l\'accesso rapido del pulsante MPH in alto.',
+    'Siamo dentro: questa è l\'app della stanza. Per tornarci dopo: la sua scheda nel menu, l\'oggetto con la sfera sulla mappa, o l\'accesso rapido del pulsante MindHaOS in alto.',
   'tut.primeros.press.titulo': 'Tieni premuto',
   'tut.primeros.press.texto':
     'Guarda come trema: tenere premuto una stanza o un oggetto lo sveglia, con il suo menu. Così lo sposti se non ti piace dov\'è finito, o lo elimini.',
@@ -1024,7 +1024,7 @@ export const IT_TUT: Dict = {
     'L’asse del tempo con tutti gli obiettivi insieme: ognuno è una barra sopra le date. Ci si avvicina e ci si allontana per giorni, settimane, mesi o anni, e un piano può sovrapporsi per confrontarlo con quello già tracciato.',
   'tut.app-sala--esencial.1.titulo': 'Il tuo soggiorno di viaggio',
   'tut.app-sala--esencial.1.texto':
-    'Qui vive il tuo mondo viaggiatore: una mappa del mondo con spilli, itinerari di luoghi da scoprire, percorsi che collegano luoghi e un diario di bordo di ricordi. Sono quattro schede.',
+    'Qui vive il tuo mondo da viaggiatore: un mappamondo con segnaposto, itinerari di luoghi da scoprire, percorsi che concatenano luoghi, un navigatore per arrivare ovunque e un diario di bordo di ricordi. Cinque menu.',
   'tut.app-sala--esencial.2.titulo': 'Mappa',
   'tut.app-sala--esencial.2.texto':
     'Ogni luogo che hai visitato o sogni di visitare è uno spillo sulla mappa del mondo. L’interruttore in alto sostituisce la mappa piatta con un globo che giri trascinandolo.',
@@ -1036,6 +1036,8 @@ export const IT_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': 'Diario di bordo',
   'tut.app-sala--esencial.5.texto':
     'I ricordi dei luoghi che hai visitato, in album per paese: foto e aneddoti di ogni posto.',
+  'tut.app-sala--esencial.6.titulo': 'Come arrivare',
+  'tut.app-sala--esencial.6.texto': 'Un navigatore porta a porta: scegli partenza e destinazione e combina piedi, mezzi pubblici, bici e auto in un unico tragitto, con la mappa stradale e le indicazioni passo dopo passo.',
   'tut.app-agenda--trabajo.1.titulo': 'La lista dei da fare',
   'tut.app-agenda--trabajo.1.texto':
     'Quello che va fatto ma non ha ancora un giorno vive qui, con la sua priorità. Niente ti obbliga a metterci una data solo per annotarlo.',

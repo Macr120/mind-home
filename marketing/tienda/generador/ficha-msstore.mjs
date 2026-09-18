@@ -144,7 +144,7 @@ for (const id of IDIOMAS) {
     locale: LOCALE[id],
     // El nombre NO se traduce: es el que la tienda reservó y el que lleva la app
     // instalada en los 16 idiomas.
-    nombre: 'Mind Planner Home',
+    nombre: 'MindHaOS',
     // La Store no tiene «subtítulo»: su descripción corta hace ese papel, y sale
     // del mismo texto de portada que el subtítulo de Apple.
     descripcionCorta: plano(t['og.desc']),
@@ -152,8 +152,8 @@ for (const id of IDIOMAS) {
     caracteristicas,
     // «What's new»: vacío a propósito en el primer envío, como pide la Store.
     novedades: '',
-    soporte: `https://mindplannerhome.com/${id === 'es' ? '' : id + '/'}soporte`,
-    privacidad: `https://mindplannerhome.com/${id === 'es' ? '' : id + '/'}privacidad`,
+    soporte: `https://mindhaos.com/${id === 'es' ? '' : id + '/'}soporte`,
+    privacidad: `https://mindhaos.com/${id === 'es' ? '' : id + '/'}privacidad`,
   }
 }
 

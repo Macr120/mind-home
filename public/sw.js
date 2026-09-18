@@ -1,5 +1,5 @@
 /*
- * Service worker de Mind Planner Home (MPH).
+ * Service worker de MindHaOS (MPH).
  *
  * NO CACHEA NADA, y es deliberado: existe solo para que las notificaciones
  * sobrevivan con la pestaña en segundo plano y para saber a dónde llevar al
@@ -42,6 +42,7 @@ self.addEventListener('notificationclick', (e) => {
             seccion: datos.seccion,
             rutinaId: datos.rutinaId,
             wrapped: datos.wrapped,
+            hilo: datos.hilo,
           })
           // Registrar de un toque no debería arrastrarte dentro de la app: era un
           // toque para quitártelo de encima, no para ponerte a mirar la pantalla.
@@ -52,6 +53,8 @@ self.addEventListener('notificationclick', (e) => {
       if (datos.plantillaId) params.set('app', datos.plantillaId)
       if (datos.seccion) params.set('seccion', datos.seccion)
       if (datos.wrapped) params.set('wrapped', datos.wrapped)
+      // Un mensaje del buzón: la ventana nueva abre ese hilo.
+      if (datos.hilo) params.set('buzon', datos.hilo)
       if (accion === 'registrar' && datos.rutinaId != null) {
         params.set('accion', 'registrar')
         params.set('rutina', String(datos.rutinaId))

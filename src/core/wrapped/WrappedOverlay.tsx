@@ -183,7 +183,7 @@ export default function WrappedOverlay() {
       .filter(Boolean)
       .join('\n')
     if (!texto) return
-    const titulo = t('wrapped.compartir.titulo', 'Mi resumen de Mind Planner Home · {periodo}', { periodo: etiqueta })
+    const titulo = t('wrapped.compartir.titulo', 'Mi resumen de MindHaOS · {periodo}', { periodo: etiqueta })
     const r = await compartirTexto(titulo, `${titulo}\n\n${texto}`)
     if (r.tipo === 'copiado') {
       setCompartido(true)

@@ -110,9 +110,9 @@ export const ID_TUT: Dict = {
   'tut.primeros.1.texto': 'Tutorial ini menjawab dua hal: cara MASUK ke aplikasimu dan cara MEMBUAT yang baru. Keduanya ada di sini, di tab Rumah.',
   'tut.primeros.entrar.titulo': 'Masuk ke aplikasimu',
   'tut.primeros.entrar.texto':
-    'Setiap ruangan membawa aplikasinya dan kamu punya tiga pintu: kartunya di sini di menu, objek dengan bola melayang di peta, dan akses cepat tombol MPH di atas.',
+    'Setiap ruangan membawa aplikasinya dan kamu punya tiga pintu: kartunya di sini di menu, objek dengan bola melayang di peta, dan akses cepat tombol MindHaOS di atas.',
   'tut.primeros.entrar.vacio':
-    'Di sini kamar-kamarmu akan tinggal, masing-masing dengan aplikasinya, dan kamu akan punya tiga pintu: kartunya di sini di menu, objek dengan bola melayang di peta, dan akses cepat tombol MPH di atas. Ayo buat yang pertama…',
+    'Di sini kamar-kamarmu akan tinggal, masing-masing dengan aplikasinya, dan kamu akan punya tiga pintu: kartunya di sini di menu, objek dengan bola melayang di peta, dan akses cepat tombol MindHaOS di atas. Ayo buat yang pertama…',
   'tut.primeros.prev.titulo': 'Di sinilah ruanganmu',
   'tut.primeros.prev.texto':
     'Ini pratinjau kuasnya: siluet hijau dengan dindingnya menandai di mana ruangan akan berdiri. Saat membangun sendiri kamu akan melihatnya persis begitu di bawah jarimu, sebelum melepas sentuhan.',
@@ -133,7 +133,7 @@ export const ID_TUT: Dict = {
     'Dengan + Tetapkan aku memberinya aplikasi: lihat bagaimana ruangan itu mengambil nama, ikon, dan perabotnya. Mulai sekarang seluruh kartunya adalah tombol masuk.',
   'tut.primeros.5.titulo': 'Masuk',
   'tut.primeros.5.texto':
-    'Kita sudah di dalam: ini aplikasi ruangannya. Untuk kembali nanti: kartunya di menu, objek dengan bola di peta, atau akses cepat tombol MPH di atas.',
+    'Kita sudah di dalam: ini aplikasi ruangannya. Untuk kembali nanti: kartunya di menu, objek dengan bola di peta, atau akses cepat tombol MindHaOS di atas.',
   'tut.primeros.press.titulo': 'Tekan dan tahan',
   'tut.primeros.press.texto':
     'Lihat bagaimana ia bergetar: menekan lama sebuah ruangan atau objek akan membangunkannya, lengkap dengan menunya. Begitulah kamu memindahkannya kalau tidak suka letaknya, atau menghapusnya.',
@@ -1026,7 +1026,7 @@ export const ID_TUT: Dict = {
     'Sumbu waktu dengan semua target sekaligus: masing-masing adalah bar di atas tanggal. Kamu bisa memperbesar dan memperkecil menurut hari, minggu, bulan, atau tahun, dan sebuah rencana bisa ditumpuk di atasnya untuk dibandingkan dengan yang sudah tergambar.',
   'tut.app-sala--esencial.1.titulo': 'Ruang tamu jalan-jalanmu',
   'tut.app-sala--esencial.1.texto':
-    'Di sinilah dunia jalan-jalanmu hidup: peta dunia dengan pin, rencana perjalanan tempat yang ingin dikunjungi, rute yang menghubungkan tempat, dan jurnal perjalanan berisi kenangan. Ada empat menu.',
+    'Di sini dunia pelancongmu tinggal: peta dunia dengan pin, rencana tempat yang ingin dilihat, rute yang merangkai tempat, navigator untuk sampai ke mana saja, dan buku catatan kenangan. Ada lima menu.',
   'tut.app-sala--esencial.2.titulo': 'Peta',
   'tut.app-sala--esencial.2.texto':
     'Setiap tempat yang sudah kamu kunjungi atau impikan untuk dikunjungi adalah sebuah pin di peta dunia. Sakelar di atas mengganti peta datar dengan globe yang bisa kamu putar dengan menyeretnya.',
@@ -1039,6 +1039,8 @@ export const ID_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': 'Jurnal perjalanan',
   'tut.app-sala--esencial.5.texto':
     'Kenangan dari tempat-tempat yang sudah kamu kunjungi, dalam album per negara: foto dan cerita dari setiap tempat.',
+  'tut.app-sala--esencial.6.titulo': 'Cara ke sana',
+  'tut.app-sala--esencial.6.texto': 'Navigator dari pintu ke pintu: pilih asal dan tujuan, lalu padukan jalan kaki, transportasi umum, sepeda, dan mobil dalam satu perjalanan, dengan peta jalan dan petunjuk langkah demi langkah.',
   'tut.app-agenda--trabajo.1.titulo': 'Kotak masuk',
   'tut.app-agenda--trabajo.1.texto':
     'Kerja punya dua tampilan: baki Tugas dan Papan. Di Tugas tinggal apa yang harus dikerjakan tapi belum punya hari, lengkap dengan prioritasnya; tidak ada yang memaksamu memberi tanggal hanya untuk mencatatnya.',

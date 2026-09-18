@@ -4,11 +4,10 @@
  * demás archivos de esta carpeta va su traducción, con las mismas claves.
  */
 export const TEXTOS: Record<string, string> = {
-  'marca.nombre': 'Mind Planner Home',
-  'marca.sub': 'MPH',
+  'marca.nombre': 'MindHaOS',
   'marco.privacidad': 'Privacy',
   'marco.terminos': 'Terms',
-  'marco.titulo': 'My account — Mind Planner Home',
+  'marco.titulo': 'My account — MindHaOS',
   'comun.procesando': 'Working…',
 
   'oauth.google': 'Continue with Google',

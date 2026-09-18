@@ -1,10 +1,9 @@
 /** Textos del portal /cuenta en hindi. Traducción del español de `web/src/cuenta.tsx`. */
 export const TEXTOS: Record<string, string> = {
-  'marca.nombre': 'मानसिक प्लानर-घर',
-  'marca.sub': 'Mind Planner Home',
+  'marca.nombre': 'MindHaOS',
   'marco.privacidad': 'गोपनीयता',
   'marco.terminos': 'शर्तें',
-  'marco.titulo': 'मेरा खाता — Mind Planner Home',
+  'marco.titulo': 'मेरा खाता — MindHaOS',
   'comun.procesando': 'चल रहा है…',
   'oauth.google': 'Google से जारी रखें',
   'oauth.apple': 'Apple से जारी रखें',

@@ -134,7 +134,7 @@ function Marco({
  * abajo— porque son dos personas distintas: quien reinstala o estrena
  * dispositivo, y quien acaba de descubrir la app. A esta segunda le falta
  * además saber qué está a punto de comprar, y para eso está el recorrido
- * «¿Qué es Mind Planner Home?» (la web pública contada como historias).
+ * «¿Qué es MindHaOS?» (la web pública contada como historias).
  */
 function PantallaCuenta() {
   const t = useT()
@@ -201,7 +201,7 @@ function PantallaCuenta() {
       >
         <button type="button" onClick={() => setQueEs(true)} className={botonSecundario}>
           <Icono nombre="ayuda" />
-          {t('puerta.queEs', '¿Qué es {n}?', { n: t('marca.nombre', 'Planificador Mental-Casa') })}
+          {t('puerta.queEs', '¿Qué es {n}?', { n: t('marca.nombre', 'MindHaOS') })}
         </button>
         <button type="button" onClick={() => entrarProbar()} className={botonSecundario}>
           <Icono nombre="play" />

@@ -2,7 +2,7 @@ import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, us
 import type { Guion } from './escenas'
 import { esRTL, familiaDe } from './fuentes'
 
-const DOMINIO = 'mindplannerhome.com'
+const DOMINIO = 'mindhaos.com'
 
 /** Cierre: las piezas de la marca, el nombre, el eslogan en tres líneas y la llamada a probar. */
 export const Cierre: React.FC<{ guion: Guion; idioma: string; frames: number }> = ({ guion, idioma, frames }) => {
@@ -42,7 +42,7 @@ export const Cierre: React.FC<{ guion: Guion; idioma: string; frames: number }> 
           direction: 'ltr',
         }}
       >
-        Mind Planner Home
+        MindHaOS
       </div>
       <div style={{ marginTop: 70, padding: '0 90px', textAlign: 'center', unicodeBidi: 'plaintext' }}>
         {guion.cierre.map((linea, i) => {

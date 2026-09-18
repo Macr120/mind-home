@@ -1,7 +1,6 @@
 /** Textos de las páginas estáticas en coreano. Traducción de `es.mjs`. */
 export const TEXTOS = {
-  'marca.nombre': '멘탈 플래너-집',
-  'marca.sub': 'MPH',
+  'marca.nombre': 'MindHaOS',
   'nav.entrar': '로그인',
   'nav.descargar': '내려받기',
   'pie.inicio': '홈',
@@ -11,7 +10,7 @@ export const TEXTOS = {
   'pie.contacto': '문의',
   'tema.boton': '밝은 모드 또는 어두운 모드',
 
-  'meta.titulo': 'Mind Planner Home — 당신의 마음을, 3D 집 한 채에',
+  'meta.titulo': 'MindHaOS — 당신의 마음을, 3D 집 한 채에',
   'meta.desc':
     '습관, 목표, 재정, 식사 등을 방마다 앱이 되는 아이소메트릭 3D 집에서 정리하세요. 8.99 USD 한 번 결제, 첫 달은 AI와 동기화 포함. 무료로 해보세요.',
   'og.desc':
@@ -113,7 +112,7 @@ export const TEXTOS = {
 
   'mani.h2': '당신의 삶을, 게임으로',
   'mani.p1':
-    'MPH는 당신의 삶을 비디오 게임으로 옮긴 것이에요. 그것도 가장 편한 곳, 바로 당신의 집에서요. 레벨과 등급은 장식이 아니에요 — 바깥에서 당신이 한 일을 여기서 다시 말해 주는 거예요.',
+    'MindHaOS는 당신의 삶을 비디오 게임으로 옮긴 것이에요. 그것도 가장 편한 곳, 바로 당신의 집에서요. 레벨과 등급은 장식이 아니에요 — 바깥에서 당신이 한 일을 여기서 다시 말해 주는 거예요.',
   'mani.p2': '여기서 새로운 능력을 키우고, 자기 자원을 관리하고, 기술을 당신 편으로 만들어요. 짧은 영상의 무의식적인 소비에 맞서서. 거대 기업이 밀어붙인 소비 습관이 남기는 인지 저하에 맞서서.',
   'mani.cierre': '같은 도파민을, 이번엔 진짜 당신의 삶에.',
 
@@ -187,7 +186,7 @@ export const TEXTOS = {
   'priv.titulo': '개인정보 처리방침',
   'priv.quienes.h': '운영자',
   'priv.quienes.p':
-    'Mind Planner Home(「본 앱」)은 개인 정리용 애플리케이션입니다. 연락처: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+    'MindHaOS(「본 앱」)은 개인 정리용 애플리케이션입니다. 연락처: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
   'priv.datos.h': '수집하는 데이터',
   'priv.datos.1':
     '<strong>계정:</strong> 이메일 주소와 암호화된 비밀번호로, 백엔드 제공사인 Supabase가 관리합니다.',
@@ -203,7 +202,7 @@ export const TEXTOS = {
     '<strong>건강·웰빙 데이터:</strong> 운동, 식사, 약, 진료 예약, 주기에 대해 기록한 내용은 다른 앱 데이터와 똑같이 당신을 위해 저장되며, 판매하거나 광고에 사용하지 않습니다.',
   'priv.salud.h': '건강 기능의 범위',
   'priv.salud.p':
-    'Mind Planner Home은 개인용 플래너이며 의료 앱이 아닙니다. 건강 기능은 당신이 직접 적는 기록과 알림일 뿐입니다. 이 앱은 진단하지 않고, 증상을 해석하지 않으며, 용량이나 치료를 권하지 않고, 약물 상호작용을 확인하지 않으며, 의료 전문가와의 상담을 대신하지 않습니다. 주기 예측은 당신이 입력한 데이터만으로 계산한 참고값입니다. 의료 기기나 의료 제품이 아니며, 진료 기록, 보험사, 의료기관과 연결되지 않습니다.',
+    'MindHaOS은 개인용 플래너이며 의료 앱이 아닙니다. 건강 기능은 당신이 직접 적는 기록과 알림일 뿐입니다. 이 앱은 진단하지 않고, 증상을 해석하지 않으며, 용량이나 치료를 권하지 않고, 약물 상호작용을 확인하지 않으며, 의료 전문가와의 상담을 대신하지 않습니다. 주기 예측은 당신이 입력한 데이터만으로 계산한 참고값입니다. 의료 기기나 의료 제품이 아니며, 진료 기록, 보험사, 의료기관과 연결되지 않습니다.',
   'priv.uso.h': '이용 목적',
   'priv.uso.1': '계정, 구매, 구독에 접근할 수 있게 하기 위해.',
   'priv.uso.2': '기기 사이에서 데이터를 동기화하고 백업하기 위해.',
@@ -215,7 +214,7 @@ export const TEXTOS = {
     '연동된 서비스는 사용자가 이용할 때 기기에 정보를 저장하거나 읽을 수 있습니다. 로그인 및 YouTube API Services 승인 시의 Google(<a href="https://policies.google.com/technologies/cookies">Google 쿠키 정책</a> 참고), 해당 계정을 연결할 때의 TikTok과 Meta가 그렇습니다. 해당 정보는 각 사가 자체 정책에 따라 관리합니다.',
   'priv.redes.h': '연결된 소셜 미디어 계정',
   'priv.redes.p':
-    'YouTube, TikTok, Facebook, Instagram 계정을 연결하면 해당 서비스가 주는 액세스 토큰을 서버에 암호화해 보관하고, 선택한 계정이나 페이지의 이름과 사진도 함께 저장해요. 이 정보는 오직 당신이 동영상 편집기에서 게시하기로 한 영상을, 게시를 누르는 그 순간에 당신의 계정에 올리는 데만 씁니다. 당신의 영상, 게시물, 댓글, 메시지 등 그 계정의 다른 데이터는 읽지 않고, 저희 임의로 무언가를 올리는 일도 없어요. 토큰은 설정 → 연결된 계정에서 연결을 끊거나 Mind Planner Home 계정을 삭제할 때까지 보관되며, 각 서비스의 보안 설정에서 권한을 취소할 수도 있어요 (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
+    'YouTube, TikTok, Facebook, Instagram 계정을 연결하면 해당 서비스가 주는 액세스 토큰을 서버에 암호화해 보관하고, 선택한 계정이나 페이지의 이름과 사진도 함께 저장해요. 이 정보는 오직 당신이 동영상 편집기에서 게시하기로 한 영상을, 게시를 누르는 그 순간에 당신의 계정에 올리는 데만 씁니다. 당신의 영상, 게시물, 댓글, 메시지 등 그 계정의 다른 데이터는 읽지 않고, 저희 임의로 무언가를 올리는 일도 없어요. 토큰은 설정 → 연결된 계정에서 연결을 끊거나 MindHaOS 계정을 삭제할 때까지 보관되며, 각 서비스의 보안 설정에서 권한을 취소할 수도 있어요 (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
   'priv.redes.youtube':
     'YouTube의 경우 앱은 YouTube API Services를 사용해요. 계정을 연결하면 <a href="https://www.youtube.com/t/terms">YouTube 서비스 약관</a>에 동의하는 것이 되고, <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a>이 적용돼요.',
 
@@ -244,7 +243,7 @@ export const TEXTOS = {
   'term.titulo': '서비스 이용약관',
   'term.servicio.h': '서비스',
   'term.servicio.p':
-    'Mind Planner Home은 개인 정리용 앱입니다. 체험은 무료이며 계정이 필요 없습니다. 앱은 1회 결제로 구매합니다. 반복 기능(AI 크레딧과 동기화)은 오직 이 웹사이트에서만 신청합니다. 데스크톱과 스토어 앱은 같은 계정의 클라이언트입니다.',
+    'MindHaOS은 개인 정리용 앱입니다. 체험은 무료이며 계정이 필요 없습니다. 앱은 1회 결제로 구매합니다. 반복 기능(AI 크레딧과 동기화)은 오직 이 웹사이트에서만 신청합니다. 데스크톱과 스토어 앱은 같은 계정의 클라이언트입니다.',
   'term.app.h': '앱(1회 결제)',
   'term.app.1':
     '앱 잠금 해제: 8.99 USD, 1회 결제. 계정에서 집을 영구히 열어 주며 갱신이 없습니다.',

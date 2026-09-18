@@ -1,7 +1,6 @@
 /** Textos de las páginas estáticas en turco. Traducción de `es.mjs`. */
 export const TEXTOS = {
-  'marca.nombre': 'Zihinsel Planlayıcı-Ev',
-  'marca.sub': 'MPH',
+  'marca.nombre': 'MindHaOS',
   'nav.entrar': 'Giriş yap',
   'nav.descargar': 'İndir',
   'pie.inicio': 'Ana sayfa',
@@ -11,7 +10,7 @@ export const TEXTOS = {
   'pie.contacto': 'İletişim',
   'tema.boton': 'Açık ya da koyu mod',
 
-  'meta.titulo': 'Mind Planner Home — Zihnin, bir 3D evde',
+  'meta.titulo': 'MindHaOS — Zihnin, bir 3D evde',
   'meta.desc':
     'Alışkanlıklarını, hedeflerini, finansını, öğünlerini ve daha fazlasını her odası bir uygulama olan izometrik bir 3D evde düzenle. Tek seferlik 8,99 USD, ilk ay yapay zekâ ve eşitleme dahil; ücretsiz dene.',
   'og.desc':
@@ -123,7 +122,7 @@ export const TEXTOS = {
 
   'mani.h2': 'Hayatın, video oyununa dönüşmüş hâli',
   'mani.p1':
-    'MPH, hayatının video oyununa dönüşmüş hâlidir; üstelik var olan en rahat yerden oynanır: kendi evinden. Seviye ve rütbe atlamak süs değildir — dışarıda yaptığın şeyin burada anlatılmasıdır.',
+    'MindHaOS, hayatının video oyununa dönüşmüş hâlidir; üstelik var olan en rahat yerden oynanır: kendi evinden. Seviye ve rütbe atlamak süs değildir — dışarıda yaptığın şeyin burada anlatılmasıdır.',
   'mani.p2':
     'Burada yeni beceriler geliştirir, kaynaklarını kontrol altında tutar ve teknolojiyi kendi lehine çevirirsin. Kısa formatın bilinçsiz tüketimine karşı. Büyük şirketlerin dayattığı tüketim alışkanlıklarının bıraktığı bilişsel çöküşe karşı.',
   'mani.cierre': 'Aynı dopamin. Bu kez gerçek hayatın için.',
@@ -201,7 +200,7 @@ export const TEXTOS = {
   'priv.titulo': 'Gizlilik politikası',
   'priv.quienes.h': 'Biz kimiz',
   'priv.quienes.p':
-    'Mind Planner Home («uygulama») kişisel düzen için bir uygulamadır. İletişim: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+    'MindHaOS («uygulama») kişisel düzen için bir uygulamadır. İletişim: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
   'priv.datos.h': 'Hangi verileri topluyoruz',
   'priv.datos.1':
     '<strong>Hesap:</strong> e-posta adresin ve şifrelenmiş bir parola; bunları arka uç sağlayıcımız Supabase yönetir.',
@@ -217,7 +216,7 @@ export const TEXTOS = {
     '<strong>Sağlık ve esenlik verileri:</strong> egzersiz, beslenme, ilaçlar, doktor randevuları veya döngü hakkında kaydettiklerin, diğer uygulama verileri gibi senin için saklanır; asla satılmaz ve reklamda kullanılmaz.',
   'priv.salud.h': 'Sağlık işlevlerinin kapsamı',
   'priv.salud.p':
-    'Mind Planner Home kişisel bir ajandadır, tıbbi bir uygulama değil. Sağlık işlevleri, senin yazdığın kayıtlardan ve birkaç hatırlatmadan ibarettir: uygulama teşhis koymaz, belirtileri yorumlamaz, doz ya da tedavi önermez, ilaç etkileşimlerini denetlemez ve bir sağlık uzmanına danışmanın yerini tutmaz. Döngü tahminleri yalnızca senin girdiğin verilerden hesaplanır ve yol göstericidir. Bir sağlık ürünü ya da tıbbi cihaz değildir; hasta kayıtlarına, sigorta şirketlerine veya sağlık kuruluşlarına bağlanmaz.',
+    'MindHaOS kişisel bir ajandadır, tıbbi bir uygulama değil. Sağlık işlevleri, senin yazdığın kayıtlardan ve birkaç hatırlatmadan ibarettir: uygulama teşhis koymaz, belirtileri yorumlamaz, doz ya da tedavi önermez, ilaç etkileşimlerini denetlemez ve bir sağlık uzmanına danışmanın yerini tutmaz. Döngü tahminleri yalnızca senin girdiğin verilerden hesaplanır ve yol göstericidir. Bir sağlık ürünü ya da tıbbi cihaz değildir; hasta kayıtlarına, sigorta şirketlerine veya sağlık kuruluşlarına bağlanmaz.',
   'priv.uso.h': 'Bunları ne için kullanıyoruz',
   'priv.uso.1': 'Hesabına, satın almana ve aboneliğine erişim vermek için.',
   'priv.uso.2': 'Verilerini cihazlar arasında eşitlemek ve yedeklemek için.',
@@ -229,7 +228,7 @@ export const TEXTOS = {
     'Entegre ettiğimiz hizmetler, onları kullandığında cihazında bilgi saklayabilir veya okuyabilir: giriş yaparken ve YouTube API Services yetkisi verirken Google (bkz. <a href="https://policies.google.com/technologies/cookies">Google çerez politikası</a>), aynı şekilde o hesapları bağlarken TikTok ve Meta. Bu bilgileri kendi politikalarına göre onlar yönetir.',
   'priv.redes.h': 'Bağlı sosyal medya hesapları',
   'priv.redes.p':
-    'YouTube, TikTok, Facebook veya Instagram hesabını bağlarsan, o ağın bize verdiği erişim jetonlarını, seçtiğin hesabın ya da Sayfanın adı ve fotoğrafıyla birlikte sunucumuzda şifreli olarak saklarız. Bunları yalnızca, video düzenleyicide yayımlamaya karar verdiğin videoları Yayımla’ya dokunduğun anda kendi hesabında yayımlamak için kullanırız. Videolarını, gönderilerini, yorumlarını, mesajlarını ya da o hesaplardaki başka hiçbir veriyi okumayız ve kendiliğimizden asla bir şey paylaşmayız. Jetonlar, hesabı Ayarlar → Bağlı hesaplar bölümünden ayırana ya da Mind Planner Home hesabını silene kadar saklanır; erişimi her ağın güvenlik ayarlarından da iptal edebilirsin (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
+    'YouTube, TikTok, Facebook veya Instagram hesabını bağlarsan, o ağın bize verdiği erişim jetonlarını, seçtiğin hesabın ya da Sayfanın adı ve fotoğrafıyla birlikte sunucumuzda şifreli olarak saklarız. Bunları yalnızca, video düzenleyicide yayımlamaya karar verdiğin videoları Yayımla’ya dokunduğun anda kendi hesabında yayımlamak için kullanırız. Videolarını, gönderilerini, yorumlarını, mesajlarını ya da o hesaplardaki başka hiçbir veriyi okumayız ve kendiliğimizden asla bir şey paylaşmayız. Jetonlar, hesabı Ayarlar → Bağlı hesaplar bölümünden ayırana ya da MindHaOS hesabını silene kadar saklanır; erişimi her ağın güvenlik ayarlarından da iptal edebilirsin (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
   'priv.redes.youtube':
     'YouTube için uygulama YouTube API Services kullanır; hesabını bağladığında <a href="https://www.youtube.com/t/terms">YouTube Hizmet Şartları</a>’nı kabul etmiş olursun ve <a href="https://policies.google.com/privacy">Google Gizlilik Politikası</a> geçerlidir.',
 
@@ -258,7 +257,7 @@ export const TEXTOS = {
   'term.titulo': 'Hizmet koşulları',
   'term.servicio.h': 'Hizmet',
   'term.servicio.p':
-    'Mind Planner Home kişisel düzen için bir uygulamadır. Deneme ücretsizdir ve hesap gerektirmez. Uygulama tek ödemeyle alınır; yinelenen özellikler (yapay zekâ kredileri ve eşitleme) yalnızca bu web sitesinde alınır; masaüstü ve mağaza uygulamaları aynı hesabın istemcileridir.',
+    'MindHaOS kişisel düzen için bir uygulamadır. Deneme ücretsizdir ve hesap gerektirmez. Uygulama tek ödemeyle alınır; yinelenen özellikler (yapay zekâ kredileri ve eşitleme) yalnızca bu web sitesinde alınır; masaüstü ve mağaza uygulamaları aynı hesabın istemcileridir.',
   'term.app.h': 'Uygulama (tek ödeme)',
   'term.app.1':
     'Uygulamanın kilidinin açılması: 8,99 USD, tek ödeme. Hesabında evini sonsuza dek açar, yenileme yoktur.',

@@ -117,6 +117,11 @@ export const MANUAL_ZH: ManualTraducido = {
     '[Recuerda que] {soy vegetariano}': '[记住]{我吃素}',
     '[@]{cocina} {ensalada de la comida}': '[@]{cocina} {午餐吃沙拉}',
     '[Cómo funciona] la {rueda de herramientas}': '{工具轮盘}[怎么用]',
+    '[Abre] {ejemplo.com}': '[打开] {ejemplo.com}',
+    '[Busca en internet] {recetas de pan}': '[上网搜] {面包食谱}',
+    '[Historial]': '[浏览记录]',
+    '[Sitios]': '[网站]',
+    '[Tiempo en internet]': '[上网时长]',
   },
   atajos: {
     'Caminar (también con las flechas)': '走路（方向键也可以）',

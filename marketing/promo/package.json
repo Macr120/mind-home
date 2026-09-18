@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Anuncio principal de Mind Planner Home (Remotion, 16 idiomas)",
+  "description": "Anuncio principal de MindHaOS (Remotion, 16 idiomas)",
   "scripts": {
     "studio": "remotion studio",
     "preparar": "node preparar.mjs",

@@ -120,7 +120,7 @@ export function laminaIpad(s, tam) {
 <div class="rejilla"></div>
 <div class="halo-tel"></div>
 <div class="cabecera">
-  <div class="marca">${ICONO}<span>Mind Planner Home</span></div>
+  <div class="marca">${ICONO}<span>MindHaOS</span></div>
   <h1${s.rtl ? ' dir="rtl"' : ''}>${s.titulo}</h1>
   <p class="sub"${s.rtl ? ' dir="rtl"' : ''}>${s.sub}</p>
 </div>

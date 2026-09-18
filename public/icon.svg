@@ -1,15 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <!-- Icono de la app (manifest). Maskable: las figuras caben en la zona segura
-       (círculo centrado de radio 40% = 205px), así ningún recorte de Android se
-       lleva un trozo del logo. Fondo opaco a propósito: iOS y Android rellenan
-       la transparencia con un color que no elegimos.
+  <!-- Icono de la app (manifest), versión CLARA: las piezas sobre blanco.
+       Maskable: las figuras caben en la zona segura (círculo centrado de radio
+       40% = 205px), así ningún recorte de Android se lleva un trozo del logo.
+       Fondo opaco a propósito: iOS y Android rellenan la transparencia con un
+       color que no elegimos.
        Acabado con relieve (7 sep 2026): cada pieza lleva un canto oscuro
        desplazado abajo-derecha, una sombra difusa y un brillo en el borde
-       iluminado. favicon.svg es el mismo dibujo sin fondo. -->
+       iluminado. La sombra va más suave que en icon-oscuro.svg: sobre blanco,
+       la misma opacidad ensucia el fondo. favicon.svg es el mismo dibujo sin
+       fondo; icon-oscuro.svg, el mismo dibujo sobre negro (variante para el
+       aspecto oscuro donde la plataforma lo permite). -->
   <defs>
     <radialGradient id="fondo" cx="50%" cy="45%" r="75%">
-      <stop offset="0" stop-color="#56690f"/>
-      <stop offset="1" stop-color="#4a5b0c"/>
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f2f2f2"/>
     </radialGradient>
     <linearGradient id="naranja" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#ffc53f"/>
@@ -30,7 +34,7 @@
     <filter id="sombra" x="-30%" y="-40%" width="160%" height="220%">
       <feGaussianBlur in="SourceAlpha" stdDeviation="7"/>
       <feOffset dx="1" dy="7" result="desplazada"/>
-      <feFlood flood-color="#000" flood-opacity=".65"/>
+      <feFlood flood-color="#000" flood-opacity=".28"/>
       <feComposite in2="desplazada" operator="in"/>
     </filter>
   </defs>

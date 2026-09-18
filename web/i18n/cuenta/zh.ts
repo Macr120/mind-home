@@ -1,10 +1,9 @@
 /** Textos del portal /cuenta en chino simplificado. Traducción del español de `web/src/cuenta.tsx`. */
 export const TEXTOS: Record<string, string> = {
-  'marca.nombre': '心智规划师-家',
-  'marca.sub': 'Mind Planner Home',
+  'marca.nombre': 'MindHaOS',
   'marco.privacidad': '隐私',
   'marco.terminos': '条款',
-  'marco.titulo': '我的账户 — Mind Planner Home',
+  'marco.titulo': '我的账户 — MindHaOS',
   'comun.procesando': '处理中…',
   'oauth.google': '用 Google 继续',
   'oauth.apple': '用 Apple 继续',

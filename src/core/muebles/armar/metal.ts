@@ -1,14 +1,43 @@
 import type { Mm, Mueble, ParteMueble } from '../tipos'
-import { bool, herraje, num, panel, repartir, texto, tono, tuboColgar, tuboParte } from './comun'
+import {
+  bool,
+  cruzCentral,
+  esquinasInscritas,
+  herraje,
+  num,
+  panel,
+  repartir,
+  texto,
+  tono,
+  tuboColgar,
+  tuboParte,
+} from './comun'
 
 /**
  * Los tres módulos que llevan metal: la estructura de postes, la mesa y la
  * silla. El metal entra como postes y travesaños de tubo (`tuboParte`), que se
  * cotizan por metro lineal y en el 3D se ven metálicos.
+ *
+ * Planta circular: los cuatro postes o patas se mudan al cuadrado inscrito
+ * (`esquinasInscritas`) y todo lo que va entre ellos —travesaños, largueros,
+ * respaldo, brazos— se calcula desde esas esquinas, así que el mismo código
+ * sirve para las dos plantas. Lo plano (cubierta, asiento, repisa) pasa a disco.
  */
 
 /** Cuánto sobresale el descansabrazos por encima del asiento. */
 const ALTO_BRAZO: Mm = 200
+
+/** Esquinas de los cuatro apoyos: las del rectángulo o las del círculo inscrito. */
+function esquinas(m: Mueble, s: Mm, inset: Mm): [Mm, Mm][] {
+  const { ancho: A, fondo: F } = m.medidas
+  if (m.forma === 'circular') return esquinasInscritas(A, s, inset)
+  return [
+    [inset, inset],
+    [A - inset - s, inset],
+    [inset, F - inset - s],
+    [A - inset - s, F - inset - s],
+  ]
+}
 
 /**
  * Estructura metálica: cuatro postes, niveles de travesaños y la repisa que se
@@ -19,11 +48,20 @@ export function armarMetal(m: Mueble): ParteMueble[] {
   const { ancho: A, alto: H, fondo: F } = m.medidas
   const t = m.tablero.grosor
   const s = m.metal.seccion
+  const circular = m.forma === 'circular'
   const nNiveles = Math.max(2, num(m, 'niveles', 5))
   const tipoRepisa = texto(m, 'repisa', 'tablero')
   const partes: ParteMueble[] = []
+  // En planta circular los postes se meten del borde para que la repisa
+  // redonda los cubra; en rectangular van a ras.
+  const esq = esquinas(m, s, circular ? 40 : 0)
+  const [x0, z0] = esq[0]
+  const x1 = esq[1][0]
+  const z1 = esq[2][1]
+  const anchoLibre = x1 - x0 - s
+  const fondoLibre = z1 - z0 - s
 
-  for (const [i, [px, pz]] of ([[0, 0], [A - s, 0], [0, F - s], [A - s, F - s]] as [Mm, Mm][]).entries()) {
+  for (const [i, [px, pz]] of esq.entries()) {
     partes.push(
       tuboParte(m, {
         id: `poste.${i + 1}`,
@@ -43,23 +81,23 @@ export function armarMetal(m: Mueble): ParteMueble[] {
   // Los niveles se reparten en el alto; el más bajo va a 80 mm del suelo.
   const alturas = repartir(80, H - s, nNiveles, s)
   for (const [i, y] of alturas.entries()) {
-    for (const [j, pz] of ([0, F - s] as Mm[]).entries()) {
+    for (const [j, pz] of ([z0, z1] as Mm[]).entries()) {
       partes.push(
         tuboParte(m, {
           id: `travesano.${i + 1}.${j + 1}`,
           rol: 'travesano-metal',
           clave: 'muebles.pieza.travesanoMetal',
           nombreEs: 'Travesaño',
-          x: s,
+          x: x0 + s,
           y,
           z: pz,
-          dx: A - 2 * s,
+          dx: anchoLibre,
           dy: s,
           dz: s,
         }),
       )
     }
-    for (const [j, px] of ([0, A - s] as Mm[]).entries()) {
+    for (const [j, px] of ([x0, x1] as Mm[]).entries()) {
       partes.push(
         tuboParte(m, {
           id: `larguero.${i + 1}.${j + 1}`,
@@ -68,13 +106,18 @@ export function armarMetal(m: Mueble): ParteMueble[] {
           nombreEs: 'Larguero',
           x: px,
           y,
-          z: s,
+          z: z0 + s,
           dx: s,
           dy: s,
-          dz: F - 2 * s,
+          dz: fondoLibre,
         }),
       )
     }
+    // La repisa rectangular va entre los postes; la redonda es un disco del
+    // diámetro del mueble que se apoya encima de ellos.
+    const repisa = circular
+      ? { x: 0, z: 0, dx: A, dz: A, disco: true }
+      : { x: x0 + s, z: z0 + s, dx: anchoLibre, dz: fondoLibre, disco: false }
     if (tipoRepisa === 'tablero') {
       partes.push(
         panel(m, {
@@ -82,15 +125,16 @@ export function armarMetal(m: Mueble): ParteMueble[] {
           rol: 'repisa',
           clave: 'muebles.pieza.repisa',
           nombreEs: 'Repisa',
-          x: s,
+          x: repisa.x,
           y: y + s,
-          z: s,
-          dx: A - 2 * s,
+          z: repisa.z,
+          dx: repisa.dx,
           dy: t,
-          dz: F - 2 * s,
+          dz: repisa.dz,
           eje: 'y',
           veta: 'ancho',
           cantos: { arriba: true, abajo: true, izq: true, der: true },
+          disco: repisa.disco,
         }),
       )
     } else if (tipoRepisa === 'rejilla') {
@@ -100,15 +144,16 @@ export function armarMetal(m: Mueble): ParteMueble[] {
         rol: 'repisa',
         clave: 'muebles.pieza.rejilla',
         nombreEs: 'Rejilla',
-        x: s,
+        x: repisa.x,
         y: y + s,
-        z: s,
-        dx: A - 2 * s,
+        z: repisa.z,
+        dx: repisa.dx,
         dy: 6,
-        dz: F - 2 * s,
+        dz: repisa.dz,
         hechoDe: 'accesorio',
         color: tono(m.metal.color, 0.12),
         soloVisual: true,
+        disco: repisa.disco,
         herrajes: [herraje('her-rejilla', 'muebles.her.rejilla', 'Rejilla metálica', 1)],
       })
     }
@@ -116,12 +161,12 @@ export function armarMetal(m: Mueble): ParteMueble[] {
 
   if (bool(m, 'barra', false)) {
     partes.push(
-      tuboColgar(m, { id: 'tubo.ropa', x: s, y: H - 120, z: F / 2, largo: A - 2 * s }),
+      tuboColgar(m, { id: 'tubo.ropa', x: x0 + s, y: H - 120, z: F / 2, largo: anchoLibre }),
     )
   }
 
   if (bool(m, 'refuerzoX', false)) {
-    const largo = Math.round(Math.hypot(A - 2 * s, H - 160))
+    const largo = Math.round(Math.hypot(anchoLibre, H - 160))
     for (const [i, giro] of ([1, -1] as number[]).entries()) {
       partes.push({
         ...tuboParte(m, {
@@ -133,12 +178,12 @@ export function armarMetal(m: Mueble): ParteMueble[] {
           // medio, así que apoyarla en la esquina la mandaba fuera del mueble.
           x: Math.round((A - largo) / 2),
           y: Math.round((H - s) / 2),
-          z: 0,
+          z: z0,
           dx: largo,
           dy: s,
           dz: s,
         }),
-        rot: [0, 0, giro * Math.atan2(H - 160, A - 2 * s)],
+        rot: [0, 0, giro * Math.atan2(H - 160, anchoLibre)],
       })
     }
   }
@@ -167,6 +212,7 @@ export function armarMetal(m: Mueble): ParteMueble[] {
 export function armarMesa(m: Mueble): ParteMueble[] {
   const { ancho: A, alto: H, fondo: F } = m.medidas
   const t = m.tablero.grosor
+  const circular = m.forma === 'circular'
   const voladizo = num(m, 'voladizo', 60)
   const tipoPatas = texto(m, 'patas', 'tubo')
   const altoPata = H - t
@@ -185,10 +231,23 @@ export function armarMesa(m: Mueble): ParteMueble[] {
       eje: 'y',
       veta: 'ancho',
       cantos: { arriba: true, abajo: true, izq: true, der: true },
+      disco: circular,
     }),
   ]
 
-  if (tipoPatas === 'tablero') {
+  if (tipoPatas === 'tablero' && circular) {
+    // Una mesa redonda de tablero se sostiene en una cruz, no en dos costados.
+    partes.push(
+      ...cruzCentral(m, {
+        diametro: A,
+        y: 0,
+        alto: altoPata,
+        inset: voladizo,
+        clave: 'muebles.pieza.lateralMesa',
+        nombreEs: 'Costado',
+      }),
+    )
+  } else if (tipoPatas === 'tablero') {
     for (const [i, lado] of (['izq', 'der'] as const).entries()) {
       partes.push(
         panel(m, {
@@ -211,13 +270,8 @@ export function armarMesa(m: Mueble): ParteMueble[] {
   } else {
     const s = m.metal.seccion
     const caballete = tipoPatas === 'caballete'
-    const posiciones: [Mm, Mm][] = [
-      [voladizo, voladizo],
-      [A - voladizo - s, voladizo],
-      [voladizo, F - voladizo - s],
-      [A - voladizo - s, F - voladizo - s],
-    ]
-    for (const [i, [px, pz]] of posiciones.entries()) {
+    const esq = esquinas(m, s, voladizo)
+    for (const [i, [px, pz]] of esq.entries()) {
       partes.push({
         ...tuboParte(m, {
           id: `pata.${i + 1}`,
@@ -237,17 +291,17 @@ export function armarMesa(m: Mueble): ParteMueble[] {
       })
     }
     // Travesaños que amarran las patas por pares.
-    for (const [i, lado] of ([voladizo, F - voladizo - s] as Mm[]).entries()) {
+    for (const [i, pz] of ([esq[0][1], esq[2][1]] as Mm[]).entries()) {
       partes.push(
         tuboParte(m, {
           id: `travesano.${i + 1}`,
           rol: 'travesano-metal',
           clave: 'muebles.pieza.travesanoMetal',
           nombreEs: 'Travesaño',
-          x: voladizo + s,
+          x: esq[0][0] + s,
           y: altoPata - 120,
-          z: lado,
-          dx: A - 2 * voladizo - 2 * s,
+          z: pz,
+          dx: esq[1][0] - esq[0][0] - s,
           dy: s,
           dz: s,
         }),
@@ -255,7 +309,8 @@ export function armarMesa(m: Mueble): ParteMueble[] {
     }
   }
 
-  if (bool(m, 'faldon', false)) {
+  // Un faldón recto no le va a una cubierta redonda (y el chip no se enseña).
+  if (!circular && bool(m, 'faldon', false)) {
     partes.push(
       panel(m, {
         id: 'faldon',
@@ -292,6 +347,7 @@ export function armarMesa(m: Mueble): ParteMueble[] {
         eje: 'y',
         veta: 'ancho',
         cantos: { arriba: true, abajo: true, izq: true, der: true },
+        disco: circular,
       }),
     )
   }
@@ -307,15 +363,19 @@ export function armarSilla(m: Mueble): ParteMueble[] {
   const { ancho: A, alto: H, fondo: F } = m.medidas
   const t = m.tablero.grosor
   const s = m.metal.seccion
+  const circular = m.forma === 'circular'
   const conTubo = texto(m, 'patas', 'tubo') !== 'tablero'
   const hAsiento = Math.min(num(m, 'alturaAsiento', 450), H)
   const altoRespaldo = H - hAsiento
-  const conRespaldo = altoRespaldo >= 150
+  // Con costados de tablero y planta redonda la base es una cruz, que no tiene
+  // dónde sujetar un respaldo: sale un banco redondo.
+  const conRespaldo = altoRespaldo >= 150 && (conTubo || !circular)
   const conBrazos = conTubo && bool(m, 'brazos', false)
   const partes: ParteMueble[] = []
   // Con patas de tubo el asiento va por fuera de ellas; con costados de
   // tablero, entre ellos (los costados hacen de pata y de estructura).
-  const ins = conTubo ? 0 : t
+  const ins = conTubo || circular ? 0 : t
+  const esq = esquinas(m, s, circular ? 20 : 0)
 
   partes.push(
     panel(m, {
@@ -332,21 +392,24 @@ export function armarSilla(m: Mueble): ParteMueble[] {
       eje: 'y',
       veta: 'ancho',
       cantos: { arriba: true, abajo: true, izq: true, der: true },
+      disco: circular,
     }),
   )
 
   if (conRespaldo) {
-    const margen = conTubo ? s : t
+    // Entre las patas traseras (tubo) o entre los costados (tablero).
+    const x = conTubo ? esq[0][0] + s : t
+    const dx = conTubo ? esq[1][0] - esq[0][0] - s : A - 2 * t
     partes.push(
       panel(m, {
         id: 'respaldo',
         rol: 'respaldo',
         clave: 'muebles.pieza.respaldo',
         nombreEs: 'Respaldo',
-        x: margen,
+        x,
         y: hAsiento + (conTubo ? 60 : 0),
-        z: conTubo ? s : 0,
-        dx: A - 2 * margen,
+        z: conTubo ? esq[0][1] + s : 0,
+        dx,
         dy: altoRespaldo - (conTubo ? 80 : 30),
         dz: t,
         eje: 'z',
@@ -360,13 +423,8 @@ export function armarSilla(m: Mueble): ParteMueble[] {
   if (conTubo) {
     // Las patas traseras siguen hasta arriba y hacen de bastidor del respaldo;
     // las delanteras solo suben si la silla lleva descansabrazos.
-    const patas: [Mm, Mm, boolean][] = [
-      [0, 0, true],
-      [A - s, 0, true],
-      [0, F - s, false],
-      [A - s, F - s, false],
-    ]
-    for (const [i, [px, pz, atras]] of patas.entries()) {
+    for (const [i, [px, pz]] of esq.entries()) {
+      const atras = i < 2
       const alto = atras && conRespaldo ? H : conBrazos ? hAsiento + ALTO_BRAZO : hAsiento - t
       partes.push(
         tuboParte(m, {
@@ -387,23 +445,23 @@ export function armarSilla(m: Mueble): ParteMueble[] {
 
     if (bool(m, 'travesanos', true)) {
       // Un aro de travesaños a 150 mm del suelo amarra las cuatro patas.
-      for (const [i, pz] of ([0, F - s] as Mm[]).entries()) {
+      for (const [i, pz] of ([esq[0][1], esq[2][1]] as Mm[]).entries()) {
         partes.push(
           tuboParte(m, {
             id: `travesano.${i + 1}`,
             rol: 'travesano-metal',
             clave: 'muebles.pieza.travesanoMetal',
             nombreEs: 'Travesaño',
-            x: s,
+            x: esq[0][0] + s,
             y: 150,
             z: pz,
-            dx: A - 2 * s,
+            dx: esq[1][0] - esq[0][0] - s,
             dy: s,
             dz: s,
           }),
         )
       }
-      for (const [i, px] of ([0, A - s] as Mm[]).entries()) {
+      for (const [i, px] of ([esq[0][0], esq[1][0]] as Mm[]).entries()) {
         partes.push(
           tuboParte(m, {
             id: `larguero.${i + 1}`,
@@ -412,17 +470,17 @@ export function armarSilla(m: Mueble): ParteMueble[] {
             nombreEs: 'Larguero',
             x: px,
             y: 150,
-            z: s,
+            z: esq[0][1] + s,
             dx: s,
             dy: s,
-            dz: F - 2 * s,
+            dz: esq[2][1] - esq[0][1] - s,
           }),
         )
       }
     }
 
     if (conBrazos) {
-      for (const [i, px] of ([0, A - s] as Mm[]).entries()) {
+      for (const [i, px] of ([esq[0][0], esq[1][0]] as Mm[]).entries()) {
         partes.push(
           tuboParte(m, {
             id: `brazo.${i + 1}`,
@@ -431,14 +489,28 @@ export function armarSilla(m: Mueble): ParteMueble[] {
             nombreEs: 'Descansabrazos',
             x: px,
             y: hAsiento + ALTO_BRAZO - s,
-            z: 0,
+            z: esq[0][1],
             dx: s,
             dy: s,
-            dz: F,
+            dz: esq[2][1] + s - esq[0][1],
           }),
         )
       }
     }
+    return partes
+  }
+
+  if (circular) {
+    partes.push(
+      ...cruzCentral(m, {
+        diametro: A,
+        y: 0,
+        alto: hAsiento - t,
+        inset: 30,
+        clave: 'muebles.pieza.lateralMesa',
+        nombreEs: 'Costado',
+      }),
+    )
     return partes
   }
 

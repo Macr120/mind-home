@@ -81,5 +81,5 @@ export function ruta(destino: string): string {
  */
 export function aplicarIdioma(): void {
   document.documentElement.lang = IDIOMA
-  document.title = t('marco.titulo', 'Mi cuenta — Mind Planner Home')
+  document.title = t('marco.titulo', 'Mi cuenta — MindHaOS')
 }

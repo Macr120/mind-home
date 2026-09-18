@@ -340,7 +340,7 @@ const ESTILO = 'body{margin:0;min-height:100vh;display:grid;place-items:center;f
 
 /** `state` inválido o caducado: no se sabe a dónde volver, así que solo se avisa. */
 function paginaError(): Response {
-  const html = `<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Mind Planner Home</title><style>${ESTILO}</style></head><body>
+  const html = `<!doctype html><html lang="es"><head><meta charset="utf-8"><title>MindHaOS</title><style>${ESTILO}</style></head><body>
 <div><h1>Enlace caducado · Link expired</h1><p>Vuelve a la app e inténtalo de nuevo · Go back to the app and try again</p></div></body></html>`
   return new Response(html, { status: 400, headers: CABECERAS_HTML })
 }

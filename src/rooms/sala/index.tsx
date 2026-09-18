@@ -8,6 +8,7 @@ import { CLAUSULA_RECHAZO } from '../../core/planIA'
 import { buscarLugares } from './geocoder'
 import { esencialSala, flujosSala } from './tutorial.meta'
 import { eventosViaje } from './eventos'
+import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
 
 const esquemas: EsquemaCaptura[] = [
   {
@@ -67,6 +68,21 @@ const esquemas: EsquemaCaptura[] = [
 // montaje ya envuelven en Suspense). El resto del módulo (capturar, esquemas,
 // metaDiaria) sí es eager: lo usa el núcleo sin abrir el cuarto.
 const SalaApp = lazy(() => import('./SalaApp').then((m) => ({ default: m.SalaApp })))
+
+// Los itinerarios guardados se pueden mandar a otra persona por el buzón (registro eager, datos con import()).
+registrarProveedorCompartible({
+  app: 'sala',
+  tipos: [
+    {
+      tipo: 'itinerario',
+      icono: 'maleta',
+      etiqueta: (t) => t('buzon.compartible.itinerario', 'Itinerario'),
+      listar: async () => (await import('./compartible')).listarItinerarios(),
+      empaquetar: async (clave) => (await import('./compartible')).empaquetarItinerarioPorClave(clave),
+      importar: async (p) => (await import('./compartible')).importarItinerario(p),
+    },
+  ],
+})
 
 const sala: Plantilla = {
   id: 'sala',

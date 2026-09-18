@@ -1,5 +1,5 @@
 /**
- * Shell de escritorio de Mind Planner Home (Electron, Windows y macOS).
+ * Shell de escritorio de MindHaOS (Electron, Windows y macOS).
  *
  * Sirve la MISMA web compilada (`dist/`) bajo el protocolo propio `app://mph`,
  * con los defaults de seguridad de Electron (contextIsolation, sandbox, sin
@@ -10,7 +10,7 @@
  * El único puente es `precarga.cjs`, y existe por UNA cosa: devolverle a la app
  * el enlace profundo con el que vuelve el login social. Nada más cruza.
  */
-import { app, BrowserWindow, dialog, ipcMain, Menu, net, protocol, screen, session, shell, WebContentsView } from 'electron'
+import { app, BrowserWindow, dialog, ipcMain, Menu, nativeImage, nativeTheme, net, powerMonitor, protocol, screen, session, shell, WebContentsView } from 'electron'
 import os from 'node:os'
 import { execFile, spawn } from 'node:child_process'
 import fs from 'node:fs/promises'
@@ -351,6 +351,24 @@ function crearVentanaFondo(eleccion = eleccionFondoGuardada()) {
   })
 }
 
+/**
+ * El icono de la ventana (barra de tareas de Windows) y del Dock (macOS) sigue
+ * al aspecto del sistema: las piezas sobre blanco en claro y sobre negro en
+ * oscuro (`electron/iconos/`, los genera scripts/icono-escritorio.mjs). Es lo
+ * único que se puede cambiar en caliente: el .ico del ejecutable y el acceso
+ * directo anclado son fijos; el de la Store cambia por sus mosaicos «unplated»
+ * (uno por tema de la barra de tareas) y el de iOS por su catálogo.
+ */
+function aplicarIconoTema() {
+  const icono = nativeImage.createFromPath(
+    path.join(__dirname, 'iconos', nativeTheme.shouldUseDarkColors ? 'oscuro.png' : 'claro.png'),
+  )
+  if (icono.isEmpty()) return
+  if (process.platform === 'darwin') app.dock?.setIcon(icono)
+  else ventana?.setIcon(icono)
+}
+nativeTheme.on('updated', aplicarIconoTema)
+
 function crearVentana(query = '') {
   ventana = new BrowserWindow({
     ...medidaGuardada(),
@@ -366,12 +384,14 @@ function crearVentana(query = '') {
       additionalArguments: [`--mph-version=${app.getVersion()}`],
     },
   })
+  aplicarIconoTema()
   ventana.once('ready-to-show', () => ventana.show())
   ventana.on('close', () => guardarMedida())
   ventana.on('closed', () => {
     ventana = null
-    // La vista del navegador muere con su ventana: solo hay que soltar la referencia.
-    vistaNavegador = null
+    // Las vistas del navegador mueren con su ventana: solo hay que soltar las referencias.
+    pestanas.clear()
+    pestanaActivaId = null
   })
 
   // Los enlaces que llegaron antes de tiempo se sueltan cuando la página ya
@@ -424,7 +444,7 @@ async function avisarVersionNueva() {
     if (!destino) return
     const { response } = await dialog.showMessageBox(ventana, {
       type: 'info',
-      title: 'Mind Planner Home',
+      title: 'MindHaOS',
       message: `Hay una versión nueva (${remota}).`,
       detail: 'Descárgala para tener las últimas mejoras. Tus datos se quedan como están.',
       buttons: ['Descargar', 'Ahora no'],
@@ -574,15 +594,15 @@ function construirMenu() {
           {
             label: app.getName(),
             submenu: [
-              { role: 'about', label: 'Acerca de Mind Planner Home' },
+              { role: 'about', label: 'Acerca de MindHaOS' },
               { type: 'separator' },
               { role: 'services', label: 'Servicios' },
               { type: 'separator' },
-              { role: 'hide', label: 'Ocultar Mind Planner Home' },
+              { role: 'hide', label: 'Ocultar MindHaOS' },
               { role: 'hideOthers', label: 'Ocultar otras' },
               { role: 'unhide', label: 'Mostrar todas' },
               { type: 'separator' },
-              { role: 'quit', label: 'Salir de Mind Planner Home' },
+              { role: 'quit', label: 'Salir de MindHaOS' },
             ],
           },
         ]
@@ -624,8 +644,8 @@ function construirMenu() {
     {
       label: 'Ayuda',
       submenu: [
-        { label: 'Soporte', click: () => shell.openExternal('https://mindplannerhome.com/soporte') },
-        { label: 'Sitio web', click: () => shell.openExternal('https://mindplannerhome.com') },
+        { label: 'Soporte', click: () => shell.openExternal('https://mindhaos.com/soporte') },
+        { label: 'Sitio web', click: () => shell.openExternal('https://mindhaos.com') },
       ],
     },
   ])
@@ -728,10 +748,24 @@ ipcMain.handle('mph:programa-icono', async (_e, v) => {
   }
 })
 
-// ——— Navegador embebido (fase 2 de los enlaces web de los objetos) ———
+// ——— Navegador embebido con pestañas (navegador v2) ———
 
-/** La vista del navegador dentro de la ventana; null mientras no está abierto. */
-let vistaNavegador = null
+/**
+ * Pestañas del navegador: id → { vista, url, titulo, ultimaActiva }. La vista
+ * es null mientras la pestaña está DORMIDA (llevaba mucho en segundo plano y
+ * se cerró su proceso para no gastar memoria; al activarla se recrea). La
+ * BARRA no existe: la app pinta una tira al pie (`TiraNavegador.tsx`) y decide
+ * los bounds; aquí solo se navega y se avisa de todo por `mph:nav-*`.
+ */
+const pestanas = new Map()
+let pestanaActivaId = null
+let siguientePestanaId = 1
+/** Bounds y visibilidad que pide la app: se aplican a la pestaña activa. */
+let boundsNav = { x: 0, y: 0, width: 800, height: 600 }
+let navVisible = true
+const TOPE_PESTANAS = 12
+const DORMIR_MS = 20 * 60_000
+let siesta = null
 
 /**
  * Sesión PROPIA y persistente (`persist:navegador`): los logins del usuario en
@@ -751,8 +785,38 @@ function sesionNavegador() {
       const url = item.getURL()
       if (/^https?:/.test(url)) void shell.openExternal(url)
     })
+    // Modo foco: la navegación principal a un sitio bloqueado se corta y la
+    // pestaña muestra la página del foco (una data URL, que no pasa por aquí).
+    s.webRequest.onBeforeRequest({ urls: ['http://*/*', 'https://*/*'] }, (d, cb) => {
+      if (d.resourceType !== 'mainFrame' || !focoBloquea(d.url)) return cb({})
+      cb({ cancel: true })
+      avisarNavegador('mph:nav-bloqueado', { url: d.url })
+      for (const p of pestanas.values()) {
+        if (p.vista && p.vista.webContents.id === d.webContentsId) {
+          void p.vista.webContents.loadURL('data:text/html;charset=utf-8,' + encodeURIComponent(focoHtml))
+        }
+      }
+    })
   }
   return s
+}
+
+// ——— Modo foco: sitios que no se abren mientras dure (lo decide la app) ———
+
+let focoHosts = []
+let focoHasta = 0
+let focoHtml = ''
+
+/** ¿La URL cae en un sitio bloqueado (él o un subdominio) y el foco sigue vivo? */
+function focoBloquea(url) {
+  if (!focoHosts.length || Date.now() > focoHasta) return false
+  let host = ''
+  try {
+    host = new URL(url).hostname.toLowerCase().replace(/^www\./, '')
+  } catch {
+    return false
+  }
+  return focoHosts.some((b) => host === b || host.endsWith('.' + b))
 }
 
 function avisarNavegador(canal, datos) {
@@ -765,63 +829,267 @@ function limitesVista(b) {
   return { x: n(b?.x), y: n(b?.y), width: n(b?.width), height: n(b?.height) }
 }
 
-function cerrarNavegador() {
-  if (!vistaNavegador) return
-  const vista = vistaNavegador
-  vistaNavegador = null
-  if (ventana && !ventana.isDestroyed()) ventana.contentView.removeChildView(vista)
-  vista.webContents.close()
+function vistaActiva() {
+  return pestanas.get(pestanaActivaId)?.vista ?? null
+}
+
+/** Atajos tecleados DENTRO de la página (la app no los ve): se le avisan y no llegan al sitio. */
+function atajoDe(input) {
+  if (input.type !== 'keyDown') return null
+  const k = input.key
+  const ctrl = input.control || input.meta
+  if (ctrl && !input.shift && (k === 't' || k === 'T')) return 'nueva'
+  if (ctrl && (k === 'w' || k === 'W')) return 'cerrar'
+  if (ctrl && k === 'Tab') return input.shift ? 'anterior' : 'siguiente'
+  if (ctrl && (k === 'l' || k === 'L')) return 'direccion'
+  if (ctrl && /^[1-8]$/.test(k)) return `ir:${k}`
+  if (input.alt && k === 'ArrowLeft') return 'atras'
+  if (input.alt && k === 'ArrowRight') return 'adelante'
+  if (k === 'F5') return 'recargar'
+  return null
+}
+
+/** Crea (o recrea, si dormía) la vista de la pestaña `id` y carga `url`. */
+function crearVista(id, url) {
+  const p = pestanas.get(id)
+  const vista = new WebContentsView({
+    webPreferences: { session: sesionNavegador(), sandbox: true },
+  })
+  const wc = vista.webContents
+  // Un target="_blank" abre pestaña nueva en segundo plano (sin ventanas emergentes).
+  wc.setWindowOpenHandler(({ url: destino }) => {
+    if (/^https?:/.test(destino)) abrirPestana(destino, { fondo: true })
+    return { action: 'deny' }
+  })
+  wc.on('will-navigate', (ev, destino) => {
+    if (!/^https?:/.test(destino)) ev.preventDefault()
+  })
+  // `enPagina`: pushState/hash dentro del MISMO documento (el título sigue valiendo).
+  const navego = (enPagina) => () => {
+    p.url = wc.getURL()
+    avisarNavegador('mph:nav-navego', {
+      pestanaId: id,
+      url: p.url,
+      atras: wc.navigationHistory.canGoBack(),
+      adelante: wc.navigationHistory.canGoForward(),
+      enPagina,
+    })
+  }
+  wc.on('did-navigate', navego(false))
+  wc.on('did-navigate-in-page', navego(true))
+  wc.on('page-title-updated', (_ev, titulo) => {
+    p.titulo = titulo
+    avisarNavegador('mph:nav-titulo', { pestanaId: id, titulo })
+  })
+  wc.on('page-favicon-updated', (_ev, urls) => {
+    if (urls?.[0]) void mandarFavicon(wc, id, urls[0])
+  })
+  // Un video que arranca o se detiene: la tira lo marca y cambia si la visita cuenta en segundo plano.
+  wc.on('audio-state-changed', (ev) => {
+    avisarNavegador('mph:nav-audible', { pestanaId: id, audible: !!ev.audible })
+    evaluarActividad()
+  })
+  wc.on('before-input-event', (ev, input) => {
+    const accion = atajoDe(input)
+    if (!accion) return
+    ev.preventDefault()
+    avisarNavegador('mph:nav-atajo', { accion })
+  })
+  // Si el proceso de la página muere, mejor cerrar la pestaña que una vista zombi tapando la app.
+  wc.on('render-process-gone', () => {
+    cerrarPestana(id)
+    avisarNavegador('mph:nav-cerrado', { pestanaId: id, ultima: pestanas.size === 0 })
+  })
+  ventana.contentView.addChildView(vista)
+  vista.setBounds(limitesVista(boundsNav))
+  vista.setVisible(false)
+  p.vista = vista
+  void wc.loadURL(url)
+  return vista
+}
+
+/** Muestra solo la pestaña activa (y solo si la app no ha escondido la página). */
+function aplicarVisibilidad() {
+  for (const [id, p] of pestanas) p.vista?.setVisible(navVisible && id === pestanaActivaId)
+}
+
+function activarPestana(id) {
+  const p = pestanas.get(id)
+  if (!p) return false
+  pestanaActivaId = id
+  p.ultimaActiva = Date.now()
+  if (!p.vista) crearVista(id, p.url) // dormía: se recrea y recarga
+  else p.vista.setBounds(limitesVista(boundsNav))
+  aplicarVisibilidad()
+  avisarNavegador('mph:nav-activa', { pestanaId: id })
+  evaluarActividad()
+  return true
 }
 
 /**
- * Abre (o reutiliza) la vista del navegador con la página pedida. La BARRA de
- * navegación la pinta la app en su DOM (`NavegadorEscritorio.tsx`); la vista
- * nativa vive debajo, en los `bounds` que la app calcula y renueva al
- * redimensionar. El historial por dominio lo lleva la app oyendo
- * `mph:nav-navego` — la BD es suya, aquí solo se navega.
+ * Abre `url` en una pestaña nueva (o en `pestanaId` si se da); con `fondo` no
+ * la activa. Al tope de pestañas, navega la activa. Devuelve el id (0 = nada).
  */
-ipcMain.handle('mph:nav-abrir', (_e, url, bounds) => {
-  if (!ventana || !/^https?:/.test(String(url))) return false
-  if (!vistaNavegador) {
-    vistaNavegador = new WebContentsView({
-      webPreferences: { session: sesionNavegador(), sandbox: true },
-    })
-    const wc = vistaNavegador.webContents
-    // Dentro del navegador, un target="_blank" navega la MISMA vista: una sola
-    // página a la vez, sin ventanas emergentes.
-    wc.setWindowOpenHandler(({ url: destino }) => {
-      if (/^https?:/.test(destino)) void wc.loadURL(destino)
-      return { action: 'deny' }
-    })
-    wc.on('will-navigate', (ev, destino) => {
-      if (!/^https?:/.test(destino)) ev.preventDefault()
-    })
-    const navego = () =>
-      avisarNavegador('mph:nav-navego', {
-        url: wc.getURL(),
-        atras: wc.navigationHistory.canGoBack(),
-        adelante: wc.navigationHistory.canGoForward(),
-      })
-    wc.on('did-navigate', navego)
-    wc.on('did-navigate-in-page', navego)
-    wc.on('page-title-updated', (_ev, titulo) => avisarNavegador('mph:nav-titulo', titulo))
-    // Si el proceso de la página muere, mejor cerrar que una vista zombi tapando la app.
-    wc.on('render-process-gone', () => {
-      cerrarNavegador()
-      avisarNavegador('mph:nav-cerrado', null)
-    })
-    ventana.contentView.addChildView(vistaNavegador)
+function abrirPestana(url, { pestanaId, fondo } = {}) {
+  if (!ventana || !/^https?:/.test(String(url))) return 0
+  let id = pestanaId != null && pestanas.has(pestanaId) ? pestanaId : null
+  if (id == null && pestanas.size >= TOPE_PESTANAS) id = pestanaActivaId
+  if (id == null) {
+    id = siguientePestanaId++
+    pestanas.set(id, { vista: null, url, titulo: '', ultimaActiva: fondo ? 0 : Date.now() })
+    crearVista(id, url)
+    avisarNavegador('mph:nav-pestana', { pestanaId: id, url, fondo: !!fondo })
+  } else {
+    const p = pestanas.get(id)
+    p.url = url
+    if (!p.vista) crearVista(id, url)
+    else void p.vista.webContents.loadURL(url)
   }
-  vistaNavegador.setBounds(limitesVista(bounds))
-  void vistaNavegador.webContents.loadURL(url)
-  return true
-})
+  // La vigilancia arranca ANTES de activar: activar evalúa y avisa del estado real.
+  vigilarActividad()
+  if (!fondo || pestanaActivaId == null) activarPestana(id)
+  else aplicarVisibilidad()
+  if (!siesta) siesta = setInterval(dormirPestanas, 60_000)
+  return id
+}
 
-ipcMain.handle('mph:nav-bounds', (_e, b) => vistaNavegador?.setBounds(limitesVista(b)))
-ipcMain.handle('mph:nav-atras', () => vistaNavegador?.webContents.navigationHistory.goBack())
-ipcMain.handle('mph:nav-adelante', () => vistaNavegador?.webContents.navigationHistory.goForward())
-ipcMain.handle('mph:nav-recargar', () => vistaNavegador?.webContents.reload())
+function soltarVista(p) {
+  if (!p.vista) return
+  if (ventana && !ventana.isDestroyed()) ventana.contentView.removeChildView(p.vista)
+  p.vista.webContents.close()
+  p.vista = null
+}
+
+/** Cierra una pestaña; si era la activa, activa la más reciente (o cierra todo). */
+function cerrarPestana(id) {
+  const p = pestanas.get(id)
+  if (!p) return
+  pestanas.delete(id)
+  soltarVista(p)
+  if (pestanaActivaId !== id) return
+  pestanaActivaId = null
+  const vecina = [...pestanas.entries()].sort((a, b) => b[1].ultimaActiva - a[1].ultimaActiva)[0]
+  if (vecina) activarPestana(vecina[0])
+  else cerrarNavegador()
+}
+
+function cerrarNavegador() {
+  pararVigilancia()
+  if (siesta) clearInterval(siesta)
+  siesta = null
+  for (const p of pestanas.values()) soltarVista(p)
+  pestanas.clear()
+  pestanaActivaId = null
+}
+
+/** Cada minuto: las pestañas que llevan mucho en segundo plano (y no suenan) sueltan su proceso. */
+function dormirPestanas() {
+  const ahora = Date.now()
+  for (const [id, p] of pestanas) {
+    if (id === pestanaActivaId || !p.vista || ahora - p.ultimaActiva < DORMIR_MS) continue
+    if (p.vista.webContents.isCurrentlyAudible()) continue
+    soltarVista(p)
+    avisarNavegador('mph:nav-dormida', { pestanaId: id })
+  }
+}
+
+// ——— Actividad: ¿el usuario sigue delante de la página? ———
+
+/** Segundos sin teclado ni ratón a partir de los que la visita se pausa (la app lo configura). */
+let navInactivoSeg = 120
+let vigilante = null
+let navActivo = true
+
+/**
+ * La visita solo cuenta con la ventana enfocada y sin minimizar, y con el
+ * usuario activo (o con la página sonando: un video en segundo plano sí se
+ * está viendo). Cada cambio se avisa a la app, que pausa o reanuda la fila.
+ */
+function evaluarActividad() {
+  const vista = vistaActiva()
+  if (!ventana || ventana.isDestroyed() || !vista) return
+  const audible = vista.webContents.isCurrentlyAudible()
+  const inactivo = powerMonitor.getSystemIdleTime() >= navInactivoSeg
+  const activo = ventana.isFocused() && !ventana.isMinimized() && (!inactivo || audible)
+  if (activo === navActivo) return
+  navActivo = activo
+  avisarNavegador('mph:nav-actividad', { activo })
+}
+
+function vigilarActividad() {
+  if (vigilante) return
+  navActivo = true
+  vigilante = setInterval(evaluarActividad, 15_000)
+  if (ventana && !ventana.mphNavOyentes) {
+    ventana.mphNavOyentes = true
+    for (const ev of ['blur', 'focus', 'minimize', 'restore']) ventana.on(ev, evaluarActividad)
+  }
+}
+
+function pararVigilancia() {
+  if (vigilante) clearInterval(vigilante)
+  vigilante = null
+  navActivo = true
+}
+
+/**
+ * Favicon de la página como data URL pequeño: se baja aquí (en la app sería
+ * una petición cruzada) y se reduce a 32 px. Un .ico no lo lee `nativeImage`:
+ * si es pequeño se manda tal cual (Chromium sí lo pinta en un <img>).
+ */
+async function mandarFavicon(wc, pestanaId, urlIcono) {
+  try {
+    const pagina = wc.getURL()
+    const r = await net.fetch(urlIcono, { signal: AbortSignal.timeout(5000) })
+    if (!r.ok) return
+    const tipo = (r.headers.get('content-type') || '').split(';')[0].trim()
+    if (!tipo.startsWith('image/')) return
+    const bytes = Buffer.from(await r.arrayBuffer())
+    if (bytes.length > 256 * 1024) return
+    let dataUrl = null
+    const img = nativeImage.createFromBuffer(bytes)
+    if (!img.isEmpty()) dataUrl = img.resize({ width: 32, height: 32 }).toDataURL()
+    else if (bytes.length <= 8 * 1024) dataUrl = `data:${tipo};base64,${bytes.toString('base64')}`
+    if (dataUrl && !wc.isDestroyed()) avisarNavegador('mph:nav-favicon', { pestanaId, url: pagina, dataUrl })
+  } catch {
+    // Sin favicon: la app pinta el icono genérico.
+  }
+}
+
+ipcMain.handle('mph:nav-abrir', (_e, url, bounds, opts) => {
+  if (bounds) boundsNav = limitesVista(bounds)
+  const o = opts && typeof opts === 'object' ? opts : {}
+  return abrirPestana(url, { pestanaId: o.pestanaId != null ? Number(o.pestanaId) : undefined, fondo: !!o.fondo })
+})
+ipcMain.handle('mph:nav-activar', (_e, id) => activarPestana(Number(id)))
+ipcMain.handle('mph:nav-cerrar-pestana', (_e, id) => cerrarPestana(Number(id)))
+ipcMain.handle('mph:nav-visible', (_e, v) => {
+  navVisible = !!v
+  aplicarVisibilidad()
+})
+ipcMain.handle('mph:nav-config', (_e, c) => {
+  const seg = Number(c?.inactivoSeg)
+  if (Number.isFinite(seg) && seg >= 30) navInactivoSeg = Math.round(seg)
+})
+ipcMain.handle('mph:nav-bounds', (_e, b) => {
+  boundsNav = limitesVista(b)
+  vistaActiva()?.setBounds(boundsNav)
+})
+ipcMain.handle('mph:nav-atras', () => vistaActiva()?.webContents.navigationHistory.goBack())
+ipcMain.handle('mph:nav-adelante', () => vistaActiva()?.webContents.navigationHistory.goForward())
+ipcMain.handle('mph:nav-recargar', () => vistaActiva()?.webContents.reload())
 ipcMain.handle('mph:nav-cerrar', () => cerrarNavegador())
+ipcMain.handle('mph:nav-foco', (_e, d) => {
+  focoHosts = Array.isArray(d?.hosts) ? d.hosts.map((h) => String(h).toLowerCase()).filter(Boolean) : []
+  focoHasta = Number(d?.hasta) || 0
+  focoHtml = typeof d?.html === 'string' ? d.html : ''
+})
+/** «Cerrar sesiones de los sitios»: cookies, almacenamiento y caché de la sesión del navegador. */
+ipcMain.handle('mph:nav-limpiar-sesion', async () => {
+  const s = sesionNavegador()
+  await s.clearStorageData()
+  await s.clearCache()
+})
 
 /**
  * Las pantallas, para que Configuraciones deje elegir. El nombre viene vacío en

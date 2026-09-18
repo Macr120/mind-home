@@ -27,6 +27,8 @@ export interface DestinoAviso {
   rutinaId?: number
   wrapped?: 'semana' | 'mes' | 'anio'
   accion?: 'registrar'
+  /** Hilo del buzón que abre el toque (mensaje de otra persona). */
+  hilo?: string
 }
 
 type PluginNotifs = typeof import('@capacitor/local-notifications')['LocalNotifications']
@@ -77,6 +79,13 @@ export interface Aviso {
    * no el asistente responsable de esa app.
    */
   asistenteId?: string
+  /** Hilo del buzón al que lleva el toque. */
+  hilo?: string
+  /**
+   * Solo la burbuja, sin guardar en el hilo del asistente: los avisos del buzón
+   * ya viven en su propia conversación (y `mensajesChat` se sincroniza).
+   */
+  efimero?: boolean
 }
 
 /** Un botón de la notificación. */
@@ -156,7 +165,7 @@ export async function iniciarAvisosNativos(alTocar: (d: DestinoAviso) => void): 
  * burbuja (dentro de un cuarto no se pinta) ni se diera permiso al navegador.
  */
 export async function notificar(a: Aviso): Promise<void> {
-  useMascota.getState().decir(`${a.titulo} · ${a.cuerpo}`, { asistenteId: a.asistenteId })
+  useMascota.getState().decir(`${a.titulo} · ${a.cuerpo}`, { asistenteId: a.asistenteId, persistir: !a.efimero })
 
   if (permisoNotificaciones() !== 'granted') return
   const datos: DestinoAviso = {
@@ -164,6 +173,7 @@ export async function notificar(a: Aviso): Promise<void> {
     seccion: a.seccion,
     rutinaId: a.rutinaId,
     wrapped: a.wrapped,
+    hilo: a.hilo,
   }
 
   // Android: notificación del sistema de verdad. Sin botones a propósito —
@@ -185,7 +195,7 @@ export async function notificar(a: Aviso): Promise<void> {
     a.accionRegistrar && a.rutinaId != null
       ? { action: 'registrar', title: a.accionRegistrar }
       : null,
-    a.accionAbrir && (a.plantillaId || a.wrapped)
+    a.accionAbrir && (a.plantillaId || a.wrapped || a.hilo)
       ? { action: 'abrir', title: a.accionAbrir }
       : null,
   ].filter((x): x is AccionNotif => x != null)

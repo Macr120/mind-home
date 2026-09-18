@@ -37,6 +37,7 @@ export type Primitiva =
       peso?: number
     }
   | { t: 'linea'; x1: number; y1: number; x2: number; y2: number; color: string; grosor: number; guion?: string }
+  | { t: 'circulo'; cx: number; cy: number; r: number; borde: string; grosor: number; guion?: string }
 
 export interface PaletaCorte {
   fondo: string
@@ -98,6 +99,13 @@ const tamTexto = (p: PiezaColocada): number =>
 function lineasCanto(p: PiezaColocada, color: string): Primitiva[] {
   const d = 10
   const fuera: Primitiva[] = []
+  if (p.forma === 'circular') {
+    // El disco se cantea entero: un segundo círculo por dentro del corte.
+    if (p.cantos.arriba || p.cantos.abajo || p.cantos.izq || p.cantos.der) {
+      fuera.push({ t: 'circulo', cx: p.x + p.ancho / 2, cy: p.y + p.alto / 2, r: Math.min(p.ancho, p.alto) / 2 - d, borde: color, grosor: 7 })
+    }
+    return fuera
+  }
   const linea = (x1: Mm, y1: Mm, x2: Mm, y2: Mm): Primitiva => ({
     t: 'linea',
     x1,
@@ -153,6 +161,19 @@ export function primitivasHoja(hoja: HojaCorte, pal: PaletaCorte, o: OpcsDibujo)
       grosor: 3,
       piezaId: p.piezaId,
     })
+    if (p.forma === 'circular') {
+      // El cuadrado es lo que se corta en la seccionadora; el círculo, lo que
+      // sale de él con la caladora. Va punteado para que no parezca otra pieza.
+      out.push({
+        t: 'circulo',
+        cx: p.x + p.ancho / 2,
+        cy: p.y + p.alto / 2,
+        r: Math.min(p.ancho, p.alto) / 2,
+        borde: p.color,
+        grosor: 3,
+        guion: '14 10',
+      })
+    }
     if (o.cantos) out.push(...lineasCanto(p, pal.canto))
     if (!o.etiquetas) continue
     const tam = tamTexto(p)
@@ -175,7 +196,7 @@ export function primitivasHoja(hoja: HojaCorte, pal: PaletaCorte, o: OpcsDibujo)
         t: 'texto',
         x: vertical ? cx + tam * 1.1 : cx,
         y: vertical ? cy : cy + tam * 1.05,
-        txt: `${p.ancho} × ${p.alto}`,
+        txt: p.forma === 'circular' ? `Ø ${p.ancho}` : `${p.ancho} × ${p.alto}`,
         color: pal.textoTenue,
         tam: tam * 0.72,
         ancla: 'middle',
@@ -230,6 +251,11 @@ function primitivaATexto(p: Primitiva): string {
     return `<line x1="${p.x1}" y1="${p.y1}" x2="${p.x2}" y2="${p.y2}" stroke="${p.color}" stroke-width="${
       p.grosor
     }"${p.guion ? ` stroke-dasharray="${p.guion}"` : ''} stroke-linecap="round"/>`
+  }
+  if (p.t === 'circulo') {
+    return `<circle cx="${p.cx}" cy="${p.cy}" r="${p.r}" fill="none" stroke="${p.borde}" stroke-width="${
+      p.grosor
+    }"${p.guion ? ` stroke-dasharray="${p.guion}"` : ''}/>`
   }
   const giro = p.girado ? ` transform="rotate(-90 ${p.x} ${p.y})"` : ''
   return `<text x="${p.x}" y="${p.y}" fill="${p.color}" font-size="${p.tam}" font-weight="${

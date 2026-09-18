@@ -110,9 +110,9 @@ export const PT_TUT: Dict = {
   'tut.primeros.1.texto': 'Este tutorial responde duas coisas: como ENTRAR nos seus apps e como CRIAR um novo. As duas vivem aqui, na aba Casa.',
   'tut.primeros.entrar.titulo': 'Entrar nos seus apps',
   'tut.primeros.entrar.texto':
-    'Cada cômodo carrega seu app e você tem três portas: o cartão dele aqui no menu, o objeto com a esfera flutuante no mapa, e o acesso rápido do botão MPH lá em cima.',
+    'Cada cômodo carrega seu app e você tem três portas: o cartão dele aqui no menu, o objeto com a esfera flutuante no mapa, e o acesso rápido do botão MindHaOS lá em cima.',
   'tut.primeros.entrar.vacio':
-    'Aqui vão morar seus cômodos, cada um com seu app, e você terá três portas: o cartão dele aqui no menu, o objeto com a esfera flutuante no mapa, e o acesso rápido do botão MPH lá em cima. Vamos criar o primeiro…',
+    'Aqui vão morar seus cômodos, cada um com seu app, e você terá três portas: o cartão dele aqui no menu, o objeto com a esfera flutuante no mapa, e o acesso rápido do botão MindHaOS lá em cima. Vamos criar o primeiro…',
   'tut.primeros.prev.titulo': 'Seu cômodo vai aqui',
   'tut.primeros.prev.texto':
     'Esta é a prévia do pincel: a silhueta verde com as paredes marca onde o cômodo vai se levantar. Construindo à mão você a verá igual embaixo do dedo, antes de soltar o toque.',
@@ -132,7 +132,7 @@ export const PT_TUT: Dict = {
     'Com + Atribuir eu dei o app a ele: veja como o cômodo assumiu seu nome, seu ícone e seus móveis. De agora em diante o cartão inteiro dele é o botão de entrar.',
   'tut.primeros.5.titulo': 'Entrar',
   'tut.primeros.5.texto':
-    'Entramos: este é o app do cômodo. Para voltar depois: o cartão dele no menu, o objeto com a esfera no mapa, ou o acesso rápido do botão MPH lá em cima.',
+    'Entramos: este é o app do cômodo. Para voltar depois: o cartão dele no menu, o objeto com a esfera no mapa, ou o acesso rápido do botão MindHaOS lá em cima.',
   'tut.primeros.press.titulo': 'Mantenha pressionado',
   'tut.primeros.press.texto':
     'Veja como treme: manter pressionado um cômodo ou um objeto o desperta, com seu menu. É assim que você o move se não gostou de onde ficou, ou o apaga.',
@@ -1022,7 +1022,7 @@ export const PT_TUT: Dict = {
     'O eixo do tempo com todas as metas de uma vez: cada uma é uma barra sobre as datas. Você aproxima e afasta por dias, semanas, meses ou anos, e um plano pode se sobrepor a ele para comparar com o que já está traçado.',
   'tut.app-sala--esencial.1.titulo': 'Sua sala de viagens',
   'tut.app-sala--esencial.1.texto':
-    'Aqui vive seu mundo viajante: um mapa-múndi com alfinetes, itinerários de lugares por conhecer, rotas que encadeiam lugares e um diário de bordo de lembranças. São quatro menus.',
+    'Aqui vive seu mundo viajante: um mapa-múndi com pins, roteiros de lugares para conhecer, rotas que encadeiam lugares, um navegador para chegar a qualquer lugar e um diário de lembranças. São cinco menus.',
   'tut.app-sala--esencial.2.titulo': 'Mapa',
   'tut.app-sala--esencial.2.texto':
     'Cada lugar que você visitou ou sonha em visitar é um alfinete no mapa-múndi. O interruptor lá em cima troca o mapa plano por um globo que você gira arrastando.',
@@ -1034,6 +1034,8 @@ export const PT_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': 'Diário de bordo',
   'tut.app-sala--esencial.5.texto':
     'As lembranças dos lugares que você visitou, em álbuns por país: fotos e histórias de cada lugar.',
+  'tut.app-sala--esencial.6.titulo': 'Como chegar',
+  'tut.app-sala--esencial.6.texto': 'Um navegador porta a porta: escolha origem e destino e combine caminhada, transporte público, bicicleta e carro em um mesmo trajeto, com o mapa de ruas e instruções passo a passo.',
   'tut.app-agenda--trabajo.1.titulo': 'A caixa de entrada',
   'tut.app-agenda--trabajo.1.texto':
     'Trabalho tem duas vistas: a caixa Tarefa e o Quadro. Em Tarefa mora o que precisa ser feito mas ainda não tem dia, com sua prioridade; nada obriga você a marcar uma data só para anotar.',

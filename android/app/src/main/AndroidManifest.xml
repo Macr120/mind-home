@@ -106,6 +106,9 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <!-- Máscara AR (getUserMedia de video en el WebView; el Bridge pide el permiso runtime) -->
     <uses-permission android:name="android.permission.CAMERA" />
+    <!-- «Cómo llegar» (sala de viajes) y el cardio en vivo: GPS del WebView; el Bridge pide el permiso runtime -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <!--
       `@capacitor/local-notifications` fusiona SCHEDULE_EXACT_ALARM, otro permiso

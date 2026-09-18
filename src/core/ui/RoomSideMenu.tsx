@@ -168,7 +168,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
               autoFocus
               defaultValue={nombreApp}
               maxLength={40}
-              placeholder={t('app.brand', 'Mind Planner Home')}
+              placeholder={t('app.brand', 'MindHaOS')}
               aria-label={t('app.brandNombre', 'Nombre de la casa')}
               onBlur={(e) => {
                 setNombreApp(e.currentTarget.value)
@@ -187,7 +187,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
               {/* Hasta dos líneas: el nombre de fábrica no cabe en una sola y ya
                   nadie le quita ancho, así que se lee entero en vez de cortarse. */}
               <h1 className="line-clamp-2 min-w-0 flex-1 text-base leading-tight font-black tracking-tight text-white/90">
-                <Icono nombre="casa" /> {nombreApp || t('app.brand', 'Mind Planner Home')}
+                <Icono nombre="casa" /> {nombreApp || t('app.brand', 'MindHaOS')}
               </h1>
               <button
                 type="button"
@@ -567,7 +567,7 @@ export function FloatingMenuButton({ onToggle }: { onToggle: () => void }) {
           <span className="max-w-[7rem] truncate text-sm font-black text-white/90">
             {/* Botón flotante: del nombre de fábrica cabe solo la sigla; el que
                 haya puesto el usuario ya es corto (o se recorta). */}
-            <Icono nombre="casa" /> {nombreApp || t('app.brandCorto', 'MPH')}
+            <Icono nombre="casa" /> {nombreApp || t('app.brandCorto', 'MindHaOS')}
           </span>
         </button>
       </div>

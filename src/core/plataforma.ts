@@ -104,12 +104,22 @@ interface PuenteEscritorio {
   vozAArchivo?: (texto: string, voz: string, lang: string) => Promise<string | null>
   /** Navegador embebido de los enlaces web (fase 2); la barra la pinta la app. */
   navegador?: {
-    abrir: (url: string, bounds: BoundsNavegador) => Promise<boolean>
+    /** Abre `url` en una pestaña nueva (o en `pestanaId`); resuelve el id de la pestaña (0 = no abrió). */
+    abrir: (url: string, bounds: BoundsNavegador, opts?: { pestanaId?: number; fondo?: boolean }) => Promise<number>
+    activar: (id: number) => Promise<boolean>
+    cerrarPestana: (id: number) => Promise<void>
+    /** Esconde o muestra la página activa sin cerrarla (un panel del chat encima). */
+    visible: (v: boolean) => Promise<void>
     bounds: (b: BoundsNavegador) => Promise<void>
     atras: () => Promise<void>
     adelante: () => Promise<void>
     recargar: () => Promise<void>
     cerrar: () => Promise<void>
+    configurar: (c: { inactivoSeg: number }) => Promise<void>
+    /** Modo foco: sitios bloqueados hasta `hasta` (ms) y la página que se muestra en su lugar. */
+    foco?: (d: { hosts: string[]; hasta: number | null; html: string }) => Promise<void>
+    /** Cierra las sesiones de los sitios (cookies, almacenamiento y caché). */
+    limpiarSesion?: () => Promise<void>
   }
   /** Programas del equipo asignados a objetos (solo el shell de Windows los expone). */
   programas?: {
@@ -127,13 +137,18 @@ export interface BoundsNavegador {
   height: number
 }
 
-/** ¿Este shell trae el navegador embebido? (Nunca en el modo fondo de pantalla.) */
+/**
+ * ¿Este shell trae el navegador embebido con pestañas? (Nunca en el modo fondo
+ * de pantalla.) Un shell anterior a la v2 (sin `activar`) se trata como si no
+ * lo trajera: la app abre los enlaces en el navegador del sistema.
+ */
 export function hayNavegadorEscritorio(): boolean {
   return (
     esEscritorio() &&
     !esModoFondo() &&
     typeof window !== 'undefined' &&
-    typeof window.mph?.navegador?.abrir === 'function'
+    typeof window.mph?.navegador?.abrir === 'function' &&
+    typeof window.mph?.navegador?.activar === 'function'
   )
 }
 

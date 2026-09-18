@@ -105,6 +105,7 @@ export const useTallerMuebles = create<TallerMueblesState>((set, get) => {
           ...base,
           nombre: nombreIntacto ? base.nombre : m.nombre,
           medidas: medidasIntactas ? base.medidas : m.medidas,
+          forma: m.forma,
           tablero: m.tablero,
           metal: m.metal,
           base: m.base,

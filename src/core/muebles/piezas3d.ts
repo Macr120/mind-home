@@ -49,6 +49,19 @@ export function piezas3DDeCuerpo(c: Cuerpo, opts?: { abrirFrentes?: boolean }): 
       rot = suma([0, haciaIzq ? GIRO_PUERTA_ABIERTA : -GIRO_PUERTA_ABIERTA, 0], p.rot)
     }
 
+    if (p.disco) {
+      // Cilindro de eje vertical: el cilindro de three ya nace de pie, así que
+      // no lleva el giro de `rotCilindro` (que orienta tubos por su lado largo).
+      piezas.push({
+        tipo: 'cilindro',
+        pos,
+        tam: [aMetros(p.dx / 2), aMetros(p.dx / 2), aMetros(p.dy)],
+        color: p.color,
+        ...(rot ? { rot } : {}),
+      })
+      continue
+    }
+
     if (p.redondo) {
       const largo = Math.max(p.dx, p.dy, p.dz)
       const radio = Math.min(p.dx, p.dy, p.dz) / 2

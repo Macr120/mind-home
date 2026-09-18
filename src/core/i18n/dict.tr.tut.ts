@@ -110,9 +110,9 @@ export const TR_TUT: Dict = {
   'tut.primeros.1.texto': 'Bu eğitim iki şeyi yanıtlar: uygulamalarına nasıl GİRİLİR ve yenisi nasıl OLUŞTURULUR. İkisi de burada, Ev sekmesinde.',
   'tut.primeros.entrar.titulo': 'Uygulamalarına gir',
   'tut.primeros.entrar.texto':
-    'Her oda kendi uygulamasını taşır ve üç kapın var: burada menüdeki kartı, haritadaki havada süzülen küreli nesne ve üstteki MPH düğmesinin hızlı erişimi.',
+    'Her oda kendi uygulamasını taşır ve üç kapın var: burada menüdeki kartı, haritadaki havada süzülen küreli nesne ve üstteki MindHaOS düğmesinin hızlı erişimi.',
   'tut.primeros.entrar.vacio':
-    'Odaların burada yaşayacak, her biri kendi uygulamasıyla; üç kapın olacak: burada menüdeki kartı, haritadaki havada süzülen küreli nesne ve üstteki MPH düğmesinin hızlı erişimi. İlkini oluşturalım…',
+    'Odaların burada yaşayacak, her biri kendi uygulamasıyla; üç kapın olacak: burada menüdeki kartı, haritadaki havada süzülen küreli nesne ve üstteki MindHaOS düğmesinin hızlı erişimi. İlkini oluşturalım…',
   'tut.primeros.prev.titulo': 'Odan buraya kurulacak',
   'tut.primeros.prev.texto':
     'Bu, fırçanın önizlemesi: duvarlarıyla birlikte yeşil siluet, odanın nereye kurulacağını gösterir. Elle inşa ederken de aynısını parmağının altında görürsün, dokunuşu bırakmadan önce.',
@@ -133,7 +133,7 @@ export const TR_TUT: Dict = {
     '+ Ata ile uygulamasını verdim: bak, oda adını, simgesini ve mobilyalarını nasıl aldı. Artık kartının tamamı giriş düğmesi.',
   'tut.primeros.5.titulo': 'Gir',
   'tut.primeros.5.texto':
-    'İçerideyiz: bu, odanın uygulaması. Sonra geri dönmek için: menüdeki kartı, haritadaki küreli nesnesi ya da üstteki MPH düğmesinin hızlı erişimi.',
+    'İçerideyiz: bu, odanın uygulaması. Sonra geri dönmek için: menüdeki kartı, haritadaki küreli nesnesi ya da üstteki MindHaOS düğmesinin hızlı erişimi.',
   'tut.primeros.press.titulo': 'Basılı tut',
   'tut.primeros.press.texto':
     'Bak nasıl titriyor: bir odayı ya da nesneyi basılı tutmak onu uyandırır, menüsüyle birlikte. Böylece durduğu yeri beğenmediysen onu taşırsın, ya da silersin.',
@@ -1020,7 +1020,7 @@ export const TR_TUT: Dict = {
     'Tüm hedeflerin aynı anda olduğu zaman ekseni: her biri tarihlerin üzerinde bir çubuktur. Gün, hafta, ay ya da yıla göre yakınlaştırıp uzaklaştırabilirsin, ve zaten çizilmiş olanla karşılaştırmak için bir plan üzerine yerleştirilebilir.',
   'tut.app-sala--esencial.1.titulo': 'Gezgin oturma odan',
   'tut.app-sala--esencial.1.texto':
-    'Gezgin dünyan burada yaşar: iğneli bir dünya haritası, görülecek yerlerin gezi planları, yerleri birbirine bağlayan rotalar ve bir anı seyir defteri. Dört bölümü vardır.',
+    'Gezgin dünyan burada yaşar: pinli bir dünya haritası, görülecek yer planları, yerleri birbirine bağlayan rotalar, seni her yere götüren bir navigatör ve anılardan bir seyir defteri. Beş menü.',
   'tut.app-sala--esencial.2.titulo': 'Harita',
   'tut.app-sala--esencial.2.texto':
     'Ziyaret ettiğin ya da ziyaret etmeyi hayal ettiğin her yer, dünya haritasında bir iğnedir. Üstteki anahtar, düz haritayı sürükleyerek döndürebileceğin bir küreyle değiştirir.',
@@ -1032,6 +1032,8 @@ export const TR_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': 'Seyir defteri',
   'tut.app-sala--esencial.5.texto':
     'Ziyaret ettiğin yerlerin anıları, ülkeye göre albümlerde: her yerin fotoğrafları ve hikâyeleri.',
+  'tut.app-sala--esencial.6.titulo': 'Yol tarifi',
+  'tut.app-sala--esencial.6.texto': 'Kapıdan kapıya bir navigatör: başlangıç ve varışı seç; yürüyüş, toplu taşıma, bisiklet ve arabayı tek bir yolculukta birleştir, sokak haritası ve adım adım yönergelerle.',
   'tut.app-agenda--trabajo.1.titulo': 'Gelen kutusu',
   'tut.app-agenda--trabajo.1.texto':
     'İş’in iki görünümü var: Yapılacaklar kutusu ve Pano. Yapılması gereken ama henüz günü olmayan her şey, önceliğiyle birlikte Yapılacaklar’da durur; not almak için tarih koymak zorunda değilsin.',

@@ -1,11 +1,18 @@
 /**
  * Icono y pantalla de arranque de iOS, sacados de los SVG de la marca
- * (`public/icon.svg` y `public/favicon.svg`). Se corre a mano cuando cambie el
- * logo; lo generado se sube al repo, porque Xcode compila lo que hay en disco.
+ * (`public/icon.svg`, `public/icon-oscuro.svg` y `public/favicon.svg`). Se
+ * corre a mano cuando cambie el logo; lo generado se sube al repo, porque Xcode
+ * compila lo que hay en disco.
  *
  *   npm run ios:iconos
  *
- * En Android los mismos PNG los generó una herramienta externa (mipmap-*), así
+ * El catálogo (`AppIcon.appiconset/Contents.json`) declara las tres apariencias
+ * de iOS 18: la clara (piezas sobre blanco), la oscura (sobre negro) y la
+ * tintada (piezas en gris sin fondo, que iOS colorea con el tinte del usuario
+ * sobre su propio degradado). El sistema cambia solo entre ellas con el
+ * aspecto de la pantalla de inicio; en iOS < 18 se ve la clara.
+ *
+ * En Android los mismos PNG los genera `npm run app:iconos` (mipmap-*), así
  * que ese lado no se toca desde aquí.
  */
 import sharp from 'sharp'
@@ -14,25 +21,30 @@ import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 
 const raiz = join(dirname(fileURLToPath(import.meta.url)), '..')
-const iconoDestino = join(raiz, 'ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-512@2x.png')
+const catalogo = join(raiz, 'ios/App/App/Assets.xcassets/AppIcon.appiconset')
 const splashDir = join(raiz, 'ios/App/App/Assets.xcassets/Splash.imageset')
 
 /** Fondo del tema oscuro (`--ui-bg`, y `background_color` del manifest). */
 const FONDO = '#0f1115'
-/** Verde del borde del fondo de icon.svg (degradado radial), por si quedara alfa. */
-const VERDE = '#4e600d'
 /** Cuánto del lienzo cuadrado ocupa el logo del arranque (ver abajo). */
 const PROPORCION_LOGO = 0.22
 
-// Icono: icon.svg ya trae el cuadrado verde opaco, pero `sharp` sacaría el PNG
-// con canal alfa igualmente y el App Store RECHAZA un icono con transparencia.
-// `flatten` lo quita. Una sola imagen de 1024: desde Xcode 14 el resto de
-// tamaños los deriva el propio catálogo.
-await sharp(readFileSync(join(raiz, 'public/icon.svg')), { density: 384 })
-  .resize(1024, 1024)
-  .flatten({ background: VERDE })
+// Iconos: los SVG ya traen su cuadrado opaco, pero `sharp` sacaría el PNG con
+// canal alfa igualmente y el App Store RECHAZA un icono con transparencia.
+// `flatten` lo quita. Una sola imagen de 1024 por apariencia: desde Xcode 14
+// el resto de tamaños los deriva el propio catálogo.
+const rasterizar = (svg) => sharp(svg, { density: 384 }).resize(1024, 1024)
+await rasterizar(readFileSync(join(raiz, 'public/icon.svg')))
+  .flatten({ background: '#ffffff' })
   .png()
-  .toFile(iconoDestino)
+  .toFile(join(catalogo, 'AppIcon-512@2x.png'))
+await rasterizar(readFileSync(join(raiz, 'public/icon-oscuro.svg')))
+  .flatten({ background: '#000000' })
+  .png()
+  .toFile(join(catalogo, 'AppIcon-512@2x-oscuro.png'))
+// Tintado: icon.svg sin su rectángulo de fondo (las piezas en su sitio exacto), en gris y CON alfa.
+const sinFondo = readFileSync(join(raiz, 'public/icon.svg'), 'utf8').replace(/<rect width="512" height="512" fill="url\(#fondo\)"\/>/, '')
+await rasterizar(Buffer.from(sinFondo)).grayscale().png().toFile(join(catalogo, 'AppIcon-512@2x-tintado.png'))
 
 // Arranque: el logo SIN fondo (favicon.svg) centrado sobre el fondo del tema,
 // para que el salto a la app no pase por un fogonazo blanco. El lienzo es
@@ -57,4 +69,4 @@ for (const nombre of ['splash-2732x2732.png', 'splash-2732x2732-1.png', 'splash-
   await sharp(splash).flatten({ background: FONDO }).png().toFile(join(splashDir, nombre))
 }
 
-console.log('iOS: icono y arranque regenerados desde public/*.svg')
+console.log('iOS: icono (claro, oscuro y tintado) y arranque regenerados desde public/*.svg')

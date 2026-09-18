@@ -980,6 +980,24 @@ const SECCIONES: Seccion[] = [
           },
         ],
       },
+      {
+        icon: '🌐',
+        id: 'navegador',
+        titulo: 'Navegador',
+        nota: 'Una dirección web se abre en el navegador de la app; «busca en internet…» abre el buscador. Con el botón 🌐 encendido (modo web) TODO lo que escribas va a internet en vez de al asistente, incluidas las preguntas.',
+        grupos: [
+          {
+            id: 'abrir',
+            ejemplos: [
+              { frase: '[Abre] {ejemplo.com}', en: '[Open] {example.com}' },
+              { frase: '[Busca en internet] {recetas de pan}', en: '[Search the web] {bread recipes}' },
+              { frase: '[Historial]', en: '[History]' },
+              { frase: '[Sitios]', en: '[Sites]' },
+              { frase: '[Tiempo en internet]', en: '[Time online]' },
+            ],
+          },
+        ],
+      },
     ],
   },
 ]

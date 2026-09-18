@@ -109,6 +109,11 @@ export const MANUAL_NL: ManualTraducido = {
     '[Cómo funciona] el {editor}': '[Hoe werkt] de {editor}',
     '[Cómo funciona] el {chat}': '[Hoe werkt] de {chat}',
     '[Para qué sirve] la {cámara}': '[Waar dient] de {camera} [voor]',
+    '[Abre] {ejemplo.com}': '[Open] {voorbeeld.nl}',
+    '[Busca en internet] {recetas de pan}': '[Zoek op internet] {brood recepten}',
+    '[Historial]': '[Geschiedenis]',
+    '[Sitios]': '[Sites]',
+    '[Tiempo en internet]': '[Tijd online]',
   },
   atajos: {
     'Caminar (también con las flechas)': 'Lopen (ook met de pijltjestoetsen)',

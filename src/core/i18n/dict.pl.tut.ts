@@ -110,9 +110,9 @@ export const PL_TUT: Dict = {
   'tut.primeros.1.texto': 'Ten samouczek odpowiada na dwie rzeczy: jak WEJŚĆ do swoich aplikacji i jak STWORZYĆ nową. Obie mieszkają tutaj, w zakładce Dom.',
   'tut.primeros.entrar.titulo': 'Wejdź do swoich aplikacji',
   'tut.primeros.entrar.texto':
-    'Każdy pokój niesie swoją aplikację, a ty masz troje drzwi: jego kartę tutaj w menu, obiekt z unoszącą się kulą na mapie i szybki dostęp z przycisku MPH u góry.',
+    'Każdy pokój niesie swoją aplikację, a ty masz troje drzwi: jego kartę tutaj w menu, obiekt z unoszącą się kulą na mapie i szybki dostęp z przycisku MindHaOS u góry.',
   'tut.primeros.entrar.vacio':
-    'Tu zamieszkają twoje pokoje, każdy ze swoją aplikacją, i będziesz mieć troje drzwi: kartę pokoju tutaj w menu, obiekt z unoszącą się kulą na mapie i szybki dostęp z przycisku MPH u góry. Stwórzmy pierwszy…',
+    'Tu zamieszkają twoje pokoje, każdy ze swoją aplikacją, i będziesz mieć troje drzwi: kartę pokoju tutaj w menu, obiekt z unoszącą się kulą na mapie i szybki dostęp z przycisku MindHaOS u góry. Stwórzmy pierwszy…',
   'tut.primeros.prev.titulo': 'Tu stanie twój pokój',
   'tut.primeros.prev.texto':
     'To podgląd pędzla: zielony obrys ze ścianami wskazuje, gdzie stanie pokój. Przy ręcznym budowaniu zobaczysz go tak samo pod palcem, zanim oderwiesz go od ekranu.',
@@ -133,7 +133,7 @@ export const PL_TUT: Dict = {
     'Przyciskiem + Przypisz pokój dostał swoją aplikację: zobacz, jak przejął jej nazwę, ikonę i meble. Od teraz cała jego karta jest przyciskiem wejścia.',
   'tut.primeros.5.titulo': 'Wejdź',
   'tut.primeros.5.texto':
-    'Wchodzimy: to jest aplikacja pokoju. Żeby wrócić później: jego karta w menu, obiekt z kulą na mapie albo szybki dostęp z przycisku MPH u góry.',
+    'Wchodzimy: to jest aplikacja pokoju. Żeby wrócić później: jego karta w menu, obiekt z kulą na mapie albo szybki dostęp z przycisku MindHaOS u góry.',
   'tut.primeros.press.titulo': 'Przytrzymaj',
   'tut.primeros.press.texto':
     'Patrz, jak się trzęsie: przytrzymanie pokoju albo obiektu budzi go, razem z jego menu. Tak go przesuniesz, jeśli nie podoba ci się, gdzie stanął, albo go usuniesz.',
@@ -1024,7 +1024,7 @@ export const PL_TUT: Dict = {
     'Oś czasu ze wszystkimi celami naraz: każdy jest paskiem nad datami. Przybliżasz i oddalasz według dni, tygodni, miesięcy albo lat, a plan można na nią nałożyć, żeby porównać go z tym, co już jest wyznaczone.',
   'tut.app-sala--esencial.1.titulo': 'Twój salon podróży',
   'tut.app-sala--esencial.1.texto':
-    'Tutaj mieszka twój świat podróżnika: mapa świata z pinezkami, plany podróży miejsc do poznania, trasy łączące miejsca i dziennik podróży ze wspomnieniami. Są cztery podmenu.',
+    'Tu mieszka Twój podróżniczy świat: mapa świata z pinezkami, plany miejsc do zobaczenia, trasy łączące miejsca, nawigator, który zaprowadzi Cię wszędzie, i dziennik wspomnień. Pięć menu.',
   'tut.app-sala--esencial.2.titulo': 'Mapa',
   'tut.app-sala--esencial.2.texto':
     'Każde miejsce, które odwiedziłeś albo marzysz odwiedzić, to pinezka na mapie świata. Przełącznik u góry zamienia płaską mapę na globus, którym obracasz, przeciągając.',
@@ -1036,6 +1036,8 @@ export const PL_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': 'Dziennik podróży',
   'tut.app-sala--esencial.5.texto':
     'Wspomnienia z odwiedzonych miejsc, w albumach według kraju: zdjęcia i historie z każdego miejsca.',
+  'tut.app-sala--esencial.6.titulo': 'Jak dojechać',
+  'tut.app-sala--esencial.6.texto': 'Nawigator od drzwi do drzwi: wybierz start i cel i połącz pieszo, komunikację miejską, rower i auto w jednej podróży, z mapą ulic i wskazówkami krok po kroku.',
   'tut.app-agenda--trabajo.1.titulo': 'Skrzynka zadań',
   'tut.app-agenda--trabajo.1.texto':
     'To, co trzeba zrobić, ale nie ma jeszcze dnia, mieszka tutaj, ze swoim priorytetem. Nic nie zmusza cię do ustawiania daty, żeby to zapisać.',

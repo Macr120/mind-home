@@ -2,7 +2,7 @@ import SwiftUI
 import WidgetKit
 
 /**
- * Los tres widgets de Mind Planner Home, espejo de los de Android
+ * Los tres widgets de MindHaOS, espejo de los de Android
  * (`android/…/widgets/`): la casa, las misiones del día y el chat.
  *
  * Reparto igual que allá: la app publica un snapshot YA localizado en el App

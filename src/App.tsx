@@ -7,6 +7,8 @@ import { CarreraOverlay } from './core/ui/CarreraOverlay'
 import { PaintballOverlay } from './core/ui/PaintballOverlay'
 import { Mira } from './core/ui/Mira'
 import { AsignarPlantillaDialog } from './core/ui/AsignarPlantillaDialog'
+import { EnviarAContacto } from './core/buzon/ui/EnviarAContacto'
+import { RetratoAvatar } from './core/buzon/RetratoAvatar'
 import { EnlaceObjetoDialog } from './core/ui/EnlaceObjetoDialog'
 import { AmueblarDialog } from './core/ui/AmueblarDialog'
 import { DestinoObjetoDialog } from './core/ui/DestinoObjetoDialog'
@@ -37,7 +39,7 @@ import { RecuperarPrueba } from './core/bienvenida/RecuperarPrueba'
 import { VolverDemoDialog } from './demo/VolverDemoDialog'
 import { esDemo, esProbar } from './core/edicion'
 import { esEscritorio, esModoFondo } from './core/plataforma'
-import { NavegadorEscritorio } from './core/ui/NavegadorEscritorio'
+import { TiraNavegador } from './core/ui/TiraNavegador'
 import { acercarEncuadre, aplicarEncuadre, moverEncuadre } from './core/fondoEncuadre'
 import { ExtrasFondo } from './core/ui/ExtrasFondo'
 import { useBienvenida } from './core/bienvenida/bienvenidaStore'
@@ -293,9 +295,13 @@ export default function App() {
         </Suspense>
       )}
       <AsignarPlantillaDialog />
+      {/* «Enviar a un contacto» desde cualquier cuarto (el ChatBox no existe ahí dentro). */}
+      <EnviarAContacto />
+      {/* El busto del personaje como retrato del buzón: captura oculta cuando cambia el avatar. */}
+      <RetratoAvatar />
       <EnlaceObjetoDialog />
-      {/* La barra del navegador embebido (solo el shell de escritorio la usa). */}
-      {esEscritorio() && <NavegadorEscritorio />}
+      {/* La tira de pestañas del navegador embebido, al pie (solo el shell de escritorio la usa). */}
+      {esEscritorio() && <TiraNavegador />}
       <AmueblarDialog />
       <DestinoObjetoDialog />
       <AccesoNivelDialog />

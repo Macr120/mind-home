@@ -1,10 +1,9 @@
 /** Textos del portal /cuenta en coreano. Traducción del español de `web/src/cuenta.tsx`. */
 export const TEXTOS: Record<string, string> = {
-  'marca.nombre': '멘탈 플래너-집',
-  'marca.sub': 'Mind Planner Home',
+  'marca.nombre': 'MindHaOS',
   'marco.privacidad': '개인정보',
   'marco.terminos': '이용약관',
-  'marco.titulo': '내 계정 — Mind Planner Home',
+  'marco.titulo': '내 계정 — MindHaOS',
   'comun.procesando': '처리 중…',
   'oauth.google': 'Google로 계속하기',
   'oauth.apple': 'Apple로 계속하기',

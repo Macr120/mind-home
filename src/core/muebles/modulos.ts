@@ -12,6 +12,7 @@ import type {
   AvisoMueble,
   Cuerpo,
   EstructuraMueble,
+  FormaMueble,
   IconoModulo,
   Mm,
   ModuloId,
@@ -91,7 +92,11 @@ export const admiteBase = (m: Mueble): boolean => {
 }
 
 /** ¿Este mueble admite puertas? */
-export const admitePuertas = (m: Mueble): boolean => getModulo(m.moduloId).conPuertas === true
+export const admitePuertas = (m: Mueble): boolean =>
+  getModulo(m.moduloId).conPuertas === true && m.forma !== 'circular'
+
+/** Los parámetros de carcasa (columnas, cajones, tubo) no existen en planta circular. */
+const soloRectangular = (m: Mueble): boolean => m.forma !== 'circular'
 
 export const MODULOS: DefModulo[] = [
   {
@@ -106,10 +111,10 @@ export const MODULOS: DefModulo[] = [
       fondo: { min: 200, max: 700, def: 450, paso: 10 },
     },
     params: [
-      { id: 'columnas', clave: 'muebles.par.columnas', nombreEs: 'Columnas', tipo: 'entero', min: 1, max: 4, def: 1 },
+      { id: 'columnas', clave: 'muebles.par.columnas', nombreEs: 'Columnas', tipo: 'entero', min: 1, max: 4, def: 1, visible: soloRectangular },
       { id: 'entrepanos', clave: 'muebles.par.entrepanos', nombreEs: 'Entrepaños', tipo: 'entero', min: 0, max: 8, def: 3 },
-      { id: 'cajones', clave: 'muebles.par.cajonesInf', nombreEs: 'Cajones abajo', tipo: 'entero', min: 0, max: 6, def: 0 },
-      { id: 'barra', clave: 'muebles.par.barra', nombreEs: 'Tubo para colgar', tipo: 'bool', def: false },
+      { id: 'cajones', clave: 'muebles.par.cajonesInf', nombreEs: 'Cajones abajo', tipo: 'entero', min: 0, max: 6, def: 0, visible: soloRectangular },
+      { id: 'barra', clave: 'muebles.par.barra', nombreEs: 'Tubo para colgar', tipo: 'bool', def: false, visible: soloRectangular },
       {
         id: 'inclinacion',
         clave: 'muebles.par.inclinacion',
@@ -119,7 +124,7 @@ export const MODULOS: DefModulo[] = [
         max: 20,
         def: 0,
         // Inclinar no significa nada si no hay entrepaños que inclinar.
-        visible: (m) => Number(m.opciones.entrepanos ?? 0) > 0,
+        visible: (m) => soloRectangular(m) && Number(m.opciones.entrepanos ?? 0) > 0,
       },
     ],
     armar: armarMadera,
@@ -183,7 +188,7 @@ export const MODULOS: DefModulo[] = [
           { valor: 'caballete', clave: 'muebles.par.patasCaballete', nombreEs: 'Caballete' },
         ],
       },
-      { id: 'faldon', clave: 'muebles.par.faldon', nombreEs: 'Faldón', tipo: 'bool', def: false },
+      { id: 'faldon', clave: 'muebles.par.faldon', nombreEs: 'Faldón', tipo: 'bool', def: false, visible: soloRectangular },
       { id: 'entrepano', clave: 'muebles.par.entrepanoMesa', nombreEs: 'Entrepaño bajo', tipo: 'bool', def: false },
       { id: 'voladizo', clave: 'muebles.par.voladizo', nombreEs: 'Voladizo', tipo: 'entero', min: 0, max: 150, def: 60 },
     ],
@@ -287,6 +292,7 @@ export function muebleNuevo(moduloId: ModuloId): Mueble {
     nombre: nombreDeFabrica(def),
     medidas: { ancho: def.medidas.ancho.def, alto: def.medidas.alto.def, fondo: def.medidas.fondo.def },
     opciones: opcionesDefecto(def),
+    forma: 'rectangular',
     estructura,
     tablero: { ...TABLERO_DEFECTO },
     metal: { ...METAL_DEFECTO },
@@ -304,10 +310,17 @@ export function muebleNuevo(moduloId: ModuloId): Mueble {
  */
 export function normalizarMueble(m: Mueble): Mueble {
   const def = getModulo(m.moduloId)
+  const forma: FormaMueble = m.forma === 'circular' ? 'circular' : 'rectangular'
+  const ancho = clamp(Math.round(m.medidas.ancho), def.medidas.ancho.min, def.medidas.ancho.max)
   const med = {
-    ancho: clamp(Math.round(m.medidas.ancho), def.medidas.ancho.min, def.medidas.ancho.max),
+    ancho,
     alto: clamp(Math.round(m.medidas.alto), def.medidas.alto.min, def.medidas.alto.max),
-    fondo: clamp(Math.round(m.medidas.fondo), def.medidas.fondo.min, def.medidas.fondo.max),
+    // Un disco tiene un solo diámetro: el fondo es el ancho, salte o no del
+    // rango de fondo del módulo (una mesa redonda de 1200 mide 1200 de fondo).
+    fondo:
+      forma === 'circular'
+        ? ancho
+        : clamp(Math.round(m.medidas.fondo), def.medidas.fondo.min, def.medidas.fondo.max),
   }
 
   const opciones: Record<string, number | string | boolean> = {}
@@ -338,6 +351,9 @@ export function normalizarMueble(m: Mueble): Mueble {
   // que el fondo del mueble.
   const base = {
     ...m.base,
+    // Un zócalo redondo sería una tira curvada, que no sale de una hoja: en
+    // planta circular la base son patas.
+    tipo: forma === 'circular' && m.base.tipo === 'zoclo' ? ('patas' as const) : m.base.tipo,
     altura: clamp(Math.round(m.base.altura), 0, Math.round(med.alto / 2)),
     retranqueo: clamp(Math.round(m.base.retranqueo), 0, Math.round(med.fondo / 2)),
   }
@@ -348,6 +364,7 @@ export function normalizarMueble(m: Mueble): Mueble {
     // Al normalizar se escribe el id vigente: así una receta heredada se
     // resuelve una sola vez y no en cada lectura.
     moduloId: def.id,
+    forma,
     medidas: med,
     opciones,
     estructura,

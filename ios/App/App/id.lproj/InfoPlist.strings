@@ -2,3 +2,4 @@
 "NSCameraUsageDescription" = "Untuk melihat sekitarmu di obrolan AR dan mengambil foto untuk aplikasimu.";
 "NSMicrophoneUsageDescription" = "Untuk mendikte ke rumahmu alih-alih mengetik.";
 "NSPhotoLibraryUsageDescription" = "Untuk memilih foto bagi kenanganmu, kamarmu, dan obrolan.";
+"NSLocationWhenInUseUsageDescription" = "Untuk menampilkan posisi Anda di peta, memandu Anda di sepanjang rute, dan mencatat latihan luar ruangan Anda.";

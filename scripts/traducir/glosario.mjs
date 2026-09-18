@@ -8,7 +8,7 @@
  */
 
 /** Instrucciones comunes a todos los idiomas. */
-export const VOZ = `Traduces la interfaz de Mind Planner Home (MPH), una app personal donde la
+export const VOZ = `Traduces la interfaz de MindHaOS, una app personal donde la
 vida del usuario es una CASA ISOMÉTRICA 3D y cada cuarto es una mini-app:
 cocina y nutrición, ejercicio, descanso, finanzas, aprendizaje, viajes,
 mindfulness, agenda, ideas… Se acompaña de una gamificación suave (rachas,
@@ -22,10 +22,9 @@ REGLAS DURAS
    añadidas.
 2. Los marcadores entre llaves —{nombre}, {n}, {total}— se copian TAL CUAL,
    sin traducir, sin cambiar de nombre y sin añadir ni quitar ninguno.
-3. «Mind Planner Home» y «MPH» no se traducen DENTRO de una frase. La ÚNICA
-   excepción es la clave «app.brand» (el rótulo de la barra), que lleva el
-   nombre de la marca ya localizado y debe decir lo MISMO que «marca.nombre»
-   de la web (web/i18n/paginas/<id>.mjs) — decidido el 20 ago 2026.
+3. «MindHaOS» es la marca y NUNCA se traduce ni se transcribe: se copia tal
+   cual en cualquier idioma y alfabeto, también en «marca.nombre» y
+   «app.brand» (desde el 17 sep 2026; antes el nombre largo sí se localizaba).
 4. No metas emojis. Si el original no lleva, la traducción tampoco.
 5. Respeta el marcado del manual de comandos: los corchetes [así] y las llaves
    {así} delimitan partes de la frase y deben seguir delimitando lo mismo.

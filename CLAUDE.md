@@ -1,4 +1,4 @@
-# Mind Planner Home (MPH)
+# MindHaOS (antes Mind Planner Home, «MPH»; el código y los ids siguen diciendo MPH/mindhome)
 
 App de una **casa isométrica 3D estilo Roblox** donde cada cuarto es una mini-app 2D
 independiente pero interconectada (muchas apps en 1). Web (Vite + React) y móvil
@@ -133,7 +133,8 @@ claves y los archivos siguen diciendo `objetivos`.
 pantalla completa para diseñar muebles modulares por medidas en **milímetros**. Son
 **cuatro** modelos paramétricos, no un catálogo de muebles: módulo de madera (hace armario,
 librero, cajonera, clóset y zapatera según lo que lleve dentro), estructura metálica,
-mesa/escritorio y silla, con tableros y postes de tubo,
+mesa/escritorio y silla, cada uno de planta rectangular o circular (`Mueble.forma`: lo plano
+pasa a disco y los apoyos al cuadrado inscrito), con tableros y postes de tubo,
 **diagrama de cortes** optimizado y **presupuesto** con precios que edita el usuario. El
 núcleo puro vive en `core/muebles/` y la UI en `core/ui/muebles/`; el overlay se monta en
 la raíz de `App.tsx`. La receta (`Mueble`) es lo único que se guarda: el 3D, el despiece y

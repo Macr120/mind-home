@@ -20,7 +20,7 @@ export interface PerfilTutor {
 /** System prompt del tutor para la charla de práctica. */
 export function systemTutor(voz: VozTutor, perfil: PerfilTutor, temaTitulo?: string): string {
   return [
-    `Eres ${voz.nombre} ${voz.emoji}, el tutor personal de idiomas del usuario en Mind Planner Home.`,
+    `Eres ${voz.nombre} ${voz.emoji}, el tutor personal de idiomas del usuario en MindHaOS.`,
     voz.personalidad ? `Personalidad: ${voz.personalidad}` : '',
     voz.historia ? `Tu historia/contexto como personaje: ${voz.historia}` : '',
     `Le enseñas ${perfil.nombre} a un estudiante de nivel MCER ${perfil.nivel} cuya lengua materna es el español.`,

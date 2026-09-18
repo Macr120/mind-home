@@ -81,7 +81,7 @@ export async function imprimirFormulas(
   motor: Motor | null,
 ): Promise<void> {
   const html = `<h1>${esc(titulo)}</h1>
-<p class="mph-meta">${esc(tGlobal('computo.export.pie', 'Mind Planner Home · Sala de cómputo'))}</p>
+<p class="mph-meta">${esc(tGlobal('computo.export.pie', 'MindHaOS · Sala de cómputo'))}</p>
 ${formulas.map((f) => formulaHtml(f, motor)).join('')}`
   await imprimir(html, titulo)
 }
@@ -119,7 +119,7 @@ export async function imprimirHoja(hoja: HojaCalculo, motor: Motor | null): Prom
   }).join('')
 
   const html = `<h1>${esc(hoja.nombre)}</h1>
-<p class="mph-meta">${esc(tGlobal('computo.export.pie', 'Mind Planner Home · Sala de cómputo'))}</p>
+<p class="mph-meta">${esc(tGlobal('computo.export.pie', 'MindHaOS · Sala de cómputo'))}</p>
 <table><thead><tr><th></th>${cabecera}</tr></thead><tbody>${cuerpo}</tbody></table>`
   await imprimir(html, hoja.nombre)
 }

@@ -110,9 +110,9 @@ export const DE_TUT: Dict = {
   'tut.primeros.1.texto': 'Dieses Tutorial beantwortet zwei Dinge: wie du deine Apps ÖFFNEST und wie du eine neue ERSTELLST. Beides wohnt hier, im Tab Zuhause.',
   'tut.primeros.entrar.titulo': 'Deine Apps betreten',
   'tut.primeros.entrar.texto':
-    'Jeder Raum trägt seine App, und du hast drei Türen: seine Karte hier im Menü, draußen auf der Karte das Objekt mit der schwebenden Kugel und den Schnellzugriff des MPH-Buttons oben.',
+    'Jeder Raum trägt seine App, und du hast drei Türen: seine Karte hier im Menü, draußen auf der Karte das Objekt mit der schwebenden Kugel und den Schnellzugriff des MindHaOS-Buttons oben.',
   'tut.primeros.entrar.vacio':
-    'Hier werden deine Räume wohnen, jeder mit seiner App, und du wirst drei Türen haben: seine Karte hier im Menü, draußen auf der Karte das Objekt mit der schwebenden Kugel und den Schnellzugriff des MPH-Buttons oben. Bauen wir den ersten…',
+    'Hier werden deine Räume wohnen, jeder mit seiner App, und du wirst drei Türen haben: seine Karte hier im Menü, draußen auf der Karte das Objekt mit der schwebenden Kugel und den Schnellzugriff des MindHaOS-Buttons oben. Bauen wir den ersten…',
   'tut.primeros.prev.titulo': 'Hier kommt dein Raum hin',
   'tut.primeros.prev.texto':
     'Das ist die Vorschau des Pinsels: Die grüne Silhouette mit ihren Wänden zeigt, wo der Raum entstehen wird. Beim Bauen von Hand siehst du sie genauso unter deinem Finger, bevor du loslässt.',
@@ -133,7 +133,7 @@ export const DE_TUT: Dict = {
     'Mit + Zuweisen habe ich ihm seine App gegeben: Sieh, wie der Raum ihren Namen, ihr Symbol und ihre Möbel übernommen hat. Von jetzt an ist seine ganze Karte der Button zum Betreten.',
   'tut.primeros.5.titulo': 'Betreten',
   'tut.primeros.5.texto':
-    'Wir sind drin: Das ist die App des Raums. Um später zurückzukommen: seine Karte im Menü, das Objekt mit der Kugel auf der Karte oder der Schnellzugriff des MPH-Buttons oben.',
+    'Wir sind drin: Das ist die App des Raums. Um später zurückzukommen: seine Karte im Menü, das Objekt mit der Kugel auf der Karte oder der Schnellzugriff des MindHaOS-Buttons oben.',
   'tut.primeros.press.titulo': 'Halte gedrückt',
   'tut.primeros.press.texto':
     'Schau, wie es zittert: Einen Raum oder ein Objekt gedrückt zu halten weckt es auf, mit seinem Menü. So verschiebst du es, wenn dir nicht gefällt, wo es gelandet ist, oder löschst es.',
@@ -1027,7 +1027,7 @@ export const DE_TUT: Dict = {
     'Die Zeitachse mit allen Zielen auf einmal: Jedes ist ein Balken über den Terminen. Du zoomst nach Tagen, Wochen, Monaten oder Jahren hinein und heraus, und ein Plan kann darübergelegt werden, um ihn mit dem bereits Geplanten zu vergleichen.',
   'tut.app-sala--esencial.1.titulo': 'Dein Reise-Wohnzimmer',
   'tut.app-sala--esencial.1.texto':
-    'Hier lebt deine Reisewelt: eine Weltkarte mit Pins, Reisepläne für Orte, die du noch entdecken willst, Routen, die Orte verbinden, und ein Logbuch der Erinnerungen. Vier Tabs.',
+    'Hier lebt deine Reisewelt: eine Weltkarte mit Pins, Reisepläne für Orte, die du sehen willst, Routen, die Orte verketten, ein Navigator, der dich überallhin bringt, und ein Logbuch mit Erinnerungen. Fünf Menüs.',
   'tut.app-sala--esencial.2.titulo': 'Karte',
   'tut.app-sala--esencial.2.texto':
     'Jeder Ort, den du besucht hast oder besuchen möchtest, ist ein Pin auf der Weltkarte. Der Schalter oben tauscht die Weltkarte gegen einen Globus, den du durch Ziehen drehst.',
@@ -1039,6 +1039,8 @@ export const DE_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': 'Logbuch',
   'tut.app-sala--esencial.5.texto':
     'Die Erinnerungen an deine besuchten Orte, in Alben nach Land: Fotos und Anekdoten von jedem Ort.',
+  'tut.app-sala--esencial.6.titulo': 'Wegbeschreibung',
+  'tut.app-sala--esencial.6.texto': 'Ein Navigator von Tür zu Tür: wähle Start und Ziel und kombiniere Gehen, Nahverkehr, Rad und Auto in einer einzigen Fahrt, mit Straßenkarte und Schritt-für-Schritt-Anweisungen.',
   'tut.app-agenda--trabajo.1.titulo': 'Der Posteingang',
   'tut.app-agenda--trabajo.1.texto':
     'Was ansteht, aber noch keinen Tag hat, wohnt hier, mit seiner Priorität. Nichts zwingt dich, ein Datum zu setzen, nur um es aufzuschreiben.',

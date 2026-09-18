@@ -456,7 +456,8 @@ async function verificarUsuario(userId: string): Promise<void> {
     if (!conservar) {
       await db.transaction('rw', db.tables, async () => {
         marcarPull() // vaciar SIN tombstones: no debe tocar la nube de la cuenta nueva
-        for (const tabla of TABLAS_SYNC) await db.table(tabla).clear()
+        // Una tabla con la compuerta cerrada (historialWeb) es local: no se vacía.
+        for (const tabla of TABLAS_SYNC) if (esTablaSync(tabla)) await db.table(tabla).clear()
       })
     }
     await db._outbox.clear()
@@ -509,6 +510,7 @@ async function bootstrap(): Promise<Set<string> | null> {
   // El outbox no conoce lo anterior al login: encolar TODO lo local.
   const entradas: EntradaOutbox[] = []
   for (const tabla of TABLAS_SYNC) {
+    if (!esTablaSync(tabla)) continue // compuerta cerrada: se queda en el dispositivo
     const uids = (await db.table(tabla).orderBy('uid').keys()) as string[]
     for (const uid of uids) entradas.push({ tabla, uid, op: 'upsert' })
   }

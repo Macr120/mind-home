@@ -7,9 +7,9 @@
 # de Windows) + instalador NSIS sin firma y dmg/zip notarizados en GitHub
 # Releases (no caben en Cloudflare Pages: 25 MB/archivo).
 appId: com.macr120.mindhome
-productName: Mind Planner Home
+productName: MindHaOS
 # Sin espacios en los artefactos: en GitHub Releases las URLs quedan limpias.
-artifactName: MindPlannerHome-${version}-${os}.${ext}
+artifactName: MindHaOS-${version}-${os}.${ext}
 directories:
   output: dist-escritorio
   buildResources: electron/build
@@ -22,6 +22,9 @@ files:
   - electron/fondo/fondo.ps1
   - electron/fondo/fondo-raton.ps1
   - electron/fondo/fondo-musica.ps1
+  # Los iconos que main.js cambia en caliente con el aspecto del sistema
+  # (los genera scripts/icono-escritorio.mjs; electron/build no viaja).
+  - electron/iconos/*.png
   - "!node_modules/**/*"
 # Sin asar: `net.fetch(file://…)` (con el que main.js sirve dist/) pasa por el
 # cargador de Chromium, que NO lee dentro de un .asar — empaquetado serviría
@@ -34,7 +37,7 @@ asar: false
 # `CFBundleURLTypes` del bundle; en Windows lo registra el instalador NSIS y el
 # enlace entra como un argumento más en `second-instance`.
 protocols:
-  - name: Mind Planner Home
+  - name: MindHaOS
     schemes:
       - com.macr120.mindhome
 
@@ -52,6 +55,11 @@ appx:
   # Copiada TAL CUAL de Partner Center → producto → Product identity: si no
   # coincide al carácter, la tienda rechaza el paquete. Store ID 9N893LFZHR0T
   # (https://apps.microsoft.com/detail/9N893LFZHR0T).
+  # La identidad y el nombre del editor NO cambian con el renombre a MindHaOS
+  # (17 sep 2026): son los de la cuenta de Partner Center, no los de la app. Lo
+  # que sí hay que hacer antes de subir el paquete es RESERVAR el nombre
+  # «MindHaOS» en Partner Center: el DisplayName del manifiesto (productName)
+  # tiene que coincidir con un nombre reservado o la tienda lo rechaza.
   identityName: MindPlannerHome.MindPlannerHome
   publisher: CN=7F375BA0-7942-4F15-B517-65268E256FDE
   publisherDisplayName: Mind Planner Home

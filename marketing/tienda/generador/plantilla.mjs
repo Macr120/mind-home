@@ -151,7 +151,7 @@ export function lamina(s, tam) {
 <div class="rejilla"></div>
 <div class="halo-tel"></div>
 <div class="cabecera"${s.rtl ? ' dir="rtl"' : ''}>
-  ${s.marca ? `<div class="marca">${ICONO}<span>Mind Planner Home</span></div>` : ''}
+  ${s.marca ? `<div class="marca">${ICONO}<span>MindHaOS</span></div>` : ''}
   <h1>${s.titulo}</h1>
   <p class="sub">${s.sub}</p>
 </div>

@@ -110,11 +110,11 @@ const pasoEntrar = (hayApps: boolean): PasoTutorial => ({
   texto: hayApps
     ? T(
         'tut.primeros.entrar.texto',
-        'Cada cuarto lleva su app y tienes tres puertas: su tarjeta aquí en el menú, el objeto con la esfera flotante en el mapa, y el acceso rápido del botón MPH de arriba.',
+        'Cada cuarto lleva su app y tienes tres puertas: su tarjeta aquí en el menú, el objeto con la esfera flotante en el mapa, y el acceso rápido del botón MindHaOS de arriba.',
       )
     : T(
         'tut.primeros.entrar.vacio',
-        'Aquí vivirán tus cuartos, cada uno con su app, y tendrás tres puertas: su tarjeta aquí en el menú, el objeto con la esfera flotante en el mapa, y el acceso rápido del botón MPH de arriba. Vamos a crear el primero…',
+        'Aquí vivirán tus cuartos, cada uno con su app, y tendrás tres puertas: su tarjeta aquí en el menú, el objeto con la esfera flotante en el mapa, y el acceso rápido del botón MindHaOS de arriba. Vamos a crear el primero…',
       ),
 })
 
@@ -286,7 +286,7 @@ const PASOS_APP: PasoTutorial[] = [
     titulo: T('tut.primeros.5.titulo', 'Entrar'),
     texto: T(
       'tut.primeros.5.texto',
-      'Entramos: esta es la app del cuarto. Para volver luego: su tarjeta en el menú, el objeto con la esfera en el mapa, o el acceso rápido del botón MPH de arriba.',
+      'Entramos: esta es la app del cuarto. Para volver luego: su tarjeta en el menú, el objeto con la esfera en el mapa, o el acceso rápido del botón MindHaOS de arriba.',
     ),
   },
   {
@@ -317,7 +317,7 @@ const PASOS_APP: PasoTutorial[] = [
 
 /**
  * Cuerpo del paso 1 de la guía de bienvenida. Contesta las dos preguntas de
- * arranque: cómo ENTRAR a tus apps (tarjeta, esfera, botón MPH) y cómo CREAR
+ * arranque: cómo ENTRAR a tus apps (tarjeta, esfera, botón MindHaOS) y cómo CREAR
  * una nueva — con el preview del pincel, el panel de apps disponibles, la
  * pulsación larga demostrada y un cuarto de PRÁCTICA que se borra al salir.
  * El paseo por la casa es el paso 2 (`tutorialCasa`).

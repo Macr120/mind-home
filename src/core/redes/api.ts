@@ -80,7 +80,7 @@ async function respuesta<T>(resp: Response): Promise<T> {
   const json: unknown = await resp.json().catch(() => null)
   if (!resp.ok) {
     const e = (json ?? {}) as { error?: CodigoErrorRedes; mensaje?: string; recibido?: number }
-    throw new ErrorRedes(e.error ?? 'proveedor', e.mensaje ?? 'El servidor de Mind Planner Home no respondió.', {
+    throw new ErrorRedes(e.error ?? 'proveedor', e.mensaje ?? 'El servidor de MindHaOS no respondió.', {
       recibido: e.recibido,
     })
   }

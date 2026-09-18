@@ -97,11 +97,14 @@ export function panel(
     rot?: [number, number, number]
     /** Material propio (la trasera y los fondos de cajón no son del cuerpo). */
     material?: MaterialTableroId
+    /** Disco de diámetro `dx`: ver `ParteMueble.disco`. */
+    disco?: boolean
   },
 ): ParteMueble {
   const material = o.material ?? m.tablero.materialId
   const conVeta = getTablero(material).conVeta
   return {
+    disco: o.disco,
     id: o.id,
     rol: o.rol,
     clave: o.clave,
@@ -116,7 +119,8 @@ export function panel(
     eje: o.eje,
     materialTablero: material,
     cantos: cantosDe(m, o.cantos ?? {}),
-    veta: conVeta ? (o.veta ?? 'ancho') : 'libre',
+    // Un disco no tiene lado largo al que alinear la veta.
+    veta: conVeta && !o.disco ? (o.veta ?? 'ancho') : 'libre',
     color: o.color ?? m.tablero.color,
     herrajes: o.herrajes,
     nota: o.nota,
@@ -288,6 +292,47 @@ export function carcasa(
   return partes
 }
 
+/**
+ * Esquinas (x, z de la cara inferior-izquierda-trasera) de cuatro postes de
+ * lado `s` sobre el cuadrado inscrito en el círculo de diámetro `d`, metidos
+ * `inset` del borde. Orden: atrás-izq, atrás-der, frente-izq, frente-der, que
+ * es el que esperan los travesaños (pares 0-1 / 2-3 a lo ancho, 0-2 / 1-3 a lo
+ * hondo). Con planta circular, TODO lo que se apoya en cuatro puntos —patas,
+ * postes— pasa por aquí.
+ */
+export function esquinasInscritas(d: Mm, s: Mm, inset: Mm): [Mm, Mm][] {
+  const r = d / 2 - inset - s / 2
+  const h = Math.round(Math.max(s, r) / Math.SQRT2)
+  const c = Math.round(d / 2 - s / 2)
+  return [
+    [c - h, c - h],
+    [c + h, c - h],
+    [c - h, c + h],
+    [c + h, c + h],
+  ]
+}
+
+/**
+ * Cruz central de tablero: un panel corrido a lo ancho y dos medios a lo
+ * hondo, que es como se arma de verdad (sin ensamble a media madera). Es el
+ * esqueleto de todo lo circular hecho de tablero: sostiene los discos del
+ * módulo de madera y hace de pata de mesa o de banco.
+ */
+export function cruzCentral(
+  m: Mueble,
+  o: { diametro: Mm; y: Mm; alto: Mm; inset: Mm; clave: string; nombreEs: string },
+): ParteMueble[] {
+  const t = m.tablero.grosor
+  const lado = o.diametro - 2 * o.inset
+  const medio = Math.round((lado - t) / 2)
+  const comun = { rol: 'division' as const, clave: o.clave, nombreEs: o.nombreEs, y: o.y, dy: o.alto, veta: 'alto' as const }
+  return [
+    panel(m, { ...comun, id: 'cruz.1', x: o.inset, z: o.diametro / 2 - t / 2, dx: lado, dz: t, eje: 'z', cantos: { izq: true, der: true } }),
+    panel(m, { ...comun, id: 'cruz.2', x: o.diametro / 2 - t / 2, z: o.inset, dx: t, dz: medio, eje: 'x', cantos: { izq: true } }),
+    panel(m, { ...comun, id: 'cruz.3', x: o.diametro / 2 - t / 2, z: o.inset + medio + t, dx: t, dz: medio, eje: 'x', cantos: { der: true } }),
+  ]
+}
+
 /** Zócalo (4 tableros de canto) o patas. Devuelve [] si no hay base. */
 export function base(m: Mueble, ancho: Mm, fondo: Mm): ParteMueble[] {
   if (m.base.tipo === 'ninguna' || m.base.altura <= 0) return []
@@ -296,14 +341,16 @@ export function base(m: Mueble, ancho: Mm, fondo: Mm): ParteMueble[] {
     const d = m.base.patas.diametro
     const margen = 20
     const partes: ParteMueble[] = []
-    for (const [i, [px, pz]] of (
-      [
-        [margen, margen],
-        [ancho - margen - d, margen],
-        [margen, fondo - margen - d],
-        [ancho - margen - d, fondo - margen - d],
-      ] as [Mm, Mm][]
-    ).entries()) {
+    const esquinas: [Mm, Mm][] =
+      m.forma === 'circular'
+        ? esquinasInscritas(ancho, d, margen)
+        : [
+            [margen, margen],
+            [ancho - margen - d, margen],
+            [margen, fondo - margen - d],
+            [ancho - margen - d, fondo - margen - d],
+          ]
+    for (const [i, [px, pz]] of esquinas.entries()) {
       partes.push({
         id: `pata.${i + 1}`,
         rol: 'pata-metal',

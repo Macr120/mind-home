@@ -303,7 +303,7 @@ function Wizard() {
       <header className="flex items-start gap-2">
         <div className="min-w-0 flex-1">
           <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
-            {t('bienvenida.titulo', 'Te damos la bienvenida a Mind Planner Home')} ·{' '}
+            {t('bienvenida.titulo', 'Te damos la bienvenida a MindHaOS')} ·{' '}
             {t('bienvenida.paso', 'Paso {n} de {m}', { n: paso + 1, m: TOTAL_PASOS })}
           </p>
           <h2 className="text-lg font-black text-white/90">{titulos[paso]}</h2>

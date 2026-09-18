@@ -51,6 +51,11 @@ function Prim({ p }: { p: Primitiva }) {
       />
     )
   }
+  if (p.t === 'circulo') {
+    return (
+      <circle cx={p.cx} cy={p.cy} r={p.r} fill="none" stroke={p.borde} strokeWidth={p.grosor} strokeDasharray={p.guion} />
+    )
+  }
   return (
     <text
       x={p.x}
@@ -246,7 +251,7 @@ export function DiagramaCortes({
               </span>
               <span className="min-w-0 flex-1 truncate text-white/65">{t(p.clave, p.nombreEs)}</span>
               <span className="shrink-0 tabular-nums text-white/35">
-                {p.cantidad}× {p.ancho}×{p.alto}
+                {p.cantidad}× {p.forma === 'circular' ? `Ø ${p.ancho}` : `${p.ancho}×${p.alto}`}
               </span>
             </div>
           ))}

@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.macr120.mindhome',
-  appName: 'Mind Planner Home',
+  appName: 'MindHaOS',
   webDir: 'dist',
   ios: {
     // Fondo del WebView mientras la web arranca (el mismo --ui-bg del tema

@@ -1,21 +1,25 @@
 /**
- * Iconos de la app, sacados del SVG de la marca: `public/icon.svg` (con fondo)
- * y `public/favicon.svg` (las piezas solas, con su relieve). Se corre a mano
+ * Iconos de la app, sacados del SVG de la marca: `public/icon.svg` (las piezas
+ * sobre blanco), `public/icon-oscuro.svg` (las mismas sobre negro) y
+ * `public/favicon.svg` (las piezas solas, con su relieve). Se corre a mano
  * cuando cambie el logo y lo generado se sube al repo. iOS y el escritorio
  * tienen su propio guion (`ios:iconos`, `escritorio:icono`).
  *
  *   npm run app:iconos
  *
  * - `public/icon-192.png` e `icon-512.png`: el manifest de la PWA, a sangre.
+ *   Solo la versión clara: el manifest no distingue aspecto.
  * - `web/public/apple-touch-icon.png`: la web en la pantalla de inicio de iOS.
  * - Android (`mipmap-*`): `ic_launcher_foreground.png` es la capa de arriba del
  *   icono adaptativo (Android 8+): las piezas SIN fondo dentro de la zona
  *   segura (66 de 108 dp), así ninguna máscara del launcher les corta un lado;
- *   el fondo lo pone `@color/ic_launcher_background`. `ic_launcher.png`
+ *   el fondo lo pone `@color/ic_launcher_background` (blanco). `ic_launcher.png`
  *   (cuadrado redondeado) e `ic_launcher_round.png` (círculo) son los de
- *   Android < 8, que no enmascara nada.
+ *   Android < 8, que no enmascara nada. Android no tiene icono «oscuro»: lo
+ *   más cerca es la capa monochrome (icono temático, Android 13+), que ya está.
  * - `marketing/icono/`: los iconos de las fichas (Play 512, App Store 1024 sin
- *   alfa), el catálogo de Xcode de 25 tamaños y una copia de los de Android.
+ *   alfa, más `appstore-oscuro.png` y `appstore-tintado.png`, las variantes
+ *   de iOS 18), el catálogo de Xcode de 25 tamaños y una copia de los de Android.
  */
 import { mkdir, readFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
@@ -25,12 +29,13 @@ import sharp from 'sharp'
 const raiz = join(dirname(fileURLToPath(import.meta.url)), '..')
 const en = (...p) => join(raiz, ...p)
 
-/** Verde del borde del fondo de icon.svg (es un degradado radial), para aplanar. */
-const VERDE = '#4e600d'
+/** Blanco del fondo de icon.svg (degradado radial casi plano), para aplanar. */
+const BLANCO = '#ffffff'
 
 // Una sola rasterización grande de cada SVG; el resto sale reduciéndola.
 // icon.svg declara 512 px: density 144 (2 × 72) lo deja en 1024 nativos.
 const icono = await sharp(en('public/icon.svg'), { density: 144 }).resize(1024, 1024).png().toBuffer()
+const iconoOscuro = await sharp(en('public/icon-oscuro.svg'), { density: 144 }).resize(1024, 1024).png().toBuffer()
 // favicon.svg declara 389 × 138: las piezas (357 × 100) más margen para la sombra.
 const PIEZAS = { ancho: 389, arte: 357 }
 const piezas = await sharp(en('public/favicon.svg'), { density: 72 * 4 }).png().toBuffer()
@@ -41,7 +46,7 @@ const cuadrado = (lado) => sharp(icono).resize(lado, lado)
 async function guardar(destino, lado, { alfa = true } = {}) {
   await mkdir(dirname(destino), { recursive: true })
   const img = cuadrado(lado)
-  await (alfa ? img : img.flatten({ background: VERDE }).removeAlpha()).png().toFile(destino)
+  await (alfa ? img : img.flatten({ background: BLANCO }).removeAlpha()).png().toFile(destino)
 }
 
 /** Recorte con una máscara SVG (`dest-in` deja solo lo que pisa la máscara). */
@@ -95,6 +100,17 @@ await primerPlano(en('marketing/icono/android/adaptive-foreground.png'), 1024)
 await guardar(en('marketing/icono/playstore.png'), 512)
 await guardar(en('marketing/icono/appstore.png'), 1024, { alfa: false })
 await guardar(en('marketing/icono/AppIcon.icon/Assets/icon.png'), 1024, { alfa: false })
+// Variantes de iOS 18 (las mismas que `ios:iconos` mete en el catálogo): la
+// oscura es el icono sobre negro, opaco; la tintada son las piezas en gris y
+// SIN fondo, que iOS colorea con el tinte del usuario sobre su propio degradado.
+await sharp(iconoOscuro).flatten({ background: '#000' }).removeAlpha().png().toFile(en('marketing/icono/appstore-oscuro.png'))
+await sharp(await piezasSinFondo()).grayscale().png().toFile(en('marketing/icono/appstore-tintado.png'))
+
+/** icon.svg sin su rectángulo de fondo, a 1024: las piezas en su sitio exacto, sobre transparente. */
+async function piezasSinFondo() {
+  const svg = (await readFile(en('public/icon.svg'), 'utf8')).replace(/<rect width="512" height="512" fill="url\(#fondo\)"\/>/, '')
+  return sharp(Buffer.from(svg), { density: 144 }).resize(1024, 1024).png().toBuffer()
+}
 
 // Catálogo de Xcode: un PNG por tamaño real (`expected-size`), sin alfa.
 const catalogo = en('marketing/icono/Assets.xcassets/AppIcon.appiconset')

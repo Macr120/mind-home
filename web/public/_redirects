@@ -1,7 +1,7 @@
 # Vuelta del OAuth de redes, en NUESTRO dominio. Google exige poder verificar todos
 # los dominios autorizados del cliente OAuth, y `<ref>.supabase.co` es de Supabase:
 # mientras la redirect URI viviera allí, la pantalla de consentimiento enseñaba ese
-# host en vez de «Mind Planner Home» y la marca no se podía verificar. Aquí solo se
+# host en vez de «MindHaOS» y la marca no se podía verificar. Aquí solo se
 # reenvía: el canje del código lo sigue haciendo la Edge Function, que es donde vive
 # el client secret. El 302 conserva `?code=…&state=…`.
 /oauth/redes https://bzwiexwvpimlellfprip.supabase.co/functions/v1/redes-oauth/callback 302
@@ -15,34 +15,34 @@
 # (/privacidad, /terminos, /soporte, /cuenta, /mascara y sus copias por idioma)
 # siguen saliendo de este proyecto: las tiendas y la app enlazan a ellas.
 # Solo redirigen la raíz y las raíces por idioma, en 302 por si hay vuelta atrás.
-/ https://app.mindplannerhome.com/ 302
-/en https://app.mindplannerhome.com/ 302
-/en/ https://app.mindplannerhome.com/ 302
-/pt https://app.mindplannerhome.com/ 302
-/pt/ https://app.mindplannerhome.com/ 302
-/fr https://app.mindplannerhome.com/ 302
-/fr/ https://app.mindplannerhome.com/ 302
-/de https://app.mindplannerhome.com/ 302
-/de/ https://app.mindplannerhome.com/ 302
-/it https://app.mindplannerhome.com/ 302
-/it/ https://app.mindplannerhome.com/ 302
-/ja https://app.mindplannerhome.com/ 302
-/ja/ https://app.mindplannerhome.com/ 302
-/zh https://app.mindplannerhome.com/ 302
-/zh/ https://app.mindplannerhome.com/ 302
-/ko https://app.mindplannerhome.com/ 302
-/ko/ https://app.mindplannerhome.com/ 302
-/ru https://app.mindplannerhome.com/ 302
-/ru/ https://app.mindplannerhome.com/ 302
-/hi https://app.mindplannerhome.com/ 302
-/hi/ https://app.mindplannerhome.com/ 302
-/tr https://app.mindplannerhome.com/ 302
-/tr/ https://app.mindplannerhome.com/ 302
-/id https://app.mindplannerhome.com/ 302
-/id/ https://app.mindplannerhome.com/ 302
-/pl https://app.mindplannerhome.com/ 302
-/pl/ https://app.mindplannerhome.com/ 302
-/nl https://app.mindplannerhome.com/ 302
-/nl/ https://app.mindplannerhome.com/ 302
-/ar https://app.mindplannerhome.com/ 302
-/ar/ https://app.mindplannerhome.com/ 302
+/ https://app.mindhaos.com/ 302
+/en https://app.mindhaos.com/ 302
+/en/ https://app.mindhaos.com/ 302
+/pt https://app.mindhaos.com/ 302
+/pt/ https://app.mindhaos.com/ 302
+/fr https://app.mindhaos.com/ 302
+/fr/ https://app.mindhaos.com/ 302
+/de https://app.mindhaos.com/ 302
+/de/ https://app.mindhaos.com/ 302
+/it https://app.mindhaos.com/ 302
+/it/ https://app.mindhaos.com/ 302
+/ja https://app.mindhaos.com/ 302
+/ja/ https://app.mindhaos.com/ 302
+/zh https://app.mindhaos.com/ 302
+/zh/ https://app.mindhaos.com/ 302
+/ko https://app.mindhaos.com/ 302
+/ko/ https://app.mindhaos.com/ 302
+/ru https://app.mindhaos.com/ 302
+/ru/ https://app.mindhaos.com/ 302
+/hi https://app.mindhaos.com/ 302
+/hi/ https://app.mindhaos.com/ 302
+/tr https://app.mindhaos.com/ 302
+/tr/ https://app.mindhaos.com/ 302
+/id https://app.mindhaos.com/ 302
+/id/ https://app.mindhaos.com/ 302
+/pl https://app.mindhaos.com/ 302
+/pl/ https://app.mindhaos.com/ 302
+/nl https://app.mindhaos.com/ 302
+/nl/ https://app.mindhaos.com/ 302
+/ar https://app.mindhaos.com/ 302
+/ar/ https://app.mindhaos.com/ 302

@@ -425,7 +425,7 @@ export function EditorMusicaSection({
               <p className="text-[11px] leading-snug text-white/45">
                 {t(
                   'ajustes.musica.sistema.permisoDesc',
-                  'Se abrirán los ajustes de Android: activa Mind Planner Home en «Acceso a notificaciones» y aquí aparecerá el artista y la canción que estés escuchando. No leemos ninguna notificación: Android exige ese permiso para dejar ver la reproducción.',
+                  'Se abrirán los ajustes de Android: activa MindHaOS en «Acceso a notificaciones» y aquí aparecerá el artista y la canción que estés escuchando. No leemos ninguna notificación: Android exige ese permiso para dejar ver la reproducción.',
                 )}
               </p>
             </>

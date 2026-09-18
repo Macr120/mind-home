@@ -3,9 +3,9 @@
 <!-- GENERADO por `npm run ficha:tienda` desde web/i18n/paginas/en.mjs.
      No editar a mano: el cambio se hace en la landing y se regenera. -->
 
-## Nombre (17/30)
+## Nombre (8/30)
 
-Mind Planner Home
+MindHaOS
 
 ## Subtítulo (24/30)
 
@@ -19,7 +19,7 @@ Your life, in a 3D house: habits, goals, finances, meals and more.
 
 habits,goals,planner,journal,budget,nutrition,workout,sleep,study,ai,assistant,organizer
 
-## Descripción (3254/4000)
+## Descripción (3342/4000)
 
 Organise your habits, goals, finances, meals and more in an isometric 3D house where every room is an app.
 
@@ -38,7 +38,7 @@ ONE HOUSE, MANY APPS
 • All in one, for real: One app instead of twenty: food, money, sleep, study, habits and goals under the same roof — and talking to each other, which is exactly what no separate app can do.
 • It doesn’t expire when you stop paying: You buy it once and it’s yours. Subscription apps switch off the moment you stop paying; here, if you drop the AI, you keep the whole house and all your data on your device.
 • Rooms that are apps: Exercise, kitchen, finances, sleep, library, languages, travel, hobbies, mindfulness and more: every room holds a complete mini-app.
-• A Studio for creating: Four apps of their own: Audio, Art, Writing and Video. You compose with a piano roll and a MIDI keyboard, paint and retouch photos, write books chapter by chapter and cut videos from a script — and export whatever you make.
+• A Studio for creating: Four apps of their own: Audio, Art, Writing and Video. You compose with a piano roll and a MIDI keyboard, paint and retouch photos, write books chapter by chapter and cut videos from a script — and export whatever you make, or publish a video straight to your own YouTube, TikTok, Facebook or Instagram account.
 • AI assistant: Chat with your assistant: log meals, create routines, plan goals, generate images and 3D models. Your first month comes with 700 credits included; after that, AI is optional.
 • Sync across everything: Your house follows you to your phone, your tablet and your computer. All encrypted in transit and backed up in the cloud.
 • It feels like a game: Your character lives off your real activity: streaks, badges, the Mountain of Sisyphus, vehicles, races and mini-games.

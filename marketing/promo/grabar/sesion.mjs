@@ -49,7 +49,7 @@ export async function arrancarChrome() {
     '--window-position=0,0',
     '--autoplay-policy=no-user-gesture-required',
     // getDisplayMedia elige esta pestaña sin abrir el selector (coincide con el <title> de la app).
-    '--auto-select-tab-capture-source-by-title=Mind Planner Home',
+    '--auto-select-tab-capture-source-by-title=MindHaOS',
     '--disable-background-timer-throttling',
     '--disable-renderer-backgrounding',
     '--disable-backgrounding-occluded-windows',

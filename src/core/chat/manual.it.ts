@@ -126,6 +126,11 @@ export const MANUAL_IT: ManualTraducido = {
     '[Cómo funciona] el {editor}': '[Come funziona] l\'{editor}',
     '[Cómo funciona] la {rueda de herramientas}': '[Come funziona] la {ruota degli strumenti}',
     '[Cómo funciona] el {chat}': '[Come funziona] la {chat}',
+    '[Abre] {ejemplo.com}': '[Apri] {esempio.com}',
+    '[Busca en internet] {recetas de pan}': '[Cerca su internet] {ricette del pane}',
+    '[Historial]': '[Cronologia]',
+    '[Sitios]': '[Siti]',
+    '[Tiempo en internet]': '[Tempo su internet]',
   },
   atajos: {
     'Caminar (también con las flechas)': 'Camminare (anche con le frecce)',

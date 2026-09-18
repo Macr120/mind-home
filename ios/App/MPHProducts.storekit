@@ -16,7 +16,7 @@
         }
       ],
       "productID" : "com.macr120.mindhome.unlock_casa_v4",
-      "referenceName" : "Mind Planner Home - House (one-time purchase)",
+      "referenceName" : "MindHaOS - House (one-time purchase)",
       "type" : "NonConsumable"
     },
     {
@@ -31,7 +31,7 @@
         }
       ],
       "productID" : "com.macr120.mindhome.creditos_x1",
-      "referenceName" : "Mind Planner Home - 700 AI credits top-up",
+      "referenceName" : "MindHaOS - 700 AI credits top-up",
       "type" : "Consumable"
     }
   ],
@@ -46,7 +46,7 @@
       "localizations" : [
 
       ],
-      "name" : "Mind Planner Home Pro",
+      "name" : "MindHaOS Pro",
       "subscriptions" : [
         {
           "adHocOffers" : [

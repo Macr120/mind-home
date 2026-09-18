@@ -5,6 +5,8 @@ import { VACIO, itinerariosGuardadosRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { BotonCompartir } from './BotonCompartir'
 import { tablaItinerario } from './itinerarioTexto'
+import { BotonEnviarAContacto } from '../_shared/BotonEnviarAContacto'
+import { empaquetarItinerario } from './compartible'
 
 /** Tarjeta de solo lectura: la copia congelada de un itinerario guardado a mano. */
 function TarjetaGuardado({ it }: { it: ItinerarioGuardado }) {
@@ -74,6 +76,7 @@ function TarjetaGuardado({ it }: { it: ItinerarioGuardado }) {
 
       <div className="flex flex-wrap items-center gap-2">
         <BotonCompartir titulo={`✈️ ${it.nombre}`} texto={tabla} />
+        <BotonEnviarAContacto pequeno empaquetar={() => empaquetarItinerario(it)} />
         {confirmarBorrar ? (
           <span className="flex items-center gap-1.5 text-xs">
             <span className="text-white/50">{t('sala.ig.confirmarBorrar', '¿Borrar este itinerario guardado?')}</span>

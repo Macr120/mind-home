@@ -571,6 +571,48 @@ públicas). La app nativa necesita el host `redes` en el `intent-filter` de
 YouTube y 10/día en el resto; trozos 200/10 min; contador global
 `youtube-global` con uid sentinela `00000000-…` que NO falla abierto.
 
+### 7. Buzón: mensajería entre usuarios (16-sep-2026)
+
+Migraciones `20260916000001_buzon.sql` y `20260916000002_buzon_orden_seq.sql`
+(APLICADAS). Sin Edge Function: todo son RPCs `security definer` con
+`auth.uid()` (patrón `sync_push`), y las tablas `buzon_contactos`,
+`buzon_hilos` y `buzon_mensajes` tienen RLS activada y SIN políticas. Ningún
+uuid ajeno sale al cliente: los contactos van por `contacto_id`/`hilo_id` y
+los mensajes traen `mio`.
+
+- **Identidad pública**: `perfiles.alias` (único, `^[a-z0-9_]{3,20}$`),
+  `nombre`, `emoji`. Búsqueda solo por alias EXACTO (`buzon_buscar_alias`):
+  no hay forma de listar usuarios.
+- **Contactos**: `buzon_solicitar(alias)` → `buzon_responder(contacto,
+  aceptar)` crea el hilo. Solo contactos aceptados se escriben; bloquear
+  cierra el envío (solo desbloquea quien bloqueó); eliminar borra hilo y
+  mensajes para los dos (cascade).
+- **Mensajes**: `buzon_enviar(hilo, uid, tipo, texto, adjunto, contenido)`,
+  idempotente por `(hilo, uid)`; `buzon_pull(desde)` pagina por `server_seq`
+  (cursor por usuario en `_syncMeta` del cliente); `buzon_leido` marca y
+  AVANZA `server_seq` para que el leído viaje a los demás dispositivos y al
+  remitente. Ambas toman un advisory lock por cada miembro del hilo (misma
+  carrera de huecos que el sync).
+- **Avisos**: trigger `after insert` → `buzon_avisar(uid, evento, payload)`
+  = la costura ÚNICA del push. Hoy `realtime.send` al canal privado
+  `buzon:<uid>` (policy de `realtime.messages`); la fase 2 añade ahí
+  `net.http_post` a una function `push-enviar` y una tabla
+  `buzon_dispositivos` (tokens FCM/APNs/Web Push).
+- **Adjuntos**: bucket privado `buzon-adjuntos` (8 MB, jpeg/png/webp/pdf),
+  ruta `<hilo>/<mensaje_uid>/<archivo>`; policies select/insert/delete por
+  `buzon_es_miembro((foldername)[1])`. Sin `tiene_pro`: el buzón es para
+  cualquier cuenta con sesión. El cliente borra la carpeta ANTES de
+  `buzon_eliminar` (después ya no es miembro).
+- **Límites** (`rate_limits`): alias 10/h, buscar 20/min, solicitar 10/h,
+  enviar 30/min. Texto ≤ 4000, `contenido` ≤ 64 KB.
+- **Cliente**: `src/core/buzon/` (motor calcado del sync: canal privado + pull
+  por cursor a la caché `_buzonContactos`/`_buzonMensajes`, fuera del sync y
+  del respaldo). Contenido de los cuartos: registro `compartibles.ts` (cada
+  `rooms/<id>/index.tsx` se apunta; hoy cocina, ejercicio, ideas, arte,
+  escritura, sala y cómputo).
+- **Deuda**: adjuntos huérfanos de cuentas borradas (`borrar-cuenta` no toca
+  el bucket) → purga por `pg_cron` en fase 2.
+
 ## Comandos útiles
 
 ```bash

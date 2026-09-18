@@ -2,3 +2,4 @@
 "NSCameraUsageDescription" = "AR चैट में अपने आस-पास देखने और अपने ऐप्स के लिए फ़ोटो लेने के लिए।";
 "NSMicrophoneUsageDescription" = "टाइप करने के बजाय अपने घर को बोलकर लिखवाने के लिए।";
 "NSPhotoLibraryUsageDescription" = "अपनी यादों, कमरों और चैट के लिए फ़ोटो चुनने के लिए।";
+"NSLocationWhenInUseUsageDescription" = "मानचित्र पर आपकी स्थिति दिखाने, मार्ग पर मार्गदर्शन करने और बाहरी व्यायाम दर्ज करने के लिए।";

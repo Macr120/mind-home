@@ -116,6 +116,11 @@ export const MANUAL_HI: ManualTraducido = {
     '[Recuerda que] {soy vegetariano}': '[याद रखें कि] {मैं शाकाहारी हूँ}',
     '[@]{cocina} {ensalada de la comida}': '[@]{cocina} {दोपहर के खाने में सलाद}',
     '[Cómo funciona] la {rueda de herramientas}': '{टूल व्हील} [कैसे काम करता है]',
+    '[Abre] {ejemplo.com}': '[खोलें] {example.com}',
+    '[Busca en internet] {recetas de pan}': '[इंटरनेट पर ढूँढें] {ब्रेड की रेसिपी}',
+    '[Historial]': '[इतिहास]',
+    '[Sitios]': '[साइटें]',
+    '[Tiempo en internet]': '[ऑनलाइन समय]',
   },
   atajos: {
     'Caminar (también con las flechas)': 'चलना (तीर बटनों से भी)',

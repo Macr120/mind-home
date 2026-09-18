@@ -1,7 +1,7 @@
 import type { CanalPago } from '../../plataforma'
 
 /**
- * Las láminas del recorrido «¿Qué es Mind Planner Home?»: el contenido de la
+ * Las láminas del recorrido «¿Qué es MindHaOS?»: el contenido de la
  * web pública contado en OCHO pantallas, en el mismo orden que la página
  * (`web/index.html`) y con sus mismos textos, que llegan del catálogo ya
  * traducido a los 16 idiomas (`web/i18n/paginas/<id>.mjs`).

@@ -115,6 +115,11 @@ export const MANUAL_AR: ManualTraducido = {
     '[Recuerda que] {soy vegetariano}': '[تذكّر أنّي] {نباتي}',
     '[@]{cocina} {ensalada de la comida}': '[@]{cocina} {سلطة للغداء}',
     '[Cómo funciona] la {rueda de herramientas}': '[كيف تعمل] {عجلة الأدوات}',
+    '[Abre] {ejemplo.com}': '[افتح] {example.com}',
+    '[Busca en internet] {recetas de pan}': '[ابحث في الإنترنت عن] {وصفات الخبز}',
+    '[Historial]': '[السجل]',
+    '[Sitios]': '[المواقع]',
+    '[Tiempo en internet]': '[وقت الإنترنت]',
   },
   atajos: {
     'Caminar (también con las flechas)': 'المشي (وبمفاتيح الأسهم أيضًا)',

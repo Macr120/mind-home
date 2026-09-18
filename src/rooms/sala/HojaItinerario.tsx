@@ -11,6 +11,8 @@ import {
 import { useT } from '../../core/i18n/useT'
 import { BotonCompartir } from './BotonCompartir'
 import { tablaItinerario } from './itinerarioTexto'
+import { BotonEnviarAContacto } from '../_shared/BotonEnviarAContacto'
+import { empaquetarItinerario } from './compartible'
 
 /**
  * Crea/actualiza/borra la meta de ahorro del despacho ligada a un lugar
@@ -211,6 +213,10 @@ export function HojaItinerario({ lugar }: { lugar: LugarViaje }) {
         {filas.length > 0 && (
           <>
             <BotonCompartir titulo={`✈️ ${lugar.nombre}`} texto={tabla} />
+            <BotonEnviarAContacto
+              pequeno
+              empaquetar={() => empaquetarItinerario({ nombre: lugar.nombre, contexto: contexto || undefined, filas })}
+            />
             <button
               onClick={() => void guardarComoItinerario()}
               className="rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white/80 transition hover:bg-white/15"

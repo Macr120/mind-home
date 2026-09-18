@@ -4,6 +4,7 @@ import { calculosComputoRepo, formulasRepo, hojasRepo, objetivoDiarioDe } from '
 import { esSeedIntacta } from '../../core/data/sync/syncables'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { registrarProveedorMaterial } from '../../core/materialApps'
+import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
 import { COLOR_FABRICA, COLS_INICIO, FILAS_INICIO } from './constantes'
 import { OPERACIONES_IA } from './costosIA'
 import { esencialComputo, flujosComputo } from './tutorial.meta'
@@ -42,6 +43,21 @@ registrarProveedorMaterial({
 // el núcleo sin abrir el cuarto — y por eso NADIE de aquí puede importar
 // `motor.ts`, que arrastraría mathjs y KaTeX al bundle inicial.
 const ComputoApp = lazy(() => import('./ComputoApp').then((m) => ({ default: m.ComputoApp })))
+
+// Las hojas de cálculo se pueden mandar a otra persona por el buzón (registro eager, datos con import()).
+registrarProveedorCompartible({
+  app: 'computo',
+  tipos: [
+    {
+      tipo: 'hoja',
+      icono: 'hoja',
+      etiqueta: (t) => t('buzon.compartible.hoja', 'Hoja de cálculo'),
+      listar: async () => (await import('./compartible')).listarHojas(),
+      empaquetar: async (clave) => (await import('./compartible')).empaquetarHojaPorClave(clave),
+      importar: async (p) => (await import('./compartible')).importarHoja(p),
+    },
+  ],
+})
 
 const computo: Plantilla = {
   id: 'computo',

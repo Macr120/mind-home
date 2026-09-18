@@ -9,7 +9,7 @@ import { LOGOS_LOCAL, LOGOS_NUBE, LOGO_OLLAMA, type Logo } from './logos'
 import { Piezas } from './piezas'
 
 /**
- * «¿Qué es Mind Planner Home?»: el recorrido que se abre desde la puerta, antes
+ * «¿Qué es MindHaOS?»: el recorrido que se abre desde la puerta, antes
  * de tener cuenta. Es la web pública contada en ocho historias —mismo orden y
  * mismos textos, que llegan del catálogo traducido de `web/i18n/paginas/`— para
  * que quien acaba de instalar sepa qué está a punto de comprar.
@@ -144,7 +144,7 @@ export default function QueEsOverlay({ alCerrar }: { alCerrar: () => void }) {
       className="ui-app ui-arranque fixed inset-0 z-[90] flex flex-col"
       role="dialog"
       aria-modal="true"
-      aria-label={t('queEs.titulo', '¿Qué es {n}?', { n: t('marca.nombre', 'Planificador Mental-Casa') })}
+      aria-label={t('queEs.titulo', '¿Qué es {n}?', { n: t('marca.nombre', 'MindHaOS') })}
     >
       {/* Barras de avance (una por lámina). */}
       <div className="flex gap-1 px-3 pt-3">
@@ -180,7 +180,7 @@ export default function QueEsOverlay({ alCerrar }: { alCerrar: () => void }) {
         </button>
         <Piezas className="h-3 w-11" />
         <span className="min-w-0 flex-1 truncate text-[11px] font-semibold uppercase tracking-wider text-white/35">
-          {t('marca.nombre', 'Planificador Mental-Casa')}
+          {t('marca.nombre', 'MindHaOS')}
         </span>
       </div>
 

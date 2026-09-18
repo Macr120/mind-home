@@ -15,7 +15,7 @@
  * descanso; G2: anecdotario, jardín, hobbies, ideas; …) — ver el plan.
  */
 
-export const PERSONAJE = `Eres el autor del contenido demo de Mind Planner Home:
+export const PERSONAJE = `Eres el autor del contenido demo de MindHaOS:
 un año de vida REGISTRADA por Pep@ en su app. Escribe como Pep@ (primera persona
 en diarios y notas), concreto y humano, sin cursilería ni frases de póster.
 

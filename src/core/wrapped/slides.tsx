@@ -72,10 +72,10 @@ function SlidePortada({ resumen }: PropsSlide) {
   const p = resumen.periodo
   const titulo =
     p.tipo === 'semana'
-      ? t('wrapped.portada.semana', 'Tu semana en Mind Planner Home')
+      ? t('wrapped.portada.semana', 'Tu semana en MindHaOS')
       : p.tipo === 'mes'
-        ? t('wrapped.portada.mes', 'Tu mes en Mind Planner Home')
-        : t('wrapped.portada.anio', 'Tu año en Mind Planner Home')
+        ? t('wrapped.portada.mes', 'Tu mes en MindHaOS')
+        : t('wrapped.portada.anio', 'Tu año en MindHaOS')
   return (
     <Marco>
       {/* Tu personaje presenta su propio resumen (mismo avatar 3D del menú). */}

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Mind Planner Home</string>
-    <string name="title_activity_main">Mind Planner Home</string>
+    <string name="app_name">MindHaOS</string>
+    <string name="title_activity_main">MindHaOS</string>
     <string name="package_name">com.macr120.mindhome</string>
     <string name="custom_url_scheme">com.macr120.mindhome</string>
     <!-- Widgets: lo único que Android localiza por su cuenta (el resto de textos
@@ -13,7 +13,7 @@
     <string name="widget_casa_desc">Your house and today\'s date.</string>
     <string name="widget_chat_label">Chat</string>
     <string name="widget_chat_desc">Talk to your house: chat, camera and dictation.</string>
-    <string name="widget_vacio">Open Mind Planner Home to fill this widget.</string>
+    <string name="widget_vacio">Open MindHaOS to fill this widget.</string>
     <string name="widget_palomear">Mark as done</string>
     <string name="widget_chat_abrir">Chat</string>
     <string name="widget_chat_camara">Send a photo</string>

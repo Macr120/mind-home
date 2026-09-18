@@ -115,6 +115,11 @@ export const MANUAL_KO: ManualTraducido = {
     '[Recuerda que] {soy vegetariano}': '{저는 채식해요}라고 [기억해 주세요]',
     '[Cómo funciona] la {rueda de herramientas}': '{도구 휠}은 [어떻게 쓰나요]',
     '[@]{cocina} {ensalada de la comida}': '[@]{cocina} {점심 샐러드}',
+    '[Abre] {ejemplo.com}': '{ejemplo.com} [열어 줘]',
+    '[Busca en internet] {recetas de pan}': '{빵 레시피} [인터넷에서 찾아 줘]',
+    '[Historial]': '[기록]',
+    '[Sitios]': '[사이트]',
+    '[Tiempo en internet]': '[인터넷 사용 시간]',
   },
   atajos: {
     'Caminar (también con las flechas)': '걷기 (방향키도 가능)',

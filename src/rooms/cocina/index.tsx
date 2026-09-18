@@ -27,6 +27,7 @@ import { planMetasCocina } from './plan'
 import { esencialCocina, flujosCocina } from './tutorial.meta'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { OPERACIONES_IA } from './costosIA'
+import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
 
 /** Nombre del registro sin el verbo de entrada: «comí una ensalada» → «ensalada». */
 function nombreComida(texto: string): string {
@@ -118,6 +119,29 @@ async function capturar(texto: string): Promise<boolean> {
 }
 
 const MOMENTOS_VALIDOS = new Set<string>(['desayuno', 'comida', 'cena', 'snack'])
+
+// Recetas y dietas se pueden mandar a otra persona por el buzón (registro eager, datos con import()).
+registrarProveedorCompartible({
+  app: 'cocina',
+  tipos: [
+    {
+      tipo: 'receta',
+      icono: 'tab-recetas',
+      etiqueta: (t) => t('buzon.compartible.receta', 'Receta'),
+      listar: async () => (await import('./compartible')).listarRecetas(),
+      empaquetar: async (clave) => (await import('./compartible')).empaquetarRecetaPorClave(clave),
+      importar: async (p) => (await import('./compartible')).importarReceta(p),
+    },
+    {
+      tipo: 'dieta',
+      icono: 'comida',
+      etiqueta: (t) => t('buzon.compartible.dieta', 'Dieta'),
+      listar: async () => (await import('./compartible')).listarDietas(),
+      empaquetar: async (clave) => (await import('./compartible')).empaquetarDietaPorClave(clave),
+      importar: async (p) => (await import('./compartible')).importarDieta(p),
+    },
+  ],
+})
 
 /**
  * Pinta la portada de lo que el chat acaba de guardar y la escribe cuando

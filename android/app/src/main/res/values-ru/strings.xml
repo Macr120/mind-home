@@ -6,7 +6,7 @@
     <string name="widget_casa_desc">Ваш дом и сегодняшняя дата.</string>
     <string name="widget_chat_label">Чат</string>
     <string name="widget_chat_desc">Поговорите с домом: чат, камера и диктовка.</string>
-    <string name="widget_vacio">Откройте Mind Planner Home, чтобы заполнить этот виджет.</string>
+    <string name="widget_vacio">Откройте MindHaOS, чтобы заполнить этот виджет.</string>
     <string name="widget_palomear">Отметить как выполнено</string>
     <string name="widget_chat_abrir">Чат</string>
     <string name="widget_chat_camara">Отправить фото</string>

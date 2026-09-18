@@ -1,7 +1,6 @@
 /** Textos de las páginas estáticas en indonesio. Traducción de `es.mjs`. */
 export const TEXTOS = {
-  'marca.nombre': 'Perencana Mental-Rumah',
-  'marca.sub': 'MPH',
+  'marca.nombre': 'MindHaOS',
   'nav.entrar': 'Masuk',
   'nav.descargar': 'Unduh',
   'pie.inicio': 'Beranda',
@@ -11,7 +10,7 @@ export const TEXTOS = {
   'pie.contacto': 'Kontak',
   'tema.boton': 'Mode terang atau gelap',
 
-  'meta.titulo': 'Mind Planner Home — Pikiranmu, dalam sebuah rumah 3D',
+  'meta.titulo': 'MindHaOS — Pikiranmu, dalam sebuah rumah 3D',
   'meta.desc':
     'Atur kebiasaan, target, keuangan, makanan, dan lainnya di rumah isometrik 3D tempat setiap ruangan adalah sebuah aplikasi. Sekali bayar 8,99 USD, bulan pertama sudah termasuk AI dan sinkronisasi; cobalah gratis.',
   'og.desc':
@@ -123,7 +122,7 @@ export const TEXTOS = {
 
   'mani.h2': 'Hidupmu, dijadikan video game',
   'mani.p1':
-    'MPH adalah hidupmu yang diubah menjadi video game, dimainkan dari tempat ternyaman yang ada: rumahmu sendiri. Naik level dan naik pangkat bukan hiasan — itu yang kamu lakukan di luar sana, diceritakan di dalam sini.',
+    'MindHaOS adalah hidupmu yang diubah menjadi video game, dimainkan dari tempat ternyaman yang ada: rumahmu sendiri. Naik level dan naik pangkat bukan hiasan — itu yang kamu lakukan di luar sana, diceritakan di dalam sini.',
   'mani.p2':
     'Di sini kamu menumbuhkan kemampuan baru, memegang kendali atas sumber dayamu, dan menaruh teknologi di pihakmu. Melawan konsumsi tak sadar format pendek. Melawan kemerosotan kognitif yang ditinggalkan kebiasaan konsumsi yang dipaksakan korporasi besar.',
   'mani.cierre': 'Dopamin yang sama. Kali ini untuk hidupmu yang nyata.',
@@ -204,7 +203,7 @@ export const TEXTOS = {
   'priv.titulo': 'Kebijakan privasi',
   'priv.quienes.h': 'Siapa kami',
   'priv.quienes.p':
-    'Mind Planner Home («aplikasinya») adalah aplikasi penataan pribadi. Kontak: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+    'MindHaOS («aplikasinya») adalah aplikasi penataan pribadi. Kontak: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
   'priv.datos.h': 'Data apa yang kami kumpulkan',
   'priv.datos.1':
     '<strong>Akun:</strong> alamat emailmu dan kata sandi terenkripsi, dikelola oleh Supabase (penyedia backend kami).',
@@ -220,7 +219,7 @@ export const TEXTOS = {
     '<strong>Data kesehatan dan kesejahteraan:</strong> apa yang kamu catat tentang olahraga, makan, obat, janji medis, atau siklus disimpan untukmu seperti data aplikasi lainnya; tidak pernah dijual atau dipakai untuk iklan.',
   'priv.salud.h': 'Cakupan fitur kesehatan',
   'priv.salud.p':
-    'Mind Planner Home adalah agenda pribadi, bukan aplikasi medis. Fitur kesehatannya hanyalah catatan yang kamu tulis sendiri dan beberapa pengingat: aplikasi ini tidak mendiagnosis, tidak menafsirkan gejala, tidak menganjurkan dosis atau pengobatan, tidak memeriksa interaksi obat, dan tidak menggantikan konsultasi dengan tenaga kesehatan. Perkiraan siklus dihitung hanya dari data yang kamu masukkan dan bersifat perkiraan. Ini bukan produk kesehatan atau alat medis, dan tidak terhubung dengan rekam medis, perusahaan asuransi, atau penyedia layanan kesehatan.',
+    'MindHaOS adalah agenda pribadi, bukan aplikasi medis. Fitur kesehatannya hanyalah catatan yang kamu tulis sendiri dan beberapa pengingat: aplikasi ini tidak mendiagnosis, tidak menafsirkan gejala, tidak menganjurkan dosis atau pengobatan, tidak memeriksa interaksi obat, dan tidak menggantikan konsultasi dengan tenaga kesehatan. Perkiraan siklus dihitung hanya dari data yang kamu masukkan dan bersifat perkiraan. Ini bukan produk kesehatan atau alat medis, dan tidak terhubung dengan rekam medis, perusahaan asuransi, atau penyedia layanan kesehatan.',
   'priv.uso.h': 'Untuk apa kami memakainya',
   'priv.uso.1': 'Memberimu akses ke akun, pembelian, dan langgananmu.',
   'priv.uso.2': 'Menyinkronkan datamu antar perangkat dan mencadangkannya.',
@@ -232,7 +231,7 @@ export const TEXTOS = {
     'Layanan yang kami integrasikan dapat menyimpan atau membaca informasi di perangkatmu saat kamu memakainya: Google ketika kamu masuk dan ketika memberi izin YouTube API Services (lihat <a href="https://policies.google.com/technologies/cookies">kebijakan cookie Google</a>), begitu juga TikTok dan Meta saat kamu menghubungkan akun-akun itu. Informasi tersebut dikelola oleh mereka menurut kebijakan masing-masing.',
   'priv.redes.h': 'Akun media sosial yang terhubung',
   'priv.redes.p':
-    'Kalau kamu menghubungkan akun YouTube, TikTok, Facebook, atau Instagram, kami menyimpan token akses yang diberikan jaringan itu — terenkripsi di server kami — beserta nama dan foto akun atau Halaman yang kamu pilih. Token itu hanya kami pakai untuk mengunggah ke akunmu sendiri video yang kamu putuskan untuk diterbitkan dari editor video, tepat saat kamu menekan Terbitkan. Kami tidak membaca video, unggahan, komentar, pesan, atau data lain dari akun-akun itu, dan kami tidak pernah memposting apa pun atas inisiatif sendiri. Token disimpan sampai kamu memutuskan koneksi di Pengaturan → Akun terhubung atau menghapus akun Mind Planner Home-mu; kamu juga bisa mencabut akses lewat pengaturan keamanan tiap jaringan (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
+    'Kalau kamu menghubungkan akun YouTube, TikTok, Facebook, atau Instagram, kami menyimpan token akses yang diberikan jaringan itu — terenkripsi di server kami — beserta nama dan foto akun atau Halaman yang kamu pilih. Token itu hanya kami pakai untuk mengunggah ke akunmu sendiri video yang kamu putuskan untuk diterbitkan dari editor video, tepat saat kamu menekan Terbitkan. Kami tidak membaca video, unggahan, komentar, pesan, atau data lain dari akun-akun itu, dan kami tidak pernah memposting apa pun atas inisiatif sendiri. Token disimpan sampai kamu memutuskan koneksi di Pengaturan → Akun terhubung atau menghapus akun MindHaOS-mu; kamu juga bisa mencabut akses lewat pengaturan keamanan tiap jaringan (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
   'priv.redes.youtube':
     'Untuk YouTube, aplikasi memakai YouTube API Services; dengan menghubungkan akunmu kamu menyetujui <a href="https://www.youtube.com/t/terms">Persyaratan Layanan YouTube</a>, dan <a href="https://policies.google.com/privacy">Kebijakan Privasi Google</a> berlaku.',
 
@@ -261,7 +260,7 @@ export const TEXTOS = {
   'term.titulo': 'Ketentuan layanan',
   'term.servicio.h': 'Layanannya',
   'term.servicio.p':
-    'Mind Planner Home adalah aplikasi penataan pribadi. Uji cobanya gratis dan tidak memerlukan akun. Aplikasinya dibeli dengan sekali bayar; fitur berulang (kredit AI dan sinkronisasi) hanya diambil di situs web ini; aplikasi desktop dan toko adalah klien dari akun yang sama.',
+    'MindHaOS adalah aplikasi penataan pribadi. Uji cobanya gratis dan tidak memerlukan akun. Aplikasinya dibeli dengan sekali bayar; fitur berulang (kredit AI dan sinkronisasi) hanya diambil di situs web ini; aplikasi desktop dan toko adalah klien dari akun yang sama.',
   'term.app.h': 'Aplikasinya (sekali bayar)',
   'term.app.1':
     'Membuka aplikasinya: 8,99 USD, sekali bayar. Ini membuka rumahmu selamanya di akunmu, tanpa perpanjangan.',

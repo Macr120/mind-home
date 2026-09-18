@@ -127,6 +127,12 @@ export const MANUAL_PT: ManualTraducido = {
     '[Cómo funciona] la {rueda de herramientas}': '[Como funciona] a {roda de ferramentas}',
     '[Cómo funciona] el {chat}': '[Como funciona] o {chat}',
     '[@]{cocina} {ensalada de la comida}': '[@]{cocina} {salada do almoço}',
+    '[Tipografía] {serif}': '[Tipografia] {serif}',
+    '[Abre] {ejemplo.com}': '[Abra] {exemplo.com}',
+    '[Busca en internet] {recetas de pan}': '[Busque na internet] {receitas de pão}',
+    '[Historial]': '[Histórico]',
+    '[Sitios]': '[Sites]',
+    '[Tiempo en internet]': '[Tempo na internet]',
   },
   atajos: {
     'Caminar (también con las flechas)': 'Andar (também com as setas)',

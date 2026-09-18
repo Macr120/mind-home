@@ -69,8 +69,7 @@ function Marco({ children }: { children: React.ReactNode }) {
             <path d="M257 0H357V100A100 100 0 0 1 257 0Z" fill="#C07DFE" />
           </svg>
           <span className="flex flex-col leading-tight">
-            <span className="text-lg font-extrabold">{t('marca.nombre', 'Planificador Mental-Casa')}</span>
-            <small className="text-[11px] font-semibold text-white/55">{t('marca.sub', 'MPH')}</small>
+            <span className="text-lg font-extrabold">{t('marca.nombre', 'MindHaOS')}</span>
           </span>
         </a>
       </div>

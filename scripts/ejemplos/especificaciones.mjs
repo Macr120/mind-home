@@ -11,7 +11,7 @@
 
 /** Contexto común: cómo tiene que sonar todo lo que se genere. */
 export const VOZ = `
-Mind Planner Home es una casa isométrica 3D donde cada cuarto es una mini-app de
+MindHaOS es una casa isométrica 3D donde cada cuarto es una mini-app de
 la vida diaria. Esto es el EJEMPLO DE FÁBRICA de una de esas apps: lo que ve
 alguien que la abre por primera vez y le da a «Ver un ejemplo».
 

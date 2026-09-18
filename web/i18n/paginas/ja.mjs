@@ -1,7 +1,6 @@
 /** Textos de las páginas estáticas en japonés. Traducción de `es.mjs`. */
 export const TEXTOS = {
-  'marca.nombre': 'メンタルプランナー・ハウス',
-  'marca.sub': 'MPH',
+  'marca.nombre': 'MindHaOS',
   'nav.entrar': 'ログイン',
   'nav.descargar': 'ダウンロード',
   'pie.inicio': 'ホーム',
@@ -11,7 +10,7 @@ export const TEXTOS = {
   'pie.contacto': 'お問い合わせ',
   'tema.boton': '明るい表示と暗い表示',
 
-  'meta.titulo': 'Mind Planner Home — あなたの心を、3Dの家に',
+  'meta.titulo': 'MindHaOS — あなたの心を、3Dの家に',
   'meta.desc':
     '習慣、目標、家計、食事などを、部屋ごとがアプリになったアイソメトリックな3Dの家で整理。8.99 USDの買い切りで、最初の1か月はAIと同期つき。無料で試せます。',
   'og.desc':
@@ -113,7 +112,7 @@ export const TEXTOS = {
 
   'mani.h2': 'あなたの人生を、ゲームに',
   'mani.p1':
-    'MPH は、あなたの人生をそのままビデオゲームにしたものです。しかも、いちばん居心地のいい場所——自分の家から遊べます。レベルや階級は飾りではありません。外の世界であなたがやったことを、ここで語り直したものです。',
+    'MindHaOS は、あなたの人生をそのままビデオゲームにしたものです。しかも、いちばん居心地のいい場所——自分の家から遊べます。レベルや階級は飾りではありません。外の世界であなたがやったことを、ここで語り直したものです。',
   'mani.p2': 'ここでは新しい力を伸ばし、自分の資源を管理し、技術を自分の味方につけます。ショート動画の無自覚な消費に抗って。大企業が押しつける消費習慣が残す、認知の劣化に抗って。',
   'mani.cierre': '同じドーパミンを、こんどは現実の人生に。',
 
@@ -186,7 +185,7 @@ export const TEXTOS = {
   'priv.titulo': 'プライバシーポリシー',
   'priv.quienes.h': '運営者',
   'priv.quienes.p':
-    'Mind Planner Home（以下「本アプリ」）は個人向けの整理アプリです。連絡先：<a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>。',
+    'MindHaOS（以下「本アプリ」）は個人向けの整理アプリです。連絡先：<a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>。',
   'priv.datos.h': '取得するデータ',
   'priv.datos.1':
     '<strong>アカウント：</strong>メールアドレスと暗号化されたパスワード。バックエンド事業者のSupabaseが管理します。',
@@ -202,7 +201,7 @@ export const TEXTOS = {
     '<strong>健康・ウェルビーイングのデータ：</strong>運動、食事、薬、通院、生理について記録した内容は、他のアプリ内データと同じようにあなたのために保存されます。販売や広告への利用は行いません。',
   'priv.salud.h': '健康機能の範囲',
   'priv.salud.p':
-    'Mind Planner Home は個人向けの手帳であり、医療アプリではありません。健康に関する機能は、あなた自身が書き込む記録とリマインダーです。診断は行わず、症状の判断もせず、用量や治療法を推奨せず、薬の相互作用も確認しません。医療専門家への相談に代わるものでもありません。生理周期の予測は、あなたが入力したデータだけから計算した目安です。医療機器でも医療製品でもなく、電子カルテ、保険会社、医療機関と接続することもありません。',
+    'MindHaOS は個人向けの手帳であり、医療アプリではありません。健康に関する機能は、あなた自身が書き込む記録とリマインダーです。診断は行わず、症状の判断もせず、用量や治療法を推奨せず、薬の相互作用も確認しません。医療専門家への相談に代わるものでもありません。生理周期の予測は、あなたが入力したデータだけから計算した目安です。医療機器でも医療製品でもなく、電子カルテ、保険会社、医療機関と接続することもありません。',
   'priv.uso.h': '利用目的',
   'priv.uso.1': 'アカウント、購入、サブスクリプションへのアクセスを提供するため。',
   'priv.uso.2': '端末間でデータを同期し、バックアップするため。',
@@ -214,7 +213,7 @@ export const TEXTOS = {
     '連携しているサービスは、あなたが利用する際にデバイス内へ情報を保存または読み取ることがあります。ログイン時やYouTube API Servicesの認可時のGoogle（<a href="https://policies.google.com/technologies/cookies">GoogleのCookieポリシー</a>を参照）、および該当アカウントを連携する際のTikTokとMetaです。それらの情報は各社が自社のポリシーに従って管理します。',
   'priv.redes.h': '連携したソーシャルメディアのアカウント',
   'priv.redes.p':
-    'YouTube、TikTok、Facebook、Instagram のアカウントを連携すると、そのサービスから受け取るアクセストークンを、選んだアカウントやページの名前・写真とともに、暗号化してサーバーに保存します。使うのは、あなたが動画エディターで公開すると決めた動画を、公開ボタンを押したその瞬間にあなた自身のアカウントへ投稿するためだけです。あなたの動画、投稿、コメント、メッセージなど、それらのアカウントのほかのデータは読み取りませんし、こちらから勝手に投稿することもありません。トークンは、設定 → 連携アカウントで連携を解除するか、Mind Planner Home のアカウントを削除するまで保存されます。各サービスのセキュリティ設定から権限を取り消すこともできます（Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>）。',
+    'YouTube、TikTok、Facebook、Instagram のアカウントを連携すると、そのサービスから受け取るアクセストークンを、選んだアカウントやページの名前・写真とともに、暗号化してサーバーに保存します。使うのは、あなたが動画エディターで公開すると決めた動画を、公開ボタンを押したその瞬間にあなた自身のアカウントへ投稿するためだけです。あなたの動画、投稿、コメント、メッセージなど、それらのアカウントのほかのデータは読み取りませんし、こちらから勝手に投稿することもありません。トークンは、設定 → 連携アカウントで連携を解除するか、MindHaOS のアカウントを削除するまで保存されます。各サービスのセキュリティ設定から権限を取り消すこともできます（Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>）。',
   'priv.redes.youtube':
     'YouTube については、アプリは YouTube API Services を利用します。アカウントを連携すると <a href="https://www.youtube.com/t/terms">YouTube の利用規約</a>に同意したことになり、<a href="https://policies.google.com/privacy">Google のプライバシー ポリシー</a>が適用されます。',
 
@@ -243,7 +242,7 @@ export const TEXTOS = {
   'term.titulo': '利用規約',
   'term.servicio.h': 'サービスについて',
   'term.servicio.p':
-    'Mind Planner Homeは個人向けの整理アプリです。お試しは無料でアカウント不要。アプリは買い切りで購入します。継続的な機能（AIクレジットと同期）はこのウェブサイトでのみ契約します。デスクトップ版やストア版のアプリは、同じアカウントのクライアントです。',
+    'MindHaOSは個人向けの整理アプリです。お試しは無料でアカウント不要。アプリは買い切りで購入します。継続的な機能（AIクレジットと同期）はこのウェブサイトでのみ契約します。デスクトップ版やストア版のアプリは、同じアカウントのクライアントです。',
   'term.app.h': 'アプリ（買い切り）',
   'term.app.1':
     'アプリの解錠：8.99 USDの買い切り。あなたのアカウントで家をずっと解錠し、更新はありません。',

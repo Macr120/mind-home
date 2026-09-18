@@ -338,6 +338,7 @@ export const bitacoraViajeRepo = createRepository(db.bitacoraViaje)
 export const portadasViajeRepo = createRepository(db.portadasViaje, 'id', false)
 export const portadasLugarRepo = createRepository(db.portadasLugar, 'id', false)
 export const itinerariosGuardadosRepo = createRepository(db.itinerariosGuardados, 'creadoEn')
+export const trayectosViajeRepo = createRepository(db.trayectosViaje, 'creadoEn')
 
 export const sesionesMindfulnessRepo = createRepository(db.sesionesMindfulness)
 export const gratitudDiariaRepo = createRepository(db.gratitudDiaria)
@@ -1166,6 +1167,33 @@ export function useVisitasDeUrl(url: string | null) {
     async () => (url == null ? [] : (await db.visitasWeb.where('url').equals(url).sortBy('inicio')).reverse()),
     [url],
   )
+}
+
+// Navegador v2 · historial por página, sitios y estadísticas (ver `core/navegador/`)
+/** Páginas vistas, la más reciente primero; `filtro` busca en título, URL y sitio. */
+export function useHistorialWeb(filtro: string, limite: number) {
+  return useLiveQuery(async () => {
+    const q = db.historialWeb.orderBy('visto').reverse()
+    const f = filtro.trim().toLowerCase()
+    if (!f) return q.limit(limite).toArray()
+    return q
+      .filter((h) => h.url.toLowerCase().includes(f) || (h.titulo ?? '').toLowerCase().includes(f) || h.host.includes(f))
+      .limit(limite)
+      .toArray()
+  }, [filtro, limite])
+}
+
+export function useSitiosWeb() {
+  return useLiveQuery(() => db.sitiosWeb.toArray(), [])
+}
+
+export function useCategoriasWeb() {
+  return useLiveQuery(() => db.categoriasWeb.orderBy('orden').toArray(), [])
+}
+
+/** Visitas cuyo inicio cae en [desde, hasta) (ISO): la materia prima de las estadísticas. */
+export function useVisitasEntre(desde: string, hasta: string) {
+  return useLiveQuery(() => db.visitasWeb.where('inicio').between(desde, hasta, true, false).toArray(), [desde, hasta])
 }
 
 // Studio · Arte, Escritura, Audio y Video

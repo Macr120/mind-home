@@ -1,6 +1,7 @@
 import { lazy, Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { getPlantilla } from '../registry'
-import { abrirEnlace, hostDe, urlDeMensaje } from '../enlaces'
+import { abrirBusqueda, abrirEnlace, busquedaDeMensaje, hostDe, urlDeMensaje } from '../enlaces'
+import { useNavegador } from '../state/navegadorStore'
 import { getCuarto, useCuartos } from '../state/cuartosStore'
 import { bitacoraRepo, memoriasRepo, mensajesChatRepo, ultimosMensajesAsistente, useUltimosMensajes } from '../data/repository'
 import { useLayout, roomWorldPos } from '../state/layoutStore'
@@ -37,6 +38,11 @@ const AsistentesConfig = lazy(() =>
 const ManualComandos = lazy(() =>
   import('./ManualComandos').then((m) => ({ default: m.ManualComandos })),
 )
+const PanelNavegador = lazy(() =>
+  import('../ui/navegador/PanelNavegador').then((m) => ({ default: m.PanelNavegador })),
+)
+import { ordenFoco, ordenNavegador, type PestanaNav } from '../navegador/ordenes'
+import { useFoco } from '../state/focoStore'
 
 /**
  * Espejo del módulo diferido de edición: `interpretarEdicionLocal` corre en un
@@ -66,15 +72,33 @@ import { useMascaraUi } from '../state/mascaraUiStore'
 import { useChatArUi } from '../state/chatArUiStore'
 import { useDictado } from '../audio/useDictado'
 import { PanelIA } from '../ui/PanelIA'
+import { useBuzon } from '../buzon/buzonStore'
+import { enviar as enviarBuzon } from '../buzon/motor'
+import { mensajeErrorBuzon } from '../buzon/api'
+import type { Paquete } from '../buzon/compartibles'
+import { ListaAmigos } from '../buzon/ui/ListaAmigos'
+// Paneles del buzón: solo existen con una persona o el panel de contactos abiertos.
+const ChatConversacionPersona = lazy(() =>
+  import('../buzon/ui/ChatConversacionPersona').then((m) => ({ default: m.ChatConversacionPersona })),
+)
+const ContactosPanel = lazy(() => import('../buzon/ui/ContactosPanel').then((m) => ({ default: m.ContactosPanel })))
+const SelectorCompartible = lazy(() =>
+  import('../buzon/ui/SelectorCompartible').then((m) => ({ default: m.SelectorCompartible })),
+)
 
-/** Adjunto listo para previsualizar y enviar al modelo (imagen o PDF). */
+/** Adjunto listo para previsualizar: para el modelo (imagen o PDF) o para una persona del buzón. */
 interface AdjuntoLocal {
-  tipo: 'imagen' | 'pdf'
-  base64: string
-  mediaType: string
+  tipo: 'imagen' | 'pdf' | 'contenido'
+  /** Para la IA; el buzón manda el `blob`. */
+  base64?: string
+  mediaType?: string
   nombre: string
   /** Miniatura del chip de preview (solo imagen). */
   dataUrl?: string
+  /** El archivo tal cual, para mandarlo a una persona. */
+  blob?: Blob
+  /** Contenido de un cuarto elegido para el buzón. */
+  paquete?: Paquete
 }
 
 /** Cuarto colocado en el mapa más cercano al avatar (para soltar objetos ahí). */
@@ -117,6 +141,10 @@ export function ChatBox({
   const [abierto, setAbierto] = useState(false)
   const plegado = useHud((s) => s.plegado.chat)
   const movilVertical = useHud((s) => s.movilVertical)
+  // Modo web: lo escrito va al navegador (URL o búsqueda), no al asistente.
+  const modoWeb = useNavegador((s) => s.modoWeb)
+  // Con el navegador embebido abierto el chat sube sobre su tira de pestañas (al pie).
+  const navAbierto = useNavegador((s) => s.abierto)
   const [retagId, setRetagId] = useState<number | null>(null)
   const [adjunto, setAdjunto] = useState<AdjuntoLocal | null>(null)
   // Mapa ofrecido tras una explicación: aquí solo se pinta si su conversación
@@ -161,6 +189,14 @@ export function ChatBox({
   const setPensando = useMascota((s) => s.setPensando)
   const pensando = useMascota((s) => s.pensando)
   const asistentes = useAsistentes((s) => s.lista)
+  // Buzón: hilo con una persona (excluyente con la conversación de un asistente).
+  const hiloPersona = useBuzon((s) => s.hiloAbierto)
+  const contactosAbierto = useBuzon((s) => s.panelContactos)
+  const noLeidos = useBuzon((s) => s.totalNoLeidos)
+  const solicitudes = useBuzon((s) => s.solicitudesPendientes)
+  const [selectorAbierto, setSelectorAbierto] = useState(false)
+  // El panel del menú alterna entre los asistentes (con sus pestañas) y los amigos del buzón.
+  const [vistaPanel, setVistaPanel] = useState<'asistentes' | 'amigos'>('asistentes')
   // Dictado por voz compartido (nativo o fallback Whisper): ver audio/useDictado.
   const {
     soportado: vozSoportada,
@@ -170,6 +206,38 @@ export function ChatBox({
   } = useDictado({ onTexto: setTexto, onError: (m) => hablar(m) })
   const [configAbierto, setConfigAbierto] = useState(false)
   const [manualAbierto, setManualAbierto] = useState(false)
+  // Panel «Navegador» (historial, sitios, tiempo, ajustes), como el Manual.
+  const [navegadorAbierto, setNavegadorAbierto] = useState(false)
+  const [pestanaNav, setPestanaNav] = useState<PestanaNav>('historial')
+  const abrirPanelNav = (p: PestanaNav) => {
+    setPestanaNav(p)
+    setAbierto(false)
+    setConfigAbierto(false)
+    setManualAbierto(false)
+    setNavegadorAbierto(true)
+  }
+  // La tira (o un atajo) pidió abrir el panel «Navegador» en una pestaña concreta.
+  // Suscripción al store (no un efecto que llame a setState): se atiende también
+  // lo pedido ANTES de montar, p. ej. desde dentro de un cuarto.
+  useEffect(() => {
+    const atender = (p: PestanaNav | null) => {
+      if (!p) return
+      useNavegador.getState().pedirPanel(null)
+      setPestanaNav(p)
+      setAbierto(false)
+      setConfigAbierto(false)
+      setManualAbierto(false)
+      setNavegadorAbierto(true)
+    }
+    const pendiente = setTimeout(() => atender(useNavegador.getState().panelPedido), 0)
+    const baja = useNavegador.subscribe((s, prev) => {
+      if (s.panelPedido !== prev.panelPedido) atender(s.panelPedido)
+    })
+    return () => {
+      clearTimeout(pendiente)
+      baja()
+    }
+  }, [])
   // El hilo nace apartado (nunca se abre solo al arrancar la app) y, una vez
   // que lo abres, se queda así hasta que lo cierres con la ✕. Vive en el store
   // (no en useState local) para sobrevivir el desmontaje de este componente al
@@ -331,6 +399,8 @@ export function ChatBox({
   const abrirConv = (id: string) => {
     setAbierto(false)
     setConfigAbierto(false)
+    useBuzon.getState().cerrarHilo()
+    useBuzon.getState().cerrarContactos()
     setHiloOculto(false)
     abrirConversacion(id)
   }
@@ -345,12 +415,13 @@ export function ChatBox({
       mediaType: blob.type,
       nombre: file.name,
       dataUrl: `data:${blob.type};base64,${base64}`,
+      blob,
     })
   }
 
-  /** Deja el PDF listo (base64 tal cual). El tope evita el rechazo del proxy (~2 MB). */
+  /** Deja el PDF listo (base64 tal cual). El tope evita el rechazo del proxy (~2 MB); al buzón van hasta 8. */
   const cargarPdf = (file: File) => {
-    const topeMB = usarViaCuenta() ? 2 : 5
+    const topeMB = hiloPersona ? 8 : usarViaCuenta() ? 2 : 5
     if (file.size > topeMB * 1024 * 1024) {
       hablar(t('chat.pdfGrande', 'El PDF pesa más de {mb} MB, usa uno más ligero.', { mb: topeMB }))
       return
@@ -363,6 +434,7 @@ export function ChatBox({
         base64: dataUrl.slice(dataUrl.indexOf(',') + 1),
         mediaType: 'application/pdf',
         nombre: file.name,
+        blob: file,
       })
     }
     reader.readAsDataURL(file)
@@ -370,6 +442,8 @@ export function ChatBox({
 
   const proveedor = getProveedor()
   const conIA = iaActiva()
+  // Imagen/PDF/foto piden IA… salvo que vayan a una persona del buzón.
+  const adjuntable = conIA || hiloPersona != null
 
   // Los tres botones del widget de chat de Android. Reactivo (y no un efecto de
   // montaje) porque el toque puede llegar con la app viva y el chat ya montado.
@@ -378,6 +452,13 @@ export function ChatBox({
     if (!accionWidget) return
     const accion = useAccionGlobal.getState().consumir()
     if (!accion) return
+    if (accion === 'buzon') {
+      abrirParaEscribir(() => {
+        setPestana('chats')
+        setAbierto(true)
+      })
+      return
+    }
     if (accion === 'chat-foto' && !conIA) {
       abrirParaEscribir()
       hablar(t('chat.fotoSinIa', 'Las fotos requieren IA: elige un modelo en el botón de la derecha'))
@@ -404,6 +485,25 @@ export function ChatBox({
 
   const enviar = async () => {
     if (!interp.texto.trim() && !adjunto) return
+    // Hilo con una persona: el mensaje va al buzón tal cual (sin IA, sin
+    // dispatcher, sin bitácora). Acuse inmediato; el fallo lo cuenta el asistente.
+    if (hiloPersona) {
+      const txt = texto.trim()
+      const adj = adjunto
+      sonar('tick')
+      vibrar(10)
+      setTexto('')
+      setAdjunto(null)
+      void enviarBuzon(hiloPersona, {
+        texto: txt,
+        adjunto:
+          adj && adj.tipo !== 'contenido' && adj.blob
+            ? { tipo: adj.tipo, blob: adj.blob, nombre: adj.nombre }
+            : undefined,
+        paquete: adj?.paquete,
+      }).catch((e) => hablar(mensajeErrorBuzon(e, t), { sistema: true }))
+      return
+    }
     useSugerenciaMapa.getState().descartar() // la oferta anterior caduca con el mensaje nuevo
     // Hilo de destino: el diálogo cara a cara manda; luego la conversación abierta; si no, el activo.
     const destinoId = useDialogo.getState().asistenteId ?? conversacion ?? mascotaId
@@ -435,6 +535,39 @@ export function ChatBox({
       hablar(t('enlace.chatAbriendo', 'Abriendo {h}…', { h: hostDe(urlChat) }), { asistenteId: destinoId })
       void abrirEnlace(urlChat)
       setTexto('')
+      return
+    }
+    // «historial», «sitios», «tiempo en internet»…: el panel del navegador.
+    const pestanaPedida = ordenNavegador(interp.texto)
+    if (pestanaPedida) {
+      abrirPanelNav(pestanaPedida)
+      hablar(t('nav.chatAbriendoPanel', 'Aquí tienes tu navegador.'), { asistenteId: destinoId })
+      return
+    }
+    // «modo foco 25 min» / «fin del foco»: bloquear (o liberar) los sitios elegidos.
+    const foco = ordenFoco(interp.texto)
+    if (foco) {
+      if (foco.accion === 'terminar') {
+        useFoco.getState().terminar('manual')
+        hablar(t('nav.foco.terminado', 'Modo foco terminado.'), { asistenteId: destinoId })
+      } else {
+        await useFoco.getState().activar(foco.min)
+        hablar(t('nav.foco.iniciado', 'Modo foco durante {m} min: sin distracciones.', { m: useFoco.getState().duracionMin }), {
+          asistenteId: destinoId,
+        })
+      }
+      return
+    }
+    // «Busca en internet …» abre el buscador. En MODO WEB (botón 🌐, o el
+    // navegador abierto) también cualquier texto que no sea una orden del chat:
+    // los comandos del arquitecto y el prefijo @app siguen ganando, y un adjunto
+    // es siempre para la IA.
+    const consulta =
+      busquedaDeMensaje(interp.texto) ??
+      (modoWeb && !adjunto && !interp.comando && interp.motivo !== 'prefijo' ? interp.texto.trim() : null)
+    if (consulta) {
+      hablar(t('nav.chatBuscando', 'Buscando «{q}»…', { q: consulta }), { asistenteId: destinoId })
+      void abrirBusqueda(consulta)
       return
     }
 
@@ -537,13 +670,13 @@ export function ChatBox({
           interp.texto.trim() ||
           (adjunto?.tipo === 'pdf' ? 'Resume y registra lo que contenga el documento.' : 'Registra lo que muestra la imagen.')
         let textoEnvio = textoMsg
-        let adj = adjunto ? { base64: adjunto.base64, mediaType: adjunto.mediaType } : null
+        let adj = adjunto?.base64 && adjunto.mediaType ? { base64: adjunto.base64, mediaType: adjunto.mediaType } : null
         // Proveedor sin PDF nativo (ChatGPT/Ollama): el texto se extrae
         // aquí (pdfjs, lazy) y viaja dentro del mensaje, sin adjunto.
         if (adjunto?.tipo === 'pdf' && !pdfNativo()) {
           try {
             const { extraerTextoPdf } = await import('./pdf')
-            textoEnvio = `${textoMsg}\n\nContenido del PDF «${adjunto.nombre}» (texto extraído):\n${await extraerTextoPdf(adjunto.base64)}`
+            textoEnvio = `${textoMsg}\n\nContenido del PDF «${adjunto.nombre}» (texto extraído):\n${await extraerTextoPdf(adjunto.base64 ?? '')}`
             adj = null
           } catch {
             setPensando(false)
@@ -684,7 +817,7 @@ export function ChatBox({
   // el menú con el editor abierto (que desmonta y remonta este componente) el
   // primer render pinta la conversación un instante antes de que el efecto la pliegue.
   const chatPlegado = plegado || menuAbierto
-  const otroPanel = abierto || configAbierto || manualAbierto
+  const otroPanel = abierto || configAbierto || manualAbierto || contactosAbierto || navegadorAbierto
   /**
    * El hilo con el asistente: SOLO si lo abriste tú desde la lista de chats. El
    * panel por defecto de la carita es el menú (Chats/Registros), no la
@@ -692,16 +825,51 @@ export function ChatBox({
    * historial que casi nunca era el que buscabas.
    */
   const hiloVisible = conversacion != null && !otroPanel && !hiloOculto && !chatPlegado
+  /** El hilo con una persona del buzón, en el mismo sitio que el del asistente. */
+  const hiloPersonaVisible = hiloPersona != null && !otroPanel && !chatPlegado
+
+  // Navegador embebido (escritorio): la página nativa tapa el DOM, así que con
+  // cualquier panel del chat desplegado se esconde; y su borde inferior sigue al
+  // borde superior de este chat (la tira de pestañas va debajo, por eso bottom-16).
+  const panelChatAbierto = otroPanel || hiloVisible || hiloPersonaVisible || menuAdjuntar || menuModelo
+  useEffect(() => {
+    if (!navAbierto) return
+    // Al destapar se espera un instante: el chat tiene que encogerse y medirse antes.
+    const id = setTimeout(() => useNavegador.getState().setOculto('chat', panelChatAbierto), panelChatAbierto ? 0 : 60)
+    return () => {
+      clearTimeout(id)
+      useNavegador.getState().setOculto('chat', false)
+    }
+  }, [navAbierto, panelChatAbierto])
+  useEffect(() => {
+    const el = raizRef.current
+    if (!navAbierto || !el) return
+    const medir = () =>
+      useNavegador.getState().setTopeInferior(Math.max(0, Math.round(window.innerHeight - el.getBoundingClientRect().top)))
+    medir()
+    const ro = new ResizeObserver(medir)
+    ro.observe(el)
+    return () => {
+      ro.disconnect()
+      useNavegador.getState().setTopeInferior(0)
+    }
+  }, [navAbierto])
   /** Cierra todo lo que el chat haya desplegado sobre su barra. */
   const cerrarPaneles = useCallback(() => {
     setAbierto(false)
     setConfigAbierto(false)
     setManualAbierto(false)
+    setNavegadorAbierto(false)
     setMenuModelo(false)
     setMenuAdjuntar(false)
+    setSelectorAbierto(false)
     cerrarConversacion()
     setHiloOculto(true)
+    useBuzon.getState().cerrarHilo()
+    useBuzon.getState().cerrarContactos()
   }, [cerrarConversacion, setHiloOculto])
+  /** Cierra solo el hilo de la persona: estable para el `memo` de su conversación. */
+  const cerrarHiloPersona = useCallback(() => useBuzon.getState().cerrarHilo(), [])
   /** Cierra solo el hilo: estable para que `ChatConversacion` (memo) no se repinte por cada tecla. */
   const cerrarHilo = useCallback(() => {
     cerrarConversacion()
@@ -716,7 +884,7 @@ export function ChatBox({
    * ese vive fuera del chat y cerrar por detrás dejaría la pregunta huérfana.
    */
   useEffect(() => {
-    if (!otroPanel && !hiloVisible && !menuModelo && !menuAdjuntar) return
+    if (!otroPanel && !hiloVisible && !hiloPersonaVisible && !menuModelo && !menuAdjuntar && !selectorAbierto) return
     const fuera = (e: PointerEvent) => {
       if (useConfirmar.getState().pendiente) return
       // `contains` LANZA si el target no es un Node (eventos que nacen en
@@ -735,7 +903,7 @@ export function ChatBox({
       window.removeEventListener('pointerdown', fuera)
       window.removeEventListener('keydown', escape)
     }
-  }, [otroPanel, hiloVisible, menuModelo, menuAdjuntar, cerrarPaneles])
+  }, [otroPanel, hiloVisible, hiloPersonaVisible, menuModelo, menuAdjuntar, selectorAbierto, cerrarPaneles])
 
   // Al cambiar el ANCHO de la barra (abrir el menú lateral, girar el teléfono…)
   // hay que rehacer la cuenta: la altura cambia sola al crecer el texto.
@@ -762,17 +930,47 @@ export function ChatBox({
         // Plegado va centrado con `translate`, así que ahí no lleva los márgenes
         // laterales de la zona segura: descentrarían la barra.
         angostoMovil
-          ? `safe-inf absolute bottom-4 left-1/2 ${encima ? 'z-[70]' : 'z-20'} -translate-x-1/2 select-none`
-          : ['safe-inf safe-ini safe-fin absolute bottom-4 min-w-0 select-none', encima ? 'z-[70]' : 'z-20', anclajeChat(menuAbierto)].join(' ')
+          ? `safe-inf absolute ${navAbierto ? 'bottom-16' : 'bottom-4'} left-1/2 ${encima ? 'z-[70]' : 'z-20'} -translate-x-1/2 select-none`
+          : ['safe-inf safe-ini safe-fin absolute min-w-0 select-none', navAbierto ? 'bottom-16' : 'bottom-4', encima ? 'z-[70]' : 'z-20', anclajeChat(menuAbierto)].join(' ')
       }
     >
       {/* Conversación con el asistente (estilo WhatsApp): siempre sobre la barra */}
       {hiloVisible && <ChatConversacion onCerrar={cerrarHilo} />}
 
+      {/* Hilo con una persona (buzón): mismo sitio, otro origen de datos */}
+      {hiloPersonaVisible && hiloPersona && (
+        <Suspense fallback={null}>
+          <ChatConversacionPersona hiloId={hiloPersona} onCerrar={cerrarHiloPersona} />
+        </Suspense>
+      )}
+
       {/* Configuración de asistentes (crear, eliminar, personalizar, mapa) */}
       {configAbierto && (
         <Suspense fallback={null}>
           <AsistentesConfig onCerrar={() => setConfigAbierto(false)} />
+        </Suspense>
+      )}
+
+      {/* Contactos del buzón: mi alias, buscar por alias, solicitudes */}
+      {contactosAbierto && (
+        <Suspense fallback={null}>
+          <ContactosPanel
+            onCerrar={() => useBuzon.getState().cerrarContactos()}
+            onAbrirHilo={(id) => useBuzon.getState().abrirHilo(id)}
+          />
+        </Suspense>
+      )}
+
+      {/* Elegir contenido de un cuarto para mandarlo a la persona del hilo */}
+      {selectorAbierto && (
+        <Suspense fallback={null}>
+          <SelectorCompartible
+            onElegir={(p) => {
+              setAdjunto({ tipo: 'contenido', nombre: p.nombre, paquete: p })
+              setSelectorAbierto(false)
+            }}
+            onCerrar={() => setSelectorAbierto(false)}
+          />
         </Suspense>
       )}
 
@@ -789,11 +987,58 @@ export function ChatBox({
         </Suspense>
       )}
 
+      {/* Navegador: historial por página, sitios con categoría, tiempo y ajustes */}
+      {navegadorAbierto && (
+        <Suspense fallback={null}>
+          <PanelNavegador pestana={pestanaNav} onPestana={setPestanaNav} onCerrar={() => setNavegadorAbierto(false)} />
+        </Suspense>
+      )}
+
       {/* Historial reciente + selector de mascota */}
-      {abierto && !configAbierto && !manualAbierto && (
+      {abierto && !configAbierto && !manualAbierto && !navegadorAbierto && (
         <div className="ui-panel-glass mb-2 max-h-72 overflow-y-auto rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
-          {/* Cabecera: elegir asistente */}
+          {/* Cabecera: alternar asistentes/amigos (esquina izquierda) y elegir asistente */}
           <div className="mb-2 flex items-center gap-2 border-b border-white/10 px-1 pb-2">
+            <button
+              type="button"
+              onClick={() => setVistaPanel((v) => (v === 'amigos' ? 'asistentes' : 'amigos'))}
+              className={`relative grid h-8 w-8 shrink-0 place-items-center rounded-lg text-base transition ${
+                vistaPanel === 'amigos' ? 'bg-accent/20 text-accent ring-1 ring-accent/50' : 'text-white/50 hover:bg-white/10 hover:text-white/85'
+              }`}
+              title={vistaPanel === 'amigos' ? t('buzon.vista.asistentes', 'Asistentes') : t('buzon.amigos', 'Amigos')}
+            >
+              {vistaPanel === 'amigos' ? <Icono emoji={mascota.emoji} /> : <Icono nombre="companeros" />}
+              {vistaPanel !== 'amigos' && noLeidos > 0 && (
+                <span className="pointer-events-none absolute -end-1 -top-1 grid h-4 min-w-4 place-items-center rounded-full bg-red-600 px-1 text-[9px] font-black tabular-nums text-white">
+                  {noLeidos}
+                </span>
+              )}
+            </button>
+            {vistaPanel === 'amigos' ? (
+              <>
+                <span className="min-w-0 flex-1 truncate text-[11px] font-semibold text-white/50">
+                  <Icono nombre="companeros" /> {t('buzon.amigos', 'Amigos')}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setAbierto(false)
+                    useBuzon.getState().abrirContactos()
+                  }}
+                  className="relative flex h-8 shrink-0 items-center gap-1 rounded-lg px-2 text-base text-white/40 transition hover:bg-white/10 hover:text-white/85"
+                  title={t('buzon.contactos', 'Contactos')}
+                >
+                  <Icono nombre="ajustes" />
+                  <span className="text-[11px] font-semibold">{t('buzon.contactos', 'Contactos')}</span>
+                  {solicitudes > 0 && (
+                    <span className="grid h-4 min-w-4 place-items-center rounded-full bg-amber-500 px-1 text-[9px] font-black tabular-nums text-white">
+                      {solicitudes}
+                    </span>
+                  )}
+                </button>
+              </>
+            ) : (
+              <>
             <span className="text-[11px] font-semibold text-white/50">
               {t('chat.tuAsistente', 'Tu asistente:')}
             </span>
@@ -839,6 +1084,16 @@ export function ChatBox({
             </button>
             <button
               type="button"
+              data-tut="chat.navegador"
+              onClick={() => abrirPanelNav('historial')}
+              className="flex h-8 shrink-0 items-center gap-1 rounded-lg px-2 text-base text-white/40 transition hover:bg-white/10 hover:text-white/85"
+              title={t('nav.panel.titulo', 'Navegador: historial, sitios y tiempo')}
+            >
+              <Icono nombre="mundo" />
+              <span className="text-[11px] font-semibold">{t('nav.panel.boton', 'Navegador')}</span>
+            </button>
+            <button
+              type="button"
               onClick={() => {
                 setConfigAbierto(true)
                 setAbierto(false)
@@ -848,10 +1103,26 @@ export function ChatBox({
             >
               <Icono nombre="ajustes" />
             </button>
+              </>
+            )}
           </div>
 
+          {/* Amigos del buzón: cada uno con el busto de su personaje y su último mensaje */}
+          {vistaPanel === 'amigos' && (
+            <ListaAmigos
+              onAbrir={(id) => {
+                setAbierto(false)
+                useBuzon.getState().abrirHilo(id)
+              }}
+              onContactos={() => {
+                setAbierto(false)
+                useBuzon.getState().abrirContactos()
+              }}
+            />
+          )}
+
           {/* Pestañas: conversaciones (con quién platicaste) / registros (lo que pediste) */}
-          <div data-tut="chat.tabs" className="mb-1 flex gap-1 px-1">
+          <div data-tut="chat.tabs" className={`mb-1 flex gap-1 px-1 ${vistaPanel === 'amigos' ? 'hidden' : ''}`}>
             {(['chats', 'registros'] as const).map((p) => (
               <button
                 key={p}
@@ -865,7 +1136,12 @@ export function ChatBox({
                 }`}
               >
                 {p === 'chats' ? (
-                  <><Icono nombre="chat" /> {t('chat.tab.chats', 'Chats')}</>
+                  <>
+                    <Icono nombre="chat" /> {t('chat.tab.chats', 'Chats')}
+                    {noLeidos > 0 && (
+                      <span className="ms-1 rounded-full bg-red-600 px-1.5 text-[9px] font-black tabular-nums text-white">{noLeidos}</span>
+                    )}
+                  </>
                 ) : (
                   <><Icono nombre="nota" /> {t('chat.tab.registros', 'Registros')}</>
                 )}
@@ -874,7 +1150,8 @@ export function ChatBox({
           </div>
 
           {/* Lista de conversaciones, estilo lista de chats */}
-          {pestana === 'chats' &&
+          {vistaPanel === 'asistentes' &&
+            pestana === 'chats' &&
             asistentes.map((m) => {
               const u = ultimos?.[m.id]
               return (
@@ -911,7 +1188,7 @@ export function ChatBox({
               )
             })}
 
-          {pestana === 'registros' && (
+          {vistaPanel === 'asistentes' && pestana === 'registros' && (
             <>
           {/* Memorias del arquitecto: lo que sabe de ti entre sesiones */}
           {memoriasVigentes.length > 0 && (
@@ -1021,9 +1298,15 @@ export function ChatBox({
             type="button"
             onClick={() => useHud.getState().setPlegado('chat', false)}
             title={`${nombreAsistente(t, mascota)} · ${t('chat.abrir', 'Abrir chat')}`}
-            className="ui-hud flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 text-2xl shadow-xl transition hover:scale-105 hover:bg-white/10"
+            className="ui-hud relative flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 text-2xl shadow-xl transition hover:scale-105 hover:bg-white/10"
           >
             <Icono emoji={mascota.emoji} />
+            {/* Mensajes de personas sin leer (estilo BadgeMisiones) */}
+            {noLeidos > 0 && (
+              <span className="pointer-events-none absolute -end-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-red-600 px-1 text-[10px] font-black tabular-nums text-white shadow-lg">
+                {noLeidos}
+              </span>
+            )}
           </button>
         </div>
       ) : (
@@ -1075,7 +1358,7 @@ export function ChatBox({
             <img src={adjunto.dataUrl} alt="" className="h-12 w-12 rounded-lg object-cover" />
           ) : (
             <span className="grid h-12 w-12 place-items-center rounded-lg bg-white/5 text-2xl">
-              <Icono nombre="pdf" />
+              <Icono nombre={adjunto.tipo === 'contenido' ? 'buzon' : 'pdf'} />
             </span>
           )}
           <span className="max-w-40 truncate text-[11px] text-white/50">
@@ -1103,6 +1386,7 @@ export function ChatBox({
             setAbierto(false)
             setConfigAbierto(false)
             setManualAbierto(false)
+            setNavegadorAbierto(false)
           }}
           className="mb-3.5"
         />
@@ -1157,20 +1441,34 @@ export function ChatBox({
                 <button
                   key={op.icono}
                   type="button"
-                  disabled={!conIA}
+                  disabled={!adjuntable}
                   onClick={() => {
                     setMenuAdjuntar(false)
                     op.ref.current?.click()
                   }}
                   className={`flex w-full items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-xs font-semibold transition ${
-                    conIA ? 'text-white/70 hover:bg-white/10' : 'cursor-not-allowed text-white/25'
+                    adjuntable ? 'text-white/70 hover:bg-white/10' : 'cursor-not-allowed text-white/25'
                   }`}
-                  title={conIA ? undefined : t('chat.fotoSinIa', 'Las fotos requieren IA: elige un modelo en el botón de la derecha')}
+                  title={adjuntable ? undefined : t('chat.fotoSinIa', 'Las fotos requieren IA: elige un modelo en el botón de la derecha')}
                 >
                   <Icono nombre={op.icono} />
                   <span className="flex-1 text-start">{op.texto}</span>
                 </button>
               ))}
+              {/* Con una persona abierta: una receta, una rutina… de tus cuartos */}
+              {hiloPersona && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMenuAdjuntar(false)
+                    setSelectorAbierto(true)
+                  }}
+                  className="flex w-full items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-xs font-semibold text-white/70 transition hover:bg-white/10"
+                >
+                  <Icono nombre="buzon" />
+                  <span className="flex-1 text-start">{t('buzon.menu.contenido', 'Contenido de un cuarto')}</span>
+                </button>
+              )}
               <button
                 type="button"
                 data-tut="chat.adjuntar.mascara"
@@ -1213,6 +1511,23 @@ export function ChatBox({
           title={t('chat.adjuntar', 'Adjuntar imagen o PDF, tomar foto o abrir la máscara AR')}
         >
           +
+        </button>
+        {/* Modo web: lo que escribas se abre o se busca en internet, no va al asistente. */}
+        <button
+          type="button"
+          data-tut="chat.web"
+          onClick={() => useNavegador.getState().setModoWeb(!modoWeb)}
+          aria-pressed={modoWeb}
+          className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl text-lg leading-none transition hover:bg-white/10 ${
+            modoWeb ? 'bg-accent/20 text-white/90' : 'text-white/45 hover:text-white/85'
+          }`}
+          title={
+            modoWeb
+              ? t('nav.modoWebOn', 'Modo web: lo que escribas se abre o se busca en internet')
+              : t('nav.modoWebOff', 'Modo web apagado: lo que escribas va al asistente')
+          }
+        >
+          <Icono nombre="mundo" />
         </button>
         <input
           ref={galeriaRef}
@@ -1388,11 +1703,17 @@ export function ChatBox({
           <button
             type="button"
             onClick={enviar}
-            disabled={pensando || (!interp.texto.trim() && !adjunto)}
+            disabled={(pensando && !hiloPersona) || (!interp.texto.trim() && !adjunto)}
             className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-accent text-lg text-accent-ink transition hover:bg-accent disabled:opacity-30 ${
-              pensando ? 'animate-pulse' : ''
+              pensando && !hiloPersona ? 'animate-pulse' : ''
             }`}
-            title={pensando ? t('chat.enviando', 'Enviado, preparando la respuesta…') : t('chat.registrar', 'Registrar')}
+            title={
+              hiloPersona
+                ? t('buzon.enviar', 'Enviar')
+                : pensando
+                  ? t('chat.enviando', 'Enviado, preparando la respuesta…')
+                  : t('chat.registrar', 'Registrar')
+            }
           >
             <Icono nombre="enviar" />
           </button>

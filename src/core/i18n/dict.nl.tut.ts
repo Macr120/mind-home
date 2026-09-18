@@ -110,9 +110,9 @@ export const NL_TUT: Dict = {
   'tut.primeros.1.texto': 'Deze rondleiding beantwoordt twee dingen: hoe je je apps OPENT en hoe je er een NIEUWE maakt. Allebei wonen ze hier, in het tabblad Thuis.',
   'tut.primeros.entrar.titulo': 'Je apps binnengaan',
   'tut.primeros.entrar.texto':
-    'Elke kamer draagt zijn app en je hebt drie deuren: zijn kaart hier in het menu, het object met de zwevende bol op de plattegrond, en de snelle toegang via de MPH-knop bovenaan.',
+    'Elke kamer draagt zijn app en je hebt drie deuren: zijn kaart hier in het menu, het object met de zwevende bol op de plattegrond, en de snelle toegang via de MindHaOS-knop bovenaan.',
   'tut.primeros.entrar.vacio':
-    'Hier komen je kamers te wonen, elk met zijn app, en je krijgt drie deuren: zijn kaart hier in het menu, het object met de zwevende bol op de plattegrond, en de snelle toegang via de MPH-knop bovenaan. Laten we de eerste maken…',
+    'Hier komen je kamers te wonen, elk met zijn app, en je krijgt drie deuren: zijn kaart hier in het menu, het object met de zwevende bol op de plattegrond, en de snelle toegang via de MindHaOS-knop bovenaan. Laten we de eerste maken…',
   'tut.primeros.prev.titulo': 'Hier komt jouw kamer',
   'tut.primeros.prev.texto':
     'Dit is de preview van het penseel: het groene silhouet met zijn muren markeert waar de kamer komt te staan. Bouw je met de hand, dan zie je het net zo onder je vinger, nog vóór je de tik loslaat.',
@@ -133,7 +133,7 @@ export const NL_TUT: Dict = {
     'Met + Toewijzen heb ik hem zijn app gegeven: kijk hoe de kamer haar naam, haar icoon en haar meubels heeft overgenomen. Vanaf nu is zijn hele kaart de knop om naar binnen te gaan.',
   'tut.primeros.5.titulo': 'Openen',
   'tut.primeros.5.texto':
-    'We zijn binnen: dit is de app van de kamer. Om straks terug te komen: zijn kaart in het menu, het object met de bol op de plattegrond, of de snelle toegang via de MPH-knop bovenaan.',
+    'We zijn binnen: dit is de app van de kamer. Om straks terug te komen: zijn kaart in het menu, het object met de bol op de plattegrond, of de snelle toegang via de MindHaOS-knop bovenaan.',
   'tut.primeros.press.titulo': 'Houd ingedrukt',
   'tut.primeros.press.texto':
     'Kijk hoe hij trilt: een kamer of een object ingedrukt houden maakt hem wakker, met zijn menu erbij. Zo verplaats je hem als je niet blij bent met waar hij terechtkwam, of verwijder je hem.',
@@ -1026,7 +1026,7 @@ export const NL_TUT: Dict = {
     'De tijdas met alle doelen tegelijk: elk doel is een balk over de data heen. Je zoomt in en uit per dag, week, maand of jaar, en een plan kan eroverheen gelegd worden om het te vergelijken met wat al is uitgestippeld.',
   'tut.app-sala--esencial.1.titulo': 'Jouw reiswoonkamer',
   'tut.app-sala--esencial.1.texto':
-    'Hier leeft jouw reiswereld: een wereldkaart met spelden, reisplannen van plekken om te ontdekken, routes die plekken aan elkaar rijgen en een logboek met herinneringen. Er zijn vier menu\'s.',
+    'Hier leeft je reiswereld: een wereldkaart met pins, reisplannen voor plekken die je wilt zien, routes die plekken aan elkaar koppelen, een navigator die je overal brengt en een logboek met herinneringen. Vijf menu\'s.',
   'tut.app-sala--esencial.2.titulo': 'Kaart',
   'tut.app-sala--esencial.2.texto':
     'Elke plek die je bezocht hebt of droomt te bezoeken, is een speld op de wereldkaart. De schakelaar bovenaan verwisselt de platte kaart voor een globe die je draait door te slepen.',
@@ -1038,6 +1038,8 @@ export const NL_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': 'Logboek',
   'tut.app-sala--esencial.5.texto':
     'De herinneringen aan de plekken die je bezocht hebt, in albums per land: foto\'s en verhalen van elke plek.',
+  'tut.app-sala--esencial.6.titulo': 'Route plannen',
+  'tut.app-sala--esencial.6.texto': 'Een navigator van deur tot deur: kies vertrek en bestemming en combineer lopen, openbaar vervoer, fiets en auto in één reis, met de stratenkaart en stap-voor-stap aanwijzingen.',
   'tut.app-agenda--trabajo.1.titulo': 'De inbox',
   'tut.app-agenda--trabajo.1.texto':
     'Wat gedaan moet worden maar nog geen dag heeft, staat hier, met zijn prioriteit. Niets dwingt je een datum te kiezen om het op te schrijven.',

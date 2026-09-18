@@ -18,6 +18,7 @@ import { canalPago, nombrePlataforma } from '../../plataforma'
 import { sincronizar } from '../../data/sync/motor'
 import { GastoByok } from '../GastoByok'
 import { LogoApple, LogoGoogle } from '../logosMarca'
+import { FilaAlias } from '../../buzon/ui/FilaAlias'
 import { cargarTextos } from '../../../../web/i18n/paginas/index.mjs'
 import { prefijo } from '../../../../web/i18n/idiomas.mjs'
 
@@ -278,6 +279,8 @@ function CuentaConSesion() {
               : t('cuenta.plan.local', 'Local')}
         </span>
       </div>
+      {/* Alias público del buzón (mensajería entre usuarios) */}
+      <FilaAlias />
       {conAcceso && planExpira && (
         <p className="text-[11px] text-white/45">
           {plan === 'trial'

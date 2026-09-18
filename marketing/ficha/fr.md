@@ -3,9 +3,9 @@
 <!-- GENERADO por `npm run ficha:tienda` desde web/i18n/paginas/fr.mjs.
      No editar a mano: el cambio se hace en la landing y se regenera. -->
 
-## Nombre (17/30)
+## Nombre (8/30)
 
-Mind Planner Home
+MindHaOS
 
 ## Subtítulo (30/30)
 
@@ -19,7 +19,7 @@ Ta vie, dans une maison 3D : habitudes, objectifs, finances, repas et plus.
 
 habitudes,objectifs,agenda,journal,budget,nutrition,sport,sommeil,étude,ia,assistant
 
-## Descripción (3589/4000)
+## Descripción (3687/4000)
 
 Organise tes habitudes, tes objectifs, tes finances, tes repas et plus dans une maison isométrique 3D où chaque pièce est une app.
 
@@ -38,7 +38,7 @@ UNE MAISON, PLEIN D’APPS
 • Tout-en-un, pour de vrai: Une seule app au lieu de vingt : repas, argent, sommeil, études, habitudes et objectifs sous le même toit — et qui se parlent entre elles, ce qu’aucune app isolée ne sait faire.
 • Elle n’expire pas si tu arrêtes de payer: Tu l’achètes une fois et elle est à toi. Les apps par abonnement s’éteignent dès que tu arrêtes de payer ; ici, si tu laisses l’IA, tu gardes la maison entière et toutes tes données sur ton appareil.
 • Des pièces qui sont des apps: Sport, cuisine, finances, sommeil, bibliothèque, langues, voyages, loisirs, méditation et plus : chaque pièce abrite une mini-app complète.
-• Un Studio pour créer: Quatre apps à part : Audio, Art, Écriture et Vidéo. Tu composes au piano roll et au clavier MIDI, tu peins et retouches des photos, tu écris des livres chapitre par chapitre et tu montes des vidéos à partir d’un script — et tu exportes ce que tu fais.
+• Un Studio pour créer: Quatre apps à part : Audio, Art, Écriture et Vidéo. Tu composes au piano roll et au clavier MIDI, tu peins et retouches des photos, tu écris des livres chapitre par chapitre et tu montes des vidéos à partir d’un script — et tu exportes ce que tu fais, ou tu publies une vidéo directement sur ton propre compte YouTube, TikTok, Facebook ou Instagram.
 • Assistant avec IA: Discute avec ton assistant : enregistre tes repas, crée des routines, planifie tes objectifs, génère des images et des modèles 3D. Ton premier mois arrive avec 700 crédits inclus ; ensuite, l’IA est optionnelle.
 • Synchronisation totale: Ta maison te suit sur le téléphone, la tablette et l’ordinateur. Tout est chiffré en transit et sauvegardé dans le cloud.
 • Ça se joue comme un jeu: Ton personnage vit de ton activité réelle : séries, badges, la Montagne de Sisyphe, véhicules, courses et mini-jeux.

@@ -1,10 +1,9 @@
 /** Textos del portal /cuenta en turco. Traducción del español de `web/src/cuenta.tsx`. */
 export const TEXTOS: Record<string, string> = {
-  'marca.nombre': 'Zihinsel Planlayıcı-Ev',
-  'marca.sub': 'Mind Planner Home',
+  'marca.nombre': 'MindHaOS',
   'marco.privacidad': 'Gizlilik',
   'marco.terminos': 'Koşullar',
-  'marco.titulo': 'Hesabım — Mind Planner Home',
+  'marco.titulo': 'Hesabım — MindHaOS',
   'comun.procesando': 'İşleniyor…',
   'oauth.google': 'Google ile devam et',
   'oauth.apple': 'Apple ile devam et',

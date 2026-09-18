@@ -128,6 +128,11 @@ export const MANUAL_ID: ManualTraducido = {
     '[Cómo funciona] la {rueda de herramientas}': '[Bagaimana cara kerja] {roda alat}',
     '[Cómo funciona] el {chat}': '[Bagaimana cara kerja] {chat}',
     '[@]{cocina} {ensalada de la comida}': '[@]{cocina} {salad buat makan siang}',
+    '[Abre] {ejemplo.com}': '[Buka] {contoh.com}',
+    '[Busca en internet] {recetas de pan}': '[Cari di internet] {resep roti}',
+    '[Historial]': '[Riwayat]',
+    '[Sitios]': '[Situs]',
+    '[Tiempo en internet]': '[Waktu di internet]',
   },
   atajos: {
     'Caminar (también con las flechas)': 'Jalan (bisa juga pakai tombol panah)',

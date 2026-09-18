@@ -137,11 +137,22 @@ export const cuerpoProximo: CuerpoTutorial = {
         'Una ruta encadena lugares en orden y los dibuja en el mapa. La de Japón es el recorrido que ya hizo; la de Corea, el que quiere hacer.',
       ),
     },
+    {
+      sel: 'sala.tab.navegar',
+      titulo: T('tut.app-sala--esencial.6.titulo', 'Cómo llegar'),
+      texto: T(
+        'tut.app-sala--esencial.6.texto',
+        'Un navegador puerta a puerta: elige origen y destino y combina caminar, transporte público, bici y auto en un mismo trayecto, con el mapa de calles e indicaciones paso a paso.',
+      ),
+      alEntrar: () => {
+        clickTut('sala.tab.navegar')
+      },
+    },
   ],
 }
 
 /**
- * ESENCIAL: corre en la casa real y recorre los cuatro menús de la sala uno
+ * ESENCIAL: corre en la casa real y recorre los cinco menús de la sala uno
  * por uno. Sin datos de por medio: sus anclas son las pestañas, que existen
  * con la BD vacía.
  */
@@ -154,7 +165,7 @@ export const cuerpoEsencial: CuerpoTutorial = {
       titulo: T('tut.app-sala--esencial.1.titulo', 'Tu sala de viajes'),
       texto: T(
         'tut.app-sala--esencial.1.texto',
-        'Aquí vive tu mundo viajero: un mapamundi con pines, itinerarios de lugares por conocer, rutas que encadenan lugares y una bitácora de recuerdos. Son cuatro menús.',
+        'Aquí vive tu mundo viajero: un mapamundi con pines, itinerarios de lugares por conocer, rutas que encadenan lugares, un navegador para llegar a cualquier sitio y una bitácora de recuerdos. Son cinco menús.',
       ),
     },
     {

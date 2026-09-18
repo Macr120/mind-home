@@ -64,6 +64,8 @@ export interface PiezaColocada {
   /** Cantos YA remapeados a la orientación en la hoja. */
   cantos: { arriba: boolean; abajo: boolean; izq: boolean; der: boolean }
   color: string
+  /** Disco: se dibuja el círculo inscrito en su cuadrado. */
+  forma?: 'circular'
 }
 
 export interface SobranteCorte {
@@ -123,6 +125,7 @@ interface Unidad {
   veta: PiezaCorte['veta']
   cantos: PiezaCorte['cantos']
   color: string
+  forma?: PiezaCorte['forma']
 }
 
 interface Banda {
@@ -240,6 +243,7 @@ function colocada(u: Unidad, x: Mm, y: Mm, o: { w: Mm; h: Mm; rotada: boolean })
     rotada: o.rotada,
     cantos: cantosEnHoja(u.cantos, o.rotada),
     color: u.color,
+    ...(u.forma ? { forma: u.forma } : {}),
   }
 }
 
@@ -343,6 +347,7 @@ export function planificarCorte(despiece: Despiece, parciales?: Partial<Opciones
           veta: p.veta,
           cantos: p.cantos,
           color: p.color,
+          forma: p.forma,
         })
       }
     }

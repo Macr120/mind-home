@@ -11,6 +11,8 @@ import { COLOR } from './constantes'
 import { OP_EXPANDIR } from './costosIA'
 import { desarrollarIdea, ideasComplementarias } from './ia'
 import { EntradasQueUsan } from '../_shared/EntradasQueUsan'
+import { BotonEnviarAContacto } from '../_shared/BotonEnviarAContacto'
+import { empaquetarIdea } from './compartible'
 import { MoverIdeaDialog } from './MoverIdeaDialog'
 import { PanelSugerencias } from './PanelSugerencias'
 
@@ -81,17 +83,20 @@ export function IdeaDetalle({
         >
           ← {t('ideas.detalle.volver', 'Volver al diario')}
         </button>
-        <button
-          type="button"
-          onClick={() => setEncarpetando(true)}
-          className="flex shrink-0 items-center gap-1.5 rounded-lg bg-white/5 px-2.5 py-1.5 text-[11px] text-white/60 transition hover:bg-white/10 hover:text-white/90"
-          title={t('ideas.diario.encarpetar', 'Guardarla en una carpeta')}
-        >
-          <Icono nombre="carpeta" />
-          <span className="max-w-[10rem] truncate">
-            {nombreCarpeta ?? t('ideas.mover.raiz', 'Suelta en el diario')}
-          </span>
-        </button>
+        <div className="flex shrink-0 items-center gap-1.5">
+          {idea.id != null && <BotonEnviarAContacto pequeno empaquetar={() => empaquetarIdea(idea)} />}
+          <button
+            type="button"
+            onClick={() => setEncarpetando(true)}
+            className="flex shrink-0 items-center gap-1.5 rounded-lg bg-white/5 px-2.5 py-1.5 text-[11px] text-white/60 transition hover:bg-white/10 hover:text-white/90"
+            title={t('ideas.diario.encarpetar', 'Guardarla en una carpeta')}
+          >
+            <Icono nombre="carpeta" />
+            <span className="max-w-[10rem] truncate">
+              {nombreCarpeta ?? t('ideas.mover.raiz', 'Suelta en el diario')}
+            </span>
+          </button>
+        </div>
       </div>
 
       <div className="space-y-3 rounded-2xl border border-white/10 bg-white/5 p-4">

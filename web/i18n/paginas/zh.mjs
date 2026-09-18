@@ -1,7 +1,6 @@
 /** Textos de las páginas estáticas en chino simplificado. Traducción de `es.mjs`. */
 export const TEXTOS = {
-  'marca.nombre': '心智规划师-家',
-  'marca.sub': 'MPH',
+  'marca.nombre': 'MindHaOS',
   'nav.entrar': '登录',
   'nav.descargar': '下载',
   'pie.inicio': '首页',
@@ -11,7 +10,7 @@ export const TEXTOS = {
   'pie.contacto': '联系',
   'tema.boton': '浅色或深色模式',
 
-  'meta.titulo': 'Mind Planner Home — 你的心智，装进一座 3D 房子',
+  'meta.titulo': 'MindHaOS — 你的心智，装进一座 3D 房子',
   'meta.desc':
     '在一座等距 3D 房子里整理习惯、目标、财务、饮食等等，每个房间就是一个应用。一次性支付 8.99 美元，首月含 AI 和同步；免费试用。',
   'og.desc':
@@ -110,7 +109,7 @@ export const TEXTOS = {
   'ia.local.nota': '语音和图片仍然需要云端服务商，除非你的本地模型自己就能生成。',
 
   'mani.h2': '把你的人生，做成一款游戏',
-  'mani.p1': 'MPH 是把你的人生变成电子游戏的样子，而且是在最舒服的地方玩——你自己的家。升级和升段位不是装饰，那是你在外面做过的事，在这里被讲了出来。',
+  'mani.p1': 'MindHaOS 是把你的人生变成电子游戏的样子，而且是在最舒服的地方玩——你自己的家。升级和升段位不是装饰，那是你在外面做过的事，在这里被讲了出来。',
   'mani.p2': '在这里你拓展新的能力，掌握自己的资源，让技术站在你这边。对抗短视频里那种无意识的消费。对抗大公司强加的消费习惯留下的认知退化。',
   'mani.cierre': '同样的多巴胺。这一次，给你真实的人生。',
 
@@ -183,7 +182,7 @@ export const TEXTOS = {
   'priv.titulo': '隐私政策',
   'priv.quienes.h': '我们是谁',
   'priv.quienes.p':
-    'Mind Planner Home（「本应用」）是一款个人整理应用。联系方式：<a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>。',
+    'MindHaOS（「本应用」）是一款个人整理应用。联系方式：<a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>。',
   'priv.datos.h': '我们收集哪些数据',
   'priv.datos.1':
     '<strong>账户：</strong>你的邮箱和一份加密的密码，由 Supabase（我们的后端服务商）管理。',
@@ -199,7 +198,7 @@ export const TEXTOS = {
     '<strong>健康与身心数据：</strong>你记录的运动、饮食、用药、就医和生理周期等内容，会像其他应用数据一样为你保存；绝不出售，也不用于广告。',
   'priv.salud.h': '健康功能的范围',
   'priv.salud.p':
-    'Mind Planner Home 是个人日程应用，不是医疗应用。它的健康功能只是你自己填写的记录和提醒：本应用不做诊断，不解读症状，不推荐剂量或治疗方案，不检查药物相互作用，也不能替代向医疗专业人员咨询。生理周期的预测仅依据你输入的数据计算，仅供参考。它不是医疗产品或医疗器械，也不会连接病历、保险公司或医疗机构。',
+    'MindHaOS 是个人日程应用，不是医疗应用。它的健康功能只是你自己填写的记录和提醒：本应用不做诊断，不解读症状，不推荐剂量或治疗方案，不检查药物相互作用，也不能替代向医疗专业人员咨询。生理周期的预测仅依据你输入的数据计算，仅供参考。它不是医疗产品或医疗器械，也不会连接病历、保险公司或医疗机构。',
   'priv.uso.h': '我们用它们做什么',
   'priv.uso.1': '让你能访问自己的账户、购买和订阅。',
   'priv.uso.2': '在设备之间同步并备份你的数据。',
@@ -211,7 +210,7 @@ export const TEXTOS = {
     '我们集成的服务在你使用时可能会在你的设备上保存或读取信息：登录以及授权 YouTube API Services 时的 Google（参见 <a href="https://policies.google.com/technologies/cookies">Google Cookie 政策</a>），连接相应账号时的 TikTok 和 Meta 也是如此。这些信息由它们按照各自的政策管理。',
   'priv.redes.h': '已连接的社交媒体账号',
   'priv.redes.p':
-    '如果你连接 YouTube、TikTok、Facebook 或 Instagram 账号，我们会把该平台交给我们的访问令牌加密保存在服务器上，同时保存你所选账号或主页的名称和头像。它们只用于在你点击发布的那一刻，把你在视频编辑器里决定发布的视频发到你自己的账号。我们不会读取你的视频、帖子、评论、私信或这些账号的任何其他数据，也绝不会自行发布任何内容。令牌会一直保存，直到你在设置 → 已连接账号里断开连接，或删除你的 Mind Planner Home 账号；你也可以在各平台的安全设置里撤销授权（Google：<a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>）。',
+    '如果你连接 YouTube、TikTok、Facebook 或 Instagram 账号，我们会把该平台交给我们的访问令牌加密保存在服务器上，同时保存你所选账号或主页的名称和头像。它们只用于在你点击发布的那一刻，把你在视频编辑器里决定发布的视频发到你自己的账号。我们不会读取你的视频、帖子、评论、私信或这些账号的任何其他数据，也绝不会自行发布任何内容。令牌会一直保存，直到你在设置 → 已连接账号里断开连接，或删除你的 MindHaOS 账号；你也可以在各平台的安全设置里撤销授权（Google：<a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>）。',
   'priv.redes.youtube':
     '就 YouTube 而言，本应用使用 YouTube API Services；连接账号即表示你接受 <a href="https://www.youtube.com/t/terms">YouTube 服务条款</a>，并适用 <a href="https://policies.google.com/privacy">Google 隐私权政策</a>。',
 
@@ -240,7 +239,7 @@ export const TEXTOS = {
   'term.titulo': '服务条款',
   'term.servicio.h': '服务',
   'term.servicio.p':
-    'Mind Planner Home 是一款个人整理应用。试用免费且不需要账户。应用以一次性付款购买；周期性功能（AI 额度和同步）仅在本网站订购；桌面版和商店版应用都是同一账户的客户端。',
+    'MindHaOS 是一款个人整理应用。试用免费且不需要账户。应用以一次性付款购买；周期性功能（AI 额度和同步）仅在本网站订购；桌面版和商店版应用都是同一账户的客户端。',
   'term.app.h': '应用（一次性付款）',
   'term.app.1':
     '解锁应用：8.99 美元，一次性付款。在你的账户上永久解锁你的房子，不需续费。',

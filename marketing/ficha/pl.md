@@ -3,9 +3,9 @@
 <!-- GENERADO por `npm run ficha:tienda` desde web/i18n/paginas/pl.mjs.
      No editar a mano: el cambio se hace en la landing y se regenera. -->
 
-## Nombre (17/30)
+## Nombre (8/30)
 
-Mind Planner Home
+MindHaOS
 
 ## Subtítulo (20/30)
 
@@ -19,7 +19,7 @@ Twoje życie w domu 3D: nawyki, cele, finanse, posiłki i więcej.
 
 nawyki,cele,planer,dziennik,budżet,dieta,trening,sen,nauka,ai,asystent,organizer
 
-## Descripción (3320/4000)
+## Descripción (3414/4000)
 
 Uporządkuj nawyki, cele, finanse, posiłki i więcej w izometrycznym domu 3D, w którym każdy pokój to aplikacja.
 
@@ -38,7 +38,7 @@ JEDEN DOM, WIELE APLIKACJI
 • Naprawdę wszystko w jednym: Jedna aplikacja zamiast dwudziestu: jedzenie, pieniądze, sen, nauka, nawyki i cele pod jednym dachem — i połączone ze sobą, czego osobne aplikacje nie potrafią.
 • Nie wygasa, gdy przestaniesz płacić: Kupujesz raz i jest twoja. Aplikacje abonamentowe gasną, gdy tylko przestaniesz płacić; tutaj, nawet jeśli zrezygnujesz z SI, zostaje ci cały dom i wszystkie dane na urządzeniu.
 • Pokoje, które są aplikacjami: Ćwiczenia, kuchnia, finanse, sen, biblioteka, języki, podróże, hobby, uważność i więcej: w każdym pokoju mieszka kompletna mini-aplikacja.
-• Studio do tworzenia: Cztery osobne aplikacje: Dźwięk, Sztuka, Pisanie i Wideo. Komponujesz na piano rollu i klawiaturze MIDI, malujesz i poprawiasz zdjęcia, piszesz książki rozdział po rozdziale i montujesz filmy ze scenariusza — a wszystko eksportujesz.
+• Studio do tworzenia: Cztery osobne aplikacje: Dźwięk, Sztuka, Pisanie i Wideo. Komponujesz na piano rollu i klawiaturze MIDI, malujesz i poprawiasz zdjęcia, piszesz książki rozdział po rozdziale i montujesz filmy ze scenariusza — a wszystko eksportujesz albo publikujesz film prosto na swoim koncie w YouTube, TikToku, Facebooku czy na Instagramie.
 • Asystent ze sztuczną inteligencją: Rozmawiaj z asystentem: zapisuj posiłki, twórz rutyny, planuj cele, generuj obrazy i modele 3D. Pierwszy miesiąc ma w cenie 700 kredytów; potem SI jest opcjonalna.
 • Pełna synchronizacja: Dom idzie z tobą na telefon, tablet i komputer. Wszystko szyfrowane w przesyle i backupowane w chmurze.
 • Czuć w tym grę: Twoja postać żyje twoją prawdziwą aktywnością: serie, odznaki, Góra Syzyfa, pojazdy, wyścigi i minigry.

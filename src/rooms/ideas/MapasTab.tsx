@@ -13,6 +13,8 @@ import { ejemploDe } from './ejemplos'
 import { MatrizDecision } from './MatrizDecision'
 import { defTipo, tiposDe } from './tiposMapa'
 import { EntradasQueUsan } from '../_shared/EntradasQueUsan'
+import { BotonEnviarAContacto } from '../_shared/BotonEnviarAContacto'
+import { empaquetarMapa } from './compartible'
 import { LienzoMapa } from './LienzoMapa'
 import { Creditos } from '../../core/ui/Creditos'
 import { OP_MAPA } from './costosIA'
@@ -109,6 +111,7 @@ export function MapasTab({ familia }: { familia: 'mapas' | 'diagramas' }) {
           <span className="shrink-0 rounded-full bg-white/10 px-2 py-0.5 text-[11px] text-white/55">
             <Icono nombre={d.icono} /> {t(`ideas.tipo.${d.id}`, d.nombreEs)}
           </span>
+          <BotonEnviarAContacto pequeno empaquetar={() => empaquetarMapa(mapaAbierto)} />
         </div>
 
         <EntradasQueUsan tipo="mapa" id={mapaAbierto.id} className="shrink-0" />

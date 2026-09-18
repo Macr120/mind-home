@@ -7,6 +7,8 @@ import { MiniaturaEjercicio } from './MiniaturaEjercicio'
 import { normalizarEjercicio } from './stats'
 import { nombreEjercicio, nombreRutina, descRutina } from './nombres'
 import { acento as estiloAcento } from '../_shared/acento'
+import { BotonEnviarAContacto } from '../_shared/BotonEnviarAContacto'
+import { empaquetarRutina } from './compartible'
 
 /**
  * La tarjeta de una rutina del catálogo, con su horario. Es la misma en Fuerza,
@@ -63,6 +65,7 @@ export function TarjetaRutina({
             </p>
           )}
         </div>
+        {rutina.id != null && <BotonEnviarAContacto pequeno empaquetar={() => empaquetarRutina(tipo, rutina)} />}
         <button
           type="button"
           onClick={onBorrar}

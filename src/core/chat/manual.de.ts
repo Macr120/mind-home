@@ -94,6 +94,11 @@ export const MANUAL_DE: ManualTraducido = {
     '[Abre las configuraciones]': '[Öffne die Einstellungen]',
     '[Recuerda que] {soy vegetariano}': '[Merk dir, dass] {ich Vegetarier bin}',
     '[@]{cocina} {ensalada de la comida}': '[@]{cocina} {Salat zum Mittagessen}',
+    '[Abre] {ejemplo.com}': '[Öffne] {beispiel.de}',
+    '[Busca en internet] {recetas de pan}': '[Such im Internet] {Brotrezepte}',
+    '[Historial]': '[Verlauf]',
+    '[Sitios]': '[Seiten]',
+    '[Tiempo en internet]': '[Zeit im Internet]',
   },
   atajos: {
     'Caminar (también con las flechas)': 'Gehen (auch mit den Pfeiltasten)',

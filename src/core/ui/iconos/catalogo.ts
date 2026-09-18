@@ -205,6 +205,21 @@ export const EMOJIS = {
   boleto: '🎫',
   companeros: '👥',
   auto: '🚗',
+  // «Cómo llegar»: modos de los tramos, controles del buscador e indicaciones.
+  navegar: '🛣️',
+  caminar: '🚶',
+  bus: '🚌',
+  tren: '🚆',
+  metro: '🚇',
+  tranvia: '🚋',
+  ferry: '⛴️',
+  miUbicacion: '📡',
+  invertir: '⇅',
+  vueltaIzq: '↰',
+  vueltaDer: '↱',
+  recto: '⬆️',
+  vueltaU: '↩️',
+  rotonda: '🔃',
 
   // — Agenda (trabajo, salud y personas) —
   agenda: '🗓️',
@@ -594,6 +609,9 @@ export const EMOJIS = {
   acercar: '🔍',
   alejar: '🔎',
   contraer: '⤡',
+  // Buzón (mensajería entre usuarios)
+  buzon: '📬',
+  adjuntar: '📎',
 } satisfies Record<string, string>
 
 export type NombreIcono = keyof typeof EMOJIS

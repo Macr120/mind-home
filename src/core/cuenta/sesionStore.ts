@@ -80,6 +80,12 @@ interface SesionState {
   ilimitado: boolean
   /** Saldo suelto que quede de las recargas viejas (perfiles.creditos_extra). */
   creditosExtra: number
+  /** Identidad pública del buzón (perfiles.alias/nombre/emoji); alias null = aún sin elegir. */
+  alias: string | null
+  nombre: string
+  emoji: string
+  /** Busto del personaje 3D ya subido (data URL); null = aún sin capturar. */
+  retrato: string | null
   usoIA: UsoIA | null
   estadoSync: EstadoSync
   ultimaSync: number | null
@@ -150,6 +156,10 @@ export const useSesion = create<SesionState>((set, get) => ({
   nivel: 1,
   ilimitado: false,
   creditosExtra: 0,
+  alias: null,
+  nombre: '',
+  emoji: '🙂',
+  retrato: null,
   usoIA: null,
   estadoSync: 'inactivo',
   ultimaSync: null,
@@ -265,7 +275,7 @@ export const useSesion = create<SesionState>((set, get) => ({
     if (!sb || !usuario) return
     const { data } = await sb
       .from('perfiles')
-      .select('plan, plan_expira, fue_pro, creditos_extra, unlock, nivel, ilimitado')
+      .select('plan, plan_expira, fue_pro, creditos_extra, unlock, nivel, ilimitado, alias, nombre, emoji, retrato')
       .eq('user_id', usuario.id)
       .maybeSingle()
     if (!data) return
@@ -282,6 +292,10 @@ export const useSesion = create<SesionState>((set, get) => ({
       nivel: (data.nivel as number | null) ?? 1,
       ilimitado: data.ilimitado === true,
       creditosExtra: (data.creditos_extra as number | null) ?? 0,
+      alias: (data.alias as string | null) ?? null,
+      nombre: (data.nombre as string | null) ?? '',
+      emoji: (data.emoji as string | null) || '🙂',
+      retrato: (data.retrato as string | null) ?? null,
     })
   },
 
@@ -425,6 +439,10 @@ export function iniciarSesion(): void {
           nivel: 1,
           ilimitado: false,
           creditosExtra: 0,
+          alias: null,
+          nombre: '',
+          emoji: '🙂',
+          retrato: null,
           usoIA: null,
         })
       } else if (usuario && (evento === 'SIGNED_IN' || evento === 'USER_UPDATED')) {

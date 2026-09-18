@@ -1,10 +1,9 @@
 /** Textos del portal /cuenta en indonesio. Traducción del español de `web/src/cuenta.tsx`. */
 export const TEXTOS: Record<string, string> = {
-  'marca.nombre': 'Perencana Mental-Rumah',
-  'marca.sub': 'Mind Planner Home',
+  'marca.nombre': 'MindHaOS',
   'marco.privacidad': 'Privasi',
   'marco.terminos': 'Ketentuan',
-  'marco.titulo': 'Akun saya — Mind Planner Home',
+  'marco.titulo': 'Akun saya — MindHaOS',
   'comun.procesando': 'Memproses…',
   'oauth.google': 'Lanjut dengan Google',
   'oauth.apple': 'Lanjut dengan Apple',

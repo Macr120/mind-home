@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Mind Planner Home</string>
+	<string>MindHaOS</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -86,6 +86,9 @@
 	<!-- Los <input type="file"> de fotos: anecdotario, viajes, texturas, chat. -->
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>To pick photos for your memories, your rooms and the chat.</string>
+	<!-- «Cómo llegar» (`rooms/sala/navegacion`) y el cardio en vivo del ejercicio. -->
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>To show your position on the map, guide you along a route and track your outdoor workouts.</string>
 
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

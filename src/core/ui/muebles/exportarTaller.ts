@@ -80,8 +80,8 @@ export async function imprimirPlanCorte(
       const filas = h.piezas
         .map(
           (p) =>
-            `<tr><td>${esc(p.etiqueta)}</td><td>${esc(p.nombreEs)}</td><td class="num">${p.ancho} × ${
-              p.alto
+            `<tr><td>${esc(p.etiqueta)}</td><td>${esc(p.nombreEs)}</td><td class="num">${
+              p.forma === 'circular' ? `Ø ${p.ancho}` : `${p.ancho} × ${p.alto}`
             }</td></tr>`,
         )
         .join('')

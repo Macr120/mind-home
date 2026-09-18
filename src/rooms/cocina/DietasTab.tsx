@@ -16,6 +16,8 @@ import { normalizar } from '../../core/chat/dispatcher'
 import { Creditos } from '../../core/ui/Creditos'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { BotonEnviarAContacto } from '../_shared/BotonEnviarAContacto'
+import { empaquetarDieta } from './compartible'
 
 /** Las dietas no tienen emoji propio: usan el de su primera receta. */
 function emojiDieta(dieta: DietaGuardada, recetas: Receta[]): string {
@@ -310,6 +312,7 @@ function DetalleDieta({
         >
           {t('chat.eliminar', 'Eliminar')}
         </button>
+        <BotonEnviarAContacto pequeno empaquetar={() => empaquetarDieta(dieta, recetas)} />
       </div>
 
       <ImagenCocina

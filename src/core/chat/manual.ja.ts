@@ -116,6 +116,11 @@ export const MANUAL_JA: ManualTraducido = {
     '[Recuerda que] {soy vegetariano}': '{ベジタリアンです}と[覚えておいて]',
     '[Cómo funciona] la {rueda de herramientas}': '{ツールホイール}は[どう使いますか]',
     '[@]{cocina} {ensalada de la comida}': '[@]{cocina} {昼食のサラダ}',
+    '[Abre] {ejemplo.com}': '{example.com} を[開いて]',
+    '[Busca en internet] {recetas de pan}': '{パンのレシピ} を[ネットで調べて]',
+    '[Historial]': '[履歴]',
+    '[Sitios]': '[サイト]',
+    '[Tiempo en internet]': '[ネットの利用時間]',
   },
   atajos: {
     'Caminar (también con las flechas)': '歩く（矢印キーでも）',

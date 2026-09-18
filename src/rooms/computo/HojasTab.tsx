@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import type { HojaCalculo } from '../../core/data/db'
 import { VACIO, hojasRepo, useHoja } from '../../core/data/repository'
 import { EntradasQueUsan } from '../_shared/EntradasQueUsan'
+import { BotonEnviarAContacto } from '../_shared/BotonEnviarAContacto'
+import { empaquetarHoja } from './compartible'
 import { useT } from '../../core/i18n/useT'
 import { confirmar, pedirTexto } from '../../core/state/confirmarStore'
 import { intencionApp } from '../../core/state/intencionApp'
@@ -269,6 +271,7 @@ export function HojasTab() {
                 {t('computo.hojas.celdas', '{n} celdas', { n: String(Object.keys(h.celdas).length) })}
               </span>
             </button>
+            <BotonEnviarAContacto pequeno empaquetar={() => empaquetarHoja(h)} />
             <BotonHoja icono="duplicar" etiqueta={t('computo.hojas.duplicar', 'Duplicar')} onClick={() => void duplicar(h)} />
             <BotonHoja icono="basura" etiqueta={t('computo.hojas.borrarCorto', 'Borrar')} onClick={() => void borrar(h)} />
           </div>

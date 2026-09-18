@@ -106,6 +106,7 @@ export function despiezar(c: Cuerpo, m: Mueble): Despiece {
           x.materialId === materialId &&
           x.veta === veta &&
           x.color === p.color &&
+          (x.forma === 'circular') === (p.disco === true) &&
           x.cantos.arriba === cantos.arriba &&
           x.cantos.abajo === cantos.abajo &&
           x.cantos.izq === cantos.izq &&
@@ -129,6 +130,7 @@ export function despiezar(c: Cuerpo, m: Mueble): Despiece {
         veta,
         color: p.color,
         nota: p.nota,
+        ...(p.disco ? { forma: 'circular' as const } : {}),
       })
     } else if (p.hechoDe === 'tubo') {
       const largo = Math.round(Math.max(p.dx, p.dy, p.dz))
@@ -167,7 +169,15 @@ export function despiezar(c: Cuerpo, m: Mueble): Despiece {
   const cantoMl: Despiece['cantoMl'] = []
   const areaM2: Despiece['areaM2'] = []
   for (const t of tableros) {
-    const ml = mlCanto(t.ancho, t.alto, t.cantos) * t.cantidad
+    // Un disco se cantea entero o nada: su canto es la circunferencia.
+    const conCanto = t.cantos.arriba || t.cantos.abajo || t.cantos.izq || t.cantos.der
+    const mlUnidad =
+      t.forma === 'circular'
+        ? conCanto
+          ? (Math.PI * t.ancho) / 1000
+          : 0
+        : mlCanto(t.ancho, t.alto, t.cantos)
+    const ml = mlUnidad * t.cantidad
     if (ml > 0) {
       acumular(
         cantoMl,

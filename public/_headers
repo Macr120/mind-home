@@ -1,4 +1,4 @@
-# Cabeceras de seguridad de la APP (app.mindplannerhome.com; formato Netlify /
+# Cabeceras de seguridad de la APP (app.mindhaos.com; formato Netlify /
 # Cloudflare Pages; inerte en Capacitor y Electron, que sirven por su propio
 # esquema y no leen este archivo).
 #

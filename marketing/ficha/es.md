@@ -3,9 +3,9 @@
 <!-- GENERADO por `npm run ficha:tienda` desde web/i18n/paginas/es.mjs.
      No editar a mano: el cambio se hace en la landing y se regenera. -->
 
-## Nombre (17/30)
+## Nombre (8/30)
 
-Mind Planner Home
+MindHaOS
 
 ## Subtítulo (24/30)
 
@@ -19,7 +19,7 @@ Tu vida, en una casa 3D: hábitos, metas, finanzas, comidas y más.
 
 hábitos,metas,agenda,diario,finanzas,nutrición,ejercicio,sueño,estudio,ia,asistente,organizar
 
-## Descripción (3197/4000)
+## Descripción (3287/4000)
 
 Organiza tus hábitos, metas, finanzas, comidas y más en una casa isométrica 3D donde cada cuarto es una app.
 
@@ -38,7 +38,7 @@ UNA CASA, MUCHAS APPS
 • Todo en uno, de verdad: Una sola app en lugar de veinte: comida, dinero, descanso, estudio, hábitos y metas bajo el mismo techo — y hablándose entre ellas, que es justo lo que ninguna app suelta puede hacer.
 • No caduca si dejas de pagar: La compras una vez y es tuya. Las apps de suscripción se apagan en cuanto dejas de pagarlas; aquí, si dejas la IA, conservas la casa entera y todos tus datos en tu dispositivo.
 • Cuartos que son apps: Ejercicio, cocina, finanzas, descanso, biblioteca, idiomas, viajes, hobbies, mindfulness y más: cada cuarto guarda una mini-app completa.
-• Un Studio para crear: Cuatro apps aparte: Audio, Arte, Escritura y Video. Compones con piano roll y teclado MIDI, pintas y retocas fotos, escribes libros por capítulos y montas videos por guion — y exportas lo que hagas.
+• Un Studio para crear: Cuatro apps aparte: Audio, Arte, Escritura y Video. Compones con piano roll y teclado MIDI, pintas y retocas fotos, escribes libros por capítulos y montas videos por guion — y exportas lo que hagas, o publicas un video directo en tu propia cuenta de YouTube, TikTok, Facebook o Instagram.
 • Asistente con IA: Chatea con tu asistente: captura comidas, crea rutinas, planea metas, genera imágenes y modelos 3D. Tu primer mes trae 700 créditos incluidos; después la IA es opcional.
 • Sincronización total: Tu casa te sigue al teléfono, la tablet y la computadora. Todo cifrado en tránsito y respaldado en la nube.
 • Se siente como un juego: Tu personaje vive de tu actividad real: rachas, insignias, la Montaña de Sísifo, vehículos, carreras y minijuegos.

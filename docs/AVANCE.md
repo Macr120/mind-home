@@ -40,7 +40,7 @@ cuarto. No hay cuadrícula fija ni campo `posicion`: eso era el modelo de 2025.
 
 ---
 
-## Datos — Dexie **v137**
+## Datos — Dexie **v142**
 
 `db.ts` es el único punto que toca IndexedDB; las apps usan los repos de `repository.ts`.
 149 tablas declaradas, 131 sincronizables.
@@ -66,6 +66,15 @@ calendario no es un cuarto: vive en el reloj del HUD.
 
 De infraestructura (se construyen en el mapa, `tipo: 'infraestructura'`): Caminos, Canchas,
 Huerto, Granja y Paintball.
+
+**Sala · «Cómo llegar» (sep 2026)**: quinta pestaña de la sala de viajes, un navegador
+multimodal tipo Google Maps (`src/rooms/sala/navegacion/`): origen y destino con buscador,
+«Mi ubicación» y toque en el mapa; chips de modos combinables (caminar, bici, auto, transporte
+público: con transporte, la bici o el auto llevan a la estación —park & ride—); mapa de calles
+con Leaflet (carga perezosa); alternativas con cadena de modos; detalle por tramos con
+maniobras y paradas; **navegación en vivo** (GPS, instrucción grande, voz, fuera de ruta →
+recalcular); trayectos guardados sin conexión (tabla `trayectosViaje`, v142). Todo con la API
+de HERE bajo `VITE_HERE_KEY` (ver [`docs/HERE.md`](HERE.md)).
 
 ---
 

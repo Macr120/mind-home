@@ -10,6 +10,7 @@ import { TABLAS_SYNC, filaSeed } from './sync/syncables'
 import { haySandboxDemoSucio } from '../../demo/modo'
 import type { Idioma } from '../i18n/idiomas'
 import type { EmocionId } from '../chat/emociones'
+import type { Contacto, MensajeBuzon } from '../buzon/tipos'
 import type { PresetAnimacionId } from '../house/animacion'
 
 /**
@@ -964,6 +965,73 @@ export interface ItinerarioGuardado {
   creadoEn: string
 }
 
+/** Punto con nombre de un trayecto de navegación (origen, destino o parada). */
+export interface PuntoNav {
+  nombre: string
+  lat: number
+  lng: number
+}
+
+/** Maniobra de un tramo a pie/bici/auto («Gira a la izquierda en Calle Madero»). */
+export interface PasoNav {
+  /** Instrucción ya en el idioma del usuario (la traduce el servicio de rutas). */
+  texto: string
+  /** Acción de HERE: depart, arrive, turn, keep, continue, uTurn, roundaboutEnter… */
+  accion: string
+  /** left / right / middle, en las maniobras que giran. */
+  direccion?: string
+  /** Metros hasta la siguiente maniobra. */
+  distancia: number
+  /** Índice del punto de `puntos` de su tramo donde empieza la maniobra. */
+  desde: number
+}
+
+/** Tramo de un itinerario: uno por cambio de modo o de línea. */
+export interface PiernaNav {
+  /** Modo de HERE: pedestrian, bicycle, car, bus, subway, lightRail, regionalTrain, ferry… */
+  modo: string
+  de: PuntoNav
+  a: PuntoNav
+  /** ISO. */
+  salida: string
+  llegada: string
+  /** Segundos. */
+  duracion: number
+  /** Metros (solo tramos de calle). */
+  distancia?: number
+  /** Trazo [lat, lng] ya decodificado, para pintarlo sin red. */
+  puntos: [number, number][]
+  pasos?: PasoNav[]
+  /** Transporte público: línea, letrero de destino, color de la línea y paradas intermedias. */
+  linea?: string
+  destinoLinea?: string
+  color?: string
+  agencia?: string
+  paradas?: PuntoNav[]
+}
+
+/** Itinerario completo tal como lo devolvió el planificador (congelado al guardar). */
+export interface ItinerarioNav {
+  salida: string
+  llegada: string
+  /** Segundos. */
+  duracion: number
+  transbordos: number
+  piernas: PiernaNav[]
+}
+
+/** Trayecto de «Cómo llegar» guardado por el usuario: sobrevive sin conexión. */
+export interface TrayectoViaje {
+  id?: number
+  nombre: string
+  origen: PuntoNav
+  destino: PuntoNav
+  /** Modos elegidos al calcularlo: caminar, bici, auto, transporte. */
+  modos: string[]
+  itinerario: ItinerarioNav
+  creadoEn: string
+}
+
 /** Recuerdo de la bitácora de viajes: foto y anécdota de un lugar visitado. */
 export interface RecuerdoViaje {
   id?: number
@@ -1308,6 +1376,69 @@ export interface VisitaWeb {
   /** Instante de apertura (ISO completo, con hora). */
   inicio: string
   duracionSeg?: number
+  /**
+   * Dominio registrable (`sitioDe`), para agrupar por sitio. Lo escriben las
+   * visitas desde la v144; en las anteriores falta y se calcula al leer (no se
+   * rellena con un upgrade: pasaría por el middleware y re-subiría todas).
+   */
+  host?: string
+}
+
+/**
+ * Página vista en el navegador de la app: UNA fila por URL (`veces` acumula).
+ * Local por defecto; el sync es opcional y se decide en runtime (ver
+ * `esTablaSync` en `sync/syncables.ts`), por eso ya lleva `&uid`.
+ */
+export interface HistorialWeb {
+  id?: number
+  url: string
+  /** Dominio registrable (`sitioDe`). */
+  host: string
+  titulo?: string
+  /** Última vez vista (ISO completo). */
+  visto: string
+  veces: number
+  uid?: string
+}
+
+/**
+ * Ficha de un sitio (dominio registrable): categoría, favicon, favorito y
+ * límite diario. Nace sin categoría: mientras el usuario o la IA no la fijen,
+ * manda el diccionario de fábrica (`navegador/categoriasWeb.ts`).
+ */
+export interface SitioWeb {
+  id?: number
+  host: string
+  nombre?: string
+  /** Clave de categoría (fija o `c-…` propia); ausente = según el diccionario. */
+  categoria?: string
+  /** La categoría la puso la IA (el usuario puede corregirla). */
+  porIA?: boolean
+  /** Data URL pequeño (≤ 12 KB) que manda el shell; sin él, icono genérico. */
+  favicon?: string
+  favorito?: boolean
+  /** Minutos al día a partir de los que el asistente avisa. */
+  limiteMin?: number
+  actualizadoEn: string
+  uid?: string
+}
+
+/**
+ * Categoría de sitios web tocada por el usuario: una de fábrica renombrada o
+ * con límite (`clave` fija) o una propia (`clave` = `c-<uid>`). Las de fábrica
+ * intactas no tienen fila.
+ */
+export interface CategoriaWeb {
+  id?: number
+  clave: string
+  nombre?: string
+  emoji?: string
+  color?: string
+  orden: number
+  /** Minutos al día para toda la categoría. */
+  limiteMin?: number
+  actualizadoEn: string
+  uid?: string
 }
 
 /**
@@ -4357,6 +4488,7 @@ class MindHomeDB extends Dexie {
   portadasViaje!: Table<PortadaViaje, number>
   portadasLugar!: Table<PortadaLugar, number>
   itinerariosGuardados!: Table<ItinerarioGuardado, number>
+  trayectosViaje!: Table<TrayectoViaje, number>
   sesionesMindfulness!: Table<SesionMindfulness, number>
   registroAnimo!: Table<RegistroAnimo, number>
   gratitudDiaria!: Table<GratitudDiaria, number>
@@ -4455,6 +4587,9 @@ class MindHomeDB extends Dexie {
   hojasCalculo!: Table<HojaCalculo, number>
   calculosComputo!: Table<CalculoComputo, number>
   visitasWeb!: Table<VisitaWeb, number>
+  historialWeb!: Table<HistorialWeb, number>
+  sitiosWeb!: Table<SitioWeb, number>
+  categoriasWeb!: Table<CategoriaWeb, number>
   dibujos!: Table<Dibujo, number>
   documentos!: Table<Documento, number>
   historias!: Table<Historia, number>
@@ -4474,6 +4609,9 @@ class MindHomeDB extends Dexie {
   _outbox!: Table<EntradaOutbox, number>
   _syncMeta!: Table<SyncMeta, string>
   _pendientes!: Table<PendienteSync, number>
+  // Caché local del buzón (prefijo `_`: ni respaldo ni sync; la verdad vive en el servidor).
+  _buzonContactos!: Table<Contacto, string>
+  _buzonMensajes!: Table<MensajeBuzon, number>
 
   constructor() {
     // En los modos demo y probar se abre una BD PARALELA: la casa de Pep@ (o la
@@ -6096,6 +6234,27 @@ class MindHomeDB extends Dexie {
       materialesTaller: '++id, tipo, orden, &clave, &uid',
       ajustesCotizacion: '++id, &uid',
       presupuestosMueble: '++id, muebleId, actualizadoEn, &uid',
+    })
+    // v142: trayectos guardados de «Cómo llegar» (sala de viajes): el itinerario
+    // viaja congelado dentro de la fila para verlo sin conexión.
+    this.version(142).stores({
+      trayectosViaje: '++id, creadoEn, &uid',
+    })
+    // v143: caché del buzón (mensajería entre usuarios). Nace vacía: sin upgrade.
+    this.version(143).stores({
+      _buzonContactos: 'contactoId, estado, hiloId',
+      _buzonMensajes: '++id, &uid, hiloId, [hiloId+creadoEn], serverSeq',
+    })
+    // v144: navegador v2. Historial por página (una fila por URL; local salvo
+    // que el usuario encienda su sync), ficha por sitio (categoría, favicon,
+    // favorito, límite) y categorías propias. `visitasWeb` gana el índice
+    // `host` para agrupar por sitio (las filas viejas no lo llevan: se calcula
+    // al leer). Las tres nacen vacías: sin `.upgrade()`.
+    this.version(144).stores({
+      visitasWeb: '++id, url, inicio, host, &uid',
+      historialWeb: '++id, url, host, visto, &uid',
+      sitiosWeb: '++id, &host, categoria, actualizadoEn, &uid',
+      categoriasWeb: '++id, &clave, orden, &uid',
     })
   }
 }

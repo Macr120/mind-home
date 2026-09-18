@@ -1,7 +1,6 @@
 /** Textos de las páginas estáticas en alemán. Traducción de `es.mjs`. */
 export const TEXTOS = {
-  'marca.nombre': 'Mentaler Planer-Haus',
-  'marca.sub': 'MPH',
+  'marca.nombre': 'MindHaOS',
   'nav.entrar': 'Anmelden',
   'nav.descargar': 'Herunterladen',
   'pie.inicio': 'Start',
@@ -11,7 +10,7 @@ export const TEXTOS = {
   'pie.contacto': 'Kontakt',
   'tema.boton': 'Heller oder dunkler Modus',
 
-  'meta.titulo': 'Mind Planner Home — Dein Geist, in einem 3D-Haus',
+  'meta.titulo': 'MindHaOS — Dein Geist, in einem 3D-Haus',
   'meta.desc':
     'Ordne deine Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr in einem isometrischen 3D-Haus, in dem jeder Raum eine App ist. Eine einmalige Zahlung von 8,99 USD, erster Monat mit KI und Sync inklusive; teste sie kostenlos.',
   'og.desc':
@@ -126,7 +125,7 @@ export const TEXTOS = {
 
   'mani.h2': 'Dein Leben, als Videospiel',
   'mani.p1':
-    'MPH ist die Darstellung deines Lebens als Videospiel, gespielt vom bequemsten Ort, den es gibt: deinem eigenen Haus. Level und Ränge sind keine Deko — sie sind das, was du da draußen getan hast, hier drinnen erzählt.',
+    'MindHaOS ist die Darstellung deines Lebens als Videospiel, gespielt vom bequemsten Ort, den es gibt: deinem eigenen Haus. Level und Ränge sind keine Deko — sie sind das, was du da draußen getan hast, hier drinnen erzählt.',
   'mani.p2':
     'Hier baust du neue Fähigkeiten aus, behältst deine Ressourcen im Griff und stellst die Technik auf deine Seite. Gegen den unbewussten Konsum von Kurzformaten. Gegen den kognitiven Verfall, den die Konsumgewohnheiten hinterlassen, die uns die großen Konzerne aufdrängen.',
   'mani.cierre': 'Dasselbe Dopamin. Diesmal für dein echtes Leben.',
@@ -206,7 +205,7 @@ export const TEXTOS = {
   'priv.titulo': 'Datenschutzerklärung',
   'priv.quienes.h': 'Wer wir sind',
   'priv.quienes.p':
-    'Mind Planner Home («die App») ist eine Anwendung zur persönlichen Organisation. Kontakt: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+    'MindHaOS («die App») ist eine Anwendung zur persönlichen Organisation. Kontakt: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
   'priv.datos.h': 'Welche Daten wir erheben',
   'priv.datos.1':
     '<strong>Konto:</strong> deine E-Mail-Adresse und ein verschlüsseltes Passwort, verwaltet von Supabase (unserem Backend-Anbieter).',
@@ -222,7 +221,7 @@ export const TEXTOS = {
     '<strong>Gesundheits- und Wohlbefindensdaten:</strong> was du zu Bewegung, Ernährung, Medikamenten, Arztterminen oder Zyklus einträgst, wird für dich wie alle anderen App-Daten gespeichert; es wird nie verkauft oder für Werbung genutzt.',
   'priv.salud.h': 'Umfang der Gesundheitsfunktionen',
   'priv.salud.p':
-    'Mind Planner Home ist ein persönlicher Planer, keine medizinische Anwendung. Seine Gesundheitsfunktionen sind ein Protokoll, das du selbst schreibst, und ein paar Erinnerungen: Die App stellt keine Diagnosen, deutet keine Symptome, empfiehlt weder Dosierungen noch Behandlungen, prüft keine Wechselwirkungen zwischen Medikamenten und ersetzt nicht den Besuch bei einer medizinischen Fachkraft. Die Zyklusschätzungen ergeben sich nur aus den Daten, die du einträgst, und sind Richtwerte. Sie ist kein Gesundheitsprodukt und kein Medizinprodukt und verbindet sich nicht mit Patientenakten, Versicherungen oder Gesundheitsdienstleistern.',
+    'MindHaOS ist ein persönlicher Planer, keine medizinische Anwendung. Seine Gesundheitsfunktionen sind ein Protokoll, das du selbst schreibst, und ein paar Erinnerungen: Die App stellt keine Diagnosen, deutet keine Symptome, empfiehlt weder Dosierungen noch Behandlungen, prüft keine Wechselwirkungen zwischen Medikamenten und ersetzt nicht den Besuch bei einer medizinischen Fachkraft. Die Zyklusschätzungen ergeben sich nur aus den Daten, die du einträgst, und sind Richtwerte. Sie ist kein Gesundheitsprodukt und kein Medizinprodukt und verbindet sich nicht mit Patientenakten, Versicherungen oder Gesundheitsdienstleistern.',
   'priv.uso.h': 'Wofür wir sie nutzen',
   'priv.uso.1': 'Dir Zugang zu deinem Konto, deinem Kauf und deinem Abo zu geben.',
   'priv.uso.2': 'Deine Daten zwischen Geräten zu synchronisieren und zu sichern.',
@@ -264,7 +263,7 @@ export const TEXTOS = {
   'term.titulo': 'Nutzungsbedingungen',
   'term.servicio.h': 'Der Dienst',
   'term.servicio.p':
-    'Mind Planner Home ist eine App zur persönlichen Organisation. Die Testversion ist kostenlos und braucht kein Konto. Die App wird mit einer einmaligen Zahlung gekauft; die wiederkehrenden Funktionen (KI-Credits und Sync) werden ausschließlich auf dieser Website abgeschlossen; die Desktop- und Store-Apps sind Clients desselben Kontos.',
+    'MindHaOS ist eine App zur persönlichen Organisation. Die Testversion ist kostenlos und braucht kein Konto. Die App wird mit einer einmaligen Zahlung gekauft; die wiederkehrenden Funktionen (KI-Credits und Sync) werden ausschließlich auf dieser Website abgeschlossen; die Desktop- und Store-Apps sind Clients desselben Kontos.',
   'term.app.h': 'Die App (einmalige Zahlung)',
   'term.app.1':
     'Freischaltung der App: 8,99 USD, einmalige Zahlung. Sie schaltet dein Haus für immer in deinem Konto frei, ohne Verlängerungen.',

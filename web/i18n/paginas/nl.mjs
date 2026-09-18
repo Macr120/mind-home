@@ -1,7 +1,6 @@
 /** Textos de las páginas estáticas en neerlandés. Traducción de `es.mjs`. */
 export const TEXTOS = {
-  'marca.nombre': 'Mentale Planner-Huis',
-  'marca.sub': 'MPH',
+  'marca.nombre': 'MindHaOS',
   'nav.entrar': 'Inloggen',
   'nav.descargar': 'Downloaden',
   'pie.inicio': 'Start',
@@ -11,7 +10,7 @@ export const TEXTOS = {
   'pie.contacto': 'Contact',
   'tema.boton': 'Lichte of donkere modus',
 
-  'meta.titulo': 'Mind Planner Home — Je geest, in een 3D-huis',
+  'meta.titulo': 'MindHaOS — Je geest, in een 3D-huis',
   'meta.desc':
     'Breng je gewoontes, doelen, financiën, maaltijden en meer op orde in een isometrisch 3D-huis waarin elke kamer een app is. Eén betaling van 8,99 USD, met de eerste maand AI en synchronisatie erbij; probeer de app gratis.',
   'og.desc':
@@ -124,7 +123,7 @@ export const TEXTOS = {
 
   'mani.h2': 'Je leven, als videogame',
   'mani.p1':
-    'MPH is je leven omgezet in een videogame, gespeeld vanaf de comfortabelste plek die er is: je eigen huis. Levels en rangen zijn geen versiering — het is wat je daarbuiten hebt gedaan, hierbinnen verteld.',
+    'MindHaOS is je leven omgezet in een videogame, gespeeld vanaf de comfortabelste plek die er is: je eigen huis. Levels en rangen zijn geen versiering — het is wat je daarbuiten hebt gedaan, hierbinnen verteld.',
   'mani.p2':
     'Hier bouw je nieuwe vaardigheden op, houd je grip op je middelen en zet je de technologie aan jouw kant. Tegen de onbewuste consumptie van korte video. Tegen het cognitieve verval dat de consumptiegewoontes achterlaten die de grote bedrijven ons opleggen.',
   'mani.cierre': 'Dezelfde dopamine. Deze keer voor je echte leven.',
@@ -205,7 +204,7 @@ export const TEXTOS = {
   'priv.titulo': 'Privacybeleid',
   'priv.quienes.h': 'Wie we zijn',
   'priv.quienes.p':
-    'Mind Planner Home («de app») is een applicatie voor persoonlijke organisatie. Contact: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
+    'MindHaOS («de app») is een applicatie voor persoonlijke organisatie. Contact: <a href="mailto:mindplannerhome@gmail.com">mindplannerhome@gmail.com</a> · <a href="tel:5510132542">55 1013 2542</a>.',
   'priv.datos.h': 'Welke gegevens we verzamelen',
   'priv.datos.1':
     '<strong>Account:</strong> je e-mailadres en een versleuteld wachtwoord, beheerd door Supabase (onze backendleverancier).',
@@ -221,7 +220,7 @@ export const TEXTOS = {
     '<strong>Gezondheids- en welzijnsgegevens:</strong> wat je noteert over beweging, maaltijden, medicijnen, doktersafspraken of cyclus wordt voor jou bewaard zoals alle andere app-gegevens; het wordt nooit verkocht of voor reclame gebruikt.',
   'priv.salud.h': 'Reikwijdte van de gezondheidsfuncties',
   'priv.salud.p':
-    'Mind Planner Home is een persoonlijke agenda, geen medische toepassing. De gezondheidsfuncties zijn een logboek dat je zelf bijhoudt en een paar herinneringen: de app stelt geen diagnose, duidt geen symptomen, beveelt geen doseringen of behandelingen aan, controleert geen wisselwerking tussen medicijnen en vervangt het consult van een zorgverlener niet. De cyclusvoorspelling volgt alleen uit de gegevens die je invoert en is indicatief. Het is geen gezondheidsproduct of medisch hulpmiddel en maakt geen verbinding met medische dossiers, verzekeraars of zorgaanbieders.',
+    'MindHaOS is een persoonlijke agenda, geen medische toepassing. De gezondheidsfuncties zijn een logboek dat je zelf bijhoudt en een paar herinneringen: de app stelt geen diagnose, duidt geen symptomen, beveelt geen doseringen of behandelingen aan, controleert geen wisselwerking tussen medicijnen en vervangt het consult van een zorgverlener niet. De cyclusvoorspelling volgt alleen uit de gegevens die je invoert en is indicatief. Het is geen gezondheidsproduct of medisch hulpmiddel en maakt geen verbinding met medische dossiers, verzekeraars of zorgaanbieders.',
   'priv.uso.h': 'Waarvoor we ze gebruiken',
   'priv.uso.1': 'Om je toegang te geven tot je account, je aankoop en je abonnement.',
   'priv.uso.2': 'Om je gegevens tussen apparaten te synchroniseren en er een back-up van te maken.',
@@ -233,7 +232,7 @@ export const TEXTOS = {
     'De diensten die we integreren kunnen informatie op je apparaat bewaren of lezen wanneer je ze gebruikt: Google bij het inloggen en bij het autoriseren van YouTube API Services (zie het <a href="https://policies.google.com/technologies/cookies">cookiebeleid van Google</a>), en net zo TikTok en Meta wanneer je die accounts koppelt. Die informatie beheren zij volgens hun eigen beleid.',
   'priv.redes.h': 'Gekoppelde socialmedia-accounts',
   'priv.redes.p':
-    'Als je je YouTube-, TikTok-, Facebook- of Instagram-account koppelt, bewaren we de toegangstokens die dat netwerk ons geeft versleuteld op onze server, samen met de naam en de foto van het gekozen account of de gekozen Pagina. We gebruiken ze alleen om op je eigen account de video’s te plaatsen die jij vanuit de video-editor wilt publiceren, op het moment dat je op Publiceren tikt. We lezen je video’s, berichten, reacties, chats of andere gegevens van die accounts niet, en we plaatsen nooit uit onszelf iets. De tokens blijven bewaard tot je het account loskoppelt bij Instellingen → Gekoppelde accounts of je Mind Planner Home-account verwijdert; je kunt de toegang ook intrekken in de beveiligingsinstellingen van elk netwerk (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
+    'Als je je YouTube-, TikTok-, Facebook- of Instagram-account koppelt, bewaren we de toegangstokens die dat netwerk ons geeft versleuteld op onze server, samen met de naam en de foto van het gekozen account of de gekozen Pagina. We gebruiken ze alleen om op je eigen account de video’s te plaatsen die jij vanuit de video-editor wilt publiceren, op het moment dat je op Publiceren tikt. We lezen je video’s, berichten, reacties, chats of andere gegevens van die accounts niet, en we plaatsen nooit uit onszelf iets. De tokens blijven bewaard tot je het account loskoppelt bij Instellingen → Gekoppelde accounts of je MindHaOS-account verwijdert; je kunt de toegang ook intrekken in de beveiligingsinstellingen van elk netwerk (Google: <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>).',
   'priv.redes.youtube':
     'Voor YouTube gebruikt de app YouTube API Services; door je account te koppelen ga je akkoord met de <a href="https://www.youtube.com/t/terms">Servicevoorwaarden van YouTube</a> en is het <a href="https://policies.google.com/privacy">Privacybeleid van Google</a> van toepassing.',
 
@@ -262,7 +261,7 @@ export const TEXTOS = {
   'term.titulo': 'Servicevoorwaarden',
   'term.servicio.h': 'De dienst',
   'term.servicio.p':
-    'Mind Planner Home is een app voor persoonlijke organisatie. De proefversie is gratis en vraagt geen account. De app koop je met een eenmalige betaling; de terugkerende functies (AI-credits en synchronisatie) sluit je uitsluitend op deze website af; de desktop- en store-apps zijn clients van datzelfde account.',
+    'MindHaOS is een app voor persoonlijke organisatie. De proefversie is gratis en vraagt geen account. De app koop je met een eenmalige betaling; de terugkerende functies (AI-credits en synchronisatie) sluit je uitsluitend op deze website af; de desktop- en store-apps zijn clients van datzelfde account.',
   'term.app.h': 'De app (eenmalige betaling)',
   'term.app.1':
     'Ontgrendelen van de app: 8,99 USD, eenmalig. Het ontgrendelt je huis voor altijd op je account, zonder verlengingen.',

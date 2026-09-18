@@ -6,7 +6,7 @@
 "widget_casa_desc" = "あなたの家と今日の日付。";
 "widget_chat_label" = "チャット";
 "widget_chat_desc" = "家と話す：チャット、カメラ、音声入力。";
-"widget_vacio" = "このウィジェットを使うには Mind Planner Home を開いてください。";
+"widget_vacio" = "このウィジェットを使うには MindHaOS を開いてください。";
 "widget_palomear" = "完了にする";
 "widget_chat_abrir" = "チャット";
 "widget_chat_camara" = "写真を送る";

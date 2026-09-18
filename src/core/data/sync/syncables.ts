@@ -79,6 +79,7 @@ export const TABLAS_SYNC: string[] = [
   'diasItinerario',
   'portadasLugar',
   'itinerariosGuardados',
+  'trayectosViaje',
   'hobbies',
   'sesionesHobby',
   'proyectosHobby',
@@ -141,6 +142,14 @@ export const TABLAS_SYNC: string[] = [
   'carpetasIdea',
   'partidasEjercicio',
   'visitasWeb',
+  // Navegador v2: la ficha de cada sitio (categoría, favorito, límite) y las
+  // categorías propias viajan siempre; `historialWeb` (lo más íntimo que guarda
+  // la app) SOLO si el usuario enciende su interruptor: está en la lista para
+  // que el motor conozca la tabla, pero `esTablaSync` la deja pasar solo con la
+  // compuerta abierta (ver `navegador/syncHistorial.ts`).
+  'sitiosWeb',
+  'categoriasWeb',
+  'historialWeb',
   'dibujos',
   'documentos',
   'historias',
@@ -170,9 +179,42 @@ export const TABLAS_SYNC: string[] = [
 
 const TABLAS_SYNC_SET = new Set(TABLAS_SYNC)
 
-/** ¿Esta tabla viaja al servidor? (excluye internas `_` y la lista de arriba) */
+// ——— Compuertas en runtime: tablas cuyo sync decide el usuario ———
+
+const LS_SYNC_HISTORIAL = 'mh.nav.syncHistorial'
+
+function leerSyncHistorial(): boolean {
+  try {
+    return typeof localStorage !== 'undefined' && localStorage.getItem(LS_SYNC_HISTORIAL) === '1'
+  } catch {
+    return false
+  }
+}
+
+let syncHistorial = leerSyncHistorial()
+
+/** ¿El historial de páginas del navegador viaja a la nube? Apagado por defecto. */
+export function syncHistorialActivo(): boolean {
+  return syncHistorial
+}
+
+/** Cambia la compuerta (quien la abre encola lo local: `activarSyncHistorial`). */
+export function fijarSyncHistorial(v: boolean): void {
+  syncHistorial = v
+  try {
+    localStorage.setItem(LS_SYNC_HISTORIAL, v ? '1' : '0')
+  } catch {
+    /* sin localStorage (entorno raro) la compuerta vive solo en memoria */
+  }
+}
+
+const COMPUERTAS: Record<string, () => boolean> = { historialWeb: syncHistorialActivo }
+
+/** ¿Esta tabla viaja al servidor AHORA? (excluye internas `_`, las fuera de la lista y las compuertas cerradas) */
 export function esTablaSync(nombre: string): boolean {
-  return TABLAS_SYNC_SET.has(nombre)
+  if (!TABLAS_SYNC_SET.has(nombre)) return false
+  const compuerta = COMPUERTAS[nombre]
+  return compuerta ? compuerta() : true
 }
 
 /**
@@ -381,6 +423,9 @@ export const CLAVES_UNICAS: Record<string, string[]> = {
   // primer día: sin ella, dos dispositivos que siembren el mismo material lo
   // duplican en vez de fundirlo (es lo que pasó en las v138/v139).
   materialesTaller: ['clave'],
+  // Navegador: la ficha de un sitio es única por dominio y una categoría por su clave.
+  sitiosWeb: ['host'],
+  categoriasWeb: ['clave'],
   portadasViaje: ['pais'],
   portadasLugar: ['lugarId'],
   temasArbol: ['temaId'],

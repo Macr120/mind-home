@@ -110,9 +110,9 @@ export const FR_TUT: Dict = {
   'tut.primeros.1.texto': 'Ce tutoriel répond à deux questions : comment ENTRER dans tes apps et comment en CRÉER une. Les deux vivent ici, dans l’onglet Maison.',
   'tut.primeros.entrar.titulo': 'Entrer dans tes apps',
   'tut.primeros.entrar.texto':
-    'Chaque pièce porte son app et tu as trois portes : sa carte ici dans le menu, l’objet à la sphère flottante sur le plan, et l’accès rapide du bouton MPH en haut.',
+    'Chaque pièce porte son app et tu as trois portes : sa carte ici dans le menu, l’objet à la sphère flottante sur le plan, et l’accès rapide du bouton MindHaOS en haut.',
   'tut.primeros.entrar.vacio':
-    'Tes pièces vivront ici, chacune avec son appli, et tu auras trois portes : sa carte ici dans le menu, l’objet à la sphère flottante sur le plan, et l’accès rapide du bouton MPH en haut. Créons la première…',
+    'Tes pièces vivront ici, chacune avec son appli, et tu auras trois portes : sa carte ici dans le menu, l’objet à la sphère flottante sur le plan, et l’accès rapide du bouton MindHaOS en haut. Créons la première…',
   'tut.primeros.prev.titulo': 'Ta pièce va ici',
   'tut.primeros.prev.texto':
     'Voici l’aperçu du pinceau : la silhouette verte avec ses murs marque où la pièce va se dresser. En construisant à la main, tu la verras pareil sous ton doigt, avant de relâcher le toucher.',
@@ -133,7 +133,7 @@ export const FR_TUT: Dict = {
     'Avec + Assigner, je lui ai donné son app : regarde comme la pièce a pris son nom, son icône et ses meubles. Désormais, sa carte entière est le bouton pour entrer.',
   'tut.primeros.5.titulo': 'Entrer',
   'tut.primeros.5.texto':
-    'Nous voilà dedans : c’est l’app de la pièce. Pour y revenir plus tard : sa carte dans le menu, l’objet à la sphère sur le plan, ou l’accès rapide du bouton MPH en haut.',
+    'Nous voilà dedans : c’est l’app de la pièce. Pour y revenir plus tard : sa carte dans le menu, l’objet à la sphère sur le plan, ou l’accès rapide du bouton MindHaOS en haut.',
   'tut.primeros.press.titulo': 'Maintiens appuyé',
   'tut.primeros.press.texto':
     'Regarde comme elle tremble : rester appuyé sur une pièce ou un objet le réveille, avec son menu. C’est comme ça que tu le déplaces si tu n’aimes pas où il a fini, ou que tu le supprimes.',
@@ -1027,7 +1027,7 @@ export const FR_TUT: Dict = {
     'L’axe du temps avec tous les objectifs à la fois : chacun est une barre sur les dates. Tu zoomes et dézoomes par jours, semaines, mois ou années, et un plan peut se superposer par-dessus pour le comparer à ce qui est déjà tracé.',
   'tut.app-sala--esencial.1.titulo': 'Ton salon de voyage',
   'tut.app-sala--esencial.1.texto':
-    'C’est ici que vit ton monde voyageur : un mappemonde avec des épingles, des itinéraires de lieux à découvrir, des parcours qui enchaînent des lieux et un journal de bord de souvenirs. Quatre menus.',
+    'Ici vit ton monde de voyageur : une mappemonde avec des épingles, des itinéraires de lieux à découvrir, des parcours qui enchaînent les lieux, un navigateur pour aller n\'importe où et un journal de bord de souvenirs. Cinq menus.',
   'tut.app-sala--esencial.2.titulo': 'Carte',
   'tut.app-sala--esencial.2.texto':
     'Chaque lieu que tu as visité ou rêves de visiter est une épingle sur le mappemonde. Le bouton du haut remplace le planisphère par un globe que tu fais tourner en le glissant.',
@@ -1039,6 +1039,8 @@ export const FR_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': 'Journal de bord',
   'tut.app-sala--esencial.5.texto':
     'Les souvenirs de tes lieux visités, en albums par pays : photos et anecdotes de chaque endroit.',
+  'tut.app-sala--esencial.6.titulo': 'Comment y aller',
+  'tut.app-sala--esencial.6.texto': 'Un navigateur porte à porte : choisis un départ et une arrivée et combine marche, transports en commun, vélo et voiture dans un même trajet, avec le plan des rues et des indications pas à pas.',
   'tut.app-agenda--trabajo.1.titulo': 'La liste À faire',
   'tut.app-agenda--trabajo.1.texto':
     'Ce qu’il faut faire mais qui n’a pas encore de jour vit ici, avec sa priorité. Rien ne t’oblige à lui mettre une date pour le noter.',

@@ -20,6 +20,9 @@ import { iaActiva } from '../../core/chat/ia'
 import { imagenIaActiva } from '../../core/imagenIA'
 import { Creditos } from '../../core/ui/Creditos'
 import { useT } from '../../core/i18n/useT'
+import { intencionApp } from '../../core/state/intencionApp'
+import { BotonEnviarAContacto } from '../_shared/BotonEnviarAContacto'
+import { empaquetarReceta } from './compartible'
 
 export function RecetasTab({
   recetas,
@@ -35,7 +38,11 @@ export function RecetasTab({
   const [busqueda, setBusqueda] = useState('')
   /** Id de la dieta por la que se filtra; null = todas las recetas. */
   const [dietaSel, setDietaSel] = useState<number | null>(null)
-  const [seleccionadaId, setSeleccionadaId] = useState<number | null>(null)
+  // Otra app (o el buzón, al guardar una receta recibida) puede pedir abrir una concreta.
+  const [seleccionadaId, setSeleccionadaId] = useState<number | null>(() => {
+    const i = intencionApp('cocina')
+    return i?.seccion === 'recetas' && i.dato ? Number(i.dato) || null : null
+  })
   const [editando, setEditando] = useState<Receta | 'nueva' | null>(null)
   const [peticionIA, setPeticionIA] = useState<string | null>(null)
   // '' = quieto · 'receta' = escribiéndola · 'foto' = pintando el platillo.
@@ -376,6 +383,7 @@ export function DetalleReceta({
             </button>
           </>
         )}
+        <BotonEnviarAContacto pequeno empaquetar={() => empaquetarReceta(receta)} className={onEditar ? '' : 'ms-auto'} />
       </div>
 
       {onEditar ? (

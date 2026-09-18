@@ -3,9 +3,9 @@
 <!-- GENERADO por `npm run ficha:tienda` desde web/i18n/paginas/tr.mjs.
      No editar a mano: el cambio se hace en la landing y se regenera. -->
 
-## Nombre (17/30)
+## Nombre (8/30)
 
-Mind Planner Home
+MindHaOS
 
 ## Subtítulo (19/30)
 
@@ -19,7 +19,7 @@ Hayatın bir 3D evde: alışkanlıklar, hedefler, finans, öğünler ve dahası.
 
 alışkanlık,hedef,ajanda,günlük,bütçe,beslenme,egzersiz,uyku,çalışma,yapay zeka,asistan
 
-## Descripción (3204/4000)
+## Descripción (3300/4000)
 
 Alışkanlıklarını, hedeflerini, finansını, öğünlerini ve daha fazlasını her odası bir uygulama olan izometrik bir 3D evde düzenle.
 
@@ -38,7 +38,7 @@ BIR EV, BIR SÜRÜ UYGULAMA
 • Gerçekten hepsi bir arada: Yirmi uygulama yerine bir tane: yemek, para, uyku, çalışma, alışkanlıklar ve hedefler aynı çatı altında — üstelik birbirleriyle konuşarak, ki bunu ayrı uygulamalar yapamaz.
 • Ödemeyi bırakınca kapanmaz: Bir kez alırsın, senindir. Abonelikli uygulamalar ödemeyi kestiğin anda kapanır; burada yapay zekâyı bıraksan bile evin tamamı ve cihazındaki tüm verin sende kalır.
 • Uygulama olan odalar: Egzersiz, mutfak, finans, uyku, kütüphane, diller, seyahat, hobiler, farkındalık ve dahası: her oda eksiksiz bir mini uygulama barındırır.
-• Üretmek için bir Stüdyo: Ayrı dört uygulama: Ses, Sanat, Yazı ve Video. Piano roll ve MIDI klavyeyle beste yapar, resim çizip fotoğraf rötuşlar, kitapları bölüm bölüm yazar ve videoları senaryodan kurgularsın — yaptığını da dışa aktarırsın.
+• Üretmek için bir Stüdyo: Ayrı dört uygulama: Ses, Sanat, Yazı ve Video. Piano roll ve MIDI klavyeyle beste yapar, resim çizip fotoğraf rötuşlar, kitapları bölüm bölüm yazar ve videoları senaryodan kurgularsın — yaptığını da dışa aktarırsın ya da bir videoyu doğrudan kendi YouTube, TikTok, Facebook veya Instagram hesabında yayımlarsın.
 • Yapay zekâ asistanı: Asistanınla konuş: öğünleri kaydet, rutinler kur, hedefler planla, görseller ve 3B modeller üret. İlk ayın 700 kredi dahil gelir; sonrası isteğe bağlı.
 • Tam eşitleme: Evin telefona, tablete ve bilgisayara seninle gelir. Her şey aktarımda şifreli ve bulutta yedekli.
 • Oyun gibi bir his: Karakterin gerçek etkinliğinle yaşar: seriler, rozetler, Sisifos Dağı, araçlar, yarışlar ve mini oyunlar.

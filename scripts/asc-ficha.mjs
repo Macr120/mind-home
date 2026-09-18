@@ -50,8 +50,8 @@ const IDIOMAS = {
   ar: 'ar-SA',
 }
 
-const URL_SOPORTE = 'https://mindplannerhome.com/soporte'
-const URL_MARKETING = 'https://mindplannerhome.com'
+const URL_SOPORTE = 'https://mindhaos.com/soporte'
+const URL_MARKETING = 'https://mindhaos.com'
 
 // ---------------------------------------------------------------- credenciales
 

@@ -124,6 +124,12 @@ export interface PiezaCorte {
   /** Color con el que se pinta en el 3D y en el diagrama. */
   color: string
   nota?: string
+  /**
+   * Disco: `ancho` = `alto` = diámetro. Se compra y se acomoda como el
+   * cuadrado que lo contiene (el corte curvo va después, con caladora o CNC),
+   * pero el canto es la circunferencia, no los cuatro lados.
+   */
+  forma?: 'circular'
 }
 
 /** Tramo de tubo o poste metálico a cortar. */
@@ -222,6 +228,13 @@ export interface ConfigFrentes {
 export type ModuloId = 'madera' | 'metal' | 'mesa' | 'silla'
 
 /**
+ * Planta del mueble, como la de los cuartos. Circular = cubiertas, asientos,
+ * repisas y pisos en disco de diámetro `ancho` (el fondo se iguala al ancho) y
+ * los postes o patas sobre el cuadrado inscrito.
+ */
+export type FormaMueble = 'rectangular' | 'circular'
+
+/**
  * La receta completa del mueble. Es LO ÚNICO que se persiste: el 3D, el
  * despiece y la cotización se regeneran siempre a partir de aquí.
  */
@@ -230,6 +243,8 @@ export interface Mueble {
   v: 1
   moduloId: ModuloId
   nombre: string
+  /** Recetas anteriores no lo traen: `normalizarMueble` lo rellena. */
+  forma?: FormaMueble
   medidas: { ancho: Mm; alto: Mm; fondo: Mm }
   /** Parámetros propios del módulo (ver `DefModulo.params`). */
   opciones: Record<string, number | string | boolean>
@@ -272,6 +287,11 @@ export interface ParteMueble {
   rot?: [number, number, number]
   /** Cilindro en el 3D (patas redondas, tubo de colgar) en vez de caja. */
   redondo?: boolean
+  /**
+   * Disco de tablero: cilindro de eje vertical con diámetro `dx` (= `dz`) y
+   * grosor `dy`. Se despieza como su cuadrado envolvente, marcado circular.
+   */
+  disco?: boolean
   /** Se pinta pero no se despieza (tirador, riel de corredera). */
   soloVisual?: boolean
   /** Herrajes que ESTA parte arrastra (una puerta trae sus bisagras). */

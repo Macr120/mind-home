@@ -133,6 +133,11 @@ export const MANUAL_FR: ManualTraducido = {
     '[Cómo funciona] la {rueda de herramientas}': '[Comment marche] la {roue des outils}',
     '[Cómo funciona] el {chat}': '[Comment marche] le {chat}',
     '[@]{cocina} {ensalada de la comida}': '[@]{cocina} {salade pour le déjeuner}',
+    '[Abre] {ejemplo.com}': '[Ouvre] {exemple.com}',
+    '[Busca en internet] {recetas de pan}': '[Cherche sur internet] {recettes de pain}',
+    '[Historial]': '[Historique]',
+    '[Sitios]': '[Sites]',
+    '[Tiempo en internet]': '[Temps passé sur internet]',
   },
   atajos: {
     'Caminar (también con las flechas)': 'Marcher (aussi avec les flèches)',

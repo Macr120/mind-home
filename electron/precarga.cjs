@@ -29,8 +29,23 @@ ipcRenderer.on('mph:fondo-mover', (_evento, d) => {
   window.dispatchEvent(new CustomEvent('mph:fondo-mover', { detail: d }))
 })
 
-// El navegador embebido avisa por dónde va (los oye `NavegadorEscritorio.tsx`).
-for (const canal of ['mph:nav-navego', 'mph:nav-titulo', 'mph:nav-cerrado']) {
+// El navegador embebido avisa de sus pestañas (nueva, activa, dormida, cerrada),
+// por dónde va cada una, del favicon y el audio de la página, de los atajos
+// tecleados dentro de ella y de si el usuario sigue delante (foco, minimizado,
+// inactividad); los oye `TiraNavegador.tsx`.
+for (const canal of [
+  'mph:nav-pestana',
+  'mph:nav-activa',
+  'mph:nav-dormida',
+  'mph:nav-cerrado',
+  'mph:nav-navego',
+  'mph:nav-titulo',
+  'mph:nav-favicon',
+  'mph:nav-audible',
+  'mph:nav-atajo',
+  'mph:nav-actividad',
+  'mph:nav-bloqueado',
+]) {
   ipcRenderer.on(canal, (_evento, datos) => {
     window.dispatchEvent(new CustomEvent(canal, { detail: datos }))
   })
@@ -72,12 +87,23 @@ contextBridge.exposeInMainWorld('mph', {
    * una vista nativa; la app pone la barra y decide los bounds.
    */
   navegador: {
-    abrir: (url, bounds) => ipcRenderer.invoke('mph:nav-abrir', url, bounds),
+    /** Abre `url` (pestaña nueva, o `opts.pestanaId`; `opts.fondo` no la activa). Resuelve el id de la pestaña. */
+    abrir: (url, bounds, opts) => ipcRenderer.invoke('mph:nav-abrir', url, bounds, opts),
+    activar: (id) => ipcRenderer.invoke('mph:nav-activar', id),
+    cerrarPestana: (id) => ipcRenderer.invoke('mph:nav-cerrar-pestana', id),
+    /** Esconde o muestra la página activa sin cerrarla (un panel del chat encima). */
+    visible: (v) => ipcRenderer.invoke('mph:nav-visible', v),
     bounds: (b) => ipcRenderer.invoke('mph:nav-bounds', b),
     atras: () => ipcRenderer.invoke('mph:nav-atras'),
     adelante: () => ipcRenderer.invoke('mph:nav-adelante'),
     recargar: () => ipcRenderer.invoke('mph:nav-recargar'),
     cerrar: () => ipcRenderer.invoke('mph:nav-cerrar'),
+    /** Ajustes del shell: segundos de inactividad a partir de los que la visita se pausa. */
+    configurar: (c) => ipcRenderer.invoke('mph:nav-config', c),
+    /** Modo foco: sitios bloqueados hasta `hasta` (ms) y la página que se muestra en su lugar. */
+    foco: (d) => ipcRenderer.invoke('mph:nav-foco', d),
+    /** Cierra las sesiones de los sitios (cookies, almacenamiento y caché del navegador). */
+    limpiarSesion: () => ipcRenderer.invoke('mph:nav-limpiar-sesion'),
   },
   /**
    * Programas del equipo asignados a objetos (solo Windows, que es donde el

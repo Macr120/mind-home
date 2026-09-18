@@ -12,6 +12,8 @@ import { escucharDeepLinkAuth, iniciarSesion } from './core/cuenta/sesionStore'
 import { arrancarRedes } from './core/redes/redesStore'
 import { esDemo, esProbar, limpiarDerechosViejos } from './core/edicion'
 import { conectarMotorSync } from './core/data/sync/motor'
+import { conectarBuzon } from './core/buzon/motor'
+import { useBuzon } from './core/buzon/buzonStore'
 import { esModoFondo } from './core/plataforma'
 import { esAccionGlobal, lanzarAccionGlobal } from './core/state/accionGlobal'
 import { abrirApp } from './core/abrirApp'
@@ -46,6 +48,9 @@ iniciarSesion()
 // En las casas demo y probar NUNCA: con sesión Pro haría pull de la nube real a
 // la BD paralela y push de su contenido a la nube del usuario.
 if (!esDemo() && !esProbar()) conectarMotorSync()
+// Buzón (mensajería entre usuarios): sigue la sesión sin exigir plan. Tampoco
+// en demo/probar: esas casas no son la del usuario.
+if (!esDemo() && !esProbar()) conectarBuzon()
 
 // Casa demo: el mapa se recorta a las zonas elegidas, así que el punto fijo de
 // aparición del motor caería en celdas distintas (incluso dentro de la casa).
@@ -83,13 +88,21 @@ function payloadAvisoValido(d: unknown): d is DestinoAviso {
     (o.seccion === undefined || typeof o.seccion === 'string') &&
     (o.rutinaId === undefined || typeof o.rutinaId === 'number') &&
     (o.wrapped === undefined || typeof o.wrapped === 'string') &&
-    (o.accion === undefined || typeof o.accion === 'string')
+    (o.accion === undefined || typeof o.accion === 'string') &&
+    (o.hilo === undefined || typeof o.hilo === 'string')
   )
+}
+
+/** El toque en un aviso del buzón: despliega el chat con ese hilo (la casa tarda en montarse). */
+function abrirHiloBuzon(hilo: string): void {
+  setTimeout(() => useBuzon.getState().abrirHilo(hilo), 500)
 }
 
 function seguirAviso(d: DestinoAviso): void {
   if (d.accion === 'registrar' && d.rutinaId != null) {
     void registrarActividad(d.rutinaId)
+  } else if (d.hilo) {
+    abrirHiloBuzon(d.hilo)
   } else if (esTipoWrapped(d.wrapped)) {
     // Antes que plantillaId: el aviso del wrapped no lleva app.
     useWrappedUi.getState().abrir(d.wrapped)
@@ -154,6 +167,10 @@ if (params.get('accion') === 'registrar' && rutinaPedida) {
 } else if (esTipoWrapped(wrappedPedido)) {
   // Mismo margen que abrirApp: el overlay monta cuando la casa ya existe.
   setTimeout(() => useWrappedUi.getState().abrir(wrappedPedido), 500)
+  history.replaceState(null, '', location.pathname)
+} else if (params.get('buzon')) {
+  // El clic en la notificación de un mensaje abrió la ventana: al hilo.
+  abrirHiloBuzon(params.get('buzon') as string)
   history.replaceState(null, '', location.pathname)
 } else if (appPedida) {
   // La casa tarda en montarse; sin esperar, `openRoom` se pierde en el vacío.

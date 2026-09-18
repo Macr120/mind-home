@@ -3,6 +3,7 @@ import { lazy } from 'react'
 import { ideasRepo, mapasIdeasRepo } from '../../core/data/repository'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { registrarProveedorMaterial } from '../../core/materialApps'
+import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
 import { COLOR_FABRICA } from './constantes'
 import { esencialIdeas, flujosIdeas } from './tutorial.meta'
 import { OPERACIONES_IA } from './costosIA'
@@ -60,6 +61,29 @@ registrarProveedorMaterial({
 // montaje ya envuelven en Suspense). El resto del módulo sí es eager: lo usa
 // el núcleo sin abrir el cuarto.
 const IdeasApp = lazy(() => import('./IdeasApp').then((m) => ({ default: m.IdeasApp })))
+
+// Ideas y mapas se pueden mandar a otra persona por el buzón (registro eager, datos con import()).
+registrarProveedorCompartible({
+  app: 'ideas',
+  tipos: [
+    {
+      tipo: 'idea',
+      icono: 'foco',
+      etiqueta: (t) => t('buzon.compartible.idea', 'Idea'),
+      listar: async () => (await import('./compartible')).listarIdeas(),
+      empaquetar: async (clave) => (await import('./compartible')).empaquetarIdeaPorClave(clave),
+      importar: async (p) => (await import('./compartible')).importarIdea(p),
+    },
+    {
+      tipo: 'mapa',
+      icono: 'nodos',
+      etiqueta: (t) => t('buzon.compartible.mapa', 'Mapa o diagrama'),
+      listar: async () => (await import('./compartible')).listarMapas(),
+      empaquetar: async (clave) => (await import('./compartible')).empaquetarMapaPorClave(clave),
+      importar: async (p) => (await import('./compartible')).importarMapa(p),
+    },
+  ],
+})
 
 const ideas: Plantilla = {
   id: 'ideas',

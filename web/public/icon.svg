@@ -3,8 +3,8 @@
        web pública. Si cambia el de la app, vuelve a copiarlo aquí. -->
   <defs>
     <radialGradient id="fondo" cx="50%" cy="45%" r="75%">
-      <stop offset="0" stop-color="#56690f"/>
-      <stop offset="1" stop-color="#4a5b0c"/>
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f2f2f2"/>
     </radialGradient>
     <linearGradient id="naranja" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#ffc53f"/>
@@ -25,29 +25,25 @@
     <filter id="sombra" x="-30%" y="-40%" width="160%" height="220%">
       <feGaussianBlur in="SourceAlpha" stdDeviation="7"/>
       <feOffset dx="1" dy="7" result="desplazada"/>
-      <feFlood flood-color="#000" flood-opacity=".65"/>
+      <feFlood flood-color="#000" flood-opacity=".28"/>
       <feComposite in2="desplazada" operator="in"/>
     </filter>
   </defs>
   <rect width="512" height="512" fill="url(#fondo)"/>
   <g transform="translate(77.5 206)">
-    <!-- Sombra: la silueta de las piezas con su canto, desenfocada. -->
     <g filter="url(#sombra)" transform="translate(3 3)">
       <rect y="3" width="94" height="94" rx="20"/>
       <path d="M137 0V100H237Z"/>
       <path d="M257 0H357V100A100 100 0 0 1 257 0Z"/>
     </g>
-    <!-- Canto: la misma pieza en su tono oscuro, corrida abajo-derecha. -->
     <g transform="translate(3 3)">
       <rect y="3" width="94" height="94" rx="20" fill="#c14a05"/>
       <path d="M137 0V100H237Z" fill="#8e0a24"/>
       <path d="M257 0H357V100A100 100 0 0 1 257 0Z" fill="#8935d8"/>
     </g>
-    <!-- Caras. -->
     <rect y="3" width="94" height="94" rx="20" fill="url(#naranja)"/>
     <path d="M137 0V100H237Z" fill="url(#rojo)"/>
     <path d="M257 0H357V100A100 100 0 0 1 257 0Z" fill="url(#morado)"/>
-    <!-- Brillo del borde iluminado (arriba-izquierda). -->
     <g fill="none" stroke="url(#brillo)" stroke-width="1.5">
       <rect y="3" width="94" height="94" rx="20"/>
       <path d="M137 0V100H237Z"/>

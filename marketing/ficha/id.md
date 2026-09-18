@@ -3,9 +3,9 @@
 <!-- GENERADO por `npm run ficha:tienda` desde web/i18n/paginas/id.mjs.
      No editar a mano: el cambio se hace en la landing y se regenera. -->
 
-## Nombre (17/30)
+## Nombre (8/30)
 
-Mind Planner Home
+MindHaOS
 
 ## Subtítulo (25/30)
 
@@ -19,7 +19,7 @@ Hidupmu dalam rumah 3D: kebiasaan, target, keuangan, makanan, dan lainnya.
 
 kebiasaan,tujuan,agenda,jurnal,anggaran,nutrisi,olahraga,tidur,belajar,ai,asisten,atur
 
-## Descripción (3455/4000)
+## Descripción (3554/4000)
 
 Atur kebiasaan, target, keuangan, makanan, dan lainnya di rumah isometrik 3D tempat setiap ruangan adalah sebuah aplikasi.
 
@@ -38,7 +38,7 @@ SATU RUMAH, BANYAK APLIKASI
 • Benar-benar semua dalam satu: Satu aplikasi, bukan dua puluh: makan, uang, tidur, belajar, kebiasaan, dan target di bawah satu atap — dan saling terhubung, hal yang tak bisa dilakukan aplikasi terpisah.
 • Tidak mati saat kamu berhenti bayar: Beli sekali, jadi milikmu. Aplikasi langganan mati begitu kamu berhenti membayar; di sini, kalau kamu tinggalkan AI-nya, seluruh rumah dan semua datamu tetap ada di perangkatmu.
 • Ruangan yang berupa aplikasi: Olahraga, dapur, keuangan, tidur, perpustakaan, bahasa, perjalanan, hobi, mindfulness, dan lainnya: setiap ruangan menyimpan satu mini-aplikasi yang utuh.
-• Studio untuk berkarya: Empat aplikasi tersendiri: Audio, Seni, Menulis, dan Video. Kamu menggubah lagu dengan piano roll dan keyboard MIDI, melukis dan menyunting foto, menulis buku bab demi bab, dan merangkai video dari naskah — lalu mengekspor hasilnya.
+• Studio untuk berkarya: Empat aplikasi tersendiri: Audio, Seni, Menulis, dan Video. Kamu menggubah lagu dengan piano roll dan keyboard MIDI, melukis dan menyunting foto, menulis buku bab demi bab, dan merangkai video dari naskah — lalu mengekspor hasilnya, atau menerbitkan video langsung ke akun YouTube, TikTok, Facebook, atau Instagram milikmu sendiri.
 • Asisten dengan AI: Mengobrollah dengan asistenmu: catat makanan, buat rutinitas, rencanakan target, hasilkan gambar dan model 3D. Bulan pertamamu membawa 700 kredit; setelah itu AI opsional.
 • Sinkronisasi menyeluruh: Rumahmu ikut ke ponsel, tablet, dan komputer. Semuanya terenkripsi saat dikirim dan dicadangkan di cloud.
 • Rasanya seperti sebuah game: Karaktermu hidup dari aktivitas nyatamu: rentetan, lencana, Gunung Sisifus, kendaraan, balapan, dan mini-game.

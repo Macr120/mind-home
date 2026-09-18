@@ -3,9 +3,9 @@
 <!-- GENERADO por `npm run ficha:tienda` desde web/i18n/paginas/pt.mjs.
      No editar a mano: el cambio se hace en la landing y se regenera. -->
 
-## Nombre (17/30)
+## Nombre (8/30)
 
-Mind Planner Home
+MindHaOS
 
 ## Subtítulo (25/30)
 
@@ -19,7 +19,7 @@ Sua vida, em uma casa 3D: hábitos, metas, finanças, refeições e mais.
 
 hábitos,metas,agenda,diário,finanças,nutrição,treino,sono,estudo,ia,assistente,organizar
 
-## Descripción (3238/4000)
+## Descripción (3329/4000)
 
 Organize seus hábitos, metas, finanças, refeições e mais em uma casa isométrica 3D onde cada cômodo é um app.
 
@@ -38,7 +38,7 @@ UMA CASA, MUITOS APPS
 • Tudo em um, de verdade: Um app em vez de vinte: comida, dinheiro, descanso, estudo, hábitos e metas sob o mesmo teto — e conversando entre si, que é justamente o que nenhum app solto consegue fazer.
 • Não caduca se você parar de pagar: Você compra uma vez e é seu. Os apps de assinatura desligam assim que você para de pagar; aqui, se largar a IA, fica com a casa inteira e todos os seus dados no seu dispositivo.
 • Cômodos que são apps: Exercício, cozinha, finanças, descanso, biblioteca, idiomas, viagens, hobbies, mindfulness e mais: cada cômodo guarda um mini-app completo.
-• Um Estúdio para criar: Quatro apps à parte: Áudio, Arte, Escrita e Vídeo. Você compõe com piano roll e teclado MIDI, pinta e retoca fotos, escreve livros por capítulos e monta vídeos por roteiro — e exporta o que fizer.
+• Um Estúdio para criar: Quatro apps à parte: Áudio, Arte, Escrita e Vídeo. Você compõe com piano roll e teclado MIDI, pinta e retoca fotos, escreve livros por capítulos e monta vídeos por roteiro — e exporta o que fizer, ou publica um vídeo direto na sua própria conta do YouTube, TikTok, Facebook ou Instagram.
 • Assistente com IA: Converse com seu assistente: registre refeições, crie rotinas, planeje metas, gere imagens e modelos 3D. Seu primeiro mês traz 700 créditos incluídos; depois a IA é opcional.
 • Sincronização total: Sua casa acompanha você no celular, no tablet e no computador. Tudo criptografado em trânsito e com backup na nuvem.
 • Parece um jogo: Seu personagem vive da sua atividade real: sequências, emblemas, a Montanha de Sísifo, veículos, corridas e minijogos.

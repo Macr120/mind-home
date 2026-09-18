@@ -31,7 +31,7 @@ const IDIOMAS = ['en', 'es', 'pt', 'fr', 'de', 'it', 'ja', 'zh', 'ko', 'ru', 'hi
 const LIMITES = { nombre: 30, subtitulo: 30, promocional: 170, palabras: 100, descripcion: 4000 }
 
 /** El nombre es la marca: igual en las 16 fichas. */
-const NOMBRE = 'Mind Planner Home'
+const NOMBRE = 'MindHaOS'
 
 /**
  * Subtítulos que NO caben en 30 al salir de `hero.h1`. Solo el indonesio se

@@ -3,9 +3,9 @@
 <!-- GENERADO por `npm run ficha:tienda` desde web/i18n/paginas/nl.mjs.
      No editar a mano: el cambio se hace en la landing y se regenera. -->
 
-## Nombre (17/30)
+## Nombre (8/30)
 
-Mind Planner Home
+MindHaOS
 
 ## Subtítulo (24/30)
 
@@ -19,7 +19,7 @@ Je leven in een 3D-huis: gewoontes, doelen, financiën, maaltijden en meer.
 
 gewoontes,doelen,planner,dagboek,budget,voeding,training,slaap,studie,ai,assistent
 
-## Descripción (3338/4000)
+## Descripción (3438/4000)
 
 Breng je gewoontes, doelen, financiën, maaltijden en meer op orde in een isometrisch 3D-huis waarin elke kamer een app is.
 
@@ -38,7 +38,7 @@ EÉN HUIS, VEEL APPS
 • Echt alles in één: Eén app in plaats van twintig: eten, geld, slaap, studie, gewoontes en doelen onder hetzelfde dak — en met elkaar verbonden, wat losse apps nooit kunnen.
 • Vervalt niet als je stopt met betalen: Je koopt hem één keer en hij is van jou. Abonnementsapps gaan uit zodra je stopt met betalen; hier houd je het hele huis en al je gegevens op je apparaat, ook als je de AI laat vallen.
 • Kamers die apps zijn: Sport, keuken, financiën, slaap, bibliotheek, talen, reizen, hobby’s, mindfulness en meer: in elke kamer zit een complete mini-app.
-• Een Studio om te maken: Vier aparte apps: Audio, Kunst, Schrijven en Video. Je componeert met een piano roll en een MIDI-keyboard, schildert en bewerkt foto’s, schrijft boeken hoofdstuk voor hoofdstuk en monteert video’s vanuit een script — en exporteert wat je maakt.
+• Een Studio om te maken: Vier aparte apps: Audio, Kunst, Schrijven en Video. Je componeert met een piano roll en een MIDI-keyboard, schildert en bewerkt foto’s, schrijft boeken hoofdstuk voor hoofdstuk en monteert video’s vanuit een script — en exporteert wat je maakt, of publiceert een video rechtstreeks op je eigen YouTube-, TikTok-, Facebook- of Instagram-account.
 • Assistent met AI: Chat met je assistent: leg maaltijden vast, maak routines, plan doelen, genereer beelden en 3D-modellen. Je eerste maand komt met 700 credits; daarna is AI optioneel.
 • Alles gesynchroniseerd: Je huis gaat met je mee naar je telefoon, je tablet en je computer. Alles versleuteld onderweg en geback-upt in de cloud.
 • Het voelt als een spel: Je personage leeft van je echte activiteit: reeksen, badges, de Berg van Sisyphus, voertuigen, races en minigames.

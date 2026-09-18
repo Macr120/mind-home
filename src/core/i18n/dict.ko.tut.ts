@@ -97,9 +97,9 @@ export const KO_TUT: Dict = {
   'tut.casa.10.texto': '기본은 여기까지예요. 메뉴와 앱마다 각자의 \'?\' 버튼과 튜토리얼이 있어요. 뭔가 알쏭달쏭할 때 눌러서 물어보세요.',
   'tut.primeros.1.texto': '이 튜토리얼은 두 가지를 알려줘요: 앱에 들어가는 법과 새로 만드는 법. 둘 다 여기, 홈 탭에 있어요.',
   'tut.primeros.entrar.titulo': '내 앱에 들어가기',
-  'tut.primeros.entrar.texto': '방마다 자기 앱이 있고, 문은 셋이에요. 여기 메뉴의 그 카드, 지도에서 오브가 떠 있는 오브젝트, 그리고 위쪽 MPH 버튼의 바로가기예요.',
+  'tut.primeros.entrar.texto': '방마다 자기 앱이 있고, 문은 셋이에요. 여기 메뉴의 그 카드, 지도에서 오브가 떠 있는 오브젝트, 그리고 위쪽 MindHaOS 버튼의 바로가기예요.',
   'tut.primeros.entrar.vacio':
-    '여기에 방들이 살게 돼요. 방마다 앱이 하나씩 있고, 문은 셋이 될 거예요. 여기 메뉴의 그 카드, 맵에서 오브가 떠 있는 오브젝트, 그리고 위쪽 MPH 버튼의 바로가기. 첫 방을 만들어 볼까요…',
+    '여기에 방들이 살게 돼요. 방마다 앱이 하나씩 있고, 문은 셋이 될 거예요. 여기 메뉴의 그 카드, 맵에서 오브가 떠 있는 오브젝트, 그리고 위쪽 MindHaOS 버튼의 바로가기. 첫 방을 만들어 볼까요…',
   'tut.primeros.prev.titulo': '여기가 당신 방 자리예요',
   'tut.primeros.prev.texto': '이게 브러시의 미리보기예요. 벽이 달린 초록 실루엣이 방이 세워질 자리를 알려줘요. 직접 지을 때도 손가락을 떼기 전에 손끝 아래에서 똑같이 보여요.',
   'tut.primeros.mat.titulo': '다 지었어요!',
@@ -113,7 +113,7 @@ export const KO_TUT: Dict = {
   'tut.primeros.4.titulo': '앱 배정하기',
   'tut.primeros.4.texto': '\'+ 배정\'으로 앱을 넣었어요. 방이 이름과 아이콘, 가구를 갖게 된 게 보이죠. 이제부터는 카드 전체가 들어가는 버튼이에요.',
   'tut.primeros.5.titulo': '입장',
-  'tut.primeros.5.texto': '들어왔어요. 이게 방의 앱이에요. 나중에 돌아올 때는 메뉴의 그 카드, 지도에서 오브가 떠 있는 오브젝트, 아니면 위쪽 MPH 버튼의 바로가기로요.',
+  'tut.primeros.5.texto': '들어왔어요. 이게 방의 앱이에요. 나중에 돌아올 때는 메뉴의 그 카드, 지도에서 오브가 떠 있는 오브젝트, 아니면 위쪽 MindHaOS 버튼의 바로가기로요.',
   'tut.primeros.press.titulo': '길게 누르기',
   'tut.primeros.press.texto': '떨리는 게 보이죠? 방이나 오브젝트를 길게 누르면 깨어나면서 메뉴가 함께 나와요. 자리가 마음에 안 들면 이렇게 옮기고, 지울 수도 있어요.',
   'tut.primeros.6.texto':
@@ -810,7 +810,7 @@ export const KO_TUT: Dict = {
     '모든 목표가 한꺼번에 놓이는 시간축이에요. 하나하나가 날짜 위의 막대가 돼요. 일·주·월·연도 단위로 확대하거나 축소할 수 있고, 계획을 위에 겹쳐서 이미 그려 둔 것과 견줘 볼 수 있어요.',
   'tut.app-sala--esencial.1.titulo': '나의 여행 거실',
   'tut.app-sala--esencial.1.texto':
-    '여기에 나의 여행 세계가 있어요. 핀을 꽂는 세계 지도, 가 보고 싶은 곳의 일정, 여러 장소를 이어 주는 경로, 그리고 추억을 담은 여행 일지예요. 메뉴는 네 가지예요.',
+    '여기에 나의 여행 세계가 있어요. 핀이 있는 세계 지도, 가고 싶은 곳의 일정, 장소를 잇는 루트, 어디로든 안내하는 내비게이터, 그리고 추억의 여행 일기. 메뉴는 다섯 개예요.',
   'tut.app-sala--esencial.2.titulo': '지도',
   'tut.app-sala--esencial.2.texto': '다녀온 곳도, 가 보고 싶은 곳도 모두 세계 지도 위의 핀이 돼요. 위쪽 전환 버튼을 누르면 평면 지도가 끌어서 돌리는 지구본으로 바뀌어요.',
   'tut.app-sala--esencial.3.titulo': '일정',
@@ -819,6 +819,8 @@ export const KO_TUT: Dict = {
   'tut.app-sala--esencial.4.texto': '경로는 여러 장소를 하나의 여정으로 이어서 지도 위에 그려 줘요.',
   'tut.app-sala--esencial.5.titulo': '여행 일지',
   'tut.app-sala--esencial.5.texto': '다녀온 곳의 추억을 나라별 앨범으로 모아요. 장소마다 사진과 이야기가 담겨요.',
+  'tut.app-sala--esencial.6.titulo': '길찾기',
+  'tut.app-sala--esencial.6.texto': '문에서 문까지 안내하는 내비게이터예요. 출발지와 도착지를 고르고 도보, 대중교통, 자전거, 자동차를 한 경로에 조합하세요. 거리 지도와 단계별 안내가 함께해요.',
   'tut.app-agenda--trabajo.1.titulo': '할 일 보관함',
   'tut.app-agenda--trabajo.1.texto': '해야 하지만 아직 날짜가 없는 일은 여기에 우선순위와 함께 있어요. 적어 두려고 굳이 날짜를 정할 필요는 없어요.',
   'tut.app-agenda--trabajo.3.titulo': '보드',

@@ -33,7 +33,7 @@ const VERSION = '1'
 /** La sección del ejemplo viejo (el interruptor «Ver un ejemplo»), ya retirado. */
 const EJEMPLO_VIEJO = 'video.proyecto'
 const PREFIJO_FUENTE = 'promo:'
-const DOMINIO = 'mindplannerhome.com'
+const DOMINIO = 'mindhaos.com'
 const OLIVA = '#52630e'
 const OLIVA_OSCURO = '#232b06'
 const COLORES_CIERRE = ['#ffb319', '#ff505f', '#e4c6ff']

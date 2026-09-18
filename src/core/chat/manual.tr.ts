@@ -119,6 +119,11 @@ export const MANUAL_TR: ManualTraducido = {
     '[Abre las configuraciones]': '[Ayarları aç]',
     '[@]{cocina} {ensalada de la comida}': '[@]{cocina} {öğle yemeğine salata}',
     '[Cómo funciona] la {rueda de herramientas}': '{Araç çarkı} [nasıl çalışır]',
+    '[Abre] {ejemplo.com}': '[Aç] {ornek.com}',
+    '[Busca en internet] {recetas de pan}': '[İnternette ara] {ekmek tarifleri}',
+    '[Historial]': '[Geçmiş]',
+    '[Sitios]': '[Siteler]',
+    '[Tiempo en internet]': '[İnternet süresi]',
   },
   atajos: {
     'Caminar (también con las flechas)': 'Yürü (ok tuşlarıyla da olur)',

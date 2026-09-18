@@ -1,4 +1,4 @@
-# 🏠 Mind Planner Home (MPH)
+# 🏠 MindHaOS (antes Mind Planner Home, «MPH»)
 
 Casa isométrica 3D navegable donde cada cuarto es una mini-app 2D independiente pero
 interconectada (organización, hábitos, finanzas, aprendizaje…). **26 apps en 1**: 17 de cuarto,
@@ -40,7 +40,7 @@ Generadores de contenido (necesitan claves en `.env.local`, ver `.env.example`):
 | Entrar a una app | Clic en su **objeto principal** | Igual |
 | Menú lateral | Botón **Entrar ›** en cada tarjeta | Igual |
 
-- **🏠 MPH** (esquina superior izquierda): abre/cierra el menú de cuartos.
+- **🏠 MindHaOS** (esquina superior izquierda): abre/cierra el menú de cuartos.
 - **🏠** (a su derecha): alterna la vista **con techo** / **sin techo**.
 - **‹ Volver a la casa**: esquina superior derecha, dentro de una mini-app.
 

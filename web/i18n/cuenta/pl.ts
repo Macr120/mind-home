@@ -1,10 +1,9 @@
 /** Textos del portal /cuenta en polaco. Traducción del español de `web/src/cuenta.tsx`. */
 export const TEXTOS: Record<string, string> = {
-  'marca.nombre': 'Mentalny Planer-Dom',
-  'marca.sub': 'Mind Planner Home',
+  'marca.nombre': 'MindHaOS',
   'marco.privacidad': 'Prywatność',
   'marco.terminos': 'Regulamin',
-  'marco.titulo': 'Moje konto — Mind Planner Home',
+  'marco.titulo': 'Moje konto — MindHaOS',
   'comun.procesando': 'Przetwarzanie…',
   'oauth.google': 'Kontynuuj z Google',
   'oauth.apple': 'Kontynuuj z Apple',

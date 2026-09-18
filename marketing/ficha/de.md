@@ -3,9 +3,9 @@
 <!-- GENERADO por `npm run ficha:tienda` desde web/i18n/paginas/de.mjs.
      No editar a mano: el cambio se hace en la landing y se regenera. -->
 
-## Nombre (17/30)
+## Nombre (8/30)
 
-Mind Planner Home
+MindHaOS
 
 ## Subtítulo (28/30)
 
@@ -19,7 +19,7 @@ Dein Leben, in einem 3D-Haus: Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr
 
 gewohnheiten,ziele,planer,tagebuch,finanzen,ernährung,training,schlaf,lernen,ki,assistent
 
-## Descripción (3440/4000)
+## Descripción (3548/4000)
 
 Ordne deine Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr in einem isometrischen 3D-Haus, in dem jeder Raum eine App ist.
 
@@ -38,7 +38,7 @@ EIN HAUS, VIELE APPS
 • Alles in einem, wirklich: Eine App statt zwanzig: Essen, Geld, Schlaf, Lernen, Gewohnheiten und Ziele unter einem Dach — und miteinander verbunden, was genau das ist, was keine einzelne App kann.
 • Läuft nicht ab, wenn du aufhörst zu zahlen: Einmal gekauft, dann gehört sie dir. Abo-Apps gehen aus, sobald du nicht mehr zahlst; hier behältst du das ganze Haus und alle Daten auf deinem Gerät, auch wenn du die KI sein lässt.
 • Räume, die Apps sind: Sport, Küche, Finanzen, Schlaf, Bibliothek, Sprachen, Reisen, Hobbys, Achtsamkeit und mehr: jeder Raum beherbergt eine vollständige Mini-App.
-• Ein Studio zum Erschaffen: Vier eigene Apps: Audio, Kunst, Schreiben und Video. Du komponierst mit Piano Roll und MIDI-Keyboard, malst und bearbeitest Fotos, schreibst Bücher Kapitel für Kapitel und schneidest Videos nach Drehbuch — und exportierst, was du machst.
+• Ein Studio zum Erschaffen: Vier eigene Apps: Audio, Kunst, Schreiben und Video. Du komponierst mit Piano Roll und MIDI-Keyboard, malst und bearbeitest Fotos, schreibst Bücher Kapitel für Kapitel und schneidest Videos nach Drehbuch — und exportierst, was du machst, oder veröffentlichst ein Video direkt in deinem eigenen Konto bei YouTube, TikTok, Facebook oder Instagram.
 • Assistent mit KI: Sprich mit deinem Assistenten: erfasse Mahlzeiten, lege Routinen an, plane Ziele, erzeuge Bilder und 3D-Modelle. Dein erster Monat bringt 700 Credits mit; danach ist die KI optional.
 • Sync über alles hinweg: Dein Haus folgt dir aufs Handy, aufs Tablet und an den Rechner. Alles verschlüsselt unterwegs und in der Cloud gesichert.
 • Es fühlt sich an wie ein Spiel: Deine Figur lebt von deiner echten Aktivität: Serien, Abzeichen, der Sisyphosberg, Fahrzeuge, Rennen und Minispiele.

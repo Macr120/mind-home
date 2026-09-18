@@ -19,6 +19,7 @@ import { CAMPOS_RUTINA, guardarRutinaEjercicio, normalizarRutinaIA } from './rut
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { esencialEjercicio, flujosEjercicio } from './tutorial.meta'
 import { OPERACIONES_IA } from './costosIA'
+import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
 
 /** Los tres tipos, para recorrer lo agendado de todos a la vez. */
 const TIPOS_ENTRENAMIENTO: TipoEntrenamiento[] = ['fuerza', 'resistencia', 'flexibilidad']
@@ -144,6 +145,21 @@ const esquemas: EsquemaCaptura[] = [
 // montaje ya envuelven en Suspense). El resto del módulo (capturar, esquemas,
 // metaDiaria) sí es eager: lo usa el núcleo sin abrir el cuarto.
 const EjercicioApp = lazy(() => import('./EjercicioApp').then((m) => ({ default: m.EjercicioApp })))
+
+// Las rutinas se pueden mandar a otra persona por el buzón (registro eager, datos con import()).
+registrarProveedorCompartible({
+  app: 'ejercicio',
+  tipos: [
+    {
+      tipo: 'rutina',
+      icono: 'tab-fuerza',
+      etiqueta: (t) => t('buzon.compartible.rutina', 'Rutina'),
+      listar: async () => (await import('./compartible')).listarRutinas(),
+      empaquetar: async (clave) => (await import('./compartible')).empaquetarRutinaPorClave(clave),
+      importar: async (p) => (await import('./compartible')).importarRutina(p),
+    },
+  ],
+})
 
 const ejercicio: Plantilla = {
   id: 'ejercicio',

@@ -119,6 +119,11 @@ export const MANUAL_PL: ManualTraducido = {
     '[Recuerda que] {soy vegetariano}': '[Zapamiętaj, że] {jestem na diecie wegetariańskiej}',
     '[@]{cocina} {ensalada de la comida}': '[@]{cocina} {sałatka na obiad}',
     '[Cómo funciona] la {rueda de herramientas}': '[Jak działa] {koło narzędzi}',
+    '[Abre] {ejemplo.com}': '[Otwórz] {przyklad.pl}',
+    '[Busca en internet] {recetas de pan}': '[Poszukaj w internecie] {przepisy na chleb}',
+    '[Historial]': '[Historia]',
+    '[Sitios]': '[Strony]',
+    '[Tiempo en internet]': '[Czas w internecie]',
   },
   atajos: {
     'Caminar (también con las flechas)': 'Chodzenie (także strzałkami)',

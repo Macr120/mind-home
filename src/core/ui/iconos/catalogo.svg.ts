@@ -381,6 +381,19 @@ import {
   Minimize2,
   ThumbsDown,
   type LucideIcon,
+  // «Cómo llegar» (sala de viajes)
+  Bus,
+  TrainFront,
+  TramFront,
+  Ship,
+  Navigation,
+  LocateFixed,
+  ArrowLeftRight,
+  CornerUpLeft,
+  CornerUpRight,
+  // Buzón
+  Mailbox,
+  Paperclip,
 } from 'lucide-react'
 import type { NombreIcono } from './catalogo'
 
@@ -583,6 +596,20 @@ export const SVGS: Record<NombreIcono, LucideIcon> = {
   boleto: Ticket,
   companeros: Users,
   auto: Car,
+  navegar: Navigation,
+  caminar: Footprints,
+  bus: Bus,
+  tren: TrainFront,
+  metro: TrainFront,
+  tranvia: TramFront,
+  ferry: Ship,
+  miUbicacion: LocateFixed,
+  invertir: ArrowLeftRight,
+  vueltaIzq: CornerUpLeft,
+  vueltaDer: CornerUpRight,
+  recto: ArrowUp,
+  vueltaU: Undo2,
+  rotonda: RotateCcw,
 
   // — Agenda (trabajo, salud y personas) —
   agenda: CalendarClock,
@@ -968,4 +995,7 @@ export const SVGS: Record<NombreIcono, LucideIcon> = {
   acercar: ZoomIn,
   alejar: ZoomOut,
   contraer: Minimize2,
+  // Buzón (mensajería entre usuarios)
+  buzon: Mailbox,
+  adjuntar: Paperclip,
 }

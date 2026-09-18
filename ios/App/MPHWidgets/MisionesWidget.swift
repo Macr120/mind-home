@@ -84,7 +84,7 @@ private struct Cabecera: View {
   var body: some View {
     VStack(alignment: .leading, spacing: 1) {
       HStack(alignment: .firstTextBaseline) {
-        Text(snapshot?.texto("titulo") ?? "Mind Planner Home")
+        Text(snapshot?.texto("titulo") ?? "MindHaOS")
           .font(.system(size: 14, weight: .semibold))
           .foregroundColor(tema.colorTinta)
           .lineLimit(1)

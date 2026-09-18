@@ -3,9 +3,9 @@
 <!-- GENERADO por `npm run ficha:tienda` desde web/i18n/paginas/it.mjs.
      No editar a mano: el cambio se hace en la landing y se regenera. -->
 
-## Nombre (17/30)
+## Nombre (8/30)
 
-Mind Planner Home
+MindHaOS
 
 ## Subtítulo (28/30)
 
@@ -19,7 +19,7 @@ La tua vita, in una casa 3D: abitudini, obiettivi, finanze, pasti e altro.
 
 abitudini,obiettivi,agenda,diario,finanze,nutrizione,allenamento,sonno,studio,ia,assistente
 
-## Descripción (3316/4000)
+## Descripción (3413/4000)
 
 Organizza abitudini, obiettivi, finanze, pasti e altro in una casa isometrica 3D dove ogni stanza è un’app.
 
@@ -38,7 +38,7 @@ UNA CASA, TANTE APP
 • Tutto in uno, davvero: Un’app sola invece di venti: cibo, soldi, riposo, studio, abitudini e obiettivi sotto lo stesso tetto — e che si parlano tra loro, che è proprio quello che nessuna app singola sa fare.
 • Non scade se smetti di pagare: La compri una volta ed è tua. Le app in abbonamento si spengono appena smetti di pagare; qui, se lasci l’IA, ti resta la casa intera e tutti i tuoi dati sul dispositivo.
 • Stanze che sono app: Esercizio, cucina, finanze, riposo, biblioteca, lingue, viaggi, hobby, mindfulness e altro: ogni stanza custodisce una mini-app completa.
-• Uno Studio per creare: Quattro app a parte: Audio, Arte, Scrittura e Video. Componi con piano roll e tastiera MIDI, dipingi e ritocchi foto, scrivi libri capitolo per capitolo e monti video partendo dal copione — ed esporti quello che fai.
+• Uno Studio per creare: Quattro app a parte: Audio, Arte, Scrittura e Video. Componi con piano roll e tastiera MIDI, dipingi e ritocchi foto, scrivi libri capitolo per capitolo e monti video partendo dal copione — ed esporti quello che fai, oppure pubblichi un video direttamente sul tuo account di YouTube, TikTok, Facebook o Instagram.
 • Assistente con IA: Chatta con il tuo assistente: registra i pasti, crea routine, pianifica obiettivi, genera immagini e modelli 3D. Il primo mese porta 700 crediti inclusi; poi l’IA è opzionale.
 • Sincronizzazione totale: La tua casa ti segue sul telefono, sul tablet e sul computer. Tutto cifrato in transito e salvato nel cloud.
 • Si gioca come un gioco: Il tuo personaggio vive della tua attività reale: serie, distintivi, la Montagna di Sisifo, veicoli, gare e minigiochi.

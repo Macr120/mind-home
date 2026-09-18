@@ -539,7 +539,7 @@ html[data-base-ui='claro'] .texto-vivo:where(:not(.ui-noche *)) {
 }
 
 /*
- * Recorrido «¿Qué es Mind Planner Home?» (core/ui/queEs): es la carta de
+ * Recorrido «¿Qué es MindHaOS?» (core/ui/queEs): es la carta de
  * presentación de la app —lo primero que ve quien la acaba de instalar—, así
  * que aquí las animaciones sí buscan impresionar. Todas mueven solo `transform`
  * y `opacity` (salvo el desenfoque del título, que es UN elemento) para que el

@@ -4,6 +4,8 @@ import { localeActual, useT } from '../../core/i18n/useT'
 import { pedirTexto } from '../../core/state/confirmarStore'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { Foto, comprimirFoto, miniaturaFoto } from '../_shared/fotos'
+import { BotonEnviarAContacto } from '../_shared/BotonEnviarAContacto'
+import { empaquetarDibujo } from './compartible'
 import { BotonBorrar, BotonPrimario, BotonSecundario, Campo, INPUT, Modal, TARJETA, Vacio } from '../_shared/ui'
 import { COLOR, PRESETS_LIENZO } from './constantes'
 
@@ -110,6 +112,7 @@ export function GaleriaDibujos({ onAbrir }: { onAbrir: (id: number) => void }) {
                       {new Date(d.actualizadoEn).toLocaleDateString(localeActual(), { day: 'numeric', month: 'short' })}
                     </p>
                   </button>
+                  <BotonEnviarAContacto pequeno empaquetar={() => empaquetarDibujo(d)} className="!bg-transparent px-1.5 py-1 text-white/40 hover:!bg-white/10" />
                   <button
                     type="button"
                     onClick={() => d.id != null && void renombrar(d.id, d.nombre)}

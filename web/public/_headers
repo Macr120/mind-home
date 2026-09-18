@@ -1,4 +1,4 @@
-# Cabeceras de seguridad de la WEB PÚBLICA (mindplannerhome.com: landing, /cuenta
+# Cabeceras de seguridad de la WEB PÚBLICA (mindhaos.com: landing, /cuenta
 # y páginas legales). Formato Cloudflare Pages. Vite copia public/ a la raíz de
 # dist-web, y web-i18n.mjs multiplica las páginas por idioma DESPUÉS del build:
 # este archivo se sirve igual para /, /en/, /cuenta, etc.

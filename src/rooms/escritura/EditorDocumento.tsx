@@ -5,6 +5,7 @@ import { descargarArchivo } from '../../core/descargarArchivo'
 import { useT } from '../../core/i18n/useT'
 import { imprimir, puedeImprimir } from '../../core/imprimir'
 import { confirmar } from '../../core/state/confirmarStore'
+import { useBuzon } from '../../core/buzon/buzonStore'
 import { Creditos } from '../../core/ui/Creditos'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
@@ -475,6 +476,14 @@ export function EditorDocumento({
     void descargarArchivo(new Blob([el.innerText], { type: 'text/plain' }), `${titulo || 'documento'}.txt`)
   }
 
+  /** «Enviar a un contacto»: el texto actual (saneado) como documento del buzón. */
+  const enviarAContacto = async () => {
+    const el = editorRef.current
+    if (!el) return
+    const { empaquetarDocumento } = await import('./compartible')
+    useBuzon.getState().abrirCompartir(await empaquetarDocumento({ titulo: titulo || 'Documento', contenido: el.innerHTML }))
+  }
+
   const exportarPdf = async () => {
     const el = editorRef.current
     if (!el) return
@@ -640,6 +649,7 @@ export function EditorDocumento({
         )}
         <BotonBarra icono="indice" etiqueta={t('escritura.indice.boton', 'Índice del documento')} onUsar={alternarIndice} />
         <BotonBarra icono="descargar" etiqueta={t('escritura.export.txt', 'Descargar TXT')} onUsar={exportarTxt} />
+        <BotonBarra icono="buzon" etiqueta={t('buzon.enviarA', 'Enviar a un contacto')} onUsar={() => void enviarAContacto()} />
         <BotonBarra
           icono="imprimir"
           etiqueta={t('escritura.export.pdf', 'Imprimir o guardar en PDF')}

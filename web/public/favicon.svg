@@ -1,12 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <!-- Favicon de PESTAÑA. Es el icono de la app (icon.svg) con las piezas más
        grandes: aquel reserva zona segura para el recorte circular de Android, y
-       a 16px esa reserva deja el logo en una rayita. Aquí no hay recorte. -->
+       a 16px esa reserva deja el logo en una rayita. Aquí no hay recorte.
+       El fondo sigue al aspecto del navegador: blanco en claro y negro en
+       oscuro (Chrome y Firefox aplican prefers-color-scheme dentro de un SVG
+       de favicon; Safari no pinta SVG en la pestaña y cae al apple-touch-icon). -->
+  <style>
+    .fondo { fill: #ffffff; }
+    .sombra { flood-opacity: .28; }
+    @media (prefers-color-scheme: dark) {
+      .fondo { fill: #000000; }
+      .sombra { flood-opacity: .65; }
+    }
+  </style>
   <defs>
-    <radialGradient id="fondo" cx="50%" cy="45%" r="75%">
-      <stop offset="0" stop-color="#56690f"/>
-      <stop offset="1" stop-color="#4a5b0c"/>
-    </radialGradient>
     <linearGradient id="naranja" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#ffc53f"/>
       <stop offset="1" stop-color="#f6a413"/>
@@ -26,11 +33,11 @@
     <filter id="sombra" x="-30%" y="-40%" width="160%" height="220%">
       <feGaussianBlur in="SourceAlpha" stdDeviation="7"/>
       <feOffset dx="1" dy="7" result="desplazada"/>
-      <feFlood flood-color="#000" flood-opacity=".65"/>
+      <feFlood class="sombra" flood-color="#000"/>
       <feComposite in2="desplazada" operator="in"/>
     </filter>
   </defs>
-  <rect width="512" height="512" rx="110" fill="url(#fondo)"/>
+  <rect class="fondo" width="512" height="512" rx="110"/>
   <g transform="translate(36 194.4) scale(1.2325)">
     <g filter="url(#sombra)" transform="translate(3 3)">
       <rect y="3" width="94" height="94" rx="20"/>

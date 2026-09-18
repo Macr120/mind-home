@@ -127,11 +127,13 @@ export function PanelMedidas({ m }: { m: Mueble }) {
   const t = useT()
   const def = getModulo(m.moduloId)
   const setMedida = useTallerMuebles((s) => s.setMedida)
+  const circular = m.forma === 'circular'
   return (
     <div className="space-y-3">
       <Bloque titulo={t('muebles.medidas.exteriores', 'Medidas exteriores')}>
+        {/* En planta circular el ancho ES el diámetro y el fondo se iguala solo. */}
         <CampoMm
-          label={t('muebles.medidas.ancho', 'Ancho')}
+          label={circular ? t('muebles.medidas.diametro', 'Diámetro') : t('muebles.medidas.ancho', 'Ancho')}
           valor={m.medidas.ancho}
           rango={def.medidas.ancho}
           onChange={(v) => setMedida('ancho', v)}
@@ -142,12 +144,14 @@ export function PanelMedidas({ m }: { m: Mueble }) {
           rango={def.medidas.alto}
           onChange={(v) => setMedida('alto', v)}
         />
-        <CampoMm
-          label={t('muebles.medidas.fondo', 'Fondo')}
-          valor={m.medidas.fondo}
-          rango={def.medidas.fondo}
-          onChange={(v) => setMedida('fondo', v)}
-        />
+        {!circular && (
+          <CampoMm
+            label={t('muebles.medidas.fondo', 'Fondo')}
+            valor={m.medidas.fondo}
+            rango={def.medidas.fondo}
+            onChange={(v) => setMedida('fondo', v)}
+          />
+        )}
       </Bloque>
       {def.params.length > 0 && (
         <Bloque titulo={t('muebles.medidas.deEsteMueble', 'De este mueble')}>
@@ -180,10 +184,25 @@ export function PanelEstilo({ m, cuerpo }: { m: Mueble; cuerpo: Cuerpo }) {
   const conFrentes = cuerpo.partes.some((p) => p.rol === 'puerta' || p.rol === 'frente-cajon')
   const conBase = admiteBase(m)
   const conPuertas = admitePuertas(m)
+  const circular = m.forma === 'circular'
+  // Sin trasera en planta circular: una curva no sale de una hoja.
+  const conTrasera = def.conTrasera === true && !circular
   const grosores = getTablero(m.tablero.materialId).grosores.filter((g) => g >= 15)
 
   return (
     <div className="space-y-3">
+      <Bloque titulo={t('muebles.estilo.forma', 'Forma')}>
+        <Chips
+          label={t('muebles.estilo.planta', 'Planta')}
+          valor={m.forma ?? 'rectangular'}
+          opciones={[
+            { valor: 'rectangular' as const, texto: t('muebles.forma.rectangular', 'Rectangular') },
+            { valor: 'circular' as const, texto: t('muebles.forma.circular', 'Circular') },
+          ]}
+          onChange={(v) => setParcial({ forma: v })}
+        />
+      </Bloque>
+
       {conTablero && (
         <Bloque titulo={t('muebles.estilo.tablero', 'Tablero')}>
           <Chips
@@ -218,12 +237,12 @@ export function PanelEstilo({ m, cuerpo }: { m: Mueble; cuerpo: Cuerpo }) {
       {conTablero && (
         <Bloque
           titulo={
-            def.conTrasera
+            conTrasera
               ? t('muebles.estilo.traseraCantos', 'Trasera y cantos')
               : t('muebles.estilo.cantos', 'Cantos')
           }
         >
-          {def.conTrasera && (
+          {conTrasera && (
             <Chips
               label={t('muebles.estilo.trasera', 'Trasera')}
               valor={m.tablero.fondo}
@@ -235,7 +254,7 @@ export function PanelEstilo({ m, cuerpo }: { m: Mueble; cuerpo: Cuerpo }) {
               onChange={(v) => setParcial({ tablero: { ...m.tablero, fondo: v } })}
             />
           )}
-          {def.conTrasera && conFondo && (
+          {conTrasera && conFondo && (
             <Chips
               label={t('muebles.estilo.grosorTrasera', 'Grosor de la trasera')}
               valor={m.tablero.grosorFondo}
@@ -309,7 +328,8 @@ export function PanelEstilo({ m, cuerpo }: { m: Mueble; cuerpo: Cuerpo }) {
             label={t('muebles.estilo.apoyo', 'Apoyo')}
             valor={m.base.tipo}
             opciones={[
-              { valor: 'zoclo' as const, texto: t('muebles.estilo.zoclo', 'Zócalo') },
+              // Un zócalo redondo sería una tira curvada: en planta circular no se ofrece.
+              ...(circular ? [] : [{ valor: 'zoclo' as const, texto: t('muebles.estilo.zoclo', 'Zócalo') }]),
               { valor: 'patas' as const, texto: t('muebles.estilo.patas', 'Patas') },
               { valor: 'ninguna' as const, texto: t('muebles.estilo.sinBase', 'Al piso') },
             ]}

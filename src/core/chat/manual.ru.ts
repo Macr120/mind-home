@@ -115,6 +115,11 @@ export const MANUAL_RU: ManualTraducido = {
     '[Recuerda que] {soy vegetariano}': '[Запомни, что] {я не ем мясо}',
     '[Cómo funciona] la {rueda de herramientas}': '[Как работает] {колесо инструментов}',
     '[@]{cocina} {ensalada de la comida}': '[@]{cocina} {салат на обед}',
+    '[Abre] {ejemplo.com}': '[Открой] {example.com}',
+    '[Busca en internet] {recetas de pan}': '[Поищи в интернете] {рецепты хлеба}',
+    '[Historial]': '[История]',
+    '[Sitios]': '[Сайты]',
+    '[Tiempo en internet]': '[Время в интернете]',
   },
   atajos: {
     'Caminar (también con las flechas)': 'Ходить (можно и стрелками)',

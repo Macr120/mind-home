@@ -99,7 +99,7 @@ export function PanelDespiece({
                   </td>
                   <td className="px-1 py-1.5 text-end tabular-nums text-white/70">{p.cantidad}</td>
                   <td className="px-2 py-1.5 text-end tabular-nums">
-                    {p.ancho} × {p.alto}
+                    {p.forma === 'circular' ? `Ø ${p.ancho}` : `${p.ancho} × ${p.alto}`}
                   </td>
                   <td className="px-2 py-1.5 text-end text-[10px] text-white/45">
                     {cantosCortos(p.cantos, t)}

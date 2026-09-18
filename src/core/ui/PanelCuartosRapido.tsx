@@ -279,8 +279,8 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
             <div className="min-w-0 flex-1">
               <p className="truncate text-base font-black text-white/90">
                 <Icono nombre="casa" />{' '}
-                <span className="sm:hidden">{nombreApp || t('app.brandCorto', 'MPH')}</span>
-                <span className="hidden sm:inline">{nombreApp || t('app.brand', 'Planificador Mental-Casa')}</span>
+                <span className="sm:hidden">{nombreApp || t('app.brandCorto', 'MindHaOS')}</span>
+                <span className="hidden sm:inline">{nombreApp || t('app.brand', 'MindHaOS')}</span>
               </p>
               {/* `truncate`: en móvil el bloque es estrecho y sin esto la ayuda se
                   partía en tres líneas y estiraba la cabecera. */}

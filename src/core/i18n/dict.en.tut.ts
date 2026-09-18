@@ -97,8 +97,8 @@ export const EN_TUT: Dict = {
   'tut.casa.10.texto': 'That\'s the basics. Every menu and every app has its own ? button with its tutorial: ask for it whenever something doesn\'t sit right.',
   'tut.primeros.1.texto': 'This tutorial answers two things: how to ENTER your apps and how to CREATE a new one. Both live here, in the Home tab.',
   'tut.primeros.entrar.titulo': 'Entering your apps',
-  'tut.primeros.entrar.texto': 'Each room carries its app and you have three doors: its card here in the menu, the object with the floating sphere on the map, and the quick access on the MPH button up top.',
-  'tut.primeros.entrar.vacio': 'Your rooms will live here, each with its app, and you\'ll have three doors: its card here in the menu, the object with the floating sphere on the map, and the quick access on the MPH button up top. Let\'s create the first one…',
+  'tut.primeros.entrar.texto': 'Each room carries its app and you have three doors: its card here in the menu, the object with the floating sphere on the map, and the quick access on the MindHaOS button up top.',
+  'tut.primeros.entrar.vacio': 'Your rooms will live here, each with its app, and you\'ll have three doors: its card here in the menu, the object with the floating sphere on the map, and the quick access on the MindHaOS button up top. Let\'s create the first one…',
   'tut.primeros.prev.titulo': 'Your room goes here',
   'tut.primeros.prev.texto': 'This is the brush preview: the green outline with its walls marks where the room will rise. When building by hand you\'ll see it just the same under your finger, before you release the tap.',
   'tut.primeros.mat.titulo': 'Built!',
@@ -112,7 +112,7 @@ export const EN_TUT: Dict = {
   'tut.primeros.4.titulo': 'Assign an app',
   'tut.primeros.4.texto': 'With + Assign I gave it its app: see how the room took its name, its icon and its furniture. From now on its whole card is the enter button.',
   'tut.primeros.5.titulo': 'Enter',
-  'tut.primeros.5.texto': 'We\'re in: this is the room\'s app. To come back later: its card in the menu, the object with the sphere on the map, or the quick access on the MPH button up top.',
+  'tut.primeros.5.texto': 'We\'re in: this is the room\'s app. To come back later: its card in the menu, the object with the sphere on the map, or the quick access on the MindHaOS button up top.',
   'tut.primeros.press.titulo': 'Press and hold',
   'tut.primeros.press.texto': 'See how it jiggles: pressing and holding a room or an object wakes it up, menu included. That\'s how you move it if you don\'t like where it ended up, or delete it.',
   'tut.primeros.6.texto': 'That\'s all of it: create the room, give it its app, enter and settle it in. This one was for practice — I\'ll take it away when we finish, so you build your home to your own taste.',
@@ -895,7 +895,7 @@ export const EN_TUT: Dict = {
     'The time axis with every goal at once: each one is a bar over the dates. You can zoom in and out by days, weeks, months or years, and a plan can be laid on top to compare it with what is already mapped out.',
   'tut.app-sala--esencial.1.titulo': 'Your travel living room',
   'tut.app-sala--esencial.1.texto':
-    'Your travel world lives here: a world map with pins, itineraries of places to see, routes that chain places together, and a logbook of memories. There are four menus.',
+    'This is your traveler world: a world map with pins, itineraries of places to see, routes that chain places together, a navigator to get anywhere and a logbook of memories. Five menus.',
   'tut.app-sala--esencial.2.titulo': 'Map',
   'tut.app-sala--esencial.2.texto':
     'Every place you visited or dream of visiting is a pin on the world map. The switch at the top swaps the flat map for a globe you spin by dragging.',
@@ -907,6 +907,8 @@ export const EN_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': 'Logbook',
   'tut.app-sala--esencial.5.texto':
     'The memories of the places you visited, in albums by country: photos and stories from each spot.',
+  'tut.app-sala--esencial.6.titulo': 'Directions',
+  'tut.app-sala--esencial.6.texto': 'A door-to-door navigator: pick an origin and a destination and combine walking, public transit, bike and car in a single trip, with the street map and step-by-step directions.',
   'tut.app-agenda--trabajo.1.titulo': 'The inbox',
   'tut.app-agenda--trabajo.1.texto':
     'Work has two views: the Pending tray and the Board. Pending holds what needs doing but has no day yet, with its priority; nothing forces you to pick a day just to write it down.',
