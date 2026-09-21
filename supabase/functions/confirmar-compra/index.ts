@@ -79,23 +79,32 @@ Deno.serve(async (req) => {
   // Solo hay algo que confirmar cuando la app dice que la tienda cobró.
   if (resultado !== 'ok' || paso === 'catalogo') return json({ ok: true, confirmado: false }, 200, cors)
 
-  const clave = Deno.env.get('RC_API_KEY') ?? ''
-  if (!clave) return json({ ok: false, error: 'sin-clave' }, 503, cors)
+  // Dos claves, en orden: la secreta v1 (`RC_API_KEY`) y, de respaldo, la
+  // PÚBLICA del SDK de iOS (`RC_PUBLIC_IOS_KEY`): la lectura de
+  // `GET /v1/subscribers` la admite igual —es lo que hace el propio SDK— y así
+  // una clave secreta equivocada (RevenueCat tiene v1 y v2, las dos `sk_…`, y
+  // la v2 devuelve 401 aquí; pasó el 21-sep-2026) no deja la compra colgada.
+  const claves = [Deno.env.get('RC_API_KEY') ?? '', Deno.env.get('RC_PUBLIC_IOS_KEY') ?? ''].filter(Boolean)
+  if (!claves.length) return json({ ok: false, error: 'sin-clave' }, 503, cors)
 
-  let subscriber: SubscriberRC
-  try {
-    const r = await fetch(`https://api.revenuecat.com/v1/subscribers/${encodeURIComponent(usuario.id)}`, {
-      headers: { Authorization: `Bearer ${clave}`, Accept: 'application/json' },
-    })
-    if (!r.ok) {
+  let subscriber: SubscriberRC | null = null
+  let ultimo = 0
+  for (const clave of claves) {
+    try {
+      const r = await fetch(`https://api.revenuecat.com/v1/subscribers/${encodeURIComponent(usuario.id)}`, {
+        headers: { Authorization: `Bearer ${clave}`, Accept: 'application/json', 'X-Platform': 'ios' },
+      })
+      ultimo = r.status
+      if (r.ok) {
+        subscriber = ((await r.json()) as { subscriber?: SubscriberRC }).subscriber ?? {}
+        break
+      }
       console.error('[confirmar-compra] RevenueCat respondió', r.status)
-      return json({ ok: false, error: 'tienda' }, 502, cors)
+    } catch (e) {
+      console.error('[confirmar-compra] RevenueCat no contestó:', e)
     }
-    subscriber = ((await r.json()) as { subscriber?: SubscriberRC }).subscriber ?? {}
-  } catch (e) {
-    console.error('[confirmar-compra] RevenueCat no contestó:', e)
-    return json({ ok: false, error: 'tienda' }, 502, cors)
   }
+  if (!subscriber) return json({ ok: false, error: 'tienda', status: ultimo }, 502, cors)
 
   // La casa: cualquier pago único de unlock, de cualquier tienda.
   let unlock = false
