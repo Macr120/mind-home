@@ -13,12 +13,15 @@
  * dos cajas usan el MISMO `appUserId`: el user.id de Supabase.
  */
 import type { TFunc } from '../i18n/useT'
-import type { Caja, OfertaCruda } from './caja'
+import { CompraCancelada, type Caja, type OfertaCruda } from './caja'
 import { cajaNativa } from './paywallNativo'
 import { cajaWeb } from './paywallWeb'
 import { CATALOGO, productoDe, type Clase, type Producto } from './productos'
-import { esAppNativa } from '../plataforma'
+import { esAppNativa, nombrePlataforma } from '../plataforma'
 import { useSesion } from './sesionStore'
+import { obtenerSupabase } from './supabase'
+
+export { CompraCancelada }
 
 /** La caja de esta plataforma. La nativa carga su SDK sola, y solo si se usa. */
 function caja(): Caja {
@@ -37,8 +40,17 @@ function caja(): Caja {
  * fallo por el que Apple rechazó la 1.0 el 9-sep-2026 («2.1(a) — Buy the house
  * button was unresponsive»). Con techo, la espera SIEMPRE termina y la UI
  * puede contarlo y reintentar.
+ *
+ * 30 s y no 12: en el sandbox de App Review la consulta de productos tarda lo
+ * que tarda, y con 12 s el revisor veía «la tienda no respondió» antes de que
+ * la tienda hubiera contestado (21-sep-2026). Mientras se espera, la UI lo dice
+ * en tono neutro y el botón sigue vivo; el error solo llega tras agotar
+ * también los reintentos de `ofertas()`.
  */
-const ESPERA_TIENDA = 12_000
+const ESPERA_TIENDA = 30_000
+
+/** Pausas entre reintentos del catálogo (dos reintentos tras el primer fallo). */
+const PAUSAS_REINTENTO = [1_000, 3_000]
 
 /**
  * Se agotó el techo. Va como TIPO y no como texto porque quien lo enseña es la
@@ -72,6 +84,77 @@ export function textoDeFallo(e: unknown, t: TFunc): string {
   return e instanceof Error ? e.message : String(e)
 }
 
+/**
+ * La línea técnica de un fallo, para pintarla en gris bajo el mensaje: el
+ * código de RevenueCat (`readableErrorCode` en las apps, `errorCode` en la web)
+ * y el mensaje de la tienda que hay debajo. Cuatro revisiones de Apple
+ * describieron «an error message» sin decir cuál; con el código en pantalla,
+ * una captura basta para saber qué pasó.
+ */
+export function detalleDeFallo(e: unknown): string {
+  if (e instanceof TiendaSinRespuesta) return `timeout ${ESPERA_TIENDA / 1000}s`
+  if (!e || typeof e !== 'object') return String(e)
+  const err = e as {
+    code?: unknown
+    errorCode?: unknown
+    readableErrorCode?: unknown
+    userInfo?: { readableErrorCode?: unknown }
+    underlyingErrorMessage?: unknown
+    message?: unknown
+  }
+  const codigo = err.userInfo?.readableErrorCode ?? err.readableErrorCode ?? err.code ?? err.errorCode
+  const fondo = err.underlyingErrorMessage ?? err.message
+  return [codigo, fondo]
+    .filter((x) => x !== undefined && x !== null && String(x) !== '')
+    .map(String)
+    .join(' · ')
+}
+
+/** Lo que la bitácora del servidor guarda de un paso de la caja. */
+type Paso = 'catalogo' | 'compra' | 'perfil' | 'confirmar'
+
+function cuerpoBitacora(paso: Paso, resultado: 'ok' | 'error' | 'cancelada', datos: Record<string, string>) {
+  return {
+    paso,
+    resultado,
+    plataforma: nombrePlataforma(),
+    os: typeof navigator === 'undefined' ? '' : navigator.userAgent.slice(0, 200),
+    ...datos,
+  }
+}
+
+/**
+ * Bitácora en el servidor (`compras_log`, vía `confirmar-compra`), sin esperar
+ * ni fallar: existe para que la próxima revisión de Apple deje rastro de qué
+ * vio el revisor, aunque no adjunte captura. Cuatro rechazos no lo dejaron.
+ */
+export function reportar(paso: Paso, resultado: 'ok' | 'error' | 'cancelada', datos: Record<string, string> = {}): void {
+  void (async () => {
+    const sb = await obtenerSupabase()
+    if (!sb || !useSesion.getState().usuario) return
+    await sb.functions.invoke('confirmar-compra', { body: cuerpoBitacora(paso, resultado, datos) })
+  })().catch(() => {})
+}
+
+/**
+ * Le pide al servidor que confirme la compra con RevenueCat (servidor a
+ * servidor) y la aplique al perfil AHORA, sin esperar al webhook. Devuelve si
+ * el servidor vio algo comprado; si la función no está o falla, false, y la
+ * fachada cae a esperar el webhook como antes.
+ */
+async function confirmarCompra(producto: string): Promise<boolean> {
+  const sb = await obtenerSupabase()
+  if (!sb) return false
+  try {
+    const { data, error } = await sb.functions.invoke<{ ok: boolean; confirmado?: boolean }>('confirmar-compra', {
+      body: cuerpoBitacora('confirmar', 'ok', { producto }),
+    })
+    return !error && !!data?.confirmado
+  } catch {
+    return false
+  }
+}
+
 /** ¿El build trae pagos configurados? (clave de RevenueCat de esta plataforma) */
 export function hayPagos(): boolean {
   return caja().disponible()
@@ -82,6 +165,8 @@ export interface OfertaPro {
   id: string
   /** El paquete original de la tienda; se devuelve tal cual a `comprar()`. */
   paquete: unknown
+  /** Id del producto en ESTA tienda (Apple lleva el bundle delante): bitácora. */
+  producto: string
   /** Precio ya formateado por la tienda (ej. «$6.00»); vacío si no vino. */
   precio: string
   /** Ciclo de la suscripción; null en los pagos únicos (unlock y recargas). */
@@ -102,7 +187,26 @@ export interface OfertaPro {
 async function ofertas(): Promise<OfertaPro[]> {
   const usuario = useSesion.getState().usuario
   if (!usuario || !hayPagos()) return []
-  const crudas = await conTecho(caja().ofertas(usuario.id))
+  // Con reintentos: la consulta de productos de StoreKit falla o vuelve vacía
+  // a ratos —sobre todo en el sandbox de App Review— y a los pocos segundos
+  // contesta. Se rinde solo tras el último intento, y entonces sí lanza.
+  let crudas: OfertaCruda[] = []
+  let fallo: unknown = null
+  for (let intento = 0; intento <= PAUSAS_REINTENTO.length; intento++) {
+    if (intento > 0) await new Promise((r) => setTimeout(r, PAUSAS_REINTENTO[intento - 1]))
+    try {
+      crudas = await conTecho(caja().ofertas(usuario.id))
+      fallo = null
+      if (crudas.length) break
+    } catch (e) {
+      fallo = e
+    }
+  }
+  if (fallo) {
+    reportar('catalogo', 'error', { codigo: detalleDeFallo(fallo).slice(0, 80), mensaje: textoSinTraducir(fallo) })
+    throw fallo
+  }
+  if (!crudas.length) reportar('catalogo', 'error', { codigo: 'sin-productos', mensaje: 'la tienda devolvió 0 productos' })
   const lista: { oferta: OfertaPro; rango: number }[] = []
   for (const cruda of crudas) {
     const producto = productoDe(cruda.id, cruda.producto)
@@ -112,10 +216,16 @@ async function ofertas(): Promise<OfertaPro[]> {
   return lista.sort((a, b) => a.rango - b.rango).map((x) => x.oferta)
 }
 
+/** El mensaje crudo de un error, sin pasar por el idioma: es para la bitácora. */
+function textoSinTraducir(e: unknown): string {
+  return (e instanceof Error ? e.message : String(e)).slice(0, 500)
+}
+
 function empaquetar(cruda: OfertaCruda, producto: Producto): OfertaPro {
   return {
     id: cruda.id,
     paquete: cruda.ref,
+    producto: cruda.producto,
     precio: cruda.precio,
     // El periodo lo manda la tienda; el catálogo solo cubre lo que no vino.
     periodo: cruda.periodo ?? producto.periodo,
@@ -182,8 +292,8 @@ export async function obtenerUnlock(): Promise<OfertaPro | null> {
  * Reintenta el refresco del perfil hasta que el webhook aterrice (tarda unos
  * segundos): la compra no vale hasta que `perfiles` lo dice.
  */
-async function esperarPerfil(listo: () => boolean): Promise<boolean> {
-  for (let i = 0; i < 5; i++) {
+async function esperarPerfil(listo: () => boolean, intentos = 15): Promise<boolean> {
+  for (let i = 0; i < intentos; i++) {
     await useSesion.getState().refrescarPerfil()
     if (listo()) break
     await new Promise((r) => setTimeout(r, 3000))
@@ -192,16 +302,51 @@ async function esperarPerfil(listo: () => boolean): Promise<boolean> {
   return listo()
 }
 
-async function pasarPorCaja(paquete: unknown): Promise<boolean> {
+/**
+ * Pasa por la caja de esta plataforma. Vuelve cuando la tienda COBRÓ; lanza
+ * `CompraCancelada` si el usuario cerró la hoja y cualquier otro fallo tal
+ * cual. Los dos quedan en la bitácora del servidor.
+ */
+async function pasarPorCaja(oferta: OfertaPro): Promise<void> {
   const usuario = useSesion.getState().usuario
-  if (!usuario) return false
-  return caja().comprar(usuario.id, paquete)
+  if (!usuario) throw new Error('compra: sin sesión')
+  try {
+    await caja().comprar(usuario.id, oferta.paquete)
+  } catch (e) {
+    if (e instanceof CompraCancelada) reportar('compra', 'cancelada', { producto: oferta.producto })
+    else reportar('compra', 'error', { producto: oferta.producto, codigo: detalleDeFallo(e).slice(0, 80), mensaje: textoSinTraducir(e) })
+    throw e
+  }
+}
+
+/**
+ * Lo que sigue a un cobro: el servidor lo confirma con RevenueCat y lo
+ * aplica al perfil ya (`confirmar-compra`), y luego se relee el perfil hasta
+ * verlo. Devuelve true si el perfil ya lo refleja; false si la tienda cobró
+ * pero el perfil AÚN no lo dice —que NO es un error: se enseña como «pago
+ * recibido, activando…» y el webhook lo completa en cuanto llega.
+ *
+ * Hasta el 21-sep-2026 solo existía la espera al webhook, con ~15 s de techo:
+ * si tardaba más, quien acababa de pagar veía «la compra no se completó».
+ */
+async function aterrizar(oferta: OfertaPro, listo: () => boolean): Promise<boolean> {
+  await confirmarCompra(oferta.producto)
+  const ok = await esperarPerfil(listo)
+  if (!ok) {
+    const { errorPerfil } = useSesion.getState()
+    reportar('perfil', 'error', {
+      producto: oferta.producto,
+      codigo: errorPerfil ? 'perfil-no-leido' : 'perfil-sin-cambio',
+      mensaje: errorPerfil ?? 'la tienda cobró y el perfil aún no lo refleja',
+    })
+  }
+  return ok
 }
 
 /** Compra la suscripción. Devuelve true si el plan ya llegó al perfil. */
-export async function comprar(paquete: unknown): Promise<boolean> {
-  if (!(await pasarPorCaja(paquete))) return false
-  return esperarPerfil(() => useSesion.getState().plan === 'pro')
+export async function comprar(oferta: OfertaPro): Promise<boolean> {
+  await pasarPorCaja(oferta)
+  return aterrizar(oferta, () => useSesion.getState().plan === 'pro')
 }
 
 /**
@@ -209,22 +354,22 @@ export async function comprar(paquete: unknown): Promise<boolean> {
  * misma suscripción; el webhook lo recibe como PRODUCT_CHANGE y reescribe
  * `perfiles.nivel`, así que aquí se espera a ver el nivel nuevo.
  */
-export async function cambiarNivel(paquete: unknown, nivel: number): Promise<boolean> {
-  if (!(await pasarPorCaja(paquete))) return false
-  return esperarPerfil(() => useSesion.getState().nivel === nivel)
+export async function cambiarNivel(oferta: OfertaPro): Promise<boolean> {
+  await pasarPorCaja(oferta)
+  return aterrizar(oferta, () => useSesion.getState().nivel === oferta.nivel && useSesion.getState().plan === 'pro')
 }
 
 /** Compra una recarga de créditos: se espera a ver subir el saldo. */
-export async function comprarCreditos(paquete: unknown): Promise<boolean> {
+export async function comprarCreditos(oferta: OfertaPro): Promise<boolean> {
   const antes = useSesion.getState().creditosExtra
-  if (!(await pasarPorCaja(paquete))) return false
-  return esperarPerfil(() => useSesion.getState().creditosExtra > antes)
+  await pasarPorCaja(oferta)
+  return aterrizar(oferta, () => useSesion.getState().creditosExtra > antes)
 }
 
 /** Compra la casa: se espera a ver el unlock (y con él, el primer mes). */
-export async function comprarUnlock(paquete: unknown): Promise<boolean> {
-  if (!(await pasarPorCaja(paquete))) return false
-  return esperarPerfil(() => useSesion.getState().unlock)
+export async function comprarUnlock(oferta: OfertaPro): Promise<boolean> {
+  await pasarPorCaja(oferta)
+  return aterrizar(oferta, () => useSesion.getState().unlock)
 }
 
 /**
@@ -236,7 +381,9 @@ export async function restaurarCompras(): Promise<boolean> {
   const usuario = useSesion.getState().usuario
   if (!usuario || !hayPagos()) return false
   await conTecho(caja().restaurar(usuario.id))
-  return esperarPerfil(() => useSesion.getState().unlock || useSesion.getState().plan !== 'local')
+  // Lo restaurado ya está en RevenueCat: el servidor lo aplica sin esperar al webhook.
+  await confirmarCompra('restaurar')
+  return esperarPerfil(() => useSesion.getState().unlock || useSesion.getState().plan !== 'local', 5)
 }
 
 /** URL del portal de gestión de la suscripción (cancelar, cambiar pago). */

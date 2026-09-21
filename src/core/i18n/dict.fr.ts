@@ -6778,6 +6778,7 @@ export const FR: Dict = {
   'cuenta.nivel.n': 'Niveau ×{n} — {c} crédits par mois',
   'cuenta.nivel.actual': 'Actuel',
   'cuenta.nivel.nota': 'Tu peux monter ou descendre de niveau quand tu veux ; le changement est facturé au prorata.',
+  'cuenta.pago.pendiente': 'Paiement reçu : ton forfait apparaîtra ici dans quelques secondes.',
   'cuenta.legal.renovacion.apple': 'Le paiement est débité de ton identifiant Apple à la confirmation de l’achat. L’abonnement se renouvelle automatiquement sauf si tu le désactives au moins 24 heures avant la fin de la période en cours ; le renouvellement est facturé pendant ces 24 heures. Tu peux le gérer ou le résilier dans les réglages de ton identifiant Apple.',
   'cuenta.legal.renovacion.google': 'Le paiement est débité de ton compte Google Play à la confirmation de l’achat. L’abonnement se renouvelle automatiquement sauf si tu le résilies avant la fin de la période en cours. Tu peux le gérer ou le résilier dans tes abonnements Google Play.',
   'cuenta.nivel.subir': 'Passer à ×{n} — {c} crédits par mois pour {p}',
@@ -6829,6 +6830,8 @@ export const FR: Dict = {
   'puerta.compraFallo': 'L’achat n’a pas abouti. Si vous avez déjà payé, essayez « Restaurer les achats ».',
   'puerta.sinOferta': 'La boutique n’a pas répondu. Vérifie ta connexion et réessaie.',
   'puerta.sinRestaurar': 'Nous n’avons trouvé aucun achat pour ce compte.',
+  'puerta.conectandoTienda': 'Connexion à la boutique…',
+  'puerta.activando': 'Paiement reçu : activation de ta maison. Si c’est long, touche « Je l’ai déjà achetée ».',
   'puerta.yaCompre': 'Je l’ai déjà achetée : vérifier à nouveau',
   'puerta.probar': 'Essayer de créer ta maison gratuitement',
   'puerta.probarNota':

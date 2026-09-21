@@ -6666,6 +6666,7 @@ export const TR: Dict = {
   'cuenta.nivel.n': 'Seviye ×{n} — ayda {c} kredi',
   'cuenta.nivel.actual': 'Mevcut',
   'cuenta.nivel.nota': 'İstediğin zaman seviye yükseltip düşürebilirsin; fark orantılı hesaplanır.',
+  'cuenta.pago.pendiente': 'Ödeme alındı: planın birkaç saniye içinde burada görünecek.',
   'cuenta.legal.renovacion.apple': 'Ödeme, satın almayı onayladığında Apple Kimliğine yansıtılır. Mevcut dönem bitmeden en az 24 saat önce kapatmazsan abonelik kendiliğinden yenilenir ve yenileme ücreti o 24 saat içinde tahsil edilir. Aboneliği Apple Kimliği ayarlarından yönetebilir veya iptal edebilirsin.',
   'cuenta.legal.renovacion.google': 'Ödeme, satın almayı onayladığında Google Play hesabına yansıtılır. Mevcut dönem bitmeden iptal etmezsen abonelik kendiliğinden yenilenir. Aboneliği Google Play aboneliklerinden yönetebilir veya iptal edebilirsin.',
   'cuenta.nivel.subir': '×{n} seviyesine çık — {p} karşılığında ayda {c} kredi',
@@ -6717,6 +6718,8 @@ export const TR: Dict = {
   'puerta.compraFallo': 'Satın alma tamamlanmadı. Zaten ödediysen «Satın alımları geri yükle»yi dene.',
   'puerta.sinOferta': 'Mağaza yanıt vermedi. Bağlantını kontrol edip yeniden dene.',
   'puerta.sinRestaurar': 'Bu hesapta satın alma bulamadık.',
+  'puerta.conectandoTienda': 'Mağazaya bağlanılıyor…',
+  'puerta.activando': 'Ödeme alındı: evin etkinleştiriliyor. Uzun sürerse “Zaten satın aldım”a dokun.',
   'puerta.yaCompre': 'Zaten satın aldım: tekrar kontrol et',
   'puerta.probar': 'Evini kurmayı ücretsiz dene',
   'puerta.probarNota':

@@ -6749,6 +6749,7 @@ export const NL: Dict = {
   'cuenta.nivel.n': 'Niveau ×{n} — {c} credits per maand',
   'cuenta.nivel.actual': 'Huidig',
   'cuenta.nivel.nota': 'Je kunt altijd een niveau omhoog of omlaag; het verschil wordt naar rato berekend.',
+  'cuenta.pago.pendiente': 'Betaling ontvangen: je abonnement verschijnt hier over een paar seconden.',
   'cuenta.legal.renovacion.apple': 'De betaling wordt bij bevestiging van de aankoop van je Apple ID afgeschreven. Het abonnement wordt automatisch verlengd tenzij je dit minstens 24 uur voor het einde van de lopende periode uitzet; de verlenging wordt binnen die 24 uur in rekening gebracht. Je beheert of stopt het in de instellingen van je Apple ID.',
   'cuenta.legal.renovacion.google': 'De betaling wordt bij bevestiging van de aankoop van je Google Play-account afgeschreven. Het abonnement wordt automatisch verlengd tenzij je het opzegt voor het einde van de lopende periode. Je beheert of stopt het bij je Google Play-abonnementen.',
   'cuenta.nivel.subir': 'Naar ×{n} — {c} credits per maand voor {p}',
@@ -6800,6 +6801,8 @@ export const NL: Dict = {
   'puerta.compraFallo': 'De aankoop is niet voltooid. Als je al betaald hebt, probeer “Aankopen herstellen”.',
   'puerta.sinOferta': 'De store reageerde niet. Controleer je verbinding en probeer het opnieuw.',
   'puerta.sinRestaurar': 'We vonden geen aankopen voor dit account.',
+  'puerta.conectandoTienda': 'Verbinden met de winkel…',
+  'puerta.activando': 'Betaling ontvangen: je huis wordt geactiveerd. Duurt het lang, tik dan op ‘Ik heb het al gekocht’.',
   'puerta.yaCompre': 'Al gekocht: opnieuw controleren',
   'puerta.probar': 'Probeer gratis je huis te bouwen',
   'puerta.probarNota':

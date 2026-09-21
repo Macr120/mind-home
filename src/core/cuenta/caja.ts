@@ -18,12 +18,31 @@ export interface OfertaCruda {
   ref: unknown
 }
 
+/**
+ * El usuario cerró la hoja de pago sin pagar. Es un TIPO y no un `false`
+ * porque un `false` se confundía con «la tienda cobró pero el perfil aún no lo
+ * refleja», y la puerta lo enseñaba como error rojo: «The purchase was not
+ * completed». App Review lo describió el 21-sep-2026 como «an error message
+ * when we tapped the purchase button». Cancelar no es un error: quien lo
+ * atrapa no debe enseñar nada.
+ */
+export class CompraCancelada extends Error {
+  constructor() {
+    super('compra: cancelada por el usuario')
+    this.name = 'CompraCancelada'
+  }
+}
+
 export interface Caja {
   /** ¿Está configurada esta caja en este build? (clave presente) */
   disponible(): boolean
   ofertas(userId: string): Promise<OfertaCruda[]>
-  /** Lanza el flujo de compra. Devuelve false si el usuario lo canceló. */
-  comprar(userId: string, ref: unknown): Promise<boolean>
+  /**
+   * Lanza el flujo de compra. Vuelve cuando la tienda COBRÓ; lanza
+   * `CompraCancelada` si el usuario cerró la hoja, y cualquier otro fallo de la
+   * tienda tal cual (con su código, que la UI enseña).
+   */
+  comprar(userId: string, ref: unknown): Promise<void>
   /** Recupera compras previas de esta tienda (Apple lo EXIGE en la UI). */
   restaurar(userId: string): Promise<boolean>
   /** Portal para cancelar o cambiar el pago; null si la tienda no da uno. */

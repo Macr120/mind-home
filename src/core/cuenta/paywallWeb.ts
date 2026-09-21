@@ -9,7 +9,7 @@
  * a `perfiles`, que es la fuente de verdad. Aquí solo se abre el checkout.
  */
 import type { Package, Purchases } from '@revenuecat/purchases-js'
-import type { Caja, OfertaCruda } from './caja'
+import { CompraCancelada, type Caja, type OfertaCruda } from './caja'
 
 const claveWeb = import.meta.env.VITE_REVENUECAT_WEB_KEY as string | undefined
 
@@ -48,8 +48,14 @@ export const cajaWeb: Caja = {
   },
 
   async comprar(userId, ref) {
-    await (await rc(userId)).purchase({ rcPackage: ref as Package })
-    return true
+    try {
+      await (await rc(userId)).purchase({ rcPackage: ref as Package })
+    } catch (e) {
+      // Cerrar el checkout no es un fallo: la fachada lo distingue por el tipo.
+      // Sin importar el SDK (se carga perezoso): `ErrorCode.UserCancelledError` es 1.
+      if ((e as { errorCode?: unknown } | null)?.errorCode === 1) throw new CompraCancelada()
+      throw e
+    }
   },
 
   /** En la web no hay nada que restaurar: el `appUserId` ya trae las compras. */
