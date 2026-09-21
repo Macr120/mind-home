@@ -9,6 +9,8 @@ con Capacitor (Android en `android/`, iOS en `ios/`).
 - **Estado del avance**: [`docs/AVANCE.md`](docs/AVANCE.md) — casa vs cada cuarto
 - **Cómo trabajar sin ruido**: [`docs/COMO-TRABAJAR.md`](docs/COMO-TRABAJAR.md)
 - **iOS (compilar, firmar, publicar)**: [`docs/IOS.md`](docs/IOS.md)
+- **App Review de Apple (los cinco envíos, el error 8 de StoreKit, cómo reenviar)**:
+  [`docs/APP-REVIEW.md`](docs/APP-REVIEW.md) — leer ANTES de tocar la caja o reenviar
 - **Escritorio (Electron, `.dmg`)**: [`docs/ESCRITORIO.md`](docs/ESCRITORIO.md)
 - **Publicar en redes (altas en Google/TikTok/Meta y revisiones, paso a paso)**:
   [`docs/TRAMITES-REDES.md`](docs/TRAMITES-REDES.md) — el usuario lo hace acompañado,
