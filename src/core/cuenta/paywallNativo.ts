@@ -84,6 +84,38 @@ function cancelada(e: unknown): boolean {
   return !!err && (err.userCancelled === true || String(err.code) === '1')
 }
 
+/** ¿`INVALID_RECEIPT` (8) o `MISSING_RECEIPT_FILE` (9)? El recibo, no la compra. */
+function reciboIncompleto(e: unknown): boolean {
+  const err = e as { code?: unknown; readableErrorCode?: unknown } | null
+  if (!err) return false
+  const codigo = String(err.code)
+  const nombre = String(err.readableErrorCode ?? '')
+  return codigo === '8' || codigo === '9' || /INVALID_RECEIPT|MISSING_RECEIPT/.test(nombre)
+}
+
+/** Pausas entre sincronizaciones del recibo (tres intentos en total). */
+const PAUSAS_RECIBO = [0, 2_000, 4_000]
+
+/**
+ * Tras un error de recibo: pide a StoreKit que vuelva a sincronizar las
+ * transacciones con RevenueCat y mira si el producto ya figura como comprado.
+ * True = la compra está y se puede seguir como si `purchasePackage` hubiera
+ * vuelto bien. False = no apareció: que el error original suba y se enseñe.
+ */
+async function recuperarCompra(productoId: string): Promise<boolean> {
+  for (const pausa of PAUSAS_RECIBO) {
+    if (pausa) await new Promise((r) => setTimeout(r, pausa))
+    try {
+      await plugin().syncPurchases()
+      const { customerInfo } = await plugin().getCustomerInfo()
+      if (customerInfo.allPurchasedProductIdentifiers.includes(productoId)) return true
+    } catch {
+      // Un fallo al sincronizar no cambia nada: se vuelve a intentar.
+    }
+  }
+  return false
+}
+
 export const cajaNativa: Caja = {
   disponible: () => !!clave(),
 
@@ -104,11 +136,20 @@ export const cajaNativa: Caja = {
   },
 
   async comprar(userId, ref) {
+    const paquete = ref as PurchasesPackage
     try {
       await preparar(userId)
-      await plugin().purchasePackage({ aPackage: ref as PurchasesPackage })
+      await plugin().purchasePackage({ aPackage: paquete })
     } catch (e) {
       if (cancelada(e)) throw new CompraCancelada()
+      // Error 8, INVALID_RECEIPT («the purchased product was missing in the
+      // receipt … a bug in StoreKit»): la tienda YA cobró, pero el recibo que
+      // StoreKit 2 le pasó a RevenueCat aún no lleva el producto. Es un fallo
+      // conocido del sandbox (y el que vio App Review el 21-sep-2026, visto por
+      // fin en un iPad con iPadOS 27). Se cura pidiéndole a la tienda que
+      // vuelva a sincronizar el recibo y comprobando que el producto ya está:
+      // entonces la compra es buena y no hay nada que enseñar.
+      if (reciboIncompleto(e) && (await recuperarCompra(paquete.product.identifier))) return
       throw e
     }
   },
