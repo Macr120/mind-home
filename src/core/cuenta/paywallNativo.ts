@@ -14,7 +14,7 @@
  * anónimo y `logIn()` la transfiere en cuanto se registra el correo.
  */
 import { nombrePlataforma } from '../plataforma'
-import type { Caja, OfertaCruda } from './caja'
+import { CompraCancelada, type Caja, type OfertaCruda } from './caja'
 import type { PurchasesPackage } from '@revenuecat/purchases-capacitor'
 
 const claves: Record<string, string | undefined> = {
@@ -107,9 +107,8 @@ export const cajaNativa: Caja = {
     try {
       await preparar(userId)
       await plugin().purchasePackage({ aPackage: ref as PurchasesPackage })
-      return true
     } catch (e) {
-      if (cancelada(e)) return false
+      if (cancelada(e)) throw new CompraCancelada()
       throw e
     }
   },

@@ -6520,6 +6520,7 @@ export const PL: Dict = {
   'cuenta.nivel.n': 'Poziom ×{n} — {c} kredytów miesięcznie',
   'cuenta.nivel.actual': 'Obecny',
   'cuenta.nivel.nota': 'Poziom możesz podnieść lub obniżyć kiedy chcesz; różnica liczona jest proporcjonalnie.',
+  'cuenta.pago.pendiente': 'Płatność przyjęta: Twój plan pojawi się tutaj za kilka sekund.',
   'cuenta.legal.renovacion.apple': 'Płatność jest pobierana z Twojego Apple ID w chwili potwierdzenia zakupu. Subskrypcja odnawia się automatycznie, o ile nie wyłączysz jej co najmniej 24 godziny przed końcem bieżącego okresu; opłata za odnowienie jest pobierana w ciągu tych 24 godzin. Możesz nią zarządzać lub ją anulować w ustawieniach Apple ID.',
   'cuenta.legal.renovacion.google': 'Płatność jest pobierana z Twojego konta Google Play w chwili potwierdzenia zakupu. Subskrypcja odnawia się automatycznie, o ile nie anulujesz jej przed końcem bieżącego okresu. Możesz nią zarządzać lub ją anulować w subskrypcjach Google Play.',
   'cuenta.nivel.subir': 'Podnieś do ×{n} — {c} kredytów miesięcznie za {p}',
@@ -6572,6 +6573,8 @@ export const PL: Dict = {
   'puerta.sinOferta':
     'Sklep nie odpowiedział. Sprawdź połączenie i spróbuj ponownie.',
   'puerta.sinRestaurar': 'Nie znaleźliśmy zakupów na tym koncie.',
+  'puerta.conectandoTienda': 'Łączenie ze sklepem…',
+  'puerta.activando': 'Płatność przyjęta: aktywuję Twój dom. Jeśli to potrwa, stuknij „Już kupiłem/am”.',
   'puerta.yaCompre': 'Już ją kupiłem: sprawdź ponownie',
   'puerta.probar': 'Wypróbuj za darmo: zbuduj swój dom',
   'puerta.probarNota': 'Wejdź do własnego domu i wypróbuj ją bez konta. Aby zapisywać zmiany, korzystać z AI i synchronizacji, założysz swoje konto.',

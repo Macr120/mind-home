@@ -6634,6 +6634,7 @@ export const DE: Dict = {
   'cuenta.nivel.n': 'Level ×{n} — {c} Credits pro Monat',
   'cuenta.nivel.actual': 'Aktuell',
   'cuenta.nivel.nota': 'Du kannst jederzeit ein Level hoch oder runter; die Änderung wird anteilig berechnet.',
+  'cuenta.pago.pendiente': 'Zahlung eingegangen: dein Plan erscheint hier in wenigen Sekunden.',
   'cuenta.legal.renovacion.apple': 'Die Zahlung wird bei Bestätigung des Kaufs deiner Apple-ID belastet. Das Abo verlängert sich automatisch, sofern du es nicht mindestens 24 Stunden vor Ende des laufenden Zeitraums deaktivierst; die Verlängerung wird innerhalb dieser 24 Stunden abgerechnet. Verwalten oder kündigen kannst du es in den Einstellungen deiner Apple-ID.',
   'cuenta.legal.renovacion.google': 'Die Zahlung wird bei Bestätigung des Kaufs deinem Google-Play-Konto belastet. Das Abo verlängert sich automatisch, sofern du es nicht vor Ende des laufenden Zeitraums kündigst. Verwalten oder kündigen kannst du es in deinen Google-Play-Abos.',
   'cuenta.nivel.subir': 'Auf ×{n} hochstufen — {c} Credits im Monat für {p}',
@@ -6687,6 +6688,8 @@ export const DE: Dict = {
   'puerta.sinOferta':
     'Der Store hat nicht geantwortet. Prüfe deine Verbindung und versuch es noch einmal.',
   'puerta.sinRestaurar': 'Wir haben keine Käufe für dieses Konto gefunden.',
+  'puerta.conectandoTienda': 'Verbindung zum Store wird hergestellt…',
+  'puerta.activando': 'Zahlung eingegangen: dein Haus wird freigeschaltet. Dauert es länger, tippe auf „Ich habe es schon gekauft“.',
   'puerta.yaCompre': 'Schon gekauft: erneut prüfen',
   'puerta.probar': 'Bau dein Haus – gratis ausprobieren',
   'puerta.probarNota': 'Betritt dein eigenes Haus und probiere es ohne Konto aus. Um deine Änderungen zu speichern, die KI zu nutzen und zu synchronisieren, erstellst du dein Konto.',

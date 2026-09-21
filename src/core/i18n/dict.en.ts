@@ -6657,6 +6657,7 @@ export const EN: Dict = {
   'cuenta.nivel.n': 'Level ×{n} — {c} credits a month',
   'cuenta.nivel.actual': 'Current',
   'cuenta.nivel.nota': 'You can move up or down a level whenever you want; the change is prorated.',
+  'cuenta.pago.pendiente': 'Payment received: your plan will show up here in a few seconds.',
   'cuenta.legal.renovacion.apple': 'Payment is charged to your Apple ID when you confirm the purchase. The subscription renews automatically unless you turn it off at least 24 hours before the end of the current period, and the renewal is charged within those 24 hours. You can manage or cancel it in your Apple ID Settings.',
   'cuenta.legal.renovacion.google': 'Payment is charged to your Google Play account when you confirm the purchase. The subscription renews automatically unless you cancel it before the current period ends. You can manage or cancel it in your Google Play subscriptions.',
   'cuenta.nivel.subir': 'Move up to ×{n} — {c} credits a month for {p}',
@@ -6706,6 +6707,8 @@ export const EN: Dict = {
   'puerta.sinOferta':
     'The store didn’t respond. Check your connection and try again.',
   'puerta.sinRestaurar': 'We didn’t find any purchases for this account.',
+  'puerta.conectandoTienda': 'Connecting to the store…',
+  'puerta.activando': 'Payment received: activating your house. If it takes a while, tap “I already bought it”.',
   'puerta.yaCompre': 'I already bought it: check again',
   'puerta.probar': 'Try building your house for free',
   'puerta.probarNota': 'Step into your own house and try it without an account. To save your changes, use the AI and sync, you’ll create your account.',

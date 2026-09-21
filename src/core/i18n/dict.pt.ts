@@ -6528,6 +6528,7 @@ export const PT: Dict = {
   'cuenta.nivel.n': 'Nível ×{n} — {c} créditos por mês',
   'cuenta.nivel.actual': 'Atual',
   'cuenta.nivel.nota': 'Você pode subir ou descer de nível quando quiser; a mudança é cobrada proporcionalmente.',
+  'cuenta.pago.pendiente': 'Pagamento recebido: seu plano aparecerá aqui em alguns segundos.',
   'cuenta.legal.renovacion.apple': 'O pagamento é cobrado no seu ID Apple ao confirmar a compra. A assinatura se renova automaticamente, a menos que você a desative pelo menos 24 horas antes do fim do período atual; a renovação é cobrada dentro dessas 24 horas. Você pode gerenciá-la ou cancelá-la nos Ajustes do seu ID Apple.',
   'cuenta.legal.renovacion.google': 'O pagamento é cobrado na sua conta do Google Play ao confirmar a compra. A assinatura se renova automaticamente, a menos que você a cancele antes do fim do período atual. Você pode gerenciá-la ou cancelá-la nas assinaturas do Google Play.',
   'cuenta.nivel.subir': 'Subir para ×{n} — {c} créditos por mês por {p}',
@@ -6580,6 +6581,8 @@ export const PT: Dict = {
   'puerta.sinOferta':
     'A loja não respondeu. Verifique a sua ligação e tente de novo.',
   'puerta.sinRestaurar': 'Não encontramos compras nesta conta.',
+  'puerta.conectandoTienda': 'Conectando à loja…',
+  'puerta.activando': 'Pagamento recebido: ativando sua casa. Se demorar, toque em “Já comprei”.',
   'puerta.yaCompre': 'Já comprei: verificar de novo',
   'puerta.probar': 'Experimente criar sua casa grátis',
   'puerta.probarNota': 'Entre na sua própria casa e experimente sem conta. Para salvar suas mudanças, usar a IA e sincronizar, você criará sua conta.',

@@ -6278,6 +6278,7 @@ export const JA: Dict = {
   'cuenta.nivel.n': 'レベル×{n} — 月{c}クレジット',
   'cuenta.nivel.actual': '現在',
   'cuenta.nivel.nota': 'レベルはいつでも上げ下げできます。差額は日割りで精算されます。',
+  'cuenta.pago.pendiente': 'お支払いを受け付けました。数秒後にプランがここに表示されます。',
   'cuenta.legal.renovacion.apple': 'お支払いは購入確定時に Apple ID に請求されます。現在の期間の終了より 24 時間以上前に自動更新をオフにしないかぎり、サブスクリプションは自動で更新され、更新料はその 24 時間以内に請求されます。管理と解約は Apple ID の設定から行えます。',
   'cuenta.legal.renovacion.google': 'お支払いは購入確定時に Google Play アカウントに請求されます。現在の期間が終わる前に解約しないかぎり、サブスクリプションは自動で更新されます。管理と解約は Google Play のサブスクリプションから行えます。',
   'cuenta.nivel.subir': '×{n}にアップ — 月{c}クレジットで{p}',
@@ -6325,6 +6326,8 @@ export const JA: Dict = {
   'puerta.sinOferta':
     'ストアから応答がありませんでした。接続を確認して、もう一度お試しください。',
   'puerta.sinRestaurar': 'このアカウントの購入が見つかりませんでした。',
+  'puerta.conectandoTienda': 'ストアに接続しています…',
+  'puerta.activando': 'お支払いを受け付けました。家を有効化しています。時間がかかる場合は「購入済み」をタップしてください。',
   'puerta.yaCompre': '購入済み：もう一度確認',
   'puerta.probar': '無料で自分の家づくりを試す',
   'puerta.probarNota': '自分の家に入って、アカウントなしで試せます。変更の保存、AI、同期にはアカウントを作成します。',

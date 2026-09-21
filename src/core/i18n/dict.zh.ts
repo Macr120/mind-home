@@ -6254,6 +6254,7 @@ export const ZH: Dict = {
   'cuenta.nivel.n': '等级 ×{n} — 每月 {c} 积分',
   'cuenta.nivel.actual': '当前',
   'cuenta.nivel.nota': '你可以随时升级或降级，差额按比例计算。',
+  'cuenta.pago.pendiente': '已收到付款：你的方案几秒后会显示在这里。',
   'cuenta.legal.renovacion.apple': '确认购买时将通过你的 Apple ID 收取费用。除非在当前订阅期结束前至少 24 小时关闭自动续订，否则订阅将自动续订，并在该 24 小时内扣款。你可以在 Apple ID 设置中管理或取消订阅。',
   'cuenta.legal.renovacion.google': '确认购买时将通过你的 Google Play 账号收取费用。除非在当前订阅期结束前取消，否则订阅将自动续订。你可以在 Google Play 的订阅中管理或取消。',
   'cuenta.nivel.subir': '升到 ×{n} — 每月 {c} 积分，{p}',
@@ -6301,6 +6302,8 @@ export const ZH: Dict = {
   'puerta.sinOferta':
     '商店没有响应。请检查网络连接后重试。',
   'puerta.sinRestaurar': '没有找到这个账号的购买记录。',
+  'puerta.conectandoTienda': '正在连接商店…',
+  'puerta.activando': '已收到付款：正在开启你的房子。如果等待较久，请点按「我已购买」。',
   'puerta.yaCompre': '我已购买：再次检查',
   'puerta.probar': '免费体验打造你的家',
   'puerta.probarNota': '走进属于你的家，无需账号即可试用。要保存更改、使用AI和同步，需要创建账号。',

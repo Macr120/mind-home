@@ -6566,6 +6566,7 @@ export const ID: Dict = {
   'cuenta.nivel.n': 'Level ×{n} — {c} kredit per bulan',
   'cuenta.nivel.actual': 'Saat ini',
   'cuenta.nivel.nota': 'Kamu bisa naik atau turun level kapan saja; selisihnya dihitung proporsional.',
+  'cuenta.pago.pendiente': 'Pembayaran diterima: paketmu akan muncul di sini dalam beberapa detik.',
   'cuenta.legal.renovacion.apple': 'Pembayaran ditagihkan ke Apple ID kamu saat kamu mengonfirmasi pembelian. Langganan diperpanjang otomatis kecuali kamu mematikannya paling lambat 24 jam sebelum periode berjalan berakhir, dan perpanjangan ditagih dalam 24 jam tersebut. Kamu bisa mengelola atau membatalkannya di Pengaturan Apple ID.',
   'cuenta.legal.renovacion.google': 'Pembayaran ditagihkan ke akun Google Play kamu saat kamu mengonfirmasi pembelian. Langganan diperpanjang otomatis kecuali kamu membatalkannya sebelum periode berjalan berakhir. Kamu bisa mengelola atau membatalkannya di langganan Google Play.',
   'cuenta.nivel.subir': 'Naik ke ×{n} — {c} kredit per bulan seharga {p}',
@@ -6618,6 +6619,8 @@ export const ID: Dict = {
   'puerta.sinOferta':
     'Toko tidak merespons. Periksa koneksimu dan coba lagi.',
   'puerta.sinRestaurar': 'Kami tidak menemukan pembelian di akun ini.',
+  'puerta.conectandoTienda': 'Menghubungkan ke toko…',
+  'puerta.activando': 'Pembayaran diterima: mengaktifkan rumahmu. Jika lama, ketuk “Saya sudah membelinya”.',
   'puerta.yaCompre': 'Sudah kubeli: periksa lagi',
   'puerta.probar': 'Coba bangun rumahmu gratis',
   'puerta.probarNota': 'Masuki rumahmu sendiri dan coba tanpa akun. Untuk menyimpan perubahan, memakai AI, dan sinkronisasi, kamu akan membuat akun.',

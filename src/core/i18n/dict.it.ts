@@ -6585,6 +6585,7 @@ export const IT: Dict = {
   'cuenta.nivel.n': 'Livello ×{n} — {c} crediti al mese',
   'cuenta.nivel.actual': 'Attuale',
   'cuenta.nivel.nota': 'Puoi salire o scendere di livello quando vuoi; il cambio è addebitato in proporzione.',
+  'cuenta.pago.pendiente': 'Pagamento ricevuto: il tuo piano comparirà qui tra pochi secondi.',
   'cuenta.legal.renovacion.apple': 'Il pagamento viene addebitato sul tuo ID Apple alla conferma dell’acquisto. L’abbonamento si rinnova automaticamente a meno che tu non lo disattivi almeno 24 ore prima della fine del periodo in corso; il rinnovo viene addebitato entro quelle 24 ore. Puoi gestirlo o annullarlo nelle impostazioni del tuo ID Apple.',
   'cuenta.legal.renovacion.google': 'Il pagamento viene addebitato sul tuo account Google Play alla conferma dell’acquisto. L’abbonamento si rinnova automaticamente a meno che tu non lo annulli prima della fine del periodo in corso. Puoi gestirlo o annullarlo negli abbonamenti di Google Play.',
   'cuenta.nivel.subir': 'Passa a ×{n} — {c} crediti al mese per {p}',
@@ -6637,6 +6638,8 @@ export const IT: Dict = {
   'puerta.sinOferta':
     'Il negozio non ha risposto. Controlla la connessione e riprova.',
   'puerta.sinRestaurar': 'Non abbiamo trovato acquisti per questo account.',
+  'puerta.conectandoTienda': 'Connessione allo store…',
+  'puerta.activando': 'Pagamento ricevuto: sto attivando la tua casa. Se tarda, tocca «L’ho già comprata».',
   'puerta.yaCompre': 'L’ho già comprata: ricontrolla',
   'puerta.probar': 'Prova a creare la tua casa gratis',
   'puerta.probarNota': 'Entra nella tua casa e provala senza account. Per salvare le tue modifiche, usare l’IA e sincronizzare, creerai il tuo account.',

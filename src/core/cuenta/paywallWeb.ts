@@ -8,8 +8,8 @@
  * `appUserId` = user.id de Supabase: el webhook traduce los eventos de compra
  * a `perfiles`, que es la fuente de verdad. Aquí solo se abre el checkout.
  */
-import { Purchases, type Package } from '@revenuecat/purchases-js'
-import type { Caja, OfertaCruda } from './caja'
+import { ErrorCode, Purchases, PurchasesError, type Package } from '@revenuecat/purchases-js'
+import { CompraCancelada, type Caja, type OfertaCruda } from './caja'
 
 const claveWeb = import.meta.env.VITE_REVENUECAT_WEB_KEY as string | undefined
 
@@ -42,8 +42,15 @@ export const cajaWeb: Caja = {
   },
 
   async comprar(userId, ref) {
-    await rc(userId).purchase({ rcPackage: ref as Package })
-    return true
+    try {
+      await rc(userId).purchase({ rcPackage: ref as Package })
+    } catch (e) {
+      // Cerrar el checkout no es un fallo: la fachada lo distingue por el tipo.
+      if (e instanceof PurchasesError && e.errorCode === ErrorCode.UserCancelledError) {
+        throw new CompraCancelada()
+      }
+      throw e
+    }
   },
 
   /** En la web no hay nada que restaurar: el `appUserId` ya trae las compras. */
