@@ -19,6 +19,8 @@ interface Props {
   /** Modo «elegir en el mapa»: al tocar devuelve la coordenada. */
   onTocar?: (p: { lat: number; lng: number }) => void
   eligiendo: boolean
+  /** Centro tras un gesto del usuario: sirve para sesgar el buscador a esa zona. */
+  onMover?: (p: { lat: number; lng: number }) => void
 }
 
 const teselasDeTema = (idioma: string) =>
@@ -45,7 +47,17 @@ const ICONO_POSICION = L.divIcon({
 })
 
 /** Mapa de calles (Leaflet + teselas raster) con origen, destino, trazo por tramos y posición GPS. */
-export default function MapaCalles({ origen, destino, itinerario, posicion, seguir, tramoActivo, onTocar, eligiendo }: Props) {
+export default function MapaCalles({
+  origen,
+  destino,
+  itinerario,
+  posicion,
+  seguir,
+  tramoActivo,
+  onTocar,
+  eligiendo,
+  onMover,
+}: Props) {
   const idioma = useAjustes((s) => s.idioma)
   const div = useRef<HTMLDivElement>(null)
   const mapa = useRef<L.Map | null>(null)
@@ -54,12 +66,14 @@ export default function MapaCalles({ origen, destino, itinerario, posicion, segu
   const capaRuta = useRef<L.LayerGroup | null>(null)
   const capaPuntos = useRef<L.LayerGroup | null>(null)
   const onTocarRef = useRef(onTocar)
+  const onMoverRef = useRef(onMover)
   /** Último gesto del usuario sobre el mapa: la cámara no lo pisa durante unos segundos. */
   const ultimoGesto = useRef(0)
 
   useEffect(() => {
     onTocarRef.current = onTocar
-  }, [onTocar])
+    onMoverRef.current = onMover
+  }, [onTocar, onMover])
 
   // Las etiquetas del mapa siguen el idioma de la interfaz.
   useEffect(() => {
@@ -77,6 +91,16 @@ export default function MapaCalles({ origen, destino, itinerario, posicion, segu
     capaRuta.current = L.layerGroup().addTo(m)
     capaPuntos.current = L.layerGroup().addTo(m)
     m.on('click', (e: L.LeafletMouseEvent) => onTocarRef.current?.({ lat: e.latlng.lat, lng: e.latlng.lng }))
+    // Solo los movimientos que vienen de un gesto: los que hace la propia app
+    // (encuadrar la ruta, seguir al usuario) no dicen a dónde mira el usuario.
+    // Y solo con el mapa acercado: el centro de un mapamundi no es una ciudad.
+    // `wrap()` es obligatorio: al cruzar el antimeridiano Leaflet devuelve
+    // longitudes fuera de rango (−684°) que ningún servicio acepta.
+    m.on('moveend', () => {
+      if (Date.now() - ultimoGesto.current > 4000 || m.getZoom() < 6) return
+      const c = m.getCenter().wrap()
+      onMoverRef.current?.({ lat: c.lat, lng: c.lng })
+    })
     const gesto = () => {
       ultimoGesto.current = Date.now()
     }

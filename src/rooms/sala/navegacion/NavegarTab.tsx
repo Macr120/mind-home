@@ -164,6 +164,8 @@ export default function NavegarTab({ lugares }: Props) {
   const [abiertos, setAbiertos] = useState<Set<string>>(new Set())
   const [eligiendo, setEligiendo] = useState<'origen' | 'destino' | null>(null)
   const [voz, setVoz] = useState(() => usePrefsNavegacion.getState().voz)
+  const zona = usePrefsNavegacion((p) => p.zona)
+  const setZona = usePrefsNavegacion((p) => p.setZona)
   const [guardadoOk, setGuardadoOk] = useState(false)
   const ultimaVoz = useRef('')
 
@@ -179,6 +181,7 @@ export default function NavegarTab({ lugares }: Props) {
     nav.posicion ??
     origen ??
     destino ??
+    zona ??
     guardados[0]?.origen ??
     (lugarConCoords?.lat != null && lugarConCoords.lng != null
       ? { lat: lugarConCoords.lat, lng: lugarConCoords.lng }
@@ -207,6 +210,24 @@ export default function NavegarTab({ lugares }: Props) {
     }
   }, [guardados])
 
+  // Con el permiso ya concedido, la posición se lee sola al abrir: sesga el
+  // buscador desde la primera letra y no le pide nada a quien no lo ha dado.
+  useEffect(() => {
+    let vivo = true
+    void (async () => {
+      if ((await permisoGps()) !== 'granted') return
+      try {
+        const pos = await obtenerPosicion()
+        if (vivo) setZona({ lat: pos.lat, lng: pos.lng })
+      } catch {
+        // Sin lectura se sigue con la zona guardada: esto es solo una pista.
+      }
+    })()
+    return () => {
+      vivo = false
+    }
+  }, [setZona])
+
   const limpiarResultados = () => {
     setResultados([])
     setSel(null)
@@ -217,6 +238,7 @@ export default function NavegarTab({ lugares }: Props) {
 
   const fijar = (cual: 'origen' | 'destino', p: PuntoNav | null) => {
     ;(cual === 'origen' ? setOrigen : setDestino)(p)
+    if (p) setZona({ lat: p.lat, lng: p.lng })
     limpiarResultados()
   }
 
@@ -529,6 +551,9 @@ export default function NavegarTab({ lugares }: Props) {
         tramoActivo={navegando ? (nav.progreso?.tramo ?? null) : null}
         onTocar={eligiendo ? (p) => void tocarMapa(p) : undefined}
         eligiendo={!!eligiendo}
+        onMover={(c) => {
+          if (!navegando) setZona(c)
+        }}
       />
       )}
 
