@@ -20,3 +20,16 @@ if (!URL_WEB) {
     '[MPH] Sin VITE_URL_WEB ni URL de lanzamiento: los CTA de suscripción no se mostrarán.',
   )
 }
+
+/**
+ * Base de los enlaces que abren LA APP (invitación a jugar, espacio compartido).
+ * No es la web de venta: manda `VITE_URL_APP` y, sin ella, el origen desde el
+ * que se está sirviendo la app (que en `localhost` es justo lo que se quiere).
+ * Siempre SIN barra final.
+ */
+export function urlApp(): string {
+  const base =
+    (import.meta.env.VITE_URL_APP as string | undefined) ||
+    (typeof location === 'undefined' ? '' : location.origin)
+  return base.endsWith('/') ? base.slice(0, -1) : base
+}

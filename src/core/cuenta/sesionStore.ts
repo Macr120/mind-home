@@ -78,14 +78,14 @@ interface SesionState {
   nivel: number
   /** Cuenta del dueño (perfiles.ilimitado): la IA no consume cuota ni tiene tope. */
   ilimitado: boolean
-  /** Saldo suelto que quede de las recargas viejas (perfiles.creditos_extra). */
-  creditosExtra: number
   /** Identidad pública del buzón (perfiles.alias/nombre/emoji); alias null = aún sin elegir. */
   alias: string | null
   nombre: string
   emoji: string
   /** Busto del personaje 3D ya subido (data URL); null = aún sin capturar. */
   retrato: string | null
+  /** Saldo suelto que quede de las recargas viejas (perfiles.creditos_extra). */
+  creditosExtra: number
   usoIA: UsoIA | null
   estadoSync: EstadoSync
   ultimaSync: number | null
@@ -100,7 +100,14 @@ interface SesionState {
   eliminarCuenta: () => Promise<string | null>
   /** Canjea un cupón de acceso (unlock + trial); devuelve el error o null. */
   canjearCupon: (codigo: string) => Promise<string | null>
+  /**
+   * Relee `perfiles`. No lanza —lo llaman sitios que no pueden atraparlo—,
+   * pero deja el último fallo en `errorPerfil` para que quien espera una
+   * compra sepa distinguir «aún no llegó» de «no se pudo leer».
+   */
   refrescarPerfil: () => Promise<void>
+  /** Último fallo al leer el perfil (red, RLS…), o null si la lectura fue bien. */
+  errorPerfil: string | null
   refrescarUso: () => Promise<void>
 }
 
@@ -155,11 +162,11 @@ export const useSesion = create<SesionState>((set, get) => ({
   unlock: false,
   nivel: 1,
   ilimitado: false,
-  creditosExtra: 0,
   alias: null,
   nombre: '',
   emoji: '🙂',
   retrato: null,
+  creditosExtra: 0,
   usoIA: null,
   estadoSync: 'inactivo',
   ultimaSync: null,
@@ -269,15 +276,20 @@ export const useSesion = create<SesionState>((set, get) => ({
     return null
   },
 
+  errorPerfil: null,
+
   refrescarPerfil: async () => {
     const usuario = get().usuario
     const sb = usuario ? await obtenerSupabase() : null
     if (!sb || !usuario) return
-    const { data } = await sb
+    const { data, error } = await sb
       .from('perfiles')
       .select('plan, plan_expira, fue_pro, creditos_extra, unlock, nivel, ilimitado, alias, nombre, emoji, retrato')
       .eq('user_id', usuario.id)
       .maybeSingle()
+    // Antes el error se descartaba y una red caída era indistinguible de «sin
+    // compra»: tras pagar, la puerta decía que la compra no se completó.
+    set({ errorPerfil: error ? `${error.code ?? ''} ${error.message}`.trim() : null })
     if (!data) return
     const plan: Plan = data.plan === 'pro' ? 'pro' : data.plan === 'trial' ? 'trial' : 'local'
     const expira = (data.plan_expira as string | null) ?? null
@@ -291,11 +303,11 @@ export const useSesion = create<SesionState>((set, get) => ({
       unlock,
       nivel: (data.nivel as number | null) ?? 1,
       ilimitado: data.ilimitado === true,
-      creditosExtra: (data.creditos_extra as number | null) ?? 0,
       alias: (data.alias as string | null) ?? null,
       nombre: (data.nombre as string | null) ?? '',
       emoji: (data.emoji as string | null) || '🙂',
       retrato: (data.retrato as string | null) ?? null,
+      creditosExtra: (data.creditos_extra as number | null) ?? 0,
     })
   },
 
@@ -438,11 +450,11 @@ export function iniciarSesion(): void {
           unlock: false,
           nivel: 1,
           ilimitado: false,
-          creditosExtra: 0,
           alias: null,
           nombre: '',
           emoji: '🙂',
           retrato: null,
+          creditosExtra: 0,
           usoIA: null,
         })
       } else if (usuario && (evento === 'SIGNED_IN' || evento === 'USER_UPDATED')) {

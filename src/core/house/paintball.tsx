@@ -17,6 +17,10 @@ import {
   paintballFrame,
   registrarLimpiadorPaintball,
   registrarDisparoPintura,
+  dejarBatallaOnline,
+  hayBatallaOnline,
+  retiroDeBatalla,
+  volverAMirarBatalla,
   CADENCIA_JUGADOR,
   COLOR_JUGADOR,
   type JugadorPaintball,
@@ -39,6 +43,24 @@ import { anclasDe, muestraRostro, soportaPeinado } from './apariencia'
 import { categoriaMarcha } from './cuerpos'
 import { avanzarMarcha, alturaFlote, type EstadoMarcha } from './animacion'
 import { sonar } from '../audio/sfx'
+import * as arbitro from '../partida/arbitro'
+import { aLocal, aRanura, miRanura } from '../partida/ranuras'
+import {
+  alRecibir,
+  cuerposBot,
+  emitir,
+  posPropiaEn,
+  registrarCuerposExtra,
+  registrarResync,
+  retrasoDe,
+  salaViva,
+  soyArbitro,
+} from '../partida/sala'
+import type { PayloadDe } from '../partida/protocolo'
+import { hayPartida } from '../partida/partidaStore'
+import * as reloj from '../partida/reloj'
+import { remotosFrame } from '../state/remotosFrame'
+import { F_FUERA, type BotId, type Pose, type Ranura } from '../partida/tipos'
 
 /**
  * Runtime 3D del modo paintball: bolas de pintura integradas por frame (con el
@@ -48,7 +70,11 @@ import { sonar } from '../audio/sfx'
  * meshes fijos (patrón itemsCarrera.tsx): cero re-renders por frame.
  */
 
-const MAX_BOLAS = 20
+/**
+ * Con cuatro tiradores y cinco bots a cadencia 450 hay ~9 disparos por segundo
+ * en el aire: con 20 bolas el pool se llenaba y los tiros se perdían.
+ */
+const MAX_BOLAS = 48
 /**
  * Velocidad de la bola (u/s). Vuela RECTA, sin caída: la marcadora se apunta y
  * pega donde señala la mira, igual que el láser (no hay que compensar el arco).
@@ -77,6 +103,14 @@ interface Bola {
   equipo: number
   /** Altura del piso donde se estampa la mancha (varía por nivel de la casa). */
   suelo: number
+  /**
+   * `seq` del `disparo` que la creó (0 fuera de partida). Es lo que permite a la
+   * víctima no pintar dos veces: si su física ya cruzó esta bola, el veredicto
+   * que llega después trae el mismo `ds` y se salta el cosmético.
+   */
+  ds: number
+  /** Reloj de partida del disparo: con él rebobina el árbitro para juzgarla. */
+  td: number
 }
 
 const bolas: Bola[] = Array.from({ length: MAX_BOLAS }, () => ({
@@ -92,7 +126,22 @@ const bolas: Bola[] = Array.from({ length: MAX_BOLAS }, () => ({
   deId: '',
   equipo: 0,
   suelo: 0.215,
+  ds: 0,
+  td: 0,
 }))
+
+/**
+ * Bolas cuyo impacto ya cosió esta pantalla (por `ds`). Anillo corto: solo hace
+ * falta hasta que llegue el veredicto de esa misma bola, un RTT después.
+ */
+const consumidas: number[] = []
+let idxConsumida = 0
+
+function consumirBola(ds: number): void {
+  if (ds <= 0 || consumidas.includes(ds)) return
+  consumidas[idxConsumida % 64] = ds
+  idxConsumida += 1
+}
 
 // ─── Manchas de pintura: ring buffer para un InstancedMesh (cero re-renders) ───
 
@@ -133,6 +182,16 @@ function agregarSplat(
   splatsVersion++
 }
 
+if (import.meta.env.DEV) {
+  // Mismo gesto que `paintballFrame`: sin esto la física de la batalla (bolas en
+  // vuelo, manchas y deduplicación) no se puede mirar desde la consola.
+  ;(window as unknown as { bolasPaintball: () => object }).bolasPaintball = () => ({
+    activas: bolas.filter((b) => b.activa).map((b) => ({ de: b.deId, ds: b.ds, x: b.x, z: b.z })),
+    consumidas: [...consumidas],
+    splats: splatIdx,
+  })
+}
+
 /** Recoge las bolas en vuelo; con `todo`, también las manchas (al salir del modo). */
 function limpiarPaintball(todo: boolean) {
   for (const b of bolas) b.activa = false
@@ -140,9 +199,34 @@ function limpiarPaintball(todo: boolean) {
     splats.length = 0
     splatIdx = 0
     splatsVersion++
+    consumidas.length = 0
+    idxConsumida = 0
   }
 }
 registrarLimpiadorPaintball(limpiarPaintball)
+
+/**
+ * Cuánto suena algo que pasa en (x,z). Con cuatro tiradores y cinco bots por
+ * toda la casa, sin atenuar el campo suena a metralla y no se distingue el tiro
+ * que va hacia ti del que va al otro extremo del mapa.
+ */
+function volumenEn(x: number, z: number): number {
+  const d = Math.hypot(x - playerPos.x, z - playerPos.z)
+  return d < 3 ? 1 : Math.min(1, 12 / (d * d))
+}
+
+/**
+ * Hueco del pool para una bola nueva. Con el pool lleno recicla la MÁS VIEJA:
+ * descartar el tiro en silencio (lo que se hacía) es peor que quitarle a
+ * alguien una bola que ya lleva volando.
+ */
+function tomarBola(): Bola {
+  const libre = bolas.find((b) => !b.activa)
+  if (libre) return libre
+  let vieja = bolas[0]
+  for (const b of bolas) if (b.nace < vieja.nace) vieja = b
+  return vieja
+}
 
 function dispararBola(
   deId: string,
@@ -156,22 +240,42 @@ function dispararBola(
   dz: number,
   suelo = 0.215,
 ) {
-  const b = bolas.find((b) => !b.activa)
-  if (!b) return
+  const b = tomarBola()
   const n = Math.hypot(dx, dy, dz) || 1
+  const ux = dx / n
+  const uy = dy / n
+  const uz = dz / n
   b.activa = true
   b.x = ox
   b.y = oy
   b.z = oz
-  b.vx = (dx / n) * VEL_BOLA
-  b.vy = (dy / n) * VEL_BOLA
-  b.vz = (dz / n) * VEL_BOLA
+  b.vx = ux * VEL_BOLA
+  b.vy = uy * VEL_BOLA
+  b.vz = uz * VEL_BOLA
   b.nace = performance.now()
   b.color = color
   b.deId = deId
   b.equipo = equipo
   b.suelo = suelo
-  sonar('disparo')
+  b.ds = 0
+  b.td = 0
+  sonar('disparo', volumenEn(ox, oz))
+  // El vector viaja YA resuelto: `dirDisparoDesde` hace raycast cámara→cursor y
+  // no es reproducible fuera de este cliente. Los bots los emite el árbitro,
+  // que es quien los mueve.
+  const de = aRanura(deId)
+  if (!de || !hayPartida()) return
+  if (de !== miRanura() && !(soyArbitro() && /^b[0-4]$/.test(de))) return
+  const sello = emitir('disparo', {
+    j: de,
+    o: [ox, oy, oz],
+    u: [ux, uy, uz],
+    c: color,
+    e: equipo,
+    y: suelo,
+  })
+  b.ds = sello.seq
+  b.td = sello.t
 }
 
 /** Altura del cañón del avatar (a la altura del pecho, de donde sale la bola). */
@@ -251,14 +355,23 @@ function despejado(
   return true
 }
 
-/** Posición y centro de torso de un jugador (para IA e impactos). */
+/**
+ * Posición y centro de torso de un jugador (para IA e impactos). Tres fuentes:
+ * yo, los cuerpos remotos (otros jugadores, y los bots vistos desde un
+ * invitado) y los bots que mueve este cliente.
+ */
 function posDeJugador(id: string | null): { x: number; z: number; y: number } | null {
   if (!id) return null
   if (id === 'yo') return { x: playerPos.x, z: playerPos.z, y: playerPos.y + 0.95 }
+  const r = remotosFrame[id]
+  if (r) return r.fuera ? null : { x: r.x, z: r.z, y: r.y + 0.95 }
   const b = paintballFrame.bots.find((bb) => bb.id === id)
   if (!b || !b.vivo) return null
   return { x: b.x, z: b.z, y: ALTURA_FLOTE + 0.7 * b.escala }
 }
+
+/** Escala del cuerpo de cada remoto (roster y bots), para el radio de impacto. */
+const escalasRemotas: Record<string, number> = {}
 
 /** Enemigo vivo más cercano al bot (en campal, todos menos su propio equipo). */
 function objetivoMasCercano(jugadores: JugadorPaintball[], b: BotPaintball): string | null {
@@ -379,6 +492,41 @@ function avanzarBots(
   }
 }
 
+/**
+ * Dónde está la víctima PARA ESTA BOLA. Contra un cuerpo remoto o contra un bot,
+ * donde esté ahora; contra MÍ, si la bola es de otro jugador y yo soy el
+ * árbitro, donde yo estaba cuando él disparó (rebobinado al `t` del disparo
+ * menos el retraso con el que me veía). Así el impacto cae donde el tirador lo
+ * vio, que es lo único honesto que se puede hacer con 150 ms de por medio.
+ */
+function posVictima(b: Bola, id: string): { x: number; z: number; y: number } | null {
+  const viva = posDeJugador(id)
+  if (!viva || id !== 'yo' || b.td === 0 || !soyArbitro()) return viva
+  const de = aRanura(b.deId)
+  if (!de || !/^j[0-3]$/.test(de)) return viva
+  const antes = posPropiaEn(b.td - retrasoDe(de as Ranura))
+  return antes === null ? viva : { x: antes.x, z: antes.z, y: viva.y }
+}
+
+/**
+ * Quién decide que ese impacto cuenta. Fuera de línea, el store de siempre; en
+ * línea SOLO el árbitro, que además lo difunde. Un invitado no resta vidas —ni
+ * las suyas—: se las dice el veredicto.
+ */
+function juzgarImpacto(
+  b: Bola,
+  victimaId: string,
+  p2: { x: number; z: number; y: number },
+): null | 'impacto' | 'fuera' {
+  if (!hayBatallaOnline()) return usePaintball.getState().registrarImpacto(b.deId, victimaId)
+  if (!soyArbitro()) return null
+  const de = aRanura(b.deId)
+  const vi = aRanura(victimaId)
+  if (!de || !vi) return null
+  const v = arbitro.juzgar(de, vi, [p2.x, b.suelo, p2.z], b.color, b.ds)
+  return v === null ? null : v.fue ? 'fuera' : 'impacto'
+}
+
 function avanzarBolas(d: number, colliders: AABB[], objCols: ObjCol[]) {
   const s = usePaintball.getState()
   const ahora = performance.now()
@@ -399,7 +547,7 @@ function avanzarBolas(d: number, colliders: AABB[], objCols: ObjCol[]) {
       // Suelo del piso donde nació el tiro (tope y≈0.19 en planta baja): mancha plana.
       if (ny <= b.suelo + 0.025) {
         agregarSplat(nx, b.suelo, nz, 0, 1, 0, b.color, 0.55)
-        sonar('impacto')
+        sonar('impacto', volumenEn(nx, nz))
         b.activa = false
         break
       }
@@ -414,7 +562,7 @@ function avanzarBolas(d: number, colliders: AABB[], objCols: ObjCol[]) {
           } else {
             agregarSplat(b.x, Math.max(0.3, ny), b.z, -(Math.sign(b.vx) || 1), 0, 0, b.color, 0.5)
           }
-          sonar('impacto')
+          sonar('impacto', volumenEn(b.x, b.z))
           b.activa = false
           break
         }
@@ -425,32 +573,199 @@ function avanzarBolas(d: number, colliders: AABB[], objCols: ObjCol[]) {
       // Impacto contra personajes (radio generoso, estilo itemsCarrera).
       for (const j of s.jugadores) {
         if (j.fuera || j.id === b.deId || j.equipo === b.equipo) continue
-        const p2 = posDeJugador(j.id)
+        const p2 = posVictima(b, j.id)
         if (!p2) continue
-        const radio = j.id === 'yo' ? 0.55 : 0.55 * Math.max(0.8, paintballFrame.bots.find((bb) => bb.id === j.id)?.escala ?? 1)
+        const radio =
+          0.55 *
+          Math.max(
+            0.8,
+            escalasRemotas[j.id] ?? paintballFrame.bots.find((bb) => bb.id === j.id)?.escala ?? 1,
+          )
         if (Math.hypot(b.x - p2.x, b.z - p2.z) > radio) continue
         if (Math.abs(b.y - p2.y) > 1.15) continue
-        const res = usePaintball.getState().registrarImpacto(b.deId, j.id)
-        if (res) {
-          agregarSplat(p2.x, b.suelo, p2.z, 0, 1, 0, b.color, 0.85)
-          sonar('impacto')
-          if (res === 'fuera') sonar('anotacion')
-          b.activa = false
-        }
+        // El acuse es COSMÉTICO y corre en TODOS los clientes: la bola se apaga,
+        // mancha y suena en cuanto la física local la ve cruzar un cuerpo. Las
+        // vidas y el «fuera» los decide el árbitro y llegan un RTT después
+        // (nunca se adelantan, así que nunca hay que revertirlos).
+        consumirBola(b.ds)
+        const res = juzgarImpacto(b, j.id, p2)
+        agregarSplat(p2.x, b.suelo, p2.z, 0, 1, 0, b.color, 0.85)
+        sonar('impacto', volumenEn(p2.x, p2.z))
+        if (res === 'fuera') sonar('anotacion')
+        b.activa = false
         break
       }
     }
   }
 }
 
+/**
+ * Contexto local roto (editor, cuarto abierto, montarse, subir de piso). Fuera
+ * de línea corta la batalla, como siempre. En línea NADIE corta la de los
+ * demás: el invitado se retira solo y el árbitro —que sostiene bots, bolas y
+ * reloj en su propio frame— suspende su vista y sigue arbitrando.
+ * Devuelve si hay que abandonar el frame.
+ */
+/**
+ * Las condiciones locales que sacan de la batalla, juntas: sirven para volver a
+ * mirarla cuando se arreglan (cerrar el cuarto, bajar a la planta baja…). El
+ * runtime las comprueba por partes, cada una en su momento del frame.
+ */
+function hayContextoRoto(): boolean {
+  const casa = useHouse.getState()
+  return (
+    useLayout.getState().editMode ||
+    casa.activeRoom != null ||
+    casa.playerLevel !== 0 ||
+    casa.transicion != null ||
+    useCaminos.getState().activo ||
+    useCanchas.getState().activo ||
+    useHuerto.getState().activo ||
+    useGranja.getState().activo ||
+    monturaFrame.montado ||
+    trenFrame.montado ||
+    parqueFrame.usando
+  )
+}
+
+function salirPorContexto(s: ReturnType<typeof usePaintball.getState>): boolean {
+  if (!hayBatallaOnline() || !soyArbitro()) {
+    // Con el motivo real: esto no es el botón, es un contexto que se rompió.
+    dejarBatallaOnline('contexto')
+    s.cancelar()
+    return true
+  }
+  paintballFrame.disparar = false
+  return false
+}
+
+/** Cuerpos de los bots para el `s` del anfitrión: son cuerpos, no jugadores. */
+function cuerposDeBots(): Pose[] {
+  if (!soyArbitro() || !arbitro.arbitrando()) return []
+  const poses: Pose[] = []
+  for (const b of paintballFrame.bots) {
+    const j = aRanura(b.id)
+    if (!j || !/^b[0-4]$/.test(j)) continue
+    poses.push({ j: j as BotId, x: b.x, z: b.z, h: b.h, vel: 0, niv: 0, f: b.vivo ? 0 : F_FUERA })
+  }
+  return poses
+}
+
+/** Escala de cada cuerpo remoto (roster y bots): entra en el radio de impacto. */
+function anotarEscalas(): void {
+  for (const id of Object.keys(escalasRemotas)) delete escalasRemotas[id]
+  for (const j of salaViva()?.jugadores ?? []) {
+    escalasRemotas[aLocal(j.ranura)] = Math.min(2, j.aspecto?.escala || 1)
+  }
+  for (const b of cuerposBot()) escalasRemotas[aLocal(b.j)] = Math.min(2, b.av?.escala || 1)
+}
+
+/**
+ * Un disparo de otro. La bola nace ADELANTADA lo que lleva volando desde que su
+ * dueño apretó: vuela recta y a velocidad fija, así que la cuenta es exacta y
+ * llega a su destino a tiempo aunque el mensaje haya tardado.
+ */
+function recibirDisparo(p: PayloadDe<'disparo'>): void {
+  // Mi propio disparo, que el árbitro acaba de bajar para los demás.
+  if (p.j === miRanura()) return
+  let ds = p.seq
+  let td = p.t
+  // El árbitro lo reemite por la bajada conservando el `t` original: los otros
+  // invitados no se hablan entre ellos.
+  if (soyArbitro()) {
+    const sello = emitir('disparo', { j: p.j, o: p.o, u: p.u, c: p.c, e: p.e, y: p.y }, p.t)
+    ds = sello.seq
+    td = sello.t
+  }
+  const edad = Math.max(0, Math.min(reloj.ahora() - td, VIDA_BOLA_MS))
+  const avance = (edad * VEL_BOLA) / 1000
+  const b = tomarBola()
+  b.activa = true
+  b.x = p.o[0] + p.u[0] * avance
+  b.y = p.o[1] + p.u[1] * avance
+  b.z = p.o[2] + p.u[2] * avance
+  b.vx = p.u[0] * VEL_BOLA
+  b.vy = p.u[1] * VEL_BOLA
+  b.vz = p.u[2] * VEL_BOLA
+  b.nace = performance.now() - edad
+  b.color = p.c
+  b.deId = aLocal(p.j)
+  b.equipo = p.e
+  b.suelo = p.y
+  b.ds = ds
+  b.td = td
+  sonar('disparo', volumenEn(b.x, b.z))
+}
+
+/**
+ * Lo que dicta el árbitro. Corre igual en el anfitrión (por eco) que en los
+ * invitados (por la bajada): un solo camino de código para el mismo estado.
+ */
+function aplicarDeLaRed(ev: 'veredicto' | 'w' | 'fin', bruto: object): void {
+  const pb = usePaintball.getState()
+  if (ev === 'w') {
+    anotarEscalas()
+    pb.aplicarMundo(bruto as PayloadDe<'w'>)
+    return
+  }
+  if (ev === 'fin') {
+    const f = bruto as PayloadDe<'fin'>
+    pb.terminarOnline(f.eq, f.js)
+    return
+  }
+  const v = bruto as PayloadDe<'veredicto'>
+  // La víctima pinta y suena aunque su física no llegara a ver la bola; si SÍ
+  // la vio, ya lo hizo al cruzarla y este acuse se salta (dedup por `ds`).
+  if (!consumidas.includes(v.ds)) {
+    consumirBola(v.ds)
+    agregarSplat(v.pi[0], v.pi[1], v.pi[2], 0, 1, 0, v.c, 0.85)
+    sonar('impacto', volumenEn(v.pi[0], v.pi[2]))
+    if (v.fue) sonar('anotacion')
+  }
+  // La bola que lo causó puede seguir viva aquí: la física local la falló.
+  for (const b of bolas) if (b.activa && b.ds === v.ds) b.activa = false
+  pb.aplicarVeredicto(v)
+}
+
 /** Runtime (sin render): cuenta atrás, disparo del jugador, IA y física de bolas. */
 function PaintballRuntime() {
+  // La red de la batalla. Se engancha una vez y vive lo que vive la escena:
+  // fuera de partida no llega un solo evento.
+  useEffect(() => {
+    arbitro.registrarEcoArbitro(aplicarDeLaRed)
+    // Quien pide `resync` puede haberse perdido el `fin`: solo el árbitro puede
+    // volver a contarlo.
+    registrarResync(arbitro.reemitir)
+    registrarCuerposExtra(cuerposDeBots)
+    const fuera = [
+      alRecibir('disparo', (p) => recibirDisparo(p)),
+      alRecibir('veredicto', (p) => aplicarDeLaRed('veredicto', p)),
+      alRecibir('w', (p) => aplicarDeLaRed('w', p)),
+      alRecibir('fin', (p) => aplicarDeLaRed('fin', p)),
+      alRecibir('salir', (_p, de) => {
+        if (arbitro.arbitrando()) arbitro.retirar(de)
+      }),
+    ]
+    return () => {
+      arbitro.registrarEcoArbitro(null)
+      registrarResync(null)
+      registrarCuerposExtra(null)
+      for (const quitar of fuera) quitar()
+    }
+  }, [])
+
   useFrame((estado, delta) => {
     const s = usePaintball.getState()
     const d = Math.min(delta, 0.1)
+    // El arbitraje va ANTES de todos los cortes: la batalla de los demás vive
+    // en este frame y no puede pararse porque a este cliente le pase algo.
+    if (arbitro.arbitrando()) arbitro.avanzar(d)
     // Fuera de batalla solo viven las bolas de la marcadora suelta (rueda de
     // herramientas): manchan el mapa sin tocar a nadie.
     if (!s.fase) {
+      // Me retiré porque se me rompió el contexto (cuarto abierto, editor…):
+      // en cuanto se arregla vuelvo a mirar la batalla, que sigue sin mí.
+      if (retiroDeBatalla() === 'contexto' && !hayContextoRoto()) volverAMirarBatalla()
       if (bolas.some((b) => b.activa)) {
         const nivel = Math.max(0, useHouse.getState().playerLevel)
         avanzarBolas(d, useLayout.getState().wallCollidersByLevel[nivel] ?? [], objColliders(nivel))
@@ -466,8 +781,7 @@ function PaintballRuntime() {
       useGranja.getState().activo
     // Contexto roto (editor, cuarto abierto, otro editor de infra): se cancela.
     if (layout.editMode || casa.activeRoom != null || infraActiva) {
-      s.cancelar()
-      return
+      if (salirPorContexto(s)) return
     }
     if (s.fase === 'config' || s.fase === 'fin') return
     // En plena batalla: montarse, subir de nivel o usar un juego la corta.
@@ -478,8 +792,7 @@ function PaintballRuntime() {
       trenFrame.montado ||
       parqueFrame.usando
     ) {
-      s.cancelar()
-      return
+      if (salirPorContexto(s)) return
     }
     if (s.fase === 'cuenta') {
       // Los spawns del anillo se ajustan al modelo de colisión una sola vez.
@@ -492,7 +805,9 @@ function PaintballRuntime() {
         b.recolocar = false
       }
       paintballFrame.reloj += d
-      if (paintballFrame.reloj >= 0) s.banderazo()
+      // En línea el banderazo lo da el árbitro con `w`: si cada cliente lo
+      // diera al llegar su cuenta a cero, unos abrirían fuego antes que otros.
+      if (paintballFrame.reloj >= 0 && !hayBatallaOnline()) s.banderazo()
       return
     }
     // fase === 'jugando'
@@ -510,9 +825,13 @@ function PaintballRuntime() {
       !yo.fuera &&
       ahora - paintballFrame.ultimoDisparo >= CADENCIA_JUGADOR
     ) {
-      dispararJugador(estado.camera, yo.color, 0, 0.215)
+      dispararJugador(estado.camera, yo.color, yo.equipo, 0.215)
     }
-    avanzarBots(s.jugadores, s.dificultad, d, colliders, objCols, halfW, halfH)
+    // La IA solo la corre el árbitro: si además la corriera el invitado, los
+    // bots pelearían contra sí mismos (cada pantalla con su propia versión).
+    if (!hayBatallaOnline() || soyArbitro()) {
+      avanzarBots(s.jugadores, s.dificultad, d, colliders, objCols, halfW, halfH)
+    }
     avanzarBolas(d, colliders, objCols)
   })
   return null
@@ -769,7 +1088,10 @@ export function PaintballController() {
       <BolasPaintball3D />
       <SplatsPaintball />
       <ArmaPrimeraPersona />
-      {fase != null && fase !== 'config' && <BotsPaintball />}
+      {/* En línea los bots solo los pinta el ÁRBITRO: en el invitado son
+          cuerpos remotos como los demás y `JugadoresRemotos` ya los monta (sin
+          este gate saldrían dos veces, y encima con el avatar equivocado). */}
+      {fase != null && fase !== 'config' && (!hayBatallaOnline() || soyArbitro()) && <BotsPaintball />}
     </>
   )
 }

@@ -56,6 +56,12 @@ function FilaDoc({
               <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: color }} />
             ))}
           <span className="min-w-0 flex-1 truncate">{d.titulo}</span>
+          {/* Hoja compartida por enlace: se edita entre varios (ver core/espacios) */}
+          {d.espacioId && (
+            <span className="shrink-0 text-white/40" title={t('esp.doc.compartido', 'Compartido')}>
+              <Icono nombre="companeros" />
+            </span>
+          )}
         </button>
         {onExpandir && (
           <button

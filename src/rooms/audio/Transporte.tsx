@@ -40,6 +40,8 @@ const grupoBajo = (e: { clientX: number; clientY: number }): Grupo | null =>
 export function Transporte({
   nombre,
   onCerrar,
+  extra,
+  sinTurno,
   bpm,
   compases,
   pulsos,
@@ -73,6 +75,10 @@ export function Transporte({
   /** Nombre del proyecto: es el botón de volver a la lista (ahorra el encabezado). */
   nombre: string
   onCerrar: () => void
+  /** Al lado del nombre: el turno, quién está aquí y «Compartir» (proyecto compartido). */
+  extra?: ReactNode
+  /** Compartido y sin el turno: escuchar sí, cambiar el proyecto no. */
+  sinTurno?: boolean
   bpm: number
   compases: number
   /** Pulsaciones del metrónomo por compás (2 | 4 | 8 | 16). */
@@ -231,10 +237,11 @@ export function Transporte({
             <button
               type="button"
               onClick={onGrabar}
+              disabled={sinTurno}
               aria-label={t('audio.transporte.grabar', 'Grabar (con un compás de cuenta)')}
               title={t('audio.transporte.grabar', 'Grabar (con un compás de cuenta)')}
               aria-pressed={grabando}
-              className={`grid h-9 w-9 place-items-center rounded-lg border transition active:scale-90 ${
+              className={`grid h-9 w-9 place-items-center rounded-lg border transition active:scale-90 disabled:opacity-40 ${
                 grabando
                   ? 'border-red-400/60 bg-red-500/30 text-red-300'
                   : 'border-white/10 bg-white/10 text-red-400 hover:bg-white/20'
@@ -279,8 +286,9 @@ export function Transporte({
                 min={BPM_MIN}
                 max={BPM_MAX}
                 value={bpm}
+                disabled={sinTurno}
                 onChange={(e) => onBpm(Math.max(BPM_MIN, Math.min(BPM_MAX, Math.round(Number(e.target.value) || bpm))))}
-                className="w-16 rounded-lg border border-white/10 bg-black/30 px-2 py-1 text-sm text-white outline-none"
+                className="w-16 rounded-lg border border-white/10 bg-black/30 px-2 py-1 text-sm text-white outline-none disabled:opacity-40"
               />
             </label>
             <label className="flex items-center gap-1 text-xs text-white/50">
@@ -290,20 +298,22 @@ export function Transporte({
                 min={1}
                 max={MAX_COMPASES}
                 value={compases}
+                disabled={sinTurno}
                 onChange={(e) =>
                   onCompases(Math.max(1, Math.min(MAX_COMPASES, Math.round(Number(e.target.value) || compases))))
                 }
-                className="w-14 rounded-lg border border-white/10 bg-black/30 px-2 py-1 text-sm text-white outline-none"
+                className="w-14 rounded-lg border border-white/10 bg-black/30 px-2 py-1 text-sm text-white outline-none disabled:opacity-40"
               />
             </label>
             <label className="flex items-center gap-1 text-xs text-white/50">
               {t('audio.transporte.pulsos', 'Pulsos')}
               <select
                 value={pulsos}
+                disabled={sinTurno}
                 aria-label={t('audio.transporte.pulsosLargo', 'Pulsaciones por compás')}
                 title={t('audio.transporte.pulsosLargo', 'Pulsaciones por compás')}
                 onChange={(e) => onPulsos(Number(e.target.value))}
-                className="rounded-lg border border-white/10 bg-black/30 px-1.5 py-1 text-sm text-white outline-none"
+                className="rounded-lg border border-white/10 bg-black/30 px-1.5 py-1 text-sm text-white outline-none disabled:opacity-40"
               >
                 {[2, 4, 8, 16].map((n) => (
                   <option key={n} value={n}>
@@ -333,7 +343,7 @@ export function Transporte({
             <button
               type="button"
               onClick={onDeshacer}
-              disabled={!puedeDeshacer}
+              disabled={!puedeDeshacer || sinTurno}
               aria-label={t('editor.hist.deshacer', 'Deshacer')}
               title={`${t('editor.hist.deshacer', 'Deshacer')} (Ctrl+Z)`}
               className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/10 transition hover:bg-white/20 active:scale-90 disabled:opacity-40"
@@ -343,7 +353,7 @@ export function Transporte({
             <button
               type="button"
               onClick={onRehacer}
-              disabled={!puedeRehacer}
+              disabled={!puedeRehacer || sinTurno}
               aria-label={t('editor.hist.rehacer', 'Rehacer')}
               title={`${t('editor.hist.rehacer', 'Rehacer')} (Ctrl+Y)`}
               className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/10 transition hover:bg-white/20 active:scale-90 disabled:opacity-40"
@@ -379,13 +389,14 @@ export function Transporte({
             >
               {exportando ? <Spinner pequeno /> : <Icono nombre="descargar" />} {t('audio.export.wav', 'WAV')}
             </button>
-            <BotonPrimario type="button" pequeno app={COLOR} onClick={onIA}>
+            <BotonPrimario type="button" pequeno app={COLOR} disabled={sinTurno} onClick={onIA}>
               <Icono nombre="brillo" /> {t('audio.ia.boton', 'IA')}
             </BotonPrimario>
             {onDeshacerIA && (
               <button
                 type="button"
                 onClick={onDeshacerIA}
+                disabled={sinTurno}
                 className="flex items-center gap-1 rounded-lg border border-emerald-400/30 bg-emerald-400/10 px-2.5 py-1.5 text-xs font-semibold text-emerald-300 transition hover:bg-emerald-400/20"
               >
                 <Icono nombre="deshacer" /> {t('audio.ia.deshacerCorto', 'Deshacer')}
@@ -409,6 +420,7 @@ export function Transporte({
         <Icono nombre="volver" />
         <span className="truncate text-xs font-semibold">{nombre}</span>
       </button>
+      {extra}
       {orden.map((id) => (
         <div
           key={id}

@@ -15,6 +15,27 @@ import { useCaminos } from '../state/caminosStore'
 import { useHuerto } from '../state/huertoStore'
 import { useGranja } from '../state/granjaStore'
 import { usePaintball } from '../state/paintballStore'
+import { soyArbitro } from '../partida/sala'
+import {
+  cerrarPartidoPorMarcador,
+  chutarEnLinea,
+  cuerpoRival,
+  emitirPunto,
+  emitirVuelo,
+  emitirVueloTenis,
+  golpearEnLinea,
+  latirPelota,
+  pelotaDelArbitro,
+  reengancharPartido,
+  tirarEnLinea,
+  tomarChutRival,
+  tomarGolpeRival,
+  tomarPunto,
+  tomarVuelo,
+} from '../partida/cancha'
+import type { GolpeRecibido, VueloRecibido } from '../partida/cancha'
+import * as reloj from '../partida/reloj'
+import type { MarcadorPartido } from '../partida/ranuras'
 import { lanzarCohete } from './fuegos'
 import { ModeloMascota } from './Asistente3D'
 import { Prendas } from './Prendas'
@@ -38,6 +59,12 @@ import type { ClaseCancha } from '../state/canchasStore'
 
 /** Dificultad activa (0 = muy fácil, 1 = experto). */
 const dif = () => useJuegoCancha.getState().dificultad
+/**
+ * El rival es otra PERSONA (partido en línea) y no la IA. Con un humano enfrente
+ * no corre ninguna máquina de rival y `dif()` queda fuera de las disputas: la
+ * dificultad regula a la IA, no reparte ventaja entre dos jugadores.
+ */
+const rivalHumano = () => useJuegoCancha.getState().modo === 'online'
 /** Altura a la que flota el asistente rival sobre la cancha. */
 const FLOTE_RIVAL = 1.0
 
@@ -124,10 +151,60 @@ let sacaJugador = true
 let tiroRX = 0
 let tiroRZ = 0
 let tiroElegido = false
-/** Posición LOCAL del jugador el frame anterior (para medir su velocidad lateral). */
-const _prevP = new THREE.Vector3()
+/**
+ * Posición LOCAL del frame anterior POR JUGADOR ('yo' y el rival remoto): el
+ * chanfle sale del movimiento de quien golpea, y con un solo registro el del
+ * remoto se calcularía con el movimiento del anfitrión.
+ */
+const _prevP: Record<'yo' | 'rival', THREE.Vector3> = {
+  yo: new THREE.Vector3(),
+  rival: new THREE.Vector3(),
+}
 /** Altura del próximo bote de la pelota de tenis; decae en cada rebote. */
 let energiaBote = 1.5
+/**
+ * Tenis en línea: instante de PARTIDA en que arrancó el vuelo que corre ahora
+ * (null fuera de línea). Con él el vuelo no avanza por frames sino por reloj,
+ * y la misma parábola pasa por el mismo punto en los dos clientes aunque uno
+ * pierda frames: es lo que hace exacto el rebobinado del golpe.
+ */
+let t0VueloTenis: number | null = null
+/** Instante de partida del último golpe (o saque) que aceptó el árbitro. */
+let tGolpeTenis = 0
+/** Ya se repitió el vuelo de este golpe (ver `REPETIR_VUELO`). */
+let reenviadoTenis = false
+/**
+ * Cuándo repite el árbitro el `vuelo` del golpe. Es el mensaje decisivo del
+ * tenis —sin él el invitado sigue con la trayectoria vieja hasta el golpe
+ * siguiente— y con 3 % de pérdida se cae uno de cada treinta y tres. Repetirlo
+ * una vez, ya empezado, sale por un mensaje más por golpe y es idempotente:
+ * lleva el mismo `t` y el invitado que ya lo tiene no lo vuelve a aplicar.
+ */
+const REPETIR_VUELO = 150
+/**
+ * Anillo de estados de la pelota del ÁRBITRO. El golpe del invitado llega
+ * fechado y aquí se busca dónde estaba la pelota en ese instante: sin rebobinar
+ * habría que juzgarlo contra la pelota de ahora, que con 150 ms de ping ya no
+ * es la que él vio. Se guarda por TIEMPO y no por número de muestras: a 144 fps
+ * treinta estados no llegan ni a un ping.
+ */
+const anilloTenis: EstadoPelota[] = []
+/** Cuánta pelota recuerda el árbitro hacia atrás (ms de partida). */
+const MEMORIA_TENIS = 800
+/** Golpes descartados por llegar después de otro ya resuelto (HUD de DEV). */
+let dobleGolpeTenis = 0
+
+/** La pelota de tenis en un instante: posición y de quién es la ventana abierta. */
+interface EstadoPelota {
+  t: number
+  x: number
+  y: number
+  z: number
+  /** Lado en el que va a caer (+1 = x local positiva). */
+  cae: 1 | -1
+  muro: boolean
+  falta: null | 'red' | 'fuera'
+}
 /** ms época del último robo de balón (fútbol): evita quitar/perder en ráfaga. */
 let ultimoRoboFut = 0
 /** Velocidad remanente de un chut elevado al aterrizar (sigue rodando). */
@@ -145,6 +222,17 @@ const FUERZA_BASE = 7
 const FUERZA_RANGO = 12
 const K_CHANFLE = 0.55
 const UMBRAL_ELEVADO = 0.55
+// Disputas SIMÉTRICAS: las que se juegan entre dos PERSONAS usan un solo radio
+// para los dos y un solo ritmo de robo, sin `dif()`. Contra la IA se conservan
+// los números de siempre (radios 1.0/0.9 en fútbol y 0.95/0.85 en básquet, y
+// ritmos con `dif()`), que son los que le dan su curva de dificultad.
+/** Radio de la disputa de la pelota suelta en fútbol (media de 1.0 y 0.9). */
+const DISPUTA_RADIO = 0.95
+/** Radio de recogida del balón en básquet (media de 0.95 y 0.85). */
+const RECOGIDA_RADIO = 0.9
+/** Radio del robo de balón y su ritmo (robos por segundo) entre humanos. */
+const ROBO_RADIO = 1.1
+const ROBO_RITMO = 2.8
 const BAS_ALC_MIN = 2
 const BAS_ALC_MAX = 12
 /** Cuánto te puedes pasar de largo y aun así dar en el tablero (m locales). */
@@ -189,12 +277,43 @@ const CAJA_Z = -1.1
 const BATE_POT_MIN = 0.55
 const BATE_POT_RANGO = 0.85
 
-/** Mide la velocidad lateral del jugador (perpendicular a su frente) para el chanfle. */
-function medirStrafe(fwd: { x: number; z: number }, p: { x: number; z: number }, dt: number) {
+/** Mide la velocidad lateral de un jugador (perpendicular a su frente) para el chanfle. */
+function medirStrafe(
+  quien: 'yo' | 'rival',
+  fwd: { x: number; z: number },
+  p: { x: number; z: number },
+  dt: number,
+) {
   const f = juegoFrame
-  const lateral = ((p.x - _prevP.x) * -fwd.z + (p.z - _prevP.z) * fwd.x) / Math.max(dt, 1e-3)
-  f.strafe = THREE.MathUtils.lerp(f.strafe, lateral, 0.3)
-  _prevP.set(p.x, 0, p.z)
+  const prev = _prevP[quien]
+  const lateral = ((p.x - prev.x) * -fwd.z + (p.z - prev.z) * fwd.x) / Math.max(dt, 1e-3)
+  if (quien === 'yo') f.strafe = THREE.MathUtils.lerp(f.strafe, lateral, 0.3)
+  else f.strafeRival = THREE.MathUtils.lerp(f.strafeRival, lateral, 0.3)
+  prev.set(p.x, 0, p.z)
+}
+
+/**
+ * Disputa de la pelota entre los dos jugadores: gana el MÁS CERCANO dentro del
+ * mismo radio y el empate exacto no se lo lleva nadie. Sustituye al orden de
+ * evaluación (que le daba la pelota al local con solo estar en rango) y a los
+ * radios distintos para cada uno. Sin `dif()`: entre personas no hay dificultad
+ * que repartir. Es determinista, así que el árbitro y el invitado coinciden.
+ */
+function disputar(dYo: number, dRival: number, radio: number): 'yo' | 'rival' | 'nadie' {
+  const alcanzaYo = dYo < radio
+  const alcanzaRival = dRival < radio
+  if (alcanzaYo && alcanzaRival) {
+    if (dYo === dRival) return 'nadie'
+    return dYo < dRival ? 'yo' : 'rival'
+  }
+  if (alcanzaYo) return 'yo'
+  return alcanzaRival ? 'rival' : 'nadie'
+}
+
+if (import.meta.env.DEV) {
+  // Mismo gesto que `bolasPaintball`: sin esto el reparto de la disputa no se
+  // puede medir desde la consola.
+  ;(window as unknown as { disputarCancha: typeof disputar }).disputarCancha = disputar
 }
 
 function reiniciarJuego(m: Marco) {
@@ -217,6 +336,7 @@ function reiniciarJuego(m: Marco) {
   f.golpe = false
   f.chanfle = 0
   f.strafe = 0
+  f.strafeRival = 0
   f.bote = 0
   f.botesTenis = 0
   f.enVentana = false
@@ -235,10 +355,17 @@ function reiniciarJuego(m: Marco) {
   sacaJugador = true
   tiroElegido = false
   energiaBote = 1.5
+  t0VueloTenis = null
+  tGolpeTenis = 0
+  anilloTenis.length = 0
   pendiente = null
   rebotePend = null
+  tiroRemoto = null
   const pl0 = aLocal(m, playerPos.x, playerPos.z)
-  _prevP.set(pl0.x, 0, pl0.z)
+  _prevP.yo.set(pl0.x, 0, pl0.z)
+  _prevP.rival.set(0, 0, 0)
+  // `solo` = no hay nadie enfrente. En línea SÍ hay rival (otra persona), así
+  // que los tiempos de arranque son los del partido con rival, no los del solo.
   const solo = useJuegoCancha.getState().modo === 'solo'
   if (m.clase === 'futbol') {
     // El rival arranca en su mitad (defiende la portería de −L, ataca la de +L).
@@ -276,12 +403,39 @@ function reiniciarJuego(m: Marco) {
     f.rz = 0
     saquePendiente = true
     f.proximoEvento = performance.now() + (solo ? 800 : 1200)
+    // `sacaJugador` es egocéntrico: en línea saca primero el anfitrión y sin
+    // esto los dos clientes creerían tener el saque (y nadie lo tiraría).
+    if (useJuegoCancha.getState().modo === 'online') sacaJugador = soyArbitro()
   }
+}
+
+/**
+ * Pose del rival REMOTO en coordenadas locales de la cancha, o null si al rival
+ * lo mueve la IA. La enchufa F5 desde el interpolador de la partida; aquí queda
+ * solo la costura, así que fuera de línea `mueveRival` es exactamente el de hoy.
+ */
+let fuenteRival: (() => { x: number; z: number; h: number; vel: number } | null) | null = null
+
+/** Costura para F5: quién dicta el cuerpo del rival cuando es otra persona. */
+export function registrarFuenteRival(fn: typeof fuenteRival): void {
+  fuenteRival = fn
 }
 
 /** Camina el rival hacia (tx,tz); devuelve true al llegar. */
 function mueveRival(tx: number, tz: number, vel: number, dt: number): boolean {
   const f = juegoFrame
+  const remoto = fuenteRival?.()
+  if (remoto) {
+    // Rival remoto: su cuerpo no lo decide esta máquina, llega por la red. Se
+    // interpola hacia la pose recibida y se conserva el contrato del return
+    // (`true` = está en el objetivo pedido), que consumen el básquet y el béisbol.
+    f.rx = THREE.MathUtils.lerp(f.rx, remoto.x, 0.4)
+    f.rz = THREE.MathUtils.lerp(f.rz, remoto.z, 0.4)
+    f.rHeading = remoto.h
+    f.rVel = remoto.vel
+    f.rFase += dt * remoto.vel * 3
+    return Math.hypot(tx - f.rx, tz - f.rz) < 0.08
+  }
   const dx = tx - f.rx
   const dz = tz - f.rz
   const d = Math.hypot(dx, dz)
@@ -318,14 +472,21 @@ function avanzarVuelo(dt: number): boolean {
 
 // ─── Fútbol ───
 
-/** Dispara la pelota en dirección `dir` (local) con fuerza según la carga. */
-function dispararFutbol(dir: { x: number; z: number }, carga: number) {
+/**
+ * Dispara la pelota en dirección `dir` (local) con fuerza según la carga.
+ * `quien` es de quién es el chut (el vuelo que salga lleva su ranura) y
+ * `chanfle` el efecto YA medido por quien golpeó: el del rival remoto viaja en
+ * su `accion` porque lo sintió su propio movimiento, no la pose interpolada
+ * que ve el árbitro (`f.strafeRival` es la medida de este lado y queda de
+ * respaldo).
+ */
+function dispararFutbol(dir: { x: number; z: number }, carga: number, quien: 'yo' | 'rival' = 'yo', chanfle?: number) {
   const f = juegoFrame
   const fuerza = FUERZA_BASE + FUERZA_RANGO * carga
   f.bvx = dir.x * fuerza
   f.bvz = dir.z * fuerza
   // Efecto: acelera la pelota hacia el lado al que te movías al golpear.
-  f.chanfle = clamp(f.strafe, -6, 6) * K_CHANFLE
+  f.chanfle = chanfle ?? clamp(f.strafe, -6, 6) * K_CHANFLE
   if (carga > UMBRAL_ELEVADO) {
     // Chut por elevado: parábola que al aterrizar sigue rodando con parte de la velocidad.
     const alto = (carga - UMBRAL_ELEVADO) * 3.2
@@ -333,25 +494,51 @@ function dispararFutbol(dir: { x: number; z: number }, carga: number) {
     f.vuelo = { x0: f.bx, y0: 0, z0: f.bz, x1: f.bx + f.bvx * dur, y1: 0, z1: f.bz + f.bvz * dur, t: 0, dur, alto }
     vueloFutVX = f.bvx * 0.55
     vueloFutVZ = f.bvz * 0.55
+    // En línea el vuelo viaja como evento: la parábola es un descriptor, y
+    // recalcularla en el invitado con su propia pelota daría otra distinta.
+    emitirVuelo(quien, f.vuelo, vueloFutVX, vueloFutVZ)
   }
   f.duena = 'nadie'
 }
 
-function tickFutbol(m: Marco, solo: boolean, dt: number) {
+function tickFutbol(m: Marco, solo: boolean, arbitro: boolean, dt: number) {
   const f = juegoFrame
   const ahora = performance.now()
+  const humano = rivalHumano()
   const p = aLocal(m, playerPos.x, playerPos.z)
   const fwd = dirLocal(m, playerForward)
   const goalHalf = (PORTERIA.ancho / 2) * m.esc
   const goalTop = PORTERIA.alto * m.esc
-  medirStrafe(fwd, p, dt)
+  medirStrafe('yo', fwd, p, dt)
+  // El cuerpo del rival remoto no lo decide ninguna máquina: lo trae el
+  // interpolador y `mueveRival` lo sigue (en esa rama el objetivo da igual).
+  if (humano) {
+    mueveRival(f.rx, f.rz, 0, dt)
+    if (arbitro) medirStrafe('rival', { x: Math.sin(f.rHeading), z: Math.cos(f.rHeading) }, { x: f.rx, z: f.rz }, dt)
+  }
   // Acumular carga mientras mantienes el botón con posesión.
   if (f.cargando && f.duena === 'yo') f.carga = Math.min(1, f.carga + dt / T_CARGA)
+  // Lo que dicta el árbitro. La intención del rival se consume SIEMPRE (aunque
+  // ya no tenga la pelota: guardada, saldría un chut tarde); el gol y el vuelo
+  // se aplican antes que nada, porque los dos mandan sobre la pelota de aquí.
+  const chutRival = arbitro && humano ? tomarChutRival() : null
+  if (!arbitro && humano) {
+    const punto = tomarPunto()
+    if (punto) return gol(m, punto.quien, punto.marcador)
+    const vuelo = tomarVuelo()
+    if (vuelo) {
+      f.duena = 'nadie'
+      f.vuelo = vuelo.v
+      vueloFutVX = vuelo.bvx
+      vueloFutVZ = vuelo.bvz
+    }
+  }
 
   // Chut elevado en vuelo: gol aéreo bajo el travesaño; al aterrizar sigue rodando.
   if (f.vuelo) {
     const aterrizo = avanzarVuelo(dt)
-    if (f.by < goalTop && Math.abs(f.bz) < goalHalf) {
+    // El gol es un veredicto: en línea lo canta el árbitro con `punto`.
+    if (arbitro && f.by < goalTop && Math.abs(f.bz) < goalHalf) {
       if (f.bx < -(m.L - 0.35)) return gol(m, 'yo')
       if (f.bx > m.L - 0.35) return gol(m, solo ? 'yo' : 'rival')
     }
@@ -362,17 +549,31 @@ function tickFutbol(m: Marco, solo: boolean, dt: number) {
     return
   }
 
+  // El invitado no integra física: la pelota es del árbitro y llega en `b`.
+  if (!arbitro && humano) pelotaDelArbitro(dt)
+
   const dp = Math.hypot(f.bx - p.x, f.bz - p.z)
   const dr = solo ? 999 : Math.hypot(f.bx - f.rx, f.bz - f.rz)
 
   if (f.duena === 'nadie') {
-    if (dp < 1.0) {
-      f.duena = 'yo'
-      f.carga = 0
-    } else if (!solo && dr < 0.9) {
-      f.duena = 'rival'
-    } else if (!solo) {
-      mueveRival(f.bx, f.bz, 3.0 + dif() * 2.8, dt)
+    // Quién se queda la pelota suelta es un VEREDICTO: en línea lo dicta el
+    // árbitro y el invitado lo recibirá con la pelota (F5).
+    if (arbitro) {
+      const gana = humano
+        ? disputar(dp, dr, DISPUTA_RADIO)
+        : dp < 1.0
+          ? 'yo'
+          : !solo && dr < 0.9
+            ? 'rival'
+            : 'nadie'
+      if (gana === 'yo') {
+        f.duena = 'yo'
+        f.carga = 0
+      } else if (gana === 'rival') {
+        f.duena = 'rival'
+      } else if (!solo && !humano) {
+        mueveRival(f.bx, f.bz, 3.0 + dif() * 2.8, dt)
+      }
     }
   } else if (f.duena === 'yo') {
     // Dribbling: la pelota va pegada al frente del avatar, con botecito.
@@ -382,13 +583,19 @@ function tickFutbol(m: Marco, solo: boolean, dt: number) {
     f.bvz = 0
     f.bote += dt * 10
     f.by = Math.abs(Math.sin(f.bote)) * 0.12
-    if (!solo) {
-      if (dr < 0.9 && ahora - ultimoRoboFut > 800 && Math.random() < (0.12 + dif() * 0.4) * dt * 6) {
+    // El robo también es veredicto del árbitro. Entre personas, mismo radio y
+    // mismo ritmo que el mío de `:414` (hoy el local roba con radio 1.3 y hasta
+    // 7:1 de ventaja porque `dif()` juega a los dos lados); el cooldown de 800 ms
+    // es el mismo de siempre para los dos.
+    if (!solo && arbitro) {
+      const radio = humano ? ROBO_RADIO : 0.9
+      const ritmo = humano ? ROBO_RITMO : (0.12 + dif() * 0.4) * 6
+      if (dr < radio && ahora - ultimoRoboFut > 800 && Math.random() < ritmo * dt) {
         f.duena = 'rival'
         f.carga = 0
         f.cargando = false
         ultimoRoboFut = ahora
-      } else {
+      } else if (!humano) {
         mueveRival(f.bx, f.bz, 3.0 + dif() * 2.4, dt)
       }
     }
@@ -397,34 +604,63 @@ function tickFutbol(m: Marco, solo: boolean, dt: number) {
       f.soltar = false
       f.by = 0
       dispararFutbol(fwd, f.carga)
+      // El invitado no es dueño de la pelota: la patada sale ya en su pantalla
+      // (es lo que tiene que sentirse inmediato) y el árbitro la ejecuta de
+      // verdad. Si para entonces se la habían robado, su `b` la recoloca.
+      if (!arbitro) chutarEnLinea(fwd, f.carga, f.chanfle)
       f.carga = 0
     }
-  } else {
+  } else if (f.duena === 'rival') {
     // Rival con la pelota: dribbla hacia tu portería, pero SE FRENA si lo presionas de cerca.
     const objX = m.L + 0.5
     const dirx = objX - f.rx
     const dirz = -f.rz
     const n = Math.hypot(dirx, dirz) || 1
     const dRival = Math.hypot(f.rx - p.x, f.rz - p.z)
-    const velRival = (dRival < 2.0 ? 0.9 : 1.8) + dif() * 1.3
-    mueveRival(f.rx + (dirx / n) * 3, f.rz + (dirz / n) * 3, velRival, dt)
-    f.bx = f.rx + (dirx / n) * 0.5
-    f.bz = f.rz + (dirz / n) * 0.5
-    // Le quitas el balón al pegarte a él (más fácil en dificultad baja), con cooldown.
-    if (dRival < 1.3 && ahora - ultimoRoboFut > 800 && Math.random() < (1.0 - dif() * 0.55) * dt * 5) {
-      f.duena = 'yo'
-      f.carga = 0
-      ultimoRoboFut = ahora
-    } else if (f.rx > m.L * 0.45) {
-      const gdx = objX - f.bx
-      const gdz = (Math.random() - 0.5) * goalHalf - f.bz
-      const gn = Math.hypot(gdx, gdz) || 1
-      dispararFutbol({ x: gdx / gn, z: gdz / gn }, 0.55 + dif() * 0.3)
+    if (humano) {
+      // La pelota del remoto va pegada a SU frente (el rumbo que llega por la
+      // red), NUNCA al vector hacia la portería, que es a donde apunta la IA.
+      // Con el mismo lerp que el dribbling propio y en los DOS clientes: por eso
+      // mientras alguien la lleva no viaja un solo mensaje.
+      f.bx = THREE.MathUtils.lerp(f.bx, f.rx + Math.sin(f.rHeading) * OFF_DRIB, 0.4)
+      f.bz = THREE.MathUtils.lerp(f.bz, f.rz + Math.cos(f.rHeading) * OFF_DRIB, 0.4)
+      f.bvx = 0
+      f.bvz = 0
+      f.bote += dt * 10
+      f.by = Math.abs(Math.sin(f.bote)) * 0.12
+    } else {
+      f.bx = f.rx + (dirx / n) * 0.5
+      f.bz = f.rz + (dirz / n) * 0.5
+    }
+    // De aquí abajo todo son VEREDICTOS (robo, chut del rival): solo el árbitro.
+    if (arbitro) {
+      const velRival = (dRival < 2.0 ? 0.9 : 1.8) + dif() * 1.3
+      if (!humano) mueveRival(f.rx + (dirx / n) * 3, f.rz + (dirz / n) * 3, velRival, dt)
+      // Le quitas el balón al pegarte a él: entre personas, con el mismo radio y el
+      // mismo ritmo que usa el rival para quitártelo a ti.
+      const radio = humano ? ROBO_RADIO : 1.3
+      const ritmo = humano ? ROBO_RITMO : (1.0 - dif() * 0.55) * 5
+      if (chutRival) {
+        // La dirección, la fuerza y el efecto son suyos; que todavía la tuviera,
+        // del árbitro (si no, este chut ya no existe y se cayó arriba).
+        dispararFutbol({ x: chutRival.dx, z: chutRival.dz }, chutRival.fu, 'rival', chutRival.ch)
+      } else if (dRival < radio && ahora - ultimoRoboFut > 800 && Math.random() < ritmo * dt) {
+        f.duena = 'yo'
+        f.carga = 0
+        ultimoRoboFut = ahora
+      } else if (!humano && f.rx > m.L * 0.45) {
+        const gdx = objX - f.bx
+        const gdz = (Math.random() - 0.5) * goalHalf - f.bz
+        const gn = Math.hypot(gdx, gdz) || 1
+        dispararFutbol({ x: gdx / gn, z: gdz / gn }, 0.55 + dif() * 0.3, 'rival')
+      }
     }
   }
 
-  // Física de rodada (solo cuando NO llevas la pelota y no está en vuelo).
-  if (f.duena !== 'yo' && !f.vuelo) {
+  // Física de rodada (solo cuando NO llevas la pelota y no está en vuelo). En
+  // línea la integra SOLO el árbitro y viaja en `b`: dos integradores con dados
+  // distintos (el chanfle, las bandas) divergen en un par de segundos.
+  if (f.duena !== 'yo' && !f.vuelo && arbitro) {
     f.bx += f.bvx * dt
     f.bz += f.bvz * dt
     const fr = Math.max(0, 1 - 1.4 * dt)
@@ -454,13 +690,25 @@ function tickFutbol(m: Marco, solo: boolean, dt: number) {
       f.bvx *= -0.75
     }
   }
+  // La pelota, tal como queda este frame, para el otro cliente (no hace nada
+  // fuera de línea, y mientras alguien la dribla tampoco).
+  latirPelota()
 }
 
-function gol(m: Marco, quien: 'yo' | 'rival') {
+/**
+ * Gol. Es el único embudo: el árbitro suma y lo canta con `punto`, y el
+ * invitado entra por aquí con el marcador que le llegó ya traducido.
+ */
+function gol(m: Marco, quien: 'yo' | 'rival', deLaRed?: MarcadorPartido) {
   const f = juegoFrame
   const gw = aMundo(m, quien === 'yo' ? -m.L : m.L, 0)
   if (quien === 'yo') lanzarCohete(gw.x, 1, gw.z)
-  void useJuegoCancha.getState().anotar(quien, 1, quien === 'yo' ? 'gol' : 'golRival')
+  const mensaje = quien === 'yo' ? 'gol' : 'golRival'
+  if (deLaRed) useJuegoCancha.getState().aplicarMarcador(deLaRed, quien, mensaje)
+  else {
+    void useJuegoCancha.getState().anotar(quien, 1, mensaje)
+    emitirPunto(quien)
+  }
   f.bx = 0
   f.bz = 0
   f.bvx = 0
@@ -476,8 +724,16 @@ function gol(m: Marco, quien: 'yo' | 'rival') {
 
 // ─── Básquet ───
 
-/** Margen de acierto del tiro: el aro es generoso, la dificultad lo cierra. */
-const tolTiro = (esc: number) => THREE.MathUtils.lerp(1.6, 0.7, dif()) * esc
+/**
+ * Margen de acierto del tiro: el aro es generoso, la dificultad lo cierra.
+ * Entre personas la dificultad queda FUERA (como en las disputas de F4): es una
+ * preferencia de cada cliente y con ella el aro sería más ancho en la pantalla
+ * de uno que en la del otro —la mira diría que entra y el árbitro que no—.
+ */
+const tolTiro = (esc: number) => THREE.MathUtils.lerp(1.6, 0.7, rivalHumano() ? 0.5 : dif()) * esc
+
+/** El «21»: con esa cuenta EXACTA se cierra el partido en línea para los dos. */
+const META_21 = 21
 
 interface RebotePend {
   m: Marco
@@ -490,6 +746,12 @@ interface RebotePend {
 }
 let pendiente: { quien: 'yo' | 'rival'; puntos: number; encesta: boolean; m: Marco } | null = null
 let rebotePend: RebotePend | null = null
+/**
+ * Lo que el INVITADO sabe del tiro que está en el aire: quién lo lanzó y qué
+ * anota al caer (`pu` del `vuelo`). Es su mitad de `pendiente`, que junto con
+ * `rebotePend` es del árbitro y solo él los toca: el invitado no resuelve tiros.
+ */
+let tiroRemoto: { quien: 'yo' | 'rival'; pu: number } | null = null
 
 /** Punto donde la recta ball→aro corta la cara del tablero (o null si la falla). */
 function puntoTablero(m: Marco, ux: number, uz: number) {
@@ -541,6 +803,8 @@ function lanzarTiro(m: Marco, quien: 'yo' | 'rival', carga: number) {
     }
     pendiente = null
     rebotePend = { m, quien, puntos, entra: err < tol + REBOTE_DENTRO * m.esc, z: tab.z }
+    // Sin `pu`: este vuelo NO termina el tiro (el segundo sale del tablero).
+    emitirVuelo(quien, f.vuelo, 0, 0, 'tiro')
     return
   }
 
@@ -559,6 +823,9 @@ function lanzarTiro(m: Marco, quien: 'yo' | 'rival', carga: number) {
   }
   // El resultado se resuelve al aterrizar (tickBasket lee estos pendientes).
   pendiente = { quien, puntos, encesta, m }
+  // En línea el tiro viaja como EVENTO, con lo que anota al caer: recalcularlo
+  // en el invitado con su propia pelota daría otra parábola y otro veredicto.
+  emitirVuelo(quien, f.vuelo, 0, 0, 'tiro', encesta ? puntos : 0)
 }
 
 /** Segundo vuelo tras pegar en el tablero: cae por el aro o sale despedido. */
@@ -597,12 +864,44 @@ function rebotarTablero(r: RebotePend) {
     }
   }
   pendiente = { quien: r.quien, puntos: r.puntos, encesta: r.entra, m }
+  // El rebote lleva dados (la dispersión del fallo): por eso viaja ya resuelto,
+  // igual que el primer vuelo. Es lo que impide que las dos pantallas diverjan.
+  emitirVuelo(r.quien, f.vuelo, 0, 0, 'tiro', r.entra ? r.puntos : 0)
 }
 
-function tickBasket(m: Marco, solo: boolean, dt: number) {
+function tickBasket(m: Marco, solo: boolean, arbitro: boolean, dt: number) {
   const f = juegoFrame
   const ahora = performance.now()
+  const humano = rivalHumano()
   const p = aLocal(m, playerPos.x, playerPos.z)
+  // El cuerpo del rival remoto no lo decide ninguna máquina: lo trae el
+  // interpolador y `mueveRival` lo sigue (en esa rama el objetivo da igual).
+  if (humano) mueveRival(f.rx, f.rz, 0, dt)
+  // El tiro del invitado se consume SIEMPRE, aunque ya no sea su turno:
+  // guardado, saldría un tiro tarde (mismo criterio que el chut del fútbol).
+  const tiroRival = arbitro && humano ? tomarChutRival() : null
+  if (!arbitro && humano) {
+    const punto = tomarPunto()
+    if (punto) {
+      // El marcador lo cuenta el árbitro y aquí solo se obedece. Cuánto sumó
+      // sale del propio marcador: es lo que distingue el triple del doble.
+      const st = useJuegoCancha.getState()
+      const suma = punto.quien === 'yo' ? punto.marcador.yo - st.yo : punto.marcador.rival - st.rival
+      st.aplicarMarcador(
+        punto.marcador,
+        punto.quien,
+        punto.quien === 'yo' ? (suma === 3 ? 'canasta3' : 'canasta2') : 'canastaRival',
+      )
+    }
+    const vuelo = tomarVuelo()
+    if (vuelo) {
+      f.duena = 'nadie'
+      f.vuelo = vuelo.v
+      // Con `pu` el tiro termina en ese vuelo (0 = fallo); sin él, la pelota va
+      // al tablero y el segundo vuelo llega detrás.
+      tiroRemoto = vuelo.pu === undefined ? null : { quien: vuelo.quien, pu: vuelo.pu }
+    }
+  }
   if (f.vuelo) {
     if (avanzarVuelo(dt)) {
       // Llegó al tablero: encadena el rebote antes de resolver nada.
@@ -615,20 +914,49 @@ function tickBasket(m: Marco, solo: boolean, dt: number) {
       if (pendiente) {
         const r = pendiente
         pendiente = null
+        const st = useJuegoCancha.getState()
         if (r.encesta) {
           const aro = aMundo(r.m, CANASTA.aroX * r.m.esc, 0)
           f.aroPulso = 1
           if (r.quien === 'yo') lanzarCohete(aro.x, r.m.sueloY + CANASTA.aroY * r.m.esc, aro.z)
-          void useJuegoCancha
-            .getState()
-            .anotar(r.quien, r.puntos, r.quien === 'yo' ? (r.puntos === 3 ? 'canasta3' : 'canasta2') : 'canastaRival')
+          const antes = r.quien === 'yo' ? st.yo : st.rival
+          // El «21» se gana con la cuenta EXACTA: la canasta que se pasaría vale
+          // solo lo que falta, y así el partido siempre cierra en 21 clavados.
+          const puntos = humano ? Math.min(r.puntos, META_21 - antes) : r.puntos
+          void st.anotar(r.quien, puntos, r.quien === 'yo' ? (puntos === 3 ? 'canasta3' : 'canasta2') : 'canastaRival')
+          if (humano) {
+            emitirPunto(r.quien)
+            // Los 21: se acabó para los dos (al invitado lo cierra el `cerrar`).
+            if (antes + puntos >= META_21) {
+              cerrarPartidoPorMarcador()
+              return
+            }
+          }
         } else if (r.quien === 'yo') {
-          useJuegoCancha.getState().avisar('fallo')
+          st.avisar('fallo')
         }
         // En modo solo el balón vuelve a tus manos para seguir tirando sin ir a buscarlo.
         if (solo) {
           f.duena = 'yo'
           f.carga = 0
+        } else if (humano) {
+          // Tiros ALTERNADOS: el balón pasa al otro y le llega a las manos sin
+          // ir a recogerlo. El cambio de dueño se lo cuenta `latirPelota`.
+          f.duena = r.quien === 'yo' ? 'rival' : 'yo'
+          f.carga = 0
+        }
+      } else if (!arbitro && humano) {
+        const r = tiroRemoto
+        tiroRemoto = null
+        // Sin tiro que cerrar, el vuelo acabó en el TABLERO: el árbitro manda el
+        // segundo enseguida.
+        if (!r) f.tableroPulso = 1
+        else if (r.pu > 0) {
+          const aro = aMundo(m, CANASTA.aroX * m.esc, 0)
+          f.aroPulso = 1
+          if (r.quien === 'yo') lanzarCohete(aro.x, m.sueloY + CANASTA.aroY * m.esc, aro.z)
+        } else if (r.quien === 'yo') {
+          useJuegoCancha.getState().avisar('fallo')
         }
       }
     }
@@ -636,18 +964,32 @@ function tickBasket(m: Marco, solo: boolean, dt: number) {
   }
   // Acumular potencia mientras mantienes el botón con la pelota.
   if (f.cargando && f.duena === 'yo') f.carga = Math.min(1, f.carga + dt / T_CARGA)
+  // El invitado no decide de quién es la pelota: el turno le llega en `b`.
+  if (!arbitro && humano) pelotaDelArbitro(dt)
 
   if (f.duena === 'nadie') {
-    // La pelota es de quien llegue primero.
-    if (Math.hypot(f.bx - p.x, f.bz - p.z) < 0.95) {
-      f.duena = 'yo'
-      f.carga = 0
-    } else if (!solo && Math.hypot(f.bx - f.rx, f.bz - f.rz) < 0.85) {
-      f.duena = 'rival'
-      tiroElegido = false
-      f.proximoEvento = ahora + 3400 - dif() * 1400
-    } else if (!solo) {
-      mueveRival(f.bx, f.bz, 2.4 + dif() * 2.0, dt)
+    // La pelota es de quien llegue primero: entre personas, con el MISMO radio de
+    // recogida para los dos (hoy 0.95 contra 0.85 a favor del local).
+    if (arbitro) {
+      const dpYo = Math.hypot(f.bx - p.x, f.bz - p.z)
+      const dRival = solo ? 999 : Math.hypot(f.bx - f.rx, f.bz - f.rz)
+      const gana = humano
+        ? disputar(dpYo, dRival, RECOGIDA_RADIO)
+        : dpYo < 0.95
+          ? 'yo'
+          : dRival < 0.85
+            ? 'rival'
+            : 'nadie'
+      if (gana === 'yo') {
+        f.duena = 'yo'
+        f.carga = 0
+      } else if (gana === 'rival') {
+        f.duena = 'rival'
+        tiroElegido = false
+        f.proximoEvento = ahora + 3400 - dif() * 1400
+      } else if (!solo && !humano) {
+        mueveRival(f.bx, f.bz, 2.4 + dif() * 2.0, dt)
+      }
     }
   } else if (f.duena === 'yo') {
     // La llevas contigo: muévete para ajustar la distancia y suelta el botón para tirar.
@@ -655,30 +997,45 @@ function tickBasket(m: Marco, solo: boolean, dt: number) {
     f.bz = p.z
     if (f.soltar) {
       f.soltar = false
-      lanzarTiro(m, 'yo', f.carga)
+      // El invitado no resuelve su tiro: manda la INTENCIÓN (su carga) y el
+      // árbitro lo lanza por él; el vuelo vuelve por la red con el resultado.
+      if (arbitro) lanzarTiro(m, 'yo', f.carga)
+      else tirarEnLinea(dirLocal(m, playerForward), f.carga)
       f.carga = 0
     }
   } else {
-    // El rival busca su punto de tiro y lanza (simula la carga con error por dificultad).
+    // La pelota va con quien la lleva (cosmético, corre en todos).
     f.bx = f.rx
     f.bz = f.rz
-    if (!tiroElegido) {
-      const aroX = CANASTA.aroX * m.esc
-      const ang = (Math.random() - 0.5) * 1.6
-      const dist = 3 + Math.random() * 4.5
-      tiroRX = clamp(aroX + Math.cos(ang) * dist, -m.L + 1, m.L - 1)
-      tiroRZ = clamp(Math.sin(ang) * dist, -m.W + 1, m.W - 1)
-      tiroElegido = true
+    // El rival busca su punto de tiro y lanza (simula la carga con error por
+    // dificultad). Es máquina de IA: con una persona enfrente el tiro llega por
+    // la red (F6) y aquí no se decide nada.
+    if (arbitro && !humano) {
+      if (!tiroElegido) {
+        const aroX = CANASTA.aroX * m.esc
+        const ang = (Math.random() - 0.5) * 1.6
+        const dist = 3 + Math.random() * 4.5
+        tiroRX = clamp(aroX + Math.cos(ang) * dist, -m.L + 1, m.L - 1)
+        tiroRZ = clamp(Math.sin(ang) * dist, -m.W + 1, m.W - 1)
+        tiroElegido = true
+      }
+      const llego = mueveRival(tiroRX, tiroRZ, 2.2 + dif() * 1.8, dt)
+      if (llego || ahora >= f.proximoEvento) {
+        const aroX = CANASTA.aroX * m.esc
+        const distR = Math.hypot(f.rx - aroX, f.rz) / m.esc
+        const ideal = clamp((distR - BAS_ALC_MIN) / (BAS_ALC_MAX - BAS_ALC_MIN), 0, 1)
+        const err = (Math.random() - 0.5) * (1 - dif()) * 0.5
+        lanzarTiro(m, 'rival', clamp(ideal + err, 0, 1))
+      }
     }
-    const llego = mueveRival(tiroRX, tiroRZ, 2.2 + dif() * 1.8, dt)
-    if (llego || ahora >= f.proximoEvento) {
-      const aroX = CANASTA.aroX * m.esc
-      const distR = Math.hypot(f.rx - aroX, f.rz) / m.esc
-      const ideal = clamp((distR - BAS_ALC_MIN) / (BAS_ALC_MAX - BAS_ALC_MIN), 0, 1)
-      const err = (Math.random() - 0.5) * (1 - dif()) * 0.5
-      lanzarTiro(m, 'rival', clamp(ideal + err, 0, 1))
-    }
+    // El tiro del invitado, con SU carga: el árbitro lo ejecuta, nunca su
+    // máquina. Fuera de turno no llega aquí, porque en esta rama la pelota
+    // todavía es suya.
+    if (arbitro && humano && tiroRival) lanzarTiro(m, 'rival', tiroRival.fu)
   }
+  // El turno y la pelota, tal como quedan este frame, para el otro cliente (no
+  // hace nada fuera de línea, y mientras hay vuelo ni se llega hasta aquí).
+  latirPelota()
 }
 
 // ─── Tenis ───
@@ -765,17 +1122,22 @@ function tiroTenis(m: Marco, quien: 'yo' | 'rival', hacia: 1 | -1, z1: number, c
 }
 
 /**
- * Devolución del jugador: apuntas con el frente del avatar (de banda a banda) y
- * el golpe decide el resto — limpio sale profundo, tenso y donde apuntaste;
+ * Devolución de una PERSONA: apuntas con el frente del avatar (de banda a banda)
+ * y el golpe decide el resto — limpio sale profundo, tenso y donde apuntaste;
  * llegando estirado sale corto, y con mal timing se queda en la red.
+ *
+ * `quien` es de quién es el raquetazo: el del rival remoto entra por aquí con
+ * SU frente y SU calidad (nunca por `devolverRival`, que tira dados y mira
+ * `dif()`), y su chanfle sale de su propio movimiento lateral.
  */
-function golpearTenis(m: Marco, fwd: { x: number; z: number }, q: { cy: number; cal: number }) {
+function golpearTenis(m: Marco, fwd: { x: number; z: number }, q: { cy: number; cal: number }, quien: 'yo' | 'rival' = 'yo') {
   const f = juegoFrame
-  const hacia = -f.ladoJugador as 1 | -1
+  const hacia = (quien === 'yo' ? -f.ladoJugador : f.ladoJugador) as 1 | -1
   const mira = clamp(Math.atan2(fwd.z, fwd.x * hacia) / ANG_MIRA, -1, 1)
+  const strafe = quien === 'yo' ? f.strafe : f.strafeRival
   // A la mira se suman el efecto de moverte de lado y la dispersión del mal golpe.
-  const z1 = mira * (m.W - 0.35) + clamp(f.strafe, -3, 3) * K_CHANFLE_TENIS + (Math.random() - 0.5) * (1 - q.cal) * 2
-  tiroTenis(m, 'yo', hacia, z1, q.cy, q.cal)
+  const z1 = mira * (m.W - 0.35) + clamp(strafe, -3, 3) * K_CHANFLE_TENIS + (Math.random() - 0.5) * (1 - q.cal) * 2
+  tiroTenis(m, quien, hacia, z1, q.cy, q.cal)
 }
 
 /**
@@ -797,11 +1159,16 @@ function devolverRival(m: Marco, p: { z: number }, alcance: number) {
   tiroTenis(m, 'rival', hacia, z1, cal, cal)
 }
 
-/** Saque al cuadro de servicio contrario; tú apuntas con tu frente (arcade: siempre entra). */
-function saqueTenis(m: Marco, quien: 'yo' | 'rival', fwd: { x: number; z: number }) {
+/**
+ * Saque al cuadro de servicio contrario; tú apuntas con tu frente (arcade:
+ * siempre entra). `conFrente` es lo que distingue el saque de una PERSONA del
+ * de la máquina: el del invitado se tira con el frente que mandó él, no con un
+ * dado del árbitro.
+ */
+function saqueTenis(m: Marco, quien: 'yo' | 'rival', fwd: { x: number; z: number }, conFrente = quien === 'yo') {
   const f = juegoFrame
   const hacia = (quien === 'yo' ? -f.ladoJugador : f.ladoJugador) as 1 | -1
-  const mira = quien === 'yo' ? clamp(Math.atan2(fwd.z, fwd.x * hacia) / ANG_MIRA, -1, 1) : Math.random() * 2 - 1
+  const mira = conFrente ? clamp(Math.atan2(fwd.z, fwd.x * hacia) / ANG_MIRA, -1, 1) : Math.random() * 2 - 1
   const x1 = hacia * (0.28 + Math.random() * 0.16) * m.L
   const z1 = clamp(mira * (m.W - 1.2), -m.W + 0.8, m.W - 0.8)
   lanzarTenis(m, quien, x1, z1, altoParaRed(m, x1, 0.45), 13 + dif() * 4)
@@ -884,6 +1251,12 @@ function puntoTenisFin(m: Marco, ganador: 'yo' | 'rival', motivo?: 'red' | 'fuer
   faltaTenis = null
   saquePendiente = true
   f.proximoEvento = performance.now() + 1600
+  if (rivalHumano()) {
+    // Punto cerrado: el vuelo deja de correr por reloj y, sobre todo, un golpe
+    // que venga en camino con un `t` anterior ya no revive el punto anterior.
+    t0VueloTenis = null
+    tGolpeTenis = reloj.ahora()
+  }
   void useJuegoCancha
     .getState()
     .puntoTenis(ganador)
@@ -895,6 +1268,9 @@ function puntoTenisFin(m: Marco, ganador: 'yo' | 'rival', motivo?: 'red' | 'fuer
       else if (motivo && msg === 'puntoTenisRival')
         useJuegoCancha.getState().avisar(motivo === 'red' ? 'aLaRed' : 'fuera')
     })
+  // El marcador se cantó aquí: ya está puesto (`puntoTenis` hace su `set` antes
+  // de cualquier await) y viaja entero y slot-relativo, con la falta que lo cerró.
+  emitirPunto(ganador, motivo ?? null)
 }
 
 /** Celebración según el mensaje del punto (set/partido = más cohetes). */
@@ -907,10 +1283,245 @@ function celebrar(m: Marco, mensaje: string) {
   }
 }
 
+/**
+ * Ventana de golpeo: la pelota cae en TU lado, no va al frontón, no murió en la
+ * red, la tienes cerca y a altura de raqueta. Es la MISMA para los dos jugadores
+ * —un solo radio, y volear es legal para ambos—: el árbitro la vuelve a correr
+ * con la posición del remoto y con la pelota REBOBINADA al `t` de su golpe.
+ */
+function ventanaTenis(lado: 1 | -1, px: number, pz: number, b: Omit<EstadoPelota, 't'>) {
+  return (
+    b.cae === lado &&
+    !b.muro &&
+    b.falta !== 'red' &&
+    Math.hypot(b.x - px, b.z - pz) < GOLPE_RADIO &&
+    b.y > Y_MIN_GOLPE &&
+    b.y < Y_MAX_GOLPE
+  )
+}
+
+/**
+ * Instante de PARTIDA al que corresponde la pelota que se está viendo. Con un
+ * vuelo en curso no es `ahora()` sino el punto exacto de la parábola: es lo que
+ * hace que el golpe viaje fechado sin el error del frame y que el árbitro
+ * rebobine justo a la pelota que vio quien golpeó.
+ */
+function instantePelota(): number {
+  const f = juegoFrame
+  return f.vuelo && t0VueloTenis !== null ? t0VueloTenis + f.vuelo.t * 1000 : reloj.ahora()
+}
+
+/** Guarda el estado de la pelota de este frame con su instante de partida. */
+function anotarPelota(): void {
+  const f = juegoFrame
+  const t = instantePelota()
+  anilloTenis.push({ t, x: f.bx, y: f.by, z: f.bz, cae: ladoCaida, muro: haciaMuro, falta: faltaTenis })
+  while (anilloTenis.length > 1 && t - anilloTenis[0].t > MEMORIA_TENIS) anilloTenis.shift()
+}
+
+/** La pelota tal como estaba en ese instante de partida (null si ya no se recuerda). */
+function pelotaEn(t: number): EstadoPelota | null {
+  const n = anilloTenis.length
+  if (n === 0 || t < anilloTenis[0].t) return null
+  const ultima = anilloTenis[n - 1]
+  if (t >= ultima.t) return ultima
+  for (let i = n - 1; i > 0; i -= 1) {
+    const a = anilloTenis[i - 1]
+    const b = anilloTenis[i]
+    if (a.t > t) continue
+    const q = b.t > a.t ? (t - a.t) / (b.t - a.t) : 1
+    // La posición se interpola; el estado (lado de caída, falta) es el del tramo.
+    return {
+      t,
+      x: a.x + (b.x - a.x) * q,
+      y: a.y + (b.y - a.y) * q,
+      z: a.z + (b.z - a.z) * q,
+      cae: a.cae,
+      muro: a.muro,
+      falta: a.falta,
+    }
+  }
+  return anilloTenis[0]
+}
+
+/**
+ * Avanza el vuelo de tenis. En línea va en tiempo de PARTIDA y no en frames: si
+ * cada cliente lo integrara con su `dt`, dos framerates distintos (o un frame
+ * perdido) separarían las dos pelotas en medio peloteo.
+ */
+function avanzarVueloTenis(dt: number): boolean {
+  const f = juegoFrame
+  if (t0VueloTenis === null || !f.vuelo) return avanzarVuelo(dt)
+  f.vuelo.t = Math.max(0, (reloj.ahora() - t0VueloTenis) / 1000)
+  return avanzarVuelo(0)
+}
+
+/**
+ * Publica el vuelo que acaba de salir de una raqueta. `t` es el instante del
+ * GOLPE —el del invitado cuando el árbitro rebobina—: con él los dos clientes
+ * arrancan la misma parábola en el mismo momento de partida.
+ */
+function publicarGolpeTenis(quien: 'yo' | 'rival', q: 'saque' | 'golpe', t: number): void {
+  const f = juegoFrame
+  tGolpeTenis = t
+  t0VueloTenis = t
+  reenviadoTenis = false
+  if (f.vuelo) emitirVueloTenis(quien, f.vuelo, velBoteX, velBoteZ, energiaBote, q, t)
+}
+
+/** Le vuelve a contar al invitado el vuelo vigente (su golpe no valía). */
+function reemitirVueloTenis(): void {
+  const f = juegoFrame
+  // Solo el vuelo del GOLPE: los botes salen de `bv`/`eb` en los dos lados por
+  // igual, y reemitir uno se leería allá como un golpe nuevo.
+  if (!f.vuelo || t0VueloTenis === null || t0VueloTenis !== tGolpeTenis) return
+  emitirVueloTenis(golpeoTenis, f.vuelo, velBoteX, velBoteZ, energiaBote, 'golpe', t0VueloTenis)
+}
+
+/**
+ * El vuelo que dictó el árbitro, en el invitado. Fija `velBoteX/Z` y
+ * `energiaBote` ANTES de que la pelota llegue al suelo: `iniciarBote` sale de
+ * esos tres globales y sin ellos el primer bote ya cae en otro sitio.
+ */
+function aplicarVueloTenis(m: Marco, r: VueloRecibido): void {
+  const f = juegoFrame
+  // Un vuelo más viejo que el último golpe conocido llegó reordenado, o después
+  // de un punto ya cantado: aplicarlo resucitaría la pelota del punto anterior.
+  // Con el MISMO `t` es la repetición del árbitro y ya está aplicado: repetirla
+  // volvería a poner la cuenta de botes y la energía en su valor de salida.
+  if (r.t <= tGolpeTenis) return
+  saquePendiente = false
+  f.vuelo = r.v
+  t0VueloTenis = r.t
+  tGolpeTenis = r.t
+  velBoteX = r.bvx
+  velBoteZ = r.bvz
+  energiaBote = r.eb
+  haciaMuro = false
+  ladoCaida = (r.v.x1 >= 0 ? 1 : -1) as 1 | -1
+  // La falta se deduce del propio vuelo, y es solo para MI ventana: el punto lo
+  // canta el árbitro. Fuera de la cancha es 'fuera'; morir en el mismo lado del
+  // que salió, 'red' (un tiro bueno siempre cruza).
+  faltaTenis =
+    Math.abs(r.v.x1) > m.L || Math.abs(r.v.z1) > m.W ? 'fuera' : (r.v.x1 >= 0) === (r.v.x0 >= 0) ? 'red' : null
+  golpeoTenis = r.quien
+  f.botesTenis = 0
+  f.enVentana = false
+  // Mi raquetazo ya se animó al tocar el botón: repetirlo ahora se vería doble.
+  if (r.quien === 'rival') f.rSwing = 1
+}
+
+/**
+ * Golpe del invitado. Lo único que decide el árbitro es si VALÍA: rebobina la
+ * pelota al instante que trae el mensaje y vuelve a correr la ventana con la
+ * posición del remoto y su frente. Si vale, ejecuta SU golpe con SU calidad
+ * (nunca `devolverRival`, que tira dados y mira `dif()`); si no, lo descarta y
+ * le reemite el estado, y el punto sigue.
+ */
+function golpeDelRemoto(m: Marco, g: GolpeRecibido): void {
+  const f = juegoFrame
+  const suLado = -f.ladoJugador as 1 | -1
+  if (saquePendiente) {
+    // Su saque. No hay pelota que rebobinar: espera en su raqueta.
+    if (sacaJugador || g.t < tGolpeTenis) return
+    saquePendiente = false
+    f.rSwing = 1
+    f.botesTenis = 0
+    saqueTenis(m, 'rival', { x: g.dx, z: g.dz }, true)
+    publicarGolpeTenis('rival', 'saque', g.t)
+    return
+  }
+  // Doble golpe: un golpe fechado ANTES del que ya está resuelto. Con la ventana
+  // rebobinada esto casi no puede pasar (la pelota cae en un solo lado, así que
+  // las dos ventanas no se abren a la vez), pero un mensaje reordenado o un toque
+  // repetido llegan igual: gana el más temprano, que es el que ya se ejecutó.
+  if (g.t < tGolpeTenis) {
+    dobleGolpeTenis += 1
+    return
+  }
+  const b = pelotaEn(g.t)
+  if (!b || !ventanaTenis(suLado, f.rx, f.rz, b)) {
+    reemitirVueloTenis()
+    return
+  }
+  f.bx = b.x
+  f.by = b.y
+  f.bz = b.z
+  ladoCaida = b.cae
+  haciaMuro = b.muro
+  faltaTenis = b.falta
+  f.rSwing = 1
+  f.botesTenis = 0
+  golpearTenis(m, { x: g.dx, z: g.dz }, { cy: g.cy, cal: g.cal }, 'rival')
+  publicarGolpeTenis('rival', 'golpe', g.t)
+  // El vuelo nace ADELANTADO lo que lleva en el aire desde su `t` (la parábola
+  // es la misma en los dos lados, solo que aquí se la ve empezada), pero lo
+  // adelanta el propio tick unas líneas más abajo: si se adelantara aquí y ya
+  // hubiera aterrizado, nadie cobraría ese bote y la pelota se quedaría quieta.
+}
+
+/**
+ * Qué punto fue (punto, juego, set o partido) comparando el marcador que llega
+ * con el que había. El invitado no cuenta el tenis —eso es del árbitro—, pero sí
+ * necesita el mensaje para el HUD, los cohetes y el cambio de saque.
+ */
+function mensajeDelPunto(previo: MarcadorPartido, m: MarcadorPartido, quien: 'yo' | 'rival'): string {
+  const yo = quien === 'yo'
+  // Al ganar el partido el marcador entero vuelve a cero, sets incluidos.
+  if (m.setsYo === 0 && m.setsRival === 0 && (previo.setsYo > 0 || previo.setsRival > 0))
+    return yo ? 'partidoTuyo' : 'partidoRival'
+  if (m.setsYo !== previo.setsYo || m.setsRival !== previo.setsRival) return yo ? 'setTuyo' : 'setRival'
+  if (m.juegosYo !== previo.juegosYo || m.juegosRival !== previo.juegosRival) return yo ? 'juegoTuyo' : 'juegoRival'
+  return yo ? 'puntoTenis' : 'puntoTenisRival'
+}
+
+/** El punto que cantó el árbitro, en el invitado. Mismo cierre que `puntoTenisFin`. */
+function aplicarPuntoTenis(
+  m: Marco,
+  punto: { quien: 'yo' | 'rival'; marcador: MarcadorPartido; mo: 'red' | 'fuera' | null },
+): void {
+  const f = juegoFrame
+  const st = useJuegoCancha.getState()
+  const msg = mensajeDelPunto(st, punto.marcador, punto.quien)
+  st.aplicarMarcador(punto.marcador, punto.quien, msg)
+  if (msg !== 'puntoTenis' && msg !== 'puntoTenisRival') sacaJugador = !sacaJugador
+  if (punto.quien === 'yo') celebrar(m, msg)
+  else if (punto.mo && msg === 'puntoTenisRival') st.avisar(punto.mo === 'red' ? 'aLaRed' : 'fuera')
+  f.vuelo = null
+  f.botesTenis = 0
+  f.enVentana = false
+  faltaTenis = null
+  t0VueloTenis = null
+  tGolpeTenis = reloj.ahora()
+  saquePendiente = true
+  f.proximoEvento = performance.now() + 1600
+}
+
+if (import.meta.env.DEV) {
+  // El tenis en línea no se puede mirar desde fuera: el doble golpe, el reloj
+  // del vuelo y el lado de caída son estado de módulo, y sin esto no hay forma
+  // de medir ni de comparar las dos pantallas.
+  ;(window as unknown as { tenisEnLinea: () => object }).tenisEnLinea = () => ({
+    dobleGolpe: dobleGolpeTenis,
+    t0Vuelo: t0VueloTenis,
+    tGolpe: tGolpeTenis,
+    anillo: anilloTenis.length,
+    lado: juegoFrame.ladoJugador,
+    ladoCaida,
+    falta: faltaTenis,
+    golpeo: golpeoTenis,
+    saca: sacaJugador,
+    saquePendiente,
+    velBote: [velBoteX, velBoteZ],
+    energiaBote,
+  })
+}
+
 /** Saque pendiente: contra el frontón lo tira el muro; contra la IA se alterna cada juego. */
 function tickSaqueTenis(
   m: Marco,
   solo: boolean,
+  arbitro: boolean,
   p: { x: number; z: number },
   fwd: { x: number; z: number },
   intento: boolean,
@@ -918,6 +1529,7 @@ function tickSaqueTenis(
 ) {
   const f = juegoFrame
   const ahora = performance.now()
+  const humano = rivalHumano()
   if (solo) {
     f.enVentana = false
     f.bx = -f.ladoJugador * 0.2
@@ -931,9 +1543,13 @@ function tickSaqueTenis(
     return
   }
   // Sacas desde donde estés: tu lado se toma de tu posición entre punto y punto.
-  f.ladoJugador = p.x >= 0 ? 1 : -1
+  // En línea manda el lado del ÁRBITRO (el rival del invitado): si cada uno lo
+  // sacara de su propia x, dos jugadores parados en la misma mitad tendrían el
+  // mismo lado y la pelota caería «en el campo de los dos».
+  f.ladoJugador = humano && !arbitro ? ((f.rx >= 0 ? -1 : 1) as 1 | -1) : p.x >= 0 ? 1 : -1
   const lado = f.ladoJugador
-  mueveRival(-lado * m.L * 0.7, 0, 4, dt)
+  // Al rival remoto ya lo movió `tickTenis` con lo que trae el interpolador.
+  if (!humano) mueveRival(-lado * m.L * 0.7, 0, 4, dt)
   if (sacaJugador) {
     // La pelota espera en tu raqueta hasta que toques el botón.
     f.bx = p.x - lado * 0.35
@@ -941,11 +1557,19 @@ function tickSaqueTenis(
     f.by = 1.15
     f.enVentana = ahora >= f.proximoEvento
     if (f.enVentana && intento) {
-      saquePendiente = false
-      f.enVentana = false
       f.swing = 1
+      f.enVentana = false
+      if (humano && !arbitro) {
+        // El invitado no saca solo: su toque viaja y el saque vuelve como vuelo.
+        // Si ese viaje se pierde, la ventana se reabre sola en medio segundo.
+        f.proximoEvento = ahora + 500
+        golpearEnLinea(fwd, 1, 1, reloj.ahora())
+        return
+      }
+      saquePendiente = false
       f.botesTenis = 0
       saqueTenis(m, 'yo', fwd)
+      if (humano) publicarGolpeTenis('yo', 'saque', reloj.ahora())
     }
     return
   }
@@ -953,7 +1577,9 @@ function tickSaqueTenis(
   f.bx = f.rx
   f.bz = f.rz
   f.by = 1.1
-  if (ahora >= f.proximoEvento) {
+  // El saque del rival lo decide su máquina: con una persona enfrente llega por
+  // la red como un `accion { q:'golpe' }` y el árbitro lo tira por él.
+  if (arbitro && !humano && ahora >= f.proximoEvento) {
     saquePendiente = false
     f.rSwing = 1
     f.botesTenis = 0
@@ -961,20 +1587,49 @@ function tickSaqueTenis(
   }
 }
 
-function tickTenis(m: Marco, solo: boolean, dt: number) {
+function tickTenis(m: Marco, solo: boolean, arbitro: boolean, dt: number) {
   const f = juegoFrame
   const ahora = performance.now()
   const lado = f.ladoJugador
   const d = dif()
+  const humano = rivalHumano()
   const p = aLocal(m, playerPos.x, playerPos.z)
   const fwd = dirLocal(m, playerForward)
-  medirStrafe(fwd, p, dt)
+  medirStrafe('yo', fwd, p, dt)
   const intento = f.golpe
   f.golpe = false
   // El frontón se levanta al empezar (anima la media cancha volviéndose muro).
   if (solo && f.muro < 1) f.muro = Math.min(1, f.muro + dt * 1.6)
+  // Partido en línea. Va ANTES del saque: el saque del otro llega como `vuelo` y
+  // hay que soltar la pelota de la raqueta en el mismo frame en que llega.
+  if (humano) {
+    // El cuerpo del rival no lo decide ninguna máquina: lo trae el interpolador
+    // y `mueveRival` lo sigue (en esa rama el objetivo da igual).
+    mueveRival(f.rx, f.rz, 0, dt)
+    if (arbitro) {
+      medirStrafe('rival', { x: Math.sin(f.rHeading), z: Math.cos(f.rHeading) }, { x: f.rx, z: f.rz }, dt)
+      // La historia de la pelota es lo que permite rebobinar SU golpe al
+      // instante en que él lo dio, en vez de juzgarlo contra la pelota de ahora.
+      anotarPelota()
+      const golpe = tomarGolpeRival()
+      if (golpe) golpeDelRemoto(m, golpe)
+      // El vuelo del golpe, repetido una vez por si se perdió (ver REPETIR_VUELO).
+      else if (!reenviadoTenis && t0VueloTenis !== null && reloj.ahora() - t0VueloTenis > REPETIR_VUELO) {
+        reenviadoTenis = true
+        reemitirVueloTenis()
+      }
+    } else {
+      const punto = tomarPunto()
+      if (punto) {
+        aplicarPuntoTenis(m, punto)
+        return
+      }
+      const vuelo = tomarVuelo()
+      if (vuelo) aplicarVueloTenis(m, vuelo)
+    }
+  }
   if (saquePendiente) {
-    tickSaqueTenis(m, solo, p, fwd, intento, dt)
+    tickSaqueTenis(m, solo, arbitro, p, fwd, intento, dt)
     return
   }
   if (!f.vuelo) {
@@ -983,33 +1638,48 @@ function tickTenis(m: Marco, solo: boolean, dt: number) {
   }
   // El rival persigue el punto de caída, pero solo cuando la pelota ya cruzó la
   // red (antes no puede adivinar dónde va): mientras, recupera el centro.
-  if (!solo) {
+  if (!solo && !humano) {
     const suya = ladoCaida !== lado && !haciaMuro && (f.bx >= 0 ? 1 : -1) !== lado
     mueveRival(suya ? f.vuelo.x1 : -lado * m.L * 0.7, suya ? f.vuelo.z1 : 0, 3 + d * 4, dt)
   }
   // Ventana de golpeo: en tu lado, cerca de ti y a altura de raqueta (no yendo al muro).
-  f.enVentana =
-    ladoCaida === lado &&
-    !haciaMuro &&
-    faltaTenis !== 'red' &&
-    Math.hypot(f.bx - p.x, f.bz - p.z) < GOLPE_RADIO &&
-    f.by > Y_MIN_GOLPE &&
-    f.by < Y_MAX_GOLPE
+  f.enVentana = ventanaTenis(lado, p.x, p.z, {
+    x: f.bx,
+    y: f.by,
+    z: f.bz,
+    cae: ladoCaida,
+    muro: haciaMuro,
+    falta: faltaTenis,
+  })
   if (f.enVentana && intento) {
     // ¡Le pegas! El timing decide la calidad; tu frente, la dirección.
     f.swing = 1
-    f.botesTenis = 0
     f.enVentana = false
     const q = calidadTenis(p)
     if (solo) {
+      f.botesTenis = 0
       void useJuegoCancha.getState().sumarPeloteo()
       golpeAlMuro(m, q.cal)
-    } else golpearTenis(m, fwd, q)
+      return
+    }
+    const tGolpe = instantePelota()
+    if (humano && !arbitro) {
+      // Cada quien decide SU golpe: viaja fechado con el instante en que esta
+      // ventana estaba abierta, y el árbitro rebobina hasta ahí para ejecutarlo.
+      // La pelota NO se toca aquí: si el golpe no valiera, se teletransportaría.
+      golpearEnLinea(fwd, q.cy, q.cal, tGolpe)
+      return
+    }
+    f.botesTenis = 0
+    golpearTenis(m, fwd, q, 'yo')
+    if (humano) publicarGolpeTenis('yo', 'golpe', tGolpe)
     return
   }
   // El rival golpea cuando la pelota ya botó en su campo y la tiene encima; si no
-  // llegó, se estira en el último momento (y de ahí le sale un mal golpe).
-  if (!solo && ladoCaida !== lado && f.botesTenis >= 1 && f.by > Y_MIN_GOLPE && f.by < Y_MAX_GOLPE) {
+  // llegó, se estira en el último momento (y de ahí le sale un mal golpe). Es su
+  // máquina de decisión: una persona golpea cuando quiere y su golpe llega por la
+  // red con su propia ventana (F7), sin `devolverRival` ni `dif()` de por medio.
+  if (!solo && !humano && ladoCaida !== lado && f.botesTenis >= 1 && f.by > Y_MIN_GOLPE && f.by < Y_MAX_GOLPE) {
     const alcance = Math.hypot(f.bx - f.rx, f.bz - f.rz)
     const ultima = f.vuelo.t / f.vuelo.dur > 0.72
     if (alcance < TENIS_COMODO_RIVAL || (ultima && alcance < TENIS_ALCANCE_RIVAL)) {
@@ -1019,7 +1689,11 @@ function tickTenis(m: Marco, solo: boolean, dt: number) {
       return
     }
   }
-  if (!avanzarVuelo(dt)) return
+  const finVuelo = t0VueloTenis !== null && f.vuelo ? t0VueloTenis + f.vuelo.dur * 1000 : 0
+  if (!avanzarVueloTenis(dt)) return
+  // Lo que venga ahora (el bote) arranca donde ACABÓ el vuelo, no en el frame en
+  // que se detecta: si no, cada cliente empezaría el bote con su propio retraso.
+  if (t0VueloTenis !== null) t0VueloTenis = finVuelo
   if (solo && haciaMuro) {
     // Llegó al frontón: rebota de vuelta a tu media cancha.
     reboteDelMuro(m)
@@ -1036,8 +1710,12 @@ function tickTenis(m: Marco, solo: boolean, dt: number) {
       useJuegoCancha.getState().avisar('seEscapo')
       saquePendiente = true
       f.proximoEvento = ahora + 1300
-    } else if (golpeoTenis === 'yo') puntoTenisFin(m, 'rival', faltaTenis)
-    else puntoTenisFin(m, 'yo')
+    } else if (arbitro) {
+      // El punto lo canta el ÁRBITRO y viaja con su motivo: el invitado no
+      // juzga ni la red ni la línea, solo obedece el marcador que le llega.
+      if (golpeoTenis === 'yo') puntoTenisFin(m, 'rival', faltaTenis)
+      else puntoTenisFin(m, 'yo')
+    }
     return
   }
   f.botesTenis += 1
@@ -1052,7 +1730,7 @@ function tickTenis(m: Marco, solo: boolean, dt: number) {
     useJuegoCancha.getState().avisar('seEscapo')
     saquePendiente = true
     f.proximoEvento = ahora + 1300
-  } else puntoTenisFin(m, ladoCaida === lado ? 'rival' : 'yo')
+  } else if (arbitro) puntoTenisFin(m, ladoCaida === lado ? 'rival' : 'yo')
 }
 
 // ─── Béisbol (solo bateo) ───
@@ -1173,12 +1851,12 @@ function strikeBeis(solo: boolean) {
   juegoFrame.proximoEvento = performance.now() + 1400
 }
 
-function tickBeisbol(m: Marco, solo: boolean, dt: number) {
+function tickBeisbol(m: Marco, solo: boolean, arbitro: boolean, dt: number) {
   const f = juegoFrame
   const ahora = performance.now()
   const p = aLocal(m, playerPos.x, playerPos.z)
   const fwd = dirLocal(m, playerForward)
-  medirStrafe(fwd, p, dt)
+  medirStrafe('yo', fwd, p, dt)
   // Mantener el botón carga la fuerza del swing; soltarlo lo ejecuta.
   if (f.cargando) f.carga = Math.min(1, f.carga + dt / T_CARGA)
   const intento = f.soltar
@@ -1221,7 +1899,10 @@ function tickBeisbol(m: Marco, solo: boolean, dt: number) {
     f.bz = 0
   }
   f.by = 1.2
-  if (ahora >= f.proximoEvento) lanzarPitcheo(m, solo)
+  // El pitcheo lo decide quien lanza (máquina o pitcher): en línea sería el
+  // árbitro. El béisbol no está entre los juegos de sala, así que aquí el gate
+  // solo cierra el hueco.
+  if (arbitro && ahora >= f.proximoEvento) lanzarPitcheo(m, solo)
 }
 
 // ─── Componentes ───
@@ -1232,13 +1913,20 @@ export function MinijuegosCanchas() {
   const marcoRef = useRef<Marco | null>(null)
   const acc = useRef(0)
   const faseAnterior = useRef<string | null>(null)
+  const reinicioPend = useRef(false)
 
   useFrame((_, dt) => {
-    // Al confirmar el modo en el prompt arranca el partido.
+    // Al confirmar el modo en el prompt arranca el partido. En línea el invitado
+    // entra de una pieza al que abrió el árbitro, así que la fase salta de null
+    // a 'jugando' sin pasar por el prompt: lo que dispara el reinicio es ENTRAR
+    // en 'jugando', y se espera a tener cancha (él puede no haberla pisado aún).
     const st = useJuegoCancha.getState()
-    if (st.fase === 'jugando' && faseAnterior.current === 'eligiendo' && marcoRef.current)
-      reiniciarJuego(marcoRef.current)
+    if (st.fase === 'jugando' && faseAnterior.current !== 'jugando') reinicioPend.current = true
     faseAnterior.current = st.fase
+    if (reinicioPend.current && marcoRef.current) {
+      reinicioPend.current = false
+      reiniciarJuego(marcoRef.current)
+    }
 
     acc.current += dt
     if (acc.current < 0.25) return
@@ -1256,10 +1944,18 @@ export function MinijuegosCanchas() {
       useHuerto.getState().activo ||
       useGranja.getState().activo ||
       usePaintball.getState().fase != null
+    // Contexto local roto (editor, cuarto abierto, otro piso, montarse, otra
+    // infraestructura, paintball): son ONCE condiciones que hoy terminan el
+    // partido solas. Con `'contexto'` el store aplica el gate de B7: en línea
+    // sacan al invitado él solo y al árbitro solo le suspenden la vista.
     if (bloqueado) {
-      if (st.canchaId != null) st.terminar()
+      if (st.canchaId != null) st.terminar('contexto')
       if (st.cerca) st.setCerca(null)
-      marcoRef.current = null
+      // Al ÁRBITRO de un partido en línea `terminar('contexto')` no lo saca, y
+      // anularle el marco aquí congelaría la pelota para los dos: su `useFrame`
+      // sigue simulando (el Canvas nunca se desmonta) y lo que se suspende es
+      // la vista. Para todos los demás el partido ya terminó y el marco sobra.
+      if (useJuegoCancha.getState().fase !== 'jugando') marcoRef.current = null
       return
     }
     // Partido en curso: el marco queda anclado a la cancha activa y pisar fuera
@@ -1268,18 +1964,29 @@ export function MinijuegosCanchas() {
     if (st.fase === 'jugando' && st.canchaId != null) {
       const activa = useDiseño.getState().objetos.find((o) => o.id === st.canchaId && esObjetoMapa(o))
       if (!activa || !esCancha(activa.tipo)) {
-        st.terminar() // la cancha se borró con el partido andando
+        // La cancha se borró con el partido andando. Esto no es una vista que se
+        // suspende: sin cancha no hay nada que arbitrar, así que sale también el
+        // árbitro (y con `'boton'` su motor cierra el partido para los dos).
+        st.terminar('boton')
         marcoRef.current = null
         return
       }
       const m = marcoDe(activa)
       const p = aLocal(m, playerPos.x, playerPos.z)
       if (Math.abs(p.x) > m.L + MARGEN_ABANDONO || Math.abs(p.z) > m.W + MARGEN_ABANDONO) {
-        st.terminar()
-        marcoRef.current = null
+        st.terminar('contexto')
+        // Igual que arriba: el árbitro que se va a pasear no le corta el partido
+        // a nadie (sigue arbitrando y vuelve cuando quiera).
+        if (useJuegoCancha.getState().fase !== 'jugando') marcoRef.current = null
         return
       }
       marcoRef.current = m
+      // Primer marco del partido: el reinicio que esperaba cancha, antes de que
+      // la física llegue a correr un solo tick con el frame del partido pasado.
+      if (reinicioPend.current) {
+        reinicioPend.current = false
+        reiniciarJuego(m)
+      }
       return
     }
     const cancha = useDiseño
@@ -1294,9 +2001,12 @@ export function MinijuegosCanchas() {
       // del hueco del cubo (ver `ContextoProximity`). Entrar sin querer a un
       // partido por cruzar el campo era el mismo problema que sentarse solo.
       if (st.canchaId !== cancha.id) st.setCerca({ canchaId: cancha.id, clase: m.clase })
+      // Pisarla es también el gesto que retoma un partido en línea: el que me
+      // abrieron estando lejos, o el que dejé al abrir un cuarto.
+      reengancharPartido(cancha.id)
     } else {
       // Alejarse solo cancela el prompt de modo ('eligiendo'), nunca un partido.
-      if (st.canchaId != null) st.terminar()
+      if (st.canchaId != null) st.terminar('contexto')
       if (st.cerca) st.setCerca(null)
       marcoRef.current = null
     }
@@ -1476,15 +2186,41 @@ function JuegoActivo({ marcoRef }: { marcoRef: React.MutableRefObject<Marco | nu
     [linea],
   )
 
+  // Quién mueve al rival cuando es otra persona: el interpolador de la partida.
+  // Su pose llega en coordenadas de MUNDO y la cancha vive en las suyas, así que
+  // se traslada al origen del objeto y se le resta su giro (como `dirLocal`).
+  // Fuera de un partido en línea no hay cuerpo y la costura devuelve null, que
+  // es lo que deja intacta a la IA.
+  useEffect(() => {
+    registrarFuenteRival(() => {
+      const m = marcoRef.current
+      const c = cuerpoRival()
+      if (!m || !c) return null
+      const local = aLocal(m, c.x, c.z)
+      return { x: local.x, z: local.z, h: c.h - m.rad, vel: c.vel }
+    })
+    return () => registrarFuenteRival(null)
+  }, [marcoRef])
+
   useFrame((state, dtRaw) => {
     const m = marcoRef.current
     if (!m) return
     const dt = Math.min(dtRaw, 0.08)
-    const solo = modo === 'solo'
-    if (m.clase === 'futbol') tickFutbol(m, solo, dt)
-    else if (m.clase === 'basket') tickBasket(m, solo, dt)
-    else if (m.clase === 'beisbol') tickBeisbol(m, solo, dt)
-    else tickTenis(m, solo, dt)
+    // `solo` = sin nadie enfrente; en línea hay rival (otra persona), así que es
+    // false. `arbitro` es el corte anfitrión/invitado: las MÁQUINAS DE DECISIÓN
+    // (posesión, robos, tiros del rival, pitcheo, rodada de la pelota) solo corren
+    // en quien arbitra. Fuera de línea arbitra siempre este cliente, así que el
+    // partido en un jugador es exactamente el de antes.
+    // Del STORE y no del valor del render (como `rivalHumano`): el modo entra en
+    // el mismo frame en que empieza el partido y con el valor de React —un
+    // render por detrás— el invitado arbitraría su primer frame.
+    const modoAhora = useJuegoCancha.getState().modo
+    const solo = modoAhora === 'solo'
+    const arbitro = modoAhora !== 'online' || soyArbitro()
+    if (m.clase === 'futbol') tickFutbol(m, solo, arbitro, dt)
+    else if (m.clase === 'basket') tickBasket(m, solo, arbitro, dt)
+    else if (m.clase === 'beisbol') tickBeisbol(m, solo, arbitro, dt)
+    else tickTenis(m, solo, arbitro, dt)
     const f = juegoFrame
     // Los raquetazos y los pulsos de la canasta se desvanecen solos.
     f.swing = Math.max(0, f.swing - dt * 3.2)
@@ -1550,6 +2286,9 @@ function JuegoActivo({ marcoRef }: { marcoRef: React.MutableRefObject<Marco | nu
   })
 
   const m = marcoRef.current
+  // Solo la IA se dibuja aquí: en línea el cuerpo del rival es el de otra persona
+  // y lo pinta `JugadorRemoto3D` con su avatar (F5). Montarlo también aquí lo
+  // duplicaría en pantalla.
   const conRival = modo === 'ia'
   return (
     <group>

@@ -16,6 +16,8 @@ import { BotonTutorialApp } from '../tutorial/BotonTutorialApp'
 import { ControlMusica } from './ControlMusica'
 import { vivo } from './estilos'
 import { GateAppDemo } from '../../demo/GateAppDemo'
+import { esVisita } from '../edicion'
+import { useVisita } from '../visita/visitaStore'
 
 /**
  * Cuando hay un cuarto activo, dibuja la app de la plantilla asignada a sus objetos.
@@ -59,7 +61,10 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
     const p = getPlantilla(pid)
     if (p) mapa.set(p.id, p)
   }
-  const apps = [...mapa.values()]
+  // Segunda barrera de la visita: el plano ya viene filtrado por las apps que
+  // el anfitrión marcó, pero este es el ÚNICO sitio que resuelve `activa?.App`
+  // para un cuarto, así que aquí no se abre nada que no esté en la lista.
+  const apps = [...mapa.values()].filter((p) => !esVisita() || useVisita.getState().apps.includes(p.id))
 
   // La intención del chat («abre las compras») preselecciona su app en el
   // lanzador aunque el cuarto tenga varias (ajuste en render, sin efecto).

@@ -35,6 +35,12 @@ export type NombreSfx =
 let ctx: AudioContext | null = null
 let bus: GainNode | null = null
 let ruido: AudioBuffer | null = null
+/**
+ * Ganancia del efecto que se está tocando (0-1). La fija `sonar` en cada
+ * llamada: sirve para atenuar por distancia lo que pasa lejos del jugador
+ * (con cuatro tiradores en el mapa, los disparos sin atenuar son metralla).
+ */
+let ganancia = 1
 
 function asegurar(): AudioContext | null {
   if (useAjustes.getState().sfxVolumen <= 0) return null
@@ -87,7 +93,7 @@ function tono(o: {
   osc.type = o.onda ?? 'sine'
   osc.frequency.setValueAtTime(o.de, t)
   if (o.a) osc.frequency.exponentialRampToValueAtTime(o.a, t + o.dur)
-  const vol = o.vol ?? 0.15
+  const vol = (o.vol ?? 0.15) * ganancia
   gain.gain.setValueAtTime(0, t)
   gain.gain.linearRampToValueAtTime(vol, t + 0.01)
   gain.gain.exponentialRampToValueAtTime(0.0001, t + o.dur)
@@ -113,7 +119,7 @@ function soplo(o: {
   filtro.type = o.tipo ?? 'lowpass'
   filtro.frequency.value = o.hz ?? 1200
   const gain = ctx.createGain()
-  const vol = o.vol ?? 0.15
+  const vol = (o.vol ?? 0.15) * ganancia
   gain.gain.setValueAtTime(0, t)
   gain.gain.linearRampToValueAtTime(vol, t + 0.01)
   gain.gain.exponentialRampToValueAtTime(0.0001, t + o.dur)
@@ -144,13 +150,19 @@ const MIN_MS: Partial<Record<NombreSfx, number>> = {
 }
 const ultimo = new Map<string, number>()
 
-/** Toca un efecto de la biblioteca (respeta `mh.sfx.volumen`; 0 = apagado). */
-export function sonar(nombre: NombreSfx): void {
+/**
+ * Toca un efecto de la biblioteca (respeta `mh.sfx.volumen`; 0 = apagado).
+ * `volumen` (0-1) atenúa ESTE efecto: lo usan los juegos para que lo que pasa
+ * al otro lado del mapa no suene igual que lo que pasa al lado.
+ */
+export function sonar(nombre: NombreSfx, volumen = 1): void {
+  if (volumen <= 0) return
   const c = asegurar()
   if (!c || !bus) return
   const ahora = performance.now()
   if ((ultimo.get(nombre) ?? -1e9) + (MIN_MS[nombre] ?? 80) > ahora) return
   ultimo.set(nombre, ahora)
+  ganancia = Math.min(1, volumen)
   switch (nombre) {
     case 'disparo':
       tono({ de: 900, a: 160, dur: 0.13, onda: 'square', vol: 0.2 })

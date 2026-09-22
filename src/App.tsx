@@ -8,6 +8,9 @@ import { PaintballOverlay } from './core/ui/PaintballOverlay'
 import { Mira } from './core/ui/Mira'
 import { AsignarPlantillaDialog } from './core/ui/AsignarPlantillaDialog'
 import { EnviarAContacto } from './core/buzon/ui/EnviarAContacto'
+import { HudRedDev } from './core/partida/ui/HudRedDev'
+import { InvitacionModal } from './core/partida/ui/InvitacionModal'
+import { PanelCompartirGlobal } from './core/espacios/ui/PanelCompartirGlobal'
 import { RetratoAvatar } from './core/buzon/RetratoAvatar'
 import { EnlaceObjetoDialog } from './core/ui/EnlaceObjetoDialog'
 import { AmueblarDialog } from './core/ui/AmueblarDialog'
@@ -37,7 +40,9 @@ import { BarraDemo } from './demo/BarraDemo'
 import { BarraProbar } from './probar/BarraProbar'
 import { RecuperarPrueba } from './core/bienvenida/RecuperarPrueba'
 import { VolverDemoDialog } from './demo/VolverDemoDialog'
-import { esDemo, esProbar } from './core/edicion'
+import { esDemo, esProbar, esVisita } from './core/edicion'
+import { VeloVisita } from './core/visita/VeloVisita'
+import { useVisita } from './core/visita/visitaStore'
 import { esEscritorio, esModoFondo } from './core/plataforma'
 import { TiraNavegador } from './core/ui/TiraNavegador'
 import { acercarEncuadre, aplicarEncuadre, moverEncuadre } from './core/fondoEncuadre'
@@ -167,6 +172,8 @@ export default function App() {
   // plegarse en vertical cuando este menú está abierto (ver FloatingMenuButton, espejo).
   const sidebarOpen = useHud((s) => s.menuAbierto)
   const setSidebarOpen = useHud((s) => s.setMenuAbierto)
+  // Visita a la casa de otro: mientras el plano no esté volcado, va el velo.
+  const faseVisita = useVisita((s) => s.fase)
 
   /**
    * Editar un cuarto (⚙️ + zoom) o abrir "Editar mapa" necesita espacio para el
@@ -218,6 +225,12 @@ export default function App() {
       useLayout.getState().setEditMode(true)
     }
   }, [sidebarOpen])
+
+  // Visita: hasta que el plano del anfitrión está volcado no hay casa que
+  // pintar. El velo RETIENE el `<Canvas>` (no se superpone a él): así
+  // `aplicarPlano` puede colocar al invitado en la entrada antes de que
+  // `Character` tome su posición inicial.
+  if (esVisita() && faseVisita !== 'lista') return <VeloVisita />
 
   // Modo fondo (wallpaper del escritorio): la escena sola, sin UI encima — la
   // ventana vive detrás de los iconos, no recibe foco y sus botones serían
@@ -297,6 +310,13 @@ export default function App() {
       <AsignarPlantillaDialog />
       {/* «Enviar a un contacto» desde cualquier cuarto (el ChatBox no existe ahí dentro). */}
       <EnviarAContacto />
+      {/* El timbre de «te invito a mi casa», por el mismo motivo. */}
+      <InvitacionModal />
+      {/* Quién ve un calendario o un documento compartido: se abre desde varios
+          sitios que se desmontan al abrirlo (un editor, una lista, el chat). */}
+      <PanelCompartirGlobal />
+      {/* Consola de red del multijugador: solo en desarrollo. */}
+      {import.meta.env.DEV && <HudRedDev />}
       {/* El busto del personaje como retrato del buzón: captura oculta cuando cambia el avatar. */}
       <RetratoAvatar />
       <EnlaceObjetoDialog />

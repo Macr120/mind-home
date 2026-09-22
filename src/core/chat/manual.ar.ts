@@ -120,6 +120,8 @@ export const MANUAL_AR: ManualTraducido = {
     '[Historial]': '[السجل]',
     '[Sitios]': '[المواقع]',
     '[Tiempo en internet]': '[وقت الإنترنت]',
+    '[Cómo llegar]': '[الاتجاهات]',
+    '[Amigos]': '[الأصدقاء]',
   },
   atajos: {
     'Caminar (también con las flechas)': 'المشي (وبمفاتيح الأسهم أيضًا)',

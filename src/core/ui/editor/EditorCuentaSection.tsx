@@ -3,12 +3,14 @@ import { idiomaActual, useT } from '../../i18n/useT'
 import { hayBackend } from '../../cuenta/supabase'
 import { useSesion } from '../../cuenta/sesionStore'
 import {
+  CompraCancelada,
   hayPagos,
   obtenerNiveles,
   obtenerCreditos,
   obtenerAnual,
   cambiarNivel,
   comprarCreditos,
+  detalleDeFallo,
   restaurarCompras,
   textoDeFallo,
   urlGestion,
@@ -165,7 +167,7 @@ export function FormularioAcceso({ inicial = 'entrar' }: { inicial?: 'entrar' | 
         autoComplete={modo === 'entrar' ? 'current-password' : 'new-password'}
         className={inputCls}
       />
-      {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
+      {error && <p className="whitespace-pre-line text-[11px] leading-snug text-red-400/90">{error}</p>}
       {aviso && <p className="text-[11px] leading-snug text-accent/90">{aviso}</p>}
       <button
         type="button"
@@ -238,7 +240,7 @@ function BotonesOAuth() {
         <LogoApple />
         {t('cuenta.conApple', 'Continuar con Apple')}
       </button>
-      {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
+      {error && <p className="whitespace-pre-line text-[11px] leading-snug text-red-400/90">{error}</p>}
     </div>
   )
 }
@@ -376,7 +378,7 @@ function BotonEliminarCuenta() {
       >
         {ocupado ? t('cuenta.eliminar.borrando', 'Borrando…') : t('cuenta.eliminar', 'Eliminar cuenta')}
       </button>
-      {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
+      {error && <p className="whitespace-pre-line text-[11px] leading-snug text-red-400/90">{error}</p>}
     </div>
   )
 }
@@ -640,10 +642,12 @@ function Creditos() {
     setOcupado(true)
     setError(null)
     try {
-      const ok = await comprarCreditos(oferta.paquete)
+      const ok = await comprarCreditos(oferta)
+      // Cobrado y el saldo aún no subió: espera, no fallo (el webhook lo suma).
       if (!ok) setError(t('cuenta.creditos.enCamino', 'El pago está en camino: vuelve a abrir esta sección en unos segundos.'))
     } catch (e) {
-      setError(e instanceof Error ? e.message : String(e))
+      if (e instanceof CompraCancelada) return
+      setError(`${textoDeFallo(e, t)}\n${detalleDeFallo(e)}`)
     } finally {
       setOcupado(false)
     }
@@ -665,7 +669,7 @@ function Creditos() {
       <p className="text-[10px] leading-snug text-white/35">
         {t('cuenta.creditos.nota', 'Pago único: no caducan y sirven aunque no tengas suscripción.')}
       </p>
-      {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
+      {error && <p className="whitespace-pre-line text-[11px] leading-snug text-red-400/90">{error}</p>}
     </div>
   )
 }
@@ -710,9 +714,13 @@ function Niveles() {
     setOcupado(true)
     setError(null)
     try {
-      await cambiarNivel(oferta.paquete, oferta.nivel)
+      const ok = await cambiarNivel(oferta)
+      // Cobrado y el perfil aún no lo dice: se avisa como espera, no como fallo.
+      // Antes el booleano se tiraba y una compra cobrada no enseñaba nada.
+      if (!ok) setError(t('cuenta.pago.pendiente', 'Pago recibido: tu plan aparecerá aquí en unos segundos.'))
     } catch (e) {
-      setError(e instanceof Error ? e.message : String(e))
+      if (e instanceof CompraCancelada) return
+      setError(`${textoDeFallo(e, t)}\n${detalleDeFallo(e)}`)
     } finally {
       setOcupado(false)
     }
@@ -784,7 +792,7 @@ function Niveles() {
           'Puedes subir o bajar de nivel cuando quieras; el cambio se cobra a prorrata.',
         )}
       </p>
-      {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
+      {error && <p className="whitespace-pre-line text-[11px] leading-snug text-red-400/90">{error}</p>}
     </div>
   )
 }

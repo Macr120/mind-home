@@ -1,6 +1,8 @@
 import { useJuegoCancha, etiquetaTenis } from '../state/juegoCanchaStore'
 import { CANCHAS } from '../state/canchasStore'
 import { useAsistentes } from '../state/asistentesStore'
+import { abrirPartido } from '../partida/cancha'
+import { usePartida } from '../partida/partidaStore'
 import { SliderProp } from './comun/SliderProp'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
@@ -63,8 +65,25 @@ export function MarcadorCancha() {
   const setsRival = useJuegoCancha((s) => s.setsRival)
   const mejorPeloteo = useJuegoCancha((s) => s.mejorPeloteo)
   const mensaje = useJuegoCancha((s) => s.mensaje)
+  const avisoOnline = useJuegoCancha((s) => s.avisoOnline)
   const asistentes = useAsistentes((s) => s.lista)
-  if (!fase || !clase) return null
+  const sala = usePartida((s) => s.sala)
+  // Rival de carne y hueso: solo con sala viva de dos o más (misma regla que el
+  // paintball). Las canchas son 1v1, así que el rival es el otro de la sala, y
+  // quien lo ofrece es el ANFITRIÓN: es el árbitro del partido, y abrirlo desde
+  // el otro lado dejaría una cancha sin nadie que dictara la pelota.
+  const dentro = sala?.soyAnfitrion ? sala.jugadores.filter((jug) => jug.estado === 'dentro') : []
+  const rivalSala = dentro.length >= 2 ? dentro.find((jug) => jug.ranura !== sala?.miRanura) : undefined
+  // Sin partido que pintar todavía puede haber algo que decir del de EN LÍNEA
+  // (la cancha es la de la otra casa, el rival se fue, el partido se cerró).
+  if (!fase || !clase)
+    return avisoOnline ? (
+      <div className="pointer-events-none absolute start-0 end-0 top-16 z-30 flex justify-center px-3 sm:top-3">
+        <div className="ui-hud ui-pop rounded-xl border border-white/10 px-4 py-2 text-center text-sm font-bold text-white">
+          {avisoOnline}
+        </div>
+      </div>
+    ) : null
   const j = useJuegoCancha.getState()
   const nivel = NIVELES.reduce((a, b) => (Math.abs(b.v - dificultad) < Math.abs(a.v - dificultad) ? b : a))
 
@@ -137,13 +156,44 @@ export function MarcadorCancha() {
               </button>
             ))}
           </div>
+          {/* El béisbol es solo bateo: no hay partido de dos que jugar en línea.
+              Las otras tres sí: fútbol (F5), básquet (F6) y tenis (F7). */}
+          {rivalSala && clase !== 'beisbol' && (
+            <div className="flex flex-col gap-1.5 rounded-lg border border-emerald-400/30 bg-emerald-500/10 p-2">
+              <p className="text-center text-[11px] font-bold text-emerald-200">
+                <Icono nombre="persona" /> {t('juego.online.titulo', 'Partido en línea')}
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  // El partido lo ABRE el anfitrión: el rival lo recibe por el
+                  // canal y entra a esta misma cancha en su escena.
+                  if (j.canchaId != null) abrirPartido(j.canchaId, clase, rivalSala.ranura)
+                  j.elegirModo('online', {
+                    id: rivalSala.ranura,
+                    nombre: rivalSala.alias ?? rivalSala.nombre,
+                    color: rivalSala.aspecto.torso,
+                  })
+                }}
+                className="h-10 rounded-lg border border-emerald-400/50 bg-emerald-600 text-sm font-bold texto-cta transition hover:brightness-110 active:scale-95"
+              >
+                {t('juego.online.jugar', 'Jugar contra {nombre}', {
+                  nombre: rivalSala.alias ?? rivalSala.nombre,
+                })}
+              </button>
+              <p className="text-center text-[11px] font-semibold text-white/60">
+                {t('juego.online.aviso', 'El marcador de este partido no se guarda.')}
+              </p>
+            </div>
+          )}
         </div>
       </div>
     )
   }
 
-  // Tenis contra la IA: puntos 0/15/30/40 + juegos + sets.
-  const tenisIA = clase === 'tenis' && modo === 'ia'
+  // Tenis con rival (IA o persona): puntos 0/15/30/40 + juegos + sets. Jugando
+  // solo, `yo` cuenta el peloteo contra el frontón y el marcador es otro.
+  const tenisIA = clase === 'tenis' && modo !== 'solo'
   const pts = tenisIA ? etiquetaTenis(yo, rival) : null
   // En vertical el marcador baja bajo la fila de botones de arriba (casa / engrane).
   return (
@@ -170,7 +220,7 @@ export function MarcadorCancha() {
           ) : (
             <span>
               {t('juego.tu', 'Tú')} {yo}
-              {modo === 'ia' && ` · ${rival} ${rivalNombre ?? t('juego.rival', 'Rival')}`}
+              {modo !== 'solo' && ` · ${rival} ${rivalNombre ?? t('juego.rival', 'Rival')}`}
             </span>
           )}
           <span className="text-[10px] font-semibold text-white/40">{t(nivel.clave, nivel.es)}</span>

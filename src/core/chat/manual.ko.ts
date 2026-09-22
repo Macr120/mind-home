@@ -120,6 +120,8 @@ export const MANUAL_KO: ManualTraducido = {
     '[Historial]': '[기록]',
     '[Sitios]': '[사이트]',
     '[Tiempo en internet]': '[인터넷 사용 시간]',
+    '[Cómo llegar]': '[길찾기]',
+    '[Amigos]': '[친구]',
   },
   atajos: {
     'Caminar (también con las flechas)': '걷기 (방향키도 가능)',

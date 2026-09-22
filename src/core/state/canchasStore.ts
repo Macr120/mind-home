@@ -114,6 +114,29 @@ export const radioBeisbol = (ang: number) =>
  */
 export const escalaCancha = (escala?: number) => (escala ?? 1) * factorCelda()
 
+/**
+ * ¿El punto (wx,wz) del mundo cae dentro de esa cancha? `margen` en metros
+ * ensancha el rectángulo (el partido sigue vivo un poco más allá de la línea).
+ * Es el mismo criterio que usa el runtime del minijuego con su marco ya
+ * calculado; aquí sirve para decidir desde fuera de la escena si alguien está
+ * en la cancha, sin montar un marco.
+ */
+export function dentroDeCancha(
+  o: { x?: number; z?: number; rotY?: number; escala?: number; tipo: string },
+  wx: number,
+  wz: number,
+  margen = 0,
+): boolean {
+  const def = CANCHAS[claseDeCancha(o.tipo)]
+  const esc = escalaCancha(o.escala)
+  const rad = ((o.rotY ?? 0) * Math.PI) / 180
+  const dx = wx - (o.x ?? 0)
+  const dz = wz - (o.z ?? 0)
+  const x = dx * Math.cos(rad) - dz * Math.sin(rad)
+  const z = dx * Math.sin(rad) + dz * Math.cos(rad)
+  return Math.abs(x) <= (def.largo * esc) / 2 + margen && Math.abs(z) <= (def.ancho * esc) / 2 + margen
+}
+
 interface CanchasState {
   /** El editor de canchas está abierto (colocando sobre el mapa). */
   activo: boolean

@@ -2,6 +2,8 @@ import { create } from 'zustand'
 import { db } from '../data/db'
 import { sonar } from '../audio/sfx'
 import { useCam, type Vista } from './cameraStore'
+import { soyArbitro } from '../partida/sala'
+import type { MarcadorPartido } from '../partida/ranuras'
 import type { ClaseCancha } from './canchasStore'
 
 /**
@@ -13,7 +15,11 @@ import type { ClaseCancha } from './canchasStore'
  * LOCALES de la cancha); este store guarda lo reactivo (HUD).
  */
 
-type ModoJuego = 'solo' | 'ia'
+/**
+ * Con quién se juega: solo, contra un asistente (IA) o contra OTRA PERSONA de la
+ * sala. En línea no corre IA ninguna y el marcador vive solo en memoria.
+ */
+type ModoJuego = 'solo' | 'ia' | 'online'
 /** Perspectiva con la que se juega el partido (se elige en el prompt de modo). */
 export type VistaJuego = 'iso' | 'tercera'
 
@@ -83,6 +89,8 @@ export const juegoFrame = {
   chanfle: 0,
   /** Velocidad lateral reciente del jugador (para calcular el chanfle al golpear). */
   strafe: 0,
+  /** La misma, medida sobre el RIVAL remoto: su chanfle es suyo, no el del local. */
+  strafeRival: 0,
   /** Fase del botecito del balón mientras lo llevas (fútbol). */
   bote: 0,
   /** Botes de la pelota desde el último golpe (tenis): al segundo se pierde el punto. */
@@ -144,6 +152,18 @@ function restaurarVistaJuego(): void {
 }
 
 /**
+ * Salida del partido EN LÍNEA. La registra `partida/cancha.ts` (el store no
+ * puede importarlo: es él quien importa al store) y por aquí pasa todo lo que
+ * termina un partido, venga del botón o de un contexto roto: es el motor quien
+ * decide si eso lo cierra para los dos (árbitro) o solo me saca a mí (invitado).
+ */
+let alSalirOnline: ((motivo: 'boton' | 'contexto') => void) | null = null
+
+export function registrarSalidaOnline(fn: ((motivo: 'boton' | 'contexto') => void) | null): void {
+  alSalirOnline = fn
+}
+
+/**
  * Béisbol en 3ª persona: coloca la cámara DETRÁS del bateador, mirando al
  * montículo. Lo llama `reiniciarJuego`, que es donde ya está calculado el rumbo
  * del ancla.
@@ -183,6 +203,12 @@ interface JuegoCanchaState {
   /** Clave del mensaje transitorio del HUD ('gol', 'canasta3', …). */
   mensaje: string | null
   /**
+   * Aviso del partido en línea, YA traducido: lo que hay que decir cuando no hay
+   * partido que mostrar (la cancha es la de la otra casa, el rival se fue, el
+   * partido se cerró). El `mensaje` de arriba solo se ve con un partido en curso.
+   */
+  avisoOnline: string | null
+  /**
    * Cancha que el jugador está pisando, sin haber empezado (patrón `useTren.cerca`):
    * la publica `MinijuegosCanchas` y alimenta el botón «Jugar» del hueco del cubo.
    * Antes se entraba SOLO con pisarla, sin poder decidir.
@@ -191,12 +217,18 @@ interface JuegoCanchaState {
   setCerca: (c: { canchaId: number; clase: ClaseCancha } | null) => void
   activar: (canchaId: number, clase: ClaseCancha) => Promise<void>
   elegirModo: (modo: ModoJuego, rival?: { id: string; nombre: string; color?: string }) => void
+  /** Entra al partido que abrió el árbitro, de una pieza (lo llama `partida/cancha.ts`). */
+  empezarOnline: (canchaId: number, clase: ClaseCancha, rival: { id: string; nombre: string; color?: string }) => void
   setDificultad: (d: number) => void
   /** Cambia la perspectiva; con el partido en marcha se aplica al vuelo. */
   setVistaJuego: (v: VistaJuego) => void
-  terminar: () => void
+  /** Sale del partido. `motivo` distingue el botón de un contexto local roto (B7). */
+  terminar: (motivo?: 'boton' | 'contexto') => void
   /** Suma puntos (fútbol/básquet), persiste el marcador y muestra el mensaje. */
   anotar: (quien: 'yo' | 'rival', puntos: number, mensaje: string) => Promise<void>
+  /** Marcador que dicta el árbitro en línea: se aplica tal cual y NO toca la BD. */
+  aplicarMarcador: (m: MarcadorPartido, quien: 'yo' | 'rival', mensaje: string) => void
+  avisarOnline: (texto: string) => void
   /** Punto de tenis contra la IA: escala puntos → juego → set → partido. */
   puntoTenis: (quien: 'yo' | 'rival') => Promise<string>
   /** Tenis solo: un golpe más al frontón (guarda el récord). */
@@ -205,6 +237,7 @@ interface JuegoCanchaState {
 }
 
 let avisoTimer = 0
+let avisoOnlineTimer = 0
 
 const mez = (a: number, b: number, t: number) => a + (b - a) * t
 
@@ -283,6 +316,7 @@ export const useJuegoCancha = create<JuegoCanchaState>((set, get) => ({
   setsRival: 0,
   mejorPeloteo: 0,
   mensaje: null,
+  avisoOnline: null,
 
   cerca: null,
   setCerca: (c) => {
@@ -294,7 +328,10 @@ export const useJuegoCancha = create<JuegoCanchaState>((set, get) => ({
   activar: async (canchaId, clase) => {
     if (get().canchaId === canchaId) return
     set({ cerca: null })
-    const f = await db.marcadores.where('canchaId').equals(canchaId).first()
+    // En línea el marcador NO se lee de `db.marcadores` (ni se escribe): el
+    // partido arranca en cero y vive en memoria. Sin esto se heredaría el 40-30
+    // del último partido contra la IA en esta misma cancha.
+    const f = get().modo === 'online' ? undefined : await db.marcadores.where('canchaId').equals(canchaId).first()
     set({
       canchaId,
       clase,
@@ -319,7 +356,15 @@ export const useJuegoCancha = create<JuegoCanchaState>((set, get) => ({
     sonar('silbato')
     aplicarVistaJuego(get().vistaJuego)
     // El tenis arranca cada partido desde 0-0 (en solo, `yo` cuenta el peloteo).
-    const reset = get().clase === 'tenis' ? { yo: 0, rival: 0 } : {}
+    // En línea arrancan en cero TODOS los marcadores, incluidos juegos y sets:
+    // lo que viene de `db.marcadores` es mío y el partido con otra persona no
+    // hereda nada (el marcador en línea vive solo en memoria).
+    const reset =
+      modo === 'online'
+        ? { yo: 0, rival: 0, juegosYo: 0, juegosRival: 0, setsYo: 0, setsRival: 0 }
+        : get().clase === 'tenis'
+          ? { yo: 0, rival: 0 }
+          : {}
     set({
       fase: 'jugando',
       modo,
@@ -328,6 +373,15 @@ export const useJuegoCancha = create<JuegoCanchaState>((set, get) => ({
       rivalColor: rival?.color ?? null,
       ...reset,
     })
+  },
+
+  empezarOnline: (canchaId, clase, rival) => {
+    // De una pieza y SIN pasar por `activar`: entre el prompt y el partido no
+    // puede quedar un frame en 'eligiendo' (el runtime, que comprueba cada
+    // 250 ms dónde está el jugador, lo cancelaría al no pisar él la cancha).
+    // Y sin leer `db.marcadores`: el partido en línea arranca en cero.
+    set({ canchaId, clase, fase: 'eligiendo', modo: null, cerca: null, mensaje: null, mejorPeloteo: 0 })
+    get().elegirModo('online', rival)
   },
 
   setDificultad: (dificultad) => {
@@ -342,8 +396,15 @@ export const useJuegoCancha = create<JuegoCanchaState>((set, get) => ({
     if (get().fase === 'jugando') aplicarVistaJuego(vistaJuego)
   },
 
-  terminar: () => {
+  terminar: (motivo = 'boton') => {
     if (get().canchaId == null) return
+    // B7: en línea nadie corta el partido del otro. Un contexto local roto (subir
+    // de piso, abrir un cuarto, borrar la cancha…) saca al INVITADO él solo —y en
+    // F5 emitirá `salir { r:'batalla' }`—, pero al ÁRBITRO, que sostiene la
+    // pelota y el marcador en su frame, solo le suspende la vista: si terminara
+    // aquí, el partido moriría para los dos. Con el botón sí sale cualquiera.
+    if (motivo === 'contexto' && get().modo === 'online' && soyArbitro()) return
+    const enLinea = get().modo === 'online'
     window.clearTimeout(avisoTimer)
     juegoFrame.anclaActiva = false
     juegoFrame.bateando = false
@@ -358,6 +419,9 @@ export const useJuegoCancha = create<JuegoCanchaState>((set, get) => ({
       rivalColor: null,
       mensaje: null,
     })
+    // Después del `set`: el motor vuelve a entrar aquí por el embudo y con la
+    // cancha ya soltada esa segunda vuelta no hace nada.
+    if (enLinea) alSalirOnline?.(motivo)
   },
 
   anotar: async (quien, puntos, mensaje) => {
@@ -366,7 +430,11 @@ export const useJuegoCancha = create<JuegoCanchaState>((set, get) => ({
     const rival = get().rival + (quien === 'rival' ? puntos : 0)
     set({ yo, rival })
     get().avisar(mensaje)
-    await persistir(get())
+    // OJO AL REBASE: en línea NO se persiste. `db.marcadores` es tabla
+    // SINCRONIZABLE (`sync/syncables.ts:119`), así que los puntos que reporta un
+    // rival se volverían filas de `registros` en TU nube. El marcador en línea
+    // vive solo en memoria (y `persistir` lo vuelve a comprobar por su cuenta).
+    if (get().modo !== 'online') await persistir(get())
   },
 
   puntoTenis: async (quien) => {
@@ -399,7 +467,8 @@ export const useJuegoCancha = create<JuegoCanchaState>((set, get) => ({
     }
     set({ yo, rival, juegosYo, juegosRival, setsYo, setsRival })
     get().avisar(mensaje)
-    await persistir(get())
+    // En línea no se persiste: `db.marcadores` se sincroniza (ver `anotar`).
+    if (get().modo !== 'online') await persistir(get())
     return mensaje
   },
 
@@ -408,7 +477,16 @@ export const useJuegoCancha = create<JuegoCanchaState>((set, get) => ({
     const mejorPeloteo = Math.max(get().mejorPeloteo, yo)
     set({ yo, mejorPeloteo })
     get().avisar(yo === mejorPeloteo && yo > 2 ? 'nuevoRecord' : 'peloteo')
-    await persistir(get())
+    // En línea no se persiste: `db.marcadores` se sincroniza (ver `anotar`).
+    if (get().modo !== 'online') await persistir(get())
+  },
+
+  aplicarMarcador: (m, quien, mensaje) => {
+    // Mismo camino que `anotar` menos la suma y la BD: en línea el marcador lo
+    // cuenta el árbitro y aquí solo se obedece (nunca `db.marcadores`).
+    if (quien === 'yo') sonar('anotacion')
+    set({ ...m })
+    get().avisar(mensaje)
   },
 
   avisar: (mensaje) => {
@@ -416,10 +494,27 @@ export const useJuegoCancha = create<JuegoCanchaState>((set, get) => ({
     window.clearTimeout(avisoTimer)
     avisoTimer = window.setTimeout(() => set({ mensaje: null }), 2200)
   },
+
+  avisarOnline: (avisoOnline) => {
+    set({ avisoOnline })
+    window.clearTimeout(avisoOnlineTimer)
+    avisoOnlineTimer = window.setTimeout(() => set({ avisoOnline: null }), 5000)
+  },
 }))
+
+if (import.meta.env.DEV) {
+  ;(window as unknown as { useJuegoCancha: typeof useJuegoCancha }).useJuegoCancha = useJuegoCancha
+  // Mismo gesto que `paintballFrame`: sin esto la física del partido (pelota,
+  // rival, chanfle) no se puede mirar desde la consola.
+  ;(window as unknown as { juegoFrame: typeof juegoFrame }).juegoFrame = juegoFrame
+}
 
 /** Vuelca el marcador de la cancha activa a la BD (una fila por cancha). */
 async function persistir(s: JuegoCanchaState) {
+  // Segunda red del marcador en línea: aunque alguien añada mañana otra llamada
+  // a `persistir`, el partido contra otra persona NUNCA toca `db.marcadores`
+  // (tabla sincronizable, `sync/syncables.ts:119`).
+  if (useJuegoCancha.getState().modo === 'online') return
   const { canchaId, yo, rival, juegosYo, juegosRival, setsYo, setsRival, mejorPeloteo } = s
   if (canchaId == null) return
   const datos = { yo, rival, juegosYo, juegosRival, setsYo, setsRival, mejorPeloteo }

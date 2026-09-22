@@ -131,6 +131,10 @@ export const MANUAL_IT: ManualTraducido = {
     '[Historial]': '[Cronologia]',
     '[Sitios]': '[Siti]',
     '[Tiempo en internet]': '[Tempo su internet]',
+    '[Cómo llegar]': '[Come arrivare]',
+    '[Amigos]': '[Amici]',
+    '[Jugar] {paintball} [con] {@ana}': '[Giocare a] {paintball} [con] {@ana}',
+    '{Tenis} {@ana}': '{Tennis} {@ana}',
   },
   atajos: {
     'Caminar (también con las flechas)': 'Camminare (anche con le frecce)',

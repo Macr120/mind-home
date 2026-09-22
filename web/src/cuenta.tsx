@@ -30,6 +30,7 @@ import {
   cambiarNivel,
   comprarCreditos,
   comprarUnlock,
+  CompraCancelada,
   urlGestion,
   type OfertaPro,
 } from '../../src/core/cuenta/paywall'
@@ -327,9 +328,10 @@ function ConseguirApp() {
     setOcupado(true)
     setError(null)
     try {
-      const ok = await comprarUnlock(oferta.paquete)
+      const ok = await comprarUnlock(oferta)
       if (!ok) setError(t('app.enCamino', 'El pago está en camino: recarga la página en unos segundos.'))
     } catch (e) {
+      if (e instanceof CompraCancelada) return
       setError(e instanceof Error ? e.message : String(e))
     } finally {
       setOcupado(false)
@@ -403,9 +405,10 @@ function Creditos() {
     setOcupado(true)
     setError(null)
     try {
-      const ok = await comprarCreditos(oferta.paquete)
+      const ok = await comprarCreditos(oferta)
       if (!ok) setError(t('cred.enCamino', 'El pago está en camino: recarga la página en unos segundos.'))
     } catch (e) {
+      if (e instanceof CompraCancelada) return
       setError(e instanceof Error ? e.message : String(e))
     } finally {
       setOcupado(false)
@@ -476,9 +479,10 @@ function Tarifas({ titulo }: { titulo: string }) {
     setOcupado(true)
     setError(null)
     try {
-      const ok = suscrito ? await cambiarNivel(o.paquete, o.nivel) : await comprar(o.paquete)
+      const ok = suscrito ? await cambiarNivel(o) : await comprar(o)
       if (!ok) setError(t('tar.errorCambio', 'El cambio no se completó. Recarga la página en unos segundos.'))
     } catch (e) {
+      if (e instanceof CompraCancelada) return
       setError(e instanceof Error ? e.message : String(e))
     } finally {
       setOcupado(false)

@@ -122,6 +122,8 @@ export const MANUAL_ZH: ManualTraducido = {
     '[Historial]': '[浏览记录]',
     '[Sitios]': '[网站]',
     '[Tiempo en internet]': '[上网时长]',
+    '[Cómo llegar]': '[怎么走]',
+    '[Amigos]': '[朋友]',
   },
   atajos: {
     'Caminar (también con las flechas)': '走路（方向键也可以）',

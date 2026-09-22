@@ -1243,6 +1243,39 @@ html[data-modo-ui='transparente']
   font-size: 0.85rem;
 }
 
+/* Cursores de las otras personas en un documento COMPARTIDO (TipTap 3:
+   `collaboration-carets__*`). El color lo pone la extensión en línea, a partir
+   del que `core/espacios/yjs.ts` asigna a cada miembro. */
+.collaboration-carets__caret {
+  position: relative;
+  margin-left: -1px;
+  margin-right: -1px;
+  border-left: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  pointer-events: none;
+  word-break: normal;
+}
+.collaboration-carets__label {
+  position: absolute;
+  top: -1.45em;
+  left: -1px;
+  padding: 0.05rem 0.3rem;
+  border-radius: 4px 4px 4px 0;
+  color: #0b0d12;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: normal;
+  white-space: nowrap;
+  user-select: none;
+}
+.collaboration-carets__selection {
+  border-radius: 2px;
+  mix-blend-mode: screen;
+}
+html[data-base-ui='claro'] .collaboration-carets__selection {
+  mix-blend-mode: multiply;
+}
+
 /*
  * Reglas CONSUMIDORAS del estilo de la interfaz (ver «ESTILO DE LA INTERFAZ»).
  * Van dentro de `@layer utilities` A PROPÓSITO, excepción a la regla de este

@@ -2,14 +2,7 @@
 // plantilla.mjs (fondo blanco + halo morado, marco de tablet en CSS), pero con
 // el aspecto de pantalla de un iPad (0.75, no el 0.4621 del teléfono) y
 // proporciones recalculadas para ese formato casi cuadrado.
-const ICONO = `<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <rect width="512" height="512" rx="112" fill="#576748"/>
-  <g transform="translate(77.5 206)">
-    <rect x="0" y="3" width="94" height="94" rx="20" fill="#DA9425"/>
-    <path d="M137 0V100H237Z" fill="#C23A40"/>
-    <path d="M257 0H357V100A100 100 0 0 1 257 0Z" fill="#895AC6"/>
-  </g>
-</svg>`
+import { ICONO } from './icono.mjs'
 
 const TINTA = '#1c2333'
 const FIN = '#f4f6fb'
@@ -70,7 +63,10 @@ export function laminaIpad(s, tam) {
     text-align: center;
   }
   .marca { display: flex; align-items: center; gap: ${16 * u}px; margin-bottom: ${30 * u}px; }
-  .marca svg { width: ${52 * u}px; height: ${52 * u}px; border-radius: ${12 * u}px; display: block; }
+  .marca svg {
+    width: ${52 * u}px; height: ${52 * u}px; border-radius: ${12 * u}px; display: block;
+    box-shadow: 0 ${2 * u}px ${10 * u}px ${TINTA}1f;
+  }
   .marca span { font-size: ${24 * u}px; font-weight: 700; letter-spacing: ${0.6 * u}px; color: ${TINTA}b8; }
 
   h1 {

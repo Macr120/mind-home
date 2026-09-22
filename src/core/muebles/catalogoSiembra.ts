@@ -13,7 +13,7 @@
  */
 import { db, type MaterialTaller } from '../data/db'
 import { filaSeed } from '../data/sync/syncables'
-import { claveLS } from '../edicion'
+import { claveLS, esVisita } from '../edicion'
 import { tGlobal } from '../i18n/useT'
 import { TABLERO_ESTANDAR } from './materiales'
 
@@ -169,6 +169,10 @@ export function catalogoFabrica(): FilaFabrica[] {
 export async function sembrarCatalogoTaller(): Promise<void> {
   if (sembrado) return
   sembrado = true
+  // En casa ajena la bandera va con prefijo `visita:` y siempre estaría sin
+  // poner: sembraría el catálogo entero en cada visita (lo descartaría el
+  // guard, pero es trabajo y ruido dentro de la casa de otro).
+  if (esVisita()) return
   if (localStorage.getItem(LS_CATALOGO) === VERSION_CATALOGO) return
   await reponerCatalogo()
   localStorage.setItem(LS_CATALOGO, VERSION_CATALOGO)

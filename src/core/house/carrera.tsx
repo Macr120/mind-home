@@ -20,7 +20,7 @@ import {
   offsetTrompoRival,
 } from '../state/carreraStore'
 import { metaLibre, hayPistaLibre, versionPistaLibre } from '../state/pistaLibreStore'
-import { usePaintball } from '../state/paintballStore'
+import { usePaintball, hayBatallaOnline } from '../state/paintballStore'
 import { vehiculoDe, FORMA_VEHICULO, type TipoVehiculo } from './vehiculos'
 import { ModeloMascota } from './Asistente3D'
 import { Prendas } from './Prendas'
@@ -95,9 +95,13 @@ export function CarreraRuntime() {
         s.setCerca(null)
       }
     } else if (s.fase === 'previa') {
-      // El prompt se cierra al alejarse de la meta, subirse al tren o abrir algo encima.
+      // El prompt se cierra al alejarse de la meta, subirse al tren o abrir algo
+      // encima. Nunca con una batalla en línea en marcha: `cancelar` devuelve la
+      // vista de cámara de antes y le arrancaría el combate de las manos al
+      // jugador por un contexto que solo le pasa a él (B7).
       const enLaMeta = carreraFrame.modo === 'libre' ? sobreMetaLibre : enMeta
-      if ((!montadoTerrestre && !aPie) || editMode || activeRoom || !enLaMeta) s.cancelar()
+      if (((!montadoTerrestre && !aPie) || editMode || activeRoom || !enLaMeta) && !hayBatallaOnline())
+        s.cancelar()
     } else if (s.fase === 'semaforo' || s.fase === 'corriendo') {
       // Editar/borrar el trazo con la carrera libre en marcha también cancela.
       const pistaLibreRota =
@@ -105,7 +109,7 @@ export function CarreraRuntime() {
         (!hayPistaLibre() || versionPistaLibre() !== carreraFrame.versionLibre)
       if (!montadoTerrestre || editMode || activeRoom || pistaLibreRota) {
         // Con la carrera en marcha: bajarse (o abrir editor/cuarto) la cancela.
-        s.cancelar()
+        if (!hayBatallaOnline()) s.cancelar()
       } else if (s.fase === 'semaforo') {
         carreraFrame.reloj += delta
         if (carreraFrame.reloj >= 0) s.banderazo()
@@ -179,7 +183,10 @@ export function CarreraRuntime() {
     } else if (s.fase === 'terminada') {
       // Los resultados se cierran con sus botones o al alejarse de la meta.
       const [mx, , mz] = cellToWorld(carreraFrame.metaCol, carreraFrame.metaRow)
-      if (editMode || activeRoom || Math.hypot(playerPos.x - mx, playerPos.z - mz) > SIZE * 1.6)
+      if (
+        (editMode || activeRoom || Math.hypot(playerPos.x - mx, playerPos.z - mz) > SIZE * 1.6) &&
+        !hayBatallaOnline()
+      )
         s.cancelar()
     }
     carreraFrame.celdaPrev = kCelda

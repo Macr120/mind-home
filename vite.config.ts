@@ -29,6 +29,12 @@ export default defineConfig({
             // Solo fiber/drei: postprocessing debe seguir en su chunk lazy propio.
             { name: 'three', test: /node_modules[\\/](three|@react-three[\\/](fiber|drei))[\\/]/ },
             { name: 'supabase', test: /node_modules[\\/]@supabase[\\/]/ },
+            // El editor de texto del Studio de escritura (TipTap + ProseMirror
+            // + Yjs). Solo lo carga el cuarto de escritura, que ya es `lazy`.
+            {
+              name: 'editor-texto',
+              test: /node_modules[\\/](@tiptap|prosemirror-[^\\/]+|yjs|y-protocols|lib0)[\\/]/,
+            },
             // Aquí NO va un grupo para `ui/editor`/`ui/planos`. Lo tuvo, y era
             // contraproducente: forzar esas carpetas a un chunk propio arrastraba
             // dentro módulos COMPARTIDOS que el arranque sí necesita (se veía

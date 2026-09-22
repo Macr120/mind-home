@@ -124,6 +124,9 @@ export const MANUAL_PL: ManualTraducido = {
     '[Historial]': '[Historia]',
     '[Sitios]': '[Strony]',
     '[Tiempo en internet]': '[Czas w internecie]',
+    '[Cómo llegar]': '[Jak dojechać]',
+    '[Amigos]': '[Znajomi]',
+    '[Jugar] {paintball} [con] {@ana}': '[Zagrać w] {paintball} [z] {@ana}',
   },
   atajos: {
     'Caminar (también con las flechas)': 'Chodzenie (także strzałkami)',

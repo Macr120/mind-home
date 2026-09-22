@@ -5,12 +5,27 @@ import { useHouse } from './houseStore'
 import { useCam, setPitchLibre, type Vista } from './cameraStore'
 import { playerPos } from './playerPosition'
 import { setCuartoAbierto } from '../house/movement'
-import { getAsistente } from './asistentesStore'
+import { getAsistente, useAsistentes } from './asistentesStore'
 import { useHerramienta, type Herramienta } from './herramientaStore'
 import { claveLS } from '../edicion'
 import { miraFrame } from './miraFrame'
 import { SPACING } from '../house/walls'
 import { sonar } from '../audio/sfx'
+import * as arbitro from '../partida/arbitro'
+import { cambiarJuego } from '../partida/api'
+import { podarAsistente } from '../partida/aspecto'
+import { aLocal, fijarBots, fijarEquipos, miEquipo, miRanura } from '../partida/ranuras'
+import {
+  anunciarBot,
+  cuerposBot,
+  emitir,
+  fijarJuego,
+  olvidarBots,
+  pedirResync,
+  salaViva,
+  soyArbitro,
+} from '../partida/sala'
+import type { BotId, MsgFin, MsgVeredicto, MsgW, Ranura, Sala } from '../partida/tipos'
 
 /**
  * Modo paintball (Infraestructura): el personaje contra los asistentes usando
@@ -36,6 +51,35 @@ export const COLOR_JUGADOR = '#3b82f6'
 
 /** Pintura de reserva para asistentes sin color propio (distintos entre sí). */
 const PALETA_PINTURA = ['#ef4444', '#f59e0b', '#22c55e', '#a855f7', '#ec4899']
+
+/**
+ * Pintura por RANURA en la batalla en línea: el color de cada quien tiene que
+ * ser el mismo en las cuatro pantallas, así que sale de la ranura y no del
+ * gusto de cada cliente.
+ */
+const COLOR_RANURA = [COLOR_JUGADOR, '#ef4444', '#22c55e', '#a855f7']
+
+/** Batalla en línea viva: la sostiene el árbitro y nadie la corta por su cuenta. */
+let online = false
+/**
+ * Cómo me retiré de la batalla que sigue viva: por el BOTÓN (definitivo, no
+ * vuelvo solo) o por un CONTEXTO roto (mientras dure: al cerrar el cuarto vuelvo
+ * a mirarla). Sin esto el `w` de cada 2 s me volvería a meter en ella.
+ */
+let retirado: 'boton' | 'contexto' | null = null
+
+export function hayBatallaOnline(): boolean {
+  return online
+}
+
+export function retiroDeBatalla(): 'boton' | 'contexto' | null {
+  return retirado
+}
+
+/** El contexto se arregló: el próximo `w` reconstruye la vista (de espectador si ya estoy fuera). */
+export function volverAMirarBatalla(): void {
+  retirado = null
+}
 
 /** Preferencia de dificultad de los bots (0–1); clave propia, como carrera/canchas. */
 const LS_DIFICULTAD = 'mh.paintballDificultad'
@@ -158,6 +202,21 @@ interface PaintballState {
   setModo: (m: ModoPaintball) => void
   /** Arma equipos y arranca la cuenta atrás. `rivales`: compañero primero en 2v2. */
   empezar: (modo: ModoPaintball, rivales: string[]) => void
+  /**
+   * Hermana en línea de `empezar`, SOLO en el árbitro: reparte equipos entre las
+   * ranuras de la sala, rellena con bots y abre la batalla. Nadie entra en
+   * cuenta atrás por su cuenta: se entra al recibir el `w` que sale de aquí.
+   */
+  empezarOnline: (sala: Sala, modo: ModoPaintball) => void
+  /** El mundo que dicta el árbitro (`w`): fase, reloj, vidas y bots. */
+  aplicarMundo: (w: MsgW) => void
+  /**
+   * Un veredicto del árbitro. Corre en TODOS, incluido el propio árbitro (un
+   * solo camino de código), y no decide el final: eso lo dice `fin`.
+   */
+  aplicarVeredicto: (v: MsgVeredicto) => void
+  /** Fin en línea: último equipo en pie, traducido a ganaste/perdiste. */
+  terminarOnline: (eq: number, js: MsgFin['js']) => void
   /** Cuenta atrás en 0: se abre fuego. */
   banderazo: () => void
   /**
@@ -198,6 +257,34 @@ function devolverHerramientas() {
   her.soltarTodo()
   for (const h of herramientasPrevias ?? []) her.equipar(h)
   herramientasPrevias = null
+}
+
+/**
+ * Salida de la batalla en línea sin cortársela a los demás. Un INVITADO se
+ * retira solo (`salir`, y el árbitro lo da por fuera); el ÁRBITRO no puede
+ * retirarse, porque la batalla entera vive en su frame (bots, bolas y reloj):
+ * si se va de verdad, la cierra con `fin` y la sala vuelve a pasear.
+ */
+export function dejarBatallaOnline(motivo: 'boton' | 'contexto'): void {
+  if (!online) return
+  online = false
+  retirado = motivo
+  if (!soyArbitro()) {
+    // `r:'batalla'`: me salgo del JUEGO, no de la SALA. Sigo en la casa del
+    // anfitrión y mi cuerpo se sigue viendo ahí; de darme por fuera del combate
+    // se encarga el árbitro al recibirlo. Terminada la batalla no hay a quién
+    // avisar: la cerró él.
+    if (usePaintball.getState().fase !== 'fin') emitir('salir', { j: miRanura(), r: 'batalla' })
+    return
+  }
+  arbitro.terminarPor('abandono')
+  arbitro.parar()
+  olvidarBots()
+  fijarBots([])
+  const sala = salaViva()
+  if (!sala) return
+  fijarJuego('visita')
+  void cambiarJuego(sala.partidaId, 'visita').catch(() => undefined)
 }
 
 export const usePaintball = create<PaintballState>((set, get) => ({
@@ -309,6 +396,219 @@ export const usePaintball = create<PaintballState>((set, get) => ({
     cam.setVista(get().vistaCombate)
   },
 
+  empezarOnline: (sala, modo) => {
+    // El reparto de equipos y el relleno de bots los decide el ÁRBITRO: si cada
+    // cliente barajara los suyos, cada pantalla tendría una batalla distinta.
+    if (!soyArbitro()) return
+    if (useHouse.getState().playerLevel !== 0) {
+      get().avisar({ clave: 'nivel' })
+      return
+    }
+    const ranuras = sala.jugadores.filter((j) => j.estado === 'dentro').map((j) => j.ranura).sort()
+    const humanos = modo === '1v1' ? ranuras.slice(0, 2) : ranuras.slice(0, 4)
+    if (humanos.length < 2) {
+      get().avisar({ clave: 'faltan' })
+      return
+    }
+    // Relleno: el 2 vs 2 completa los cuatro puestos y la campal mete hasta
+    // cinco asistentes más, cada uno con su propio equipo.
+    const faltan = modo === '1v1' ? 0 : modo === '2v2' ? Math.max(0, 4 - humanos.length) : MAX_BOTS_ROYALE
+    const elegidos = [...useAsistentes.getState().lista].sort(() => Math.random() - 0.5).slice(0, faltan)
+    fijarBots(elegidos.map((a) => a.id))
+    const cuerpos: { j: Ranura | BotId; eq: number; col: string; bot: boolean }[] = []
+    humanos.forEach((r, i) => {
+      cuerpos.push({
+        j: r,
+        eq: modo === 'royale' ? i : i % 2,
+        col: COLOR_RANURA[i % COLOR_RANURA.length],
+        bot: false,
+      })
+    })
+    elegidos.forEach((a, k) => {
+      cuerpos.push({
+        j: `b${k}` as BotId,
+        eq: modo === 'royale' ? humanos.length + k : (humanos.length + k) % 2,
+        col: a.color || PALETA_PINTURA[k % PALETA_PINTURA.length],
+        bot: true,
+      })
+    })
+    // Mismos spawns en anillo que la batalla de un jugador (el runtime los
+    // ajusta al modelo de colisión en su primer frame).
+    const layout = useLayout.getState()
+    const halfW = (layout.gridCols * SPACING) / 2 - 1.2
+    const halfH = (layout.gridRows * SPACING) / 2 - 1.2
+    paintballFrame.bots = elegidos.map((a, k) => {
+      const ang = (k / Math.max(1, elegidos.length)) * Math.PI * 2 + Math.random() * 0.6
+      const dist = 8 + Math.random() * 5
+      const x = Math.max(-halfW, Math.min(halfW, playerPos.x + Math.sin(ang) * dist))
+      const z = Math.max(-halfH, Math.min(halfH, playerPos.z + Math.cos(ang) * dist))
+      const cuerpo = cuerpos.find((c) => c.j === `b${k}`)
+      return {
+        id: a.id,
+        x,
+        z,
+        h: Math.atan2(playerPos.x - x, playerPos.z - z),
+        escala: a.escala ?? 1,
+        color: cuerpo?.col ?? COLOR_JUGADOR,
+        equipo: cuerpo?.eq ?? 1,
+        vivo: true,
+        recolocar: true,
+        objetivo: null,
+        strafe: Math.random() < 0.5 ? 1 : -1,
+        pensarAcc: Math.random() * 0.3,
+        cooldown: 1.2 + Math.random() * 1.5,
+        fogonazo: 0,
+      }
+    })
+    // El aspecto de cada bot viaja UNA vez: `asistentes` va podada del plano a
+    // propósito, así que sin esto el invitado los dibujaría con el avatar base.
+    elegidos.forEach((a, k) => {
+      anunciarBot({ j: `b${k}` as BotId, al: a.nombre, em: a.emoji || '🤖', av: podarAsistente(a) })
+    })
+    fijarJuego('paintball')
+    online = true
+    retirado = null
+    set({ modo })
+    arbitro.arrancar(cuerpos, VIDAS_PAINTBALL)
+  },
+
+  aplicarMundo: (w) => {
+    const s = get()
+    // Un `w` en vuelo puede llegar DESPUÉS del `fin` (cada mensaje lleva su
+    // propio retardo). Con la batalla terminada solo la reabre un `w` de cuenta
+    // atrás, que es como empieza la siguiente; lo demás es correo viejo.
+    if (s.fase === 'fin' && w.fa !== 'cuenta') return
+    // Me retiré: el mundo sigue llegando cada 2 s y sin esto me volvería a
+    // meter en la batalla (y el contexto roto me sacaría otra vez, en bucle).
+    // Una cuenta atrás sí entra: es una batalla NUEVA.
+    if (w.fa === 'cuenta') retirado = null
+    else if (retirado) return
+    // El árbitro sigue contando el final un rato: si llega `fa:'fin'` estando
+    // todavía en juego es que se perdió el `fin`, y se pide otra vez.
+    if (w.fa === 'fin' && (s.fase === 'cuenta' || s.fase === 'jugando')) {
+      pedirResync(['w'])
+      return
+    }
+    fijarEquipos(w.js)
+    const nuevo = s.fase === null || s.fase === 'config' || s.fase === 'fin'
+    const roster = salaViva()?.jugadores ?? []
+    const etiquetas = cuerposBot()
+    const jugadores: JugadorPaintball[] = w.js.map((f) => {
+      const id = aLocal(f.j)
+      const quien = roster.find((r) => r.ranura === f.j)
+      return {
+        id,
+        nombre: quien?.nombre || (quien?.alias ? `@${quien.alias}` : f.j),
+        color: COLOR_RANURA[Number(f.j.slice(1)) % COLOR_RANURA.length],
+        equipo: f.eq,
+        vidas: f.vid,
+        impactos: f.imp,
+        esBot: false,
+        fuera: f.fue === 1,
+      }
+    })
+    for (const b of w.bo ?? []) {
+      const id = aLocal(b.j)
+      // Las vidas de un bot no viajan en `w` (solo si sigue en pie): las lleva
+      // el veredicto, que es quien las baja de una en una.
+      const previo = s.jugadores.find((j) => j.id === id)
+      jugadores.push({
+        id,
+        nombre: etiquetas.find((e) => e.j === b.j)?.al ?? b.j,
+        color: b.col,
+        equipo: b.eq,
+        vidas: b.vivo ? (previo?.vidas ?? VIDAS_PAINTBALL) : 0,
+        impactos: previo?.impactos ?? 0,
+        esBot: true,
+        fuera: b.vivo === 0,
+      })
+      const cuerpo = paintballFrame.bots.find((x) => x.id === id)
+      if (cuerpo) cuerpo.vivo = b.vivo === 1
+    }
+    paintballFrame.reloj = w.rel
+    if (!nuevo) {
+      if (w.fa === 'jugando' && s.fase === 'cuenta') {
+        paintballFrame.jugando = true
+        sonar('silbato')
+      }
+      set({ jugadores, fase: w.fa === 'fin' ? s.fase : w.fa })
+      return
+    }
+    // Primera noticia de la batalla: se entra en ella como en `empezar`, pero
+    // con la fase y el reloj que dicta el árbitro.
+    online = true
+    // La sala pasa a paintball también aquí: con backend lo dirá el servidor un
+    // momento después, pero la marcadora de los cuerpos remotos y la tasa de
+    // pose no pueden esperar a ese rebote.
+    fijarJuego('paintball')
+    paintballFrame.jugando = w.fa === 'jugando'
+    paintballFrame.disparar = false
+    paintballFrame.ultimoDisparo = 0
+    limpiadorMundo?.(true)
+    empunarMarcadora()
+    set({ fase: w.fa, jugadores, resultado: null, mensaje: null })
+    setCuartoAbierto(false)
+    const cam = useCam.getState()
+    if (vistaPrevia === null) vistaPrevia = cam.vista
+    setPitchLibre(true)
+    cam.setVista(get().vistaCombate)
+  },
+
+  aplicarVeredicto: (v) => {
+    const s = get()
+    // Con la batalla cerrada las vidas las fija `fin`: un veredicto rezagado
+    // (mismo caso que el `w` de arriba) cambiaría la tabla ya publicada.
+    if (!s.fase || s.fase === 'config' || s.fase === 'fin') return
+    const victimaId = aLocal(v.vi)
+    const tiradorId = aLocal(v.de)
+    const victima = s.jugadores.find((j) => j.id === victimaId)
+    if (!victima) return
+    set({
+      jugadores: s.jugadores.map((j) =>
+        j.id === victimaId
+          ? { ...j, vidas: v.vid, fuera: v.fue === 1 }
+          : j.id === tiradorId
+            ? { ...j, impactos: j.impactos + 1 }
+            : j,
+      ),
+    })
+    if (v.fue) {
+      const bot = paintballFrame.bots.find((b) => b.id === victimaId)
+      if (bot) bot.vivo = false
+      get().avisar({ clave: 'fuera', nombre: victimaId === 'yo' ? undefined : victima.nombre })
+    } else if (victimaId === 'yo') {
+      get().avisar({ clave: 'teDieron' })
+    }
+  },
+
+  terminarOnline: (eq, js) => {
+    const s = get()
+    // Idempotente: el árbitro repite el `fin` ante un `resync` (con `seq`
+    // nuevo), así que a quien ya lo aplicó no le pasa nada.
+    if (!s.fase || s.fase === 'config' || s.fase === 'fin') return
+    fijarEquipos(js)
+    paintballFrame.jugando = false
+    paintballFrame.disparar = false
+    // Las bolas en vuelo se recogen; las manchas se quedan hasta salir.
+    limpiadorMundo?.(false)
+    // En línea NO se llama a `guardarMarcador`: ese marcador es el arcade local
+    // y aquí el resultado lo reporta otro cliente.
+    const mio = miEquipo()
+    const resultado = mio !== null && mio === eq ? 'ganaste' : 'perdiste'
+    sonar(resultado === 'ganaste' ? 'anotacion' : 'silbato')
+    window.clearTimeout(avisoTimer)
+    set({
+      fase: 'fin',
+      resultado,
+      mensaje: null,
+      // La tabla final la cierra el árbitro: quien se enganchó tarde la ve bien.
+      jugadores: s.jugadores.map((j) => {
+        const f = js.find((x) => aLocal(x.j) === j.id)
+        return f ? { ...j, vidas: f.vid, impactos: f.imp, fuera: f.vid <= 0 } : j
+      }),
+    })
+  },
+
   banderazo: () => {
     if (get().fase !== 'cuenta') return
     paintballFrame.jugando = true
@@ -377,6 +677,7 @@ export const usePaintball = create<PaintballState>((set, get) => ({
 
   cancelar: () => {
     if (!get().fase) return
+    dejarBatallaOnline('boton')
     paintballFrame.jugando = false
     paintballFrame.disparar = false
     paintballFrame.bots = []

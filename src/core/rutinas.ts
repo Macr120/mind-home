@@ -4,6 +4,7 @@ import { perfilSuenoRepo, rutinasRepo } from './data/repository'
 import { getPlantilla } from './appContrato'
 import { fechaLocalISO } from './fechaLocal'
 import { ajustarBloquesDe, esMeta } from './metas'
+import { useSesion } from './cuenta/sesionStore'
 
 /** Etiquetas cortas de los días (índice = getDay(): 0=domingo). */
 export const DIAS_SEMANA = ['D', 'L', 'M', 'X', 'J', 'V', 'S'] as const
@@ -230,6 +231,9 @@ export async function guardarHorarioRutina(
       origen: undefined,
       actividadId: undefined,
       creadoEn: new Date().toISOString(),
+      // La copia es un evento NUEVO del calendario compartido: quien partió la
+      // serie es quien lo firma (ver `autorAlias` en `espacios/calendario.ts`).
+      ...(r.calendarioId ? { autorAlias: useSesion.getState().alias ?? undefined } : {}),
     }
     delete suelto.id // es una copia para ese día, no la misma fila
     await rutinasRepo.add(suelto)

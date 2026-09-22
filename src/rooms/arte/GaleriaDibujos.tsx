@@ -97,9 +97,14 @@ export function GaleriaDibujos({ onAbrir }: { onAbrir: (id: number) => void }) {
                 <button
                   type="button"
                   onClick={() => d.id != null && onAbrir(d.id)}
-                  className="block w-full overflow-hidden rounded-lg transition hover:brightness-110"
+                  className="relative block w-full overflow-hidden rounded-lg transition hover:brightness-110"
                 >
                   <Foto blob={d.miniatura ?? d.imagen} className="aspect-square w-full object-cover" />
+                  {d.espacioId && (
+                    <span className="absolute left-1 top-1 flex items-center gap-1 rounded-full bg-black/60 px-1.5 py-0.5 text-[10px] font-semibold text-white/80 backdrop-blur">
+                      <Icono nombre="companeros" /> {t('esp.arte.compartido', 'Compartido')}
+                    </span>
+                  )}
                 </button>
                 <div className="flex items-center gap-1 px-1">
                   <button

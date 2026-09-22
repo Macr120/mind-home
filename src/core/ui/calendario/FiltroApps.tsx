@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import type { Rutina } from '../../data/db'
 import type { EventoResuelto } from '../../eventosApps'
+import { useCalendariosCompartidos } from '../../espacios/calendario'
 import { useCalendarioFiltro } from '../../state/calendarioFiltroStore'
 import { useGruposPlantilla, nombreCarpeta } from '../../state/gruposPlantillaStore'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 import { vivo } from '../estilos'
-import { gruposDeApps } from './apps'
+import { esClaveCalendario, gruposDeApps } from './apps'
 
 /**
  * Filtro del calendario por app, agrupado en las MISMAS carpetas que el catálogo
@@ -34,10 +35,18 @@ export function FiltroApps({
   const limpiar = useCalendarioFiltro((s) => s.limpiar)
 
   const carpetas = useGruposPlantilla((s) => s.grupos)
-  const grupos = gruposDeApps(rutinas, eventos, carpetas, {
-    casa: t('cal.filtro.casa', 'De la casa'),
-    otras: t('cal.filtro.otras', 'Otras'),
-  })
+  const calendarios = useCalendariosCompartidos()
+  const grupos = gruposDeApps(
+    rutinas,
+    eventos,
+    carpetas,
+    {
+      casa: t('cal.filtro.casa', 'De la casa'),
+      otras: t('cal.filtro.otras', 'Otras'),
+      calendarios: t('esp.cal.grupo', 'Calendarios'),
+    },
+    calendarios,
+  )
 
   return (
     <div className="relative">
@@ -125,7 +134,9 @@ export function FiltroApps({
                             className={`min-w-0 flex-1 truncate ${activa ? 'font-bold texto-vivo' : 'text-white/70'}`}
                             style={activa ? vivo(a.color) : undefined}
                           >
-                            <Icono emoji={a.icon} /> {t(`room.${a.id}.nombre`, a.nombre).split(' · ')[0]}
+                            <Icono emoji={a.icon} />{' '}
+                            {/* El título de un calendario compartido lo puso una persona: no se traduce. */}
+                            {esClaveCalendario(a.id) ? a.nombre : t(`room.${a.id}.nombre`, a.nombre).split(' · ')[0]}
                           </span>
                         </button>
                       )

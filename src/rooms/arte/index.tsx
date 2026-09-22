@@ -2,6 +2,7 @@ import { lazy } from 'react'
 import type { Plantilla } from '../../core/appContrato'
 import { registrarProveedorRecursos } from '../../core/recursosStudio'
 import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
+import { registrarAterrizaje } from '../../core/espacios/enlaces'
 import { COLOR_FABRICA } from './constantes'
 import { OPERACIONES_IA } from './costosIA'
 
@@ -29,6 +30,13 @@ registrarProveedorCompartible({
       importar: async (p) => (await import('./compartible')).importarDibujo(p),
     },
   ],
+})
+
+// Entrar por el enlace de un dibujo compartido abre el Studio con él delante.
+// El módulo se carga aparte: `compartido.ts` arrastra el lienzo y la API de
+// espacios, que no tienen por qué entrar en el arranque.
+registrarAterrizaje('dibujo', async (e) => {
+  await (await import('./compartido')).aterrizarDibujo(e)
 })
 
 const arte: Plantilla = {

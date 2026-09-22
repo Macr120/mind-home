@@ -95,6 +95,9 @@ const biblioteca: Plantilla = {
   categoria: 'mente',
   color: '#818cf8',
   App: BibliotecaApp,
+  // De visita se abren SOLO las entradas de la enciclopedia: las charlas con la
+  // IA y las sesiones de estudio se quedan en casa.
+  visita: { tablas: ['entradasBiblio'] },
   esencial: esencialBiblioteca,
   flujos: flujosBiblioteca,
   esquemas,

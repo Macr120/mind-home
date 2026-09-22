@@ -4,6 +4,7 @@ import { documentosRepo, historiasRepo } from '../../core/data/repository'
 import type { TipoLibro } from '../../core/data/db'
 import { registrarProveedorRecursos } from '../../core/recursosStudio'
 import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
+import { registrarAterrizaje } from '../../core/espacios/enlaces'
 import { COLOR_FABRICA } from './constantes'
 import { OPERACIONES_IA } from './costosIA'
 
@@ -74,6 +75,12 @@ registrarProveedorCompartible({
       importar: async (p) => (await import('./compartible')).importarDocumento(p),
     },
   ],
+})
+
+// Una hoja compartida por enlace aterriza aquí (registro eager, código con
+// import(): TipTap y Yjs no pueden entrar en el arranque).
+registrarAterrizaje('documento', async (e) => {
+  await (await import('./compartido')).aterrizarDocumento(e)
 })
 
 const escritura: Plantilla = {

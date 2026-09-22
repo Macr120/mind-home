@@ -66,10 +66,17 @@ import { useCarrera } from '../state/carreraStore'
 import { useTren } from '../state/trenStore'
 import { useAsistentes } from '../state/asistentesStore'
 import { useActuacion } from '../state/actuacionStore'
+import { confirmar } from '../state/confirmarStore'
 import { useHerramienta } from '../state/herramientaStore'
 import { EMOTES, buscarEmote } from '../house/emotes'
 import { nombreAsistente } from './mascotas'
-import { usePaintball, MAX_BOTS_ROYALE, VIDAS_PAINTBALL, type ModoPaintball } from '../state/paintballStore'
+import {
+  usePaintball,
+  hayBatallaOnline,
+  MAX_BOTS_ROYALE,
+  VIDAS_PAINTBALL,
+  type ModoPaintball,
+} from '../state/paintballStore'
 import { TIPOS_MAPA } from '../../rooms/ideas/tiposMapa'
 import { ESPECIES } from '../house/cultivos'
 import { posicionInfra, type DestinoInfra } from '../house/infraPosiciones'
@@ -436,11 +443,12 @@ const nombreApp = (app: Plantilla): string => app.nombre.split(' · ')[0]
 /** Lista de cuartos para el system prompt de la IA (id = nombre). */
 export function descripcionCuartos(): string {
   const cuartos = useCuartos.getState().cuartos
-  const nombres = useDiseño.getState().roomNames
   if (!cuartos.length) return 'El usuario aún no tiene cuartos en la casa.'
+  // El nombre va TRADUCIDO (el mismo que ve el usuario en la casa): si la app
+  // está en inglés, el modelo no tiene de dónde copiar «Sala» en su respuesta.
   return (
     'Cuartos actuales (id = nombre): ' +
-    cuartos.map((c) => `${c.id} = ${nombres[c.id] || c.nombre}`).join('; ')
+    cuartos.map((c) => `${c.id} = ${nombreCuartoGlobal(c)}`).join('; ')
   )
 }
 
@@ -1214,6 +1222,20 @@ export async function ejecutarToolEditor(
       const pb = usePaintball.getState()
       if (bool(input, 'salir')) {
         if (!pb.fase) return tGlobal('chat.ed.pbSinBatalla', 'No hay ninguna batalla en marcha.')
+        // En línea la batalla no es solo suya: el chat no puede cerrársela a los
+        // demás sin preguntar (B7).
+        if (hayBatallaOnline()) {
+          const si = await confirmar({
+            titulo: tGlobal('paintball.abandonar', 'Abandonar'),
+            mensaje: tGlobal(
+              'chat.ed.pbSalirOnline',
+              'Es una batalla con más gente. ¿Salimos de ella?',
+            ),
+            textoOk: tGlobal('paintball.abandonar', 'Abandonar'),
+            peligro: true,
+          })
+          if (!si) return tGlobal('chat.ed.pbSigue', 'Seguimos en la batalla.')
+        }
         pb.cancelar()
         return tGlobal('chat.ed.pbSalir', 'Salimos del paintball. La casa vuelve a la normalidad.')
       }

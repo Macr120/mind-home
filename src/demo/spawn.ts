@@ -27,6 +27,37 @@ export function guardarSpawnDemo(x: number, z: number): void {
 export function aplicarSpawnDemo(): void {
   const crudo = localStorage.getItem(claveLS(LS_SPAWN))
   if (!crudo) return
+  colocar(crudo)
+}
+
+/**
+ * Lo mismo para la VISITA: el invitado aparece en la entrada de la casa ajena,
+ * no en el punto fijo del motor (que con el mapa de otro cae donde caiga). El
+ * punto lo calcula `visita/aplicarPlano.ts` al volcar, y va en `sessionStorage`
+ * porque la visita es de ESTA pestaña. Lo aplican los dos: el volcado en la
+ * carga que entra a la casa, y `main.tsx` en cualquier recarga posterior.
+ */
+const SS_SPAWN_VISITA = 'mh.visita.spawn'
+
+export function guardarSpawnVisita(x: number, z: number): void {
+  try {
+    sessionStorage.setItem(SS_SPAWN_VISITA, JSON.stringify({ x, z }))
+  } catch {
+    /* almacenamiento bloqueado: se queda el punto por defecto */
+  }
+}
+
+export function aplicarSpawnVisita(): void {
+  let crudo: string | null
+  try {
+    crudo = sessionStorage.getItem(SS_SPAWN_VISITA)
+  } catch {
+    return
+  }
+  if (crudo) colocar(crudo)
+}
+
+function colocar(crudo: string): void {
   try {
     const { x, z } = JSON.parse(crudo) as { x: number; z: number }
     if (typeof x !== 'number' || typeof z !== 'number') return

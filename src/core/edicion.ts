@@ -128,6 +128,43 @@ export function esProbar(): boolean {
   return probarActivo
 }
 
+/** Visita: la casa de OTRO en una BD paralela (`mind-home-visita`), de solo lectura. */
+export const SS_VISITA = 'mh.visita'
+
+// Por PESTAÑA (sessionStorage), nunca localStorage: el flag es de esta ventana,
+// así conviven la casa propia en una pestaña y la casa visitada en otra, y
+// cerrarla lo limpia sola. El parámetro de URL manda —es lo que deja
+// `entrarAVisita` al recargar— y se guarda para que un F5 siga en la visita.
+const salaEnVisita = (() => {
+  if (typeof sessionStorage === 'undefined' || typeof location === 'undefined') return null
+  const enUrl = new URLSearchParams(location.search).get('visita')
+  if (!enUrl) {
+    try {
+      return sessionStorage.getItem(SS_VISITA)
+    } catch {
+      return null
+    }
+  }
+  try {
+    sessionStorage.setItem(SS_VISITA, enUrl)
+  } catch {
+    // Almacenamiento bloqueado: la visita vale para esta carga y ya.
+  }
+  return enUrl
+})()
+
+const visitaActivo = salaEnVisita !== null
+
+/** ¿Estamos dentro de la casa de otro? (BD `mind-home-visita`, nada se escribe) */
+export function esVisita(): boolean {
+  return visitaActivo
+}
+
+/** Id de la sala que se está visitando, o null. */
+export function salaVisitada(): string | null {
+  return salaEnVisita
+}
+
 // Herramienta TEMPORAL de autoría (hasta congelar el modelo ideal de la casa):
 // solo existe en `npm run dev`; en producción el flag no hace nada.
 const autorActivo =
@@ -152,7 +189,7 @@ export function esDemoAutor(): boolean {
  * PERSONA (idioma, tema, HUD, dificultades…) NO pasan por aquí: se comparten.
  */
 export function claveLS(clave: string): string {
-  return demoActivo ? 'demo:' + clave : probarActivo ? 'probar:' + clave : clave
+  return visitaActivo ? 'visita:' + clave : demoActivo ? 'demo:' + clave : probarActivo ? 'probar:' + clave : clave
 }
 
 /** ¿La cuenta tiene suscripción Pro vigente? (espejo local del backend) */

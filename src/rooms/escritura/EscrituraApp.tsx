@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { documentosRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
+import { intencionApp } from '../../core/state/intencionApp'
 import { EditorDocumento } from './EditorDocumento'
 import { ListaLibros } from './ListaLibros'
 
@@ -11,7 +12,12 @@ import { ListaLibros } from './ListaLibros'
  */
 export function EscrituraApp() {
   const t = useT()
-  const [docAbierto, setDocAbierto] = useState<number | null>(null)
+  // La intención puede traer una HOJA concreta (`doc:12`, una compartida por
+  // enlace) o un LIBRO (el número suelto que devuelve `importarDocumento`).
+  const [docAbierto, setDocAbierto] = useState<number | null>(() => {
+    const m = /^doc:(\d+)$/.exec(intencionApp('escritura')?.dato ?? '')
+    return m ? Number(m[1]) : null
+  })
 
   /** Abre el texto más reciente del libro; un libro vacío estrena su primer capítulo. */
   const abrirLibro = async (id: number) => {
@@ -32,6 +38,17 @@ export function EscrituraApp() {
     }
     setDocAbierto(docId)
   }
+
+  // Un libro entero en la intención (lo que devuelve importar un documento del
+  // buzón): se abre su texto más reciente. Una sola vez por montaje.
+  const abrirLibroRef = useRef(abrirLibro)
+  useEffect(() => {
+    abrirLibroRef.current = abrirLibro
+  })
+  useEffect(() => {
+    const dato = intencionApp('escritura')?.dato ?? ''
+    if (/^\d+$/.test(dato)) void abrirLibroRef.current(Number(dato))
+  }, [])
 
   if (docAbierto != null) {
     return <EditorDocumento id={docAbierto} alCerrar={() => setDocAbierto(null)} onIrADoc={setDocAbierto} />

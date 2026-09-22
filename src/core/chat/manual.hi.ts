@@ -121,6 +121,8 @@ export const MANUAL_HI: ManualTraducido = {
     '[Historial]': '[इतिहास]',
     '[Sitios]': '[साइटें]',
     '[Tiempo en internet]': '[ऑनलाइन समय]',
+    '[Cómo llegar]': '[कैसे पहुँचें]',
+    '[Amigos]': '[दोस्त]',
   },
   atajos: {
     'Caminar (también con las flechas)': 'चलना (तीर बटनों से भी)',

@@ -4,6 +4,8 @@ import { useSesion } from '../cuenta/sesionStore'
 import { tGlobal } from '../i18n/useT'
 import { comprimirImagen } from '../imagenIA'
 import { notificar } from '../notificaciones'
+import { recibirInvitacion } from '../partida/partidaStore'
+import { recibirAvisoEspacio } from '../espacios/avisos'
 import * as api from './api'
 import * as cache from './cache'
 import { useBuzon } from './buzonStore'
@@ -154,6 +156,8 @@ async function suscribir(uid: string): Promise<void> {
       void pull()
     })
     .on('broadcast', { event: 'contactos' }, () => void refrescarContactos())
+    .on('broadcast', { event: 'invitacion' }, ({ payload }) => recibirInvitacion(payload))
+    .on('broadcast', { event: 'espacio' }, ({ payload }) => recibirAvisoEspacio(payload))
     .subscribe((estado) => {
       // Cada (re)SUBSCRIBED se pone al día: lo emitido con el canal caído no se repite.
       if (estado === 'SUBSCRIBED') {

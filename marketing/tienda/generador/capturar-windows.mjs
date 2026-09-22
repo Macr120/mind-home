@@ -23,9 +23,8 @@ const RAIZ = dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/,
 const SALIDA = resolve(RAIZ, '..', 'msstore', 'capturas')
 
 /**
- * 1366×768, el mínimo que pide la Store para escritorio. Las capturas de es/en
- * que hay subidas son de 1920×1080, que también vale y se ve mejor: si el
- * entorno acompaña, súbelo.
+ * 1920×1080. El mínimo que pide la Store para escritorio es 1366×768 y también
+ * vale: si el entorno viene torcido, baja a ese.
  *
  * **Si la app no monta —el `<div id="root">` vacío, sin React ni lienzo, sin
  * error ninguno— NO es este número.** Se probó a 1366, 1600 y 1920 y al final
@@ -34,8 +33,8 @@ const SALIDA = resolve(RAIZ, '..', 'msstore', 'capturas')
  * degrada: un servidor de Vite que lleva horas encendido y con ediciones
  * encima. **Reinicia el dev server y el piloto antes de tocar nada de aquí.**
  */
-const W = 1366
-const H = 768
+const W = 1920
+const H = 1080
 
 const dormir = (ms) => new Promise((r) => setTimeout(r, ms))
 const lista = async () => (await fetch(`http://127.0.0.1:${PORT}/json/list`)).json()

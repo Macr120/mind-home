@@ -9,7 +9,16 @@ import * as motor from './motor'
  * Panel de la pista de audio (ocupa el lugar del sinte + teclado, que ahí no
  * pintan nada): el consejo de grabación y los efectos que colorean sus clips.
  */
-export function PanelClips({ pista, onFx }: { pista: PistaAudio; onFx: (fx: EfectosPista) => void }) {
+export function PanelClips({
+  pista,
+  onFx,
+  bloqueado,
+}: {
+  pista: PistaAudio
+  onFx: (fx: EfectosPista) => void
+  /** Compartido y sin el turno: los efectos se ven, pero no se tocan. */
+  bloqueado?: boolean
+}) {
   const t = useT()
   const fx = pista.efectos ?? FX_DEFAULT
   const knobFx = (clave: keyof EfectosPista, etiqueta: string) => (
@@ -22,7 +31,12 @@ export function PanelClips({ pista, onFx }: { pista: PistaAudio; onFx: (fx: Efec
     />
   )
   return (
-    <div className="flex flex-wrap items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-3 py-2">
+    <div
+      aria-disabled={bloqueado}
+      className={`flex flex-wrap items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-3 py-2 ${
+        bloqueado ? 'pointer-events-none opacity-40' : ''
+      }`}
+    >
       <p className="min-w-44 flex-1 text-xs leading-relaxed text-white/60">
         <Icono nombre="microfono" />{' '}
         {t(

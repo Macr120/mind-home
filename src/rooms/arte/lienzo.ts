@@ -78,7 +78,19 @@ export interface Lienzo {
     nombreFondo: string,
   ): Promise<void>
   empezarTrazo(x: number, y: number): void
-  trazar(x: number, y: number, color: string, grosor: number, herr: 'pincel' | 'spray' | 'borrador', presion?: number): void
+  /**
+   * `rng` siembra el aerosol: con él, el mismo trazo sale idéntico en todos los
+   * dispositivos (lo exige el replay de los dibujos compartidos). Sin él, azar.
+   */
+  trazar(
+    x: number,
+    y: number,
+    color: string,
+    grosor: number,
+    herr: 'pincel' | 'spray' | 'borrador',
+    presion?: number,
+    rng?: () => number,
+  ): void
   /** Cancela el trazo en curso restaurando el snapshot (entró un 2.º dedo). */
   cancelarTrazo(): void
   /** Comete una forma (línea/rect/elipse/compás) de un golpe, con snapshot previo. */
@@ -93,10 +105,11 @@ export interface Lienzo {
   pintarImagen(blob: Blob): Promise<void>
   /**
    * Inserta una imagen como OBJETO: en una capa nueva (si hay sitio; si no, en
-   * la activa), entera y centrada, conservando su proporción. `true` si nació
-   * capa propia. Después se mueve y se escala con la herramienta «mover».
+   * la activa), entera y centrada, conservando su proporción. Devuelve si nació
+   * capa propia, en qué capa quedó y dónde (lo necesita el dibujo compartido
+   * para mandar la misma colocación). Después se mueve y se escala con «mover».
    */
-  insertarImagen(blob: Blob, nombreCapa: string): Promise<boolean>
+  insertarImagen(blob: Blob, nombreCapa: string, capaId?: string): Promise<{ nueva: boolean; capaId: string; caja: Caja }>
   /** Caja de lo pintado en la capa activa (px del bitmap); `null` si está vacía. */
   cajaActiva(): Caja | null
   /**
@@ -132,14 +145,20 @@ export interface Lienzo {
   puedeRehacer(): boolean
   /** Espejo de dibujo: reflejar cada trazo/forma sobre el eje vertical y/u horizontal. */
   setEspejo(v: boolean, h: boolean): void
+  /** El espejo puesto ahora mismo (el replay compartido lo cambia y lo restaura). */
+  espejo(): [boolean, boolean]
   // ─── Capas ───
   capas(): CapaInfo[]
   capaActiva(): string
   activarCapa(capaId: string): void
-  /** Añade una capa vacía encima de todas y la activa; `null` si se llegó al tope. */
-  agregarCapa(nombre: string): string | null
+  /**
+   * Añade una capa vacía encima de todas y la activa; `null` si se llegó al
+   * tope. Con `capaId` nace con ESE id (en un dibujo compartido la capa tiene
+   * que llamarse igual en todos los dispositivos).
+   */
+  agregarCapa(nombre: string, capaId?: string): string | null
   /** Copia una capa justo encima de la original y la activa; `null` si tope. */
-  duplicarCapa(capaId: string, nombre: string): string | null
+  duplicarCapa(capaId: string, nombre: string, nuevoId?: string): string | null
   /** `false` si es la única capa. */
   borrarCapa(capaId: string): boolean
   /** Fusiona la capa con la de abajo (respetando su opacidad); `false` si ya es la de abajo. */
@@ -155,6 +174,41 @@ export interface Lienzo {
   aBlob(): Promise<Blob>
   /** Las capas listas para persistir (solo re-encodea las tocadas). */
   aCapas(): Promise<CapaDibujo[]>
+  /**
+   * Las capas de ESTE instante: copia todos los bitmaps de golpe (síncrono) y
+   * luego los codifica. `aCapas()` no sirve para el snapshot compartido: entre
+   * un PNG y el siguiente cabe un trazo, y el corte del log dejaría fuera lo
+   * que la imagen no llegó a incluir.
+   */
+  capturarCapas(): Promise<CapaDibujo[]>
+
+  // ─── Dibujo compartido (replay de operaciones) ───
+  /**
+   * Ejecuta `fn` con esa capa como activa y restaura la que estaba. Si la capa
+   * no existe no hace nada: una operación ajena nunca pinta en la capa que no
+   * era. Lo usa el aplicador para llevar cada operación a SU capa.
+   */
+  enCapa(capaId: string, fn: () => void): void
+  /**
+   * Ejecuta `fn` sin apuntar nada en las pilas de deshacer. El replay puede
+   * repetir cientos de operaciones y cada snapshot es un `ImageData` entero.
+   */
+  sinHistorial(fn: () => void): void
+  /** Deja la capa como estaba en el snapshot (su bitmap, o vacía). */
+  ponerBase(capaId: string, base: ImageBitmap | null): void
+  /** Pinta una imagen en esa capa: cubriendo el lienzo, o dentro de la caja dada. */
+  pintarEn(capaId: string, imagen: ImageBitmap, caja?: Caja): void
+  /** Mueve y escala lo que hay en la caja `de` de esa capa hasta la caja `a`. */
+  transformarCaja(capaId: string, de: Caja, a: Caja): void
+  /**
+   * Reinicia el lienzo desde el snapshot de un dibujo compartido: tamaño, lista
+   * de capas y bitmaps. Vacía el historial (es un cambio estructural).
+   */
+  cargarCapas(
+    ancho: number,
+    alto: number,
+    capas: { capaId: string; nombre: string; visible: boolean; opacidad: number; imagen: ImageBitmap | null }[],
+  ): void
 }
 
 /** Los pares de extremos reflejados de una forma según el espejo activo (el primero es el original). */
@@ -423,12 +477,19 @@ export function crearLienzo(host: HTMLDivElement, anchoInicial: number, altoInic
     return x1 < 0 ? null : { x: x0, y: y0, w: x1 - x0 + 1, h: y1 - y0 + 1 }
   }
 
+  /**
+   * Replay de un dibujo compartido en marcha: las acciones no apuntan nada en
+   * las pilas (serían cientos de `ImageData`, y ahí deshacer es otra operación).
+   */
+  let replay = false
+
   /** Snapshot de ESA capa para deshacer; toda acción nueva vacía la pila de rehacer. */
   const snapshot = (c: CapaViva) => {
+    c.sucia = true
+    if (replay) return
     pila.push({ capaId: c.capaId, img: foto(c) })
     if (pila.length > MAX_DESHACER) pila.shift()
     rehacerPila = []
-    c.sucia = true
   }
 
   /** La capa activa lista para pintar: si estaba oculta se vuelve visible (nada de trazos fantasma). */
@@ -514,8 +575,9 @@ export function crearLienzo(host: HTMLDivElement, anchoInicial: number, altoInic
       }))
     },
 
-    trazar(x, y, color, grosor, herr, presion) {
+    trazar(x, y, color, grosor, herr, presion, rng) {
       if (!trazando) return
+      const azar = rng ?? Math.random
       const { ctx } = activa()
       const puntos = extremosEspejados(x, y, x, y, espejoTrazoV, espejoTrazoH, ancho, alto)
       const g = conPresion(grosor, presion)
@@ -532,8 +594,8 @@ export function crearLienzo(host: HTMLDivElement, anchoInicial: number, altoInic
             const sx = p.ux + ((px - p.ux) * i) / pasos
             const sy = p.uy + ((py - p.uy) * i) / pasos
             for (let j = 0; j < 7; j++) {
-              const a = Math.random() * Math.PI * 2
-              const r = Math.sqrt(Math.random()) * g
+              const a = azar() * Math.PI * 2
+              const r = Math.sqrt(azar()) * g
               ctx.beginPath()
               ctx.arc(sx + Math.cos(a) * r, sy + Math.sin(a) * r, 1.6, 0, Math.PI * 2)
               ctx.fill()
@@ -727,7 +789,7 @@ export function crearLienzo(host: HTMLDivElement, anchoInicial: number, altoInic
       bmp.close()
     },
 
-    async insertarImagen(blob, nombreCapa) {
+    async insertarImagen(blob, nombreCapa, capaId) {
       const bmp = await createImageBitmap(blob)
       // Encaje «contain» centrado: entra entera y a la mayor escala que quepa.
       const esc = Math.min(ancho / bmp.width, alto / bmp.height)
@@ -739,7 +801,7 @@ export function crearLienzo(host: HTMLDivElement, anchoInicial: number, altoInic
       const nueva = capas.length < MAX_CAPAS
       if (nueva) {
         // Capa propia: nace encima de todas y activa (como `agregarCapa`).
-        c = crearCapa(nombreCapa)
+        c = crearCapa(nombreCapa, capaId)
         c.sucia = true
         capas.push(c)
         ordenarDom()
@@ -750,7 +812,7 @@ export function crearLienzo(host: HTMLDivElement, anchoInicial: number, altoInic
       }
       c.ctx.drawImage(bmp, x, y, w, h)
       bmp.close()
-      return nueva
+      return { nueva, capaId: c.capaId, caja: { x, y, w, h } }
     },
 
     cajaActiva: () => cajaDe(activa()),
@@ -936,6 +998,8 @@ export function crearLienzo(host: HTMLDivElement, anchoInicial: number, altoInic
       espejoH = h
     },
 
+    espejo: () => [espejoV, espejoH],
+
     capas: () => capas.map(({ capaId, nombre, visible, opacidad }) => ({ capaId, nombre, visible, opacidad })),
     capaActiva: () => activaId,
 
@@ -943,9 +1007,9 @@ export function crearLienzo(host: HTMLDivElement, anchoInicial: number, altoInic
       if (porId(capaId)) activaId = capaId
     },
 
-    agregarCapa(nombre) {
-      if (capas.length >= MAX_CAPAS) return null
-      const c = crearCapa(nombre)
+    agregarCapa(nombre, capaId) {
+      if (capas.length >= MAX_CAPAS || (capaId != null && porId(capaId))) return null
+      const c = crearCapa(nombre, capaId)
       c.sucia = true
       capas.push(c)
       ordenarDom()
@@ -953,10 +1017,10 @@ export function crearLienzo(host: HTMLDivElement, anchoInicial: number, altoInic
       return c.capaId
     },
 
-    duplicarCapa(capaId, nombre) {
+    duplicarCapa(capaId, nombre, nuevoId) {
       const origen = porId(capaId)
-      if (!origen || capas.length >= MAX_CAPAS) return null
-      const c = crearCapa(nombre)
+      if (!origen || capas.length >= MAX_CAPAS || (nuevoId != null && porId(nuevoId))) return null
+      const c = crearCapa(nombre, nuevoId)
       c.visible = origen.visible
       c.opacidad = origen.opacidad
       aplicarEstilo(c)
@@ -1047,6 +1111,81 @@ export function crearLienzo(host: HTMLDivElement, anchoInicial: number, altoInic
 
     aBlob: () => aPng(componer()),
 
+    enCapa(capaId, fn) {
+      if (!porId(capaId)) return
+      const antes = activaId
+      activaId = capaId
+      try {
+        fn()
+      } finally {
+        activaId = antes
+      }
+    },
+
+    sinHistorial(fn) {
+      const antes = replay
+      replay = true
+      try {
+        fn()
+      } finally {
+        replay = antes
+      }
+    },
+
+    ponerBase(capaId, base) {
+      const c = porId(capaId)
+      if (!c) return
+      c.ctx.clearRect(0, 0, ancho, alto)
+      if (base) c.ctx.drawImage(base, 0, 0, ancho, alto)
+      c.sucia = true
+    },
+
+    pintarEn(capaId, imagen, caja) {
+      const c = porId(capaId)
+      if (!c) return
+      if (caja) c.ctx.drawImage(imagen, caja.x, caja.y, Math.max(1, caja.w), Math.max(1, caja.h))
+      else c.ctx.drawImage(imagen, 0, 0, ancho, alto)
+      c.sucia = true
+    },
+
+    transformarCaja(capaId, de, a) {
+      const c = porId(capaId)
+      if (!c) return
+      const copia = document.createElement('canvas')
+      copia.width = ancho
+      copia.height = alto
+      copia.getContext('2d')!.drawImage(c.canvas, 0, 0)
+      c.ctx.clearRect(0, 0, ancho, alto)
+      c.ctx.drawImage(copia, de.x, de.y, de.w, de.h, a.x, a.y, Math.max(1, a.w), Math.max(1, a.h))
+      c.sucia = true
+    },
+
+    cargarCapas(nuevoAncho, nuevoAlto, nuevas) {
+      pila = []
+      rehacerPila = []
+      transf = null
+      trazando = false
+      for (const c of capas) c.canvas.remove()
+      capas = []
+      ancho = nuevoAncho
+      alto = nuevoAlto
+      host.style.width = `${ancho}px`
+      host.style.height = `${alto}px`
+      for (const cd of nuevas) {
+        const c = crearCapa(cd.nombre, cd.capaId)
+        c.visible = cd.visible
+        c.opacidad = cd.opacidad
+        aplicarEstilo(c)
+        if (cd.imagen) c.ctx.drawImage(cd.imagen, 0, 0, ancho, alto)
+        c.sucia = true
+        capas.push(c)
+      }
+      // Un snapshot sin capas dejaría el editor sin lienzo donde pintar.
+      if (!capas.length) capas.push(crearCapa('1'))
+      ordenarDom()
+      activaId = capas[capas.length - 1].capaId
+    },
+
     async aCapas() {
       const res: CapaDibujo[] = []
       for (const c of capas) {
@@ -1055,6 +1194,29 @@ export function crearLienzo(host: HTMLDivElement, anchoInicial: number, altoInic
           c.sucia = false
         }
         res.push({ capaId: c.capaId, nombre: c.nombre, visible: c.visible, opacidad: c.opacidad, imagen: c.blob })
+      }
+      return res
+    },
+
+    async capturarCapas() {
+      // Las copias, TODAS antes del primer `await`: así el snapshot es de un
+      // solo instante aunque siga entrando pintura mientras se codifica.
+      const copias = capas.map((c) => {
+        const k = document.createElement('canvas')
+        k.width = ancho
+        k.height = alto
+        k.getContext('2d')!.drawImage(c.canvas, 0, 0)
+        return { c, k }
+      })
+      const res: CapaDibujo[] = []
+      for (const { c, k } of copias) {
+        res.push({
+          capaId: c.capaId,
+          nombre: c.nombre,
+          visible: c.visible,
+          opacidad: c.opacidad,
+          imagen: await aPng(k),
+        })
       }
       return res
     },

@@ -14,15 +14,17 @@ color de cada lámina (morado, ámbar, rojo, verde: los colores de la marca).
 |---|--------|--------------|
 | 1 | La casa demo en isométrica, mediodía | Tu mente, en una **casa 3D** |
 | 2 | Calendario · vista Semana | Tu semana, **hora por hora** |
-| 3 | Rejilla de cuartos (mosaico de apps) | **17 apps + 2 AR** bajo un mismo techo |
+| 3 | Rejilla de cuartos (mosaico de apps) | **17 apps de productividad** + 4 de creatividad |
 | 4 | El avatar acostado en la cama + chat | Tu asistente **vive ahí dentro** |
 
 El titular 1 es literalmente `hero.h1` de `web/i18n/paginas/<idioma>.mjs`: la
 lámina y la portada de la web dicen lo mismo, palabra por palabra. Los otros
 tres se escribieron para esta baraja y viven en `generador/copia.json`.
 
-El icono de la app (para subir a Play Console / App Store Connect) vive aparte,
-en [`marketing/icono/`](../icono/README.md).
+El lockup de marca de la lámina 1, de las de iPad y del gráfico destacado sale
+de `public/icon.svg` (lo lee `generador/icono.mjs`), así que al cambiar el logo
+basta con volver a exportar. El icono suelto para subir a Play Console / App
+Store Connect vive aparte, en [`marketing/icono/`](../icono/README.md).
 
 ## Qué subir
 
@@ -30,6 +32,7 @@ en [`marketing/icono/`](../icono/README.md).
 play/<idioma>/01.png … 04.png        1080×1920 — teléfono de Google Play
 appstore/<idioma>/01.png … 04.png    1290×2796 — 6.9" del App Store
 capturas/<idioma>/01-casa.png …      1170×2532 — la app sola, sin marco ni texto
+capturas/<idioma>/ipad-casa.png      1024×1366 — la de iPad, ídem
 ```
 
 Idiomas: `es en pt fr de it ja zh ko ru hi tr id pl nl ar`.
@@ -83,7 +86,9 @@ node marketing/tienda/generador/exportar.mjs
 ```
 
 `capturar.mjs` recorre los 16 idiomas: pone `mh.idioma`, recarga, espera a que el
-DemoGate reconstruya la casa y saca las 4 escenas a 3× en `shots/<idioma>/`.
+DemoGate reconstruya la casa y saca las 4 escenas a 3× en `capturas/<idioma>/`.
+Los scripts escriben directo en las carpetas que se suben —no hay paso de copiar
+a mano—, así que volver a correrlos pisa lo publicado.
 `exportar.mjs` las monta en las láminas. Ambos aceptan idiomas sueltos
 (`node capturar.mjs de ja`) para rehacer solo uno.
 
@@ -115,7 +120,7 @@ así que va la app cruda, tal cual se ve en Windows. Y como no hay composición,
 tampoco hay paso intermedio: el script escribe directo en lo que se sube.
 
 ```
-msstore/capturas/<idioma>/01-casa.png … 04-chat.png   1600×900 — escritorio
+msstore/capturas/<idioma>/01-casa.png … 04-chat.png   1920×1080 — escritorio
 msstore/textos/<idioma>.json                          ficha (descripción, corta, características)
 ```
 
@@ -132,16 +137,16 @@ Las mismas cuatro escenas que las láminas de móvil, con tres diferencias:
   una portada limpia; aquí la Store enseña la app real y el reloj, la rueda y el
   chat son parte de ella. Lo único que se oculta es el chip de «salir de la
   demo», que no existe en el producto.
-- **`gl.setPixelRatio(1)`, no 3.** El viewport ya es de 1600×900, así que el
-  lienzo sale nativo y se queda en 1,44 MP — debajo del techo de ~3 MP que
+- **`gl.setPixelRatio(1)`, no 3.** El viewport ya es de 1920×1080, así que el
+  lienzo sale nativo y se queda en 2,07 MP — debajo del techo de ~3 MP que
   revienta la pestaña al capturar. Poner 3 aquí la mataría.
 - **Si la app no monta, sospecha del entorno antes que del script.** El síntoma
   es un `<div id="root">` vacío para siempre —sin React, sin globales, sin
   lienzo y sin un solo error en consola—, y aparece cuando el servidor de Vite
   lleva horas encendido con ediciones encima. Reiniciar el dev server y el
-  piloto es lo primero. Las capturas de `es`/`en` que hay subidas salieron a
-  1920×1080 con el entorno fresco; más tarde, en la misma sesión, no montaba ni
-  a 1366×768 con el sitio recién borrado.
+  piloto es lo primero. Con el entorno recién arrancado salen los 16 idiomas de
+  corrido (18 sep 2026, ~2 min por idioma); con un servidor cansado no montaba
+  ni a 1366×768 con el sitio recién borrado.
 - **El encuadre lo calcula `enfocarZona`**, no el zoom fijo de las capturas de
   teléfono: ese está calibrado para 390×844 y en apaisado deja la casa
   descentrada.

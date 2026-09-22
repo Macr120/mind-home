@@ -120,6 +120,8 @@ export const MANUAL_RU: ManualTraducido = {
     '[Historial]': '[История]',
     '[Sitios]': '[Сайты]',
     '[Tiempo en internet]': '[Время в интернете]',
+    '[Cómo llegar]': '[Как добраться]',
+    '[Amigos]': '[Друзья]',
   },
   atajos: {
     'Caminar (también con las flechas)': 'Ходить (можно и стрелками)',

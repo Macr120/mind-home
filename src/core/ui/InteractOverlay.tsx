@@ -99,15 +99,17 @@ function Burbuja({
   roomIcon: string
   onEntrar: () => void
 }) {
+  const t = useT()
   const { color } = useRoomVisual(roomId, roomColor, roomNombre)
   // El nombre, traducido igual que en el menú lateral y la cabecera del cuarto.
   const nombreCuarto = useNombreCuarto()
   const nombre = nombreCuarto({ id: roomId, nombre: roomNombre })
   // Primera app del cuarto (como en el menú lateral): suyas son las misiones que
-  // pinta el globo rojo, el mismo de la tarjeta en la pantalla de inicio.
+  // pinta el globo rojo —el mismo de la tarjeta en la pantalla de inicio— y de
+  // ella sale el verbo del botón.
   const appId = useDiseño((s) => s.objetos.find((o) => o.roomId === roomId && o.plantillaId)?.plantillaId)
   const pendientes = usePendientesCasa((s) => (appId ? s.porApp[appId] : undefined))
-  const accion = accionCuarto(roomId)
+  const accion = accionCuarto(appId, t)
   const titulo = nombre.split(' · ')[0]
 
   return (

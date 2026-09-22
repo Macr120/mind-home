@@ -230,6 +230,14 @@ export interface Plantilla {
   tipo?: 'cuarto' | 'infraestructura'
   /** Solo infraestructura: entra al editor de construcción en el mapa 3D. */
   construir?: () => void
+  /**
+   * Qué expone esta app cuando alguien viene de VISITA a la casa. Sin
+   * declararlo, la app NO se comparte NUNCA: no se ofrece en el panel de
+   * permisos, sus tablas no entran en el plano y su cuarto no se abre. El
+   * juicio de privacidad es de quien escribió la app; no se declaran tablas con
+   * Blobs ni con datos personales (ver `core/visita/plano.ts`).
+   */
+  visita?: { tablas: readonly string[] }
 }
 
 /**

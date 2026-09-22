@@ -131,6 +131,8 @@ const entretenimiento: Plantilla = {
   categoria: 'complemento',
   color: '#34d399',
   App: EntretenimientoApp,
+  // De visita se abre el archivo de obras vistas/leídas/jugadas y la ludoteca.
+  visita: { tablas: ['mediaArchivo', 'juegosMesa'] },
   esencial: esencialEntretenimiento,
   flujos: flujosEntretenimiento,
   capturar,

@@ -18,7 +18,7 @@ import { Retrato } from './Retrato'
  * recibidas y la lista de contactos con sus acciones. Sin alias no hay más:
  * elegirlo es el primer paso (así te pueden encontrar).
  */
-export function ContactosPanel({ onCerrar, onAbrirHilo }: { onCerrar: () => void; onAbrirHilo: (hiloId: string) => void }) {
+export function ContactosPanel({ onAbrirHilo }: { onAbrirHilo: (hiloId: string) => void }) {
   const t = useT()
   const alias = useSesion((s) => s.alias)
   const nombre = useSesion((s) => s.nombre)
@@ -89,37 +89,14 @@ export function ContactosPanel({ onCerrar, onAbrirHilo }: { onCerrar: () => void
   const recibidas = contactos.filter((c) => c.estado === 'pendiente' && c.direccion === 'recibida')
   const resto = contactos.filter((c) => !(c.estado === 'pendiente' && c.direccion === 'recibida'))
 
-  const Cabecera = (
-    <div className="mb-2 flex items-center gap-2 border-b border-white/10 px-1 pb-2">
-      <span className="text-base text-white/60">
-        <Icono nombre="companeros" />
-      </span>
-      <p className="flex-1 text-[11px] font-semibold text-white/50">{t('buzon.contactos', 'Contactos')}</p>
-      <button
-        type="button"
-        onClick={onCerrar}
-        className="rounded px-2 py-1 text-sm text-white/40 transition hover:bg-white/10 hover:text-white/80"
-        title={t('chat.conv.cerrar', 'Cerrar')}
-      >
-        ✕
-      </button>
-    </div>
-  )
-
   if (!usuario) {
-    return (
-      <div className="ui-panel-glass mb-2 rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
-        {Cabecera}
-        <p className="px-2 py-3 text-center text-xs text-white/35">{t('buzon.sinSesion', 'Inicia sesión para escribir a tus contactos')}</p>
-      </div>
-    )
+    return <p className="px-2 py-3 text-center text-xs text-white/35">{t('buzon.sinSesion', 'Inicia sesión para escribir a tus contactos')}</p>
   }
 
   // Sin alias nadie te encuentra: es lo primero.
   if (!alias || editandoAlias) {
     return (
-      <div className="ui-panel-glass mb-2 rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
-        {Cabecera}
+      <div>
         <p className="mb-1.5 px-1 text-xs text-white/60">{t('buzon.alias.sin', 'Elige un alias para que te encuentren')}</p>
         <FormAlias onListo={() => setEditandoAlias(false)} onCancelar={alias ? () => setEditandoAlias(false) : undefined} />
       </div>
@@ -127,8 +104,7 @@ export function ContactosPanel({ onCerrar, onAbrirHilo }: { onCerrar: () => void
   }
 
   return (
-    <div className="ui-panel-glass mb-2 max-h-[55vh] overflow-y-auto rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
-      {Cabecera}
+    <div>
 
       {/* Mi alias */}
       <div className="mb-2 flex items-center gap-2 rounded-xl bg-white/5 px-2 py-1.5">

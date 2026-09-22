@@ -345,6 +345,9 @@ const cocina: Plantilla = {
   categoria: 'cuerpo',
   color: '#f59e0b',
   App: CocinaApp,
+  // De visita se abre SOLO el recetario: comidas, agua, peso, perfil y lista
+  // del súper son registro personal y no salen del dispositivo.
+  visita: { tablas: ['recetas'] },
   esencial: esencialCocina,
   flujos: flujosCocina,
   capturar,

@@ -8,7 +8,7 @@ import { IDIOMAS } from './componer.mjs'
 
 const PORT = 9333
 const RAIZ = dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1'))
-const SHOTS = resolve(RAIZ, '..', 'shots')
+const SHOTS = resolve(RAIZ, '..', 'capturas')
 
 const dormir = (ms) => new Promise((r) => setTimeout(r, ms))
 const lista = async () => (await fetch(`http://127.0.0.1:${PORT}/json/list`)).json()

@@ -1,7 +1,8 @@
 import Dexie, { type Table } from 'dexie'
-import { esDemo, esDemoAutor, esProbar } from '../edicion'
+import { esDemo, esDemoAutor, esProbar, esVisita, SS_VISITA } from '../edicion'
 import { demoGuard } from './demoGuard'
 import { probarGuard } from './probarGuard'
+import { visitaGuard } from './visitaGuard'
 import { fechaLocalISO } from '../fechaLocal'
 import { nombreAleatorio } from '../house/nombresAnimales'
 import { syncMiddleware } from './sync/middleware'
@@ -11,6 +12,7 @@ import { haySandboxDemoSucio } from '../../demo/modo'
 import type { Idioma } from '../i18n/idiomas'
 import type { EmocionId } from '../chat/emociones'
 import type { Contacto, MensajeBuzon } from '../buzon/tipos'
+import type { EspacioCache } from '../espacios/tipos'
 import type { PresetAnimacionId } from '../house/animacion'
 
 /**
@@ -1028,7 +1030,13 @@ export interface TrayectoViaje {
   destino: PuntoNav
   /** Modos elegidos al calcularlo: caminar, bici, auto, transporte. */
   modos: string[]
-  itinerario: ItinerarioNav
+  /**
+   * Copia del itinerario para verlo sin conexión: CADUCA a los 30 días.
+   * El plan Base de HERE prohíbe guardar sus resultados más tiempo fuera de su
+   * plataforma (HERE Platform Terms, cláusula 8 j), así que pasado el plazo se
+   * borra y el trayecto se recalcula al abrirlo (ver `docs/HERE.md`).
+   */
+  itinerario?: ItinerarioNav
   creadoEn: string
 }
 
@@ -1955,6 +1963,15 @@ export interface Rutina {
   pasos: PasoRutina[]
   activa: boolean
   creadoEn: string
+  /**
+   * Espacio del CALENDARIO COMPARTIDO al que pertenece el evento (índice). Con
+   * valor, la fila no viaja por el sync personal sino por el log del espacio
+   * (ver `sync/syncables.ts::esFilaCompartida`); sin valor es un evento propio,
+   * exactamente como hasta ahora.
+   */
+  calendarioId?: string
+  /** Solo eventos compartidos: alias de quien lo creó, para pintar «de @ana». */
+  autorAlias?: string
   /** Rutina espejo de otra fuente: 'sueno' la genera el horario de Descanso. */
   origen?: 'sueno'
   /**
@@ -3740,6 +3757,8 @@ export interface Dibujo {
    * cliente sin capas editó `imagen` y esta manda (las capas se descartan).
    */
   capasEn?: string
+  /** Espacio compartido del dibujo (Studio de arte por enlace). NO se indexa. */
+  espacioId?: string
   creadoEn: string
   actualizadoEn: string
   /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
@@ -3771,6 +3790,8 @@ export interface Historia {
    * fichas (personajes, lugares, actos); ausente = color de fábrica. NO se indexa.
    */
   coloresRef?: Partial<Record<'personaje' | 'lugar' | 'acto', string>>
+  /** Libro local «Compartidos conmigo»: lo que otras personas me compartieron. NO se indexa. */
+  compartidos?: true
   creadoEn: string
   actualizadoEn: string
   /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
@@ -3794,6 +3815,8 @@ export interface Documento {
   seccion?: SeccionHistoria
   /** Solo tramas: el acto del que cuelgan (self-FK → `documentos`). NO se indexa. */
   actoId?: number
+  /** Espacio compartido del documento (Studio de escritura por enlace). NO se indexa. */
+  espacioId?: string
   /** Incluir el índice automático al imprimir/exportar PDF. */
   conIndice?: boolean
   /** Posición 0..1 del personaje en el diagrama de relaciones de su libro. NO se indexan. */
@@ -4007,6 +4030,8 @@ export interface ProyectoAudio {
    * aquí ni en los demás dispositivos (viaja por el sync normal).
    */
   oculto?: boolean
+  /** Espacio compartido del proyecto (Studio de audio por turnos). NO se indexa. */
+  espacioId?: string
   creadoEn: string
   actualizadoEn: string
   /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
@@ -4291,6 +4316,8 @@ export interface ProyectoVideo {
   musica?: { medioId: number; volumen: number }
   /** Subidas a redes desde el Studio. La escribe SOLO el trabajo de publicación (`core/redes/trabajos.ts`), nunca el Editor. */
   publicaciones?: PublicacionVideo[]
+  /** Espacio compartido del proyecto (Studio de video por turnos). NO se indexa. */
+  espacioId?: string
   creadoEn: string
   actualizadoEn: string
   /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
@@ -4331,6 +4358,8 @@ export interface MedioVideo {
   /** Recurso de otra app del Studio del que se copió ('audio:proyecto:12'); con `fuenteEn` evita copias repetidas. NO se indexa. */
   fuente?: string
   fuenteEn?: string
+  /** Objeto ya subido al bucket del espacio compartido (índice): evita resubirlo. */
+  remotoId?: string
   creadoEn: string
 }
 
@@ -4612,12 +4641,15 @@ class MindHomeDB extends Dexie {
   // Caché local del buzón (prefijo `_`: ni respaldo ni sync; la verdad vive en el servidor).
   _buzonContactos!: Table<Contacto, string>
   _buzonMensajes!: Table<MensajeBuzon, number>
+  // Caché local de los espacios compartidos (misma regla: la verdad es del servidor).
+  _espacios!: Table<EspacioCache, string>
 
   constructor() {
-    // En los modos demo y probar se abre una BD PARALELA: la casa de Pep@ (o la
-    // de prueba sin cuenta) vive ahí completa y la BD real del usuario queda
-    // intacta. Cambiar de modo siempre recarga la página (flags congelados a la carga).
-    super(esDemo() ? 'mind-home-demo' : esProbar() ? 'mind-home-probar' : 'mind-home')
+    // En los modos demo, probar y visita se abre una BD PARALELA: la casa de
+    // Pep@, la de prueba sin cuenta o la del anfitrión viven ahí completas y la
+    // BD real del usuario queda intacta. Cambiar de modo siempre recarga la
+    // página (flags congelados a la carga). La visita manda sobre las otras dos.
+    super(esVisita() ? 'mind-home-visita' : esDemo() ? 'mind-home-demo' : esProbar() ? 'mind-home-probar' : 'mind-home')
     this.version(1).stores({
       transacciones: '++id, fecha, tipo, categoria',
       sueno: '++id, fecha',
@@ -6256,6 +6288,21 @@ class MindHomeDB extends Dexie {
       sitiosWeb: '++id, &host, categoria, actualizadoEn, &uid',
       categoriasWeb: '++id, &clave, orden, &uid',
     })
+    // v145: espacios compartidos (calendarios cooperativos y Studio por enlace).
+    // Los índices de las SEIS fases van de una vez, para no encadenar bumps:
+    //  - `rutinas.calendarioId`: un evento de calendario compartido es una fila
+    //    real de `rutinas` (con la app, los gestos y los avisos que ya existen).
+    //  - `_outbox.espacio`: la cola de salida es la MISMA del sync personal; el
+    //    middleware marca las filas compartidas y cada motor drena las suyas.
+    //  - `_espacios`: caché de la lista (fuera del sync y del respaldo).
+    //  - `mediosVideo.remotoId`: el clip ya subido al bucket del espacio (E6).
+    // Todas nacen vacías o solo estrenan índice: sin `.upgrade()`.
+    this.version(145).stores({
+      rutinas: '++id, creadoEn, calendarioId, &uid',
+      _outbox: '++id, [tabla+uid], espacio',
+      _espacios: 'espacioId, tipo',
+      mediosVideo: '++id, tipo, creadoEn, remotoId',
+    })
   }
 }
 
@@ -6304,6 +6351,12 @@ export interface EntradaOutbox {
   tabla: string
   uid: string
   op: 'upsert' | 'delete'
+  /**
+   * Id del espacio compartido al que pertenece la fila. Con valor, el push
+   * personal NO la sube (no es del usuario, es del espacio) y la drena el motor
+   * de `core/espacios`. Ver `syncables.ts::esFilaCompartida`.
+   */
+  espacio?: string
 }
 
 /** Metadatos del motor de sync (cursor de pull, bootstrap, hashes de blobs). */
@@ -6361,6 +6414,31 @@ if (esDemo() && !esDemoAutor()) {
   if (haySandboxDemoSucio()) {
     db.on('ready', (vip) => import('../../demo/sandbox').then((m) => m.restaurarBaseDemo(vip as Dexie)))
   }
+} else if (esVisita()) {
+  // En la casa de OTRO no se escribe nada: el guard descarta toda mutación que
+  // no sea el volcado del plano. Va antes que la rama de `probar` porque una
+  // visita puede abrirse desde una pestaña que ya estaba en modo prueba.
+  db.use(visitaGuard)
+  // El plano del anfitrión se baja y se vuelca AQUÍ, antes del `db.open()`: es
+  // el mismo punto seguro que la reposición del demo. La promesa NO puede
+  // rechazar —dejaría la app sin BD y, con `esVisita()` congelado, cada recarga
+  // repetiría el fallo—, así que la vía de escape es salir de la visita (C10).
+  db.on('ready', (vip) =>
+    import('../visita/aplicarPlano')
+      .then((m) => m.volcarVisita(vip as Dexie))
+      .catch(() => {
+        void import('../visita/visitaStore')
+          .then((m) => m.abandonarVisita('plano'))
+          .catch(() => {
+            // Ni su chunk cargó: al menos el flag se va, así la recarga cae en
+            // la casa propia en vez de repetir el fallo (sin aviso, eso sí).
+            sessionStorage.removeItem(SS_VISITA)
+            const url = new URL(location.href)
+            url.searchParams.delete('visita')
+            location.replace(url.toString())
+          })
+      }),
+  )
 } else if (esProbar()) {
   // En la casa de prueba también se escribe todo, y además PERSISTE en su BD
   // paralela (es la casa que se ofrece recuperar al crear cuenta y pagar): el

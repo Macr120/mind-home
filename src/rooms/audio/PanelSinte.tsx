@@ -73,6 +73,7 @@ const PATRONES_BATERIA: { clave: string; golpes: [number, number, number][] }[] 
  * instante por el motor (imperativo) y se confirma al soltar (mutar+guardar).
  */
 export function PanelSinte({
+  bloqueado,
   pista,
   vivo,
   octava,
@@ -91,6 +92,8 @@ export function PanelSinte({
   onMaestro,
   onPlegar,
 }: {
+  /** Compartido y sin el turno: los ajustes se ven, pero no se tocan. */
+  bloqueado?: boolean
   pista: PistaAudio
   vivo: AjustesVivo | undefined
   octava: number
@@ -289,7 +292,12 @@ export function PanelSinte({
   const escala = vivo?.escala ?? null
 
   return (
-    <div className="shrink-0 space-y-1.5 rounded-xl border border-white/10 bg-white/5 px-2 py-1.5">
+    <div
+      aria-disabled={bloqueado}
+      className={`shrink-0 space-y-1.5 rounded-xl border border-white/10 bg-white/5 px-2 py-1.5 ${
+        bloqueado ? 'pointer-events-none opacity-40' : ''
+      }`}
+    >
       <div className="flex flex-wrap items-center gap-1.5">
         <button
           type="button"

@@ -2,6 +2,8 @@ import { useState } from 'react'
 import type { Rutina, PasoRutina, RepeticionRutina } from '../data/db'
 import { rutinasRepo } from '../data/repository'
 import { getPlantilla, plantillasAgendables } from '../registry'
+import { useCalendariosCompartidos, usePuedeEditarRutina } from '../espacios/calendario'
+import { useSesion } from '../cuenta/sesionStore'
 import { appsAsignadas } from '../chat/dispatcher'
 import { hoyISO, textoRepeticion, DIAS_SEMANA } from '../rutinas'
 import { pedirPermiso, permisoNotificaciones } from '../notificaciones'
@@ -58,6 +60,11 @@ export const MODOS_REPETICION: { id: Exclude<RepeticionRutina, 'personalizado'>;
 export function EditorRutina({ rutina, onCerrar }: { rutina: Rutina; onCerrar: () => void }) {
   const t = useT()
   const [r, setR] = useState<Rutina>(rutina)
+  // Los calendarios compartidos en los que puedo escribir. Solo se elige AL
+  // CREAR: mover un evento de un calendario a otro no se ofrece (sería borrarlo
+  // para unos y crearlo para otros), así que en un evento existente no aparece.
+  const calendarios = useCalendariosCompartidos().filter((c) => c.rol === 'dueno' || c.rol === 'editor')
+  const puedoEditar = usePuedeEditarRutina(r)
 
   const setPaso = (i: number, cambios: Partial<PasoRutina>) =>
     setR({ ...r, pasos: r.pasos.map((p, j) => (j === i ? { ...p, ...cambios } : p)) })
@@ -99,7 +106,12 @@ export function EditorRutina({ rutina, onCerrar }: { rutina: Rutina; onCerrar: (
       fechaFin: fechaFin || undefined,
     }
     if (r.id != null) await rutinasRepo.update(r.id, datos as Partial<Rutina>)
-    else await rutinasRepo.add(datos)
+    else {
+      // Quién lo puso, para la línea «de @ana» del detalle. Solo en lo compartido:
+      // en el calendario propio no hay nadie a quien atribuírselo.
+      if (datos.calendarioId) datos.autorAlias = useSesion.getState().alias ?? undefined
+      await rutinasRepo.add(datos)
+    }
     onCerrar()
   }
 
@@ -140,8 +152,38 @@ export function EditorRutina({ rutina, onCerrar }: { rutina: Rutina; onCerrar: (
         />
       </div>
 
+      {/* Calendario compartido al que va el evento (solo al crearlo). */}
+      {r.id == null && calendarios.length > 0 && (
+        <select
+          value={r.calendarioId ?? ''}
+          onChange={(e) => {
+            const id = e.target.value || undefined
+            const cal = calendarios.find((c) => c.id === id)
+            setR((prev) => ({
+              ...prev,
+              calendarioId: id,
+              // En un calendario compartido el evento no es de ninguna app: su
+              // `plantillaId` apuntaría a un cuarto que el resto puede no tener.
+              plantillaId: id ? undefined : prev.plantillaId,
+              actividadId: id ? undefined : prev.actividadId,
+              color: cal && !prev.color ? cal.color : prev.color,
+            }))
+          }}
+          aria-label={t('esp.cal.selector', 'Calendario')}
+          className="w-full rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-xs text-white/85 focus:outline-none"
+        >
+          <option value="">{t('esp.cal.mio', 'Mi calendario')}</option>
+          {calendarios.map((c) => (
+            <option key={c.id} value={c.id}>
+              {c.titulo}
+            </option>
+          ))}
+        </select>
+      )}
+
       {/* App a la que pertenece: le da color en el calendario, la mete en el
           cronograma de esa app y decide qué aviso se calla desde Configuraciones. */}
+      {!r.calendarioId && (
       <select
         value={r.plantillaId ?? ''}
         onChange={(e) => {
@@ -167,6 +209,7 @@ export function EditorRutina({ rutina, onCerrar }: { rutina: Rutina; onCerrar: (
           </option>
         ))}
       </select>
+      )}
 
       {/* Horario: inicio – fin (el fin dibuja la duración en el calendario) */}
       <div className="flex items-center gap-1.5">
@@ -365,6 +408,12 @@ export function EditorRutina({ rutina, onCerrar }: { rutina: Rutina; onCerrar: (
         </button>
       </div>
 
+      {!puedoEditar && (
+        <p className="rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-[10px] text-white/50">
+          {t('esp.cal.soloLectura', 'Solo lectura: no puedes editar este calendario')}
+        </p>
+      )}
+
       <div className="flex gap-2 pt-1">
         <button
           type="button"
@@ -376,7 +425,8 @@ export function EditorRutina({ rutina, onCerrar }: { rutina: Rutina; onCerrar: (
         <button
           type="button"
           onClick={guardar}
-          disabled={!r.nombre.trim()}
+          disabled={!r.nombre.trim() || !puedoEditar}
+          title={puedoEditar ? undefined : t('esp.cal.soloLectura', 'Solo lectura: no puedes editar este calendario')}
           className="flex-1 rounded-lg bg-emerald-600 py-1.5 text-xs font-bold texto-cta transition hover:bg-emerald-600 disabled:opacity-30"
         >
           {t('rutinas.guardar', 'Guardar')}

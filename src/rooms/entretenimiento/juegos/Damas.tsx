@@ -1,12 +1,14 @@
 import { Icono } from '../../../core/ui/iconos/Icono'
 import { useEffect, useState } from 'react'
 import { useT } from '../../../core/i18n/useT'
+import { registrarJuegoMesa, useMesa, type Asiento } from '../../../core/partida/mesa'
 import { COLOR } from '../constantes'
 import type { Dificultad, PropsDificultad } from './dificultad'
 import { ElegirModo } from './ElegirModo'
+import { BarraMesa, nombreAsiento, opcionEnLinea } from './mesaJuego'
 
 type ColorFicha = 'clara' | 'oscura'
-type Modo = '2j' | 'ia'
+type Modo = '2j' | 'ia' | 'online'
 
 interface Ficha {
   color: ColorFicha
@@ -76,6 +78,63 @@ function aplicarMov(t: TableroDamas, m: MovDama): { tablero: TableroDamas; coron
   return { tablero: nuevo, corono }
 }
 
+/**
+ * Partida entera: es lo que viaja en la mesa en línea. `cadena` es la ficha que
+ * está en mitad de una cadena de capturas (los saltos se mandan de uno en uno y
+ * el turno no cambia hasta que se agota).
+ */
+interface EstadoDamas {
+  tab: TableroDamas
+  turno: ColorFicha
+  cadena: number | null
+  ganador: ColorFicha | null
+}
+
+/** La jugada son las dos casillas: la captura la deduce el reductor. */
+interface MovDamasMesa {
+  de: number
+  a: number
+}
+
+/** Quien abre la mesa lleva las claras, que son las que empiezan. */
+const COLOR_DE: Record<Asiento, ColorFicha> = { a: 'clara', b: 'oscura' }
+
+function inicialDamas(): EstadoDamas {
+  return { tab: tableroInicial(), turno: 'clara', cadena: null, ganador: null }
+}
+
+/** Los movimientos que tocan ahora: en mitad de una cadena, solo sus capturas. */
+function legalesDamas(e: EstadoDamas): MovDama[] {
+  return e.cadena != null
+    ? movsFicha(e.tab, e.cadena).filter((m) => m.captura != null)
+    : movsLegales(e.tab, e.turno)
+}
+
+/**
+ * Reductor puro: null si la partida acabó, si no es el turno de ese color o si
+ * el salto no está entre los legales. Es el mismo que usa el árbitro de la mesa.
+ */
+function aplicarDamas(e: EstadoDamas, m: MovDamasMesa, color: ColorFicha): EstadoDamas | null {
+  if (e.ganador !== null || e.turno !== color) return null
+  const mov = legalesDamas(e).find((x) => x.de === m?.de && x.a === m?.a)
+  if (!mov) return null
+  const { tablero: tab, corono } = aplicarMov(e.tab, mov)
+  // Cadena viva: la misma ficha sigue comiendo y el turno NO cambia.
+  if (mov.captura != null && !corono && movsFicha(tab, mov.a).some((x) => x.captura != null))
+    return { tab, turno: e.turno, cadena: mov.a, ganador: null }
+  const rival: ColorFicha = e.turno === 'clara' ? 'oscura' : 'clara'
+  if (movsLegales(tab, rival).length === 0) return { tab, turno: e.turno, cadena: null, ganador: e.turno }
+  return { tab, turno: rival, cadena: null, ganador: null }
+}
+
+const VACIO_DAMAS = inicialDamas()
+
+registrarJuegoMesa<EstadoDamas, MovDamasMesa>('damas', {
+  inicial: inicialDamas,
+  aplicar: (e, m, asiento) => aplicarDamas(e, m, COLOR_DE[asiento]),
+  terminado: (e) => e.ganador !== null,
+})
+
 // Material visto por la máquina (lleva las oscuras): una dama vale por tres fichas
 function ventajaOscuras(t: TableroDamas): number {
   let v = 0
@@ -110,61 +169,73 @@ function movIA(tablero: TableroDamas, opciones: MovDama[], dif: Dificultad): Mov
   return elegido
 }
 
-export function Damas({ dificultad = 'medio' }: PropsDificultad) {
+export function Damas({ dificultad = 'medio', mesaOnline = false }: PropsDificultad) {
   const t = useT()
-  const [modo, setModo] = useState<Modo | null>(null)
-  const [tablero, setTablero] = useState<TableroDamas>(tableroInicial)
-  const [turno, setTurno] = useState<ColorFicha>('clara')
+  const mesa = useMesa<EstadoDamas, MovDamasMesa>('damas')
+  const [modo, setModo] = useState<Modo | null>(mesaOnline ? 'online' : null)
+  const [local, setLocal] = useState<EstadoDamas>(inicialDamas)
   const [sel, setSel] = useState<number | null>(null)
-  const [cadena, setCadena] = useState<number | null>(null)
-  const [ganador, setGanador] = useState<ColorFicha | null>(null)
 
-  const legales =
-    cadena != null ? movsFicha(tablero, cadena).filter((m) => m.captura != null) : movsLegales(tablero, turno)
-  const destinos = sel !== null ? legales.filter((m) => m.de === sel) : []
+  const online = modo === 'online'
+  // En línea el tablero es el de la mesa: una sola fuente, nunca el `useState`.
+  const estado = online ? (mesa.estado ?? VACIO_DAMAS) : local
+  const { tab: tablero, turno, cadena, ganador } = estado
+  const miColor = online && mesa.miAsiento ? COLOR_DE[mesa.miAsiento] : null
+  const turnoMio = !online || miColor === turno
+  const sinAsientoB = mesa.asientos.b === null
+
+  const legales = legalesDamas(estado)
+  // En mitad de una cadena manda la ficha que está comiendo, no lo que se tocó.
+  const seleccion = cadena != null ? cadena : sel
+  const destinos = seleccion !== null ? legales.filter((m) => m.de === seleccion) : []
 
   const reiniciar = (m: Modo | null) => {
+    if (online && m !== 'online') mesa.levantar()
     setModo(m)
-    setTablero(tableroInicial())
-    setTurno('clara')
+    setLocal(inicialDamas())
     setSel(null)
-    setCadena(null)
-    setGanador(null)
   }
 
   const jugar = (m: MovDama) => {
-    const { tablero: nuevo, corono } = aplicarMov(tablero, m)
-    const sigueCadena = m.captura != null && !corono && movsFicha(nuevo, m.a).some((x) => x.captura != null)
-    setTablero(nuevo)
-    if (sigueCadena) {
-      setCadena(m.a)
-      setSel(m.a)
+    if (online) {
+      mesa.jugar({ de: m.de, a: m.a })
+      setSel(null)
       return
     }
-    const rival: ColorFicha = turno === 'clara' ? 'oscura' : 'clara'
-    setCadena(null)
+    const nuevo = aplicarDamas(local, m, turno)
+    if (!nuevo) return
+    setLocal(nuevo)
     setSel(null)
-    if (movsLegales(nuevo, rival).length === 0) setGanador(turno)
-    else setTurno(rival)
   }
+
+  // Al ENTRAR en línea (no cada vez que cambia la mesa: si la que miraba se
+  // cierra, no hay que abrir otra en su lugar).
+  useEffect(() => {
+    if (online && mesa.enLinea && !mesa.abierta) mesa.abrir()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [online, mesa.enLinea])
+
+  // Sentarse enfrente en cuanto haya mesa y sitio (también viniendo de la banda).
+  useEffect(() => {
+    if (online && mesa.abierta && mesa.miAsiento === null && sinAsientoB) mesa.sentar()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [online, mesa.abierta, mesa.miAsiento, sinAsientoB])
 
   // La máquina lleva las oscuras (las capturas ya son obligatorias para ambos)
   useEffect(() => {
     if (modo !== 'ia' || ganador || turno !== 'oscura') return
     const id = setTimeout(() => {
-      const opciones =
-        cadena != null ? movsFicha(tablero, cadena).filter((m) => m.captura != null) : movsLegales(tablero, 'oscura')
-      if (!opciones.length) return
-      jugar(movIA(tablero, opciones, dificultad))
+      if (!legales.length) return
+      jugar(movIA(tablero, legales, dificultad))
     }, 500)
     return () => clearTimeout(id)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [modo, ganador, turno, tablero, cadena])
 
   const clickCasilla = (i: number) => {
-    if (ganador || modo === null) return
+    if (ganador || modo === null || !turnoMio) return
     if (modo === 'ia' && turno === 'oscura') return
-    if (sel !== null) {
+    if (seleccion !== null) {
       const m = destinos.find((x) => x.a === i)
       if (m) {
         jugar(m)
@@ -193,6 +264,7 @@ export function Damas({ dificultad = 'medio' }: PropsDificultad) {
             desc: t('entre.j.modo.2jDesc', 'En el mismo dispositivo'),
             alElegir: () => reiniciar('2j'),
           },
+          ...(mesa.enLinea ? [opcionEnLinea(t, mesa.asientos, () => reiniciar('online'))] : []),
         ]}
       />
     )
@@ -201,7 +273,11 @@ export function Damas({ dificultad = 'medio' }: PropsDificultad) {
   const claras = tablero.filter((x) => x?.color === 'clara').length
   const oscuras = tablero.filter((x) => x?.color === 'oscura').length
   const nombreColor = (c: ColorFicha) =>
-    c === 'clara' ? t('entre.j.damas.claras', 'Claras') : t('entre.j.damas.oscuras', 'Oscuras')
+    online
+      ? nombreAsiento(t, mesa.asientos, c === 'clara' ? 'a' : 'b', mesa.miAsiento)
+      : c === 'clara'
+        ? t('entre.j.damas.claras', 'Claras')
+        : t('entre.j.damas.oscuras', 'Oscuras')
 
   return (
     <div className="space-y-3">
@@ -223,18 +299,26 @@ export function Damas({ dificultad = 'medio' }: PropsDificultad) {
               ? ganador === 'clara'
                 ? t('entre.j.ganaste', '¡Ganaste! 🎉')
                 : t('entre.j.damas.ganaMaquina', 'Gana la máquina')
-              : t('entre.j.damas.gana', `¡Ganan las ${nombreColor(ganador).toLowerCase()}!`, { color: nombreColor(ganador) })}
+              : online
+                ? ganador === miColor
+                  ? t('entre.j.ganaste', '¡Ganaste! 🎉')
+                  : t('entre.j.mesa.gana', 'Gana {n}', { n: nombreColor(ganador) })
+                : t('entre.j.damas.gana', `¡Ganan las ${nombreColor(ganador).toLowerCase()}!`, { color: nombreColor(ganador) })}
           </span>
         )}
         <div className="flex gap-2">
-          <button type="button" onClick={() => reiniciar(modo)} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold">
-            <Icono nombre="sincronizar" /> {t('entre.j.nueva', 'Nueva partida')}
-          </button>
+          {!online && (
+            <button type="button" onClick={() => reiniciar(modo)} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold">
+              <Icono nombre="sincronizar" /> {t('entre.j.nueva', 'Nueva partida')}
+            </button>
+          )}
           <button type="button" onClick={() => reiniciar(null)} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold">
-            {t('entre.j.modo.cambiar', 'Cambiar modo')}
+            {online ? t('entre.j.mesa.salir', 'Salir de la mesa') : t('entre.j.modo.cambiar', 'Cambiar modo')}
           </button>
         </div>
       </div>
+
+      {online && <BarraMesa abierta={mesa.abierta} cerrada={mesa.cerrada} asientos={mesa.asientos} miAsiento={mesa.miAsiento} />}
 
       <div className="mx-auto grid max-w-[420px] select-none grid-cols-8 overflow-hidden rounded-xl border border-white/15 shadow-lg">
         {tablero.map((ficha, i) => {
@@ -256,7 +340,7 @@ export function Damas({ dificultad = 'medio' }: PropsDificultad) {
                     ficha.color === 'clara'
                       ? 'border-slate-400 bg-gradient-to-br from-[#ffffff] to-slate-300'
                       : 'border-black bg-gradient-to-br from-slate-600 to-slate-950'
-                  } ${sel === i ? 'ring-2 ring-emerald-400' : ''}`}
+                  } ${seleccion === i ? 'ring-2 ring-emerald-400' : ''}`}
                 >
                   {/* Tonos 500/600: no se remapean en claro, y las fichas son de color fijo. */}
                   {ficha.dama && (

@@ -4,6 +4,7 @@ import {
   paintballFrame,
   leerMarcadorPaintball,
   configAnterior,
+  hayBatallaOnline,
   MAX_BOTS_ROYALE,
   VIDAS_PAINTBALL,
   type ModoPaintball,
@@ -11,6 +12,8 @@ import {
 } from '../state/paintballStore'
 import { useAsistentes } from '../state/asistentesStore'
 import { useCam } from '../state/cameraStore'
+import { usePartida } from '../partida/partidaStore'
+import { confirmar } from '../state/confirmarStore'
 import { ControlesTiro } from './ControlesTiro'
 import { LookPad } from './MoveControls'
 import { SliderProp } from './comun/SliderProp'
@@ -105,6 +108,10 @@ export function PaintballOverlay() {
   const dificultad = usePaintball((s) => s.dificultad)
   const vistaCombate = usePaintball((s) => s.vistaCombate)
   const asistentes = useAsistentes((s) => s.lista)
+  const sala = usePartida((s) => s.sala)
+  // «En línea» solo con sala viva de dos o más: el reparto lo hace el anfitrión.
+  const enSala = sala && sala.jugadores.filter((j) => j.estado === 'dentro').length >= 2 ? sala : null
+  const arbitro = enSala?.soyAnfitrion === true
   // Refresco del semáforo (paintballFrame.reloj no es reactivo).
   const [, setTick] = useState(0)
   useEffect(() => {
@@ -122,6 +129,22 @@ export function PaintballOverlay() {
 
   const textoMensaje = (m: NonNullable<typeof mensaje>) =>
     t(`paintball.msg.${m.clave}`, MENSAJES[m.clave] ?? m.clave, { nombre: m.nombre ?? '' })
+
+  // En línea abandonar tiene consecuencias para más gente: se pregunta antes.
+  const abandonar = async () => {
+    if (hayBatallaOnline()) {
+      const si = await confirmar({
+        titulo: t('paintball.abandonar', 'Abandonar'),
+        mensaje: arbitro
+          ? t('paintball.abandonar.arbitro', 'Eres el anfitrión: la batalla se cierra para todos.')
+          : t('paintball.abandonar.invitado', 'Te retiras tú solo y la batalla sigue sin ti.'),
+        textoOk: t('paintball.abandonar', 'Abandonar'),
+        peligro: true,
+      })
+      if (!si) return
+    }
+    p.cancelar()
+  }
 
   if (fase === 'config') {
     const modos: { id: ModoPaintball; etiqueta: string }[] = [
@@ -188,7 +211,31 @@ export function PaintballOverlay() {
             onChange={(v) => p.setDificultad(v)}
             onReset={() => p.setDificultad(0.5)}
           />
-          {modoSel === '1v1' && (
+          {enSala && (
+            <div className="flex flex-col gap-1.5 rounded-lg border border-emerald-400/30 bg-emerald-500/10 p-2">
+              <p className="text-center text-[11px] font-bold text-emerald-200">
+                <Icono nombre="persona" />{' '}
+                {t('paintball.online.titulo', 'Batalla en línea')} ·{' '}
+                {t('paintball.online.enSala', '{n} en la sala', {
+                  n: enSala.jugadores.filter((j) => j.estado === 'dentro').length,
+                })}
+              </p>
+              {arbitro ? (
+                <button
+                  type="button"
+                  onClick={() => p.empezarOnline(enSala, modoSel)}
+                  className="h-10 rounded-lg border border-emerald-400/50 bg-emerald-600 text-sm font-bold texto-cta transition hover:brightness-110 active:scale-95"
+                >
+                  {t('paintball.online.empezar', 'Empezar con la sala')}
+                </button>
+              ) : (
+                <p className="text-center text-[11px] font-semibold text-white/60">
+                  {t('paintball.online.espera', 'El anfitrión elige el modo y da el banderazo.')}
+                </p>
+              )}
+            </div>
+          )}
+          {modoSel === '1v1' && (!enSala || arbitro) && (
             <>
               <p className="text-center text-[11px] font-semibold text-white/50">
                 {t('paintball.eligeRival', 'Elige a tu rival:')}
@@ -208,6 +255,7 @@ export function PaintballOverlay() {
             </>
           )}
           {modoSel === '2v2' &&
+            (!enSala || arbitro) &&
             (asistentes.length < 3 ? (
               <p className="text-center text-[11px] font-bold text-amber-300">
                 {t('paintball.msg.faltan', MENSAJES.faltan)}
@@ -234,7 +282,7 @@ export function PaintballOverlay() {
                 </div>
               </>
             ))}
-          {modoSel === 'royale' && (
+          {modoSel === 'royale' && (!enSala || arbitro) && (
             <>
               <p className="text-center text-[11px] font-semibold text-white/50">
                 {t('paintball.royaleDesc', 'Todos contra todos: tú contra tus asistentes por toda la casa.')}
@@ -300,7 +348,7 @@ export function PaintballOverlay() {
             ))}
             <button
               type="button"
-              onClick={() => p.cancelar()}
+              onClick={() => void abandonar()}
               className="rounded-full border border-white/10 bg-white/10 px-2.5 py-0.5 text-[10px] font-bold text-white/70 transition hover:bg-white/20 active:scale-95"
             >
               {t('paintball.abandonar', 'Abandonar')}
@@ -355,13 +403,18 @@ export function PaintballOverlay() {
           {t('paintball.derrotas', 'Derrotas')}: {marcador.derrotas}
         </p>
         <div className="flex items-center justify-center gap-2">
-          <button
-            type="button"
-            onClick={() => cfg && p.empezar(cfg.modo, cfg.rivales)}
-            className="h-10 flex-1 rounded-lg border border-emerald-400/50 bg-emerald-600 text-sm font-bold texto-cta transition hover:brightness-110 active:scale-95"
-          >
-            {t('paintball.otraVez', 'Otra vez')}
-          </button>
+          {/* La revancha en línea la convoca el árbitro para toda la sala. */}
+          {(enSala ? arbitro : cfg !== null) && (
+            <button
+              type="button"
+              onClick={() =>
+                enSala ? p.empezarOnline(enSala, modoSel) : cfg && p.empezar(cfg.modo, cfg.rivales)
+              }
+              className="h-10 flex-1 rounded-lg border border-emerald-400/50 bg-emerald-600 text-sm font-bold texto-cta transition hover:brightness-110 active:scale-95"
+            >
+              {t('paintball.otraVez', 'Otra vez')}
+            </button>
+          )}
           <button
             type="button"
             onClick={() => p.cancelar()}

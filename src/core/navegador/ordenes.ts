@@ -13,7 +13,8 @@ const RE: [RegExp, PestanaNav][] = [
   [/^(?:el )?navegador$|^browser$/, 'historial'],
 ]
 
-function normalizar(texto: string): string {
+/** Minúsculas, sin acentos ni signos: lo que comparan las órdenes deterministas. */
+export function normalizarOrden(texto: string): string {
   return texto
     .toLowerCase()
     .normalize('NFD')
@@ -25,7 +26,7 @@ function normalizar(texto: string): string {
 
 /** ¿El mensaje pide ver el panel del navegador? Devuelve la pestaña que toca. */
 export function ordenNavegador(texto: string): PestanaNav | null {
-  const n = normalizar(texto)
+  const n = normalizarOrden(texto)
   for (const [re, pestana] of RE) if (re.test(n)) return pestana
   return null
 }
@@ -39,7 +40,7 @@ const RE_FOCO_TERMINAR =
 
 /** «modo foco», «foco 25 min», «fin del foco»… */
 export function ordenFoco(texto: string): OrdenFoco | null {
-  const n = normalizar(texto)
+  const n = normalizarOrden(texto)
   if (RE_FOCO_TERMINAR.test(n)) return { accion: 'terminar' }
   const m = RE_FOCO_INICIAR.exec(n)
   if (!m) return null

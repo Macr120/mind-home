@@ -3,6 +3,7 @@ import type { Rutina } from '../../data/db'
 import { rutinasRepo } from '../../data/repository'
 import { useT } from '../../i18n/useT'
 import { confirmar } from '../../state/confirmarStore'
+import { usePuedeEditarRutina } from '../../espacios/calendario'
 import {
   borrarMetaConDescendencia,
   crearMeta,
@@ -46,6 +47,8 @@ export function DespliegueFila({
   const [nombreHija, setNombreHija] = useState('')
   const meta = esMeta(rutina)
   const hijas = meta ? hijasDe(metas, rutina.id) : []
+  // En un calendario compartido donde solo miro, la fila se lee y nada más.
+  const puedoEditar = usePuedeEditarRutina(rutina)
 
   const confirmarHija = () => {
     if (!nombreHija.trim() || rutina.id == null) return
@@ -100,35 +103,41 @@ export function DespliegueFila({
             <span className="text-[10px] text-white/35">
               <Icono nombre="repetir" /> {textoRepeticion(rutina)}
             </span>
-            <button
-              type="button"
-              onClick={() => onEditar(rutina)}
-              title={t('rutinas.editar', 'Editar')}
-              className="px-1 text-[10px] text-white/40 transition hover:text-white/80"
-            >
-              <Icono nombre="editar" />
-            </button>
-            {/* Pausar sin borrar el pasado: cierra la serie hoy (ver cambioPausa). */}
-            <button
-              type="button"
-              onClick={() => rutina.id != null && void rutinasRepo.update(rutina.id, cambioPausa(rutina))}
-              title={rutina.activa ? t('rutinas.pausar', 'Pausar') : t('rutinas.activar', 'Activar')}
-              className={`rounded px-1.5 text-[9px] font-bold transition ${
-                rutina.activa ? 'bg-emerald-500/20 text-emerald-400' : 'bg-white/10 text-white/40'
-              }`}
-            >
-              {rutina.activa ? 'ON' : 'OFF'}
-            </button>
+            {puedoEditar && (
+              <>
+                <button
+                  type="button"
+                  onClick={() => onEditar(rutina)}
+                  title={t('rutinas.editar', 'Editar')}
+                  className="px-1 text-[10px] text-white/40 transition hover:text-white/80"
+                >
+                  <Icono nombre="editar" />
+                </button>
+                {/* Pausar sin borrar el pasado: cierra la serie hoy (ver cambioPausa). */}
+                <button
+                  type="button"
+                  onClick={() => rutina.id != null && void rutinasRepo.update(rutina.id, cambioPausa(rutina))}
+                  title={rutina.activa ? t('rutinas.pausar', 'Pausar') : t('rutinas.activar', 'Activar')}
+                  className={`rounded px-1.5 text-[9px] font-bold transition ${
+                    rutina.activa ? 'bg-emerald-500/20 text-emerald-400' : 'bg-white/10 text-white/40'
+                  }`}
+                >
+                  {rutina.activa ? 'ON' : 'OFF'}
+                </button>
+              </>
+            )}
           </>
         )}
-        <button
-          type="button"
-          onClick={() => void borrar()}
-          title={t('rutinas.borrar', 'Borrar')}
-          className="ms-auto px-1 text-[10px] text-white/30 transition hover:text-red-400"
-        >
-          <Icono nombre="basura" />
-        </button>
+        {puedoEditar && (
+          <button
+            type="button"
+            onClick={() => void borrar()}
+            title={t('rutinas.borrar', 'Borrar')}
+            className="ms-auto px-1 text-[10px] text-white/30 transition hover:text-red-400"
+          >
+            <Icono nombre="basura" />
+          </button>
+        )}
       </div>
 
       {agregando && (

@@ -1,13 +1,15 @@
 import { Icono } from '../../../core/ui/iconos/Icono'
 import { useEffect, useMemo, useState } from 'react'
 import { useT } from '../../../core/i18n/useT'
+import { registrarJuegoMesa, useMesa, type Asiento } from '../../../core/partida/mesa'
 import { COLOR } from '../constantes'
 import type { Dificultad, PropsDificultad } from './dificultad'
 import { ElegirModo } from './ElegirModo'
+import { BarraMesa, nombreAsiento, opcionEnLinea } from './mesaJuego'
 
 type TipoPieza = 'p' | 'c' | 'a' | 't' | 'd' | 'r'
 type Bando = 'b' | 'n'
-type Modo = '2j' | 'ia'
+type Modo = '2j' | 'ia' | 'online'
 
 interface Pieza {
   t: TipoPieza
@@ -22,6 +24,8 @@ interface EstadoAjedrez {
   // Derechos de enroque: corto/largo de blancas y negras
   enroques: { bc: boolean; bl: boolean; nc: boolean; nl: boolean }
   alPaso: number | null
+  /** Última jugada, para iluminarla también cuando el tablero llega por la red. */
+  ult: { de: number; a: number } | null
 }
 
 interface MovAjedrez {
@@ -53,7 +57,7 @@ function estadoInicial(): EstadoAjedrez {
     tab[8 + c] = { t: 'p', b: 'n' }
     tab[48 + c] = { t: 'p', b: 'b' }
   }
-  return { tab, turno: 'b', enroques: { bc: true, bl: true, nc: true, nl: true }, alPaso: null }
+  return { tab, turno: 'b', enroques: { bc: true, bl: true, nc: true, nl: true }, alPaso: null, ult: null }
 }
 
 function atacaEnLinea(tab: TableroAjedrez, f: number, c: number, por: Bando, dirs: number[][], tipos: TipoPieza[]): boolean {
@@ -202,6 +206,7 @@ function aplicar(e: EstadoAjedrez, m: MovAjedrez): EstadoAjedrez {
     turno: e.turno === 'b' ? 'n' : 'b',
     enroques,
     alPaso: dobleDePeon ? (m.de + m.a) / 2 : null,
+    ult: { de: m.de, a: m.a },
   }
 }
 
@@ -215,6 +220,36 @@ function todosLegales(e: EstadoAjedrez): MovAjedrez[] {
   for (let i = 0; i < 64; i++) if (e.tab[i]?.b === e.turno) movs.push(...movsLegales(e, i))
   return movs
 }
+
+/** La jugada son las dos casillas: enroque, al paso y coronación salen solos. */
+interface MovAjedrezMesa {
+  de: number
+  a: number
+}
+
+/** Quien abre la mesa lleva las blancas, que son las que empiezan. */
+const BANDO_DE: Record<Asiento, Bando> = { a: 'b', b: 'n' }
+
+const INICIAL_AJEDREZ = estadoInicial()
+
+/**
+ * Reductor puro de la mesa: null si no es su turno, si la partida ya acabó o si
+ * esas dos casillas no son una jugada legal. `aplicar` ya era puro: aquí solo se
+ * comprueba la legalidad, que es lo que el árbitro no puede dar por bueno.
+ */
+function aplicarMesaAjedrez(e: EstadoAjedrez, m: MovAjedrezMesa, bando: Bando): EstadoAjedrez | null {
+  if (e.turno !== bando || todosLegales(e).length === 0) return null
+  const pieza = e.tab[m?.de]
+  if (!pieza || pieza.b !== bando) return null
+  const mov = movsLegales(e, m.de).find((x) => x.a === m.a)
+  return mov ? aplicar(e, mov) : null
+}
+
+registrarJuegoMesa<EstadoAjedrez, MovAjedrezMesa>('ajedrez', {
+  inicial: estadoInicial,
+  aplicar: (e, m, asiento) => aplicarMesaAjedrez(e, m, BANDO_DE[asiento]),
+  terminado: (e) => todosLegales(e).length === 0,
+})
 
 /**
  * IA voraz: captura lo más valioso, corona y busca mates a una. En fácil juega casi
@@ -268,13 +303,22 @@ function capturadas(tab: TableroAjedrez, b: Bando): TipoPieza[] {
   return restantes
 }
 
-export function Ajedrez({ dificultad = 'medio' }: PropsDificultad) {
+export function Ajedrez({ dificultad = 'medio', mesaOnline = false }: PropsDificultad) {
   const t = useT()
-  const [modo, setModo] = useState<Modo | null>(null)
-  const [estado, setEstado] = useState<EstadoAjedrez>(estadoInicial)
+  const mesa = useMesa<EstadoAjedrez, MovAjedrezMesa>('ajedrez')
+  const [modo, setModo] = useState<Modo | null>(mesaOnline ? 'online' : null)
+  const [estadoLocal, setEstado] = useState<EstadoAjedrez>(estadoInicial)
   const [sel, setSel] = useState<number | null>(null)
-  const [ultMov, setUltMov] = useState<{ de: number; a: number } | null>(null)
+  const [ultMovLocal, setUltMov] = useState<{ de: number; a: number } | null>(null)
   const [historial, setHistorial] = useState<{ estado: EstadoAjedrez; ultMov: { de: number; a: number } | null }[]>([])
+
+  const online = modo === 'online'
+  // En línea el tablero es el de la mesa: una sola fuente, nunca el `useState`.
+  const estado = online ? (mesa.estado ?? INICIAL_AJEDREZ) : estadoLocal
+  const ultMov = online ? estado.ult : ultMovLocal
+  const miBando = online && mesa.miAsiento ? BANDO_DE[mesa.miAsiento] : null
+  const turnoMio = !online || miBando === estado.turno
+  const sinAsientoB = mesa.asientos.b === null
 
   const legalesTurno = useMemo(() => todosLegales(estado), [estado])
   const movsSel = useMemo(() => (sel !== null ? movsLegales(estado, sel) : []), [estado, sel])
@@ -282,6 +326,7 @@ export function Ajedrez({ dificultad = 'medio' }: PropsDificultad) {
   const finPartida = legalesTurno.length === 0 ? (jaque ? (estado.turno === 'b' ? 'ganaN' : 'ganaB') : 'tablas') : null
 
   const reiniciar = (m: Modo | null) => {
+    if (online && m !== 'online') mesa.levantar()
     setModo(m)
     setEstado(estadoInicial())
     setSel(null)
@@ -290,8 +335,13 @@ export function Ajedrez({ dificultad = 'medio' }: PropsDificultad) {
   }
 
   const jugarMov = (m: MovAjedrez) => {
-    setHistorial((h) => [...h, { estado, ultMov }])
-    setEstado(aplicar(estado, m))
+    if (online) {
+      mesa.jugar({ de: m.de, a: m.a })
+      setSel(null)
+      return
+    }
+    setHistorial((h) => [...h, { estado: estadoLocal, ultMov: ultMovLocal }])
+    setEstado(aplicar(estadoLocal, m))
     setUltMov({ de: m.de, a: m.a })
     setSel(null)
   }
@@ -307,6 +357,19 @@ export function Ajedrez({ dificultad = 'medio' }: PropsDificultad) {
     setSel(null)
   }
 
+  // Al ENTRAR en línea (no cada vez que cambia la mesa: si la que miraba se
+  // cierra, no hay que abrir otra en su lugar).
+  useEffect(() => {
+    if (online && mesa.enLinea && !mesa.abierta) mesa.abrir()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [online, mesa.enLinea])
+
+  // Sentarse enfrente en cuanto haya mesa y sitio (también viniendo de la banda).
+  useEffect(() => {
+    if (online && mesa.abierta && mesa.miAsiento === null && sinAsientoB) mesa.sentar()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [online, mesa.abierta, mesa.miAsiento, sinAsientoB])
+
   useEffect(() => {
     if (modo !== 'ia' || estado.turno !== 'n' || legalesTurno.length === 0) return
     const id = setTimeout(() => {
@@ -318,7 +381,7 @@ export function Ajedrez({ dificultad = 'medio' }: PropsDificultad) {
   }, [modo, estado])
 
   const clickCasilla = (i: number) => {
-    if (finPartida || modo === null) return
+    if (finPartida || modo === null || !turnoMio) return
     if (modo === 'ia' && estado.turno === 'n') return
     if (sel !== null) {
       const m = movsSel.find((x) => x.a === i)
@@ -349,6 +412,7 @@ export function Ajedrez({ dificultad = 'medio' }: PropsDificultad) {
             desc: t('entre.j.modo.2jDesc', 'En el mismo dispositivo'),
             alElegir: () => reiniciar('2j'),
           },
+          ...(mesa.enLinea ? [opcionEnLinea(t, mesa.asientos, () => reiniciar('online'))] : []),
         ]}
       />
     )
@@ -359,7 +423,11 @@ export function Ajedrez({ dificultad = 'medio' }: PropsDificultad) {
   const suma = (piezas: TipoPieza[]) => piezas.reduce((s, p) => s + VALOR[p], 0)
   const ventaja = suma(capturadasNegras) - suma(capturadasBlancas)
   const nombreBando = (b: Bando) =>
-    b === 'b' ? t('entre.j.ajedrez.blancas', 'Blancas') : t('entre.j.ajedrez.negras', 'Negras')
+    online
+      ? nombreAsiento(t, mesa.asientos, b === 'b' ? 'a' : 'b', mesa.miAsiento)
+      : b === 'b'
+        ? t('entre.j.ajedrez.blancas', 'Blancas')
+        : t('entre.j.ajedrez.negras', 'Negras')
 
   return (
     <div className="space-y-3">
@@ -386,22 +454,28 @@ export function Ajedrez({ dificultad = 'medio' }: PropsDificultad) {
           </span>
         )}
         <div className="flex gap-2">
-          <button
-            type="button"
-            onClick={deshacer}
-            disabled={!historial.length || (modo === 'ia' && estado.turno === 'n')}
-            className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold disabled:opacity-30"
-          >
-            ↩ {t('entre.j.deshacer', 'Deshacer')}
-          </button>
-          <button type="button" onClick={() => reiniciar(modo)} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold">
-            <Icono nombre="sincronizar" /> {t('entre.j.nueva', 'Nueva partida')}
-          </button>
+          {!online && (
+            <>
+              <button
+                type="button"
+                onClick={deshacer}
+                disabled={!historial.length || (modo === 'ia' && estado.turno === 'n')}
+                className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold disabled:opacity-30"
+              >
+                ↩ {t('entre.j.deshacer', 'Deshacer')}
+              </button>
+              <button type="button" onClick={() => reiniciar(modo)} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold">
+                <Icono nombre="sincronizar" /> {t('entre.j.nueva', 'Nueva partida')}
+              </button>
+            </>
+          )}
           <button type="button" onClick={() => reiniciar(null)} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold">
-            {t('entre.j.modo.cambiar', 'Cambiar modo')}
+            {online ? t('entre.j.mesa.salir', 'Salir de la mesa') : t('entre.j.modo.cambiar', 'Cambiar modo')}
           </button>
         </div>
       </div>
+
+      {online && <BarraMesa abierta={mesa.abierta} cerrada={mesa.cerrada} asientos={mesa.asientos} miAsiento={mesa.miAsiento} />}
 
       <div className="mx-auto grid max-w-[440px] select-none grid-cols-8 overflow-hidden rounded-xl border border-white/15 shadow-lg">
         {estado.tab.map((pieza, i) => {

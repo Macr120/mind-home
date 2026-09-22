@@ -15,6 +15,8 @@ export const ETIQUETAS_DIFICULTAD: Record<Dificultad, string> = {
 /** Props que reciben los juegos con dificultad ajustable. */
 export interface PropsDificultad {
   dificultad?: Dificultad
+  /** Arranca ya en modo «En línea»: lo pide la banda de la mesa abierta. */
+  mesaOnline?: boolean
 }
 
 /**

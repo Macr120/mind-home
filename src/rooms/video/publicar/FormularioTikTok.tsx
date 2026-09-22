@@ -15,10 +15,10 @@ export function validarTikTok(meta: MetaTikTok, info: OpcionesTikTok | null, dur
   }
   if (!meta.privacidad) return t('video.publicar.privacidad.elegir', 'Elige quién puede verlo.')
   if (meta.comercial && !meta.tuMarca && !meta.contenidoMarca) {
-    return t('video.publicar.tt.comercialSinCasilla', 'Marca al menos una opción para indicar qué tipo de contenido comercial es.')
+    return t('video.publicar.tt.comercialSinCasilla', 'Tienes que indicar si tu contenido te promociona a ti, a un tercero o a ambos.')
   }
   if (meta.comercial && meta.contenidoMarca && meta.privacidad === 'SELF_ONLY') {
-    return t('video.publicar.tt.marcaNoPrivado', 'El contenido de marca no puede publicarse como «Solo yo».')
+    return t('video.publicar.tt.marcaNoPrivado', 'La visibilidad del contenido de marca no puede ser privada.')
   }
   return null
 }
@@ -111,6 +111,13 @@ export function FormularioTikTok({
           ))}
         </div>
         {!meta.privacidad && <p className="mt-1 text-[11px] text-white/40">{t('video.publicar.privacidad.elegir', 'Elige quién puede verlo.')}</p>}
+        {/* La guía de TikTok pide que, con «Contenido de marca» puesto, además de
+            deshabilitar «Solo yo» se explique por qué. */}
+        {marca && (
+          <p className="mt-1 text-[11px] leading-snug text-amber-200/80">
+            {t('video.publicar.tt.marcaNoPrivado', 'La visibilidad del contenido de marca no puede ser privada.')}
+          </p>
+        )}
         {!info.auditado && (
           <p className="mt-1 text-[11px] leading-snug text-amber-300/80">
             {t('video.publicar.tt.auditoria', 'Esta app aún está en revisión de TikTok: el video se publica como «Solo yo».')}
@@ -154,20 +161,25 @@ export function FormularioTikTok({
               <input type="checkbox" checked={meta.tuMarca} onChange={(e) => onCambio({ ...meta, tuMarca: e.target.checked })} className="mt-0.5" />
               <span>
                 <span className="font-semibold text-white/80">{t('video.publicar.tt.tuMarca', 'Tu marca')}</span>
-                <span className="block text-[11px] text-white/45">
-                  {t('video.publicar.tt.tuMarcaNota', 'Promocionas tu propio negocio. El video se etiquetará como «Contenido promocional».')}
-                </span>
+                <span className="block text-[11px] text-white/45">{t('video.publicar.tt.tuMarcaNota', 'Promocionas tu propio negocio.')}</span>
               </span>
             </label>
             <label className="flex items-start gap-2 text-xs">
               <input type="checkbox" checked={meta.contenidoMarca} onChange={(e) => onCambio({ ...meta, contenidoMarca: e.target.checked })} className="mt-0.5" />
               <span>
                 <span className="font-semibold text-white/80">{t('video.publicar.tt.contenidoMarca', 'Contenido de marca')}</span>
-                <span className="block text-[11px] text-white/45">
-                  {t('video.publicar.tt.contenidoMarcaNota', 'Promocionas a otra marca o a un tercero. El video se etiquetará como «Colaboración pagada».')}
-                </span>
+                <span className="block text-[11px] text-white/45">{t('video.publicar.tt.contenidoMarcaNota', 'Promocionas a otra marca o a un tercero.')}</span>
               </span>
             </label>
+            {/* La etiqueta sale de UNA sola línea, no de las notas de cada casilla: si el
+                usuario marca las dos, TikTok clasifica el video como «Colaboración pagada». */}
+            {(meta.tuMarca || meta.contenidoMarca) && (
+              <p className="text-[11px] leading-snug text-amber-200/80">
+                {meta.contenidoMarca
+                  ? t('video.publicar.tt.etiquetaPagada', 'Tu video se etiquetará como «Colaboración pagada».')
+                  : t('video.publicar.tt.etiquetaPromo', 'Tu video se etiquetará como «Contenido promocional».')}
+              </p>
+            )}
           </div>
         )}
       </Campo>

@@ -11,6 +11,8 @@ import { descargarBlobDe, marcarLeido, reintentar } from '../motor'
 import type { MensajeBuzon } from '../tipos'
 import { Retrato } from './Retrato'
 import { TarjetaContenido } from './TarjetaContenido'
+import { TarjetaJuego } from './TarjetaJuego'
+import { TarjetaEspacio } from '../../espacios/ui/TarjetaEspacio'
 
 /**
  * El hilo con una persona del buzón: misma forma que la conversación con un
@@ -166,7 +168,15 @@ function Burbuja({ m }: { m: MensajeBuzon }) {
             </span>
           </button>
         )}
-        {m.tipo === 'contenido' && m.contenido && <TarjetaContenido m={m} />}
+        {m.tipo === 'contenido' &&
+          m.contenido &&
+          (m.contenido.app === 'espacio' ? (
+            <TarjetaEspacio m={m} />
+          ) : m.contenido.app === 'partida' ? (
+            <TarjetaJuego m={m} />
+          ) : (
+            <TarjetaContenido m={m} />
+          ))}
         {m.texto && <p className="whitespace-pre-line break-words">{m.texto}</p>}
         <div className="mt-0.5 flex items-center justify-end gap-1.5">
           {m.estado === 'error' && (

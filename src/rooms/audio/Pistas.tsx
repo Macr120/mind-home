@@ -10,6 +10,7 @@ const duracionCorta = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(
 
 /** La lista de pistas: instrumento, volumen, mute/solo y cuál está activa. */
 export function Pistas({
+  bloqueado,
   pistas,
   activa,
   onActiva,
@@ -18,6 +19,8 @@ export function Pistas({
   onAgregar,
   onAgregarAudio,
 }: {
+  /** Compartido y sin el turno: se ve y se elige pista, pero no se cambia nada. */
+  bloqueado?: boolean
   pistas: PistaAudio[]
   activa: string
   onActiva: (pistaId: string) => void
@@ -100,9 +103,10 @@ export function Pistas({
             <button
               type="button"
               onClick={() => onCambiar(pista.pistaId, { silenciada: !pista.silenciada })}
+              disabled={bloqueado}
               aria-label={t('audio.pistas.mute', 'Silenciar')}
               title={t('audio.pistas.mute', 'Silenciar')}
-              className={`rounded px-1.5 text-xs font-bold transition ${
+              className={`rounded px-1.5 text-xs font-bold transition disabled:opacity-40 ${
                 pista.silenciada ? 'bg-red-400/25 text-red-300' : 'bg-white/10 text-white/50 hover:bg-white/15'
               }`}
             >
@@ -111,9 +115,10 @@ export function Pistas({
             <button
               type="button"
               onClick={() => onCambiar(pista.pistaId, { solo: !pista.solo })}
+              disabled={bloqueado}
               aria-label={t('audio.pistas.solo', 'Solo')}
               title={t('audio.pistas.solo', 'Solo')}
-              className={`rounded px-1.5 text-xs font-bold transition ${
+              className={`rounded px-1.5 text-xs font-bold transition disabled:opacity-40 ${
                 pista.solo ? 'bg-amber-400/25 text-amber-300' : 'bg-white/10 text-white/50 hover:bg-white/15'
               }`}
             >
@@ -122,7 +127,7 @@ export function Pistas({
           </div>
         )
       })}
-      {pistas.length < MAX_PISTAS && (
+      {pistas.length < MAX_PISTAS && !bloqueado && (
         <div className="flex shrink-0 border-t border-white/5">
           <button
             type="button"
@@ -144,7 +149,12 @@ export function Pistas({
       )}
       {/* Controles de la pista ACTIVA (debajo de las cabeceras: aquí ya no hay que alinear nada). */}
       {pistaActiva && (
-        <div className="min-h-0 space-y-1 overflow-y-auto border-t border-white/10 px-1.5 py-1.5">
+        <div
+          aria-disabled={bloqueado}
+          className={`min-h-0 space-y-1 overflow-y-auto border-t border-white/10 px-1.5 py-1.5 ${
+            bloqueado ? 'pointer-events-none opacity-40' : ''
+          }`}
+        >
           {pistaActiva.tipo === 'audio' ? (
             // La pista de audio no tiene instrumento: en su lugar, sus tomas.
             <ul className="space-y-1">

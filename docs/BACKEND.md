@@ -613,6 +613,231 @@ los mensajes traen `mio`.
 - **Deuda**: adjuntos huérfanos de cuentas borradas (`borrar-cuenta` no toca
   el bucket) → purga por `pg_cron` en fase 2.
 
+### 8. Partidas: multijugador (visitas y juegos) — 19-sep-2026
+
+Migración `20260919000001_partidas.sql` (**SIN APLICAR**, ver el orden de abajo).
+Misma disciplina que el buzón: RLS activada y **cero policies sobre las tablas**,
+todo por RPCs `security definer set search_path = public` con contrato
+`{error:'<codigo>'}` (nunca `raise`), `revoke … from public, anon` + `grant … to
+authenticated` en las de usuario y sin grant en las internas. Nada de la partida
+se persiste: las tablas solo sostienen la membresía mientras la sala vive.
+
+- **Tablas**: `partidas` (id, anfitrion, `juego` ∈ visita/paintball/futbol/
+  tenis/basquet, `estado` ∈ abierta/jugando/cerrada, `apps text[]` ≤ 32 —
+  snapshot al crear—, `proto`, `rev`, `casa`, `latido_en`) y
+  `partida_jugadores` (partida_id, user_id, `jugador_id` `^j[0-3]$` bajo
+  advisory lock, `equipo` **informativo**, `estado`, `aspecto jsonb` ≤ 4 KB,
+  `ultimo_latido`), con `unique (partida_id, jugador_id)`. La **ranura** es lo
+  único que viaja por el canal: ningún uuid ajeno sale al cliente.
+- **RPCs de usuario**: `partida_crear(juego, apps, proto, aspecto)` (cierra las
+  salas anteriores del mismo anfitrión **avisando** a sus invitados),
+  `partida_invitar(partida, contacto)` (solo contacto aceptado; timbre por
+  `partida_avisar` al canal `buzon:<uid>`, que ya está vivo),
+  `partida_entrar(partida, aspecto, proto)` — el ÚNICO sitio donde se aprende la
+  ranura propia y el roster con retratos—, `partida_estado(partida)` (roster
+  **sin** retratos: el cliente los cachea), `partida_cambiar_juego`,
+  `partida_salir`, `partida_expulsar(partida, ranura)`, `partida_latido` y
+  `partida_marcar_casa`. Internas: `partida_avisar`, `partida_tocar` (sube `rev`
+  y emite el evento `sala`), `partida_roster`, `partida_cortar_con`.
+- **Corte inmediato**: `buzon_bloquear` y `buzon_eliminar` se reemplazan con
+  `create or replace` (mismo cuerpo + `partida_cortar_con`): bloquear o eliminar
+  a alguien lo saca de tu casa AHORA, no cuando cuelgue.
+- **Transporte**: DOS topics privados de Realtime por sala y **las primeras
+  policies `for insert` sobre `realtime.messages` del repo**, asimétricas a
+  propósito (broadcast no firma al emisor, así que con una sola policy cualquier
+  invitado podría forjar un veredicto):
+  - bajada `partida:<uuid>` — insert **solo el anfitrión**
+    (`partida_es_anfitrion`);
+  - subida `partida:<uuid>:u` — insert **cualquier miembro**
+    (`partida_es_miembro`).
+  Las dos reconstruyen el topic (`= 'partida:' || partida_del_topic(...)`), así
+  que un sufijo inventado (`partida:<uuid>:x`) queda fuera. El select de escucha
+  cubre los dos topics.
+- **Bucket** `partida-casa` (privado, 4 MB, `application/gzip`), ruta
+  `<partida_id>/casa.json.gz`: lo sube el anfitrión, lo leen los miembros. El
+  borrado va por `partida_fui_anfitrion` (**sin** condición de estado) porque el
+  plano se borra justo al terminar y Storage **no** borra el archivo físico
+  cuando se borra la fila de `storage.objects`: el GC por SQL no sirve. El
+  cliente del anfitrión borra el objeto por la API ANTES de `partida_salir` y,
+  a mejor esfuerzo, el de su sala anterior al crear una nueva (id en
+  `localStorage mh.partida.ultima`). Los huérfanos por caída quedan acotados a
+  ≤ 4 MB por sala.
+- **Límites** (`rate_limits`): `partida-crear` **20/mes**, `partida-invitar`
+  60/h, `partida-entrar` 60/h. Sin `tiene_pro`: basta sesión y ser contacto
+  aceptado, como el buzón.
+- **Cuota de Realtime** (confirmada en supabase.com/pricing, 19-sep-2026):
+
+  | plan | mensajes/mes | conexiones concurrentes | exceso |
+  |---|---|---|---|
+  | Free | 2 M | 200 | — (se corta) |
+  | Pro | 5 M | 500 | **$2.50 / M** de mensajes · **$10 / 1 000** conexiones |
+
+  Una partida de 10 min consume ~35 700 entregas a 4 jugadores (paintball) y
+  ~4 300 en una visita 2p. A $2.50/M eso es ~$0.09 y ~$0.01 fuera de cuota: los
+  5 M de Pro dan ~140 partidas 4p al mes. El techo real son las **conexiones**,
+  y supabase-js multiplexa todos los canales sobre UN WebSocket, así que una
+  partida **no consume una conexión extra** sobre el `buzon:<uid>` que ya está
+  vivo. **Por medir**: si el dashboard cuenta entregas (por suscriptor) o
+  publicaciones — cambia la factura ×1.6 en 4p.
+- **Cliente**: `src/core/partida/` (protocolo validado campo a campo, dos
+  transportes intercambiables —BroadcastChannel con red simulada y Realtime—,
+  reloj de partida con ping/pong y el motor `sala.ts`). El roster NO viaja por
+  el canal: la BD emite `sala` con la revisión y el cliente relee con
+  `partida_estado`; el latido va cada 60 s.
+
+**Invitar a jugar desde el chat (20-sep-2026).** «jugar tenis con @ana» **no
+añade SQL**: se apoya entero en lo que ya existe. El cliente abre (o reutiliza)
+su sala con `partida_crear`, sube el plano al bucket, toca el timbre con
+`partida_invitar` y manda por `buzon_enviar` un mensaje `contenido` con
+`app:'partida'`, `tipo:'juego'` y `datos {partidaId, juego, apps}` — el buzón
+admite cualquier `app` y solo mide los 64 KB—. El enlace del texto es
+`?visita=<id>&juego=<juego>[&visitaApps=…]`, que entra por el camino de siempre.
+El timbre sigue diciendo «Para pasear juntos» (la sala nace como `visita` para no
+subir la cadencia de poses): quien lleva al juego es la tarjeta del buzón.
+
+**Despliegue (EN ESTE ORDEN)**
+1. `npx supabase db push` (aplica `20260919000001_partidas.sql`: tablas, RPCs,
+   las policies de `realtime.messages`, el bucket `partida-casa` y el
+   `create or replace` de `buzon_bloquear`/`buzon_eliminar`). **Primero esta**:
+   un build nuevo contra la BD vieja solo puede fallar al invitar, pero la BD
+   nueva contra un build viejo no rompe nada.
+2. Publicar el build web nuevo.
+3. En el dashboard: **Storage → Buckets** debe listar `partida-casa` (privado,
+   4 MB, `application/gzip`); **Database → Policies** debe mostrar las tres
+   nuevas de `realtime.messages` (una select + dos insert) y las tres de
+   `storage.objects`. Comprobar además que `buzon_bloquear` y `buzon_eliminar`
+   siguen con su `grant` a `authenticated`.
+
+### 9. Espacios compartidos: calendarios cooperativos y Studio por enlace — 21-sep-2026
+
+Migración `20260921000001_espacios.sql` (**SIN APLICAR**, ver el orden de abajo).
+Misma disciplina que el buzón y las partidas: RLS activada y **cero policies
+sobre las tablas**, todo por RPCs `security definer set search_path = public`
+con contrato `{error:'<codigo>'}` (nunca `raise`), `revoke … from public, anon` +
+`grant … to authenticated` en las de usuario y sin grant en las internas. Sin
+`tiene_pro`: basta con tener sesión.
+
+Un **espacio** es la unidad de todo lo compartido. Cinco tipos (`calendario`,
+`documento`, `dibujo`, `audio`, `video`) sobre el mismo cimiento: **log de
+cambios** numerado por `seq` + **snapshot** compactable. Lo que cambia por tipo
+es el contenido de `datos`, no la mecánica: calendario = filas de evento (LWW),
+documento = updates de Yjs, dibujo = operaciones de trazo, audio/video =
+proyecto entero bajo bloqueo por turnos.
+
+- **Tablas**: `espacios` (id, dueno, `tipo`, `titulo` ≤ 80, `meta jsonb` ≤ 2 KB,
+  `proto`, `token_ver`/`token_editar` únicos, `enlace_ver`/`enlace_editar`,
+  `seq`, `snapshot jsonb` ≤ 2 MB, `snapshot_seq`, `snapshot_en`, `bloqueo_por`,
+  `bloqueo_hasta`, `creado_en`, `actualizado_en`), `espacio_miembros`
+  (espacio_id, user_id, `miembro_id` `^m[0-9a-f]{12}$`, `rol` ∈
+  dueno/editor/lector, `estado` ∈ activo/fuera/expulsado, `entro_en`; pk
+  `(espacio_id, user_id)`, `unique (espacio_id, miembro_id)`) y
+  `espacio_cambios` (espacio_id, `seq`, `uid` del cliente, `autor` =
+  `miembro_id`, `tipo` `^[a-z]{2,16}$`, `datos jsonb` ≤ 64 KB, `creado_en`; pk
+  `(espacio_id, seq)`, `unique (espacio_id, uid)`). El **`miembro_id`** es lo
+  único que identifica a alguien de cara al cliente: **ningún uuid ajeno sale**,
+  misma regla que la ranura de `partidas` y que `contacto_id`/`hilo_id`.
+- **Tokens**: 18 bytes de `extensions.gen_random_bytes` → base64 sin relleno
+  traducido a base64url (`+/` → `-_`) = **24 caracteres** que caben tal cual en
+  la URL. Es la primera migración que pide `pgcrypto` (`create extension if not
+  exists pgcrypto with schema extensions`); con `search_path = public` hay que
+  llamarla calificada.
+- **Helpers internos** (sin grant): `espacio_token`, `espacio_miembro_id`,
+  `espacio_avisar` (clon de `buzon_avisar`, blindado con `exception when others`),
+  `espacio_miembros_json(id, uid, con_retrato)` y `espacio_resumen(id, uid)` —los
+  tokens SOLO se añaden si `dueno = uid`, por eso la ficha se arma en la BD—.
+  Con grant a `authenticated` porque los evalúan las policies:
+  `espacio_del_topic`, `espacio_es_miembro`, `espacio_puede_editar`.
+
+**RPCs de usuario** (17). Errores posibles: `sin-sesion`, `peticion-invalida`,
+`limite`, `no-encontrado`, `no-contacto`, `sin-permiso`, `expulsado`,
+`enlace-inactivo`, `bloqueado`, `es-dueno`, `cambio-grande`, `snapshot-grande`,
+`version`.
+
+| RPC | Reglas | Errores | Emite |
+|---|---|---|---|
+| `espacio_crear(tipo, titulo, meta, proto) → {espacio}` | tipo válido, título ≤ 80, `meta` ≤ 2 KB; inserta al dueño como primer miembro | `peticion-invalida`, `limite` | — |
+| `espacio_listar() → {espacios}` | miembro activo; orden `actualizado_en desc` | — | — |
+| `espacio_estado(id) → {espacio, miembros}` | miembro activo; miembros **con retrato** | `no-encontrado` | — |
+| `espacio_editar(id, titulo, meta) → {ok}` | dueño; un parámetro `null` NO borra el valor | `peticion-invalida`, `no-encontrado` | `meta` |
+| `espacio_entrar(token, proto) → {espacio, miembros}` | `^[A-Za-z0-9_-]{24}$`, enlace activo, `proto` igual, advisory lock; `token_editar` → editor, `token_ver` → lector; expulsado no vuelve; `fuera` se reactiva; **el rol nunca baja** (editor que abre el enlace de ver sigue editor) pero sí sube | `peticion-invalida`, `limite`, `no-encontrado`, `enlace-inactivo`, `version`, `expulsado` | `miembros` (solo si hubo cambio) |
+| `espacio_invitar(id, contacto, rol) → {ok, miembro_id}` | dueño, contacto **aceptado** del buzón, rol editor\|lector; **readmite** a quien estaba fuera o expulsado | `no-encontrado`, `peticion-invalida`, `no-contacto`, `limite` | `buzon_avisar(otro, 'espacio', {espacio_id, tipo, titulo, rol, alias, nombre, emoji})` + `miembros` |
+| `espacio_rotar_enlace(id, cual, activo) → {tokens, enlaces}` | dueño, `cual` ∈ ver\|editar; **regenera siempre** el token y fija el interruptor | `peticion-invalida`, `no-encontrado`, `limite` | — |
+| `espacio_rol(id, miembro, rol) → {ok}` | dueño; el miembro existe y no es el dueño | `peticion-invalida`, `no-encontrado` | `miembros` |
+| `espacio_expulsar(id, miembro) → {ok}` | dueño; `estado = 'expulsado'`; suelta el turno si lo tenía | `peticion-invalida`, `no-encontrado` | `bloqueo` (si tenía turno) + `miembros` |
+| `espacio_salir(id) → {ok}` | miembro activo; el dueño no puede | `no-encontrado`, `es-dueno` | `bloqueo` (si tenía turno) + `miembros` |
+| `espacio_borrar(id) → {ok}` | dueño; `delete` en cascada | `no-encontrado` | `borrado` **antes** del delete |
+| `espacio_push(id, cambios) → {aplicados, max_seq}` | editor; array ≤ 100, lote ≤ 1 MB, `datos` ≤ 64 KB, `uid` `^[0-9a-zA-Z_-]{8,40}$`; **todo o nada** (se valida el lote entero antes de escribir); advisory lock; `seq = seq+1` por ítem + `on conflict (espacio_id, uid) do nothing` | `sin-permiso`, `peticion-invalida`, `cambio-grande`, `limite` | `cambio {v, seq, tipo, de}` si `aplicados > 0` |
+| `espacio_pull(id, desde) → {cambios, max_seq, mas, snapshot_seq}` | miembro activo; página de 200; `cambios` lleva TODO el log (también lo propio: al reabrir un documento hay que recuperar lo que uno mismo escribió desde el último snapshot; cada consumidor es idempotente), con `autor` para quien quiera saltárselo | `no-encontrado` | — |
+| `espacio_snapshot_leer(id) → {snapshot, snapshot_seq}` | miembro activo | `no-encontrado` | — |
+| `espacio_snapshot(id, estado, hasta_seq) → {ok, snapshot_seq}` | editor; ≤ 2 MB; exige `snapshot_seq ≤ hasta ≤ seq`; borra el log ≤ `hasta` | `sin-permiso`, `peticion-invalida`, `snapshot-grande`, `limite` | `cambio {tipo:'snapshot'}` |
+| `espacio_bloquear(id) → {por, hasta}` | editor; arriendo de **5 min**; libre si `bloqueo_hasta` venció | `sin-permiso`, `limite`, `bloqueado` | `bloqueo` |
+| `espacio_liberar(id) → {ok}` | idempotente: si ya no era mío responde `ok` igual | — | `bloqueo` (si lo tenía) |
+
+- **Topic**: UNO solo por espacio, `espacio:<uuid>`, privado. Dos policies
+  nuevas sobre `realtime.messages` (aditivas a las de sync, buzón y partidas):
+  select para **miembros activos** (`espacio_es_miembro`) e insert para
+  **dueño/editores** (`espacio_puede_editar`, con el topic reconstruido con `=`).
+  No hacen falta las dos direcciones de `partidas` porque aquí **no hay
+  árbitro**: lo durable es el log y el log solo se escribe por RPC.
+  - de la **BD**: `cambio {v, seq, tipo, de}`, `miembros {v}`, `meta {v}`,
+    `bloqueo {v, por, hasta}` y `borrado {v}`. El cliente relee con
+    `espacio_estado` / `espacio_pull`: por el canal solo viaja el aviso.
+  - de los **clientes editores**: `yjs {v, de, u}`, `aw {v, de, s}`,
+    `sv {v, de, s}`, `trazo {v, de, op}` y `presencia {v, de, activo}`.
+    Broadcasts ≤ 48 KB; lo grande va por RPC.
+- **Bucket** `espacio-archivos` (privado, **50 MB** por objeto; png/jpeg/webp,
+  mp4/webm/quicktime, mpeg/mp4/wav/webm/ogg), ruta `<espacio_id>/…`. Cuatro
+  policies sobre `storage.objects`: select por `espacio_es_miembro`, e
+  **insert, update y delete** por `espacio_puede_editar`. El `update` no sobra:
+  los PNG de las capas del dibujo se suben con `upsert` a la misma ruta en cada
+  compactación.
+- **Límites** (`rate_limits`): `espacio-crear` **50/día**, `espacio-entrar`
+  60/h, `espacio-invitar` 60/h, `espacio-rotar` 20/h, `espacio-push`
+  **600/10 min** (1/s sostenido, frente a un lote cada 2 s por editor),
+  `espacio-snapshot` 600/h, `espacio-bloquear` 120/h.
+
+**Decisiones**
+
+- Los espacios **no dependen del vínculo del buzón** una vez dentro:
+  `buzon_bloquear` y `buzon_eliminar` **no se tocan** (a diferencia de
+  `partidas`, que sí corta con `partida_cortar_con`). Quien quiera sacar a
+  alguien usa «Quitar» (`espacio_expulsar`). Motivo: un calendario familiar o un
+  documento a medias no debe evaporarse por una discusión en el chat.
+- El contacto aceptado solo hace falta para **invitar** (el timbre viaja por
+  `buzon:<uid>`). Por **enlace** entra cualquiera con sesión.
+- **`espacio_borrar` no toca Storage**: `delete from storage.objects` tira la
+  fila y deja el archivo físico huérfano (mismo motivo que en `partidas`). El
+  cliente del dueño borra la carpeta `<id>/` por la API, a mejor esfuerzo,
+  **antes** de llamar a la RPC.
+- **Hueco de `seq`**: un `uid` repetido en `espacio_push` consume un `seq` y no
+  inserta nada. Es inocuo —`espacio_pull` pagina por `seq > cursor` y nadie
+  exige continuidad— y evita un segundo viaje para detectar el duplicado.
+- **Bloqueo sin cron**: el arriendo de 5 min no lo limpia nadie; la caducidad se
+  evalúa al leer (`espacio_resumen` devuelve `bloqueo: null` si venció) y al
+  pedirlo (`espacio_bloquear`). Expulsar o salir con el turno en la mano lo
+  suelta y avisa, para que el espacio no quede congelado 5 minutos.
+- **Dos editores compactando a la vez** son inocuos: el servidor exige
+  `snapshot_seq ≤ hasta_seq ≤ seq`, así que la foto más vieja se rechaza.
+- `espacio_editar` con un parámetro en `null` **no borra** el valor: significa
+  «no lo toques».
+
+**Despliegue (EN ESTE ORDEN)**
+1. `npx supabase db push` (aplica `20260921000001_espacios.sql` y, si sigue
+   pendiente, `20260919000001_partidas.sql`: revisarlo antes). **Primero esta**:
+   la BD nueva contra un build viejo no rompe nada; al revés solo falla al
+   compartir.
+2. Publicar el build web nuevo (`npm run build` + wrangler); el nativo después
+   (`npx cap sync`).
+3. En el dashboard: **Database → Tables** debe listar `espacios`,
+   `espacio_miembros` y `espacio_cambios` con **RLS activada y sin policies**;
+   **Database → Policies**, las **2** nuevas de `realtime.messages` (una select +
+   una insert) y las **4** de `storage.objects`; **Storage → Buckets**,
+   `espacio-archivos` (privado, 50 MB); **Database → Extensions**, `pgcrypto` en
+   el esquema `extensions`. Las 17 funciones `espacio_*` de usuario con `grant` a
+   `authenticated` y las 5 internas (`espacio_token`, `espacio_miembro_id`,
+   `espacio_avisar`, `espacio_miembros_json`, `espacio_resumen`) **sin grant**.
+   E2–E6 no llevan SQL.
+
 ## Comandos útiles
 
 ```bash

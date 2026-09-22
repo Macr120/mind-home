@@ -8,7 +8,7 @@ import { Ajedrez } from './juegos/Ajedrez'
 import { Billar } from './juegos/Billar'
 import { Blackjack } from './juegos/Blackjack'
 import { Buscaminas } from './juegos/Buscaminas'
-import { CartasConocerse, CartasDebates } from './juegos/CartasPreguntas'
+import { CartasConocerse, CartasDebates, type EstadoCartas } from './juegos/CartasPreguntas'
 import { CuatroEnLinea } from './juegos/CuatroEnLinea'
 import { Damas } from './juegos/Damas'
 import { DinoRunner } from './juegos/DinoRunner'
@@ -32,10 +32,20 @@ import {
   type PropsDificultad,
 } from './juegos/dificultad'
 import { useT } from '../../core/i18n/useT'
+import { etiquetaAsiento, useMesa, useMesasAbiertas } from '../../core/partida/mesa'
+import { usePartida } from '../../core/partida/partidaStore'
+import type { JuegoMesa } from '../../core/partida/tipos'
 import { vivo } from '../../core/ui/estilos'
 import { Icono } from '../../core/ui/iconos/Icono'
 
 type Seccion = '12' | '3mas'
+
+/** Qué juego de la lista es cada mesa (las cartas, según el mazo que se fijó). */
+const JUEGO_DE_MESA: Record<Exclude<JuegoMesa, 'cartas'>, IdJuegoReal> = {
+  c4: 'cuatroenlinea',
+  damas: 'damas',
+  ajedrez: 'ajedrez',
+}
 
 const COMPONENTES: Record<IdJuegoReal, ComponentType<PropsDificultad>> = {
   sudoku: Sudoku,
@@ -80,7 +90,15 @@ function SelectorDificultad({ valor, alCambiar }: { valor: Dificultad; alCambiar
  * Juego en pantalla completa. La dificultad va en la barra superior y se pasa
  * como prop: al cambiarla, la `key` remonta el juego para empezar de cero.
  */
-function JuegoAbierto({ juego, alVolver }: { juego: JuegoReal; alVolver: () => void }) {
+function JuegoAbierto({
+  juego,
+  mesaOnline,
+  alVolver,
+}: {
+  juego: JuegoReal
+  mesaOnline: boolean
+  alVolver: () => void
+}) {
   const t = useT()
   const [dif, setDif] = useDificultad(juego.id)
   const ComponenteJuego = COMPONENTES[juego.id]
@@ -105,7 +123,7 @@ function JuegoAbierto({ juego, alVolver }: { juego: JuegoReal; alVolver: () => v
           </div>
         )}
       </div>
-      <ComponenteJuego key={dif} dificultad={dif} />
+      <ComponenteJuego key={dif} dificultad={dif} mesaOnline={mesaOnline} />
     </div>
   )
 }
@@ -117,16 +135,62 @@ export function JuegosMesaTab({ juegoInicial }: { juegoInicial?: IdJuegoReal }) 
   const [juegoActivo, setJuegoActivo] = useState<JuegoReal | null>(
     () => JUEGOS_REALES.find((j) => j.id === juegoInicial) ?? null,
   )
+  const [desdeMesa, setDesdeMesa] = useState(false)
+  const abiertas = useMesasAbiertas()
+  // El mazo de cartas de la mesa abierta decide a cuál de los dos juegos lleva.
+  const mesaCartas = useMesa<EstadoCartas, never>('cartas')
+  const miRanura = usePartida((s) => s.sala?.miRanura)
 
   // Los juegos '2+' sirven igual en pareja que en grupo: salen en ambas secciones
   const juegosDigitales = JUEGOS_REALES.filter((j) => (seccion === '12' ? true : j.jugadores === '2+'))
 
   if (juegoActivo) {
-    return <JuegoAbierto key={juegoActivo.id} juego={juegoActivo} alVolver={() => setJuegoActivo(null)} />
+    return (
+      <JuegoAbierto
+        key={juegoActivo.id}
+        juego={juegoActivo}
+        mesaOnline={desdeMesa}
+        alVolver={() => setJuegoActivo(null)}
+      />
+    )
   }
 
   return (
     <div className="space-y-4">
+      {abiertas.map((m) => {
+        const id = m.g === 'cartas' ? (mesaCartas.estado?.mazo ?? 'conocerse') : JUEGO_DE_MESA[m.g]
+        const juego = JUEGOS_REALES.find((j) => j.id === id)
+        if (!juego) return null
+        const meEsperan = m.b === null && m.a.ranura !== miRanura
+        return (
+          <button
+            key={m.g}
+            type="button"
+            onClick={() => {
+              setDesdeMesa(true)
+              setJuegoActivo(juego)
+            }}
+            className="flex w-full items-center gap-2 rounded-xl border p-3 text-start text-sm"
+            style={{ borderColor: `${COLOR}59`, background: `${COLOR}1a` }}
+          >
+            <Icono nombre="red" />
+            <span className="flex-1">
+              {meEsperan
+                ? t('entre.j.mesa.banda', '{n} te espera en {juego}', {
+                    n: etiquetaAsiento(m.a),
+                    juego: t(`entre.j.${juego.id}.nombre`, juego.nombre),
+                  })
+                : t('entre.j.mesa.bandaAbierta', 'Hay una mesa abierta en {juego}', {
+                    juego: t(`entre.j.${juego.id}.nombre`, juego.nombre),
+                  })}
+            </span>
+            <span className="rounded-lg bg-white/10 px-2 py-1 text-xs font-semibold">
+              {t('entre.j.mesa.ir', 'Ir a la mesa')}
+            </span>
+          </button>
+        )
+      })}
+
       <div data-tut="entretenimiento.juegos.secciones">
         <PestanasCarpeta
           items={[
@@ -157,7 +221,10 @@ export function JuegosMesaTab({ juegoInicial }: { juegoInicial?: IdJuegoReal }) 
                   key={j.id}
                   type="button"
                   data-tut={`entretenimiento.juegos.item.${j.id}`}
-                  onClick={() => setJuegoActivo(j)}
+                  onClick={() => {
+                    setDesdeMesa(false)
+                    setJuegoActivo(j)
+                  }}
                   className="rounded-xl border border-white/10 bg-white/5 p-3 text-start transition hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/10"
                 >
                   <div className="flex items-center justify-between">

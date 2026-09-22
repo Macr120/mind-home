@@ -44,7 +44,8 @@ export function FormAlias({ onListo, onCancelar }: { onListo?: () => void; onCan
           value={emoji}
           onChange={(e) => setEmoji(e.target.value.slice(0, 8))}
           maxLength={8}
-          className={`${INPUT} w-12 shrink-0 text-center`}
+          // INPUT trae `w-full` y ganaba al `w-12`: el emoji ocupaba toda la fila y sacaba el alias.
+          className={`${INPUT.replace('w-full ', '')} w-12 shrink-0 px-1 text-center`}
           title={t('buzon.alias.emoji', 'Emoji')}
           aria-label={t('buzon.alias.emoji', 'Emoji')}
         />

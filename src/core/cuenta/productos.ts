@@ -111,7 +111,7 @@ export const CATALOGO: Producto[] = [UNLOCK, ...NIVELES, ANUAL, CREDITOS]
  * - Apple antepone el bundle (`com.macr120.mindhome.pro_x1_v2`).
  * - Google Play cuelga el plan base de la suscripción (`pro_x1_v2:mensual`).
  */
-function idBase(id: string): string {
+export function idBase(id: string): string {
   const sinPlan = id.split(':')[0]
   return sinPlan.startsWith(BUNDLE) ? sinPlan.slice(BUNDLE.length) : sinPlan
 }

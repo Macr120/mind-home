@@ -23,7 +23,7 @@ import { notificarRepintado } from './repintar'
 import { useSesion } from '../../cuenta/sesionStore'
 import { tGlobal } from '../../i18n/useT'
 import { conectarAvisoEscritura, marcarEscrituraSilenciosa } from './middleware'
-import { CLAVES_UNICAS, FK, ORDEN_TOPO, SINGLETONS, TABLAS_SYNC, esTablaSync } from './syncables'
+import { CLAVES_UNICAS, FK, ORDEN_TOPO, SINGLETONS, TABLAS_SYNC, esFilaCompartida, esTablaSync } from './syncables'
 import { borrarBlobsDeRegistro, extraerBlobs, rehidratarBlobs } from './blobs'
 
 const LOTE_PUSH = 200
@@ -75,6 +75,8 @@ async function push(userId: string): Promise<number> {
 
   const cambios: { entrada: EntradaOutbox; cuerpo: Record<string, unknown> }[] = []
   for (const e of ultimo.values()) {
+    // Fila de un espacio compartido: no es del usuario, la sube su propio motor.
+    if (e.espacio) continue
     if (!esTablaSync(e.tabla)) continue
     const tombstone = () => ({
       tabla: e.tabla,
@@ -91,6 +93,12 @@ async function push(userId: string): Promise<number> {
     if (!fila) {
       // La fila ya no existe (borrada después): viaja como tombstone.
       cambios.push({ entrada: e, cuerpo: tombstone() })
+      continue
+    }
+    if (esFilaCompartida(e.tabla, fila)) {
+      // Compartida pero SIN marcar: la encoló `bootstrap()`, que mete todo lo
+      // local sin mirar. Fuera de la cola personal; ya está en su espacio.
+      await db._outbox.bulkDelete(idsPorClave.get(`${e.tabla}|${e.uid}`) ?? [])
       continue
     }
     const datos: Fila = { ...fila }

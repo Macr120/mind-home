@@ -3,6 +3,11 @@ import { CREDITOS, opImagen } from '../../core/cuenta/costos'
 import type { Dibujo } from '../../core/data/db'
 import { dibujosRepo } from '../../core/data/repository'
 import { descargarArchivo } from '../../core/descargarArchivo'
+import { useEspaciosStore } from '../../core/espacios/espaciosStore'
+import { abrirEspacio } from '../../core/espacios/motor'
+import { abrirDibujoCompartido, type DibujoCompartido } from '../../core/espacios/trazos'
+import { BotonCompartir } from '../../core/espacios/ui/BotonCompartir'
+import { ChipMiembros } from '../../core/espacios/ui/ChipMiembros'
 import { tGlobal, useT } from '../../core/i18n/useT'
 import { generarImagen, imagenIaActiva, type AspectoImagen } from '../../core/imagenIA'
 import { useAjustes } from '../../core/state/ajustesStore'
@@ -13,6 +18,9 @@ import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 import { miniaturaFoto, comprimirFoto } from '../_shared/fotos'
 import { BotonPrimario, BotonSecundario, Campo, INPUT, Modal, Spinner } from '../_shared/ui'
+import { crearAplicador, type AplicadorArte } from './aplicador'
+import { compartirDibujo, subirImagenOp, volverAPrivado } from './compartido'
+import { leerOp, partirTrazo, r2, rngSembrado, type HerrTrazo, type OpArte, type PuntoTrazo } from './ops'
 import { PanelCapas } from './PanelCapas'
 import {
   BARRA_DEFECTO,
@@ -77,6 +85,137 @@ const GUIA = 'rgba(59, 130, 246, 0.55)'
 const GUIA_TENUE = 'rgba(59, 130, 246, 0.2)'
 
 type Esquina = 'nw' | 'ne' | 'sw' | 'se'
+
+/** Cada cuánto se manda el avance de un trazo largo mientras se dibuja. */
+const PARCIAL_MS = 200
+/** Espera tras el último paso del deslizador de opacidad antes de mandarlo. */
+const OPACIDAD_MS = 300
+/** Id de capa nacida en este dispositivo (mismo formato que el del lienzo). */
+const nuevaCapaCompartida = () =>
+  `ca-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`
+
+/** El trazo que se está dibujando, tal como viajará (solo en modo compartido). */
+interface TrazoEnCurso {
+  uid: string
+  capa: string
+  herr: HerrTrazo
+  color: string
+  grosor: number
+  pts: PuntoTrazo[]
+  espejo: [boolean, boolean]
+  semilla: number
+  ultimoParcial: number
+  /** Cuántos puntos ya viajaron como avance (el siguiente parcial sigue desde ahí). */
+  enviados: number
+}
+
+/**
+ * El panel de capas manda al lienzo directamente; en un dibujo compartido cada
+ * acción suya tiene que viajar además como operación, y las capas nuevas nacen
+ * con un id pactado para que se llamen igual en todos los dispositivos.
+ */
+function capasCompartidas(l: Lienzo, emitir: (op: OpArte) => void): Lienzo {
+  // El deslizador de opacidad dispara un `onChange` por paso: en local se
+  // aplican todos (se ve en vivo) pero solo VIAJA el último, con el valor en el
+  // que se soltó. Cambiar de capa antes de tiempo suelta lo pendiente.
+  let pendiente: { capaId: string; valor: number } | null = null
+  let timer: ReturnType<typeof setTimeout> | null = null
+  const soltarOpacidad = () => {
+    if (timer != null) clearTimeout(timer)
+    timer = null
+    if (!pendiente) return
+    emitir({ tipo: 'capa', accion: 'opacidad', capaId: pendiente.capaId, valor: pendiente.valor })
+    pendiente = null
+  }
+
+  return {
+    ...l,
+    agregarCapa(nombre) {
+      const capaId = nuevaCapaCompartida()
+      const r = l.agregarCapa(nombre, capaId)
+      if (r) emitir({ tipo: 'capa', accion: 'crear', capaId, nombre })
+      return r
+    },
+    duplicarCapa(capaId, nombre) {
+      const nuevoId = nuevaCapaCompartida()
+      const r = l.duplicarCapa(capaId, nombre, nuevoId)
+      if (r) emitir({ tipo: 'capa', accion: 'duplicar', capaId, nombre, nuevoId })
+      return r
+    },
+    borrarCapa(capaId) {
+      const r = l.borrarCapa(capaId)
+      if (r) emitir({ tipo: 'capa', accion: 'borrar', capaId })
+      return r
+    },
+    fusionarAbajo(capaId) {
+      const r = l.fusionarAbajo(capaId)
+      if (r) emitir({ tipo: 'capa', accion: 'fusionar', capaId })
+      return r
+    },
+    moverCapa(capaId, delta) {
+      const r = l.moverCapa(capaId, delta)
+      if (r) emitir({ tipo: 'capa', accion: 'mover', capaId, delta })
+      return r
+    },
+    renombrarCapa(capaId, nombre) {
+      l.renombrarCapa(capaId, nombre)
+      emitir({ tipo: 'capa', accion: 'renombrar', capaId, nombre })
+    },
+    setVisibleCapa(capaId, visible) {
+      l.setVisibleCapa(capaId, visible)
+      emitir({ tipo: 'capa', accion: 'visible', capaId, valor: visible ? 1 : 0 })
+    },
+    setOpacidadCapa(capaId, opacidad) {
+      l.setOpacidadCapa(capaId, opacidad)
+      if (pendiente && pendiente.capaId !== capaId) soltarOpacidad()
+      pendiente = { capaId, valor: opacidad }
+      if (timer != null) clearTimeout(timer)
+      timer = setTimeout(soltarOpacidad, OPACIDAD_MS)
+    },
+  }
+}
+
+/** Arranca un trazo: su identidad, su semilla y su primer punto. */
+function nuevoTrazo(
+  capa: string,
+  herr: HerrTrazo,
+  color: string,
+  grosor: number,
+  x: number,
+  y: number,
+  espejo: [boolean, boolean],
+): TrazoEnCurso {
+  return {
+    uid: crypto.randomUUID(),
+    capa,
+    herr,
+    color,
+    grosor,
+    pts: [[x, y]],
+    espejo,
+    semilla: Math.floor(Math.random() * 2 ** 32),
+    ultimoParcial: Date.now(),
+    enviados: 1,
+  }
+}
+
+/** ¿Toca mandar el avance del trazo? (y si sí, apunta cuándo fue). */
+function tocaParcial(t: TrazoEnCurso): boolean {
+  if (t.pts.length <= t.enviados || Date.now() - t.ultimoParcial < PARCIAL_MS) return false
+  t.ultimoParcial = Date.now()
+  return true
+}
+
+const opDeTrazo = (t: TrazoEnCurso): Extract<OpArte, { tipo: 'trazo' }> => ({
+  tipo: 'trazo',
+  capa: t.capa,
+  herr: t.herr,
+  color: t.color,
+  grosor: t.grosor,
+  pts: t.pts,
+  espejo: t.espejo,
+  semilla: t.semilla,
+})
 
 /** Las cuatro esquinas de una caja, con su nombre (para los tiradores de «mover»). */
 const esquinasDe = (c: Caja): [number, number, Esquina][] => [
@@ -175,6 +314,14 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
   const [prompt, setPrompt] = useState('')
   const [generando, setGenerando] = useState(false)
   const [errorIA, setErrorIA] = useState('')
+  // Dibujo compartido: el espacio, si ya bajó el lienzo de los demás y un
+  // contador que vuelve a montar el editor al empezar (o dejar) de compartir.
+  const [sincronizando, setSincronizando] = useState(false)
+  const [remonte, setRemonte] = useState(0)
+  const espacioId = dibujo?.espacioId
+  const rol = useEspaciosStore((s) => s.lista.find((e) => e.espacioId === espacioId)?.rol)
+  // Sin saber aún mi papel, mejor mirar que pintar encima de lo de otros.
+  const puedoEditar = !espacioId || rol === 'dueno' || rol === 'editor'
 
   const contRef = useRef<HTMLDivElement>(null)
   const marcoRef = useRef<HTMLDivElement>(null)
@@ -182,8 +329,10 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
   const guiasRef = useRef<HTMLCanvasElement>(null)
   const overlayRef = useRef<HTMLCanvasElement>(null)
   const lienzoRef = useRef<Lienzo | null>(null)
-  // El mismo lienzo como estado, para quien lo necesita al RENDERIZAR (el panel de capas).
-  const [lienzoListo, setLienzoListo] = useState<Lienzo | null>(null)
+  // El lienzo como estado, para quien lo necesita al RENDERIZAR (el panel de
+  // capas). En un dibujo compartido va envuelto, para que las acciones sobre
+  // las capas viajen además como operaciones.
+  const [lienzoPanel, setLienzoPanel] = useState<Lienzo | null>(null)
   const archivoRef = useRef<HTMLInputElement>(null)
   const dims = useRef({ ancho: 0, alto: 0 })
   const avisoTimer = useRef(0)
@@ -199,6 +348,17 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
   // Herramienta «mover»: caja del objeto (capa activa) y gesto en curso.
   const cajaRef = useRef<Caja | null>(null)
   const moviendo = useRef<{ esquina: Esquina | null; x0: number; y0: number; origen: Caja; cambio: boolean } | null>(null)
+
+  // ─── Dibujo compartido ───────────────────────────────────────────────────
+  const compartidoRef = useRef<DibujoCompartido<OpArte> | null>(null)
+  const aplicadorRef = useRef<AplicadorArte | null>(null)
+  /** Aerosol sembrado: en vivo se pinta con el MISMO azar que usará el replay. */
+  const azarRef = useRef<(() => number) | null>(null)
+  const trazoRef = useRef<TrazoEnCurso | null>(null)
+
+  /** Encola una operación propia (el lienzo ya la pintó aquí). */
+  const emitirRef = useRef((op: OpArte) => compartidoRef.current?.emitir(op))
+  const emitir = (op: OpArte) => emitirRef.current(op)
 
   const limpiarOverlay = () => {
     const o = overlayRef.current
@@ -255,6 +415,25 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
     return true
   })
 
+  /**
+   * El lienzo cambió de tamaño (a mano, o por una operación de otra persona):
+   * guías, overlay, encuadre y la fila local. Solo lee refs: estable.
+   */
+  const ajustarTamanoRef = useRef((ancho: number, alto: number) => {
+    if (dims.current.ancho === ancho && dims.current.alto === alto) return
+    dims.current = { ancho, alto }
+    for (const c of [guiasRef.current, overlayRef.current]) {
+      if (c) {
+        c.width = ancho
+        c.height = alto
+      }
+    }
+    setDibujo((d) => (d ? { ...d, ancho, alto } : d))
+    setRecta(null)
+    encuadrarRef.current(ancho, alto)
+    void dibujosRepo.update(id, { ancho, alto })
+  })
+
   /** Recalcula la caja del objeto de los píxeles de la capa activa (solo con «mover»). */
   const refrescarCaja = (conMover: boolean) => {
     const lienzo = lienzoRef.current
@@ -269,11 +448,12 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
   }
 
   /** Aviso fugaz bajo la barra (nada que confirmar: solo informa). */
-  const avisar = (texto: string) => {
+  const avisarRef = useRef((texto: string) => {
     setAviso(texto)
     window.clearTimeout(avisoTimer.current)
     avisoTimer.current = window.setTimeout(() => setAviso(''), 4000)
-  }
+  })
+  const avisar = (texto: string) => avisarRef.current(texto)
 
   // ─── Guardado (debounce ~4 s tras el último cambio + flush al salir) ─────
   const sucio = useRef(false)
@@ -299,10 +479,15 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
   /** Toda acción que toca el bitmap o las capas pasa por aquí: tick de UI + autosave. */
   const marcar = () => {
     setVersion((v) => v + 1)
-    setPilas({
-      deshacer: lienzoRef.current?.puedeDeshacer() ?? false,
-      rehacer: lienzoRef.current?.puedeRehacer() ?? false,
-    })
+    const comp = compartidoRef.current
+    setPilas(
+      comp
+        ? { deshacer: comp.puedeDeshacer(), rehacer: comp.puedeRehacer() }
+        : {
+            deshacer: lienzoRef.current?.puedeDeshacer() ?? false,
+            rehacer: lienzoRef.current?.puedeRehacer() ?? false,
+          },
+    )
     sucio.current = true
     window.clearTimeout(timer.current)
     timer.current = window.setTimeout(() => void guardarRef.current(), 4000)
@@ -310,21 +495,41 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
     if (herramienta === 'mover') refrescarCaja(true)
   }
 
+  /**
+   * Lo que pinta OTRA persona: también hay que guardarlo en la caché local,
+   * pero agrupado — un replay puede repetir cientos de operaciones y no tiene
+   * sentido re-renderizar por cada una.
+   */
+  const remotoTimer = useRef(0)
+  const alAplicarRemoto = useRef(() => {
+    sucio.current = true
+    window.clearTimeout(remotoTimer.current)
+    remotoTimer.current = window.setTimeout(() => {
+      setVersion((v) => v + 1)
+      window.clearTimeout(timer.current)
+      timer.current = window.setTimeout(() => void guardarRef.current(), 4000)
+    }, 250)
+  })
+
   // Carga única: fila → lienzo (capas) → encuadre inicial centrado.
   useEffect(() => {
     let vivo = true
     const guardar = guardarRef.current // estable: se inicializa una sola vez
     const encuadrar = encuadrarRef.current
     let ro: ResizeObserver | null = null
+    let cerrarCompartido = async (): Promise<void> => undefined
     void dibujosRepo.list().then(async (filas) => {
       const d = filas.find((x) => x.id === id)
       const host = capasRef.current
       if (!vivo || !d || !host) return
+      // Al volver a montar (al empezar a compartir) el host aún tiene los canvas
+      // del lienzo anterior: fuera, o se apilarían dos dibujos.
+      host.replaceChildren()
       const lienzo = crearLienzo(host, d.ancho, d.alto)
       await lienzo.iniciar(d, tGlobal('arte.capa.fondo', 'Fondo'))
       if (!vivo) return
       lienzoRef.current = lienzo
-      setLienzoListo(lienzo)
+      setLienzoPanel(d.espacioId ? capasCompartidas(lienzo, (op) => emitirRef.current(op)) : lienzo)
       dims.current = { ancho: d.ancho, alto: d.alto }
       for (const c of [guiasRef.current, overlayRef.current]) {
         if (c) {
@@ -343,6 +548,36 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
         ro.observe(contRef.current)
       }
       setDibujo(d)
+      if (!d.espacioId) return
+
+      // ── Modo compartido: el snapshot y el log mandan sobre la caché local ──
+      setSincronizando(true)
+      const aplicador = crearAplicador({
+        lienzo,
+        dims: () => dims.current,
+        alTamano: (a, b) => ajustarTamanoRef.current(a, b),
+        alAplicar: () => alAplicarRemoto.current(),
+      })
+      aplicadorRef.current = aplicador
+      const esp = abrirEspacio(d.espacioId, { cursor: 'memoria' })
+      const compartido = abrirDibujoCompartido(esp, aplicador, leerOp)
+      compartidoRef.current = compartido
+      // Lo borró su dueño o me sacaron: el dibujo vuelve a ser solo mío.
+      const bajaBorrado = esp.on('borrado', () => {
+        void volverAPrivado(id).then(() => {
+          if (!vivo) return
+          avisarRef.current(tGlobal('esp.arte.fuera', 'Ya no se comparte: este dibujo vuelve a ser solo tuyo.'))
+          setRemonte((v) => v + 1)
+        })
+      })
+      void compartido.listo.finally(() => {
+        if (vivo) setSincronizando(false)
+      })
+      cerrarCompartido = async () => {
+        bajaBorrado()
+        await compartido.cerrar()
+        aplicador.soltar()
+      }
     })
     const alOcultar = () => {
       if (document.visibilityState === 'hidden') void guardar()
@@ -353,14 +588,20 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
       ro?.disconnect()
       document.removeEventListener('visibilitychange', alOcultar)
       window.clearTimeout(timer.current)
+      window.clearTimeout(remotoTimer.current)
+      compartidoRef.current = null
+      aplicadorRef.current = null
+      void cerrarCompartido()
       void guardar()
     }
-  }, [id])
+  }, [id, remonte])
 
   // El espejo vive en el motor (refleja trazos y formas al pintar).
   useEffect(() => {
     lienzoRef.current?.setEspejo(apoyo.espejoV, apoyo.espejoH)
   }, [apoyo.espejoV, apoyo.espejoH, dibujo])
+
+  const cambiarApoyo = (parche: Partial<typeof apoyo>) => setApoyo((a) => ({ ...a, ...parche }))
 
   // Capa de guías: rejilla, ejes del espejo y la recta de la regla.
   useEffect(() => {
@@ -454,6 +695,7 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
       if (trazando.current) {
         lienzo.cancelarTrazo()
         trazando.current = false
+        trazoRef.current = null
       }
       if (moviendo.current) {
         lienzo.cancelarTransformar()
@@ -484,6 +726,10 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
       return
     }
 
+    // Solo lectura (o el lienzo compartido aún bajando): se mira, se hace zoom
+    // y se panea, pero no se pinta.
+    if (!puedoEditar || sincronizando) return
+
     const { x, y } = coordsDe(e)
     // La regla recién activada: el primer arrastre coloca la recta.
     if (apoyo.regla && !recta) {
@@ -502,7 +748,9 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
       if (!origen) return
       moviendo.current = { esquina: esquina ?? null, x0: x, y0: y, origen, cambio: false }
     } else if (herramienta === 'relleno') {
+      const capa = lienzo.capaActiva()
       lienzo.rellenar(x, y, color)
+      emitir({ tipo: 'relleno', capa, x: r2(x), y: r2(y), color })
       marcar()
     } else if (herramienta === 'gotero') {
       setColor(lienzo.colorEn(x, y))
@@ -510,7 +758,10 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
     } else if (herramienta === 'texto') {
       void pedirTexto({ titulo: t('arte.editor.texto', 'Texto en el lienzo') }).then((txt) => {
         if (txt) {
-          lienzo.texto(x, y, txt, color, 16 + grosor * 4)
+          const capa = lienzo.capaActiva()
+          const tam = 16 + grosor * 4
+          lienzo.texto(x, y, txt, color, tam)
+          emitir({ tipo: 'texto', capa, x: r2(x), y: r2(y), texto: txt.slice(0, 500), color, tam })
           marcar()
         }
       })
@@ -518,8 +769,16 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
       forma.current = { x0: ajustar(x), y0: ajustar(y), x1: ajustar(x), y1: ajustar(y) }
     } else {
       const p = apoyo.regla ? proyectar(x, y) : { x, y }
-      lienzo.empezarTrazo(p.x, p.y)
+      const t = nuevoTrazo(lienzo.capaActiva(), herramienta as HerrTrazo, color, grosor, r2(p.x), r2(p.y), [
+        apoyo.espejoV,
+        apoyo.espejoH,
+      ])
+      // El aerosol se siembra SIEMPRE: así lo que se ve aquí es exactamente lo
+      // que el replay volverá a pintar allá (y aquí mismo, si hay que reordenar).
+      azarRef.current = rngSembrado(t.semilla)
+      lienzo.empezarTrazo(t.pts[0][0], t.pts[0][1])
       trazando.current = true
+      trazoRef.current = t
     }
   }
 
@@ -584,11 +843,26 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
       // Todos los puntos del puntero (no solo el último por frame): a 22 FPS
       // los trazos rápidos salían poligonales.
       const nativos = e.nativeEvent.getCoalescedEvents?.() ?? []
+      const t = trazoRef.current
       for (const ev of nativos.length > 0 ? nativos : [e.nativeEvent]) {
         let { x, y } = aBitmap(ev.clientX, ev.clientY)
         if (apoyo.regla) ({ x, y } = proyectar(x, y))
-        const presion = ev.pointerType === 'pen' && ev.pressure > 0 ? ev.pressure : undefined
-        lienzo.trazar(x, y, color, grosor, herramienta as 'pincel' | 'spray' | 'borrador', presion)
+        // Redondeado ANTES de pintar: así lo que viaja reproduce píxel a píxel
+        // lo que se está viendo aquí (el replay parte de estos mismos números).
+        x = r2(x)
+        y = r2(y)
+        const presion = ev.pointerType === 'pen' && ev.pressure > 0 ? r2(ev.pressure) : undefined
+        lienzo.trazar(x, y, color, grosor, herramienta as HerrTrazo, presion, azarRef.current ?? undefined)
+        t?.pts.push(presion === undefined ? [x, y] : [x, y, presion])
+      }
+      // Avance del trazo largo: solo para que el otro lo vea salir en vivo. Cada
+      // tramo arranca en el último punto ya enviado, para que no quede hueco.
+      if (t && compartidoRef.current && tocaParcial(t)) {
+        compartidoRef.current.emitirParcial(
+          { ...opDeTrazo(t), pts: t.pts.slice(Math.max(0, t.enviados - 1)) },
+          t.uid,
+        )
+        t.enviados = t.pts.length
       }
       return
     }
@@ -645,6 +919,15 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
     if (paneando.current) paneando.current = null
     if (trazando.current) {
       trazando.current = false
+      const t = trazoRef.current
+      trazoRef.current = null
+      // Un trazo muy largo no cabe en un cambio: viaja partido en tramos
+      // encadenados, y el primero reusa el `uid` de los avances (así sustituye
+      // lo que el otro ya pintó en vivo).
+      if (t && t.pts.length > 1 && compartidoRef.current) {
+        const comp = compartidoRef.current
+        partirTrazo(opDeTrazo(t)).forEach((op, i) => comp.emitir(op, i === 0 ? t.uid : undefined))
+      }
       marcar()
     }
     if (moviendo.current && lienzo) {
@@ -652,7 +935,11 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
       moviendo.current = null
       lienzo.terminarTransformar(m.cambio)
       // Con cambio, `marcar` recalcula la caja de los píxeles ya movidos.
-      if (m.cambio) marcar()
+      if (m.cambio) {
+        const destino = cajaRef.current
+        if (destino) emitir({ tipo: 'transformar', capa: lienzo.capaActiva(), de: m.origen, a: destino })
+        marcar()
+      }
       return
     }
     if (colocando.current) {
@@ -667,7 +954,20 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
       const f = forma.current
       forma.current = null
       limpiarOverlay()
+      const capa = lienzo.capaActiva()
       lienzo.cometerForma(herramienta as FormaArte, f.x0, f.y0, f.x1, f.y1, color, grosor)
+      emitir({
+        tipo: 'forma',
+        capa,
+        herr: herramienta as FormaArte,
+        x0: r2(f.x0),
+        y0: r2(f.y0),
+        x1: r2(f.x1),
+        y1: r2(f.y1),
+        color,
+        grosor,
+        espejo: [apoyo.espejoV, apoyo.espejoH],
+      })
       marcar()
     }
   }
@@ -694,9 +994,33 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
     const lienzo = lienzoRef.current
     if (!lienzo) return
     const nombre = archivo.name.replace(/\.[a-z0-9]+$/i, '') || t('arte.capa.foto', 'Foto')
-    await lienzo.insertarImagen(await comprimirFoto(archivo), nombre)
+    const blob = await comprimirFoto(archivo)
+    // Compartido: la capa nueva nace con un id pactado y el PNG sube ANTES (en
+    // la operación solo viaja su ruta).
+    const idCapa = compartidoRef.current && lienzo.capas().length < MAX_CAPAS ? nuevaCapaCompartida() : undefined
+    const { nueva, capaId, caja } = await lienzo.insertarImagen(blob, nombre, idCapa)
     marcar()
     elegirHerramienta('mover')
+    if (!compartidoRef.current || !espacioId) return
+    const uid = compartidoRef.current.nuevoUid()
+    const ruta = await subirImagenOp(espacioId, uid, blob).catch(() => null)
+    if (!ruta) {
+      avisar(t('esp.arte.imagenGrande', 'Esa imagen pesa demasiado para compartirla: aquí sí la ves, los demás no.'))
+      return
+    }
+    compartidoRef.current.emitir(
+      {
+        tipo: 'imagen',
+        capa: capaId,
+        ruta,
+        x: caja.x,
+        y: caja.y,
+        w: caja.w,
+        h: caja.h,
+        ...(nueva ? { nueva: { capaId, nombre } } : {}),
+      },
+      uid,
+    )
   }
 
   const separarObjetos = async () => {
@@ -738,18 +1062,9 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
     const { ancho, alto, escalar } = tamano
     if (!ladoValido(ancho) || !ladoValido(alto)) return
     lienzo.redimensionar(ancho, alto, escalar)
-    dims.current = { ancho, alto }
-    for (const c of [guiasRef.current, overlayRef.current]) {
-      if (c) {
-        c.width = ancho
-        c.height = alto
-      }
-    }
-    setRecta(null)
-    setDibujo({ ...dibujo, ancho, alto })
     setPanelTamano(false)
-    encuadrarRef.current(ancho, alto)
-    await dibujosRepo.update(id, { ancho, alto })
+    ajustarTamanoRef.current(ancho, alto)
+    emitir({ tipo: 'redimensionar', ancho, alto, escalar })
     marcar()
   }
 
@@ -767,9 +1082,24 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
         aspectoDe(dibujo.ancho, dibujo.alto),
         calidad,
       )
+      const capa = lienzo.capaActiva()
       await lienzo.pintarImagen(blob)
       marcar()
       setPanelIA(false)
+      // Compartido: la imagen cubre la capa, así que viaja como operación (con
+      // el PNG en el bucket, que en un cambio del log no cabría).
+      if (compartidoRef.current && espacioId) {
+        const uid = compartidoRef.current.nuevoUid()
+        const ruta = await subirImagenOp(espacioId, uid, blob).catch(() => null)
+        if (ruta) {
+          compartidoRef.current.emitir(
+            { tipo: 'imagen', capa, ruta, x: 0, y: 0, w: dibujo.ancho, h: dibujo.alto, cubrir: true },
+            uid,
+          )
+        } else {
+          avisar(t('esp.arte.imagenGrande', 'Esa imagen pesa demasiado para compartirla: aquí sí la ves, los demás no.'))
+        }
+      }
     } catch (e) {
       setErrorIA(e instanceof Error ? e.message : String(e))
     } finally {
@@ -889,7 +1219,14 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
           <BotonBarra
             key={id}
             icono="tijeras"
-            etiqueta={t('arte.objetos.separar', 'Separar en objetos')}
+            // Fuera del modo compartido: el etiquetado de manchas no da el mismo
+            // reparto en dos dispositivos, y las capas dejarían de coincidir.
+            etiqueta={
+              espacioId
+                ? t('esp.arte.sinSeparar', 'No disponible en dibujos compartidos')
+                : t('arte.objetos.separar', 'Separar en objetos')
+            }
+            deshabilitado={!!espacioId}
             onClick={() => void separarObjetos()}
             {...dndHerr(id)}
           />
@@ -955,7 +1292,9 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
             etiqueta={t('arte.editor.deshacer', 'Deshacer')}
             deshabilitado={!pilas.deshacer}
             onClick={() => {
-              if (lienzoRef.current?.deshacer()) marcar()
+              // Compartido: deshacer es otra operación (anula la mía por `uid`).
+              const comp = compartidoRef.current
+              if (comp ? comp.deshacer() : lienzoRef.current?.deshacer()) marcar()
             }}
             {...dndHerr(id)}
           />
@@ -968,7 +1307,8 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
             etiqueta={t('arte.editor.rehacer', 'Rehacer')}
             deshabilitado={!pilas.rehacer}
             onClick={() => {
-              if (lienzoRef.current?.rehacer()) marcar()
+              const comp = compartidoRef.current
+              if (comp ? comp.rehacer() : lienzoRef.current?.rehacer()) marcar()
             }}
             {...dndHerr(id)}
           />
@@ -980,7 +1320,11 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
             icono="basura"
             etiqueta={t('arte.editor.limpiarCapa', 'Limpiar la capa')}
             onClick={() => {
-              lienzoRef.current?.limpiar()
+              const l = lienzoRef.current
+              if (!l) return
+              const capa = l.capaActiva()
+              l.limpiar()
+              emitir({ tipo: 'limpiar', capa })
               marcar()
             }}
             {...dndHerr(id)}
@@ -1112,6 +1456,18 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
   const tamanoValido = ladoValido(tamano.ancho) && ladoValido(tamano.alto)
   const tamanoIgual = dibujo != null && tamano.ancho === dibujo.ancho && tamano.alto === dibujo.alto
 
+  /** Empezar a compartir: crea el espacio con el dibujo de ahora como punto de partida. */
+  const compartir = async () => {
+    const lienzo = lienzoRef.current
+    if (!lienzo || !dibujo) return
+    await guardarRef.current()
+    const nuevo = await compartirDibujo(id, lienzo)
+    setDibujo({ ...dibujo, espacioId: nuevo })
+    // Vuelve a montar el lienzo, ya enganchado al espacio.
+    setRemonte((v) => v + 1)
+    useEspaciosStore.getState().abrirCompartir(nuevo)
+  }
+
   return (
     <div className="flex h-full flex-col gap-2">
       {/* Cabecera */}
@@ -1120,6 +1476,13 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
           <Icono nombre="volver" /> {t('arte.editor.volver', 'Volver a la galería')}
         </BotonSecundario>
         <p className="min-w-0 flex-1 truncate text-sm font-semibold">{dibujo?.nombre ?? ''}</p>
+        {espacioId && (
+          <ChipMiembros
+            espacioId={espacioId}
+            onClick={() => useEspaciosStore.getState().abrirCompartir(espacioId)}
+          />
+        )}
+        {dibujo && <BotonCompartir espacioId={espacioId} onCompartir={compartir} pequeno />}
         <BotonPrimario
           type="button"
           pequeno
@@ -1134,7 +1497,12 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
       </div>
 
       {/* Barra de herramientas por grupos: grupos y botones se arrastran y el orden se guarda. */}
-      <div className="flex shrink-0 flex-wrap items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 px-2 py-1.5">
+      <div
+        aria-disabled={!puedoEditar}
+        className={`flex shrink-0 flex-wrap items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 px-2 py-1.5 ${
+          puedoEditar ? '' : 'pointer-events-none opacity-40'
+        }`}
+      >
         {barra.grupos.map(grupoJsx)}
         {!esBarraDefecto(barra) && (
           <BotonBarra
@@ -1153,7 +1521,11 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
               key={f.id}
               type="button"
               onClick={() => {
-                lienzoRef.current?.filtrar(f.id)
+                const l = lienzoRef.current
+                if (!l) return
+                const capa = l.capaActiva()
+                l.filtrar(f.id)
+                emitir({ tipo: 'filtro', capa, filtro: f.id })
                 marcar()
               }}
               className="rounded-lg border border-white/10 bg-white/10 px-2.5 py-1.5 text-xs font-semibold text-white transition hover:bg-white/20 active:scale-95"
@@ -1165,6 +1537,14 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
             {t('arte.filtro.nota', 'Cada filtro se aplica a la capa activa y se puede deshacer.')}
           </span>
         </div>
+      )}
+
+      {espacioId && (sincronizando || !puedoEditar) && (
+        <p className="shrink-0 px-1 text-xs text-white/50">
+          {sincronizando
+            ? t('esp.arte.sincronizando', 'Bajando el dibujo compartido…')
+            : t('esp.arte.soloLectura', 'Solo puedes mirar este dibujo: quien lo compartió no te dejó editarlo.')}
+        </p>
       )}
 
       {(aviso || herramienta === 'mover') && (
@@ -1201,8 +1581,8 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
             <Spinner etiqueta={t('arte.editor.cargando', 'Cargando el dibujo')} />
           </div>
         )}
-        {panelCapas && dibujo && lienzoListo && (
-          <PanelCapas lienzo={lienzoListo} alCambiar={marcar} alCerrar={() => setPanelCapas(false)} />
+        {panelCapas && dibujo && lienzoPanel && puedoEditar && (
+          <PanelCapas lienzo={lienzoPanel} alCambiar={marcar} alCerrar={() => setPanelCapas(false)} />
         )}
       </div>
 
@@ -1288,17 +1668,17 @@ export function EditorDibujo({ id, alCerrar }: { id: number; alCerrar: () => voi
         <Modal titulo={t('arte.apoyo.titulo', 'Ayudas de dibujo')} onCerrar={() => setPanelApoyo(false)}>
           <div className="grid grid-cols-2 gap-2">
             {apoyoBtn(apoyo.regla, 'regla', t('arte.apoyo.regla', 'Regla'), () => {
-              setApoyo((a) => ({ ...a, regla: !a.regla }))
+              cambiarApoyo({ regla: !apoyo.regla })
               setRecta(null)
             })}
             {apoyoBtn(apoyo.rejilla, 'rejilla', t('arte.apoyo.rejilla', 'Rejilla con imán'), () =>
-              setApoyo((a) => ({ ...a, rejilla: !a.rejilla })),
+              cambiarApoyo({ rejilla: !apoyo.rejilla }),
             )}
             {apoyoBtn(apoyo.espejoV, 'espejo', t('arte.apoyo.espejoV', 'Espejo vertical'), () =>
-              setApoyo((a) => ({ ...a, espejoV: !a.espejoV })),
+              cambiarApoyo({ espejoV: !apoyo.espejoV }),
             )}
             {apoyoBtn(apoyo.espejoH, 'espejo', t('arte.apoyo.espejoH', 'Espejo horizontal'), () =>
-              setApoyo((a) => ({ ...a, espejoH: !a.espejoH })),
+              cambiarApoyo({ espejoH: !apoyo.espejoH }),
             )}
           </div>
           <p className="text-xs text-white/40">

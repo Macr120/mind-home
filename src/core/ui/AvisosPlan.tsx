@@ -3,11 +3,14 @@ import { useT } from '../i18n/useT'
 import { useAvisoDemo, useAvisoRenovar, useAvisoSesion, useCuotaAgotada } from '../state/avisosPlanStore'
 import { canalPago } from '../plataforma'
 import {
+  CompraCancelada,
   hayPagos,
   obtenerNiveles,
   obtenerCreditos,
   cambiarNivel,
   comprarCreditos,
+  detalleDeFallo,
+  textoDeFallo,
   type OfertaPro,
 } from '../cuenta/paywall'
 import { URL_WEB as urlWeb } from '../cuenta/urlWeb'
@@ -338,10 +341,11 @@ function CuotaAgotada() {
     setOcupado(true)
     setError(null)
     try {
-      await cambiarNivel(oferta.paquete, oferta.nivel)
+      await cambiarNivel(oferta)
       cerrar()
     } catch (e) {
-      setError(e instanceof Error ? e.message : String(e))
+      if (e instanceof CompraCancelada) return
+      setError(`${textoDeFallo(e, t)}\n${detalleDeFallo(e)}`)
     } finally {
       setOcupado(false)
     }
@@ -355,10 +359,11 @@ function CuotaAgotada() {
     setOcupado(true)
     setError(null)
     try {
-      await comprarCreditos(creditos.paquete)
+      await comprarCreditos(creditos)
       cerrar()
     } catch (e) {
-      setError(e instanceof Error ? e.message : String(e))
+      if (e instanceof CompraCancelada) return
+      setError(`${textoDeFallo(e, t)}\n${detalleDeFallo(e)}`)
     } finally {
       setOcupado(false)
     }
@@ -435,7 +440,7 @@ function CuotaAgotada() {
             {t('cuenta.cuota.nativo', 'Los créditos se gestionan desde tu cuenta.')}
           </p>
         )}
-        {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
+        {error && <p className="whitespace-pre-line text-[11px] leading-snug text-red-400/90">{error}</p>}
         <button
           type="button"
           onClick={cerrar}

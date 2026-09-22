@@ -154,6 +154,8 @@ export const MEDIA_AMPLIO = '(min-width: 48rem) and (min-height: 34rem)'
 export const MEDIA_LATERALES_ANCHOS = '(min-width: 64rem)'
 export const LS_PANEL_MEDIOS = 'mh.video.panelMedios'
 export const LS_PANEL_CLIP = 'mh.video.panelClip'
+/** El aviso de que compartir un video ocupa espacio en la nube ya se leyó. */
+export const LS_AVISO_NUBE = 'mh.video.avisoNube'
 /** Sonidos de fábrica borrados de la carpeta «Sonidos» (claves, JSON). */
 export const LS_SONIDOS_OCULTOS = 'mh.video.sonidosOcultos'
 export const ALTO_PREVIEW_PLIEGUE = 48

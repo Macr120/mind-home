@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { claveLS, esDemo, esProbar, LS_PLAN_REAL } from '../edicion'
+import { claveLS, esDemo, esProbar, esVisita, LS_PLAN_REAL } from '../edicion'
 import { borrarProbar, hayPruebaSucia } from '../../probar/modo'
 import { haySesionProbable, useSesion } from '../cuenta/sesionStore'
 import { useDiseño, esObjetoLibreria } from '../state/disenoStore'
@@ -74,6 +74,10 @@ export function evaluarPrimeraVez(): void {
   // probar SÍ corre: la bienvenida es justo su puerta de entrada, y sus marcas
   // van con prefijo `probar:` vía claveLS.)
   if (esDemo()) return
+  // Casa visitada: es la casa YA hecha de otra persona. Sus marcas van con
+  // prefijo `visita:` (claveLS), así que sin este corte el wizard saldría en
+  // cada visita y encima querría construir cuartos en casa ajena.
+  if (esVisita()) return
   if (localStorage.getItem(claveLS(LS_BIENVENIDA)) === '1') return
   // Con sesión iniciada la decisión es de la CUENTA: si trae casa se entra
   // directo (sin wizard); si la nube viene vacía es una cuenta nueva y el

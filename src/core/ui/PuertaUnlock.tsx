@@ -5,7 +5,9 @@ import { useSesion } from '../cuenta/sesionStore'
 import { canalPago } from '../plataforma'
 import { hayBackend } from '../cuenta/supabase'
 import {
+  CompraCancelada,
   comprarUnlock,
+  detalleDeFallo,
   hayPagos,
   obtenerUnlock,
   restaurarCompras,
@@ -134,7 +136,7 @@ function Marco({
  * abajo— porque son dos personas distintas: quien reinstala o estrena
  * dispositivo, y quien acaba de descubrir la app. A esta segunda le falta
  * además saber qué está a punto de comprar, y para eso está el recorrido
- * «¿Qué es MindHaOS?» (la web pública contada como historias).
+ * «¿Qué es Mind Planner Home?» (la web pública contada como historias).
  */
 function PantallaCuenta() {
   const t = useT()
@@ -288,6 +290,11 @@ function PantallaTienda() {
   const [cargando, setCargando] = useState(compraAqui)
   const [ocupado, setOcupado] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  // La línea técnica bajo el error (código de la tienda): con ella una captura
+  // del revisor dice qué pasó. Cuatro rechazos no lo dijeron.
+  const [detalle, setDetalle] = useState<string | null>(null)
+  // La tienda cobró y el perfil aún no lo refleja: NO es un error, es espera.
+  const [activando, setActivando] = useState(false)
 
   // La oferta de la tienda. Se pide al entrar y se puede volver a pedir desde
   // el propio botón si no llegó (red caída, catálogo aún propagándose).
@@ -330,6 +337,8 @@ function PantallaTienda() {
     if (ocupado) return
     setOcupado(true)
     setError(null)
+    setDetalle(null)
+    setActivando(false)
     try {
       // La oferta puede faltar por dos motivos, y ninguno debe dejar el toque
       // en nada: o la primera consulta sigue en el aire, o no trajo catálogo.
@@ -341,17 +350,19 @@ function PantallaTienda() {
         // que la puerta se abre sola.
         if (!useSesion.getState().unlock) {
           setError(t('puerta.sinOferta', 'La tienda no respondió. Revisa tu conexión y vuelve a intentarlo.'))
+          setDetalle('sin-productos')
         }
         return
       }
-      const ok = await comprarUnlock(aCobrar.paquete)
-      if (!ok) {
-        setError(
-          t('puerta.compraFallo', 'La compra no se completó. Si ya pagaste, prueba «Restaurar compras».'),
-        )
-      }
+      const ok = await comprarUnlock(aCobrar)
+      // La tienda cobró; si el perfil aún no lo dice, se espera —no se acusa—.
+      // El webhook lo completa en cuanto llega, y «Ya la compré» relee.
+      if (!ok) setActivando(true)
     } catch (e) {
+      // Cerrar la hoja de pago no es un error: nada que enseñar.
+      if (e instanceof CompraCancelada) return
       setError(textoDeFallo(e, t))
+      setDetalle(detalleDeFallo(e))
     } finally {
       setOcupado(false)
     }
@@ -380,6 +391,17 @@ function PantallaTienda() {
           que se lee al tamaño del texto normal y no al de una nota al pie: a
           11 px pasaba por decoración y el botón parecía no hacer nada. */}
       {error && <p className="text-xs leading-snug text-red-400/90">{error}</p>}
+      {/* El código de la tienda, en pequeño: para que una captura lo cuente. */}
+      {error && detalle && detalle !== error && (
+        <p className="break-all text-[10px] leading-snug text-white/35">{detalle}</p>
+      )}
+      {/* Cobro hecho, perfil en camino: tono neutro, y abajo «Ya la compré»
+          relee el perfil cuando quiera. */}
+      {activando && !error && (
+        <p className="text-xs leading-snug text-accent/90">
+          {t('puerta.activando', 'Pago recibido: activando tu casa. Si tarda, toca «Ya la compré».')}
+        </p>
+      )}
 
       {/* Quien ya pagó tiene que poder entrar sin volver a pagar, y esto es
           además lo que salva la pantalla si la tienda no contesta. */}
@@ -476,6 +498,13 @@ function TarjetaPrecio({
         <Icono nombre="casa" />
         {ocupado ? t('puerta.comprando', 'Procesando…') : x('precio.app.cta', 'Comprar la casa')}
       </button>
+      {/* Sin cifra y esperando: decirlo en tono neutro. Antes el silencio (o un
+          error a los 12 s) hacía creer que la compra estaba rota. */}
+      {cargando && !precio && (
+        <p className="text-[11px] leading-snug text-white/45">
+          {t('puerta.conectandoTienda', 'Conectando con la tienda…')}
+        </p>
+      )}
     </div>
   )
 }

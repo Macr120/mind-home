@@ -114,6 +114,10 @@ export const MANUAL_NL: ManualTraducido = {
     '[Historial]': '[Geschiedenis]',
     '[Sitios]': '[Sites]',
     '[Tiempo en internet]': '[Tijd online]',
+    '[Cómo llegar]': '[Route]',
+    '[Amigos]': '[Vrienden]',
+    '[Jugar] {paintball} [con] {@ana}': '[Speel] {paintball} [met] {@ana}',
+    '{Tenis} {@ana}': '{Tennis} {@ana}',
   },
   atajos: {
     'Caminar (también con las flechas)': 'Lopen (ook met de pijltjestoetsen)',

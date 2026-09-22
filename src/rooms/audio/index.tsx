@@ -1,5 +1,6 @@
 import { lazy } from 'react'
 import type { Plantilla } from '../../core/appContrato'
+import { registrarAterrizaje } from '../../core/espacios/enlaces'
 import { registrarProveedorRecursos } from '../../core/recursosStudio'
 import { COLOR_FABRICA } from './constantes'
 import { OPERACIONES_IA } from './costosIA'
@@ -15,6 +16,12 @@ registrarProveedorRecursos({
 // La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
 // montaje ya envuelven en Suspense).
 const StudioAudioApp = lazy(() => import('./StudioAudioApp').then((m) => ({ default: m.StudioAudioApp })))
+
+// Un proyecto compartido por enlace aterriza aquí (registro eager, código con
+// import(): el lector defensivo del snapshot no pinta nada en el arranque).
+registrarAterrizaje('audio', async (e) => {
+  await (await import('./compartido')).aterrizarProyecto(e)
+})
 
 const audio: Plantilla = {
   id: 'audio',

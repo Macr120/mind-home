@@ -18,7 +18,7 @@ import Dexie, {
   type Middleware,
 } from 'dexie'
 import { esDemo } from '../../edicion'
-import { esTablaSync } from './syncables'
+import { esFilaCompartida, esTablaSync } from './syncables'
 
 type OpOutbox = 'upsert' | 'delete'
 
@@ -27,6 +27,8 @@ interface EntradaOutbox {
   tabla: string
   uid: string
   op: OpOutbox
+  /** Espacio compartido al que pertenece la fila (ver `esFilaCompartida`). */
+  espacio?: string
 }
 
 interface TransPull extends DBCoreTransaction {
@@ -39,6 +41,31 @@ type Fila = Record<string, unknown>
 let alEscribirLocal: (() => void) | null = null
 export function conectarAvisoEscritura(fn: (() => void) | null): void {
   alEscribirLocal = fn
+}
+
+/**
+ * Lo mismo para las filas de un ESPACIO COMPARTIDO: el motor de `core/espacios`
+ * se suscribe aquí y drena la cola de ese espacio. Se avisa UNA vez por espacio
+ * tocado, con el mismo debounce que el push personal.
+ */
+let alEscribirEspacio: ((espacio: string) => void) | null = null
+export function conectarAvisoEscrituraEspacio(fn: ((espacio: string) => void) | null): void {
+  alEscribirEspacio = fn
+}
+
+const DEBOUNCE_ESPACIO_MS = 500
+const espaciosTocados = new Set<string>()
+let timerEspacio: ReturnType<typeof setTimeout> | null = null
+
+function avisarEspacios(entradas: EntradaOutbox[]): void {
+  for (const e of entradas) if (e.espacio) espaciosTocados.add(e.espacio)
+  if (!espaciosTocados.size || timerEspacio != null) return
+  timerEspacio = setTimeout(() => {
+    timerEspacio = null
+    const ids = [...espaciosTocados]
+    espaciosTocados.clear()
+    for (const id of ids) alEscribirEspacio?.(id)
+  }, DEBOUNCE_ESPACIO_MS)
 }
 
 /**
@@ -99,6 +126,13 @@ export const syncMiddleware: Middleware<DBCore> = {
           if (sinOutbox || !entradas.length) return
           await outbox.mutate({ type: 'add', trans, values: entradas })
           alEscribirLocal?.()
+          avisarEspacios(entradas)
+        }
+
+        /** La entrada de una fila, marcada si pertenece a un espacio compartido. */
+        const entradaDe = (uid: string, op: OpOutbox, fila: Fila): EntradaOutbox => {
+          const espacio = esFilaCompartida(nombre, fila)
+          return { tabla: nombre, uid, op, ...(espacio ? { espacio } : {}) }
         }
 
         return {
@@ -137,9 +171,7 @@ export const syncMiddleware: Middleware<DBCore> = {
               const entradas: EntradaOutbox[] = []
               valores.forEach((v, i) => {
                 if (res.failures?.[i]) return
-                if (typeof v.uid === 'string') {
-                  entradas.push({ tabla: nombre, uid: v.uid, op: 'upsert' })
-                }
+                if (typeof v.uid === 'string') entradas.push(entradaDe(v.uid, 'upsert', v))
               })
               await encolar(req.trans, entradas)
               return res
@@ -153,9 +185,7 @@ export const syncMiddleware: Middleware<DBCore> = {
               const res = await tabla.mutate(req)
               const entradas: EntradaOutbox[] = []
               for (const f of filas) {
-                if (f && typeof f.uid === 'string') {
-                  entradas.push({ tabla: nombre, uid: f.uid, op: 'delete' })
-                }
+                if (f && typeof f.uid === 'string') entradas.push(entradaDe(f.uid, 'delete', f))
               }
               await encolar(req.trans, entradas)
               return res
@@ -172,9 +202,7 @@ export const syncMiddleware: Middleware<DBCore> = {
               const res = await tabla.mutate(req)
               const entradas: EntradaOutbox[] = []
               for (const f of filas) {
-                if (typeof f.uid === 'string') {
-                  entradas.push({ tabla: nombre, uid: f.uid, op: 'delete' })
-                }
+                if (typeof f.uid === 'string') entradas.push(entradaDe(f.uid, 'delete', f))
               }
               await encolar(req.trans, entradas)
               return res

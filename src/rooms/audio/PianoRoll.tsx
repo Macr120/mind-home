@@ -93,6 +93,7 @@ type Modo =
 const ALTO_AREA_AUDIO = 112
 
 export function PianoRoll({
+  bloqueado,
   proyecto,
   pista,
   colorIdx,
@@ -111,6 +112,8 @@ export function PianoRoll({
   onPosInicio,
   onLoop,
 }: {
+  /** Compartido y sin el turno: se navega y se escucha, pero no se editan notas ni clips. */
+  bloqueado?: boolean
   proyecto: ProyectoAudio
   pista: PistaAudio
   colorIdx: number
@@ -734,6 +737,11 @@ export function PianoRoll({
       return
     }
     if (cx < G) {
+      modo.current = { tipo: 'pan' }
+      return
+    }
+    // Sin el turno del proyecto compartido: el arrastre solo pasea el timeline.
+    if (bloqueado) {
       modo.current = { tipo: 'pan' }
       return
     }

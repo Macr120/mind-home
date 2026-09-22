@@ -116,7 +116,17 @@ function FilaRed({ plataforma, cuenta, cargando }: { plataforma: Plataforma; cue
           </p>
         )}
       </div>
-      {cuenta && cuenta.estado === 'ok' ? (
+      {/* Esperando la vuelta del OAuth: sin esta salida la fila se queda trabada
+          hasta recargar, porque «Conectar» está deshabilitado mientras tanto. */}
+      {pendiente ? (
+        <button
+          type="button"
+          onClick={() => useRedes.setState({ pendiente: null })}
+          className="ui-boton rounded-md border border-white/10 bg-white/5 px-2 py-1 text-[11px] font-semibold text-white/70 transition hover:bg-white/10"
+        >
+          {t('video.publicar.cuenta.cancelar', 'Cancelar')}
+        </button>
+      ) : cuenta && cuenta.estado === 'ok' ? (
         <button
           type="button"
           onClick={() => void desconectar()}

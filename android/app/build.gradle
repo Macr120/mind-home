@@ -18,8 +18,8 @@ android {
         applicationId "com.macr120.mindhome"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 8
-        versionName "1.1.1"
+        versionCode 9
+        versionName "1.1.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
@@ -65,14 +65,16 @@ android {
 // reescribe `capacitor.build.gradle`, y tocar un .gradle a mitad de build es
 // justo lo que no se debe hacer. Si añades un plugin, corre `npx cap sync android`
 // a mano esa vez.
+// `build:android` y no `build`: cada canal compila con su propia clave de HERE
+// (`.env.android.local`), así el APK no lleva las claves de la web ni de iOS.
 def esWindows = System.getProperty('os.name').toLowerCase().contains('windows')
 tasks.register('construirWeb', Exec) {
     description = 'Compila la web y la copia a los assets de Android (solo release).'
     workingDir rootProject.projectDir.parentFile
     if (esWindows) {
-        commandLine 'cmd', '/c', 'npm run build && npx cap copy android'
+        commandLine 'cmd', '/c', 'npm run build:android && npx cap copy android'
     } else {
-        commandLine 'sh', '-c', 'npm run build && npx cap copy android'
+        commandLine 'sh', '-c', 'npm run build:android && npx cap copy android'
     }
 }
 

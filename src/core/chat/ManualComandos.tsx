@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { getPlantilla } from '../registry'
 import { costoDieta, costoReceta } from '../../rooms/cocina/costosIA'
 import { costoOp } from '../cuenta/costos'
@@ -349,6 +349,7 @@ const SECCIONES: Seccion[] = [
               { frase: '[Abre] {por conocer}', en: '[Open] the {wish list}' },
               { frase: '[Abre] las {rutas}', en: '[Open] the {routes}' },
               { frase: '[Abre] la {bitácora de viajes}', en: '[Open] the {travel log}' },
+              { frase: '[Cómo llegar]', en: '[Directions]' },
             ],
           },
           {
@@ -981,6 +982,26 @@ const SECCIONES: Seccion[] = [
         ],
       },
       {
+        icon: '💬',
+        id: 'amigos',
+        titulo: 'Amigos',
+        nota: 'Otras personas con cuenta: elige un alias en los ajustes del menú Amigos, agrégalas por su alias y chatea con ellas ahí mismo. Desde una receta, rutina, dibujo o documento, «Enviar a un contacto» se lo manda. Escribe un juego y el @alias de un amigo y le llega una solicitud con el enlace directo al juego (paintball, fútbol, básquet, tenis, 4 en línea, damas, ajedrez o cartas).',
+        grupos: [
+          {
+            id: 'abrir',
+            ejemplos: [{ frase: '[Amigos]', en: '[Friends]' }],
+          },
+          {
+            id: 'jugar',
+            ejemplos: [
+              { frase: '[Jugar] {paintball} [con] {@ana}', en: '[Play] {paintball} [with] {@ana}' },
+              { frase: '{Tenis} {@ana}', en: '{Tennis} {@ana}' },
+              { frase: '[Jugar] {ajedrez}', en: '[Play] {chess}' },
+            ],
+          },
+        ],
+      },
+      {
         icon: '🌐',
         id: 'navegador',
         titulo: 'Navegador',
@@ -1038,15 +1059,21 @@ const GRUPO_ES: Record<Grupo['id'], string> = {
 
 export function ManualComandos({
   onUsar,
-  onCerrar,
+  carpetaInicial,
 }: {
   onUsar: (frase: string) => void
-  onCerrar: () => void
+  /** Carpeta que se abre y se enfoca al montar (la del menú del chat que pidió el manual). */
+  carpetaInicial?: string
 }) {
   const t = useT()
   const idioma = useAjustes((s) => s.idioma)
-  const [abiertas, setAbiertas] = useState<Record<string, boolean>>({ cocina: true })
+  const [abiertas, setAbiertas] = useState<Record<string, boolean>>({ [carpetaInicial ?? 'cocina']: true })
   const toggle = (id: string) => setAbiertas((s) => ({ ...s, [id]: !s[id] }))
+  // La carpeta pedida queda a la vista aunque viva al final del manual.
+  const refInicial = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (carpetaInicial) refInicial.current?.scrollIntoView({ block: 'start' })
+  }, [carpetaInicial])
 
   // El español y el inglés van en línea; los demás idiomas se descargan al
   // abrir el manual y, mientras llegan (o si falta la frase), se ve el español.
@@ -1066,22 +1093,7 @@ export function ManualComandos({
   }
 
   return (
-    <div className="ui-panel-glass mb-2 max-h-[60vh] overflow-y-auto rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
-      <div className="mb-2 flex items-center gap-2 border-b border-white/10 px-1 pb-2">
-        <span className="text-sm"><Icono nombre="registros" /></span>
-        <span className="flex-1 text-[11px] font-semibold text-white/50">
-          {t('chat.manual.titulo', 'Manual: qué puedes pedir')}
-        </span>
-        <button
-          type="button"
-          onClick={onCerrar}
-          className="rounded px-2 py-0.5 text-sm text-white/40 transition hover:bg-white/10 hover:text-white/80"
-          title={t('chat.conv.cerrar', 'Cerrar')}
-        >
-          ✕
-        </button>
-      </div>
-
+    <div>
       <p className="px-1 text-[10px] leading-relaxed text-white/40">
         {t('chat.manual.intro', 'Abre una carpeta y toca un ejemplo para escribirlo en el chat. La mayoría funciona sin IA.')}
       </p>
@@ -1112,7 +1124,11 @@ export function ManualComandos({
                   carpeta.grupos.reduce((s, g) => s + g.ejemplos.length, 0) +
                   (carpeta.atajos?.length ?? 0)
                 return (
-                  <div key={carpeta.id} className="overflow-hidden rounded-xl border border-white/10 bg-white/[0.03]">
+                  <div
+                    key={carpeta.id}
+                    ref={carpeta.id === carpetaInicial ? refInicial : undefined}
+                    className="overflow-hidden rounded-xl border border-white/10 bg-white/[0.03]"
+                  >
                     <button
                       type="button"
                       onClick={() => toggle(carpeta.id)}

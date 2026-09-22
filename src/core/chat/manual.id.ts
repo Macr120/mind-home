@@ -133,6 +133,9 @@ export const MANUAL_ID: ManualTraducido = {
     '[Historial]': '[Riwayat]',
     '[Sitios]': '[Situs]',
     '[Tiempo en internet]': '[Waktu di internet]',
+    '[Cómo llegar]': '[Rute]',
+    '[Amigos]': '[Teman]',
+    '[Jugar] {paintball} [con] {@ana}': '[Main] {paintball} [dengan] {@ana}',
   },
   atajos: {
     'Caminar (también con las flechas)': 'Jalan (bisa juga pakai tombol panah)',

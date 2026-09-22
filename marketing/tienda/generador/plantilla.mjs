@@ -1,15 +1,7 @@
 // Plantilla HTML de una lámina de tienda: se renderiza al tamaño exacto del
 // lienzo (Play 1080×1920, App Store 1290×2796) y se captura tal cual.
 // Fondo BLANCO con el halo de color de cada lámina (morado, ámbar, rojo, verde).
-
-const ICONO = `<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <rect width="512" height="512" rx="112" fill="#576748"/>
-  <g transform="translate(77.5 206)">
-    <rect x="0" y="3" width="94" height="94" rx="20" fill="#DA9425"/>
-    <path d="M137 0V100H237Z" fill="#C23A40"/>
-    <path d="M257 0H357V100A100 100 0 0 1 257 0Z" fill="#895AC6"/>
-  </g>
-</svg>`
+import { ICONO } from './icono.mjs'
 
 /** Tinta de la app (`--ui-ink` del canon claro). */
 const TINTA = '#1c2333'
@@ -75,7 +67,11 @@ export function lamina(s, tam) {
   }
 
   .marca { display: flex; align-items: center; gap: ${16 * u}px; margin-bottom: ${34 * u}px; }
-  .marca svg { width: ${58 * u}px; height: ${58 * u}px; border-radius: ${13 * u}px; display: block; }
+  .marca svg {
+    width: ${58 * u}px; height: ${58 * u}px; border-radius: ${13 * u}px; display: block;
+    /* El icono va sobre blanco y la lámina también: sin esto se le pierde el canto. */
+    box-shadow: 0 ${2 * u}px ${10 * u}px ${TINTA}1f;
+  }
   .marca span {
     font-size: ${26 * u}px; font-weight: 700; letter-spacing: ${0.6 * u}px;
     color: ${TINTA}b8;

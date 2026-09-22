@@ -1,13 +1,30 @@
 import { useEffect, useState } from 'react'
 import { Icono } from '../../../core/ui/iconos/Icono'
 import { useT } from '../../../core/i18n/useT'
+import { registrarJuegoMesa, useMesa, type Asiento } from '../../../core/partida/mesa'
 import { COLOR } from '../constantes'
 import type { Dificultad, PropsDificultad } from './dificultad'
 import { ElegirModo } from './ElegirModo'
+import { BarraMesa, nombreAsiento, opcionEnLinea } from './mesaJuego'
 
-type Modo = '2j' | 'ia'
+type Modo = '2j' | 'ia' | 'online'
 type FichaC4 = 'R' | 'A'
 type TableroC4 = (FichaC4 | null)[]
+
+/** Partida entera: es lo que viaja en la mesa en línea (`e` de la apertura). */
+interface EstadoC4 {
+  tab: TableroC4
+  turno: FichaC4
+  ganador: FichaC4 | 'empate' | null
+}
+
+/** La jugada es la columna donde se suelta la ficha. */
+interface MovC4 {
+  col: number
+}
+
+/** Quien abre la mesa lleva las rojas, que son las que empiezan. */
+const FICHA_DE: Record<Asiento, FichaC4> = { a: 'R', b: 'A' }
 
 const COLS = 7
 const FILAS = 6
@@ -52,6 +69,32 @@ function conFicha(t: TableroC4, col: number, ficha: FichaC4): TableroC4 | null {
 }
 
 const columnasLibres = (t: TableroC4) => ORDEN_CENTRAL.filter((col) => filaLibre(t, col) !== null)
+
+function inicialC4(): EstadoC4 {
+  return { tab: new Array<FichaC4 | null>(COLS * FILAS).fill(null), turno: 'R', ganador: null }
+}
+
+/**
+ * Reductor puro de la partida: null si ya acabó, si no es el turno de esa ficha
+ * o si la columna no existe o está llena. Es el mismo que usa el árbitro de la
+ * mesa para juzgar la jugada que le llega.
+ */
+function aplicarC4(e: EstadoC4, col: number, ficha: FichaC4): EstadoC4 | null {
+  if (e.ganador !== null || e.turno !== ficha) return null
+  if (!Number.isInteger(col) || col < 0 || col >= COLS) return null
+  const tab = conFicha(e.tab, col, ficha)
+  if (!tab) return null
+  const ganador = hayCuatro(tab, ficha) ? ficha : tab.every((c) => c !== null) ? 'empate' : null
+  return { tab, turno: ficha === 'R' ? 'A' : 'R', ganador }
+}
+
+const VACIO_C4 = inicialC4()
+
+registrarJuegoMesa<EstadoC4, MovC4>('c4', {
+  inicial: inicialC4,
+  aplicar: (e, m, asiento) => aplicarC4(e, m?.col, FICHA_DE[asiento]),
+  terminado: (e) => e.ganador !== null,
+})
 
 // Cuenta amenazas por ventanas de 4 desde el punto de vista de `ficha`
 function evaluar(t: TableroC4, ficha: FichaC4): number {
@@ -121,28 +164,46 @@ function columnaIA(t: TableroC4, dif: Dificultad): number {
   return elegida
 }
 
-export function CuatroEnLinea({ dificultad = 'medio' }: PropsDificultad) {
+export function CuatroEnLinea({ dificultad = 'medio', mesaOnline = false }: PropsDificultad) {
   const t = useT()
-  const [modo, setModo] = useState<Modo | null>(null)
-  const [tablero, setTablero] = useState<TableroC4>(() => new Array<FichaC4 | null>(COLS * FILAS).fill(null))
-  const [turno, setTurno] = useState<FichaC4>('R')
-  const [ganador, setGanador] = useState<FichaC4 | 'empate' | null>(null)
+  const mesa = useMesa<EstadoC4, MovC4>('c4')
+  const [modo, setModo] = useState<Modo | null>(mesaOnline ? 'online' : null)
+  const [local, setLocal] = useState<EstadoC4>(inicialC4)
+
+  const online = modo === 'online'
+  // En línea el tablero es el de la mesa: una sola fuente, nunca el `useState`.
+  const { tab: tablero, turno, ganador } = online ? (mesa.estado ?? VACIO_C4) : local
+  const miFicha = online && mesa.miAsiento ? FICHA_DE[mesa.miAsiento] : null
+  const turnoMio = !online || miFicha === turno
+  const sinAsientoB = mesa.asientos.b === null
 
   const reiniciar = (m: Modo | null) => {
+    if (online && m !== 'online') mesa.levantar()
     setModo(m)
-    setTablero(new Array<FichaC4 | null>(COLS * FILAS).fill(null))
-    setTurno('R')
-    setGanador(null)
+    setLocal(inicialC4())
   }
 
   const soltar = (col: number, ficha: FichaC4) => {
-    const nuevo = conFicha(tablero, col, ficha)
-    if (!nuevo) return
-    setTablero(nuevo)
-    if (hayCuatro(nuevo, ficha)) setGanador(ficha)
-    else if (nuevo.every((c) => c !== null)) setGanador('empate')
-    else setTurno(ficha === 'R' ? 'A' : 'R')
+    if (online) {
+      mesa.jugar({ col })
+      return
+    }
+    const nuevo = aplicarC4(local, col, ficha)
+    if (nuevo) setLocal(nuevo)
   }
+
+  // Al ENTRAR en línea (no cada vez que cambia la mesa: si la que miraba se
+  // cierra, no hay que abrir otra en su lugar).
+  useEffect(() => {
+    if (online && mesa.enLinea && !mesa.abierta) mesa.abrir()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [online, mesa.enLinea])
+
+  // Sentarse enfrente en cuanto haya mesa y sitio (también viniendo de la banda).
+  useEffect(() => {
+    if (online && mesa.abierta && mesa.miAsiento === null && sinAsientoB) mesa.sentar()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [online, mesa.abierta, mesa.miAsiento, sinAsientoB])
 
   useEffect(() => {
     if (modo !== 'ia' || ganador || turno !== 'A') return
@@ -169,12 +230,18 @@ export function CuatroEnLinea({ dificultad = 'medio' }: PropsDificultad) {
             desc: t('entre.j.modo.2jDesc', 'En el mismo dispositivo'),
             alElegir: () => reiniciar('2j'),
           },
+          ...(mesa.enLinea ? [opcionEnLinea(t, mesa.asientos, () => reiniciar('online'))] : []),
         ]}
       />
     )
   }
 
-  const nombreFicha = (f: FichaC4) => (f === 'R' ? t('entre.j.cuatroenlinea.rojas', 'Rojas') : t('entre.j.cuatroenlinea.amarillas', 'Amarillas'))
+  const nombreFicha = (f: FichaC4) =>
+    online
+      ? nombreAsiento(t, mesa.asientos, f === 'R' ? 'a' : 'b', mesa.miAsiento)
+      : f === 'R'
+        ? t('entre.j.cuatroenlinea.rojas', 'Rojas')
+        : t('entre.j.cuatroenlinea.amarillas', 'Amarillas')
 
   return (
     <div className="space-y-3">
@@ -195,18 +262,26 @@ export function CuatroEnLinea({ dificultad = 'medio' }: PropsDificultad) {
                 ? ganador === 'R'
                   ? t('entre.j.ganaste', '¡Ganaste! 🎉')
                   : t('entre.j.cuatroenlinea.ganaMaquina', 'Gana la máquina')
-                : t('entre.j.cuatroenlinea.gana', `¡Ganan las ${nombreFicha(ganador).toLowerCase()}!`, { color: nombreFicha(ganador) })}
+                : online
+                  ? ganador === miFicha
+                    ? t('entre.j.ganaste', '¡Ganaste! 🎉')
+                    : t('entre.j.mesa.gana', 'Gana {n}', { n: nombreFicha(ganador) })
+                  : t('entre.j.cuatroenlinea.gana', `¡Ganan las ${nombreFicha(ganador).toLowerCase()}!`, { color: nombreFicha(ganador) })}
           </span>
         )}
         <div className="flex gap-2">
-          <button type="button" onClick={() => reiniciar(modo)} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold">
-            <Icono nombre="sincronizar" /> {t('entre.j.nueva', 'Nueva partida')}
-          </button>
+          {!online && (
+            <button type="button" onClick={() => reiniciar(modo)} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold">
+              <Icono nombre="sincronizar" /> {t('entre.j.nueva', 'Nueva partida')}
+            </button>
+          )}
           <button type="button" onClick={() => reiniciar(null)} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold">
-            {t('entre.j.modo.cambiar', 'Cambiar modo')}
+            {online ? t('entre.j.mesa.salir', 'Salir de la mesa') : t('entre.j.modo.cambiar', 'Cambiar modo')}
           </button>
         </div>
       </div>
+
+      {online && <BarraMesa abierta={mesa.abierta} cerrada={mesa.cerrada} asientos={mesa.asientos} miAsiento={mesa.miAsiento} />}
 
       <div className="mx-auto grid max-w-[360px] select-none grid-cols-7 gap-1 rounded-xl bg-blue-950/70 p-2">
         {tablero.map((ficha, i) => (
@@ -214,7 +289,7 @@ export function CuatroEnLinea({ dificultad = 'medio' }: PropsDificultad) {
             key={i}
             type="button"
             onClick={() => {
-              if (ganador || (modo === 'ia' && turno === 'A')) return
+              if (ganador || !turnoMio || (modo === 'ia' && turno === 'A')) return
               soltar(i % COLS, turno)
             }}
             className="flex aspect-square items-center justify-center"

@@ -5,14 +5,18 @@ import App from './App.tsx'
 import { DemoGate } from './demo/DemoGate'
 import { PuertaIdioma } from './core/ui/PuertaIdioma'
 import { PuertaUnlock } from './core/ui/PuertaUnlock'
-import { aplicarSpawnDemo } from './demo/spawn'
+import { aplicarSpawnDemo, aplicarSpawnVisita } from './demo/spawn'
+import { avisarVisitaAbortada } from './core/visita/visitaStore'
 import { bindKeyboard } from './core/house/movement'
 import { bindAtajosPersonaje } from './core/house/atajosTeclado'
 import { escucharDeepLinkAuth, iniciarSesion } from './core/cuenta/sesionStore'
 import { arrancarRedes } from './core/redes/redesStore'
-import { esDemo, esProbar, limpiarDerechosViejos } from './core/edicion'
+import { esDemo, esProbar, esVisita, limpiarDerechosViejos } from './core/edicion'
 import { conectarMotorSync } from './core/data/sync/motor'
 import { conectarBuzon } from './core/buzon/motor'
+import { conectarEspacios } from './core/espacios/conectar'
+import { atenderDeepLinkEspacio } from './core/espacios/enlaces'
+import { espacioLocal } from './core/espacios/transporte'
 import { useBuzon } from './core/buzon/buzonStore'
 import { esModoFondo } from './core/plataforma'
 import { esAccionGlobal, lanzarAccionGlobal } from './core/state/accionGlobal'
@@ -45,17 +49,29 @@ limpiarDerechosViejos()
 iniciarSesion()
 
 // Motor de sincronización multi-dispositivo: arranca/para siguiendo la sesión.
-// En las casas demo y probar NUNCA: con sesión Pro haría pull de la nube real a
-// la BD paralela y push de su contenido a la nube del usuario.
-if (!esDemo() && !esProbar()) conectarMotorSync()
+// En las casas demo, probar y visita NUNCA: con sesión Pro haría pull de la nube
+// real a la BD paralela y push de su contenido a la nube del usuario.
+if (!esDemo() && !esProbar() && !esVisita()) conectarMotorSync()
 // Buzón (mensajería entre usuarios): sigue la sesión sin exigir plan. Tampoco
-// en demo/probar: esas casas no son la del usuario.
+// en demo/probar: esas casas no son la del usuario. En VISITA sí sigue vivo: hay
+// que poder chatear con el anfitrión mientras se pasea por su casa (B8).
 if (!esDemo() && !esProbar()) conectarBuzon()
+// Espacios compartidos (calendarios cooperativos y Studio por enlace): sigue la
+// sesión como el buzón, pero NO en visita (la casa del anfitrión no es la suya).
+// El modo de pruebas `?espacioLocal=` manda: ahí no hay sesión que seguir.
+if (espacioLocal() || (!esDemo() && !esProbar() && !esVisita())) conectarEspacios()
 
 // Casa demo: el mapa se recorta a las zonas elegidas, así que el punto fijo de
 // aparición del motor caería en celdas distintas (incluso dentro de la casa).
 // Se coloca ANTES del render: `Character` toma `playerPos` al montarse.
 if (esDemo()) aplicarSpawnDemo()
+// Visita: mismo motivo con el mapa del anfitrión. En la carga que ENTRA a la
+// casa lo aplica el propio volcado (el velo retiene el Canvas hasta entonces);
+// esto es para las recargas posteriores, que ya tienen el punto guardado.
+if (esVisita()) aplicarSpawnVisita()
+// Y si la visita anterior se cortó, aquí se dice por qué (C10). Con margen: la
+// burbuja del asistente necesita que el chat esté montado.
+setTimeout(avisarVisitaAbortada, 800)
 
 // Pide al navegador marcar el almacenamiento como persistente: sin esto puede
 // purgar IndexedDB (todos los datos del usuario) bajo presión de disco.
@@ -176,6 +192,14 @@ if (params.get('accion') === 'registrar' && rutinaPedida) {
   // La casa tarda en montarse; sin esperar, `openRoom` se pierde en el vacío.
   setTimeout(() => abrirApp(appPedida, params.get('seccion') ?? undefined), 500)
   history.replaceState(null, '', location.pathname)
+} else if (params.get('espacio')) {
+  // Enlace de un calendario o un documento compartido: entra (o espera al login)
+  // y aterriza en su app. Se limpia de la URL SIN tocar los demás parámetros,
+  // que en las pruebas llevan el modo (`?probar=1&espacioLocal=…`).
+  void atenderDeepLinkEspacio(params.get('espacio') as string)
+  const limpia = new URL(location.href)
+  limpia.searchParams.delete('espacio')
+  history.replaceState(null, '', limpia.toString())
 } else if (params.get('mascara') ?? new URLSearchParams(location.hash.slice(1)).get('mascara')) {
   // El QR del control remoto de la máscara: abre la Máscara AR conectándose
   // como controlador con ese código. El código llega en el FRAGMENTO (#mascara=),

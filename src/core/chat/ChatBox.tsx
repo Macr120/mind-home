@@ -41,7 +41,29 @@ const ManualComandos = lazy(() =>
 const PanelNavegador = lazy(() =>
   import('../ui/navegador/PanelNavegador').then((m) => ({ default: m.PanelNavegador })),
 )
+const TabAjustesNav = lazy(() => import('../ui/navegador/TabAjustes').then((m) => ({ default: m.TabAjustes })))
+const PanelLugares = lazy(() => import('./PanelLugares').then((m) => ({ default: m.PanelLugares })))
+const AjustesNavegacion = lazy(() =>
+  import('../../rooms/sala/navegacion/AjustesNavegacion').then((m) => ({ default: m.AjustesNavegacion })),
+)
 import { ordenFoco, ordenNavegador, type PestanaNav } from '../navegador/ordenes'
+import type { PestanaPanelNav } from '../ui/navegador/PanelNavegador'
+import type { NombreIcono } from '../ui/iconos/catalogo'
+import { ordenMenu, type VistaMenu } from './ordenesMenu'
+import { aliasDeRespuesta, fijarPendiente, limpiarPendiente, ordenJugar, pendiente, type OrdenJugar } from './ordenJugar'
+import { mensajeErrorPartida } from '../partida/api'
+import { ErrorPartida } from '../partida/tipos'
+import { invitarAJugar } from '../visita/anfitrion'
+
+/** Las cuatro vistas de la barra del menú del chat, de izquierda a derecha. */
+const MENUS_CHAT: { id: VistaMenu; icono: NombreIcono; clave: string; es: string }[] = [
+  { id: 'amigos', icono: 'companeros', clave: 'chat.menu.amigos', es: 'Amigos' },
+  { id: 'asistentes', icono: 'chat', clave: 'chat.menu.asistentes', es: 'Asistentes' },
+  { id: 'lugares', icono: 'navegar', clave: 'chat.menu.lugares', es: 'Lugares' },
+  { id: 'navegador', icono: 'mundo', clave: 'chat.menu.navegador', es: 'Navegador' },
+]
+/** Carpeta del Manual que abre cada vista (Asistentes: la primera app, como siempre). */
+const CARPETA_MANUAL: Partial<Record<VistaMenu, string>> = { amigos: 'amigos', lugares: 'sala', navegador: 'navegador' }
 import { useFoco } from '../state/focoStore'
 
 /**
@@ -66,7 +88,7 @@ import { useTopeHud, anclajeChat } from '../ui/hudMedida'
 import { vivo } from '../ui/estilos'
 import { iaHabilitada } from '../edicion'
 import { ErrorIA, usarViaCuenta } from '../cuenta/api'
-import { useSesion } from '../cuenta/sesionStore'
+import { haySesionProbable, useSesion } from '../cuenta/sesionStore'
 import { blobABase64, comprimirImagen } from '../imagenIA'
 import { useMascaraUi } from '../state/mascaraUiStore'
 import { useChatArUi } from '../state/chatArUiStore'
@@ -75,6 +97,8 @@ import { PanelIA } from '../ui/PanelIA'
 import { useBuzon } from '../buzon/buzonStore'
 import { enviar as enviarBuzon } from '../buzon/motor'
 import { mensajeErrorBuzon } from '../buzon/api'
+import { contactoDeHilo, contactosCache } from '../buzon/cache'
+import { ErrorBuzon } from '../buzon/tipos'
 import type { Paquete } from '../buzon/compartibles'
 import { ListaAmigos } from '../buzon/ui/ListaAmigos'
 // Paneles del buzón: solo existen con una persona o el panel de contactos abiertos.
@@ -191,12 +215,11 @@ export function ChatBox({
   const asistentes = useAsistentes((s) => s.lista)
   // Buzón: hilo con una persona (excluyente con la conversación de un asistente).
   const hiloPersona = useBuzon((s) => s.hiloAbierto)
-  const contactosAbierto = useBuzon((s) => s.panelContactos)
   const noLeidos = useBuzon((s) => s.totalNoLeidos)
   const solicitudes = useBuzon((s) => s.solicitudesPendientes)
   const [selectorAbierto, setSelectorAbierto] = useState(false)
-  // El panel del menú alterna entre los asistentes (con sus pestañas) y los amigos del buzón.
-  const [vistaPanel, setVistaPanel] = useState<'asistentes' | 'amigos'>('asistentes')
+  // Vista de la barra del menú: Amigos (buzón), Asistentes, Lugares («Cómo llegar») o Navegador.
+  const [vistaPanel, setVistaPanel] = useState<VistaMenu>('asistentes')
   // Dictado por voz compartido (nativo o fallback Whisper): ver audio/useDictado.
   const {
     soportado: vozSoportada,
@@ -204,30 +227,48 @@ export function ChatBox({
     transcribiendo,
     toggle: toggleVoz,
   } = useDictado({ onTexto: setTexto, onError: (m) => hablar(m) })
+  // Manual y ⚙ de la barra: se despliegan DENTRO del menú, para la vista activa.
   const [configAbierto, setConfigAbierto] = useState(false)
   const [manualAbierto, setManualAbierto] = useState(false)
-  // Panel «Navegador» (historial, sitios, tiempo, ajustes), como el Manual.
-  const [navegadorAbierto, setNavegadorAbierto] = useState(false)
-  const [pestanaNav, setPestanaNav] = useState<PestanaNav>('historial')
-  const abrirPanelNav = (p: PestanaNav) => {
-    setPestanaNav(p)
-    setAbierto(false)
-    setConfigAbierto(false)
-    setManualAbierto(false)
-    setNavegadorAbierto(true)
+  // Pestaña de la vista Navegador (historial, sitios, tiempo); sus ajustes van en el ⚙.
+  const [pestanaNav, setPestanaNav] = useState<PestanaPanelNav>('historial')
+  /** Abre el menú del chat en una vista; `sub` = su Manual o su ⚙. */
+  const abrirMenu = (vista: VistaMenu, sub: 'menu' | 'manual' | 'config' = 'menu') => {
+    setVistaPanel(vista)
+    setManualAbierto(sub === 'manual')
+    setConfigAbierto(sub === 'config')
+    setAbierto(true)
   }
-  // La tira (o un atajo) pidió abrir el panel «Navegador» en una pestaña concreta.
+  /** «historial», «sitios», «tiempo en internet» o «ajustes del navegador»: la vista Navegador. */
+  const abrirPanelNav = (p: PestanaNav) => {
+    if (p !== 'ajustes') setPestanaNav(p)
+    abrirMenu('navegador', p === 'ajustes' ? 'config' : 'menu')
+  }
+  // «Contactos» pedido desde el hilo de una persona: es el ⚙ de la vista Amigos.
+  useEffect(
+    () =>
+      useBuzon.subscribe((s, prev) => {
+        if (!s.panelContactos || prev.panelContactos) return
+        useBuzon.getState().cerrarContactos()
+        setVistaPanel('amigos')
+        setManualAbierto(false)
+        setConfigAbierto(true)
+        setAbierto(true)
+      }),
+    [],
+  )
+  // La tira (o un atajo) pidió abrir la vista Navegador en una pestaña concreta.
   // Suscripción al store (no un efecto que llame a setState): se atiende también
   // lo pedido ANTES de montar, p. ej. desde dentro de un cuarto.
   useEffect(() => {
     const atender = (p: PestanaNav | null) => {
       if (!p) return
       useNavegador.getState().pedirPanel(null)
-      setPestanaNav(p)
-      setAbierto(false)
-      setConfigAbierto(false)
+      if (p !== 'ajustes') setPestanaNav(p)
+      setVistaPanel('navegador')
       setManualAbierto(false)
-      setNavegadorAbierto(true)
+      setConfigAbierto(p === 'ajustes')
+      setAbierto(true)
     }
     const pendiente = setTimeout(() => atender(useNavegador.getState().panelPedido), 0)
     const baja = useNavegador.subscribe((s, prev) => {
@@ -454,7 +495,9 @@ export function ChatBox({
     if (!accion) return
     if (accion === 'buzon') {
       abrirParaEscribir(() => {
-        setPestana('chats')
+        setVistaPanel('amigos')
+        setManualAbierto(false)
+        setConfigAbierto(false)
         setAbierto(true)
       })
       return
@@ -490,6 +533,25 @@ export function ChatBox({
     if (hiloPersona) {
       const txt = texto.trim()
       const adj = adjunto
+      // «jugar tenis» dentro del hilo de alguien es una invitación para ESA
+      // persona, no un mensaje: con verbo obligatorio, para que una palabra
+      // suelta («tenis») siga siendo una frase normal de la conversación.
+      const orden = ordenJugar(txt, { requiereVerbo: true })
+      if (orden && !orden.alias) {
+        const contacto = await contactoDeHilo(hiloPersona)
+        if (contacto) {
+          sonar('tick')
+          vibrar(10)
+          setTexto('')
+          setAdjunto(null)
+          try {
+            hablar(await invitarAJugar(orden.juego, contacto, t), { sistema: true })
+          } catch (e) {
+            hablar(e instanceof ErrorBuzon ? mensajeErrorBuzon(e, t) : mensajeErrorPartida(e, t), { sistema: true })
+          }
+          return
+        }
+      }
       sonar('tick')
       vibrar(10)
       setTexto('')
@@ -542,6 +604,64 @@ export function ChatBox({
     if (pestanaPedida) {
       abrirPanelNav(pestanaPedida)
       hablar(t('nav.chatAbriendoPanel', 'Aquí tienes tu navegador.'), { asistenteId: destinoId })
+      return
+    }
+    // «amigos», «asistentes», «lugares» / «cómo llegar»: las otras vistas del menú.
+    const vistaPedida = ordenMenu(interp.texto)
+    if (vistaPedida) {
+      abrirMenu(vistaPedida)
+      hablar(t('chat.menu.abriendo', 'Aquí lo tienes.'), { asistenteId: destinoId })
+      return
+    }
+    // «jugar paintball con @ana»: solicitud de juego con el enlace directo.
+    // Determinista y en dos pasos: sin alias, el asistente pregunta con quién y
+    // se queda esperando el «@alias» del mensaje siguiente.
+    let jugar: OrdenJugar | null = null
+    const juegoEnEspera = pendiente()
+    if (juegoEnEspera) {
+      const alias = aliasDeRespuesta(interp.texto)
+      // Un alias suelto solo cuenta si lleva `@` o si de verdad es un contacto:
+      // si no, «tenis» o «ana» taparían cualquier frase normal.
+      const esRespuesta =
+        alias &&
+        (interp.texto.trim().startsWith('@') ||
+          (await contactosCache()).some((c) => c.estado === 'aceptado' && c.alias === alias))
+      if (esRespuesta) jugar = { juego: juegoEnEspera, alias }
+      else limpiarPendiente()
+    }
+    jugar ??= ordenJugar(interp.texto)
+    if (jugar) {
+      const orden = jugar
+      if (!orden.alias) {
+        fijarPendiente(orden.juego)
+        hablar(t('chat.jugar.conQuien', '¿Con quién? Escribe el @alias de tu amigo (o «amigos» para ver tu lista).'), {
+          asistenteId: destinoId,
+        })
+        return
+      }
+      limpiarPendiente()
+      if (!useSesion.getState().usuario && !haySesionProbable()) {
+        hablar(mensajeErrorPartida(new ErrorPartida('sin-sesion'), t), { asistenteId: destinoId })
+        return
+      }
+      const contacto = (await contactosCache()).find((c) => c.estado === 'aceptado' && c.alias === orden.alias)
+      if (!contacto) {
+        hablar(
+          t('chat.jugar.sinContacto', 'No tienes un contacto aceptado con el alias @{a}. Revisa en Amigos.', {
+            a: orden.alias,
+          }),
+          { asistenteId: destinoId },
+        )
+        return
+      }
+      try {
+        hablar(await invitarAJugar(orden.juego, contacto, t), { asistenteId: destinoId })
+      } catch (e) {
+        hablar(e instanceof ErrorBuzon ? mensajeErrorBuzon(e, t) : mensajeErrorPartida(e, t), {
+          asistenteId: destinoId,
+          sistema: true,
+        })
+      }
       return
     }
     // «modo foco 25 min» / «fin del foco»: bloquear (o liberar) los sitios elegidos.
@@ -817,7 +937,10 @@ export function ChatBox({
   // el menú con el editor abierto (que desmonta y remonta este componente) el
   // primer render pinta la conversación un instante antes de que el efecto la pliegue.
   const chatPlegado = plegado || menuAbierto
-  const otroPanel = abierto || configAbierto || manualAbierto || contactosAbierto || navegadorAbierto
+  const otroPanel = abierto
+  // Amigos y Asistentes son listas cortas: el menú se queda bajito; el resto (mapa,
+  // historial, Manual, ⚙) necesita sitio.
+  const menuCompacto = !manualAbierto && !configAbierto && (vistaPanel === 'asistentes' || vistaPanel === 'amigos')
   /**
    * El hilo con el asistente: SOLO si lo abriste tú desde la lista de chats. El
    * panel por defecto de la carita es el menú (Chats/Registros), no la
@@ -859,7 +982,6 @@ export function ChatBox({
     setAbierto(false)
     setConfigAbierto(false)
     setManualAbierto(false)
-    setNavegadorAbierto(false)
     setMenuModelo(false)
     setMenuAdjuntar(false)
     setSelectorAbierto(false)
@@ -944,23 +1066,6 @@ export function ChatBox({
         </Suspense>
       )}
 
-      {/* Configuración de asistentes (crear, eliminar, personalizar, mapa) */}
-      {configAbierto && (
-        <Suspense fallback={null}>
-          <AsistentesConfig onCerrar={() => setConfigAbierto(false)} />
-        </Suspense>
-      )}
-
-      {/* Contactos del buzón: mi alias, buscar por alias, solicitudes */}
-      {contactosAbierto && (
-        <Suspense fallback={null}>
-          <ContactosPanel
-            onCerrar={() => useBuzon.getState().cerrarContactos()}
-            onAbrirHilo={(id) => useBuzon.getState().abrirHilo(id)}
-          />
-        </Suspense>
-      )}
-
       {/* Elegir contenido de un cuarto para mandarlo a la persona del hilo */}
       {selectorAbierto && (
         <Suspense fallback={null}>
@@ -974,71 +1079,150 @@ export function ChatBox({
         </Suspense>
       )}
 
-      {/* Manual de comandos: qué pedirle al asistente (determinista, por tema) */}
-      {manualAbierto && (
-        <Suspense fallback={null}>
-          <ManualComandos
-            onUsar={(frase) => {
-              setTexto(frase)
-              setManualAbierto(false)
-            }}
-            onCerrar={() => setManualAbierto(false)}
-          />
-        </Suspense>
-      )}
-
-      {/* Navegador: historial por página, sitios con categoría, tiempo y ajustes */}
-      {navegadorAbierto && (
-        <Suspense fallback={null}>
-          <PanelNavegador pestana={pestanaNav} onPestana={setPestanaNav} onCerrar={() => setNavegadorAbierto(false)} />
-        </Suspense>
-      )}
-
-      {/* Historial reciente + selector de mascota */}
-      {abierto && !configAbierto && !manualAbierto && !navegadorAbierto && (
-        <div className="ui-panel-glass mb-2 max-h-72 overflow-y-auto rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
-          {/* Cabecera: alternar asistentes/amigos (esquina izquierda) y elegir asistente */}
-          <div className="mb-2 flex items-center gap-2 border-b border-white/10 px-1 pb-2">
-            <button
-              type="button"
-              onClick={() => setVistaPanel((v) => (v === 'amigos' ? 'asistentes' : 'amigos'))}
-              className={`relative grid h-8 w-8 shrink-0 place-items-center rounded-lg text-base transition ${
-                vistaPanel === 'amigos' ? 'bg-accent/20 text-accent ring-1 ring-accent/50' : 'text-white/50 hover:bg-white/10 hover:text-white/85'
-              }`}
-              title={vistaPanel === 'amigos' ? t('buzon.vista.asistentes', 'Asistentes') : t('buzon.amigos', 'Amigos')}
-            >
-              {vistaPanel === 'amigos' ? <Icono emoji={mascota.emoji} /> : <Icono nombre="companeros" />}
-              {vistaPanel !== 'amigos' && noLeidos > 0 && (
-                <span className="pointer-events-none absolute -end-1 -top-1 grid h-4 min-w-4 place-items-center rounded-full bg-red-600 px-1 text-[9px] font-black tabular-nums text-white">
-                  {noLeidos}
-                </span>
-              )}
-            </button>
-            {vistaPanel === 'amigos' ? (
-              <>
-                <span className="min-w-0 flex-1 truncate text-[11px] font-semibold text-white/50">
-                  <Icono nombre="companeros" /> {t('buzon.amigos', 'Amigos')}
-                </span>
+      {/* Menú del chat: cuatro vistas a la izquierda (Amigos, Asistentes, Lugares y
+          Navegador) y, a la derecha, el Manual y el ⚙ de la vista activa. Los dos
+          se despliegan DENTRO del menú, así la barra de vistas nunca se va. */}
+      {abierto && (
+        <div
+          className={`ui-panel-glass mb-2 flex flex-col rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md ${
+            menuCompacto ? 'max-h-72' : 'max-h-[60vh]'
+          }`}
+        >
+          <div className="mb-2 flex shrink-0 items-center gap-0.5 border-b border-white/10 px-0.5 pb-2 sm:gap-1 sm:px-1">
+            {MENUS_CHAT.map((m) => {
+              const activo = vistaPanel === m.id
+              return (
                 <button
+                  key={m.id}
                   type="button"
+                  data-tut={`chat.menu.${m.id}`}
                   onClick={() => {
-                    setAbierto(false)
-                    useBuzon.getState().abrirContactos()
+                    setVistaPanel(m.id)
+                    setManualAbierto(false)
+                    setConfigAbierto(false)
                   }}
-                  className="relative flex h-8 shrink-0 items-center gap-1 rounded-lg px-2 text-base text-white/40 transition hover:bg-white/10 hover:text-white/85"
-                  title={t('buzon.contactos', 'Contactos')}
+                  aria-pressed={activo}
+                  title={t(m.clave, m.es)}
+                  className={`relative flex h-8 shrink-0 items-center gap-1 rounded-lg px-1.5 text-base transition sm:px-2 ${
+                    activo ? 'bg-accent/20 text-accent ring-1 ring-accent/50' : 'text-white/45 hover:bg-white/10 hover:text-white/85'
+                  }`}
                 >
-                  <Icono nombre="ajustes" />
-                  <span className="text-[11px] font-semibold">{t('buzon.contactos', 'Contactos')}</span>
-                  {solicitudes > 0 && (
-                    <span className="grid h-4 min-w-4 place-items-center rounded-full bg-amber-500 px-1 text-[9px] font-black tabular-nums text-white">
-                      {solicitudes}
+                  {m.id === 'asistentes' ? <Icono emoji={mascota.emoji} /> : <Icono nombre={m.icono} />}
+                  <span className="hidden text-[11px] font-semibold sm:inline">{t(m.clave, m.es)}</span>
+                  {m.id === 'amigos' && noLeidos > 0 && (
+                    <span className="pointer-events-none absolute -end-1 -top-1 grid h-4 min-w-4 place-items-center rounded-full bg-red-600 px-1 text-[9px] font-black tabular-nums text-white">
+                      {noLeidos}
                     </span>
                   )}
                 </button>
-              </>
-            ) : (
-              <>
+              )
+            })}
+            <span className="min-w-1 flex-1" />
+            <button
+              type="button"
+              data-tut="chat.manual"
+              onClick={() => {
+                setManualAbierto((v) => !v)
+                setConfigAbierto(false)
+              }}
+              aria-pressed={manualAbierto}
+              className={`flex h-8 shrink-0 items-center gap-1 rounded-lg px-1.5 text-base transition sm:px-2 ${
+                manualAbierto ? 'bg-accent/20 text-accent ring-1 ring-accent/50' : 'text-white/45 hover:bg-white/10 hover:text-white/85'
+              }`}
+              title={t('chat.manual.abrir', 'Manual: qué puedes pedir')}
+            >
+              <Icono nombre="registros" />
+              <span className="hidden text-[11px] font-semibold sm:inline">{t('chat.manual', 'Manual')}</span>
+            </button>
+            <button
+              type="button"
+              data-tut="chat.config"
+              onClick={() => {
+                setConfigAbierto((v) => !v)
+                setManualAbierto(false)
+              }}
+              aria-pressed={configAbierto}
+              className={`relative grid h-8 w-8 shrink-0 place-items-center rounded-lg text-base transition ${
+                configAbierto ? 'bg-accent/20 text-accent ring-1 ring-accent/50' : 'text-white/45 hover:bg-white/10 hover:text-white/85'
+              }`}
+              title={
+                vistaPanel === 'amigos'
+                  ? t('buzon.contactos', 'Contactos')
+                  : vistaPanel === 'asistentes'
+                    ? t('chat.config.abrir', 'Configurar asistentes')
+                    : vistaPanel === 'lugares'
+                      ? t('sala.nav.prefs.titulo', 'Ajustes de «Cómo llegar»')
+                      : t('nav.ajustes.titulo', 'Ajustes del navegador')
+              }
+            >
+              <Icono nombre="ajustes" />
+              {vistaPanel === 'amigos' && solicitudes > 0 && (
+                <span className="pointer-events-none absolute -end-1 -top-1 grid h-4 min-w-4 place-items-center rounded-full bg-amber-500 px-1 text-[9px] font-black tabular-nums text-white">
+                  {solicitudes}
+                </span>
+              )}
+            </button>
+          </div>
+
+          {manualAbierto ? (
+            /* Manual de comandos, abierto por la carpeta de la vista activa */
+            <div className="min-h-0 flex-1 overflow-y-auto">
+              <Suspense fallback={null}>
+                <ManualComandos
+                  // Cambiar de vista con el manual abierto lo remonta: así abre SU carpeta.
+                  key={vistaPanel}
+                  carpetaInicial={CARPETA_MANUAL[vistaPanel]}
+                  onUsar={(frase) => {
+                    setTexto(frase)
+                    setManualAbierto(false)
+                  }}
+                />
+              </Suspense>
+            </div>
+          ) : configAbierto ? (
+            /* El ⚙ de cada vista: contactos del buzón, asistentes, «Cómo llegar» o el navegador */
+            <div className="min-h-0 flex-1 overflow-y-auto">
+              <Suspense fallback={null}>
+                {vistaPanel === 'amigos' && (
+                  <ContactosPanel
+                    onAbrirHilo={(id) => {
+                      setAbierto(false)
+                      useBuzon.getState().abrirHilo(id)
+                    }}
+                  />
+                )}
+                {vistaPanel === 'asistentes' && <AsistentesConfig />}
+                {vistaPanel === 'lugares' && <AjustesNavegacion />}
+                {vistaPanel === 'navegador' && <TabAjustesNav />}
+              </Suspense>
+            </div>
+          ) : vistaPanel === 'navegador' ? (
+            /* Navegador: historial por página, sitios con categoría y tiempo */
+            <Suspense fallback={null}>
+              <PanelNavegador pestana={pestanaNav} onPestana={setPestanaNav} onCerrar={() => setAbierto(false)} />
+            </Suspense>
+          ) : vistaPanel === 'lugares' ? (
+            /* «Cómo llegar»: el navegador multimodal de la sala de viajes */
+            <div className="min-h-0 flex-1 overflow-y-auto">
+              <Suspense fallback={null}>
+                <PanelLugares />
+              </Suspense>
+            </div>
+          ) : vistaPanel === 'amigos' ? (
+            /* Amigos del buzón: cada uno con el busto de su personaje y su último mensaje */
+            <div className="min-h-0 flex-1 overflow-y-auto">
+              <ListaAmigos
+                onAbrir={(id) => {
+                  setAbierto(false)
+                  useBuzon.getState().abrirHilo(id)
+                }}
+                onContactos={() => setConfigAbierto(true)}
+              />
+            </div>
+          ) : (
+          <div className="min-h-0 flex-1 overflow-y-auto">
+          {/* Tu asistente: elegirlo (re-tocar el activo abre su conversación) */}
+          <div className="mb-1 flex items-center gap-2 px-1">
             <span className="text-[11px] font-semibold text-white/50">
               {t('chat.tuAsistente', 'Tu asistente:')}
             </span>
@@ -1048,7 +1232,6 @@ export function ChatBox({
                   key={m.id}
                   type="button"
                   onClick={() => {
-                    // Re-tocar el asistente activo abre su conversación.
                     if (m.id === mascotaId) {
                       abrirConv(m.id)
                     } else {
@@ -1069,60 +1252,10 @@ export function ChatBox({
                 </button>
               ))}
             </div>
-            <button
-              type="button"
-              data-tut="chat.manual"
-              onClick={() => {
-                setConfigAbierto(false)
-                setManualAbierto(true)
-              }}
-              className="flex h-8 shrink-0 items-center gap-1 rounded-lg px-2 text-base text-white/40 transition hover:bg-white/10 hover:text-white/85"
-              title={t('chat.manual.abrir', 'Manual: qué puedes pedir')}
-            >
-              <Icono nombre="registros" />
-              <span className="text-[11px] font-semibold">{t('chat.manual', 'Manual')}</span>
-            </button>
-            <button
-              type="button"
-              data-tut="chat.navegador"
-              onClick={() => abrirPanelNav('historial')}
-              className="flex h-8 shrink-0 items-center gap-1 rounded-lg px-2 text-base text-white/40 transition hover:bg-white/10 hover:text-white/85"
-              title={t('nav.panel.titulo', 'Navegador: historial, sitios y tiempo')}
-            >
-              <Icono nombre="mundo" />
-              <span className="text-[11px] font-semibold">{t('nav.panel.boton', 'Navegador')}</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                setConfigAbierto(true)
-                setAbierto(false)
-              }}
-              className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-base text-white/40 transition hover:bg-white/10 hover:text-white/85"
-              title={t('chat.config.abrir', 'Configurar asistentes')}
-            >
-              <Icono nombre="ajustes" />
-            </button>
-              </>
-            )}
           </div>
 
-          {/* Amigos del buzón: cada uno con el busto de su personaje y su último mensaje */}
-          {vistaPanel === 'amigos' && (
-            <ListaAmigos
-              onAbrir={(id) => {
-                setAbierto(false)
-                useBuzon.getState().abrirHilo(id)
-              }}
-              onContactos={() => {
-                setAbierto(false)
-                useBuzon.getState().abrirContactos()
-              }}
-            />
-          )}
-
           {/* Pestañas: conversaciones (con quién platicaste) / registros (lo que pediste) */}
-          <div data-tut="chat.tabs" className={`mb-1 flex gap-1 px-1 ${vistaPanel === 'amigos' ? 'hidden' : ''}`}>
+          <div data-tut="chat.tabs" className="mb-1 flex gap-1 px-1">
             {(['chats', 'registros'] as const).map((p) => (
               <button
                 key={p}
@@ -1150,8 +1283,7 @@ export function ChatBox({
           </div>
 
           {/* Lista de conversaciones, estilo lista de chats */}
-          {vistaPanel === 'asistentes' &&
-            pestana === 'chats' &&
+          {pestana === 'chats' &&
             asistentes.map((m) => {
               const u = ultimos?.[m.id]
               return (
@@ -1188,7 +1320,7 @@ export function ChatBox({
               )
             })}
 
-          {vistaPanel === 'asistentes' && pestana === 'registros' && (
+          {pestana === 'registros' && (
             <>
           {/* Memorias del arquitecto: lo que sabe de ti entre sesiones */}
           {memoriasVigentes.length > 0 && (
@@ -1289,6 +1421,8 @@ export function ChatBox({
           })}
             </>
           )}
+          </div>
+          )}
         </div>
       )}
 
@@ -1386,7 +1520,6 @@ export function ChatBox({
             setAbierto(false)
             setConfigAbierto(false)
             setManualAbierto(false)
-            setNavegadorAbierto(false)
           }}
           className="mb-3.5"
         />
@@ -1518,7 +1651,7 @@ export function ChatBox({
           data-tut="chat.web"
           onClick={() => useNavegador.getState().setModoWeb(!modoWeb)}
           aria-pressed={modoWeb}
-          className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl text-lg leading-none transition hover:bg-white/10 ${
+          className={`-ms-2 grid h-9 w-9 shrink-0 place-items-center rounded-xl text-lg leading-none transition hover:bg-white/10 ${
             modoWeb ? 'bg-accent/20 text-white/90' : 'text-white/45 hover:text-white/85'
           }`}
           title={

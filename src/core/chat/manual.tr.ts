@@ -124,6 +124,9 @@ export const MANUAL_TR: ManualTraducido = {
     '[Historial]': '[Geçmiş]',
     '[Sitios]': '[Siteler]',
     '[Tiempo en internet]': '[İnternet süresi]',
+    '[Cómo llegar]': '[Yol tarifi]',
+    '[Amigos]': '[Arkadaşlar]',
+    '[Jugar] {paintball} [con] {@ana}': '{@ana} [ile] {paintball} [oyna]',
   },
   atajos: {
     'Caminar (también con las flechas)': 'Yürü (ok tuşlarıyla da olur)',

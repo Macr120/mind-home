@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { tabInicial } from '../../core/state/intencionApp'
+import { intencionApp, tabInicial } from '../../core/state/intencionApp'
 import { PestanasCarpeta, type ItemPestana } from '../_shared/PestanasCarpeta'
 import { Albumes } from './Albumes'
 import { COLOR } from './constantes'
@@ -15,7 +15,12 @@ const TABS: ItemPestana<Tab>[] = [
 /** Studio de audio: las canciones (álbumes + banco de Aprender + tomas de mic) y el mezclador DJ. */
 export function StudioAudioApp() {
   const [tab, setTab] = useState<Tab>(() => tabInicial('audio', TABS.map((x) => x.id), 'canciones'))
-  const [abierto, setAbierto] = useState<number | null>(null)
+  // La intención puede traer un PROYECTO concreto (`proyecto:12`, uno compartido
+  // por enlace): se abre su editor directamente.
+  const [abierto, setAbierto] = useState<number | null>(() => {
+    const m = /^proyecto:(\d+)$/.exec(intencionApp('audio')?.dato ?? '')
+    return m ? Number(m[1]) : null
+  })
 
   // El editor abierto ocupa el cuarto entero (las pestañas estorbarían al timeline).
   if (abierto != null) {

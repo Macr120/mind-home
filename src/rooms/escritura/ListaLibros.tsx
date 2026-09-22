@@ -144,6 +144,7 @@ export function ListaLibros({ onAbrir }: { onAbrir: (id: number) => void }) {
     </button>
   )
 
+  /** El libro «Compartidos conmigo» no se renombra ni se borra: lo gestiona el sync. */
   const Pie = ({
     sub,
     onRenombrar,
@@ -151,32 +152,34 @@ export function ListaLibros({ onAbrir }: { onAbrir: (id: number) => void }) {
     onBorrar,
   }: {
     sub: string
-    onRenombrar: () => void
-    claveBorrar: string
-    onBorrar: () => void
+    onRenombrar?: () => void
+    claveBorrar?: string
+    onBorrar?: () => void
   }) => (
     <div className="flex items-center justify-between gap-1 px-0.5">
       <span className="min-w-0 truncate text-[10px] text-white/40">{sub}</span>
-      <span className="flex shrink-0 items-center">
-        <button
-          type="button"
-          onClick={onRenombrar}
-          aria-label={t('escritura.libros.renombrar', 'Renombrar libro')}
-          title={t('escritura.libros.renombrar', 'Renombrar libro')}
-          className="rounded-lg px-1.5 py-0.5 text-white/40 transition hover:bg-white/10 hover:text-white/80"
-        >
-          <Icono nombre="editar" />
-        </button>
-        <BotonBorrar
-          confirmando={borrando === claveBorrar}
-          onPedir={() => setBorrando(claveBorrar)}
-          onConfirmar={() => {
-            onBorrar()
-            setBorrando(null)
-          }}
-          onCancelar={() => setBorrando(null)}
-        />
-      </span>
+      {onRenombrar && onBorrar && claveBorrar && (
+        <span className="flex shrink-0 items-center">
+          <button
+            type="button"
+            onClick={onRenombrar}
+            aria-label={t('escritura.libros.renombrar', 'Renombrar libro')}
+            title={t('escritura.libros.renombrar', 'Renombrar libro')}
+            className="rounded-lg px-1.5 py-0.5 text-white/40 transition hover:bg-white/10 hover:text-white/80"
+          >
+            <Icono nombre="editar" />
+          </button>
+          <BotonBorrar
+            confirmando={borrando === claveBorrar}
+            onPedir={() => setBorrando(claveBorrar)}
+            onConfirmar={() => {
+              onBorrar()
+              setBorrando(null)
+            }}
+            onCancelar={() => setBorrando(null)}
+          />
+        </span>
+      )}
     </div>
   )
 
@@ -191,7 +194,7 @@ export function ListaLibros({ onAbrir }: { onAbrir: (id: number) => void }) {
         {libros.map((h) => (
           <li key={`h${h.id}`} className="flex flex-col gap-1">
             <Portada
-              icono={ICONO_TIPO[h.tipo ?? 'blanco']}
+              icono={h.compartidos ? 'companeros' : ICONO_TIPO[h.tipo ?? 'blanco']}
               titulo={h.titulo}
               onAbrirLibro={() => h.id != null && onAbrir(h.id)}
             />
@@ -199,21 +202,29 @@ export function ListaLibros({ onAbrir }: { onAbrir: (id: number) => void }) {
               sub={t('escritura.historias.textos', '{n} textos', {
                 n: documentos.filter((d) => d.historiaId === h.id).length,
               })}
-              onRenombrar={() =>
-                void renombrar(h.titulo, async (titulo) => {
-                  if (h.id != null) await historiasRepo.update(h.id, { titulo, actualizadoEn: new Date().toISOString() })
-                })
+              onRenombrar={
+                h.compartidos
+                  ? undefined
+                  : () =>
+                      void renombrar(h.titulo, async (titulo) => {
+                        if (h.id != null)
+                          await historiasRepo.update(h.id, { titulo, actualizadoEn: new Date().toISOString() })
+                      })
               }
-              claveBorrar={`h${h.id}`}
-              onBorrar={() => void borrarLibro(h)}
+              claveBorrar={h.compartidos ? undefined : `h${h.id}`}
+              onBorrar={h.compartidos ? undefined : () => void borrarLibro(h)}
             />
           </li>
         ))}
         {sueltos.map((d) => (
           <li key={`d${d.id}`} className="flex flex-col gap-1">
-            <Portada icono="tab-diario" titulo={d.titulo} onAbrirLibro={() => void envolver(d)} />
+            <Portada icono={d.espacioId ? 'companeros' : 'tab-diario'} titulo={d.titulo} onAbrirLibro={() => void envolver(d)} />
             <Pie
-              sub={t('escritura.lista.palabras', '{n} palabras', { n: d.palabras })}
+              sub={
+                d.espacioId
+                  ? `${t('esp.doc.compartido', 'Compartido')} · ${t('escritura.lista.palabras', '{n} palabras', { n: d.palabras })}`
+                  : t('escritura.lista.palabras', '{n} palabras', { n: d.palabras })
+              }
               onRenombrar={() =>
                 void renombrar(d.titulo, async (titulo) => {
                   if (d.id != null) await documentosRepo.update(d.id, { titulo, actualizadoEn: new Date().toISOString() })

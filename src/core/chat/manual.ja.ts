@@ -121,6 +121,8 @@ export const MANUAL_JA: ManualTraducido = {
     '[Historial]': '[履歴]',
     '[Sitios]': '[サイト]',
     '[Tiempo en internet]': '[ネットの利用時間]',
+    '[Cómo llegar]': '[道順]',
+    '[Amigos]': '[友だち]',
   },
   atajos: {
     'Caminar (también con las flechas)': '歩く（矢印キーでも）',

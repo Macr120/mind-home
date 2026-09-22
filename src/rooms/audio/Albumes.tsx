@@ -356,13 +356,21 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
     onAbrirAlbum: () => void,
     onGuardar: () => void,
     onBorrar?: () => void,
+    compartido?: boolean,
   ) => {
     const sonando = sonandoClave === clave
     return (
       <li key={clave} className="min-w-0">
         <button type="button" onClick={onAbrirAlbum} className="ui-presion block w-full text-left">
           <Portada proyecto={portadaDe} sonando={sonando} />
-          <span className="mt-1.5 block truncate text-sm font-semibold">{nombre}</span>
+          <span className="mt-1.5 flex items-center gap-1 text-sm font-semibold">
+            {compartido && (
+              <span className="shrink-0 text-white/60" title={t('esp.audio.compartido', 'Compartido')}>
+                <Icono nombre="companeros" />
+              </span>
+            )}
+            <span className="min-w-0 truncate">{nombre}</span>
+          </span>
           <span className="block truncate text-xs text-white/45">{meta}</span>
         </button>
         <div className="mt-1.5 flex items-center gap-1.5">
@@ -504,6 +512,7 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
                 () => p.id != null && abrir(p.id),
                 () => setGuardandoEn({ p }),
                 () => void borrar(p),
+                !!p.espacioId,
               ),
             )}
             {pristinas.map((s) => {

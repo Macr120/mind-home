@@ -11,8 +11,8 @@ import { IDIOMAS, RTL } from './componer.mjs'
 
 const PORT = 9333
 const RAIZ = dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1'))
-const SHOTS = resolve(RAIZ, '..', 'shots')
-const SALIDA = resolve(RAIZ, '..', 'laminas', 'ipad')
+const SHOTS = resolve(RAIZ, '..', 'capturas')
+const SALIDA = resolve(RAIZ, '..', 'ipad')
 mkdirSync(SALIDA, { recursive: true })
 const TEMP = resolve(RAIZ, 'html')
 mkdirSync(TEMP, { recursive: true })

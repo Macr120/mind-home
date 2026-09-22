@@ -31,7 +31,7 @@ const nombreCorto = (roomId: string) => getPlantilla(roomId)?.nombre.split(' · 
  * aspecto (nombre, emoji, color, forma 3D) y carácter (personalidad, saludo),
  * y ponerlos o quitarlos del mapa como personajes 3D.
  */
-export function AsistentesConfig({ onCerrar }: { onCerrar: () => void }) {
+export function AsistentesConfig() {
   const t = useT()
   const lista = useAsistentes((s) => s.lista)
   const ocultos = useAsistentes((s) => s.ocultos)
@@ -58,22 +58,7 @@ export function AsistentesConfig({ onCerrar }: { onCerrar: () => void }) {
   }
 
   return (
-    <div className="ui-panel-glass mb-2 max-h-[60vh] overflow-y-auto rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
-      <div className="mb-2 flex items-center gap-2 border-b border-white/10 px-1 pb-2">
-        <span className="text-sm"><Icono nombre="ajustes" /></span>
-        <span className="flex-1 text-[11px] font-semibold text-white/50">
-          {t('chat.config.titulo', 'Tus asistentes')}
-        </span>
-        <button
-          type="button"
-          onClick={onCerrar}
-          className="rounded px-2 py-0.5 text-sm text-white/40 transition hover:bg-white/10 hover:text-white/80"
-          title={t('chat.conv.cerrar', 'Cerrar')}
-        >
-          ✕
-        </button>
-      </div>
-
+    <div>
       {lista.map((a) => {
         const activo = a.id === mascotaId
         const enEdicion = editando === a.id

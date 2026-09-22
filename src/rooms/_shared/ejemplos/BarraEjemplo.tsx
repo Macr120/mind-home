@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useEjemplos, useEjemploEncendido } from '../../../core/data/ejemplos'
-import { esDemo } from '../../../core/edicion'
+import { esDemo, esVisita } from '../../../core/edicion'
 import { useT } from '../../../core/i18n/useT'
 import { useAjustes } from '../../../core/state/ajustesStore'
 import { Icono } from '../../../core/ui/iconos/Icono'
@@ -29,7 +29,8 @@ export function BarraEjemplo({ paquete }: { paquete: PaqueteEjemplo }) {
   }, [idioma, paquete])
 
   // Casa demo: el año de Pep@ YA es el ejemplo (y materializar está bloqueado).
-  if (esDemo()) return null
+  // Casa visitada: los ejemplos de fábrica se crearían dentro de la casa ajena.
+  if (esDemo() || esVisita()) return null
 
   const alternar = async () => {
     if (ocupado) return

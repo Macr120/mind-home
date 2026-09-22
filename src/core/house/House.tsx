@@ -11,6 +11,8 @@ import { usePelicula } from '../state/peliculaStore'
 import { useCuartos } from '../state/cuartosStore'
 import { Character } from './Character'
 import { Asistente3D, AsistenteProximity } from './Asistente3D'
+import { JugadoresRemotos } from './JugadoresRemotos'
+import { EmisorPose } from './EmisorPose'
 import { RoomProximity } from './RoomProximity'
 import { Room3D } from './Room3D'
 import { Accesos, AccesoProximity, AccesoDrag } from './Accesos'
@@ -682,6 +684,10 @@ export function House() {
       {planosActivo && <TechoCeldaEditor />}
       <Character />
       <Asistente3D />
+      {/* Multijugador: los cuerpos de los demás y la emisión de MI pose. Van
+          fuera de `Character` a propósito (26 sitios escriben `playerPos`). */}
+      <JugadoresRemotos />
+      <EmisorPose />
       {/* Wallpaper de escritorio: el anillo que sigue al cursor reenviado. */}
       {esModoFondo() && <PunteroFondo />}
       {esModoFondo() && <LatidoFondo />}

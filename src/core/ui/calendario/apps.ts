@@ -1,6 +1,7 @@
 import type { Rutina } from '../../data/db'
 import type { EventoResuelto } from '../../eventosApps'
 import { getPlantilla } from '../../registry'
+import { PREFIJO_CAL } from '../../espacios/tipos'
 
 /**
  * Taxonomía del filtro del calendario. La unidad es la APP, no la carpeta:
@@ -18,7 +19,19 @@ export type ClaveApp = string
 
 export const CASA = 'casa'
 
-export const appDeRutina = (r: Rutina): ClaveApp => r.plantillaId ?? CASA
+/** Grupo sintético de los calendarios compartidos (va el primero del filtro). */
+const CALENDARIOS = 'calendarios'
+
+/** ¿La clave es la de un calendario compartido (`cal:<espacioId>`)? */
+export const esClaveCalendario = (id: ClaveApp) => id.startsWith(PREFIJO_CAL)
+
+/**
+ * Un evento de un calendario compartido filtra por SU calendario, no por la app
+ * que tuviera: ahí la pregunta es «¿de quién es este evento?». Por eso el editor
+ * apaga `plantillaId` al elegir calendario (ver `EditorRutina`).
+ */
+export const appDeRutina = (r: Rutina): ClaveApp =>
+  r.calendarioId ? PREFIJO_CAL + r.calendarioId : (r.plantillaId ?? CASA)
 
 interface AppFiltrable {
   id: ClaveApp
@@ -55,7 +68,9 @@ export function gruposDeApps(
   rutinas: Rutina[],
   eventos: Map<string, EventoResuelto[]>,
   carpetas: CarpetaApps[],
-  nombres: { casa: string; otras: string },
+  nombres: { casa: string; otras: string; calendarios: string },
+  /** Los calendarios compartidos, en su propio grupo. */
+  calendarios: { id: string; titulo: string; color: string }[] = [],
 ): GrupoApps[] {
   const ids = new Set<ClaveApp>()
   for (const r of rutinas) ids.add(appDeRutina(r))
@@ -69,6 +84,13 @@ export function gruposDeApps(
 
   const salida: GrupoApps[] = []
   const colocadas = new Set<ClaveApp>()
+  // Los calendarios compartidos van primero: son de otra naturaleza que las apps
+  // (dicen de QUIÉN es el evento) y es lo que se busca al abrir el filtro.
+  const compartidos = calendarios
+    .filter((c) => ids.has(PREFIJO_CAL + c.id))
+    .map((c) => ({ id: PREFIJO_CAL + c.id, nombre: c.titulo, icon: '📅', color: c.color }))
+  if (compartidos.length > 0)
+    salida.push({ id: CALENDARIOS, nombre: nombres.calendarios, apps: compartidos })
   for (const c of carpetas) {
     // En el orden de la carpeta, que es el que el usuario ve en Funciones.
     const apps = c.miembros.filter((m) => ids.has(m)).map(deId)
@@ -79,10 +101,12 @@ export function gruposDeApps(
   // Sueltas: una app con datos que no esté en ninguna carpeta (la reconciliación
   // de `asegurarMiembros` solo corre al abrir el catálogo) no puede desaparecer
   // del filtro; sin ellas, lo que agendó quedaría imposible de apagar.
-  const sueltas = [...ids].filter((id) => id !== CASA && !colocadas.has(id) && getPlantilla(id)).map(deId)
+  const sueltas = [...ids]
+    .filter((id) => id !== CASA && !esClaveCalendario(id) && !colocadas.has(id) && getPlantilla(id))
+    .map(deId)
   if (sueltas.length > 0) salida.push({ id: OTRAS, nombre: nombres.otras, apps: sueltas })
   // Lo agendado a mano va al final: no es de ninguna app.
-  if (ids.has(CASA) || [...ids].some((id) => !getPlantilla(id)))
+  if (ids.has(CASA) || [...ids].some((id) => !esClaveCalendario(id) && !getPlantilla(id)))
     salida.push({ id: CASA, nombre: nombres.casa, apps: [casa] })
   return salida
 }

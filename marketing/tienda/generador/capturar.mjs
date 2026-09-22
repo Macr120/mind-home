@@ -5,7 +5,7 @@ import { resolve, dirname } from 'node:path'
 
 const PORT = 9333
 const RAIZ = dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1'))
-const SHOTS = resolve(RAIZ, '..', 'shots')
+const SHOTS = resolve(RAIZ, '..', 'capturas')
 const APP = 'http://localhost:53378/'
 
 const IDIOMAS = ['es', 'en', 'pt', 'fr', 'de', 'it', 'ja', 'zh', 'ko', 'ru', 'hi', 'tr', 'id', 'pl', 'nl', 'ar']

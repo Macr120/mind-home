@@ -134,8 +134,13 @@ export function ProyectosTab({ escenario, onAbrir }: { escenario: 'video' | '3d'
                 </span>
               </button>
               <div className="mt-1.5 min-w-0">
-                <button type="button" onClick={abrir} className="block w-full truncate text-left text-sm font-semibold">
-                  {p.nombre}
+                <button type="button" onClick={abrir} className="flex w-full items-center gap-1 text-left text-sm font-semibold">
+                  {p.espacioId && (
+                    <span className="shrink-0 text-white/60" title={t('esp.video.compartido', 'Compartido')}>
+                      <Icono nombre="companeros" />
+                    </span>
+                  )}
+                  <span className="min-w-0 truncate">{p.nombre}</span>
                 </button>
                 {/* Fuera del botón de abrir: un botón no puede anidar otro. */}
                 <div className="flex flex-wrap items-center gap-0.5 text-[11px] text-white/45">

@@ -218,6 +218,22 @@ export function esTablaSync(nombre: string): boolean {
 }
 
 /**
+ * ¿Esta fila pertenece a un ESPACIO COMPARTIDO en vez de al usuario? Devuelve
+ * el id del espacio, o null si es suya.
+ *
+ * Es el desvío del sync personal: una fila compartida no va a `registros` (que
+ * tiene RLS por usuario y nadie más podría leerla) sino al log de su espacio.
+ * Lo consultan el middleware, al encolar, y `motor.ts::push()`, por si alguna
+ * se coló (`bootstrap()` encola TODO lo local sin mirar).
+ */
+export function esFilaCompartida(
+  tabla: string,
+  fila: Record<string, unknown> | undefined,
+): string | null {
+  return tabla === 'rutinas' && typeof fila?.calendarioId === 'string' ? fila.calendarioId : null
+}
+
+/**
  * Claves foráneas por id numérico local: `tabla → { campo: tablaDestino }`.
  * En push se traducen a `uid` del padre; en pull, de vuelta al id local.
  * Las referencias por string (`roomId`, `plantillaId`, `asistenteId`,

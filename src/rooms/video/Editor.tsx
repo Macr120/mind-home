@@ -2,6 +2,15 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { ClipPrincipal, ClipVideo, EfectoCamaraId, EscenaActor, FuenteSonido, MedioVideo, NarradorVideo, PistaId, Transicion } from '../../core/data/db'
 import { mediosVideoRepo, proyectosVideoRepo, VACIO } from '../../core/data/repository'
 import { descargarArchivo } from '../../core/descargarArchivo'
+import * as apiEspacios from '../../core/espacios/api'
+import { useEspacio } from '../../core/espacios/cache'
+import { useEspaciosStore } from '../../core/espacios/espaciosStore'
+import type { MedioRemoto } from '../../core/espacios/medios'
+import { abrirEspacio, type EspacioAbierto } from '../../core/espacios/motor'
+import { useTurno } from '../../core/espacios/turnos'
+import { BarraTurno } from '../../core/espacios/ui/BarraTurno'
+import { BotonCompartir } from '../../core/espacios/ui/BotonCompartir'
+import { ChipMiembros } from '../../core/espacios/ui/ChipMiembros'
 import {
   detenerGrabacionPantalla,
   entregarTomaAlStudio,
@@ -42,6 +51,16 @@ import {
   type MedioConId,
 } from './clipsNuevos'
 import {
+  aplicarSnapshot,
+  compartirProyecto,
+  descargarMediosFaltantes,
+  leerSnapshot,
+  proyectarSnapshot,
+  resolverRefs,
+  subirMediosDelProyecto,
+  type SnapshotVideoLeido,
+} from './compartido'
+import {
   ALTO_PELICULA_FRACCION,
   ASPECTOS,
   type AspectoVideo,
@@ -50,6 +69,7 @@ import {
   DUR_DEFECTO,
   EN_OFF,
   LS_ALTO_PELICULA,
+  LS_AVISO_NUBE,
   LS_PANEL_CLIP,
   LS_PANEL_MEDIOS,
   MAX_CLIPS,
@@ -160,6 +180,13 @@ const ultimaToma = (medios: MedioVideo[], id3d: number): MedioConId | undefined 
 const fmtTotal = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(Math.max(0, s) % 60)).padStart(2, '0')}`
 
 /**
+ * Espera mínima entre snapshots del proyecto compartido. El proyecto entero
+ * viaja en cada uno, y el servidor admite 600 snapshots por hora: a 6 s el peor
+ * caso son 600, justo en el límite (igual que en el Studio de audio).
+ */
+const SNAPSHOT_MS = 6000
+
+/**
  * El editor de un proyecto, estilo CapCut: visor con alto ajustable, barra de
  * herramientas, timeline multipista y panel del clip (hoja en móvil, columna
  * en pantallas amplias). Todo muta por `mutar` y el motor lee la referencia
@@ -268,6 +295,21 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
   const avisoTimer = useRef(0)
   // Modo película: mientras se rueda, el reloj del Director es el del motor de export, no el del preview.
   const exportandoRef = useRef(false)
+  // ─── Compartido (por turnos) ─────────────────────────────────────────────
+  const espacioId = proyecto?.espacioId
+  const espRef = useRef<EspacioAbierto | null>(null)
+  /** Espejo de `turno.tengoTurno` para lo que solo lee refs (guardado, mutaciones). */
+  const turnoRef = useRef(false)
+  /** Privado, o compartido con el turno en la mano. */
+  const puedoEditarRef = useRef(true)
+  /** Una descarga de medios en curso: no se lanzan dos a la vez. */
+  const descargandoRef = useRef(false)
+  /** El dueño dejó de compartirlo (o me sacaron): el proyecto vuelve a ser privado. */
+  const [salioDelEspacio, setSalioDelEspacio] = useState(false)
+  /** Medios viajando al (o desde el) bucket del espacio, para el aviso de progreso. */
+  const [progresoMedios, setProgresoMedios] = useState<{ modo: 'subir' | 'bajar'; i: number; n: number } | null>(null)
+  /** Medios que no caben en la nube y se quedaron sin compartir. */
+  const [mediosSaltados, setMediosSaltados] = useState(0)
   // Refs "de lo último": se sincronizan tras cada render, nunca durante (regla react-hooks/refs).
   useEffect(() => {
     proyectoRef.current = proyecto
@@ -328,6 +370,52 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
   // ─── Guardado ────────────────────────────────────────────────────────────
   const sucio = useRef(false)
   const timer = useRef(0)
+  /** Último snapshot subido y cuándo: el proyecto entero viaja cada 6 s como mucho. */
+  const snap = useRef({ timer: 0, ultimo: 0, enviado: '' })
+  /** Fichas del bucket de los medios ya subidos en esta sesión (evita resubirlos). */
+  const refsMedios = useRef(new Map<number, MedioRemoto>())
+  /** Sube los medios que falten y el proyecto al espacio; `inmediato` salta la espera. */
+  const empujarRef = useRef(async (inmediato = false) => {
+    const e = espRef.current
+    const p = proyectoRef.current
+    if (!e || !p || !turnoRef.current) return
+    const s = snap.current
+    const espera = SNAPSHOT_MS - (Date.now() - s.ultimo)
+    if (!inmediato && espera > 0) {
+      if (s.timer === 0) {
+        s.timer = window.setTimeout(() => {
+          s.timer = 0
+          void empujarRef.current(true)
+        }, espera)
+      }
+      return
+    }
+    window.clearTimeout(s.timer)
+    s.timer = 0
+    try {
+      const subida = await subirMediosDelProyecto(e, p, {
+        medios: mediosRef.current,
+        yaSubidos: refsMedios.current,
+        onProgreso: (i, n) => setProgresoMedios({ modo: 'subir', i, n }),
+      })
+      refsMedios.current = subida.refs
+      setMediosSaltados(subida.saltados)
+    } catch {
+      // Sin los medios en la nube el proyecto viaja igual: los clips llegarán sin ellos.
+    } finally {
+      setProgresoMedios(null)
+    }
+    const foto = proyectarSnapshot(p, refsMedios.current)
+    const texto = JSON.stringify(foto)
+    if (texto === s.enviado) return // nada cambió desde el último envío
+    s.ultimo = Date.now()
+    s.enviado = texto
+    try {
+      await e.snapshot(foto, 0)
+    } catch {
+      s.enviado = '' // que lo reintente el siguiente guardado
+    }
+  })
   // Solo lee refs: es estable y no necesita el patrón de "última versión".
   const guardarRef = useRef(async () => {
     const p = proyectoRef.current
@@ -346,6 +434,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
       // La sella `mutar` en memoria (es la firma del último export): aquí solo se persiste.
       actualizadoEn: p.actualizadoEn,
     })
+    await empujarRef.current()
   })
   const programarGuardado = () => {
     sucio.current = true
@@ -353,16 +442,44 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
     timer.current = window.setTimeout(() => void guardarRef.current(), 600)
   }
 
-  // Síncrono y sobre la ref, no un actualizador de setState (React puede correrlo más tarde):
-  // quien muta y acto seguido hace `seek` o lee `proyectoRef` necesita el proyecto nuevo YA, y el motor también.
-  const mutar = (fn: (p: ProyectoAbierto) => ProyectoAbierto) => {
-    const prev = proyectoRef.current
-    if (!prev) return
-    const nuevo = { ...fn(prev), actualizadoEn: new Date().toISOString() }
+  /** Vacía lo pendiente ANTES de soltar el turno: quien entre después lo verá. */
+  const antesDeSoltar = useCallback(async () => {
+    await guardarRef.current()
+    await empujarRef.current(true)
+  }, [])
+  const turno = useTurno(espacioId, { antesDeSoltar })
+  /** Compartido y sin el turno: se mira y se reproduce, pero no se toca. */
+  const sinTurno = !!espacioId && !turno.tengoTurno
+  const tituloRemoto = useEspacio(espacioId ?? null)?.titulo
+  useEffect(() => {
+    turnoRef.current = turno.tengoTurno
+    puedoEditarRef.current = !espacioId || turno.tengoTurno
+  })
+
+  /**
+   * Instala un proyecto nuevo: el motor lee la referencia nueva y la vista se
+   * repinta. NO lo marca sucio, así que lo pueden usar tanto `mutar` (que
+   * programa el guardado) como lo que llega YA GUARDADO del espacio compartido
+   * (volver a marcarlo sucio lo reenviaría en círculo).
+   */
+  const adoptar = (nuevo: ProyectoAbierto) => {
     proyectoRef.current = nuevo
     if (pelicula) peliculaFrame.proyecto = nuevo
     motorRef.current?.fijarProyecto(nuevo)
     setProyecto(nuevo)
+  }
+  const adoptarRef = useRef(adoptar)
+  useEffect(() => {
+    adoptarRef.current = adoptar
+  })
+
+  // Síncrono y sobre la ref, no un actualizador de setState (React puede correrlo más tarde):
+  // quien muta y acto seguido hace `seek` o lee `proyectoRef` necesita el proyecto nuevo YA, y el motor también.
+  const mutar = (fn: (p: ProyectoAbierto) => ProyectoAbierto) => {
+    const prev = proyectoRef.current
+    // Compartido sin el turno: se mira y se reproduce, pero no se toca.
+    if (!prev || !puedoEditarRef.current) return
+    adoptar({ ...fn(prev), actualizadoEn: new Date().toISOString() })
     programarGuardado()
   }
   const mutarClips = (fn: (clips: ClipVideo[]) => ClipVideo[]) => mutar((p) => ({ ...p, clips: fn(p.clips) }))
@@ -398,6 +515,97 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps -- carga única por proyecto y medios; `mutarClips` y `pelicula` solo se usan al cargar
   }, [id, hayMedios])
+
+  // ─── Conexión del proyecto compartido ────────────────────────────────────
+  /** Guarda en local lo que dice el snapshot y lo adopta (sin foto de deshacer: ya está guardado). */
+  const aplicarRef = useRef(async (e: EspacioAbierto, s: SnapshotVideoLeido) => {
+    const prev = proyectoRef.current
+    if (!prev) return
+    const campos = aplicarSnapshot(prev, s, await resolverRefs(e.espacioId, s.medios))
+    // La copia local es una fila PROPIA: viaja por el sync personal del receptor.
+    await proyectosVideoRepo.update(id, { ...campos, actualizadoEn: new Date().toISOString() })
+    adoptarRef.current({ ...prev, ...campos, clips: campos.clips ?? prev.clips })
+  })
+  /** Trae el último snapshot del espacio (con el turno en la mano, nadie más escribe). */
+  const recargarRef = useRef(async () => {
+    const e = espRef.current
+    if (!e || !proyectoRef.current || turnoRef.current) return
+    let s: SnapshotVideoLeido | null = null
+    try {
+      s = leerSnapshot((await apiEspacios.leerSnapshot(e.espacioId)).snapshot)
+    } catch {
+      // Sin red: lo reintentan el siguiente aviso y la próxima apertura.
+    }
+    if (!s) return
+    await aplicarRef.current(e, s)
+    // Los medios que falten se bajan por detrás y el snapshot se vuelve a aplicar
+    // con ellos ya resueltos; mientras tanto los clips dicen «medio no disponible».
+    if (s.medios.length === 0 || descargandoRef.current) return
+    descargandoRef.current = true
+    const snapshot = s
+    try {
+      await descargarMediosFaltantes(e, snapshot.medios, (i, n) => setProgresoMedios({ modo: 'bajar', i, n }))
+      await aplicarRef.current(e, snapshot)
+    } catch {
+      // Lo que no se pudo bajar se reintenta en la siguiente recepción.
+    } finally {
+      descargandoRef.current = false
+      setProgresoMedios(null)
+    }
+  })
+
+  useEffect(() => {
+    if (!espacioId) return
+    let vivo = true
+    // Estables: se inicializan una sola vez (el cleanup los usa para vaciar).
+    const guardar = guardarRef.current
+    const empujar = empujarRef.current
+    const e = abrirEspacio(espacioId, { cursor: 'memoria' })
+    espRef.current = e
+    const bajas = [
+      e.on('borrado', () => {
+        if (!vivo) return
+        setSalioDelEspacio(true)
+        const p = proyectoRef.current
+        if (p) adoptarRef.current({ ...p, espacioId: undefined })
+        void proyectosVideoRepo.update(id, { espacioId: undefined })
+      }),
+      // Video no usa el log: el único cambio durable es el snapshot de quien tiene
+      // el turno. No se descarta por venir firmado como «yo» (otro dispositivo de
+      // la misma persona firma igual); con el turno en la mano `recargar` no hace nada.
+      e.on('cambio', (p) => {
+        const d = p as { tipo?: unknown } | null
+        if (!vivo || !d || d.tipo !== 'snapshot') return
+        void recargarRef.current()
+      }),
+    ]
+    // El motor responde `estado()` tras su primer `releer`; al llegar, se trae lo
+    // que haya pasado mientras el proyecto estuvo cerrado.
+    void (async () => {
+      for (let i = 0; i < 100 && vivo && !e.estado(); i++) await new Promise((r) => setTimeout(r, 100))
+      if (vivo) await recargarRef.current()
+    })()
+    return () => {
+      vivo = false
+      for (const baja of bajas) baja()
+      // Cerrar el editor con cambios sin subir los perdería para el resto.
+      void (async () => {
+        await guardar()
+        await empujar(true)
+      })().finally(() => {
+        if (espRef.current === e) espRef.current = null
+        e.cerrar()
+      })
+    }
+  }, [espacioId, id])
+
+  // El dueño renombró el video compartido: el nombre local lo sigue.
+  useEffect(() => {
+    const p = proyectoRef.current
+    if (!tituloRemoto || !p || p.nombre === tituloRemoto) return
+    adoptarRef.current({ ...p, nombre: tituloRemoto })
+    void proyectosVideoRepo.update(id, { nombre: tituloRemoto })
+  }, [tituloRemoto, id])
 
   // Motor + pool: nacen y mueren juntos; se rehacen si cambian los medios o el
   // aspecto (el canvas cambia de resolución). Patrón VistaBlob para StrictMode.
@@ -1443,6 +1651,50 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
     setIaError('')
     setPanelIA(true)
   }
+  /**
+   * «Compartir»: crea el espacio con el proyecto de ahora y abre el panel. Los
+   * medios se suben al bucket, así que la primera vez se avisa de lo que eso
+   * ocupa en la nube.
+   */
+  const compartir = async () => {
+    let visto = false
+    try {
+      visto = localStorage.getItem(LS_AVISO_NUBE) === '1'
+    } catch {
+      // Sin localStorage el aviso sale cada vez: mejor eso que no salir nunca.
+    }
+    if (!visto) {
+      const seguir = await confirmar({
+        titulo: t('esp.video.nube', 'Los videos compartidos ocupan espacio en la nube'),
+        mensaje: t(
+          'esp.video.nubeMsg',
+          'Los medios del proyecto se suben para que los demás los vean; borra el espacio cuando terminen.',
+        ),
+        textoOk: t('esp.compartir', 'Compartir'),
+      })
+      if (!seguir) return
+      try {
+        localStorage.setItem(LS_AVISO_NUBE, '1')
+      } catch {
+        /* da igual: solo repetiría el aviso */
+      }
+    }
+    await guardarRef.current()
+    try {
+      const { espacioId: nuevo, saltados, refs } = await compartirProyecto(id, (i, n) =>
+        setProgresoMedios({ modo: 'subir', i, n }),
+      )
+      // Lo que acaba de subirse no se vuelve a subir en el primer snapshot.
+      refsMedios.current = refs
+      setMediosSaltados(saltados)
+      const p = proyectoRef.current
+      if (p) adoptarRef.current({ ...p, espacioId: nuevo })
+      setSalioDelEspacio(false)
+      useEspaciosStore.getState().abrirCompartir(nuevo)
+    } finally {
+      setProgresoMedios(null)
+    }
+  }
 
   return (
     <div className={claseRaiz} data-teclado-propio={pelicula || undefined}>
@@ -1538,11 +1790,17 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
             <Icono nombre="volver" /> <span className="hidden sm:inline">{t('video.editor.volver', 'Volver')}</span>
           </BotonSecundario>
           <p className="min-w-0 flex-1 truncate text-sm font-semibold">{proyecto.nombre}</p>
+          {/* Compartido por enlace: el turno de edición, quién está mirando y el panel. */}
+          {espacioId && <BarraTurno espacioId={espacioId} antesDeSoltar={antesDeSoltar} />}
+          {espacioId && (
+            <ChipMiembros espacioId={espacioId} onClick={() => useEspaciosStore.getState().abrirCompartir(espacioId)} />
+          )}
+          <BotonCompartir espacioId={espacioId} onCompartir={compartir} pequeno />
           {/* Grabar la app en uso: la toma vuelve como clip. Con la toma andando, el mismo botón la detiene. */}
           <BotonSecundario
             pequeno
             onClick={() => void grabarApp()}
-            disabled={progresoExport != null}
+            disabled={progresoExport != null || sinTurno}
             title={t('video.grabar.titulo', 'Grabar dentro de la app: ve a la casa, haz lo que quieras y vuelve con la toma como clip')}
           >
             <Icono nombre={grabando ? 'detener' : 'grabar'} />{' '}
@@ -1554,10 +1812,30 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
           <BotonSecundario pequeno onClick={abrirExportar} disabled={proyecto.clips.length === 0 || progresoExport != null}>
             <Icono nombre="compartir" /> <span className="hidden sm:inline">{t('video.export.boton', 'Exportar')}</span>
           </BotonSecundario>
-          <BotonPrimario type="button" pequeno app={COLOR} onClick={abrirIA}>
+          {/* Sin el turno la IA no se ofrece: su resultado se descartaría y los créditos ya estarían gastados. */}
+          <BotonPrimario type="button" pequeno app={COLOR} onClick={abrirIA} disabled={sinTurno}>
             <Icono nombre="brillo" /> {t('video.ia.boton', 'IA')}
           </BotonPrimario>
         </div>
+      )}
+
+      {/* Avisos del proyecto compartido (en el modo película no hay sitio: la casa ocupa la pantalla). */}
+      {!pelicula && salioDelEspacio && (
+        <p className="shrink-0 rounded-lg border border-amber-400/30 bg-amber-400/10 px-3 py-1.5 text-xs text-amber-300">
+          {t('esp.video.fuera', 'Ya no se comparte: este video vuelve a ser solo tuyo.')}
+        </p>
+      )}
+      {!pelicula && progresoMedios && (
+        <p className="shrink-0 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/60">
+          {progresoMedios.modo === 'subir'
+            ? t('esp.video.subiendo', 'Subiendo medios {i}/{n}', { i: progresoMedios.i, n: progresoMedios.n })
+            : t('esp.video.descargando', 'Descargando medios {i}/{n}', { i: progresoMedios.i, n: progresoMedios.n })}
+        </p>
+      )}
+      {!pelicula && mediosSaltados > 0 && (
+        <p className="shrink-0 rounded-lg border border-amber-400/30 bg-amber-400/10 px-3 py-1.5 text-xs text-amber-300">
+          {t('esp.video.tope', '{n} medios superan el tope y no se compartirán', { n: mediosSaltados })}
+        </p>
       )}
 
       <div

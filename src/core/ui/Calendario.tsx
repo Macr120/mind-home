@@ -56,6 +56,8 @@ import {
   type IndiceEjecuciones,
 } from './calendario/metricas'
 import { appDeRutina, pasa } from './calendario/apps'
+import { calendarioDe, puedeEditarRutina, usePuedeEditarRutina } from '../espacios/calendario'
+import { PanelCalendarios } from './calendario/PanelCalendarios'
 import { useCalendarioFiltro } from '../state/calendarioFiltroStore'
 import { FiltroApps } from './calendario/FiltroApps'
 import { PanelMetricas } from './calendario/PanelMetricas'
@@ -491,6 +493,7 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
   // metas agendadas— y se queda en lo que el usuario elija: quien tiene tres
   // metas no debería tener que desplegarlas cada vez que abre el calendario.
   const [metasPlegadas, setMetasPlegadas] = useState<boolean | null>(null)
+  const [panelCalendarios, setPanelCalendarios] = useState(false)
   // Estabilizado: el `?? []` crearía un arreglo nuevo en cada render y tiraría por
   // tierra los memos que cuelgan de él (el eje del cronograma se recalcularía entero).
   const rutinasCargadas = rutinasRepo.useAll()
@@ -710,6 +713,15 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
               están las metas — el ▸/▾ del margen de la banda en Semana y el chip
               «N metas» de cada celda en Mes. Un tercer mando arriba repetía lo que
               ya se ve debajo. */}
+          {/* Mis calendarios: el propio y los compartidos con familia o amigos. */}
+          <button
+            type="button"
+            data-tut="cal.calendarios"
+            onClick={() => setPanelCalendarios(true)}
+            className="rounded-lg border border-white/15 px-2.5 py-1 text-xs font-semibold text-white/60 transition hover:bg-white/10 hover:text-white"
+          >
+            <Icono nombre="calendario" /> {t('esp.cal.grupo', 'Calendarios')}
+          </button>
           <button
             type="button"
             data-tut="cal.nueva"
@@ -848,6 +860,8 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
           </div>
         )}
       </div>
+
+      {panelCalendarios && <PanelCalendarios onCerrar={() => setPanelCalendarios(false)} />}
 
       {/* Detalle del evento (clic en un bloque) */}
       {detalle && (
@@ -1299,7 +1313,9 @@ function RejillaTiempo({
                     if (e.button !== 0) return
                     e.stopPropagation()
                     // La cola solo se consulta: se mueve desde su bloque de origen.
-                    if (bloque.cola) {
+                    // Y un evento de un calendario compartido donde solo puedo
+                    // mirar, tampoco se mueve ni se estira: se abre y ya.
+                    if (bloque.cola || !puedeEditarRutina(r)) {
                       conPulsacionLarga(e, () => onDetalle(r, fechaBloque), () => onDetalle(r, fechaBloque))
                       return
                     }
@@ -1500,6 +1516,8 @@ function DetalleRutina({
   const esHoy = fecha === hoyISO()
   const color = colorDe(rutina)
   const meta = esMeta(rutina)
+  const puedoEditar = usePuedeEditarRutina(rutina)
+  const calendario = calendarioDe(rutina)
   const ejec = idx.por.get(`${fecha}|${rutina.id}`)
   const hechos = new Set(meta ? (rutina.pasosHechos ?? []) : (ejec?.pasosHechos ?? []))
   const [agregandoHija, setAgregandoHija] = useState(false)
@@ -1563,18 +1581,23 @@ function DetalleRutina({
               <Icono nombre="derecha" />
             </button>
           ) : (
-            <button type="button" onClick={onEditar} className="px-1 text-xs text-white/40 transition hover:text-white/85" title={t('rutinas.editar', 'Editar')}>
-              <Icono nombre="editar" />
+            puedoEditar && (
+              <button type="button" onClick={onEditar} className="px-1 text-xs text-white/40 transition hover:text-white/85" title={t('rutinas.editar', 'Editar')}>
+                <Icono nombre="editar" />
+              </button>
+            )
+          )}
+          {/* En un calendario compartido donde solo miro, no hay nada que borrar. */}
+          {puedoEditar && (
+            <button
+              type="button"
+              onClick={borrar}
+              className="px-1 text-xs text-white/40 transition hover:text-red-400"
+              title={t('rutinas.borrar', 'Borrar')}
+            >
+              <Icono nombre="basura" />
             </button>
           )}
-          <button
-            type="button"
-            onClick={borrar}
-            className="px-1 text-xs text-white/40 transition hover:text-red-400"
-            title={t('rutinas.borrar', 'Borrar')}
-          >
-            <Icono nombre="basura" />
-          </button>
           <button type="button" onClick={onCerrar} className="px-1 text-sm text-white/40 transition hover:text-white/85">
             ✕
           </button>
@@ -1584,6 +1607,14 @@ function DetalleRutina({
           {rutina.hora && ` · ${rutina.hora}${rutina.horaFin ? ` – ${rutina.horaFin}` : ''}`}
         </p>
         {!meta && <p className="mb-2 text-[10px] text-white/35"><Icono nombre="repetir" /> {textoRepeticion(rutina)}</p>}
+        {/* De quién es y en qué calendario compartido vive. */}
+        {rutina.calendarioId && (
+          <p className="mb-2 text-[10px] text-white/45">
+            <Icono nombre="companeros" />{' '}
+            {rutina.autorAlias ? `${t('esp.cal.de', 'de @{a}', { a: rutina.autorAlias })} · ` : ''}
+            {calendario?.titulo || t('esp.sinTitulo', 'Sin título')}
+          </p>
+        )}
         {rutina.nota && (
           <p className="mb-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] text-white/60">
             <Icono nombre="nota" /> {rutina.nota}
@@ -1681,6 +1712,8 @@ function useEstiron(onExtender: (r: Rutina, isoAncla: string, isoDestino: string
 
   const iniciar = (e: React.PointerEvent, rutina: Rutina, isoAncla: string, isoBloque: string) => {
     if (e.button !== 0) return
+    // Solo lectura en un calendario compartido: el asa no hace nada.
+    if (!puedeEditarRutina(rutina)) return
     e.stopPropagation() // que no lo tome el trazo de rangos del contenedor
     let actual = { rutina, isoAncla, iso: isoBloque }
     setEstiron(actual)

@@ -1,7 +1,15 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ClipAudio, NotaAudio, PistaAudio, ProyectoAudio } from '../../core/data/db'
 import { leerGrabacionAudio, proyectosAudioRepo } from '../../core/data/repository'
 import { descargarArchivo } from '../../core/descargarArchivo'
+import * as apiEspacios from '../../core/espacios/api'
+import { useEspacio } from '../../core/espacios/cache'
+import { useEspaciosStore } from '../../core/espacios/espaciosStore'
+import { abrirEspacio, type EspacioAbierto } from '../../core/espacios/motor'
+import { useTurno } from '../../core/espacios/turnos'
+import { BarraTurno } from '../../core/espacios/ui/BarraTurno'
+import { BotonCompartir } from '../../core/espacios/ui/BotonCompartir'
+import { ChipMiembros } from '../../core/espacios/ui/ChipMiembros'
 import { useT } from '../../core/i18n/useT'
 import { confirmar } from '../../core/state/confirmarStore'
 import { Creditos } from '../../core/ui/Creditos'
@@ -9,6 +17,7 @@ import { Icono } from '../../core/ui/iconos/Icono'
 import { BotonSecundario, Campo, INPUT, Modal, Spinner } from '../_shared/ui'
 import { contextoAudio } from '../../core/audio/motor'
 import * as arpegiador from './arpegiador'
+import { compartirProyecto, leerSnapshot, proyectarSnapshot } from './compartido'
 import {
   MAESTRO_DEFAULT,
   MAX_CLIPS_POR_PISTA,
@@ -50,6 +59,13 @@ const SEMITONOS_FISICOS: Record<string, number> = {
 const PADS_FISICOS: Record<string, number> = {
   KeyA: 36, KeyS: 38, KeyD: 42, KeyF: 46, KeyG: 39, KeyH: 41, KeyJ: 48, KeyK: 49,
 }
+
+/**
+ * Espera mínima entre snapshots del proyecto compartido. El proyecto entero
+ * viaja en cada uno (KBs), y el servidor admite 600 snapshots por hora: a 6 s
+ * el peor caso son 600, justo en el límite.
+ */
+const SNAPSHOT_MS = 6000
 
 /**
  * El editor de un proyecto: el borrador vive en memoria (estado React) y es la
@@ -112,17 +128,50 @@ export function EditorProyecto({
   const pistaActivaRef = useRef('')
   const octavaRef = useRef(60)
   const fuerzaRef = useRef(100)
-  // Refs "de lo último": se sincronizan tras cada render, nunca durante (regla react-hooks/refs).
-  useEffect(() => {
-    proyectoRef.current = proyecto
-    pistaActivaRef.current = pistaActivaId
-    octavaRef.current = octava
-    fuerzaRef.current = fuerza
-  })
+  // ─── Compartido (por turnos) ─────────────────────────────────────────────
+  const espacioId = proyecto?.espacioId
+  const espRef = useRef<EspacioAbierto | null>(null)
+  /** Espejo de `turno.tengoTurno` para lo que solo lee refs (guardado, mutaciones). */
+  const turnoRef = useRef(false)
+  /** Privado, o compartido con el turno en la mano. */
+  const puedoEditarRef = useRef(true)
+  /** El dueño dejó de compartirlo (o me sacaron): el proyecto vuelve a ser privado. */
+  const [salioDelEspacio, setSalioDelEspacio] = useState(false)
 
   // ─── Guardado ────────────────────────────────────────────────────────────
   const sucio = useRef(false)
   const timer = useRef(0)
+  /** Último snapshot subido y cuándo: el proyecto entero viaja cada 6 s como mucho. */
+  const snap = useRef({ timer: 0, ultimo: 0, enviado: '' })
+  /** Sube el proyecto al espacio (solo con el turno); `inmediato` salta la espera. */
+  const empujarRef = useRef(async (inmediato = false) => {
+    const e = espRef.current
+    const p = proyectoRef.current
+    if (!e || !p || !turnoRef.current) return
+    const s = snap.current
+    const espera = SNAPSHOT_MS - (Date.now() - s.ultimo)
+    if (!inmediato && espera > 0) {
+      if (s.timer === 0) {
+        s.timer = window.setTimeout(() => {
+          s.timer = 0
+          void empujarRef.current(true)
+        }, espera)
+      }
+      return
+    }
+    window.clearTimeout(s.timer)
+    s.timer = 0
+    const foto = proyectarSnapshot(p)
+    const texto = JSON.stringify(foto)
+    if (texto === s.enviado) return // nada cambió desde el último envío
+    s.ultimo = Date.now()
+    s.enviado = texto
+    try {
+      await e.snapshot(foto, 0)
+    } catch {
+      s.enviado = '' // que lo reintente el siguiente guardado
+    }
+  })
   // Solo lee refs: es estable y no necesita el patrón de "última versión".
   const guardarRef = useRef(async () => {
     const p = proyectoRef.current
@@ -140,6 +189,27 @@ export function EditorProyecto({
       cancion: p.cancion,
       actualizadoEn: new Date().toISOString(),
     })
+    await empujarRef.current()
+  })
+
+  /** Vacía lo pendiente ANTES de soltar el turno: quien entre después lo verá. */
+  const antesDeSoltar = useCallback(async () => {
+    await guardarRef.current()
+    await empujarRef.current(true)
+  }, [])
+  const turno = useTurno(espacioId, { antesDeSoltar })
+  /** Compartido y sin el turno: se mira y se escucha, pero no se toca. */
+  const sinTurno = !!espacioId && !turno.tengoTurno
+  const tituloRemoto = useEspacio(espacioId ?? null)?.titulo
+
+  // Refs "de lo último": se sincronizan tras cada render, nunca durante (regla react-hooks/refs).
+  useEffect(() => {
+    proyectoRef.current = proyecto
+    pistaActivaRef.current = pistaActivaId
+    octavaRef.current = octava
+    fuerzaRef.current = fuerza
+    turnoRef.current = turno.tengoTurno
+    puedoEditarRef.current = !espacioId || turno.tengoTurno
   })
 
   // ─── Deshacer / rehacer ──────────────────────────────────────────────────
@@ -155,21 +225,31 @@ export function EditorProyecto({
   const anotarPasos = () =>
     setPasos({ atras: historial.current.atras.length, adelante: historial.current.adelante.length })
 
-  /** Adopta un borrador nuevo: el motor lo toca, se redibuja y se guarda con debounce. */
-  const adoptar = (nuevo: ProyectoAudio) => {
+  /**
+   * Adopta un borrador nuevo: el motor lo toca, se redibuja y se guarda con
+   * debounce. Lo que llega del espacio compartido (`remoto`) ya está guardado:
+   * volver a marcarlo sucio lo reenviaría en círculo.
+   */
+  const adoptar = (nuevo: ProyectoAudio, remoto = false) => {
     proyectoRef.current = nuevo
     motor.fijarProyecto(nuevo)
     setProyecto(nuevo)
     setVersion((v) => v + 1)
+    if (remoto) return
     sucio.current = true
     window.clearTimeout(timer.current)
     timer.current = window.setTimeout(() => void guardarRef.current(), 600)
   }
+  const adoptarRef = useRef(adoptar)
+  useEffect(() => {
+    adoptarRef.current = adoptar
+  })
   // Parte del ref y no del updater de React: en StrictMode los updaters corren
   // dos veces y la foto de deshacer se duplicaría.
   const mutar = (fn: (p: ProyectoAudio) => ProyectoAudio) => {
     const prev = proyectoRef.current
-    if (!prev) return
+    // Compartido sin el turno: se mira y se escucha, pero no se toca.
+    if (!prev || !puedoEditarRef.current) return
     const h = historial.current
     const ahora = performance.now()
     if (ahora - h.ultimo > 500) h.atras.push(prev)
@@ -181,6 +261,7 @@ export function EditorProyecto({
   }
   const deshacer = () => {
     const h = historial.current
+    if (!puedoEditarRef.current) return
     const previo = h.atras.pop()
     if (!previo || !proyectoRef.current) return
     h.adelante.push(proyectoRef.current)
@@ -191,6 +272,7 @@ export function EditorProyecto({
   }
   const rehacer = () => {
     const h = historial.current
+    if (!puedoEditarRef.current) return
     const siguiente = h.adelante.pop()
     if (!siguiente || !proyectoRef.current) return
     h.atras.push(proyectoRef.current)
@@ -249,6 +331,79 @@ export function EditorProyecto({
       motor.liberar()
     }
   }, [id])
+
+  // ─── Conexión del proyecto compartido ────────────────────────────────────
+  /** Trae el último snapshot del espacio y lo adopta (con el turno en la mano, nadie más escribe). */
+  const recargarRef = useRef(async () => {
+    const e = espRef.current
+    if (!e || !proyectoRef.current || turnoRef.current) return
+    let campos: Partial<ProyectoAudio> | null = null
+    try {
+      campos = leerSnapshot((await apiEspacios.leerSnapshot(e.espacioId)).snapshot)
+    } catch {
+      // Sin red: lo reintentan el siguiente aviso y la próxima apertura.
+    }
+    const prev = proyectoRef.current
+    if (!campos || !prev) return
+    // La copia local es una fila PROPIA: viaja por el sync personal del receptor.
+    await proyectosAudioRepo.update(id, { ...campos, actualizadoEn: new Date().toISOString() })
+    adoptarRef.current({ ...prev, ...campos }, true)
+  })
+
+  useEffect(() => {
+    if (!espacioId) return
+    let vivo = true
+    // Estables: se inicializan una sola vez (el cleanup los usa para vaciar).
+    const guardar = guardarRef.current
+    const empujar = empujarRef.current
+    const e = abrirEspacio(espacioId, { cursor: 'memoria' })
+    espRef.current = e
+    const bajas = [
+      e.on('borrado', () => {
+        if (!vivo) return
+        setSalioDelEspacio(true)
+        const p = proyectoRef.current
+        if (p) adoptarRef.current({ ...p, espacioId: undefined }, true)
+        void proyectosAudioRepo.update(id, { espacioId: undefined })
+      }),
+      // Audio no usa el log: el único cambio durable es el snapshot de quien tiene el turno.
+      // No se descarta por venir firmado como «yo»: otro dispositivo de la misma
+      // persona firma igual (un `miembro_id` por espacio y usuario). Con el turno
+      // en la mano `recargarRef` ya no hace nada, que es el único caso propio.
+      e.on('cambio', (p) => {
+        const d = p as { tipo?: unknown } | null
+        if (!vivo || !d || d.tipo !== 'snapshot') return
+        void recargarRef.current()
+      }),
+    ]
+    // El motor responde `estado()` tras su primer `releer`; hasta entonces no se
+    // sabe ni mi `miembroId`. Al llegar, se trae lo que haya pasado mientras el
+    // proyecto estuvo cerrado.
+    void (async () => {
+      for (let i = 0; i < 100 && vivo && !e.estado(); i++) await new Promise((r) => setTimeout(r, 100))
+      if (vivo) await recargarRef.current()
+    })()
+    return () => {
+      vivo = false
+      for (const baja of bajas) baja()
+      // Cerrar el editor con cambios sin subir los perdería para el resto.
+      void (async () => {
+        await guardar()
+        await empujar(true)
+      })().finally(() => {
+        if (espRef.current === e) espRef.current = null
+        e.cerrar()
+      })
+    }
+  }, [espacioId, id])
+
+  // El dueño renombró el proyecto compartido: el nombre local lo sigue.
+  useEffect(() => {
+    const p = proyectoRef.current
+    if (!tituloRemoto || !p || p.nombre === tituloRemoto) return
+    adoptarRef.current({ ...p, nombre: tituloRemoto }, true)
+    void proyectosAudioRepo.update(id, { nombre: tituloRemoto })
+  }, [tituloRemoto, id])
 
   const pista = proyecto?.pistas.find((p) => p.pistaId === pistaActivaId) ?? proyecto?.pistas[0] ?? null
   const colorIdx = proyecto?.pistas.findIndex((p) => p.pistaId === (pista?.pistaId ?? '')) ?? 0
@@ -458,7 +613,7 @@ export function EditorProyecto({
   }
 
   const grabar = async () => {
-    if (!proyecto || !pista || motor.estado() !== 'parado') return
+    if (!proyecto || !pista || sinTurno || motor.estado() !== 'parado') return
     if (pista.tipo === 'audio') return grabarAudio(pista)
     await motor.prepararClips()
     motor.alFin(() => cerrarToma())
@@ -548,7 +703,7 @@ export function EditorProyecto({
   const correrIA = async (modo: 'generar' | 'continuar') => {
     const p = proyectoRef.current
     const pistaViva = p?.pistas.find((x) => x.pistaId === pistaActivaRef.current)
-    if (!p || !pistaViva) return
+    if (!p || !pistaViva || sinTurno) return
     if (modo === 'generar' && pistaViva.notas.length > 0) {
       const si = await confirmar({
         titulo: t('audio.ia.reemplazar', 'Reemplazar las notas de la pista'),
@@ -607,6 +762,16 @@ export function EditorProyecto({
     }))
   }
 
+  /** «Compartir»: crea el espacio con el proyecto de ahora y abre el panel. */
+  const compartir = async () => {
+    await guardarRef.current()
+    const nuevo = await compartirProyecto(id)
+    const p = proyectoRef.current
+    if (p) adoptarRef.current({ ...p, espacioId: nuevo }, true)
+    setSalioDelEspacio(false)
+    useEspaciosStore.getState().abrirCompartir(nuevo)
+  }
+
   if (!proyecto || !pista) {
     return (
       <div className="grid h-full place-items-center">
@@ -652,11 +817,25 @@ export function EditorProyecto({
   }
   const velToque = esInstrumentoBateria(pista.instrumento) ? fuerza : 100
 
+  // Un clip cuya toma no está en este dispositivo (llegó compartida): el roll ya
+  // lo marca con «!», pero conviene decir por qué.
+  const faltanTomas = espacioId != null && [...picosClips.values()].some((v) => v === null)
+
   return (
     <div className="flex h-full flex-col gap-2">
       <Transporte
         nombre={proyecto.nombre}
         onCerrar={alCerrar}
+        sinTurno={sinTurno}
+        extra={
+          <>
+            {espacioId && <BarraTurno espacioId={espacioId} antesDeSoltar={antesDeSoltar} />}
+            {espacioId && (
+              <ChipMiembros espacioId={espacioId} onClick={() => useEspaciosStore.getState().abrirCompartir(espacioId)} />
+            )}
+            <BotonCompartir espacioId={espacioId} onCompartir={compartir} pequeno />
+          </>
+        }
         bpm={proyecto.bpm}
         compases={proyecto.compases}
         pulsos={proyecto.pulsos ?? 4}
@@ -700,11 +879,23 @@ export function EditorProyecto({
         puedeRehacer={pasos.adelante > 0}
       />
 
+      {salioDelEspacio && (
+        <p className="shrink-0 rounded-lg border border-amber-400/30 bg-amber-400/10 px-3 py-1.5 text-xs text-amber-300">
+          {t('esp.audio.fuera', 'Ya no se comparte: este proyecto vuelve a ser solo tuyo.')}
+        </p>
+      )}
+      {faltanTomas && (
+        <p className="shrink-0 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/60">
+          {t('esp.audio.sinTomas', 'Las tomas de micrófono no se comparten: aquí no suenan (se marcan con «!»).')}
+        </p>
+      )}
+
       {/* El timeline integra las pistas: una sola tarjeta con la columna de pistas a la IZQUIERDA y el roll a la derecha.
           Expandido, la columna también se pliega: todo el ancho para el roll. */}
       <div className="flex min-h-0 flex-1 overflow-hidden rounded-xl border border-white/10 bg-black/30">
         {!rollExpandido && (
           <Pistas
+            bloqueado={sinTurno}
             pistas={proyecto.pistas}
             activa={pista.pistaId}
             onActiva={setPistaActivaId}
@@ -745,6 +936,7 @@ export function EditorProyecto({
           />
         )}
         <PianoRoll
+          bloqueado={sinTurno}
           proyecto={proyecto}
           pista={pista}
           colorIdx={colorIdx}
@@ -770,6 +962,7 @@ export function EditorProyecto({
 
       {!rollExpandido && pista.tipo === 'audio' && (
         <PanelClips
+          bloqueado={sinTurno}
           pista={pista}
           onFx={(fx) => {
             const idPista = pista.pistaId
@@ -783,6 +976,7 @@ export function EditorProyecto({
               Expandido se pliega el sinte, pero el INSTRUMENTO (teclado) se queda: sigues tocando. */}
           {!rollExpandido && !sintePlegado && (
             <PanelSinte
+              bloqueado={sinTurno}
               pista={pista}
               vivo={proyecto.vivo}
               octava={octava}

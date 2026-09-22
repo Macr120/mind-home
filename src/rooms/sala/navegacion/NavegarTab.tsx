@@ -8,12 +8,13 @@ import { Icono } from '../../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../../core/ui/iconos/catalogo'
 import { BotonCompartir } from '../BotonCompartir'
 import { BuscadorLugar } from './BuscadorLugar'
-import { claveConfigurada } from './config'
+import { cacheVencida, claveConfigurada } from './config'
 import { formatoDistancia, formatoDuracion, formatoHora, resumenPierna } from './formato'
 import { obtenerPosicion } from './geo'
 import { nombreDeCoords, planificar } from './here'
 import MapaCalles from './MapaCalles'
 import { COLOR_MODO, ICONO_MODO, MODOS_NAV, esCalle, familiaModo, iconoDireccion, type ModoNav } from './modos'
+import { usePrefsNavegacion } from './preferencias'
 import { textoTrayecto } from './textoTrayecto'
 import { useNavegacionViva, type Progreso } from './useNavegacionViva'
 
@@ -152,7 +153,8 @@ export default function NavegarTab({ lugares }: Props) {
 
   const [origen, setOrigen] = useState<PuntoNav | null>(null)
   const [destino, setDestino] = useState<PuntoNav | null>(null)
-  const [modos, setModos] = useState<ModoNav[]>(['caminar', 'transporte'])
+  // Arranca con las preferencias del ⚙ de «Tus lugares» (modos y voz).
+  const [modos, setModos] = useState<ModoNav[]>(() => usePrefsNavegacion.getState().modos)
   const [cuando, setCuando] = useState<Cuando>('ahora')
   const [hora, setHora] = useState(horaInicial)
   const [buscando, setBuscando] = useState(false)
@@ -161,14 +163,26 @@ export default function NavegarTab({ lugares }: Props) {
   const [sel, setSel] = useState<number | null>(null)
   const [abiertos, setAbiertos] = useState<Set<string>>(new Set())
   const [eligiendo, setEligiendo] = useState<'origen' | 'destino' | null>(null)
-  const [voz, setVoz] = useState(false)
+  const [voz, setVoz] = useState(() => usePrefsNavegacion.getState().voz)
   const [guardadoOk, setGuardadoOk] = useState(false)
   const ultimaVoz = useRef('')
 
   const itSel = sel != null ? (resultados[sel] ?? null) : null
   const nav = useNavegacionViva(itSel)
   const navegando = nav.estado !== 'apagado'
-  const cerca = nav.posicion ?? origen ?? destino ?? null
+  // Sesgo de las sugerencias. Sin él, HERE cae en la geocodificación plana, que
+  // solo entiende direcciones: buscar «Zócalo» devolvía una calle de Tláhuac. Si
+  // no hay GPS ni puntos elegidos, vale el último trayecto guardado o el primer
+  // lugar de la sala con coordenadas: basta para que gane la ciudad del usuario.
+  const lugarConCoords = lugares.find((l) => l.lat != null && l.lng != null)
+  const cerca =
+    nav.posicion ??
+    origen ??
+    destino ??
+    guardados[0]?.origen ??
+    (lugarConCoords?.lat != null && lugarConCoords.lng != null
+      ? { lat: lugarConCoords.lat, lng: lugarConCoords.lng }
+      : null)
   const conClave = claveConfigurada()
 
   const instruccion = useMemo(
@@ -182,6 +196,16 @@ export default function NavegarTab({ lugares }: Props) {
     ultimaVoz.current = instruccion.clave
     hablar(instruccion.titulo)
   }, [voz, navegando, instruccion])
+
+  // El itinerario guardado es una caché de 30 días (condiciones del plan Base de HERE):
+  // al cumplirse el plazo se suelta, y el trayecto se recalcula la próxima vez que se abra.
+  useEffect(() => {
+    for (const tr of guardados) {
+      if (tr.id != null && tr.itinerario && cacheVencida(tr.creadoEn)) {
+        void trayectosViajeRepo.update(tr.id, { itinerario: undefined })
+      }
+    }
+  }, [guardados])
 
   const limpiarResultados = () => {
     setResultados([])
@@ -229,14 +253,16 @@ export default function NavegarTab({ lugares }: Props) {
   const alternarModo = (m: ModoNav) =>
     setModos((ms) => (ms.includes(m) ? (ms.length > 1 ? ms.filter((x) => x !== m) : ms) : [...ms, m]))
 
-  const buscar = async (desde?: PuntoNav) => {
-    const o = desde ?? origen
-    if (!o || !destino || buscando) return
-    if (desde) setOrigen(desde)
+  const buscar = async (sobre?: { origen?: PuntoNav; destino?: PuntoNav; modos?: ModoNav[] }) => {
+    const o = sobre?.origen ?? origen
+    const d = sobre?.destino ?? destino
+    const ms = sobre?.modos ?? modos
+    if (!o || !d || buscando) return
+    if (sobre?.origen) setOrigen(sobre.origen)
     setBuscando(true)
     limpiarResultados()
     try {
-      const r = await planificar({ origen: o, destino, modos, cuando, hora, locale })
+      const r = await planificar({ origen: o, destino: d, modos: ms, cuando, hora, locale })
       setResultados(r)
       if (r.length === 0) {
         setError(t('sala.nav.sinRutas', 'No hay rutas con esos modos por aquí. Prueba a combinar otros, cambiar la hora o acercar los puntos.'))
@@ -252,14 +278,14 @@ export default function NavegarTab({ lugares }: Props) {
 
   const recalcular = () => {
     if (!nav.posicion) return
-    void buscar({ nombre: t('sala.nav.miUbicacion', 'Mi ubicación'), lat: nav.posicion.lat, lng: nav.posicion.lng })
+    void buscar({ origen: { nombre: t('sala.nav.miUbicacion', 'Mi ubicación'), lat: nav.posicion.lat, lng: nav.posicion.lng } })
   }
 
   const guardar = async () => {
     if (!origen || !destino || !itSel) return
     const nombre = await pedirTexto({
       titulo: t('sala.nav.guardarTitulo', 'Guardar trayecto'),
-      mensaje: t('sala.nav.guardarMensaje', 'Quedará a mano aunque no tengas conexión.'),
+      mensaje: t('sala.nav.guardarMensaje', 'Queda a mano sin conexión 30 días; después se recalcula al abrirlo.'),
       textoOk: t('sala.nav.guardar', 'Guardar'),
       valor: `${origen.nombre} → ${destino.nombre}`,
     })
@@ -271,13 +297,19 @@ export default function NavegarTab({ lugares }: Props) {
 
   const cargar = (tr: TrayectoViaje) => {
     nav.detener()
+    const ms = tr.modos as ModoNav[]
     setOrigen(tr.origen)
     setDestino(tr.destino)
-    setModos(tr.modos as ModoNav[])
-    setResultados([tr.itinerario])
-    setSel(0)
+    setModos(ms)
     setError(null)
     setAbiertos(new Set())
+    // El itinerario caducado ya no está: se pide de nuevo a HERE con horarios frescos.
+    if (!tr.itinerario) {
+      void buscar({ origen: tr.origen, destino: tr.destino, modos: ms })
+      return
+    }
+    setResultados([tr.itinerario])
+    setSel(0)
   }
 
   const borrar = async (tr: TrayectoViaje) => {
@@ -659,7 +691,7 @@ export default function NavegarTab({ lugares }: Props) {
         </h4>
         {guardados.length === 0 ? (
           <p className="text-xs text-white/40">
-            {t('sala.nav.guardadosVacio', 'Guarda una ruta y quedará a mano aunque no tengas conexión.')}
+            {t('sala.nav.guardadosVacio', 'Guarda una ruta y quedará a mano sin conexión 30 días; después se recalcula al abrirla.')}
           </p>
         ) : (
           guardados.map((tr) => (
@@ -671,10 +703,17 @@ export default function NavegarTab({ lugares }: Props) {
               <div className="min-w-0 flex-1">
                 <p className="truncate text-sm font-semibold">{tr.nombre}</p>
                 <p className="truncate text-[11px] text-white/45">
-                  {formatoDuracion(t, tr.itinerario.duracion)} · {tr.origen.nombre} → {tr.destino.nombre}
+                  {tr.itinerario && `${formatoDuracion(t, tr.itinerario.duracion)} · `}
+                  {tr.origen.nombre} → {tr.destino.nombre}
                 </p>
               </div>
-              <CadenaModos it={tr.itinerario} t={t} />
+              {tr.itinerario ? (
+                <CadenaModos it={tr.itinerario} t={t} />
+              ) : (
+                <span className="shrink-0 text-[10px] text-white/35">
+                  {t('sala.nav.caduco', 'Se recalcula al abrirlo')}
+                </span>
+              )}
               <button
                 type="button"
                 onClick={(e) => {

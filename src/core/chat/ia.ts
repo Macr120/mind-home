@@ -12,7 +12,7 @@ import { getAsistente } from '../state/asistentesStore'
 import { useDiseño } from '../state/disenoStore'
 import { TIPO_PIEZAS } from '../house/catalogo'
 import { playerPos } from '../state/houseStore'
-import type { Asistente, Pieza3D } from './mascotas'
+import { nombreAsistente, type Asistente, type Pieza3D } from './mascotas'
 import { extraerEmocion, INSTRUCCION_EMOCION, type EmocionId } from './emociones'
 import { fechaLocalISO } from '../fechaLocal'
 import { devIA, iaHabilitada, tieneAcceso } from '../edicion'
@@ -539,7 +539,7 @@ interface LlamadaTool {
  * porque se guardan y se leen fuera del chat.
  */
 function reglaIdioma(): string {
-  return `IDIOMA — ESTA REGLA MANDA SOBRE TODAS LAS DEMÁS: responde SIEMPRE en el mismo idioma en el que te escribe el usuario en su ÚLTIMO mensaje, aunque estas instrucciones, tu personalidad y los nombres de los cuartos estén en español. Si cambia de idioma a mitad de la conversación, cambia tú en ese mismo turno. Solo si su mensaje no permite saber el idioma (un «ok», un emoji, una cifra), escribe en ${datosIdioma(idiomaActual()).nombreIA}.`
+  return `IDIOMA — ESTA REGLA MANDA SOBRE TODAS LAS DEMÁS: responde SIEMPRE en el mismo idioma en el que te escribe el usuario en su ÚLTIMO mensaje, aunque estas instrucciones, tu personalidad y los nombres de los cuartos estén en español. Si cambia de idioma a mitad de la conversación, cambia tú en ese mismo turno. Solo si su mensaje no permite saber el idioma (un «ok», un emoji, una cifra), escribe en ${datosIdioma(idiomaActual()).nombreIA}. TODA tu respuesta va en ese idioma, también los nombres de los cuartos y de las apps: tradúcelos en vez de copiarlos en español, y NUNCA escribas el término español —ni suelto, ni en negritas, ni aclarado entre paréntesis—. La única excepción son los nombres que el propio usuario haya escrito.`
 }
 
 /** Identidad del personaje (personalidad + historia), compartida por los system del chat y del Chat AR. */
@@ -590,6 +590,7 @@ async function construirSystem(
   const cabecera = [
     reglaIdioma(),
     'Eres el asistente-arquitecto de MindHaOS: una casa virtual donde cada cuarto registra una parte de la vida del usuario. Tu nombre, tu personalidad y las apps que archivas vienen al final de estas instrucciones.',
+    'Nunca le enseñes al usuario los NOMBRES TÉCNICOS de tus herramientas (generar_imagen, crear_rutina, editor_*) ni hables de «tools»: di en palabras normales lo que vas a hacer («te dibujo la imagen», «lo anoto en tu agenda»).',
     'Cuando el usuario te cuente qué hizo, registra los datos con las herramientas (usa varias si el mensaje toca varios cuartos; estima valores razonables como calorías si no se mencionan). Si pide crear un hábito o ritual recurrente, usa crear_rutina con pasos concretos y, cuando el paso sea medible, su esquema y valores para auto-registro; pero si lo que pide es una rutina de ENTRENAMIENTO (pesas, cardio, estiramientos), usa la herramienta de rutinas de la app de Ejercicio, que la guarda con sus ejercicios ahí dentro. Después de usar herramientas responde SIEMPRE con un comentario breve (1–2 frases) en tu personalidad y en el idioma del usuario.',
     'También puede platicar contigo de cualquier tema: preguntas de curiosidad o conocimiento general («¿por qué el cielo es azul?»), opiniones o charla casual. Ahí no uses herramientas ni fuerces ningún registro: contesta de verdad, con una explicación clara y correcta (2–5 frases, admite si no estás seguro de algo) en tu personalidad y en el idioma del usuario. Cuando salga natural, remata con UNA frase que conecte el tema con la vida de la casa (explorarlo a fondo en la biblioteca, la calma del jardín, probar algo en la cocina, registrarlo en un cuarto…); si no hay conexión razonable, omite el guiño en vez de forzarlo.',
     'Si recibes mensajes previos, son el contexto de una conversación continua: retómala con naturalidad, no repitas saludos y no vuelvas a registrar lo que ya quedó registrado en turnos anteriores.',
@@ -623,11 +624,11 @@ async function construirSystem(
     .join('\n\n')
 
   const cola = [
-    `Te llamas ${mascota.nombre} ${mascota.emoji}.`,
+    `Te llamas ${nombreAsistente(tGlobal, mascota)} ${mascota.emoji}.`,
     ...lineasPersonaje(mascota),
     mascota.cuartos.length
       ? `Eres responsable de archivar SOLO estas apps: ${mascota.cuartos
-          .map((id) => getPlantilla(id)?.nombre ?? id)
+          .map((id) => tGlobal(`room.${id}.nombre`, getPlantilla(id)?.nombre ?? id))
           .join(', ')}. Solo tienes herramientas de captura de esas apps. Si el usuario te pide registrar algo de otra, díselo amablemente y sugiérele cambiar al asistente que la maneja (conversar sí puedes de lo que sea).`
       : 'Eres responsable de archivar en todas las apps asignadas de la casa.',
     descCuartos,
@@ -1015,7 +1016,7 @@ export async function conversarConAsistente(
   const mascota = getAsistente(asistenteId)
   const system = [
     reglaIdioma(),
-    `Eres ${mascota.nombre} ${mascota.emoji}, un asistente de MindHaOS: una casa virtual donde cada cuarto registra una parte de la vida del usuario.`,
+    `Eres ${nombreAsistente(tGlobal, mascota)} ${mascota.emoji}, un asistente de MindHaOS: una casa virtual donde cada cuarto registra una parte de la vida del usuario.`,
     ...lineasPersonaje(mascota),
     'Estás en modo cámara AR, cara a cara con el usuario a través de su cámara. Responde en 1–3 frases naturales, pensadas para decirse en voz alta, en el idioma del usuario. Si te pide registrar datos o editar la casa, sugiérele amablemente hacerlo desde el chat de la casa.',
     INSTRUCCION_EMOCION,

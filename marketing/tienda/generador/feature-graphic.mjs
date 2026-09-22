@@ -4,21 +4,13 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { pathToFileURL } from 'node:url'
+import { ICONO } from './icono.mjs'
 
 const PORT = 9333
 const RAIZ = dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1'))
-const SHOTS = resolve(RAIZ, '..', 'shots')
-const SALIDA = resolve(RAIZ, '..', 'laminas')
+const SHOTS = resolve(RAIZ, '..', 'capturas')
+const SALIDA = resolve(RAIZ, '..')
 mkdirSync(SALIDA, { recursive: true })
-
-const ICONO = `<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <rect width="512" height="512" rx="112" fill="#576748"/>
-  <g transform="translate(77.5 206)">
-    <rect x="0" y="3" width="94" height="94" rx="20" fill="#DA9425"/>
-    <path d="M137 0V100H237Z" fill="#C23A40"/>
-    <path d="M257 0H357V100A100 100 0 0 1 257 0Z" fill="#895AC6"/>
-  </g>
-</svg>`
 
 const img = readFileSync(resolve(SHOTS, 'mapa-completo.png')).toString('base64')
 
@@ -43,7 +35,7 @@ const html = `<meta charset="utf-8">
   .marca span { font-family: 'Segoe UI Variable Display', 'Segoe UI', system-ui, sans-serif; font-size: 18px; font-weight: 700; color: #1c2333; letter-spacing: .1px; }
 </style>
 <img class="foto" src="data:image/png;base64,${img}" alt="">
-<div class="marca">${ICONO}<span>MPH</span></div>
+<div class="marca">${ICONO}<span>MindHaOS</span></div>
 `
 
 const ruta = resolve(RAIZ, 'html', 'feature-graphic.html')

@@ -1263,3 +1263,12 @@ export async function guardarAjustesCotizacion(parcial: Partial<AjustesCotizacio
 export async function leerGrabacionAudio(id: number) {
   return (await db.grabacionesAudio.get(id)) ?? null
 }
+
+/**
+ * Id del medio de video ya bajado del bucket con esa clave remota (índice
+ * `remotoId`), o null. Solo la clave primaria: los blobs no se tocan.
+ */
+export async function idMedioPorRemotoId(remotoId: string): Promise<number | null> {
+  const ids = await db.mediosVideo.where('remotoId').equals(remotoId).primaryKeys()
+  return ids[0] ?? null
+}
