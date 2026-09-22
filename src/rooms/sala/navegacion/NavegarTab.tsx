@@ -167,7 +167,12 @@ export default function NavegarTab({ lugares }: Props) {
   const zona = usePrefsNavegacion((p) => p.zona)
   const setZona = usePrefsNavegacion((p) => p.setZona)
   const [guardadoOk, setGuardadoOk] = useState(false)
+  // Cuánto tarda cada modo cuando se busca con uno solo: null = sin ruta.
+  const [tiempos, setTiempos] = useState<Partial<Record<ModoNav, number | null>>>({})
+  const [comparando, setComparando] = useState(false)
   const ultimaVoz = useRef('')
+  /** Descarta las comparaciones en vuelo cuando cambia la búsqueda. */
+  const compara = useRef(0)
 
   const itSel = sel != null ? (resultados[sel] ?? null) : null
   const nav = useNavegacionViva(itSel)
@@ -229,6 +234,9 @@ export default function NavegarTab({ lugares }: Props) {
   }, [setZona])
 
   const limpiarResultados = () => {
+    compara.current++
+    setTiempos({})
+    setComparando(false)
     setResultados([])
     setSel(null)
     setError(null)
@@ -299,12 +307,40 @@ export default function NavegarTab({ lugares }: Props) {
         setError(t('sala.nav.sinRutas', 'No hay rutas con esos modos por aquí. Prueba a combinar otros, cambiar la hora o acercar los puntos.'))
       } else {
         setSel(0)
+        if (ms.length === 1) void compararModos(o, d, ms[0], Math.min(...r.map((x) => x.duracion)))
       }
     } catch {
       setError(t('sala.nav.errorRed', 'No se pudieron calcular las rutas. Revisa tu conexión e inténtalo de nuevo.'))
     } finally {
       setBuscando(false)
     }
+  }
+
+  /**
+   * Lo que tarda cada modo, como en los mapas de siempre: solo cuando se buscó
+   * con UN modo, porque es ahí donde la pregunta «¿y en coche?» tiene sentido.
+   * El modo elegido sale de los resultados; los otros tres, de una petición por
+   * modo que corre en segundo plano y no retrasa lo que ya está en pantalla.
+   */
+  const compararModos = async (o: PuntoNav, d: PuntoNav, elegido: ModoNav, duracion: number) => {
+    const id = ++compara.current
+    setTiempos({ [elegido]: duracion })
+    setComparando(true)
+    await Promise.all(
+      MODOS_NAV.map((m) => m.id)
+        .filter((m) => m !== elegido)
+        .map(async (m) => {
+          let mejor: number | null = null
+          try {
+            const r = await planificar({ origen: o, destino: d, modos: [m], cuando, hora, locale })
+            if (r.length) mejor = Math.min(...r.map((x) => x.duracion))
+          } catch {
+            // Un modo sin respuesta se queda en «—»; los demás siguen.
+          }
+          if (id === compara.current) setTiempos((v) => ({ ...v, [m]: mejor }))
+        }),
+    )
+    if (id === compara.current) setComparando(false)
   }
 
   const recalcular = () => {
@@ -436,17 +472,25 @@ export default function NavegarTab({ lugares }: Props) {
         <div className="flex flex-wrap gap-1.5">
           {MODOS_NAV.map((m) => {
             const on = modos.includes(m.id)
+            const tiempo = tiempos[m.id]
             return (
               <button
                 key={m.id}
                 type="button"
                 onClick={() => alternarModo(m.id)}
                 aria-pressed={on}
-                className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${
+                className={`rounded-2xl border px-3 py-1 text-xs font-semibold leading-tight transition ${
                   on ? 'border-accent ui-accent-bg' : 'border-white/10 bg-black/25 text-white/60 hover:bg-black/40'
                 }`}
               >
-                <Icono nombre={m.icono} /> {t(m.clave, m.es)}
+                <span className="block">
+                  <Icono nombre={m.icono} /> {t(m.clave, m.es)}
+                </span>
+                {(tiempo !== undefined || comparando) && (
+                  <span className={`block text-[10px] font-normal ${on ? 'opacity-80' : 'text-white/45'}`}>
+                    {tiempo === undefined ? '…' : tiempo === null ? '—' : formatoDuracion(t, tiempo)}
+                  </span>
+                )}
               </button>
             )
           })}
@@ -465,16 +509,15 @@ export default function NavegarTab({ lugares }: Props) {
           {cuando !== 'ahora' && (
             <input type="datetime-local" value={hora} onChange={(e) => setHora(e.target.value)} className={campoClase} />
           )}
+          <button
+            type="button"
+            onClick={() => void buscar()}
+            disabled={!origen || !destino || buscando || !conClave}
+            className="ui-accent-bg ml-auto rounded-xl px-4 py-2 text-sm font-bold transition hover:brightness-110 disabled:opacity-40"
+          >
+            <Icono nombre="navegar" /> {buscando ? t('sala.nav.buscando', 'Calculando rutas…') : t('sala.nav.buscar', 'Buscar cómo llegar')}
+          </button>
         </div>
-
-        <button
-          type="button"
-          onClick={() => void buscar()}
-          disabled={!origen || !destino || buscando || !conClave}
-          className="ui-accent-bg w-full rounded-xl py-2.5 text-sm font-bold transition hover:brightness-110 disabled:opacity-40"
-        >
-          <Icono nombre="navegar" /> {buscando ? t('sala.nav.buscando', 'Calculando rutas…') : t('sala.nav.buscar', 'Buscar cómo llegar')}
-        </button>
       </div>
 
       {error && (
