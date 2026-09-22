@@ -3557,6 +3557,7 @@ export const JA: Dict = {
   'sala.nav.fuentesCortas': '経路と時刻表：HERE',
   'sala.nav.fueraRuta': '経路から外れています。',
   'sala.nav.gpsDenegado': '現在地を取得できませんでした。ブラウザまたはシステムの権限を確認してください。',
+  'sala.nav.gpsSistema': 'ブラウザーには許可がありますが、システムが位置情報を共有していません。プライバシー設定を確認してブラウザーを再起動してください。',
   'sala.nav.guardado': '保存済み',
   'sala.nav.guardados': '保存した経路',
   'sala.nav.guardadosVacio': 'ルートを保存するとオフラインでも30日間残ります。そのあとは開いたときに再検索します。',

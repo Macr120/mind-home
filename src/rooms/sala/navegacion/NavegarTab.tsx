@@ -10,7 +10,7 @@ import { BotonCompartir } from '../BotonCompartir'
 import { BuscadorLugar } from './BuscadorLugar'
 import { cacheVencida, claveConfigurada } from './config'
 import { formatoDistancia, formatoDuracion, formatoHora, resumenPierna } from './formato'
-import { obtenerPosicion } from './geo'
+import { obtenerPosicion, permisoGps } from './geo'
 import { nombreDeCoords, planificar } from './here'
 import MapaCalles from './MapaCalles'
 import { COLOR_MODO, ICONO_MODO, MODOS_NAV, esCalle, familiaModo, iconoDireccion, type ModoNav } from './modos'
@@ -226,10 +226,19 @@ export default function NavegarTab({ lugares }: Props) {
       const pos = await obtenerPosicion()
       fijar(cual, { nombre: t('sala.nav.miUbicacion', 'Mi ubicación'), lat: pos.lat, lng: pos.lng })
     } catch (e) {
+      // Con el permiso ya concedido, un «denegado» viene del sistema operativo
+      // (o de un navegador que se quedó con la respuesta vieja), no de la web.
+      const codigo = (e as { code?: number }).code
+      const permiso = codigo === 1 ? await permisoGps() : null
       setError(
-        (e as { code?: number }).code === 1
-          ? t('sala.nav.gpsDenegado', 'No se pudo leer tu ubicación: revisa el permiso del navegador o del sistema.')
-          : t('sala.nav.sinGps', 'Tu dispositivo no comparte la ubicación ahora mismo.'),
+        codigo !== 1
+          ? t('sala.nav.sinGps', 'Tu dispositivo no comparte la ubicación ahora mismo.')
+          : permiso === 'granted'
+            ? t(
+                'sala.nav.gpsSistema',
+                'El navegador tiene permiso, pero el sistema no comparte la ubicación: revísala en los ajustes de privacidad y reinicia el navegador.',
+              )
+            : t('sala.nav.gpsDenegado', 'No se pudo leer tu ubicación: revisa el permiso del navegador o del sistema.'),
       )
     }
   }

@@ -3736,6 +3736,7 @@ export const NL: Dict = {
   'sala.nav.fueraRuta': 'Je bent van de route af.',
   'sala.nav.gpsDenegado':
     'Je locatie kon niet worden gelezen: controleer de toestemming van de browser of het systeem.',
+  'sala.nav.gpsSistema': 'De browser heeft toestemming, maar het systeem deelt je locatie niet: controleer de privacy-instellingen en start de browser opnieuw.',
   'sala.nav.guardado': 'Opgeslagen',
   'sala.nav.guardados': 'Opgeslagen reizen',
   'sala.nav.guardadosVacio': 'Bewaar een route: hij blijft 30 dagen offline beschikbaar, daarna wordt hij bij openen opnieuw berekend.',

@@ -3768,6 +3768,7 @@ export const DE: Dict = {
   'sala.nav.fuentesCortas': 'Routen und Fahrpläne: HERE',
   'sala.nav.fueraRuta': 'Du bist von der Route abgekommen.',
   'sala.nav.gpsDenegado': 'Dein Standort konnte nicht gelesen werden: prüf die Berechtigung im Browser oder im System.',
+  'sala.nav.gpsSistema': 'Der Browser hat die Erlaubnis, aber das System gibt deinen Standort nicht frei: Prüfe die Datenschutzeinstellungen und starte den Browser neu.',
   'sala.nav.guardado': 'Gespeichert',
   'sala.nav.guardados': 'Gespeicherte Fahrten',
   'sala.nav.guardadosVacio': 'Speichere eine Route: sie bleibt 30 Tage offline verfügbar, danach wird sie beim Öffnen neu berechnet.',

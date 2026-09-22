@@ -3670,6 +3670,7 @@ export const TR: Dict = {
   'sala.nav.fuentesCortas': 'Rotalar ve tarifeler: HERE',
   'sala.nav.fueraRuta': 'Rotanın dışındasın.',
   'sala.nav.gpsDenegado': 'Konumun okunamadı: tarayıcı veya sistem iznini kontrol et.',
+  'sala.nav.gpsSistema': 'Tarayıcının izni var ama sistem konumu paylaşmıyor: gizlilik ayarlarını kontrol et ve tarayıcıyı yeniden başlat.',
   'sala.nav.guardado': 'Kaydedildi',
   'sala.nav.guardados': 'Kayıtlı yolculuklar',
   'sala.nav.guardadosVacio': 'Bir güzergâh kaydet: çevrimdışı 30 gün elinin altında kalır, sonra açtığında yeniden hesaplanır.',

@@ -3561,6 +3561,7 @@ export const KO: Dict = {
   'sala.nav.fuentesCortas': '경로와 시간표: HERE',
   'sala.nav.fueraRuta': '경로에서 벗어났어요.',
   'sala.nav.gpsDenegado': '위치를 읽지 못했어요. 브라우저나 시스템의 권한을 확인해 주세요.',
+  'sala.nav.gpsSistema': '브라우저에는 권한이 있지만 시스템이 위치를 공유하지 않습니다. 개인 정보 설정을 확인하고 브라우저를 다시 시작하세요.',
   'sala.nav.guardado': '저장됨',
   'sala.nav.guardados': '저장한 경로',
   'sala.nav.guardadosVacio': '경로를 저장하면 오프라인에서 30일간 남아 있고, 그 뒤에는 열 때 다시 계산합니다.',

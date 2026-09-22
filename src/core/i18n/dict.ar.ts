@@ -3614,6 +3614,7 @@ export const AR: Dict = {
   'sala.nav.fuentesCortas': 'المسارات والمواعيد: HERE',
   'sala.nav.fueraRuta': 'أنت خارج المسار.',
   'sala.nav.gpsDenegado': 'تعذّر قراءة موقعك: تحقق من إذن المتصفح أو النظام.',
+  'sala.nav.gpsSistema': 'المتصفح لديه الإذن، لكن النظام لا يشارك موقعك: راجع إعدادات الخصوصية وأعد تشغيل المتصفح.',
   'sala.nav.guardado': 'تم الحفظ',
   'sala.nav.guardados': 'الرحلات المحفوظة',
   'sala.nav.guardadosVacio': 'احفظ مسارًا ليبقى متاحًا بلا اتصال 30 يومًا، ثم يُحتسب من جديد عند فتحه.',

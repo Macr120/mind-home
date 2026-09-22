@@ -73,12 +73,18 @@ export function longitudTrazo(puntos: [number, number][], desde: number, hasta: 
 }
 
 /** Una lectura del GPS. Rechaza con el `code` de la API (1 = permiso denegado). */
-export function obtenerPosicion(): Promise<PosicionGps> {
-  return new Promise((resolve, reject) => {
-    if (!navigator.geolocation) {
-      reject(Object.assign(new Error('sin geolocalización'), { code: 0 }))
-      return
-    }
+/** Estado del permiso de ubicación, si el navegador lo expone. */
+export async function permisoGps(): Promise<PermissionState | null> {
+  try {
+    const p = await navigator.permissions?.query({ name: 'geolocation' as PermissionName })
+    return p?.state ?? null
+  } catch {
+    return null
+  }
+}
+
+const leerGps = (opciones: PositionOptions) =>
+  new Promise<PosicionGps>((resolve, reject) => {
     navigator.geolocation.getCurrentPosition(
       (pos) =>
         resolve({
@@ -87,8 +93,21 @@ export function obtenerPosicion(): Promise<PosicionGps> {
           precision: pos.coords.accuracy,
           rumbo: pos.coords.heading,
         }),
-      (err) => reject(err),
-      { enableHighAccuracy: true, timeout: 12000, maximumAge: 15000 },
+      reject,
+      opciones,
     )
   })
+
+export async function obtenerPosicion(): Promise<PosicionGps> {
+  if (!navigator.geolocation) throw Object.assign(new Error('sin geolocalización'), { code: 0 })
+  try {
+    return await leerGps({ enableHighAccuracy: true, timeout: 12000, maximumAge: 15000 })
+  } catch (e) {
+    // En un equipo sin GPS la alta precisión se queda esperando a un proveedor
+    // que no existe; por red (wifi) resuelve en un par de segundos. Solo se
+    // reintenta cuando el fallo no fue el permiso.
+    const codigo = (e as GeolocationPositionError).code
+    if (codigo !== 2 && codigo !== 3) throw e
+    return await leerGps({ enableHighAccuracy: false, timeout: 20000, maximumAge: 60000 })
+  }
 }

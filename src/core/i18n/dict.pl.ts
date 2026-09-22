@@ -3683,6 +3683,7 @@ export const PL: Dict = {
   'sala.nav.fuentesCortas': 'Trasy i rozkłady: HERE',
   'sala.nav.fueraRuta': 'Jesteś poza trasą.',
   'sala.nav.gpsDenegado': 'Nie udało się odczytać Twojej lokalizacji: sprawdź uprawnienie przeglądarki lub systemu.',
+  'sala.nav.gpsSistema': 'Przeglądarka ma zgodę, ale system nie udostępnia lokalizacji: sprawdź ustawienia prywatności i uruchom przeglądarkę ponownie.',
   'sala.nav.guardado': 'Zapisano',
   'sala.nav.guardados': 'Zapisane podróże',
   'sala.nav.guardadosVacio': 'Zapisz trasę: zostanie dostępna offline przez 30 dni, potem zostanie przeliczona przy otwarciu.',

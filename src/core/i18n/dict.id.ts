@@ -3721,6 +3721,7 @@ export const ID: Dict = {
   'sala.nav.fuentesCortas': 'Rute dan jadwal: HERE',
   'sala.nav.fueraRuta': 'Kamu keluar dari rute.',
   'sala.nav.gpsDenegado': 'Lokasimu tidak bisa dibaca: periksa izin browser atau sistem.',
+  'sala.nav.gpsSistema': 'Peramban sudah diizinkan, tetapi sistem tidak membagikan lokasimu: periksa pengaturan privasi lalu mulai ulang peramban.',
   'sala.nav.guardado': 'Tersimpan',
   'sala.nav.guardados': 'Perjalanan tersimpan',
   'sala.nav.guardadosVacio': 'Simpan rute dan tetap tersedia offline selama 30 hari; setelah itu dihitung ulang saat dibuka.',

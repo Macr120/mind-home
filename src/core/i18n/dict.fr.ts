@@ -3747,6 +3747,7 @@ export const FR: Dict = {
   'sala.nav.fuentesCortas': 'Trajets et horaires : HERE',
   'sala.nav.fueraRuta': 'Tu es hors du trajet.',
   'sala.nav.gpsDenegado': 'Impossible de lire ta position : vérifie l\'autorisation du navigateur ou du système.',
+  'sala.nav.gpsSistema': 'Le navigateur a l’autorisation, mais le système ne partage pas ta position : vérifie-la dans les réglages de confidentialité et redémarre le navigateur.',
   'sala.nav.guardado': 'Enregistré',
   'sala.nav.guardados': 'Trajets enregistrés',
   'sala.nav.guardadosVacio': 'Enregistre un trajet : il restera disponible hors connexion 30 jours, puis il sera recalculé à l’ouverture.',

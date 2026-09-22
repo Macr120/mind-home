@@ -3711,6 +3711,7 @@ export const EN: Dict = {
   'sala.nav.fuentesCortas': 'Routes and schedules: HERE',
   'sala.nav.fueraRuta': 'You are off the route.',
   'sala.nav.gpsDenegado': 'Couldn\'t read your location: check the browser or system permission.',
+  'sala.nav.gpsSistema': 'The browser has permission, but the system isn\'t sharing your location: check it in your privacy settings and restart the browser.',
   'sala.nav.guardado': 'Saved',
   'sala.nav.guardados': 'Saved trips',
   'sala.nav.guardadosVacio': 'Save a route and it will stay available offline for 30 days; after that it is recalculated when you open it.',

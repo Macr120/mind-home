@@ -3557,6 +3557,7 @@ export const ZH: Dict = {
   'sala.nav.fuentesCortas': '路线和时刻表：HERE',
   'sala.nav.fueraRuta': '你已偏离路线。',
   'sala.nav.gpsDenegado': '无法读取你的位置：请检查浏览器或系统的权限。',
+  'sala.nav.gpsSistema': '浏览器已获授权，但系统未共享位置：请检查隐私设置并重启浏览器。',
   'sala.nav.guardado': '已保存',
   'sala.nav.guardados': '已保存的路线',
   'sala.nav.guardadosVacio': '保存路线后可离线查看 30 天，之后打开时会重新计算。',

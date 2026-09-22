@@ -3698,6 +3698,7 @@ export const PT: Dict = {
   'sala.nav.fuentesCortas': 'Rotas e horários: HERE',
   'sala.nav.fueraRuta': 'Você está fora da rota.',
   'sala.nav.gpsDenegado': 'Não foi possível ler sua localização: verifique a permissão do navegador ou do sistema.',
+  'sala.nav.gpsSistema': 'O navegador tem permissão, mas o sistema não partilha a tua localização: verifica nas definições de privacidade e reinicia o navegador.',
   'sala.nav.guardado': 'Salvo',
   'sala.nav.guardados': 'Trajetos salvos',
   'sala.nav.guardadosVacio': 'Guarda uma rota e ela fica disponível sem conexão por 30 dias; depois é recalculada ao abrir.',

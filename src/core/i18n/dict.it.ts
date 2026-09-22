@@ -3732,6 +3732,7 @@ export const IT: Dict = {
   'sala.nav.fuentesCortas': 'Percorsi e orari: HERE',
   'sala.nav.fueraRuta': 'Sei fuori dal percorso.',
   'sala.nav.gpsDenegado': 'Impossibile leggere la tua posizione: controlla il permesso del browser o del sistema.',
+  'sala.nav.gpsSistema': 'Il browser ha il permesso, ma il sistema non condivide la posizione: controllala nelle impostazioni sulla privacy e riavvia il browser.',
   'sala.nav.guardado': 'Salvato',
   'sala.nav.guardados': 'Tragitti salvati',
   'sala.nav.guardadosVacio': 'Salva un percorso: resta disponibile offline per 30 giorni, poi viene ricalcolato all’apertura.',
