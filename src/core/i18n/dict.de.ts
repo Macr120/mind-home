@@ -3812,6 +3812,7 @@ export const DE: Dict = {
   'sala.nav.voz': 'Stimme',
   'sala.nav.mv.WALK': 'Zu Fuß',
   'sala.nav.mv.BIKE': 'Rad',
+  'sala.nav.mv.MOTO': 'Motorrad',
   'sala.nav.mv.CAR': 'Auto',
   'sala.nav.mv.BUS': 'Bus',
   'sala.nav.mv.TRAM': 'Straßenbahn',
@@ -3823,6 +3824,7 @@ export const DE: Dict = {
   'sala.nav.mv.OTHER': 'Verkehrsmittel',
   'sala.nav.modo.caminar': 'Gehen',
   'sala.nav.modo.bici': 'Rad',
+  'sala.nav.modo.moto': 'Motorrad',
   'sala.nav.modo.auto': 'Auto',
   'sala.nav.modo.transporte': 'Nahverkehr',
   'jardin.desc':
@@ -10048,7 +10050,7 @@ export const DE: Dict = {
   'sala.nav.prefs.voz': 'Stimme beim Navigieren an',
   'sala.nav.prefs.vozExplica': 'Liest jedes Manöver während der Live-Navigation laut vor.',
   'sala.nav.prefs.servicio': 'Routendienst',
-  'sala.nav.prefs.servicioOk': 'Eingerichtet: Routen zu Fuß, mit dem Rad, dem Auto und den Öffentlichen.',
+  'sala.nav.prefs.servicioOk': 'Eingerichtet: Routen zu Fuß, mit dem Rad, dem Motorrad, dem Auto und den Öffentlichen.',
   'sala.nav.prefs.servicioFalta':
     'Nicht eingerichtet (VITE_HERE_KEY fehlt): Es werden nur die gespeicherten Strecken angezeigt.',
   'chat.manual.cat.amigos': 'Freunde',

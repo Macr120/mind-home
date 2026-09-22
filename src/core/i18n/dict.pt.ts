@@ -3743,6 +3743,7 @@ export const PT: Dict = {
   'sala.nav.voz': 'Voz',
   'sala.nav.mv.WALK': 'A pé',
   'sala.nav.mv.BIKE': 'Bicicleta',
+  'sala.nav.mv.MOTO': 'Moto',
   'sala.nav.mv.CAR': 'Carro',
   'sala.nav.mv.BUS': 'Ônibus',
   'sala.nav.mv.TRAM': 'Bonde',
@@ -3754,6 +3755,7 @@ export const PT: Dict = {
   'sala.nav.mv.OTHER': 'Transporte',
   'sala.nav.modo.caminar': 'Caminhar',
   'sala.nav.modo.bici': 'Bicicleta',
+  'sala.nav.modo.moto': 'Moto',
   'sala.nav.modo.auto': 'Carro',
   'sala.nav.modo.transporte': 'Transporte público',
   'jardin.desc':
@@ -9902,7 +9904,7 @@ export const PT: Dict = {
   'sala.nav.prefs.voz': 'Voz ligada ao navegar',
   'sala.nav.prefs.vozExplica': 'Lê em voz alta cada manobra durante a navegação ao vivo.',
   'sala.nav.prefs.servicio': 'Serviço de rotas',
-  'sala.nav.prefs.servicioOk': 'Configurado: rotas a pé, de bike, de carro e de transporte público.',
+  'sala.nav.prefs.servicioOk': 'Configurado: rotas a pé, de bicicleta, de moto, de carro e de transporte público.',
   'sala.nav.prefs.servicioFalta': 'Sem configurar (falta VITE_HERE_KEY): só aparecem os trajetos salvos.',
   'chat.manual.cat.amigos': 'Amigos',
   'chat.manual.nota.amigos':

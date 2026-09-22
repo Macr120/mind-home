@@ -82,7 +82,7 @@ export function AjustesNavegacion() {
         <p className={`text-xs ${conClave ? 'text-white/70' : 'text-amber-300/90'}`}>
           <Icono nombre={conClave ? 'confirmar' : 'alerta'} />{' '}
           {conClave
-            ? t('sala.nav.prefs.servicioOk', 'Configurado: rutas a pie, en bici, en auto y en transporte público.')
+            ? t('sala.nav.prefs.servicioOk', 'Configurado: rutas a pie, en bici, en moto, en auto y en transporte público.')
             : t('sala.nav.prefs.servicioFalta', 'Sin configurar (falta VITE_HERE_KEY): solo se ven los trayectos guardados.')}
         </p>
       </section>

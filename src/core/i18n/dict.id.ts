@@ -3765,6 +3765,7 @@ export const ID: Dict = {
   'sala.nav.voz': 'Suara',
   'sala.nav.mv.WALK': 'Jalan kaki',
   'sala.nav.mv.BIKE': 'Sepeda',
+  'sala.nav.mv.MOTO': 'Motor',
   'sala.nav.mv.CAR': 'Mobil',
   'sala.nav.mv.BUS': 'Bus',
   'sala.nav.mv.TRAM': 'Trem',
@@ -3776,6 +3777,7 @@ export const ID: Dict = {
   'sala.nav.mv.OTHER': 'Transportasi',
   'sala.nav.modo.caminar': 'Jalan kaki',
   'sala.nav.modo.bici': 'Sepeda',
+  'sala.nav.modo.moto': 'Motor',
   'sala.nav.modo.auto': 'Mobil',
   'sala.nav.modo.transporte': 'Transportasi umum',
   'jardin.desc':
@@ -9956,7 +9958,7 @@ export const ID: Dict = {
   'sala.nav.prefs.voz': 'Suara aktif saat navigasi',
   'sala.nav.prefs.vozExplica': 'Membacakan setiap manuver selama navigasi langsung.',
   'sala.nav.prefs.servicio': 'Layanan rute',
-  'sala.nav.prefs.servicioOk': 'Sudah diatur: rute jalan kaki, sepeda, mobil, dan transportasi umum.',
+  'sala.nav.prefs.servicioOk': 'Siap: rute jalan kaki, sepeda, motor, mobil, dan transportasi umum.',
   'sala.nav.prefs.servicioFalta': 'Belum diatur (VITE_HERE_KEY tidak ada): hanya perjalanan tersimpan yang muncul.',
   'chat.manual.cat.amigos': 'Teman',
   'chat.manual.nota.amigos':

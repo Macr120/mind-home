@@ -3707,6 +3707,7 @@ export const RU: Dict = {
   'sala.nav.voz': 'Голос',
   'sala.nav.mv.WALK': 'Пешком',
   'sala.nav.mv.BIKE': 'Велосипед',
+  'sala.nav.mv.MOTO': 'Мотоцикл',
   'sala.nav.mv.CAR': 'Машина',
   'sala.nav.mv.BUS': 'Автобус',
   'sala.nav.mv.TRAM': 'Трамвай',
@@ -3718,6 +3719,7 @@ export const RU: Dict = {
   'sala.nav.mv.OTHER': 'Транспорт',
   'sala.nav.modo.caminar': 'Пешком',
   'sala.nav.modo.bici': 'Велосипед',
+  'sala.nav.modo.moto': 'Мотоцикл',
   'sala.nav.modo.auto': 'Машина',
   'sala.nav.modo.transporte': 'Общественный транспорт',
   'jardin.desc':
@@ -9875,7 +9877,7 @@ export const RU: Dict = {
   'sala.nav.prefs.voz': 'Голос включён при навигации',
   'sala.nav.prefs.vozExplica': 'Читает вслух каждый манёвр во время живой навигации.',
   'sala.nav.prefs.servicio': 'Служба маршрутов',
-  'sala.nav.prefs.servicioOk': 'Настроено: маршруты пешком, на велосипеде, на машине и на общественном транспорте.',
+  'sala.nav.prefs.servicioOk': 'Настроено: маршруты пешком, на велосипеде, на мотоцикле, на машине и на общественном транспорте.',
   'sala.nav.prefs.servicioFalta': 'Не настроено (нет VITE_HERE_KEY): видны только сохранённые поездки.',
   'chat.manual.cat.amigos': 'Друзья',
   'chat.manual.nota.amigos':

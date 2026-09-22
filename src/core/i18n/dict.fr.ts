@@ -3792,6 +3792,7 @@ export const FR: Dict = {
   'sala.nav.voz': 'Voix',
   'sala.nav.mv.WALK': 'À pied',
   'sala.nav.mv.BIKE': 'Vélo',
+  'sala.nav.mv.MOTO': 'Moto',
   'sala.nav.mv.CAR': 'Voiture',
   'sala.nav.mv.BUS': 'Bus',
   'sala.nav.mv.TRAM': 'Tramway',
@@ -3803,6 +3804,7 @@ export const FR: Dict = {
   'sala.nav.mv.OTHER': 'Transport',
   'sala.nav.modo.caminar': 'Marcher',
   'sala.nav.modo.bici': 'Vélo',
+  'sala.nav.modo.moto': 'Moto',
   'sala.nav.modo.auto': 'Voiture',
   'sala.nav.modo.transporte': 'Transports en commun',
   'jardin.desc':
@@ -10019,7 +10021,7 @@ export const FR: Dict = {
   'sala.nav.prefs.voz': 'Voix activée pendant la navigation',
   'sala.nav.prefs.vozExplica': 'Lit à voix haute chaque manœuvre pendant la navigation en direct.',
   'sala.nav.prefs.servicio': 'Service d’itinéraires',
-  'sala.nav.prefs.servicioOk': 'Configuré : itinéraires à pied, à vélo, en voiture et en transports en commun.',
+  'sala.nav.prefs.servicioOk': 'Configuré : itinéraires à pied, à vélo, à moto, en voiture et en transports en commun.',
   'sala.nav.prefs.servicioFalta':
     'Non configuré (VITE_HERE_KEY manquante) : seuls les trajets enregistrés s’affichent.',
   'chat.manual.cat.amigos': 'Amis',

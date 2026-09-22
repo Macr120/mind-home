@@ -2,16 +2,17 @@ import type { TFunc } from '../../../core/i18n/useT'
 import type { NombreIcono } from '../../../core/ui/iconos/catalogo'
 
 /** Modos que el usuario combina en el formulario. */
-export type ModoNav = 'caminar' | 'bici' | 'auto' | 'transporte'
+export type ModoNav = 'caminar' | 'bici' | 'moto' | 'auto' | 'transporte'
 
 export const MODOS_NAV: { id: ModoNav; icono: NombreIcono; clave: string; es: string }[] = [
   { id: 'caminar', icono: 'caminar', clave: 'sala.nav.modo.caminar', es: 'Caminar' },
   { id: 'bici', icono: 'bici', clave: 'sala.nav.modo.bici', es: 'Bici' },
+  { id: 'moto', icono: 'moto', clave: 'sala.nav.modo.moto', es: 'Moto' },
   { id: 'auto', icono: 'auto', clave: 'sala.nav.modo.auto', es: 'Auto' },
   { id: 'transporte', icono: 'bus', clave: 'sala.nav.modo.transporte', es: 'Transporte público' },
 ]
 
-const CALLE = new Set(['pedestrian', 'bicycle', 'car'])
+const CALLE = new Set(['pedestrian', 'bicycle', 'scooter', 'car'])
 
 /** Tramo por calle (a pie, bici o auto), con maniobras. */
 export const esCalle = (modo: string) => CALLE.has(modo)
@@ -19,6 +20,7 @@ export const esCalle = (modo: string) => CALLE.has(modo)
 export type FamiliaModo =
   | 'WALK'
   | 'BIKE'
+  | 'MOTO'
   | 'CAR'
   | 'BUS'
   | 'TRAM'
@@ -36,6 +38,9 @@ export function familiaModo(modo: string): FamiliaModo {
       return 'WALK'
     case 'bicycle':
       return 'BIKE'
+    // HERE llama `scooter` a las dos ruedas a motor (moto y scooter).
+    case 'scooter':
+      return 'MOTO'
     case 'car':
       return 'CAR'
     case 'bus':
@@ -68,6 +73,7 @@ export function familiaModo(modo: string): FamiliaModo {
 export const ICONO_MODO: Record<FamiliaModo, NombreIcono> = {
   WALK: 'caminar',
   BIKE: 'bici',
+  MOTO: 'moto',
   CAR: 'auto',
   BUS: 'bus',
   TRAM: 'tranvia',
@@ -83,6 +89,7 @@ export const ICONO_MODO: Record<FamiliaModo, NombreIcono> = {
 export const COLOR_MODO: Record<FamiliaModo, string> = {
   WALK: '#94a3b8',
   BIKE: '#22c55e',
+  MOTO: '#8b5cf6',
   CAR: '#6366f1',
   BUS: '#f59e0b',
   TRAM: '#ec4899',
@@ -97,6 +104,7 @@ export const COLOR_MODO: Record<FamiliaModo, string> = {
 const NOMBRE_ES: Record<FamiliaModo, string> = {
   WALK: 'A pie',
   BIKE: 'Bici',
+  MOTO: 'Moto',
   CAR: 'Auto',
   BUS: 'Autobús',
   TRAM: 'Tranvía',

@@ -3780,6 +3780,7 @@ export const NL: Dict = {
   'sala.nav.voz': 'Stem',
   'sala.nav.mv.WALK': 'Te voet',
   'sala.nav.mv.BIKE': 'Fiets',
+  'sala.nav.mv.MOTO': 'Motor',
   'sala.nav.mv.CAR': 'Auto',
   'sala.nav.mv.BUS': 'Bus',
   'sala.nav.mv.TRAM': 'Tram',
@@ -3791,6 +3792,7 @@ export const NL: Dict = {
   'sala.nav.mv.OTHER': 'Vervoer',
   'sala.nav.modo.caminar': 'Lopen',
   'sala.nav.modo.bici': 'Fiets',
+  'sala.nav.modo.moto': 'Motor',
   'sala.nav.modo.auto': 'Auto',
   'sala.nav.modo.transporte': 'Openbaar vervoer',
   'jardin.desc':
@@ -9988,7 +9990,7 @@ export const NL: Dict = {
   'sala.nav.prefs.voz': 'Stem aan tijdens navigeren',
   'sala.nav.prefs.vozExplica': 'Leest elke manoeuvre hardop voor tijdens live navigatie.',
   'sala.nav.prefs.servicio': 'Routeservice',
-  'sala.nav.prefs.servicioOk': 'Ingesteld: routes te voet, met de fiets, met de auto en met het openbaar vervoer.',
+  'sala.nav.prefs.servicioOk': 'Ingesteld: routes te voet, met de fiets, de motor, de auto en het openbaar vervoer.',
   'sala.nav.prefs.servicioFalta': 'Niet ingesteld (VITE_HERE_KEY ontbreekt): je ziet alleen opgeslagen ritten.',
   'chat.manual.cat.amigos': 'Vrienden',
   'chat.manual.nota.amigos':

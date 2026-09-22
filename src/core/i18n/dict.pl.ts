@@ -3727,6 +3727,7 @@ export const PL: Dict = {
   'sala.nav.voz': 'Głos',
   'sala.nav.mv.WALK': 'Pieszo',
   'sala.nav.mv.BIKE': 'Rower',
+  'sala.nav.mv.MOTO': 'Motocykl',
   'sala.nav.mv.CAR': 'Auto',
   'sala.nav.mv.BUS': 'Autobus',
   'sala.nav.mv.TRAM': 'Tramwaj',
@@ -3738,6 +3739,7 @@ export const PL: Dict = {
   'sala.nav.mv.OTHER': 'Transport',
   'sala.nav.modo.caminar': 'Pieszo',
   'sala.nav.modo.bici': 'Rower',
+  'sala.nav.modo.moto': 'Motocykl',
   'sala.nav.modo.auto': 'Auto',
   'sala.nav.modo.transporte': 'Komunikacja miejska',
   'jardin.desc':
@@ -9901,7 +9903,7 @@ export const PL: Dict = {
   'sala.nav.prefs.voz': 'Głos włączony podczas nawigacji',
   'sala.nav.prefs.vozExplica': 'Czyta na głos każdy manewr w trakcie nawigacji na żywo.',
   'sala.nav.prefs.servicio': 'Usługa wyznaczania tras',
-  'sala.nav.prefs.servicioOk': 'Skonfigurowana: trasy piesze, rowerowe, samochodowe i komunikacją miejską.',
+  'sala.nav.prefs.servicioOk': 'Skonfigurowane: trasy pieszo, rowerem, motocyklem, samochodem i komunikacją miejską.',
   'sala.nav.prefs.servicioFalta': 'Bez konfiguracji (brak VITE_HERE_KEY): widać tylko zapisane trasy.',
   'chat.manual.cat.amigos': 'Znajomi',
   'chat.manual.nota.amigos':

@@ -32,6 +32,7 @@ export function resumenPierna(t: TFunc, p: PiernaNav, locale: string): string {
       return t('sala.nav.caminaHasta', 'Camina {d} hasta {lugar}', { d, lugar })
     case 'BIKE':
       return t('sala.nav.pedaleaHasta', 'Pedalea {d} hasta {lugar}', { d, lugar })
+    case 'MOTO':
     case 'CAR':
       return t('sala.nav.conduceHasta', 'Conduce {d} hasta {lugar}', { d, lugar })
     default: {

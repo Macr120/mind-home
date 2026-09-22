@@ -220,6 +220,7 @@ import {
   Dices,
   // Garage y diario
   Bike,
+  Motorbike,
   Truck,
   Landmark,
   Vote,
@@ -632,7 +633,7 @@ export const SVGS: Record<NombreIcono, LucideIcon> = {
 
   // — Garage (vehículos) —
   bici: Bike,
-  moto: Bike,
+  moto: Motorbike,
   scooter: Bike,
   camioneta: Truck,
 

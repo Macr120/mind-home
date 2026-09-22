@@ -3709,6 +3709,7 @@ export const HI: Dict = {
   'sala.nav.voz': 'आवाज़',
   'sala.nav.mv.WALK': 'पैदल',
   'sala.nav.mv.BIKE': 'साइकिल',
+  'sala.nav.mv.MOTO': 'मोटरसाइकिल',
   'sala.nav.mv.CAR': 'कार',
   'sala.nav.mv.BUS': 'बस',
   'sala.nav.mv.TRAM': 'ट्राम',
@@ -3720,6 +3721,7 @@ export const HI: Dict = {
   'sala.nav.mv.OTHER': 'परिवहन',
   'sala.nav.modo.caminar': 'पैदल',
   'sala.nav.modo.bici': 'साइकिल',
+  'sala.nav.modo.moto': 'मोटरसाइकिल',
   'sala.nav.modo.auto': 'कार',
   'sala.nav.modo.transporte': 'सार्वजनिक परिवहन',
   'jardin.desc':
@@ -9867,7 +9869,7 @@ export const HI: Dict = {
   'sala.nav.prefs.voz': 'नेविगेशन में आवाज़ चालू',
   'sala.nav.prefs.vozExplica': 'लाइव नेविगेशन के दौरान हर मोड़ ज़ोर से पढ़कर बताता है।',
   'sala.nav.prefs.servicio': 'रूट सेवा',
-  'sala.nav.prefs.servicioOk': 'सेट है: पैदल, साइकिल, कार और पब्लिक ट्रांसपोर्ट के रास्ते।',
+  'sala.nav.prefs.servicioOk': 'तैयार: पैदल, साइकिल, मोटरसाइकिल, कार और सार्वजनिक परिवहन के रास्ते.',
   'sala.nav.prefs.servicioFalta': 'सेट नहीं है (VITE_HERE_KEY नहीं है): सिर्फ़ सेव किए गए सफ़र दिखते हैं।',
   'chat.manual.cat.amigos': 'दोस्त',
   'chat.manual.nota.amigos':

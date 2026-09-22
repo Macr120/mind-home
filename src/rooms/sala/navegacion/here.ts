@@ -193,6 +193,8 @@ function horaRfc(hora: string): string {
 const MODO_CALLE: Record<Exclude<ModoNav, 'transporte'>, string> = {
   caminar: 'pedestrian',
   bici: 'bicycle',
+  // HERE llama `scooter` a las dos ruedas a motor; tiene su propio cupo.
+  moto: 'scooter',
   auto: 'car',
 }
 
@@ -203,7 +205,7 @@ const MODO_CALLE: Record<Exclude<ModoNav, 'transporte'>, string> = {
  * cada modo es una conexión directa del Routing v8 con sus maniobras.
  */
 export async function planificar(p: PeticionPlan): Promise<ItinerarioNav[]> {
-  const calle = (['caminar', 'bici', 'auto'] as const).filter((m) => p.modos.includes(m))
+  const calle = (['caminar', 'bici', 'moto', 'auto'] as const).filter((m) => p.modos.includes(m))
   const transporte = p.modos.includes('transporte')
   const tiempo: Record<string, string> = {}
   if (p.cuando !== 'ahora' && p.hora) tiempo[p.cuando === 'llegar' ? 'arrivalTime' : 'departureTime'] = horaRfc(p.hora)
@@ -227,8 +229,9 @@ export async function planificar(p: PeticionPlan): Promise<ItinerarioNav[]> {
       }).then((r) => (r.routes ?? []).map((ruta) => aItinerario(ruta, p)))
     // A pie + transporte, siempre.
     peticiones.push(intermodal({ 'vehicle[enable]': '' }))
-    // Con vehículo propio hasta la estación.
-    const vehiculos = calle.filter((m) => m !== 'caminar').map((m) => MODO_CALLE[m])
+    // Con vehículo propio hasta la estación. La moto se queda fuera: el
+    // intermodal de HERE solo admite `car` y `bicycle` en `vehicle[modes]`.
+    const vehiculos = calle.filter((m) => m !== 'caminar' && m !== 'moto').map((m) => MODO_CALLE[m])
     if (vehiculos.length) {
       peticiones.push(intermodal({ 'vehicle[modes]': vehiculos.join(','), 'vehicle[enable]': 'routeHead' }))
     }
