@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import type { LugarViaje, PuntoNav } from '../../../core/data/db'
+import { VACIO, lugaresNavRepo } from '../../../core/data/repository'
 import { useT } from '../../../core/i18n/useT'
 import { useAjustes } from '../../../core/state/ajustesStore'
 import { Icono } from '../../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../../core/ui/iconos/catalogo'
 import { etiquetaLugar } from '../datos'
 import { geocodificar, type ResultadoGeo } from './here'
+import { ICONOS_LUGAR } from './LugaresNav'
 
 interface Props {
   valor: PuntoNav | null
@@ -33,6 +35,8 @@ export function BuscadorLugar({ valor, onElegir, placeholder, cerca, lugares, ac
   const [sugerencias, setSugerencias] = useState<ResultadoGeo[]>([])
   const [buscando, setBuscando] = useState(false)
   const peticion = useRef(0)
+  // Los lugares guardados («casa», «trabajo») van antes que nada al escribir.
+  const guardados = lugaresNavRepo.useAll() ?? VACIO
 
   // El valor cambió desde fuera (mi ubicación, invertir, tocar el mapa): reflejarlo en el campo.
   if (valor !== valorVisto) {
@@ -64,12 +68,16 @@ export function BuscadorLugar({ valor, onElegir, placeholder, cerca, lugares, ac
   }, [consulta, idioma, cercaClave])
 
   const q = normalizar(texto.trim())
+  const favoritos = q.length >= 2 ? guardados.filter((l) => normalizar(l.nombre).includes(q)).slice(0, 4) : []
   const propios =
     q.length >= 2
       ? lugares.filter((l) => l.lat != null && l.lng != null && normalizar(etiquetaLugar(l)).includes(q)).slice(0, 4)
       : []
   const mostrar =
-    abierto && q.length >= 2 && texto !== valor?.nombre && (propios.length > 0 || sugerencias.length > 0 || buscando)
+    abierto &&
+    q.length >= 2 &&
+    texto !== valor?.nombre &&
+    (favoritos.length > 0 || propios.length > 0 || sugerencias.length > 0 || buscando)
 
   const elegir = (p: PuntoNav) => {
     onElegir(p)
@@ -123,6 +131,21 @@ export function BuscadorLugar({ valor, onElegir, placeholder, cerca, lugares, ac
           // Sin esto el input pierde el foco antes de que llegue el click.
           onMouseDown={(e) => e.preventDefault()}
         >
+          {favoritos.map((l) => (
+            <li key={`fav-${l.id}`}>
+              <button
+                type="button"
+                onClick={() => elegir({ nombre: l.nombre, lat: l.lat, lng: l.lng })}
+                className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm hover:bg-white/10"
+              >
+                <span className="text-teal-300">
+                  <Icono nombre={ICONOS_LUGAR.includes(l.icono as NombreIcono) ? (l.icono as NombreIcono) : 'pin'} />
+                </span>
+                <span className="min-w-0 flex-1 truncate">{l.nombre}</span>
+                <span className="text-[10px] text-white/40">{t('sala.nav.guardado', 'Guardado')}</span>
+              </button>
+            </li>
+          ))}
           {propios.map((l) => (
             <li key={`propio-${l.id}`}>
               <button

@@ -1040,6 +1040,23 @@ export interface TrayectoViaje {
   creadoEn: string
 }
 
+/**
+ * Sitio al que vuelves (casa, trabajo, el gimnasio): atajo del navegador, no un
+ * viaje. Vive aparte de `lugaresViaje` —que son los lugares del mapamundi, con
+ * país y visitas— porque aquí solo importan el punto, el nombre y su icono.
+ */
+export interface LugarNav {
+  id?: number
+  nombre: string
+  /** Nombre del catálogo de iconos (`<Icono nombre>`), elegido por el usuario. */
+  icono: string
+  lat: number
+  lng: number
+  /** Dirección o detalle con el que llegó del buscador. */
+  detalle?: string
+  creadoEn: string
+}
+
 /** Recuerdo de la bitácora de viajes: foto y anécdota de un lugar visitado. */
 export interface RecuerdoViaje {
   id?: number
@@ -4518,6 +4535,7 @@ class MindHomeDB extends Dexie {
   portadasLugar!: Table<PortadaLugar, number>
   itinerariosGuardados!: Table<ItinerarioGuardado, number>
   trayectosViaje!: Table<TrayectoViaje, number>
+  lugaresNav!: Table<LugarNav, number>
   sesionesMindfulness!: Table<SesionMindfulness, number>
   registroAnimo!: Table<RegistroAnimo, number>
   gratitudDiaria!: Table<GratitudDiaria, number>
@@ -6302,6 +6320,10 @@ class MindHomeDB extends Dexie {
       _outbox: '++id, [tabla+uid], espacio',
       _espacios: 'espacioId, tipo',
       mediosVideo: '++id, tipo, creadoEn, remotoId',
+    })
+    // v146: lugares guardados de «Cómo llegar» (casa, trabajo…), con su icono.
+    this.version(146).stores({
+      lugaresNav: '++id, creadoEn, &uid',
     })
   }
 }

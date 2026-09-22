@@ -339,6 +339,7 @@ export const portadasViajeRepo = createRepository(db.portadasViaje, 'id', false)
 export const portadasLugarRepo = createRepository(db.portadasLugar, 'id', false)
 export const itinerariosGuardadosRepo = createRepository(db.itinerariosGuardados, 'creadoEn')
 export const trayectosViajeRepo = createRepository(db.trayectosViaje, 'creadoEn')
+export const lugaresNavRepo = createRepository(db.lugaresNav, 'creadoEn')
 
 export const sesionesMindfulnessRepo = createRepository(db.sesionesMindfulness)
 export const gratitudDiariaRepo = createRepository(db.gratitudDiaria)

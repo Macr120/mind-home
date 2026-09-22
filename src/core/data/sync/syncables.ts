@@ -80,6 +80,7 @@ export const TABLAS_SYNC: string[] = [
   'portadasLugar',
   'itinerariosGuardados',
   'trayectosViaje',
+  'lugaresNav',
   'hobbies',
   'sesionesHobby',
   'proyectosHobby',

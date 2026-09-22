@@ -12,6 +12,7 @@ import { cacheVencida, claveConfigurada } from './config'
 import { formatoDistancia, formatoDuracion, formatoHora, resumenPierna } from './formato'
 import { obtenerPosicion, permisoGps } from './geo'
 import { nombreDeCoords, planificar } from './here'
+import { LugaresNav } from './LugaresNav'
 import MapaCalles from './MapaCalles'
 import { COLOR_MODO, ICONO_MODO, MODOS_NAV, esCalle, familiaModo, iconoDireccion, type ModoNav } from './modos'
 import { usePrefsNavegacion } from './preferencias'
@@ -833,6 +834,14 @@ export default function NavegarTab({ lugares }: Props) {
           </ol>
         </div>
       )}
+
+      <LugaresNav
+        candidato={destino ?? origen}
+        onUsar={(cual, p) => {
+          fijar(cual, p)
+          setEligiendo(null)
+        }}
+      />
 
       {/* Guardados */}
       <div className="space-y-1.5">
