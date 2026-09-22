@@ -155,6 +155,8 @@ export default function NavegarTab({ lugares }: Props) {
   const [destino, setDestino] = useState<PuntoNav | null>(null)
   // Arranca con las preferencias del ⚙ de «Tus lugares» (modos y voz).
   const [modos, setModos] = useState<ModoNav[]>(() => usePrefsNavegacion.getState().modos)
+  // «Óptimo»: en vez de un modo, los compara todos y mezcla los itinerarios.
+  const [optimo, setOptimo] = useState(false)
   const [cuando, setCuando] = useState<Cuando>('ahora')
   const [hora, setHora] = useState(horaInicial)
   const [buscando, setBuscando] = useState(false)
@@ -292,6 +294,13 @@ export default function NavegarTab({ lugares }: Props) {
   }
 
   const alternarModo = (m: ModoNav) => {
+    // Saliendo de «Óptimo» se elige ese modo a secas, que es lo que se espera
+    // al tocar «Auto» viniendo de la comparación.
+    if (optimo) {
+      setOptimo(false)
+      setModos([m])
+      return
+    }
     setModos((ms) => (ms.includes(m) ? (ms.length > 1 ? ms.filter((x) => x !== m) : ms) : [...ms, m]))
     // Si hay una comparación en pantalla, tocar «Transporte público» es lo que
     // dispara su cálculo (ver `tiempoTransporte`).
@@ -310,6 +319,26 @@ export default function NavegarTab({ lugares }: Props) {
     setBuscando(true)
     limpiarResultados()
     try {
+      if (optimo) {
+        const ids = MODOS_NAV.map((x) => x.id)
+        const listas = await Promise.all(
+          ids.map((m) => planificar({ origen: o, destino: d, modos: [m], cuando, hora, locale }).catch(() => [])),
+        )
+        const duraciones: Partial<Record<ModoNav, number | null>> = {}
+        const mezcla: ItinerarioNav[] = []
+        ids.forEach((m, i) => {
+          const lista = [...listas[i]].sort((a, b) => a.duracion - b.duracion)
+          duraciones[m] = lista.length ? lista[0].duracion : null
+          // Del transporte caben varias combinaciones; de los demás, la mejor.
+          mezcla.push(...lista.slice(0, m === 'transporte' ? 3 : 1))
+        })
+        mezcla.sort((a, b) => a.duracion - b.duracion)
+        setTiempos(duraciones)
+        setResultados(mezcla)
+        if (mezcla.length) setSel(0)
+        else setError(t('sala.nav.sinRutas', 'No hay rutas con esos modos por aquí. Prueba a combinar otros, cambiar la hora o acercar los puntos.'))
+        return
+      }
       const r = await planificar({ origen: o, destino: d, modos: ms, cuando, hora, locale })
       setResultados(r)
       if (r.length === 0) {
@@ -497,8 +526,20 @@ export default function NavegarTab({ lugares }: Props) {
 
         {/* Modos */}
         <div className="flex flex-wrap gap-1.5">
+          <button
+            type="button"
+            onClick={() => setOptimo(true)}
+            aria-pressed={optimo}
+            className={`rounded-2xl border px-3 py-1 text-xs font-semibold leading-tight transition ${
+              optimo ? 'border-accent ui-accent-bg' : 'border-white/10 bg-black/25 text-white/60 hover:bg-black/40'
+            }`}
+          >
+            <span className="block">
+              <Icono nombre="estrella" /> {t('sala.nav.optimo', 'Óptimo')}
+            </span>
+          </button>
           {MODOS_NAV.map((m) => {
-            const on = modos.includes(m.id)
+            const on = !optimo && modos.includes(m.id)
             const tiempo = tiempos[m.id]
             const esTransporte = m.id === 'transporte'
             const cargando = esTransporte ? cargandoTransporte : comparando && tiempo === undefined

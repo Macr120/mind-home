@@ -3574,6 +3574,7 @@ export const JA: Dict = {
   'sala.nav.min': '{n}分',
   'sala.nav.miUbicacion': '現在地',
   'sala.nav.modosAyuda': '手段を組み合わせられます。公共交通と一緒なら、自転車や車は駅までの移動に使われます。',
+  'sala.nav.optimo': 'おすすめ',
   'sala.nav.navegar': 'ナビ開始',
   'sala.nav.ocultarParadas': '停留所を隠す',
   'sala.nav.ocultarPasos': '案内を隠す',

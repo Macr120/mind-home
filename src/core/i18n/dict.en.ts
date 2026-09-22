@@ -3728,6 +3728,7 @@ export const EN: Dict = {
   'sala.nav.min': '{n} min',
   'sala.nav.miUbicacion': 'My location',
   'sala.nav.modosAyuda': 'Combine modes: with public transit, the bike or the car take you to the station.',
+  'sala.nav.optimo': 'Best',
   'sala.nav.navegar': 'Navigate',
   'sala.nav.ocultarParadas': 'Hide stops',
   'sala.nav.ocultarPasos': 'Hide directions',

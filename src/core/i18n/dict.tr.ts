@@ -3687,6 +3687,7 @@ export const TR: Dict = {
   'sala.nav.min': '{n} dk',
   'sala.nav.miUbicacion': 'Konumum',
   'sala.nav.modosAyuda': 'Ulaşım türlerini birleştir: toplu taşımayla, bisiklet veya araba seni istasyona götürür.',
+  'sala.nav.optimo': 'En iyi',
   'sala.nav.navegar': 'Yol göster',
   'sala.nav.ocultarParadas': 'Durakları gizle',
   'sala.nav.ocultarPasos': 'Yönergeleri gizle',

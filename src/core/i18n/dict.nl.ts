@@ -3753,6 +3753,7 @@ export const NL: Dict = {
   'sala.nav.min': '{n} min',
   'sala.nav.miUbicacion': 'Mijn locatie',
   'sala.nav.modosAyuda': 'Combineer vervoer: met openbaar vervoer brengen fiets of auto je naar het station.',
+  'sala.nav.optimo': 'Beste',
   'sala.nav.navegar': 'Navigeren',
   'sala.nav.ocultarParadas': 'Haltes verbergen',
   'sala.nav.ocultarPasos': 'Aanwijzingen verbergen',

@@ -3578,6 +3578,7 @@ export const KO: Dict = {
   'sala.nav.min': '{n}분',
   'sala.nav.miUbicacion': '내 위치',
   'sala.nav.modosAyuda': '수단을 조합하세요. 대중교통과 함께라면 자전거나 자동차는 역까지 가는 데 쓰여요.',
+  'sala.nav.optimo': '최적',
   'sala.nav.navegar': '안내 시작',
   'sala.nav.ocultarParadas': '정류장 숨기기',
   'sala.nav.ocultarPasos': '안내 숨기기',

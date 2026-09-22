@@ -3683,6 +3683,7 @@ export const HI: Dict = {
   'sala.nav.min': '{n} मि',
   'sala.nav.miUbicacion': 'मेरी स्थिति',
   'sala.nav.modosAyuda': 'साधन मिलाएँ: सार्वजनिक परिवहन के साथ, साइकिल या कार स्टेशन तक पहुँचने के काम आती है।',
+  'sala.nav.optimo': 'सर्वोत्तम',
   'sala.nav.navegar': 'नेविगेट करें',
   'sala.nav.ocultarParadas': 'स्टॉप छिपाएँ',
   'sala.nav.ocultarPasos': 'निर्देश छिपाएँ',

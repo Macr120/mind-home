@@ -3574,6 +3574,7 @@ export const ZH: Dict = {
   'sala.nav.min': '{n} 分钟',
   'sala.nav.miUbicacion': '我的位置',
   'sala.nav.modosAyuda': '可组合多种方式：选择公共交通时，自行车或汽车用于前往车站。',
+  'sala.nav.optimo': '最佳',
   'sala.nav.navegar': '开始导航',
   'sala.nav.ocultarParadas': '隐藏站点',
   'sala.nav.ocultarPasos': '隐藏指引',

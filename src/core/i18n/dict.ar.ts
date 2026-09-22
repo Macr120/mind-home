@@ -3631,6 +3631,7 @@ export const AR: Dict = {
   'sala.nav.min': '{n} د',
   'sala.nav.miUbicacion': 'موقعي',
   'sala.nav.modosAyuda': 'اجمع بين الوسائل: مع النقل العام، تُستخدم الدراجة أو السيارة للوصول إلى المحطة.',
+  'sala.nav.optimo': 'الأفضل',
   'sala.nav.navegar': 'ابدأ الملاحة',
   'sala.nav.ocultarParadas': 'إخفاء المحطات',
   'sala.nav.ocultarPasos': 'إخفاء الإرشادات',

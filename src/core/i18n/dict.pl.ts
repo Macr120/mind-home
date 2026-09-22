@@ -3700,6 +3700,7 @@ export const PL: Dict = {
   'sala.nav.min': '{n} min',
   'sala.nav.miUbicacion': 'Moja lokalizacja',
   'sala.nav.modosAyuda': 'Łącz środki transportu: z komunikacją miejską rower lub auto dowiozą Cię na stację.',
+  'sala.nav.optimo': 'Najlepsza',
   'sala.nav.navegar': 'Nawiguj',
   'sala.nav.ocultarParadas': 'Ukryj przystanki',
   'sala.nav.ocultarPasos': 'Ukryj wskazówki',

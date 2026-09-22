@@ -3680,6 +3680,7 @@ export const RU: Dict = {
   'sala.nav.min': '{n} мин',
   'sala.nav.miUbicacion': 'Моё местоположение',
   'sala.nav.modosAyuda': 'Сочетай способы: с общественным транспортом велосипед или машина довезут тебя до станции.',
+  'sala.nav.optimo': 'Лучший',
   'sala.nav.navegar': 'Вести',
   'sala.nav.ocultarParadas': 'Скрыть остановки',
   'sala.nav.ocultarPasos': 'Скрыть подсказки',

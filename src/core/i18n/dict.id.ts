@@ -3738,6 +3738,7 @@ export const ID: Dict = {
   'sala.nav.min': '{n} mnt',
   'sala.nav.miUbicacion': 'Lokasiku',
   'sala.nav.modosAyuda': 'Padukan moda: dengan transportasi umum, sepeda atau mobil dipakai untuk sampai ke stasiun.',
+  'sala.nav.optimo': 'Terbaik',
   'sala.nav.navegar': 'Navigasi',
   'sala.nav.ocultarParadas': 'Sembunyikan halte',
   'sala.nav.ocultarPasos': 'Sembunyikan petunjuk',

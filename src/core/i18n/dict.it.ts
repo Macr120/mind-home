@@ -3749,6 +3749,7 @@ export const IT: Dict = {
   'sala.nav.min': '{n} min',
   'sala.nav.miUbicacion': 'La mia posizione',
   'sala.nav.modosAyuda': 'Combina i mezzi: con i mezzi pubblici, la bici o l\'auto servono per arrivare alla stazione.',
+  'sala.nav.optimo': 'Ottimale',
   'sala.nav.navegar': 'Naviga',
   'sala.nav.ocultarParadas': 'Nascondi le fermate',
   'sala.nav.ocultarPasos': 'Nascondi le indicazioni',
