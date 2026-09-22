@@ -3605,7 +3605,7 @@ export const FR: Dict = {
   'anec.dia.titulo': 'Souvenirs du {fecha}',
   'anec.dia.cerrar': 'Fermer le jour',
   'sala.desc':
-    'Ton monde de voyageur : des épingles de lieux visités sur la mappemonde, des itinéraires de lieux à découvrir avec calendrier, des parcours de voyage, comment aller n\'importe où en combinant marche, transports en commun, vélo et voiture, et un journal de bord avec photos et anecdotes.',
+    'Ton monde de voyageur : des épingles de lieux visités sur la mappemonde, des itinéraires de lieux à découvrir avec calendrier, des parcours de voyage, comment aller n\'importe où en combinant marche, transports en commun, vélo, moto et voiture, et un journal de bord avec photos et anecdotes.',
   'sala.tab.mapa': 'Carte',
   'sala.tab.porConocer': 'Itinéraire',
   'sala.tab.rutas': 'Parcours',
@@ -7222,7 +7222,7 @@ export const FR: Dict = {
   'tut.app-metas--esencial.resumen':
     'Le planificateur de toute la maison, en trois menus : Objectifs (la liste de ce que tu t’es fixé, groupée par l’app qui porte chacun), Plans (les brouillons de planning qui répartissent un objectif en phases) et Planning (l’axe du temps où ils atterrissent tous). Il ne garde aucun enregistrement propre : il réunit les objectifs et les plans qui naissent dans les autres apps. Depuis un objectif s’ouvre sa feuille et, de là, l’axe qui lui est propre.',
   'tut.app-sala--esencial.resumen':
-    'Le salon est ton monde voyageur, en cinq menus : Carte (des épingles de lieux sur le mappemonde, avec vue en globe), Itinéraire (des lieux à découvrir avec leur plan jour par jour), Parcours (des trajets qui enchaînent des lieux), Comment y aller (des trajets porte à porte qui combinent marche, transports en commun, vélo et voiture) et Journal de bord (des souvenirs avec photos et anecdotes par pays).',
+    'Le salon est ton monde voyageur, en cinq menus : Carte (des épingles de lieux sur le mappemonde, avec vue en globe), Itinéraire (des lieux à découvrir avec leur plan jour par jour), Parcours (des trajets qui enchaînent des lieux), Comment y aller (des trajets porte à porte qui combinent marche, transports en commun, vélo, moto et voiture) et Journal de bord (des souvenirs avec photos et anecdotes par pays).',
   'tut.app-anecdotario--diario.titulo': 'Le journal de Pep',
   'tut.app-anecdotario--diario.resumen':
     'Le carnet de souvenirs est le journal personnel : des entrées avec une humeur, du texte et des photos, un calendrier qui peint l’année selon ce que tu as ressenti, et l’historique classé par année, mois et semaine.',

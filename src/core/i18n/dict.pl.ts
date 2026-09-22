@@ -3543,7 +3543,7 @@ export const PL: Dict = {
   'anec.dia.titulo': 'Wspomnienia z {fecha}',
   'anec.dia.cerrar': 'Zamknij dzień',
   'sala.desc':
-    'Twój podróżniczy świat: pinezki odwiedzonych miejsc na mapie świata, plany miejsc do zobaczenia z kalendarzem, trasy podróży, jak dojechać gdziekolwiek, łącząc pieszo, komunikację miejską, rower i auto, oraz dziennik ze zdjęciami i anegdotami.',
+    'Twój podróżniczy świat: pinezki odwiedzonych miejsc na mapie świata, plany miejsc do zobaczenia z kalendarzem, trasy podróży, jak dojechać gdziekolwiek, łącząc pieszo, komunikację miejską, rower, motocykl i auto, oraz dziennik ze zdjęciami i anegdotami.',
   'sala.tab.mapa': 'Mapa',
   'sala.tab.porConocer': 'Plan podróży',
   'sala.tab.rutas': 'Trasy',
@@ -7122,7 +7122,7 @@ export const PL: Dict = {
   'tut.app-metas--esencial.resumen':
     'Planer całego domu, w trzech podmenu: Cele (lista tego, co sobie postanowiłeś, pogrupowana według aplikacji, która prowadzi każdy cel), Plany (szkice harmonogramu, które dzielą cel na fazy) i Harmonogram (oś czasu, na której wszystkie się układają). Nie przechowuje własnych danych: zbiera cele i plany, które rodzą się w pozostałych aplikacjach. Z celu otwiera się jego kartę, a z niej — oś czasu zawężoną do niego.',
   'tut.app-sala--esencial.resumen':
-    'Salon to twój podróżniczy świat, w pięciu podmenu: Mapa (pinezki miejsc na mapie świata, z widokiem globusa), Plan podróży (miejsca do poznania z planem dzień po dniu), Trasy (przejazdy łączące miejsca), Jak dojechać (podróże od drzwi do drzwi łączące pieszo, komunikację miejską, rower i auto) i Dziennik podróży (wspomnienia ze zdjęciami i historiami według kraju).',
+    'Salon to twój podróżniczy świat, w pięciu podmenu: Mapa (pinezki miejsc na mapie świata, z widokiem globusa), Plan podróży (miejsca do poznania z planem dzień po dniu), Trasy (przejazdy łączące miejsca), Jak dojechać (podróże od drzwi do drzwi łączące pieszo, komunikację miejską, rower, motocykl i auto) i Dziennik podróży (wspomnienia ze zdjęciami i historiami według kraju).',
   'tut.app-anecdotario--diario.titulo': 'Dziennik wspomnień Pepa',
   'tut.app-anecdotario--diario.resumen':
     'Dziennik wspomnień to Twój osobisty pamiętnik: wpisy z nastrojem, tekstem i zdjęciami, kalendarz malujący rok według Twojego samopoczucia oraz historia w folderach według roku, miesiąca i tygodnia.',

@@ -3592,7 +3592,7 @@ export const IT: Dict = {
   'anec.dia.titulo': 'Ricordi del {fecha}',
   'anec.dia.cerrar': 'Chiudi il giorno',
   'sala.desc':
-    'Il tuo mondo da viaggiatore: segnaposto dei luoghi visitati sul mappamondo, itinerari dei luoghi da scoprire con calendario, percorsi di viaggio, come arrivare ovunque combinando piedi, mezzi pubblici, bici e auto, e un diario di bordo con foto e aneddoti.',
+    'Il tuo mondo da viaggiatore: segnaposto dei luoghi visitati sul mappamondo, itinerari dei luoghi da scoprire con calendario, percorsi di viaggio, come arrivare ovunque combinando piedi, mezzi pubblici, bici, moto e auto, e un diario di bordo con foto e aneddoti.',
   'sala.tab.mapa': 'Mappa',
   'sala.tab.porConocer': 'Itinerario',
   'sala.tab.rutas': 'Percorsi',
@@ -7189,7 +7189,7 @@ export const IT: Dict = {
   'tut.app-metas--esencial.resumen':
     'Il pianificatore di tutta la casa, in tre schede: Obiettivi (l’elenco di ciò che ti sei proposto, raggruppato per l’app che porta ognuno), Piani (le bozze di programma che ripartiscono un obiettivo in fasi) e Programma (l’asse del tempo dove cadono tutti). Non conserva registrazioni proprie: riunisce gli obiettivi e i piani che nascono nelle altre app. Da un obiettivo si apre il suo foglio e, da lì, il suo asse delimitato.',
   'tut.app-sala--esencial.resumen':
-    'Il soggiorno è il tuo mondo viaggiatore, in cinque schede: Mappa (spilli di luoghi sulla mappa del mondo, con vista globo), Itinerario (luoghi da scoprire con il loro piano giorno per giorno), Percorsi (tragitti che collegano luoghi), Come arrivare (tragitti porta a porta che combinano piedi, mezzi pubblici, bici e auto) e Diario di bordo (ricordi con foto e aneddoti per paese).',
+    'Il soggiorno è il tuo mondo viaggiatore, in cinque schede: Mappa (spilli di luoghi sulla mappa del mondo, con vista globo), Itinerario (luoghi da scoprire con il loro piano giorno per giorno), Percorsi (tragitti che collegano luoghi), Come arrivare (tragitti porta a porta che combinano piedi, mezzi pubblici, bici, moto e auto) e Diario di bordo (ricordi con foto e aneddoti per paese).',
   'tut.app-anecdotario--diario.titulo': 'Il diario di Pep',
   'tut.app-anecdotario--diario.resumen':
     'Il diario dei ricordi è il diario personale: voci con umore, testo e foto, un calendario che colora l\'anno in base a come ti sei sentito, e la cronologia in cartelle per anno, mese e settimana.',

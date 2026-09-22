@@ -142,7 +142,7 @@ export const cuerpoProximo: CuerpoTutorial = {
       titulo: T('tut.app-sala--esencial.6.titulo', 'Cómo llegar'),
       texto: T(
         'tut.app-sala--esencial.6.texto',
-        'Un navegador puerta a puerta: elige origen y destino y combina caminar, transporte público, bici y auto en un mismo trayecto, con el mapa de calles e indicaciones paso a paso.',
+        'Un navegador puerta a puerta: elige origen y destino y combina caminar, transporte público, bici, moto y auto en un mismo trayecto, con el mapa de calles e indicaciones paso a paso.',
       ),
       alEntrar: () => {
         clickTut('sala.tab.navegar')

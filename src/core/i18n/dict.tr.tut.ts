@@ -1033,7 +1033,7 @@ export const TR_TUT: Dict = {
   'tut.app-sala--esencial.5.texto':
     'Ziyaret ettiğin yerlerin anıları, ülkeye göre albümlerde: her yerin fotoğrafları ve hikâyeleri.',
   'tut.app-sala--esencial.6.titulo': 'Yol tarifi',
-  'tut.app-sala--esencial.6.texto': 'Kapıdan kapıya bir navigatör: başlangıç ve varışı seç; yürüyüş, toplu taşıma, bisiklet ve arabayı tek bir yolculukta birleştir, sokak haritası ve adım adım yönergelerle.',
+  'tut.app-sala--esencial.6.texto': 'Kapıdan kapıya bir navigatör: başlangıç ve varışı seç; yürüyüş, toplu taşıma, bisiklet, motosiklet ve arabayı tek bir yolculukta birleştir, sokak haritası ve adım adım yönergelerle.',
   'tut.app-agenda--trabajo.1.titulo': 'Gelen kutusu',
   'tut.app-agenda--trabajo.1.texto':
     'İş’in iki görünümü var: Yapılacaklar kutusu ve Pano. Yapılması gereken ama henüz günü olmayan her şey, önceliğiyle birlikte Yapılacaklar’da durur; not almak için tarih koymak zorunda değilsin.',

@@ -1040,7 +1040,7 @@ export const FR_TUT: Dict = {
   'tut.app-sala--esencial.5.texto':
     'Les souvenirs de tes lieux visités, en albums par pays : photos et anecdotes de chaque endroit.',
   'tut.app-sala--esencial.6.titulo': 'Comment y aller',
-  'tut.app-sala--esencial.6.texto': 'Un navigateur porte à porte : choisis un départ et une arrivée et combine marche, transports en commun, vélo et voiture dans un même trajet, avec le plan des rues et des indications pas à pas.',
+  'tut.app-sala--esencial.6.texto': 'Un navigateur porte à porte : choisis un départ et une arrivée et combine marche, transports en commun, vélo, moto et voiture dans un même trajet, avec le plan des rues et des indications pas à pas.',
   'tut.app-agenda--trabajo.1.titulo': 'La liste À faire',
   'tut.app-agenda--trabajo.1.texto':
     'Ce qu’il faut faire mais qui n’a pas encore de jour vit ici, avec sa priorité. Rien ne t’oblige à lui mettre une date pour le noter.',

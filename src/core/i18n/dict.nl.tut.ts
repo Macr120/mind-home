@@ -1039,7 +1039,7 @@ export const NL_TUT: Dict = {
   'tut.app-sala--esencial.5.texto':
     'De herinneringen aan de plekken die je bezocht hebt, in albums per land: foto\'s en verhalen van elke plek.',
   'tut.app-sala--esencial.6.titulo': 'Route plannen',
-  'tut.app-sala--esencial.6.texto': 'Een navigator van deur tot deur: kies vertrek en bestemming en combineer lopen, openbaar vervoer, fiets en auto in één reis, met de stratenkaart en stap-voor-stap aanwijzingen.',
+  'tut.app-sala--esencial.6.texto': 'Een navigator van deur tot deur: kies vertrek en bestemming en combineer lopen, openbaar vervoer, fiets, motor en auto in één reis, met de stratenkaart en stap-voor-stap aanwijzingen.',
   'tut.app-agenda--trabajo.1.titulo': 'De inbox',
   'tut.app-agenda--trabajo.1.texto':
     'Wat gedaan moet worden maar nog geen dag heeft, staat hier, met zijn prioriteit. Niets dwingt je een datum te kiezen om het op te schrijven.',

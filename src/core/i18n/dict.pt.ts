@@ -3558,7 +3558,7 @@ export const PT: Dict = {
   'anec.dia.titulo': 'Lembranças de {fecha}',
   'anec.dia.cerrar': 'Fechar o dia',
   'sala.desc':
-    'Seu mundo viajante: pins de lugares visitados no mapa-múndi, roteiros de lugares para conhecer com calendário, rotas de viagem, como chegar a qualquer lugar combinando caminhada, transporte público, bicicleta e carro, e um diário com fotos e histórias.',
+    'Seu mundo viajante: pins de lugares visitados no mapa-múndi, roteiros de lugares para conhecer com calendário, rotas de viagem, como chegar a qualquer lugar combinando caminhada, transporte público, bicicleta, moto e carro, e um diário com fotos e histórias.',
   'sala.tab.mapa': 'Mapa',
   'sala.tab.porConocer': 'Itinerário',
   'sala.tab.rutas': 'Rotas',
@@ -7128,7 +7128,7 @@ export const PT: Dict = {
   'tut.app-metas--esencial.resumen':
     'O planejador de toda a casa, em três menus: Metas (a lista do que você se propôs, agrupada pelo app que leva cada uma), Planos (os rascunhos de cronograma que dividem uma meta em fases) e Cronograma (o eixo do tempo onde todas caem). Não guarda registros próprios: reúne as metas e os planos que nascem nos demais apps. A partir de uma meta você abre sua folha e, dali, o eixo restrito a ela.',
   'tut.app-sala--esencial.resumen':
-    'A sala é seu mundo viajante, em cinco menus: Mapa (alfinetes de lugares no mapa-múndi, com vista de globo), Itinerário (lugares por conhecer com seu plano dia a dia), Rotas (percursos que encadeiam lugares), Como chegar (trajetos porta a porta que combinam caminhada, transporte público, bicicleta e carro) e Diário de bordo (lembranças com fotos e histórias por país).',
+    'A sala é seu mundo viajante, em cinco menus: Mapa (alfinetes de lugares no mapa-múndi, com vista de globo), Itinerário (lugares por conhecer com seu plano dia a dia), Rotas (percursos que encadeiam lugares), Como chegar (trajetos porta a porta que combinam caminhada, transporte público, bicicleta, moto e carro) e Diário de bordo (lembranças com fotos e histórias por país).',
   'tut.app-anecdotario--diario.titulo': 'O diário do Pep@',
   'tut.app-anecdotario--diario.resumen':
     'O diário de memórias é o diário pessoal: entradas com humor, texto e fotos, um calendário que pinta o ano conforme você se sentiu, e o histórico em pastas por ano, mês e semana.',

@@ -3580,7 +3580,7 @@ export const ID: Dict = {
   'anec.dia.titulo': 'Kenangan dari {fecha}',
   'anec.dia.cerrar': 'Tutup hari',
   'sala.desc':
-    'Dunia pelancongmu: pin tempat yang sudah dikunjungi di peta dunia, rencana tempat yang ingin dilihat dengan kalender, rute perjalanan, cara ke mana saja dengan memadukan jalan kaki, transportasi umum, sepeda, dan mobil, serta buku catatan dengan foto dan cerita.',
+    'Dunia pelancongmu: pin tempat yang sudah dikunjungi di peta dunia, rencana tempat yang ingin dilihat dengan kalender, rute perjalanan, cara ke mana saja dengan memadukan jalan kaki, transportasi umum, sepeda, motor, dan mobil, serta buku catatan dengan foto dan cerita.',
   'sala.tab.mapa': 'Peta',
   'sala.tab.porConocer': 'Rencana perjalanan',
   'sala.tab.rutas': 'Rute',
@@ -7172,7 +7172,7 @@ export const ID: Dict = {
   'tut.app-metas--esencial.resumen':
     'Perencana seluruh rumah, dalam tiga menu: Target (daftar yang kamu tetapkan untuk dirimu, dikelompokkan menurut aplikasi yang mengelola masing-masing), Rencana (draf linimasa yang membagi target jadi beberapa fase) dan Linimasa (sumbu waktu tempat semuanya jatuh). Tidak menyimpan catatannya sendiri: mengumpulkan target dan rencana yang lahir di aplikasi lain. Dari sebuah target, kartunya terbuka, dan dari situ, sumbu yang dipersempit ke target itu.',
   'tut.app-sala--esencial.resumen':
-    'Ruang Tamu adalah dunia jalan-jalanmu, dalam lima menu: Peta (pin tempat di peta dunia, dengan tampilan globe), Rencana perjalanan (tempat yang ingin dikunjungi dengan rencana harian), Rute (perjalanan yang menghubungkan tempat), Cara ke sana (perjalanan dari pintu ke pintu yang memadukan jalan kaki, transportasi umum, sepeda, dan mobil) dan Jurnal perjalanan (kenangan dengan foto dan cerita per negara).',
+    'Ruang Tamu adalah dunia jalan-jalanmu, dalam lima menu: Peta (pin tempat di peta dunia, dengan tampilan globe), Rencana perjalanan (tempat yang ingin dikunjungi dengan rencana harian), Rute (perjalanan yang menghubungkan tempat), Cara ke sana (perjalanan dari pintu ke pintu yang memadukan jalan kaki, transportasi umum, sepeda, motor, dan mobil) dan Jurnal perjalanan (kenangan dengan foto dan cerita per negara).',
   'tut.app-anecdotario--diario.titulo': 'Buku kenangan Pep',
   'tut.app-anecdotario--diario.resumen':
     'Buku kenangan adalah jurnal pribadi: entri dengan suasana hati, teks dan foto, kalender yang mewarnai tahun sesuai perasaanmu, dan riwayat dalam folder per tahun, bulan, dan minggu.',

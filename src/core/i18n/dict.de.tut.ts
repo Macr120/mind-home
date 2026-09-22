@@ -1040,7 +1040,7 @@ export const DE_TUT: Dict = {
   'tut.app-sala--esencial.5.texto':
     'Die Erinnerungen an deine besuchten Orte, in Alben nach Land: Fotos und Anekdoten von jedem Ort.',
   'tut.app-sala--esencial.6.titulo': 'Wegbeschreibung',
-  'tut.app-sala--esencial.6.texto': 'Ein Navigator von Tür zu Tür: wähle Start und Ziel und kombiniere Gehen, Nahverkehr, Rad und Auto in einer einzigen Fahrt, mit Straßenkarte und Schritt-für-Schritt-Anweisungen.',
+  'tut.app-sala--esencial.6.texto': 'Ein Navigator von Tür zu Tür: wähle Start und Ziel und kombiniere Gehen, Nahverkehr, Rad, Motorrad und Auto in einer einzigen Fahrt, mit Straßenkarte und Schritt-für-Schritt-Anweisungen.',
   'tut.app-agenda--trabajo.1.titulo': 'Der Posteingang',
   'tut.app-agenda--trabajo.1.texto':
     'Was ansteht, aber noch keinen Tag hat, wohnt hier, mit seiner Priorität. Nichts zwingt dich, ein Datum zu setzen, nur um es aufzuschreiben.',

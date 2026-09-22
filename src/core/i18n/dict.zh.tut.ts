@@ -680,7 +680,7 @@ export const ZH_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': '旅行日志',
   'tut.app-sala--esencial.5.texto': '你去过的地方留下的回忆，按国家收进相册：每个地方的照片和故事。',
   'tut.app-sala--esencial.6.titulo': '路线导航',
-  'tut.app-sala--esencial.6.texto': '门到门的导航：选择起点和终点，把步行、公共交通、自行车和汽车组合成一段行程，配有街道地图和逐步指引。',
+  'tut.app-sala--esencial.6.texto': '门到门的导航：选择起点和终点，把步行、公共交通、自行车、摩托车和汽车组合成一段行程，配有街道地图和逐步指引。',
   'tut.app-agenda--trabajo.1.titulo': '待办箱',
   'tut.app-agenda--trabajo.1.texto': '要做但还没定下日子的事都住在这里，带着各自的优先级。想记下来，不用非得先定日期。',
   'tut.app-agenda--trabajo.3.titulo': '看板',

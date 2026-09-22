@@ -3594,7 +3594,7 @@ export const NL: Dict = {
   'anec.dia.titulo': 'Herinneringen van {fecha}',
   'anec.dia.cerrar': 'Dag sluiten',
   'sala.desc':
-    'Jouw reiswereld: pins van bezochte plekken op de wereldkaart, reisplannen voor plekken die je wilt zien met kalender, reisroutes, routebeschrijvingen overal naartoe met lopen, openbaar vervoer, fiets en auto gecombineerd, en een logboek met foto\'s en verhalen.',
+    'Jouw reiswereld: pins van bezochte plekken op de wereldkaart, reisplannen voor plekken die je wilt zien met kalender, reisroutes, routebeschrijvingen overal naartoe met lopen, openbaar vervoer, fiets, motor en auto gecombineerd, en een logboek met foto\'s en verhalen.',
   'sala.tab.mapa': 'Kaart',
   'sala.tab.porConocer': 'Reisplan',
   'sala.tab.rutas': 'Routes',
@@ -7193,7 +7193,7 @@ export const NL: Dict = {
   'tut.app-metas--esencial.resumen':
     'De planner van het hele huis, in drie menu\'s: Doelen (de lijst van wat je jezelf hebt voorgenomen, gegroepeerd per app die elk doel bijhoudt), Plannen (de planningsontwerpen die een doel in fasen verdelen) en Tijdlijn (de tijdas waar ze allemaal op vallen). Hij houdt zelf geen gegevens bij: hij verzamelt de doelen en plannen die in de andere apps ontstaan. Vanuit een doel open je het bijbehorende blad en, van daaruit, de tijdlijn die tot dat doel beperkt is.',
   'tut.app-sala--esencial.resumen':
-    'De woonkamer is jouw reiswereld, in vijf menu\'s: Kaart (spelden van plekken op de wereldkaart, met globeweergave), Reisplan (plekken om te ontdekken met een dag-tot-dagplan), Routes (trajecten die plekken aan elkaar rijgen), Route plannen (reizen van deur tot deur die lopen, openbaar vervoer, fiets en auto combineren) en Logboek (herinneringen met foto\'s en verhalen per land).',
+    'De woonkamer is jouw reiswereld, in vijf menu\'s: Kaart (spelden van plekken op de wereldkaart, met globeweergave), Reisplan (plekken om te ontdekken met een dag-tot-dagplan), Routes (trajecten die plekken aan elkaar rijgen), Route plannen (reizen van deur tot deur die lopen, openbaar vervoer, fiets, motor en auto combineren) en Logboek (herinneringen met foto\'s en verhalen per land).',
   'tut.app-anecdotario--diario.titulo': 'Peps dagboek',
   'tut.app-anecdotario--diario.resumen':
     'Het herinneringsdagboek is het persoonlijke dagboek: items met een stemming, tekst en foto\'s, een kalender die het jaar inkleurt naar hoe je je voelde, en de geschiedenis in mappen per jaar, maand en week.',

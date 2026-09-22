@@ -753,7 +753,7 @@ export const JA_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': '旅日記',
   'tut.app-sala--esencial.5.texto': '訪れた場所の思い出を、国ごとのアルバムにまとめます。それぞれの場所の写真とエピソードが残ります。',
   'tut.app-sala--esencial.6.titulo': '経路案内',
-  'tut.app-sala--esencial.6.texto': 'ドアからドアまでのナビ。出発地と目的地を選び、徒歩・公共交通・自転車・車をひとつの経路に組み合わせます。街の地図と順を追った案内付きです。',
+  'tut.app-sala--esencial.6.texto': 'ドアからドアまでのナビ。出発地と目的地を選び、徒歩・公共交通・自転車・バイク・車をひとつの経路に組み合わせます。街の地図と順を追った案内付きです。',
   'tut.app-agenda--trabajo.1.titulo': 'タスクのトレイ',
   'tut.app-agenda--trabajo.1.texto': 'やることのうち、まだ日が決まっていないものはここに、優先度つきで置かれます。書き留めるために日付を決める必要はありません。',
   'tut.app-agenda--trabajo.3.titulo': 'ボード',

@@ -1040,7 +1040,7 @@ export const ID_TUT: Dict = {
   'tut.app-sala--esencial.5.texto':
     'Kenangan dari tempat-tempat yang sudah kamu kunjungi, dalam album per negara: foto dan cerita dari setiap tempat.',
   'tut.app-sala--esencial.6.titulo': 'Cara ke sana',
-  'tut.app-sala--esencial.6.texto': 'Navigator dari pintu ke pintu: pilih asal dan tujuan, lalu padukan jalan kaki, transportasi umum, sepeda, dan mobil dalam satu perjalanan, dengan peta jalan dan petunjuk langkah demi langkah.',
+  'tut.app-sala--esencial.6.texto': 'Navigator dari pintu ke pintu: pilih asal dan tujuan, lalu padukan jalan kaki, transportasi umum, sepeda, motor, dan mobil dalam satu perjalanan, dengan peta jalan dan petunjuk langkah demi langkah.',
   'tut.app-agenda--trabajo.1.titulo': 'Kotak masuk',
   'tut.app-agenda--trabajo.1.texto':
     'Kerja punya dua tampilan: baki Tugas dan Papan. Di Tugas tinggal apa yang harus dikerjakan tapi belum punya hari, lengkap dengan prioritasnya; tidak ada yang memaksamu memberi tanggal hanya untuk mencatatnya.',

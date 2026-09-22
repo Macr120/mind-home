@@ -908,7 +908,7 @@ export const EN_TUT: Dict = {
   'tut.app-sala--esencial.5.texto':
     'The memories of the places you visited, in albums by country: photos and stories from each spot.',
   'tut.app-sala--esencial.6.titulo': 'Directions',
-  'tut.app-sala--esencial.6.texto': 'A door-to-door navigator: pick an origin and a destination and combine walking, public transit, bike and car in a single trip, with the street map and step-by-step directions.',
+  'tut.app-sala--esencial.6.texto': 'A door-to-door navigator: pick an origin and a destination and combine walking, public transit, bike, motorcycle and car in a single trip, with the street map and step-by-step directions.',
   'tut.app-agenda--trabajo.1.titulo': 'The inbox',
   'tut.app-agenda--trabajo.1.texto':
     'Work has two views: the Pending tray and the Board. Pending holds what needs doing but has no day yet, with its priority; nothing forces you to pick a day just to write it down.',

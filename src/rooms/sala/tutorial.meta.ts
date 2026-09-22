@@ -60,7 +60,7 @@ export const esencialSala: TutorialDef = fichaEsencial(
   'sala',
   T(
     'tut.app-sala--esencial.resumen',
-    'La sala es tu mundo viajero, en cinco menús: Mapa (pines de lugares en el mapamundi, con vista de globo), Itinerario (lugares por conocer con su plan día a día), Rutas (recorridos que encadenan lugares), Cómo llegar (trayectos puerta a puerta que combinan caminar, transporte público, bici y auto) y Bitácora (recuerdos con fotos y anécdotas por país).',
+    'La sala es tu mundo viajero, en cinco menús: Mapa (pines de lugares en el mapamundi, con vista de globo), Itinerario (lugares por conocer con su plan día a día), Rutas (recorridos que encadenan lugares), Cómo llegar (trayectos puerta a puerta que combinan caminar, transporte público, bici, moto y auto) y Bitácora (recuerdos con fotos y anécdotas por país).',
   ),
   () => import('./tutorial').then((m) => m.cuerpoEsencial as CuerpoTutorial),
 )

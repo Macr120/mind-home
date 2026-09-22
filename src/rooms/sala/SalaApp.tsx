@@ -42,7 +42,7 @@ export function SalaApp() {
   return (
     <div className="mx-auto max-w-3xl space-y-4">
       <p className="text-xs leading-relaxed text-white/45">
-        {t('sala.desc', 'Tu mundo viajero: pines de lugares visitados en el mapamundi, itinerarios de lugares por conocer con calendario, rutas de viaje, cómo llegar a cualquier sitio combinando a pie, transporte público, bici y auto, y bitácora con fotos y anécdotas.')}
+        {t('sala.desc', 'Tu mundo viajero: pines de lugares visitados en el mapamundi, itinerarios de lugares por conocer con calendario, rutas de viaje, cómo llegar a cualquier sitio combinando a pie, transporte público, bici, moto y auto, y bitácora con fotos y anécdotas.')}
       </p>
 
       <PestanasCarpeta

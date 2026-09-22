@@ -1035,7 +1035,7 @@ export const PT_TUT: Dict = {
   'tut.app-sala--esencial.5.texto':
     'As lembranças dos lugares que você visitou, em álbuns por país: fotos e histórias de cada lugar.',
   'tut.app-sala--esencial.6.titulo': 'Como chegar',
-  'tut.app-sala--esencial.6.texto': 'Um navegador porta a porta: escolha origem e destino e combine caminhada, transporte público, bicicleta e carro em um mesmo trajeto, com o mapa de ruas e instruções passo a passo.',
+  'tut.app-sala--esencial.6.texto': 'Um navegador porta a porta: escolha origem e destino e combine caminhada, transporte público, bicicleta, moto e carro em um mesmo trajeto, com o mapa de ruas e instruções passo a passo.',
   'tut.app-agenda--trabajo.1.titulo': 'A caixa de entrada',
   'tut.app-agenda--trabajo.1.texto':
     'Trabalho tem duas vistas: a caixa Tarefa e o Quadro. Em Tarefa mora o que precisa ser feito mas ainda não tem dia, com sua prioridade; nada obriga você a marcar uma data só para anotar.',

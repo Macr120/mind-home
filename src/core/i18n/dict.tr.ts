@@ -3531,7 +3531,7 @@ export const TR: Dict = {
   'anec.dia.titulo': '{fecha} tarihinin anıları',
   'anec.dia.cerrar': 'Günü kapat',
   'sala.desc':
-    'Gezgin dünyan: dünya haritasında gezdiğin yerlerin pinleri, takvimli görülecek yer planları, seyahat rotaları, yürüyüş, toplu taşıma, bisiklet ve arabayı birleştirerek her yere yol tarifi ve fotoğraflı, anılı bir seyir defteri.',
+    'Gezgin dünyan: dünya haritasında gezdiğin yerlerin pinleri, takvimli görülecek yer planları, seyahat rotaları, yürüyüş, toplu taşıma, bisiklet, motosiklet ve arabayı birleştirerek her yere yol tarifi ve fotoğraflı, anılı bir seyir defteri.',
   'sala.tab.mapa': 'Harita',
   'sala.tab.porConocer': 'Gezi planı',
   'sala.tab.rutas': 'Rotalar',
@@ -7105,7 +7105,7 @@ export const TR: Dict = {
   'tut.app-metas--esencial.resumen':
     'Tüm evin planlayıcısı, üç bölümde: Hedefler (kendine koyduklarının listesi, her birini yürüten uygulamaya göre gruplanmış), Planlar (bir hedefi aşamalara bölen zaman çizelgesi taslakları) ve Zaman çizelgesi (hepsinin düştüğü zaman ekseni). Kendine ait kayıt tutmaz: diğer uygulamalarda doğan hedefleri ve planları bir araya getirir. Bir hedeften onun kartı açılır, oradan da ona daraltılmış eksen.',
   'tut.app-sala--esencial.resumen':
-    'Oturma Odası, beş bölümlü gezgin dünyandır: Harita (dünya haritasında yerlerin iğneleri, küre görünümüyle), Gezi planı (görülecek yerler, gün gün planlarıyla), Rotalar (yerleri birbirine bağlayan güzergâhlar), Yol tarifi (yürüyüş, toplu taşıma, bisiklet ve arabayı birleştiren kapıdan kapıya yolculuklar) ve Seyir defteri (ülkeye göre fotoğraflar ve anılarla anılar).',
+    'Oturma Odası, beş bölümlü gezgin dünyandır: Harita (dünya haritasında yerlerin iğneleri, küre görünümüyle), Gezi planı (görülecek yerler, gün gün planlarıyla), Rotalar (yerleri birbirine bağlayan güzergâhlar), Yol tarifi (yürüyüş, toplu taşıma, bisiklet, motosiklet ve arabayı birleştiren kapıdan kapıya yolculuklar) ve Seyir defteri (ülkeye göre fotoğraflar ve anılarla anılar).',
   'tut.app-anecdotario--diario.titulo': 'Pep’in anı defteri',
   'tut.app-anecdotario--diario.resumen':
     'Anı defteri kişisel günlüğündür: ruh hali, metin ve fotoğraflarla girdiler, kendini nasıl hissettiğine göre yılı boyayan bir takvim, ve yıl, ay ve haftaya göre klasörlenmiş geçmiş.',

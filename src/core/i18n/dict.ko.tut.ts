@@ -820,7 +820,7 @@ export const KO_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': '여행 일지',
   'tut.app-sala--esencial.5.texto': '다녀온 곳의 추억을 나라별 앨범으로 모아요. 장소마다 사진과 이야기가 담겨요.',
   'tut.app-sala--esencial.6.titulo': '길찾기',
-  'tut.app-sala--esencial.6.texto': '문에서 문까지 안내하는 내비게이터예요. 출발지와 도착지를 고르고 도보, 대중교통, 자전거, 자동차를 한 경로에 조합하세요. 거리 지도와 단계별 안내가 함께해요.',
+  'tut.app-sala--esencial.6.texto': '문에서 문까지 안내하는 내비게이터예요. 출발지와 도착지를 고르고 도보, 대중교통, 자전거, 오토바이, 자동차를 한 경로에 조합하세요. 거리 지도와 단계별 안내가 함께해요.',
   'tut.app-agenda--trabajo.1.titulo': '할 일 보관함',
   'tut.app-agenda--trabajo.1.texto': '해야 하지만 아직 날짜가 없는 일은 여기에 우선순위와 함께 있어요. 적어 두려고 굳이 날짜를 정할 필요는 없어요.',
   'tut.app-agenda--trabajo.3.titulo': '보드',

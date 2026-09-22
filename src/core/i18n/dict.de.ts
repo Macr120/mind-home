@@ -3628,7 +3628,7 @@ export const DE: Dict = {
   'anec.dia.titulo': 'Erinnerungen vom {fecha}',
   'anec.dia.cerrar': 'Tag schließen',
   'sala.desc':
-    'Deine Reisewelt: Pins besuchter Orte auf der Weltkarte, Reisepläne für Orte, die du sehen willst, mit Kalender, Reiserouten, Wegbeschreibungen überallhin aus Gehen, Nahverkehr, Rad und Auto kombiniert, und ein Logbuch mit Fotos und Anekdoten.',
+    'Deine Reisewelt: Pins besuchter Orte auf der Weltkarte, Reisepläne für Orte, die du sehen willst, mit Kalender, Reiserouten, Wegbeschreibungen überallhin aus Gehen, Nahverkehr, Rad, Motorrad und Auto kombiniert, und ein Logbuch mit Fotos und Anekdoten.',
   'sala.tab.mapa': 'Karte',
   'sala.tab.porConocer': 'Reiseplan',
   'sala.tab.rutas': 'Routen',
@@ -7241,7 +7241,7 @@ export const DE: Dict = {
   'tut.app-metas--esencial.resumen':
     'Der Planer für das ganze Haus, in drei Tabs: Ziele (die Liste dessen, was du dir vorgenommen hast, gruppiert nach der App, die es trägt), Pläne (die Zeitplan-Entwürfe, die ein Ziel in Phasen aufteilen) und Zeitplan (die Zeitachse, auf der sie alle landen). Er führt keine eigenen Einträge: Er sammelt die Ziele und Pläne, die in den anderen Apps entstehen. Von einem Ziel aus öffnet sich seine Tabelle und von dort seine eigene, eingegrenzte Achse.',
   'tut.app-sala--esencial.resumen':
-    'Das Wohnzimmer ist deine Reisewelt, in fünf Tabs: Karte (Pins von Orten auf der Weltkarte, mit Globus-Ansicht), Reiseplan (Orte, die du noch entdecken willst, mit ihrem Tag-für-Tag-Plan), Routen (Strecken, die Orte verbinden), Wegbeschreibung (Fahrten von Tür zu Tür, die Gehen, Nahverkehr, Rad und Auto kombinieren) und Logbuch (Erinnerungen mit Fotos und Anekdoten nach Land).',
+    'Das Wohnzimmer ist deine Reisewelt, in fünf Tabs: Karte (Pins von Orten auf der Weltkarte, mit Globus-Ansicht), Reiseplan (Orte, die du noch entdecken willst, mit ihrem Tag-für-Tag-Plan), Routen (Strecken, die Orte verbinden), Wegbeschreibung (Fahrten von Tür zu Tür, die Gehen, Nahverkehr, Rad, Motorrad und Auto kombinieren) und Logbuch (Erinnerungen mit Fotos und Anekdoten nach Land).',
   'tut.app-anecdotario--diario.titulo': 'Peps Tagebuch',
   'tut.app-anecdotario--diario.resumen':
     'Das Erinnerungsbuch ist dein persönliches Tagebuch: Einträge mit Stimmung, Text und Fotos, ein Kalender, der das Jahr nach deinem Gefühl einfärbt, und der Verlauf in Ordnern nach Jahr, Monat und Woche.',

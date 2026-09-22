@@ -3574,7 +3574,7 @@ export const EN: Dict = {
   'anec.dia.cerrar': 'Close day',
 
   // Sala (Viajes: mapa, por conocer, rutas y bitácora)
-  'sala.desc': 'Your traveler world: pins of visited places on the world map, itineraries of places to see with a calendar, travel routes, directions to anywhere combining walking, public transit, bike and car, and a journal with photos and stories.',
+  'sala.desc': 'Your traveler world: pins of visited places on the world map, itineraries of places to see with a calendar, travel routes, directions to anywhere combining walking, public transit, bike, motorcycle and car, and a journal with photos and stories.',
   'sala.tab.mapa': 'Map',
   'sala.tab.porConocer': 'Itinerary',
   'sala.tab.rutas': 'Routes',
@@ -7231,7 +7231,7 @@ export const EN: Dict = {
   'tut.app-metas--esencial.resumen':
     'The planner for the whole house, in three menus: Goals (the list of what you set out to do, grouped by the app that carries each one), Plans (the schedule drafts that split a goal into phases) and Timeline (the time axis where they all land). It keeps no records of its own: it gathers the goals and plans that are born in the other apps. From a goal you open its sheet and, from there, the axis narrowed down to it.',
   'tut.app-sala--esencial.resumen':
-    'The living room is your travel world, in five menus: Map (pins of places on the world map, with a globe view), Itinerary (places to see with a day-by-day plan), Routes (routes that chain places together), Directions (door-to-door trips combining walking, public transit, bike and car) and Logbook (memories with photos and stories by country).',
+    'The living room is your travel world, in five menus: Map (pins of places on the world map, with a globe view), Itinerary (places to see with a day-by-day plan), Routes (routes that chain places together), Directions (door-to-door trips combining walking, public transit, bike, motorcycle and car) and Logbook (memories with photos and stories by country).',
   // Flujos G2 (corren sobre el año de Pep@ en la casa demo)
   'tut.app-anecdotario--diario.titulo': "Pep@'s journal",
   'tut.app-anecdotario--diario.resumen':
