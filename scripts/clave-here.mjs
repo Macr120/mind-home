@@ -8,6 +8,7 @@
  *   node scripts/clave-here.mjs --ios <clave>        -> .env.ios.local        (`build:ios`)
  *   node scripts/clave-here.mjs --windows <clave>    -> .env.escritorio.local (`build:escritorio`)
  *   npm run here:clave                               -> la pide tapada, sin argumento
+ *   npm run here:claves                              -> qué clave tiene cada canal (tapadas)
  *
  * HERE pide un App ID por aplicación y cuenta como distintas la web, Android,
  * iOS y el escritorio. Los cuatro archivos usan la MISMA variable
@@ -27,8 +28,31 @@ const CANALES = {
   '--escritorio': ['.env.escritorio.local', 'escritorio', 'app de escritorio (Windows/macOS)'],
 }
 
+// `--ver`: repaso de los cuatro canales sin revelar ninguna clave, para no
+// confundirse al pegarlas (cuatro apps distintas en platform.here.com).
+if (process.argv.includes('--ver')) {
+  const tapar = (c) => (c ? `${c.slice(0, 4)}…${c.slice(-4)} (${c.length} caracteres)` : 'FALTA')
+  const filas = [
+    ['web', '.env.local', 'npm run build / npm run dev'],
+    ['android', '.env.android.local', 'npm run build:android'],
+    ['ios', '.env.ios.local', 'npm run build:ios'],
+    ['escritorio', '.env.escritorio.local', 'npm run build:escritorio'],
+  ].map(([canal, archivo, build]) => {
+    const texto = existsSync(archivo) ? readFileSync(archivo, 'utf8') : ''
+    const clave = (texto.match(/^VITE_HERE_KEY=(.*)$/m)?.[1] ?? '').trim()
+    return { canal, archivo, build, clave }
+  })
+  for (const f of filas) console.log(`${f.canal.padEnd(11)} ${f.archivo.padEnd(22)} ${tapar(f.clave).padEnd(28)} ${f.build}`)
+  const conClave = filas.filter((f) => f.clave)
+  const repes = conClave.filter((f) => conClave.filter((o) => o.clave === f.clave).length > 1)
+  console.log('')
+  if (repes.length) console.log(`OJO: ${repes.map((f) => f.canal).join(' y ')} comparten clave; cada app de HERE tiene la suya.`)
+  else if (conClave.length === 4) console.log('Las cuatro están y son distintas.')
+  process.exit(0)
+}
+
 const canal = process.argv.find((a) => a in CANALES)
-const desconocida = process.argv.slice(2).find((a) => a.startsWith('--') && !(a in CANALES))
+const desconocida = process.argv.slice(2).find((a) => a.startsWith('--') && !(a in CANALES) && a !== '--ver')
 if (desconocida) {
   console.error(`No conozco la opción ${desconocida}. Usa --android, --ios, --windows o ninguna (web).`)
   process.exit(1)

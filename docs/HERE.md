@@ -45,6 +45,10 @@ comunitarios (Transitous, teselas de OSM/CARTO):
    | MindHaOS iOS | `.env.ios.local` | `… --ios <clave>` | `npm run build:ios` (lo llama la fase «Compilar la web» de Xcode) | no: manda `capacitor://localhost` |
    | MindHaOS Windows | `.env.escritorio.local` | `… --windows <clave>` | `npm run build:escritorio` (lo llaman `escritorio:win/mac/preview`) | no: Electron manda `file://` |
 
+   **`npm run here:claves`** enseña qué clave (tapada) tiene cada canal y avisa si dos comparten
+   una: es la forma de comprobar que no se cruzaron al pegarlas, porque las cuatro se copian de
+   cuatro apps distintas del portal y a simple vista son iguales.
+
    Los tres archivos de canal están ignorados por git (`*.local`). Si falta el archivo de un canal,
    ese build se queda con la clave de `.env.local`: no se rompe, pero el artefacto saldría con la
    clave de la web, así que conviene comprobarlo antes de publicar.

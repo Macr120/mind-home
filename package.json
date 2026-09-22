@@ -56,7 +56,8 @@
     "ios:textos-widgets": "node scripts/widgets-ios-textos.mjs",
     "ficha:tienda": "node scripts/ficha-tienda.mjs",
     "asc:ficha": "node scripts/asc-ficha.mjs",
-    "here:clave": "node scripts/clave-here.mjs"
+    "here:clave": "node scripts/clave-here.mjs",
+    "here:claves": "node scripts/clave-here.mjs --ver"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.104.1",
