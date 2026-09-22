@@ -74,7 +74,9 @@ público: con transporte, la bici o el auto llevan a la estación —park & ride
 con Leaflet (carga perezosa); alternativas con cadena de modos; detalle por tramos con
 maniobras y paradas; **navegación en vivo** (GPS, instrucción grande, voz, fuera de ruta →
 recalcular); trayectos guardados sin conexión (tabla `trayectosViaje`, v142; el itinerario
-guardado caduca a los 30 días y se recalcula al abrirlo, como exige el plan Base). Todo con la
+guardado caduca a los 30 días y se recalcula al abrirlo, como exige el plan Base) y
+**lugares guardados** con icono a elegir (casa, trabajo, el gimnasio: tabla `lugaresNav`,
+v146), que además salen los primeros al escribir en el buscador. Todo con la
 API de HERE bajo `VITE_HERE_KEY` (ver [`docs/HERE.md`](HERE.md)).
 
 ---
