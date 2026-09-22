@@ -3540,6 +3540,7 @@ export const ZH: Dict = {
   'sala.nav.buscando': '正在计算路线…',
   'sala.nav.buscandoLugares': '搜索中…',
   'sala.nav.buscar': '查找路线',
+  'sala.nav.calcularTransporte': '点按即可计算公共交通所需时间',
   'sala.nav.caduco': '打开时重新计算',
   'sala.nav.caminaHasta': '步行 {d} 到{lugar}',
   'sala.nav.cargando': '正在加载地图…',

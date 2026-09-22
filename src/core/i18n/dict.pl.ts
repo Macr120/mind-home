@@ -3666,6 +3666,7 @@ export const PL: Dict = {
   'sala.nav.buscando': 'Obliczanie tras…',
   'sala.nav.buscandoLugares': 'Szukam…',
   'sala.nav.buscar': 'Znajdź drogę',
+  'sala.nav.calcularTransporte': 'Dotknij, aby obliczyć czas komunikacją miejską',
   'sala.nav.caduco': 'Przeliczana przy otwarciu',
   'sala.nav.caminaHasta': 'Idź {d} do {lugar}',
   'sala.nav.cargando': 'Ładowanie mapy…',

@@ -3597,6 +3597,7 @@ export const AR: Dict = {
   'sala.nav.buscando': 'جارٍ حساب المسارات…',
   'sala.nav.buscandoLugares': 'جارٍ البحث…',
   'sala.nav.buscar': 'ابحث عن الطريق',
+  'sala.nav.calcularTransporte': 'انقر لحساب المدة بالنقل العام',
   'sala.nav.caduco': 'يُحتسب من جديد عند فتحه',
   'sala.nav.caminaHasta': 'امشِ {d} حتى {lugar}',
   'sala.nav.cargando': 'جارٍ تحميل الخريطة…',

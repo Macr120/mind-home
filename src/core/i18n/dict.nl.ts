@@ -3717,6 +3717,7 @@ export const NL: Dict = {
   'sala.nav.buscando': 'Routes berekenen…',
   'sala.nav.buscandoLugares': 'Zoeken…',
   'sala.nav.buscar': 'Route zoeken',
+  'sala.nav.calcularTransporte': 'Tik erop om te berekenen hoelang het openbaar vervoer duurt',
   'sala.nav.caduco': 'Wordt bij openen opnieuw berekend',
   'sala.nav.caminaHasta': 'Loop {d} naar {lugar}',
   'sala.nav.cargando': 'Kaart laden…',

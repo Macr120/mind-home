@@ -3540,6 +3540,7 @@ export const JA: Dict = {
   'sala.nav.buscando': '経路を計算中…',
   'sala.nav.buscandoLugares': '検索中…',
   'sala.nav.buscar': '経路を検索',
+  'sala.nav.calcularTransporte': 'タップすると公共交通の所要時間を計算します',
   'sala.nav.caduco': '開くと再検索します',
   'sala.nav.caminaHasta': '{lugar}まで{d}歩く',
   'sala.nav.cargando': '地図を読み込み中…',

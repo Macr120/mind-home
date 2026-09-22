@@ -3649,6 +3649,7 @@ export const HI: Dict = {
   'sala.nav.buscando': 'मार्ग निकाले जा रहे हैं…',
   'sala.nav.buscandoLugares': 'खोज जारी है…',
   'sala.nav.buscar': 'रास्ता खोजें',
+  'sala.nav.calcularTransporte': 'सार्वजनिक परिवहन में कितना समय लगेगा, जानने के लिए टैप करें',
   'sala.nav.caduco': 'खोलने पर फिर से निकलेगा',
   'sala.nav.caminaHasta': '{lugar} तक {d} पैदल चलें',
   'sala.nav.cargando': 'मानचित्र लोड हो रहा है…',

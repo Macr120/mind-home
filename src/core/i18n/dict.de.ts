@@ -3751,6 +3751,7 @@ export const DE: Dict = {
   'sala.nav.buscando': 'Routen werden berechnet…',
   'sala.nav.buscandoLugares': 'Suche…',
   'sala.nav.buscar': 'Weg suchen',
+  'sala.nav.calcularTransporte': 'Antippen, um die Dauer mit den Öffentlichen zu berechnen',
   'sala.nav.caduco': 'Wird beim Öffnen neu berechnet',
   'sala.nav.caminaHasta': 'Geh {d} bis {lugar}',
   'sala.nav.cargando': 'Karte wird geladen…',

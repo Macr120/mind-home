@@ -3544,6 +3544,7 @@ export const KO: Dict = {
   'sala.nav.buscando': '경로 계산 중…',
   'sala.nav.buscandoLugares': '검색 중…',
   'sala.nav.buscar': '길찾기',
+  'sala.nav.calcularTransporte': '탭하면 대중교통 소요 시간을 계산합니다',
   'sala.nav.caduco': '열면 다시 계산합니다',
   'sala.nav.caminaHasta': '{lugar}까지 {d} 걷기',
   'sala.nav.cargando': '지도를 불러오는 중…',

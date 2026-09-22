@@ -3646,6 +3646,7 @@ export const RU: Dict = {
   'sala.nav.buscando': 'Считаю маршруты…',
   'sala.nav.buscandoLugares': 'Ищу…',
   'sala.nav.buscar': 'Найти, как добраться',
+  'sala.nav.calcularTransporte': 'Нажмите, чтобы рассчитать время на общественном транспорте',
   'sala.nav.caduco': 'Пересчитается при открытии',
   'sala.nav.caminaHasta': 'Пройди {d} до {lugar}',
   'sala.nav.cargando': 'Загружаю карту…',

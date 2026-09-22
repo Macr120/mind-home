@@ -3704,6 +3704,7 @@ export const ID: Dict = {
   'sala.nav.buscando': 'Menghitung rute…',
   'sala.nav.buscandoLugares': 'Mencari…',
   'sala.nav.buscar': 'Cari cara ke sana',
+  'sala.nav.calcularTransporte': 'Ketuk untuk menghitung lama perjalanan dengan transportasi umum',
   'sala.nav.caduco': 'Dihitung ulang saat dibuka',
   'sala.nav.caminaHasta': 'Jalan kaki {d} ke {lugar}',
   'sala.nav.cargando': 'Memuat peta…',

@@ -3653,6 +3653,7 @@ export const TR: Dict = {
   'sala.nav.buscando': 'Rotalar hesaplanıyor…',
   'sala.nav.buscandoLugares': 'Aranıyor…',
   'sala.nav.buscar': 'Yol tarifi al',
+  'sala.nav.calcularTransporte': 'Toplu taşımanın ne kadar sürdüğünü hesaplamak için dokun',
   'sala.nav.caduco': 'Açınca yeniden hesaplanır',
   'sala.nav.caminaHasta': '{lugar} noktasına {d} yürü',
   'sala.nav.cargando': 'Harita yükleniyor…',

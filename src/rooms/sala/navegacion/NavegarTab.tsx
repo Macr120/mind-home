@@ -170,6 +170,7 @@ export default function NavegarTab({ lugares }: Props) {
   // Cuánto tarda cada modo cuando se busca con uno solo: null = sin ruta.
   const [tiempos, setTiempos] = useState<Partial<Record<ModoNav, number | null>>>({})
   const [comparando, setComparando] = useState(false)
+  const [cargandoTransporte, setCargandoTransporte] = useState(false)
   const ultimaVoz = useRef('')
   /** Descarta las comparaciones en vuelo cuando cambia la búsqueda. */
   const compara = useRef(0)
@@ -237,6 +238,7 @@ export default function NavegarTab({ lugares }: Props) {
     compara.current++
     setTiempos({})
     setComparando(false)
+    setCargandoTransporte(false)
     setResultados([])
     setSel(null)
     setError(null)
@@ -289,8 +291,15 @@ export default function NavegarTab({ lugares }: Props) {
     ;(cual === 'origen' ? setOrigen : setDestino)((p) => (p && p.lat === lat && p.lng === lng ? { ...p, nombre } : p))
   }
 
-  const alternarModo = (m: ModoNav) =>
+  const alternarModo = (m: ModoNav) => {
     setModos((ms) => (ms.includes(m) ? (ms.length > 1 ? ms.filter((x) => x !== m) : ms) : [...ms, m]))
+    // Si hay una comparación en pantalla, tocar «Transporte público» es lo que
+    // dispara su cálculo (ver `tiempoTransporte`).
+    const hayComparacion = Object.keys(tiempos).length > 0
+    if (m === 'transporte' && hayComparacion && tiempos.transporte === undefined && origen && destino) {
+      void tiempoTransporte(origen, destino)
+    }
+  }
 
   const buscar = async (sobre?: { origen?: PuntoNav; destino?: PuntoNav; modos?: ModoNav[] }) => {
     const o = sobre?.origen ?? origen
@@ -328,7 +337,9 @@ export default function NavegarTab({ lugares }: Props) {
     setComparando(true)
     await Promise.all(
       MODOS_NAV.map((m) => m.id)
-        .filter((m) => m !== elegido)
+        // El transporte público se queda fuera a propósito: su cupo en HERE es
+        // el más escaso, así que solo se calcula si tocas su chip.
+        .filter((m) => m !== elegido && m !== 'transporte')
         .map(async (m) => {
           let mejor: number | null = null
           try {
@@ -341,6 +352,22 @@ export default function NavegarTab({ lugares }: Props) {
         }),
     )
     if (id === compara.current) setComparando(false)
+  }
+
+  /** Tiempo en transporte público, a petición: una sola consulta intermodal. */
+  const tiempoTransporte = async (o: PuntoNav, d: PuntoNav) => {
+    const id = compara.current
+    setCargandoTransporte(true)
+    let mejor: number | null = null
+    try {
+      const r = await planificar({ origen: o, destino: d, modos: ['transporte'], cuando, hora, locale })
+      if (r.length) mejor = Math.min(...r.map((x) => x.duracion))
+    } catch {
+      // Sin respuesta se queda en «—», como cualquier otro modo.
+    }
+    if (id !== compara.current) return
+    setTiempos((v) => ({ ...v, transporte: mejor }))
+    setCargandoTransporte(false)
   }
 
   const recalcular = () => {
@@ -473,12 +500,16 @@ export default function NavegarTab({ lugares }: Props) {
           {MODOS_NAV.map((m) => {
             const on = modos.includes(m.id)
             const tiempo = tiempos[m.id]
+            const esTransporte = m.id === 'transporte'
+            const cargando = esTransporte ? cargandoTransporte : comparando && tiempo === undefined
+            const porCalcular = esTransporte && tiempo === undefined && !cargando && Object.keys(tiempos).length > 0
             return (
               <button
                 key={m.id}
                 type="button"
                 onClick={() => alternarModo(m.id)}
                 aria-pressed={on}
+                title={porCalcular ? t('sala.nav.calcularTransporte', 'Tócalo para calcular cuánto tarda en transporte público') : undefined}
                 className={`rounded-2xl border px-3 py-1 text-xs font-semibold leading-tight transition ${
                   on ? 'border-accent ui-accent-bg' : 'border-white/10 bg-black/25 text-white/60 hover:bg-black/40'
                 }`}
@@ -486,9 +517,9 @@ export default function NavegarTab({ lugares }: Props) {
                 <span className="block">
                   <Icono nombre={m.icono} /> {t(m.clave, m.es)}
                 </span>
-                {(tiempo !== undefined || comparando) && (
+                {(tiempo !== undefined || cargando || porCalcular) && (
                   <span className={`block text-[10px] font-normal ${on ? 'opacity-80' : 'text-white/45'}`}>
-                    {tiempo === undefined ? '…' : tiempo === null ? '—' : formatoDuracion(t, tiempo)}
+                    {cargando ? '…' : tiempo == null ? (porCalcular ? '?' : '—') : formatoDuracion(t, tiempo)}
                   </span>
                 )}
               </button>
