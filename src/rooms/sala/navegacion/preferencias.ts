@@ -10,6 +10,7 @@ import { MODOS_NAV, type ModoNav } from './modos'
 const LS_MODOS = 'mh.lugares.modos'
 const LS_VOZ = 'mh.lugares.voz'
 const LS_ZONA = 'mh.lugares.zona'
+const LS_OPTIMO = 'mh.lugares.optimo'
 const MODOS_DEFAULT: ModoNav[] = ['caminar', 'transporte']
 
 function leerModos(): ModoNav[] {
@@ -51,16 +52,21 @@ interface PrefsNavegacionState {
   modos: ModoNav[]
   /** Voz encendida desde el primer paso de la navegación en vivo. */
   voz: boolean
+  /** Arrancar comparando todos los modos («Óptimo») en vez de con unos fijos. */
+  optimo: boolean
   /** Zona de referencia para las sugerencias (ver `leerZona`). */
   zona: { lat: number; lng: number } | null
   setModos: (modos: ModoNav[]) => void
   setVoz: (voz: boolean) => void
+  setOptimo: (optimo: boolean) => void
   setZona: (zona: { lat: number; lng: number }) => void
 }
 
 export const usePrefsNavegacion = create<PrefsNavegacionState>((set) => ({
   modos: leerModos(),
   voz: localStorage.getItem(LS_VOZ) === '1',
+  // De fábrica se abre en «Óptimo»: es la respuesta útil sin decidir nada.
+  optimo: localStorage.getItem(LS_OPTIMO) !== '0',
   zona: leerZona(),
   setModos: (modos) => {
     if (!modos.length) return
@@ -70,6 +76,10 @@ export const usePrefsNavegacion = create<PrefsNavegacionState>((set) => ({
   setVoz: (voz) => {
     localStorage.setItem(LS_VOZ, voz ? '1' : '0')
     set({ voz })
+  },
+  setOptimo: (optimo) => {
+    localStorage.setItem(LS_OPTIMO, optimo ? '1' : '0')
+    set({ optimo })
   },
   setZona: (zona) => {
     // Coordenadas imposibles (un mapa arrastrado más allá del polo o del

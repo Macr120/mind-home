@@ -156,7 +156,8 @@ export default function NavegarTab({ lugares }: Props) {
   // Arranca con las preferencias del ⚙ de «Tus lugares» (modos y voz).
   const [modos, setModos] = useState<ModoNav[]>(() => usePrefsNavegacion.getState().modos)
   // «Óptimo»: en vez de un modo, los compara todos y mezcla los itinerarios.
-  const [optimo, setOptimo] = useState(false)
+  // Viene marcado de fábrica (se cambia en el ⚙ de «Tus lugares»).
+  const [optimo, setOptimo] = useState(() => usePrefsNavegacion.getState().optimo)
   const [cuando, setCuando] = useState<Cuando>('ahora')
   const [hora, setHora] = useState(horaInicial)
   const [buscando, setBuscando] = useState(false)

@@ -12,10 +12,14 @@ export function AjustesNavegacion() {
   const t = useT()
   const modos = usePrefsNavegacion((s) => s.modos)
   const voz = usePrefsNavegacion((s) => s.voz)
+  const optimo = usePrefsNavegacion((s) => s.optimo)
   const conClave = claveConfigurada()
 
-  const alternar = (id: ModoNav) =>
+  const alternar = (id: ModoNav) => {
+    // Elegir modos concretos es justo lo contrario de «Óptimo».
+    usePrefsNavegacion.getState().setOptimo(false)
     usePrefsNavegacion.getState().setModos(modos.includes(id) ? modos.filter((m) => m !== id) : [...modos, id])
+  }
 
   return (
     <div className="space-y-3 px-1">
@@ -24,8 +28,18 @@ export function AjustesNavegacion() {
           {t('sala.nav.prefs.modos', 'Modos por defecto')}
         </p>
         <div className="flex flex-wrap gap-1.5">
+          <button
+            type="button"
+            onClick={() => usePrefsNavegacion.getState().setOptimo(true)}
+            aria-pressed={optimo}
+            className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${
+              optimo ? 'border-accent ui-accent-bg' : 'border-white/10 bg-black/25 text-white/60 hover:bg-black/40'
+            }`}
+          >
+            <Icono nombre="estrella" /> {t('sala.nav.optimo', 'Óptimo')}
+          </button>
           {MODOS_NAV.map((m) => {
-            const on = modos.includes(m.id)
+            const on = !optimo && modos.includes(m.id)
             return (
               <button
                 key={m.id}
