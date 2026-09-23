@@ -76,7 +76,10 @@ maniobras y paradas; **navegación en vivo** (GPS, instrucción grande, voz, fue
 recalcular); trayectos guardados sin conexión (tabla `trayectosViaje`, v142; el itinerario
 guardado caduca a los 30 días y se recalcula al abrirlo, como exige el plan Base) y
 **lugares guardados** con icono a elegir (casa, trabajo, el gimnasio: tabla `lugaresNav`,
-v146), que además salen los primeros al escribir en el buscador. Todo con la
+v146), que además salen los primeros al escribir en el buscador. Los lugares se agrupan en
+**categorías** (tabla `categoriasLugar`, v147) y cada una lleva su pin —icono y color— que
+manda en la lista, en el buscador y en el mapa, donde los lugares guardados se dibujan y al
+tocarlos se ponen de destino. Todo con la
 API de HERE bajo `VITE_HERE_KEY` (ver [`docs/HERE.md`](HERE.md)).
 
 ---

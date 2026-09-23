@@ -11,6 +11,15 @@ const LS_MODOS = 'mh.lugares.modos'
 const LS_VOZ = 'mh.lugares.voz'
 const LS_ZONA = 'mh.lugares.zona'
 const LS_OPTIMO = 'mh.lugares.optimo'
+const LS_ANCHO_MAPA = 'mh.lugares.anchoMapa'
+const LS_ALTO_MAPA = 'mh.lugares.altoMapa'
+const LS_CATEGORIA = 'mh.lugares.categoria'
+/** Con menos de esto el mapa no se ve y con más no cabe nada a su lado. */
+const ANCHO_MIN = 30
+const ANCHO_MAX = 100
+/** Alto del mapa en píxeles cuando lo estira el usuario. */
+const ALTO_MIN = 180
+const ALTO_MAX = 900
 const MODOS_DEFAULT: ModoNav[] = ['caminar', 'transporte']
 
 function leerModos(): ModoNav[] {
@@ -56,10 +65,29 @@ interface PrefsNavegacionState {
   optimo: boolean
   /** Zona de referencia para las sugerencias (ver `leerZona`). */
   zona: { lat: number; lng: number } | null
+  /**
+   * Cuánto del ancho se lleva el mapa cuando el panel da para dos columnas
+   * (porcentaje). Lo arrastra el usuario por el tirador; al pasar de 85 ya no
+   * cabe nada al lado y la vista vuelve a una sola columna.
+   */
+  anchoMapa: number
+  /**
+   * Alto del mapa en píxeles cuando el usuario lo estira con el tirador, o
+   * `null` para dejarlo al tamaño que le toque por el ancho del panel.
+   */
+  altoMapa: number | null
+  /**
+   * Última categoría de lugares que escogió el usuario (la tocó, se la puso a
+   * un lugar o fue a un lugar suyo): su pin es el del botón del menú del chat.
+   */
+  categoria: number | null
   setModos: (modos: ModoNav[]) => void
   setVoz: (voz: boolean) => void
   setOptimo: (optimo: boolean) => void
   setZona: (zona: { lat: number; lng: number }) => void
+  setAnchoMapa: (ancho: number) => void
+  setAltoMapa: (alto: number | null) => void
+  setCategoria: (id: number | undefined) => void
 }
 
 export const usePrefsNavegacion = create<PrefsNavegacionState>((set) => ({
@@ -68,6 +96,15 @@ export const usePrefsNavegacion = create<PrefsNavegacionState>((set) => ({
   // De fábrica se abre en «Óptimo»: es la respuesta útil sin decidir nada.
   optimo: localStorage.getItem(LS_OPTIMO) !== '0',
   zona: leerZona(),
+  anchoMapa: Math.min(ANCHO_MAX, Math.max(ANCHO_MIN, Number(localStorage.getItem(LS_ANCHO_MAPA)) || 50)),
+  altoMapa: Number(localStorage.getItem(LS_ALTO_MAPA)) || null,
+  categoria: Number(localStorage.getItem(LS_CATEGORIA)) || null,
+  setCategoria: (id) => {
+    // Un lugar sin categoría no la cambia: el botón conserva el último pin.
+    if (id == null) return
+    localStorage.setItem(LS_CATEGORIA, String(id))
+    set({ categoria: id })
+  },
   setModos: (modos) => {
     if (!modos.length) return
     localStorage.setItem(LS_MODOS, JSON.stringify(modos))
@@ -88,5 +125,20 @@ export const usePrefsNavegacion = create<PrefsNavegacionState>((set) => ({
     const limpia = { lat: +zona.lat.toFixed(3), lng: +zona.lng.toFixed(3) }
     localStorage.setItem(LS_ZONA, JSON.stringify(limpia))
     set({ zona: limpia })
+  },
+  setAnchoMapa: (ancho) => {
+    const v = Math.round(Math.min(ANCHO_MAX, Math.max(ANCHO_MIN, ancho)))
+    localStorage.setItem(LS_ANCHO_MAPA, String(v))
+    set({ anchoMapa: v })
+  },
+  setAltoMapa: (alto) => {
+    if (alto == null) {
+      localStorage.removeItem(LS_ALTO_MAPA)
+      set({ altoMapa: null })
+      return
+    }
+    const v = Math.round(Math.min(ALTO_MAX, Math.max(ALTO_MIN, alto)))
+    localStorage.setItem(LS_ALTO_MAPA, String(v))
+    set({ altoMapa: v })
   },
 }))

@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import type { LugarViaje, PuntoNav } from '../../../core/data/db'
-import { VACIO, lugaresNavRepo } from '../../../core/data/repository'
+import { VACIO, categoriasLugarRepo, lugaresNavRepo } from '../../../core/data/repository'
 import { useT } from '../../../core/i18n/useT'
 import { useAjustes } from '../../../core/state/ajustesStore'
 import { Icono } from '../../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../../core/ui/iconos/catalogo'
 import { etiquetaLugar } from '../datos'
 import { geocodificar, type ResultadoGeo } from './here'
-import { ICONOS_LUGAR } from './LugaresNav'
+import { pinDeLugar } from './LugaresNav'
+import { usePrefsNavegacion } from './preferencias'
 
 interface Props {
   valor: PuntoNav | null
@@ -35,8 +36,10 @@ export function BuscadorLugar({ valor, onElegir, placeholder, cerca, lugares, ac
   const [sugerencias, setSugerencias] = useState<ResultadoGeo[]>([])
   const [buscando, setBuscando] = useState(false)
   const peticion = useRef(0)
-  // Los lugares guardados («casa», «trabajo») van antes que nada al escribir.
+  // Los lugares guardados («casa», «trabajo») van antes que nada al escribir,
+  // cada uno con el pin de su categoría.
   const guardados = lugaresNavRepo.useAll() ?? VACIO
+  const categorias = categoriasLugarRepo.useAll() ?? VACIO
 
   // El valor cambió desde fuera (mi ubicación, invertir, tocar el mapa): reflejarlo en el campo.
   if (valor !== valorVisto) {
@@ -135,11 +138,15 @@ export function BuscadorLugar({ valor, onElegir, placeholder, cerca, lugares, ac
             <li key={`fav-${l.id}`}>
               <button
                 type="button"
-                onClick={() => elegir({ nombre: l.nombre, lat: l.lat, lng: l.lng })}
+                onClick={() => {
+                  // Su categoría pasa a ser la última escogida (pin del botón del chat).
+                  usePrefsNavegacion.getState().setCategoria(l.categoriaId)
+                  elegir({ nombre: l.nombre, lat: l.lat, lng: l.lng })
+                }}
                 className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm hover:bg-white/10"
               >
-                <span className="text-teal-300">
-                  <Icono nombre={ICONOS_LUGAR.includes(l.icono as NombreIcono) ? (l.icono as NombreIcono) : 'pin'} />
+                <span style={{ color: pinDeLugar(l, categorias).color }}>
+                  <Icono nombre={pinDeLugar(l, categorias).icono} />
                 </span>
                 <span className="min-w-0 flex-1 truncate">{l.nombre}</span>
                 <span className="text-[10px] text-white/40">{t('sala.nav.guardado', 'Guardado')}</span>
