@@ -81,8 +81,7 @@ const PALABRAS: Record<string, string[]> = {
   // medio de frases de otras apps: «calcular cuánto gasté»).
   computo: ['formula', 'formulas', 'formulario', 'calculadora', 'grafica', 'graficar', 'graficador', 'ecuacion', 'ecuaciones', 'derivada', 'integral', 'despeja', 'despejar', 'hoja de calculo', 'hojas de calculo', 'binario', 'hexadecimal', 'matriz', 'matrices', 'determinante', 'convertir unidades', 'conversor', 'propina', 'regla de tres'],
   // Studio: sin captura determinista (crean dentro de su app); las palabras
-  // etiquetan la bitácora y relacionan las memorias. Solo tokens sueltos: la
-  // comparación es por palabra. Sin 'piano' ni 'guitarra' (son hobbies), sin
+  // etiquetan la bitácora y relacionan las memorias. Sin 'piano' ni 'guitarra' (son hobbies), sin
   // 'libro' (es lo que se lee en Entretenimiento) ni 'vi' (idem).
   audio: ['cancion', 'canciones', 'compuse', 'componer', 'melodia', 'midi', 'beat', 'beats', 'mezcla', 'dj', 'partitura', 'acorde', 'acordes'],
   arte: ['dibuje', 'dibujo', 'dibujos', 'pinte', 'boceto', 'ilustracion', 'lienzo'],
@@ -129,6 +128,16 @@ const DIACRITICOS = new RegExp('[\\u0300-\\u036f]', 'g')
 /** Quita acentos y pasa a minúsculas para comparar sin fallar por tildes. */
 export function normalizar(s: string): string {
   return s.toLowerCase().normalize('NFD').replace(DIACRITICOS, '')
+}
+
+/**
+ * ¿El texto normalizado menciona la palabra clave? Las de una palabra se buscan
+ * entre sus tokens; las de varias («regla de tres»), como frase entera con
+ * límites de palabra, porque ningún token suelto las contiene.
+ */
+function menciona(norm: string, tokens: Set<string>, clave: string): boolean {
+  if (!clave.includes(' ')) return tokens.has(clave)
+  return new RegExp(`(?:^|[^a-z0-9])${clave.split(' ').join('[^a-z0-9]+')}(?:[^a-z0-9]|$)`).test(norm)
 }
 
 /** Palabras a ignorar al buscar un cuarto (artículos, preposiciones, sufijos comunes). */
@@ -205,8 +214,9 @@ function repartirClausulas(texto: string, appIds: string[]): Record<string, stri
   const huerfanas: number[] = []
   for (let i = 0; i < trozos.length; i += 2) {
     if (!trozos[i].trim()) continue
-    const tokens = new Set(normalizar(trozos[i]).split(/[^a-z0-9]+/).filter(Boolean))
-    const suyas = appIds.filter((id) => PALABRAS[id]?.some((k) => tokens.has(k)))
+    const normTrozo = normalizar(trozos[i])
+    const tokens = new Set(normTrozo.split(/[^a-z0-9]+/).filter(Boolean))
+    const suyas = appIds.filter((id) => PALABRAS[id]?.some((k) => menciona(normTrozo, tokens, k)))
     const destinatarias = suyas.length > 0 ? suyas : ultimas
     if (destinatarias.length === 0) {
       huerfanas.push(i)
@@ -259,9 +269,10 @@ export function interpretar(texto: string): Interpretacion {
   if (recMatch) {
     const hecho = recMatch[1].trim()
     // Etiqueta el hecho a las apps asignadas por palabras clave (igual que la bitácora).
-    const tokensHecho = new Set(normalizar(hecho).split(/[^a-z0-9]+/).filter(Boolean))
+    const normHecho = normalizar(hecho)
+    const tokensHecho = new Set(normHecho.split(/[^a-z0-9]+/).filter(Boolean))
     const relacionados = appsAsignadas()
-      .filter((p) => PALABRAS[p.id]?.some((k) => tokensHecho.has(k)))
+      .filter((p) => PALABRAS[p.id]?.some((k) => menciona(normHecho, tokensHecho, k)))
       .map((p) => p.id)
     return {
       roomId: relacionados[0] ?? null,
@@ -306,7 +317,7 @@ export function interpretar(texto: string): Interpretacion {
   const detectados: string[] = []
   for (const app of appsAsignadas()) {
     const claves = PALABRAS[app.id]
-    if (claves && claves.some((k) => tokens.has(k))) detectados.push(app.id)
+    if (claves && claves.some((k) => menciona(norm, tokens, k))) detectados.push(app.id)
   }
   if (detectados.length > 0) {
     return {
