@@ -78,7 +78,7 @@
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.1",
     "@react-three/postprocessing": "^3.0.4",
-    "@revenuecat/purchases-capacitor": "^13.4.1",
+    "@revenuecat/purchases-capacitor": "^13.6.0",
     "@revenuecat/purchases-js": "^1.47.3",
     "@supabase/supabase-js": "^2.110.7",
     "@tailwindcss/vite": "^4.3.0",
