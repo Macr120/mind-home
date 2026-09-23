@@ -23,6 +23,8 @@ import { useT } from '../../core/i18n/useT'
 import { intencionApp } from '../../core/state/intencionApp'
 import { BotonEnviarAContacto } from '../_shared/BotonEnviarAContacto'
 import { empaquetarReceta } from './compartible'
+import { ConectadoCon } from '../../core/ui/grafo/ConectadoCon'
+import { refNodo } from '../../core/grafo/memoria'
 
 export function RecetasTab({
   recetas,
@@ -405,6 +407,8 @@ export function DetalleReceta({
           tamEmoji="text-6xl"
         />
       )}
+
+      <ConectadoCon refNodo={receta.uid ? refNodo('receta', receta.uid) : null} />
 
       <div className="rounded-xl bg-white/5 border border-white/10 p-4">
         <div className="flex items-center gap-3">

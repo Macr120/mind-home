@@ -3,6 +3,8 @@ import type { Plantilla } from '../../core/appContrato'
 import { FLUJOS_METAS } from '../../core/tutorial/calendario.meta'
 import { COLOR_FABRICA } from './constantes'
 import { esencialMetas } from './tutorial.meta'
+import { filasNodo } from '../../core/grafoApps'
+import { rutinasRepo } from '../../core/data/repository'
 
 // La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
 // montaje ya envuelven en Suspense).
@@ -35,6 +37,20 @@ const metas: Plantilla = {
   // Sus tours de EJEMPLO viven con los del reloj (core/tutorial/calendario.meta.ts):
   // sin esto el «?» del cuarto caía en el tutorial genérico.
   flujos: FLUJOS_METAS,
+  // Las metas de toda la casa; cada una cuelga en el grafo de la app que la lleva.
+  nodosGrafo: async () =>
+    (await filasNodo(rutinasRepo))
+      .filter((r) => r.esMeta)
+      .map((r) => ({
+        tipo: 'meta' as const,
+        uid: r.uid,
+        titulo: r.nombre,
+        emoji: r.emoji,
+        appId: r.plantillaId,
+        resumen:
+          [r.categoriaMeta, r.completada ? 'cumplida' : r.fechaFin && `hasta ${r.fechaFin}`].filter(Boolean).join(' · ') ||
+          undefined,
+      })),
 }
 
 export default metas

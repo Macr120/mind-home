@@ -339,6 +339,8 @@ export const IT_TUT: Dict = {
   'tut.chat-registros.2.titulo': 'Cosa ricorda di te',
   'tut.chat-registros.2.texto':
     'Dati che l\'assistente ha deciso valesse la pena ricordare tra una sessione e l\'altra —un\'allergia, un obiettivo, una preferenza— per non doverteli chiedere di nuovo. Si dimenticano toccando la loro ✕.',
+  'tut.chat-registros.grafo.titulo': 'Il tuo grafo della memoria',
+  'tut.chat-registros.grafo.texto': 'Ogni ricordo si collega da solo a ciò che nomina delle tue app —persone, ricette, obiettivi, luoghi— e ad altri ricordi. Qui lo vedi come una mappa; tocca un ricordo per correggerlo o collegarlo a mano.',
   'tut.chat-registros.3.texto':
     'Quello che registri nelle tue app (pasti, spese, sessioni) vive in ogni app, non qui: questa scheda è solo la memoria della conversazione stessa.',
   'tut.app-generica.1.texto':

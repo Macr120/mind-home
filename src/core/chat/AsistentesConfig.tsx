@@ -566,6 +566,32 @@ function FormAsistente({
         />
       </div>
 
+      {/* Respuestas rápidas: un registro simple se guarda sin llamar al modelo */}
+      {iaHabilitada() && (
+        <div className="space-y-1 rounded-lg border border-white/10 bg-white/5 p-1.5">
+          <button
+            type="button"
+            onClick={() => guardar({ ...a, respuestasRapidas: !a.respuestasRapidas })}
+            className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-start text-[11px] font-semibold transition ${
+              a.respuestasRapidas
+                ? 'ui-accent-bg border-transparent'
+                : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10'
+            }`}
+          >
+            <span className="shrink-0 text-[11px]">{a.respuestasRapidas ? '✓' : '○'}</span>
+            <span className="min-w-0 flex-1 truncate">
+              {t('chat.config.rapidas', 'Respuestas rápidas')}
+            </span>
+          </button>
+          <p className="px-0.5 text-[10px] text-white/40">
+            {t(
+              'chat.config.rapidasAyuda',
+              'Los registros simples («gasté 200 en comida») se guardan al instante y sin gastar créditos, con una frase fija en vez de un comentario de la IA.',
+            )}
+          </p>
+        </div>
+      )}
+
       {/* Borrar el asistente: al final de SU editor, no en la fila de la lista
           (ahí era un ✕ pegado al resto de botones y se pulsaba sin querer). */}
       <div className="border-t border-white/10 pt-2">

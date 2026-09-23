@@ -127,6 +127,8 @@ export interface Asistente {
   enMapa: boolean
   /** Lee en voz alta lo que dice, sin pedírselo (ausente = no). */
   vozLeer?: boolean
+  /** Registros simples sin modelo, con frase fija (ausente = no). Ver `ia-chat` y Jev. */
+  respuestasRapidas?: boolean
   /** Voz TTS: nombre exacto de una voz del sistema (vacío = automática por idioma). */
   vozNombre?: string
   /** Voz TTS: tono 0.5–1.5 (ausente = el de su forma). */

@@ -12,6 +12,8 @@ import { diasParaCumple, edadQueCumple, proximoCumple } from './cumples'
 import { FormEvento } from './FormEvento'
 import { TarjetaEvento } from './TarjetaEvento'
 import { BotonBorrar, TARJETA } from './ui'
+import { ConectadoCon } from '../../core/ui/grafo/ConectadoCon'
+import { refNodo } from '../../core/grafo/memoria'
 
 /** Ficha de una persona: datos de contacto, su cumpleaños y lo que tienes con ella. */
 export function DetalleContacto({
@@ -34,6 +36,8 @@ export function DetalleContacto({
 
   const edad = contacto.cumple ? edadQueCumple(contacto.cumple) : null
   const faltan = contacto.cumple ? diasParaCumple(contacto.cumple) : null
+  // El uid lo sella el sync aunque la interfaz no lo declare: es la llave del grafo de memoria.
+  const uid = (contacto as ContactoAgenda & { uid?: string }).uid
 
   return (
     <div className="mx-auto max-w-2xl space-y-4">
@@ -78,6 +82,8 @@ export function DetalleContacto({
           )}
         </div>
       </div>
+
+      <ConectadoCon refNodo={uid ? refNodo('persona', uid) : null} />
 
       <div className="flex flex-wrap gap-2">
         {contacto.telefono && (

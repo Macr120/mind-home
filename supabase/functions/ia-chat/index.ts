@@ -68,6 +68,30 @@ const MODELO_OPENAI = Deno.env.get('OPENAI_TEXT_MODEL') ?? 'gpt-5.6-luna'
 const ESFUERZO_OPENAI = Deno.env.get('OPENAI_TEXT_EFFORT') ?? 'none'
 /** % del tráfico rápido que arranca en Gemini para medir su costo (0–100). */
 const MUESTREO_GEMINI = Number(Deno.env.get('IA_CHAT_GEMINI_PCT') ?? '0')
+/**
+ * Jev (TypeSafe AI): modelo de DECISIONES, no de texto. Aquí decide qué apps
+ * toca un mensaje (para mandar solo sus tools) y si es un registro simple que
+ * el cliente puede capturar sin modelo («respuestas rápidas»). Es un piloto
+ * medido (22-sep-2026): mientras la política de privacidad no lo nombre, solo
+ * corre para las cuentas de `IA_CHAT_JEV_UIDS` (uids separados por comas), o
+ * para todos con `IA_CHAT_JEV_TODOS=1`. `IA_CHAT_JEV_PCT` es el % de llamadas
+ * de esas cuentas donde además se FILTRAN las tools (A/B contra el costo de
+ * perder el prefijo cacheado). Sin clave o con Jev caído todo sigue como antes.
+ */
+const JEV_KEY = Deno.env.get('TYPESAFE_API_KEY') ?? ''
+/** Jev por Cloudflare Workers AI (`typesafe/jev`): manda sobre la clave de TypeSafe si está. */
+const CF_CUENTA = Deno.env.get('CLOUDFLARE_ACCOUNT_ID') ?? ''
+const CF_TOKEN = Deno.env.get('CLOUDFLARE_AI_TOKEN') ?? ''
+const JEV_POR_CF = !!CF_CUENTA && !!CF_TOKEN
+const JEV_DISPONIBLE = !!JEV_KEY || JEV_POR_CF
+const JEV_MODELO = Deno.env.get('JEV_MODEL') ?? 'jev-latest'
+const JEV_UIDS = new Set((Deno.env.get('IA_CHAT_JEV_UIDS') ?? '').split(',').map((s) => s.trim()).filter(Boolean))
+const JEV_TODOS = Deno.env.get('IA_CHAT_JEV_TODOS') === '1'
+const MUESTREO_RUTEO = Number(Deno.env.get('IA_CHAT_JEV_PCT') ?? '0')
+/** Una app entra al filtro con poca probabilidad: faltarle su tool al modelo es peor que sobrar. */
+const UMBRAL_APP = 0.3
+/** Una respuesta rápida exige casi certeza: si se equivoca, el dato no se guarda. */
+const UMBRAL_SIMPLE = 0.9
 const CACHE = { type: 'ephemeral' } as const
 /**
  * TTL del bloque de tools (TOOLS_EDITOR, prefijo compartido entre TODOS los
@@ -146,6 +170,14 @@ function entradaInvalida(body: BodyIn, mensajes: MensajeIn[]): string | null {
   if ((body.system?.length ?? 0) > LIMITES.system) return 'System demasiado largo.'
   if (mensajes.length > LIMITES.mensajes) return 'Demasiados mensajes.'
   if ((body.tools?.length ?? 0) > LIMITES.tools) return 'Demasiadas tools.'
+  const apps = body.ruteo?.apps
+  if (apps !== undefined) {
+    if (!Array.isArray(apps) || apps.length > 60) return 'Ruteo inválido.'
+    for (const a of apps) {
+      if (typeof a?.id !== 'string' || a.id.length > 40) return 'Ruteo inválido.'
+      if (typeof a.descripcion !== 'string' || a.descripcion.length > 400) return 'Ruteo inválido.'
+    }
+  }
   let nImagenes = 0
   for (const m of mensajes) {
     if (typeof m.texto !== 'string' || m.texto.length > LIMITES.texto) {
@@ -177,6 +209,15 @@ interface ToolIn {
   description: string
   schema: Record<string, unknown>
   cache?: boolean
+  /** App dueña de la tool de captura (para el enrutado de Jev). No viaja al proveedor. */
+  app?: string
+}
+
+/** Apps entre las que Jev elige; `capturable` = el cliente sabe capturarla sin modelo. */
+interface AppRuteo {
+  id: string
+  descripcion: string
+  capturable?: boolean
 }
 
 /** Los tres cerebros del proxy. El orden por defecto de la cadena es este. */
@@ -195,6 +236,73 @@ interface BodyIn {
   /** Proveedor preferido del usuario (panel de IA en modo Créditos). El otro
       sigue de respaldo; el perfil `calidad` la ignora. */
   prov?: string
+  /** Apps asignadas, para que Jev elija las que toca el mensaje. */
+  ruteo?: { apps?: AppRuteo[] }
+  /** El asistente tiene activas las respuestas rápidas (ajuste del usuario). */
+  rapidas?: boolean
+}
+
+/** Decisión de Jev sobre un mensaje: probabilidad por app y de «registro simple». */
+interface DecisionJev {
+  apps: Record<string, number>
+  simple: number
+  ms: number
+  usd: number
+}
+
+/**
+ * Pregunta a Jev, en UNA llamada, un sí/no por app más «¿es un registro
+ * simple?». El estado son solo los dos últimos mensajes: el contexto que sobra
+ * le baja la precisión. Timeout corto: si tarda, el chat sigue sin decisión.
+ */
+async function porJev(mensajes: MensajeIn[], apps: AppRuteo[]): Promise<DecisionJev> {
+  const t = Date.now()
+  const preguntas: Record<string, unknown> = {
+    simple: {
+      type: 'noul',
+      instructions:
+        'El último mensaje del usuario SOLO informa algo que ya hizo o midió (un gasto, una comida, horas de sueño, un ejercicio, una sesión…) para que se anote, sin preguntar, pedir consejo ni pedir crear, cambiar o explicar nada.',
+    },
+  }
+  apps.forEach((a, i) => {
+    preguntas[`app_${i}`] = {
+      type: 'noul',
+      instructions: `El último mensaje del usuario registra, pide o consulta algo de esta app: ${a.descripcion}`,
+    }
+  })
+  const peticion = {
+    state: { mensajes: mensajes.slice(-2).map((m) => ({ rol: m.rol, texto: m.texto })) },
+    questions: preguntas,
+  }
+  // Por Cloudflare Workers AI (sin la lista de espera de TypeSafe; cobra de su
+  // saldo prepagado) o directo a TypeSafe, según las credenciales que haya.
+  const resp = JEV_POR_CF
+    ? await fetch(`https://api.cloudflare.com/client/v4/accounts/${CF_CUENTA}/ai/run`, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${CF_TOKEN}`, 'content-type': 'application/json' },
+        signal: AbortSignal.timeout(1000),
+        body: JSON.stringify({ model: 'typesafe/jev', input: peticion }),
+      })
+    : await fetch('https://api.typesafe.ai/v1/systemone', {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${JEV_KEY}`, 'content-type': 'application/json' },
+        signal: AbortSignal.timeout(1000),
+        body: JSON.stringify({ model: JEV_MODELO, ...peticion }),
+      })
+  if (!resp.ok) throw new Error(`jev ${resp.status}`)
+  const crudo = await resp.json()
+  // Cloudflare envuelve la respuesta de TypeSafe dos veces: `result.result`.
+  const data = JEV_POR_CF ? (crudo.result?.result ?? {}) : crudo
+  const p = (clave: string): number => {
+    const v = Number(data.answers?.[clave]?.noul)
+    return Number.isFinite(v) ? v : 0
+  }
+  return {
+    apps: Object.fromEntries(apps.map((a, i) => [a.id, p(`app_${i}`)])),
+    simple: p('simple'),
+    ms: Date.now() - t,
+    usd: costoTokensUsd('jev', { entrada: Number(data.usage?.input_tokens ?? 0), salida: 0 }),
+  }
 }
 
 /** Lo que devuelve cualquier proveedor, ya normalizado. */
@@ -524,6 +632,7 @@ async function porGemini(
 }
 
 Deno.serve(async (req) => {
+  const t0 = Date.now()
   const pre = preflight(req)
   if (pre) return pre
   const cors = corsDe(req)
@@ -567,6 +676,63 @@ Deno.serve(async (req) => {
   const op = calidad ? 'modelo3d' : conPdf ? 'pdf' : body.op && body.op in TOPES ? body.op : OP_POR_DEFECTO
   const maxTokens = Math.max(1, Math.min(TOPES[op], body.maxTokens ?? 1500))
 
+  // Jev: solo en el chat con tools, sin adjuntos y para las cuentas del piloto.
+  const appsRuteo = body.ruteo?.apps ?? []
+  const conAdjunto = mensajes.some((m) => m.imagen)
+  const jevPermitido =
+    JEV_DISPONIBLE && (JEV_TODOS || JEV_UIDS.has(usuario.id)) && op === 'chat' && !conAdjunto && appsRuteo.length > 0
+  const filtrar = jevPermitido && MUESTREO_RUTEO > 0 && Math.random() * 100 < MUESTREO_RUTEO
+  let decision: DecisionJev | null = null
+  if (jevPermitido && (body.rapidas || filtrar)) {
+    try {
+      decision = await porJev(mensajes, appsRuteo)
+    } catch (e) {
+      console.warn(`ia-chat: jev sin decisión — ${e instanceof Error ? e.message : 'error'}`)
+    }
+  }
+  const elegidas = decision ? appsRuteo.filter((a) => (decision?.apps[a.id] ?? 0) >= UMBRAL_APP) : []
+
+  // Respuesta rápida: registro simple de apps que el cliente sabe capturar.
+  // No se llama al modelo ni se cobra crédito; el costo de Jev (~$0.00004)
+  // queda en uso_ia_llamadas. Si la captura local falla, el cliente reintenta
+  // sin `rapidas` y esa segunda llamada sí se cobra.
+  const seguras = decision ? appsRuteo.filter((a) => (decision?.apps[a.id] ?? 0) >= 0.5) : []
+  if (
+    body.rapidas &&
+    decision &&
+    decision.simple >= UMBRAL_SIMPLE &&
+    seguras.length > 0 &&
+    seguras.every((a) => a.capturable)
+  ) {
+    const ms = Date.now() - t0
+    const fila = admin
+      .from('uso_ia_llamadas')
+      .insert({
+        user_id: usuario.id,
+        op,
+        proveedor: 'jev',
+        modelo: JEV_MODELO,
+        ms,
+        ms_proveedor: decision.ms,
+        usd: decision.usd,
+        ruteo: { ...decision, rapido: true },
+      })
+      .then(({ error }) => {
+        if (error) console.error('ia-chat: uso_ia_llamadas falló —', error.message)
+      })
+    if (typeof EdgeRuntime !== 'undefined') EdgeRuntime.waitUntil(fila)
+    else await fila
+    return json({ rapido: { apps: seguras.map((a) => a.id) }, ms }, 200, cors)
+  }
+
+  // Enrutado (A/B): solo las tools de las apps elegidas, más las que no son de
+  // ninguna app. Si Jev no eligió nada, van todas: faltar una tool es peor.
+  const filtradas = filtrar && elegidas.length > 0
+  if (filtradas && body.tools) {
+    const ids = new Set(elegidas.map((a) => a.id))
+    body.tools = body.tools.filter((t) => !t.app || ids.has(t.app))
+  }
+
   const { data: cuota, error: errCuota } = await admin.rpc('consumir_cuota_ia', {
     p_uid: usuario.id,
     p_tipo: op,
@@ -603,8 +769,10 @@ Deno.serve(async (req) => {
 
   let salida: Salida | null = null
   let proveedor = ''
+  let msProveedor = 0
   const fallos: string[] = []
   for (const id of cadena) {
+    const tIntento = Date.now()
     try {
       salida =
         id === 'anthropic'
@@ -613,6 +781,7 @@ Deno.serve(async (req) => {
             ? await porGemini(body, mensajes, calidad, maxTokens)
             : await porOpenAI(body, mensajes, maxTokens)
       proveedor = id
+      msProveedor = Date.now() - tIntento
       break
     } catch (e) {
       fallos.push(`${id}: ${e instanceof Error ? e.message : 'error'}`)
@@ -649,6 +818,8 @@ Deno.serve(async (req) => {
   // perdieron 28 de 50 registros antes de detectarlo, y con ellos el costo real.
   // Encadenarlo aquí la pone en vuelo y además saca el error al log, que antes se
   // tragaba entero.
+  const usd = costoTokensUsd(modeloServido, salida) + (decision?.usd ?? 0)
+  const ms = Date.now() - t0
   const registro = admin
     .rpc('registrar_uso_ia', {
       p_uid: usuario.id,
@@ -658,19 +829,54 @@ Deno.serve(async (req) => {
       p_cache_leer: salida.cacheLeer,
       p_proveedor: proveedor,
       p_tipo: op,
-      p_usd: costoTokensUsd(modeloServido, salida),
+      p_usd: usd,
     })
     .then(({ error }) => {
       if (error) console.error('ia-chat: registrar_uso_ia falló —', error.message)
     })
-  if (typeof EdgeRuntime !== 'undefined') EdgeRuntime.waitUntil(registro)
-  else await registro
+  // Una fila por llamada con su latencia (uso_ia_llamadas): las sumas por mes
+  // no dan p50/p95. Mismo `.then()` obligatorio que arriba.
+  const fila = admin
+    .from('uso_ia_llamadas')
+    .insert({
+      user_id: usuario.id,
+      op,
+      proveedor,
+      modelo: modeloServido,
+      ms,
+      ms_proveedor: msProveedor,
+      entrada: salida.entrada,
+      salida: salida.salida,
+      cache_crear: salida.cacheCrear,
+      cache_leer: salida.cacheLeer,
+      usd,
+      respaldo: fallos.length > 0,
+      ruteo: decision ? { ...decision, filtradas, elegidas: elegidas.map((a) => a.id) } : null,
+    })
+    .then(({ error }) => {
+      if (error) console.error('ia-chat: uso_ia_llamadas falló —', error.message)
+    })
+  // Purga oportunista (1 de cada 200 llamadas): a esta escala sale más barato que un cron.
+  const purga =
+    Math.random() < 0.005
+      ? admin
+          .from('uso_ia_llamadas')
+          .delete()
+          .lt('creado', new Date(Date.now() - 30 * 86_400_000).toISOString())
+          .then(({ error }) => {
+            if (error) console.error('ia-chat: purga de uso_ia_llamadas falló —', error.message)
+          })
+      : Promise.resolve()
+  const pendientes = Promise.all([registro, fila, purga])
+  if (typeof EdgeRuntime !== 'undefined') EdgeRuntime.waitUntil(pendientes)
+  else await pendientes
 
   return json(
     {
       texto: salida.texto,
       llamadas: salida.llamadas,
       proveedor,
+      ms,
       uso: {
         entrada: salida.entrada,
         salida: salida.salida,

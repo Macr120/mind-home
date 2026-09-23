@@ -341,6 +341,8 @@ export const DE_TUT: Dict = {
   'tut.chat-registros.2.titulo': 'Was er sich über dich merkt',
   'tut.chat-registros.2.texto':
     'Dinge, die der Assistent es wert fand, sich zwischen den Sitzungen zu merken – eine Allergie, ein Ziel, eine Vorliebe – damit er dich nicht noch einmal danach fragt. Mit einem Tipp auf das ✕ vergisst er sie wieder.',
+  'tut.chat-registros.grafo.titulo': 'Dein Gedächtnisgraph',
+  'tut.chat-registros.grafo.texto': 'Jede Erinnerung verbindet sich von selbst mit dem, was sie aus deinen Apps nennt – Personen, Rezepte, Ziele, Orte – und mit anderen Erinnerungen. Hier siehst du das als Karte; tippe auf eine Erinnerung, um sie zu korrigieren oder von Hand zu verbinden.',
   'tut.chat-registros.3.texto':
     'Was du in deinen Apps einträgst (Mahlzeiten, Ausgaben, Einheiten), lebt in der jeweiligen App, nicht hier: Dieser Tab ist nur das Gedächtnis des Gesprächs selbst.',
   'tut.app-generica.1.texto':

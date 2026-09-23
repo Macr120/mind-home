@@ -247,6 +247,8 @@ export const EN_TUT: Dict = {
   'tut.chat-registros.1.texto': 'Chats shows who you talked to; Records shows what got saved from those conversations.',
   'tut.chat-registros.2.titulo': 'What it remembers about you',
   'tut.chat-registros.2.texto': 'Details the assistant decided were worth remembering between sessions —an allergy, a goal, a preference— so it doesn\'t ask again. Forget one by tapping its ✕.',
+  'tut.chat-registros.grafo.titulo': 'Your memory graph',
+  'tut.chat-registros.grafo.texto': 'Each memory connects on its own to what it mentions from your apps —people, recipes, goals, places— and to other memories. Here you see it as a map; tap a memory to fix it or connect it by hand.',
   'tut.chat-registros.3.texto': 'What you logged in your apps (meals, expenses, sessions) lives in each app, not here: this tab is only the memory of the conversation itself.',
   'tut.app-generica.1.texto': 'The header shows the room and the open app. If the room holds several apps, the ‹ arrow returns to the launcher.',
   'tut.app-generica.2.titulo': 'Missions',

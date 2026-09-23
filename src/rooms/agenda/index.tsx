@@ -5,6 +5,8 @@ import { COLOR_FABRICA } from './constantes'
 import { metaAgenda } from './meta'
 import { esencialAgenda, flujosAgenda } from './tutorial.meta'
 import { planMetasAgenda } from './plan'
+import { filasNodo } from '../../core/grafoApps'
+import { contactosAgendaRepo } from '../../core/data/repository'
 
 /**
  * Agenda: la libreta que hay detrás del calendario. Sus registros con fecha se
@@ -30,6 +32,19 @@ const agenda: Plantilla = {
   esencial: esencialAgenda,
   flujos: flujosAgenda,
   // Acotamiento del planificador ✨: llevar un proyecto hasta su entrega.
+  // Las personas de la libreta, para el grafo de memoria del asistente.
+  nodosGrafo: async () =>
+    (await filasNodo(contactosAgendaRepo)).map((c) => ({
+      tipo: 'persona' as const,
+      uid: c.uid,
+      titulo: c.nombre,
+      // «Rosa Vidal» también es «Rosa»: casi nadie nombra a los suyos con apellido.
+      alias: c.nombre.trim().includes(' ') ? [c.nombre.trim().split(/\s+/)[0] ?? ''] : undefined,
+      resumen:
+        [c.relacion, c.cumple && `cumple ${c.cumple}`, c.alCuidado && 'a su cuidado'].filter(Boolean).join(' · ') ||
+        undefined,
+      seccion: 'personas',
+    })),
   planMetas: planMetasAgenda,
   esquemas,
   metaDiaria: metaAgenda,

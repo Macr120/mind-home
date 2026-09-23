@@ -28,6 +28,7 @@ import { esencialCocina, flujosCocina } from './tutorial.meta'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { OPERACIONES_IA } from './costosIA'
 import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
+import { filasNodo } from '../../core/grafoApps'
 
 /** Nombre del registro sin el verbo de entrada: «comí una ensalada» → «ensalada». */
 function nombreComida(texto: string): string {
@@ -423,6 +424,16 @@ const cocina: Plantilla = {
         // Sin registro rápido, como en RegistroComida: una comida de un toque
         // sería 0 kcal envenenando los totales.
       },
+    })),
+  nodosGrafo: async () =>
+    (await filasNodo(recetasRepo)).map((r) => ({
+      tipo: 'receta' as const,
+      uid: r.uid,
+      titulo: r.nombre,
+      emoji: r.emoji,
+      resumen: `${r.calorias} kcal · ${r.porciones} porciones`,
+      seccion: 'recetas',
+      dato: String(r.id),
     })),
   planMetas: planMetasCocina,
   // Nada de nombres de UNA palabra como 'peso': se matchean por token y

@@ -989,6 +989,14 @@ export const cuerpoChatRegistros: CuerpoTutorial = {
       ),
     },
     {
+      sel: 'chat.memorias.grafo',
+      titulo: T('tut.chat-registros.grafo.titulo', 'Tu grafo de memoria'),
+      texto: T(
+        'tut.chat-registros.grafo.texto',
+        'Cada memoria se conecta sola con lo que nombra de tus apps —personas, recetas, metas, lugares— y con otras memorias. Aquí lo ves como un mapa; toca una memoria para corregirla o conectarla a mano.',
+      ),
+    },
+    {
       texto: T(
         'tut.chat-registros.3.texto',
         'Lo registrado en tus apps (comidas, gastos, sesiones) vive en cada app, no aquí: esta pestaña es solo la memoria de la conversación misma.',

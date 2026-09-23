@@ -263,6 +263,8 @@ export const KO_TUT: Dict = {
   'tut.chat-registros.2.titulo': '기억하고 있는 것',
   'tut.chat-registros.2.texto':
     '어시스턴트가 세션 사이에 기억해 둘 만하다고 판단한 정보예요. 알레르기, 목표, 취향 같은 것들이요. 다시 묻지 않으려고요. 잊게 하려면 ✕를 누르면 돼요.',
+  'tut.chat-registros.grafo.titulo': '나의 기억 그래프',
+  'tut.chat-registros.grafo.texto': '각 기억은 앱에서 언급한 것들(사람, 레시피, 목표, 장소)과 다른 기억들에 저절로 연결돼요. 여기서는 그걸 지도처럼 볼 수 있어요. 기억을 탭하면 고치거나 직접 연결할 수 있어요.',
   'tut.chat-registros.3.texto': '앱에 기록한 것들(식사, 지출, 세션)은 각 앱에 있고 여기엔 없어요. 이 탭은 대화 자체의 기억일 뿐이에요.',
   'tut.app-generica.1.texto': '헤더에 방과 열려 있는 앱이 나와요. 방에 앱이 여러 개면 ‹ 화살표로 방의 앱 목록으로 돌아가요.',
   'tut.app-generica.2.titulo': '미션',

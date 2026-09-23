@@ -9,6 +9,7 @@ import { buscarLugares } from './geocoder'
 import { esencialSala, flujosSala } from './tutorial.meta'
 import { eventosViaje } from './eventos'
 import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
+import { filasNodo } from '../../core/grafoApps'
 
 const esquemas: EsquemaCaptura[] = [
   {
@@ -96,6 +97,14 @@ const sala: Plantilla = {
   eventos: eventosViaje,
   esquemas,
   // Acotamiento del planificador ✨: en viajes el plan es SIEMPRE un itinerario.
+  nodosGrafo: async () =>
+    (await filasNodo(lugaresViajeRepo)).map((l) => ({
+      tipo: 'lugar' as const,
+      uid: l.uid,
+      titulo: l.nombre,
+      resumen: [[l.ciudad, l.pais].filter(Boolean).join(', '), l.visitado ? 'visitado' : 'por conocer'].join(' · '),
+      seccion: l.visitado ? 'mapa' : 'porConocer',
+    })),
   planMetas: async () => {
     const lugares = await lugaresViajeRepo.list()
     const pendientes = lugares.filter((l) => l.visitado === 0)

@@ -15,6 +15,8 @@ import { BotonEnviarAContacto } from '../_shared/BotonEnviarAContacto'
 import { empaquetarIdea } from './compartible'
 import { MoverIdeaDialog } from './MoverIdeaDialog'
 import { PanelSugerencias } from './PanelSugerencias'
+import { ConectadoCon } from '../../core/ui/grafo/ConectadoCon'
+import { refNodo } from '../../core/grafo/memoria'
 
 /** Id estable de un punto: dos puntos con el mismo texto se editan sin confundirse. */
 function nuevoPuntoId(): string {
@@ -46,6 +48,8 @@ export function IdeaDetalle({
   const [encarpetando, setEncarpetando] = useState(false)
 
   const puntos = idea.puntos ?? []
+  // El uid lo sella el sync aunque `Idea` no lo declare: es la llave del grafo de memoria.
+  const uidIdea = (idea as Idea & { uid?: string }).uid
   const conIA = iaActiva()
   const nombreCarpeta = carpetas.find((c) => c.carpetaId === idea.carpetaId)?.nombre
 
@@ -123,6 +127,7 @@ export function IdeaDetalle({
         </div>
 
         <EntradasQueUsan tipo="idea" id={idea.id} />
+        <ConectadoCon refNodo={uidIdea ? refNodo('idea', uidIdea) : null} />
 
         <ul className="space-y-1.5">
           {puntos.map((p, i) => (

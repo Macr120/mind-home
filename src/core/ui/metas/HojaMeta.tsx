@@ -19,6 +19,8 @@ import { Icono } from '../iconos/Icono'
 import { TONO_ESTADO } from './carpetas'
 import { ChipApp, SelectorApp } from './ChipApp'
 import { DetalleMeta } from './DetalleMeta'
+import { ConectadoCon } from '../grafo/ConectadoCon'
+import { refNodo } from '../../grafo/memoria'
 
 /** Sangría por nivel de sub-meta, la misma que usa la hoja del plan. */
 const SANGRIA = 18
@@ -58,6 +60,8 @@ export function HojaMeta({
   const [enlazando, setEnlazando] = useState(false)
 
   const estado = estadoMeta(metas, meta)
+  // El uid lo sella el sync aunque `Rutina` no lo declare: es la llave del grafo de memoria.
+  const uidMeta = (meta as Rutina & { uid?: string }).uid
   const resumen = resumenAlcance(metas, meta)
   const avance = progresoDe(metas, meta)
   const color = colorDe(meta)
@@ -189,6 +193,9 @@ export function HojaMeta({
             </span>
           </div>
         )}
+
+        {/* Lo que el asistente recuerda de esta meta (grafo de memoria). */}
+        <ConectadoCon refNodo={uidMeta ? refNodo('meta', uidMeta) : null} />
 
         {/* Dónde se registra lo que pide la meta: el mismo chip que llevan sus
             pasos en la hoja del plan, aquí para la meta entera. */}

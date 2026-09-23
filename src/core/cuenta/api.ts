@@ -111,6 +111,21 @@ export interface ToolCuenta {
   schema: Record<string, unknown>
   /** Breakpoint de prompt caching al final de esta tool (lo traduce el proxy). */
   cache?: boolean
+  /** App dueña de la tool de captura: con ella el proxy enruta (piloto de Jev). */
+  app?: string
+}
+
+/** Apps entre las que el proxy elige las que toca el mensaje (piloto de Jev). */
+export interface AppRuteo {
+  id: string
+  descripcion: string
+  /** El cliente sabe capturarla sin modelo (`RoomModule.capturar`). */
+  capturable: boolean
+}
+
+/** El proxy vio un registro simple: el cliente lo captura local, sin modelo ni crédito. */
+export interface RespuestaRapida {
+  rapido: { apps: string[] }
 }
 
 /** Medidor que devuelve el proxy tras cobrar: pool del mes + recargas. */
@@ -186,8 +201,7 @@ async function llamarFuncion<T>(nombre: string, cuerpo: unknown): Promise<T> {
   return json as T
 }
 
-/** Chat/tools/visión vía `ia-chat`. Refresca el medidor local con el uso devuelto. */
-export async function iaChatCuenta(cuerpo: {
+type CuerpoChatCuenta = {
   system: string
   /**
    * Índice (en chars) donde termina la parte ESTABLE del system: el proxy la
@@ -202,7 +216,10 @@ export async function iaChatCuenta(cuerpo: {
   perfil?: 'rapido' | 'calidad'
   /** Operación que se cobra. El servidor le impone su tope de `maxTokens`. */
   op?: OpIA
-}): Promise<RespuestaChatCuenta> {
+}
+
+/** Chat/tools/visión vía `ia-chat`. Refresca el medidor local con el uso devuelto. */
+export async function iaChatCuenta(cuerpo: CuerpoChatCuenta): Promise<RespuestaChatCuenta> {
   // La preferencia de proveedor se pega aquí y no en los ~20 call-sites: es del
   // TRANSPORTE, no de la llamada. El proxy la usa para reordenar su cadena.
   const r = await llamarFuncion<RespuestaChatCuenta>('ia-chat', {
@@ -210,6 +227,22 @@ export async function iaChatCuenta(cuerpo: {
     prov: getProvCerebroCuenta() ?? undefined,
   })
   refrescarMedidor(r.uso)
+  return r
+}
+
+/**
+ * El chat de la casa con enrutado: el proxy puede filtrar las tools por app o,
+ * con `rapidas`, contestar solo «es un registro simple de estas apps» sin
+ * llamar al modelo (esa respuesta no trae medidor: no se cobró nada).
+ */
+export async function iaChatCuentaRuteado(
+  cuerpo: CuerpoChatCuenta & { ruteo: { apps: AppRuteo[] }; rapidas: boolean },
+): Promise<RespuestaChatCuenta | RespuestaRapida> {
+  const r = await llamarFuncion<RespuestaChatCuenta | RespuestaRapida>('ia-chat', {
+    ...cuerpo,
+    prov: getProvCerebroCuenta() ?? undefined,
+  })
+  if (!('rapido' in r)) refrescarMedidor(r.uso)
   return r
 }
 

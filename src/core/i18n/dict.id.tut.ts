@@ -340,6 +340,8 @@ export const ID_TUT: Dict = {
   'tut.chat-registros.2.titulo': 'Yang diingat tentang kamu',
   'tut.chat-registros.2.texto':
     'Hal-hal yang menurut asisten layak diingat antar sesi —sebuah alergi, sebuah target, sebuah preferensi— supaya tidak perlu menanyakannya lagi. Sentuh ✕-nya untuk melupakannya.',
+  'tut.chat-registros.grafo.titulo': 'Graf memorimu',
+  'tut.chat-registros.grafo.texto': 'Setiap memori otomatis terhubung dengan hal dari aplikasimu yang disebutnya —orang, resep, target, tempat— dan dengan memori lain. Di sini kamu melihatnya sebagai peta; ketuk memori untuk memperbaikinya atau menghubungkannya secara manual.',
   'tut.chat-registros.3.texto':
     'Apa yang kamu catat di aplikasimu (makanan, pengeluaran, sesi) tinggal di masing-masing aplikasi, bukan di sini: tab ini hanya memori dari percakapannya sendiri.',
   'tut.app-generica.1.texto':

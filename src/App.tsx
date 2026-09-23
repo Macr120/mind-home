@@ -73,6 +73,7 @@ import { useChatArUi } from './core/state/chatArUiStore'
 import { useDemoEjercicio } from './core/state/demoEjercicioStore'
 import { usePreviaPlantilla } from './core/state/previaPlantillaStore'
 import { useTallerMuebles } from './core/state/tallerMueblesStore'
+import { useVistaGrafo } from './core/grafoApps'
 import { usePelicula } from './core/state/peliculaStore'
 import { useGrabacionPantalla } from './core/grabacionPantalla'
 import { useRedes } from './core/redes/redesStore'
@@ -94,6 +95,8 @@ const DemoEjercicioOverlay = lazy(() => import('./rooms/ejercicio/anim/DemoEjerc
 // `fixed` no quede encajonado por el stacking context del menú lateral.
 const PlantillaPreviaOverlay = lazy(() => import('./core/ui/PlantillaPreviaOverlay'))
 const TallerMueblesOverlay = lazy(() => import('./core/ui/muebles/TallerMueblesOverlay'))
+// Grafo de memoria del asistente: lazy, se abre desde las memorias del chat o un chip «Conectado con».
+const GrafoMemoria = lazy(() => import('./core/ui/grafo/GrafoMemoria'))
 // Píldora de «grabando la app» (Studio de video): lazy, solo mientras dura la toma.
 const GrabacionPantallaOverlay = lazy(() => import('./core/ui/GrabacionPantallaOverlay'))
 // Modo película del Studio de video: el editor como dock sobre el mapa. En la raíz
@@ -157,6 +160,8 @@ export default function App() {
   const demoEjercicioAbierta = useDemoEjercicio((s) => s.nombre !== null && s.modo === 'overlay')
   const previaAbierta = usePreviaPlantilla((s) => !!s.plantillaId)
   const tallerAbierto = useTallerMuebles((s) => s.abierto)
+  const grafoAbierto = useVistaGrafo((s) => s.abierto)
+  const vezGrafo = useVistaGrafo((s) => s.vez)
   // Modo película (animación 3D del Studio de video): el HUD de juego cede el sitio
   // a los controles del editor, montados sobre el mapa.
   const enPelicula = usePelicula((s) => s.proyectoId != null)
@@ -305,6 +310,11 @@ export default function App() {
       {tallerAbierto && (
         <Suspense fallback={null}>
           <TallerMueblesOverlay />
+        </Suspense>
+      )}
+      {grafoAbierto && (
+        <Suspense fallback={null}>
+          <GrafoMemoria key={vezGrafo} />
         </Suspense>
       )}
       <AsignarPlantillaDialog />

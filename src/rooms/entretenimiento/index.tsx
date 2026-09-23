@@ -10,6 +10,7 @@ import { esencialEntretenimiento, flujosEntretenimiento } from './tutorial.meta'
 import { JUEGOS_REALES, type IdJuegoReal } from './juegos/catalogo'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { OPERACIONES_IA } from './costosIA'
+import { filasNodo } from '../../core/grafoApps'
 
 const TIPOS_MEDIA: [string[], TipoMedia][] = [
   [['pelicula', 'filme', 'film', 'cine'], 'pelicula'],
@@ -139,6 +140,14 @@ const entretenimiento: Plantilla = {
   esquemas,
   operacionesIA: OPERACIONES_IA,
   // Acotamiento del planificador ✨: un programa de obras por ver, leer o jugar.
+  nodosGrafo: async () =>
+    (await filasNodo(mediaArchivoRepo)).map((m) => ({
+      tipo: 'obra' as const,
+      uid: m.uid,
+      titulo: m.titulo,
+      resumen: [m.tipo, m.estado, m.calificacion ? `${m.calificacion}/5` : '', m.autor].filter(Boolean).join(' · '),
+      seccion: 'archivo',
+    })),
   planMetas: async () => {
     const archivo = await mediaArchivoRepo.list()
     const pendientes = archivo.filter((m) => m.estado === 'pendiente')

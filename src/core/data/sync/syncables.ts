@@ -47,6 +47,7 @@ export const TABLAS_SYNC: string[] = [
   'bitacora',
   'accesos',
   'memorias',
+  'enlacesGrafo', // referencias por uid (texto): no van en FK
   'mensajesChat',
   'asistentes',
   'rutinas',
@@ -81,6 +82,7 @@ export const TABLAS_SYNC: string[] = [
   'itinerariosGuardados',
   'trayectosViaje',
   'lugaresNav',
+  'categoriasLugar',
   'hobbies',
   'sesionesHobby',
   'proyectosHobby',
@@ -264,6 +266,7 @@ export const FK: Record<string, Record<string, string>> = {
   transacciones: { metaId: 'metas' }, // el gasto que nace de abonar a una meta
   patrimonio: { metaId: 'metas' }, // la deuda o la inversión que se abona desde Metas
   bitacoraViaje: { lugarId: 'lugaresViaje' },
+  lugaresNav: { categoriaId: 'categoriasLugar' },
   diasItinerario: { lugarId: 'lugaresViaje' },
   portadasLugar: { lugarId: 'lugaresViaje' },
   sesionesHobby: { hobbyId: 'hobbies', proyectoId: 'proyectosHobby' },
@@ -347,6 +350,9 @@ export const ORDEN_TOPO: string[] = [
   'bitacoraViaje',
   'diasItinerario',
   'portadasLugar',
+  // `categoriasLugar` no aparece antes (sin padres numéricos → se aplica
+  // primero); el lugar guardado va después porque la referencia.
+  'lugaresNav',
   // `proyectosHobby` antes que `sesionesHobby`: la sesión referencia al proyecto.
   'proyectosHobby',
   'sesionesHobby',

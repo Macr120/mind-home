@@ -8,6 +8,7 @@ import { actividadId } from '../../core/rutinas'
 import { tGlobal } from '../../core/i18n/useT'
 import { CLAUSULA_RECHAZO } from '../../core/planIA'
 import { esencialHobbies, flujosHobbies } from './tutorial.meta'
+import { filasNodo } from '../../core/grafoApps'
 
 /** Duración en minutos detectada en el texto ("30 min", "1 hora", "45m"), o 0. */
 function extraerMinutos(norm: string): number {
@@ -130,6 +131,27 @@ const hobbies: Plantilla = {
   },
   // Acotamiento del planificador ✨ por ámbito: progresar en el hobby o terminar
   // el proyecto, calibrado con la meta semanal y las sesiones reales.
+  nodosGrafo: async () => {
+    const lista = await filasNodo(hobbiesRepo)
+    const nombre = new Map(lista.map((h) => [h.id, h.nombre]))
+    return [
+      ...lista.map((h) => ({
+        tipo: 'hobby' as const,
+        uid: h.uid,
+        titulo: h.nombre,
+        emoji: h.emoji,
+        resumen: h.metaDiasSemana ? `meta: ${h.metaDiasSemana} días por semana` : undefined,
+        seccion: 'hobbies',
+      })),
+      ...(await filasNodo(proyectosHobbyRepo)).map((p) => ({
+        tipo: 'proyecto' as const,
+        uid: p.uid,
+        titulo: p.nombre,
+        resumen: [nombre.get(p.hobbyId), p.estado === 'terminado' ? 'terminado' : 'en curso'].filter(Boolean).join(' · '),
+        seccion: 'hobbies',
+      })),
+    ]
+  },
   planMetas: async (ambitoId) => {
     const hoy = fechaLocalISO()
     const desde = isoMasDias(hoy, -29)

@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { haySesionProbable, useSesion } from '../../cuenta/sesionStore'
 import { hayBackend } from '../../cuenta/supabase'
+import { esDemo } from '../../edicion'
 import { useT, type TFunc } from '../../i18n/useT'
 import { mensajeErrorPartida } from '../../partida/api'
 import { usePartida } from '../../partida/partidaStore'
@@ -45,8 +46,14 @@ export function ListaAmigos({ onAbrir, onContactos }: { onAbrir: (hiloId: string
   const [errorSala, setErrorSala] = useState('')
   /** Contacto al que se va a invitar mientras se eligen los permisos ('' = cerrado). */
   const [permisosPara, setPermisosPara] = useState('')
-  if (!hayBackend()) return null
-  const conSesion = !!usuario || haySesionProbable()
+  // Casa demo: dos amigos de mentira para enseñar la vista sin cuenta.
+  const demo = esDemo()
+  useEffect(() => {
+    if (demo) void import('../../../demo/amigosDemo').then((m) => m.sembrarAmigosDemo())
+  }, [demo])
+
+  if (!hayBackend() && !demo) return null
+  const conSesion = demo || !!usuario || haySesionProbable()
 
   const invitar = async (contactoId: string) => {
     setInvitando(contactoId)
@@ -132,6 +139,8 @@ export function ListaAmigos({ onAbrir, onContactos }: { onAbrir: (hiloId: string
                 </p>
               </div>
             </button>
+            {/* Invitar pide una sala real en el servidor: no en el demo. */}
+            {!demo && (
             <button
               type="button"
               onClick={() => pedirInvitar(c.contactoId)}
@@ -142,6 +151,7 @@ export function ListaAmigos({ onAbrir, onContactos }: { onAbrir: (hiloId: string
             >
               <Icono nombre="casa" />
             </button>
+            )}
           </div>
         )
       })}

@@ -228,6 +228,8 @@ export const ZH_TUT: Dict = {
   'tut.chat-registros.1.texto': '“聊天”显示你和谁聊过；“记录”显示这些对话里保存下来的内容。',
   'tut.chat-registros.2.titulo': '它记住的事',
   'tut.chat-registros.2.texto': '助手觉得值得跨会话记住的信息——过敏、一个目标、一种偏好——这样就不用再问你一遍。点它的✕就会忘掉。',
+  'tut.chat-registros.grafo.titulo': '你的记忆图谱',
+  'tut.chat-registros.grafo.texto': '每条记忆都会自动关联到它提到的应用中的内容——人物、食谱、目标、地点——以及其他记忆。在这里你能像看地图一样看到它；点一条记忆即可修改，或手动关联。',
   'tut.chat-registros.3.texto': '你在各个应用里记录的东西（饮食、支出、训练）都留在那些应用里，不在这里：这个标签页只是对话本身的记忆。',
   'tut.app-generica.1.texto': '顶部显示房间和当前打开的应用。如果这个房间有好几个应用，‹ 箭头会回到房间的应用列表。',
   'tut.app-generica.2.titulo': '任务',

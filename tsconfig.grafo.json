@@ -1,0 +1,14 @@
+{
+  // Revisión extra del núcleo del grafo de memoria con las opciones que el resto
+  // del repo no pasa (2538 y 1192 errores medidos el 22-sep-2026). Solo sirve si
+  // `src/core/grafo` no importa nada de fuera: un import metería ese archivo
+  // en esta revisión.
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.grafo.tsbuildinfo",
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true
+  },
+  "include": ["src/core/grafo"],
+  "exclude": []
+}

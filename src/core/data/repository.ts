@@ -13,6 +13,15 @@ import {
 import type { Table, UpdateSpec } from 'dexie'
 import { marcarRegistro } from '../state/registroSesion'
 import { useClaveEncendidos, visibles } from './ejemplos'
+import {
+  duplicadaDe,
+  memoriasRelevantes,
+  mencionadas,
+  refMemoria,
+  type MemoriaNodo,
+  type NodoEntidad,
+  type RefNodo,
+} from '../grafo/memoria'
 
 /**
  * Lista vacía ESTABLE para el `?? VACIO` de los `useAll()` mientras la consulta
@@ -340,6 +349,8 @@ export const portadasLugarRepo = createRepository(db.portadasLugar, 'id', false)
 export const itinerariosGuardadosRepo = createRepository(db.itinerariosGuardados, 'creadoEn')
 export const trayectosViajeRepo = createRepository(db.trayectosViaje, 'creadoEn')
 export const lugaresNavRepo = createRepository(db.lugaresNav, 'creadoEn')
+// De la más antigua a la más nueva: son chips fijos, no un historial.
+export const categoriasLugarRepo = createRepository(db.categoriasLugar, 'creadoEn', false)
 
 export const sesionesMindfulnessRepo = createRepository(db.sesionesMindfulness)
 export const gratitudDiariaRepo = createRepository(db.gratitudDiaria)
@@ -401,6 +412,115 @@ export const bitacoraRepo = createRepository(db.bitacora, 'creado')
 
 /** Memorias del arquitecto: hechos sobre el usuario, más reciente primero. */
 export const memoriasRepo = createRepository(db.memorias, 'creado')
+
+/** Enlaces del grafo que hizo el usuario a mano (los automáticos se derivan al leer). */
+export const enlacesGrafoRepo = createRepository(db.enlacesGrafo, 'id')
+
+/**
+ * Memorias vigentes como nodos del grafo. Todas tienen uid: el backfill de la
+ * v89 se lo dio a las viejas y el middleware lo sella en cada alta.
+ */
+async function nodosMemoria(): Promise<MemoriaNodo[]> {
+  const filas = await db.memorias.toArray()
+  return filas
+    .filter((m) => m.vigente && m.uid)
+    .map((m) => ({ uid: m.uid ?? '', hecho: m.hecho, roomId: m.roomId, asistenteId: m.asistenteId, creado: m.creado }))
+}
+
+/** Los 6 primeros caracteres del uid: la etiqueta con la que el modelo cita una memoria. */
+export function etiquetaMemoria(uid: string): string {
+  return uid.slice(0, 6)
+}
+
+/**
+ * Guarda una memoria salvo que ya haya una vigente que diga lo mismo
+ * (`'repetida'`). `reemplaza` es la etiqueta de la memoria que este hecho
+ * corrige («mi presupuesto ahora es…»): la vieja deja de estar vigente y queda
+ * como historial.
+ */
+export async function guardarMemoria(m: {
+  hecho: string
+  roomId?: string
+  asistenteId?: string
+  reemplaza?: string
+}): Promise<'nueva' | 'repetida'> {
+  const { reemplaza, ...datos } = m
+  const existentes = await nodosMemoria()
+  if (duplicadaDe(datos.hecho, existentes)) return 'repetida'
+  const vieja = reemplaza ? existentes.find((x) => etiquetaMemoria(x.uid) === reemplaza) : undefined
+  await db.transaction('rw', db.memorias, async () => {
+    await db.memorias.add({ ...datos, creado: new Date().toISOString(), vigente: true })
+    if (vieja) await db.memorias.where('uid').equals(vieja.uid).modify({ vigente: false })
+  })
+  return 'nueva'
+}
+
+export async function editarMemoria(id: number, hecho: string): Promise<void> {
+  const limpio = hecho.trim()
+  if (limpio) await memoriasRepo.update(id, { hecho: limpio })
+}
+
+/** Vuelve a poner vigente una memoria que otra había reemplazado. */
+export async function restaurarMemoria(id: number): Promise<void> {
+  await memoriasRepo.update(id, { vigente: true })
+}
+
+/** Borra una memoria y sus enlaces manuales (si no, quedarían colgando hacia la nada). */
+export async function olvidarMemoria(id: number): Promise<void> {
+  await db.transaction('rw', db.memorias, db.enlacesGrafo, async () => {
+    const m = await db.memorias.get(id)
+    if (m?.uid) {
+      const ref = refMemoria(m.uid)
+      await db.enlacesGrafo.where('desde').equals(ref).delete()
+      await db.enlacesGrafo.where('hacia').equals(ref).delete()
+    }
+    await db.memorias.delete(id)
+  })
+}
+
+async function enlacesEntre(a: RefNodo, b: RefNodo) {
+  const [ida, vuelta] = await Promise.all([
+    db.enlacesGrafo.where('desde').equals(a).filter((e) => e.hacia === b).toArray(),
+    db.enlacesGrafo.where('desde').equals(b).filter((e) => e.hacia === a).toArray(),
+  ])
+  return [...ida, ...vuelta]
+}
+
+/** «Conectar con…»: enlace manual entre dos nodos (no se duplica). */
+export async function enlazarNodos(desde: RefNodo, hacia: RefNodo): Promise<void> {
+  if (desde === hacia || (await enlacesEntre(desde, hacia)).length) return
+  await enlacesGrafoRepo.add({ desde, hacia, creado: new Date().toISOString() })
+}
+
+export async function desenlazarNodos(a: RefNodo, b: RefNodo): Promise<void> {
+  const filas = await enlacesEntre(a, b)
+  await db.enlacesGrafo.bulkDelete(filas.flatMap((e) => (e.id != null ? [e.id] : [])))
+}
+
+/**
+ * Las memorias vigentes que conviene mandar al modelo para este mensaje, con
+ * su etiqueta, y las cosas de las apps que el mensaje nombra (para su ficha).
+ * `entidades` llega de `core/grafoApps.ts`: aquí no se puede importar el
+ * registro de apps.
+ */
+export async function memoriasParaPrompt(ctx: {
+  texto: string
+  apps: string[]
+  asistenteId: string
+  entidades: readonly NodoEntidad[]
+}): Promise<{ memorias: { etiqueta: string; hecho: string }[]; nombradas: NodoEntidad[] }> {
+  const [nodos, aristas] = await Promise.all([nodosMemoria(), db.enlacesGrafo.toArray()])
+  const elegidas = memoriasRelevantes(
+    nodos,
+    aristas.map((a) => ({ desde: a.desde as RefNodo, hacia: a.hacia as RefNodo, manual: true })),
+    // 12 memorias y ~400 tokens: lo que antes era la cola entera con pocas memorias.
+    { ...ctx, tope: 12, maxChars: 1600, ahora: Date.now() },
+  )
+  return {
+    memorias: elegidas.map((m) => ({ etiqueta: etiquetaMemoria(m.uid), hecho: m.hecho })),
+    nombradas: mencionadas(ctx.texto, ctx.entidades),
+  }
+}
 
 /** Conversaciones con los asistentes (interfaz tipo chat). */
 export const mensajesChatRepo = createRepository(db.mensajesChat, 'creado')

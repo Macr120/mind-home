@@ -2,9 +2,11 @@
 import type Anthropic from '@anthropic-ai/sdk'
 import { getPlantilla } from '../appContrato'
 import type { CampoCaptura } from '../appContrato'
-import { appsAsignadas } from './dispatcher'
+import { appsAsignadas, interpretar } from './dispatcher'
 import { hayIntencionEditor } from './editorIntencion'
-import { memoriasRepo, rutinasRepo } from '../data/repository'
+import { guardarMemoria, memoriasParaPrompt, rutinasRepo } from '../data/repository'
+import { nodosDeApps } from '../grafoApps'
+import type { NodoEntidad, TipoEntidad } from '../grafo/memoria'
 import type { DestinoChat, PasoRutina } from '../data/db'
 import { destinoDeTool } from './destinoChat'
 import { generarImagen, imagenIaActiva, type AspectoImagen } from '../imagenIA'
@@ -16,7 +18,7 @@ import { nombreAsistente, type Asistente, type Pieza3D } from './mascotas'
 import { extraerEmocion, INSTRUCCION_EMOCION, type EmocionId } from './emociones'
 import { fechaLocalISO } from '../fechaLocal'
 import { devIA, iaHabilitada, tieneAcceso } from '../edicion'
-import { usarViaCuenta, iaChatCuenta, ErrorIA, registrarByokUtilizable } from '../cuenta/api'
+import { usarViaCuenta, iaChatCuenta, iaChatCuentaRuteado, ErrorIA, registrarByokUtilizable, type AppRuteo } from '../cuenta/api'
 import { esperarSesion } from '../cuenta/sesionStore'
 import { hayBackend } from '../cuenta/supabase'
 import { opDeTexto } from '../cuenta/costos'
@@ -321,6 +323,8 @@ export interface ToolNeutra {
   schema: Record<string, unknown>
   /** Marca un breakpoint de prompt caching al final de esta tool (proxy de la cuenta). */
   cache?: boolean
+  /** App dueña de la tool de captura: el proxy enruta con ella (piloto de Jev). */
+  app?: string
 }
 
 function campoASchema(c: CampoCaptura): Record<string, unknown> {
@@ -350,6 +354,7 @@ function construirTools(cuartosPermitidos?: string[]): ToolNeutra[] {
   for (const room of responsable) {
     for (const e of room.esquemas ?? []) {
       tools.push({
+        app: room.id,
         name: `${room.id}__${e.id}`,
         description: `${room.nombre} — ${e.descripcion}`,
         schema: {
@@ -364,11 +369,15 @@ function construirTools(cuartosPermitidos?: string[]): ToolNeutra[] {
   tools.push({
     name: 'recordar',
     description:
-      'Guarda un hecho duradero sobre el usuario (preferencia, hábito, dato personal) en tu memoria entre sesiones. Úsala cuando el usuario revele algo que conviene recordar o lo pida explícitamente. NO es para eventos puntuales (esos van en los cuartos).',
+      'Guarda un hecho duradero sobre el usuario (preferencia, hábito, dato personal) en tu memoria entre sesiones. Úsala cuando el usuario revele algo que conviene recordar o lo pida explícitamente. NO es para eventos puntuales (esos van en los cuartos) ni para lo que ya está en tu memoria. Si el hecho corrige o actualiza una memoria que ya tienes, pon su id en `reemplaza`.',
     schema: {
       type: 'object',
       properties: {
         hecho: { type: 'string', description: 'El hecho, en una sola frase' },
+        reemplaza: {
+          type: 'string',
+          description: 'Id entre corchetes de la memoria que este hecho corrige o actualiza (la vieja deja de valer)',
+        },
         roomId: {
           type: 'string',
           description: `App relacionada si aplica: ${apps.map((r) => r.id).join(', ')}`,
@@ -509,6 +518,12 @@ export interface ResultadoIA {
   imagen?: Blob
   /** El modelo pidió una imagen pero la generación falló (cuota, red…). */
   imagenFallo?: boolean
+  /**
+   * Respuesta rápida: el proxy vio un registro simple de estas apps y NO llamó
+   * al modelo. Lo captura el cliente con `RoomModule.capturar`; si no puede,
+   * vuelve a llamar sin `rapidas`.
+   */
+  rapido?: string[]
 }
 
 /** Añade el chip si no estaba ya: varias tools pueden apuntar al mismo sitio. */
@@ -550,15 +565,58 @@ function lineasPersonaje(mascota: Asistente): string[] {
   ]
 }
 
-/** Contexto común de los system del chat: la fecha de hoy y las memorias vigentes del usuario. */
-async function lineasContexto(): Promise<string[]> {
-  const memorias = (await memoriasRepo.list()).filter((m) => m.vigente)
+/**
+ * Contexto común de los system del chat: la fecha de hoy y las memorias del
+ * usuario que vienen al caso para ESTE mensaje (grafo de memoria: con pocas
+ * entran todas, con muchas solo las relevantes).
+ */
+async function lineasContexto(ctx: { texto: string; asistenteId: string }): Promise<string[]> {
+  // Las apps que nombra el mensaje (palabras clave del dispatcher) y las cosas
+  // de las apps que nombra (Ana, la lasaña) suben a sus memorias.
+  const { memorias, nombradas } = await memoriasParaPrompt({
+    ...ctx,
+    apps: interpretar(ctx.texto).roomIds,
+    entidades: await nodosDeApps(),
+  })
+  const fichas = fichasDe(nombradas)
   return [
     `Hoy es ${fechaLocalISO()}.`,
     memorias.length
-      ? `Lo que recuerdas del usuario:\n${memorias.map((m) => `- ${m.hecho}`).join('\n')}`
+      ? `Lo que recuerdas del usuario (entre corchetes, su id):\n${memorias.map((m) => `- [${m.etiqueta}] ${m.hecho}`).join('\n')}`
       : '',
+    fichas.length ? `Datos de sus apps que nombra el mensaje:\n${fichas.join('\n')}` : '',
   ]
+}
+
+const NOMBRE_TIPO: Record<TipoEntidad, string> = {
+  persona: 'persona de su agenda',
+  meta: 'meta',
+  receta: 'receta',
+  idea: 'idea',
+  mapa: 'mapa conceptual',
+  obra: 'libro, película, serie o juego',
+  lugar: 'lugar de viaje',
+  hobby: 'hobby',
+  proyecto: 'proyecto de hobby',
+  asistente: 'asistente',
+  amigo: 'amigo',
+  espacio: 'espacio compartido',
+  ubicacion: 'lugar guardado',
+  web: 'sitio web',
+  categoria: 'categoría',
+}
+
+/** Hasta 4 fichas y ~100 tokens: qué es cada cosa nombrada y su dato corto. */
+function fichasDe(nombradas: readonly NodoEntidad[]): string[] {
+  const fichas: string[] = []
+  let chars = 0
+  for (const e of nombradas.slice(0, 4)) {
+    const ficha = `- ${e.titulo} (${NOMBRE_TIPO[e.tipo]}${e.appId ? `, app ${e.appId}` : ''})${e.resumen ? `: ${e.resumen}` : ''}`
+    if (chars + ficha.length > 400) break
+    fichas.push(ficha)
+    chars += ficha.length
+  }
+  return fichas
 }
 
 /**
@@ -582,6 +640,8 @@ async function construirSystem(
   mascotaId: string,
   adjunto: 'imagen' | 'pdf' | null,
   conEditor: boolean,
+  /** Mensaje del usuario: decide qué memorias vienen al caso. */
+  texto: string,
 ): Promise<SystemDividido> {
   const mascota = getAsistente(mascotaId)
   // El párrafo de arquitecto necesita los ids de los cuartos, que viven en el
@@ -638,7 +698,7 @@ async function construirSystem(
     adjunto === 'pdf'
       ? 'El mensaje incluye un documento PDF: léelo, resume lo esencial y registra los datos que correspondan (ej. una factura → registra el gasto; un plan de entrenamiento → sus pasos).'
       : '',
-    ...(await lineasContexto()),
+    ...(await lineasContexto({ texto, asistenteId: mascotaId })),
     // Recordatorio de cierre: el principio y el final del system son lo que
     // más pesa, y este lleva ~10k tokens de español en medio.
     'Recuerda: tu respuesta va en el idioma del último mensaje del usuario.',
@@ -686,6 +746,48 @@ async function llamarCuenta(
     // va cacheada; el modelo 3D y el PDF (entrada gorda por página) pagan aparte.
     op: imagen?.mediaType === 'application/pdf' ? 'pdf' : perfil === 'calidad' ? 'modelo3d' : 'chat',
   })
+  return { respuesta: r.texto?.trim() || null, llamadas: r.llamadas }
+}
+
+/**
+ * Apps entre las que el proxy enruta: las que aportan tools de captura. La
+ * descripción son sus esquemas, que es justo lo que el modelo sabría anotar ahí.
+ */
+function appsRuteo(cuartosPermitidos?: string[]): AppRuteo[] {
+  return appsAsignadas()
+    .filter((r) => r.esquemas?.length && (!cuartosPermitidos?.length || cuartosPermitidos.includes(r.id)))
+    .map((r) => ({
+      id: r.id,
+      descripcion: `${r.nombre}: ${(r.esquemas ?? []).map((e) => e.descripcion).join('; ')}`.slice(0, 400),
+      capturable: typeof r.capturar === 'function',
+    }))
+}
+
+/**
+ * El chat de la casa por la cuenta, con enrutado: el proxy puede quitar las
+ * tools de las apps que el mensaje no toca o, con `rapidas`, devolver solo las
+ * apps de un registro simple sin llamar al modelo.
+ */
+async function llamarCuentaRuteada(
+  system: SystemChat,
+  texto: string,
+  tools: ToolNeutra[],
+  historial: MensajeIA[],
+  apps: AppRuteo[],
+  rapidas: boolean,
+): Promise<{ respuesta: string | null; llamadas: LlamadaTool[] } | { rapido: string[] }> {
+  const sys = partesSystem(system)
+  const r = await iaChatCuentaRuteado({
+    system: sys.texto,
+    systemCorte: sys.corte > 0 ? sys.corte : undefined,
+    mensajes: [...historial, { rol: 'usuario', texto }],
+    tools: tools.length ? tools : undefined,
+    maxTokens: 2048,
+    op: 'chat',
+    ruteo: { apps },
+    rapidas,
+  })
+  if ('rapido' in r) return { rapido: r.rapido.apps }
   return { respuesta: r.texto?.trim() || null, llamadas: r.llamadas }
 }
 
@@ -1020,7 +1122,7 @@ export async function conversarConAsistente(
     ...lineasPersonaje(mascota),
     'Estás en modo cámara AR, cara a cara con el usuario a través de su cámara. Responde en 1–3 frases naturales, pensadas para decirse en voz alta, en el idioma del usuario. Si te pide registrar datos o editar la casa, sugiérele amablemente hacerlo desde el chat de la casa.',
     INSTRUCCION_EMOCION,
-    ...(await lineasContexto()),
+    ...(await lineasContexto({ texto, asistenteId })),
   ]
     .filter(Boolean)
     .join('\n\n')
@@ -1154,6 +1256,8 @@ export async function interpretarIA(
   mascotaId: string,
   imagen: ImagenAdjunta | null = null,
   historialCrudo: MensajeIA[] = [],
+  /** El asistente tiene activas las respuestas rápidas (registro simple sin modelo). */
+  rapidas = false,
 ): Promise<ResultadoIA> {
   await exigirTransporte()
   const prov = getProveedor()
@@ -1176,12 +1280,37 @@ export async function interpretarIA(
     mascotaId,
     imagen ? (imagen.mediaType === 'application/pdf' ? 'pdf' : 'imagen') : null,
     conEditor,
+    texto,
   )
 
-  const { respuesta, llamadas } =
-    prov.id === 'claude'
-      ? await llamarClaude(system, texto, imagen, tools, historial)
-      : await llamarOpenAICompat(prov, system, texto, imagen, tools, historial)
+  // Sin adjunto y por la cuenta, el proxy puede enrutar (piloto de Jev); con
+  // claves propias o con adjunto, el camino de siempre.
+  const r =
+    usarViaCuenta() && !imagen
+      ? await llamarCuentaRuteada(
+          system,
+          texto,
+          tools,
+          historial,
+          appsRuteo(getAsistente(mascotaId).cuartos),
+          rapidas,
+        )
+      : prov.id === 'claude'
+        ? await llamarClaude(system, texto, imagen, tools, historial)
+        : await llamarOpenAICompat(prov, system, texto, imagen, tools, historial)
+  if ('rapido' in r) {
+    return {
+      roomIds: [],
+      capturado: false,
+      memoriaGuardada: false,
+      ediciones: [],
+      destinos: [],
+      respuesta: null,
+      emocion: null,
+      rapido: r.rapido,
+    }
+  }
+  const { respuesta, llamadas } = r
 
   // El marcador [[emocion:x]] se queda aquí: jamás llega a la burbuja, al TTS ni a Dexie.
   const extraccion = respuesta ? extraerEmocion(respuesta) : null
@@ -1210,7 +1339,8 @@ export async function interpretarIA(
       const hecho = typeof input.hecho === 'string' ? input.hecho.trim() : ''
       if (!hecho) continue
       const roomId = typeof input.roomId === 'string' && getPlantilla(input.roomId) ? input.roomId : undefined
-      await memoriasRepo.add({ hecho, roomId, creado: new Date().toISOString(), vigente: true })
+      const reemplaza = typeof input.reemplaza === 'string' ? input.reemplaza.replace(/[[\]\s]/g, '') : undefined
+      await guardarMemoria({ hecho, roomId, asistenteId: mascotaId, reemplaza })
       resultado.memoriaGuardada = true
       continue
     }

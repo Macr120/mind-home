@@ -24,9 +24,12 @@ const TARIFAS: Record<string, Tarifa> = {
   'gpt-luna': { entrada: 0.2, salida: 1.2, cacheCrear: 0, cacheLeer: 0.02 },
   'gpt-mini': { entrada: 0.25, salida: 2.0, cacheCrear: 0, cacheLeer: 0.025 },
   'gpt-nano': { entrada: 0.05, salida: 0.4, cacheCrear: 0, cacheLeer: 0.005 },
+  // Jev (TypeSafe AI, sep 2026): solo cobra la entrada; la salida es gratis.
+  jev: { entrada: 0.042, salida: 0, cacheCrear: 0, cacheLeer: 0 },
 }
 
 function tarifaDe(modelo: string): Tarifa {
+  if (modelo.startsWith('jev')) return TARIFAS['jev']
   if (modelo.startsWith('claude-sonnet')) return TARIFAS['claude-sonnet']
   if (modelo.startsWith('claude')) return TARIFAS['claude-haiku']
   // Ojo con el orden: la familia gpt se resuelve ANTES del `includes('lite')`

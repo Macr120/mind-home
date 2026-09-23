@@ -337,6 +337,8 @@ export const TR_TUT: Dict = {
   'tut.chat-registros.2.titulo': 'Senin hakkında hatırladıkları',
   'tut.chat-registros.2.texto':
     'Asistanın oturumlar arasında hatırlamaya değer bulduğu bilgiler —bir alerji, bir hedef, bir tercih— sana tekrar sormak zorunda kalmasın diye. ✕ işaretine dokununca unutulurlar.',
+  'tut.chat-registros.grafo.titulo': 'Hafıza grafiğin',
+  'tut.chat-registros.grafo.texto': 'Her anı, uygulamalarından andığı şeylere —kişiler, tarifler, hedefler, yerler— ve diğer anılara kendiliğinden bağlanır. Burada bunu bir harita gibi görürsün; düzeltmek ya da elle bağlamak için bir anıya dokun.',
   'tut.chat-registros.3.texto':
     'Uygulamalarına kaydettiklerin (öğünler, harcamalar, seanslar) burada değil, her uygulamanın kendi içinde yaşar: bu sekme yalnızca konuşmanın kendi hafızası.',
   'tut.app-generica.1.texto':

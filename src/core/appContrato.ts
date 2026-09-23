@@ -5,6 +5,7 @@ import type { TutorialDef } from './tutorial/tipos'
 // Solo el TIPO (se borra al compilar): no crea ciclo con la UI en tiempo de ejecución.
 import type { Actividad } from './ui/HorarioActividad'
 import type { ContextoPlanApp } from './planIA'
+import type { TipoEntidad } from './grafo/memoria'
 
 /**
  * El CONTRATO de una app (tipos y coerciones) y el catálogo vivo donde se
@@ -162,6 +163,28 @@ export interface EventoApp {
 }
 
 /**
+ * Una fila de la app vista como nodo del grafo de memoria (ver
+ * `core/grafoApps.ts`). `uid` es el de la fila: el middleware del sync lo sella
+ * en todas las tablas que sincronizan y es igual en todos los dispositivos.
+ */
+export interface NodoApp {
+  tipo: TipoEntidad
+  uid: string
+  titulo: string
+  /** Sin valor, el emoji de la plantilla. */
+  emoji?: string
+  /** Dato corto para la IA, ≤ 120 caracteres («hermana · cumple 12 mar»). */
+  resumen?: string
+  /** Otras formas de nombrarla (el nombre de pila de una persona). */
+  alias?: string[]
+  /** App que la lleva si no es esta (una meta cuelga de la app de su meta). */
+  appId?: string
+  /** A dónde salta al tocarla: lo que se le pasa a `abrirApp`. */
+  seccion?: string
+  dato?: string
+}
+
+/**
  * Plantilla de app: una mini-app 2D del catálogo que el usuario puede ASIGNAR a un
  * objeto de un cuarto. La plantilla NO es un cuarto; la identidad del cuarto vive en
  * `Cuarto` (src/core/data/db.ts) y el store dinámico `useCuartos`. Una plantilla aporta
@@ -213,6 +236,10 @@ export interface Plantilla {
   /** Acota el planificador ✨: qué clase de plan genera la IA en esta app y con qué
    * datos reales del usuario. `ambitoId` acota igual que en `rutinasPlan`. */
   planMetas?: (ambitoId?: string) => Promise<ContextoPlanApp>
+  /** Filas de la app que son nodos del grafo de memoria (personas, recetas…): el
+   * asistente las reconoce cuando el usuario las nombra y se enlazan solas con
+   * las memorias que las mencionan. */
+  nodosGrafo?: () => Promise<NodoApp[]>
   /** Lo que se le puede pedir a la IA en esta app y cuánto cuesta, para el
    * catálogo de precios (`core/cuenta/catalogoIA.ts`). Se declaran en
    * `rooms/<id>/costosIA.ts`: así el núcleo arma la tabla sin importar cuartos. */

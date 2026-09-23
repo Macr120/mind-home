@@ -340,6 +340,8 @@ export const PL_TUT: Dict = {
   'tut.chat-registros.2.titulo': 'Co pamięta o tobie',
   'tut.chat-registros.2.texto':
     'Dane, które asystent uznał za warte zapamiętania między sesjami —alergia, cel, preferencja— żeby nie pytać o nie znowu. Zapominasz je, dotykając ich ✕.',
+  'tut.chat-registros.grafo.titulo': 'Twój graf pamięci',
+  'tut.chat-registros.grafo.texto': 'Każde wspomnienie samo łączy się z tym, co wspomina z twoich aplikacji — osobami, przepisami, celami, miejscami — i z innymi wspomnieniami. Tutaj widzisz to jak mapę; dotknij wspomnienia, żeby je poprawić albo połączyć ręcznie.',
   'tut.chat-registros.3.texto':
     'To, co zapisujesz w swoich aplikacjach (posiłki, wydatki, sesje), żyje w każdej z nich, nie tutaj: ta zakładka to tylko pamięć samej rozmowy.',
   'tut.app-generica.1.texto':

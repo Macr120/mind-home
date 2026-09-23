@@ -340,6 +340,8 @@ export const NL_TUT: Dict = {
   'tut.chat-registros.2.titulo': 'Wat ik over je onthoud',
   'tut.chat-registros.2.texto':
     'Feitjes die de assistent de moeite waard vond om tussen sessies te onthouden —een allergie, een doel, een voorkeur— zodat hij het je niet opnieuw vraagt. Vergeten doe je met de ✕ ernaast.',
+  'tut.chat-registros.grafo.titulo': 'Je geheugengraaf',
+  'tut.chat-registros.grafo.texto': 'Elke herinnering verbindt zich vanzelf met wat ze uit je apps noemt — personen, recepten, doelen, plaatsen — en met andere herinneringen. Hier zie je het als een kaart; tik op een herinnering om haar te verbeteren of met de hand te verbinden.',
   'tut.chat-registros.3.texto':
     'Wat je in je apps vastlegt (maaltijden, uitgaven, sessies) leeft in elke app zelf, niet hier: dit tabblad is alleen het geheugen van het gesprek.',
   'tut.app-generica.1.texto':

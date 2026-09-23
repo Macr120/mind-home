@@ -1,6 +1,7 @@
 import type { RealtimeChannel } from '@supabase/supabase-js'
 import { hayBackend, obtenerSupabase } from '../cuenta/supabase'
 import { useSesion } from '../cuenta/sesionStore'
+import { esDemo } from '../edicion'
 import { tGlobal } from '../i18n/useT'
 import { comprimirImagen } from '../imagenIA'
 import { notificar } from '../notificaciones'
@@ -275,7 +276,7 @@ async function avisar(nuevos: MensajeBuzon[]): Promise<void> {
   }
 }
 
-async function recontar(): Promise<void> {
+export async function recontar(): Promise<void> {
   const porHilo = await cache.contarNoLeidos()
   useBuzon.getState().setNoLeidos(porHilo)
 }
@@ -344,7 +345,7 @@ async function aceptable(blob: Blob): Promise<Blob> {
  * `uid` lo genera el cliente: un reintento tras perder red no duplica.
  */
 export async function enviar(hiloId: string, o: EnvioPendiente): Promise<void> {
-  if (!activo) throw new ErrorBuzon('sin-sesion')
+  if (!activo && !esDemo()) throw new ErrorBuzon('sin-sesion')
   const tipo: TipoMensaje = o.paquete ? 'contenido' : o.adjunto ? o.adjunto.tipo : 'texto'
   const texto = o.texto.trim().slice(0, TOPE_TEXTO)
   if (tipo === 'texto' && !texto) return
@@ -366,6 +367,11 @@ export async function enviar(hiloId: string, o: EnvioPendiente): Promise<void> {
     adjunto: o.adjunto
       ? { path: '', size: o.adjunto.blob.size, mime: o.adjunto.blob.type, nombre: o.adjunto.nombre }
       : undefined,
+  }
+  // Casa demo: sus amigos son de mentira; el mensaje se queda en el hilo local.
+  if (esDemo()) {
+    await cache.guardarMensajeLocal({ ...fila, estado: undefined })
+    return
   }
   await cache.guardarMensajeLocal(fila)
   enVuelo.set(uid, { ...o, texto })
@@ -396,7 +402,7 @@ export async function reintentar(uid: string): Promise<void> {
   await transmitir(fila.hiloId, uid, fila.tipo, o)
 }
 
-function contenidoDe(p: Paquete, blobs: Record<string, AdjuntoRemoto>): ContenidoMensaje {
+export function contenidoDe(p: Paquete, blobs: Record<string, AdjuntoRemoto>): ContenidoMensaje {
   return {
     app: p.app,
     tipo: p.tipo,
@@ -453,10 +459,11 @@ async function transmitir(hiloId: string, uid: string, tipo: TipoMensaje, o: Env
 
 /** Marca leído lo recibido en el hilo: local al momento, servidor con debounce. */
 export async function marcarLeido(hiloId: string): Promise<void> {
-  if (!activo) return
+  if (!activo && !esDemo()) return
   const n = await cache.marcarLeidosLocal(hiloId)
   if (n === 0) return
   await recontar()
+  if (esDemo()) return
   const previo = timersLeido.get(hiloId)
   if (previo) clearTimeout(previo)
   timersLeido.set(

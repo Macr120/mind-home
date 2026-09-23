@@ -8,6 +8,7 @@ import { COLOR_FABRICA } from './constantes'
 import { esencialIdeas, flujosIdeas } from './tutorial.meta'
 import { OPERACIONES_IA } from './costosIA'
 import { planMetasIdeas } from './plan'
+import { filasNodo } from '../../core/grafoApps'
 
 // Mapas e ideas enlazables desde otras apps (la enciclopedia los usa de
 // material). `crear.ts` se importa en diferido: arrastra layouts y el catálogo
@@ -96,6 +97,22 @@ const ideas: Plantilla = {
   flujos: flujosIdeas,
   esencial: esencialIdeas,
   // Acotamiento del planificador ✨: de la idea a algo real, o a una decisión.
+  nodosGrafo: async () => [
+    ...(await filasNodo(ideasRepo)).map((i) => ({
+      tipo: 'idea' as const,
+      uid: i.uid,
+      titulo: i.texto,
+      resumen: i.tema ? `lluvia de ideas «${i.tema}»` : undefined,
+      seccion: 'diario',
+    })),
+    ...(await filasNodo(mapasIdeasRepo)).map((m) => ({
+      tipo: 'mapa' as const,
+      uid: m.uid,
+      titulo: m.nombre,
+      seccion: 'mapas',
+      dato: String(m.id),
+    })),
+  ],
   planMetas: planMetasIdeas,
   comandos: [
     {

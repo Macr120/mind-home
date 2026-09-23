@@ -3,7 +3,13 @@ import { getPlantilla } from '../registry'
 import { abrirBusqueda, abrirEnlace, busquedaDeMensaje, hostDe, urlDeMensaje } from '../enlaces'
 import { useNavegador } from '../state/navegadorStore'
 import { getCuarto, useCuartos } from '../state/cuartosStore'
-import { bitacoraRepo, memoriasRepo, mensajesChatRepo, ultimosMensajesAsistente, useUltimosMensajes } from '../data/repository'
+import {
+  bitacoraRepo,
+  guardarMemoria,
+  mensajesChatRepo,
+  ultimosMensajesAsistente,
+  useUltimosMensajes,
+} from '../data/repository'
 import { useLayout, roomWorldPos } from '../state/layoutStore'
 import { useMascota } from '../state/mascotaStore'
 import { useDialogo } from '../state/dialogoStore'
@@ -27,8 +33,9 @@ import { iaActiva, interpretarIA, pdfNativo, getProveedor } from './ia'
 import { responder, nombreAsistente, saludoAsistente, type EventoTipo } from './mascotas'
 import { EMOCION_POR_EVENTO } from './emociones'
 import { reaccionar } from '../state/emocionesStore'
-import { useAsistentes } from '../state/asistentesStore'
+import { getAsistente, useAsistentes } from '../state/asistentesStore'
 import { ChatConversacion } from './ChatConversacion'
+import { IconoVistaChat } from './IconoVistaChat'
 import { sonar } from '../audio/sfx'
 import { vibrar } from '../audio/vibrar'
 // Paneles que solo existen tras pulsar su botón: fuera del arranque (18 KB gz).
@@ -42,11 +49,13 @@ const PanelNavegador = lazy(() =>
   import('../ui/navegador/PanelNavegador').then((m) => ({ default: m.PanelNavegador })),
 )
 const TabAjustesNav = lazy(() => import('../ui/navegador/TabAjustes').then((m) => ({ default: m.TabAjustes })))
+const PanelMemorias = lazy(() => import('./PanelMemorias').then((m) => ({ default: m.PanelMemorias })))
 const PanelLugares = lazy(() => import('./PanelLugares').then((m) => ({ default: m.PanelLugares })))
 const AjustesNavegacion = lazy(() =>
   import('../../rooms/sala/navegacion/AjustesNavegacion').then((m) => ({ default: m.AjustesNavegacion })),
 )
 import { ordenFoco, ordenNavegador, type PestanaNav } from '../navegador/ordenes'
+import { destinoDeFrase, rutaPedida, useOrdenRuta } from '../../rooms/sala/navegacion/ordenRuta'
 import type { PestanaPanelNav } from '../ui/navegador/PanelNavegador'
 import type { NombreIcono } from '../ui/iconos/catalogo'
 import { ordenMenu, type VistaMenu } from './ordenesMenu'
@@ -64,7 +73,32 @@ const MENUS_CHAT: { id: VistaMenu; icono: NombreIcono; clave: string; es: string
 ]
 /** Carpeta del Manual que abre cada vista (Asistentes: la primera app, como siempre). */
 const CARPETA_MANUAL: Partial<Record<VistaMenu, string>> = { amigos: 'amigos', lugares: 'sala', navegador: 'navegador' }
+/** Última vista elegida (ajuste del dispositivo). */
+const LS_VISTA = 'mh.chat.vista'
 import { useFoco } from '../state/focoStore'
+
+/**
+ * Captura sin modelo con `RoomModule.capturar`. Cada app recibe SOLO sus
+ * cláusulas, y una por una: si no, el primer número del mensaje se lo lleva
+ * todo y el resto de entradas se pierde. Devuelve las apps que guardaron algo.
+ */
+async function capturarLocal(
+  roomIds: string[],
+  texto: string,
+  fragmentos?: Record<string, string[]>,
+): Promise<{ id: string; n: number }[]> {
+  const hechos: { id: string; n: number }[] = []
+  for (const rid of roomIds) {
+    const app = getPlantilla(rid)
+    if (!app?.capturar) continue
+    let n = 0
+    for (const entrada of fragmentos?.[rid] ?? [texto]) {
+      if (await app.capturar(entrada)) n++
+    }
+    if (n > 0) hechos.push({ id: rid, n })
+  }
+  return hechos
+}
 
 /**
  * Espejo del módulo diferido de edición: `interpretarEdicionLocal` corre en un
@@ -101,6 +135,7 @@ import { contactoDeHilo, contactosCache } from '../buzon/cache'
 import { ErrorBuzon } from '../buzon/tipos'
 import type { Paquete } from '../buzon/compartibles'
 import { ListaAmigos } from '../buzon/ui/ListaAmigos'
+import { useVistaGrafo } from '../grafoApps'
 // Paneles del buzón: solo existen con una persona o el panel de contactos abiertos.
 const ChatConversacionPersona = lazy(() =>
   import('../buzon/ui/ChatConversacionPersona').then((m) => ({ default: m.ChatConversacionPersona })),
@@ -165,8 +200,6 @@ export function ChatBox({
   const [abierto, setAbierto] = useState(false)
   const plegado = useHud((s) => s.plegado.chat)
   const movilVertical = useHud((s) => s.movilVertical)
-  // Modo web: lo escrito va al navegador (URL o búsqueda), no al asistente.
-  const modoWeb = useNavegador((s) => s.modoWeb)
   // Con el navegador embebido abierto el chat sube sobre su tira de pestañas (al pie).
   const navAbierto = useNavegador((s) => s.abierto)
   const [retagId, setRetagId] = useState<number | null>(null)
@@ -179,6 +212,8 @@ export function ChatBox({
   // El panel de IA guarda en localStorage; este tick refresca el botón (emoji/punto).
   const [, setTickIA] = useState(0)
   const [menuAdjuntar, setMenuAdjuntar] = useState(false)
+  // Selector de la barra (junto al «+»): elige la vista que abre el mago.
+  const [menuVistas, setMenuVistas] = useState(false)
   const areaRef = useRef<HTMLTextAreaElement>(null)
   // Input propio para la cámara («Tomar foto» del menú + y el widget de Android):
   // `capture` en el input de galería se saltaría el selector de archivos.
@@ -200,7 +235,6 @@ export function ChatBox({
   // Solo se pintan las 15 más recientes: acotar la consulta al índice evita
   // materializar la bitácora entera en cada mensaje enviado.
   const entradas = bitacoraRepo.useAll({ limit: 15 })
-  const memorias = memoriasRepo.useAll()
   const addRoomGround = useLayout((s) => s.addRoomGround)
   const placed = useLayout((s) => s.placed)
   const mascotaId = useMascota((s) => s.mascota)
@@ -219,7 +253,21 @@ export function ChatBox({
   const solicitudes = useBuzon((s) => s.solicitudesPendientes)
   const [selectorAbierto, setSelectorAbierto] = useState(false)
   // Vista de la barra del menú: Amigos (buzón), Asistentes, Lugares («Cómo llegar») o Navegador.
-  const [vistaPanel, setVistaPanel] = useState<VistaMenu>('asistentes')
+  // Sobrevive a entrar en un cuarto (el chat se desmonta): es la que abre el mago.
+  const [vistaPanel, setVistaPanel] = useState<VistaMenu>(() => {
+    if (useNavegador.getState().modoWeb) return 'navegador'
+    const guardada = localStorage.getItem(LS_VISTA)
+    return MENUS_CHAT.some((m) => m.id === guardada) ? (guardada as VistaMenu) : 'asistentes'
+  })
+  // Modo web (lo escrito va al navegador, URL o búsqueda, y no al asistente) =
+  // la vista Navegador elegida.
+  const modoWeb = vistaPanel === 'navegador'
+  useEffect(() => {
+    localStorage.setItem(LS_VISTA, vistaPanel)
+    // El store lo refleja para que la siguiente página abierta (que lo enciende)
+    // se note como un cambio y traiga la vista Navegador.
+    useNavegador.getState().setModoWeb(modoWeb)
+  }, [vistaPanel, modoWeb])
   // Dictado por voz compartido (nativo o fallback Whisper): ver audio/useDictado.
   const {
     soportado: vozSoportada,
@@ -230,6 +278,9 @@ export function ChatBox({
   // Manual y ⚙ de la barra: se despliegan DENTRO del menú, para la vista activa.
   const [configAbierto, setConfigAbierto] = useState(false)
   const [manualAbierto, setManualAbierto] = useState(false)
+  // La flecha al norte estira el menú a toda la pantalla (mapas, historiales y
+  // el Manual se quedaban cortos en 60vh). Se mantiene entre aperturas.
+  const [expandido, setExpandido] = useState(false)
   // Pestaña de la vista Navegador (historial, sitios, tiempo); sus ajustes van en el ⚙.
   const [pestanaNav, setPestanaNav] = useState<PestanaPanelNav>('historial')
   /** Abre el menú del chat en una vista; `sub` = su Manual o su ⚙. */
@@ -257,6 +308,19 @@ export function ChatBox({
       }),
     [],
   )
+  // Una ruta pedida desde fuera del chat (un lugar tocado en el grafo): la
+  // atiende «Cómo llegar», que solo vive en la vista Lugares.
+  useEffect(
+    () =>
+      useOrdenRuta.subscribe((s, prev) => {
+        if (s.sello === prev.sello || !s.destino) return
+        setVistaPanel('lugares')
+        setManualAbierto(false)
+        setConfigAbierto(false)
+        setAbierto(true)
+      }),
+    [],
+  )
   // La tira (o un atajo) pidió abrir la vista Navegador en una pestaña concreta.
   // Suscripción al store (no un efecto que llame a setState): se atiende también
   // lo pedido ANTES de montar, p. ej. desde dentro de un cuarto.
@@ -273,6 +337,8 @@ export function ChatBox({
     const pendiente = setTimeout(() => atender(useNavegador.getState().panelPedido), 0)
     const baja = useNavegador.subscribe((s, prev) => {
       if (s.panelPedido !== prev.panelPedido) atender(s.panelPedido)
+      // Se abrió una página (o pestaña nueva / barra de dirección): el chat pasa a la vista Navegador.
+      if (s.modoWeb && !prev.modoWeb) setVistaPanel('navegador')
     })
     return () => {
       clearTimeout(pendiente)
@@ -678,8 +744,27 @@ export function ChatBox({
       }
       return
     }
-    // «Busca en internet …» abre el buscador. En MODO WEB (botón 🌐, o el
-    // navegador abierto) también cualquier texto que no sea una orden del chat:
+    // Ruta en el mapa. «Llévame a X» se entiende desde CUALQUIER vista; con la
+    // vista Lugares elegida basta el nombre del sitio, igual que en el modo web
+    // basta el texto para buscar. Los comandos, el prefijo @app y los adjuntos
+    // siguen ganando.
+    const destinoRuta =
+      adjunto || interp.motivo === 'prefijo'
+        ? null
+        : (rutaPedida(interp.texto) ??
+          (vistaPanel === 'lugares' && !interp.comando ? destinoDeFrase(interp.texto) : null))
+    if (destinoRuta && destinoRuta.length > 1) {
+      abrirMenu('lugares')
+      hablar(
+        t('sala.nav.chatRuta', 'Voy a «{q}»: calculo la mejor ruta desde donde estás.', { q: destinoRuta }),
+        { asistenteId: destinoId },
+      )
+      useOrdenRuta.getState().pedirRuta(destinoRuta)
+      return
+    }
+
+    // «Busca en internet …» abre el buscador. En MODO WEB (la vista Navegador
+    // elegida) también cualquier texto que no sea una orden del chat:
     // los comandos del arquitecto y el prefijo @app siguen ganando, y un adjunto
     // es siempre para la IA.
     const consulta =
@@ -690,7 +775,6 @@ export function ChatBox({
       void abrirBusqueda(consulta)
       return
     }
-
     // Ayuda: «¿cómo funciona X?» contesta con el resumen; «tutorial de X» lanza
     // el tour del mago en pantalla. Determinista: funciona con y sin IA.
     if (ayuda) {
@@ -742,12 +826,7 @@ export function ChatBox({
 
     // Memoria del arquitecto: "recuerda que…" (puede no tener cuarto).
     if (interp.comando === 'recordar') {
-      await memoriasRepo.add({
-        hecho: interp.texto,
-        roomId: interp.roomId ?? undefined,
-        creado: new Date().toISOString(),
-        vigente: true,
-      })
+      await guardarMemoria({ hecho: interp.texto, roomId: interp.roomId ?? undefined, asistenteId: destinoId })
       decir('recordado', interp.roomId ? nombreCorto(interp.roomId) : undefined)
       setTexto('')
       return
@@ -807,7 +886,25 @@ export function ChatBox({
             return
           }
         }
-        const r = await interpretarIA(textoEnvio, destinoId, adj, historial)
+        let r = await interpretarIA(textoEnvio, destinoId, adj, historial, getAsistente(destinoId).respuestasRapidas === true)
+        // Respuesta rápida: el proxy vio un registro simple y no llamó al modelo.
+        // Se captura aquí; si ninguna app lo entiende, se pide al modelo de verdad.
+        if (r.rapido) {
+          const hechos = await capturarLocal(r.rapido, interp.texto, interp.fragmentos)
+          if (hechos.length) {
+            await bitacoraRepo.add({ texto: interp.texto, roomId: hechos[0].id, creado: new Date().toISOString(), procesado: true })
+            decir(
+              'capturado',
+              hechos.map((h) => (h.n > 1 ? `${nombreCorto(h.id)} ×${h.n}` : nombreCorto(h.id))).join(' y '),
+              undefined,
+              hechos.map((h): DestinoChat => ({ tipo: 'app', appId: h.id })),
+            )
+            setTexto('')
+            setAdjunto(null)
+            return
+          }
+          r = await interpretarIA(textoEnvio, destinoId, adj, historial)
+        }
         // La emoción etiquetada por el modelo; las ramas de evento (decir) pueden pisarla.
         reaccionar(destinoId, r.emocion)
         await bitacoraRepo.add({
@@ -872,26 +969,16 @@ export function ChatBox({
 
     // Quick-capture: intentar escribir en TODOS los cuartos mencionados (multi-cuarto).
     if (interp.roomIds.length > 0) {
-      const capturados: string[] = []
-      const destinosLocal: DestinoChat[] = []
-      for (const rid of interp.roomIds) {
-        const app = getPlantilla(rid)
-        if (!app?.capturar) continue
-        // Cada app recibe SOLO sus cláusulas, y una por una: si no, el primer
-        // número del mensaje se lo lleva todo y el resto de entradas se pierde.
-        let n = 0
-        for (const entrada of interp.fragmentos?.[rid] ?? [interp.texto]) {
-          if (await app.capturar(entrada)) n++
-        }
-        if (n > 0) {
-          // El «×n» avisa de que cuajaron varias entradas en la misma app.
-          capturados.push(n > 1 ? `${nombreCorto(rid)} ×${n}` : nombreCorto(rid))
-          destinosLocal.push({ tipo: 'app', appId: rid })
-        }
-      }
-      if (capturados.length > 0) {
+      const hechos = await capturarLocal(interp.roomIds, interp.texto, interp.fragmentos)
+      if (hechos.length > 0) {
         await bitacoraRepo.update(id as number, { procesado: true })
-        decir('capturado', capturados.join(' y '), undefined, destinosLocal)
+        decir(
+          'capturado',
+          // El «×n» avisa de que cuajaron varias entradas en la misma app.
+          hechos.map((h) => (h.n > 1 ? `${nombreCorto(h.id)} ×${h.n}` : nombreCorto(h.id))).join(' y '),
+          undefined,
+          hechos.map((h): DestinoChat => ({ tipo: 'app', appId: h.id })),
+        )
       } else {
         decir('clasificado', interp.roomIds.map(nombreCorto).join(' y '))
       }
@@ -930,7 +1017,6 @@ export function ChatBox({
   }
 
   const recientes = entradas?.slice(0, 15) ?? []
-  const memoriasVigentes = memorias?.filter((m) => m.vigente) ?? []
   // Plegar el chat esconde TODO, también la conversación (es la forma de
   // recuperar la pantalla ahora que el hilo vive siempre sobre la barra). Se suma
   // `menuAbierto` sin esperar al efecto que sincroniza el store: si no, al abrir
@@ -940,7 +1026,17 @@ export function ChatBox({
   const otroPanel = abierto
   // Amigos y Asistentes son listas cortas: el menú se queda bajito; el resto (mapa,
   // historial, Manual, ⚙) necesita sitio.
-  const menuCompacto = !manualAbierto && !configAbierto && (vistaPanel === 'asistentes' || vistaPanel === 'amigos')
+  const menuCompacto = !manualAbierto && !configAbierto && !expandido && (vistaPanel === 'asistentes' || vistaPanel === 'amigos')
+  // La vista elegida: la pinta el selector de la barra y es la que abre el mago.
+  const menuElegido = MENUS_CHAT.find((m) => m.id === vistaPanel) ?? MENUS_CHAT[1]
+  // Plegado en teléfono vertical: solo queda la carita, así que el contenedor se
+  // encoge a su contenido (en vez de ancho completo invisible) para no tapar con
+  // su z-20 los tiradores de las esquinas inferiores que quedan por debajo.
+  const angostoMovil = chatPlegado && movilVertical
+  // Menú a pantalla completa: la caja del chat se ancla también arriba y el panel
+  // crece hasta llenarla, con la barra de escribir siempre al pie. Encogida a la
+  // carita no aplica: ahí el menú no tiene dónde estirarse.
+  const pantallaCompleta = abierto && expandido && !angostoMovil
   /**
    * El hilo con el asistente: SOLO si lo abriste tú desde la lista de chats. El
    * panel por defecto de la carita es el menú (Chats/Registros), no la
@@ -954,7 +1050,7 @@ export function ChatBox({
   // Navegador embebido (escritorio): la página nativa tapa el DOM, así que con
   // cualquier panel del chat desplegado se esconde; y su borde inferior sigue al
   // borde superior de este chat (la tira de pestañas va debajo, por eso bottom-16).
-  const panelChatAbierto = otroPanel || hiloVisible || hiloPersonaVisible || menuAdjuntar || menuModelo
+  const panelChatAbierto = otroPanel || hiloVisible || hiloPersonaVisible || menuAdjuntar || menuModelo || menuVistas
   useEffect(() => {
     if (!navAbierto) return
     // Al destapar se espera un instante: el chat tiene que encogerse y medirse antes.
@@ -984,6 +1080,7 @@ export function ChatBox({
     setManualAbierto(false)
     setMenuModelo(false)
     setMenuAdjuntar(false)
+    setMenuVistas(false)
     setSelectorAbierto(false)
     cerrarConversacion()
     setHiloOculto(true)
@@ -1006,7 +1103,7 @@ export function ChatBox({
    * ese vive fuera del chat y cerrar por detrás dejaría la pregunta huérfana.
    */
   useEffect(() => {
-    if (!otroPanel && !hiloVisible && !hiloPersonaVisible && !menuModelo && !menuAdjuntar && !selectorAbierto) return
+    if (!otroPanel && !hiloVisible && !hiloPersonaVisible && !menuModelo && !menuAdjuntar && !menuVistas && !selectorAbierto) return
     const fuera = (e: PointerEvent) => {
       if (useConfirmar.getState().pendiente) return
       // `contains` LANZA si el target no es un Node (eventos que nacen en
@@ -1025,7 +1122,7 @@ export function ChatBox({
       window.removeEventListener('pointerdown', fuera)
       window.removeEventListener('keydown', escape)
     }
-  }, [otroPanel, hiloVisible, hiloPersonaVisible, menuModelo, menuAdjuntar, selectorAbierto, cerrarPaneles])
+  }, [otroPanel, hiloVisible, hiloPersonaVisible, menuModelo, menuAdjuntar, menuVistas, selectorAbierto, cerrarPaneles])
 
   // Al cambiar el ANCHO de la barra (abrir el menú lateral, girar el teléfono…)
   // hay que rehacer la cuenta: la altura cambia sola al crecer el texto.
@@ -1040,11 +1137,6 @@ export function ChatBox({
     ro.observe(el)
     return () => ro.disconnect()
   }, [chatPlegado])
-  // Plegado en teléfono vertical: solo queda la carita, así que el contenedor se
-  // encoge a su contenido (en vez de ancho completo invisible) para no tapar con
-  // su z-20 los tiradores de las esquinas inferiores que quedan por debajo.
-  const angostoMovil = chatPlegado && movilVertical
-
   return (
     <div
       ref={raizRef}
@@ -1053,7 +1145,19 @@ export function ChatBox({
         // laterales de la zona segura: descentrarían la barra.
         angostoMovil
           ? `safe-inf absolute ${navAbierto ? 'bottom-16' : 'bottom-4'} left-1/2 ${encima ? 'z-[70]' : 'z-20'} -translate-x-1/2 select-none`
-          : ['safe-inf safe-ini safe-fin absolute min-w-0 select-none', navAbierto ? 'bottom-16' : 'bottom-4', encima ? 'z-[70]' : 'z-20', anclajeChat(menuAbierto)].join(' ')
+          : [
+              'safe-inf absolute min-w-0 select-none',
+              navAbierto ? 'bottom-16' : 'bottom-4',
+              // Con el menú abierto sube por encima de la capa del mapa (z-30):
+              // las burbujas de los asistentes se quedan DETRÁS del panel.
+              encima ? 'z-[70]' : abierto ? 'z-40' : 'z-20',
+              pantallaCompleta
+                ? // A pantalla completa manda el ancho entero (los offsets del
+                  // joystick y del cubo ya no aplican: quedan tapados) y el alto
+                  // se reparte con flex, así la barra de escribir no se va abajo.
+                  'flex flex-col start-[calc(0.5rem+var(--safe-left))] end-[calc(0.5rem+var(--safe-right))] top-[calc(0.5rem+var(--safe-top))]'
+                : `safe-ini safe-fin ${anclajeChat(menuAbierto)}`,
+            ].join(' ')
       }
     >
       {/* Conversación con el asistente (estilo WhatsApp): siempre sobre la barra */}
@@ -1085,10 +1189,15 @@ export function ChatBox({
       {abierto && (
         <div
           className={`ui-panel-glass mb-2 flex flex-col rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md ${
-            menuCompacto ? 'max-h-72' : 'max-h-[60vh]'
+            pantallaCompleta ? 'min-h-0 flex-1' : menuCompacto ? 'max-h-72' : 'max-h-[60vh]'
           }`}
         >
           <div className="mb-2 flex shrink-0 items-center gap-0.5 border-b border-white/10 px-0.5 pb-2 sm:gap-1 sm:px-1">
+            {/* Las vistas ceden espacio (y se desplazan si no caben): los botones
+                de la derecha nunca se salen del panel. El relleno (con margen
+                negativo que lo compensa) deja sitio al anillo del botón activo y
+                al globo de no leídos, que el `overflow` recortaría. */}
+            <div className="sin-deslizador -my-2 -ms-1 flex min-w-0 flex-1 items-center gap-0.5 overflow-x-auto py-2 pe-1.5 ps-1 sm:gap-1">
             {MENUS_CHAT.map((m) => {
               const activo = vistaPanel === m.id
               return (
@@ -1117,7 +1226,33 @@ export function ChatBox({
                 </button>
               )
             })}
-            <span className="min-w-1 flex-1" />
+            </div>
+            <button
+              type="button"
+              data-tut="chat.pantallaCompleta"
+              onClick={() => setExpandido((v) => !v)}
+              aria-pressed={expandido}
+              className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg text-base transition ${
+                expandido ? 'bg-accent/20 text-accent ring-1 ring-accent/50' : 'text-white/45 hover:bg-white/10 hover:text-white/85'
+              }`}
+              title={
+                expandido
+                  ? t('chat.menu.reducir', 'Volver al tamaño normal')
+                  : t('chat.menu.expandir', 'Ver a pantalla completa')
+              }
+            >
+              <Icono nombre={expandido ? 'bajar' : 'subir'} />
+            </button>
+            <button
+              type="button"
+              data-tut="chat.grafo"
+              onClick={() => useVistaGrafo.getState().abrir(undefined, vistaPanel)}
+              className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-base text-white/45 transition hover:bg-white/10 hover:text-white/85"
+              title={t('grafo.deVista', 'Ver el grafo de esta vista')}
+              aria-label={t('grafo.deVista', 'Ver el grafo de esta vista')}
+            >
+              <Icono nombre="nodos" />
+            </button>
             <button
               type="button"
               data-tut="chat.manual"
@@ -1132,7 +1267,7 @@ export function ChatBox({
               title={t('chat.manual.abrir', 'Manual: qué puedes pedir')}
             >
               <Icono nombre="registros" />
-              <span className="hidden text-[11px] font-semibold sm:inline">{t('chat.manual', 'Manual')}</span>
+              <span className="hidden text-[11px] font-semibold xl:inline">{t('chat.manual', 'Manual')}</span>
             </button>
             <button
               type="button"
@@ -1323,29 +1458,9 @@ export function ChatBox({
           {pestana === 'registros' && (
             <>
           {/* Memorias del arquitecto: lo que sabe de ti entre sesiones */}
-          {memoriasVigentes.length > 0 && (
-            <div data-tut="chat.memorias" className="mb-2 border-b border-white/10 px-1 pb-2">
-              <p className="mb-1 text-[11px] font-semibold text-violet-400/70">
-                <Icono nombre="memoria" /> {t('chat.memorias', 'Lo que recuerdo de ti')}
-              </p>
-              {memoriasVigentes.map((m) => (
-                <div key={m.id} className="flex items-start gap-2 rounded-lg px-1 py-1 hover:bg-white/5">
-                  <span className="mt-0.5 text-sm leading-none">
-                    <Icono emoji={(m.roomId && (getPlantilla(m.roomId) ?? getCuarto(m.roomId))?.icon) || '🧠'} />
-                  </span>
-                  <p className="min-w-0 flex-1 break-words text-xs text-white/75">{m.hecho}</p>
-                  <button
-                    type="button"
-                    onClick={() => m.id != null && memoriasRepo.remove(m.id)}
-                    className="px-1 py-0.5 text-[11px] text-white/20 transition hover:text-white/60"
-                    title={t('chat.olvidar', 'Olvidar')}
-                  >
-                    <Icono nombre="cerrar" />
-                  </button>
-                </div>
-              ))}
-            </div>
-          )}
+          <Suspense fallback={null}>
+            <PanelMemorias />
+          </Suspense>
 
           {recientes.length === 0 && (
             <p className="px-2 py-3 text-center text-xs text-white/35">
@@ -1444,7 +1559,7 @@ export function ChatBox({
           </button>
         </div>
       ) : (
-        <div ref={refTope}>
+        <div ref={refTope} className={pantallaCompleta ? 'shrink-0' : undefined}>
       {/* Mapa ofrecido tras una explicación (si el hilo se ve, lo pinta él) */}
       {sugerencia && defMapa && !dibujando && !hiloVisible && (
         <div className="ui-panel-glass mb-2 flex items-center gap-2 rounded-xl border border-white/10 py-1.5 ps-2.5 pe-1.5 shadow-xl backdrop-blur-md">
@@ -1541,7 +1656,9 @@ export function ChatBox({
           type="button"
           onClick={() => {
             // Toggle limpio del menú: el segundo toque lo cierra. Al abrirlo se
-            // apartan la conversación y los otros dos paneles.
+            // apartan la conversación y los otros dos paneles. Abre la vista que
+            // marque el selector de al lado (`vistaPanel`).
+            setMenuVistas(false)
             if (abierto) {
               setAbierto(false)
               return
@@ -1552,12 +1669,19 @@ export function ChatBox({
             setAbierto(true)
           }}
           data-tut="chat.asistente"
-          title={abierto ? t('chat.ocultar', 'Cerrar el menú') : `${nombreAsistente(t, mascota)} · ${t('chat.verMenu', 'abrir el menú')}`}
+          title={
+            abierto
+              ? t('chat.ocultar', 'Cerrar el menú')
+              : `${nombreAsistente(t, mascota)} · ${t('chat.verMenu', 'abrir el menú')} · ${t(menuElegido.clave, menuElegido.es)}`
+          }
           className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl text-2xl transition hover:scale-105 ${
             abierto || hiloVisible ? 'bg-accent/20' : 'bg-white/5 hover:bg-white/10'
           }`}
         >
-          <Icono emoji={mascota.emoji} />
+          <IconoVistaChat
+            vista={vistaPanel}
+            emojiAsistente={(asistentes.find((a) => a.id === conversacion) ?? mascota).emoji}
+          />
         </button>
 
         {/* Menú del «+»: imagen/PDF/foto (piden IA) + máscara AR (sin IA) */}
@@ -1636,6 +1760,7 @@ export function ChatBox({
           data-tut="chat.foto"
           onClick={() => {
             setMenuModelo(false)
+            setMenuVistas(false)
             setMenuAdjuntar((v) => !v)
           }}
           className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl text-2xl font-light leading-none transition hover:bg-white/10 ${
@@ -1645,22 +1770,60 @@ export function ChatBox({
         >
           +
         </button>
-        {/* Modo web: lo que escribas se abre o se busca en internet, no va al asistente. */}
+        {/* Selector de vistas: las mismas cuatro de la barra del menú (comparten
+            `vistaPanel`), así el botón de al lado abre —y pinta— la elegida aquí.
+            Navegador elegido = modo web encendido. */}
+        {menuVistas && (
+          <div data-tut="chat.vistas.menu" className="ui-panel-glass absolute bottom-full start-0 mb-2 w-56 rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
+            <div className="space-y-1">
+              {MENUS_CHAT.map((m) => {
+                const activo = vistaPanel === m.id
+                return (
+                  <button
+                    key={m.id}
+                    type="button"
+                    data-tut={`chat.vistas.${m.id}`}
+                    onClick={() => {
+                      setVistaPanel(m.id)
+                      setManualAbierto(false)
+                      setConfigAbierto(false)
+                      setMenuVistas(false)
+                    }}
+                    aria-pressed={activo}
+                    className={`flex w-full items-center gap-2 rounded-lg border px-2 py-1.5 text-xs font-semibold transition ${
+                      activo
+                        ? 'border-accent/50 bg-accent/20 text-accent'
+                        : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
+                    }`}
+                  >
+                    <Icono nombre={m.icono} />
+                    <span className="flex-1 text-start">{t(m.clave, m.es)}</span>
+                    {m.id === 'amigos' && noLeidos > 0 && (
+                      <span className="grid h-4 min-w-4 place-items-center rounded-full bg-red-600 px-1 text-[9px] font-black tabular-nums text-white">
+                        {noLeidos}
+                      </span>
+                    )}
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+        )}
         <button
           type="button"
-          data-tut="chat.web"
-          onClick={() => useNavegador.getState().setModoWeb(!modoWeb)}
-          aria-pressed={modoWeb}
+          data-tut="chat.vistas"
+          onClick={() => {
+            setMenuModelo(false)
+            setMenuAdjuntar(false)
+            setMenuVistas((v) => !v)
+          }}
+          aria-expanded={menuVistas}
           className={`-ms-2 grid h-9 w-9 shrink-0 place-items-center rounded-xl text-lg leading-none transition hover:bg-white/10 ${
-            modoWeb ? 'bg-accent/20 text-white/90' : 'text-white/45 hover:text-white/85'
+            menuVistas ? 'bg-white/10 text-white/85' : 'text-white/45 hover:text-white/85'
           }`}
-          title={
-            modoWeb
-              ? t('nav.modoWebOn', 'Modo web: lo que escribas se abre o se busca en internet')
-              : t('nav.modoWebOff', 'Modo web apagado: lo que escribas va al asistente')
-          }
+          title={`${t('chat.menu.cambiar', 'Cambiar de menú')} · ${t(menuElegido.clave, menuElegido.es)}`}
         >
-          <Icono nombre="mundo" />
+          <Icono nombre={menuElegido.icono} />
         </button>
         <input
           ref={galeriaRef}
@@ -1817,6 +1980,7 @@ export function ChatBox({
               data-tut="chat.modelo"
               onClick={() => {
                 setMenuAdjuntar(false)
+                setMenuVistas(false)
                 setMenuModelo((v) => !v)
               }}
               className={`relative grid h-9 w-9 shrink-0 place-items-center rounded-xl text-lg transition hover:bg-white/10 ${

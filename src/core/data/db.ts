@@ -1054,6 +1054,23 @@ export interface LugarNav {
   lng: number
   /** Dirección o detalle con el que llegó del buscador. */
   detalle?: string
+  /** Categoría a la que pertenece: si la tiene, el pin sale de ella. */
+  categoriaId?: number
+  creadoEn: string
+}
+
+/**
+ * Categoría de los lugares guardados («Comida», «Trabajo», «Escapadas»): agrupa
+ * los sitios y les presta su PIN —icono del catálogo y color—, que es lo que se
+ * ve en la lista, en el buscador y sobre el mapa.
+ */
+export interface CategoriaLugar {
+  id?: number
+  nombre: string
+  /** Nombre del catálogo de iconos (`<Icono nombre>`). */
+  icono: string
+  /** Color del pin en hexadecimal (`#22c55e`). */
+  color: string
   creadoEn: string
 }
 
@@ -1774,14 +1791,35 @@ interface EntradaBitacora {
  * Hoy se crean con el comando "recuerda que…"; la capa de IA las generará
  * automáticamente desde la bitácora y las usará como contexto al interpretar.
  */
-interface Memoria {
+export interface Memoria {
   id?: number
+  /** Identidad global (la sella el middleware; se pone antes para enlazarla en el mismo paso). */
+  uid?: string
   hecho: string
   roomId?: string   // cuarto relacionado (vacío = sobre el usuario en general)
+  /** Asistente que la guardó (v148). Las viejas no lo tienen: valen para todos. */
+  asistenteId?: string
   origen?: number   // id de la entrada de bitácora que la originó
   creado: string    // ISO timestamp
   /** false = ya no aplica; se conserva como historia, la IA la ignora. */
   vigente: boolean
+}
+
+/**
+ * Arista del grafo de memoria (v148) que hizo el usuario a mano («Conectar
+ * con…»); las automáticas se derivan al leer y no se guardan. Une dos nodos
+ * por su `uid` con forma `RefNodo` («memoria:<uid>», «receta:<uid>», ver
+ * `core/grafo/memoria.ts`). Son texto y no ids
+ * numéricos a propósito: el sync solo traduce FK numéricas por campo y una
+ * referencia a cualquier tabla no se podría traducir; el uid es igual en todos
+ * los dispositivos.
+ */
+export interface EnlaceGrafo {
+  id?: number
+  uid?: string
+  desde: string
+  hacia: string
+  creado: string
 }
 
 /**
@@ -1879,6 +1917,8 @@ export interface AsistenteGuardado {
   vozIaVoz?: string
   /** Lee en voz alta lo que dice, sin pedírselo. */
   vozLeer?: boolean
+  /** Registros simples sin modelo, con frase fija (no indexado: sin migración). */
+  respuestasRapidas?: boolean
   /** Comenta cosas por su cuenta mientras pasea (ausente = sí). */
   espontaneo?: boolean
   /** Corazón 0–1: qué tan seguido comenta por su cuenta (0 = nunca). */
@@ -4536,6 +4576,7 @@ class MindHomeDB extends Dexie {
   itinerariosGuardados!: Table<ItinerarioGuardado, number>
   trayectosViaje!: Table<TrayectoViaje, number>
   lugaresNav!: Table<LugarNav, number>
+  categoriasLugar!: Table<CategoriaLugar, number>
   sesionesMindfulness!: Table<SesionMindfulness, number>
   registroAnimo!: Table<RegistroAnimo, number>
   gratitudDiaria!: Table<GratitudDiaria, number>
@@ -4565,6 +4606,7 @@ class MindHomeDB extends Dexie {
   accesos!: Table<Acceso, number>
   bitacora!: Table<EntradaBitacora, number>
   memorias!: Table<Memoria, number>
+  enlacesGrafo!: Table<EnlaceGrafo, number>
   rutinas!: Table<Rutina, number>
   planesMeta!: Table<PlanMeta, number>
   ejecucionesRutina!: Table<EjecucionRutina, number>
@@ -6324,6 +6366,19 @@ class MindHomeDB extends Dexie {
     // v146: lugares guardados de «Cómo llegar» (casa, trabajo…), con su icono.
     this.version(146).stores({
       lugaresNav: '++id, creadoEn, &uid',
+    })
+    // v147: categorías de los lugares guardados, cada una con su pin (icono y
+    // color). Nace vacía y `lugaresNav.categoriaId` no lleva índice (son pocas
+    // filas y se agrupan en memoria): sin `.upgrade()`.
+    this.version(147).stores({
+      categoriasLugar: '++id, creadoEn, &uid',
+    })
+    // v148: grafo de memoria. `memorias.asistenteId` (cada asistente recuerda lo
+    // suyo) y las aristas entre memorias, por uid. Nace vacía y las memorias
+    // viejas sin asistente valen para todos: sin `.upgrade()`.
+    this.version(148).stores({
+      memorias: '++id, creado, roomId, asistenteId, &uid',
+      enlacesGrafo: '++id, desde, hacia, &uid',
     })
   }
 }
