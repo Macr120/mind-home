@@ -408,6 +408,16 @@ hasta que pulsas «Enviar», y el aviso de abajo del todo es el único que nombr
   ahí. Y ojo: en una pestaña de fondo `getBoundingClientRect()` devuelve 0, así que la
   comprobación de «visible» solo vale con la pestaña al frente.
 
+**Estado al 22-sep-2026.** Branding y acceso a datos **verificados**; la revisión de
+cumplimiento de la YouTube API **cerrada** («no further actions»). La cuota NO se amplió a
+50 000, pero YouTube cambió la forma de contarla (*«the previous limit of 1,600 has been
+revised to 100 quotas per day, with each API call consuming 1 quota»*): la consola da
+**Queries per day 10 000** y **Video Uploads per day 100**, o sea 100 subidas al día para
+toda la app. La ficha de Google **sigue llamándose «Mind Planner Home» a propósito**:
+cambiar el nombre en Branding reabre la verificación de marca. Hacerlo como operación
+aparte, cuando lo demás esté quieto. `REDES_YT_AUDITADO` sigue a 0 hasta comprobar con una
+subida real que ya no se fuerza «privado».
+
 ## Fase 2 · TikTok
 
 Consola: developers.tiktok.com con tu cuenta de TikTok como desarrollador.
@@ -701,9 +711,85 @@ no hace nada. Hay que tenerla al frente y teclear con eventos de teclado de verd
 - [x] ✅ **AUDIT ENVIADO el 14-sep-2026 → «Your Application to request access to Content
       Posting API has been submitted!»**, con el aviso *«You will hear back from us in
       **2-4 weeks**. Refresh your Manage apps page to check your application status.»*
+- [x] ❌ **AUDIT RECHAZADO el 18-sep-2026, 2:22.** El motivo NO sale a la vista en la
+      consola: está en el tooltip del ⓘ junto a «Reapply» (y en el JSON de
+      `/tiktok/v1/devportal/app/detail?app_id=…&version_type=1`, campo
+      `content_posting_api_config.direct_post_capacity_request_status_info.reason`):
+      > *«Your application did not follow our UX Guidelines. Please refer to point 3 & 4
+      > under 'Required UX Implementation in Your App'… All the requirements mentioned here
+      > need to be shown in the demo video… and the ending must show that had been posted
+      > under TikTok.»*
+      **La causa fue el envío, no el código**: al audit se subió **solo `1-publicar.mp4`**,
+      uno de los tres demos de la App Review. `3-en-tiktok.mp4`, que era justo el cierre
+      dentro de TikTok, existía y no se mandó. Y ninguno enseñaba el contenido de marca
+      (punto 3b: «Only me» deshabilitado; punto 4: la línea legal con la política de
+      contenido de marca). **Se REENVÍA con «Reapply», no se empieza de cero**: la app
+      sigue Live.
+- [x] **Arreglos en la app para calcar los puntos 3 y 4** (en `bd563d1`, desplegados):
+      la etiqueta resultante va en UNA línea aparte y no en la nota de cada casilla
+      (con las dos marcadas, TikTok dice «Paid partnership», no las dos); los avisos
+      «You need to indicate if your content promotes yourself, a third party, or both» y
+      «Branded content visibility cannot be set to private» con la redacción LITERAL de la
+      guía, este último también bajo Privacy en cuanto se marca «Branded content»; y
+      «Cancelar» en la fila de TikTok de Cuentas conectadas, que se quedaba trabada en
+      «Esperando a que vuelvas…» con «Conectar» deshabilitado.
+- [x] ✅ **REAPPLY ENVIADO el 22-sep-2026** — el estado pasó de `3` (rechazado) a `1`
+      (en revisión) y el motivo se vació. Se envió con la **marca nueva**: Organization
+      **MindHaOS**, website `https://mindhaos.com/en/acerca`, y dos videos:
+      `1-tiktok-authorization.mp4` (33 s, el consentimiento, sacado de la toma del 18-sep;
+      ahí sale todavía «Mind Planner Home») y `2-post-to-tiktok.mp4` (1:48, el demo nuevo).
+      El formulario del audit **exige explícitamente la pantalla de autorización**
+      («1) User flow of TikTok authorization page»), que el demo nuevo no tenía porque la
+      cuenta ya estaba conectada.
 - [ ] Al aprobar el audit: `REDES_TIKTOK_AUDITADO=1`.
-- [ ] Al quitar el «Solo yo», **devolver la cuenta `mindplannerhome` a pública** (se puso
-      privada para poder publicar sin auditar) y borrar los videos de prueba.
+- [ ] Al quitar el «Solo yo», **devolver la cuenta `mindhaos.app` a pública** (la cuenta de
+      TikTok nueva de la marca, creada el 18-sep; se puso privada para poder publicar sin
+      auditar) y borrar los videos de prueba. La vieja `mindplannerhome` sigue en privado.
+
+**El demo del 22-sep-2026 y cómo se hizo** (`2-post-to-tiktok.mp4`, 1:48, en inglés):
+casa → Video → «MPH ad» → Export → TikTok → apodo `mindhaos.app`, título, privacidad sin
+elegir, Comments/Duet/Stitch → «Commercial content» apagado y encendido (sin casilla:
+aviso rojo y Publish deshabilitado) → «Your brand» → «Promotional content» → **«Branded
+content» → «Paid partnership», «Only me» en gris con su aviso y la línea legal con
+Branded Content Policy** → Publish → «Published on TikTok» → el video en el perfil, con las
+etiquetas **«Promotional content»** y **«Creator labeled as AI-generated»** puestas por
+TikTok. Lo que se aprendió:
+
+- ⛔ **Con la app sin auditar NO se puede publicar contenido de marca**: TikTok fuerza
+  «Only me» y el contenido de marca no puede ser privado. El video ENSEÑA esa parte (en
+  un clip aparte insertado antes del Publish) y publica con solo «Your brand».
+- **La cuenta tiene que estar en privado**, o la publicación muere con el genérico
+  «Please review our integration guidelines…». Con la cuenta privada, la privacidad
+  ofrece Followers / Friends / Only me (desaparece «Everyone»).
+- **Grabar en MP4 FRAGMENTADO**, no MKV: el MKV quedó en **0 bytes** al matar `ffmpeg`.
+  Lo que funcionó y aguanta `Stop-Process -Force`:
+  `-g 12 -movflags +frag_keyframe+empty_moov+default_base_moof -frag_duration 1000000 -flush_packets 1`.
+- **No se puede conducir la pestaña sin que salga la barra «"Claude" started debugging
+  this browser»**: cerrarla con la × desconecta a Claude de la pestaña. La toma la hizo
+  Marco a mano, dictada paso a paso.
+- **Recortar el aire con `freezedetect=n=-62dB:d=2`** y dejar cada pausa en 2,6 s con
+  `select='not(between(t,…))',setpts=N/12/TB`: de 3:27 a 1:48 sin perder ningún clic
+  (a -62 dB solo cuenta como quieto lo que no cambia NADA).
+- En el formulario del audit **el cuadro del asistente de IA de la página es también un
+  `textarea`**: buscar el campo por su `name` (`widget…`) y no por «el último textarea».
+
+**Revisión de la ficha a MindHaOS (22-sep-2026), «Create Revision» → In review.**
+Nombre **MindHaOS**, icono nuevo, **Website `https://app.mindhaos.com/`**, texto de
+revisión explicando el renombre, y en demos `2-conectar.mp4` + el demo nuevo (se quitaron
+`1-publicar` y `3-en-tiktok`, que siguen en la versión Live). Motivo (120 caracteres):
+«Rename to MindHaOS: new name, icon and website (app.mindhaos.com, verified). New demo
+video. No scope changes.» Hasta que se apruebe, **la pantalla de permisos sigue diciendo
+«Mind Planner Home» con el icono viejo**: sale de la versión Live, no de la app.
+- ⚠️ **El dominio del video tiene que coincidir con la Website URL**, y
+  `app.mindhaos.com` no estaba verificado: «This URL is not verified». Se verificó como
+  **URL prefix** con archivo de firma: `public/tiktok7gNjsagFvxqYsB0Ph5o5VZQAB4lxzL4i.txt`
+  (commit `1bac271`), que **tiene que seguir en cada despliegue**. En URL properties quedan
+  verificados `https://app.mindhaos.com/` (URL prefix) y `mindplannerhome.com` (Domain).
+  La Website URL tiene que llevar la **barra final** para caer dentro del prefijo.
+- El archivo de firma se obtiene sin descargar nada: el botón genera un blob; basta con
+  interceptar `URL.createObjectURL` y leer `blob.text()`.
+- **Las redirect URI NO se tocan**: `mindplannerhome.com/oauth/redes` sigue redirigiendo
+  al callback de Supabase, y `REDES_CALLBACK_URL` es la misma para Google, TikTok y Meta.
 
 **Formulario del audit, empezado el 14-sep-2026 (pasos 1 y 2 completos, parado en el 3).**
 Se abre desde Production → Products → Content Posting API → Direct Post → **Apply**, y sale
@@ -1411,15 +1497,51 @@ una Página: hacen falta para probar (la app se lo explica al usuario que no las
       `Videos/Grabaciones de pantalla/screencast-meta-app-review.mp4` (9,4 MB) con su
       `.srt` al lado. El guion, las tomas y dónde quedó cada una, más abajo en
       «Guion del screencast de Meta».
-- [ ] App Review → Permissions and features → Request advanced access para los cinco:
+- [x] App Review → Permissions and features → Request advanced access para los cinco:
       descripción de uso (abajo), screencast e **instrucciones con credenciales**. La
       cuenta revisora es `mindplannerhome+meta@gmail.com` — propia, porque la compartida
       con Apple y Play no vale (ver abajo) — y no basta con que entre: hay que dejarle casa,
       cuarto del Studio y dos proyectos de demostración, porque los binarios del Studio no
       viajan por el sync y Instagram solo acepta 9:16. **Ya está lista**: receta y estado en
       «Cuenta del revisor de Meta» (abajo).
-- [ ] Enviar y contestar (3–7 días hábiles). Rechazo típico: el revisor no pudo entrar o
-      el screencast no enseña el permiso en uso.
+- [x] ✅ **ENVIADA el 22-sep-2026 → «Review in progress»** (*«Most submissions are
+      reviewed within 20 days»*). Seis permisos: los cinco más `public_profile`, que va de
+      serie con el Login y solo pide la casilla. Antes, en Basic settings: **Display name
+      MindHaOS** e icono nuevo (`public/icon-512.png`). Se envió el **screencast VIEJO**
+      (10-sep, con «Mind Planner Home»), por decisión de Marco, explicando el renombre al
+      principio de cada descripción y de las instrucciones del revisor («IMPORTANT – APP
+      RENAMED…»). Si lo rechazan por la incoherencia, la salida es regrabarlo.
+      Cómo es el envío ahora, que no se parece al de antes:
+      - **Ya no hay «Request advanced access»**: cada permiso se añade desde su caso de uso
+        (Use cases → Customize → «Actions» → **Add to App Review**). El primero abre el
+        aviso de Tech Provider (*«This decision cannot be reversed»*); con el Tech
+        Provider ya verificado, «Continue» mete de golpe TODOS los permisos de los casos
+        de uso.
+      - ⚠️ **Se coló `business_management`** en el borrador (estaba en el caso de uso de la
+        Página). Se quitó con la papelera de su fila en App Review → Submissions: eso lo
+        saca de la revisión, no de la app. No se pide porque la app deja pegar el enlace
+        de la Página.
+      - El formulario tiene cinco pasos: Verification y App settings ya en verde; **Allowed
+        usage** (por permiso: descripción, screencast, llamadas de prueba «Completed» y la
+        casilla de compromiso); **Data handling**; **Reviewer instructions**.
+      - ⚠️ **En Allowed usage el texto solo se guarda al pulsar Save, y Save exige la
+        casilla** (que marca Marco): cerrar el diálogo sin guardar PIERDE la descripción.
+        El screencast, en cambio, se autoguarda al subirlo. Por eso se hizo de uno en uno.
+      - **Data handling** (respuestas de Marco): proveedor **Supabase, Inc.** · «IT
+        solutions and services, including cloud storage and processing» · **Estados
+        Unidos** (el proyecto está en `us-east-2`); responsable **Marco Antonio Cabanillas
+        Ramirez**, **México**; solicitudes de seguridad nacional: **No**; política:
+        **Data minimization**.
+      - **Reviewer instructions**: Site URL `https://app.mindplannerhome.com/`, Facebook
+        Login **Yes**, las instrucciones de abajo con el aviso del renombre delante, y las
+        credenciales en el campo *access codes* (la contraseña la pegó Marco).
+      - El icono se sube arrastrando: la zona «Drag and drop your file» no tiene
+        `input[type=file]`; se crea uno temporal, se le carga el PNG y se dispara un
+        `drop` con ese `File` sobre la zona.
+- [ ] Contestar si preguntan. Rechazo típico: el revisor no pudo entrar o el screencast no
+      enseña el permiso en uso. Al aprobarse: `REDES_META_LIVE=1`.
+- [x] **Facebook e Instagram no «desaparecieron» por un fallo**: la última toma del
+      screencast (10-sep) era desconectar la cuenta en Ajustes, y no se volvió a conectar.
 - [x] Pasar la app a **Live** (interruptor App Mode). **HECHO el 10-sep-2026**, y antes de
       lo previsto: se hizo para poder grabar el screencast, porque la App Review pide ver
       `pages_manage_posts` e `instagram_content_publish` funcionando y con la app
