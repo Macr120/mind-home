@@ -12,6 +12,44 @@ Las rutas `src/…` y `supabase/…` son las de la rama `ios-1.0.0`.
 
 ---
 
+## Parte 0 — Sexto envío (24-sep-2026, build 1.0.0 (8))
+
+**Quinto rechazo** (iPad Air M3, iPadOS 27.0, guía 2.1(a)): «Sign in with Apple»
+dejaba una página en blanco. El login web de Apple en el Safari incrustado vuelve
+por un POST automático al esquema propio `com.macr120.mindhome://oauth`, y el
+navegador incrustado no lo sigue.
+
+**Arreglo**: Sign in with Apple NATIVO en iOS: plugin local
+`ios/App/App/AppleLoginPlugin.swift` (registrado en `MainViewController`,
+capacidad en `App.entitlements`) + `src/core/cuenta/appleNativo.ts`, que canjea el
+`identityToken` con `signInWithIdToken` y un nonce. En Supabase, el proveedor
+Apple acepta como Client IDs el Services ID de la web **y** el bundle id de la app.
+
+**Auditoría previa al envío** (todo en el build 8):
+- Permisos que faltaban: reconocimiento de voz (sin él, el dictado puede cerrar
+  la app), guardar en Fotos y ubicación, en los 16 idiomas.
+- Láminas «¿Qué es?»: en las tiendas se ocultan las preguntas que nombran
+  Android, Windows, Stripe o la compra en la web (2.3.10 / 3.1.1).
+- «Eliminar cuenta» también en la puerta de compra: quien no compra nunca llega
+  a Configuraciones (5.1.1(v)).
+- Términos en iOS → EULA estándar de Apple; el aviso de «sin créditos» lleva el
+  texto de renovación y los enlaces legales; precios con «/ mes» y «/ año» (3.1.2).
+- Google saca siempre el selector de cuentas (`prompt=select_account`).
+- Registro por correo: el enlace de confirmación vuelve a la app y, si el
+  enlace se gasta en otro navegador, la app entra sola al volver al frente.
+
+**Supabase**: sin SMTP propio, el correo de fábrica envía muy pocos correos por
+hora y el registro fallaba con «Demasiados intentos». Se apagó «Confirm email»
+(comprobable: `GET /auth/v1/settings` → `mailer_autoconfirm: true`).
+**Pendiente tras la aprobación**: SMTP propio (Resend) y volver a encenderla.
+
+**Pendiente (solo servidor)**: el trial de 700 créditos se concede por cuenta al
+recibir el unlock; restaurar la misma compra en cuentas nuevas repite el trial.
+
+**Cambiar el build del envío sin la UI**: `PATCH
+/iris/v1/appStoreVersions/<vid>/relationships/build` → 204; luego «Update
+Review» en la versión, recargar la página del envío y «Resubmit to App Review».
+
 ## Parte 1 — El plan del quinto envío (21-sep-2026)
 
 # Plan: que la 1.0 pase la revisión de Apple (5.º envío)
@@ -180,7 +218,7 @@ con curl y el JWT de una cuenta de pruebas), luego el build.
 
 ---
 
-## Parte 2 — Bitácora de los cinco envíos (más reciente primero)
+## Parte 2 — Bitácora de los seis envíos (más reciente primero)
 
 Alta de **Mind Planner Home** (repo `Macr120/mind-home`) en el App Store, arrancada
 el 24-ago-2026. Datos fijos: **app id 6804840611**, bundle `com.macr120.mindhome`,
