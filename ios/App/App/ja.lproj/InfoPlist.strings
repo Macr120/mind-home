@@ -2,3 +2,6 @@
 "NSCameraUsageDescription" = "ARチャットで周囲を映したり、アプリ用の写真を撮ったりするために使います。";
 "NSMicrophoneUsageDescription" = "入力する代わりに、家に話しかけて書き取ってもらうために使います。";
 "NSPhotoLibraryUsageDescription" = "思い出や部屋、チャットに使う写真を選ぶために使います。";
+"NSSpeechRecognitionUsageDescription" = "音声入力をテキストに変換するため。";
+"NSPhotoLibraryAddUsageDescription" = "家の画像を写真に保存するため。";
+"NSLocationWhenInUseUsageDescription" = "現在地の天気を表示し、屋外ワークアウトを記録するため。";

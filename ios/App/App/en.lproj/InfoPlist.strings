@@ -2,3 +2,6 @@
 "NSCameraUsageDescription" = "To see your surroundings in AR chat and to take photos for your apps.";
 "NSMicrophoneUsageDescription" = "To dictate to your house instead of typing.";
 "NSPhotoLibraryUsageDescription" = "To pick photos for your memories, your rooms and the chat.";
+"NSSpeechRecognitionUsageDescription" = "To turn what you dictate into text.";
+"NSPhotoLibraryAddUsageDescription" = "To save images from your house to your photos.";
+"NSLocationWhenInUseUsageDescription" = "To show the weather where you are and track your outdoor workouts.";

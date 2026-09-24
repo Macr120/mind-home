@@ -2,3 +2,6 @@
 "NSCameraUsageDescription" = "Per vedere ciò che ti circonda nella chat AR e scattare foto per le tue app.";
 "NSMicrophoneUsageDescription" = "Per dettare alla tua casa invece di scrivere.";
 "NSPhotoLibraryUsageDescription" = "Per scegliere foto per i tuoi ricordi, le tue stanze e la chat.";
+"NSSpeechRecognitionUsageDescription" = "Per trasformare in testo ciò che detti.";
+"NSPhotoLibraryAddUsageDescription" = "Per salvare le immagini della tua casa nelle tue foto.";
+"NSLocationWhenInUseUsageDescription" = "Per mostrarti il meteo dove sei e registrare i tuoi allenamenti all'aperto.";

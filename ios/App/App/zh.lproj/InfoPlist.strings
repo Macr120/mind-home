@@ -2,3 +2,6 @@
 "NSCameraUsageDescription" = "用于在 AR 聊天中查看你周围的环境，并为你的应用拍照。";
 "NSMicrophoneUsageDescription" = "用于对你的家口述，而不用打字。";
 "NSPhotoLibraryUsageDescription" = "用于为你的回忆、房间和聊天选择照片。";
+"NSSpeechRecognitionUsageDescription" = "将你口述的内容转换为文字。";
+"NSPhotoLibraryAddUsageDescription" = "将你家中的图片保存到照片。";
+"NSLocationWhenInUseUsageDescription" = "显示你所在位置的天气并记录你的户外锻炼。";

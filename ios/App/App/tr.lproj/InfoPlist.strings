@@ -2,3 +2,6 @@
 "NSCameraUsageDescription" = "AR sohbetinde çevreni görmek ve uygulamaların için fotoğraf çekmek için.";
 "NSMicrophoneUsageDescription" = "Yazmak yerine evine dikte etmek için.";
 "NSPhotoLibraryUsageDescription" = "Anıların, odaların ve sohbet için fotoğraf seçmek için.";
+"NSSpeechRecognitionUsageDescription" = "Dikte ettiklerinizi metne dönüştürmek için.";
+"NSPhotoLibraryAddUsageDescription" = "Evinizdeki görselleri fotoğraflarınıza kaydetmek için.";
+"NSLocationWhenInUseUsageDescription" = "Bulunduğunuz yerin hava durumunu göstermek ve açık hava antrenmanlarınızı kaydetmek için.";

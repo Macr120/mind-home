@@ -19,7 +19,7 @@ import { hayBackend } from '../cuenta/supabase'
 import { esPro, esProbar, esTrial, fuePro } from '../edicion'
 import { salirDemo } from '../../demo/modo'
 import { salirProbar } from '../../probar/modo'
-import { FormularioAcceso } from './editor/EditorCuentaSection'
+import { AvisoRenovacion, EnlacesLegales, FormularioAcceso } from './editor/EditorCuentaSection'
 
 /**
  * Modales globales del plan:
@@ -408,6 +408,14 @@ function CuotaAgotada() {
               p: creditos.precio,
             })}
           </button>
+        )}
+        {/* Guía 3.1.2: donde se vende una suscripción van, en la MISMA
+            pantalla, el aviso de renovación automática y Términos/Privacidad. */}
+        {compraEmbebida && superiores.length > 0 && (
+          <>
+            <AvisoRenovacion />
+            <EnlacesLegales />
+          </>
         )}
         {/* Sin compra embebida (escritorio, sin sesión) el checkout vive en la web. */}
         {enlaceWeb && (

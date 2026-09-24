@@ -2,3 +2,6 @@
 "NSCameraUsageDescription" = "لرؤية ما حولك في دردشة الواقع المعزّز والتقاط صور لتطبيقاتك.";
 "NSMicrophoneUsageDescription" = "لإملاء رسائلك على منزلك بدل كتابتها.";
 "NSPhotoLibraryUsageDescription" = "لاختيار صور لذكرياتك وغرفك والدردشة.";
+"NSSpeechRecognitionUsageDescription" = "لتحويل ما تمليه إلى نص.";
+"NSPhotoLibraryAddUsageDescription" = "لحفظ صور منزلك في صورك.";
+"NSLocationWhenInUseUsageDescription" = "لعرض الطقس في مكانك وتتبع تمارينك في الهواء الطلق.";

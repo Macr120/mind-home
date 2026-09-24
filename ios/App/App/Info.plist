@@ -78,6 +78,12 @@
 	  de Android) y traducidos en `<id>.lproj/InfoPlist.strings`.
 	-->
 	<!-- Chat AR (`core/chat/ChatArOverlay.tsx`) y las fotos del chat. -->
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>To turn what you dictate into text.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>To save images from your house to your photos.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>To show the weather where you are and track your outdoor workouts.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>To see your surroundings in AR chat and to take photos for your apps.</string>
 	<!-- Dictado por voz (`core/audio/dictado.ts`, `useDictado.ts`). -->

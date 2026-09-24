@@ -290,7 +290,9 @@ function Contenido({ lamina, alCerrar }: { lamina: Lamina; alCerrar: () => void 
             {lamina.extra.precios && (
               <p className="mt-0.5 text-xs font-bold text-accent">{lamina.extra.precios}</p>
             )}
-            <p className="mt-0.5 text-[11px] leading-snug text-white/50">{lamina.extra.texto}</p>
+            {lamina.extra.texto && (
+              <p className="mt-0.5 text-[11px] leading-snug text-white/50">{lamina.extra.texto}</p>
+            )}
           </div>
         )}
       </>
