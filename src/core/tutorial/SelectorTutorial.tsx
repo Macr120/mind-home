@@ -19,6 +19,7 @@ import { entrarDemo } from '../../demo/modo'
 import { useAjustes } from '../state/ajustesStore'
 import { Carpeta } from '../ui/comun/Carpeta'
 import { Icono } from '../ui/iconos/Icono'
+import { IconoMarca } from '../ui/iconos/glifosApps'
 import type { NombreIcono } from '../ui/iconos/catalogo'
 import type { TutorialDef } from './tipos'
 
@@ -482,7 +483,7 @@ export function SelectorTutorialOverlay() {
                           aria-label={nombre}
                           className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/5 text-lg transition hover:border-amber-400/60 hover:bg-amber-400/15"
                         >
-                          <Icono emoji={p.icon} />
+                          <IconoMarca emoji={p.icon} size="1.4em" />
                         </button>
                       )
                     })}
@@ -516,7 +517,7 @@ export function SelectorTutorialOverlay() {
                           aria-label={nombre}
                           className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/5 text-lg transition hover:border-amber-400/60 hover:bg-amber-400/15"
                         >
-                          <Icono emoji={p.icon} />
+                          <IconoMarca emoji={p.icon} size="1.4em" />
                         </button>
                       )
                     })}

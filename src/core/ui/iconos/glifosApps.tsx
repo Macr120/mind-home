@@ -15,10 +15,15 @@ import { Icono } from './Icono'
  */
 
 // Los colores van por variable: el estilo de iconos decide si son los del
-// logo (coloridos) o grises (profesional). Ver `PALETAS` abajo.
+// logo (coloridos) o contornos (profesional). Ver `PALETAS` abajo.
+// Rellenos de las piezas:
 const N = 'var(--glifo-n)' // naranja
 const R = 'var(--glifo-r)' // rojo
 const M = 'var(--glifo-m)' // morado
+// Líneas dibujadas con trazo (no piezas): en profesional pasan al color del contorno.
+const TN = 'var(--glifo-trazo-n)'
+const TR = 'var(--glifo-trazo-r)'
+const TM = 'var(--glifo-trazo-m)'
 
 const GLIFOS: Record<string, ReactNode> = {
   // Cocina: olla con tapa.
@@ -122,7 +127,7 @@ const GLIFOS: Record<string, ReactNode> = {
     <>
       <path d="M10 5h16a6 6 0 0 1 6 6v10a6 6 0 0 1-6 6H14l-7 6v-6.6A6 6 0 0 1 4 21V11a6 6 0 0 1 6-6z" fill={M} />
       <path d="M38 18H22a6 6 0 0 0-6 6v10a6 6 0 0 0 6 6h12l7 6v-6.6a6 6 0 0 0 3-5.4V24a6 6 0 0 0-6-6z" fill={N} />
-      <path d="M25 35l5-11 5 11m-8-4h6" fill="none" stroke={R} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M25 35l5-11 5 11m-8-4h6" fill="none" stroke={TR} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
     </>
   ),
   // Ideas: foco.
@@ -212,6 +217,17 @@ const GLIFOS: Record<string, ReactNode> = {
       <path d="M20 25.5v12L30.5 31.5z" fill={R} />
     </>
   ),
+  // Alberca (sótano con agua; es un cuarto, no una app): escalerilla y olas.
+  '🏊': (
+    <>
+      <rect x="11" y="4" width="5" height="30" rx="2.5" fill={M} />
+      <rect x="28" y="4" width="5" height="30" rx="2.5" fill={M} />
+      <rect x="14" y="11" width="16" height="4" rx="2" fill={N} />
+      <rect x="14" y="20" width="16" height="4" rx="2" fill={N} />
+      <path d="M3 31q5.5-4 11 0t11 0 11 0 10 0v6q-5 4-10 0t-11 0-11 0-11 0z" fill={R} />
+      <path d="M3 40q5.5-4 11 0t11 0 11 0 10 0v4q-5 3-10 0t-11 0-11 0-11 0z" fill={N} />
+    </>
+  ),
   // Hobbies: guitarra.
   '🎸': (
     <g transform="rotate(40 24 24)">
@@ -229,7 +245,7 @@ const GLIFOS_EXTERIOR: Record<string, ReactNode> = {
   // Circuitos: pista con su línea central y la meta.
   '🛤️': (
     <>
-      <rect x="6" y="11" width="36" height="26" rx="13" fill="none" stroke={M} strokeWidth="7" />
+      <rect x="6" y="11" width="36" height="26" rx="13" fill="none" stroke={TM} strokeWidth="7" />
       <rect x="6" y="11" width="36" height="26" rx="13" fill="none" stroke={N} strokeWidth="2" strokeDasharray="4 4" />
       <rect x="21" y="4" width="6" height="14" rx="2" fill={R} />
     </>
@@ -238,9 +254,9 @@ const GLIFOS_EXTERIOR: Record<string, ReactNode> = {
   '🏀': (
     <>
       <rect x="4" y="9" width="40" height="30" rx="5" fill={M} />
-      <path d="M24 13v22" stroke={N} strokeWidth="2.5" strokeLinecap="round" />
-      <circle cx="24" cy="24" r="5.5" fill="none" stroke={N} strokeWidth="2.5" />
-      <path d="M8 18h5v12H8M40 18h-5v12h5" fill="none" stroke={R} strokeWidth="2.5" strokeLinejoin="round" />
+      <path d="M24 13v22" stroke={TN} strokeWidth="2.5" strokeLinecap="round" />
+      <circle cx="24" cy="24" r="5.5" fill="none" stroke={TN} strokeWidth="2.5" />
+      <path d="M8 18h5v12H8M40 18h-5v12h5" fill="none" stroke={TR} strokeWidth="2.5" strokeLinejoin="round" />
     </>
   ),
   // Santuario: granero.
@@ -249,7 +265,7 @@ const GLIFOS_EXTERIOR: Record<string, ReactNode> = {
       <rect x="9" y="20" width="30" height="23" rx="3" fill={R} />
       <path d="M24 5 45 21a2 2 0 0 1-1.2 3.6H4.2A2 2 0 0 1 3 21z" fill={M} />
       <rect x="18" y="28" width="12" height="15" rx="2" fill={N} />
-      <path d="M19.5 29.5l9 12m0-12-9 12" stroke={R} strokeWidth="2" strokeLinecap="round" />
+      <path d="M19.5 29.5l9 12m0-12-9 12" stroke={TR} strokeWidth="2" strokeLinecap="round" />
     </>
   ),
   // Comida (huerto): zanahoria.
@@ -279,7 +295,7 @@ const GLIFOS_EXTERIOR: Record<string, ReactNode> = {
 // Pieza del logo con su canto oscuro detrás, como en public/icon.svg.
 const pieza = (d: string, cara: string, canto: string) => (
   <>
-    <path d={d} fill={canto} transform="translate(2 2)" />
+    <path d={d} fill={canto} stroke="none" transform="translate(2 2)" />
     <path d={d} fill={cara} />
   </>
 )
@@ -302,8 +318,8 @@ const GLIFOS_NOMBRE = {
   ),
   asistentes: (
     <>
-      <path d="M8 40l19-19" stroke={N} strokeWidth="6" strokeLinecap="round" />
-      <path d="M27 21l5-5" stroke={R} strokeWidth="6" strokeLinecap="round" />
+      <path d="M8 40l19-19" stroke={TN} strokeWidth="6" strokeLinecap="round" />
+      <path d="M27 21l5-5" stroke={TR} strokeWidth="6" strokeLinecap="round" />
       <path d="M36 3q1.6 7.4 9 9-7.4 1.6-9 9-1.6-7.4-9-9 7.4-1.6 9-9z" fill={M} />
       <path d="M14 6q1 5 6 6-5 1-6 6-1-5-6-6 5-1 6-6z" fill={R} />
       <path d="M40 26q.8 4.2 5 5-4.2.8-5 5-.8-4.2-5-5 4.2-.8 5-5z" fill={N} />
@@ -319,17 +335,17 @@ const GLIFOS_NOMBRE = {
   navegador: (
     <>
       <circle cx="24" cy="24" r="19" fill={M} />
-      <ellipse cx="24" cy="24" rx="8" ry="17" fill="none" stroke={N} strokeWidth="3.5" />
-      <path d="M7 24h34" stroke={R} strokeWidth="3.5" strokeLinecap="round" />
+      <ellipse cx="24" cy="24" rx="8" ry="17" fill="none" stroke={TN} strokeWidth="3.5" />
+      <path d="M7 24h34" stroke={TR} strokeWidth="3.5" strokeLinecap="round" />
     </>
   ),
 
   // — Pestañas del editor —
   mapa: (
     <g strokeWidth="2" strokeLinejoin="round">
-      <path d="M5 10l12-4v32L5 42z" fill={M} stroke={M} />
-      <path d="M17 6l14 4v32l-14-4z" fill={N} stroke={N} />
-      <path d="M31 10l12-4v32l-12 4z" fill={R} stroke={R} />
+      <path d="M5 10l12-4v32L5 42z" fill={M} stroke={TM} />
+      <path d="M17 6l14 4v32l-14-4z" fill={N} stroke={TN} />
+      <path d="M31 10l12-4v32l-12 4z" fill={R} stroke={TR} />
     </g>
   ),
   personajes: (
@@ -341,9 +357,9 @@ const GLIFOS_NOMBRE = {
   ),
   objetos: (
     <g strokeWidth="1.5" strokeLinejoin="round">
-      <path d="M24 5l17 9-17 9-17-9z" fill={N} stroke={N} />
-      <path d="M7 14l17 9v20L7 34z" fill={M} stroke={M} />
-      <path d="M41 14L24 23v20l17-9z" fill={R} stroke={R} />
+      <path d="M24 5l17 9-17 9-17-9z" fill={N} stroke={TN} />
+      <path d="M7 14l17 9v20L7 34z" fill={M} stroke={TM} />
+      <path d="M41 14L24 23v20l17-9z" fill={R} stroke={TR} />
     </g>
   ),
   config: (
@@ -372,32 +388,43 @@ interface Props {
   estilo?: EstiloIconos
 }
 
-// Coloridos: los tres colores del logo con su canto. Profesional: grises que
-// salen del color del texto, así siguen al tema claro/oscuro y al atenuado
-// de las pestañas inactivas.
-const gris = (tinta: number) => `color-mix(in srgb, currentColor ${tinta}%, #8a8a8a)`
+// Coloridos: los tres colores del logo con su canto. Profesional: contornos
+// en el color del texto (negro en claro, sigue al tema y al atenuado de las
+// pestañas inactivas) y las piezas rellenas del color del panel, para que las
+// que se enciman tapen la línea de abajo en vez de cruzarse.
+const FONDO = 'var(--glifo-fondo, var(--ui-panel-solido, var(--ui-panel)))'
 const PALETAS: Record<EstiloIconos, CSSProperties> = {
   emoji: {
     '--glifo-n': '#f6a413',
     '--glifo-r': '#f53b4b',
     '--glifo-m': '#b36bfb',
+    '--glifo-trazo-n': '#f6a413',
+    '--glifo-trazo-r': '#f53b4b',
+    '--glifo-trazo-m': '#b36bfb',
     '--glifo-canto-n': '#c14a05',
     '--glifo-canto-r': '#8e0a24',
     '--glifo-canto-m': '#8935d8',
   } as CSSProperties,
   profesional: {
-    '--glifo-n': gris(35),
-    '--glifo-r': gris(100),
-    '--glifo-m': gris(65),
-    '--glifo-canto-n': gris(10),
-    '--glifo-canto-r': gris(10),
-    '--glifo-canto-m': gris(10),
+    '--glifo-n': FONDO,
+    '--glifo-r': FONDO,
+    '--glifo-m': FONDO,
+    '--glifo-trazo-n': 'currentColor',
+    '--glifo-trazo-r': 'currentColor',
+    '--glifo-trazo-m': 'currentColor',
+    '--glifo-canto-n': 'none',
+    '--glifo-canto-r': 'none',
+    '--glifo-canto-m': 'none',
+    stroke: 'currentColor',
+    strokeWidth: 3,
+    strokeLinejoin: 'round',
+    strokeLinecap: 'round',
   } as CSSProperties,
 }
 
 /**
  * Icono de marca: el glifo a color (estilo «Coloridos», id `emoji`) o en
- * grises (estilo «Profesional»). Si no hay glifo, el `Icono` de siempre.
+ * contornos (estilo «Profesional»). Si no hay glifo, el `Icono` de siempre.
  */
 export function IconoMarca({ glifo, emoji, nombre, size = '1.3em', estilo }: Props) {
   const estiloAjuste = useAjustes((s) => s.estiloIconos)
