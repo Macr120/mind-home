@@ -27,10 +27,10 @@ const tour = (
 
 export const tutorialCasa = tour(
   'casa',
-  T('tut.casa.titulo', 'Tu casa'),
+  T('tut.casa.titulo', 'Tu MindHaOS'),
   T(
     'tut.casa.resumen',
-    'La casa es el mapa de tus apps: cada cuarto guarda una. Te mueves con el joystick o WASD, cambias de vista con V y abres el menú con el botón de arriba a la izquierda. El hueco de la esquina cambia solo según lo que tengas cerca; el reloj lleva el calendario y el paso del tiempo, y la música tiene su propio botón.',
+    'La MindHaOS es el mapa de tus apps: cada cuarto guarda una. Te mueves con el joystick o WASD, cambias de vista con V y abres el menú con el botón de arriba a la izquierda. El hueco de la esquina cambia solo según lo que tengas cerca; el reloj lleva el calendario y el paso del tiempo, y la música tiene su propio botón.',
   ),
   'cuerpoCasa',
 )
@@ -40,7 +40,7 @@ const tutorialMenuCuartos = tour(
   T('tut.menu-cuartos.titulo', 'Menú · Hogar'),
   T(
     'tut.menu-cuartos.resumen',
-    'La pestaña Hogar lista los cuartos de tu casa por categoría, con su progreso. La tarjeta entera entra a la app —o dice + Asignar si aún no tiene—, y su engrane despliega las opciones: moverla en la lista, borrar el cuarto o editarlo. Arriba vive tu resumen: humor, rango y racha; abajo puedes crear cuartos nuevos.',
+    'La pestaña Hogar lista los cuartos de tu MindHaOS por categoría, con su progreso. La tarjeta entera entra a la app —o dice + Asignar si aún no tiene—, y su engrane despliega las opciones: moverla en la lista, borrar el cuarto o editarlo. Arriba vive tu resumen: humor, rango y racha; abajo puedes crear cuartos nuevos.',
   ),
   'cuerpoMenuCuartos',
 )
@@ -80,7 +80,7 @@ const tutorialEditorMapa = tour(
   T('tut.editor-mapa.titulo', 'El editor · Mapa'),
   T(
     'tut.editor-mapa.resumen',
-    'El editor personaliza toda la casa en 4 pestañas: Mapa, Personajes, Objetos y Configuraciones — cada una con su propio tutorial. La de Mapa dibuja cuartos, muros, puertas, ventanas, pisos y techos en un plano que se ve en 3D al instante, y también da niveles: pisos apilables y un sótano.',
+    'El editor personaliza toda la MindHaOS en 4 pestañas: Mapa, Personajes, Objetos y Configuraciones — cada una con su propio tutorial. La de Mapa dibuja cuartos, muros, puertas, ventanas, pisos y techos en un plano que se ve en 3D al instante, y también da niveles: pisos apilables y un sótano.',
   ),
   'cuerpoEditorMapa',
 )
@@ -170,7 +170,7 @@ const tutorialChat = tour(
   T('tut.chat.titulo', 'El chat del arquitecto'),
   T(
     'tut.chat.resumen',
-    'El chat registra lo que le cuentes en la app correcta («corrí 20 min» va a Ejercicio), edita la casa por texto y dicta por voz; su + adjunta imágenes, PDF o fotos y abre la máscara y el chat AR. Cada asistente tiene su cara y su voz; el manual lista todo lo que puedes pedir, y lo registrado vive en su pestaña Registros.',
+    'El chat registra lo que le cuentes en la app correcta («corrí 20 min» va a Ejercicio), edita la MindHaOS por texto y dicta por voz; su + adjunta imágenes, PDF o fotos y abre la máscara y el chat AR. Cada asistente tiene su cara y su voz; el manual lista todo lo que puedes pedir, y lo registrado vive en su pestaña Registros.',
   ),
   'cuerpoChat',
 )
@@ -187,7 +187,7 @@ const tutorialChatRegistros = tour(
 
 const tutorialMusica = tour(
   'musica',
-  T('tut.musica.titulo', 'La música de la casa'),
+  T('tut.musica.titulo', 'La música de la MindHaOS'),
   T(
     'tut.musica.resumen',
     'Música ambiental general o un tema por cuarto, con tres fuentes posibles: generada, tus propias pistas o el audio del sistema. Se apaga entera si prefieres jugar en silencio.',
@@ -210,7 +210,7 @@ const tutorialEjemplos = tour(
   T('tut.ejemplos.titulo', 'Empezar con un ejemplo'),
   T(
     'tut.ejemplos.resumen',
-    'Casi cada app trae una barra para ver un ejemplo de fábrica con datos ya puestos, y ocultarlo después sin perder nada propio. No aparece dentro de la casa demo: ahí el año entero YA es el ejemplo.',
+    'Casi cada app trae una barra para ver un ejemplo de fábrica con datos ya puestos, y ocultarlo después sin perder nada propio. No aparece dentro de la MindHaOS demo (Casa Mental OS): ahí el año entero YA es el ejemplo.',
   ),
   'cuerpoEjemplos',
 )

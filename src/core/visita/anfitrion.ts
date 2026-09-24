@@ -53,7 +53,7 @@ export async function publicarPlanoLocal(salaId: string): Promise<void> {
 export async function invitarAJugar(juego: JuegoInvitable, contacto: Contacto, t: TFunc): Promise<string> {
   const def = JUEGOS_INVITABLES[juego]
   const j = nombreJuego(juego, t)
-  const enVisita = t('partida.jugar.enVisita', 'Estás de visita: vuelve a tu casa para invitar a jugar')
+  const enVisita = t('partida.jugar.enVisita', 'Estás de visita: vuelve a tu MindHaOS para invitar a jugar')
   if (esVisita()) return enVisita
 
   // El juego tiene que existir en ESTA casa (el paintball es la casa entera).
@@ -62,7 +62,7 @@ export async function invitarAJugar(juego: JuegoInvitable, contacto: Contacto, t
     return t('partida.jugar.sinCancha', 'No tienes {j} en tu mapa: colócala desde el editor', { j })
   }
   if (def.mesa && !objetos.some((o) => o.plantillaId === 'entretenimiento' && !esObjetoLibreria(o))) {
-    return t('partida.jugar.sinApp', 'Necesitas la app Entretenimiento en tu casa')
+    return t('partida.jugar.sinApp', 'Necesitas la app Entretenimiento en tu MindHaOS')
   }
   // Sin hilo no hay dónde dejar el enlace: se comprueba antes de abrir la sala.
   const hiloId = contacto.hiloId
@@ -118,12 +118,12 @@ export async function invitarAJugar(juego: JuegoInvitable, contacto: Contacto, t
       ? t('partida.jugar.enviada.mesa', 'Le mandé a @{a} el enlace a {j}. Cuando entre, elige «En línea» en la mesa.', { a, j })
       : t(
           'partida.jugar.enviada.paintball',
-          'Le mandé a @{a} el enlace al paintball. Cuando entre a tu casa, elige «En línea» en el menú de batalla.',
+          'Le mandé a @{a} el enlace al paintball. Cuando entre a tu MindHaOS, elige «En línea» en el menú de batalla.',
           { a },
         )
   if (viva) return confirmacion
   const aviso = def.mesa
-    ? t('partida.jugar.salaNuevaMesa', 'Abrí tu casa con el mapa y Entretenimiento.')
-    : t('partida.jugar.salaNueva', 'Abrí tu casa solo con el mapa.')
+    ? t('partida.jugar.salaNuevaMesa', 'Abrí tu MindHaOS con el mapa y Entretenimiento.')
+    : t('partida.jugar.salaNueva', 'Abrí tu MindHaOS solo con el mapa.')
   return `${aviso} ${confirmacion}`
 }

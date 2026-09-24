@@ -686,7 +686,7 @@ export default {
       "dia": -140,
       "tema": "b1-viajes",
       "titulo": "Check-in cümleleri",
-      "texto": "I have a reservation under the name Pepa. — üç hafta boyunca en çok tekrarladığım cümle.\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — tren günlerinin can simidi.\nIs there a laundry nearby?\nBir de hep bana dönen cümle: «Could I see your passport, please?»"
+      "texto": "I have a reservation under the name Deniz. — üç hafta boyunca en çok tekrarladığım cümle.\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — tren günlerinin can simidi.\nIs there a laundry nearby?\nBir de hep bana dönen cümle: «Could I see your passport, please?»"
     },
     {
       "dia": -85,

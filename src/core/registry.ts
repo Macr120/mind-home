@@ -91,12 +91,12 @@ export const DESCRIPCIONES: Record<string, string> = {
   canchas: 'Coloca canchas de fútbol, tenis, básquet y béisbol en el mapa.',
   huerto: 'Prepara parcelas, siembra cultivos, riégalos y cosecha en tiempo real.',
   granja: 'Cría gallinas, cerdos, cabras, ovejas, vacas y caballos, y cultiva su comida en el mismo editor.',
-  paintball: 'Batallas de paintball contra tus asistentes (1v1, 2v2 o campal) usando la casa como mapa.',
+  paintball: 'Batallas de paintball contra tus asistentes (1v1, 2v2 o campal) usando la MindHaOS como mapa.',
   ideas: 'Tu diario de ideas y lluvias, diez formatos de mapa conceptual en lienzo libre (mental, árbol, línea del tiempo, ciclo, pirámide, Venn…) y ocho diagramas para decidir (ventajas y desventajas, campo de fuerzas, FODA, Eisenhower, árbol de decisiones, tier list, matriz de decisión ponderada e Ishikawa), a mano o con IA.',
   computo:
     'Sala de cómputo: una calculadora científica de la que cuelga tu formulario de fórmulas en carpetas (Matemáticas, Física y Química de fábrica, editables), con ocho modos —un graficador con cuatro tipos (2D, polar, paramétrica y superficie 3D), binario y hexadecimal, matrices, sistemas de ecuaciones, conversión de unidades, propina y regla de tres—; y hojas de cálculo que se exportan a Excel y a PDF.',
   agenda: 'Tu agenda: pendientes de trabajo con tablero Kanban; salud en tres partes (la tuya con citas por especialidad, medicamentos, cuidados que se repiten y seguimiento de ciclo; las personas a tu cuidado; y las mascotas), y la libreta de contactos con sus cumpleaños.',
-  metas: 'Lo que te propusiste, de toda la casa: la lista de metas con sus sub-metas y pasos, los planes que la IA propone para cada una (fases con fecha que se vuelven sub-metas reales) y el cronograma donde todo ocupa su periodo sobre el eje del tiempo.',
+  metas: 'Lo que te propusiste, de toda la MindHaOS: la lista de metas con sus sub-metas y pasos, los planes que la IA propone para cada una (fases con fecha que se vuelven sub-metas reales) y el cronograma donde todo ocupa su periodo sobre el eje del tiempo.',
   escritura:
     'Tu estudio de escritura: una estantería de libros, cada uno con sus carpetas de capítulos, personajes, lugares y actos con sus tramas; editor con formato, índice automático y una IA que redacta, corrige, resume y continúa por ti; exportación a TXT y PDF.',
   arte: 'Tu estudio de dibujo y foto: lienzos con pincel, spray, formas, relleno y texto; abre una foto y edítala con filtros; y una IA que genera o reinterpreta lo que pintas.',

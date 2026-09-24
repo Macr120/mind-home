@@ -15,7 +15,7 @@ export const TITULOS_MAPA: Record<SeccionMapaId, string> = {
   mapa: 'Mapa',
   ajustes: 'Interfaz e idioma',
   inventario: 'Inventario y catálogo',
-  tema: 'Tema de la casa',
+  tema: 'Tema de la MindHaOS',
   fondo: 'Fondo de cielo',
   perfil: 'Tu perfil y avatar',
 }

@@ -105,7 +105,7 @@ export const cuerpoEsencial: CuerpoTutorial = {
       titulo: T('tut.app-descanso--esencial.3.titulo', 'Horario y avisos'),
       texto: T(
         'tut.app-descanso--esencial.3.texto',
-        'Ajustas tu hora de dormir y de despertar arrastrando los extremos de la franja del día; el mismo horario aparece como bloque en el calendario de la casa. Aquí también enciendes el despertador con su tono y los avisos para bajar el ritmo antes de dormir.',
+        'Ajustas tu hora de dormir y de despertar arrastrando los extremos de la franja del día; el mismo horario aparece como bloque en el calendario de la MindHaOS. Aquí también enciendes el despertador con su tono y los avisos para bajar el ritmo antes de dormir.',
       ),
     },
     {

@@ -67,7 +67,7 @@ export function PantallaDemo() {
         ) : (
           <>
             <p className="text-base font-bold text-white/90">
-              {t('demo.bienvenida.titulo', 'Esta es la casa de Pep@')}
+              {t('demo.bienvenida.titulo', 'Esta es la MindHaOS (Casa Mental OS) de Pep@')}
             </p>
             <p className="text-xs leading-snug text-white/45">
               {t(
@@ -99,7 +99,7 @@ export function PantallaDemo() {
 // Fallbacks en español de los pasos (la clave i18n manda si existe).
 const CLAVES_ES: Record<string, string> = {
   'demo.paso.limpiar': 'Limpiando el terreno',
-  'demo.paso.casa': 'Levantando la casa',
+  'demo.paso.casa': 'Levantando la MindHaOS',
   'demo.paso.catalogos': 'Acomodando los catálogos',
   'demo.paso.final': 'Últimos toques',
 }

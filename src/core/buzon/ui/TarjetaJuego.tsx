@@ -67,7 +67,7 @@ export function TarjetaJuego({ m }: { m: MensajeBuzon }) {
             {m.mio
               ? t('partida.jugar.tarjeta.enviada', 'Invitación enviada')
               : contacto
-                ? t('partida.jugar.tarjeta.de', 'Invitación para jugar en casa de @{a}', { a: contacto.alias })
+                ? t('partida.jugar.tarjeta.de', 'Invitación para jugar en la MindHaOS de @{a}', { a: contacto.alias })
                 : t('partida.jugar.tarjeta.recibida', 'Invitación para jugar')}
           </p>
         </div>

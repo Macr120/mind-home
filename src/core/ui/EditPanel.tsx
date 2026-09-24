@@ -291,7 +291,7 @@ export function EditPanel() {
                 {t('editor.ayuda.mapa.a', 'Elige un')} <b className="text-white/65">{t('editor.ayuda.mapa.b', 'modo')}</b>{' '}
                 {t('editor.ayuda.mapa.c', 'arriba y edita en el')}{' '}
                 <b className="text-white/65">{t('editor.ayuda.mapa.d', 'plano')}</b>{' '}
-                {t('editor.ayuda.mapa.e', 'o en el mapa 3D. Más abajo, personaliza la casa.')}
+                {t('editor.ayuda.mapa.e', 'o en el mapa 3D. Más abajo, personaliza la MindHaOS.')}
               </AyudaPie>
             </div>
           ) : tab === 'personajes' ? (

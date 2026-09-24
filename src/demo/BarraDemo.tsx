@@ -34,7 +34,7 @@ export function BarraDemo() {
       titulo: t('demo.reiniciar', 'Reiniciar'),
       mensaje: t(
         'demo.reiniciar.confirma',
-        '¿Reiniciar la demo? La casa de Pep@ se vuelve a construir desde cero.',
+        '¿Reiniciar la demo? La MindHaOS (Casa Mental OS) de Pep@ se vuelve a construir desde cero.',
       ),
       peligro: true,
     })

@@ -1801,7 +1801,7 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
             pequeno
             onClick={() => void grabarApp()}
             disabled={progresoExport != null || sinTurno}
-            title={t('video.grabar.titulo', 'Grabar dentro de la app: ve a la casa, haz lo que quieras y vuelve con la toma como clip')}
+            title={t('video.grabar.titulo', 'Grabar dentro de la app: ve a la MindHaOS, haz lo que quieras y vuelve con la toma como clip')}
           >
             <Icono nombre={grabando ? 'detener' : 'grabar'} />{' '}
             <span className="hidden sm:inline">

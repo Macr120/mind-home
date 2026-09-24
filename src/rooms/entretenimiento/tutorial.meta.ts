@@ -38,7 +38,7 @@ const flujoJuegos = tour(
   T('tut.app-entretenimiento--juegos.titulo', 'La mesa digital'),
   T(
     'tut.app-entretenimiento--juegos.resumen',
-    'Más de veinte juegos de mesa y arcade, agrupados por familia y filtrados por número de jugadores: se juegan ahí mismo, sin salir de la casa.',
+    'Más de veinte juegos de mesa y arcade, agrupados por familia y filtrados por número de jugadores: se juegan ahí mismo, sin salir de la MindHaOS.',
   ),
   'cuerpoJuegos',
 )

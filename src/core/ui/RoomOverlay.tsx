@@ -148,11 +148,11 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
           type="button"
           data-tut="room.volver"
           onClick={closeRoom}
-          title={t('ui.volverCasa', '‹ Volver a la casa')}
+          title={t('ui.volverCasa', '‹ Volver a la MindHaOS')}
           className="shrink-0 rounded-lg bg-white/10 px-3 py-1.5 text-sm font-semibold transition hover:bg-white/20"
         >
           <span className="sm:hidden">‹</span>
-          <span className="hidden sm:inline">{t('ui.volverCasa', '‹ Volver a la casa')}</span>
+          <span className="hidden sm:inline">{t('ui.volverCasa', '‹ Volver a la MindHaOS')}</span>
         </button>
       </header>
       {/* La zona segura va aquí y no en cada app: como margen del contenedor que

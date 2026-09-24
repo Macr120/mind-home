@@ -1,6 +1,7 @@
 /** Textos de las páginas estáticas en inglés. Traducción de `es.mjs`. */
 export const TEXTOS = {
   'marca.nombre': 'MindHaOS',
+  'marca.sub': '',
   'nav.entrar': 'Sign in',
   'nav.descargar': 'Get the app',
   'pie.inicio': 'Home',
@@ -39,10 +40,10 @@ export const TEXTOS = {
   'hero.sub.4':
     'either entirely by hand or with the AI helping. And they all run on one calendar, one daily mission list and your own personal goals, synced on your phone and your computer.',
   'hero.cta': 'Get the app',
-  'hero.probar': 'Try building your house for free',
+  'hero.probar': 'Try building your MindHaOS for free',
   'hero.nota':
-    'The app is free and works offline; the house is bought once — right here on the web or inside the app. AI and sync are optional — and if you drop them, you lose nothing.',
-  'hero.video': 'Your video or screenshots of the house go here',
+    'The app is free and works offline; MindHaOS is bought once — right here on the web or inside the app. AI and sync are optional — and if you drop them, you lose nothing.',
+  'hero.video': 'Your video or screenshots of your MindHaOS go here',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
   'cifras.apps': 'apps',
@@ -53,8 +54,8 @@ export const TEXTOS = {
   'cifras.chat': 'chat',
 
   'como.h2': 'How it works',
-  'como.sub': 'A place where you build your house and then move your life into it.',
-  'como.1.t': 'You build the house',
+  'como.sub': 'A place where you build your MindHaOS and then move your life into it.',
+  'como.1.t': 'You build your MindHaOS',
   'como.1.p':
     'You drop in rooms, floors, even a basement, and around them everything you build outdoors: vegetable patch, farm, sports courts, race tracks. The walls, the colors, the furniture and your avatar are all your call.',
   'como.2.t': 'Every room is a complete app',
@@ -62,18 +63,18 @@ export const TEXTOS = {
     'You assign it one of the 17 apps — nutrition, exercise, sleep, finances, library, languages, ideas, planner, travel, hobbies, goals… —, one of the four in the Studio — audio, art, writing and video — or you build your own. With them you file what you have already lived, plan what is coming and create what does not exist yet: routines, recipes, budgets, notes, mind maps, schedules, songs and books. All by hand, or with the AI beside you.',
   'como.3.t': 'It all lands in the same place',
   'como.3.p':
-    'The 17 apps and the four in the Studio share one calendar, one list of daily missions and your own personal goals. And your whole house follows you from phone to computer.',
+    'The 17 apps and the four in the Studio share one calendar, one list of daily missions and your own personal goals. And your whole MindHaOS follows you from phone to computer.',
 
-  'car.h2': 'One house, many apps',
+  'car.h2': 'One MindHaOS, many apps',
   // Las tres primeras tarjetas: el argumento de compra.
   'car.todo.t': 'All in one, for real',
   'car.todo.p':
     'One app instead of twenty: food, money, sleep, study, habits and goals under the same roof — and talking to each other, which is exactly what no separate app can do.',
   'car.nocaduca.t': 'It doesn’t expire when you stop paying',
   'car.nocaduca.p':
-    'You buy it once and it’s yours. Subscription apps switch off the moment you stop paying; here, if you drop the AI, you keep the whole house and all your data on your device.',
+    'You buy it once and it’s yours. Subscription apps switch off the moment you stop paying; here, if you drop the AI, you keep your whole MindHaOS and all your data on your device.',
   'car.nuevas.t': 'New updates',
-  'car.nuevas.p': 'The house keeps growing: rooms, apps and improvements that arrive without paying again.',
+  'car.nuevas.p': 'Your MindHaOS keeps growing: rooms, apps and improvements that arrive without paying again.',
   'car.1.t': 'Rooms that are apps',
   'car.1.p':
     'Exercise, kitchen, finances, sleep, library, languages, travel, hobbies, mindfulness and more: every room holds a complete mini-app.',
@@ -85,7 +86,7 @@ export const TEXTOS = {
     'Chat with your assistant: log meals, create routines, plan goals, generate images and 3D models. Your first month comes with 700 credits included; after that, AI is optional.',
   'car.3.t': 'Sync across everything',
   'car.3.p':
-    'Your house follows you to your phone, your tablet and your computer. All encrypted in transit and backed up in the cloud.',
+    'Your MindHaOS follows you to your phone, your tablet and your computer. All encrypted in transit and backed up in the cloud.',
   'car.4.t': 'It feels like a game',
   'car.4.p':
     'Your character lives off your real activity: streaks, badges, the Mountain of Sisyphus, vehicles, races and mini-games.',
@@ -101,7 +102,7 @@ export const TEXTOS = {
   // claves `ia.t/p/precios/cta` de más abajo, que son la franja de PRECIOS.
   'ia.h2': 'Your assistant, with or without the cloud',
   'ia.sub':
-    'The AI in your house logs, plans and creates with you. And you decide what powers it: a cloud provider or your own computer.',
+    'The AI in your MindHaOS logs, plans and creates with you. And you decide what powers it: a cloud provider or your own computer.',
   'ia.cap.1.t': 'Log it by talking',
   'ia.cap.1.p':
     'Tell it what you ate, spent or trained and it files it in the room it belongs to, with its fields and its date.',
@@ -110,7 +111,7 @@ export const TEXTOS = {
     'Ask for a goal and it proposes the timeline: steps, dates and daily missions you can then edit by hand.',
   'ia.cap.3.t': 'Create images and 3D objects',
   'ia.cap.3.p':
-    'Illustrate your recipes, your clothes and your ideas, and build new furniture and objects for your house.',
+    'Illustrate your recipes, your clothes and your ideas, and build new furniture and objects for your MindHaOS.',
   'ia.cap.4.t': 'It talks, and it listens',
   'ia.cap.4.p': 'Your assistants answer out loud, and dictation lets you log the day without typing a word.',
   'ia.nube.t': 'In the cloud, with whoever you pick',
@@ -118,20 +119,20 @@ export const TEXTOS = {
     'Claude, Gemini or ChatGPT: you choose who thinks, who speaks and who draws. With the credits in your plan or with your own keys.',
   'ia.local.t': 'Or on your machine, with Ollama',
   'ia.local.p':
-    'Install Ollama and your house talks to the model running on your computer: no credits, no connection and nothing leaves it.',
+    'Install Ollama and your MindHaOS talks to the model running on your computer: no credits, no connection and nothing leaves it.',
   'ia.local.nota': 'Voice and images still need a cloud provider, unless your local model can generate them.',
 
   'mani.h2': 'Your life, turned into a video game',
   'mani.p1':
-    'MindHaOS is your life rendered as a video game, played from the most comfortable place there is: your own house. Leveling up and earning ranks is not decoration — it is what you did out there, told in here.',
+    'MindHaOS is your life rendered as a video game, played from the most comfortable place there is: your own MindHaOS. Leveling up and earning ranks is not decoration — it is what you did out there, told in here.',
   'mani.p2':
     'Here you grow new skills, keep control of your resources and put technology on your side. Against the mindless consumption of short-form content. Against the cognitive decay left behind by the consumption habits that big corporations impose on us.',
   'mani.cierre': 'The same dopamine. This time, for your real life.',
 
-  'precio.h2': 'One payment in the store, your house forever',
+  'precio.h2': 'One payment in the store, your MindHaOS forever',
   'precio.probar.nombre': 'Try it',
   'precio.probar.cifra': 'Free',
-  'precio.probar.1': 'Your own house with the welcome menu: try everything',
+  'precio.probar.1': 'Your own MindHaOS with the welcome menu: try everything',
   'precio.probar.2': 'No account, no card and no connection',
   'precio.probar.3': 'Nothing is saved until you have an account: buy it and you get your trial back',
   'precio.probar.cta': 'Try the app',
@@ -139,11 +140,11 @@ export const TEXTOS = {
   'precio.app.nombre': 'The app',
   'precio.app.cifra': 'USD 8.99',
   'precio.app.pagoUnico': 'one-off payment',
-  'precio.app.1': 'A house of your own, forever: every app, your data on your device',
+  'precio.app.1': 'A MindHaOS of your own, forever: every app, your data on your device',
   'precio.app.2': 'First month included: 700 AI credits + sync, no card and no subscription',
   'precio.app.3':
     'When the month ends you keep the whole app and your data; the AI credits are optional',
-  'precio.app.cta': 'Buy the house',
+  'precio.app.cta': 'Buy MindHaOS',
   'precio.app.pie':
     'Buy it right here, with no store in between, or inside the app on your phone. One payment, no renewals, and it works on all your devices.',
 
@@ -156,16 +157,16 @@ export const TEXTOS = {
 
   'desc.h2': 'Get the app',
   'desc.sub':
-    'Download it free and buy the house inside the app — or here on the web. With your account, your house shows up anywhere else, browser included.',
+    'Download it free and buy MindHaOS inside the app — or here on the web. With your account, your MindHaOS shows up anywhere else, browser included.',
   'desc.pronto': 'Coming soon',
-  'desc.android': 'Free on Google Play. The house is bought inside.',
+  'desc.android': 'Free on Google Play. MindHaOS is bought inside.',
   'desc.ios.t': 'iPhone and iPad',
-  'desc.ios': 'Free on the App Store. The house is bought inside.',
+  'desc.ios': 'Free on the App Store. MindHaOS is bought inside.',
   'desc.web.t': 'In your browser',
   'desc.web':
-    'Nothing to install: sign in with your account and your house is waiting. Without an account you can try the app.',
+    'Nothing to install: sign in with your account and your MindHaOS is waiting. Without an account you can try the app.',
   'desc.web.cta': 'Open the app',
-  'desc.windows': 'Free on Microsoft Store. The house is bought inside.',
+  'desc.windows': 'Free on Microsoft Store. MindHaOS is bought inside.',
   'desc.windows.cta': 'Download for Windows',
   'desc.mac': '.dmg image for Mac.',
   'desc.mac.cta': 'Download for Mac',
@@ -173,10 +174,10 @@ export const TEXTOS = {
   'faq.h2': 'Frequently asked questions',
   'faq.1.q': 'Where do I buy the app?',
   'faq.1.a':
-    'Wherever you prefer: here on the web, from <a href="/cuenta">your account</a>, or inside the Android and iPhone app. It is a one-off payment stored in your account, so wherever you buy it, your house shows up on all your devices.',
+    'Wherever you prefer: here on the web, from <a href="/cuenta">your account</a>, or inside the Android and iPhone app. It is a one-off payment stored in your account, so wherever you buy it, your MindHaOS shows up on all your devices.',
   'faq.2.q': 'What does the one-off payment include?',
   'faq.2.a':
-    'The whole house: every room, every app and your data on your device, forever and with no renewals. On top of that, the first month brings 700 AI credits and sync included, with no card. Before buying it you can try the full app, which asks for no account.',
+    'Your whole MindHaOS: every room, every app and your data on your device, forever and with no renewals. On top of that, the first month brings 700 AI credits and sync included, with no card. Before buying it you can try the full app, which asks for no account.',
   'faq.3.q': 'How much does AI cost after the first month?',
   'faq.3.a':
     'Whatever you choose, or nothing. The subscription is USD 6 a month (700 credits and sync), or USD 60 a year — two months free. If that falls short, tiers ×2 and ×3 give 1400 or 2100 credits for USD 12 or 18 a month. And if you would rather not subscribe, there are one-off top-ups: USD 6 for 700 credits that never expire and are only spent when you ask. This part is paid here, in <a href="/cuenta">your account</a>, and it works on all your devices.',
@@ -191,7 +192,7 @@ export const TEXTOS = {
     'On your device first (the app is local-first) and, with sync on, in the cloud as well so it can move from one device to another. In local mode nothing leaves your device. Payments are processed by RevenueCat and Stripe — or by the store, if you buy from your phone: we never see your card. More detail in the <a href="/privacidad">privacy policy</a>.',
   'faq.7.q': 'Which devices does it work on?',
   'faq.7.a':
-    'Today: any modern browser. Very soon: Android (Google Play), iPhone/iPad (App Store), Windows and macOS. Your account works everywhere: you buy once, wherever suits you, and both the house and the AI subscription work on any device you sign in to with your email.',
+    'Today: any modern browser. Very soon: Android (Google Play), iPhone/iPad (App Store), Windows and macOS. Your account works everywhere: you buy once, wherever suits you, and both MindHaOS and the AI subscription work on any device you sign in to with your email.',
   'faq.8.q': 'How do I cancel or delete my account?',
   'faq.8.a':
     'To cancel the charge, “Manage subscription” in <a href="/cuenta">your account</a>. To delete your account and all your data from our servers, from the app: Editor → Settings → Account.',

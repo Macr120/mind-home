@@ -21,6 +21,7 @@ import { colorZona } from '../core/house/cuadrantesMapa'
 import { useAsistentes } from '../core/state/asistentesStore'
 import { useDiseño } from '../core/state/disenoStore'
 import { useLayout } from '../core/state/layoutStore'
+import { tGlobal } from '../core/i18n/useT'
 import { BUILDERS_DEMO } from './builders'
 import { construirCanchas } from './mapa/canchas'
 import { construirCasa } from './mapa/casa'
@@ -75,7 +76,7 @@ export async function construirCasaPep(): Promise<void> {
 
   // ── Identidad: Pep@ y su gata Laika ──────────────────────────────────────
   const D = useDiseño.getState
-  await D().setAvatarNombre('Pep@')
+  await D().setAvatarNombre(tGlobal('demo.pep.nombre', 'Pep@'))
   await D().setAvatarPrenda('playera', '#f59e0b')
   await D().setAvatarPrenda('pantalon', '#334155')
   await D().setAvatarPrenda('tenis', '#e5e7eb')

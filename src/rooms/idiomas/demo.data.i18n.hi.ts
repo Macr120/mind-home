@@ -686,7 +686,7 @@ export default {
       "dia": -140,
       "tema": "b1-viajes",
       "titulo": "चेक-इन के वाक्य",
-      "texto": "I have a reservation under the name Pepa. — तीन हफ़्तों में सबसे ज़्यादा दोहराई गई पंक्ति।\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — ट्रेन वाले दिनों में सबसे काम की।\nIs there a laundry nearby?\nऔर यह हमेशा जवाब में सुनने को मिलती थी: «Could I see your passport, please?»"
+      "texto": "I have a reservation under the name Kiran. — तीन हफ़्तों में सबसे ज़्यादा दोहराई गई पंक्ति।\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — ट्रेन वाले दिनों में सबसे काम की।\nIs there a laundry nearby?\nऔर यह हमेशा जवाब में सुनने को मिलती थी: «Could I see your passport, please?»"
     },
     {
       "dia": -85,

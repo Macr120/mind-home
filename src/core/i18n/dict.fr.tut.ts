@@ -10,7 +10,7 @@ import type { Dict } from './dict'
 export const FR_TUT: Dict = {
   'tut.app-computo--formulario.1.titulo': 'Accroché à la calculatrice',
   'tut.app-computo--formulario.1.texto':
-    'Tout le formulaire tient dans ce menu, à un geste de l’endroit où tu calcules. Mathématiques, Physique et Chimie arrivent déjà remplies et classées par thème, dans des dossiers que tu imbriques comme tu veux. Pep a en plus Physique II avec ses partiels, les comptes du café et ceux de la course.',
+    'Tout le formulaire tient dans ce menu, à un geste de l’endroit où tu calcules. Mathématiques, Physique et Chimie arrivent déjà remplies et classées par thème, dans des dossiers que tu imbriques comme tu veux. Dominique a en plus Physique II avec ses partiels, les comptes du café et ceux de la course.',
   'tut.app-computo--formulario.2.titulo': 'Tout est à toi',
   'tut.app-computo--formulario.2.texto':
     'Il n’y a pas les « d’origine » d’un côté et les « miennes » de l’autre : chaque formule s’ouvre, se modifie et se supprime de la même façon. La recherche en haut les cherche toutes.',
@@ -54,7 +54,7 @@ export const FR_TUT: Dict = {
     'Écris l’équation avec son signe égal. Si c’est un polynôme, tu obtiens les racines exactes ; sinon, elle les cherche dans l’intervalle que tu regardes et te dit lequel c’était.',
   'tut.app-computo--hojas.1.titulo': 'Tes feuilles',
   'tut.app-computo--hojas.1.texto':
-    'Chaque feuille est un document à part. Pep a le budget du Japon, le plan des 18 semaines du marathon et les notes de Physique II.',
+    'Chaque feuille est un document à part. Dominique a le budget du Japon, le plan des 18 semaines du marathon et les notes de Physique II.',
   'tut.app-computo--hojas.2.titulo': 'Partir avec quelque chose',
   'tut.app-computo--hojas.2.texto':
     'L’app arrive avec trois feuilles déjà montées, formules comprises — budget, moyenne pondérée et journal de mesures — pour ne pas démarrer sur du vide. Elles sont à toi : change-les ou supprime-les.',
@@ -67,17 +67,17 @@ export const FR_TUT: Dict = {
   'tut.app-computo--hojas.5.titulo': 'Exporter',
   'tut.app-computo--hojas.5.texto':
     'Vers Excel, il sort un vrai .xlsx, avec les formules vivantes et les graphiques en vrais graphiques Excel. Vers PDF, ça passe par l’impression du navigateur.',
-  'tut.casa.1.texto': 'Voici ta maison : chaque pièce garde une app. Je te montre les commandes de base.',
+  'tut.casa.1.texto': 'Voici ta MindHaOS : chaque pièce garde une app. Je te montre les commandes de base.',
   'tut.casa.2.titulo': 'Le menu principal',
   'tut.casa.2.texto': 'Je l’ai ouvert pour que tu le voies : c’est le menu principal, avec tes pièces et leurs apps. Ses autres onglets apportent l’Intérieur (le catalogue d’apps) et l’Extérieur, ce qui se construit sur le terrain.',
   'tut.casa.2b.titulo': 'Le catalogue des apps',
   'tut.casa.2b.texto':
-    'Son deuxième onglet : le catalogue de modèles — toutes les apps que la maison peut porter, chacune prête à être assignée à une pièce.',
+    'Son deuxième onglet : le catalogue de modèles — toutes les apps que la MindHaOS peut porter, chacune prête à être assignée à une pièce.',
   'tut.casa.2c.titulo': 'L’extérieur',
   'tut.casa.2c.texto': 'Et le troisième : l’Extérieur — pistes de course, terrains, potager, sanctuaire et paintball, qui n’occupent pas une pièce mais se construisent sur le terrain.',
   'tut.casa.3.titulo': 'Se déplacer',
   'tut.casa.3.texto':
-    'Marche avec le joystick, avec WASD ou avec les flèches du clavier : toute la maison se parcourt à pied. Se promener n’ouvre pas les apps — pour entrer, touche l’objet à la sphère flottante de la pièce.',
+    'Marche avec le joystick, avec WASD ou avec les flèches du clavier : toute la MindHaOS se parcourt à pied. Se promener n’ouvre pas les apps — pour entrer, touche l’objet à la sphère flottante de la pièce.',
   'tut.casa.4.titulo': 'Trois façons de regarder',
   'tut.casa.4.texto':
     'Je viens de te les montrer en direct : isométrique, troisième et première personne (ou la touche V). Toucher Iso recentre aussi la caméra sur ton personnage : la sortie rapide si tu as filé trop loin en explorant.',
@@ -89,13 +89,13 @@ export const FR_TUT: Dict = {
     'La voici ouverte : mouvements, jouets, véhicules et construction, jusqu’à 3 équipés à la fois. Elle sort du bouton à côté du joystick, ou de la case du coin quand tu as les mains libres.',
   'tut.casa.7.titulo': 'L’horloge',
   'tut.casa.7.texto':
-    'L’heure de la maison : la toucher ouvre le calendrier complet, avec ses Missions du jour. Et le soleil ou la lune ouvrent ce panneau : le passage du temps et la lumière de la scène.',
-  'tut.casa.8.titulo': 'La musique de la maison',
+    'L’heure de la MindHaOS : la toucher ouvre le calendrier complet, avec ses Missions du jour. Et le soleil ou la lune ouvrent ce panneau : le passage du temps et la lumière de la scène.',
+  'tut.casa.8.titulo': 'La musique de la MindHaOS',
   'tut.casa.8.texto':
-    'La maison démarre en silence : si tu veux une bande-son, allume la musique ici. Chaque pièce apporte des chansons thématiques préchargées, ou laisse jouer l’ambiance générale de la maison.',
+    'La MindHaOS démarre en silence : si tu veux une bande-son, allume la musique ici. Chaque pièce apporte des chansons thématiques préchargées, ou laisse jouer l’ambiance générale de la MindHaOS.',
   'tut.casa.9.titulo': 'Le chat',
   'tut.casa.9.texto':
-    'Le chat de l’architecte : raconte-lui ce que tu as fait et il l’enregistre dans la bonne app, demande-lui des changements dans la maison, des images et même des modèles 3D pour tes pièces — ou papote un moment, tout simplement.',
+    'Le chat de l’architecte : raconte-lui ce que tu as fait et il l’enregistre dans la bonne app, demande-lui des changements dans la MindHaOS, des images et même des modèles 3D pour tes pièces — ou papote un moment, tout simplement.',
   'tut.casa.asistente.titulo': 'Ton assistant',
   'tut.casa.asistente.texto':
     'Ce bouton est ton assistant : celui qui te répond dans le chat. Touche-le pour ouvrir son menu et le personnaliser — sa forme, sa voix et sa personnalité.',
@@ -104,7 +104,7 @@ export const FR_TUT: Dict = {
     'Je l’ai ouvert pour que tu le voies : avec le +, tu joins des choses au chat — envoie une image ou un PDF, prends une photo, ou passe au Masque RA et au Chat RA en face à face.',
   'tut.casa.editor.titulo': 'L’éditeur',
   'tut.casa.editor.texto':
-    'Le bouton Éditeur en haut ouvre ceci : toute la personnalisation en quatre onglets — Plan, Personnages, Objets et Paramètres. C’est ici que toute la maison se dessine et s’habille.',
+    'Le bouton Éditeur en haut ouvre ceci : toute la personnalisation en quatre onglets — Plan, Personnages, Objets et Paramètres. C’est ici que toute la MindHaOS se dessine et s’habille.',
   'tut.casa.10.texto':
     'Voilà pour l’essentiel. Chaque menu et chaque app ont leur propre bouton ? avec son tutoriel : demande-le quand quelque chose te semble flou.',
   'tut.primeros.1.texto': 'Ce tutoriel répond à deux questions : comment ENTRER dans tes apps et comment en CRÉER une. Les deux vivent ici, dans l’onglet Maison.',
@@ -138,8 +138,8 @@ export const FR_TUT: Dict = {
   'tut.primeros.press.texto':
     'Regarde comme elle tremble : rester appuyé sur une pièce ou un objet le réveille, avec son menu. C’est comme ça que tu le déplaces si tu n’aimes pas où il a fini, ou que tu le supprimes.',
   'tut.primeros.6.texto':
-    'C’est tout : créer la pièce, lui donner son app, entrer et l’installer. Celle-ci était pour s’entraîner — je l’emporte en terminant, pour que tu montes ta maison à ton goût.',
-  'tut.menu-cuartos.1.texto': 'L’onglet Maison liste toutes les pièces de ta maison, groupées par catégorie.',
+    'C’est tout : créer la pièce, lui donner son app, entrer et l’installer. Celle-ci était pour s’entraîner — je l’emporte en terminant, pour que tu montes ta MindHaOS à ton goût.',
+  'tut.menu-cuartos.1.texto': 'L’onglet Maison liste toutes les pièces de ta MindHaOS, groupées par catégorie.',
   'tut.menu-cuartos.2.titulo': 'Ton résumé',
   'tut.menu-cuartos.2.texto':
     'Ton personnage vit de ton activité réelle : ici tu vois son humeur, son niveau et sa série. Enregistre quelque chose dans n’importe quelle app et tu le verras content ; quelques jours sans rien et il devient triste — jamais de punition, jamais de remise à zéro.',
@@ -185,7 +185,7 @@ export const FR_TUT: Dict = {
   'tut.plantillas-custom.6.texto':
     'Tu peux la modifier à nouveau quand tu veux : ses blocs et ses données restent en place, seul ce que tu changes change.',
   'tut.menu-inventario.1.texto':
-    'L’inventaire : tous les objets que tu peux poser dans ta maison, prêts à être glissés.',
+    'L’inventaire : tous les objets que tu peux poser dans ta MindHaOS, prêts à être glissés.',
   'tut.menu-inventario.2.titulo': 'Plan',
   'tut.menu-inventario.2.texto': 'Ce qui est DÉJÀ posé, pièce par pièce : touche une vignette pour modifier cet objet.',
   'tut.menu-inventario.3.titulo': 'Catalogue',
@@ -194,17 +194,17 @@ export const FR_TUT: Dict = {
   'tut.menu-inventario.4.texto': 'Le catalogue ouvert, glisse une vignette directement dans la scène 3D pour la poser où tu veux.',
   'tut.menu-inventario.5.texto': 'L’autre branche, Créer, sert à fabriquer de nouveaux objets par pièces ou avec l’IA, et à modifier celui que tu as sélectionné.',
   'tut.editor-mapa.1.texto':
-    'L’éditeur de la maison a 4 onglets : Plan, Personnages, Objets et Paramètres. Ce tour est celui de Plan ; les trois autres ont le leur.',
+    'L’éditeur de la MindHaOS a 4 onglets : Plan, Personnages, Objets et Paramètres. Ce tour est celui de Plan ; les trois autres ont le leur.',
   'tut.editor-mapa.2.titulo': 'Le plan',
   'tut.editor-mapa.2.texto':
     'Tu dessines sur une grille vue d’en haut : pièces, murs, portes, fenêtres et sols, avec les modes et les pinceaux de la barre du haut. Ce que tu traces apparaît aussitôt en 3D, sans rien recharger.',
   'tut.editor-mapa.3.texto':
     'Les toits se posent case par case : chacune peut avoir sa propre forme ou son propre matériau, si bien qu’une même pièce peut mélanger plusieurs pentes au lieu d’un seul toit plat.',
   'tut.editor-mapa.4.texto':
-    'La maison a aussi des niveaux : des étages qui s’empilent vers le haut et un sous-sol vers le bas. Chaque nouveau niveau naît avec sa propre façon de monter — un escalier ou une ouverture dans la dalle — qui perce le sol du dessus.',
+    'La MindHaOS a aussi des niveaux : des étages qui s’empilent vers le haut et un sous-sol vers le bas. Chaque nouveau niveau naît avec sa propre façon de monter — un escalier ou une ouverture dans la dalle — qui perce le sol du dessus.',
   'tut.editor-mapa.5.titulo': 'Terminé',
   'tut.editor-mapa.5.texto':
-    'Tout s’enregistre tout seul pendant que tu modifies. Terminé ferme l’éditeur et te ramène au jeu, la maison telle que tu l’as laissée.',
+    'Tout s’enregistre tout seul pendant que tu modifies. Terminé ferme l’éditeur et te ramène au jeu, la MindHaOS telle que tu l’as laissée.',
   'tut.editor-personajes.1.texto':
     'Ton personnage principal et tes assistants vivent dans le même éditeur : choisis en haut qui tu modifies, et les outils s’adaptent à ce qui a du sens pour chacun.',
   'tut.editor-personajes.2.titulo': 'Visage et photo',
@@ -237,13 +237,13 @@ export const FR_TUT: Dict = {
     'Le thème du plan (lumière, brouillard, éclairage) et les styles de post-traitement, tout chargé à la demande pour ne pas alourdir l’app.',
   'tut.editor-config.4.titulo': 'Interface et langue',
   'tut.editor-config.4.texto':
-    'Langue, thème de l’interface (clair/sombre/automatique), style d’icônes et densité — tout ce qui change COMMENT la maison se voit, pas ce qu’elle contient.',
+    'Langue, thème de l’interface (clair/sombre/automatique), style d’icônes et densité — tout ce qui change COMMENT la MindHaOS se voit, pas ce qu’elle contient.',
   'tut.editor-config.5.titulo': 'Notifications',
   'tut.editor-config.5.texto':
     'Quelles alertes arrivent et lesquelles se taisent : routines, rappels de plan et avis se coupent séparément.',
   'tut.editor-config.6.texto':
     'Musique et Tutoriels ont leur propre parcours ; Sauvegarde des données aussi, et c’est celui qu’il vaut le mieux revoir avant de changer d’appareil.',
-  'tut.respaldo.1.titulo': 'Où vit ta maison',
+  'tut.respaldo.1.titulo': 'Où vit ta MindHaOS',
   'tut.respaldo.1.texto':
     'Sans compte ni synchronisation, tes données ne vivent que sur cet appareil. L’avis du haut dit si le navigateur a la permission de les protéger d’un nettoyage automatique.',
   'tut.respaldo.2.titulo': 'Exporter',
@@ -255,7 +255,7 @@ export const FR_TUT: Dict = {
   'tut.respaldo.4.texto':
     'Mieux vaut sauvegarder avant de changer d’appareil, de navigateur, ou juste de temps en temps : sans compte, c’est la seule copie que tu as.',
   'tut.editor-cuarto.1.texto':
-    'Tu modifies une pièce précise : le plan et la caméra se concentrent dessus, pas sur toute la maison.',
+    'Tu modifies une pièce précise : le plan et la caméra se concentrent dessus, pas sur toute la MindHaOS.',
   'tut.editor-cuarto.2.titulo': 'Ce que tu peux modifier',
   'tut.editor-cuarto.2.texto':
     'Forme, sol, murs, portes, couleur et nom de la pièce, et ses objets. L’app affectée se change aussi depuis ici : c’est ce qui amène le plus de monde dans ce panneau.',
@@ -265,7 +265,7 @@ export const FR_TUT: Dict = {
   'tut.editor-cuarto.4.texto':
     'Il y a aussi un bouton flottant « Quitter la pièce » au-dessus de la pièce elle-même en 3D, si tu préfères appuyer là.',
   'tut.inicio.1.texto':
-    'Le bouton avec le nom de ta maison ouvre l’écran d’accueil : tes apps en grille, avec la mécanique d’un téléphone.',
+    'Le bouton avec le nom de ta MindHaOS ouvre l’écran d’accueil : tes apps en grille, avec la mécanique d’un téléphone.',
   'tut.inicio.2.titulo': 'Un toucher, une app',
   'tut.inicio.2.texto':
     'Ici n’apparaissent que les pièces qui ont déjà une app, avec leur niveau, leur série et leurs listes accomplies. Le compteur rouge du coin, ce sont leurs missions encore en attente aujourd’hui, et toucher la carte entre directement.',
@@ -309,7 +309,7 @@ export const FR_TUT: Dict = {
   'tut.navegacion.6.texto':
     'Le bouton Éditeur en haut fonctionne dans n’importe quelle vue : ouvre-le en 3e/1re personne et tu modifies en marchant, en touchant les objets, les murs ou les personnages juste là où ils sont.',
   'tut.chat.1.texto':
-    'Le chat de l’architecte : il enregistre ta journée, modifie la maison et répond à tes questions, tout depuis le même champ.',
+    'Le chat de l’architecte : il enregistre ta journée, modifie la MindHaOS et répond à tes questions, tout depuis le même champ.',
   'tut.chat.2.titulo': 'Écrire',
   'tut.chat.2.texto':
     'Écris librement : « j’ai couru 20 min », « dépensé 250 au supermarché »… La puce à côté montre dans quelle app ça ira. Utilise @pièce pour forcer la destination s’il devine mal.',
@@ -321,7 +321,7 @@ export const FR_TUT: Dict = {
     'Le + déplie cinq options : envoyer une image ou un PDF et prendre une photo — avec l’IA activée, un ticket ou la balance se lisent tout seuls — plus deux qui ne demandent pas d’IA : le masque RA et le chat RA.',
   'tut.chat.4b.titulo': 'Le masque RA',
   'tut.chat.4b.texto':
-    'Il allume la caméra et te pose le masque sur le visage, en te suivant en direct — le même que dans la vidéo de présentation de la maison. Ça marche sans IA et sans compte.',
+    'Il allume la caméra et te pose le masque sur le visage, en te suivant en direct — le même que dans la vidéo de présentation de la MindHaOS. Ça marche sans IA et sans compte.',
   'tut.chat.4c.titulo': 'Le chat RA',
   'tut.chat.4c.texto':
     'La même conversation que d’habitude, mais avec ta caméra en fond et l’assistant en 3D devant, avec des émotions qui accompagnent ce qu’il répond.',
@@ -355,7 +355,7 @@ export const FR_TUT: Dict = {
     'Ce modèle est monté avec des blocs (notes, listes, compteurs, habitudes…). Tu peux les changer dans Menu › Modèles › Modifier.',
   'tut.app-generica.4.titulo': 'Sortir',
   'tut.app-generica.4.texto':
-    '« Retour à la maison » ferme l’app et te ramène dans la 3D. Ce que tu notes ici est déjà enregistré.',
+    '« Retour à la MindHaOS » ferme l’app et te ramène dans la 3D. Ce que tu notes ici est déjà enregistré.',
   'tut.enlaces.1.titulo': 'De l’objectif à son app',
   'tut.enlaces.1.texto':
     'N’importe quel objectif ou étape de plan peut porter une puce avec l’icône d’une app : c’est la réponse à « et ça, où ça se note ? ».',
@@ -367,13 +367,13 @@ export const FR_TUT: Dict = {
     'Une fois la puce posée, un toucher ouvre cette app directement sur cette section. La retirer n’efface ni l’objectif ni ses dates : ça défait juste le lien.',
   'tut.enlaces.4.texto':
     'Seules les apps assignées à un objet d’une pièce apparaissent comme destination : relier une app sans pièce donnerait une puce qui ne mène nulle part.',
-  'tut.musica.1.texto': 'Ce bouton ouvre le contrôle de la musique de la maison.',
+  'tut.musica.1.texto': 'Ce bouton ouvre le contrôle de la musique de la MindHaOS.',
   'tut.musica.2.titulo': 'Allumer ou éteindre',
   'tut.musica.2.texto':
-    'Un seul interrupteur pour toute la musique d’ambiance de la maison. Éteint, la maison reste silencieuse, sauf les sons des actions précises.',
+    'Un seul interrupteur pour toute la musique d’ambiance de la MindHaOS. Éteint, la MindHaOS reste silencieuse, sauf les sons des actions précises.',
   'tut.musica.3.titulo': 'Thème par pièce',
   'tut.musica.3.texto':
-    'Chaque pièce peut sonner autrement : automatique selon son app, un thème choisi à la main, ou silence complet dans cette pièce sans toucher au reste de la maison.',
+    'Chaque pièce peut sonner autrement : automatique selon son app, un thème choisi à la main, ou silence complet dans cette pièce sans toucher au reste de la MindHaOS.',
   'tut.musica.4.titulo': 'D’où vient le son',
   'tut.musica.4.texto':
     'Générée (elle compose toute seule selon l’ambiance), Mes pistes (ce que tu as importé) ou Système (ce que tu écoutes déjà en dehors de l’app, sans rien écraser).',
@@ -383,7 +383,7 @@ export const FR_TUT: Dict = {
   'tut.musica.6.texto':
     'Le bouton du HUD peut être retiré de l’écran principal ; il reste disponible dans Éditeur › Paramètres › Musique.',
   'tut.cuenta-ia.1.texto':
-    'C’est ici que s’allume l’IA de la maison : sans elle, le chat continue de marcher par mots-clés, mais générer une recette, un plan ou une image reste éteint.',
+    'C’est ici que s’allume l’IA de la MindHaOS : sans elle, le chat continue de marcher par mots-clés, mais générer une recette, un plan ou une image reste éteint.',
   'tut.cuenta-ia.2.titulo': 'Avec ou sans compte',
   'tut.cuenta-ia.2.texto':
     'Tu peux utiliser l’IA avec ta propre clé de fournisseur (sans compte, sans crédits) ou avec un compte qui apporte des crédits et synchronise entre tes appareils.',
@@ -401,7 +401,7 @@ export const FR_TUT: Dict = {
   'tut.ejemplos.2.texto':
     'Voir un exemple n’efface ni ne mélange rien de ce qui t’appartient : ce sont ses propres lignes, marquées comme exemple, qui se cachent (sans s’effacer) quand tu le désactives. Le réactiver les ramène exactement comme elles étaient.',
   'tut.ejemplos.3.texto':
-    'Dans la maison de démo, cette barre n’apparaît pas : l’année entière de Pep joue déjà ce rôle, pas besoin d’un exemple à part.',
+    'Dans la MindHaOS de démo (Maison Mentale OS), cette barre n’apparaît pas : l’année entière de Dominique joue déjà ce rôle, pas besoin d’un exemple à part.',
   'tut.hoy.1.texto':
     'Les missions ne vivent pas dans un coin à part : elles vivent DANS chaque app. En haut de chaque pièce se trouve son bouton Missions, avec la liste de ce que cette app te demande AUJOURD’HUI.',
   'tut.hoy.2.titulo': 'Trois sources, une liste',
@@ -426,18 +426,18 @@ export const FR_TUT: Dict = {
     'Et s’il te manque quelque chose, « Ajouter une mission » propose ce que cette app suggère d’habitude, et « Nouvelle checklist » crée la tienne : une liste à toi qui revient chaque jour.',
   'tut.hoy.8.titulo': 'Les orbes rouges',
   'tut.hoy.8.texto':
-    'Regarde la maison : l’orbe qui flotte au-dessus du meuble de chaque pièce passe au rouge quand il y reste quelque chose à faire aujourd’hui, et au vert quand il ne reste rien. Le compte exact est dans la pastille rouge de ses cartes — l’écran d’accueil, le menu et la bulle d’entrée — et passe à l’ambre si quelque chose a déjà dépassé son heure.',
+    'Regarde la MindHaOS : l’orbe qui flotte au-dessus du meuble de chaque pièce passe au rouge quand il y reste quelque chose à faire aujourd’hui, et au vert quand il ne reste rien. Le compte exact est dans la pastille rouge de ses cartes — l’écran d’accueil, le menu et la bulle d’entrée — et passe à l’ambre si quelque chose a déjà dépassé son heure.',
   'tut.hoy.9.titulo': 'Et toutes ensemble, dans le calendrier',
   'tut.hoy.9.texto':
-    'Voici le bouton Missions de l’horloge, avec sa propre pastille : il réunit ce qu’il y a à faire aujourd’hui dans TOUTE la maison, une carte par app — à gauche ce qui manque, à droite ce qui est fait. Ici on n’enregistre rien : chaque ligne t’emmène dans son app, là où la donnée s’inscrit.',
+    'Voici le bouton Missions de l’horloge, avec sa propre pastille : il réunit ce qu’il y a à faire aujourd’hui dans TOUTE la MindHaOS, une carte par app — à gauche ce qui manque, à droite ce qui est fait. Ici on n’enregistre rien : chaque ligne t’emmène dans son app, là où la donnée s’inscrit.',
   'tut.progreso.1.texto':
-    'La fiche de ton personnage : derrière Pep, il y a une année entière d’activité réelle, donc chaque chiffre ici a une vraie histoire qui l’explique.',
+    'La fiche de ton personnage : derrière Dominique, il y a une année entière d’activité réelle, donc chaque chiffre ici a une vraie histoire qui l’explique.',
   'tut.progreso.2.titulo': 'Le personnage',
   'tut.progreso.2.texto':
     'Un toucher ouvre l’éditeur de personnages. Son humeur — heureux, content, triste ou endormi — monte à chaque nouvel enregistrement et ne baisse que si des jours passent sans aucun ; elle ne repart jamais de zéro d’un coup.',
   'tut.progreso.3.titulo': 'Le rang de Sisyphe',
   'tut.progreso.3.texto':
-    'Douze rangs d’ascension : chaque jour avec de l’activité fait monter une marche sur 365. Pep en a déjà gagné plusieurs ; touche-le pour voir la montagne entière.',
+    'Douze rangs d’ascension : chaque jour avec de l’activité fait monter une marche sur 365. Dominique en a déjà gagné plusieurs ; touche-le pour voir la montagne entière.',
   'tut.progreso.4.titulo': 'Marches et jours de grâce',
   'tut.progreso.4.texto':
     'Toutes les 7 marches arrive un badge, et chaque série de semaines fait monter le rang. Rater un jour ne casse rien : tu as 2 jours de grâce par mois avant de reculer au début du rang actuel.',
@@ -446,15 +446,15 @@ export const FR_TUT: Dict = {
     'Regroupés par famille géologique, gardés mystérieux jusqu’à ce que tu les gagnes : ni nom ni description visibles avant le déblocage.',
   'tut.progreso.6.titulo': 'Ton résumé',
   'tut.progreso.6.texto':
-    'Wrapped monte le résumé de ta semaine, de ton mois ou de ton année en diapositives — il a son propre tutoriel, avec des données à revendre dans une année comme celle de Pep.',
+    'Wrapped monte le résumé de ta semaine, de ton mois ou de ton année en diapositives — il a son propre tutoriel, avec des données à revendre dans une année comme celle de Dominique.',
   'tut.progreso.7.titulo': 'Le radar par pièce',
   'tut.progreso.7.texto':
-    'Chaque sommet est une pièce de la maison, et sa taille est la somme des XP des apps qui lui sont assignées. Une pièce vide d’activité se repère au premier coup d’œil : son sommet s’enfonce vers le centre.',
+    'Chaque sommet est une pièce de la MindHaOS, et sa taille est la somme des XP des apps qui lui sont assignées. Une pièce vide d’activité se repère au premier coup d’œil : son sommet s’enfonce vers le centre.',
   'tut.wrapped.1.texto':
     'Façon stories : touche le côté droit pour avancer, le gauche pour reculer, et reste appuyé pour faire une pause sur une diapositive.',
   'tut.wrapped.2.titulo': 'Semaine, mois ou année',
   'tut.wrapped.2.texto':
-    'Chaque type monte ses propres diapositives avec ses propres données — le résumé annuel de Pep est le plus long, avec les moments les plus hauts et les plus bas de toute l’année.',
+    'Chaque type monte ses propres diapositives avec ses propres données — le résumé annuel de Dominique est le plus long, avec les moments les plus hauts et les plus bas de toute l’année.',
   'tut.wrapped.3.titulo': 'Se déplacer entre les périodes',
   'tut.wrapped.3.texto':
     'Les flèches ‹ › parcourent les périodes déjà closes : impossible d’aller au-delà d’aujourd’hui, donc la comparaison porte toujours sur du réel.',
@@ -464,14 +464,14 @@ export const FR_TUT: Dict = {
   'tut.wrapped.5.texto':
     'Un point à côté du bouton qui l’ouvre prévient quand un nouveau résumé attend d’être vu ; l’ouvrir éteint le point.',
   'tut.infra-huerto--ciclo.8.texto':
-    'Voici le sanctuaire de Pep : d’un côté les enclos, de l’autre le potager qui les nourrit. Direction les parcelles.',
+    'Voici le sanctuaire de Dominique : d’un côté les enclos, de l’autre le potager qui les nourrit. Direction les parcelles.',
   'tut.infra-huerto--ciclo.1.texto':
-    'Voici le potager du sanctuaire de Pep : des parcelles réelles, avec un an de travail dessus. Rien de tout ça n’est un exemple — c’est vivant, ça pousse en temps réel et tu peux y toucher.',
+    'Voici le potager du sanctuaire de Dominique : des parcelles réelles, avec un an de travail dessus. Rien de tout ça n’est un exemple — c’est vivant, ça pousse en temps réel et tu peux y toucher.',
   'tut.infra-huerto--ciclo.2.texto':
     'Nourriture et Ferme partagent le même éditeur : ce que tu récoltes ici remplit le garde-manger des animaux d’à côté. C’est une seule et même chaîne.',
   'tut.infra-huerto--ciclo.3.titulo': 'L’arrosage fait la loi',
   'tut.infra-huerto--ciclo.3.texto':
-    'Regarde les parcelles : une graine tout juste semée, des plantes à mi-croissance, un tournesol prêt… et une carotte que Pep a laissé faner exprès. La goutte bleue annonce la soif ; ce qui est fané ne se rattrape plus.',
+    'Regarde les parcelles : une graine tout juste semée, des plantes à mi-croissance, un tournesol prêt… et une carotte que Dominique a laissé faner exprès. La goutte bleue annonce la soif ; ce qui est fané ne se rattrape plus.',
   'tut.infra-huerto--ciclo.4.titulo': 'Arrosage automatique',
   'tut.infra-huerto--ciclo.4.texto':
     'Le plant de tomate a un arroseur : il arrose sa case et les huit voisines, pour toujours. C’est comme ça qu’on laisse le potager seul sans que rien ne fane.',
@@ -498,12 +498,12 @@ export const FR_TUT: Dict = {
   'tut.infra-huerto--parcelas.5.texto':
     'C’est tout : de la terre, une espèce et de la patience. Ce que tu sèmes dans la démo pousse pour de vrai pendant que tu explores le reste.',
   'tut.infra-granja--cuidar.8.texto':
-    'Voici le sanctuaire de Pep : les enclos des animaux recueillis et, au sud, le potager qui les nourrit. Descendons avec eux.',
+    'Voici le sanctuaire de Dominique : les enclos des animaux recueillis et, au sud, le potager qui les nourrit. Descendons avec eux.',
   'tut.infra-granja--cuidar.1.texto':
-    'Voici les animaux recueillis par Pep : chacun avec son nom, sa faim et son humeur qui courent en temps réel. Rien n’est un exemple — tu peux vraiment t’en occuper.',
+    'Voici les animaux recueillis par Dominique : chacun avec son nom, sa faim et son humeur qui courent en temps réel. Rien n’est un exemple — tu peux vraiment t’en occuper.',
   'tut.infra-granja--cuidar.2.titulo': 'Le garde-manger de l’année',
   'tut.infra-granja--cuidar.2.texto':
-    'Nourrir puise dans le panier, et le panier se remplit en récoltant le potager d’à côté. Pep a laissé un an de réserves : sers-t’en.',
+    'Nourrir puise dans le panier, et le panier se remplit en récoltant le potager d’à côté. Dominique a laissé un an de réserves : sers-t’en.',
   'tut.infra-granja--cuidar.3.titulo': 'Nourrir',
   'tut.infra-granja--cuidar.3.texto':
     'Une touche sur l’enclos donne à manger à tous ceux qui ont faim, en commençant par le plus affamé. La poule réclame toutes les 4 heures ; la vache tient 12.',
@@ -533,13 +533,13 @@ export const FR_TUT: Dict = {
   'tut.infra-granja--corrales.5.texto':
     'C’est tout le métier : l’enclos, la capacité, les jouets et l’affection. Dans la démo, tu peux agrandir le sanctuaire si le cœur t’en dit.',
   'tut.infra-caminos--carrera.1.texto':
-    'Voici la piste de Pep : un ovale d’asphalte avec sa ligne d’arrivée à damier. C’est la seule ligne d’arrivée du plan — tout le mode course tourne autour d’elle.',
+    'Voici la piste de Dominique : un ovale d’asphalte avec sa ligne d’arrivée à damier. C’est la seule ligne d’arrivée du plan — tout le mode course tourne autour d’elle.',
   'tut.infra-caminos--carrera.2.texto':
     'La voilà, la ligne d’arrivée. Approche-toi du vélo ou de la voiture dans la cour et monte avec son bouton ; une fois sur le véhicule, franchis cette ligne et le feu de départ s’allume.',
   'tut.infra-caminos--carrera.3.texto':
     'Colle-toi à l’ovale et dérape dans les virages pour ne pas perdre de vitesse. Tu peux aussi courir contre un assistant, objets à la clé : banane, turbo et bombe.',
   'tut.infra-caminos--carrera.4.texto':
-    'À côté de la ligne d’arrivée vit le tableau des meilleurs temps : le vélo de Pep affiche 38 victoires et un meilleur tour de 41,8 s. Bats-le — les records que tu fais dans la démo sont gardés.',
+    'À côté de la ligne d’arrivée vit le tableau des meilleurs temps : le vélo de Dominique affiche 38 victoires et un meilleur tour de 41,8 s. Bats-le — les records que tu fais dans la démo sont gardés.',
   'tut.infra-caminos--carrera.5.texto':
     'Le rail qui fait le tour du plan et les montagnes russes de la fête foraine sont des circuits eux aussi : marche sur la voie et « Monter » apparaît. Chaque tracé est son propre réseau.',
   'tut.infra-caminos--trazos.1.texto':
@@ -547,9 +547,9 @@ export const FR_TUT: Dict = {
   'tut.infra-caminos--trazos.2.texto':
     'Les montagnes russes de la fête foraine montent jusqu’à six niveaux, et les rampes d’une case à l’autre s’interpolent toutes seules. Monte : le wagonnet fait le tour du circuit fermé.',
   'tut.infra-caminos--trazos.3.texto':
-    'Chez toi, tu les dessines case par case avec l’éditeur Circuits, ou à main levée avec le tracé libre par secteurs. Ici, dans la démo, le plan est déjà tracé.',
+    'Dans ta propre MindHaOS, tu les dessines case par case avec l’éditeur Circuits, ou à main levée avec le tracé libre par secteurs. Ici, dans la démo, le plan est déjà tracé.',
   'tut.infra-canchas--jugar.1.texto':
-    'Voici le complexe sportif de Pep : football, basket, tennis et baseball, côte à côte. Chaque terrain est un rectangle sur le plan — y entrer à pied lance son jeu.',
+    'Voici le complexe sportif de Dominique : football, basket, tennis et baseball, côte à côte. Chaque terrain est un rectangle sur le plan — y entrer à pied lance son jeu.',
   'tut.infra-canchas--jugar.2.texto':
     'Le bouton de charge apparaît dans l’emplacement du cube de navigation et tire là où regarde ton personnage : vise d’abord, charge ensuite.',
   'tut.infra-canchas--jugar.3.texto':
@@ -557,17 +557,17 @@ export const FR_TUT: Dict = {
   'tut.infra-canchas--jugar.5.texto':
     'En haut, le terrain de football et celui de basket. Le football se joue en dribblant et en tirant ; le basket, en dosant la puissance du tir.',
   'tut.infra-canchas--jugar.4.texto':
-    'Le score est gardé terrain par terrain : Pep a laissé un 21-15 au basket et une série de 18 échanges au tennis. Dans la démo, les matchs comptent — fais mieux.',
+    'Le score est gardé terrain par terrain : Dominique a laissé un 21-15 au basket et une série de 18 échanges au tennis. Dans la démo, les matchs comptent — fais mieux.',
   'tut.infra-paintball--batalla.1.texto':
     'Ouvre la roue d’outils : c’est là que vit Paintball, dans la catégorie construction et jeux, à côté des véhicules.',
   'tut.infra-paintball--batalla.2.texto':
     'Choisis le mode : 1 contre 1, 2 contre 2 ou chacun pour soi. Tes adversaires sont les assistants du plan — Laika compte — et ça se joue au rez-de-chaussée.',
   'tut.infra-paintball--batalla.3.texto':
-    'La maison entière est le champ de bataille : mets-toi à couvert derrière les murs, sors la tête pour tirer et surveille tes arrières. Les éclaboussures restent peintes pendant toute la bataille.',
+    'La MindHaOS entière est le champ de bataille : mets-toi à couvert derrière les murs, sors la tête pour tirer et surveille tes arrières. Les éclaboussures restent peintes pendant toute la bataille.',
   'tut.infra-paintball--batalla.4.texto':
-    'Le tableau de Pep affiche 47 victoires pour 23 défaites. Dans la démo, les batailles comptent pour de vrai : fais-le grimper avant de partir.',
+    'Le tableau de Dominique affiche 47 victoires pour 23 défaites. Dans la démo, les batailles comptent pour de vrai : fais-le grimper avant de partir.',
   'tut.app-anecdotario--diario.1.texto':
-    'Voici le journal de Pep : une année entière, deux ou trois entrées par semaine. TOUT l’arc y est raconté — du ras-le-bol du début au marathon d’il y a deux semaines.',
+    'Voici le journal de Dominique : une année entière, deux ou trois entrées par semaine. TOUT l’arc y est raconté — du ras-le-bol du début au marathon d’il y a deux semaines.',
   'tut.app-anecdotario--diario.2.titulo': 'Comment on écrit',
   'tut.app-anecdotario--diario.2.texto':
     'Choisis l’humeur du jour, mets un titre si tu veux, écris et ajoute des photos. Une photo suffit : pas besoin de texte.',
@@ -578,35 +578,35 @@ export const FR_TUT: Dict = {
   'tut.app-anecdotario--diario.4.texto':
     'Les entrées se rangent toutes seules dans des dossiers par année, mois et semaine. Ouvre les semaines du Japon et lis le voyage en entier.',
   'tut.app-anecdotario--fotos.1.texto':
-    'Les moments forts de l’année de Pep ont leur photo : le clavier d’occasion, l’arrivée de Laika, deux cartes postales du Japon et la médaille du marathon.',
+    'Les moments forts de l’année de Dominique ont leur photo : le clavier d’occasion, l’arrivée de Laika, deux cartes postales du Japon et la médaille du marathon.',
   'tut.app-anecdotario--fotos.2.titulo': 'Retrouve-les dans l’historique',
   'tut.app-anecdotario--fotos.2.texto':
     'Ouvre le mois 2 (le clavier), le mois 9 (le Japon) ou il y a deux semaines (la médaille). Touche n’importe quelle photo et elle s’ouvre en plein écran.',
   'tut.app-anecdotario--fotos.3.texto':
-    'Chaque entrée nourrit ta série et réveille le personnage : écrire ici, c’est aussi prendre soin de la maison.',
+    'Chaque entrée nourrit ta série et réveille le personnage : écrire ici, c’est aussi prendre soin de la MindHaOS.',
   'tut.app-jardin--practicar.1.titulo': 'Le calme accumulé',
   'tut.app-jardin--practicar.1.texto':
-    'Chaque minute de pratique arrose ce jardin. Celui de Pep a grandi une année entière : de la graine à la forêt.',
+    'Chaque minute de pratique arrose ce jardin. Celui de Dominique a grandi une année entière : de la graine à la forêt.',
   'tut.app-jardin--practicar.2.titulo': 'Méditer avec du son',
   'tut.app-jardin--practicar.2.texto':
     'Choisis une piste (forêt, océan, pluie, bols) et une durée, ou médite en silence avec la cloche. La séance s’enregistre toute seule à la fin.',
   'tut.app-jardin--practicar.3.titulo': 'Une année de séances',
   'tut.app-jardin--practicar.3.texto':
-    'Voici l’année de Pep : trois fois par semaine au début et, au mois 7 — la blessure, la facture de la voiture —, la pratique est devenue presque quotidienne. C’est elle qui a tenu pendant le creux.',
+    'Voici l’année de Dominique : trois fois par semaine au début et, au mois 7 — la blessure, la facture de la voiture —, la pratique est devenue presque quotidienne. C’est elle qui a tenu pendant le creux.',
   'tut.app-jardin--practicar.4.titulo': 'Respirer',
   'tut.app-jardin--practicar.4.texto':
     'Deux rythmes guidés : la respiration carrée 4-4-4-4 pour te recentrer et la 4-7-8 pour lâcher la journée. L’écran respire avec toi.',
   'tut.app-jardin--gratitud.1.titulo': 'Ma gratitude d’aujourd’hui…',
   'tut.app-jardin--gratitud.1.texto':
     'Trois lignes par jour. Une suffit ; trois, c’est mieux. Une seule entrée par jour, que tu peux corriger au fil de l’eau.',
-  'tut.app-jardin--gratitud.2.titulo': 'Celles de Pep',
+  'tut.app-jardin--gratitud.2.titulo': 'Celles de Dominique',
   'tut.app-jardin--gratitud.2.texto':
     'Quatre-vingt-dix jours de gratitudes bien réelles : le clavier, Laika endormie sur les notes, le genou qui guérit, le retour du Japon. Lis-les tranquillement.',
   'tut.app-jardin--gratitud.3.texto':
     'Cette pièce ne tient aucune série et ne punit jamais un jour manqué : c’est voulu. Le calme n’est pas une compétition.',
   'tut.app-hobbies--piano.1.titulo': 'Deux hobbies, une année',
   'tut.app-hobbies--piano.1.texto':
-    'Pep en a suivi deux : le piano (son projet de l’année, objectif de 4 jours par semaine) et l’astrophotographie. Chaque carte montre la semaine en cours et la série.',
+    'Dominique en a suivi deux : le piano (son projet de l’année, objectif de 4 jours par semaine) et l’astrophotographie. Chaque carte montre la semaine en cours et la série.',
   'tut.app-hobbies--piano.2.titulo': 'Le piano en détail',
   'tut.app-hobbies--piano.2.texto':
     'Série, meilleure série, total pratiqué, jours actifs et moyenne. Une année au clavier — avec la pause honnête du Japon.',
@@ -640,18 +640,18 @@ export const FR_TUT: Dict = {
     'Les objectifs de tes loisirs et de tes projets vivent dans la pièce Objectifs, chacun avec son plan et son planning. Demande à l\'IA un plan avec des phases et des dates.',
   'tut.app-ideas--diario.1.titulo': 'La boîte à idées',
   'tut.app-ideas--diario.1.texto':
-    'Écris ce qui te passe par la tête et voilà. Pep a lâché ici ~90 idées dans l’année : de la physique, du café, de l’entraînement. L’étoile marque les favoris.',
+    'Écris ce qui te passe par la tête et voilà. Dominique a lâché ici ~90 idées dans l’année : de la physique, du café, de l’entraînement. L’étoile marque les favoris.',
   'tut.app-ideas--diario.2.titulo': 'Des remue-méninges par thème',
   'tut.app-ideas--diario.2.texto':
-    'Un remue-méninges regroupe tout sous un thème. Cherche ceux de Pep : les noms pour la chatte (Laika a gagné), comment payer le Japon et quoi emporter en voyage.',
+    'Un remue-méninges regroupe tout sous un thème. Cherche ceux de Dominique : les noms pour la chatte (Laika a gagné), comment payer le Japon et quoi emporter en voyage.',
   'tut.app-ideas--diario.3.texto':
     'Quand un remue-méninges est mûr, un bouton le transforme en carte mentale et tu continues à le ranger sur la toile.',
   'tut.app-ideas--mapas.1.titulo': 'Dix formats',
   'tut.app-ideas--mapas.1.texto':
-    'Chaque format dessine autrement. En bas se trouvent les cartes que Pep a faites dans l’année : sa routine du matin en logigramme, la thermodynamique en arbre, physique et musique en Venn.',
+    'Chaque format dessine autrement. En bas se trouvent les cartes que Dominique a faites dans l’année : sa routine du matin en logigramme, la thermodynamique en arbre, physique et musique en Venn.',
   'tut.app-ideas--mapas.2.titulo': '« Ma vie idéale »',
   'tut.app-ideas--mapas.2.texto':
-    'La PREMIÈRE carte de l’année, du mois 1 : la vie que Pep voulait. Regarde-la tranquillement — presque tout ce qui s’y trouve a fini par arriver.',
+    'La PREMIÈRE carte de l’année, du mois 1 : la vie que Dominique voulait. Regarde-la tranquillement — presque tout ce qui s’y trouve a fini par arriver.',
   'tut.app-ideas--mapas.3.texto':
     'Sur la toile : touche un nœud pour le choisir et une deuxième fois pour écrire ; fais-le glisser, pince pour zoomer et ajoute des idées avec la barre du bas.',
   'tut.app-ideas--mapas.4.titulo': 'Une carte entière, à partir d’un thème',
@@ -662,7 +662,7 @@ export const FR_TUT: Dict = {
     'Une fois dans une carte, n’importe quel nœud se développe : l’IA lui propose des sous-nœuds à partir de ce que tu as déjà écrit autour, sans casser ta structure.',
   'tut.app-ideas--decidir.1.titulo': 'Huit façons de décider',
   'tut.app-ideas--decidir.1.texto':
-    'Pep s’en est vraiment servi : un Eisenhower en semaine de partiels, un SWOT au milieu de l’année et une matrice pour choisir un appareil photo.',
+    'Dominique s’en est vraiment servi : un Eisenhower en semaine de partiels, un SWOT au milieu de l’année et une matrice pour choisir un appareil photo.',
   'tut.app-ideas--decidir.2.titulo': 'Master ou travail ?',
   'tut.app-ideas--decidir.2.texto':
     'LA décision restée ouverte à la fin de l’année : chaque côté avec son poids de 1 à 5 et le total en bas. Elle n’est toujours pas tranchée — c’est à ça que ressemble réfléchir pour de vrai.',
@@ -673,7 +673,7 @@ export const FR_TUT: Dict = {
     'Ce n’est pas une toile, c’est un tableau : chaque option face à chaque critère, avec un poids de 1 à 5 selon l’importance que ce critère a pour toi. Le total classe les options tout seul.',
   'tut.calendario.1.titulo': 'L’horloge',
   'tut.calendario.1.texto':
-    'Le calendrier n’est pas une pièce : il vit dans l’horloge de la maison, donc il s’ouvre d’où que tu sois.',
+    'Le calendrier n’est pas une pièce : il vit dans l’horloge de la MindHaOS, donc il s’ouvre d’où que tu sois.',
   'tut.calendario.2.titulo': 'Une semaine réelle',
   'tut.calendario.2.texto':
     'Des services au café, des cours de physique, courir au lever du jour, du piano le soir. Chaque bloc est une routine avec son heure et sa couleur ; fais-les glisser pour les déplacer et étire-les pour changer leur durée.',
@@ -685,25 +685,25 @@ export const FR_TUT: Dict = {
     'Les apps se planifient toutes seules : les rendez-vous de l’Agenda, le sommeil du Repos, les moments d’étude de la Bibliothèque. Avec le filtre, tu n’en affiches qu’une.',
   'tut.calendario.5.titulo': 'Parcourir l’année',
   'tut.calendario.5.texto':
-    'Les flèches ‹ › parcourent la période et Aujourd’hui te ramène au présent. Toute l’année de Pep est là, semaine après semaine. Avec + Nouvelle tu crées un événement, ou tu le traces directement sur la grille.',
+    'Les flèches ‹ › parcourent la période et Aujourd’hui te ramène au présent. Toute l’année de Dominique est là, semaine après semaine. Avec + Nouvelle tu crées un événement, ou tu le traces directement sur la grille.',
   'tut.calendario.6.titulo': 'Habitude par habitude',
   'tut.calendario.6.texto':
     'Chaque ligne est une routine et chaque colonne un jour : vert si c’est fait. Ici tu coches directement, et le pourcentage du haut résume la période que tu regardes.',
   'tut.calendario.7.titulo': 'L’arc de l’année',
   'tut.calendario.7.texto':
-    'En vue Année, le graphique raconte toute l’histoire : Pep a démarré en tenant un tiers de ce qui était prévu et a fini au-dessus de 85 %. La régularité s’est construite, elle n’est pas apparue.',
+    'En vue Année, le graphique raconte toute l’histoire : Dominique a démarré en tenant un tiers de ce qui était prévu et a fini au-dessus de 85 %. La régularité s’est construite, elle n’est pas apparue.',
   'tut.calendario.8.titulo': 'Les creux comptent aussi',
   'tut.calendario.8.texto':
     'Les deux trous sont réels : la blessure au genou du mois 7 et les trois semaines au Japon. Rater des jours n’efface pas les progrès — le panneau montre l’année telle qu’elle a été, pas telle qu’elle aurait dû être. Et une routine ne compte qu’à partir du jour où tu l’as créée.',
   'tut.metas.0.titulo': 'Le cœur de tes objectifs',
   'tut.metas.0.texto':
-    'Cette pièce ne garde rien à elle. Les objectifs naissent dans les autres apps — courir dans Exercice, le diplôme dans Bibliothèque, épargner dans Finances — et ici ils se retrouvent TOUS : c\'est le seul endroit de la maison où tu les vois en même temps, quelle que soit la pièce d\'où ils viennent.',
+    "Cette pièce ne garde rien à elle. Les objectifs naissent dans les autres apps — courir dans Exercice, le diplôme dans Bibliothèque, épargner dans Finances — et ici ils se retrouvent TOUS : c'est le seul endroit de la MindHaOS où tu les vois en même temps, quelle que soit la pièce d'où ils viennent.",
   'tut.metas.1.titulo': 'Chaque objectif, avec son app',
   'tut.metas.1.texto':
-    'Les dossiers ne sont pas un décor : chacun est l’app qui porte ces objectifs, et c’est elle qui sait s’ils sont tenus, parce que c’est là que tu enregistres. « Maison » n’est aucune app — cette catégorie, Pep@ l’a inventée pour les travaux de la cuisine.',
+    'Les dossiers ne sont pas un décor : chacun est l’app qui porte ces objectifs, et c’est elle qui sait s’ils sont tenus, parce que c’est là que tu enregistres. « Maison » n’est aucune app — cette catégorie, Dominique l’a inventée pour les travaux de la cuisine.',
   'tut.metas.2.titulo': 'La même fiche, des deux côtés',
   'tut.metas.2.texto':
-    'Toucher un objectif ouvre sa fiche et, s’il en a un, son plan. C’est le MÊME planificateur que celui qui s’ouvre depuis son app, à une différence près : là-bas il est limité à cette app, ici tu le vois entier, avec les objectifs de toute la maison à la fois.',
+    'Toucher un objectif ouvre sa fiche et, s’il en a un, son plan. C’est le MÊME planificateur que celui qui s’ouvre depuis son app, à une différence près : là-bas il est limité à cette app, ici tu le vois entier, avec les objectifs de toute la MindHaOS à la fois.',
   'tut.metas.3.titulo': 'Ils se tiennent dans leur app, pas ici',
   'tut.metas.3.texto':
     'Ce qu’un objectif demande AUJOURD’HUI ne se fait pas dans cette pièce : ça sort dans les Missions de l’app qui le porte, mêlé au reste de sa journée, et ça se tient en enregistrant vraiment là-bas. Ici on planifie ; l’app exécute.',
@@ -715,7 +715,7 @@ export const FR_TUT: Dict = {
     'Chaque app porte les siens, mais ce que tu t’es fixé ne se voit ensemble que dans cette pièce — et de là ça part vers le calendrier et vers les Missions de chacune. C’est son travail : être l’endroit où tout se croise.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Une année d’études, en un arbre',
   'tut.app-biblioteca--enciclopedia.1.texto':
-    'Pep étudie la physique : la mécanique en début d’année, la thermodynamique vers le partiel du mois 6, la relativité et l’astrophysique à la fin. Chaque branche s’ouvre pour voir ses fiches.',
+    'Dominique étudie la physique : la mécanique en début d’année, la thermodynamique vers le partiel du mois 6, la relativité et l’astrophysique à la fin. Chaque branche s’ouvre pour voir ses fiches.',
   'tut.app-biblioteca--enciclopedia.2.titulo': 'L’arbre grandit avec toi',
   'tut.app-biblioteca--enciclopedia.2.texto':
     'Les sujets du catalogue sont déjà là ; ceux qui pendent tout seuls, c’est une discussion qui les a ouverts. Touche une fiche pour lire son résumé, ses points clés et son illustration.',
@@ -723,7 +723,7 @@ export const FR_TUT: Dict = {
     'Une fiche s’écrit à la main ou se distille d’une conversation. Celle du trou noir et celle de la physique du piano ont un dessin : l’app peut les illustrer pour toi.',
   'tut.app-biblioteca--charlas.1.titulo': 'Les questions de l’année',
   'tut.app-biblioteca--charlas.1.texto':
-    'Voici les conversations que Pep a eues en étudiant : l’entropie, la dilatation du temps, pourquoi un piano sonne comme un piano. Chacune est restée enregistrée.',
+    'Voici les conversations que Dominique a eues en étudiant : l’entropie, la dilatation du temps, pourquoi un piano sonne comme un piano. Chacune est restée enregistrée.',
   'tut.app-biblioteca--charlas.2.titulo': 'De la discussion à l’arbre',
   'tut.app-biblioteca--charlas.3.texto':
     'Comme ça, l’encyclopédie ne se remplit pas de théorie copiée, mais de ce que tu as vraiment demandé.',
@@ -742,7 +742,7 @@ export const FR_TUT: Dict = {
     'Les discussions avec le Sage, les minutes d’étude au total et sur la semaine, et ta série de jours d’étude d’affilée.',
   'tut.app-biblioteca--resumen.3.titulo': 'Où est le déséquilibre',
   'tut.app-biblioteca--resumen.3.texto':
-    'La barre la plus longue est le domaine qui t’a pris le plus d’attention — pour Pep, la thermodynamique la semaine du partiel.',
+    'La barre la plus longue est le domaine qui t’a pris le plus d’attention — pour Dominique, la thermodynamique la semaine du partiel.',
   'tut.app-biblioteca--resumen.4.titulo': 'Les jours d’étude',
   'tut.app-biblioteca--resumen.4.texto':
     'Un petit carré par jour : le bachotage avant le partiel et le trou des trois semaines au Japon sautent aux yeux, sans ouvrir tout l’historique.',
@@ -762,22 +762,22 @@ export const FR_TUT: Dict = {
     'Quand le tuteur corrige, la forme correcte va sur sa propre ligne avec une coche, et la conversation continue sans sermon. En sortant, il te propose d’extraire le vocabulaire apparu : tu choisis quelles cartes garder et elles héritent du thème de la discussion.',
   'tut.app-idiomas--repaso.1.titulo': 'Ce qui tombe aujourd’hui',
   'tut.app-idiomas--repaso.1.texto':
-    'Pep fait ça depuis un an et il reste encore des révisions en attente : le système ne te demande pas tout le vocabulaire, seulement ce que tu es sur le point d’oublier.',
+    'Dominique fait ça depuis un an et il reste encore des révisions en attente : le système ne te demande pas tout le vocabulaire, seulement ce que tu es sur le point d’oublier.',
   'tut.app-idiomas--repaso.3.titulo': 'Une année de régularité',
   'tut.app-idiomas--repaso.3.texto':
-    'L’historique garde combien de cartes tu as révisées chaque jour et combien tu as réussies. Pep a commencé par se tromper souvent et a fini par presque tout réussir — et au Japon, les révisions n’ont jamais été aussi nombreuses.',
+    'L’historique garde combien de cartes tu as révisées chaque jour et combien tu as réussies. Dominique a commencé par se tromper souvent et a fini par presque tout réussir — et au Japon, les révisions n’ont jamais été aussi nombreuses.',
   'tut.app-idiomas--vocabulario.2.titulo': 'Deux langues à la fois',
   'tut.app-idiomas--vocabulario.2.texto':
-    'En haut, tu changes de langue : en plus de la principale, Pep a monté un japonais de survie entre le mois 4 et le voyage. Au retour, il a été presque abandonné, et ça se voit dans ses boîtes.',
+    'En haut, tu changes de langue : en plus de la principale, Dominique a monté un japonais de survie entre le mois 4 et le voyage. Au retour, il a été presque abandonné, et ça se voit dans ses boîtes.',
   'tut.app-idiomas--temario.1.titulo': 'Trois domaines, six niveaux',
   'tut.app-idiomas--temario.1.texto':
     'De A1 à C2, chaque niveau avec ses sujets de vocabulaire, ses points de prononciation et sa grammaire. Tu sais ce qui te manque sans aller chercher un cours ailleurs.',
   'tut.app-idiomas--temario.2.titulo': 'Où tu en es',
   'tut.app-idiomas--temario.2.texto':
-    'Cartes maîtrisées, révisions du mois et ton niveau actuel. Pep a commencé l’année en A2 et tourne aujourd’hui autour du B1.',
+    'Cartes maîtrisées, révisions du mois et ton niveau actuel. Dominique a commencé l’année en A2 et tourne aujourd’hui autour du B1.',
   'tut.app-agenda--esencial.1.titulo': 'Ton agenda',
   'tut.app-agenda--esencial.1.texto':
-    'L’agenda garde ce qui n’est pas une habitude : tâches, rendez-vous, contacts. Trois menus, et tout ce qui a une date se programme tout seul dans le calendrier de la maison.',
+    'L’agenda garde ce qui n’est pas une habitude : tâches, rendez-vous, contacts. Trois menus, et tout ce qui a une date se programme tout seul dans le calendrier de la MindHaOS.',
   'tut.app-agenda--esencial.2.titulo': 'Travail',
   'tut.app-agenda--esencial.2.texto':
     'La liste rassemble les tâches sans date pour qu’elles ne se perdent pas, et le tableau déplace tes tâches par colonnes : à faire, en cours et fait.',
@@ -787,7 +787,7 @@ export const FR_TUT: Dict = {
   'tut.app-agenda--esencial.4.titulo': 'Personnes',
   'tut.app-agenda--esencial.4.texto':
     'Ton carnet de contacts classé par relation. Les anniversaires que tu enregistres se répètent tout seuls chaque année dans le calendrier.',
-  'tut.calendario--esencial.1.titulo': 'L’horloge de la maison',
+  'tut.calendario--esencial.1.titulo': 'L’horloge de la MindHaOS',
   'tut.calendario--esencial.1.texto':
     'Le calendrier n’est pas une pièce : il vit dans l’horloge du HUD, donc il s’ouvre d’où que tu sois sans entrer nulle part.',
   'tut.calendario--esencial.2.titulo': 'Tout ce qui est programmé, réuni',
@@ -882,7 +882,7 @@ export const FR_TUT: Dict = {
     'Chaque nuit enregistrée reçoit un score qui combine ta durée de sommeil, l’heure du coucher et le nombre de réveils. Sans aucun enregistrement encore, cette section t’invite à noter ta première nuit.',
   'tut.app-descanso--esencial.3.titulo': 'Horaire et rappels',
   'tut.app-descanso--esencial.3.texto':
-    'Tu règles ton heure de coucher et de réveil en faisant glisser les extrémités de la plage du jour ; le même horaire apparaît comme bloc dans le calendrier de la maison. C’est ici aussi que tu actives le réveil avec sa tonalité et les rappels pour ralentir le rythme avant de dormir.',
+    'Tu règles ton heure de coucher et de réveil en faisant glisser les extrémités de la plage du jour ; le même horaire apparaît comme bloc dans le calendrier de la MindHaOS. C’est ici aussi que tu actives le réveil avec sa tonalité et les rappels pour ralentir le rythme avant de dormir.',
   'tut.app-descanso--esencial.4.titulo': 'Enregistrer la nuit',
   'tut.app-descanso--esencial.4.texto':
     'Le formulaire pour noter comment tu as dormi : la date, l’heure du coucher et du réveil, les interruptions et une note de qualité, avec de la place pour un commentaire.',
@@ -939,7 +939,7 @@ export const FR_TUT: Dict = {
     'Étirements et mobilité, avec des séries minutées plutôt qu’en charge : chaque posture a ses secondes et ses répétitions. Le lecteur guidé déroule la routine posture par posture avec un minuteur qui indique quand changer.',
   'tut.app-entretenimiento--esencial.1.titulo': 'Divertissement',
   'tut.app-entretenimiento--esencial.1.texto':
-    'Garde les films, séries, livres et jeux vidéo que tu termines, et propose une table de jeux numérique pour jouer sans quitter la maison. Deux menus : Jeux de société et Archives.',
+    'Garde les films, séries, livres et jeux vidéo que tu termines, et propose une table de jeux numérique pour jouer sans quitter la MindHaOS. Deux menus : Jeux de société et Archives.',
   'tut.app-entretenimiento--esencial.2.titulo': 'Jeux de société',
   'tut.app-entretenimiento--esencial.2.texto':
     'La table réunit des jeux numériques qui se jouent directement à l’écran. Un filtre sépare ce qui est pensé pour un ou deux joueurs de ce qui convient à un groupe plus large.',
@@ -951,7 +951,7 @@ export const FR_TUT: Dict = {
     'Les archives réunissent ce que tu regardes, lis et joues : chaque titre avec son statut, sa note et ton avis. Tu peux trier par genre, catégorie, auteur ou date.',
   'tut.app-garage--esencial.1.titulo': 'Le garage',
   'tut.app-garage--esencial.1.texto':
-    'Le garage suit tes véhicules : vélos, voitures, motos et tout ce que tu utilises pour te déplacer. Chacun avec son historique d’entretien et ses démarches, et tout ce qui a une date se programme tout seul dans le calendrier de la maison.',
+    'Le garage suit tes véhicules : vélos, voitures, motos et tout ce que tu utilises pour te déplacer. Chacun avec son historique d’entretien et ses démarches, et tout ce qui a une date se programme tout seul dans le calendrier de la MindHaOS.',
   'tut.app-garage--esencial.2.titulo': 'Résumé',
   'tut.app-garage--esencial.2.texto':
     'L’onglet d’entrée : un voyant tricolore indique d’un coup d’œil si quelque chose est en retard, si quelque chose approche, ou si le garage est tranquille.',
@@ -1015,7 +1015,7 @@ export const FR_TUT: Dict = {
   'tut.app-jardin--esencial.4.titulo': 'Gratitude',
   'tut.app-jardin--esencial.4.texto':
     'Note ce pour quoi tu es reconnaissant aujourd’hui, même une seule chose, et relis tes entrées précédentes quand tu veux. Sans séries : rater un jour n’efface rien.',
-  'tut.app-metas--esencial.1.titulo': 'Le planificateur de la maison',
+  'tut.app-metas--esencial.1.titulo': 'Le planificateur de la MindHaOS',
   'tut.app-metas--esencial.1.texto':
     'Cette pièce ne garde aucun enregistrement propre : elle réunit en un seul endroit les objectifs et les plans qui naissent dans les autres apps. Trois menus, à lire dans cet ordre : ce que tu t’es fixé, comment tu comptes le répartir et quand ça tombe.',
   'tut.app-metas--esencial.2.titulo': 'Objectifs',
@@ -1051,7 +1051,7 @@ export const FR_TUT: Dict = {
     'Les mêmes tâches, en trois colonnes : à faire, en cours et fait. Garde une carte appuyée pour la faire glisser vers une autre colonne —la déposer dans « Fait » la coche aussi dans le calendrier—, ou déplace-la avec les flèches.',
   'tut.app-agenda--salud.1.titulo': 'L’année du genou',
   'tut.app-agenda--salud.1.texto':
-    'Nutrition tous les deux ou trois mois, le dentiste, et les six séances de kiné du mois 7 : la blessure qui a freiné Pep est consignée ici.',
+    'Nutrition tous les deux ou trois mois, le dentiste, et les six séances de kiné du mois 7 : la blessure qui a freiné Dominique est consignée ici.',
   'tut.app-agenda--salud.2.titulo': 'Médicaments',
   'tut.app-agenda--salud.2.texto':
     'Chaque médicament crée un bloc par prise dans le calendrier. L’anti-inflammatoire de la blessure a duré trois semaines et a été archivé ; la vitamine continue.',
@@ -1066,8 +1066,8 @@ export const FR_TUT: Dict = {
     'À la fin de Toi vit le cycle, avec son propre interrupteur : saignements, symptômes et humeur par jour, et à partir de tes dernières règles il estime les suivantes et la fenêtre fertile. L’éteindre conserve tout ce qui est enregistré.',
   'tut.app-agenda--salud.projimos.titulo': 'Proches',
   'tut.app-agenda--salud.projimos.texto':
-    'Celles et ceux qui sont à ta charge : des contacts de Personnes marqués « À ma charge », chacun avec ses rendez-vous par spécialité, ses soins et ses médicaments. Pep garde ici sa mère.',
-  'tut.app-agenda--personas.1.titulo': 'Le cercle de Pep',
+    'Celles et ceux qui sont à ta charge : des contacts de Personnes marqués « À ma charge », chacun avec ses rendez-vous par spécialité, ses soins et ses médicaments. Dominique garde ici sa mère.',
+  'tut.app-agenda--personas.1.titulo': 'Le cercle de Dominique',
   'tut.app-agenda--personas.1.texto':
     'Famille, amis, gens du travail et de la fac, chacun dans son dossier. Avec leur téléphone, leur adresse et tout ce que tu ne veux pas oublier.',
   'tut.app-agenda--personas.2.titulo': 'Des anniversaires jamais oubliés',
@@ -1077,16 +1077,16 @@ export const FR_TUT: Dict = {
     'Les plans avec les gens sont liés à leur contact : tu vois ainsi la dernière fois que tu as vu quelqu’un.',
   'tut.app-ejercicio--anio.1.titulo': 'Une année en trois chiffres',
   'tut.app-ejercicio--anio.1.texto':
-    'La série compte les jours d’affilée avec quelque chose d’enregistré, et l’assiduité compare tes jours actifs à ceux que tu t’étais fixés. Pep a commencé l’année sans pouvoir courir deux pâtés de maisons.',
+    'La série compte les jours d’affilée avec quelque chose d’enregistré, et l’assiduité compare tes jours actifs à ceux que tu t’étais fixés. Dominique a commencé l’année sans pouvoir courir deux pâtés de maisons.',
   'tut.app-ejercicio--anio.2.titulo': 'Les trois disciplines',
   'tut.app-ejercicio--anio.2.texto':
     'Les barres mesurent ce que tu as fait face à tes objectifs : séances de force, minutes d’endurance et minutes de souplesse. L’objectif s’ajuste à la période que tu choisis en haut.',
   'tut.app-ejercicio--anio.3.titulo': 'Les objectifs de l’année',
   'tut.app-ejercicio--anio.3.texto':
-    'La pièce Objectifs garde ses quatre objectifs cochés — le 5 km, le 10 km, le semi-marathon et le marathon — et celui qui reste en cours. Les objectifs avec une date apparaissent aussi dans le calendrier de la maison.',
+    'La pièce Objectifs garde ses quatre objectifs cochés — le 5 km, le 10 km, le semi-marathon et le marathon — et celui qui reste en cours. Les objectifs avec une date apparaissent aussi dans le calendrier de la MindHaOS.',
   'tut.app-ejercicio--carrera.1.titulo': 'Catalogue, routines et progression',
   'tut.app-ejercicio--carrera.1.texto':
-    'Chaque discipline s’organise pareil : le catalogue d’exercices, tes routines avec leur historique, et la progression. Commençons par ce que Pep a déjà couru.',
+    'Chaque discipline s’organise pareil : le catalogue d’exercices, tes routines avec leur historique, et la progression. Commençons par ce que Dominique a déjà couru.',
   'tut.app-ejercicio--carrera.2.titulo': 'Chaque sortie reste écrite',
   'tut.app-ejercicio--carrera.2.texto':
     'L’historique se range par année, mois et semaine. Les grandes courses gardent en plus le tracé du parcours et ses tronçons : voilà le marathon, avec ses temps de passage tous les dix kilomètres.',
@@ -1098,7 +1098,7 @@ export const FR_TUT: Dict = {
     'Chaque séance garde ses exercices avec le poids que tu as soulevé. L’app se souvient de la dernière fois pour t’éviter de la chercher, et additionne le volume total du jour.',
   'tut.app-ejercicio--fuerza.2.titulo': 'La courbe d’une année',
   'tut.app-ejercicio--fuerza.2.texto':
-    'Choisis un exercice et tu verras comme il est monté : le squat de Pep est passé de quarante kilos à soixante-dix. Pendant le mois de la blessure, seul le haut du corps a été travaillé, et cette courbe ne s’en est même pas aperçue.',
+    'Choisis un exercice et tu verras comme il est monté : le squat de Dominique est passé de quarante kilos à soixante-dix. Pendant le mois de la blessure, seul le haut du corps a été travaillé, et cette courbe ne s’en est même pas aperçue.',
   'tut.app-ejercicio--fuerza.3.titulo': 'Tes records, sans les demander',
   'tut.app-ejercicio--fuerza.3.texto':
     'De chaque exercice, l’app garde ton meilleur poids, ton max de répétitions et une estimation de ton 1RM. Ceux au poids du corps, comme les tractions, sont marqués à part.',
@@ -1115,10 +1115,10 @@ export const FR_TUT: Dict = {
     'Les trois modalités partagent le Cardio en direct de la montre : quand tu cours ou pédales avec le minuteur, le minute par minute s’enregistre tout seul à la fin.',
   'tut.app-cocina--alimentacion.1.titulo': 'Étape 1 : où tu vas',
   'tut.app-cocina--alimentacion.1.texto':
-    'Avec ton poids, ta taille et ton activité, l’app calcule ce dont tu as besoin chaque jour et répartit les macros. Pep s’est fixé 2 400 calories et un objectif de poids dont il reste moins d’un kilo.',
+    'Avec ton poids, ta taille et ton activité, l’app calcule ce dont tu as besoin chaque jour et répartit les macros. Dominique s’est fixé 2 400 calories et un objectif de poids dont il reste moins d’un kilo.',
   'tut.app-cocina--alimentacion.2.titulo': 'Étape 2 : ce que tu as mangé aujourd’hui',
   'tut.app-cocina--alimentacion.2.texto':
-    'Petit-déjeuner, déjeuner, dîner et un petit truc entre les deux : chaque saisie remplit les anneaux du jour. L’eau a son propre objectif, et c’est celui que la maison regarde pour valider la journée.',
+    'Petit-déjeuner, déjeuner, dîner et un petit truc entre les deux : chaque saisie remplit les anneaux du jour. L’eau a son propre objectif, et c’est celui que la MindHaOS regarde pour valider la journée.',
   'tut.app-cocina--alimentacion.3.titulo': 'Étape 3 : 74 kilos, 67 kilos',
   'tut.app-cocina--alimentacion.3.texto':
     'La courbe de l’année entière, avec son plateau pendant le mois de la blessure et le kilo pris au Japon. En dessous, à quel rythme tu vas et quand tu y arriverais en continuant comme ça.',
@@ -1127,7 +1127,7 @@ export const FR_TUT: Dict = {
     'Vert, c’est un jour dans l’objectif ; ambre, un jour un peu dépassé ; rouge, un jour parti bien plus loin. Le mois du voyage se voit du premier coup d’œil. Touche n’importe quel jour pour l’ouvrir.',
   'tut.app-cocina--recetario.1.titulo': 'Des régimes, pas des régimes de magazine',
   'tut.app-cocina--recetario.1.texto':
-    'Ici, un régime est un plan avec ses recettes dedans. Pep en a gardé deux : la semaine du marathon et le retour du Japon, en plus de ceux que l’app apporte.',
+    'Ici, un régime est un plan avec ses recettes dedans. Dominique en a gardé deux : la semaine du marathon et le retour du Japon, en plus de ceux que l’app apporte.',
   'tut.app-cocina--recetario.2.titulo': 'Le livre de recettes',
   'tut.app-cocina--recetario.2.texto':
     'Chaque recette garde ses ingrédients, ses étapes et ses macros par portion, et se range dans des dossiers. Depuis une recette, tu peux enregistrer le repas ou envoyer ses ingrédients à la liste de courses.',
@@ -1153,7 +1153,7 @@ export const FR_TUT: Dict = {
     'Sept barres face à la ligne de ton objectif. C’est la vue qui dit d’un coup d’œil si cette semaine tu dors ce que tu voulais.',
   'tut.app-descanso--noche.3.titulo': 'L’année entière',
   'tut.app-descanso--noche.3.texto':
-    'L’historique se garde par année, mois et semaine. Descends jusqu’aux premiers mois de Pep et compare-les aux derniers : coucher après une heure du matin et cinq heures de sommeil.',
+    'L’historique se garde par année, mois et semaine. Descends jusqu’aux premiers mois de Dominique et compare-les aux derniers : coucher après une heure du matin et cinq heures de sommeil.',
   'tut.app-descanso--horario.1.titulo': 'De onze heures et demie à sept heures',
   'tut.app-descanso--horario.1.texto':
     'Fais glisser les extrémités de la barre pour déplacer ton heure de coucher et celle du réveil ; le ciel au-dessus change avec elles. Ce bloc apparaît aussi dans le calendrier, à cheval sur minuit.',
@@ -1171,7 +1171,7 @@ export const FR_TUT: Dict = {
     'Six périodes en arrière, en barres. Les bleues sont les mois où il est resté de l’argent ; les rouges, ceux qui ont fait mal. Le creux et la remontée se voient d’un coup d’œil.',
   'tut.app-despacho--anio.3.titulo': 'Où part l’argent ?',
   'tut.app-despacho--anio.3.texto':
-    'Le détail par catégorie de la période affichée. Pep écrit les siennes à la main : l’app reconnaît les catégories courantes et donne sa propre couleur aux autres.',
+    'Le détail par catégorie de la période affichée. Dominique écrit les siennes à la main : l’app reconnaît les catégories courantes et donne sa propre couleur aux autres.',
   'tut.app-despacho--anio.4.titulo': 'Le plafond du mois',
   'tut.app-despacho--anio.4.texto':
     'Un budget mensuel et une barre qui vire au rouge dès que tu dépasses. Si tu regardes par semaine ou par année, l’app l’ajuste toute seule.',
@@ -1181,9 +1181,9 @@ export const FR_TUT: Dict = {
   'tut.app-despacho--anio.6.titulo': 'Et dans un an',
   'tut.app-despacho--anio.6.texto':
     'Ça projette douze mois avec tes charges fixes à leur échéance et le variable avec ta moyenne, en deux scénarios : avec patrimoine net et sans.',
-  'tut.app-despacho--captura.1.titulo': 'Les charges fixes de Pep',
+  'tut.app-despacho--captura.1.titulo': 'Les charges fixes de Dominique',
   'tut.app-despacho--captura.1.texto':
-    'Le loyer, internet, le portable, le streaming et l’assurance auto : cinq entrées du mois 2, quand Pep a décidé de mettre de l’ordre. Depuis, chacune se compte toute seule.',
+    'Le loyer, internet, le portable, le streaming et l’assurance auto : cinq entrées du mois 2, quand Dominique a décidé de mettre de l’ordre. Depuis, chacune se compte toute seule.',
   'tut.app-despacho--captura.2.titulo': 'Comment on en saisit une',
   'tut.app-despacho--captura.2.texto':
     'Le formulaire avance par étapes : montant, variable ou fixe, catégorie (tu écris la tienne, il te suggère les habituelles), à quelle fréquence ça se répète et la note.',
@@ -1194,19 +1194,19 @@ export const FR_TUT: Dict = {
   'tut.app-despacho--captura.4.texto':
     'Deux paies à la quinzaine du café, les cours de physique particuliers commencés en même temps que la décision du voyage, et les pourboires de la semaine, jamais deux fois pareils.',
   'tut.app-despacho--captura.5.texto':
-    'Chez toi, tu peux aussi saisir par le chat : « j’ai dépensé 250 en courses » et c’est noté.',
+    'Dans ta propre MindHaOS, tu peux aussi saisir par le chat : « j’ai dépensé 250 en courses » et c’est noté.',
   'tut.app-despacho--metas.1.titulo': 'L’objectif atteint',
   'tut.app-despacho--metas.1.texto':
     'Le voyage au Japon, à 100 % : onze mois d’épargne, les cours particuliers, la prime de fin d’année et l’argent reçu pour l’anniversaire. En dessous, le fonds d’urgence lancé au retour et un petit investissement.',
   'tut.app-despacho--metas.2.titulo': 'L’objectif dans le temps',
   'tut.app-despacho--metas.2.texto':
     'Ces objectifs sont gardés sur l\'axe du temps dans la pièce Objectifs : tu mets des dates sur l\'un d\'eux et il apparaît parmi tes jours du calendrier. Avec ✨ l\'IA propose le plan de versements.',
-  'tut.app-despacho--metas.3.titulo': 'Ce que Pep devait',
+  'tut.app-despacho--metas.3.titulo': 'Ce que Dominique devait',
   'tut.app-despacho--metas.3.texto':
     'La panne de voiture est passée sur la carte et a mis des mois à se solder. Les dettes vivent à part parce qu’elles se lisent à l’envers : ici, descendre, c’est gagner.',
   'tut.app-despacho--metas.4.titulo': 'Marchés',
   'tut.app-despacho--metas.4.texto':
-    'Pep surveille le yen depuis la décision du voyage, et maintenant le won, pour le prochain. Forex, crypto, actions et matières premières en direct (il faut internet).',
+    'Dominique surveille le yen depuis la décision du voyage, et maintenant le won, pour le prochain. Forex, crypto, actions et matières premières en direct (il faut internet).',
   'tut.app-despacho--patrimonio.1.titulo': 'Ce que ça vaut aujourd’hui',
   'tut.app-despacho--patrimonio.1.texto':
     'Actifs moins passifs. Quand une ligne a un taux, ce chiffre est ce que ça vaut AUJOURD’HUI, pas ce que ça valait le jour où tu l’as noté — et en dessous tu peux voir le détail, ou revenir à ce que tu as écrit.',
@@ -1235,13 +1235,13 @@ export const FR_TUT: Dict = {
     'Un seul feu tricolore pour ne pas avoir à lire deux listes : rouge si quelque chose est en retard, ambre si ça arrive bientôt, vert si le garage est tranquille.',
   'tut.app-garage--vehiculos.2.titulo': 'Ce que tu as déjà dépensé',
   'tut.app-garage--vehiculos.2.texto':
-    'Combien de véhicules, combien de démarches en cours et ce que tu as dépensé dans l’année. La voiture a coûté cher à Pep.',
+    'Combien de véhicules, combien de démarches en cours et ce que tu as dépensé dans l’année. La voiture a coûté cher à Dominique.',
   'tut.app-garage--vehiculos.2b.titulo': 'Ajouter un nouveau',
   'tut.app-garage--vehiculos.2b.texto':
     'Nom, type, marque, modèle, année, plaques et le kilométrage du jour. Une fois les plaques renseignées, le garage sait quelles démarches te proposer plus tard.',
   'tut.app-garage--vehiculos.3.titulo': 'Le vélo de tous les jours',
   'tut.app-garage--vehiculos.3.texto':
-    'Le vrai moyen de transport de Pep : chaîne, chambres à air, freins, chacun sur sa propre ligne — le même classeur en dossiers d’année et de mois que dans les autres apps. Regarde comme les entretiens s’accumulent sur les derniers mois : c’est l’entraînement du marathon qui présente la facture.',
+    'Le vrai moyen de transport de Dominique : chaîne, chambres à air, freins, chacun sur sa propre ligne — le même classeur en dossiers d’année et de mois que dans les autres apps. Regarde comme les entretiens s’accumulent sur les derniers mois : c’est l’entraînement du marathon qui présente la facture.',
   'tut.app-garage--vehiculos.4.titulo': 'Et la voiture héritée',
   'tut.app-garage--vehiculos.4.texto':
     'Voilà la panne du mois 7 : en rade sur le bas-côté, une dépanneuse et presque dix mille pesos qui manquaient. Chaque entretien garde son coût, son kilométrage et l’atelier qui s’en est occupé.',
@@ -1264,7 +1264,7 @@ export const FR_TUT: Dict = {
   'tut.app-garage--tramites.3.texto':
     'L’atelier de confiance, l’assureur, le centre de contrôle technique, le vélociste du quartier et la dépanneuse de cette nuit-là — téléphone et adresse à portée de doigt.',
   'tut.app-garage--tramites.4.texto':
-    'Toutes ces démarches sont aussi dans le calendrier de la maison, avec leur rappel à l’avance. Et attention : les véhicules qui roulent sur le plan, c’est autre chose — ils vivent dans l’Inventaire.',
+    'Toutes ces démarches sont aussi dans le calendrier de la MindHaOS, avec leur rappel à l’avance. Et attention : les véhicules qui roulent sur le plan, c’est autre chose — ils vivent dans l’Inventaire.',
   'tut.app-sala--mapa.1.titulo': 'Où tu as mis les pieds',
   'tut.app-sala--mapa.1.texto':
     'Quatre pays et quelques villes : presque toutes du même voyage. Touche l’un des trois nombres pour voir la liste sous la carte.',
@@ -1276,8 +1276,8 @@ export const FR_TUT: Dict = {
     'Le commutateur du haut échange le planisphère contre un globe que tu fais tourner en le faisant glisser, avec les mêmes épingles touchables. Le globe ne fait que regarder : les nouvelles épingles se posent dans la vue Plan.',
   'tut.app-sala--japon.1.titulo': 'Les albums',
   'tut.app-sala--japon.1.texto':
-    'Un dossier par pays, avec sa photo de couverture. Dedans, une carte par lieu et, dans chacune, ce que Pep a écrit ce jour-là.',
-  'tut.app-sala--japon.2.titulo': 'Ce que Pep a écrit là-bas',
+    'Un dossier par pays, avec sa photo de couverture. Dedans, une carte par lieu et, dans chacune, ce que Dominique a écrit ce jour-là.',
+  'tut.app-sala--japon.2.titulo': 'Ce que Dominique a écrit là-bas',
   'tut.app-sala--japon.2.texto':
     'Huit entrées du voyage, chacune avec sa photo : le Fuji à l’aube, les bambous d’Arashiyama, les cerfs de Nara. Ça s’écrit sur le moment, avec l’odeur encore sur soi.',
   'tut.app-sala--japon.3.texto':
@@ -1296,7 +1296,7 @@ export const FR_TUT: Dict = {
     'Films, séries, livres et jeux vidéo, classés par date de fin. Il y a une indigestion d’écrans au mois 7 (genou blessé, canapé à volonté) et un trou de trois semaines : le Japon.',
   'tut.app-entretenimiento--archivo.2.titulo': 'La fiche',
   'tut.app-entretenimiento--archivo.2.texto':
-    'Titre, auteur ou réalisateur, genre, statut et étoiles. La critique, c’est ce que Pep en a pensé, pas un résumé de l’intrigue : dans un an, c’est la seule chose qui servira.',
+    'Titre, auteur ou réalisateur, genre, statut et étoiles. La critique, c’est ce que Dominique en a pensé, pas un résumé de l’intrigue : dans un an, c’est la seule chose qui servira.',
   'tut.app-entretenimiento--archivo.3.titulo': 'Quatre façons de le classer',
   'tut.app-entretenimiento--archivo.3.texto':
     'Par genre, par catégorie (film, série, livre, jeu vidéo), par auteur ou par date. Dans la vue par genre, les dossiers se font glisser : mets en premier ce que tu regardes le plus.',
@@ -1318,7 +1318,7 @@ export const FR_TUT: Dict = {
   'tut.app-diario--habito.3.texto':
     'L’autre moitié : ce qui s’est passé un jour comme aujourd’hui, une œuvre, un livre, une espèce, un mot. Une bonne excuse pour l’ouvrir même quand l’actualité ne donne pas envie.',
   'tut.app-diario--habito.4.texto':
-    'Pep l’a lu environ deux cents jours cette année : beaucoup au début, presque jamais pendant le mois difficile, et tous les jours des trois dernières semaines. Sa série vit de ça.',
+    'Dominique l’a lu environ deux cents jours cette année : beaucoup au début, presque jamais pendant le mois difficile, et tous les jours des trois dernières semaines. Sa série vit de ça.',
   'tut.app-diario--reparto.1.titulo': 'La livraison',
   'tut.app-diario--reparto.1.texto':
     'C’est ici que tu règles qui t’apporte quoi. Ce n’est pas une notification de plus : ça arrive comme un message de l’assistant, avec sa voix.',

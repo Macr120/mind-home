@@ -310,7 +310,7 @@ const PASOS_APP: PasoTutorial[] = [
     },
     texto: T(
       'tut.primeros.6.texto',
-      'Eso es todo: crear el cuarto, darle su app, entrar y acomodarlo. Este era de práctica — me lo llevo al terminar, para que armes tu casa a tu gusto.',
+      'Eso es todo: crear el cuarto, darle su app, entrar y acomodarlo. Este era de práctica — me lo llevo al terminar, para que armes tu MindHaOS a tu gusto.',
     ),
   },
 ]

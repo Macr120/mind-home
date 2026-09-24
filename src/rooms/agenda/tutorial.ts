@@ -164,7 +164,7 @@ export const cuerpoEsencial: CuerpoTutorial = {
       titulo: T('tut.app-agenda--esencial.1.titulo', 'Tu agenda'),
       texto: T(
         'tut.app-agenda--esencial.1.texto',
-        'La agenda guarda lo que no es un hábito: pendientes, citas, contactos. Son tres menús, y todo lo que lleva fecha se agenda solo en el calendario de la casa.',
+        'La agenda guarda lo que no es un hábito: pendientes, citas, contactos. Son tres menús, y todo lo que lleva fecha se agenda solo en el calendario de la MindHaOS.',
       ),
     },
     {

@@ -686,7 +686,7 @@ export default {
       "dia": -140,
       "tema": "b1-viajes",
       "titulo": "체크인할 때 쓰는 문장",
-      "texto": "I have a reservation under the name Pepa. — 3주 동안 가장 많이 반복한 문장이에요.\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — 기차로 이동하는 날에 특히 요긴했어요.\nIs there a laundry nearby?\n그리고 늘 저한테 돌아오던 말: “Could I see your passport, please?”"
+      "texto": "I have a reservation under the name Jimin. — 3주 동안 가장 많이 반복한 문장이에요.\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — 기차로 이동하는 날에 특히 요긴했어요.\nIs there a laundry nearby?\n그리고 늘 저한테 돌아오던 말: “Could I see your passport, please?”"
     },
     {
       "dia": -85,

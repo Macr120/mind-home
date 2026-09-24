@@ -193,10 +193,10 @@ export function avisarVisitaAbortada(): void {
       ? tGlobal('visita.abortada.sala', 'La sala se cerró.')
       : motivo === 'red'
         ? tGlobal('visita.abortada.red', 'Se perdió la conexión.')
-        : tGlobal('visita.abortada.plano', 'No se pudo cargar esa casa.')
+        : tGlobal('visita.abortada.plano', 'No se pudo cargar esa MindHaOS.')
   void notificar({
     clave: 'visita:abortada',
-    titulo: tGlobal('visita.abortada.titulo', 'Volviste a tu casa'),
+    titulo: tGlobal('visita.abortada.titulo', 'Volviste a tu MindHaOS'),
     cuerpo,
     efimero: true,
   })

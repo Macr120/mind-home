@@ -34,7 +34,7 @@ export function ConectadoCon({ refNodo, className = '' }: { refNodo: RefNodo | n
     setAviso(
       abrirApp(e.appId, e.seccion, e.dato)
         ? null
-        : t('grafo.sinApp', 'Coloca esa app en tu casa para abrirla desde aquí.'),
+        : t('grafo.sinApp', 'Coloca esa app en tu MindHaOS para abrirla desde aquí.'),
     )
   }
 

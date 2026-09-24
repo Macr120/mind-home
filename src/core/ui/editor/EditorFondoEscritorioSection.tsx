@@ -357,8 +357,8 @@ function FondoDeEscritorio() {
       >
         <span>
           {puesto
-            ? t('ajustes.fondoQuitar', 'Quitar la casa del escritorio')
-            : t('ajustes.fondoPoner', 'Poner la casa de fondo')}
+            ? t('ajustes.fondoQuitar', 'Quitar la MindHaOS del escritorio')
+            : t('ajustes.fondoPoner', 'Poner la MindHaOS de fondo')}
         </span>
         <Icono nombre="paleta" className="h-4 w-4 opacity-70" />
       </button>
@@ -396,13 +396,13 @@ function FondoDeEscritorio() {
 
       <p className="text-[11px] leading-snug text-white/45">
         {puesto
-          ? `${t('ajustes.fondoArrastra', 'Arrastra la vista previa para centrar la casa.')} ${t(
+          ? `${t('ajustes.fondoArrastra', 'Arrastra la vista previa para centrar la MindHaOS.')} ${t(
               'ajustes.fondoPanelArrastra',
               'Arrastra cada panel a la esquina o al lado donde lo quieras.',
             )}`
           : t(
               'ajustes.fondoNota',
-              'Detrás de tus ventanas se ve solo el mapa, sin controles. Se abre con tu casa tal y como está ahora.',
+              'Detrás de tus ventanas se ve solo el mapa, sin controles. Se abre con tu MindHaOS tal y como está ahora.',
             )}
       </p>
     </div>

@@ -46,7 +46,7 @@ export function ChipApp({
         onClick={() => setPerdida(!abrirEnlace(enlace))}
         title={
           perdida
-            ? t('cal.enlace.perdida', 'Esa app ya no está en ningún cuarto de tu casa.')
+            ? t('cal.enlace.perdida', 'Esa app ya no está en ningún cuarto de tu MindHaOS.')
             : soloLectura
               ? t('cal.enlace.dondeSeRegistra', 'Se registra en {app}', { app: app.nombre })
               : t('cal.enlace.abrir', 'Abrir {app}', { app: app.nombre })

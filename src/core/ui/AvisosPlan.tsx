@@ -110,12 +110,12 @@ function AvisoDemo() {
   return (
     <Marco>
       <h2 className="text-sm font-bold text-white/90">
-        {t('demo.aviso.titulo', 'Estás en la casa demo')}
+        {t('demo.aviso.titulo', 'Estás en la MindHaOS demo')}
       </h2>
       <p className="text-xs leading-snug text-white/60">
         {t(
           'demo.aviso.cuerpo',
-          'Pruébalo todo: puedes editar la casa y usar las apps con el año de vida de Pep@ dentro. Nada se guarda — al recargar, la casa vuelve a como estaba.',
+          'Pruébalo todo: puedes editar la MindHaOS (Casa Mental OS) y usar las apps con el año de vida de Pep@ dentro. Nada se guarda — al recargar, la MindHaOS vuelve a como estaba.',
         )}
       </p>
       <div className="space-y-1.5 pt-1">

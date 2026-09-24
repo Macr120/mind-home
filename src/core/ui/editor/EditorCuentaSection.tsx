@@ -132,7 +132,7 @@ export function FormularioAcceso({ inicial = 'entrar' }: { inicial?: 'entrar' | 
       <p className="text-[11px] leading-snug text-white/45">
         {t(
           'cuenta.intro',
-          'Tu cuenta guarda tu casa y tu compra: es lo que te las devuelve en cualquier dispositivo.',
+          'Tu cuenta guarda tu MindHaOS (Casa Mental OS) y tu compra: es lo que te las devuelve en cualquier dispositivo.',
         )}
       </p>
       {/* En TODAS las plataformas. Google rechaza OAuth dentro de una ventana

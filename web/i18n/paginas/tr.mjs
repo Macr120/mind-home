@@ -1,6 +1,7 @@
 /** Textos de las páginas estáticas en turco. Traducción de `es.mjs`. */
 export const TEXTOS = {
   'marca.nombre': 'MindHaOS',
+  'marca.sub': 'Zihin Evi OS',
   'nav.entrar': 'Giriş yap',
   'nav.descargar': 'İndir',
   'pie.inicio': 'Ana sayfa',
@@ -39,10 +40,10 @@ export const TEXTOS = {
   'hero.sub.4':
     'arşivler, planlar ya da sıfırdan yaratırsın — tamamen elle ya da yapay zekânın yardımıyla. Hepsi tek bir takvime, günlük görevlere ve kişisel hedeflerine bağlı; telefonunda ve bilgisayarında eşitlenir.',
   'hero.cta': 'Uygulamayı indir',
-  'hero.probar': 'Evini kurmayı ücretsiz dene',
+  'hero.probar': 'MindHaOS\'unu kurmayı ücretsiz dene',
   'hero.nota':
-    'Uygulama ücretsizdir ve çevrimdışı çalışır; ev bir kez satın alınır — burada webde ya da uygulamanın içinde. Yapay zekâ ve eşitleme isteğe bağlıdır — bırakırsan da hiçbir şey kaybetmezsin.',
-  'hero.video': 'Buraya videon ya da evin ekran görüntüleri gelir',
+    'Uygulama ücretsizdir ve çevrimdışı çalışır; MindHaOS (Zihin Evi OS) bir kez satın alınır — burada webde ya da uygulamanın içinde. Yapay zekâ ve eşitleme isteğe bağlıdır — bırakırsan da hiçbir şey kaybetmezsin.',
+  'hero.video': 'Buraya videon ya da MindHaOS\'un (Zihin Evi OS) ekran görüntüleri gelir',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
   'cifras.apps': 'uygulama',
@@ -53,8 +54,8 @@ export const TEXTOS = {
   'cifras.chat': 'sohbet',
 
   'como.h2': 'Nasıl çalışıyor',
-  'como.sub': 'Önce evini kurduğun, sonra hayatını içine taşıdığın bir alan.',
-  'como.1.t': 'Evini kurarsın',
+  'como.sub': 'Önce MindHaOS\'unu (Zihin Evi OS) kurduğun, sonra hayatını içine taşıdığın bir alan.',
+  'como.1.t': 'MindHaOS\'unu kurarsın',
   'como.1.p':
     'Odalar, katlar, hatta bir bodrum eklersin; etrafına da açık havada kurulanları: bostan, çiftlik, sahalar, yarış pistleri. Duvarlar, renkler, mobilyalar ve avatarın — hepsini sen seçersin.',
   'como.2.t': 'Her oda eksiksiz bir uygulama',
@@ -62,18 +63,18 @@ export const TEXTOS = {
     'Odaya 17 uygulamadan birini atarsın — beslenme, egzersiz, uyku, finans, kütüphane, diller, fikirler, ajanda, seyahat, hobiler, hedefler… —, Stüdyo’daki dörtten birini — ses, sanat, yazı ve video — ya da kendi uygulamanı yaparsın. Onlarla yaşadıklarını arşivler, geleni planlar ve henüz olmayanı yaratırsın: rutinler, tarifler, bütçeler, notlar, zihin haritaları, zaman çizelgeleri, şarkılar ve kitaplar. Elle ya da yapay zekâ yanındayken.',
   'como.3.t': 'Her şey aynı yere düşer',
   'como.3.p':
-    '17 uygulama ve Stüdyo’daki dördü tek bir takvimi, günlük görevlerden oluşan tek bir listeyi ve kişisel hedeflerini paylaşır. Evinin tamamı da telefondan bilgisayara seni takip eder.',
+    '17 uygulama ve Stüdyo’daki dördü tek bir takvimi, günlük görevlerden oluşan tek bir listeyi ve kişisel hedeflerini paylaşır. MindHaOS\'unun (Zihin Evi OS) tamamı da telefondan bilgisayara seni takip eder.',
 
-  'car.h2': 'Bir ev, bir sürü uygulama',
+  'car.h2': 'Bir MindHaOS, bir sürü uygulama',
   // Las tres primeras tarjetas: el argumento de compra.
   'car.todo.t': 'Gerçekten hepsi bir arada',
   'car.todo.p':
     'Yirmi uygulama yerine bir tane: yemek, para, uyku, çalışma, alışkanlıklar ve hedefler aynı çatı altında — üstelik birbirleriyle konuşarak, ki bunu ayrı uygulamalar yapamaz.',
   'car.nocaduca.t': 'Ödemeyi bırakınca kapanmaz',
   'car.nocaduca.p':
-    'Bir kez alırsın, senindir. Abonelikli uygulamalar ödemeyi kestiğin anda kapanır; burada yapay zekâyı bıraksan bile evin tamamı ve cihazındaki tüm verin sende kalır.',
+    'Bir kez alırsın, senindir. Abonelikli uygulamalar ödemeyi kestiğin anda kapanır; burada yapay zekâyı bıraksan bile MindHaOS\'un tamamı ve cihazındaki tüm verin sende kalır.',
   'car.nuevas.t': 'Yeni güncellemeler',
-  'car.nuevas.p': 'Ev büyümeye devam ediyor: odalar, uygulamalar ve iyileştirmeler yeniden ödeme yapmadan geliyor.',
+  'car.nuevas.p': 'MindHaOS büyümeye devam ediyor: odalar, uygulamalar ve iyileştirmeler yeniden ödeme yapmadan geliyor.',
   'car.1.t': 'Uygulama olan odalar',
   'car.1.p':
     'Egzersiz, mutfak, finans, uyku, kütüphane, diller, seyahat, hobiler, farkındalık ve dahası: her oda eksiksiz bir mini uygulama barındırır.',
@@ -85,7 +86,7 @@ export const TEXTOS = {
     'Asistanınla konuş: öğünleri kaydet, rutinler kur, hedefler planla, görseller ve 3B modeller üret. İlk ayın 700 kredi dahil gelir; sonrası isteğe bağlı.',
   'car.3.t': 'Tam eşitleme',
   'car.3.p':
-    'Evin telefona, tablete ve bilgisayara seninle gelir. Her şey aktarımda şifreli ve bulutta yedekli.',
+    'MindHaOS\'un telefona, tablete ve bilgisayara seninle gelir. Her şey aktarımda şifreli ve bulutta yedekli.',
   'car.4.t': 'Oyun gibi bir his',
   'car.4.p':
     'Karakterin gerçek etkinliğinle yaşar: seriler, rozetler, Sisifos Dağı, araçlar, yarışlar ve mini oyunlar.',
@@ -101,7 +102,7 @@ export const TEXTOS = {
   // claves `ia.t/p/precios/cta` de más abajo, que son la franja de PRECIOS.
   'ia.h2': 'Asistanın, bulutlu ya da bulutsuz',
   'ia.sub':
-    'Evin yapay zekâsı seninle birlikte kaydeder, planlar ve üretir. Onu neyin çalıştıracağına da sen karar verirsin: bulutta bir sağlayıcı ya da kendi bilgisayarın.',
+    'MindHaOS\'unun yapay zekâsı seninle birlikte kaydeder, planlar ve üretir. Onu neyin çalıştıracağına da sen karar verirsin: bulutta bir sağlayıcı ya da kendi bilgisayarın.',
   'ia.cap.1.t': 'Konuşarak kaydet',
   'ia.cap.1.p':
     'Ne yediğini, ne harcadığını ya da nasıl çalıştığını anlat; doğru odaya, alanlarıyla ve tarihiyle yazar.',
@@ -109,7 +110,7 @@ export const TEXTOS = {
   'ia.cap.2.p':
     'Bir hedef istersin, o da zaman çizelgesini önerir: adımlar, tarihler ve sonradan elle düzenlediğin günlük görevler.',
   'ia.cap.3.t': 'Görsel ve 3B nesne üret',
-  'ia.cap.3.p': 'Tariflerini, kıyafetlerini ve fikirlerini resimle; evin için yeni mobilyalar ve nesneler üret.',
+  'ia.cap.3.p': 'Tariflerini, kıyafetlerini ve fikirlerini resimle; MindHaOS\'un için yeni mobilyalar ve nesneler üret.',
   'ia.cap.4.t': 'Konuşur ve seni dinler',
   'ia.cap.4.p': 'Asistanların sesle yanıt verir, dikte ise günü tek kelime yazmadan kaydetmeni sağlar.',
   'ia.nube.t': 'Bulutta, kimi seçersen',
@@ -117,20 +118,20 @@ export const TEXTOS = {
     'Claude, Gemini ya da ChatGPT: kimin düşüneceğine, kimin sesleneceğine ve kimin çizeceğine sen karar verirsin. Planındaki kredilerle ya da kendi anahtarlarınla.',
   'ia.local.t': 'Ya da kendi makinende, Ollama ile',
   'ia.local.p':
-    'Ollama’yı kur, ev bilgisayarında çalışan modelle konuşsun: kredisiz, bağlantısız ve hiçbir şey oradan çıkmadan.',
+    'Ollama’yı kur, MindHaOS bilgisayarında çalışan modelle konuşsun: kredisiz, bağlantısız ve hiçbir şey oradan çıkmadan.',
   'ia.local.nota': 'Ses ve görseller yine de bulutta bir sağlayıcı ister; yerel modelin bunları üretebiliyorsa hariç.',
 
   'mani.h2': 'Hayatın, video oyununa dönüşmüş hâli',
   'mani.p1':
-    'MindHaOS, hayatının video oyununa dönüşmüş hâlidir; üstelik var olan en rahat yerden oynanır: kendi evinden. Seviye ve rütbe atlamak süs değildir — dışarıda yaptığın şeyin burada anlatılmasıdır.',
+    'MindHaOS, hayatının video oyununa dönüşmüş hâlidir; üstelik var olan en rahat yerden oynanır: kendi MindHaOS\'undan. Seviye ve rütbe atlamak süs değildir — dışarıda yaptığın şeyin burada anlatılmasıdır.',
   'mani.p2':
     'Burada yeni beceriler geliştirir, kaynaklarını kontrol altında tutar ve teknolojiyi kendi lehine çevirirsin. Kısa formatın bilinçsiz tüketimine karşı. Büyük şirketlerin dayattığı tüketim alışkanlıklarının bıraktığı bilişsel çöküşe karşı.',
   'mani.cierre': 'Aynı dopamin. Bu kez gerçek hayatın için.',
 
-  'precio.h2': 'Mağazada tek ödeme, evin sonsuza dek senin',
+  'precio.h2': 'Mağazada tek ödeme, MindHaOS\'un sonsuza dek senin',
   'precio.probar.nombre': 'Bir dene',
   'precio.probar.cifra': 'Ücretsiz',
-  'precio.probar.1': 'Karşılama menüsüyle kendi evin: her şeyi dene',
+  'precio.probar.1': 'Karşılama menüsüyle kendi MindHaOS\'un: her şeyi dene',
   'precio.probar.2': 'Hesapsız, kartsız ve bağlantısız',
   'precio.probar.3': 'Hesabın olana kadar hiçbir şey kaydedilmez: satın aldığında denemen geri gelir',
   'precio.probar.cta': 'Uygulamayı dene',
@@ -138,11 +139,11 @@ export const TEXTOS = {
   'precio.app.nombre': 'Uygulama',
   'precio.app.cifra': '8,99 USD',
   'precio.app.pagoUnico': 'tek ödeme',
-  'precio.app.1': 'Kendi evin, sonsuza dek: bütün uygulamalar, verin kendi cihazında',
+  'precio.app.1': 'Kendi MindHaOS\'un, sonsuza dek: bütün uygulamalar, verin kendi cihazında',
   'precio.app.2': 'İlk ay dahil: 700 yapay zekâ kredisi + eşitleme, kartsız ve aboneliksiz',
   'precio.app.3':
     'Ay bittiğinde uygulamanın tamamı ve verilerin sende kalır; yapay zekâ kredileri isteğe bağlı',
-  'precio.app.cta': 'Evi satın al',
+  'precio.app.cta': 'MindHaOS\'u satın al',
   'precio.app.pie':
     'Buradan, hiçbir mağazadan geçmeden satın al ya da telefonundaki uygulamanın içinden. Tek ödeme, yenileme yok, tüm cihazlarında geçerli.',
 
@@ -154,15 +155,15 @@ export const TEXTOS = {
 
   'desc.h2': 'Uygulamayı indir',
   'desc.sub':
-    'Ücretsiz indir ve evi uygulamanın içinden — ya da buradan, web’den — satın al. Hesabınla evin başka her yerde, tarayıcı dahil, seni bekler.',
+    'Ücretsiz indir ve MindHaOS\'u uygulamanın içinden — ya da buradan, web’den — satın al. Hesabınla MindHaOS\'un başka her yerde, tarayıcı dahil, seni bekler.',
   'desc.pronto': 'Çok yakında',
-  'desc.android': 'Google Play’de ücretsiz. Ev içeriden satın alınır.',
+  'desc.android': 'Google Play’de ücretsiz. MindHaOS içeriden satın alınır.',
   'desc.ios.t': 'iPhone ve iPad',
-  'desc.ios': 'App Store’da ücretsiz. Ev içeriden satın alınır.',
+  'desc.ios': 'App Store’da ücretsiz. MindHaOS içeriden satın alınır.',
   'desc.web.t': 'Tarayıcında',
-  'desc.web': 'Hiçbir şey kurmadan: hesabınla gir, evin seni bekliyor. Hesabın yoksa uygulamayı deneyebilirsin.',
+  'desc.web': 'Hiçbir şey kurmadan: hesabınla gir, MindHaOS\'un seni bekliyor. Hesabın yoksa uygulamayı deneyebilirsin.',
   'desc.web.cta': 'Uygulamayı aç',
-  'desc.windows': 'Microsoft Store’da ücretsiz. Ev içeriden satın alınır.',
+  'desc.windows': 'Microsoft Store’da ücretsiz. MindHaOS içeriden satın alınır.',
   'desc.windows.cta': 'Windows için indir',
   'desc.mac': 'Mac için .dmg imajı.',
   'desc.mac.cta': 'Mac için indir',
@@ -170,10 +171,10 @@ export const TEXTOS = {
   'faq.h2': 'Sık sorulan sorular',
   'faq.1.q': 'Uygulama nereden alınır?',
   'faq.1.a':
-    'Nereden istersen: buradan web’den, <a href="/cuenta">hesabından</a> ya da Android ve iPhone uygulamasının içinden. Hesabına kaydedilen tek seferlik bir ödemedir; nereden alırsan al, evin tüm cihazlarında görünür.',
+    'Nereden istersen: buradan web’den, <a href="/cuenta">hesabından</a> ya da Android ve iPhone uygulamasının içinden. Hesabına kaydedilen tek seferlik bir ödemedir; nereden alırsan al, MindHaOS\'un tüm cihazlarında görünür.',
   'faq.2.q': 'Tek ödeme neleri kapsıyor?',
   'faq.2.a':
-    'Evin tamamını: bütün odalar, bütün uygulamalar ve cihazındaki verilerin, sonsuza dek ve yenilemesiz. Üstelik ilk ay 700 yapay zekâ kredisi ve eşitleme dahil gelir, kartsız. Almadan önce hesap istemeyen eksiksiz uygulamayı deneyebilirsin.',
+    'MindHaOS\'un tamamını: bütün odalar, bütün uygulamalar ve cihazındaki verilerin, sonsuza dek ve yenilemesiz. Üstelik ilk ay 700 yapay zekâ kredisi ve eşitleme dahil gelir, kartsız. Almadan önce hesap istemeyen eksiksiz uygulamayı deneyebilirsin.',
   'faq.3.q': 'İlk aydan sonra yapay zekâ ne kadar?',
   'faq.3.a':
     'Ne seçersen o, ya da hiç. Abonelik ayda 6 USD (700 kredi ve eşitleme) ya da yılda 60 USD — iki ay hediye. Az gelirse ×2 ve ×3 katmanları ayda 12 veya 18 USD karşılığında 1400 ya da 2100 kredi verir. Abone olmak istemezsen tekil yüklemeler var: 6 USD’ye 700 kredi, süresi dolmaz ve yalnızca sen istediğinde harcanır. Bu kısım burada, <a href="/cuenta">hesabında</a> ödenir ve bütün cihazlarında geçerlidir.',
@@ -188,7 +189,7 @@ export const TEXTOS = {
     'Önce cihazında (uygulama local-first) ve eşitleme açıkken bir cihazdan diğerine geçebilmek için bulutta da. Yerel modda cihazından hiçbir şey çıkmaz. Ödemeleri RevenueCat ve Stripe işler — telefondan alıyorsan mağaza: kartını asla görmeyiz. Ayrıntılar <a href="/privacidad">gizlilik politikasında</a>.',
   'faq.7.q': 'Hangi cihazlarda çalışıyor?',
   'faq.7.a':
-    'Bugün: her modern tarayıcıda. Çok yakında: Android (Google Play), iPhone/iPad (App Store), Windows ve macOS. Hesabın hepsinde geçerli: bir kez, sana uyan yerden satın alırsın; hem ev hem yapay zekâ aboneliği e-postanla girdiğin her cihazda çalışır.',
+    'Bugün: her modern tarayıcıda. Çok yakında: Android (Google Play), iPhone/iPad (App Store), Windows ve macOS. Hesabın hepsinde geçerli: bir kez, sana uyan yerden satın alırsın; hem MindHaOS hem yapay zekâ aboneliği e-postanla girdiğin her cihazda çalışır.',
   'faq.8.q': 'Aboneliği nasıl iptal ederim, hesabımı nasıl silerim?',
   'faq.8.a':
     'Tahsilatı durdurmak için <a href="/cuenta">hesabındaki</a> «Aboneliği yönet». Hesabını ve sunucularımızdaki bütün verilerini silmek için uygulamadan: Düzenleyici → Ayarlar → Hesap.',

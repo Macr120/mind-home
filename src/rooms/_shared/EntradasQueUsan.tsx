@@ -38,7 +38,7 @@ export function EntradasQueUsan({
   const abrir = (entradaId: number) => {
     if (!abrirApp('biblioteca', 'enciclopedia', `entrada:${entradaId}`)) {
       setAviso(
-        t('material.sinBiblioteca', 'Coloca el cuarto de la biblioteca en tu casa para abrir su enciclopedia.'),
+        t('material.sinBiblioteca', 'Coloca el cuarto de la biblioteca en tu MindHaOS para abrir su enciclopedia.'),
       )
     }
   }

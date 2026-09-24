@@ -38,7 +38,7 @@ const flujoHorario = tour(
   T('tut.app-descanso--horario.titulo', 'Tu horario de sueño'),
   T(
     'tut.app-descanso--horario.resumen',
-    'El horario se dibuja en una barra de veinticuatro horas, se refleja como bloque en el calendario de la casa y puede avisarte antes de dormir.',
+    'El horario se dibuja en una barra de veinticuatro horas, se refleja como bloque en el calendario de la MindHaOS y puede avisarte antes de dormir.',
   ),
   'cuerpoHorario',
 )

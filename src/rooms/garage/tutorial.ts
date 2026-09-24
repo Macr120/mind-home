@@ -153,7 +153,7 @@ export const cuerpoTramites: CuerpoTutorial = {
     {
       texto: T(
         'tut.app-garage--tramites.4.texto',
-        'Todos esos trámites están también en el calendario de la casa, con su aviso previo. Y ojo: los vehículos que se manejan por el mapa son otra cosa, viven en el Inventario.',
+        'Todos esos trámites están también en el calendario de la MindHaOS, con su aviso previo. Y ojo: los vehículos que se manejan por el mapa son otra cosa, viven en el Inventario.',
       ),
     },
   ],
@@ -176,7 +176,7 @@ export const cuerpoEsencial: CuerpoTutorial = {
       titulo: T('tut.app-garage--esencial.1.titulo', 'El garaje'),
       texto: T(
         'tut.app-garage--esencial.1.texto',
-        'El garaje lleva tus vehículos: bicicletas, autos, motos y lo que uses para moverte. Cada uno con su historial de servicios y sus trámites, y todo lo que tenga fecha se agenda solo en el calendario de la casa.',
+        'El garaje lleva tus vehículos: bicicletas, autos, motos y lo que uses para moverte. Cada uno con su historial de servicios y sus trámites, y todo lo que tenga fecha se agenda solo en el calendario de la MindHaOS.',
       ),
     },
     {

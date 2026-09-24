@@ -104,7 +104,7 @@ export function ControlMusica({
             >
               <span className="shrink-0 text-[11px]">{musicaAmbiental ? '✓' : '○'}</span>
               <span className="min-w-0 flex-1 truncate">
-                {t('ajustes.musica.ambiental', 'Música ambiental en la casa')}
+                {t('ajustes.musica.ambiental', 'Música ambiental en la MindHaOS')}
               </span>
             </button>
 
@@ -174,7 +174,7 @@ export function ControlMusica({
             {musicaFuente === 'generada' && (
               <div className="space-y-1">
                 <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
-                  {t('musica.ambienteGlobal', 'Ambiente de la casa')}
+                  {t('musica.ambienteGlobal', 'Ambiente de la MindHaOS')}
                 </p>
                 <select
                   value={musicaMood}

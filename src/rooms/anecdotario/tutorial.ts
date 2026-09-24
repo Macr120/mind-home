@@ -68,7 +68,7 @@ export const cuerpoFotos: CuerpoTutorial = {
     {
       texto: T(
         'tut.app-anecdotario--fotos.3.texto',
-        'Cada entrada alimenta la racha y despierta al personaje: escribir aquí también es cuidar la casa.',
+        'Cada entrada alimenta la racha y despierta al personaje: escribir aquí también es cuidar la MindHaOS.',
       ),
     },
   ],

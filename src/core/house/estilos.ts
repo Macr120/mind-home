@@ -19,7 +19,7 @@ export interface EstiloVisual {
 export const ESTILOS: EstiloVisual[] = [
   { id: 'normal', nombre: 'Normal', icon: '🎨', desc: 'El look de siempre, con acabado pulido.' },
   { id: 'comic', nombre: 'Cómic', icon: '💥', desc: 'Luz en bandas y contornos de caricatura.' },
-  { id: 'miniatura', nombre: 'Miniatura', icon: '🔬', desc: 'La casa como maqueta de juguete.' },
+  { id: 'miniatura', nombre: 'Miniatura', icon: '🔬', desc: 'La MindHaOS como maqueta de juguete.' },
   { id: 'retro', nombre: 'Retro', icon: '👾', desc: 'Píxeles gordos, videojuego de los 90.' },
   { id: 'neon', nombre: 'Neón', icon: '🌟', desc: 'Luces y brillos que resplandecen.' },
 ]

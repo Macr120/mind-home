@@ -30,7 +30,7 @@ export const cuerpoHabito: CuerpoTutorial = {
       titulo: T('tut.app-diario--habito.2.titulo', 'Se renueva solo'),
       texto: T(
         'tut.app-diario--habito.2.texto',
-        'La edición del día se descarga sola y a medianoche se recambia entera: aquí no se acumula nada, como un periódico de verdad. Y si cambias el idioma de la casa, cambia también de prensa: cada idioma trae sus propios medios.',
+        'La edición del día se descarga sola y a medianoche se recambia entera: aquí no se acumula nada, como un periódico de verdad. Y si cambias el idioma de la MindHaOS, cambia también de prensa: cada idioma trae sus propios medios.',
       ),
     },
     {

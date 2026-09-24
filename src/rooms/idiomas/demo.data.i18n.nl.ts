@@ -686,7 +686,7 @@ export default {
       "dia": -140,
       "tema": "b1-viajes",
       "titulo": "Zinnen voor het inchecken",
-      "texto": "I have a reservation under the name Pepa. — de zin die ik in drie weken het vaakst herhaalde.\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — cruciaal op de treindagen.\nIs there a laundry nearby?\nEn die altijd bij mij terugkwam: “Could I see your passport, please?”"
+      "texto": "I have a reservation under the name Sam. — de zin die ik in drie weken het vaakst herhaalde.\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — cruciaal op de treindagen.\nIs there a laundry nearby?\nEn die altijd bij mij terugkwam: “Could I see your passport, please?”"
     },
     {
       "dia": -85,

@@ -50,7 +50,7 @@ export async function aterrizar(e: Espacio): Promise<void> {
     void notificar({
       clave: `espacio:${e.espacioId}`,
       titulo: e.titulo || tGlobal('esp.sinTitulo', 'Sin título'),
-      cuerpo: tGlobal('esp.aterrizar.sinApp', 'Coloca la app {n} en tu casa para abrirlo', {
+      cuerpo: tGlobal('esp.aterrizar.sinApp', 'Coloca la app {n} en tu MindHaOS para abrirlo', {
         n: nombreTipo(e.tipo),
       }),
       efimero: true,

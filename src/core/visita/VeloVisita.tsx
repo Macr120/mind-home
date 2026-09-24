@@ -20,10 +20,10 @@ export function VeloVisita() {
         <p className="animate-pulse text-5xl">
           <Icono nombre="casa" />
         </p>
-        <p className="text-base font-semibold">{t('visita.velo.titulo', 'Entrando en la casa de tu contacto…')}</p>
+        <p className="text-base font-semibold">{t('visita.velo.titulo', 'Entrando en la MindHaOS de tu contacto…')}</p>
         <p className="text-[11px] leading-relaxed text-white/40">
           {fase === 'aplicando'
-            ? t('visita.velo.aplicando', 'Levantando la casa')
+            ? t('visita.velo.aplicando', 'Levantando la MindHaOS')
             : t('visita.velo.bajando', 'Bajando el plano de la casa')}
         </p>
       </div>

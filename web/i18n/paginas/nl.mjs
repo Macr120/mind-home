@@ -1,6 +1,7 @@
 /** Textos de las páginas estáticas en neerlandés. Traducción de `es.mjs`. */
 export const TEXTOS = {
   'marca.nombre': 'MindHaOS',
+  'marca.sub': 'Mentaal Huis OS',
   'nav.entrar': 'Inloggen',
   'nav.descargar': 'Downloaden',
   'pie.inicio': 'Start',
@@ -39,10 +40,10 @@ export const TEXTOS = {
   'hero.sub.4':
     'te bewaren, te plannen of te maken — helemaal met de hand of met hulp van de AI. En alle apps hangen aan één kalender, aan dagelijkse missies en aan je eigen doelen, gesynchroniseerd op je telefoon en je computer.',
   'hero.cta': 'De app downloaden',
-  'hero.probar': 'Probeer gratis je huis te bouwen',
+  'hero.probar': 'Probeer gratis je MindHaOS te bouwen',
   'hero.nota':
-    'De app is gratis en werkt offline; het huis koop je één keer — hier op het web of in de app. AI en synchronisatie zijn optioneel — en als je ze laat vallen, verlies je niets.',
-  'hero.video': 'Hier komt je video of komen je schermafbeeldingen van het huis',
+    'De app is gratis en werkt offline; het MindHaOS (Mentaal Huis OS) koop je één keer — hier op het web of in de app. AI en synchronisatie zijn optioneel — en als je ze laat vallen, verlies je niets.',
+  'hero.video': 'Hier komt je video of komen je schermafbeeldingen van het MindHaOS (Mentaal Huis OS)',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
   'cifras.apps': 'apps',
@@ -53,8 +54,8 @@ export const TEXTOS = {
   'cifras.chat': 'chat',
 
   'como.h2': 'Hoe het werkt',
-  'como.sub': 'Een plek waar je eerst je huis bouwt en er daarna je leven in zet.',
-  'como.1.t': 'Je bouwt je huis',
+  'como.sub': 'Een plek waar je eerst je MindHaOS (Mentaal Huis OS) bouwt en er daarna je leven in zet.',
+  'como.1.t': 'Je bouwt je MindHaOS',
   'como.1.p':
     'Je plaatst kamers, verdiepingen en zelfs een kelder, en eromheen alles wat je buiten bouwt: moestuin, boerderij, sportvelden, racecircuits. Muren, kleuren, meubels en je avatar kies je zelf.',
   'como.2.t': 'Elke kamer is een complete app',
@@ -62,18 +63,18 @@ export const TEXTOS = {
     'Je wijst er een van de 17 apps aan toe — voeding, sport, slaap, financiën, bibliotheek, talen, ideeën, planner, reizen, hobby’s, doelen… —, een van de vier uit de Studio — audio, kunst, schrijven en video — of je maakt je eigen app. Daarmee archiveer je wat je al hebt meegemaakt, plan je wat eraan komt en maak je wat er nog niet is: routines, recepten, budgetten, aantekeningen, mindmaps, planningen, liedjes en boeken. Met de hand, of met de AI naast je.',
   'como.3.t': 'Alles komt op dezelfde plek terecht',
   'como.3.p':
-    'De 17 apps en de vier uit de Studio delen één kalender, één lijst met dagelijkse missies en je eigen doelen. En je hele huis gaat met je mee van telefoon naar computer.',
+    'De 17 apps en de vier uit de Studio delen één kalender, één lijst met dagelijkse missies en je eigen doelen. En je hele MindHaOS (Mentaal Huis OS) gaat met je mee van telefoon naar computer.',
 
-  'car.h2': 'Eén huis, veel apps',
+  'car.h2': 'Eén MindHaOS, veel apps',
   // Las tres primeras tarjetas: el argumento de compra.
   'car.todo.t': 'Echt alles in één',
   'car.todo.p':
     'Eén app in plaats van twintig: eten, geld, slaap, studie, gewoontes en doelen onder hetzelfde dak — en met elkaar verbonden, wat losse apps nooit kunnen.',
   'car.nocaduca.t': 'Vervalt niet als je stopt met betalen',
   'car.nocaduca.p':
-    'Je koopt hem één keer en hij is van jou. Abonnementsapps gaan uit zodra je stopt met betalen; hier houd je het hele huis en al je gegevens op je apparaat, ook als je de AI laat vallen.',
+    'Je koopt het één keer en het is van jou. Abonnementsapps gaan uit zodra je stopt met betalen; hier houd je het hele MindHaOS en al je gegevens op je apparaat, ook als je de AI laat vallen.',
   'car.nuevas.t': 'Nieuwe updates',
-  'car.nuevas.p': 'Het huis blijft groeien: kamers, apps en verbeteringen die binnenkomen zonder opnieuw te betalen.',
+  'car.nuevas.p': 'Het MindHaOS blijft groeien: kamers, apps en verbeteringen die binnenkomen zonder opnieuw te betalen.',
   'car.1.t': 'Kamers die apps zijn',
   'car.1.p':
     'Sport, keuken, financiën, slaap, bibliotheek, talen, reizen, hobby’s, mindfulness en meer: in elke kamer zit een complete mini-app.',
@@ -85,7 +86,7 @@ export const TEXTOS = {
     'Chat met je assistent: leg maaltijden vast, maak routines, plan doelen, genereer beelden en 3D-modellen. Je eerste maand komt met 700 credits; daarna is AI optioneel.',
   'car.3.t': 'Alles gesynchroniseerd',
   'car.3.p':
-    'Je huis gaat met je mee naar je telefoon, je tablet en je computer. Alles versleuteld onderweg en geback-upt in de cloud.',
+    'Je MindHaOS gaat met je mee naar je telefoon, je tablet en je computer. Alles versleuteld onderweg en geback-upt in de cloud.',
   'car.4.t': 'Het voelt als een spel',
   'car.4.p':
     'Je personage leeft van je echte activiteit: reeksen, badges, de Berg van Sisyphus, voertuigen, races en minigames.',
@@ -101,7 +102,7 @@ export const TEXTOS = {
   // claves `ia.t/p/precios/cta` de más abajo, que son la franja de PRECIOS.
   'ia.h2': 'Je assistent, met of zonder cloud',
   'ia.sub':
-    'De AI in huis legt vast, plant en maakt samen met je. En jij bepaalt wat hem aandrijft: een aanbieder in de cloud of je eigen computer.',
+    'De AI in je MindHaOS legt vast, plant en maakt samen met je. En jij bepaalt wat hem aandrijft: een aanbieder in de cloud of je eigen computer.',
   'ia.cap.1.t': 'Vastleggen door te praten',
   'ia.cap.1.p':
     'Vertel wat je hebt gegeten, uitgegeven of getraind: hij zet het in de juiste kamer, met velden en datum.',
@@ -109,7 +110,7 @@ export const TEXTOS = {
   'ia.cap.2.p':
     'Je vraagt om een doel en hij stelt de planning voor: stappen, data en dagelijkse missies die je daarna met de hand aanpast.',
   'ia.cap.3.t': 'Maak beelden en 3D-objecten',
-  'ia.cap.3.p': 'Illustreer je recepten, je kleren en je ideeën, en bouw nieuwe meubels en objecten voor je huis.',
+  'ia.cap.3.p': 'Illustreer je recepten, je kleren en je ideeën, en bouw nieuwe meubels en objecten voor je MindHaOS.',
   'ia.cap.4.t': 'Hij praat en hij luistert',
   'ia.cap.4.p': 'Je assistenten antwoorden met stem, en met dictee leg je je dag vast zonder een woord te typen.',
   'ia.nube.t': 'In de cloud, met wie jij kiest',
@@ -117,21 +118,21 @@ export const TEXTOS = {
     'Claude, Gemini of ChatGPT: jij kiest wie denkt, wie de stem doet en wie tekent. Met de credits van je plan of met je eigen sleutels.',
   'ia.local.t': 'Of op je eigen machine, met Ollama',
   'ia.local.p':
-    'Installeer Ollama en het huis praat met het model dat op je computer draait: zonder credits, zonder verbinding en zonder dat er iets weggaat.',
+    'Installeer Ollama en je MindHaOS praat met het model dat op je computer draait: zonder credits, zonder verbinding en zonder dat er iets weggaat.',
   'ia.local.nota':
     'Stem en beelden hebben nog steeds een aanbieder in de cloud nodig, tenzij je lokale model ze zelf kan maken.',
 
   'mani.h2': 'Je leven, als videogame',
   'mani.p1':
-    'MindHaOS is je leven omgezet in een videogame, gespeeld vanaf de comfortabelste plek die er is: je eigen huis. Levels en rangen zijn geen versiering — het is wat je daarbuiten hebt gedaan, hierbinnen verteld.',
+    'MindHaOS is je leven omgezet in een videogame, gespeeld vanaf de comfortabelste plek die er is: je eigen MindHaOS. Levels en rangen zijn geen versiering — het is wat je daarbuiten hebt gedaan, hierbinnen verteld.',
   'mani.p2':
     'Hier bouw je nieuwe vaardigheden op, houd je grip op je middelen en zet je de technologie aan jouw kant. Tegen de onbewuste consumptie van korte video. Tegen het cognitieve verval dat de consumptiegewoontes achterlaten die de grote bedrijven ons opleggen.',
   'mani.cierre': 'Dezelfde dopamine. Deze keer voor je echte leven.',
 
-  'precio.h2': 'Eén betaling in de store, je huis voor altijd',
+  'precio.h2': 'Eén betaling in de store, je MindHaOS voor altijd',
   'precio.probar.nombre': 'Probeer haar',
   'precio.probar.cifra': 'Gratis',
-  'precio.probar.1': 'Je eigen huis met het welkomstmenu: probeer alles',
+  'precio.probar.1': 'Je eigen MindHaOS met het welkomstmenu: probeer alles',
   'precio.probar.2': 'Zonder account, zonder kaart en zonder verbinding',
   'precio.probar.3': 'Er wordt niets bewaard tot je een account hebt: bij aankoop krijg je je proef terug',
   'precio.probar.cta': 'De app proberen',
@@ -139,12 +140,12 @@ export const TEXTOS = {
   'precio.app.nombre': 'De app',
   'precio.app.cifra': '8,99 USD',
   'precio.app.pagoUnico': 'eenmalige betaling',
-  'precio.app.1': 'Je eigen huis, voor altijd: alle apps, je gegevens op je apparaat',
+  'precio.app.1': 'Je eigen MindHaOS, voor altijd: alle apps, je gegevens op je apparaat',
   'precio.app.2':
     'Eerste maand inbegrepen: 700 AI-credits + synchronisatie, zonder kaart en zonder abonnement',
   'precio.app.3':
     'Als die maand voorbij is hou je de hele app en je gegevens; de AI-credits zijn optioneel',
-  'precio.app.cta': 'Huis kopen',
+  'precio.app.cta': 'MindHaOS kopen',
   'precio.app.pie':
     'Koop het hier, zonder tussenkomst van een store, of in de app op je telefoon. Eén betaling, geen verlengingen, en het geldt op al je apparaten.',
 
@@ -157,16 +158,16 @@ export const TEXTOS = {
 
   'desc.h2': 'De app downloaden',
   'desc.sub':
-    'Download hem gratis en koop het huis in de app — of hier op het web. Met je account staat je huis overal anders klaar, ook in de browser.',
+    'Download hem gratis en koop het MindHaOS in de app — of hier op het web. Met je account staat je MindHaOS overal anders klaar, ook in de browser.',
   'desc.pronto': 'Binnenkort',
-  'desc.android': 'Gratis in Google Play. Het huis koop je erin.',
+  'desc.android': 'Gratis in Google Play. Het MindHaOS koop je erin.',
   'desc.ios.t': 'iPhone en iPad',
-  'desc.ios': 'Gratis in de App Store. Het huis koop je erin.',
+  'desc.ios': 'Gratis in de App Store. Het MindHaOS koop je erin.',
   'desc.web.t': 'In je browser',
   'desc.web':
-    'Niets installeren: log in met je account en je huis wacht op je. Zonder account kun je de app proberen.',
+    'Niets installeren: log in met je account en je MindHaOS wacht op je. Zonder account kun je de app proberen.',
   'desc.web.cta': 'De app openen',
-  'desc.windows': 'Gratis in Microsoft Store. Het huis koop je erin.',
+  'desc.windows': 'Gratis in Microsoft Store. Het MindHaOS koop je erin.',
   'desc.windows.cta': 'Downloaden voor Windows',
   'desc.mac': '.dmg-image voor Mac.',
   'desc.mac.cta': 'Downloaden voor Mac',
@@ -174,10 +175,10 @@ export const TEXTOS = {
   'faq.h2': 'Veelgestelde vragen',
   'faq.1.q': 'Waar koop je de app?',
   'faq.1.a':
-    'Waar je wilt: hier op het web, in <a href="/cuenta">je account</a>, of in de app voor Android en iPhone. Het is een eenmalige betaling die in je account staat, dus waar je hem ook koopt, je huis verschijnt op al je apparaten.',
+    'Waar je wilt: hier op het web, in <a href="/cuenta">je account</a>, of in de app voor Android en iPhone. Het is een eenmalige betaling die in je account staat, dus waar je het ook koopt, je MindHaOS verschijnt op al je apparaten.',
   'faq.2.q': 'Wat zit er in de eenmalige betaling?',
   'faq.2.a':
-    'Het hele huis: alle kamers, alle apps en je gegevens op je apparaat, voor altijd en zonder verlengingen. Daar bovenop brengt de eerste maand 700 AI-credits en synchronisatie mee, zonder kaart. Voor je koopt kun je de volledige app proberen, die geen account vraagt.',
+    'Het hele MindHaOS: alle kamers, alle apps en je gegevens op je apparaat, voor altijd en zonder verlengingen. Daar bovenop brengt de eerste maand 700 AI-credits en synchronisatie mee, zonder kaart. Voor je koopt kun je de volledige app proberen, die geen account vraagt.',
   'faq.3.q': 'Wat kost AI na de eerste maand?',
   'faq.3.a':
     'Wat je zelf kiest, of niets. Het abonnement is 6 USD per maand (700 credits en synchronisatie), of 60 USD per jaar — twee maanden cadeau. Kom je tekort, dan geven de niveaus ×2 en ×3 1400 of 2100 credits voor 12 of 18 USD per maand. En als je liever niet abonneert: er zijn losse bundels van 6 USD voor 700 credits die niet verlopen en alleen opgaan wanneer je erom vraagt. Dít betaal je hier, in <a href="/cuenta">je account</a>, en het geldt voor al je apparaten.',
@@ -192,7 +193,7 @@ export const TEXTOS = {
     'Eerst op je apparaat (de app is local-first) en, met synchronisatie aan, ook in de cloud om van het ene apparaat naar het andere te gaan. In lokale modus verlaat er niets je apparaat. Betalingen verlopen via RevenueCat en Stripe — of via de store, als je vanaf je telefoon koopt: we zien je kaart nooit. Meer details in het <a href="/privacidad">privacybeleid</a>.',
   'faq.7.q': 'Op welke apparaten werkt het?',
   'faq.7.a':
-    'Vandaag: in elke moderne browser. Heel binnenkort: Android (Google Play), iPhone/iPad (App Store), Windows en macOS. Je account geldt overal: je koopt één keer, waar het jou uitkomt, en zowel het huis als het AI-abonnement werken op elk apparaat waarop je met je e-mail inlogt.',
+    'Vandaag: in elke moderne browser. Heel binnenkort: Android (Google Play), iPhone/iPad (App Store), Windows en macOS. Je account geldt overal: je koopt één keer, waar het jou uitkomt, en zowel het MindHaOS als het AI-abonnement werken op elk apparaat waarop je met je e-mail inlogt.',
   'faq.8.q': 'Hoe zeg ik op of verwijder ik mijn account?',
   'faq.8.a':
     'Om de afschrijving te stoppen: «Abonnement beheren» in <a href="/cuenta">je account</a>. Om je account en al je gegevens van onze servers te verwijderen, vanuit de app: Editor → Instellingen → Account.',

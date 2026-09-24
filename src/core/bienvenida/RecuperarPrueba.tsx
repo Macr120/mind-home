@@ -66,7 +66,7 @@ export function RecuperarPrueba() {
         {fase === 'elegir' ? (
           <>
             <h2 className="text-sm font-bold text-white/90">
-              {t('probar.conv.titulo', '¡Tu casa ya es tuya!')}
+              {t('probar.conv.titulo', '¡Tu MindHaOS ya es tuya!')}
             </h2>
             <p className="text-xs leading-snug text-white/60">
               {t(
@@ -94,8 +94,8 @@ export function RecuperarPrueba() {
         ) : (
           <p className="py-2 text-center text-xs text-white/60">
             {fase === 'migrando'
-              ? t('probar.conv.migrando', 'Recuperando tu casa…')
-              : t('probar.conv.comprobando', 'Preparando tu casa…')}
+              ? t('probar.conv.migrando', 'Recuperando tu MindHaOS…')
+              : t('probar.conv.comprobando', 'Preparando tu MindHaOS…')}
           </p>
         )}
       </div>

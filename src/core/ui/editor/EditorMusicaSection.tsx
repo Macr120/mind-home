@@ -330,13 +330,13 @@ export function EditorMusicaSection({
         >
           <span className="shrink-0 text-[11px]">{musicaAmbiental ? '✓' : '○'}</span>
           <span className="min-w-0 flex-1 truncate">
-            {t('ajustes.musica.ambiental', 'Música ambiental en la casa')}
+            {t('ajustes.musica.ambiental', 'Música ambiental en la MindHaOS')}
           </span>
         </button>
         <p className="text-[11px] leading-snug text-white/45">
           {t(
             'ajustes.musica.ambientalDesc',
-            'Suena mientras paseas por la casa; por el navegador, arranca con tu primer clic.',
+            'Suena mientras paseas por la MindHaOS; por el navegador, arranca con tu primer clic.',
           )}
         </p>
       </div>
@@ -360,7 +360,7 @@ export function EditorMusicaSection({
         <p className="text-[11px] leading-snug text-white/45">
           {t(
             'ajustes.musica.hudDesc',
-            'Apagado, la casa queda más limpia: la música se ajusta desde aquí.',
+            'Apagado, la MindHaOS queda más limpia: la música se ajusta desde aquí.',
           )}
         </p>
       </div>

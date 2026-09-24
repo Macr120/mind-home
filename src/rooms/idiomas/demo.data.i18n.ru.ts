@@ -686,7 +686,7 @@ export default {
       "dia": -140,
       "tema": "b1-viajes",
       "titulo": "Фразы для заселения",
-      "texto": "I have a reservation under the name Pepa. — фраза, которая за три недели повторялась чаще всего.\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — главное в дни переездов на поезде.\nIs there a laundry nearby?\nА эта всегда прилетала в ответ: «Could I see your passport, please?»"
+      "texto": "I have a reservation under the name Sasha. — фраза, которая за три недели повторялась чаще всего.\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — главное в дни переездов на поезде.\nIs there a laundry nearby?\nА эта всегда прилетала в ответ: «Could I see your passport, please?»"
     },
     {
       "dia": -85,

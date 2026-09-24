@@ -92,7 +92,7 @@ export const cuerpoCasa: CuerpoTutorial = {
       titulo: T('tut.casa.2b.titulo', 'El catálogo de apps'),
       texto: T(
         'tut.casa.2b.texto',
-        'Su segunda pestaña: el catálogo de plantillas — todas las apps que puede llevar la casa, cada una lista para asignarse a un cuarto.',
+        'Su segunda pestaña: el catálogo de plantillas — todas las apps que puede llevar la MindHaOS, cada una lista para asignarse a un cuarto.',
       ),
     },
     {
@@ -117,7 +117,7 @@ export const cuerpoCasa: CuerpoTutorial = {
       titulo: T('tut.casa.3.titulo', 'Moverse'),
       texto: T(
         'tut.casa.3.texto',
-        'Camina con el joystick, con WASD o con las flechas del teclado: la casa entera se recorre a pie. Pasear no abre las apps — para entrar, toca el objeto con la esfera flotante del cuarto.',
+        'Camina con el joystick, con WASD o con las flechas del teclado: la MindHaOS entera se recorre a pie. Pasear no abre las apps — para entrar, toca el objeto con la esfera flotante del cuarto.',
       ),
     },
     {
@@ -189,10 +189,10 @@ export const cuerpoCasa: CuerpoTutorial = {
         abrirSiFalta('musica.panel', 'musica.boton')
         await esperarTut('musica.panel', 2000)
       },
-      titulo: T('tut.casa.8.titulo', 'La música de la casa'),
+      titulo: T('tut.casa.8.titulo', 'La música de la MindHaOS'),
       texto: T(
         'tut.casa.8.texto',
-        'La casa arranca en silencio: si quieres banda sonora, enciende aquí la música. Cada cuarto trae canciones temáticas precargadas, o deja sonar el ambiente general de la casa.',
+        'La MindHaOS arranca en silencio: si quieres banda sonora, enciende aquí la música. Cada cuarto trae canciones temáticas precargadas, o deja sonar el ambiente general de la MindHaOS.',
       ),
     },
     {
@@ -206,7 +206,7 @@ export const cuerpoCasa: CuerpoTutorial = {
       titulo: T('tut.casa.editor.titulo', 'El editor'),
       texto: T(
         'tut.casa.editor.texto',
-        'El botón Editor de arriba abre esto: la personalización completa en cuatro pestañas — Mapa, Personajes, Objetos y Configuraciones. Aquí se dibuja y se viste la casa entera.',
+        'El botón Editor de arriba abre esto: la personalización completa en cuatro pestañas — Mapa, Personajes, Objetos y Configuraciones. Aquí se dibuja y se viste la MindHaOS entera.',
       ),
     },
     // El bloque del chat cierra el tour (pedido del usuario): es la pieza con
@@ -222,7 +222,7 @@ export const cuerpoCasa: CuerpoTutorial = {
       titulo: T('tut.casa.9.titulo', 'El chat'),
       texto: T(
         'tut.casa.9.texto',
-        'El chat del arquitecto: cuéntale qué hiciste y lo registra en la app correcta, pídele cambios en la casa, imágenes y hasta modelos 3D para tus cuartos — o simplemente platica un rato.',
+        'El chat del arquitecto: cuéntale qué hiciste y lo registra en la app correcta, pídele cambios en la MindHaOS, imágenes y hasta modelos 3D para tus cuartos — o simplemente platica un rato.',
       ),
     },
     {
@@ -278,7 +278,7 @@ export const cuerpoMenuCuartos: CuerpoTutorial = {
       alEntrar: () => irAPestanaMenu('menu.tab.cuartos'),
       texto: T(
         'tut.menu-cuartos.1.texto',
-        'La pestaña Hogar lista todos los cuartos de tu casa, agrupados por categoría.',
+        'La pestaña Hogar lista todos los cuartos de tu MindHaOS, agrupados por categoría.',
       ),
     },
     {
@@ -462,7 +462,7 @@ export const cuerpoMenuInventario: CuerpoTutorial = {
       },
       texto: T(
         'tut.menu-inventario.1.texto',
-        'El inventario: todos los objetos que puedes colocar en tu casa, listos para arrastrar.',
+        'El inventario: todos los objetos que puedes colocar en tu MindHaOS, listos para arrastrar.',
       ),
     },
     {
@@ -511,7 +511,7 @@ export const cuerpoEditorMapa: CuerpoTutorial = {
       sel: 'editor.tabs',
       texto: T(
         'tut.editor-mapa.1.texto',
-        'El editor de la casa tiene 4 pestañas: Mapa, Personajes, Objetos y Configuraciones. Este tour es el de Mapa; los otros tres tienen el suyo.',
+        'El editor de la MindHaOS tiene 4 pestañas: Mapa, Personajes, Objetos y Configuraciones. Este tour es el de Mapa; los otros tres tienen el suyo.',
       ),
     },
     {
@@ -531,7 +531,7 @@ export const cuerpoEditorMapa: CuerpoTutorial = {
     {
       texto: T(
         'tut.editor-mapa.4.texto',
-        'La casa también tiene niveles: pisos apilables hacia arriba y un sótano hacia abajo. Cada nivel nuevo nace con su propia forma de subir —una escalera o un hueco en la losa— que perfora el piso de encima.',
+        'La MindHaOS también tiene niveles: pisos apilables hacia arriba y un sótano hacia abajo. Cada nivel nuevo nace con su propia forma de subir —una escalera o un hueco en la losa— que perfora el piso de encima.',
       ),
     },
     {
@@ -539,7 +539,7 @@ export const cuerpoEditorMapa: CuerpoTutorial = {
       titulo: T('tut.editor-mapa.5.titulo', 'Listo'),
       texto: T(
         'tut.editor-mapa.5.texto',
-        'Todo se guarda solo mientras editas. Listo cierra el editor y te regresa al juego con la casa ya como la dejaste.',
+        'Todo se guarda solo mientras editas. Listo cierra el editor y te regresa al juego con la MindHaOS ya como la dejaste.',
       ),
     },
   ],
@@ -666,7 +666,7 @@ export const cuerpoEditorConfig: CuerpoTutorial = {
       titulo: T('tut.editor-config.4.titulo', 'Interfaz e idioma'),
       texto: T(
         'tut.editor-config.4.texto',
-        'Idioma, tema de la interfaz (claro/oscuro/automático), estilo de iconos y densidad — todo lo que cambia CÓMO se ve la casa, no qué contiene.',
+        'Idioma, tema de la interfaz (claro/oscuro/automático), estilo de iconos y densidad — todo lo que cambia CÓMO se ve la MindHaOS, no qué contiene.',
       ),
     },
     {
@@ -697,7 +697,7 @@ export const cuerpoRespaldo: CuerpoTutorial = {
     {
       sel: 'respaldo.estado',
       esperar: 'respaldo.estado',
-      titulo: T('tut.respaldo.1.titulo', 'Dónde vive tu casa'),
+      titulo: T('tut.respaldo.1.titulo', 'Dónde vive tu MindHaOS'),
       texto: T(
         'tut.respaldo.1.texto',
         'Sin cuenta ni sincronización, tus datos están solo en este dispositivo. El aviso de arriba dice si el navegador tiene permiso para protegerlos de una limpieza automática.',
@@ -733,7 +733,7 @@ export const cuerpoEditorCuarto: CuerpoTutorial = {
     {
       texto: T(
         'tut.editor-cuarto.1.texto',
-        'Estás editando un cuarto concreto: el plano y la cámara se enfocan en él, no en toda la casa.',
+        'Estás editando un cuarto concreto: el plano y la cámara se enfocan en él, no en toda la MindHaOS.',
       ),
     },
     {
@@ -869,7 +869,7 @@ export const cuerpoChat: CuerpoTutorial = {
       sel: 'chat.caja',
       texto: T(
         'tut.chat.1.texto',
-        'El chat del arquitecto: registra tu día, edita la casa y responde tus dudas, todo desde el mismo cuadro.',
+        'El chat del arquitecto: registra tu día, edita la MindHaOS y responde tus dudas, todo desde el mismo cuadro.',
       ),
     },
     {
@@ -910,7 +910,7 @@ export const cuerpoChat: CuerpoTutorial = {
       titulo: T('tut.chat.4b.titulo', 'La máscara AR'),
       texto: T(
         'tut.chat.4b.texto',
-        'Enciende la cámara y te pone la máscara sobre la cara, siguiéndote en vivo — la misma del video de presentación de la casa. Funciona sin IA y sin cuenta.',
+        'Enciende la cámara y te pone la máscara sobre la cara, siguiéndote en vivo — la misma del video de presentación de la MindHaOS. Funciona sin IA y sin cuenta.',
       ),
     },
     {
@@ -1016,7 +1016,7 @@ export const cuerpoMusica: CuerpoTutorial = {
       esperar: 'musica.panel',
       texto: T(
         'tut.musica.1.texto',
-        'Este botón abre el control de música de la casa.',
+        'Este botón abre el control de música de la MindHaOS.',
       ),
     },
     {
@@ -1024,7 +1024,7 @@ export const cuerpoMusica: CuerpoTutorial = {
       titulo: T('tut.musica.2.titulo', 'Encender o apagar'),
       texto: T(
         'tut.musica.2.texto',
-        'Un interruptor para toda la música ambiental de la casa. Apagado, la casa queda en silencio salvo los sonidos de acciones concretas.',
+        'Un interruptor para toda la música ambiental de la MindHaOS. Apagado, la MindHaOS queda en silencio salvo los sonidos de acciones concretas.',
       ),
     },
     {
@@ -1032,7 +1032,7 @@ export const cuerpoMusica: CuerpoTutorial = {
       titulo: T('tut.musica.3.titulo', 'Tema por cuarto'),
       texto: T(
         'tut.musica.3.texto',
-        'Cada cuarto puede sonar distinto: automático según su app, uno elegido a mano, o silencio total en ese cuarto sin tocar el resto de la casa.',
+        'Cada cuarto puede sonar distinto: automático según su app, uno elegido a mano, o silencio total en ese cuarto sin tocar el resto de la MindHaOS.',
       ),
     },
     {
@@ -1135,7 +1135,7 @@ export const cuerpoEjemplos: CuerpoTutorial = {
     {
       texto: T(
         'tut.ejemplos.3.texto',
-        'Dentro de la casa demo esta barra no aparece: el año entero de Pep@ ya cumple ese papel, así que no hace falta un ejemplo aparte.',
+        'Dentro de la MindHaOS demo (Casa Mental OS) esta barra no aparece: el año entero de Pep@ ya cumple ese papel, así que no hace falta un ejemplo aparte.',
       ),
     },
   ],
@@ -1155,7 +1155,7 @@ export const cuerpoInicio: CuerpoTutorial = {
       },
       texto: T(
         'tut.inicio.1.texto',
-        'El botón con el nombre de tu casa abre la pantalla de inicio: tus apps en una rejilla, con la mecánica de un teléfono.',
+        'El botón con el nombre de tu MindHaOS abre la pantalla de inicio: tus apps en una rejilla, con la mecánica de un teléfono.',
       ),
     },
     {

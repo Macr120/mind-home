@@ -122,7 +122,7 @@ export const cuerpoCaptura: CuerpoTutorial = {
     {
       texto: T(
         'tut.app-despacho--captura.5.texto',
-        'En tu casa también puedes capturar por chat: «gasté 250 en súper» y queda apuntado.',
+        'En tu MindHaOS también puedes capturar por chat: «gasté 250 en súper» y queda apuntado.',
       ),
     },
   ],

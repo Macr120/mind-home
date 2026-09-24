@@ -34,7 +34,7 @@ export const cuerpoCalendario: CuerpoTutorial = {
       titulo: T('tut.calendario.1.titulo', 'El reloj'),
       texto: T(
         'tut.calendario.1.texto',
-        'El calendario no es un cuarto: vive en el reloj de la casa, así que se abre desde donde estés.',
+        'El calendario no es un cuarto: vive en el reloj de la MindHaOS, así que se abre desde donde estés.',
       ),
       // También al volver con «Atrás» (y si el tour se lanzó con el calendario
       // ya abierto): destapar el reloj que este paso señala.
@@ -157,7 +157,7 @@ export const cuerpoMetas: CuerpoTutorial = {
       titulo: T('tut.metas.0.titulo', 'El centro de tus metas'),
       texto: T(
         'tut.metas.0.texto',
-        'Este cuarto no guarda nada suyo. Las metas nacen en las demás apps —correr en Ejercicio, la carrera en Biblioteca, ahorrar en Finanzas— y aquí se juntan TODAS: es el único sitio de la casa donde se ven a la vez, vengan del cuarto que vengan.',
+        'Este cuarto no guarda nada suyo. Las metas nacen en las demás apps —correr en Ejercicio, la carrera en Biblioteca, ahorrar en Finanzas— y aquí se juntan TODAS: es el único sitio de la MindHaOS donde se ven a la vez, vengan del cuarto que vengan.',
       ),
     },
     {
@@ -175,7 +175,7 @@ export const cuerpoMetas: CuerpoTutorial = {
       titulo: T('tut.metas.2.titulo', 'La misma hoja, desde los dos lados'),
       texto: T(
         'tut.metas.2.texto',
-        'Tocar una meta abre su hoja y, si lo tiene, su plan. Es el MISMO planificador que sale al tocarla desde su app, con una diferencia: allí va acotado a esa app y aquí lo ves entero, con las metas de toda la casa a la vez.',
+        'Tocar una meta abre su hoja y, si lo tiene, su plan. Es el MISMO planificador que sale al tocarla desde su app, con una diferencia: allí va acotado a esa app y aquí lo ves entero, con las metas de toda la MindHaOS a la vez.',
       ),
     },
     {
@@ -283,7 +283,7 @@ export const cuerpoCalendarioEsencial: CuerpoTutorial = {
   pasos: [
     {
       sel: 'reloj.widget',
-      titulo: T('tut.calendario--esencial.1.titulo', 'El reloj de la casa'),
+      titulo: T('tut.calendario--esencial.1.titulo', 'El reloj de la MindHaOS'),
       texto: T(
         'tut.calendario--esencial.1.texto',
         'El calendario no es un cuarto: vive en el reloj del HUD, así que se abre desde donde estés sin entrar a ningún sitio.',

@@ -126,7 +126,7 @@ export async function lanzarFlujo(
         useMascota
           .getState()
           .decir(
-            tGlobal('tut.preparandoDemo', 'Estoy preparando el año de esa app en la casa demo; el tour empieza en unos segundos…'),
+            tGlobal('tut.preparandoDemo', 'Estoy preparando el año de esa app en la MindHaOS demo (Casa Mental OS); el tour empieza en unos segundos…'),
           )
       }
       const { construirAppDemo } = await import('../../demo/construir')

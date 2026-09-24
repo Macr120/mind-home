@@ -32,7 +32,7 @@ export function VolverDemoDialog() {
         <p className="text-xs leading-snug text-white/60">
           {t(
             'demo.volver.cuerpo',
-            'Esto era la casa demo de Pep@. ¿Volvemos a tu casa, o te quedas a curiosear un rato?',
+            'Esto era la MindHaOS demo (Casa Mental OS) de Pep@. ¿Volvemos a tu MindHaOS, o te quedas a curiosear un rato?',
           )}
         </p>
         <div className="space-y-1.5 pt-1">
@@ -41,14 +41,14 @@ export function VolverDemoDialog() {
             onClick={() => salirDemo()}
             className="ui-accent-bg block w-full rounded-md px-2 py-1.5 text-center text-xs font-bold"
           >
-            {t('demo.volver.si', 'Volver a mi casa')}
+            {t('demo.volver.si', 'Volver a mi MindHaOS')}
           </button>
           <button
             type="button"
             onClick={cerrar}
             className="w-full rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] font-semibold text-white/60 transition hover:bg-white/10"
           >
-            {t('demo.volver.seguir', 'Seguir explorando la casa demo')}
+            {t('demo.volver.seguir', 'Seguir explorando la MindHaOS demo')}
           </button>
         </div>
       </div>

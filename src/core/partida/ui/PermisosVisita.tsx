@@ -41,13 +41,13 @@ export function PermisosVisita({
         <p className="text-[11px] leading-relaxed text-white/45">
           {t(
             'visita.permisos.intro',
-            'Pasearán por tu casa. Las apps que marques se podrán abrir; el resto ni se lista. Nada de lo que no marques sale de este dispositivo.',
+            'Pasearán por tu MindHaOS. Las apps que marques se podrán abrir; el resto ni se lista. Nada de lo que no marques sale de este dispositivo.',
           )}
         </p>
 
         {disponibles.length === 0 ? (
           <p className="rounded-xl border border-dashed border-white/10 px-3 py-3 text-center text-[11px] text-white/35">
-            {t('visita.permisos.ninguna', 'Todavía no tienes apps que se puedan compartir. Podrán pasear por la casa igual.')}
+            {t('visita.permisos.ninguna', 'Todavía no tienes apps que se puedan compartir. Podrán pasear por la MindHaOS igual.')}
           </p>
         ) : (
           <div className="space-y-1">
@@ -75,7 +75,7 @@ export function PermisosVisita({
         <p className="flex items-start gap-1.5 text-[11px] leading-relaxed text-white/40">
           <Icono nombre="candado" />
           <span>
-            {t('visita.permisos.sinXp', 'Durante la visita tu invitado no gana experiencia ni progreso: lo que haga en su casa sigue esperándolo allí.')}
+            {t('visita.permisos.sinXp', 'Durante la visita tu invitado no gana experiencia ni progreso: lo que haga en su MindHaOS sigue esperándolo allí.')}
           </span>
         </p>
 

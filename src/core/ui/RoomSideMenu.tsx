@@ -169,7 +169,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
               defaultValue={nombreApp}
               maxLength={40}
               placeholder={t('app.brand', 'MindHaOS')}
-              aria-label={t('app.brandNombre', 'Nombre de la casa')}
+              aria-label={t('app.brandNombre', 'Nombre de la MindHaOS')}
               onBlur={(e) => {
                 setNombreApp(e.currentTarget.value)
                 setEditandoNombre(false)

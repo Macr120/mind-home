@@ -686,7 +686,7 @@ export default {
       "dia": -140,
       "tema": "b1-viajes",
       "titulo": "Zwroty przy zameldowaniu",
-      "texto": "I have a reservation under the name Pepa. — zdanie, które przez trzy tygodnie powtarzało się najczęściej.\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — kluczowe w dni z pociągami.\nIs there a laundry nearby?\nA to zawsze wracało w odpowiedzi: „Could I see your passport, please?”"
+      "texto": "I have a reservation under the name Alex. — zdanie, które przez trzy tygodnie powtarzało się najczęściej.\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — kluczowe w dni z pociągami.\nIs there a laundry nearby?\nA to zawsze wracało w odpowiedzi: „Could I see your passport, please?”"
     },
     {
       "dia": -85,

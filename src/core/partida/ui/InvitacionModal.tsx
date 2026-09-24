@@ -58,7 +58,7 @@ function Dialogo({ invitacion }: { invitacion: InvitacionRecibida }) {
         <div className="flex items-center gap-3">
           <Retrato retrato={invitacion.retrato} emoji={invitacion.emoji} className="h-14 w-14" textoClase="text-3xl" />
           <div className="min-w-0 flex-1">
-            <p className="text-sm font-semibold">{t('partida.invitacion.texto', '{n} te invita a su casa', { n: quien })}</p>
+            <p className="text-sm font-semibold">{t('partida.invitacion.texto', '{n} te invita a su MindHaOS', { n: quien })}</p>
             <p className="text-[11px] text-white/45">
               {invitacion.juego === 'visita'
                 ? t('partida.invitacion.pasear', 'Para pasear juntos')

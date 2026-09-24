@@ -67,7 +67,7 @@ export const cuerpoTrazos: CuerpoTutorial = {
     {
       texto: T(
         'tut.infra-caminos--trazos.3.texto',
-        'En tu propia casa los dibujas celda a celda con el editor de Circuitos, o a mano alzada con el trazo libre por sectores. Aquí en la demo el mapa ya viene trazado.',
+        'En tu propia MindHaOS los dibujas celda a celda con el editor de Circuitos, o a mano alzada con el trazo libre por sectores. Aquí en la demo el mapa ya viene trazado.',
       ),
     },
   ],

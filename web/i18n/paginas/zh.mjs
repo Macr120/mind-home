@@ -1,6 +1,7 @@
 /** Textos de las páginas estáticas en chino simplificado. Traducción de `es.mjs`. */
 export const TEXTOS = {
   'marca.nombre': 'MindHaOS',
+  'marca.sub': '心灵之家 OS',
   'nav.entrar': '登录',
   'nav.descargar': '下载',
   'pie.inicio': '首页',
@@ -38,10 +39,10 @@ export const TEXTOS = {
   'hero.sub.ej3.4': '冥想和感恩',
   'hero.sub.4': '，全部手动，或者让 AI 帮你。所有应用都接到同一个日历、每日任务和你的个人目标上，手机和电脑同步。',
   'hero.cta': '下载应用',
-  'hero.probar': '免费体验打造你的家',
+  'hero.probar': '免费体验打造你的 MindHaOS',
   'hero.nota':
-    '应用免费，离线也能用；房子只买一次——就在这个网页上，或在应用里。AI 和同步是可选的——就算不要，你也不会失去什么。',
-  'hero.video': '这里放你的视频或房子的截图',
+    '应用免费，离线也能用；MindHaOS（心灵之家 OS）只买一次——就在这个网页上，或在应用里。AI 和同步是可选的——就算不要，你也不会失去什么。',
+  'hero.video': '这里放你的视频或 MindHaOS（心灵之家 OS）的截图',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
   'cifras.apps': '个应用',
@@ -52,23 +53,23 @@ export const TEXTOS = {
   'cifras.chat': '个聊天框',
 
   'como.h2': '怎么运作',
-  'como.sub': '一个先盖房子、再把生活搬进去的地方。',
-  'como.1.t': '你把房子盖起来',
+  'como.sub': '一个先搭建 MindHaOS（心灵之家 OS）、再把生活搬进去的地方。',
+  'como.1.t': '你把 MindHaOS 搭起来',
   'como.1.p': '插入房间、楼层，甚至地下室，四周再建起露天的部分：菜园、农场、球场和赛道。墙、颜色、家具和你的形象，都由你来选。',
   'como.2.t': '每个房间都是一个完整的应用',
   'como.2.p':
     '给它指派 17 个应用中的一个——饮食、运动、睡眠、财务、书房、语言、想法、日程、旅行、爱好、目标……——或者工作室里的四个之一——音频、艺术、写作、视频——也可以自己做一个。用它们归档你已经经历的，计划将要到来的，创造还不存在的：作息、食谱、预算、笔记、思维导图、进度表、歌曲和书。全部手动，或者让 AI 陪着你。',
   'como.3.t': '所有东西都落在同一个地方',
-  'como.3.p': '17 个应用和工作室的四个共用一个日历、一份每日任务清单和你自己的目标。整座房子跟着你，从手机到电脑。',
+  'como.3.p': '17 个应用和工作室的四个共用一个日历、一份每日任务清单和你自己的目标。整个 MindHaOS（心灵之家 OS）跟着你，从手机到电脑。',
 
-  'car.h2': '一座房子，很多应用',
+  'car.h2': '一个 MindHaOS，很多应用',
   // Las tres primeras tarjetas: el argumento de compra.
   'car.todo.t': '真正的全部合一',
   'car.todo.p': '一个应用，而不是二十个：吃饭、钱、睡眠、学习、习惯和目标都在同一个屋檐下，而且彼此相通——这正是任何单独的应用都做不到的。',
   'car.nocaduca.t': '停止付费也不会失效',
-  'car.nocaduca.p': '买一次就是你的。订阅制应用一停付费就关掉；在这里，就算你不再用 AI，整座房子和设备里的数据都还在。',
+  'car.nocaduca.p': '买一次就是你的。订阅制应用一停付费就关掉；在这里，就算你不再用 AI，整个 MindHaOS 和设备里的数据都还在。',
   'car.nuevas.t': '持续更新',
-  'car.nuevas.p': '房子会继续长大：新的房间、新的应用和改进，都不用再付一次钱。',
+  'car.nuevas.p': 'MindHaOS 会继续长大：新的房间、新的应用和改进，都不用再付一次钱。',
   'car.1.t': '房间就是应用',
   'car.1.p':
     '运动、厨房、财务、睡眠、图书馆、语言、旅行、爱好、正念等等：每个房间里都装着一个完整的小应用。',
@@ -79,7 +80,7 @@ export const TEXTOS = {
   'car.2.p':
     '和助手聊天：记录饮食、创建例行、规划目标、生成图片和 3D 模型。首月自带 700 点额度；之后 AI 就是可选的了。',
   'car.3.t': '全面同步',
-  'car.3.p': '房子会跟你到手机、平板和电脑。传输全程加密，并在云端备份。',
+  'car.3.p': 'MindHaOS 会跟你到手机、平板和电脑。传输全程加密，并在云端备份。',
   'car.4.t': '玩起来像一款游戏',
   'car.4.p':
     '你的角色靠你真实的活动成长：连续记录、徽章、西西弗斯之山、载具、竞速和小游戏。',
@@ -93,30 +94,30 @@ export const TEXTOS = {
   // La sección de IA (#ia): qué hace y con quién. OJO, no confundir con las
   // claves `ia.t/p/precios/cta` de más abajo, que son la franja de PRECIOS.
   'ia.h2': '你的助手，有云无云都能用',
-  'ia.sub': '家里的 AI 陪你记录、规划、创作。至于用什么来驱动它——云端的服务商，还是你自己的电脑——你说了算。',
+  'ia.sub': 'MindHaOS 里的 AI 陪你记录、规划、创作。至于用什么来驱动它——云端的服务商，还是你自己的电脑——你说了算。',
   'ia.cap.1.t': '说一句就记下',
   'ia.cap.1.p': '告诉它你吃了什么、花了多少、练了多久，它就写进对应的房间，字段和日期都填好。',
   'ia.cap.2.t': '规划你的目标',
   'ia.cap.2.p': '你要一个目标，它就给出日程：步骤、日期和每天的任务，之后你还能手动改。',
   'ia.cap.3.t': '生成图片和 3D 物件',
-  'ia.cap.3.p': '给菜谱、衣服和想法配图，也能造出新的家具和物件放进家里。',
+  'ia.cap.3.p': '给菜谱、衣服和想法配图，也能造出新的家具和物件放进 MindHaOS。',
   'ia.cap.4.t': '会说，也会听',
   'ia.cap.4.p': '助手用声音回答你，语音听写让你不打一个字就记完一天。',
   'ia.nube.t': '在云端，用你挑的那家',
   'ia.nube.p': 'Claude、Gemini 或 ChatGPT：谁来思考、谁来发声、谁来作画，都由你选。用套餐里的点数，或者用你自己的密钥。',
   'ia.local.t': '也可以在你的电脑上，用 Ollama',
-  'ia.local.p': '装上 Ollama，家就和跑在你电脑里的模型对话：不花点数、不用联网，什么也不会传出去。',
+  'ia.local.p': '装上 Ollama，MindHaOS 就和跑在你电脑里的模型对话：不花点数、不用联网，什么也不会传出去。',
   'ia.local.nota': '语音和图片仍然需要云端服务商，除非你的本地模型自己就能生成。',
 
   'mani.h2': '把你的人生，做成一款游戏',
-  'mani.p1': 'MindHaOS 是把你的人生变成电子游戏的样子，而且是在最舒服的地方玩——你自己的家。升级和升段位不是装饰，那是你在外面做过的事，在这里被讲了出来。',
+  'mani.p1': 'MindHaOS 是把你的人生变成电子游戏的样子，而且是在最舒服的地方玩——你自己的 MindHaOS。升级和升段位不是装饰，那是你在外面做过的事，在这里被讲了出来。',
   'mani.p2': '在这里你拓展新的能力，掌握自己的资源，让技术站在你这边。对抗短视频里那种无意识的消费。对抗大公司强加的消费习惯留下的认知退化。',
   'mani.cierre': '同样的多巴胺。这一次，给你真实的人生。',
 
-  'precio.h2': '在商店付一次，房子永远是你的',
+  'precio.h2': '在商店付一次，MindHaOS 永远是你的',
   'precio.probar.nombre': '先试试',
   'precio.probar.cifra': '免费',
-  'precio.probar.1': '你自己的房子，带着欢迎菜单：什么都能试',
+  'precio.probar.1': '你自己的 MindHaOS，带着欢迎菜单：什么都能试',
   'precio.probar.2': '不用账户、不用银行卡、不用联网',
   'precio.probar.3': '有账户之前什么都不保存：购买后就能找回你试过的内容',
   'precio.probar.cta': '试用应用',
@@ -124,10 +125,10 @@ export const TEXTOS = {
   'precio.app.nombre': '应用',
   'precio.app.cifra': '8.99 美元',
   'precio.app.pagoUnico': '一次性付款',
-  'precio.app.1': '一座属于你的房子，永远：所有应用，数据都在你的设备上',
+  'precio.app.1': '一个属于你的 MindHaOS，永远：所有应用，数据都在你的设备上',
   'precio.app.2': '含首月：700 点 AI 额度 + 同步，不用银行卡，也不是订阅',
   'precio.app.3': '首月结束后，整个应用和你的数据都还在；AI 额度是可选的',
-  'precio.app.cta': '购买这个家',
+  'precio.app.cta': '购买 MindHaOS',
   'precio.app.pie': '可以直接在这里买，不经过任何商店，也可以在手机的 App 内购买。一次付费，无需续订，所有设备都能用。',
 
   'ia.t': 'AI 与同步 · 可选',
@@ -136,15 +137,15 @@ export const TEXTOS = {
   'ia.cta': '查看方案 →',
 
   'desc.h2': '下载应用',
-  'desc.sub': '免费下载，在 App 内购买这个家——在网页上买也一样。有账号后，你的家会出现在任何地方，包括浏览器。',
+  'desc.sub': '免费下载，在 App 内购买 MindHaOS——在网页上买也一样。有账号后，你的 MindHaOS 会出现在任何地方，包括浏览器。',
   'desc.pronto': '即将推出',
-  'desc.android': 'Google Play 免费下载，家在应用内购买。',
+  'desc.android': 'Google Play 免费下载，MindHaOS 在应用内购买。',
   'desc.ios.t': 'iPhone 和 iPad',
-  'desc.ios': 'App Store 免费下载，家在应用内购买。',
+  'desc.ios': 'App Store 免费下载，MindHaOS 在应用内购买。',
   'desc.web.t': '在你的浏览器里',
-  'desc.web': '无需安装：用你的账号登录，你的家就在那里。没有账号也可以试用应用。',
+  'desc.web': '无需安装：用你的账号登录，你的 MindHaOS 就在那里。没有账号也可以试用应用。',
   'desc.web.cta': '打开应用',
-  'desc.windows': 'Microsoft Store 免费下载，家在应用内购买。',
+  'desc.windows': 'Microsoft Store 免费下载，MindHaOS 在应用内购买。',
   'desc.windows.cta': '下载 Windows 版',
   'desc.mac': 'Mac 用的 .dmg 镜像。',
   'desc.mac.cta': '下载 Mac 版',
@@ -152,10 +153,10 @@ export const TEXTOS = {
   'faq.h2': '常见问题',
   'faq.1.q': '在哪里买应用？',
   'faq.1.a':
-    '你想在哪买都行：在网页上通过<a href="/cuenta">你的账号</a>，或在 Android 和 iPhone 的 App 内。这是一次性付费，记录在你的账号里，所以无论在哪购买，你的家都会出现在所有设备上。',
+    '你想在哪买都行：在网页上通过<a href="/cuenta">你的账号</a>，或在 Android 和 iPhone 的 App 内。这是一次性付费，记录在你的账号里，所以无论在哪购买，你的 MindHaOS 都会出现在所有设备上。',
   'faq.2.q': '一次性付款包含什么？',
   'faq.2.a':
-    '整座房子：所有房间、所有应用，以及存在你设备上的数据，永远有效，不用续费。另外，首月还带 700 点 AI 额度和同步，不用银行卡。购买前你可以试完整的应用，它不要求账户。',
+    '整个 MindHaOS：所有房间、所有应用，以及存在你设备上的数据，永远有效，不用续费。另外，首月还带 700 点 AI 额度和同步，不用银行卡。购买前你可以试完整的应用，它不要求账户。',
   'faq.3.q': '首月之后 AI 要多少钱？',
   'faq.3.a':
     '你说了算，也可以一分不花。订阅每月 6 美元（700 点额度和同步），或每年 60 美元——白送两个月。如果不够用，×2 和 ×3 档每月 12 或 18 美元，给 1400 或 2100 点。如果不想订阅，还有单独充值：6 美元 700 点，不会过期，只有你提出请求时才消耗。这部分确实在<a href="/cuenta">你的账户</a>里支付，对你所有设备都有效。',
@@ -170,7 +171,7 @@ export const TEXTOS = {
     '先存在你的设备上（App 是本地优先），开启同步后也会存到云端，方便在设备之间切换。本地模式下不会有任何数据离开你的设备。付款由 RevenueCat 和 Stripe 处理——如果你从手机购买，则由应用商店处理：我们从不接触你的银行卡。详见<a href="/privacidad">隐私政策</a>。',
   'faq.7.q': '哪些设备能用？',
   'faq.7.a':
-    '目前：任何现代浏览器。很快支持：Android（Google Play）、iPhone/iPad（App Store）、Windows 和 macOS。你的账号在哪里都有效：只买一次，在哪买都行，家和 AI 订阅在你用邮箱登录的任何设备上都能用。',
+    '目前：任何现代浏览器。很快支持：Android（Google Play）、iPhone/iPad（App Store）、Windows 和 macOS。你的账号在哪里都有效：只买一次，在哪买都行，MindHaOS 和 AI 订阅在你用邮箱登录的任何设备上都能用。',
   'faq.8.q': '怎么取消或删除账户？',
   'faq.8.a':
     '要停止扣费，去<a href="/cuenta">你的账户</a>点「管理订阅」。要从我们的服务器上删除账户和全部数据，请在应用里操作：编辑器 → 设置 → 账户。',
@@ -203,7 +204,8 @@ export const TEXTOS = {
   'priv.uso.1': '让你能访问自己的账户、购买和订阅。',
   'priv.uso.2': '在设备之间同步并备份你的数据。',
   'priv.uso.3': '用你的额度运行 AI 功能。',
-  'priv.uso.4': '我们不出售你的数据，也不为广告目的分享给第三方。',  'priv.dispositivo.h': '在你设备上的存储',
+  'priv.uso.4': '我们不出售你的数据，也不为广告目的分享给第三方。',
+  'priv.dispositivo.h': '在你设备上的存储',
   'priv.dispositivo.p':
     '应用会在你自己的设备上保存信息并读取它来运行：本地数据库（IndexedDB）存放你家的数据和文件，浏览器本地存储存放你的偏好设置——语言、主题、欢迎页状态——以及保持登录状态的会话令牌。我们不使用自有 Cookie 或类似技术进行广告、分析或追踪。你可以在浏览器设置中清除全部内容，或卸载应用。',
   'priv.dispositivo.terceros':

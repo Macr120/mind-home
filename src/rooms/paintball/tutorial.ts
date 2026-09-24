@@ -24,7 +24,7 @@ export const cuerpoBatalla: CuerpoTutorial = {
       zona: () => focoZona('zona-casa'),
       texto: T(
         'tut.infra-paintball--batalla.3.texto',
-        'La casa entera es el campo: cúbrete tras los muros, asómate a disparar y cuida la espalda. Las salpicaduras se quedan pintadas durante la batalla.',
+        'La MindHaOS entera es el campo: cúbrete tras los muros, asómate a disparar y cuida la espalda. Las salpicaduras se quedan pintadas durante la batalla.',
       ),
     },
     {

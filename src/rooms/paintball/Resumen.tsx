@@ -32,7 +32,7 @@ export function Resumen() {
         </div>
       </div>
       <p className="text-xs text-white/40">
-        {t('paintball.resumen.nota', 'Elige 1 vs 1, 2 vs 2 o batalla campal contra tus asistentes: cada quien aguanta 3 bolazos y la casa entera es el campo de batalla.')}
+        {t('paintball.resumen.nota', 'Elige 1 vs 1, 2 vs 2 o batalla campal contra tus asistentes: cada quien aguanta 3 bolazos y la MindHaOS entera es el campo de batalla.')}
       </p>
     </div>
   )

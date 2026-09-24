@@ -207,10 +207,10 @@ function PantallaCuenta() {
         </button>
         <button type="button" onClick={() => entrarProbar()} className={botonSecundario}>
           <Icono nombre="play" />
-          {t('puerta.probar', 'Probar hacer tu casa gratis')}
+          {t('puerta.probar', 'Probar hacer tu MindHaOS gratis')}
         </button>
         <p className="text-[11px] leading-snug text-white/40">
-          {t('puerta.probarNota', 'Entra a tu propia casa y pruébala sin cuenta. Para guardar tus cambios, usar la IA y sincronizar, crearás tu cuenta.')}
+          {t('puerta.probarNota', 'Entra a tu propia MindHaOS (Casa Mental OS) y pruébala sin cuenta. Para guardar tus cambios, usar la IA y sincronizar, crearás tu cuenta.')}
         </p>
       </div>
       {canalPago() === 'web' && urlWeb && <PieWeb />}
@@ -383,7 +383,7 @@ function PantallaTienda() {
           En las apps de tienda este enlace NO se pinta nunca. */}
       {canal === 'escritorio' && urlWeb && (
         <a href={`${urlWeb}/cuenta`} target="_blank" rel="noreferrer" className={botonPrincipal}>
-          {t('puerta.comprarWeb', 'Comprar la casa en la web')}
+          {t('puerta.comprarWeb', 'Comprar la MindHaOS en la web')}
         </a>
       )}
 
@@ -399,7 +399,7 @@ function PantallaTienda() {
           relee el perfil cuando quiera. */}
       {activando && !error && (
         <p className="text-xs leading-snug text-accent/90">
-          {t('puerta.activando', 'Pago recibido: activando tu casa. Si tarda, toca «Ya la compré».')}
+          {t('puerta.activando', 'Pago recibido: activando tu MindHaOS (Casa Mental OS). Si tarda, toca «Ya la compré».')}
         </p>
       )}
 
@@ -496,7 +496,7 @@ function TarjetaPrecio({
           catálogo y compra en cuanto lo tiene. */}
       <button type="button" onClick={alComprar} disabled={ocupado} className={botonPrincipal}>
         <Icono nombre="casa" />
-        {ocupado ? t('puerta.comprando', 'Procesando…') : x('precio.app.cta', 'Comprar la casa')}
+        {ocupado ? t('puerta.comprando', 'Procesando…') : x('precio.app.cta', 'Comprar la MindHaOS')}
       </button>
       {/* Sin cifra y esperando: decirlo en tono neutro. Antes el silencio (o un
           error a los 12 s) hacía creer que la compra estaba rota. */}

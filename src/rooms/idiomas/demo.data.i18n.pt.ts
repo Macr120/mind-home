@@ -686,7 +686,7 @@ export default {
       "dia": -140,
       "tema": "b1-viajes",
       "titulo": "Frases para o check-in",
-      "texto": "I have a reservation under the name Pepa. — a frase que mais repeti em três semanas.\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — essencial nos dias de trem.\nIs there a laundry nearby?\nE a que sempre me diziam: «Could I see your passport, please?»"
+      "texto": "I have a reservation under the name Alex. — a frase que mais repeti em três semanas.\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — essencial nos dias de trem.\nIs there a laundry nearby?\nE a que sempre me diziam: «Could I see your passport, please?»"
     },
     {
       "dia": -85,

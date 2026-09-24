@@ -85,7 +85,7 @@ export function SelectorIdioma({
           </p>
         </div>
         <h1 className="mt-0.5 text-lg font-black text-white/90">
-          {t('bienvenida.idioma.titulo', '¿En qué idioma quieres la casa?')}
+          {t('bienvenida.idioma.titulo', '¿En qué idioma quieres la MindHaOS (Casa Mental OS)?')}
         </h1>
         <p className="mt-1 text-sm text-white/60">
           {t('bienvenida.idioma.desc', 'Puedes cambiarlo después en Configuraciones.')}

@@ -658,12 +658,12 @@ export async function ejecutarToolEditor(
       const t = str(input, 'tema')
       if (t === 'ninguno' || t === 'sin') {
         await d.setTemaGlobal(null)
-        return tGlobal('chat.ed.temaQuitado', 'Quité el tema de la casa.')
+        return tGlobal('chat.ed.temaQuitado', 'Quité el tema de la MindHaOS.')
       }
       const tema = resolverPorNombre(TEMAS, t ?? '')
       if (!tema) return null
       await d.setTemaGlobal(tema.id as TemaId)
-      return tGlobal('chat.ed.temaPuesto', 'Le puse el tema {tema} a la casa.', { tema: nombreTema(tema) })
+      return tGlobal('chat.ed.temaPuesto', 'Le puse el tema {tema} a la MindHaOS.', { tema: nombreTema(tema) })
     }
     case 'editor_fondo': {
       const fondo = resolverPorNombre(FONDOS, str(input, 'fondo') ?? '')
@@ -1237,7 +1237,7 @@ export async function ejecutarToolEditor(
           if (!si) return tGlobal('chat.ed.pbSigue', 'Seguimos en la batalla.')
         }
         pb.cancelar()
-        return tGlobal('chat.ed.pbSalir', 'Salimos del paintball. La casa vuelve a la normalidad.')
+        return tGlobal('chat.ed.pbSalir', 'Salimos del paintball. La MindHaOS vuelve a la normalidad.')
       }
       const dif = num(input, 'dificultad')
       if (dif != null) pb.setDificultad(Math.max(0, Math.min(1, dif)))

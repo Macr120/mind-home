@@ -686,7 +686,7 @@ export default {
       "dia": -140,
       "tema": "b1-viajes",
       "titulo": "チェックインで使うフレーズ",
-      "texto": "I have a reservation under the name Pepa. — 三週間でいちばん繰り返したフレーズです。\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — 移動日にとても助かりました。\nIs there a laundry nearby?\nそしていつも私に向けて言われたのがこれ：「Could I see your passport, please?」"
+      "texto": "I have a reservation under the name Hikaru. — 三週間でいちばん繰り返したフレーズです。\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — 移動日にとても助かりました。\nIs there a laundry nearby?\nそしていつも私に向けて言われたのがこれ：「Could I see your passport, please?」"
     },
     {
       "dia": -85,

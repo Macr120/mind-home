@@ -102,7 +102,7 @@ function GuiaPasos() {
     },
     {
       id: 'tour',
-      titulo: t('bienvenida.guia.tour.titulo', 'Recorre tu casa'),
+      titulo: t('bienvenida.guia.tour.titulo', 'Recorre tu MindHaOS'),
       desc: t('bienvenida.guia.tour.desc', 'Un paseo por el menú, el movimiento, el reloj y el chat.'),
       cta: t('bienvenida.guia.empezar', 'Empezar'),
       accion: () => lanzar(tutorialCasa, 'tour'),
@@ -111,7 +111,7 @@ function GuiaPasos() {
       id: 'explorar',
       titulo: t('bienvenida.guia.explorar.titulo', 'Explora por tu cuenta'),
       desc: t('bienvenida.guia.explorar.desc', 'Listo. Cada menú y cada app guardan su propio tutorial en el botón ?.'),
-      cta: t('bienvenida.guia.salir', 'Salir a la casa'),
+      cta: t('bienvenida.guia.salir', 'Salir a la MindHaOS'),
       accion: explorar,
     },
   ]
@@ -124,7 +124,7 @@ function GuiaPasos() {
       <header className="flex items-start gap-2">
         <div className="min-w-0 flex-1">
           <h2 className="text-lg font-black text-white/90">
-            {t('bienvenida.final.titulo', '¡Tu casa está lista!')}
+            {t('bienvenida.final.titulo', '¡Tu MindHaOS está lista!')}
           </h2>
           <p className="mt-0.5 text-sm text-white/60">
             {t('bienvenida.guia.desc', 'Tres pasos para tomarle el modo.')}
@@ -195,7 +195,7 @@ function GuiaPasos() {
           onClick={crearCuenta}
           className="mt-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white/80 transition hover:bg-white/10"
         >
-          {t('bienvenida.cuenta', 'Crear cuenta o entrar (sincroniza tu casa)')}
+          {t('bienvenida.cuenta', 'Crear cuenta o entrar (sincroniza tu MindHaOS)')}
         </button>
       )}
     </Modal>
@@ -323,12 +323,12 @@ function Wizard() {
             <p className="text-sm text-white/60">
               {t(
                 'bienvenida.intereses.desc',
-                'Cada interés se vuelve un cuarto de tu casa con su app. Elige los que quieras.',
+                'Cada interés se vuelve un cuarto de tu MindHaOS (Casa Mental OS) con su app. Elige los que quieras.',
               )}
             </p>
             {disponibles.length === 0 ? (
               <p className="rounded-xl border border-white/10 bg-white/5 p-3 text-sm text-white/60">
-                {t('bienvenida.intereses.todas', 'Tu casa ya tiene todas las apps disponibles.')}
+                {t('bienvenida.intereses.todas', 'Tu MindHaOS (Casa Mental OS) ya tiene todas las apps disponibles.')}
               </p>
             ) : (
               <div className="grid grid-cols-2 gap-2">
@@ -514,7 +514,7 @@ function Wizard() {
             <p className="text-sm text-white/60">
               {t(
                 'bienvenida.personaje.desc',
-                'Este será tu cuerpo en la casa. Puedes seguir personalizándolo después en el editor.',
+                'Este será tu cuerpo en la MindHaOS (Casa Mental OS). Puedes seguir personalizándolo después en el editor.',
               )}
             </p>
             {!capturas ? (
@@ -630,8 +630,8 @@ function Wizard() {
             className="ui-accent-bg rounded-xl px-5 py-2 text-sm font-bold disabled:opacity-60"
           >
             {ocupado
-              ? t('bienvenida.creando', 'Creando tu casa…')
-              : t('bienvenida.crear', 'Crear mi casa')}
+              ? t('bienvenida.creando', 'Creando tu MindHaOS…')
+              : t('bienvenida.crear', 'Crear mi MindHaOS')}
           </button>
         )}
       </footer>

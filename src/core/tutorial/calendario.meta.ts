@@ -28,7 +28,7 @@ const tutorialCalendario = tour(
   T('tut.calendario.titulo', 'Calendario'),
   T(
     'tut.calendario.resumen',
-    'El reloj de la casa abre el calendario: todo lo agendado —turnos, clases, hábitos y lo que aportan las demás apps— en vistas Día, Semana, Mes, Año y Metas. El panel de abajo mide qué tanto cumples lo que agendaste.',
+    'El reloj de la MindHaOS abre el calendario: todo lo agendado —turnos, clases, hábitos y lo que aportan las demás apps— en vistas Día, Semana, Mes, Año y Metas. El panel de abajo mide qué tanto cumples lo que agendaste.',
   ),
   'cuerpoCalendario',
 )
@@ -64,7 +64,7 @@ export const esencialCalendario = tour(
   T('tut.esencial.titulo', 'Lo esencial'),
   T(
     'tut.calendario--esencial.resumen',
-    'El calendario no es un cuarto: vive en el reloj de la casa y reúne todo lo que tiene fecha y hora, lo que creas a mano y lo que agendan solas las demás apps. Se mira de cuatro maneras: Día y Semana sobre la rejilla de horas, Mes y Año para el panorama. Aparte va Misiones, el botón rojo con la checklist de hoy de todas las apps juntas.',
+    'El calendario no es un cuarto: vive en el reloj de la MindHaOS y reúne todo lo que tiene fecha y hora, lo que creas a mano y lo que agendan solas las demás apps. Se mira de cuatro maneras: Día y Semana sobre la rejilla de horas, Mes y Año para el panorama. Aparte va Misiones, el botón rojo con la checklist de hoy de todas las apps juntas.',
   ),
   'cuerpoCalendarioEsencial',
 )

@@ -686,7 +686,7 @@ export default {
       "dia": -140,
       "tema": "b1-viajes",
       "titulo": "办入住时用的句子",
-      "texto": "I have a reservation under the name Pepa. — 三个星期里我重复最多的一句。\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — 坐火车的那几天特别管用。\nIs there a laundry nearby?\n还有总是冲着我来的这句：“Could I see your passport, please?”"
+      "texto": "I have a reservation under the name Xiao An. — 三个星期里我重复最多的一句。\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — 坐火车的那几天特别管用。\nIs there a laundry nearby?\n还有总是冲着我来的这句：“Could I see your passport, please?”"
     },
     {
       "dia": -85,

@@ -686,7 +686,7 @@ export default {
       "dia": -140,
       "tema": "b1-viajes",
       "titulo": "Phrases pour le check-in",
-      "texto": "I have a reservation under the name Pepa. — la phrase que j'ai le plus répétée en trois semaines.\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — indispensable les jours de train.\nIs there a laundry nearby?\nEt celle qu'on me sortait toujours : « Could I see your passport, please? »"
+      "texto": "I have a reservation under the name Dominique. — la phrase que j'ai le plus répétée en trois semaines.\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — indispensable les jours de train.\nIs there a laundry nearby?\nEt celle qu'on me sortait toujours : « Could I see your passport, please? »"
     },
     {
       "dia": -85,

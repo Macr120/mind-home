@@ -16,7 +16,7 @@ export function EditorTemaSection({ embed }: { embed?: boolean } = {}) {
 
   return (
     <div className={embed ? 'space-y-3' : 'rounded-xl border border-white/10 bg-white/5 p-3 space-y-3'}>
-      {!embed && <p className="text-sm font-semibold">{t('editor.tema.titulo', 'Tema de la casa')}</p>}
+      {!embed && <p className="text-sm font-semibold">{t('editor.tema.titulo', 'Tema de la MindHaOS')}</p>}
       <p className="text-[11px] leading-snug text-white/45">
         {t('editor.tema.desc', 'Aplica estilo a cuartos, fondo, piso y techo, viste la interfaz y al personaje, y activa microanimaciones en el cielo.')}
       </p>

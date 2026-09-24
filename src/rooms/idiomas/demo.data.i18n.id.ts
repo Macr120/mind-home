@@ -686,7 +686,7 @@ export default {
       "dia": -140,
       "tema": "b1-viajes",
       "titulo": "Kalimat untuk check-in",
-      "texto": "I have a reservation under the name Pepa. — kalimat yang paling sering aku ulang selama tiga minggu.\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — penyelamat di hari-hari naik kereta.\nIs there a laundry nearby?\nDan yang selalu balik ke aku: “Could I see your passport, please?”"
+      "texto": "I have a reservation under the name Ari. — kalimat yang paling sering aku ulang selama tiga minggu.\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — penyelamat di hari-hari naik kereta.\nIs there a laundry nearby?\nDan yang selalu balik ke aku: “Could I see your passport, please?”"
     },
     {
       "dia": -85,

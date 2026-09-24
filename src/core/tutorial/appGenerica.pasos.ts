@@ -32,7 +32,7 @@ export const PASOS_APP_GENERICA: PasoTutorial[] = [
     titulo: T('tut.app-generica.4.titulo', 'Salir'),
     texto: T(
       'tut.app-generica.4.texto',
-      '«Volver a la casa» cierra la app y te deja de nuevo en el 3D. Lo que registres aquí ya quedó guardado.',
+      '«Volver a la MindHaOS» cierra la app y te deja de nuevo en el 3D. Lo que registres aquí ya quedó guardado.',
     ),
   },
 ]

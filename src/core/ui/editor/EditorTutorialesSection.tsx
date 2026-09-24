@@ -79,7 +79,7 @@ export function EditorTutorialesSection({
         <p className="text-[11px] leading-snug text-white/45">
           {t(
             'ajustes.tutoriales.hudDesc',
-            'Apagado, la casa queda más limpia: los tutoriales se lanzan desde aquí.',
+            'Apagado, la MindHaOS queda más limpia: los tutoriales se lanzan desde aquí.',
           )}
         </p>
       </div>
@@ -122,7 +122,7 @@ export function EditorTutorialesSection({
       {/* Casa y menús */}
       <div className="space-y-1.5">
         <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
-          {t('ajustes.tutoriales.casa', 'La casa y sus menús')}
+          {t('ajustes.tutoriales.casa', 'La MindHaOS y sus menús')}
         </p>
         <div className="grid grid-cols-1 gap-1.5">
           {TUTORIALES_MENU.map((def) => (
@@ -255,19 +255,19 @@ export function EditorTutorialesSection({
       {!esDemo() && !esProbar() && (
         <div className="space-y-1.5">
           <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
-            {t('demo.barra.titulo', 'Casa demo')}
+            {t('demo.barra.titulo', 'MindHaOS demo')}
           </p>
           <button
             type="button"
             onClick={() => entrarDemo()}
             className="w-full rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-xs font-semibold text-white/70 transition hover:bg-white/10"
           >
-            {t('demo.visitar', 'Visitar la casa demo')}
+            {t('demo.visitar', 'Visitar la MindHaOS demo')}
           </button>
           <p className="text-[11px] leading-snug text-white/45">
             {t(
               'demo.visitar.desc',
-              'La casa de Pep@ con un año de uso real dentro. Tu casa y tus datos quedan intactos; se vuelve con un botón.',
+              'La MindHaOS (Casa Mental OS) de Pep@ con un año de uso real dentro. Tu MindHaOS y tus datos quedan intactos; se vuelve con un botón.',
             )}
           </p>
         </div>

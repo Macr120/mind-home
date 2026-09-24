@@ -68,7 +68,7 @@ export function carpetaDeClave(clave: string, t: TFunc): CarpetaMeta {
   if (clave === CASA) {
     return {
       clave,
-      nombre: t('cal.filtro.casa', 'De la casa'),
+      nombre: t('cal.filtro.casa', 'De la MindHaOS'),
       icon: '📅',
       color: COLOR_CATEGORIA,
       propia: false,

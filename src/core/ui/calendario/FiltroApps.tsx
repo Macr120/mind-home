@@ -41,7 +41,7 @@ export function FiltroApps({
     eventos,
     carpetas,
     {
-      casa: t('cal.filtro.casa', 'De la casa'),
+      casa: t('cal.filtro.casa', 'De la MindHaOS'),
       otras: t('cal.filtro.otras', 'Otras'),
       calendarios: t('esp.cal.grupo', 'Calendarios'),
     },

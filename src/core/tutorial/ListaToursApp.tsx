@@ -49,7 +49,7 @@ export function ListaToursApp({
       {ejemplos.length > 0 && (
         <>
           <p className="pt-1 text-[10px] font-bold uppercase tracking-wider text-white/35">
-            {t('tut.tipo.ejemplos', 'Ejemplos · casa demo')}
+            {t('tut.tipo.ejemplos', 'Ejemplos · MindHaOS demo')}
           </p>
           {ejemplos.map((def) => (
             <button

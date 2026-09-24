@@ -139,7 +139,7 @@ export function MaterialEntrada({
     if (id == null) return
     if (!abrirMaterial(e.tipo, id)) {
       setAviso(
-        t('biblioteca.mat.sinCuarto', 'Coloca el cuarto de esa app en tu casa para poder abrir su material.'),
+        t('biblioteca.mat.sinCuarto', 'Coloca el cuarto de esa app en tu MindHaOS para poder abrir su material.'),
       )
     }
   }

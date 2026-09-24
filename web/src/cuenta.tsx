@@ -71,6 +71,9 @@ function Marco({ children }: { children: React.ReactNode }) {
           </svg>
           <span className="flex flex-col leading-tight">
             <span className="text-lg font-extrabold">{t('marca.nombre', 'MindHaOS')}</span>
+            {t('marca.sub', 'Casa Mental OS') !== t('marca.nombre', 'MindHaOS') && (
+              <small className="text-[11px] font-semibold text-white/55">{t('marca.sub', 'Casa Mental OS')}</small>
+            )}
           </span>
         </a>
       </div>
@@ -203,7 +206,7 @@ function Acceso() {
       <p className="text-xs text-white/45">
         {modo === 'registrar'
           ? t('acc.crear.sub', 'Primero tu cuenta; después eliges tu suscripción.')
-          : t('acc.entrar.sub', 'Tu suscripción y tu casa te esperan.')}
+          : t('acc.entrar.sub', 'Tu suscripción y tu MindHaOS (Casa Mental OS) te esperan.')}
       </p>
       <BotonesOAuth />
       <input
@@ -351,13 +354,13 @@ function ConseguirApp() {
           </span>
         </p>
         <ul className="list-none space-y-1 text-xs text-white/60">
-          <li>✓ {t('app.b1', 'Tu casa para siempre, con todas las apps')}</li>
+          <li>✓ {t('app.b1', 'Tu MindHaOS para siempre, con todas las apps')}</li>
           <li>✓ {t('app.b2', 'Primer mes incluido: 700 créditos de IA + sincronización')}</li>
           <li>✓ {t('app.b3', 'Una compra para todos tus dispositivos: navegador, Android e iOS')}</li>
         </ul>
         {puedeComprar ? (
           <button type="button" onClick={() => void alComprar()} disabled={ocupado} className={botonPrincipal}>
-            {ocupado ? t('comun.procesando', 'Procesando…') : t('app.comprar', 'Comprar la casa')}
+            {ocupado ? t('comun.procesando', 'Procesando…') : t('app.comprar', 'Comprar la MindHaOS')}
           </button>
         ) : (
           <a href="/#descargas" className={botonPrincipal + ' block text-center'}>
@@ -367,7 +370,7 @@ function ConseguirApp() {
         {error && <p className="text-xs leading-snug text-red-400/90">{error}</p>}
       </div>
       <p className="text-[11px] leading-snug text-white/45">
-        {t('app.pie', 'Al abrirla, entra con este mismo correo y tu casa te sigue a todos tus dispositivos.')}
+        {t('app.pie', 'Al abrirla, entra con este mismo correo y tu MindHaOS te sigue a todos tus dispositivos.')}
       </p>
     </Panel>
   )
@@ -531,7 +534,7 @@ function Tarifas({ titulo }: { titulo: string }) {
             </div>
             <ul className="list-none space-y-1 text-xs text-white/60">
               <li>✓ {t('tar.b1', 'Nivel ×{n}: {c} créditos de IA al mes', { n: o.nivel, c: o.creditos })}</li>
-              <li>✓ {t('tar.b2', 'Todas las apps de la casa, en todos tus dispositivos')}</li>
+              <li>✓ {t('tar.b2', 'Todas las apps de la MindHaOS, en todos tus dispositivos')}</li>
               <li>✓ {t('tar.b3', 'Sincronización y respaldo en la nube')}</li>
             </ul>
             <button
@@ -686,11 +689,11 @@ function MiCuenta() {
                   : unlock
                     ? t(
                         'mi.estado.local',
-                        'Tu casa es tuya y tus datos viven en tu dispositivo. La IA y la sincronización se pagan aparte: compra los créditos que necesites, o suscríbete y recíbelos cada mes.',
+                        'Tu MindHaOS es tuya y tus datos viven en tu dispositivo. La IA y la sincronización se pagan aparte: compra los créditos que necesites, o suscríbete y recíbelos cada mes.',
                       )
                     : t(
                         'mi.estado.sinCasa',
-                        'Tu cuenta todavía no tiene la casa. Cómprala aquí abajo —o canjea tu cupón si eres tester— y ábrela con este mismo correo en cualquier dispositivo.',
+                        'Tu cuenta todavía no tiene la MindHaOS. Cómprala aquí abajo —o canjea tu cupón si eres tester— y ábrela con este mismo correo en cualquier dispositivo.',
                       )}
             </p>
             {creditosExtra > 0 && (
@@ -732,7 +735,7 @@ function MiCuenta() {
             </a>
           ) : (
             <a href={`${URL_APP}/?probar=1`} className={botonSecundario + ' block text-center'}>
-              {t('mi.probarApp', 'Probar hacer tu casa gratis')}
+              {t('mi.probarApp', 'Probar hacer tu MindHaOS gratis')}
             </a>
           ))}
         <button type="button" onClick={() => void salir()} className={botonSecundario}>

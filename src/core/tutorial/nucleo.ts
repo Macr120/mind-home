@@ -165,7 +165,7 @@ export const cuerpoHoy: CuerpoTutorial = {
       titulo: T('tut.hoy.9.titulo', 'Y todas juntas, en el calendario'),
       texto: T(
         'tut.hoy.9.texto',
-        'Este es el botón Misiones del reloj, con su propio globo: junta lo que hay que hacer hoy en TODA la casa, una tarjeta por app —a la izquierda lo que falta, a la derecha lo que ya está—. Aquí no se registra nada: cada fila te lleva a su app, que es donde se apunta el dato.',
+        'Este es el botón Misiones del reloj, con su propio globo: junta lo que hay que hacer hoy en TODA la MindHaOS, una tarjeta por app —a la izquierda lo que falta, a la derecha lo que ya está—. Aquí no se registra nada: cada fila te lleva a su app, que es donde se apunta el dato.',
       ),
     },
   ],
@@ -246,7 +246,7 @@ export const cuerpoProgreso: CuerpoTutorial = {
       titulo: T('tut.progreso.7.titulo', 'El radar por cuarto'),
       texto: T(
         'tut.progreso.7.texto',
-        'Cada vértice es un cuarto de la casa, y su tamaño es la suma de XP de las apps que tiene asignadas. Un cuarto vacío de actividad se nota al vuelo: su vértice se hunde hacia el centro.',
+        'Cada vértice es un cuarto de la MindHaOS, y su tamaño es la suma de XP de las apps que tiene asignadas. Un cuarto vacío de actividad se nota al vuelo: su vértice se hunde hacia el centro.',
       ),
     },
   ],

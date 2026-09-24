@@ -16,7 +16,7 @@ export const cuerpoEsencial: CuerpoTutorial = {
   },
   pasos: [
     {
-      titulo: T('tut.app-metas--esencial.1.titulo', 'El planificador de la casa'),
+      titulo: T('tut.app-metas--esencial.1.titulo', 'El planificador de la MindHaOS'),
       texto: T(
         'tut.app-metas--esencial.1.texto',
         'Este cuarto no lleva registros suyos: reúne en un solo sitio las metas y los planes que nacen en las demás apps. Son tres menús, y se leen en este orden: lo que te propusiste, cómo piensas repartirlo y cuándo cae.',

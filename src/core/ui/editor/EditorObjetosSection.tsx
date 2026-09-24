@@ -529,7 +529,7 @@ export function EditorObjetosSection() {
                     onChange={(e) =>
                       seleccionado.id != null && setObjetoTexto(seleccionado.id, e.target.value)
                     }
-                    placeholder={t('editor.obj.textoPh', 'El nombre de tu casa o una frase…')}
+                    placeholder={t('editor.obj.textoPh', 'El nombre de tu MindHaOS o una frase…')}
                     className="w-full resize-none rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-sm text-white/85 placeholder:text-white/25 focus:outline-none"
                   />
                   <p className="text-[10px] leading-snug text-white/35">

@@ -37,7 +37,7 @@ const flujoTrazos = tour(
   T('tut.infra-caminos--trazos.titulo', 'Pista, riel y coaster'),
   T(
     'tut.infra-caminos--trazos.resumen',
-    'Los tres tipos de trazo del mapa y cómo se dibujan en tu propia casa.',
+    'Los tres tipos de trazo del mapa y cómo se dibujan en tu propia MindHaOS.',
   ),
   'cuerpoTrazos',
 )

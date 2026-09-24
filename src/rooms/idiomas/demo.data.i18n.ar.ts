@@ -686,7 +686,7 @@ export default {
       "dia": -140,
       "tema": "b1-viajes",
       "titulo": "عبارات تسجيل الوصول",
-      "texto": "I have a reservation under the name Pepa. — أكثر جملة كرّرتُها خلال ثلاثة أسابيع.\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — أساسية في أيام التنقّل بالقطار.\nIs there a laundry nearby?\nوهذه كانت تصلني أنا دائمًا: «Could I see your passport, please?»"
+      "texto": "I have a reservation under the name Nour. — أكثر جملة كرّرتُها خلال ثلاثة أسابيع.\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — أساسية في أيام التنقّل بالقطار.\nIs there a laundry nearby?\nوهذه كانت تصلني أنا دائمًا: «Could I see your passport, please?»"
     },
     {
       "dia": -85,

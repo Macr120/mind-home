@@ -303,7 +303,7 @@ export function EditorRespaldoSection({
         <div className="rounded-lg bg-white/5 p-3 border border-amber-500/30 space-y-2">
           <p className="text-sm font-semibold text-amber-400">{t('respaldo.confirm.titulo', 'Confirmar restauración')}</p>
           <p className="text-xs text-white/60 leading-relaxed">
-            {t('respaldo.confirm.desc', `${pendiente.nombre} contiene ${pendiente.filas} registros. Restaurar reemplazará todos los datos actuales y dejará la casa tal como estaba al momento de exportar.`, { nombre: pendiente.nombre, n: String(pendiente.filas) })}
+            {t('respaldo.confirm.desc', `${pendiente.nombre} contiene ${pendiente.filas} registros. Restaurar reemplazará todos los datos actuales y dejará la MindHaOS tal como estaba al momento de exportar.`, { nombre: pendiente.nombre, n: String(pendiente.filas) })}
           </p>
           {pendiente.ignoradas.length > 0 && (
             <p className="text-xs text-white/40">

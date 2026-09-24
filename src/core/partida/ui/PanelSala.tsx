@@ -34,7 +34,7 @@ export function PanelSala({ onCerrar }: { onCerrar: () => void }) {
     const nombre = j.alias ? `@${j.alias}` : j.nombre || j.ranura
     const si = await confirmar({
       titulo: t('partida.sala.expulsar.titulo', 'Sacar de la sala'),
-      mensaje: t('partida.sala.expulsar.pregunta', '¿Sacar a {n} de tu casa?', { n: nombre }),
+      mensaje: t('partida.sala.expulsar.pregunta', '¿Sacar a {n} de tu MindHaOS?', { n: nombre }),
       textoOk: t('partida.sala.expulsar', 'Expulsar'),
       peligro: true,
     })
@@ -51,7 +51,7 @@ export function PanelSala({ onCerrar }: { onCerrar: () => void }) {
       titulo: t('partida.sala.salir', 'Salir de la sala'),
       mensaje: sala.soyAnfitrion
         ? t('partida.sala.salir.anfitrion', 'La sala se cerrará para todos.')
-        : t('partida.sala.salir.invitado', 'Volverás a tu casa.'),
+        : t('partida.sala.salir.invitado', 'Volverás a tu MindHaOS.'),
       textoOk: t('partida.sala.salir', 'Salir de la sala'),
       peligro: true,
     })
@@ -100,7 +100,7 @@ export function PanelSala({ onCerrar }: { onCerrar: () => void }) {
         {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
         <div className="flex items-center justify-between gap-2">
           <p className="text-[11px] tabular-nums text-white/35">
-            {retraso > 0 ? t('partida.sala.rtt', 'Retraso {n} ms', { n: retraso }) : t('partida.sala.anfitriona', 'Tu casa manda')}
+            {retraso > 0 ? t('partida.sala.rtt', 'Retraso {n} ms', { n: retraso }) : t('partida.sala.anfitriona', 'Tu MindHaOS manda')}
           </p>
           <BotonSecundario pequeno onClick={() => void salir()}>
             {t('partida.sala.salir', 'Salir de la sala')}

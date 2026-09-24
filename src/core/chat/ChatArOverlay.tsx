@@ -286,7 +286,7 @@ export default function ChatArOverlay() {
     const txt = texto.trim()
     if (!txt || pensando) return
     if (!iaActiva()) {
-      setBurbuja(t('chatAr.sinIa', 'Para conversar aquí primero elige un modelo de IA en el chat de la casa.'))
+      setBurbuja(t('chatAr.sinIa', 'Para conversar aquí primero elige un modelo de IA en el chat de la MindHaOS.'))
       return
     }
     callarComoAsistente()

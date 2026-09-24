@@ -1,6 +1,7 @@
 /** Textos de las páginas estáticas en alemán. Traducción de `es.mjs`. */
 export const TEXTOS = {
   'marca.nombre': 'MindHaOS',
+  'marca.sub': 'Gedankenhaus OS',
   'nav.entrar': 'Anmelden',
   'nav.descargar': 'Herunterladen',
   'pie.inicio': 'Start',
@@ -39,10 +40,10 @@ export const TEXTOS = {
   'hero.sub.4':
     'zu archivieren, zu planen oder neu zu erschaffen — ganz von Hand oder mit Hilfe der KI. Und alle hängen an einem Kalender, an täglichen Missionen und an deinen persönlichen Zielen, synchron auf Handy und Computer.',
   'hero.cta': 'App herunterladen',
-  'hero.probar': 'Bau dein Haus – gratis ausprobieren',
+  'hero.probar': 'Bau dein MindHaOS – gratis ausprobieren',
   'hero.nota':
-    'Die App ist gratis und läuft offline; das Haus wird einmal gekauft — hier im Web oder in der App. KI und Sync sind optional — und wenn du sie sein lässt, verlierst du nichts.',
-  'hero.video': 'Hier kommt dein Video oder deine Screenshots vom Haus hin',
+    'Die App ist gratis und läuft offline; das MindHaOS (Gedankenhaus OS) wird einmal gekauft — hier im Web oder in der App. KI und Sync sind optional — und wenn du sie sein lässt, verlierst du nichts.',
+  'hero.video': 'Hier kommt dein Video oder deine Screenshots vom MindHaOS (Gedankenhaus OS) hin',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
   'cifras.apps': 'Apps',
@@ -53,8 +54,8 @@ export const TEXTOS = {
   'cifras.chat': 'Chat',
 
   'como.h2': 'So funktioniert es',
-  'como.sub': 'Ein Ort, an dem du dein Haus baust und danach dein Leben hineinstellst.',
-  'como.1.t': 'Du baust dein Haus',
+  'como.sub': 'Ein Ort, an dem du dein MindHaOS (Gedankenhaus OS) baust und danach dein Leben hineinstellst.',
+  'como.1.t': 'Du baust dein MindHaOS',
   'como.1.p':
     'Du setzt Räume, Stockwerke und sogar einen Keller ein, und drumherum alles, was draußen gebaut wird: Gemüsegarten, Bauernhof, Sportplätze, Rennstrecken. Wände, Farben, Möbel und deinen Avatar wählst du selbst.',
   'como.2.t': 'Jeder Raum ist eine vollständige App',
@@ -62,18 +63,18 @@ export const TEXTOS = {
     'Du weist ihm eine der 17 Apps zu — Ernährung, Sport, Schlaf, Finanzen, Bibliothek, Sprachen, Ideen, Agenda, Reisen, Hobbys, Ziele… —, eine der vier aus dem Studio — Audio, Kunst, Schreiben und Video — oder du baust dir deine eigene. Damit archivierst du, was du schon erlebt hast, planst, was kommt, und erschaffst, was es noch nicht gibt: Routinen, Rezepte, Budgets, Notizen, Mindmaps, Zeitpläne, Songs und Bücher. Alles von Hand — oder mit der KI an deiner Seite.',
   'como.3.t': 'Alles landet am selben Ort',
   'como.3.p':
-    'Die 17 Apps und die vier aus dem Studio teilen sich einen Kalender, eine Liste täglicher Missionen und deine persönlichen Ziele. Und dein ganzes Haus folgt dir vom Handy zum Computer.',
+    'Die 17 Apps und die vier aus dem Studio teilen sich einen Kalender, eine Liste täglicher Missionen und deine persönlichen Ziele. Und dein ganzes MindHaOS (Gedankenhaus OS) folgt dir vom Handy zum Computer.',
 
-  'car.h2': 'Ein Haus, viele Apps',
+  'car.h2': 'Ein MindHaOS, viele Apps',
   // Las tres primeras tarjetas: el argumento de compra.
   'car.todo.t': 'Alles in einem, wirklich',
   'car.todo.p':
     'Eine App statt zwanzig: Essen, Geld, Schlaf, Lernen, Gewohnheiten und Ziele unter einem Dach — und miteinander verbunden, was genau das ist, was keine einzelne App kann.',
   'car.nocaduca.t': 'Läuft nicht ab, wenn du aufhörst zu zahlen',
   'car.nocaduca.p':
-    'Einmal gekauft, dann gehört sie dir. Abo-Apps gehen aus, sobald du nicht mehr zahlst; hier behältst du das ganze Haus und alle Daten auf deinem Gerät, auch wenn du die KI sein lässt.',
+    'Einmal gekauft, dann gehört sie dir. Abo-Apps gehen aus, sobald du nicht mehr zahlst; hier behältst du das ganze MindHaOS und alle Daten auf deinem Gerät, auch wenn du die KI sein lässt.',
   'car.nuevas.t': 'Neue Updates',
-  'car.nuevas.p': 'Das Haus wächst weiter: Räume, Apps und Verbesserungen, die kommen, ohne dass du erneut zahlst.',
+  'car.nuevas.p': 'Das MindHaOS wächst weiter: Räume, Apps und Verbesserungen, die kommen, ohne dass du erneut zahlst.',
   'car.1.t': 'Räume, die Apps sind',
   'car.1.p':
     'Sport, Küche, Finanzen, Schlaf, Bibliothek, Sprachen, Reisen, Hobbys, Achtsamkeit und mehr: jeder Raum beherbergt eine vollständige Mini-App.',
@@ -85,7 +86,7 @@ export const TEXTOS = {
     'Sprich mit deinem Assistenten: erfasse Mahlzeiten, lege Routinen an, plane Ziele, erzeuge Bilder und 3D-Modelle. Dein erster Monat bringt 700 Credits mit; danach ist die KI optional.',
   'car.3.t': 'Sync über alles hinweg',
   'car.3.p':
-    'Dein Haus folgt dir aufs Handy, aufs Tablet und an den Rechner. Alles verschlüsselt unterwegs und in der Cloud gesichert.',
+    'Dein MindHaOS folgt dir aufs Handy, aufs Tablet und an den Rechner. Alles verschlüsselt unterwegs und in der Cloud gesichert.',
   'car.4.t': 'Es fühlt sich an wie ein Spiel',
   'car.4.p':
     'Deine Figur lebt von deiner echten Aktivität: Serien, Abzeichen, der Sisyphosberg, Fahrzeuge, Rennen und Minispiele.',
@@ -101,7 +102,7 @@ export const TEXTOS = {
   // claves `ia.t/p/precios/cta` de más abajo, que son la franja de PRECIOS.
   'ia.h2': 'Dein Assistent, mit oder ohne Cloud',
   'ia.sub':
-    'Die KI im Haus erfasst, plant und erschafft mit dir. Und du entscheidest, was sie antreibt: ein Anbieter in der Cloud oder dein eigener Rechner.',
+    'Die KI im MindHaOS erfasst, plant und erschafft mit dir. Und du entscheidest, was sie antreibt: ein Anbieter in der Cloud oder dein eigener Rechner.',
   'ia.cap.1.t': 'Erfassen, indem du redest',
   'ia.cap.1.p':
     'Erzähl ihr, was du gegessen, ausgegeben oder trainiert hast — sie trägt es im passenden Raum ein, mit Feldern und Datum.',
@@ -110,7 +111,7 @@ export const TEXTOS = {
     'Du nennst ein Ziel und sie schlägt den Zeitplan vor: Schritte, Termine und Tagesmissionen, die du danach von Hand änderst.',
   'ia.cap.3.t': 'Erzeuge Bilder und 3D-Objekte',
   'ia.cap.3.p':
-    'Illustriere deine Rezepte, deine Kleidung und deine Ideen, und baue neue Möbel und Objekte für dein Haus.',
+    'Illustriere deine Rezepte, deine Kleidung und deine Ideen, und baue neue Möbel und Objekte für dein MindHaOS.',
   'ia.cap.4.t': 'Sie spricht und hört dir zu',
   'ia.cap.4.p':
     'Deine Assistenten antworten mit Stimme, und das Diktat lässt dich den Tag festhalten, ohne ein Wort zu tippen.',
@@ -119,21 +120,21 @@ export const TEXTOS = {
     'Claude, Gemini oder ChatGPT: Du wählst, wer denkt, wer spricht und wer zeichnet. Mit den Credits deines Plans oder mit deinen eigenen Schlüsseln.',
   'ia.local.t': 'Oder auf deinem Rechner, mit Ollama',
   'ia.local.p':
-    'Installiere Ollama und das Haus spricht mit dem Modell auf deinem Rechner: ohne Credits, ohne Verbindung und ohne dass etwas nach außen geht.',
+    'Installiere Ollama und das MindHaOS spricht mit dem Modell auf deinem Rechner: ohne Credits, ohne Verbindung und ohne dass etwas nach außen geht.',
   'ia.local.nota':
     'Stimme und Bilder brauchen weiterhin einen Anbieter in der Cloud, außer dein lokales Modell kann sie selbst erzeugen.',
 
   'mani.h2': 'Dein Leben, als Videospiel',
   'mani.p1':
-    'MindHaOS ist die Darstellung deines Lebens als Videospiel, gespielt vom bequemsten Ort, den es gibt: deinem eigenen Haus. Level und Ränge sind keine Deko — sie sind das, was du da draußen getan hast, hier drinnen erzählt.',
+    'MindHaOS ist die Darstellung deines Lebens als Videospiel, gespielt vom bequemsten Ort, den es gibt: deinem eigenen MindHaOS. Level und Ränge sind keine Deko — sie sind das, was du da draußen getan hast, hier drinnen erzählt.',
   'mani.p2':
     'Hier baust du neue Fähigkeiten aus, behältst deine Ressourcen im Griff und stellst die Technik auf deine Seite. Gegen den unbewussten Konsum von Kurzformaten. Gegen den kognitiven Verfall, den die Konsumgewohnheiten hinterlassen, die uns die großen Konzerne aufdrängen.',
   'mani.cierre': 'Dasselbe Dopamin. Diesmal für dein echtes Leben.',
 
-  'precio.h2': 'Eine Zahlung im Store, dein Haus für immer',
+  'precio.h2': 'Eine Zahlung im Store, dein MindHaOS für immer',
   'precio.probar.nombre': 'Probier sie aus',
   'precio.probar.cifra': 'Kostenlos',
-  'precio.probar.1': 'Dein eigenes Haus mit dem Willkommensmenü: probier alles aus',
+  'precio.probar.1': 'Dein eigenes MindHaOS mit dem Willkommensmenü: probier alles aus',
   'precio.probar.2': 'Ohne Konto, ohne Karte und ohne Verbindung',
   'precio.probar.3': 'Nichts wird gespeichert, bis du ein Konto hast: beim Kauf bekommst du deinen Test zurück',
   'precio.probar.cta': 'App testen',
@@ -141,11 +142,11 @@ export const TEXTOS = {
   'precio.app.nombre': 'Die App',
   'precio.app.cifra': '8,99 USD',
   'precio.app.pagoUnico': 'einmalige Zahlung',
-  'precio.app.1': 'Dein eigenes Haus, für immer: alle Apps, deine Daten auf deinem Gerät',
+  'precio.app.1': 'Dein eigenes MindHaOS, für immer: alle Apps, deine Daten auf deinem Gerät',
   'precio.app.2': 'Erster Monat inklusive: 700 KI-Credits + Sync, ohne Karte und ohne Abo',
   'precio.app.3':
     'Nach dem Monat behältst du die ganze App und deine Daten; die KI-Credits sind optional',
-  'precio.app.cta': 'Haus kaufen',
+  'precio.app.cta': 'MindHaOS kaufen',
   'precio.app.pie':
     'Kauf es direkt hier, ganz ohne Store, oder in der App auf deinem Handy. Eine Zahlung, keine Verlängerungen, gültig auf allen deinen Geräten.',
 
@@ -158,16 +159,16 @@ export const TEXTOS = {
 
   'desc.h2': 'App herunterladen',
   'desc.sub':
-    'Lade sie gratis herunter und kaufe das Haus in der App — oder hier im Web. Mit deinem Konto taucht dein Haus überall sonst wieder auf, auch im Browser.',
+    'Lade sie gratis herunter und kaufe das MindHaOS in der App — oder hier im Web. Mit deinem Konto taucht dein MindHaOS überall sonst wieder auf, auch im Browser.',
   'desc.pronto': 'Demnächst',
-  'desc.android': 'Gratis bei Google Play. Das Haus wird darin gekauft.',
+  'desc.android': 'Gratis bei Google Play. Das MindHaOS wird darin gekauft.',
   'desc.ios.t': 'iPhone und iPad',
-  'desc.ios': 'Gratis im App Store. Das Haus wird darin gekauft.',
+  'desc.ios': 'Gratis im App Store. Das MindHaOS wird darin gekauft.',
   'desc.web.t': 'In deinem Browser',
   'desc.web':
-    'Nichts zu installieren: Melde dich mit deinem Konto an und dein Haus wartet. Ohne Konto kannst du die App ausprobieren.',
+    'Nichts zu installieren: Melde dich mit deinem Konto an und dein MindHaOS wartet. Ohne Konto kannst du die App ausprobieren.',
   'desc.web.cta': 'App öffnen',
-  'desc.windows': 'Gratis im Microsoft Store. Das Haus wird darin gekauft.',
+  'desc.windows': 'Gratis im Microsoft Store. Das MindHaOS wird darin gekauft.',
   'desc.windows.cta': 'Für Windows herunterladen',
   'desc.mac': '.dmg-Image für Mac.',
   'desc.mac.cta': 'Für Mac herunterladen',
@@ -175,10 +176,10 @@ export const TEXTOS = {
   'faq.h2': 'Häufige Fragen',
   'faq.1.q': 'Wo kauft man die App?',
   'faq.1.a':
-    'Wo du willst: hier im Web, in <a href="/cuenta">deinem Konto</a>, oder in der App für Android und iPhone. Es ist eine einmalige Zahlung, die in deinem Konto gespeichert wird — egal wo du kaufst, dein Haus erscheint auf allen deinen Geräten.',
+    'Wo du willst: hier im Web, in <a href="/cuenta">deinem Konto</a>, oder in der App für Android und iPhone. Es ist eine einmalige Zahlung, die in deinem Konto gespeichert wird — egal wo du kaufst, dein MindHaOS erscheint auf allen deinen Geräten.',
   'faq.2.q': 'Was ist in der einmaligen Zahlung enthalten?',
   'faq.2.a':
-    'Das ganze Haus: alle Räume, alle Apps und deine Daten auf deinem Gerät, für immer und ohne Verlängerungen. Dazu bringt der erste Monat 700 KI-Credits und die Sync mit, ohne Karte. Vor dem Kauf kannst du die komplette App testen, die kein Konto verlangt.',
+    'Das ganze MindHaOS: alle Räume, alle Apps und deine Daten auf deinem Gerät, für immer und ohne Verlängerungen. Dazu bringt der erste Monat 700 KI-Credits und die Sync mit, ohne Karte. Vor dem Kauf kannst du die komplette App testen, die kein Konto verlangt.',
   'faq.3.q': 'Was kostet die KI nach dem ersten Monat?',
   'faq.3.a':
     'Was du willst, oder nichts. Das Abo kostet 6 USD im Monat (700 Credits und Sync) oder 60 USD im Jahr — zwei Monate geschenkt. Wenn das zu knapp ist, geben die Stufen ×2 und ×3 1400 oder 2100 Credits für 12 oder 18 USD im Monat. Und wenn du lieber kein Abo willst, gibt es einzelne Aufladungen: 6 USD für 700 Credits, die nicht verfallen und nur dann verbraucht werden, wenn du etwas anforderst. Das wird hier bezahlt, in <a href="/cuenta">deinem Konto</a>, und gilt für alle deine Geräte.',
@@ -193,7 +194,7 @@ export const TEXTOS = {
     'Zuerst auf deinem Gerät (die App ist local-first) und, mit aktiver Synchronisierung, auch in der Cloud, um von einem Gerät zum anderen zu wechseln. Im lokalen Modus verlässt nichts dein Gerät. Die Zahlungen wickeln RevenueCat und Stripe ab — oder der Store, wenn du vom Handy aus kaufst: Deine Karte sehen wir nie. Mehr dazu in der <a href="/privacidad">Datenschutzerklärung</a>.',
   'faq.7.q': 'Auf welchen Geräten läuft sie?',
   'faq.7.a':
-    'Heute: in jedem modernen Browser. Sehr bald: Android (Google Play), iPhone/iPad (App Store), Windows und macOS. Dein Konto gilt für alle: Du kaufst einmal, wo es dir passt, und sowohl das Haus als auch das KI-Abo funktionieren auf jedem Gerät, auf dem du dich mit deiner E-Mail anmeldest.',
+    'Heute: in jedem modernen Browser. Sehr bald: Android (Google Play), iPhone/iPad (App Store), Windows und macOS. Dein Konto gilt für alle: Du kaufst einmal, wo es dir passt, und sowohl das MindHaOS als auch das KI-Abo funktionieren auf jedem Gerät, auf dem du dich mit deiner E-Mail anmeldest.',
   'faq.8.q': 'Wie kündige oder lösche ich mein Konto?',
   'faq.8.a':
     'Zum Kündigen der Abbuchung «Abo verwalten» in <a href="/cuenta">deinem Konto</a>. Zum Löschen deines Kontos und all deiner Daten von unseren Servern aus der App: Editor → Einstellungen → Konto.',

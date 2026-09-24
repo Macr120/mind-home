@@ -10,7 +10,7 @@ import type { Dict } from './dict'
 export const TR_TUT: Dict = {
   'tut.app-computo--formulario.1.titulo': 'Hesap makinesinden açılır',
   'tut.app-computo--formulario.1.texto':
-    'Formül Defteri’nin tamamı bu menüde yaşar, hesap yaptığın yerden bir dokunuş uzakta. Matematik, Fizik ve Kimya hazır gelir ve konularına göre gruplanmıştır, istediğin gibi iç içe koyabileceğin klasörlerde. Pep’in ayrıca vizeleriyle Fizik II’si, kafenin hesapları ve koşunun hesapları var.',
+    'Formül Defteri’nin tamamı bu menüde yaşar, hesap yaptığın yerden bir dokunuş uzakta. Matematik, Fizik ve Kimya hazır gelir ve konularına göre gruplanmıştır, istediğin gibi iç içe koyabileceğin klasörlerde. Deniz’in ayrıca vizeleriyle Fizik II’si, kafenin hesapları ve koşunun hesapları var.',
   'tut.app-computo--formulario.2.titulo': 'Hepsi senin',
   'tut.app-computo--formulario.2.texto':
     '«Hazır gelen» ve «benim» diye bir ayrım yok: her formül aynı şekilde açılır, düzenlenir ve silinir. Yukarıdaki arama kutusu hepsinin içinde arar.',
@@ -54,7 +54,7 @@ export const TR_TUT: Dict = {
     'Denklemi eşittir işaretiyle birlikte yaz. Polinomsa köklerini tam olarak verir; değilse baktığın aralığın içinde arar ve hangisi olduğunu söyler.',
   'tut.app-computo--hojas.1.titulo': 'Tabloların',
   'tut.app-computo--hojas.1.texto':
-    'Her tablo başlı başına bir belgedir. Pep’te Japonya bütçesi, maratonun 18 haftalık planı ve Fizik II notları var.',
+    'Her tablo başlı başına bir belgedir. Deniz’de Japonya bütçesi, maratonun 18 haftalık planı ve Fizik II notları var.',
   'tut.app-computo--hojas.2.titulo': 'Bir yerden başla',
   'tut.app-computo--hojas.2.texto':
     'Uygulama, formülleriyle birlikte hazırlanmış üç tablo getirir —bütçe, ağırlıklı ortalama ve ölçüm kaydı— böylece boş sayfadan başlamazsın. Hepsi senin: değiştir ya da sil.',
@@ -67,17 +67,17 @@ export const TR_TUT: Dict = {
   'tut.app-computo--hojas.5.titulo': 'Dışa aktarma',
   'tut.app-computo--hojas.5.texto':
     'Excel’e gerçek bir .xlsx çıkar: formüller canlı, grafikler de Excel grafiği olarak. PDF ise tarayıcının yazıcısından geçer.',
-  'tut.casa.1.texto': 'İşte evin: her oda bir uygulama barındırır. Sana temel kontrolleri göstereyim.',
+  'tut.casa.1.texto': 'İşte MindHaOS\'un: her oda bir uygulama barındırır. Sana temel kontrolleri göstereyim.',
   'tut.casa.2.titulo': 'Ana menü',
   'tut.casa.2.texto': 'Görebilesin diye açtım: bu ana menü, odaların ve uygulamalarıyla. Diğer sekmeleri İç mekânı (uygulama kataloğunu) ve araziye inşa edilen Dış mekânı getirir.',
   'tut.casa.2b.titulo': 'Uygulama kataloğu',
   'tut.casa.2b.texto':
-    'İkinci sekmesi: şablon kataloğu — evin taşıyabileceği bütün uygulamalar, her biri bir odaya atanmaya hazır.',
+    'İkinci sekmesi: şablon kataloğu — MindHaOS\'un taşıyabileceği bütün uygulamalar, her biri bir odaya atanmaya hazır.',
   'tut.casa.2c.titulo': 'Dış mekân',
   'tut.casa.2c.texto': 'Ve üçüncüsü: Dış mekân — yarış pistleri, sahalar, bostan, sığınak ve paintball. Bir oda kaplamazlar, doğrudan araziye inşa edilirler.',
   'tut.casa.3.titulo': 'Hareket etmek',
   'tut.casa.3.texto':
-    'Joystick’le, WASD ile ya da klavyenin ok tuşlarıyla yürü: evin tamamı yürüyerek gezilir. Gezinmek uygulamaları açmaz — girmek için odanın havada süzülen küreli nesnesine dokun.',
+    'Joystick’le, WASD ile ya da klavyenin ok tuşlarıyla yürü: MindHaOS\'un tamamı yürüyerek gezilir. Gezinmek uygulamaları açmaz — girmek için odanın havada süzülen küreli nesnesine dokun.',
   'tut.casa.4.titulo': 'Üç bakış biçimi',
   'tut.casa.4.texto':
     'Az önce sana canlı gösterdim: izometrik, üçüncü ve birinci şahıs (ya da V tuşu). İzo’ya dokunmak ayrıca kamerayı karakterinin üzerine yeniden ortalar: keşfe dalıp uzaklaştıysan hızlı dönüş yolu.',
@@ -89,13 +89,13 @@ export const TR_TUT: Dict = {
     'İşte açık hali: Hareketler, Oyuncaklar, Araçlar ve İnşaat; aynı anda en fazla 3 tanesi kuşanılır. Joystick’in yanındaki düğmeden ya da elin boşken köşedeki o yuvadan çıkar.',
   'tut.casa.7.titulo': 'Saat',
   'tut.casa.7.texto':
-    'Evin saati: ona dokunmak tam takvimi açar, günün Görevleriyle birlikte. Güneş ya da ay ise bu paneli açar: zamanın akışı ve sahnenin ışığı.',
-  'tut.casa.8.titulo': 'Evin müziği',
+    'MindHaOS\'un saati: ona dokunmak tam takvimi açar, günün Görevleriyle birlikte. Güneş ya da ay ise bu paneli açar: zamanın akışı ve sahnenin ışığı.',
+  'tut.casa.8.titulo': 'MindHaOS\'un müziği',
   'tut.casa.8.texto':
-    'Ev sessizlik içinde başlar: film müziği istersen müziği buradan aç. Her oda önceden yüklenmiş temalı şarkılarla gelir, ya da bırak evin genel atmosferi çalsın.',
+    'MindHaOS sessizlik içinde başlar: film müziği istersen müziği buradan aç. Her oda önceden yüklenmiş temalı şarkılarla gelir, ya da bırak MindHaOS\'un genel atmosferi çalsın.',
   'tut.casa.9.titulo': 'Sohbet',
   'tut.casa.9.texto':
-    'Mimarın sohbeti: ne yaptığını anlat, doğru uygulamaya kaydetsin; evde değişiklikler, görseller, hatta odaların için 3D modeller iste — ya da sadece biraz sohbet et.',
+    'Mimarın sohbeti: ne yaptığını anlat, doğru uygulamaya kaydetsin; MindHaOS\'ta değişiklikler, görseller, hatta odaların için 3D modeller iste — ya da sadece biraz sohbet et.',
   'tut.casa.asistente.titulo': 'Asistanın',
   'tut.casa.asistente.texto':
     'Bu düğme senin asistanın: sohbette sana yanıt veren o. Dokununca menüsü açılır; oradan onu kişiselleştirirsin — şeklini, sesini ve kişiliğini.',
@@ -104,7 +104,7 @@ export const TR_TUT: Dict = {
     'Görebilmen için açtım: + ile sohbete bir şeyler eklersin — bir görsel ya da PDF yükle, fotoğraf çek, ya da yüz yüze AR maskesine ve AR sohbetine geç.',
   'tut.casa.editor.titulo': 'Düzenleyici',
   'tut.casa.editor.texto':
-    'Yukarıdaki Düzenleyici düğmesi bunu açar: dört sekmede kişiselleştirmenin tamamı — Harita, Karakterler, Nesneler ve Ayarlar. Evin tamamı burada çizilir ve giydirilir.',
+    'Yukarıdaki Düzenleyici düğmesi bunu açar: dört sekmede kişiselleştirmenin tamamı — Harita, Karakterler, Nesneler ve Ayarlar. MindHaOS\'un tamamı burada çizilir ve giydirilir.',
   'tut.casa.10.texto':
     'Temeller bu kadar. Her menünün ve her uygulamanın kendi ? düğmesi ve kendi eğitimi var: bir şey kafana yatmadığında onu iste.',
   'tut.primeros.1.texto': 'Bu eğitim iki şeyi yanıtlar: uygulamalarına nasıl GİRİLİR ve yenisi nasıl OLUŞTURULUR. İkisi de burada, Ev sekmesinde.',
@@ -138,8 +138,8 @@ export const TR_TUT: Dict = {
   'tut.primeros.press.texto':
     'Bak nasıl titriyor: bir odayı ya da nesneyi basılı tutmak onu uyandırır, menüsüyle birlikte. Böylece durduğu yeri beğenmediysen onu taşırsın, ya da silersin.',
   'tut.primeros.6.texto':
-    'Hepsi bu: odayı oluşturmak, uygulamasını vermek, girmek ve yerleştirmek. Bu oda alıştırma içindi — bitirdiğimizde onu geri alıyorum, evini kendi zevkine göre kurasın diye.',
-  'tut.menu-cuartos.1.texto': 'Ev sekmesi evindeki bütün odaları kategoriye göre gruplayarak listeler.',
+    'Hepsi bu: odayı oluşturmak, uygulamasını vermek, girmek ve yerleştirmek. Bu oda alıştırma içindi — bitirdiğimizde onu geri alıyorum, MindHaOS\'unu kendi zevkine göre kurasın diye.',
+  'tut.menu-cuartos.1.texto': 'Ev sekmesi MindHaOS\'undaki bütün odaları kategoriye göre gruplayarak listeler.',
   'tut.menu-cuartos.2.titulo': 'Senin özetin',
   'tut.menu-cuartos.2.texto':
     'Karakterin senin gerçek etkinliğinden beslenir: burada keyfini, seviyesini ve serisini görürsün. Herhangi bir uygulamaya bir şey kaydet, keyiflendiğini fark edersin; birkaç gün hiçbir şey olmazsa üzülür — ama seni asla cezalandırmaz, hiçbir şey sıfırlanmaz.',
@@ -184,7 +184,7 @@ export const TR_TUT: Dict = {
     'Bir ad ve en az bir blok varsa Kaydet, şablonu katalogda kullanıma hazır bırakır. Oradan da her hazır şablon gibi bir nesneye atanır.',
   'tut.plantillas-custom.6.texto':
     'İstediğin zaman yeniden düzenleyebilirsin: blokları ve verileri yerinde kalır, sadece değiştirdiğin şey değişir.',
-  'tut.menu-inventario.1.texto': 'Envanter: evine yerleştirebileceğin bütün nesneler, sürüklenmeye hazır.',
+  'tut.menu-inventario.1.texto': 'Envanter: MindHaOS\'una yerleştirebileceğin bütün nesneler, sürüklenmeye hazır.',
   'tut.menu-inventario.2.titulo': 'Harita',
   'tut.menu-inventario.2.texto': 'ZATEN yerleştirilmiş olanlar, oda oda: bir küçük resme dokunarak o nesneyi düzenle.',
   'tut.menu-inventario.3.titulo': 'Katalog',
@@ -193,17 +193,17 @@ export const TR_TUT: Dict = {
   'tut.menu-inventario.4.texto': 'Katalog açıkken bir küçük resmi doğrudan 3B sahneye sürükle ve istediğin yere bırak.',
   'tut.menu-inventario.5.texto': 'Diğer dal olan Oluştur, parçalardan ya da yapay zekâyla yeni nesneler yapmak ve seçtiğini düzenlemek içindir.',
   'tut.editor-mapa.1.texto':
-    'Ev düzenleyicisinin 4 sekmesi var: Harita, Karakterler, Nesneler ve Ayarlar. Bu tur Harita’nınki; diğer üçünün de kendi turu var.',
+    'MindHaOS düzenleyicisinin 4 sekmesi var: Harita, Karakterler, Nesneler ve Ayarlar. Bu tur Harita’nınki; diğer üçünün de kendi turu var.',
   'tut.editor-mapa.2.titulo': 'Plan',
   'tut.editor-mapa.2.texto':
     'Yukarıdan görünen bir ızgaranın üstüne çizersin: odalar, duvarlar, kapılar, pencereler ve zeminler; üst çubuktaki modlar ve fırçalarla. Çizdiğin şey hiçbir şey yeniden yüklenmeden anında 3D’de belirir.',
   'tut.editor-mapa.3.texto':
     'Çatılar hücre hücre çalışır: her hücrenin kendi biçimi ya da malzemesi olabilir, yani aynı oda tek bir düz çatı yerine farklı eğimleri bir araya getirebilir.',
   'tut.editor-mapa.4.texto':
-    'Evin seviyeleri de var: yukarı doğru üst üste eklenen katlar ve aşağıda bir bodrum. Her yeni seviye kendi çıkış yoluyla doğar —bir merdiven ya da döşemede bir boşluk— ve üstteki katı deler.',
+    'MindHaOS\'un seviyeleri de var: yukarı doğru üst üste eklenen katlar ve aşağıda bir bodrum. Her yeni seviye kendi çıkış yoluyla doğar —bir merdiven ya da döşemede bir boşluk— ve üstteki katı deler.',
   'tut.editor-mapa.5.titulo': 'Bitti',
   'tut.editor-mapa.5.texto':
-    'Sen düzenlerken her şey kendiliğinden kaydedilir. Bitti, düzenleyiciyi kapatır ve seni evi bıraktığın haliyle oyuna geri döndürür.',
+    'Sen düzenlerken her şey kendiliğinden kaydedilir. Bitti, düzenleyiciyi kapatır ve seni MindHaOS\'u bıraktığın haliyle oyuna geri döndürür.',
   'tut.editor-personajes.1.texto':
     'Ana karakterin ve asistanların aynı düzenleyicide yaşar: yukarıdan kimi düzenleyeceğini seçersin, araçlar da her biri için anlamlı olana göre değişir.',
   'tut.editor-personajes.2.titulo': 'Yüz ve fotoğraf',
@@ -236,13 +236,13 @@ export const TR_TUT: Dict = {
     'Haritanın teması (ışık, sis, aydınlatma) ve son işlem stilleri; fazladan yük olmasın diye hepsi ihtiyaç anında yüklenir.',
   'tut.editor-config.4.titulo': 'Arayüz ve dil',
   'tut.editor-config.4.texto':
-    'Dil, arayüz teması (açık/koyu/otomatik), simge stili ve yoğunluk — evin NASIL göründüğünü değiştiren her şey; ne içerdiğini değil.',
+    'Dil, arayüz teması (açık/koyu/otomatik), simge stili ve yoğunluk — MindHaOS\'un NASIL göründüğünü değiştiren her şey; ne içerdiğini değil.',
   'tut.editor-config.5.titulo': 'Bildirimler',
   'tut.editor-config.5.texto':
     'Hangi bildirimler gelsin, hangileri sussun: rutinler, plan uyarıları ve hatırlatmalar ayrı ayrı kapatılabilir.',
   'tut.editor-config.6.texto':
     'Müzik ve Öğreticiler’in kendi turu var; Veri yedekleme’nin de var ve cihaz değiştirmeden önce en çok göz atmaya değen o.',
-  'tut.respaldo.1.titulo': 'Evin nerede yaşıyor',
+  'tut.respaldo.1.titulo': 'MindHaOS\'un nerede yaşıyor',
   'tut.respaldo.1.texto':
     'Hesap ve senkronizasyon yoksa verilerin yalnızca bu cihazda durur. Yukarıdaki uyarı, tarayıcının onları otomatik bir temizlikten koruma izni olup olmadığını söyler.',
   'tut.respaldo.2.titulo': 'Dışa aktar',
@@ -253,7 +253,7 @@ export const TR_TUT: Dict = {
     'Geri yükleme, mevcut bütün verilerin yerine dosyadakileri KOYAR — önce onay ister ve kaç kayıt getirdiğini gösterir, yani sürpriz olmaz.',
   'tut.respaldo.4.texto':
     'Cihaz ya da tarayıcı değiştirmeden önce, hatta arada bir öylesine yedek almakta fayda var: hesabın yokken elindeki tek kopya bu.',
-  'tut.editor-cuarto.1.texto': 'Belirli bir odayı düzenliyorsun: plan da kamera da bütün eve değil, ona odaklanır.',
+  'tut.editor-cuarto.1.texto': 'Belirli bir odayı düzenliyorsun: plan da kamera da bütün MindHaOS\'a değil, ona odaklanır.',
   'tut.editor-cuarto.2.titulo': 'Neler düzenlenir',
   'tut.editor-cuarto.2.texto':
     'Odanın şekli, zemini, duvarları, kapıları, rengi ve adı, bir de nesneleri. Atanan uygulama da buradan değişir: bu panele en çok onun için gelinir.',
@@ -263,7 +263,7 @@ export const TR_TUT: Dict = {
   'tut.editor-cuarto.4.texto':
     '3D görünümde odanın üzerinde yüzen bir «Odadan çık» düğmesi de var; oradan dokunmayı tercih edersen diye.',
   'tut.inicio.1.texto':
-    'Evinin adını taşıyan düğme başlangıç ekranını açar: uygulamaların bir ızgarada, telefon mantığıyla.',
+    'MindHaOS\'unun adını taşıyan düğme başlangıç ekranını açar: uygulamaların bir ızgarada, telefon mantığıyla.',
   'tut.inicio.2.titulo': 'Tek dokunuş, tek uygulama',
   'tut.inicio.2.texto':
     'Burada yalnızca çoktan uygulaması olan odalar çıkar; seviyesi, serisi ve tamamlanan listeleriyle. Köşedeki kırmızı sayaç bugün bekleyen görevleri; karta dokunmak doğrudan içeri girer.',
@@ -306,7 +306,7 @@ export const TR_TUT: Dict = {
   'tut.navegacion.6.texto':
     'Üstteki Düzenleyici düğmesi her görünümde çalışır: onu 3. ya da 1. şahısta aç ve yürürken düzenle — nesnelere, duvarlara ya da karakterlere tam durdukları yerde dokunarak.',
   'tut.chat.1.texto':
-    'Mimarın sohbeti: gününü kaydeder, evi düzenler ve aklına takılanları yanıtlar; hepsi aynı kutudan.',
+    'Mimarın sohbeti: gününü kaydeder, MindHaOS\'u düzenler ve aklına takılanları yanıtlar; hepsi aynı kutudan.',
   'tut.chat.2.titulo': 'Yazmak',
   'tut.chat.2.texto':
     'Serbestçe yaz: «20 dk koştum», «markette 250 harcadım»… Yanındaki chip hangi uygulamaya gideceğini gösterir. Yanlış tahmin ederse hedefi @oda ile sen belirle.',
@@ -317,7 +317,7 @@ export const TR_TUT: Dict = {
     '+ beş seçenek açar: bir görsel ya da PDF yüklemek ve fotoğraf çekmek —Yapay Zeka açıkken bir fiş ya da tartı kendi kendine okunur— artı Yapay Zeka istemeyen iki tane: AR maskesi ve AR sohbeti.',
   'tut.chat.4b.titulo': 'AR maskesi',
   'tut.chat.4b.texto':
-    'Kamerayı açar ve maskeyi yüzüne takar, seni canlı canlı izleyerek — evin tanıtım videosundakiyle aynı maske. Yapay Zeka olmadan da, hesap olmadan da çalışır.',
+    'Kamerayı açar ve maskeyi yüzüne takar, seni canlı canlı izleyerek — MindHaOS\'un tanıtım videosundakiyle aynı maske. Yapay Zeka olmadan da, hesap olmadan da çalışır.',
   'tut.chat.4c.titulo': 'AR sohbeti',
   'tut.chat.4c.texto':
     'Her zamanki konuşmanın aynısı, ama arka planda kameran, önde de 3D asistanın var; verdiği yanıtlara eşlik eden duygularıyla.',
@@ -351,7 +351,7 @@ export const TR_TUT: Dict = {
     'Bu şablon bloklarla kurulmuş (notlar, listeler, sayaçlar, alışkanlıklar…). Bunları Menü › Şablonlar › düzenle yolundan değiştirebilirsin.',
   'tut.app-generica.4.titulo': 'Çıkmak',
   'tut.app-generica.4.texto':
-    '«Eve dön» uygulamayı kapatır ve seni yeniden 3D’ye bırakır. Burada kaydettiklerin çoktan saklandı.',
+    '«MindHaOS\'a dön» uygulamayı kapatır ve seni yeniden 3D’ye bırakır. Burada kaydettiklerin çoktan saklandı.',
   'tut.enlaces.1.titulo': 'Hedeften uygulamasına',
   'tut.enlaces.1.texto':
     'Her hedef ya da plan adımı, bir uygulamanın simgesini taşıyan bir chip alabilir: «peki bu nereye kaydediliyor?» sorusunun cevabıdır.',
@@ -363,13 +363,13 @@ export const TR_TUT: Dict = {
     'Etiket takılıyken ona dokunmak o uygulamayı doğrudan o bölümde açar. Etiketi kaldırmak hedefi de tarihlerini de silmez: yalnızca bağlantıyı bırakır.',
   'tut.enlaces.4.texto':
     'Hedef olarak yalnızca bir odadaki nesneye atanmış uygulamalar görünür: odası olmayan birine bağlanmak, hiçbir yere götürmeyen bir etiket olurdu.',
-  'tut.musica.1.texto': 'Bu düğme evin müzik kontrolünü açar.',
+  'tut.musica.1.texto': 'Bu düğme MindHaOS\'un müzik kontrolünü açar.',
   'tut.musica.2.titulo': 'Aç ya da kapat',
   'tut.musica.2.texto':
-    'Evdeki bütün ortam müziği için tek bir anahtar. Kapalıyken ev sessiz kalır; yalnızca belirli eylemlerin sesleri duyulur.',
+    'MindHaOS\'taki bütün ortam müziği için tek bir anahtar. Kapalıyken MindHaOS sessiz kalır; yalnızca belirli eylemlerin sesleri duyulur.',
   'tut.musica.3.titulo': 'Odaya göre tema',
   'tut.musica.3.texto':
-    'Her oda farklı çalabilir: uygulamasına göre otomatik, elle seçilmiş bir tema ya da evin geri kalanına dokunmadan o odada tam sessizlik.',
+    'Her oda farklı çalabilir: uygulamasına göre otomatik, elle seçilmiş bir tema ya da MindHaOS\'un geri kalanına dokunmadan o odada tam sessizlik.',
   'tut.musica.4.titulo': 'Ses nereden geliyor',
   'tut.musica.4.texto':
     'Oluşturulan (ortama göre kendi başına besteler), Parçalarım (senin yüklediklerin) ya da Sistem (uygulamanın dışında zaten çaldığın şey, üstüne binmeden).',
@@ -378,7 +378,7 @@ export const TR_TUT: Dict = {
     'Müzik ile eylem sesleri (adımlar, tıklamalar, başarımlar) ayrı ayrı ayarlanır — müziği kısıp efektleri bırakabilirsin ya da tam tersi.',
   'tut.musica.6.texto': 'HUD düğmesi ana ekrandan kaldırılabilir; Düzenleyici › Ayarlar › Müzik’ten yine erişilebilir.',
   'tut.cuenta-ia.1.texto':
-    'Evin Yapay Zekası burada açılır: bu olmadan sohbet anahtar kelimelerle çalışmaya devam eder ama tarif, plan ya da görsel üretmek gibi işlevler kapalı kalır.',
+    'MindHaOS\'un Yapay Zekası burada açılır: bu olmadan sohbet anahtar kelimelerle çalışmaya devam eder ama tarif, plan ya da görsel üretmek gibi işlevler kapalı kalır.',
   'tut.cuenta-ia.2.titulo': 'Hesaplı ya da hesapsız',
   'tut.cuenta-ia.2.texto':
     'Yapay Zekayı kendi sağlayıcı anahtarınla (hesapsız, kredisiz) ya da kredi getiren ve cihazlar arasında eşitleyen bir hesapla kullanabilirsin.',
@@ -396,7 +396,7 @@ export const TR_TUT: Dict = {
   'tut.ejemplos.2.texto':
     'Bir örnek görmek senin hiçbir verini silmez ya da karıştırmaz: bunlar örnek olarak işaretlenmiş kendi satırlarıdır ve kapattığında gizlenir (silinmez). Yeniden açtığında oldukları gibi geri gelirler.',
   'tut.ejemplos.3.texto':
-    'Demo evinin içinde bu çubuk görünmez: Pep’in bir yıllık geçmişi zaten bu işi görüyor, ayrıca bir örneğe gerek yok.',
+    'Demo MindHaOS\'un (Zihin Evi OS) içinde bu çubuk görünmez: Deniz’in bir yıllık geçmişi zaten bu işi görüyor, ayrıca bir örneğe gerek yok.',
   'tut.hoy.1.texto':
     'Görevler ayrı bir yerde durmaz: her uygulamanın İÇİNDE yaşar. Her odanın başlığında Görevler düğmesi vardır; içinde o uygulamanın BUGÜN senden istediklerinin listesi bulunur.',
   'tut.hoy.2.titulo': 'Üç kaynak, tek liste',
@@ -421,18 +421,18 @@ export const TR_TUT: Dict = {
     'Bir şey eksik kalıyorsa «Görev ekle» bu uygulamanın genelde önerdiklerini getirir, «Yeni kontrol listesi» ise seninkini oluşturur: her gün tekrarlanan kendi listen.',
   'tut.hoy.8.titulo': 'Kırmızı küreler',
   'tut.hoy.8.texto':
-    'Eve bir bak: her odanın mobilyasının üstünde süzülen küre, bugün orada yapılacak bir şey kaldıysa kırmızıya, hiçbir şey kalmadıysa yeşile döner. Tam sayı kartlarındaki kırmızı balonda durur —ana ekran, menü ve giriş balonu— ve bir şeyin saati geçtiyse kehribar rengine döner.',
+    'MindHaOS\'a bir bak: her odanın mobilyasının üstünde süzülen küre, bugün orada yapılacak bir şey kaldıysa kırmızıya, hiçbir şey kalmadıysa yeşile döner. Tam sayı kartlarındaki kırmızı balonda durur —ana ekran, menü ve giriş balonu— ve bir şeyin saati geçtiyse kehribar rengine döner.',
   'tut.hoy.9.titulo': 'Ve hepsi bir arada, takvimde',
   'tut.hoy.9.texto':
-    'Bu, saatteki Görevler düğmesi; kendi balonu da var: bugün EVİN tamamında yapılacakları uygulama başına birer kartta toplar —solda eksik olanlar, sağda bitenler—. Burada hiçbir şey kaydedilmez: her satır seni uygulamasına götürür, veri orada yazılır.',
+    'Bu, saatteki Görevler düğmesi; kendi balonu da var: bugün MindHaOS\'un TAMAMINDA yapılacakları uygulama başına birer kartta toplar —solda eksik olanlar, sağda bitenler—. Burada hiçbir şey kaydedilmez: her satır seni uygulamasına götürür, veri orada yazılır.',
   'tut.progreso.1.texto':
-    'Karakterinin kartı: Pep’in arkasında bir yıllık gerçek etkinlik var, yani buradaki her sayının onu açıklayan gerçek bir hikâyesi var.',
+    'Karakterinin kartı: Deniz’in arkasında bir yıllık gerçek etkinlik var, yani buradaki her sayının onu açıklayan gerçek bir hikâyesi var.',
   'tut.progreso.2.titulo': 'Karakter',
   'tut.progreso.2.texto':
     'Ona dokunmak karakter düzenleyicisini açar. Keyfi —mutlu, hoşnut, üzgün ya da uykuda— her yeni kayıtla yükselir ve yalnızca hiç kayıt olmadan günler geçerse düşer; asla bir anda sıfırlanmaz.',
   'tut.progreso.3.titulo': 'Sisifos rütbesi',
   'tut.progreso.3.texto':
-    'On iki tırmanış rütbesi: etkinlik olan her gün 365 basamağın birini çıkarır. Pep birkaç rütbeyi çoktan kazandı; dağın tamamını görmek için ona dokun.',
+    'On iki tırmanış rütbesi: etkinlik olan her gün 365 basamağın birini çıkarır. Deniz birkaç rütbeyi çoktan kazandı; dağın tamamını görmek için ona dokun.',
   'tut.progreso.4.titulo': 'Basamaklar ve af günleri',
   'tut.progreso.4.texto':
     'Her 7 basamakta bir rozet gelir, her haftalık bölüm rütbeyi yükseltir. Bir günü kaçırmak hiçbir şeyi bozmaz: mevcut rütbenin başına geri düşmeden önce ayda 2 af günün var.',
@@ -441,15 +441,15 @@ export const TR_TUT: Dict = {
     'Jeolojik ailelerine göre gruplanır ve kazanılana kadar gizemli kalır: kilit açılana dek ne adı ne de açıklaması görünür.',
   'tut.progreso.6.titulo': 'Özetin',
   'tut.progreso.6.texto':
-    'Wrapped, haftanın, ayın ya da yılın özetini slaytlar hâlinde kurar — kendi öğreticisi var ve Pep’inki gibi bir yılda fazlasıyla veri bulur.',
+    'Wrapped, haftanın, ayın ya da yılın özetini slaytlar hâlinde kurar — kendi öğreticisi var ve Deniz’inki gibi bir yılda fazlasıyla veri bulur.',
   'tut.progreso.7.titulo': 'Odaya göre radar',
   'tut.progreso.7.texto':
-    'Her köşe evdeki bir odadır ve boyutu, o odaya atanmış uygulamaların XP toplamıdır. Etkinliği olmayan bir oda hemen belli olur: köşesi merkeze doğru çöker.',
+    'Her köşe MindHaOS\'taki bir odadır ve boyutu, o odaya atanmış uygulamaların XP toplamıdır. Etkinliği olmayan bir oda hemen belli olur: köşesi merkeze doğru çöker.',
   'tut.wrapped.1.texto':
     'Hikâye tarzı: ilerlemek için sağ tarafa, geri gitmek için sol tarafa dokun; bir slaytta duraklatmak için basılı tut.',
   'tut.wrapped.2.titulo': 'Hafta, ay ya da yıl',
   'tut.wrapped.2.texto':
-    'Her tür kendi slaytlarını kendi verileriyle kurar — Pep’in yıllık özeti en uzunu; bütün yılın en yüksek ve en düşük anlarıyla birlikte.',
+    'Her tür kendi slaytlarını kendi verileriyle kurar — Deniz’in yıllık özeti en uzunu; bütün yılın en yüksek ve en düşük anlarıyla birlikte.',
   'tut.wrapped.3.titulo': 'Dönemler arasında gezinmek',
   'tut.wrapped.3.texto':
     '‹ › okları çoktan kapanmış dönemleri gezer: bugünün ötesine geçilemez, yani karşılaştırma hep gerçek bir şeyle yapılır.',
@@ -459,14 +459,14 @@ export const TR_TUT: Dict = {
   'tut.wrapped.5.texto':
     'Onu açan düğmenin yanındaki bir nokta, görülmemiş yeni bir özet olduğunu haber verir; açtığında nokta söner.',
   'tut.infra-huerto--ciclo.8.texto':
-    'Burası Pep’in sığınağı: bir yanda ağıllar, öbür yanda onları besleyen sebze bahçesi. Haydi parsellere gidelim.',
+    'Burası Deniz’in sığınağı: bir yanda ağıllar, öbür yanda onları besleyen sebze bahçesi. Haydi parsellere gidelim.',
   'tut.infra-huerto--ciclo.1.texto':
-    'Burası Pep’in sığınağının sebze bahçesi: üzerinde bir yıllık emek olan gerçek parseller. Hiçbiri örnek değil — burası canlı, gerçek zamanlı büyüyor ve dokunabilirsin.',
+    'Burası Deniz’in sığınağının sebze bahçesi: üzerinde bir yıllık emek olan gerçek parseller. Hiçbiri örnek değil — burası canlı, gerçek zamanlı büyüyor ve dokunabilirsin.',
   'tut.infra-huerto--ciclo.2.texto':
     'Yemek ve Çiftlik aynı düzenleyiciyi paylaşır: burada hasat edilen, yandaki hayvanların kilerini doldurur. Hepsi tek bir zincir.',
   'tut.infra-huerto--ciclo.3.titulo': 'Sulama her şeyi belirler',
   'tut.infra-huerto--ciclo.3.texto':
-    'Parsellere bak: yeni ekilmiş bir tohum, yarı büyümüş bitkiler, hazır bir ayçiçeği… ve Pep’in bile bile susuz bıraktığı solmuş bir havuç. Mavi damla susuzluğu haber verir; solan artık kurtarılamaz.',
+    'Parsellere bak: yeni ekilmiş bir tohum, yarı büyümüş bitkiler, hazır bir ayçiçeği… ve Deniz’in bile bile susuz bıraktığı solmuş bir havuç. Mavi damla susuzluğu haber verir; solan artık kurtarılamaz.',
   'tut.infra-huerto--ciclo.4.titulo': 'Otomatik sulama',
   'tut.infra-huerto--ciclo.4.texto':
     'Domatesin fıskiyesi var: kendi hücresini ve sekiz komşusunu sonsuza dek sular. Sebze bahçesini böyle kendi haline bırakırsın, hiçbir şey solmadan.',
@@ -493,12 +493,12 @@ export const TR_TUT: Dict = {
   'tut.infra-huerto--parcelas.5.texto':
     'Hepsi bu: toprak, tür ve sabır. Demoda ektiğin şey, sen gerisini keşfederken gerçekten büyür.',
   'tut.infra-granja--cuidar.8.texto':
-    'Burası Pep’in sığınağı: kurtarılmış hayvanların ağılları ve güneyde, karınlarını doyuran sebze bahçesi. Hadi yanlarına inelim.',
+    'Burası Deniz’in sığınağı: kurtarılmış hayvanların ağılları ve güneyde, karınlarını doyuran sebze bahçesi. Hadi yanlarına inelim.',
   'tut.infra-granja--cuidar.1.texto':
-    'Bunlar Pep’in sığınağındaki kurtarılmış hayvanlar: her birinin adı, açlığı ve ruh hali gerçek zamanlı ilerliyor. Hiçbiri örnek değil — onlara gerçekten bakabilirsin.',
+    'Bunlar Deniz’in sığınağındaki kurtarılmış hayvanlar: her birinin adı, açlığı ve ruh hali gerçek zamanlı ilerliyor. Hiçbiri örnek değil — onlara gerçekten bakabilirsin.',
   'tut.infra-granja--cuidar.2.titulo': 'Yılın kileri',
   'tut.infra-granja--cuidar.2.texto':
-    '«Besle» sepetten harcar, sepet de yandaki sebze bahçesini hasat ettikçe dolar. Pep bir yıllık stok bıraktı: kullan.',
+    '«Besle» sepetten harcar, sepet de yandaki sebze bahçesini hasat ettikçe dolar. Deniz bir yıllık stok bıraktı: kullan.',
   'tut.infra-granja--cuidar.3.titulo': 'Besle',
   'tut.infra-granja--cuidar.3.texto':
     'Ağıla bir dokunuş, aç olan herkesi doyurur; en açtan başlar. Tavuk her 4 saatte bir ister; inek 12 saat dayanır.',
@@ -528,13 +528,13 @@ export const TR_TUT: Dict = {
   'tut.infra-granja--corrales.5.texto':
     'İşin tamamı bu: ağıl, kapasite, oyuncak ve sevgi. Demoda içinden gelirse sığınağı büyütebilirsin.',
   'tut.infra-caminos--carrera.1.texto':
-    'Bu Pep’in pisti: damalı bitiş çizgisi olan asfalt bir oval. Haritadaki tek bitiş çizgisi bu — bütün yarış modu onun etrafında döner.',
+    'Bu Deniz’in pisti: damalı bitiş çizgisi olan asfalt bir oval. Haritadaki tek bitiş çizgisi bu — bütün yarış modu onun etrafında döner.',
   'tut.infra-caminos--carrera.2.texto':
     'İşte bitiş çizgisi. Bahçedeki bisiklete ya da arabaya yaklaş ve düğmesiyle bin; araç üzerindeyken bu çizgiye bas, start ışıkları belirsin.',
   'tut.infra-caminos--carrera.3.texto':
     'Ovale yapış ve hız kaybetmemek için virajlarda drift yap. Bir asistana karşı da yarışabilirsin, arada eşyalar da var: muz, turbo ve bomba.',
   'tut.infra-caminos--carrera.4.texto':
-    'Bitiş çizgisinin yanında en iyi süreler tablosu durur: Pep’in bisikleti 38 galibiyet ve 41,8 s’lik en iyi tur biriktirmiş. Onu geç — demoda kırdığın rekorlar kaydedilir.',
+    'Bitiş çizgisinin yanında en iyi süreler tablosu durur: Deniz’in bisikleti 38 galibiyet ve 41,8 s’lik en iyi tur biriktirmiş. Onu geç — demoda kırdığın rekorlar kaydedilir.',
   'tut.infra-caminos--carrera.5.texto':
     'Haritayı çevreleyen ray ve lunaparktaki hız treni de birer yol: rayın üzerinde yürü, «Bin» çıksın. Her çizgi kendi başına bir ağdır.',
   'tut.infra-caminos--trazos.1.texto':
@@ -542,9 +542,9 @@ export const TR_TUT: Dict = {
   'tut.infra-caminos--trazos.2.texto':
     'Lunaparktaki hız treni altı seviyeye kadar çıkar ve hücreler arasındaki rampalar kendiliğinden ayarlanır. Bin: araba kapalı devreyi baştan sona dolaşır.',
   'tut.infra-caminos--trazos.3.texto':
-    'Kendi evinde onları hücre hücre Parkurlar düzenleyicisiyle çizersin ya da bölge bölge serbest çizimle elden. Burada, demoda harita çizili geliyor.',
+    'Kendi MindHaOS\'unda onları hücre hücre Parkurlar düzenleyicisiyle çizersin ya da bölge bölge serbest çizimle elden. Burada, demoda harita çizili geliyor.',
   'tut.infra-canchas--jugar.1.texto':
-    'Bu Pep’in spor kompleksi: futbol, basketbol, tenis ve beyzbol, yan yana. Her saha haritanın üzerinde bir dikdörtgen — içine yürüyerek girmek oyununu başlatır.',
+    'Bu Deniz’in spor kompleksi: futbol, basketbol, tenis ve beyzbol, yan yana. Her saha haritanın üzerinde bir dikdörtgen — içine yürüyerek girmek oyununu başlatır.',
   'tut.infra-canchas--jugar.2.texto':
     'Güç doldurma düğmesi navigasyon küpünün boşluğunda belirir ve karakterinin baktığı yöne atar: önce nişan al, sonra gücü doldur.',
   'tut.infra-canchas--jugar.3.texto':
@@ -552,17 +552,17 @@ export const TR_TUT: Dict = {
   'tut.infra-canchas--jugar.5.texto':
     'Yukarıda futbol ve basketbol sahaları. Futbolda çalım atıp şut çekersin; basketbolda şutun gücünü ayarlarsın.',
   'tut.infra-canchas--jugar.4.texto':
-    'Skor her saha için ayrı kaydedilir: Pep basketbolda 21-15, teniste 18 rallilik bir seri bıraktı. Demoda maçlar sayılır — sen daha iyisini yap.',
+    'Skor her saha için ayrı kaydedilir: Deniz basketbolda 21-15, teniste 18 rallilik bir seri bıraktı. Demoda maçlar sayılır — sen daha iyisini yap.',
   'tut.infra-paintball--batalla.1.texto':
     'Araç çarkını aç: Paintball orada yaşar, inşaat ve oyunlar kategorisinde, araçların yanında.',
   'tut.infra-paintball--batalla.2.texto':
     'Modu seç: 1 vs 1, 2 vs 2 ya da serbest savaş. Rakiplerin haritadaki asistanlar — Laika da sayılır — ve oyun zemin katta oynanır.',
   'tut.infra-paintball--batalla.3.texto':
-    'Bütün ev savaş alanı: duvarların arkasına siper al, ateş etmek için başını çıkar ve arkanı kolla. Boya lekeleri savaş boyunca olduğu yerde kalır.',
+    'Bütün MindHaOS savaş alanı: duvarların arkasına siper al, ateş etmek için başını çıkar ve arkanı kolla. Boya lekeleri savaş boyunca olduğu yerde kalır.',
   'tut.infra-paintball--batalla.4.texto':
-    'Pep’in skoru 47 galibiyete 23 mağlubiyet. Demoda savaşlar gerçekten sayılır: gitmeden bu skoru yükselt.',
+    'Deniz’in skoru 47 galibiyete 23 mağlubiyet. Demoda savaşlar gerçekten sayılır: gitmeden bu skoru yükselt.',
   'tut.app-anecdotario--diario.1.texto':
-    'Bu, Pep’in anı defteri: koca bir yıl, haftada iki üç kayıt. Hikâyenin TAMAMI burada anlatılıyor — baştaki bıkkınlıktan iki hafta önceki maratona kadar.',
+    'Bu, Deniz’in anı defteri: koca bir yıl, haftada iki üç kayıt. Hikâyenin TAMAMI burada anlatılıyor — baştaki bıkkınlıktan iki hafta önceki maratona kadar.',
   'tut.app-anecdotario--diario.2.titulo': 'Böyle yazılır',
   'tut.app-anecdotario--diario.2.texto':
     'Günün ruh halini seç, istersen bir başlık koy, yaz ve fotoğraf ekle. Tek bir fotoğraf yeter: metin şart değil.',
@@ -573,35 +573,35 @@ export const TR_TUT: Dict = {
   'tut.app-anecdotario--diario.4.texto':
     'Kayıtlar kendiliğinden yıla, aya ve haftaya göre klasörlere düşer. Japonya haftalarını aç ve yolculuğun tamamını oku.',
   'tut.app-anecdotario--fotos.1.texto':
-    'Pep’in yılındaki dönüm noktalarının fotoğrafı var: ikinci el klavye, Laika’nın gelişi, Japonya’dan iki kartpostal ve maraton madalyası.',
+    'Deniz’in yılındaki dönüm noktalarının fotoğrafı var: ikinci el klavye, Laika’nın gelişi, Japonya’dan iki kartpostal ve maraton madalyası.',
   'tut.app-anecdotario--fotos.2.titulo': 'Geçmişte ara',
   'tut.app-anecdotario--fotos.2.texto':
     '2. ayı (klavye), 9. ayı (Japonya) ya da iki hafta öncesini (madalya) aç. Herhangi bir fotoğrafa dokun, tam ekran açılsın.',
   'tut.app-anecdotario--fotos.3.texto':
-    'Her kayıt seriyi besler ve karakteri uyandırır: burada yazmak da evi kollamaktır.',
+    'Her kayıt seriyi besler ve karakteri uyandırır: burada yazmak da MindHaOS\'u kollamaktır.',
   'tut.app-jardin--practicar.1.titulo': 'Birikmiş huzur',
   'tut.app-jardin--practicar.1.texto':
-    'Her pratik dakikası bu bahçeyi sular. Pep’inki koca bir yıl büyüdü: tohumdan ormana.',
+    'Her pratik dakikası bu bahçeyi sular. Deniz’inki koca bir yıl büyüdü: tohumdan ormana.',
   'tut.app-jardin--practicar.2.titulo': 'Sesle meditasyon',
   'tut.app-jardin--practicar.2.texto':
     'Bir ses parçası (orman, deniz, yağmur, çanaklar) ve bir süre seç, ya da çanla sessizce meditasyon yap. Seans bitince kendiliğinden kaydedilir.',
   'tut.app-jardin--practicar.3.titulo': 'Bir yıllık seanslar',
   'tut.app-jardin--practicar.3.texto':
-    'Pep’in yılı burada: haftada üçle başladı, 7. ayda —sakatlık, arabanın masrafı— pratik neredeyse günlük hale geldi. Çukurda onu ayakta tutan da bu oldu.',
+    'Deniz’in yılı burada: haftada üçle başladı, 7. ayda —sakatlık, arabanın masrafı— pratik neredeyse günlük hale geldi. Çukurda onu ayakta tutan da bu oldu.',
   'tut.app-jardin--practicar.4.titulo': 'Nefes',
   'tut.app-jardin--practicar.4.texto':
     'İki rehberli desen: odaklanmak için kutu nefesi 4-4-4-4, günü bırakmak için 4-7-8. Ekran seninle birlikte nefes alır.',
   'tut.app-jardin--gratitud.1.titulo': 'Bugün minnettarım…',
   'tut.app-jardin--gratitud.1.texto':
     'Günde üç satır. Bir tanesi yeter; üç, daha iyi. Günde tek kayıt tutulur ve gidişata göre düzeltilebilir.',
-  'tut.app-jardin--gratitud.2.titulo': 'Pep’inkiler',
+  'tut.app-jardin--gratitud.2.titulo': 'Deniz’inkiler',
   'tut.app-jardin--gratitud.2.texto':
     'Doksan günlük gerçek şükran: klavye, notların üstünde uyuyakalan Laika, iyileşen diz, Japonya’dan dönmek. Acele etmeden oku.',
   'tut.app-jardin--gratitud.3.texto':
     'Bu odada seri yok, bir günü kaçırmanın cezası da: bilerek böyle. Huzur yarış değildir.',
   'tut.app-hobbies--piano.1.titulo': 'İki hobi, bir yıl',
   'tut.app-hobbies--piano.1.texto':
-    'Pep iki tane tuttu: piyano (yılın projesi, haftada 4 gün hedefi) ve astrofotoğrafçılık. Her kart yürüyen haftayı ve seriyi gösterir.',
+    'Deniz iki tane tuttu: piyano (yılın projesi, haftada 4 gün hedefi) ve astrofotoğrafçılık. Her kart yürüyen haftayı ve seriyi gösterir.',
   'tut.app-hobbies--piano.2.titulo': 'Piyanonun içinde',
   'tut.app-hobbies--piano.2.texto':
     'Seri, en iyi seri, toplam pratik, aktif gün ve ortalama. Tuşların başında bir yıl — Japonya’daki dürüst molasıyla birlikte.',
@@ -635,18 +635,18 @@ export const TR_TUT: Dict = {
     'Hobilerinin ve projelerinin hedefleri Hedefler odasında yaşar, her biri kendi planı ve kendi zaman çizelgesiyle. Yapay zekadan aşamalı ve tarihli bir plan iste.',
   'tut.app-ideas--diario.1.titulo': 'Gelen kutusu',
   'tut.app-ideas--diario.1.texto':
-    'Aklına geleni yaz, o kadar. Pep bir yılda buraya ~90 fikir bıraktı: fizikten, kafeden, antrenmandan. Yıldız, en sevdiklerini işaretler.',
+    'Aklına geleni yaz, o kadar. Deniz bir yılda buraya ~90 fikir bıraktı: fizikten, kafeden, antrenmandan. Yıldız, en sevdiklerini işaretler.',
   'tut.app-ideas--diario.2.titulo': 'Konuya göre beyin fırtınası',
   'tut.app-ideas--diario.2.texto':
-    'Beyin fırtınası her şeyi tek bir konunun altında toplar. Pep’inkileri ara: kediye isim bulma (Laika kazandı), Japonya’nın parası nasıl denkleşir ve yolculuğa ne götürülür.',
+    'Beyin fırtınası her şeyi tek bir konunun altında toplar. Deniz’inkileri ara: kediye isim bulma (Laika kazandı), Japonya’nın parası nasıl denkleşir ve yolculuğa ne götürülür.',
   'tut.app-ideas--diario.3.texto':
     'Bir beyin fırtınası olgunlaştığında bir düğme onu zihin haritasına dönüştürür, sen de tuvalde düzenlemeye devam edersin.',
   'tut.app-ideas--mapas.1.titulo': 'On biçim',
   'tut.app-ideas--mapas.1.texto':
-    'Her biçim farklı çizer. Aşağıda Pep’in yıl boyunca yaptığı haritalar var: sabah rutini akış şemasında, termodinamik ağaçta, fizik ve müzik Venn şemasında.',
+    'Her biçim farklı çizer. Aşağıda Deniz’in yıl boyunca yaptığı haritalar var: sabah rutini akış şemasında, termodinamik ağaçta, fizik ve müzik Venn şemasında.',
   'tut.app-ideas--mapas.2.titulo': '«İdeal hayatım»',
   'tut.app-ideas--mapas.2.texto':
-    'Yılın İLK haritası, 1. aydan: Pep’in istediği hayat. Acele etmeden bak — buradakilerin neredeyse hepsi sonunda gerçekten oldu.',
+    'Yılın İLK haritası, 1. aydan: Deniz’in istediği hayat. Acele etmeden bak — buradakilerin neredeyse hepsi sonunda gerçekten oldu.',
   'tut.app-ideas--mapas.3.texto':
     'Tuvalde: seçmek için bir düğüme dokun, yazmak için bir daha dokun; sürükle, iki parmakla sıkıştırarak yakınlaş ve alttaki çubukla fikir ekle.',
   'tut.app-ideas--mapas.4.titulo': 'Tek konudan koca bir harita',
@@ -657,7 +657,7 @@ export const TR_TUT: Dict = {
     'Bir haritanın içindeyken herhangi bir düğüm genişletilebilir: yapay zeka, çevresine daha önce yazdıklarına bakarak alt düğümler önerir, senin yapını bozmadan.',
   'tut.app-ideas--decidir.1.titulo': 'Karar vermenin sekiz yolu',
   'tut.app-ideas--decidir.1.texto':
-    'Pep bunları gerçekten kullandı: vize haftasında bir Eisenhower, yılın ortasında bir SWOT ve kamera seçmek için bir matris.',
+    'Deniz bunları gerçekten kullandı: vize haftasında bir Eisenhower, yılın ortasında bir SWOT ve kamera seçmek için bir matris.',
   'tut.app-ideas--decidir.2.titulo': 'Yüksek lisans mı, iş mi?',
   'tut.app-ideas--decidir.2.texto':
     'Yıl kapanırken açık kalan ASIL karar: her tarafın 1’den 5’e ağırlığı, altta da toplamı. Hâlâ karara bağlanmadı — ciddi ciddi düşünmek böyle görünür.',
@@ -667,7 +667,7 @@ export const TR_TUT: Dict = {
   'tut.app-ideas--decidir.4.texto':
     'Bu bir tuval değil, bir tablo: her seçenek her kriterle karşı karşıya, o kriterin senin için taşıdığı öneme göre 1’den 5’e bir ağırlıkla. Toplam, seçenekleri kendiliğinden sıralar.',
   'tut.calendario.1.titulo': 'Saat',
-  'tut.calendario.1.texto': 'Takvim bir oda değil: evin saatinde yaşar, o yüzden nerede olursan ol oradan açılır.',
+  'tut.calendario.1.texto': 'Takvim bir oda değil: MindHaOS\'un saatinde yaşar, o yüzden nerede olursan ol oradan açılır.',
   'tut.calendario.2.titulo': 'Gerçek bir hafta',
   'tut.calendario.2.texto':
     'Kafedeki vardiyalar, fizik dersleri, şafakta koşu, geceleri piyano. Her blok kendi saati ve rengi olan bir rutindir; taşımak için sürüklenir, süresini değiştirmek için uzatılır.',
@@ -679,25 +679,25 @@ export const TR_TUT: Dict = {
     'Uygulamalar kendi kendine takvime yazar: Ajanda’nın randevuları, Dinlenme’nin uykusu, Kütüphane’nin çalışma saatleri. Filtrele ile ekranda tek bir uygulama bırakırsın.',
   'tut.calendario.5.titulo': 'Yıl boyunca gezinmek',
   'tut.calendario.5.texto':
-    '‹ › okları dönemi ileri geri sürer, Bugün seni şimdiye geri getirir. Pep’in bütün yılı burada, hafta hafta. + Yeni ile bir etkinlik oluşturursun ya da doğrudan ızgaranın üzerine çizersin.',
+    '‹ › okları dönemi ileri geri sürer, Bugün seni şimdiye geri getirir. Deniz’in bütün yılı burada, hafta hafta. + Yeni ile bir etkinlik oluşturursun ya da doğrudan ızgaranın üzerine çizersin.',
   'tut.calendario.6.titulo': 'Alışkanlık alışkanlık',
   'tut.calendario.6.texto':
     'Her satır bir rutin, her sütun bir gün: yapıldıysa yeşil. İşaretlemeyi doğrudan buradan yaparsın, yukarıdaki yüzde de baktığın dönemi özetler.',
   'tut.calendario.7.titulo': 'Yılın gidişatı',
   'tut.calendario.7.texto':
-    'Yıl görünümünde grafik bütün hikâyeyi anlatır: Pep, kendine koyduğu hedeflerin üçte birini tutturarak başladı ve yılı %85’in üzerinde kapattı. Süreklilik kendiliğinden gelmedi, inşa edildi.',
+    'Yıl görünümünde grafik bütün hikâyeyi anlatır: Deniz, kendine koyduğu hedeflerin üçte birini tutturarak başladı ve yılı %85’in üzerinde kapattı. Süreklilik kendiliğinden gelmedi, inşa edildi.',
   'tut.calendario.8.titulo': 'Düşüşler de sayılır',
   'tut.calendario.8.texto':
     'İki çukur da gerçek: 7. aydaki diz sakatlığı ve Japonya’daki üç hafta. Aksatmak ilerlemeyi silmez — panel yılı olması gerektiği gibi değil, olduğu gibi gösterir. Ve bir rutin ancak onu oluşturduğun günden itibaren sayılır.',
   'tut.metas.0.titulo': 'Hedeflerinin merkezi',
   'tut.metas.0.texto':
-    'Bu oda kendine ait hiçbir şey tutmaz. Hedefler diğer uygulamalarda doğar — koşu Spor\'da, diploma Kütüphane\'de, birikim Finans\'ta — ve burada HEPSİ bir araya gelir: evde hepsini aynı anda gördüğün tek yer, hangi odadan gelirlerse gelsin.',
+    'Bu oda kendine ait hiçbir şey tutmaz. Hedefler diğer uygulamalarda doğar — koşu Spor\'da, diploma Kütüphane\'de, birikim Finans\'ta — ve burada HEPSİ bir araya gelir: MindHaOS\'ta hepsini aynı anda gördüğün tek yer, hangi odadan gelirlerse gelsin.',
   'tut.metas.1.titulo': 'Her hedefin bir uygulaması var',
   'tut.metas.1.texto':
-    'Klasörler süs değil: her biri o hedefleri taşıyan uygulamadır ve tutulup tutulmadığını bilen de odur, çünkü kayıt orada yapılır. «Ev» hiçbir uygulama değil — o kategoriyi mutfak tadilatı için Pep uydurdu.',
+    'Klasörler süs değil: her biri o hedefleri taşıyan uygulamadır ve tutulup tutulmadığını bilen de odur, çünkü kayıt orada yapılır. «Ev» hiçbir uygulama değil — o kategoriyi mutfak tadilatı için Deniz uydurdu.',
   'tut.metas.2.titulo': 'Aynı sayfa, iki taraftan',
   'tut.metas.2.texto':
-    'Bir hedefe dokununca sayfası ve varsa planı açılır. Kendi uygulamasından dokunduğunda çıkan planlayıcının AYNISI, tek farkla: orada o uygulamayla sınırlıdır, burada evin tamamının hedefleriyle birlikte bütün olarak görürsün.',
+    'Bir hedefe dokununca sayfası ve varsa planı açılır. Kendi uygulamasından dokunduğunda çıkan planlayıcının AYNISI, tek farkla: orada o uygulamayla sınırlıdır, burada MindHaOS\'un tamamının hedefleriyle birlikte bütün olarak görürsün.',
   'tut.metas.3.titulo': 'Uygulamasında tamamlanır, burada değil',
   'tut.metas.3.texto':
     'Bir hedefin BUGÜN istediği şey bu odada yapılmaz: onu taşıyan uygulamanın Görevler’inde, o günün geri kalanıyla karışık olarak çıkar ve orada gerçekten kaydederek tamamlanır. Burada planlanır; uygulama yapar.',
@@ -709,7 +709,7 @@ export const TR_TUT: Dict = {
     'Her uygulama kendi işini taşır, ama kendine koyduklarını bir arada yalnızca bu odada görürsün — ve buradan takvime ve her odanın Görevler’ine dağılır. İşi bu: her şeyin kesiştiği yer olmak.',
   'tut.app-biblioteca--enciclopedia.1.titulo': 'Bir yıllık öğrenim, tek bir ağaçta',
   'tut.app-biblioteca--enciclopedia.1.texto':
-    'Pep Fizik okuyor: yılın başında mekanik, 6. aydaki vizeye doğru termodinamik, sonunda görelilik ve astrofizik. Her dal, girdilerini görmek için açılır.',
+    'Deniz Fizik okuyor: yılın başında mekanik, 6. aydaki vizeye doğru termodinamik, sonunda görelilik ve astrofizik. Her dal, girdilerini görmek için açılır.',
   'tut.app-biblioteca--enciclopedia.2.titulo': 'Ağaç seninle büyür',
   'tut.app-biblioteca--enciclopedia.2.texto':
     'Katalogdaki konular hazır gelir; serbest asılı duranları bir sohbet açtı. Özetini, ana noktalarını ve resmini okumak için bir girdiye dokun.',
@@ -717,7 +717,7 @@ export const TR_TUT: Dict = {
     'Bir girdiyi elle yazarsın ya da bir sohbetten damıtırsın. Kara delik girdisiyle piyanonun fiziği girdisinde çizim var: uygulama onları senin yerine resimleyebilir.',
   'tut.app-biblioteca--charlas.1.titulo': 'Yılın soruları',
   'tut.app-biblioteca--charlas.1.texto':
-    'Pep’in çalışırken yaptığı sohbetler burada: entropi, zaman genleşmesi, bir piyano neden piyano gibi ses çıkarır. Her biri kayıtlı kaldı.',
+    'Deniz’in çalışırken yaptığı sohbetler burada: entropi, zaman genleşmesi, bir piyano neden piyano gibi ses çıkarır. Her biri kayıtlı kaldı.',
   'tut.app-biblioteca--charlas.2.titulo': 'Sohbetten ağaca',
   'tut.app-biblioteca--charlas.3.texto':
     'Böylece ansiklopedin kopyalanmış teoriyle değil, gerçekten sorduğun şeylerle dolar.',
@@ -736,7 +736,7 @@ export const TR_TUT: Dict = {
     'Bilge ile sohbetler, toplam ve bu haftaki çalışma dakikaları, bir de üst üste çalıştığın günlerin serisi.',
   'tut.app-biblioteca--resumen.3.titulo': 'Dengesizlik nerede',
   'tut.app-biblioteca--resumen.3.texto':
-    'En uzun çubuk, en çok ilgini alan alandır — Pep’te bu, vize haftasındaki termodinamik.',
+    'En uzun çubuk, en çok ilgini alan alandır — Deniz’de bu, vize haftasındaki termodinamik.',
   'tut.app-biblioteca--resumen.4.titulo': 'Çalışma günleri',
   'tut.app-biblioteca--resumen.4.texto':
     'Gün başına bir kare: vizeden önceki tıka basa çalışma ile Japonya’daki üç haftanın boşluğu, bütün geçmişi açmana gerek kalmadan görünür.',
@@ -756,22 +756,22 @@ export const TR_TUT: Dict = {
     'Öğretmen düzelttiğinde doğru biçim, yanında bir onay işaretiyle kendi satırına yazılır ve konuşma azarsız devam eder. Çıkarken, geçen kelimeleri çıkarmayı önerir: hangi kartları saklayacağını seçersin ve kartlar sohbetin konusunu devralır.',
   'tut.app-idiomas--repaso.1.titulo': 'Bugün sırada ne var',
   'tut.app-idiomas--repaso.1.texto':
-    'Pep bir yıldır bunu sürdürüyor ve hâlâ bekleyen tekrarları var: sistem senden bütün kelimeleri istemez, sadece unutmak üzere olduklarını ister.',
+    'Deniz bir yıldır bunu sürdürüyor ve hâlâ bekleyen tekrarları var: sistem senden bütün kelimeleri istemez, sadece unutmak üzere olduklarını ister.',
   'tut.app-idiomas--repaso.3.titulo': 'Bir yıllık süreklilik',
   'tut.app-idiomas--repaso.3.texto':
-    'Geçmiş, her gün kaç kart tekrar ettiğini ve kaçını doğru bildiğini saklar. Pep epeyce yanlışla başladı ve neredeyse hepsini doğru bilerek bitirdi — Japonya’da ise her zamankinden çok tekrar etti.',
+    'Geçmiş, her gün kaç kart tekrar ettiğini ve kaçını doğru bildiğini saklar. Deniz epeyce yanlışla başladı ve neredeyse hepsini doğru bilerek bitirdi — Japonya’da ise her zamankinden çok tekrar etti.',
   'tut.app-idiomas--vocabulario.2.titulo': 'Aynı anda iki dil',
   'tut.app-idiomas--vocabulario.2.texto':
-    'Dili yukarıdan değiştirirsin: asıl çalıştığı dilin yanında Pep, 4. ay ile seyahat arasında hayatta kalmalık bir Japonca kurdu. Dönünce neredeyse bıraktı ve bu, tekrar kutularında belli oluyor.',
+    'Dili yukarıdan değiştirirsin: asıl çalıştığı dilin yanında Deniz, 4. ay ile seyahat arasında hayatta kalmalık bir Japonca kurdu. Dönünce neredeyse bıraktı ve bu, tekrar kutularında belli oluyor.',
   'tut.app-idiomas--temario.1.titulo': 'Üç alan, altı seviye',
   'tut.app-idiomas--temario.1.texto':
     'A1’den C2’ye, her seviye kendi kelime konuları, telaffuz noktaları ve dil bilgisiyle. Dışarıda bir kurs aramadan neyin eksik olduğunu bilirsin.',
   'tut.app-idiomas--temario.2.titulo': 'Nerede olduğun',
   'tut.app-idiomas--temario.2.texto':
-    'Ustalaşılan kartlar, ayın tekrarları ve şu anki seviyen. Pep yıla A2’de başladı, bugün B1 civarında.',
+    'Ustalaşılan kartlar, ayın tekrarları ve şu anki seviyen. Deniz yıla A2’de başladı, bugün B1 civarında.',
   'tut.app-agenda--esencial.1.titulo': 'Ajandan',
   'tut.app-agenda--esencial.1.texto':
-    'Ajanda, alışkanlık olmayan şeyleri tutar: yapılacaklar, randevular, kişiler. Üç bölümü vardır, ve tarihi olan her şey kendiliğinden evin takvimine düşer.',
+    'Ajanda, alışkanlık olmayan şeyleri tutar: yapılacaklar, randevular, kişiler. Üç bölümü vardır, ve tarihi olan her şey kendiliğinden MindHaOS\'un takvimine düşer.',
   'tut.app-agenda--esencial.2.titulo': 'İş',
   'tut.app-agenda--esencial.2.texto':
     'Kutu, tarihsiz yapılacakları kaybolmasınlar diye toplar, ve pano görevlerini sütunlar arasında taşır: yapılacak, devam ediyor ve tamamlandı.',
@@ -781,7 +781,7 @@ export const TR_TUT: Dict = {
   'tut.app-agenda--esencial.4.titulo': 'Kişiler',
   'tut.app-agenda--esencial.4.texto':
     'İlişkiye göre kişi rehberin. Kaydettiğin doğum günleri her yıl kendiliğinden takvimde tekrarlanır.',
-  'tut.calendario--esencial.1.titulo': 'Evin saati',
+  'tut.calendario--esencial.1.titulo': 'MindHaOS\'un saati',
   'tut.calendario--esencial.1.texto':
     'Takvim bir oda değildir: HUD\'un saatinde yaşar, bu yüzden nerede olursan ol, hiçbir yere girmeden açılır.',
   'tut.calendario--esencial.2.titulo': 'Planlanan her şey, bir arada',
@@ -876,7 +876,7 @@ export const TR_TUT: Dict = {
     'Kaydedilen her gece, ne kadar uyuduğunu, saat kaçta yattığını ve kaç kez uyandığını birleştiren bir puan alır. Henüz kayıt yokken, burada ilk geceni kaydetmeye davet edilirsin.',
   'tut.app-descanso--esencial.3.titulo': 'Program ve hatırlatıcılar',
   'tut.app-descanso--esencial.3.texto':
-    'Günün şeridinin uçlarını sürükleyerek yatma ve kalkma saatini ayarlarsın; aynı program evin takviminde bir blok olarak da görünür. Burada ayrıca tonuyla alarmı ve yatmadan önce yavaşlamak için hatırlatıcıları da açarsın.',
+    'Günün şeridinin uçlarını sürükleyerek yatma ve kalkma saatini ayarlarsın; aynı program MindHaOS\'un takviminde bir blok olarak da görünür. Burada ayrıca tonuyla alarmı ve yatmadan önce yavaşlamak için hatırlatıcıları da açarsın.',
   'tut.app-descanso--esencial.4.titulo': 'Geceyi kaydet',
   'tut.app-descanso--esencial.4.texto':
     'Nasıl uyuduğunu not etmek için form: tarih, yatma ve kalkma saati, uyanmalar ve bir kalite puanı, not için yer ile birlikte.',
@@ -933,7 +933,7 @@ export const TR_TUT: Dict = {
     'Gerinme ve hareketlilik, ağırlık yerine zamana dayalı setlerle: her pozun kendi saniyeleri ve tekrarları vardır. Rehberli oynatıcı, ne zaman değiştireceğini söyleyen bir zamanlayıcıyla rutini poz poz yürütür.',
   'tut.app-entretenimiento--esencial.1.titulo': 'Eğlence',
   'tut.app-entretenimiento--esencial.1.texto':
-    'Bitirmekte olduğun filmleri, dizileri, kitapları ve video oyunlarını tutar, ve evden çıkmadan oynayabileceğin dijital bir oyun masası getirir. İki bölümü var: Masa Oyunları ve Arşiv.',
+    'Bitirmekte olduğun filmleri, dizileri, kitapları ve video oyunlarını tutar, ve MindHaOS\'tan çıkmadan oynayabileceğin dijital bir oyun masası getirir. İki bölümü var: Masa Oyunları ve Arşiv.',
   'tut.app-entretenimiento--esencial.2.titulo': 'Masa Oyunları',
   'tut.app-entretenimiento--esencial.2.texto':
     'Masa, ekranda doğrudan oynanan dijital oyunları toplar. Bir filtre, bir ya da iki oyuncu için olanları daha büyük bir grup için uygun olanlardan ayırır.',
@@ -945,7 +945,7 @@ export const TR_TUT: Dict = {
     'Arşiv izlediğin, okuduğun ve oynadığın şeyleri bir araya getirir: her yapımın durumu, puanı ve senin değerlendirmenle. Türe, kategoriye, yazara ya da tarihe göre sıralanabilir.',
   'tut.app-garage--esencial.1.titulo': 'Garaj',
   'tut.app-garage--esencial.1.texto':
-    'Garaj araçlarını takip eder: bisikletler, arabalar, motosikletler ve ulaşım için kullandığın her şey. Her birinin kendi servis geçmişi ve işlemleri vardır, ve tarihi olan her şey kendiliğinden evin takvimine düşer.',
+    'Garaj araçlarını takip eder: bisikletler, arabalar, motosikletler ve ulaşım için kullandığın her şey. Her birinin kendi servis geçmişi ve işlemleri vardır, ve tarihi olan her şey kendiliğinden MindHaOS\'un takvimine düşer.',
   'tut.app-garage--esencial.2.titulo': 'Özet',
   'tut.app-garage--esencial.2.texto':
     'Giriş sekmesi: bir trafik ışığı bir şeyin süresinin dolduğunu, yaklaştığını ya da garajın huzurlu olduğunu tek bakışta gösterir.',
@@ -1008,7 +1008,7 @@ export const TR_TUT: Dict = {
   'tut.app-jardin--esencial.4.titulo': 'Şükran',
   'tut.app-jardin--esencial.4.texto':
     'Bugün minnettar olduğun şeyi yaz, tek bir şey bile olsa, ve istediğinde geçmiş kayıtlarına bak. Seri yok: bir günü kaçırmak hiçbir şeyi silmez.',
-  'tut.app-metas--esencial.1.titulo': 'Evin planlayıcısı',
+  'tut.app-metas--esencial.1.titulo': 'MindHaOS\'un planlayıcısı',
   'tut.app-metas--esencial.1.texto':
     'Bu oda kendine ait kayıt tutmaz: diğer uygulamalarda doğan hedefleri ve planları tek bir yerde toplar. Üç bölümü vardır, ve bu sırayla okunur: kendine ne koyduğun, nasıl bölmeyi düşündüğün ve ne zaman düştüğü.',
   'tut.app-metas--esencial.2.titulo': 'Hedefler',
@@ -1044,7 +1044,7 @@ export const TR_TUT: Dict = {
     'Bütün iş üç sütunda —Yapılacak, Devam ediyor ve Tamamlandı—, çoktan tarihi olanlar da dahil. Bir kartı başka bir sütuna sürüklemek için basılı tut («Tamamlandı»ya bırakmak onu takvimde de işaretler) ya da oklarla taşı.',
   'tut.app-agenda--salud.1.titulo': 'Dizin yılı',
   'tut.app-agenda--salud.1.texto':
-    'Birkaç ayda bir beslenme, diş hekimi ve 7. aydaki altı fizyoterapi seansı: Pep’i durduran sakatlık burada kayıtlı.',
+    'Birkaç ayda bir beslenme, diş hekimi ve 7. aydaki altı fizyoterapi seansı: Deniz’i durduran sakatlık burada kayıtlı.',
   'tut.app-agenda--salud.2.titulo': 'İlaçlar',
   'tut.app-agenda--salud.2.texto':
     'Her ilaç, takvimde her doz için bir blok oluşturur. Sakatlığın antienflamatuar ilacı üç hafta sürdü ve arşivlendi; vitamin devam ediyor.',
@@ -1059,8 +1059,8 @@ export const TR_TUT: Dict = {
     'Sen bölümünün sonunda, kendi anahtarıyla döngü yaşar: gün gün kanama, belirtiler ve ruh hali; son periyotlarınla da bir sonrakini ve doğurgan pencereyi tahmin eder. Kapatmak kaydedilen hiçbir şeyi silmez.',
   'tut.app-agenda--salud.projimos.titulo': 'Yakınların',
   'tut.app-agenda--salud.projimos.texto':
-    'Bakımın altındakiler: Kişiler’de «Bakımımda» olarak işaretlenen kişiler; her biri uzmanlık alanına göre randevuları, bakımları ve ilaçlarıyla. Pep annesini burada takip ediyor.',
-  'tut.app-agenda--personas.1.titulo': 'Pep’in çevresi',
+    'Bakımın altındakiler: Kişiler’de «Bakımımda» olarak işaretlenen kişiler; her biri uzmanlık alanına göre randevuları, bakımları ve ilaçlarıyla. Deniz annesini burada takip ediyor.',
+  'tut.app-agenda--personas.1.titulo': 'Deniz’in çevresi',
   'tut.app-agenda--personas.1.texto':
     'Aile, arkadaşlar, iş ve üniversite çevresi; herkes kendi klasöründe. Telefonu, adresi ve unutmak istemediğin ne varsa onunla birlikte.',
   'tut.app-agenda--personas.2.titulo': 'Unutulmayan doğum günleri',
@@ -1070,16 +1070,16 @@ export const TR_TUT: Dict = {
     'Kişilerle yaptığın planlar o kişinin kartına bağlanır: böylece birini en son ne zaman gördüğünü görürsün.',
   'tut.app-ejercicio--anio.1.titulo': 'Üç sayıda bir yıl',
   'tut.app-ejercicio--anio.1.texto':
-    'Aktif seri, art arda bir şey kaydettiğin günleri sayar; Uyum ise aktif günlerini kendine koyduğun hedefle kıyaslar. Pep yıla iki sokak bile koşamadan başladı.',
+    'Aktif seri, art arda bir şey kaydettiğin günleri sayar; Uyum ise aktif günlerini kendine koyduğun hedefle kıyaslar. Deniz yıla iki sokak bile koşamadan başladı.',
   'tut.app-ejercicio--anio.2.titulo': 'Üç disiplin',
   'tut.app-ejercicio--anio.2.texto':
     'Çubuklar biriktirdiklerini hedeflerinle kıyaslar: kuvvet seansları, dayanıklılık dakikaları ve esneklik dakikaları. Hedef, yukarıdan seçtiğin döneme göre ayarlanır.',
   'tut.app-ejercicio--anio.3.titulo': 'Yılın hedefleri',
   'tut.app-ejercicio--anio.3.texto':
-    'Hedefler odası tamamladığı dört hedefi — 5K, 10K, yarı maraton ve maraton — ve hâlâ açık olanı saklar. Tarihli hedefler ev takviminde de görünür.',
+    'Hedefler odası tamamladığı dört hedefi — 5K, 10K, yarı maraton ve maraton — ve hâlâ açık olanı saklar. Tarihli hedefler MindHaOS takviminde de görünür.',
   'tut.app-ejercicio--carrera.1.titulo': 'Katalog, Rutinler ve İlerleme',
   'tut.app-ejercicio--carrera.1.texto':
-    'Her disiplin aynı şekilde düzenlenir: egzersiz kataloğu, geçmişiyle birlikte rutinlerin ve ilerleme. Pep’in şimdiye kadar koştuklarıyla başlayalım.',
+    'Her disiplin aynı şekilde düzenlenir: egzersiz kataloğu, geçmişiyle birlikte rutinlerin ve ilerleme. Deniz’in şimdiye kadar koştuklarıyla başlayalım.',
   'tut.app-ejercicio--carrera.2.titulo': 'Her çıkış kayda geçer',
   'tut.app-ejercicio--carrera.2.texto':
     'Geçmiş; yıla, aya ve haftaya göre gruplanır. Büyük koşular ayrıca rotanın çizimini ve bölümlerini saklar: işte maraton, on kilometrelik ara dereceleriyle.',
@@ -1091,7 +1091,7 @@ export const TR_TUT: Dict = {
     'Her seans, kaldırdığın ağırlıkla birlikte egzersizlerini saklar. Uygulama son seferi hatırlar, aramana gerek kalmaz; günün toplam hacmini de toplar.',
   'tut.app-ejercicio--fuerza.2.titulo': 'Bir yılın eğrisi',
   'tut.app-ejercicio--fuerza.2.texto':
-    'Bir egzersiz seç, nasıl yükseldiğini gör: Pep’in squat’ı kırk kilodan yetmişe çıktı. Sakatlık ayında yalnızca üst vücut çalıştı ve o eğrinin haberi bile olmadı.',
+    'Bir egzersiz seç, nasıl yükseldiğini gör: Deniz’in squat’ı kırk kilodan yetmişe çıktı. Sakatlık ayında yalnızca üst vücut çalıştı ve o eğrinin haberi bile olmadı.',
   'tut.app-ejercicio--fuerza.3.titulo': 'Rekorların, istemene gerek kalmadan',
   'tut.app-ejercicio--fuerza.3.texto':
     'Her egzersiz için en iyi ağırlık, maksimum tekrar ve tahmini 1RM saklanır. Barfiks gibi vücut ağırlığıyla yapılanlar ayrıca işaretlenir.',
@@ -1108,10 +1108,10 @@ export const TR_TUT: Dict = {
     'Üç tür de saatin canlı kardiyosunu paylaşır: zamanlayıcı açıkken koşar ya da pedal çevirirsen dakika dakika kayıt bitince kendiliğinden kaydedilir.',
   'tut.app-cocina--alimentacion.1.titulo': '1. adım: nereye gidiyorsun',
   'tut.app-cocina--alimentacion.1.texto':
-    'Kilon, boyun ve hareketinle uygulama günde ne kadar gerektiğini hesaplar ve makroları dağıtır. Pep kendine 2.400 kalori ve bir kilodan azının kaldığı bir hedef kilo koydu.',
+    'Kilon, boyun ve hareketinle uygulama günde ne kadar gerektiğini hesaplar ve makroları dağıtır. Deniz kendine 2.400 kalori ve bir kilodan azının kaldığı bir hedef kilo koydu.',
   'tut.app-cocina--alimentacion.2.titulo': '2. adım: bugün ne yedin',
   'tut.app-cocina--alimentacion.2.texto':
-    'Kahvaltı, öğle yemeği, akşam yemeği ve arada bir atıştırmalık: her kayıt günün halkalarına eklenir. Suyun kendi hedefi var ve evin günü tamamlandı saymak için baktığı şey odur.',
+    'Kahvaltı, öğle yemeği, akşam yemeği ve arada bir atıştırmalık: her kayıt günün halkalarına eklenir. Suyun kendi hedefi var ve MindHaOS\'un günü tamamlandı saymak için baktığı şey odur.',
   'tut.app-cocina--alimentacion.3.titulo': '3. adım: 74 kilo, 67 kilo',
   'tut.app-cocina--alimentacion.3.texto':
     'Bütün yılın eğrisi: sakatlık ayındaki düzlüğüyle ve Japonya’da aldığı kiloyla. Aşağıda hangi hızda gittiğini ve böyle devam edersen ne zaman varacağını söyler.',
@@ -1120,7 +1120,7 @@ export const TR_TUT: Dict = {
     'Yeşil hedefin içinde kalan gün, kehribar biraz aşan, kırmızı ise tamamen kaçan gün. Seyahat ayı ilk bakışta görünüyor. Açmak için herhangi bir güne dokun.',
   'tut.app-cocina--recetario.1.titulo': 'Diyetler, dergi diyetleri değil',
   'tut.app-cocina--recetario.1.texto':
-    'Buradaki diyet, tariflerini içinde taşıyan bir plandır. Pep kendinden iki tane kaydetmiş: maraton haftası ve Japonya dönüşü; bir de uygulamanın hazır getirdikleri var.',
+    'Buradaki diyet, tariflerini içinde taşıyan bir plandır. Deniz kendinden iki tane kaydetmiş: maraton haftası ve Japonya dönüşü; bir de uygulamanın hazır getirdikleri var.',
   'tut.app-cocina--recetario.2.titulo': 'Tarif defteri',
   'tut.app-cocina--recetario.2.texto':
     'Her tarif; malzemeleri, adımları ve porsiyon başına makroları saklar, klasörlere dizilir. Bir tariften öğünü kaydedebilir ya da malzemelerini Market’e gönderebilirsin.',
@@ -1146,7 +1146,7 @@ export const TR_TUT: Dict = {
     'Uyku hedefi çizgisine karşı yedi çubuk. Bu hafta istediğin kadar uyuyup uyumadığını tek bakışta söyleyen görünüm bu.',
   'tut.app-descanso--noche.3.titulo': 'Bütün yıl',
   'tut.app-descanso--noche.3.texto':
-    'Geçmiş; yıla, aya ve haftaya göre saklanır. Pep’in ilk aylarına kadar in ve son aylarla karşılaştır: biri geçe yatıyor, beş saat uyuyordu.',
+    'Geçmiş; yıla, aya ve haftaya göre saklanır. Deniz’in ilk aylarına kadar in ve son aylarla karşılaştır: biri geçe yatıyor, beş saat uyuyordu.',
   'tut.app-descanso--horario.1.titulo': 'On bir buçuktan yediye',
   'tut.app-descanso--horario.1.texto':
     'Yatma ve uyanma saatini kaydırmak için çubuğun uçlarını sürükle; yukarıdaki gökyüzü onlarla birlikte değişiyor. Bu blok, gece yarısını aşarak takvimde de görünür.',
@@ -1164,7 +1164,7 @@ export const TR_TUT: Dict = {
     'Geriye doğru altı dönem, çubuklar halinde. Maviler para arttığı aylar; kırmızılar canını yakan aylar. Çukur da toparlanma da işte orada.',
   'tut.app-despacho--anio.3.titulo': 'Nereye gidiyor?',
   'tut.app-despacho--anio.3.texto':
-    'Baktığın dönemin kategoriye göre dökümü. Pep kendi kategorilerini elle yazıyor: uygulama bilinenleri tanıyor, kalanlara da kendi rengini veriyor.',
+    'Baktığın dönemin kategoriye göre dökümü. Deniz kendi kategorilerini elle yazıyor: uygulama bilinenleri tanıyor, kalanlara da kendi rengini veriyor.',
   'tut.app-despacho--anio.4.titulo': 'Ayın sınırı',
   'tut.app-despacho--anio.4.texto':
     'Aylık bütçe ve aşınca kırmızıya dönen bir çubuk. Hafta ya da yıl görünümüne geçersen uygulama onu kendi paylaştırıyor.',
@@ -1174,7 +1174,7 @@ export const TR_TUT: Dict = {
   'tut.app-despacho--anio.6.titulo': 'Ya bir yıl sonra',
   'tut.app-despacho--anio.6.texto':
     'Sabit kalemlerini vade tarihlerine, değişkenleri de ortalamana göre alıp on iki ayı öngörüyor; iki senaryoyla: net değerle ve net değer olmadan.',
-  'tut.app-despacho--captura.1.titulo': 'Pep’in sabitleri',
+  'tut.app-despacho--captura.1.titulo': 'Deniz’in sabitleri',
   'tut.app-despacho--captura.1.texto':
     'Kira, internet, telefon, yayın aboneliği ve araba sigortası: düzene girmeye karar verdiği 2. ayda açtığı beş kalem. O günden beri her biri kendini sayıyor.',
   'tut.app-despacho--captura.2.titulo': 'Nasıl kaydediliyor',
@@ -1187,7 +1187,7 @@ export const TR_TUT: Dict = {
   'tut.app-despacho--captura.4.texto':
     'Kafeden on beş günde bir yatan iki maaş, seyahate karar verince vermeye başladığı fizik dersleri ve asla birbirini tutmayan haftalık bahşişler.',
   'tut.app-despacho--captura.5.texto':
-    'Kendi evinde sohbetten de kaydedebilirsin: «markette 250 harcadım» dersin, hemen yazılır.',
+    'Kendi MindHaOS\'unda sohbetten de kaydedebilirsin: «markette 250 harcadım» dersin, hemen yazılır.',
   'tut.app-despacho--metas.1.titulo': 'Tamamladığı hedef',
   'tut.app-despacho--metas.1.texto':
     'Japonya gezisi, %100: on bir ay biriktirme, özel dersler, yıl sonu ikramiyesi ve doğum gününde aldığı para. Altında, dönüşte başlattığı acil durum fonu ve küçük bir yatırım.',
@@ -1199,7 +1199,7 @@ export const TR_TUT: Dict = {
     'Arabanın arızası kredi kartıyla ödendi ve kapanması aylar aldı. Borçlar ayrı duruyor çünkü tersten okunuyor: burada düşmek kazanmak demek.',
   'tut.app-despacho--metas.4.titulo': 'Piyasalar',
   'tut.app-despacho--metas.4.texto':
-    'Pep seyahate karar verdiğinden beri Japon yenini izliyor, şimdi de bir sonraki için Kore wonunu. Döviz, Kripto, Hisseler ve Emtialar canlı (internet ister).',
+    'Deniz seyahate karar verdiğinden beri Japon yenini izliyor, şimdi de bir sonraki için Kore wonunu. Döviz, Kripto, Hisseler ve Emtialar canlı (internet ister).',
   'tut.app-despacho--patrimonio.1.titulo': 'Bugünkü değeri',
   'tut.app-despacho--patrimonio.1.texto':
     'Varlıklar eksi borçlar. Bir satırda oran varsa bu sayı BUGÜNKÜ değeridir, not ettiğin günkü değil — altında dökümü görebilir ya da kendi yazdığına dönebilirsin.',
@@ -1228,7 +1228,7 @@ export const TR_TUT: Dict = {
     'İki liste okumak zorunda kalma diye tek bir trafik ışığı: gecikmiş bir şey varsa kırmızı, yaklaşan varsa sarı, garaj huzurluysa yeşil.',
   'tut.app-garage--vehiculos.2.titulo': 'Şimdiye kadar harcadığın',
   'tut.app-garage--vehiculos.2.texto':
-    'Kaç araç, kaç açık işlem ve yıl içinde harcadığın tutar. Pep’e araba pahalıya patladı.',
+    'Kaç araç, kaç açık işlem ve yıl içinde harcadığın tutar. Deniz’e araba pahalıya patladı.',
   'tut.app-garage--vehiculos.2b.titulo': 'Yeni bir tane ekleme',
   'tut.app-garage--vehiculos.2b.texto':
     'Ad, tür, marka, model, yıl, plaka ve bugünkü kilometre sayacı. Plaka girildiğinde, garaj ileride hangi işlemleri önereceğini bilir.',
@@ -1257,7 +1257,7 @@ export const TR_TUT: Dict = {
   'tut.app-garage--tramites.3.texto':
     'Güvendiğin servis, sigorta şirketi, muayene istasyonu, mahallenin bisikletçisi ve o geceki çekici — telefonu ve adresi bir dokunuş uzakta.',
   'tut.app-garage--tramites.4.texto':
-    'Bütün bu işlemler evin takviminde de var, önceden uyarısıyla birlikte. Ve dikkat: haritada sürdüğün araçlar başka bir şey, onlar Envanter’de yaşıyor.',
+    'Bütün bu işlemler MindHaOS\'un takviminde de var, önceden uyarısıyla birlikte. Ve dikkat: haritada sürdüğün araçlar başka bir şey, onlar Envanter’de yaşıyor.',
   'tut.app-sala--mapa.1.titulo': 'Nerelerde bulundun',
   'tut.app-sala--mapa.1.texto':
     'Dört ülke ve birkaç şehir: neredeyse hepsi aynı seyahatten. Haritanın altındaki listeyi görmek için üç sayıdan birine dokun.',
@@ -1269,7 +1269,7 @@ export const TR_TUT: Dict = {
     'Üstteki anahtar, düz haritayı sürükleyerek döndürdüğün bir küreyle değiştirir; aynı dokunulabilir iğnelerle. Küre yalnızca bakmak için: yeni iğneler Düz görünümde konur.',
   'tut.app-sala--japon.1.titulo': 'Albümler',
   'tut.app-sala--japon.1.texto':
-    'Her ülke için bir klasör, kapak fotoğrafıyla. İçinde her yer için bir kart, her kartın içinde de Pep’in o gün yazdıkları.',
+    'Her ülke için bir klasör, kapak fotoğrafıyla. İçinde her yer için bir kart, her kartın içinde de Deniz’in o gün yazdıkları.',
   'tut.app-sala--japon.2.titulo': 'Orada yazdıkları',
   'tut.app-sala--japon.2.texto':
     'Seyahatten sekiz kayıt, her biri kendi fotoğrafıyla: gün doğarken Fuji, Arashiyama’nın bambuları, Nara’nın geyikleri. Anında yazılıyorlar, koku daha üstündeyken.',
@@ -1289,7 +1289,7 @@ export const TR_TUT: Dict = {
     'Filmler, diziler, kitaplar ve video oyunları, bitirdiği tarihe göre sıralı. 7. ayda bir maraton var (sakat dizle kanepede bol bol vakit kaldı) ve üç haftalık bir boşluk: Japonya.',
   'tut.app-entretenimiento--archivo.2.titulo': 'Kayıt',
   'tut.app-entretenimiento--archivo.2.texto':
-    'Başlık, yazar ya da yönetmen, tür, durum ve yıldızlar. Yorum, Pep’in eser hakkında ne düşündüğüdür, konunun özeti değil: bir yıl sonra işine yarayacak tek şey budur.',
+    'Başlık, yazar ya da yönetmen, tür, durum ve yıldızlar. Yorum, Deniz’in eser hakkında ne düşündüğüdür, konunun özeti değil: bir yıl sonra işine yarayacak tek şey budur.',
   'tut.app-entretenimiento--archivo.3.titulo': 'Sıralamanın dört yolu',
   'tut.app-entretenimiento--archivo.3.texto':
     'Türe göre, kategoriye göre (film, dizi, kitap, video oyunu), yazara göre ya da tarihe göre. Türe göre görünümde klasörler sürüklenir: en çok izlediğini en başa koy.',
@@ -1306,12 +1306,12 @@ export const TR_TUT: Dict = {
     'Dünya, ekonomi, teknoloji, sağlık, spor ve eğlence; filtrelemek için üstteki chip’ler. Kaynaklar senin dilindeki gerçek basın —her manşet hangi gazeteden geldiğini söyler— ve her gün, dönüşümlü olarak farklı medya kuruluşları girer.',
   'tut.app-diario--habito.2.titulo': 'Kendi kendini yeniler',
   'tut.app-diario--habito.2.texto':
-    'Günün baskısı kendiliğinden iner ve gece yarısı baştan aşağı değişir: burada hiçbir şey birikmez, tıpkı gerçek bir gazete gibi. Evin dilini değiştirirsen basın da değişir: her dil kendi medya kuruluşlarını getirir.',
+    'Günün baskısı kendiliğinden iner ve gece yarısı baştan aşağı değişir: burada hiçbir şey birikmez, tıpkı gerçek bir gazete gibi. MindHaOS\'un dilini değiştirirsen basın da değişir: her dil kendi medya kuruluşlarını getirir.',
   'tut.app-diario--habito.3.titulo': 'Tarihte bir gün',
   'tut.app-diario--habito.3.texto':
     'Diğer yarısı: bugün gibi bir günde ne olduğu, bir sanat eseri, bir kitap, bir canlı türü, bir kelime. Haberler içinden gelmese bile gazeteyi açmak için iyi bir bahane.',
   'tut.app-diario--habito.4.texto':
-    'Pep bu yıl gazeteyi yaklaşık iki yüz gün okudu: başta çok, kötü ayda neredeyse hiç, son üç haftanın ise her günü. Serisi işte bundan besleniyor.',
+    'Deniz bu yıl gazeteyi yaklaşık iki yüz gün okudu: başta çok, kötü ayda neredeyse hiç, son üç haftanın ise her günü. Serisi işte bundan besleniyor.',
   'tut.app-diario--reparto.1.titulo': 'Asistan teslimatı',
   'tut.app-diario--reparto.1.texto':
     'Kimin sana neyi getireceğini burada ayarlarsın. Sıradan bir bildirim değil: asistandan, kendi sesiyle bir mesaj olarak gelir.',

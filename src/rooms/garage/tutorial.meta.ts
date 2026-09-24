@@ -50,7 +50,7 @@ export const esencialGarage: TutorialDef = fichaEsencial(
   'garage',
   T(
     'tut.app-garage--esencial.resumen',
-    'El garaje lleva el mantenimiento de tus vehículos: un semáforo resume qué urge, la lista de vehículos guarda su historial de servicios, y cada ficha reúne sus trámites, documentos y contactos. Todo lo que tiene fecha se agenda solo en el calendario de la casa.',
+    'El garaje lleva el mantenimiento de tus vehículos: un semáforo resume qué urge, la lista de vehículos guarda su historial de servicios, y cada ficha reúne sus trámites, documentos y contactos. Todo lo que tiene fecha se agenda solo en el calendario de la MindHaOS.',
   ),
   () => import('./tutorial').then((m) => m.cuerpoEsencial as CuerpoTutorial),
 )

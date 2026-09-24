@@ -261,7 +261,7 @@ function abrirComoInvitado(ci: number, cl: ClaseCanchaRed, ri: Ranura, de: Ranur
   const cancha = useDiseño.getState().objetos.find((o) => o.id === ci && esObjetoMapa(o) && esCancha(o.tipo))
   if (!cancha) {
     esperarPartido(null)
-    avisar(tGlobal('juego.online.enCasaDe', 'El partido es en la casa de {quien}', { quien: etiquetaDe(de) }))
+    avisar(tGlobal('juego.online.enCasaDe', 'El partido es en la MindHaOS de {quien}', { quien: etiquetaDe(de) }))
     return
   }
   if (!dentroDeCancha(cancha, playerPos.x, playerPos.z, CERCA_PARTIDO)) {

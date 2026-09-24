@@ -458,7 +458,7 @@ async function verificarUsuario(userId: string): Promise<void> {
     const conservar = window.confirm(
       tGlobal(
         'cuenta.sync.otraCuenta',
-        'Esta casa estaba ligada a otra cuenta. ¿Conservar lo local y unirlo a la cuenta nueva? (Cancelar = vaciar esta casa y bajar solo lo de la cuenta)',
+        'Esta MindHaOS estaba ligada a otra cuenta. ¿Conservar lo local y unirlo a la cuenta nueva? (Cancelar = vaciar esta MindHaOS y bajar solo lo de la cuenta)',
       ),
     )
     if (!conservar) {
@@ -488,7 +488,7 @@ async function bootstrap(): Promise<Set<string> | null> {
     const exportar = window.confirm(
       tGlobal(
         'cuenta.sync.respaldoPrevio',
-        'Vas a sincronizar esta casa por primera vez. ¿Descargar antes un respaldo local? (Recomendado)',
+        'Vas a sincronizar esta MindHaOS por primera vez. ¿Descargar antes un respaldo local? (Recomendado)',
       ),
     )
     if (exportar) await exportarRespaldo()

@@ -17,7 +17,7 @@ export const esencialMetas: TutorialDef = fichaEsencial(
   'metas',
   T(
     'tut.app-metas--esencial.resumen',
-    'El planificador de toda la casa, en tres menús: Metas (la lista de lo que te propusiste, agrupada por la app que lleva cada una), Planes (los borradores de cronograma que reparten una meta en fases) y Cronograma (el eje del tiempo donde caen todas). No guarda registros propios: reúne las metas y los planes que nacen en las demás apps. Desde una meta se abre su hoja y, desde ahí, el eje acotado a ella.',
+    'El planificador de toda la MindHaOS, en tres menús: Metas (la lista de lo que te propusiste, agrupada por la app que lleva cada una), Planes (los borradores de cronograma que reparten una meta en fases) y Cronograma (el eje del tiempo donde caen todas). No guarda registros propios: reúne las metas y los planes que nacen en las demás apps. Desde una meta se abre su hoja y, desde ahí, el eje acotado a ella.',
   ),
   () => import('./tutorial').then((m) => m.cuerpoEsencial as CuerpoTutorial),
 )

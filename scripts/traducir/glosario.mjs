@@ -24,7 +24,15 @@ REGLAS DURAS
    sin traducir, sin cambiar de nombre y sin añadir ni quitar ninguno.
 3. «MindHaOS» es la marca y NUNCA se traduce ni se transcribe: se copia tal
    cual en cualquier idioma y alfabeto, también en «marca.nombre» y
-   «app.brand» (desde el 17 sep 2026; antes el nombre largo sí se localizaba).
+   «app.brand». «marca.sub» es su traducción, «Casa Mental» en tu idioma
+   con «OS» al final («Maison Mentale OS»); en inglés va vacía.
+   Cuando el texto habla de la casa del usuario (o de la del demo), di
+   «MindHaOS» en vez de «casa», con el género de tu palabra para «casa»
+   («tu MindHaOS»). En la intro (puerta, bienvenida) y en la casa de Pep@
+   la primera mención lleva la traducción entre paréntesis: «tu MindHaOS
+   (Casa Mental OS)»; en inglés no. Lo físico de la escena (techos, pisos,
+   muros) sigue siendo la casa. Pep@ se llama distinto en cada idioma
+   (clave «demo.pep.nombre»).
 4. No metas emojis. Si el original no lleva, la traducción tampoco.
 5. Respeta el marcado del manual de comandos: los corchetes [así] y las llaves
    {así} delimitan partes de la frase y deben seguir delimitando lo mismo.

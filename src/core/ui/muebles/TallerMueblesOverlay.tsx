@@ -81,7 +81,7 @@ export default function TallerMueblesOverlay() {
     }
     const ok = await confirmar({
       titulo: t('muebles.cerrar.titulo', 'Salir sin enviar el mueble'),
-      mensaje: t('muebles.cerrar.msg', 'Los cambios que no enviaste a la casa se pierden.'),
+      mensaje: t('muebles.cerrar.msg', 'Los cambios que no enviaste a la MindHaOS se pierden.'),
       peligro: true,
     })
     if (ok) cerrar()
@@ -127,7 +127,7 @@ export default function TallerMueblesOverlay() {
             <Icono nombre="casa" />{' '}
             {objetoId != null
               ? t('muebles.guardarCambios', 'Guardar cambios')
-              : t('muebles.enviarCasa', 'Enviar a la casa')}
+              : t('muebles.enviarCasa', 'Enviar a la MindHaOS')}
           </BotonPrimario>
         </span>
         <button
@@ -180,7 +180,7 @@ export default function TallerMueblesOverlay() {
             <Icono nombre="casa" />{' '}
             {objetoId != null
               ? t('muebles.guardarCambios', 'Guardar cambios')
-              : t('muebles.enviarCasa', 'Enviar a la casa')}
+              : t('muebles.enviarCasa', 'Enviar a la MindHaOS')}
           </BotonPrimario>
         </span>
       </div>

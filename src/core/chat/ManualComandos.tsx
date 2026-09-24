@@ -88,7 +88,7 @@ const AVISO_INFRA =
 const SECCIONES: Seccion[] = [
   {
     id: 'apps',
-    titulo: 'Apps de la casa',
+    titulo: 'Apps de la MindHaOS',
     nota: 'Cada app registra lo suyo con tus palabras (usa @app para forzar el destino) y sus menús se abren por su nombre. Los ejemplos «Con IA» siempre gastan una llamada de IA (plan Pro o tu clave); tus plantillas propias también capturan por chat con IA y se abren por su nombre.',
     carpetas: [
       {
@@ -705,14 +705,14 @@ const SECCIONES: Seccion[] = [
   },
   {
     id: 'casa',
-    titulo: 'La casa y el editor',
+    titulo: 'La MindHaOS y el editor',
     carpetas: [
       {
         // El calendario no es una app: vive en el reloj y reúne lo de todas.
         icon: '📅',
         id: 'calendario',
         titulo: 'Calendario',
-        nota: 'Se abre desde el reloj de la casa. Reúne las metas y eventos de todas las apps; en Metas puedes pedir planes con IA (✨).',
+        nota: 'Se abre desde el reloj de la MindHaOS. Reúne las metas y eventos de todas las apps; en Metas puedes pedir planes con IA (✨).',
         grupos: [
           {
             id: 'abrir',
@@ -741,7 +741,7 @@ const SECCIONES: Seccion[] = [
         icon: '🚪',
         id: 'cuartos',
         titulo: 'Cuartos',
-        nota: 'Crea, renombra y organiza los cuartos. «Elimina» borra el cuarto de la casa.',
+        nota: 'Crea, renombra y organiza los cuartos. «Elimina» borra el cuarto de la MindHaOS.',
         grupos: [
           {
             id: 'acciones',
@@ -865,7 +865,7 @@ const SECCIONES: Seccion[] = [
         icon: '⌨️',
         id: 'teclado',
         titulo: 'Teclado (PC)',
-        nota: 'Atajos para jugar con teclado. No se escriben en el chat: se usan en la casa. No responden mientras escribes en un campo ni con un cuarto abierto.',
+        nota: 'Atajos para jugar con teclado. No se escriben en el chat: se usan en la MindHaOS. No responden mientras escribes en un campo ni con un cuarto abierto.',
         atajos: [
           { teclas: 'W A S D', accion: 'Caminar (también con las flechas)', en: 'Walk (arrow keys too)' },
           { teclas: 'Mayús', teclasEn: 'Shift', accion: 'Correr (se queda puesto hasta volver a pulsar)', en: 'Run (stays on until you press again)' },
@@ -887,8 +887,8 @@ const SECCIONES: Seccion[] = [
       {
         icon: '🏠',
         id: 'interfaz',
-        titulo: 'Casa e interfaz',
-        nota: 'Tema de la casa, fondo del cielo, música ambiental y tu resumen Wrapped. Ambientes de música: calma, festivo, nocturno, chiptune, acogedor, energía, estudio, arcade, bosque, viaje, carrera y cajita.',
+        titulo: 'MindHaOS e interfaz',
+        nota: 'Tema de la MindHaOS, fondo del cielo, música ambiental y tu resumen Wrapped. Ambientes de música: calma, festivo, nocturno, chiptune, acogedor, energía, estudio, arcade, bosque, viaje, carrera y cajita.',
         grupos: [
           {
             id: 'acciones',

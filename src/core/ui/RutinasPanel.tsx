@@ -202,7 +202,7 @@ export function EditorRutina({ rutina, onCerrar }: { rutina: Rutina; onCerrar: (
         }}
         className="w-full rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-xs text-white/85 focus:outline-none"
       >
-        <option value="">{t('rutinas.sinApp', 'Sin app (evento de la casa)')}</option>
+        <option value="">{t('rutinas.sinApp', 'Sin app (evento de la MindHaOS)')}</option>
         {plantillasAgendables().map((p) => (
           <option key={p.id} value={p.id}>
             {p.icon} {t(`room.${p.id}.nombre`, p.nombre).split(' · ')[0]}

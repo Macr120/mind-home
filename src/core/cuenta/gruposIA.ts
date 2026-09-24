@@ -21,8 +21,8 @@ export interface GrupoIA {
 }
 
 const GRUPOS_NUCLEO: GrupoIA[] = [
-  { id: 'chat', clave: 'ia.grupo.chat', es: 'Chat de la casa', emoji: '💬', ops: OPS_CHAT },
-  { id: 'editor', clave: 'ia.grupo.editor', es: 'Editor de la casa', emoji: '✏️', ops: OPS_EDITOR },
+  { id: 'chat', clave: 'ia.grupo.chat', es: 'Chat de la MindHaOS', emoji: '💬', ops: OPS_CHAT },
+  { id: 'editor', clave: 'ia.grupo.editor', es: 'Editor de la MindHaOS', emoji: '✏️', ops: OPS_EDITOR },
   { id: 'metas', clave: 'ia.grupo.metas', es: 'Metas y cronograma', emoji: '🎯', ops: OPS_METAS },
 ]
 

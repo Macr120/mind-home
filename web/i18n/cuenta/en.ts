@@ -5,6 +5,7 @@
  */
 export const TEXTOS: Record<string, string> = {
   'marca.nombre': 'MindHaOS',
+  'marca.sub': 'MindHaOS',
   'marco.privacidad': 'Privacy',
   'marco.terminos': 'Terms',
   'marco.titulo': 'My account — MindHaOS',
@@ -17,7 +18,7 @@ export const TEXTOS: Record<string, string> = {
   'acc.crear': 'Create your account',
   'acc.entrar': 'Sign in to your account',
   'acc.crear.sub': 'Your account first; you pick your subscription afterwards.',
-  'acc.entrar.sub': 'Your subscription and your house are waiting.',
+  'acc.entrar.sub': 'Your subscription and your MindHaOS are waiting.',
   'acc.correo': 'Email',
   'acc.contrasena': 'Password',
   'acc.btEntrar': 'Sign in',
@@ -36,13 +37,13 @@ export const TEXTOS: Record<string, string> = {
 
   'app.titulo': 'Get the app',
   'app.pagoUnico': 'one-off payment',
-  'app.b1': 'Your house forever, with every app',
+  'app.b1': 'Your MindHaOS forever, with every app',
   'app.b2': 'First month included: 700 AI credits + sync',
   'app.b3': 'One purchase for every device: browser, Android and iOS',
   'app.cta': 'See where to download it',
-  'app.comprar': 'Buy the house',
+  'app.comprar': 'Buy MindHaOS',
   'app.enCamino': 'The payment is on its way: reload the page in a few seconds.',
-  'app.pie': 'When you open it, sign in with this same email and your house follows you to every device.',
+  'app.pie': 'When you open it, sign in with this same email and your MindHaOS follows you to every device.',
 
   'cred.titulo': 'One-off credits',
   'cred.b1': '{n} AI credits, with no subscription',
@@ -63,7 +64,7 @@ export const TEXTOS: Record<string, string> = {
   'tar.porAnio': '/year',
   'tar.porMes': '/month',
   'tar.b1': 'Tier ×{n}: {c} AI credits a month',
-  'tar.b2': 'Every app in the house, on all your devices',
+  'tar.b2': 'Every app in your MindHaOS, on all your devices',
   'tar.b3': 'Sync and cloud backup',
   'tar.actual': 'This is your current tier',
   'tar.subir': 'Move up to ×{n}',
@@ -85,12 +86,12 @@ export const TEXTOS: Record<string, string> = {
   'mi.estado.trialVencido':
     'Your included month is over: the app and your data are yours forever. Subscribe to carry on with the monthly credits and sync, or top up one-off credits.',
   'mi.estado.local':
-    'Your home is yours and your data lives on your device. AI and sync are paid separately: buy the credits you need, or subscribe and get them every month.',
+    'Your MindHaOS is yours and your data lives on your device. AI and sync are paid separately: buy the credits you need, or subscribe and get them every month.',
   'mi.estado.sinCasa':
-    'Your account doesn’t have the home yet. Buy it below —or redeem your coupon if you’re a tester— and open it with this same email on any device.',
+    'Your account doesn’t have MindHaOS yet. Buy it below —or redeem your coupon if you’re a tester— and open it with this same email on any device.',
   'mi.disponibles': 'Credits available: {n}',
   'mi.abrirApp': 'Open the app in the browser',
-  'mi.probarApp': 'Try building your house for free',
+  'mi.probarApp': 'Try building your MindHaOS for free',
   'mi.salir': 'Sign out',
 
   'cupon.titulo': 'I have a coupon',

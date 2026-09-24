@@ -36,7 +36,7 @@ export const cuerpoAlimentacion: CuerpoTutorial = {
       titulo: T('tut.app-cocina--alimentacion.2.titulo', 'Paso 2: lo que comiste hoy'),
       texto: T(
         'tut.app-cocina--alimentacion.2.texto',
-        'Desayuno, comida, cena y algo suelto: cada registro suma a los anillos del día. El agua tiene su propia meta, y es la que la casa mira para dar por cumplido el día.',
+        'Desayuno, comida, cena y algo suelto: cada registro suma a los anillos del día. El agua tiene su propia meta, y es la que la MindHaOS mira para dar por cumplido el día.',
       ),
       alEntrar: () => irA('peso', 'diario'),
     },

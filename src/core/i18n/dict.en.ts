@@ -7,11 +7,12 @@ import type { Dict } from './dict'
 
 export const EN: Dict = {
   'marca.nombre': 'MindHaOS',
+  'marca.sub': 'MindHaOS',
   // Marca
   'app.brand': 'MindHaOS',
   'app.brandCorto': 'MindHaOS',
   'app.brandEditar': 'Change the name',
-  'app.brandNombre': 'House name',
+  'app.brandNombre': 'MindHaOS name',
 
   // Menú lateral de cuartos
   'nav.ariaMenu': 'Rooms menu',
@@ -31,8 +32,8 @@ export const EN: Dict = {
   'nav.borrarCuartoMsg': 'Its walls, decoration and objects go with it.',
   'nav.borrarCuartoOk': 'Delete',
   'nav.agregarCuarto': 'Add room',
-  'nav.agregarCasa': 'Add to the house',
-  'nav.todosColocados': 'All rooms are already in your house.',
+  'nav.agregarCasa': 'Add to your MindHaOS',
+  'nav.todosColocados': 'All rooms are already in your MindHaOS.',
   'nav.menu.cuartos': 'Home',
   'nav.menu.inventarios': 'Inventory',
   'inv.plantillas': 'Indoor',
@@ -161,7 +162,7 @@ export const EN: Dict = {
   'carrera.tabla.vd': 'W/L',
   'carrera.usarItem': 'Use item (E)',
   'room.paintball.nombre': 'Paintball',
-  'room.paintball.desc': 'Paintball battles against your assistants (1v1, 2v2 or free-for-all) using the house as the map.',
+  'room.paintball.desc': 'Paintball battles against your assistants (1v1, 2v2 or free-for-all) using your MindHaOS as the map.',
   'paintball.titulo': 'Paintball',
   'paintball.jugar': 'Play on the map',
   'paintball.marcador': 'Wins',
@@ -171,9 +172,9 @@ export const EN: Dict = {
   'paintball.mRoyale': 'Free-for-all',
   'paintball.eligeRival': 'Pick your rival:',
   'paintball.eligeCompanero': 'Pick your teammate (rivals are drawn at random):',
-  'paintball.royaleDesc': 'Free-for-all: you against your assistants all over the house.',
+  'paintball.royaleDesc': 'Free-for-all: you against your assistants all over your MindHaOS.',
   'paintball.empezar': 'Start the battle',
-  'paintball.reglas': 'Everyone takes 3 hits. Last team standing wins. The house is the battlefield.',
+  'paintball.reglas': 'Everyone takes 3 hits. Last team standing wins. Your MindHaOS is the battlefield.',
   'paintball.posicionate': 'Take cover!',
   'paintball.ya': 'GO!',
   'paintball.tu': 'You',
@@ -210,7 +211,7 @@ export const EN: Dict = {
   'paintball.msg.sinAsistentes': 'Create an assistant to play against.',
   'paintball.msg.faltan': 'You need at least 3 assistants for 2 vs 2.',
   'paintball.resumen.ayuda': 'This mode is played on the 3D map: menu → Outdoor → Play.',
-  'paintball.resumen.nota': 'Choose 1 vs 1, 2 vs 2 or free-for-all against your assistants: everyone takes 3 hits and the whole house is the battlefield.',
+  'paintball.resumen.nota': 'Choose 1 vs 1, 2 vs 2 or free-for-all against your assistants: everyone takes 3 hits and your whole MindHaOS is the battlefield.',
   'caminos.ayuda': 'Tap a map cell to apply; drag to move the camera.',
   'caminos.resumen.unidad': 'Counts are segments (map cells with a path).',
   'canchas.clase.futbol': 'Soccer',
@@ -365,7 +366,7 @@ export const EN: Dict = {
   'juego.online.titulo': 'Online match',
   'juego.online.jugar': 'Play against {nombre}',
   'juego.online.aviso': 'This match’s score is not saved.',
-  'juego.online.enCasaDe': 'The match is at {quien}’s house',
+  'juego.online.enCasaDe': 'The match is at {quien}’s MindHaOS',
   'juego.online.acercate': 'Head over to the court: {quien} is waiting',
   'juego.online.rivalSalio': '{quien} left the match.',
   'juego.online.cerrado': 'The online match is over.',
@@ -439,7 +440,7 @@ export const EN: Dict = {
   'cal.meta.unObjetivo': 'a daily mission',
   'cal.meta.unaActividad': 'a weekly activity',
   'cal.meta.diasRitmo': '{hechos}/{pedidos} days',
-  'rutinas.sinApp': 'No app (house event)',
+  'rutinas.sinApp': 'No app (MindHaOS event)',
   'cocina.metaDiaria': "Today's water",
   'cocina.objetivo.comidas': "Today's meals",
   'cocina.objetivo.vaso': 'One glass',
@@ -970,7 +971,7 @@ export const EN: Dict = {
 
   // Editor del mapa
   'mapa.editar': 'Edit map',
-  'mapa.editarTitulo': 'Edit the house map',
+  'mapa.editarTitulo': 'Edit your MindHaOS map',
   'mapa.quitar': 'Remove from map',
 
   // Chat del arquitecto
@@ -1183,7 +1184,7 @@ export const EN: Dict = {
   'ajustes.estilo.desc': 'The shape of buttons, cards and panels: corners, borders and shadows.',
   'ajustes.vidrio.titulo': 'Glass',
   'ajustes.horaDia': 'Time of day',
-  'ajustes.horaDia.desc': 'The light of the house: move the sun, pause time or return to the real hour.',
+  'ajustes.horaDia.desc': 'The light of your MindHaOS: move the sun, pause time or return to the real hour.',
   'ajustes.modo.claro': 'Light',
   'ajustes.modo.oscuro': 'Dark',
   'ajustes.modo.transparente': 'Transparent',
@@ -1192,13 +1193,13 @@ export const EN: Dict = {
   'ajustes.iconos.profesional': 'Professional',
   'ajustes.tipografia': 'Typography',
   'ajustes.fondoEscritorio': 'Wallpaper',
-  'ajustes.fondoPoner': 'Set the house as wallpaper',
-  'ajustes.fondoQuitar': 'Remove the house from the desktop',
+  'ajustes.fondoPoner': 'Set your MindHaOS as wallpaper',
+  'ajustes.fondoQuitar': 'Remove your MindHaOS from the desktop',
   'ajustes.fondoArriba': 'Move up',
   'ajustes.fondoAbajo': 'Move down',
   'ajustes.fondoIzquierda': 'Move left',
   'ajustes.fondoDerecha': 'Move right',
-  'ajustes.fondoArrastra': 'Drag the preview to centre the house.',
+  'ajustes.fondoArrastra': 'Drag the preview to centre your MindHaOS.',
   'ajustes.fondoDonde': 'Which screen',
   'ajustes.fondoTodasPantallas': 'All',
   'ajustes.fondoPantalla': 'Screen',
@@ -1209,7 +1210,7 @@ export const EN: Dict = {
   'fondo.p.musica': 'Music',
   'fondo.p.recursos': 'System',
   'ajustes.fondoNota':
-    'Behind your windows you see only the map, no controls. It opens with your house exactly as it is now.',
+    'Behind your windows you see only the map, no controls. It opens with your MindHaOS exactly as it is now.',
   'ajustes.abrir': 'Settings',
 
   // Tipografías
@@ -1850,10 +1851,10 @@ export const EN: Dict = {
   'biblioteca.mat.quitar': 'Remove the link (does not delete the material)',
   'biblioteca.mat.roto': 'gone',
   'computo.vista.vacia': 'The sheet is still empty.',
-  'biblioteca.mat.sinCuarto': 'Place that app’s room in your house to open its material.',
+  'biblioteca.mat.sinCuarto': 'Place that app’s room in your MindHaOS to open its material.',
   'material.estudiasEn': 'You study it in',
   'material.abrirEntrada': 'Open “{n}” in the encyclopedia',
-  'material.sinBiblioteca': 'Place the library room in your house to open its encyclopedia.',
+  'material.sinBiblioteca': 'Place the library room in your MindHaOS to open its encyclopedia.',
   'biblioteca.mat.vacio2':
     'Generate a map or some notes on this topic with AI, or hook up the spreadsheets and maps you already study it with.',
   'biblioteca.mat.ver': 'See it right here',
@@ -3646,7 +3647,7 @@ export const EN: Dict = {
   'sala.hoja.presupuesto': 'Budget',
   'sala.hoja.total': 'Total',
   'sala.hoja.agregarDia': 'Day',
-  'sala.hoja.sync': 'Dated days show on the house calendar and the total becomes a savings goal in Finance. The plan stays even after you visit the place; it only disappears if you delete it.',
+  'sala.hoja.sync': 'Dated days show on your MindHaOS calendar and the total becomes a savings goal in Finance. The plan stays even after you visit the place; it only disappears if you delete it.',
   'sala.hoja.compartir': 'Share',
   'sala.hoja.copiado': 'Copied',
   'sala.hoja.guardar': 'Save',
@@ -4055,7 +4056,7 @@ export const EN: Dict = {
   'respaldo.cifrar.descifrar': 'Decrypt and continue',
   'respaldo.cifrar.error': 'Wrong password or corrupted file.',
   'respaldo.confirm.titulo': 'Confirm restore',
-  'respaldo.confirm.desc': '{nombre} contains {n} records. Restoring will replace all current data and leave the house as it was when exported.',
+  'respaldo.confirm.desc': '{nombre} contains {n} records. Restoring will replace all current data and leave your MindHaOS as it was when exported.',
   'respaldo.confirm.omitir': 'Tables not known by this version will be skipped: {tablas}.',
   'respaldo.confirm.cancelar': 'Cancel',
   'respaldo.confirm.restaurar': 'Restore backup',
@@ -4130,7 +4131,7 @@ export const EN: Dict = {
   'hobbies.proy.borrarFoto': 'Delete image',
 
   // ─── UI común ──────────────────────────────────────────────────────────────
-  'ui.volverCasa': '‹ Back to house',
+  'ui.volverCasa': '‹ Back to MindHaOS',
   'ui.cargando': 'Loading {nombre}…',
   'ui.errorFallo': 'Something failed to load',
   'ui.reintentar': 'Retry',
@@ -4257,7 +4258,7 @@ export const EN: Dict = {
 
   // ─── Editor de mapa (títulos de sección) ──────────────────────────────────
   'editor.mapa.ajustes': 'Interface & language',
-  'editor.mapa.tema': 'House theme',
+  'editor.mapa.tema': 'MindHaOS theme',
   'editor.mapa.fondo': 'Sky background',
   'editor.mapa.techo': 'House roofs',
   'editor.mapa.inventario': 'Map inventory',
@@ -4381,7 +4382,7 @@ export const EN: Dict = {
   'editor.avatar.usandoIa': 'Using an AI-created shape. Colors do not apply to this shape.',
 
   // ─── Editor: tema ─────────────────────────────────────────────────────────
-  'editor.tema.titulo': 'House theme',
+  'editor.tema.titulo': 'MindHaOS theme',
   'editor.tema.desc': 'Applies style to rooms, background, floor and roof, dresses the interface and your character, and activates microanimations in the sky.',
   'editor.tema.sin': 'No theme',
   'editor.tema.misTemas': 'My themes',
@@ -4573,7 +4574,7 @@ export const EN: Dict = {
   'room.granja.desc': 'Raise hens, pigs, goats, sheep, cows and horses, and grow their food in the same editor.',
   'room.ideas.desc': 'Your idea journal and brainstorms, ten concept-map formats on a free canvas (mind map, tree, timeline, cycle, pyramid, Venn…) and eight diagrams to decide with (pros and cons, force field, SWOT, Eisenhower, decision tree, tier list, weighted decision matrix and Ishikawa), by hand or with AI.',
   'room.metas.desc':
-    'What you set out to do, from the whole house: the list of goals with their sub-goals and steps, the plans the AI suggests for each one (phases with a date that turn into real sub-goals) and the timeline where everything takes up its period on the axis of time.',
+    'What you set out to do, from your whole MindHaOS: the list of goals with their sub-goals and steps, the plans the AI suggests for each one (phases with a date that turn into real sub-goals) and the timeline where everything takes up its period on the axis of time.',
 
   'room.computo.desc':
     'Computing room: a scientific calculator with your formula book hanging off it (Mathematics, Physics and Chemistry included and editable) and eight modes — a plotter with four types (2D, polar, parametric and 3D surface), binary and hexadecimal, matrices, systems of equations, unit conversion, tip and rule of three; and spreadsheets that export to Excel and PDF.',
@@ -5168,7 +5169,7 @@ export const EN: Dict = {
   'estilo.comic': 'Comic',
   'estilo.comic.desc': 'Banded lighting and cartoon outlines.',
   'estilo.miniatura': 'Miniature',
-  'estilo.miniatura.desc': 'The house as a toy diorama.',
+  'estilo.miniatura.desc': 'Your MindHaOS as a toy diorama.',
   'estilo.retro': 'Retro',
   'estilo.retro.desc': 'Chunky pixels, 90s video game.',
   'estilo.neon': 'Neon',
@@ -5227,7 +5228,7 @@ export const EN: Dict = {
   'cal.estirarAmbiguo': 'This day has several events: open the month to stretch one',
   'cal.estirarRepetir': 'Stretch to repeat it on consecutive days',
   'cal.eventoSimple': 'Calendar event (no checklist).',
-  'cal.filtro.casa': 'From the house',
+  'cal.filtro.casa': 'From your MindHaOS',
   'cal.filtro.titulo': 'Filter',
   'cal.filtro.todas': 'All',
   'cal.filtro.otras': 'Others',
@@ -5360,7 +5361,7 @@ export const EN: Dict = {
   'cal.enlace.quitar': 'Remove the chip',
   'cal.enlace.abrir': 'Open {app}',
   'cal.enlace.dondeSeRegistra': 'Logged in {app}',
-  'cal.enlace.perdida': 'That app is no longer in any room of your house.',
+  'cal.enlace.perdida': 'That app is no longer in any room of your MindHaOS.',
   'cal.enlace.elegirApp': 'Where does this step get logged?',
   'cal.enlace.elegirSeccion': 'Which part of {app}?',
   'cal.enlace.otraApp': 'Another app',
@@ -5492,7 +5493,7 @@ export const EN: Dict = {
   'chat.manual.aviso.huerto': 'Build commands open a full-screen editor: the chat closes until you exit with ✕. Care actions work without leaving the chat.',
   'chat.manual.cat.configuraciones': 'Settings',
   'chat.manual.cat.cuartos': 'Rooms',
-  'chat.manual.cat.interfaz': 'House & interface',
+  'chat.manual.cat.interfaz': 'MindHaOS & interface',
   'chat.manual.cat.mapa': 'Map and structure',
   'chat.manual.cat.memoria': 'Memory & capture',
   'chat.manual.cat.objetos': 'Objects',
@@ -5514,7 +5515,7 @@ export const EN: Dict = {
   'chat.manual.nota.caminos': 'With the track and finish line drawn you can race against the clock or an assistant; you board the train from the rails.',
   'chat.manual.nota.canchas': 'Courts are played by walking inside; you control the ball by getting close.',
   'chat.manual.nota.cocina': 'With AI it also understands a photo of your dish (logs it estimating macros). Recipes and diets you ask for in the chat come with their image: they take a bit longer to show up and cost the credits shown.',
-  'chat.manual.nota.cuartos': 'Create, rename and organize rooms. "Delete" removes the room from the house.',
+  'chat.manual.nota.cuartos': 'Create, rename and organize rooms. "Delete" removes the room from your MindHaOS.',
   'chat.manual.nota.despacho': 'With AI you can also attach a receipt photo: it logs the expense.',
   'chat.manual.nota.diario': "The day's cultural sections and the assistant delivery use AI inside the app.",
   'chat.manual.nota.ejercicio': 'With AI: a training plan in its Timeline (✨ button) and illustrative exercise images inside the app.',
@@ -5526,19 +5527,19 @@ export const EN: Dict = {
   'chat.manual.nota.idiomas': 'Inside live the conversational tutor by level, cards from the chat and cards by topic (AI).',
   'chat.manual.nota.configuraciones': "Everything in the editor's Settings tab: language, appearance (light, dark, transparent), icon style, interface theme and font, panel glass, the map's visual style (normal, comic, miniature, retro, neon) with its effects, notifications and backup.",
   'chat.manual.aviso.configuraciones': 'Signing in, restoring a backup and deleting your data are NOT done from the chat: the assistant opens that section so you confirm it yourself.',
-  'chat.manual.nota.interfaz': 'House theme, sky background, ambient music and your Wrapped recap. Music moods: calma, festivo, nocturno, chiptune, acogedor, energia, estudio, arcade, bosque, viaje, carrera, cajita.',
+  'chat.manual.nota.interfaz': 'MindHaOS theme, sky background, ambient music and your Wrapped recap. Music moods: calma, festivo, nocturno, chiptune, acogedor, energia, estudio, arcade, bosque, viaje, carrera, cajita.',
   'chat.manual.nota.mapa': 'Sides: north, south, east and west (also up, down, left or right).',
   'chat.manual.nota.memoria': 'The assistant remembers facts between sessions. Attach a photo with the clip or dictate with the mic; @app forces where an entry goes.',
   'chat.manual.nota.objetos': 'No-AI catalog: lamp, chair, table, plant, guitar, rug, chest, picture, ball and book. Anything else is generated with AI as a 3D model and saved to your inventory. 2D images are asked for with "create an image of…" and stay in the chat.',
   'chat.manual.nota.personaje': 'Garments: hat, glasses… Parts: head, torso and legs. Vehicles: bike, motorbike, car and UFO (flies with Space/Shift). Views: isometric, third and first person (V key).',
   'chat.manual.nota.sala': 'With AI, new places geocode themselves and show up as a pin on the world map.',
   'chat.manual.nota.superficies': 'Colors: red, blue, green… or a #hex code. Floor materials and roof shapes come from the editor catalog.',
-  'chat.manual.nota.teclado': 'Shortcuts to play with a keyboard. They are not typed in the chat: you use them in the house. They do nothing while you type in a field or with a room open.',
+  'chat.manual.nota.teclado': 'Shortcuts to play with a keyboard. They are not typed in the chat: you use them in your MindHaOS. They do nothing while you type in a field or with a room open.',
   'chat.manual.notaSeccion.apps': 'Each app logs its own data in your words (use @app to force the destination) and its menus open by name. "With AI" examples always spend an AI call (Pro plan or your key); your custom templates also capture via chat and open by name. Note: the offline parser speaks Spanish, so in English most commands run through the AI.',
   'chat.manual.notaSeccion.mapa': 'Garden, farm, tracks and courts live outside the rooms, on the 3D map.',
-  'chat.manual.seccion.apps': 'Home apps',
+  'chat.manual.seccion.apps': 'MindHaOS apps',
   'chat.manual.seccion.asistente': 'Assistant & help',
-  'chat.manual.seccion.casa': 'House & editor',
+  'chat.manual.seccion.casa': 'MindHaOS & editor',
   'chat.manual.seccion.mapa': 'Outdoor map',
   'chat.manual.seccion.studio': 'Studio',
   'chat.manual.notaSeccion.studio': 'The four studios create inside their app and open by name from the chat. What they generate with AI (composing, drawing, writing, script and narration) lives in the ✨ button of each editor and is charged per the price table.',
@@ -5642,7 +5643,7 @@ export const EN: Dict = {
   'grafo.encajar': 'Fit to view',
   'grafo.recortado': 'Showing the {n} nodes with the most connections. Filter to see the rest.',
   'grafo.resumen': '{m} memories · {n} nodes · {e} links',
-  'grafo.sinApp': 'Place that app in your house to open it from here.',
+  'grafo.sinApp': 'Place that app in your MindHaOS to open it from here.',
   'grafo.sinCandidatas': 'Nothing matches.',
   'grafo.soloVecinos': 'Neighbors only',
   'grafo.titulo': 'Memory graph',
@@ -5831,7 +5832,7 @@ export const EN: Dict = {
   'cubo.izq': 'LEFT',
   'cubo.planta': 'TOP',
   'cubo.titulo': 'Navigation cube: corners = isometric, faces = flat views',
-  'editor.abrir': 'Open the house editor',
+  'editor.abrir': 'Open the MindHaOS editor',
   'editor.ayuda.conf.a': 'The map\'s',
   'editor.ayuda.conf.b': 'visual style',
   'editor.ayuda.conf.c': ', language and',
@@ -5843,7 +5844,7 @@ export const EN: Dict = {
   'editor.ayuda.mapa.b': 'mode',
   'editor.ayuda.mapa.c': 'above and edit in the',
   'editor.ayuda.mapa.d': 'blueprint',
-  'editor.ayuda.mapa.e': 'or on the 3D map. Below, customize the house.',
+  'editor.ayuda.mapa.e': 'or on the 3D map. Below, customize your MindHaOS.',
   'editor.ayuda.obj.a': 'Pick an',
   'editor.ayuda.obj.b': 'object',
   'editor.ayuda.obj.c': 'and edit its',
@@ -5911,7 +5912,7 @@ export const EN: Dict = {
   'editor.obj.tamano': 'Size',
   'editor.obj.texto': 'Text',
   'editor.obj.textoAyuda': 'Enter adds another line. Empty = sample text.',
-  'editor.obj.textoPh': 'Your house name or a phrase…',
+  'editor.obj.textoPh': 'Your MindHaOS name or a phrase…',
   'editor.obj.tipoArq': 'Architecture',
   'editor.obj.tipoObjeto': 'Object',
   'editor.pers.color': 'Color',
@@ -6288,7 +6289,7 @@ export const EN: Dict = {
   'nav.editar.murosMensaje': 'This room has walls you painted by hand in the map editor. Repainting them loses their colour.',
   'nav.editar.murosOk': 'Repaint',
   'nav.fondo.titulo': 'Wallpaper',
-  'nav.fondo.desc': 'Images are shared with the house sky background.',
+  'nav.fondo.desc': 'Images are shared with the MindHaOS sky background.',
   'nav.fondo.sin': 'No wallpaper',
   'nav.fondo.subir': 'Upload an image',
   'nav.fondo.nombreIA': 'AI wallpaper',
@@ -6471,10 +6472,10 @@ export const EN: Dict = {
   'mascota.mago.clasificado.1': 'I left it resting in {c}.',
   'mascota.mago.sinClasificar.0': 'I have saved it, but I know not which chamber it belongs to… will you guide me? 🔮',
   'mascota.mago.sinClasificar.1': 'Unclassified for now. Which room shall I take it to?',
-  'mascota.mago.agregar.0': '🪄 I have materialized {c} in your home.',
+  'mascota.mago.agregar.0': '🪄 I have materialized {c} in your MindHaOS.',
   'mascota.mago.agregar.1': '{c} appears on the map, conjured by magic ✨',
   'mascota.mago.quitar.0': '🪄 {c} vanishes from the map.',
-  'mascota.mago.quitar.1': 'I have removed {c} from your home.',
+  'mascota.mago.quitar.1': 'I have removed {c} from your MindHaOS.',
   'mascota.mago.objeto.0': '🪄 I conjured your {o} in {c}. ✨',
   'mascota.mago.objeto.1': 'Let your {o} appear… done, in {c}!',
   'mascota.mago.recordado.0': '🧠 I\'ve etched it into my grimoire. I shall not forget ✨',
@@ -6500,7 +6501,7 @@ export const EN: Dict = {
   'mascota.perro.sinClasificar.0': 'I saved it! But I don\'t know which room it goes to… can you help me? 🐶',
   'mascota.perro.sinClasificar.1': 'Done! Which room should I take it to, friend?',
   'mascota.perro.agregar.0': 'WOOF! I added {c} to the map! 🎉',
-  'mascota.perro.agregar.1': '{c} is already in your house! 🐶',
+  'mascota.perro.agregar.1': '{c} is already in your MindHaOS! 🐶',
   'mascota.perro.quitar.0': 'I removed {c} from the map. Done! 🐾',
   'mascota.perro.quitar.1': 'Done! {c} is off the map.',
   'mascota.perro.objeto.0': 'WOOF! I made your {o} in {c}! 🎉',
@@ -6514,7 +6515,7 @@ export const EN: Dict = {
   'mascota.buho.sinClasificar.0': 'Saved unclassified. Let me know the room when you can. 🦉',
   'mascota.buho.sinClasificar.1': 'I cannot identify the room. Which one applies?',
   'mascota.buho.agregar.0': '{c} added to the map.',
-  'mascota.buho.agregar.1': 'I have incorporated {c} into your home. 🦉',
+  'mascota.buho.agregar.1': 'I have incorporated {c} into your MindHaOS. 🦉',
   'mascota.buho.quitar.0': '{c} removed from the map.',
   'mascota.buho.quitar.1': 'I have removed {c}.',
   'mascota.buho.objeto.0': 'I have placed your {o} in {c}. 🦉',
@@ -6548,7 +6549,7 @@ export const EN: Dict = {
   // Tutoriales — aviso de app sin cuarto
   'tut.appSinCuarto': 'This app isn\'t in any room yet, so I\'ll explain it from here. To use it, assign it in Menu › Templates.',
   'tut.errorCarga': 'I couldn\'t load that tutorial. Check your connection and try again.',
-  'tut.preparandoDemo': 'I\'m setting up that app\'s year in the demo house; the tour starts in a few seconds…',
+  'tut.preparandoDemo': 'I\'m setting up that app\'s year in the demo MindHaOS; the tour starts in a few seconds…',
 
   // Tutoriales — selector (botón "?" único con zonas amarillas)
   'tut.selector.titulo': 'Which tutorial do you want to see?',
@@ -6561,13 +6562,13 @@ export const EN: Dict = {
   'tut.selector.hudNota': 'Turned off, tutorials start in Editor › Settings › Tutorials.',
   'tut.selector.pag1': 'Essentials',
   'tut.selector.pag2': 'Everything else',
-  'tut.selector.hint2': 'Tours of the house and its menus. The yellow zones still work.',
+  'tut.selector.hint2': 'Tours of your MindHaOS and its menus. The yellow zones still work.',
   'tut.selector.cerrar': 'Close',
   'tut.selector.volver': 'Back',
   'tut.selector.gMenu': 'The menu',
   'tut.selector.gEditor': 'The editor',
   'tut.selector.gConfig': 'Settings',
-  'tut.selector.gCasa': 'The house',
+  'tut.selector.gCasa': 'Your MindHaOS',
   'tut.selector.gChat': 'The chat',
   'tut.selector.gProgreso': 'Your day and your progress',
 
@@ -6580,8 +6581,8 @@ export const EN: Dict = {
   'chat.manual.nota.ayuda': 'Ask how any app or menu works, or request its tutorial: the wizard shows it on screen step by step. In English, on-screen tours resolve for the editor, chat and menu; the assistant answers the rest (AI).',
 
   // Tutoriales — casa
-  'tut.casa.titulo': 'Your home',
-  'tut.casa.resumen': 'The home is the map of your apps: each room holds one. Move with the joystick or WASD, switch views with V and open the menu with the top-left button. The corner control changes on its own depending on what\'s nearby; the clock holds the calendar and the passage of time, and the music has its own button.',
+  'tut.casa.titulo': 'Your MindHaOS',
+  'tut.casa.resumen': 'Your MindHaOS is the map of your apps: each room holds one. Move with the joystick or WASD, switch views with V and open the menu with the top-left button. The corner control changes on its own depending on what\'s nearby; the clock holds the calendar and the passage of time, and the music has its own button.',
 
   // Tutoriales — primeros pasos (bienvenida)
   'tut.primeros.titulo': 'How to open your apps and create more',
@@ -6589,19 +6590,19 @@ export const EN: Dict = {
   'tut.primeros.2a.titulo': 'The tool wheel',
   'tut.primeros.2a.texto': 'On the phone you draw rooms right on the map, without opening any panel. It all starts with this button next to the joystick: the tool wheel.',
   'tut.primeros.2b.titulo': 'Building',
-  'tut.primeros.2b.texto': 'The wheel has two levels. Its fourth category is the one that puts the house up: rooms, walls, doors, windows, floors and roofs.',
+  'tut.primeros.2b.texto': 'The wheel has two levels. Its fourth category is the one that puts your MindHaOS up: rooms, walls, doors, windows, floors and roofs.',
   'tut.primeros.2c.titulo': 'Rooms mode',
   'tut.primeros.2c.texto': 'Rooms leaves the brush ready: the wheel closes and every tap on the ground raises a new room. Look — let me show you where yours would go…',
 
   // Tutoriales — menú Cuartos
   'tut.menu-cuartos.titulo': 'Menu · Home',
-  'tut.menu-cuartos.resumen': 'The Home tab lists your home\'s rooms by category, with their progress. The whole card enters the app — or says + Assign if it has none yet — and its gear unfolds the options: move it in the list, delete the room or edit it. Your summary lives up top: mood, rank and streak; at the bottom you can create new rooms.',
+  'tut.menu-cuartos.resumen': 'The Home tab lists the rooms in your MindHaOS by category, with their progress. The whole card enters the app — or says + Assign if it has none yet — and its gear unfolds the options: move it in the list, delete the room or edit it. Your summary lives up top: mood, rank and streak; at the bottom you can create new rooms.',
   'tut.menu-cuartos.2b.titulo': 'Rank, badges and recap',
   'tut.menu-cuartos.2b.texto': 'The two rings next to your character are the Sisyphus Mountain (rank 1 to 12 and badges), and below sits your Wrapped, the recap of your week, month or year. Both have their own tutorial.',
 
   // Tutoriales — menú Plantillas
   'tut.menu-plantillas.titulo': 'Menu · Templates',
-  'tut.menu-plantillas.resumen': 'Templates are the home\'s apps: they get assigned to an object in a room. This tab has two views —Productivity (the work and daily-life apps) and Creativity (the Studio: audio, art, writing and video)— and the catalog includes the templates you build yourself from blocks.',
+  'tut.menu-plantillas.resumen': 'Templates are the apps of your MindHaOS: they get assigned to an object in a room. This tab has two views —Productivity (the work and daily-life apps) and Creativity (the Studio: audio, art, writing and video)— and the catalog includes the templates you build yourself from blocks.',
 
   // Tutoriales — tus propias plantillas
   'tut.plantillas-custom.titulo': 'Your own templates',
@@ -6612,11 +6613,11 @@ export const EN: Dict = {
 
   // Tutoriales — menú Inventario
   'tut.menu-inventario.titulo': 'The editor · Inventory',
-  'tut.menu-inventario.resumen': 'The inventory holds the objects to decorate your home: the library by category and the special objects (vehicles, fountains, playground rides, lights). It lives in the editor, inside Objects, and from there you drag them straight into the scene.',
+  'tut.menu-inventario.resumen': 'The inventory holds the objects to decorate your MindHaOS: the library by category and the special objects (vehicles, fountains, playground rides, lights). It lives in the editor, inside Objects, and from there you drag them straight into the scene.',
 
   // Tutoriales — editor · Mapa
   'tut.editor-mapa.titulo': 'The editor · Map',
-  'tut.editor-mapa.resumen': 'The editor customizes the whole home in 4 tabs: Map, Characters, Objects and Settings — each with its own tutorial. The Map one draws rooms, walls, doors, windows, floors and roofs on a blueprint that updates in 3D instantly, and it also gives you levels: stackable floors and a basement.',
+  'tut.editor-mapa.resumen': 'The editor customizes your whole MindHaOS in 4 tabs: Map, Characters, Objects and Settings — each with its own tutorial. The Map one draws rooms, walls, doors, windows, floors and roofs on a blueprint that updates in 3D instantly, and it also gives you levels: stackable floors and a basement.',
 
   // Tutoriales — editor · Personajes
   'tut.editor-personajes.titulo': 'The editor · Characters',
@@ -6651,7 +6652,7 @@ export const EN: Dict = {
 
   // Tutoriales — chat
   'tut.chat.titulo': 'The architect\'s chat',
-  'tut.chat.resumen': 'The chat logs whatever you tell it into the right app ("ran 20 min" goes to Exercise), edits the home by text and dictates by voice; its + attaches images, PDFs or photos and opens the AR mask and the AR chat. Each assistant has its face and voice; the manual lists everything you can ask, and whatever\'s logged lives in its Records tab.',
+  'tut.chat.resumen': 'The chat logs whatever you tell it into the right app ("ran 20 min" goes to Exercise), edits your MindHaOS by text and dictates by voice; its + attaches images, PDFs or photos and opens the AR mask and the AR chat. Each assistant has its face and voice; the manual lists everything you can ask, and whatever\'s logged lives in its Records tab.',
 
   // Tutoriales — chat · registros y memorias
   'tut.chat-registros.titulo': 'Chat · Records and memories',
@@ -6659,14 +6660,14 @@ export const EN: Dict = {
 
   // Tutoriales — app genérica (plantillas custom y apps sin tutorial propio)
   'tut.app-generica.titulo': 'This app',
-  'tut.app-generica.resumen': 'Every app lives in a room: the header shows the room and the app, the today list holds what to do here and "Back to the house" closes it. Your own templates are built from blocks: notes, lists, counters, habits…',
+  'tut.app-generica.resumen': 'Every app lives in a room: the header shows the room and the app, the today list holds what to do here and "Back to MindHaOS" closes it. Your own templates are built from blocks: notes, lists, counters, habits…',
 
   // Tutoriales — rutinas
   'tut.enlaces.titulo': 'The chip on every step',
   'tut.enlaces.resumen': 'An app chip next to a goal or a plan step says where it gets logged, and tapping it takes you there. It\'s navigation only: logging is always done by the app, never by the chip.',
 
   // Tutoriales — música de la casa
-  'tut.musica.titulo': 'The home\'s music',
+  'tut.musica.titulo': 'Your MindHaOS music',
   'tut.musica.resumen': 'General ambient music or a theme per room, with three possible sources: generated, your own tracks, or the system\'s audio. Turn it off entirely if you\'d rather play in silence.',
 
   // Tutoriales — la IA y tu cuenta
@@ -6675,7 +6676,7 @@ export const EN: Dict = {
 
   // Tutoriales — empezar con un ejemplo
   'tut.ejemplos.titulo': 'Starting with an example',
-  'tut.ejemplos.resumen': 'Almost every app has a bar to see a factory example already filled in, and to hide it again later without losing anything of your own. It doesn\'t show up inside the demo home: there, the whole year already IS the example.',
+  'tut.ejemplos.resumen': 'Almost every app has a bar to see a factory example already filled in, and to hide it again later without losing anything of your own. It doesn\'t show up inside the demo MindHaOS: there, the whole year already IS the example.',
 
   // Tutoriales — lista Hoy
   'tut.hoy.titulo': 'Missions',
@@ -6705,43 +6706,43 @@ export const EN: Dict = {
     'How a pen is raised, stocked with its species, given toys and names.',
   'tut.infra-caminos--carrera.titulo': 'Racing the track',
   'tut.infra-caminos--carrera.resumen':
-    "The demo track, the finish line, how to start a race while mounted, and Pep@'s record table for you to beat.",
+    "The demo track, the finish line, how to start a race while mounted, and Sam's record table for you to beat.",
   'tut.infra-caminos--trazos.titulo': 'Track, rail and coaster',
-  'tut.infra-caminos--trazos.resumen': 'The three stroke types on the map and how you draw them in your own home.',
+  'tut.infra-caminos--trazos.resumen': 'The three stroke types on the map and how you draw them in your own MindHaOS.',
   'tut.infra-canchas--jugar.titulo': 'Playing the courts',
   'tut.infra-canchas--jugar.resumen':
-    "The demo sports complex: how each game starts when you step onto a court, and Pep@'s scoreboards for you to top.",
+    "The demo sports complex: how each game starts when you step onto a court, and Sam's scoreboards for you to top.",
   'tut.infra-paintball--batalla.titulo': 'Paintball battle',
   'tut.infra-paintball--batalla.resumen':
-    'How to set up a 1v1, 2v2 or free-for-all battle against the assistants, with the whole house as the arena.',
+    'How to set up a 1v1, 2v2 or free-for-all battle against the assistants, with your whole MindHaOS as the arena.',
 
   // Bienvenida (menú de primera vez)
   'bienvenida.titulo': 'Welcome to MindHaOS',
   'bienvenida.paso': 'Step {n} of {m}',
-  'bienvenida.idioma.titulo': 'Which language do you want the home in?',
+  'bienvenida.idioma.titulo': 'Which language do you want your MindHaOS in?',
   'bienvenida.idioma.desc': 'You can change it later in Settings.',
   'bienvenida.intereses.titulo': 'What would you like to track here?',
-  'bienvenida.intereses.desc': 'Each interest becomes a room in your home with its app. Pick as many as you like.',
-  'bienvenida.intereses.todas': 'Your home already has every available app.',
+  'bienvenida.intereses.desc': 'Each interest becomes a room in your MindHaOS with its app. Pick as many as you like.',
+  'bienvenida.intereses.todas': 'Your MindHaOS already has every available app.',
   'bienvenida.apariencia.titulo': 'How do you want the interface to look?',
   'bienvenida.personaje.titulo': 'What character do you want to be?',
-  'bienvenida.personaje.desc': "This will be your body in the house. You can keep customizing it later in the editor.",
+  'bienvenida.personaje.desc': "This will be your body in your MindHaOS. You can keep customizing it later in the editor.",
   'bienvenida.personaje.generando': 'Preparing previews…',
   'bienvenida.asistente.titulo': 'Who will keep you company?',
   'bienvenida.asistente.desc': 'Your assistant chats with you and lives on the map.',
   'bienvenida.atras': 'Back',
   'bienvenida.siguiente': 'Next',
-  'bienvenida.crear': 'Create my home',
+  'bienvenida.crear': 'Create my MindHaOS',
   'bienvenida.creando': 'Creating your home…',
-  'bienvenida.final.titulo': 'Your home is ready!',
-  'bienvenida.cuenta': 'Create an account or sign in (syncs your home)',
+  'bienvenida.final.titulo': 'Your MindHaOS is ready!',
+  'bienvenida.cuenta': 'Create an account or sign in (syncs your MindHaOS)',
   'bienvenida.guia.desc': 'Three steps to get the hang of it.',
   'bienvenida.guia.empezar': 'Start',
   'bienvenida.guia.repetir': 'Repeat',
-  'bienvenida.guia.salir': 'Go to the house',
+  'bienvenida.guia.salir': 'Go to your MindHaOS',
   'bienvenida.guia.cuarto.titulo': 'How to open your apps and create more',
   'bienvenida.guia.cuarto.desc': "I'll show you how to enter your apps and create a new one with its room.",
-  'bienvenida.guia.tour.titulo': 'Tour your house',
+  'bienvenida.guia.tour.titulo': 'Tour your MindHaOS',
   'bienvenida.guia.tour.desc': 'A walk through the menu, movement, the clock and the chat.',
   'bienvenida.guia.explorar.titulo': 'Explore on your own',
   'bienvenida.guia.explorar.desc': 'Done. Every menu and app keeps its own tutorial behind the ? button.',
@@ -6754,12 +6755,12 @@ export const EN: Dict = {
   'ajustes.tutoriales': 'Tutorials and welcome',
   'ajustes.tutoriales.hud': 'Show on the main screen',
   'ajustes.tutoriales.hudDesc':
-    'Turned off, the house looks cleaner: tutorials start from here.',
+    'Turned off, your MindHaOS looks cleaner: tutorials start from here.',
   'ajustes.tutoriales.voz': 'Read the steps aloud',
   'ajustes.tutoriales.vozDesc':
     'The wizard narrates each step with the voice from its profile. You can also turn it on with the speaker on the card.',
   'ajustes.tutoriales.enPantalla': 'Pick a tutorial on the screen',
-  'ajustes.tutoriales.casa': 'The house and its menus',
+  'ajustes.tutoriales.casa': 'Your MindHaOS and its menus',
   'ajustes.tutoriales.apps': 'The apps',
   'ajustes.tutoriales.infra': 'Map buildings',
   'ajustes.tutoriales.nucleo': 'The calendar and goals',
@@ -6880,12 +6881,12 @@ export const EN: Dict = {
 
   // Música (Configuraciones)
   'ajustes.musica': 'Music',
-  'ajustes.musica.ambiental': 'Ambient music in the house',
+  'ajustes.musica.ambiental': 'Ambient music in your MindHaOS',
   'ajustes.musica.ambientalDesc':
-    'Plays while you walk around the house; because of the browser, it starts after your first click.',
+    'Plays while you walk around your MindHaOS; because of the browser, it starts after your first click.',
   'ajustes.musica.hud': 'Show on the main screen',
   'musica.hudNota': 'Turned off, music is set in Editor › Settings › Music.',
-  'ajustes.musica.hudDesc': 'Turned off, the house looks cleaner: music is set from here.',
+  'ajustes.musica.hudDesc': 'Turned off, your MindHaOS looks cleaner: music is set from here.',
   'ajustes.musica.fuente': 'Source',
   'ajustes.musica.fuente.generada': 'Generated',
   'ajustes.musica.fuente.pistas': 'My tracks',
@@ -6945,11 +6946,11 @@ export const EN: Dict = {
   'voz.autoOn': 'Reads their replies out loud',
   'voz.autoOff': 'Read their replies out loud',
   'musica.temaCuarto': 'This room’s theme',
-  'musica.temaCuarto.auto': 'Auto (house vibe)',
+  'musica.temaCuarto.auto': 'Auto (MindHaOS vibe)',
   'musica.temaCuarto.autoCon': 'Auto · {tema}',
   'musica.temaCuarto.silencio': 'Silence',
   'musica.temaCuartoDesc': 'Plays when you open the room or walk inside it.',
-  'musica.ambienteGlobal': 'House vibe',
+  'musica.ambienteGlobal': 'MindHaOS vibe',
   'ajustes.musica.volumen': 'Volume',
   'ajustes.musica.pistas': 'My tracks',
   'ajustes.musica.subir': 'Upload track',
@@ -6977,7 +6978,7 @@ export const EN: Dict = {
   'cuenta.titulo': 'Account',
   'cuenta.sinBackend': 'This install has no backend configured: everything is stored on this device only.',
   'cuenta.cargando': 'Loading…',
-  'cuenta.intro': 'Your account keeps your house and your purchase: it’s what hands them back to you on any device.',
+  'cuenta.intro': 'Your account keeps your MindHaOS and your purchase: it’s what hands them back to you on any device.',
   'cuenta.nivel.titulo': 'Your level',
   'cuenta.nivel.n': 'Level ×{n} — {c} credits a month',
   'cuenta.nivel.actual': 'Current',
@@ -7022,33 +7023,33 @@ export const EN: Dict = {
   'puerta.queEs': 'What is {n}?',
   'puerta.volver': 'Back',
   'puerta.compra':
-    'Buy the house once and it’s yours on every device: phone, tablet and browser. Includes your first month of AI credits.',
-  'puerta.comprarPrecio': 'Buy the house — {p}',
-  'puerta.comprar': 'Buy the house',
+    'Buy MindHaOS once and it’s yours on every device: phone, tablet and browser. Includes your first month of AI credits.',
+  'puerta.comprarPrecio': 'Buy MindHaOS — {p}',
+  'puerta.comprar': 'Buy MindHaOS',
   'puerta.comprando': 'Processing…',
-  'puerta.comprarWeb': 'Buy the house on the web',
+  'puerta.comprarWeb': 'Buy MindHaOS on the web',
   'puerta.restaurar': 'Restore purchases',
   'puerta.compraFallo': 'The purchase was not completed. If you already paid, try “Restore purchases”.',
   'puerta.sinOferta':
     'The store didn’t respond. Check your connection and try again.',
   'puerta.sinRestaurar': 'We didn’t find any purchases for this account.',
-  'puerta.activando': 'Payment received: activating your house. If it takes a while, tap “I already bought it”.',
+  'puerta.activando': 'Payment received: activating your MindHaOS. If it takes a while, tap “I already bought it”.',
   'puerta.conectandoTienda': 'Connecting to the store…',
   'puerta.yaCompre': 'I already bought it: check again',
-  'puerta.probar': 'Try building your house for free',
-  'puerta.probarNota': 'Step into your own house and try it without an account. To save your changes, use the AI and sync, you’ll create your account.',
+  'puerta.probar': 'Try building your MindHaOS for free',
+  'puerta.probarNota': 'Step into your own MindHaOS and try it without an account. To save your changes, use the AI and sync, you’ll create your account.',
   'probar.aviso.titulo': 'Sign in so your changes are saved',
   'probar.aviso.cuerpo': 'You’re trying the app without an account: you can edit everything, but nothing counts as saved. With your account your changes are saved and you can use the AI and sync — what you did in the trial is recovered.',
   'probar.aviso.crear': 'Create my account or sign in',
   'probar.aviso.seguir': 'Keep trying',
   'probar.barra.chip': 'Trial mode',
   'probar.barra.crear': 'Create my account',
-  'probar.conv.titulo': 'Your house is now yours!',
+  'probar.conv.titulo': 'Your MindHaOS is now yours!',
   'probar.conv.cuerpo': 'We kept what you did while trying the app. Do you want to recover it, or would you rather start fresh with the welcome?',
   'probar.conv.recuperar': 'Recover what I did in the trial',
   'probar.conv.denuevo': 'Start fresh with the welcome',
-  'probar.conv.migrando': 'Recovering your house…',
-  'probar.conv.comprobando': 'Preparing your house…',
+  'probar.conv.migrando': 'Recovering your MindHaOS…',
+  'probar.conv.comprobando': 'Preparing your MindHaOS…',
   'puerta.salir': 'Sign out',
   'puerta.cupon.tengo': 'I have a coupon',
   'puerta.cupon.desc': 'Referral link',
@@ -7107,11 +7108,11 @@ export const EN: Dict = {
   'ia.tarifas': 'A reply costs 1 credit · a long plan 4 · an image {img} · a 3D model 10.',
   'ia.precios.pie': 'The server does the charging: this is what it will cost before you ask.',
   'ia.precios.pieSinCuenta': 'With your own AI key no credits are spent: you pay your provider directly.',
-  'ia.grupo.chat': 'House chat',
-  'ia.grupo.editor': 'House editor',
+  'ia.grupo.chat': 'MindHaOS chat',
+  'ia.grupo.editor': 'MindHaOS editor',
   'ia.grupo.metas': 'Goals and schedule',
-  'ia.donde.chat': 'House chat',
-  'ia.donde.casa': 'The house (automatic)',
+  'ia.donde.chat': 'MindHaOS chat',
+  'ia.donde.casa': 'MindHaOS (automatic)',
   'ia.donde.editorObjetos': 'Editor › Objects',
   'ia.donde.editorPersonajes': 'Editor › Characters',
   'ia.donde.editorCuarto': 'Editor › Floor, Walls, Ceiling, Doors and Grid',
@@ -7230,39 +7231,40 @@ export const EN: Dict = {
   'comun.masTarde': 'Later',
   'comun.entendido': 'Got it',
   // Casa demo
-  'demo.aviso.titulo': 'You are in the demo house',
+  'demo.pep.nombre': 'Sam',
+  'demo.aviso.titulo': 'You are in the demo MindHaOS',
   'demo.aviso.cuerpo':
-    "Try everything: you can edit the house and use the apps with a year of Pep@'s life inside. Nothing is saved — reload and the house is back as it was.",
+    "Try everything: you can edit the MindHaOS and use the apps with a year of Sam's life inside. Nothing is saved — reload and the MindHaOS is back as it was.",
   'demo.aviso.seguir': 'Keep exploring',
   'demo.salir': 'Leave the demo',
   'demo.volver.titulo': 'End of the tutorial',
-  'demo.volver.cuerpo': "This was Pep@'s demo house. Head back to your own, or stay and poke around?",
-  'demo.volver.si': 'Back to my house',
-  'demo.volver.seguir': 'Keep exploring the demo house',
-  'demo.barra.titulo': 'Demo house',
+  'demo.volver.cuerpo': "This was Sam's demo MindHaOS. Head back to your own, or stay and poke around?",
+  'demo.volver.si': 'Back to my MindHaOS',
+  'demo.volver.seguir': 'Keep exploring the demo MindHaOS',
+  'demo.barra.titulo': 'Demo MindHaOS',
   'demo.reiniciar': 'Reset',
-  'demo.anioPep.app': "Pep@'s year in {app}",
-  'demo.reiniciar.confirma': "Reset the demo? Pep@'s house is rebuilt from scratch.",
-  'demo.visitar': 'Visit the demo house',
+  'demo.anioPep.app': "Sam's year in {app}",
+  'demo.reiniciar.confirma': "Reset the demo? Sam's MindHaOS is rebuilt from scratch.",
+  'demo.visitar': 'Visit the demo MindHaOS',
   'demo.visitar.desc':
-    "Pep@'s house with a real year of use inside. Your home and data stay untouched; one button brings you back.",
-  'demo.bienvenida.titulo': "This is Pep@'s house",
+    "Sam's MindHaOS with a real year of use inside. Your MindHaOS and data stay untouched; one button brings you back.",
+  'demo.bienvenida.titulo': "This is Sam's MindHaOS",
   'demo.bienvenida.sub':
     'A real year of life inside: the marathon, the trip to Japan, the piano and the finances. Touch anything you like; nothing is saved.',
   'demo.autor.chip': 'Author mode',
   'demo.autor.exportar': 'Export casa.json',
-  'demo.construyendo.sub': "A year of Pep@'s life is falling into place.",
-  'demo.cargandoApp': "Setting up Pep@'s year…",
+  'demo.construyendo.sub': "A year of Sam's life is falling into place.",
+  'demo.cargandoApp': "Setting up Sam's year…",
   'demo.error': 'The demo could not be built.',
   'demo.reintentar': 'Retry',
   'tut.flujos.titulo': 'Tutorials for this app',
   // Esenciales (corren en la casa real y recorren los menús de cada app)
   'tut.esencial.titulo': 'The essentials',
-  'tut.tipo.ejemplos': 'Examples · demo house',
+  'tut.tipo.ejemplos': 'Examples · demo MindHaOS',
   'tut.app-agenda--esencial.resumen':
     "The agenda holds what isn't a habit, in three menus: Work (to-dos and board), Health (appointments, medication and care: yours, your loved ones' and your pets') and People (contacts and birthdays). Everything with a date lands in the calendar by itself.",
   'tut.calendario--esencial.resumen':
-    "The calendar isn't a room: it lives in the house clock and gathers everything with a date and time, what you create by hand and what the other apps schedule on their own. There are four ways to look at it: Day and Week on the hourly grid, Month and Year for the big picture. Missions sits apart, the red button with today's checklist from every app at once.",
+    "The calendar isn't a room: it lives in the MindHaOS clock and gathers everything with a date and time, what you create by hand and what the other apps schedule on their own. There are four ways to look at it: Day and Week on the hourly grid, Month and Year for the big picture. Missions sits apart, the red button with today's checklist from every app at once.",
   'tut.app-anecdotario--esencial.resumen':
     'Anecdotario is your personal diary: entries with a mood, text and photos that save themselves by date. A calendar colors each day by your mood, and the history archives them in folders by year, month and week.',
   'tut.app-biblioteca--esencial.resumen':
@@ -7282,7 +7284,7 @@ export const EN: Dict = {
   'tut.app-entretenimiento--esencial.resumen':
     'Entertainment has two menus: Board games, a digital catalog grouped by family and filtered by player count, and Archive, where you keep the movies, shows, books, and video games you finish, with their status and your review.',
   'tut.app-garage--esencial.resumen':
-    "The garage tracks your vehicles' maintenance: a traffic light flags what needs attention, the vehicle list holds each one's service history, and every entry gathers its procedures, documents and contacts. Anything with a date books itself onto the house calendar.",
+    "The garage tracks your vehicles' maintenance: a traffic light flags what needs attention, the vehicle list holds each one's service history, and every entry gathers its procedures, documents and contacts. Anything with a date books itself onto the MindHaOS calendar.",
   'tut.app-hobbies--esencial.resumen':
     "Hobbies tracks your pastimes: the list with each one's streak and weekly progress, and the form to add a new one. Inside each hobby lives the session log, the yearly heatmap and its projects.",
   'tut.app-ideas--esencial.resumen':
@@ -7292,11 +7294,11 @@ export const EN: Dict = {
   'tut.app-jardin--esencial.resumen':
     "The garden brings together meditation (with sound tracks), guided breathing, and daily gratitude, across three menus. It carries no points or streaks on purpose: nothing punishes missing a day here, it's just for practicing.",
   'tut.app-metas--esencial.resumen':
-    'The planner for the whole house, in three menus: Goals (the list of what you set out to do, grouped by the app that carries each one), Plans (the schedule drafts that split a goal into phases) and Timeline (the time axis where they all land). It keeps no records of its own: it gathers the goals and plans that are born in the other apps. From a goal you open its sheet and, from there, the axis narrowed down to it.',
+    'The planner for your whole MindHaOS, in three menus: Goals (the list of what you set out to do, grouped by the app that carries each one), Plans (the schedule drafts that split a goal into phases) and Timeline (the time axis where they all land). It keeps no records of its own: it gathers the goals and plans that are born in the other apps. From a goal you open its sheet and, from there, the axis narrowed down to it.',
   'tut.app-sala--esencial.resumen':
     'The living room is your travel world, in five menus: Map (pins of places on the world map, with a globe view), Itinerary (places to see with a day-by-day plan), Routes (routes that chain places together), Directions (door-to-door trips combining walking, public transit, bike, motorcycle and car) and Logbook (memories with photos and stories by country).',
-  // Flujos G2 (corren sobre el año de Pep@ en la casa demo)
-  'tut.app-anecdotario--diario.titulo': "Pep@'s journal",
+  // Flujos G2 (corren sobre el año de Sam en la casa demo)
+  'tut.app-anecdotario--diario.titulo': "Sam's journal",
   'tut.app-anecdotario--diario.resumen':
     'The memory book is the personal journal: entries with a mood, text and photos, a calendar that paints the year by how you felt, and the history in folders by year, month and week.',
   'tut.app-anecdotario--fotos.titulo': 'The milestones in photos',
@@ -7320,16 +7322,16 @@ export const EN: Dict = {
   'tut.app-ideas--diario.titulo': 'Capturing ideas',
   'tut.app-ideas--diario.resumen':
     'The idea journal captures loose thoughts or themed brainstorms; star the good ones and turn them into maps.',
-  'tut.app-ideas--mapas.titulo': "Pep@'s maps",
+  'tut.app-ideas--mapas.titulo': "Sam's maps",
   'tut.app-ideas--mapas.resumen':
     'Maps organize a topic on a free canvas: mind map, tree, flow, timeline, cycle, pyramid, Venn and more.',
   'tut.app-ideas--decidir.titulo': 'Deciding with diagrams',
   'tut.app-ideas--decidir.resumen':
     'Diagrams help you decide: weighted pros and cons, SWOT, Eisenhower, a weighted matrix and more.',
-  // Los dos tours del calendario del reloj (corren sobre el año de Pep@ en la demo)
+  // Los dos tours del calendario del reloj (corren sobre el año de Sam en la demo)
   'tut.calendario.titulo': 'Calendar',
   'tut.calendario.resumen':
-    "The home's clock opens the calendar: everything scheduled —shifts, classes, habits and whatever the other apps add— in Day, Week, Month, Year and Goals views. The panel below measures how much of what you scheduled you actually do.",
+    "The MindHaOS clock opens the calendar: everything scheduled —shifts, classes, habits and whatever the other apps add— in Day, Week, Month, Year and Goals views. The panel below measures how much of what you scheduled you actually do.",
   'tut.calendario.3b.titulo': 'And Objectives, on its own',
   'tut.calendario.3b.texto':
     'In red, so it never gets mistaken for the four above: Objectives gathers the checklist of today from all your apps. Your goals and their plans live in their own room.',
@@ -7367,7 +7369,7 @@ export const EN: Dict = {
     'The cards live INSIDE the syllabus: each topic unfolds and there they are, with their sound, their picture and their review box.',
   'tut.app-idiomas--vocabulario.1.titulo2': 'Every word, in its topic',
   'tut.app-idiomas--vocabulario.1.texto2':
-    "Unfold a topic and you will see its cards: tapping them reads them out loud, the thumbnail opens the illustration and the pencil edits them. Pep@'s first ones are A2 —shopping, directions— and the last ones are already B1.",
+    "Unfold a topic and you will see its cards: tapping them reads them out loud, the thumbnail opens the illustration and the pencil edits them. Sam's first ones are A2 —shopping, directions— and the last ones are already B1.",
   'tut.app-idiomas--vocabulario.3.texto2':
     'Cards are added by hand in their topic, come out of a chat with your tutor or are suggested by the AI. Whatever is left loose falls into “Unsorted”, and from there you send it to the topic it belongs to.',
   'tut.app-idiomas--temario.titulo': 'Syllabus and plan',
@@ -7385,8 +7387,8 @@ export const EN: Dict = {
   'tut.app-agenda--personas.resumen':
     'Your address book by relationship, with birthdays that repeat themselves every year in the calendar.',
 
-  // Flujos G1 (corren sobre el año de Pep@ en la casa demo)
-  'tut.app-ejercicio--anio.titulo': 'The year Pep@ learned to run',
+  // Flujos G1 (corren sobre el año de Sam en la casa demo)
+  'tut.app-ejercicio--anio.titulo': 'The year Sam learned to run',
   'tut.app-ejercicio--anio.resumen':
     'Exercise brings strength, cardio and mobility together: every session you log feeds your streak, your weekly targets and the year’s history.',
   'tut.app-ejercicio--carrera.titulo': 'From zero to 42 kilometres',
@@ -7406,15 +7408,15 @@ export const EN: Dict = {
     'The recipe book keeps your recipes with their macros, groups them into diets and turns what you are going to cook into the shopping list.',
   'tut.app-cocina--cronograma.titulo': 'The eating plan on the calendar',
   'tut.app-cocina--cronograma.resumen':
-    'Pep@\'s weight and diet goals get their own timeline: sub-goals with a date and a plan the AI builds in phases.',
+    'Sam\'s weight and diet goals get their own timeline: sub-goals with a date and a plan the AI builds in phases.',
   'tut.app-descanso--noche.titulo': 'How a night is scored',
   'tut.app-descanso--noche.resumen':
     'Sleep scores every night out of a hundred: how long you slept, when you went to bed and how often you woke up. That is what builds the year’s history.',
   'tut.app-descanso--horario.titulo': 'Your sleep schedule',
   'tut.app-descanso--horario.resumen':
-    'The schedule is drawn on a twenty-four hour bar, shows up as a block in the house calendar and can nudge you before bedtime.',
-  // Flujos G4 (corren sobre el año de Pep@ en la casa demo)
-  'tut.app-despacho--anio.titulo': 'The year Pep@ sorted out their money',
+    'The schedule is drawn on a twenty-four hour bar, shows up as a block in the MindHaOS calendar and can nudge you before bedtime.',
+  // Flujos G4 (corren sobre el año de Sam en la casa demo)
+  'tut.app-despacho--anio.titulo': 'The year Sam sorted out their money',
   'tut.app-despacho--anio.resumen':
     'Cash flow sums up what came in, what went out and the net for whichever period you pick: day, week, month or year. Below that: your net worth, the monthly budget, where the money goes and the trend over recent periods.',
   'tut.app-despacho--captura.titulo': 'Fixed and variable',
@@ -7455,7 +7457,7 @@ export const EN: Dict = {
     'The archive keeps what you watch, read and play: each entry with its status, its stars and your review. Group it by date into year and month folders, or by genre.',
   'tut.app-entretenimiento--juegos.titulo': 'The digital table',
   'tut.app-entretenimiento--juegos.resumen':
-    'More than twenty board and arcade games, grouped by family and filtered by player count: play them right there, without leaving the home.',
+    'More than twenty board and arcade games, grouped by family and filtered by player count: play them right there, without leaving your MindHaOS.',
   'tut.app-diario--habito.titulo': 'The newspaper habit',
   'tut.app-diario--habito.resumen':
     'The paper is ephemeral: every day brings headlines by category and «on this day» facts, and at midnight it is replaced. What is kept is your consistency — reading it counts as the day.',
@@ -7464,7 +7466,7 @@ export const EN: Dict = {
     'You can schedule which sections each assistant delivers in their chat: at a fixed time or at a surprise moment during the day.',
 
   'demo.paso.limpiar': 'Clearing the ground',
-  'demo.paso.casa': 'Raising the house',
+  'demo.paso.casa': 'Raising the MindHaOS',
   'demo.paso.catalogos': 'Stocking the catalogs',
   'demo.paso.final': 'Final touches',
   'cuenta.sync.activo': 'Syncing…',
@@ -7473,9 +7475,9 @@ export const EN: Dict = {
   'cuenta.sync.soloPro': 'Cross-device sync is part of Pro.',
   'cuenta.sync.ahora': 'Sync now',
   'cuenta.sync.otraCuenta':
-    'This home was linked to another account. Keep local data and merge it into the new account? (Cancel = empty this home and download only the account data)',
+    'This MindHaOS was linked to another account. Keep local data and merge it into the new account? (Cancel = empty this MindHaOS and download only the account data)',
   'cuenta.sync.respaldoPrevio':
-    'You are about to sync this home for the first time. Download a local backup first? (Recommended)',
+    'You are about to sync this MindHaOS for the first time. Download a local backup first? (Recommended)',
 
   // Historial en carpetas (año › mes › semana), compartido por las apps
   'carpetas.vacio': 'Nothing logged yet.',
@@ -7933,7 +7935,7 @@ export const EN: Dict = {
   'chatAr.reintentar': 'Retry',
   'chatAr.placeholder': 'Talk to them or type…',
   'chatAr.enviar': 'Send',
-  'chatAr.sinIa': 'To talk here, first pick an AI model in the house chat.',
+  'chatAr.sinIa': 'To talk here, first pick an AI model in the MindHaOS chat.',
   'ia.donde.chatAr': 'AR chat',
   'ia.op.chat.ar': 'Conversation in AR chat',
   'ia.op.chat.ar.nota': 'If the assistant has an AI voice, reading it aloud is charged separately as assistant voice.',
@@ -8037,8 +8039,8 @@ export const EN: Dict = {
   'chat.ed.prendaQuitada': 'I took the {prenda} off your character.',
   'chat.ed.prendaPuesta': 'I put the {prenda} on your character.',
   'chat.ed.prendaPuestaColor': 'I put the {color} {prenda} on your character.',
-  'chat.ed.temaQuitado': 'I removed the house theme.',
-  'chat.ed.temaPuesto': 'I gave the house the {tema} theme.',
+  'chat.ed.temaQuitado': 'I removed the MindHaOS theme.',
+  'chat.ed.temaPuesto': 'I gave your MindHaOS the {tema} theme.',
   'chat.ed.fondo': 'I changed the sky background to {fondo}.',
   'chat.ed.animFondoPct': 'I set the background animations to {pct}%.',
   'chat.ed.animFondoOn': 'I turned the background animations on.',
@@ -8079,11 +8081,11 @@ export const EN: Dict = {
   'chat.ed.mapaDibujado': 'I drew “{nombre}” ({tipo}) and opened it in “{cuarto}”.',
   'chat.ed.mapaSinCuarto': 'I drew “{nombre}” ({tipo}), but you don’t have the Ideas app in any room: assign it to an object to see it.',
   'chat.ed.pbSinBatalla': 'There is no battle going on.',
-  'chat.ed.pbSalir': 'We’re out of the paintball. The house is back to normal.',
+  'chat.ed.pbSalir': 'We’re out of the paintball. Your MindHaOS is back to normal.',
   'chat.ed.pbSalirOnline': 'This battle has other people in it. Shall we leave it?',
   'chat.ed.pbSigue': 'We’re staying in the battle.',
   'chat.ed.pbYaEnBatalla': 'You’re already in the thick of it: start shooting!',
-  'chat.ed.pbEditando': 'I can’t open paintball while you’re editing the house: leave the editor first.',
+  'chat.ed.pbEditando': 'I can’t open paintball while you’re editing your MindHaOS: leave the editor first.',
   'chat.ed.pbMenu': 'I opened the paintball menu: pick mode, rival and difficulty.',
   'chat.ed.pbSinAsistentes': 'You need at least one assistant to play: create one in the chat settings.',
   'chat.ed.pb2v2Pocos': 'A 2 vs 2 needs at least 3 assistants (your teammate and two rivals).',
@@ -9527,7 +9529,7 @@ export const EN: Dict = {
   'video.studio.trayendo': 'Bringing «{n}»…',
   'video.studio.noDisponible': 'That resource is no longer available',
   'video.grabar.boton': 'Record inside the app',
-  'video.grabar.titulo': 'Record inside the app: go to the house, do anything, and come back with the take as a clip',
+  'video.grabar.titulo': 'Record inside the app: go to your MindHaOS, do anything, and come back with the take as a clip',
   'video.grabar.detener': 'Stop',
   'video.grabar.descartar': 'Discard the take',
   'video.grabar.guardando': 'Saving…',
@@ -9582,10 +9584,10 @@ export const EN: Dict = {
   'muebles.nombre': 'Furniture name',
   'muebles.cotas': 'Show dimensions',
   'muebles.xray': 'X-ray: see inside the unit',
-  'muebles.enviarCasa': 'Send to the house',
+  'muebles.enviarCasa': 'Send to your MindHaOS',
   'muebles.guardarCambios': 'Save changes',
   'muebles.cerrar.titulo': 'Leave without sending the furniture',
-  'muebles.cerrar.msg': 'Changes you did not send to the house are lost.',
+  'muebles.cerrar.msg': 'Changes you did not send to your MindHaOS are lost.',
   'muebles.tab.modulo': 'Unit',
   'muebles.tab.medidas': 'Size',
   'muebles.tab.estilo': 'Style',
@@ -10105,7 +10107,7 @@ export const EN: Dict = {
   'esp.arte.sincronizando': 'Downloading the shared drawing…',
   'esp.arte.sinSeparar': 'Not available in shared drawings',
   'esp.arte.soloLectura': 'You can only look at this drawing: whoever shared it did not let you edit it.',
-  'esp.aterrizar.sinApp': 'Put the {n} app in your home to open it',
+  'esp.aterrizar.sinApp': 'Put the {n} app in your MindHaOS to open it',
   'esp.audio.compartido': 'Shared',
   'esp.audio.fuera': 'It is not shared any more: this project is only yours again.',
   'esp.audio.sinTomas': 'Microphone takes are not shared: they do not play here (they are marked with «!»).',
@@ -10215,9 +10217,9 @@ export const EN: Dict = {
   'partida.dev.descartadas': 'Discarded writes',
   // Multijugador: invitación y sala
   'partida.alguien': 'Someone',
-  'partida.invitar': 'Invite to my home',
+  'partida.invitar': 'Invite to my MindHaOS',
   'partida.invitacion.titulo': 'Invitation',
-  'partida.invitacion.texto': '{n} invites you to their home',
+  'partida.invitacion.texto': '{n} invites you to their MindHaOS',
   'partida.invitacion.pasear': 'To walk around together',
   'partida.invitacion.jugar': 'To play',
   'partida.invitacion.aceptar': 'Accept',
@@ -10230,13 +10232,13 @@ export const EN: Dict = {
   'partida.sala.esperando': 'not here yet',
   'partida.sala.fuera': 'left',
   'partida.sala.rtt': 'Delay {n} ms',
-  'partida.sala.anfitriona': 'Your home is in charge',
+  'partida.sala.anfitriona': 'Your MindHaOS is in charge',
   'partida.sala.expulsar': 'Remove',
   'partida.sala.expulsar.titulo': 'Remove from the room',
-  'partida.sala.expulsar.pregunta': 'Remove {n} from your home?',
+  'partida.sala.expulsar.pregunta': 'Remove {n} from your MindHaOS?',
   'partida.sala.salir': 'Leave the room',
   'partida.sala.salir.anfitrion': 'The room will close for everyone.',
-  'partida.sala.salir.invitado': 'You will go back to your own home.',
+  'partida.sala.salir.invitado': 'You will go back to your own MindHaOS.',
   'partida.error.sin-sesion': 'Sign in to play with your contacts',
   'partida.error.sin-backend': 'This version has no multiplayer',
   'partida.error.peticion-invalida': 'That request is not valid',
@@ -10251,40 +10253,40 @@ export const EN: Dict = {
   'partida.error.red': 'No connection: try again',
   'partida.error.servidor': 'It could not be completed. Try again.',
   // Invitar a jugar desde el chat
-  'partida.jugar.enVisita': 'You are visiting: go back home to invite someone to play',
+  'partida.jugar.enVisita': 'You are visiting: go back to your MindHaOS to invite someone to play',
   'partida.jugar.sinCancha': 'You have no {j} on your map: place one from the editor',
-  'partida.jugar.sinApp': 'You need the Entertainment app in your home',
+  'partida.jugar.sinApp': 'You need the Entertainment app in your MindHaOS',
   'partida.jugar.sinHilo': 'That contact has no chat yet',
   'partida.jugar.salaSinApp':
     'Your open room does not include Entertainment. Close it from Friends · Your room and ask me again',
   'partida.jugar.mensaje': 'Shall we play {j} at my place? {url}',
-  'partida.jugar.salaNueva': 'I opened your home with the map only.',
-  'partida.jugar.salaNuevaMesa': 'I opened your home with the map and Entertainment.',
+  'partida.jugar.salaNueva': 'I opened your MindHaOS with the map only.',
+  'partida.jugar.salaNuevaMesa': 'I opened your MindHaOS with the map and Entertainment.',
   'partida.jugar.enviada.paintball':
-    'I sent @{a} the paintball link. When they get to your home, pick “Online” in the battle menu.',
+    'I sent @{a} the paintball link. When they get to your MindHaOS, pick “Online” in the battle menu.',
   'partida.jugar.enviada.cancha': 'I sent @{a} the court link. When they arrive, hit “Online match”.',
   'partida.jugar.enviada.mesa': 'I sent @{a} the link to {j}. When they come in, pick “Online” at the table.',
   'partida.jugar.bajar': 'Go down to the ground floor and head to the court.',
   'partida.jugar.tarjeta.enviada': 'Invitation sent',
-  'partida.jugar.tarjeta.de': 'Invitation to play at @{a}’s home',
+  'partida.jugar.tarjeta.de': 'Invitation to play at @{a}’s MindHaOS',
   'partida.jugar.tarjeta.recibida': 'Invitation to play',
   'partida.jugar.tarjeta.jugar': 'Play {j}',
   'partida.jugar.tarjeta.ir': 'Go to the game',
   // Visita a la casa del anfitrión
   'visita.permisos.titulo': 'What your guest will see',
   'visita.permisos.intro':
-    'They will walk around your home. The apps you tick can be opened; the rest are not even listed. Nothing you leave unticked ever leaves this device.',
-  'visita.permisos.ninguna': 'You have no shareable apps yet. They can still walk around the house.',
+    'They will walk around your MindHaOS. The apps you tick can be opened; the rest are not even listed. Nothing you leave unticked ever leaves this device.',
+  'visita.permisos.ninguna': 'You have no shareable apps yet. They can still walk around your MindHaOS.',
   'visita.permisos.cuantas': '{n} apps available today',
   'visita.permisos.sinXp':
-    'During the visit your guest earns no experience or progress: whatever they do at home is still waiting for them there.',
+    'During the visit your guest earns no experience or progress: whatever they do in their own MindHaOS is still waiting for them there.',
   'visita.permisos.cancelar': 'Cancel',
   'visita.permisos.invitar': 'Invite',
   'visita.velo.titulo': 'Entering your contact’s home…',
-  'visita.velo.aplicando': 'Putting the house up',
+  'visita.velo.aplicando': 'Putting the MindHaOS up',
   'visita.velo.bajando': 'Downloading the floor plan',
-  'visita.abortada.titulo': 'You are back home',
-  'visita.abortada.plano': 'That home could not be loaded.',
+  'visita.abortada.titulo': 'You are back in your MindHaOS',
+  'visita.abortada.plano': 'That MindHaOS could not be loaded.',
   'visita.abortada.sala': 'The room closed.',
   'visita.abortada.red': 'The connection was lost.',
 }

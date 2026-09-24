@@ -102,7 +102,7 @@ export const cuerpoEsencial: CuerpoTutorial = {
       titulo: T('tut.app-entretenimiento--esencial.1.titulo', 'Entretenimiento'),
       texto: T(
         'tut.app-entretenimiento--esencial.1.texto',
-        'Guarda las películas, series, libros y videojuegos que vas terminando, y trae una mesa de juegos digital para jugar sin salir de la casa. Son dos menús: Juegos de mesa y Archivo.',
+        'Guarda las películas, series, libros y videojuegos que vas terminando, y trae una mesa de juegos digital para jugar sin salir de la MindHaOS. Son dos menús: Juegos de mesa y Archivo.',
       ),
     },
     {

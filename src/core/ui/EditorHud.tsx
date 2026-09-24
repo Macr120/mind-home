@@ -80,7 +80,7 @@ function ToolbarPermanente({ onEditar }: { onEditar: () => void }) {
         data-tut-zona="editor-mapa"
         onClick={onEditar}
         className="ui-hud rounded-lg border border-white/10 px-3 py-2 text-sm font-semibold text-white/85 transition hover:bg-white/15"
-        title={t('editor.abrir', 'Abrir el editor de la casa')}
+        title={t('editor.abrir', 'Abrir el editor de la MindHaOS')}
       >
         <Icono nombre="editar" /> {t('editor.titulo', 'Editor')}
       </button>

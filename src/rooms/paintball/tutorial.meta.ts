@@ -27,7 +27,7 @@ const flujoBatalla = tour(
   T('tut.infra-paintball--batalla.titulo', 'Batalla de paintball'),
   T(
     'tut.infra-paintball--batalla.resumen',
-    'Cómo armar una batalla 1v1, 2v2 o campal contra los asistentes, con la casa entera como campo.',
+    'Cómo armar una batalla 1v1, 2v2 o campal contra los asistentes, con la MindHaOS entera como campo.',
   ),
   'cuerpoBatalla',
 )

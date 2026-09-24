@@ -686,7 +686,7 @@ export default {
       "dia": -140,
       "tema": "b1-viajes",
       "titulo": "Sätze für den Check-in",
-      "texto": "I have a reservation under the name Pepa. — der Satz, den ich in drei Wochen am häufigsten gesagt habe.\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — entscheidend an den Zugtagen.\nIs there a laundry nearby?\nUnd der, den ich immer zu hören bekam: «Could I see your passport, please?»"
+      "texto": "I have a reservation under the name Kim. — der Satz, den ich in drei Wochen am häufigsten gesagt habe.\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — entscheidend an den Zugtagen.\nIs there a laundry nearby?\nUnd der, den ich immer zu hören bekam: «Could I see your passport, please?»"
     },
     {
       "dia": -85,

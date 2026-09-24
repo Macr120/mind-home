@@ -67,7 +67,7 @@ const GRUPOS_MENU: { clave: string; es: string; icono: NombreIcono; ids: string[
   },
   {
     clave: 'tut.selector.gCasa',
-    es: 'La casa',
+    es: 'La MindHaOS',
     icono: 'casa',
     ids: ['inicio', 'herramientas', 'navegacion', 'ejemplos'],
   },
@@ -333,7 +333,7 @@ export function SelectorTutorialOverlay() {
             ? t('tut.selector.hint', 'Toca una zona iluminada en amarillo, o empieza por el general.')
             : t(
                 'tut.selector.hint2',
-                'Los recorridos de la casa y sus menús. Las zonas amarillas siguen activas.',
+                'Los recorridos de la MindHaOS y sus menús. Las zonas amarillas siguen activas.',
               )}
         </p>
 
@@ -386,11 +386,11 @@ export function SelectorTutorialOverlay() {
                     onClick={() => entrarDemo()}
                     title={t(
                       'demo.visitar.desc',
-                      'La casa de Pep@ con un año de uso real dentro. Tu casa y tus datos quedan intactos; se vuelve con un botón.',
+                      'La MindHaOS (Casa Mental OS) de Pep@ con un año de uso real dentro. Tu MindHaOS y tus datos quedan intactos; se vuelve con un botón.',
                     )}
                     className="flex min-w-0 flex-1 items-center justify-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white/75 transition hover:bg-white/10"
                   >
-                    <Icono nombre="casa" /> {t('demo.visitar', 'Visitar la casa demo')}
+                    <Icono nombre="casa" /> {t('demo.visitar', 'Visitar la MindHaOS demo')}
                   </button>
                 )}
               </div>

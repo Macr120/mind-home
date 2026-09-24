@@ -285,7 +285,7 @@ export function PaintballOverlay() {
           {modoSel === 'royale' && (!enSala || arbitro) && (
             <>
               <p className="text-center text-[11px] font-semibold text-white/50">
-                {t('paintball.royaleDesc', 'Todos contra todos: tú contra tus asistentes por toda la casa.')}
+                {t('paintball.royaleDesc', 'Todos contra todos: tú contra tus asistentes por toda la MindHaOS.')}
               </p>
               <button
                 type="button"
@@ -297,7 +297,7 @@ export function PaintballOverlay() {
             </>
           )}
           <p className="text-center text-[10px] leading-snug text-white/40">
-            {t('paintball.reglas', 'Cada quien aguanta 3 bolazos. Gana el último equipo en pie. La casa es el campo de batalla.')}
+            {t('paintball.reglas', 'Cada quien aguanta 3 bolazos. Gana el último equipo en pie. La MindHaOS es el campo de batalla.')}
           </p>
           {mensaje && (
             <p className="text-center text-[11px] font-bold text-amber-300">{textoMensaje(mensaje)}</p>

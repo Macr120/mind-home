@@ -16,7 +16,7 @@ export const tutorialAppGenerica = (plantillaId: string): TutorialDef => ({
   titulo: T('tut.app-generica.titulo', 'Esta app'),
   resumen: T(
     'tut.app-generica.resumen',
-    'Cada app vive en un cuarto: el encabezado muestra el cuarto y la app, la lista de hoy lleva lo que toca hacer aquí y «Volver a la casa» la cierra. Las plantillas propias se arman con bloques: notas, listas, contadores, hábitos…',
+    'Cada app vive en un cuarto: el encabezado muestra el cuarto y la app, la lista de hoy lleva lo que toca hacer aquí y «Volver a la MindHaOS» la cierra. Las plantillas propias se arman con bloques: notas, listas, contadores, hábitos…',
   ),
   cargar: () =>
     import('./appGenerica.pasos').then((m) => ({

@@ -707,7 +707,7 @@ function PanelNodo({
       onSalir()
     } else if (appId) {
       if (abrirApp(appId, cosa?.seccion, cosa?.dato)) onSalir()
-      else setAviso(t('grafo.sinApp', 'Coloca esa app en tu casa para abrirla desde aquí.'))
+      else setAviso(t('grafo.sinApp', 'Coloca esa app en tu MindHaOS para abrirla desde aquí.'))
     }
   }
 
