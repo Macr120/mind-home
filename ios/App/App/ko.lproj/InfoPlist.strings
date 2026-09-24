@@ -3,3 +3,5 @@
 "NSMicrophoneUsageDescription" = "타이핑 대신 집에 말로 받아쓰기 위해 사용합니다.";
 "NSPhotoLibraryUsageDescription" = "추억, 방, 채팅에 쓸 사진을 고르기 위해 사용합니다.";
 "NSLocationWhenInUseUsageDescription" = "지도에 현재 위치를 표시하고, 경로를 안내하며, 야외 운동을 기록하기 위해 사용합니다.";
+"NSSpeechRecognitionUsageDescription" = "받아쓰기한 내용을 텍스트로 바꾸기 위해.";
+"NSPhotoLibraryAddUsageDescription" = "집의 이미지를 사진에 저장하기 위해.";

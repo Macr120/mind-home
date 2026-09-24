@@ -3,3 +3,5 @@
 "NSMicrophoneUsageDescription" = "Untuk mendikte ke rumahmu alih-alih mengetik.";
 "NSPhotoLibraryUsageDescription" = "Untuk memilih foto bagi kenanganmu, kamarmu, dan obrolan.";
 "NSLocationWhenInUseUsageDescription" = "Untuk menampilkan posisi Anda di peta, memandu Anda di sepanjang rute, dan mencatat latihan luar ruangan Anda.";
+"NSSpeechRecognitionUsageDescription" = "Untuk mengubah apa yang Anda diktekan menjadi teks.";
+"NSPhotoLibraryAddUsageDescription" = "Untuk menyimpan gambar dari rumah Anda ke foto Anda.";

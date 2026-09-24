@@ -3,3 +3,5 @@
 "NSMicrophoneUsageDescription" = "入力する代わりに、家に話しかけて書き取ってもらうために使います。";
 "NSPhotoLibraryUsageDescription" = "思い出や部屋、チャットに使う写真を選ぶために使います。";
 "NSLocationWhenInUseUsageDescription" = "地図上に現在地を表示し、ルートを案内し、屋外でのワークアウトを記録するためです。";
+"NSSpeechRecognitionUsageDescription" = "音声入力をテキストに変換するため。";
+"NSPhotoLibraryAddUsageDescription" = "家の画像を写真に保存するため。";

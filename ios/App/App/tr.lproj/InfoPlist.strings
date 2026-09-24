@@ -3,3 +3,5 @@
 "NSMicrophoneUsageDescription" = "Yazmak yerine evine dikte etmek için.";
 "NSPhotoLibraryUsageDescription" = "Anıların, odaların ve sohbet için fotoğraf seçmek için.";
 "NSLocationWhenInUseUsageDescription" = "Konumunu haritada göstermek, sana bir rota boyunca yol göstermek ve açık hava antrenmanlarını kaydetmek için.";
+"NSSpeechRecognitionUsageDescription" = "Dikte ettiklerinizi metne dönüştürmek için.";
+"NSPhotoLibraryAddUsageDescription" = "Evinizdeki görselleri fotoğraflarınıza kaydetmek için.";

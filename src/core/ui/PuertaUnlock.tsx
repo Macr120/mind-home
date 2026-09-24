@@ -24,7 +24,7 @@ import { prefijo } from '../../../web/i18n/idiomas.mjs'
 import { sinHtml } from './queEs/laminas'
 import { Pieza, Piezas } from './queEs/piezas'
 import { SelectorIdioma } from './PuertaIdioma'
-import { FormularioAcceso } from './editor/EditorCuentaSection'
+import { BotonEliminarCuenta, FormularioAcceso } from './editor/EditorCuentaSection'
 
 // El recorrido de la web contada como historias: pesa lo suyo (catálogo de
 // textos aparte) y solo lo abre quien toca el botón.
@@ -417,6 +417,9 @@ function PantallaTienda() {
           sistema y pasan por la caja de la tienda. */}
       {canal !== 'iap' && <FilaCupon />}
 
+      {/* Hay sesión pero no casa: sin esto, la cuenta recién creada no se
+          podría borrar desde la app (Apple 5.1.1(v)). */}
+      <BotonEliminarCuenta />
     </Marco>
   )
 }

@@ -3,3 +3,5 @@
 "NSMicrophoneUsageDescription" = "Pour dicter à votre maison au lieu d'écrire.";
 "NSPhotoLibraryUsageDescription" = "Pour choisir des photos pour vos souvenirs, vos pièces et le chat.";
 "NSLocationWhenInUseUsageDescription" = "Pour afficher ta position sur la carte, te guider sur un trajet et suivre tes entraînements en extérieur.";
+"NSSpeechRecognitionUsageDescription" = "Pour transformer ce que vous dictez en texte.";
+"NSPhotoLibraryAddUsageDescription" = "Pour enregistrer les images de votre maison dans vos photos.";

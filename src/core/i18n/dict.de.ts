@@ -6979,6 +6979,8 @@ export const DE: Dict = {
   'cuenta.nivel.n': 'Level ×{n} — {c} Credits pro Monat',
   'cuenta.nivel.actual': 'Aktuell',
   'cuenta.nivel.nota': 'Du kannst jederzeit ein Level hoch oder runter; die Änderung wird anteilig berechnet.',
+  'cuenta.precio.mes': '{p} / Monat',
+  'cuenta.precio.anio': '{p} / Jahr',
   'cuenta.pago.pendiente': 'Zahlung eingegangen: dein Plan erscheint hier in wenigen Sekunden.',
   'cuenta.legal.renovacion.apple':
     'Die Zahlung wird bei Bestätigung des Kaufs deiner Apple-ID belastet. Das Abo verlängert sich automatisch, sofern du es nicht mindestens 24 Stunden vor Ende des laufenden Zeitraums deaktivierst; die Verlängerung wird innerhalb dieser 24 Stunden abgerechnet. Verwalten oder kündigen kannst du es in den Einstellungen deiner Apple-ID.',
@@ -7008,6 +7010,7 @@ export const DE: Dict = {
   'cuenta.cambioRegistrar': 'Ich habe kein Konto: eins erstellen',
   'cuenta.cambioEntrar': 'Ich habe schon ein Konto: anmelden',
   'cuenta.confirmaCorreo': 'Konto erstellt: prüfe deine E-Mail und bestätige sie, bevor du dich anmeldest.',
+  'cuenta.confirmaCorreoVuelve': 'Konto erstellt: Öffne den Link, den wir dir per E-Mail geschickt haben, und kehre zur App zurück. Du wirst automatisch angemeldet.',
   'cuenta.salir': 'Abmelden',
   'cuenta.plan.pro': 'Pro',
   'cuenta.plan.local': 'Lokal',

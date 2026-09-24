@@ -6934,6 +6934,8 @@ export const NL: Dict = {
   'cuenta.nivel.n': 'Niveau ×{n} — {c} credits per maand',
   'cuenta.nivel.actual': 'Huidig',
   'cuenta.nivel.nota': 'Je kunt altijd een niveau omhoog of omlaag; het verschil wordt naar rato berekend.',
+  'cuenta.precio.mes': '{p} / maand',
+  'cuenta.precio.anio': '{p} / jaar',
   'cuenta.pago.pendiente': 'Betaling ontvangen: je abonnement verschijnt hier over een paar seconden.',
   'cuenta.legal.renovacion.apple':
     'De betaling wordt bij bevestiging van de aankoop van je Apple ID afgeschreven. Het abonnement wordt automatisch verlengd tenzij je dit minstens 24 uur voor het einde van de lopende periode uitzet; de verlenging wordt binnen die 24 uur in rekening gebracht. Je beheert of stopt het in de instellingen van je Apple ID.',
@@ -6963,6 +6965,7 @@ export const NL: Dict = {
   'cuenta.cambioRegistrar': 'Ik heb nog geen account: maak er een aan',
   'cuenta.cambioEntrar': 'Ik heb al een account: inloggen',
   'cuenta.confirmaCorreo': 'Account aangemaakt: controleer je e-mail en bevestig die voordat je inlogt.',
+  'cuenta.confirmaCorreoVuelve': 'Account aangemaakt: open de link die we je hebben gemaild en ga terug naar de app. Je wordt automatisch aangemeld.',
   'cuenta.salir': 'Uitloggen',
   'cuenta.plan.pro': 'Pro',
   'cuenta.plan.local': 'Lokaal',

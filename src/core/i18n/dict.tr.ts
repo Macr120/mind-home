@@ -6849,6 +6849,8 @@ export const TR: Dict = {
   'cuenta.nivel.n': 'Seviye ×{n} — ayda {c} kredi',
   'cuenta.nivel.actual': 'Mevcut',
   'cuenta.nivel.nota': 'İstediğin zaman seviye yükseltip düşürebilirsin; fark orantılı hesaplanır.',
+  'cuenta.precio.mes': '{p} / ay',
+  'cuenta.precio.anio': '{p} / yıl',
   'cuenta.pago.pendiente': 'Ödeme alındı: planın birkaç saniye içinde burada görünecek.',
   'cuenta.legal.renovacion.apple':
     'Ödeme, satın almayı onayladığında Apple Kimliğine yansıtılır. Mevcut dönem bitmeden en az 24 saat önce kapatmazsan abonelik kendiliğinden yenilenir ve yenileme ücreti o 24 saat içinde tahsil edilir. Aboneliği Apple Kimliği ayarlarından yönetebilir veya iptal edebilirsin.',
@@ -6878,6 +6880,7 @@ export const TR: Dict = {
   'cuenta.cambioRegistrar': 'Hesabım yok: bir tane oluştur',
   'cuenta.cambioEntrar': 'Zaten hesabım var: giriş yap',
   'cuenta.confirmaCorreo': 'Hesap oluşturuldu: giriş yapabilmek için e-postanı kontrol edip onayla.',
+  'cuenta.confirmaCorreoVuelve': 'Hesap oluşturuldu: e-postana gönderdiğimiz bağlantıyı aç ve uygulamaya geri dön. Oturumun otomatik olarak açılacak.',
   'cuenta.salir': 'Oturumu kapat',
   'cuenta.plan.pro': 'Pro',
   'cuenta.plan.local': 'Yerel',
