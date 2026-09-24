@@ -108,6 +108,9 @@ const SINONIMOS_JUEGO: Partial<Record<IdJuegoReal, string[]>> = {
   simon: ['simon'],
   memorama: ['memoria'],
   debates: ['debate'],
+  ocholocos: ['ocho locos', '8 locos', 'crazy eights'],
+  cienpersonas: ['100 personas', 'cien personas', 'encuesta'],
+  dilemas: ['dilemas', 'dilema moral'],
 }
 
 /** Cada juego de la mesa es pedible por chat: «quiero jugar la viborita». */

@@ -240,6 +240,39 @@ interface BodyIn {
   ruteo?: { apps?: AppRuteo[] }
   /** El asistente tiene activas las respuestas rápidas (ajuste del usuario). */
   rapidas?: boolean
+  /**
+   * Juegos de la sala (Pregúntale a 100 personas, Dilemas morales): preguntas
+   * sí/no directas a Jev, sin modelo de texto ni crédito. Va sin `mensajes`.
+   */
+  juego?: {
+    estado?: Record<string, unknown>
+    /** Varios estados (p. ej. personas de una encuesta), cada uno su propia decisión en paralelo. */
+    lote?: Record<string, unknown>[]
+    preguntas?: Record<string, string>
+  }
+}
+
+/** Topes de la vía de juegos: Jev contesta mejor con estado corto y pocas preguntas. */
+const LIMITES_JUEGO = { preguntas: 16, instrucciones: 500, estado: 4000, lote: 25, estadoLote: 1000 } as const
+
+function juegoInvalido(juego: NonNullable<BodyIn['juego']>): string | null {
+  const preguntas = juego.preguntas
+  if (!preguntas || typeof preguntas !== 'object') return 'Sin preguntas.'
+  const claves = Object.keys(preguntas)
+  if (!claves.length || claves.length > LIMITES_JUEGO.preguntas) return 'Demasiadas preguntas.'
+  for (const k of claves) {
+    if (!/^[a-z0-9_]{1,24}$/.test(k)) return 'Pregunta inválida.'
+    const txt = preguntas[k]
+    if (typeof txt !== 'string' || !txt || txt.length > LIMITES_JUEGO.instrucciones) return 'Pregunta inválida.'
+  }
+  if (JSON.stringify(juego.estado ?? {}).length > LIMITES_JUEGO.estado) return 'Estado demasiado largo.'
+  if (juego.lote !== undefined) {
+    if (!Array.isArray(juego.lote) || !juego.lote.length || juego.lote.length > LIMITES_JUEGO.lote) return 'Lote inválido.'
+    for (const e of juego.lote) {
+      if (!e || typeof e !== 'object' || JSON.stringify(e).length > LIMITES_JUEGO.estadoLote) return 'Lote inválido.'
+    }
+  }
+  return null
 }
 
 /** Decisión de Jev sobre un mensaje: probabilidad por app y de «registro simple». */
@@ -256,37 +289,52 @@ interface DecisionJev {
  * le baja la precisión. Timeout corto: si tarda, el chat sigue sin decisión.
  */
 async function porJev(mensajes: MensajeIn[], apps: AppRuteo[]): Promise<DecisionJev> {
-  const t = Date.now()
-  const preguntas: Record<string, unknown> = {
-    simple: {
-      type: 'noul',
-      instructions:
-        'El último mensaje del usuario SOLO informa algo que ya hizo o midió (un gasto, una comida, horas de sueño, un ejercicio, una sesión…) para que se anote, sin preguntar, pedir consejo ni pedir crear, cambiar o explicar nada.',
-    },
+  const preguntas: Record<string, string> = {
+    simple:
+      'El último mensaje del usuario SOLO informa algo que ya hizo o midió (un gasto, una comida, horas de sueño, un ejercicio, una sesión…) para que se anote, sin preguntar, pedir consejo ni pedir crear, cambiar o explicar nada.',
   }
   apps.forEach((a, i) => {
-    preguntas[`app_${i}`] = {
-      type: 'noul',
-      instructions: `El último mensaje del usuario registra, pide o consulta algo de esta app: ${a.descripcion}`,
-    }
+    preguntas[`app_${i}`] = `El último mensaje del usuario registra, pide o consulta algo de esta app: ${a.descripcion}`
   })
-  const peticion = {
-    state: { mensajes: mensajes.slice(-2).map((m) => ({ rol: m.rol, texto: m.texto })) },
-    questions: preguntas,
+  const r = await preguntarJev(
+    { mensajes: mensajes.slice(-2).map((m) => ({ rol: m.rol, texto: m.texto })) },
+    preguntas,
+  )
+  return {
+    apps: Object.fromEntries(apps.map((a, i) => [a.id, r.respuestas[`app_${i}`] ?? 0])),
+    simple: r.respuestas.simple ?? 0,
+    ms: r.ms,
+    usd: r.usd,
   }
+}
+
+/**
+ * Una llamada a Jev: `preguntas` = clave → instrucción sí/no; devuelve la
+ * probabilidad del «sí» de cada una (0 si falta).
+ */
+async function preguntarJev(
+  estado: Record<string, unknown>,
+  instrucciones: Record<string, string>,
+  espera = 1000,
+): Promise<{ respuestas: Record<string, number>; ms: number; usd: number }> {
+  const t = Date.now()
+  const preguntas = Object.fromEntries(
+    Object.entries(instrucciones).map(([k, txt]) => [k, { type: 'noul', instructions: txt }]),
+  )
+  const peticion = { state: estado, questions: preguntas }
   // Por Cloudflare Workers AI (sin la lista de espera de TypeSafe; cobra de su
   // saldo prepagado) o directo a TypeSafe, según las credenciales que haya.
   const resp = JEV_POR_CF
     ? await fetch(`https://api.cloudflare.com/client/v4/accounts/${CF_CUENTA}/ai/run`, {
         method: 'POST',
         headers: { Authorization: `Bearer ${CF_TOKEN}`, 'content-type': 'application/json' },
-        signal: AbortSignal.timeout(1000),
+        signal: AbortSignal.timeout(espera),
         body: JSON.stringify({ model: 'typesafe/jev', input: peticion }),
       })
     : await fetch('https://api.typesafe.ai/v1/systemone', {
         method: 'POST',
         headers: { Authorization: `Bearer ${JEV_KEY}`, 'content-type': 'application/json' },
-        signal: AbortSignal.timeout(1000),
+        signal: AbortSignal.timeout(espera),
         body: JSON.stringify({ model: JEV_MODELO, ...peticion }),
       })
   if (!resp.ok) throw new Error(`jev ${resp.status}`)
@@ -298,8 +346,7 @@ async function porJev(mensajes: MensajeIn[], apps: AppRuteo[]): Promise<Decision
     return Number.isFinite(v) ? v : 0
   }
   return {
-    apps: Object.fromEntries(apps.map((a, i) => [a.id, p(`app_${i}`)])),
-    simple: p('simple'),
+    respuestas: Object.fromEntries(Object.keys(instrucciones).map((k) => [k, p(k)])),
     ms: Date.now() - t,
     usd: costoTokensUsd('jev', { entrada: Number(data.usage?.input_tokens ?? 0), salida: 0 }),
   }
@@ -660,6 +707,52 @@ Deno.serve(async (req) => {
   } catch {
     return json({ error: 'peticion-invalida', mensaje: 'JSON inválido.' }, 400, cors)
   }
+
+  // Juegos de la sala: Jev decide solo, sin modelo de texto ni crédito (su
+  // costo, ~$0.00004, queda en uso_ia_llamadas). Mismo alcance que el piloto.
+  if (body.juego) {
+    const mal = juegoInvalido(body.juego)
+    if (mal) return json({ error: 'peticion-invalida', mensaje: mal }, 400, cors)
+    if (!JEV_DISPONIBLE || !(JEV_TODOS || JEV_UIDS.has(usuario.id))) {
+      return json({ error: 'sin-jev', mensaje: 'Jev aún no está disponible en tu cuenta.' }, 403, cors)
+    }
+    const preguntas = body.juego.preguntas ?? {}
+    // Sin lote, un solo estado; con lote, una llamada por estado en paralelo
+    // (la que falle vuelve null y el juego la cuenta aparte).
+    const estados = body.juego.lote ?? [body.juego.estado ?? {}]
+    const resultados = await Promise.all(
+      estados.map((e) =>
+        preguntarJev(e, preguntas, 5000).catch((err) => {
+          console.warn(`ia-chat: jev (juego) sin respuesta — ${err instanceof Error ? err.message : 'error'}`)
+          return null
+        }),
+      ),
+    )
+    const buenos = resultados.filter((r) => r !== null)
+    if (!buenos.length) return json({ error: 'proveedor', mensaje: 'Jev no respondió.' }, 502, cors)
+    const ms = Date.now() - t0
+    const fila = admin
+      .from('uso_ia_llamadas')
+      .insert({
+        user_id: usuario.id,
+        op: 'juego',
+        proveedor: 'jev',
+        modelo: JEV_MODELO,
+        ms,
+        ms_proveedor: Math.max(...buenos.map((r) => r.ms)),
+        usd: buenos.reduce((s, r) => s + r.usd, 0),
+        ruteo: { llamadas: estados.length, fallidas: estados.length - buenos.length },
+      })
+      .then(({ error }) => {
+        if (error) console.error('ia-chat: uso_ia_llamadas falló —', error.message)
+      })
+    if (typeof EdgeRuntime !== 'undefined') EdgeRuntime.waitUntil(fila)
+    else await fila
+    return body.juego.lote
+      ? json({ lote: resultados.map((r) => r?.respuestas ?? null), ms }, 200, cors)
+      : json({ jev: resultados[0]?.respuestas, ms }, 200, cors)
+  }
+
   const mensajes = Array.isArray(body.mensajes) ? body.mensajes : []
   if (!mensajes.length) {
     return json({ error: 'peticion-invalida', mensaje: 'Sin mensajes.' }, 400, cors)

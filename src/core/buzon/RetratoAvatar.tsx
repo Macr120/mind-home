@@ -33,15 +33,15 @@ function firmaDe(av: Avatar): string {
   return `${s.length}:${h}`
 }
 
-/** Recorte cuadrado y reducción a LADO px; webp si el navegador sabe, png si no. */
-function reducir(fuente: HTMLCanvasElement): string | null {
+/** Recorte cuadrado y reducción a `lado` px; webp si el navegador sabe, png si no. */
+export function reducir(fuente: HTMLCanvasElement, lado = LADO): string | null {
   const c = document.createElement('canvas')
-  c.width = LADO
-  c.height = LADO
+  c.width = lado
+  c.height = lado
   const ctx = c.getContext('2d')
   if (!ctx) return null
-  const lado = Math.min(fuente.width, fuente.height)
-  ctx.drawImage(fuente, (fuente.width - lado) / 2, (fuente.height - lado) / 2, lado, lado, 0, 0, LADO, LADO)
+  const corte = Math.min(fuente.width, fuente.height)
+  ctx.drawImage(fuente, (fuente.width - corte) / 2, (fuente.height - corte) / 2, corte, corte, 0, 0, lado, lado)
   let url = c.toDataURL('image/webp', 0.85)
   if (!url.startsWith('data:image/webp')) url = c.toDataURL('image/png')
   return url.length <= 65536 ? url : null
@@ -51,7 +51,7 @@ function reducir(fuente: HTMLCanvasElement): string | null {
  * Encuadra cabeza y hombros: mide el personaje ya pintado (los cuerpos y
  * sombreros varían mucho), apunta al tercio superior y acerca la cámara.
  */
-function CapturaBusto({ av, onListo }: { av: Avatar; onListo: (canvas: HTMLCanvasElement) => void }) {
+export function CapturaBusto({ av, onListo }: { av: Avatar; onListo: (canvas: HTMLCanvasElement) => void }) {
   const { gl, camera } = useThree()
   const grupo = useRef<THREE.Group>(null)
   useEffect(() => {

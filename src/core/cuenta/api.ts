@@ -27,6 +27,7 @@ export type CodigoErrorIA =
   | 'limite'
   | 'proveedor'
   | 'peticion-invalida'
+  | 'sin-jev'
 
 /** Error tipado de la vía cuenta; `message` ya viene listo para mostrarse. */
 export class ErrorIA extends Error {
@@ -244,6 +245,27 @@ export async function iaChatCuentaRuteado(
   })
   if (!('rapido' in r)) refrescarMedidor(r.uso)
   return r
+}
+
+/**
+ * Juegos de la sala: preguntas sí/no directas a Jev por `ia-chat` (sin modelo
+ * de texto ni crédito). Devuelve la probabilidad del «sí» de cada clave.
+ */
+export async function jevJuego(
+  estado: Record<string, unknown>,
+  preguntas: Record<string, string>,
+): Promise<Record<string, number>> {
+  const r = await llamarFuncion<{ jev: Record<string, number> }>('ia-chat', { juego: { estado, preguntas } })
+  return r.jev
+}
+
+/** Lo mismo para varios estados (≤ 25) a la vez; null = ese no contestó. */
+export async function jevJuegoLote(
+  lote: Record<string, unknown>[],
+  preguntas: Record<string, string>,
+): Promise<(Record<string, number> | null)[]> {
+  const r = await llamarFuncion<{ lote: (Record<string, number> | null)[] }>('ia-chat', { juego: { lote, preguntas } })
+  return r.lote
 }
 
 /** Dictado vía `ia-voz` (Whisper). Fallback cuando no hay `SpeechRecognition` nativo. */

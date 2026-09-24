@@ -21,11 +21,15 @@ export type IdJuegoReal =
   | 'ahorcado'
   | 'conocerse'
   | 'debates'
+  | 'ocholocos'
+  | 'cienpersonas'
+  | 'dilemas'
 
 /** Familia del juego: ordena la cuadrícula y le da color al icono. */
-export type FamiliaJuego = 'tablero' | 'ingenio' | 'arcade' | 'cartas' | 'grupo'
+export type FamiliaJuego = 'ia' | 'tablero' | 'ingenio' | 'arcade' | 'cartas' | 'grupo'
 
 export const FAMILIAS: { id: FamiliaJuego; labelEs: string; tono: string }[] = [
+  { id: 'ia', labelEs: 'Juegos con IA', tono: '#34d399' },
   { id: 'tablero', labelEs: 'Tablero', tono: '#fbbf24' },
   { id: 'ingenio', labelEs: 'Ingenio', tono: '#60a5fa' },
   { id: 'arcade', labelEs: 'Arcade', tono: '#22d3ee' },
@@ -48,6 +52,7 @@ export interface JuegoReal {
 export const JUEGOS_REALES: JuegoReal[] = [
   { id: 'sudoku', familia: 'ingenio', nombre: 'Sudoku', icono: '🔢', jugadores: '1', descripcion: 'Rellena el 9×9 sin repetir números.', dificultad: true },
   { id: 'solitario', familia: 'cartas', nombre: 'Solitario', icono: '🃏', jugadores: '1', descripcion: 'Klondike clásico: ordena las 52 cartas.', dificultad: true },
+  { id: 'ocholocos', familia: 'cartas', nombre: 'Ocho locos', icono: '🎴', jugadores: '1', descripcion: 'Suelta tus cartas por palo o número; el 8 cambia el palo.', dificultad: true },
   { id: 'j2048', familia: 'ingenio', nombre: '2048', icono: '🧮', jugadores: '1', descripcion: 'Desliza y fusiona hasta llegar a 2048.' },
   { id: 'damas', familia: 'tablero', nombre: 'Damas', icono: '🔴', jugadores: '1–2', descripcion: 'Salta y captura todas las fichas rivales.', dificultad: true },
   { id: 'ajedrez', familia: 'tablero', nombre: 'Ajedrez', icono: '♟️', jugadores: '1–2', descripcion: 'El clásico de estrategia, hasta el jaque mate.', dificultad: true },
@@ -67,5 +72,7 @@ export const JUEGOS_REALES: JuegoReal[] = [
   { id: 'simon', familia: 'ingenio', nombre: 'Simon dice', icono: '🚦', jugadores: '1', descripcion: 'Repite la secuencia de colores.', dificultad: true },
   { id: 'ahorcado', familia: 'ingenio', nombre: 'Ahorcado', icono: '🪢', jugadores: '1', descripcion: 'Adivina la palabra letra por letra.', dificultad: true },
   { id: 'conocerse', familia: 'grupo', nombre: 'Para conocerse', icono: '💬', jugadores: '2+', descripcion: '100 preguntas en 3 niveles para conocerse de verdad.' },
+  { id: 'cienpersonas', familia: 'ia', nombre: 'Pregúntale a 100 personas', icono: '💯', jugadores: '1', descripcion: 'Una pregunta, 100 personas inventadas y Jev decidiendo cada voto.' },
+  { id: 'dilemas', familia: 'ia', nombre: 'Dilemas morales', icono: '⚖️', jugadores: '1', descripcion: 'Responde 8 dilemas y descubre si piensas como Jev.' },
   { id: 'debates', familia: 'grupo', nombre: 'Debates', icono: '🔥', jugadores: '2+', descripcion: '100 preguntas que encienden la sobremesa.' },
 ]

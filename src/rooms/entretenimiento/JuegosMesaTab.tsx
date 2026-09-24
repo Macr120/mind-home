@@ -9,13 +9,16 @@ import { Billar } from './juegos/Billar'
 import { Blackjack } from './juegos/Blackjack'
 import { Buscaminas } from './juegos/Buscaminas'
 import { CartasConocerse, CartasDebates, type EstadoCartas } from './juegos/CartasPreguntas'
+import { CienPersonas } from './juegos/CienPersonas'
 import { CuatroEnLinea } from './juegos/CuatroEnLinea'
 import { Damas } from './juegos/Damas'
+import { Dilemas } from './juegos/Dilemas'
 import { DinoRunner } from './juegos/DinoRunner'
 import { Domino } from './juegos/Domino'
 import { Hockey } from './juegos/Hockey'
 import { Juego2048 } from './juegos/Juego2048'
 import { Memorama } from './juegos/Memorama'
+import { OchoLocos } from './juegos/OchoLocos'
 import { Pong } from './juegos/Pong'
 import { Ruleta } from './juegos/Ruleta'
 import { SimonDice } from './juegos/SimonDice'
@@ -70,6 +73,9 @@ const COMPONENTES: Record<IdJuegoReal, ComponentType<PropsDificultad>> = {
   ahorcado: Ahorcado,
   conocerse: CartasConocerse,
   debates: CartasDebates,
+  ocholocos: OchoLocos,
+  cienpersonas: CienPersonas,
+  dilemas: Dilemas,
 }
 
 function SelectorDificultad({ valor, alCambiar }: { valor: Dificultad; alCambiar: (d: Dificultad) => void }) {
