@@ -25,5 +25,6 @@ class MainViewController: CAPBridgeViewController {
   /// que es la ventana en la que el registro todavía llega a tiempo.
   override func capacitorDidLoad() {
     bridge?.registerPluginInstance(WidgetsPlugin())
+    bridge?.registerPluginInstance(AppleLoginPlugin())
   }
 }

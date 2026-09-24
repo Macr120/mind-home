@@ -8,7 +8,7 @@
 import { create } from 'zustand'
 import type { AuthError, User } from '@supabase/supabase-js'
 import { hayBackend, obtenerSupabase } from './supabase'
-import { esAppNativa, esEscritorio } from '../plataforma'
+import { esAppNativa, esEscritorio, nombrePlataforma } from '../plataforma'
 import { LS_FUE_PRO, LS_PLAN_EXPIRA, LS_PLAN_REAL, LS_UNLOCK, type Plan } from '../edicion'
 
 /**
@@ -176,6 +176,22 @@ export const useSesion = create<SesionState>((set, get) => ({
   entrarConProveedor: async (proveedor) => {
     const sb = await obtenerSupabase()
     if (!sb) return 'Sin backend'
+    if (proveedor === 'apple' && esAppNativa() && nombrePlataforma() === 'ios') {
+      // En iOS, Apple va por la hoja NATIVA y no por la web: el login web se
+      // quedó en blanco en el iPad de App Review (24-sep-2026). `appleNativo.ts`.
+      const { pedirCredencialApple, LoginAppleCancelado } = await import('./appleNativo')
+      try {
+        const cred = await pedirCredencialApple()
+        const { error } = await sb.auth.signInWithIdToken({ provider: 'apple', token: cred.token, nonce: cred.nonce })
+        if (error) return mensajeAuth(error)
+        // Apple da el nombre solo la primera vez: se guarda o se pierde.
+        if (cred.nombre) void sb.auth.updateUser({ data: { full_name: cred.nombre } })
+        return null
+      } catch (e) {
+        if (e instanceof LoginAppleCancelado) return null
+        return e instanceof Error ? e.message : String(e)
+      }
+    }
     if (esAppNativa() || esEscritorio()) {
       // Google RECHAZA el login dentro de un WebView (`disallowed_useragent`),
       // y la ventana de Electron es tan ventana empotrada como la del teléfono:
