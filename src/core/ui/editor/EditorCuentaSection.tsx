@@ -16,7 +16,7 @@ import {
   urlGestion,
   type OfertaPro,
 } from '../../cuenta/paywall'
-import { canalPago, nombrePlataforma } from '../../plataforma'
+import { canalPago, esAppNativa, esEscritorio, nombrePlataforma } from '../../plataforma'
 import { sincronizar } from '../../data/sync/motor'
 import { GastoByok } from '../GastoByok'
 import { LogoApple, LogoGoogle } from '../logosMarca'
@@ -219,12 +219,11 @@ function BotonesOAuth() {
     setOcupado(true)
     setError(null)
     const err = await entrarConProveedor(proveedor)
-    // Sin error, el navegador está saliendo hacia el proveedor: se queda
-    // deshabilitado hasta la redirección.
-    if (err) {
-      setError(err)
-      setOcupado(false)
-    }
+    // En la web, sin error, la página está saliendo hacia el proveedor: se
+    // queda deshabilitado hasta la redirección. En la app no se sale de la
+    // página (hoja nativa o navegador encima) y cerrarlos debe dejar reintentar.
+    if (err) setError(err)
+    if (err || esAppNativa() || esEscritorio()) setOcupado(false)
   }
 
   const botonCls =
