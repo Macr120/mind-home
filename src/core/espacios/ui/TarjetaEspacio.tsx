@@ -83,7 +83,8 @@ export function TarjetaEspacio({ m }: { m: MensajeBuzon }) {
           </p>
         </div>
       </div>
-      {datos && !m.mio && (
+      {/* También quien lo compartió: desde el chat se entra a editar juntos. */}
+      {datos && (
         <div className="mt-1.5">
           <button
             type="button"

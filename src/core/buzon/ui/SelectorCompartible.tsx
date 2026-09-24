@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import { VistaBlob } from '../../../rooms/_shared/ImagenIA'
 import { useT } from '../../i18n/useT'
 import { getPlantilla } from '../../registry'
@@ -17,7 +17,18 @@ interface Grupo {
  * compartible y, dentro, sus recetas, rutinas, mapas… Al elegir uno se
  * empaqueta y queda como adjunto de la barra, listo para enviar.
  */
-export function SelectorCompartible({ onElegir, onCerrar }: { onElegir: (p: Paquete) => void; onCerrar: () => void }) {
+export function SelectorCompartible({
+  onElegir,
+  onCerrar,
+  cabecera,
+  className = 'mb-2 max-h-[55vh]',
+}: {
+  onElegir: (p: Paquete) => void
+  onCerrar: () => void
+  /** Algo más que ofrecer antes de las apps (el panel «Enviar» del hilo pone los archivos). */
+  cabecera?: ReactNode
+  className?: string
+}) {
   const t = useT()
   const hablar = useMascota((s) => s.decir)
   const proveedores = proveedoresCompartibles().filter((p) => p.tipos.length > 0)
@@ -40,7 +51,7 @@ export function SelectorCompartible({ onElegir, onCerrar }: { onElegir: (p: Paqu
   const nombreApp = (id: string) => t(`room.${id}.nombre`, getPlantilla(id)?.nombre ?? id).split(' · ')[0]
 
   return (
-    <div className="ui-panel-glass mb-2 max-h-[55vh] overflow-y-auto rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
+    <div className={`ui-panel-glass overflow-y-auto rounded-2xl ${className} border border-white/10 p-2 shadow-xl backdrop-blur-md`}>
       <div className="mb-2 flex items-center gap-2 border-b border-white/10 px-1 pb-2">
         <span className="text-base text-white/60">
           <Icono nombre="buzon" />
@@ -55,6 +66,8 @@ export function SelectorCompartible({ onElegir, onCerrar }: { onElegir: (p: Paqu
           ✕
         </button>
       </div>
+
+      {cabecera}
 
       {proveedores.length === 0 && (
         <p className="px-2 py-3 text-center text-xs text-white/35">{t('buzon.selector.vacio', 'Esta app aún no tiene nada para enviar')}</p>

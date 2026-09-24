@@ -100,8 +100,9 @@ export function GaleriaDibujos({ onAbrir }: { onAbrir: (id: number) => void }) {
                   className="relative block w-full overflow-hidden rounded-lg transition hover:brightness-110"
                 >
                   <Foto blob={d.miniatura ?? d.imagen} className="aspect-square w-full object-cover" />
+                  {/* Blanco literal: sobre la foto, `text-white` del tema claro sale oscuro */}
                   {d.espacioId && (
-                    <span className="absolute left-1 top-1 flex items-center gap-1 rounded-full bg-black/60 px-1.5 py-0.5 text-[10px] font-semibold text-white/80 backdrop-blur">
+                    <span className="absolute left-1 top-1 flex items-center gap-1 rounded-full bg-black/60 px-1.5 py-0.5 text-[10px] font-semibold text-[#ffffff] backdrop-blur">
                       <Icono nombre="companeros" /> {t('esp.arte.compartido', 'Compartido')}
                     </span>
                   )}

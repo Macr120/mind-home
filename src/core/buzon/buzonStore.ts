@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { useHud } from '../state/hudStore'
 import { useMascota } from '../state/mascotaStore'
+import type { Cita } from './cita'
 import type { Paquete } from './compartibles'
 
 /**
@@ -24,6 +25,10 @@ interface BuzonState {
   compartirPendiente: Paquete | null
   /** Sube con cada `abrirCompartir`: la `key` con la que el diálogo arranca limpio. */
   compartirN: number
+  /** «Responder» elegido en una burbuja: el próximo mensaje de ese hilo lo cita. */
+  respuesta: { hiloId: string; cita: Cita } | null
+  responder: (hiloId: string, cita: Cita) => void
+  cancelarRespuesta: () => void
   abrirHilo: (hiloId: string) => void
   cerrarHilo: () => void
   abrirContactos: () => void
@@ -42,6 +47,9 @@ export const useBuzon = create<BuzonState>((set) => ({
   estado: 'apagado',
   compartirPendiente: null,
   compartirN: 0,
+  respuesta: null,
+  responder: (hiloId, cita) => set({ respuesta: { hiloId, cita } }),
+  cancelarRespuesta: () => set({ respuesta: null }),
   abrirHilo: (hiloId) => {
     // Un hilo a la vez: se aparta la conversación del asistente y se despliega el chat.
     useMascota.getState().cerrarConversacion()

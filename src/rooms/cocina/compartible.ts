@@ -1,4 +1,5 @@
 import { confirmarDuplicado, type ItemCompartible, type Paquete } from '../../core/buzon/compartibles'
+import { archivosGenericos } from '../../core/buzon/exportar'
 import { normalizar } from '../../core/chat/dispatcher'
 import type { DietaGuardada, MomentoComida, Receta } from '../../core/data/db'
 import { dietasGuardadasRepo, recetasRepo } from '../../core/data/repository'
@@ -196,4 +197,20 @@ export async function importarDieta(p: Paquete): Promise<{ seccion?: string; can
     ...(p.blobs?.foto ? { foto: p.blobs.foto } : {}),
   })
   return { seccion: 'dietas' }
+}
+
+/** Fuera de la app: la receta en texto (ingredientes y pasos) y su foto. */
+export async function exportarReceta(p: Paquete): Promise<File[]> {
+  const r = p.datos as RecetaDatos
+  const texto = [
+    `${r.emoji ?? ''} ${r.nombre}`.trim(),
+    p.resumen ?? '',
+    '',
+    tGlobal('cocina.rec.ingredientes', 'Ingredientes'),
+    ...(r.ingredientes ?? []).map((x) => `- ${x}`),
+    '',
+    tGlobal('cocina.rec.pasos', 'Preparación'),
+    ...(r.pasos ?? []).map((x, i) => `${i + 1}. ${x}`),
+  ].join('\n')
+  return archivosGenericos(p, texto)
 }

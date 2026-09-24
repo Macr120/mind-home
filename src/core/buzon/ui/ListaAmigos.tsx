@@ -2,17 +2,18 @@ import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { haySesionProbable, useSesion } from '../../cuenta/sesionStore'
 import { hayBackend } from '../../cuenta/supabase'
-import { esDemo } from '../../edicion'
+import { esDemo, esVisita } from '../../edicion'
 import { useT, type TFunc } from '../../i18n/useT'
 import { mensajeErrorPartida } from '../../partida/api'
 import { usePartida } from '../../partida/partidaStore'
-import { invitarAContacto } from '../../partida/sala'
 import { PanelSala } from '../../partida/ui/PanelSala'
 import { PermisosVisita } from '../../partida/ui/PermisosVisita'
-import { invitarACasa } from '../../visita/anfitrion'
+import { invitarACasa, invitarAMiCasa } from '../../visita/anfitrion'
+import { salirDeVisita } from '../../visita/visitaStore'
 import { Icono } from '../../ui/iconos/Icono'
 import { useBuzon } from '../buzonStore'
 import { useContactosAceptados, useUltimosMensajesBuzon } from '../cache'
+import { separarCita } from '../cita'
 import type { MensajeBuzon } from '../tipos'
 import { Retrato } from './Retrato'
 
@@ -23,9 +24,15 @@ export function resumenMensaje(m: MensajeBuzon, t: TFunc): string {
       ? t('buzon.adjunto.imagen', 'Imagen')
       : m.tipo === 'pdf'
         ? t('buzon.adjunto.pdf', 'PDF')
-        : m.tipo === 'contenido'
+        : m.tipo === 'borrado'
+          ? t('buzon.borrado', 'Mensaje eliminado')
+          : m.tipo === 'audio'
+          ? t('buzon.adjunto.audio', 'Audio')
+          : m.tipo === 'video'
+            ? t('buzon.adjunto.video', 'Video')
+            : m.tipo === 'contenido'
           ? (m.contenido?.nombre ?? '')
-          : m.texto
+          : separarCita(m.texto).cuerpo
   return m.mio ? `${t('buzon.tu', 'Tú')}: ${cuerpo}` : cuerpo
 }
 
@@ -59,7 +66,7 @@ export function ListaAmigos({ onAbrir, onContactos }: { onAbrir: (hiloId: string
     setInvitando(contactoId)
     setErrorSala('')
     try {
-      await invitarAContacto(contactoId)
+      await invitarAMiCasa(contactoId)
     } catch (e) {
       setErrorSala(mensajeErrorPartida(e, t))
     } finally {
@@ -102,6 +109,17 @@ export function ListaAmigos({ onAbrir, onContactos }: { onAbrir: (hiloId: string
           className="flex w-full items-center gap-2 rounded-xl border border-accent/40 bg-accent/10 px-2 py-1.5 text-start text-xs font-semibold transition hover:bg-accent/20"
         >
           <Icono nombre="companeros" /> {t('partida.sala.abrir', 'Tu sala · {n}', { n: sala.jugadores.length })}
+        </button>
+      )}
+      {/* De visita sin sala (el anfitrión la cerró): «Tu sala» no sale y era la
+          única puerta de vuelta, así que el invitado quedaba atrapado. */}
+      {!sala && esVisita() && (
+        <button
+          type="button"
+          onClick={salirDeVisita}
+          className="flex w-full items-center gap-2 rounded-xl border border-accent/40 bg-accent/10 px-2 py-1.5 text-start text-xs font-semibold transition hover:bg-accent/20"
+        >
+          <Icono nombre="casa" /> {t('demo.volver.si', 'Volver a mi MindHaOS')}
         </button>
       )}
       {errorSala && <p className="px-2 py-1 text-[11px] leading-snug text-red-400/90">{errorSala}</p>}

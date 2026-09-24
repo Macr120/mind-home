@@ -1,3 +1,4 @@
+import { extension, nombreArchivo } from '../../core/buzon/exportar'
 import { confirmarDuplicado, type ItemCompartible, type Paquete } from '../../core/buzon/compartibles'
 import { normalizar } from '../../core/chat/dispatcher'
 import type { Dibujo } from '../../core/data/db'
@@ -58,4 +59,10 @@ export async function importarDibujo(p: Paquete): Promise<{ seccion?: string; da
     actualizadoEn: ahora,
   })) as number
   return { seccion: 'galeria', dato: String(id) }
+}
+
+/** Fuera de la app: la imagen del dibujo, tal cual. */
+export async function exportarDibujo(p: Paquete): Promise<File[]> {
+  const img = p.blobs?.imagen
+  return img ? [new File([img], `${nombreArchivo(p.nombre)}.${extension(img.type)}`, { type: img.type })] : []
 }

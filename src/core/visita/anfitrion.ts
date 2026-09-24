@@ -5,7 +5,9 @@
  * con `casa: true` (lo marca `subirPlano`) y el invitado no acepta para
  * quedarse esperando a que aparezca el archivo en el bucket.
  */
+import { getPlantilla } from '../appContrato'
 import { esVisita } from '../edicion'
+import { asignarPlantillaACuarto } from '../gamificacion/plantillaBundle'
 import type { TFunc } from '../i18n/useT'
 import { enviar } from '../buzon/motor'
 import type { Contacto } from '../buzon/tipos'
@@ -19,6 +21,8 @@ import {
   type JuegoInvitable,
 } from '../partida/juegosInvitables'
 import { crearYConectar, salaViva } from '../partida/sala'
+import { elegir } from '../state/confirmarStore'
+import { useCuartos } from '../state/cuartosStore'
 import { esObjetoLibreria, useDiseño } from '../state/disenoStore'
 import { guardarPlano } from './almacenPlano'
 import { armarPlano } from './plano'
@@ -29,6 +33,40 @@ export async function invitarACasa(contactoId: string, apps: readonly string[]):
   const sala = await crearYConectar('visita', apps)
   await guardarPlano(sala.partidaId, await armarPlano(apps))
   await invitar(sala.partidaId, contactoId)
+}
+
+/**
+ * «Invitar a mi MindHaOS» desde la lista de amigos. Reutiliza mi sala si ya la
+ * tengo abierta, pero siempre con el plano publicado: sin él, el invitado acepta
+ * y se queda en su propia casa sin saber por qué.
+ */
+export async function invitarAMiCasa(contactoId: string): Promise<void> {
+  const viva = salaViva()
+  if (!viva?.soyAnfitrion) return invitarACasa(contactoId, [])
+  if (!viva.casa) await guardarPlano(viva.partidaId, await armarPlano(viva.apps))
+  await invitar(viva.partidaId, contactoId)
+}
+
+/**
+ * Sin Entretenimiento en la casa, un juego de mesa pregunta cómo seguir: poner
+ * un cuarto con la app o jugar en la plantilla (la app sola, sin cuarto).
+ * Devuelve false si el usuario cancela.
+ */
+async function prepararMesa(j: string, t: TFunc): Promise<boolean> {
+  const r = await elegir({
+    titulo: t('partida.jugar.elegir.titulo', 'No tienes Entretenimiento en tu MindHaOS'),
+    mensaje: t('partida.jugar.elegir.mensaje', '¿Cómo quieres jugar {j}?', { j }),
+    opciones: [
+      { valor: 'cuarto', texto: t('partida.jugar.elegir.cuarto', 'Agregar un cuarto con Entretenimiento') },
+      { valor: 'plantilla', texto: t('partida.jugar.elegir.plantilla', 'Jugar en la plantilla, sin cuarto') },
+    ],
+  })
+  if (r === null) return false
+  if (r === 'cuarto') {
+    const cuartoId = await useCuartos.getState().crear({ categoria: getPlantilla('entretenimiento')?.categoria })
+    await asignarPlantillaACuarto(cuartoId, 'entretenimiento')
+  }
+  return true
 }
 
 /**
@@ -62,7 +100,7 @@ export async function invitarAJugar(juego: JuegoInvitable, contacto: Contacto, t
     return t('partida.jugar.sinCancha', 'No tienes {j} en tu mapa: colócala desde el editor', { j })
   }
   if (def.mesa && !objetos.some((o) => o.plantillaId === 'entretenimiento' && !esObjetoLibreria(o))) {
-    return t('partida.jugar.sinApp', 'Necesitas la app Entretenimiento en tu MindHaOS')
+    if (!(await prepararMesa(j, t))) return t('partida.jugar.cancelada', 'Invitación cancelada')
   }
   // Sin hilo no hay dónde dejar el enlace: se comprueba antes de abrir la sala.
   const hiloId = contacto.hiloId
@@ -84,6 +122,9 @@ export async function invitarAJugar(juego: JuegoInvitable, contacto: Contacto, t
   if (viva) {
     partidaId = viva.partidaId
     apps = viva.apps
+    // Una sala abierta sin plano (se cayó la subida, o se abrió desde otro
+    // sitio) dejaría al invitado en su propia casa al pulsar el enlace.
+    if (!viva.casa) await guardarPlano(partidaId, await armarPlano(apps))
   } else {
     const nuevas = def.mesa ? ['entretenimiento'] : []
     const sala = await crearYConectar('visita', nuevas)

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { VistaBlob } from '../../../rooms/_shared/ImagenIA'
+import { esVisita } from '../../edicion'
 import { useT } from '../../i18n/useT'
 import { getPlantilla } from '../../registry'
 import { Icono } from '../../ui/iconos/Icono'
@@ -22,6 +23,11 @@ export function TarjetaContenido({ m }: { m: MensajeBuzon }) {
   const nombreApp = t(`room.${c.app}.nombre`, app?.nombre ?? c.app).split(' · ')[0]
 
   const guardar = async () => {
+    // De visita, la BD es la casa del anfitrión (desechable): lo guardado se perdería.
+    if (esVisita()) {
+      setError(t('buzon.contenido.enVisita', 'Estás de visita: vuelve a tu MindHaOS para guardarlo'))
+      return
+    }
     setOcupado(true)
     setError('')
     try {

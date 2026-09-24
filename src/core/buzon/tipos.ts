@@ -24,7 +24,13 @@ export interface Contacto {
   actualizadoEn: string
 }
 
-export type TipoMensaje = 'texto' | 'imagen' | 'pdf' | 'contenido'
+/** 'borrado' = quien lo mandó lo borró para los dos (queda el hueco «Mensaje eliminado»). */
+export type TipoMensaje = 'texto' | 'imagen' | 'pdf' | 'audio' | 'video' | 'contenido' | 'borrado'
+
+/** Los tipos que viajan como un archivo en Storage. */
+export type TipoAdjunto = 'imagen' | 'pdf' | 'audio' | 'video'
+
+export const esAdjunto = (t: TipoMensaje): t is TipoAdjunto => t === 'imagen' || t === 'pdf' || t === 'audio' || t === 'video'
 
 /** Un objeto en Storage (bucket `buzon-adjuntos`), tal cual viaja en el mensaje. */
 export interface AdjuntoRemoto {
@@ -69,6 +75,15 @@ export interface MensajeBuzon {
   estado?: 'enviando' | 'error'
   /** Cuándo se guardó el contenido en su app (ya no se ofrece «Guardar»). */
   guardadoEn?: string
+  /**
+   * Nota que nunca sale del dispositivo: la orden que escribiste («jugar
+   * paintball») y lo que respondió la app, para que el hilo cuente qué pasó.
+   */
+  sistema?: boolean
+  /** Fijado arriba del hilo (cuándo); solo en este dispositivo. */
+  fijado?: string
+  /** Marcado con estrella; solo en este dispositivo. */
+  favorito?: boolean
 }
 
 export type CodigoErrorBuzon =
@@ -109,6 +124,10 @@ export interface ResultadoBusqueda {
 
 /** Mismos topes que el servidor (`buzon_enviar` y el bucket). */
 export const TOPE_ADJUNTO = 8 * 1024 * 1024
+/** Audio y video: el bucket admite hasta 20 MB (imagen y PDF siguen en 8). */
+export const TOPE_MEDIA = 20 * 1024 * 1024
+
+export const topeDe = (tipo: TipoAdjunto) => (tipo === 'audio' || tipo === 'video' ? TOPE_MEDIA : TOPE_ADJUNTO)
 export const TOPE_CONTENIDO = 64 * 1024
 export const TOPE_TEXTO = 4000
 

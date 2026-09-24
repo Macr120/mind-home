@@ -50,8 +50,10 @@ export function useContactoDeHilo(hiloId: string | null): Contacto | undefined {
 /** Upsert por `uid` conservando lo que solo existe en local (blob, guardadoEn). */
 export async function upsertMensajes(remotos: MensajeRemoto[]): Promise<MensajeBuzon[]> {
   const nuevos: MensajeBuzon[] = []
+  const saltar = ocultos()
   await db.transaction('rw', db._buzonMensajes, async () => {
     for (const r of remotos) {
+      if (saltar.has(r.uid)) continue
       const fila: MensajeBuzon = {
         uid: r.uid,
         hiloId: r.hilo_id,
@@ -81,8 +83,55 @@ export async function upsertMensajes(remotos: MensajeRemoto[]): Promise<MensajeB
   return nuevos
 }
 
+// ─── borrados solo en este dispositivo ───────────────────────────────────────
+
+/**
+ * «Borrar para mí» no toca el servidor: el mensaje sigue allí y un pull que lo
+ * traiga de nuevo (p. ej. al marcarse leído, que le cambia el seq) lo
+ * resucitaría. Por eso se recuerdan sus `uid` y `upsertMensajes` los salta.
+ */
+const LS_OCULTOS = 'mh.buzon.ocultos'
+const MAX_OCULTOS = 2000
+
+function ocultos(): Set<string> {
+  try {
+    return new Set(JSON.parse(localStorage.getItem(LS_OCULTOS) ?? '[]') as string[])
+  } catch {
+    return new Set()
+  }
+}
+
+export async function borrarMensajeLocal(uid: string): Promise<void> {
+  try {
+    const lista = [...ocultos(), uid].slice(-MAX_OCULTOS)
+    localStorage.setItem(LS_OCULTOS, JSON.stringify(lista))
+  } catch {
+    // Sin almacenamiento: se borra igual; podría volver en un pull.
+  }
+  await db._buzonMensajes.where('uid').equals(uid).delete()
+}
+
 export async function guardarMensajeLocal(m: MensajeBuzon): Promise<number> {
   return (await db._buzonMensajes.add(m)) as number
+}
+
+/**
+ * Nota local en el hilo (ver `MensajeBuzon.sistema`). `serverSeq` 0 y ya leída:
+ * no mueve el cursor de leídos ni cuenta como pendiente.
+ */
+export async function guardarNotaSistema(hiloId: string, texto: string, mio: boolean): Promise<void> {
+  const ahora = new Date().toISOString()
+  await guardarMensajeLocal({
+    uid: `local-${crypto.randomUUID()}`,
+    hiloId,
+    mio,
+    tipo: 'texto',
+    texto,
+    serverSeq: 0,
+    creadoEn: ahora,
+    leidoEn: ahora,
+    sistema: true,
+  })
 }
 
 export async function actualizarMensaje(uid: string, cambios: Partial<MensajeBuzon>): Promise<void> {

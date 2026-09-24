@@ -502,8 +502,19 @@ function medirReloj(veces: number): void {
  * los 5 minutos sin latido). Como en `abandonarActual`, el anfitrión no lo
  * emite: un `salir` por la bajada lo descarta `leer`, y su sala se cierra con él.
  */
+/**
+ * La pestaña se recarga para entrar a la visita de ESTA sala: el `pagehide` no
+ * debe sacarme de ella. Si saliera, dejaría de ser miembro y Storage negaría el
+ * plano («Object not found») antes de que la visita llegue a volver a entrar.
+ */
+let trasladando = false
+
+export function trasladarAVisita(): void {
+  trasladando = true
+}
+
 function alIrse(): void {
-  if (!sala) return
+  if (!sala || trasladando) return
   if (!sala.soyAnfitrion) emitir('salir', { j: sala.miRanura, r: 'contexto' })
   if (!enLocal) void cerrarEnServidor(sala.partidaId, sala.soyAnfitrion)
 }
@@ -631,15 +642,6 @@ export async function entrarYConectar(partidaId: string): Promise<Sala> {
   const s = await api.entrar(partidaId)
   await conectarSala(s)
   return s
-}
-
-/**
- * Invita a un contacto a mi casa. Sin sala viva abre una de visita primero: el
- * botón de la lista de amigos es un solo gesto, no dos.
- */
-export async function invitarAContacto(contactoId: string): Promise<void> {
-  const id = sala?.soyAnfitrion === true ? sala.partidaId : (await crearYConectar('visita')).partidaId
-  await api.invitar(id, contactoId)
 }
 
 /** Saca a alguien de MI sala por su ranura (nunca por uuid). */

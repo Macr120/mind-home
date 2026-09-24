@@ -1,3 +1,4 @@
+import { nombreArchivo } from '../../core/buzon/exportar'
 import { confirmarDuplicado, type ItemCompartible, type Paquete } from '../../core/buzon/compartibles'
 import { normalizar } from '../../core/chat/dispatcher'
 import type { HojaCalculo } from '../../core/data/db'
@@ -57,4 +58,32 @@ export async function importarHoja(p: Paquete): Promise<{ seccion?: string; dato
     actualizadoEn: ahora,
   })) as number
   return { seccion: 'hojas', dato: String(id) }
+}
+
+/** Índice de columna (0 = A) → letras, como en las referencias A1. */
+function letras(i: number): string {
+  let s = ''
+  for (let n = i + 1; n > 0; n = Math.floor((n - 1) / 26)) s = String.fromCharCode(65 + ((n - 1) % 26)) + s
+  return s
+}
+
+/** Fuera de la app: la hoja en CSV con los valores calculados (lo abre Excel, Sheets, Numbers…). */
+export async function exportarHoja(p: Paquete): Promise<File[]> {
+  const d = p.datos as HojaDatos
+  const refs = Object.keys(d.celdas)
+  const ultimaFila = Math.max(0, ...refs.map((r) => Number(/\d+$/.exec(r)?.[0] ?? 0)))
+  const cols = Math.max(1, Number(d.cols) || 1)
+  const campo = (v: unknown) => {
+    const s = v == null ? '' : String(v)
+    return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s
+  }
+  const filas: string[] = []
+  for (let f = 1; f <= ultimaFila; f++) {
+    const fila = Array.from({ length: cols }, (_, c) => {
+      const celda = d.celdas[`${letras(c)}${f}`]
+      return campo(celda ? (celda.valor ?? celda.crudo) : '')
+    })
+    filas.push(fila.join(',').replace(/,+$/, ''))
+  }
+  return [new File(['﻿' + filas.join('\r\n')],`${nombreArchivo(p.nombre)}.csv`, { type: 'text/csv' })]
 }

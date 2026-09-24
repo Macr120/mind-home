@@ -48,7 +48,12 @@ export function TarjetaJuego({ m }: { m: MensajeBuzon }) {
       const sala = await entrarYConectar(datos.partidaId)
       sonar('tick')
       if (sala.casa) entrarAVisita(sala.partidaId, sala.apps, datos.juego)
+      // Sin plano no hay casa a la que ir. La mesa en línea no la necesita (se
+      // juega por la sala desde cualquier casa); la cancha y el paintball, sí.
+      else if (JUEGOS_INVITABLES[datos.juego].mesa) irAlJuego(datos.juego, 1, false)
+      else setError(t('partida.jugar.sinCasa', '@{a} aún no abrió su casa: pídele que te invite otra vez', { a: contacto?.alias ?? '' }))
     } catch (e) {
+      console.error('[partida] unirse', e)
       setError(mensajeErrorPartida(e, t))
     } finally {
       setOcupado(false)
@@ -98,6 +103,11 @@ export function TarjetaJuego({ m }: { m: MensajeBuzon }) {
             </a>
           )}
           {error && <p className="mt-1 text-[10px] text-red-400">{error}</p>}
+          {!m.mio && (
+            <p className="mt-1 text-[10px] text-white/40">
+              {t('partida.jugar.tarjeta.pista', 'Para invitar tú, escribe «jugar» y el nombre del juego en este chat')}
+            </p>
+          )}
         </div>
       )}
     </div>

@@ -1,6 +1,7 @@
 import { useHouse } from './state/houseStore'
 import { useDiseño, esObjetoLibreria, esObjetoMapa } from './state/disenoStore'
 import { lanzarIntencionApp } from './state/intencionApp'
+import { usePreviaPlantilla } from './state/previaPlantillaStore'
 
 /**
  * Abre la app de una plantilla en la casa: entra a su cuarto y le deja la
@@ -19,6 +20,17 @@ export function abrirApp(plantillaId: string, seccion?: string, dato?: string): 
   lanzarIntencionApp({ appId: plantillaId, seccion, dato })
   useHouse.getState().openRoom(obj.roomId)
   return obj.roomId
+}
+
+/**
+ * Como `abrirApp`, pero si la app no está puesta en la casa la abre igual en la
+ * previa de la plantilla (overlay sin cuarto), con la misma sección y dato.
+ * Es lo que usan los enlaces que llegan por el chat: siempre entran a la app.
+ */
+export function abrirAppOPlantilla(plantillaId: string, seccion?: string, dato?: string): void {
+  if (abrirApp(plantillaId, seccion, dato)) return
+  lanzarIntencionApp({ appId: plantillaId, seccion, dato })
+  usePreviaPlantilla.getState().abrir(plantillaId)
 }
 
 /**

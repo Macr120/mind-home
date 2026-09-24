@@ -9,15 +9,13 @@
 import type { Editor } from '@tiptap/core'
 import { prosemirrorJSONToYDoc } from '@tiptap/y-tiptap'
 import * as Y from 'yjs'
-import { abrirApp } from '../../core/abrirApp'
+import { abrirAppOPlantilla } from '../../core/abrirApp'
 import { documentosRepo, historiasRepo } from '../../core/data/repository'
 import * as api from '../../core/espacios/api'
 import { refrescarEspacios } from '../../core/espacios/conectar'
-import { nombreTipo } from '../../core/espacios/enlaces'
 import type { Espacio } from '../../core/espacios/tipos'
 import { b64 } from '../../core/espacios/yjs'
 import { tGlobal } from '../../core/i18n/useT'
-import { notificar } from '../../core/notificaciones'
 import { useDiseño } from '../../core/state/disenoStore'
 
 /** El fragmento que usa la extensión `Collaboration` de TipTap. */
@@ -84,18 +82,13 @@ export async function asegurarDocumentoLocal(e: Pick<Espacio, 'espacioId' | 'tit
  *
  * El enlace abre la app entera, así que esto puede correr ANTES de que la casa
  * haya leído sus objetos de Dexie; sin esperarlos, `abrirApp` no encontraría el
- * escritorio de Escritura aunque esté puesto y saldría el aviso de que falta.
+ * escritorio de Escritura aunque esté puesto. Si de verdad no está, la hoja se
+ * abre en la plantilla de Escritura (sin cuarto): el enlace siempre entra.
  */
 export async function aterrizarDocumento(e: Espacio): Promise<void> {
   const id = await asegurarDocumentoLocal(e)
   for (let i = 0; i < 50 && !useDiseño.getState().cargado; i++) {
     await new Promise((r) => setTimeout(r, 100))
   }
-  if (abrirApp('escritura', 'libros', `doc:${id}`) !== null) return
-  void notificar({
-    clave: `espacio:${e.espacioId}`,
-    titulo: e.titulo || sinTitulo(),
-    cuerpo: tGlobal('esp.aterrizar.sinApp', 'Coloca la app {n} en tu MindHaOS para abrirlo', { n: nombreTipo('documento') }),
-    efimero: true,
-  })
+  abrirAppOPlantilla('escritura', 'libros', `doc:${id}`)
 }

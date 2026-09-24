@@ -17,8 +17,11 @@ import { create } from 'zustand'
 export interface PeticionConfirmar {
   /** Correlativo: le sirve de `key` al diálogo para reiniciar su input sin efectos. */
   id: number
-  /** 'texto' añade un input y resuelve la cadena escrita (o null al cancelar). */
-  tipo: 'confirmar' | 'texto'
+  /**
+   * 'texto' añade un input y resuelve la cadena escrita (o null al cancelar);
+   * 'elegir' cambia el botón de aceptar por un botón por opción y resuelve su `valor`.
+   */
+  tipo: 'confirmar' | 'texto' | 'elegir'
   titulo: string
   mensaje?: string
   /** Etiqueta del botón que acepta; sin valor, «Confirmar». */
@@ -27,10 +30,12 @@ export interface PeticionConfirmar {
   peligro?: boolean
   /** Valor de arranque del input (solo en 'texto'). */
   valor?: string
+  /** Las salidas posibles (solo en 'elegir'). */
+  opciones?: { valor: string; texto: string }[]
 }
 
 /** Lo que devuelve cada tipo al cancelar. */
-const CANCELADO = (tipo: PeticionConfirmar['tipo']) => (tipo === 'texto' ? null : false)
+const CANCELADO = (tipo: PeticionConfirmar['tipo']) => (tipo === 'confirmar' ? false : null)
 
 interface ConfirmarState {
   pendiente: PeticionConfirmar | null
@@ -67,6 +72,14 @@ function pedir(peticion: Omit<PeticionConfirmar, 'id'>): Promise<boolean | strin
 /** ¿Seguir adelante? Devuelve false si el usuario cancela o cierra. */
 export async function confirmar(o: Omit<PeticionConfirmar, 'id' | 'tipo' | 'valor'>): Promise<boolean> {
   return (await pedir({ ...o, tipo: 'confirmar' })) === true
+}
+
+/** Varias salidas en vez de sí/no. Devuelve el `valor` elegido, o null al cancelar. */
+export async function elegir(
+  o: Omit<PeticionConfirmar, 'id' | 'tipo' | 'valor' | 'textoOk' | 'peligro'> & { opciones: { valor: string; texto: string }[] },
+): Promise<string | null> {
+  const r = await pedir({ ...o, tipo: 'elegir' })
+  return typeof r === 'string' ? r : null
 }
 
 /** Pide un texto. Devuelve null si el usuario cancela o lo deja vacío. */

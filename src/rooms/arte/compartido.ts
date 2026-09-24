@@ -1,11 +1,9 @@
-import { abrirApp } from '../../core/abrirApp'
+import { abrirAppOPlantilla } from '../../core/abrirApp'
 import { dibujosRepo } from '../../core/data/repository'
 import * as api from '../../core/espacios/api'
 import { refrescarEspacios } from '../../core/espacios/conectar'
-import { nombreTipo } from '../../core/espacios/enlaces'
 import type { Espacio } from '../../core/espacios/tipos'
 import { tGlobal } from '../../core/i18n/useT'
-import { notificar } from '../../core/notificaciones'
 import { miniaturaFoto } from '../_shared/fotos'
 import { LADO_MAX, LADO_MIN } from './constantes'
 import type { Lienzo } from './lienzo'
@@ -89,13 +87,8 @@ export async function asegurarDibujoLocal(e: Pick<Espacio, 'espacioId' | 'titulo
 /** Entrar por el enlace: el dibujo queda listo y la app se abre encima de él. */
 export async function aterrizarDibujo(e: Espacio): Promise<void> {
   const id = await asegurarDibujoLocal(e)
-  if (abrirApp('arte', undefined, `dibujo:${id}`) !== null) return
-  void notificar({
-    clave: `espacio:${e.espacioId}`,
-    titulo: e.titulo || sinTitulo(),
-    cuerpo: tGlobal('esp.aterrizar.sinApp', 'Coloca la app {n} en tu MindHaOS para abrirlo', { n: nombreTipo('dibujo') }),
-    efimero: true,
-  })
+  // Sin la app en la casa se abre su plantilla (sin cuarto): el enlace siempre entra.
+  abrirAppOPlantilla('arte', undefined, `dibujo:${id}`)
 }
 
 /**

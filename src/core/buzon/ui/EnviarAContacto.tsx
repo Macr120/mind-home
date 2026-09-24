@@ -3,6 +3,8 @@ import { VistaBlob } from '../../../rooms/_shared/ImagenIA'
 import { BotonPrimario, BotonSecundario, INPUT, Modal } from '../../../rooms/_shared/ui'
 import { sonar } from '../../audio/sfx'
 import { useSesion } from '../../cuenta/sesionStore'
+import { hayBackend } from '../../cuenta/supabase'
+import { esAppNativa } from '../../plataforma'
 import { useT } from '../../i18n/useT'
 import { getPlantilla } from '../../registry'
 import { useMascota } from '../../state/mascotaStore'
@@ -11,6 +13,7 @@ import { mensajeErrorBuzon } from '../api'
 import { useBuzon } from '../buzonStore'
 import { useContactosAceptados } from '../cache'
 import type { Paquete } from '../compartibles'
+import { compartirFuera, descargarFuera, puedeCompartirFuera } from '../exportar'
 import { clavePrevia, enviar } from '../motor'
 import { Retrato } from './Retrato'
 
@@ -58,8 +61,21 @@ function Dialogo({ paquete }: { paquete: Paquete }) {
     }
   }
 
+  const exportar = async (como: (p: Paquete) => Promise<void>) => {
+    setOcupado(true)
+    setError('')
+    try {
+      await como(paquete)
+    } catch (e) {
+      console.error('[buzon] exportar', e)
+      setError(mensajeErrorBuzon(e, t))
+    } finally {
+      setOcupado(false)
+    }
+  }
+
   return (
-    <Modal titulo={t('buzon.enviarA.titulo', 'Enviar «{n}»', { n: paquete.nombre })} onCerrar={cerrar}>
+    <Modal titulo={t('buzon.compartir.titulo', 'Compartir «{n}»', { n: paquete.nombre })} onCerrar={cerrar}>
       <div className="space-y-3">
         <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-black/20 p-2">
           {miniatura ? (
@@ -78,12 +94,41 @@ function Dialogo({ paquete }: { paquete: Paquete }) {
           </div>
         </div>
 
-        {!usuario ? (
+        {/* Fuera de la app: hoja de compartir del sistema o un archivo */}
+        <div className="flex items-stretch gap-2">
+          {puedeCompartirFuera() && (
+            <button
+              type="button"
+              onClick={() => void exportar(compartirFuera)}
+              disabled={ocupado}
+              className="flex min-w-0 flex-1 items-center gap-2.5 rounded-xl border border-accent/40 bg-accent/10 px-3 py-2 text-start transition hover:bg-accent/20 disabled:opacity-50"
+            >
+              <span className="text-xl text-accent">
+                <Icono nombre="compartir" />
+              </span>
+              <span className="min-w-0">
+                <span className="block text-sm font-semibold">{t('buzon.exportar.compartir', 'Compartir…')}</span>
+                <span className="block truncate text-[11px] text-white/50">
+                  {t('buzon.exportar.pista', 'Abre el menú de compartir de tu dispositivo')}
+                </span>
+              </span>
+            </button>
+          )}
+          {!esAppNativa() && (
+            <BotonSecundario onClick={() => void exportar(descargarFuera)} disabled={ocupado} className={puedeCompartirFuera() ? '' : 'flex-1'}>
+              <Icono nombre="descargar" /> {t('buzon.exportar.descargar', 'Descargar')}
+            </BotonSecundario>
+          )}
+        </div>
+
+        {!hayBackend() ? null : !usuario ? (
           <p className="text-xs text-white/50">{t('buzon.sinSesion', 'Inicia sesión para escribir a tus contactos')}</p>
         ) : (
           <>
             <div>
-              <p className="mb-1 text-[11px] font-semibold text-white/50">{t('buzon.enviarA.para', 'Para')}</p>
+              <p className="mb-1 border-t border-white/10 pt-3 text-[11px] font-semibold text-white/50">
+                {t('buzon.enviarA.contacto', 'A un contacto de MindHaOS')}
+              </p>
               {contactos && contactos.length === 0 && (
                 <p className="text-xs text-white/50">{t('buzon.sinContactos', 'Aún no tienes contactos. Agrega uno por su alias.')}</p>
               )}

@@ -50,6 +50,8 @@ export interface TipoCompartible {
    * al usuario; `cancelado` = el usuario declinó (p. ej. ya existía) y no se marca como guardado.
    */
   importar(p: Paquete): Promise<{ seccion?: string; dato?: string; aviso?: string; cancelado?: boolean }>
+  /** Archivos para sacarlo FUERA de la app (ver `exportar.ts`); sin él, un .txt con sus textos y fotos. */
+  exportar?(p: Paquete): Promise<File[]>
 }
 
 export interface ProveedorCompartible {

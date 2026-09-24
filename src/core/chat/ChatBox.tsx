@@ -131,8 +131,10 @@ import { PanelIA } from '../ui/PanelIA'
 import { useBuzon } from '../buzon/buzonStore'
 import { enviar as enviarBuzon } from '../buzon/motor'
 import { mensajeErrorBuzon } from '../buzon/api'
-import { contactoDeHilo, contactosCache } from '../buzon/cache'
-import { ErrorBuzon } from '../buzon/tipos'
+import { contactosCache } from '../buzon/cache'
+import { citar } from '../buzon/cita'
+import { ejecutarComandoHilo } from '../buzon/comandoHilo'
+import { ErrorBuzon, TOPE_MEDIA } from '../buzon/tipos'
 import type { Paquete } from '../buzon/compartibles'
 import { ListaAmigos } from '../buzon/ui/ListaAmigos'
 import { useVistaGrafo } from '../grafoApps'
@@ -147,7 +149,7 @@ const SelectorCompartible = lazy(() =>
 
 /** Adjunto listo para previsualizar: para el modelo (imagen o PDF) o para una persona del buzón. */
 interface AdjuntoLocal {
-  tipo: 'imagen' | 'pdf' | 'contenido'
+  tipo: 'imagen' | 'pdf' | 'audio' | 'video' | 'contenido'
   /** Para la IA; el buzón manda el `blob`. */
   base64?: string
   mediaType?: string
@@ -221,6 +223,7 @@ export function ChatBox({
   // Los otros dos inputs del menú «+»: galería y PDF.
   const galeriaRef = useRef<HTMLInputElement>(null)
   const pdfRef = useRef<HTMLInputElement>(null)
+  const mediaRef = useRef<HTMLInputElement>(null)
   // Medición de la barra para decidir si la caja de texto se lleva un renglón entero.
   const barraRef = useRef<HTMLDivElement>(null)
   const cajaRef = useRef<HTMLDivElement>(null)
@@ -249,6 +252,12 @@ export function ChatBox({
   const asistentes = useAsistentes((s) => s.lista)
   // Buzón: hilo con una persona (excluyente con la conversación de un asistente).
   const hiloPersona = useBuzon((s) => s.hiloAbierto)
+  const respuesta = useBuzon((s) => s.respuesta)
+  const miAlias = useSesion((s) => s.alias)
+  // Elegir «Responder» en una burbuja deja la barra lista para escribir.
+  useEffect(() => {
+    if (respuesta) areaRef.current?.focus()
+  }, [respuesta])
   const noLeidos = useBuzon((s) => s.totalNoLeidos)
   const solicitudes = useBuzon((s) => s.solicitudesPendientes)
   const [selectorAbierto, setSelectorAbierto] = useState(false)
@@ -547,6 +556,16 @@ export function ChatBox({
     reader.readAsDataURL(file)
   }
 
+  /** Audio o video para una persona del buzón (la IA no los lee). */
+  const cargarMedia = (file: File) => {
+    const tipo = file.type.startsWith('video/') ? 'video' : 'audio'
+    if (file.size > TOPE_MEDIA) {
+      hablar(t('chat.mediaGrande', 'El archivo pesa más de {mb} MB, usa uno más ligero.', { mb: TOPE_MEDIA / 1024 / 1024 }))
+      return
+    }
+    setAdjunto({ tipo, nombre: file.name, blob: file })
+  }
+
   const proveedor = getProveedor()
   const conIA = iaActiva()
   // Imagen/PDF/foto piden IA… salvo que vayan a una persona del buzón.
@@ -599,31 +618,29 @@ export function ChatBox({
     if (hiloPersona) {
       const txt = texto.trim()
       const adj = adjunto
-      // «jugar tenis» dentro del hilo de alguien es una invitación para ESA
-      // persona, no un mensaje: con verbo obligatorio, para que una palabra
-      // suelta («tenis») siga siendo una frase normal de la conversación.
-      const orden = ordenJugar(txt, { requiereVerbo: true })
-      if (orden && !orden.alias) {
-        const contacto = await contactoDeHilo(hiloPersona)
-        if (contacto) {
+      // «jugar ajedrez», «enviar receta Tacos», «colaborar documento Capítulo 1»:
+      // órdenes para ESTA persona (ver `buzon/comandoHilo`). Con adjunto es un mensaje.
+      if (!adj) {
+        const r = await ejecutarComandoHilo(hiloPersona, txt, t, () => {
           sonar('tick')
           vibrar(10)
           setTexto('')
-          setAdjunto(null)
-          try {
-            hablar(await invitarAJugar(orden.juego, contacto, t), { sistema: true })
-          } catch (e) {
-            hablar(e instanceof ErrorBuzon ? mensajeErrorBuzon(e, t) : mensajeErrorPartida(e, t), { sistema: true })
-          }
+        })
+        if (r) {
+          if (r.abrirSelector) setSelectorAbierto(true)
           return
         }
       }
+      // Respondiendo a un mensaje: la cita viaja como primera línea del texto.
+      const resp = useBuzon.getState().respuesta
+      const conCita = resp && resp.hiloId === hiloPersona ? citar(resp.cita, txt) : txt
+      if (resp) useBuzon.getState().cancelarRespuesta()
       sonar('tick')
       vibrar(10)
       setTexto('')
       setAdjunto(null)
       void enviarBuzon(hiloPersona, {
-        texto: txt,
+        texto: conCita,
         adjunto:
           adj && adj.tipo !== 'contenido' && adj.blob
             ? { tipo: adj.tipo, blob: adj.blob, nombre: adj.nombre }
@@ -1600,6 +1617,28 @@ export function ChatBox({
         </div>
       )}
 
+      {/* Respondiendo a un mensaje del hilo de una persona */}
+      {respuesta && respuesta.hiloId === hiloPersona && (
+        <div className="ui-panel-glass mb-2 flex items-center gap-2 rounded-xl border border-white/10 p-1.5 shadow-xl backdrop-blur-md">
+          <span className="min-w-0 flex-1 border-s-2 border-emerald-400/70 ps-2">
+            <span className="block text-[10px] font-semibold text-emerald-300/90">
+              {t('buzon.respondiendo', 'Respondiendo a {n}', {
+                n: respuesta.cita.autor === `@${miAlias}` ? t('buzon.tu', 'Tú') : respuesta.cita.autor,
+              })}
+            </span>
+            <span className="block truncate text-[11px] text-white/55">{respuesta.cita.extracto}</span>
+          </span>
+          <button
+            type="button"
+            onClick={() => useBuzon.getState().cancelarRespuesta()}
+            className="px-1.5 text-xs text-white/40 transition hover:text-white/80"
+            title={t('chat.conv.cerrar', 'Cerrar')}
+          >
+            ✕
+          </button>
+        </div>
+      )}
+
       {/* Adjunto (imagen o PDF: lo interpreta la IA al enviar) */}
       {adjunto && (
         <div className="ui-panel-glass mb-2 inline-flex items-center gap-2 rounded-xl border border-white/10 p-1.5 shadow-xl backdrop-blur-md">
@@ -1607,7 +1646,11 @@ export function ChatBox({
             <img src={adjunto.dataUrl} alt="" className="h-12 w-12 rounded-lg object-cover" />
           ) : (
             <span className="grid h-12 w-12 place-items-center rounded-lg bg-white/5 text-2xl">
-              <Icono nombre={adjunto.tipo === 'contenido' ? 'buzon' : 'pdf'} />
+              <Icono
+                nombre={
+                  adjunto.tipo === 'contenido' ? 'buzon' : adjunto.tipo === 'audio' ? 'musica' : adjunto.tipo === 'video' ? 'pelicula' : 'pdf'
+                }
+              />
             </span>
           )}
           <span className="max-w-40 truncate text-[11px] text-white/50">
@@ -1712,6 +1755,20 @@ export function ChatBox({
                   <span className="flex-1 text-start">{op.texto}</span>
                 </button>
               ))}
+              {/* Con una persona abierta: audio o video (sin IA de por medio) */}
+              {hiloPersona && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMenuAdjuntar(false)
+                    mediaRef.current?.click()
+                  }}
+                  className="flex w-full items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-xs font-semibold text-white/70 transition hover:bg-white/10"
+                >
+                  <Icono nombre="musica" />
+                  <span className="flex-1 text-start">{t('buzon.menu.media', 'Audio o video')}</span>
+                </button>
+              )}
               {/* Con una persona abierta: una receta, una rutina… de tus cuartos */}
               {hiloPersona && (
                 <button
@@ -1844,6 +1901,18 @@ export function ChatBox({
           onChange={(e) => {
             const f = e.target.files?.[0]
             if (f) cargarPdf(f)
+            e.target.value = ''
+          }}
+        />
+
+        <input
+          ref={mediaRef}
+          type="file"
+          accept="audio/*,video/*"
+          className="hidden"
+          onChange={(e) => {
+            const f = e.target.files?.[0]
+            if (f) cargarMedia(f)
             e.target.value = ''
           }}
         />

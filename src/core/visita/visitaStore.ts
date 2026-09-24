@@ -4,7 +4,7 @@ import { notificar } from '../notificaciones'
 import { tGlobal } from '../i18n/useT'
 import { podar } from '../partida/aspecto'
 import { esJuegoInvitable, type JuegoInvitable } from '../partida/juegosInvitables'
-import { desconectarSala } from '../partida/sala'
+import { desconectarSala, trasladarAVisita } from '../partida/sala'
 import { useDiseño } from '../state/disenoStore'
 import type { AspectoRemoto } from '../partida/tipos'
 
@@ -118,6 +118,7 @@ export function entrarAVisita(salaId: string, apps: readonly string[], juego?: J
     // Sin sessionStorage la visita no puede sobrevivir a la recarga: no se entra.
     return
   }
+  trasladarAVisita()
   location.assign(urlVisita(salaId))
 }
 
@@ -188,6 +189,15 @@ export function avisarVisitaAbortada(): void {
     return
   }
   if (!motivo) return
+  try {
+    const detalle = sessionStorage.getItem('mh.visita.error')
+    if (detalle) {
+      sessionStorage.removeItem('mh.visita.error')
+      console.error('[visita] abortada:', motivo, detalle)
+    }
+  } catch {
+    // Solo diagnóstico.
+  }
   const cuerpo =
     motivo === 'sala'
       ? tGlobal('visita.abortada.sala', 'La sala se cerró.')

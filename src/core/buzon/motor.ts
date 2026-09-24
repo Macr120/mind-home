@@ -10,8 +10,9 @@ import { recibirAvisoEspacio } from '../espacios/avisos'
 import * as api from './api'
 import * as cache from './cache'
 import { useBuzon } from './buzonStore'
+import { separarCita } from './cita'
 import { validarPaquete, type Paquete } from './compartibles'
-import { ErrorBuzon, TOPE_ADJUNTO, TOPE_TEXTO, type AdjuntoRemoto, type ContenidoMensaje, type MensajeBuzon, type TipoMensaje } from './tipos'
+import { ErrorBuzon, esAdjunto, TOPE_TEXTO, topeDe, type AdjuntoRemoto, type ContenidoMensaje, type MensajeBuzon, type TipoAdjunto, type TipoMensaje } from './tipos'
 
 /**
  * Motor del buzón (calcado del motor de sync, en pequeño): escucha el canal
@@ -29,11 +30,18 @@ const BACKOFF_MAX_MS = 60_000
 const LEIDO_DEBOUNCE_MS = 800
 const TROZO_BLOBS = 4
 /** MIME que acepta el bucket; cualquier otra imagen se recomprime antes de subir. */
-const MIME_PERMITIDOS = new Set(['image/jpeg', 'image/png', 'image/webp', 'application/pdf'])
+const MIME_PERMITIDOS = new Set([
+  'image/jpeg', 'image/png', 'image/webp', 'application/pdf',
+  'audio/mpeg', 'audio/mp4', 'audio/aac', 'audio/ogg', 'audio/webm', 'audio/wav', 'audio/x-wav',
+  'video/mp4', 'video/webm', 'video/quicktime',
+])
+
+/** Algunos navegadores etiquetan el mp3 o el m4a con alias que el bucket no lista. */
+const ALIAS_MIME: Record<string, string> = { 'audio/mp3': 'audio/mpeg', 'audio/x-m4a': 'audio/mp4', 'audio/m4a': 'audio/mp4' }
 
 interface EnvioPendiente {
   texto: string
-  adjunto?: { tipo: 'imagen' | 'pdf'; blob: Blob; nombre: string }
+  adjunto?: { tipo: TipoAdjunto; blob: Blob; nombre: string }
   paquete?: Paquete
 }
 
@@ -239,7 +247,7 @@ function previaDe(c: ContenidoMensaje): AdjuntoRemoto | null {
 
 /** Descarga bajo demanda (el botón «Descargar» de la burbuja). */
 export async function descargarBlobDe(m: MensajeBuzon): Promise<Blob | null> {
-  const a = m.tipo === 'imagen' || m.tipo === 'pdf' ? m.adjunto : m.contenido ? previaDe(m.contenido) : null
+  const a = esAdjunto(m.tipo) ? m.adjunto : m.contenido ? previaDe(m.contenido) : null
   if (!a) return null
   const blob = await api.descargarAdjunto(a)
   await cache.actualizarMensaje(m.uid, { blob })
@@ -262,9 +270,15 @@ async function avisar(nuevos: MensajeBuzon[]): Promise<void> {
         ? tGlobal('buzon.adjunto.imagen', 'Imagen')
         : m.tipo === 'pdf'
           ? tGlobal('buzon.adjunto.pdf', 'PDF')
-          : m.tipo === 'contenido'
+          : m.tipo === 'borrado'
+            ? tGlobal('buzon.borrado', 'Mensaje eliminado')
+            : m.tipo === 'audio'
+            ? tGlobal('buzon.adjunto.audio', 'Audio')
+            : m.tipo === 'video'
+              ? tGlobal('buzon.adjunto.video', 'Video')
+              : m.tipo === 'contenido'
             ? tGlobal('buzon.aviso.contenido', 'Te envió «{q}»', { q: m.contenido?.nombre ?? '' })
-            : m.texto
+            : separarCita(m.texto).cuerpo
     void notificar({
       clave: `buzon:${m.hiloId}|${m.uid}`,
       titulo: tGlobal('buzon.aviso.mensaje', '{n} te escribió', { n: quien }),
@@ -330,11 +344,21 @@ export async function refrescarContactos(): Promise<void> {
 
 const sanear = (s: string) => s.replace(/[^\w.-]/g, '_')
 
-const extensionDe = (mime: string) => (mime === 'image/png' ? 'png' : mime === 'image/webp' ? 'webp' : mime === 'application/pdf' ? 'pdf' : 'jpg')
+const EXTENSIONES: Record<string, string> = {
+  'image/png': 'png', 'image/webp': 'webp', 'application/pdf': 'pdf',
+  'audio/mpeg': 'mp3', 'audio/mp4': 'm4a', 'audio/aac': 'aac', 'audio/ogg': 'ogg', 'audio/webm': 'webm',
+  'audio/wav': 'wav', 'audio/x-wav': 'wav', 'video/mp4': 'mp4', 'video/webm': 'webm', 'video/quicktime': 'mov',
+}
+const extensionDe = (mime: string) => EXTENSIONES[mime] ?? 'jpg'
 
 /** Un blob que el bucket acepte: las imágenes en otro formato se recomprimen. */
 async function aceptable(blob: Blob): Promise<Blob> {
   if (MIME_PERMITIDOS.has(blob.type)) return blob
+  // `audio/webm;codecs=opus` (MediaRecorder) o un alias: se reetiqueta con el tipo
+  // base, porque supabase-js sube con el tipo DEL BLOB y el bucket compara exacto.
+  const base = blob.type.split(';')[0].trim().toLowerCase()
+  const tipo = ALIAS_MIME[base] ?? base
+  if (MIME_PERMITIDOS.has(tipo)) return new Blob([blob], { type: tipo })
   if (blob.type.startsWith('image/') || !blob.type) return comprimirImagen(blob, 1280)
   throw new ErrorBuzon('servidor', 'Formato de archivo no admitido')
 }
@@ -350,7 +374,7 @@ export async function enviar(hiloId: string, o: EnvioPendiente): Promise<void> {
   const texto = o.texto.trim().slice(0, TOPE_TEXTO)
   if (tipo === 'texto' && !texto) return
   if (o.paquete) validarPaquete(o.paquete)
-  if (o.adjunto && o.adjunto.blob.size > TOPE_ADJUNTO) throw new ErrorBuzon('adjunto-grande')
+  if (o.adjunto && o.adjunto.blob.size > topeDe(o.adjunto.tipo)) throw new ErrorBuzon('adjunto-grande')
   const uid = crypto.randomUUID()
   const previa = o.paquete ? (clavePrevia({ ...contenidoDe(o.paquete, {}), blobs: marcadoresVacios(o.paquete) }) ?? null) : null
   const fila: MensajeBuzon = {
@@ -378,6 +402,51 @@ export async function enviar(hiloId: string, o: EnvioPendiente): Promise<void> {
   await transmitir(hiloId, uid, tipo, { ...o, texto })
 }
 
+/** El contenido de un mensaje recibido, con sus blobs ya descargados (para guardarlo o reenviarlo). */
+export async function paqueteDeMensaje(m: MensajeBuzon): Promise<Paquete | null> {
+  const c = m.contenido
+  if (!c) return null
+  const previa = clavePrevia(c)
+  const blobs: Record<string, Blob> = {}
+  for (const [k, a] of Object.entries(c.blobs ?? {})) {
+    blobs[k] = k === previa && m.blob ? m.blob : await api.descargarAdjunto(a)
+  }
+  return { app: c.app, tipo: c.tipo, version: 1, nombre: c.nombre, resumen: c.resumen, emoji: c.emoji, datos: c.datos, blobs }
+}
+
+/** Invitaciones (espacios, partidas) no se reenvían: son para quien las recibió. */
+export const reenviable = (m: MensajeBuzon) =>
+  !m.sistema && m.tipo !== 'borrado' && !(m.tipo === 'contenido' && (m.contenido?.app === 'espacio' || m.contenido?.app === 'partida'))
+
+/** Manda una copia del mensaje a otro hilo (sin la cita, si respondía a algo). */
+export async function reenviar(m: MensajeBuzon, hiloId: string): Promise<void> {
+  const texto = separarCita(m.texto).cuerpo
+  if (esAdjunto(m.tipo) && m.adjunto) {
+    const blob = m.blob ?? (await api.descargarAdjunto(m.adjunto))
+    return enviar(hiloId, { texto, adjunto: { tipo: m.tipo, blob, nombre: m.adjunto.nombre } })
+  }
+  const paquete = await paqueteDeMensaje(m)
+  return enviar(hiloId, { texto, paquete: paquete ?? undefined })
+}
+
+/**
+ * Borra un mensaje. Para mí: solo de este dispositivo. Para todos (solo los
+ * míos ya confirmados): primero sus archivos y luego el servidor lo convierte en
+ * «Mensaje eliminado» para los dos. Una nota local o un envío que nunca llegó al
+ * servidor se borra aquí sin más.
+ */
+export async function borrarMensaje(m: MensajeBuzon, paraTodos: boolean): Promise<void> {
+  enVuelo.delete(m.uid)
+  if (!paraTodos || m.sistema || !m.serverSeq || esDemo()) {
+    await cache.borrarMensajeLocal(m.uid)
+    await recontar()
+    return
+  }
+  if (esAdjunto(m.tipo) || m.contenido?.blobs) await api.borrarAdjuntosMensaje(m.hiloId, m.uid)
+  await api.borrarMensajeRpc(m.hiloId, m.uid)
+  await cache.actualizarMensaje(m.uid, { tipo: 'borrado', texto: '', adjunto: undefined, contenido: undefined, blob: undefined })
+}
+
 /** Vuelve a intentar un envío fallido (misma fila, mismo uid). */
 export async function reintentar(uid: string): Promise<void> {
   const fila = await cache.mensajePorUid(uid)
@@ -389,7 +458,7 @@ export async function reintentar(uid: string): Promise<void> {
     o = {
       texto: fila.texto,
       adjunto:
-        (fila.tipo === 'imagen' || fila.tipo === 'pdf') && fila.blob && fila.adjunto
+        esAdjunto(fila.tipo) && fila.blob && fila.adjunto
           ? { tipo: fila.tipo, blob: fila.blob, nombre: fila.adjunto.nombre }
           : undefined,
       paquete: fila.contenido
@@ -428,7 +497,8 @@ async function transmitir(hiloId: string, uid: string, tipo: TipoMensaje, o: Env
     let contenido: ContenidoMensaje | undefined
     if (o.adjunto) {
       const blob = await aceptable(o.adjunto.blob)
-      adjunto = await api.subirAdjunto(hiloId, uid, `${o.adjunto.tipo === 'pdf' ? 'documento' : 'imagen'}.${extensionDe(blob.type)}`, blob)
+      const base = o.adjunto.tipo === 'pdf' ? 'documento' : o.adjunto.tipo
+      adjunto = await api.subirAdjunto(hiloId, uid, `${base}.${extensionDe(blob.type)}`, blob)
       adjunto.nombre = o.adjunto.nombre
     }
     if (o.paquete) {

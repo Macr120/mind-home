@@ -213,10 +213,13 @@ export async function cambiarJuego(partidaId: string, juego: JuegoPartida): Prom
 export async function subirPlano(partidaId: string, plano: Blob): Promise<void> {
   const sb = await obtenerSupabase()
   if (!sb) throw new ErrorPartida('sin-backend')
-  const cuerpo =
+  const bytes =
     typeof CompressionStream === 'function'
       ? await new Response(plano.stream().pipeThrough(new CompressionStream('gzip'))).blob()
       : plano
+  // supabase-js manda el tipo DEL BLOB, no el `contentType` de las opciones: el
+  // de `CompressionStream` sale vacío (→ octet-stream) y el bucket lo rechaza.
+  const cuerpo = new Blob([bytes], { type: 'application/gzip' })
   const ruta = `${partidaId}/${ARCHIVO}`
   await sb.storage.from(BUCKET).remove([ruta])
   const { error } = await sb.storage.from(BUCKET).upload(ruta, cuerpo, {

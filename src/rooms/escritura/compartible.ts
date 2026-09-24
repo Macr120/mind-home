@@ -1,3 +1,4 @@
+import { nombreArchivo } from '../../core/buzon/exportar'
 import { confirmarDuplicado, type ItemCompartible, type Paquete } from '../../core/buzon/compartibles'
 import { normalizar } from '../../core/chat/dispatcher'
 import type { TipoLibro } from '../../core/data/db'
@@ -79,4 +80,17 @@ export async function importarDocumento(p: Paquete): Promise<{ seccion?: string;
     actualizadoEn: ahora,
   })
   return { seccion: 'libros', dato: String(historiaId) }
+}
+
+/** Fuera de la app: el documento como página HTML (se abre en cualquier navegador o procesador de textos). */
+export async function exportarDocumento(p: Paquete): Promise<File[]> {
+  const d = p.datos as DocumentoDatos
+  const titulo = d.titulo.replace(/[<>&]/g, '')
+  const html = `<!doctype html>
+<html><head><meta charset="utf-8"><title>${titulo}</title></head>
+<body><h1>${titulo}</h1>
+${sanitizarHtml(d.contenido)}
+</body></html>
+`
+  return [new File([html], `${nombreArchivo(p.nombre)}.html`, { type: 'text/html' })]
 }

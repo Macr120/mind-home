@@ -25,7 +25,8 @@ function Dialogo({ pendiente }: { pendiente: PeticionConfirmar }) {
   const [texto, setTexto] = useState(pendiente.valor ?? '')
 
   const esTexto = pendiente.tipo === 'texto'
-  const cancelar = () => responder(esTexto ? null : false)
+  const esConfirmar = pendiente.tipo === 'confirmar'
+  const cancelar = () => responder(esConfirmar ? false : null)
   const aceptar = () => {
     if (!esTexto) return responder(true)
     const limpio = texto.trim()
@@ -36,11 +37,11 @@ function Dialogo({ pendiente }: { pendiente: PeticionConfirmar }) {
   // foco salía de él (p. ej. tras un clic en el telón).
   useEffect(() => {
     const alTeclear = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') responder(esTexto ? null : false)
+      if (e.key === 'Escape') responder(esConfirmar ? false : null)
     }
     document.addEventListener('keydown', alTeclear)
     return () => document.removeEventListener('keydown', alTeclear)
-  }, [responder, esTexto])
+  }, [responder, esConfirmar])
 
   return (
     <div className="ui-scrim z-[75] flex items-center justify-center p-4" onClick={cancelar}>
@@ -82,6 +83,21 @@ function Dialogo({ pendiente }: { pendiente: PeticionConfirmar }) {
           />
         )}
 
+        {pendiente.opciones && (
+          <div className="mb-2 flex flex-col gap-2">
+            {pendiente.opciones.map((o, i) => (
+              <button
+                key={o.valor}
+                autoFocus={i === 0}
+                onClick={() => responder(o.valor)}
+                className="rounded-xl border border-emerald-400/30 bg-emerald-400/10 px-3 py-2 text-sm font-semibold text-emerald-300 transition hover:bg-emerald-400/20"
+              >
+                {o.texto}
+              </button>
+            ))}
+          </div>
+        )}
+
         <div className="flex gap-2">
           <button
             onClick={cancelar}
@@ -89,18 +105,20 @@ function Dialogo({ pendiente }: { pendiente: PeticionConfirmar }) {
           >
             {t('ui.cancelar', 'Cancelar')}
           </button>
-          <button
-            autoFocus={!esTexto}
-            onClick={aceptar}
-            disabled={esTexto && !texto.trim()}
-            className={`flex-1 rounded-xl border py-2 text-sm font-semibold transition disabled:opacity-40 ${
-              pendiente.peligro
-                ? 'border-red-400/30 bg-red-400/10 text-red-400 hover:bg-red-400/20'
-                : 'border-emerald-400/30 bg-emerald-400/10 text-emerald-300 hover:bg-emerald-400/20'
-            }`}
-          >
-            {pendiente.textoOk ?? t('ui.confirmar', 'Confirmar')}
-          </button>
+          {!pendiente.opciones && (
+            <button
+              autoFocus={!esTexto}
+              onClick={aceptar}
+              disabled={esTexto && !texto.trim()}
+              className={`flex-1 rounded-xl border py-2 text-sm font-semibold transition disabled:opacity-40 ${
+                pendiente.peligro
+                  ? 'border-red-400/30 bg-red-400/10 text-red-400 hover:bg-red-400/20'
+                  : 'border-emerald-400/30 bg-emerald-400/10 text-emerald-300 hover:bg-emerald-400/20'
+              }`}
+            >
+              {pendiente.textoOk ?? t('ui.confirmar', 'Confirmar')}
+            </button>
+          )}
         </div>
       </div>
     </div>

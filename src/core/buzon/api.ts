@@ -3,7 +3,7 @@ import { useSesion } from '../cuenta/sesionStore'
 import type { TFunc } from '../i18n/useT'
 import {
   ErrorBuzon,
-  TOPE_ADJUNTO,
+  TOPE_MEDIA,
   type AdjuntoRemoto,
   type CodigoErrorBuzon,
   type Contacto,
@@ -149,6 +149,11 @@ export async function listarContactos(): Promise<Contacto[]> {
 
 // ─── mensajes ────────────────────────────────────────────────────────────────
 
+/** «Borrar para todos»: el servidor lo deja como tipo 'borrado' para los dos. */
+export async function borrarMensajeRpc(hiloId: string, uid: string): Promise<void> {
+  await rpc('buzon_borrar_mensaje', { p_hilo: hiloId, p_uid: uid })
+}
+
 export async function enviarRpc(
   hiloId: string,
   uid: string,
@@ -194,7 +199,8 @@ export async function marcarLeidoRpc(hiloId: string, hasta: number): Promise<voi
 
 /** Sube un binario bajo la carpeta del mensaje (`<hilo>/<uid>/<archivo>`). */
 export async function subirAdjunto(hiloId: string, uid: string, archivo: string, blob: Blob): Promise<AdjuntoRemoto> {
-  if (blob.size > TOPE_ADJUNTO) throw new ErrorBuzon('adjunto-grande')
+  // El tope fino por tipo lo aplica `enviar`; aquí solo el del bucket.
+  if (blob.size > TOPE_MEDIA) throw new ErrorBuzon('adjunto-grande')
   const sb = await obtenerSupabase()
   if (!sb) throw new ErrorBuzon('sin-backend')
   const mime = blob.type || 'application/octet-stream'
@@ -220,6 +226,15 @@ export async function descargarAdjunto(a: AdjuntoRemoto): Promise<Blob> {
  * las carpetas de cada mensaje (y su `contenido/`) se recorren a mano.
  */
 export async function borrarCarpetaHilo(hiloId: string): Promise<void> {
+  await borrarBajo(hiloId)
+}
+
+/** Los binarios de UN mensaje (`<hilo>/<uid>/…`), antes de borrarlo para todos. */
+export async function borrarAdjuntosMensaje(hiloId: string, uid: string): Promise<void> {
+  await borrarBajo(`${hiloId}/${uid}`)
+}
+
+async function borrarBajo(raiz: string): Promise<void> {
   const sb = await obtenerSupabase()
   if (!sb) return
   try {
@@ -233,7 +248,7 @@ export async function borrarCarpetaHilo(hiloId: string): Promise<void> {
         else if (nivel < 3) await recorrer(ruta, nivel + 1)
       }
     }
-    await recorrer(hiloId, 0)
+    await recorrer(raiz, 0)
     if (archivos.length) await sb.storage.from(BUCKET).remove(archivos)
   } catch {
     // Huérfanos aceptados como deuda conocida (purga por cron en fase 2).

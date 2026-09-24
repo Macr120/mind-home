@@ -55,6 +55,7 @@ registrarProveedorCompartible({
       listar: async () => (await import('./compartible')).listarHojas(),
       empaquetar: async (clave) => (await import('./compartible')).empaquetarHojaPorClave(clave),
       importar: async (p) => (await import('./compartible')).importarHoja(p),
+      exportar: async (p) => (await import('./compartible')).exportarHoja(p),
     },
   ],
 })

@@ -15,10 +15,11 @@
  */
 import type Dexie from 'dexie'
 import { salaVisitada } from '../edicion'
-import { abrirApp } from '../abrirApp'
+import { abrirApp, abrirAppOPlantilla } from '../abrirApp'
 import { marcarEscrituraSilenciosa } from '../data/sync/middleware'
 import { notificarRepintado } from '../data/sync/repintar'
 import { serializarRopa } from '../house/apariencia'
+import { ROWS, TAM_CELDA_BASE } from '../house/walls'
 import { aAvatar } from '../partida/aspecto'
 import { JUEGOS_INVITABLES, posicionDeJuego, type JuegoInvitable } from '../partida/juegosInvitables'
 import { esObjetoLibreria, useDiseño } from '../state/disenoStore'
@@ -128,10 +129,13 @@ function filaAvatar(): Record<string, unknown> | null {
  * Dónde aparece el invitado. La puerta real del anfitrión no viaja en el plano
  * v1 (habría que reconstruir sus vanos), así que se usa el borde SUR del mapa:
  * está fuera de la casa, así nadie aparece dentro de la recámara de otro.
+ * Sin `mapaConfig` (casa que nunca cambió el tamaño) el mapa es el de fábrica:
+ * los mismos `ROWS`/`TAM_CELDA_BASE` que usa `layoutStore.cargar`. Con otros
+ * valores el invitado caía fuera del suelo y en 3ª persona solo veía cielo.
  */
 function puntoDeEntrada(mapa: Record<string, unknown> | undefined): { x: number; z: number } {
-  const rows = typeof mapa?.rows === 'number' && mapa.rows > 0 ? Math.min(mapa.rows, 200) : 16
-  const celda = typeof mapa?.celda === 'number' && mapa.celda > 0 ? Math.min(mapa.celda, 20) : 6
+  const rows = typeof mapa?.rows === 'number' && mapa.rows > 0 ? Math.min(mapa.rows, 200) : ROWS
+  const celda = typeof mapa?.celda === 'number' && mapa.celda > 0 ? Math.min(mapa.celda, 20) : TAM_CELDA_BASE
   return { x: 0, z: ((rows - 1) / 2) * celda }
 }
 
@@ -194,7 +198,10 @@ export async function volcarVisita(vip: Dexie): Promise<void> {
   // este es el aviso que los vuelve a leer (el mismo del pull del sync).
   notificarRepintado(new Set([...Object.keys(limpias), 'disenoAvatar']))
   fijarFase('lista')
-  if (juego) llevarAlJuego(juego)
+  if (juego) {
+    const traeMesa = (limpias.objetosCuarto ?? []).some((o) => o.plantillaId === 'entretenimiento')
+    llevarAlJuego(juego, traeMesa)
+  }
 }
 
 /** ¿La casa recién volcada ya tiene la app de Entretenimiento montada? */
@@ -207,11 +214,17 @@ function hayMesa(): boolean {
  * spawn cayó en ella) y el paintball lo abre el anfitrión desde su menú de
  * batalla; un juego de mesa, en cambio, necesita que `useDiseño` haya releído
  * la casa que se acaba de volcar, así que se espera a que su objeto aparezca.
+ * Si el anfitrión juega sin cuarto de Entretenimiento (`traeMesa` false), la
+ * mesa se abre en la plantilla, igual que en su lado.
  */
-function llevarAlJuego(juego: JuegoInvitable): void {
+function llevarAlJuego(juego: JuegoInvitable, traeMesa: boolean): void {
   consumirJuegoVisita()
   const dato = JUEGOS_INVITABLES[juego].mesa
   if (!dato) return
+  if (!traeMesa) {
+    abrirAppOPlantilla('entretenimiento', 'mesa', dato)
+    return
+  }
   const abrir = () => abrirApp('entretenimiento', 'mesa', dato)
   if (hayMesa()) {
     abrir()

@@ -6503,7 +6503,14 @@ if (esDemo() && !esDemoAutor()) {
   db.on('ready', (vip) =>
     import('../visita/aplicarPlano')
       .then((m) => m.volcarVisita(vip as Dexie))
-      .catch(() => {
+      .catch((e: unknown) => {
+        // La pestaña se va de inmediato: el motivo viaja a la casa propia, que
+        // lo imprime en consola (`avisarVisitaAbortada`).
+        try {
+          sessionStorage.setItem('mh.visita.error', e instanceof Error ? `${e.name}: ${e.message}` : String(e))
+        } catch {
+          // Sin almacenamiento, solo se pierde el diagnóstico.
+        }
         void import('../visita/visitaStore')
           .then((m) => m.abandonarVisita('plano'))
           .catch(() => {

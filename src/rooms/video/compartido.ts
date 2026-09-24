@@ -1,4 +1,4 @@
-import { abrirApp } from '../../core/abrirApp'
+import { abrirAppOPlantilla } from '../../core/abrirApp'
 import type {
   CamaraPelicula,
   ClipAvatar,
@@ -25,7 +25,6 @@ import type {
 import { idMedioPorRemotoId, mediosVideoRepo, proyectosVideoRepo } from '../../core/data/repository'
 import * as api from '../../core/espacios/api'
 import { refrescarEspacios } from '../../core/espacios/conectar'
-import { nombreTipo } from '../../core/espacios/enlaces'
 import {
   descargarMedio,
   leerMediosRemotos,
@@ -37,7 +36,6 @@ import {
 import type { Espacio } from '../../core/espacios/tipos'
 import { espacioLocal } from '../../core/espacios/transporte'
 import { tGlobal } from '../../core/i18n/useT'
-import { notificar } from '../../core/notificaciones'
 import { useDiseño } from '../../core/state/disenoStore'
 import { miniaturaFoto } from '../_shared/fotos'
 import {
@@ -810,11 +808,6 @@ export async function aterrizarProyecto(e: Espacio): Promise<void> {
   for (let i = 0; i < 50 && !useDiseño.getState().cargado; i++) {
     await new Promise((r) => setTimeout(r, 100))
   }
-  if (abrirApp('video', 'videos', `proyecto:${id}`) !== null) return
-  void notificar({
-    clave: `espacio:${e.espacioId}`,
-    titulo: e.titulo || sinTitulo(),
-    cuerpo: tGlobal('esp.aterrizar.sinApp', 'Coloca la app {n} en tu MindHaOS para abrirlo', { n: nombreTipo('video') }),
-    efimero: true,
-  })
+  // Sin la app en la casa se abre su plantilla (sin cuarto): el enlace siempre entra.
+  abrirAppOPlantilla('video', 'videos', `proyecto:${id}`)
 }

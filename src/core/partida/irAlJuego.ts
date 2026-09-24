@@ -7,7 +7,7 @@
  * Importa `paintballStore` (que a su vez importa `partida/sala`) a propósito:
  * el ciclo solo aparecería si `sala.ts` importara este módulo, y no lo hace.
  */
-import { abrirApp } from '../abrirApp'
+import { abrirAppOPlantilla } from '../abrirApp'
 import { useDiseño } from '../state/disenoStore'
 import { useHouse } from '../state/houseStore'
 import { useLayout } from '../state/layoutStore'
@@ -24,7 +24,11 @@ import { JUEGOS_INVITABLES, posicionDeJuego, type JuegoInvitable } from './juego
  */
 export function irAlJuego(juego: JuegoInvitable, lado: -1 | 1, anfitrion: boolean): boolean {
   const def = JUEGOS_INVITABLES[juego]
-  if (def.mesa) return abrirApp('entretenimiento', 'mesa', def.mesa) !== null
+  if (def.mesa) {
+    // Sin Entretenimiento en la casa se juega en la plantilla, sin cuarto.
+    abrirAppOPlantilla('entretenimiento', 'mesa', def.mesa)
+    return true
+  }
   if (!def.cancha) {
     if (anfitrion) usePaintball.getState().iniciar()
     return true

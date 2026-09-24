@@ -132,6 +132,7 @@ registrarProveedorCompartible({
       listar: async () => (await import('./compartible')).listarRecetas(),
       empaquetar: async (clave) => (await import('./compartible')).empaquetarRecetaPorClave(clave),
       importar: async (p) => (await import('./compartible')).importarReceta(p),
+      exportar: async (p) => (await import('./compartible')).exportarReceta(p),
     },
     {
       tipo: 'dieta',

@@ -28,6 +28,7 @@ registrarProveedorCompartible({
       listar: async () => (await import('./compartible')).listarDibujos(),
       empaquetar: async (clave) => (await import('./compartible')).empaquetarDibujoPorClave(clave),
       importar: async (p) => (await import('./compartible')).importarDibujo(p),
+      exportar: async (p) => (await import('./compartible')).exportarDibujo(p),
     },
   ],
 })
