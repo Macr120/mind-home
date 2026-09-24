@@ -46,6 +46,8 @@ import * as sonando from './sonando'
 import { TecladoPantalla } from './TecladoPantalla'
 import { Transporte } from './Transporte'
 import { VistaCascada, type EntradaPractica } from './VistaCascada'
+import { BotonEnviarAContacto } from '../_shared/BotonEnviarAContacto'
+import { empaquetarCancion } from './compartible'
 
 /**
  * Teclado físico de la computadora, estilo DAW: por `e.code` (posición, no
@@ -834,6 +836,11 @@ export function EditorProyecto({
               <ChipMiembros espacioId={espacioId} onClick={() => useEspaciosStore.getState().abrirCompartir(espacioId)} />
             )}
             <BotonCompartir espacioId={espacioId} onCompartir={compartir} pequeno />
+            <BotonEnviarAContacto
+              pequeno
+              etiqueta={t('buzon.enviarCopia', 'Enviar una copia')}
+              empaquetar={() => empaquetarCancion(proyecto)}
+            />
           </>
         }
         bpm={proyecto.bpm}

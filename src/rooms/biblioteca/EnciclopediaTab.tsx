@@ -14,6 +14,8 @@ import { MaterialEntrada } from './MaterialEntrada'
 import { MoverNodoDialog, type DestinoNodo } from './MoverNodoDialog'
 import { RamificarPanel } from './RamificarPanel'
 import { Creditos } from '../../core/ui/Creditos'
+import { BotonEnviarAContacto } from '../_shared/BotonEnviarAContacto'
+import { empaquetarEntrada } from './compartible'
 import { OP_RAMIFICAR } from './costosIA'
 import {
   borrarNodo,
@@ -604,6 +606,7 @@ export function EnciclopediaTab({
                 <Icono nombre="rama" />
               </button>
               <Creditos op={OP_RAMIFICAR} />
+              <BotonEnviarAContacto pequeno empaquetar={() => empaquetarEntrada(entrada)} className="!bg-white/5 !py-1.5 hover:!bg-white/10" />
               <button
                 type="button"
                 onClick={() => setMoviendo(entrada)}

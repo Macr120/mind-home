@@ -9,6 +9,8 @@ import { useT } from '../../core/i18n/useT'
 import { vivo } from '../../core/ui/estilos'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { Foto } from '../_shared/fotos'
+import { BotonEnviarAContacto } from '../_shared/BotonEnviarAContacto'
+import { empaquetarObra } from './compartible'
 
 /**
  * Tarjeta de dos caras: el frente luce el título en grande sobre la portada y
@@ -147,6 +149,7 @@ export function TarjetaMedia({
                 {t('entre.tarjeta.editar', 'Editar')}
               </button>
               <BotonPortada item={item} />
+              <BotonEnviarAContacto pequeno empaquetar={() => empaquetarObra(item)} className="!py-0.5" />
               <button type="button" onClick={onEliminar} className="text-xs text-white/35 hover:text-red-400">
                 {t('entre.tarjeta.eliminar', 'Eliminar')}
               </button>

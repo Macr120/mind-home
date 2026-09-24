@@ -11,6 +11,7 @@ import { JUEGOS_REALES, type IdJuegoReal } from './juegos/catalogo'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { OPERACIONES_IA } from './costosIA'
 import { filasNodo } from '../../core/grafoApps'
+import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
 
 const TIPOS_MEDIA: [string[], TipoMedia][] = [
   [['pelicula', 'filme', 'film', 'cine'], 'pelicula'],
@@ -120,6 +121,21 @@ const comandosJuegos: ComandoApp[] = JUEGOS_REALES.map((j) => ({
   etiqueta: j.nombre,
   nombres: [normalizar(j.nombre), ...(SINONIMOS_JUEGO[j.id] ?? [])],
 }))
+
+// Las obras del archivo se pueden recomendar a otra persona por el buzón (registro eager, datos con import()).
+registrarProveedorCompartible({
+  app: 'entretenimiento',
+  tipos: [
+    {
+      tipo: 'obra',
+      icono: 'pelicula',
+      etiqueta: (t) => t('buzon.compartible.obra', 'Película, serie o libro'),
+      listar: async () => (await import('./compartible')).listarObras(),
+      empaquetar: async (clave) => (await import('./compartible')).empaquetarObraPorClave(clave),
+      importar: async (p) => (await import('./compartible')).importarObra(p),
+    },
+  ],
+})
 
 // La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
 // montaje ya envuelven en Suspense). El resto del módulo (capturar, esquemas,

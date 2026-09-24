@@ -13,17 +13,20 @@ import { Icono } from '../../core/ui/iconos/Icono'
 export function BotonEnviarAContacto({
   empaquetar,
   pequeno,
+  etiqueta: etiquetaPropia,
   className = '',
 }: {
   empaquetar: () => Promise<Paquete | null>
   /** Solo el icono (para barras apretadas). */
   pequeno?: boolean
+  /** Otro texto cuando «Compartir» ya lo usa el botón de colaborar (Studio de audio). */
+  etiqueta?: string
   className?: string
 }) {
   const t = useT()
   const [ocupado, setOcupado] = useState(false)
   // Sin backend no hay contactos, pero compartir fuera de la app sigue sirviendo.
-  const etiqueta = t('esp.compartir', 'Compartir')
+  const etiqueta = etiquetaPropia ?? t('esp.compartir', 'Compartir')
 
   const onClick = async () => {
     setOcupado(true)

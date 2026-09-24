@@ -2,6 +2,7 @@ import { lazy } from 'react'
 import type { Plantilla } from '../../core/appContrato'
 import { registrarAterrizaje } from '../../core/espacios/enlaces'
 import { registrarProveedorRecursos } from '../../core/recursosStudio'
+import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
 import { COLOR_FABRICA } from './constantes'
 import { OPERACIONES_IA } from './costosIA'
 
@@ -21,6 +22,23 @@ const StudioAudioApp = lazy(() => import('./StudioAudioApp').then((m) => ({ defa
 // import(): el lector defensivo del snapshot no pinta nada en el arranque).
 registrarAterrizaje('audio', async (e) => {
   await (await import('./compartido')).aterrizarProyecto(e)
+})
+
+// Una COPIA de la canción (solo sus pistas de notas) se puede mandar a otra persona
+// por el buzón o sacar como WAV (registro eager, datos con import()).
+registrarProveedorCompartible({
+  app: 'audio',
+  tipos: [
+    {
+      tipo: 'cancion',
+      icono: 'musica',
+      etiqueta: (t) => t('buzon.compartible.cancion', 'Canción'),
+      listar: async () => (await import('./compartible')).listarCanciones(),
+      empaquetar: async (clave) => (await import('./compartible')).empaquetarCancionPorClave(clave),
+      importar: async (p) => (await import('./compartible')).importarCancion(p),
+      exportar: async (p) => (await import('./compartible')).exportarCancion(p),
+    },
+  ],
 })
 
 const audio: Plantilla = {

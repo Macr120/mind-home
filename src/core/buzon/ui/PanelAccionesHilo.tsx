@@ -115,6 +115,9 @@ function PanelJugar({ contacto, correr, onCerrar }: { contacto: Contacto; correr
 
 /** La palabra de la orden para un contenido («receta», «rutina»…). */
 function palabraDe(p: Paquete): string {
+  // Una obra se pide por lo que es («enviar libro …»): su tipo ya es una palabra de la orden.
+  const tipoObra = (p.datos as { tipo?: unknown } | null)?.tipo
+  if (p.app === 'entretenimiento' && typeof tipoObra === 'string' && tipoObra in TIPOS_ENVIAR) return tipoObra
   return Object.entries(TIPOS_ENVIAR).find(([, [app, tipo]]) => app === p.app && tipo === p.tipo)?.[0] ?? p.tipo
 }
 

@@ -5,6 +5,8 @@ import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { comprimirFoto, Foto } from '../_shared/fotos'
 import { fmtMin, hoyISO, rgba } from './stats'
+import { BotonEnviarAContacto } from '../_shared/BotonEnviarAContacto'
+import { empaquetarProyecto } from './compartible'
 
 /**
  * Un proyecto por dentro: su descripción, sus fotos de avance y su propio
@@ -98,6 +100,9 @@ export function DetalleProyecto({
           >
             {proyecto.nombre}
           </button>
+        )}
+        {!renombrando && (
+          <BotonEnviarAContacto pequeno empaquetar={() => empaquetarProyecto(proyecto)} className="!bg-transparent text-white/50 hover:!bg-white/10" />
         )}
         <button
           type="button"

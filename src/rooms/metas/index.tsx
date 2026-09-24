@@ -5,6 +5,23 @@ import { COLOR_FABRICA } from './constantes'
 import { esencialMetas } from './tutorial.meta'
 import { filasNodo } from '../../core/grafoApps'
 import { rutinasRepo } from '../../core/data/repository'
+import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
+
+// Una meta, con sus sub-metas y sus planes, se puede mandar a otra persona por el
+// buzón como plantilla (registro eager, datos con import()).
+registrarProveedorCompartible({
+  app: 'metas',
+  tipos: [
+    {
+      tipo: 'meta',
+      icono: 'objetivo',
+      etiqueta: (t) => t('buzon.compartible.meta', 'Meta con su plan'),
+      listar: async () => (await import('./compartible')).listarMetas(),
+      empaquetar: async (clave) => (await import('./compartible')).empaquetarMetaPorClave(clave),
+      importar: async (p) => (await import('./compartible')).importarMeta(p),
+    },
+  ],
+})
 
 // La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
 // montaje ya envuelven en Suspense).

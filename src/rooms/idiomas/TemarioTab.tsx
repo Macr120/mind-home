@@ -28,6 +28,8 @@ import { OpcionesTemas } from './OpcionesTemas'
 import { TarjetaForm, type TarjetaFormInicial } from './TarjetaForm'
 import { hablar, hayTTS } from './tts'
 import { VistaBlob } from '../_shared/ImagenIA'
+import { BotonEnviarAContacto } from '../_shared/BotonEnviarAContacto'
+import { empaquetarMazo } from './compartible'
 
 /** Icono y frase de arranque de la charla, por área DE FÁBRICA. */
 const META_AREA: Record<string, { icono: NombreIcono; descEs: string; promptEs: string }> = {
@@ -114,6 +116,13 @@ function FilaTema({ tema, hermanos, ctx }: { tema: NodoTema; hermanos: string[];
             <span className="block truncate text-[10px] text-white/35">{tema.descripcion}</span>
           )}
         </button>
+        {mazo.length > 0 && !ctx.edicion && (
+          <BotonEnviarAContacto
+            pequeno
+            empaquetar={() => empaquetarMazo(mazo[0].idiomaId, tema.id)}
+            className="!bg-transparent px-1.5 py-1 text-white/40 hover:!bg-white/10"
+          />
+        )}
         {mazo.length > 0 && (
           <span
             className="shrink-0 rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-white/55"

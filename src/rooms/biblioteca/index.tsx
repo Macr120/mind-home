@@ -14,6 +14,7 @@ import { esencialBiblioteca, flujosBiblioteca } from './tutorial.meta'
 import { PILARES } from './pilares'
 import { PILAR_GENERAL } from './constantes'
 import { OPERACIONES_IA } from './costosIA'
+import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
 
 const IDS_PILARES = [...PILARES.map((p) => p.id), PILAR_GENERAL.id]
 const DESC_PILARES = PILARES.map((p) => `${p.id} = ${p.titulo}`).join(', ')
@@ -82,6 +83,21 @@ const esquemas: EsquemaCaptura[] = [
     },
   },
 ]
+
+// Las entradas de la enciclopedia se pueden mandar a otra persona por el buzón (registro eager, datos con import()).
+registrarProveedorCompartible({
+  app: 'biblioteca',
+  tipos: [
+    {
+      tipo: 'entrada',
+      icono: 'libro',
+      etiqueta: (t) => t('buzon.compartible.entrada', 'Entrada de la enciclopedia'),
+      listar: async () => (await import('./compartible')).listarEntradas(),
+      empaquetar: async (clave) => (await import('./compartible')).empaquetarEntradaPorClave(clave),
+      importar: async (p) => (await import('./compartible')).importarEntrada(p),
+    },
+  ],
+})
 
 // La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
 // montaje ya envuelven en Suspense). El resto del módulo (capturar, esquemas,

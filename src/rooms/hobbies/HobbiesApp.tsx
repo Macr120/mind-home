@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import type { Hobby, SesionHobby } from '../../core/data/db'
 import { VACIO, hobbiesRepo, proyectosHobbyRepo, sesionesHobbyRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
+import { intencionApp } from '../../core/state/intencionApp'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { DetalleHobby } from './DetalleHobby'
@@ -22,8 +23,11 @@ export function HobbiesApp() {
   const sesiones = sesionesHobbyRepo.useAll() ?? VACIO
   const proyectos = proyectosHobbyRepo.useAll() ?? VACIO
 
-  const [hobbyId, setHobbyId] = useState<number | null>(null)
-  const [proyectoId, setProyectoId] = useState<number | null>(null)
+  // La intención puede traer un proyecto concreto (`proyecto:<hobby>:<proyecto>`,
+  // uno recién guardado desde el chat): se abre directamente.
+  const [inicial] = useState(() => /^proyecto:(\d+):(\d+)$/.exec(intencionApp('hobbies')?.dato ?? ''))
+  const [hobbyId, setHobbyId] = useState<number | null>(inicial ? Number(inicial[1]) : null)
+  const [proyectoId, setProyectoId] = useState<number | null>(inicial ? Number(inicial[2]) : null)
   const [creando, setCreando] = useState(false)
   const [editando, setEditando] = useState<Hobby | null>(null)
 

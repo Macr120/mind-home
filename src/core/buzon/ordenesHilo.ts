@@ -43,6 +43,17 @@ export const TIPOS_ENVIAR: Record<string, [app: string, tipo: string]> = {
   mapa: ['ideas', 'mapa'], map: ['ideas', 'mapa'],
   itinerario: ['sala', 'itinerario'], viaje: ['sala', 'itinerario'], itinerary: ['sala', 'itinerario'], trip: ['sala', 'itinerario'],
   dibujo: ['arte', 'dibujo'], drawing: ['arte', 'dibujo'],
+  pelicula: ['entretenimiento', 'obra'], peli: ['entretenimiento', 'obra'], serie: ['entretenimiento', 'obra'],
+  libro: ['entretenimiento', 'obra'], videojuego: ['entretenimiento', 'obra'], obra: ['entretenimiento', 'obra'],
+  movie: ['entretenimiento', 'obra'], film: ['entretenimiento', 'obra'], series: ['entretenimiento', 'obra'],
+  show: ['entretenimiento', 'obra'], book: ['entretenimiento', 'obra'], videogame: ['entretenimiento', 'obra'],
+  mazo: ['idiomas', 'mazo'], vocabulario: ['idiomas', 'mazo'], tarjetas: ['idiomas', 'mazo'],
+  deck: ['idiomas', 'mazo'], vocabulary: ['idiomas', 'mazo'], flashcards: ['idiomas', 'mazo'],
+  entrada: ['biblioteca', 'entrada'], apuntes: ['biblioteca', 'entrada'], articulo: ['biblioteca', 'entrada'],
+  entry: ['biblioteca', 'entrada'], article: ['biblioteca', 'entrada'],
+  meta: ['metas', 'meta'], objetivo: ['metas', 'meta'], goal: ['metas', 'meta'],
+  proyecto: ['hobbies', 'proyecto'], project: ['hobbies', 'proyecto'], hobby: ['hobbies', 'proyecto'],
+  cancion: ['audio', 'cancion'], melodia: ['audio', 'cancion'], song: ['audio', 'cancion'], tune: ['audio', 'cancion'],
 }
 
 /** Palabra → tipo de espacio compartido (colaboración en vivo). */

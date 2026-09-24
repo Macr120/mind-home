@@ -1,4 +1,6 @@
 import { useMemo, useState } from 'react'
+import { useBuzon } from '../../buzon/buzonStore'
+import { tipoCompartible } from '../../buzon/compartibles'
 import type { EnlaceApp, Rutina } from '../../data/db'
 import { rutinasRepo } from '../../data/repository'
 import { useT } from '../../i18n/useT'
@@ -24,6 +26,12 @@ import { refNodo } from '../../grafo/memoria'
 
 /** Sangría por nivel de sub-meta, la misma que usa la hoja del plan. */
 const SANGRIA = 18
+
+/** Abre el diálogo «Compartir» con la meta, sus sub-metas y sus planes. */
+async function compartir(metaId: number) {
+  const p = await tipoCompartible('metas', 'meta')?.empaquetar(`meta:${metaId}`)
+  if (p) useBuzon.getState().abrirCompartir(p)
+}
 
 /**
  * La hoja de UNA meta: todo lo que se le puede tocar, en una pantalla.
@@ -165,6 +173,19 @@ export function HojaMeta({
               className="ui-presion shrink-0 rounded-lg px-1.5 py-0.5 text-2xs font-semibold text-white/45 transition hover:bg-white/10 hover:text-white/85"
             >
               <Icono nombre="calendario" /> {t('cal.meta.verEnCronograma', 'Ver en el Cronograma')}
+            </button>
+          )}
+          {/* Mandarla como plantilla a un contacto o fuera de la app (el paquete lo arma el cuarto Metas). */}
+          {meta.id != null && (
+            <button
+              type="button"
+              onClick={() => void compartir(meta.id!)}
+              title={t('esp.compartir', 'Compartir')}
+              aria-label={t('esp.compartir', 'Compartir')}
+              aria-haspopup="dialog"
+              className="ui-presion shrink-0 rounded-lg px-1.5 py-0.5 text-2xs text-white/45 transition hover:bg-white/10 hover:text-white/85"
+            >
+              <Icono nombre="compartir" />
             </button>
           )}
           <button

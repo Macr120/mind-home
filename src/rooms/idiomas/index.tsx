@@ -16,6 +16,7 @@ import { COLOR_FABRICA, NIVELES, TIPOS_TARJETA } from './constantes'
 import { tarjetasVencidas } from './srs'
 import { hoyISO } from './stats'
 import { OPERACIONES_IA } from './costosIA'
+import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
 
 const DIACRITICOS = new RegExp('[\\u0300-\\u036f]', 'g')
 const normalizar = (s: string) => s.trim().toLowerCase().normalize('NFD').replace(DIACRITICOS, '')
@@ -121,6 +122,21 @@ const esquemas: EsquemaCaptura[] = [
     },
   },
 ]
+
+// Los mazos de vocabulario se pueden mandar a otra persona por el buzón (registro eager, datos con import()).
+registrarProveedorCompartible({
+  app: 'idiomas',
+  tipos: [
+    {
+      tipo: 'mazo',
+      icono: 'idiomas',
+      etiqueta: (t) => t('buzon.compartible.mazo', 'Mazo de vocabulario'),
+      listar: async () => (await import('./compartible')).listarMazos(),
+      empaquetar: async (clave) => (await import('./compartible')).empaquetarMazoPorClave(clave),
+      importar: async (p) => (await import('./compartible')).importarMazo(p),
+    },
+  ],
+})
 
 // La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
 // montaje ya envuelven en Suspense). El resto del módulo (capturar, esquemas,

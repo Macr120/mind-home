@@ -9,6 +9,7 @@ import { tGlobal } from '../../core/i18n/useT'
 import { CLAUSULA_RECHAZO } from '../../core/planIA'
 import { esencialHobbies, flujosHobbies } from './tutorial.meta'
 import { filasNodo } from '../../core/grafoApps'
+import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
 
 /** Duración en minutos detectada en el texto ("30 min", "1 hora", "45m"), o 0. */
 function extraerMinutos(norm: string): number {
@@ -74,6 +75,21 @@ const esquemas: EsquemaCaptura[] = [
     },
   },
 ]
+
+// Los proyectos (con sus fotos) se pueden mandar a otra persona por el buzón (registro eager, datos con import()).
+registrarProveedorCompartible({
+  app: 'hobbies',
+  tipos: [
+    {
+      tipo: 'proyecto',
+      icono: 'herramienta',
+      etiqueta: (t) => t('buzon.compartible.proyecto', 'Proyecto de un hobby'),
+      listar: async () => (await import('./compartible')).listarProyectos(),
+      empaquetar: async (clave) => (await import('./compartible')).empaquetarProyectoPorClave(clave),
+      importar: async (p) => (await import('./compartible')).importarProyecto(p),
+    },
+  ],
+})
 
 // La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
 // montaje ya envuelven en Suspense). El resto del módulo (capturar, esquemas,
