@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
-import { Shapes } from 'lucide-react'
 import { claveLS } from '../edicion'
 import { setBienvenidaActiva } from '../data/intencion'
 import { HoraDiaMini } from '../ui/CicloPanel'
@@ -8,6 +7,7 @@ import { useT } from '../i18n/useT'
 import { TEMAS_UI_BASE, modoBase, type ModoUI } from '../ui/temasUI'
 import { ESTILOS_UI } from '../ui/estilosUI'
 import { Icono } from '../ui/iconos/Icono'
+import { IconoMarca } from '../ui/iconos/glifosApps'
 import { MASCOTAS, type MascotaId } from '../chat/mascotas'
 import { useMascota } from '../state/mascotaStore'
 import { useDiseño } from '../state/disenoStore'
@@ -282,13 +282,17 @@ function Wizard() {
       icono: 'burbujas',
     },
   ]
-  // Cada botón previsualiza su propio estilo (emoji fijo / SVG fijo).
+  // Cada botón previsualiza su propio estilo: el mismo glifo a color o en grises.
   const estilos: { id: EstiloIconos; label: string; muestra: ReactNode }[] = [
-    { id: 'emoji', label: t('ajustes.iconos.emoji', 'Emojis'), muestra: <span>😀</span> },
+    {
+      id: 'emoji',
+      label: t('ajustes.iconos.emoji', 'Coloridos'),
+      muestra: <IconoMarca glifo="objetos" estilo="emoji" />,
+    },
     {
       id: 'profesional',
       label: t('ajustes.iconos.profesional', 'Profesional'),
-      muestra: <Shapes size="1em" strokeWidth={2} className="inline-block" />,
+      muestra: <IconoMarca glifo="objetos" estilo="profesional" />,
     },
   ]
   const titulos = [

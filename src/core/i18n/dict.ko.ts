@@ -1133,7 +1133,7 @@ export const KO: Dict = {
   'ajustes.modo.oscuro': '다크',
   'ajustes.modo.transparente': '투명',
   'ajustes.iconos': '아이콘 스타일',
-  'ajustes.iconos.emoji': '이모지',
+  'ajustes.iconos.emoji': '컬러풀',
   'ajustes.iconos.profesional': '프로페셔널',
   'ajustes.tipografia': '글꼴',
   'ajustes.fondoEscritorio': '배경 화면',

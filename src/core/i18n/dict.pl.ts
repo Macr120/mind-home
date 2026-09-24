@@ -1147,7 +1147,7 @@ export const PL: Dict = {
   'ajustes.modo.oscuro': 'Ciemny',
   'ajustes.modo.transparente': 'Przezroczysty',
   'ajustes.iconos': 'Styl ikon',
-  'ajustes.iconos.emoji': 'Emoji',
+  'ajustes.iconos.emoji': 'Kolorowe',
   'ajustes.iconos.profesional': 'Profesjonalny',
   'ajustes.tipografia': 'Typografia',
   'ajustes.fondoEscritorio': 'Tapeta',

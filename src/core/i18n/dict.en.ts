@@ -1189,7 +1189,7 @@ export const EN: Dict = {
   'ajustes.modo.oscuro': 'Dark',
   'ajustes.modo.transparente': 'Transparent',
   'ajustes.iconos': 'Icon style',
-  'ajustes.iconos.emoji': 'Emojis',
+  'ajustes.iconos.emoji': 'Colorful',
   'ajustes.iconos.profesional': 'Professional',
   'ajustes.tipografia': 'Typography',
   'ajustes.fondoEscritorio': 'Wallpaper',

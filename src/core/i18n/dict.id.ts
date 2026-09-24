@@ -1153,7 +1153,7 @@ export const ID: Dict = {
   'ajustes.modo.oscuro': 'Gelap',
   'ajustes.modo.transparente': 'Transparan',
   'ajustes.iconos': 'Gaya ikon',
-  'ajustes.iconos.emoji': 'Emoji',
+  'ajustes.iconos.emoji': 'Berwarna',
   'ajustes.iconos.profesional': 'Profesional',
   'ajustes.tipografia': 'Tipografi',
   'ajustes.fondoEscritorio': 'Wallpaper',

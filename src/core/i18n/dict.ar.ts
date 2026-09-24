@@ -1142,7 +1142,7 @@ export const AR: Dict = {
   'ajustes.modo.oscuro': 'داكن',
   'ajustes.modo.transparente': 'شفاف',
   'ajustes.iconos': 'نمط الأيقونات',
-  'ajustes.iconos.emoji': 'الرموز التعبيرية',
+  'ajustes.iconos.emoji': 'ملوّنة',
   'ajustes.iconos.profesional': 'احترافي',
   'ajustes.tipografia': 'الخط',
   'ajustes.fondoEscritorio': 'خلفية سطح المكتب',

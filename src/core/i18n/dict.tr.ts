@@ -1150,7 +1150,7 @@ export const TR: Dict = {
   'ajustes.modo.oscuro': 'Koyu',
   'ajustes.modo.transparente': 'Şeffaf',
   'ajustes.iconos': 'Simge stili',
-  'ajustes.iconos.emoji': 'Emojiler',
+  'ajustes.iconos.emoji': 'Renkli',
   'ajustes.iconos.profesional': 'Profesyonel',
   'ajustes.tipografia': 'Tipografi',
   'ajustes.fondoEscritorio': 'Masaüstü arka planı',

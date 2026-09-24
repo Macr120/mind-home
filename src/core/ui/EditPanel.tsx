@@ -27,6 +27,7 @@ import { useT } from '../i18n/useT'
 import { useNombreCuarto } from './roomDisplay'
 import { esDemo, esDemoAutor, esProbar } from '../edicion'
 import { Icono } from './iconos/Icono'
+import { IconoMarca } from './iconos/glifosApps'
 import type { NombreIcono } from './iconos/catalogo'
 import { vivo } from './estilos'
 
@@ -254,12 +255,13 @@ export function EditPanel() {
               key={tb.id}
               type="button"
               onClick={() => setTab(tb.id)}
-              className={`h-8 flex-1 whitespace-nowrap px-1 text-[11px] font-semibold transition ${
+              className={`flex h-8 flex-1 items-center justify-center gap-0.5 whitespace-nowrap px-1 text-[11px] font-semibold transition ${
                 tab === tb.id
                   ? 'bg-white/15 text-white'
                   : 'text-white/50 hover:bg-white/8 hover:text-white/75'
               }`}
             >
+              <IconoMarca glifo={tb.id} size="1.1em" />
               {t(`editor.tab.${tb.id}`, tb.labelEs)}
             </button>
           ))}

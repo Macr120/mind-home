@@ -1153,7 +1153,7 @@ export const NL: Dict = {
   'ajustes.modo.oscuro': 'Donker',
   'ajustes.modo.transparente': 'Transparant',
   'ajustes.iconos': 'Iconenstijl',
-  'ajustes.iconos.emoji': 'Emoji\'s',
+  'ajustes.iconos.emoji': 'Kleurrijk',
   'ajustes.iconos.profesional': 'Professioneel',
   'ajustes.tipografia': 'Lettertype',
   'ajustes.fondoEscritorio': 'Bureaubladachtergrond',

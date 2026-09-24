@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { plantillasInfraestructura, DESCRIPCIONES } from '../registry'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
+import { IconoMarca } from './iconos/glifosApps'
 import type { NombreIcono } from './iconos/catalogo'
 import { VACIO, caminosRepo, cultivosRepo, animalesRepo } from '../data/repository'
 import { useDiseño } from '../state/disenoStore'
@@ -152,7 +153,7 @@ export function InfraestructuraCatalogo({ alConstruir }: { alConstruir: () => vo
                 className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-xl"
                 style={{ background: `${p.color}33` }}
               >
-                <Icono emoji={p.icon} />
+                <IconoMarca emoji={p.icon} size="1.4em" />
               </span>
               <div className="min-w-0 flex-1">
                 <div className="truncate text-sm font-bold text-white/90">

@@ -1133,7 +1133,7 @@ export const ZH: Dict = {
   'ajustes.modo.oscuro': '深色',
   'ajustes.modo.transparente': '透明',
   'ajustes.iconos': '图标样式',
-  'ajustes.iconos.emoji': '表情符号',
+  'ajustes.iconos.emoji': '彩色',
   'ajustes.iconos.profesional': '专业',
   'ajustes.tipografia': '字体',
   'ajustes.fondoEscritorio': '壁纸',

@@ -1148,7 +1148,7 @@ export const RU: Dict = {
   'ajustes.modo.oscuro': 'Тёмная',
   'ajustes.modo.transparente': 'Прозрачная',
   'ajustes.iconos': 'Стиль иконок',
-  'ajustes.iconos.emoji': 'Эмодзи',
+  'ajustes.iconos.emoji': 'Цветные',
   'ajustes.iconos.profesional': 'Профессиональный',
   'ajustes.tipografia': 'Шрифт',
   'ajustes.fondoEscritorio': 'Обои рабочего стола',

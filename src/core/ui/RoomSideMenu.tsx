@@ -18,6 +18,7 @@ import { InfraestructuraCatalogo } from './InfraestructuraCatalogo'
 import { useProgreso } from '../gamificacion/actividad'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
+import { IconoMarca } from './iconos/glifosApps'
 import { vivo } from './estilos'
 import type { NombreIcono } from './iconos/catalogo'
 import { BotonTutoriales } from '../tutorial/SelectorTutorial'
@@ -212,7 +213,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
                 : 'text-white/50 hover:bg-white/8 hover:text-white/75'
             }`}
           >
-            <Icono nombre="casa" /> {t('nav.menu.cuartos', 'Hogar')}
+            <IconoMarca glifo="hogar" nombre="casa" /> {t('nav.menu.cuartos', 'Hogar')}
           </button>
           <button
             type="button"
@@ -226,7 +227,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
           >
             {/* «Interior»: las apps que viven DENTRO de un cuarto, frente a las
                 del Exterior, que se construyen sobre el terreno. */}
-            <Icono nombre="cuartos" /> {t('inv.plantillas', 'Interior')}
+            <IconoMarca glifo="interior" nombre="cuartos" /> {t('inv.plantillas', 'Interior')}
           </button>
           <button
             type="button"
@@ -240,7 +241,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
           >
             {/* Clave reciclada: su nombre dice «sub de Plantillas» porque ahí
                 vivía esta sección antes de subir a menú propio. */}
-            <Icono nombre="construir" /> {t('inv.subPlantInfra', 'Exterior')}
+            <IconoMarca glifo="exterior" nombre="construir" /> {t('inv.subPlantInfra', 'Exterior')}
           </button>
         </div>
       </div>

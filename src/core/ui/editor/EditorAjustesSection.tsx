@@ -1,11 +1,11 @@
 import { useState, type ReactNode } from 'react'
-import { Shapes } from 'lucide-react'
 import { useAjustes, type EstiloIconos } from '../../state/ajustesStore'
 import { useT } from '../../i18n/useT'
 import { COLORES_UI, TEMAS_UI, TEMAS_UI_BASE, modoBase, type ModoUI } from '../temasUI'
 import { ESTILOS_UI } from '../estilosUI'
 import { TIPOGRAFIAS } from '../tipografias'
 import { Icono } from '../iconos/Icono'
+import { IconoMarca } from '../iconos/glifosApps'
 
 /**
  * Sección del editor de mapa: ajustes de la interfaz (idioma, apariencia,
@@ -45,13 +45,17 @@ export function EditorAjustesSection({ embed }: { embed?: boolean } = {}) {
     },
   ]
 
-  // Cada botón previsualiza su propio estilo (emoji fijo / SVG fijo).
+  // Cada botón previsualiza su propio estilo: el mismo glifo a color o en grises.
   const estilos: { id: EstiloIconos; label: string; muestra: ReactNode }[] = [
-    { id: 'emoji', label: t('ajustes.iconos.emoji', 'Emojis'), muestra: <span>😀</span> },
+    {
+      id: 'emoji',
+      label: t('ajustes.iconos.emoji', 'Coloridos'),
+      muestra: <IconoMarca glifo="objetos" estilo="emoji" />,
+    },
     {
       id: 'profesional',
       label: t('ajustes.iconos.profesional', 'Profesional'),
-      muestra: <Shapes size="1em" strokeWidth={2} className="inline-block" />,
+      muestra: <IconoMarca glifo="objetos" estilo="profesional" />,
     },
   ]
 
@@ -130,7 +134,7 @@ export function EditorAjustesSection({ embed }: { embed?: boolean } = {}) {
         </p>
       </div>
 
-      {/* Estilo de iconos: emojis (clásico) o SVG (profesional) */}
+      {/* Estilo de iconos: coloridos (glifos a color + emojis) o profesional (grises + SVG) */}
       <div className="space-y-1.5">
         <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
           {t('ajustes.iconos', 'Estilo de iconos')}

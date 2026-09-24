@@ -1133,7 +1133,7 @@ export const JA: Dict = {
   'ajustes.modo.oscuro': 'ダーク',
   'ajustes.modo.transparente': '透明',
   'ajustes.iconos': 'アイコンのスタイル',
-  'ajustes.iconos.emoji': '絵文字',
+  'ajustes.iconos.emoji': 'カラフル',
   'ajustes.iconos.profesional': 'プロフェッショナル',
   'ajustes.tipografia': 'フォント',
   'ajustes.fondoEscritorio': '壁紙',

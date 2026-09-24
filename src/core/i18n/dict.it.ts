@@ -1150,7 +1150,7 @@ export const IT: Dict = {
   'ajustes.modo.oscuro': 'Scuro',
   'ajustes.modo.transparente': 'Trasparente',
   'ajustes.iconos': 'Stile delle icone',
-  'ajustes.iconos.emoji': 'Emoji',
+  'ajustes.iconos.emoji': 'Colorati',
   'ajustes.iconos.profesional': 'Professionale',
   'ajustes.tipografia': 'Tipografia',
   'ajustes.fondoEscritorio': 'Sfondo',

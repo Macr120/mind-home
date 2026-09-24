@@ -26,6 +26,7 @@ import { PlantillaCustomEditor } from './PlantillaCustomEditor'
 import { SelectorObjeto3D } from './SelectorObjeto3D'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
+import { IconoMarca } from './iconos/glifosApps'
 import { vivo } from './estilos'
 import { useArrastre } from './comun/arrastre'
 
@@ -174,7 +175,7 @@ export function PlantillasCatalogo({ creativa = false }: { creativa?: boolean } 
             className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-base transition hover:brightness-110"
             style={{ background: `${p.color}33` }}
           >
-            <Icono emoji={p.icon} />
+            <IconoMarca emoji={p.icon} />
           </button>
           <span className="min-w-0 flex-1 truncate text-sm font-semibold text-white/90">
             {t(`room.${p.id}.nombre`, p.nombre).split(' · ')[0]}

@@ -1150,7 +1150,7 @@ export const HI: Dict = {
   'ajustes.modo.oscuro': 'गहरा',
   'ajustes.modo.transparente': 'पारदर्शी',
   'ajustes.iconos': 'आइकन शैली',
-  'ajustes.iconos.emoji': 'इमोजी',
+  'ajustes.iconos.emoji': 'रंगीन',
   'ajustes.iconos.profesional': 'प्रोफेशनल',
   'ajustes.tipografia': 'फ़ॉन्ट',
   'ajustes.fondoEscritorio': 'वॉलपेपर',

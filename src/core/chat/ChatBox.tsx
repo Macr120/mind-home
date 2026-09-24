@@ -115,6 +115,7 @@ async function interpretarEdicionDiferida(texto: string): Promise<EdicionLocal |
 }
 import { useT } from '../i18n/useT'
 import { Icono } from '../ui/iconos/Icono'
+import { IconoMarca } from '../ui/iconos/glifosApps'
 import { LogoIA } from '../ui/iconos/logosIA'
 import { useHud } from '../state/hudStore'
 import { BotonPlegarHud } from '../ui/HudPlegable'
@@ -1233,7 +1234,11 @@ export function ChatBox({
                     activo ? 'bg-accent/20 text-accent ring-1 ring-accent/50' : 'text-white/45 hover:bg-white/10 hover:text-white/85'
                   }`}
                 >
-                  {m.id === 'asistentes' ? <Icono emoji={mascota.emoji} /> : <Icono nombre={m.icono} />}
+                  {m.id === 'asistentes' ? (
+                    <IconoMarca glifo="asistentes" emoji={mascota.emoji} />
+                  ) : (
+                    <IconoMarca glifo={m.id} nombre={m.icono} />
+                  )}
                   <span className="hidden text-[11px] font-semibold sm:inline">{t(m.clave, m.es)}</span>
                   {m.id === 'amigos' && noLeidos > 0 && (
                     <span className="pointer-events-none absolute -end-1 -top-1 grid h-4 min-w-4 place-items-center rounded-full bg-red-600 px-1 text-[9px] font-black tabular-nums text-white">
@@ -1853,7 +1858,7 @@ export function ChatBox({
                         : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
                     }`}
                   >
-                    <Icono nombre={m.icono} />
+                    <IconoMarca glifo={m.id} nombre={m.icono} />
                     <span className="flex-1 text-start">{t(m.clave, m.es)}</span>
                     {m.id === 'amigos' && noLeidos > 0 && (
                       <span className="grid h-4 min-w-4 place-items-center rounded-full bg-red-600 px-1 text-[9px] font-black tabular-nums text-white">
@@ -1880,7 +1885,7 @@ export function ChatBox({
           }`}
           title={`${t('chat.menu.cambiar', 'Cambiar de menú')} · ${t(menuElegido.clave, menuElegido.es)}`}
         >
-          <Icono nombre={menuElegido.icono} />
+          <IconoMarca glifo={menuElegido.id} nombre={menuElegido.icono} />
         </button>
         <input
           ref={galeriaRef}
