@@ -335,6 +335,8 @@ export const ID_TUT: Dict = {
     'Ikon ini memilih AI mana yang menjawab dan menyimpan kuncimu kalau kamu pakai kunci sendiri. Kalau belum ada yang disetel, chat tetap jalan lewat kata kunci, tanpa memahami bahasa bebas.',
   'tut.chat.8.texto':
     'Kamu juga bisa bertanya “bagaimana cara kerja Dapur?” atau minta “tutorial Gym” di sini juga, dan apa yang tersimpan dibahas di tutorial tab Entri.',
+  'tut.chat-registros.porAsistente.texto': 'Setiap asisten menyimpan di chat-nya apa yang kamu catat bersamanya dan apa yang ia ingat tentangmu. Tombol ini membukanya sebagai grafik: setiap ingatan terhubung sendiri dengan hal dari aplikasimu yang disebutnya; ketuk salah satunya untuk memperbaiki atau melupakannya.',
+  'tut.chat-registros.mapa.texto': 'Mengobrol dengan asisten membawanya ke peta, dan menghapus percakapannya mengeluarkannya. Untuk memanggilnya lagi, pakai “Tambah asisten” di bawah daftar chat.',
   'tut.chat-registros.1.texto':
     'Obrolan menampilkan dengan siapa kamu mengobrol; Entri, apa yang tersimpan dari percakapan itu.',
   'tut.chat-registros.2.titulo': 'Yang diingat tentang kamu',

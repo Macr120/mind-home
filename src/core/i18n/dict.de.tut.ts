@@ -336,6 +336,8 @@ export const DE_TUT: Dict = {
     'Dieses Symbol wählt aus, welche KI antwortet, und speichert deinen Schlüssel, falls du deinen eigenen nutzt. Ohne konfiguriertes Modell läuft der Chat weiter über Stichwörter, versteht aber keine freie Sprache.',
   'tut.chat.8.texto':
     'Du kannst hier auch fragen „Wie funktioniert die Küche?“ oder „Tutorial zu Fitness“ verlangen; und was dabei gespeichert wurde, schaust du dir in der Tour „Einträge“ an.',
+  'tut.chat-registros.porAsistente.texto': 'Jeder Assistent bewahrt in seinem Chat auf, was du mit ihm eingetragen hast und was er sich über dich merkt. Dieser Knopf öffnet es als Graph: Jede Erinnerung verbindet sich von selbst mit dem, was sie aus deinen Apps nennt; tippe eine an, um sie zu korrigieren oder zu vergessen.',
+  'tut.chat-registros.mapa.texto': 'Mit einem Assistenten zu chatten holt ihn auf die Karte, und seine Unterhaltung zu löschen nimmt ihn wieder weg. Um ihn zurückzuholen, nutze „Assistent hinzufügen“ unter den Chats.',
   'tut.chat-registros.1.texto':
     'Chats zeigt, mit wem du geredet hast; Einträge zeigt, was aus diesen Gesprächen gespeichert wurde.',
   'tut.chat-registros.2.titulo': 'Was er sich über dich merkt',

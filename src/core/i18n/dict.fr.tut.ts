@@ -336,6 +336,8 @@ export const FR_TUT: Dict = {
     'Cette icône choisit quelle IA répond et garde ta clé si tu utilises la tienne. Sans rien de configuré, le chat marche quand même par mots-clés, sans comprendre le langage libre.',
   'tut.chat.8.texto':
     'Tu peux aussi demander « comment marche la Cuisine ? » ou réclamer « tutoriel de Gym » ici même, et ce qui a été enregistré se revoit dans le tutoriel « Historique et mémoires ».',
+  'tut.chat-registros.porAsistente.texto': 'Chaque assistant garde dans son chat ce que tu as enregistré avec lui et ce qu’il retient de toi. Ce bouton l’ouvre en graphe : chaque souvenir se relie tout seul à ce qu’il mentionne de tes apps ; touche-en un pour le corriger ou l’oublier.',
+  'tut.chat-registros.mapa.texto': 'Discuter avec un assistant le fait venir sur la carte, et supprimer sa conversation l’en retire. Pour le rappeler, utilise « Ajouter un assistant » sous les chats.',
   'tut.chat-registros.1.texto':
     'Chats montre avec qui tu as discuté ; Entrées, ce qui a été gardé de ces conversations.',
   'tut.chat-registros.2.titulo': 'Ce qu’il retient de toi',

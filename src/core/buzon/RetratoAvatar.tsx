@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import { useSesion } from '../cuenta/sesionStore'
@@ -50,8 +50,17 @@ export function reducir(fuente: HTMLCanvasElement, lado = LADO): string | null {
 /**
  * Encuadra cabeza y hombros: mide el personaje ya pintado (los cuerpos y
  * sombreros varían mucho), apunta al tercio superior y acerca la cámara.
+ * `children` sustituye al avatar (un asistente, con su `AsistenteModelo`).
  */
-export function CapturaBusto({ av, onListo }: { av: Avatar; onListo: (canvas: HTMLCanvasElement) => void }) {
+export function CapturaBusto({
+  av,
+  children,
+  onListo,
+}: {
+  av?: Avatar
+  children?: ReactNode
+  onListo: (canvas: HTMLCanvasElement) => void
+}) {
   const { gl, camera } = useThree()
   const grupo = useRef<THREE.Group>(null)
   useEffect(() => {
@@ -84,7 +93,7 @@ export function CapturaBusto({ av, onListo }: { av: Avatar; onListo: (canvas: HT
   }, [])
   return (
     <group ref={grupo}>
-      <AvatarModelo av={av} />
+      {children ?? (av && <AvatarModelo av={av} />)}
     </group>
   )
 }

@@ -19,7 +19,7 @@ import { useAccionGlobal } from '../state/accionGlobal'
 import { playerPos } from '../state/houseStore'
 import { getCatalogoItem } from '../house/catalogo'
 import { escribiendoEnCampo, hayCuartoAbierto } from '../house/movement'
-import { interpretar, appsAsignadas } from './dispatcher'
+import { interpretar } from './dispatcher'
 import { hayIntencionEditor, tomarUltimoMapa } from './editorIntencion'
 import type { EdicionLocal } from './editorAcciones'
 import { destinoDeTool } from './destinoChat'
@@ -35,6 +35,8 @@ import { EMOCION_POR_EVENTO } from './emociones'
 import { reaccionar } from '../state/emocionesStore'
 import { getAsistente, useAsistentes } from '../state/asistentesStore'
 import { ChatConversacion } from './ChatConversacion'
+import { CaraAsistente, CarasAsistentesAlDia } from './carasAsistentes'
+import { enChat, traerAsistente } from './chatsAsistentes'
 import { IconoVistaChat } from './IconoVistaChat'
 import { sonar } from '../audio/sfx'
 import { vibrar } from '../audio/vibrar'
@@ -49,7 +51,6 @@ const PanelNavegador = lazy(() =>
   import('../ui/navegador/PanelNavegador').then((m) => ({ default: m.PanelNavegador })),
 )
 const TabAjustesNav = lazy(() => import('../ui/navegador/TabAjustes').then((m) => ({ default: m.TabAjustes })))
-const PanelMemorias = lazy(() => import('./PanelMemorias').then((m) => ({ default: m.PanelMemorias })))
 const PanelLugares = lazy(() => import('./PanelLugares').then((m) => ({ default: m.PanelLugares })))
 const AjustesNavegacion = lazy(() =>
   import('../../rooms/sala/navegacion/AjustesNavegacion').then((m) => ({ default: m.AjustesNavegacion })),
@@ -205,7 +206,6 @@ export function ChatBox({
   const movilVertical = useHud((s) => s.movilVertical)
   // Con el navegador embebido abierto el chat sube sobre su tira de pestañas (al pie).
   const navAbierto = useNavegador((s) => s.abierto)
-  const [retagId, setRetagId] = useState<number | null>(null)
   const [adjunto, setAdjunto] = useState<AdjuntoLocal | null>(null)
   // Mapa ofrecido tras una explicación: aquí solo se pinta si su conversación
   // NO está abierta (con el hilo abierto la oferta vive dentro, como un mensaje).
@@ -236,13 +236,9 @@ export function ChatBox({
   const [medida, setMedida] = useState(0)
   // Barra del chat: publica su alto para que los prompts se apilen encima de ella.
   const refTope = useTopeHud('chat')
-  // Solo se pintan las 15 más recientes: acotar la consulta al índice evita
-  // materializar la bitácora entera en cada mensaje enviado.
-  const entradas = bitacoraRepo.useAll({ limit: 15 })
   const addRoomGround = useLayout((s) => s.addRoomGround)
   const placed = useLayout((s) => s.placed)
   const mascotaId = useMascota((s) => s.mascota)
-  const setMascota = useMascota((s) => s.setMascota)
   const hablar = useMascota((s) => s.decir)
   const irA = useMascota((s) => s.irA)
   const conversacion = useMascota((s) => s.conversacion)
@@ -361,8 +357,8 @@ export function ChatBox({
   // entrar/salir del editor: ver mascotaStore.ts.
   const hiloOculto = useMascota((s) => s.hiloOculto)
   const setHiloOculto = useMascota((s) => s.setHiloOculto)
-  // Pestaña del panel: chats (con quién platicaste) o registros de la bitácora.
-  const [pestana, setPestana] = useState<'chats' | 'registros'>('chats')
+  // «Agregar asistente» desplegado bajo los chats.
+  const [agregando, setAgregando] = useState(false)
   const ultimos = useUltimosMensajes()
   // Contador de créditos bajo la caja: pool del mes restante + recargas. El
   // medidor se refresca solo tras cada llamada (api.ts::refrescarMedidor).
@@ -520,6 +516,7 @@ export function ChatBox({
     useBuzon.getState().cerrarContactos()
     setHiloOculto(false)
     abrirConversacion(id)
+    void traerAsistente(id)
   }
 
   /** Comprime la foto elegida a 1280px (el tope que asume el proxy) y la deja lista. */
@@ -665,6 +662,8 @@ export function ChatBox({
     // El asistente activo se reubica al lugar desde donde le pediste algo.
     if (destinoId === mascotaId) irA(playerPos.x + 1.2, playerPos.z + 1.2)
 
+    // Platicar con un asistente lo trae al mapa (y lo vuelve el que te sigue).
+    void traerAsistente(destinoId)
     // Lo que escribes queda en la conversación del hilo abierto.
     mensajesChatRepo.add({
       asistenteId: destinoId,
@@ -1015,26 +1014,6 @@ export function ChatBox({
     if (e.key === 'Escape') (e.target as HTMLTextAreaElement).blur()
   }
 
-  // Retag: asigna una app a una entrada y reintenta quick-capture
-  const retag = async (entradaId: number, roomId: string) => {
-    const app = getPlantilla(roomId)
-    if (!app) return
-    const entrada = entradas?.find((e) => e.id === entradaId)
-    if (!entrada) return
-
-    let procesado = false
-    if (app.capturar) procesado = await app.capturar(entrada.texto)
-    await bitacoraRepo.update(entradaId, { roomId, procesado })
-    setRetagId(null)
-    decir(
-      procesado ? 'capturado' : 'clasificado',
-      nombreCorto(roomId),
-      undefined,
-      procesado ? [{ tipo: 'app', appId: roomId }] : undefined,
-    )
-  }
-
-  const recientes = entradas?.slice(0, 15) ?? []
   // Plegar el chat esconde TODO, también la conversación (es la forma de
   // recuperar la pantalla ahora que el hilo vive siempre sobre la barra). Se suma
   // `menuAbierto` sin esperar al efecto que sincroniza el store: si no, al abrir
@@ -1114,6 +1093,22 @@ export function ChatBox({
   }, [cerrarConversacion, setHiloOculto])
 
   /**
+   * Jugar · Registrar · Crear del hilo del asistente: la frase va a la barra.
+   * Con `enviarYa` sale sola en el render siguiente, cuando `interp` ya la leyó.
+   */
+  const enviarAlEscribir = useRef<string | null>(null)
+  const usarFrase = useCallback((frase: string, enviarYa: boolean) => {
+    enviarAlEscribir.current = enviarYa ? frase : null
+    setTexto(frase)
+    if (!enviarYa) requestAnimationFrame(() => areaRef.current?.focus())
+  }, [])
+  useEffect(() => {
+    if (enviarAlEscribir.current === null || enviarAlEscribir.current !== texto) return
+    enviarAlEscribir.current = null
+    void enviar()
+  })
+
+  /**
    * Tocar fuera del chat cierra sus paneles (y Escape hace lo mismo). El
    * listener solo existe mientras hay algo abierto. El registro se difiere un
    * tick porque el propio clic que abrió el panel sigue propagándose (mismo
@@ -1179,7 +1174,9 @@ export function ChatBox({
       }
     >
       {/* Conversación con el asistente (estilo WhatsApp): siempre sobre la barra */}
-      {hiloVisible && <ChatConversacion onCerrar={cerrarHilo} />}
+      {hiloVisible && <ChatConversacion onCerrar={cerrarHilo} onUsar={usarFrase} />}
+      {/* Las caras de los asistentes (busto 3D) se capturan aparte cuando cambian */}
+      <CarasAsistentesAlDia />
 
       {/* Hilo con una persona (buzón): mismo sitio, otro origen de datos */}
       {hiloPersonaVisible && hiloPersona && (
@@ -1378,70 +1375,10 @@ export function ChatBox({
             </div>
           ) : (
           <div className="min-h-0 flex-1 overflow-y-auto">
-          {/* Tu asistente: elegirlo (re-tocar el activo abre su conversación) */}
-          <div className="mb-1 flex items-center gap-2 px-1">
-            <span className="text-[11px] font-semibold text-white/50">
-              {t('chat.tuAsistente', 'Tu asistente:')}
-            </span>
-            <div className="flex min-w-0 flex-1 gap-1 overflow-x-auto">
-              {asistentes.map((m) => (
-                <button
-                  key={m.id}
-                  type="button"
-                  onClick={() => {
-                    if (m.id === mascotaId) {
-                      abrirConv(m.id)
-                    } else {
-                      setMascota(m.id)
-                      hablar(saludoAsistente(t, m))
-                    }
-                  }}
-                  title={
-                    m.id === mascotaId
-                      ? `${nombreAsistente(t, m)} · ${t('chat.abrirConv', 'ver conversación')}`
-                      : nombreAsistente(t, m)
-                  }
-                  className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg text-lg transition ${
-                    m.id === mascotaId ? 'bg-accent/20 ring-1 ring-accent/50' : 'hover:bg-white/10'
-                  }`}
-                >
-                  <Icono emoji={m.emoji} />
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Pestañas: conversaciones (con quién platicaste) / registros (lo que pediste) */}
-          <div data-tut="chat.tabs" className="mb-1 flex gap-1 px-1">
-            {(['chats', 'registros'] as const).map((p) => (
-              <button
-                key={p}
-                type="button"
-                data-tut={`chat.tab.${p}`}
-                onClick={() => setPestana(p)}
-                className={`rounded-lg px-2.5 py-1 text-[11px] font-semibold transition ${
-                  pestana === p
-                    ? 'bg-accent/15 text-accent'
-                    : 'text-white/40 hover:bg-white/10 hover:text-white/70'
-                }`}
-              >
-                {p === 'chats' ? (
-                  <>
-                    <Icono nombre="chat" /> {t('chat.tab.chats', 'Chats')}
-                    {noLeidos > 0 && (
-                      <span className="ms-1 rounded-full bg-red-600 px-1.5 text-[9px] font-black tabular-nums text-white">{noLeidos}</span>
-                    )}
-                  </>
-                ) : (
-                  <><Icono nombre="nota" /> {t('chat.tab.registros', 'Registros')}</>
-                )}
-              </button>
-            ))}
-          </div>
-
-          {/* Lista de conversaciones, estilo lista de chats */}
-          {pestana === 'chats' &&
-            asistentes.map((m) => {
+          {/* Chats: los asistentes que están en el mapa (platicar con uno lo trae) */}
+          {asistentes
+            .filter((m) => enChat(m, mascotaId))
+            .map((m) => {
               const u = ultimos?.[m.id]
               return (
                 <button
@@ -1450,9 +1387,7 @@ export function ChatBox({
                   onClick={() => abrirConv(m.id)}
                   className="flex w-full items-center gap-2.5 rounded-xl px-2 py-2 text-start transition hover:bg-white/5"
                 >
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/10 text-xl">
-                    <Icono emoji={m.emoji} />
-                  </span>
+                  <CaraAsistente asistente={m} />
                   <div className="min-w-0 flex-1">
                     <p className="flex items-baseline justify-between gap-2">
                       <span className="truncate text-sm font-semibold text-white/85">{nombreAsistente(t, m)}</span>
@@ -1477,87 +1412,52 @@ export function ChatBox({
               )
             })}
 
-          {pestana === 'registros' && (
-            <>
-          {/* Memorias del arquitecto: lo que sabe de ti entre sesiones */}
-          <Suspense fallback={null}>
-            <PanelMemorias />
-          </Suspense>
-
-          {recientes.length === 0 && (
-            <p className="px-2 py-3 text-center text-xs text-white/35">
-              {t('chat.vacio', 'Aún no hay registros. Cuéntale al arquitecto qué hiciste.')}
-            </p>
-          )}
-
-          {recientes.map((e) => {
-            const room = e.roomId ? getPlantilla(e.roomId) ?? getCuarto(e.roomId) : null
-            const enRetag = retagId === e.id
-            return (
-              <div key={e.id} className="group">
-                <div className="flex items-start gap-2 rounded-xl px-2 py-1.5 hover:bg-white/5">
-                  <span className="mt-0.5 text-base leading-none"><Icono emoji={room ? room.icon : '🗒️'} /></span>
-                  {/* Tocar el registro abre la conversación con el asistente. */}
-                  <div
-                    className="min-w-0 flex-1 cursor-pointer"
-                    onClick={() => abrirConv(mascotaId)}
-                    title={t('chat.verConv', 'Ver la conversación completa')}
-                  >
-                    <p className="break-words text-sm text-white/85">{e.texto}</p>
-                    <p className="flex items-center gap-1.5 text-[10px] text-white/35">
-                      <span>{room ? nombreCortoT(room.id) : t('chat.sinClasificar', 'Sin clasificar')}</span>
-                      {e.procesado && <span className="text-accent"><Icono nombre="confirmar" /> {t('chat.capturado', 'capturado')}</span>}
-                      <span>·</span>
-                      <span>
-                        {new Date(e.creado).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })}
-                      </span>
-                    </p>
-                  </div>
-                  <div className="flex shrink-0 items-center gap-1">
+          {/* Agregar asistente: uno que no esté en el mapa, o crear otro en el ⚙ */}
+          <div className="mt-1 border-t border-white/10 pt-1">
+            <button
+              type="button"
+              data-tut="chat.agregarAsistente"
+              onClick={() => setAgregando((v) => !v)}
+              aria-expanded={agregando}
+              className="flex w-full items-center gap-2.5 rounded-xl px-2 py-2 text-start text-sm text-white/60 transition hover:bg-white/5 hover:text-white/90"
+            >
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-dashed border-white/25">
+                <Icono nombre="agregar" />
+              </span>
+              {t('chat.agregarAsistente', 'Agregar asistente')}
+            </button>
+            {agregando && (
+              <div className="flex flex-wrap gap-1 px-2 pb-1">
+                {asistentes
+                  .filter((m) => !enChat(m, mascotaId))
+                  .map((m) => (
                     <button
+                      key={m.id}
                       type="button"
-                      onClick={() => setRetagId(enRetag ? null : (e.id ?? null))}
-                      className={`rounded px-1 py-0.5 text-[11px] transition hover:bg-white/10 ${enRetag ? 'text-white/80' : 'text-white/25 hover:text-white/70'}`}
-                      title={t('chat.reclasificar', 'Reclasificar')}
+                      onClick={() => {
+                        setAgregando(false)
+                        abrirConv(m.id)
+                        hablar(saludoAsistente(t, m), { asistenteId: m.id })
+                      }}
+                      className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 py-0.5 pe-2.5 ps-0.5 text-xs text-white/75 transition hover:bg-white/15"
                     >
-                      <Icono nombre="editar" />
+                      <CaraAsistente asistente={m} className="h-7 w-7" textoClase="text-base" />
+                      {nombreAsistente(t, m)}
                     </button>
-                    <button
-                      type="button"
-                      onClick={() => e.id != null && bitacoraRepo.remove(e.id)}
-                      className="px-1 py-0.5 text-[11px] text-white/20 transition hover:text-white/60"
-                      title={t('chat.eliminar', 'Eliminar')}
-                    >
-                      ✕
-                    </button>
-                  </div>
-                </div>
-                {enRetag && (
-                  <div className="mb-1 ms-8 flex flex-wrap gap-1">
-                    {appsAsignadas().length === 0 && (
-                      <span className="px-1 py-1 text-[10px] text-white/35">
-                        {t('chat.sinApps', 'No hay apps asignadas. Asígnalas a un objeto en un cuarto.')}
-                      </span>
-                    )}
-                    {appsAsignadas().map((r) => (
-                      <button
-                        key={r.id}
-                        type="button"
-                        onClick={() => e.id != null && retag(e.id, r.id)}
-                        className="flex items-center gap-1 rounded-lg border border-white/10 bg-white/5 px-2 py-1 text-[11px] text-white/70 hover:bg-white/15"
-                        style={{ borderColor: `${r.color}44` }}
-                      >
-                        <span><Icono emoji={r.icon} /></span>
-                        <span>{nombreCortoT(r.id)}</span>
-                      </button>
-                    ))}
-                  </div>
-                )}
+                  ))}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setAgregando(false)
+                    setConfigAbierto(true)
+                  }}
+                  className="flex items-center gap-1 rounded-full border border-dashed border-white/25 px-2.5 py-1 text-xs text-white/60 transition hover:bg-white/10"
+                >
+                  <Icono nombre="agregar" /> {t('chat.crearAsistente', 'Crear uno nuevo')}
+                </button>
               </div>
-            )
-          })}
-            </>
-          )}
+            )}
+          </div>
           </div>
           )}
         </div>
@@ -1571,7 +1471,7 @@ export function ChatBox({
             title={`${nombreAsistente(t, mascota)} · ${t('chat.abrir', 'Abrir chat')}`}
             className="ui-hud relative flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 text-2xl shadow-xl transition hover:scale-105 hover:bg-white/10"
           >
-            <Icono emoji={mascota.emoji} />
+            <CaraAsistente asistente={mascota} className="h-9 w-9" textoClase="text-2xl" />
             {/* Mensajes de personas sin leer (estilo BadgeMisiones) */}
             {noLeidos > 0 && (
               <span className="pointer-events-none absolute -end-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-red-600 px-1 text-[10px] font-black tabular-nums text-white shadow-lg">
@@ -1728,7 +1628,7 @@ export function ChatBox({
         >
           <IconoVistaChat
             vista={vistaPanel}
-            emojiAsistente={(asistentes.find((a) => a.id === conversacion) ?? mascota).emoji}
+            asistente={asistentes.find((a) => a.id === conversacion) ?? mascota}
           />
         </button>
 

@@ -335,6 +335,8 @@ export const PL_TUT: Dict = {
     'Ta ikona wybiera, które AI odpowiada, i zapisuje twój klucz, jeśli używasz własnego. Bez żadnego skonfigurowanego modelu czat nadal działa na słowa kluczowe, ale nie rozumie swobodnego języka.',
   'tut.chat.8.texto':
     'Możesz też zapytać tutaj „jak działa Kuchnia?” albo poprosić o „samouczek Siłowni”, a to, co zostało zapisane, sprawdzisz w samouczku „Wpisy i wspomnienia”.',
+  'tut.chat-registros.porAsistente.texto': 'Każdy asystent trzyma w swoim czacie to, co z nim zapisano, i to, co o tobie pamięta. Ten przycisk otwiera to jako graf: każde wspomnienie samo łączy się z tym, co wymienia z twoich aplikacji; dotknij jednego, by je poprawić lub zapomnieć.',
+  'tut.chat-registros.mapa.texto': 'Rozmowa z asystentem sprowadza go na mapę, a usunięcie rozmowy go z niej zabiera. Aby go przywołać, użyj „Dodaj asystenta” pod czatami.',
   'tut.chat-registros.1.texto':
     'Zakładka Czaty pokazuje, z kim toczyła się rozmowa; Wpisy — to, co z tych rozmów zostało zapisane.',
   'tut.chat-registros.2.titulo': 'Co pamięta o tobie',

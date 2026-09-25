@@ -124,7 +124,8 @@ export default function GrafoMemoria() {
   const [soloVecinos, setSoloVecinos] = useState(foco !== null)
   const [busqueda, setBusqueda] = useState('')
   const [ocultos, setOcultos] = useState<Set<TipoNodo>>(new Set())
-  const [asistente, setAsistente] = useState('')
+  const asistenteInicial = useVistaGrafo((s) => s.asistente)
+  const [asistente, setAsistente] = useState(asistenteInicial ?? '')
 
   useEffect(() => {
     const alTeclear = (e: KeyboardEvent) => {
@@ -188,8 +189,9 @@ export default function GrafoMemoria() {
 
   const tiposPresentes = useMemo(() => TIPOS.filter((tp) => [...todos.values()].some((n) => n.tipo === tp)), [todos])
   const asistentesConMemoria = useMemo(
-    () => [...new Set(memorias.flatMap((m) => (m.vigente && m.asistenteId ? [m.asistenteId] : [])))],
-    [memorias],
+    // El del chat que abrió el grafo sale aunque aún no recuerde nada: si no, el filtro no se ve.
+    () => [...new Set([...(asistenteInicial ? [asistenteInicial] : []), ...memorias.flatMap((m) => (m.vigente && m.asistenteId ? [m.asistenteId] : []))])],
+    [memorias, asistenteInicial],
   )
 
   // Lo que se ve: sin los tipos ocultos, «solo vecinos» y el tope de nodos.

@@ -332,6 +332,8 @@ export const TR_TUT: Dict = {
     'Bu simge hangi Yapay Zeka’nın yanıt vereceğini seçer ve kendi anahtarını kullanıyorsan onu saklar. Hiçbiri ayarlı değilse sohbet anahtar kelimelerle çalışmayı sürdürür, serbest dili anlamadan.',
   'tut.chat.8.texto':
     'Buradan «Mutfak nasıl çalışıyor?» diye sorabilir ya da «Spor Salonu öğreticisi» isteyebilirsin; neyin kaydedildiğine ise Kayıtlar öğreticisinde bakılır.',
+  'tut.chat-registros.porAsistente.texto': 'Her asistan, onunla kaydettiklerini ve senin hakkında hatırladıklarını kendi sohbetinde tutar. Bu düğme onu grafik olarak açar: her anı, uygulamalarından andığı şeylere kendiliğinden bağlanır; düzeltmek ya da unutmak için birine dokun.',
+  'tut.chat-registros.mapa.texto': 'Bir asistanla sohbet etmek onu haritaya getirir, sohbetini silmek ise haritadan çıkarır. Geri çağırmak için sohbetlerin altındaki «Asistan ekle»yi kullan.',
   'tut.chat-registros.1.texto':
     'Sohbetler kiminle konuştuğunu gösterir; Kayıtlar ise o konuşmalardan geriye ne kaldığını.',
   'tut.chat-registros.2.titulo': 'Senin hakkında hatırladıkları',

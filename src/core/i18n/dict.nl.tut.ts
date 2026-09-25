@@ -335,6 +335,8 @@ export const NL_TUT: Dict = {
     'Dit icoon kiest welke AI antwoordt en bewaart je sleutel als je je eigen gebruikt. Staat er geen enkele ingesteld, dan blijft de chat werken op trefwoorden, zonder vrije taal te begrijpen.',
   'tut.chat.8.texto':
     'Je kunt hier ook «hoe werkt de keuken?» vragen of om «tutorial van de Gym» vragen, en wat er is opgeslagen bekijk je in de tour van Registraties.',
+  'tut.chat-registros.porAsistente.texto': 'Elke assistent bewaart in zijn chat wat je met hem hebt geregistreerd en wat hij over je onthoudt. Deze knop opent het als graaf: elke herinnering verbindt zich vanzelf met wat ze uit je apps noemt; tik er een aan om die te verbeteren of te vergeten.',
+  'tut.chat-registros.mapa.texto': 'Chatten met een assistent haalt hem naar de kaart, en zijn gesprek verwijderen haalt hem weg. Roep hem terug met “Assistent toevoegen” onder de chats.',
   'tut.chat-registros.1.texto':
     'Chats laat zien met wie je hebt gepraat; Registraties laat zien wat er van die gesprekken is opgeslagen.',
   'tut.chat-registros.2.titulo': 'Wat ik over je onthoud',

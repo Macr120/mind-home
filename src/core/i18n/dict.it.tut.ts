@@ -334,6 +334,8 @@ export const IT_TUT: Dict = {
     'Questa icona sceglie quale IA risponde e conserva la tua chiave se usi la tua. Senza nessuna configurata la chat continua a funzionare per parole chiave, senza capire il linguaggio libero.',
   'tut.chat.8.texto':
     'Puoi anche chiedere «come funziona la Cucina?» o «tutorial di Palestra» proprio qui, e quello che è rimasto salvato si rivede nel tour Registri e memorie.',
+  'tut.chat-registros.porAsistente.texto': 'Ogni assistente conserva nella sua chat quello che hai registrato con lui e quello che ricorda di te. Questo pulsante lo apre come grafo: ogni ricordo si collega da solo a ciò che nomina delle tue app; toccane uno per correggerlo o dimenticarlo.',
+  'tut.chat-registros.mapa.texto': 'Chattare con un assistente lo porta sulla mappa, ed eliminare la sua conversazione lo toglie. Per richiamarlo, usa «Aggiungi assistente» sotto le chat.',
   'tut.chat-registros.1.texto':
     'Chat mostra con chi hai parlato; Registrazioni, quello che è rimasto salvato di quelle conversazioni.',
   'tut.chat-registros.2.titulo': 'Cosa ricorda di te',

@@ -173,21 +173,25 @@ export const useVistaGrafo = create<{
   /** Nodo que se enfoca al abrir (desde un chip «Conectado con»). */
   foco: RefNodo | null
   ambito: AmbitoGrafo | null
+  /** Asistente cuyas memorias se ven (el grafo de su chat); null = las de todos. */
+  asistente: string | null
   /** Sube en cada apertura: reabrirlo con otro ámbito remonta el overlay. */
   vez: number
-  abrir: (foco?: RefNodo, ambito?: AmbitoGrafo | null) => void
+  abrir: (foco?: RefNodo, ambito?: AmbitoGrafo | null, asistente?: string) => void
   cerrar: () => void
 }>((set) => ({
   abierto: false,
   foco: null,
   ambito: 'asistentes',
+  asistente: null,
   vez: 0,
-  abrir: (foco, ambito) => {
+  abrir: (foco, ambito, asistente) => {
     refrescarNodosDeApps()
     set((s) => ({
       abierto: true,
       foco: foco ?? null,
       ambito: ambito === undefined ? (foco ? null : 'asistentes') : ambito,
+      asistente: asistente ?? null,
       vez: s.vez + 1,
     }))
   },

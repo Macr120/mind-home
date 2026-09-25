@@ -244,6 +244,8 @@ export const EN_TUT: Dict = {
   'tut.chat.7.titulo': 'The AI model',
   'tut.chat.7.texto': 'This icon picks which AI answers and stores your key if you use your own. With none configured, the chat still works by keyword matching, without understanding free language.',
   'tut.chat.8.texto': 'You can also ask "how does the kitchen work?" or request "exercise tutorial" right here, and what got saved is covered in the Records tour.',
+  'tut.chat-registros.porAsistente.texto': 'Each assistant keeps in its chat what you logged with it and what it remembers about you. This button opens it as a graph: each memory connects on its own to what it mentions from your apps; tap one to fix or forget it.',
+  'tut.chat-registros.mapa.texto': 'Chatting with an assistant brings it to the map, and deleting its conversation takes it away. To call it back, use “Add assistant” below the chats.',
   'tut.chat-registros.1.texto': 'Chats shows who you talked to; Records shows what got saved from those conversations.',
   'tut.chat-registros.2.titulo': 'What it remembers about you',
   'tut.chat-registros.2.texto': 'Details the assistant decided were worth remembering between sessions —an allergy, a goal, a preference— so it doesn\'t ask again. Forget one by tapping its ✕.',

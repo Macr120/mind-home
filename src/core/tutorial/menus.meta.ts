@@ -169,8 +169,8 @@ const tutorialChat = tour(
   'chat',
   T('tut.chat.titulo', 'El chat del arquitecto'),
   T(
-    'tut.chat.resumen',
-    'El chat registra lo que le cuentes en la app correcta («corrí 20 min» va a Ejercicio), edita la MindHaOS por texto y dicta por voz; su + adjunta imágenes, PDF o fotos y abre la máscara y el chat AR. Cada asistente tiene su cara y su voz; el manual lista todo lo que puedes pedir, y lo registrado vive en su pestaña Registros.',
+    'tut.chat.resumen2',
+    'El chat registra lo que le cuentes en la app correcta («corrí 20 min» va a Ejercicio), edita la MindHaOS por texto y dicta por voz; su + adjunta imágenes, PDF o fotos y abre la máscara y el chat AR. Cada asistente tiene su cara, su voz y su propio chat, donde vive lo que registraste con él; el manual lista todo lo que puedes pedir.',
   ),
   'cuerpoChat',
 )
@@ -179,8 +179,8 @@ const tutorialChatRegistros = tour(
   'chat-registros',
   T('tut.chat-registros.titulo', 'Chat · Registros y memorias'),
   T(
-    'tut.chat-registros.resumen',
-    'La pestaña Registros del chat guarda tus conversaciones anteriores y lo que el asistente recuerda de ti entre sesiones, para no repetírselo cada vez.',
+    'tut.chat-registros.resumen2',
+    'Cada asistente guarda en su chat lo que registraste con él y lo que recuerda de ti entre sesiones, para no repetírselo cada vez; su grafo lo muestra conectado con tus apps.',
   ),
   'cuerpoChatRegistros',
 )

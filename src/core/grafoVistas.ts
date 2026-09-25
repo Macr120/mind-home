@@ -11,6 +11,7 @@ import { tGlobal } from './i18n/useT'
 import { categoriaDe, categoriasVisibles } from './navegador/categoriasWeb'
 import { segundosDe, sitioDeVisita } from './navegador/estadisticas'
 import { useAsistentes } from './state/asistentesStore'
+import { traerAsistente } from './chat/chatsAsistentes'
 import { useMascota } from './state/mascotaStore'
 import { useOrdenRuta } from '../rooms/sala/navegacion/ordenRuta'
 
@@ -65,7 +66,7 @@ function asistentes(): NodoEntidadApp[] {
     // Las apps de las que responde; sin ninguna, responde de todas y no se enlaza.
     enlaces: a.cuartos.filter((id) => getPlantilla(id)).map(refApp),
     abrir: () => {
-      void useMascota.getState().setMascota(a.id)
+      void traerAsistente(a.id)
       useMascota.getState().abrirConversacion(a.id)
     },
   }))

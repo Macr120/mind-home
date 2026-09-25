@@ -2,6 +2,7 @@ import type { CuerpoTutorial, TextoTut } from './tipos'
 import { clickTut, elTut, esperarTut, irAPestanaMenu } from './dom'
 import { useCam } from '../state/cameraStore'
 import { useHud } from '../state/hudStore'
+import { useMascota } from '../state/mascotaStore'
 import { useLayout } from '../state/layoutStore'
 import { useEditorUi } from '../state/editorUiStore'
 import { abrirApp } from '../abrirApp'
@@ -964,42 +965,25 @@ export const cuerpoChat: CuerpoTutorial = {
 }
 
 export const cuerpoChatRegistros: CuerpoTutorial = {
+  // Los registros viven en el chat de cada asistente: se abre el del activo.
   preparar: () => {
-    clickTut('chat.asistente')
+    useHud.getState().setPlegado('chat', false)
+    const m = useMascota.getState()
+    m.abrirConversacion(m.mascota)
   },
   pasos: [
     {
-      sel: 'chat.tabs',
-      alEntrar: async () => {
-        abrirSiFalta('chat.tabs', 'chat.asistente')
-        await esperarTut('chat.tab.registros', 2000)
-        clickTut('chat.tab.registros')
-      },
-      texto: T(
-        'tut.chat-registros.1.texto',
-        'Chats muestra con quién platicaste; Registros, lo que quedó guardado de esas conversaciones.',
-      ),
-    },
-    {
-      sel: 'chat.memorias',
-      titulo: T('tut.chat-registros.2.titulo', 'Lo que recuerda de ti'),
-      texto: T(
-        'tut.chat-registros.2.texto',
-        'Datos que el asistente decidió que valía la pena recordar entre sesiones —una alergia, una meta, una preferencia— para no preguntártelo de nuevo. Se olvidan tocando su ✕.',
-      ),
-    },
-    {
-      sel: 'chat.memorias.grafo',
+      sel: 'chat.conv.grafo',
       titulo: T('tut.chat-registros.grafo.titulo', 'Tu grafo de memoria'),
       texto: T(
-        'tut.chat-registros.grafo.texto',
-        'Cada memoria se conecta sola con lo que nombra de tus apps —personas, recetas, metas, lugares— y con otras memorias. Aquí lo ves como un mapa; toca una memoria para corregirla o conectarla a mano.',
+        'tut.chat-registros.porAsistente.texto',
+        'Cada asistente guarda en su chat lo que registraste con él y lo que recuerda de ti. Este botón lo abre como grafo: cada memoria se conecta sola con lo que nombra de tus apps; toca una para corregirla u olvidarla.',
       ),
     },
     {
       texto: T(
-        'tut.chat-registros.3.texto',
-        'Lo registrado en tus apps (comidas, gastos, sesiones) vive en cada app, no aquí: esta pestaña es solo la memoria de la conversación misma.',
+        'tut.chat-registros.mapa.texto',
+        'Platicar con un asistente lo trae al mapa, y borrar su conversación lo saca. Para volver a llamarlo, usa «Agregar asistente» bajo los chats.',
       ),
     },
   ],

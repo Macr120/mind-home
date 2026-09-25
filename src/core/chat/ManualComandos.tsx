@@ -3,7 +3,7 @@ import { getPlantilla } from '../registry'
 import { costoDieta, costoReceta } from '../../rooms/cocina/costosIA'
 import { costoOp } from '../cuenta/costos'
 import { useAjustes } from '../state/ajustesStore'
-import { useT } from '../i18n/useT'
+import { useT, type TFunc } from '../i18n/useT'
 import { useManualTraducido } from './manualI18n'
 import { Creditos } from '../ui/Creditos'
 import { Icono } from '../ui/iconos/Icono'
@@ -1085,6 +1085,16 @@ const GRUPO_ES: Record<Grupo['id'], string> = {
   ia: 'Con IA',
 }
 
+/** Ícono y título de una carpeta (del registry si es una app). */
+function cabeceraDe(c: Carpeta, t: TFunc): { icon: string; titulo: string } {
+  if (c.appId) {
+    const p = getPlantilla(c.appId)
+    const nombre = (p?.nombre ?? c.appId).split(' · ')[0]
+    return { icon: p?.icon ?? '🗒️', titulo: t(`room.${c.appId}.nombre`, nombre).split(' · ')[0] }
+  }
+  return { icon: c.icon ?? '🗒️', titulo: t(`chat.manual.cat.${c.id}`, c.titulo ?? c.id) }
+}
+
 export function ManualComandos({
   onUsar,
   carpetaInicial,
@@ -1110,15 +1120,7 @@ export function ManualComandos({
   /** Frase a mostrar/enviar según el idioma de la app. */
   const fraseDe = (ej: Ejemplo) => manual?.frases[ej.frase] ?? (idioma === 'en' ? ej.en : ej.frase)
 
-  /** Ícono y título de una carpeta (del registry si es una app). */
-  const cabecera = (c: Carpeta): { icon: string; titulo: string } => {
-    if (c.appId) {
-      const p = getPlantilla(c.appId)
-      const nombre = (p?.nombre ?? c.appId).split(' · ')[0]
-      return { icon: p?.icon ?? '🗒️', titulo: t(`room.${c.appId}.nombre`, nombre).split(' · ')[0] }
-    }
-    return { icon: c.icon ?? '🗒️', titulo: t(`chat.manual.cat.${c.id}`, c.titulo ?? c.id) }
-  }
+  const cabecera = (c: Carpeta) => cabeceraDe(c, t)
 
   return (
     <div>
@@ -1284,6 +1286,124 @@ export function ManualComandos({
             )}
           </div>
         </div>
+      </div>
+    </div>
+  )
+}
+
+// ─── Jugar · Registrar · Crear en el chat de un asistente ────────────────────
+
+export type AccionAsistente = 'jugar' | 'registrar' | 'crear'
+
+/** Órdenes de construir o generar algo (sobre la frase española de origen). */
+const ES_CREAR = /^\[?(Crea|Hazme|Haz una?\b|Haz\] un\b|Arma|Construye|Genera|Dibuja|Escribe|Inventa|Traza|Agrega\])/
+/** Del grupo «Jugar», lo que no es empezar una partida con el asistente. */
+const NO_ES_PARTIDA = /^\[(Sal|Llévame)\]/
+
+function ejemplosDe(accion: AccionAsistente, carpeta: Carpeta): { ej: Ejemplo; ia: boolean }[] {
+  return carpeta.grupos.flatMap((g) =>
+    g.ejemplos
+      .filter((ej) =>
+        accion === 'crear'
+          ? ES_CREAR.test(ej.frase)
+          : accion === 'registrar'
+            ? g.id === 'registrar'
+            : // Jugar con un amigo (su @alias) va en el hilo del amigo.
+              g.id === 'jugar' && carpeta.id !== 'amigos' && !ej.frase.includes('@') && !NO_ES_PARTIDA.test(ej.frase),
+      )
+      .map((ej) => ({ ej, ia: g.id === 'ia' })),
+  )
+}
+
+/**
+ * El panel de los botones de arriba de la conversación con un asistente: los
+ * ejemplos del manual de esa acción, por app. Jugar manda la orden al momento
+ * (ya está completa); Registrar y Crear la escriben en la barra para cambiar
+ * la parte ámbar antes de enviarla.
+ */
+export function PanelAccionesAsistente({
+  accion,
+  onUsar,
+  onCerrar,
+}: {
+  accion: AccionAsistente
+  onUsar: (frase: string, enviarYa: boolean) => void
+  onCerrar: () => void
+}) {
+  const t = useT()
+  const idioma = useAjustes((s) => s.idioma)
+  const manual = useManualTraducido(idioma)
+  const fraseDe = (ej: Ejemplo) => manual?.frases[ej.frase] ?? (idioma === 'en' ? ej.en : ej.frase)
+  const carpetas = SECCIONES.flatMap((sec) => sec.carpetas)
+    .map((c) => ({ c, ejemplos: ejemplosDe(accion, c) }))
+    .filter((x) => x.ejemplos.length > 0)
+
+  const titulo =
+    accion === 'jugar'
+      ? t('chat.accion.jugarTitulo', '¿A qué jugamos?')
+      : accion === 'registrar'
+        ? t('chat.accion.registrarTitulo', '¿Qué registramos?')
+        : t('chat.accion.crearTitulo', '¿Qué creamos?')
+
+  return (
+    <div className="ui-panel-glass h-full overflow-y-auto rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
+      <div className="mb-2 flex items-center gap-2 border-b border-white/10 px-1 pb-2">
+        <span className="text-base text-white/60">
+          <Icono nombre={accion === 'jugar' ? 'joystick' : accion === 'registrar' ? 'nota' : 'pincel'} />
+        </span>
+        <div className="min-w-0 flex-1">
+          <p className="text-[11px] font-semibold text-white/50">{titulo}</p>
+          {accion !== 'jugar' && (
+            <p className="text-[10px] text-amber-300/80">
+              {t('chat.accion.pista', 'Se escribe en la barra: cambia lo ámbar y envíalo')}
+            </p>
+          )}
+        </div>
+        <button
+          type="button"
+          onClick={onCerrar}
+          className="rounded px-2 py-1 text-sm text-white/40 transition hover:bg-white/10 hover:text-white/80"
+          title={t('chat.conv.cerrar', 'Cerrar')}
+        >
+          ✕
+        </button>
+      </div>
+      <div className="space-y-2">
+        {carpetas.map(({ c, ejemplos }) => {
+          const cab = cabeceraDe(c, t)
+          return (
+            <div key={c.id}>
+              <p className="mb-0.5 px-1 text-[10px] font-bold uppercase tracking-wider text-white/35">
+                <Icono emoji={cab.icon} /> {cab.titulo}
+              </p>
+              <div className="flex flex-wrap gap-1">
+                {ejemplos.map(({ ej, ia }) => (
+                  <button
+                    key={ej.frase}
+                    type="button"
+                    onClick={() => onUsar(sinMarcado(fraseDe(ej)), accion === 'jugar')}
+                    className={`rounded-lg border px-2 py-1 text-start text-[11px] text-white/70 transition hover:text-white/90 ${
+                      ia
+                        ? 'border-violet-400/20 bg-violet-400/5 hover:bg-violet-400/15'
+                        : 'border-white/10 bg-white/5 hover:bg-white/15'
+                    }`}
+                  >
+                    {segmentar(fraseDe(ej)).map((seg, i) => (
+                      <span key={i} className={COLOR_SEG[seg.tipo]}>
+                        {seg.texto}
+                      </span>
+                    ))}
+                    {ej.creditos != null && (
+                      <span className="ms-1.5 inline-block align-middle">
+                        <Creditos n={ej.creditos} />
+                      </span>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )
+        })}
       </div>
     </div>
   )

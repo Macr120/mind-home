@@ -8,6 +8,8 @@ import { sitioDe } from '../navegador/dominio'
 import { useNavegador } from '../state/navegadorStore'
 import { EMOJIS, type NombreIcono } from '../ui/iconos/catalogo'
 import { Icono } from '../ui/iconos/Icono'
+import { CaraAsistente } from './carasAsistentes'
+import type { Asistente } from './mascotas'
 import { usePrefsNavegacion } from '../../rooms/sala/navegacion/preferencias'
 import type { VistaMenu } from './ordenesMenu'
 
@@ -17,11 +19,11 @@ import type { VistaMenu } from './ordenesMenu'
  * de lugares o el favicon de la última página. Cada vista es su componente:
  * solo corre la consulta de la que está elegida.
  */
-export function IconoVistaChat({ vista, emojiAsistente }: { vista: VistaMenu; emojiAsistente: string }) {
+export function IconoVistaChat({ vista, asistente }: { vista: VistaMenu; asistente: Asistente }) {
   if (vista === 'amigos') return <IconoAmigo />
   if (vista === 'lugares') return <IconoLugar />
   if (vista === 'navegador') return <IconoPagina />
-  return <Icono emoji={emojiAsistente} />
+  return <CaraAsistente asistente={asistente} className="h-8 w-8" textoClase="text-2xl" />
 }
 
 /** El amigo del hilo abierto o, sin hilo abierto, el del último mensaje del buzón. */
