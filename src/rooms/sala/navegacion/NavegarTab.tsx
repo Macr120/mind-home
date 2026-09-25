@@ -13,8 +13,8 @@ import { cacheVencida, claveConfigurada } from './config'
 import { formatoDistancia, formatoDuracion, formatoHora, resumenPierna } from './formato'
 import { obtenerPosicion, permisoGps } from './geo'
 import { geocodificar, nombreDeCoords, planificar } from './here'
-import { LugaresNav, pinDeLugar } from './LugaresNav'
-import MapaCalles, { type PinLugar } from './MapaCalles'
+import { COLOR_SUELTO, LugaresNav, pinDeLugar, verDeCarpeta } from './LugaresNav'
+import MapaCalles, { type PinLugar, type RutaGuardada } from './MapaCalles'
 import { COLOR_MODO, ICONO_MODO, MODOS_NAV, esCalle, familiaModo, iconoDireccion, type ModoNav } from './modos'
 import { useOrdenRuta } from './ordenRuta'
 import { usePrefsNavegacion } from './preferencias'
@@ -266,13 +266,34 @@ export default function NavegarTab({ lugares }: Props) {
     if (dy > 0 || !cabenDos) setAltoMapa(inicioAlto.current + dy)
   }
 
-  // Los lugares guardados también se ven en el mapa, con el pin de su categoría.
+  // Los lugares guardados también se ven en el mapa, con el pin de su carpeta,
+  // y los trayectos con su color: cada carpeta decide con sus interruptores.
   const misLugares = lugaresNavRepo.useAll() ?? VACIO
   const categorias = categoriasLugarRepo.useAll() ?? VACIO
-  const pines = useMemo<PinLugar[]>(
-    () => misLugares.map((l) => ({ nombre: l.nombre, lat: l.lat, lng: l.lng, ...pinDeLugar(l, categorias) })),
-    [misLugares, categorias],
-  )
+  const sueltos = usePrefsNavegacion((s) => s.sueltos)
+  const pines = useMemo<PinLugar[]>(() => {
+    const ver = (id?: number) => verDeCarpeta(categorias.find((c) => c.id === id), sueltos)
+    return misLugares
+      .filter((l) => ver(l.categoriaId).pines)
+      .map((l) => ({ nombre: l.nombre, lat: l.lat, lng: l.lng, ...pinDeLugar(l, categorias) }))
+  }, [misLugares, categorias, sueltos])
+  const rutasMapa = useMemo<RutaGuardada[]>(() => {
+    const out: RutaGuardada[] = []
+    for (const tr of guardados) {
+      const c = categorias.find((x) => x.id === tr.categoriaId)
+      if (tr.id == null || !verDeCarpeta(c, sueltos).rutas) continue
+      out.push({
+        id: tr.id,
+        nombre: tr.nombre,
+        color: c?.color ?? COLOR_SUELTO,
+        tramos: (tr.itinerario?.piernas ?? []).map((p) => p.puntos).filter((p) => p.length > 1),
+        origen: tr.origen,
+        destino: tr.destino,
+      })
+    }
+    return out
+  }, [guardados, categorias, sueltos])
+  const [encuadre, setEncuadre] = useState<{ puntos: [number, number][]; sello: number } | null>(null)
 
   const instruccion = useMemo(
     () => (itSel && nav.progreso ? instruccionDe(t, itSel, nav.progreso, locale) : null),
@@ -668,6 +689,12 @@ export default function NavegarTab({ lugares }: Props) {
                 fijar(eligiendo === 'origen' ? 'origen' : 'destino', p)
                 setEligiendo(null)
               }}
+              rutas={rutasMapa}
+              onRuta={(id) => {
+                const tr = guardados.find((x) => x.id === id)
+                if (tr) cargar(tr)
+              }}
+              encuadre={encuadre}
             />
           )}
         </div>
@@ -1038,59 +1065,53 @@ export default function NavegarTab({ lugares }: Props) {
             </div>
           )}
 
+          {/* Lugares y trayectos guardados, en carpetas con sus interruptores del mapa. */}
           <LugaresNav
             candidato={destino ?? origen}
             onUsar={(cual, p) => {
               fijar(cual, p)
               setEligiendo(null)
             }}
-          />
-
-          {/* Guardados */}
-          <div className="space-y-1.5">
-            <h4 className="text-xs font-bold uppercase tracking-wide text-white/50">
-              <Icono nombre="guardar" /> {t('sala.nav.guardados', 'Trayectos guardados')}
-            </h4>
-            {guardados.length === 0 ? (
-              <p className="text-xs text-white/40">
-                {t('sala.nav.guardadosVacio', 'Guarda una ruta y quedará a mano sin conexión 30 días; después se recalcula al abrirla.')}
-              </p>
-            ) : (
-              guardados.map((tr) => (
-                <div
-                  key={tr.id}
-                  onClick={() => cargar(tr)}
-                  className="flex cursor-pointer items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-2.5 py-2 hover:bg-white/10"
-                >
-                  <div className="min-w-0 flex-1">
-                    <p className="truncate text-sm font-semibold">{tr.nombre}</p>
-                    <p className="truncate text-[11px] text-white/45">
-                      {tr.itinerario && `${formatoDuracion(t, tr.itinerario.duracion)} · `}
-                      {tr.origen.nombre} → {tr.destino.nombre}
-                    </p>
-                  </div>
-                  {tr.itinerario ? (
-                    <CadenaModos it={tr.itinerario} t={t} />
-                  ) : (
-                    <span className="shrink-0 text-[10px] text-white/35">
-                      {t('sala.nav.caduco', 'Se recalcula al abrirlo')}
-                    </span>
-                  )}
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      void borrar(tr)
-                    }}
-                    aria-label={t('sala.nav.borrar', 'Borrar')}
-                    className="px-1 text-white/40 hover:text-red-300"
-                  >
-                    <Icono nombre="cerrar" />
-                  </button>
+            trayectos={guardados}
+            onEncuadrar={(puntos) => setEncuadre((e) => ({ puntos, sello: (e?.sello ?? 0) + 1 }))}
+            filaTrayecto={(tr, extra) => (
+              <div
+                onClick={() => cargar(tr)}
+                className="flex cursor-pointer items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-2.5 py-2 hover:bg-white/10"
+              >
+                <span className="shrink-0 text-white/40">
+                  <Icono nombre="navegar" />
+                </span>
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-sm font-semibold">{tr.nombre}</p>
+                  <p className="truncate text-[11px] text-white/45">
+                    {tr.itinerario
+                      ? `${formatoDuracion(t, tr.itinerario.duracion)} · `
+                      : `${t('sala.nav.caduco', 'Se recalcula al abrirlo')} · `}
+                    {tr.origen.nombre} → {tr.destino.nombre}
+                  </p>
                 </div>
-              ))
+                {tr.itinerario && <CadenaModos it={tr.itinerario} t={t} />}
+                {extra}
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    void borrar(tr)
+                  }}
+                  aria-label={t('sala.nav.borrar', 'Borrar')}
+                  className="px-1 text-white/40 hover:text-red-300"
+                >
+                  <Icono nombre="cerrar" />
+                </button>
+              </div>
             )}
-          </div>
+          />
+          {guardados.length === 0 && (
+            <p className="text-xs text-white/40">
+              {t('sala.nav.guardadosVacio', 'Guarda una ruta y quedará a mano sin conexión 30 días; después se recalcula al abrirla.')}
+            </p>
+          )}
 
           <p className="text-[10px] text-white/30">
             {t('sala.nav.fuentes', 'Rutas, horarios y mapa: HERE. Los horarios pueden variar; confírmalos con el operador.')}

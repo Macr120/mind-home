@@ -14,6 +14,7 @@ const LS_OPTIMO = 'mh.lugares.optimo'
 const LS_ANCHO_MAPA = 'mh.lugares.anchoMapa'
 const LS_ALTO_MAPA = 'mh.lugares.altoMapa'
 const LS_CATEGORIA = 'mh.lugares.categoria'
+const LS_SUELTOS = 'mh.lugares.sueltos'
 /** Con menos de esto el mapa no se ve y con más no cabe nada a su lado. */
 const ANCHO_MIN = 30
 const ANCHO_MAX = 100
@@ -56,6 +57,25 @@ function leerZona(): { lat: number; lng: number } | null {
   return null
 }
 
+/** Interruptores de la carpeta «Sin carpeta» (las de verdad los guardan en su fila y viajan por el sync). */
+export interface VerEnMapa {
+  pines: boolean
+  rutas: boolean
+}
+
+function leerSueltos(): VerEnMapa {
+  try {
+    const v: unknown = JSON.parse(localStorage.getItem(LS_SUELTOS) ?? 'null')
+    if (v && typeof v === 'object') {
+      const o = v as Partial<VerEnMapa>
+      return { pines: o.pines !== false, rutas: o.rutas === true }
+    }
+  } catch {
+    // Valor corrupto: como de fábrica.
+  }
+  return { pines: true, rutas: false }
+}
+
 interface PrefsNavegacionState {
   /** Modos marcados al abrir «Cómo llegar» (al menos uno). */
   modos: ModoNav[]
@@ -81,6 +101,9 @@ interface PrefsNavegacionState {
    * un lugar o fue a un lugar suyo): su pin es el del botón del menú del chat.
    */
   categoria: number | null
+  /** Qué se ve en el mapa de los lugares y trayectos sin carpeta. */
+  sueltos: VerEnMapa
+  setSueltos: (v: VerEnMapa) => void
   setModos: (modos: ModoNav[]) => void
   setVoz: (voz: boolean) => void
   setOptimo: (optimo: boolean) => void
@@ -99,6 +122,11 @@ export const usePrefsNavegacion = create<PrefsNavegacionState>((set) => ({
   anchoMapa: Math.min(ANCHO_MAX, Math.max(ANCHO_MIN, Number(localStorage.getItem(LS_ANCHO_MAPA)) || 50)),
   altoMapa: Number(localStorage.getItem(LS_ALTO_MAPA)) || null,
   categoria: Number(localStorage.getItem(LS_CATEGORIA)) || null,
+  sueltos: leerSueltos(),
+  setSueltos: (sueltos) => {
+    localStorage.setItem(LS_SUELTOS, JSON.stringify(sueltos))
+    set({ sueltos })
+  },
   setCategoria: (id) => {
     // Un lugar sin categoría no la cambia: el botón conserva el último pin.
     if (id == null) return

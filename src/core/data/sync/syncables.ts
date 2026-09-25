@@ -267,6 +267,7 @@ export const FK: Record<string, Record<string, string>> = {
   patrimonio: { metaId: 'metas' }, // la deuda o la inversión que se abona desde Metas
   bitacoraViaje: { lugarId: 'lugaresViaje' },
   lugaresNav: { categoriaId: 'categoriasLugar' },
+  trayectosViaje: { categoriaId: 'categoriasLugar' },
   diasItinerario: { lugarId: 'lugaresViaje' },
   portadasLugar: { lugarId: 'lugaresViaje' },
   sesionesHobby: { hobbyId: 'hobbies', proyectoId: 'proyectosHobby' },
@@ -353,6 +354,7 @@ export const ORDEN_TOPO: string[] = [
   // `categoriasLugar` no aparece antes (sin padres numéricos → se aplica
   // primero); el lugar guardado va después porque la referencia.
   'lugaresNav',
+  'trayectosViaje', // también cuelga de su carpeta
   // `proyectosHobby` antes que `sesionesHobby`: la sesión referencia al proyecto.
   'proyectosHobby',
   'sesionesHobby',

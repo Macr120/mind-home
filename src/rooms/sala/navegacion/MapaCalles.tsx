@@ -17,6 +17,17 @@ export interface PinLugar {
   color: string
 }
 
+/** Trayecto guardado trazado en el mapa con el color de su carpeta (interruptor «Rutas»). */
+export interface RutaGuardada {
+  id: number
+  nombre: string
+  color: string
+  /** Trazo del itinerario guardado; vacío si ya caducó (se ve una recta punteada de origen a destino). */
+  tramos: [number, number][][]
+  origen: PuntoNav
+  destino: PuntoNav
+}
+
 interface Props {
   origen: PuntoNav | null
   destino: PuntoNav | null
@@ -37,6 +48,12 @@ interface Props {
   lugares?: PinLugar[]
   /** Tocar un lugar guardado lo pone de destino. */
   onLugar?: (p: PuntoNav) => void
+  /** Trayectos guardados de las carpetas con el interruptor «Rutas» encendido. */
+  rutas?: RutaGuardada[]
+  /** Tocar una ruta guardada la abre. */
+  onRuta?: (id: number) => void
+  /** Puntos que encuadrar; cada `sello` nuevo mueve la cámara (al abrir una carpeta). */
+  encuadre?: { puntos: [number, number][]; sello: number } | null
 }
 
 const teselasDeTema = (idioma: string) =>
@@ -92,6 +109,9 @@ export default function MapaCalles({
   alto,
   lugares,
   onLugar,
+  rutas,
+  onRuta,
+  encuadre,
 }: Props) {
   const idioma = useAjustes((s) => s.idioma)
   const div = useRef<HTMLDivElement>(null)
@@ -101,6 +121,8 @@ export default function MapaCalles({
   const capaRuta = useRef<L.LayerGroup | null>(null)
   const capaPuntos = useRef<L.LayerGroup | null>(null)
   const capaLugares = useRef<L.LayerGroup | null>(null)
+  const capaGuardadas = useRef<L.LayerGroup | null>(null)
+  const onRutaRef = useRef(onRuta)
   const onTocarRef = useRef(onTocar)
   const onMoverRef = useRef(onMover)
   const onLugarRef = useRef(onLugar)
@@ -113,7 +135,8 @@ export default function MapaCalles({
     onTocarRef.current = onTocar
     onMoverRef.current = onMover
     onLugarRef.current = onLugar
-  }, [onTocar, onMover, onLugar])
+    onRutaRef.current = onRuta
+  }, [onTocar, onMover, onLugar, onRuta])
 
   // Las etiquetas del mapa siguen el idioma de la interfaz.
   useEffect(() => {
@@ -128,6 +151,8 @@ export default function MapaCalles({
     const m = L.map(el, { zoomControl: true, attributionControl: true, worldCopyJump: true })
     m.setView([20, 0], 2)
     capaTeselas.current = L.tileLayer(teselasDeTema(idiomaRef.current), { attribution: ATRIBUCION, maxZoom: 18 }).addTo(m)
+    // Las rutas guardadas, debajo de todo: la que se está consultando manda.
+    capaGuardadas.current = L.layerGroup().addTo(m)
     capaRuta.current = L.layerGroup().addTo(m)
     capaLugares.current = L.layerGroup().addTo(m)
     capaPuntos.current = L.layerGroup().addTo(m)
@@ -202,6 +227,43 @@ export default function MapaCalles({
         .addTo(capa)
     }
   }, [lugares])
+
+  // Rutas guardadas de las carpetas encendidas: un solo color, el de su carpeta.
+  useEffect(() => {
+    const capa = capaGuardadas.current
+    if (!capa) return
+    capa.clearLayers()
+    for (const r of rutas ?? []) {
+      const abrir = () => onRutaRef.current?.(r.id)
+      const trazos: [number, number][][] = r.tramos.length
+        ? r.tramos
+        : [[[r.origen.lat, r.origen.lng], [r.destino.lat, r.destino.lng]]]
+      for (const puntos of trazos) {
+        L.polyline(puntos, { color: '#000', weight: 7, opacity: 0.15 }).on('click', abrir).addTo(capa)
+        L.polyline(puntos, {
+          color: r.color,
+          weight: 4,
+          opacity: 0.75,
+          dashArray: r.tramos.length ? undefined : '6 8',
+          lineCap: 'round',
+        })
+          .bindTooltip(r.nombre, { sticky: true })
+          .on('click', abrir)
+          .addTo(capa)
+      }
+      for (const p of [r.origen, r.destino]) {
+        L.circleMarker([p.lat, p.lng], { radius: 4, color: r.color, weight: 2, fillColor: '#fff', fillOpacity: 1, interactive: false }).addTo(capa)
+      }
+    }
+  }, [rutas])
+
+  // Encuadre pedido desde fuera (abrir una carpeta): un punto se acerca, varios se abarcan.
+  useEffect(() => {
+    const m = mapa.current
+    if (!m || !encuadre?.puntos.length) return
+    if (encuadre.puntos.length === 1) m.setView(encuadre.puntos[0], Math.max(m.getZoom(), 14))
+    else m.fitBounds(L.latLngBounds(encuadre.puntos), { padding: [40, 40], maxZoom: 15 })
+  }, [encuadre])
 
   // Trazo del itinerario, un color por modo; encuadre al cambiar de itinerario.
   useEffect(() => {

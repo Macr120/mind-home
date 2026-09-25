@@ -417,6 +417,8 @@ interface DisenoState {
   setObjetoEnlace: (id: number, url: string | null, nombre?: string) => Promise<void>
   /** Asigna (o quita, con null) el programa del equipo de un objeto; excluyente con el enlace web. */
   setObjetoPrograma: (id: number, ruta: string | null, nombre?: string) => Promise<void>
+  /** Carpeta del enlace del objeto en «Tu navegador → Sitios»; null = la de su dominio. */
+  setObjetoCarpetaWeb: (id: number, clave: string | null) => Promise<void>
   /** Agrega un objeto LIBRE sobre el mapa (editor de mapa, inventario completo). */
   addObjetoMapa: (tipo: string, color: string) => Promise<void>
   /** Alberca: siembra su dona flotadora al llenarla de agua y la retira al vaciarla. */
@@ -2353,6 +2355,12 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       objetos: s.objetos.map((o) => (o.id === id ? { ...o, ...cambios } : o)),
     }))
     await db.objetosCuarto.update(id, cambios)
+  },
+
+  setObjetoCarpetaWeb: async (id, clave) => {
+    const patch = { carpetaWeb: clave ?? undefined }
+    set((s) => ({ objetos: s.objetos.map((o) => (o.id === id ? { ...o, ...patch } : o)) }))
+    await db.objetosCuarto.update(id, patch)
   },
 
   setObjetoPrograma: async (id, ruta, nombre) => {

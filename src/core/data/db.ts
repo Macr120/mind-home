@@ -1037,6 +1037,8 @@ export interface TrayectoViaje {
    * borra y el trayecto se recalcula al abrirlo (ver `docs/HERE.md`).
    */
   itinerario?: ItinerarioNav
+  /** Carpeta de lugares en la que vive (comparte su interruptor de rutas en el mapa). */
+  categoriaId?: number
   creadoEn: string
 }
 
@@ -1071,6 +1073,10 @@ export interface CategoriaLugar {
   icono: string
   /** Color del pin en hexadecimal (`#22c55e`). */
   color: string
+  /** Interruptor «Pines» de la carpeta: sus lugares se ven en el mapa (ausente = sí). */
+  verPines?: boolean
+  /** Interruptor «Rutas» de la carpeta: sus trayectos se trazan en el mapa (ausente = no). */
+  verRutas?: boolean
   creadoEn: string
 }
 
@@ -1363,6 +1369,11 @@ export interface ObjetoCuarto {
    * en móvil queda inerte. Sin índice: no pide versión nueva de Dexie.
    */
   programa?: string
+  /**
+   * Carpeta del enlace en «Tu navegador → Sitios» (clave de `categoriasWeb`);
+   * ausente = la categoría de su dominio. Sin índice: no pide versión de Dexie.
+   */
+  carpetaWeb?: string
   /** Solo objetos de biblioteca (roomId LIBRERIA): categoría/carpeta del inventario. */
   categoria?: string
   /** Solo objetos de biblioteca BASE: id del recurso del catálogo del que salió. */
