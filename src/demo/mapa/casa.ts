@@ -1,11 +1,11 @@
 /**
  * Cuadrante 1 · La casa de Pep@ (cols 0-5, rows 0-5).
  *
- * Los 15 cuartos con app viven en cols 1-3 × rows 1-3 (planta baja 3×3, ya sin
+ * Los cuartos con app viven en cols 1-3 × rows 1-3 (planta baja 3×3, ya sin
  * hueco: el centro es la sala de cómputo) y
  * cols 1-2 × rows 1-3 (piso 1, 2×3): la columna 3 queda descubierta para que
- * se vean los techos de abajo. El resto del cuadrante es su terreno: andador,
- * cochera y jardín delantero.
+ * se vean los techos de abajo. La columna 4 es el ala del Studio (3 abajo, 1
+ * arriba). El resto del cuadrante es su terreno: andador, cochera y jardín.
  *
  * El jardín (app Mindfulness) es el único de las 16 apps que vive fuera de
  * este cuadrante: normalmente está en su propia zona. Si el visitante no la
@@ -55,6 +55,43 @@ const PISO_UNO: { app: string; col: number; row: number }[] = [
   { app: 'ideas', col: 2, row: 3 },
 ]
 
+// Ala este (columna 4): el Studio. Tres abajo y la escritura arriba, sobre el
+// audio. Al crecer la casa hacia el este, la esquina NE redondeada se mudó de
+// entretenimiento/metas a esta columna, que es ahora la esquina.
+const ALA_STUDIO: {
+  app: string
+  col: number
+  row: number
+  nivel: number
+  piso: PisoTipoId
+  pisoColor?: string
+}[] = [
+  { app: 'audio', col: 4, row: 1, nivel: 0, piso: 'madera' },
+  { app: 'arte', col: 4, row: 2, nivel: 0, piso: 'parquet' },
+  { app: 'video', col: 4, row: 3, nivel: 0, piso: 'cemento', pisoColor: '#3f4750' },
+  { app: 'escritura', col: 4, row: 1, nivel: 1, piso: 'madera', pisoColor: '#a8763e' },
+]
+
+/**
+ * Un cuarto del Studio con su piso; los de la fila 1 (planta y piso) llevan la
+ * curva NE. Todo aquí y no en `construirCasa`: `completarCuartosDeApps` lo
+ * añade también sobre el snapshot, que no pasa por allí.
+ */
+async function crearCuartoStudio(c: (typeof ALA_STUDIO)[number]) {
+  const D = useDiseño.getState()
+  const id = await crearCuartoApp(c.app, c.col, c.row, c.nivel)
+  if (c.row === 1) await useLayout.getState().pintarSubformaCelda(id, 0, 0, 1, 'circular')
+  await D.setRoomPisoTipo(id, c.piso)
+  if (c.pisoColor) await D.setRoomPisoColor(id, c.pisoColor)
+  // El de arriba, con cúpula de pizarra como Metas (con recorte no hay aguas).
+  if (c.nivel === 1) {
+    await D.setRoomTechoForma(id, 'cupula')
+    await D.setRoomTechoParam(id, { altura: 1.15 })
+    await D.setRoomTechoTipo(id, 'losa_pizarra')
+  }
+  return id
+}
+
 /** Un cuarto de una celda con su app dentro, en el sitio que le toca del mapa. */
 async function crearCuartoApp(app: string, col: number, row: number, nivel: number) {
   const p = getPlantilla(app)
@@ -82,6 +119,7 @@ export async function completarCuartosDeApps(): Promise<void> {
   )
   for (const c of PLANTA_BAJA) if (!puestas.has(c.app)) await crearCuartoApp(c.app, c.col, c.row, 0)
   for (const c of PISO_UNO) if (!puestas.has(c.app)) await crearCuartoApp(c.app, c.col, c.row, 1)
+  for (const c of ALA_STUDIO) if (!puestas.has(c.app)) await crearCuartoStudio(c)
 }
 
 export async function construirCasa({
@@ -95,6 +133,7 @@ export async function construirCasa({
   const ids: Record<string, string> = {}
   for (const c of PLANTA_BAJA) ids[c.app] = await crearCuartoApp(c.app, c.col, c.row, 0)
   for (const c of PISO_UNO) ids[c.app] = await crearCuartoApp(c.app, c.col, c.row, 1)
+  for (const c of ALA_STUDIO) ids[c.app] = await crearCuartoStudio(c)
 
   // Escalera al piso 1 por el centro (la sala de cómputo ↔ idiomas).
   L().pedirAccesoNivel(1, 2, 2)
@@ -110,11 +149,10 @@ export async function construirCasa({
   const archivero = D().objetos.find((o) => o.roomId === ids.idiomas && o.tipo === 'recurso:22')
   if (archivero?.id != null) await D().removeObjeto(archivero.id)
 
-  // ── Figuras: tres esquinas redondeadas y dos chaflanes rectos ────────────
+  // ── Figuras: tres esquinas redondeadas y dos chaflanes rectos (la NE la
+  // pone `crearCuartoStudio`: audio abajo y escritura encima con la misma
+  // curva — sin ella su losa volaría sobre el vacío) ─────────────────────────
   await L().pintarSubformaCelda(ids.cocina, 0, 0, 0, 'circular') // NO de la casa
-  await L().pintarSubformaCelda(ids.entretenimiento, 0, 0, 1, 'circular') // NE
-  // Metas va justo encima: sin la misma curva, su losa volaría sobre el vacío.
-  await L().pintarSubformaCelda(ids.metas, 0, 0, 1, 'circular')
   await L().pintarSubformaCelda(ids.ejercicio, 0, 0, 2, 'circular') // SO
   await L().pintarSubformaCelda(ids.hobbies, 0, 0, 2, 'triangular') // SO del piso 1
   await L().pintarSubformaCelda(ids.ideas, 0, 0, 3, 'triangular') // SE del piso 1
@@ -185,13 +223,17 @@ export async function construirCasa({
 
   // ── Suelo de la casa: entarimado de parquet en TODO el bloque, bajo los
   // cuartos y el patio. Sin césped a la vista: la casa se apoya en su propia
-  // plataforma de madera y se despega del verde del resto del mapa. ─────────
-  await aplicarPisoExteriorCeldas(0, celdasRect(1, 1, 4, 4), 'parquet', '#9c6030')
+  // plataforma de madera y se despega del verde del resto del mapa. Llega
+  // hasta la columna 5 (encima de la calle): el ala del Studio se comió la
+  // franja de la columna 4 que la rodeaba por el este. ──────────────────────
+  await aplicarPisoExteriorCeldas(0, celdasRect(1, 1, 5, 4), 'parquet', '#9c6030')
   const enCelda = async (col: number, row: number, tipo: string, color: string) => {
     const { x, z } = mundo(col, row)
     return await D().addObjeto(MAPA_ROOM, tipo, color, undefined, { x, z })
   }
-  await enCelda(4, 3, 'bicicleta', '#ef4444')
+  // La columna 4 es ya el ala del Studio: bici y coche comparten la celda
+  // del patio, la bici al sur del coche.
+  await enCelda(4, 4.35, 'bicicleta', '#ef4444')
   const coche = await enCelda(4, 4, 'automovil', '#7a6a4f')
   await D().setObjetoRotacion(coche, 90)
   await D().setObjetoNombre(coche, 'Coche viejo')

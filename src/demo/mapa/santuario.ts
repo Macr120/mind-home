@@ -18,14 +18,12 @@ import {
   cultivosRepo,
 } from '../../core/data/repository'
 import { nombreAleatorio } from '../../core/house/nombresAnimales'
-import { MAPA_ROOM, useDiseño } from '../../core/state/disenoStore'
-import { areaUtilZona, celdasRect, mundo } from './cuadrantes'
+import { areaUtilZona, celdasRect } from './cuadrantes'
 
 const MIN = 60_000
 const DIA_MS = 86_400_000
 
 export async function construirSantuario(cols: number, rows: number): Promise<void> {
-  const D = useDiseño.getState
   const ahora = Date.now()
   const u = areaUtilZona('zona-santuario', cols, rows)
 
@@ -51,18 +49,22 @@ export async function construirSantuario(cols: number, rows: number): Promise<vo
     })
   }
 
-  // ── Corral chico: aves y recién llegados. Lleva 8 días sin limpiarse (se
-  // ve sucio: la demo invita a limpiar) y el cerdo llegó enfermo — curarlo
-  // es parte del paseo. ─────────────────────────────────────────────────────
+  // ── Corral chico (2×2, hasta el borde este): aves y recién llegados. Lleva
+  // 8 días sin limpiarse (se ve sucio: la demo invita a limpiar) y el cerdo
+  // llegó enfermo — curarlo es parte del paseo. ─────────────────────────────
   const corralChico = await corralesRepo.add({
     col: u.c0 + 3,
     row: u.r0,
-    ancho: 1,
+    ancho: 2,
     alto: 2,
-    accesorios: [{ tipo: 'lodo', col: u.c0 + 3, row: u.r0 + 1 }],
+    accesorios: [
+      { tipo: 'lodo', col: u.c0 + 3, row: u.r0 + 1 },
+      { tipo: 'tina', col: u.c0 + 4, row: u.r0 },
+      { tipo: 'pelota', col: u.c0 + 4, row: u.r0 + 1 },
+    ],
     limpiadoEn: ahora - 8 * DIA_MS,
   })
-  for (const tipo of ['gallina', 'gallina', 'gallina', 'cabra'] as const) {
+  for (const tipo of ['gallina', 'gallina', 'gallina', 'cabra', 'cabra', 'cabra', 'oveja'] as const) {
     await animalesRepo.add({
       corralId: corralChico,
       tipo,
@@ -92,6 +94,12 @@ export async function construirSantuario(cols: number, rows: number): Promise<vo
   await cultivosRepo.add({ col: h.col + 2, row: h.row + 1 })
   await cultivosRepo.add({ col: h.col + 3, row: h.row + 1, especie: 'tomate', plantadoEn: ahora, regadoEn: ahora, aspersorEn: ahora, cosechas: 24 })
 
+  // ── La franja este (la columna que era de césped): el corral chico ocupa
+  // su mitad de arriba; abajo, dos parcelas más ────────────────────────────
+  const e = u.c0 + 4
+  await cultivosRepo.add({ col: e, row: h.row, especie: 'maiz', plantadoEn: ahora - 20 * MIN, regadoEn: ahora - 4 * MIN, cosechas: 17 })
+  await cultivosRepo.add({ col: e, row: h.row + 1, especie: 'calabaza', plantadoEn: ahora - 30 * MIN, regadoEn: ahora - 6 * MIN, cosechas: 9 })
+
   // La despensa de un año de cosechas (sin grano no se alimenta a nadie).
   await cestaRepo.add({ especie: 'maiz', cantidad: 180 })
   await cestaRepo.add({ especie: 'zanahoria', cantidad: 96 })
@@ -100,11 +108,7 @@ export async function construirSantuario(cols: number, rows: number): Promise<vo
   await cestaRepo.add({ especie: 'girasol', cantidad: 31 })
   await cestaRepo.add({ especie: 'calabaza', cantidad: 12 })
 
-  // ── Suelos y letrero ─────────────────────────────────────────────────────
-  await aplicarPisoExteriorCeldas(0, celdasRect(u.c0, u.r0, u.c0 + 3, u.r0 + 1), 'arena', '#d9c38a')
-  await aplicarPisoExteriorCeldas(0, celdasRect(h.col, h.row, h.col + 3, h.row + 1), 'desierto', '#9c7a50')
-
-  const letrero = await D().addObjeto(MAPA_ROOM, 'espectacular', '#3f6212', undefined, mundo(u.c0 + 4, u.r0 + 3))
-  await D().setObjetoTexto(letrero, 'SANTUARIO')
-  await D().addObjeto(MAPA_ROOM, 'estanque', '#38bdf8', undefined, mundo(u.c0 + 4, u.r0 + 2))
+  // ── Suelos: sin césped a la vista, todo es granja ────────────────────────
+  await aplicarPisoExteriorCeldas(0, celdasRect(u.c0, u.r0, u.c0 + 4, u.r0 + 1), 'arena', '#d9c38a')
+  await aplicarPisoExteriorCeldas(0, celdasRect(h.col, h.row, h.col + 4, h.row + 1), 'desierto', '#9c7a50')
 }

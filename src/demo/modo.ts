@@ -35,7 +35,12 @@ import { idiomaActual } from '../core/i18n/useT'
 // v33: fuera el archivero de idiomas (`casa.json` retocado a mano): la escalera
 // sube por la esquina NE y lo atravesaba. Sin subirla, la demo cacheada se
 // repone desde su foto vieja con el mueble adentro.
-const DEMO_VERSION = 33
+// v34: ala este del Studio (audio, arte y video abajo, escritura arriba; la
+// curva NE se mudó a esa columna), la franja de césped del santuario con el
+// corral chico crecido a 2×2 y dos parcelas más, y la carpeta Studio en el
+// snapshot. `casa.json` retocado a mano; el spawn y el farol de la parada
+// salieron de la columna 4.
+const DEMO_VERSION = 34
 const LS_VERSION = 'mh.demo.version'
 const LS_INTENT = 'mh.demo.intent'
 

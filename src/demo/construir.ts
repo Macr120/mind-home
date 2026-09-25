@@ -125,9 +125,14 @@ async function construir(onProgreso?: ProgresoDemo, apps?: string[]): Promise<vo
       await construirCasaPep()
     }
     // El punto de aparición depende del tamaño del mapa: se fija explícito
-    // (el andador del patio) para no nacer dentro de la casa ni en un muro.
-    const { mundo } = await import('./mapa/cuadrantes')
-    const { x, z } = mundo(4, 2)
+    // (el patio, entre la planta y el coche) para no nacer dentro de la casa
+    // ni en un muro — la columna 4 ya es el ala del Studio. A mano y no con
+    // `mundo()`: tras restaurar el snapshot, `walls.ts` aún no conoce la rejilla
+    // de 18×12 y daría un punto de la rejilla por defecto (fuera de la casa).
+    const { TAM_CELDA, dimsMapaDemo } = await import('./mapa/cuadrantes')
+    const { cols, rows } = dimsMapaDemo()
+    const x = (3.5 - (cols - 1) / 2) * TAM_CELDA
+    const z = (4 - (rows - 1) / 2) * TAM_CELDA
     guardarSpawnDemo(x, z)
 
     empezar('demo.paso.catalogos')

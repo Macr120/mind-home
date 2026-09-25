@@ -37,7 +37,8 @@ function celdasAnillo(cols: number, rows: number): Cell[] {
  * asignado de cada zona coincide siempre con el borde del mapa recortado.
  */
 const LADO_ANDEN: Record<string, { lado: 'N' | 'S' | 'E' | 'O'; offset: number }> = {
-  'zona-casa': { lado: 'N', offset: 4 },
+  // La columna 4 es el ala del Studio: la parada baja a la calle (columna 5).
+  'zona-casa': { lado: 'N', offset: 5 },
   'zona-canchas': { lado: 'N', offset: 2 },
   'zona-santuario': { lado: 'E', offset: 2 },
   'zona-pista': { lado: 'O', offset: 0 },
@@ -95,7 +96,7 @@ export async function construirTren(cols: number, rows: number): Promise<void> {
   // Los andenes NO se pavimentan (decisión de autoría, ago 2026): el adoquín gris
   // de las 6 paradas cortaba el césped en seco y el anillo se lee igual de bien
   // sin ellas. `andenes()` se conserva porque sigue dando la posición del farol.
-  // Farol solo en la parada de la casa (celda del andador, siempre libre).
+  // Farol solo en la parada de la casa (celda de la calle, siempre libre).
   const casa = andenes(cols, rows)[0]
   if (casa) {
     const { x, z } = mundo(casa.junto.col, casa.junto.row)

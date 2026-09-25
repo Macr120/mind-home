@@ -127,7 +127,7 @@ export function focoCanchas(...clases: ClaseCancha[]): RegionMapa | null {
 export function focoCorral(indice: 0 | 1): RegionMapa | null {
   return indice === 0
     ? focoZonaOffset('zona-santuario', 0, 0, 2, 1, { color: AMBAR_FOCO })
-    : focoZonaOffset('zona-santuario', 3, 0, 3, 1, { color: AMBAR_FOCO })
+    : focoZonaOffset('zona-santuario', 3, 0, 4, 1, { color: AMBAR_FOCO })
 }
 
 /** El bloque de parcelas del huerto (las 4×2 celdas que siembra el santuario). */
