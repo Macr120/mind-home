@@ -38,8 +38,12 @@ interface Suscripcion {
 }
 
 /** La respuesta de `GET /v1/subscribers/{uid}` en lo que aquí importa. */
+interface CompraUnicaRC {
+  store_transaction_id?: string | null
+}
+
 interface SubscriberRC {
-  non_subscriptions?: Record<string, unknown[]>
+  non_subscriptions?: Record<string, CompraUnicaRC[]>
   subscriptions?: Record<string, Suscripcion>
 }
 
@@ -108,9 +112,10 @@ Deno.serve(async (req) => {
 
   // La casa: cualquier pago único de unlock, de cualquier tienda.
   let unlock = false
-  for (const producto of Object.keys(subscriber.non_subscriptions ?? {})) {
+  for (const [producto, compras] of Object.entries(subscriber.non_subscriptions ?? {})) {
     if (!esUnlock(producto)) continue
-    const error = await aplicarUnlock(admin, usuario.id)
+    // La primera compra de la lista: su id es el mismo que manda el webhook.
+    const error = await aplicarUnlock(admin, usuario.id, compras?.[0]?.store_transaction_id ?? null)
     if (error) {
       console.error('[confirmar-compra] unlock:', error)
       return json({ ok: false, error: 'bd' }, 500, cors)

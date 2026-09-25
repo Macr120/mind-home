@@ -122,7 +122,8 @@ Deno.serve(async (req) => {
     const productoTienda = String(evento.product_id ?? '')
     const producto = idBase(productoTienda)
     if (esUnlock(productoTienda)) {
-      const error = await aplicarUnlock(admin, uid)
+      const transaccion = String(evento.original_transaction_id ?? evento.transaction_id ?? '') || null
+      const error = await aplicarUnlock(admin, uid, transaccion)
       if (error) return errorBd(error)
     } else if (producto in CREDITOS) {
       // Recarga de créditos. A diferencia de los updates de plan, sumar NO es
