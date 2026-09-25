@@ -231,6 +231,12 @@ export const TEXTOS = {
     '<strong>Cámara y micrófono:</strong> solo cuando los activas (máscara AR, foto para el chat, dictado por voz). La máscara se procesa en tu dispositivo; el audio del dictado y las fotos que adjuntas al chat se envían a los proveedores de IA únicamente para generar esa respuesta.',
   'priv.datos.6':
     '<strong>Datos de salud y bienestar:</strong> lo que registras sobre ejercicio, alimentación, medicamentos, citas médicas o ciclo se guarda para ti como cualquier otro dato de la app; nunca se vende ni se usa para publicidad.',
+  'priv.datos.7':
+    '<strong>Ubicación:</strong> solo cuando la usas. Para calcular una ruta y durante la navegación, tu ubicación precisa y tu destino se envían a HERE Technologies; el cardio con GPS guarda el recorrido del entrenamiento con tus datos. Nunca la compartimos con otros usuarios.',
+  'priv.datos.8':
+    '<strong>Mensajes y contenido compartido:</strong> si eliges un alias y agregas contactos, guardamos tu alias, tu nombre visible, tu emoji y el retrato de tu personaje, y los mensajes, archivos y espacios compartidos que envías, para entregarlos a las personas que eliges. Solo los ven quienes participan en esa conversación o espacio. Si reportas algo, guardamos una copia de lo reportado para revisarlo.',
+  'priv.datos.9':
+    '<strong>Navegador:</strong> el historial y el tiempo en cada sitio se guardan en tu dispositivo. Solo se suben a nuestros servidores si activas su sincronización, y los dominios se envían a la IA solo si pides clasificarlos.',
   'priv.salud.h': 'Alcance de las funciones de salud',
   'priv.salud.p':
     'MindHaOS es una agenda personal, no una aplicación médica. Sus funciones de salud son un registro que escribes tú y unos recordatorios: la app no diagnostica, no interpreta síntomas, no recomienda dosis ni tratamientos, no comprueba interacciones entre medicamentos y no sustituye la consulta con un profesional sanitario. Las estimaciones del ciclo salen solo de los datos que introduces y son orientativas. No es un producto sanitario ni un dispositivo médico, y no se conecta con expedientes clínicos, aseguradoras ni proveedores de salud.',
@@ -268,6 +274,8 @@ export const TEXTOS = {
   'priv.proveedores.3': 'Anthropic y Google (respuestas e imágenes de IA, bajo demanda).',
   'priv.proveedores.4':
     'OpenAI (transcripción de voz y respaldo de imágenes de IA, bajo demanda).',
+  'priv.proveedores.5':
+    'HERE Technologies (mapas, búsqueda de lugares y rutas, bajo demanda).',
   'priv.cambios.h': 'Cambios',
   'priv.cambios.p':
     'Si esta política cambia, publicaremos aquí la versión nueva con su fecha. Las dudas se atienden en el correo de contacto.',
@@ -307,6 +315,18 @@ export const TEXTOS = {
   'term.razonable.h': 'Uso razonable',
   'term.razonable.p':
     'La cuota de créditos de IA es por cuenta personal. No está permitido revender el servicio, compartir la cuenta de forma masiva ni automatizar el consumo de IA fuera de la app.',
+  'term.comunidad.h':
+    'Normas de la comunidad',
+  'term.comunidad.p':
+    'MindHaOS te deja escribir a tus contactos, compartir contenido de tus cuartos, visitar otras casas y trabajar en espacios compartidos. Para usar estas funciones aceptas estas normas:',
+  'term.comunidad.1':
+    'No envíes acoso, amenazas, odio o discriminación, contenido sexual, violencia, spam, estafas ni nada ilegal.',
+  'term.comunidad.2':
+    'No toleramos el contenido abusivo. Desde la app puedes reportar cualquier mensaje, contacto o miembro de un espacio, y bloquear a quien quieras.',
+  'term.comunidad.3':
+    'Revisamos cada reporte en menos de 24 horas: retiramos el contenido que incumple estas normas y expulsamos del servicio a quien lo envió.',
+  'term.comunidad.4':
+    'Eres responsable de lo que envías y compartes. También puedes avisarnos por correo (ver Contacto).',
   'term.cambios.h': 'Cambios en el servicio',
   'term.cambios.p':
     'Podemos actualizar la app y estos términos; los cambios de precio se avisan con anticipación y nunca se aplican retroactivamente a un periodo ya pagado.',

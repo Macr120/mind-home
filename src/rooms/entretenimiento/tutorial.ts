@@ -72,7 +72,7 @@ export const cuerpoJuegos: CuerpoTutorial = {
       titulo: T('tut.app-entretenimiento--juegos.2.titulo', 'Por familia'),
       texto: T(
         'tut.app-entretenimiento--juegos.2.texto',
-        'Tablero, Ingenio, Arcade, Cartas y casino, Para el grupo: cada familia con su color propio. Ajedrez, damas, dominó, blackjack, tetris, buscaminas y más de una docena más.',
+        'Tablero, Ingenio, Arcade, Cartas, Para el grupo: cada familia con su color propio. Ajedrez, damas, dominó, solitario, tetris, buscaminas y más de una docena más.',
       ),
     },
     {
@@ -122,7 +122,7 @@ export const cuerpoEsencial: CuerpoTutorial = {
       titulo: T('tut.app-entretenimiento--esencial.3.titulo', 'Por familias'),
       texto: T(
         'tut.app-entretenimiento--esencial.3.texto',
-        'El catálogo se agrupa en familias —tablero, ingenio, arcade, cartas y casino, y para el grupo— cada una con su propio color. Toca cualquier tarjeta para abrir el juego en pantalla completa.',
+        'El catálogo se agrupa en familias —tablero, ingenio, arcade, cartas y para el grupo— cada una con su propio color. Toca cualquier tarjeta para abrir el juego en pantalla completa.',
       ),
     },
     {

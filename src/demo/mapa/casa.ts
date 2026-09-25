@@ -55,9 +55,10 @@ const PISO_UNO: { app: string; col: number; row: number }[] = [
   { app: 'ideas', col: 2, row: 3 },
 ]
 
-// Ala este (columna 4): el Studio. Tres abajo y la escritura arriba, sobre el
-// audio. Al crecer la casa hacia el este, la esquina NE redondeada se mudó de
-// entretenimiento/metas a esta columna, que es ahora la esquina.
+// Ala este (columna 4): el Studio. Tres abajo; arriba la escritura, sobre el
+// audio, y el Archivo, sobre el arte. Al crecer la casa hacia el este, la
+// esquina NE redondeada se mudó de entretenimiento/metas a esta columna, que es
+// ahora la esquina.
 const ALA_STUDIO: {
   app: string
   col: number
@@ -70,6 +71,7 @@ const ALA_STUDIO: {
   { app: 'arte', col: 4, row: 2, nivel: 0, piso: 'parquet' },
   { app: 'video', col: 4, row: 3, nivel: 0, piso: 'cemento', pisoColor: '#3f4750' },
   { app: 'escritura', col: 4, row: 1, nivel: 1, piso: 'madera', pisoColor: '#a8763e' },
+  { app: 'archivos', col: 4, row: 2, nivel: 1, piso: 'cemento', pisoColor: '#5b6b7a' },
 ]
 
 /**

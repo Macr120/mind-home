@@ -127,6 +127,7 @@ export type CodigoErrorEspacio =
   | 'cambio-grande'
   | 'snapshot-grande'
   | 'version'
+  | 'normas'
   | 'red'
   | 'servidor'
 

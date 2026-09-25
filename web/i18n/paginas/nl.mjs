@@ -219,6 +219,12 @@ export const TEXTOS = {
     '<strong>Camera en microfoon:</strong> alleen als je ze aanzet (AR-masker, foto voor de chat, spraakdictaat). Het masker wordt op je apparaat verwerkt; de audio van het dictaat en de foto’s die je aan de chat toevoegt gaan alleen naar de AI-leveranciers om dat antwoord te maken.',
   'priv.datos.6':
     '<strong>Gezondheids- en welzijnsgegevens:</strong> wat je noteert over beweging, maaltijden, medicijnen, doktersafspraken of cyclus wordt voor jou bewaard zoals alle andere app-gegevens; het wordt nooit verkocht of voor reclame gebruikt.',
+  'priv.datos.7':
+    '<strong>Locatie:</strong> alleen wanneer je die gebruikt. Om een route te berekenen en tijdens het navigeren worden je precieze locatie en je bestemming naar HERE Technologies gestuurd; cardio met gps bewaart de route van je training bij je gegevens. We delen die nooit met andere gebruikers.',
+  'priv.datos.8':
+    '<strong>Berichten en gedeelde inhoud:</strong> als je een alias kiest en contacten toevoegt, bewaren we je alias, je zichtbare naam, je emoji en het portret van je personage, en de berichten, bestanden en gedeelde ruimtes die je verstuurt, om ze te bezorgen bij de mensen die jij kiest. Alleen wie aan dat gesprek of die ruimte deelneemt, ziet ze. Als je iets meldt, bewaren we een kopie van het gemelde om het te beoordelen.',
+  'priv.datos.9':
+    '<strong>Browser:</strong> de geschiedenis en de tijd per website worden op je apparaat bewaard. Ze komen alleen op onze servers terecht als je de synchronisatie daarvan aanzet, en domeinen gaan alleen naar de AI als je vraagt om ze in te delen.',
   'priv.salud.h': 'Reikwijdte van de gezondheidsfuncties',
   'priv.salud.p':
     'MindHaOS is een persoonlijke agenda, geen medische toepassing. De gezondheidsfuncties zijn een logboek dat je zelf bijhoudt en een paar herinneringen: de app stelt geen diagnose, duidt geen symptomen, beveelt geen doseringen of behandelingen aan, controleert geen wisselwerking tussen medicijnen en vervangt het consult van een zorgverlener niet. De cyclusvoorspelling volgt alleen uit de gegevens die je invoert en is indicatief. Het is geen gezondheidsproduct of medisch hulpmiddel en maakt geen verbinding met medische dossiers, verzekeraars of zorgaanbieders.',
@@ -255,6 +261,8 @@ export const TEXTOS = {
   'priv.proveedores.3': 'Anthropic en Google (AI-antwoorden en -beelden, op verzoek).',
   'priv.proveedores.4':
     'OpenAI (spraaktranscriptie en AI-beeld-fallback, op verzoek).',
+  'priv.proveedores.5':
+    'HERE Technologies (kaarten, zoeken naar plaatsen en routes, op verzoek).',
   'priv.cambios.h': 'Wijzigingen',
   'priv.cambios.p':
     'Als dit beleid verandert, publiceren we hier de nieuwe versie met haar datum. Vragen beantwoorden we op het contactadres.',
@@ -294,6 +302,18 @@ export const TEXTOS = {
   'term.razonable.h': 'Redelijk gebruik',
   'term.razonable.p':
     'Het AI-creditquotum geldt voor een persoonlijk account. Het is niet toegestaan de dienst door te verkopen, het account massaal te delen of het AI-verbruik buiten de app om te automatiseren.',
+  'term.comunidad.h':
+    'Regels van de gemeenschap',
+  'term.comunidad.p':
+    'Met MindHaOS kun je je contacten schrijven, inhoud uit je kamers delen, andere huizen bezoeken en in gedeelde ruimtes werken. Om deze functies te gebruiken ga je akkoord met deze regels:',
+  'term.comunidad.1':
+    'Stuur geen intimidatie, bedreigingen, haat of discriminatie, seksuele inhoud, geweld, spam, oplichting of iets illegaals.',
+  'term.comunidad.2':
+    'We tolereren geen beledigende inhoud. Vanuit de app kun je elk bericht, contact of lid van een ruimte melden en iedereen blokkeren die je wilt.',
+  'term.comunidad.3':
+    'We bekijken elke melding binnen 24 uur: we verwijderen inhoud die deze regels overtreedt en zetten de afzender uit de dienst.',
+  'term.comunidad.4':
+    'Je bent verantwoordelijk voor wat je verstuurt en deelt. Je kunt het ons ook per e-mail laten weten (zie Contact).',
   'term.cambios.h': 'Wijzigingen in de dienst',
   'term.cambios.p':
     'We kunnen de app en deze voorwaarden bijwerken; prijswijzigingen kondigen we vooraf aan en gelden nooit met terugwerkende kracht voor een al betaalde periode.',

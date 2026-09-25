@@ -67,17 +67,19 @@ export const IT_TUT: Dict = {
   'tut.app-computo--hojas.5.titulo': 'Esportare',
   'tut.app-computo--hojas.5.texto':
     'In Excel esce un .xlsx vero, con le formule vive e i grafici come grafici di Excel. In PDF esce dalla stampa del browser.',
-  'tut.casa.1.texto': "Questa è la tua MindHaOS: ogni stanza contiene un'app. Ti mostro i comandi di base.",
+  'tut.casa.1.texto': 'Questa è la tua MindHaOS: ogni stanza contiene un\'app. Ti mostro i comandi di base.',
   'tut.casa.2.titulo': 'Il menu principale',
-  'tut.casa.2.texto': 'L\'ho aperto perché tu lo veda: è il menu principale, con le tue stanze e le loro app. Le altre schede portano gli Interni (il catalogo di app) e gli Esterni, ciò che si costruisce sul terreno.',
+  'tut.casa.2.texto':
+    'L\'ho aperto perché tu lo veda: è il menu principale, con le tue stanze e le loro app. Le altre schede portano gli Interni (il catalogo di app) e gli Esterni, ciò che si costruisce sul terreno.',
   'tut.casa.2b.titulo': 'Il catalogo delle app',
   'tut.casa.2b.texto':
     'La sua seconda scheda: il catalogo dei modelli — tutte le app che la MindHaOS può portare, ognuna pronta per essere assegnata a una stanza.',
   'tut.casa.2c.titulo': 'Gli esterni',
-  'tut.casa.2c.texto': 'E la terza: gli Esterni — piste da corsa, campi, orto, santuario e paintball, che non occupano una stanza ma si costruiscono sul terreno.',
+  'tut.casa.2c.texto':
+    'E la terza: gli Esterni — piste da corsa, campi, orto, santuario e paintball, che non occupano una stanza ma si costruiscono sul terreno.',
   'tut.casa.3.titulo': 'Muoversi',
   'tut.casa.3.texto':
-    "Cammina con il joystick, con WASD o con le frecce della tastiera: tutta la MindHaOS si percorre a piedi. Passeggiare non apre le app — per entrare, tocca l'oggetto con la sfera fluttuante della stanza.",
+    'Cammina con il joystick, con WASD o con le frecce della tastiera: tutta la MindHaOS si percorre a piedi. Passeggiare non apre le app — per entrare, tocca l\'oggetto con la sfera fluttuante della stanza.',
   'tut.casa.4.titulo': 'Tre modi di guardare',
   'tut.casa.4.texto':
     'Te le ho appena mostrate dal vivo: isometrica, terza e prima persona (o il tasto V). Toccare Iso ricentra anche la telecamera sul tuo personaggio: l\'uscita rapida se l\'esplorazione ti ha portato lontano.',
@@ -89,13 +91,13 @@ export const IT_TUT: Dict = {
     'Eccola aperta: movimenti, giocattoli, veicoli e costruzione, fino a 3 equipaggiati alla volta. Esce dal pulsante accanto al joystick, o dal riquadro nell\'angolo quando hai le mani libere.',
   'tut.casa.7.titulo': 'L\'orologio',
   'tut.casa.7.texto':
-    "L'ora della MindHaOS: toccarla apre il calendario completo, con le sue Missioni del giorno. E il sole o la luna aprono questo pannello: lo scorrere del tempo e la luce della scena.",
+    'L\'ora della MindHaOS: toccarla apre il calendario completo, con le sue Missioni del giorno. E il sole o la luna aprono questo pannello: lo scorrere del tempo e la luce della scena.',
   'tut.casa.8.titulo': 'La musica della MindHaOS',
   'tut.casa.8.texto':
-    "La MindHaOS parte in silenzio: se vuoi una colonna sonora, accendi qui la musica. Ogni stanza porta canzoni a tema precaricate, oppure lascia suonare l'atmosfera generale della MindHaOS.",
+    'La MindHaOS parte in silenzio: se vuoi una colonna sonora, accendi qui la musica. Ogni stanza porta canzoni a tema precaricate, oppure lascia suonare l\'atmosfera generale della MindHaOS.',
   'tut.casa.9.titulo': 'La chat',
   'tut.casa.9.texto':
-    "La chat dell'architetto: raccontagli cosa hai fatto e lo registra nell'app giusta, chiedigli modifiche alla MindHaOS, immagini e perfino modelli 3D per le tue stanze — o semplicemente fai due chiacchiere.",
+    'La chat dell\'architetto: raccontagli cosa hai fatto e lo registra nell\'app giusta, chiedigli modifiche alla MindHaOS, immagini e perfino modelli 3D per le tue stanze — o semplicemente fai due chiacchiere.',
   'tut.casa.asistente.titulo': 'Il tuo assistente',
   'tut.casa.asistente.texto':
     'Questo pulsante è il tuo assistente: chi ti risponde nella chat. Toccalo per aprire il suo menu e personalizzarlo — la sua forma, la sua voce e la sua personalità.',
@@ -107,7 +109,8 @@ export const IT_TUT: Dict = {
     'Il pulsante Editor in alto apre questo: la personalizzazione completa in quattro schede — Mappa, Personaggi, Oggetti e Impostazioni. Qui si disegna e si veste la MindHaOS intera.',
   'tut.casa.10.texto':
     'Questo è l\'essenziale. Ogni menu e ogni app hanno il loro pulsante ? con il loro tutorial: chiedilo quando qualcosa non ti torna.',
-  'tut.primeros.1.texto': 'Questo tutorial risponde a due cose: come ENTRARE nelle tue app e come CREARNE una nuova. Entrambe vivono qui, nella scheda Casa.',
+  'tut.primeros.1.texto':
+    'Questo tutorial risponde a due cose: come ENTRARE nelle tue app e come CREARNE una nuova. Entrambe vivono qui, nella scheda Casa.',
   'tut.primeros.entrar.titulo': 'Entrare nelle tue app',
   'tut.primeros.entrar.texto':
     'Ogni stanza porta la sua app e hai tre porte: la sua scheda qui nel menu, l\'oggetto con la sfera fluttuante sulla mappa, e l\'accesso rapido del pulsante MindHaOS in alto.',
@@ -160,9 +163,11 @@ export const IT_TUT: Dict = {
   'tut.menu-plantillas.1.texto':
     'Un modello è un\'app (Cucina, Palestra, Finanze…). Si assegna a un oggetto di una stanza e si apre quando entri.',
   'tut.menu-plantillas.2.titulo': 'Due viste',
-  'tut.menu-plantillas.2.texto': 'Produttività sono le app di lavoro e vita quotidiana; Creatività è lo Studio: audio, arte, scrittura e video. Tutte si assegnano allo stesso modo, a un oggetto di una stanza.',
+  'tut.menu-plantillas.2.texto':
+    'Produttività sono le app di lavoro e vita quotidiana; Creatività è lo Studio: audio, arte, scrittura e video. Tutte si assegnano allo stesso modo, a un oggetto di una stanza.',
   'tut.menu-plantillas.3.titulo': 'Il catalogo',
-  'tut.menu-plantillas.3.texto': 'Le app di serie e le tue, organizzate in gruppi. Toccane una per assegnarla a una stanza.',
+  'tut.menu-plantillas.3.texto':
+    'Le app di serie e le tue, organizzate in gruppi. Toccane una per assegnarla a una stanza.',
   'tut.menu-plantillas.4.titulo': 'I tuoi modelli',
   'tut.menu-plantillas.4.texto':
     'Crea modelli tuoi assemblandoli con blocchi: note, checklist, contatori, abitudini, gallerie… Questo pulsante apre il suo editor, con il suo tutorial.',
@@ -184,26 +189,31 @@ export const IT_TUT: Dict = {
     'Con un nome e almeno un blocco, Salva la lascia pronta nel catalogo. Da lì si assegna a un oggetto come qualsiasi modello di serie.',
   'tut.plantillas-custom.6.texto':
     'Puoi rimetterci mano quando vuoi: i suoi blocchi e i suoi dati restano al loro posto, cambia solo quello che modifichi.',
-  'tut.menu-inventario.1.texto': "L'inventario: tutti gli oggetti che puoi mettere nella tua MindHaOS, pronti da trascinare.",
+  'tut.menu-inventario.1.texto':
+    'L\'inventario: tutti gli oggetti che puoi mettere nella tua MindHaOS, pronti da trascinare.',
   'tut.menu-inventario.2.titulo': 'Mappa',
-  'tut.menu-inventario.2.texto': 'Quello che è GIÀ posizionato, stanza per stanza: tocca una miniatura per modificare quell\'oggetto.',
+  'tut.menu-inventario.2.texto':
+    'Quello che è GIÀ posizionato, stanza per stanza: tocca una miniatura per modificare quell\'oggetto.',
   'tut.menu-inventario.3.titulo': 'Catalogo',
-  'tut.menu-inventario.3.texto': 'Tutti gli oggetti che esistono, in due cartelle: quelli normali e quelli speciali — quelli che fanno qualcosa, come veicoli guidabili, fontane, giochi da parco e luci.',
+  'tut.menu-inventario.3.texto':
+    'Tutti gli oggetti che esistono, in due cartelle: quelli normali e quelli speciali — quelli che fanno qualcosa, come veicoli guidabili, fontane, giochi da parco e luci.',
   'tut.menu-inventario.4.titulo': 'Posizionare',
-  'tut.menu-inventario.4.texto': 'Con il catalogo aperto, trascina una miniatura dritta nella scena 3D per metterla dove vuoi.',
-  'tut.menu-inventario.5.texto': 'L\'altro ramo, Crea, serve a fare oggetti nuovi a pezzi o con l\'IA, e a modificare quello che hai selezionato.',
+  'tut.menu-inventario.4.texto':
+    'Con il catalogo aperto, trascina una miniatura dritta nella scena 3D per metterla dove vuoi.',
+  'tut.menu-inventario.5.texto':
+    'L\'altro ramo, Crea, serve a fare oggetti nuovi a pezzi o con l\'IA, e a modificare quello che hai selezionato.',
   'tut.editor-mapa.1.texto':
-    "L'editor della MindHaOS ha 4 schede: Mappa, Personaggi, Oggetti e Impostazioni. Questo tour è quello di Mappa; gli altri tre hanno il loro.",
+    'L\'editor della MindHaOS ha 4 schede: Mappa, Personaggi, Oggetti e Impostazioni. Questo tour è quello di Mappa; gli altri tre hanno il loro.',
   'tut.editor-mapa.2.titulo': 'La pianta',
   'tut.editor-mapa.2.texto':
     'Disegni su una griglia vista dall\'alto: stanze, muri, porte, finestre e pavimenti, con le modalità e i pennelli della barra in alto. Quello che tracci compare subito nel 3D, senza ricaricare nulla.',
   'tut.editor-mapa.3.texto':
     'I tetti si mettono cella per cella: ognuna può avere la sua forma o il suo materiale, così una stessa stanza può combinare falde diverse invece di un unico tetto piatto.',
   'tut.editor-mapa.4.texto':
-    "Anche la MindHaOS ha livelli: piani impilabili verso l'alto e un seminterrato verso il basso. Ogni nuovo livello nasce con il suo modo di salire —una scala o un'apertura nella soletta— che perfora il piano di sopra.",
+    'Anche la MindHaOS ha livelli: piani impilabili verso l\'alto e un seminterrato verso il basso. Ogni nuovo livello nasce con il suo modo di salire —una scala o un\'apertura nella soletta— che perfora il piano di sopra.',
   'tut.editor-mapa.5.titulo': 'Fatto',
   'tut.editor-mapa.5.texto':
-    "Tutto si salva da solo mentre modifichi. Fatto chiude l'editor e ti riporta al gioco con la MindHaOS esattamente come l'hai lasciata.",
+    'Tutto si salva da solo mentre modifichi. Fatto chiude l\'editor e ti riporta al gioco con la MindHaOS esattamente come l\'hai lasciata.',
   'tut.editor-personajes.1.texto':
     'Il tuo personaggio principale e i tuoi assistenti vivono nello stesso editor: scegli in alto chi modificare e gli strumenti cambiano in base a ciò che ha senso per ognuno.',
   'tut.editor-personajes.2.titulo': 'Volto e foto',
@@ -236,7 +246,7 @@ export const IT_TUT: Dict = {
     'Il tema della mappa (luce, nebbia, illuminazione) e gli stili degli effetti visivi, tutto caricato su richiesta per non appesantire l\'avvio.',
   'tut.editor-config.4.titulo': 'Interfaccia e lingua',
   'tut.editor-config.4.texto':
-    "Lingua, tema dell'interfaccia (chiaro/scuro/automatico), stile delle icone e densità — tutto ciò che cambia COME si vede la MindHaOS, non cosa contiene.",
+    'Lingua, tema dell\'interfaccia (chiaro/scuro/automatico), stile delle icone e densità — tutto ciò che cambia COME si vede la MindHaOS, non cosa contiene.',
   'tut.editor-config.5.titulo': 'Notifiche',
   'tut.editor-config.5.texto':
     'Quali avvisi arrivano e quali stanno zitti: routine, avvisi dei piani e promemoria si spengono ognuno per conto suo.',
@@ -308,7 +318,7 @@ export const IT_TUT: Dict = {
   'tut.navegacion.6.texto':
     'Il pulsante Editor in alto funziona in qualsiasi vista: aprilo in 3ª/1ª persona e modifichi camminando, toccando oggetti, muri o personaggi lì dove sono.',
   'tut.chat.1.texto':
-    "La chat dell'architetto: registra la tua giornata, modifica la MindHaOS e risponde ai tuoi dubbi, tutto dalla stessa casella.",
+    'La chat dell\'architetto: registra la tua giornata, modifica la MindHaOS e risponde ai tuoi dubbi, tutto dalla stessa casella.',
   'tut.chat.2.titulo': 'Scrivere',
   'tut.chat.2.texto':
     'Scrivi liberamente: «ho corso 20 min», «ho speso 250 al supermercato»… Il chip di fianco mostra a quale app andrà. Usa @stanza per forzare la destinazione se indovina male.',
@@ -342,7 +352,8 @@ export const IT_TUT: Dict = {
   'tut.chat-registros.2.texto':
     'Dati che l\'assistente ha deciso valesse la pena ricordare tra una sessione e l\'altra —un\'allergia, un obiettivo, una preferenza— per non doverteli chiedere di nuovo. Si dimenticano toccando la loro ✕.',
   'tut.chat-registros.grafo.titulo': 'Il tuo grafo della memoria',
-  'tut.chat-registros.grafo.texto': 'Ogni ricordo si collega da solo a ciò che nomina delle tue app —persone, ricette, obiettivi, luoghi— e ad altri ricordi. Qui lo vedi come una mappa; tocca un ricordo per correggerlo o collegarlo a mano.',
+  'tut.chat-registros.grafo.texto':
+    'Ogni ricordo si collega da solo a ciò che nomina delle tue app —persone, ricette, obiettivi, luoghi— e ad altri ricordi. Qui lo vedi come una mappa; tocca un ricordo per correggerlo o collegarlo a mano.',
   'tut.chat-registros.3.texto':
     'Quello che registri nelle tue app (pasti, spese, sessioni) vive in ogni app, non qui: questa scheda è solo la memoria della conversazione stessa.',
   'tut.app-generica.1.texto':
@@ -355,7 +366,7 @@ export const IT_TUT: Dict = {
     'Questo modello è costruito con blocchi (note, liste, contatori, abitudini…). Puoi cambiarli in Menu › Modelli › modifica.',
   'tut.app-generica.4.titulo': 'Uscire',
   'tut.app-generica.4.texto':
-    "«Torna alla MindHaOS» chiude l'app e ti lascia di nuovo nel 3D. Quello che hai registrato qui è già salvato.",
+    '«Torna alla MindHaOS» chiude l\'app e ti lascia di nuovo nel 3D. Quello che hai registrato qui è già salvato.',
   'tut.enlaces.1.titulo': 'Dall\'obiettivo alla sua app',
   'tut.enlaces.1.texto':
     'Qualsiasi obiettivo o passo di un piano può portare un chip con l\'icona di un\'app: è la risposta a «e questo dove si registra?».',
@@ -383,7 +394,7 @@ export const IT_TUT: Dict = {
   'tut.musica.6.texto':
     'Il pulsante dell\'HUD si può togliere dalla schermata principale; resta comunque disponibile in Editor › Impostazioni › Musica.',
   'tut.cuenta-ia.1.texto':
-    "Qui si accende l'IA della MindHaOS: senza, la chat continua a funzionare per parole chiave, e funzioni come generare una ricetta, un piano o un'immagine restano spente.",
+    'Qui si accende l\'IA della MindHaOS: senza, la chat continua a funzionare per parole chiave, e funzioni come generare una ricetta, un piano o un\'immagine restano spente.',
   'tut.cuenta-ia.2.titulo': 'Con o senza account',
   'tut.cuenta-ia.2.texto':
     'Puoi usare l\'IA con la tua chiave del fornitore (senza account, senza crediti) o con un account che porta crediti e sincronizza tra dispositivi.',
@@ -401,7 +412,7 @@ export const IT_TUT: Dict = {
   'tut.ejemplos.2.texto':
     'Vedere un esempio non cancella né mescola niente di tuo: sono righe a sé, marcate come esempio, che si nascondono (non si cancellano) quando lo spegni. Riaccenderlo le riporta esattamente com\'erano.',
   'tut.ejemplos.3.texto':
-    "Nella MindHaOS demo (Casa Mentale OS) questa barra non compare: l'anno intero di Andrea svolge già quel ruolo, quindi non serve un esempio a parte.",
+    'Nella MindHaOS demo (Casa Mentale OS) questa barra non compare: l\'anno intero di Andrea svolge già quel ruolo, quindi non serve un esempio a parte.',
   'tut.hoy.1.texto':
     'Le missioni non vivono in un posto a parte: vivono DENTRO ogni app. Nell’intestazione di ogni stanza c’è il suo pulsante Missioni, con l’elenco di ciò che quell’app ti chiede OGGI.',
   'tut.hoy.2.titulo': 'Tre fonti, una lista',
@@ -547,7 +558,7 @@ export const IT_TUT: Dict = {
   'tut.infra-caminos--trazos.2.texto':
     'Le montagne russe del luna park salgono fino a sei livelli e le rampe tra una cella e l\'altra si interpolano da sole. Sali: il carrello percorre tutto il circuito chiuso.',
   'tut.infra-caminos--trazos.3.texto':
-    "Nella tua MindHaOS li disegni cella per cella con l'editor Circuiti, oppure a mano libera con il Tracciato libero per settori. Qui nella demo la mappa arriva già tracciata.",
+    'Nella tua MindHaOS li disegni cella per cella con l\'editor Circuiti, oppure a mano libera con il Tracciato libero per settori. Qui nella demo la mappa arriva già tracciata.',
   'tut.infra-canchas--jugar.1.texto':
     'Questo è il centro sportivo di Andrea: calcio, pallacanestro, tennis e baseball, uno accanto all\'altro. Ogni campo è un rettangolo sulla mappa — entrarci camminando fa partire il suo gioco.',
   'tut.infra-canchas--jugar.2.texto':
@@ -672,7 +683,8 @@ export const IT_TUT: Dict = {
   'tut.app-ideas--decidir.4.texto':
     'Non è una tela, è una tabella: ogni opzione contro ogni criterio, con un peso da 1 a 5 secondo quanto ti importa quel criterio. Il totale ordina le opzioni da solo.',
   'tut.calendario.1.titulo': 'L\'orologio',
-  'tut.calendario.1.texto': "Il calendario non è una stanza: vive nell'orologio della MindHaOS, così si apre da dove sei.",
+  'tut.calendario.1.texto':
+    'Il calendario non è una stanza: vive nell\'orologio della MindHaOS, così si apre da dove sei.',
   'tut.calendario.2.titulo': 'Una settimana vera',
   'tut.calendario.2.texto':
     'Turni al bar, lezioni di fisica, corsa all\'alba, pianoforte la sera. Ogni blocco è una routine con la sua ora e il suo colore; si trascinano per spostarle e si allungano per cambiarne la durata.',
@@ -696,7 +708,7 @@ export const IT_TUT: Dict = {
     'I due buchi sono veri: l\'infortunio al ginocchio del mese 7 e le tre settimane in Giappone. Saltare dei giorni non cancella i progressi — il pannello mostra l\'anno com\'è stato, non come sarebbe dovuto essere. E una routine conta solo dal giorno in cui l\'hai creata.',
   'tut.metas.0.titulo': 'Il centro dei tuoi obiettivi',
   'tut.metas.0.texto':
-    "Questa stanza non conserva nulla di suo. Gli obiettivi nascono nelle altre app —correre in Esercizio, la laurea in Biblioteca, risparmiare in Finanze— e qui si riuniscono TUTTI: è l'unico posto della MindHaOS dove si vedono insieme, da qualunque stanza arrivino.",
+    'Questa stanza non conserva nulla di suo. Gli obiettivi nascono nelle altre app —correre in Esercizio, la laurea in Biblioteca, risparmiare in Finanze— e qui si riuniscono TUTTI: è l\'unico posto della MindHaOS dove si vedono insieme, da qualunque stanza arrivino.',
   'tut.metas.1.titulo': 'Ogni obiettivo, con la sua app',
   'tut.metas.1.texto':
     'Le cartelle non sono un ornamento: ognuna è l’app che porta quegli obiettivi, ed è lei a sapere se si compiono, perché è dove registri. «Casa» non è nessuna app — quella categoria se l’è inventata Andrea per i lavori della cucina.',
@@ -943,8 +955,6 @@ export const IT_TUT: Dict = {
   'tut.app-entretenimiento--esencial.2.texto':
     'Il tavolo riunisce giochi digitali che si giocano direttamente sullo schermo. Un filtro separa quello pensato per uno o due giocatori da quello adatto a un gruppo più grande.',
   'tut.app-entretenimiento--esencial.3.titulo': 'Per famiglie',
-  'tut.app-entretenimiento--esencial.3.texto':
-    'Il catalogo è raggruppato in famiglie — da tavolo, rompicapo, arcade, carte e casinò, e per il gruppo — ognuna con il suo colore. Tocca qualsiasi scheda per aprire il gioco a schermo intero.',
   'tut.app-entretenimiento--esencial.4.titulo': 'Archivio',
   'tut.app-entretenimiento--esencial.4.texto':
     'L’archivio riunisce quello che guardi, leggi e giochi: ogni titolo con il suo stato, la sua valutazione e la tua recensione. Si può ordinare per genere, categoria, autore o data.',
@@ -1041,7 +1051,8 @@ export const IT_TUT: Dict = {
   'tut.app-sala--esencial.5.texto':
     'I ricordi dei luoghi che hai visitato, in album per paese: foto e aneddoti di ogni posto.',
   'tut.app-sala--esencial.6.titulo': 'Come arrivare',
-  'tut.app-sala--esencial.6.texto': 'Un navigatore porta a porta: scegli partenza e destinazione e combina piedi, mezzi pubblici, bici, moto e auto in un unico tragitto, con la mappa stradale e le indicazioni passo dopo passo.',
+  'tut.app-sala--esencial.6.texto':
+    'Un navigatore porta a porta: scegli partenza e destinazione e combina piedi, mezzi pubblici, bici, moto e auto in un unico tragitto, con la mappa stradale e le indicazioni passo dopo passo.',
   'tut.app-agenda--trabajo.1.titulo': 'La lista dei da fare',
   'tut.app-agenda--trabajo.1.texto':
     'Quello che va fatto ma non ha ancora un giorno vive qui, con la sua priorità. Niente ti obbliga a metterci una data solo per annotarlo.',
@@ -1117,7 +1128,7 @@ export const IT_TUT: Dict = {
     'Con il tuo peso, la tua altezza e la tua attività, l\'app calcola quanto ti serve al giorno e ripartisce i macro. Andrea ha fissato 2.400 calorie e un peso obiettivo a cui manca meno di un chilo.',
   'tut.app-cocina--alimentacion.2.titulo': 'Passo 2: quello che hai mangiato oggi',
   'tut.app-cocina--alimentacion.2.texto':
-    "Colazione, pranzo, cena e qualcosa fuori pasto: ogni registrazione riempie gli anelli del giorno. L'acqua ha il suo obiettivo, ed è quello che la MindHaOS guarda per dare il giorno per fatto.",
+    'Colazione, pranzo, cena e qualcosa fuori pasto: ogni registrazione riempie gli anelli del giorno. L\'acqua ha il suo obiettivo, ed è quello che la MindHaOS guarda per dare il giorno per fatto.',
   'tut.app-cocina--alimentacion.3.titulo': 'Passo 3: 74 chili, 67 chili',
   'tut.app-cocina--alimentacion.3.texto':
     'La curva di tutto l\'anno, con il suo plateau nel mese dell\'infortunio e il chilo preso in Giappone. Sotto ti dice a che ritmo stai andando e quando arriveresti di questo passo.',
@@ -1263,7 +1274,7 @@ export const IT_TUT: Dict = {
   'tut.app-garage--tramites.3.texto':
     'L\'officina di fiducia, l\'assicurazione, il centro revisioni, il negozio di bici del quartiere e il carro attrezzi di quella notte — con telefono e indirizzo a un tocco.',
   'tut.app-garage--tramites.4.texto':
-    "Tutte queste pratiche stanno anche nel calendario della MindHaOS, con il loro avviso in anticipo. E attenzione: i veicoli che si guidano sulla mappa sono un'altra cosa, vivono nell'Inventario.",
+    'Tutte queste pratiche stanno anche nel calendario della MindHaOS, con il loro avviso in anticipo. E attenzione: i veicoli che si guidano sulla mappa sono un\'altra cosa, vivono nell\'Inventario.',
   'tut.app-sala--mapa.1.titulo': 'Dove hai messo piede',
   'tut.app-sala--mapa.1.texto':
     'Quattro paesi e una manciata di città: quasi tutte dello stesso viaggio. Tocca uno qualsiasi dei tre numeri per vedere la lista sotto la mappa.',
@@ -1302,8 +1313,6 @@ export const IT_TUT: Dict = {
   'tut.app-entretenimiento--juegos.1.texto':
     '1–2 giocatori o 3+: il filtro nasconde quello che non va bene per il gruppo che hai davanti. I giochi segnati «2+» valgono in tutte e due le sezioni.',
   'tut.app-entretenimiento--juegos.2.titulo': 'Per famiglia',
-  'tut.app-entretenimiento--juegos.2.texto':
-    'Da tavolo, Rompicapo, Arcade, Carte e casinò, Per il gruppo: ogni famiglia con il suo colore. Scacchi, dama, domino, blackjack, tetris, campo minato e più di una dozzina di altri.',
   'tut.app-entretenimiento--juegos.3.titulo': 'Un tocco e si gioca',
   'tut.app-entretenimiento--juegos.3.texto':
     'Ogni scheda apre il gioco a schermo intero; quelli che lo prevedono hanno il selettore di difficoltà in alto. Tornare indietro ti riporta esattamente qui, senza perdere il segno.',
@@ -1324,4 +1333,8 @@ export const IT_TUT: Dict = {
   'tut.app-diario--reparto.2.titulo': 'Due fattorini',
   'tut.app-diario--reparto.2.texto':
     'Il Mago porta mondo, tecnologia ed economia alle 7:30. Laika porta le cose leggere quando le va. Ogni assistente sceglie le sue sezioni e il suo modo.',
+  'tut.app-entretenimiento--esencial.3.texto':
+    'Il catalogo è diviso in famiglie — da tavolo, ingegno, arcade, carte e di gruppo — ognuna con il suo colore. Tocca una scheda qualsiasi per aprire il gioco a schermo intero.',
+  'tut.app-entretenimiento--juegos.2.texto':
+    'Da tavolo, Ingegno, Arcade, Carte, Di gruppo: ogni famiglia con il suo colore. Scacchi, dama, domino, solitario, tetris, campo minato e più di una dozzina di altri.',
 }

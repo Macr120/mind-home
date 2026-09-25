@@ -218,6 +218,12 @@ export const TEXTOS = {
     '<strong>Kamera i mikrofon:</strong> tylko gdy je włączysz (maska AR, zdjęcie do czatu, dyktowanie głosowe). Maska jest przetwarzana na twoim urządzeniu; dźwięk dyktowania i zdjęcia dołączone do czatu trafiają do dostawców SI wyłącznie po to, by wygenerować tę odpowiedź.',
   'priv.datos.6':
     '<strong>Dane o zdrowiu i samopoczuciu:</strong> to, co zapisujesz o ćwiczeniach, posiłkach, lekach, wizytach lekarskich czy cyklu, jest przechowywane dla ciebie jak każde inne dane aplikacji; nigdy nie są sprzedawane ani wykorzystywane do reklam.',
+  'priv.datos.7':
+    '<strong>Lokalizacja:</strong> tylko wtedy, gdy z niej korzystasz. Aby wyznaczyć trasę i podczas nawigacji, twoja dokładna lokalizacja oraz cel podróży są wysyłane do HERE Technologies; cardio z GPS zapisuje trasę treningu wraz z twoimi danymi. Nigdy nie udostępniamy jej innym użytkownikom.',
+  'priv.datos.8':
+    '<strong>Wiadomości i udostępniane treści:</strong> jeśli wybierzesz alias i dodasz kontakty, przechowujemy twój alias, widoczną nazwę, emoji i portret twojej postaci, a także wiadomości, pliki i wspólne przestrzenie, które wysyłasz, aby dostarczyć je osobom, które wskażesz. Widzą je tylko uczestnicy danej rozmowy lub przestrzeni. Jeśli coś zgłosisz, zachowujemy kopię zgłoszonej treści, aby ją sprawdzić.',
+  'priv.datos.9':
+    '<strong>Przeglądarka:</strong> historia i czas spędzony na każdej stronie są zapisywane na twoim urządzeniu. Trafiają na nasze serwery tylko wtedy, gdy włączysz ich synchronizację, a domeny są wysyłane do SI tylko wtedy, gdy poprosisz o ich sklasyfikowanie.',
   'priv.salud.h': 'Zakres funkcji zdrowotnych',
   'priv.salud.p':
     'MindHaOS to osobisty planer, a nie aplikacja medyczna. Jego funkcje zdrowotne to zapiski, które prowadzisz sam, i kilka przypomnień: aplikacja nie diagnozuje, nie interpretuje objawów, nie zaleca dawek ani terapii, nie sprawdza interakcji między lekami i nie zastępuje konsultacji z pracownikiem ochrony zdrowia. Prognozy cyklu wynikają wyłącznie z danych, które wprowadzasz, i mają charakter orientacyjny. To nie jest produkt zdrowotny ani wyrób medyczny i nie łączy się z dokumentacją medyczną, ubezpieczycielami ani placówkami opieki zdrowotnej.',
@@ -254,6 +260,8 @@ export const TEXTOS = {
   'priv.proveedores.3': 'Anthropic i Google (odpowiedzi i obrazy SI, na żądanie).',
   'priv.proveedores.4':
     'OpenAI (transkrypcja głosu i zapasowe obrazy SI, na żądanie).',
+  'priv.proveedores.5':
+    'HERE Technologies (mapy, wyszukiwanie miejsc i trasy, na żądanie).',
   'priv.cambios.h': 'Zmiany',
   'priv.cambios.p':
     'Jeśli ta polityka się zmieni, opublikujemy tutaj nową wersję z datą. Pytania odbieramy pod adresem kontaktowym.',
@@ -293,6 +301,18 @@ export const TEXTOS = {
   'term.razonable.h': 'Rozsądne korzystanie',
   'term.razonable.p':
     'Pula kredytów SI dotyczy konta osobistego. Nie wolno odsprzedawać usługi, masowo współdzielić konta ani automatyzować zużycia SI poza aplikacją.',
+  'term.comunidad.h':
+    'Zasady społeczności',
+  'term.comunidad.p':
+    'MindHaOS pozwala pisać do kontaktów, udostępniać treści ze swoich pokoi, odwiedzać inne domy i pracować we wspólnych przestrzeniach. Korzystając z tych funkcji, akceptujesz te zasady:',
+  'term.comunidad.1':
+    'Nie wysyłaj nękania, gróźb, treści nienawistnych lub dyskryminujących, treści seksualnych, przemocy, spamu, oszustw ani niczego niezgodnego z prawem.',
+  'term.comunidad.2':
+    'Nie tolerujemy treści obraźliwych. W aplikacji możesz zgłosić dowolną wiadomość, kontakt lub członka przestrzeni, a także zablokować kogo zechcesz.',
+  'term.comunidad.3':
+    'Każde zgłoszenie sprawdzamy w mniej niż 24 godziny: usuwamy treści łamiące te zasady, a ich autora usuwamy z serwisu.',
+  'term.comunidad.4':
+    'Odpowiadasz za to, co wysyłasz i udostępniasz. Możesz też napisać do nas mailem (zobacz Kontakt).',
   'term.cambios.h': 'Zmiany w usłudze',
   'term.cambios.p':
     'Możemy aktualizować aplikację i ten regulamin; zmiany cen zapowiadamy z wyprzedzeniem i nigdy nie stosujemy ich wstecz do już opłaconego okresu.',

@@ -10,6 +10,7 @@ import { recibirAvisoEspacio } from '../espacios/avisos'
 import * as api from './api'
 import * as cache from './cache'
 import { useBuzon } from './buzonStore'
+import { asegurarNormas } from './normas'
 import { separarCita } from './cita'
 import { validarPaquete, type Paquete } from './compartibles'
 import { ErrorBuzon, esAdjunto, TOPE_TEXTO, topeDe, type AdjuntoRemoto, type ContenidoMensaje, type MensajeBuzon, type TipoAdjunto, type TipoMensaje } from './tipos'
@@ -370,6 +371,7 @@ async function aceptable(blob: Blob): Promise<Blob> {
  */
 export async function enviar(hiloId: string, o: EnvioPendiente): Promise<void> {
   if (!activo && !esDemo()) throw new ErrorBuzon('sin-sesion')
+  if (!esDemo() && !(await asegurarNormas())) throw new ErrorBuzon('normas')
   const tipo: TipoMensaje = o.paquete ? 'contenido' : o.adjunto ? o.adjunto.tipo : 'texto'
   const texto = o.texto.trim().slice(0, TOPE_TEXTO)
   if (tipo === 'texto' && !texto) return

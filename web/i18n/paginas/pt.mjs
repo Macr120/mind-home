@@ -218,6 +218,12 @@ export const TEXTOS = {
     '<strong>Câmera e microfone:</strong> só quando você os ativa (máscara AR, foto para o chat, ditado por voz). A máscara é processada no seu dispositivo; o áudio do ditado e as fotos que você anexa ao chat são enviados aos provedores de IA unicamente para gerar essa resposta.',
   'priv.datos.6':
     '<strong>Dados de saúde e bem-estar:</strong> o que você registra sobre exercício, alimentação, medicamentos, consultas médicas ou ciclo é guardado para você como qualquer outro dado do app; nunca é vendido nem usado para publicidade.',
+  'priv.datos.7':
+    '<strong>Localização:</strong> só quando você a usa. Para calcular uma rota e durante a navegação, sua localização precisa e seu destino são enviados à HERE Technologies; o cardio com GPS salva o percurso do treino com seus dados. Nunca a compartilhamos com outros usuários.',
+  'priv.datos.8':
+    '<strong>Mensagens e conteúdo compartilhado:</strong> se você escolher um apelido e adicionar contatos, guardamos seu apelido, seu nome visível, seu emoji e o retrato do seu personagem, além das mensagens, arquivos e espaços compartilhados que você envia, para entregá-los às pessoas que você escolher. Só quem participa dessa conversa ou espaço pode vê-los. Se você denunciar algo, guardamos uma cópia do que foi denunciado para analisá-lo.',
+  'priv.datos.9':
+    '<strong>Navegador:</strong> o histórico e o tempo em cada site ficam guardados no seu dispositivo. Eles só são enviados aos nossos servidores se você ativar a sincronização, e os domínios são enviados à IA só se você pedir para classificá-los.',
   'priv.salud.h': 'Alcance das funções de saúde',
   'priv.salud.p':
     'O MindHaOS é uma agenda pessoal, não um aplicativo médico. Suas funções de saúde são um registro que você mesmo escreve e alguns lembretes: o app não diagnostica, não interpreta sintomas, não recomenda doses nem tratamentos, não verifica interações entre medicamentos e não substitui a consulta com um profissional de saúde. As estimativas do ciclo saem apenas dos dados que você insere e são orientativas. Não é um produto de saúde nem um dispositivo médico, e não se conecta a prontuários, seguradoras ou prestadores de saúde.',
@@ -254,6 +260,8 @@ export const TEXTOS = {
   'priv.proveedores.3': 'Anthropic e Google (respostas e imagens de IA, sob demanda).',
   'priv.proveedores.4':
     'OpenAI (transcrição de voz e reserva de imagens de IA, sob demanda).',
+  'priv.proveedores.5':
+    'HERE Technologies (mapas, busca de lugares e rotas, sob demanda).',
   'priv.cambios.h': 'Mudanças',
   'priv.cambios.p':
     'Se esta política mudar, publicaremos aqui a versão nova com a sua data. As dúvidas são atendidas no e-mail de contato.',
@@ -292,6 +300,18 @@ export const TEXTOS = {
   'term.razonable.h': 'Uso razoável',
   'term.razonable.p':
     'A cota de créditos de IA é por conta pessoal. Não é permitido revender o serviço, compartilhar a conta de forma massiva nem automatizar o consumo de IA fora do app.',
+  'term.comunidad.h':
+    'Normas da comunidade',
+  'term.comunidad.p':
+    'O MindHaOS permite escrever para seus contatos, compartilhar conteúdo dos seus cômodos, visitar outras MindHaOS e trabalhar em espaços compartilhados. Para usar essas funções, você aceita estas normas:',
+  'term.comunidad.1':
+    'Não envie assédio, ameaças, ódio ou discriminação, conteúdo sexual, violência, spam, golpes nem nada ilegal.',
+  'term.comunidad.2':
+    'Não toleramos conteúdo abusivo. Pelo app você pode denunciar qualquer mensagem, contato ou membro de um espaço, e bloquear quem quiser.',
+  'term.comunidad.3':
+    'Analisamos cada denúncia em menos de 24 horas: removemos o conteúdo que descumpre estas normas e expulsamos do serviço quem o enviou.',
+  'term.comunidad.4':
+    'Você é responsável pelo que envia e compartilha. Também pode nos avisar por e-mail (ver Contato).',
   'term.cambios.h': 'Mudanças no serviço',
   'term.cambios.p':
     'Podemos atualizar o app e estes termos; as mudanças de preço são avisadas com antecedência e nunca se aplicam retroativamente a um período já pago.',

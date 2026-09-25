@@ -398,6 +398,10 @@ export async function rpcLocal(nombre: string, args: Record<string, unknown>): P
         return { ok: true }
       })
 
+    // En local no hay a quién avisar: el reporte solo existe en el servidor real.
+    case 'espacio_reportar':
+      return { ok: true }
+
     case 'espacio_salir':
       return conStore((s, avisar) => {
         const e = s.espacios[id]

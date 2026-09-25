@@ -218,6 +218,12 @@ export const TEXTOS = {
     '<strong>Camera and microphone:</strong> only when you turn them on (AR mask, chat photo, voice dictation). The mask is processed on your device; the dictation audio and the photos you attach to the chat are sent to the AI providers solely to generate that reply.',
   'priv.datos.6':
     '<strong>Health and wellbeing data:</strong> whatever you record about exercise, meals, medications, medical appointments or cycle is stored for you like any other app data; it is never sold or used for advertising.',
+  'priv.datos.7':
+    '<strong>Location:</strong> only when you use it. To calculate a route and during navigation, your precise location and destination are sent to HERE Technologies; GPS cardio saves the workout route with your data. We never share it with other users.',
+  'priv.datos.8':
+    '<strong>Messages and shared content:</strong> if you choose an alias and add contacts, we store your alias, display name, emoji and your character portrait, plus the messages, files and shared spaces you send, to deliver them to the people you choose. Only the participants of that conversation or space can see them. If you report something, we keep a copy of what was reported to review it.',
+  'priv.datos.9':
+    '<strong>Browser:</strong> your history and time on each site are stored on your device. They are only uploaded to our servers if you turn on their sync, and domains are sent to AI only if you ask to categorize them.',
   'priv.salud.h': 'Scope of the health features',
   'priv.salud.p':
     'MindHaOS is a personal planner, not a medical application. Its health features are a log you write yourself plus a few reminders: the app does not diagnose, does not interpret symptoms, does not recommend doses or treatments, does not check drug interactions and is no substitute for consulting a health professional. Cycle estimates are derived only from the data you enter and are indicative. It is not a health product or a medical device, and it does not connect to medical records, insurers or healthcare providers.',
@@ -254,6 +260,8 @@ export const TEXTOS = {
   'priv.proveedores.3': 'Anthropic and Google (AI replies and images, on demand).',
   'priv.proveedores.4':
     'OpenAI (voice transcription and AI image fallback, on demand).',
+  'priv.proveedores.5':
+    'HERE Technologies (maps, place search and routes, on demand).',
   'priv.cambios.h': 'Changes',
   'priv.cambios.p':
     'If this policy changes, we will publish the new version here with its date. Questions are answered at the contact address.',
@@ -292,6 +300,18 @@ export const TEXTOS = {
   'term.razonable.h': 'Reasonable use',
   'term.razonable.p':
     'The AI credit allowance is for a personal account. Reselling the service, sharing the account at scale or automating AI consumption outside the app are not allowed.',
+  'term.comunidad.h':
+    'Community rules',
+  'term.comunidad.p':
+    'MindHaOS lets you write to your contacts, share content from your rooms, visit other houses and work in shared spaces. To use these features you agree to these rules:',
+  'term.comunidad.1':
+    'Do not send harassment, threats, hate or discrimination, sexual content, violence, spam, scams or anything illegal.',
+  'term.comunidad.2':
+    'We do not tolerate abusive content. From the app you can report any message, contact or member of a space, and block anyone you want.',
+  'term.comunidad.3':
+    'We review every report within 24 hours: we remove content that breaks these rules and ban whoever sent it from the service.',
+  'term.comunidad.4':
+    'You are responsible for what you send and share. You can also tell us by email (see Contact).',
   'term.cambios.h': 'Changes to the service',
   'term.cambios.p':
     'We may update the app and these terms; price changes are announced in advance and are never applied retroactively to a period already paid for.',

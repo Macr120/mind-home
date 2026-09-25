@@ -218,6 +218,12 @@ export const TEXTOS = {
     '<strong>Kamera dan mikrofon:</strong> hanya saat kamu menyalakannya (masker AR, foto untuk chat, dikte suara). Masker diproses di perangkatmu; audio dikte dan foto yang kamu lampirkan ke chat dikirim ke penyedia AI semata untuk membuat jawaban itu.',
   'priv.datos.6':
     '<strong>Data kesehatan dan kesejahteraan:</strong> apa yang kamu catat tentang olahraga, makan, obat, janji medis, atau siklus disimpan untukmu seperti data aplikasi lainnya; tidak pernah dijual atau dipakai untuk iklan.',
+  'priv.datos.7':
+    '<strong>Lokasi:</strong> hanya saat kamu memakainya. Untuk menghitung rute dan selama navigasi, lokasi persismu dan tujuanmu dikirim ke HERE Technologies; kardio dengan GPS menyimpan jalur latihan bersama datamu. Kami tidak pernah membagikannya ke pengguna lain.',
+  'priv.datos.8':
+    '<strong>Pesan dan konten yang dibagikan:</strong> jika kamu memilih alias dan menambahkan kontak, kami menyimpan aliasmu, nama tampilanmu, emojimu dan potret karaktermu, serta pesan, berkas dan ruang bersama yang kamu kirim, untuk mengantarkannya ke orang-orang yang kamu pilih. Hanya peserta percakapan atau ruang itu yang bisa melihatnya. Jika kamu melaporkan sesuatu, kami menyimpan salinan hal yang dilaporkan untuk kami tinjau.',
+  'priv.datos.9':
+    '<strong>Peramban:</strong> riwayat dan waktu di tiap situs disimpan di perangkatmu. Semua itu hanya diunggah ke server kami jika kamu mengaktifkan sinkronisasinya, dan domain dikirim ke AI hanya jika kamu minta pengelompokan.',
   'priv.salud.h': 'Cakupan fitur kesehatan',
   'priv.salud.p':
     'MindHaOS adalah agenda pribadi, bukan aplikasi medis. Fitur kesehatannya hanyalah catatan yang kamu tulis sendiri dan beberapa pengingat: aplikasi ini tidak mendiagnosis, tidak menafsirkan gejala, tidak menganjurkan dosis atau pengobatan, tidak memeriksa interaksi obat, dan tidak menggantikan konsultasi dengan tenaga kesehatan. Perkiraan siklus dihitung hanya dari data yang kamu masukkan dan bersifat perkiraan. Ini bukan produk kesehatan atau alat medis, dan tidak terhubung dengan rekam medis, perusahaan asuransi, atau penyedia layanan kesehatan.',
@@ -254,6 +260,8 @@ export const TEXTOS = {
   'priv.proveedores.3': 'Anthropic dan Google (jawaban dan gambar AI, sesuai permintaan).',
   'priv.proveedores.4':
     'OpenAI (transkripsi suara dan gambar cadangan AI, sesuai permintaan).',
+  'priv.proveedores.5':
+    'HERE Technologies (peta, pencarian tempat dan rute, sesuai permintaan).',
   'priv.cambios.h': 'Perubahan',
   'priv.cambios.p':
     'Kalau kebijakan ini berubah, kami akan menerbitkan versi barunya di sini beserta tanggalnya. Pertanyaan dijawab lewat email kontak.',
@@ -293,6 +301,18 @@ export const TEXTOS = {
   'term.razonable.h': 'Pemakaian yang wajar',
   'term.razonable.p':
     'Kuota kredit AI berlaku untuk akun pribadi. Tidak diperbolehkan menjual kembali layanannya, membagikan akun secara massal, maupun mengotomatiskan konsumsi AI di luar aplikasi.',
+  'term.comunidad.h':
+    'Aturan komunitas',
+  'term.comunidad.p':
+    'MindHaOS memungkinkan kamu menulis ke kontakmu, membagikan konten dari ruanganmu, mengunjungi MindHaOS orang lain dan bekerja di ruang bersama. Untuk memakai fitur ini kamu menyetujui aturan berikut:',
+  'term.comunidad.1':
+    'Jangan mengirim pelecehan, ancaman, kebencian atau diskriminasi, konten seksual, kekerasan, spam, penipuan, atau apa pun yang melanggar hukum.',
+  'term.comunidad.2':
+    'Kami tidak menoleransi konten kasar. Dari dalam aplikasi kamu bisa melaporkan pesan, kontak atau anggota sebuah ruang, dan memblokir siapa pun yang kamu mau.',
+  'term.comunidad.3':
+    'Kami meninjau setiap laporan dalam kurang dari 24 jam: kami menghapus konten yang melanggar aturan ini dan mengeluarkan pengirimnya dari layanan.',
+  'term.comunidad.4':
+    'Kamu bertanggung jawab atas apa yang kamu kirim dan bagikan. Kamu juga bisa memberi tahu kami lewat surel (lihat Kontak).',
   'term.cambios.h': 'Perubahan pada layanan',
   'term.cambios.p':
     'Kami dapat memperbarui aplikasi dan ketentuan ini; perubahan harga diumumkan sebelumnya dan tidak pernah berlaku surut untuk periode yang sudah dibayar.',

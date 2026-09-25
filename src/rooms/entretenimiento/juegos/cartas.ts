@@ -1,4 +1,4 @@
-// Baraja inglesa compartida por Solitario y Blackjack.
+// Baraja inglesa del Solitario.
 type Palo = '♠' | '♥' | '♦' | '♣'
 
 export interface Carta {

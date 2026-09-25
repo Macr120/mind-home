@@ -69,12 +69,14 @@ export const TR_TUT: Dict = {
     'Excel’e gerçek bir .xlsx çıkar: formüller canlı, grafikler de Excel grafiği olarak. PDF ise tarayıcının yazıcısından geçer.',
   'tut.casa.1.texto': 'İşte MindHaOS\'un: her oda bir uygulama barındırır. Sana temel kontrolleri göstereyim.',
   'tut.casa.2.titulo': 'Ana menü',
-  'tut.casa.2.texto': 'Görebilesin diye açtım: bu ana menü, odaların ve uygulamalarıyla. Diğer sekmeleri İç mekânı (uygulama kataloğunu) ve araziye inşa edilen Dış mekânı getirir.',
+  'tut.casa.2.texto':
+    'Görebilesin diye açtım: bu ana menü, odaların ve uygulamalarıyla. Diğer sekmeleri İç mekânı (uygulama kataloğunu) ve araziye inşa edilen Dış mekânı getirir.',
   'tut.casa.2b.titulo': 'Uygulama kataloğu',
   'tut.casa.2b.texto':
     'İkinci sekmesi: şablon kataloğu — MindHaOS\'un taşıyabileceği bütün uygulamalar, her biri bir odaya atanmaya hazır.',
   'tut.casa.2c.titulo': 'Dış mekân',
-  'tut.casa.2c.texto': 'Ve üçüncüsü: Dış mekân — yarış pistleri, sahalar, bostan, sığınak ve paintball. Bir oda kaplamazlar, doğrudan araziye inşa edilirler.',
+  'tut.casa.2c.texto':
+    'Ve üçüncüsü: Dış mekân — yarış pistleri, sahalar, bostan, sığınak ve paintball. Bir oda kaplamazlar, doğrudan araziye inşa edilirler.',
   'tut.casa.3.titulo': 'Hareket etmek',
   'tut.casa.3.texto':
     'Joystick’le, WASD ile ya da klavyenin ok tuşlarıyla yürü: MindHaOS\'un tamamı yürüyerek gezilir. Gezinmek uygulamaları açmaz — girmek için odanın havada süzülen küreli nesnesine dokun.',
@@ -107,7 +109,8 @@ export const TR_TUT: Dict = {
     'Yukarıdaki Düzenleyici düğmesi bunu açar: dört sekmede kişiselleştirmenin tamamı — Harita, Karakterler, Nesneler ve Ayarlar. MindHaOS\'un tamamı burada çizilir ve giydirilir.',
   'tut.casa.10.texto':
     'Temeller bu kadar. Her menünün ve her uygulamanın kendi ? düğmesi ve kendi eğitimi var: bir şey kafana yatmadığında onu iste.',
-  'tut.primeros.1.texto': 'Bu eğitim iki şeyi yanıtlar: uygulamalarına nasıl GİRİLİR ve yenisi nasıl OLUŞTURULUR. İkisi de burada, Ev sekmesinde.',
+  'tut.primeros.1.texto':
+    'Bu eğitim iki şeyi yanıtlar: uygulamalarına nasıl GİRİLİR ve yenisi nasıl OLUŞTURULUR. İkisi de burada, Ev sekmesinde.',
   'tut.primeros.entrar.titulo': 'Uygulamalarına gir',
   'tut.primeros.entrar.texto':
     'Her oda kendi uygulamasını taşır ve üç kapın var: burada menüdeki kartı, haritadaki havada süzülen küreli nesne ve üstteki MindHaOS düğmesinin hızlı erişimi.',
@@ -160,9 +163,11 @@ export const TR_TUT: Dict = {
   'tut.menu-plantillas.1.texto':
     'Şablon bir uygulamadır (Mutfak, Spor Salonu, Finans…). Bir odadaki nesneye atanır ve içeri girdiğinde açılır.',
   'tut.menu-plantillas.2.titulo': 'İki görünüm',
-  'tut.menu-plantillas.2.texto': 'Üretkenlik iş ve günlük yaşam uygulamalarıdır; Yaratıcılık ise Studio: ses, sanat, yazı ve video. Hepsi aynı şekilde, bir odadaki nesneye atanır.',
+  'tut.menu-plantillas.2.texto':
+    'Üretkenlik iş ve günlük yaşam uygulamalarıdır; Yaratıcılık ise Studio: ses, sanat, yazı ve video. Hepsi aynı şekilde, bir odadaki nesneye atanır.',
   'tut.menu-plantillas.3.titulo': 'Katalog',
-  'tut.menu-plantillas.3.texto': 'Hazır gelen uygulamalar ve seninkiler, gruplar hâlinde. Bir odaya atamak için birine dokun.',
+  'tut.menu-plantillas.3.texto':
+    'Hazır gelen uygulamalar ve seninkiler, gruplar hâlinde. Bir odaya atamak için birine dokun.',
   'tut.menu-plantillas.4.titulo': 'Kendi şablonların',
   'tut.menu-plantillas.4.texto':
     'Kendi şablonlarını bloklarla kurarak oluştur: notlar, kontrol listeleri, sayaçlar, alışkanlıklar, galeriler… Bu düğme, kendi öğreticisi olan ayrı bir düzenleyici açar.',
@@ -188,10 +193,12 @@ export const TR_TUT: Dict = {
   'tut.menu-inventario.2.titulo': 'Harita',
   'tut.menu-inventario.2.texto': 'ZATEN yerleştirilmiş olanlar, oda oda: bir küçük resme dokunarak o nesneyi düzenle.',
   'tut.menu-inventario.3.titulo': 'Katalog',
-  'tut.menu-inventario.3.texto': 'Var olan bütün nesneler iki klasörde: sıradan olanlar ve özel olanlar — sürülebilen araçlar, çeşmeler, park oyuncakları ve ışıklar gibi bir şey yapanlar.',
+  'tut.menu-inventario.3.texto':
+    'Var olan bütün nesneler iki klasörde: sıradan olanlar ve özel olanlar — sürülebilen araçlar, çeşmeler, park oyuncakları ve ışıklar gibi bir şey yapanlar.',
   'tut.menu-inventario.4.titulo': 'Yerleştirme',
   'tut.menu-inventario.4.texto': 'Katalog açıkken bir küçük resmi doğrudan 3B sahneye sürükle ve istediğin yere bırak.',
-  'tut.menu-inventario.5.texto': 'Diğer dal olan Oluştur, parçalardan ya da yapay zekâyla yeni nesneler yapmak ve seçtiğini düzenlemek içindir.',
+  'tut.menu-inventario.5.texto':
+    'Diğer dal olan Oluştur, parçalardan ya da yapay zekâyla yeni nesneler yapmak ve seçtiğini düzenlemek içindir.',
   'tut.editor-mapa.1.texto':
     'MindHaOS düzenleyicisinin 4 sekmesi var: Harita, Karakterler, Nesneler ve Ayarlar. Bu tur Harita’nınki; diğer üçünün de kendi turu var.',
   'tut.editor-mapa.2.titulo': 'Plan',
@@ -253,7 +260,8 @@ export const TR_TUT: Dict = {
     'Geri yükleme, mevcut bütün verilerin yerine dosyadakileri KOYAR — önce onay ister ve kaç kayıt getirdiğini gösterir, yani sürpriz olmaz.',
   'tut.respaldo.4.texto':
     'Cihaz ya da tarayıcı değiştirmeden önce, hatta arada bir öylesine yedek almakta fayda var: hesabın yokken elindeki tek kopya bu.',
-  'tut.editor-cuarto.1.texto': 'Belirli bir odayı düzenliyorsun: plan da kamera da bütün MindHaOS\'a değil, ona odaklanır.',
+  'tut.editor-cuarto.1.texto':
+    'Belirli bir odayı düzenliyorsun: plan da kamera da bütün MindHaOS\'a değil, ona odaklanır.',
   'tut.editor-cuarto.2.titulo': 'Neler düzenlenir',
   'tut.editor-cuarto.2.texto':
     'Odanın şekli, zemini, duvarları, kapıları, rengi ve adı, bir de nesneleri. Atanan uygulama da buradan değişir: bu panele en çok onun için gelinir.',
@@ -340,7 +348,8 @@ export const TR_TUT: Dict = {
   'tut.chat-registros.2.texto':
     'Asistanın oturumlar arasında hatırlamaya değer bulduğu bilgiler —bir alerji, bir hedef, bir tercih— sana tekrar sormak zorunda kalmasın diye. ✕ işaretine dokununca unutulurlar.',
   'tut.chat-registros.grafo.titulo': 'Hafıza grafiğin',
-  'tut.chat-registros.grafo.texto': 'Her anı, uygulamalarından andığı şeylere —kişiler, tarifler, hedefler, yerler— ve diğer anılara kendiliğinden bağlanır. Burada bunu bir harita gibi görürsün; düzeltmek ya da elle bağlamak için bir anıya dokun.',
+  'tut.chat-registros.grafo.texto':
+    'Her anı, uygulamalarından andığı şeylere —kişiler, tarifler, hedefler, yerler— ve diğer anılara kendiliğinden bağlanır. Burada bunu bir harita gibi görürsün; düzeltmek ya da elle bağlamak için bir anıya dokun.',
   'tut.chat-registros.3.texto':
     'Uygulamalarına kaydettiklerin (öğünler, harcamalar, seanslar) burada değil, her uygulamanın kendi içinde yaşar: bu sekme yalnızca konuşmanın kendi hafızası.',
   'tut.app-generica.1.texto':
@@ -669,7 +678,8 @@ export const TR_TUT: Dict = {
   'tut.app-ideas--decidir.4.texto':
     'Bu bir tuval değil, bir tablo: her seçenek her kriterle karşı karşıya, o kriterin senin için taşıdığı öneme göre 1’den 5’e bir ağırlıkla. Toplam, seçenekleri kendiliğinden sıralar.',
   'tut.calendario.1.titulo': 'Saat',
-  'tut.calendario.1.texto': 'Takvim bir oda değil: MindHaOS\'un saatinde yaşar, o yüzden nerede olursan ol oradan açılır.',
+  'tut.calendario.1.texto':
+    'Takvim bir oda değil: MindHaOS\'un saatinde yaşar, o yüzden nerede olursan ol oradan açılır.',
   'tut.calendario.2.titulo': 'Gerçek bir hafta',
   'tut.calendario.2.texto':
     'Kafedeki vardiyalar, fizik dersleri, şafakta koşu, geceleri piyano. Her blok kendi saati ve rengi olan bir rutindir; taşımak için sürüklenir, süresini değiştirmek için uzatılır.',
@@ -940,8 +950,6 @@ export const TR_TUT: Dict = {
   'tut.app-entretenimiento--esencial.2.texto':
     'Masa, ekranda doğrudan oynanan dijital oyunları toplar. Bir filtre, bir ya da iki oyuncu için olanları daha büyük bir grup için uygun olanlardan ayırır.',
   'tut.app-entretenimiento--esencial.3.titulo': 'Ailelere göre',
-  'tut.app-entretenimiento--esencial.3.texto':
-    'Katalog ailelere göre gruplanmıştır — masa, zekâ, arcade, kart ve kumarhane, ve grup için — her birinin kendi rengiyle. Oyunu tam ekran açmak için herhangi bir karta dokun.',
   'tut.app-entretenimiento--esencial.4.titulo': 'Arşiv',
   'tut.app-entretenimiento--esencial.4.texto':
     'Arşiv izlediğin, okuduğun ve oynadığın şeyleri bir araya getirir: her yapımın durumu, puanı ve senin değerlendirmenle. Türe, kategoriye, yazara ya da tarihe göre sıralanabilir.',
@@ -1037,7 +1045,8 @@ export const TR_TUT: Dict = {
   'tut.app-sala--esencial.5.texto':
     'Ziyaret ettiğin yerlerin anıları, ülkeye göre albümlerde: her yerin fotoğrafları ve hikâyeleri.',
   'tut.app-sala--esencial.6.titulo': 'Yol tarifi',
-  'tut.app-sala--esencial.6.texto': 'Kapıdan kapıya bir navigatör: başlangıç ve varışı seç; yürüyüş, toplu taşıma, bisiklet, motosiklet ve arabayı tek bir yolculukta birleştir, sokak haritası ve adım adım yönergelerle.',
+  'tut.app-sala--esencial.6.texto':
+    'Kapıdan kapıya bir navigatör: başlangıç ve varışı seç; yürüyüş, toplu taşıma, bisiklet, motosiklet ve arabayı tek bir yolculukta birleştir, sokak haritası ve adım adım yönergelerle.',
   'tut.app-agenda--trabajo.1.titulo': 'Gelen kutusu',
   'tut.app-agenda--trabajo.1.texto':
     'İş’in iki görünümü var: Yapılacaklar kutusu ve Pano. Yapılması gereken ama henüz günü olmayan her şey, önceliğiyle birlikte Yapılacaklar’da durur; not almak için tarih koymak zorunda değilsin.',
@@ -1298,8 +1307,6 @@ export const TR_TUT: Dict = {
   'tut.app-entretenimiento--juegos.1.texto':
     '1-2 oyuncu ya da 3+ oyuncu: filtre, karşındaki gruba uymayanları gizler. «2+» işaretli oyunlar iki bölümde de çıkar.',
   'tut.app-entretenimiento--juegos.2.titulo': 'Kategorilere göre',
-  'tut.app-entretenimiento--juegos.2.texto':
-    'Masa Oyunları, Zeka Oyunları, Arcade, Kart Oyunları, Grup Oyunları: her kategorinin kendi rengi var. Satranç, Dama, Domino, Blackjack, Tetris, Mayın Tarlası ve bir düzineden fazla oyun daha.',
   'tut.app-entretenimiento--juegos.3.titulo': 'Bir dokunuş, oyun başlıyor',
   'tut.app-entretenimiento--juegos.3.texto':
     'Her kart oyunu tam ekran açar; destekleyenler üstte kendi Zorluk seçicisiyle gelir. Geri, yerini kaybetmeden seni tam buraya döndürür.',
@@ -1320,4 +1327,8 @@ export const TR_TUT: Dict = {
   'tut.app-diario--reparto.2.titulo': 'İki gazete dağıtıcısı',
   'tut.app-diario--reparto.2.texto':
     'Büyücü ona 7:30’da Dünya, Teknoloji ve Ekonomi bölümlerini getiriyor. Laika ise canı ne zaman isterse hafif olanları götürüyor. Her asistan kendi bölümlerini ve modunu seçer.',
+  'tut.app-entretenimiento--esencial.3.texto':
+    'Katalog ailelere ayrılır: masa oyunu, zeka, arcade, kart ve grup için; her biri kendi rengiyle. Oyunu tam ekran açmak için herhangi bir karta dokun.',
+  'tut.app-entretenimiento--juegos.2.texto':
+    'Masa oyunu, Zeka, Arcade, Kart, Grup için: her ailenin kendi rengi var. Satranç, dama, domino, solitaire, tetris, mayın tarlası ve bir düzineden fazlası.',
 }

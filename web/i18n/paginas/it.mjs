@@ -221,6 +221,12 @@ export const TEXTOS = {
     '<strong>Fotocamera e microfono:</strong> solo quando li attivi (maschera AR, foto per la chat, dettatura vocale). La maschera viene elaborata sul tuo dispositivo; l’audio della dettatura e le foto che alleghi alla chat vengono inviati ai fornitori di IA unicamente per generare quella risposta.',
   'priv.datos.6':
     '<strong>Dati di salute e benessere:</strong> ciò che registri su esercizio, alimentazione, farmaci, appuntamenti medici o ciclo viene conservato per te come ogni altro dato dell’app; non viene mai venduto né usato per pubblicità.',
+  'priv.datos.7':
+    '<strong>Posizione:</strong> solo quando la usi. Per calcolare un percorso e durante la navigazione, la tua posizione precisa e la tua destinazione vengono inviate a HERE Technologies; il cardio con GPS salva il tragitto dell\'allenamento insieme ai tuoi dati. Non la condividiamo mai con altri utenti.',
+  'priv.datos.8':
+    '<strong>Messaggi e contenuti condivisi:</strong> se scegli un alias e aggiungi contatti, conserviamo il tuo alias, il tuo nome visibile, la tua emoji e il ritratto del tuo personaggio, oltre ai messaggi, ai file e agli spazi condivisi che invii, per consegnarli alle persone che scegli. Li vedono solo le persone che partecipano a quella conversazione o a quello spazio. Se segnali qualcosa, conserviamo una copia di ciò che è stato segnalato per esaminarlo.',
+  'priv.datos.9':
+    '<strong>Navigatore:</strong> la cronologia e il tempo trascorso su ogni sito restano salvati sul tuo dispositivo. Vengono caricati sui nostri server solo se attivi la loro sincronizzazione, e i domini vengono inviati all\'IA solo se chiedi di classificarli.',
   'priv.salud.h': 'Ambito delle funzioni di salute',
   'priv.salud.p':
     'MindHaOS è un’agenda personale, non un’applicazione medica. Le sue funzioni di salute sono un registro che scrivi tu e qualche promemoria: l’app non diagnostica, non interpreta i sintomi, non consiglia dosi né terapie, non verifica le interazioni tra farmaci e non sostituisce il parere di un professionista sanitario. Le stime del ciclo derivano solo dai dati che inserisci e sono indicative. Non è un prodotto sanitario né un dispositivo medico e non si collega a cartelle cliniche, assicurazioni o strutture sanitarie.',
@@ -257,6 +263,8 @@ export const TEXTOS = {
   'priv.proveedores.3': 'Anthropic e Google (risposte e immagini di IA, su richiesta).',
   'priv.proveedores.4':
     'OpenAI (trascrizione vocale e immagini di IA di riserva, su richiesta).',
+  'priv.proveedores.5':
+    'HERE Technologies (mappe, ricerca di luoghi e percorsi, su richiesta).',
   'priv.cambios.h': 'Modifiche',
   'priv.cambios.p':
     'Se questa informativa cambia, pubblicheremo qui la nuova versione con la sua data. I dubbi si scrivono all’indirizzo di contatto.',
@@ -296,6 +304,18 @@ export const TEXTOS = {
   'term.razonable.h': 'Uso ragionevole',
   'term.razonable.p':
     'La quota di crediti di IA è per account personale. Non è consentito rivendere il servizio, condividere l’account in modo massivo né automatizzare il consumo di IA fuori dall’app.',
+  'term.comunidad.h':
+    'Regole della comunità',
+  'term.comunidad.p':
+    'MindHaOS ti permette di scrivere ai tuoi contatti, condividere contenuti delle tue stanze, visitare altre case e lavorare in spazi condivisi. Per usare queste funzioni accetti queste regole:',
+  'term.comunidad.1':
+    'Non inviare molestie, minacce, odio o discriminazioni, contenuti sessuali, violenza, spam, truffe né nulla di illegale.',
+  'term.comunidad.2':
+    'Non tolleriamo i contenuti offensivi. Dall\'app puoi segnalare qualsiasi messaggio, contatto o membro di uno spazio, e bloccare chi vuoi.',
+  'term.comunidad.3':
+    'Esaminiamo ogni segnalazione entro 24 ore: rimuoviamo i contenuti che violano queste regole ed espelliamo dal servizio chi li ha inviati.',
+  'term.comunidad.4':
+    'Sei responsabile di ciò che invii e condividi. Puoi anche avvisarci via email (vedi Contatto).',
   'term.cambios.h': 'Modifiche al servizio',
   'term.cambios.p':
     'Possiamo aggiornare l’app e questi termini; le variazioni di prezzo si annunciano in anticipo e non si applicano mai retroattivamente a un periodo già pagato.',

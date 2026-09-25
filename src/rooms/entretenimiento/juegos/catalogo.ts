@@ -4,8 +4,6 @@ export type IdJuegoReal =
   | 'j2048'
   | 'damas'
   | 'ajedrez'
-  | 'blackjack'
-  | 'ruleta'
   | 'buscaminas'
   | 'domino'
   | 'viborita'
@@ -33,7 +31,7 @@ export const FAMILIAS: { id: FamiliaJuego; labelEs: string; tono: string }[] = [
   { id: 'tablero', labelEs: 'Tablero', tono: '#fbbf24' },
   { id: 'ingenio', labelEs: 'Ingenio', tono: '#60a5fa' },
   { id: 'arcade', labelEs: 'Arcade', tono: '#22d3ee' },
-  { id: 'cartas', labelEs: 'Cartas y casino', tono: '#f472b6' },
+  { id: 'cartas', labelEs: 'Cartas', tono: '#f472b6' },
   { id: 'grupo', labelEs: 'Para el grupo', tono: '#a78bfa' },
 ]
 
@@ -56,8 +54,6 @@ export const JUEGOS_REALES: JuegoReal[] = [
   { id: 'j2048', familia: 'ingenio', nombre: '2048', icono: '🧮', jugadores: '1', descripcion: 'Desliza y fusiona hasta llegar a 2048.' },
   { id: 'damas', familia: 'tablero', nombre: 'Damas', icono: '🔴', jugadores: '1–2', descripcion: 'Salta y captura todas las fichas rivales.', dificultad: true },
   { id: 'ajedrez', familia: 'tablero', nombre: 'Ajedrez', icono: '♟️', jugadores: '1–2', descripcion: 'El clásico de estrategia, hasta el jaque mate.', dificultad: true },
-  { id: 'blackjack', familia: 'cartas', nombre: 'Blackjack', icono: '♠️', jugadores: '1', descripcion: 'Llega a 21 y vence al crupier.' },
-  { id: 'ruleta', familia: 'cartas', nombre: 'Ruleta', icono: '🎰', jugadores: '1', descripcion: 'Apuesta al rojo, al negro o a tu número.' },
   { id: 'buscaminas', familia: 'ingenio', nombre: 'Buscaminas', icono: '💣', jugadores: '1', descripcion: 'Despeja el campo sin pisar ninguna mina.', dificultad: true },
   { id: 'domino', familia: 'tablero', nombre: 'Dominó', icono: '🁢', jugadores: '1', descripcion: 'Doble seis contra la máquina, con pozo.', dificultad: true },
   { id: 'viborita', familia: 'arcade', nombre: 'Viborita', icono: '🐍', jugadores: '1', descripcion: 'Come manzanas sin morderte la cola.', dificultad: true },

@@ -69,12 +69,14 @@ export const PT_TUT: Dict = {
     'Para Excel sai um .xlsx de verdade, com as fórmulas vivas e os gráficos como gráficos do Excel. Em PDF sai pela impressora do navegador.',
   'tut.casa.1.texto': 'Esta é a sua MindHaOS: cada cômodo guarda um app. Vou te mostrar os controles básicos.',
   'tut.casa.2.titulo': 'O menu principal',
-  'tut.casa.2.texto': 'Abri para você ver: é o menu principal, com seus cômodos e seus apps. As outras abas trazem o Interior (o catálogo de apps) e o Exterior, o que se constrói no terreno.',
+  'tut.casa.2.texto':
+    'Abri para você ver: é o menu principal, com seus cômodos e seus apps. As outras abas trazem o Interior (o catálogo de apps) e o Exterior, o que se constrói no terreno.',
   'tut.casa.2b.titulo': 'O catálogo de apps',
   'tut.casa.2b.texto':
     'Sua segunda aba: o catálogo de modelos — todos os apps que a MindHaOS pode ter, cada um pronto para ser atribuído a um cômodo.',
   'tut.casa.2c.titulo': 'O exterior',
-  'tut.casa.2c.texto': 'E a terceira: o Exterior — pistas de corrida, quadras, horta, santuário e paintball, que não ocupam um cômodo e sim se constroem no terreno.',
+  'tut.casa.2c.texto':
+    'E a terceira: o Exterior — pistas de corrida, quadras, horta, santuário e paintball, que não ocupam um cômodo e sim se constroem no terreno.',
   'tut.casa.3.titulo': 'Mover-se',
   'tut.casa.3.texto':
     'Ande com o joystick, com WASD ou com as setas do teclado: a MindHaOS inteira se percorre a pé. Passear não abre os apps — para entrar, toque no objeto com a esfera flutuante do cômodo.',
@@ -107,7 +109,8 @@ export const PT_TUT: Dict = {
     'O botão Editor lá em cima abre isto: a personalização completa em quatro abas — Mapa, Personagens, Objetos e Configurações. É aqui que a MindHaOS inteira se desenha e se veste.',
   'tut.casa.10.texto':
     'Isso é o básico. Cada menu e cada app têm seu próprio botão ? com seu tutorial: peça quando algo não fizer sentido.',
-  'tut.primeros.1.texto': 'Este tutorial responde duas coisas: como ENTRAR nos seus apps e como CRIAR um novo. As duas vivem aqui, na aba Casa.',
+  'tut.primeros.1.texto':
+    'Este tutorial responde duas coisas: como ENTRAR nos seus apps e como CRIAR um novo. As duas vivem aqui, na aba Casa.',
   'tut.primeros.entrar.titulo': 'Entrar nos seus apps',
   'tut.primeros.entrar.texto':
     'Cada cômodo carrega seu app e você tem três portas: o cartão dele aqui no menu, o objeto com a esfera flutuante no mapa, e o acesso rápido do botão MindHaOS lá em cima.',
@@ -159,9 +162,11 @@ export const PT_TUT: Dict = {
   'tut.menu-plantillas.1.texto':
     'Um modelo é um app (Cozinha, Exercício, Finanças…). Ele é atribuído a um objeto de um cômodo e abre quando você entra.',
   'tut.menu-plantillas.2.titulo': 'Duas vistas',
-  'tut.menu-plantillas.2.texto': 'Produtividade são os apps de trabalho e do dia a dia; Criatividade é o Studio: áudio, arte, escrita e vídeo. Todos se atribuem igual, a um objeto de um cômodo.',
+  'tut.menu-plantillas.2.texto':
+    'Produtividade são os apps de trabalho e do dia a dia; Criatividade é o Studio: áudio, arte, escrita e vídeo. Todos se atribuem igual, a um objeto de um cômodo.',
   'tut.menu-plantillas.3.titulo': 'O catálogo',
-  'tut.menu-plantillas.3.texto': 'Os apps de fábrica e os seus, organizados em grupos. Toque em um para atribuí-lo a um cômodo.',
+  'tut.menu-plantillas.3.texto':
+    'Os apps de fábrica e os seus, organizados em grupos. Toque em um para atribuí-lo a um cômodo.',
   'tut.menu-plantillas.4.titulo': 'Modelos próprios',
   'tut.menu-plantillas.4.texto':
     'Crie modelos próprios montando-os com blocos: notas, checklists, contadores, hábitos, galerias… Este botão abre o editor dele, com o próprio tutorial.',
@@ -186,12 +191,16 @@ export const PT_TUT: Dict = {
   'tut.menu-inventario.1.texto':
     'O inventário: todos os objetos que você pode colocar na sua MindHaOS, prontos para arrastar.',
   'tut.menu-inventario.2.titulo': 'Mapa',
-  'tut.menu-inventario.2.texto': 'O que JÁ está colocado, cômodo a cômodo: toque em uma miniatura para editar esse objeto.',
+  'tut.menu-inventario.2.texto':
+    'O que JÁ está colocado, cômodo a cômodo: toque em uma miniatura para editar esse objeto.',
   'tut.menu-inventario.3.titulo': 'Catálogo',
-  'tut.menu-inventario.3.texto': 'Todos os objetos que existem, em duas pastas: os normais e os especiais — os que fazem algo, como veículos que se dirigem, fontes, brinquedos de parque e luzes.',
+  'tut.menu-inventario.3.texto':
+    'Todos os objetos que existem, em duas pastas: os normais e os especiais — os que fazem algo, como veículos que se dirigem, fontes, brinquedos de parque e luzes.',
   'tut.menu-inventario.4.titulo': 'Colocar',
-  'tut.menu-inventario.4.texto': 'Com o catálogo aberto, arraste uma miniatura direto para a cena 3D e coloque onde quiser.',
-  'tut.menu-inventario.5.texto': 'O outro ramo, Criar, é para fazer objetos novos por peças ou com IA, e para editar o que você tiver selecionado.',
+  'tut.menu-inventario.4.texto':
+    'Com o catálogo aberto, arraste uma miniatura direto para a cena 3D e coloque onde quiser.',
+  'tut.menu-inventario.5.texto':
+    'O outro ramo, Criar, é para fazer objetos novos por peças ou com IA, e para editar o que você tiver selecionado.',
   'tut.editor-mapa.1.texto':
     'O editor da MindHaOS tem 4 abas: Mapa, Personagens, Objetos e Configurações. Este tour é o do Mapa; os outros três têm o seu.',
   'tut.editor-mapa.2.titulo': 'A planta',
@@ -341,7 +350,8 @@ export const PT_TUT: Dict = {
   'tut.chat-registros.2.texto':
     'Dados que o assistente decidiu que valia a pena lembrar entre sessões —uma alergia, uma meta, uma preferência— para não perguntar de novo. Você os apaga tocando no ✕.',
   'tut.chat-registros.grafo.titulo': 'Seu grafo de memória',
-  'tut.chat-registros.grafo.texto': 'Cada memória se conecta sozinha ao que menciona dos seus apps —pessoas, receitas, metas, lugares— e a outras memórias. Aqui você vê isso como um mapa; toque em uma memória para corrigi-la ou conectá-la à mão.',
+  'tut.chat-registros.grafo.texto':
+    'Cada memória se conecta sozinha ao que menciona dos seus apps —pessoas, receitas, metas, lugares— e a outras memórias. Aqui você vê isso como um mapa; toque em uma memória para corrigi-la ou conectá-la à mão.',
   'tut.chat-registros.3.texto':
     'O que você registrou nos seus apps (refeições, gastos, sessões) vive em cada app, não aqui: esta aba é só a memória da conversa em si.',
   'tut.app-generica.1.texto':
@@ -670,7 +680,8 @@ export const PT_TUT: Dict = {
   'tut.app-ideas--decidir.4.texto':
     'Não é um quadro, é uma tabela: cada opção contra cada critério, com um peso de 1 a 5 conforme o quanto esse critério importa para você. O total ordena as opções sozinho.',
   'tut.calendario.1.titulo': 'O relógio',
-  'tut.calendario.1.texto': 'O calendário não é um cômodo: vive no relógio da MindHaOS, então abre de onde você estiver.',
+  'tut.calendario.1.texto':
+    'O calendário não é um cômodo: vive no relógio da MindHaOS, então abre de onde você estiver.',
   'tut.calendario.2.titulo': 'Uma semana real',
   'tut.calendario.2.texto':
     'Turnos na cafeteria, aulas de física, correr ao amanhecer, piano à noite. Cada bloco é uma rotina com sua hora e sua cor; arraste para movê-las e estique para mudar a duração.',
@@ -941,8 +952,6 @@ export const PT_TUT: Dict = {
   'tut.app-entretenimiento--esencial.2.texto':
     'A mesa reúne jogos digitais que se jogam direto na tela. Um filtro separa o que é pensado para um ou dois jogadores do que serve para um grupo maior.',
   'tut.app-entretenimiento--esencial.3.titulo': 'Por famílias',
-  'tut.app-entretenimiento--esencial.3.texto':
-    'O catálogo se agrupa em famílias — tabuleiro, raciocínio, arcade, cartas e cassino, e para o grupo — cada uma com sua própria cor. Toque em qualquer cartão para abrir o jogo em tela cheia.',
   'tut.app-entretenimiento--esencial.4.titulo': 'Arquivo',
   'tut.app-entretenimiento--esencial.4.texto':
     'O arquivo junta o que você vê, lê e joga: cada título com seu status, sua nota e sua resenha. Pode ser ordenado por gênero, categoria, autor ou data.',
@@ -1039,7 +1048,8 @@ export const PT_TUT: Dict = {
   'tut.app-sala--esencial.5.texto':
     'As lembranças dos lugares que você visitou, em álbuns por país: fotos e histórias de cada lugar.',
   'tut.app-sala--esencial.6.titulo': 'Como chegar',
-  'tut.app-sala--esencial.6.texto': 'Um navegador porta a porta: escolha origem e destino e combine caminhada, transporte público, bicicleta, moto e carro em um mesmo trajeto, com o mapa de ruas e instruções passo a passo.',
+  'tut.app-sala--esencial.6.texto':
+    'Um navegador porta a porta: escolha origem e destino e combine caminhada, transporte público, bicicleta, moto e carro em um mesmo trajeto, com o mapa de ruas e instruções passo a passo.',
   'tut.app-agenda--trabajo.1.titulo': 'A caixa de entrada',
   'tut.app-agenda--trabajo.1.texto':
     'Trabalho tem duas vistas: a caixa Tarefa e o Quadro. Em Tarefa mora o que precisa ser feito mas ainda não tem dia, com sua prioridade; nada obriga você a marcar uma data só para anotar.',
@@ -1300,8 +1310,6 @@ export const PT_TUT: Dict = {
   'tut.app-entretenimiento--juegos.1.texto':
     '1–2 jogadores ou 3+: o filtro esconde o que não serve para o grupo que está na sua frente. Os jogos marcados «2+» valem nas duas seções.',
   'tut.app-entretenimiento--juegos.2.titulo': 'Por família',
-  'tut.app-entretenimiento--juegos.2.texto':
-    'Tabuleiro, Raciocínio, Arcade, Cartas e cassino, Para o grupo: cada família com sua própria cor. Xadrez, damas, dominó, blackjack, tetris, campo minado e mais de uma dúzia.',
   'tut.app-entretenimiento--juegos.3.titulo': 'Um toque e já está jogando',
   'tut.app-entretenimiento--juegos.3.texto':
     'Cada cartão abre o jogo em tela cheia; os que permitem trazem seu próprio seletor de dificuldade em cima. Voltar traz você para cá mesmo, sem perder seu lugar.',
@@ -1322,4 +1330,8 @@ export const PT_TUT: Dict = {
   'tut.app-diario--reparto.2.titulo': 'Dois entregadores',
   'tut.app-diario--reparto.2.texto':
     'O mago traz mundo, tecnologia e economia às 7:30. Laika leva o que é leve quando dá na telha dela. Cada assistente escolhe suas seções e seu modo.',
+  'tut.app-entretenimiento--esencial.3.texto':
+    'O catálogo é agrupado em famílias — tabuleiro, raciocínio, arcade, cartas e para o grupo — cada uma com sua própria cor. Toque em qualquer cartão para abrir o jogo em tela cheia.',
+  'tut.app-entretenimiento--juegos.2.texto':
+    'Tabuleiro, Raciocínio, Arcade, Cartas, Para o grupo: cada família com sua própria cor. Xadrez, damas, dominó, paciência, tetris, campo minado e mais de uma dúzia de outros.',
 }

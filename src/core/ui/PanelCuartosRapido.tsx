@@ -34,8 +34,24 @@ import { PanelCuartoFondo } from './PanelCuartoFondo'
 /** Mismo orden que el menú lateral; aquí tampoco se pinta el rótulo de la categoría. */
 const ORDEN: Cuarto['categoria'][] = ['cuerpo', 'mente', 'complemento', 'config']
 
-/** Cómo se ve cada cuarto en la rejilla: su icono o su cuarto amueblado en 3D. */
+/**
+ * Cómo se ve cada cuarto en la rejilla, en ciclo con un solo botón:
+ * - `iconos`: el glifo suelto (sin mosaico), el nombre y las estadísticas.
+ * - `apps`: como la pantalla de un teléfono: solo el icono (que es el botón)
+ *   con su nombre debajo, sin tarjeta ni estadísticas.
+ * - `3d`: el cuarto amueblado en 3D, con sus estadísticas.
+ */
+type VistaCuartos = 'iconos' | 'apps' | '3d'
+const SIGUIENTE: Record<VistaCuartos, VistaCuartos> = { iconos: 'apps', apps: '3d', '3d': 'iconos' }
+const LS_VISTA = 'mh.cuartosVista'
+/** Clave vieja (solo iconos/3D): se lee para no perder la preferencia de antes. */
 const LS_VISTA_3D = 'mh.cuartos3D'
+
+function leerVista(): VistaCuartos {
+  const v = localStorage.getItem(LS_VISTA)
+  if (v === 'iconos' || v === 'apps' || v === '3d') return v
+  return localStorage.getItem(LS_VISTA_3D) === '1' ? '3d' : 'iconos'
+}
 
 /** Una sola lista: la rejilla entera es el destino del arrastre. */
 const LISTA = 'pantalla'
@@ -196,8 +212,11 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
   const conAgua = useLayout((s) => s.conAgua)
   const nombreApp = useAjustes((s) => s.nombreApp)
   const nombreCuarto = useNombreCuarto()
-  // Iconos vs. miniaturas 3D del cuarto amueblado (preferencia del dispositivo).
-  const [vista3D, setVista3D] = useState(() => localStorage.getItem(LS_VISTA_3D) === '1')
+  // Iconos, lanzador o miniaturas 3D del cuarto amueblado (preferencia del dispositivo).
+  const [vista, setVista] = useState(leerVista)
+  const vista3D = vista === '3d'
+  const siguiente = SIGUIENTE[vista]
+  const telefono = vista === 'apps'
   const [edicion, setEdicion] = useState(false)
   const [editando, setEditando] = useState<string | null>(null)
   const [fondoAbierto, setFondoAbierto] = useState(false)
@@ -317,22 +336,24 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
                   <button
                     type="button"
                     onClick={() => {
-                      const v = !vista3D
-                      setVista3D(v)
-                      localStorage.setItem(LS_VISTA_3D, v ? '1' : '0')
+                      setVista(siguiente)
+                      localStorage.setItem(LS_VISTA, siguiente)
                     }}
+                    // El botón anuncia la vista a la que lleva, no la actual.
                     title={
-                      vista3D
-                        ? t('nav.vistaIconos', 'Ver los cuartos con su icono')
-                        : t('nav.vista3D', 'Ver los cuartos en 3D')
+                      siguiente === 'apps'
+                        ? t('nav.vistaApps', 'Ver solo las apps, sin estadísticas')
+                        : siguiente === '3d'
+                          ? t('nav.vista3D', 'Ver los cuartos en 3D')
+                          : t('nav.vistaIconos', 'Ver los cuartos con su icono')
                     }
                     className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg border text-sm transition ${
-                      vista3D
+                      vista !== 'iconos'
                         ? 'border-white/25 bg-white/15 text-white/90'
                         : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/12'
                     }`}
                   >
-                    <Icono nombre={vista3D ? 'cuartos' : 'cubo-vistas'} />
+                    <Icono nombre={siguiente === 'apps' ? 'rejilla' : siguiente === '3d' ? 'cubo-vistas' : 'cuartos'} />
                   </button>
                 )}
               </>
@@ -361,7 +382,11 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
             // cabecera dejaba el título y los botones ilegibles.
             <ul
               data-tut="inicio.rejilla"
-              className="grid min-h-0 flex-1 grid-cols-2 content-start gap-1.5 overflow-y-auto rounded-xl p-1.5 sm:grid-cols-4 holgado:gap-2 holgado:p-2 md:grid-cols-5"
+              className={`grid min-h-0 flex-1 content-start overflow-y-auto rounded-xl ${
+                telefono
+                  ? 'grid-cols-4 gap-x-1 gap-y-3 p-2 sm:grid-cols-5 md:grid-cols-6 holgado:gap-y-4 holgado:p-3'
+                  : 'grid-cols-2 gap-1.5 p-1.5 sm:grid-cols-4 holgado:gap-2 holgado:p-2 md:grid-cols-5'
+              }`}
               style={fondo}
             >
               {lista.map((cuarto, i) => {
@@ -392,10 +417,13 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
                           ? t('nav.entrarCuarto', 'Entrar a {nombre}', { nombre: titulo })
                           : t('nav.asignarApp', 'Asignar una app a este cuarto')
                       }
-                      className={`ui-brillo flex h-full w-full flex-col items-center gap-1 rounded-xl border px-1 py-2 text-center holgado:gap-1.5 holgado:px-1.5 holgado:py-3 ${
-                        edicion ? 'ui-tiembla' : ''
-                      }`}
-                      style={{
+                      className={`flex h-full w-full flex-col items-center text-center ${
+                        telefono
+                          ? 'gap-1 rounded-xl px-0.5 py-1 transition active:scale-95'
+                          : 'ui-brillo gap-1 rounded-xl border px-1 py-2 holgado:gap-1.5 holgado:px-1.5 holgado:py-3'
+                      } ${edicion ? 'ui-tiembla' : ''}`}
+                      // En la vista de teléfono no hay tarjeta: el botón ES el icono.
+                      style={telefono ? { animationDelay: edicion ? `${(i % 5) * -60}ms` : undefined } : {
                         ...vivo(color),
                         borderColor: 'color-mix(in srgb, var(--ui-ink) 10%, transparent)',
                         // Opaca a propósito: con foto de fondo, una tarjeta translúcida
@@ -408,28 +436,44 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
                         animationDelay: edicion ? `${(i % 5) * -60}ms` : undefined,
                       } as CSSProperties}
                     >
-                      <span
-                        className={`flex items-center justify-center overflow-hidden rounded-xl text-xl holgado:text-2xl ${
-                          vista3D && appId ? 'h-12 w-12 holgado:h-16 holgado:w-16' : 'h-9 w-9 holgado:h-12 holgado:w-12'
-                        }`}
-                        style={{ background: `color-mix(in srgb, ${color} 20%, transparent)` }}
-                      >
-                        {/* En 3D, el cuarto amueblado que arma la app: PNG cacheado por el
-                            generador de miniaturas (un canvas por tarjeta agotaría los
-                            contextos WebGL del navegador). */}
-                        {vista3D && appId ? (
-                          <MiniaturaCuarto
-                            siembra={objetosDe(appId)}
-                            color={color}
-                            tema={tema}
-                            className="h-full w-full object-contain"
-                          />
-                        ) : (
-                          <IconoCuarto cuarto={cuarto} />
+                      {/* En la vista de iconos el glifo va suelto, sin el mosaico: el
+                          fondo del cuarto ya lo da la tarjeta. En la de teléfono el
+                          contador de misiones va pegado a la esquina del icono. */}
+                      <span className="relative">
+                        <span
+                          className={`flex items-center justify-center overflow-hidden ${
+                            telefono
+                              ? 'h-14 w-14 rounded-2xl text-3xl shadow-sm holgado:h-16 holgado:w-16'
+                              : `rounded-xl ${
+                                  vista3D && appId ? 'h-12 w-12 holgado:h-16 holgado:w-16' : 'h-9 w-9 holgado:h-12 holgado:w-12'
+                                } text-xl holgado:text-2xl`
+                          }`}
+                          style={
+                            vista === 'iconos' && !cuarto.iconoImagen
+                              ? undefined
+                              : { background: `color-mix(in srgb, ${color} ${telefono ? 28 : 20}%, transparent)` }
+                          }
+                        >
+                          {/* En 3D, el cuarto amueblado que arma la app: PNG cacheado por el
+                              generador de miniaturas (un canvas por tarjeta agotaría los
+                              contextos WebGL del navegador). */}
+                          {vista3D && appId ? (
+                            <MiniaturaCuarto
+                              siembra={objetosDe(appId)}
+                              color={color}
+                              tema={tema}
+                              className="h-full w-full object-contain"
+                            />
+                          ) : (
+                            <IconoCuarto cuarto={cuarto} />
+                          )}
+                        </span>
+                        {telefono && !edicion && porHacer && (
+                          <BadgeMisiones pendientes={porHacer} className="absolute -top-1.5 -end-1.5" />
                         )}
                       </span>
                       <span className="w-full truncate text-[11px] font-semibold text-white/90 holgado:text-xs">{titulo}</span>
-                      {appId ? (
+                      {telefono ? null : appId ? (
                         <CifrasApp
                           enfoque={enfoque}
                           color={color}
@@ -444,7 +488,7 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
                     </button>
 
                     {/* En modo edición el lápiz ocupa esa esquina. */}
-                    {!edicion && porHacer && (
+                    {!edicion && !telefono && porHacer && (
                       <BadgeMisiones pendientes={porHacer} className="absolute -top-1.5 -end-1.5" />
                     )}
 

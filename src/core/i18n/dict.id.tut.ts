@@ -69,12 +69,14 @@ export const ID_TUT: Dict = {
     'Ke Excel keluar .xlsx sungguhan, dengan rumus yang hidup dan grafik sebagai grafik Excel asli. Ke PDF keluar lewat pencetak browser.',
   'tut.casa.1.texto': 'Ini MindHaOS-mu: setiap ruangan menyimpan satu aplikasi. Aku tunjukkan kontrol dasarnya.',
   'tut.casa.2.titulo': 'Menu utama',
-  'tut.casa.2.texto': 'Aku buka supaya kamu lihat: ini menu utama, berisi ruanganmu dan aplikasinya. Tab lainnya membawa Dalam (katalog aplikasi) dan Luar, yang dibangun di atas lahan.',
+  'tut.casa.2.texto':
+    'Aku buka supaya kamu lihat: ini menu utama, berisi ruanganmu dan aplikasinya. Tab lainnya membawa Dalam (katalog aplikasi) dan Luar, yang dibangun di atas lahan.',
   'tut.casa.2b.titulo': 'Katalog aplikasi',
   'tut.casa.2b.texto':
     'Tab keduanya: katalog templat — semua aplikasi yang bisa dibawa MindHaOS ini, masing-masing siap ditetapkan ke sebuah ruangan.',
   'tut.casa.2c.titulo': 'Luar',
-  'tut.casa.2c.texto': 'Dan yang ketiga: Luar — lintasan balap, lapangan, kebun sayur, suaka, dan paintball, yang tidak memakai ruangan tapi dibangun langsung di atas lahan.',
+  'tut.casa.2c.texto':
+    'Dan yang ketiga: Luar — lintasan balap, lapangan, kebun sayur, suaka, dan paintball, yang tidak memakai ruangan tapi dibangun langsung di atas lahan.',
   'tut.casa.3.titulo': 'Bergerak',
   'tut.casa.3.texto':
     'Berjalanlah dengan joystick, dengan WASD, atau dengan tombol panah di keyboard: seluruh MindHaOS bisa dijelajahi dengan berjalan kaki. Berjalan-jalan tidak membuka aplikasi — untuk masuk, sentuh objek dengan bola melayang milik ruangan itu.',
@@ -107,7 +109,8 @@ export const ID_TUT: Dict = {
     'Tombol Editor di atas membuka ini: penyesuaian lengkap dalam empat tab — Peta, Karakter, Objek, dan Pengaturan. Di sinilah seluruh MindHaOS digambar dan didandani.',
   'tut.casa.10.texto':
     'Itu dasarnya. Setiap menu dan setiap aplikasi punya tombol ? sendiri dengan tutorialnya: minta saja saat ada yang belum jelas buatmu.',
-  'tut.primeros.1.texto': 'Tutorial ini menjawab dua hal: cara MASUK ke aplikasimu dan cara MEMBUAT yang baru. Keduanya ada di sini, di tab Rumah.',
+  'tut.primeros.1.texto':
+    'Tutorial ini menjawab dua hal: cara MASUK ke aplikasimu dan cara MEMBUAT yang baru. Keduanya ada di sini, di tab Rumah.',
   'tut.primeros.entrar.titulo': 'Masuk ke aplikasimu',
   'tut.primeros.entrar.texto':
     'Setiap ruangan membawa aplikasinya dan kamu punya tiga pintu: kartunya di sini di menu, objek dengan bola melayang di peta, dan akses cepat tombol MindHaOS di atas.',
@@ -160,9 +163,11 @@ export const ID_TUT: Dict = {
   'tut.menu-plantillas.1.texto':
     'Templat itu sebuah aplikasi (Dapur, Gym, Keuangan…). Templat ditetapkan ke sebuah objek di dalam ruangan dan terbuka saat kamu masuk.',
   'tut.menu-plantillas.2.titulo': 'Dua tampilan',
-  'tut.menu-plantillas.2.texto': 'Produktivitas berisi aplikasi kerja dan keseharian; Kreativitas adalah Studio: audio, seni, tulisan, dan video. Semuanya dipasang dengan cara yang sama, ke sebuah objek di ruangan.',
+  'tut.menu-plantillas.2.texto':
+    'Produktivitas berisi aplikasi kerja dan keseharian; Kreativitas adalah Studio: audio, seni, tulisan, dan video. Semuanya dipasang dengan cara yang sama, ke sebuah objek di ruangan.',
   'tut.menu-plantillas.3.titulo': 'Katalog',
-  'tut.menu-plantillas.3.texto': 'Aplikasi bawaan dan buatanmu, tertata dalam grup. Ketuk salah satu untuk memasangnya ke ruangan.',
+  'tut.menu-plantillas.3.texto':
+    'Aplikasi bawaan dan buatanmu, tertata dalam grup. Ketuk salah satu untuk memasangnya ke ruangan.',
   'tut.menu-plantillas.4.titulo': 'Templat buatanmu',
   'tut.menu-plantillas.4.texto':
     'Buat templatmu sendiri dengan menyusunnya dari blok: catatan, daftar periksa, penghitung, kebiasaan, galeri… Tombol ini membuka editornya sendiri, lengkap dengan tutorialnya sendiri.',
@@ -186,12 +191,16 @@ export const ID_TUT: Dict = {
     'Kamu bisa mengeditnya lagi kapan saja: blok dan datanya tetap utuh, yang berubah hanya yang kamu ubah.',
   'tut.menu-inventario.1.texto': 'Inventaris: semua objek yang bisa kamu taruh di MindHaOS-mu, siap diseret.',
   'tut.menu-inventario.2.titulo': 'Peta',
-  'tut.menu-inventario.2.texto': 'Yang SUDAH terpasang, ruangan demi ruangan: ketuk sebuah gambar kecil untuk mengedit objek itu.',
+  'tut.menu-inventario.2.texto':
+    'Yang SUDAH terpasang, ruangan demi ruangan: ketuk sebuah gambar kecil untuk mengedit objek itu.',
   'tut.menu-inventario.3.titulo': 'Katalog',
-  'tut.menu-inventario.3.texto': 'Semua objek yang ada, dalam dua folder: yang biasa dan yang spesial — yang melakukan sesuatu, seperti kendaraan yang bisa dikendarai, air mancur, wahana taman, dan lampu.',
+  'tut.menu-inventario.3.texto':
+    'Semua objek yang ada, dalam dua folder: yang biasa dan yang spesial — yang melakukan sesuatu, seperti kendaraan yang bisa dikendarai, air mancur, wahana taman, dan lampu.',
   'tut.menu-inventario.4.titulo': 'Menempatkan',
-  'tut.menu-inventario.4.texto': 'Dengan katalog terbuka, seret sebuah gambar kecil langsung ke scene 3D untuk menaruhnya di mana pun kamu mau.',
-  'tut.menu-inventario.5.texto': 'Cabang satunya, Buat, untuk membuat objek baru dari potongan atau dengan AI, dan untuk mengedit yang sedang kamu pilih.',
+  'tut.menu-inventario.4.texto':
+    'Dengan katalog terbuka, seret sebuah gambar kecil langsung ke scene 3D untuk menaruhnya di mana pun kamu mau.',
+  'tut.menu-inventario.5.texto':
+    'Cabang satunya, Buat, untuk membuat objek baru dari potongan atau dengan AI, dan untuk mengedit yang sedang kamu pilih.',
   'tut.editor-mapa.1.texto':
     'Editor MindHaOS punya 4 tab: Peta, Karakter, Objek, dan Pengaturan. Tur ini tur Peta; tiga tab lainnya punya turnya sendiri.',
   'tut.editor-mapa.2.titulo': 'Denah',
@@ -343,7 +352,8 @@ export const ID_TUT: Dict = {
   'tut.chat-registros.2.texto':
     'Hal-hal yang menurut asisten layak diingat antar sesi —sebuah alergi, sebuah target, sebuah preferensi— supaya tidak perlu menanyakannya lagi. Sentuh ✕-nya untuk melupakannya.',
   'tut.chat-registros.grafo.titulo': 'Graf memorimu',
-  'tut.chat-registros.grafo.texto': 'Setiap memori otomatis terhubung dengan hal dari aplikasimu yang disebutnya —orang, resep, target, tempat— dan dengan memori lain. Di sini kamu melihatnya sebagai peta; ketuk memori untuk memperbaikinya atau menghubungkannya secara manual.',
+  'tut.chat-registros.grafo.texto':
+    'Setiap memori otomatis terhubung dengan hal dari aplikasimu yang disebutnya —orang, resep, target, tempat— dan dengan memori lain. Di sini kamu melihatnya sebagai peta; ketuk memori untuk memperbaikinya atau menghubungkannya secara manual.',
   'tut.chat-registros.3.texto':
     'Apa yang kamu catat di aplikasimu (makanan, pengeluaran, sesi) tinggal di masing-masing aplikasi, bukan di sini: tab ini hanya memori dari percakapannya sendiri.',
   'tut.app-generica.1.texto':
@@ -945,8 +955,6 @@ export const ID_TUT: Dict = {
   'tut.app-entretenimiento--esencial.2.texto':
     'Meja ini mengumpulkan permainan digital yang dimainkan langsung di layar. Sebuah filter memisahkan yang cocok untuk satu atau dua pemain dari yang cocok untuk kelompok lebih besar.',
   'tut.app-entretenimiento--esencial.3.titulo': 'Menurut keluarga',
-  'tut.app-entretenimiento--esencial.3.texto':
-    'Katalog dikelompokkan menurut keluarga — papan, teka-teki, arcade, kartu dan kasino, dan untuk kelompok — masing-masing dengan warnanya sendiri. Ketuk kartu mana pun untuk membuka permainan layar penuh.',
   'tut.app-entretenimiento--esencial.4.titulo': 'Arsip',
   'tut.app-entretenimiento--esencial.4.texto':
     'Arsip mengumpulkan apa yang kamu tonton, baca, dan mainkan: setiap judul dengan statusnya, penilaiannya, dan ulasanmu. Bisa diurutkan menurut genre, kategori, penulis, atau tanggal.',
@@ -1044,7 +1052,8 @@ export const ID_TUT: Dict = {
   'tut.app-sala--esencial.5.texto':
     'Kenangan dari tempat-tempat yang sudah kamu kunjungi, dalam album per negara: foto dan cerita dari setiap tempat.',
   'tut.app-sala--esencial.6.titulo': 'Cara ke sana',
-  'tut.app-sala--esencial.6.texto': 'Navigator dari pintu ke pintu: pilih asal dan tujuan, lalu padukan jalan kaki, transportasi umum, sepeda, motor, dan mobil dalam satu perjalanan, dengan peta jalan dan petunjuk langkah demi langkah.',
+  'tut.app-sala--esencial.6.texto':
+    'Navigator dari pintu ke pintu: pilih asal dan tujuan, lalu padukan jalan kaki, transportasi umum, sepeda, motor, dan mobil dalam satu perjalanan, dengan peta jalan dan petunjuk langkah demi langkah.',
   'tut.app-agenda--trabajo.1.titulo': 'Kotak masuk',
   'tut.app-agenda--trabajo.1.texto':
     'Kerja punya dua tampilan: baki Tugas dan Papan. Di Tugas tinggal apa yang harus dikerjakan tapi belum punya hari, lengkap dengan prioritasnya; tidak ada yang memaksamu memberi tanggal hanya untuk mencatatnya.',
@@ -1305,8 +1314,6 @@ export const ID_TUT: Dict = {
   'tut.app-entretenimiento--juegos.1.texto':
     '1-2 pemain atau 3+ pemain: filternya menyembunyikan yang tidak cocok untuk kelompok di depanmu. Permainan bertanda “2+” muncul di kedua bagian.',
   'tut.app-entretenimiento--juegos.2.titulo': 'Berdasarkan jenis',
-  'tut.app-entretenimiento--juegos.2.texto':
-    'Permainan Papan, Asah Otak, Arcade, Permainan Kartu, Permainan Kelompok: setiap jenis punya warnanya sendiri. Catur, Dam, Domino, Blackjack, Tetris, Penyapu Ranjau, dan lebih dari selusin lainnya.',
   'tut.app-entretenimiento--juegos.3.titulo': 'Sekali ketuk, langsung main',
   'tut.app-entretenimiento--juegos.3.texto':
     'Setiap kartu membuka permainan dalam layar penuh; yang mendukungnya membawa pemilih Kesulitan sendiri di bagian atas. Kembali membawamu tepat ke sini lagi, tanpa kehilangan posisimu.',
@@ -1327,4 +1334,8 @@ export const ID_TUT: Dict = {
   'tut.app-diario--reparto.2.titulo': 'Dua pengantar koran',
   'tut.app-diario--reparto.2.texto':
     'Penyihir mengantarkan Dunia, Teknologi, dan Ekonomi kepadanya pukul 7:30. Laika membawa yang ringan-ringan kapan pun dia mau. Setiap asisten memilih bagian dan modenya sendiri.',
+  'tut.app-entretenimiento--esencial.3.texto':
+    'Katalognya dikelompokkan dalam keluarga — papan, asah otak, arcade, kartu, dan ramai-ramai — masing-masing dengan warnanya sendiri. Ketuk kartu mana pun untuk membuka game dalam layar penuh.',
+  'tut.app-entretenimiento--juegos.2.texto':
+    'Papan, Asah otak, Arcade, Kartu, Ramai-ramai: tiap keluarga punya warnanya sendiri. Catur, dam, domino, solitaire, tetris, minesweeper, dan belasan lainnya.',
 }

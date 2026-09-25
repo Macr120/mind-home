@@ -1,4 +1,4 @@
-// Récords y saldo del casino de los juegos de la sala.
+// Récords de los juegos de la sala.
 // Datos ligeros de minijuego: viven en localStorage, no en la db.
 import { claveLS } from '../../../core/edicion'
 
@@ -28,17 +28,6 @@ export function leerTexto(clave: string): string | null {
 
 export function guardarTexto(clave: string, valor: string) {
   localStorage.setItem(PREFIJO + clave, valor)
-}
-
-export const SALDO_INICIAL = 500
-
-/** Saldo de fichas compartido entre blackjack y ruleta. */
-export function leerSaldo(): number {
-  return leerNumero('casino-saldo', SALDO_INICIAL)
-}
-
-export function guardarSaldo(valor: number) {
-  guardarNumero('casino-saldo', valor)
 }
 
 export function formatearTiempo(segundos: number): string {

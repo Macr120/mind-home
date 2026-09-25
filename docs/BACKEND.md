@@ -467,9 +467,37 @@ update perfiles set ilimitado = false where user_id = (
 seguridad y el costo real de los proveedores se paga igual. El límite de tasa
 (`consumir_rate_limit`) sí sigue aplicando: frena ráfagas, no créditos.
 
-### 4. Storage (sync de blobs)
-La migración crea el bucket privado `sync-blobs` con acceso por carpeta de usuario;
-no requiere pasos manuales. (Desde jul 2026 la policy también exige Pro vigente.)
+### 4. Almacén de archivos: Cloudflare R2 (sync de blobs y cuarto Archivo)
+Supabase decide QUIÉN y CUÁNTO; los bytes van directo del navegador a R2 con URLs
+firmadas de 15 min (egress gratis). Piezas:
+- Migración `20260925000001_almacen_r2.sql`: tabla `almacen_objetos` (lo que cada
+  usuario tiene en R2, única fuente de la cuota) y RPCs solo service_role
+  (`almacen_reservar` / `_confirmar` / `_liberar` / `_vencidos` / `_uso` /
+  `_registrar`). Cuota `cuota_almacen()`: Pro ×1/×2/×3 = 10/30/100 GiB, trial 10,
+  ilimitado sin tope, el resto 0 (solo lectura: bajar sí, subir no). Tope por
+  archivo 2 GiB.
+- Edge Function `almacen` (verify_jwt) + `_shared/r2.ts` (firma SigV4 con aws4fetch).
+  Claves RELATIVAS del cliente (`sync/…`, `archivo/…`); la función antepone el uid.
+- Cliente `src/core/cuenta/almacen.ts`; el sync lo usa en `core/data/sync/blobs.ts`
+  y el cuarto Archivo en `rooms/archivos/`. `borrar-cuenta` vacía `<uid>/` en R2.
+- Transición: marcadores viejos (sin `r2`) se leen de R2 y, si falta, del bucket
+  `sync-blobs` de Storage; sin R2 configurado (503 `sin-almacen`) el push sigue
+  subiendo a Storage, así que desplegar el cliente antes que R2 no rompe el sync.
+
+**Pasos manuales (una vez):**
+1. Cloudflare → R2 → crear bucket privado `mindhaos-archivos`.
+2. En el bucket, Settings → CORS policy: `AllowedMethods` `PUT, GET, HEAD`,
+   `AllowedHeaders` `content-type`, `AllowedOrigins` = los de `CORS_ORIGENES`
+   (dominio de la app, `https://localhost`, `capacitor://localhost`, el origen de
+   Electron y `http://localhost:5173` para dev).
+3. R2 → Manage API tokens → token con **Object Read & Write solo sobre ese bucket**.
+4. `npx supabase secrets set R2_ACCESS_KEY_ID=… R2_SECRET_ACCESS_KEY=… R2_BUCKET=mindhaos-archivos`
+   (`R2_ACCOUNT_ID` es opcional: cae a `CLOUDFLARE_ACCOUNT_ID`).
+5. `npx supabase db push` y `npx supabase functions deploy almacen borrar-cuenta`.
+6. Copiar lo que ya hay en `sync-blobs`: `node --env-file=.env.almacen
+   scripts/almacen/migrar-sync-blobs.mjs --simular` y luego sin `--simular`
+   (`.env.almacen` NO se commitea). Vaciar `sync-blobs` cuando R2 lleve tiempo
+   sirviendo sin fallos.
 
 ### 5. Web pública (landing + /cuenta) — YA DESPLEGADA (15-ago-2026)
 - Código en `web/` (segundo build de Vite): `npm run dev:web` (puerto 5174) y
@@ -837,6 +865,48 @@ proyecto entero bajo bloqueo por turnos.
    `authenticated` y las 5 internas (`espacio_token`, `espacio_miembro_id`,
    `espacio_avisar`, `espacio_miembros_json`, `espacio_resumen`) **sin grant**.
    E2–E6 no llevan SQL.
+
+### 10. Reportes y normas de la comunidad — 24-sep-2026
+
+Lo exigen Google Play (contenido generado por usuarios) y Apple (guideline 1.2)
+en cuanto hay mensajería entre personas. Migración
+`20260924000001_reportes_normas.sql`.
+
+- **Normas**: `perfiles.normas_aceptadas` (fecha de la primera aceptación).
+  `core/buzon/normas.ts` (`asegurarNormas`) las pide en un `confirmar()` antes de
+  enviar un mensaje (`motor.enviar`), pedir o aceptar un contacto
+  (`ContactosPanel`) y crear o entrar a un espacio (`espacios/api.ts`). RPCs
+  `buzon_normas()` y `buzon_aceptar_normas()`. El texto completo vive en la web:
+  `terminos#normas` (`term.comunidad.*`).
+- **Reportar**: tabla `reportes` (RLS sin políticas), RPCs
+  `buzon_reportar(contacto, uid|null, motivo, detalle)` y
+  `espacio_reportar(espacio, miembro|null, motivo, detalle)`, con el límite
+  `reportar` de 20 por hora. Un reporte de mensaje guarda una **copia** en
+  `evidencia` (sobrevive a «borrar para todos», aunque el adjunto de Storage no).
+  UI: menú del mensaje, contactos y solicitudes (`ContactosPanel`) y miembros de
+  un espacio (`PanelCompartir`); el flujo común está en `core/buzon/reportar.ts`
+  y ofrece bloquear (o expulsar, si eres el dueño del espacio).
+- **Aviso al dueño**: `reporte_avisar` manda un POST a un webhook de Slack o
+  Discord si existe el secreto en Vault (sin él, el reporte se guarda y no avisa):
+
+  ```sql
+  select vault.create_secret('https://discord.com/api/webhooks/…', 'reportes_aviso_url');
+  ```
+
+- **Actuar en 24 h** (lo que se promete en los términos y en las notas a Apple):
+
+  ```sql
+  select id, origen, motivo, detalle, evidencia, reportado, creado_en
+    from reportes where estado = 'pendiente' order by creado_en;
+  -- Expulsar: borrar la cuenta (cascade a buzón, espacios y partidas).
+  -- Authentication → Users → el uuid de `reportado` → Delete user.
+  update reportes set estado = 'revisado', revisado_en = now() where id = …;
+  ```
+
+- **Borrar la cuenta** (`borrar-cuenta`) ya limpia también `buzon-adjuntos`
+  (carpetas de sus hilos), `espacio-archivos` (espacios que compartió) y
+  `partida-casa` (salas que abrió): las rutas van por hilo, espacio o sala, así
+  que se buscan antes de que el cascade tire las filas.
 
 ## Comandos útiles
 

@@ -6,7 +6,6 @@ import { FAMILIAS, JUEGOS_REALES, type IdJuegoReal, type JuegoReal } from './jue
 import { Ahorcado } from './juegos/Ahorcado'
 import { Ajedrez } from './juegos/Ajedrez'
 import { Billar } from './juegos/Billar'
-import { Blackjack } from './juegos/Blackjack'
 import { Buscaminas } from './juegos/Buscaminas'
 import { CartasConocerse, CartasDebates, type EstadoCartas } from './juegos/CartasPreguntas'
 import { CienPersonas } from './juegos/CienPersonas'
@@ -20,7 +19,6 @@ import { Juego2048 } from './juegos/Juego2048'
 import { Memorama } from './juegos/Memorama'
 import { OchoLocos } from './juegos/OchoLocos'
 import { Pong } from './juegos/Pong'
-import { Ruleta } from './juegos/Ruleta'
 import { SimonDice } from './juegos/SimonDice'
 import { Solitario } from './juegos/Solitario'
 import { SpaceDefender } from './juegos/SpaceDefender'
@@ -56,8 +54,6 @@ const COMPONENTES: Record<IdJuegoReal, ComponentType<PropsDificultad>> = {
   j2048: Juego2048,
   damas: Damas,
   ajedrez: Ajedrez,
-  blackjack: Blackjack,
-  ruleta: Ruleta,
   buscaminas: Buscaminas,
   domino: Domino,
   viborita: Viborita,

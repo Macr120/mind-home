@@ -286,7 +286,8 @@ export const ZH_TUT: Dict = {
   'tut.hoy.8.titulo': '红色光球',
   'tut.hoy.8.texto': '看看这个MindHaOS：漂在每个房间家具上方的光球，今天那里还有事没做就变红，什么都不剩就变绿。确切数字在卡片的红点上——首页、菜单和进入气泡——有东西过了时间就会变成琥珀色。',
   'tut.hoy.9.titulo': '全部凑在一起，就在日历里',
-  'tut.hoy.9.texto': '这就是时钟上的任务按钮，它自己也带一个红点：把整个MindHaOS今天要做的事凑在一起，每个应用一张卡片——左边是还差的，右边是已经完成的。这里不做记录：点每一行会带你去它的应用，数据在那里写下。',
+  'tut.hoy.9.texto':
+    '这就是时钟上的任务按钮，它自己也带一个红点：把整个MindHaOS今天要做的事凑在一起，每个应用一张卡片——左边是还差的，右边是已经完成的。这里不做记录：点每一行会带你去它的应用，数据在那里写下。',
   'tut.progreso.1.texto': '你的角色卡：小安身后有整整一年的真实活动，所以这里的每个数字背后都有一个真实的故事。',
   'tut.progreso.2.titulo': '角色',
   'tut.progreso.2.texto': '点一下会打开角色编辑器。它的心情——开心、满足、难过或睡着——每记录一次就上升，只有连着几天没有记录才会下降；不会一下子清零。',
@@ -576,7 +577,8 @@ export const ZH_TUT: Dict = {
   'tut.app-descanso--esencial.2.titulo': '评分',
   'tut.app-descanso--esencial.2.texto': '每一个记录下来的夜晚都会得到一个评分，把睡了多久、几点上床和醒了几次合在一起算。还没有记录时，这里会请你先写下第一个夜晚。',
   'tut.app-descanso--esencial.3.titulo': '作息与提醒',
-  'tut.app-descanso--esencial.3.texto': '拖动一天时间条的两端，就能设定上床和起床的时刻；同一份作息也会作为色块出现在MindHaOS的日历上。闹钟和它的铃声，以及睡前放慢节奏的提醒，也都在这里打开。',
+  'tut.app-descanso--esencial.3.texto':
+    '拖动一天时间条的两端，就能设定上床和起床的时刻；同一份作息也会作为色块出现在MindHaOS的日历上。闹钟和它的铃声，以及睡前放慢节奏的提醒，也都在这里打开。',
   'tut.app-descanso--esencial.4.titulo': '记录一夜',
   'tut.app-descanso--esencial.4.texto': '用来写下睡得如何的表单：日期、上床和起床的时刻、中途醒来的次数、睡眠质量的评价，还留了写备注的地方。',
   'tut.app-descanso--esencial.5.titulo': '历史记录',
@@ -618,7 +620,6 @@ export const ZH_TUT: Dict = {
   'tut.app-entretenimiento--esencial.2.titulo': '桌游',
   'tut.app-entretenimiento--esencial.2.texto': '牌桌上汇集了可以直接在屏幕上玩的数字游戏。筛选可以把适合一两个人的，和适合更多人一起玩的分开。',
   'tut.app-entretenimiento--esencial.3.titulo': '按系列分组',
-  'tut.app-entretenimiento--esencial.3.texto': '目录按系列分组——棋盘、益智、街机、纸牌与博彩，以及适合多人的——每一类都有自己的颜色。点任意一张卡片，游戏就会全屏打开。',
   'tut.app-entretenimiento--esencial.4.titulo': '档案',
   'tut.app-entretenimiento--esencial.4.texto': '档案把你看的、读的、玩的都收在一起：每个作品都带状态、评分和你的评价。可以按类型、分类、作者或日期排序。',
   'tut.app-garage--esencial.1.titulo': '车库',
@@ -856,7 +857,6 @@ export const ZH_TUT: Dict = {
   'tut.app-entretenimiento--archivo.3.texto': '按类型、按分类（电影、剧集、书籍、游戏）、按作者或按日期。在按类型的视图里，文件夹可以拖动：把最常看的放到最前面。',
   'tut.app-entretenimiento--juegos.1.texto': '“1-2人”还是“3人以上”：筛选会把不适合眼前这群人的藏起来。标着“2+”的游戏，两个部分都会出现。',
   'tut.app-entretenimiento--juegos.2.titulo': '按类别',
-  'tut.app-entretenimiento--juegos.2.texto': '棋类、益智、街机、纸牌与赌场、多人同乐：每个类别都有自己的颜色。国际象棋、西洋跳棋、多米诺骨牌、二十一点、俄罗斯方块、扫雷，还有十几款。',
   'tut.app-entretenimiento--juegos.3.titulo': '一点就玩',
   'tut.app-entretenimiento--juegos.3.texto': '每张卡片都会全屏打开游戏；支持的游戏上方有自己的难度选择。返回就回到这里，不会丢掉位置。',
   'tut.app-diario--habito.1.titulo': '今日头条',
@@ -870,4 +870,6 @@ export const ZH_TUT: Dict = {
   'tut.app-diario--reparto.1.texto': '在这里设置谁给你带什么。这不是又一条通知：它会以助手自己的语气，作为一条消息发给你。',
   'tut.app-diario--reparto.2.titulo': '两位送报员',
   'tut.app-diario--reparto.2.texto': '魔法师在7:30送来国际、科技和经济。Laika想起来的时候才送些轻松的。每位助手都能选自己的板块和推送方式。',
+  'tut.app-entretenimiento--esencial.3.texto': '目录按类别分组——桌游、益智、街机、纸牌和多人游戏——每类都有自己的颜色。点任意卡片，就能全屏打开游戏。',
+  'tut.app-entretenimiento--juegos.2.texto': '桌游、益智、街机、纸牌、多人游戏：每类都有自己的颜色。国际象棋、跳棋、多米诺、纸牌接龙、俄罗斯方块、扫雷，还有十几款。',
 }

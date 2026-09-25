@@ -1080,6 +1080,36 @@ export interface CategoriaLugar {
   creadoEn: string
 }
 
+/**
+ * Carpeta del cuarto Archivo (la nube del usuario). `padreId` es self-FK: null
+ * = raíz. Viaja por el sync; los archivos que cuelgan de ella, también.
+ */
+export interface CarpetaArchivo {
+  id?: number
+  nombre: string
+  padreId: number | null
+  creadoEn: string
+}
+
+/**
+ * Archivo guardado en la nube (Cloudflare R2, `core/cuenta/almacen.ts`). La fila
+ * solo lleva METADATOS y la `clave` del objeto: el sync la mueve sin bajar los
+ * bytes, que se piden con una URL firmada al abrirlo. La fila se crea DESPUÉS
+ * de que la subida se confirma, así ningún dispositivo ve un archivo a medias.
+ */
+export interface ArchivoNube {
+  id?: number
+  nombre: string
+  carpetaId: number | null
+  /** Clave relativa en el almacén: `archivo/<uuid>`. */
+  clave: string
+  bytes: number
+  mime: string
+  /** Miniatura pequeña (imágenes): viaja como blob del sync. */
+  miniatura?: Blob
+  creadoEn: string
+}
+
 /** Recuerdo de la bitácora de viajes: foto y anécdota de un lugar visitado. */
 export interface RecuerdoViaje {
   id?: number
@@ -2914,7 +2944,7 @@ export const GRUPOS_PLANTILLA_BASE: { nombre: string; emoji: string; miembros: s
   { nombre: 'Administración', emoji: '🗂️', miembros: ['despacho', 'garage', 'agenda', 'sala'] },
   { nombre: 'Pasatiempos', emoji: '🎉', miembros: ['entretenimiento', 'diario', 'hobbies'] },
   { nombre: 'Salud mental', emoji: '🧠', miembros: ['anecdotario', 'jardin', 'metas'] },
-  { nombre: 'Studio', emoji: '🎬', miembros: ['audio', 'arte', 'escritura', 'video'] },
+  { nombre: 'Studio', emoji: '🎬', miembros: ['audio', 'arte', 'escritura', 'video', 'archivos'] },
 ]
 
 /** Objeto del conjunto de una app: recurso 3D (o `tipo` especial), su posición y si es el principal. */
@@ -4588,6 +4618,8 @@ class MindHomeDB extends Dexie {
   trayectosViaje!: Table<TrayectoViaje, number>
   lugaresNav!: Table<LugarNav, number>
   categoriasLugar!: Table<CategoriaLugar, number>
+  carpetasArchivo!: Table<CarpetaArchivo, number>
+  archivosNube!: Table<ArchivoNube, number>
   sesionesMindfulness!: Table<SesionMindfulness, number>
   registroAnimo!: Table<RegistroAnimo, number>
   gratitudDiaria!: Table<GratitudDiaria, number>
@@ -6391,6 +6423,29 @@ class MindHomeDB extends Dexie {
       memorias: '++id, creado, roomId, asistenteId, &uid',
       enlacesGrafo: '++id, desde, hacia, &uid',
     })
+    // v149: cuarto Archivo (la nube Pro en R2): carpetas y los metadatos de cada
+    // archivo; los bytes viven en el almacén. Nacen vacías: sin `.upgrade()` de
+    // datos, solo el de la carpeta Studio del catálogo (misma forma que la v129:
+    // la carpeta se reconoce por POSICIÓN, la sexta base, no por su nombre).
+    this.version(149)
+      .stores({
+        carpetasArchivo: '++id, padreId, creadoEn, &uid',
+        archivosNube: '++id, carpetaId, creadoEn, &uid',
+      })
+      .upgrade(async (tx) => {
+        const tabla = tx.table('gruposPlantilla')
+        const filas = (await tabla.toArray()) as GrupoPlantilla[]
+        if (filas.length === 0) return
+        const studio = filas.filter((g) => g.esBase).sort((a, b) => a.orden - b.orden)[5]
+        if (studio?.id == null) return
+        for (const g of filas) {
+          if (g.id == null || g.id === studio.id || !g.miembros.includes('archivos')) continue
+          await tabla.update(g.id, { miembros: g.miembros.filter((m) => m !== 'archivos') })
+        }
+        if (!studio.miembros.includes('archivos')) {
+          await tabla.update(studio.id, { miembros: [...studio.miembros, 'archivos'] })
+        }
+      })
   }
 }
 

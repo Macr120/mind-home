@@ -40,7 +40,9 @@ import { idiomaActual } from '../core/i18n/useT'
 // corral chico crecido a 2×2 y dos parcelas más, y la carpeta Studio en el
 // snapshot. `casa.json` retocado a mano; el spawn y el farol de la parada
 // salieron de la columna 4.
-const DEMO_VERSION = 34
+// v35: el cuarto Archivo (la nube Pro) arriba del arte, en el ala del Studio.
+// Sin subirla, la demo cacheada se repone desde su foto sin ese cuarto.
+const DEMO_VERSION = 35
 const LS_VERSION = 'mh.demo.version'
 const LS_INTENT = 'mh.demo.intent'
 

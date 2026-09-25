@@ -3,6 +3,7 @@ import { BotonPeligro, BotonSecundario, Modal } from '../../../rooms/_shared/ui'
 import { useContactosAceptados } from '../../buzon/cache'
 import { enviar as enviarPorBuzon } from '../../buzon/motor'
 import { compartirTexto } from '../../compartir'
+import { pedirReporte } from '../../buzon/reportar'
 import { Retrato } from '../../buzon/ui/Retrato'
 import { useT } from '../../i18n/useT'
 import { confirmar, pedirTexto } from '../../state/confirmarStore'
@@ -27,6 +28,7 @@ export function PanelCompartir({ espacioId, onCerrar }: { espacioId: string; onC
   const [esp, setEsp] = useState<Espacio | null>(null)
   const [miembros, setMiembros] = useState<MiembroEspacio[]>([])
   const [error, setError] = useState('')
+  const [aviso, setAviso] = useState('')
   const [ocupado, setOcupado] = useState(false)
   const [copiado, setCopiado] = useState<'ver' | 'editar' | null>(null)
   /** Enlace a la vista cuando ni compartir ni el portapapeles funcionaron. */
@@ -127,6 +129,20 @@ export function PanelCompartir({ espacioId, onCerrar }: { espacioId: string; onC
       if (!si) return
       await api.expulsar(espacioId, m.miembroId)
       await recargar()
+    })
+
+  /** Reportar a un miembro; si soy el dueño, el «bloquear» del reporte lo expulsa. */
+  const reportarMiembro = (m: MiembroEspacio) =>
+    accion(async () => {
+      const expulsable = soyDueno && m.rol !== 'dueno'
+      const r = await pedirReporte(m.alias ? `@${m.alias}` : m.nombre, expulsable)
+      if (!r) return
+      await api.reportar(espacioId, m.miembroId, r.motivo, r.detalle)
+      if (r.bloquear && expulsable) {
+        await api.expulsar(espacioId, m.miembroId)
+        await recargar()
+      }
+      setAviso(t('buzon.reportar.listo', 'Gracias. Lo revisaremos en menos de 24 horas.'))
     })
 
   const salir = () =>
@@ -268,6 +284,18 @@ export function PanelCompartir({ espacioId, onCerrar }: { espacioId: string; onC
                   {m.estado === 'fuera' ? ` · ${t('esp.panel.fuera', 'se fue')}` : ''}
                 </span>
               </span>
+              {!m.yo && (
+                <button
+                  type="button"
+                  onClick={() => void reportarMiembro(m)}
+                  disabled={ocupado}
+                  title={t('buzon.reportar', 'Reportar')}
+                  aria-label={t('buzon.reportar', 'Reportar')}
+                  className="rounded-lg px-2 py-1 text-white/40 transition hover:bg-white/10 hover:text-red-400"
+                >
+                  <Icono nombre="bandera" />
+                </button>
+              )}
               {soyDueno && !m.yo && m.rol !== 'dueno' && (
                 <>
                   <select
@@ -388,6 +416,7 @@ export function PanelCompartir({ espacioId, onCerrar }: { espacioId: string; onC
         )}
 
         {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
+        {aviso && !error && <p className="text-[11px] leading-snug text-white/60">{aviso}</p>}
 
         <div className="flex justify-end gap-2">
           {soyDueno ? (

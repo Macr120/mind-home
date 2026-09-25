@@ -215,6 +215,12 @@ export const TEXTOS = {
     '<strong>Kamera ve mikrofon:</strong> yalnızca sen açtığında (AR maskesi, sohbete fotoğraf, sesle yazdırma). Maske cihazında işlenir; yazdırma sesi ve sohbete eklediğin fotoğraflar, yalnızca o yanıtı üretmek için yapay zekâ sağlayıcılarına gönderilir.',
   'priv.datos.6':
     '<strong>Sağlık ve esenlik verileri:</strong> egzersiz, beslenme, ilaçlar, doktor randevuları veya döngü hakkında kaydettiklerin, diğer uygulama verileri gibi senin için saklanır; asla satılmaz ve reklamda kullanılmaz.',
+  'priv.datos.7':
+    '<strong>Konum:</strong> yalnızca kullandığında. Bir rota hesaplamak için ve navigasyon sırasında, kesin konumun ve varış noktan HERE Technologies\'e gönderilir; GPS\'li kardiyo, antrenmanın rotasını verilerinle birlikte kaydeder. Bunu asla diğer kullanıcılarla paylaşmayız.',
+  'priv.datos.8':
+    '<strong>Mesajlar ve paylaşılan içerik:</strong> bir takma ad seçip kişi eklersen, takma adını, görünen adını, emojini ve karakterinin portresini; ayrıca gönderdiğin mesajları, dosyaları ve paylaşılan alanları, seçtiğin kişilere ulaştırmak için saklarız. Bunları yalnızca o sohbete ya da alana katılanlar görür. Bir şeyi bildirirsen, incelemek için bildirilen içeriğin bir kopyasını saklarız.',
+  'priv.datos.9':
+    '<strong>Tarayıcı:</strong> geçmişin ve her sitede geçirdiğin süre cihazında saklanır. Yalnızca senkronizasyonunu açarsan sunucularımıza yüklenir; alan adları da yalnızca sınıflandırmalarını istersen yapay zekâya gönderilir.',
   'priv.salud.h': 'Sağlık işlevlerinin kapsamı',
   'priv.salud.p':
     'MindHaOS kişisel bir ajandadır, tıbbi bir uygulama değil. Sağlık işlevleri, senin yazdığın kayıtlardan ve birkaç hatırlatmadan ibarettir: uygulama teşhis koymaz, belirtileri yorumlamaz, doz ya da tedavi önermez, ilaç etkileşimlerini denetlemez ve bir sağlık uzmanına danışmanın yerini tutmaz. Döngü tahminleri yalnızca senin girdiğin verilerden hesaplanır ve yol göstericidir. Bir sağlık ürünü ya da tıbbi cihaz değildir; hasta kayıtlarına, sigorta şirketlerine veya sağlık kuruluşlarına bağlanmaz.',
@@ -251,6 +257,8 @@ export const TEXTOS = {
   'priv.proveedores.3': 'Anthropic ve Google (talep üzerine yapay zekâ yanıtları ve görselleri).',
   'priv.proveedores.4':
     'OpenAI (talep üzerine ses dökümü ve yapay zekâ görselleri için yedek).',
+  'priv.proveedores.5':
+    'HERE Technologies (haritalar, yer arama ve rotalar, talep üzerine).',
   'priv.cambios.h': 'Değişiklikler',
   'priv.cambios.p':
     'Bu politika değişirse yeni sürümü tarihiyle birlikte burada yayımlarız. Sorular iletişim adresinden yanıtlanır.',
@@ -290,6 +298,18 @@ export const TEXTOS = {
   'term.razonable.h': 'Makul kullanım',
   'term.razonable.p':
     'Yapay zekâ kredi kotası kişisel hesap içindir. Hizmetin yeniden satılmasına, hesabın kitlesel biçimde paylaşılmasına ya da yapay zekâ tüketiminin uygulama dışından otomatikleştirilmesine izin verilmez.',
+  'term.comunidad.h':
+    'Topluluk kuralları',
+  'term.comunidad.p':
+    'MindHaOS; kişilerine yazmana, odalarındaki içerikleri paylaşmana, başka MindHaOS\'ları ziyaret etmene ve paylaşılan alanlarda çalışmana imkân verir. Bu özellikleri kullanmak için bu kuralları kabul edersin:',
+  'term.comunidad.1':
+    'Taciz, tehdit, nefret ya da ayrımcılık, cinsel içerik, şiddet, spam, dolandırıcılık veya yasa dışı hiçbir şey gönderme.',
+  'term.comunidad.2':
+    'Kötüye kullanım içeriğine göz yummuyoruz. Uygulamadan herhangi bir mesajı, kişiyi ya da bir alanın üyesini bildirebilir, istediğin kişiyi engelleyebilirsin.',
+  'term.comunidad.3':
+    'Her bildirimi 24 saatten kısa sürede inceliyoruz: bu kuralları çiğneyen içeriği kaldırıyor, gönderen kişiyi hizmetten çıkarıyoruz.',
+  'term.comunidad.4':
+    'Gönderdiklerinden ve paylaştıklarından sen sorumlusun. Bize e-postayla da haber verebilirsin (bkz. İletişim).',
   'term.cambios.h': 'Hizmetteki değişiklikler',
   'term.cambios.p':
     'Uygulamayı ve bu koşulları güncelleyebiliriz; fiyat değişiklikleri önceden duyurulur ve hâlihazırda ödenmiş bir döneme asla geriye dönük uygulanmaz.',

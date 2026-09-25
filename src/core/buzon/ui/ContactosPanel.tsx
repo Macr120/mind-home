@@ -5,10 +5,12 @@ import { useT } from '../../i18n/useT'
 import { confirmar } from '../../state/confirmarStore'
 import { useMascota } from '../../state/mascotaStore'
 import { Icono } from '../../ui/iconos/Icono'
-import { bloquear, buscarAlias, eliminarContacto, mensajeErrorBuzon, responder, solicitar } from '../api'
+import { bloquear, buscarAlias, eliminarContacto, mensajeErrorBuzon, reportar, responder, solicitar } from '../api'
 import { useContactos } from '../cache'
 import { refrescarContactos } from '../motor'
-import type { Contacto, ResultadoBusqueda } from '../tipos'
+import { asegurarNormas } from '../normas'
+import { pedirReporte } from '../reportar'
+import { ErrorBuzon, type Contacto, type ResultadoBusqueda } from '../tipos'
 import { FormAlias } from './FilaAlias'
 import { Retrato } from './Retrato'
 
@@ -57,6 +59,7 @@ export function ContactosPanel({ onAbrirHilo }: { onAbrirHilo: (hiloId: string) 
 
   const pedir = (a: string) =>
     ejecutar(async () => {
+      if (!(await asegurarNormas())) throw new ErrorBuzon('normas')
       const r = await solicitar(a)
       hablar(
         r.estado === 'aceptado'
@@ -70,6 +73,7 @@ export function ContactosPanel({ onAbrirHilo }: { onAbrirHilo: (hiloId: string) 
 
   const aceptar = (c: Contacto | { contactoId: string }, si: boolean) =>
     ejecutar(async () => {
+      if (si && !(await asegurarNormas())) throw new ErrorBuzon('normas')
       const hilo = await responder(c.contactoId, si)
       setResultado(null)
       if (si && hilo) onAbrirHilo(hilo)
@@ -84,6 +88,17 @@ export function ContactosPanel({ onAbrirHilo }: { onAbrirHilo: (hiloId: string) 
         peligro: true,
       })
       if (ok) await ejecutar(() => eliminarContacto(c.contactoId, c.hiloId))
+    })()
+
+  const reportarA = (c: Contacto) =>
+    void (async () => {
+      const r = await pedirReporte(`@${c.alias}`, c.estado !== 'bloqueado')
+      if (!r) return
+      await ejecutar(async () => {
+        await reportar(c.contactoId, null, r.motivo, r.detalle)
+        if (r.bloquear) await bloquear(c.contactoId, true)
+        hablar(t('buzon.reportar.listo', 'Gracias. Lo revisaremos en menos de 24 horas.'), { persistir: false })
+      })
     })()
 
   const recibidas = contactos.filter((c) => c.estado === 'pendiente' && c.direccion === 'recibida')
@@ -203,6 +218,7 @@ export function ContactosPanel({ onAbrirHilo }: { onAbrirHilo: (hiloId: string) 
               <BotonAccion onClick={() => void aceptar(c, false)} disabled={ocupado}>
                 {t('buzon.rechazar', 'Rechazar')}
               </BotonAccion>
+              <BotonIcono icono="bandera" titulo={t('buzon.reportar', 'Reportar')} onClick={() => reportarA(c)} disabled={ocupado} peligro />
             </div>
           ))}
         </div>
@@ -233,6 +249,9 @@ export function ContactosPanel({ onAbrirHilo }: { onAbrirHilo: (hiloId: string) 
               onClick={() => void ejecutar(() => bloquear(c.contactoId, c.estado !== 'bloqueado'))}
               disabled={ocupado}
             />
+          )}
+          {c.estado !== 'pendiente' && (
+            <BotonIcono icono="bandera" titulo={t('buzon.reportar', 'Reportar')} onClick={() => reportarA(c)} disabled={ocupado} peligro />
           )}
           <BotonIcono icono="basura" titulo={t('buzon.eliminar', 'Eliminar contacto')} onClick={() => eliminar(c)} disabled={ocupado} peligro />
         </div>
@@ -273,7 +292,7 @@ function BotonIcono({
   disabled,
   peligro,
 }: {
-  icono: 'chat' | 'confirmar' | 'quitar' | 'basura'
+  icono: 'chat' | 'confirmar' | 'quitar' | 'basura' | 'bandera'
   titulo: string
   onClick: () => void
   disabled?: boolean

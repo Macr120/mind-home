@@ -348,6 +348,7 @@ const ALIAS_APPS: Record<string, string[]> = {
   arte: ['galeria', 'estudio de arte', 'estudio de dibujo'],
   escritura: ['libros', 'estudio de escritura'],
   video: ['editor de video', 'estudio de video'],
+  archivos: ['mi archivo', 'mis archivos', 'mi nube'],
 }
 
 /** ¿El nombre pedible aparece en el texto? (multi-palabra por inclusión, simple por token). */

@@ -352,6 +352,10 @@ export const lugaresNavRepo = createRepository(db.lugaresNav, 'creadoEn')
 // De la más antigua a la más nueva: son chips fijos, no un historial.
 export const categoriasLugarRepo = createRepository(db.categoriasLugar, 'creadoEn', false)
 
+// Cuarto Archivo: carpetas por nombre en la UI, archivos del más nuevo al más viejo.
+export const carpetasArchivoRepo = createRepository(db.carpetasArchivo, 'creadoEn', false)
+export const archivosNubeRepo = createRepository(db.archivosNube, 'creadoEn')
+
 export const sesionesMindfulnessRepo = createRepository(db.sesionesMindfulness)
 export const gratitudDiariaRepo = createRepository(db.gratitudDiaria)
 

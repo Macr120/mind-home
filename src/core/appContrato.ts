@@ -349,7 +349,7 @@ export const plantillasInfraestructura = (): Plantilla[] => codigo.filter(esInfr
  * sacarle apps—, así que no puede gobernar una pestaña. Las plantillas propias
  * del usuario no están aquí: nacen productivas.
  */
-const IDS_CREATIVIDAD = new Set(['audio', 'arte', 'escritura', 'video'])
+const IDS_CREATIVIDAD = new Set(['audio', 'arte', 'escritura', 'video', 'archivos'])
 
 export const esCreatividad = (p: Plantilla) => IDS_CREATIVIDAD.has(p.id)
 

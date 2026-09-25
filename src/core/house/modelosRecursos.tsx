@@ -1542,4 +1542,15 @@ export const SIEMBRA: Record<string, Siembra[]> = {
     { recurso: 89, x: -2.35, z: 2.35 },
     { recurso: 31, x: 2.4, z: 1.7 },
   ],
+  // Archivo (la nube): los racks al centro hacen de principal —lejos de los
+  // muros por la misma razón que los del Studio— y el puesto de trabajo al este.
+  archivos: [
+    { recurso: 88, x: -0.6, z: -1.2, principal: true },
+    { recurso: 89, x: -2.3, z: -2.3 },
+    { recurso: 89, x: -2.3, z: 1.9 },
+    { recurso: 48, x: 1.4, z: 0.9, rotY: 270 },
+    { recurso: 50, x: 1.4, z: 0.9, rotY: 270 },
+    { recurso: 49, x: 0.6, z: 0.9, rotY: 90 },
+    { recurso: 104, x: 2.4, z: -2.4 },
+  ],
 }

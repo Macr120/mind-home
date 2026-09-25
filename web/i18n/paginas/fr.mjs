@@ -221,6 +221,12 @@ export const TEXTOS = {
     '<strong>Caméra et micro :</strong> seulement quand tu les actives (masque AR, photo pour le chat, dictée vocale). Le masque est traité sur ton appareil ; l’audio de la dictée et les photos que tu joins au chat sont envoyés aux fournisseurs d’IA uniquement pour générer cette réponse.',
   'priv.datos.6':
     '<strong>Données de santé et de bien-être :</strong> ce que tu notes sur l’exercice, les repas, les médicaments, les rendez-vous médicaux ou le cycle est conservé pour toi comme toute autre donnée de l’app ; ce n’est jamais vendu ni utilisé à des fins publicitaires.',
+  'priv.datos.7':
+    '<strong>Localisation :</strong> uniquement quand tu l\'utilises. Pour calculer un itinéraire et pendant la navigation, ta position précise et ta destination sont envoyées à HERE Technologies ; le cardio avec GPS enregistre le parcours de l\'entraînement avec tes données. Nous ne la partageons jamais avec d\'autres utilisateurs.',
+  'priv.datos.8':
+    '<strong>Messages et contenus partagés :</strong> si tu choisis un alias et ajoutes des contacts, nous conservons ton alias, ton nom affiché, ton emoji et le portrait de ton personnage, ainsi que les messages, fichiers et espaces partagés que tu envoies, afin de les transmettre aux personnes que tu choisis. Seules les personnes qui participent à cette conversation ou à cet espace peuvent les voir. Si tu signales quelque chose, nous gardons une copie de l\'élément signalé pour l\'examiner.',
+  'priv.datos.9':
+    '<strong>Navigateur :</strong> l\'historique et le temps passé sur chaque site sont enregistrés sur ton appareil. Ils ne sont téléversés sur nos serveurs que si tu actives leur synchronisation, et les domaines ne sont envoyés à l\'IA que si tu demandes à les classer.',
   'priv.salud.h': 'Portée des fonctions de santé',
   'priv.salud.p':
     'MindHaOS est un agenda personnel, pas une application médicale. Ses fonctions de santé sont un journal que tu écris toi-même et quelques rappels : l’app ne diagnostique pas, n’interprète pas les symptômes, ne recommande ni doses ni traitements, ne vérifie pas les interactions médicamenteuses et ne remplace pas la consultation d’un professionnel de santé. Les estimations du cycle proviennent uniquement des données que tu saisis et sont indicatives. Ce n’est ni un produit de santé ni un dispositif médical, et l’app ne se connecte pas aux dossiers médicaux, aux assureurs ni aux prestataires de santé.',
@@ -258,6 +264,8 @@ export const TEXTOS = {
   'priv.proveedores.3': 'Anthropic et Google (réponses et images d’IA, à la demande).',
   'priv.proveedores.4':
     'OpenAI (transcription vocale et secours d’images d’IA, à la demande).',
+  'priv.proveedores.5':
+    'HERE Technologies (plans, recherche de lieux et itinéraires, à la demande).',
   'priv.cambios.h': 'Modifications',
   'priv.cambios.p':
     'Si cette politique change, nous publierons ici la nouvelle version avec sa date. Les questions sont traitées à l’adresse de contact.',
@@ -297,6 +305,18 @@ export const TEXTOS = {
   'term.razonable.h': 'Usage raisonnable',
   'term.razonable.p':
     'Le quota de crédits d’IA vaut pour un compte personnel. Il n’est pas permis de revendre le service, de partager le compte à grande échelle ni d’automatiser la consommation d’IA en dehors de l’app.',
+  'term.comunidad.h':
+    'Règles de la communauté',
+  'term.comunidad.p':
+    'MindHaOS te permet d\'écrire à tes contacts, de partager le contenu de tes pièces, de visiter d\'autres maisons et de travailler dans des espaces partagés. Pour utiliser ces fonctions, tu acceptes ces règles :',
+  'term.comunidad.1':
+    'N\'envoie pas de harcèlement, de menaces, de haine ou de discrimination, de contenu sexuel, de violence, de spam, d\'arnaques ni quoi que ce soit d\'illégal.',
+  'term.comunidad.2':
+    'Nous ne tolérons pas les contenus abusifs. Depuis l\'app, tu peux signaler n\'importe quel message, contact ou membre d\'un espace, et bloquer qui tu veux.',
+  'term.comunidad.3':
+    'Nous examinons chaque signalement en moins de 24 heures : nous retirons le contenu qui enfreint ces règles et excluons du service la personne qui l\'a envoyé.',
+  'term.comunidad.4':
+    'Tu es responsable de ce que tu envoies et partages. Tu peux aussi nous prévenir par courriel (voir Contact).',
   'term.cambios.h': 'Modifications du service',
   'term.cambios.p':
     'Nous pouvons faire évoluer l’app et ces conditions ; les changements de prix sont annoncés à l’avance et ne s’appliquent jamais rétroactivement à une période déjà payée.',

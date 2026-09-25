@@ -2,7 +2,7 @@
  * Motor de sincronización push/pull contra la tabla `registros` de Supabase.
  *
  * - Push: drena `_outbox` (última operación por tabla+uid), traduce FKs
- *   numéricas a uid del padre, sube blobs a Storage y manda lotes a la RPC
+ *   numéricas a uid del padre, sube blobs al almacén (R2) y manda lotes a la RPC
  *   `sync_push` (guarda LWW en el servidor).
  * - Pull: pagina por `server_seq`, descarga blobs FUERA de la transacción,
  *   aplica en orden padres→hijos con LWW por `updatedAt`, resuelve choques de
@@ -24,7 +24,7 @@ import { useSesion } from '../../cuenta/sesionStore'
 import { tGlobal } from '../../i18n/useT'
 import { conectarAvisoEscritura, marcarEscrituraSilenciosa } from './middleware'
 import { CLAVES_UNICAS, FK, ORDEN_TOPO, SINGLETONS, TABLAS_SYNC, esFilaCompartida, esTablaSync } from './syncables'
-import { borrarBlobsDeRegistro, extraerBlobs, rehidratarBlobs } from './blobs'
+import { borrarBlobsDeRegistro, extraerBlobs, prepararBajadas, rehidratarBlobs } from './blobs'
 
 const LOTE_PUSH = 200
 const LOTE_PULL = 500
@@ -405,7 +405,8 @@ async function pull(vistos?: Map<string, Set<string>>): Promise<Set<string>> {
     }
 
     // Blobs FUERA de la transacción (una tx de IndexedDB muere si espera red),
-    // en trozos de 4 en vez de uno a uno.
+    // en trozos de 4 en vez de uno a uno, con las URLs firmadas de una vez.
+    await prepararBajadas(candidatos.filter((r) => !r.deleted).map((r) => r.datos))
     for (let i = 0; i < candidatos.length; i += 4) {
       await Promise.all(
         candidatos.slice(i, i + 4).map(async (r) => {

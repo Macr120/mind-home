@@ -11,6 +11,8 @@
  * Con `?espacioLocal=<codigo>` todo esto se atiende en la propia pestaña
  * (`servidorLocal.ts`), con el mismo JSON.
  */
+import type { MotivoReporte } from '../buzon/api'
+import { asegurarNormas } from '../buzon/normas'
 import { obtenerSupabase } from '../cuenta/supabase'
 import type { TFunc } from '../i18n/useT'
 import { espacioLocal } from './transporte'
@@ -146,11 +148,17 @@ function aMiembro(m: FilaMiembro): MiembroEspacio {
 
 // ─── RPCs ────────────────────────────────────────────────────────────────────
 
+/** Compartir o entrar por enlace expone a otras personas: antes, las normas de la comunidad. */
+async function exigirNormas(): Promise<void> {
+  if (!espacioLocal() && !(await asegurarNormas())) throw new ErrorEspacio('normas')
+}
+
 export async function crear(
   tipo: TipoEspacio,
   titulo: string,
   meta: Record<string, unknown> = {},
 ): Promise<Espacio> {
+  await exigirNormas()
   const r = await rpc<{ espacio: FilaEspacio }>('espacio_crear', {
     p_tipo: tipo,
     p_titulo: titulo,
@@ -175,6 +183,7 @@ export async function editar(espacioId: string, titulo: string, meta: Record<str
 }
 
 export async function entrar(token: string): Promise<{ espacio: Espacio; miembros: MiembroEspacio[] }> {
+  await exigirNormas()
   const r = await rpc<{ espacio: FilaEspacio; miembros: FilaMiembro[] }>('espacio_entrar', {
     p_token: token,
     p_proto: VERSION_PROTO_ESPACIO,
@@ -224,6 +233,11 @@ export async function fijarRol(espacioId: string, miembroId: string, rol: RolEsp
 
 export async function expulsar(espacioId: string, miembroId: string): Promise<void> {
   await rpc('espacio_expulsar', { p_id: espacioId, p_miembro: miembroId })
+}
+
+/** Reporta el espacio (sin `miembroId`: a quien lo compartió) o a uno de sus miembros. */
+export async function reportar(espacioId: string, miembroId: string | null, motivo: MotivoReporte, detalle = ''): Promise<void> {
+  await rpc('espacio_reportar', { p_id: espacioId, p_miembro: miembroId, p_motivo: motivo, p_detalle: detalle })
 }
 
 export async function salir(espacioId: string): Promise<void> {
@@ -417,6 +431,8 @@ export function mensajeErrorEspacio(e: unknown, t: TFunc): string {
       return t('esp.error.snapshot-grande', 'Esto ya es demasiado grande para compartirlo')
     case 'version':
       return t('esp.error.version', 'Uno de los dos tiene una versión distinta de la app')
+    case 'normas':
+      return t('esp.error.normas', 'Para compartir con otras personas acepta antes las normas de la comunidad')
     case 'red':
       return t('esp.error.red', 'Sin conexión con el servidor')
     default:

@@ -4,11 +4,12 @@ import { descargarArchivo } from '../../descargarArchivo'
 import { useT } from '../../i18n/useT'
 import { useMascota } from '../../state/mascotaStore'
 import { Icono } from '../../ui/iconos/Icono'
-import { mensajeErrorBuzon } from '../api'
+import { bloquear, mensajeErrorBuzon, reportar } from '../api'
 import { useBuzon } from '../buzonStore'
 import { actualizarMensaje, contactosCache, useContactoDeHilo, useMensajesHilo } from '../cache'
 import { extractoDe, separarCita } from '../cita'
-import { borrarMensaje, descargarBlobDe, marcarLeido, reenviable, reenviar, reintentar } from '../motor'
+import { borrarMensaje, descargarBlobDe, marcarLeido, reenviable, reenviar, refrescarContactos, reintentar } from '../motor'
+import { pedirReporte } from '../reportar'
 import { elegir } from '../../state/confirmarStore'
 import { useSesion } from '../../cuenta/sesionStore'
 import type { NombreIcono } from '../../ui/iconos/catalogo'
@@ -309,6 +310,25 @@ function MenuMensaje({
       icono: 'estrella',
       texto: m.favorito ? t('buzon.menu.quitarFavorito', 'Quitar de favoritos') : t('buzon.menu.favorito', 'Favorito'),
       hacer: () => actualizarMensaje(m.uid, { favorito: !m.favorito }),
+    })
+  }
+  // Solo lo que mandó la otra persona y ya está en el servidor (es la copia que se guarda como prueba).
+  if (vivo && !m.mio && !m.sistema && m.serverSeq > 0) {
+    opciones.push({
+      id: 'reportar',
+      icono: 'bandera',
+      texto: t('buzon.reportar', 'Reportar'),
+      peligro: true,
+      hacer: async () => {
+        const r = await pedirReporte(`@${contacto.alias}`, contacto.estado !== 'bloqueado')
+        if (!r) return
+        await reportar(contacto.contactoId, m.uid, r.motivo, r.detalle)
+        if (r.bloquear) {
+          await bloquear(contacto.contactoId, true)
+          await refrescarContactos()
+        }
+        hablar(t('buzon.reportar.listo', 'Gracias. Lo revisaremos en menos de 24 horas.'), { persistir: false })
+      },
     })
   }
   opciones.push({

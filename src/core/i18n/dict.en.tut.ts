@@ -814,8 +814,6 @@ export const EN_TUT: Dict = {
   'tut.app-entretenimiento--esencial.2.texto':
     'The table gathers digital games you play right on screen. A filter separates what works for one or two players from what suits a bigger group.',
   'tut.app-entretenimiento--esencial.3.titulo': 'By family',
-  'tut.app-entretenimiento--esencial.3.texto':
-    'The catalog is grouped into families — board, puzzle, arcade, cards and casino, and for the group — each with its own color. Tap any card to open the game full screen.',
   'tut.app-entretenimiento--esencial.4.titulo': 'Archive',
   'tut.app-entretenimiento--esencial.4.texto':
     'The archive gathers what you watch, read, and play: each title with its status, its rating, and your review. It can be sorted by genre, category, author, or date.',
@@ -1173,8 +1171,6 @@ export const EN_TUT: Dict = {
   'tut.app-entretenimiento--juegos.1.texto':
     '1–2 players or 3+: the filter hides whatever won\'t work for the group in front of you. Games marked "2+" work in both sections.',
   'tut.app-entretenimiento--juegos.2.titulo': 'By family',
-  'tut.app-entretenimiento--juegos.2.texto':
-    'Board, Puzzle, Arcade, Cards & casino, For the group: each family has its own color. Chess, checkers, dominoes, blackjack, tetris, minesweeper and over a dozen more.',
   'tut.app-entretenimiento--juegos.3.titulo': 'One tap and you\'re playing',
   'tut.app-entretenimiento--juegos.3.texto':
     'Every card opens the game full-screen; the ones that support it bring their own difficulty selector up top. Going back returns you right here, without losing your place.',
@@ -1195,4 +1191,6 @@ export const EN_TUT: Dict = {
   'tut.app-diario--reparto.2.titulo': 'Two paper rounds',
   'tut.app-diario--reparto.2.texto':
     'The wizard brings world, tech and economy at 7:30. Laika delivers the light stuff whenever she feels like it. Each assistant picks their sections and their mode.',
+  'tut.app-entretenimiento--esencial.3.texto': "The catalog is grouped into families — board, puzzle, arcade, cards and for the group — each with its own color. Tap any card to open the game full screen.",
+  'tut.app-entretenimiento--juegos.2.texto': "Board, Puzzle, Arcade, Cards, For the group: each family has its own color. Chess, checkers, dominoes, solitaire, tetris, minesweeper and over a dozen more.",
 }

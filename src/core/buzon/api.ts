@@ -1,5 +1,6 @@
 import { obtenerSupabase } from '../cuenta/supabase'
 import { useSesion } from '../cuenta/sesionStore'
+import { esDemo } from '../edicion'
 import type { TFunc } from '../i18n/useT'
 import {
   ErrorBuzon,
@@ -107,6 +108,26 @@ export async function responder(contactoId: string, aceptar: boolean): Promise<s
 
 export async function bloquear(contactoId: string, bloquear: boolean): Promise<void> {
   await rpc('buzon_bloquear', { p_contacto: contactoId, p_bloquear: bloquear })
+}
+
+export type MotivoReporte = 'acoso' | 'odio' | 'sexual' | 'violencia' | 'spam' | 'otro'
+
+/** Reporta a un contacto o, con `uid`, uno de los mensajes que te mandó. */
+export async function reportar(contactoId: string, uid: string | null, motivo: MotivoReporte, detalle = ''): Promise<void> {
+  // Los amigos del demo son de mentira: no hay a quién reportar en el servidor.
+  if (esDemo()) return
+  await rpc('buzon_reportar', { p_contacto: contactoId, p_uid: uid, p_motivo: motivo, p_detalle: detalle })
+}
+
+// ─── normas de la comunidad ──────────────────────────────────────────────────
+
+export async function normasAceptadas(): Promise<boolean> {
+  const r = await rpc<{ aceptadas: string | null }>('buzon_normas')
+  return !!r.aceptadas
+}
+
+export async function aceptarNormas(): Promise<void> {
+  await rpc('buzon_aceptar_normas')
 }
 
 /**
@@ -285,6 +306,8 @@ export function mensajeErrorBuzon(e: unknown, t: TFunc): string {
       return t('buzon.err.adjunto-grande', 'El archivo supera los 8 MB')
     case 'contenido-grande':
       return t('buzon.err.contenido-grande', 'Este contenido es demasiado grande para enviarlo')
+    case 'normas':
+      return t('buzon.err.normas', 'Para escribir a otras personas acepta antes las normas de la comunidad')
     case 'red':
       return t('buzon.err.red', 'Sin conexión con el servidor')
     default:

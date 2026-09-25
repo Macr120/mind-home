@@ -1,9 +1,9 @@
 # 🏠 MindHaOS (antes Mind Planner Home, «MPH»)
 
 Casa isométrica 3D navegable donde cada cuarto es una mini-app 2D independiente pero
-interconectada (organización, hábitos, finanzas, aprendizaje…). **26 apps en 1**: 17 de cuarto,
-4 del Studio (crear: audio, arte, escritura y video) y 5 de infraestructura que se construyen
-sobre el mapa.
+interconectada (organización, hábitos, finanzas, aprendizaje…). **27 apps en 1**: 17 de cuarto,
+4 del Studio (crear: audio, arte, escritura y video), el Archivo (la nube Pro) y 5 de
+infraestructura que se construyen sobre el mapa.
 
 ## Stack
 
@@ -107,7 +107,7 @@ src/
 │   ├── cuenta/        sesión, créditos, paywall
 │   ├── i18n/          useT + diccionarios (EN en carga diferida)
 │   ├── ui/            menú, overlay, HUD, editor y planos
-│   └── registry.ts    contrato `Plantilla` + lista de las 26 apps
+│   └── registry.ts    contrato `Plantilla` + lista de las 27 apps
 ├── rooms/<id>/        una carpeta por app (solo 2D + repos)
 └── demo/              casa demo (BD paralela)
 web/                   landing pública y /cuenta (segundo build de Vite)

@@ -220,6 +220,12 @@ export const TEXTOS = {
     '<strong>Kamera und Mikrofon:</strong> nur wenn du sie einschaltest (AR-Maske, Foto für den Chat, Sprachdiktat). Die Maske wird auf deinem Gerät verarbeitet; das Audio des Diktats und die Fotos, die du an den Chat anhängst, gehen nur zum Erzeugen dieser Antwort an die KI-Anbieter.',
   'priv.datos.6':
     '<strong>Gesundheits- und Wohlbefindensdaten:</strong> was du zu Bewegung, Ernährung, Medikamenten, Arztterminen oder Zyklus einträgst, wird für dich wie alle anderen App-Daten gespeichert; es wird nie verkauft oder für Werbung genutzt.',
+  'priv.datos.7':
+    '<strong>Standort:</strong> nur wenn du ihn nutzt. Zur Routenberechnung und während der Navigation werden dein genauer Standort und dein Ziel an HERE Technologies gesendet; Cardio mit GPS speichert die Strecke des Trainings bei deinen Daten. Wir teilen ihn nie mit anderen Nutzern.',
+  'priv.datos.8':
+    '<strong>Nachrichten und geteilte Inhalte:</strong> Wenn du ein Pseudonym wählst und Kontakte hinzufügst, speichern wir dein Pseudonym, deinen Anzeigenamen, dein Emoji und das Porträt deiner Figur sowie die Nachrichten, Dateien und geteilten Räume, die du sendest, um sie an die von dir gewählten Personen zuzustellen. Nur wer an diesem Gespräch oder Raum teilnimmt, sieht sie. Wenn du etwas meldest, bewahren wir eine Kopie des Gemeldeten auf, um es zu prüfen.',
+  'priv.datos.9':
+    '<strong>Browser:</strong> Der Verlauf und die Zeit auf jeder Seite werden auf deinem Gerät gespeichert. Sie werden nur dann auf unsere Server geladen, wenn du ihre Synchronisierung aktivierst, und Domains werden nur an die KI gesendet, wenn du um eine Einordnung bittest.',
   'priv.salud.h': 'Umfang der Gesundheitsfunktionen',
   'priv.salud.p':
     'MindHaOS ist ein persönlicher Planer, keine medizinische Anwendung. Seine Gesundheitsfunktionen sind ein Protokoll, das du selbst schreibst, und ein paar Erinnerungen: Die App stellt keine Diagnosen, deutet keine Symptome, empfiehlt weder Dosierungen noch Behandlungen, prüft keine Wechselwirkungen zwischen Medikamenten und ersetzt nicht den Besuch bei einer medizinischen Fachkraft. Die Zyklusschätzungen ergeben sich nur aus den Daten, die du einträgst, und sind Richtwerte. Sie ist kein Gesundheitsprodukt und kein Medizinprodukt und verbindet sich nicht mit Patientenakten, Versicherungen oder Gesundheitsdienstleistern.',
@@ -257,6 +263,8 @@ export const TEXTOS = {
   'priv.proveedores.3': 'Anthropic und Google (KI-Antworten und -Bilder, auf Anfrage).',
   'priv.proveedores.4':
     'OpenAI (Sprachtranskription und Bild-Fallback der KI, auf Anfrage).',
+  'priv.proveedores.5':
+    'HERE Technologies (Karten, Ortssuche und Routen, auf Anfrage).',
   'priv.cambios.h': 'Änderungen',
   'priv.cambios.p':
     'Wenn sich diese Erklärung ändert, veröffentlichen wir hier die neue Fassung mit ihrem Datum. Fragen beantworten wir unter der Kontaktadresse.',
@@ -296,6 +304,18 @@ export const TEXTOS = {
   'term.razonable.h': 'Angemessene Nutzung',
   'term.razonable.p':
     'Das KI-Credit-Kontingent gilt für ein persönliches Konto. Es ist nicht erlaubt, den Dienst weiterzuverkaufen, das Konto massenhaft zu teilen oder den KI-Verbrauch außerhalb der App zu automatisieren.',
+  'term.comunidad.h':
+    'Regeln der Gemeinschaft',
+  'term.comunidad.p':
+    'MindHaOS lässt dich deinen Kontakten schreiben, Inhalte aus deinen Räumen teilen, andere Häuser besuchen und in geteilten Räumen arbeiten. Um diese Funktionen zu nutzen, akzeptierst du diese Regeln:',
+  'term.comunidad.1':
+    'Sende keine Belästigung, Drohungen, Hass oder Diskriminierung, sexuellen Inhalt, Gewalt, Spam, Betrug oder irgendetwas Illegales.',
+  'term.comunidad.2':
+    'Missbräuchliche Inhalte dulden wir nicht. In der App kannst du jede Nachricht, jeden Kontakt und jedes Mitglied eines Raums melden und jede Person blockieren, die du willst.',
+  'term.comunidad.3':
+    'Wir prüfen jede Meldung in weniger als 24 Stunden: Wir entfernen Inhalte, die gegen diese Regeln verstoßen, und schließen die absendende Person vom Dienst aus.',
+  'term.comunidad.4':
+    'Du bist verantwortlich für das, was du sendest und teilst. Du kannst uns auch per E-Mail Bescheid geben (siehe Kontakt).',
   'term.cambios.h': 'Änderungen am Dienst',
   'term.cambios.p':
     'Wir können die App und diese Bedingungen aktualisieren; Preisänderungen werden vorher angekündigt und gelten nie rückwirkend für einen bereits bezahlten Zeitraum.',

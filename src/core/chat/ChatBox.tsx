@@ -122,9 +122,10 @@ import { useHud } from '../state/hudStore'
 import { BotonPlegarHud } from '../ui/HudPlegable'
 import { useTopeHud, anclajeChat } from '../ui/hudMedida'
 import { vivo } from '../ui/estilos'
-import { iaHabilitada } from '../edicion'
+import { esDemo, iaHabilitada } from '../edicion'
 import { ErrorIA, usarViaCuenta } from '../cuenta/api'
 import { haySesionProbable, useSesion } from '../cuenta/sesionStore'
+import { formatoBytes, formatoUso, refrescarUsoAlmacen, useAlmacen } from '../cuenta/almacen'
 import { blobABase64, comprimirImagen } from '../imagenIA'
 import { useMascaraUi } from '../state/mascaraUiStore'
 import { useChatArUi } from '../state/chatArUiStore'
@@ -180,6 +181,9 @@ function cuartoMasCercano(): string | null {
   }
   return mejor
 }
+
+/** Píldora de créditos y nube plegada (por dispositivo). */
+const LS_MEDIDORES_PLEGADOS = 'mh.chat.medidoresPlegados'
 
 /**
  * Chat box del "arquitecto" (orquestador), anclado abajo-centro.
@@ -368,6 +372,34 @@ export function ChatBox({
   const creditosIlimitados = !!usoIA && usoIA.limiteCreditos < 0
   const creditosRestantes =
     Math.max(0, usoIA ? usoIA.limiteCreditos - usoIA.creditos : 0) + creditosExtra
+  // Medidor de la nube (cuarto Archivo, R2) junto al de créditos. Se lee al
+  // entrar con sesión; Archivo y las subidas lo refrescan después.
+  const usuarioId = useSesion((s) => s.usuario?.id)
+  const usoNube = useAlmacen((s) => s.uso)
+  useEffect(() => {
+    if (usuarioId && !esDemo()) void refrescarUsoAlmacen()
+  }, [usuarioId])
+  const verNube = !!usuarioId && !esDemo() && !!usoNube && (usoNube.cuota !== 0 || usoNube.usados > 0)
+  // Créditos en el mismo formato corto que la nube: «450/700» (∞ sin tope).
+  const verCreditos = usarViaCuenta() && (creditosIlimitados || !!usoIA || creditosExtra > 0)
+  const creditosTotal = Math.max(0, usoIA?.limiteCreditos ?? 0) + creditosExtra
+  // La píldora de medidores se pliega a sus iconos; se recuerda por dispositivo.
+  const [medidoresPlegados, setMedidoresPlegados] = useState(() => {
+    try {
+      return localStorage.getItem(LS_MEDIDORES_PLEGADOS) === '1'
+    } catch {
+      return false
+    }
+  })
+  const alternarMedidores = () =>
+    setMedidoresPlegados((v) => {
+      try {
+        localStorage.setItem(LS_MEDIDORES_PLEGADOS, v ? '0' : '1')
+      } catch {
+        // Sin almacenamiento: el pliegue dura lo que la sesión.
+      }
+      return !v
+    })
   const addObjeto = useDiseño((s) => s.addObjeto)
   const mascota = asistentes.find((a) => a.id === mascotaId) ?? asistentes[0]
 
@@ -1993,14 +2025,47 @@ export function ChatBox({
       </div>
       {/* Contador de créditos de IA, bajo la caja y a la derecha. Solo si la IA
           sale por créditos (no BYOK) y de verdad queda algo que gastar. */}
-      {usarViaCuenta() && (creditosIlimitados || creditosRestantes > 0) && (
+      {(verCreditos || verNube) && (
         <div className="mt-1 flex justify-end">
-          <span className="ui-panel-glass rounded-lg border border-white/10 px-2 py-0.5 text-[10px] font-semibold text-white/50 shadow-xl backdrop-blur-md">
-            <Icono nombre="brillo" />{' '}
-            {t('chat.creditos', 'Créditos: {n}', {
-              n: creditosIlimitados ? '∞' : creditosRestantes,
-            })}
-          </span>
+          <button
+            type="button"
+            onClick={alternarMedidores}
+            aria-expanded={!medidoresPlegados}
+            title={
+              medidoresPlegados
+                ? t('chat.medidores.mostrar', 'Mostrar créditos y nube')
+                : t('chat.medidores.plegar', 'Plegar créditos y nube')
+            }
+            className="ui-panel-glass flex items-center gap-2 rounded-lg border border-white/10 px-2 py-0.5 text-[10px] font-semibold text-white/50 shadow-xl backdrop-blur-md transition hover:text-white/70"
+          >
+            {verNube && usoNube && (
+              <span>
+                <Icono nombre="nube" />
+                {!medidoresPlegados && (
+                  <>
+                    {' '}
+                    {usoNube.cuota == null
+                      ? t('chat.nube.sinTope', 'Nube: {usados}', { usados: formatoBytes(usoNube.usados) })
+                      : t('chat.nube', 'Nube: {uso}', { uso: formatoUso(usoNube.usados, usoNube.cuota) })}
+                  </>
+                )}
+              </span>
+            )}
+            {verCreditos && (
+              <span>
+                <Icono nombre="brillo" />
+                {!medidoresPlegados && (
+                  <>
+                    {' '}
+                    {t('chat.creditos', 'Créditos: {n}', {
+                      n: creditosIlimitados ? '∞' : `${creditosRestantes}/${creditosTotal}`,
+                    })}
+                  </>
+                )}
+              </span>
+            )}
+            <Icono nombre={medidoresPlegados ? 'izquierda' : 'derecha'} className="text-white/35" />
+          </button>
         </div>
       )}
         </div>

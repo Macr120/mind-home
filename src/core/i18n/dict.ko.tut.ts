@@ -81,9 +81,11 @@ export const KO_TUT: Dict = {
   'tut.casa.6.titulo': '도구 휠',
   'tut.casa.6.texto': '여기 열려 있어요. 동작, 장난감, 탈것, 건축이 있고 한 번에 3개까지 장착할 수 있어요. 조이스틱 옆 버튼에서 열리고, 맨손일 때는 구석의 그 자리에서도 열려요.',
   'tut.casa.7.titulo': '시계',
-  'tut.casa.7.texto': 'MindHaOS의 시간이에요. 누르면 전체 캘린더가 열리고, 오늘의 \'미션\'도 거기에 있어요. 그리고 해나 달을 누르면 이 패널이 열려요. 시간의 흐름과 장면의 빛이에요.',
+  'tut.casa.7.texto':
+    'MindHaOS의 시간이에요. 누르면 전체 캘린더가 열리고, 오늘의 \'미션\'도 거기에 있어요. 그리고 해나 달을 누르면 이 패널이 열려요. 시간의 흐름과 장면의 빛이에요.',
   'tut.casa.8.titulo': 'MindHaOS의 음악',
-  'tut.casa.8.texto': 'MindHaOS는 조용한 상태로 시작해요. 배경 음악을 원하면 여기서 음악을 켜세요. 방마다 테마 곡이 미리 담겨 있고, MindHaOS의 전체 분위기를 그대로 틀어 둘 수도 있어요.',
+  'tut.casa.8.texto':
+    'MindHaOS는 조용한 상태로 시작해요. 배경 음악을 원하면 여기서 음악을 켜세요. 방마다 테마 곡이 미리 담겨 있고, MindHaOS의 전체 분위기를 그대로 틀어 둘 수도 있어요.',
   'tut.casa.9.titulo': '채팅',
   'tut.casa.9.texto':
     '아키텍트 채팅이에요. 무엇을 했는지 말하면 알맞은 앱에 기록해 주고, MindHaOS를 바꿔 달라거나 이미지, 심지어 방에 놓을 3D 모델까지 부탁할 수 있어요. 그냥 잠시 수다를 떨어도 좋고요.',
@@ -191,7 +193,8 @@ export const KO_TUT: Dict = {
   'tut.editor-config.3.titulo': '시각 스타일',
   'tut.editor-config.3.texto': '지도의 테마(빛, 안개, 조명)와 후처리 스타일이에요. 전부 필요할 때만 불러와서 괜히 무거워지지 않아요.',
   'tut.editor-config.4.titulo': '인터페이스와 언어',
-  'tut.editor-config.4.texto': '언어, 인터페이스 테마(라이트/다크/자동), 아이콘 스타일과 밀도예요. MindHaOS가 \'어떻게\' 보이는지를 바꾸는 것들이지, 무엇이 담겼는지를 바꾸지는 않아요.',
+  'tut.editor-config.4.texto':
+    '언어, 인터페이스 테마(라이트/다크/자동), 아이콘 스타일과 밀도예요. MindHaOS가 \'어떻게\' 보이는지를 바꾸는 것들이지, 무엇이 담겼는지를 바꾸지는 않아요.',
   'tut.editor-config.5.titulo': '알림',
   'tut.editor-config.5.texto': '어떤 알림이 오고 어떤 게 조용할지 정해요. 루틴, 계획 알림, 리마인더를 따로따로 끌 수 있어요.',
   'tut.editor-config.6.texto': '\'음악\'과 \'튜토리얼\'에도 각자의 투어가 있어요. \'데이터 백업\'도 마찬가지인데, 기기를 바꾸기 전에 가장 챙겨볼 만한 게 이거예요.',
@@ -266,7 +269,8 @@ export const KO_TUT: Dict = {
   'tut.chat-registros.2.texto':
     '어시스턴트가 세션 사이에 기억해 둘 만하다고 판단한 정보예요. 알레르기, 목표, 취향 같은 것들이요. 다시 묻지 않으려고요. 잊게 하려면 ✕를 누르면 돼요.',
   'tut.chat-registros.grafo.titulo': '나의 기억 그래프',
-  'tut.chat-registros.grafo.texto': '각 기억은 앱에서 언급한 것들(사람, 레시피, 목표, 장소)과 다른 기억들에 저절로 연결돼요. 여기서는 그걸 지도처럼 볼 수 있어요. 기억을 탭하면 고치거나 직접 연결할 수 있어요.',
+  'tut.chat-registros.grafo.texto':
+    '각 기억은 앱에서 언급한 것들(사람, 레시피, 목표, 장소)과 다른 기억들에 저절로 연결돼요. 여기서는 그걸 지도처럼 볼 수 있어요. 기억을 탭하면 고치거나 직접 연결할 수 있어요.',
   'tut.chat-registros.3.texto': '앱에 기록한 것들(식사, 지출, 세션)은 각 앱에 있고 여기엔 없어요. 이 탭은 대화 자체의 기억일 뿐이에요.',
   'tut.app-generica.1.texto': '헤더에 방과 열려 있는 앱이 나와요. 방에 앱이 여러 개면 ‹ 화살표로 방의 앱 목록으로 돌아가요.',
   'tut.app-generica.2.titulo': '미션',
@@ -419,7 +423,8 @@ export const KO_TUT: Dict = {
   'tut.infra-paintball--batalla.1.texto': '도구 휠을 열어 보세요. Paintball은 거기 \'건축\' 카테고리에, 탈것 옆에 있어요.',
   'tut.infra-paintball--batalla.2.texto':
     '모드를 골라요. 1 vs 1, 2 vs 2, 배틀로얄이 있어요. 상대는 지도에 있는 어시스턴트예요. Laika도 포함이고, 플레이는 1층에서 해요.',
-  'tut.infra-paintball--batalla.3.texto': 'MindHaOS 전체가 전장이에요. 벽 뒤에 숨고, 고개를 내밀어 쏘고, 등 뒤를 조심하세요. 튄 페인트는 대결이 끝날 때까지 남아 있어요.',
+  'tut.infra-paintball--batalla.3.texto':
+    'MindHaOS 전체가 전장이에요. 벽 뒤에 숨고, 고개를 내밀어 쏘고, 등 뒤를 조심하세요. 튄 페인트는 대결이 끝날 때까지 남아 있어요.',
   'tut.infra-paintball--batalla.4.texto': '지민의 전적은 47승 23패예요. 데모에서도 대결이 진짜로 집계돼요. 떠나기 전에 기록을 올려 보세요.',
   'tut.app-anecdotario--diario.1.texto':
     '지민님의 일기예요. 1년 내내, 일주일에 두세 편씩. 시작할 때의 지겨움부터 2주 전 마라톤까지, 한 해의 흐름이 전부 여기에 담겨 있어요.',
@@ -439,8 +444,7 @@ export const KO_TUT: Dict = {
   'tut.app-jardin--practicar.2.titulo': '소리와 함께 명상',
   'tut.app-jardin--practicar.2.texto': '사운드(숲 소리, 파도 소리, 빗소리, 티베트 싱잉볼)와 시간을 고르거나, 종소리만 두고 조용히 명상해요. 세션은 끝나면 저절로 저장돼요.',
   'tut.app-jardin--practicar.3.titulo': '1년치 세션',
-  'tut.app-jardin--practicar.3.texto':
-    '지민님의 한 해예요. 주 3회로 시작했다가 7개월째—부상과 자동차 수리비—에는 거의 매일이 됐어요. 그 슬럼프를 버티게 해준 게 이거였어요.',
+  'tut.app-jardin--practicar.3.texto': '지민님의 한 해예요. 주 3회로 시작했다가 7개월째—부상과 자동차 수리비—에는 거의 매일이 됐어요. 그 슬럼프를 버티게 해준 게 이거였어요.',
   'tut.app-jardin--practicar.4.titulo': '호흡',
   'tut.app-jardin--practicar.4.texto':
     '가이드 패턴 두 가지예요. 중심을 잡고 싶을 땐 “박스 호흡법 4-4-4-4”, 하루를 내려놓고 싶을 땐 “4-7-8 호흡법”. 화면이 같이 호흡해요.',
@@ -586,7 +590,8 @@ export const KO_TUT: Dict = {
   'tut.app-idiomas--temario.2.titulo': '지금 어디쯤인지',
   'tut.app-idiomas--temario.2.texto': '습득한 카드, 이번 달 복습, 그리고 지금 레벨. 지민은 연초에 A2였고 지금은 B1쯤이에요.',
   'tut.app-agenda--esencial.1.titulo': '나의 일정',
-  'tut.app-agenda--esencial.1.texto': '일정에는 습관이 아닌 것들이 담겨요. 할 일, 예약, 연락처예요. 메뉴는 세 가지이고, 날짜가 있는 것은 모두 MindHaOS 캘린더에 알아서 들어가요.',
+  'tut.app-agenda--esencial.1.texto':
+    '일정에는 습관이 아닌 것들이 담겨요. 할 일, 예약, 연락처예요. 메뉴는 세 가지이고, 날짜가 있는 것은 모두 MindHaOS 캘린더에 알아서 들어가요.',
   'tut.app-agenda--esencial.2.titulo': '업무',
   'tut.app-agenda--esencial.2.texto': '할 일에는 날짜가 없는 일들이 모여서 놓치지 않게 해주고, 보드에서는 할 일·진행 중·완료 열로 작업을 옮길 수 있어요.',
   'tut.app-agenda--esencial.3.titulo': '건강',
@@ -735,8 +740,6 @@ export const KO_TUT: Dict = {
   'tut.app-entretenimiento--esencial.2.texto':
     '테이블에는 화면에서 바로 즐기는 디지털 게임이 모여 있어요. 필터로 한두 명이 하기 좋은 것과 여럿이 함께할 만한 것을 나눠 볼 수 있어요.',
   'tut.app-entretenimiento--esencial.3.titulo': '계열별로',
-  'tut.app-entretenimiento--esencial.3.texto':
-    '카탈로그는 계열별로 묶여 있어요. 보드, 퍼즐, 아케이드, 카드와 카지노, 그리고 여럿이 함께하는 게임이고, 각각 고유한 색을 갖고 있어요. 아무 카드나 누르면 게임이 전체 화면으로 열려요.',
   'tut.app-entretenimiento--esencial.4.titulo': '아카이브',
   'tut.app-entretenimiento--esencial.4.texto':
     '아카이브는 보고 읽고 즐긴 것을 한데 모아요. 작품마다 상태와 평점, 내 리뷰가 함께 남아요. 장르, 카테고리, 작가, 날짜로 정렬할 수 있어요.',
@@ -824,7 +827,8 @@ export const KO_TUT: Dict = {
   'tut.app-sala--esencial.5.titulo': '여행 일지',
   'tut.app-sala--esencial.5.texto': '다녀온 곳의 추억을 나라별 앨범으로 모아요. 장소마다 사진과 이야기가 담겨요.',
   'tut.app-sala--esencial.6.titulo': '길찾기',
-  'tut.app-sala--esencial.6.texto': '문에서 문까지 안내하는 내비게이터예요. 출발지와 도착지를 고르고 도보, 대중교통, 자전거, 오토바이, 자동차를 한 경로에 조합하세요. 거리 지도와 단계별 안내가 함께해요.',
+  'tut.app-sala--esencial.6.texto':
+    '문에서 문까지 안내하는 내비게이터예요. 출발지와 도착지를 고르고 도보, 대중교통, 자전거, 오토바이, 자동차를 한 경로에 조합하세요. 거리 지도와 단계별 안내가 함께해요.',
   'tut.app-agenda--trabajo.1.titulo': '할 일 보관함',
   'tut.app-agenda--trabajo.1.texto': '해야 하지만 아직 날짜가 없는 일은 여기에 우선순위와 함께 있어요. 적어 두려고 굳이 날짜를 정할 필요는 없어요.',
   'tut.app-agenda--trabajo.3.titulo': '보드',
@@ -1042,14 +1046,13 @@ export const KO_TUT: Dict = {
   'tut.app-entretenimiento--juegos.1.texto':
     '\'1~2인\'이냐 \'3인 이상\'이냐. 지금 함께 있는 인원에 맞지 않는 건 필터가 숨겨요. \'2+\'로 표시된 게임은 두 섹션 모두에 나와요.',
   'tut.app-entretenimiento--juegos.2.titulo': '종류별로',
-  'tut.app-entretenimiento--juegos.2.texto':
-    '보드, 두뇌 게임, 아케이드, 카드 & 카지노, 다 같이. 종류마다 고유한 색이 있어요. 체스, 체커, 도미노, 블랙잭, 테트리스, 지뢰찾기, 그리고 열 종류가 넘게 더 있어요.',
   'tut.app-entretenimiento--juegos.3.titulo': '한 번 누르면 시작',
   'tut.app-entretenimiento--juegos.3.texto': '카드를 누르면 게임이 전체 화면으로 열려요. 지원하는 게임은 위쪽에 난이도 선택이 있어요. 돌아오면 있던 자리 그대로예요.',
   'tut.app-diario--habito.1.titulo': '오늘의 헤드라인',
   'tut.app-diario--habito.1.texto': '세계, 경제, 기술, 건강, 스포츠, 엔터테인먼트를 실제 매체에서 가져와요. 위쪽 칩으로 분야를 걸러낼 수 있어요.',
   'tut.app-diario--habito.2.titulo': '알아서 새로워져요',
-  'tut.app-diario--habito.2.texto': '그날 치는 알아서 내려받고, 자정이면 통째로 바뀌어요. 여기엔 아무것도 쌓이지 않아요. 진짜 신문처럼요. MindHaOS의 언어를 바꾸면 신문도 바뀌어요. 언어마다 그 언어의 매체가 들어와요.',
+  'tut.app-diario--habito.2.texto':
+    '그날 치는 알아서 내려받고, 자정이면 통째로 바뀌어요. 여기엔 아무것도 쌓이지 않아요. 진짜 신문처럼요. MindHaOS의 언어를 바꾸면 신문도 바뀌어요. 언어마다 그 언어의 매체가 들어와요.',
   'tut.app-diario--habito.3.titulo': '오늘의 역사',
   'tut.app-diario--habito.3.texto':
     '나머지 절반이에요. 역사 속 오늘 무슨 일이 있었는지, 미술 작품 하나, 책 한 권, 생물 하나, 단어 하나. 뉴스가 당기지 않는 날에도 열어 볼 핑계가 돼요.',
@@ -1059,4 +1062,8 @@ export const KO_TUT: Dict = {
   'tut.app-diario--reparto.2.titulo': '배달원은 둘',
   'tut.app-diario--reparto.2.texto':
     '마법사는 7:30에 세계, 기술, 경제를 가져다줘요. Laika는 내킬 때 가벼운 소식을 물어다 줘요. 어시스턴트마다 섹션과 방식을 고를 수 있어요.',
+  'tut.app-entretenimiento--esencial.3.texto':
+    '카탈로그는 보드, 퍼즐, 아케이드, 카드, 여럿이 함께 다섯 갈래로 나뉘고 각각 고유한 색을 가져요. 아무 카드나 누르면 게임이 전체 화면으로 열려요.',
+  'tut.app-entretenimiento--juegos.2.texto':
+    '보드, 퍼즐, 아케이드, 카드, 여럿이 함께: 갈래마다 고유한 색이 있어요. 체스, 체커, 도미노, 솔리테어, 테트리스, 지뢰찾기에 열 개가 넘는 게임이 더 있어요.',
 }

@@ -99,6 +99,7 @@ export type CodigoErrorBuzon =
   | 'limite'
   | 'adjunto-grande'
   | 'contenido-grande'
+  | 'normas'
   | 'red'
   | 'servidor'
 

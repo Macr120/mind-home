@@ -69,12 +69,14 @@ export const NL_TUT: Dict = {
     'Naar Excel gaat een echte .xlsx, met levende formules en de diagrammen als echte Excel-diagrammen. Naar PDF gaat het via de printer van de browser.',
   'tut.casa.1.texto': 'Dit is jouw MindHaOS: elke kamer bevat een app. Ik laat je de basisbediening zien.',
   'tut.casa.2.titulo': 'Het hoofdmenu',
-  'tut.casa.2.texto': 'Ik heb het geopend zodat je het ziet: dit is het hoofdmenu, met je kamers en hun apps. De andere tabbladen brengen Binnen (de app-catalogus) en Buiten, wat je op het terrein bouwt.',
+  'tut.casa.2.texto':
+    'Ik heb het geopend zodat je het ziet: dit is het hoofdmenu, met je kamers en hun apps. De andere tabbladen brengen Binnen (de app-catalogus) en Buiten, wat je op het terrein bouwt.',
   'tut.casa.2b.titulo': 'De app-catalogus',
   'tut.casa.2b.texto':
     'Zijn tweede tabblad: de catalogus met sjablonen — alle apps die je MindHaOS kan dragen, elk klaar om aan een kamer te worden toegewezen.',
   'tut.casa.2c.titulo': 'Buiten',
-  'tut.casa.2c.texto': 'En de derde: Buiten — racebanen, velden, moestuin, opvang en paintball, die geen kamer innemen maar direct op het terrein worden gebouwd.',
+  'tut.casa.2c.texto':
+    'En de derde: Buiten — racebanen, velden, moestuin, opvang en paintball, die geen kamer innemen maar direct op het terrein worden gebouwd.',
   'tut.casa.3.titulo': 'Rondlopen',
   'tut.casa.3.texto':
     'Loop met de joystick, met WASD of met de pijltjestoetsen: het hele MindHaOS verken je te voet. Rondlopen opent de apps niet — om binnen te gaan, tik op het object met de zwevende bol van de kamer.',
@@ -107,7 +109,8 @@ export const NL_TUT: Dict = {
     'De knop Editor bovenaan opent dit: de volledige aanpassing in vier tabbladen — Kaart, Personages, Objecten en Instellingen. Hier wordt het hele MindHaOS getekend en aangekleed.',
   'tut.casa.10.texto':
     'Dat is de basis. Elk menu en elke app hebben hun eigen ?-knop met hun tutorial: vraag erom wanneer iets je niet duidelijk is.',
-  'tut.primeros.1.texto': 'Deze rondleiding beantwoordt twee dingen: hoe je je apps OPENT en hoe je er een NIEUWE maakt. Allebei wonen ze hier, in het tabblad Thuis.',
+  'tut.primeros.1.texto':
+    'Deze rondleiding beantwoordt twee dingen: hoe je je apps OPENT en hoe je er een NIEUWE maakt. Allebei wonen ze hier, in het tabblad Thuis.',
   'tut.primeros.entrar.titulo': 'Je apps binnengaan',
   'tut.primeros.entrar.texto':
     'Elke kamer draagt zijn app en je hebt drie deuren: zijn kaart hier in het menu, het object met de zwevende bol op de plattegrond, en de snelle toegang via de MindHaOS-knop bovenaan.',
@@ -160,9 +163,11 @@ export const NL_TUT: Dict = {
   'tut.menu-plantillas.1.texto':
     'Een sjabloon is een app (Keuken, Gym, Financiën…). Je wijst het toe aan een object in een kamer en het opent zodra je binnenkomt.',
   'tut.menu-plantillas.2.titulo': 'Twee weergaven',
-  'tut.menu-plantillas.2.texto': 'Productiviteit zijn de apps voor werk en dagelijks leven; Creativiteit is de Studio: audio, kunst, schrijven en video. Ze worden allemaal op dezelfde manier toegewezen, aan een object in een kamer.',
+  'tut.menu-plantillas.2.texto':
+    'Productiviteit zijn de apps voor werk en dagelijks leven; Creativiteit is de Studio: audio, kunst, schrijven en video. Ze worden allemaal op dezelfde manier toegewezen, aan een object in een kamer.',
   'tut.menu-plantillas.3.titulo': 'De catalogus',
-  'tut.menu-plantillas.3.texto': 'De standaard-apps en die van jou, geordend in groepen. Tik er een aan om hem aan een kamer toe te wijzen.',
+  'tut.menu-plantillas.3.texto':
+    'De standaard-apps en die van jou, geordend in groepen. Tik er een aan om hem aan een kamer toe te wijzen.',
   'tut.menu-plantillas.4.titulo': 'Je eigen sjablonen',
   'tut.menu-plantillas.4.texto':
     'Maak je eigen sjablonen door ze met blokken op te bouwen: notities, checklists, tellers, gewoontes, galerijen… Deze knop opent hun eigen editor met een eigen tutorial.',
@@ -188,10 +193,13 @@ export const NL_TUT: Dict = {
   'tut.menu-inventario.2.titulo': 'Kaart',
   'tut.menu-inventario.2.texto': 'Wat er AL staat, kamer voor kamer: tik op een miniatuur om dat object te bewerken.',
   'tut.menu-inventario.3.titulo': 'Catalogus',
-  'tut.menu-inventario.3.texto': 'Alle objecten die er zijn, in twee mappen: de gewone en de speciale — die iets doen, zoals berijdbare voertuigen, fonteinen, speeltoestellen en lampen.',
+  'tut.menu-inventario.3.texto':
+    'Alle objecten die er zijn, in twee mappen: de gewone en de speciale — die iets doen, zoals berijdbare voertuigen, fonteinen, speeltoestellen en lampen.',
   'tut.menu-inventario.4.titulo': 'Plaatsen',
-  'tut.menu-inventario.4.texto': 'Met de catalogus open sleep je een miniatuur rechtstreeks de 3D-scène in om hem neer te zetten waar je wilt.',
-  'tut.menu-inventario.5.texto': 'De andere tak, Maken, is om nieuwe objecten uit onderdelen of met AI te bouwen, en om het geselecteerde object te bewerken.',
+  'tut.menu-inventario.4.texto':
+    'Met de catalogus open sleep je een miniatuur rechtstreeks de 3D-scène in om hem neer te zetten waar je wilt.',
+  'tut.menu-inventario.5.texto':
+    'De andere tak, Maken, is om nieuwe objecten uit onderdelen of met AI te bouwen, en om het geselecteerde object te bewerken.',
   'tut.editor-mapa.1.texto':
     'De editor van je MindHaOS heeft 4 tabbladen: Kaart, Personages, Objecten en Instellingen. Deze rondleiding gaat over Kaart; de andere drie hebben hun eigen rondleiding.',
   'tut.editor-mapa.2.titulo': 'De plattegrond',
@@ -343,7 +351,8 @@ export const NL_TUT: Dict = {
   'tut.chat-registros.2.texto':
     'Feitjes die de assistent de moeite waard vond om tussen sessies te onthouden —een allergie, een doel, een voorkeur— zodat hij het je niet opnieuw vraagt. Vergeten doe je met de ✕ ernaast.',
   'tut.chat-registros.grafo.titulo': 'Je geheugengraaf',
-  'tut.chat-registros.grafo.texto': 'Elke herinnering verbindt zich vanzelf met wat ze uit je apps noemt — personen, recepten, doelen, plaatsen — en met andere herinneringen. Hier zie je het als een kaart; tik op een herinnering om haar te verbeteren of met de hand te verbinden.',
+  'tut.chat-registros.grafo.texto':
+    'Elke herinnering verbindt zich vanzelf met wat ze uit je apps noemt — personen, recepten, doelen, plaatsen — en met andere herinneringen. Hier zie je het als een kaart; tik op een herinnering om haar te verbeteren of met de hand te verbinden.',
   'tut.chat-registros.3.texto':
     'Wat je in je apps vastlegt (maaltijden, uitgaven, sessies) leeft in elke app zelf, niet hier: dit tabblad is alleen het geheugen van het gesprek.',
   'tut.app-generica.1.texto':
@@ -945,8 +954,6 @@ export const NL_TUT: Dict = {
   'tut.app-entretenimiento--esencial.2.texto':
     'De tafel verzamelt digitale spellen die je rechtstreeks op het scherm speelt. Een filter scheidt wat bedoeld is voor één of twee spelers van wat geschikt is voor een grotere groep.',
   'tut.app-entretenimiento--esencial.3.titulo': 'Per familie',
-  'tut.app-entretenimiento--esencial.3.texto':
-    'De catalogus is gegroepeerd in families — bord, denkwerk, arcade, kaarten en casino, en voor de groep — elk met zijn eigen kleur. Tik op een kaart om het spel op volledig scherm te openen.',
   'tut.app-entretenimiento--esencial.4.titulo': 'Archief',
   'tut.app-entretenimiento--esencial.4.texto':
     'Het archief verzamelt wat je bekijkt, leest en speelt: elke titel met zijn status, zijn beoordeling en jouw recensie. Je kunt sorteren op genre, categorie, auteur of datum.',
@@ -1043,7 +1050,8 @@ export const NL_TUT: Dict = {
   'tut.app-sala--esencial.5.texto':
     'De herinneringen aan de plekken die je bezocht hebt, in albums per land: foto\'s en verhalen van elke plek.',
   'tut.app-sala--esencial.6.titulo': 'Route plannen',
-  'tut.app-sala--esencial.6.texto': 'Een navigator van deur tot deur: kies vertrek en bestemming en combineer lopen, openbaar vervoer, fiets, motor en auto in één reis, met de stratenkaart en stap-voor-stap aanwijzingen.',
+  'tut.app-sala--esencial.6.texto':
+    'Een navigator van deur tot deur: kies vertrek en bestemming en combineer lopen, openbaar vervoer, fiets, motor en auto in één reis, met de stratenkaart en stap-voor-stap aanwijzingen.',
   'tut.app-agenda--trabajo.1.titulo': 'De inbox',
   'tut.app-agenda--trabajo.1.texto':
     'Wat gedaan moet worden maar nog geen dag heeft, staat hier, met zijn prioriteit. Niets dwingt je een datum te kiezen om het op te schrijven.',
@@ -1304,8 +1312,6 @@ export const NL_TUT: Dict = {
   'tut.app-entretenimiento--juegos.1.texto':
     '1-2 spelers of 3+: het filter verbergt wat niet werkt voor het gezelschap dat voor je zit. Spellen met «2+» passen in allebei de secties.',
   'tut.app-entretenimiento--juegos.2.titulo': 'Per familie',
-  'tut.app-entretenimiento--juegos.2.texto':
-    'Bordspellen, Puzzels, Arcade, Kaarten & casino, Voor de groep: elke familie met een eigen kleur. Schaken, dammen, dominoën, blackjack, tetris, mijnenveger en nog meer dan een dozijn.',
   'tut.app-entretenimiento--juegos.3.titulo': 'Eén tik en je speelt',
   'tut.app-entretenimiento--juegos.3.texto':
     'Elk kaartje opent het spel schermvullend; wie het ondersteunt, heeft bovenin een eigen Moeilijkheidsgraad. Met Terug kom je precies hier weer uit, zonder je plek kwijt te raken.',
@@ -1326,4 +1332,8 @@ export const NL_TUT: Dict = {
   'tut.app-diario--reparto.2.titulo': 'Twee krantenlopers',
   'tut.app-diario--reparto.2.texto':
     'De tovenaar brengt Wereld, Tech en Economie om 7:30. Laika brengt het lichte werk wanneer het haar uitkomt. Elke assistent kiest zijn eigen secties en zijn eigen modus.',
+  'tut.app-entretenimiento--esencial.3.texto':
+    'De catalogus is verdeeld in families — bordspel, denkwerk, arcade, kaarten en voor de groep — elk met een eigen kleur. Tik op een kaartje om het spel schermvullend te openen.',
+  'tut.app-entretenimiento--juegos.2.texto':
+    'Bordspel, Denkwerk, Arcade, Kaarten, Voor de groep: elke familie met een eigen kleur. Schaken, dammen, domino, patience, tetris, mijnenveger en nog ruim een dozijn meer.',
 }

@@ -24,6 +24,7 @@ import escritura from '../rooms/escritura'
 import arte from '../rooms/arte'
 import audio from '../rooms/audio'
 import video from '../rooms/video'
+import archivos from '../rooms/archivos'
 import { fijarPlantillasCustom, registrarPlantillasCodigo, type Plantilla } from './appContrato'
 
 /**
@@ -67,6 +68,7 @@ export const plantillas: Plantilla[] = [
   arte,
   audio,
   video,
+  archivos,
 ]
 
 // Publica las apps de código en el catálogo hoja, de donde las leen todos.
@@ -104,6 +106,8 @@ export const DESCRIPCIONES: Record<string, string> = {
     'Tu estudio musical: pistas con piano roll, instrumentos sintetizados, teclado MIDI o en pantalla, grabación con metrónomo, export a WAV y una IA que compone contigo.',
   video:
     'Tu editor de video por guion: escenas con clips, imágenes, títulos, filtros, narración con voz IA y música, vistas a la vez como guion y como línea de tiempo, con export a archivo de video.',
+  archivos:
+    'Tu nube: carpetas y archivos de cualquier tipo con vista previa de fotos, video, audio y PDF, en todos tus dispositivos. Con Pro guardas 10, 30 o 100 GB según tu nivel.',
 }
 
 /**
@@ -133,6 +137,7 @@ export const CORTAS: Record<string, string> = {
   arte: 'Lienzos, pinceles y fotos',
   audio: 'Pistas, piano roll y MIDI',
   video: 'Guion, escenas y export',
+  archivos: 'Carpetas, nube y vista previa',
 }
 
 /** Ids personalizados publicados la última vez: sus descripciones se retiran al reemplazarlos. */

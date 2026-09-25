@@ -166,6 +166,9 @@ export const TABLAS_SYNC: string[] = [
   'materialesTaller',
   'ajustesCotizacion',
   'presupuestosMueble',
+  // Cuarto Archivo: solo metadatos; los bytes viven en el almacén (R2).
+  'carpetasArchivo',
+  'archivosNube',
   // Al final del array a propósito: `materialEntrada` apunta a entradasBiblio,
   // hojasCalculo, mapasIdeas e ideas, así que se aplica cuando todas ya están.
   'materialEntrada',
@@ -319,6 +322,9 @@ export const FK: Record<string, Record<string, string>> = {
   relacionesLibro: { historiaId: 'historias', aId: 'documentos', bId: 'documentos', docId: 'documentos' },
   // El presupuesto apunta al diseño del taller del que salió.
   presupuestosMueble: { muebleId: 'muebles' },
+  // Cuarto Archivo: el árbol de carpetas (self-FK) y el archivo en su carpeta.
+  carpetasArchivo: { padreId: 'carpetasArchivo' },
+  archivosNube: { carpetaId: 'carpetasArchivo' },
 }
 
 /**
@@ -392,6 +398,9 @@ export const ORDEN_TOPO: string[] = [
   // `muebles` no aparece (sin padres numéricos → se aplica primero); el
   // presupuesto va después porque lo referencia.
   'presupuestosMueble',
+  // Carpetas antes que archivos (las subcarpetas reintentan vía `_pendientes`).
+  'carpetasArchivo',
+  'archivosNube',
   // El último: apunta a entradasBiblio, hojasCalculo, mapasIdeas e ideas, y
   // `hojasCalculo`/`ideas` no aparecen antes porque no tienen padres numéricos
   // (las tablas ausentes de esta lista se aplican primero).
