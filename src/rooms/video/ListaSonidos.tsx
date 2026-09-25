@@ -48,7 +48,7 @@ function srcDeSonido(fuente: FuenteSonido, porId: Map<number, MedioVideo>): { sr
     return src ? { src, url: '' } : null
   }
   const m = porId.get(fuente.medioId)
-  if (!m) return null
+  if (!m?.blob) return null
   const url = URL.createObjectURL(m.blob)
   return { src: url, url }
 }

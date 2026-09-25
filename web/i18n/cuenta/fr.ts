@@ -56,6 +56,7 @@ export const TEXTOS: Record<string, string> = {
   'tar.b1': 'Niveau ×{n} : {c} crédits d’IA par mois',
   'tar.b2': 'Toutes les apps de la MindHaOS, sur tous tes appareils',
   'tar.b3': 'Synchronisation et sauvegarde dans le cloud',
+  'tar.b4': "{g} Go dans ton cloud (la pièce Fichiers)",
   'tar.actual': 'C’est ton niveau actuel',
   'tar.subir': 'Passer à ×{n}',
   'tar.bajar': 'Redescendre à ×{n}',
@@ -64,7 +65,7 @@ export const TEXTOS: Record<string, string> = {
   'tar.a2': 'Un seul prélèvement par an au lieu de douze',
   'tar.anual': 'Payer une année',
   'tar.pie':
-    'Sans engagement : tu montes, tu descends ou tu résilies quand tu veux et tu ne paies que la différence. Si tu résilies, l’app reste sur tes appareils en mode local, sans IA ni synchronisation.',
+    'Sans engagement : tu montes, tu descends ou tu résilies quand tu veux et tu ne paies que la différence. Si tu résilies, l’app reste sur tes appareils en mode local, sans IA ni synchronisation. Ton cloud reste 90 jours en lecture seule pour que tu récupères tes fichiers.',
   'mi.pro': 'Pro',
   'mi.trial': 'Premier mois',
   'mi.local': 'Local',
@@ -89,6 +90,7 @@ export const TEXTOS: Record<string, string> = {
 
   'pro.creditosMes': 'Crédits d’IA ce mois-ci',
   'pro.extra': 'Crédits en plus (recharges, sans expiration) : {n}',
+  'pro.nube': "Ton cloud (Fichiers)",
   'pro.gestionar': 'Gérer l’abonnement (résilier, changer de paiement)',
   'pag.cargando': 'Chargement…',
   'pag.sinBackend':

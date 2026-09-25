@@ -9,7 +9,10 @@ import {
   type MetaDiariaManual,
   type PisoExteriorCelda,
   type MuroLibre,
+  type ClipAudio,
+  type EnNube,
 } from './db'
+import { marcarEscrituraSilenciosa } from './sync/middleware'
 import type { Table, UpdateSpec } from 'dexie'
 import { marcarRegistro } from '../state/registroSesion'
 import { useClaveEncendidos, visibles } from './ejemplos'
@@ -1389,10 +1392,82 @@ export async function leerGrabacionAudio(id: number) {
   return (await db.grabacionesAudio.get(id)) ?? null
 }
 
+/** Tablas del Studio cuyos binarios pueden vivir en la nube (`EnNube`). */
+export type TablaNube = 'mediosVideo' | 'grabacionesAudio' | 'musicaImportada' | 'pistasMusica'
+
+const bajando = new Map<string, Promise<Blob | null>>()
+
 /**
- * Id del medio de video ya bajado del bucket con esa clave remota (índice
- * `remotoId`), o null. Solo la clave primaria: los blobs no se tocan.
+ * El blob de una fila del Studio: el local, o si este dispositivo aún no lo
+ * tiene y hay copia en la nube, lo baja y lo guarda (escritura silenciosa: no
+ * toca `updatedAt` ni encola nada). null si no hay forma de tenerlo. Dos
+ * llamadas simultáneas a la misma fila comparten la descarga.
  */
+export async function asegurarBlob(tabla: TablaNube, id: number): Promise<Blob | null> {
+  const fila = (await db.table(tabla).get(id)) as { blob?: Blob; nube?: EnNube } | undefined
+  if (!fila) return null
+  if (fila.blob) return fila.blob
+  const nube = fila.nube
+  if (!nube) return null
+  const k = `${tabla}:${id}`
+  let p = bajando.get(k)
+  if (!p) {
+    p = (async () => {
+      try {
+        const { bajarArchivo } = await import('../cuenta/almacen')
+        const blob = await bajarArchivo(nube.clave, nube.mime)
+        if (!blob) return null
+        await db.transaction('rw', db.table(tabla), async () => {
+          marcarEscrituraSilenciosa()
+          await db.table(tabla).update(id, { blob })
+        })
+        return blob
+      } catch (e) {
+        console.warn(`[nube] no se pudo bajar ${k}:`, e)
+        return null
+      } finally {
+        bajando.delete(k)
+      }
+    })()
+    bajando.set(k, p)
+  }
+  return p
+}
+
+/**
+ * La fila de la toma de un clip de audio, SIN bajar nada (los picos de la onda
+ * viajan en ella): por su id y, si el id no casa (viene de otro dispositivo,
+ * donde las ids numéricas son otras), por su `sello` (= el `creadoEn` de la
+ * toma, índice).
+ */
+export async function buscarTomaDeClip(clip: Pick<ClipAudio, 'grabacionId' | 'sello'>) {
+  const toma = await db.grabacionesAudio.get(clip.grabacionId)
+  if (toma && toma.creadoEn === clip.sello) return toma
+  return (await db.grabacionesAudio.where('creadoEn').equals(clip.sello).first()) ?? null
+}
+
+/** La toma de un clip con su blob, bajándolo de la nube si falta. */
+export async function leerTomaDeClip(clip: Pick<ClipAudio, 'grabacionId' | 'sello'>) {
+  let toma = await buscarTomaDeClip(clip)
+  if (!toma || toma.id == null) return null
+  if (!toma.blob) {
+    const blob = await asegurarBlob('grabacionesAudio', toma.id)
+    if (!blob) return null
+    toma = { ...toma, blob }
+  }
+  return toma
+}
+
+/**
+ * Id local del medio de video con ese `uid` (el mismo en todos los
+ * dispositivos), o null. Solo la clave primaria: los blobs no se tocan.
+ */
+export async function idMedioPorUid(uid: string): Promise<number | null> {
+  const ids = await db.mediosVideo.where('uid').equals(uid).primaryKeys()
+  return ids[0] ?? null
+}
+
+/** Ídem por la clave del bucket del espacio compartido (índice `remotoId`). */
 export async function idMedioPorRemotoId(remotoId: string): Promise<number | null> {
   const ids = await db.mediosVideo.where('remotoId').equals(remotoId).primaryKeys()
   return ids[0] ?? null

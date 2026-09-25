@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type DragEvent } from 'react'
-import { useT } from '../../core/i18n/useT'
+import { localeActual, useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { archivosNubeRepo, carpetasArchivoRepo } from '../../core/data/repository'
 import type { ArchivoNube, CarpetaArchivo } from '../../core/data/db'
@@ -7,6 +7,7 @@ import { esDemo, tieneAcceso } from '../../core/edicion'
 import { hayBackend } from '../../core/cuenta/supabase'
 import { useSesion } from '../../core/cuenta/sesionStore'
 import { formatoBytes, refrescarUsoAlmacen, useAlmacen } from '../../core/cuenta/almacen'
+import { fechaPurga } from '../../core/cuenta/almacenUso'
 import { tabInicial } from '../../core/state/intencionApp'
 import { confirmar, elegir, pedirTexto } from '../../core/state/confirmarStore'
 import { PestanasCarpeta, type ItemPestana } from '../_shared/PestanasCarpeta'
@@ -28,6 +29,7 @@ import {
   useSubidas,
 } from './acciones'
 import { Visor } from './Visor'
+import { DelStudio } from './DelStudio'
 
 /**
  * El cuarto Archivo: la nube del usuario (Pro). Carpetas y archivos como en un
@@ -35,12 +37,13 @@ import { Visor } from './Visor'
  * que el sync reparte entre dispositivos. Abrir un archivo pide una URL firmada.
  */
 
-type Tab = 'archivos' | 'recientes'
-const TABS_IDS = ['archivos', 'recientes'] as const
+type Tab = 'archivos' | 'recientes' | 'studio'
+const TABS_IDS = ['archivos', 'recientes', 'studio'] as const
 
 const TABS: ItemPestana<Tab>[] = [
   { id: 'archivos', icono: 'carpeta', labelEs: 'Archivos' },
   { id: 'recientes', icono: 'cronometro', labelEs: 'Recientes' },
+  { id: 'studio', icono: 'pelicula', labelEs: 'Del Studio' },
 ]
 
 const porNombre = <T extends { nombre: string }>(a: T, b: T) => a.nombre.localeCompare(b.nombre)
@@ -74,7 +77,14 @@ export function ArchivosApp() {
           onAlternarPliegue={() => setPlegado((v) => !v)}
         />
       </div>
-      {!plegado && <Explorador tab={tab} puedeSubir={tieneAcceso()} />}
+      {!plegado &&
+        (tab === 'studio' ? (
+          <div className="mx-auto w-full max-w-4xl">
+            <DelStudio />
+          </div>
+        ) : (
+          <Explorador tab={tab} puedeSubir={tieneAcceso()} />
+        ))}
     </div>
   )
 }
@@ -82,6 +92,10 @@ export function ArchivosApp() {
 function Medidor({ puedeSubir }: { puedeSubir: boolean }) {
   const t = useT()
   const uso = useAlmacen((s) => s.uso)
+  const plan = useSesion((s) => s.plan)
+  const planExpira = useSesion((s) => s.planExpira)
+  const sinPlanDesde = useSesion((s) => s.sinPlanDesde)
+  const purga = puedeSubir ? null : fechaPurga({ plan, planExpira, sinPlanDesde })
   useEffect(() => {
     void refrescarUsoAlmacen()
   }, [])
@@ -109,6 +123,14 @@ function Medidor({ puedeSubir }: { puedeSubir: boolean }) {
       {!puedeSubir && (
         <p className="text-xs text-amber-300/80">
           {t('archivos.soloLectura', 'Tu plan no incluye nube: puedes ver y bajar tus archivos, pero no subir nuevos.')}
+          {purga && uso.usados > 0 && (
+            <>
+              {' '}
+              {t('archivos.purga', 'Se borran de la nube el {fecha}: bájalos antes o reactiva Pro.', {
+                fecha: purga.toLocaleDateString(localeActual(), { day: 'numeric', month: 'long', year: 'numeric' }),
+              })}
+            </>
+          )}
         </p>
       )}
     </div>
@@ -166,7 +188,7 @@ function Miniatura({ archivo }: { archivo: ArchivoNube }) {
   return <Icono nombre={iconoDeMime(archivo.mime)} className="text-3xl text-white/60" />
 }
 
-function Explorador({ tab, puedeSubir }: { tab: Tab; puedeSubir: boolean }) {
+function Explorador({ tab, puedeSubir }: { tab: Exclude<Tab, 'studio'>; puedeSubir: boolean }) {
   const t = useT()
   const carpetas = carpetasArchivoRepo.useAll()
   const archivos = archivosNubeRepo.useAll()

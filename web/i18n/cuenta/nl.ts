@@ -57,6 +57,7 @@ export const TEXTOS: Record<string, string> = {
   'tar.b1': 'Niveau ×{n}: {c} AI-credits per maand',
   'tar.b2': 'Alle apps van je MindHaOS, op al je apparaten',
   'tar.b3': 'Synchronisatie en back-up in de cloud',
+  'tar.b4': "{g} GB in je cloud (de kamer Bestanden)",
   'tar.actual': 'Dit is je huidige niveau',
   'tar.subir': 'Omhoog naar ×{n}',
   'tar.bajar': 'Omlaag naar ×{n}',
@@ -65,7 +66,7 @@ export const TEXTOS: Record<string, string> = {
   'tar.a2': 'Eén afschrijving per jaar in plaats van twaalf',
   'tar.anual': 'Een jaar betalen',
   'tar.pie':
-    'Zonder binding: je gaat omhoog, omlaag of zegt op wanneer je wilt en betaalt alleen het verschil. Zeg je op, dan blijft de app op je apparaten in lokale modus, zonder AI en zonder synchronisatie.',
+    'Zonder binding: je gaat omhoog, omlaag of zegt op wanneer je wilt en betaalt alleen het verschil. Zeg je op, dan blijft de app op je apparaten in lokale modus, zonder AI en zonder synchronisatie. Je cloud blijft 90 dagen alleen-lezen, zodat je je bestanden kunt downloaden.',
   'mi.pro': 'Pro',
   'mi.trial': 'Eerste maand',
   'mi.local': 'Lokaal',
@@ -90,6 +91,7 @@ export const TEXTOS: Record<string, string> = {
 
   'pro.creditosMes': 'AI-credits deze maand',
   'pro.extra': 'Extra credits (bijvullingen, verlopen niet): {n}',
+  'pro.nube': "Je cloud (Bestanden)",
   'pro.gestionar': 'Abonnement beheren (opzeggen, betaling wijzigen)',
   'pag.cargando': 'Laden…',
   'pag.sinBackend': 'Deze omgeving heeft geen backend ingesteld (de VITE_SUPABASE_*-variabelen ontbreken).',

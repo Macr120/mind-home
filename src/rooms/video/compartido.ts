@@ -52,6 +52,7 @@ import {
 } from './constantes'
 import { completarGrabacion } from './importar'
 import { medioIdDe, mediosUsados, migrarProyecto, normalizar } from './modelo'
+import { blobDeMedio } from './nube'
 
 /**
  * El Studio de video por enlace: compartir un proyecto y recibir los que otras
@@ -587,12 +588,15 @@ function sinMedioRef<T extends { medioRef?: string }>(c: T): Omit<T, 'medioRef'>
 
 // ─── medios: subir y bajar ───────────────────────────────────────────────────
 
+/** Tamaño del medio aunque el blob aún esté solo en la nube del usuario. */
+const bytesDe = (m: MedioVideo) => m.blob?.size ?? m.nube?.bytes ?? 0
+
 const fichaDe = (m: MedioVideo, ref: string): MedioRemoto => ({
   ref,
   nombre: m.nombre,
   tipo: m.tipo,
-  mime: m.blob.type,
-  size: m.blob.size,
+  mime: m.blob?.type ?? m.nube?.mime ?? '',
+  size: bytesDe(m),
   ...(m.duracion != null ? { duracion: m.duracion } : {}),
   ...(m.ancho != null ? { ancho: m.ancho } : {}),
   ...(m.alto != null ? { alto: m.alto } : {}),
@@ -644,7 +648,7 @@ export async function subirMediosDelProyecto(
     const ref = ya?.ref ?? (m.remotoId?.startsWith(prefijo) ? m.remotoId.slice(prefijo.length) : null)
     if (ref) {
       refs.set(m.id, ya ?? fichaDe(m, ref))
-      ocupado += m.blob.size
+      ocupado += bytesDe(m)
     } else {
       pendientes.push(m as MedioVideo & { id: number })
     }
@@ -653,12 +657,19 @@ export async function subirMediosDelProyecto(
   let i = 0
   for (const m of pendientes) {
     opciones?.onProgreso?.(++i, pendientes.length)
-    if (m.blob.size > TOPE_MEDIO || ocupado + m.blob.size > TOPE_PROYECTO) {
+    const tam = bytesDe(m)
+    if (tam > TOPE_MEDIO || ocupado + tam > TOPE_PROYECTO) {
       saltados += 1
       continue
     }
     try {
-      const remoto = await subirMedio(esp, m.blob, {
+      // Un medio que llegó de otro dispositivo se baja de la nube antes de compartirlo.
+      const blob = await blobDeMedio(m)
+      if (!blob) {
+        saltados += 1
+        continue
+      }
+      const remoto = await subirMedio(esp, blob, {
         nombre: m.nombre,
         tipo: m.tipo,
         duracion: m.duracion,
@@ -666,7 +677,7 @@ export async function subirMediosDelProyecto(
         alto: m.alto,
         ...(m.sonido ? { sonido: true } : {}),
       })
-      ocupado += m.blob.size
+      ocupado += tam
       refs.set(m.id, remoto)
       // El mismo archivo en dos espacios son dos objetos: la clave lleva el espacio.
       await mediosVideoRepo.update(m.id, { remotoId: claveRemota(esp.espacioId, remoto.ref) })

@@ -86,7 +86,7 @@ export const TEXTOS = {
     'Chat met je assistent: leg maaltijden vast, maak routines, plan doelen, genereer beelden en 3D-modellen. Je eerste maand komt met 700 credits; daarna is AI optioneel.',
   'car.3.t': 'Alles gesynchroniseerd',
   'car.3.p':
-    'Je MindHaOS gaat met je mee naar je telefoon, je tablet en je computer. Alles versleuteld onderweg en geback-upt in de cloud.',
+    'Je MindHaOS gaat met je mee naar je telefoon, je tablet en je computer. Alles versleuteld onderweg en geback-upt in de cloud. Met Pro bewaart je cloud (de kamer Bestanden) bovendien 10, 30 of 100 GB aan bestanden.',
   'car.4.t': 'Het voelt als een spel',
   'car.4.p':
     'Je personage leeft van je echte activiteit: reeksen, badges, de Berg van Sisyphus, voertuigen, races en minigames.',
@@ -181,16 +181,16 @@ export const TEXTOS = {
     'Het hele MindHaOS: alle kamers, alle apps en je gegevens op je apparaat, voor altijd en zonder verlengingen. Daar bovenop brengt de eerste maand 700 AI-credits en synchronisatie mee, zonder kaart. Voor je koopt kun je de volledige app proberen, die geen account vraagt.',
   'faq.3.q': 'Wat kost AI na de eerste maand?',
   'faq.3.a':
-    'Wat je zelf kiest, of niets. Het abonnement is 6 USD per maand (700 credits en synchronisatie), of 60 USD per jaar — twee maanden cadeau. Kom je tekort, dan geven de niveaus ×2 en ×3 1400 of 2100 credits voor 12 of 18 USD per maand. En als je liever niet abonneert: er zijn losse bundels van 6 USD voor 700 credits die niet verlopen en alleen opgaan wanneer je erom vraagt. Dít betaal je hier, in <a href="/cuenta">je account</a>, en het geldt voor al je apparaten.',
+    'Wat je zelf kiest, of niets. Het abonnement is 6 USD per maand (700 credits en synchronisatie), of 60 USD per jaar — twee maanden cadeau. Kom je tekort, dan geven de niveaus ×2 en ×3 1400 of 2100 credits voor 12 of 18 USD per maand. En als je liever niet abonneert: er zijn losse bundels van 6 USD voor 700 credits die niet verlopen en alleen opgaan wanneer je erom vraagt. Dít betaal je hier, in <a href="/cuenta">je account</a>, en het geldt voor al je apparaten. Elk niveau bevat ook ruimte in je cloud: 10, 30 of 100 GB.',
   'faq.4.q': 'Wat zijn AI-credits?',
   'faq.4.a':
     'De eenheid waarin elke vraag aan de assistent wordt afgerekend, naar wat het kost om haar te beantwoorden: een gewoon antwoord is 1 credit waard, een lang plan 4, een beeld 3 (10 in hoge kwaliteit) en een 3D-model 10. Er wordt nooit automatisch afgeschreven: er gaat alleen iets af wanneer je erom vraagt.',
   'faq.5.q': 'Wat gebeurt er als ik opzeg?',
   'faq.5.a':
-    'Je houdt de hele app en al je gegevens op je apparaten, in lokale modus. Je raakt alleen de maandcredits en de synchronisatie kwijt. Verleng je weer, dan komt alles terug zoals je het achterliet.',
+    'Je houdt de hele app en al je gegevens op je apparaten, in lokale modus. Je raakt alleen de maandcredits en de synchronisatie kwijt. Verleng je weer, dan komt alles terug zoals je het achterliet. Je cloudbestanden blijven 90 dagen alleen-lezen zodat je ze kunt downloaden; daarna worden ze verwijderd.',
   'faq.6.q': 'Waar worden mijn gegevens bewaard?',
   'faq.6.a':
-    'Eerst op je apparaat (de app is local-first) en, met synchronisatie aan, ook in de cloud om van het ene apparaat naar het andere te gaan. In lokale modus verlaat er niets je apparaat. Betalingen verlopen via RevenueCat en Stripe — of via de store, als je vanaf je telefoon koopt: we zien je kaart nooit. Meer details in het <a href="/privacidad">privacybeleid</a>.',
+    'Eerst op je apparaat (de app is local-first) en, met synchronisatie aan, ook in de cloud om van het ene apparaat naar het andere te gaan. In lokale modus verlaat er niets je apparaat. Betalingen verlopen via RevenueCat en Stripe — of via de store, als je vanaf je telefoon koopt: we zien je kaart nooit. Meer details in het <a href="/privacidad">privacybeleid</a>. Grote bestanden (je cloud en Studio-media) worden opgeslagen op Cloudflare R2.',
   'faq.7.q': 'Op welke apparaten werkt het?',
   'faq.7.a':
     'Vandaag: in elke moderne browser. Heel binnenkort: Android (Google Play), iPhone/iPad (App Store), Windows en macOS. Je account geldt overal: je koopt één keer, waar het jou uitkomt, en zowel het MindHaOS als het AI-abonnement werken op elk apparaat waarop je met je e-mail inlogt.',
@@ -232,7 +232,8 @@ export const TEXTOS = {
   'priv.uso.1': 'Om je toegang te geven tot je account, je aankoop en je abonnement.',
   'priv.uso.2': 'Om je gegevens tussen apparaten te synchroniseren en er een back-up van te maken.',
   'priv.uso.3': 'Om de AI-functies met jouw creditquotum te laten draaien.',
-  'priv.uso.4': 'We verkopen je gegevens niet en delen ze niet met derden voor reclame.',  'priv.dispositivo.h': 'Opslag op je apparaat',
+  'priv.uso.4': 'We verkopen je gegevens niet en delen ze niet met derden voor reclame.',
+  'priv.dispositivo.h': 'Opslag op je apparaat',
   'priv.dispositivo.p':
     'De app bewaart informatie op je eigen apparaat en leest die om te werken: een lokale database (IndexedDB) met de gegevens van je huis en je bestanden, en de lokale opslag van de browser met je voorkeuren — taal, thema, status van het welkomstscherm — en met het sessietoken dat je ingelogd houdt. We gebruiken geen eigen cookies of vergelijkbare technologieën voor advertenties, analyse of tracking. Je kunt alles wissen via de instellingen van je browser of door de app te verwijderen.',
   'priv.dispositivo.terceros':
@@ -263,6 +264,7 @@ export const TEXTOS = {
     'OpenAI (spraaktranscriptie en AI-beeld-fallback, op verzoek).',
   'priv.proveedores.5':
     'HERE Technologies (kaarten, zoeken naar plaatsen en routes, op verzoek).',
+  'priv.proveedores.6': "Cloudflare (bestandsopslag in de cloud, R2).",
   'priv.cambios.h': 'Wijzigingen',
   'priv.cambios.p':
     'Als dit beleid verandert, publiceren we hier de nieuwe versie met haar datum. Vragen beantwoorden we op het contactadres.',
@@ -285,7 +287,7 @@ export const TEXTOS = {
   'term.precio.1':
     'Abonnement: 6 USD per maand op niveau ×1 (of het equivalent in jouw valuta), met automatische verlenging. De niveaus ×2 en ×3 vermenigvuldigen de credits en de prijs: 12 en 18 USD per maand. Je kunt niveau ×1 ook per jaar betalen: 60 USD, met automatische jaarlijkse verlenging en elke maand dezelfde credits.',
   'term.precio.2':
-    'Inclusief 700 AI-credits per maand per niveau (700 / 1400 / 2100) en synchronisatie tussen apparaten. Ongebruikte maandcredits gaan niet mee naar de volgende maand.',
+    'Inclusief 700 AI-credits per maand per niveau (700 / 1400 / 2100) en synchronisatie tussen apparaten. Ongebruikte maandcredits gaan niet mee naar de volgende maand. Het bevat ook ruimte in je cloud: 10, 30 of 100 GB afhankelijk van het niveau (10 GB bij jaarbetaling en in de inbegrepen maand).',
   'term.precio.3':
     'Credits per handeling: 1 voor een tekstantwoord, 4 voor een lang plan, 3 voor een beeld (10 in hoge kwaliteit) en 10 voor een 3D-model. Het tarief kan worden bijgesteld als de kosten van de AI-leveranciers veranderen; de geldende prijs staat in de app vóór elke aanvraag.',
   'term.precio.4':
@@ -295,10 +297,13 @@ export const TEXTOS = {
   'term.precio.6': 'De betalingen worden verwerkt door RevenueCat en Stripe.',
   'term.cancelacion.h': 'Opzeggen',
   'term.cancelacion.p':
-    'Je kunt op elk moment opzeggen via «Abonnement beheren» in <a href="/cuenta">je account</a>; je houdt het plan tot het einde van de betaalde periode. Daarna blijft de app op je apparaten werken in lokale modus, zonder maandcredits en zonder synchronisatie. Overgebleven bijvulcredits blijven bruikbaar, en verlengen kan wanneer je wilt.',
+    'Je kunt op elk moment opzeggen via «Abonnement beheren» in <a href="/cuenta">je account</a>; je houdt het plan tot het einde van de betaalde periode. Daarna blijft de app op je apparaten werken in lokale modus, zonder maandcredits en zonder synchronisatie. Overgebleven bijvulcredits blijven bruikbaar, en verlengen kan wanneer je wilt. Je cloudbestanden blijven 90 dagen alleen-lezen zodat je ze kunt downloaden; na die termijn worden ze van onze servers verwijderd.',
   'term.datos.h': 'Je gegevens',
   'term.datos.p':
     'Je gegevens zijn van jou. De app is local-first: alles leeft eerst op je apparaat. Wat we bewaren en hoe je het wist, staat in het <a href="/privacidad">privacybeleid</a>.',
+  'term.alojado.h': "Bestanden die je in de cloud bewaart",
+  'term.alojado.p':
+    "Je bent verantwoordelijk voor de bestanden die je naar je cloud uploadt en moet het recht hebben om ze te bewaren. Illegale inhoud, inhoud die rechten van derden schendt of die de communityregels overtreedt, is niet toegestaan; we kunnen die verwijderen en het account opschorten. De cloud is een opslagdienst, geen gegarandeerde back-up: bewaar een kopie van wat je niet kwijt wilt.",
   'term.razonable.h': 'Redelijk gebruik',
   'term.razonable.p':
     'Het AI-creditquotum geldt voor een persoonlijk account. Het is niet toegestaan de dienst door te verkopen, het account massaal te delen of het AI-verbruik buiten de app om te automatiseren.',

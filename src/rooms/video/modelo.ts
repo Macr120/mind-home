@@ -505,6 +505,45 @@ export function mediosUsados(p: ProyectoVideo): Set<number> {
   return ids
 }
 
+/**
+ * El proyecto con cada id de medio cambiado por `f(id)`, en los dos formatos.
+ * Sirve para traducir ids locales entre dispositivos (`video/nube.ts`): recorre
+ * los mismos sitios que `mediosUsados`.
+ */
+export function mapearMedios(p: ProyectoVideo, f: (id: number) => number): ProyectoVideo {
+  const clip = (c: ClipVideo): ClipVideo => {
+    switch (c.pista) {
+      case 'video':
+        return c.fuente.tipo === 'imagen' || c.fuente.tipo === 'video'
+          ? { ...c, fuente: { ...c.fuente, medioId: f(c.fuente.medioId) } }
+          : c
+      case 'fondo':
+        return c.fuente.tipo === 'imagen' ? { ...c, fuente: { ...c.fuente, medioId: f(c.fuente.medioId) } } : c
+      case 'sfx':
+        return c.fuente.tipo === 'medio' ? { ...c, fuente: { ...c.fuente, medioId: f(c.fuente.medioId) } } : c
+      case 'imagen':
+      case 'musica':
+        return { ...c, medioId: f(c.medioId) }
+      case 'voz':
+      case 'avatar':
+        return c.medioId == null ? c : { ...c, medioId: f(c.medioId) }
+      default:
+        return c
+    }
+  }
+  return {
+    ...p,
+    clips: p.clips?.map(clip),
+    escenas: p.escenas.map((e) => ({
+      ...e,
+      fondo: e.fondo.tipo === 'color' ? e.fondo : { ...e.fondo, medioId: f(e.fondo.medioId) },
+      narracionId: e.narracionId == null ? e.narracionId : f(e.narracionId),
+      sonidos: e.sonidos?.map((s) => (s.fuente.tipo === 'medio' ? { ...s, fuente: { ...s.fuente, medioId: f(s.fuente.medioId) } } : s)),
+    })),
+    musica: p.musica ? { ...p.musica, medioId: f(p.musica.medioId) } : p.musica,
+  }
+}
+
 /** Apertura de boca 0–1 del avatar en su tiempo relativo (la envolvente es del audio completo: se indexa con `desde`). */
 export function aperturaBoca(clip: ClipAvatar, tRel: number): number {
   if (!clip.envolvente || clip.medioId == null) return 0

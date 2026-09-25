@@ -1,4 +1,5 @@
 import type { PistaMusica } from '../data/db'
+import { asegurarBlob } from '../data/repository'
 import { contextoAudio, gainMaestro } from './motor'
 
 /**
@@ -50,8 +51,11 @@ export async function iniciarPista(
   conectar()
   // Idempotente: los efectos corren doble en StrictMode.
   if (idActual === pista.id && !audio.paused) return
+  // Una pista que vino de otro dispositivo se baja de la nube la primera vez.
+  const blob = pista.blob ?? (await asegurarBlob('pistasMusica', pista.id))
+  if (!blob) return
   if (urlActual) URL.revokeObjectURL(urlActual)
-  urlActual = URL.createObjectURL(pista.blob)
+  urlActual = URL.createObjectURL(blob)
   idActual = pista.id
   audio.src = urlActual
   audio.loop = opciones?.loop ?? false

@@ -56,6 +56,7 @@ export const TEXTOS: Record<string, string> = {
   'tar.b1': 'Tingkat ×{n}: {c} kredit AI per bulan',
   'tar.b2': 'Semua aplikasi MindHaOS, di semua perangkatmu',
   'tar.b3': 'Sinkronisasi dan cadangan di cloud',
+  'tar.b4': "{g} GB di cloud-mu (ruang Berkas)",
   'tar.actual': 'Ini tingkatmu sekarang',
   'tar.subir': 'Naik ke ×{n}',
   'tar.bajar': 'Turun ke ×{n}',
@@ -64,7 +65,7 @@ export const TEXTOS: Record<string, string> = {
   'tar.a2': 'Satu tagihan setahun, bukan dua belas',
   'tar.anual': 'Bayar setahun',
   'tar.pie':
-    'Tanpa ikatan: kamu bisa naik, turun, atau berhenti kapan saja dan hanya membayar selisihnya. Kalau berhenti, aplikasinya tetap di perangkatmu dalam mode lokal, tanpa AI maupun sinkronisasi.',
+    'Tanpa ikatan: kamu bisa naik, turun, atau berhenti kapan saja dan hanya membayar selisihnya. Kalau berhenti, aplikasinya tetap di perangkatmu dalam mode lokal, tanpa AI maupun sinkronisasi. Cloud-mu tetap hanya-baca selama 90 hari agar kamu bisa mengunduh berkasmu.',
   'mi.pro': 'Pro',
   'mi.trial': 'Bulan pertama',
   'mi.local': 'Lokal',
@@ -89,6 +90,7 @@ export const TEXTOS: Record<string, string> = {
 
   'pro.creditosMes': 'Kredit AI bulan ini',
   'pro.extra': 'Kredit ekstra (isi ulang, tidak kedaluwarsa): {n}',
+  'pro.nube': "Cloud-mu (Berkas)",
   'pro.gestionar': 'Kelola langganan (berhenti, ubah pembayaran)',
   'pag.cargando': 'Memuat…',
   'pag.sinBackend':

@@ -34,6 +34,13 @@ import {
   urlGestion,
   type OfertaPro,
 } from '../../src/core/cuenta/paywall'
+import {
+  GB_POR_NIVEL,
+  formatoBytes,
+  formatoUso,
+  pedirUsoAlmacen,
+  type UsoAlmacen,
+} from '../../src/core/cuenta/almacenUso'
 
 iniciarSesion()
 
@@ -536,6 +543,7 @@ function Tarifas({ titulo }: { titulo: string }) {
               <li>✓ {t('tar.b1', 'Nivel ×{n}: {c} créditos de IA al mes', { n: o.nivel, c: o.creditos })}</li>
               <li>✓ {t('tar.b2', 'Todas las apps de la MindHaOS, en todos tus dispositivos')}</li>
               <li>✓ {t('tar.b3', 'Sincronización y respaldo en la nube')}</li>
+              <li>✓ {t('tar.b4', '{g} GB en tu nube (el cuarto Archivo)', { g: GB_POR_NIVEL[o.nivel] ?? GB_POR_NIVEL[1] })}</li>
             </ul>
             <button
               type="button"
@@ -573,6 +581,7 @@ function Tarifas({ titulo }: { titulo: string }) {
             <li>✓ {t('tar.a1', 'El nivel ×1 pagado de una vez: {n} créditos de IA cada mes', { n: anual.creditos })}</li>
             <li>✓ {t('tar.a2', 'Un solo cobro al año en lugar de doce')}</li>
             <li>✓ {t('tar.b3', 'Sincronización y respaldo en la nube')}</li>
+            <li>✓ {t('tar.b4', '{g} GB en tu nube (el cuarto Archivo)', { g: GB_POR_NIVEL[1] })}</li>
           </ul>
           <button
             type="button"
@@ -588,7 +597,7 @@ function Tarifas({ titulo }: { titulo: string }) {
       <p className="text-[11px] leading-snug text-white/35">
         {t(
           'tar.pie',
-          'Sin permanencia: subes, bajas o cancelas cuando quieras y solo pagas la diferencia. Si cancelas, la app sigue en tus dispositivos en modo local, sin IA ni sincronización.',
+          'Sin permanencia: subes, bajas o cancelas cuando quieras y solo pagas la diferencia. Si cancelas, la app sigue en tus dispositivos en modo local, sin IA ni sincronización, y tu nube queda 90 días en solo lectura para que bajes tus archivos.',
         )}
       </p>
     </Panel>
@@ -810,11 +819,15 @@ function ProActivo({
   creditosExtra: number
 }) {
   const [urlG, setUrlG] = useState<string | null>(null)
+  const [nube, setNube] = useState<UsoAlmacen | null>(null)
 
   useEffect(() => {
     let vivo = true
     void urlGestion().then((u) => {
       if (vivo) setUrlG(u)
+    })
+    void pedirUsoAlmacen().then((u) => {
+      if (vivo) setNube(u)
     })
     return () => {
       vivo = false
@@ -845,6 +858,22 @@ function ProActivo({
                 {t('pro.extra', 'Créditos extra (recargas, no caducan): {n}', { n: creditosExtra })}
               </p>
             )}
+          </div>
+        )}
+        {nube && (
+          <div>
+            <div className="flex items-center gap-2 text-xs text-white/60">
+              <span className="flex-1">{t('pro.nube', 'Tu nube (Archivo)')}</span>
+              <span className="tabular-nums text-white/40">
+                {nube.cuota ? formatoUso(nube.usados, nube.cuota) : `${formatoBytes(nube.usados)}/∞`}
+              </span>
+            </div>
+            <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-white/10">
+              <div
+                className="h-full rounded-full bg-accent"
+                style={{ width: `${nube.cuota ? Math.min(100, (nube.usados / nube.cuota) * 100) : 0}%` }}
+              />
+            </div>
           </div>
         )}
         {urlG && (

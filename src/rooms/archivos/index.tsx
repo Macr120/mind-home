@@ -29,6 +29,11 @@ const archivos: Plantilla = {
       etiqueta: 'Recientes',
       nombres: ['archivos recientes', 'ultimos archivos'],
     },
+    {
+      seccion: 'studio',
+      etiqueta: 'Del Studio',
+      nombres: ['archivos del studio', 'nube del studio'],
+    },
   ],
 }
 

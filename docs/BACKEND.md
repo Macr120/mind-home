@@ -13,7 +13,7 @@ src/core/cuenta/  supabase.ts (singleton)  Auth email+password
                   api.ts (Edge Functions)            · registros · rc_eventos
                   paywall.ts (RevenueCat)  Edge Functions: ia-chat · ia-imagen
 src/core/data/sync/ middleware.ts (DBCore)     · revenuecat-webhook · borrar-cuenta
-                  syncables.ts · motor.ts  Storage: bucket privado sync-blobs
+                  syncables.ts · motor.ts  Archivos: Cloudflare R2 (función almacen, §4)
                   blobs.ts                 RevenueCat Web Billing ── Stripe
 ```
 
@@ -499,6 +499,14 @@ firmadas de 15 min (egress gratis). Piezas:
    (`.env.almacen` NO se commitea). Vaciar `sync-blobs` cuando R2 lleve tiempo
    sirviendo sin fallos.
 
+**Purga a los 90 días sin plan** (migración `20260926000001_almacen_purga.sql`):
+`perfiles.sin_plan_desde` (lo fija el webhook al expirar; el trial usa su
+`plan_expira`) → `almacen_purgables()` → función `almacen-purga`
+(`verify_jwt=false`, secreto `ALMACEN_PURGA_AUTH`) que borra `<uid>/` en R2,
+suelta la cuota y tombstonea sus `archivosNube`. La llama `pg_cron` a las 05:41
+UTC con los secretos de Vault `almacen_purga_url` / `almacen_purga_auth` (crearlos
+a mano, ver la cabecera de la migración). Primera vez: `{"simular":true}`.
+
 ### 5. Web pública (landing + /cuenta) — YA DESPLEGADA (15-ago-2026)
 - Código en `web/` (segundo build de Vite): `npm run dev:web` (puerto 5174) y
   `npm run build:web` (→ `dist-web/`). Ligera a propósito: sin three ni dexie.
@@ -930,8 +938,14 @@ npx supabase functions logs <fn>     # logs en vivo de una function
 - **Motor** (`sync/motor.ts`): push del outbox por lotes a la RPC `sync_push`
   (LWW por `updatedAt` en el servidor) y pull incremental por `server_seq`,
   aplicando padres→hijos con `_pendientes` para huérfanos, resolución de
-  índices únicos por LWW y dedupe de singletons. Blobs a Storage con hash
-  (skip si no cambió) — ver `sync/blobs.ts`.
+  índices únicos por LWW y dedupe de singletons. Blobs al almacén R2 con
+  hash (skip si no cambió) — ver `sync/blobs.ts` y §4.
+- **Binarios del Studio** (`mediosVideo`, `grabacionesAudio`, `musicaImportada`,
+  `pistasMusica`): viajan SOLO las filas con copia en la nube (`nube`, la pone
+  `core/studio/nubeStudio.ts` tras cada ciclo) y NUNCA el blob
+  (`CAMPOS_LOCALES`/`esFilaLocal` en `syncables.ts`). El otro dispositivo lo baja
+  al usarlo (`asegurarBlob`). Los ids numéricos anidados se traducen fuera del
+  motor: el video por `ProyectoVideo.mediosUid`, el audio por el `sello` del clip.
 - **Seeds**: las siembras de demo llevan uid determinista (`seed-…`) y
   `updatedAt: 1`, así dos dispositivos no duplican y cualquier edición gana.
 - **Primer login** (bootstrap): pull completo → limpieza de seeds vírgenes que
@@ -939,9 +953,9 @@ npx supabase functions logs <fn>     # logs en vivo de una function
   destruye). Antes se ofrece descargar un respaldo.
 - **Cambio de cuenta**: diálogo para conservar lo local (merge) o vaciar la
   casa y bajar solo lo de la cuenta; el estado de sync se resetea siempre.
-- **No sincronizan**: tablas legadas, cachés (`imagenesEjercicio`), efímeros
-  (`edicionesDiario`), `pistasMusica` (audio pesado) y localStorage (ajustes
-  por dispositivo). Lista en `TABLAS_EXCLUIDAS`.
+- **No sincronizan**: todo lo que no esté en `TABLAS_SYNC` (`syncables.ts`):
+  tablas legadas, cachés (`imagenesEjercicio`), efímeros (`edicionesDiario`) y
+  localStorage (ajustes por dispositivo).
 
 ## Probar el sync en local
 
@@ -952,8 +966,8 @@ datos reales. Antes de la primera sincronización, exportar un respaldo desde Bo
 ## Límites del free tier (referencia)
 
 Postgres 500 MB · Storage 1 GB · 500k invocaciones de Edge Functions/mes · el
-proyecto se pausa tras ~7 días sin uso (se despausa desde el dashboard). Los blobs
-van a Storage (no a la tabla) y `pistasMusica` no se sincroniza para proteger el 1 GB.
+proyecto se pausa tras ~7 días sin uso (se despausa desde el dashboard). Hoy el
+proyecto está en Supabase Pro y los archivos ya no van a Storage sino a R2 (§4).
 
 ## Cuota de IA (créditos)
 

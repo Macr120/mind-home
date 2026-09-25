@@ -86,7 +86,7 @@ export const TEXTOS = {
     'Chatta con il tuo assistente: registra i pasti, crea routine, pianifica obiettivi, genera immagini e modelli 3D. Il primo mese porta 700 crediti inclusi; poi l’IA è opzionale.',
   'car.3.t': 'Sincronizzazione totale',
   'car.3.p':
-    'La tua MindHaOS ti segue sul telefono, sul tablet e sul computer. Tutto cifrato in transito e salvato nel cloud.',
+    'La tua MindHaOS ti segue sul telefono, sul tablet e sul computer. Tutto cifrato in transito e salvato nel cloud. Con Pro, il tuo cloud (la stanza File) conserva anche 10, 30 o 100 GB di file.',
   'car.4.t': 'Si gioca come un gioco',
   'car.4.p':
     'Il tuo personaggio vive della tua attività reale: serie, distintivi, la Montagna di Sisifo, veicoli, gare e minigiochi.',
@@ -183,16 +183,16 @@ export const TEXTOS = {
     'La MindHaOS intera: tutte le stanze, tutte le app e i tuoi dati sul tuo dispositivo, per sempre e senza rinnovi. In più, il primo mese porta 700 crediti di IA e la sincronizzazione inclusi, senza carta. Prima di comprarla puoi provare l’app completa, che non chiede alcun account.',
   'faq.3.q': 'Quanto costa l’IA dopo il primo mese?',
   'faq.3.a':
-    'Quello che scegli, o niente. L’abbonamento è 6 USD al mese (700 crediti e sincronizzazione), o 60 USD all’anno — due mesi in regalo. Se ti sta stretto, i livelli ×2 e ×3 danno 1400 o 2100 crediti per 12 o 18 USD al mese. E se preferisci non abbonarti, ci sono ricariche singole: 6 USD per 700 crediti che non scadono e si usano solo quando chiedi qualcosa. Questo sì che si paga qui, nel <a href="/cuenta">tuo account</a>, e vale per tutti i tuoi dispositivi.',
+    'Quello che scegli, o niente. L’abbonamento è 6 USD al mese (700 crediti e sincronizzazione), o 60 USD all’anno — due mesi in regalo. Se ti sta stretto, i livelli ×2 e ×3 danno 1400 o 2100 crediti per 12 o 18 USD al mese. E se preferisci non abbonarti, ci sono ricariche singole: 6 USD per 700 crediti che non scadono e si usano solo quando chiedi qualcosa. Questo sì che si paga qui, nel <a href="/cuenta">tuo account</a>, e vale per tutti i tuoi dispositivi. Ogni livello include anche spazio nel tuo cloud: 10, 30 o 100 GB.',
   'faq.4.q': 'Cosa sono i crediti di IA?',
   'faq.4.a':
     'L’unità con cui si addebita ogni richiesta all’assistente, in base a quanto costa servirla: una risposta normale vale 1 credito, un piano lungo 4, un’immagine 3 (10 in alta qualità) e un modello 3D 10. Non si addebita mai in automatico: si spende solo quando chiedi qualcosa.',
   'faq.5.q': 'Cosa succede se disdico?',
   'faq.5.a':
-    'Tieni l’app intera e tutti i tuoi dati sui tuoi dispositivi, in modalità locale. Perdi solo i crediti mensili e la sincronizzazione. Se rinnovi, tutto si riattiva esattamente come l’avevi lasciato.',
+    'Tieni l’app intera e tutti i tuoi dati sui tuoi dispositivi, in modalità locale. Perdi solo i crediti mensili e la sincronizzazione. Se rinnovi, tutto si riattiva esattamente come l’avevi lasciato. I file del cloud restano in sola lettura per 90 giorni perché tu possa scaricarli; poi vengono eliminati.',
   'faq.6.q': 'Dove vengono salvati i miei dati?',
   'faq.6.a':
-    'Prima sul tuo dispositivo (l’app è local-first) e, con la sincronizzazione attiva, anche nel cloud per passare da un dispositivo all’altro. In modalità locale non esce nulla dal tuo dispositivo. I pagamenti li gestiscono RevenueCat e Stripe — o lo store, se compri dal telefono: la tua carta non la vediamo mai. Più dettagli nella <a href="/privacidad">informativa sulla privacy</a>.',
+    'Prima sul tuo dispositivo (l’app è local-first) e, con la sincronizzazione attiva, anche nel cloud per passare da un dispositivo all’altro. In modalità locale non esce nulla dal tuo dispositivo. I pagamenti li gestiscono RevenueCat e Stripe — o lo store, se compri dal telefono: la tua carta non la vediamo mai. Più dettagli nella <a href="/privacidad">informativa sulla privacy</a>. I file pesanti (il tuo cloud e i media dello Studio) sono conservati su Cloudflare R2.',
   'faq.7.q': 'Su quali dispositivi funziona?',
   'faq.7.a':
     'Oggi: su qualsiasi browser moderno. Molto presto: Android (Google Play), iPhone/iPad (App Store), Windows e macOS. Il tuo account vale per tutti: compri una volta, dove ti fa comodo, e sia la MindHaOS sia l’abbonamento IA funzionano su qualsiasi dispositivo in cui entri con la tua email.',
@@ -234,7 +234,8 @@ export const TEXTOS = {
   'priv.uso.1': 'Darti accesso al tuo account, al tuo acquisto e al tuo abbonamento.',
   'priv.uso.2': 'Sincronizzare i tuoi dati tra dispositivi e salvarne una copia.',
   'priv.uso.3': 'Far funzionare le funzioni di IA con la tua quota di crediti.',
-  'priv.uso.4': 'Non vendiamo i tuoi dati né li condividiamo con terzi per pubblicità.',  'priv.dispositivo.h': 'Archiviazione sul tuo dispositivo',
+  'priv.uso.4': 'Non vendiamo i tuoi dati né li condividiamo con terzi per pubblicità.',
+  'priv.dispositivo.h': 'Archiviazione sul tuo dispositivo',
   'priv.dispositivo.p':
     'L’app salva informazioni sul tuo dispositivo e le legge per funzionare: un database locale (IndexedDB) con i dati della tua casa e i tuoi file, e l’archiviazione locale del browser con le tue preferenze — lingua, tema, stato del benvenuto — e con il token di sessione che ti tiene collegato. Non usiamo cookie nostri né tecnologie simili per pubblicità, analisi o tracciamento. Puoi cancellare tutto dalle impostazioni del browser o disinstallando l’app.',
   'priv.dispositivo.terceros':
@@ -265,6 +266,7 @@ export const TEXTOS = {
     'OpenAI (trascrizione vocale e immagini di IA di riserva, su richiesta).',
   'priv.proveedores.5':
     'HERE Technologies (mappe, ricerca di luoghi e percorsi, su richiesta).',
+  'priv.proveedores.6': "Cloudflare (archiviazione di file nel cloud, R2).",
   'priv.cambios.h': 'Modifiche',
   'priv.cambios.p':
     'Se questa informativa cambia, pubblicheremo qui la nuova versione con la sua data. I dubbi si scrivono all’indirizzo di contatto.',
@@ -287,7 +289,7 @@ export const TEXTOS = {
   'term.precio.1':
     'Abbonamento: 6 USD al mese al livello ×1 (o l’equivalente nella tua valuta), con rinnovo automatico. I livelli ×2 e ×3 moltiplicano crediti e prezzo: 12 e 18 USD al mese. Puoi anche pagare il livello ×1 a anni: 60 USD, con rinnovo annuale automatico e gli stessi crediti ogni mese.',
   'term.precio.2':
-    'Include 700 crediti di IA al mese per livello (700 / 1400 / 2100) e la sincronizzazione tra dispositivi. I crediti mensili non usati non si accumulano al mese successivo.',
+    'Include 700 crediti di IA al mese per livello (700 / 1400 / 2100) e la sincronizzazione tra dispositivi. I crediti mensili non usati non si accumulano al mese successivo. Include anche spazio nel tuo cloud: 10, 30 o 100 GB in base al livello (10 GB con il pagamento annuale e nel mese incluso).',
   'term.precio.3':
     'Crediti per operazione: 1 per una risposta di testo, 4 per un piano lungo, 3 per un’immagine (10 in alta qualità) e 10 per un modello 3D. La tariffa può essere ritoccata se cambiano i costi dei fornitori di IA; il prezzo in vigore si mostra nell’app prima di ogni richiesta.',
   'term.precio.4':
@@ -297,10 +299,13 @@ export const TEXTOS = {
   'term.precio.6': 'I pagamenti li elaborano RevenueCat e Stripe.',
   'term.cancelacion.h': 'Disdetta',
   'term.cancelacion.p':
-    'Puoi disdire quando vuoi da «Gestisci abbonamento» nel <a href="/cuenta">tuo account</a>; conservi il piano fino alla fine del periodo pagato. Dopo, l’app continua a funzionare sui tuoi dispositivi in modalità locale, senza crediti mensili né sincronizzazione. I crediti di ricarica che ti restano rimangono utilizzabili, e puoi rinnovare quando vuoi.',
+    'Puoi disdire quando vuoi da «Gestisci abbonamento» nel <a href="/cuenta">tuo account</a>; conservi il piano fino alla fine del periodo pagato. Dopo, l’app continua a funzionare sui tuoi dispositivi in modalità locale, senza crediti mensili né sincronizzazione. I crediti di ricarica che ti restano rimangono utilizzabili, e puoi rinnovare quando vuoi. I file del cloud restano in sola lettura per 90 giorni perché tu possa scaricarli; trascorso questo periodo vengono eliminati dai nostri server.',
   'term.datos.h': 'I tuoi dati',
   'term.datos.p':
     'I tuoi dati sono tuoi. L’app è local-first: tutto vive prima sul tuo dispositivo. Il dettaglio di cosa conserviamo e come cancellarlo è nell’<a href="/privacidad">informativa sulla privacy</a>.',
+  'term.alojado.h': "File che conservi nel cloud",
+  'term.alojado.p':
+    "Sei responsabile dei file che carichi nel tuo cloud e devi avere il diritto di conservarli. Non è consentito ospitare contenuti illegali, che violino diritti di terzi o le regole della community; possiamo rimuoverli e sospendere l’account. Il cloud è un servizio di archiviazione, non un backup garantito: conserva una copia di ciò che non vuoi perdere.",
   'term.razonable.h': 'Uso ragionevole',
   'term.razonable.p':
     'La quota di crediti di IA è per account personale. Non è consentito rivendere il servizio, condividere l’account in modo massivo né automatizzare il consumo di IA fuori dall’app.',

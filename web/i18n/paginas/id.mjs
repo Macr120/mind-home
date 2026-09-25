@@ -86,7 +86,7 @@ export const TEXTOS = {
     'Mengobrollah dengan asistenmu: catat makanan, buat rutinitas, rencanakan target, hasilkan gambar dan model 3D. Bulan pertamamu membawa 700 kredit; setelah itu AI opsional.',
   'car.3.t': 'Sinkronisasi menyeluruh',
   'car.3.p':
-    'MindHaOS-mu ikut ke ponsel, tablet, dan komputer. Semuanya terenkripsi saat dikirim dan dicadangkan di cloud.',
+    'MindHaOS-mu ikut ke ponsel, tablet, dan komputer. Semuanya terenkripsi saat dikirim dan dicadangkan di cloud. Dengan Pro, cloud-mu (ruang Berkas) juga menyimpan 10, 30, atau 100 GB berkas.',
   'car.4.t': 'Rasanya seperti sebuah game',
   'car.4.p':
     'Karaktermu hidup dari aktivitas nyatamu: rentetan, lencana, Gunung Sisifus, kendaraan, balapan, dan mini-game.',
@@ -180,16 +180,16 @@ export const TEXTOS = {
     'MindHaOS seutuhnya: semua ruangan, semua aplikasi, dan datamu di perangkatmu, selamanya dan tanpa perpanjangan. Selain itu, bulan pertama membawa 700 kredit AI dan sinkronisasi, tanpa kartu. Sebelum membelinya kamu bisa mencoba aplikasi lengkap yang tidak meminta akun.',
   'faq.3.q': 'Berapa biaya AI setelah bulan pertama?',
   'faq.3.a':
-    'Sebesar yang kamu pilih, atau nol. Langganannya 6 USD per bulan (700 kredit dan sinkronisasi), atau 60 USD per tahun — dua bulan gratis. Kalau kurang, tingkat ×2 dan ×3 memberi 1400 atau 2100 kredit seharga 12 atau 18 USD per bulan. Dan kalau kamu lebih suka tidak berlangganan, ada isi ulang satuan: 6 USD untuk 700 kredit yang tidak kedaluwarsa dan hanya terpakai saat kamu meminta. Yang ini memang dibayar di sini, di <a href="/cuenta">akunmu</a>, dan berlaku untuk semua perangkatmu.',
+    'Sebesar yang kamu pilih, atau nol. Langganannya 6 USD per bulan (700 kredit dan sinkronisasi), atau 60 USD per tahun — dua bulan gratis. Kalau kurang, tingkat ×2 dan ×3 memberi 1400 atau 2100 kredit seharga 12 atau 18 USD per bulan. Dan kalau kamu lebih suka tidak berlangganan, ada isi ulang satuan: 6 USD untuk 700 kredit yang tidak kedaluwarsa dan hanya terpakai saat kamu meminta. Yang ini memang dibayar di sini, di <a href="/cuenta">akunmu</a>, dan berlaku untuk semua perangkatmu. Setiap tingkat juga menyertakan ruang di cloud-mu: 10, 30, atau 100 GB.',
   'faq.4.q': 'Apa itu kredit AI?',
   'faq.4.a':
     'Satuan penagihan setiap permintaan ke asisten, sesuai biaya melayaninya: satu jawaban biasa bernilai 1 kredit, sebuah rencana panjang 4, sebuah gambar 3 (10 pada kualitas tinggi), dan sebuah model 3D 10. Tidak pernah ditagih otomatis: hanya terpakai saat kamu meminta sesuatu.',
   'faq.5.q': 'Apa yang terjadi kalau saya berhenti?',
   'faq.5.a':
-    'Seluruh aplikasi dan semua datamu tetap ada di perangkatmu, dalam mode lokal. Yang hilang hanya kredit bulanan dan sinkronisasi. Kalau berlangganan lagi, semuanya kembali persis seperti kamu tinggalkan.',
+    'Seluruh aplikasi dan semua datamu tetap ada di perangkatmu, dalam mode lokal. Yang hilang hanya kredit bulanan dan sinkronisasi. Kalau berlangganan lagi, semuanya kembali persis seperti kamu tinggalkan. Berkas di cloud-mu tetap hanya-baca selama 90 hari agar bisa kamu unduh; setelah itu dihapus.',
   'faq.6.q': 'Di mana data saya disimpan?',
   'faq.6.a':
-    'Pertama di perangkatmu (aplikasi ini local-first) dan, dengan sinkronisasi aktif, juga di awan agar bisa berpindah perangkat. Dalam mode lokal tidak ada yang keluar dari perangkatmu. Pembayaran diproses RevenueCat dan Stripe — atau tokonya, kalau kamu membeli dari ponsel: kami tidak pernah melihat kartumu. Selengkapnya di <a href="/privacidad">kebijakan privasi</a>.',
+    'Pertama di perangkatmu (aplikasi ini local-first) dan, dengan sinkronisasi aktif, juga di awan agar bisa berpindah perangkat. Dalam mode lokal tidak ada yang keluar dari perangkatmu. Pembayaran diproses RevenueCat dan Stripe — atau tokonya, kalau kamu membeli dari ponsel: kami tidak pernah melihat kartumu. Selengkapnya di <a href="/privacidad">kebijakan privasi</a>. Berkas besar (cloud-mu dan media Studio) disimpan di Cloudflare R2.',
   'faq.7.q': 'Di perangkat apa saja ini jalan?',
   'faq.7.a':
     'Hari ini: di peramban modern mana pun. Segera: Android (Google Play), iPhone/iPad (App Store), Windows, dan macOS. Akunmu berlaku di semuanya: beli sekali, dari mana saja yang nyaman, dan MindHaOS maupun langganan AI berfungsi di perangkat mana pun tempat kamu masuk dengan emailmu.',
@@ -231,7 +231,8 @@ export const TEXTOS = {
   'priv.uso.1': 'Memberimu akses ke akun, pembelian, dan langgananmu.',
   'priv.uso.2': 'Menyinkronkan datamu antar perangkat dan mencadangkannya.',
   'priv.uso.3': 'Menjalankan fitur AI dengan kuota kreditmu.',
-  'priv.uso.4': 'Kami tidak menjual datamu maupun membagikannya ke pihak ketiga untuk iklan.',  'priv.dispositivo.h': 'Penyimpanan di perangkatmu',
+  'priv.uso.4': 'Kami tidak menjual datamu maupun membagikannya ke pihak ketiga untuk iklan.',
+  'priv.dispositivo.h': 'Penyimpanan di perangkatmu',
   'priv.dispositivo.p':
     'Aplikasi menyimpan informasi di perangkatmu sendiri dan membacanya agar bisa bekerja: basis data lokal (IndexedDB) berisi data rumahmu dan berkasmu, serta penyimpanan lokal peramban berisi preferensimu — bahasa, tema, status layar sambutan — dan token sesi yang membuatmu tetap masuk. Kami tidak memakai cookie sendiri maupun teknologi serupa untuk iklan, analitik, atau pelacakan. Kamu bisa menghapus semuanya dari pengaturan peramban atau dengan mencopot aplikasi.',
   'priv.dispositivo.terceros':
@@ -262,6 +263,7 @@ export const TEXTOS = {
     'OpenAI (transkripsi suara dan gambar cadangan AI, sesuai permintaan).',
   'priv.proveedores.5':
     'HERE Technologies (peta, pencarian tempat dan rute, sesuai permintaan).',
+  'priv.proveedores.6': "Cloudflare (penyimpanan berkas di cloud, R2).",
   'priv.cambios.h': 'Perubahan',
   'priv.cambios.p':
     'Kalau kebijakan ini berubah, kami akan menerbitkan versi barunya di sini beserta tanggalnya. Pertanyaan dijawab lewat email kontak.',
@@ -284,7 +286,7 @@ export const TEXTOS = {
   'term.precio.1':
     'Langganan: 6 USD per bulan di tingkat ×1 (atau setara dalam mata uangmu), dengan perpanjangan otomatis. Tingkat ×2 dan ×3 melipatgandakan kredit dan harga: 12 dan 18 USD per bulan. Tingkat ×1 juga bisa dibayar tahunan: 60 USD, dengan perpanjangan tahunan otomatis dan kredit yang sama setiap bulan.',
   'term.precio.2':
-    'Termasuk 700 kredit AI per bulan per tingkat (700 / 1400 / 2100) dan sinkronisasi antar perangkat. Kredit bulanan yang tidak terpakai tidak menumpuk ke bulan berikutnya.',
+    'Termasuk 700 kredit AI per bulan per tingkat (700 / 1400 / 2100) dan sinkronisasi antar perangkat. Kredit bulanan yang tidak terpakai tidak menumpuk ke bulan berikutnya. Termasuk juga ruang di cloud-mu: 10, 30, atau 100 GB sesuai tingkat (10 GB untuk pembayaran tahunan dan bulan yang disertakan).',
   'term.precio.3':
     'Kredit per operasi: 1 untuk jawaban teks, 4 untuk rencana panjang, 3 untuk gambar (10 pada kualitas tinggi), dan 10 untuk model 3D. Tarifnya bisa disesuaikan bila biaya penyedia AI berubah; harga yang berlaku ditampilkan di aplikasi sebelum setiap permintaan.',
   'term.precio.4':
@@ -294,10 +296,13 @@ export const TEXTOS = {
   'term.precio.6': 'Pembayaran diproses oleh RevenueCat dan Stripe.',
   'term.cancelacion.h': 'Pembatalan',
   'term.cancelacion.p':
-    'Kamu bisa berhenti kapan saja lewat «Kelola langganan» di <a href="/cuenta">akunmu</a>; paketnya bertahan sampai akhir periode yang sudah dibayar. Setelah itu aplikasinya tetap jalan di perangkatmu dalam mode lokal, tanpa kredit bulanan maupun sinkronisasi. Sisa kredit isi ulang tetap bisa dipakai, dan kamu bisa berlangganan lagi kapan pun.',
+    'Kamu bisa berhenti kapan saja lewat «Kelola langganan» di <a href="/cuenta">akunmu</a>; paketnya bertahan sampai akhir periode yang sudah dibayar. Setelah itu aplikasinya tetap jalan di perangkatmu dalam mode lokal, tanpa kredit bulanan maupun sinkronisasi. Sisa kredit isi ulang tetap bisa dipakai, dan kamu bisa berlangganan lagi kapan pun. Berkas di cloud-mu tetap hanya-baca selama 90 hari agar bisa kamu unduh; setelah masa itu, berkas dihapus dari server kami.',
   'term.datos.h': 'Datamu',
   'term.datos.p':
     'Datamu adalah milikmu. Aplikasinya local-first: semuanya hidup lebih dulu di perangkatmu. Rincian apa yang kami simpan dan cara menghapusnya ada di <a href="/privacidad">kebijakan privasi</a>.',
+  'term.alojado.h': "Berkas yang kamu simpan di cloud",
+  'term.alojado.p':
+    "Kamu bertanggung jawab atas berkas yang kamu unggah ke cloud-mu dan harus berhak menyimpannya. Dilarang menyimpan konten ilegal, yang melanggar hak pihak ketiga, atau yang melanggar aturan komunitas; kami dapat menghapusnya dan menangguhkan akun. Cloud adalah layanan penyimpanan, bukan cadangan yang dijamin: simpan salinan dari apa pun yang tidak ingin kamu hilangkan.",
   'term.razonable.h': 'Pemakaian yang wajar',
   'term.razonable.p':
     'Kuota kredit AI berlaku untuk akun pribadi. Tidak diperbolehkan menjual kembali layanannya, membagikan akun secara massal, maupun mengotomatiskan konsumsi AI di luar aplikasi.',

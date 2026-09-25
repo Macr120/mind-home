@@ -56,6 +56,7 @@ export const TEXTOS: Record<string, string> = {
   'tar.b1': 'Poziom ×{n}: {c} kredytów SI miesięcznie',
   'tar.b2': 'Wszystkie aplikacje MindHaOS, na wszystkich twoich urządzeniach',
   'tar.b3': 'Synchronizacja i kopia w chmurze',
+  'tar.b4': "{g} GB w Twojej chmurze (pokój Pliki)",
   'tar.actual': 'To twój obecny poziom',
   'tar.subir': 'W górę do ×{n}',
   'tar.bajar': 'W dół do ×{n}',
@@ -64,7 +65,7 @@ export const TEXTOS: Record<string, string> = {
   'tar.a2': 'Jedno obciążenie w roku zamiast dwunastu',
   'tar.anual': 'Zapłać za rok',
   'tar.pie':
-    'Bez zobowiązań: podnosisz, obniżasz albo rezygnujesz, kiedy chcesz, i płacisz tylko różnicę. Po rezygnacji aplikacja zostaje na twoich urządzeniach w trybie lokalnym, bez SI i synchronizacji.',
+    'Bez zobowiązań: podnosisz, obniżasz albo rezygnujesz, kiedy chcesz, i płacisz tylko różnicę. Po rezygnacji aplikacja zostaje na twoich urządzeniach w trybie lokalnym, bez SI i synchronizacji. Twoja chmura przez 90 dni jest tylko do odczytu, żebyś mógł pobrać pliki.',
   'mi.pro': 'Pro',
   'mi.trial': 'Pierwszy miesiąc',
   'mi.local': 'Lokalnie',
@@ -89,6 +90,7 @@ export const TEXTOS: Record<string, string> = {
 
   'pro.creditosMes': 'Kredyty SI w tym miesiącu',
   'pro.extra': 'Kredyty dodatkowe (doładowania, nie tracą ważności): {n}',
+  'pro.nube': "Twoja chmura (Pliki)",
   'pro.gestionar': 'Zarządzaj abonamentem (rezygnacja, zmiana płatności)',
   'pag.cargando': 'Wczytywanie…',
   'pag.sinBackend': 'To środowisko nie ma skonfigurowanego backendu (brakuje zmiennych VITE_SUPABASE_*).',

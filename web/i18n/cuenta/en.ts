@@ -66,6 +66,7 @@ export const TEXTOS: Record<string, string> = {
   'tar.b1': 'Tier ×{n}: {c} AI credits a month',
   'tar.b2': 'Every app in your MindHaOS, on all your devices',
   'tar.b3': 'Sync and cloud backup',
+  'tar.b4': "{g} GB in your cloud (the Files room)",
   'tar.actual': 'This is your current tier',
   'tar.subir': 'Move up to ×{n}',
   'tar.bajar': 'Move down to ×{n}',
@@ -74,7 +75,7 @@ export const TEXTOS: Record<string, string> = {
   'tar.a2': 'One charge a year instead of twelve',
   'tar.anual': 'Pay for a year',
   'tar.pie':
-    'No lock-in: you move up, move down or cancel whenever you like and only pay the difference. If you cancel, the app stays on your devices in local mode, without AI or sync.',
+    'No lock-in: you move up, move down or cancel whenever you like and only pay the difference. If you cancel, the app stays on your devices in local mode, without AI or sync. Your cloud stays read-only for 90 days so you can download your files.',
 
   'mi.pro': 'Pro',
   'mi.trial': 'First month',
@@ -101,6 +102,7 @@ export const TEXTOS: Record<string, string> = {
 
   'pro.creditosMes': 'AI credits this month',
   'pro.extra': 'Extra credits (top-ups, never expire): {n}',
+  'pro.nube': "Your cloud (Files)",
   'pro.gestionar': 'Manage subscription (cancel, change payment)',
 
   'pag.cargando': 'Loading…',

@@ -169,6 +169,14 @@ export const TABLAS_SYNC: string[] = [
   // Cuarto Archivo: solo metadatos; los bytes viven en el almacén (R2).
   'carpetasArchivo',
   'archivosNube',
+  // Binarios del Studio: viaja SOLO la fila con copia en la nube (`nube`) y
+  // nunca el blob (ver `CAMPOS_LOCALES` y `esFilaLocal`). Las carpetas de
+  // pistas viajan siempre: son pocas filas de texto.
+  'mediosVideo',
+  'grabacionesAudio',
+  'musicaImportada',
+  'pistasMusica',
+  'carpetasPista',
   // Al final del array a propósito: `materialEntrada` apunta a entradasBiblio,
   // hojasCalculo, mapasIdeas e ideas, así que se aplica cuando todas ya están.
   'materialEntrada',
@@ -221,6 +229,27 @@ export function esTablaSync(nombre: string): boolean {
   if (!TABLAS_SYNC_SET.has(nombre)) return false
   const compuerta = COMPUERTAS[nombre]
   return compuerta ? compuerta() : true
+}
+
+/**
+ * Campos que NUNCA salen del dispositivo: el push los quita y el pull conserva
+ * los locales. Son los binarios del Studio (cientos de MB, viajan aparte por
+ * `nube`) y el `remotoId` de los espacios compartidos (es de este dispositivo).
+ */
+export const CAMPOS_LOCALES: Record<string, string[]> = {
+  mediosVideo: ['blob', 'remotoId'],
+  grabacionesAudio: ['blob'],
+  musicaImportada: ['blob'],
+  pistasMusica: ['blob'],
+}
+
+/**
+ * ¿Fila del Studio SIN copia en la nube? Entonces es solo de este dispositivo:
+ * ni se encola ni se sube (la promo, lo que no cupo en la cuota, lo que aún no
+ * se subió). En cuanto `nubeStudio.ts` le pone `nube`, el update la encola.
+ */
+export function esFilaLocal(tabla: string, fila: Record<string, unknown> | undefined): boolean {
+  return tabla in CAMPOS_LOCALES && !fila?.nube
 }
 
 /**

@@ -430,3 +430,8 @@ verify_jwt = false
 # REDES_MANTENIMIENTO_AUTH, igual que el webhook de RevenueCat.
 [functions.redes-mantenimiento]
 verify_jwt = false
+
+# La purga de la nube a los 90 días sin plan también la dispara el cron de la
+# base, sin JWT: se autentica contra ALMACEN_PURGA_AUTH.
+[functions.almacen-purga]
+verify_jwt = false

@@ -404,6 +404,15 @@ Infraestructura: Supabase Pro $25/mes fijos (+$0.09/GB egress); repartido desde
 $2,500 MTR. **Ojo con el modo local gratis**: trae usuarios con ingreso cero que
 igual consumen auth y egress. Medirlo antes de promocionar fuerte.
 
+**Nube Pro (cuarto Archivo, sep 2026)**: los archivos viven en Cloudflare R2
+($0.015/GB-mes, egress $0; 10 GB y 1M/10M operaciones gratis al mes). Cuota por
+nivel ×1/×2/×3 = 10/30/100 GB (`cuota_almacen()`), así que el peor caso con la
+cuota llena es **$0.15 / $0.45 / $1.50 al mes** y cabe en la ganancia mínima de
+cada nivel (baja la de ×1 de ~$2.03 a ~$1.88 solo si además gasta sus 700
+créditos). En Supabase Storage el mismo ×3 lleno costaba ~$11/mes por el egress:
+por eso se movió. Quien cancela queda 90 días en solo lectura y luego
+`almacen-purga` borra su carpeta (ver BACKEND.md §4).
+
 ## Precio vigente (decisión de negocio, 18-ago-2026)
 
 La regla que ordena toda la tabla: **6 USD = 700 créditos**, venga de donde

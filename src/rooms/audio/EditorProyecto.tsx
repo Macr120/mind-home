@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ClipAudio, NotaAudio, PistaAudio, ProyectoAudio } from '../../core/data/db'
-import { leerGrabacionAudio, proyectosAudioRepo } from '../../core/data/repository'
+import { buscarTomaDeClip, proyectosAudioRepo } from '../../core/data/repository'
 import { descargarArchivo } from '../../core/descargarArchivo'
 import * as apiEspacios from '../../core/espacios/api'
 import { useEspacio } from '../../core/espacios/cache'
@@ -422,9 +422,9 @@ export function EditorProyecto({
       for (const clip of x.clips ?? []) {
         if (picosClips.has(clip.grabacionId)) continue
         picosClips.set(clip.grabacionId, []) // marca «cargando»: no relee en paralelo
-        void leerGrabacionAudio(clip.grabacionId).then((fila) => {
+        void buscarTomaDeClip(clip).then((fila) => {
           if (!vivo) return
-          picosClips.set(clip.grabacionId, fila && fila.creadoEn === clip.sello ? (fila.picos ?? []) : null)
+          picosClips.set(clip.grabacionId, fila ? (fila.picos ?? []) : null)
           setVersion((v) => v + 1)
         })
       }

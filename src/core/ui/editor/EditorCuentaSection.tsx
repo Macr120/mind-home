@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { idiomaActual, useT } from '../../i18n/useT'
 import { hayBackend } from '../../cuenta/supabase'
 import { useSesion } from '../../cuenta/sesionStore'
+import { refrescarUsoAlmacen, useAlmacen } from '../../cuenta/almacen'
+import { GB_POR_NIVEL, fechaPurga, formatoBytes, formatoUso } from '../../cuenta/almacenUso'
 import {
   CompraCancelada,
   hayPagos,
@@ -253,6 +255,8 @@ function CuentaConSesion() {
   const usoIA = useSesion((s) => s.usoIA)
   const creditosExtra = useSesion((s) => s.creditosExtra)
   const salir = useSesion((s) => s.salir)
+  const sinPlanDesde = useSesion((s) => s.sinPlanDesde)
+  const usoNube = useAlmacen((s) => s.uso)
 
   // Al abrir la sección, el plan y el uso se refrescan (pudo comprar/cancelar
   // en la web hace un momento).
@@ -260,6 +264,7 @@ function CuentaConSesion() {
     const s = useSesion.getState()
     void s.refrescarPerfil()
     void s.refrescarUso()
+    void refrescarUsoAlmacen()
   }, [])
 
   // El mes trial del unlock se comporta como Pro (pool + sync); solo cambia el copy.
@@ -321,6 +326,38 @@ function CuentaConSesion() {
               '1 respuesta = 1 crédito · un plan largo = 4 · una imagen o un modelo 3D = 10',
             )}
           </p>
+        </div>
+      )}
+      {/* La nube (cuarto Archivo, R2). Quien se quedó sin plan la sigue viendo
+          mientras tenga archivos: está en solo lectura hasta la purga. */}
+      {usoNube && (conAcceso || usoNube.usados > 0) && (
+        <div className="space-y-1.5 rounded-md border border-white/10 bg-white/5 px-2 py-1.5">
+          <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
+            {t('cuenta.nube.titulo', 'Tu nube (Archivo)')}
+          </p>
+          <BarraUso
+            label={t('cuenta.nube.espacio', 'Espacio usado')}
+            usadas={usoNube.usados}
+            limite={usoNube.cuota ?? -1}
+            texto={
+              usoNube.cuota
+                ? formatoUso(usoNube.usados, usoNube.cuota)
+                : `${formatoBytes(usoNube.usados)}${usoNube.cuota == null ? '/∞' : ''}`
+            }
+          />
+          {!conAcceso && (
+            <p className="text-[10px] leading-snug text-amber-300/80">
+              {t('archivos.soloLectura', 'Tu plan no incluye nube: puedes ver y bajar tus archivos, pero no subir nuevos.')}{' '}
+              {(() => {
+                const f = fechaPurga({ plan, planExpira, sinPlanDesde })
+                return f
+                  ? t('archivos.purga', 'Se borran de la nube el {fecha}: bájalos antes o reactiva Pro.', {
+                      fecha: f.toLocaleDateString(),
+                    })
+                  : null
+              })()}
+            </p>
+          )}
         </div>
       )}
       {conAcceso ? (
@@ -758,7 +795,11 @@ function Niveles() {
             }`}
           >
             <span className="flex-1 text-left">
-              {t('cuenta.nivel.n', 'Nivel ×{n} — {c} créditos al mes', { n: n.nivel, c: n.creditos })}
+              {t('cuenta.nivel.nGb', 'Nivel ×{n} — {c} créditos y {g} GB de nube al mes', {
+                n: n.nivel,
+                c: n.creditos,
+                g: GB_POR_NIVEL[n.nivel] ?? GB_POR_NIVEL[1],
+              })}
             </span>
             <span className="shrink-0 tabular-nums text-white/45">{n.precio}</span>
             {actual && (
@@ -779,8 +820,9 @@ function Niveles() {
           className="flex w-full items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] font-semibold text-white/60 transition hover:bg-white/10 disabled:opacity-50"
         >
           <span className="flex-1 text-left">
-            {t('cuenta.nivel.anual', 'Un año del nivel ×1 — {c} créditos al mes', {
+            {t('cuenta.nivel.anualGb', 'Un año del nivel ×1 — {c} créditos y {g} GB de nube al mes', {
               c: anual.creditos,
+              g: GB_POR_NIVEL[1],
             })}
           </span>
           <span className="shrink-0 tabular-nums text-white/45">{anual.precio}</span>
@@ -797,7 +839,18 @@ function Niveles() {
   )
 }
 
-function BarraUso({ label, usadas, limite }: { label: string; usadas: number; limite: number }) {
+function BarraUso({
+  label,
+  usadas,
+  limite,
+  texto,
+}: {
+  label: string
+  usadas: number
+  limite: number
+  /** Cifra de la derecha ya formateada (la nube va en GB, no en unidades). */
+  texto?: string
+}) {
   // limite < 0 = cuenta ilimitada: se enseña lo gastado y la barra queda vacía.
   const pct = limite > 0 ? Math.min(100, Math.round((usadas / limite) * 100)) : 0
   return (
@@ -805,7 +858,7 @@ function BarraUso({ label, usadas, limite }: { label: string; usadas: number; li
       <div className="flex items-center gap-2">
         <span className="flex-1 truncate text-[11px] text-white/60">{label}</span>
         <span className="text-[10px] tabular-nums text-white/40">
-          {usadas}/{limite < 0 ? '∞' : limite}
+          {texto ?? `${usadas}/${limite < 0 ? '∞' : limite}`}
         </span>
       </div>
       <div className="mt-0.5 h-1.5 overflow-hidden rounded-full bg-white/10">

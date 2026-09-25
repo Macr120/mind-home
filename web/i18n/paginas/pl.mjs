@@ -86,7 +86,7 @@ export const TEXTOS = {
     'Rozmawiaj z asystentem: zapisuj posiłki, twórz rutyny, planuj cele, generuj obrazy i modele 3D. Pierwszy miesiąc ma w cenie 700 kredytów; potem SI jest opcjonalna.',
   'car.3.t': 'Pełna synchronizacja',
   'car.3.p':
-    'MindHaOS idzie z tobą na telefon, tablet i komputer. Wszystko szyfrowane w przesyle i backupowane w chmurze.',
+    'MindHaOS idzie z tobą na telefon, tablet i komputer. Wszystko szyfrowane w przesyle i backupowane w chmurze. Z Pro Twoja chmura (pokój Pliki) przechowuje też 10, 30 lub 100 GB plików.',
   'car.4.t': 'Czuć w tym grę',
   'car.4.p':
     'Twoja postać żyje twoją prawdziwą aktywnością: serie, odznaki, Góra Syzyfa, pojazdy, wyścigi i minigry.',
@@ -180,16 +180,16 @@ export const TEXTOS = {
     'Cały MindHaOS: wszystkie pokoje, wszystkie aplikacje i twoje dane na twoim urządzeniu, na zawsze i bez odnowień. Do tego pierwszy miesiąc ma w cenie 700 kredytów SI i synchronizację, bez karty. Przed zakupem możesz wypróbować pełną aplikację, która nie prosi o konto.',
   'faq.3.q': 'Ile kosztuje SI po pierwszym miesiącu?',
   'faq.3.a':
-    'Tyle, ile wybierzesz, albo nic. Abonament to 6 USD miesięcznie (700 kredytów i synchronizacja) lub 60 USD rocznie — dwa miesiące gratis. Jeśli to za mało, poziomy ×2 i ×3 dają 1400 albo 2100 kredytów za 12 lub 18 USD miesięcznie. A jeśli wolisz nie subskrybować, są pojedyncze doładowania: 6 USD za 700 kredytów, które nie tracą ważności i schodzą tylko wtedy, gdy o coś poprosisz. To płaci się tutaj, w <a href="/cuenta">twoim koncie</a>, i działa na wszystkich urządzeniach.',
+    'Tyle, ile wybierzesz, albo nic. Abonament to 6 USD miesięcznie (700 kredytów i synchronizacja) lub 60 USD rocznie — dwa miesiące gratis. Jeśli to za mało, poziomy ×2 i ×3 dają 1400 albo 2100 kredytów za 12 lub 18 USD miesięcznie. A jeśli wolisz nie subskrybować, są pojedyncze doładowania: 6 USD za 700 kredytów, które nie tracą ważności i schodzą tylko wtedy, gdy o coś poprosisz. To płaci się tutaj, w <a href="/cuenta">twoim koncie</a>, i działa na wszystkich urządzeniach. Każdy poziom obejmuje też miejsce w Twojej chmurze: 10, 30 lub 100 GB.',
   'faq.4.q': 'Czym są kredyty SI?',
   'faq.4.a':
     'Jednostką, w której rozliczane jest każde żądanie do asystenta, według kosztu jego obsługi: zwykła odpowiedź to 1 kredyt, długi plan 4, obraz 3 (10 w wysokiej jakości), a model 3D 10. Nigdy nie schodzą automatycznie: wydajesz je tylko wtedy, gdy o coś prosisz.',
   'faq.5.q': 'Co się stanie, gdy zrezygnuję?',
   'faq.5.a':
-    'Zostaje ci cała aplikacja i wszystkie dane na urządzeniach, w trybie lokalnym. Tracisz tylko miesięczne kredyty i synchronizację. Gdy wrócisz, wszystko odżywa dokładnie tak, jak to zostawiłeś.',
+    'Zostaje ci cała aplikacja i wszystkie dane na urządzeniach, w trybie lokalnym. Tracisz tylko miesięczne kredyty i synchronizację. Gdy wrócisz, wszystko odżywa dokładnie tak, jak to zostawiłeś. Pliki w chmurze przez 90 dni są tylko do odczytu, żebyś mógł je pobrać; potem zostają usunięte.',
   'faq.6.q': 'Gdzie przechowywane są moje dane?',
   'faq.6.a':
-    'Najpierw na twoim urządzeniu (aplikacja jest local-first), a przy włączonej synchronizacji także w chmurze, żeby przechodzić z urządzenia na urządzenie. W trybie lokalnym nic nie opuszcza twojego urządzenia. Płatności obsługują RevenueCat i Stripe — albo sklep, jeśli kupujesz z telefonu: nigdy nie widzimy twojej karty. Szczegóły w <a href="/privacidad">polityce prywatności</a>.',
+    'Najpierw na twoim urządzeniu (aplikacja jest local-first), a przy włączonej synchronizacji także w chmurze, żeby przechodzić z urządzenia na urządzenie. W trybie lokalnym nic nie opuszcza twojego urządzenia. Płatności obsługują RevenueCat i Stripe — albo sklep, jeśli kupujesz z telefonu: nigdy nie widzimy twojej karty. Szczegóły w <a href="/privacidad">polityce prywatności</a>. Duże pliki (Twoja chmura i media ze Studia) są przechowywane w Cloudflare R2.',
   'faq.7.q': 'Na jakich urządzeniach to działa?',
   'faq.7.a':
     'Dziś: w każdej nowoczesnej przeglądarce. Już wkrótce: Android (Google Play), iPhone/iPad (App Store), Windows i macOS. Konto działa wszędzie: kupujesz raz, tam gdzie ci wygodnie, a MindHaOS i subskrypcja AI działają na każdym urządzeniu, na którym zalogujesz się swoim adresem e-mail.',
@@ -231,7 +231,8 @@ export const TEXTOS = {
   'priv.uso.1': 'Żeby dać ci dostęp do konta, zakupu i abonamentu.',
   'priv.uso.2': 'Żeby synchronizować twoje dane między urządzeniami i tworzyć kopie zapasowe.',
   'priv.uso.3': 'Żeby uruchamiać funkcje SI w ramach twojej puli kredytów.',
-  'priv.uso.4': 'Nie sprzedajemy twoich danych ani nie udostępniamy ich osobom trzecim w celach reklamowych.',  'priv.dispositivo.h': 'Przechowywanie na twoim urządzeniu',
+  'priv.uso.4': 'Nie sprzedajemy twoich danych ani nie udostępniamy ich osobom trzecim w celach reklamowych.',
+  'priv.dispositivo.h': 'Przechowywanie na twoim urządzeniu',
   'priv.dispositivo.p':
     'Aplikacja zapisuje informacje na twoim własnym urządzeniu i odczytuje je, aby działać: lokalna baza danych (IndexedDB) z danymi twojego domu i twoimi plikami oraz lokalny magazyn przeglądarki z twoimi ustawieniami — język, motyw, stan powitania — i z tokenem sesji, który utrzymuje cię zalogowanym. Nie używamy własnych plików cookie ani podobnych technologii do reklam, analityki czy śledzenia. Wszystko to możesz usunąć w ustawieniach przeglądarki albo odinstalowując aplikację.',
   'priv.dispositivo.terceros':
@@ -262,6 +263,7 @@ export const TEXTOS = {
     'OpenAI (transkrypcja głosu i zapasowe obrazy SI, na żądanie).',
   'priv.proveedores.5':
     'HERE Technologies (mapy, wyszukiwanie miejsc i trasy, na żądanie).',
+  'priv.proveedores.6': "Cloudflare (przechowywanie plików w chmurze, R2).",
   'priv.cambios.h': 'Zmiany',
   'priv.cambios.p':
     'Jeśli ta polityka się zmieni, opublikujemy tutaj nową wersję z datą. Pytania odbieramy pod adresem kontaktowym.',
@@ -284,7 +286,7 @@ export const TEXTOS = {
   'term.precio.1':
     'Abonament: 6 USD miesięcznie na poziomie ×1 (albo równowartość w twojej walucie), z automatycznym odnowieniem. Poziomy ×2 i ×3 mnożą kredyty i cenę: 12 i 18 USD miesięcznie. Poziom ×1 możesz też opłacać rocznie: 60 USD, z automatycznym odnowieniem co rok i tymi samymi kredytami co miesiąc.',
   'term.precio.2':
-    'Obejmuje 700 kredytów SI miesięcznie na poziom (700 / 1400 / 2100) i synchronizację między urządzeniami. Niewykorzystane kredyty miesięczne nie przechodzą na kolejny miesiąc.',
+    'Obejmuje 700 kredytów SI miesięcznie na poziom (700 / 1400 / 2100) i synchronizację między urządzeniami. Niewykorzystane kredyty miesięczne nie przechodzą na kolejny miesiąc. Obejmuje też miejsce w Twojej chmurze: 10, 30 lub 100 GB zależnie od poziomu (10 GB w płatności rocznej i w miesiącu w cenie).',
   'term.precio.3':
     'Kredyty za operację: 1 za odpowiedź tekstową, 4 za długi plan, 3 za obraz (10 w wysokiej jakości) i 10 za model 3D. Stawka może zostać skorygowana, jeśli zmienią się koszty dostawców SI; obowiązująca cena jest pokazywana w aplikacji przed każdym żądaniem.',
   'term.precio.4':
@@ -294,10 +296,13 @@ export const TEXTOS = {
   'term.precio.6': 'Płatności obsługują RevenueCat i Stripe.',
   'term.cancelacion.h': 'Rezygnacja',
   'term.cancelacion.p':
-    'Możesz zrezygnować w dowolnej chwili przez «Zarządzaj abonamentem» w <a href="/cuenta">twoim koncie</a>; plan zostaje do końca opłaconego okresu. Potem aplikacja działa dalej na twoich urządzeniach w trybie lokalnym, bez miesięcznych kredytów i synchronizacji. Pozostałe kredyty z doładowań nadal można wykorzystać, a wznowić możesz, kiedy zechcesz.',
+    'Możesz zrezygnować w dowolnej chwili przez «Zarządzaj abonamentem» w <a href="/cuenta">twoim koncie</a>; plan zostaje do końca opłaconego okresu. Potem aplikacja działa dalej na twoich urządzeniach w trybie lokalnym, bez miesięcznych kredytów i synchronizacji. Pozostałe kredyty z doładowań nadal można wykorzystać, a wznowić możesz, kiedy zechcesz. Pliki w chmurze przez 90 dni są tylko do odczytu, żebyś mógł je pobrać; po tym czasie zostają usunięte z naszych serwerów.',
   'term.datos.h': 'Twoje dane',
   'term.datos.p':
     'Twoje dane należą do ciebie. Aplikacja jest local-first: wszystko żyje najpierw na twoim urządzeniu. Szczegóły, co przechowujemy i jak to skasować, są w <a href="/privacidad">polityce prywatności</a>.',
+  'term.alojado.h': "Pliki przechowywane w chmurze",
+  'term.alojado.p':
+    "Odpowiadasz za pliki, które wysyłasz do swojej chmury, i musisz mieć prawo je przechowywać. Nie wolno przechowywać treści nielegalnych, naruszających prawa osób trzecich ani łamiących zasady społeczności; możemy je usunąć i zawiesić konto. Chmura to usługa przechowywania, a nie gwarantowana kopia zapasowa: zachowaj kopię tego, czego nie chcesz stracić.",
   'term.razonable.h': 'Rozsądne korzystanie',
   'term.razonable.p':
     'Pula kredytów SI dotyczy konta osobistego. Nie wolno odsprzedawać usługi, masowo współdzielić konta ani automatyzować zużycia SI poza aplikacją.',

@@ -86,7 +86,7 @@ export const TEXTOS = {
     'Chat with your assistant: log meals, create routines, plan goals, generate images and 3D models. Your first month comes with 700 credits included; after that, AI is optional.',
   'car.3.t': 'Sync across everything',
   'car.3.p':
-    'Your MindHaOS follows you to your phone, your tablet and your computer. All encrypted in transit and backed up in the cloud.',
+    'Your MindHaOS follows you to your phone, your tablet and your computer. All encrypted in transit and backed up in the cloud. With Pro, your cloud (the Files room) also stores 10, 30 or 100 GB of files.',
   'car.4.t': 'It feels like a game',
   'car.4.p':
     'Your character lives off your real activity: streaks, badges, the Mountain of Sisyphus, vehicles, races and mini-games.',
@@ -180,16 +180,16 @@ export const TEXTOS = {
     'Your whole MindHaOS: every room, every app and your data on your device, forever and with no renewals. On top of that, the first month brings 700 AI credits and sync included, with no card. Before buying it you can try the full app, which asks for no account.',
   'faq.3.q': 'How much does AI cost after the first month?',
   'faq.3.a':
-    'Whatever you choose, or nothing. The subscription is USD 6 a month (700 credits and sync), or USD 60 a year — two months free. If that falls short, tiers ×2 and ×3 give 1400 or 2100 credits for USD 12 or 18 a month. And if you would rather not subscribe, there are one-off top-ups: USD 6 for 700 credits that never expire and are only spent when you ask. This part is paid here, in <a href="/cuenta">your account</a>, and it works on all your devices.',
+    'Whatever you choose, or nothing. The subscription is USD 6 a month (700 credits and sync), or USD 60 a year — two months free. If that falls short, tiers ×2 and ×3 give 1400 or 2100 credits for USD 12 or 18 a month. And if you would rather not subscribe, there are one-off top-ups: USD 6 for 700 credits that never expire and are only spent when you ask. This part is paid here, in <a href="/cuenta">your account</a>, and it works on all your devices. Every tier also includes space in your cloud: 10, 30 or 100 GB.',
   'faq.4.q': 'What are AI credits?',
   'faq.4.a':
     'The unit each request to the assistant is charged in, according to what it costs to serve: a normal reply is worth 1 credit, a long plan 4, an image 3 (10 at high quality) and a 3D model 10. Nothing is ever charged automatically: credits are only spent when you ask for something.',
   'faq.5.q': 'What happens if I cancel?',
   'faq.5.a':
-    'You keep the whole app and all your data on your devices, in local mode. All you lose are the monthly credits and sync. If you renew, everything comes back exactly as you left it.',
+    'You keep the whole app and all your data on your devices, in local mode. All you lose are the monthly credits and sync. If you renew, everything comes back exactly as you left it. Your cloud files stay read-only for 90 days so you can download them; after that they are deleted.',
   'faq.6.q': 'Where is my data stored?',
   'faq.6.a':
-    'On your device first (the app is local-first) and, with sync on, in the cloud as well so it can move from one device to another. In local mode nothing leaves your device. Payments are processed by RevenueCat and Stripe — or by the store, if you buy from your phone: we never see your card. More detail in the <a href="/privacidad">privacy policy</a>.',
+    'On your device first (the app is local-first) and, with sync on, in the cloud as well so it can move from one device to another. In local mode nothing leaves your device. Payments are processed by RevenueCat and Stripe — or by the store, if you buy from your phone: we never see your card. More detail in the <a href="/privacidad">privacy policy</a>. Large files (your cloud and Studio media) are stored on Cloudflare R2.',
   'faq.7.q': 'Which devices does it work on?',
   'faq.7.a':
     'Today: any modern browser. Very soon: Android (Google Play), iPhone/iPad (App Store), Windows and macOS. Your account works everywhere: you buy once, wherever suits you, and both MindHaOS and the AI subscription work on any device you sign in to with your email.',
@@ -231,7 +231,8 @@ export const TEXTOS = {
   'priv.uso.1': 'Giving you access to your account, your purchase and your subscription.',
   'priv.uso.2': 'Syncing your data between devices and backing it up.',
   'priv.uso.3': 'Running the AI features against your credit allowance.',
-  'priv.uso.4': 'We do not sell your data or share it with third parties for advertising.',  'priv.dispositivo.h': 'Storage on your device',
+  'priv.uso.4': 'We do not sell your data or share it with third parties for advertising.',
+  'priv.dispositivo.h': 'Storage on your device',
   'priv.dispositivo.p':
     'The app stores information on your own device and reads it to work: a local database (IndexedDB) with your house data and your files, and the local storage of your browser with your preferences — language, theme, welcome state — and the session token that keeps you signed in. We do not use our own cookies or similar technologies for advertising, analytics or tracking. You can erase all of it from your browser settings or by uninstalling the app.',
   'priv.dispositivo.terceros':
@@ -262,6 +263,7 @@ export const TEXTOS = {
     'OpenAI (voice transcription and AI image fallback, on demand).',
   'priv.proveedores.5':
     'HERE Technologies (maps, place search and routes, on demand).',
+  'priv.proveedores.6': "Cloudflare (cloud file storage, R2).",
   'priv.cambios.h': 'Changes',
   'priv.cambios.p':
     'If this policy changes, we will publish the new version here with its date. Questions are answered at the contact address.',
@@ -283,7 +285,7 @@ export const TEXTOS = {
   'term.precio.1':
     'Subscription: USD 6 a month at tier ×1 (or the equivalent in your currency), auto-renewing. Tiers ×2 and ×3 multiply the credits and the price: USD 12 and 18 a month. You can also pay for tier ×1 by the year: USD 60, auto-renewing annually with the same credits every month.',
   'term.precio.2':
-    'It includes 700 AI credits a month per tier (700 / 1400 / 2100) and sync between devices. Unused monthly credits do not carry over to the next month.',
+    'It includes 700 AI credits a month per tier (700 / 1400 / 2100) and sync between devices. Unused monthly credits do not carry over to the next month. It also includes space in your cloud: 10, 30 or 100 GB depending on the tier (10 GB on the yearly plan and the included month).',
   'term.precio.3':
     'Credits per operation: 1 for a text reply, 4 for a long plan, 3 for an image (10 at high quality) and 10 for a 3D model. The rate may be adjusted if the AI providers’ costs change; the current price is shown in the app before every request.',
   'term.precio.4':
@@ -293,10 +295,13 @@ export const TEXTOS = {
   'term.precio.6': 'Payments are processed by RevenueCat and Stripe.',
   'term.cancelacion.h': 'Cancellation',
   'term.cancelacion.p':
-    'You can cancel whenever you like from “Manage subscription” in <a href="/cuenta">your account</a>; you keep the plan until the end of the paid period. After that, the app carries on working on your devices in local mode, without monthly credits or sync. Any top-up credits you have left remain usable, and you can renew whenever you want.',
+    'You can cancel whenever you like from “Manage subscription” in <a href="/cuenta">your account</a>; you keep the plan until the end of the paid period. After that, the app carries on working on your devices in local mode, without monthly credits or sync. Any top-up credits you have left remain usable, and you can renew whenever you want. Your cloud files stay read-only for 90 days so you can download them; after that period they are deleted from our servers.',
   'term.datos.h': 'Your data',
   'term.datos.p':
     'Your data is yours. The app is local-first: everything lives on your device first. The detail of what we store and how to delete it is in the <a href="/privacidad">privacy policy</a>.',
+  'term.alojado.h': "Files you keep in the cloud",
+  'term.alojado.p':
+    "You are responsible for the files you upload to your cloud and must have the right to store them. Hosting illegal content, content that infringes third-party rights or content that breaks the community rules is not allowed; we may remove it and suspend the account. The cloud is a storage service, not a guaranteed backup: keep a copy of anything you cannot afford to lose.",
   'term.razonable.h': 'Reasonable use',
   'term.razonable.p':
     'The AI credit allowance is for a personal account. Reselling the service, sharing the account at scale or automating AI consumption outside the app are not allowed.',

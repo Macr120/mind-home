@@ -28,14 +28,22 @@ export const VOLUMEN_DEFAULT = 0.8
 
 const PREFIJO_PISTA = 'pista:'
 
-/** Id de la pista propia elegida como tono, o null si es un tono del catálogo. */
-export function idPistaDeTono(tono: string | undefined): number | null {
-  if (!tono?.startsWith(PREFIJO_PISTA)) return null
-  const id = Number(tono.slice(PREFIJO_PISTA.length))
-  return Number.isFinite(id) ? id : null
+/**
+ * Referencia de la pista propia elegida como tono (su `uid`, que es el mismo en
+ * todos los dispositivos; o el id numérico en perfiles anteriores), o null si
+ * es un tono del catálogo.
+ */
+export function refPistaDeTono(tono: string | undefined): string | null {
+  return tono?.startsWith(PREFIJO_PISTA) ? tono.slice(PREFIJO_PISTA.length) : null
 }
 
-export const tonoDePista = (id: number) => `${PREFIJO_PISTA}${id}`
+export const tonoDePista = (p: Pick<PistaMusica, 'id' | 'uid'>) => `${PREFIJO_PISTA}${p.uid ?? p.id}`
+
+/** La pista de un tono entre las del usuario, por `uid` o por el id del formato viejo. */
+export function pistaDeTono(tono: string | undefined, pistas: PistaMusica[] | undefined): PistaMusica | undefined {
+  const ref = refPistaDeTono(tono)
+  return ref == null ? undefined : pistas?.find((p) => p.uid === ref || String(p.id) === ref)
+}
 
 // ---------------------------------------------------------------------------
 // Patrones sintetizados
@@ -155,8 +163,8 @@ function abrir(volumen: number): { ctx: AudioContext; bus: GainNode } | null {
 }
 
 /** Reproduce un blob en bucle con su propio elemento; devuelve cómo detenerlo. */
-function iniciarPistaPropia(pista: PistaMusica, volumen: number, loop: boolean): () => void {
-  const url = URL.createObjectURL(pista.blob)
+function iniciarPistaPropia(blob: Blob, volumen: number, loop: boolean): () => void {
+  const url = URL.createObjectURL(blob)
   const audio = new Audio(url)
   audio.loop = loop
   audio.volume = volumen
@@ -179,7 +187,8 @@ export function iniciarTono(
   volumen: number,
   pista: PistaMusica | undefined,
 ): () => void {
-  if (idPistaDeTono(tono) != null && pista) return iniciarPistaPropia(pista, volumen, true)
+  // Sin blob (aún en la nube, sin red): suena el tono por defecto antes que nada.
+  if (refPistaDeTono(tono) != null && pista?.blob) return iniciarPistaPropia(pista.blob, volumen, true)
 
   const id = (tono && tono in PATRONES ? tono : TONO_DEFAULT) as IdTono
   const patron = PATRONES[id]
@@ -206,8 +215,8 @@ export function probarTono(
   volumen: number,
   pista: PistaMusica | undefined,
 ): () => void {
-  if (idPistaDeTono(tono) != null && pista) {
-    const parar = iniciarPistaPropia(pista, volumen, false)
+  if (refPistaDeTono(tono) != null && pista?.blob) {
+    const parar = iniciarPistaPropia(pista.blob, volumen, false)
     const corte = window.setTimeout(parar, 8000)
     return () => {
       window.clearTimeout(corte)

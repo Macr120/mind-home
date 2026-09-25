@@ -56,6 +56,7 @@ export const TEXTOS: Record<string, string> = {
   'tar.b1': 'Stufe ×{n}: {c} KI-Credits im Monat',
   'tar.b2': 'Alle Apps des MindHaOS, auf allen deinen Geräten',
   'tar.b3': 'Sync und Sicherung in der Cloud',
+  'tar.b4': "{g} GB in deiner Cloud (der Raum Dateien)",
   'tar.actual': 'Das ist deine aktuelle Stufe',
   'tar.subir': 'Hoch auf ×{n}',
   'tar.bajar': 'Runter auf ×{n}',
@@ -64,7 +65,7 @@ export const TEXTOS: Record<string, string> = {
   'tar.a2': 'Eine Abbuchung im Jahr statt zwölf',
   'tar.anual': 'Ein Jahr bezahlen',
   'tar.pie':
-    'Ohne Bindung: du gehst hoch, runter oder kündigst, wann du willst, und zahlst nur die Differenz. Kündigst du, bleibt die App im lokalen Modus auf deinen Geräten, ohne KI und ohne Sync.',
+    'Ohne Bindung: du gehst hoch, runter oder kündigst, wann du willst, und zahlst nur die Differenz. Kündigst du, bleibt die App im lokalen Modus auf deinen Geräten, ohne KI und ohne Sync. Deine Cloud bleibt 90 Tage schreibgeschützt, damit du deine Dateien herunterladen kannst.',
   'mi.pro': 'Pro',
   'mi.trial': 'Erster Monat',
   'mi.local': 'Lokal',
@@ -89,6 +90,7 @@ export const TEXTOS: Record<string, string> = {
 
   'pro.creditosMes': 'KI-Credits in diesem Monat',
   'pro.extra': 'Extra-Credits (Aufladungen, verfallen nicht): {n}',
+  'pro.nube': "Deine Cloud (Dateien)",
   'pro.gestionar': 'Abo verwalten (kündigen, Zahlung ändern)',
   'pag.cargando': 'Wird geladen…',
   'pag.sinBackend':

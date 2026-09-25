@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import type { GrabacionAudio } from '../../core/data/db'
-import { grabacionesAudioRepo, proyectosAudioRepo, VACIO } from '../../core/data/repository'
+import { asegurarBlob, grabacionesAudioRepo, proyectosAudioRepo, VACIO } from '../../core/data/repository'
 import { descargarArchivo } from '../../core/descargarArchivo'
 import { localeActual, useT } from '../../core/i18n/useT'
 import { confirmar, pedirTexto } from '../../core/state/confirmarStore'
@@ -32,10 +32,15 @@ export function GrabacionesPanel() {
     [],
   )
 
-  const reproducir = (g: GrabacionAudio) => {
+  /** El blob de la toma; si vino de otro dispositivo, se baja de la nube. */
+  const blobDe = async (g: GrabacionAudio) => g.blob ?? (g.id == null ? null : await asegurarBlob('grabacionesAudio', g.id))
+
+  const reproducir = async (g: GrabacionAudio) => {
     if (sonando === g.id) return parar()
     parar()
-    const url = URL.createObjectURL(g.blob)
+    const blob = await blobDe(g)
+    if (!blob) return
+    const url = URL.createObjectURL(blob)
     urlRef.current = url
     const el = new Audio(url)
     audioRef.current = el
@@ -50,8 +55,10 @@ export function GrabacionesPanel() {
   }
 
   const descargar = async (g: GrabacionAudio) => {
-    const ext = g.blob.type.includes('mp4') ? '.m4a' : g.blob.type.includes('ogg') ? '.ogg' : '.webm'
-    await descargarArchivo(g.blob, `${g.nombre || 'toma'}${ext}`)
+    const blob = await blobDe(g)
+    if (!blob) return
+    const ext = blob.type.includes('mp4') ? '.m4a' : blob.type.includes('ogg') ? '.ogg' : '.webm'
+    await descargarArchivo(blob, `${g.nombre || 'toma'}${ext}`)
   }
 
   const borrar = async (g: GrabacionAudio) => {
@@ -93,7 +100,7 @@ export function GrabacionesPanel() {
           <li key={g.id} className={`${TARJETA} ${FILA_INTERACTIVA} flex items-center gap-2 p-3`}>
             <button
               type="button"
-              onClick={() => reproducir(g)}
+              onClick={() => void reproducir(g)}
               aria-label={sonando === g.id ? t('audio.grab.pausar', 'Pausar') : t('audio.grab.escuchar', 'Escuchar')}
               title={sonando === g.id ? t('audio.grab.pausar', 'Pausar') : t('audio.grab.escuchar', 'Escuchar')}
               className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/10 transition hover:bg-white/20"

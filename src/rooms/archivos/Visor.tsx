@@ -26,9 +26,10 @@ export function Visor({
   archivo: ArchivoNube
   onCerrar: () => void
   onDescargar: () => void
-  onRenombrar: () => void
-  onMover: () => void
-  onBorrar: () => void
+  /** Sin ellas el visor es de solo lectura (los medios del Studio se gestionan en su app). */
+  onRenombrar?: () => void
+  onMover?: () => void
+  onBorrar?: () => void
 }) {
   const t = useT()
   const [url, setUrl] = useState<string | null>(null)
@@ -81,15 +82,21 @@ export function Visor({
         <BotonPrimario pequeno app={COLOR} onClick={onDescargar}>
           <Icono nombre="descargar" /> {t('archivos.descargar', 'Descargar')}
         </BotonPrimario>
-        <BotonSecundario pequeno onClick={onRenombrar}>
-          <Icono nombre="editar" /> {t('archivos.renombrar', 'Renombrar')}
-        </BotonSecundario>
-        <BotonSecundario pequeno onClick={onMover}>
-          <Icono nombre="mover" /> {t('archivos.mover', 'Mover')}
-        </BotonSecundario>
-        <BotonPeligro pequeno onClick={onBorrar} className="ml-auto">
-          <Icono nombre="basura" /> {t('archivos.borrar', 'Borrar')}
-        </BotonPeligro>
+        {onRenombrar && (
+          <BotonSecundario pequeno onClick={onRenombrar}>
+            <Icono nombre="editar" /> {t('archivos.renombrar', 'Renombrar')}
+          </BotonSecundario>
+        )}
+        {onMover && (
+          <BotonSecundario pequeno onClick={onMover}>
+            <Icono nombre="mover" /> {t('archivos.mover', 'Mover')}
+          </BotonSecundario>
+        )}
+        {onBorrar && (
+          <BotonPeligro pequeno onClick={onBorrar} className="ml-auto">
+            <Icono nombre="basura" /> {t('archivos.borrar', 'Borrar')}
+          </BotonPeligro>
+        )}
       </div>
     </Modal>
   )

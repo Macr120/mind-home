@@ -13,6 +13,10 @@ solo en la casa unlock 8.99». Se ejecutó entero desde Windows (navegador + rep
 | Pro ×3 mensual | `pro_x3_v2` | **18** | ✅ 17.99→18.00 | ✅ creado | ✅ | ✅ |
 | Pro ×1 anual | `pro_x1_anual` | **60** | ✅ 59.99→60.00 | ✅ creado | ✅ | ✅ |
 
+Desde el 26-sep-2026 cada nivel incluye además **nube** (cuarto Archivo, R2):
+×1 y anual 10 GB, ×2 30 GB, ×3 100 GB. No cambia ningún precio ni producto; el
+costo está en COSTOS.md.
+
 ## Lo que quedó hecho
 
 **App Store Connect** — los cinco precios movidos a cifras cerradas con

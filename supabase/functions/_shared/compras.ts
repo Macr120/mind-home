@@ -95,6 +95,8 @@ export async function aplicarSuscripcion(
       plan_expira: expiraMs > 0 ? new Date(expiraMs).toISOString() : null,
       fue_pro: true,
       nivel,
+      // Vuelve a tener plan: se para el reloj de la purga de la nube.
+      sin_plan_desde: null,
     })
     .eq('user_id', uid)
   return error
@@ -130,7 +132,8 @@ export async function aplicarUnlock(admin: SupabaseClient, uid: string): Promise
 export async function aplicarExpiracion(admin: SupabaseClient, uid: string): Promise<Error | null> {
   const { error } = await admin
     .from('perfiles')
-    .update({ plan: 'local', plan_expira: null, nivel: 1 })
+    // `sin_plan_desde` arranca los 90 días de solo lectura de la nube (almacen-purga).
+    .update({ plan: 'local', plan_expira: null, nivel: 1, sin_plan_desde: new Date().toISOString() })
     .eq('user_id', uid)
   return error
 }

@@ -56,6 +56,7 @@ export const TEXTOS: Record<string, string> = {
   'tar.b1': 'Livello ×{n}: {c} crediti di IA al mese',
   'tar.b2': 'Tutte le app della MindHaOS, su tutti i tuoi dispositivi',
   'tar.b3': 'Sincronizzazione e backup nel cloud',
+  'tar.b4': "{g} GB nel tuo cloud (la stanza File)",
   'tar.actual': 'È il tuo livello attuale',
   'tar.subir': 'Sali a ×{n}',
   'tar.bajar': 'Scendi a ×{n}',
@@ -64,7 +65,7 @@ export const TEXTOS: Record<string, string> = {
   'tar.a2': 'Un solo addebito all’anno invece di dodici',
   'tar.anual': 'Paga un anno',
   'tar.pie':
-    'Senza vincoli: sali, scendi o disdici quando vuoi e paghi solo la differenza. Se disdici, l’app resta sui tuoi dispositivi in modalità locale, senza IA né sincronizzazione.',
+    'Senza vincoli: sali, scendi o disdici quando vuoi e paghi solo la differenza. Se disdici, l’app resta sui tuoi dispositivi in modalità locale, senza IA né sincronizzazione. Il tuo cloud resta in sola lettura per 90 giorni, così puoi scaricare i tuoi file.',
   'mi.pro': 'Pro',
   'mi.trial': 'Primo mese',
   'mi.local': 'Locale',
@@ -89,6 +90,7 @@ export const TEXTOS: Record<string, string> = {
 
   'pro.creditosMes': 'Crediti di IA questo mese',
   'pro.extra': 'Crediti extra (ricariche, non scadono): {n}',
+  'pro.nube': "Il tuo cloud (File)",
   'pro.gestionar': 'Gestisci abbonamento (disdire, cambiare pagamento)',
   'pag.cargando': 'Caricamento…',
   'pag.sinBackend': 'Questo ambiente non ha un backend configurato (mancano le variabili VITE_SUPABASE_*).',

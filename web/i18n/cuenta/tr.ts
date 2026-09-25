@@ -56,6 +56,7 @@ export const TEXTOS: Record<string, string> = {
   'tar.b1': 'Katman ×{n}: ayda {c} yapay zekâ kredisi',
   'tar.b2': 'MindHaOS\'un bütün uygulamaları, tüm cihazlarında',
   'tar.b3': 'Eşitleme ve bulutta yedekleme',
+  'tar.b4': "Bulutunda {g} GB (Dosyalar odası)",
   'tar.actual': 'Şu anki katmanın bu',
   'tar.subir': '×{n} katmanına çık',
   'tar.bajar': '×{n} katmanına in',
@@ -64,7 +65,7 @@ export const TEXTOS: Record<string, string> = {
   'tar.a2': 'On iki yerine yılda tek tahsilat',
   'tar.anual': 'Bir yıl öde',
   'tar.pie':
-    'Taahhüt yok: istediğin zaman çıkar, iner ya da iptal edersin ve yalnızca farkı ödersin. İptal edersen uygulama cihazlarında yerel modda kalır, yapay zekâ ve eşitleme olmadan.',
+    'Taahhüt yok: istediğin zaman çıkar, iner ya da iptal edersin ve yalnızca farkı ödersin. İptal edersen uygulama cihazlarında yerel modda kalır, yapay zekâ ve eşitleme olmadan. Dosyalarını indirebilmen için bulutun 90 gün salt okunur kalır.',
   'mi.pro': 'Pro',
   'mi.trial': 'İlk ay',
   'mi.local': 'Yerel',
@@ -89,6 +90,7 @@ export const TEXTOS: Record<string, string> = {
 
   'pro.creditosMes': 'Bu ayki yapay zekâ kredileri',
   'pro.extra': 'Ek krediler (yüklemeler, süresi dolmaz): {n}',
+  'pro.nube': "Bulutun (Dosyalar)",
   'pro.gestionar': 'Aboneliği yönet (iptal, ödeme değişikliği)',
   'pag.cargando': 'Yükleniyor…',
   'pag.sinBackend': 'Bu ortamda yapılandırılmış bir arka uç yok (VITE_SUPABASE_* değişkenleri eksik).',

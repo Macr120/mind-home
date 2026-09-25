@@ -86,7 +86,7 @@ export const TEXTOS = {
     'Sprich mit deinem Assistenten: erfasse Mahlzeiten, lege Routinen an, plane Ziele, erzeuge Bilder und 3D-Modelle. Dein erster Monat bringt 700 Credits mit; danach ist die KI optional.',
   'car.3.t': 'Sync über alles hinweg',
   'car.3.p':
-    'Dein MindHaOS folgt dir aufs Handy, aufs Tablet und an den Rechner. Alles verschlüsselt unterwegs und in der Cloud gesichert.',
+    'Dein MindHaOS folgt dir aufs Handy, aufs Tablet und an den Rechner. Alles verschlüsselt unterwegs und in der Cloud gesichert. Mit Pro speichert deine Cloud (der Raum Dateien) außerdem 10, 30 oder 100 GB an Dateien.',
   'car.4.t': 'Es fühlt sich an wie ein Spiel',
   'car.4.p':
     'Deine Figur lebt von deiner echten Aktivität: Serien, Abzeichen, der Sisyphosberg, Fahrzeuge, Rennen und Minispiele.',
@@ -182,16 +182,16 @@ export const TEXTOS = {
     'Das ganze MindHaOS: alle Räume, alle Apps und deine Daten auf deinem Gerät, für immer und ohne Verlängerungen. Dazu bringt der erste Monat 700 KI-Credits und die Sync mit, ohne Karte. Vor dem Kauf kannst du die komplette App testen, die kein Konto verlangt.',
   'faq.3.q': 'Was kostet die KI nach dem ersten Monat?',
   'faq.3.a':
-    'Was du willst, oder nichts. Das Abo kostet 6 USD im Monat (700 Credits und Sync) oder 60 USD im Jahr — zwei Monate geschenkt. Wenn das zu knapp ist, geben die Stufen ×2 und ×3 1400 oder 2100 Credits für 12 oder 18 USD im Monat. Und wenn du lieber kein Abo willst, gibt es einzelne Aufladungen: 6 USD für 700 Credits, die nicht verfallen und nur dann verbraucht werden, wenn du etwas anforderst. Das wird hier bezahlt, in <a href="/cuenta">deinem Konto</a>, und gilt für alle deine Geräte.',
+    'Was du willst, oder nichts. Das Abo kostet 6 USD im Monat (700 Credits und Sync) oder 60 USD im Jahr — zwei Monate geschenkt. Wenn das zu knapp ist, geben die Stufen ×2 und ×3 1400 oder 2100 Credits für 12 oder 18 USD im Monat. Und wenn du lieber kein Abo willst, gibt es einzelne Aufladungen: 6 USD für 700 Credits, die nicht verfallen und nur dann verbraucht werden, wenn du etwas anforderst. Das wird hier bezahlt, in <a href="/cuenta">deinem Konto</a>, und gilt für alle deine Geräte. Jede Stufe enthält außerdem Platz in deiner Cloud: 10, 30 oder 100 GB.',
   'faq.4.q': 'Was sind KI-Credits?',
   'faq.4.a':
     'Die Einheit, in der jede Anfrage an den Assistenten abgerechnet wird, je nachdem, was sie kostet: eine normale Antwort ist 1 Credit wert, ein langer Plan 4, ein Bild 3 (10 in hoher Qualität) und ein 3D-Modell 10. Es wird nie automatisch abgerechnet: verbraucht wird nur, wenn du etwas anforderst.',
   'faq.5.q': 'Was passiert, wenn ich kündige?',
   'faq.5.a':
-    'Du behältst die ganze App und all deine Daten auf deinen Geräten, im lokalen Modus. Du verlierst nur die monatlichen Credits und die Sync. Wenn du erneuerst, kommt alles genau so zurück, wie du es verlassen hast.',
+    'Du behältst die ganze App und all deine Daten auf deinen Geräten, im lokalen Modus. Du verlierst nur die monatlichen Credits und die Sync. Wenn du erneuerst, kommt alles genau so zurück, wie du es verlassen hast. Deine Cloud-Dateien bleiben 90 Tage schreibgeschützt, damit du sie herunterladen kannst; danach werden sie gelöscht.',
   'faq.6.q': 'Wo werden meine Daten gespeichert?',
   'faq.6.a':
-    'Zuerst auf deinem Gerät (die App ist local-first) und, mit aktiver Synchronisierung, auch in der Cloud, um von einem Gerät zum anderen zu wechseln. Im lokalen Modus verlässt nichts dein Gerät. Die Zahlungen wickeln RevenueCat und Stripe ab — oder der Store, wenn du vom Handy aus kaufst: Deine Karte sehen wir nie. Mehr dazu in der <a href="/privacidad">Datenschutzerklärung</a>.',
+    'Zuerst auf deinem Gerät (die App ist local-first) und, mit aktiver Synchronisierung, auch in der Cloud, um von einem Gerät zum anderen zu wechseln. Im lokalen Modus verlässt nichts dein Gerät. Die Zahlungen wickeln RevenueCat und Stripe ab — oder der Store, wenn du vom Handy aus kaufst: Deine Karte sehen wir nie. Mehr dazu in der <a href="/privacidad">Datenschutzerklärung</a>. Große Dateien (deine Cloud und Studio-Medien) werden bei Cloudflare R2 gespeichert.',
   'faq.7.q': 'Auf welchen Geräten läuft sie?',
   'faq.7.a':
     'Heute: in jedem modernen Browser. Sehr bald: Android (Google Play), iPhone/iPad (App Store), Windows und macOS. Dein Konto gilt für alle: Du kaufst einmal, wo es dir passt, und sowohl das MindHaOS als auch das KI-Abo funktionieren auf jedem Gerät, auf dem du dich mit deiner E-Mail anmeldest.',
@@ -234,7 +234,8 @@ export const TEXTOS = {
   'priv.uso.2': 'Deine Daten zwischen Geräten zu synchronisieren und zu sichern.',
   'priv.uso.3': 'Die KI-Funktionen mit deinem Credit-Kontingent zu betreiben.',
   'priv.uso.4':
-    'Wir verkaufen deine Daten nicht und geben sie nicht zu Werbezwecken an Dritte weiter.',  'priv.dispositivo.h': 'Speicherung auf deinem Gerät',
+    'Wir verkaufen deine Daten nicht und geben sie nicht zu Werbezwecken an Dritte weiter.',
+  'priv.dispositivo.h': 'Speicherung auf deinem Gerät',
   'priv.dispositivo.p':
     'Die App speichert Informationen auf deinem eigenen Gerät und liest sie, um zu funktionieren: eine lokale Datenbank (IndexedDB) mit den Daten deines Hauses und deinen Dateien sowie den lokalen Speicher des Browsers mit deinen Einstellungen — Sprache, Design, Status der Begrüßung — und dem Sitzungstoken, das dich angemeldet hält. Wir verwenden keine eigenen Cookies oder ähnliche Technologien für Werbung, Analyse oder Tracking. Du kannst alles über die Einstellungen deines Browsers oder durch Deinstallieren der App löschen.',
   'priv.dispositivo.terceros':
@@ -265,6 +266,7 @@ export const TEXTOS = {
     'OpenAI (Sprachtranskription und Bild-Fallback der KI, auf Anfrage).',
   'priv.proveedores.5':
     'HERE Technologies (Karten, Ortssuche und Routen, auf Anfrage).',
+  'priv.proveedores.6': "Cloudflare (Dateispeicher in der Cloud, R2).",
   'priv.cambios.h': 'Änderungen',
   'priv.cambios.p':
     'Wenn sich diese Erklärung ändert, veröffentlichen wir hier die neue Fassung mit ihrem Datum. Fragen beantworten wir unter der Kontaktadresse.',
@@ -287,7 +289,7 @@ export const TEXTOS = {
   'term.precio.1':
     'Abo: 6 USD im Monat in Stufe ×1 (oder der Gegenwert in deiner Währung), mit automatischer Verlängerung. Die Stufen ×2 und ×3 vervielfachen Credits und Preis: 12 und 18 USD im Monat. Du kannst Stufe ×1 auch jährlich zahlen: 60 USD, mit automatischer Jahresverlängerung und denselben Credits jeden Monat.',
   'term.precio.2':
-    'Enthält 700 KI-Credits pro Monat und Stufe (700 / 1400 / 2100) und die Sync zwischen Geräten. Nicht genutzte Monats-Credits werden nicht in den Folgemonat übertragen.',
+    'Enthält 700 KI-Credits pro Monat und Stufe (700 / 1400 / 2100) und die Sync zwischen Geräten. Nicht genutzte Monats-Credits werden nicht in den Folgemonat übertragen. Außerdem ist Platz in deiner Cloud enthalten: 10, 30 oder 100 GB je nach Stufe (10 GB im Jahresplan und im inklusiven Monat).',
   'term.precio.3':
     'Credits pro Vorgang: 1 für eine Textantwort, 4 für einen langen Plan, 3 für ein Bild (10 in hoher Qualität) und 10 für ein 3D-Modell. Der Tarif kann angepasst werden, wenn sich die Kosten der KI-Anbieter ändern; der gültige Preis wird vor jeder Anfrage in der App angezeigt.',
   'term.precio.4':
@@ -297,10 +299,13 @@ export const TEXTOS = {
   'term.precio.6': 'Die Zahlungen verarbeiten RevenueCat und Stripe.',
   'term.cancelacion.h': 'Kündigung',
   'term.cancelacion.p':
-    'Du kannst jederzeit über «Abo verwalten» in <a href="/cuenta">deinem Konto</a> kündigen; du behältst den Tarif bis zum Ende des bezahlten Zeitraums. Danach läuft die App auf deinen Geräten im lokalen Modus weiter, ohne monatliche Credits und ohne Sync. Übrige Auflade-Credits bleiben nutzbar, und du kannst jederzeit erneuern.',
+    'Du kannst jederzeit über «Abo verwalten» in <a href="/cuenta">deinem Konto</a> kündigen; du behältst den Tarif bis zum Ende des bezahlten Zeitraums. Danach läuft die App auf deinen Geräten im lokalen Modus weiter, ohne monatliche Credits und ohne Sync. Übrige Auflade-Credits bleiben nutzbar, und du kannst jederzeit erneuern. Deine Cloud-Dateien bleiben 90 Tage schreibgeschützt, damit du sie herunterladen kannst; danach werden sie von unseren Servern gelöscht.',
   'term.datos.h': 'Deine Daten',
   'term.datos.p':
     'Deine Daten gehören dir. Die App ist local-first: alles lebt zuerst auf deinem Gerät. Was wir speichern und wie du es löschst, steht in der <a href="/privacidad">Datenschutzerklärung</a>.',
+  'term.alojado.h': "Dateien, die du in der Cloud speicherst",
+  'term.alojado.p':
+    "Du bist für die Dateien verantwortlich, die du in deine Cloud hochlädst, und musst berechtigt sein, sie zu speichern. Illegale Inhalte, Inhalte, die Rechte Dritter verletzen, oder Inhalte, die gegen die Community-Regeln verstoßen, sind nicht erlaubt; wir können sie entfernen und das Konto sperren. Die Cloud ist ein Speicherdienst, keine garantierte Sicherung: Bewahre eine Kopie von allem auf, was du nicht verlieren darfst.",
   'term.razonable.h': 'Angemessene Nutzung',
   'term.razonable.p':
     'Das KI-Credit-Kontingent gilt für ein persönliches Konto. Es ist nicht erlaubt, den Dienst weiterzuverkaufen, das Konto massenhaft zu teilen oder den KI-Verbrauch außerhalb der App zu automatisieren.',

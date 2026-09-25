@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import type { MusicaImportada, ProyectoAudio } from '../../core/data/db'
-import { musicaImportadaRepo, proyectosAudioRepo, VACIO } from '../../core/data/repository'
+import { asegurarBlob, musicaImportadaRepo, proyectosAudioRepo, VACIO } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { confirmar } from '../../core/state/confirmarStore'
 import { Icono } from '../../core/ui/iconos/Icono'
@@ -79,7 +79,15 @@ export function SelectorCancion({
           <ul className="space-y-1">
             {musica.map((m) => (
               <li key={m.id} className="flex items-center gap-1">
-                <button type="button" onClick={() => onElegirArchivo(m.blob, m.nombre, m.bpm)} className={FILA}>
+                <button
+                  type="button"
+                  onClick={async () => {
+                    // Canción que vino de otro dispositivo: se baja de la nube al elegirla.
+                    const blob = m.blob ?? (m.id == null ? null : await asegurarBlob('musicaImportada', m.id))
+                    if (blob) onElegirArchivo(blob, m.nombre, m.bpm)
+                  }}
+                  className={FILA}
+                >
                   <span className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-white/10 text-lg text-white/60">
                     <Icono nombre="musica" />
                   </span>

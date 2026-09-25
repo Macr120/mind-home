@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { rutinasRepo, suenoRepo, perfilSuenoRepo, pistasMusicaRepo } from '../../core/data/repository'
+import { asegurarBlob, rutinasRepo, suenoRepo, perfilSuenoRepo, pistasMusicaRepo } from '../../core/data/repository'
 import type { PerfilSueno, RegistroSueno } from '../../core/data/db'
 import { esDemo } from '../../core/edicion'
 import { useT } from '../../core/i18n/useT'
@@ -13,7 +13,7 @@ import { FranjaNoche } from './FranjaNoche'
 import { SelectorTono } from './SelectorTono'
 import { EvidenciaConfig, RetoEvidencia } from './EvidenciaAlarma'
 import { iaActiva } from '../../core/chat/ia'
-import { idPistaDeTono, VOLUMEN_DEFAULT } from './tonos'
+import { pistaDeTono, VOLUMEN_DEFAULT } from './tonos'
 import { buscarRutinaSueno, sincronizarRutinaSueno } from './rutinaSueno'
 import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { ejemploDescanso } from './ejemplos'
@@ -211,7 +211,12 @@ export function DescansoApp() {
 
   // Tono del despertador: si es un audio propio hay que llevarle el blob.
   const pistas = pistasMusicaRepo.useAll()
-  const idPistaTono = idPistaDeTono(perfil.tono)
+  const pistaTono = pistaDeTono(perfil.tono, pistas)
+  // Una pista que vino de otro dispositivo se baja YA, no a la hora de sonar
+  // (entonces puede no haber red y sonaría el tono por defecto).
+  useEffect(() => {
+    if (pistaTono?.id != null && !pistaTono.blob && pistaTono.nube) void asegurarBlob('pistasMusica', pistaTono.id)
+  }, [pistaTono])
   const volumenAlarma = perfil.volumenAlarma ?? VOLUMEN_DEFAULT
   const { sonando, detener } = useAlarma(
     perfil.alarmaActiva,
@@ -220,7 +225,7 @@ export function DescansoApp() {
     {
       tono: perfil.tono,
       volumen: volumenAlarma,
-      pista: idPistaTono == null ? undefined : pistas?.find((p) => p.id === idPistaTono),
+      pista: pistaTono,
     },
   )
 

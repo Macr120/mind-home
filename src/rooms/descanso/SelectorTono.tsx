@@ -3,7 +3,7 @@ import { VACIO, pistasMusicaRepo } from '../../core/data/repository'
 import type { PerfilSueno } from '../../core/data/db'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
-import { idPistaDeTono, probarTono, TONO_DEFAULT, tonoDePista, TONOS } from './tonos'
+import { pistaDeTono, probarTono, refPistaDeTono, TONO_DEFAULT, tonoDePista, TONOS } from './tonos'
 
 /** Tope del audio subido, el mismo que la biblioteca de música. */
 const MAX_MB = 25
@@ -32,13 +32,13 @@ export function SelectorTono({
   // Al cerrar la app la prueba no debe quedarse sonando.
   useEffect(() => () => parar.current(), [])
 
-  const pistaDe = (valor: string) => {
-    const id = idPistaDeTono(valor)
-    return id == null ? undefined : pistas.find((p) => p.id === id)
-  }
+  const pistaDe = (valor: string) => pistaDeTono(valor, pistas)
 
   // Si el tono era una pista que ya se borró, se marca el del catálogo que sonará.
-  const activo = idPistaDeTono(tono) != null && !pistaDe(tono ?? '') ? TONO_DEFAULT : tono ?? TONO_DEFAULT
+  // Una pista elegida con el id viejo se marca igual: su chip ya usa el uid.
+  const elegida = pistaDe(tono ?? '')
+  const activo =
+    refPistaDeTono(tono) == null ? tono ?? TONO_DEFAULT : elegida ? tonoDePista(elegida) : TONO_DEFAULT
 
   const elegir = (valor: string) => {
     parar.current()
@@ -52,13 +52,16 @@ export function SelectorTono({
       return
     }
     setAviso('')
-    const id = await pistasMusicaRepo.add({
+    // El uid se fija aquí para poder guardarlo ya como tono (el sync lo respeta).
+    const uid = crypto.randomUUID()
+    await pistasMusicaRepo.add({
       nombre: file.name.replace(/\.[^.]+$/, ''),
       blob: file,
+      uid,
       creadoEn: new Date().toISOString(),
     })
     // Lo recién subido es lo que el usuario quiere oír: queda elegido.
-    onCambio({ tono: tonoDePista(id) })
+    onCambio({ tono: tonoDePista({ uid }) })
   }
 
   const chip = (valor: string, icono: React.ReactNode, texto: string) => (
@@ -88,7 +91,7 @@ export function SelectorTono({
           chip(x.id, <Icono nombre={x.icono} />, t(`descanso.tono.${x.id}`, x.nombre)),
         )}
         {pistas.map((p) =>
-          p.id == null ? null : chip(tonoDePista(p.id), <Icono nombre="musica" />, p.nombre),
+          p.id == null ? null : chip(tonoDePista(p), <Icono nombre="musica" />, p.nombre),
         )}
         <button
           type="button"

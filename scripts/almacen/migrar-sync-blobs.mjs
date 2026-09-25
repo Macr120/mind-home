@@ -60,12 +60,16 @@ function firmar(method, clave, extra = {}) {
   }
 }
 
+/** Tamaño en R2 (null si no existe). GET del primer byte, como `_shared/r2.ts::tamanoDe`. */
 async function tamanoEnR2(clave) {
-  const { url, headers } = firmar('HEAD', clave)
-  const r = await fetch(url, { method: 'HEAD', headers })
+  const { url, headers } = firmar('GET', clave, { range: 'bytes=0-0' })
+  const r = await fetch(url, { headers })
+  await r.body?.cancel()
   if (r.status === 404) return null
-  if (!r.ok) throw new Error(`HEAD ${clave}: ${r.status}`)
-  return Number(r.headers.get('content-length') ?? 0)
+  if (r.status === 416) return 0
+  if (!r.ok) throw new Error(`GET ${clave}: ${r.status}`)
+  const total = /\/(\d+)$/.exec(r.headers.get('content-range') ?? '')?.[1]
+  return Number(total ?? r.headers.get('content-length') ?? 0)
 }
 
 async function subirAR2(clave, blob, mime) {

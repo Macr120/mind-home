@@ -130,7 +130,7 @@ async function bajarViejo(path: string, mime: string): Promise<Blob> {
   return new Blob([data], { type: mime })
 }
 
-async function bajarMarcador(m: MarcadorBlob['__mhBlob']): Promise<Blob> {
+async function bajarMarcador(m: MarcadorBlob['__mhBlob']): Promise<Blob | undefined> {
   const clave = claveR2(m)
   let blob: Blob | null = null
   try {
@@ -144,7 +144,12 @@ async function bajarMarcador(m: MarcadorBlob['__mhBlob']): Promise<Blob> {
     await db._syncMeta.put({ clave: claveHash(clave), valor: { hash: m.hash } })
     return blob
   }
-  if (m.r2) throw new Error(`Almacén (bajar): falta ${clave}`)
+  // Objeto que ya no existe (purga a los 90 días de cancelar, borrado a mano):
+  // el campo se queda vacío. Lanzar aquí congelaría el pull para siempre.
+  if (m.r2) {
+    console.warn(`[sync] falta en el almacén: ${clave}`)
+    return undefined
+  }
   // Aún en el Storage viejo: sin caché, así el próximo push lo muda a R2.
   return bajarViejo(m.path, m.mime)
 }

@@ -18,7 +18,7 @@ import Dexie, {
   type Middleware,
 } from 'dexie'
 import { esDemo } from '../../edicion'
-import { esFilaCompartida, esTablaSync } from './syncables'
+import { CAMPOS_LOCALES, esFilaCompartida, esFilaLocal, esTablaSync } from './syncables'
 
 type OpOutbox = 'upsert' | 'delete'
 
@@ -171,9 +171,12 @@ export const syncMiddleware: Middleware<DBCore> = {
               const entradas: EntradaOutbox[] = []
               valores.forEach((v, i) => {
                 if (res.failures?.[i]) return
-                if (typeof v.uid === 'string') entradas.push(entradaDe(v.uid, 'upsert', v))
+                if (typeof v.uid === 'string' && !esFilaLocal(nombre, v)) entradas.push(entradaDe(v.uid, 'upsert', v))
               })
               await encolar(req.trans, entradas)
+              // Un binario del Studio aún sin nube no encola nada, pero el ciclo
+              // del motor es quien lo sube (`nubeStudio.ts`): que lo despierte.
+              if (!entradas.length && !sinOutbox && CAMPOS_LOCALES[nombre]) alEscribirLocal?.()
               return res
             }
 
@@ -185,7 +188,7 @@ export const syncMiddleware: Middleware<DBCore> = {
               const res = await tabla.mutate(req)
               const entradas: EntradaOutbox[] = []
               for (const f of filas) {
-                if (f && typeof f.uid === 'string') entradas.push(entradaDe(f.uid, 'delete', f))
+                if (f && typeof f.uid === 'string' && !esFilaLocal(nombre, f)) entradas.push(entradaDe(f.uid, 'delete', f))
               }
               await encolar(req.trans, entradas)
               return res
@@ -202,7 +205,7 @@ export const syncMiddleware: Middleware<DBCore> = {
               const res = await tabla.mutate(req)
               const entradas: EntradaOutbox[] = []
               for (const f of filas) {
-                if (typeof f.uid === 'string') entradas.push(entradaDe(f.uid, 'delete', f))
+                if (typeof f.uid === 'string' && !esFilaLocal(nombre, f)) entradas.push(entradaDe(f.uid, 'delete', f))
               }
               await encolar(req.trans, entradas)
               return res

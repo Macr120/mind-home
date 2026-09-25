@@ -86,7 +86,7 @@ export const TEXTOS = {
     'Asistanınla konuş: öğünleri kaydet, rutinler kur, hedefler planla, görseller ve 3B modeller üret. İlk ayın 700 kredi dahil gelir; sonrası isteğe bağlı.',
   'car.3.t': 'Tam eşitleme',
   'car.3.p':
-    'MindHaOS\'un telefona, tablete ve bilgisayara seninle gelir. Her şey aktarımda şifreli ve bulutta yedekli.',
+    'MindHaOS\'un telefona, tablete ve bilgisayara seninle gelir. Her şey aktarımda şifreli ve bulutta yedekli. Pro ile bulutun (Dosyalar odası) ayrıca 10, 30 veya 100 GB dosya saklar.',
   'car.4.t': 'Oyun gibi bir his',
   'car.4.p':
     'Karakterin gerçek etkinliğinle yaşar: seriler, rozetler, Sisifos Dağı, araçlar, yarışlar ve mini oyunlar.',
@@ -177,16 +177,16 @@ export const TEXTOS = {
     'MindHaOS\'un tamamını: bütün odalar, bütün uygulamalar ve cihazındaki verilerin, sonsuza dek ve yenilemesiz. Üstelik ilk ay 700 yapay zekâ kredisi ve eşitleme dahil gelir, kartsız. Almadan önce hesap istemeyen eksiksiz uygulamayı deneyebilirsin.',
   'faq.3.q': 'İlk aydan sonra yapay zekâ ne kadar?',
   'faq.3.a':
-    'Ne seçersen o, ya da hiç. Abonelik ayda 6 USD (700 kredi ve eşitleme) ya da yılda 60 USD — iki ay hediye. Az gelirse ×2 ve ×3 katmanları ayda 12 veya 18 USD karşılığında 1400 ya da 2100 kredi verir. Abone olmak istemezsen tekil yüklemeler var: 6 USD’ye 700 kredi, süresi dolmaz ve yalnızca sen istediğinde harcanır. Bu kısım burada, <a href="/cuenta">hesabında</a> ödenir ve bütün cihazlarında geçerlidir.',
+    'Ne seçersen o, ya da hiç. Abonelik ayda 6 USD (700 kredi ve eşitleme) ya da yılda 60 USD — iki ay hediye. Az gelirse ×2 ve ×3 katmanları ayda 12 veya 18 USD karşılığında 1400 ya da 2100 kredi verir. Abone olmak istemezsen tekil yüklemeler var: 6 USD’ye 700 kredi, süresi dolmaz ve yalnızca sen istediğinde harcanır. Bu kısım burada, <a href="/cuenta">hesabında</a> ödenir ve bütün cihazlarında geçerlidir. Her seviye bulutunda da yer içerir: 10, 30 veya 100 GB.',
   'faq.4.q': 'Yapay zekâ kredisi nedir?',
   'faq.4.a':
     'Asistana yapılan her isteğin, işlenme maliyetine göre düşüldüğü birim: normal bir yanıt 1 kredi, uzun bir plan 4, bir görsel 3 (yüksek kalitede 10) ve bir 3B model 10. Asla otomatik düşülmez: yalnızca sen bir şey istediğinde harcanır.',
   'faq.5.q': 'İptal edersem ne olur?',
   'faq.5.a':
-    'Uygulamanın tamamı ve cihazlarındaki bütün verilerin yerel modda sende kalır. Yalnızca aylık kredileri ve eşitlemeyi kaybedersin. Yenilersen her şey bıraktığın gibi geri gelir.',
+    'Uygulamanın tamamı ve cihazlarındaki bütün verilerin yerel modda sende kalır. Yalnızca aylık kredileri ve eşitlemeyi kaybedersin. Yenilersen her şey bıraktığın gibi geri gelir. Buluttaki dosyaların indirebilmen için 90 gün salt okunur kalır; ardından silinir.',
   'faq.6.q': 'Verilerim nerede saklanıyor?',
   'faq.6.a':
-    'Önce cihazında (uygulama local-first) ve eşitleme açıkken bir cihazdan diğerine geçebilmek için bulutta da. Yerel modda cihazından hiçbir şey çıkmaz. Ödemeleri RevenueCat ve Stripe işler — telefondan alıyorsan mağaza: kartını asla görmeyiz. Ayrıntılar <a href="/privacidad">gizlilik politikasında</a>.',
+    'Önce cihazında (uygulama local-first) ve eşitleme açıkken bir cihazdan diğerine geçebilmek için bulutta da. Yerel modda cihazından hiçbir şey çıkmaz. Ödemeleri RevenueCat ve Stripe işler — telefondan alıyorsan mağaza: kartını asla görmeyiz. Ayrıntılar <a href="/privacidad">gizlilik politikasında</a>. Büyük dosyalar (bulutun ve Studio medyası) Cloudflare R2’de saklanır.',
   'faq.7.q': 'Hangi cihazlarda çalışıyor?',
   'faq.7.a':
     'Bugün: her modern tarayıcıda. Çok yakında: Android (Google Play), iPhone/iPad (App Store), Windows ve macOS. Hesabın hepsinde geçerli: bir kez, sana uyan yerden satın alırsın; hem MindHaOS hem yapay zekâ aboneliği e-postanla girdiğin her cihazda çalışır.',
@@ -228,7 +228,8 @@ export const TEXTOS = {
   'priv.uso.1': 'Hesabına, satın almana ve aboneliğine erişim vermek için.',
   'priv.uso.2': 'Verilerini cihazlar arasında eşitlemek ve yedeklemek için.',
   'priv.uso.3': 'Yapay zekâ özelliklerini kredi kotanla çalıştırmak için.',
-  'priv.uso.4': 'Verilerini satmıyoruz ve reklam amacıyla üçüncü taraflarla paylaşmıyoruz.',  'priv.dispositivo.h': 'Cihazında saklanan bilgiler',
+  'priv.uso.4': 'Verilerini satmıyoruz ve reklam amacıyla üçüncü taraflarla paylaşmıyoruz.',
+  'priv.dispositivo.h': 'Cihazında saklanan bilgiler',
   'priv.dispositivo.p':
     'Uygulama çalışabilmek için kendi cihazına bilgi kaydeder ve okur: evinin verilerini ve dosyalarını tutan yerel bir veritabanı (IndexedDB) ile tercihlerini — dil, tema, karşılama ekranının durumu — ve oturumunu açık tutan oturum jetonunu tutan tarayıcı yerel depolaması. Reklam, analiz veya izleme için kendi çerezlerimizi ya da benzer teknolojileri kullanmıyoruz. Hepsini tarayıcı ayarlarından silebilir veya uygulamayı kaldırabilirsin.',
   'priv.dispositivo.terceros':
@@ -259,6 +260,7 @@ export const TEXTOS = {
     'OpenAI (talep üzerine ses dökümü ve yapay zekâ görselleri için yedek).',
   'priv.proveedores.5':
     'HERE Technologies (haritalar, yer arama ve rotalar, talep üzerine).',
+  'priv.proveedores.6': "Cloudflare (bulutta dosya depolama, R2).",
   'priv.cambios.h': 'Değişiklikler',
   'priv.cambios.p':
     'Bu politika değişirse yeni sürümü tarihiyle birlikte burada yayımlarız. Sorular iletişim adresinden yanıtlanır.',
@@ -281,7 +283,7 @@ export const TEXTOS = {
   'term.precio.1':
     'Abonelik: ×1 katmanında ayda 6 USD (ya da kendi para biriminde karşılığı), otomatik yenilemeli. ×2 ve ×3 katmanları krediyi ve fiyatı katlar: ayda 12 ve 18 USD. ×1 katmanını yıllık da ödeyebilirsin: 60 USD, otomatik yıllık yenilemeyle ve her ay aynı kredilerle.',
   'term.precio.2':
-    'Katman başına ayda 700 yapay zekâ kredisi (700 / 1400 / 2100) ve cihazlar arası eşitleme içerir. Kullanılmayan aylık krediler bir sonraki aya devretmez.',
+    'Katman başına ayda 700 yapay zekâ kredisi (700 / 1400 / 2100) ve cihazlar arası eşitleme içerir. Kullanılmayan aylık krediler bir sonraki aya devretmez. Bulutunda da yer içerir: seviyeye göre 10, 30 veya 100 GB (yıllık ödemede ve dahil olan ayda 10 GB).',
   'term.precio.3':
     'İşlem başına kredi: metin yanıtı için 1, uzun bir plan için 4, görsel için 3 (yüksek kalitede 10) ve 3B model için 10. Yapay zekâ sağlayıcılarının maliyetleri değişirse tarife güncellenebilir; geçerli fiyat her istekten önce uygulamada gösterilir.',
   'term.precio.4':
@@ -291,10 +293,13 @@ export const TEXTOS = {
   'term.precio.6': 'Ödemeleri RevenueCat ve Stripe işler.',
   'term.cancelacion.h': 'İptal',
   'term.cancelacion.p':
-    '<a href="/cuenta">Hesabındaki</a> «Aboneliği yönet» üzerinden istediğin zaman iptal edebilirsin; ödediğin dönemin sonuna kadar planı korursun. Sonrasında uygulama cihazlarında yerel modda çalışmaya devam eder, aylık krediler ve eşitleme olmadan. Kalan yükleme kredilerin kullanılabilir kalır ve istediğin zaman yenileyebilirsin.',
+    '<a href="/cuenta">Hesabındaki</a> «Aboneliği yönet» üzerinden istediğin zaman iptal edebilirsin; ödediğin dönemin sonuna kadar planı korursun. Sonrasında uygulama cihazlarında yerel modda çalışmaya devam eder, aylık krediler ve eşitleme olmadan. Kalan yükleme kredilerin kullanılabilir kalır ve istediğin zaman yenileyebilirsin. Buluttaki dosyaların indirebilmen için 90 gün salt okunur kalır; bu sürenin sonunda sunucularımızdan silinir.',
   'term.datos.h': 'Verilerin',
   'term.datos.p':
     'Verilerin sana aittir. Uygulama local-first: her şey önce senin cihazında yaşar. Neyi sakladığımızın ve nasıl sileceğinin ayrıntısı <a href="/privacidad">gizlilik politikasında</a>.',
+  'term.alojado.h': "Bulutta sakladığın dosyalar",
+  'term.alojado.p':
+    "Bulutuna yüklediğin dosyalardan sen sorumlusun ve onları saklama hakkına sahip olmalısın. Yasa dışı, üçüncü kişilerin haklarını ihlal eden veya topluluk kurallarına aykırı içerik barındırmak yasaktır; bunu kaldırabilir ve hesabı askıya alabiliriz. Bulut bir depolama hizmetidir, garantili bir yedek değildir: kaybetmek istemediğin şeylerin bir kopyasını sakla.",
   'term.razonable.h': 'Makul kullanım',
   'term.razonable.p':
     'Yapay zekâ kredi kotası kişisel hesap içindir. Hizmetin yeniden satılmasına, hesabın kitlesel biçimde paylaşılmasına ya da yapay zekâ tüketiminin uygulama dışından otomatikleştirilmesine izin verilmez.',

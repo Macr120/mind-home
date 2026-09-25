@@ -11,6 +11,9 @@
 import { create } from 'zustand'
 import { obtenerSupabase } from './supabase'
 import { tGlobal } from '../i18n/useT'
+import { pedirUsoAlmacen, type UsoAlmacen } from './almacenUso'
+
+export { formatoBytes, formatoUso } from './almacenUso'
 
 export type MotivoAlmacen = 'sin-sesion' | 'sin-pro' | 'cuota' | 'grande' | 'sin-objeto' | 'sin-almacen' | 'red'
 
@@ -45,12 +48,6 @@ function mensajeDe(m: MotivoAlmacen): string {
 
 /** Tope por archivo (igual que `almacen_reservar`). */
 export const TOPE_ARCHIVO = 2 * 1024 ** 3
-
-interface UsoAlmacen {
-  usados: number
-  /** Bytes; null = sin tope (cuenta ilimitada). */
-  cuota: number | null
-}
 
 /** Medidor del almacén: lo pintan Archivo y la sección Cuenta. */
 export const useAlmacen = create<{ uso: UsoAlmacen | null }>(() => ({ uso: null }))
@@ -137,32 +134,7 @@ export async function borrarArchivos(claves: string[], prefijo?: string): Promis
 
 /** Relee el medidor del servidor y lo deja en `useAlmacen`. */
 export async function refrescarUsoAlmacen(): Promise<UsoAlmacen | null> {
-  try {
-    const r = await llamar<UsoAlmacen>({ accion: 'uso' })
-    const uso = { usados: Number(r.usados) || 0, cuota: r.cuota == null ? null : Number(r.cuota) }
-    useAlmacen.setState({ uso })
-    return uso
-  } catch {
-    return null
-  }
-}
-
-/** «1.3/10 GB» (misma unidad) o «350 MB/10 GB»: el medidor corto del chat. */
-export function formatoUso(usados: number, cuota: number): string {
-  const [u, uu] = formatoBytes(usados).split(' ')
-  const [c, cu] = formatoBytes(cuota).split(' ')
-  return uu === cu ? `${u}/${c} ${cu}` : `${u} ${uu}/${c} ${cu}`
-}
-
-/** «1.2 GB», «350 MB»… */
-export function formatoBytes(n: number): string {
-  if (n < 1024) return `${n} B`
-  const u = ['KB', 'MB', 'GB', 'TB']
-  let v = n / 1024
-  let i = 0
-  while (v >= 1024 && i < u.length - 1) {
-    v /= 1024
-    i++
-  }
-  return `${v >= 10 || i === 0 ? Math.round(v) : v.toFixed(1)} ${u[i]}`
+  const uso = await pedirUsoAlmacen()
+  if (uso) useAlmacen.setState({ uso })
+  return uso
 }

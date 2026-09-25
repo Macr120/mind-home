@@ -55,9 +55,12 @@ export function crearPool(medios: MedioVideo[]): PoolFuentes {
   const fuentes = new Map<number, Fuente>()
   const pendientes: Promise<void>[] = []
   for (const medio of medios) {
-    if (medio.id == null) continue
+    // Sin blob = aún en la nube (el Editor lo está bajando): el clip sale como
+    // ausente hasta que llega y el pool se rehace (`firmaMedios` cuenta el blob).
+    const blob = medio.blob
+    if (medio.id == null || !blob) continue
     if (medio.tipo === 'video') {
-      const url = URL.createObjectURL(medio.blob)
+      const url = URL.createObjectURL(blob)
       const el = document.createElement('video')
       el.preload = 'auto'
       el.muted = false
@@ -65,7 +68,7 @@ export function crearPool(medios: MedioVideo[]): PoolFuentes {
       el.src = url
       fuentes.set(medio.id, { tipo: 'video', el, url })
     } else if (medio.tipo === 'audio') {
-      const url = URL.createObjectURL(medio.blob)
+      const url = URL.createObjectURL(blob)
       const el = document.createElement('audio')
       el.preload = 'auto'
       el.src = url
@@ -73,7 +76,7 @@ export function crearPool(medios: MedioVideo[]): PoolFuentes {
     } else {
       const id = medio.id
       pendientes.push(
-        createImageBitmap(medio.blob)
+        createImageBitmap(blob)
           .then((bitmap) => {
             fuentes.set(id, { tipo: 'imagen', bitmap })
           })

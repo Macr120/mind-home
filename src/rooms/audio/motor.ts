@@ -1,6 +1,6 @@
 import { contextoAudio, desbloquearAudio } from '../../core/audio/motor'
 import type { EfectosPista, InstrumentoAudio, NotaAudio, ProyectoAudio, SintePista } from '../../core/data/db'
-import { leerGrabacionAudio } from '../../core/data/repository'
+import { leerTomaDeClip } from '../../core/data/repository'
 import { FX_DEFAULT, MAESTRO_DEFAULT, MAX_NOTAS_POR_PASO, MAX_VOCES_VIVAS, PASOS_POR_COMPAS, segPorPaso } from './constantes'
 import { crearBusMaestro, crearCadenaPista, crearRetornos, type BusMaestro, type CadenaPista, type Retornos } from './efectos'
 import { iniciarVoz, tocarNota, type VozViva } from './instrumentos'
@@ -194,8 +194,9 @@ export async function prepararClips(): Promise<void> {
     for (const clip of pista.clips ?? []) {
       if (buffersClips.has(clip.grabacionId) || clipsFallidos.has(clip.grabacionId)) continue
       try {
-        const fila = await leerGrabacionAudio(clip.grabacionId)
-        if (!fila || fila.creadoEn !== clip.sello) {
+        // Por id o por sello (toma de otro dispositivo), bajándola de la nube si falta.
+        const fila = await leerTomaDeClip(clip)
+        if (!fila?.blob) {
           clipsFallidos.add(clip.grabacionId)
           continue
         }

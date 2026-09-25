@@ -145,6 +145,7 @@ export async function borrarMedio(medio: MedioVideo): Promise<void> {
  * pierde el fondo de la timeline, así que un fallo se traga.
  */
 export async function completarGrabacion(medio: MedioVideo & { id: number }): Promise<void> {
+  if (!medio.blob) return
   try {
     const { ancho, alto, miniatura } = await analizarVideo(medio.blob)
     await mediosVideoRepo.update(medio.id, { ancho, alto, miniatura })

@@ -1,6 +1,6 @@
 import { contextoAudio } from '../../core/audio/motor'
 import type { ProyectoAudio } from '../../core/data/db'
-import { grabacionesAudioRepo, leerGrabacionAudio, musicaImportadaRepo, proyectosAudioRepo } from '../../core/data/repository'
+import { asegurarBlob, grabacionesAudioRepo, leerGrabacionAudio, musicaImportadaRepo, proyectosAudioRepo } from '../../core/data/repository'
 import { tGlobal } from '../../core/i18n/useT'
 import type { ContenidoRecurso, RecursoStudio } from '../../core/recursosStudio'
 import { renderizarWav } from './exportarWav'
@@ -61,11 +61,13 @@ export async function obtenerRecurso(clave: string): Promise<ContenidoRecurso | 
   }
   if (tipo === 'grab') {
     const g = await leerGrabacionAudio(id)
-    return g ? { tipo: 'audio', blob: g.blob, nombre: g.nombre, duracion: g.duracionSeg } : null
+    const blob = g && (g.blob ?? (await asegurarBlob('grabacionesAudio', id)))
+    return g && blob ? { tipo: 'audio', blob, nombre: g.nombre, duracion: g.duracionSeg } : null
   }
   if (tipo === 'musica') {
     const m = (await musicaImportadaRepo.list()).find((x) => x.id === id)
-    return m ? { tipo: 'audio', blob: m.blob, nombre: m.nombre, duracion: m.duracionSeg } : null
+    const blob = m && (m.blob ?? (await asegurarBlob('musicaImportada', id)))
+    return m && blob ? { tipo: 'audio', blob, nombre: m.nombre, duracion: m.duracionSeg } : null
   }
   return null
 }

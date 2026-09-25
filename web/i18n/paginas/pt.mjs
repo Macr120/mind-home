@@ -86,7 +86,7 @@ export const TEXTOS = {
     'Converse com seu assistente: registre refeições, crie rotinas, planeje metas, gere imagens e modelos 3D. Seu primeiro mês traz 700 créditos incluídos; depois a IA é opcional.',
   'car.3.t': 'Sincronização total',
   'car.3.p':
-    'Sua MindHaOS acompanha você no celular, no tablet e no computador. Tudo criptografado em trânsito e com backup na nuvem.',
+    'Sua MindHaOS acompanha você no celular, no tablet e no computador. Tudo criptografado em trânsito e com backup na nuvem. Com o Pro, sua nuvem (o cômodo Arquivos) também guarda 10, 30 ou 100 GB de arquivos.',
   'car.4.t': 'Parece um jogo',
   'car.4.p':
     'Seu personagem vive da sua atividade real: sequências, emblemas, a Montanha de Sísifo, veículos, corridas e minijogos.',
@@ -180,16 +180,16 @@ export const TEXTOS = {
     'A MindHaOS inteira: todos os cômodos, todos os apps e seus dados no seu dispositivo, para sempre e sem renovações. Além disso, o primeiro mês traz 700 créditos de IA e a sincronização incluídos, sem cartão. Antes de comprar você pode testar o app completo, que não pede conta.',
   'faq.3.q': 'Quanto custa a IA depois do primeiro mês?',
   'faq.3.a':
-    'O que você escolher, ou nada. A assinatura são 6 USD por mês (700 créditos e sincronização), ou 60 USD por ano — dois meses de brinde. Se ficar curto, os níveis ×2 e ×3 dão 1400 ou 2100 créditos por 12 ou 18 USD por mês. E se preferir não assinar, há recargas avulsas: 6 USD por 700 créditos que não vencem e são usados só quando você pede. Isso sim se paga aqui, na <a href="/cuenta">sua conta</a>, e vale para todos os seus dispositivos.',
+    'O que você escolher, ou nada. A assinatura são 6 USD por mês (700 créditos e sincronização), ou 60 USD por ano — dois meses de brinde. Se ficar curto, os níveis ×2 e ×3 dão 1400 ou 2100 créditos por 12 ou 18 USD por mês. E se preferir não assinar, há recargas avulsas: 6 USD por 700 créditos que não vencem e são usados só quando você pede. Isso sim se paga aqui, na <a href="/cuenta">sua conta</a>, e vale para todos os seus dispositivos. Cada nível também inclui espaço na sua nuvem: 10, 30 ou 100 GB.',
   'faq.4.q': 'O que são os créditos de IA?',
   'faq.4.a':
     'A unidade com que se cobra cada pedido ao assistente, conforme o que custa atendê-lo: uma resposta normal vale 1 crédito, um plano longo 4, uma imagem 3 (10 em alta qualidade) e um modelo 3D 10. Nunca se cobra automático: só se gasta quando você pede algo.',
   'faq.5.q': 'O que acontece se eu cancelar?',
   'faq.5.a':
-    'Você fica com o app inteiro e todos os seus dados nos seus dispositivos, no modo local. Só perde os créditos mensais e a sincronização. Se renovar, tudo volta exatamente como você deixou.',
+    'Você fica com o app inteiro e todos os seus dados nos seus dispositivos, no modo local. Só perde os créditos mensais e a sincronização. Se renovar, tudo volta exatamente como você deixou. Seus arquivos da nuvem ficam 90 dias só para leitura para você baixá-los; depois são apagados.',
   'faq.6.q': 'Onde meus dados ficam guardados?',
   'faq.6.a':
-    'Primeiro no seu dispositivo (o app é local-first) e, com a sincronização ativa, também na nuvem para passar de um dispositivo a outro. No modo local nada sai do seu dispositivo. Os pagamentos são processados pela RevenueCat e pela Stripe — ou pela loja, se você comprar pelo celular: nunca vemos o seu cartão. Mais detalhes na <a href="/privacidad">política de privacidade</a>.',
+    'Primeiro no seu dispositivo (o app é local-first) e, com a sincronização ativa, também na nuvem para passar de um dispositivo a outro. No modo local nada sai do seu dispositivo. Os pagamentos são processados pela RevenueCat e pela Stripe — ou pela loja, se você comprar pelo celular: nunca vemos o seu cartão. Mais detalhes na <a href="/privacidad">política de privacidade</a>. Os arquivos grandes (sua nuvem e as mídias do Studio) ficam guardados no Cloudflare R2.',
   'faq.7.q': 'Em quais dispositivos funciona?',
   'faq.7.a':
     'Hoje: em qualquer navegador moderno. Em breve: Android (Google Play), iPhone/iPad (App Store), Windows e macOS. A sua conta vale para todos: você compra uma vez, onde for melhor, e tanto a MindHaOS quanto a assinatura de IA funcionam em qualquer dispositivo em que entrar com o seu e-mail.',
@@ -231,7 +231,8 @@ export const TEXTOS = {
   'priv.uso.1': 'Dar acesso à sua conta, à sua compra e à sua assinatura.',
   'priv.uso.2': 'Sincronizar seus dados entre dispositivos e fazer backup.',
   'priv.uso.3': 'Operar as funções de IA com a sua cota de créditos.',
-  'priv.uso.4': 'Não vendemos seus dados nem os compartilhamos com terceiros para publicidade.',  'priv.dispositivo.h': 'Armazenamento no seu dispositivo',
+  'priv.uso.4': 'Não vendemos seus dados nem os compartilhamos com terceiros para publicidade.',
+  'priv.dispositivo.h': 'Armazenamento no seu dispositivo',
   'priv.dispositivo.p':
     'O app guarda informações no seu próprio dispositivo e as lê para funcionar: um banco de dados local (IndexedDB) com os dados da sua casa e seus arquivos, e o armazenamento local do navegador com suas preferências — idioma, tema, estado das boas-vindas — e com o token de sessão que mantém sua conta conectada. Não usamos cookies próprios nem tecnologias semelhantes para publicidade, análise ou rastreamento. Você pode apagar tudo nas configurações do navegador ou desinstalando o app.',
   'priv.dispositivo.terceros':
@@ -262,6 +263,7 @@ export const TEXTOS = {
     'OpenAI (transcrição de voz e reserva de imagens de IA, sob demanda).',
   'priv.proveedores.5':
     'HERE Technologies (mapas, busca de lugares e rotas, sob demanda).',
+  'priv.proveedores.6': "Cloudflare (armazenamento de arquivos na nuvem, R2).",
   'priv.cambios.h': 'Mudanças',
   'priv.cambios.p':
     'Se esta política mudar, publicaremos aqui a versão nova com a sua data. As dúvidas são atendidas no e-mail de contato.',
@@ -283,7 +285,7 @@ export const TEXTOS = {
   'term.precio.1':
     'Assinatura: 6 USD por mês no nível ×1 (ou o equivalente na sua moeda), com renovação automática. Os níveis ×2 e ×3 multiplicam os créditos e o preço: 12 e 18 USD por mês. Você também pode pagar o nível ×1 por ano: 60 USD, com renovação anual automática e os mesmos créditos todo mês.',
   'term.precio.2':
-    'Inclui 700 créditos de IA por mês por nível (700 / 1400 / 2100) e sincronização entre dispositivos. Os créditos mensais não usados não se acumulam para o mês seguinte.',
+    'Inclui 700 créditos de IA por mês por nível (700 / 1400 / 2100) e sincronização entre dispositivos. Os créditos mensais não usados não se acumulam para o mês seguinte. Também inclui espaço na sua nuvem: 10, 30 ou 100 GB conforme o nível (10 GB no pagamento anual e no mês incluído).',
   'term.precio.3':
     'Créditos por operação: 1 por resposta de texto, 4 por um plano longo, 3 por uma imagem (10 em alta qualidade) e 10 por um modelo 3D. A tarifa pode ser ajustada se mudarem os custos dos provedores de IA; o preço vigente é mostrado no app antes de cada pedido.',
   'term.precio.4':
@@ -293,10 +295,13 @@ export const TEXTOS = {
   'term.precio.6': 'Os pagamentos são processados por RevenueCat e Stripe.',
   'term.cancelacion.h': 'Cancelamento',
   'term.cancelacion.p':
-    'Você pode cancelar quando quiser em «Gerenciar assinatura» na <a href="/cuenta">sua conta</a>; conserva o plano até o fim do período pago. Depois, o app continua funcionando nos seus dispositivos no modo local, sem créditos mensais nem sincronização. Os créditos de recarga que sobrarem continuam utilizáveis, e você pode renovar quando quiser.',
+    'Você pode cancelar quando quiser em «Gerenciar assinatura» na <a href="/cuenta">sua conta</a>; conserva o plano até o fim do período pago. Depois, o app continua funcionando nos seus dispositivos no modo local, sem créditos mensais nem sincronização. Os créditos de recarga que sobrarem continuam utilizáveis, e você pode renovar quando quiser. Seus arquivos na nuvem ficam 90 dias só para leitura para você baixá-los; passado esse prazo, são apagados dos nossos servidores.',
   'term.datos.h': 'Seus dados',
   'term.datos.p':
     'Seus dados são seus. O app é local-first: tudo vive primeiro no seu dispositivo. O detalhe do que guardamos e de como apagar está na <a href="/privacidad">política de privacidade</a>.',
+  'term.alojado.h': "Arquivos que você guarda na nuvem",
+  'term.alojado.p':
+    "Você é responsável pelos arquivos que envia para a sua nuvem e deve ter o direito de guardá-los. Não é permitido hospedar conteúdo ilegal, que infrinja direitos de terceiros ou que viole as regras da comunidade; podemos removê-lo e suspender a conta. A nuvem é um serviço de armazenamento, não um backup garantido: guarde uma cópia do que você não quer perder.",
   'term.razonable.h': 'Uso razoável',
   'term.razonable.p':
     'A cota de créditos de IA é por conta pessoal. Não é permitido revender o serviço, compartilhar a conta de forma massiva nem automatizar o consumo de IA fora do app.',

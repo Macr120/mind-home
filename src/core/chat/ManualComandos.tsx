@@ -591,6 +591,21 @@ const SECCIONES: Seccion[] = [
           },
         ],
       },
+      {
+        appId: 'archivos',
+        id: 'archivos',
+        nota: 'Tu nube de Pro (10, 30 o 100 GB): carpetas y archivos de cualquier tipo con vista previa, y en «Del Studio» lo que tus clips, tomas y canciones subieron solos.',
+        grupos: [
+          {
+            id: 'abrir',
+            ejemplos: [
+              { frase: '[Abre] {mis archivos}', en: '[Open] {my files}' },
+              { frase: '[Abre] los {archivos recientes}', en: '[Open] the {recent files}' },
+              { frase: '[Abre] los {archivos del studio}', en: '[Open] the {studio files}' },
+            ],
+          },
+        ],
+      },
     ],
   },
   {

@@ -126,6 +126,7 @@ import { esDemo, iaHabilitada } from '../edicion'
 import { ErrorIA, usarViaCuenta } from '../cuenta/api'
 import { haySesionProbable, useSesion } from '../cuenta/sesionStore'
 import { formatoBytes, formatoUso, refrescarUsoAlmacen, useAlmacen } from '../cuenta/almacen'
+import { useNubeStudio } from '../studio/nubeStudio'
 import { blobABase64, comprimirImagen } from '../imagenIA'
 import { useMascaraUi } from '../state/mascaraUiStore'
 import { useChatArUi } from '../state/chatArUiStore'
@@ -376,6 +377,8 @@ export function ChatBox({
   // entrar con sesión; Archivo y las subidas lo refrescan después.
   const usuarioId = useSesion((s) => s.usuario?.id)
   const usoNube = useAlmacen((s) => s.uso)
+  // La subida automática del Studio chocó con la cuota: el chip lo dice en ámbar.
+  const nubeLlena = useNubeStudio((s) => s.llena)
   useEffect(() => {
     if (usuarioId && !esDemo()) void refrescarUsoAlmacen()
   }, [usuarioId])
@@ -2039,7 +2042,14 @@ export function ChatBox({
             className="ui-panel-glass flex items-center gap-2 rounded-lg border border-white/10 px-2 py-0.5 text-[10px] font-semibold text-white/50 shadow-xl backdrop-blur-md transition hover:text-white/70"
           >
             {verNube && usoNube && (
-              <span>
+              <span
+                className={nubeLlena ? 'text-amber-300' : undefined}
+                title={
+                  nubeLlena
+                    ? t('archivos.studio.llena', 'Tu nube está llena: lo nuevo del Studio se queda solo en este dispositivo.')
+                    : undefined
+                }
+              >
                 <Icono nombre="nube" />
                 {!medidoresPlegados && (
                   <>

@@ -3766,10 +3766,28 @@ export interface CalculoComputo {
 // ----- Música -----
 
 /** Pista subida por el usuario (Blob local): suena en el Wrapped o de ambiente. */
+/**
+ * Copia en la nube (Cloudflare R2, `core/cuenta/almacen.ts`) del binario de una
+ * fila del Studio. Con ella la fila viaja por el sync SIN el blob (ver
+ * `CAMPOS_LOCALES` en `sync/syncables.ts`) y el otro dispositivo baja el blob
+ * al necesitarlo (`asegurarBlob` en repository.ts). Sin ella, la fila es solo
+ * de este dispositivo. La sube sola `core/studio/nubeStudio.ts`.
+ */
+export interface EnNube {
+  /** Clave relativa en el almacén: `sync/<tabla>/<uid>/blob`. */
+  clave: string
+  bytes: number
+  mime: string
+}
+
 export interface PistaMusica {
   id?: number
   nombre: string
-  blob: Blob
+  /** Ausente en un dispositivo que aún no la bajó de la nube. */
+  blob?: Blob
+  nube?: EnNube
+  /** Identidad entre dispositivos (la sella el sync): la referencia del tono del despertador. */
+  uid?: string
   creadoEn: string
   duracionSeg?: number
   /** `carpetaId` de su carpeta; sin él, la pista queda suelta. */
@@ -4056,7 +4074,9 @@ export interface ClipAudio {
 export interface GrabacionAudio {
   id?: number
   nombre: string
-  blob: Blob
+  /** Ausente en un dispositivo que aún no la bajó de la nube. */
+  blob?: Blob
+  nube?: EnNube
   /** Duración real por `decodeAudioData` (los webm de MediaRecorder no traen duración fiable). */
   duracionSeg: number
   /** Picos 0..1 (~200 cubetas) para pintar la onda sin re-decodificar. */
@@ -4068,7 +4088,9 @@ export interface GrabacionAudio {
 export interface MusicaImportada {
   id?: number
   nombre: string
-  blob: Blob
+  /** Ausente en un dispositivo que aún no la bajó de la nube. */
+  blob?: Blob
+  nube?: EnNube
   duracionSeg: number
   /** BPM detectado al importar (para el SYNC de los platos). */
   bpm: number
@@ -4412,6 +4434,12 @@ export interface ProyectoVideo {
   escenas: EscenaVideo[]
   /** LEGADO formato 1: música global; tras migrar, undefined. */
   musica?: { medioId: number; volumen: number }
+  /**
+   * Id local → `uid` de cada medio usado (lo escribe el Editor al guardar):
+   * en otro dispositivo los ids numéricos de los clips son otros y se traducen
+   * con esto (`rooms/video/nube.ts::remapearMedios`).
+   */
+  mediosUid?: Record<number, string>
   /** Subidas a redes desde el Studio. La escribe SOLO el trabajo de publicación (`core/redes/trabajos.ts`), nunca el Editor. */
   publicaciones?: PublicacionVideo[]
   /** Espacio compartido del proyecto (Studio de video por turnos). NO se indexa. */
@@ -4442,7 +4470,9 @@ export interface MedioVideo {
   id?: number
   tipo: 'video' | 'imagen' | 'audio'
   nombre: string
-  blob: Blob
+  /** Ausente en un dispositivo que aún no lo bajó de la nube. */
+  blob?: Blob
+  nube?: EnNube
   /** Segundos (video/audio); las imágenes no la llevan. */
   duracion?: number
   ancho?: number
@@ -6444,6 +6474,26 @@ class MindHomeDB extends Dexie {
         }
         if (!studio.miembros.includes('archivos')) {
           await tabla.update(studio.id, { miembros: [...studio.miembros, 'archivos'] })
+        }
+      })
+    // v150: los binarios del Studio viajan por el sync SIN el blob cuando tienen
+    // copia en la nube (`EnNube`): estrenan `&uid` (el motor busca por uid) y
+    // cada fila vieja recibe el suyo. `carpetasPista` ya lo tenía (v120).
+    this.version(150)
+      .stores({
+        mediosVideo: '++id, tipo, creadoEn, remotoId, &uid',
+        grabacionesAudio: '++id, creadoEn, &uid',
+        musicaImportada: '++id, creadoEn, &uid',
+        pistasMusica: '++id, creadoEn, &uid',
+      })
+      .upgrade(async (tx) => {
+        for (const t of ['mediosVideo', 'grabacionesAudio', 'musicaImportada', 'pistasMusica']) {
+          await tx
+            .table(t)
+            .toCollection()
+            .modify((f: { uid?: string }) => {
+              if (typeof f.uid !== 'string' || !f.uid) f.uid = crypto.randomUUID()
+            })
         }
       })
   }

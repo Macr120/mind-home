@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { ClipPrincipal, ClipVideo, EfectoCamaraId, EscenaActor, FuenteSonido, MedioVideo, NarradorVideo, PistaId, Transicion } from '../../core/data/db'
-import { mediosVideoRepo, proyectosVideoRepo, VACIO } from '../../core/data/repository'
+import { asegurarBlob, mediosVideoRepo, proyectosVideoRepo, VACIO } from '../../core/data/repository'
 import { descargarArchivo } from '../../core/descargarArchivo'
 import * as apiEspacios from '../../core/espacios/api'
 import { useEspacio } from '../../core/espacios/cache'
@@ -89,6 +89,7 @@ import {
 import { OP_GUION, OP_TITULOS, OP_TRADUCIR } from './costosIA'
 import { capturarEscena3d, exportarVideo, firmaExport, mimeExport, type ExportListo } from './exportar'
 import { crearPool, type PoolFuentes } from './fuentes'
+import { blobDeMedio, mapaUidsDe, remapearMedios } from './nube'
 import { GrabarMedioModal, type TipoGrabacion } from './GrabarMedio'
 import { GuionObra } from './GuionObra'
 import { generarGuion, generarObra, mejorarTitulos, traducirTextos } from './ia'
@@ -126,6 +127,7 @@ import {
   insertarPrincipal,
   lineasNarracion,
   medioIdDe,
+  mediosUsados,
   migrarProyecto,
   moverClip,
   narradorDe,
@@ -431,6 +433,8 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
       narradores: p.narradores,
       escenas: [],
       musica: undefined,
+      // Con qué medio (uid) va cada id local: en otro dispositivo se traduce al abrir.
+      mediosUid: mapaUidsDe(p, mediosRef.current),
       // La sella `mutar` en memoria (es la firma del último export): aquí solo se persiste.
       actualizadoEn: p.actualizadoEn,
     })
@@ -491,11 +495,17 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
     if (!hayMedios) return
     let vivo = true
     const guardar = guardarRef.current // estable: se inicializa una sola vez
-    void proyectosVideoRepo.list().then((filas) => {
-      const p = filas.find((x) => x.id === id)
-      if (!vivo || !p) return
+    void proyectosVideoRepo.list().then(async (filas) => {
+      const guardado = filas.find((x) => x.id === id)
+      if (!vivo || !guardado) return
+      // Hecho en otro dispositivo: sus ids de medio se traducen a los de aquí.
+      const remapeado = await remapearMedios(guardado)
+      if (!vivo) return
+      const p = remapeado ?? guardado
       const lista = mediosRef.current
-      const { proyecto: abierto, cambiado } = migrarProyecto(p, (mid) => lista.find((m) => m.id === mid)?.duracion)
+      const migrado = migrarProyecto(p, (mid) => lista.find((m) => m.id === mid)?.duracion)
+      const abierto = migrado.proyecto
+      const cambiado = migrado.cambiado || remapeado != null
       proyectoRef.current = abierto
       if (pelicula) peliculaFrame.proyecto = abierto
       setProyecto(abierto)
@@ -515,6 +525,33 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps -- carga única por proyecto y medios; `mutarClips` y `pelicula` solo se usan al cargar
   }, [id, hayMedios])
+
+  // Medios del proyecto que están en la nube del usuario pero no en este
+  // dispositivo (llegaron por el sync sin el blob): se bajan por detrás, con la
+  // misma barra que los del espacio compartido. Al llegar, el pool se rehace.
+  const firmaFaltan = proyecto
+    ? [...mediosUsados(proyecto)]
+        .filter((mid) => {
+          const m = medios.find((x) => x.id === mid)
+          return m != null && !m.blob && m.nube != null
+        })
+        .join(',')
+    : ''
+  useEffect(() => {
+    if (!firmaFaltan) return
+    let vivo = true
+    const ids = firmaFaltan.split(',').map(Number)
+    void (async () => {
+      for (let i = 0; i < ids.length && vivo; i++) {
+        setProgresoMedios({ modo: 'bajar', i, n: ids.length })
+        await asegurarBlob('mediosVideo', ids[i])
+      }
+      if (vivo) setProgresoMedios(null)
+    })()
+    return () => {
+      vivo = false
+    }
+  }, [firmaFaltan])
 
   // ─── Conexión del proyecto compartido ────────────────────────────────────
   /** Guarda en local lo que dice el snapshot y lo adopta (sin foto de deshacer: ya está guardado). */
@@ -609,7 +646,8 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
 
   // Motor + pool: nacen y mueren juntos; se rehacen si cambian los medios o el
   // aspecto (el canvas cambia de resolución). Patrón VistaBlob para StrictMode.
-  const firmaMedios = medios.map((m) => m.id).join(',')
+  // El `~` marca un medio aún sin blob (en la nube): al llegar, el pool se rehace.
+  const firmaMedios = medios.map((m) => `${m.id}${m.blob ? '' : '~'}`).join(',')
   const cargado = proyecto != null
   const aspecto = proyecto?.aspecto ?? '16:9'
   const calidad = proyecto?.calidad ?? CALIDAD_DEFECTO
@@ -1074,9 +1112,11 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
         const c = proyectoRef.current?.clips.find((x) => x.id === clipId)
         if (m.id == null || !c || (c.pista !== 'voz' && c.pista !== 'avatar')) return
         if (c.pista === 'avatar') {
-          void envolventeDe(m.blob).then((env) =>
-            ponerAudio(clipId, { medioId: m.id, desde: 0, envolvente: env.envolvente, envolventeHz: env.hz }, m.duracion ?? env.duracion),
-          )
+          void blobDeMedio(m).then(async (blob) => {
+            if (!blob) return
+            const env = await envolventeDe(blob)
+            ponerAudio(clipId, { medioId: m.id, desde: 0, envolvente: env.envolvente, envolventeHz: env.hz }, m.duracion ?? env.duracion)
+          })
         } else ponerAudio(clipId, { medioId: m.id, desde: 0 }, m.duracion)
       },
     })
@@ -1114,7 +1154,12 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
     mutarClips((clips) => asignarNarrador(clips, clipId, n, pelicula && n.asistenteId ? puntoActor(n.asistenteId) : undefined))
     const c = proyectoRef.current?.clips.find((x) => x.id === clipId)
     const m = c?.pista === 'avatar' && c.medioId != null && !c.envolvente ? mediosRef.current.find((x) => x.id === c.medioId) : undefined
-    if (m) void envolventeDe(m.blob).then((env) => cambiarClip(clipId, { envolvente: env.envolvente, envolventeHz: env.hz }))
+    if (m)
+      void blobDeMedio(m).then(async (blob) => {
+        if (!blob) return
+        const env = await envolventeDe(blob)
+        cambiarClip(clipId, { envolvente: env.envolvente, envolventeHz: env.hz })
+      })
   }
   /** Lee las líneas del guion (todas, o una) con la voz de cada narrador; las que ya tienen audio suenan tal cual. */
   const escucharLineas = (clipId?: string) => {

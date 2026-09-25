@@ -23,7 +23,17 @@ import { notificarRepintado } from './repintar'
 import { useSesion } from '../../cuenta/sesionStore'
 import { tGlobal } from '../../i18n/useT'
 import { conectarAvisoEscritura, marcarEscrituraSilenciosa } from './middleware'
-import { CLAVES_UNICAS, FK, ORDEN_TOPO, SINGLETONS, TABLAS_SYNC, esFilaCompartida, esTablaSync } from './syncables'
+import {
+  CAMPOS_LOCALES,
+  CLAVES_UNICAS,
+  FK,
+  ORDEN_TOPO,
+  SINGLETONS,
+  TABLAS_SYNC,
+  esFilaCompartida,
+  esFilaLocal,
+  esTablaSync,
+} from './syncables'
 import { borrarBlobsDeRegistro, extraerBlobs, prepararBajadas, rehidratarBlobs } from './blobs'
 
 const LOTE_PUSH = 200
@@ -95,13 +105,15 @@ async function push(userId: string): Promise<number> {
       cambios.push({ entrada: e, cuerpo: tombstone() })
       continue
     }
-    if (esFilaCompartida(e.tabla, fila)) {
-      // Compartida pero SIN marcar: la encoló `bootstrap()`, que mete todo lo
-      // local sin mirar. Fuera de la cola personal; ya está en su espacio.
+    if (esFilaCompartida(e.tabla, fila) || esFilaLocal(e.tabla, fila)) {
+      // Compartida (ya está en su espacio) o del Studio sin copia en la nube
+      // (solo de este dispositivo): la encoló `bootstrap()`, que mete todo lo
+      // local sin mirar. Fuera de la cola personal.
       await db._outbox.bulkDelete(idsPorClave.get(`${e.tabla}|${e.uid}`) ?? [])
       continue
     }
     const datos: Fila = { ...fila }
+    for (const campo of CAMPOS_LOCALES[e.tabla] ?? []) delete datos[campo]
     const pk = db.table(e.tabla).schema.primKey
     if (pk.auto && typeof pk.keyPath === 'string') delete datos[pk.keyPath]
     delete datos.uid // viajan aparte
@@ -200,6 +212,8 @@ async function aplicarRegistro(r: RegistroRemoto, desdePendientes = false): Prom
   datos.updatedAt = r.updated_at
   if (local && local[kp] != null) {
     datos[kp] = local[kp]
+    // El blob (y el remotoId) de este dispositivo no viajan: el put no los pisa.
+    for (const campo of CAMPOS_LOCALES[r.tabla] ?? []) if (local[campo] !== undefined) datos[campo] = local[campo]
     await t.put(datos)
     return true
   }
@@ -466,7 +480,12 @@ async function verificarUsuario(userId: string): Promise<void> {
       await db.transaction('rw', db.tables, async () => {
         marcarPull() // vaciar SIN tombstones: no debe tocar la nube de la cuenta nueva
         // Una tabla con la compuerta cerrada (historialWeb) es local: no se vacía.
-        for (const tabla of TABLAS_SYNC) if (esTablaSync(tabla)) await db.table(tabla).clear()
+        // Del Studio solo se va lo que está en la nube: lo demás existe solo aquí.
+        for (const tabla of TABLAS_SYNC) {
+          if (!esTablaSync(tabla)) continue
+          if (CAMPOS_LOCALES[tabla]) await db.table(tabla).filter((f: Fila) => !!f.nube).delete()
+          else await db.table(tabla).clear()
+        }
       })
     }
     await db._outbox.clear()
@@ -587,6 +606,9 @@ export async function sincronizar(manual = false): Promise<void> {
       useSesion.setState({ estadoSync: 'inactivo', ultimaSync: Date.now(), errorSync: null })
       // Incluso con set vacío: drena repintados que esperaron a que acabara una edición.
       notificarRepintado(tocadas)
+      // Los binarios del Studio que aún no están en la nube suben después, fuera
+      // del candado: pueden tardar minutos y el sync no debe esperarlos.
+      void import('../../studio/nubeStudio').then((m) => m.subirMediosPendientes())
     } catch (e) {
       falloSeguido++
       proximoIntento = Date.now() + Math.min(BACKOFF_BASE_MS * 2 ** (falloSeguido - 1), BACKOFF_MAX_MS)

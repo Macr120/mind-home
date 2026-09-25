@@ -1,6 +1,6 @@
 import { contextoAudio, desbloquearAudio } from '../../core/audio/motor'
 import type { ProyectoAudio } from '../../core/data/db'
-import { leerGrabacionAudio } from '../../core/data/repository'
+import { leerTomaDeClip } from '../../core/data/repository'
 import { MAESTRO_DEFAULT } from './constantes'
 import { detectarBpm } from './detectorBpm'
 import { crearBusMaestro, type BusMaestro } from './efectos'
@@ -434,11 +434,11 @@ export async function buffersDeClipsProyecto(ctx: AudioContext, p: ProyectoAudio
     for (const clip of pista.clips ?? []) {
       if (buffers.has(clip.grabacionId)) continue
       try {
-        const fila = await leerGrabacionAudio(clip.grabacionId)
-        if (!fila || fila.creadoEn !== clip.sello) continue
+        const fila = await leerTomaDeClip(clip)
+        if (!fila?.blob) continue
         buffers.set(clip.grabacionId, await ctx.decodeAudioData(await fila.blob.arrayBuffer()))
       } catch {
-        // sin blob local (toma de otro dispositivo): el clip no suena, igual que en el editor
+        // sin blob (toma que no está ni aquí ni en la nube): el clip no suena, igual que en el editor
       }
     }
   }

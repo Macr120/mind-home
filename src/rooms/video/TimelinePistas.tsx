@@ -326,8 +326,16 @@ export function TimelinePistas({
   const nombreDe = (c: ClipVideo): { nombre: string; emoji?: string; ausente: boolean } => {
     const medioId = medioIdDe(c)
     const medio = medioId != null ? porId.get(medioId) : undefined
-    const ausente = medioId != null && !medio
+    // En la nube del usuario pero aún no en este dispositivo: el Editor lo está
+    // bajando; mientras, el clip se ve como ausente y lo dice.
+    const enNube = !!medio && !medio.blob
+    const ausente = medioId != null && (!medio || enNube)
     const noDisponible = t('video.medios.noDisponible', 'Medio no disponible en este dispositivo')
+    const nombreMedio = medio
+      ? enNube
+        ? `${medio.nombre} · ${t('video.medios.enNube', 'en tu nube, bajando…')}`
+        : medio.nombre
+      : noDisponible
     switch (c.pista) {
       case 'video':
       case 'fondo':
@@ -338,15 +346,15 @@ export function TimelinePistas({
           const movimiento = etiquetaEfecto(t, c.fuente)
           return { nombre: `${t('video.pelicula.planoN', 'Plano {n}', { n })} · ${vista}${movimiento ? ` · ${movimiento}` : ''}`, ausente: false }
         }
-        return { nombre: c.fuente.tipo === 'color' ? t('video.guion.color', 'Color') : (medio?.nombre ?? noDisponible), ausente }
+        return { nombre: c.fuente.tipo === 'color' ? t('video.guion.color', 'Color') : nombreMedio, ausente }
       case 'imagen':
-        return { nombre: medio?.nombre ?? noDisponible, ausente }
+        return { nombre: nombreMedio, ausente }
       case 'texto':
         return { nombre: c.texto.contenido, ausente: false }
       case 'voz':
-        return { nombre: c.texto?.trim() || medio?.nombre || t('video.clip.sinAudio', 'Sin audio todavía'), ausente }
+        return { nombre: c.texto?.trim() || (medio && nombreMedio) || t('video.clip.sinAudio', 'Sin audio todavía'), ausente }
       case 'musica':
-        return { nombre: medio?.nombre ?? noDisponible, ausente }
+        return { nombre: nombreMedio, ausente }
       case 'sfx':
         return { nombre: nombreFuenteSonido(t, c.fuente, porId), ausente: c.fuente.tipo === 'medio' && ausente }
       case 'avatar':

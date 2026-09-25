@@ -70,6 +70,8 @@ interface SesionState {
   usuario: User | null
   plan: Plan
   planExpira: string | null
+  /** Desde cuándo está sin plan (perfiles.sin_plan_desde): la nube se purga a los 90 días. */
+  sinPlanDesde: string | null
   /** ¿La cuenta pagó alguna vez? (decide el copy de los avisos de plan) */
   fuePro: boolean
   /** ¿Compró el pago único de la app? (perfiles.unlock, nunca se revierte) */
@@ -158,6 +160,7 @@ export const useSesion = create<SesionState>((set, get) => ({
   usuario: null,
   plan: 'local',
   planExpira: null,
+  sinPlanDesde: null,
   fuePro: false,
   unlock: false,
   nivel: 1,
@@ -284,7 +287,7 @@ export const useSesion = create<SesionState>((set, get) => ({
     if (!sb || !usuario) return
     const { data, error } = await sb
       .from('perfiles')
-      .select('plan, plan_expira, fue_pro, creditos_extra, unlock, nivel, ilimitado, alias, nombre, emoji, retrato')
+      .select('plan, plan_expira, sin_plan_desde, fue_pro, creditos_extra, unlock, nivel, ilimitado, alias, nombre, emoji, retrato')
       .eq('user_id', usuario.id)
       .maybeSingle()
     // Antes el error se descartaba y una red caída era indistinguible de «sin
@@ -299,6 +302,7 @@ export const useSesion = create<SesionState>((set, get) => ({
     set({
       plan,
       planExpira: expira,
+      sinPlanDesde: (data.sin_plan_desde as string | null) ?? null,
       fuePro,
       unlock,
       nivel: (data.nivel as number | null) ?? 1,
@@ -446,6 +450,7 @@ export function iniciarSesion(): void {
         useSesion.setState({
           plan: 'local',
           planExpira: null,
+          sinPlanDesde: null,
           fuePro: false,
           unlock: false,
           nivel: 1,
