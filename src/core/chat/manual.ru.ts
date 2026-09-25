@@ -25,6 +25,8 @@ export const MANUAL_RU: ManualTraducido = {
     "[Abre] {mis archivos}": "[Открой] {мои файлы}",
     "[Abre] los {archivos recientes}": "[Открой] {недавние файлы}",
     "[Abre] los {archivos del studio}": "[Открой] {файлы студии}",
+    "[Abre] la {papelera}": "[Открой] {корзину}",
+    "[Abre] los {archivos destacados}": "[Открой] {помеченные файлы}",
     '[Tomé] {2 vasos} de [agua]': '[Выпил] {2 стакана} [воды]',
     '[Me pesé]: {74 kg}': '[Взвесился]: {74 кг}',
     '[Abre] el {recetario}': '[Открой] {книгу рецептов}',

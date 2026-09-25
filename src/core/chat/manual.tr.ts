@@ -25,6 +25,8 @@ export const MANUAL_TR: ManualTraducido = {
     "[Abre] {mis archivos}": "{Dosyalarımı} [aç]",
     "[Abre] los {archivos recientes}": "{Son dosyaları} [aç]",
     "[Abre] los {archivos del studio}": "{Studio dosyalarını} [aç]",
+    "[Abre] la {papelera}": "{Çöp kutusunu} [aç]",
+    "[Abre] los {archivos destacados}": "{Yıldızlı dosyaları} [aç]",
     '[Tomé] {2 vasos} de [agua]': '{2 bardak} [su] [içtim]',
     '[Me pesé]: {74 kg}': '[Tartıldım]: {74 kg}',
     '[Abre] el {recetario}': '{Tarif defterini} [aç]',

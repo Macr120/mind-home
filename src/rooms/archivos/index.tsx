@@ -34,6 +34,16 @@ const archivos: Plantilla = {
       etiqueta: 'Del Studio',
       nombres: ['archivos del studio', 'nube del studio'],
     },
+    {
+      seccion: 'destacados',
+      etiqueta: 'Destacados',
+      nombres: ['archivos destacados', 'destacados de la nube'],
+    },
+    {
+      seccion: 'papelera',
+      etiqueta: 'Papelera',
+      nombres: ['papelera', 'papelera de archivos', 'papelera de la nube'],
+    },
   ],
 }
 

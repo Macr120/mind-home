@@ -602,6 +602,8 @@ const SECCIONES: Seccion[] = [
               { frase: '[Abre] {mis archivos}', en: '[Open] {my files}' },
               { frase: '[Abre] los {archivos recientes}', en: '[Open] the {recent files}' },
               { frase: '[Abre] los {archivos del studio}', en: '[Open] the {studio files}' },
+              { frase: '[Abre] la {papelera}', en: '[Open] the {trash}' },
+              { frase: '[Abre] los {archivos destacados}', en: '[Open] the {starred files}' },
             ],
           },
         ],

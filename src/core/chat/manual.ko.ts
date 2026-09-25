@@ -25,6 +25,8 @@ export const MANUAL_KO: ManualTraducido = {
     "[Abre] {mis archivos}": "{내 파일} [열어 줘]",
     "[Abre] los {archivos recientes}": "{최근 파일} [열어 줘]",
     "[Abre] los {archivos del studio}": "{스튜디오 파일} [열어 줘]",
+    "[Abre] la {papelera}": "{휴지통} [열어 줘]",
+    "[Abre] los {archivos destacados}": "{중요 표시한 파일} [열어 줘]",
     '[Tomé] {2 vasos} de [agua]': '[물] {2잔} [마셨어요]',
     '[Me pesé]: {74 kg}': '[몸무게 쟀어요]: {74 kg}',
     '[Abre] el {recetario}': '{레시피 북} [열어줘]',

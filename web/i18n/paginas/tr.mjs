@@ -299,7 +299,7 @@ export const TEXTOS = {
     'Verilerin sana aittir. Uygulama local-first: her şey önce senin cihazında yaşar. Neyi sakladığımızın ve nasıl sileceğinin ayrıntısı <a href="/privacidad">gizlilik politikasında</a>.',
   'term.alojado.h': "Bulutta sakladığın dosyalar",
   'term.alojado.p':
-    "Bulutuna yüklediğin dosyalardan sen sorumlusun ve onları saklama hakkına sahip olmalısın. Yasa dışı, üçüncü kişilerin haklarını ihlal eden veya topluluk kurallarına aykırı içerik barındırmak yasaktır; bunu kaldırabilir ve hesabı askıya alabiliriz. Bulut bir depolama hizmetidir, garantili bir yedek değildir: kaybetmek istemediğin şeylerin bir kopyasını sakla.",
+    "Bulutuna yüklediğin dosyalardan sen sorumlusun ve onları saklama hakkına sahip olmalısın. Yasa dışı, üçüncü kişilerin haklarını ihlal eden veya topluluk kurallarına aykırı içerik barındırmak yasaktır; bunu kaldırabilir ve hesabı askıya alabiliriz. Bulut bir depolama hizmetidir, garantili bir yedek değildir: kaybetmek istemediğin şeylerin bir kopyasını sakla. Bir dosyayı bağlantıyla paylaşırsan kime gönderdiğinden sen sorumlusun; bağlantının süresi kendiliğinden dolar ve bildirilenleri kaldırırız.",
   'term.razonable.h': 'Makul kullanım',
   'term.razonable.p':
     'Yapay zekâ kredi kotası kişisel hesap içindir. Hizmetin yeniden satılmasına, hesabın kitlesel biçimde paylaşılmasına ya da yapay zekâ tüketiminin uygulama dışından otomatikleştirilmesine izin verilmez.',
@@ -338,4 +338,22 @@ export const TEXTOS = {
   'sop.cuenta.p':
     'Hesabını ve buluttaki tüm verilerini uygulamadan (Editör → Ayarlar → Hesap) ya da webdeki hesabından silebilirsin. Silindiğinde sosyal medya bağlantıların (YouTube, TikTok, Facebook ve Instagram) da kaldırılır: saklanan jetonlar yok edilir ve geçersiz hale gelir.',
   'sop.cuenta.enlace': 'Hesabına git',
+
+  // ─── Archivo compartido por enlace (descarga.html) ───────────────────
+  'desc.titulo': "Paylaşılan dosya",
+  'desc.cargando': "Dosya aranıyor…",
+  'desc.compartido': "Bu dosya seninle paylaşıldı:",
+  'desc.bajar': "İndir",
+  'desc.nota': "Bağlantı sınırlı süre geçerlidir. MindHaOS kullanıcılarının paylaştıklarını incelemez: yalnızca gönderene güveniyorsan aç.",
+  'desc.noExiste.h': "Bu bağlantı yok",
+  'desc.noExiste.p': "Sahibi paylaşmayı bırakmış ya da dosya artık bulutunda olmayabilir.",
+  'desc.vencido.h': "Bu bağlantının süresi doldu",
+  'desc.vencido.p': "Gönderen kişiden yeni bir bağlantı iste.",
+  'desc.tope.h': "Bugün çok fazla indirme",
+  'desc.tope.p': "Bu bağlantı günlük sınırına ulaştı. Yarın tekrar dene.",
+  'desc.error.h': "Açılamadı",
+  'desc.error.p': "Bağlantını kontrol et ve sayfayı yenile.",
+  'desc.cta': "Hayatını ve dosyalarını düzenleyeceğin kendi evini ister misin?",
+  'desc.cta.enlace': "MindHaOS’u dene",
+  'desc.reportar': "Bu dosyayı bildir",
 }

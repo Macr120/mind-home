@@ -46,3 +46,9 @@
 /nl/ https://app.mindhaos.com/ 302
 /ar https://app.mindhaos.com/ 302
 /ar/ https://app.mindhaos.com/ 302
+
+# Archivos compartidos desde el cuarto Archivo (web/descarga.html). Reescritura
+# (200): la URL se queda en /d/<token>, que es de donde la página saca el token.
+# La autodetección de idioma lleva a /<id>/d/<token>, que cae en su copia.
+/d/:token /descarga 200
+/:lang/d/:token /:lang/descarga 200

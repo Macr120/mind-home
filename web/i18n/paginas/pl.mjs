@@ -302,7 +302,7 @@ export const TEXTOS = {
     'Twoje dane należą do ciebie. Aplikacja jest local-first: wszystko żyje najpierw na twoim urządzeniu. Szczegóły, co przechowujemy i jak to skasować, są w <a href="/privacidad">polityce prywatności</a>.',
   'term.alojado.h': "Pliki przechowywane w chmurze",
   'term.alojado.p':
-    "Odpowiadasz za pliki, które wysyłasz do swojej chmury, i musisz mieć prawo je przechowywać. Nie wolno przechowywać treści nielegalnych, naruszających prawa osób trzecich ani łamiących zasady społeczności; możemy je usunąć i zawiesić konto. Chmura to usługa przechowywania, a nie gwarantowana kopia zapasowa: zachowaj kopię tego, czego nie chcesz stracić.",
+    "Odpowiadasz za pliki, które wysyłasz do swojej chmury, i musisz mieć prawo je przechowywać. Nie wolno przechowywać treści nielegalnych, naruszających prawa osób trzecich ani łamiących zasady społeczności; możemy je usunąć i zawiesić konto. Chmura to usługa przechowywania, a nie gwarantowana kopia zapasowa: zachowaj kopię tego, czego nie chcesz stracić. Jeśli udostępniasz plik linkiem, odpowiadasz za to, komu go wysyłasz; link wygasa sam, a zgłoszone linki usuwamy.",
   'term.razonable.h': 'Rozsądne korzystanie',
   'term.razonable.p':
     'Pula kredytów SI dotyczy konta osobistego. Nie wolno odsprzedawać usługi, masowo współdzielić konta ani automatyzować zużycia SI poza aplikacją.',
@@ -341,4 +341,22 @@ export const TEXTOS = {
   'sop.cuenta.p':
     'Konto i wszystkie dane w chmurze możesz usunąć z aplikacji (Edytor → Ustawienia → Konto) albo ze swojego konta w sieci. Usunięcie kasuje też połączenia z mediami społecznościowymi (YouTube, TikTok, Facebook i Instagram): zapisane tokeny są niszczone i przestają działać.',
   'sop.cuenta.enlace': 'Przejdź do konta',
+
+  // ─── Archivo compartido por enlace (descarga.html) ───────────────────
+  'desc.titulo': "Udostępniony plik",
+  'desc.cargando': "Szukam pliku…",
+  'desc.compartido': "Udostępniono ci ten plik:",
+  'desc.bajar': "Pobierz",
+  'desc.nota': "Link działa ograniczony czas. MindHaOS nie sprawdza tego, co udostępniają użytkownicy: otwórz go tylko, jeśli ufasz nadawcy.",
+  'desc.noExiste.h': "Ten link nie istnieje",
+  'desc.noExiste.p': "Właściciel mógł przestać go udostępniać albo pliku nie ma już w jego chmurze.",
+  'desc.vencido.h': "Ten link wygasł",
+  'desc.vencido.p': "Poproś nadawcę o nowy link.",
+  'desc.tope.h': "Za dużo pobrań dzisiaj",
+  'desc.tope.p': "Ten link osiągnął dzienny limit. Spróbuj jutro.",
+  'desc.error.h': "Nie udało się otworzyć",
+  'desc.error.p': "Sprawdź połączenie i odśwież stronę.",
+  'desc.cta': "Chcesz własny dom do porządkowania życia i plików?",
+  'desc.cta.enlace': "Wypróbuj MindHaOS",
+  'desc.reportar': "Zgłoś ten plik",
 }

@@ -25,6 +25,8 @@ export const MANUAL_NL: ManualTraducido = {
     "[Abre] {mis archivos}": "[Open] {mijn bestanden}",
     "[Abre] los {archivos recientes}": "[Open] de {recente bestanden}",
     "[Abre] los {archivos del studio}": "[Open] de {studiobestanden}",
+    "[Abre] la {papelera}": "[Open] de {prullenbak}",
+    "[Abre] los {archivos destacados}": "[Open] de {bestanden met ster}",
     '[Tomé] {2 vasos} de [agua]': '[Ik dronk] {2 glazen} [water]',
     '[Me pesé]: {74 kg}': '[Ik heb me gewogen]: {74 kg}',
     'Inventa una [receta] {ligera con atún}': 'Bedenk een [recept] {licht, met tonijn}',

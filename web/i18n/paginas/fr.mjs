@@ -306,7 +306,7 @@ export const TEXTOS = {
     'Tes données sont à toi. L’app est local-first : tout vit d’abord sur ton appareil. Le détail de ce que nous stockons et de comment l’effacer est dans la <a href="/privacidad">politique de confidentialité</a>.',
   'term.alojado.h': "Fichiers que tu gardes dans le cloud",
   'term.alojado.p':
-    "Tu es responsable des fichiers que tu envoies dans ton cloud et tu dois avoir le droit de les conserver. Il est interdit d’héberger un contenu illégal, qui porte atteinte aux droits de tiers ou qui enfreint les règles de la communauté ; nous pouvons le retirer et suspendre le compte. Le cloud est un service de stockage, pas une sauvegarde garantie : garde une copie de ce que tu ne veux pas perdre.",
+    "Tu es responsable des fichiers que tu envoies dans ton cloud et tu dois avoir le droit de les conserver. Il est interdit d’héberger un contenu illégal, qui porte atteinte aux droits de tiers ou qui enfreint les règles de la communauté ; nous pouvons le retirer et suspendre le compte. Le cloud est un service de stockage, pas une sauvegarde garantie : garde une copie de ce que tu ne veux pas perdre. Si tu partages un fichier par lien, tu es responsable de ses destinataires ; le lien expire tout seul et nous retirons ceux qui nous sont signalés.",
   'term.razonable.h': 'Usage raisonnable',
   'term.razonable.p':
     'Le quota de crédits d’IA vaut pour un compte personnel. Il n’est pas permis de revendre le service, de partager le compte à grande échelle ni d’automatiser la consommation d’IA en dehors de l’app.',
@@ -345,4 +345,22 @@ export const TEXTOS = {
   'sop.cuenta.p':
     'Tu peux supprimer ton compte et toutes tes données dans le cloud depuis l’app (Éditeur → Réglages → Compte) ou depuis ton compte sur le web. Sa suppression efface aussi les connexions à tes réseaux sociaux (YouTube, TikTok, Facebook et Instagram) : les jetons enregistrés sont détruits et cessent d’être valables.',
   'sop.cuenta.enlace': 'Aller à ton compte',
+
+  // ─── Archivo compartido por enlace (descarga.html) ───────────────────
+  'desc.titulo': "Fichier partagé",
+  'desc.cargando': "Recherche du fichier…",
+  'desc.compartido': "On t’a partagé ce fichier :",
+  'desc.bajar': "Télécharger",
+  'desc.nota': "Le lien dure un temps limité. MindHaOS ne vérifie pas ce que partagent ses utilisateurs : ouvre-le seulement si tu fais confiance à l’expéditeur.",
+  'desc.noExiste.h': "Ce lien n’existe pas",
+  'desc.noExiste.p': "Son propriétaire a peut-être arrêté de le partager, ou le fichier n’est plus dans son cloud.",
+  'desc.vencido.h': "Ce lien a expiré",
+  'desc.vencido.p': "Demande un nouveau lien à la personne qui te l’a envoyé.",
+  'desc.tope.h': "Trop de téléchargements aujourd’hui",
+  'desc.tope.p': "Ce lien a atteint sa limite quotidienne. Réessaie demain.",
+  'desc.error.h': "Impossible de l’ouvrir",
+  'desc.error.p': "Vérifie ta connexion et recharge la page.",
+  'desc.cta': "Envie de ta propre maison pour organiser ta vie et tes fichiers ?",
+  'desc.cta.enlace': "Essayer MindHaOS",
+  'desc.reportar': "Signaler ce fichier",
 }

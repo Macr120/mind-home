@@ -1089,6 +1089,11 @@ export interface CarpetaArchivo {
   nombre: string
   padreId: number | null
   creadoEn: string
+  /** Carpeta de «tus archivos» dentro de un cuarto de la casa (nace al primer uso). */
+  cuartoId?: string
+  destacado?: boolean
+  /** En la Papelera desde esta fecha (ISO); a los 30 días se borra para siempre. */
+  borradoEn?: string
 }
 
 /**
@@ -1108,6 +1113,9 @@ export interface ArchivoNube {
   /** Miniatura pequeña (imágenes): viaja como blob del sync. */
   miniatura?: Blob
   creadoEn: string
+  destacado?: boolean
+  /** En la Papelera desde esta fecha (ISO); a los 30 días se borra para siempre. */
+  borradoEn?: string
 }
 
 /** Recuerdo de la bitácora de viajes: foto y anécdota de un lugar visitado. */

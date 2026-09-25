@@ -25,6 +25,8 @@ export const MANUAL_DE: ManualTraducido = {
     "[Abre] {mis archivos}": "[Öffne] {meine Dateien}",
     "[Abre] los {archivos recientes}": "[Öffne] die {letzten Dateien}",
     "[Abre] los {archivos del studio}": "[Öffne] die {Studio-Dateien}",
+    "[Abre] la {papelera}": "[Öffne] den {Papierkorb}",
+    "[Abre] los {archivos destacados}": "[Öffne] die {markierten Dateien}",
     '[Tomé] {2 vasos} de [agua]': '[Ich habe] {2 Gläser} [Wasser] [getrunken]',
     '[Me pesé]: {74 kg}': '[Ich habe mich gewogen]: {74 kg}',
     '[Abre] el {diario de comidas}': '[Öffne] das {Ernährungstagebuch}',

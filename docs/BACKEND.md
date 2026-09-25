@@ -507,6 +507,24 @@ suelta la cuota y tombstonea sus `archivosNube`. La llama `pg_cron` a las 05:41
 UTC con los secretos de Vault `almacen_purga_url` / `almacen_purga_auth` (crearlos
 a mano, ver la cabecera de la migración). Primera vez: `{"simular":true}`.
 
+**Papelera (30 días)** — solo cliente, sin migración: borrar desde Archivo sella
+`borradoEn` en la fila (y en toda la descendencia de una carpeta, con el mismo
+sello); el objeto sigue en R2 y ocupando cuota hasta vaciarla.
+`core/cuenta/papelera.ts::purgarPapelera` borra para siempre lo que pasa de 30
+días, al abrir Archivo y al final de cada ciclo del sync (una vez por hora).
+
+**Compartir con enlace** (migración `20260927000001_enlaces_archivo.sql`): tabla
+`enlaces_archivo` (token de 22 caracteres, vence a 1/7/30 días) y RPC
+`enlace_visitar` (cuenta la visita con `for update`, tope 200/día por enlace).
+`almacen` gana `compartir` (solo con cuota > 0, máx. 100 vivos por usuario),
+`enlaces` y `revocar`; mandar a la papelera revoca los de esas claves, y un objeto
+que deja de estar en `almacen_objetos` (borrado o purgado) mata su enlace solo.
+La página es `web/descarga.html` (`mindhaos.com/d/<token>`, reescrito en
+`web/public/_redirects`) y llama a la función `archivo-publico`
+(`verify_jwt=false`), que responde `{nombre, bytes, mime, vista, descarga}` con URLs
+firmadas de 15 min, o 404/410/429. Desplegar: `db push` →
+`functions deploy almacen archivo-publico` → web.
+
 ### 5. Web pública (landing + /cuenta) — YA DESPLEGADA (15-ago-2026)
 - Código en `web/` (segundo build de Vite): `npm run dev:web` (puerto 5174) y
   `npm run build:web` (→ `dist-web/`). Ligera a propósito: sin three ni dexie.

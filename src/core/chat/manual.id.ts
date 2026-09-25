@@ -25,6 +25,8 @@ export const MANUAL_ID: ManualTraducido = {
     "[Abre] {mis archivos}": "[Buka] {berkasku}",
     "[Abre] los {archivos recientes}": "[Buka] {berkas terbaru}",
     "[Abre] los {archivos del studio}": "[Buka] {berkas studio}",
+    "[Abre] la {papelera}": "[Buka] {sampah}",
+    "[Abre] los {archivos destacados}": "[Buka] {berkas berbintang}",
     '[Tomé] {2 vasos} de [agua]': '[Aku minum] {2 gelas} [air]',
     '[Me pesé]: {74 kg}': '[Aku timbang badan]: {74 kg}',
     '[Abre] el {recetario}': '[Buka] {buku resep}',

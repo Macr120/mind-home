@@ -301,7 +301,7 @@ export const TEXTOS = {
     'Your data is yours. The app is local-first: everything lives on your device first. The detail of what we store and how to delete it is in the <a href="/privacidad">privacy policy</a>.',
   'term.alojado.h': "Files you keep in the cloud",
   'term.alojado.p':
-    "You are responsible for the files you upload to your cloud and must have the right to store them. Hosting illegal content, content that infringes third-party rights or content that breaks the community rules is not allowed; we may remove it and suspend the account. The cloud is a storage service, not a guaranteed backup: keep a copy of anything you cannot afford to lose.",
+    "You are responsible for the files you upload to your cloud and must have the right to store them. Hosting illegal content, content that infringes third-party rights or content that breaks the community rules is not allowed; we may remove it and suspend the account. The cloud is a storage service, not a guaranteed backup: keep a copy of anything you cannot afford to lose. If you share a file with a link, you are responsible for who you send it to; the link expires on its own and we remove any that are reported to us.",
   'term.razonable.h': 'Reasonable use',
   'term.razonable.p':
     'The AI credit allowance is for a personal account. Reselling the service, sharing the account at scale or automating AI consumption outside the app are not allowed.',
@@ -340,4 +340,22 @@ export const TEXTOS = {
   'sop.cuenta.p':
     'You can delete your account and all your cloud data from the app (Editor → Settings → Account) or from your account on the web. Deleting it also removes the connections to your social media accounts (YouTube, TikTok, Facebook and Instagram): the stored tokens are destroyed and stop working.',
   'sop.cuenta.enlace': 'Go to your account',
+
+  // ─── Archivo compartido por enlace (descarga.html) ───────────────────
+  'desc.titulo': "Shared file",
+  'desc.cargando': "Looking for the file…",
+  'desc.compartido': "This file was shared with you:",
+  'desc.bajar': "Download",
+  'desc.nota': "The link lasts a limited time. MindHaOS does not review what its users share: open it only if you trust whoever sent it.",
+  'desc.noExiste.h': "This link does not exist",
+  'desc.noExiste.p': "Its owner may have stopped sharing it, or the file is no longer in their cloud.",
+  'desc.vencido.h': "This link has expired",
+  'desc.vencido.p': "Ask whoever sent it for a new link.",
+  'desc.tope.h': "Too many downloads today",
+  'desc.tope.p': "This link reached its daily limit. Try again tomorrow.",
+  'desc.error.h': "Could not open it",
+  'desc.error.p': "Check your connection and reload the page.",
+  'desc.cta': "Want your own house to organize your life and your files?",
+  'desc.cta.enlace': "Try MindHaOS",
+  'desc.reportar': "Report this file",
 }

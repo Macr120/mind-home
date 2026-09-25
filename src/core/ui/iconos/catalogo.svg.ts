@@ -395,6 +395,8 @@ import {
   // Buzón
   Mailbox,
   Paperclip,
+  Ellipsis,
+  FolderUp,
 } from 'lucide-react'
 import type { NombreIcono } from './catalogo'
 
@@ -999,4 +1001,7 @@ export const SVGS: Record<NombreIcono, LucideIcon> = {
   // Buzón (mensajería entre usuarios)
   buzon: Mailbox,
   adjuntar: Paperclip,
+  // Archivo (la nube tipo Drive)
+  masOpciones: Ellipsis,
+  subirCarpeta: FolderUp,
 }

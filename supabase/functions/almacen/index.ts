@@ -10,6 +10,11 @@
  *   sigue pudiendo bajar lo suyo). `nombre` opcional fuerza la descarga.
  * - `borrar {claves[]?, prefijo?}` → suelta la cuota y borra en R2.
  * - `uso` → `{usados, cuota}` (cuota null = sin tope).
+ * - `compartir {clave, nombre, dias}` → `{token, expira}`: enlace público
+ *   (mindhaos.com/d/<token>, lo sirve `archivo-publico`) de 1, 7 o 30 días.
+ *   Solo con plan; como mucho 100 vivos por usuario.
+ * - `enlaces {clave?}` → los enlaces vivos del usuario (de un archivo, si se pide).
+ * - `revocar {token? | claves[]?}` → mata un enlace, o todos los de esas claves.
  *
  * Fallos de negocio → 200 `{ok:false, motivo}` ('sin-pro' | 'cuota' | 'grande'),
  * como `canjear-cupon`. Las claves son RELATIVAS y aquí se les antepone el uid.
@@ -31,7 +36,19 @@ interface Cuerpo {
   bytes?: unknown
   mime?: unknown
   nombre?: unknown
+  dias?: unknown
+  token?: unknown
 }
+
+/** Enlaces vivos por usuario: más ya no es compartir, es hacer de CDN. */
+const MAX_ENLACES = 100
+
+/** 16 bytes al azar en base64url: 22 caracteres imposibles de adivinar. */
+const tokenNuevo = () =>
+  btoa(String.fromCharCode(...crypto.getRandomValues(new Uint8Array(16))))
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_')
+    .replace(/=+$/, '')
 
 Deno.serve(async (req) => {
   const pf = preflight(req)
@@ -112,6 +129,72 @@ Deno.serve(async (req) => {
         // Las claves pedidas se borran aunque no tuvieran fila (objeto huérfano).
         const soltadas = new Set<string>([...(res.data as string[] ?? []), ...(claves as string[])])
         await borrarObjetos([...soltadas].map(abs))
+        return json({ ok: true }, 200, cors)
+      }
+
+      case 'compartir': {
+        const dias = [1, 7, 30].includes(Number(b.dias)) ? Number(b.dias) : 7
+        const nombre = typeof b.nombre === 'string' ? b.nombre.trim().slice(0, 200) : ''
+        if (!claveValida(b.clave) || !nombre) break
+        // Compartir es del plan: en solo lectura se baja lo propio, no se reparte.
+        const cuota = await admin.rpc('cuota_almacen', { p_uid: uid })
+        if (cuota.error) throw cuota.error
+        if (cuota.data === 0) return json({ ok: false, motivo: 'sin-pro' }, 200, cors)
+        const obj = await admin
+          .from('almacen_objetos')
+          .select('mime, bytes')
+          .eq('user_id', uid)
+          .eq('clave', b.clave)
+          .eq('estado', 'listo')
+          .maybeSingle()
+        if (obj.error) throw obj.error
+        if (!obj.data) return json({ ok: false, motivo: 'sin-objeto' }, 200, cors)
+        const ahora = new Date().toISOString()
+        const vivos = await admin
+          .from('enlaces_archivo')
+          .select('token', { count: 'exact', head: true })
+          .eq('user_id', uid)
+          .eq('revocado', false)
+          .gt('expira_en', ahora)
+        if (vivos.error) throw vivos.error
+        if ((vivos.count ?? 0) >= MAX_ENLACES) return json({ ok: false, motivo: 'enlaces' }, 200, cors)
+        const token = tokenNuevo()
+        const expira = new Date(Date.now() + dias * 86_400_000).toISOString()
+        const ins = await admin.from('enlaces_archivo').insert({
+          token,
+          user_id: uid,
+          clave: b.clave,
+          nombre,
+          mime: obj.data.mime,
+          bytes: obj.data.bytes,
+          expira_en: expira,
+        })
+        if (ins.error) throw ins.error
+        return json({ ok: true, token, expira }, 200, cors)
+      }
+
+      case 'enlaces': {
+        let q = admin
+          .from('enlaces_archivo')
+          .select('token, clave, nombre, expira_en, descargas')
+          .eq('user_id', uid)
+          .eq('revocado', false)
+          .gt('expira_en', new Date().toISOString())
+          .order('creado_en', { ascending: false })
+          .limit(MAX_ENLACES)
+        if (claveValida(b.clave)) q = q.eq('clave', b.clave)
+        const res = await q
+        if (res.error) throw res.error
+        return json({ ok: true, enlaces: res.data ?? [] }, 200, cors)
+      }
+
+      case 'revocar': {
+        const token = typeof b.token === 'string' && /^[\w-]{16,40}$/.test(b.token) ? b.token : null
+        const claves = Array.isArray(b.claves) && b.claves.length <= 500 && b.claves.every(claveValida) ? (b.claves as string[]) : []
+        if (!token && !claves.length) break
+        const q = admin.from('enlaces_archivo').update({ revocado: true }).eq('user_id', uid)
+        const res = token ? await q.eq('token', token) : await q.in('clave', claves)
+        if (res.error) throw res.error
         return json({ ok: true }, 200, cors)
       }
 

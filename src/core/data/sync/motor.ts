@@ -609,6 +609,8 @@ export async function sincronizar(manual = false): Promise<void> {
       // Los binarios del Studio que aún no están en la nube suben después, fuera
       // del candado: pueden tardar minutos y el sync no debe esperarlos.
       void import('../../studio/nubeStudio').then((m) => m.subirMediosPendientes())
+      // Lo que lleva 30 días en la papelera de Archivo (una vez por hora, como mucho).
+      void import('../../cuenta/papelera').then((m) => m.purgarPapelera())
     } catch (e) {
       falloSeguido++
       proximoIntento = Date.now() + Math.min(BACKOFF_BASE_MS * 2 ** (falloSeguido - 1), BACKOFF_MAX_MS)

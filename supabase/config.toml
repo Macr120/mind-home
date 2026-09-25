@@ -435,3 +435,7 @@ verify_jwt = false
 # base, sin JWT: se autentica contra ALMACEN_PURGA_AUTH.
 [functions.almacen-purga]
 verify_jwt = false
+
+# Descarga de un archivo compartido por enlace: la abre cualquiera, sin cuenta.
+[functions.archivo-publico]
+verify_jwt = false

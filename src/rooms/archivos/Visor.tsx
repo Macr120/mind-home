@@ -1,35 +1,39 @@
 import { useEffect, useState } from 'react'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 import { formatoBytes } from '../../core/cuenta/almacen'
-import type { ArchivoNube } from '../../core/data/db'
 import { BotonPeligro, BotonPrimario, BotonSecundario, Modal, Spinner } from '../_shared/ui'
 import { COLOR, iconoDeMime } from './constantes'
-import { mensajeDeError, urlDeVista } from './acciones'
+import { mensajeDeError, urlDeVista, type Abrible } from './acciones'
 
 /** Texto plano: se enseña hasta este tamaño (más, y mejor bajarlo). */
 const MAX_TEXTO = 200_000
 
+export interface BotonVisor {
+  icono: NombreIcono
+  texto: string
+  onClick: () => void
+  peligro?: boolean
+}
+
 /**
- * Vista previa de un archivo de la nube. Imagen, video, audio y PDF se pintan
- * directo desde la URL firmada de R2 (el video y el audio van en streaming, sin
- * bajar el archivo entero); el texto se lee si es chico.
+ * Vista previa de un archivo. Lo de la nube se pinta directo desde la URL
+ * firmada de R2 (el video y el audio van en streaming, sin bajar el archivo
+ * entero); lo de las apps, desde su Blob local. El texto se lee si es chico.
+ * Los botones los pone quien lo abre: en la papelera o en una app no son los
+ * mismos que en tus carpetas.
  */
 export function Visor({
   archivo,
   onCerrar,
   onDescargar,
-  onRenombrar,
-  onMover,
-  onBorrar,
+  botones = [],
 }: {
-  archivo: ArchivoNube
+  archivo: Abrible
   onCerrar: () => void
   onDescargar: () => void
-  /** Sin ellas el visor es de solo lectura (los medios del Studio se gestionan en su app). */
-  onRenombrar?: () => void
-  onMover?: () => void
-  onBorrar?: () => void
+  botones?: BotonVisor[]
 }) {
   const t = useT()
   const [url, setUrl] = useState<string | null>(null)
@@ -40,18 +44,20 @@ export function Visor({
 
   useEffect(() => {
     let vivo = true
-    urlDeVista(archivo)
-      .then(async (u) => {
-        if (!vivo) return
-        setUrl(u)
-        if (esTexto) {
-          const r = await fetch(u)
-          if (vivo) setTexto(await r.text())
-        }
-      })
-      .catch((e) => vivo && setError(mensajeDeError(e)))
+    let local: string | null = null
+    const cargar = async () => {
+      const u = archivo.blob ? (local = URL.createObjectURL(archivo.blob)) : await urlDeVista(archivo)
+      if (!vivo) return
+      setUrl(u)
+      if (esTexto) {
+        const r = await fetch(u)
+        if (vivo) setTexto(await r.text())
+      }
+    }
+    cargar().catch((e) => vivo && setError(mensajeDeError(e)))
     return () => {
       vivo = false
+      if (local) URL.revokeObjectURL(local)
     }
   }, [archivo, esTexto])
 
@@ -76,26 +82,23 @@ export function Visor({
     <Modal titulo={archivo.nombre} onCerrar={onCerrar} ancho="max-w-3xl">
       <div className="grid min-h-32 place-items-center">{vista}</div>
       <p className="text-xs text-white/45">
-        {formatoBytes(archivo.bytes)} · {new Date(archivo.creadoEn).toLocaleString()}
+        {formatoBytes(archivo.bytes)}
+        {archivo.creadoEn && ` · ${new Date(archivo.creadoEn).toLocaleString()}`}
       </p>
       <div className="flex flex-wrap gap-2">
         <BotonPrimario pequeno app={COLOR} onClick={onDescargar}>
           <Icono nombre="descargar" /> {t('archivos.descargar', 'Descargar')}
         </BotonPrimario>
-        {onRenombrar && (
-          <BotonSecundario pequeno onClick={onRenombrar}>
-            <Icono nombre="editar" /> {t('archivos.renombrar', 'Renombrar')}
-          </BotonSecundario>
-        )}
-        {onMover && (
-          <BotonSecundario pequeno onClick={onMover}>
-            <Icono nombre="mover" /> {t('archivos.mover', 'Mover')}
-          </BotonSecundario>
-        )}
-        {onBorrar && (
-          <BotonPeligro pequeno onClick={onBorrar} className="ml-auto">
-            <Icono nombre="basura" /> {t('archivos.borrar', 'Borrar')}
-          </BotonPeligro>
+        {botones.map((b) =>
+          b.peligro ? (
+            <BotonPeligro key={b.texto} pequeno onClick={b.onClick} className="ml-auto">
+              <Icono nombre={b.icono} /> {b.texto}
+            </BotonPeligro>
+          ) : (
+            <BotonSecundario key={b.texto} pequeno onClick={b.onClick}>
+              <Icono nombre={b.icono} /> {b.texto}
+            </BotonSecundario>
+          ),
         )}
       </div>
     </Modal>

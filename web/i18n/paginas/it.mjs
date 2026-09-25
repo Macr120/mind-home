@@ -305,7 +305,7 @@ export const TEXTOS = {
     'I tuoi dati sono tuoi. L’app è local-first: tutto vive prima sul tuo dispositivo. Il dettaglio di cosa conserviamo e come cancellarlo è nell’<a href="/privacidad">informativa sulla privacy</a>.',
   'term.alojado.h': "File che conservi nel cloud",
   'term.alojado.p':
-    "Sei responsabile dei file che carichi nel tuo cloud e devi avere il diritto di conservarli. Non è consentito ospitare contenuti illegali, che violino diritti di terzi o le regole della community; possiamo rimuoverli e sospendere l’account. Il cloud è un servizio di archiviazione, non un backup garantito: conserva una copia di ciò che non vuoi perdere.",
+    "Sei responsabile dei file che carichi nel tuo cloud e devi avere il diritto di conservarli. Non è consentito ospitare contenuti illegali, che violino diritti di terzi o le regole della community; possiamo rimuoverli e sospendere l’account. Il cloud è un servizio di archiviazione, non un backup garantito: conserva una copia di ciò che non vuoi perdere. Se condividi un file con un link, sei responsabile di a chi lo mandi; il link scade da solo e rimuoviamo quelli che ci vengono segnalati.",
   'term.razonable.h': 'Uso ragionevole',
   'term.razonable.p':
     'La quota di crediti di IA è per account personale. Non è consentito rivendere il servizio, condividere l’account in modo massivo né automatizzare il consumo di IA fuori dall’app.',
@@ -344,4 +344,22 @@ export const TEXTOS = {
   'sop.cuenta.p':
     'Puoi cancellare il tuo account e tutti i tuoi dati nel cloud dall’app (Editor → Impostazioni → Account) o dal tuo account sul web. Cancellandolo spariscono anche i collegamenti ai tuoi social (YouTube, TikTok, Facebook e Instagram): i token salvati vengono distrutti e smettono di valere.',
   'sop.cuenta.enlace': 'Vai al tuo account',
+
+  // ─── Archivo compartido por enlace (descarga.html) ───────────────────
+  'desc.titulo': "File condiviso",
+  'desc.cargando': "Cerco il file…",
+  'desc.compartido': "Ti hanno condiviso questo file:",
+  'desc.bajar': "Scarica",
+  'desc.nota': "Il link dura un tempo limitato. MindHaOS non controlla ciò che condividono i suoi utenti: aprilo solo se ti fidi di chi te l’ha mandato.",
+  'desc.noExiste.h': "Questo link non esiste",
+  'desc.noExiste.p': "Forse il proprietario ha smesso di condividerlo o il file non è più nel suo cloud.",
+  'desc.vencido.h': "Questo link è scaduto",
+  'desc.vencido.p': "Chiedi un nuovo link a chi te l’ha mandato.",
+  'desc.tope.h': "Troppi download oggi",
+  'desc.tope.p': "Questo link ha raggiunto il limite giornaliero. Riprova domani.",
+  'desc.error.h': "Impossibile aprirlo",
+  'desc.error.p': "Controlla la connessione e ricarica la pagina.",
+  'desc.cta': "Vuoi una casa tutta tua per organizzare vita e file?",
+  'desc.cta.enlace': "Prova MindHaOS",
+  'desc.reportar': "Segnala questo file",
 }

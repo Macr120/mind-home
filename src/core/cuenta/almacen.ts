@@ -12,10 +12,11 @@ import { create } from 'zustand'
 import { obtenerSupabase } from './supabase'
 import { tGlobal } from '../i18n/useT'
 import { pedirUsoAlmacen, type UsoAlmacen } from './almacenUso'
+import { URL_WEB } from './urlWeb'
 
 export { formatoBytes, formatoUso } from './almacenUso'
 
-export type MotivoAlmacen = 'sin-sesion' | 'sin-pro' | 'cuota' | 'grande' | 'sin-objeto' | 'sin-almacen' | 'red'
+export type MotivoAlmacen = 'sin-sesion' | 'sin-pro' | 'cuota' | 'grande' | 'sin-objeto' | 'sin-almacen' | 'enlaces' | 'red'
 
 /** Error tipado del almacén; `message` ya viene listo para mostrarse. */
 export class ErrorAlmacen extends Error {
@@ -41,6 +42,8 @@ function mensajeDe(m: MotivoAlmacen): string {
       return tGlobal('almacen.error.sinObjeto', 'La subida no llegó completa. Inténtalo de nuevo.')
     case 'sin-almacen':
       return tGlobal('almacen.error.sinAlmacen', 'El almacenamiento en la nube no está disponible ahora.')
+    case 'enlaces':
+      return tGlobal('almacen.error.enlaces', 'Ya tienes 100 enlaces activos: quita alguno para compartir otro.')
     default:
       return tGlobal('almacen.error.red', 'No hay conexión con el almacenamiento de MindHaOS.')
   }
@@ -137,4 +140,35 @@ export async function refrescarUsoAlmacen(): Promise<UsoAlmacen | null> {
   const uso = await pedirUsoAlmacen()
   if (uso) useAlmacen.setState({ uso })
   return uso
+}
+
+/** Un enlace público vivo (lo sirve `archivo-publico`). */
+export interface EnlaceArchivo {
+  token: string
+  clave: string
+  nombre: string
+  expira_en: string
+  descargas: number
+}
+
+/** La página que abre quien recibe el enlace vive en la web, no en la app. */
+export const urlDeEnlace = (token: string): string => `${URL_WEB ?? 'https://mindhaos.com'}/d/${token}`
+
+/** Crea un enlace público (1, 7 o 30 días) para un archivo ya subido. */
+export async function compartirArchivo(clave: string, nombre: string, dias: 1 | 7 | 30): Promise<{ token: string; expira: string }> {
+  return llamar<{ token: string; expira: string }>({ accion: 'compartir', clave, nombre, dias })
+}
+
+/** Los enlaces vivos de un archivo (o todos los del usuario). */
+export async function enlacesDe(clave?: string): Promise<EnlaceArchivo[]> {
+  return (await llamar<{ enlaces: EnlaceArchivo[] }>({ accion: 'enlaces', clave })).enlaces
+}
+
+export async function revocarEnlace(token: string): Promise<void> {
+  await llamar({ accion: 'revocar', token })
+}
+
+/** Mata los enlaces de esas claves (al mandarlas a la papelera). */
+export async function revocarEnlacesDe(claves: string[]): Promise<void> {
+  for (let i = 0; i < claves.length; i += 500) await llamar({ accion: 'revocar', claves: claves.slice(i, i + 500) })
 }

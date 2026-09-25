@@ -303,7 +303,7 @@ export const TEXTOS = {
     'Je gegevens zijn van jou. De app is local-first: alles leeft eerst op je apparaat. Wat we bewaren en hoe je het wist, staat in het <a href="/privacidad">privacybeleid</a>.',
   'term.alojado.h': "Bestanden die je in de cloud bewaart",
   'term.alojado.p':
-    "Je bent verantwoordelijk voor de bestanden die je naar je cloud uploadt en moet het recht hebben om ze te bewaren. Illegale inhoud, inhoud die rechten van derden schendt of die de communityregels overtreedt, is niet toegestaan; we kunnen die verwijderen en het account opschorten. De cloud is een opslagdienst, geen gegarandeerde back-up: bewaar een kopie van wat je niet kwijt wilt.",
+    "Je bent verantwoordelijk voor de bestanden die je naar je cloud uploadt en moet het recht hebben om ze te bewaren. Illegale inhoud, inhoud die rechten van derden schendt of die de communityregels overtreedt, is niet toegestaan; we kunnen die verwijderen en het account opschorten. De cloud is een opslagdienst, geen gegarandeerde back-up: bewaar een kopie van wat je niet kwijt wilt. Als je een bestand via een link deelt, ben je verantwoordelijk voor wie je hem stuurt; de link verloopt vanzelf en gemelde links verwijderen we.",
   'term.razonable.h': 'Redelijk gebruik',
   'term.razonable.p':
     'Het AI-creditquotum geldt voor een persoonlijk account. Het is niet toegestaan de dienst door te verkopen, het account massaal te delen of het AI-verbruik buiten de app om te automatiseren.',
@@ -342,4 +342,22 @@ export const TEXTOS = {
   'sop.cuenta.p':
     'Je kunt je account en al je gegevens in de cloud verwijderen vanuit de app (Editor → Instellingen → Account) of via je account op het web. Bij het verwijderen verdwijnen ook de koppelingen met je sociale netwerken (YouTube, TikTok, Facebook en Instagram): de bewaarde tokens worden vernietigd en werken niet meer.',
   'sop.cuenta.enlace': 'Naar je account',
+
+  // ─── Archivo compartido por enlace (descarga.html) ───────────────────
+  'desc.titulo': "Gedeeld bestand",
+  'desc.cargando': "Bestand zoeken…",
+  'desc.compartido': "Dit bestand is met je gedeeld:",
+  'desc.bajar': "Downloaden",
+  'desc.nota': "De link geldt beperkte tijd. MindHaOS controleert niet wat gebruikers delen: open hem alleen als je de afzender vertrouwt.",
+  'desc.noExiste.h': "Deze link bestaat niet",
+  'desc.noExiste.p': "Misschien deelt de eigenaar hem niet meer of staat het bestand niet meer in zijn cloud.",
+  'desc.vencido.h': "Deze link is verlopen",
+  'desc.vencido.p': "Vraag de afzender om een nieuwe link.",
+  'desc.tope.h': "Te veel downloads vandaag",
+  'desc.tope.p': "Deze link heeft zijn daglimiet bereikt. Probeer het morgen opnieuw.",
+  'desc.error.h': "Kon niet worden geopend",
+  'desc.error.p': "Controleer je verbinding en laad de pagina opnieuw.",
+  'desc.cta': "Wil je je eigen huis om je leven en bestanden te ordenen?",
+  'desc.cta.enlace': "Probeer MindHaOS",
+  'desc.reportar': "Dit bestand melden",
 }

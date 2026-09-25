@@ -25,6 +25,8 @@ export const MANUAL_AR: ManualTraducido = {
     "[Abre] {mis archivos}": "[افتح] {ملفاتي}",
     "[Abre] los {archivos recientes}": "[افتح] {الملفات الأخيرة}",
     "[Abre] los {archivos del studio}": "[افتح] {ملفات الاستوديو}",
+    "[Abre] la {papelera}": "[افتح] {سلة المهملات}",
+    "[Abre] los {archivos destacados}": "[افتح] {الملفات المميّزة بنجمة}",
     '[Tomé] {2 vasos} de [agua]': '[شربت] {كوبين} من [الماء]',
     '[Me pesé]: {74 kg}': '[وزنت نفسي]: {74 كغ}',
     '[Abre] el {recetario}': '[افتح] {كتاب الوصفات}',

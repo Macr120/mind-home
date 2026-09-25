@@ -302,7 +302,7 @@ export const TEXTOS = {
     'Datamu adalah milikmu. Aplikasinya local-first: semuanya hidup lebih dulu di perangkatmu. Rincian apa yang kami simpan dan cara menghapusnya ada di <a href="/privacidad">kebijakan privasi</a>.',
   'term.alojado.h': "Berkas yang kamu simpan di cloud",
   'term.alojado.p':
-    "Kamu bertanggung jawab atas berkas yang kamu unggah ke cloud-mu dan harus berhak menyimpannya. Dilarang menyimpan konten ilegal, yang melanggar hak pihak ketiga, atau yang melanggar aturan komunitas; kami dapat menghapusnya dan menangguhkan akun. Cloud adalah layanan penyimpanan, bukan cadangan yang dijamin: simpan salinan dari apa pun yang tidak ingin kamu hilangkan.",
+    "Kamu bertanggung jawab atas berkas yang kamu unggah ke cloud-mu dan harus berhak menyimpannya. Dilarang menyimpan konten ilegal, yang melanggar hak pihak ketiga, atau yang melanggar aturan komunitas; kami dapat menghapusnya dan menangguhkan akun. Cloud adalah layanan penyimpanan, bukan cadangan yang dijamin: simpan salinan dari apa pun yang tidak ingin kamu hilangkan. Jika kamu membagikan berkas lewat tautan, kamu bertanggung jawab atas penerimanya; tautan kedaluwarsa sendiri dan kami menghapus yang dilaporkan.",
   'term.razonable.h': 'Pemakaian yang wajar',
   'term.razonable.p':
     'Kuota kredit AI berlaku untuk akun pribadi. Tidak diperbolehkan menjual kembali layanannya, membagikan akun secara massal, maupun mengotomatiskan konsumsi AI di luar aplikasi.',
@@ -341,4 +341,22 @@ export const TEXTOS = {
   'sop.cuenta.p':
     'Kamu bisa menghapus akun dan semua datamu di cloud dari aplikasi (Editor → Pengaturan → Akun) atau dari akunmu di web. Saat dihapus, koneksi ke media sosialmu (YouTube, TikTok, Facebook, dan Instagram) ikut hilang: token yang tersimpan dimusnahkan dan tidak berlaku lagi.',
   'sop.cuenta.enlace': 'Ke akunmu',
+
+  // ─── Archivo compartido por enlace (descarga.html) ───────────────────
+  'desc.titulo': "Berkas yang dibagikan",
+  'desc.cargando': "Mencari berkas…",
+  'desc.compartido': "Berkas ini dibagikan kepadamu:",
+  'desc.bajar': "Unduh",
+  'desc.nota': "Tautan berlaku terbatas. MindHaOS tidak memeriksa apa yang dibagikan penggunanya: buka hanya jika kamu percaya pada pengirimnya.",
+  'desc.noExiste.h': "Tautan ini tidak ada",
+  'desc.noExiste.p': "Mungkin pemiliknya berhenti membagikannya atau berkasnya sudah tidak ada di cloud-nya.",
+  'desc.vencido.h': "Tautan ini kedaluwarsa",
+  'desc.vencido.p': "Minta tautan baru kepada pengirimnya.",
+  'desc.tope.h': "Terlalu banyak unduhan hari ini",
+  'desc.tope.p': "Tautan ini mencapai batas hariannya. Coba lagi besok.",
+  'desc.error.h': "Tidak bisa dibuka",
+  'desc.error.p': "Periksa koneksimu dan muat ulang halaman.",
+  'desc.cta': "Mau rumah sendiri untuk menata hidup dan berkasmu?",
+  'desc.cta.enlace': "Coba MindHaOS",
+  'desc.reportar': "Laporkan berkas ini",
 }

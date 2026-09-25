@@ -1,0 +1,88 @@
+<!doctype html>
+<!-- Plantilla: ver web/index.html. Los textos viven en web/i18n/paginas/<id>.mjs.
+     Página de un archivo compartido desde el cuarto Archivo (mindhaos.com/d/<token>,
+     reescrito aquí en web/public/_redirects). Todos los estados vienen ya
+     traducidos en el HTML; `src/descarga.ts` solo decide cuál se ve. -->
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <!--idioma-script-->
+    <title>{{desc.titulo|attr}} — MindHaOS</title>
+    <meta name="theme-color" content="#e9edf5" />
+    <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+    <link rel="stylesheet" href="/estilos.css" />
+  </head>
+  <body>
+    <header class="barra-marco">
+      <div class="contenedor barra">
+        <a class="logo" href="/">
+          <svg class="logo-piezas" viewBox="0 0 357 100" aria-hidden="true"><rect y="3" width="94" height="94" rx="20" fill="#FFB319"/><path d="M137 0V100H237Z" fill="#FF505F"/><path d="M257 0H357V100A100 100 0 0 1 257 0Z" fill="#C07DFE"/></svg>
+          <span class="nombre">
+            {{marca.nombre}}
+            <small>{{marca.sub}}</small>
+          </span>
+        </a>
+        <nav>
+          <!--selector-idiomas-->
+          <!--boton-tema-->
+        </nav>
+      </div>
+    </header>
+
+    <main class="legal descarga">
+      <section data-estado="cargando">
+        <p>{{desc.cargando}}</p>
+      </section>
+
+      <section data-estado="ok" hidden>
+        <p class="descarga-de">{{desc.compartido}}</p>
+        <h1 id="descarga-nombre"></h1>
+        <p id="descarga-tamano" class="fecha"></p>
+        <div id="descarga-vista" class="descarga-vista"></div>
+        <p><a id="descarga-boton" class="boton principal grande ui-boton" href="#">{{desc.bajar}}</a></p>
+        <p>{{desc.nota}}</p>
+      </section>
+
+      <section data-estado="no-existe" hidden>
+        <h1>{{desc.noExiste.h}}</h1>
+        <p>{{desc.noExiste.p}}</p>
+      </section>
+
+      <section data-estado="vencido" hidden>
+        <h1>{{desc.vencido.h}}</h1>
+        <p>{{desc.vencido.p}}</p>
+      </section>
+
+      <section data-estado="tope" hidden>
+        <h1>{{desc.tope.h}}</h1>
+        <p>{{desc.tope.p}}</p>
+      </section>
+
+      <section data-estado="error" hidden>
+        <h1>{{desc.error.h}}</h1>
+        <p>{{desc.error.p}}</p>
+      </section>
+
+      <section>
+        <p>{{desc.cta}} <a href="https://app.mindhaos.com/">{{desc.cta.enlace}}</a></p>
+        <p><a id="descarga-reportar" href="mailto:mindplannerhome@gmail.com">{{desc.reportar}}</a></p>
+      </section>
+    </main>
+
+    <div class="contenedor">
+      <footer>
+        <div class="enlaces">
+          <a href="/">{{pie.inicio}}</a>
+          <a href="/privacidad">{{pie.privacidad}}</a>
+          <a href="/terminos">{{pie.terminos}}</a>
+          <a href="/soporte#contacto">{{pie.contacto}}</a>
+        </div>
+        <p>© 2026 MindHaOS · Marco Antonio Cabanillas Ramirez</p>
+      </footer>
+    </div>
+    <script type="module" src="/src/descarga.ts"></script>
+  </body>
+</html>

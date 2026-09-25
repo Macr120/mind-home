@@ -16,13 +16,15 @@ const raiz = path.resolve(carpeta, '..')
  * igual en local que en producción.
  */
 function urlsLimpias(): Plugin {
-  const paginas = new Set(['cuenta', 'privacidad', 'terminos', 'soporte', 'mascara'])
+  const paginas = new Set(['cuenta', 'privacidad', 'terminos', 'soporte', 'mascara', 'descarga'])
   return {
     name: 'mph-urls-limpias',
     configureServer(server) {
       server.middlewares.use((req, _res, next) => {
         const ruta = (req.url ?? '').split('?')[0].replace(/^\//, '').replace(/\/$/, '')
         if (paginas.has(ruta)) req.url = `/${ruta}.html`
+        // Un archivo compartido (/d/<token>): en producción lo reescribe `_redirects`.
+        else if (/^d\/[\w-]+$/.test(ruta)) req.url = '/descarga.html'
         next()
       })
     },
@@ -45,6 +47,7 @@ export default defineConfig({
         terminos: path.resolve(carpeta, 'terminos.html'),
         soporte: path.resolve(carpeta, 'soporte.html'),
         mascara: path.resolve(carpeta, 'mascara.html'),
+        descarga: path.resolve(carpeta, 'descarga.html'),
       },
     },
   },

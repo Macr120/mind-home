@@ -25,6 +25,8 @@ export const MANUAL_JA: ManualTraducido = {
     "[Abre] {mis archivos}": "{マイファイル}を[開いて]",
     "[Abre] los {archivos recientes}": "{最近のファイル}を[開いて]",
     "[Abre] los {archivos del studio}": "{Studioのファイル}を[開いて]",
+    "[Abre] la {papelera}": "{ゴミ箱}を[開いて]",
+    "[Abre] los {archivos destacados}": "{スター付きのファイル}を[開いて]",
     '[Tomé] {2 vasos} de [agua]': '[水]を{2杯}[飲みました]',
     '[Me pesé]: {74 kg}': '[体重を測りました]：{74 kg}',
     '[Abre] el {recetario}': '{レシピ帳}を[開いて]',

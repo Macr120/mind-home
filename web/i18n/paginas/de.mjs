@@ -305,7 +305,7 @@ export const TEXTOS = {
     'Deine Daten gehören dir. Die App ist local-first: alles lebt zuerst auf deinem Gerät. Was wir speichern und wie du es löschst, steht in der <a href="/privacidad">Datenschutzerklärung</a>.',
   'term.alojado.h': "Dateien, die du in der Cloud speicherst",
   'term.alojado.p':
-    "Du bist für die Dateien verantwortlich, die du in deine Cloud hochlädst, und musst berechtigt sein, sie zu speichern. Illegale Inhalte, Inhalte, die Rechte Dritter verletzen, oder Inhalte, die gegen die Community-Regeln verstoßen, sind nicht erlaubt; wir können sie entfernen und das Konto sperren. Die Cloud ist ein Speicherdienst, keine garantierte Sicherung: Bewahre eine Kopie von allem auf, was du nicht verlieren darfst.",
+    "Du bist für die Dateien verantwortlich, die du in deine Cloud hochlädst, und musst berechtigt sein, sie zu speichern. Illegale Inhalte, Inhalte, die Rechte Dritter verletzen, oder Inhalte, die gegen die Community-Regeln verstoßen, sind nicht erlaubt; wir können sie entfernen und das Konto sperren. Die Cloud ist ein Speicherdienst, keine garantierte Sicherung: Bewahre eine Kopie von allem auf, was du nicht verlieren darfst. Wenn du eine Datei per Link teilst, bist du dafür verantwortlich, wem du ihn schickst; der Link läuft von selbst ab und gemeldete Links entfernen wir.",
   'term.razonable.h': 'Angemessene Nutzung',
   'term.razonable.p':
     'Das KI-Credit-Kontingent gilt für ein persönliches Konto. Es ist nicht erlaubt, den Dienst weiterzuverkaufen, das Konto massenhaft zu teilen oder den KI-Verbrauch außerhalb der App zu automatisieren.',
@@ -344,4 +344,22 @@ export const TEXTOS = {
   'sop.cuenta.p':
     'Du kannst dein Konto und alle deine Daten in der Cloud in der App löschen (Editor → Einstellungen → Konto) oder über dein Konto im Web. Beim Löschen werden auch die Verbindungen zu deinen sozialen Netzwerken (YouTube, TikTok, Facebook und Instagram) entfernt: Die gespeicherten Tokens werden vernichtet und verlieren ihre Gültigkeit.',
   'sop.cuenta.enlace': 'Zu deinem Konto',
+
+  // ─── Archivo compartido por enlace (descarga.html) ───────────────────
+  'desc.titulo': "Geteilte Datei",
+  'desc.cargando': "Datei wird gesucht…",
+  'desc.compartido': "Diese Datei wurde mit dir geteilt:",
+  'desc.bajar': "Herunterladen",
+  'desc.nota': "Der Link gilt nur begrenzt. MindHaOS prüft nicht, was Nutzer teilen: Öffne ihn nur, wenn du dem Absender vertraust.",
+  'desc.noExiste.h': "Diesen Link gibt es nicht",
+  'desc.noExiste.p': "Vielleicht teilt der Besitzer ihn nicht mehr oder die Datei ist nicht mehr in seiner Cloud.",
+  'desc.vencido.h': "Dieser Link ist abgelaufen",
+  'desc.vencido.p': "Bitte den Absender um einen neuen Link.",
+  'desc.tope.h': "Zu viele Downloads heute",
+  'desc.tope.p': "Dieser Link hat sein Tageslimit erreicht. Versuch es morgen wieder.",
+  'desc.error.h': "Konnte nicht geöffnet werden",
+  'desc.error.p': "Prüfe deine Verbindung und lade die Seite neu.",
+  'desc.cta': "Willst du dein eigenes Haus, um dein Leben und deine Dateien zu ordnen?",
+  'desc.cta.enlace': "MindHaOS ausprobieren",
+  'desc.reportar': "Diese Datei melden",
 }

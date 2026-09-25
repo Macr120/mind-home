@@ -25,6 +25,8 @@ export const MANUAL_ZH: ManualTraducido = {
     "[Abre] {mis archivos}": "[打开]{我的文件}",
     "[Abre] los {archivos recientes}": "[打开]{最近的文件}",
     "[Abre] los {archivos del studio}": "[打开]{Studio 的文件}",
+    "[Abre] la {papelera}": "[打开]{回收站}",
+    "[Abre] los {archivos destacados}": "[打开]{加星标的文件}",
     '[Tomé] {2 vasos} de [agua]': '[我喝了]{2杯}[水]',
     '[Me pesé]: {74 kg}': '[我称了体重]：{74公斤}',
     '[Abre] el {recetario}': '[打开]{食谱本}',

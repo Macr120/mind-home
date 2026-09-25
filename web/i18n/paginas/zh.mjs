@@ -280,7 +280,7 @@ export const TEXTOS = {
     '你的数据属于你。应用是本地优先的：一切先存在你的设备上。我们保存什么、怎么删除，详见<a href="/privacidad">隐私政策</a>。',
   'term.alojado.h': "你保存在云端的文件",
   'term.alojado.p':
-    "你需对上传到云端的文件负责，并须有权保存这些文件。禁止存放违法内容、侵犯他人权利或违反社区规则的内容；我们可能将其删除并暂停账户。云端是存储服务，不是有保障的备份：请为不想丢失的内容保留副本。",
+    "你需对上传到云端的文件负责，并须有权保存这些文件。禁止存放违法内容、侵犯他人权利或违反社区规则的内容；我们可能将其删除并暂停账户。云端是存储服务，不是有保障的备份：请为不想丢失的内容保留副本。 如果你通过链接分享文件，你需要对发送对象负责；链接会自动过期，被举报的链接我们会删除。",
   'term.razonable.h': '合理使用',
   'term.razonable.p':
     'AI 额度按个人账户计。不得转售服务、大规模共享账户，也不得在应用之外自动化消耗 AI。',
@@ -319,4 +319,22 @@ export const TEXTOS = {
   'sop.cuenta.p':
     '你可以在应用里（编辑器 → 设置 → 账号）或在网页的账号页面删除账号和云端的全部数据。删除时也会一并解除与社交媒体（YouTube、TikTok、Facebook、Instagram）的连接：保存的令牌会被销毁并失效。',
   'sop.cuenta.enlace': '前往你的账号',
+
+  // ─── Archivo compartido por enlace (descarga.html) ───────────────────
+  'desc.titulo': "共享的文件",
+  'desc.cargando': "正在查找文件…",
+  'desc.compartido': "有人与你分享了这个文件：",
+  'desc.bajar': "下载",
+  'desc.nota': "链接有效期有限。MindHaOS 不审核用户分享的内容：只有信任发送者时才打开。",
+  'desc.noExiste.h': "此链接不存在",
+  'desc.noExiste.p': "可能所有者已停止分享，或文件已不在其云端。",
+  'desc.vencido.h': "此链接已过期",
+  'desc.vencido.p': "请向发送者要一个新链接。",
+  'desc.tope.h': "今天下载次数过多",
+  'desc.tope.p': "此链接已达到每日上限。请明天再试。",
+  'desc.error.h': "无法打开",
+  'desc.error.p': "请检查网络连接并刷新页面。",
+  'desc.cta': "想要一个整理生活和文件的专属小家吗？",
+  'desc.cta.enlace': "试用 MindHaOS",
+  'desc.reportar': "举报此文件",
 }

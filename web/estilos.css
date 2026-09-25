@@ -1185,6 +1185,28 @@ footer a:hover {
   color: var(--ui-ink);
 }
 
+/* Archivo compartido (descarga.html): la vista previa cabe en la columna. */
+.descarga-de {
+  margin-bottom: 0.25rem;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+.descarga-vista:empty {
+  display: none;
+}
+.descarga-vista {
+  margin: 1rem 0;
+}
+.descarga-vista img,
+.descarga-vista video,
+.descarga-vista audio {
+  display: block;
+  width: 100%;
+  max-height: 60vh;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

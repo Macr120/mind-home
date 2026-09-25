@@ -25,6 +25,8 @@ export const MANUAL_HI: ManualTraducido = {
     "[Abre] {mis archivos}": "{मेरी फ़ाइलें} [खोलो]",
     "[Abre] los {archivos recientes}": "{हाल की फ़ाइलें} [खोलो]",
     "[Abre] los {archivos del studio}": "{स्टूडियो की फ़ाइलें} [खोलो]",
+    "[Abre] la {papelera}": "{ट्रैश} [खोलो]",
+    "[Abre] los {archivos destacados}": "{तारांकित फ़ाइलें} [खोलो]",
     '[Tomé] {2 vasos} de [agua]': '[पिया] {2 गिलास} [पानी]',
     '[Me pesé]: {74 kg}': '[वज़न किया]: {74 किलो}',
     '[Abre] el {recetario}': '{रेसिपी बुक} [खोलो]',

@@ -612,6 +612,9 @@ export const EMOJIS = {
   // Buzón (mensajería entre usuarios)
   buzon: '📬',
   adjuntar: '📎',
+  // Archivo (la nube tipo Drive)
+  masOpciones: '⋯',
+  subirCarpeta: '📂',
 } satisfies Record<string, string>
 
 export type NombreIcono = keyof typeof EMOJIS
