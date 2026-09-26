@@ -1,5 +1,5 @@
 import { hayBackend } from '../cuenta/supabase'
-import { useSesion } from '../cuenta/sesionStore'
+import { uidConPago, useSesion } from '../cuenta/sesionStore'
 import * as api from './api'
 import * as cache from './cache'
 import { conectarCalendario, engancharCalendario } from './calendario'
@@ -33,14 +33,15 @@ export function conectarEspacios(): void {
   }
   if (!hayBackend()) return
   // Se compara por `usuario.id`: el objeto `usuario` se reemplaza en cada refresh de token.
+  // Sin compra el servidor rechaza los espacios: sigue al uid CON pago.
   useSesion.subscribe((s, prev) => {
-    const ahora = s.usuario?.id ?? null
-    const antes = prev.usuario?.id ?? null
+    const ahora = uidConPago(s)
+    const antes = uidConPago(prev)
     if (ahora === antes) return
     if (antes) detener()
     if (ahora) void iniciar(ahora)
   })
-  const uid = useSesion.getState().usuario?.id
+  const uid = uidConPago(useSesion.getState())
   if (uid) void iniciar(uid)
 }
 

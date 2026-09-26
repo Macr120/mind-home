@@ -79,6 +79,7 @@ export const TEXTOS: Record<string, string> = {
     'MindHaOS\'un senindir ve verilerin cihazında kalır. Yapay zekâ ile eşitleme ayrı ödenir: ihtiyacın kadar kredi al ya da abone ol ve her ay teslim al.',
   'mi.estado.sinCasa':
     'Hesabında henüz MindHaOS yok. Aşağıdan satın al —ya da test kullanıcısıysan kuponunu kullan— ve aynı e-postayla istediğin cihazda aç.',
+  'mi.borrado': 'Satın almayı tamamlamazsan bu hesap {fecha} tarihinde silinir.',
   'mi.disponibles': 'Kullanılabilir kredi: {n}',
   'mi.abrirApp': 'Uygulamayı tarayıcıda aç',
   'mi.probarApp': 'MindHaOS\'unu kurmayı ücretsiz dene',

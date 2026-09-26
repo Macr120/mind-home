@@ -254,7 +254,7 @@ export const TEXTOS = {
     'Your local data stays on your devices. Synced data remains stored (inaccessible until you renew) and you can delete it for good by deleting your account.',
   'priv.borrar.h': 'How to delete your account and your data',
   'priv.borrar.p':
-    'From the app: Editor → Settings → Account. Deletion removes your user, your synced data and your files from our servers; only the billing records the law requires us to keep are retained.',
+    'From the app: Editor → Settings → Account. Deletion removes your user, your synced data and your files from our servers; only the billing records the law requires us to keep are retained. Accounts that never complete a purchase are deleted automatically 3 days after they are created, keeping none of their data.',
   'priv.proveedores.h': 'Providers',
   'priv.proveedores.1': 'Supabase (database, authentication and files).',
   'priv.proveedores.2': 'RevenueCat and Stripe (purchases, subscriptions and payments).',

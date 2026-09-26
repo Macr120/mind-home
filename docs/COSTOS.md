@@ -335,6 +335,34 @@ con/sin edición crea dos prefijos que conviven sin invalidarse.
    haber pedido nada.
 5. **Créditos por operación**: cada acción paga lo que cuesta y el techo del mes
    queda sellado (antes se podía superar gastando todo en 3D).
+6. **Revisión de caché (sep 2026)**.
+   - **Lo medido:** en `uso_ia_ops` el chat escribía ~7 900 tokens de caché por
+     llamada y leía ~5 000.
+   - **Qué se cambió:**
+     - La cola del system ya no lleva breakpoint: pagaba 1.25× sin releerse.
+     - Las charlas de Biblioteca e Idiomas usan `ventanaEstable` (`ia.ts`): la
+       ventana de 20 mensajes avanza a saltos de 10, así el prefijo del hilo se
+       relee varios turnos.
+     - La entrada de Gemini ya no se cuenta dos veces (`promptTokenCount` incluye
+       lo cacheado), y su lectura de caché se tarifa a 0.25×.
+7. **Respuestas compartidas** (`ia_respuestas`):
+   - Efemérides, fichas de obras y macros se piden con `compartible`: la segunda
+     persona que pide lo mismo (mismo día e idioma, misma obra, mismo platillo)
+     no llama al modelo ni gasta créditos.
+   - Ejemplo: las efemérides eran ~$0.0039 por usuario y día; a escala pasan a
+     ~16 llamadas al día en total, una por idioma.
+8. **Voz en caché** (`vozIA.ts`): las frases de hasta 400 caracteres se guardan
+   en Cache Storage (las últimas 200). Un saludo repetido no vuelve a costar TTS.
+
+**Pendiente, por escala** (hoy el tráfico no las amortiza):
+- Prefijo global de más de 4 096 tokens en el chat: todas las tools de captura
+  fijas y las apps del usuario en la cola. Con poco tráfico es una escritura más
+  grande que casi nunca se relee.
+- Memorias fuera del system.
+- Ventana escalonada en el chat de la casa: hace falta el índice absoluto del
+  mensaje.
+- Enrutar `texto`/`texto_largo` a un modelo más barato: antes hay que medir la
+  calidad del JSON.
 
 ## Escenarios por perfil
 

@@ -15,7 +15,7 @@ const SYSTEM = [
  * la respuesta no es interpretable (el caller decide la UI del error).
  */
 export async function estimarMacros(descripcion: string): Promise<TotalesMacros> {
-  const respuesta = await conversarIA(SYSTEM, [{ rol: 'usuario', texto: descripcion }], 200)
+  const respuesta = await conversarIA(SYSTEM, [{ rol: 'usuario', texto: descripcion }], 200, { compartible: true })
   const json = extraerJSON(respuesta)
 
   const num = (v: unknown) => {

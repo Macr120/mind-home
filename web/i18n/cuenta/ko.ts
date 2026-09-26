@@ -76,6 +76,7 @@ export const TEXTOS: Record<string, string> = {
     'MindHaOS는 당신의 것이고 데이터는 기기에 남습니다. AI와 동기화는 따로 결제합니다. 필요한 만큼 크레딧을 사거나, 구독해 매달 받으세요.',
   'mi.estado.sinCasa':
     '이 계정에는 아직 MindHaOS가 없습니다. 아래에서 구매하거나, 테스터라면 쿠폰을 사용하세요. 같은 이메일로 어느 기기에서든 열 수 있습니다.',
+  'mi.borrado': '구매를 완료하지 않으면 이 계정은 {fecha}에 삭제됩니다.',
   'mi.disponibles': '사용 가능한 크레딧: {n}',
   'mi.abrirApp': '브라우저에서 앱 열기',
   'mi.probarApp': '내 MindHaOS 만들기 무료 체험',

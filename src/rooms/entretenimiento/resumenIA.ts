@@ -88,6 +88,7 @@ export async function completarMediaIA(obra: ObraConsultada): Promise<DatosMedia
     system(obra.tipo, sinSpoilers),
     [{ rol: 'usuario', texto: peticion }],
     900,
+    { compartible: true },
   )
   const json = extraerJSON(respuesta)
   if (json.desconocida) {

@@ -142,7 +142,8 @@ interface UsoCuenta {
 export interface RespuestaChatCuenta {
   texto: string | null
   llamadas: { name: string; input: Record<string, unknown> }[]
-  uso: UsoCuenta & { entrada: number; salida: number }
+  /** null = respuesta compartida servida sin modelo (no se cobró nada). */
+  uso: (UsoCuenta & { entrada: number; salida: number }) | null
 }
 
 /** Refleja en el store el medidor que acaba de devolver el servidor. */
@@ -217,6 +218,11 @@ type CuerpoChatCuenta = {
   perfil?: 'rapido' | 'calidad'
   /** Operación que se cobra. El servidor le impone su tope de `maxTokens`. */
   op?: OpIA
+  /**
+   * La petición es igual para cualquier usuario (efemérides de un día, ficha de
+   * una obra): el proxy la sirve de su caché si alguien ya la hizo, sin cobrar.
+   */
+  compartible?: boolean
 }
 
 /** Chat/tools/visión vía `ia-chat`. Refresca el medidor local con el uso devuelto. */
@@ -227,7 +233,7 @@ export async function iaChatCuenta(cuerpo: CuerpoChatCuenta): Promise<RespuestaC
     ...cuerpo,
     prov: getProvCerebroCuenta() ?? undefined,
   })
-  refrescarMedidor(r.uso)
+  if (r.uso) refrescarMedidor(r.uso)
   return r
 }
 
@@ -243,7 +249,7 @@ export async function iaChatCuentaRuteado(
     ...cuerpo,
     prov: getProvCerebroCuenta() ?? undefined,
   })
-  if (!('rapido' in r)) refrescarMedidor(r.uso)
+  if (!('rapido' in r) && r.uso) refrescarMedidor(r.uso)
   return r
 }
 

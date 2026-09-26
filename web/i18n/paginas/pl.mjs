@@ -254,7 +254,7 @@ export const TEXTOS = {
     'Dane lokalne zostają na twoich urządzeniach. Dane zsynchronizowane pozostają przechowywane (niedostępne do czasu wznowienia) i możesz je trwale usunąć, kasując konto.',
   'priv.borrar.h': 'Jak usunąć konto i dane',
   'priv.borrar.p':
-    'Z poziomu aplikacji: Edytor → Ustawienia → Konto. Usunięcie kasuje twojego użytkownika, dane zsynchronizowane i pliki z naszych serwerów; zostają wyłącznie zapisy rozliczeniowe, których przechowywania wymaga prawo.',
+    'Z poziomu aplikacji: Edytor → Ustawienia → Konto. Usunięcie kasuje twojego użytkownika, dane zsynchronizowane i pliki z naszych serwerów; zostają wyłącznie zapisy rozliczeniowe, których przechowywania wymaga prawo. Konta, które nie dokończą żadnego zakupu, są automatycznie usuwane 3 dni po utworzeniu, bez zachowywania żadnych ich danych.',
   'priv.proveedores.h': 'Dostawcy',
   'priv.proveedores.1': 'Supabase (baza danych, uwierzytelnianie i pliki).',
   'priv.proveedores.2': 'RevenueCat i Stripe (zakupy, abonamenty i płatności).',

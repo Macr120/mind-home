@@ -79,6 +79,7 @@ export const TEXTOS: Record<string, string> = {
     'MindHaOS-mu milikmu dan datamu tinggal di perangkatmu. AI dan sinkronisasi dibayar terpisah: beli kredit yang kamu perlukan, atau berlangganan dan terima setiap bulan.',
   'mi.estado.sinCasa':
     'Akunmu belum punya MindHaOS. Beli di bawah ini —atau tukarkan kuponmu kalau kamu tester— lalu buka dengan email yang sama di perangkat mana pun.',
+  'mi.borrado': 'Jika kamu tidak menyelesaikan pembelian, akun ini akan dihapus pada {fecha}.',
   'mi.disponibles': 'Kredit tersedia: {n}',
   'mi.abrirApp': 'Buka aplikasinya di browser',
   'mi.probarApp': 'Coba bangun MindHaOS-mu gratis',

@@ -16,6 +16,7 @@ export type ConfigGrupoId =
   | 'notificaciones'
   | 'ia'
   | 'respaldo'
+  | 'capacidad'
 
 /**
  * Orden de fábrica: «Precios de la IA» va DEBAJO de «Notificaciones». Es una
@@ -33,6 +34,7 @@ const ORDEN_CONFIG_DEFAULT: ConfigGrupoId[] = [
   'notificaciones',
   'ia',
   'respaldo',
+  'capacidad',
 ]
 
 const KEY_ORDEN_CONFIG = 'mind-home-editor-orden-config'

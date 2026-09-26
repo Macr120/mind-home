@@ -257,7 +257,7 @@ export const TEXTOS = {
     'I tuoi dati locali restano sui tuoi dispositivi. I dati sincronizzati restano archiviati (inaccessibili finché non rinnovi) e puoi cancellarli definitivamente eliminando il tuo account.',
   'priv.borrar.h': 'Come cancellare account e dati',
   'priv.borrar.p':
-    'Dall’app: Editor → Impostazioni → Account. La cancellazione elimina il tuo utente, i tuoi dati sincronizzati e i tuoi file dai nostri server; restano solo i registri di fatturazione che la legge impone di conservare.',
+    'Dall’app: Editor → Impostazioni → Account. La cancellazione elimina il tuo utente, i tuoi dati sincronizzati e i tuoi file dai nostri server; restano solo i registri di fatturazione che la legge impone di conservare. Gli account che non completano alcun acquisto vengono eliminati automaticamente 3 giorni dopo la creazione, senza conservarne alcun dato.',
   'priv.proveedores.h': 'Fornitori',
   'priv.proveedores.1': 'Supabase (database, autenticazione e file).',
   'priv.proveedores.2': 'RevenueCat e Stripe (acquisti, abbonamenti e pagamenti).',

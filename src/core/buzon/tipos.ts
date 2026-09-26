@@ -17,6 +17,8 @@ export interface Contacto {
   emoji: string
   /** Busto del personaje 3D de la persona (data URL pequeña); sin él se pinta su emoji. */
   retrato?: string | null
+  /** Huella del retrato en el servidor: si no cambia, el de la caché sigue valiendo. */
+  retratoV?: string | null
   estado: EstadoContacto
   /** Quién pidió el contacto: yo ('enviada') o la otra persona ('recibida'). */
   direccion: 'enviada' | 'recibida'

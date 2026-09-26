@@ -8,14 +8,12 @@
  * Transición desde Supabase Storage (bucket `sync-blobs`):
  * - Marcador con `r2`: `path` es la clave relativa `sync/<tabla>/<uid>/<campo>`.
  * - Marcador viejo (sin `r2`): `path` es `<user>/<tabla>/<uid>/<campo>`. El
- *   script `scripts/almacen/migrar-sync-blobs.mjs` lo copia a R2 como
- *   `sync/<tabla>/<uid>/<campo>`; se lee de ahí y, si aún no está, de Storage.
- * - Si el servidor aún no tiene R2 configurado ('sin-almacen'), el push sigue
- *   subiendo a Storage con marcador viejo: desplegar el cliente antes que R2
- *   no rompe el sync.
+ *   script `scripts/almacen/migrar-sync-blobs.mjs` lo copió a R2 como
+ *   `sync/<tabla>/<uid>/<campo>`; se lee de ahí y, si aún no está, de Storage
+ *   (solo lectura: desde sep 2026 ya no se sube ni se borra nada ahí).
  */
 import { obtenerSupabase } from '../../cuenta/supabase'
-import { ErrorAlmacen, bajarDeUrl, borrarArchivos, subirArchivo, urlsDeBajada } from '../../cuenta/almacen'
+import { bajarDeUrl, borrarArchivos, subirArchivo, urlsDeBajada } from '../../cuenta/almacen'
 import { db } from '../db'
 
 const BUCKET_VIEJO = 'sync-blobs'
@@ -39,27 +37,13 @@ const sanear = (ruta: string) => ruta.replace(/[^\w.-]/g, '_')
 /** Clave en R2 de un marcador (el viejo pierde su primer segmento, el usuario). */
 const claveR2 = (m: MarcadorBlob['__mhBlob']) => (m.r2 ? m.path : `sync/${m.path.split('/').slice(1).join('/')}`)
 
-async function subirViejo(path: string, blob: Blob, mime: string): Promise<void> {
-  const sb = await obtenerSupabase()
-  if (!sb) throw new Error('Storage (subir): sin backend')
-  const { error } = await sb.storage.from(BUCKET_VIEJO).upload(path, blob, { upsert: true, contentType: mime })
-  if (error) throw new Error(`Storage (subir): ${error.message}`)
-}
-
-async function subirBlob(userId: string, relativa: string, blob: Blob): Promise<MarcadorBlob> {
+async function subirBlob(relativa: string, blob: Blob): Promise<MarcadorBlob> {
   const mime = blob.type || 'application/octet-stream'
   const hash = await sha256(blob)
   const clave = `sync/${relativa}`
   const previo = (await db._syncMeta.get(claveHash(clave)))?.valor as { hash?: string } | undefined
   if (previo?.hash === hash) return { __mhBlob: { path: clave, size: blob.size, mime, hash, r2: true } }
-  try {
-    await subirArchivo(clave, blob)
-  } catch (e) {
-    if (!(e instanceof ErrorAlmacen && e.motivo === 'sin-almacen')) throw e
-    const viejo = `${userId}/${relativa}`
-    await subirViejo(viejo, blob, mime)
-    return { __mhBlob: { path: viejo, size: blob.size, mime, hash } }
-  }
+  await subirArchivo(clave, blob)
   await db._syncMeta.put({ clave: claveHash(clave), valor: { hash } })
   return { __mhBlob: { path: clave, size: blob.size, mime, hash, r2: true } }
 }
@@ -85,12 +69,11 @@ async function transformar(
 
 /** Copia del registro con sus Blobs subidos y sustituidos por marcadores. */
 export async function extraerBlobs(
-  userId: string,
   tabla: string,
   uid: string,
   datos: Record<string, unknown>,
 ): Promise<Record<string, unknown>> {
-  const subir = (ruta: string, b: Blob) => subirBlob(userId, `${tabla}/${uid}/${sanear(ruta)}`, b)
+  const subir = (ruta: string, b: Blob) => subirBlob(`${tabla}/${uid}/${sanear(ruta)}`, b)
   const out: Record<string, unknown> = {}
   for (const [k, v] of Object.entries(datos)) out[k] = await transformar(v, k, subir)
   return out
@@ -170,21 +153,15 @@ export async function rehidratarBlobs(valor: unknown): Promise<unknown> {
   return valor
 }
 
-/** Borra en el almacén (y en el Storage viejo) los blobs de un registro eliminado (best-effort). */
-export async function borrarBlobsDeRegistro(userId: string, tabla: string, uid: string): Promise<void> {
+/**
+ * Borra en el almacén los blobs de un registro eliminado (best-effort). El
+ * Storage viejo ya no se toca: su `list` por cada tombstone era la llamada más
+ * cara del sync, y lo que quede ahí se vacía de una vez con el bucket.
+ */
+export async function borrarBlobsDeRegistro(tabla: string, uid: string): Promise<void> {
   try {
     await borrarArchivos([], `sync/${tabla}/${uid}`)
   } catch {
     // Sin R2 o sin red: huérfanos aceptados como deuda conocida.
-  }
-  const sb = await obtenerSupabase()
-  if (!sb) return
-  try {
-    const carpeta = `${userId}/${tabla}/${uid}`
-    const { data } = await sb.storage.from(BUCKET_VIEJO).list(carpeta)
-    const nombres = (data ?? []).map((f) => `${carpeta}/${f.name}`)
-    if (nombres.length) await sb.storage.from(BUCKET_VIEJO).remove(nombres)
-  } catch {
-    // Ídem.
   }
 }

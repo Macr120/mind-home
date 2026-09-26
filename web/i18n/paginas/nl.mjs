@@ -255,7 +255,7 @@ export const TEXTOS = {
     'Je lokale gegevens blijven op je apparaten staan. De gesynchroniseerde gegevens blijven opgeslagen (onbereikbaar tot je verlengt) en je kunt ze definitief wissen door je account te verwijderen.',
   'priv.borrar.h': 'Hoe je je account en je gegevens verwijdert',
   'priv.borrar.p':
-    'Vanuit de app: Editor → Instellingen → Account. Het verwijderen wist je gebruiker, je gesynchroniseerde gegevens en je bestanden van onze servers; alleen de facturatiegegevens die de wet ons verplicht te bewaren blijven staan.',
+    'Vanuit de app: Editor → Instellingen → Account. Het verwijderen wist je gebruiker, je gesynchroniseerde gegevens en je bestanden van onze servers; alleen de facturatiegegevens die de wet ons verplicht te bewaren blijven staan. Accounts die geen aankoop afronden, worden 3 dagen na het aanmaken automatisch verwijderd, zonder dat er gegevens van worden bewaard.',
   'priv.proveedores.h': 'Leveranciers',
   'priv.proveedores.1': 'Supabase (database, authenticatie en bestanden).',
   'priv.proveedores.2': 'RevenueCat en Stripe (aankopen, abonnementen en betalingen).',

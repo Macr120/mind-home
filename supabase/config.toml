@@ -439,3 +439,8 @@ verify_jwt = false
 # Descarga de un archivo compartido por enlace: la abre cualquiera, sin cuenta.
 [functions.archivo-publico]
 verify_jwt = false
+
+# La capacidad (métricas, alertas y subida de compute) la dispara el cron de la
+# base cada hora, sin JWT: se autentica contra CAPACIDAD_AUTH.
+[functions.capacidad]
+verify_jwt = false

@@ -612,6 +612,7 @@ function MiCuenta() {
   const planExpira = useSesion((s) => s.planExpira)
   const fuePro = useSesion((s) => s.fuePro)
   const unlock = useSesion((s) => s.unlock)
+  const creadaEn = useSesion((s) => s.usuario?.created_at)
   const usoIA = useSesion((s) => s.usoIA)
   const creditosExtra = useSesion((s) => s.creditosExtra)
   const salir = useSesion((s) => s.salir)
@@ -717,6 +718,18 @@ function MiCuenta() {
             <>
               <ConseguirApp />
               <Cupon />
+              {/* Las cuentas sin compra se borran solas a los 3 días
+                  (cron `cuentas-purga-diaria`). */}
+              {creadaEn && (
+                <p className="text-center text-[11px] text-white/45">
+                  {t('mi.borrado', 'Si no completas la compra, esta cuenta se borra el {fecha}.', {
+                    fecha: new Date(Date.parse(creadaEn) + 3 * 86_400_000).toLocaleDateString(document.documentElement.lang, {
+                      day: 'numeric',
+                      month: 'long',
+                    }),
+                  })}
+                </p>
+              )}
             </>
           )}
           {verPlanes && (

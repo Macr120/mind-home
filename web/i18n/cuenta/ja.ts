@@ -76,6 +76,7 @@ export const TEXTOS: Record<string, string> = {
     'MindHaOSはあなたのもので、データは端末に残ります。AIと同期は別料金です。必要な分のクレジットを購入するか、定期購入して毎月受け取ってください。',
   'mi.estado.sinCasa':
     'このアカウントにはまだMindHaOSがありません。下で購入するか、テスターの方はクーポンを引き換えてください。同じメールアドレスでどの端末からでも開けます。',
+  'mi.borrado': '購入を完了しない場合、このアカウントは{fecha}に削除されます。',
   'mi.disponibles': '利用できるクレジット：{n}',
   'mi.abrirApp': 'ブラウザでアプリを開く',
   'mi.probarApp': '無料で自分のMindHaOSづくりを試す',

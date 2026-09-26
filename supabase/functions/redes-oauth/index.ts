@@ -26,6 +26,7 @@
  */
 import type { SupabaseClient } from 'npm:@supabase/supabase-js@2'
 import { clienteAdmin, clienteUsuario, usuarioDe } from '../_shared/auth.ts'
+import { tienePago } from '../_shared/pago.ts'
 import { corsDe, json, origenPermitido, preflight } from '../_shared/cors.ts'
 import { dentroDeLimite } from '../_shared/limite.ts'
 import { ErrorRedes, respuestaError } from '../_shared/redes/errores.ts'
@@ -62,6 +63,7 @@ Deno.serve(async (req) => {
     const usuario = await usuarioDe(clienteUsuario(req))
     if (!usuario) throw new ErrorRedes('sin-sesion', 'Inicia sesión para conectar tus redes.')
     const admin = clienteAdmin()
+    if (!(await tienePago(admin, usuario.id))) throw new ErrorRedes('sin-unlock', 'Desbloquea la casa para usar las redes.')
     let cuerpo: Record<string, unknown> = {}
     try {
       cuerpo = (await req.json()) as Record<string, unknown>

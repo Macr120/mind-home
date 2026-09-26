@@ -16,8 +16,11 @@ const TARIFAS: Record<string, Tarifa> = {
   'claude-haiku': { entrada: 1.0, salida: 5.0, cacheCrear: 1.25, cacheLeer: 0.1 },
   // Precio PLENO de Sonnet 5: el introductorio ($2/$10) vence el 31-ago-2026.
   'claude-sonnet': { entrada: 3.0, salida: 15.0, cacheCrear: 3.75, cacheLeer: 0.3 },
-  'gemini-lite': { entrada: 0.25, salida: 1.5, cacheCrear: 0, cacheLeer: 0 },
-  'gemini': { entrada: 0.3, salida: 2.5, cacheCrear: 0, cacheLeer: 0 },
+  // El caché implícito de Gemini cobra la lectura a 0.25× y no la escritura.
+  // Desde sep 2026 `ia-chat` resta lo cacheado de la entrada (antes lo contaba
+  // dos veces: dentro de `promptTokenCount` y además como lectura).
+  'gemini-lite': { entrada: 0.25, salida: 1.5, cacheCrear: 0, cacheLeer: 0.025 },
+  'gemini': { entrada: 0.3, salida: 2.5, cacheCrear: 0, cacheLeer: 0.075 },
   // OpenAI (ago 2026, verificado en developers.openai.com/api/docs/pricing).
   // NO cobra la escritura del caché —a diferencia de Anthropic, que pide
   // 1.25×— y la lectura sale a 0.1× de la entrada.

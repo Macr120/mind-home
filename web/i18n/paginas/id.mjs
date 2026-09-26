@@ -254,7 +254,7 @@ export const TEXTOS = {
     'Data lokalmu tetap di perangkatmu. Data yang tersinkron tetap tersimpan (tidak bisa diakses sampai kamu berlangganan lagi) dan bisa kamu hapus selamanya dengan menghapus akunmu.',
   'priv.borrar.h': 'Cara menghapus akun dan datamu',
   'priv.borrar.p':
-    'Lewat aplikasi: Editor → Pengaturan → Akun. Penghapusan menghilangkan penggunamu, data tersinkronmu, dan berkasmu dari server kami; hanya catatan penagihan yang diwajibkan hukum yang tetap disimpan.',
+    'Lewat aplikasi: Editor → Pengaturan → Akun. Penghapusan menghilangkan penggunamu, data tersinkronmu, dan berkasmu dari server kami; hanya catatan penagihan yang diwajibkan hukum yang tetap disimpan. Akun yang tidak menyelesaikan pembelian apa pun dihapus otomatis 3 hari setelah dibuat, tanpa menyimpan datanya.',
   'priv.proveedores.h': 'Penyedia',
   'priv.proveedores.1': 'Supabase (basis data, autentikasi, dan berkas).',
   'priv.proveedores.2': 'RevenueCat dan Stripe (pembelian, langganan, dan pembayaran).',

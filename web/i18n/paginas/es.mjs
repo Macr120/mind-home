@@ -268,7 +268,7 @@ export const TEXTOS = {
     'Tus datos locales siguen en tus dispositivos. Los datos sincronizados quedan almacenados (inaccesibles hasta que renueves) y puedes borrarlos definitivamente eliminando tu cuenta.',
   'priv.borrar.h': 'Cómo borrar tu cuenta y tus datos',
   'priv.borrar.p':
-    'Desde la app: Editor → Configuraciones → Cuenta. El borrado elimina tu usuario, tus datos sincronizados y tus archivos de nuestros servidores; se conservan solo los registros de facturación que la ley exige guardar.',
+    'Desde la app: Editor → Configuraciones → Cuenta. El borrado elimina tu usuario, tus datos sincronizados y tus archivos de nuestros servidores; se conservan solo los registros de facturación que la ley exige guardar. Las cuentas que no completan ninguna compra se borran automáticamente a los 3 días de crearse, sin guardar ningún dato suyo.',
   'priv.proveedores.h': 'Proveedores',
   'priv.proveedores.1': 'Supabase (base de datos, autenticación y archivos).',
   'priv.proveedores.2': 'RevenueCat y Stripe (compras, suscripciones y pagos).',

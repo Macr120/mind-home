@@ -360,6 +360,17 @@ export const useSesion = create<SesionState>((set, get) => ({
 }))
 
 /**
+ * El uid si la cuenta pagó algo (unlock, plan vigente o ilimitada); si no, null.
+ * Espejo de `public.pago()` (migración 20260928000001): sin compra el servidor
+ * rechaza lo social, así que el buzón y los espacios ni arrancan.
+ */
+export function uidConPago(s: Pick<SesionState, 'usuario' | 'unlock' | 'ilimitado' | 'plan' | 'planExpira'>): string | null {
+  if (!s.usuario) return null
+  const planVigente = s.plan !== 'local' && (!s.planExpira || new Date(s.planExpira).getTime() > Date.now())
+  return s.unlock || s.ilimitado || planVigente ? s.usuario.id : null
+}
+
+/**
  * ¿Esta instalación tiene sesión? (síncrono, para gates tipo `iaActiva`).
  *
  * Cuenta también la sesión que el store TODAVÍA no ha hidratado: el SDK de

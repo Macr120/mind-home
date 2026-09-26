@@ -254,7 +254,7 @@ export const TEXTOS = {
     'Seus dados locais continuam nos seus dispositivos. Os dados sincronizados ficam armazenados (inacessíveis até você renovar) e podem ser apagados definitivamente eliminando sua conta.',
   'priv.borrar.h': 'Como apagar sua conta e seus dados',
   'priv.borrar.p':
-    'Pelo app: Editor → Configurações → Conta. A exclusão elimina seu usuário, seus dados sincronizados e seus arquivos dos nossos servidores; conservam-se apenas os registros de faturamento que a lei exige guardar.',
+    'Pelo app: Editor → Configurações → Conta. A exclusão elimina seu usuário, seus dados sincronizados e seus arquivos dos nossos servidores; conservam-se apenas os registros de faturamento que a lei exige guardar. Contas que não concluem nenhuma compra são excluídas automaticamente 3 dias após serem criadas, sem guardar nenhum dado delas.',
   'priv.proveedores.h': 'Provedores',
   'priv.proveedores.1': 'Supabase (banco de dados, autenticação e arquivos).',
   'priv.proveedores.2': 'RevenueCat e Stripe (compras, assinaturas e pagamentos).',

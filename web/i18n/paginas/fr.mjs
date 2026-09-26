@@ -258,7 +258,7 @@ export const TEXTOS = {
     'Tes données locales restent sur tes appareils. Les données synchronisées restent stockées (inaccessibles jusqu’à ce que tu reprennes) et tu peux les effacer définitivement en supprimant ton compte.',
   'priv.borrar.h': 'Comment supprimer ton compte et tes données',
   'priv.borrar.p':
-    'Depuis l’app : Éditeur → Réglages → Compte. La suppression efface ton utilisateur, tes données synchronisées et tes fichiers de nos serveurs ; seuls les enregistrements de facturation que la loi impose de conserver sont gardés.',
+    'Depuis l’app : Éditeur → Réglages → Compte. La suppression efface ton utilisateur, tes données synchronisées et tes fichiers de nos serveurs ; seuls les enregistrements de facturation que la loi impose de conserver sont gardés. Les comptes qui ne finalisent aucun achat sont supprimés automatiquement 3 jours après leur création, sans conserver aucune de leurs données.',
   'priv.proveedores.h': 'Prestataires',
   'priv.proveedores.1': 'Supabase (base de données, authentification et fichiers).',
   'priv.proveedores.2': 'RevenueCat et Stripe (achats, abonnements et paiements).',

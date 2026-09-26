@@ -257,7 +257,7 @@ export const TEXTOS = {
     'Deine lokalen Daten bleiben auf deinen Geräten. Die synchronisierten Daten bleiben gespeichert (unzugänglich, bis du erneuerst) und du kannst sie endgültig löschen, indem du dein Konto löschst.',
   'priv.borrar.h': 'Wie du dein Konto und deine Daten löschst',
   'priv.borrar.p':
-    'Aus der App: Editor → Einstellungen → Konto. Das Löschen entfernt deinen Nutzer, deine synchronisierten Daten und deine Dateien von unseren Servern; erhalten bleiben nur die Abrechnungsbelege, die das Gesetz aufzubewahren verlangt.',
+    'Aus der App: Editor → Einstellungen → Konto. Das Löschen entfernt deinen Nutzer, deine synchronisierten Daten und deine Dateien von unseren Servern; erhalten bleiben nur die Abrechnungsbelege, die das Gesetz aufzubewahren verlangt. Konten, die keinen Kauf abschließen, werden 3 Tage nach ihrer Erstellung automatisch gelöscht, ohne dass Daten davon aufbewahrt werden.',
   'priv.proveedores.h': 'Dienstleister',
   'priv.proveedores.1': 'Supabase (Datenbank, Authentifizierung und Dateien).',
   'priv.proveedores.2': 'RevenueCat und Stripe (Käufe, Abos und Zahlungen).',

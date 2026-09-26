@@ -16,6 +16,7 @@ export type CodigoRedes =
   | 'cuota-youtube'
   | 'orden'
   | 'sesion-caducada'
+  | 'sin-unlock'
 
 const STATUS: Record<CodigoRedes, number> = {
   'sin-sesion': 401,
@@ -32,6 +33,7 @@ const STATUS: Record<CodigoRedes, number> = {
   'cuota-youtube': 429,
   orden: 409,
   'sesion-caducada': 410,
+  'sin-unlock': 403,
 }
 
 export class ErrorRedes extends Error {

@@ -417,7 +417,27 @@ function PantallaTienda() {
           sistema y pasan por la caja de la tienda. */}
       {canal !== 'iap' && <FilaCupon />}
 
+      <AvisoBorrado />
     </Marco>
+  )
+}
+
+/**
+ * Las cuentas sin compra se borran solas a los 3 días (cron `cuentas-purga-diaria`,
+ * migración 20260928000001): se avisa con la fecha para que no pille por sorpresa.
+ */
+function AvisoBorrado() {
+  const t = useT()
+  const creada = useSesion((s) => s.usuario?.created_at)
+  if (!creada) return null
+  const fecha = new Date(new Date(creada).getTime() + 3 * 86_400_000).toLocaleDateString(idiomaActual(), {
+    day: 'numeric',
+    month: 'long',
+  })
+  return (
+    <p className="text-[11px] leading-snug text-white/45">
+      {t('puerta.borrado', 'Si no completas la compra, esta cuenta se borra el {fecha}.').replace('{fecha}', fecha)}
+    </p>
   )
 }
 

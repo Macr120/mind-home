@@ -994,6 +994,22 @@ export interface MensajeIA {
 }
 
 /**
+ * Las últimas `max` entradas de una conversación, pero con el principio
+ * avanzando a SALTOS de `max / 2` en vez de uno por turno. Con una ventana que
+ * se desliza, el primer mensaje cambia en cada turno y el caché de prompts del
+ * hilo nunca se relee (se paga la escritura, 1.25×, cada vez); así el prefijo
+ * se mantiene idéntico varios turnos seguidos. Empieza en un turno del usuario,
+ * como exige la API.
+ */
+export function ventanaEstable(lista: MensajeIA[], max: number): MensajeIA[] {
+  if (lista.length <= max) return lista
+  const paso = Math.max(1, Math.floor(max / 2))
+  let ini = Math.floor((lista.length - paso) / paso) * paso
+  while (ini < lista.length - 1 && lista[ini].rol !== 'usuario') ini++
+  return lista.slice(ini)
+}
+
+/**
  * Normaliza un historial para la API (que exige turnos alternados empezando
  * por el usuario): descarta vacíos, fusiona mensajes consecutivos del mismo
  * rol y quita un saludo inicial del asistente.
@@ -1019,6 +1035,8 @@ export async function conversarIA(
   system: string,
   mensajes: MensajeIA[],
   maxTokens = 1500,
+  /** Igual para cualquier usuario: la cuenta la sirve de su caché si alguien ya la pidió. */
+  opciones: { compartible?: boolean } = {},
 ): Promise<string> {
   const historial = normalizarHistorial(mensajes)
   if (!historial.length) throw new Error('Conversación vacía')
@@ -1035,7 +1053,13 @@ export async function conversarIA(
   // mensajes sí se cachea turno a turno. El system 3D (Sonnet, mínimo 1024)
   // queda cubierto por el mismo marcador de system del proxy.
   if (usarViaCuenta()) {
-    const r = await iaChatCuenta({ system, mensajes: historial, maxTokens, op: opDeTexto(maxTokens) })
+    const r = await iaChatCuenta({
+      system,
+      mensajes: historial,
+      maxTokens,
+      op: opDeTexto(maxTokens),
+      compartible: opciones.compartible,
+    })
     const texto = r.texto?.trim()
     if (!texto) throw new Error('La IA respondió vacío')
     return texto

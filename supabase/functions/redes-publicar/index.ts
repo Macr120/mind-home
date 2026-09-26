@@ -22,6 +22,7 @@
  */
 import type { SupabaseClient } from 'npm:@supabase/supabase-js@2'
 import { clienteAdmin, clienteUsuario, usuarioDe } from '../_shared/auth.ts'
+import { tienePago } from '../_shared/pago.ts'
 import { corsDe, json, preflight } from '../_shared/cors.ts'
 import { dentroDeLimite } from '../_shared/limite.ts'
 import { ErrorRedes, respuestaError } from '../_shared/redes/errores.ts'
@@ -94,6 +95,7 @@ Deno.serve(async (req) => {
     const usuario = await usuarioDe(clienteUsuario(req))
     if (!usuario) throw new ErrorRedes('sin-sesion', 'Inicia sesión para publicar.')
     const admin = clienteAdmin()
+    if (!(await tienePago(admin, usuario.id))) throw new ErrorRedes('sin-unlock', 'Desbloquea la casa para usar las redes.')
     const url = new URL(req.url)
     // El trozo viaja binario: sus metadatos van en la query (sin ampliar las cabeceras CORS).
     if (url.searchParams.get('accion') === 'trozo') return json(await trozo(admin, usuario.id, url, req), 200, cors)

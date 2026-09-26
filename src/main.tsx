@@ -52,7 +52,7 @@ iniciarSesion()
 // En las casas demo, probar y visita NUNCA: con sesión Pro haría pull de la nube
 // real a la BD paralela y push de su contenido a la nube del usuario.
 if (!esDemo() && !esProbar() && !esVisita()) conectarMotorSync()
-// Buzón (mensajería entre usuarios): sigue la sesión sin exigir plan. Tampoco
+// Buzón (mensajería entre usuarios): sigue la sesión con compra (unlock o plan). Tampoco
 // en demo/probar: esas casas no son la del usuario. En VISITA sí sigue vivo: hay
 // que poder chatear con el anfitrión mientras se pasea por su casa (B8).
 if (!esDemo() && !esProbar()) conectarBuzon()

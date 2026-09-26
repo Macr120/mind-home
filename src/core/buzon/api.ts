@@ -146,26 +146,45 @@ interface ContactoRemoto {
   nombre: string | null
   emoji: string | null
   retrato: string | null
+  /** Huella del retrato: el retrato en sí solo viaja cuando cambia. */
+  retrato_v?: string | null
   estado: Contacto['estado']
   direccion: Contacto['direccion']
   bloqueado_por_mi: boolean | null
   actualizado_en: string
 }
 
-export async function listarContactos(): Promise<Contacto[]> {
-  const r = await rpc<{ contactos: ContactoRemoto[] }>('buzon_listar_contactos')
-  return (r.contactos ?? []).map((c) => ({
-    contactoId: c.contacto_id,
-    hiloId: c.hilo_id,
-    alias: c.alias ?? '',
-    nombre: c.nombre ?? '',
-    emoji: c.emoji ?? '🙂',
-    retrato: c.retrato ?? null,
-    estado: c.estado,
-    direccion: c.direccion,
-    bloqueadoPorMi: c.bloqueado_por_mi === true,
-    actualizadoEn: c.actualizado_en,
-  }))
+/**
+ * La lista llega SIN retratos (hasta 64 KB cada uno, y se relee cada pocos
+ * minutos): se reutiliza el de `previos` (la caché) si su huella no cambió, y
+ * solo los nuevos o cambiados se piden aparte con `buzon_retratos`.
+ */
+export async function listarContactos(previos: Contacto[] = []): Promise<Contacto[]> {
+  const r = await rpc<{ contactos: ContactoRemoto[] }>('buzon_listar_contactos', { p_sin_retrato: true })
+  const antes = new Map(previos.map((c) => [c.contactoId, c]))
+  const lista: Contacto[] = (r.contactos ?? []).map((c) => {
+    const previo = antes.get(c.contacto_id)
+    const v = c.retrato_v ?? null
+    return {
+      contactoId: c.contacto_id,
+      hiloId: c.hilo_id,
+      alias: c.alias ?? '',
+      nombre: c.nombre ?? '',
+      emoji: c.emoji ?? '🙂',
+      retrato: c.retrato ?? (v && previo?.retratoV === v ? (previo.retrato ?? null) : null),
+      retratoV: v,
+      estado: c.estado,
+      direccion: c.direccion,
+      bloqueadoPorMi: c.bloqueado_por_mi === true,
+      actualizadoEn: c.actualizado_en,
+    }
+  })
+  const faltan = lista.filter((c) => c.retratoV && !c.retrato).map((c) => c.contactoId)
+  if (faltan.length) {
+    const rr = await rpc<{ retratos: Record<string, string> }>('buzon_retratos', { p_contactos: faltan.slice(0, 50) })
+    for (const c of lista) c.retrato = c.retrato ?? rr.retratos?.[c.contactoId] ?? null
+  }
+  return lista
 }
 
 // ─── mensajes ────────────────────────────────────────────────────────────────

@@ -19,6 +19,7 @@ import { EditorCuentaSection } from './editor/EditorCuentaSection'
 import { EditorRedesSection } from './editor/EditorRedesSection'
 import { EditorIASection } from './editor/EditorIASection'
 import { EditorRespaldoSection } from './editor/EditorRespaldoSection'
+import { PanelCapacidad, useEsDueno } from './editor/PanelCapacidad'
 import { ConfigGrupo } from './editor/ConfigGrupo'
 import { useDosColumnas, useZonaPreview } from './editor/zonaPreview'
 import { useEditorSeccionesConfig } from './editor/useEditorSecciones'
@@ -112,6 +113,12 @@ const GRUPOS_CONFIG: Record<
     titulo: (t) => t('respaldo.titulo', 'Respaldo de datos'),
     Contenido: () => <EditorRespaldoSection embed sinTitulo />,
   },
+  // Solo la cuenta del dueño la ve (`useEsDueno`, RPC capacidad_es_dueno).
+  capacidad: {
+    icono: 'grafica',
+    titulo: (t) => t('cap.grupo', 'Capacidad y usuarios'),
+    Contenido: () => <PanelCapacidad />,
+  },
 }
 
 /** Grupos de la cuenta real: no salen en una casa demo prestada. */
@@ -138,6 +145,7 @@ export function EditPanel() {
   const setZona = useZonaPreview((s) => s.setNodo)
   const previewsEnZona = useZonaPreview((s) => s.cuenta)
   const secConfig = useEditorSeccionesConfig()
+  const esDueno = useEsDueno()
   const pasos = useHistorialEditor((s) => s.pasos.length)
   const rehechos = useHistorialEditor((s) => s.rehechos.length)
   const deshacer = useHistorialEditor((s) => s.deshacer)
@@ -318,6 +326,7 @@ export function EditPanel() {
                   orden: así conservan su sitio al volver de la casa demo. */}
               {secConfig.orden
                 .filter((id) => !(sinCuenta && OCULTOS_SIN_CUENTA.has(id)))
+                .filter((id) => id !== 'capacidad' || (esDueno && !sinCuenta))
                 // El fondo de pantalla solo existe en el escritorio: en la web y en
                 // el teléfono no hay ventana que colgar del escritorio.
                 .filter((id) => id !== 'fondo' || hayFondoEscritorio())

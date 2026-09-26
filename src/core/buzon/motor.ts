@@ -1,6 +1,6 @@
 import type { RealtimeChannel } from '@supabase/supabase-js'
 import { hayBackend, obtenerSupabase } from '../cuenta/supabase'
-import { useSesion } from '../cuenta/sesionStore'
+import { uidConPago, useSesion } from '../cuenta/sesionStore'
 import { esDemo } from '../edicion'
 import { tGlobal } from '../i18n/useT'
 import { comprimirImagen } from '../imagenIA'
@@ -26,6 +26,8 @@ import { ErrorBuzon, esAdjunto, TOPE_TEXTO, topeDe, type AdjuntoRemoto, type Con
 
 // Con el campanazo Realtime el intervalo es red de seguridad.
 const INTERVALO_MS = 120_000
+const INTERVALO_CON_CANAL_MS = 600_000
+const VISIBLE_MIN_MS = 30_000
 const BACKOFF_BASE_MS = 5000
 const BACKOFF_MAX_MS = 60_000
 const LEIDO_DEBOUNCE_MS = 800
@@ -49,6 +51,10 @@ interface EnvioPendiente {
 let activo = false
 let uidActual: string | null = null
 let canal: RealtimeChannel | null = null
+/** El canal está suscrito: lo nuevo llega solo y el intervalo puede espaciarse. */
+let canalVivo = false
+/** Última vuelta de la red de seguridad (o del alta del canal). */
+let ultimaVuelta = 0
 let cursor = 0
 let ultimoSeqPropio = 0
 let pullEnVuelo = false
@@ -75,14 +81,15 @@ export function clavePrevia(c: ContenidoMensaje): string | null {
  */
 export function conectarBuzon(): void {
   if (!hayBackend()) return
+  // Sin compra el servidor rechaza el buzón: sigue al uid CON pago.
   useSesion.subscribe((s, prev) => {
-    const ahora = s.usuario?.id ?? null
-    const antes = prev.usuario?.id ?? null
+    const ahora = uidConPago(s)
+    const antes = uidConPago(prev)
     if (ahora === antes) return
     if (antes) detener()
     if (ahora) void iniciar(ahora)
   })
-  const uid = useSesion.getState().usuario?.id
+  const uid = uidConPago(useSesion.getState())
   if (uid) void iniciar(uid)
 }
 
@@ -100,7 +107,12 @@ async function iniciar(uid: string): Promise<void> {
   document.addEventListener('visibilitychange', alVisible)
   window.addEventListener('online', alOnline)
   if (timerInterval == null) {
+    // Red de seguridad: nada con la pestaña oculta; con el canal vivo los
+    // mensajes y contactos llegan solos y basta una vuelta cada 10 min.
     timerInterval = setInterval(() => {
+      if (document.hidden) return
+      if (canalVivo && Date.now() - ultimaVuelta < INTERVALO_CON_CANAL_MS) return
+      ultimaVuelta = Date.now()
       void pull()
       void refrescarContactos()
     }, INTERVALO_MS)
@@ -113,6 +125,7 @@ async function iniciar(uid: string): Promise<void> {
 function detener(): void {
   activo = false
   uidActual = null
+  canalVivo = false
   if (canal) {
     void canal.unsubscribe()
     canal = null
@@ -141,11 +154,14 @@ function detener(): void {
   })
 }
 
+let ultimoVisible = 0
+
 function alVisible(): void {
-  if (document.visibilityState === 'visible') {
-    void pull()
-    void refrescarContactos()
-  }
+  // Ir y volver de pestaña a menudo no debe costar dos RPCs cada vez.
+  if (document.visibilityState !== 'visible' || Date.now() - ultimoVisible < VISIBLE_MIN_MS) return
+  ultimoVisible = Date.now()
+  void pull()
+  void refrescarContactos()
 }
 
 function alOnline(): void {
@@ -169,8 +185,10 @@ async function suscribir(uid: string): Promise<void> {
     .on('broadcast', { event: 'invitacion' }, ({ payload }) => recibirInvitacion(payload))
     .on('broadcast', { event: 'espacio' }, ({ payload }) => recibirAvisoEspacio(payload))
     .subscribe((estado) => {
+      canalVivo = estado === 'SUBSCRIBED'
       // Cada (re)SUBSCRIBED se pone al día: lo emitido con el canal caído no se repite.
       if (estado === 'SUBSCRIBED') {
+        ultimaVuelta = Date.now()
         void pull()
         void refrescarContactos()
       }
@@ -316,7 +334,7 @@ export async function refrescarContactos(): Promise<void> {
   if (!activo) return
   try {
     const previos = await cache.contactosCache()
-    const lista = await api.listarContactos()
+    const lista = await api.listarContactos(previos)
     if (!activo) return
     await cache.guardarContactos(lista)
     const pendientes = lista.filter((c) => c.estado === 'pendiente' && c.direccion === 'recibida')

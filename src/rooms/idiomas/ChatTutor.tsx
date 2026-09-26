@@ -6,7 +6,7 @@ import {
   mensajesIdiomaRepo,
   useMensajesConversacionIdioma,
 } from '../../core/data/repository'
-import { conversarIA, iaActiva, type MensajeIA } from '../../core/chat/ia'
+import { conversarIA, iaActiva, ventanaEstable, type MensajeIA } from '../../core/chat/ia'
 import { useAsistentes } from '../../core/state/asistentesStore'
 import { asistenteDePlantilla, semillaAsistente } from '../../core/gamificacion/asistentesPlantilla'
 import { useT } from '../../core/i18n/useT'
@@ -97,7 +97,7 @@ export function ChatTutor({ perfil, conversacionId, borradorInicial, anclaInicia
     setPensando(true)
     setError(null)
     try {
-      const respuesta = await conversarIA(systemTutor(voz, perfilTutor, temaTitulo ?? undefined), historial.slice(-20))
+      const respuesta = await conversarIA(systemTutor(voz, perfilTutor, temaTitulo ?? undefined), ventanaEstable(historial, 20))
       const ahora = new Date().toISOString()
       await mensajesIdiomaRepo.add({ conversacionId: id, rol: 'asistente', texto: respuesta, creado: ahora })
       await conversacionesIdiomaRepo.update(id, { actualizadoEn: ahora })

@@ -40,6 +40,7 @@
 import { preflight, json, corsDe } from '../_shared/cors.ts'
 import { clienteUsuario, clienteAdmin, usuarioDe } from '../_shared/auth.ts'
 import { dentroDeLimite } from '../_shared/limite.ts'
+import { tienePago } from '../_shared/pago.ts'
 import { costoTokensUsd } from '../_shared/costoUsd.ts'
 
 const MODELO = 'claude-haiku-4-5'
@@ -103,17 +104,27 @@ const CACHE = { type: 'ephemeral' } as const
 const CACHE_TOOLS =
   Deno.env.get('IA_CHAT_TTL_TOOLS') === '1h' ? ({ type: 'ephemeral', ttl: '1h' } as const) : CACHE
 
+/** SHA-256 en hexadecimal (clave de `ia_respuestas`). */
+async function sha256Hex(texto: string): Promise<string> {
+  const h = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(texto))
+  return Array.from(new Uint8Array(h), (b) => b.toString(16).padStart(2, '0')).join('')
+}
+
 /**
- * El system partido por `systemCorte` en cabecera estable + cola volátil, cada
- * una con su breakpoint. Un corte inválido (ausente, fuera de rango) deja el
- * bloque único de siempre: el cliente viejo sigue funcionando igual.
+ * El system partido por `systemCorte` en cabecera estable + cola volátil. Solo
+ * la cabecera lleva breakpoint: la cola cambia con las memorias y el adjunto,
+ * y anclarla pagaba la prima de escritura (1.25×) de todo el prefijo en turnos
+ * que casi nunca la releían (sep 2026). El hilo de la conversación sigue
+ * anclado en su último mensaje, y su búsqueda hacia atrás encuentra la
+ * cabecera. Un corte inválido (ausente, fuera de rango) deja el bloque único de
+ * siempre: el cliente viejo sigue funcionando igual.
  */
 function bloquesSystem(system: string, corte: number | undefined): Record<string, unknown>[] {
   const valido = typeof corte === 'number' && Number.isInteger(corte) && corte > 0 && corte < system.length
   if (!valido) return [{ type: 'text', text: system, cache_control: CACHE }]
   return [
     { type: 'text', text: system.slice(0, corte), cache_control: CACHE },
-    { type: 'text', text: system.slice(corte), cache_control: CACHE },
+    { type: 'text', text: system.slice(corte) },
   ]
 }
 
@@ -240,6 +251,8 @@ interface BodyIn {
   ruteo?: { apps?: AppRuteo[] }
   /** El asistente tiene activas las respuestas rápidas (ajuste del usuario). */
   rapidas?: boolean
+  /** La petición es igual para cualquiera (efemérides, ficha de una obra): ver `ia_respuestas`. */
+  compartible?: boolean
   /**
    * Juegos de la sala (Pregúntale a 100 personas, Dilemas morales): preguntas
    * sí/no directas a Jev, sin modelo de texto ni crédito. Va sin `mensajes`.
@@ -670,7 +683,9 @@ async function porGemini(
     llamadas: partes
       .filter((p) => p.functionCall?.name)
       .map((p) => ({ name: p.functionCall?.name ?? '', input: p.functionCall?.args ?? {} })),
-    entrada: Number(data.usageMetadata?.promptTokenCount ?? 0),
+    // `promptTokenCount` YA incluye lo cacheado: se resta para que `entrada`
+    // signifique lo mismo que en Anthropic (solo lo no cacheado) y no se cuente dos veces.
+    entrada: Math.max(0, Number(data.usageMetadata?.promptTokenCount ?? 0) - Number(data.usageMetadata?.cachedContentTokenCount ?? 0)),
     salida: Number(data.usageMetadata?.candidatesTokenCount ?? 0),
     cacheCrear: 0,
     // Caché implícito de Gemini: se informa como lectura para el hit-rate.
@@ -715,6 +730,9 @@ Deno.serve(async (req) => {
     if (mal) return json({ error: 'peticion-invalida', mensaje: mal }, 400, cors)
     if (!JEV_DISPONIBLE || !(JEV_TODOS || JEV_UIDS.has(usuario.id))) {
       return json({ error: 'sin-jev', mensaje: 'Jev aún no está disponible en tu cuenta.' }, 403, cors)
+    }
+    if (!(await tienePago(admin, usuario.id))) {
+      return json({ error: 'sin-unlock', mensaje: 'Desbloquea la casa para jugar con la IA.' }, 403, cors)
     }
     const preguntas = body.juego.preguntas ?? {}
     // Sin lote, un solo estado; con lote, una llamada por estado en paralelo
@@ -824,6 +842,25 @@ Deno.serve(async (req) => {
   if (filtradas && body.tools) {
     const ids = new Set(elegidas.map((a) => a.id))
     body.tools = body.tools.filter((t) => !t.app || ids.has(t.app))
+  }
+
+  // Respuesta compartida (tabla `ia_respuestas`): una petición sin tools ni
+  // adjunto que el cliente marca `compartible` y que alguien ya hizo idéntica en
+  // los últimos 7 días se sirve de ahí, sin modelo y sin cobrar.
+  const claveCompartida =
+    body.compartible === true && !body.tools?.length && !conAdjunto && !calidad && mensajes.length === 1
+      ? await sha256Hex(JSON.stringify([op, maxTokens, body.system ?? '', mensajes[0].texto]))
+      : null
+  if (claveCompartida) {
+    const { data: previa } = await admin
+      .from('ia_respuestas')
+      .select('texto')
+      .eq('clave', claveCompartida)
+      .gt('creado_en', new Date(Date.now() - 7 * 86_400_000).toISOString())
+      .maybeSingle()
+    if (previa?.texto) {
+      return json({ texto: previa.texto, llamadas: [], proveedor: 'compartida', ms: Date.now() - t0, uso: null }, 200, cors)
+    }
   }
 
   const { data: cuota, error: errCuota } = await admin.rpc('consumir_cuota_ia', {
@@ -960,7 +997,16 @@ Deno.serve(async (req) => {
             if (error) console.error('ia-chat: purga de uso_ia_llamadas falló —', error.message)
           })
       : Promise.resolve()
-  const pendientes = Promise.all([registro, fila, purga])
+  const compartida =
+    claveCompartida && salida.texto && !salida.llamadas.length
+      ? admin
+          .from('ia_respuestas')
+          .upsert({ clave: claveCompartida, texto: salida.texto, creado_en: new Date().toISOString() })
+          .then(({ error }) => {
+            if (error) console.error('ia-chat: ia_respuestas falló —', error.message)
+          })
+      : Promise.resolve()
+  const pendientes = Promise.all([registro, fila, purga, compartida])
   if (typeof EdgeRuntime !== 'undefined') EdgeRuntime.waitUntil(pendientes)
   else await pendientes
 

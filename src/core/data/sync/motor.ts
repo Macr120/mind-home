@@ -38,9 +38,15 @@ import { borrarBlobsDeRegistro, extraerBlobs, prepararBajadas, rehidratarBlobs }
 
 const LOTE_PUSH = 200
 const LOTE_PULL = 500
-const DEBOUNCE_MS = 500
-// Con el campanazo Realtime el intervalo pasa a ser red de seguridad.
+// Agrupa una ráfaga de ediciones en un solo push (cada push cuesta RPC +
+// campanazo); `pagehide` lo adelanta para no perder lo último al cerrar.
+const DEBOUNCE_MS = 2000
+// Con el campanazo Realtime el intervalo pasa a ser red de seguridad: sin canal
+// vivo cada 2 min; con canal, un ciclo cada 10 min basta. Oculta, nada.
 const INTERVALO_MS = 120_000
+const INTERVALO_CON_CANAL_MS = 600_000
+/** `alVisible` como mucho una vez cada 30 s (ir y volver de pestaña es barato). */
+const VISIBLE_MIN_MS = 30_000
 const BACKOFF_BASE_MS = 5000
 const BACKOFF_MAX_MS = 30_000
 
@@ -68,9 +74,14 @@ function keyPathDe(tabla: string): string {
 // ----- Push -----
 
 /** Devuelve el server_seq máximo asignado a lo subido (0 si no subió nada). */
-async function push(userId: string): Promise<number> {
+/**
+ * `alDia`: en cada lote el servidor dijo que no había nada ajeno más allá de
+ * nuestro cursor (`prev_max`), así que el cursor ya se movió hasta `maxSeq` y el
+ * pull que seguía sobra: solo habría devuelto lo que acabamos de subir.
+ */
+async function push(): Promise<{ maxSeq: number; alDia: boolean }> {
   const cola = await db._outbox.orderBy('id').toArray()
-  if (!cola.length) return 0
+  if (!cola.length) return { maxSeq: 0, alDia: false }
 
   // Última operación por (tabla, uid); todos los ids drenados se limpian al confirmar.
   const ultimo = new Map<string, EntradaOutbox>()
@@ -128,7 +139,7 @@ async function push(userId: string): Promise<number> {
         }
       }
     }
-    const conBlobs = await extraerBlobs(userId, e.tabla, e.uid, datos)
+    const conBlobs = await extraerBlobs(e.tabla, e.uid, datos)
     cambios.push({
       entrada: e,
       cuerpo: {
@@ -142,6 +153,8 @@ async function push(userId: string): Promise<number> {
   }
 
   let maxSeq = 0
+  let cursor = ((await db._syncMeta.get('cursor'))?.valor as number | undefined) ?? 0
+  let alDia = cambios.length > 0
   for (let i = 0; i < cambios.length; i += LOTE_PUSH) {
     const lote = cambios.slice(i, i + LOTE_PUSH)
     const { data, error } = await cliente!.rpc('sync_push', {
@@ -154,13 +167,21 @@ async function push(userId: string): Promise<number> {
     // max_seq permite ignorar el campanazo del propio push (0 en servidor viejo).
     const seq = (data as { max_seq?: number } | null)?.max_seq
     if (typeof seq === 'number') maxSeq = Math.max(maxSeq, seq)
+    // Servidor viejo (sin prev_max) o algo ajeno esperando: el pull sí hace falta.
+    const prev = (data as { prev_max?: number } | null)?.prev_max
+    if (typeof prev !== 'number' || prev > cursor) alDia = false
+    else if (alDia && typeof seq === 'number' && seq > cursor) {
+      cursor = seq
+      await db._syncMeta.put({ clave: 'cursor', valor: cursor })
+      cursorCache = Math.max(cursorCache, cursor)
+    }
     const ids = lote.flatMap((c) => idsPorClave.get(`${c.entrada.tabla}|${c.entrada.uid}`) ?? [])
     await db._outbox.bulkDelete(ids)
     for (const c of lote) {
-      if (c.cuerpo.deleted === true) void borrarBlobsDeRegistro(userId, c.entrada.tabla, c.entrada.uid)
+      if (c.cuerpo.deleted === true) void borrarBlobsDeRegistro(c.entrada.tabla, c.entrada.uid)
     }
   }
-  return maxSeq
+  return { maxSeq, alDia }
 }
 
 // ----- Pull -----
@@ -560,8 +581,12 @@ let cliente: SupabaseClient | null = null
 let cursorCache = 0
 /** server_seq máximo de nuestro último push: su campanazo es eco y se ignora. */
 let ultimoSeqPropio = 0
+/** Fin del último ciclo completo con éxito (para espaciar la red de seguridad). */
+let ultimoCiclo = 0
 /** true tras el primer ciclo completo: el camino ligero no salta el bootstrap. */
 let bootstrapListo = false
+/** Una escritura llegó con un ciclo en vuelo: al terminar se programa otro push. */
+let pushPendiente = false
 /** Un campanazo llegó con el lock tomado: quien termine re-dispara un pull. */
 let pullPendiente = false
 
@@ -590,9 +615,9 @@ export async function sincronizar(manual = false): Promise<void> {
     try {
       await verificarUsuario(usuario.id)
       const tablasBootstrap = await bootstrap()
-      const maxSeq = await push(usuario.id)
+      const { maxSeq, alDia } = await push()
       if (maxSeq > 0) ultimoSeqPropio = Math.max(ultimoSeqPropio, maxSeq)
-      const tocadas = await pull()
+      const tocadas = alDia ? new Set<string>() : await pull()
       // Las tablas del bootstrap se suman: su pull interno ya avanzó el cursor
       // y sin esto el repintado del primer login salía vacío (casa «desde 0»).
       if (tablasBootstrap) for (const t of tablasBootstrap) tocadas.add(t)
@@ -603,6 +628,7 @@ export async function sincronizar(manual = false): Promise<void> {
       falloSeguido = 0
       proximoIntento = 0
       bootstrapListo = true
+      ultimoCiclo = Date.now()
       useSesion.setState({ estadoSync: 'inactivo', ultimaSync: Date.now(), errorSync: null })
       // Incluso con set vacío: drena repintados que esperaron a que acabara una edición.
       notificarRepintado(tocadas)
@@ -633,6 +659,12 @@ export async function sincronizar(manual = false): Promise<void> {
   if (pullPendiente) {
     pullPendiente = false
     void sincronizarPull()
+  }
+  // Una escritura que llegó con el ciclo en vuelo encontró el candado tomado y
+  // se quedaba esperando al intervalo: se relanza aquí.
+  if (pushPendiente) {
+    pushPendiente = false
+    if (motorActivo) programarPush()
   }
 }
 
@@ -684,6 +716,8 @@ async function sincronizarPull(): Promise<void> {
 // ----- Campanazo Realtime -----
 
 let canal: RealtimeChannel | null = null
+/** El canal está suscrito: los cambios ajenos llegan solos y el intervalo puede espaciarse. */
+let canalVivo = false
 /** true entre iniciar() y detener(): corta la suscripción si llega tarde. */
 let motorActivo = false
 
@@ -711,6 +745,7 @@ async function suscribirCampanazo(): Promise<void> {
       void sincronizarPull()
     })
     .subscribe((estado) => {
+      canalVivo = estado === 'SUBSCRIBED'
       // Cada (re)SUBSCRIBED —incluye reconexiones tras perder red— se pone al
       // día con un pull: lo emitido con el canal caído no se repite.
       if (estado === 'SUBSCRIBED') void sincronizarPull()
@@ -718,6 +753,7 @@ async function suscribirCampanazo(): Promise<void> {
 }
 
 function desuscribirCampanazo(): void {
+  canalVivo = false
   if (canal) {
     void canal.unsubscribe()
     canal = null
@@ -731,12 +767,40 @@ function programarPush(): void {
   if (timerDebounce != null) clearTimeout(timerDebounce)
   timerDebounce = setTimeout(() => {
     timerDebounce = null
-    void sincronizar()
+    if (sincronizando) pushPendiente = true
+    else void sincronizar()
   }, DEBOUNCE_MS)
 }
 
+let ultimoVisible = 0
+
 function alVisible(): void {
-  if (document.visibilityState === 'visible') void sincronizar()
+  if (document.visibilityState === 'hidden') {
+    // Adelanta lo pendiente antes de que el sistema congele la pestaña.
+    if (timerDebounce != null) {
+      clearTimeout(timerDebounce)
+      timerDebounce = null
+      void sincronizar()
+    }
+    return
+  }
+  if (Date.now() - ultimoVisible < VISIBLE_MIN_MS) return
+  ultimoVisible = Date.now()
+  void sincronizar()
+}
+
+function alSalir(): void {
+  if (timerDebounce == null) return
+  clearTimeout(timerDebounce)
+  timerDebounce = null
+  void sincronizar()
+}
+
+/** Red de seguridad: nada con la pestaña oculta; con canal vivo, cada 10 min. */
+function tic(): void {
+  if (document.hidden) return
+  if (canalVivo && Date.now() - ultimoCiclo < INTERVALO_CON_CANAL_MS) return
+  void sincronizar()
 }
 
 function alOnline(): void {
@@ -748,8 +812,9 @@ function iniciar(): void {
   conectarAvisoEscritura(programarPush)
   document.addEventListener('visibilitychange', alVisible)
   window.addEventListener('online', alOnline)
+  window.addEventListener('pagehide', alSalir)
   if (timerInterval == null) {
-    timerInterval = setInterval(() => void sincronizar(), INTERVALO_MS)
+    timerInterval = setInterval(tic, INTERVALO_MS)
   }
   void suscribirCampanazo()
   void sincronizar()
@@ -760,6 +825,7 @@ function detener(): void {
   conectarAvisoEscritura(null)
   document.removeEventListener('visibilitychange', alVisible)
   window.removeEventListener('online', alOnline)
+  window.removeEventListener('pagehide', alSalir)
   desuscribirCampanazo()
   if (timerInterval != null) clearInterval(timerInterval)
   if (timerDebounce != null) clearTimeout(timerDebounce)
@@ -771,6 +837,7 @@ function detener(): void {
   cursorCache = 0
   ultimoSeqPropio = 0
   pullPendiente = false
+  pushPendiente = false
   useSesion.setState({ estadoSync: 'inactivo' })
 }
 

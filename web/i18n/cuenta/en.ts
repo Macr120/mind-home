@@ -90,6 +90,7 @@ export const TEXTOS: Record<string, string> = {
     'Your MindHaOS is yours and your data lives on your device. AI and sync are paid separately: buy the credits you need, or subscribe and get them every month.',
   'mi.estado.sinCasa':
     'Your account doesn’t have MindHaOS yet. Buy it below —or redeem your coupon if you’re a tester— and open it with this same email on any device.',
+  'mi.borrado': 'If you do not complete the purchase, this account will be deleted on {fecha}.',
   'mi.disponibles': 'Credits available: {n}',
   'mi.abrirApp': 'Open the app in the browser',
   'mi.probarApp': 'Try building your MindHaOS for free',

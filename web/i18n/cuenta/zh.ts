@@ -76,6 +76,7 @@ export const TEXTOS: Record<string, string> = {
     '这个 MindHaOS 是你的，数据留在你的设备上。AI 与同步单独付费：按需购买点数，或订阅后每月领取。',
   'mi.estado.sinCasa':
     '你的账户还没有 MindHaOS。可以在下面购买；如果你是测试者，也可以兑换优惠码。之后用同一个邮箱在任何设备上打开。',
+  'mi.borrado': '如果未完成购买，此账户将于{fecha}删除。',
   'mi.disponibles': '可用额度：{n}',
   'mi.abrirApp': '在浏览器里打开应用',
   'mi.probarApp': '免费体验打造你的 MindHaOS',

@@ -111,6 +111,8 @@ async function extrasConIA(fecha: string, idioma: Idioma): Promise<Efemeride[] |
       systemExtras(idioma),
       [{ rol: 'usuario', texto: `Secciones culturales para el ${fecha}. Responde solo el JSON.` }],
       1800,
+      // Mismo día y mismo idioma = mismas secciones para todos.
+      { compartible: true },
     )
     const json = extraerJSON(respuesta) as ExtrasIA
     if (

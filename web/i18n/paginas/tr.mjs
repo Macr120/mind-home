@@ -251,7 +251,7 @@ export const TEXTOS = {
     'Yerel verilerin cihazlarında kalır. Eşitlenen veriler saklanmaya devam eder (yenileyene kadar erişilemez) ve hesabını silerek onları kalıcı olarak kaldırabilirsin.',
   'priv.borrar.h': 'Hesabını ve verilerini nasıl silersin',
   'priv.borrar.p':
-    'Uygulamadan: Düzenleyici → Ayarlar → Hesap. Silme işlemi kullanıcını, eşitlenen verilerini ve dosyalarını sunucularımızdan kaldırır; yalnızca yasanın saklamayı zorunlu kıldığı fatura kayıtları kalır.',
+    'Uygulamadan: Düzenleyici → Ayarlar → Hesap. Silme işlemi kullanıcını, eşitlenen verilerini ve dosyalarını sunucularımızdan kaldırır; yalnızca yasanın saklamayı zorunlu kıldığı fatura kayıtları kalır. Hiç satın alma tamamlamayan hesaplar, oluşturulduktan 3 gün sonra hiçbir verisi saklanmadan otomatik olarak silinir.',
   'priv.proveedores.h': 'Sağlayıcılar',
   'priv.proveedores.1': 'Supabase (veritabanı, kimlik doğrulama ve dosyalar).',
   'priv.proveedores.2': 'RevenueCat ve Stripe (satın almalar, abonelikler ve ödemeler).',

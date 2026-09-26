@@ -132,6 +132,39 @@ export function hayVozIA(): boolean {
   return usarViaCuenta() || proveedorVoz() != null
 }
 
+// Caché de frases ya dichas (Cache Storage, fuera de Dexie): los asistentes
+// repiten saludos y latidos, y cada lectura por la cuenta cuesta créditos. Solo
+// frases cortas —la narración larga del Studio es única y ya se guarda como
+// medio— y como mucho las últimas CACHE_VOZ_MAX.
+const CACHE_VOZ = 'mh-voz-ia'
+const CACHE_VOZ_MAX = 200
+const CACHE_VOZ_CHARS = 400
+
+async function claveVoz(texto: string, voz: string, via: string): Promise<string> {
+  const h = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(`${via}|${voz}|${texto}`))
+  return `https://voz.mindhaos.local/${Array.from(new Uint8Array(h), (b) => b.toString(16).padStart(2, '0')).join('')}`
+}
+
+async function vozGuardada(clave: string): Promise<Blob | null> {
+  try {
+    const r = await (await caches.open(CACHE_VOZ)).match(clave)
+    return r ? await r.blob() : null
+  } catch {
+    return null
+  }
+}
+
+async function guardarVoz(clave: string, blob: Blob): Promise<void> {
+  try {
+    const c = await caches.open(CACHE_VOZ)
+    await c.put(clave, new Response(blob, { headers: { 'Content-Type': blob.type } }))
+    const claves = await c.keys()
+    for (const k of claves.slice(0, Math.max(0, claves.length - CACHE_VOZ_MAX))) await c.delete(k)
+  } catch {
+    // Sin Cache Storage (contexto no seguro, cuota llena): se vuelve a pedir la próxima vez.
+  }
+}
+
 /**
  * Pide el audio al proveedor resuelto y devuelve el BLOB sin reproducirlo (la
  * narración del Studio de video lo guarda como medio). Lanza si falla.
@@ -141,16 +174,24 @@ export async function generarVozIA(texto: string, voz?: string): Promise<Blob> {
   if (!limpio) throw new Error('sin texto')
   const voces = vocesIaDisponibles()
   const v = voz && voces.includes(voz) ? voz : voces[0]
+  const via = usarViaCuenta() ? 'cuenta' : (proveedorVoz() ?? '')
+  const clave = limpio.length <= CACHE_VOZ_CHARS && typeof caches !== 'undefined' ? await claveVoz(limpio, v, via) : null
+  const previa = clave ? await vozGuardada(clave) : null
+  if (previa) return previa
+  let blob: Blob
   if (usarViaCuenta()) {
     // El mime lo dice el proxy: OpenAI devuelve mp3 y Gemini un WAV armado
     // allá desde su PCM crudo. Fijarlo aquí dejaba mudo al respaldo.
     const r = await iaTtsCuenta(limpio, v)
-    return base64ABlob(r.base64, r.mime || 'audio/mpeg')
+    blob = base64ABlob(r.base64, r.mime || 'audio/mpeg')
+  } else {
+    const provId = proveedorVoz()
+    if (!provId) throw new Error('sin proveedor de voz')
+    const key = getIaKey(provId)
+    blob = await (provId === 'chatgpt' ? ttsOpenAI(limpio, v, key) : ttsGemini(limpio, v, key))
   }
-  const provId = proveedorVoz()
-  if (!provId) throw new Error('sin proveedor de voz')
-  const key = getIaKey(provId)
-  return provId === 'chatgpt' ? ttsOpenAI(limpio, v, key) : ttsGemini(limpio, v, key)
+  if (clave) void guardarVoz(clave, blob)
+  return blob
 }
 
 export interface OpcionesHablaIA {

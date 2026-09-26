@@ -934,6 +934,80 @@ en cuanto hay mensajería entre personas. Migración
   `partida-casa` (salas que abrió): las rutas van por hilo, espacio o sala, así
   que se buscan antes de que el cascade tire las filas.
 
+### 11. Cuentas sin compra, capacidad y optimizaciones — 28-sep-2026
+
+**Cuentas sin compra** (migración `20260928000001_gratis_sin_servidor.sql`):
+- Quien no tiene unlock ni plan vigente ni es ilimitado (`public.pago(uid)`) no
+  escribe NADA social en el servidor.
+- Un trigger `exigir_pago` BEFORE INSERT en `buzon_*`, `partida*` y `espacio*`
+  lo impide. Otro trigger impide cambiar alias, retrato y normas del perfil.
+  Así quedan cubiertas también las RPCs futuras.
+- `redes-*` y el juego de Jev lo comprueban en la función (`_shared/pago.ts`).
+- En el cliente, el buzón y los espacios solo arrancan con `uidConPago()`
+  (`sesionStore.ts`).
+- El cron `cuentas-purga-diaria` (06:07 UTC, SQL puro) borra las cuentas de
+  más de 3 días sin ningún rastro de pago: `cuentas_purgables()` enseña la
+  lista antes de borrar.
+- La puerta avisa la fecha del borrado (`puerta.borrado`, `mi.borrado`), y la
+  política de privacidad lo dice (`priv.borrar.p`).
+
+**Capacidad** (migración `20260928000002_capacidad.sql` + función `capacidad`):
+- **`capacidad-medir`** (cron SQL cada hora, minuto 12) guarda en
+  `capacidad_metricas`:
+  - cuentas;
+  - activos: sesiones renovadas en la última hora, un buen proxy de «a la vez»;
+  - base de datos, Storage, R2;
+  - partidas, mensajes y llamadas de IA.
+- **`capacidad-hora`** (minuto 17) llama a la función `capacidad`, que:
+  - añade CPU, RAM y conexiones de la Metrics API;
+  - manda un correo por Resend si algo está en amarillo o rojo, uno al día como
+    mucho;
+  - **solo con el panel en «Pro»** programa la subida de compute. Requisitos:
+    3 días en rojo, un escalón cada vez y como mucho uno por semana. Se aplica
+    09–10 UTC con aviso 24 h antes y nunca pasa de `COMPUTE_TECHO`.
+- Umbrales por plan en `capacidad_umbrales`.
+- El dueño lo ve en Cuenta → Capacidad (`PanelCapacidad.tsx`, RPC
+  `capacidad_panel`). Ahí cambia Free/Pro y cancela una subida.
+- Secretos de la función:
+
+  | Secreto | Para qué | Si falta |
+  |---|---|---|
+  | `CAPACIDAD_AUTH` | El cron | — |
+  | `RESEND_API_KEY`, `ALERTA_PARA`, `ALERTA_DE` | El correo | No se manda |
+  | `SUPABASE_PAT` | La Management API | No hay subida |
+  | `COMPUTE_TECHO` | Techo de la subida | `ci_medium` |
+  | `COMPUTE_SIMULAR` | Probar sin cambiar nada | Solo simula (`'0'` = de verdad) |
+
+- En Vault van `capacidad_url` y `capacidad_auth`, como en `almacen-purga`.
+
+**Optimizaciones** (migración `20260928000003_optimizar_servidor.sql`):
+- `sync_push` devuelve `prev_max`. Si no hay nada ajeno más allá del cursor, el
+  cliente se salta el pull que solo le devolvería lo que acaba de subir.
+- Los intervalos de sync, buzón y espacios:
+  - con la pestaña oculta, no corren;
+  - con el canal vivo, pasan a 10 min.
+- El debounce del push sube a 2 s, con envío en `pagehide`.
+- RLS con `(select auth.uid())`.
+- `buzon_pull` va por hilo (antes recorría el índice global).
+- `buzon_listar_contactos(p_sin_retrato)` manda la huella del retrato;
+  `buzon_retratos` baja solo los que cambian.
+- `ia_respuestas` guarda 7 días las respuestas `compartible` (efemérides,
+  fichas de obras, macros), con clave = SHA-256 de la petición completa. Un
+  acierto no cobra.
+- `blobs.ts` ya no sube ni lista en `sync-blobs`; solo lee de ahí como respaldo.
+- El cron `retencion-diaria` purga:
+  - `rate_limits`;
+  - partidas cerradas;
+  - `compras_log` a 90 días;
+  - enlaces caducados;
+  - `ia_respuestas`;
+  - métricas de más de 400 días.
+
+**Pendiente, a propósito:**
+- Mudar a R2 los medios del buzón, los espacios y las partidas. Lo pide el
+  panel cuando el Storage llega al amarillo.
+- Partir el topic de subida de las partidas por invitado.
+
 ## Comandos útiles
 
 ```bash
@@ -984,8 +1058,10 @@ datos reales. Antes de la primera sincronización, exportar un respaldo desde Bo
 ## Límites del free tier (referencia)
 
 Postgres 500 MB · Storage 1 GB · 500k invocaciones de Edge Functions/mes · el
-proyecto se pausa tras ~7 días sin uso (se despausa desde el dashboard). Hoy el
-proyecto está en Supabase Pro y los archivos ya no van a Storage sino a R2 (§4).
+proyecto se pausa tras ~7 días sin uso (se despausa desde el dashboard). El
+proyecto sigue en Free (sep 2026): pasa a Pro cuando Apple apruebe la app, y
+entonces se cambia el panel de capacidad a «Pro» (§11). Los archivos ya no van
+a Storage sino a R2 (§4).
 
 ## Cuota de IA (créditos)
 

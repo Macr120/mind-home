@@ -6,7 +6,7 @@ import {
   useEntradaDeConversacion,
   eliminarConversacionBiblio,
 } from '../../core/data/repository'
-import { conversarIA, iaActiva, type MensajeIA } from '../../core/chat/ia'
+import { conversarIA, iaActiva, ventanaEstable, type MensajeIA } from '../../core/chat/ia'
 import { useAsistentes } from '../../core/state/asistentesStore'
 import { asistenteDePlantilla, semillaAsistente } from '../../core/gamificacion/asistentesPlantilla'
 import { useT } from '../../core/i18n/useT'
@@ -104,7 +104,7 @@ export function ChatCharla({
     setError(null)
     try {
       const pilarTitulo = pilarId !== PILAR_GENERAL.id ? getPilar(pilarId).titulo : undefined
-      const respuesta = await conversarIA(systemSabio(voz, pilarTitulo), historial.slice(-20))
+      const respuesta = await conversarIA(systemSabio(voz, pilarTitulo), ventanaEstable(historial, 20))
       const ahora = new Date().toISOString()
       await mensajesBiblioRepo.add({ conversacionId: id, rol: 'asistente', texto: respuesta, creado: ahora })
       await conversacionesBiblioRepo.update(id, { actualizadoEn: ahora })

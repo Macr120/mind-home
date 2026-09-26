@@ -37,6 +37,7 @@ const BACKOFF_MAX_MS = 60_000
 const TIPOS_DIFERIDOS = new Set(['yjs', 'trazo'])
 const PULL_DIFERIDO_MS = 8000
 const PRESENCIA_MS = 60_000
+const INTERVALO_CON_CANAL_MS = 600_000
 const PRESENCIA_CADUCA_MS = 150_000
 
 export interface EspacioAbierto {
@@ -116,6 +117,10 @@ function crear(espacioId: string, persistente: boolean): Vivo {
   let timerDiferido: ReturnType<typeof setTimeout> | null = null
   let timerIntervalo: ReturnType<typeof setInterval> | null = null
   let timerPresencia: ReturnType<typeof setInterval> | null = null
+  /** Último pull de la red de seguridad (o de la última (re)conexión del canal). */
+  let ultimaVuelta = 0
+  /** El canal llegó a unirse: desde entonces la red de seguridad se espacia. */
+  let unido = false
 
   const puedeEditar = () => esp?.rol === 'dueno' || esp?.rol === 'editor'
 
@@ -172,14 +177,25 @@ function crear(espacioId: string, persistente: boolean): Vivo {
     if (c.alSuscribir) c.alSuscribir(alDia)
     else alDia() // en local no hay SUBSCRIBED: el canal nace unido
 
-    timerIntervalo = setInterval(() => void pull(), INTERVALO_MS)
-    timerPresencia = setInterval(saludar, PRESENCIA_MS)
+    // Red de seguridad: nada con la pestaña oculta; con el canal unido los
+    // cambios llegan solos y basta una vuelta cada 10 min. La presencia solo
+    // la ve quien tiene la app delante: oculta, no se anuncia.
+    timerIntervalo = setInterval(() => {
+      if (document.hidden || (unido && Date.now() - ultimaVuelta < INTERVALO_CON_CANAL_MS)) return
+      ultimaVuelta = Date.now()
+      void pull()
+    }, INTERVALO_MS)
+    timerPresencia = setInterval(() => {
+      if (!document.hidden) saludar()
+    }, PRESENCIA_MS)
     document.addEventListener('visibilitychange', alVisible)
     window.addEventListener('online', alOnline)
   }
 
   /** Cada (re)conexión: ponerse al día y anunciarse. */
   function alDia(): void {
+    unido = true
+    ultimaVuelta = Date.now()
     void pull()
     releerSeguro()
     saludar()

@@ -1,4 +1,4 @@
-import { esperarSesion, useSesion } from '../cuenta/sesionStore'
+import { esperarSesion, uidConPago, useSesion } from '../cuenta/sesionStore'
 import { urlApp } from '../cuenta/urlWeb'
 import { tGlobal } from '../i18n/useT'
 import { notificar } from '../notificaciones'
@@ -89,9 +89,9 @@ export async function atenderDeepLinkEspacio(token: string): Promise<void> {
   }
   await esperarSesion()
   if (await intentar()) return
-  // Aún sin sesión: un solo reintento, cuando el usuario aparezca.
+  // Aún sin sesión (o sin compra): un solo reintento, cuando la haya.
   const quitar = useSesion.subscribe((s, prev) => {
-    if (!s.usuario || prev.usuario) return
+    if (!uidConPago(s) || uidConPago(prev)) return
     quitar()
     void intentar()
   })
@@ -106,7 +106,7 @@ async function intentar(): Promise<boolean> {
     token = null
   }
   if (!token) return true
-  if (!espacioLocal() && !useSesion.getState().usuario) return false
+  if (!espacioLocal() && !uidConPago(useSesion.getState())) return false
   try {
     sessionStorage.removeItem(SS_TOKEN)
   } catch {
