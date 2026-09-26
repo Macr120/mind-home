@@ -71,6 +71,15 @@ Deno.serve(async (req) => {
     for (const h of hilos.data ?? []) await borrarCarpeta(admin, h.id as string, 'buzon-adjuntos')
     for (const e of espacios.data ?? []) await borrarCarpeta(admin, e.id as string, 'espacio-archivos')
     for (const p of partidas.data ?? []) await borrarCarpeta(admin, p.id as string, 'partida-casa')
+    // Y su copia en R2 (función `compartidos`, desde sep 2026).
+    if (r2Configurado()) {
+      const prefijos = [
+        ...(hilos.data ?? []).map((h) => `compartido/buzon/${h.id}/`),
+        ...(espacios.data ?? []).map((e) => `compartido/espacio/${e.id}/`),
+        ...(partidas.data ?? []).map((p) => `compartido/partida/${p.id}/`),
+      ]
+      for (const pre of prefijos) await borrarObjetos(await listarPrefijo(pre))
+    }
   } catch (e) {
     // Blobs sin borrar del todo: no tocar la cuenta de auth, el usuario reintenta.
     console.error('[borrar-cuenta] fallo al borrar los blobs:', e)

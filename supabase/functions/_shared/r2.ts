@@ -66,6 +66,16 @@ export async function tamanoDe(clave: string): Promise<number | null> {
   return Number(total ?? r.headers.get('content-length') ?? 0)
 }
 
+/** Sube un objeto desde la propia función (la mudanza desde Storage). */
+export async function subirObjeto(clave: string, blob: Blob): Promise<void> {
+  const r = await aws().fetch(urlDe(clave), {
+    method: 'PUT',
+    body: blob,
+    headers: { 'Content-Type': blob.type || 'application/octet-stream' },
+  })
+  if (!r.ok) throw new Error(`R2 PUT ${r.status}`)
+}
+
 export async function borrarObjeto(clave: string): Promise<void> {
   const r = await aws().fetch(urlDe(clave), { method: 'DELETE' })
   // 204 aunque no exista; cualquier otro fallo se propaga.

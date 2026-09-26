@@ -1,4 +1,6 @@
 import { obtenerSupabase } from '../cuenta/supabase'
+import { ErrorAlmacen } from '../cuenta/almacen'
+import { bajarCompartido, borrarCompartidos, subirCompartido } from '../cuenta/compartidos'
 import { useSesion } from '../cuenta/sesionStore'
 import { esDemo } from '../edicion'
 import type { TFunc } from '../i18n/useT'
@@ -23,7 +25,6 @@ import {
  * `raise`): aquí se convierte en `ErrorBuzon` para que la UI lo traduzca.
  */
 
-const BUCKET = 'buzon-adjuntos'
 
 const CODIGOS = new Set<CodigoErrorBuzon>([
   'sin-sesion',
@@ -235,36 +236,35 @@ export async function marcarLeidoRpc(hiloId: string, hasta: number): Promise<voi
   await rpc('buzon_leido', { p_hilo: hiloId, p_hasta: hasta })
 }
 
-// ─── Storage ─────────────────────────────────────────────────────────────────
+// ─── Medios (R2) ─────────────────────────────────────────────────────────────
+//
+// Desde sep 2026 los adjuntos viven en R2 (función `compartidos`) con la misma
+// ruta que tenían en el bucket `buzon-adjuntos`: `<hilo>/<uid>/<archivo>`. Lo
+// viejo se muda solo al primer acceso.
 
 /** Sube un binario bajo la carpeta del mensaje (`<hilo>/<uid>/<archivo>`). */
 export async function subirAdjunto(hiloId: string, uid: string, archivo: string, blob: Blob): Promise<AdjuntoRemoto> {
-  // El tope fino por tipo lo aplica `enviar`; aquí solo el del bucket.
+  // El tope fino por tipo lo aplica `enviar`; aquí solo el general.
   if (blob.size > TOPE_MEDIA) throw new ErrorBuzon('adjunto-grande')
-  const sb = await obtenerSupabase()
-  if (!sb) throw new ErrorBuzon('sin-backend')
   const mime = blob.type || 'application/octet-stream'
   const path = `${hiloId}/${uid}/${archivo}`
-  const { error } = await sb.storage.from(BUCKET).upload(path, blob, { upsert: false, contentType: mime })
-  // Un reintento del mismo mensaje encuentra el objeto ya subido: no es error.
-  if (error && !/exists|duplicate/i.test(error.message)) {
-    throw new ErrorBuzon(/fetch|network/i.test(error.message) ? 'red' : 'servidor', error.message)
+  try {
+    await subirCompartido('buzon', path, blob)
+  } catch (e) {
+    throw new ErrorBuzon(e instanceof ErrorAlmacen && e.motivo === 'grande' ? 'adjunto-grande' : 'red', String(e))
   }
   return { path, size: blob.size, mime, nombre: archivo }
 }
 
 export async function descargarAdjunto(a: AdjuntoRemoto): Promise<Blob> {
-  const sb = await obtenerSupabase()
-  if (!sb) throw new ErrorBuzon('sin-backend')
-  const { data, error } = await sb.storage.from(BUCKET).download(a.path)
-  if (error || !data) throw new ErrorBuzon('red', error?.message)
-  return new Blob([data], { type: a.mime })
+  try {
+    return await bajarCompartido('buzon', a.path, a.mime)
+  } catch (e) {
+    throw new ErrorBuzon('red', String(e))
+  }
 }
 
-/**
- * Borra todo lo que cuelga de un hilo (best-effort). `list` no es recursivo:
- * las carpetas de cada mensaje (y su `contenido/`) se recorren a mano.
- */
+/** Borra todo lo que cuelga de un hilo (best-effort). */
 export async function borrarCarpetaHilo(hiloId: string): Promise<void> {
   await borrarBajo(hiloId)
 }
@@ -275,23 +275,10 @@ export async function borrarAdjuntosMensaje(hiloId: string, uid: string): Promis
 }
 
 async function borrarBajo(raiz: string): Promise<void> {
-  const sb = await obtenerSupabase()
-  if (!sb) return
   try {
-    const archivos: string[] = []
-    const recorrer = async (prefijo: string, nivel: number) => {
-      const { data } = await sb.storage.from(BUCKET).list(prefijo, { limit: 1000 })
-      for (const f of data ?? []) {
-        const ruta = `${prefijo}/${f.name}`
-        // Las carpetas vienen sin `id`; los archivos sí lo traen.
-        if (f.id) archivos.push(ruta)
-        else if (nivel < 3) await recorrer(ruta, nivel + 1)
-      }
-    }
-    await recorrer(raiz, 0)
-    if (archivos.length) await sb.storage.from(BUCKET).remove(archivos)
+    await borrarCompartidos('buzon', { prefijo: raiz })
   } catch {
-    // Huérfanos aceptados como deuda conocida (purga por cron en fase 2).
+    // Huérfanos aceptados como deuda conocida.
   }
 }
 

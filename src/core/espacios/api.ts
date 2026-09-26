@@ -14,6 +14,7 @@
 import type { MotivoReporte } from '../buzon/api'
 import { asegurarNormas } from '../buzon/normas'
 import { obtenerSupabase } from '../cuenta/supabase'
+import { bajarCompartido, borrarCompartidos, subirCompartido } from '../cuenta/compartidos'
 import type { TFunc } from '../i18n/useT'
 import { espacioLocal } from './transporte'
 import {
@@ -27,7 +28,6 @@ import {
   type TipoEspacio,
 } from './tipos'
 
-const BUCKET = 'espacio-archivos'
 
 const CODIGOS = new Set<CodigoErrorEspacio>([
   'sin-sesion',
@@ -320,7 +320,11 @@ export async function liberar(espacioId: string): Promise<void> {
   await rpc('espacio_liberar', { p_id: espacioId })
 }
 
-// ─── Storage ─────────────────────────────────────────────────────────────────
+// ─── Medios (R2) ─────────────────────────────────────────────────────────────
+//
+// Desde sep 2026 viven en R2 (función `compartidos`) con la misma ruta que
+// tenían en el bucket `espacio-archivos`: `<espacio>/<resto>`. Lo viejo se muda
+// solo al primer acceso.
 
 /** Sube un binario bajo la carpeta del espacio (`<espacio>/<resto>`). */
 export async function subirArchivo(espacioId: string, resto: string, blob: Blob): Promise<string> {
@@ -330,11 +334,11 @@ export async function subirArchivo(espacioId: string, resto: string, blob: Blob)
     await subirArchivoLocal(ruta, blob)
     return ruta
   }
-  const sb = await obtenerSupabase()
-  if (!sb) throw new ErrorEspacio('sin-backend')
-  const mime = blob.type || 'application/octet-stream'
-  const { error } = await sb.storage.from(BUCKET).upload(ruta, blob, { upsert: true, contentType: mime })
-  if (error) throw new ErrorEspacio(/fetch|network/i.test(error.message) ? 'red' : 'servidor', error.message)
+  try {
+    await subirCompartido('espacio', ruta, blob)
+  } catch (e) {
+    throw new ErrorEspacio('red', String(e))
+  }
   return ruta
 }
 
@@ -343,11 +347,11 @@ export async function descargarArchivo(ruta: string): Promise<Blob> {
     const { descargarArchivoLocal } = await import('./servidorLocal')
     return descargarArchivoLocal(ruta)
   }
-  const sb = await obtenerSupabase()
-  if (!sb) throw new ErrorEspacio('sin-backend')
-  const { data, error } = await sb.storage.from(BUCKET).download(ruta)
-  if (error || !data) throw new ErrorEspacio('red', error?.message)
-  return data
+  try {
+    return await bajarCompartido('espacio', ruta)
+  } catch (e) {
+    throw new ErrorEspacio('red', String(e))
+  }
 }
 
 /**
@@ -360,16 +364,13 @@ export async function borrarArchivo(ruta: string): Promise<void> {
     await borrarArchivoLocal(ruta)
     return
   }
-  const sb = await obtenerSupabase()
-  if (!sb) return
-  await sb.storage.from(BUCKET).remove([ruta])
+  await borrarCompartidos('espacio', { rutas: [ruta] })
 }
 
 /**
  * Borra todo lo que cuelga del espacio (best-effort). Se llama ANTES de
- * `espacio_borrar`: al caer la fila, la policy de Storage ya no reconoce al
- * usuario como miembro y denegaría el borrado (igual que `borrarCarpetaHilo`).
- * `list` no es recursivo: las subcarpetas se recorren a mano.
+ * `espacio_borrar`: al caer la fila, la función `compartidos` ya no reconoce al
+ * usuario como editor y denegaría el borrado (igual que `borrarCarpetaHilo`).
  */
 export async function borrarCarpetaEspacio(espacioId: string): Promise<void> {
   if (espacioLocal()) {
@@ -377,21 +378,8 @@ export async function borrarCarpetaEspacio(espacioId: string): Promise<void> {
     await borrarCarpetaLocal(espacioId)
     return
   }
-  const sb = await obtenerSupabase()
-  if (!sb) return
   try {
-    const archivos: string[] = []
-    const recorrer = async (prefijo: string, nivel: number) => {
-      const { data } = await sb.storage.from(BUCKET).list(prefijo, { limit: 1000 })
-      for (const f of data ?? []) {
-        const ruta = `${prefijo}/${f.name}`
-        // Las carpetas vienen sin `id`; los archivos sí lo traen.
-        if (f.id) archivos.push(ruta)
-        else if (nivel < 3) await recorrer(ruta, nivel + 1)
-      }
-    }
-    await recorrer(espacioId, 0)
-    if (archivos.length) await sb.storage.from(BUCKET).remove(archivos)
+    await borrarCompartidos('espacio', { prefijo: espacioId })
   } catch {
     // Huérfanos aceptados como deuda conocida (misma decisión que el buzón).
   }

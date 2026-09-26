@@ -104,6 +104,8 @@ export interface MensajeCuenta {
   texto: string
   /** Adjunto del usuario: imagen (jpeg/png/webp/gif) o PDF (application/pdf). */
   imagen?: { base64: string; mediaType: string }
+  /** Memorias y fichas de ESTE turno (fuera del system para no romper su caché). */
+  contexto?: string
 }
 
 export interface ToolCuenta {

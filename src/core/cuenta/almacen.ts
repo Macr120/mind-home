@@ -55,14 +55,15 @@ export const TOPE_ARCHIVO = 2 * 1024 ** 3
 /** Medidor del almacén: lo pintan Archivo y la sección Cuenta. */
 export const useAlmacen = create<{ uso: UsoAlmacen | null }>(() => ({ uso: null }))
 
-async function llamar<T>(cuerpo: Record<string, unknown>): Promise<T> {
+/** POST a la Edge Function del almacén (o a `compartidos`, que habla el mismo idioma). */
+export async function llamar<T>(cuerpo: Record<string, unknown>, funcion = 'almacen'): Promise<T> {
   const sb = await obtenerSupabase()
   if (!sb) throw new ErrorAlmacen('sin-almacen')
   const token = (await sb.auth.getSession()).data.session?.access_token
   if (!token) throw new ErrorAlmacen('sin-sesion')
   let resp: Response
   try {
-    resp = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/almacen`, {
+    resp = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/${funcion}`, {
       method: 'POST',
       headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
       body: JSON.stringify(cuerpo),
@@ -77,7 +78,7 @@ async function llamar<T>(cuerpo: Record<string, unknown>): Promise<T> {
 }
 
 /** PUT directo a R2 con progreso (fetch no lo da en subidas). */
-function put(url: string, blob: Blob, mime: string, onProgreso?: (fraccion: number) => void): Promise<void> {
+export function put(url: string, blob: Blob, mime: string, onProgreso?: (fraccion: number) => void): Promise<void> {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest()
     xhr.open('PUT', url)

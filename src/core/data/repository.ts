@@ -16,6 +16,7 @@ import { marcarEscrituraSilenciosa } from './sync/middleware'
 import type { Table, UpdateSpec } from 'dexie'
 import { marcarRegistro } from '../state/registroSesion'
 import { useClaveEncendidos, visibles } from './ejemplos'
+import { ventanaEstable } from '../chat/ventana'
 import {
   duplicadaDe,
   memoriasRelevantes,
@@ -556,10 +557,12 @@ export async function ultimosMensajesAsistente(
 ): Promise<{ rol: 'usuario' | 'asistente'; texto: string }[]> {
   const rows = await db.mensajesChat.where('asistenteId').equals(asistenteId).toArray()
   rows.sort((a, b) => a.creado.localeCompare(b.creado))
-  return rows
-    .filter((m) => !m.sistema) // los avisos de la app no son turnos del modelo
-    .slice(-n)
-    .map((m) => ({ rol: m.rol, texto: m.texto.length > 600 ? `${m.texto.slice(0, 600)}…` : m.texto }))
+  // Ventana a saltos, no deslizante: el principio del hilo es el prefijo que el
+  // caché de prompts relee, y así no cambia en cada turno.
+  return ventanaEstable(
+    rows.filter((m) => !m.sistema), // los avisos de la app no son turnos del modelo
+    n,
+  ).map((m) => ({ rol: m.rol, texto: m.texto.length > 600 ? `${m.texto.slice(0, 600)}…` : m.texto }))
 }
 
 /** Último mensaje de cada conversación (para la lista de chats). */

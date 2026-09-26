@@ -1003,10 +1003,25 @@ en cuanto hay mensajería entre personas. Migración
   - `ia_respuestas`;
   - métricas de más de 400 días.
 
-**Pendiente, a propósito:**
-- Mudar a R2 los medios del buzón, los espacios y las partidas. Lo pide el
-  panel cuando el Storage llega al amarillo.
-- Partir el topic de subida de las partidas por invitado.
+**Medios compartidos en R2** (función `compartidos`):
+- Los adjuntos del buzón, los archivos de los espacios y el plano de una
+  partida viven en R2 bajo `compartido/<ambito>/<ruta>`, con la misma ruta
+  relativa que tenían en sus buckets.
+- El permiso se comprueba con las funciones SQL de las antiguas policies,
+  llamadas con el JWT del usuario.
+- Lo viejo se muda solo: el cliente pide `bajar` con `migrar` tras un 404.
+- `borrar-cuenta` borra también esos prefijos.
+- Los buckets `buzon-adjuntos`, `espacio-archivos` y `partida-casa` quedan de
+  solo lectura hasta vaciarlos.
+- Riesgo aceptado: un miembro puede subir sin confirmar, y el tope por ámbito
+  solo se mide en `confirmar`.
+
+**Poses de las partidas** (migración `20260928000004_partida_poses.sql`):
+- Cada invitado publica su pose en `partida:<id>:p:<ranura>` y solo el
+  anfitrión la escucha. Los demás la ven dentro del `s` fundido.
+- El anfitrión anuncia `pp: 1` en su `s`. Hasta verlo, el invitado sigue
+  mandando por la subida compartida, por compatibilidad con anfitriones viejos.
+- Con invitados moviéndose, el anfitrión quieto emite igual.
 
 ## Comandos útiles
 

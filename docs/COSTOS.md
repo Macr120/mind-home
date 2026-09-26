@@ -354,15 +354,22 @@ con/sin edición crea dos prefijos que conviven sin invalidarse.
 8. **Voz en caché** (`vozIA.ts`): las frases de hasta 400 caracteres se guardan
    en Cache Storage (las últimas 200). Un saludo repetido no vuelve a costar TTS.
 
-**Pendiente, por escala** (hoy el tráfico no las amortiza):
-- Prefijo global de más de 4 096 tokens en el chat: todas las tools de captura
-  fijas y las apps del usuario en la cola. Con poco tráfico es una escritura más
-  grande que casi nunca se relee.
-- Memorias fuera del system.
-- Ventana escalonada en el chat de la casa: hace falta el índice absoluto del
-  mensaje.
-- Enrutar `texto`/`texto_largo` a un modelo más barato: antes hay que medir la
-  calidad del JSON.
+9. **Chat de la casa con prefijo común** (sep 2026).
+   - **Tools de captura:** son las de TODAS las apps de código, en orden fijo y
+     sin datos del usuario, y terminan en un breakpoint. Las apps donde el
+     asistente puede registrar van en la cola del system, y el cliente descarta
+     las demás.
+   - **Idioma e imagen:** el idioma de desempate y el párrafo de imagen pasaron
+     de la cabecera a la cola.
+   - **Memorias y fichas del turno:** viajan como `contexto` del último mensaje.
+     Con contexto, el proxy ancla la última respuesta del asistente, que sí se
+     repite en el turno siguiente.
+   - **Historial:** la ventana del chat avanza a saltos (`ventanaEstable`).
+   - **Contrapartida:** con muy poco tráfico, la primera escritura del prefijo
+     común es más grande.
+10. **Ruta barata para texto:** con el secreto `IA_TEXTO_OPENAI_PCT` (0–100), las
+    ops `texto`, `texto_largo` y `vision` sin tools arrancan en OpenAI. Se sube
+    poco a poco mirando `uso_ia_llamadas`.
 
 ## Escenarios por perfil
 

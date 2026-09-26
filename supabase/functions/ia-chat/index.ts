@@ -70,6 +70,15 @@ const ESFUERZO_OPENAI = Deno.env.get('OPENAI_TEXT_EFFORT') ?? 'none'
 /** % del tráfico rápido que arranca en Gemini para medir su costo (0–100). */
 const MUESTREO_GEMINI = Number(Deno.env.get('IA_CHAT_GEMINI_PCT') ?? '0')
 /**
+ * % de las ops SIN herramientas (`texto`, `texto_largo`, `vision`: recetas,
+ * planes, fichas, efemérides) que arrancan en OpenAI, entre 4× y 4.7× más
+ * barato que Haiku en ellas (docs/COSTOS.md). Empieza en 0: se sube poco a poco
+ * mirando en `uso_ia_llamadas` (proveedor 'openai') que el JSON sale bien, y
+ * en 100 queda como ruta por defecto. La preferencia del usuario manda.
+ */
+const MUESTREO_TEXTO_OPENAI = Number(Deno.env.get('IA_TEXTO_OPENAI_PCT') ?? '0')
+const OPS_TEXTO = new Set(['texto', 'texto_largo', 'vision'])
+/**
  * Jev (TypeSafe AI): modelo de DECISIONES, no de texto. Aquí decide qué apps
  * toca un mensaje (para mandar solo sus tools) y si es un registro simple que
  * el cliente puede capturar sin modelo («respuestas rápidas»). Es un piloto
@@ -194,6 +203,9 @@ function entradaInvalida(body: BodyIn, mensajes: MensajeIn[]): string | null {
     if (typeof m.texto !== 'string' || m.texto.length > LIMITES.texto) {
       return 'Mensaje demasiado largo.'
     }
+    if (m.contexto !== undefined && (typeof m.contexto !== 'string' || m.contexto.length > 4000)) {
+      return 'Contexto demasiado largo.'
+    }
     if (m.imagen) {
       nImagenes++
       if (typeof m.imagen.base64 !== 'string') return 'Imagen demasiado grande.'
@@ -213,7 +225,16 @@ interface MensajeIn {
   rol: 'usuario' | 'asistente'
   texto: string
   imagen?: { base64: string; mediaType: string }
+  /**
+   * Memorias y fichas que vienen al caso en ESTE turno (solo el último mensaje
+   * del chat de la casa). Van aquí y no en el system porque cambian cada turno:
+   * en el system invalidaban el caché del hilo entero. Jev no las ve.
+   */
+  contexto?: string
 }
+
+/** Lo que ve el modelo de un mensaje: su contexto del turno, si lo trae, y el texto. */
+const textoModelo = (m: MensajeIn) => (m.contexto ? `${m.contexto}\n\n${m.texto}` : m.texto)
 
 interface ToolIn {
   name: string
@@ -391,9 +412,9 @@ async function porAnthropic(
             type: m.imagen.mediaType === 'application/pdf' ? 'document' : 'image',
             source: { type: 'base64', media_type: m.imagen.mediaType, data: m.imagen.base64 },
           },
-          { type: 'text', text: m.texto },
+          { type: 'text', text: textoModelo(m) },
         ]
-      : m.texto
+      : textoModelo(m)
 
   const messages = mensajes.map((m) => ({
     role: m.rol === 'usuario' ? 'user' : 'assistant',
@@ -403,8 +424,13 @@ async function porAnthropic(
   // Breakpoint de conversación: ancla el hilo completo para que el siguiente
   // turno lo relea del caché. Solo en multi-turno: un one-shot pagaría la
   // prima de escritura (1.25×) por un prefijo que jamás se vuelve a leer.
-  if (mensajes.length >= 2) {
-    const ult = messages[messages.length - 1]
+  // Si el último mensaje trae `contexto`, ese turno no se repetirá igual (en el
+  // historial vuelve sin él): se ancla la última respuesta del asistente, que
+  // sí será el prefijo del turno siguiente.
+  const conContexto = !!mensajes[mensajes.length - 1]?.contexto
+  const iAncla = conContexto ? mensajes.map((m) => m.rol).lastIndexOf('asistente') : messages.length - 1
+  if (mensajes.length >= 2 && iAncla >= 0) {
+    const ult = messages[iAncla]
     if (typeof ult.content === 'string') {
       ult.content = [{ type: 'text', text: ult.content, cache_control: CACHE }]
     } else {
@@ -538,13 +564,13 @@ async function porOpenAI(body: BodyIn, mensajes: MensajeIn[], maxTokens: number)
   const contenido = (m: MensajeIn): string | Record<string, unknown>[] =>
     m.imagen
       ? [
-          { type: 'text', text: m.texto },
+          { type: 'text', text: textoModelo(m) },
           {
             type: 'image_url',
             image_url: { url: `data:${m.imagen.mediaType};base64,${m.imagen.base64}` },
           },
         ]
-      : m.texto
+      : textoModelo(m)
 
   const resp = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
@@ -630,7 +656,7 @@ async function porGemini(
       parts.push({ inlineData: { mimeType: m.imagen.mediaType, data: m.imagen.base64 } })
     }
     // Gemini rechaza las partes de texto vacías.
-    if (m.texto.trim()) parts.push({ text: m.texto })
+    if (m.texto.trim()) parts.push({ text: textoModelo(m) })
     if (!parts.length) parts.push({ text: '.' })
     return { role: m.rol === 'usuario' ? 'user' : 'model', parts }
   })
@@ -894,7 +920,15 @@ Deno.serve(async (req) => {
   const preferido = !calidad && capaces.includes(body.prov as ProvTexto) ? (body.prov as ProvTexto) : null
   const geminiPrimero =
     !calidad && !preferido && MUESTREO_GEMINI > 0 && Math.random() * 100 < MUESTREO_GEMINI
-  const primero = preferido ?? (geminiPrimero ? 'gemini' : null)
+  const openaiPrimero =
+    !calidad &&
+    !preferido &&
+    !conPdf &&
+    OPS_TEXTO.has(op) &&
+    !body.tools?.length &&
+    MUESTREO_TEXTO_OPENAI > 0 &&
+    Math.random() * 100 < MUESTREO_TEXTO_OPENAI
+  const primero = preferido ?? (openaiPrimero ? 'openai' : geminiPrimero ? 'gemini' : null)
   const cadena: ProvTexto[] = primero ? [primero, ...capaces.filter((p) => p !== primero)] : capaces
 
   let salida: Salida | null = null

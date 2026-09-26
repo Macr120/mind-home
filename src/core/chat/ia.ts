@@ -1,9 +1,10 @@
 // Solo tipos: el SDK (pesado) se importa dinámico al primer uso real de Claude.
 import type Anthropic from '@anthropic-ai/sdk'
-import { getPlantilla } from '../appContrato'
-import type { CampoCaptura } from '../appContrato'
+import { getPlantilla, plantillasCodigo } from '../appContrato'
+import type { CampoCaptura, Plantilla } from '../appContrato'
 import { appsAsignadas, interpretar } from './dispatcher'
 import { hayIntencionEditor } from './editorIntencion'
+export { ventanaEstable } from './ventana'
 import { guardarMemoria, memoriasParaPrompt, rutinasRepo } from '../data/repository'
 import { nodosDeApps } from '../grafoApps'
 import type { NodoEntidad, TipoEntidad } from '../grafo/memoria'
@@ -340,31 +341,42 @@ function campoASchema(c: CampoCaptura): Record<string, unknown> {
 }
 
 /**
- * Construye las herramientas que verá el modelo. La base son las APPS ASIGNADAS
- * (las que el usuario tiene en objetos de sus cuartos), no el catálogo completo.
- * Si `cuartosPermitidos` trae ids, se acota además a esas apps (el asistente es
- * responsable de archivar SOLO ahí). Vacío/undefined = todas las apps asignadas.
+ * Apps donde el asistente PUEDE registrar: las asignadas a objetos de la casa
+ * con herramientas de captura, acotadas a `cuartosPermitidos` si trae ids (el
+ * asistente es responsable de archivar SOLO ahí).
+ */
+function appsParaCaptura(cuartosPermitidos?: string[]): Plantilla[] {
+  return appsAsignadas().filter(
+    (r) => r.esquemas?.length && (!cuartosPermitidos?.length || cuartosPermitidos.includes(r.id)),
+  )
+}
+
+function toolsDeApp(room: Plantilla): ToolNeutra[] {
+  return (room.esquemas ?? []).map((e) => ({
+    app: room.id,
+    name: `${room.id}__${e.id}`,
+    description: `${room.nombre} — ${e.descripcion}`,
+    schema: {
+      type: 'object',
+      properties: Object.fromEntries(e.campos.map((c) => [c.campo, campoASchema(c)])),
+      required: e.campos.filter((c) => c.requerido).map((c) => c.campo),
+    },
+  }))
+}
+
+/**
+ * Construye las herramientas que verá el modelo, en dos tramos:
+ *
+ * - Primero las IGUALES PARA TODOS: las de captura de TODAS las apps de código
+ *   (asignadas o no) y recordar, crear_rutina y crear_modelo_3d con textos
+ *   fijos, terminando en un breakpoint de caché. Así el prefijo de tools se
+ *   comparte entre usuarios y supera el mínimo cacheable. Cuáles apps valen de
+ *   verdad lo dice la cola del system, y `interpretarIA` descarta las demás.
+ * - Después lo propio de cada casa: sus apps personalizadas y la imagen.
  */
 function construirTools(cuartosPermitidos?: string[]): ToolNeutra[] {
-  const tools: ToolNeutra[] = []
-  const apps = appsAsignadas()
-  const responsable = cuartosPermitidos?.length
-    ? apps.filter((r) => cuartosPermitidos.includes(r.id))
-    : apps
-  for (const room of responsable) {
-    for (const e of room.esquemas ?? []) {
-      tools.push({
-        app: room.id,
-        name: `${room.id}__${e.id}`,
-        description: `${room.nombre} — ${e.descripcion}`,
-        schema: {
-          type: 'object',
-          properties: Object.fromEntries(e.campos.map((c) => [c.campo, campoASchema(c)])),
-          required: e.campos.filter((c) => c.requerido).map((c) => c.campo),
-        },
-      })
-    }
-  }
+  const comunes = plantillasCodigo().filter((r) => r.esquemas?.length)
+  const tools: ToolNeutra[] = comunes.flatMap(toolsDeApp)
   // Herramienta de memoria: hechos duraderos sobre el usuario.
   tools.push({
     name: 'recordar',
@@ -380,17 +392,14 @@ function construirTools(cuartosPermitidos?: string[]): ToolNeutra[] {
         },
         roomId: {
           type: 'string',
-          description: `App relacionada si aplica: ${apps.map((r) => r.id).join(', ')}`,
+          description: 'Id de la app relacionada si aplica (las apps de la casa están en tus instrucciones)',
         },
       },
       required: ['hecho'],
     },
   })
   // Herramienta orquestadora: crear rutinas multi-app.
-  const esquemasPorCuarto = apps
-    .filter((r) => r.esquemas?.length)
-    .map((r) => `${r.id}: ${r.esquemas!.map((e) => e.id).join('|')}`)
-    .join(' · ')
+  const esquemasPorCuarto = comunes.map((r) => `${r.id}: ${r.esquemas!.map((e) => e.id).join('|')}`).join(' · ')
   tools.push({
     name: 'crear_rutina',
     description:
@@ -415,7 +424,7 @@ function construirTools(cuartosPermitidos?: string[]): ToolNeutra[] {
             type: 'object',
             properties: {
               titulo: { type: 'string', description: 'Qué hacer, breve (ej. "Beber un vaso de agua")' },
-              roomId: { type: 'string', description: `App del paso: ${apps.map((r) => r.id).join(', ')}` },
+              roomId: { type: 'string', description: 'Id de la app del paso (una de las apps de la casa)' },
               esquemaId: {
                 type: 'string',
                 description: `Para auto-registrar al completar el paso (opcional). Esquemas por cuarto: ${esquemasPorCuarto}`,
@@ -458,7 +467,13 @@ function construirTools(cuartosPermitidos?: string[]): ToolNeutra[] {
       },
       required: ['descripcion'],
     },
+    // Fin del tramo común a todos los usuarios: breakpoint de caché.
+    cache: true,
   })
+  // Lo propio de esta casa: sus apps personalizadas (las de código ya van arriba).
+  for (const room of appsParaCaptura(cuartosPermitidos)) {
+    if (!comunes.includes(room)) tools.push(...toolsDeApp(room))
+  }
   // Imagen 2D en la conversación (solo si el proveedor de imagen está disponible).
   if (imagenIaActiva()) {
     tools.push({
@@ -554,8 +569,18 @@ interface LlamadaTool {
  * porque se guardan y se leen fuera del chat.
  */
 function reglaIdioma(): string {
-  return `IDIOMA — ESTA REGLA MANDA SOBRE TODAS LAS DEMÁS: responde SIEMPRE en el mismo idioma en el que te escribe el usuario en su ÚLTIMO mensaje, aunque estas instrucciones, tu personalidad y los nombres de los cuartos estén en español. Si cambia de idioma a mitad de la conversación, cambia tú en ese mismo turno. Solo si su mensaje no permite saber el idioma (un «ok», un emoji, una cifra), escribe en ${datosIdioma(idiomaActual()).nombreIA}. TODA tu respuesta va en ese idioma, también los nombres de los cuartos y de las apps: tradúcelos en vez de copiarlos en español, y NUNCA escribas el término español —ni suelto, ni en negritas, ni aclarado entre paréntesis—. La única excepción son los nombres que el propio usuario haya escrito.`
+  return `${reglaIdiomaFija()} Solo si su mensaje no permite saber el idioma (un «ok», un emoji, una cifra), escribe en ${idiomaDesempate()}.`
 }
+
+/**
+ * La regla sin el idioma de desempate: es la misma para todos los usuarios, así
+ * que abre la cabecera cacheada del chat de la casa (el desempate va en la cola).
+ */
+function reglaIdiomaFija(): string {
+  return 'IDIOMA — ESTA REGLA MANDA SOBRE TODAS LAS DEMÁS: responde SIEMPRE en el mismo idioma en el que te escribe el usuario en su ÚLTIMO mensaje, aunque estas instrucciones, tu personalidad y los nombres de los cuartos estén en español. Si cambia de idioma a mitad de la conversación, cambia tú en ese mismo turno. TODA tu respuesta va en ese idioma, también los nombres de los cuartos y de las apps: tradúcelos en vez de copiarlos en español, y NUNCA escribas el término español —ni suelto, ni en negritas, ni aclarado entre paréntesis—. La única excepción son los nombres que el propio usuario haya escrito. Si antes del mensaje del usuario ves un bloque «Contexto para ti», NO lo escribió él: son tus notas en español y no cuentan para decidir el idioma.'
+}
+
+const idiomaDesempate = () => datosIdioma(idiomaActual()).nombreIA
 
 /** Identidad del personaje (personalidad + historia), compartida por los system del chat y del Chat AR. */
 function lineasPersonaje(mascota: Asistente): string[] {
@@ -623,18 +648,18 @@ function fichasDe(nombradas: readonly NodoEntidad[]): string[] {
  * El system del chat de la casa, partido en dos para el prompt caching:
  *
  * - La CABECERA es idéntica para todos los usuarios y todos los días: solo
- *   depende de flags fijos por build o por configuración (`conEditor`, imagen
- *   IA). Va primero y termina en `corte`.
- * - La COLA lleva lo que cambia por usuario o por turno: el asistente y su
- *   personalidad, las apps a su cargo, los cuartos, el adjunto, la fecha y las
- *   memorias. Va al final, después del último breakpoint que comparte turnos.
+ *   depende de `conEditor` (el idioma de desempate y la imagen van en la cola).
+ *   Va primero y termina en `corte`; con las tools comunes de `construirTools`
+ *   delante, el prefijo compartido supera el mínimo cacheable (4096 en Haiku 4.5).
+ * - La COLA lleva lo que cambia por usuario: el idioma de desempate, la imagen,
+ *   el asistente y su personalidad, las apps donde registra, los cuartos, el
+ *   adjunto y la fecha. No lleva breakpoint.
+ * - El CONTEXTO (memorias y fichas que vienen al caso) cambia en cada mensaje:
+ *   viaja delante del último mensaje del usuario, no aquí, para que el hilo
+ *   entero se relea del caché turno a turno.
  *
- * El proxy ancla cada parte con su `cache_control` (ver `ia-chat`): así una
- * memoria nueva, el cambio de día o de asistente reescriben solo la cola en vez
- * de tools+system enteros. Los proveedores compatibles con OpenAI y Gemini
- * cachean por prefijo, así que el orden estable→volátil también les sirve.
- * El mínimo cacheable manda (4096 tokens en Haiku 4.5): sin editor, tools +
- * cabecera pueden quedar por debajo y entonces el marcador es un no-op gratis.
+ * Los proveedores compatibles con OpenAI y Gemini cachean por prefijo, así que
+ * el orden estable→volátil también les sirve.
  */
 async function construirSystem(
   mascotaId: string,
@@ -648,7 +673,7 @@ async function construirSystem(
   // módulo diferido (para entonces `interpretarIA` ya lo está descargando).
   const descCuartos = conEditor ? (await cargarEditor()).descripcionCuartos() : ''
   const cabecera = [
-    reglaIdioma(),
+    reglaIdiomaFija(),
     'Eres el asistente-arquitecto de MindHaOS: una casa virtual donde cada cuarto registra una parte de la vida del usuario. Tu nombre, tu personalidad y las apps que archivas vienen al final de estas instrucciones.',
     'Nunca le enseñes al usuario los NOMBRES TÉCNICOS de tus herramientas (generar_imagen, crear_rutina, editor_*) ni hables de «tools»: di en palabras normales lo que vas a hacer («te dibujo la imagen», «lo anoto en tu agenda»).',
     'Cuando el usuario te cuente qué hizo, registra los datos con las herramientas (usa varias si el mensaje toca varios cuartos; estima valores razonables como calorías si no se mencionan). Si pide crear un hábito o ritual recurrente, usa crear_rutina con pasos concretos y, cuando el paso sea medible, su esquema y valores para auto-registro; pero si lo que pide es una rutina de ENTRENAMIENTO (pesas, cardio, estiramientos), usa la herramienta de rutinas de la app de Ejercicio, que la guarda con sus ejercicios ahí dentro. Después de usar herramientas responde SIEMPRE con un comentario breve (1–2 frases) en tu personalidad y en el idioma del usuario.',
@@ -656,9 +681,6 @@ async function construirSystem(
     'Si recibes mensajes previos, son el contexto de una conversación continua: retómala con naturalidad, no repitas saludos y no vuelvas a registrar lo que ya quedó registrado en turnos anteriores.',
     INSTRUCCION_EMOCION,
     'Si el usuario pide crear/generar/hacer un objeto, mueble, planta, aparato, personaje, animal o elemento arquitectónico en 3D (ej. "crea una silla de madera", "genera un gato robot", "haz una columna griega"), usa crear_modelo_3d: se generará y se guardará en su inventario, en la carpeta según el tipo.',
-    imagenIaActiva()
-      ? 'Si pide una IMAGEN, foto, dibujo o ilustración («una imagen de X», «dibújame X»), usa generar_imagen: la imagen aparecerá dentro de la conversación. Los objetos, muebles y personajes 3D para la casa son de crear_modelo_3d, no de generar_imagen.'
-      : '',
     // Párrafos de arquitecto: solo cuando el mensaje trae las TOOLS_EDITOR
     // (gating por intención — ahorra ~5.5k tokens en la plática normal).
     conEditor
@@ -683,14 +705,24 @@ async function construirSystem(
     .filter(Boolean)
     .join('\n\n')
 
+  const [fecha, ...notas] = await lineasContexto({ texto, asistenteId: mascotaId })
   const cola = [
+    `Si el mensaje del usuario no permite saber su idioma (un «ok», un emoji, una cifra), escribe en ${idiomaDesempate()}.`,
+    imagenIaActiva()
+      ? 'Si pide una IMAGEN, foto, dibujo o ilustración («una imagen de X», «dibújame X»), usa generar_imagen: la imagen aparecerá dentro de la conversación. Los objetos, muebles y personajes 3D para la casa son de crear_modelo_3d, no de generar_imagen.'
+      : '',
     `Te llamas ${nombreAsistente(tGlobal, mascota)} ${mascota.emoji}.`,
     ...lineasPersonaje(mascota),
+    // Las herramientas de captura son las de TODAS las apps (prefijo común a
+    // todos los usuarios, para el caché): aquí se dice cuáles valen.
+    `Apps donde puedes registrar (usa SOLO sus herramientas de captura; las de las demás apps están desactivadas para este usuario): ${
+      appsParaCaptura(mascota.cuartos)
+        .map((r) => `${r.id} (${tGlobal(`room.${r.id}.nombre`, r.nombre)})`)
+        .join(', ') || 'ninguna'
+    }.`,
     mascota.cuartos.length
-      ? `Eres responsable de archivar SOLO estas apps: ${mascota.cuartos
-          .map((id) => tGlobal(`room.${id}.nombre`, getPlantilla(id)?.nombre ?? id))
-          .join(', ')}. Solo tienes herramientas de captura de esas apps. Si el usuario te pide registrar algo de otra, díselo amablemente y sugiérele cambiar al asistente que la maneja (conversar sí puedes de lo que sea).`
-      : 'Eres responsable de archivar en todas las apps asignadas de la casa.',
+      ? 'Si el usuario te pide registrar algo de otra app, díselo amablemente y sugiérele cambiar al asistente que la maneja (conversar sí puedes de lo que sea).'
+      : '',
     descCuartos,
     adjunto === 'imagen'
       ? 'El mensaje incluye una imagen: interprétala y registra lo que muestre (ej. foto de un platillo → registra la comida estimando macros; un ticket → registra el gasto).'
@@ -698,7 +730,7 @@ async function construirSystem(
     adjunto === 'pdf'
       ? 'El mensaje incluye un documento PDF: léelo, resume lo esencial y registra los datos que correspondan (ej. una factura → registra el gasto; un plan de entrenamiento → sus pasos).'
       : '',
-    ...(await lineasContexto({ texto, asistenteId: mascotaId })),
+    fecha,
     // Recordatorio de cierre: el principio y el final del system son lo que
     // más pesa, y este lleva ~10k tokens de español en medio.
     'Recuerda: tu respuesta va en el idioma del último mensaje del usuario.',
@@ -706,7 +738,12 @@ async function construirSystem(
     .filter(Boolean)
     .join('\n\n')
 
-  return { texto: `${cabecera}\n\n${cola}`, corte: cabecera.length }
+  const contexto = notas.filter(Boolean).join('\n\n')
+  return {
+    texto: `${cabecera}\n\n${cola}`,
+    corte: cabecera.length,
+    contexto: contexto ? `Contexto para ti (no lo escribió el usuario):\n${contexto}\n\nMensaje del usuario:` : undefined,
+  }
 }
 
 /** System partido en cabecera estable + cola volátil (ver `construirSystem`). */
@@ -714,10 +751,21 @@ interface SystemDividido {
   texto: string
   /** Chars de la cabecera; 0 = sin partir. */
   corte: number
+  /**
+   * Memorias y fichas que vienen al caso en ESTE turno. Viajan en el último
+   * mensaje, no en el system: cambian con cada mensaje y en el system invalidaban
+   * el caché del hilo entero.
+   */
+  contexto?: string
 }
 /** Los transportes aceptan el system entero (string) o partido. */
 type SystemChat = string | SystemDividido
 const partesSystem = (s: SystemChat): SystemDividido => (typeof s === 'string' ? { texto: s, corte: 0 } : s)
+/** Texto del último mensaje para las vías BYOK: el contexto del turno delante. */
+const conContexto = (s: SystemChat, texto: string): string => {
+  const c = partesSystem(s).contexto
+  return c ? `${c}\n\n${texto}` : texto
+}
 /** Breakpoint de caché en la vía BYOK de Claude (el proxy pone los suyos). */
 const CACHE_BYOK = { type: 'ephemeral' as const }
 
@@ -734,7 +782,7 @@ async function llamarCuenta(
   const r = await iaChatCuenta({
     system: sys.texto,
     systemCorte: sys.corte > 0 ? sys.corte : undefined,
-    mensajes: [...historial, { rol: 'usuario', texto, imagen: imagen ?? undefined }],
+    mensajes: [...historial, { rol: 'usuario', texto, imagen: imagen ?? undefined, contexto: sys.contexto }],
     tools: tools.length ? tools : undefined,
     // El razonamiento del perfil `calidad` también sale de max_tokens. El 2048
     // del chat es el espejo del tope del servidor (TOPES.chat en ia-chat):
@@ -780,7 +828,7 @@ async function llamarCuentaRuteada(
   const r = await iaChatCuentaRuteado({
     system: sys.texto,
     systemCorte: sys.corte > 0 ? sys.corte : undefined,
-    mensajes: [...historial, { rol: 'usuario', texto }],
+    mensajes: [...historial, { rol: 'usuario', texto, contexto: sys.contexto }],
     tools: tools.length ? tools : undefined,
     maxTokens: 2048,
     op: 'chat',
@@ -793,8 +841,9 @@ async function llamarCuentaRuteada(
 
 /**
  * Transporte Claude (SDK oficial, clave propia). Marca los mismos breakpoints
- * de caché que el proxy: fin de TOOLS_EDITOR, cabecera y cola del system, y el
- * último mensaje en multi-turno. Con la clave del usuario el ahorro es suyo.
+ * de caché que el proxy: fin de TOOLS_EDITOR, fin de las tools comunes, cabecera
+ * del system y el último mensaje en multi-turno. Con la clave del usuario el
+ * ahorro es suyo.
  */
 async function llamarClaude(
   system: SystemChat,
@@ -827,14 +876,20 @@ async function llamarClaude(
   }
   // Multi-turno: el último bloque ancla el hilo para releerlo del caché en el
   // siguiente turno (un one-shot pagaría la prima de escritura por nada).
-  contenido.push({ type: 'text', text: texto, ...(historial.length ? { cache_control: CACHE_BYOK } : {}) })
+  contenido.push({
+    type: 'text',
+    text: conContexto(system, texto),
+    ...(historial.length ? { cache_control: CACHE_BYOK } : {}),
+  })
 
   const sys = partesSystem(system)
   const bloquesSystem: Anthropic.TextBlockParam[] =
     sys.corte > 0 && sys.corte < sys.texto.length
       ? [
           { type: 'text', text: sys.texto.slice(0, sys.corte), cache_control: CACHE_BYOK },
-          { type: 'text', text: sys.texto.slice(sys.corte), cache_control: CACHE_BYOK },
+          // La cola sin breakpoint, como en el proxy: cambia a menudo y además
+          // la API admite solo 4 (tools del editor, tools comunes, cabecera, hilo).
+          { type: 'text', text: sys.texto.slice(sys.corte) },
         ]
       : [{ type: 'text', text: sys.texto, cache_control: CACHE_BYOK }]
 
@@ -921,10 +976,10 @@ async function llamarOpenAICompat(
   const modelo = getModelo(prov)
   const contenidoUsuario = imagen
     ? [
-        { type: 'text', text: texto },
+        { type: 'text', text: conContexto(system, texto) },
         { type: 'image_url', image_url: { url: `data:${imagen.mediaType};base64,${imagen.base64}` } },
       ]
-    : texto
+    : conContexto(system, texto)
 
   const res = await fetch(`${getBase(prov)}/chat/completions`, {
     method: 'POST',
@@ -991,22 +1046,6 @@ async function llamarOpenAICompat(
 export interface MensajeIA {
   rol: 'usuario' | 'asistente'
   texto: string
-}
-
-/**
- * Las últimas `max` entradas de una conversación, pero con el principio
- * avanzando a SALTOS de `max / 2` en vez de uno por turno. Con una ventana que
- * se desliza, el primer mensaje cambia en cada turno y el caché de prompts del
- * hilo nunca se relee (se paga la escritura, 1.25×, cada vez); así el prefijo
- * se mantiene idéntico varios turnos seguidos. Empieza en un turno del usuario,
- * como exige la API.
- */
-export function ventanaEstable(lista: MensajeIA[], max: number): MensajeIA[] {
-  if (lista.length <= max) return lista
-  const paso = Math.max(1, Math.floor(max / 2))
-  let ini = Math.floor((lista.length - paso) / paso) * paso
-  while (ini < lista.length - 1 && lista[ini].rol !== 'usuario') ini++
-  return lista.slice(ini)
 }
 
 /**
@@ -1335,6 +1374,7 @@ export async function interpretarIA(
     }
   }
   const { respuesta, llamadas } = r
+  const permitidas = new Set(appsParaCaptura(getAsistente(mascotaId).cuartos).map((a) => a.id))
 
   // El marcador [[emocion:x]] se queda aquí: jamás llega a la burbuja, al TTS ni a Dexie.
   const extraccion = respuesta ? extraerEmocion(respuesta) : null
@@ -1457,6 +1497,9 @@ export async function interpretarIA(
       continue
     }
     const [roomId, esquemaId] = name.split('__')
+    // Las tools de captura son las de todas las apps (prefijo común del caché):
+    // solo se registra en las que esta casa y este asistente tienen.
+    if (!permitidas.has(roomId)) continue
     const esquema = getPlantilla(roomId)?.esquemas?.find((e) => e.id === esquemaId)
     if (!esquema) continue
     await esquema.guardar(input)

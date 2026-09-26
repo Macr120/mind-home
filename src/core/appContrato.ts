@@ -330,6 +330,9 @@ export const fijarPlantillasCustom = (lista: Plantilla[]) => {
 
 export const getPlantilla = (id: string) => codigo.find((p) => p.id === id) ?? custom.get(id)
 
+/** Solo las apps de código: iguales para todos los usuarios (el chat las cachea). */
+export const plantillasCodigo = (): Plantilla[] => codigo
+
 /** Catálogo completo: apps de código + plantillas personalizadas. */
 export const plantillasTodas = (): Plantilla[] => [...codigo, ...custom.values()]
 

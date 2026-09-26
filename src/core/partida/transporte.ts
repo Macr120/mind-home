@@ -57,18 +57,29 @@ export function partidaLocal(): string | null {
 export async function abrirTransporte(
   partidaId: string,
   soyAnfitrion: boolean,
-): Promise<{ bajada: Transporte; subida: Transporte }> {
+  miRanura: string,
+): Promise<{ bajada: Transporte; subida: Transporte; poses: Transporte[] }> {
   if (codigoLocal === null) {
     // Perezoso: fuera de partida el chunk de Realtime no entra en el arranque.
-    const { transporteRealtime } = await import('./transporteRealtime')
-    const [bajada, subida] = await Promise.all([
+    const { transporteRealtime, transporteRealtimeTopic } = await import('./transporteRealtime')
+    // Poses de los invitados: una por topic `partida:<id>:p:<ranura>` que solo
+    // escucha el anfitrión. En la subida compartida cada pose le llegaba además
+    // a todos los demás invitados (4 jugadores a 10 Hz ≈ 160 mensajes/s
+    // entregados contra ~60): ahora la ven por el `s` fundido del anfitrión.
+    const topicPose = (r: string) => `partida:${partidaId}:p:${r}`
+    const [bajada, subida, ...poses] = await Promise.all([
       transporteRealtime(partidaId, 'bajada', soyAnfitrion),
       transporteRealtime(partidaId, 'subida', true),
+      ...(soyAnfitrion
+        ? ['j1', 'j2', 'j3'].map((r) => transporteRealtimeTopic<Evento>(topicPose(r), false))
+        : [transporteRealtimeTopic<Evento>(topicPose(miRanura), true)]),
     ])
-    return { bajada, subida }
+    return { bajada, subida, poses }
   }
+  // En local las poses siguen por la subida: no hay mensajes que ahorrar.
   return {
     bajada: transporteLocal(`mph.partida.${partidaId}`, soyAnfitrion),
     subida: transporteLocal(`mph.partida.${partidaId}.u`, true),
+    poses: [],
   }
 }

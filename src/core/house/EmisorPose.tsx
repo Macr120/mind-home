@@ -4,7 +4,7 @@ import { playerForward, playerPos, useHouse } from '../state/houseStore'
 import { accionFrame } from '../state/herramientaStore'
 import { periodoPose } from '../partida/protocolo'
 import { fijarIntervaloEnvio } from '../partida/reloj'
-import { emitirPosePropia } from '../partida/sala'
+import { emitirPosePropia, hayPosesDeInvitados } from '../partida/sala'
 import { usePartida } from '../partida/partidaStore'
 import { F_AGACHADO, F_AUSENTE, F_CORRIENDO } from '../partida/tipos'
 
@@ -46,7 +46,8 @@ export function EmisorPose(): null {
         Math.abs(Math.atan2(Math.sin(h - u.h), Math.cos(h - u.h))) < DELTA_RUMBO &&
         f === u.f &&
         niv === u.niv
-      if (igual && ahora - u.at < KEEPALIVE) return
+      // El anfitrión quieto sigue emitiendo si hay poses de invitados que reenviar.
+      if (igual && ahora - u.at < KEEPALIVE && !hayPosesDeInvitados()) return
       ultima.current = { x: playerPos.x, z: playerPos.z, h, niv, f, at: ahora }
       emitirPosePropia({ x: playerPos.x, z: playerPos.z, h, vel: marchaAvatar.velocidad, niv, f })
     }, periodo)

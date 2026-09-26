@@ -81,6 +81,16 @@ const LATIDO = 60000
 let sala: Sala | null = null
 let bajada: Transporte | null = null
 let subida: Transporte | null = null
+/** Anfitrión: los topics de pose de los invitados. Invitado: el suyo. Vacío en local. */
+let topicsPose: Transporte[] = []
+/**
+ * Invitado: el anfitrión anunció (con `pp: 1` en su `s`) que escucha los topics
+ * de pose. Hasta verlo, la pose va por la subida compartida: un anfitrión con
+ * una versión vieja de la app no escucha los topics nuevos.
+ */
+let anfitrionConPoses = false
+/** Anfitrión: llegó la pose de un invitado desde el último `s` (hay que reenviarla). */
+let posesInvitadosNuevas = false
 let lobby: BroadcastChannel | null = null
 let pingTimer: ReturnType<typeof setInterval> | null = null
 let latidoTimer: ReturnType<typeof setInterval> | null = null
@@ -234,6 +244,7 @@ function deQuien(direccion: Direccion, p: unknown): Ranura | null {
 
 function entra(ev: Evento, direccion: Direccion, bruto: unknown): void {
   if (!sala) return
+  if (ev === 's' && (bruto as { pp?: unknown } | null)?.pp === 1) anfitrionConPoses = true
   const p = leer(ev, bruto, direccion)
   if (!p) return
   // `sala` lo emite la BD por el canal de bajada, no un jugador: lo procesan
@@ -280,6 +291,7 @@ function interno(ev: Evento, direccion: Direccion, p: object, de: Ranura): void 
         // Se guarda el `t` del DUEÑO: es el que viaja dentro del `s` fundido y
         // con el que el árbitro rebobina para juzgar sus disparos.
         posesRemotas.set(de, { p: (p as MsgI).p, t: (p as MsgI).t, llegada: reloj.ahora() })
+        posesInvitadosNuevas = true
       }
       break
     }
@@ -430,7 +442,11 @@ export function emitir(ev: Evento, datos: object, tOriginal?: number): { seq: nu
     seq = (seqSalida.get(ev) ?? 0) + 1
     seqSalida.set(ev, seq)
   }
-  const canal = sala.soyAnfitrion ? bajada : subida
+  const canal = sala.soyAnfitrion
+    ? bajada
+    : ev === 'i' && anfitrionConPoses && topicsPose.length
+      ? topicsPose[0]
+      : subida
   canal?.enviar(ev, sellar(ev, datos, t, seq))
   return { seq, t: Math.round(t) }
 }
@@ -469,7 +485,19 @@ export function emitirPosePropia(p: PoseCuerpo): void {
     if (t - m.llegada < POSE_FRESCA) poses.push({ ...m.p, j: r, t: m.t })
   }
   for (const extra of cuerposExtra?.() ?? []) poses.push(extra)
-  emitir('s', { p: poses })
+  posesInvitadosNuevas = false
+  // `pp`: «escucho los topics de pose» (ver `anfitrionConPoses`). Un invitado
+  // viejo lo ignora: `leer` rearma el `s` sin campos desconocidos.
+  emitir('s', { p: poses, pp: 1 })
+}
+
+/**
+ * Anfitrión: ¿hay poses de invitados sin reenviar? Con los topics de pose los
+ * invitados solo se ven por el `s` fundido, así que el anfitrión quieto también
+ * tiene que emitirlo (antes esperaba al keepalive de 1 s).
+ */
+export function hayPosesDeInvitados(): boolean {
+  return posesInvitadosNuevas
 }
 
 function anunciarAspecto(): void {
@@ -601,9 +629,21 @@ export async function conectarSala(s: Sala): Promise<void> {
   else reloj.reiniciar()
   fijarMiRanura(s.miRanura)
   sala = { ...s, jugadores: conMiEntrada(s) }
-  const tr = await abrirTransporte(s.partidaId, s.soyAnfitrion)
+  const tr = await abrirTransporte(s.partidaId, s.soyAnfitrion, s.miRanura)
   bajada = tr.bajada
   subida = tr.subida
+  topicsPose = tr.poses
+  anfitrionConPoses = false
+  posesInvitadosNuevas = false
+  // Anfitrión: `abrirTransporte` los abre en orden j1, j2, j3. La policy solo
+  // deja publicar en el topic de la propia ranura; la `j` del mensaje debe cuadrar.
+  if (s.soyAnfitrion) {
+    topicsPose.forEach((t, i) =>
+      t.on('i', (p) => {
+        if ((p as { j?: unknown } | null)?.j === `j${i + 1}`) entra('i', 'subida', p)
+      }),
+    )
+  }
   for (const ev of EVENTOS) {
     bajada.on(ev, (p) => entra(ev, 'bajada', p))
     subida.on(ev, (p) => entra(ev, 'subida', p))
@@ -742,8 +782,10 @@ function cerrarTodo(): void {
   window.removeEventListener('pagehide', alIrse)
   bajada?.cerrar()
   subida?.cerrar()
+  for (const t of topicsPose) t.cerrar()
   bajada = null
   subida = null
+  topicsPose = []
   lobby?.close()
   lobby = null
   seqSalida.clear()

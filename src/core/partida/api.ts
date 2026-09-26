@@ -9,6 +9,7 @@
  * ranura (`j0`..`j3`).
  */
 import { obtenerSupabase } from '../cuenta/supabase'
+import { bajarCompartido, borrarCompartidos, subirCompartido } from '../cuenta/compartidos'
 import type { TFunc } from '../i18n/useT'
 import { useDiseño } from '../state/disenoStore'
 import { podar } from './aspecto'
@@ -25,7 +26,6 @@ import {
   type Sala,
 } from './tipos'
 
-const BUCKET = 'partida-casa'
 const ARCHIVO = 'casa.json.gz'
 
 /** Id de la última sala creada: sirve para borrar su plano del bucket (C2). */
@@ -211,8 +211,6 @@ export async function cambiarJuego(partidaId: string, juego: JuegoPartida): Prom
  * No hay policy de `update`: rehacer el plano es borrar y volver a subir.
  */
 export async function subirPlano(partidaId: string, plano: Blob): Promise<void> {
-  const sb = await obtenerSupabase()
-  if (!sb) throw new ErrorPartida('sin-backend')
   const bytes =
     typeof CompressionStream === 'function'
       ? await new Response(plano.stream().pipeThrough(new CompressionStream('gzip'))).blob()
@@ -220,21 +218,22 @@ export async function subirPlano(partidaId: string, plano: Blob): Promise<void> 
   // supabase-js manda el tipo DEL BLOB, no el `contentType` de las opciones: el
   // de `CompressionStream` sale vacío (→ octet-stream) y el bucket lo rechaza.
   const cuerpo = new Blob([bytes], { type: 'application/gzip' })
-  const ruta = `${partidaId}/${ARCHIVO}`
-  await sb.storage.from(BUCKET).remove([ruta])
-  const { error } = await sb.storage.from(BUCKET).upload(ruta, cuerpo, {
-    contentType: 'application/gzip',
-    upsert: false,
-  })
-  if (error) throw new ErrorPartida(/fetch|network/i.test(error.message) ? 'red' : 'servidor', error.message)
+  // En R2 (función `compartidos`) el PUT reemplaza: no hace falta borrar antes.
+  try {
+    await subirCompartido('partida', `${partidaId}/${ARCHIVO}`, cuerpo)
+  } catch (e) {
+    throw new ErrorPartida('red', String(e))
+  }
   await rpc('partida_marcar_casa', { p_partida: partidaId })
 }
 
 export async function bajarPlano(partidaId: string): Promise<ArrayBuffer> {
-  const sb = await obtenerSupabase()
-  if (!sb) throw new ErrorPartida('sin-backend')
-  const { data, error } = await sb.storage.from(BUCKET).download(`${partidaId}/${ARCHIVO}`)
-  if (error || !data) throw new ErrorPartida('red', error?.message)
+  let data: Blob
+  try {
+    data = await bajarCompartido('partida', `${partidaId}/${ARCHIVO}`)
+  } catch (e) {
+    throw new ErrorPartida('red', String(e))
+  }
   const bruto = await data.arrayBuffer()
   const cabecera = new Uint8Array(bruto)
   if (cabecera[0] !== 0x1f || cabecera[1] !== 0x8b) return bruto
@@ -247,9 +246,7 @@ export async function bajarPlano(partidaId: string): Promise<ArrayBuffer> {
  * estado), así que también funciona con la sala ya cerrada.
  */
 export async function borrarPlano(partidaId: string): Promise<void> {
-  const sb = await obtenerSupabase()
-  if (!sb) return
-  await sb.storage.from(BUCKET).remove([`${partidaId}/${ARCHIVO}`])
+  await borrarCompartidos('partida', { rutas: [`${partidaId}/${ARCHIVO}`] })
 }
 
 function ultimaSala(): string | null {
