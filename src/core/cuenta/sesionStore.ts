@@ -8,7 +8,7 @@
 import { create } from 'zustand'
 import type { AuthError, User } from '@supabase/supabase-js'
 import { hayBackend, obtenerSupabase } from './supabase'
-import { esAppNativa, esEscritorio } from '../plataforma'
+import { esAppNativa, esEscritorio, nombrePlataforma } from '../plataforma'
 import { LS_FUE_PRO, LS_PLAN_EXPIRA, LS_PLAN_REAL, LS_UNLOCK, type Plan } from '../edicion'
 import { recibirRetornoRedes } from '../redes/retorno'
 
@@ -124,6 +124,14 @@ interface SesionState {
  */
 const REDIRECT_NATIVO = 'com.macr120.mindhome://oauth'
 
+/**
+ * Google, sin esto, entra directo con la última cuenta usada en el navegador y
+ * no deja escoger otra: `prompt=select_account` saca siempre su selector.
+ */
+function elegirCuenta(proveedor: 'google' | 'apple'): Record<string, string> | undefined {
+  return proveedor === 'google' ? { prompt: 'select_account' } : undefined
+}
+
 function espejarPlan(plan: Plan, expira: string | null, fuePro: boolean, unlock: boolean): void {
   localStorage.setItem(LS_PLAN_REAL, plan)
   if (expira) localStorage.setItem(LS_PLAN_EXPIRA, expira)
@@ -180,8 +188,21 @@ export const useSesion = create<SesionState>((set, get) => ({
     if (!sb) return 'Sin backend'
     // Espejo del mínimo configurado en el Dashboard: falla aquí, sin viaje.
     if (contrasena.length < 8) return 'La contraseña necesita al menos 8 caracteres.'
-    const { error } = await sb.auth.signUp({ email, password: contrasena })
-    return error ? mensajeAuth(error) : null
+    // En la app, el enlace de confirmación del correo vuelve a la APP por el
+    // mismo deep link que el login social (`canjearCodigoDeepLink` canjea el
+    // code y deja la sesión abierta). Sin esto aterrizaba en la URL del sitio:
+    // la web se abría en el navegador e iniciaba sesión allí, no en la app.
+    const nativa = esAppNativa() || esEscritorio()
+    const { data, error } = await sb.auth.signUp({
+      email,
+      password: contrasena,
+      options: nativa ? { emailRedirectTo: REDIRECT_NATIVO } : undefined,
+    })
+    if (error) return mensajeAuth(error)
+    // Sin sesión = falta confirmar el correo. Se recuerdan las credenciales EN
+    // MEMORIA para entrar solos en cuanto la persona vuelva (`entrarSiYaConfirmo`).
+    pendienteConfirmar = data.session ? null : { email, contrasena }
+    return null
   },
 
   entrar: async (email, contrasena) => {
@@ -194,6 +215,22 @@ export const useSesion = create<SesionState>((set, get) => ({
   entrarConProveedor: async (proveedor) => {
     const sb = await obtenerSupabase()
     if (!sb) return 'Sin backend'
+    if (proveedor === 'apple' && esAppNativa() && nombrePlataforma() === 'ios') {
+      // En iOS, Apple va por la hoja NATIVA y no por la web: el login web se
+      // quedó en blanco en el iPad de App Review (24-sep-2026). `appleNativo.ts`.
+      const { pedirCredencialApple, LoginAppleCancelado } = await import('./appleNativo')
+      try {
+        const cred = await pedirCredencialApple()
+        const { error } = await sb.auth.signInWithIdToken({ provider: 'apple', token: cred.token, nonce: cred.nonce })
+        if (error) return mensajeAuth(error)
+        // Apple da el nombre solo la primera vez: se guarda o se pierde.
+        if (cred.nombre) void sb.auth.updateUser({ data: { full_name: cred.nombre } })
+        return null
+      } catch (e) {
+        if (e instanceof LoginAppleCancelado) return null
+        return e instanceof Error ? e.message : String(e)
+      }
+    }
     if (esAppNativa() || esEscritorio()) {
       // Google RECHAZA el login dentro de un WebView (`disallowed_useragent`),
       // y la ventana de Electron es tan ventana empotrada como la del teléfono:
@@ -201,7 +238,7 @@ export const useSesion = create<SesionState>((set, get) => ({
       // `skipBrowserRedirect` deja que seamos nosotros quienes abrimos la URL.
       const { data, error } = await sb.auth.signInWithOAuth({
         provider: proveedor,
-        options: { redirectTo: REDIRECT_NATIVO, skipBrowserRedirect: true },
+        options: { redirectTo: REDIRECT_NATIVO, skipBrowserRedirect: true, queryParams: elegirCuenta(proveedor) },
       })
       if (error) return mensajeAuth(error)
       if (!data.url) return 'Sin backend'
@@ -220,12 +257,13 @@ export const useSesion = create<SesionState>((set, get) => ({
     // hace el resto. Si no hay error, la página está a punto de abandonarse.
     const { error } = await sb.auth.signInWithOAuth({
       provider: proveedor,
-      options: { redirectTo: window.location.origin + window.location.pathname },
+      options: { redirectTo: window.location.origin + window.location.pathname, queryParams: elegirCuenta(proveedor) },
     })
     return error ? mensajeAuth(error) : null
   },
 
   salir: async () => {
+    pendienteConfirmar = null
     // onAuthStateChange (SIGNED_OUT) limpia estado y espejo.
     await (await obtenerSupabase())?.auth.signOut()
   },
@@ -509,6 +547,12 @@ export function iniciarSesion(): void {
 export async function escucharDeepLinkAuth(): Promise<void> {
   if (!hayBackend()) return
 
+  // Vale en todas las plataformas: volver a la pestaña o a la app tras
+  // confirmar el correo.
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') void entrarSiYaConfirmo()
+  })
+
   if (esEscritorio()) {
     window.addEventListener('mph:enlace-profundo', (evento) => {
       const url = (evento as CustomEvent<string>).detail
@@ -522,9 +566,13 @@ export async function escucharDeepLinkAuth(): Promise<void> {
   if (!esAppNativa()) return
   try {
     const { App } = await import('@capacitor/app')
+    await App.addListener('resume', () => void entrarSiYaConfirmo())
     await App.addListener('appUrlOpen', ({ url }) => {
       void (async () => {
         if (!(await canjearCodigoDeepLink(url)) && !recibirRetornoRedes(url)) return
+        // Vuelta del enlace de confirmación sin `code` (p. ej. `otp_expired`
+        // porque otro navegador ya lo gastó): el correo puede estar confirmado.
+        await entrarSiYaConfirmo()
         // La pestaña del navegador se queda encima si no se cierra a mano. En
         // el escritorio no hay equivalente: la abrió el navegador del sistema.
         const { Browser } = await import('@capacitor/browser')
@@ -534,6 +582,39 @@ export async function escucharDeepLinkAuth(): Promise<void> {
   } catch (err) {
     console.warn('[MPH] No se pudo escuchar el deep link de login:', err)
   }
+}
+
+/**
+ * Correo y contraseña de un registro que espera la confirmación del correo.
+ * Solo en memoria (nunca en disco) y solo hasta que se entra o se cierra la app.
+ */
+let pendienteConfirmar: { email: string; contrasena: string } | null = null
+
+/**
+ * Tras «Crear cuenta», la persona sale a su correo, toca el enlace y vuelve. El
+ * enlace es de UN solo uso y no siempre regresa bien a la app: el navegador de
+ * Gmail lo gasta sin saber abrirnos, o se abre en otro dispositivo. Y aun así el
+ * correo queda confirmado. Así que no se depende del enlace: cada vez que la app
+ * vuelve al frente se intenta entrar con lo que acaba de escribir, y si el correo
+ * ya está confirmado la sesión se abre sola (y la puerta pasa a la compra).
+ * Visto el 24-sep-2026 en un iPad: volvía a la app con `otp_expired` y no avanzaba.
+ */
+/** ¿El último registro quedó esperando la confirmación del correo? */
+export function esperaConfirmacion(): boolean {
+  return pendienteConfirmar !== null
+}
+
+async function entrarSiYaConfirmo(): Promise<void> {
+  const pendiente = pendienteConfirmar
+  if (!pendiente || useSesion.getState().usuario) return
+  const sb = await obtenerSupabase()
+  if (!sb) return
+  const { error } = await sb.auth.signInWithPassword({
+    email: pendiente.email,
+    password: pendiente.contrasena,
+  })
+  // «Email not confirmed» = aún no: se reintenta en la próxima vuelta al frente.
+  if (!error) pendienteConfirmar = null
 }
 
 /** Canjea por sesión el `code` que trae la vuelta; false si la URL no era nuestra. */

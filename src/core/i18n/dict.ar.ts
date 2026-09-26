@@ -6787,6 +6787,8 @@ export const AR: Dict = {
   'cuenta.nivel.n': 'المستوى ×{n} — {c} رصيد شهريًا',
   'cuenta.nivel.actual': 'الحالي',
   'cuenta.nivel.nota': 'يمكنك رفع مستواك أو خفضه متى شئت، والفرق يُحتسب بالتناسب.',
+  'cuenta.precio.mes': '{p} / شهر',
+  'cuenta.precio.anio': '{p} / سنة',
   'cuenta.pago.pendiente': 'تم استلام الدفع: ستظهر خطتك هنا خلال ثوانٍ.',
   'cuenta.legal.renovacion.apple':
     'يُخصم المبلغ من حساب Apple ID عند تأكيد الشراء. ويتجدد الاشتراك تلقائيًا ما لم توقف التجديد قبل نهاية الفترة الحالية بـ 24 ساعة على الأقل، ويُحصَّل مبلغ التجديد خلال تلك الساعات الأربع والعشرين. يمكنك إدارته أو إلغاؤه من إعدادات Apple ID.',
@@ -6815,6 +6817,7 @@ export const AR: Dict = {
   'cuenta.cambioRegistrar': 'لا أملك حسابًا: إنشاء واحد',
   'cuenta.cambioEntrar': 'أملك حسابًا بالفعل: تسجيل الدخول',
   'cuenta.confirmaCorreo': 'تم إنشاء الحساب: مراجعة البريد الإلكتروني وتأكيده لتسجيل الدخول.',
+  'cuenta.confirmaCorreoVuelve': 'تم إنشاء الحساب: افتح الرابط الذي أرسلناه إلى بريدك ثم عد إلى التطبيق. سيتم تسجيل دخولك تلقائيًا.',
   'cuenta.salir': 'تسجيل الخروج',
   'cuenta.plan.pro': 'Pro',
   'cuenta.plan.local': 'محلي',

@@ -26,5 +26,6 @@ class MainViewController: CAPBridgeViewController {
   override func capacitorDidLoad() {
     bridge?.registerPluginInstance(WidgetsPlugin())
     bridge?.registerPluginInstance(VozArchivoPlugin())
+    bridge?.registerPluginInstance(AppleLoginPlugin())
   }
 }

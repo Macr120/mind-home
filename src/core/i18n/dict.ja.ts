@@ -6641,6 +6641,8 @@ export const JA: Dict = {
   'cuenta.nivel.n': 'レベル×{n} — 月{c}クレジット',
   'cuenta.nivel.actual': '現在',
   'cuenta.nivel.nota': 'レベルはいつでも上げ下げできます。差額は日割りで精算されます。',
+  'cuenta.precio.mes': '{p} / 月',
+  'cuenta.precio.anio': '{p} / 年',
   'cuenta.pago.pendiente': 'お支払いを受け付けました。数秒後にプランがここに表示されます。',
   'cuenta.legal.renovacion.apple':
     'お支払いは購入確定時に Apple ID に請求されます。現在の期間の終了より 24 時間以上前に自動更新をオフにしないかぎり、サブスクリプションは自動で更新され、更新料はその 24 時間以内に請求されます。管理と解約は Apple ID の設定から行えます。',
@@ -6667,6 +6669,7 @@ export const JA: Dict = {
   'cuenta.cambioRegistrar': 'アカウントがない場合は作成',
   'cuenta.cambioEntrar': 'すでにアカウントをお持ちの場合はログイン',
   'cuenta.confirmaCorreo': 'アカウントを作成しました。メールを確認し、認証してからログインしてください。',
+  'cuenta.confirmaCorreoVuelve': 'アカウントを作成しました。メールで送ったリンクを開いてからアプリに戻ってください。自動的にサインインします。',
   'cuenta.salir': 'ログアウト',
   'cuenta.plan.pro': 'Pro',
   'cuenta.plan.local': 'ローカル',

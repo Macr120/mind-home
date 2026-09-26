@@ -6611,6 +6611,8 @@ export const ZH: Dict = {
   'cuenta.nivel.n': '等级 ×{n} — 每月 {c} 积分',
   'cuenta.nivel.actual': '当前',
   'cuenta.nivel.nota': '你可以随时升级或降级，差额按比例计算。',
+  'cuenta.precio.mes': '{p} / 月',
+  'cuenta.precio.anio': '{p} / 年',
   'cuenta.pago.pendiente': '已收到付款：你的方案几秒后会显示在这里。',
   'cuenta.legal.renovacion.apple':
     '确认购买时将通过你的 Apple ID 收取费用。除非在当前订阅期结束前至少 24 小时关闭自动续订，否则订阅将自动续订，并在该 24 小时内扣款。你可以在 Apple ID 设置中管理或取消订阅。',
@@ -6636,6 +6638,7 @@ export const ZH: Dict = {
   'cuenta.cambioRegistrar': '没有账户？去创建',
   'cuenta.cambioEntrar': '已有账户？去登录',
   'cuenta.confirmaCorreo': '账户已创建：请查收邮件并完成验证后再登录。',
+  'cuenta.confirmaCorreoVuelve': '账户已创建：打开我们发送到你邮箱的链接，然后返回应用。你将自动登录。',
   'cuenta.salir': '退出登录',
   'cuenta.plan.pro': 'Pro',
   'cuenta.plan.local': '本地',

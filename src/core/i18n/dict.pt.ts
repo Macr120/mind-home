@@ -6914,6 +6914,8 @@ export const PT: Dict = {
   'cuenta.nivel.n': 'Nível ×{n} — {c} créditos por mês',
   'cuenta.nivel.actual': 'Atual',
   'cuenta.nivel.nota': 'Você pode subir ou descer de nível quando quiser; a mudança é cobrada proporcionalmente.',
+  'cuenta.precio.mes': '{p} / mês',
+  'cuenta.precio.anio': '{p} / ano',
   'cuenta.pago.pendiente': 'Pagamento recebido: seu plano aparecerá aqui em alguns segundos.',
   'cuenta.legal.renovacion.apple':
     'O pagamento é cobrado no seu ID Apple ao confirmar a compra. A assinatura se renova automaticamente, a menos que você a desative pelo menos 24 horas antes do fim do período atual; a renovação é cobrada dentro dessas 24 horas. Você pode gerenciá-la ou cancelá-la nos Ajustes do seu ID Apple.',
@@ -6943,6 +6945,7 @@ export const PT: Dict = {
   'cuenta.cambioRegistrar': 'Não tenho conta: criar uma',
   'cuenta.cambioEntrar': 'Já tenho conta: entrar',
   'cuenta.confirmaCorreo': 'Conta criada: veja seu e-mail e confirme para poder entrar.',
+  'cuenta.confirmaCorreoVuelve': 'Conta criada: abra o link que enviamos para o seu e-mail e volte ao app. Sua sessão será iniciada automaticamente.',
   'cuenta.salir': 'Sair',
   'cuenta.plan.pro': 'Pro',
   'cuenta.plan.local': 'Local',

@@ -3,3 +3,5 @@
 "NSMicrophoneUsageDescription" = "Para dictarle a tu casa y grabar voz o instrumentos en el estudio de audio.";
 "NSPhotoLibraryUsageDescription" = "Para elegir fotos para tus recuerdos, tus cuartos y el chat.";
 "NSLocationWhenInUseUsageDescription" = "Para mostrar tu posición en el mapa, guiarte por una ruta y registrar tus entrenamientos al aire libre.";
+"NSSpeechRecognitionUsageDescription" = "Para convertir en texto lo que dictas.";
+"NSPhotoLibraryAddUsageDescription" = "Para guardar imágenes de tu casa en tus fotos.";

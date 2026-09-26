@@ -3,3 +3,5 @@
 "NSMicrophoneUsageDescription" = "用于对你的家口述，而不用打字。";
 "NSPhotoLibraryUsageDescription" = "用于为你的回忆、房间和聊天选择照片。";
 "NSLocationWhenInUseUsageDescription" = "用于在地图上显示您的位置、沿路线为您导航并记录您的户外锻炼。";
+"NSSpeechRecognitionUsageDescription" = "将你口述的内容转换为文字。";
+"NSPhotoLibraryAddUsageDescription" = "将你家中的图片保存到照片。";

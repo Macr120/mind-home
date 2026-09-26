@@ -108,8 +108,19 @@ export async function aplicarSuscripcion(
  * sigue en 'local' (no degradar a un Pro que además compró el unlock). Así un
  * reintento tras un update fallido sí completa el alta, y uno tras un alta
  * exitosa no re-extiende el trial.
+ *
+ * Y el trial va UNA vez por compra (`transaccion`, id de la transacción
+ * original de la tienda), no por cuenta: restaurar la misma compra en una
+ * cuenta nueva le da la casa, pero no otros 700 créditos. El registro en
+ * `trials_concedidos` hace de cerrojo: quien lo inserta primero se lleva el
+ * trial. Sin `transaccion` (una tienda que no la mande) se conserva la regla
+ * vieja antes que dejar sin su primer mes a quien acaba de pagar.
  */
-export async function aplicarUnlock(admin: SupabaseClient, uid: string): Promise<Error | null> {
+export async function aplicarUnlock(
+  admin: SupabaseClient,
+  uid: string,
+  transaccion: string | null,
+): Promise<Error | null> {
   const { data: perfil, error: errSel } = await admin
     .from('perfiles')
     .select('plan, unlock')
@@ -118,8 +129,19 @@ export async function aplicarUnlock(admin: SupabaseClient, uid: string): Promise
   if (errSel) return errSel
   const cambios: Record<string, unknown> = { unlock: true }
   if (perfil && !perfil.unlock && perfil.plan === 'local') {
-    cambios.plan = 'trial'
-    cambios.plan_expira = new Date(Date.now() + TRIAL_DIAS * 86_400_000).toISOString()
+    let estrena = true
+    if (transaccion) {
+      const { data: nuevo, error: errTrial } = await admin
+        .from('trials_concedidos')
+        .upsert({ transaccion, user_id: uid }, { onConflict: 'transaccion', ignoreDuplicates: true })
+        .select('transaccion')
+      if (errTrial) return errTrial
+      estrena = (nuevo?.length ?? 0) > 0
+    }
+    if (estrena) {
+      cambios.plan = 'trial'
+      cambios.plan_expira = new Date(Date.now() + TRIAL_DIAS * 86_400_000).toISOString()
+    }
   }
   const { error } = await admin.from('perfiles').update(cambios).eq('user_id', uid)
   return error

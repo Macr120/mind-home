@@ -59,7 +59,7 @@ export type Lamina =
       titulo: string
       cajas: Caja[]
       /** La franja de la IA opcional, que en la web va bajo los planes. */
-      extra?: { titulo: string; precios?: string; texto: string }
+      extra?: { titulo: string; precios?: string; texto?: string }
     }
   | { tipo: 'faq'; id: string; titulo: string; preguntas: { q: string; a: string }[] }
 
@@ -238,7 +238,8 @@ export function construirLaminas(textos: Record<string, string>, canal: CanalPag
         // La línea de precios de la suscripción: fuera en las tiendas, que
         // cobran en su moneda y muestran su propia cifra al comprar.
         precios: enTienda ? undefined : x('ia.precios'),
-        texto: x('ia.p'),
+        // «Puedes contratarla aquí o en la app»: en la tienda, «aquí» es la web.
+        texto: enTienda ? undefined : x('ia.p'),
       },
     },
 
@@ -260,11 +261,15 @@ export function construirLaminas(textos: Record<string, string>, canal: CanalPag
 /**
  * Las ocho preguntas de la web, menos las que mandan a comprar fuera de la
  * tienda: dónde se compra la app (1), cuánto cuesta la IA —con sus cifras en
- * dólares y el «se paga aquí»— (3) y cómo se cancela (8). Sus respuestas viven
- * de todos modos dentro de la app: la compra y la gestión del plan están en
- * Configuraciones → Cuenta.
+ * dólares y el «se paga aquí»— (3), dónde se guardan los datos —nombra Stripe
+ * y la compra «desde el teléfono»— (6), en qué aparatos funciona —Android,
+ * Windows, «compras donde te convenga»— (7) y cómo se cancela (8). App Review
+ * rechaza mencionar otras plataformas o pagos fuera de la tienda (2.3.10,
+ * 3.1.1). Sus respuestas viven de todos modos dentro de la app: la compra y la
+ * gestión del plan están en Configuraciones → Cuenta.
  */
 function preguntas(enTienda: boolean): number[] {
   const todas = [1, 2, 3, 4, 5, 6, 7, 8]
-  return enTienda ? todas.filter((n) => n !== 1 && n !== 3 && n !== 8) : todas
+  const fuera = new Set([1, 3, 6, 7, 8])
+  return enTienda ? todas.filter((n) => !fuera.has(n)) : todas
 }

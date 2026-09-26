@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { idiomaActual, useT } from '../../i18n/useT'
 import { hayBackend } from '../../cuenta/supabase'
-import { useSesion } from '../../cuenta/sesionStore'
+import { esperaConfirmacion, useSesion } from '../../cuenta/sesionStore'
 import { refrescarUsoAlmacen, useAlmacen } from '../../cuenta/almacen'
 import { GB_POR_NIVEL, fechaPurga, formatoBytes, formatoUso } from '../../cuenta/almacenUso'
 import {
@@ -18,7 +18,7 @@ import {
   urlGestion,
   type OfertaPro,
 } from '../../cuenta/paywall'
-import { canalPago, nombrePlataforma } from '../../plataforma'
+import { canalPago, esAppNativa, esEscritorio, nombrePlataforma } from '../../plataforma'
 import { sincronizar } from '../../data/sync/motor'
 import { GastoByok } from '../GastoByok'
 import { LogoApple, LogoGoogle } from '../logosMarca'
@@ -116,9 +116,14 @@ export function FormularioAcceso({ inicial = 'entrar' }: { inicial?: 'entrar' | 
       } else {
         const err = await registrar(email.trim(), contrasena)
         if (err) setError(err)
-        else
+        // Con la confirmación de correo apagada en Supabase la sesión ya está
+        // abierta y la puerta pasa sola a la compra: no hay nada que avisar.
+        else if (esperaConfirmacion())
           setAviso(
-            t('cuenta.confirmaCorreo', 'Cuenta creada: revisa tu correo y confírmalo para poder entrar.'),
+            t(
+              'cuenta.confirmaCorreoVuelve',
+              'Cuenta creada: abre el enlace que te enviamos por correo y vuelve a la app. Tu sesión se abrirá automáticamente.',
+            ),
           )
       }
     } finally {
@@ -221,12 +226,11 @@ function BotonesOAuth() {
     setOcupado(true)
     setError(null)
     const err = await entrarConProveedor(proveedor)
-    // Sin error, el navegador está saliendo hacia el proveedor: se queda
-    // deshabilitado hasta la redirección.
-    if (err) {
-      setError(err)
-      setOcupado(false)
-    }
+    // En la web, sin error, la página está saliendo hacia el proveedor: se
+    // queda deshabilitado hasta la redirección. En la app no se sale de la
+    // página (hoja nativa o navegador encima) y cerrarlos debe dejar reintentar.
+    if (err) setError(err)
+    if (err || esAppNativa() || esEscritorio()) setOcupado(false)
   }
 
   const botonCls =
@@ -380,8 +384,13 @@ function CuentaConSesion() {
   )
 }
 
-/** Borrado de cuenta con doble confirmación (requisito de las tiendas). */
-function BotonEliminarCuenta() {
+/**
+ * Borrado de cuenta con doble confirmación (requisito de las tiendas). Vive
+ * aquí y TAMBIÉN en la puerta de compra (`PuertaUnlock`): quien se registra y
+ * no compra la casa nunca llega a Configuraciones, y Apple exige poder borrar
+ * la cuenta desde la app (5.1.1(v)).
+ */
+export function BotonEliminarCuenta() {
   const t = useT()
   const eliminarCuenta = useSesion((s) => s.eliminarCuenta)
   const [ocupado, setOcupado] = useState(false)
@@ -548,7 +557,7 @@ function BloquePaywall() {
  * de tienda que advertir, y el texto cambia de Apple a Google Play porque cada
  * una manda cancelar en su sitio.
  */
-function AvisoRenovacion() {
+export function AvisoRenovacion() {
   const t = useT()
   if (canalPago() !== 'iap') return null
   return (
@@ -572,7 +581,9 @@ function AvisoRenovacion() {
  * enlace de la ficha del App Store no basta). Los rótulos y el prefijo de idioma
  * salen del catálogo de la web, igual que el pie de `PuertaUnlock`.
  */
-function EnlacesLegales() {
+const EULA_APPLE = 'https://www.apple.com/legal/internet-services/itunes/dev/stdeula/'
+
+export function EnlacesLegales() {
   const [textos, setTextos] = useState<Record<string, string> | null>(null)
 
   useEffect(() => {
@@ -587,16 +598,21 @@ function EnlacesLegales() {
 
   if (!URL_WEB) return null
   const base = `${URL_WEB}${prefijo(idiomaActual())}`
+  // En las tiendas, los Términos son el EULA estándar de Apple (el que declara
+  // la ficha): los de la web hablan de pagos «solo en este sitio», nombran
+  // Stripe y llevan precios en dólares, y App Review rechaza enlazar desde la
+  // app a una compra de fuera (3.1.1).
+  const terminos = canalPago() === 'iap' && nombrePlataforma() === 'ios' ? EULA_APPLE : `${base}/terminos`
   const paginas: [string, string][] = [
-    ['terminos', textos?.['pie.terminos'] ?? 'Términos'],
-    ['privacidad', textos?.['pie.privacidad'] ?? 'Privacidad'],
+    [terminos, textos?.['pie.terminos'] ?? 'Términos'],
+    [`${base}/privacidad`, textos?.['pie.privacidad'] ?? 'Privacidad'],
   ]
   return (
     <p className="flex flex-wrap justify-center gap-x-3 gap-y-1 pt-0.5 text-[10px] text-white/35">
-      {paginas.map(([ruta, rotulo]) => (
+      {paginas.map(([url, rotulo]) => (
         <a
-          key={ruta}
-          href={`${base}/${ruta}`}
+          key={url}
+          href={url}
           target="_blank"
           rel="noreferrer"
           className="transition hover:text-white/60"
@@ -801,7 +817,9 @@ function Niveles() {
                 g: GB_POR_NIVEL[n.nivel] ?? GB_POR_NIVEL[1],
               })}
             </span>
-            <span className="shrink-0 tabular-nums text-white/45">{n.precio}</span>
+            <span className="shrink-0 tabular-nums text-white/45">
+              {t('cuenta.precio.mes', '{p} / mes', { p: n.precio })}
+            </span>
             {actual && (
               <span className="shrink-0 text-[10px] font-bold text-accent/90">
                 {t('cuenta.nivel.actual', 'Actual')}
@@ -825,7 +843,9 @@ function Niveles() {
               g: GB_POR_NIVEL[1],
             })}
           </span>
-          <span className="shrink-0 tabular-nums text-white/45">{anual.precio}</span>
+          <span className="shrink-0 tabular-nums text-white/45">
+            {t('cuenta.precio.anio', '{p} / año', { p: anual.precio })}
+          </span>
         </button>
       )}
       <p className="text-[10px] leading-snug text-white/35">
