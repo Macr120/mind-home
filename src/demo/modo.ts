@@ -42,7 +42,13 @@ import { idiomaActual } from '../core/i18n/useT'
 // salieron de la columna 4.
 // v35: el cuarto Archivo (la nube Pro) arriba del arte, en el ala del Studio.
 // Sin subirla, la demo cacheada se repone desde su foto sin ese cuarto.
-const DEMO_VERSION = 35
+// v36: los muebles de siembra (estanterías, escritorio, mesas, burós…) son
+// recetas del taller con entrepaños donde apoyar cosas; `construir.ts` convierte
+// los del snapshot. Sin subirla, la demo cacheada se repone con los viejos.
+// v37: la estructura metálica cierra su marco arriba y abajo (piezas nuevas).
+// v38: los compuestos sueltan sus partes como objetos propios (`separarCompuestos`)
+// y el rack del gimnasio pasa al taller.
+const DEMO_VERSION = 38
 const LS_VERSION = 'mh.demo.version'
 const LS_INTENT = 'mh.demo.intent'
 

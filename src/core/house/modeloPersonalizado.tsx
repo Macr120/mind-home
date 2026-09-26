@@ -48,6 +48,45 @@ function acabado(mat?: Pieza3D['mat']) {
   return {}
 }
 
+/**
+ * Textura con un texto en una línea, del tamaño que pide el plano (`ancho` ×
+ * `alto` en metros): la letra se achica hasta caber y, si ni así, se corta con
+ * «…». Se cachean por contenido: cien libros del mismo título son una textura.
+ */
+const texturasTexto = new Map<string, THREE.CanvasTexture>()
+function texturaTexto(texto: string, fondo: string, tinta: string, ancho: number, alto: number): THREE.CanvasTexture {
+  const clave = `${texto}|${fondo}|${tinta}|${ancho.toFixed(3)}|${alto.toFixed(3)}`
+  const previa = texturasTexto.get(clave)
+  if (previa) return previa
+  const w = 512
+  const h = Math.max(48, Math.min(512, Math.round((w * alto) / Math.max(ancho, 0.001))))
+  const canvas = document.createElement('canvas')
+  canvas.width = w
+  canvas.height = h
+  const ctx = canvas.getContext('2d')!
+  ctx.fillStyle = fondo
+  ctx.fillRect(0, 0, w, h)
+  ctx.fillStyle = tinta
+  ctx.textAlign = 'center'
+  ctx.textBaseline = 'middle'
+  const maxAncho = w * 0.92
+  let tam = Math.floor(h * 0.62)
+  const fuente = (n: number) => `bold ${n}px system-ui, sans-serif`
+  ctx.font = fuente(tam)
+  while (tam > 14 && ctx.measureText(texto).width > maxAncho) ctx.font = fuente(--tam)
+  let linea = texto
+  if (ctx.measureText(linea).width > maxAncho) {
+    while (linea.length > 1 && ctx.measureText(`${linea}…`).width > maxAncho) linea = linea.slice(0, -1)
+    linea = `${linea.trimEnd()}…`
+  }
+  ctx.fillText(linea, w / 2, h / 2)
+  const tex = new THREE.CanvasTexture(canvas)
+  tex.colorSpace = THREE.SRGBColorSpace
+  tex.anisotropy = 4
+  texturasTexto.set(clave, tex)
+  return tex
+}
+
 /** Una pieza como `<mesh>` (geometría según `p.tipo` + resaltado si está seleccionada en el editor). */
 function PiezaMesh({
   p,
@@ -61,6 +100,10 @@ function PiezaMesh({
   edicion: Edicion
 }) {
   const sel = edicion != null && i === edicion.sel
+  const conTexto = p.tipo === 'plano' && p.texto
+  const mapa = conTexto
+    ? texturaTexto(p.texto!, p.color, p.tinta ?? '#ffffff', p.tam[0] ?? 0.5, p.tam[1] ?? 0.5)
+    : undefined
   return (
     <mesh
       ref={meshRefs ? (m) => { meshRefs.current[i] = m } : undefined}
@@ -98,10 +141,14 @@ function PiezaMesh({
         <cylinderGeometry args={[p.tam[0] ?? 0.15, p.tam[1] ?? 0.15, p.tam[2] ?? 0.4, 12]} />
       )}
       <meshStandardMaterial
-        color={p.color}
+        // Con texto, el color ya va pintado en la textura (blanco = sin teñirla).
+        color={mapa ? '#ffffff' : p.color}
+        map={mapa}
         {...acabado(p.mat)}
-        emissive={sel ? '#34d399' : '#000000'}
-        emissiveIntensity={sel ? 0.45 : 0}
+        // 'luz' (una pantalla, un LED) brilla con su propio color.
+        emissive={sel ? '#34d399' : p.mat === 'luz' ? p.color : '#000000'}
+        emissiveIntensity={sel ? 0.45 : p.mat === 'luz' ? 0.6 : 0}
+        toneMapped={p.mat !== 'luz'}
         side={p.tipo === 'plano' ? THREE.DoubleSide : THREE.FrontSide}
       />
     </mesh>

@@ -12,8 +12,10 @@ import { accionCuarto } from './roomInteract'
 import { abrirEnlace, hostDe, faviconDe } from '../enlaces'
 import { abrirPrograma, nombreDePrograma } from '../plataforma'
 import { destinoExterno } from '../abrirObjeto'
+import { abrirEnlaceDeObjeto, textoEnlace } from '../enlaceApp'
 import { IconoPrograma } from './IconoPrograma'
 import { useT } from '../i18n/useT'
+import type { EnlaceObjetoApp } from '../data/db'
 import { BadgeMisiones } from './BadgeMisiones'
 
 /**
@@ -149,8 +151,9 @@ function Burbuja({
 }
 
 /**
- * La burbuja de un objeto con enlace web («Visitar»: favicon, verbo y dominio)
- * o con un programa del equipo («Abrir»: su icono y el nombre del ejecutable).
+ * La burbuja de un objeto con enlace web («Visitar»: favicon, verbo y dominio),
+ * con un programa del equipo («Abrir»: su icono y el nombre del ejecutable) o
+ * con una entrada de app («Abrir»: el icono de la app y la entrada).
  */
 function BurbujaEnlace({ objetoId, onAbierto }: { objetoId: number; onAbierto: () => void }) {
   const t = useT()
@@ -161,6 +164,7 @@ function BurbujaEnlace({ objetoId, onAbierto }: { objetoId: number; onAbierto: (
       return {
         url: o.enlaceUrl,
         programa: o.programa,
+        enlaceApp: o.enlaceUrl ? undefined : o.enlaceApp,
         nombre: o.nombre,
         roomId: o.roomId,
         colorObjeto: o.color,
@@ -169,6 +173,9 @@ function BurbujaEnlace({ objetoId, onAbierto }: { objetoId: number; onAbierto: (
     }),
   )
   if (!datos) return null
+  if (datos.enlaceApp && !datos.programa) {
+    return <BurbujaEntrada e={datos.enlaceApp} nombre={datos.nombre} onAbierto={onAbierto} />
+  }
 
   // El color del cuarto viste su burbuja; un objeto libre usa su propio color.
   const color = (datos.esMapa ? undefined : getCuarto(datos.roomId)?.color) ?? datos.colorObjeto
@@ -201,6 +208,56 @@ function BurbujaEnlace({ objetoId, onAbierto }: { objetoId: number; onAbierto: (
         </span>
         <span className="max-w-[9rem] truncate text-[10px] font-medium text-white/45">
           {datos.nombre ? `${datos.nombre} · ${host}` : host}
+        </span>
+      </button>
+      <span
+        className="pointer-events-none -mt-px h-0 w-0 border-x-[10px] border-t-[12px] border-x-transparent"
+        style={{ borderTopColor: color }}
+        aria-hidden
+      />
+    </div>
+  )
+}
+
+/** Burbuja de un objeto que lleva a una entrada de app: vestida con el color y el icono de la app. */
+function BurbujaEntrada({
+  e,
+  nombre,
+  onAbierto,
+}: {
+  e: EnlaceObjetoApp
+  nombre?: string
+  onAbierto: () => void
+}) {
+  const t = useT()
+  const { app, seccion } = textoEnlace(e)
+  const color = app?.color ?? '#94a3b8'
+  const destino = e.titulo ?? seccion ?? app?.nombre ?? ''
+  const verbo = t('enlace.abrir', 'Abrir')
+  return (
+    <div className="flex flex-col items-center select-none">
+      <button
+        type="button"
+        onClick={(ev) => {
+          ev.stopPropagation()
+          void abrirEnlaceDeObjeto(e)
+          onAbierto()
+        }}
+        title={`${verbo} — ${destino}`}
+        className="ui-panel-glass pointer-events-auto relative flex flex-col items-center gap-1 rounded-2xl border-2 px-4 py-2.5 shadow-xl backdrop-blur-md transition hover:scale-[1.04] active:scale-[0.97]"
+        style={{
+          borderColor: color,
+          boxShadow: `0 6px 28px ${color}55, 0 0 0 1px rgba(255,255,255,0.06)`,
+        }}
+      >
+        <span className="text-lg leading-none">
+          {app ? <Icono emoji={app.icon} /> : <Icono nombre="vincular" />}
+        </span>
+        <span className="text-sm font-black leading-tight" style={{ color }}>
+          {verbo}
+        </span>
+        <span className="max-w-[9rem] truncate text-[10px] font-medium text-white/45">
+          {nombre && nombre !== destino ? `${nombre} · ${destino}` : destino}
         </span>
       </button>
       <span

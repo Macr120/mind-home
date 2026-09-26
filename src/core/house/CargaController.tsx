@@ -40,10 +40,11 @@ export function CargaController() {
     }
     state.setObjetoPos(id, newX, newZ)
 
-    if (o.grupoId) {
+    // Mueve lo que viaja con él (su grupo y lo apoyado encima) con los offsets del inicio.
+    {
       const offsets = state.dragGroupOffsets
       for (const m of state.objetos) {
-        if (m.grupoId !== o.grupoId || m.id === id || m.id == null) continue
+        if (m.id == null || !(m.id in offsets)) continue
         const off = offsets[m.id] ?? { x: 0, z: 0 }
         if (esObjetoMapa(m)) {
           state.setObjetoPos(m.id, newX + off.x, newZ + off.z)

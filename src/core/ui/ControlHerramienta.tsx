@@ -23,7 +23,7 @@ import { puntoLibreCerca } from '../house/Character'
 import { usePortales } from '../house/portales'
 import { lanzarCohete } from '../house/fuegos'
 import { useGrafitis } from '../state/grafitiStore'
-import { useCargar } from '../state/cargarStore'
+import { useCargar, destinoCarga } from '../state/cargarStore'
 import { useContexto, type AccionContextual } from '../state/contextoStore'
 import { useParque, parqueFrame } from '../state/parqueStore'
 import { useFlotador } from '../state/flotadorStore'
@@ -38,6 +38,10 @@ import { cosecharParcelaPorId } from '../state/huertoStore'
 import { pulsarAnimacion } from '../house/animacion'
 import { recogerPistola } from '../house/arma'
 import { abrirAppDeObjeto } from '../abrirApp'
+import { abrirDestinoDeObjeto } from '../abrirObjeto'
+import { hostDe } from '../enlaces'
+import { nombreDePrograma } from '../plataforma'
+import { textoEnlace } from '../enlaceApp'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
 import { ControlesTiro } from './ControlesTiro'
@@ -710,6 +714,33 @@ function PanelConstruir() {
   )
 }
 
+/**
+ * El mueble donde quedaría lo que se carga si se suelta ahora. Se sondea cada
+ * 250 ms (el personaje camina; `playerPos` no avisa) y solo re-renderiza cuando
+ * cambia el mueble o el nivel.
+ */
+function useDestinoCarga(activo: boolean, nivel: number | null) {
+  const [destino, setDestino] = useState<{ id: number; nombre: string; nivel: number; niveles: number } | null>(null)
+  useEffect(() => {
+    if (!activo) return
+    const sondear = () => {
+      const d = destinoCarga(nivel)
+      const nuevo = d && {
+        id: d.mueble.id!,
+        nombre: d.mueble.nombre || d.mueble.mueble?.nombre || '',
+        nivel: d.nivel,
+        niveles: d.niveles,
+      }
+      setDestino((prev) =>
+        prev?.id === nuevo?.id && prev?.nivel === nuevo?.nivel && prev?.niveles === nuevo?.niveles ? prev : nuevo,
+      )
+    }
+    const intervalo = setInterval(sondear, 250)
+    return () => clearInterval(intervalo)
+  }, [activo, nivel])
+  return activo ? destino : null
+}
+
 /** Panel de una herramienta equipada (botón one-shot, toggle o vehículo). */
 /**
  * Panel de la herramienta "mover": agarrar/soltar un objeto o un cuarto
@@ -720,6 +751,12 @@ function PanelMover({ suelto }: { suelto?: boolean }) {
   const t = useT()
   const cerca = useCargar((s) => s.cerca)
   const sujeto = useCargar((s) => s.sujeto)
+  const nivel = useCargar((s) => s.nivel)
+  const opciones = useCargar((s) => s.opciones.length)
+  const nombreCerca = useDiseño((s) =>
+    cerca?.tipo === 'objeto' && opciones > 1 ? s.objetos.find((o) => o.id === cerca.id)?.nombre : undefined,
+  )
+  const destino = useDestinoCarga(sujeto?.tipo === 'objeto', nivel)
   return (
     <Panel h="mover" emoji="✋" etiqueta={t('herr.mover', 'Mover')} sinCerrar={suelto} compacto={suelto}>
       {sujeto ? (
@@ -734,27 +771,77 @@ function PanelMover({ suelto }: { suelto?: boolean }) {
           <button
             type="button"
             onClick={() => useCargar.getState().soltar()}
+            title={destino ? t('herr.ponerEn', 'Poner en {mueble}', { mueble: destino.nombre }) : undefined}
             className={suelto ? btnCortoVerde : btnVerde}
           >
             <span className={suelto ? 'text-lg leading-none' : 'text-2xl leading-none'}>
               <Icono emoji="✋" />
             </span>
-            <span className="text-xs font-semibold">{t('herr.soltar', 'Soltar')}</span>
+            <span className="min-w-0 truncate text-xs font-semibold">
+              {destino ? t('herr.ponerEn', 'Poner en {mueble}', { mueble: destino.nombre }) : t('herr.soltar', 'Soltar')}
+            </span>
           </button>
+          {/* Junto a un mueble del taller: en qué nivel dejarlo, o al piso igual. */}
+          {destino && destino.niveles > 1 && (
+            <div className="flex flex-wrap justify-center gap-1">
+              {Array.from({ length: destino.niveles }, (_, n) => (
+                <button
+                  key={n}
+                  type="button"
+                  onClick={() => useCargar.getState().setNivel(n)}
+                  className={`rounded-full border px-1.5 py-0.5 text-[10px] font-semibold transition ${
+                    destino.nivel === n
+                      ? 'border-emerald-400/60 bg-emerald-400/20 text-emerald-200'
+                      : 'border-white/15 text-white/60 hover:text-white'
+                  }`}
+                >
+                  {n === destino.niveles - 1
+                    ? t('editor.obj.nivelArriba', 'Arriba')
+                    : t('editor.obj.nivel', 'Nivel {n}', { n: n + 1 })}
+                </button>
+              ))}
+            </div>
+          )}
+          {destino && (
+            <button
+              type="button"
+              onClick={() => useCargar.getState().soltar(true)}
+              className="rounded-md px-1 py-0.5 text-[10px] font-semibold text-white/55 transition hover:text-white"
+            >
+              {t('herr.alPiso', 'Al piso')}
+            </button>
+          )}
         </>
       ) : cerca ? (
-        <button
-          type="button"
-          onClick={() => useCargar.getState().agarrar()}
-          className={suelto ? btnCortoClaro : btnClaro}
-        >
-          <span className={suelto ? 'text-lg leading-none' : 'text-2xl leading-none'}>
-            <Icono emoji="✋" />
-          </span>
-          <span className="text-xs font-semibold">
-            {cerca.tipo === 'cuarto' ? t('herr.agarrarCuarto', 'Agarrar cuarto') : t('herr.agarrar', 'Agarrar')}
-          </span>
-        </button>
+        <>
+          <button
+            type="button"
+            onClick={() => useCargar.getState().agarrar()}
+            className={suelto ? btnCortoClaro : btnClaro}
+          >
+            <span className={suelto ? 'text-lg leading-none' : 'text-2xl leading-none'}>
+              <Icono emoji="✋" />
+            </span>
+            <span className="min-w-0 truncate text-xs font-semibold">
+              {cerca.tipo === 'cuarto'
+                ? t('herr.agarrarCuarto', 'Agarrar cuarto')
+                : nombreCerca
+                  ? t('herr.agarrarNombre', 'Agarrar {objeto}', { objeto: nombreCerca })
+                  : t('herr.agarrar', 'Agarrar')}
+            </span>
+          </button>
+          {/* Varios al alcance (la mesa y lo de encima): elegir cuál. */}
+          {cerca.tipo === 'objeto' && opciones > 1 && (
+            <button
+              type="button"
+              onClick={() => useCargar.getState().otro()}
+              className="flex items-center justify-center gap-1 rounded-md px-1 py-0.5 text-[10px] font-semibold text-white/55 transition hover:text-white"
+            >
+              <Icono nombre="repetir" />
+              {t('herr.agarrarOtro', 'Otro')}
+            </button>
+          )}
+        </>
       ) : (
         <p className="px-1 text-center text-[10px] leading-tight text-white/45">
           {t('herr.moverAcercate', 'Acércate a un objeto o cuarto')}
@@ -1117,6 +1204,11 @@ function ejecutar(a: AccionContextual) {
       if (a.subir) useHouse.getState().subirNivel()
       else useHouse.getState().bajarNivel()
       break
+    case 'enlace': {
+      const o = useDiseño.getState().objetos.find((x) => x.id === a.id)
+      if (o) abrirDestinoDeObjeto(o)
+      break
+    }
   }
 }
 
@@ -1138,7 +1230,7 @@ function PanelContextual() {
     sub?: string
     icono:
       | 'apunta' | 'brillo' | 'cuartos' | 'editar' | 'mano' | 'riel' | 'montana-rusa'
-      | 'alimentar' | 'mimar' | 'curar' | 'escoba' | 'subir' | 'bajar'
+      | 'alimentar' | 'mimar' | 'curar' | 'escoba' | 'subir' | 'bajar' | 'vincular' | 'tecnologia'
   } => {
     switch (a.tipo) {
       case 'interactuar': {
@@ -1200,6 +1292,23 @@ function PanelContextual() {
               : t('ctx.nivelN', 'Nivel {n}', { n: a.nivelDestino ?? 0 }),
           icono: a.subir ? 'subir' : 'bajar',
         }
+      case 'enlace': {
+        // Como la burbuja: el verbo arriba y, abajo, su nombre o a dónde lleva.
+        const o = useDiseño.getState().objetos.find((x) => x.id === a.id)
+        const destino =
+          a.destino === 'web'
+            ? hostDe(o?.enlaceUrl ?? '')
+            : a.destino === 'programa'
+              ? nombreDePrograma(o?.programa ?? '')
+              : o?.enlaceApp
+                ? (o.enlaceApp.titulo ?? textoEnlace(o.enlaceApp).seccion ?? textoEnlace(o.enlaceApp).app?.nombre ?? '')
+                : ''
+        return {
+          sub: a.destino === 'web' ? t('enlace.visitar', 'Visitar') : t('enlace.abrir', 'Abrir'),
+          etiqueta: o?.nombre || destino,
+          icono: a.destino === 'programa' ? 'tecnologia' : a.destino === 'app' ? 'cuartos' : 'vincular',
+        }
+      }
     }
   }
   return (

@@ -4,6 +4,8 @@ import type { LugarViaje } from '../../core/data/db'
 import { lugaresViajeRepo } from '../../core/data/repository'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { useT } from '../../core/i18n/useT'
+import { uidDe, usePublicarEntrada } from '../../core/state/entradaAbiertaStore'
+import { refNodo } from '../../core/grafo/memoria'
 import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { COLOR } from './constantes'
 import { eliminarLugar } from './datos'
@@ -54,6 +56,17 @@ export function MapaTab({ lugares, onIrABitacora }: Props) {
     return [...mapa.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
   }, [visitados])
   const sel = selId ? lugares.find((l) => l.id === selId) : null
+  // El lugar señalado: «Enlazar a un objeto» del cuarto lo liga a un objeto.
+  usePublicarEntrada(
+    sel
+      ? {
+          plantillaId: 'sala',
+          seccion: sel.visitado ? 'mapa' : 'porConocer',
+          ref: uidDe(sel) ? refNodo('lugar', uidDe(sel)!) : undefined,
+          titulo: sel.nombre,
+        }
+      : null,
+  )
 
   /** Al tocar un lugar de la lista: selecciona su pin, o abre editar si no tiene punto. */
   const abrirLugar = (l: LugarViaje) => {

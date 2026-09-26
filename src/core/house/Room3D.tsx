@@ -37,7 +37,7 @@ import {
   type SideKey,
   type Cell,
 } from './walls'
-import { ObjetoView, altoDeTipo } from './catalogo'
+import { ObjetoView, altoDeObjeto } from './catalogo'
 import { GrupoAnimado } from './Animado'
 import { esMueblePrincipal } from './muebles'
 import { esModoFondo } from '../plataforma'
@@ -452,9 +452,11 @@ const ObjetoEnCuarto = memo(function ObjetoEnCuarto({
                 e.stopPropagation()
                 const id = o.id
                 if (id != null) {
-                  pulsacionLargaDespertar(e.nativeEvent, () =>
-                    useDespierto.getState().despertar({ tipo: 'objeto', id }),
-                  )
+                  pulsacionLargaDespertar(e.nativeEvent, () => {
+                    useDespierto.getState().despertar({ tipo: 'objeto', id })
+                    // El dedo sigue abajo: el mismo gesto ya lo arrastra.
+                    useDiseño.getState().startObjetoDrag(id)
+                  })
                 }
               }
             : undefined
@@ -474,7 +476,7 @@ const ObjetoEnCuarto = memo(function ObjetoEnCuarto({
           bajo él: en la vista de planta, el propio mueble taparía un aro a ras de
           piso). Misma altura de referencia que `MarcadorEntrada`. */}
       {conAnillo && (
-        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, altoDeTipo(o.tipo) + 0.35, 0]}>
+        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, altoDeObjeto(o) + 0.35, 0]}>
           <ringGeometry args={[0.35, 0.5, 32]} />
           <meshBasicMaterial color="#38bdf8" transparent opacity={0.9} depthWrite={false} toneMapped={false} />
         </mesh>
@@ -493,11 +495,12 @@ const ObjetoEnCuarto = memo(function ObjetoEnCuarto({
             objetoId={o.id}
             fx={o.fx}
             grupoAccion={o.grupoAccion}
+            separado={o.separado}
           />
         </GrupoAnimado>
       </group>
       {despierto && <Temblor grupo={gTemblor} />}
-      {esPrincipal && <MarcadorEntrada y={altoDeTipo(o.tipo) + 0.45} appId={appId} />}
+      {esPrincipal && <MarcadorEntrada y={altoDeObjeto(o) + 0.45} appId={appId} />}
     </group>
   )
 })
@@ -523,6 +526,8 @@ const ObjetosCuarto = memo(function ObjetosCuarto({
 }) {
   const objetosCuarto = useDiseño((s) => objetosDeCuartoIdx(s.objetos, id))
   const draggingObjeto = useDiseño((s) => s.draggingObjeto)
+  // Lo que viaja con el arrastrado (su grupo y lo apoyado encima) se levanta con él.
+  const acompanantes = useDiseño((s) => s.dragGroupOffsets)
   const tema = useTemaActivo()
   const { editMode, editingRoomId, moverObjetosEste, moverObjetosActivo } = useLayout(
     useShallow((s) => ({
@@ -569,7 +574,7 @@ const ObjetosCuarto = memo(function ObjetosCuarto({
           nivel={nivel}
           W={W}
           H={H}
-          drag={draggingObjeto === o.id}
+          drag={draggingObjeto === o.id || (o.id != null && o.id in acompanantes)}
           editable={objetosEditables}
           puedeAbrirApp={puedeAbrirApp}
           moverObjetosEste={moverObjetosEste}

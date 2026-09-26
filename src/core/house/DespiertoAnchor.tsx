@@ -5,7 +5,7 @@ import { useDespierto } from '../state/despiertoStore'
 import { useHouse } from '../state/houseStore'
 import { useLayout, roomWorldPos } from '../state/layoutStore'
 import { getCuarto } from '../state/cuartosStore'
-import { altoDeTipo } from './catalogo'
+import { altoDeObjeto } from './catalogo'
 import { footprintBounds, nivelBaseY, FOOTPRINT_DEFAULT, SIZE, WALL_H } from './walls'
 
 const _world = new THREE.Vector3()
@@ -28,7 +28,7 @@ export function DespiertoAnchor() {
     if (sujeto.tipo === 'objeto') {
       const o = objetoPorId(useDiseño.getState().objetos, sujeto.id)
       if (!o) return
-      const alto = 0.2 + (o.y ?? 0) + (altoDeTipo(o.tipo) + HOLGURA) * (o.escala ?? 1)
+      const alto = 0.2 + (o.y ?? 0) + (altoDeObjeto(o) + HOLGURA) * (o.escala ?? 1)
       if (esObjetoMapa(o)) {
         _world.set(o.x ?? 0, alto, o.z ?? 0)
       } else {

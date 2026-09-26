@@ -2,18 +2,22 @@ import { lazy } from 'react'
 import type { Plantilla, EsquemaCaptura, RutinaSugerible } from '../../core/appContrato'
 import { vTexto, vNumero, vFecha } from '../../core/appContrato'
 import {
+  perfilEjercicioRepo,
   rutinasCardioRepo,
   rutinasFlexRepo,
   rutinasFuerzaRepo,
   rutinasRepo,
+  seriesFuerzaRepo,
   sesionesEjercicioRepo,
 } from '../../core/data/repository'
+import { visibles } from '../../core/data/ejemplos'
 import { normalizar } from '../../core/chat/dispatcher'
 import type { TipoEntrenamiento } from '../../core/data/db'
 import { actividadId } from '../../core/rutinas'
 import { tGlobal } from '../../core/i18n/useT'
 import { agendaDelDia } from './agenda'
-import { nombreRutina } from './nombres'
+import { nombreEjercicio, nombreRutina } from './nombres'
+import { slugTexto } from './slug'
 import { planMetasEjercicio } from './plan'
 import { CAMPOS_RUTINA, guardarRutinaEjercicio, normalizarRutinaIA } from './rutinaIA'
 import { fechaLocalISO } from '../../core/fechaLocal'
@@ -212,6 +216,23 @@ const ejercicio: Plantilla = {
     ]
   },
   planMetas: planMetasEjercicio,
+  // Cada ejercicio de fuerza con su récord. En la casa es una mancuerna de ese
+  // peso (el rack del gimnasio); el uid es el del nombre canónico, igual en
+  // todos los dispositivos.
+  nodosGrafo: async () => {
+    const [{ recordsFuerza }, { fmtPeso }] = await Promise.all([import('./stats'), import('./unidades')])
+    const [series, perfiles] = await Promise.all([seriesFuerzaRepo.list(), perfilEjercicioRepo.list()])
+    const unidades = perfiles[0]?.unidades
+    return recordsFuerza(visibles(series)).map((r) => ({
+      tipo: 'ejercicio' as const,
+      uid: slugTexto(r.ejercicio),
+      titulo: nombreEjercicio(tGlobal, r.ejercicio),
+      resumen: r.pesoKg > 0 ? `récord ${fmtPeso(r.pesoKg, unidades)} × ${r.repeticiones}` : `peso corporal × ${r.maxReps}`,
+      seccion: 'fuerza',
+      pesoKg: r.pesoKg,
+      detalle: r.pesoKg > 0 ? fmtPeso(r.pesoKg, unidades) : undefined,
+    }))
+  },
   comandos: [
     { seccion: 'metas', etiqueta: 'Metas', nombres: ['metas de ejercicio'] },
     { seccion: 'fuerza', etiqueta: 'Fuerza', nombres: ['fuerza', 'pesas', 'piramide'] },

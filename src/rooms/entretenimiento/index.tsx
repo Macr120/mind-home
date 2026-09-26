@@ -166,6 +166,8 @@ const entretenimiento: Plantilla = {
       titulo: m.titulo,
       resumen: [m.tipo, m.estado, m.calificacion ? `${m.calificacion}/5` : '', m.autor].filter(Boolean).join(' · '),
       seccion: 'archivo',
+      // En la casa, un libro va como libro y lo demás (película, serie, juego) en caja.
+      clase: m.tipo,
     })),
   planMetas: async () => {
     const archivo = await mediaArchivoRepo.list()

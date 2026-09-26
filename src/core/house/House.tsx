@@ -246,9 +246,11 @@ function ObjetoDelMapa({
                 // corto sigue sin hacer nada, así que no le roba el gesto a nadie.
                 const id = o.id
                 if (id != null) {
-                  pulsacionLargaDespertar(e.nativeEvent, () =>
-                    useDespierto.getState().despertar({ tipo: 'objeto', id }),
-                  )
+                  pulsacionLargaDespertar(e.nativeEvent, () => {
+                    useDespierto.getState().despertar({ tipo: 'objeto', id })
+                    // El dedo sigue abajo: el mismo gesto ya lo arrastra.
+                    useDiseño.getState().startObjetoDrag(id)
+                  })
                 }
               }
       }
@@ -294,6 +296,7 @@ function ObjetoDelMapa({
             objetoId={o.id}
             fx={o.fx}
             grupoAccion={o.grupoAccion}
+            separado={o.separado}
           />
         </GrupoAnimado>
       </group>
@@ -311,6 +314,8 @@ const ObjetosMapa = memo(function ObjetosMapa({
   // Solo los objetos del mapa: mover objetos DE CUARTO no re-renderiza esta lista.
   const objetos = useDiseño((s) => objetosMapaIdx(s.objetos))
   const draggingObjeto = useDiseño((s) => s.draggingObjeto)
+  // Lo que viaja con el arrastrado (su grupo y lo apoyado encima) se levanta con él.
+  const acompanantes = useDiseño((s) => s.dragGroupOffsets)
   const arrastreElevado = useDiseño((s) => s.arrastreElevado)
   const editMode = useLayout((s) => s.editMode)
   const editingRoomId = useLayout((s) => s.editingRoomId)
@@ -352,7 +357,7 @@ const ObjetosMapa = memo(function ObjetosMapa({
         <ObjetoDelMapa
           key={o.id}
           o={o}
-          drag={draggingObjeto === o.id}
+          drag={draggingObjeto === o.id || (o.id != null && o.id in acompanantes)}
           elevado={arrastreElevado}
           arrastreEditor={editables || (canchasEditar && esCancha(o.tipo))}
           seleccionaEnEditor={editables || !canchasEditar}

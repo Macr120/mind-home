@@ -6,7 +6,7 @@ import { useDiseño, objetosDeCuartoIdx, objetoPorId, esObjetoMapa } from '../st
 import { useLayout, roomWorldPos } from '../state/layoutStore'
 import { useInteractUi } from '../state/interactUiStore'
 import { nivelBaseY } from './walls'
-import { altoDeTipo } from './catalogo'
+import { altoDeObjeto } from './catalogo'
 import { esMueblePrincipal } from './muebles'
 
 const _world = new THREE.Vector3()
@@ -40,8 +40,9 @@ export function InteractAnchor() {
     } else if (focusEnlaceId != null) {
       const o = objetoPorId(useDiseño.getState().objetos, focusEnlaceId)
       if (!o) return
-      // La burbuja flota justo sobre el objeto: su alto por catálogo × su escala.
-      const alto = altoDeTipo(o.tipo) * (o.escala ?? 1) + 1.1 + (o.y ?? 0)
+      // La burbuja flota justo sobre el objeto: su alto real × su escala, más el
+      // 0.2 del piso del cuarto y un respiro (la punta ya lleva 10 px de aire).
+      const alto = altoDeObjeto(o) * (o.escala ?? 1) + 0.35 + (o.y ?? 0)
       if (esObjetoMapa(o)) {
         _world.set(o.x ?? 0, alto, o.z ?? 0)
       } else {
@@ -54,6 +55,12 @@ export function InteractAnchor() {
     }
 
     _world.project(camera)
+    // Detrás de la cámara (1ª persona al girarse) la proyección sale reflejada:
+    // la burbuja se manda fuera de la pantalla en vez de pintarse donde no va.
+    if (_world.z > 1) {
+      setScreen(-9999, -9999)
+      return
+    }
 
     const x = (_world.x * 0.5 + 0.5) * size.width
     const y = (-_world.y * 0.5 + 0.5) * size.height

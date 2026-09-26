@@ -1,4 +1,4 @@
-import { Suspense, useState, useSyncExternalStore, type CSSProperties } from 'react'
+import { lazy, Suspense, useEffect, useState, useSyncExternalStore, type CSSProperties } from 'react'
 import { useShallow } from 'zustand/react/shallow'
 import { useHouse } from '../state/houseStore'
 import { getCuarto } from '../state/cuartosStore'
@@ -18,12 +18,45 @@ import { vivo } from './estilos'
 import { GateAppDemo } from '../../demo/GateAppDemo'
 import { esVisita } from '../edicion'
 import { useVisita } from '../visita/visitaStore'
+import { useEntradaAbierta } from '../state/entradaAbiertaStore'
+
+const EnlazarObjetoPanel = lazy(() => import('./EnlazarObjetoPanel'))
 
 /**
  * Cuando hay un cuarto activo, dibuja la app de la plantilla asignada a sus objetos.
  * Si el cuarto tiene una sola app, se abre directo; si tiene varias, muestra un
  * lanzador para elegir cuál abrir.
  */
+/**
+ * «Enlazar a un objeto»: lo que la app tiene abierto (una receta, un mapa, un
+ * lugar; ver `usePublicarEntrada`) o, si no publica nada, la app entera, queda
+ * ligado a un objeto del cuarto, cuya burbuja lo abrirá desde la casa.
+ */
+function BotonEnlazarObjeto({ plantillaId, roomId }: { plantillaId: string; roomId: string }) {
+  const t = useT()
+  const [abierto, setAbierto] = useState(false)
+  const publicada = useEntradaAbierta((s) => s.entrada)
+  const entrada = publicada?.plantillaId === plantillaId ? publicada : { plantillaId }
+  return (
+    <div className="relative shrink-0">
+      <button
+        type="button"
+        onClick={() => setAbierto((v) => !v)}
+        title={t('room.enlazarObjeto', 'Enlazar a un objeto del cuarto')}
+        aria-label={t('room.enlazarObjeto', 'Enlazar a un objeto del cuarto')}
+        className="rounded-lg bg-white/10 px-2 py-1.5 text-sm transition hover:bg-white/20"
+      >
+        <Icono nombre="vincular" />
+      </button>
+      {abierto && (
+        <Suspense fallback={null}>
+          <EnlazarObjetoPanel roomId={roomId} entrada={entrada} onCerrar={() => setAbierto(false)} />
+        </Suspense>
+      )}
+    </div>
+  )
+}
+
 export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }) {
   const t = useT()
   const activeRoom = useHouse((s) => s.activeRoom)
@@ -38,6 +71,15 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
     }),
   )
   const cuarto = activeRoom ? getCuarto(activeRoom) : null
+  // Al salir de una app pudo cambiar un título o un récord: los objetos de entrada
+  // de la casa (libros, mancuernas…) se ponen al día. Sin ellos no se carga nada.
+  useEffect(() => {
+    if (!activeRoom) return
+    return () => {
+      if (!useDiseño.getState().objetos.some((o) => o.formaEntrada && o.enlaceApp?.ref)) return
+      void import('../house/acomodarEntradas').then((a) => a.refrescarEntradasDeCasa())
+    }
+  }, [activeRoom])
   // Color efectivo (ligado con el menú y la casa). Hooks antes de cualquier return.
   const { color } = useRoomVisual(cuarto?.id ?? '', cuarto?.color ?? '#94a3b8', cuarto?.nombre ?? '')
   // El NOMBRE va por `useNombreCuarto` (no por el crudo de `useRoomVisual`): el
@@ -137,6 +179,8 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
           {/* Celebra la racha con el primer registro del día en esta app; el
               `key` reinicia su memoria al cambiar de cuarto. */}
           {activa && <VigiaRachaApp key={activa.id} plantillaId={activa.id} />}
+          {/* Liga la entrada abierta (o la app) a un objeto de este cuarto. */}
+          {activa && !esVisita() && <BotonEnlazarObjeto plantillaId={activa.id} roomId={cuarto.id} />}
           {/* Música: el tema de este cuarto y la ambiental, sin salir de la app. */}
           <ControlMusica cuartoId={cuarto.id} />
         </div>

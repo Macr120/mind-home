@@ -89,6 +89,7 @@ export function PreviewObjeto3D({
   texto,
   anim,
   fx,
+  separado,
   onPiezasChange,
   onActivarPiezas,
 }: {
@@ -114,6 +115,8 @@ export function PreviewObjeto3D({
   anim?: AnimacionModelo
   /** Intensidad de los efectos del objeto especial (agua/luz); 1 = normal. */
   fx?: number
+  /** Compuesto que ya soltó sus partes: se ve sin ellas, como en la casa. */
+  separado?: boolean
   /** Activa la edición de piezas en el visor (selección al tocar + overlay). */
   onPiezasChange?: (piezas: import('../../chat/mascotas').Pieza3D[]) => void
   /** Objetos que aún no son de piezas: el engrane ⚙️ los convierte para editarlos. */
@@ -164,7 +167,7 @@ export function PreviewObjeto3D({
                   position={[0, alturaY, 0]}
                 >
                   <GrupoAnimado anim={animPlay}>
-                    <ObjetoView tipo={tipo} color={color} piezas={piezas} modeloGlb={modeloGlb} foto={foto} texto={texto} anim={animPlay} fx={fx} />
+                    <ObjetoView tipo={tipo} color={color} piezas={piezas} modeloGlb={modeloGlb} foto={foto} texto={texto} anim={animPlay} fx={fx} separado={separado} />
                   </GrupoAnimado>
                 </group>
               </PiezasSeleccionContext.Provider>

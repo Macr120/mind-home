@@ -34,6 +34,10 @@ export interface NodoEntidadApp extends NodoEntidad {
   color?: string
   /** Cómo se abre si no es una app (la conversación de un amigo, un sitio web…). */
   abrir?: () => void
+  /** `NodoApp.clase`, `pesoKg` y `detalle`: cómo se ve su objeto en la casa. */
+  clase?: string
+  pesoKg?: number
+  detalle?: string
 }
 
 let cache: { hasta: number; nodos: Promise<NodoEntidadApp[]> } | null = null
@@ -77,6 +81,9 @@ function nodosDePlantillas(): Promise<NodoEntidadApp[]> {
             emoji: n.emoji ?? p.icon,
             seccion: n.seccion,
             dato: n.dato,
+            clase: n.clase,
+            pesoKg: n.pesoKg,
+            detalle: n.detalle,
           }),
         )
       } catch (e) {

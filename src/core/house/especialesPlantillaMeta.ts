@@ -35,6 +35,11 @@ export const TIPO_CABALLETE = 'caballete-arte'
 export const TIPO_ESCRITORIO_ESCRITURA = 'escritorio-escritura'
 export const TIPO_CAMARA_VIDEO = 'camara-video'
 
+/** Altura del tope del buró (recurso:39 de recámara): el despertador ya trae esa altura dentro. */
+export const ALTO_BURO = 0.7
+/** Altura del tope de la mesa de centro (recurso:67 de sala): el globo ya trae esa altura dentro. */
+export const ALTO_MESA_SALA = 0.32
+
 /** Nombre y color por defecto de cada objeto (siembra en biblioteca y color base). */
 export const META_ESPECIAL_PLANTILLA: Record<string, { nombre: string; color: string }> = {
   [TIPO_OLLA]: { nombre: 'Olla que hierve', color: '#b91c1c' },

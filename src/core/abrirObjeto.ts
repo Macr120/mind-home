@@ -8,15 +8,27 @@ import { useHouse } from './state/houseStore'
 import { esMueblePrincipal } from './house/muebles'
 
 /**
- * Qué abre un objeto FUERA de la casa: su página web o un programa del equipo.
- * Null si no tiene nada, o si esta plataforma no sabe abrirlo (el programa
- * viaja por el sync, pero solo el shell de Windows lo lanza: en el teléfono el
- * objeto queda como decorativo).
+ * Qué abre un objeto que no es la app de su cuarto: su página web, un programa
+ * del equipo o una entrada de app. Null si no tiene nada, o si esta plataforma
+ * no sabe abrirlo (el programa viaja por el sync, pero solo el shell de Windows
+ * lo lanza: en el teléfono el objeto queda como decorativo).
  */
-export function destinoExterno(o: ObjetoCuarto): 'web' | 'programa' | null {
+export function destinoExterno(o: ObjetoCuarto): 'web' | 'programa' | 'app' | null {
   if (o.enlaceUrl) return 'web'
   if (o.programa && hayProgramasEscritorio()) return 'programa'
+  if (o.enlaceApp && !o.plantillaId) return 'app'
   return null
+}
+
+/**
+ * Abre lo que lleva el objeto (lo mismo que su burbuja): la página, el programa
+ * o la entrada de app. Lo usa el botón de proximidad y la tecla E.
+ */
+export function abrirDestinoDeObjeto(o: ObjetoCuarto): void {
+  const destino = destinoExterno(o)
+  if (destino === 'web') void abrirEnlace(o.enlaceUrl!, o.nombre)
+  else if (destino === 'programa') void abrirPrograma(o.programa!)
+  else if (destino === 'app') void import('./enlaceApp').then((m) => m.abrirEnlaceDeObjeto(o.enlaceApp!))
 }
 
 let ultimo = { id: -1, en: 0 }
@@ -40,7 +52,7 @@ export function abrirObjetoEnFondo(o: ObjetoCuarto): void {
     void abrirPrograma(o.programa)
     return
   }
-  if (o.id != null && !esObjetoMapa(o) && (o.plantillaId || esMueblePrincipal(o))) {
+  if (o.id != null && (o.enlaceApp || (!esObjetoMapa(o) && (o.plantillaId || esMueblePrincipal(o))))) {
     void abrirVentanaEn(`objeto-${o.id}`)
   }
 }
@@ -55,7 +67,12 @@ export function abrirObjetoAlLlegar(id: number): void {
   if (!Number.isInteger(id)) return
   cuandoCasaCargada(() => {
     const o = objetoPorId(useDiseño.getState().objetos, id)
-    if (!o || esObjetoMapa(o) || esObjetoLibreria(o)) return
+    if (!o || esObjetoLibreria(o)) return
+    if (o.enlaceApp && !o.plantillaId) {
+      void import('./enlaceApp').then((m) => m.abrirEnlaceDeObjeto(o.enlaceApp!))
+      return
+    }
+    if (esObjetoMapa(o)) return
     if (o.plantillaId) abrirAppDeObjeto(id)
     else if (esMueblePrincipal(o)) useHouse.getState().openRoom(o.roomId)
   })

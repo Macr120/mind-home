@@ -6,6 +6,8 @@ import { iaActiva } from '../../core/chat/ia'
 import { VACIO, borrarMapaIdeas, mapasIdeasRepo } from '../../core/data/repository'
 import type { TipoMapa } from '../../core/data/db'
 import { intencionApp } from '../../core/state/intencionApp'
+import { uidDe, usePublicarEntrada } from '../../core/state/entradaAbiertaStore'
+import { refNodo } from '../../core/grafo/memoria'
 import { COLOR } from './constantes'
 import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { crearEjemplo, crearMapaIA, crearMapaVacio } from './crear'
@@ -49,6 +51,16 @@ export function MapasTab({ familia }: { familia: 'mapas' | 'diagramas' }) {
   // Buscar en los YA filtrados también sirve de guarda: el mapa que abrió el
   // chat solo se despliega en la pestaña que le toca.
   const mapaAbierto = mapas.find((m) => m.id === abierto) ?? null
+  // El mapa abierto: «Enlazar a un objeto» del cuarto lo liga a un objeto.
+  usePublicarEntrada(
+    mapaAbierto && {
+      plantillaId: 'ideas',
+      seccion: familia,
+      dato: String(mapaAbierto.id),
+      ref: uidDe(mapaAbierto) ? refNodo('mapa', uidDe(mapaAbierto)!) : undefined,
+      titulo: mapaAbierto.nombre,
+    },
+  )
 
   /** Texto propio de cada pestaña (mapa que se dibuja vs. decisión que se toma). */
   const tx = (clave: string, esMapas: string, esDiagramas: string) =>

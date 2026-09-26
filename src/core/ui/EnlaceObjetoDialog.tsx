@@ -7,8 +7,11 @@ import { normalizarUrl, hostDe, faviconDe } from '../enlaces'
 import { elegirPrograma, hayProgramasEscritorio, nombreDePrograma } from '../plataforma'
 import { fechaLocalISO, addDias } from '../fechaLocal'
 import { useT } from '../i18n/useT'
+import type { EnlaceObjetoApp } from '../data/db'
+import { textoEnlace } from '../enlaceApp'
 import { Icono } from './iconos/Icono'
 import { IconoPrograma } from './IconoPrograma'
+import { SelectorApp } from './metas/ChipApp'
 
 /**
  * Diálogo «Enlace web» de un objeto del mapa: pega la dirección, un nombre
@@ -16,7 +19,9 @@ import { IconoPrograma } from './IconoPrograma'
  * ya tenía enlace, muestra además sus estadísticas de visitas. En el escritorio
  * de Windows tiene una segunda pestaña, «Programa»: se elige un ejecutable con
  * el diálogo del sistema y tocar el objeto lo abre (o un clic en el fondo de
- * pantalla). Un solo destino por objeto: guardar uno quita el otro.
+ * pantalla). La pestaña «Entrada de app» lo liga a una sección o a un registro
+ * concreto de una app (una receta, un lugar…) y tocarlo saca «Abrir». Un solo
+ * destino por objeto: guardar uno quita los otros.
  *
  * Cáscara + interior (como `AsignarPlantillaDialog`): montado siempre en
  * App.tsx, el interior solo con el diálogo abierto. La `key` por objeto
@@ -28,7 +33,7 @@ export function EnlaceObjetoDialog() {
   return <EnlaceObjetoInterior key={objetoId} objetoId={objetoId} />
 }
 
-type Modo = 'web' | 'programa'
+type Modo = 'web' | 'programa' | 'app'
 
 function EnlaceObjetoInterior({ objetoId }: { objetoId: number }) {
   const t = useT()
@@ -36,12 +41,18 @@ function EnlaceObjetoInterior({ objetoId }: { objetoId: number }) {
   const datos = useDiseño(
     useShallow((s) => {
       const o = objetoPorId(s.objetos, objetoId)
-      return o ? { url: o.enlaceUrl ?? '', programa: o.programa ?? '', nombre: o.nombre ?? '' } : null
+      return o
+        ? { url: o.enlaceUrl ?? '', programa: o.programa ?? '', nombre: o.nombre ?? '', app: o.enlaceApp }
+        : null
     }),
   )
   // El diálogo nunca monta en el fondo de pantalla, así que esto es «¿estoy en el shell de Windows?».
   const conProgramas = hayProgramasEscritorio()
-  const [modo, setModo] = useState<Modo>(conProgramas && datos?.programa ? 'programa' : 'web')
+  const [modo, setModo] = useState<Modo>(
+    datos?.app ? 'app' : conProgramas && datos?.programa ? 'programa' : 'web',
+  )
+  const [entrada, setEntrada] = useState<EnlaceObjetoApp | null>(datos?.app ?? null)
+  const [eligiendo, setEligiendo] = useState(!datos?.app)
   const [url, setUrl] = useState(datos?.url ?? '')
   const [programa, setPrograma] = useState(datos?.programa ?? '')
   const [nombre, setNombre] = useState(datos?.nombre ?? '')
@@ -65,9 +76,22 @@ function EnlaceObjetoInterior({ objetoId }: { objetoId: number }) {
 
   const normalizada = normalizarUrl(url)
   const esPrograma = modo === 'programa'
-  const hayDestino = Boolean(datos.url || datos.programa)
+  const esApp = modo === 'app'
+  const hayDestino = Boolean(datos.url || datos.programa || datos.app)
+  const titulo = esApp
+    ? t('enlace.app.titulo', 'Entrada de app')
+    : esPrograma
+      ? t('enlace.programa.titulo', 'Programa')
+      : t('enlace.titulo', 'Enlace web')
+  const elegida = entrada ? textoEnlace(entrada) : null
 
   const guardar = async () => {
+    if (esApp) {
+      if (!entrada) return
+      await useDiseño.getState().setObjetoEnlaceApp(objetoId, entrada, nombre.trim())
+      cerrar()
+      return
+    }
     if (esPrograma) {
       if (!programa) return
       await useDiseño.getState().setObjetoPrograma(objetoId, programa, nombre.trim())
@@ -112,22 +136,22 @@ function EnlaceObjetoInterior({ objetoId }: { objetoId: number }) {
       <div
         role="dialog"
         aria-modal="true"
-        aria-label={esPrograma ? t('enlace.programa.titulo', 'Programa') : t('enlace.titulo', 'Enlace web')}
+        aria-label={titulo}
         className="ui-panel ui-pop w-full max-w-md rounded-2xl border border-white/10 p-5 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <header className="mb-4 flex items-center gap-3">
           <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10 text-xl">
-            <Icono nombre={esPrograma ? 'tecnologia' : 'vincular'} />
+            <Icono nombre={esApp ? 'cuartos' : esPrograma ? 'tecnologia' : 'vincular'} />
           </span>
           <div className="min-w-0">
-            <p className="text-base font-black">
-              {esPrograma ? t('enlace.programa.titulo', 'Programa') : t('enlace.titulo', 'Enlace web')}
-            </p>
+            <p className="text-base font-black">{titulo}</p>
             <p className="text-[11px] text-white/45">
-              {esPrograma
-                ? t('enlace.programa.explica', 'Tocar el objeto abrirá este programa')
-                : t('enlace.explica', 'Tocar el objeto abrirá esta página')}
+              {esApp
+                ? t('enlace.app.explica', 'Tocar el objeto abrirá esta parte de la app')
+                : esPrograma
+                  ? t('enlace.programa.explica', 'Tocar el objeto abrirá este programa')
+                  : t('enlace.explica', 'Tocar el objeto abrirá esta página')}
             </p>
           </div>
           <button
@@ -139,15 +163,51 @@ function EnlaceObjetoInterior({ objetoId }: { objetoId: number }) {
           </button>
         </header>
 
-        {/* Solo el shell de Windows sabe lanzar programas: en el resto, el diálogo es el de siempre. */}
-        {conProgramas && (
-          <div className="mb-4 flex gap-1 rounded-xl border border-white/10 bg-black/20 p-1">
-            {pestana('web', t('enlace.paginaWeb', 'Página web'))}
-            {pestana('programa', t('enlace.programa.titulo', 'Programa'))}
-          </div>
-        )}
+        {/* Solo el shell de Windows sabe lanzar programas: en el resto no hay esa pestaña. */}
+        <div className="mb-4 flex gap-1 rounded-xl border border-white/10 bg-black/20 p-1">
+          {pestana('web', t('enlace.paginaWeb', 'Página web'))}
+          {pestana('app', t('enlace.app.titulo', 'Entrada de app'))}
+          {conProgramas && pestana('programa', t('enlace.programa.titulo', 'Programa'))}
+        </div>
 
-        {esPrograma ? (
+        {esApp ? (
+          eligiendo || !entrada ? (
+            <div className="mb-3">
+              <SelectorApp
+                conEntradas
+                pregunta={t('enlace.app.pregunta', '¿Qué app abre este objeto?')}
+                sinApps={t('enlace.app.sinApps', 'Pon apps en los objetos de tus cuartos para poder enlazarlas.')}
+                onElegir={(e) => {
+                  setEntrada(e)
+                  setEligiendo(false)
+                }}
+                onCerrar={() => setEligiendo(false)}
+              />
+              {!entrada && !eligiendo && (
+                <p className="mt-2 text-[11px] text-white/45">{t('enlace.app.ninguna', 'Aún no elegiste ninguna entrada')}</p>
+              )}
+            </div>
+          ) : (
+            <div className="mb-3 flex items-center gap-3 rounded-xl border border-white/15 bg-black/30 px-3 py-2">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/10">
+                {elegida?.app ? <Icono emoji={elegida.app.icon} /> : <Icono nombre="cuartos" />}
+              </span>
+              <p className="min-w-0 flex-1 truncate text-sm text-white/90">
+                {entrada.titulo ?? elegida?.seccion ?? elegida?.app?.nombre}
+                {elegida?.app && (entrada.titulo || elegida.seccion) && (
+                  <span className="text-white/45"> · {elegida.app.nombre}</span>
+                )}
+              </p>
+              <button
+                type="button"
+                onClick={() => setEligiendo(true)}
+                className="shrink-0 rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold transition hover:bg-white/10"
+              >
+                {t('enlace.app.elegir', 'Elegir entrada…')}
+              </button>
+            </div>
+          )
+        ) : esPrograma ? (
           <div className="mb-3 flex items-center gap-3 rounded-xl border border-white/15 bg-black/30 px-3 py-2">
             <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/10">
               {programa ? <IconoPrograma ruta={programa} /> : <Icono nombre="tecnologia" />}
@@ -220,9 +280,11 @@ function EnlaceObjetoInterior({ objetoId }: { objetoId: number }) {
               onClick={() => void quitar()}
               className="flex-1 rounded-xl border border-red-400/30 bg-red-400/10 py-2 text-sm font-semibold text-red-400 transition hover:bg-red-400/20"
             >
-              {datos.programa && !datos.url
-                ? t('enlace.programa.quitar', 'Quitar programa')
-                : t('enlace.quitar', 'Quitar enlace')}
+              {datos.app && !datos.url && !datos.programa
+                ? t('enlace.app.quitar', 'Quitar entrada')
+                : datos.programa && !datos.url
+                  ? t('enlace.programa.quitar', 'Quitar programa')
+                  : t('enlace.quitar', 'Quitar enlace')}
             </button>
           )}
           <button
@@ -233,7 +295,7 @@ function EnlaceObjetoInterior({ objetoId }: { objetoId: number }) {
           </button>
           <button
             onClick={() => void guardar()}
-            disabled={esPrograma ? !programa : !url.trim()}
+            disabled={esApp ? !entrada : esPrograma ? !programa : !url.trim()}
             className="flex-1 rounded-xl border border-emerald-400/30 bg-emerald-400/10 py-2 text-sm font-semibold text-emerald-300 transition hover:bg-emerald-400/20 disabled:opacity-40"
           >
             {t('ui.guardar', 'Guardar')}

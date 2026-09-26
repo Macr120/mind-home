@@ -6,7 +6,6 @@ import {
   herraje,
   num,
   panel,
-  repartir,
   texto,
   tono,
   tuboColgar,
@@ -78,8 +77,14 @@ export function armarMetal(m: Mueble): ParteMueble[] {
     )
   }
 
-  // Los niveles se reparten en el alto; el más bajo va a 80 mm del suelo.
-  const alturas = repartir(80, H - s, nNiveles, s)
+  // El más bajo va a 80 mm del suelo y el más alto CIERRA el marco arriba (su
+  // repisa queda a ras del tope de los postes); los demás, repartidos entre
+  // ambos. Con huecos en los extremos los postes sobresalían sueltos.
+  const yBajo = 80
+  const yAlto = H - s - (tipoRepisa === 'tablero' ? t : 0)
+  const alturas = Array.from({ length: nNiveles }, (_, i) =>
+    Math.round(yBajo + (i * (yAlto - yBajo)) / (nNiveles - 1)),
+  )
   for (const [i, y] of alturas.entries()) {
     for (const [j, pz] of ([z0, z1] as Mm[]).entries()) {
       partes.push(

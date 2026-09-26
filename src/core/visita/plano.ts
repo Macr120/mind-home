@@ -98,7 +98,7 @@ export const CAMPOS_PLANO: Record<string, readonly string[]> = {
     'id', 'roomId', 'tipo', 'color', 'slot', 'x', 'z', 'rotY', 'rotX', 'rotZ', 'y', 'escala', 'fx',
     'piezas', 'tipoOriginal', 'nombre', 'permanente', 'grupoId', 'plantillaId',
     'categoria', 'baseId', 'orden', 'libreriaId', 'animacion', 'vidaComidaEn', 'vidaMimoEn',
-    'texto', 'grupoAccion', 'mueble',
+    'texto', 'grupoAccion', 'mueble', 'apoyoId', 'apoyoNivel', 'separado', 'parte', 'formaEntrada', 'estante',
   ],
   plantillasCustom: ['id', 'nombre', 'icon', 'color', 'bloques', 'secciones', 'creadoEn'],
   gruposPlantilla: ['id', 'nombre', 'emoji', 'orden', 'miembros', 'esBase', 'plegado'],

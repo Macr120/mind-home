@@ -30,7 +30,7 @@ import { useAccionCuarto, accionCuartoFrame, CFG_ACCION } from '../state/accionC
 import { AccesorioAccion } from './especialesPlantilla'
 import { nivelBaseY, worldToSubCell, subId, cellToWorld, HALF, SIZE, ascensoXZ, dirAscenso, AGUA_ALTURA_LOCAL, worldToCell, FOOTPRINT_DEFAULT, type AABB, type AnclaAscenso } from './walls'
 import { claveCeldaOff, formaEnCelda, subformasDeCelda, puntoDentroSilueta } from './formasLoseta'
-import { footprintDeTipo, piezasDesdeObjeto, TIPO_PIEZAS } from './catalogo'
+import { footprintDeObjeto, piezasDesdeObjeto, TIPO_PIEZAS } from './catalogo'
 import { moveInput, vectorCam } from './movement'
 import { dragChar } from './characterDrag'
 import { girarHacia, marchaAvatar, suave } from './animacion'
@@ -162,7 +162,7 @@ export function objColliders(playerLevel: number): ObjCol[] {
     if (esObjetoLibreria(o)) continue // los objetos de la biblioteca no están en la casa
     if (o.id != null && o.id === montadoId) continue // el vehículo montado viaja con el jugador
     if (cargandoId != null && (o.id === cargandoId || (cargandoGrupo != null && o.grupoId === cargandoGrupo))) continue
-    const fp = footprintDeTipo(o.tipo, o.grupoAccion)
+    const fp = footprintDeObjeto(o)
     if (!fp) continue
     let cx: number
     let cz: number

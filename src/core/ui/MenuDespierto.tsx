@@ -12,6 +12,8 @@ import { useCanchas, esCancha } from '../state/canchasStore'
 import { useDespierto } from '../state/despiertoStore'
 import { useEnlaceObjeto } from '../state/enlaceObjetoStore'
 import { confirmar } from '../state/confirmarStore'
+import { superficiesDeObjeto } from '../house/apoyos'
+import { nivelesDe } from '../muebles/superficies'
 
 /**
  * Menú de lo que despertó una pulsación larga en el mapa: mientras tiembla se
@@ -36,7 +38,15 @@ export function MenuDespierto() {
       if (sujeto?.tipo !== 'objeto') return null
       const o = objetoPorId(s.objetos, sujeto.id)
       if (!o) return null
-      return { tipo: o.tipo, conApp: Boolean(o.plantillaId), principal: Boolean(o.permanente) }
+      // Apoyado en una repisa: en qué nivel está y cuántos tiene su mueble.
+      const base = o.apoyoId != null ? objetoPorId(s.objetos, o.apoyoId) : undefined
+      return {
+        tipo: o.tipo,
+        conApp: Boolean(o.plantillaId),
+        principal: Boolean(o.permanente),
+        nivel: base ? (o.apoyoNivel ?? 0) : null,
+        niveles: base ? nivelesDe(superficiesDeObjeto(base)) : 0,
+      }
     }),
   )
   const existeCuarto = useCuartos((s) =>
@@ -142,12 +152,33 @@ export function MenuDespierto() {
           <BotonMenu icono="basura" titulo={t('ui.borrar', 'Borrar')} onClick={() => void borrar()} peligro />
         )}
         <BotonMenu icono={iconoEditar} titulo={tituloEditar} onClick={editar} />
-        {/* Enlace web: no para canchas ni para objetos que ya llevan una app (la
-            burbuja tendría dos destinos; el principal entra por su cuarto). */}
+        {/* En una repisa: subirlo o bajarlo de nivel (del de abajo, al piso). El
+            arrastre encaja en el nivel a la mano; esto llega a los demás. */}
+        {sujeto.tipo === 'objeto' && objeto?.nivel != null && objeto.nivel >= 0 && (
+          <>
+            {objeto.nivel < objeto.niveles - 1 && (
+              <BotonMenu
+                icono="subir"
+                titulo={t('mapa.objeto.subirNivel', 'Subir de nivel')}
+                onClick={() => void useDiseño.getState().setObjetoApoyo(sujeto.id, objeto.nivel! + 1)}
+              />
+            )}
+            <BotonMenu
+              icono="bajar"
+              titulo={t('mapa.objeto.bajarNivel', 'Bajar de nivel')}
+              onClick={() =>
+                void useDiseño.getState().setObjetoApoyo(sujeto.id, objeto.nivel! > 0 ? objeto.nivel! - 1 : null)
+              }
+            />
+          </>
+        )}
+        {/* Enlace (web, entrada de app o programa): no para canchas ni para objetos
+            que ya llevan una app (la burbuja tendría dos destinos; el principal
+            entra por su cuarto). */}
         {sujeto.tipo === 'objeto' && objeto != null && !cancha && !objeto.conApp && !objeto.principal && (
           <BotonMenu
             icono="vincular"
-            titulo={t('enlace.titulo', 'Enlace web')}
+            titulo={t('enlace.menu', 'Enlace')}
             onClick={() => {
               useEnlaceObjeto.getState().abrir(sujeto.id)
               terminar()

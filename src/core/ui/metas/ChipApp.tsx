@@ -1,5 +1,6 @@
-import { useState } from 'react'
-import type { EnlaceApp } from '../../data/db'
+import { useEffect, useState } from 'react'
+import type { EnlaceApp, EnlaceObjetoApp } from '../../data/db'
+import type { NodoEntidadApp } from '../../grafoApps'
 import { abrirEnlace, appsParaEnlace, destinosDeApp, textoEnlace } from '../../enlaceApp'
 import { useT } from '../../i18n/useT'
 import type { Plantilla } from '../../registry'
@@ -81,7 +82,22 @@ export function ChipApp({
  * Inline y no en un diálogo: es el mismo gesto que poner fechas o colgar una
  * sub-meta, y esas ya se hacen bajo la fila.
  */
-export function SelectorApp({ onElegir, onCerrar }: { onElegir: (e: EnlaceApp) => void; onCerrar: () => void }) {
+export function SelectorApp({
+  onElegir,
+  onCerrar,
+  pregunta,
+  sinApps,
+  conEntradas,
+}: {
+  onElegir: (e: EnlaceObjetoApp) => void
+  onCerrar: () => void
+  /** Texto del primer paso (qué app); sin él, el de los pasos de una meta. */
+  pregunta?: string
+  /** Aviso cuando no hay apps en la casa; sin él, el de los pasos de una meta. */
+  sinApps?: string
+  /** Ofrece además los registros concretos de la app (sus nodos del grafo). */
+  conEntradas?: boolean
+}) {
   const t = useT()
   const [app, setApp] = useState<Plantilla | null>(null)
   const apps = appsParaEnlace()
@@ -89,7 +105,7 @@ export function SelectorApp({ onElegir, onCerrar }: { onElegir: (e: EnlaceApp) =
   if (apps.length === 0)
     return (
       <div className="rounded-lg bg-black/30 px-2 py-1.5 text-[10px] leading-relaxed text-white/45">
-        {t('cal.enlace.sinApps', 'Pon apps en los objetos de tus cuartos para poder enlazarlas a un paso.')}
+        {sinApps ?? t('cal.enlace.sinApps', 'Pon apps en los objetos de tus cuartos para poder enlazarlas a un paso.')}
       </div>
     )
 
@@ -99,7 +115,7 @@ export function SelectorApp({ onElegir, onCerrar }: { onElegir: (e: EnlaceApp) =
         <p className="min-w-0 flex-1 truncate text-[10px] uppercase tracking-wide text-white/40">
           {app
             ? t('cal.enlace.elegirSeccion', '¿A qué parte de {app}?', { app: app.nombre })
-            : t('cal.enlace.elegirApp', '¿Dónde se registra este paso?')}
+            : (pregunta ?? t('cal.enlace.elegirApp', '¿Dónde se registra este paso?'))}
         </p>
         <button
           type="button"
@@ -119,7 +135,7 @@ export function SelectorApp({ onElegir, onCerrar }: { onElegir: (e: EnlaceApp) =
               // Con una sola sección (o ninguna) no hay nada que preguntar: la app
               // entera ES el destino y un segundo paso sería un clic de trámite.
               onClick={() =>
-                (p.comandos?.length ?? 0) > 0 ? setApp(p) : onElegir({ plantillaId: p.id })
+                conEntradas || (p.comandos?.length ?? 0) > 0 ? setApp(p) : onElegir({ plantillaId: p.id })
               }
               className="ui-presion flex items-center gap-1 rounded-full border px-2 py-1 text-[10px] font-semibold transition hover:brightness-125"
               style={{
@@ -143,6 +159,62 @@ export function SelectorApp({ onElegir, onCerrar }: { onElegir: (e: EnlaceApp) =
               {d.etiqueta}
             </button>
           ))}
+      </div>
+      {app && conEntradas && <EntradasDeApp appId={app.id} onElegir={onElegir} />}
+    </div>
+  )
+}
+
+/** Tope de registros listados: más no se leen en una caja así; para eso está el buscador. */
+const MAX_ENTRADAS = 40
+
+/**
+ * Los registros concretos de una app (recetas, metas, lugares…), sacados de sus
+ * nodos del grafo de memoria. El enlace guarda además el `ref` estable del nodo:
+ * el `dato` es un id local que en otro dispositivo apuntaría a otra fila.
+ */
+function EntradasDeApp({ appId, onElegir }: { appId: string; onElegir: (e: EnlaceObjetoApp) => void }) {
+  const t = useT()
+  const [nodos, setNodos] = useState<NodoEntidadApp[] | null>(null)
+  const [busca, setBusca] = useState('')
+  useEffect(() => {
+    let vivoAun = true
+    void import('../../grafoApps').then(async ({ nodosDeApps }) => {
+      const todos = await nodosDeApps()
+      if (vivoAun) setNodos(todos.filter((n) => n.appId === appId && !n.abrir))
+    })
+    return () => {
+      vivoAun = false
+    }
+  }, [appId])
+  if (!nodos?.length) return null
+  const q = busca.trim().toLowerCase()
+  const lista = (q ? nodos.filter((n) => n.titulo.toLowerCase().includes(q)) : nodos).slice(0, MAX_ENTRADAS)
+  return (
+    <div className="space-y-1 pt-1">
+      <p className="text-[10px] uppercase tracking-wide text-white/40">{t('enlace.app.registros', 'Tus registros')}</p>
+      {nodos.length > 8 && (
+        <input
+          value={busca}
+          onChange={(e) => setBusca(e.target.value)}
+          placeholder={t('enlace.app.buscar', 'Buscar…')}
+          className="w-full rounded-md bg-black/30 px-2 py-1 text-[11px] text-white/80 outline-none placeholder:text-white/30"
+        />
+      )}
+      <div className="flex max-h-40 flex-wrap gap-1 overflow-y-auto">
+        {lista.map((n) => (
+          <button
+            key={n.ref}
+            type="button"
+            onClick={() =>
+              onElegir({ plantillaId: appId, seccion: n.seccion, dato: n.dato, ref: n.ref, titulo: n.titulo })
+            }
+            className="ui-presion flex max-w-full items-center gap-1 rounded-full border border-white/15 px-2 py-1 text-[10px] font-semibold text-white/70 transition hover:border-white/35 hover:text-white"
+          >
+            <Icono emoji={n.emoji} />
+            <span className="truncate">{n.titulo}</span>
+          </button>
+        ))}
       </div>
     </div>
   )

@@ -119,6 +119,13 @@ async function construir(onProgreso?: ProgresoDemo, apps?: string[]): Promise<vo
       // no tienen cuarto en él y sus tours no tendrían dónde entrar.
       const { completarCuartosDeApps } = await import('./mapa/casa')
       await completarCuartosDeApps()
+      // El snapshot trae los muebles de siembra como recursos viejos: pasan a
+      // recetas del taller (la demo no corre las reparaciones de `disenoStore`).
+      const { convertirMueblesDeRecurso } = await import('../core/muebles/recetasSiembra')
+      await convertirMueblesDeRecurso(await db.objetosCuarto.toArray())
+      // Y los compuestos sueltan sus partes (el monitor, los cojines, las mancuernas…).
+      const { separarCompuestos } = await import('../core/house/separarCompuestos')
+      await separarCompuestos(await db.objetosCuarto.toArray())
     } else {
       // Sin snapshot commiteado: la casa de Pep@ se construye por código.
       const { construirCasaPep } = await import('./casaPep')

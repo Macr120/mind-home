@@ -20,7 +20,7 @@ const MAX_PIEZAS = 120
 
 const COLOR = /^#[0-9a-f]{6}$/i
 const TIPOS_PIEZA = new Set(['caja', 'esfera', 'cono', 'cilindro', 'plano'])
-const MATERIALES = new Set(['metal', 'vidrio', 'brillante'])
+const MATERIALES = new Set(['metal', 'vidrio', 'brillante', 'luz'])
 
 function color(v: unknown): string | undefined {
   return typeof v === 'string' && COLOR.test(v) ? v : undefined

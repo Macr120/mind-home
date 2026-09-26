@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, type ReactNode } from 'react'
+import { useEffect, useMemo, useRef, type ReactNode, type RefObject } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { actualizarEnergia, type AnimacionModelo } from './animacion'
@@ -6,6 +6,7 @@ import { AvatarModelo } from './AvatarModelo'
 import { CAL, texturaMes } from './hojaMes'
 import { playerPos, useHouse } from '../state/houseStore'
 import { useDiseño } from '../state/disenoStore'
+import { altoEncima } from './apoyos'
 import { useAjustes } from '../state/ajustesStore'
 import { localeActual } from '../i18n/useT'
 import { fechaLocalISO } from '../fechaLocal'
@@ -22,6 +23,7 @@ import {
   TIPO_CAMINADORA, TIPO_PERIODICO, TIPO_LAPTOP, TIPO_TAPETE, TIPO_GUITARRA, TIPO_PLANTA_REGAR, TIPO_LIBRETA,
   TIPO_SILLON, TIPO_CALENDARIO, TIPO_PIZARRA, TIPO_AGENDA, TIPO_CAJA_FUERTE, TIPO_ESTACION_COMPUTO,
   TIPO_DIANA_METAS, TIPO_TECLADO_MIDI, TIPO_CABALLETE, TIPO_ESCRITORIO_ESCRITURA, TIPO_CAMARA_VIDEO,
+  ALTO_BURO, ALTO_MESA_SALA,
 } from './especialesPlantillaMeta'
 
 export { esEspecialPlantilla } from './especialesPlantillaMeta'
@@ -210,7 +212,7 @@ const RENGLONES = [0.06, 0.02, -0.02, -0.06]
  *  de pastillas, el portarretratos y la pluma de las tres secciones. Al acercarse,
  *  la página derecha se levanta como si alguien pasara la hoja y la lucecita del
  *  frasco (el recordatorio de la toma) empieza a latir. */
-function AgendaEscritorio({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function AgendaEscritorio({ color, simple = false, nivel = null, objetoId, separado = false }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const hoja = useRef<THREE.Group>(null!)
   const aviso = useRef<THREE.MeshStandardMaterial>(null!)
@@ -269,39 +271,41 @@ function AgendaEscritorio({ color, simple = false, nivel = null, objetoId }: Esp
         </group>
       </group>
 
-      {/* Frasco de pastillas con su lucecita de recordatorio (Salud) */}
-      <mesh position={[0.36, 0.61, -0.16]} castShadow>
-        <cylinderGeometry args={[0.05, 0.05, 0.14, 12]} />
-        <meshStandardMaterial color="#f8fafc" roughness={0.4} />
-      </mesh>
-      <mesh position={[0.36, 0.69, -0.16]}>
-        <cylinderGeometry args={[0.052, 0.052, 0.03, 12]} />
-        <meshStandardMaterial ref={aviso} color="#14b8a6" emissive="#14b8a6" emissiveIntensity={0} />
-      </mesh>
+      {/* Separada, el frasco, el portarretratos y la pluma son objetos propios (separables.ts). */}
+      {!separado && (
+        <>
+          {/* Frasco de pastillas con su lucecita de recordatorio (Salud) */}
+          <mesh position={[0.36, 0.61, -0.16]} castShadow>
+            <cylinderGeometry args={[0.05, 0.05, 0.14, 12]} />
+            <meshStandardMaterial color="#f8fafc" roughness={0.4} />
+          </mesh>
+          <mesh position={[0.36, 0.69, -0.16]}>
+            <cylinderGeometry args={[0.052, 0.052, 0.03, 12]} />
+            <meshStandardMaterial ref={aviso} color="#14b8a6" emissive="#14b8a6" emissiveIntensity={0} />
+          </mesh>
 
-      {/* Portarretratos inclinado (Personas) */}
-      <group position={[-0.34, 0.63, -0.15]} rotation={[0, 0.5, 0]}>
-        <mesh castShadow>
-          <boxGeometry args={[0.16, 0.18, 0.015]} />
-          <meshStandardMaterial color="#fb923c" roughness={0.7} />
-        </mesh>
-        <mesh position={[0, 0, 0.01]}>
-          <boxGeometry args={[0.12, 0.14, 0.005]} />
-          <meshStandardMaterial color="#e2e8f0" roughness={0.9} />
-        </mesh>
-      </group>
+          {/* Portarretratos inclinado (Personas) */}
+          <group position={[-0.34, 0.63, -0.15]} rotation={[0, 0.5, 0]}>
+            <mesh castShadow>
+              <boxGeometry args={[0.16, 0.18, 0.015]} />
+              <meshStandardMaterial color="#fb923c" roughness={0.7} />
+            </mesh>
+            <mesh position={[0, 0, 0.01]}>
+              <boxGeometry args={[0.12, 0.14, 0.005]} />
+              <meshStandardMaterial color="#e2e8f0" roughness={0.9} />
+            </mesh>
+          </group>
 
-      {/* Pluma cruzada sobre la mesa (Trabajo) */}
-      <mesh position={[0.06, 0.55, 0.25]} rotation={[0, 0.35, Math.PI / 2]} castShadow>
-        <cylinderGeometry args={[0.011, 0.008, 0.24, 8]} />
-        <meshStandardMaterial color="#6366f1" roughness={0.5} metalness={0.2} />
-      </mesh>
+          {/* Pluma cruzada sobre la mesa (Trabajo) */}
+          <mesh position={[0.06, 0.55, 0.25]} rotation={[0, 0.35, Math.PI / 2]} castShadow>
+            <cylinderGeometry args={[0.011, 0.008, 0.24, 8]} />
+            <meshStandardMaterial color="#6366f1" roughness={0.5} metalness={0.2} />
+          </mesh>
+        </>
+      )}
     </group>
   )
 }
-
-/** Altura del tope del buró real (recurso:39 de recámara): el reloj se sienta encima. */
-const ALTO_BURO = 0.7
 
 /** Despertador de dos campanas: se coloca en la misma posición que un buró real
  *  (recurso:39) para quedar encima; vibra y golpea las campanas al acercarse. */
@@ -370,7 +374,7 @@ function Despertador({ color, simple = false, nivel = null, objetoId }: EspProps
 }
 
 /** Librero: en el estante, un libro sale y se abre cuando el jugador se acerca. */
-function LibreroLibro({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function LibreroLibro({ color, simple = false, nivel = null, objetoId, separado = false }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const libro = useRef<THREE.Group>(null!)
   const tapaIzq = useRef<THREE.Group>(null!)
@@ -409,15 +413,16 @@ function LibreroLibro({ color, simple = false, nivel = null, objetoId }: EspProp
           <meshStandardMaterial color="#6b4423" />
         </mesh>
       ))}
-      {/* Hileras de lomos en dos estantes */}
-      {[0.5, 1.6].map((base, fila) =>
-        lomos.map((c, i) => (
-          <mesh key={`${fila}-${i}`} position={[-0.36 + i * 0.14, base, 0.02]} castShadow>
-            <boxGeometry args={[0.1, 0.42, 0.24]} />
-            <meshStandardMaterial color={c} roughness={0.7} />
-          </mesh>
-        )),
-      )}
+      {/* Hileras de lomos en dos estantes (separado, cada libro es un objeto propio) */}
+      {!separado &&
+        [0.5, 1.6].map((base, fila) =>
+          lomos.map((c, i) => (
+            <mesh key={`${fila}-${i}`} position={[-0.36 + i * 0.14, base, 0.02]} castShadow>
+              <boxGeometry args={[0.1, 0.42, 0.24]} />
+              <meshStandardMaterial color={c} roughness={0.7} />
+            </mesh>
+          )),
+        )}
       {/* Libro protagonista (sale y se abre) */}
       <group ref={libro} position={[0, 1.02, -0.02]}>
         {/* Lomo */}
@@ -441,9 +446,6 @@ function LibreroLibro({ color, simple = false, nivel = null, objetoId }: EspProp
     </group>
   )
 }
-
-/** Altura del tope de la mesa de centro (recurso:67 de sala): el globo se sienta encima. */
-const ALTO_MESA_SALA = 0.32
 
 /** Globo terráqueo sobre la mesa de centro: gira solo cuando el personaje está cerca. */
 function GloboTerraqueo({ color, simple = false, nivel = null, objetoId }: EspProps) {
@@ -589,7 +591,7 @@ function EstanteriaHerramientas({ color, simple = false, nivel = null, objetoId 
 }
 
 /** Repisa con cajas de juegos: la caja de arriba se menea un poco al acercarse. */
-function RepisaJuegos({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function RepisaJuegos({ color, simple = false, nivel = null, objetoId, separado = false }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const cima = useRef<THREE.Group>(null!)
   const energia = useRef(0)
@@ -619,20 +621,25 @@ function RepisaJuegos({ color, simple = false, nivel = null, objetoId }: EspProp
           <meshStandardMaterial color="#6b4423" />
         </mesh>
       ))}
-      {/* Cajas de juegos apiladas planas en los estantes */}
-      {[0.16, 0.24, 0.32].map((y, i) => (
-        <mesh key={`b-${i}`} position={[-0.15, y, 0.02]} rotation={[0, i * 0.15, 0]} castShadow>
-          <boxGeometry args={[0.5, 0.07, 0.3]} />
-          <meshStandardMaterial color={cajas[i]} roughness={0.6} />
-        </mesh>
-      ))}
-      {/* Cajas paradas en el estante de en medio */}
-      {[0, 1, 2].map((i) => (
-        <mesh key={`p-${i}`} position={[-0.28 + i * 0.24, 0.86, 0.02]} castShadow>
-          <boxGeometry args={[0.2, 0.4, 0.28]} />
-          <meshStandardMaterial color={cajas[i + 3]} roughness={0.6} />
-        </mesh>
-      ))}
+      {/* Separada, la pila y las cajas paradas son objetos propios (separables.ts). */}
+      {!separado && (
+        <>
+          {/* Cajas de juegos apiladas planas en los estantes */}
+          {[0.16, 0.24, 0.32].map((y, i) => (
+            <mesh key={`b-${i}`} position={[-0.15, y, 0.02]} rotation={[0, i * 0.15, 0]} castShadow>
+              <boxGeometry args={[0.5, 0.07, 0.3]} />
+              <meshStandardMaterial color={cajas[i]} roughness={0.6} />
+            </mesh>
+          ))}
+          {/* Cajas paradas en el estante de en medio */}
+          {[0, 1, 2].map((i) => (
+            <mesh key={`p-${i}`} position={[-0.28 + i * 0.24, 0.86, 0.02]} castShadow>
+              <boxGeometry args={[0.2, 0.4, 0.28]} />
+              <meshStandardMaterial color={cajas[i + 3]} roughness={0.6} />
+            </mesh>
+          ))}
+        </>
+      )}
       {/* Caja de la cima (se menea) */}
       <group ref={cima} position={[0.1, 1.3, 0.02]}>
         <mesh castShadow>
@@ -719,7 +726,13 @@ export function AccionGenerica({
       // del nivel del cuarto. El alto sobre la base solo sirve para ACOTAR (un
       // puf muy bajo sigue valiendo; una pieza con el origen corrido no dispara
       // al avatar al cielo): se CLAMPEA en vez de descartar la medición.
-      const alto = (hit?.point.y ?? _boxAcc.max.y) - _wpAcc.y
+      let alto = (hit?.point.y ?? _boxAcc.max.y) - _wpAcc.y
+      // Lo apoyado encima (los cojines del sofá) es otro objeto: el rayo no lo ve.
+      const { objetos } = useDiseño.getState()
+      const base = objetos.find((o) => o.id === objetoId)
+      if (base) {
+        alto = Math.max(alto, altoEncima(objetos, base, (base.x ?? 0) + cx - _wpAcc.x, (base.z ?? 0) + cz - _wpAcc.z))
+      }
       useAccionCuarto.getState().setCerca({
         id: objetoId,
         grupo,
@@ -833,7 +846,7 @@ function SillonLectura({ color }: UsableProps) {
 }
 
 /** Escritorio de noticias (con periódico): pulsa cuando el personaje pasa cerca (ambiental). */
-function EscritorioNoticias({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function EscritorioNoticias({ color, simple = false, nivel = null, objetoId, separado = false }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const cuerpo = useRef<THREE.Group>(null!)
   const energia = useRef(0)
@@ -841,7 +854,10 @@ function EscritorioNoticias({ color, simple = false, nivel = null, objetoId }: E
     if (simple || !raiz.current) return
     const e = actualizarEnergia(raiz.current, PROX, nivel, energia, objetoId)
     if (e === 0) return // en reposo no hay nada que animar
-    if (cuerpo.current) cuerpo.current.scale.setScalar(1 + Math.sin(clock.elapsedTime * 3) * 0.06 * e)
+    const s = 1 + Math.sin(clock.elapsedTime * 3) * 0.06 * e
+    // Separado, el periódico es otro objeto: si la cubierta subiera y bajara lo
+    // dejaría hundido o flotando, así que late solo a lo ancho.
+    if (cuerpo.current) cuerpo.current.scale.set(s, separado ? 1 : s, s)
   })
   return (
     <group ref={raiz}>
@@ -869,24 +885,28 @@ function EscritorioNoticias({ color, simple = false, nivel = null, objetoId }: E
             <meshStandardMaterial color="#5b3a1a" roughness={0.85} />
           </mesh>
         ))}
-        {/* Periódico doblado encima */}
-        <mesh position={[-0.15, 0.795, 0]} rotation={[0, 0.2, 0]} castShadow>
-          <boxGeometry args={[0.44, 0.04, 0.32]} />
-          <meshStandardMaterial color="#e5e7eb" roughness={0.85} />
-        </mesh>
-        {[-0.08, 0, 0.08].map((z) => (
-          <mesh key={z} position={[-0.15, 0.818, z]} rotation={[0, 0.2, 0]}>
-            <boxGeometry args={[0.3, 0.005, 0.015]} />
-            <meshStandardMaterial color="#374151" />
-          </mesh>
-        ))}
+        {/* Periódico doblado encima (separado, es un objeto propio) */}
+        {!separado && (
+          <>
+            <mesh position={[-0.15, 0.795, 0]} rotation={[0, 0.2, 0]} castShadow>
+              <boxGeometry args={[0.44, 0.04, 0.32]} />
+              <meshStandardMaterial color="#e5e7eb" roughness={0.85} />
+            </mesh>
+            {[-0.08, 0, 0.08].map((z) => (
+              <mesh key={z} position={[-0.15, 0.818, z]} rotation={[0, 0.2, 0]}>
+                <boxGeometry args={[0.3, 0.005, 0.015]} />
+                <meshStandardMaterial color="#374151" />
+              </mesh>
+            ))}
+          </>
+        )}
       </group>
     </group>
   )
 }
 
 /** Escritorio con computadora y teclado: el personaje se sienta en la silla y teclea. */
-function Laptop({ color }: UsableProps) {
+function Laptop({ color, separado = false }: UsableProps) {
   return (
     <group>
       {/* Escritorio */}
@@ -895,39 +915,44 @@ function Laptop({ color }: UsableProps) {
         <meshStandardMaterial color="#6b4423" roughness={0.8} />
       </mesh>
       <Patas w={1.0} d={0.5} h={0.75} color="#5b3a1a" />
-      {/* Monitor GRANDE (pantalla hacia +z, donde se sienta el personaje) */}
-      <mesh position={[0, 0.79, -0.16]} castShadow>
-        <boxGeometry args={[0.34, 0.03, 0.2]} />
-        <meshStandardMaterial color="#1f2937" metalness={0.4} />
-      </mesh>
-      <mesh position={[0, 0.95, -0.18]} castShadow>
-        <cylinderGeometry args={[0.04, 0.04, 0.34, 10]} />
-        <meshStandardMaterial color="#1f2937" metalness={0.4} />
-      </mesh>
-      <mesh position={[0, 1.4, -0.2]} castShadow>
-        <boxGeometry args={[1.1, 0.68, 0.05]} />
-        <meshStandardMaterial color={color} metalness={0.4} roughness={0.4} />
-      </mesh>
-      <mesh position={[0, 1.4, -0.172]}>
-        <boxGeometry args={[1.0, 0.58, 0.005]} />
-        <meshStandardMaterial color="#38bdf8" emissive="#0ea5e9" emissiveIntensity={0.5} />
-      </mesh>
-      {/* Teclado */}
-      <mesh position={[0, 0.785, 0.14]} castShadow>
-        <boxGeometry args={[0.42, 0.03, 0.15]} />
-        <meshStandardMaterial color="#e5e7eb" roughness={0.6} />
-      </mesh>
-      {[-0.04, 0, 0.04].map((z) => (
-        <mesh key={z} position={[0, 0.802, 0.14 + z]}>
-          <boxGeometry args={[0.36, 0.003, 0.012]} />
-          <meshStandardMaterial color="#9ca3af" />
-        </mesh>
-      ))}
-      {/* Mouse */}
-      <mesh position={[0.28, 0.785, 0.14]} castShadow>
-        <boxGeometry args={[0.06, 0.025, 0.1]} />
-        <meshStandardMaterial color="#e5e7eb" roughness={0.6} />
-      </mesh>
+      {/* Separado, el monitor, el teclado y el ratón son objetos propios (separables.ts). */}
+      {!separado && (
+        <>
+          {/* Monitor GRANDE (pantalla hacia +z, donde se sienta el personaje) */}
+          <mesh position={[0, 0.79, -0.16]} castShadow>
+            <boxGeometry args={[0.34, 0.03, 0.2]} />
+            <meshStandardMaterial color="#1f2937" metalness={0.4} />
+          </mesh>
+          <mesh position={[0, 0.95, -0.18]} castShadow>
+            <cylinderGeometry args={[0.04, 0.04, 0.34, 10]} />
+            <meshStandardMaterial color="#1f2937" metalness={0.4} />
+          </mesh>
+          <mesh position={[0, 1.4, -0.2]} castShadow>
+            <boxGeometry args={[1.1, 0.68, 0.05]} />
+            <meshStandardMaterial color={color} metalness={0.4} roughness={0.4} />
+          </mesh>
+          <mesh position={[0, 1.4, -0.172]}>
+            <boxGeometry args={[1.0, 0.58, 0.005]} />
+            <meshStandardMaterial color="#38bdf8" emissive="#0ea5e9" emissiveIntensity={0.5} />
+          </mesh>
+          {/* Teclado */}
+          <mesh position={[0, 0.785, 0.14]} castShadow>
+            <boxGeometry args={[0.42, 0.03, 0.15]} />
+            <meshStandardMaterial color="#e5e7eb" roughness={0.6} />
+          </mesh>
+          {[-0.04, 0, 0.04].map((z) => (
+            <mesh key={z} position={[0, 0.802, 0.14 + z]}>
+              <boxGeometry args={[0.36, 0.003, 0.012]} />
+              <meshStandardMaterial color="#9ca3af" />
+            </mesh>
+          ))}
+          {/* Mouse */}
+          <mesh position={[0.28, 0.785, 0.14]} castShadow>
+            <boxGeometry args={[0.06, 0.025, 0.1]} />
+            <meshStandardMaterial color="#e5e7eb" roughness={0.6} />
+          </mesh>
+        </>
+      )}
     </group>
   )
 }
@@ -954,7 +979,7 @@ function TapeteYoga({ color }: UsableProps) {
 }
 
 /** Piano doméstico (vertical) con banco: tiembla cuando el personaje pasa cerca. */
-function PianoObj({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function PianoObj({ color, simple = false, nivel = null, objetoId, separado = false }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const piano = useRef<THREE.Group>(null!)
   const energia = useRef(0)
@@ -1005,22 +1030,26 @@ function PianoObj({ color, simple = false, nivel = null, objetoId }: EspProps) {
           </mesh>
         ))}
       </group>
-      {/* Banco */}
-      <mesh position={[0, 0.42, 0.62]} castShadow>
-        <boxGeometry args={[0.6, 0.08, 0.26]} />
-        <meshStandardMaterial color="#5b3a1a" roughness={0.7} />
-      </mesh>
-      {[
-        [-0.24, 0.52],
-        [0.24, 0.52],
-        [-0.24, 0.72],
-        [0.24, 0.72],
-      ].map(([x, z], i) => (
-        <mesh key={i} position={[x, 0.2, z]} castShadow>
-          <cylinderGeometry args={[0.025, 0.025, 0.38, 8]} />
-          <meshStandardMaterial color="#3f3f46" />
-        </mesh>
-      ))}
+      {/* Banco (separado, es un objeto propio) */}
+      {!separado && (
+        <>
+          <mesh position={[0, 0.42, 0.62]} castShadow>
+            <boxGeometry args={[0.6, 0.08, 0.26]} />
+            <meshStandardMaterial color="#5b3a1a" roughness={0.7} />
+          </mesh>
+          {[
+            [-0.24, 0.52],
+            [0.24, 0.52],
+            [-0.24, 0.72],
+            [0.24, 0.72],
+          ].map(([x, z], i) => (
+            <mesh key={i} position={[x, 0.2, z]} castShadow>
+              <cylinderGeometry args={[0.025, 0.025, 0.38, 8]} />
+              <meshStandardMaterial color="#3f3f46" />
+            </mesh>
+          ))}
+        </>
+      )}
     </group>
   )
 }
@@ -1070,7 +1099,7 @@ function Arbol({ color, simple = false, nivel = null, objetoId }: EspProps) {
 }
 
 /** Libreta abierta en una mesa baja: el personaje se sienta y escribe. */
-function Libreta({ color }: UsableProps) {
+function Libreta({ color, separado = false }: UsableProps) {
   return (
     <group>
       {/* Mesa baja */}
@@ -1079,22 +1108,27 @@ function Libreta({ color }: UsableProps) {
         <meshStandardMaterial color="#6b4423" roughness={0.8} />
       </mesh>
       <Patas w={0.7} d={0.4} h={0.32} color="#5b3a1a" />
-      {/* Libreta abierta */}
-      {[-1, 1].map((s) => (
-        <mesh key={s} position={[s * 0.11, 0.355, 0.05]} rotation={[0, 0, s * 0.06]} castShadow>
-          <boxGeometry args={[0.22, 0.015, 0.28]} />
-          <meshStandardMaterial color="#f8fafc" roughness={0.9} />
-        </mesh>
-      ))}
-      <mesh position={[0, 0.352, 0.05]} castShadow>
-        <boxGeometry args={[0.03, 0.02, 0.28]} />
-        <meshStandardMaterial color={color} roughness={0.7} />
-      </mesh>
-      {/* Pluma */}
-      <mesh position={[0.16, 0.37, 0.12]} rotation={[0.4, 0, -0.5]}>
-        <cylinderGeometry args={[0.008, 0.008, 0.16, 8]} />
-        <meshStandardMaterial color="#111827" />
-      </mesh>
+      {/* Separada, la libreta y la pluma son objetos propios (separables.ts). */}
+      {!separado && (
+        <>
+          {/* Libreta abierta */}
+          {[-1, 1].map((s) => (
+            <mesh key={s} position={[s * 0.11, 0.355, 0.05]} rotation={[0, 0, s * 0.06]} castShadow>
+              <boxGeometry args={[0.22, 0.015, 0.28]} />
+              <meshStandardMaterial color="#f8fafc" roughness={0.9} />
+            </mesh>
+          ))}
+          <mesh position={[0, 0.352, 0.05]} castShadow>
+            <boxGeometry args={[0.03, 0.02, 0.28]} />
+            <meshStandardMaterial color={color} roughness={0.7} />
+          </mesh>
+          {/* Pluma */}
+          <mesh position={[0.16, 0.37, 0.12]} rotation={[0.4, 0, -0.5]}>
+            <cylinderGeometry args={[0.008, 0.008, 0.16, 8]} />
+            <meshStandardMaterial color="#111827" />
+          </mesh>
+        </>
+      )}
     </group>
   )
 }
@@ -1335,7 +1369,7 @@ function CajaFuerte({ color, simple = false, nivel = null, objetoId }: EspProps)
  * personaje se sienta enfrente y teclea — misma pose que la laptop, así que no
  * hace falta ninguna nueva.
  */
-function EstacionComputo({ color }: UsableProps) {
+function EstacionComputo({ color, separado = false }: UsableProps) {
   const PANTALLA = '#22d3ee'
   return (
     <group>
@@ -1345,6 +1379,16 @@ function EstacionComputo({ color }: UsableProps) {
         <meshStandardMaterial color="#4b5563" roughness={0.7} />
       </mesh>
       <Patas w={1.48} d={0.6} h={0.75} color="#374151" />
+      {/* Separada, la torre, los monitores y lo de encima son objetos propios (separables.ts). */}
+      {!separado && <EquipoComputo color={color} pantalla={PANTALLA} />}
+    </group>
+  )
+}
+
+/** Lo suelto de la estación de cómputo cuando aún no se separa. */
+function EquipoComputo({ color, pantalla: PANTALLA }: { color: string; pantalla: string }) {
+  return (
+    <>
       {/* Torre en el suelo, a la derecha */}
       <mesh position={[0.95, 0.36, -0.1]} castShadow>
         <boxGeometry args={[0.34, 0.72, 0.62]} />
@@ -1431,7 +1475,7 @@ function EstacionComputo({ color }: UsableProps) {
           <meshStandardMaterial color={i ? '#a78bfa' : '#34d399'} roughness={0.85} />
         </mesh>
       ))}
-    </group>
+    </>
   )
 }
 
@@ -1439,7 +1483,7 @@ function EstacionComputo({ color }: UsableProps) {
  * Teclado MIDI sobre soporte en X (Studio de audio): al acercarse, las teclas se
  * hunden en cascada —como si el sinte tocara solo— y el panel parpadea.
  */
-function TecladoMidi({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function TecladoMidi({ color, simple = false, nivel = null, objetoId, separado = false }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const teclas = useRef<THREE.Group>(null!)
   const panel = useRef<THREE.Mesh>(null!)
@@ -1518,22 +1562,26 @@ function TecladoMidi({ color, simple = false, nivel = null, objetoId }: EspProps
           <meshStandardMaterial color="#111827" roughness={0.4} />
         </mesh>
       ))}
-      {/* Banqueta */}
-      <mesh position={[0, 0.44, 0.72]} castShadow>
-        <boxGeometry args={[0.62, 0.08, 0.28]} />
-        <meshStandardMaterial color="#1f2937" roughness={0.75} />
-      </mesh>
-      {[
-        [-0.25, 0.62],
-        [0.25, 0.62],
-        [-0.25, 0.82],
-        [0.25, 0.82],
-      ].map(([x, z]) => (
-        <mesh key={`${x}-${z}`} position={[x, 0.2, z]} castShadow>
-          <cylinderGeometry args={[0.022, 0.022, 0.4, 8]} />
-          <meshStandardMaterial color="#3f3f46" metalness={0.5} />
-        </mesh>
-      ))}
+      {/* Banqueta (separado, es un objeto propio) */}
+      {!separado && (
+        <>
+          <mesh position={[0, 0.44, 0.72]} castShadow>
+            <boxGeometry args={[0.62, 0.08, 0.28]} />
+            <meshStandardMaterial color="#1f2937" roughness={0.75} />
+          </mesh>
+          {[
+            [-0.25, 0.62],
+            [0.25, 0.62],
+            [-0.25, 0.82],
+            [0.25, 0.82],
+          ].map(([x, z]) => (
+            <mesh key={`${x}-${z}`} position={[x, 0.2, z]} castShadow>
+              <cylinderGeometry args={[0.022, 0.022, 0.4, 8]} />
+              <meshStandardMaterial color="#3f3f46" metalness={0.5} />
+            </mesh>
+          ))}
+        </>
+      )}
     </group>
   )
 }
@@ -1542,7 +1590,7 @@ function TecladoMidi({ color, simple = false, nivel = null, objetoId }: EspProps
  * Caballete con lienzo a medio pintar (Studio de arte): al acercarse, el pincel
  * apoyado da brochazos y el lienzo se mece con el trazo.
  */
-function CaballeteArte({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function CaballeteArte({ color, simple = false, nivel = null, objetoId, separado = false }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const lienzo = useRef<THREE.Group>(null!)
   const pincel = useRef<THREE.Group>(null!)
@@ -1614,31 +1662,36 @@ function CaballeteArte({ color, simple = false, nivel = null, objetoId }: EspPro
           <meshStandardMaterial color="#e11d48" roughness={0.6} />
         </mesh>
       </group>
-      {/* Paleta apoyada en la bandeja */}
-      <mesh position={[-0.22, 0.665, 0.06]} rotation={[Math.PI / 2, 0, 0.2]} castShadow>
-        <cylinderGeometry args={[0.14, 0.14, 0.015, 16]} />
-        <meshStandardMaterial color="#c8a165" roughness={0.8} />
-      </mesh>
-      {[
-        [-0.29, '#ef4444'],
-        [-0.22, '#3b82f6'],
-        [-0.15, '#facc15'],
-      ].map(([x, c]) => (
-        <mesh key={c as string} position={[x as number, 0.677, 0.06]}>
-          <cylinderGeometry args={[0.025, 0.025, 0.008, 10]} />
-          <meshStandardMaterial color={c as string} roughness={0.6} />
-        </mesh>
-      ))}
-      {/* Botes de pintura en el suelo */}
-      {[
-        [-0.5, 0.4, '#22c55e'],
-        [-0.36, 0.5, '#8b5cf6'],
-      ].map(([x, z, c]) => (
-        <mesh key={c as string} position={[x as number, 0.09, z as number]} castShadow>
-          <cylinderGeometry args={[0.075, 0.07, 0.18, 12]} />
-          <meshStandardMaterial color={c as string} roughness={0.55} />
-        </mesh>
-      ))}
+      {/* Separado, la paleta y los botes son objetos propios (separables.ts). */}
+      {!separado && (
+        <>
+          {/* Paleta apoyada en la bandeja */}
+          <mesh position={[-0.22, 0.665, 0.06]} rotation={[Math.PI / 2, 0, 0.2]} castShadow>
+            <cylinderGeometry args={[0.14, 0.14, 0.015, 16]} />
+            <meshStandardMaterial color="#c8a165" roughness={0.8} />
+          </mesh>
+          {[
+            [-0.29, '#ef4444'],
+            [-0.22, '#3b82f6'],
+            [-0.15, '#facc15'],
+          ].map(([x, c]) => (
+            <mesh key={c as string} position={[x as number, 0.677, 0.06]}>
+              <cylinderGeometry args={[0.025, 0.025, 0.008, 10]} />
+              <meshStandardMaterial color={c as string} roughness={0.6} />
+            </mesh>
+          ))}
+          {/* Botes de pintura en el suelo */}
+          {[
+            [-0.5, 0.4, '#22c55e'],
+            [-0.36, 0.5, '#8b5cf6'],
+          ].map(([x, z, c]) => (
+            <mesh key={c as string} position={[x as number, 0.09, z as number]} castShadow>
+              <cylinderGeometry args={[0.075, 0.07, 0.18, 12]} />
+              <meshStandardMaterial color={c as string} roughness={0.55} />
+            </mesh>
+          ))}
+        </>
+      )}
     </group>
   )
 }
@@ -1647,7 +1700,7 @@ function CaballeteArte({ color, simple = false, nivel = null, objetoId }: EspPro
  * Escritorio con máquina de escribir (Studio de escritura): al acercarse teclea
  * sola —dos varillas suben y bajan— y la hoja va saliendo del rodillo.
  */
-function EscritorioEscritura({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function EscritorioEscritura({ color, simple = false, nivel = null, objetoId, separado = false }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const varillas = useRef<THREE.Group>(null!)
   const hoja = useRef<THREE.Mesh>(null!)
@@ -1714,41 +1767,46 @@ function EscritorioEscritura({ color, simple = false, nivel = null, objetoId }: 
         <boxGeometry args={[0.34, 0.34, 0.004]} />
         <meshStandardMaterial color="#f8fafc" roughness={0.95} />
       </mesh>
-      {/* Pila de folios escritos y taza */}
-      {[0, 1, 2].map((i) => (
-        <mesh key={i} position={[0.66, 0.8 + i * 0.012, 0.16]} rotation={[0, 0.09 * i, 0]} castShadow>
-          <boxGeometry args={[0.28, 0.012, 0.36]} />
-          <meshStandardMaterial color="#f1f5f9" roughness={0.95} />
-        </mesh>
-      ))}
-      <mesh position={[-0.5, 0.84, 0.2]} castShadow>
-        <cylinderGeometry args={[0.06, 0.05, 0.1, 14]} />
-        <meshStandardMaterial color="#e5e7eb" roughness={0.4} />
-      </mesh>
-      <mesh position={[-0.5, 0.885, 0.2]}>
-        <cylinderGeometry args={[0.052, 0.052, 0.01, 14]} />
-        <meshStandardMaterial color="#6b4423" roughness={0.5} />
-      </mesh>
-      {/* Lápices en un bote */}
-      <mesh position={[0.66, 0.84, -0.18]} castShadow>
-        <cylinderGeometry args={[0.05, 0.05, 0.12, 12]} />
-        <meshStandardMaterial color="#475569" roughness={0.6} />
-      </mesh>
-      {[
-        [-0.02, 0.08, '#f59e0b'],
-        [0.02, -0.02, '#ef4444'],
-        [0.01, 0.03, '#3b82f6'],
-      ].map(([dx, dz, c], i) => (
-        <mesh
-          key={c as string}
-          position={[0.66 + (dx as number), 0.94, -0.18 + (dz as number)]}
-          rotation={[0.1 * i, 0, 0.08 * i - 0.08]}
-          castShadow
-        >
-          <cylinderGeometry args={[0.008, 0.008, 0.18, 6]} />
-          <meshStandardMaterial color={c as string} roughness={0.7} />
-        </mesh>
-      ))}
+      {/* Separado, los folios, la taza y los lápices son objetos propios (separables.ts). */}
+      {!separado && (
+        <>
+          {/* Pila de folios escritos y taza */}
+          {[0, 1, 2].map((i) => (
+            <mesh key={i} position={[0.66, 0.8 + i * 0.012, 0.16]} rotation={[0, 0.09 * i, 0]} castShadow>
+              <boxGeometry args={[0.28, 0.012, 0.36]} />
+              <meshStandardMaterial color="#f1f5f9" roughness={0.95} />
+            </mesh>
+          ))}
+          <mesh position={[-0.5, 0.84, 0.2]} castShadow>
+            <cylinderGeometry args={[0.06, 0.05, 0.1, 14]} />
+            <meshStandardMaterial color="#e5e7eb" roughness={0.4} />
+          </mesh>
+          <mesh position={[-0.5, 0.885, 0.2]}>
+            <cylinderGeometry args={[0.052, 0.052, 0.01, 14]} />
+            <meshStandardMaterial color="#6b4423" roughness={0.5} />
+          </mesh>
+          {/* Lápices en un bote */}
+          <mesh position={[0.66, 0.84, -0.18]} castShadow>
+            <cylinderGeometry args={[0.05, 0.05, 0.12, 12]} />
+            <meshStandardMaterial color="#475569" roughness={0.6} />
+          </mesh>
+          {[
+            [-0.02, 0.08, '#f59e0b'],
+            [0.02, -0.02, '#ef4444'],
+            [0.01, 0.03, '#3b82f6'],
+          ].map(([dx, dz, c], i) => (
+            <mesh
+              key={c as string}
+              position={[0.66 + (dx as number), 0.94, -0.18 + (dz as number)]}
+              rotation={[0.1 * i, 0, 0.08 * i - 0.08]}
+              castShadow
+            >
+              <cylinderGeometry args={[0.008, 0.008, 0.18, 6]} />
+              <meshStandardMaterial color={c as string} roughness={0.7} />
+            </mesh>
+          ))}
+        </>
+      )}
     </group>
   )
 }
@@ -1757,7 +1815,7 @@ function EscritorioEscritura({ color, simple = false, nivel = null, objetoId }: 
  * Cámara sobre trípode con claqueta y foco (Studio de video): al acercarse, el
  * piloto de grabación parpadea, la cámara hace un paneo lento y la claqueta bate.
  */
-function CamaraVideo({ color, simple = false, nivel = null, objetoId }: EspProps) {
+function CamaraVideo({ color, simple = false, nivel = null, objetoId, separado = false }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const cabeza = useRef<THREE.Group>(null!)
   const piloto = useRef<THREE.Mesh>(null!)
@@ -1830,6 +1888,16 @@ function CamaraVideo({ color, simple = false, nivel = null, objetoId }: EspProps
           <meshStandardMaterial color="#111827" roughness={0.7} />
         </mesh>
       </group>
+      {/* Separada, la claqueta y el foco son objetos propios (separables.ts). */}
+      {!separado && <ClaquetaYFoco claqueta={claqueta} />}
+    </group>
+  )
+}
+
+/** La claqueta que bate y el foco de set de la cámara, mientras no se separen. */
+function ClaquetaYFoco({ claqueta }: { claqueta: RefObject<THREE.Group> }) {
+  return (
+    <>
       {/* Claqueta apoyada en el suelo */}
       <group position={[0.62, 0.06, 0.34]} rotation={[0, -0.45, 0]}>
         <mesh position={[0, 0.14, 0]} rotation={[0.18, 0, 0]} castShadow>
@@ -1875,7 +1943,7 @@ function CamaraVideo({ color, simple = false, nivel = null, objetoId }: EspProps
           <meshStandardMaterial color="#fef3c7" emissive="#fde68a" emissiveIntensity={0.8} toneMapped={false} />
         </mesh>
       </group>
-    </group>
+    </>
   )
 }
 
@@ -1890,9 +1958,11 @@ interface EspProps {
    * esperar a que la cercanía los despierte.
    */
   objetoId?: number
+  /** Ya soltó sus partes (`ObjetoCuarto.separado`): se pinta sin ellas. */
+  separado?: boolean
 }
 
-type UsableProps = { color: string }
+type UsableProps = { color: string; separado?: boolean }
 
 /**
  * La diana del cuarto de Metas: un tablero sobre su pie con tres dardos
@@ -1992,40 +2062,43 @@ export function EspecialPlantilla({
   simple = false,
   nivel = null,
   objetoId,
+  separado = false,
 }: EspProps & { tipo: string }) {
+  // Los compuestos que ya soltaron sus partes (`separables.ts`) reciben `separado`.
+  const p = { color, simple, nivel, objetoId, separado }
   switch (tipo) {
     case TIPO_OLLA:
       return <Olla color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
     case TIPO_PIZARRA:
       return <PizarraIdeas color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
     case TIPO_AGENDA:
-      return <AgendaEscritorio color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
+      return <AgendaEscritorio {...p} />
     case TIPO_DESPERTADOR:
       return <Despertador color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
     case TIPO_LIBRERO_LIBRO:
-      return <LibreroLibro color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
+      return <LibreroLibro {...p} />
     case TIPO_GLOBO:
       return <GloboTerraqueo color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
     case TIPO_ESTANTERIA_HERR:
       return <EstanteriaHerramientas color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
     case TIPO_REPISA_JUEGOS:
-      return <RepisaJuegos color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
+      return <RepisaJuegos {...p} />
     case TIPO_CAMINADORA:
       return <Caminadora color={color} />
     case TIPO_PERIODICO:
-      return <EscritorioNoticias color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
+      return <EscritorioNoticias {...p} />
     case TIPO_SILLON:
       return <SillonLectura color={color} />
     case TIPO_LAPTOP:
-      return <Laptop color={color} />
+      return <Laptop color={color} separado={separado} />
     case TIPO_TAPETE:
       return <TapeteYoga color={color} />
     case TIPO_GUITARRA:
-      return <PianoObj color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
+      return <PianoObj {...p} />
     case TIPO_PLANTA_REGAR:
       return <Arbol color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
     case TIPO_LIBRETA:
-      return <Libreta color={color} />
+      return <Libreta color={color} separado={separado} />
     case TIPO_CALENDARIO:
       return <CalendarioPared color={color} />
     case TIPO_CAJA_FUERTE:
@@ -2033,15 +2106,15 @@ export function EspecialPlantilla({
     case TIPO_DIANA_METAS:
       return <DianaMetas color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
     case TIPO_ESTACION_COMPUTO:
-      return <EstacionComputo color={color} />
+      return <EstacionComputo color={color} separado={separado} />
     case TIPO_TECLADO_MIDI:
-      return <TecladoMidi color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
+      return <TecladoMidi {...p} />
     case TIPO_CABALLETE:
-      return <CaballeteArte color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
+      return <CaballeteArte {...p} />
     case TIPO_ESCRITORIO_ESCRITURA:
-      return <EscritorioEscritura color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
+      return <EscritorioEscritura {...p} />
     case TIPO_CAMARA_VIDEO:
-      return <CamaraVideo color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
+      return <CamaraVideo {...p} />
     default:
       return null
   }

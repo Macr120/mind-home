@@ -11,6 +11,7 @@ import {
 } from '../state/cameraStore'
 import { playerPos } from '../state/playerPosition'
 import { miraFrame } from '../state/miraFrame'
+import { useDiseño } from '../state/disenoStore'
 import { lookPad } from './lookInput'
 
 /** Velocidad del joystick de vista (px-equivalentes por frame que recibe `orbit`). */
@@ -132,7 +133,9 @@ export function FollowCamera() {
       if (pinchOn || e.touches.length !== 1 || tid === -1) return
       const t = Array.from(e.touches).find((t) => t.identifier === tid)
       if (!t) return
-      useCam.getState().orbit(t.clientX - tx, t.clientY - ty)
+      // Ese dedo está arrastrando un objeto (pulsación larga): no gira la cámara.
+      const d = useDiseño.getState()
+      if (d.draggingObjeto == null || d.arrastreElevado) useCam.getState().orbit(t.clientX - tx, t.clientY - ty)
       tx = t.clientX; ty = t.clientY
     }
     const endTouch = (e: TouchEvent) => {

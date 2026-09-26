@@ -1,5 +1,5 @@
-import { abrirApp } from './abrirApp'
-import type { EnlaceApp } from './data/db'
+import { abrirApp, abrirAppOPlantilla } from './abrirApp'
+import type { EnlaceApp, EnlaceObjetoApp } from './data/db'
 import { getPlantilla, plantillasTodas, type Plantilla } from './registry'
 import { esObjetoLibreria, esObjetoMapa, useDiseño } from './state/disenoStore'
 import { useRutinasUI } from './state/rutinasUiStore'
@@ -58,4 +58,21 @@ export function textoEnlace(e: EnlaceApp): { app?: Plantilla; seccion?: string }
 export function abrirEnlace(e: EnlaceApp): boolean {
   useRutinasUI.getState().cerrarCalendario()
   return abrirApp(e.plantillaId, e.seccion, e.dato) != null
+}
+
+/**
+ * Abre la entrada a la que lleva un objeto de la casa. Si apunta a un registro
+ * (`ref`), su `dato` se vuelve a buscar en el grafo: el guardado es un id LOCAL
+ * y en otro dispositivo apuntaría a otra fila. Si el registro ya no existe se
+ * cae a la sección. Una app que no está en la casa se abre en su previa.
+ */
+export async function abrirEnlaceDeObjeto(e: EnlaceObjetoApp): Promise<void> {
+  let { seccion, dato } = e
+  if (e.ref) {
+    const { nodosDeApps } = await import('./grafoApps')
+    const n = (await nodosDeApps()).find((x) => x.ref === e.ref)
+    seccion = n ? n.seccion : e.seccion
+    dato = n?.dato
+  }
+  abrirAppOPlantilla(e.plantillaId, seccion, dato)
 }

@@ -182,6 +182,15 @@ export interface NodoApp {
   /** A dónde salta al tocarla: lo que se le pasa a `abrirApp`. */
   seccion?: string
   dato?: string
+  /**
+   * Subtipo del registro, para el objeto que lo representa en la casa: una obra
+   * 'libro' va como libro y no como caja; una meta 'cumplida' es un trofeo dorado.
+   */
+  clase?: string
+  /** Carga de un ejercicio (su récord): la mancuerna crece con ella. */
+  pesoKg?: number
+  /** Texto corto que su objeto lleva pintado junto al título (el peso, en las unidades del usuario). */
+  detalle?: string
 }
 
 /**

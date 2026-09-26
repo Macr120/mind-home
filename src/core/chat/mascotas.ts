@@ -70,8 +70,15 @@ export interface Pieza3D {
    * Acabado del material. Sin `mat` el mesh queda mate, exactamente como
    * siempre, así que ningún modelo previo cambia de aspecto. Lo escribe el
    * taller de muebles (el metal tiene que verse metal); la IA no lo genera.
+   * 'luz' brilla con su propio color (pantallas, LEDs, un foco).
    */
-  mat?: 'metal' | 'vidrio' | 'brillante'
+  mat?: 'metal' | 'vidrio' | 'brillante' | 'luz'
+  /**
+   * Solo 'plano': texto pintado encima (el título en el lomo de un libro o en la
+   * tapa de una caja). `color` es el fondo y `tinta` el de las letras.
+   */
+  texto?: string
+  tinta?: string
 }
 
 /**

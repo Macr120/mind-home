@@ -623,6 +623,7 @@ const NOMBRE_TIPO: Record<TipoEntidad, string> = {
   lugar: 'lugar de viaje',
   hobby: 'hobby',
   proyecto: 'proyecto de hobby',
+  ejercicio: 'ejercicio de fuerza (con su récord)',
   asistente: 'asistente',
   amigo: 'amigo',
   espacio: 'espacio compartido',

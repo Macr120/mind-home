@@ -102,6 +102,7 @@ function nombreTipo(t: TFunc, tipo: TipoNodo): string {
     lugar: 'Lugares',
     hobby: 'Hobbies',
     proyecto: 'Proyectos',
+    ejercicio: 'Ejercicios',
     asistente: 'Asistentes',
     amigo: 'Amigos',
     espacio: 'Espacios',

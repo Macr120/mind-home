@@ -220,8 +220,12 @@ function acento(t: TemaId | null, p: Vec3, w: number) {
 export interface ModeloRecurso {
   icon: string
   defaultColor: string
-  /** Render de la variante del tema activo (null = sin tema, look base). */
-  render: (color: string, tema: TemaId | null) => React.ReactElement
+  /**
+   * Render de la variante del tema activo (null = sin tema, look base). Con
+   * `separado`, un compuesto se pinta sin las partes que ya son objetos propios
+   * (ver `separables.ts`).
+   */
+  render: (color: string, tema: TemaId | null, opts?: { separado?: boolean }) => React.ReactElement
 }
 
 export const MODELOS: Record<number, ModeloRecurso> = {
@@ -354,16 +358,15 @@ export const MODELOS: Record<number, ModeloRecurso> = {
   11: {
     icon: '🏋️',
     defaultColor: STEEL,
-    render: (c, t) => {
+    render: (c, t, opts) => {
       const P = pal(t), m = prim(c, P)
       const pesa = t === 'medieval' ? P.metalCol : t === 'barbie' ? P.acento : '#1f2937'
       return (
         <group>
           <B p={[0, 0.5, 0]} s={[1.6, 0.1, 0.5]} c={m} rough={P.rough} metal={P.metal} />
           <B p={[0, 0.9, -0.1]} s={[1.6, 0.1, 0.5]} c={m} rough={P.rough} metal={P.metal} />
-          {[-0.5, 0, 0.5].map((dx, i) => (
-            <C key={i} p={[dx, 0.62, 0]} r={0.09} h={0.5} c={pesa} />
-          ))}
+          {!opts?.separado &&
+            [-0.5, 0, 0.5].map((dx, i) => <C key={i} p={[dx, 0.62, 0]} r={0.09} h={0.5} c={pesa} />)}
           {acento(t, [0, 1.1, 0], 1.4)}
         </group>
       )
@@ -426,7 +429,7 @@ export const MODELOS: Record<number, ModeloRecurso> = {
   21: {
     icon: '🛠️',
     defaultColor: WOOD,
-    render: (c, t) => {
+    render: (c, t, opts) => {
       const P = pal(t), m = prim(c, P)
       const mp = { rough: P.rough, metal: P.metal, emi: P.emi || undefined, emiI: P.emiI }
       return (
@@ -434,7 +437,7 @@ export const MODELOS: Record<number, ModeloRecurso> = {
           <B p={[0, 0.6, 0]} s={[2.0, 0.12, 0.8]} c={m} {...mp} />
           <B p={[-0.8, 0.3, 0]} s={[0.15, 0.6, 0.7]} c={P.metalCol} />
           <B p={[0.8, 0.3, 0]} s={[0.15, 0.6, 0.7]} c={P.metalCol} />
-          <B p={[0, 0.78, -0.1]} s={[0.4, 0.25, 0.3]} c={P.acento} />
+          {!opts?.separado && <B p={[0, 0.78, -0.1]} s={[0.4, 0.25, 0.3]} c={P.acento} />}
           {acento(t, [0, 0.95, 0.25], 1.6)}
         </group>
       )
@@ -656,7 +659,7 @@ export const MODELOS: Record<number, ModeloRecurso> = {
   57: {
     icon: '🎱',
     defaultColor: '#15803d',
-    render: (_c, t) => {
+    render: (_c, t, opts) => {
       const P = pal(t)
       const pano = t === 'barbie' ? '#ec4899' : t === 'cyberpunk' ? '#0ea5e9' : t === 'vaquero' || t === 'navidad' ? '#b91c1c' : t === 'terror' ? '#3f6212' : prim('#15803d', P)
       return (
@@ -667,9 +670,10 @@ export const MODELOS: Record<number, ModeloRecurso> = {
           {([[-1.2, -0.7], [1.2, -0.7], [-1.2, 0.7], [1.2, 0.7]] as const).map(([x, z], i) => (
             <B key={i} p={[x, 0.25, z]} s={[0.15, 0.5, 0.15]} c={P.metalCol} />
           ))}
-          {['#ef4444', '#fbbf24', '#3b82f6'].map((bc, i) => (
-            <S key={'b' + i} p={[-0.3 + i * 0.25, 0.76, 0]} r={0.08} c={bc} />
-          ))}
+          {!opts?.separado &&
+            ['#ef4444', '#fbbf24', '#3b82f6'].map((bc, i) => (
+              <S key={'b' + i} p={[-0.3 + i * 0.25, 0.76, 0]} r={0.08} c={bc} />
+            ))}
           {acento(t, [0, 0.95, 0], 2.2)}
         </group>
       )
@@ -713,7 +717,7 @@ export const MODELOS: Record<number, ModeloRecurso> = {
   66: {
     icon: '🛋️',
     defaultColor: WOOD,
-    render: (c, t) => {
+    render: (c, t, opts) => {
       const P = pal(t), m = prim(c, P)
       const mp = { rough: P.rough, metal: P.metal, emi: P.emi || undefined, emiI: P.emiI }
       const cojin = t === 'navidad' ? '#dc2626' : t === 'barbie' ? '#ffd1e8' : t === 'terror' ? '#4a4540' : '#cbd5e1'
@@ -723,9 +727,8 @@ export const MODELOS: Record<number, ModeloRecurso> = {
           <B p={[0, 0.85, 0.35]} s={[2.8, 0.6, 0.3]} c={m} {...mp} />
           <B p={[-1.5, 0.6, 0]} s={[0.25, 0.4, 1.0]} c={m} {...mp} />
           <B p={[1.5, 0.6, 0]} s={[0.25, 0.4, 1.0]} c={m} {...mp} />
-          {[-0.9, 0, 0.9].map((x, i) => (
-            <B key={i} p={[x, 0.65, -0.1]} s={[0.8, 0.18, 0.7]} c={cojin} />
-          ))}
+          {!opts?.separado &&
+            [-0.9, 0, 0.9].map((x, i) => <B key={i} p={[x, 0.65, -0.1]} s={[0.8, 0.18, 0.7]} c={cojin} />)}
           {t === 'espacio' && <Neon p={[0, 0.18, 0]} s={[2.6, 0.04, 0.04]} c="#22d3ee" />}
           {t === 'cyberpunk' && <Neon p={[0, 0.18, 0]} s={[2.6, 0.04, 0.04]} c="#d946ef" />}
           {acento(t, [0, 1.2, 0.35], 2.4)}
@@ -1297,10 +1300,10 @@ export const getModelo = (id: number): ModeloRecurso | undefined => MODELOS[id]
  * forma (con los colores de la variante del tema activo) para poder modelarla en
  * el editor. Devuelve null si el recurso no existe o no produce mallas.
  */
-export function piezasDesdeRecurso(id: number, color: string, tema: TemaId | null): Pieza3D[] | null {
+export function piezasDesdeRecurso(id: number, color: string, tema: TemaId | null, separado = false): Pieza3D[] | null {
   const modelo = getModelo(id)
   if (!modelo) return null
-  const piezas = piezasDesdeElemento(modelo.render(color, tema), { expandir: true })
+  const piezas = piezasDesdeElemento(modelo.render(color, tema, { separado }), { expandir: true })
   return piezas.length ? piezas : null
 }
 

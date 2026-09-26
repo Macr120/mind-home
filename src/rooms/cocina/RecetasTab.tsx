@@ -25,6 +25,7 @@ import { BotonEnviarAContacto } from '../_shared/BotonEnviarAContacto'
 import { empaquetarReceta } from './compartible'
 import { ConectadoCon } from '../../core/ui/grafo/ConectadoCon'
 import { refNodo } from '../../core/grafo/memoria'
+import { usePublicarEntrada } from '../../core/state/entradaAbiertaStore'
 
 export function RecetasTab({
   recetas,
@@ -305,6 +306,14 @@ export function DetalleReceta({
   etiquetaVolver?: string
 }) {
   const t = useT()
+  // La receta abierta: «Enlazar a un objeto» del cuarto la liga a un objeto.
+  usePublicarEntrada({
+    plantillaId: 'cocina',
+    seccion: 'recetas',
+    dato: String(receta.id),
+    ref: receta.uid ? refNodo('receta', receta.uid) : undefined,
+    titulo: receta.nombre,
+  })
   const [marcados, setMarcados] = useState<Set<number>>(new Set())
   const [momento, setMomento] = useState<MomentoComida>('comida')
   const [registrado, setRegistrado] = useState(false)

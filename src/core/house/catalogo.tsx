@@ -31,6 +31,7 @@ import { piezasDesdeElemento, type Extractor } from './piezasDesdeModelo'
 import { FORMA_VEHICULO, VEHICULO_GENERICO_RADIO, esVehiculo } from './vehiculos'
 import type { TemaId } from './temas'
 import type { Pieza3D } from '../chat/mascotas'
+import type { ObjetoCuarto } from '../data/db'
 
 /** Tipo de objeto construido por el usuario con geometría básica (sus piezas van en `ObjetoCuarto.piezas`). */
 export const TIPO_PIEZAS = 'piezas'
@@ -336,9 +337,9 @@ function piezasDesdeCatalogo(tipo: string, color: string): Pieza3D[] | null {
  * objeto del catálogo o recurso 3D. Devuelve null cuando no hay forma reproducible
  * (ya es de piezas, o es un modelo .glb): en ese caso se parte de una caja.
  */
-export function piezasDesdeObjeto(tipo: string, color: string, tema: TemaId | null): Pieza3D[] | null {
+export function piezasDesdeObjeto(tipo: string, color: string, tema: TemaId | null, separado = false): Pieza3D[] | null {
   if (tipo === TIPO_PIEZAS || tipo === TIPO_GLB) return null
-  if (tipo.startsWith('recurso:')) return piezasDesdeRecurso(Number(tipo.slice('recurso:'.length)), color, tema)
+  if (tipo.startsWith('recurso:')) return piezasDesdeRecurso(Number(tipo.slice('recurso:'.length)), color, tema, separado)
   return piezasDesdeCatalogo(tipo, color)
 }
 
@@ -445,6 +446,35 @@ export function altoDeTipo(tipo: string): number {
   return ALTO_ESPECIAL[tipo] ?? 1.2
 }
 
+/**
+ * Alto y huella de un objeto YA colocado: un mueble del taller los saca de sus
+ * medidas (en mm) porque su `tipo` es el genérico 'piezas', sin tabla.
+ */
+export function altoDeObjeto(o: Pick<ObjetoCuarto, 'tipo' | 'mueble' | 'piezas'>): number {
+  if (o.mueble) return o.mueble.medidas.alto / 1000
+  // Objeto de piezas (un libro, una caja, uno hecho a mano): su tope real, no
+  // el genérico de 1.2 m, que dejaba la burbuja flotando lejos de algo chico.
+  if (o.tipo === TIPO_PIEZAS && o.piezas?.length) {
+    return Math.max(
+      0.05,
+      ...o.piezas.map((p) => {
+        const medio =
+          p.tipo === 'caja' ? p.tam[1] / 2 : p.tipo === 'esfera' ? p.tam[0] : p.tipo === 'cono' ? p.tam[1] / 2 : p.tipo === 'cilindro' ? p.tam[2] / 2 : (p.tam[1] ?? 0) / 2
+        return p.pos[1] + (medio ?? 0)
+      }),
+    )
+  }
+  return altoDeTipo(o.tipo)
+}
+
+export function footprintDeObjeto(
+  o: Pick<ObjetoCuarto, 'tipo' | 'mueble' | 'grupoAccion' | 'escala'>,
+): [number, number] | null {
+  if (!o.mueble) return footprintDeTipo(o.tipo, o.grupoAccion)
+  const e = o.escala ?? 1
+  return [(o.mueble.medidas.ancho / 2000) * e, (o.mueble.medidas.fondo / 2000) * e]
+}
+
 function GlbObjeto({ src, escala = 1 }: { src: string; escala?: number }) {
   const { scene } = useGLTF(src)
   const cloned = useMemo(() => scene.clone(), [scene])
@@ -465,6 +495,7 @@ export function ObjetoView({
   objetoId,
   fx,
   grupoAccion,
+  separado = false,
 }: {
   tipo: string
   color: string
@@ -487,6 +518,8 @@ export function ObjetoView({
   fx?: number
   /** Grupo de acción explícito (`ObjetoCuarto.grupoAccion`): sentarse/acostarse/conducir genérico. */
   grupoAccion?: GrupoAccion
+  /** Compuesto que ya soltó sus partes (`ObjetoCuarto.separado`): se pinta sin ellas. */
+  separado?: boolean
 }) {
   const tema = useContext(TemaContext)
   if (tipo === TIPO_CUADRO_FOTO) return <CuadroFoto color={color} foto={foto} />
@@ -508,7 +541,9 @@ export function ObjetoView({
   if (tipo === TIPO_LETRERO_VEGAS) return <LetreroVegas color={color} texto={texto} simple={sinReflejo} fx={fx} />
   if (tipo === TIPO_LETRERO_NEON) return <LetreroNeon color={color} texto={texto} simple={sinReflejo} fx={fx} />
   if (esEspecialPlantilla(tipo)) {
-    return <EspecialPlantilla tipo={tipo} color={color} simple={sinReflejo} nivel={nivelAnim} objetoId={objetoId} />
+    return (
+      <EspecialPlantilla tipo={tipo} color={color} simple={sinReflejo} nivel={nivelAnim} objetoId={objetoId} separado={separado} />
+    )
   }
   if (tipo === TIPO_PIEZAS) {
     if (!piezas || piezas.length === 0) return null
@@ -538,7 +573,7 @@ export function ObjetoView({
   if (tipo.startsWith('recurso:')) {
     const modelo = getModelo(Number(tipo.slice('recurso:'.length)))
     if (!modelo) return null
-    const contenido = modelo.render(color, tema?.id ?? null)
+    const contenido = modelo.render(color, tema?.id ?? null, { separado })
     const grupo = grupoAccionDe(tipo, grupoAccion)
     if ((grupo === 'asiento' || grupo === 'acostarse') && objetoId != null) {
       return (

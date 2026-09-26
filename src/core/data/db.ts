@@ -1450,6 +1450,38 @@ export interface ObjetoCuarto {
    * índice: NO piden versión nueva de Dexie (igual que `enlaceUrl`/`programa`).
    */
   mueble?: import('../muebles/tipos').Mueble
+  /**
+   * Mueble del taller sobre el que está APOYADO (su `id`) y en qué nivel (índice
+   * de `superficiesDeMueble`, de abajo arriba): el objeto sigue al mueble si se
+   * mueve, gira o cambia de receta (`house/apoyos.ts`). Dos campos sueltos y no
+   * un objeto porque el sync traduce las FK por campo escalar.
+   */
+  apoyoId?: number
+  apoyoNivel?: number
+  /**
+   * Entrada de una app a la que lleva el objeto: tocarlo saca la burbuja
+   * «Abrir». Excluyente con `enlaceUrl`/`programa` y con `plantillaId` (que es
+   * la app ENTERA que vive en el objeto). Sin índice: no pide versión de Dexie.
+   */
+  enlaceApp?: EnlaceObjetoApp
+  /**
+   * Compuesto que ya soltó sus partes (`house/separables.ts`): se pinta sin
+   * ellas, que viven como objetos propios apoyados en él. `parte` es la marca de
+   * cada una (`'laptop#monitor'`). Sin índice: no piden versión de Dexie.
+   */
+  separado?: boolean
+  parte?: string
+  /**
+   * Objeto que representa una entrada (libro, caja, mancuerna…): sus piezas se
+   * regeneran de la forma, su color y su `enlaceApp` (`house/formasEntrada.ts`).
+   */
+  formaEntrada?: import('../house/formasEntrada').FormaEntrada
+  /**
+   * Módulo de un estante de entradas que crece a lo largo del muro: su tipo y
+   * hacia dónde se añaden módulos (±1 en su X local). Los módulos de un mismo
+   * estante comparten `grupoId`.
+   */
+  estante?: { tipo: import('../house/formasEntrada').TipoEstante; dir?: 1 | -1 }
 }
 
 /**
@@ -1994,6 +2026,23 @@ export interface EnlaceApp {
   seccion?: string
   /** Dato extra de la sección, igual que en `ComandoApp` (el id de un juego). */
   dato?: string
+}
+
+/**
+ * Enlace de un objeto de la casa a una entrada de app. `dato` suele ser un id
+ * LOCAL (no vale en otro dispositivo): `ref` es la referencia estable del grafo
+ * (`NodoApp.ref`, va por uid) con la que se vuelve a buscar al abrir.
+ */
+export interface EnlaceObjetoApp extends EnlaceApp {
+  ref?: string
+  /** Nombre de la entrada al elegirla (para la burbuja, sin consultar la app). */
+  titulo?: string
+  /** Subtipo del registro (`NodoApp.clase`: 'libro' de una obra, 'cumplida' de una meta). */
+  clase?: string
+  /** Carga de un ejercicio (su récord): el tamaño de la mancuerna. */
+  pesoKg?: number
+  /** Texto corto que acompaña al título en el objeto (el peso formateado). */
+  detalle?: string
 }
 
 /**

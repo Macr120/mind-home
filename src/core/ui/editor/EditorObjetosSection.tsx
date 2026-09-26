@@ -38,6 +38,9 @@ import { EditorPiezas, plantillaObjetoPiezas } from '../comun/EditorPiezas'
 import { AjustesVida, EditorAnimacion } from './EditorAnimacion'
 import { conPresetVida, esVida } from '../../house/animacion'
 import { SliderProp } from '../comun/SliderProp'
+import { nivelesDe } from '../../muebles/superficies'
+import { NIVEL_SUELO, superficiesDeObjeto } from '../../house/apoyos'
+import { META_ESPECIAL_PLANTILLA } from '../../house/especialesPlantillaMeta'
 import { useT, type TFunc } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 import type { NombreIcono } from '../iconos/catalogo'
@@ -57,7 +60,7 @@ const nombreRecurso = (id: number, t: TFunc) => {
 }
 
 /** Nombre legible de un objeto colocado. */
-function nombreObjeto(o: ObjetoCuarto, t: TFunc): string {
+export function nombreObjeto(o: ObjetoCuarto, t: TFunc): string {
   if (o.nombre) return o.nombre
   if (o.tipo === TIPO_PIEZAS) return t('objetos.nombrePiezas', 'Objeto de piezas')
   if (o.tipo === TIPO_GLB) return t('objetos.nombreGlb', 'Modelo subido')
@@ -73,11 +76,61 @@ function nombreObjeto(o: ObjetoCuarto, t: TFunc): string {
   if (o.tipo === TIPO_ESPECTACULAR) return t('recursoExtra.espectacular', 'Espectacular de carretera')
   if (o.tipo === TIPO_LETRERO_VEGAS) return t('recursoExtra.letrero-vegas', 'Letrero Las Vegas')
   if (o.tipo === TIPO_LETRERO_NEON) return t('recursoExtra.letrero-neon', 'Letrero de neón')
+  // Los principales de las plantillas (la repisa de juegos, la laptop…).
+  const especial = META_ESPECIAL_PLANTILLA[o.tipo]
+  if (especial) return t(`recursoExtra.${o.tipo}`, especial.nombre)
   if (o.tipo.startsWith('recurso:')) {
     return nombreRecurso(Number(o.tipo.slice('recurso:'.length)), t)
   }
   const item = CATALOGO.find((i) => i.id === o.tipo)
   return item ? t(`objeto.${item.id}`, item.nombre) : t('objetos.nombreGenerico', 'Objeto')
+}
+
+/**
+ * Objeto apoyado en un mueble del taller: en qué nivel está (de abajo arriba) y
+ * el atajo para bajarlo al piso. Al arrastrarlo encaja solo; esto elige a mano.
+ */
+function NivelApoyo({ o }: { o: ObjetoCuarto }) {
+  const t = useT()
+  const mueble = useDiseño((s) => (o.apoyoId != null ? s.objetos.find((x) => x.id === o.apoyoId) : undefined))
+  const setObjetoApoyo = useDiseño((s) => s.setObjetoApoyo)
+  // Las partes que van en el suelo junto a su base (el banco del piano) no tienen nivel que elegir.
+  if (o.id == null || !mueble || o.apoyoNivel === NIVEL_SUELO) return null
+  const id = o.id
+  const total = nivelesDe(superficiesDeObjeto(mueble))
+  if (!total) return null
+  const chip = 'rounded-full border px-2 py-1 text-[10px] font-semibold transition'
+  return (
+    <div className="space-y-1">
+      <p className="flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider text-white/40">
+        <Icono nombre="niveles" />
+        <span className="truncate">{t('editor.obj.apoyadoEn', 'Sobre {mueble}', { mueble: nombreObjeto(mueble, t) })}</span>
+      </p>
+      <div className="flex flex-wrap gap-1">
+        {Array.from({ length: total }, (_, n) => (
+          <button
+            key={n}
+            type="button"
+            onClick={() => void setObjetoApoyo(id, n)}
+            className={`${chip} ${
+              o.apoyoNivel === n
+                ? 'border-emerald-400/50 bg-emerald-400/15 text-emerald-300'
+                : 'border-white/15 text-white/60 hover:border-white/35 hover:text-white'
+            }`}
+          >
+            {n === total - 1 ? t('editor.obj.nivelArriba', 'Arriba') : t('editor.obj.nivel', 'Nivel {n}', { n: n + 1 })}
+          </button>
+        ))}
+        <button
+          type="button"
+          onClick={() => void setObjetoApoyo(id, null)}
+          className={`${chip} border-white/15 text-white/60 hover:border-white/35 hover:text-white`}
+        >
+          {t('editor.obj.bajarPiso', 'Bajar al piso')}
+        </button>
+      </div>
+    </div>
+  )
 }
 
 /** Una ubicación con objetos (un cuarto o el mapa) y sus objetos colocados. */
@@ -442,6 +495,7 @@ export function EditorObjetosSection() {
             texto={seleccionado.texto}
             anim={seleccionado.animacion}
             fx={seleccionado.fx}
+            separado={seleccionado.separado}
             onPiezasChange={
               seleccionado.tipo === TIPO_PIEZAS && seleccionado.id != null
                 ? (p) => setObjetoPiezas(seleccionado.id!, p)
@@ -456,7 +510,7 @@ export function EditorObjetosSection() {
                     convertirObjetoAPiezas(
                       seleccionado.id!,
                       // Réplica fiel de la forma real (objetos del catálogo/recursos).
-                      piezasDesdeObjeto(seleccionado.tipo, seleccionado.color, temaId) ??
+                      piezasDesdeObjeto(seleccionado.tipo, seleccionado.color, temaId, seleccionado.separado) ??
                         plantillaObjetoPiezas(seleccionado.color),
                     )
                 : undefined
@@ -649,6 +703,7 @@ export function EditorObjetosSection() {
                   onChange={(v) => seleccionado.id != null && setObjetoAltura(seleccionado.id, v)}
                   onReset={() => seleccionado.id != null && setObjetoAltura(seleccionado.id, 0)}
                 />
+                <NivelApoyo o={seleccionado} />
                 <SliderProp
                   label={t('editor.obj.girar', 'Girar (Y)')}
                   value={seleccionado.rotY ?? 0}

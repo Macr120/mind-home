@@ -5,6 +5,8 @@ import { useHud } from '../state/hudStore'
 import { useLayout } from '../state/layoutStore'
 import { useMontura } from '../state/monturaStore'
 import { useDiseño } from '../state/disenoStore'
+import { useContexto } from '../state/contextoStore'
+import { abrirDestinoDeObjeto } from '../abrirObjeto'
 import { escribiendoEnCampo, hayCuartoAbierto, espacioTomado, mayusTomado } from './movement'
 
 /**
@@ -44,6 +46,13 @@ function interactuar() {
   if (montura.cercaId != null && montura.cercaTipo) {
     const inst = useDiseño.getState().objetos.find((o) => o.id === montura.cercaId)
     if (inst) montura.montar(inst)
+    return
+  }
+  // Un objeto con enlace al alcance: lo abre, como su botón de proximidad.
+  const enlace = useContexto.getState().acciones.find((a) => a.tipo === 'enlace')
+  const objEnlace = enlace && useDiseño.getState().objetos.find((o) => o.id === enlace.id)
+  if (objEnlace) {
+    abrirDestinoDeObjeto(objEnlace)
     return
   }
   if (casa.nearRoomId) {

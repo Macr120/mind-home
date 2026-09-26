@@ -1,5 +1,15 @@
 import { create } from 'zustand'
-import { db, type DisenoRoom, type FondoImagen, type ObjetoCuarto, type TemaPropio } from '../data/db'
+import {
+  db,
+  type DisenoRoom,
+  type EnlaceObjetoApp,
+  type FondoImagen,
+  type ObjetoCuarto,
+  type TemaPropio,
+} from '../data/db'
+import { apoyoEn, NIVEL_SUELO, recolocarApoyado, superficiesDeObjeto, TIPOS_ENCIMA } from '../house/apoyos'
+import { claveEntrada, piezasEntrada } from '../house/formasEntrada'
+import { guardarSeparacion, separarCompuestos } from '../house/separarCompuestos'
 import { claveLS, esDemo, esDemoAutor } from '../edicion'
 import { esAppNativa } from '../plataforma'
 import { esGamaBaja } from '../gamaDispositivo'
@@ -410,6 +420,8 @@ interface DisenoState {
     color: string,
     plantillaId?: string,
     pos?: { x: number; z: number },
+    /** Campos extra que se guardan en la misma escritura (un mueble del taller). */
+    extra?: Partial<ObjetoCuarto>,
   ) => Promise<number>
   /** Asigna (o quita, con null) la plantilla/app de un objeto. */
   setObjetoPlantilla: (id: number, plantillaId: string | null) => Promise<void>
@@ -417,6 +429,20 @@ interface DisenoState {
   setObjetoEnlace: (id: number, url: string | null, nombre?: string) => Promise<void>
   /** Asigna (o quita, con null) el programa del equipo de un objeto; excluyente con el enlace web. */
   setObjetoPrograma: (id: number, ruta: string | null, nombre?: string) => Promise<void>
+  /**
+   * Asigna (o quita, con null) la entrada de app a la que lleva un objeto;
+   * excluyente con web y programa. Una entrada vive en UN solo objeto: se suelta
+   * de cualquier otro de la casa (el que solo existía por ella se borra).
+   */
+  setObjetoEnlaceApp: (id: number, e: EnlaceObjetoApp | null, nombre?: string) => Promise<void>
+  /** Apoya el objeto en el nivel `nivel` de su mueble (null = bajarlo al piso). */
+  setObjetoApoyo: (id: number, nivel: number | null) => Promise<void>
+  /** Apoya en el mueble de debajo lo recién sembrado que la siembra deja encima (monitor, TV…). */
+  asentarSobreMuebles: (ids: number[]) => Promise<void>
+  /** Un compuesto suelta sus partes como objetos propios (`house/separables.ts`); idempotente. */
+  separarCompuesto: (id: number) => Promise<void>
+  /** Escribe campos sueltos de un objeto (estado + BD) sin tocar lo apoyado en él (el grupo de un estante). */
+  parcharObjeto: (id: number, patch: Partial<ObjetoCuarto>) => Promise<void>
   /** Carpeta del enlace del objeto en «Tu navegador → Sitios»; null = la de su dominio. */
   setObjetoCarpetaWeb: (id: number, clave: string | null) => Promise<void>
   /** Agrega un objeto LIBRE sobre el mapa (editor de mapa, inventario completo). */
@@ -505,8 +531,13 @@ interface DisenoState {
   setObjetoVida: (id: number, patch: { vidaComidaEn?: number; vidaMimoEn?: number }) => Promise<void>
   /** Devuelve un objeto a un estado anterior completo (lo usa deshacer/rehacer). */
   restaurarObjeto: (o: ObjetoCuarto) => Promise<void>
-  /** Mueve un objeto a (x,z) relativo al centro del cuarto (solo estado). */
-  setObjetoPos: (id: number, x: number, z: number) => void
+  /** Mueve un objeto a (x,z) relativo al centro del cuarto (solo estado); `extra` = el apoyo en vivo. */
+  setObjetoPos: (
+    id: number,
+    x: number,
+    z: number,
+    extra?: Pick<ObjetoCuarto, 'y' | 'apoyoId' | 'apoyoNivel'>,
+  ) => void
   /** Fija y PERSISTE posición+rumbo de un objeto sin reasignarlo de cuarto (estacionar un vehículo). */
   setObjetoPose: (id: number, x: number, z: number, rotY: number) => Promise<void>
   /** Desplaza (dx,dz) un objeto y su grupo, acotado a su cuarto, y PERSISTE de inmediato (flechas del modo mover-objetos). */
@@ -826,6 +857,70 @@ export const CLAVES_DISENO_CUARTOS = [
 ] as const
 export type DisenoCuartos = Pick<DisenoState, (typeof CLAVES_DISENO_CUARTOS)[number]>
 
+/**
+ * Lo apoyado en un mueble lo sigue cuando el mueble cambia de `antes` a
+ * `despues` (giro, escala, altura o receta nueva), y lo apoyado en ESO también.
+ */
+async function seguirApoyados(antes: ObjetoCuarto, despues: ObjetoCuarto, prof = 0): Promise<void> {
+  if (antes.id == null || prof > 4) return
+  const hijos = useDiseño.getState().objetos.filter((a) => a.apoyoId === antes.id && a.id != null)
+  for (const a of hijos) {
+    const cambios = recolocarApoyado(a, antes, despues)
+    const nuevo = { ...a, ...cambios }
+    useDiseño.setState((s) => ({ objetos: s.objetos.map((x) => (x.id === a.id ? nuevo : x)) }))
+    await db.objetosCuarto.update(a.id!, cambios)
+    await seguirApoyados(a, nuevo, prof + 1)
+  }
+}
+
+/**
+ * Una entrada vive en UN objeto: `exceptoId` se la queda y cualquier otro de la
+ * casa la suelta. El que solo existía para representarla (un libro, un frasco
+ * creados para ella) se borra; los demás —también las partes de un compuesto—
+ * se quedan, sin enlace.
+ */
+async function soltarEntrada(e: EnlaceObjetoApp, exceptoId: number): Promise<void> {
+  const clave = claveEntrada(e)
+  if (!clave) return
+  const otros = useDiseño
+    .getState()
+    .objetos.filter((o) => o.id != null && o.id !== exceptoId && claveEntrada(o.enlaceApp) === clave)
+  for (const o of otros) {
+    if (o.formaEntrada && !o.parte) await useDiseño.getState().removeObjeto(o.id!)
+    else await useDiseño.getState().setObjetoEnlaceApp(o.id!, null)
+  }
+}
+
+/**
+ * De dónde salió el objeto que se está arrastrando: una parte que va en el suelo
+ * junto a su base (`NIVEL_SUELO`) solo se independiza si de verdad se movió.
+ */
+let inicioArrastre: { x: number; z: number; apoyoId?: number } | null = null
+
+/**
+ * Un objeto de entrada dejó el mueble `apoyoId` (se borró o se lo llevaron): si
+ * era un estante de entradas, se encoge y se reacomoda. Import diferido: el
+ * acomodo importa este store.
+ */
+function salioDeEstante(apoyoId: number | undefined): void {
+  if (apoyoId == null || !useDiseño.getState().objetos.some((o) => o.id === apoyoId && o.estante)) return
+  void import('../house/acomodarEntradas').then((a) => a.compactarLuego(apoyoId))
+}
+
+/** Ids de lo que viaja con `o` al arrastrarlo: su grupo y lo apoyado encima (en cadena). */
+function acompanantesDe(objetos: ObjetoCuarto[], o: ObjetoCuarto): number[] {
+  const ids = new Set<number>()
+  const cola = o.grupoId ? objetos.filter((m) => m.grupoId === o.grupoId) : [o]
+  while (cola.length) {
+    const m = cola.shift()!
+    if (m.id == null || ids.has(m.id)) continue
+    ids.add(m.id)
+    cola.push(...objetos.filter((a) => a.apoyoId === m.id))
+  }
+  ids.delete(o.id!)
+  return [...ids]
+}
+
 export const useDiseño = create<DisenoState>((set, get) => ({
   roomColors: {},
   roomNames: {},
@@ -1102,6 +1197,37 @@ export const useDiseño = create<DisenoState>((set, get) => ({
           await get().addObjeto(carrier.roomId, TIPO_LAPTOP, '#475569', undefined, { x: 0, z: -1.7 })
         }
       }
+    }
+    // Los muebles de siembra (librero, estanterías, escritorio, mesas, burós…)
+    // pasan a ser recetas del taller: editables y con entrepaños donde apoyar
+    // cosas. Solo los que siguen siendo el recurso de fábrica.
+    const MUEBLES_TALLER = claveLS('mh_muebles_taller_v1')
+    if (!demo && !localStorage.getItem(MUEBLES_TALLER)) {
+      localStorage.setItem(MUEBLES_TALLER, '1')
+      const { convertirMueblesDeRecurso } = await import('../muebles/recetasSiembra')
+      await convertirMueblesDeRecurso(objetos)
+    }
+    // La estructura metálica cerró su marco (el nivel de arriba va a ras de los
+    // postes): la casa pinta las piezas GUARDADAS, así que se regeneran de la receta.
+    const MARCO_METAL = claveLS('mh_muebles_metal_marco_v1')
+    if (!demo && !localStorage.getItem(MARCO_METAL)) {
+      localStorage.setItem(MARCO_METAL, '1')
+      const { piezas3DDeMueble } = await import('../muebles/piezas3d')
+      for (const o of objetos) {
+        if (o.id == null || o.mueble?.moduloId !== 'metal') continue
+        o.piezas = piezas3DDeMueble(o.mueble)
+        await db.objetosCuarto.update(o.id, { piezas: o.piezas })
+      }
+    }
+    // Los compuestos (el escritorio con su monitor, el sofá con sus cojines, el
+    // rack con sus mancuernas…) sueltan sus partes como objetos propios. El rack
+    // del gimnasio pasa antes al taller: crece con los ejercicios.
+    const SEPARAR = claveLS('mh_separar_compuestos_v1')
+    if (!demo && !localStorage.getItem(SEPARAR)) {
+      localStorage.setItem(SEPARAR, '1')
+      const { convertirMueblesDeRecurso } = await import('../muebles/recetasSiembra')
+      await convertirMueblesDeRecurso(objetos, [11])
+      await separarCompuestos(objetos)
     }
     const roomColors: Record<string, string> = {}
     const roomNames: Record<string, string> = {}
@@ -2316,7 +2442,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     }
   },
 
-  addObjeto: async (roomId, tipo, color, plantillaId, pos) => {
+  addObjeto: async (roomId, tipo, color, plantillaId, pos, extra) => {
     const delCuarto = objetosDeCuarto(get().objetos, roomId)
     const { x, z } = pos ?? posDefault(delCuarto.length)
     const item: ObjetoCuarto = {
@@ -2329,9 +2455,14 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       rotY: 0,
       permanente: delCuarto.length === 0,
       ...(plantillaId ? { plantillaId } : {}),
+      ...extra,
     }
     const id = await db.objetosCuarto.add(item)
     set((s) => ({ objetos: [...s.objetos, { id, ...item }] }))
+    // Una entrada vive en un solo objeto: el nuevo se la lleva.
+    if (item.enlaceApp) await soltarEntrada(item.enlaceApp, id)
+    // Un compuesto (el escritorio con su monitor, el sofá con sus cojines) nace ya separado.
+    await get().separarCompuesto(id)
     return id
   },
 
@@ -2349,6 +2480,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     const cambios = {
       enlaceUrl: url ?? undefined,
       programa: undefined,
+      enlaceApp: undefined,
       ...(nombre !== undefined ? { nombre: nombre || undefined } : {}),
     }
     set((s) => ({
@@ -2367,12 +2499,76 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     const cambios = {
       programa: ruta ?? undefined,
       enlaceUrl: undefined,
+      enlaceApp: undefined,
       ...(nombre !== undefined ? { nombre: nombre || undefined } : {}),
     }
     set((s) => ({
       objetos: s.objetos.map((o) => (o.id === id ? { ...o, ...cambios } : o)),
     }))
     await db.objetosCuarto.update(id, cambios)
+  },
+
+  setObjetoEnlaceApp: async (id, e, nombre) => {
+    if (e) await soltarEntrada(e, id)
+    const o = get().objetos.find((x) => x.id === id)
+    const cambios: Partial<ObjetoCuarto> = {
+      enlaceApp: e ?? undefined,
+      enlaceUrl: undefined,
+      programa: undefined,
+      ...(nombre !== undefined ? { nombre: nombre || undefined } : {}),
+    }
+    // El objeto de una entrada (libro, frasco, mancuerna…) lleva su título pintado:
+    // se vuelve a armar con la entrada nueva, o en blanco sin ella.
+    if (o?.formaEntrada) {
+      cambios.piezas = piezasEntrada(o.formaEntrada, o.color, e)
+      if (nombre === undefined && e?.titulo) cambios.nombre = e.titulo
+    }
+    set((s) => ({
+      objetos: s.objetos.map((x) => (x.id === id ? { ...x, ...cambios } : x)),
+    }))
+    await db.objetosCuarto.update(id, cambios)
+  },
+
+  setObjetoApoyo: async (id, nivel) => {
+    const { objetos } = get()
+    const o = objetos.find((x) => x.id === id)
+    const f = o?.apoyoId != null ? objetos.find((x) => x.id === o.apoyoId) : undefined
+    if (!o) return
+    const cambios: Partial<ObjetoCuarto> =
+      nivel == null || !f
+        ? { y: 0, apoyoId: undefined, apoyoNivel: undefined }
+        : recolocarApoyado({ ...o, apoyoNivel: nivel }, f, f)
+    const nuevo = { ...o, ...cambios }
+    set((s) => ({ objetos: s.objetos.map((x) => (x.id === id ? nuevo : x)) }))
+    await db.objetosCuarto.update(id, cambios)
+    await seguirApoyados(o, nuevo)
+  },
+
+  asentarSobreMuebles: async (ids) => {
+    for (const id of ids) {
+      const { objetos } = get()
+      const o = objetos.find((x) => x.id === id)
+      if (!o || o.apoyoId != null || !TIPOS_ENCIMA.has(o.tipo)) continue
+      const ap = apoyoEn(objetos, o, o.x ?? 0, o.z ?? 0)
+      if (!ap) continue
+      set((s) => ({ objetos: s.objetos.map((x) => (x.id === id ? { ...x, ...ap } : x)) }))
+      await db.objetosCuarto.update(id, { ...ap })
+    }
+  },
+
+  separarCompuesto: async (id) => {
+    const o = get().objetos.find((x) => x.id === id)
+    if (!o) return
+    const creadas = await guardarSeparacion(o)
+    if (!creadas) return
+    set((s) => ({
+      objetos: [...s.objetos.map((x) => (x.id === id ? { ...x, separado: true } : x)), ...creadas],
+    }))
+  },
+
+  parcharObjeto: async (id, patch) => {
+    set((s) => ({ objetos: s.objetos.map((x) => (x.id === id ? { ...x, ...patch } : x)) }))
+    await db.objetosCuarto.update(id, patch)
   },
 
   addObjetoMapa: async (tipo, color) => {
@@ -2664,6 +2860,8 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     }
     const id = await db.objetosCuarto.add(item)
     set((s) => ({ objetos: [...s.objetos, { id, ...item }] }))
+    // En el inventario se ve el conjunto; colocado, suelta sus partes.
+    await get().separarCompuesto(id)
     return id
   },
 
@@ -2719,11 +2917,27 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   restaurarObjetoPredeterminado: async (id) => {
     const o = get().objetos.find((x) => x.id === id)
     if (!o?.tipoOriginal) return
-    const patch = { tipo: o.tipoOriginal, piezas: undefined, tipoOriginal: undefined, grupoAccion: undefined }
-    set((s) => ({
-      objetos: s.objetos.map((x) => (x.id === id ? { ...x, ...patch } : x)),
-    }))
+    const patch = {
+      tipo: o.tipoOriginal,
+      piezas: undefined,
+      tipoOriginal: undefined,
+      grupoAccion: undefined,
+      mueble: undefined,
+    }
+    const despues = { ...o, ...patch }
+    set((s) => ({ objetos: s.objetos.map((x) => (x.id === id ? despues : x)) }))
     await db.objetosCuarto.update(id, patch)
+    // Si el modelo de fábrica tiene dónde apoyar (un compuesto separado), lo de
+    // encima lo sigue; si no, se queda donde está, suelto. Lo del suelo sigue siendo suyo.
+    if (superficiesDeObjeto(despues).length) {
+      await seguirApoyados(o, despues)
+      return
+    }
+    const suelto = { apoyoId: undefined, apoyoNivel: undefined }
+    const hijos = get().objetos.filter((x) => x.apoyoId === id && x.id != null && x.apoyoNivel !== NIVEL_SUELO)
+    const ids = new Set(hijos.map((h) => h.id))
+    set((s) => ({ objetos: s.objetos.map((x) => (ids.has(x.id) ? { ...x, ...suelto } : x)) }))
+    await Promise.all(hijos.map((h) => db.objetosCuarto.update(h.id!, suelto)))
   },
 
   setObjetoGrupoAccion: async (id, grupo) => {
@@ -2743,34 +2957,46 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   },
 
   setObjetoMueble: async (id, mueble) => {
+    const antes = get().objetos.find((x) => x.id === id)
     set((s) => ({ objetos: s.objetos.map((x) => (x.id === id ? { ...x, mueble } : x)) }))
     await db.objetosCuarto.update(id, { mueble })
+    // Reeditado en el taller: lo apoyado se ajusta a los niveles nuevos.
+    if (antes?.mueble && mueble) await seguirApoyados(antes, { ...antes, mueble })
   },
 
   setObjetoRotacion: async (id, rotY) => {
     const grados = ((rotY % 360) + 360) % 360
+    const antes = get().objetos.find((x) => x.id === id)
     set((s) => ({
       objetos: s.objetos.map((x) => (x.id === id ? { ...x, rotY: grados } : x)),
     }))
     await db.objetosCuarto.update(id, { rotY: grados })
+    if (antes) await seguirApoyados(antes, { ...antes, rotY: grados })
   },
 
   setObjetoRotEje: async (id, eje, grados) => {
     const g = ((grados % 360) + 360) % 360
     const patch: Partial<ObjetoCuarto> =
       eje === 'x' ? { rotX: g } : eje === 'z' ? { rotZ: g } : { rotY: g }
+    const antes = get().objetos.find((x) => x.id === id)
     set((s) => ({
       objetos: s.objetos.map((x) => (x.id === id ? { ...x, ...patch } : x)),
     }))
     await db.objetosCuarto.update(id, patch)
+    if (antes && eje === 'y') await seguirApoyados(antes, { ...antes, ...patch })
   },
 
   setObjetoAltura: async (id, y) => {
     const alt = Math.max(0, y)
+    const antes = get().objetos.find((x) => x.id === id)
+    // La altura puesta a mano manda: el objeto deja de estar apoyado.
+    const patch: Partial<ObjetoCuarto> =
+      antes?.apoyoId != null ? { y: alt, apoyoId: undefined, apoyoNivel: undefined } : { y: alt }
     set((s) => ({
-      objetos: s.objetos.map((x) => (x.id === id ? { ...x, y: alt } : x)),
+      objetos: s.objetos.map((x) => (x.id === id ? { ...x, ...patch } : x)),
     }))
-    await db.objetosCuarto.update(id, { y: alt })
+    await db.objetosCuarto.update(id, patch)
+    if (antes) await seguirApoyados(antes, { ...antes, ...patch })
   },
 
   setObjetoColor: async (id, color) => {
@@ -2781,10 +3007,12 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   },
 
   setObjetoEscala: async (id, escala) => {
+    const antes = get().objetos.find((x) => x.id === id)
     set((s) => ({
       objetos: s.objetos.map((x) => (x.id === id ? { ...x, escala } : x)),
     }))
     await db.objetosCuarto.update(id, { escala })
+    if (antes) await seguirApoyados(antes, { ...antes, escala })
   },
 
   setObjetoFx: async (id, fx) => {
@@ -2822,9 +3050,9 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     await db.objetosCuarto.update(id, patch)
   },
 
-  setObjetoPos: (id, x, z) =>
+  setObjetoPos: (id, x, z, extra) =>
     set((s) => ({
-      objetos: s.objetos.map((o) => (o.id === id ? { ...o, x, z } : o)),
+      objetos: s.objetos.map((o) => (o.id === id ? { ...o, x, z, ...extra } : o)),
     })),
 
   setObjetoPose: async (id, x, z, rotY) => {
@@ -2839,8 +3067,9 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     const { objetos } = get()
     const o = objetos.find((x) => x.id === id)
     if (!o) return
-    // Mueve también al resto del grupo, cada miembro acotado a su propio cuarto.
-    const miembros = o.grupoId ? objetos.filter((m) => m.grupoId === o.grupoId && m.id != null) : [o]
+    // Mueve también al resto del grupo y lo apoyado encima, cada miembro acotado a su propio cuarto.
+    const acomp = acompanantesDe(objetos, o)
+    const miembros = [o, ...objetos.filter((m) => m.id != null && acomp.includes(m.id))]
     const cambios = miembros.map((m) => {
       let nx = (m.x ?? 0) + dx
       let nz = (m.z ?? 0) + dz
@@ -2851,15 +3080,20 @@ export const useDiseño = create<DisenoState>((set, get) => ({
         nx = Math.max(-halfW, Math.min(halfW, nx))
         nz = Math.max(-halfH, Math.min(halfH, nz))
       }
-      return { id: m.id as number, x: nx, z: nz }
+      return { id: m.id as number, x: nx, z: nz } as Partial<ObjetoCuarto> & { id: number }
     })
+    // Solo, sube o baja al mueble que quede debajo (el mismo encaje que al soltarlo).
+    if (!acomp.length) {
+      const ap = apoyoEn(objetos, o, cambios[0].x ?? 0, cambios[0].z ?? 0)
+      Object.assign(cambios[0], ap ?? (o.apoyoId != null ? { y: 0, apoyoId: undefined, apoyoNivel: undefined } : {}))
+    }
     set((s) => ({
       objetos: s.objetos.map((x) => {
         const c = cambios.find((c) => c.id === x.id)
-        return c ? { ...x, x: c.x, z: c.z } : x
+        return c ? { ...x, ...c } : x
       }),
     }))
-    await Promise.all(cambios.map((c) => db.objetosCuarto.update(c.id, { x: c.x, z: c.z })))
+    await Promise.all(cambios.map(({ id: cid, ...c }) => db.objetosCuarto.update(cid, c)))
   },
 
   reescalarObjetosMapa: async (factor) => {
@@ -2884,18 +3118,18 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     const { objetos } = get()
     const o = objetos.find((x) => x.id === id)
     const offsets: Record<number, { x: number; z: number }> = {}
-    if (o?.grupoId) {
-      for (const m of objetos) {
-        if (m.grupoId === o.grupoId && m.id !== id && m.id != null) {
-          offsets[m.id] = { x: (m.x ?? 0) - (o.x ?? 0), z: (m.z ?? 0) - (o.z ?? 0) }
-        }
-      }
+    // Viajan con él su grupo y lo apoyado encima (y lo apoyado en eso).
+    for (const mid of o ? acompanantesDe(objetos, o) : []) {
+      const m = objetos.find((x) => x.id === mid)!
+      offsets[mid] = { x: (m.x ?? 0) - (o!.x ?? 0), z: (m.z ?? 0) - (o!.z ?? 0) }
     }
+    inicioArrastre = o ? { x: o.x ?? 0, z: o.z ?? 0, apoyoId: o.apoyoId } : null
     set({ draggingObjeto: id, dragGroupOffsets: offsets, arrastreElevado: elevado })
   },
 
   endObjetoDrag: async () => {
     const id = get().draggingObjeto
+    const acomp = Object.keys(get().dragGroupOffsets).map(Number)
     set({ draggingObjeto: null, dragGroupOffsets: {}, arrastreElevado: false })
     if (id == null) return
     const { objetos } = get()
@@ -2904,7 +3138,8 @@ export const useDiseño = create<DisenoState>((set, get) => ({
 
     // Un objeto libre del mapa soltado dentro de un cuarto pasa a PERTENECER al cuarto
     // (desde entonces se mueve con él): reasigna roomId y pasa a coords locales del cuarto.
-    if (esObjetoMapa(o) && !o.grupoId) {
+    // Con acompañantes (grupo o cosas encima) no: se quedarían en el mapa sin él.
+    if (esObjetoMapa(o) && !acomp.length) {
       const roomId = cuartoEnMundo(o.x ?? 0, o.z ?? 0)
       if (roomId) {
         const [cx, , cz] = roomWorldPos(roomId)
@@ -2913,27 +3148,49 @@ export const useDiseño = create<DisenoState>((set, get) => ({
         const hh = (size.h * SIZE) / 2 - 0.7
         const nx = Math.max(-hw, Math.min(hw, (o.x ?? 0) - cx))
         const nz = Math.max(-hh, Math.min(hh, (o.z ?? 0) - cz))
-        set((s) => ({ objetos: s.objetos.map((x) => (x.id === id ? { ...x, roomId, x: nx, z: nz } : x)) }))
-        await db.objetosCuarto.update(id, { roomId, x: nx, z: nz })
+        // Suelto en el cuarto: el apoyo que tuviera en el mapa ya no aplica.
+        const patch = { roomId, x: nx, z: nz, y: o.apoyoId != null ? 0 : o.y, apoyoId: undefined, apoyoNivel: undefined }
+        set((s) => ({ objetos: s.objetos.map((x) => (x.id === id ? { ...x, ...patch } : x)) }))
+        await db.objetosCuarto.update(id, patch)
         return
       }
     }
 
-    await db.objetosCuarto.update(id, { x: o.x, z: o.z, rotY: o.rotY ?? 0 })
-    // Persistir también todos los miembros del grupo que se movieron con él.
-    if (o.grupoId) {
-      for (const m of objetos) {
-        if (m.grupoId === o.grupoId && m.id !== id && m.id != null) {
-          await db.objetosCuarto.update(m.id, { x: m.x, z: m.z })
-        }
-      }
+    // Solo, se asienta en el mueble de debajo (el controlador ya lo dejó en el
+    // estado en vivo); si ya no hay mueble debajo, lo baja al piso. Lo que va en
+    // el suelo junto a su base sigue siendo suyo si no se movió.
+    const movido =
+      !inicioArrastre || Math.hypot((o.x ?? 0) - inicioArrastre.x, (o.z ?? 0) - inicioArrastre.z) > 0.05
+    const apoyoAntes = inicioArrastre?.apoyoId
+    inicioArrastre = null
+    const suelta = o.apoyoId != null && (movido || o.apoyoNivel !== NIVEL_SUELO)
+    const apoyo: Partial<ObjetoCuarto> = acomp.length
+      ? {}
+      : (apoyoEn(objetos, o, o.x ?? 0, o.z ?? 0) ?? (suelta ? { y: 0, apoyoId: undefined, apoyoNivel: undefined } : {}))
+    if (Object.keys(apoyo).length) {
+      set((s) => ({ objetos: s.objetos.map((x) => (x.id === id ? { ...x, ...apoyo } : x)) }))
     }
+    await db.objetosCuarto.update(id, { x: o.x, z: o.z, rotY: o.rotY ?? 0, ...apoyo })
+    // Persistir también lo que se movió con él (grupo y lo apoyado encima).
+    for (const m of objetos) {
+      if (m.id != null && acomp.includes(m.id)) await db.objetosCuarto.update(m.id, { x: m.x, z: m.z })
+    }
+    if (o.formaEntrada && movido) salioDeEstante(apoyoAntes)
   },
 
   removeObjeto: async (id) => {
     const { objetos } = get()
     const o = objetos.find((x) => x.id === id)
     if (!o) return
+    if (o.formaEntrada) salioDeEstante(o.apoyoId)
+
+    // Lo que estaba apoyado en él baja al piso.
+    const suelto = { y: 0, apoyoId: undefined, apoyoNivel: undefined }
+    const hijos = objetos.filter((x) => x.apoyoId === id && x.id != null)
+    if (hijos.length) {
+      set((s) => ({ objetos: s.objetos.map((x) => (x.apoyoId === id ? { ...x, ...suelto } : x)) }))
+      await Promise.all(hijos.map((h) => db.objetosCuarto.update(h.id!, suelto)))
+    }
 
     if (o.roomId === MAPA_ROOM || o.roomId === LIBRERIA_ROOM) {
       set((s) => ({

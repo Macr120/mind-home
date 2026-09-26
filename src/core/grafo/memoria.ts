@@ -34,6 +34,7 @@ export type TipoNodo =
   | 'lugar'
   | 'hobby'
   | 'proyecto'
+  | 'ejercicio'
   | 'asistente'
   | 'amigo'
   | 'espacio'

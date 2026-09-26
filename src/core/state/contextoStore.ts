@@ -52,6 +52,8 @@ type TipoContextual =
   | 'acariciarObjeto'
   /** Al pie de una escalera/ascensor: cambia de piso. */
   | 'nivel'
+  /** Objeto con enlace (web, programa o entrada de app): lo abre, como su burbuja. */
+  | 'enlace'
 
 export interface AccionContextual {
   tipo: TipoContextual
@@ -73,6 +75,8 @@ export interface AccionContextual {
   clase?: string
   /** 'alimentar' (cesta) y 'curar' (animales enfermos): número entre paréntesis. */
   cantidad?: number
+  /** 'enlace': a qué lleva (cambia icono y verbo). */
+  destino?: 'web' | 'programa' | 'app'
   /** 'nivel': hacia arriba o hacia abajo, y a qué piso se llega. */
   subir?: boolean
   nivelDestino?: number

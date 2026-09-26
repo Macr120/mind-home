@@ -9,6 +9,7 @@ import { esencialIdeas, flujosIdeas } from './tutorial.meta'
 import { OPERACIONES_IA } from './costosIA'
 import { planMetasIdeas } from './plan'
 import { filasNodo } from '../../core/grafoApps'
+import { defTipo } from './tiposMapa'
 
 // Mapas e ideas enlazables desde otras apps (la enciclopedia los usa de
 // material). `crear.ts` se importa en diferido: arrastra layouts y el catálogo
@@ -109,7 +110,8 @@ const ideas: Plantilla = {
       tipo: 'mapa' as const,
       uid: m.uid,
       titulo: m.nombre,
-      seccion: 'mapas',
+      // Un diagrama de decisión vive en su propia pestaña, no en la de mapas.
+      seccion: defTipo(m.tipo).familia,
       dato: String(m.id),
     })),
   ],

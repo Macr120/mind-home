@@ -172,7 +172,8 @@ export const MODULOS: DefModulo[] = [
     estructuras: ['mixto'],
     medidas: {
       ancho: { min: 600, max: 2400, def: 1200, paso: 10 },
-      alto: { min: 400, max: 1100, def: 750, paso: 10 },
+      // Desde 300: una mesa de centro mide 300–450.
+      alto: { min: 300, max: 1100, def: 750, paso: 10 },
       fondo: { min: 400, max: 900, def: 600, paso: 10 },
     },
     params: [

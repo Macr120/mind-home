@@ -331,7 +331,8 @@ export const FK: Record<string, Record<string, string>> = {
   // es índice único y clave de merge: sin traducir, el marcador de una cancha
   // podía resolverse contra otra distinta al fusionar dos dispositivos.
   marcadores: { canchaId: 'objetosCuarto' },
-  objetosCuarto: { libreriaId: 'objetosCuarto' }, // self-FK: instancia → plantilla de la biblioteca
+  // self-FK: instancia → plantilla de la biblioteca, y objeto → mueble en el que se apoya
+  objetosCuarto: { libreriaId: 'objetosCuarto', apoyoId: 'objetosCuarto' },
   partidasEjercicio: { idiomaId: 'idiomas' },
   // Tres ids separados y no uno polimórfico: el motor traduce por CAMPO, así que
   // un `refId` que apuntara a tres tablas según `tipo` no se podría traducir.

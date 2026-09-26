@@ -22,6 +22,8 @@ import { estadoCultivo, celdasRegadas } from './cultivos'
 import { esAnuncio } from './especiales'
 import { tipoPistolaDeObjeto } from './arma'
 import { tieneAnimacion } from './animacion'
+import { esMueblePrincipal } from './muebles'
+import { destinoExterno } from '../abrirObjeto'
 import { posObjetosVivos } from './vidaObjeto'
 import { dragChar } from './characterDrag'
 import {
@@ -34,6 +36,7 @@ import {
   TIPO_TAPETE,
 } from './especialesPlantillaMeta'
 import { worldToSubCell, subId, roomSubCells, footprintCells, cellToWorld, HALF, FOOTPRINT_DEFAULT } from './walls'
+import { NIVEL_SUELO } from './apoyos'
 
 /**
  * Detector ÚNICO de lo que el personaje tiene al alcance. Publica en
@@ -115,6 +118,7 @@ export function ContextoProximity() {
     /** Nada al alcance: apaga los dos canales (el `cerca` pegado era un bug real). */
     const limpiar = () => {
       if (carga.cerca) carga.setCerca(null)
+      carga.setOpciones([])
       contexto.setAcciones(SIN_ACCIONES)
     }
 
@@ -201,6 +205,8 @@ export function ContextoProximity() {
       (prio === foco.prio && d < foco.d) || // misma prioridad: el más cercano
       (prio < foco.prio && d < foco.d - EMPATE_FOCO) // menos prioridad: solo si está CLARAMENTE más cerca
 
+    /** Objetos al alcance de «Agarrar». */
+    const agarrables: { id: number; d: number; encima: boolean }[] = []
     for (const o of objetos) {
       if (o.id == null || esObjetoLibreria(o)) continue
       let wx: number
@@ -225,9 +231,8 @@ export function ContextoProximity() {
 
       // Candidato a "Mover": las canchas quedan fuera (son enormes y ofrecerían
       // agarrarlas con solo pisar su centro).
-      if (d <= RADIO_CARGA_OBJETO && d < mejorDist && !esCancha(o.tipo)) {
-        mejorDist = d
-        mejorCarga = { tipo: 'objeto', id: o.id }
+      if (d <= RADIO_CARGA_OBJETO && !esCancha(o.tipo)) {
+        agarrables.push({ id: o.id, d, encima: o.apoyoId != null && o.apoyoNivel !== NIVEL_SUELO })
       }
 
       // Poda coherente con `ganaFoco`: nadie a más de `foco.d + EMPATE` puede ganar.
@@ -276,10 +281,17 @@ export function ContextoProximity() {
               animado,
             })
           }
+          // Enlace (web, programa o entrada de app): el mismo destino que su burbuja.
+          const destino = !o.plantillaId && !esMueblePrincipal(o) ? destinoExterno(o) : null
+          if (destino) acciones.push({ tipo: 'enlace', id: o.id, destino })
         }
       }
       if (acciones.length > 0) {
-        const prio: 0 | 1 = acciones.some((a) => a.tipo === 'interactuar' && a.plantillaId) ? 1 : 0
+        const prio: 0 | 1 = acciones.some(
+          (a) => (a.tipo === 'interactuar' && a.plantillaId) || a.tipo === 'enlace',
+        )
+          ? 1
+          : 0
         if (ganaFoco(d, prio)) foco = { acciones, d, prio }
       }
     }
@@ -350,6 +362,16 @@ export function ContextoProximity() {
     }
 
     acciones.push(...(foco?.acciones ?? []))
+
+    // «Agarrar»: la base antes que lo que lleva encima (agarrar el escritorio se
+    // lleva el teclado; al revés dejaría la mesa). «Otro» recorre los demás.
+    agarrables.sort((a, b) => Number(a.encima) - Number(b.encima) || a.d - b.d)
+    const ids = agarrables.map((a) => a.id)
+    carga.setOpciones(ids)
+    if (ids.length && Math.min(...agarrables.map((a) => a.d)) < mejorDist) {
+      const elegido = useCargar.getState().elegido
+      mejorCarga = { tipo: 'objeto', id: elegido != null && ids.includes(elegido) ? elegido : ids[0] }
+    }
 
     if (carga.cerca?.tipo !== mejorCarga?.tipo || carga.cerca?.id !== mejorCarga?.id) {
       carga.setCerca(mejorCarga)

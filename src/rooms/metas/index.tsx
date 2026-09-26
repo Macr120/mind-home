@@ -67,6 +67,8 @@ const metas: Plantilla = {
         resumen:
           [r.categoriaMeta, r.completada ? 'cumplida' : r.fechaFin && `hasta ${r.fechaFin}`].filter(Boolean).join(' · ') ||
           undefined,
+        // Su trofeo en la vitrina: dorado si ya se cumplió.
+        clase: r.completada ? 'cumplida' : undefined,
       })),
 }
 

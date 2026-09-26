@@ -148,7 +148,7 @@ export async function construirCasa({
   }
   // La escalera desemboca en la esquina NE de idiomas, justo donde su siembra
   // planta el archivero (recurso 22): quedaba atravesado en la subida — fuera.
-  const archivero = D().objetos.find((o) => o.roomId === ids.idiomas && o.tipo === 'recurso:22')
+  const archivero = D().objetos.find((o) => o.roomId === ids.idiomas && (o.tipoOriginal ?? o.tipo) === 'recurso:22')
   if (archivero?.id != null) await D().removeObjeto(archivero.id)
 
   // ── Figuras: tres esquinas redondeadas y dos chaflanes rectos (la NE la
