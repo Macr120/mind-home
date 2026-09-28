@@ -2,7 +2,6 @@ import { abrirEnlace } from '../../../core/enlaces'
 import { useT, type TFunc } from '../../../core/i18n/useT'
 import type { OpcionesTikTok } from '../../../core/redes/tipos'
 import { BotonSecundario, Campo, INPUT, Spinner } from '../../_shared/ui'
-import { Chip } from '../Secciones'
 import { Interruptor } from './Interruptor'
 import { LIMITES, URL_TIKTOK_MARCA, URL_TIKTOK_MUSICA, type MetaTikTok } from './tipos'
 
@@ -97,20 +96,21 @@ export function FormularioTikTok({
       <Campo etiqueta={`${t('video.publicar.campo.titulo', 'Título')} · ${meta.titulo.length}/${LIMITES.tiktok.titulo}`}>
         <textarea value={meta.titulo} maxLength={LIMITES.tiktok.titulo} rows={2} onChange={(e) => onCambio({ ...meta, titulo: e.target.value })} className={INPUT} />
       </Campo>
+      {/* La guía exige un DESPLEGABLE sin valor por defecto: el marcador vacío no se puede volver a elegir. */}
       <Campo etiqueta={t('video.publicar.privacidad', 'Privacidad')}>
-        <div className="flex flex-wrap gap-1.5" role="radiogroup">
-          {info.privacidad.map((p) => (
-            <Chip
-              key={p}
-              activo={meta.privacidad === p}
-              disabled={marca && p === 'SELF_ONLY'}
-              onClick={() => onCambio({ ...meta, privacidad: p })}
-            >
-              {etiquetaPrivacidad[p] ?? p}
-            </Chip>
-          ))}
-        </div>
-        {!meta.privacidad && <p className="mt-1 text-[11px] text-white/40">{t('video.publicar.privacidad.elegir', 'Elige quién puede verlo.')}</p>}
+        <select value={meta.privacidad ?? ''} onChange={(e) => onCambio({ ...meta, privacidad: e.target.value })} className={INPUT}>
+          <option value="" disabled>
+            {t('video.publicar.privacidad.elegir', 'Elige quién puede verlo.')}
+          </option>
+          {info.privacidad.map((p) => {
+            const bloqueado = marca && p === 'SELF_ONLY'
+            return (
+              <option key={p} value={p} disabled={bloqueado} title={bloqueado ? t('video.publicar.tt.marcaNoPrivado', 'La visibilidad del contenido de marca no puede ser privada.') : undefined}>
+                {etiquetaPrivacidad[p] ?? p}
+              </option>
+            )
+          })}
+        </select>
         {/* La guía de TikTok pide que, con «Contenido de marca» puesto, además de
             deshabilitar «Solo yo» se explique por qué. */}
         {marca && (
@@ -125,28 +125,24 @@ export function FormularioTikTok({
         )}
       </Campo>
       <Campo etiqueta={t('video.publicar.tt.interaccion', 'Permitir a los demás')}>
-        <div className="space-y-1.5">
-          <Interruptor
-            etiqueta={t('video.publicar.tt.comentarios', 'Comentarios')}
-            activo={meta.comentarios}
-            disabled={!info.comentarios}
-            nota={!info.comentarios ? t('video.publicar.tt.desactivadoCreador', 'Desactivado en tu cuenta de TikTok') : undefined}
-            onCambio={(v) => onCambio({ ...meta, comentarios: v })}
-          />
-          <Interruptor
-            etiqueta={t('video.publicar.tt.duo', 'Dúo')}
-            activo={meta.duo}
-            disabled={!info.duet}
-            nota={!info.duet ? t('video.publicar.tt.desactivadoCreador', 'Desactivado en tu cuenta de TikTok') : undefined}
-            onCambio={(v) => onCambio({ ...meta, duo: v })}
-          />
-          <Interruptor
-            etiqueta={t('video.publicar.tt.stitch', 'Stitch')}
-            activo={meta.stitch}
-            disabled={!info.stitch}
-            nota={!info.stitch ? t('video.publicar.tt.desactivadoCreador', 'Desactivado en tu cuenta de TikTok') : undefined}
-            onCambio={(v) => onCambio({ ...meta, stitch: v })}
-          />
+        {/* Casillas, como pide la guía: ninguna marcada de fábrica y en gris si el creador la tiene apagada. */}
+        <div className="flex flex-wrap gap-x-4 gap-y-1.5">
+          {(
+            [
+              ['comentarios', 'comentarios', t('video.publicar.tt.comentarios', 'Comentarios')],
+              ['duo', 'duet', t('video.publicar.tt.duo', 'Dúo')],
+              ['stitch', 'stitch', t('video.publicar.tt.stitch', 'Stitch')],
+            ] as const
+          ).map(([campo, permiso, etiqueta]) => (
+            <label
+              key={campo}
+              className={`flex items-center gap-1.5 text-xs text-white/75 ${info[permiso] ? '' : 'opacity-40'}`}
+              title={info[permiso] ? undefined : t('video.publicar.tt.desactivadoCreador', 'Desactivado en tu cuenta de TikTok')}
+            >
+              <input type="checkbox" checked={meta[campo]} disabled={!info[permiso]} onChange={(e) => onCambio({ ...meta, [campo]: e.target.checked })} />
+              {etiqueta}
+            </label>
+          ))}
         </div>
       </Campo>
       <Campo etiqueta={t('video.publicar.tt.comercial', 'Contenido comercial')}>

@@ -417,6 +417,8 @@ toda la app. La ficha de Google **sigue llamándose «Mind Planner Home» a prop
 cambiar el nombre en Branding reabre la verificación de marca. Hacerlo como operación
 aparte, cuando lo demás esté quieto. `REDES_YT_AUDITADO` sigue a 0 hasta comprobar con una
 subida real que ya no se fuerza «privado».
+**Repasado el 27-sep-2026**: el Centro de verificación de `mph-studio` sigue con marca y
+acceso a datos verificados. Del lado de Google no falta nada; solo la subida de prueba.
 
 ## Fase 2 · TikTok
 
@@ -741,6 +743,32 @@ no hace nada. Hay que tenerla al frente y teclear con eventos de teclado de verd
       El formulario del audit **exige explícitamente la pantalla de autorización**
       («1) User flow of TikTok authorization page»), que el demo nuevo no tenía porque la
       cuenta ya estaba conectada.
+- [x] ❌ **AUDIT RECHAZADO OTRA VEZ el 27-sep-2026, 22:04** (referencia `20260923051948`).
+      La notificación solo dice «did not pass the audit… adjust according to the Content
+      Sharing Developer Guidelines». El motivo real está en `reason` del JSON de
+      `/tiktok/v1/devportal/app/detail?app_id=7681343089528604690&version_type=1`
+      (leído con `fetch` desde la consola, con la sesión puesta):
+      > *«Your application did not follow our UX Guidelines. Please review here:
+      > …#required_ux_implementation_in_your_app **Your app review application not yet
+      > approved, kindly clarify before submit content posting application.**»*
+      Son DOS causas:
+      1. **Se pidió el audit con la revisión de la ficha (el renombre) todavía «In review».**
+         TikTok no audita mientras la App Review no esté aprobada. **No volver a pedir el
+         audit hasta que la revisión a MindHaOS salga Live.**
+      2. **La UX no seguía la LETRA de la guía** en tres puntos, que se arreglaron el
+         27-sep en `FormularioTikTok.tsx` y `PublicarDialog.tsx`:
+         - Privacidad: la guía dice «manually select the privacy status from a
+           **dropdown**» y había chips. Ahora es un `<select>` con un marcador vacío
+           deshabilitado («Elige quién puede verlo.»), sin valor por defecto; «Solo yo»
+           sale deshabilitado con `title` en cuanto se marca «Contenido de marca».
+         - Comentarios/Dúo/Stitch: la guía habla de **checkbox** y había interruptores.
+           Ahora son casillas, ninguna marcada, en gris y con `title` si el creador la
+           tiene apagada.
+         - «Publicar» deshabilitado sin decir por qué al pasar el ratón (la guía pide
+           «hovering over will show a notification»). El `title` va en un `<span>` que
+           envuelve el botón, porque un botón deshabilitado no recibe el ratón.
+      **Falta**: desplegar, regrabar el tramo del formulario del demo y, SOLO cuando la
+      revisión a MindHaOS esté aprobada, hacer el Reapply con el demo nuevo.
 - [ ] Al aprobar el audit: `REDES_TIKTOK_AUDITADO=1`.
 - [ ] Al quitar el «Solo yo», **devolver la cuenta `mindhaos.app` a pública** (la cuenta de
       TikTok nueva de la marca, creada el 18-sep; se puso privada para poder publicar sin
@@ -1538,6 +1566,8 @@ una Página: hacen falta para probar (la app se lo explica al usuario que no las
       - El icono se sube arrastrando: la zona «Drag and drop your file» no tiene
         `input[type=file]`; se crea uno temporal, se le carga el PNG y se dispara un
         `drop` con ese `File` sobre la zona.
+- [x] **27-sep-2026: sigue «Review in progress»**, sin preguntas del revisor. Las 4 alertas
+      del Alert Inbox son avisos viejos (envío, Tech Provider verificado, paso a Live).
 - [ ] Contestar si preguntan. Rechazo típico: el revisor no pudo entrar o el screencast no
       enseña el permiso en uso. Al aprobarse: `REDES_META_LIVE=1`.
 - [x] **Facebook e Instagram no «desaparecieron» por un fallo**: la última toma del

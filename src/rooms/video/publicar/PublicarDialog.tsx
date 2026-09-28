@@ -302,10 +302,14 @@ export function PublicarDialog({
             />
           )}
           {error && (plataforma !== 'tiktok' || opciones) && <p className="text-xs text-red-400/90">{error}</p>}
+          {/* El `title` va en el contenedor: un botón deshabilitado no recibe el ratón, y la guía
+              de TikTok pide que al pasar por encima se lea por qué no se puede publicar. */}
           <div className="flex justify-end">
-            <BotonPrimario type="button" app={COLOR} disabled={error != null} onClick={() => void publicar()}>
-              {t('video.publicar.boton', 'Publicar')}
-            </BotonPrimario>
+            <span title={error ?? undefined}>
+              <BotonPrimario type="button" app={COLOR} disabled={error != null} onClick={() => void publicar()}>
+                {t('video.publicar.boton', 'Publicar')}
+              </BotonPrimario>
+            </span>
           </div>
         </div>
       )}
