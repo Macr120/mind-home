@@ -1,5 +1,5 @@
 import { useHouse } from './state/houseStore'
-import { useDiseño, esObjetoLibreria, esObjetoMapa } from './state/disenoStore'
+import { asignaAppEnCasa, useDiseño, esObjetoLibreria, esObjetoMapa } from './state/disenoStore'
 import { lanzarIntencionApp } from './state/intencionApp'
 import { usePreviaPlantilla } from './state/previaPlantillaStore'
 
@@ -15,7 +15,7 @@ import { usePreviaPlantilla } from './state/previaPlantillaStore'
 export function abrirApp(plantillaId: string, seccion?: string, dato?: string): string | null {
   const obj = useDiseño
     .getState()
-    .objetos.find((o) => o.plantillaId === plantillaId && !esObjetoLibreria(o))
+    .objetos.find((o) => o.plantillaId === plantillaId && asignaAppEnCasa(o))
   if (!obj) return null
   lanzarIntencionApp({ appId: plantillaId, seccion, dato })
   useHouse.getState().openRoom(obj.roomId)

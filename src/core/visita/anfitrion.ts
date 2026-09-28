@@ -23,7 +23,7 @@ import {
 import { crearYConectar, salaViva } from '../partida/sala'
 import { elegir } from '../state/confirmarStore'
 import { useCuartos } from '../state/cuartosStore'
-import { esObjetoLibreria, useDiseño } from '../state/disenoStore'
+import { asignaAppEnCasa, useDiseño } from '../state/disenoStore'
 import { guardarPlano } from './almacenPlano'
 import { armarPlano } from './plano'
 import { appsDeUrl } from './visitaStore'
@@ -99,7 +99,7 @@ export async function invitarAJugar(juego: JuegoInvitable, contacto: Contacto, t
   if (def.cancha && !posicionDeJuego(juego, objetos, 1)) {
     return t('partida.jugar.sinCancha', 'No tienes {j} en tu mapa: colócala desde el editor', { j })
   }
-  if (def.mesa && !objetos.some((o) => o.plantillaId === 'entretenimiento' && !esObjetoLibreria(o))) {
+  if (def.mesa && !objetos.some((o) => o.plantillaId === 'entretenimiento' && asignaAppEnCasa(o))) {
     if (!(await prepararMesa(j, t))) return t('partida.jugar.cancelada', 'Invitación cancelada')
   }
   // Sin hilo no hay dónde dejar el enlace: se comprueba antes de abrir la sala.

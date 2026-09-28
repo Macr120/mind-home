@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import type { CuerpoTutorial, PasoTutorial, TutorialCtx, TutorialDef } from './tipos'
 import { setTutorialActivo } from '../data/intencion'
 import { getPlantilla } from '../registry'
-import { useDiseño, esObjetoLibreria } from '../state/disenoStore'
+import { asignaAppEnCasa, useDiseño } from '../state/disenoStore'
 import { useMascota } from '../state/mascotaStore'
 import { useHud } from '../state/hudStore'
 import { useZonaTut } from '../state/zonaTutStore'
@@ -157,7 +157,7 @@ export const useTutorial = create<TutorialState>((set, get) => ({
     if (plantillaId && getPlantilla(plantillaId)) {
       const asignada = useDiseño
         .getState()
-        .objetos.some((o) => o.plantillaId === plantillaId && !esObjetoLibreria(o))
+        .objetos.some((o) => o.plantillaId === plantillaId && asignaAppEnCasa(o))
       if (!asignada) {
         useMascota
           .getState()

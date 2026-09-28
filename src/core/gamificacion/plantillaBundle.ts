@@ -1,4 +1,4 @@
-import { useDiseño, objetosDeCuarto } from '../state/disenoStore'
+import { asignaAppEnCasa, useDiseño, objetosDeCuarto } from '../state/disenoStore'
 import type { ObjetoCuarto, SiembraGuardada } from '../data/db'
 import { useCuartos } from '../state/cuartosStore'
 import { tipoYColor } from '../house/modelosRecursos'
@@ -112,7 +112,7 @@ export async function asignarPlantillaACuarto(
   const existentes = objetosDeCuarto(objetos, cuartoId)
 
   // Cada app vive en UN solo cuarto: si ya está asignada (aquí o en otro), no se duplica.
-  if (objetos.some((o) => o.plantillaId === plantillaId)) return
+  if (objetos.some((o) => o.plantillaId === plantillaId && asignaAppEnCasa(o))) return
   const teniaApps = existentes.some((o) => o.plantillaId)
 
   const conjunto = objetosDe(plantillaId)
@@ -189,7 +189,7 @@ export async function asignarPlantillaAObjeto(
 ): Promise<void> {
   const { objetos, setObjetoPlantilla, asentarSobreMuebles } = useDiseño.getState()
   // Cada app vive en UN solo cuarto: si ya está asignada a otro objeto, no se duplica.
-  if (objetos.some((o) => o.plantillaId === plantillaId && o.id !== objetoId)) return
+  if (objetos.some((o) => o.plantillaId === plantillaId && o.id !== objetoId && asignaAppEnCasa(o))) return
   const teniaApps = objetosDeCuarto(objetos, cuartoId).some(
     (o) => o.plantillaId && o.id !== objetoId,
   )
