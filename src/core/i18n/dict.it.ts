@@ -4090,6 +4090,9 @@ export const IT: Dict = {
   'diario.reparto.entregada': 'Consegnata oggi',
   'diario.reparto.plantillaTitulo': '🗞️ Il tuo giornale di oggi!',
   'diario.reparto.sinContenido': '🗞️ Oggi non c\'è stato contenuto nelle sezioni del tuo giornale.',
+  'diario.reparto.muestra.pie':
+    'Ecco come appare una programmazione. È solo un esempio: non si salva né si consegna nulla finché non la usi.',
+  'diario.reparto.muestra.usar': 'Usa questa programmazione',
   'respaldo.titulo': 'Backup dei dati',
   'respaldo.desc': 'Esporta, ripristina o elimina i dati salvati su questo dispositivo.',
   'respaldo.persistente.si': '✓ Archiviazione protetta: il browser non eliminerà i tuoi dati per liberare spazio',

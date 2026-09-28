@@ -1,6 +1,7 @@
 import type { Plantilla } from '../../core/appContrato'
 import { lazy } from 'react'
 import { calculosComputoRepo, formulasRepo, hojasRepo, objetivoDiarioDe } from '../../core/data/repository'
+import { sinEjemplos } from '../../core/data/ejemplos'
 import { esSeedIntacta } from '../../core/data/sync/syncables'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { registrarProveedorMaterial } from '../../core/materialApps'
@@ -83,7 +84,7 @@ const computo: Plantilla = {
     // entrar al cuarto por primera vez no es haber resuelto nada.
     del: async (fecha) => ({
       hecho:
-        (await calculosComputoRepo.list()).filter((c) => c.fecha === fecha).length +
+        sinEjemplos(await calculosComputoRepo.list()).filter((c) => c.fecha === fecha).length +
         (await formulasRepo.list()).filter((f) => f.fecha === fecha && !esSeedIntacta(f)).length,
       objetivo: await objetivoDiarioDe('computo', 1),
     }),

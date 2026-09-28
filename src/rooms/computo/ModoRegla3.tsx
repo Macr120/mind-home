@@ -54,9 +54,9 @@ export function ModoRegla3({ selector }: { selector: ReactNode }) {
       </p>
 
       <div className="grid grid-cols-2 gap-2">
-        <CampoNum etiqueta={t('computo.regla3.a', 'Si esto…')} valor={a} onCambiar={setA} />
-        <CampoNum etiqueta={t('computo.regla3.b', '…es esto')} valor={b} onCambiar={setB} />
-        <CampoNum etiqueta={t('computo.regla3.c', 'Entonces esto…')} valor={c} onCambiar={setC} />
+        <CampoNum etiqueta={t('computo.regla3.a', 'Si esto…')} valor={a} onCambiar={setA} placeholder="2" />
+        <CampoNum etiqueta={t('computo.regla3.b', '…es esto')} valor={b} onCambiar={setB} placeholder="30" />
+        <CampoNum etiqueta={t('computo.regla3.c', 'Entonces esto…')} valor={c} onCambiar={setC} placeholder="5" />
         <div className="flex items-end">
           <div className="w-full rounded-lg border border-dashed border-white/15 px-2.5 py-1.5 text-center font-mono text-sm text-white/35">
             {t('computo.regla3.x', '…es x')}

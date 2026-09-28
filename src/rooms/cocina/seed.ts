@@ -9,7 +9,7 @@ import { claveLS, esDemo } from '../../core/edicion'
 import { esSeedIntacta, filaSeed, filasSeed } from '../../core/data/sync/syncables'
 import { idiomaActual } from '../../core/i18n/useT'
 
-let sembrado = false
+let sembrado: Promise<void> | null = null
 
 /** Bandera persistente versionada: al subir la versión se añaden los ejemplos nuevos. */
 const LS_EJEMPLOS = claveLS('cocina.ejemplosSembrados')
@@ -45,11 +45,17 @@ const LISTA_EJEMPLO = {
   ] as [string, string, boolean][],
 }
 
-/** Datos iniciales de cocina (solo la primera vez). La siembra sale YA en el idioma activo. */
-export async function sembrarCocina() {
-  if (sembrado) return
-  sembrado = true
+/**
+ * Datos iniciales de cocina (solo la primera vez). La siembra sale YA en el
+ * idioma activo. Devuelve siempre la MISMA promesa: quien la espere (p. ej. el
+ * ejemplo del control de alimentación, que cuelga de las recetas de fábrica)
+ * sabe cuándo terminó aunque la haya arrancado otro.
+ */
+export function sembrarCocina(): Promise<void> {
+  return (sembrado ??= sembrar())
+}
 
+async function sembrar() {
   const perfil = await db.perfilNutricion.toCollection().first()
   if (!perfil) await db.perfilNutricion.add(filaSeed('perfilNutricion-0', PERFIL_DEFECTO))
 

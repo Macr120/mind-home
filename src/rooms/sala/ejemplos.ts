@@ -1,6 +1,7 @@
 import {
   bitacoraViajeRepo,
   diasItinerarioRepo,
+  itinerariosGuardadosRepo,
   lugaresViajeRepo,
   portadasLugarRepo,
   rutasViajeRepo,
@@ -36,7 +37,7 @@ async function coords(ciudad: string, pais: string) {
 
 export const ejemploSala: PaqueteEjemplo = {
   id: ID,
-  tablas: [lugaresViajeRepo, diasItinerarioRepo, bitacoraViajeRepo, rutasViajeRepo],
+  tablas: [lugaresViajeRepo, diasItinerarioRepo, bitacoraViajeRepo, rutasViajeRepo, itinerariosGuardadosRepo],
   async materializar(restaurar) {
     if (await yaMaterializado(ID, () => lugaresViajeRepo.list())) return
     const T = porIdioma(TEXTOS_SALA)
@@ -61,6 +62,23 @@ export const ejemploSala: PaqueteEjemplo = {
       { destino: T.dia2Destino, actividades: T.dia2Actividades, presupuesto: 90 },
       { destino: T.dia3Destino, actividades: T.dia3Actividades, presupuesto: 140 },
     ]
+    const filas = dias.map((d, i) => ({
+      dia: i + 1,
+      fecha: isoMasDias(hoy, 60 + i),
+      destino: d.destino,
+      actividades: d.actividades,
+      hospedaje: d.hospedaje,
+      presupuesto: d.presupuesto,
+    }))
+    // La misma copia congelada que deja «Guardar como itinerario» en la hoja.
+    await itinerariosGuardadosRepo.addSeed(
+      filaEjemplo(ID, 'guardado', restaurar, {
+        nombre: T.lugarPendiente,
+        contexto: `${T.lugarPendiente}, ${T.paisPendiente}`,
+        filas,
+        creadoEn: creado,
+      }),
+    )
     for (const [i, d] of dias.entries()) {
       await diasItinerarioRepo.addSeed(
         filaEjemplo(ID, `dia${i}`, restaurar, {
@@ -142,6 +160,38 @@ export const ejemploSala: PaqueteEjemplo = {
           ...(destino && { destino }),
           ...(actividades && { actividades }),
           ...(hospedaje && { hospedaje }),
+        })
+      }
+    }
+    for (const g of await itinerariosGuardadosRepo.list()) {
+      if (g.ejemploDe !== ID || g.id == null) continue
+      const nombre = retraducido(TEXTOS_SALA, g.nombre, 'lugarPendiente')
+      // El contexto es «ciudad, país»: se reconoce contra ese mismo par en cualquier idioma.
+      const activo = porIdioma(TEXTOS_SALA)
+      const contextoFabrica = Object.values(TEXTOS_SALA).some(
+        (v) => g.contexto === `${v.lugarPendiente}, ${v.paisPendiente}`,
+      )
+      const contexto = `${activo.lugarPendiente}, ${activo.paisPendiente}`
+      let cambioFilas = false
+      const filas = g.filas.map((f) => {
+        const destino = retraducido(TEXTOS_SALA, f.destino, 'dia1Destino', 'dia2Destino', 'dia3Destino')
+        const actividades = retraducido(TEXTOS_SALA, f.actividades, 'dia1Actividades', 'dia2Actividades', 'dia3Actividades')
+        const hospedaje = retraducido(TEXTOS_SALA, f.hospedaje, 'dia1Hospedaje')
+        if (!destino && !actividades && !hospedaje) return f
+        cambioFilas = true
+        return {
+          ...f,
+          ...(destino && { destino }),
+          ...(actividades && { actividades }),
+          ...(hospedaje && { hospedaje }),
+        }
+      })
+      const nuevoContexto = contextoFabrica && g.contexto !== contexto
+      if (nombre || nuevoContexto || cambioFilas) {
+        await itinerariosGuardadosRepo.update(g.id, {
+          ...(nombre && { nombre }),
+          ...(nuevoContexto ? { contexto } : {}),
+          ...(cambioFilas ? { filas } : {}),
         })
       }
     }

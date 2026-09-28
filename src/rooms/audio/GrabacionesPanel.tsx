@@ -5,7 +5,9 @@ import { descargarArchivo } from '../../core/descargarArchivo'
 import { localeActual, useT } from '../../core/i18n/useT'
 import { confirmar, pedirTexto } from '../../core/state/confirmarStore'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { FILA_INTERACTIVA, TARJETA, Vacio } from '../_shared/ui'
+import { ejemploGrabaciones } from './ejemplos'
 
 const duracionCorta = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`
 
@@ -57,7 +59,7 @@ export function GrabacionesPanel() {
   const descargar = async (g: GrabacionAudio) => {
     const blob = await blobDe(g)
     if (!blob) return
-    const ext = blob.type.includes('mp4') ? '.m4a' : blob.type.includes('ogg') ? '.ogg' : '.webm'
+    const ext = blob.type.includes('wav') ? '.wav' : blob.type.includes('mp4') ? '.m4a' : blob.type.includes('ogg') ? '.ogg' : '.webm'
     await descargarArchivo(blob, `${g.nombre || 'toma'}${ext}`)
   }
 
@@ -89,6 +91,9 @@ export function GrabacionesPanel() {
           titulo={t('audio.grab.vacio', 'Aún no hay grabaciones')}
           sub={t('audio.grab.vacioSub', 'Crea una pista de audio en un proyecto y graba tu voz o tu instrumento encima de las demás pistas.')}
         />
+        <div className="mt-2 empty:hidden">
+          <BarraEjemplo paquete={ejemploGrabaciones} />
+        </div>
       </div>
     )
   }
@@ -144,6 +149,9 @@ export function GrabacionesPanel() {
           </li>
         ))}
       </ul>
+      <div className="mt-2 empty:hidden">
+        <BarraEjemplo paquete={ejemploGrabaciones} />
+      </div>
     </div>
   )
 }

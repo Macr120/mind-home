@@ -14,6 +14,7 @@ import {
   type SeccionReparto,
 } from './reparto'
 import { iaAutoDiario, setIaAutoDiario } from './autoIA'
+import { claveLS } from '../../core/edicion'
 
 interface Chip {
   id: SeccionReparto
@@ -49,6 +50,22 @@ const GRUPOS: { claveT: string; etiqueta: string; chips: Chip[] }[] = [
   },
 ]
 
+/**
+ * Programación de muestra mientras no haya ninguna: solo se pinta (las
+ * programaciones viven en localStorage y una guardada ya entregaría). Quitarla
+ * se recuerda en este dispositivo.
+ */
+const LS_SIN_MUESTRA = claveLS('mh-diario-reparto-sinMuestra')
+const SECCIONES_MUESTRA: SeccionReparto[] = ['mundo', 'tecnologia', seccionEfemeride('palabra')]
+
+function muestraOculta(): boolean {
+  try {
+    return localStorage.getItem(LS_SIN_MUESTRA) === '1'
+  } catch {
+    return false
+  }
+}
+
 /** Gestor de programaciones: qué feeds entrega cada asistente y a qué hora. */
 export function RepartoConfig({ onCerrar }: { onCerrar: () => void }) {
   const t = useT()
@@ -56,6 +73,17 @@ export function RepartoConfig({ onCerrar }: { onCerrar: () => void }) {
   const [progs, setProgs] = useState<Programacion[]>(() => getProgramaciones())
   const [estado, setEstado] = useState(() => estadoReparto())
   const [iaAuto, setIaAuto] = useState(() => iaAutoDiario())
+  const [sinMuestra, setSinMuestra] = useState(muestraOculta)
+  const asistenteMuestra = asistentes.find((a) => a.id === 'app-diario') ?? asistentes[0]
+
+  const quitarMuestra = () => {
+    setSinMuestra(true)
+    try {
+      localStorage.setItem(LS_SIN_MUESTRA, '1')
+    } catch {
+      // Sin almacenamiento solo vuelve a salir la próxima vez.
+    }
+  }
 
   const alternarIa = () => {
     const nueva = !iaAuto
@@ -145,7 +173,63 @@ export function RepartoConfig({ onCerrar }: { onCerrar: () => void }) {
           </button>
         </div>
 
-        {progs.length === 0 && (
+        {progs.length === 0 && !sinMuestra && asistenteMuestra && (
+          <div className="space-y-2.5 rounded-xl border border-dashed border-white/15 bg-white/[0.03] p-3">
+            <p className="text-xs font-semibold">
+              {asistenteMuestra.emoji} {nombreAsistente(t, asistenteMuestra)}
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {GRUPOS.flatMap((g) => g.chips)
+                .filter((c) => SECCIONES_MUESTRA.includes(c.id))
+                .map((c) => (
+                  <span
+                    key={c.id}
+                    className="rounded-full px-2.5 py-1 text-[11px] font-semibold text-black"
+                    style={{ background: COLOR }}
+                  >
+                    <Icono emoji={c.emoji} /> {t(c.claveT, c.label)}
+                  </span>
+                ))}
+              <span className="rounded-full bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-white/60">
+                <Icono nombre="alarma" /> 08:00
+              </span>
+            </div>
+            <p className="text-[11px] leading-relaxed text-white/40">
+              {t(
+                'diario.reparto.muestra.pie',
+                'Así se ve una programación. Es solo una muestra: no se guarda ni entrega nada hasta que la uses.',
+              )}
+            </p>
+            <div className="flex flex-wrap justify-end gap-2">
+              <button
+                type="button"
+                onClick={quitarMuestra}
+                className="rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-white/60 transition hover:bg-white/10 hover:text-red-300"
+              >
+                <Icono nombre="basura" /> {t('ejemplo.borrar', 'Borrar el ejemplo')}
+              </button>
+              <button
+                type="button"
+                onClick={() =>
+                  guardar([
+                    {
+                      id: crypto.randomUUID(),
+                      asistenteId: asistenteMuestra.id,
+                      secciones: SECCIONES_MUESTRA,
+                      modo: 'hora',
+                      hora: '08:00',
+                    },
+                  ])
+                }
+                className="rounded-lg bg-white/10 px-2.5 py-1 text-[11px] font-semibold transition hover:bg-white/15"
+              >
+                <Icono nombre="agregar" /> {t('diario.reparto.muestra.usar', 'Usar esta programación')}
+              </button>
+            </div>
+          </div>
+        )}
+
+        {progs.length === 0 && (sinMuestra || !asistenteMuestra) && (
           <p className="rounded-xl border border-white/10 bg-white/5 p-3 text-center text-xs text-white/45">
             {t('diario.reparto.vacio', 'Sin programaciones. Agrega una para que un asistente te traiga el diario.')}
           </p>

@@ -159,12 +159,14 @@ async function sembrarHojas(restaurar: boolean): Promise<void> {
     if (p.id === 'blanco') continue
     const uid = `seed-hojasCalculo-${p.id}`
     if (ya.has(uid)) continue
+    const { celdas, graficas } = p.crear()
     nuevas.push(
       filaSeed(
         `hojasCalculo-${p.id}`,
         {
           nombre: tGlobal(p.claveNombre, p.nombreEs),
-          celdas: structuredClone(p.celdas),
+          celdas,
+          ...(graficas ? { graficas } : {}),
           filas: p.filas,
           cols: p.cols,
           creadoEn: ahora,

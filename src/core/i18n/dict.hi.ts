@@ -4021,6 +4021,9 @@ export const HI: Dict = {
   'diario.reparto.entregada': 'आज डिलीवर हो गया',
   'diario.reparto.plantillaTitulo': '🗞️ आपका आज का अख़बार!',
   'diario.reparto.sinContenido': '🗞️ आज आपके अख़बार के सेक्शन में कोई सामग्री नहीं थी।',
+  'diario.reparto.muestra.pie':
+    'शेड्यूल ऐसा दिखता है। यह सिर्फ़ एक नमूना है: जब तक आप इसे इस्तेमाल न करें, कुछ भी सेव या डिलीवर नहीं होगा।',
+  'diario.reparto.muestra.usar': 'यह शेड्यूल इस्तेमाल करें',
   'respaldo.titulo': 'डेटा बैकअप',
   'respaldo.desc': 'इस डिवाइस पर सहेजे गए डेटा को एक्सपोर्ट, रीस्टोर या डिलीट करें।',
   'respaldo.persistente.si': '✓ स्टोरेज सुरक्षित: जगह की कमी के कारण ब्राउज़र आपका डेटा नहीं हटाएगा',

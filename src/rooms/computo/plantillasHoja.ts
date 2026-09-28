@@ -1,16 +1,23 @@
 /**
  * Hojas de arranque. Una hoja en blanco intimida; estas ya traen sus fórmulas
  * puestas, que además es la mejor manera de enseñar que las fórmulas existen.
+ *
+ * Se arman en el momento de sembrar (`crear`): los rótulos salen en el idioma
+ * activo y las fechas del registro son las de las últimas semanas. Solo las usa
+ * `siembra.ts`, así que las hojas ya sembradas en casas existentes no cambian.
  */
-import type { CeldaHoja } from '../../core/data/db'
+import type { CeldaHoja, GraficaHoja } from '../../core/data/db'
+import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
+import { porIdioma } from '../../core/i18n/porIdioma'
 import { COLS_INICIO, FILAS_INICIO } from './constantes'
 import type { Celdas } from './hoja'
+import { ROTULOS_HOJA, type RotulosHoja } from './rotulosHoja'
 
 export interface PlantillaHoja {
   id: string
   nombreEs: string
   claveNombre: string
-  celdas: Celdas
+  crear: () => { celdas: Celdas; graficas?: GraficaHoja[] }
   filas: number
   cols: number
 }
@@ -18,63 +25,82 @@ export interface PlantillaHoja {
 const txt = (crudo: string, neg = false): CeldaHoja => ({ crudo, ...(neg ? { fmt: { neg: true } } : {}) })
 const num = (crudo: string, dec = 2): CeldaHoja => ({ crudo, fmt: { dec } })
 
-const presupuesto: Celdas = {
-  A1: txt('Concepto', true),
-  B1: txt('Previsto', true),
-  C1: txt('Real', true),
-  D1: txt('Diferencia', true),
-  A2: txt('Vuelo'),
-  A3: txt('Alojamiento'),
-  A4: txt('Transporte'),
-  A5: txt('Comida'),
-  A6: txt('Entradas'),
-  A7: txt('Extras'),
-  A9: txt('Total', true),
-  B9: num('=SUMA(B2:B7)'),
-  C9: num('=SUMA(C2:C7)'),
-  D9: num('=B9-C9'),
-  D2: num('=B2-C2'),
-  D3: num('=B3-C3'),
-  D4: num('=B4-C4'),
-  D5: num('=B5-C5'),
-  D6: num('=B6-C6'),
-  D7: num('=B7-C7'),
+function presupuesto(R: RotulosHoja): Celdas {
+  const partidas: [string, number, number][] = [
+    [R.vuelo, 450, 482],
+    [R.alojamiento, 600, 560],
+    [R.transporte, 120, 145],
+    [R.comida, 300, 338],
+    [R.entradas, 90, 75],
+    [R.extras, 100, 64],
+  ]
+  const celdas: Celdas = {
+    A1: txt(R.concepto, true),
+    B1: txt(R.previsto, true),
+    C1: txt(R.real, true),
+    D1: txt(R.diferencia, true),
+    A9: txt(R.total, true),
+    B9: num('=SUMA(B2:B7)'),
+    C9: num('=SUMA(C2:C7)'),
+    D9: num('=B9-C9'),
+  }
+  partidas.forEach(([concepto, previsto, real], i) => {
+    const f = i + 2
+    celdas[`A${f}`] = txt(concepto)
+    celdas[`B${f}`] = num(String(previsto))
+    celdas[`C${f}`] = num(String(real))
+    celdas[`D${f}`] = num(`=B${f}-C${f}`)
+  })
+  return celdas
 }
 
-const notas: Celdas = {
-  A1: txt('Evaluación', true),
-  B1: txt('Peso', true),
-  C1: txt('Nota', true),
-  D1: txt('Aporta', true),
-  A2: txt('Parcial 1'),
-  B2: num('0.25', 2),
-  A3: txt('Parcial 2'),
-  B3: num('0.25', 2),
-  A4: txt('Tareas'),
-  B4: num('0.2', 2),
-  A5: txt('Final'),
-  B5: num('0.3', 2),
-  D2: num('=B2*C2'),
-  D3: num('=B3*C3'),
-  D4: num('=B4*C4'),
-  D5: num('=B5*C5'),
-  A7: txt('Promedio', true),
-  D7: num('=SUMA(D2:D5)'),
-  A8: txt('Peso total'),
-  B8: num('=SUMA(B2:B5)'),
+function notas(R: RotulosHoja): Celdas {
+  const evaluaciones: [string, number, number][] = [
+    [R.parcial1, 7.5, 0.25],
+    [R.parcial2, 8.2, 0.25],
+    [R.tareas, 9.4, 0.2],
+    [R.final, 8, 0.3],
+  ]
+  const celdas: Celdas = {
+    A1: txt(R.evaluacion, true),
+    B1: txt(R.nota, true),
+    C1: txt(R.peso, true),
+    D1: txt(R.aporta, true),
+    A7: txt(R.promedio, true),
+    D7: num('=SUMA(D2:D5)'),
+    A8: txt(R.pesoTotal),
+    C8: num('=SUMA(C2:C5)'),
+  }
+  evaluaciones.forEach(([nombre, nota, peso], i) => {
+    const f = i + 2
+    celdas[`A${f}`] = txt(nombre)
+    celdas[`B${f}`] = num(String(nota), 1)
+    celdas[`C${f}`] = num(String(peso))
+    celdas[`D${f}`] = num(`=B${f}*C${f}`)
+  })
+  return celdas
 }
 
-const mediciones: Celdas = {
-  A1: txt('Fecha', true),
-  B1: txt('Medida', true),
-  C1: txt('Nota', true),
-  A2: txt('=HOY()'),
-  A5: txt('Promedio', true),
-  B5: num('=PROMEDIO(B2:B4)'),
-  A6: txt('Máximo', true),
-  B6: num('=MAX(B2:B4)'),
-  A7: txt('Mínimo', true),
-  B7: num('=MIN(B2:B4)'),
+/** Seis pesadas semanales que acaban hoy. */
+function mediciones(R: RotulosHoja): Celdas {
+  const hoy = fechaLocalISO()
+  const pesos = [72.4, 72.1, 71.8, 71.9, 71.5, 71.2]
+  const celdas: Celdas = {
+    A1: txt(R.fecha, true),
+    B1: txt(R.medida, true),
+    C1: txt(R.apunte, true),
+    A9: txt(R.promedio, true),
+    B9: num('=PROMEDIO(B2:B7)', 1),
+    A10: txt(R.maximo, true),
+    B10: num('=MAX(B2:B7)', 1),
+    A11: txt(R.minimo, true),
+    B11: num('=MIN(B2:B7)', 1),
+  }
+  pesos.forEach((kg, i) => {
+    celdas[`A${i + 2}`] = txt(isoMasDias(hoy, (i - pesos.length + 1) * 7))
+    celdas[`B${i + 2}`] = num(String(kg), 1)
+  })
+  return celdas
 }
 
 export const PLANTILLAS_HOJA: PlantillaHoja[] = [
@@ -82,7 +108,7 @@ export const PLANTILLAS_HOJA: PlantillaHoja[] = [
     id: 'blanco',
     nombreEs: 'En blanco',
     claveNombre: 'computo.hojas.plantilla.blanco',
-    celdas: {},
+    crear: () => ({ celdas: {} }),
     filas: FILAS_INICIO,
     cols: COLS_INICIO,
   },
@@ -90,7 +116,15 @@ export const PLANTILLAS_HOJA: PlantillaHoja[] = [
     id: 'presupuesto',
     nombreEs: 'Presupuesto',
     claveNombre: 'computo.hojas.plantilla.presupuesto',
-    celdas: presupuesto,
+    crear: () => {
+      const R = porIdioma(ROTULOS_HOJA)
+      return {
+        celdas: presupuesto(R),
+        graficas: [
+          { id: 'seed-presupuesto', tipo: 'barras', titulo: R.graficaPresupuesto, rango: 'A1:C7', encabezadoFila: true, encabezadoCol: true },
+        ],
+      }
+    },
     filas: FILAS_INICIO,
     cols: COLS_INICIO,
   },
@@ -98,7 +132,15 @@ export const PLANTILLAS_HOJA: PlantillaHoja[] = [
     id: 'notas',
     nombreEs: 'Promedio ponderado',
     claveNombre: 'computo.hojas.plantilla.notas',
-    celdas: notas,
+    crear: () => {
+      const R = porIdioma(ROTULOS_HOJA)
+      return {
+        celdas: notas(R),
+        graficas: [
+          { id: 'seed-notas', tipo: 'barras', titulo: R.graficaNotas, rango: 'A1:B5', encabezadoFila: true, encabezadoCol: true },
+        ],
+      }
+    },
     filas: FILAS_INICIO,
     cols: COLS_INICIO,
   },
@@ -106,7 +148,15 @@ export const PLANTILLAS_HOJA: PlantillaHoja[] = [
     id: 'mediciones',
     nombreEs: 'Registro de mediciones',
     claveNombre: 'computo.hojas.plantilla.mediciones',
-    celdas: mediciones,
+    crear: () => {
+      const R = porIdioma(ROTULOS_HOJA)
+      return {
+        celdas: mediciones(R),
+        graficas: [
+          { id: 'seed-mediciones', tipo: 'lineas', titulo: R.graficaMediciones, rango: 'A1:B7', encabezadoFila: true, encabezadoCol: true },
+        ],
+      }
+    },
     filas: FILAS_INICIO,
     cols: COLS_INICIO,
   },

@@ -12,7 +12,7 @@
  *
  * Si la cuota se llena, para y lo nuevo se queda solo en este dispositivo:
  * `useNubeStudio().llena` lo avisa. La promo del Studio (se regenera en cada
- * dispositivo desde /public) nunca sube.
+ * dispositivo desde /public) y los ejemplos de fábrica nunca suben.
  */
 import { create } from 'zustand'
 import { db, type EnNube } from '../data/db'
@@ -31,6 +31,7 @@ interface Fila {
   blob?: Blob
   nube?: EnNube
   fuente?: string
+  ejemploDe?: string
 }
 
 /** `llena`: la última subida chocó con la cuota. `pendientes`: lo que falta subir en esta pasada. */
@@ -40,7 +41,9 @@ export const useNubeStudio = create<{ llena: boolean; pendientes: number }>(() =
 const faltaSubir = (tabla: string, f: Fila) =>
   !!f.blob &&
   (!f.nube || f.nube.bytes !== f.blob.size) &&
-  !(tabla === 'mediosVideo' && f.fuente?.startsWith(PREFIJO_PROMO))
+  !(tabla === 'mediosVideo' && f.fuente?.startsWith(PREFIJO_PROMO)) &&
+  // Los ejemplos de fábrica se regeneran en cada dispositivo: no gastan cuota.
+  !f.ejemploDe
 
 /** Filas que pasan del tope por archivo: no se reintentan en esta sesión. */
 const demasiadoGrandes = new Set<string>()

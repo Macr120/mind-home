@@ -4126,6 +4126,9 @@ export const DE: Dict = {
   'diario.reparto.entregada': 'Heute geliefert',
   'diario.reparto.plantillaTitulo': '🗞️ Deine Zeitung von heute!',
   'diario.reparto.sinContenido': '🗞️ Heute gab es keine Inhalte in deinen Zeitungsrubriken.',
+  'diario.reparto.muestra.pie':
+    'So sieht eine Planung aus. Es ist nur ein Muster: Nichts wird gespeichert oder zugestellt, bis du es verwendest.',
+  'diario.reparto.muestra.usar': 'Diese Planung verwenden',
   'respaldo.titulo': 'Datensicherung',
   'respaldo.desc': 'Exportiere, stelle wieder her oder lösche die auf diesem Gerät gespeicherten Daten.',
   'respaldo.persistente.si': '✓ Geschützter Speicher: Der Browser löscht deine Daten nicht wegen Platzmangels',

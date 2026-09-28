@@ -4066,6 +4066,9 @@ export const EN: Dict = {
   'diario.reparto.entregada': 'Delivered today',
   'diario.reparto.plantillaTitulo': '🗞️ Your paper for today!',
   'diario.reparto.sinContenido': '🗞️ No content in your paper sections today.',
+  'diario.reparto.muestra.pie':
+    'This is what a schedule looks like. It\'s only a sample: nothing is saved or delivered until you use it.',
+  'diario.reparto.muestra.usar': 'Use this schedule',
 
   // Respaldo de datos (pestaña Configuraciones del editor)
   'respaldo.titulo': 'Data backup',

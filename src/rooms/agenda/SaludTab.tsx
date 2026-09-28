@@ -261,7 +261,14 @@ export function SaludTab({
         />
       )}
 
-      <BarraEjemplo area="salud" eventos={eventos} medicinas={medicinas} mascotas={mascotas} />
+      <BarraEjemplo
+        area="salud"
+        eventos={eventos}
+        contactos={contactos}
+        medicinas={medicinas}
+        mascotas={mascotas}
+        cuidados={cuidadosPersona}
+      />
 
       {(creando || editando) && (
         <FormEvento

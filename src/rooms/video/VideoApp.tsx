@@ -6,6 +6,7 @@ import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { PestanasCarpeta, type ItemPestana } from '../_shared/PestanasCarpeta'
 import { COLOR } from './constantes'
 import { Editor } from './Editor'
+import { ejemploAnimacion3d } from './ejemplos'
 import { ejemploVideo, sembrarPromo } from './promo'
 import { ProyectosTab } from './ProyectosTab'
 
@@ -60,7 +61,12 @@ export function VideoApp() {
           </div>
         </>
       ) : (
-        <ProyectosTab escenario="3d" onAbrir={(id) => usePelicula.getState().entrar(id)} />
+        <>
+          <ProyectosTab escenario="3d" onAbrir={(id) => usePelicula.getState().entrar(id)} />
+          <div className="mx-auto w-full max-w-2xl shrink-0 empty:hidden">
+            <BarraEjemplo paquete={ejemploAnimacion3d} />
+          </div>
+        </>
       )}
     </div>
   )

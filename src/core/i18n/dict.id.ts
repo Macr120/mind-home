@@ -4079,6 +4079,9 @@ export const ID: Dict = {
   'diario.reparto.entregada': 'Sudah dikirim hari ini',
   'diario.reparto.plantillaTitulo': '🗞️ Koranmu hari ini!',
   'diario.reparto.sinContenido': '🗞️ Hari ini tidak ada konten di bagian koranmu.',
+  'diario.reparto.muestra.pie':
+    'Beginilah tampilan sebuah jadwal. Ini hanya contoh: tidak ada yang disimpan atau dikirim sampai kamu memakainya.',
+  'diario.reparto.muestra.usar': 'Pakai jadwal ini',
   'respaldo.titulo': 'Cadangan data',
   'respaldo.desc': 'Ekspor, pulihkan, atau hapus data yang tersimpan di perangkat ini.',
   'respaldo.persistente.si': '✓ Penyimpanan terlindungi: browser tidak akan menghapus datamu demi ruang kosong',

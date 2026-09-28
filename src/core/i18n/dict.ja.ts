@@ -3901,6 +3901,8 @@ export const JA: Dict = {
   'diario.reparto.entregada': '本日届け済み',
   'diario.reparto.plantillaTitulo': '🗞️ 今日の新聞です！',
   'diario.reparto.sinContenido': '🗞️ 今日はニュースセクションに記事がありませんでした。',
+  'diario.reparto.muestra.pie': '配信予定はこのように表示されます。これは見本です。使うまで何も保存・配信されません。',
+  'diario.reparto.muestra.usar': 'この配信予定を使う',
   'respaldo.titulo': 'データのバックアップ',
   'respaldo.desc': 'この端末に保存されたデータのエクスポート、復元、削除ができます。',
   'respaldo.persistente.si': '✓ 保護されたストレージ：容量不足でもブラウザがデータを削除することはありません',

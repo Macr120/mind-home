@@ -1,6 +1,7 @@
 import type {
   AreaAgenda,
   ContactoAgenda,
+  Cuidado,
   EventoAgenda,
   Mascota,
   Medicamento,
@@ -8,6 +9,7 @@ import type {
 import { syncListoParaEjemplos, useEjemplos } from '../../core/data/ejemplos'
 import {
   contactosAgendaRepo,
+  cuidadosRepo,
   eventosAgendaRepo,
   mascotasRepo,
   medicamentosRepo,
@@ -17,11 +19,13 @@ import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
 import { porIdioma, type PorIdioma } from '../_shared/ejemplos/tipos'
 import {
   borrarContacto,
+  borrarCuidadoPersona,
   borrarEvento,
   borrarMascota,
   borrarMedicamento,
   guardarContacto,
   guardarCuidado,
+  guardarCuidadoPersona,
   guardarEvento,
   guardarMascota,
   guardarMedicamento,
@@ -80,6 +84,11 @@ type Clave =
   | 'direccion'
   | 'notasCarmen'
   | 'cena'
+  | 'chequeo'
+  | 'visual'
+  | 'rosa'
+  | 'presion'
+  | 'cardiologo'
 
 const TEXTOS: PorIdioma<Record<Clave, string>> = {
   es: {
@@ -121,6 +130,11 @@ const TEXTOS: PorIdioma<Record<Clave, string>> = {
     direccion: 'Av. de los Olivos 42',
     notasCarmen: 'No le gusta el cilantro. Le encantan las plantas.',
     cena: 'Cena de cumpleaños',
+    chequeo: 'Chequeo anual',
+    visual: 'Revisión visual',
+    rosa: 'Rosa Méndez',
+    presion: 'Toma de presión',
+    cardiologo: 'Cita con el cardiólogo',
   },
   en: {
     contrato: 'Sign the contract',
@@ -161,6 +175,11 @@ const TEXTOS: PorIdioma<Record<Clave, string>> = {
     direccion: '42 Olive Avenue',
     notasCarmen: 'Hates cilantro. Loves plants.',
     cena: 'Birthday dinner',
+    chequeo: 'Annual check-up',
+    visual: 'Eye exam',
+    rosa: 'Rosa Méndez',
+    presion: 'Blood pressure check',
+    cardiologo: 'Cardiologist appointment',
   },
   pt: {
     contrato: 'Assinar o contrato',
@@ -201,6 +220,11 @@ const TEXTOS: PorIdioma<Record<Clave, string>> = {
     direccion: 'Av. das Oliveiras, 42',
     notasCarmen: 'Não gosta de coentro. Adora plantas.',
     cena: 'Jantar de aniversário',
+    chequeo: 'Check-up anual',
+    visual: 'Exame de vista',
+    rosa: 'Rosa Méndez',
+    presion: 'Medir a pressão',
+    cardiologo: 'Consulta com o cardiologista',
   },
   fr: {
     contrato: 'Signer le contrat',
@@ -241,6 +265,11 @@ const TEXTOS: PorIdioma<Record<Clave, string>> = {
     direccion: 'Avenue des Oliviers 42',
     notasCarmen: "N'aime pas la coriandre. Adore les plantes.",
     cena: "Dîner d'anniversaire",
+    chequeo: 'Bilan de santé annuel',
+    visual: 'Examen de la vue',
+    rosa: 'Rosa Méndez',
+    presion: 'Prise de tension',
+    cardiologo: 'Rendez-vous chez le cardiologue',
   },
   de: {
     contrato: 'Vertrag unterschreiben',
@@ -281,6 +310,11 @@ const TEXTOS: PorIdioma<Record<Clave, string>> = {
     direccion: 'Olivenallee 42',
     notasCarmen: 'Mag keinen Koriander. Liebt Pflanzen.',
     cena: 'Geburtstagsessen',
+    chequeo: 'Jährlicher Check-up',
+    visual: 'Sehtest',
+    rosa: 'Rosa Méndez',
+    presion: 'Blutdruck messen',
+    cardiologo: 'Termin beim Kardiologen',
   },
   it: {
     contrato: 'Firmare il contratto',
@@ -321,6 +355,11 @@ const TEXTOS: PorIdioma<Record<Clave, string>> = {
     direccion: 'Via degli Ulivi 42',
     notasCarmen: 'Non le piace il coriandolo. Adora le piante.',
     cena: 'Cena di compleanno',
+    chequeo: 'Check-up annuale',
+    visual: 'Controllo della vista',
+    rosa: 'Rosa Méndez',
+    presion: 'Misurare la pressione',
+    cardiologo: 'Visita dal cardiologo',
   },
   ja: {
     contrato: '契約書にサインする',
@@ -361,6 +400,11 @@ const TEXTOS: PorIdioma<Record<Clave, string>> = {
     direccion: 'オリボス通り42番地',
     notasCarmen: 'パクチーが苦手です。植物が大好きです。',
     cena: '誕生日ディナー',
+    chequeo: '年1回の健康診断',
+    visual: '視力検査',
+    rosa: 'ロサ・メンデス',
+    presion: '血圧測定',
+    cardiologo: '循環器内科の受診',
   },
   zh: {
     contrato: '签合同',
@@ -401,6 +445,11 @@ const TEXTOS: PorIdioma<Record<Clave, string>> = {
     direccion: '橄榄树大道42号',
     notasCarmen: '不喜欢香菜,很喜欢植物。',
     cena: '生日晚餐',
+    chequeo: '年度体检',
+    visual: '视力检查',
+    rosa: '罗莎·门德斯',
+    presion: '量血压',
+    cardiologo: '看心内科',
   },
   ko: {
     contrato: '계약서에 서명하기',
@@ -441,6 +490,11 @@ const TEXTOS: PorIdioma<Record<Clave, string>> = {
     direccion: '올리보스 거리 42번지',
     notasCarmen: '고수를 안 좋아해요. 식물을 정말 좋아해요.',
     cena: '생일 저녁 식사',
+    chequeo: '연례 건강검진',
+    visual: '시력 검사',
+    rosa: '로사 멘데스',
+    presion: '혈압 측정',
+    cardiologo: '심장내과 진료',
   },
   ru: {
     contrato: 'Подписать договор',
@@ -481,6 +535,11 @@ const TEXTOS: PorIdioma<Record<Clave, string>> = {
     direccion: 'Аллея Олив, 42',
     notasCarmen: 'Не любит кинзу. Обожает растения.',
     cena: 'Праздничный ужин',
+    chequeo: 'Ежегодный осмотр',
+    visual: 'Проверка зрения',
+    rosa: 'Роса Мендес',
+    presion: 'Измерить давление',
+    cardiologo: 'Приём у кардиолога',
   },
   hi: {
     contrato: 'कॉन्ट्रैक्ट पर हस्ताक्षर करना',
@@ -521,6 +580,11 @@ const TEXTOS: PorIdioma<Record<Clave, string>> = {
     direccion: 'एवेनिदा दे लॉस ओलिवोस 42',
     notasCarmen: 'धनिया पसंद नहीं है। पौधों से बहुत प्यार है।',
     cena: 'बर्थडे डिनर',
+    chequeo: 'सालाना जाँच',
+    visual: 'आँखों की जाँच',
+    rosa: 'रोसा मेंडेज़',
+    presion: 'ब्लड प्रेशर जाँच',
+    cardiologo: 'कार्डियोलॉजिस्ट से मिलना',
   },
   tr: {
     contrato: 'Sözleşmeyi imzalamak',
@@ -561,6 +625,11 @@ const TEXTOS: PorIdioma<Record<Clave, string>> = {
     direccion: 'Zeytinlik Caddesi 42',
     notasCarmen: 'Kişniş sevmiyor. Bitkilere bayılıyor.',
     cena: 'Doğum günü yemeği',
+    chequeo: 'Yıllık check-up',
+    visual: 'Göz muayenesi',
+    rosa: 'Rosa Méndez',
+    presion: 'Tansiyon ölçümü',
+    cardiologo: 'Kardiyoloji randevusu',
   },
   id: {
     contrato: 'Menandatangani kontrak',
@@ -601,6 +670,11 @@ const TEXTOS: PorIdioma<Record<Clave, string>> = {
     direccion: 'Jl. Zaitun No. 42',
     notasCarmen: 'Nggak suka ketumbar. Suka banget sama tanaman.',
     cena: 'Makan malam ulang tahun',
+    chequeo: 'Pemeriksaan tahunan',
+    visual: 'Pemeriksaan mata',
+    rosa: 'Rosa Méndez',
+    presion: 'Cek tekanan darah',
+    cardiologo: 'Janji dengan dokter jantung',
   },
   pl: {
     contrato: 'Podpisać umowę',
@@ -641,6 +715,11 @@ const TEXTOS: PorIdioma<Record<Clave, string>> = {
     direccion: 'Aleja Oliwna 42',
     notasCarmen: 'Nie lubi kolendry. Uwielbia rośliny.',
     cena: 'Kolacja urodzinowa',
+    chequeo: 'Coroczny przegląd zdrowia',
+    visual: 'Badanie wzroku',
+    rosa: 'Rosa Méndez',
+    presion: 'Pomiar ciśnienia',
+    cardiologo: 'Wizyta u kardiologa',
   },
   ar: {
     contrato: 'توقيع العقد',
@@ -681,6 +760,11 @@ const TEXTOS: PorIdioma<Record<Clave, string>> = {
     direccion: 'شارع الزيتون 42',
     notasCarmen: 'لا تحب الكزبرة. تحب النباتات كثيرًا.',
     cena: 'عشاء عيد الميلاد',
+    chequeo: 'الفحص السنوي',
+    visual: 'فحص النظر',
+    rosa: 'روسا منديز',
+    presion: 'قياس الضغط',
+    cardiologo: 'موعد مع طبيب القلب',
   },
   nl: {
     contrato: 'Het contract tekenen',
@@ -721,6 +805,11 @@ const TEXTOS: PorIdioma<Record<Clave, string>> = {
     direccion: 'Olijflaan 42',
     notasCarmen: 'Houdt niet van koriander. Dol op planten.',
     cena: 'Verjaardagsdiner',
+    chequeo: 'Jaarlijkse check-up',
+    visual: 'Oogonderzoek',
+    rosa: 'Rosa Méndez',
+    presion: 'Bloeddruk meten',
+    cardiologo: 'Afspraak bij de cardioloog',
   },
 }
 
@@ -731,10 +820,16 @@ export const hayEjemplo = (
   contactos: ContactoAgenda[],
   medicinas: Medicamento[],
   mascotas: Mascota[] = [],
+  cuidados: Cuidado[] = [],
 ): boolean =>
   eventos.some((e) => e.ejemplo && e.area === area) ||
-  (area === 'salud' && (medicinas.some((m) => m.ejemplo) || mascotas.some((m) => m.ejemplo))) ||
-  (area === 'personas' && contactos.some((c) => c.ejemplo))
+  (area === 'salud' &&
+    (medicinas.some((m) => m.ejemplo) ||
+      mascotas.some((m) => m.ejemplo) ||
+      cuidados.some((c) => c.ejemplo) ||
+      contactos.some((c) => c.ejemplo && c.alCuidado))) ||
+  // El prójimo de ejemplo es de Salud aunque también salga en la libreta.
+  (area === 'personas' && contactos.some((c) => c.ejemplo && !c.alCuidado))
 
 /** Id de la sección en `core/data/ejemplos.ts` (la que recuerda si ya se decidió). */
 export const seccionEjemplo = (area: AreaAgenda) => `agenda.${area}`
@@ -755,18 +850,23 @@ export function ponerEjemploPrimeraVez(area: AreaAgenda): Promise<void> {
     if (decididas.includes(seccion) || esDemo() || esVisita()) return
     // Sin el primer sync, una sección vacía puede ser solo una sección sin bajar.
     if (!(await syncListoParaEjemplos())) return
-    const [eventos, contactos, medicinas, mascotas] = await Promise.all([
+    const [eventos, contactos, medicinas, mascotas, cuidados] = await Promise.all([
       eventosAgendaRepo.list(),
       contactosAgendaRepo.list(),
       medicamentosRepo.list(),
       mascotasRepo.list(),
+      cuidadosRepo.list(),
     ])
     const propios =
       eventos.some((e) => e.area === area && !e.ejemplo) ||
-      (area === 'salud' && (medicinas.some((m) => !m.ejemplo) || mascotas.some((m) => !m.ejemplo))) ||
+      (area === 'salud' &&
+        (medicinas.some((m) => !m.ejemplo) ||
+          mascotas.some((m) => !m.ejemplo) ||
+          cuidados.some((c) => !c.ejemplo) ||
+          contactos.some((c) => c.alCuidado && !c.ejemplo))) ||
       (area === 'personas' && contactos.some((c) => !c.ejemplo))
     decidir(seccion)
-    if (!propios && !hayEjemplo(area, eventos, contactos, medicinas, mascotas)) await cargarEjemplo(area)
+    if (!propios && !hayEjemplo(area, eventos, contactos, medicinas, mascotas, cuidados)) await cargarEjemplo(area)
   })().finally(() => enCurso.delete(area))
   enCurso.set(area, tarea)
   return tarea
@@ -927,6 +1027,57 @@ export async function cargarEjemplo(area: AreaAgenda): Promise<void> {
       activo: true,
       ejemplo: true,
     })
+    // Salud › Tú › Cuidados: uno anual y otro cada dos años.
+    await guardarCuidadoPersona(
+      null,
+      { tipo: 'chequeo', titulo: T.chequeo, fecha: enDias(20), hora: '09:00', cadaMeses: 12, activo: true, ejemplo: true },
+      null,
+    )
+    await guardarCuidadoPersona(
+      null,
+      {
+        tipo: 'visual',
+        titulo: T.visual,
+        fecha: enDias(40),
+        hora: '11:00',
+        cadaMeses: 24,
+        ultima: enDias(-690),
+        activo: true,
+        ejemplo: true,
+      },
+      null,
+    )
+    // Salud › Prójimos: una persona a tu cuidado con su cuidado y su cita.
+    const projimoId = nuevoId('ct')
+    await guardarContacto({ contactoId: projimoId } as ContactoAgenda, {
+      nombre: T.rosa,
+      relacion: T.familia,
+      alCuidado: true,
+      ejemplo: true,
+    })
+    await guardarCuidadoPersona(
+      null,
+      {
+        contactoId: projimoId,
+        tipo: 'chequeo',
+        titulo: T.presion,
+        fecha: enDias(7),
+        hora: '10:00',
+        cadaMeses: 1,
+        activo: true,
+        ejemplo: true,
+      },
+      T.rosa,
+    )
+    await guardarEvento(null, {
+      area: 'salud',
+      ejemplo: true,
+      titulo: T.cardiologo,
+      fecha: enDias(15),
+      hora: '12:00',
+      lugar: T.clinica,
+      contactoId: projimoId,
+    })
     return
   }
 
@@ -983,12 +1134,15 @@ export async function borrarEjemplo(
   contactos: ContactoAgenda[],
   medicinas: Medicamento[],
   mascotas: Mascota[] = [],
+  cuidados: Cuidado[] = [],
 ): Promise<void> {
   for (const e of eventos.filter((x) => x.ejemplo && x.area === area)) await borrarEvento(e)
   if (area === 'salud') {
     for (const m of medicinas.filter((x) => x.ejemplo)) await borrarMedicamento(m)
     // La mascota se lleva sus cuidados (y con ellos sus bloques del calendario).
     for (const m of mascotas.filter((x) => x.ejemplo)) await borrarMascota(m)
+    for (const c of cuidados.filter((x) => x.ejemplo)) await borrarCuidadoPersona(c)
+    for (const c of contactos.filter((x) => x.ejemplo && x.alCuidado)) await borrarContacto(c)
   }
-  if (area === 'personas') for (const c of contactos.filter((x) => x.ejemplo)) await borrarContacto(c)
+  if (area === 'personas') for (const c of contactos.filter((x) => x.ejemplo && !x.alCuidado)) await borrarContacto(c)
 }

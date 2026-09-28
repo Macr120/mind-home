@@ -76,7 +76,7 @@ export async function renderizarWav(p: ProyectoAudio, buffersClips?: ReadonlyMap
 }
 
 /** AudioBuffer → WAV (cabecera RIFF de 44 bytes + muestras L/R intercaladas). */
-function wavDesdeBuffer(buf: AudioBuffer): Blob {
+export function wavDesdeBuffer(buf: AudioBuffer): Blob {
   const canales = Math.min(2, buf.numberOfChannels)
   const muestras = buf.length
   const blockAlign = canales * 2

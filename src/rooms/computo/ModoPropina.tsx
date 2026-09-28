@@ -28,7 +28,7 @@ export function ModoPropina({ selector }: { selector: ReactNode }) {
       <CabeceraModo selector={selector} />
 
       <div className="grid grid-cols-2 gap-2">
-        <CampoNum etiqueta={t('computo.propina.cuenta', 'La cuenta')} valor={cuenta} onCambiar={setCuenta} />
+        <CampoNum etiqueta={t('computo.propina.cuenta', 'La cuenta')} valor={cuenta} onCambiar={setCuenta} placeholder="250" />
         <CampoNum
           etiqueta={t('computo.propina.personas', 'Entre cuántos')}
           valor={personas}

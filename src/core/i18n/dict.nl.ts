@@ -4095,6 +4095,9 @@ export const NL: Dict = {
   'diario.reparto.entregada': 'Vandaag bezorgd',
   'diario.reparto.plantillaTitulo': '🗞️ Jouw krant van vandaag!',
   'diario.reparto.sinContenido': '🗞️ Vandaag was er geen inhoud in je krantensecties.',
+  'diario.reparto.muestra.pie':
+    'Zo ziet een planning eruit. Het is maar een voorbeeld: er wordt niets opgeslagen of bezorgd tot je hem gebruikt.',
+  'diario.reparto.muestra.usar': 'Deze planning gebruiken',
   'respaldo.titulo': 'Back-up van gegevens',
   'respaldo.desc': 'Exporteer, herstel of verwijder de gegevens die op dit apparaat zijn opgeslagen.',
   'respaldo.persistente.si': '✓ Beveiligde opslag: de browser verwijdert je gegevens niet bij plaatsgebrek',

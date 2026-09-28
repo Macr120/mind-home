@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import type { ProyectoAudio } from '../../core/data/db'
 import { musicaImportadaRepo } from '../../core/data/repository'
-import { useT } from '../../core/i18n/useT'
+import { claveLS } from '../../core/edicion'
+import { tGlobal, useT } from '../../core/i18n/useT'
 import { confirmar } from '../../core/state/confirmarStore'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { BotonSecundario, Spinner, TARJETA, Vacio } from '../_shared/ui'
+import { proyectoDeSemilla } from './Albumes'
+import { SEMILLAS_CANCIONES } from './canciones'
 import { COLOR } from './constantes'
 import { Knob } from './Knob'
 import * as mezclador from './platos'
@@ -34,6 +37,30 @@ const DOM: Record<LadoPlato, DomPlato> = {
 
 const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`
 
+/**
+ * Canciones de fábrica que esperan pausadas en los platos (en memoria, sin
+ * filas) hasta que el usuario cargue o quite alguna: desde ahí, en este
+ * dispositivo, los platos abren vacíos.
+ */
+const PRECARGA: Record<LadoPlato, string> = { a: 'sem-himno-alegria', b: 'sem-cucaracha' }
+const lsSinPrecarga = () => claveLS('audio.mezclar.sinPrecarga')
+
+function hayQuePrecargar(): boolean {
+  try {
+    return localStorage.getItem(lsSinPrecarga()) !== '1'
+  } catch {
+    return false
+  }
+}
+
+function dejarDePrecargar(): void {
+  try {
+    localStorage.setItem(lsSinPrecarga(), '1')
+  } catch {
+    // Sin almacenamiento, la precarga vuelve en la próxima visita.
+  }
+}
+
 export function Mezclador() {
   const t = useT()
   const snap = useSyncExternalStore(mezclador.mezcladorStore.subscribe, mezclador.mezcladorStore.getSnapshot)
@@ -41,6 +68,24 @@ export function Mezclador() {
 
   // Al salir de la pestaña se suelta todo (buffers grandes incluidos), como Albumes.
   useEffect(() => () => mezclador.liberar(), [])
+
+  useEffect(() => {
+    if (!hayQuePrecargar()) return
+    let vivo = true
+    void (async () => {
+      // Uno tras otro: el render offline de los dos a la vez se come el hilo.
+      for (const lado of ['a', 'b'] as const) {
+        const s = SEMILLAS_CANCIONES.find((x) => x.id === PRECARGA[lado])
+        if (!vivo || !s || mezclador.mezcladorStore.getSnapshot()[lado].estado !== 'vacio') continue
+        await mezclador.cargarCancion(lado, proyectoDeSemilla(s), tGlobal(`audio.cancion.${s.id.slice(4)}`, s.tituloEs))
+      }
+    })().catch(() => {
+      // Sin audio en este dispositivo: los platos se quedan vacíos, como siempre.
+    })
+    return () => {
+      vivo = false
+    }
+  }, [])
 
   useEffect(() => {
     let raf = 0
@@ -75,11 +120,13 @@ export function Mezclador() {
 
   const elegir = (lado: LadoPlato, p: ProyectoAudio, titulo: string) => {
     setSelector(null)
+    dejarDePrecargar()
     void mezclador.cargarCancion(lado, p, titulo).catch(avisarError)
   }
 
   const elegirArchivo = (lado: LadoPlato, blob: Blob, titulo: string, bpm?: number) => {
     setSelector(null)
+    dejarDePrecargar()
     void mezclador.cargarArchivo(lado, blob, titulo, bpm).catch(avisarError)
   }
 
@@ -87,6 +134,7 @@ export function Mezclador() {
   // (duración + BPM detectado), se guarda en la biblioteca local.
   const importar = (lado: LadoPlato, archivo: File) => {
     setSelector(null)
+    dejarDePrecargar()
     void (async () => {
       const nombre = archivo.name.replace(/\.[^.]+$/, '')
       const meta = await mezclador.cargarArchivo(lado, archivo, nombre)
@@ -160,7 +208,10 @@ function Plato({ lado, plato, onCargar }: { lado: LadoPlato; plato: SnapshotPlat
         <span className="min-w-0 flex-1 truncate text-sm font-semibold">{c.titulo}</span>
         <button
           type="button"
-          onClick={() => mezclador.quitarCancion(lado)}
+          onClick={() => {
+            dejarDePrecargar()
+            mezclador.quitarCancion(lado)
+          }}
           aria-label={t('audio.mezclar.quitar', 'Quitar del plato')}
           title={t('audio.mezclar.quitar', 'Quitar del plato')}
           className="rounded-lg px-1.5 py-0.5 text-white/40 transition hover:bg-white/10 hover:text-white/80"

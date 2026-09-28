@@ -3966,6 +3966,8 @@ export const AR: Dict = {
   'diario.reparto.entregada': 'تم التوصيل اليوم',
   'diario.reparto.plantillaTitulo': '🗞️ صحيفتك لهذا اليوم!',
   'diario.reparto.sinContenido': '🗞️ لا يوجد محتوى اليوم في أقسام صحيفتك.',
+  'diario.reparto.muestra.pie': 'هكذا تبدو الجدولة. إنها مجرد عيّنة: لا يُحفظ أو يُسلَّم شيء حتى تستخدمها.',
+  'diario.reparto.muestra.usar': 'استخدم هذه الجدولة',
   'respaldo.titulo': 'نسخة احتياطية للبيانات',
   'respaldo.desc': 'صدّر البيانات المحفوظة على هذا الجهاز أو استعدها أو احذفها.',
   'respaldo.persistente.si': '✓ تخزين محمي: لن يحذف المتصفح بياناتك لتوفير مساحة',

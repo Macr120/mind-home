@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import type {
   AreaAgenda,
   ContactoAgenda,
+  Cuidado,
   EventoAgenda,
   Mascota,
   Medicamento,
@@ -27,12 +28,14 @@ export function BarraEjemplo({
   contactos = [],
   medicinas = [],
   mascotas = [],
+  cuidados = [],
 }: {
   area: AreaAgenda
   eventos: EventoAgenda[]
   contactos?: ContactoAgenda[]
   medicinas?: Medicamento[]
   mascotas?: Mascota[]
+  cuidados?: Cuidado[]
 }) {
   const t = useT()
   const [ocupado, setOcupado] = useState(false)
@@ -46,7 +49,7 @@ export function BarraEjemplo({
   }, [area, decidida, fuera])
 
   if (fuera) return null
-  const cargado = hayEjemplo(area, eventos, contactos, medicinas, mascotas)
+  const cargado = hayEjemplo(area, eventos, contactos, medicinas, mascotas, cuidados)
   // Poniéndose por primera vez: en un momento aparece el ejemplo.
   if (!cargado && !decidida) return null
 
@@ -93,7 +96,7 @@ export function BarraEjemplo({
           <button
             type="button"
             onClick={() =>
-              void correr(() => borrarEjemplo(area, eventos, contactos, medicinas, mascotas))
+              void correr(() => borrarEjemplo(area, eventos, contactos, medicinas, mascotas, cuidados))
             }
             onBlur={() => setConfirmando(false)}
             disabled={ocupado}

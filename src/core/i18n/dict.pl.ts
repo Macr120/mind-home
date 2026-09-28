@@ -4042,6 +4042,9 @@ export const PL: Dict = {
   'diario.reparto.entregada': 'Dostarczona dziś',
   'diario.reparto.plantillaTitulo': '🗞️ Twoja dzisiejsza gazeta!',
   'diario.reparto.sinContenido': '🗞️ Dziś nie było treści w Twoich sekcjach gazety.',
+  'diario.reparto.muestra.pie':
+    'Tak wygląda harmonogram. To tylko próbka: nic nie zostanie zapisane ani dostarczone, dopóki go nie użyjesz.',
+  'diario.reparto.muestra.usar': 'Użyj tego harmonogramu',
   'respaldo.titulo': 'Kopia zapasowa danych',
   'respaldo.desc': 'Eksportuj, przywróć lub usuń dane zapisane na tym urządzeniu.',
   'respaldo.persistente.si': '✓ Pamięć chroniona: przeglądarka nie usunie Twoich danych z powodu braku miejsca',

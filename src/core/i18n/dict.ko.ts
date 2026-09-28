@@ -3905,6 +3905,8 @@ export const KO: Dict = {
   'diario.reparto.entregada': '오늘 전달됨',
   'diario.reparto.plantillaTitulo': '🗞️ 오늘의 신문이에요!',
   'diario.reparto.sinContenido': '🗞️ 오늘은 신문 섹션에 내용이 없었어요.',
+  'diario.reparto.muestra.pie': '배달 일정은 이렇게 보입니다. 견본일 뿐이라 사용하기 전에는 아무것도 저장되거나 전달되지 않습니다.',
+  'diario.reparto.muestra.usar': '이 일정 사용하기',
   'respaldo.titulo': '데이터 백업',
   'respaldo.desc': '이 기기에 저장된 데이터를 내보내거나 복원하거나 삭제할 수 있어요.',
   'respaldo.persistente.si': '✓ 보호된 저장소: 브라우저가 공간 확보를 위해 데이터를 삭제하지 않아요',

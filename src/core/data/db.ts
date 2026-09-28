@@ -256,6 +256,8 @@ export interface RegistroPeso {
   id?: number
   fecha: string
   kg: number
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 export type MomentoComida = 'desayuno' | 'comida' | 'cena' | 'snack'
@@ -273,6 +275,8 @@ export interface RegistroComida {
   carbohidratos: number
   grasas: number
   nota?: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /**
@@ -287,12 +291,16 @@ export interface PlanComida {
   /** Registro real ya creado; ausente = todavía solo planeada. */
   comidaId?: number
   creadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 export interface RegistroAgua {
   id?: number
   fecha: string
   ml: number
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Lista de compras guardada (colección con nombre) del súper. */
@@ -977,6 +985,8 @@ export interface ItinerarioGuardado {
   contexto?: string
   filas: FilaItinerarioGuardado[]
   creadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Punto con nombre de un trayecto de navegación (origen, destino o parada). */
@@ -3106,6 +3116,8 @@ export interface ConversacionIdioma {
   destiladaEn?: string
   creadoEn: string
   actualizadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 export interface MensajeIdioma {
@@ -3114,6 +3126,8 @@ export interface MensajeIdioma {
   rol: 'usuario' | 'asistente'
   texto: string
   creado: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Nodo dinámico del temario (los temas de temario.ts son el esqueleto estático). */
@@ -3845,6 +3859,8 @@ export interface CalculoComputo {
   salida: string
   /** `formulaId` cuando el cálculo salió de una fórmula del formulario. */
   formulaId?: string
+  /** Fila del ejemplo de fábrica del historial. */
+  ejemploDe?: string
   fecha: string
   creadoEn: string
 }
@@ -4168,6 +4184,8 @@ export interface GrabacionAudio {
   /** Picos 0..1 (~200 cubetas) para pintar la onda sin re-decodificar. */
   picos?: number[]
   creadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Canción de audio importada por el usuario para el mezclador, SOLO LOCAL (blobs, como `GrabacionAudio`). */

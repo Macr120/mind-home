@@ -6,6 +6,7 @@ import {
   pesoRepo,
   recetasRepo,
 } from '../../core/data/repository'
+import { sinEjemplos } from '../../core/data/ejemplos'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { tGlobal } from '../../core/i18n/useT'
 import { CLAUSULA_RECHAZO, CLAUSULA_SALUD, type ContextoPlanApp } from '../../core/planIA'
@@ -44,7 +45,7 @@ export async function planMetasCocina(): Promise<ContextoPlanApp> {
       `Objetivos diarios: ${perfil.calorias} kcal, ${perfil.proteinas} g de proteína, ${perfil.aguaMl} ml de agua.`,
     )
     if (perfil.objetivo) contexto.push(`Preset de dieta: ${PRESET[perfil.objetivo]}.`)
-    const prog = progresoMeta(await pesoRepo.list(), perfil, hoy)
+    const prog = progresoMeta(sinEjemplos(await pesoRepo.list()), perfil, hoy)
     if (prog) {
       contexto.push(
         `Peso actual ${prog.actual} kg, objetivo ${prog.objetivo} kg (faltan ${prog.restanteKg.toFixed(1)} kg); ritmo pactado ${prog.ritmoMetaSemana} kg/semana.`,
@@ -65,7 +66,7 @@ export async function planMetasCocina(): Promise<ContextoPlanApp> {
     } else if (perfil.pesoKg) {
       contexto.push(`Peso actual: ${perfil.pesoKg} kg.`)
     }
-    const res = resumenAlimentacion(macrosPorDia(await comidasRepo.list()), perfil, 'mes', hoy)
+    const res = resumenAlimentacion(macrosPorDia(sinEjemplos(await comidasRepo.list())), perfil, 'mes', hoy)
     if (res.diasRegistrados > 0)
       contexto.push(
         `Este mes: ${res.diasRegistrados} días registrados, ${res.promedio.calorias} kcal promedio, adherencia calórica ${res.adherencia}%.`,

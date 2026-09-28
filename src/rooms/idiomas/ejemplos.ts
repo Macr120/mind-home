@@ -1,4 +1,10 @@
-import { idiomasRepo, tarjetasIdiomaRepo, temasIdiomaRepo } from '../../core/data/repository'
+import {
+  conversacionesIdiomaRepo,
+  idiomasRepo,
+  mensajesIdiomaRepo,
+  tarjetasIdiomaRepo,
+  temasIdiomaRepo,
+} from '../../core/data/repository'
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
 import { fotoEjemplo } from '../_shared/ejemplos/fotos'
 import {
@@ -406,9 +412,55 @@ const TARJETAS: { n: 1 | 2 | 3 | 4 | 5 | 6; tipo: 'palabra' | 'frase' | 'expresi
     { n: 6, tipo: 'frase', caja: 1, proxima: 1 },
   ]
 
+/**
+ * Charla corta con el tutor, en el idioma OBJETIVO: el alumno comete errores de
+ * A2 y el tutor los corrige con la línea «✔» de `systemTutor`. Las glosas entre
+ * paréntesis van en el idioma de la interfaz; por eso el inglés se repite en
+ * cada idioma y solo cambian las cuatro glosas.
+ */
+type ClaveCharla = 'charlaTitulo' | 'm1' | 'm2' | 'm3' | 'm4' | 'm5' | 'm6'
+const MENSAJES_CHARLA = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6'] as const
+
+const charlaIngles = (titulo: string, ir: string, comprar: string, cola: string, valePena: string) => ({
+  charlaTitulo: titulo,
+  m1: 'Hi! Last weekend I goed to the market with my neighbour.',
+  m2: `✔ I went to the market with my neighbour.\nGreat! "Go" is irregular: go → went (go = ${ir}). What did you buy?`,
+  m3: 'We buyed bread and cheese. There was a very long queue!',
+  m4: `✔ We bought bread and cheese.\nAnother irregular verb: buy → bought (buy = ${comprar}). A long queue (queue = ${cola}) on Saturday morning is normal! Did you wait a long time?`,
+  m5: 'Yes, twenty minutes. But the bread was delicious.',
+  m6: `Twenty minutes! But it was worth it (worth it = ${valePena}). Perfect sentences, no mistakes this time. And what did you do on Sunday?`,
+})
+
+const CHARLA: PorIdioma<Record<ClaveCharla, string>> = {
+  es: charlaIngles('Mi fin de semana en el mercado', 'ir', 'comprar', 'cola', 'vale la pena'),
+  en: {
+    charlaTitulo: 'My weekend at the market',
+    m1: '¡Hola! El fin de semana pasado yo fue al mercado con mi vecino.',
+    m2: '✔ Yo fui al mercado con mi vecino.\n¡Qué bien! «Ir» es irregular: yo fui, tú fuiste, él fue (ir = to go). ¿Qué compraste?',
+    m3: 'Compramos pan y queso. ¡Había una cola muy largo!',
+    m4: '✔ Había una cola muy larga.\n«Cola» es femenino: una cola larga (cola = queue). El sábado por la mañana siempre hay cola. ¿Esperaste mucho?',
+    m5: 'Sí, veinte minutos. Pero el pan estaba buenísimo.',
+    m6: '¡Veinte minutos! Pero valió la pena (valer la pena = to be worth it). Frases perfectas, sin errores. ¿Y qué hiciste el domingo?',
+  },
+  pt: charlaIngles('Meu fim de semana na feira', 'ir', 'comprar', 'fila', 'vale a pena'),
+  fr: charlaIngles('Mon week-end au marché', 'aller', 'acheter', 'file d’attente', 'ça vaut le coup'),
+  de: charlaIngles('Mein Wochenende auf dem Markt', 'gehen', 'kaufen', 'Schlange', 'es lohnt sich'),
+  it: charlaIngles('Il mio weekend al mercato', 'andare', 'comprare', 'coda', 'ne vale la pena'),
+  ja: charlaIngles('週末の市場', '行く', '買う', '行列', 'その価値がある'),
+  zh: charlaIngles('周末去市场', '去', '买', '排队', '值得'),
+  ko: charlaIngles('주말 시장 나들이', '가다', '사다', '줄', '그럴 만한 가치가 있다'),
+  ru: charlaIngles('Мои выходные на рынке', 'идти', 'покупать', 'очередь', 'оно того стоит'),
+  hi: charlaIngles('बाज़ार में मेरा वीकेंड', 'जाना', 'खरीदना', 'कतार', 'इसके लायक'),
+  tr: charlaIngles('Pazarda hafta sonum', 'gitmek', 'satın almak', 'kuyruk', 'buna değer'),
+  id: charlaIngles('Akhir pekanku di pasar', 'pergi', 'membeli', 'antrean', 'sepadan'),
+  pl: charlaIngles('Mój weekend na targu', 'iść', 'kupować', 'kolejka', 'było warto'),
+  nl: charlaIngles('Mijn weekend op de markt', 'gaan', 'kopen', 'rij', 'de moeite waard'),
+  ar: charlaIngles('عطلة نهاية الأسبوع في السوق', 'يذهب', 'يشتري', 'طابور', 'يستحق العناء'),
+}
+
 export const ejemploIdiomas: PaqueteEjemplo = {
   id: ID,
-  tablas: [idiomasRepo, temasIdiomaRepo, tarjetasIdiomaRepo],
+  tablas: [idiomasRepo, temasIdiomaRepo, tarjetasIdiomaRepo, conversacionesIdiomaRepo, mensajesIdiomaRepo],
   async materializar(restaurar) {
     if (await yaMaterializado(ID, () => idiomasRepo.list())) return
     const T = porIdioma(TEXTOS)
@@ -473,9 +525,37 @@ export const ejemploIdiomas: PaqueteEjemplo = {
       )
     }
 
+    // La charla, colgada del tema del pasado simple. Hace tres días a las 19:00
+    // LOCALES: las burbujas enseñan la hora.
+    const C = porIdioma(CHARLA)
+    const inicio = new Date(`${isoMasDias(hoy, -3)}T19:00:00`).getTime()
+    const aLos = (min: number) => new Date(inicio + min * 60_000).toISOString()
+    const charlaId = await conversacionesIdiomaRepo.addSeed(
+      filaEjemplo(ID, 'charla', restaurar, {
+        idiomaId,
+        titulo: C.charlaTitulo,
+        temaId: tema1,
+        creadoEn: aLos(0),
+        actualizadoEn: aLos(10),
+        // Destilada DESPUÉS del último mensaje: salir de la charla no ofrece
+        // extraer vocabulario, que sería una llamada de pago que nadie pidió.
+        destiladaEn: aLos(11),
+      }),
+    )
+    for (const [i, clave] of MENSAJES_CHARLA.entries()) {
+      await mensajesIdiomaRepo.addSeed(
+        filaEjemplo(ID, `mensaje${i}`, restaurar, {
+          conversacionId: charlaId,
+          rol: i % 2 === 0 ? ('usuario' as const) : ('asistente' as const),
+          texto: C[clave],
+          creado: aLos(i * 2),
+        }),
+      )
+    }
   },
 
   async retraducir() {
+    const idiomaEjemplo = new Map<number, string>()
     // El idioma que se estudia es «el otro»: al cambiar la interfaz, el ejemplo
     // entero cambia de lengua objetivo (solo si sigue siendo el de fábrica).
     for (const i of await idiomasRepo.list()) {
@@ -484,6 +564,22 @@ export const ejemploIdiomas: PaqueteEjemplo = {
       const activo = porIdioma(OBJETIVO)
       if (activo.codigo !== i.codigo || activo.nombre !== i.nombre) {
         await idiomasRepo.update(i.id, { codigo: activo.codigo, nombre: activo.nombre, bandera: activo.bandera })
+      }
+      idiomaEjemplo.set(i.id, activo.codigo)
+    }
+    // La charla sigue a su idioma: solo gira si el idioma giró (o ya está en el
+    // objetivo activo) y ningún mensaje es del usuario.
+    const mensajes = await mensajesIdiomaRepo.list()
+    for (const c of await conversacionesIdiomaRepo.list()) {
+      if (c.ejemploDe !== ID || c.id == null) continue
+      if (idiomaEjemplo.get(c.idiomaId) !== porIdioma(OBJETIVO).codigo) continue
+      const suyos = mensajes.filter((m) => m.conversacionId === c.id)
+      if (suyos.some((m) => m.ejemploDe !== ID)) continue
+      const titulo = retraducido(CHARLA, c.titulo, 'charlaTitulo')
+      if (titulo) await conversacionesIdiomaRepo.update(c.id, { titulo })
+      for (const m of suyos) {
+        const texto = retraducido(CHARLA, m.texto, ...MENSAJES_CHARLA)
+        if (texto && m.id != null) await mensajesIdiomaRepo.update(m.id, { texto })
       }
     }
     for (const t of await temasIdiomaRepo.list()) {

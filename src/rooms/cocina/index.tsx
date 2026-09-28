@@ -26,6 +26,7 @@ import { registrarPeso } from './peso'
 import { planMetasCocina } from './plan'
 import { esencialCocina, flujosCocina } from './tutorial.meta'
 import { fechaLocalISO } from '../../core/fechaLocal'
+import { sinEjemplos } from '../../core/data/ejemplos'
 import { OPERACIONES_IA } from './costosIA'
 import { registrarProveedorCompartible } from '../../core/buzon/compartibles'
 import { filasNodo } from '../../core/grafoApps'
@@ -374,7 +375,7 @@ const cocina: Plantilla = {
       },
       del: async (fecha) => {
         const perfil = (await perfilNutricionRepo.list())[0] ?? PERFIL_DEFECTO
-        const hecho = (await aguaRepo.list())
+        const hecho = sinEjemplos(await aguaRepo.list())
           .filter((a) => a.fecha === fecha)
           .reduce((s, a) => s + a.ml, 0)
         const litros = (ml: number) => (ml / 1000).toFixed(1)
@@ -395,7 +396,7 @@ const cocina: Plantilla = {
           const fila = buscarAgenda(rutinas, actividadId('momento', m.id))
           return fila != null && tocaFecha(fila, dia)
         })
-        const comidas = (await comidasRepo.list()).filter((c) => c.fecha === fecha)
+        const comidas = sinEjemplos(await comidasRepo.list()).filter((c) => c.fecha === fecha)
         const registrados = new Set(comidas.map((c) => c.momento))
         const hecho = agendados.filter((m) => registrados.has(m.id)).length
         const kcal = comidas.reduce((s, c) => s + c.calorias, 0)

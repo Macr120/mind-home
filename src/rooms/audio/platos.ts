@@ -105,6 +105,8 @@ const platos: Record<LadoPlato, Plato> = { a: platoNuevo(), b: platoNuevo() }
 let crossfade = 0.5
 let maestro: BusMaestro | null = null
 let contadorCarga = 0
+/** La carga vigente de cada plato: otra en ESE plato (o `liberar`) la invalida; la del otro plato, no. */
+const cargaDe = new WeakMap<Plato, number>()
 
 // ─── Store para React (snapshot inmutable, se reconstruye al emitir) ────────
 
@@ -448,6 +450,7 @@ export async function buffersDeClipsProyecto(ctx: AudioContext, p: ProyectoAudio
 /** Vacía el plato y lo deja en `cargando`; devuelve el token contra cargas cruzadas. */
 function prepararCarga(p: Plato): number {
   const miCarga = ++contadorCarga
+  cargaDe.set(p, miCarga)
   pararSource(p)
   p.buffer = null
   p.cancion = null
@@ -460,7 +463,7 @@ function prepararCarga(p: Plato): number {
 
 /** Pone el buffer listo en el plato (si la carga sigue vigente) → `pausado` en 0. */
 function ponerBuffer(lado: LadoPlato, miCarga: number, buffer: AudioBuffer, titulo: string, bpm: number): boolean {
-  if (miCarga !== contadorCarga) return false // eligieron otra canción (o liberaron) mientras tanto
+  if (cargaDe.get(platos[lado]) !== miCarga) return false // eligieron otra canción en este plato (o liberaron) mientras tanto
   const ctx = contextoAudio()
   if (ctx) armarGrafo(ctx)
   const p = platos[lado]
@@ -472,7 +475,7 @@ function ponerBuffer(lado: LadoPlato, miCarga: number, buffer: AudioBuffer, titu
 }
 
 function cargaFallida(p: Plato, miCarga: number) {
-  if (miCarga === contadorCarga) {
+  if (cargaDe.get(p) === miCarga) {
     p.estado = 'vacio'
     emitir()
   }
@@ -524,7 +527,7 @@ export async function cargarArchivo(
 
 export function quitarCancion(lado: LadoPlato): void {
   const p = platos[lado]
-  contadorCarga++
+  cargaDe.delete(p)
   pararSource(p)
   p.scratch.activo = false
   p.scratch.grano = null

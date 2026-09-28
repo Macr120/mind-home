@@ -127,6 +127,28 @@ export async function sembrarEjemploGarage(restaurar: boolean) {
       creadoEn: hoy,
     },
   ], undefined, restaurar)))
+  // Uid propio (no un índice más de la lista de arriba): así el trámite de la
+  // bici tiene identidad fija aunque la lista del auto cambie.
+  await db.tramitesVehiculo.bulkAdd(faltan([
+    filaSeed(
+      'tramitesVehiculo-bici',
+      {
+        tramiteId: 'tv-seed-bici-seguro',
+        vehiculoId: biciId,
+        tipo: 'seguro' as const,
+        titulo: tx.tramiteBici.titulo,
+        fecha: sumarDias(hoy, 60),
+        cadaMeses: 12,
+        avisoDias: 15,
+        costo: 350,
+        folio: 'BICI-0425',
+        tallerId: 'tl-seed-seguro',
+        activo: true,
+        creadoEn: hoy,
+      },
+      restaurar,
+    ),
+  ]))
 
   await db.registrosMantenimiento.bulkAdd(faltan(filasSeed('registrosMantenimiento-demo', [
     {
@@ -189,6 +211,7 @@ export async function retraducirGarage() {
   await cambiar(db.talleresVehiculo, 'seed-talleresVehiculo-demo-1', { nombre: tx.seguro.nombre })
   await cambiar(db.tramitesVehiculo, 'seed-tramitesVehiculo-demo-0', { titulo: tx.verificacion.titulo })
   await cambiar(db.tramitesVehiculo, 'seed-tramitesVehiculo-demo-1', { titulo: tx.seguroTramite.titulo })
+  await cambiar(db.tramitesVehiculo, 'seed-tramitesVehiculo-bici', { titulo: tx.tramiteBici.titulo })
   await cambiar(db.registrosMantenimiento, 'seed-registrosMantenimiento-demo-0', {
     titulo: tx.mant0.titulo,
     nota: tx.mant0.nota,

@@ -4108,6 +4108,9 @@ export const FR: Dict = {
   'diario.reparto.entregada': 'Livré aujourd’hui',
   'diario.reparto.plantillaTitulo': '🗞️ Ton journal du jour !',
   'diario.reparto.sinContenido': '🗞️ Aujourd’hui, il n’y a pas eu de contenu dans tes sections du journal.',
+  'diario.reparto.muestra.pie':
+    'Voici à quoi ressemble une programmation. Ce n’est qu’un aperçu : rien n’est enregistré ni livré tant que tu ne l’utilises pas.',
+  'diario.reparto.muestra.usar': 'Utiliser cette programmation',
   'respaldo.titulo': 'Sauvegarde des données',
   'respaldo.desc': 'Exporte, restaure ou supprime les données enregistrées sur cet appareil.',
   'respaldo.persistente.si': '✓ Stockage protégé : le navigateur ne supprimera pas tes données par manque d’espace',

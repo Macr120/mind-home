@@ -7,11 +7,16 @@ import {
   planComidasRepo,
   recetasRepo,
 } from '../../core/data/repository'
+import { esEjemplo } from '../../core/data/ejemplos'
 import type { PaqueteEjemplo } from '../_shared/ejemplos/tipos'
 import { sembrarEjemplosCocina } from './seed'
 
-/** Fila de la siembra de fábrica, tocada o no: la delata su uid (`seed-…`). */
-const deFabrica = (fila: unknown) => !!(fila as { uid?: string }).uid?.startsWith('seed-')
+/**
+ * Fila de la siembra de fábrica, tocada o no: la delata su uid (`seed-…`). Las
+ * de otros paquetes de ejemplo de la cocina (`ejemploDe`, p. ej. el control de
+ * alimentación) también empiezan por `seed-` y no son de este.
+ */
+const deFabrica = (fila: unknown) => !!(fila as { uid?: string }).uid?.startsWith('seed-') && !esEjemplo(fila)
 
 /** Donde la siembra deja el ejemplo. El perfil no: es del usuario desde el primer día. */
 const TABLAS = [recetasRepo, dietasGuardadasRepo, listasCompraRepo, itemsCompraRepo, comidasRepo, aguaRepo]
@@ -33,7 +38,7 @@ export const ejemploCocina: PaqueteEjemplo = {
     return false
   },
   async hayPropios() {
-    for (const t of TABLAS) if (await t.alguna((f: unknown) => !deFabrica(f))) return true
+    for (const t of TABLAS) if (await t.alguna((f: unknown) => !deFabrica(f) && !esEjemplo(f))) return true
     return false
   },
   async borrar() {

@@ -4027,6 +4027,9 @@ export const TR: Dict = {
   'diario.reparto.entregada': 'Bugün teslim edildi',
   'diario.reparto.plantillaTitulo': '🗞️ Bugünkü gazeten!',
   'diario.reparto.sinContenido': '🗞️ Bugün gazete bölümlerinde içerik yoktu.',
+  'diario.reparto.muestra.pie':
+    'Bir programlama böyle görünür. Yalnızca bir örnek: sen kullanana kadar hiçbir şey kaydedilmez ya da gönderilmez.',
+  'diario.reparto.muestra.usar': 'Bu programlamayı kullan',
   'respaldo.titulo': 'Veri yedekleme',
   'respaldo.desc': 'Bu cihazda kayıtlı verileri dışa aktar, geri yükle ya da sil.',
   'respaldo.persistente.si': '✓ Korumalı depolama: tarayıcı, yer açmak için verilerini silmeyecek',

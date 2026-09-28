@@ -3,7 +3,9 @@ import { VACIO, calculosComputoRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { Archivador } from '../_shared/Archivador'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { estadoGraficaInicial, type ObjetivoFormula } from './curvas'
+import { ejemploHistorial } from './ejemplos'
 import { MenuFormulario } from './MenuFormulario'
 import { MODOS, type Modo } from './modos'
 import { ModoBases } from './ModoBases'
@@ -116,6 +118,7 @@ export function Calculadora({ modoInicial, formularioInicial }: { modoInicial: M
             </button>
           )}
         </Archivador>
+        <BarraEjemplo paquete={ejemploHistorial} />
       </section>
     </div>
   )

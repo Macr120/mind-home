@@ -3901,6 +3901,8 @@ export const ZH: Dict = {
   'diario.reparto.entregada': '今天已送达',
   'diario.reparto.plantillaTitulo': '🗞️ 你的今日报刊来啦！',
   'diario.reparto.sinContenido': '🗞️ 今天你的报刊板块没有内容。',
+  'diario.reparto.muestra.pie': '推送计划就是这个样子。这只是示例:在你使用之前,不会保存也不会推送任何内容。',
+  'diario.reparto.muestra.usar': '使用此推送计划',
   'respaldo.titulo': '数据备份',
   'respaldo.desc': '导出、恢复或删除保存在此设备上的数据。',
   'respaldo.persistente.si': '✓ 存储已受保护：浏览器不会因空间不足删除你的数据',
