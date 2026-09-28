@@ -31,6 +31,7 @@ import { AccesorioAccion } from './especialesPlantilla'
 import { nivelBaseY, worldToSubCell, subId, cellToWorld, HALF, SIZE, ascensoXZ, dirAscenso, AGUA_ALTURA_LOCAL, worldToCell, FOOTPRINT_DEFAULT, type AABB, type AnclaAscenso } from './walls'
 import { claveCeldaOff, formaEnCelda, subformasDeCelda, puntoDentroSilueta } from './formasLoseta'
 import { footprintDeObjeto, piezasDesdeObjeto, TIPO_PIEZAS } from './catalogo'
+import { superficieObjeto } from './gruposObjeto'
 import { moveInput, vectorCam } from './movement'
 import { dragChar } from './characterDrag'
 import { girarHacia, marchaAvatar, suave } from './animacion'
@@ -112,6 +113,8 @@ export function chocado(x: number, z: number, colliders: AABB[], radio = RADIO) 
 
 /** Collider de objeto: rectángulo (medias extensiones hx,hz) rotado (cos/sin) en el mundo. */
 export interface ObjCol {
+  /** Objeto al que pertenece (para medir su tapa si el personaje se sube). */
+  id?: number
   cx: number
   cz: number
   hx: number
@@ -183,7 +186,7 @@ export function objColliders(playerLevel: number): ObjCol[] {
     const ex = Math.abs(fp[0] * cos) + Math.abs(fp[1] * sin)
     const ez = Math.abs(fp[0] * sin) + Math.abs(fp[1] * cos)
     if (solapaPuerta(cx, cz, ex, ez, puertas)) continue
-    _objCols.push({ cx, cz, hx: fp[0], hz: fp[1], cos, sin })
+    _objCols.push({ id: o.id, cx, cz, hx: fp[0], hz: fp[1], cos, sin })
   }
   // `_objCols` se reutiliza (mismo array), así que el memo guarda la referencia:
   // quien la reciba debe leerla en el acto, como ya hacía antes de memoizar.
@@ -240,17 +243,70 @@ function resolverAvanceConCarga(x: number, z: number, curX: number, curZ: number
 
 /** ¿(x,z) cae dentro de algún objeto rígido (rectángulo rotado inflado por el radio)? */
 export function chocadoObjeto(x: number, z: number, cols: ObjCol[], radio = RADIO) {
+  for (const c of cols) if (dentroDe(c, x, z, radio)) return true
+  return false
+}
+
+/** ¿(x,z) cae dentro del rectángulo rotado de `c` inflado por el radio? */
+function dentroDe(c: ObjCol, x: number, z: number, radio: number): boolean {
+  const dx = x - c.cx
+  const dz = z - c.cz
+  // Lleva el punto al marco local del objeto (rotación inversa).
+  const lx = dx * c.cos + dz * c.sin
+  const lz = -dx * c.sin + dz * c.cos
+  return lx > -(c.hx + radio) && lx < c.hx + radio && lz > -(c.hz + radio) && lz < c.hz + radio
+}
+
+/** Alto del avatar a escala 1: lo más alto a lo que puede subirse de un salto. */
+const ALTO_AVATAR = 1.75
+/** Lo que se sube caminando, sin saltar (un escalón). */
+const PASO_OBJETO = 0.3
+
+/**
+ * Altura de mundo de la tapa de `c` bajo (x, z), con el punto llevado dentro de
+ * su huella (el cuerpo lo toca antes de que el centro entre). null si no se
+ * puede medir: ese objeto no se pisa, estorba como siempre.
+ */
+function tapaDe(c: ObjCol, x: number, z: number, techo: number): number | null {
+  if (c.id == null) return null
+  const dx = x - c.cx
+  const dz = z - c.cz
+  const lx = Math.max(-c.hx * 0.9, Math.min(c.hx * 0.9, dx * c.cos + dz * c.sin))
+  const lz = Math.max(-c.hz * 0.9, Math.min(c.hz * 0.9, -dx * c.sin + dz * c.cos))
+  return superficieObjeto(c.id, c.cx + lx * c.cos - lz * c.sin, c.cz + lx * c.sin + lz * c.cos, techo)
+}
+
+/**
+ * ¿Se puede estar encima de una tapa a `tapa`? Nunca si pasa de la estatura del
+ * personaje sobre el piso (ni encadenando saltos desde algo más bajo); dentro de
+ * eso, si queda a un escalón de los pies o si va saltando (`trepa` > 0).
+ */
+const pisable = (tapa: number, pieY: number, pisoY: number, trepa: boolean, estatura: number) =>
+  tapa - pisoY <= estatura && (tapa <= pieY + PASO_OBJETO || trepa)
+
+/**
+ * `chocadoObjeto` para el personaje a pie: lo que queda a la altura de sus pies
+ * (o un escalón más) no estorba, se pisa; saltando (`trepa`) se trepa a lo que
+ * no pase de su estatura. Lo más alto sigue siendo un muro.
+ */
+function chocaAPie(x: number, z: number, cols: ObjCol[], pieY: number, pisoY: number, trepa: boolean, estatura: number): boolean {
   for (const c of cols) {
-    const dx = x - c.cx
-    const dz = z - c.cz
-    // Lleva el punto al marco local del objeto (rotación inversa).
-    const lx = dx * c.cos + dz * c.sin
-    const lz = -dx * c.sin + dz * c.cos
-    if (lx > -(c.hx + radio) && lx < c.hx + radio && lz > -(c.hz + radio) && lz < c.hz + radio) {
-      return true
-    }
+    if (!dentroDe(c, x, z, RADIO)) continue
+    const tapa = tapaDe(c, x, z, pisoY + 4)
+    if (tapa == null || !pisable(tapa, pieY, pisoY, trepa, estatura)) return true
   }
   return false
+}
+
+/** Altura sobre la que queda parado en (x, z): el piso o la tapa pisable más alta bajo él. */
+function sueloAPie(x: number, z: number, cols: ObjCol[], pieY: number, pisoY: number, trepa: boolean, estatura: number): number {
+  let y = pisoY
+  for (const c of cols) {
+    if (!dentroDe(c, x, z, 0.12)) continue
+    const tapa = tapaDe(c, x, z, pisoY + 4)
+    if (tapa != null && tapa > y && pisable(tapa, pieY, pisoY, trepa, estatura)) y = tapa
+  }
+  return y
 }
 
 /**
@@ -1408,6 +1464,12 @@ export function Character() {
     // En una alberca el personaje FLOTA en la lámina de agua (con un leve vaivén);
     // en un búnker (sin agua) pisa el fondo, normal.
     let targetY = ySueloJugador(playerLevel, !explotado, cur.x, cur.z)
+    // Encima de un objeto (la mesa, la cama, una caja) se queda sobre su tapa.
+    const pisoY = targetY
+    const trepa = accionFrame.saltoInicio !== 0
+    const estatura = ALTO_AVATAR * (av.escala || 1)
+    targetY = sueloAPie(cur.x, cur.z, objCols, cur.y, pisoY, trepa, estatura)
+    const bloquea = (px: number, pz: number) => chocaAPie(px, pz, objCols, cur.y, pisoY, trepa, estatura)
     let flotandoEnAgua = false
     if (playerLevel === -1 && useLayout.getState().subCeldasAgua.has(claveSubActual)) {
       flotandoEnAgua = true
@@ -1575,13 +1637,13 @@ export function Character() {
       let z = cur.z
       if (
         !chocado(cur.x + _move.x, cur.z, colliders) &&
-        !chocadoObjeto(cur.x + _move.x, cur.z, objCols) &&
+        !bloquea(cur.x + _move.x, cur.z) &&
         !sinPiso(cur.x + _move.x, cur.z, piso)
       )
         x = cur.x + _move.x
       if (
         !chocado(x, cur.z + _move.z, colliders) &&
-        !chocadoObjeto(x, cur.z + _move.z, objCols) &&
+        !bloquea(x, cur.z + _move.z) &&
         !sinPiso(x, cur.z + _move.z, piso)
       )
         z = cur.z + _move.z
@@ -1601,7 +1663,7 @@ export function Character() {
       if (accionFrame.emote === 'moonwalk') {
         const px = cur.x - playerForward.x * SPEED * 0.35 * dtFactor
         const pz = cur.z - playerForward.z * SPEED * 0.35 * dtFactor
-        if (!chocado(px, pz, colliders) && !chocadoObjeto(px, pz, objCols) && !sinPiso(px, pz, piso)) {
+        if (!chocado(px, pz, colliders) && !bloquea(px, pz) && !sinPiso(px, pz, piso)) {
           cur.x = px
           cur.z = pz
           target.set(px, 0, pz)
@@ -1617,11 +1679,11 @@ export function Character() {
       if (freeMove) {
         // Ignora paredes (entrar desde el menú) pero NO los objetos (son rígidos);
         // respeta el piso en niveles altos.
-        if (!chocadoObjeto(nx, z, objCols) && !sinPiso(nx, z, piso)) x = nx
-        if (!chocadoObjeto(x, nz, objCols) && !sinPiso(x, nz, piso)) z = nz
+        if (!bloquea(nx, z) && !sinPiso(nx, z, piso)) x = nx
+        if (!bloquea(x, nz) && !sinPiso(x, nz, piso)) z = nz
       } else {
-        if (!chocado(nx, z, colliders) && !chocadoObjeto(nx, z, objCols) && !sinPiso(nx, z, piso)) x = nx
-        if (!chocado(x, nz, colliders) && !chocadoObjeto(x, nz, objCols) && !sinPiso(x, nz, piso)) z = nz
+        if (!chocado(nx, z, colliders) && !bloquea(nx, z) && !sinPiso(nx, z, piso)) x = nx
+        if (!chocado(x, nz, colliders) && !bloquea(x, nz) && !sinPiso(x, nz, piso)) z = nz
       }
       ;({ x, z } = resolverAvanceConCarga(x, z, cur.x, cur.z))
 

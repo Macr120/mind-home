@@ -615,6 +615,34 @@ export const EMOJIS = {
   // Archivo (la nube tipo Drive)
   masOpciones: '⋯',
   subirCarpeta: '📂',
+
+  // — Sombreros, vello facial y tatuajes del editor de personajes (apariencia.ts).
+  // Varios emojis ya son de otro icono en el mapa inverso: las prendas los piden
+  // por NOMBRE (`PRENDAS[].icono`), no por emoji.
+  'sombrero-vaquero': '🤠',
+  'sombrero-copa': '🎩',
+  fedora: '🕵️',
+  boina: '🎨',
+  'gorro-lana': '🧶',
+  'sombrero-charro': '🐎',
+  'sombrero-mexicano': '🌵',
+  'sombrero-pirata': '🏴‍☠️',
+  corona: '👑',
+  'casco-vikingo': '⚔️',
+  bigote: '🥸',
+  'bigote-manubrio': '〰️',
+  'bigote-morsa': '🦭',
+  barba: '🧔',
+  'barba-candado': '🐐',
+  'barba-larga': '🧙',
+  patillas: '🎸',
+  'tatuaje-corazon': '❤️',
+  'tatuaje-ancla': '⚓',
+  'tatuaje-tribal': '🌀',
+  'tatuaje-rosa': '🌹',
+  'tatuaje-dragon': '🐉',
+  'tatuaje-estrella': '⭐',
+  'tatuaje-lagrima': '💧',
 } satisfies Record<string, string>
 
 export type NombreIcono = keyof typeof EMOJIS

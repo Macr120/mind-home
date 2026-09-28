@@ -56,6 +56,9 @@ interface EditorUiState {
    */
   piezaSel: number
   setPiezaSel: (i: number) => void
+  /** Tatuaje que se está colocando: tocar o arrastrar sobre el personaje del visor lo mueve ahí. */
+  tatuajeSel: string | null
+  setTatuajeSel: (id: string | null) => void
   /** Controles de piezas visibles sobre el preview (se alternan con el engrane ⚙️). */
   piezasControles: boolean
   setPiezasControles: (v: boolean) => void
@@ -142,8 +145,8 @@ export const useEditorUi = create<EditorUiState>((set) => ({
   },
   personajeSel: PERSONAJE_AVATAR,
   // Al cambiar de personaje se detiene la reproducción del preview.
-  setPersonajeSel: (personajeSel) => set({ personajeSel, animPreview: false }),
-  editarPersonaje: (id) => set({ personajeSel: id, tab: 'personajes' }),
+  setPersonajeSel: (personajeSel) => set({ personajeSel, animPreview: false, tatuajeSel: null }),
+  editarPersonaje: (id) => set({ personajeSel: id, tab: 'personajes', tatuajeSel: null }),
   objetoSel: null,
   // Al cambiar de objeto se detiene la reproducción del preview. Y elegir uno
   // —desde la escena, la rueda, el menú despierto o el catálogo— lleva SIEMPRE a
@@ -164,6 +167,8 @@ export const useEditorUi = create<EditorUiState>((set) => ({
     set({ tab: 'objetos', objRaiz: 'inventario', objInv: 'catalogo' }),
   piezaSel: 0,
   setPiezaSel: (piezaSel) => set({ piezaSel }),
+  tatuajeSel: null,
+  setTatuajeSel: (tatuajeSel) => set({ tatuajeSel }),
   piezasControles: false,
   setPiezasControles: (piezasControles) => set({ piezasControles }),
   animPreview: false,

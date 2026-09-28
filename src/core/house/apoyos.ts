@@ -150,6 +150,72 @@ export function apoyoEn(objetos: ObjetoCuarto[], o: ObjetoCuarto, x: number, z: 
   return null
 }
 
+/** Lo que se toma como parte de la repisa más allá de su tablero (m). */
+const HOLGURA_CANTO = 0.06
+
+/** La repisa a la que apunta el dedo al arrastrar, y dónde quedaría el objeto en ella. */
+export interface RepisaApuntada extends Apoyo {
+  mueble: ObjetoCuarto
+  sup: Superficie
+  x: number
+  z: number
+}
+
+/**
+ * Al arrastrar: la repisa que el rayo del puntero toca PRIMERO (la que se ve
+ * bajo el dedo: la de arriba tapa a las de abajo), de cualquier mueble del
+ * cuarto. El rayo va en coordenadas del cuarto, con `oy` sobre su piso. El
+ * objeto queda justo donde apunta el dedo, metido dentro de la repisa para
+ * que no cuelgue del canto.
+ */
+export function repisaBajoRayo(
+  objetos: ObjetoCuarto[],
+  o: ObjetoCuarto,
+  origen: [number, number, number],
+  dir: [number, number, number],
+): RepisaApuntada | null {
+  const [ox, oy, oz] = origen
+  const [dx, dy, dz] = dir
+  if (dy >= 0) return null
+  let mejor: RepisaApuntada | null = null
+  let mejorT = Infinity
+  for (const f of objetos) {
+    if (f.id == null || f.id === o.id || f.roomId !== o.roomId) continue
+    if (o.id != null && cuelgaDe(objetos, f, o.id)) continue
+    const e = f.escala ?? 1
+    for (const s of superficiesDeObjeto(f)) {
+      const t = ((f.y ?? 0) + (s.y / 1000) * e - oy) / dy
+      if (t <= 0 || t >= mejorT) continue
+      const [lx, lz] = aLocal(f, ox + dx * t, oz + dz * t)
+      const cx = s.cx / 1000
+      const cz = s.cz / 1000
+      // Con holgura: el canto y el marco del mueble también cuentan como su repisa.
+      const toca = s.disco
+        ? Math.hypot(lx - cx, lz - cz) <= s.ancho / 2000 + HOLGURA_CANTO
+        : Math.abs(lx - cx) <= s.ancho / 2000 + HOLGURA_CANTO && Math.abs(lz - cz) <= s.fondo / 2000 + HOLGURA_CANTO
+      if (!toca) continue
+      let [px, pz] = aLocal(f, ox + dx * t, oz + dz * t)
+      if (s.disco) {
+        const r = Math.max(0, s.ancho / 2000 - MARGEN_BORDE)
+        const len = Math.hypot(px - cx, pz - cz)
+        if (len > r) {
+          px = cx + ((px - cx) * r) / len
+          pz = cz + ((pz - cz) * r) / len
+        }
+      } else {
+        const hx = Math.max(0, s.ancho / 2000 - MARGEN_BORDE)
+        const hz = Math.max(0, s.fondo / 2000 - MARGEN_BORDE)
+        px = Math.max(cx - hx, Math.min(cx + hx, px))
+        pz = Math.max(cz - hz, Math.min(cz + hz, pz))
+      }
+      const [x, z] = aCuarto(f, px, pz)
+      mejor = { apoyoId: f.id, apoyoNivel: s.nivel, y: yApoyo(f, s.nivel, o), mueble: f, sup: s, x, z }
+      mejorT = t
+    }
+  }
+  return mejor
+}
+
 /** Mueble del taller al que el personaje puede dejarle encima lo que carga. */
 export interface MuebleAlAlcance {
   mueble: ObjetoCuarto

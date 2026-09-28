@@ -6,6 +6,7 @@
  */
 
 import type { MascotaId, Pieza3D } from '../chat/mascotas'
+import type { NombreIcono } from '../ui/iconos/catalogo'
 
 /** Prendas que puede llevar un personaje. */
 export type PrendaId =
@@ -16,10 +17,80 @@ export type PrendaId =
   | 'pantalon' | 'shorts'
   | 'botas' | 'tenis'
   | 'guantes' | 'mochila'
+  // Más sombreros
+  | 'vaquero' | 'copa' | 'fedora' | 'boina' | 'gorroLana' | 'charro' | 'mexicano' | 'pirata' | 'corona' | 'vikingo'
+  // Vello facial (su «color» es el del pelo)
+  | 'bigote' | 'bigoteManubrio' | 'bigoteMorsa' | 'barba' | 'barbaCandado' | 'barbaLarga' | 'patillas'
+  // Tatuajes (su «color» es el de la tinta)
+  | 'tatuajeCorazon' | 'tatuajeAncla' | 'tatuajeTribal' | 'tatuajeRosa' | 'tatuajeDragon'
+  | 'tatuajeEstrella' | 'tatuajeLagrima'
 
-/** Una prenda puesta: por ahora solo guarda su color. */
-interface Prenda {
+/**
+ * Una prenda puesta: su color y, en los tatuajes, dónde va sobre el cuerpo
+ * (`punto`) y su tamaño (`escala`, 1 = normal).
+ */
+interface Prenda extends AjustePrenda {
   color: string
+}
+
+/**
+ * Parte del cuerpo que lleva un tatuaje. En brazos y piernas el punto es
+ * relativo a su pivote (hombro/cadera), así el tatuaje sigue el balanceo.
+ */
+export type ParteTatuaje = 'cuerpo' | 'brazoIzq' | 'brazoDer' | 'piernaIzq' | 'piernaDer'
+export const PARTES_TATUAJE: ParteTatuaje[] = ['cuerpo', 'brazoIzq', 'brazoDer', 'piernaIzq', 'piernaDer']
+
+/** Dónde va un tatuaje: punto `p` sobre la superficie y hacia dónde mira (`n`), en coordenadas de su parte. */
+export interface PuntoTatuaje {
+  parte: ParteTatuaje
+  p: [number, number, number]
+  n: [number, number, number]
+}
+
+/** Colocación de un tatuaje (ver `Prenda`). */
+export interface AjustePrenda {
+  punto?: PuntoTatuaje
+  escala?: number
+}
+
+/** Límites del tamaño de un tatuaje. */
+export const TATUAJE_ESCALA_MIN = 0.5
+export const TATUAJE_ESCALA_MAX = 2
+
+/**
+ * Pivote de cada parte en el cuerpo (x, y): el mismo de las extremidades de
+ * `Prendas.tsx`. El brazo izquierdo del personaje (mira a +Z) es el de X positiva.
+ */
+export function pivoteParte(parte: ParteTatuaje, a: AnclasRopa): [number, number] {
+  const hombroY = a.torsoY + a.torsoH / 2
+  const caderaY = a.piernasY + a.piernaH / 2
+  switch (parte) {
+    case 'brazoIzq': return [a.brazoX, hombroY]
+    case 'brazoDer': return [-a.brazoX, hombroY]
+    case 'piernaIzq': return [Math.max(...a.piernasX), caderaY]
+    case 'piernaDer': return [Math.min(...a.piernasX), caderaY]
+    default: return [0, 0]
+  }
+}
+
+/** Lugar de fábrica de cada tatuaje (donde aparece al ponérselo). */
+function puntoInicial(id: PrendaId, a: AnclasRopa): PuntoTatuaje {
+  const k = a.cabezaR / 0.22
+  const frente: [number, number, number] = [0, 0, 1]
+  switch (id) {
+    case 'tatuajeCorazon': return { parte: 'brazoIzq', p: [0, -a.torsoH * 0.72, a.torsoD * 0.44], n: frente }
+    case 'tatuajeAncla': return { parte: 'brazoDer', p: [0, -a.torsoH * 0.72, a.torsoD * 0.44], n: frente }
+    case 'tatuajeTribal': return { parte: 'brazoIzq', p: [0.1, -a.torsoH * 0.55, 0], n: [1, 0, 0] }
+    case 'tatuajeRosa': return { parte: 'cuerpo', p: [a.torsoW * 0.22, a.torsoY + a.torsoH * 0.15, a.torsoD / 2], n: frente }
+    case 'tatuajeDragon': return { parte: 'cuerpo', p: [0, a.torsoY + 0.02, -a.torsoD / 2], n: [0, 0, -1] }
+    case 'tatuajeEstrella': return { parte: 'cuerpo', p: [-a.cabezaR * 0.62, a.cabezaY - 0.07 * k, a.caraZ - 0.01], n: frente }
+    default: return { parte: 'cuerpo', p: [a.cabezaR * 0.42, a.cabezaY - 0.055 * k, a.caraZ - 0.01], n: frente }
+  }
+}
+
+/** Colocación efectiva de un tatuaje puesto: la que eligió el usuario o la de fábrica. */
+export function colocacionTatuaje(id: PrendaId, a: AnclasRopa, prenda?: AjustePrenda) {
+  return { punto: prenda?.punto ?? puntoInicial(id, a), escala: prenda?.escala ?? 1 }
 }
 
 /** Ropa de un personaje: qué prendas lleva y de qué color. */
@@ -31,25 +102,61 @@ export const ESCALA_MIN = 0.5
 export const ESCALA_MAX = 2
 
 /** Categoría de una prenda (agrupa la lista de la pestaña Ropa del editor). */
-export type PrendaCategoriaId = 'cabeza' | 'cuello' | 'torso' | 'cintura' | 'pies' | 'accesorios'
+export type PrendaCategoriaId =
+  | 'cabeza' | 'vello' | 'cuello' | 'torso' | 'cintura' | 'pies' | 'accesorios' | 'tatuajes'
 
-/** Metadatos de cada categoría, en el orden en que se muestran. */
-export const CATEGORIAS_PRENDA: { id: PrendaCategoriaId; nombre: string; emoji: string }[] = [
+/**
+ * Metadatos de cada categoría, en el orden en que se muestran. `vello` y
+ * `tatuajes` no salen en la pestaña Ropa sino en Rostro y Color (ver
+ * `CATEGORIAS_FUERA_DE_ROPA`). `icono`: glifo propio del catálogo (SVG en
+ * estilo Profesional) cuando el emoji ya pertenece a otro icono.
+ */
+export const CATEGORIAS_PRENDA: { id: PrendaCategoriaId; nombre: string; emoji: string; icono?: NombreIcono }[] = [
   { id: 'cabeza', nombre: 'Cabeza', emoji: '🎩' },
+  { id: 'vello', nombre: 'Barba y bigote', emoji: '🧔', icono: 'barba' },
   { id: 'cuello', nombre: 'Cuello', emoji: '🧣' },
   { id: 'torso', nombre: 'Torso', emoji: '👕' },
   { id: 'cintura', nombre: 'Cintura y piernas', emoji: '👖' },
   { id: 'pies', nombre: 'Pies', emoji: '👟' },
   { id: 'accesorios', nombre: 'Accesorios', emoji: '🎒' },
+  { id: 'tatuajes', nombre: 'Tatuajes', emoji: '🐉', icono: 'tatuaje-dragon' },
 ]
 
+/** Categorías que viven fuera de la pestaña Ropa: el vello en Rostro, los tatuajes en Color. */
+export const CATEGORIAS_FUERA_DE_ROPA: ReadonlySet<PrendaCategoriaId> = new Set(['vello', 'tatuajes'])
+
 /** Metadatos de cada prenda para la interfaz del editor (orden de arriba a abajo). */
-export const PRENDAS: { id: PrendaId; nombre: string; emoji: string; color: string; categoria: PrendaCategoriaId }[] = [
+export const PRENDAS: {
+  id: PrendaId
+  nombre: string
+  emoji: string
+  color: string
+  categoria: PrendaCategoriaId
+  icono?: NombreIcono
+}[] = [
   // Cabeza
   { id: 'sombrero', nombre: 'Sombrero', emoji: '🎩', color: '#3b3b4f', categoria: 'cabeza' },
   { id: 'gorroChef', nombre: 'Gorro de chef', emoji: '🧑‍🍳', color: '#f5f5f0', categoria: 'cabeza' },
   { id: 'gorra', nombre: 'Gorra', emoji: '🧢', color: '#2563eb', categoria: 'cabeza' },
   { id: 'lentes', nombre: 'Lentes', emoji: '🕶️', color: '#1c1c22', categoria: 'cabeza' },
+  { id: 'vaquero', nombre: 'Sombrero vaquero', emoji: '🤠', color: '#8b5a2b', categoria: 'cabeza', icono: 'sombrero-vaquero' },
+  { id: 'copa', nombre: 'Sombrero de copa', emoji: '🎩', color: '#1f1f26', categoria: 'cabeza', icono: 'sombrero-copa' },
+  { id: 'fedora', nombre: 'Fedora', emoji: '🕵️', color: '#4b5563', categoria: 'cabeza', icono: 'fedora' },
+  { id: 'boina', nombre: 'Boina', emoji: '🎨', color: '#7f1d1d', categoria: 'cabeza', icono: 'boina' },
+  { id: 'gorroLana', nombre: 'Gorro de lana', emoji: '🧶', color: '#0e7490', categoria: 'cabeza', icono: 'gorro-lana' },
+  { id: 'charro', nombre: 'Sombrero de charro', emoji: '🐎', color: '#c8a165', categoria: 'cabeza', icono: 'sombrero-charro' },
+  { id: 'mexicano', nombre: 'Sombrero mexicano', emoji: '🌵', color: '#e3c07a', categoria: 'cabeza', icono: 'sombrero-mexicano' },
+  { id: 'pirata', nombre: 'Sombrero pirata', emoji: '🏴‍☠️', color: '#16161d', categoria: 'cabeza', icono: 'sombrero-pirata' },
+  { id: 'corona', nombre: 'Corona', emoji: '👑', color: '#e8b923', categoria: 'cabeza', icono: 'corona' },
+  { id: 'vikingo', nombre: 'Casco vikingo', emoji: '⚔️', color: '#9ca3af', categoria: 'cabeza', icono: 'casco-vikingo' },
+  // Barba y bigote
+  { id: 'bigote', nombre: 'Bigote', emoji: '🥸', color: '#3a2a1a', categoria: 'vello', icono: 'bigote' },
+  { id: 'bigoteManubrio', nombre: 'Bigote de manubrio', emoji: '〰️', color: '#3a2a1a', categoria: 'vello', icono: 'bigote-manubrio' },
+  { id: 'bigoteMorsa', nombre: 'Bigote de morsa', emoji: '🦭', color: '#3a2a1a', categoria: 'vello', icono: 'bigote-morsa' },
+  { id: 'barba', nombre: 'Barba', emoji: '🧔', color: '#3a2a1a', categoria: 'vello', icono: 'barba' },
+  { id: 'barbaCandado', nombre: 'Candado', emoji: '🐐', color: '#3a2a1a', categoria: 'vello', icono: 'barba-candado' },
+  { id: 'barbaLarga', nombre: 'Barba larga', emoji: '🧙', color: '#6b6b6b', categoria: 'vello', icono: 'barba-larga' },
+  { id: 'patillas', nombre: 'Patillas', emoji: '🎸', color: '#3a2a1a', categoria: 'vello', icono: 'patillas' },
   // Cuello
   { id: 'bufanda', nombre: 'Bufanda', emoji: '🧣', color: '#dc2626', categoria: 'cuello' },
   { id: 'corbata', nombre: 'Corbata', emoji: '👔', color: '#1e3a8a', categoria: 'cuello' },
@@ -69,6 +176,14 @@ export const PRENDAS: { id: PrendaId; nombre: string; emoji: string; color: stri
   // Accesorios
   { id: 'guantes', nombre: 'Guantes', emoji: '🧤', color: '#374151', categoria: 'accesorios' },
   { id: 'mochila', nombre: 'Mochila', emoji: '🎒', color: '#166534', categoria: 'accesorios' },
+  // Tatuajes: se colocan en cualquier parte del cuerpo y van encima de la ropa (estampa)
+  { id: 'tatuajeCorazon', nombre: 'Corazón', emoji: '❤️', color: '#1e293b', categoria: 'tatuajes', icono: 'tatuaje-corazon' },
+  { id: 'tatuajeAncla', nombre: 'Ancla', emoji: '⚓', color: '#1e293b', categoria: 'tatuajes', icono: 'tatuaje-ancla' },
+  { id: 'tatuajeTribal', nombre: 'Tribal', emoji: '🌀', color: '#1e293b', categoria: 'tatuajes', icono: 'tatuaje-tribal' },
+  { id: 'tatuajeRosa', nombre: 'Rosa', emoji: '🌹', color: '#1e293b', categoria: 'tatuajes', icono: 'tatuaje-rosa' },
+  { id: 'tatuajeDragon', nombre: 'Dragón', emoji: '🐉', color: '#1e293b', categoria: 'tatuajes', icono: 'tatuaje-dragon' },
+  { id: 'tatuajeEstrella', nombre: 'Estrella', emoji: '⭐', color: '#1e293b', categoria: 'tatuajes', icono: 'tatuaje-estrella' },
+  { id: 'tatuajeLagrima', nombre: 'Lágrima', emoji: '💧', color: '#1e293b', categoria: 'tatuajes', icono: 'tatuaje-lagrima' },
 ]
 
 /** Color por defecto de cada prenda (al ponérsela). */

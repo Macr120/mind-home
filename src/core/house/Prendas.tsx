@@ -1,8 +1,10 @@
-import { useRef } from 'react'
+import { useLayoutEffect, useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
-import type { Ropa, AnclasRopa } from './apariencia'
-import { PRENDA_COLOR_DEFAULT } from './apariencia'
+import type { Ropa, AnclasRopa, PrendaId } from './apariencia'
+import { PRENDA_COLOR_DEFAULT, colocacionTatuaje, pivoteParte, type PuntoTatuaje } from './apariencia'
+import { hornearPrenda, PRENDAS_DE_PIEZAS } from './hornearPrenda'
+import { ModeloPiezas } from './modeloPersonalizado'
 import {
   anguloMarcha,
   anguloBrazoNado,
@@ -118,9 +120,145 @@ function PivoteMarcha({
     }
   })
   return (
-    <group ref={g} position={[x, pivotY, 0]}>
+    // El nombre deja a la vista previa saber qué extremidad tocó el usuario (tatuajes).
+    <group ref={g} name={`${extremidad}${x < 0 ? 'Der' : 'Izq'}`} position={[x, pivotY, 0]}>
       {children}
     </group>
+  )
+}
+
+/**
+ * Textura de un tatuaje: el dibujo (emoji o símbolo) pasado a un solo color de
+ * tinta. Las zonas oscuras del emoji quedan más cargadas, así conserva el
+ * detalle en vez de ser una silueta plana. Cacheada por dibujo + tinta.
+ */
+const texturasTatuaje = new Map<string, THREE.CanvasTexture>()
+function texturaTatuaje(dibujo: string, tinta: string): THREE.CanvasTexture {
+  const clave = `${dibujo}|${tinta}`
+  const previa = texturasTatuaje.get(clave)
+  if (previa) return previa
+  const lienzo = document.createElement('canvas')
+  lienzo.width = lienzo.height = 128
+  const ctx = lienzo.getContext('2d')!
+  ctx.font = '100px "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif'
+  ctx.textAlign = 'center'
+  ctx.textBaseline = 'middle'
+  if (dibujo === DIBUJO_TRIBAL) {
+    // Tribal: tres ondas gruesas de puntas afiladas (no hay emoji que lo represente).
+    ctx.fillStyle = '#000'
+    for (const y of [34, 64, 94]) {
+      ctx.beginPath()
+      ctx.moveTo(4, y)
+      ctx.bezierCurveTo(30, y - 26, 44, y + 20, 64, y - 4)
+      ctx.bezierCurveTo(84, y - 26, 98, y + 20, 124, y)
+      ctx.bezierCurveTo(98, y + 10, 84, y - 12, 64, y + 8)
+      ctx.bezierCurveTo(44, y - 12, 30, y + 10, 4, y)
+      ctx.fill()
+    }
+  } else {
+    ctx.fillText(dibujo, 64, 70)
+  }
+  const img = ctx.getImageData(0, 0, 128, 128)
+  const d = img.data
+  for (let i = 0; i < d.length; i += 4) {
+    const lum = (0.3 * d[i] + 0.59 * d[i + 1] + 0.11 * d[i + 2]) / 255
+    d[i + 3] = d[i + 3] * (0.6 + 0.4 * (1 - lum))
+  }
+  ctx.putImageData(img, 0, 0)
+  ctx.globalCompositeOperation = 'source-in'
+  ctx.fillStyle = tinta
+  ctx.fillRect(0, 0, 128, 128)
+  const tex = new THREE.CanvasTexture(lienzo)
+  tex.colorSpace = THREE.SRGBColorSpace
+  texturasTatuaje.set(clave, tex)
+  return tex
+}
+
+const DIBUJO_TRIBAL = 'tribal'
+
+/** Dibujo y tamaño base (en unidades del avatar) de cada tatuaje. */
+const TATUAJES: Partial<Record<PrendaId, { dibujo: string; tam: number }>> = {
+  tatuajeCorazon: { dibujo: '❤', tam: 0.15 },
+  tatuajeAncla: { dibujo: '⚓', tam: 0.15 },
+  tatuajeTribal: { dibujo: DIBUJO_TRIBAL, tam: 0.18 },
+  tatuajeRosa: { dibujo: '🌹', tam: 0.2 },
+  tatuajeDragon: { dibujo: '🐉', tam: 0.42 },
+  tatuajeEstrella: { dibujo: '★', tam: 0.08 },
+  tatuajeLagrima: { dibujo: '💧', tam: 0.06 },
+}
+
+const EJE_Z = new THREE.Vector3(0, 0, 1)
+const rayo = new THREE.Raycaster()
+/** Cuánto se busca la capa exterior por encima y por debajo del punto guardado. */
+const BUSCAR_FUERA = 0.4
+const VENTANA = 0.12
+/** Separación de la superficie (evita parpadeo contra la ropa o la piel). */
+const SEPARACION = 0.006
+
+/**
+ * Tatuaje como ESTAMPA: un plano con la textura que se pega a la capa más
+ * externa del cuerpo en ese punto (la ropa si la hay, la piel si no). Tras
+ * cada cambio lanza un rayo desde fuera hacia `-n` y se coloca en lo primero
+ * que toca cerca del punto; `capas` cambia cuando cambia la ropa puesta.
+ * No se deja tocar por rayos (el visor coloca tatuajes sobre el cuerpo, no sobre otros tatuajes).
+ */
+function Calca({
+  dibujo,
+  tinta,
+  punto,
+  tam,
+  capas,
+}: {
+  dibujo: string
+  tinta: string
+  punto: PuntoTatuaje
+  tam: number
+  capas: string
+}) {
+  const ref = useRef<THREE.Mesh>(null)
+  const pendiente = useRef(true)
+  const [px, py, pz] = punto.p
+  const [nx, ny, nz] = punto.n
+  const normal = useMemo(() => new THREE.Vector3(nx, ny, nz).normalize(), [nx, ny, nz])
+  const giro = useMemo(() => new THREE.Quaternion().setFromUnitVectors(EJE_Z, normal), [normal])
+
+  // Posición cruda al instante (sin render no hay rayo); el rayo la corrige en el siguiente frame.
+  useLayoutEffect(() => {
+    ref.current?.position.set(px, py, pz).addScaledVector(normal, SEPARACION)
+    pendiente.current = true
+  }, [px, py, pz, normal, capas])
+
+  useFrame(() => {
+    const m = ref.current
+    if (!pendiente.current || !m?.parent) return
+    pendiente.current = false
+    let raiz: THREE.Object3D | null = m
+    while (raiz && raiz.name !== 'prendas-raiz') raiz = raiz.parent
+    const cuerpo = raiz?.parent
+    if (!cuerpo) return
+    const padre = m.parent
+    padre.updateWorldMatrix(true, false)
+    const escala = new THREE.Vector3().setFromMatrixScale(padre.matrixWorld).x || 1
+    const origen = new THREE.Vector3(px, py, pz).addScaledVector(normal, BUSCAR_FUERA).applyMatrix4(padre.matrixWorld)
+    const dir = normal.clone().transformDirection(padre.matrixWorld).negate()
+    rayo.set(origen, dir)
+    rayo.near = (BUSCAR_FUERA - VENTANA) * escala
+    rayo.far = (BUSCAR_FUERA + VENTANA) * escala
+    const golpe = rayo.intersectObject(cuerpo, true)[0]
+    if (golpe) m.position.copy(padre.worldToLocal(golpe.point.clone())).addScaledVector(normal, SEPARACION)
+  })
+
+  return (
+    <mesh ref={ref} quaternion={giro} raycast={() => {}} renderOrder={2}>
+      <planeGeometry args={[tam, tam]} />
+      <meshStandardMaterial
+        map={texturaTatuaje(dibujo, tinta)}
+        transparent
+        depthWrite={false}
+        polygonOffset
+        polygonOffsetFactor={-2}
+      />
+    </mesh>
   )
 }
 
@@ -155,9 +293,47 @@ export function Prendas({
   const faldaH = a.piernaH * 1.15 // largo de falda/vestido (cae por las piernas)
   const signoPierna = (x: number): 1 | -1 => (x < 0 ? 1 : -1)
   const signoBrazo = (x: number): 1 | -1 => (x < 0 ? -1 : 1)
+  // Tatuajes: en el cuerpo van directo; en brazos/piernas, dentro del pivote de su extremidad.
+  const capas = Object.keys(ropa).sort().join()
+  const tatuajes = (Object.keys(ropa) as PrendaId[]).flatMap((id) => {
+    const dibujo = TATUAJES[id]
+    if (!dibujo) return []
+    const { punto, escala } = colocacionTatuaje(id, a, ropa[id])
+    const calca = (
+      <Calca dibujo={dibujo.dibujo} tinta={color(id)} punto={punto} tam={dibujo.tam * k * escala} capas={capas} />
+    )
+    if (punto.parte === 'cuerpo') return [<group key={id}>{calca}</group>]
+    const [x, pivotY] = pivoteParte(punto.parte, a)
+    const brazo = punto.parte.startsWith('brazo')
+    return [
+      <PivoteMarcha
+        key={id}
+        activo={marcha}
+        marchaEstado={marchaEstado}
+        esJugador={esJugador}
+        x={x}
+        pivotY={pivotY}
+        factor={brazo ? MARCHA_BRAZOS : MARCHA_PIERNAS}
+        signo={brazo ? signoBrazo(x) : signoPierna(x)}
+        extremidad={brazo ? 'brazo' : 'pierna'}
+      >
+        {calca}
+      </PivoteMarcha>,
+    ]
+  })
 
   return (
-    <group>
+    <group name="prendas-raiz">
+      {/* Sombreros extra y vello facial: piezas de `hornearPrenda` (misma forma que su copia editable) */}
+      {(Object.keys(ropa) as PrendaId[])
+        .filter((id) => PRENDAS_DE_PIEZAS.has(id))
+        .map((id) => (
+          <ModeloPiezas key={id} piezas={hornearPrenda(id, a, color(id))} />
+        ))}
+
+      {/* Tatuajes: estampas encima de la ropa, donde el usuario los colocó */}
+      {tatuajes}
+
       {/* Tenis: sobre los pies de cada pierna */}
       {ropa.tenis &&
         a.piernasX.map((x, i) => (

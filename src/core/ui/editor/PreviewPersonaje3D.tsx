@@ -1,13 +1,22 @@
-import { useRef } from 'react'
-import { Canvas } from '@react-three/fiber'
+import { useCallback, useEffect, useRef, type ReactNode } from 'react'
+import { Canvas, type ThreeEvent } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import * as THREE from 'three'
 import { AvatarModelo } from '../../house/AvatarModelo'
 import { AsistenteModelo } from '../../house/AsistenteModelo'
 import { PiezasSeleccionContext } from '../../house/modeloPersonalizado'
 import { forzarSiempre } from '../../house/animacion'
-import type { Avatar } from '../../state/disenoStore'
+import { useDiseño, type Avatar } from '../../state/disenoStore'
 import { useEditorUi } from '../../state/editorUiStore'
+import { useAsistentes } from '../../state/asistentesStore'
+import {
+  PARTES_TATUAJE,
+  anclasDe,
+  pivoteParte,
+  type ParteTatuaje,
+  type PrendaId,
+  type PuntoTatuaje,
+} from '../../house/apariencia'
 import type { Asistente, Pieza3D } from '../../chat/mascotas'
 import { ControlesPiezasOverlay, EngraneActivarPiezas, BotonOverlay } from '../comun/EditorPiezas'
 import { BotonPreviewClaro, claseFondoPreview } from '../comun/BotonPreviewClaro'
@@ -44,6 +53,11 @@ export function PreviewPersonaje3D({
   const setPlay = useEditorUi((s) => s.setAnimPreview)
   const claro = useEditorUi((s) => s.previewClaro)
   const enZona = useEnZonaPreview()
+  const controles = useRef<{ enabled: boolean } | null>(null)
+  const colocando = useEditorUi((s) => s.tatuajeSel != null)
+  const girarCamara = useCallback((si: boolean) => {
+    if (controles.current) controles.current.enabled = si
+  }, [])
   // Reproducción en el visor: fuerza 'siempre' (undefined si no hay nada que reproducir).
   const animable = forzarSiempre(avatar ? avatar.animacion : asistente?.animacion)
   const animPlay = play ? animable : undefined
@@ -58,7 +72,7 @@ export function PreviewPersonaje3D({
       <div
         className={`${enZona ? 'relative h-full' : 'sticky top-0 z-10'} overflow-hidden rounded-xl border border-white/10 ${claseFondoPreview(claro)}`}
       >
-        <div className={enZona ? 'h-full w-full' : 'h-56 w-full'}>
+        <div className={`${enZona ? 'h-full w-full' : 'h-56 w-full'} ${colocando ? 'cursor-crosshair' : ''}`}>
           <Canvas
             shadows
             dpr={[1, 1.5]}
@@ -68,14 +82,16 @@ export function PreviewPersonaje3D({
             <directionalLight position={[4, 8, 5]} intensity={1.1} castShadow />
             <directionalLight position={[-4, 3, -3]} intensity={0.35} />
             <PiezasSeleccionContext.Provider value={seleccion}>
-              {avatar ? (
-                <AvatarModelo
-                  av={animPlay ? { ...avatar, animacion: animPlay } : avatar}
-                  animar={!!animPlay}
-                />
-              ) : asistente ? (
-                <AsistenteModelo asistente={asistente} anim={animPlay} brazoRef={brazo} />
-              ) : null}
+              <ColocarTatuaje avatar={avatar} asistente={asistente} girarCamara={girarCamara} pausado={!!animPlay}>
+                {avatar ? (
+                  <AvatarModelo
+                    av={animPlay ? { ...avatar, animacion: animPlay } : avatar}
+                    animar={!!animPlay}
+                  />
+                ) : asistente ? (
+                  <AsistenteModelo asistente={asistente} anim={animPlay} brazoRef={brazo} />
+                ) : null}
+              </ColocarTatuaje>
             </PiezasSeleccionContext.Provider>
             {/* Piso de apoyo para la sombra */}
             <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]} receiveShadow>
@@ -83,6 +99,7 @@ export function PreviewPersonaje3D({
               <meshStandardMaterial color={claro ? '#e5e7eb' : '#1a1d25'} />
             </mesh>
             <OrbitControls
+              ref={controles as never}
               enablePan={false}
               enableDamping
               target={[0, 0.85, 0]}
@@ -122,5 +139,116 @@ export function PreviewPersonaje3D({
         )}
       </div>
     </EnZonaPreview>
+  )
+}
+
+const redondo = (v: number) => Math.round(v * 1000) / 1000
+
+/**
+ * Con un tatuaje elegido para mover (`tatuajeSel`), tocar o arrastrar sobre el
+ * personaje lo coloca en ese punto de la superficie: se guarda la parte del
+ * cuerpo (el brazo o la pierna tocada, para que siga el paso), el punto y la
+ * dirección de la cara, en el marco de la ropa (`prendas-raiz`). Mientras se
+ * arrastra, la cámara no gira. Pausado con la animación en marcha (el cuerpo
+ * se mueve y el punto no saldría donde se tocó).
+ */
+function ColocarTatuaje({
+  avatar,
+  asistente,
+  girarCamara,
+  pausado,
+  children,
+}: {
+  avatar?: Avatar
+  asistente?: Asistente
+  /** Activa/desactiva el giro de la cámara (se apaga mientras se arrastra el tatuaje). */
+  girarCamara: (si: boolean) => void
+  pausado: boolean
+  children: ReactNode
+}) {
+  const tatuajeSel = useEditorUi((s) => s.tatuajeSel) as PrendaId | null
+  const setAvatarPrenda = useDiseño((s) => s.setAvatarPrenda)
+  const guardar = useAsistentes((s) => s.guardar)
+  const grupo = useRef<THREE.Group>(null)
+  const arrastrando = useRef(false)
+  const ultimo = useRef(0)
+  const pendiente = useRef<PuntoTatuaje | null>(null)
+
+  const personaje = avatar ?? asistente
+  const prenda = tatuajeSel ? personaje?.ropa?.[tatuajeSel] : undefined
+  const activo = !!prenda && !pausado
+
+  const guardarPunto = (punto: PuntoTatuaje) => {
+    if (!tatuajeSel || !prenda) return
+    if (avatar) void setAvatarPrenda(tatuajeSel, prenda.color, { punto })
+    else if (asistente) void guardar({ ...asistente, ropa: { ...asistente.ropa, [tatuajeSel]: { ...prenda, punto } } })
+  }
+  const guardarRef = useRef(guardarPunto)
+  useEffect(() => {
+    guardarRef.current = guardarPunto
+  })
+
+  // Soltar en cualquier parte termina el arrastre: guarda el último punto y devuelve el giro a la cámara.
+  useEffect(() => {
+    const soltar = () => {
+      if (!arrastrando.current) return
+      arrastrando.current = false
+      girarCamara(true)
+      if (pendiente.current) guardarRef.current(pendiente.current)
+      pendiente.current = null
+    }
+    window.addEventListener('pointerup', soltar)
+    return () => window.removeEventListener('pointerup', soltar)
+  }, [girarCamara])
+
+  const puntoDe = (e: ThreeEvent<PointerEvent>): PuntoTatuaje | null => {
+    const marco = grupo.current?.getObjectByName('prendas-raiz')
+    if (!e.face || !marco || !personaje) return null
+    let parte: ParteTatuaje = 'cuerpo'
+    for (let o: THREE.Object3D | null = e.object; o; o = o.parent) {
+      if ((PARTES_TATUAJE as string[]).includes(o.name)) {
+        parte = o.name as ParteTatuaje
+        break
+      }
+    }
+    marco.updateWorldMatrix(true, false)
+    const inversa = marco.matrixWorld.clone().invert()
+    const p = e.point.clone().applyMatrix4(inversa)
+    const n = e.face.normal.clone().transformDirection(e.object.matrixWorld).transformDirection(inversa)
+    if (parte !== 'cuerpo') {
+      const [x, y] = pivoteParte(parte, anclasDe(personaje))
+      p.x -= x
+      p.y -= y
+    }
+    return { parte, p: [redondo(p.x), redondo(p.y), redondo(p.z)], n: [redondo(n.x), redondo(n.y), redondo(n.z)] }
+  }
+
+  const colocar = (e: ThreeEvent<PointerEvent>, inicio: boolean) => {
+    if (!activo || (!inicio && !arrastrando.current)) return
+    e.stopPropagation()
+    const punto = puntoDe(e)
+    if (!punto) return
+    if (inicio) {
+      arrastrando.current = true
+      girarCamara(false)
+    }
+    // Arrastrando se guarda a ritmo (IndexedDB/sync); el último punto se guarda al soltar.
+    pendiente.current = punto
+    const ahora = performance.now()
+    if (inicio || ahora - ultimo.current > 80) {
+      ultimo.current = ahora
+      guardarPunto(punto)
+      pendiente.current = null
+    }
+  }
+
+  return (
+    <group
+      ref={grupo}
+      onPointerDown={activo ? (e) => colocar(e, true) : undefined}
+      onPointerMove={activo ? (e) => colocar(e, false) : undefined}
+    >
+      {children}
+    </group>
   )
 }

@@ -157,13 +157,13 @@ export function CuerpoBase({
   return (
     <>
       {/* piernas: grupo con pivote en la cadera (idénticas en reposo a los cubos originales) */}
-      <group ref={piernaI} position={[-0.14, 0.6, 0]}>
+      <group ref={piernaI} name="piernaDer" position={[-0.14, 0.6, 0]}>
         <mesh position={[0, -0.3, 0]} castShadow>
           <boxGeometry args={[0.24, 0.6, 0.26]} />
           <meshStandardMaterial color={colorPiernas} />
         </mesh>
       </group>
-      <group ref={piernaD} position={[0.14, 0.6, 0]}>
+      <group ref={piernaD} name="piernaIzq" position={[0.14, 0.6, 0]}>
         <mesh position={[0, -0.3, 0]} castShadow>
           <boxGeometry args={[0.24, 0.6, 0.26]} />
           <meshStandardMaterial color={colorPiernas} />
@@ -177,13 +177,13 @@ export function CuerpoBase({
       {/* brazos: grupo con pivote en el hombro. Color de la cabeza (piel), no del
           torso: así la piel que asoma bajo mangas cortas o sin camisa combina con
           la cara en vez de mostrar el color de la playera/torso desnudo. */}
-      <group ref={brazoI} position={[-0.42, 1.22, 0]}>
+      <group ref={brazoI} name="brazoDer" position={[-0.42, 1.22, 0]}>
         <mesh position={[0, -0.3, 0]} castShadow>
           <boxGeometry args={[0.2, 0.6, 0.26]} />
           <meshStandardMaterial color={colorCabeza} />
         </mesh>
       </group>
-      <group ref={brazoD} position={[0.42, 1.22, 0]}>
+      <group ref={brazoD} name="brazoIzq" position={[0.42, 1.22, 0]}>
         <mesh position={[0, -0.3, 0]} castShadow>
           <boxGeometry args={[0.2, 0.6, 0.26]} />
           <meshStandardMaterial color={colorCabeza} />

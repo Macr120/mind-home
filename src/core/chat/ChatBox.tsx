@@ -220,8 +220,6 @@ export function ChatBox({
   // El panel de IA guarda en localStorage; este tick refresca el botón (emoji/punto).
   const [, setTickIA] = useState(0)
   const [menuAdjuntar, setMenuAdjuntar] = useState(false)
-  // Selector de la barra (junto al «+»): elige la vista que abre el mago.
-  const [menuVistas, setMenuVistas] = useState(false)
   const areaRef = useRef<HTMLTextAreaElement>(null)
   // Input propio para la cámara («Tomar foto» del menú + y el widget de Android):
   // `capture` en el input de galería se saltaría el selector de archivos.
@@ -1082,7 +1080,7 @@ export function ChatBox({
   // Navegador embebido (escritorio): la página nativa tapa el DOM, así que con
   // cualquier panel del chat desplegado se esconde; y su borde inferior sigue al
   // borde superior de este chat (la tira de pestañas va debajo, por eso bottom-16).
-  const panelChatAbierto = otroPanel || hiloVisible || hiloPersonaVisible || menuAdjuntar || menuModelo || menuVistas
+  const panelChatAbierto = otroPanel || hiloVisible || hiloPersonaVisible || menuAdjuntar || menuModelo
   useEffect(() => {
     if (!navAbierto) return
     // Al destapar se espera un instante: el chat tiene que encogerse y medirse antes.
@@ -1112,7 +1110,6 @@ export function ChatBox({
     setManualAbierto(false)
     setMenuModelo(false)
     setMenuAdjuntar(false)
-    setMenuVistas(false)
     setSelectorAbierto(false)
     cerrarConversacion()
     setHiloOculto(true)
@@ -1151,7 +1148,7 @@ export function ChatBox({
    * ese vive fuera del chat y cerrar por detrás dejaría la pregunta huérfana.
    */
   useEffect(() => {
-    if (!otroPanel && !hiloVisible && !hiloPersonaVisible && !menuModelo && !menuAdjuntar && !menuVistas && !selectorAbierto) return
+    if (!otroPanel && !hiloVisible && !hiloPersonaVisible && !menuModelo && !menuAdjuntar && !selectorAbierto) return
     const fuera = (e: PointerEvent) => {
       if (useConfirmar.getState().pendiente) return
       // `contains` LANZA si el target no es un Node (eventos que nacen en
@@ -1170,7 +1167,7 @@ export function ChatBox({
       window.removeEventListener('pointerdown', fuera)
       window.removeEventListener('keydown', escape)
     }
-  }, [otroPanel, hiloVisible, hiloPersonaVisible, menuModelo, menuAdjuntar, menuVistas, selectorAbierto, cerrarPaneles])
+  }, [otroPanel, hiloVisible, hiloPersonaVisible, menuModelo, menuAdjuntar, selectorAbierto, cerrarPaneles])
 
   // Al cambiar el ANCHO de la barra (abrir el menú lateral, girar el teléfono…)
   // hay que rehacer la cuenta: la altura cambia sola al crecer el texto.
@@ -1640,8 +1637,7 @@ export function ChatBox({
           onClick={() => {
             // Toggle limpio del menú: el segundo toque lo cierra. Al abrirlo se
             // apartan la conversación y los otros dos paneles. Abre la vista que
-            // marque el selector de al lado (`vistaPanel`).
-            setMenuVistas(false)
+            // elegida en la barra del menú (`vistaPanel`).
             if (abierto) {
               setAbierto(false)
               return
@@ -1757,7 +1753,6 @@ export function ChatBox({
           data-tut="chat.foto"
           onClick={() => {
             setMenuModelo(false)
-            setMenuVistas(false)
             setMenuAdjuntar((v) => !v)
           }}
           className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl text-2xl font-light leading-none transition hover:bg-white/10 ${
@@ -1766,61 +1761,6 @@ export function ChatBox({
           title={t('chat.adjuntar', 'Adjuntar imagen o PDF, tomar foto o abrir la máscara AR')}
         >
           +
-        </button>
-        {/* Selector de vistas: las mismas cuatro de la barra del menú (comparten
-            `vistaPanel`), así el botón de al lado abre —y pinta— la elegida aquí.
-            Navegador elegido = modo web encendido. */}
-        {menuVistas && (
-          <div data-tut="chat.vistas.menu" className="ui-panel-glass absolute bottom-full start-0 mb-2 w-56 rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
-            <div className="space-y-1">
-              {MENUS_CHAT.map((m) => {
-                const activo = vistaPanel === m.id
-                return (
-                  <button
-                    key={m.id}
-                    type="button"
-                    data-tut={`chat.vistas.${m.id}`}
-                    onClick={() => {
-                      setVistaPanel(m.id)
-                      setManualAbierto(false)
-                      setConfigAbierto(false)
-                      setMenuVistas(false)
-                    }}
-                    aria-pressed={activo}
-                    className={`flex w-full items-center gap-2 rounded-lg border px-2 py-1.5 text-xs font-semibold transition ${
-                      activo
-                        ? 'border-accent/50 bg-accent/20 text-accent'
-                        : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
-                    }`}
-                  >
-                    <IconoMarca glifo={m.id} nombre={m.icono} />
-                    <span className="flex-1 text-start">{t(m.clave, m.es)}</span>
-                    {m.id === 'amigos' && noLeidos > 0 && (
-                      <span className="grid h-4 min-w-4 place-items-center rounded-full bg-red-600 px-1 text-[9px] font-black tabular-nums text-white">
-                        {noLeidos}
-                      </span>
-                    )}
-                  </button>
-                )
-              })}
-            </div>
-          </div>
-        )}
-        <button
-          type="button"
-          data-tut="chat.vistas"
-          onClick={() => {
-            setMenuModelo(false)
-            setMenuAdjuntar(false)
-            setMenuVistas((v) => !v)
-          }}
-          aria-expanded={menuVistas}
-          className={`-ms-2 grid h-9 w-9 shrink-0 place-items-center rounded-xl text-lg leading-none transition hover:bg-white/10 ${
-            menuVistas ? 'bg-white/10 text-white/85' : 'text-white/45 hover:text-white/85'
-          }`}
-          title={`${t('chat.menu.cambiar', 'Cambiar de menú')} · ${t(menuElegido.clave, menuElegido.es)}`}
-        >
-          <IconoMarca glifo={menuElegido.id} nombre={menuElegido.icono} />
         </button>
         <input
           ref={galeriaRef}
@@ -1989,7 +1929,6 @@ export function ChatBox({
               data-tut="chat.modelo"
               onClick={() => {
                 setMenuAdjuntar(false)
-                setMenuVistas(false)
                 setMenuModelo((v) => !v)
               }}
               className={`relative grid h-9 w-9 shrink-0 place-items-center rounded-xl text-lg transition hover:bg-white/10 ${
@@ -2006,6 +1945,9 @@ export function ChatBox({
             </button>
           )}
 
+          {/* Solo aparece con algo que mandar; mientras la IA piensa se queda
+              latiendo como aviso de que el mensaje salió. */}
+          {(interp.texto.trim() || adjunto || (pensando && !hiloPersona)) && (
           <button
             type="button"
             onClick={enviar}
@@ -2023,6 +1965,7 @@ export function ChatBox({
           >
             <Icono nombre="enviar" />
           </button>
+          )}
         </div>
       </div>
       </div>

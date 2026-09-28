@@ -122,6 +122,41 @@ db.carpetasRopa
       rows = await db.carpetasRopa.orderBy('orden').toArray()
     }
 
+    // Prendas de fábrica añadidas después de sembrar (sombreros, vello, tatuajes):
+    // su carpeta va al final de su categoría.
+    const conCarpeta = new Set(rows.map((c) => c.base))
+    const nuevas = PRENDAS.filter((p) => !conCarpeta.has(p.id))
+    for (const p of nuevas) {
+      await db.carpetasRopa.add({
+        categoria: p.categoria,
+        nombre: p.nombre,
+        emoji: p.emoji,
+        base: p.id,
+        orden: rows.filter((c) => c.categoria === p.categoria).length + nuevas.indexOf(p),
+        creadoEn: Date.now(),
+      })
+    }
+    if (nuevas.length > 0) rows = await db.carpetasRopa.orderBy('orden').toArray()
+
+    // Los tatuajes ya no llevan su ubicación en el nombre (se colocan en cualquier
+    // parte): se corrigen las carpetas sembradas con el nombre viejo, no las renombradas.
+    const NOMBRES_VIEJOS: Record<string, string> = {
+      'Corazón (brazo izq.)': 'Corazón',
+      'Ancla (brazo der.)': 'Ancla',
+      'Tribal (antebrazos)': 'Tribal',
+      'Rosa (pecho)': 'Rosa',
+      'Dragón (espalda)': 'Dragón',
+      'Estrella (mejilla)': 'Estrella',
+      'Lágrima (ojo)': 'Lágrima',
+    }
+    for (const c of rows) {
+      const nuevo = NOMBRES_VIEJOS[c.nombre]
+      if (nuevo && c.base?.startsWith('tatuaje') && c.id != null) {
+        c.nombre = nuevo
+        await db.carpetasRopa.update(c.id, { nombre: nuevo })
+      }
+    }
+
     const validas = new Set(rows.map((c) => c.id))
     const huerfanas = (await db.prendasCustom.toArray()).filter(
       (p) => p.carpetaId == null || !validas.has(p.carpetaId),

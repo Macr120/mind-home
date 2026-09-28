@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useShallow } from 'zustand/react/shallow'
 import { useEnlaceObjeto } from '../state/enlaceObjetoStore'
-import { useDiseño, objetoPorId } from '../state/disenoStore'
+import { useDiseño, objetoPorId, esObjetoMapa } from '../state/disenoStore'
 import { useVisitasDeUrl } from '../data/repository'
 import { normalizarUrl, hostDe, faviconDe } from '../enlaces'
 import { elegirPrograma, hayProgramasEscritorio, nombreDePrograma } from '../plataforma'
@@ -46,6 +46,17 @@ function EnlaceObjetoInterior({ objetoId }: { objetoId: number }) {
         : null
     }),
   )
+  // Dentro de un cuarto, lo que se enlaza es de las apps de ESE cuarto; fuera
+  // (en el mapa), de cualquiera, elegida por su icono.
+  // (Como texto: un arreglo nuevo en cada lectura re-renderizaría sin fin.)
+  const appsCuarto = useDiseño((s) => {
+    const o = objetoPorId(s.objetos, objetoId)
+    if (!o || esObjetoMapa(o)) return null
+    const apps: string[] = []
+    for (const x of s.objetos) if (x.roomId === o.roomId && x.plantillaId && !apps.includes(x.plantillaId)) apps.push(x.plantillaId)
+    return apps.join('|')
+  })
+  const donde = { enMapa: appsCuarto == null, apps: appsCuarto ? appsCuarto.split('|') : [] }
   // El diálogo nunca monta en el fondo de pantalla, así que esto es «¿estoy en el shell de Windows?».
   const conProgramas = hayProgramasEscritorio()
   const [modo, setModo] = useState<Modo>(
@@ -175,6 +186,8 @@ function EnlaceObjetoInterior({ objetoId }: { objetoId: number }) {
             <div className="mb-3">
               <SelectorApp
                 conEntradas
+                iconos={donde.enMapa}
+                soloApps={donde.apps}
                 pregunta={t('enlace.app.pregunta', '¿Qué app abre este objeto?')}
                 sinApps={t('enlace.app.sinApps', 'Pon apps en los objetos de tus cuartos para poder enlazarlas.')}
                 onElegir={(e) => {

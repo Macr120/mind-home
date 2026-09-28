@@ -6,6 +6,7 @@ import { useT } from '../../i18n/useT'
 import type { Plantilla } from '../../registry'
 import { vivo } from '../estilos'
 import { Icono } from '../iconos/Icono'
+import { IconoMarca } from '../iconos/glifosApps'
 
 /**
  * El chip de app de un paso: «tomar agua» con la cocina colgando, y un toque abre
@@ -88,6 +89,8 @@ export function SelectorApp({
   pregunta,
   sinApps,
   conEntradas,
+  soloApps,
+  iconos,
 }: {
   onElegir: (e: EnlaceObjetoApp) => void
   onCerrar: () => void
@@ -97,10 +100,16 @@ export function SelectorApp({
   sinApps?: string
   /** Ofrece además los registros concretos de la app (sus nodos del grafo). */
   conEntradas?: boolean
+  /** Solo estas apps (las del cuarto del objeto); con una sola se entra directo a ella. */
+  soloApps?: string[]
+  /** Las apps como iconos de app con su nombre, como en el panel de cuartos (no en chips). */
+  iconos?: boolean
 }) {
   const t = useT()
-  const [app, setApp] = useState<Plantilla | null>(null)
-  const apps = appsParaEnlace()
+  const apps = soloApps?.length ? appsParaEnlace().filter((p) => soloApps.includes(p.id)) : appsParaEnlace()
+  // Una sola app posible: no hay nada que elegir, se empieza dentro de ella.
+  const unica = soloApps?.length && apps.length === 1 ? apps[0] : null
+  const [app, setApp] = useState<Plantilla | null>(unica)
 
   if (apps.length === 0)
     return (
@@ -112,6 +121,15 @@ export function SelectorApp({
   return (
     <div data-tut="cal.enlace.selector" className="space-y-1 rounded-lg bg-black/30 p-2">
       <div className="flex items-center gap-2">
+        {/* Ya dentro de una app: su icono, como en el panel de cuartos. */}
+        {app && (
+          <span
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[27%] text-lg shadow-sm"
+            style={{ background: `color-mix(in srgb, ${app.color} 28%, transparent)` }}
+          >
+            <IconoMarca emoji={app.icon} size="1.3em" />
+          </span>
+        )}
         <p className="min-w-0 flex-1 truncate text-[10px] uppercase tracking-wide text-white/40">
           {app
             ? t('cal.enlace.elegirSeccion', '¿A qué parte de {app}?', { app: app.nombre })
@@ -119,15 +137,42 @@ export function SelectorApp({
         </p>
         <button
           type="button"
-          onClick={() => (app ? setApp(null) : onCerrar())}
+          onClick={() => (app && !unica ? setApp(null) : onCerrar())}
           className="ui-presion shrink-0 text-[10px] text-white/35 transition hover:text-white/80"
         >
-          {app ? `‹ ${t('cal.enlace.otraApp', 'Otra app')}` : <Icono nombre="cerrar" />}
+          {app && !unica ? `‹ ${t('cal.enlace.otraApp', 'Otra app')}` : <Icono nombre="cerrar" />}
         </button>
       </div>
 
+      {!app && iconos && (
+        <div className="grid grid-cols-4 gap-x-1 gap-y-3 py-1 sm:grid-cols-5">
+          {apps.map((p) => (
+            <button
+              key={p.id}
+              type="button"
+              onClick={() =>
+                conEntradas || (p.comandos?.length ?? 0) > 0 ? setApp(p) : onElegir({ plantillaId: p.id })
+              }
+              className="ui-presion flex min-w-0 flex-col items-center gap-1 rounded-xl p-1 transition hover:bg-white/5"
+            >
+              <span
+                className="flex h-12 w-12 items-center justify-center rounded-[27%] text-2xl shadow-sm"
+                style={{ background: `color-mix(in srgb, ${p.color} 28%, transparent)` }}
+              >
+                <IconoMarca emoji={p.icon} size="1.4em" />
+              </span>
+              {/* El nombre corto, como el del cuarto: «Cocina», no «Cocina · Nutrición». */}
+              <span className="w-full truncate text-center text-[11px] font-semibold text-white/85">
+                {p.nombre.split(' · ')[0]}
+              </span>
+            </button>
+          ))}
+        </div>
+      )}
+
       <div className="flex flex-wrap gap-1">
         {!app &&
+          !iconos &&
           apps.map((p) => (
             <button
               key={p.id}

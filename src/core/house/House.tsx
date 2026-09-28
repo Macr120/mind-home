@@ -44,6 +44,7 @@ import { FondoAnimaciones } from './FondoAnimaciones'
 import { FocosCasa } from './FocosCasa'
 import { TemaContext } from './primitivas'
 import { ObjetoView } from './catalogo'
+import { registrarGrupoObjeto } from './gruposObjeto'
 import { GrupoAnimado, Temblor } from './Animado'
 import { objetosMapaIdx } from '../state/disenoStore'
 import { useMontura } from '../state/monturaStore'
@@ -214,13 +215,19 @@ function ObjetoDelMapa({
   despierto: boolean
 }) {
   const gTemblor = useRef<THREE.Group>(null)
+  // Su malla, para medir dónde pisa el personaje si se sube encima.
+  useEffect(() => {
+    registrarGrupoObjeto(o.id, gTemblor.current)
+    return () => registrarGrupoObjeto(o.id, null)
+  }, [o.id])
   const D = Math.PI / 180
   const arrastrable = arrastreEditor || despierto
   // Enlace web o programa del equipo: tocarlo saca su burbuja (o abre directo en el fondo).
   const externo = destinoExterno(o)
   // Las canchas siguen a la rejilla; el resto de objetos conserva su tamaño.
   const escala = esCancha(o.tipo) ? escalaCancha(o.escala) : (o.escala ?? 1)
-  const alturaDrag = drag ? (elevado ? ALTURA_CARGA_OBJETO : 0.6) : 0.2
+  // Arrastrado flota un poco; sobre una repisa, apenas (si no, se mete en el tablero de arriba).
+  const alturaDrag = drag ? (elevado ? ALTURA_CARGA_OBJETO : o.apoyoId != null ? 0.25 : 0.6) : 0.2
   return (
     <group
       position={[o.x ?? 0, alturaDrag + (o.y ?? 0), o.z ?? 0]}

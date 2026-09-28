@@ -397,8 +397,29 @@ import {
   Paperclip,
   Ellipsis,
   FolderUp,
+  Anchor,
 } from 'lucide-react'
 import type { NombreIcono } from './catalogo'
+import {
+  SombreroVaquero,
+  SombreroCopa,
+  Fedora,
+  Boina,
+  GorroLana,
+  SombreroCharro,
+  SombreroMexicano,
+  SombreroPirata,
+  CascoVikingo,
+  Bigote,
+  BigoteManubrio,
+  BigoteMorsa,
+  Barba,
+  BarbaCandado,
+  BarbaLarga,
+  Patillas,
+  TatuajeTribal,
+  TatuajeDragon,
+} from './glifosPersonaje'
 
 /**
  * Los SVG de lucide del catálogo de iconos, en módulo APARTE: 448 componentes
@@ -1004,4 +1025,29 @@ export const SVGS: Record<NombreIcono, LucideIcon> = {
   // Archivo (la nube tipo Drive)
   masOpciones: Ellipsis,
   subirCarpeta: FolderUp,
+  // Sombreros, vello facial y tatuajes (glifos propios en glifosPersonaje.ts)
+  'sombrero-vaquero': SombreroVaquero,
+  'sombrero-copa': SombreroCopa,
+  fedora: Fedora,
+  boina: Boina,
+  'gorro-lana': GorroLana,
+  'sombrero-charro': SombreroCharro,
+  'sombrero-mexicano': SombreroMexicano,
+  'sombrero-pirata': SombreroPirata,
+  corona: Crown,
+  'casco-vikingo': CascoVikingo,
+  bigote: Bigote,
+  'bigote-manubrio': BigoteManubrio,
+  'bigote-morsa': BigoteMorsa,
+  barba: Barba,
+  'barba-candado': BarbaCandado,
+  'barba-larga': BarbaLarga,
+  patillas: Patillas,
+  'tatuaje-corazon': Heart,
+  'tatuaje-ancla': Anchor,
+  'tatuaje-tribal': TatuajeTribal,
+  'tatuaje-rosa': Rose,
+  'tatuaje-dragon': TatuajeDragon,
+  'tatuaje-estrella': Star,
+  'tatuaje-lagrima': Droplet,
 }

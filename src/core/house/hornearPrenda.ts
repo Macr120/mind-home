@@ -1,3 +1,4 @@
+import * as THREE from 'three'
 import type { Pieza3D } from '../chat/mascotas'
 import type { AnclasRopa, PrendaId } from './apariencia'
 
@@ -15,6 +16,16 @@ import type { AnclasRopa, PrendaId } from './apariencia'
 /** Prendas cuyo horneado pierde el balanceo al caminar (mangas o perneras). */
 export const PIERDE_MARCHA: ReadonlySet<PrendaId> = new Set<PrendaId>([
   'tenis', 'pantalon', 'playera', 'chamarra', 'camisa', 'shorts', 'botas', 'guantes',
+])
+
+/**
+ * Prendas que NO tienen geometría propia en `Prendas.tsx`: se dibujan con las
+ * piezas de aquí mismo (sombreros extra y vello facial), así la versión de
+ * fábrica y la copia horneada son idénticas.
+ */
+export const PRENDAS_DE_PIEZAS: ReadonlySet<PrendaId> = new Set<PrendaId>([
+  'vaquero', 'copa', 'fedora', 'boina', 'gorroLana', 'charro', 'mexicano', 'pirata', 'corona', 'vikingo',
+  'bigote', 'bigoteManubrio', 'bigoteMorsa', 'barba', 'barbaCandado', 'barbaLarga', 'patillas',
 ])
 
 const caja = (
@@ -41,6 +52,14 @@ const esfera = (
   color: string,
 ): Pieza3D => ({ tipo: 'esfera', pos, tam, color })
 
+/** Cono de `Pieza3D`: `tam` = [radio, alto]; apunta a +Y sin rotación. */
+const cono = (
+  pos: [number, number, number],
+  tam: [number, number],
+  color: string,
+  rot?: [number, number, number],
+): Pieza3D => ({ tipo: 'cono', pos, tam, color, rot })
+
 export function hornearPrenda(id: PrendaId, a: AnclasRopa, color: string): Pieza3D[] {
   // Mismos derivados que `Prendas.tsx`, para que la copia calce con el original.
   const k = a.cabezaR / 0.22
@@ -50,6 +69,22 @@ export function hornearPrenda(id: PrendaId, a: AnclasRopa, color: string): Pieza
   const frenteZ = a.torsoD / 2
   const faldaH = a.piernaH * 1.15
   const brazos = [-a.brazoX, a.brazoX]
+  // Cabeza: corona, medio-ancho y cara (vello facial a la altura de la boca de `Rostro`).
+  const top = a.cabezaTop
+  const hw = a.cabezaR
+  const bocaY = a.cabezaY - 0.1 * k
+  const barbillaY = a.cabezaY - hw * 1.09
+  const lados = [-1, 1]
+  const girada = (p: Pieza3D, rot: [number, number, number]): Pieza3D => ({ ...p, rot })
+  // Tono secundario (cintas, pliegues) sacado del color elegido.
+  const oscuro = '#' + new THREE.Color(color).multiplyScalar(0.55).getHexString()
+  const barbaBase = () => [
+    caja([0, (barbillaY - 0.05 * k + bocaY - 0.035 * k) / 2, a.caraZ - 0.005], [hw * 2 + 0.04, bocaY - barbillaY + 0.015 * k, 0.05], color),
+    ...lados.map((sx) =>
+      caja([sx * (hw + 0.015), (barbillaY - 0.03 * k + a.cabezaY) / 2, 0.05], [0.04, a.cabezaY - barbillaY + 0.03 * k, hw * 1.6], color),
+    ),
+    ...lados.map((sx) => caja([sx * hw * 0.72, bocaY + 0.02 * k, a.caraZ - 0.005], [hw * 0.56, 0.1 * k, 0.05], color)),
+  ]
 
   switch (id) {
     case 'sombrero':
@@ -195,5 +230,147 @@ export function hornearPrenda(id: PrendaId, a: AnclasRopa, color: string): Pieza
           caja([x, a.torsoY + 0.05, frenteZ], [0.07, a.torsoH * 0.8, 0.05], color),
         ),
       ]
+
+    case 'vaquero':
+      return [
+        cilindro([0, top + 0.02, 0], [hw + 0.2, hw + 0.2, 0.04], color),
+        // Alas levantadas a los lados.
+        ...lados.map((sx) => girada(caja([sx * (hw + 0.17), top + 0.08, 0], [0.1, 0.03, (hw + 0.14) * 1.6], color), [0, 0, sx * 0.7])),
+        cilindro([0, top + 0.15, 0], [hw - 0.04, hw, 0.24], color),
+        cilindro([0, top + 0.07, 0], [hw + 0.005, hw + 0.005, 0.05], oscuro),
+        caja([0, top + 0.27, 0], [0.05, 0.03, hw * 1.4], oscuro),
+      ]
+
+    case 'copa':
+      return [
+        cilindro([0, top + 0.02, 0], [hw + 0.1, hw + 0.1, 0.04], color),
+        cilindro([0, top + 0.25, 0], [hw + 0.01, hw - 0.01, 0.44], color),
+        cilindro([0, top + 0.09, 0], [hw + 0.005, hw + 0.005, 0.08], '#8b1e2d'),
+      ]
+
+    case 'fedora':
+      return [
+        cilindro([0, top + 0.02, 0], [hw + 0.12, hw + 0.12, 0.035], color),
+        cilindro([0, top + 0.12, 0], [hw - 0.05, hw - 0.01, 0.2], color),
+        cilindro([0, top + 0.06, 0], [hw - 0.005, hw - 0.005, 0.05], oscuro),
+        caja([0, top + 0.22, 0], [0.04, 0.03, hw * 1.2], oscuro),
+      ]
+
+    case 'boina':
+      return [
+        girada(esfera([0.03, top + 0.03, 0], [hw + 0.08, (hw + 0.08) * 0.32, hw + 0.08], color), [0, 0, -0.18]),
+        cilindro([0.05, top + 0.1, 0], [0.015, 0.02, 0.05], oscuro),
+      ]
+
+    case 'gorroLana':
+      return [
+        esfera([0, top - 0.02, 0], [hw + 0.05, hw + 0.02, hw + 0.05], color),
+        caja([0, top - 0.06, 0], [hw * 2 + 0.05, 0.11, hw * 2 + 0.05], oscuro),
+        esfera([0, top + 0.24, 0], [0.07], '#f5f5f0'),
+      ]
+
+    case 'charro':
+      return [
+        cilindro([0, top + 0.02, 0], [hw + 0.36, hw + 0.36, 0.03], color),
+        // Aro decorativo del ala: disco oscuro tapado por otro del color, deja un anillo.
+        cilindro([0, top + 0.04, 0], [hw + 0.3, hw + 0.3, 0.012], oscuro),
+        cilindro([0, top + 0.05, 0], [hw + 0.26, hw + 0.26, 0.012], color),
+        cilindro([0, top + 0.2, 0], [hw * 0.55, hw + 0.02, 0.36], color),
+        cilindro([0, top + 0.08, 0], [hw + 0.015, hw + 0.02, 0.07], oscuro),
+      ]
+
+    case 'mexicano':
+      return [
+        cilindro([0, top + 0.02, 0], [hw + 0.42, hw + 0.42, 0.03], color),
+        // Ala levantada en la orilla: tronco de cono más ancho arriba.
+        cilindro([0, top + 0.07, 0], [hw + 0.46, hw + 0.4, 0.08], color),
+        cilindro([0, top + 0.25, 0], [hw * 0.3, hw + 0.03, 0.44], color),
+        esfera([0, top + 0.47, 0], [hw * 0.32], color),
+        // Cinta tricolor.
+        cilindro([0, top + 0.13, 0], [hw + 0.01, hw + 0.02, 0.04], '#1e8449'),
+        cilindro([0, top + 0.17, 0], [hw - 0.02, hw - 0.01, 0.04], '#f5f5f0'),
+        cilindro([0, top + 0.21, 0], [hw - 0.05, hw - 0.04, 0.04], '#c0392b'),
+        // Borlas colgando del ala.
+        ...[0, 1, 2, 3, 4, 5].map((i) => {
+          const ang = (i * Math.PI * 2) / 6 + Math.PI / 6
+          return esfera([Math.sin(ang) * (hw + 0.44), top + 0.01, Math.cos(ang) * (hw + 0.44)], [0.035], i % 2 ? '#c0392b' : '#1e8449')
+        }),
+      ]
+
+    case 'pirata':
+      return [
+        cilindro([0, top + 0.04, 0], [hw + 0.01, hw + 0.02, 0.1], color),
+        // Bicornio: elipsoide ancho y delgado atravesado sobre la cabeza.
+        esfera([0, top + 0.1, 0], [hw + 0.2, hw * 0.75, 0.09], color),
+        esfera([0, top + 0.13, 0.085], [0.045], '#f5f5f0'),
+      ]
+
+    case 'corona':
+      return [
+        { ...cilindro([0, top + 0.05, 0], [hw + 0.03, hw + 0.03, 0.1], color), mat: 'brillante' },
+        ...[0, 1, 2, 3, 4].map((i): Pieza3D => {
+          const ang = (i * Math.PI * 2) / 5
+          return { ...cono([Math.sin(ang) * (hw + 0.02), top + 0.15, Math.cos(ang) * (hw + 0.02)], [0.045, 0.12], color), mat: 'brillante' }
+        }),
+        { ...esfera([0, top + 0.05, hw + 0.035], [0.03], '#dc2626'), mat: 'brillante' },
+      ]
+
+    case 'vikingo':
+      return [
+        { ...esfera([0, top, 0], [hw + 0.05], color), mat: 'brillante' },
+        { ...caja([0, top - 0.05, 0], [hw * 2 + 0.06, 0.07, hw * 2 + 0.06], oscuro), mat: 'brillante' },
+        { ...caja([0, top - 0.12, hw + 0.035], [0.04, 0.14, 0.03], oscuro), mat: 'brillante' },
+        ...lados.map((sx) => cono([sx * (hw + 0.12), top - 0.02, 0], [0.065, 0.28], '#efe6cf', [0, 0, -sx * 0.8])),
+      ]
+
+    case 'bigote':
+      return [
+        caja([0, bocaY + 0.045 * k, a.caraZ], [0.17 * k, 0.045 * k, 0.03], color),
+        ...lados.map((sx) => caja([sx * 0.085 * k, bocaY + 0.025 * k, a.caraZ], [0.04 * k, 0.05 * k, 0.03], color)),
+      ]
+
+    case 'bigoteManubrio':
+      return [
+        caja([0, bocaY + 0.045 * k, a.caraZ], [0.13 * k, 0.04 * k, 0.03], color),
+        ...lados.map((sx) => girada(caja([sx * 0.09 * k, bocaY + 0.06 * k, a.caraZ], [0.08 * k, 0.03 * k, 0.03], color), [0, 0, sx * 0.5])),
+        ...lados.map((sx) => esfera([sx * 0.13 * k, bocaY + 0.09 * k, a.caraZ], [0.022 * k], color)),
+      ]
+
+    case 'bigoteMorsa':
+      return [
+        caja([0, bocaY + 0.03 * k, a.caraZ + 0.005], [0.22 * k, 0.08 * k, 0.04], color),
+        ...lados.map((sx) => caja([sx * 0.1 * k, bocaY - 0.01 * k, a.caraZ + 0.005], [0.05 * k, 0.1 * k, 0.04], color)),
+      ]
+
+    case 'barba':
+      return barbaBase()
+
+    case 'barbaCandado':
+      return [
+        caja([0, bocaY - 0.075 * k, a.caraZ - 0.005], [0.13 * k, 0.1 * k, 0.05], color),
+        caja([0, bocaY + 0.045 * k, a.caraZ], [0.15 * k, 0.035 * k, 0.03], color),
+        ...lados.map((sx) => caja([sx * 0.07 * k, bocaY - 0.01 * k, a.caraZ], [0.03 * k, 0.1 * k, 0.03], color)),
+      ]
+
+    case 'barbaLarga':
+      return [
+        ...barbaBase(),
+        caja([0, bocaY + 0.03 * k, a.caraZ + 0.005], [0.22 * k, 0.07 * k, 0.04], color),
+        caja([0, barbillaY - 0.15 * k, a.caraZ - 0.02], [hw * 1.6, 0.3 * k, 0.06], color),
+        cono([0, barbillaY - 0.37 * k, a.caraZ - 0.02], [hw * 0.8, 0.14 * k], color, [Math.PI, 0, 0]),
+      ]
+
+    case 'patillas':
+      return lados.map((sx) => caja([sx * (hw + 0.012), a.cabezaY - 0.02 * k, 0.1], [0.03, 0.2 * k, 0.12], color))
+
+    // Los tatuajes son calcomanías (textura sobre la piel): no hay piezas que hornear.
+    case 'tatuajeCorazon':
+    case 'tatuajeAncla':
+    case 'tatuajeTribal':
+    case 'tatuajeRosa':
+    case 'tatuajeDragon':
+    case 'tatuajeEstrella':
+    case 'tatuajeLagrima':
+      return []
   }
 }

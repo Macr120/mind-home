@@ -55,6 +55,8 @@ async function rpc<T>(nombre: string, args: Record<string, unknown> = {}): Promi
     // supabase-js envuelve el fallo de fetch en un PostgrestError sin código.
     if (!error.code || /fetch|network|conexi/i.test(error.message)) throw new ErrorPartida('red', error.message)
     if (error.code === 'PGRST301' || error.code === '401') throw new ErrorPartida('sin-sesion', error.message)
+    // El tope diario de quien solo tiene el unlock sale de un trigger (raise), no del JSON.
+    if (error.message.includes('tope-diario')) throw new ErrorPartida('tope-diario', error.message)
     throw new ErrorPartida('servidor', error.message)
   }
   const d = data as { error?: unknown } | null
@@ -281,6 +283,8 @@ export function mensajeErrorPartida(e: unknown, t: TFunc): string {
       return t('partida.error.aspecto-grande', 'Tu personaje es demasiado grande para viajar')
     case 'limite':
       return t('partida.error.limite', 'Has abierto muchas salas. Prueba más tarde.')
+    case 'tope-diario':
+      return t('plan.topeDiario', 'Llegaste al límite de hoy. Con Pro no hay tope.')
     case 'no-encontrado':
       return t('partida.error.no-encontrado', 'Esa sala ya no existe')
     case 'no-contacto':

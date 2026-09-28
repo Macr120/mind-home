@@ -68,6 +68,7 @@ import {
   serializarRopa,
   type ExpresionId,
   type PeinadoId,
+  type AjustePrenda,
   type PrendaId,
   type Ropa,
 } from '../house/apariencia'
@@ -558,10 +559,16 @@ interface DisenoState {
   ) => Promise<void>
   /** Fija el tamaño (escala) del personaje principal. */
   setAvatarEscala: (escala: number) => Promise<void>
-  /** Pone (con color) o quita (null) una prenda del personaje principal. */
-  setAvatarPrenda: (prenda: PrendaId, color: string | null) => Promise<void>
-  /** Pinta TODAS las prendas puestas del personaje principal de un mismo color. */
-  setAvatarRopaColor: (color: string) => Promise<void>
+  /**
+   * Pone (con color) o quita (null) una prenda del personaje principal. Cambiar
+   * el color conserva su colocación; `ajuste` la mueve (tatuajes).
+   */
+  setAvatarPrenda: (prenda: PrendaId, color: string | null, ajuste?: AjustePrenda) => Promise<void>
+  /**
+   * Color de piel del cuerpo base (cabeza y brazos). El torso y las piernas que
+   * iban «desnudos» (del mismo color que la piel) la siguen.
+   */
+  setAvatarPiel: (color: string) => Promise<void>
   /** Reemplaza TODA la ropa puesta (aplicar un atuendo completo de un toque). */
   setAvatarRopaCompleta: (ropa: Ropa) => Promise<void>
   /**
@@ -3175,7 +3182,14 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     for (const m of objetos) {
       if (m.id != null && acomp.includes(m.id)) await db.objetosCuarto.update(m.id, { x: m.x, z: m.z })
     }
-    if (o.formaEntrada && movido) salioDeEstante(apoyoAntes)
+    // Solo si SALIÓ del estante: moverla dentro de él (a otra repisa) es acomodarla a mano.
+    const ahora = get().objetos
+    const grupo = (mid?: number) => {
+      const m = ahora.find((x) => x.id === mid)
+      return m ? (m.grupoId ?? `id-${m.id}`) : null
+    }
+    const nuevoApoyo = ahora.find((x) => x.id === id)?.apoyoId
+    if (o.formaEntrada && movido && grupo(apoyoAntes) !== grupo(nuevoApoyo)) salioDeEstante(apoyoAntes)
   },
 
   removeObjeto: async (id) => {
@@ -3294,23 +3308,25 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     await guardarAvatar(get().avatar)
   },
 
-  setAvatarPrenda: async (prenda, color) => {
+  setAvatarPrenda: async (prenda, color, ajuste) => {
     set((s) => {
       const ropa = { ...s.avatar.ropa }
-      if (color) ropa[prenda] = { color }
+      if (color) ropa[prenda] = { ...ropa[prenda], color, ...ajuste }
       else delete ropa[prenda]
       return { avatar: { ...s.avatar, ropa } }
     })
     await guardarAvatar(get().avatar)
   },
 
-  setAvatarRopaColor: async (color) => {
-    set((s) => {
-      const ropa = Object.fromEntries(
-        Object.keys(s.avatar.ropa).map((id) => [id, { color }]),
-      ) as typeof s.avatar.ropa
-      return { avatar: { ...s.avatar, ropa } }
-    })
+  setAvatarPiel: async (color) => {
+    set(({ avatar: a }) => ({
+      avatar: {
+        ...a,
+        cabeza: color,
+        torso: a.torso === a.cabeza ? color : a.torso,
+        piernas: a.piernas === a.cabeza ? color : a.piernas,
+      },
+    }))
     await guardarAvatar(get().avatar)
   },
 

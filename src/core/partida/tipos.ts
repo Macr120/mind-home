@@ -63,6 +63,8 @@ export interface AspectoRemoto {
   piernas: string
   escala: number
   ropa?: Record<string, string>
+  /** Colocación de tatuajes: prenda → [escala] o [escala, parte, p×3, n×3] (opcional; los clientes viejos lo ignoran). */
+  ajustes?: Record<string, number[]>
   expresion?: string
   peinado?: string
   peloColor?: string
@@ -358,6 +360,7 @@ export type CodigoErrorPartida =
   | 'peticion-invalida'
   | 'aspecto-grande'
   | 'limite'
+  | 'tope-diario'
   | 'no-encontrado'
   | 'no-contacto'
   | 'sala-llena'

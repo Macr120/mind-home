@@ -15,6 +15,7 @@ import {
 import { confirmar } from '../../state/confirmarStore'
 import {
   CATEGORIAS_PRENDA,
+  CATEGORIAS_FUERA_DE_ROPA,
   EXPRESIONES,
   EXPRESION_DEFAULT,
   PEINADOS,
@@ -28,6 +29,8 @@ import {
   type Ropa,
   type ExpresionId,
   type PeinadoId,
+  type PrendaCategoriaId,
+  type AjustePrenda,
 } from '../../house/apariencia'
 import { CUERPOS_PRESET, piezasBase, aplicarCuerpoPreset } from '../../house/cuerpos'
 import { CarpetasDeCategoria } from './RopaCarpetas'
@@ -36,12 +39,13 @@ import { iaActiva, generarModelo3D } from '../../chat/ia'
 import { iaHabilitada } from '../../edicion'
 import { Creditos } from '../Creditos'
 import { OP_PERSONAJE_3D } from '../../cuenta/catalogoNucleo'
-import { ColorPicker } from '../comun/ColorPicker'
+import { ColorPicker, PALETA } from '../comun/ColorPicker'
 import { PreviewPersonaje3D } from './PreviewPersonaje3D'
 import { EditorPiezas, plantillaPersonajePiezas, piezasDesdeAvatar, piezasDesdeForma } from '../comun/EditorPiezas'
 import { EditorAnimacion } from './EditorAnimacion'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
+import type { NombreIcono } from '../iconos/catalogo'
 
 type ToolId = 'cuerpo' | 'rostro' | 'color' | 'tamano' | 'ropa' | 'anim'
 /** La Princesa se muestra justo después de Humano en la galería de modelos, no al final. */
@@ -274,7 +278,12 @@ export function EditorPersonajesSection() {
       <div className="rounded-xl border border-white/10 bg-white/5 p-3">
         {tool === 'cuerpo' && (esAvatar ? <CuerpoAvatar /> : <CuerpoAsistente a={asis!} />)}
         {tool === 'rostro' && <RostroEditor esAvatar={esAvatar} asis={asis} />}
-        {tool === 'color' && (esAvatar ? <ColorAvatar /> : <ColorAsistente a={asis!} />)}
+        {tool === 'color' && (
+          <div className="space-y-3">
+            {esAvatar ? <ColorAvatar /> : <ColorAsistente a={asis!} />}
+            <CategoriaPrendas categoria="tatuajes" esAvatar={esAvatar} asis={asis} />
+          </div>
+        )}
         {tool === 'tamano' && <Tamano esAvatar={esAvatar} asis={asis} />}
         {tool === 'ropa' && <RopaEditor esAvatar={esAvatar} asis={asis} />}
         {tool === 'anim' && <AnimacionPersonaje esAvatar={esAvatar} asis={asis} />}
@@ -744,10 +753,17 @@ function ColorPiezaSel({
   )
 }
 
+/** Tonos de piel rápidos + el amarillo clásico del muñeco; el resto, con el selector personalizado. */
+const TONOS_PIEL = [
+  '#ffd23b', '#f9dcc4', '#f1c27d', '#e0ac69', '#c68642', '#a0673c', '#8d5524', '#5c3a1e',
+]
+/** Tonos de piel primero y, debajo, la gama completa de colores (sin repetir). */
+const PALETA_PIEL = [...TONOS_PIEL, ...PALETA.filter((c) => !TONOS_PIEL.includes(c))]
+
 function ColorAvatar() {
   const t = useT()
   const avatar = useDiseño((s) => s.avatar)
-  const setAvatarRopaColor = useDiseño((s) => s.setAvatarRopaColor)
+  const setAvatarPiel = useDiseño((s) => s.setAvatarPiel)
   const setAvatarModelo3d = useDiseño((s) => s.setAvatarModelo3d)
   const setAvatarFormaColor = useDiseño((s) => s.setAvatarFormaColor)
 
@@ -779,25 +795,13 @@ function ColorAvatar() {
     )
   }
 
-  // Los humanos se pintan por la ropa: un solo color para todas las prendas puestas.
-  const prendasPuestas = Object.values(avatar.ropa)
-  if (prendasPuestas.length === 0) {
-    return (
-      <p className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-[11px] leading-snug text-white/45">
-        {t(
-          'editor.pers.colorSinRopa',
-          'Este personaje no trae ropa puesta. Ponle una prenda en la pestaña Ropa y aquí podrás pintarla.',
-        )}
-      </p>
-    )
-  }
-
+  // Los humanos: el color es el de la piel (cara y brazos); la ropa se pinta en Ropa.
   return (
     <div className="space-y-2">
       <p className="text-[11px] leading-snug text-white/45">
-        {t('editor.pers.colorRopaAvatar', 'Pinta toda la ropa puesta de un mismo color.')}
+        {t('editor.pers.colorPiel', 'Color de piel del personaje (cara y brazos).')}
       </p>
-      <ColorPicker value={prendasPuestas[0].color} onChange={(c) => setAvatarRopaColor(c)} />
+      <ColorPicker value={avatar.cabeza} onChange={(c) => void setAvatarPiel(c)} paleta={PALETA_PIEL} />
     </div>
   )
 }
@@ -968,12 +972,15 @@ function RostroEditor({ esAvatar, asis }: { esAvatar: boolean; asis?: Asistente 
 
   if (!conRostro && !conPeinado) {
     return (
-      <p className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-[11px] leading-snug text-white/45">
-        {t(
-          'editor.pers.rostroNoAplica',
-          'Este modelo ya tiene su propia cara (casco, careta, pelaje…): el rostro y el peinado del editor no le aplican.',
-        )}
-      </p>
+      <div className="space-y-3">
+        <p className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-[11px] leading-snug text-white/45">
+          {t(
+            'editor.pers.rostroNoAplica',
+            'Este modelo ya tiene su propia cara (casco, careta, pelaje…): el rostro y el peinado del editor no le aplican.',
+          )}
+        </p>
+        <CategoriaPrendas categoria="vello" esAvatar={esAvatar} asis={asis} />
+      </div>
     )
   }
 
@@ -1126,6 +1133,8 @@ function RostroEditor({ esAvatar, asis }: { esAvatar: boolean; asis?: Asistente 
           </div>
         </div>
       )}
+
+      <CategoriaPrendas categoria="vello" esAvatar={esAvatar} asis={asis} />
     </div>
   )
 }
@@ -1141,11 +1150,13 @@ function SeccionRopa({
   id,
   titulo,
   emoji,
+  icono,
   children,
 }: {
   id: string
   titulo: string
   emoji: string
+  icono?: NombreIcono
   children: React.ReactNode
 }) {
   const t = useT()
@@ -1165,7 +1176,7 @@ function SeccionRopa({
         className="flex w-full items-center gap-2 px-2.5 py-2 text-start transition hover:bg-white/10"
       >
         <span className="text-base leading-none">
-          <Icono emoji={emoji} />
+          <Icono nombre={icono} emoji={emoji} />
         </span>
         <span className="min-w-0 flex-1 truncate text-xs font-semibold text-white/75">{titulo}</span>
         <span className="shrink-0 text-[10px] text-white/40">{abierto ? '▼' : '▶'}</span>
@@ -1175,24 +1186,56 @@ function SeccionRopa({
   )
 }
 
-function RopaEditor({ esAvatar, asis }: { esAvatar: boolean; asis?: Asistente }) {
-  const t = useT()
+/** Ropa puesta del personaje seleccionado y cómo poner/quitar una prenda (avatar o asistente). */
+function usePrendas(esAvatar: boolean, asis?: Asistente) {
   const avatarRopa = useDiseño((s) => s.avatar.ropa)
   const setAvatarPrenda = useDiseño((s) => s.setAvatarPrenda)
   const guardar = useAsistentes((s) => s.guardar)
 
   const ropa: Ropa = esAvatar ? avatarRopa : asis?.ropa ?? {}
 
-  const setPrenda = (id: PrendaId, color: string | null) => {
+  const setPrenda = (id: PrendaId, color: string | null, ajuste?: AjustePrenda) => {
     if (esAvatar) {
-      setAvatarPrenda(id, color)
+      setAvatarPrenda(id, color, ajuste)
     } else if (asis) {
       const nueva = { ...(asis.ropa ?? {}) }
-      if (color) nueva[id] = { color }
+      if (color) nueva[id] = { ...nueva[id], color, ...ajuste }
       else delete nueva[id]
       guardar({ ...asis, ropa: nueva })
     }
   }
+  return { ropa, setPrenda }
+}
+
+/** Una categoría de prendas como sección plegable con sus carpetas (Ropa, Rostro y Color). */
+function CategoriaPrendas({
+  categoria,
+  esAvatar,
+  asis,
+}: {
+  categoria: PrendaCategoriaId
+  esAvatar: boolean
+  asis?: Asistente
+}) {
+  const t = useT()
+  const { ropa, setPrenda } = usePrendas(esAvatar, asis)
+  const cat = CATEGORIAS_PRENDA.find((c) => c.id === categoria)!
+  return (
+    <SeccionRopa
+      id={`ropa-${cat.id}`}
+      titulo={t(`editor.pers.categoria.${cat.id}`, cat.nombre)}
+      emoji={cat.emoji}
+      icono={cat.icono}
+    >
+      <div data-tut={cat.id === 'cabeza' ? 'editor.pers.guardarropa' : undefined}>
+        <CarpetasDeCategoria categoria={cat.id} ropa={ropa} setPrenda={setPrenda} esAvatar={esAvatar} />
+      </div>
+    </SeccionRopa>
+  )
+}
+
+function RopaEditor({ esAvatar, asis }: { esAvatar: boolean; asis?: Asistente }) {
+  const t = useT()
 
   return (
     <div className="space-y-1.5">
@@ -1203,22 +1246,8 @@ function RopaEditor({ esAvatar, asis }: { esAvatar: boolean; asis?: Asistente })
           </SeccionRopa>
         </div>
       )}
-      {CATEGORIAS_PRENDA.map((cat) => (
-        <SeccionRopa
-          key={cat.id}
-          id={`ropa-${cat.id}`}
-          titulo={t(`editor.pers.categoria.${cat.id}`, cat.nombre)}
-          emoji={cat.emoji}
-        >
-          <div data-tut={cat.id === 'cabeza' ? 'editor.pers.guardarropa' : undefined}>
-            <CarpetasDeCategoria
-              categoria={cat.id}
-              ropa={ropa}
-              setPrenda={setPrenda}
-              esAvatar={esAvatar}
-            />
-          </div>
-        </SeccionRopa>
+      {CATEGORIAS_PRENDA.filter((c) => !CATEGORIAS_FUERA_DE_ROPA.has(c.id)).map((cat) => (
+        <CategoriaPrendas key={cat.id} categoria={cat.id} esAvatar={esAvatar} asis={asis} />
       ))}
     </div>
   )

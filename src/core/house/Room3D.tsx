@@ -1,4 +1,4 @@
-import { memo, useMemo, useRef } from 'react'
+import { memo, useEffect, useMemo, useRef } from 'react'
 import { useFrame, type ThreeEvent } from '@react-three/fiber'
 import * as THREE from 'three'
 import { useShallow } from 'zustand/react/shallow'
@@ -38,6 +38,7 @@ import {
   type Cell,
 } from './walls'
 import { ObjetoView, altoDeObjeto } from './catalogo'
+import { registrarGrupoObjeto } from './gruposObjeto'
 import { GrupoAnimado } from './Animado'
 import { esMueblePrincipal } from './muebles'
 import { esModoFondo } from '../plataforma'
@@ -388,6 +389,11 @@ const ObjetoEnCuarto = memo(function ObjetoEnCuarto({
   const selectEnlace = useInteractUi((s) => s.selectEnlace)
   // Posición por ranura de decoración (esquinas de la caja contenedora) si no tiene x/z.
   const gTemblor = useRef<THREE.Group>(null)
+  // Su malla, para medir dónde pisa el personaje si se sube encima.
+  useEffect(() => {
+    registrarGrupoObjeto(o.id, gTemblor.current)
+    return () => registrarGrupoObjeto(o.id, null)
+  }, [o.id])
   const ox = o.x ?? (o.slot % 2 === 0 ? -1 : 1) * (W / 2 - 1.4)
   const oz = o.z ?? (o.slot < 2 ? -1 : 1) * (H / 2 - 1.4)
   const D = Math.PI / 180
@@ -398,7 +404,8 @@ const ObjetoEnCuarto = memo(function ObjetoEnCuarto({
   // En el fondo de pantalla también responde un objeto con app aunque no sea el
   // principal: un clic abre su app en la ventana normal.
   const abreEnFondo = EN_FONDO && Boolean(o.plantillaId)
-  const alturaDrag = drag ? (arrastreElevado ? ALTURA_CARGA_OBJETO : 0.6) : 0.2
+  // Arrastrado flota un poco; sobre una repisa, apenas (si no, se mete en el tablero de arriba).
+  const alturaDrag = drag ? (arrastreElevado ? ALTURA_CARGA_OBJETO : o.apoyoId != null ? 0.25 : 0.6) : 0.2
   return (
     <group
       position={[ox, alturaDrag + (o.y ?? 0), oz]}

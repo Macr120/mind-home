@@ -7,7 +7,10 @@ import { prendasCustomRepo } from '../../data/repository'
 import {
   PRENDAS,
   PRENDA_COLOR_DEFAULT,
+  TATUAJE_ESCALA_MIN,
+  TATUAJE_ESCALA_MAX,
   anclasDe,
+  type AjustePrenda,
   type PrendaCategoriaId,
   type PrendaId,
   type Ropa,
@@ -35,7 +38,7 @@ export function CarpetasDeCategoria({
 }: {
   categoria: PrendaCategoriaId
   ropa: Ropa
-  setPrenda: (id: PrendaId, color: string | null) => void
+  setPrenda: (id: PrendaId, color: string | null, ajuste?: AjustePrenda) => void
   esAvatar: boolean
 }) {
   const t = useT()
@@ -115,7 +118,7 @@ function CarpetasOcultas({ carpetas }: { carpetas: CarpetaRopa[] }) {
               onClick={() => void restaurar(c.id!)}
               className="flex w-full items-center gap-1.5 rounded-md px-1.5 py-1 text-start text-[11px] text-white/70 transition hover:bg-white/10"
             >
-              <Icono emoji={c.emoji ?? '📁'} />
+              <Icono nombre={iconoCarpeta(c)} emoji={c.emoji ?? '📁'} />
               <span className="min-w-0 flex-1 truncate">{c.nombre}</span>
               <Icono nombre="restaurar" />
             </button>
@@ -125,6 +128,9 @@ function CarpetasOcultas({ carpetas }: { carpetas: CarpetaRopa[] }) {
     </div>
   )
 }
+
+/** Glifo propio de la prenda de fábrica de la carpeta (su emoji guardado puede ser de otro icono). */
+const iconoCarpeta = (c: CarpetaRopa) => PRENDAS.find((p) => p.id === c.base)?.icono
 
 type Reorden = ReturnType<typeof useReordenRopa>
 
@@ -137,7 +143,7 @@ function Carpeta({
 }: {
   carpeta: CarpetaRopa
   ropa: Ropa
-  setPrenda: (id: PrendaId, color: string | null) => void
+  setPrenda: (id: PrendaId, color: string | null, ajuste?: AjustePrenda) => void
   esAvatar: boolean
   arr: Reorden
 }) {
@@ -198,7 +204,7 @@ function Carpeta({
           className="flex min-w-0 flex-1 items-center gap-2 py-2 pe-1 ps-2 text-start transition hover:bg-white/10"
         >
           <span className="text-base leading-none">
-            <Icono emoji={carpeta.emoji ?? '📁'} />
+            <Icono nombre={iconoCarpeta(carpeta)} emoji={carpeta.emoji ?? '📁'} />
           </span>
           <span className="min-w-0 flex-1 truncate text-xs font-semibold text-white/75">
             {carpeta.nombre}
@@ -268,7 +274,7 @@ function FilaFabrica({
 }: {
   prendaId: PrendaId
   ropa: Ropa
-  setPrenda: (id: PrendaId, color: string | null) => void
+  setPrenda: (id: PrendaId, color: string | null, ajuste?: AjustePrenda) => void
   esAvatar: boolean
   carpetaId: number
   onHorneada: (id: number) => void
@@ -279,6 +285,10 @@ function FilaFabrica({
   const puesta = !!ropa[prendaId]
   const color = ropa[prendaId]?.color ?? PRENDA_COLOR_DEFAULT[prendaId]
   const nombre = t(`editor.pers.prenda.${prendaId}`, meta?.nombre ?? prendaId)
+  const esTatuaje = meta?.categoria === 'tatuajes'
+  // Mover = colocar tocando el personaje en el visor 3D (uno a la vez).
+  const moviendo = useEditorUi((s) => s.tatuajeSel === prendaId)
+  const setTatuajeSel = useEditorUi((s) => s.setTatuajeSel)
 
   const hornear = async () => {
     const piezas = hornearPrenda(prendaId, anclasDe(avatar), color)
@@ -311,50 +321,109 @@ function FilaFabrica({
 
   return (
     <div
-      className={`flex items-center gap-2 rounded-lg border px-2 py-1.5 transition ${
+      className={`rounded-lg border px-2 py-1.5 transition ${
         puesta ? 'border-accent/30 bg-accent/10' : 'border-white/10 bg-white/5'
       }`}
     >
-      <button
-        type="button"
-        onClick={() => setPrenda(prendaId, puesta ? null : color)}
-        className="flex min-w-0 flex-1 items-center gap-2 text-start"
-      >
-        <span className="text-lg leading-none">
-          <Icono emoji={meta?.emoji ?? '👕'} />
-        </span>
-        <span className={`truncate text-xs font-semibold ${puesta ? 'text-white/90' : 'text-white/55'}`}>
-          {nombre}
-        </span>
-      </button>
-      {puesta && (
-        <input
-          type="color"
-          value={color}
-          onChange={(e) => setPrenda(prendaId, e.target.value)}
-          className="h-7 w-9 cursor-pointer rounded border border-white/10 bg-transparent"
-          title={t('editor.pers.colorPrenda', 'Color de la prenda')}
-        />
-      )}
-      {esAvatar && (
+      <div className="flex items-center gap-2">
         <button
           type="button"
-          onClick={() => void hornear()}
-          title={t('editor.ropa.hornearTip', 'Crear una copia editable pieza por pieza')}
-          className="grid h-6 w-6 place-items-center rounded-md bg-white/5 text-xs text-white/50 transition hover:bg-white/15"
+          onClick={() => setPrenda(prendaId, puesta ? null : color)}
+          className="flex min-w-0 flex-1 items-center gap-2 text-start"
         >
-          <Icono nombre="editar" />
+          <span className="text-lg leading-none">
+            <Icono nombre={meta?.icono} emoji={meta?.emoji ?? '👕'} />
+          </span>
+          <span className={`truncate text-xs font-semibold ${puesta ? 'text-white/90' : 'text-white/55'}`}>
+            {nombre}
+          </span>
         </button>
+        {puesta && (
+          <input
+            type="color"
+            value={color}
+            onChange={(e) => setPrenda(prendaId, e.target.value)}
+            className="h-7 w-9 cursor-pointer rounded border border-white/10 bg-transparent"
+            title={t('editor.pers.colorPrenda', 'Color de la prenda')}
+          />
+        )}
+        {esTatuaje && puesta && (
+          <button
+            type="button"
+            onClick={() => setTatuajeSel(moviendo ? null : prendaId)}
+            title={t('editor.tatuaje.mover', 'Mover el tatuaje')}
+            aria-expanded={moviendo}
+            className={`grid h-6 w-6 place-items-center rounded-md text-xs transition ${
+              moviendo ? 'bg-accent/30 text-accent' : 'bg-white/5 text-white/50 hover:bg-white/15'
+            }`}
+          >
+            <Icono nombre="mover" />
+          </button>
+        )}
+        {esAvatar && !esTatuaje && (
+          <button
+            type="button"
+            onClick={() => void hornear()}
+            title={t('editor.ropa.hornearTip', 'Crear una copia editable pieza por pieza')}
+            className="grid h-6 w-6 place-items-center rounded-md bg-white/5 text-xs text-white/50 transition hover:bg-white/15"
+          >
+            <Icono nombre="editar" />
+          </button>
+        )}
+        <button
+          type="button"
+          onClick={() => setPrenda(prendaId, puesta ? null : color)}
+          className={`grid h-6 w-6 place-items-center rounded-md text-xs transition ${
+            puesta ? 'bg-accent/30 text-accent' : 'bg-white/5 text-white/40 hover:bg-white/15'
+          }`}
+          title={puesta ? t('editor.pers.quitarPrenda', 'Quitar') : t('editor.pers.ponerPrenda', 'Poner')}
+        >
+          {puesta ? '✓' : '+'}
+        </button>
+      </div>
+      {esTatuaje && puesta && moviendo && (
+        <MoverTatuaje ajuste={ropa[prendaId]} onAjuste={(aj) => setPrenda(prendaId, color, aj)} />
       )}
+    </div>
+  )
+}
+
+/**
+ * Panel del tatuaje que se está colocando: la posición se elige tocando o
+ * arrastrando sobre el personaje del visor 3D; aquí quedan el tamaño y volver
+ * a su lugar de fábrica.
+ */
+function MoverTatuaje({
+  ajuste,
+  onAjuste,
+}: {
+  ajuste?: AjustePrenda
+  onAjuste: (aj: AjustePrenda) => void
+}) {
+  const t = useT()
+  return (
+    <div className="mt-1.5 space-y-1.5 border-t border-white/10 pt-1.5">
+      <p className="text-[11px] leading-snug text-accent/90">
+        {t('editor.tatuaje.colocar', 'Toca o arrastra sobre el personaje para colocarlo donde quieras.')}
+      </p>
+      <label className="flex items-center gap-2 text-[11px] text-white/55">
+        <span className="w-16 shrink-0">{t('editor.tatuaje.tamano', 'Tamaño')}</span>
+        <input
+          type="range"
+          min={TATUAJE_ESCALA_MIN}
+          max={TATUAJE_ESCALA_MAX}
+          step={0.05}
+          value={ajuste?.escala ?? 1}
+          onChange={(e) => onAjuste({ escala: Number(e.target.value) })}
+          className="min-w-0 flex-1 accent-[var(--color-accent)]"
+        />
+      </label>
       <button
         type="button"
-        onClick={() => setPrenda(prendaId, puesta ? null : color)}
-        className={`grid h-6 w-6 place-items-center rounded-md text-xs transition ${
-          puesta ? 'bg-accent/30 text-accent' : 'bg-white/5 text-white/40 hover:bg-white/15'
-        }`}
-        title={puesta ? t('editor.pers.quitarPrenda', 'Quitar') : t('editor.pers.ponerPrenda', 'Poner')}
+        onClick={() => onAjuste({ punto: undefined, escala: undefined })}
+        className="flex items-center gap-1.5 rounded-md bg-white/5 px-2 py-1 text-[11px] font-semibold text-white/55 transition hover:bg-white/15"
       >
-        {puesta ? '✓' : '+'}
+        <Icono nombre="restaurar" /> {t('editor.tatuaje.restablecer', 'Volver a su lugar')}
       </button>
     </div>
   )

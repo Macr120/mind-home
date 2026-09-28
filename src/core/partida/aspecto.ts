@@ -9,7 +9,17 @@
  * primer asistente sin avisar.
  */
 import { AVATAR_DEFAULT, type Avatar } from '../state/disenoStore'
-import { EXPRESIONES, PEINADOS, PRENDAS, ESCALA_DEFAULT, ESCALA_MAX, ESCALA_MIN } from '../house/apariencia'
+import {
+  EXPRESIONES,
+  PEINADOS,
+  PRENDAS,
+  ESCALA_DEFAULT,
+  ESCALA_MAX,
+  ESCALA_MIN,
+  TATUAJE_ESCALA_MIN,
+  TATUAJE_ESCALA_MAX,
+  PARTES_TATUAJE,
+} from '../house/apariencia'
 import type { ExpresionId, PeinadoId, PrendaId, Ropa } from '../house/apariencia'
 import { CUERPOS_PRESET } from '../house/cuerpos'
 import { MASCOTAS, type Asistente, type MascotaId, type Pieza3D } from '../chat/mascotas'
@@ -35,6 +45,22 @@ function ropaPodada(ropa: Ropa | undefined): Record<string, string> | undefined 
   return Object.keys(salida).length > 0 ? salida : undefined
 }
 
+/**
+ * Colocación de los tatuajes movidos: `[escala]` o, si se colocaron en otro
+ * sitio, `[escala, parte, px, py, pz, nx, ny, nz]` (parte = índice en `PARTES_TATUAJE`).
+ */
+function ajustesPodados(ropa: Ropa | undefined): Record<string, number[]> | undefined {
+  if (!ropa) return undefined
+  const salida: Record<string, number[]> = {}
+  for (const [id, prenda] of Object.entries(ropa)) {
+    if (!prenda || (prenda.punto == null && prenda.escala == null)) continue
+    const escala = prenda.escala ?? 1
+    const pt = prenda.punto
+    salida[id] = pt ? [escala, PARTES_TATUAJE.indexOf(pt.parte), ...pt.p, ...pt.n] : [escala]
+  }
+  return Object.keys(salida).length > 0 ? salida : undefined
+}
+
 /** `Avatar` del personaje principal → descriptor ≤4 KB. */
 export function podar(av: Avatar): AspectoRemoto {
   return {
@@ -43,6 +69,7 @@ export function podar(av: Avatar): AspectoRemoto {
     piernas: av.piernas,
     escala: av.escala,
     ropa: ropaPodada(av.ropa),
+    ajustes: ajustesPodados(av.ropa),
     expresion: av.expresion,
     peinado: av.peinado,
     peloColor: av.peloColor,
@@ -65,6 +92,7 @@ export function podarAsistente(a: Asistente): AspectoRemoto {
     piernas: AVATAR_DEFAULT.piernas,
     escala: a.escala ?? ESCALA_DEFAULT,
     ropa: ropaPodada(a.ropa),
+    ajustes: ajustesPodados(a.ropa),
     expresion: a.expresion,
     peinado: a.peinado,
     peloColor: a.peloColor,
@@ -108,13 +136,33 @@ function piezas(v: unknown): Pieza3D[] | undefined {
   return salida.length > 0 ? salida : undefined
 }
 
-function ropaValidada(v: unknown): Ropa {
+function ropaValidada(v: unknown, ajustesBrutos: unknown): Ropa {
   if (typeof v !== 'object' || v === null) return {}
   const bruta = v as Record<string, unknown>
+  const ajustes =
+    typeof ajustesBrutos === 'object' && ajustesBrutos !== null
+      ? (ajustesBrutos as Record<string, unknown>)
+      : undefined
   const salida: Ropa = {}
   for (const prenda of PRENDAS) {
     const col = color(bruta[prenda.id])
-    if (col) salida[prenda.id as PrendaId] = { color: col }
+    if (!col) continue
+    // Colocación del tatuaje (ver `ajustesPodados`): solo números dentro de rango.
+    const aj = numeros(ajustes?.[prenda.id], -3, 3, [1, 8])
+    const parte = aj && aj.length === 8 ? PARTES_TATUAJE[aj[1]] : undefined
+    salida[prenda.id as PrendaId] = {
+      color: col,
+      ...(aj ? { escala: Math.max(TATUAJE_ESCALA_MIN, Math.min(TATUAJE_ESCALA_MAX, aj[0])) } : {}),
+      ...(aj && parte
+        ? {
+            punto: {
+              parte,
+              p: [aj[2], aj[3], aj[4]] as [number, number, number],
+              n: [aj[5], aj[6], aj[7]] as [number, number, number],
+            },
+          }
+        : {}),
+    }
   }
   return salida
 }
@@ -132,7 +180,7 @@ export function aAvatar(bruto: unknown): Avatar {
     torso: color(a.torso) ?? base.torso,
     piernas: color(a.piernas) ?? base.piernas,
     escala: Math.min(ESCALA_MAX, Math.max(ESCALA_MIN, escala)),
-    ropa: ropaValidada(a.ropa),
+    ropa: ropaValidada(a.ropa, a.ajustes),
     expresion: EXPRESIONES.find((e) => e.id === a.expresion)?.id as ExpresionId | undefined,
     peinado: PEINADOS.find((p) => p.id === a.peinado)?.id as PeinadoId | undefined,
     peloColor: color(a.peloColor),
